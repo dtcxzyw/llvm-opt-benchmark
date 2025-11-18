@@ -20063,17 +20063,17 @@ define hidden void @"_ZN95_$LT$alloc..string..String$u20$as$u20$core..iter..trai
   %.sroa.6.sroa.0.0.copyload.i = load ptr, ptr %.sroa.6.0..sroa_idx4.i, align 8, !alias.scope !4556, !noalias !4560
   %5 = ptrtoint ptr %.sroa.5.0.copyload3.i to i64
   %6 = ptrtoint ptr %.sroa.0.0.copyload1.i to i64
-  %reass.sub.i = sub i64 %5, %6
-  %7 = add i64 %reass.sub.i, 3
-  %.not = icmp ult i64 %7, 4
-  br i1 %.not, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hcbff7df8ee8e92fdE.exit.i", label %8
+  %reass.sub = sub i64 %5, %6
+  %7 = add i64 %reass.sub, 3
+  %8 = lshr i64 %7, 2
+  %.not = icmp eq i64 %8, 0
+  br i1 %.not, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hcbff7df8ee8e92fdE.exit.i", label %9
 
-8:                                                ; preds = %2
-  %9 = lshr i64 %7, 2
-  %10 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc691459aa6f899ddE.llvm.2256714685376175499"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 0, i64 noundef %9)
+9:                                                ; preds = %2
+  %10 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc691459aa6f899ddE.llvm.2256714685376175499"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 0, i64 noundef %8)
           to label %.noexc unwind label %15
 
-.noexc:                                           ; preds = %8
+.noexc:                                           ; preds = %9
   %11 = extractvalue { i64, i64 } %10, 0
   %12 = extractvalue { i64, i64 } %10, 1
   invoke void @_ZN5alloc7raw_vec14handle_reserve17h7755cec88f07bd9dE.llvm.2256714685376175499(i64 noundef %11, i64 %12)
@@ -20092,7 +20092,7 @@ define hidden void @"_ZN95_$LT$alloc..string..String$u20$as$u20$core..iter..trai
   invoke void @_ZN4core4iter6traits8iterator8Iterator4fold17h0b18454158335554E.llvm.12993343960315125427(ptr noundef nonnull %.sroa.0.0.copyload1.i, ptr noundef nonnull %.sroa.5.0.copyload3.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
           to label %17 unwind label %15
 
-15:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hcbff7df8ee8e92fdE.exit.i", %.noexc, %8
+15:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hcbff7df8ee8e92fdE.exit.i", %.noexc, %9
   %16 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h081126bf60e73432E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #50
@@ -20398,17 +20398,17 @@ define hidden void @"_ZN95_$LT$alloc..string..String$u20$as$u20$core..iter..trai
   %.sroa.6.sroa.0.0.copyload.i = load ptr, ptr %.sroa.6.0..sroa_idx4.i, align 8, !alias.scope !4635, !noalias !4639
   %5 = ptrtoint ptr %.sroa.5.0.copyload3.i to i64
   %6 = ptrtoint ptr %.sroa.0.0.copyload1.i to i64
-  %reass.sub.i = sub i64 %5, %6
-  %7 = add i64 %reass.sub.i, 3
-  %.not = icmp ult i64 %7, 4
-  br i1 %.not, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hcbff7df8ee8e92fdE.exit.i", label %8
+  %reass.sub = sub i64 %5, %6
+  %7 = add i64 %reass.sub, 3
+  %8 = lshr i64 %7, 2
+  %.not = icmp eq i64 %8, 0
+  br i1 %.not, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hcbff7df8ee8e92fdE.exit.i", label %9
 
-8:                                                ; preds = %2
-  %9 = lshr i64 %7, 2
-  %10 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc691459aa6f899ddE.llvm.2256714685376175499"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 0, i64 noundef %9)
+9:                                                ; preds = %2
+  %10 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc691459aa6f899ddE.llvm.2256714685376175499"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 0, i64 noundef %8)
           to label %.noexc unwind label %15
 
-.noexc:                                           ; preds = %8
+.noexc:                                           ; preds = %9
   %11 = extractvalue { i64, i64 } %10, 0
   %12 = extractvalue { i64, i64 } %10, 1
   invoke void @_ZN5alloc7raw_vec14handle_reserve17h7755cec88f07bd9dE.llvm.2256714685376175499(i64 noundef %11, i64 %12)
@@ -20427,7 +20427,7 @@ define hidden void @"_ZN95_$LT$alloc..string..String$u20$as$u20$core..iter..trai
   invoke void @_ZN4core4iter6traits8iterator8Iterator4fold17ha783a0ab4bcd4912E.llvm.12993343960315125427(ptr noundef nonnull %.sroa.0.0.copyload1.i, ptr noundef nonnull %.sroa.5.0.copyload3.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
           to label %17 unwind label %15
 
-15:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hcbff7df8ee8e92fdE.exit.i", %.noexc, %8
+15:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hcbff7df8ee8e92fdE.exit.i", %.noexc, %9
   %16 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h081126bf60e73432E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #50

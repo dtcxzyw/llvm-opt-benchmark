@@ -12487,7 +12487,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath14IsAbsolutePathEv.exit.thread: ; 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit48
 
 53:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath14IsAbsolutePathEv.exit
-  %.not.i39 = icmp ult i64 %.0.copyload.i.i, 4294967296
+  %.not.i39 = icmp eq i64 %27, 0
   br i1 %.not.i39, label %58, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath26IsPrimVariantSelectionPathEv.exit.thread.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath26IsPrimVariantSelectionPathEv.exit.thread.thread: ; preds = %53
@@ -12534,7 +12534,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath24IsAbsoluteRootOrPrimPathEv.exit:
 70:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath24IsAbsoluteRootOrPrimPathEv.exit
   %71 = lshr i64 %.0.copyload.i.i1.i, 32
   %72 = trunc nuw i64 %71 to i32
-  %.not5.i = icmp ult i64 %.0.copyload.i.i1.i, 4294967296
+  %.not5.i = icmp eq i64 %71, 0
   br i1 %.not5.i, label %73, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath26IsPrimVariantSelectionPathEv.exit.thread
 
 73:                                               ; preds = %70

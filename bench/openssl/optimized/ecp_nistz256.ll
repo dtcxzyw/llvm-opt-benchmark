@@ -508,9 +508,9 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %81 = sub nsw i32 0, %80
   %82 = xor i32 %79, 255
   %83 = and i32 %82, %81
-  %84 = icmp samesign ult i32 %79, 128
+  %84 = icmp eq i32 %80, 0
   %85 = select i1 %84, i32 %79, i32 0
-  %86 = or i32 %83, %85
+  %86 = or i32 %85, %83
   %87 = lshr i32 %86, 1
   %88 = sub nsw i32 %86, %87
   %89 = and i32 %81, 1
@@ -601,9 +601,9 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %160 = sub nsw i32 0, %159
   %161 = xor i32 %157, 255
   %162 = and i32 %161, %160
-  %163 = icmp samesign ult i32 %157, 128
+  %163 = icmp eq i32 %159, 0
   %164 = select i1 %163, i32 %157, i32 0
-  %165 = or i32 %162, %164
+  %165 = or i32 %164, %162
   %166 = lshr i32 %165, 1
   %167 = sub nsw i32 %165, %166
   %168 = and i32 %160, 1
@@ -897,9 +897,9 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %318 = sub nsw i32 0, %317
   %319 = xor i32 %316, 63
   %320 = and i32 %319, %318
-  %321 = icmp samesign ult i32 %316, 32
+  %321 = icmp eq i32 %317, 0
   %322 = select i1 %321, i32 %316, i32 0
-  %323 = or i32 %320, %322
+  %323 = or i32 %322, %320
   %324 = lshr i32 %323, 1
   %325 = sub nsw i32 %323, %324
   %326 = and i32 %318, 1
@@ -959,9 +959,9 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %360 = sub nsw i32 0, %359
   %361 = xor i32 %358, 63
   %362 = and i32 %361, %360
-  %363 = icmp samesign ult i32 %358, 32
+  %363 = icmp eq i32 %359, 0
   %364 = select i1 %363, i32 %358, i32 0
-  %365 = or i32 %362, %364
+  %365 = or i32 %364, %362
   %366 = lshr i32 %365, 1
   %367 = sub nsw i32 %365, %366
   %368 = and i32 %360, 1

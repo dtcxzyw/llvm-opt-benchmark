@@ -471,18 +471,18 @@ define dso_local void @_ZN4llvm14GISelKnownBits12getKnownBitsENS_8RegisterERKNS_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E5clearEv(ptr noundef nonnull align 1 dereferenceable(1) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = load i32, ptr %0, align 8
-  %3 = icmp ult i32 %2, 2
-  br i1 %3, label %4, label %8
+  %3 = lshr i32 %2, 1
+  %4 = icmp eq i32 %3, 0
+  br i1 %4, label %5, label %9
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %6 = load i32, ptr %5, align 4, !tbaa !160
-  %7 = icmp eq i32 %6, 0
-  br i1 %7, label %45, label %8
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %7 = load i32, ptr %6, align 4, !tbaa !160
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %45, label %9
 
-8:                                                ; preds = %4, %1
-  %9 = shl i32 %2, 1
-  %10 = and i32 %9, -4
+9:                                                ; preds = %5, %1
+  %10 = shl i32 %3, 2
   %11 = and i32 %2, 1
   %.not.i.i = icmp eq i32 %11, 0
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -493,11 +493,11 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8R
   %or.cond = and i1 %15, %16
   br i1 %or.cond, label %17, label %18
 
-17:                                               ; preds = %8
+17:                                               ; preds = %9
   tail call void @_ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEE16shrink_and_clearEv(ptr noundef nonnull align 8 dereferenceable(648) %0)
   br label %45
 
-18:                                               ; preds = %8
+18:                                               ; preds = %9
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = select i1 %.not.i.i, ptr %20, ptr %19
@@ -568,7 +568,7 @@ _ZN4llvm9KnownBitsD2Ev.exit:                      ; preds = %42, %39, %_ZN4llvm5
   %.not = icmp eq ptr %44, %23
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !221
 
-45:                                               ; preds = %4, %._crit_edge, %17
+45:                                               ; preds = %5, %._crit_edge, %17
   ret void
 }
 
@@ -6631,7 +6631,7 @@ _ZN4llvm9KnownBitsD2Ev.exit.i:                    ; preds = %31, %28, %_ZN4llvm5
   br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E10destroyAllEv.exit, label %.lr.ph.i, !llvm.loop !439
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E10destroyAllEv.exit: ; preds = %_ZN4llvm9KnownBitsD2Ev.exit.i, %1
-  %.not = icmp ult i32 %2, 2
+  %.not = icmp eq i32 %3, 0
   br i1 %.not, label %38, label %33
 
 33:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E10destroyAllEv.exit

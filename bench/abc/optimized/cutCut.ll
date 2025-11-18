@@ -102,7 +102,7 @@ define range(i32 -1, 2) i32 @Cut_CutCompare(ptr noundef readonly captures(none) 
 
 .preheader:                                       ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.not = icmp ult i32 %3, 268435456
+  %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
@@ -243,7 +243,7 @@ define ptr @Cut_CutMergeLists(ptr noundef %0, ptr noundef %1) local_unnamed_addr
 
 .preheader.i:                                     ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %.01720, i64 24
-  %.not.i = icmp ult i32 %7, 268435456
+  %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
@@ -491,138 +491,147 @@ define void @Cut_CutPrintMerge(ptr noundef readonly captures(address_is_null) %0
   %putchar = tail call i32 @putchar(i32 10)
   %4 = load i32, ptr %1, align 8
   %5 = lshr i32 %4, 28
-  %.not = icmp ult i32 %4, 268435456
-  br i1 %.not, label %.thread45, label %6
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i32, ptr %7, align 8, !tbaa !26
-  %9 = icmp ugt i32 %4, 536870911
-  br i1 %9, label %10, label %.thread45
+  br label %9
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %12 = load i32, ptr %11, align 4, !tbaa !26
-  %13 = icmp ugt i32 %4, 805306367
-  br i1 %13, label %14, label %.thread45
+9:                                                ; preds = %3, %6
+  %10 = phi i32 [ %8, %6 ], [ -1, %3 ]
+  %11 = icmp ugt i32 %4, 536870911
+  br i1 %11, label %12, label %.thread40
 
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %16 = load i32, ptr %15, align 8, !tbaa !26
-  %17 = icmp ugt i32 %4, 1073741823
-  br i1 %17, label %18, label %.thread45
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %14 = load i32, ptr %13, align 4, !tbaa !26
+  %15 = icmp ugt i32 %4, 805306367
+  br i1 %15, label %16, label %.thread40
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %20 = load i32, ptr %19, align 4, !tbaa !26
-  %21 = icmp ugt i32 %4, 1342177279
-  br i1 %21, label %22, label %.thread45
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %18 = load i32, ptr %17, align 8, !tbaa !26
+  %19 = icmp ugt i32 %4, 1073741823
+  br i1 %19, label %20, label %.thread40
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %24 = load i32, ptr %23, align 8, !tbaa !26
-  br label %.thread45
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %22 = load i32, ptr %21, align 4, !tbaa !26
+  %23 = icmp ugt i32 %4, 1342177279
+  br i1 %23, label %24, label %.thread40
 
-.thread45:                                        ; preds = %3, %6, %10, %14, %18, %22
-  %25 = phi i32 [ %20, %22 ], [ %20, %18 ], [ -1, %14 ], [ -1, %10 ], [ -1, %6 ], [ -1, %3 ]
-  %26 = phi i32 [ %12, %22 ], [ %12, %18 ], [ %12, %14 ], [ %12, %10 ], [ -1, %6 ], [ -1, %3 ]
-  %27 = phi i32 [ %8, %22 ], [ %8, %18 ], [ %8, %14 ], [ %8, %10 ], [ %8, %6 ], [ -1, %3 ]
-  %28 = phi i32 [ %16, %22 ], [ %16, %18 ], [ %16, %14 ], [ -1, %10 ], [ -1, %6 ], [ -1, %3 ]
-  %29 = phi i32 [ %24, %22 ], [ -1, %18 ], [ -1, %14 ], [ -1, %10 ], [ -1, %6 ], [ -1, %3 ]
-  %30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %5, i32 noundef %27, i32 noundef %26, i32 noundef %28, i32 noundef %25, i32 noundef %29)
-  %31 = load i32, ptr %2, align 8
-  %32 = lshr i32 %31, 28
-  %.not34 = icmp ult i32 %31, 268435456
-  br i1 %.not34, label %.thread58, label %33
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %26 = load i32, ptr %25, align 8, !tbaa !26
+  br label %.thread40
 
-33:                                               ; preds = %.thread45
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %35 = load i32, ptr %34, align 8, !tbaa !26
-  %36 = icmp ugt i32 %31, 536870911
-  br i1 %36, label %37, label %.thread58
+.thread40:                                        ; preds = %9, %12, %16, %20, %24
+  %27 = phi i32 [ %22, %24 ], [ %22, %20 ], [ -1, %16 ], [ -1, %12 ], [ -1, %9 ]
+  %28 = phi i32 [ %14, %24 ], [ %14, %20 ], [ %14, %16 ], [ %14, %12 ], [ -1, %9 ]
+  %29 = phi i32 [ %18, %24 ], [ %18, %20 ], [ %18, %16 ], [ -1, %12 ], [ -1, %9 ]
+  %30 = phi i32 [ %26, %24 ], [ -1, %20 ], [ -1, %16 ], [ -1, %12 ], [ -1, %9 ]
+  %31 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %5, i32 noundef %10, i32 noundef %28, i32 noundef %29, i32 noundef %27, i32 noundef %30)
+  %32 = load i32, ptr %2, align 8
+  %33 = lshr i32 %32, 28
+  %.not34 = icmp eq i32 %33, 0
+  br i1 %.not34, label %37, label %34
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %39 = load i32, ptr %38, align 4, !tbaa !26
-  %40 = icmp ugt i32 %31, 805306367
-  br i1 %40, label %41, label %.thread58
+34:                                               ; preds = %.thread40
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %36 = load i32, ptr %35, align 8, !tbaa !26
+  br label %37
 
-41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %43 = load i32, ptr %42, align 8, !tbaa !26
-  %44 = icmp ugt i32 %31, 1073741823
-  br i1 %44, label %45, label %.thread58
+37:                                               ; preds = %.thread40, %34
+  %38 = phi i32 [ %36, %34 ], [ -1, %.thread40 ]
+  %39 = icmp ugt i32 %32, 536870911
+  br i1 %39, label %40, label %.thread48
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  %47 = load i32, ptr %46, align 4, !tbaa !26
-  %48 = icmp ugt i32 %31, 1342177279
-  br i1 %48, label %49, label %.thread58
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %42 = load i32, ptr %41, align 4, !tbaa !26
+  %43 = icmp ugt i32 %32, 805306367
+  br i1 %43, label %44, label %.thread48
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %51 = load i32, ptr %50, align 8, !tbaa !26
-  br label %.thread58
+44:                                               ; preds = %40
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %46 = load i32, ptr %45, align 8, !tbaa !26
+  %47 = icmp ugt i32 %32, 1073741823
+  br i1 %47, label %48, label %.thread48
 
-.thread58:                                        ; preds = %.thread45, %33, %37, %41, %45, %49
-  %52 = phi i32 [ %47, %49 ], [ %47, %45 ], [ -1, %41 ], [ -1, %37 ], [ -1, %33 ], [ -1, %.thread45 ]
-  %53 = phi i32 [ %39, %49 ], [ %39, %45 ], [ %39, %41 ], [ %39, %37 ], [ -1, %33 ], [ -1, %.thread45 ]
-  %54 = phi i32 [ %35, %49 ], [ %35, %45 ], [ %35, %41 ], [ %35, %37 ], [ %35, %33 ], [ -1, %.thread45 ]
-  %55 = phi i32 [ %43, %49 ], [ %43, %45 ], [ %43, %41 ], [ -1, %37 ], [ -1, %33 ], [ -1, %.thread45 ]
-  %56 = phi i32 [ %51, %49 ], [ -1, %45 ], [ -1, %41 ], [ -1, %37 ], [ -1, %33 ], [ -1, %.thread45 ]
-  %57 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %32, i32 noundef %54, i32 noundef %53, i32 noundef %55, i32 noundef %52, i32 noundef %56)
-  %58 = icmp eq ptr %0, null
-  br i1 %58, label %59, label %60
+48:                                               ; preds = %44
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  %50 = load i32, ptr %49, align 4, !tbaa !26
+  %51 = icmp ugt i32 %32, 1342177279
+  br i1 %51, label %52, label %.thread48
 
-59:                                               ; preds = %.thread58
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %54 = load i32, ptr %53, align 8, !tbaa !26
+  br label %.thread48
+
+.thread48:                                        ; preds = %37, %40, %44, %48, %52
+  %55 = phi i32 [ %50, %52 ], [ %50, %48 ], [ -1, %44 ], [ -1, %40 ], [ -1, %37 ]
+  %56 = phi i32 [ %42, %52 ], [ %42, %48 ], [ %42, %44 ], [ %42, %40 ], [ -1, %37 ]
+  %57 = phi i32 [ %46, %52 ], [ %46, %48 ], [ %46, %44 ], [ -1, %40 ], [ -1, %37 ]
+  %58 = phi i32 [ %54, %52 ], [ -1, %48 ], [ -1, %44 ], [ -1, %40 ], [ -1, %37 ]
+  %59 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %33, i32 noundef %38, i32 noundef %56, i32 noundef %57, i32 noundef %55, i32 noundef %58)
+  %60 = icmp eq ptr %0, null
+  br i1 %60, label %61, label %62
+
+61:                                               ; preds = %.thread48
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %88
+  br label %91
 
-60:                                               ; preds = %.thread58
-  %61 = load i32, ptr %0, align 8
-  %62 = lshr i32 %61, 28
-  %.not35 = icmp ult i32 %61, 268435456
-  br i1 %.not35, label %.thread71, label %63
+62:                                               ; preds = %.thread48
+  %63 = load i32, ptr %0, align 8
+  %64 = lshr i32 %63, 28
+  %.not35 = icmp eq i32 %64, 0
+  br i1 %.not35, label %68, label %65
 
-63:                                               ; preds = %60
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %65 = load i32, ptr %64, align 8, !tbaa !26
-  %66 = icmp ugt i32 %61, 536870911
-  br i1 %66, label %67, label %.thread71
+65:                                               ; preds = %62
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %67 = load i32, ptr %66, align 8, !tbaa !26
+  br label %68
 
-67:                                               ; preds = %63
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %69 = load i32, ptr %68, align 4, !tbaa !26
-  %70 = icmp ugt i32 %61, 805306367
-  br i1 %70, label %71, label %.thread71
+68:                                               ; preds = %62, %65
+  %69 = phi i32 [ %67, %65 ], [ -1, %62 ]
+  %70 = icmp ugt i32 %63, 536870911
+  br i1 %70, label %71, label %.thread56
 
-71:                                               ; preds = %67
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %73 = load i32, ptr %72, align 8, !tbaa !26
-  %74 = icmp ugt i32 %61, 1073741823
-  br i1 %74, label %75, label %.thread71
+71:                                               ; preds = %68
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %73 = load i32, ptr %72, align 4, !tbaa !26
+  %74 = icmp ugt i32 %63, 805306367
+  br i1 %74, label %75, label %.thread56
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %77 = load i32, ptr %76, align 4, !tbaa !26
-  %78 = icmp ugt i32 %61, 1342177279
-  br i1 %78, label %79, label %.thread71
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %77 = load i32, ptr %76, align 8, !tbaa !26
+  %78 = icmp ugt i32 %63, 1073741823
+  br i1 %78, label %79, label %.thread56
 
 79:                                               ; preds = %75
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %81 = load i32, ptr %80, align 8, !tbaa !26
-  br label %.thread71
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %81 = load i32, ptr %80, align 4, !tbaa !26
+  %82 = icmp ugt i32 %63, 1342177279
+  br i1 %82, label %83, label %.thread56
 
-.thread71:                                        ; preds = %60, %63, %67, %71, %75, %79
-  %82 = phi i32 [ %77, %79 ], [ %77, %75 ], [ -1, %71 ], [ -1, %67 ], [ -1, %63 ], [ -1, %60 ]
-  %83 = phi i32 [ %69, %79 ], [ %69, %75 ], [ %69, %71 ], [ %69, %67 ], [ -1, %63 ], [ -1, %60 ]
-  %84 = phi i32 [ %65, %79 ], [ %65, %75 ], [ %65, %71 ], [ %65, %67 ], [ %65, %63 ], [ -1, %60 ]
-  %85 = phi i32 [ %73, %79 ], [ %73, %75 ], [ %73, %71 ], [ -1, %67 ], [ -1, %63 ], [ -1, %60 ]
-  %86 = phi i32 [ %81, %79 ], [ -1, %75 ], [ -1, %71 ], [ -1, %67 ], [ -1, %63 ], [ -1, %60 ]
-  %87 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %62, i32 noundef %84, i32 noundef %83, i32 noundef %85, i32 noundef %82, i32 noundef %86)
-  br label %88
+83:                                               ; preds = %79
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %85 = load i32, ptr %84, align 8, !tbaa !26
+  br label %.thread56
 
-88:                                               ; preds = %.thread71, %59
+.thread56:                                        ; preds = %68, %71, %75, %79, %83
+  %86 = phi i32 [ %81, %83 ], [ %81, %79 ], [ -1, %75 ], [ -1, %71 ], [ -1, %68 ]
+  %87 = phi i32 [ %73, %83 ], [ %73, %79 ], [ %73, %75 ], [ %73, %71 ], [ -1, %68 ]
+  %88 = phi i32 [ %77, %83 ], [ %77, %79 ], [ %77, %75 ], [ -1, %71 ], [ -1, %68 ]
+  %89 = phi i32 [ %85, %83 ], [ -1, %79 ], [ -1, %75 ], [ -1, %71 ], [ -1, %68 ]
+  %90 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %64, i32 noundef %69, i32 noundef %87, i32 noundef %88, i32 noundef %86, i32 noundef %89)
+  br label %91
+
+91:                                               ; preds = %.thread56, %61
   ret void
 }
 

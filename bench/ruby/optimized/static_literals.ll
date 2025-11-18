@@ -1005,649 +1005,628 @@ define internal fastcc i32 @node_hash(ptr noundef nonnull readonly captures(none
   switch i16 %3, label %common.ret209 [
     i16 82, label %4
     i16 138, label %.lr.ph.i
-    i16 54, label %76
-    i16 123, label %99
-    i16 68, label %196
-    i16 141, label %208
-    i16 137, label %261
-    i16 125, label %304
-    i16 143, label %356
+    i16 54, label %75
+    i16 123, label %98
+    i16 68, label %193
+    i16 141, label %205
+    i16 137, label %258
+    i16 125, label %301
+    i16 143, label %353
   ]
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !38
   %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %.lr.ph.i8.i, label %7
+  br i1 %.not.i, label %.lr.ph.i7.i, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i64, ptr %8, align 8, !tbaa !59
-  %10 = shl i64 %9, 2
+  %10 = and i64 %9, 4611686018427387903
   %.not29.i.i = icmp eq i64 %10, 0
-  br i1 %.not29.i.i, label %murmur_hash.exit.i, label %.lr.ph.preheader.i.i
+  br i1 %.not29.i.i, label %murmur_hash.exit.i, label %.lr.ph.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %7
-  %11 = and i64 %9, 4611686018427387903
-  br label %.lr.ph.i.i
-
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %.02532.i.i = phi i64 [ %23, %.lr.ph.i.i ], [ %11, %.lr.ph.preheader.i.i ]
-  %.02631.i.i = phi i32 [ %22, %.lr.ph.i.i ], [ -1756908916, %.lr.ph.preheader.i.i ]
-  %.02730.i.i = phi ptr [ %13, %.lr.ph.i.i ], [ %6, %.lr.ph.preheader.i.i ]
-  %12 = load i32, ptr %.02730.i.i, align 1
-  %13 = getelementptr i8, ptr %.02730.i.i, i64 4
-  %14 = mul i32 %12, -862048943
-  %15 = mul i32 %12, 380141568
-  %16 = lshr i32 %14, 17
-  %17 = or disjoint i32 %16, %15
-  %18 = mul i32 %17, 461845907
-  %19 = xor i32 %18, %.02631.i.i
-  %20 = tail call i32 @llvm.fshl.i32(i32 %19, i32 %19, i32 13)
-  %21 = mul i32 %20, 5
-  %22 = add i32 %21, -430675100
-  %23 = add nsw i64 %.02532.i.i, -1
-  %.not.i.i = icmp eq i64 %23, 0
+.lr.ph.i.i:                                       ; preds = %7, %.lr.ph.i.i
+  %.02532.i.i = phi i64 [ %22, %.lr.ph.i.i ], [ %10, %7 ]
+  %.02631.i.i = phi i32 [ %21, %.lr.ph.i.i ], [ -1756908916, %7 ]
+  %.02730.i.i = phi ptr [ %12, %.lr.ph.i.i ], [ %6, %7 ]
+  %11 = load i32, ptr %.02730.i.i, align 1
+  %12 = getelementptr i8, ptr %.02730.i.i, i64 4
+  %13 = mul i32 %11, -862048943
+  %14 = mul i32 %11, 380141568
+  %15 = lshr i32 %13, 17
+  %16 = or disjoint i32 %15, %14
+  %17 = mul i32 %16, 461845907
+  %18 = xor i32 %17, %.02631.i.i
+  %19 = tail call i32 @llvm.fshl.i32(i32 %18, i32 %18, i32 13)
+  %20 = mul i32 %19, 5
+  %21 = add i32 %20, -430675100
+  %22 = add nsw i64 %.02532.i.i, -1
+  %.not.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i, label %murmur_hash.exit.i, label %.lr.ph.i.i, !llvm.loop !60
 
 murmur_hash.exit.i:                               ; preds = %.lr.ph.i.i, %7
-  %.026.lcssa.i.i = phi i32 [ -1756908916, %7 ], [ %22, %.lr.ph.i.i ]
-  %24 = trunc i64 %10 to i32
-  %25 = xor i32 %.026.lcssa.i.i, %24
-  %26 = lshr i32 %25, 16
-  %27 = xor i32 %26, %25
+  %.026.lcssa.i.i = phi i32 [ -1756908916, %7 ], [ %21, %.lr.ph.i.i ]
+  %.tr.i = trunc i64 %9 to i32
+  %23 = shl i32 %.tr.i, 2
+  %24 = xor i32 %.026.lcssa.i.i, %23
+  %25 = lshr i32 %24, 16
+  %26 = xor i32 %25, %24
   br label %integer_hash.exit
 
-.lr.ph.i8.i:                                      ; preds = %4
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %29 = load i32, ptr %28, align 1
-  %30 = mul i32 %29, -862048943
-  %31 = mul i32 %29, 380141568
-  %32 = lshr i32 %30, 17
-  %33 = or disjoint i32 %32, %31
-  %34 = mul i32 %33, 461845907
-  %35 = xor i32 %34, -1756908916
-  %36 = tail call i32 @llvm.fshl.i32(i32 %35, i32 %35, i32 13)
-  %37 = mul i32 %36, 5
-  %38 = add i32 %37, -430675100
-  %39 = lshr i32 %38, 16
-  %40 = xor i32 %38, %39
-  %41 = xor i32 %40, 4
+.lr.ph.i7.i:                                      ; preds = %4
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %28 = load i32, ptr %27, align 1
+  %29 = mul i32 %28, -862048943
+  %30 = mul i32 %28, 380141568
+  %31 = lshr i32 %29, 17
+  %32 = or disjoint i32 %31, %30
+  %33 = mul i32 %32, 461845907
+  %34 = xor i32 %33, -1756908916
+  %35 = tail call i32 @llvm.fshl.i32(i32 %34, i32 %34, i32 13)
+  %36 = mul i32 %35, 5
+  %37 = add i32 %36, -430675100
+  %38 = lshr i32 %37, 16
+  %39 = xor i32 %37, %38
+  %40 = xor i32 %39, 4
   br label %integer_hash.exit
 
-integer_hash.exit:                                ; preds = %murmur_hash.exit.i, %.lr.ph.i8.i
-  %.sink27.i = phi i32 [ %41, %.lr.ph.i8.i ], [ %27, %murmur_hash.exit.i ]
-  %42 = mul i32 %.sink27.i, -2048144789
-  %43 = lshr i32 %42, 13
-  %44 = xor i32 %43, %42
-  %45 = mul i32 %44, -1028477387
-  %46 = lshr i32 %45, 16
-  %47 = xor i32 %46, %45
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %49 = load i8, ptr %48, align 4, !tbaa !43, !range !44, !noundef !45
-  %50 = trunc nuw i8 %49 to i1
-  %51 = xor i32 %47, -1017931171
-  %spec.select.i = select i1 %50, i32 %51, i32 %47
+integer_hash.exit:                                ; preds = %murmur_hash.exit.i, %.lr.ph.i7.i
+  %.sink27.i = phi i32 [ %40, %.lr.ph.i7.i ], [ %26, %murmur_hash.exit.i ]
+  %41 = mul i32 %.sink27.i, -2048144789
+  %42 = lshr i32 %41, 13
+  %43 = xor i32 %42, %41
+  %44 = mul i32 %43, -1028477387
+  %45 = lshr i32 %44, 16
+  %46 = xor i32 %45, %44
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %48 = load i8, ptr %47, align 4, !tbaa !43, !range !44, !noundef !45
+  %49 = trunc nuw i8 %48 to i1
+  %50 = xor i32 %46, -1017931171
+  %spec.select.i = select i1 %49, i32 %50, i32 %46
   br label %common.ret209
 
 .lr.ph.i:                                         ; preds = %2
-  %52 = load ptr, ptr %0, align 8, !tbaa !16
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !47
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %56 = load i32, ptr %55, align 8, !tbaa !18
-  %57 = tail call i64 @pm_newline_list_line_column(ptr noundef %52, ptr noundef %54, i32 noundef %56) #9
-  %.sroa.0.0.extract.trunc = trunc i64 %57 to i32
-  %58 = mul i32 %.sroa.0.0.extract.trunc, -862048943
-  %59 = mul i32 %.sroa.0.0.extract.trunc, 380141568
-  %60 = lshr i32 %58, 17
-  %61 = or disjoint i32 %60, %59
-  %62 = mul i32 %61, 461845907
-  %63 = xor i32 %62, -1756908916
-  %64 = tail call i32 @llvm.fshl.i32(i32 %63, i32 %63, i32 13)
-  %65 = mul i32 %64, 5
-  %66 = add i32 %65, -430675100
-  %67 = lshr i32 %66, 16
-  %68 = xor i32 %66, %67
-  %69 = xor i32 %68, 4
-  %70 = mul i32 %69, -2048144789
-  %71 = lshr i32 %70, 13
-  %72 = xor i32 %71, %70
-  %73 = mul i32 %72, -1028477387
-  %74 = lshr i32 %73, 16
-  %75 = xor i32 %74, %73
+  %51 = load ptr, ptr %0, align 8, !tbaa !16
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %53 = load ptr, ptr %52, align 8, !tbaa !47
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %55 = load i32, ptr %54, align 8, !tbaa !18
+  %56 = tail call i64 @pm_newline_list_line_column(ptr noundef %51, ptr noundef %53, i32 noundef %55) #9
+  %.sroa.0.0.extract.trunc = trunc i64 %56 to i32
+  %57 = mul i32 %.sroa.0.0.extract.trunc, -862048943
+  %58 = mul i32 %.sroa.0.0.extract.trunc, 380141568
+  %59 = lshr i32 %57, 17
+  %60 = or disjoint i32 %59, %58
+  %61 = mul i32 %60, 461845907
+  %62 = xor i32 %61, -1756908916
+  %63 = tail call i32 @llvm.fshl.i32(i32 %62, i32 %62, i32 13)
+  %64 = mul i32 %63, 5
+  %65 = add i32 %64, -430675100
+  %66 = lshr i32 %65, 16
+  %67 = xor i32 %65, %66
+  %68 = xor i32 %67, 4
+  %69 = mul i32 %68, -2048144789
+  %70 = lshr i32 %69, 13
+  %71 = xor i32 %70, %69
+  %72 = mul i32 %71, -1028477387
+  %73 = lshr i32 %72, 16
+  %74 = xor i32 %73, %72
   br label %common.ret209
 
-76:                                               ; preds = %2
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 24
+75:                                               ; preds = %2
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %.lr.ph.i35
 
-.lr.ph.i35:                                       ; preds = %.lr.ph.i35, %76
-  %.02532.i36 = phi i64 [ %89, %.lr.ph.i35 ], [ 2, %76 ]
-  %.02631.i37 = phi i32 [ %88, %.lr.ph.i35 ], [ -1756908916, %76 ]
-  %.02730.i38 = phi ptr [ %79, %.lr.ph.i35 ], [ %77, %76 ]
-  %78 = load i32, ptr %.02730.i38, align 1
-  %79 = getelementptr i8, ptr %.02730.i38, i64 4
-  %80 = mul i32 %78, -862048943
-  %81 = mul i32 %78, 380141568
-  %82 = lshr i32 %80, 17
-  %83 = or disjoint i32 %82, %81
-  %84 = mul i32 %83, 461845907
-  %85 = xor i32 %84, %.02631.i37
-  %86 = tail call i32 @llvm.fshl.i32(i32 %85, i32 %85, i32 13)
-  %87 = mul i32 %86, 5
-  %88 = add i32 %87, -430675100
-  %89 = add nsw i64 %.02532.i36, -1
-  %.not.i39 = icmp eq i64 %89, 0
+.lr.ph.i35:                                       ; preds = %.lr.ph.i35, %75
+  %.02532.i36 = phi i64 [ %88, %.lr.ph.i35 ], [ 2, %75 ]
+  %.02631.i37 = phi i32 [ %87, %.lr.ph.i35 ], [ -1756908916, %75 ]
+  %.02730.i38 = phi ptr [ %78, %.lr.ph.i35 ], [ %76, %75 ]
+  %77 = load i32, ptr %.02730.i38, align 1
+  %78 = getelementptr i8, ptr %.02730.i38, i64 4
+  %79 = mul i32 %77, -862048943
+  %80 = mul i32 %77, 380141568
+  %81 = lshr i32 %79, 17
+  %82 = or disjoint i32 %81, %80
+  %83 = mul i32 %82, 461845907
+  %84 = xor i32 %83, %.02631.i37
+  %85 = tail call i32 @llvm.fshl.i32(i32 %84, i32 %84, i32 13)
+  %86 = mul i32 %85, 5
+  %87 = add i32 %86, -430675100
+  %88 = add nsw i64 %.02532.i36, -1
+  %.not.i39 = icmp eq i64 %88, 0
   br i1 %.not.i39, label %murmur_hash.exit41, label %.lr.ph.i35, !llvm.loop !60
 
 murmur_hash.exit41:                               ; preds = %.lr.ph.i35
-  %90 = lshr i32 %88, 16
-  %91 = xor i32 %88, %90
-  %92 = xor i32 %91, 8
-  %93 = mul i32 %92, -2048144789
-  %94 = lshr i32 %93, 13
-  %95 = xor i32 %94, %93
-  %96 = mul i32 %95, -1028477387
-  %97 = lshr i32 %96, 16
-  %98 = xor i32 %97, %96
+  %89 = lshr i32 %87, 16
+  %90 = xor i32 %87, %89
+  %91 = xor i32 %90, 8
+  %92 = mul i32 %91, -2048144789
+  %93 = lshr i32 %92, 13
+  %94 = xor i32 %93, %92
+  %95 = mul i32 %94, -1028477387
+  %96 = lshr i32 %95, 16
+  %97 = xor i32 %96, %95
   br label %common.ret209
 
-99:                                               ; preds = %2
-  %100 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %101 = load ptr, ptr %100, align 8, !tbaa !38
-  %.not.i42 = icmp eq ptr %101, null
-  br i1 %.not.i42, label %.lr.ph.i8.i54, label %102
+98:                                               ; preds = %2
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %100 = load ptr, ptr %99, align 8, !tbaa !38
+  %.not.i42 = icmp eq ptr %100, null
+  br i1 %.not.i42, label %.lr.ph.i7.i54, label %101
 
-102:                                              ; preds = %99
-  %103 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %104 = load i64, ptr %103, align 8, !tbaa !59
-  %105 = shl i64 %104, 2
-  %.not29.i.i43 = icmp eq i64 %105, 0
-  br i1 %.not29.i.i43, label %murmur_hash.exit.i50, label %.lr.ph.preheader.i.i44
+101:                                              ; preds = %98
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %103 = load i64, ptr %102, align 8, !tbaa !59
+  %104 = and i64 %103, 4611686018427387903
+  %.not29.i.i43 = icmp eq i64 %104, 0
+  br i1 %.not29.i.i43, label %murmur_hash.exit.i49, label %.lr.ph.i.i44
 
-.lr.ph.preheader.i.i44:                           ; preds = %102
-  %106 = and i64 %104, 4611686018427387903
-  br label %.lr.ph.i.i45
+.lr.ph.i.i44:                                     ; preds = %101, %.lr.ph.i.i44
+  %.02532.i.i45 = phi i64 [ %116, %.lr.ph.i.i44 ], [ %104, %101 ]
+  %.02631.i.i46 = phi i32 [ %115, %.lr.ph.i.i44 ], [ -1756908916, %101 ]
+  %.02730.i.i47 = phi ptr [ %106, %.lr.ph.i.i44 ], [ %100, %101 ]
+  %105 = load i32, ptr %.02730.i.i47, align 1
+  %106 = getelementptr i8, ptr %.02730.i.i47, i64 4
+  %107 = mul i32 %105, -862048943
+  %108 = mul i32 %105, 380141568
+  %109 = lshr i32 %107, 17
+  %110 = or disjoint i32 %109, %108
+  %111 = mul i32 %110, 461845907
+  %112 = xor i32 %111, %.02631.i.i46
+  %113 = tail call i32 @llvm.fshl.i32(i32 %112, i32 %112, i32 13)
+  %114 = mul i32 %113, 5
+  %115 = add i32 %114, -430675100
+  %116 = add nsw i64 %.02532.i.i45, -1
+  %.not.i.i48 = icmp eq i64 %116, 0
+  br i1 %.not.i.i48, label %murmur_hash.exit.i49, label %.lr.ph.i.i44, !llvm.loop !60
 
-.lr.ph.i.i45:                                     ; preds = %.lr.ph.i.i45, %.lr.ph.preheader.i.i44
-  %.02532.i.i46 = phi i64 [ %118, %.lr.ph.i.i45 ], [ %106, %.lr.ph.preheader.i.i44 ]
-  %.02631.i.i47 = phi i32 [ %117, %.lr.ph.i.i45 ], [ -1756908916, %.lr.ph.preheader.i.i44 ]
-  %.02730.i.i48 = phi ptr [ %108, %.lr.ph.i.i45 ], [ %101, %.lr.ph.preheader.i.i44 ]
-  %107 = load i32, ptr %.02730.i.i48, align 1
-  %108 = getelementptr i8, ptr %.02730.i.i48, i64 4
-  %109 = mul i32 %107, -862048943
-  %110 = mul i32 %107, 380141568
-  %111 = lshr i32 %109, 17
-  %112 = or disjoint i32 %111, %110
-  %113 = mul i32 %112, 461845907
-  %114 = xor i32 %113, %.02631.i.i47
-  %115 = tail call i32 @llvm.fshl.i32(i32 %114, i32 %114, i32 13)
-  %116 = mul i32 %115, 5
-  %117 = add i32 %116, -430675100
-  %118 = add nsw i64 %.02532.i.i46, -1
-  %.not.i.i49 = icmp eq i64 %118, 0
-  br i1 %.not.i.i49, label %murmur_hash.exit.i50, label %.lr.ph.i.i45, !llvm.loop !60
-
-murmur_hash.exit.i50:                             ; preds = %.lr.ph.i.i45, %102
-  %.026.lcssa.i.i51 = phi i32 [ -1756908916, %102 ], [ %117, %.lr.ph.i.i45 ]
-  %119 = trunc i64 %105 to i32
-  %120 = xor i32 %.026.lcssa.i.i51, %119
-  %121 = lshr i32 %120, 16
-  %122 = xor i32 %121, %120
+murmur_hash.exit.i49:                             ; preds = %.lr.ph.i.i44, %101
+  %.026.lcssa.i.i50 = phi i32 [ -1756908916, %101 ], [ %115, %.lr.ph.i.i44 ]
+  %.tr.i51 = trunc i64 %103 to i32
+  %117 = shl i32 %.tr.i51, 2
+  %118 = xor i32 %.026.lcssa.i.i50, %117
+  %119 = lshr i32 %118, 16
+  %120 = xor i32 %119, %118
   br label %integer_hash.exit55
 
-.lr.ph.i8.i54:                                    ; preds = %99
-  %123 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %124 = load i32, ptr %123, align 1
-  %125 = mul i32 %124, -862048943
-  %126 = mul i32 %124, 380141568
-  %127 = lshr i32 %125, 17
-  %128 = or disjoint i32 %127, %126
-  %129 = mul i32 %128, 461845907
-  %130 = xor i32 %129, -1756908916
-  %131 = tail call i32 @llvm.fshl.i32(i32 %130, i32 %130, i32 13)
-  %132 = mul i32 %131, 5
-  %133 = add i32 %132, -430675100
-  %134 = lshr i32 %133, 16
-  %135 = xor i32 %133, %134
-  %136 = xor i32 %135, 4
+.lr.ph.i7.i54:                                    ; preds = %98
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %122 = load i32, ptr %121, align 1
+  %123 = mul i32 %122, -862048943
+  %124 = mul i32 %122, 380141568
+  %125 = lshr i32 %123, 17
+  %126 = or disjoint i32 %125, %124
+  %127 = mul i32 %126, 461845907
+  %128 = xor i32 %127, -1756908916
+  %129 = tail call i32 @llvm.fshl.i32(i32 %128, i32 %128, i32 13)
+  %130 = mul i32 %129, 5
+  %131 = add i32 %130, -430675100
+  %132 = lshr i32 %131, 16
+  %133 = xor i32 %131, %132
+  %134 = xor i32 %133, 4
   br label %integer_hash.exit55
 
-integer_hash.exit55:                              ; preds = %murmur_hash.exit.i50, %.lr.ph.i8.i54
-  %.sink27.i52 = phi i32 [ %136, %.lr.ph.i8.i54 ], [ %122, %murmur_hash.exit.i50 ]
-  %137 = mul i32 %.sink27.i52, -2048144789
-  %138 = lshr i32 %137, 13
-  %139 = xor i32 %138, %137
-  %140 = mul i32 %139, -1028477387
-  %141 = lshr i32 %140, 16
-  %142 = xor i32 %141, %140
-  %143 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %144 = load i8, ptr %143, align 4, !tbaa !43, !range !44, !noundef !45
-  %145 = trunc nuw i8 %144 to i1
-  %146 = xor i32 %142, -1017931171
-  %spec.select.i53 = select i1 %145, i32 %146, i32 %142
-  %147 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %148 = load ptr, ptr %147, align 8, !tbaa !38
-  %.not.i56 = icmp eq ptr %148, null
-  br i1 %.not.i56, label %.lr.ph.i8.i68, label %149
+integer_hash.exit55:                              ; preds = %murmur_hash.exit.i49, %.lr.ph.i7.i54
+  %.sink27.i52 = phi i32 [ %134, %.lr.ph.i7.i54 ], [ %120, %murmur_hash.exit.i49 ]
+  %135 = mul i32 %.sink27.i52, -2048144789
+  %136 = lshr i32 %135, 13
+  %137 = xor i32 %136, %135
+  %138 = mul i32 %137, -1028477387
+  %139 = lshr i32 %138, 16
+  %140 = xor i32 %139, %138
+  %141 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %142 = load i8, ptr %141, align 4, !tbaa !43, !range !44, !noundef !45
+  %143 = trunc nuw i8 %142 to i1
+  %144 = xor i32 %140, -1017931171
+  %spec.select.i53 = select i1 %143, i32 %144, i32 %140
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %146 = load ptr, ptr %145, align 8, !tbaa !38
+  %.not.i56 = icmp eq ptr %146, null
+  br i1 %.not.i56, label %.lr.ph.i7.i68, label %147
 
-149:                                              ; preds = %integer_hash.exit55
-  %150 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %151 = load i64, ptr %150, align 8, !tbaa !59
-  %152 = shl i64 %151, 2
-  %.not29.i.i57 = icmp eq i64 %152, 0
-  br i1 %.not29.i.i57, label %murmur_hash.exit.i64, label %.lr.ph.preheader.i.i58
+147:                                              ; preds = %integer_hash.exit55
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %149 = load i64, ptr %148, align 8, !tbaa !59
+  %150 = and i64 %149, 4611686018427387903
+  %.not29.i.i57 = icmp eq i64 %150, 0
+  br i1 %.not29.i.i57, label %murmur_hash.exit.i63, label %.lr.ph.i.i58
 
-.lr.ph.preheader.i.i58:                           ; preds = %149
-  %153 = and i64 %151, 4611686018427387903
-  br label %.lr.ph.i.i59
+.lr.ph.i.i58:                                     ; preds = %147, %.lr.ph.i.i58
+  %.02532.i.i59 = phi i64 [ %162, %.lr.ph.i.i58 ], [ %150, %147 ]
+  %.02631.i.i60 = phi i32 [ %161, %.lr.ph.i.i58 ], [ -1756908916, %147 ]
+  %.02730.i.i61 = phi ptr [ %152, %.lr.ph.i.i58 ], [ %146, %147 ]
+  %151 = load i32, ptr %.02730.i.i61, align 1
+  %152 = getelementptr i8, ptr %.02730.i.i61, i64 4
+  %153 = mul i32 %151, -862048943
+  %154 = mul i32 %151, 380141568
+  %155 = lshr i32 %153, 17
+  %156 = or disjoint i32 %155, %154
+  %157 = mul i32 %156, 461845907
+  %158 = xor i32 %157, %.02631.i.i60
+  %159 = tail call i32 @llvm.fshl.i32(i32 %158, i32 %158, i32 13)
+  %160 = mul i32 %159, 5
+  %161 = add i32 %160, -430675100
+  %162 = add nsw i64 %.02532.i.i59, -1
+  %.not.i.i62 = icmp eq i64 %162, 0
+  br i1 %.not.i.i62, label %murmur_hash.exit.i63, label %.lr.ph.i.i58, !llvm.loop !60
 
-.lr.ph.i.i59:                                     ; preds = %.lr.ph.i.i59, %.lr.ph.preheader.i.i58
-  %.02532.i.i60 = phi i64 [ %165, %.lr.ph.i.i59 ], [ %153, %.lr.ph.preheader.i.i58 ]
-  %.02631.i.i61 = phi i32 [ %164, %.lr.ph.i.i59 ], [ -1756908916, %.lr.ph.preheader.i.i58 ]
-  %.02730.i.i62 = phi ptr [ %155, %.lr.ph.i.i59 ], [ %148, %.lr.ph.preheader.i.i58 ]
-  %154 = load i32, ptr %.02730.i.i62, align 1
-  %155 = getelementptr i8, ptr %.02730.i.i62, i64 4
-  %156 = mul i32 %154, -862048943
-  %157 = mul i32 %154, 380141568
-  %158 = lshr i32 %156, 17
-  %159 = or disjoint i32 %158, %157
-  %160 = mul i32 %159, 461845907
-  %161 = xor i32 %160, %.02631.i.i61
-  %162 = tail call i32 @llvm.fshl.i32(i32 %161, i32 %161, i32 13)
-  %163 = mul i32 %162, 5
-  %164 = add i32 %163, -430675100
-  %165 = add nsw i64 %.02532.i.i60, -1
-  %.not.i.i63 = icmp eq i64 %165, 0
-  br i1 %.not.i.i63, label %murmur_hash.exit.i64, label %.lr.ph.i.i59, !llvm.loop !60
-
-murmur_hash.exit.i64:                             ; preds = %.lr.ph.i.i59, %149
-  %.026.lcssa.i.i65 = phi i32 [ -1756908916, %149 ], [ %164, %.lr.ph.i.i59 ]
-  %166 = trunc i64 %152 to i32
-  %167 = xor i32 %.026.lcssa.i.i65, %166
-  %168 = lshr i32 %167, 16
-  %169 = xor i32 %168, %167
+murmur_hash.exit.i63:                             ; preds = %.lr.ph.i.i58, %147
+  %.026.lcssa.i.i64 = phi i32 [ -1756908916, %147 ], [ %161, %.lr.ph.i.i58 ]
+  %.tr.i65 = trunc i64 %149 to i32
+  %163 = shl i32 %.tr.i65, 2
+  %164 = xor i32 %.026.lcssa.i.i64, %163
+  %165 = lshr i32 %164, 16
+  %166 = xor i32 %165, %164
   br label %integer_hash.exit69
 
-.lr.ph.i8.i68:                                    ; preds = %integer_hash.exit55
-  %170 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %171 = load i32, ptr %170, align 1
-  %172 = mul i32 %171, -862048943
-  %173 = mul i32 %171, 380141568
-  %174 = lshr i32 %172, 17
-  %175 = or disjoint i32 %174, %173
-  %176 = mul i32 %175, 461845907
-  %177 = xor i32 %176, -1756908916
-  %178 = tail call i32 @llvm.fshl.i32(i32 %177, i32 %177, i32 13)
-  %179 = mul i32 %178, 5
-  %180 = add i32 %179, -430675100
-  %181 = lshr i32 %180, 16
-  %182 = xor i32 %180, %181
-  %183 = xor i32 %182, 4
+.lr.ph.i7.i68:                                    ; preds = %integer_hash.exit55
+  %167 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %168 = load i32, ptr %167, align 1
+  %169 = mul i32 %168, -862048943
+  %170 = mul i32 %168, 380141568
+  %171 = lshr i32 %169, 17
+  %172 = or disjoint i32 %171, %170
+  %173 = mul i32 %172, 461845907
+  %174 = xor i32 %173, -1756908916
+  %175 = tail call i32 @llvm.fshl.i32(i32 %174, i32 %174, i32 13)
+  %176 = mul i32 %175, 5
+  %177 = add i32 %176, -430675100
+  %178 = lshr i32 %177, 16
+  %179 = xor i32 %177, %178
+  %180 = xor i32 %179, 4
   br label %integer_hash.exit69
 
-integer_hash.exit69:                              ; preds = %murmur_hash.exit.i64, %.lr.ph.i8.i68
-  %.sink27.i66 = phi i32 [ %183, %.lr.ph.i8.i68 ], [ %169, %murmur_hash.exit.i64 ]
-  %184 = mul i32 %.sink27.i66, -2048144789
-  %185 = lshr i32 %184, 13
+integer_hash.exit69:                              ; preds = %murmur_hash.exit.i63, %.lr.ph.i7.i68
+  %.sink27.i66 = phi i32 [ %180, %.lr.ph.i7.i68 ], [ %166, %murmur_hash.exit.i63 ]
+  %181 = mul i32 %.sink27.i66, -2048144789
+  %182 = lshr i32 %181, 13
+  %183 = xor i32 %182, %181
+  %184 = mul i32 %183, -1028477387
+  %185 = lshr i32 %184, 16
   %186 = xor i32 %185, %184
-  %187 = mul i32 %186, -1028477387
-  %188 = lshr i32 %187, 16
-  %189 = xor i32 %188, %187
-  %190 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %191 = load i8, ptr %190, align 4, !tbaa !43, !range !44, !noundef !45
-  %192 = trunc nuw i8 %191 to i1
-  %193 = xor i32 %189, -1017931171
-  %spec.select.i67 = select i1 %192, i32 %193, i32 %189
-  %194 = xor i32 %spec.select.i53, %spec.select.i67
-  %195 = xor i32 %194, -1420803475
+  %187 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %188 = load i8, ptr %187, align 4, !tbaa !43, !range !44, !noundef !45
+  %189 = trunc nuw i8 %188 to i1
+  %190 = xor i32 %186, -1017931171
+  %spec.select.i67 = select i1 %189, i32 %190, i32 %186
+  %191 = xor i32 %spec.select.i53, %spec.select.i67
+  %192 = xor i32 %191, -1420803475
   br label %common.ret209
 
-common.ret209:                                    ; preds = %2, %murmur_hash.exit130, %murmur_hash.exit112, %murmur_hash.exit94, %murmur_hash.exit76, %integer_hash.exit69, %murmur_hash.exit41, %.lr.ph.i, %integer_hash.exit, %196
-  %common.ret209.op = phi i32 [ %207, %196 ], [ %spec.select.i, %integer_hash.exit ], [ %75, %.lr.ph.i ], [ %98, %murmur_hash.exit41 ], [ %195, %integer_hash.exit69 ], [ %260, %murmur_hash.exit76 ], [ %303, %murmur_hash.exit94 ], [ %355, %murmur_hash.exit112 ], [ %407, %murmur_hash.exit130 ], [ 0, %2 ]
+common.ret209:                                    ; preds = %2, %murmur_hash.exit127, %murmur_hash.exit110, %murmur_hash.exit93, %murmur_hash.exit76, %integer_hash.exit69, %murmur_hash.exit41, %.lr.ph.i, %integer_hash.exit, %193
+  %common.ret209.op = phi i32 [ %204, %193 ], [ %spec.select.i, %integer_hash.exit ], [ %74, %.lr.ph.i ], [ %97, %murmur_hash.exit41 ], [ %192, %integer_hash.exit69 ], [ %257, %murmur_hash.exit76 ], [ %300, %murmur_hash.exit93 ], [ %352, %murmur_hash.exit110 ], [ %404, %murmur_hash.exit127 ], [ 0, %2 ]
   ret i32 %common.ret209.op
 
-196:                                              ; preds = %2
-  %197 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %198 = load ptr, ptr %197, align 8, !tbaa !48
-  %199 = tail call fastcc i32 @node_hash(ptr noundef %0, ptr noundef %198)
-  %200 = load i16, ptr %1, align 8, !tbaa !7
-  %201 = zext i16 %200 to i32
-  %202 = mul i32 %201, -862048943
-  %203 = mul i32 %201, 380141568
-  %204 = lshr i32 %202, 17
-  %205 = or disjoint i32 %204, %203
-  %206 = mul i32 %205, 461845907
-  %207 = xor i32 %206, %199
+193:                                              ; preds = %2
+  %194 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %195 = load ptr, ptr %194, align 8, !tbaa !48
+  %196 = tail call fastcc i32 @node_hash(ptr noundef %0, ptr noundef %195)
+  %197 = load i16, ptr %1, align 8, !tbaa !7
+  %198 = zext i16 %197 to i32
+  %199 = mul i32 %198, -862048943
+  %200 = mul i32 %198, 380141568
+  %201 = lshr i32 %199, 17
+  %202 = or disjoint i32 %201, %200
+  %203 = mul i32 %202, 461845907
+  %204 = xor i32 %203, %196
   br label %common.ret209
 
-208:                                              ; preds = %2
-  %209 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %210 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %211 = load i16, ptr %210, align 2, !tbaa !58
-  %212 = and i16 %211, 12
-  %213 = tail call ptr @pm_string_source(ptr noundef nonnull %209) #9
-  %214 = tail call i64 @pm_string_length(ptr noundef nonnull %209) #9
-  %.not29.i = icmp ult i64 %214, 4
-  br i1 %.not29.i, label %._crit_edge.i, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %208
-  %215 = lshr i64 %214, 2
-  br label %.lr.ph.i70
+205:                                              ; preds = %2
+  %206 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %207 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %208 = load i16, ptr %207, align 2, !tbaa !58
+  %209 = and i16 %208, 12
+  %210 = tail call ptr @pm_string_source(ptr noundef nonnull %206) #9
+  %211 = tail call i64 @pm_string_length(ptr noundef nonnull %206) #9
+  %212 = lshr i64 %211, 2
+  %.not29.i = icmp eq i64 %212, 0
+  br i1 %.not29.i, label %._crit_edge.i, label %.lr.ph.i70
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i70
-  %216 = and i64 %214, -4
-  %scevgep.i75 = getelementptr i8, ptr %213, i64 %216
+  %213 = and i64 %211, -4
+  %scevgep.i75 = getelementptr i8, ptr %210, i64 %213
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %208
-  %.027.lcssa.i = phi ptr [ %213, %208 ], [ %scevgep.i75, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i32 [ -1756908916, %208 ], [ %228, %._crit_edge.loopexit.i ]
-  %217 = and i64 %214, 3
-  %.not2836.i = icmp eq i64 %217, 0
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %205
+  %.027.lcssa.i = phi ptr [ %210, %205 ], [ %scevgep.i75, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i32 [ -1756908916, %205 ], [ %225, %._crit_edge.loopexit.i ]
+  %214 = and i64 %211, 3
+  %.not2836.i = icmp eq i64 %214, 0
   br i1 %.not2836.i, label %murmur_hash.exit76, label %.lr.ph39.i
 
-.lr.ph.i70:                                       ; preds = %.lr.ph.i70, %.lr.ph.preheader.i
-  %.02532.i71 = phi i64 [ %229, %.lr.ph.i70 ], [ %215, %.lr.ph.preheader.i ]
-  %.02631.i72 = phi i32 [ %228, %.lr.ph.i70 ], [ -1756908916, %.lr.ph.preheader.i ]
-  %.02730.i73 = phi ptr [ %219, %.lr.ph.i70 ], [ %213, %.lr.ph.preheader.i ]
-  %218 = load i32, ptr %.02730.i73, align 1
-  %219 = getelementptr i8, ptr %.02730.i73, i64 4
-  %220 = mul i32 %218, -862048943
-  %221 = mul i32 %218, 380141568
-  %222 = lshr i32 %220, 17
-  %223 = or disjoint i32 %222, %221
-  %224 = mul i32 %223, 461845907
-  %225 = xor i32 %224, %.02631.i72
-  %226 = tail call i32 @llvm.fshl.i32(i32 %225, i32 %225, i32 13)
-  %227 = mul i32 %226, 5
-  %228 = add i32 %227, -430675100
-  %229 = add nsw i64 %.02532.i71, -1
-  %.not.i74 = icmp eq i64 %229, 0
+.lr.ph.i70:                                       ; preds = %205, %.lr.ph.i70
+  %.02532.i71 = phi i64 [ %226, %.lr.ph.i70 ], [ %212, %205 ]
+  %.02631.i72 = phi i32 [ %225, %.lr.ph.i70 ], [ -1756908916, %205 ]
+  %.02730.i73 = phi ptr [ %216, %.lr.ph.i70 ], [ %210, %205 ]
+  %215 = load i32, ptr %.02730.i73, align 1
+  %216 = getelementptr i8, ptr %.02730.i73, i64 4
+  %217 = mul i32 %215, -862048943
+  %218 = mul i32 %215, 380141568
+  %219 = lshr i32 %217, 17
+  %220 = or disjoint i32 %219, %218
+  %221 = mul i32 %220, 461845907
+  %222 = xor i32 %221, %.02631.i72
+  %223 = tail call i32 @llvm.fshl.i32(i32 %222, i32 %222, i32 13)
+  %224 = mul i32 %223, 5
+  %225 = add i32 %224, -430675100
+  %226 = add nsw i64 %.02532.i71, -1
+  %.not.i74 = icmp eq i64 %226, 0
   br i1 %.not.i74, label %._crit_edge.loopexit.i, label %.lr.ph.i70, !llvm.loop !60
 
 .lr.ph39.i:                                       ; preds = %._crit_edge.i, %.lr.ph39.i
-  %.037.i = phi i64 [ %237, %.lr.ph39.i ], [ %217, %._crit_edge.i ]
-  %230 = phi i32 [ %236, %.lr.ph39.i ], [ 0, %._crit_edge.i ]
-  %231 = shl i32 %230, 8
-  %232 = getelementptr i8, ptr %.027.lcssa.i, i64 %.037.i
-  %233 = getelementptr i8, ptr %232, i64 -1
-  %234 = load i8, ptr %233, align 1, !tbaa !53
-  %235 = zext i8 %234 to i32
-  %236 = or disjoint i32 %231, %235
-  %237 = add nsw i64 %.037.i, -1
-  %.not28.i = icmp eq i64 %237, 0
+  %.037.i = phi i64 [ %234, %.lr.ph39.i ], [ %214, %._crit_edge.i ]
+  %227 = phi i32 [ %233, %.lr.ph39.i ], [ 0, %._crit_edge.i ]
+  %228 = shl i32 %227, 8
+  %229 = getelementptr i8, ptr %.027.lcssa.i, i64 %.037.i
+  %230 = getelementptr i8, ptr %229, i64 -1
+  %231 = load i8, ptr %230, align 1, !tbaa !53
+  %232 = zext i8 %231 to i32
+  %233 = or disjoint i32 %228, %232
+  %234 = add nsw i64 %.037.i, -1
+  %.not28.i = icmp eq i64 %234, 0
   br i1 %.not28.i, label %murmur_hash.exit76, label %.lr.ph39.i, !llvm.loop !61
 
 murmur_hash.exit76:                               ; preds = %.lr.ph39.i, %._crit_edge.i
-  %.0.i = phi i32 [ 0, %._crit_edge.i ], [ %236, %.lr.ph39.i ]
-  %238 = mul i32 %.0.i, -862048943
-  %239 = mul i32 %.0.i, 380141568
-  %240 = lshr i32 %238, 17
-  %241 = or disjoint i32 %240, %239
-  %242 = mul i32 %241, 461845907
-  %243 = trunc i64 %214 to i32
-  %244 = xor i32 %.026.lcssa.i, %243
-  %245 = xor i32 %244, %242
-  %246 = lshr i32 %245, 16
+  %.0.i = phi i32 [ 0, %._crit_edge.i ], [ %233, %.lr.ph39.i ]
+  %235 = mul i32 %.0.i, -862048943
+  %236 = mul i32 %.0.i, 380141568
+  %237 = lshr i32 %235, 17
+  %238 = or disjoint i32 %237, %236
+  %239 = mul i32 %238, 461845907
+  %240 = trunc i64 %211 to i32
+  %241 = xor i32 %.026.lcssa.i, %240
+  %242 = xor i32 %241, %239
+  %243 = lshr i32 %242, 16
+  %244 = xor i32 %243, %242
+  %245 = mul i32 %244, -2048144789
+  %246 = lshr i32 %245, 13
   %247 = xor i32 %246, %245
-  %248 = mul i32 %247, -2048144789
-  %249 = lshr i32 %248, 13
-  %250 = xor i32 %249, %248
-  %251 = mul i32 %250, -1028477387
-  %252 = lshr i32 %251, 16
-  %253 = zext nneg i16 %212 to i32
-  %254 = mul i32 %253, -862048943
-  %255 = mul i32 %253, 380141568
-  %256 = lshr i32 %254, 17
-  %257 = or disjoint i32 %256, %255
-  %258 = mul i32 %257, 461845907
-  %259 = xor i32 %258, %252
-  %260 = xor i32 %259, %251
+  %248 = mul i32 %247, -1028477387
+  %249 = lshr i32 %248, 16
+  %250 = zext nneg i16 %209 to i32
+  %251 = mul i32 %250, -862048943
+  %252 = mul i32 %250, 380141568
+  %253 = lshr i32 %251, 17
+  %254 = or disjoint i32 %253, %252
+  %255 = mul i32 %254, 461845907
+  %256 = xor i32 %255, %249
+  %257 = xor i32 %256, %248
   br label %common.ret209
 
-261:                                              ; preds = %2
-  %262 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %263 = tail call ptr @pm_string_source(ptr noundef nonnull %262) #9
-  %264 = tail call i64 @pm_string_length(ptr noundef nonnull %262) #9
-  %.not29.i77 = icmp ult i64 %264, 4
-  br i1 %.not29.i77, label %._crit_edge.i86, label %.lr.ph.preheader.i78
+258:                                              ; preds = %2
+  %259 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %260 = tail call ptr @pm_string_source(ptr noundef nonnull %259) #9
+  %261 = tail call i64 @pm_string_length(ptr noundef nonnull %259) #9
+  %262 = lshr i64 %261, 2
+  %.not29.i77 = icmp eq i64 %262, 0
+  br i1 %.not29.i77, label %._crit_edge.i85, label %.lr.ph.i78
 
-.lr.ph.preheader.i78:                             ; preds = %261
-  %265 = lshr i64 %264, 2
-  br label %.lr.ph.i79
+._crit_edge.loopexit.i83:                         ; preds = %.lr.ph.i78
+  %263 = and i64 %261, -4
+  %scevgep.i84 = getelementptr i8, ptr %260, i64 %263
+  br label %._crit_edge.i85
 
-._crit_edge.loopexit.i84:                         ; preds = %.lr.ph.i79
-  %266 = and i64 %264, -4
-  %scevgep.i85 = getelementptr i8, ptr %263, i64 %266
-  br label %._crit_edge.i86
+._crit_edge.i85:                                  ; preds = %._crit_edge.loopexit.i83, %258
+  %.027.lcssa.i86 = phi ptr [ %260, %258 ], [ %scevgep.i84, %._crit_edge.loopexit.i83 ]
+  %.026.lcssa.i87 = phi i32 [ -1756908916, %258 ], [ %275, %._crit_edge.loopexit.i83 ]
+  %264 = and i64 %261, 3
+  %.not2836.i88 = icmp eq i64 %264, 0
+  br i1 %.not2836.i88, label %murmur_hash.exit93, label %.lr.ph39.i89
 
-._crit_edge.i86:                                  ; preds = %._crit_edge.loopexit.i84, %261
-  %.027.lcssa.i87 = phi ptr [ %263, %261 ], [ %scevgep.i85, %._crit_edge.loopexit.i84 ]
-  %.026.lcssa.i88 = phi i32 [ -1756908916, %261 ], [ %278, %._crit_edge.loopexit.i84 ]
-  %267 = and i64 %264, 3
-  %.not2836.i89 = icmp eq i64 %267, 0
-  br i1 %.not2836.i89, label %murmur_hash.exit94, label %.lr.ph39.i90
+.lr.ph.i78:                                       ; preds = %258, %.lr.ph.i78
+  %.02532.i79 = phi i64 [ %276, %.lr.ph.i78 ], [ %262, %258 ]
+  %.02631.i80 = phi i32 [ %275, %.lr.ph.i78 ], [ -1756908916, %258 ]
+  %.02730.i81 = phi ptr [ %266, %.lr.ph.i78 ], [ %260, %258 ]
+  %265 = load i32, ptr %.02730.i81, align 1
+  %266 = getelementptr i8, ptr %.02730.i81, i64 4
+  %267 = mul i32 %265, -862048943
+  %268 = mul i32 %265, 380141568
+  %269 = lshr i32 %267, 17
+  %270 = or disjoint i32 %269, %268
+  %271 = mul i32 %270, 461845907
+  %272 = xor i32 %271, %.02631.i80
+  %273 = tail call i32 @llvm.fshl.i32(i32 %272, i32 %272, i32 13)
+  %274 = mul i32 %273, 5
+  %275 = add i32 %274, -430675100
+  %276 = add nsw i64 %.02532.i79, -1
+  %.not.i82 = icmp eq i64 %276, 0
+  br i1 %.not.i82, label %._crit_edge.loopexit.i83, label %.lr.ph.i78, !llvm.loop !60
 
-.lr.ph.i79:                                       ; preds = %.lr.ph.i79, %.lr.ph.preheader.i78
-  %.02532.i80 = phi i64 [ %279, %.lr.ph.i79 ], [ %265, %.lr.ph.preheader.i78 ]
-  %.02631.i81 = phi i32 [ %278, %.lr.ph.i79 ], [ -1756908916, %.lr.ph.preheader.i78 ]
-  %.02730.i82 = phi ptr [ %269, %.lr.ph.i79 ], [ %263, %.lr.ph.preheader.i78 ]
-  %268 = load i32, ptr %.02730.i82, align 1
-  %269 = getelementptr i8, ptr %.02730.i82, i64 4
-  %270 = mul i32 %268, -862048943
-  %271 = mul i32 %268, 380141568
-  %272 = lshr i32 %270, 17
-  %273 = or disjoint i32 %272, %271
-  %274 = mul i32 %273, 461845907
-  %275 = xor i32 %274, %.02631.i81
-  %276 = tail call i32 @llvm.fshl.i32(i32 %275, i32 %275, i32 13)
-  %277 = mul i32 %276, 5
-  %278 = add i32 %277, -430675100
-  %279 = add nsw i64 %.02532.i80, -1
-  %.not.i83 = icmp eq i64 %279, 0
-  br i1 %.not.i83, label %._crit_edge.loopexit.i84, label %.lr.ph.i79, !llvm.loop !60
+.lr.ph39.i89:                                     ; preds = %._crit_edge.i85, %.lr.ph39.i89
+  %.037.i90 = phi i64 [ %284, %.lr.ph39.i89 ], [ %264, %._crit_edge.i85 ]
+  %277 = phi i32 [ %283, %.lr.ph39.i89 ], [ 0, %._crit_edge.i85 ]
+  %278 = shl i32 %277, 8
+  %279 = getelementptr i8, ptr %.027.lcssa.i86, i64 %.037.i90
+  %280 = getelementptr i8, ptr %279, i64 -1
+  %281 = load i8, ptr %280, align 1, !tbaa !53
+  %282 = zext i8 %281 to i32
+  %283 = or disjoint i32 %278, %282
+  %284 = add nsw i64 %.037.i90, -1
+  %.not28.i91 = icmp eq i64 %284, 0
+  br i1 %.not28.i91, label %murmur_hash.exit93, label %.lr.ph39.i89, !llvm.loop !61
 
-.lr.ph39.i90:                                     ; preds = %._crit_edge.i86, %.lr.ph39.i90
-  %.037.i91 = phi i64 [ %287, %.lr.ph39.i90 ], [ %267, %._crit_edge.i86 ]
-  %280 = phi i32 [ %286, %.lr.ph39.i90 ], [ 0, %._crit_edge.i86 ]
-  %281 = shl i32 %280, 8
-  %282 = getelementptr i8, ptr %.027.lcssa.i87, i64 %.037.i91
-  %283 = getelementptr i8, ptr %282, i64 -1
-  %284 = load i8, ptr %283, align 1, !tbaa !53
-  %285 = zext i8 %284 to i32
-  %286 = or disjoint i32 %281, %285
-  %287 = add nsw i64 %.037.i91, -1
-  %.not28.i92 = icmp eq i64 %287, 0
-  br i1 %.not28.i92, label %murmur_hash.exit94, label %.lr.ph39.i90, !llvm.loop !61
-
-murmur_hash.exit94:                               ; preds = %.lr.ph39.i90, %._crit_edge.i86
-  %.0.i93 = phi i32 [ 0, %._crit_edge.i86 ], [ %286, %.lr.ph39.i90 ]
-  %288 = mul i32 %.0.i93, -862048943
-  %289 = mul i32 %.0.i93, 380141568
-  %290 = lshr i32 %288, 17
-  %291 = or disjoint i32 %290, %289
-  %292 = mul i32 %291, 461845907
-  %293 = trunc i64 %264 to i32
-  %294 = xor i32 %.026.lcssa.i88, %293
-  %295 = xor i32 %294, %292
-  %296 = lshr i32 %295, 16
+murmur_hash.exit93:                               ; preds = %.lr.ph39.i89, %._crit_edge.i85
+  %.0.i92 = phi i32 [ 0, %._crit_edge.i85 ], [ %283, %.lr.ph39.i89 ]
+  %285 = mul i32 %.0.i92, -862048943
+  %286 = mul i32 %.0.i92, 380141568
+  %287 = lshr i32 %285, 17
+  %288 = or disjoint i32 %287, %286
+  %289 = mul i32 %288, 461845907
+  %290 = trunc i64 %261 to i32
+  %291 = xor i32 %.026.lcssa.i87, %290
+  %292 = xor i32 %291, %289
+  %293 = lshr i32 %292, 16
+  %294 = xor i32 %293, %292
+  %295 = mul i32 %294, -2048144789
+  %296 = lshr i32 %295, 13
   %297 = xor i32 %296, %295
-  %298 = mul i32 %297, -2048144789
-  %299 = lshr i32 %298, 13
+  %298 = mul i32 %297, -1028477387
+  %299 = lshr i32 %298, 16
   %300 = xor i32 %299, %298
-  %301 = mul i32 %300, -1028477387
-  %302 = lshr i32 %301, 16
-  %303 = xor i32 %302, %301
   br label %common.ret209
 
-304:                                              ; preds = %2
-  %305 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %306 = tail call ptr @pm_string_source(ptr noundef nonnull %305) #9
-  %307 = tail call i64 @pm_string_length(ptr noundef nonnull %305) #9
-  %.not29.i95 = icmp ult i64 %307, 4
-  br i1 %.not29.i95, label %._crit_edge.i104, label %.lr.ph.preheader.i96
+301:                                              ; preds = %2
+  %302 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %303 = tail call ptr @pm_string_source(ptr noundef nonnull %302) #9
+  %304 = tail call i64 @pm_string_length(ptr noundef nonnull %302) #9
+  %305 = lshr i64 %304, 2
+  %.not29.i94 = icmp eq i64 %305, 0
+  br i1 %.not29.i94, label %._crit_edge.i102, label %.lr.ph.i95
 
-.lr.ph.preheader.i96:                             ; preds = %304
-  %308 = lshr i64 %307, 2
-  br label %.lr.ph.i97
+._crit_edge.loopexit.i100:                        ; preds = %.lr.ph.i95
+  %306 = and i64 %304, -4
+  %scevgep.i101 = getelementptr i8, ptr %303, i64 %306
+  br label %._crit_edge.i102
 
-._crit_edge.loopexit.i102:                        ; preds = %.lr.ph.i97
-  %309 = and i64 %307, -4
-  %scevgep.i103 = getelementptr i8, ptr %306, i64 %309
-  br label %._crit_edge.i104
+._crit_edge.i102:                                 ; preds = %._crit_edge.loopexit.i100, %301
+  %.027.lcssa.i103 = phi ptr [ %303, %301 ], [ %scevgep.i101, %._crit_edge.loopexit.i100 ]
+  %.026.lcssa.i104 = phi i32 [ -1756908916, %301 ], [ %318, %._crit_edge.loopexit.i100 ]
+  %307 = and i64 %304, 3
+  %.not2836.i105 = icmp eq i64 %307, 0
+  br i1 %.not2836.i105, label %murmur_hash.exit110, label %.lr.ph39.i106
 
-._crit_edge.i104:                                 ; preds = %._crit_edge.loopexit.i102, %304
-  %.027.lcssa.i105 = phi ptr [ %306, %304 ], [ %scevgep.i103, %._crit_edge.loopexit.i102 ]
-  %.026.lcssa.i106 = phi i32 [ -1756908916, %304 ], [ %321, %._crit_edge.loopexit.i102 ]
-  %310 = and i64 %307, 3
-  %.not2836.i107 = icmp eq i64 %310, 0
-  br i1 %.not2836.i107, label %murmur_hash.exit112, label %.lr.ph39.i108
+.lr.ph.i95:                                       ; preds = %301, %.lr.ph.i95
+  %.02532.i96 = phi i64 [ %319, %.lr.ph.i95 ], [ %305, %301 ]
+  %.02631.i97 = phi i32 [ %318, %.lr.ph.i95 ], [ -1756908916, %301 ]
+  %.02730.i98 = phi ptr [ %309, %.lr.ph.i95 ], [ %303, %301 ]
+  %308 = load i32, ptr %.02730.i98, align 1
+  %309 = getelementptr i8, ptr %.02730.i98, i64 4
+  %310 = mul i32 %308, -862048943
+  %311 = mul i32 %308, 380141568
+  %312 = lshr i32 %310, 17
+  %313 = or disjoint i32 %312, %311
+  %314 = mul i32 %313, 461845907
+  %315 = xor i32 %314, %.02631.i97
+  %316 = tail call i32 @llvm.fshl.i32(i32 %315, i32 %315, i32 13)
+  %317 = mul i32 %316, 5
+  %318 = add i32 %317, -430675100
+  %319 = add nsw i64 %.02532.i96, -1
+  %.not.i99 = icmp eq i64 %319, 0
+  br i1 %.not.i99, label %._crit_edge.loopexit.i100, label %.lr.ph.i95, !llvm.loop !60
 
-.lr.ph.i97:                                       ; preds = %.lr.ph.i97, %.lr.ph.preheader.i96
-  %.02532.i98 = phi i64 [ %322, %.lr.ph.i97 ], [ %308, %.lr.ph.preheader.i96 ]
-  %.02631.i99 = phi i32 [ %321, %.lr.ph.i97 ], [ -1756908916, %.lr.ph.preheader.i96 ]
-  %.02730.i100 = phi ptr [ %312, %.lr.ph.i97 ], [ %306, %.lr.ph.preheader.i96 ]
-  %311 = load i32, ptr %.02730.i100, align 1
-  %312 = getelementptr i8, ptr %.02730.i100, i64 4
-  %313 = mul i32 %311, -862048943
-  %314 = mul i32 %311, 380141568
-  %315 = lshr i32 %313, 17
-  %316 = or disjoint i32 %315, %314
-  %317 = mul i32 %316, 461845907
-  %318 = xor i32 %317, %.02631.i99
-  %319 = tail call i32 @llvm.fshl.i32(i32 %318, i32 %318, i32 13)
-  %320 = mul i32 %319, 5
-  %321 = add i32 %320, -430675100
-  %322 = add nsw i64 %.02532.i98, -1
-  %.not.i101 = icmp eq i64 %322, 0
-  br i1 %.not.i101, label %._crit_edge.loopexit.i102, label %.lr.ph.i97, !llvm.loop !60
+.lr.ph39.i106:                                    ; preds = %._crit_edge.i102, %.lr.ph39.i106
+  %.037.i107 = phi i64 [ %327, %.lr.ph39.i106 ], [ %307, %._crit_edge.i102 ]
+  %320 = phi i32 [ %326, %.lr.ph39.i106 ], [ 0, %._crit_edge.i102 ]
+  %321 = shl i32 %320, 8
+  %322 = getelementptr i8, ptr %.027.lcssa.i103, i64 %.037.i107
+  %323 = getelementptr i8, ptr %322, i64 -1
+  %324 = load i8, ptr %323, align 1, !tbaa !53
+  %325 = zext i8 %324 to i32
+  %326 = or disjoint i32 %321, %325
+  %327 = add nsw i64 %.037.i107, -1
+  %.not28.i108 = icmp eq i64 %327, 0
+  br i1 %.not28.i108, label %murmur_hash.exit110, label %.lr.ph39.i106, !llvm.loop !61
 
-.lr.ph39.i108:                                    ; preds = %._crit_edge.i104, %.lr.ph39.i108
-  %.037.i109 = phi i64 [ %330, %.lr.ph39.i108 ], [ %310, %._crit_edge.i104 ]
-  %323 = phi i32 [ %329, %.lr.ph39.i108 ], [ 0, %._crit_edge.i104 ]
-  %324 = shl i32 %323, 8
-  %325 = getelementptr i8, ptr %.027.lcssa.i105, i64 %.037.i109
-  %326 = getelementptr i8, ptr %325, i64 -1
-  %327 = load i8, ptr %326, align 1, !tbaa !53
-  %328 = zext i8 %327 to i32
-  %329 = or disjoint i32 %324, %328
-  %330 = add nsw i64 %.037.i109, -1
-  %.not28.i110 = icmp eq i64 %330, 0
-  br i1 %.not28.i110, label %murmur_hash.exit112, label %.lr.ph39.i108, !llvm.loop !61
-
-murmur_hash.exit112:                              ; preds = %.lr.ph39.i108, %._crit_edge.i104
-  %.0.i111 = phi i32 [ 0, %._crit_edge.i104 ], [ %329, %.lr.ph39.i108 ]
-  %331 = mul i32 %.0.i111, -862048943
-  %332 = mul i32 %.0.i111, 380141568
-  %333 = lshr i32 %331, 17
-  %334 = or disjoint i32 %333, %332
-  %335 = mul i32 %334, 461845907
-  %336 = trunc i64 %307 to i32
-  %337 = xor i32 %.026.lcssa.i106, %336
-  %338 = xor i32 %337, %335
-  %339 = lshr i32 %338, 16
+murmur_hash.exit110:                              ; preds = %.lr.ph39.i106, %._crit_edge.i102
+  %.0.i109 = phi i32 [ 0, %._crit_edge.i102 ], [ %326, %.lr.ph39.i106 ]
+  %328 = mul i32 %.0.i109, -862048943
+  %329 = mul i32 %.0.i109, 380141568
+  %330 = lshr i32 %328, 17
+  %331 = or disjoint i32 %330, %329
+  %332 = mul i32 %331, 461845907
+  %333 = trunc i64 %304 to i32
+  %334 = xor i32 %.026.lcssa.i104, %333
+  %335 = xor i32 %334, %332
+  %336 = lshr i32 %335, 16
+  %337 = xor i32 %336, %335
+  %338 = mul i32 %337, -2048144789
+  %339 = lshr i32 %338, 13
   %340 = xor i32 %339, %338
-  %341 = mul i32 %340, -2048144789
-  %342 = lshr i32 %341, 13
-  %343 = xor i32 %342, %341
-  %344 = mul i32 %343, -1028477387
-  %345 = lshr i32 %344, 16
-  %346 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %347 = load i16, ptr %346, align 2, !tbaa !58
-  %348 = zext i16 %347 to i32
-  %349 = mul i32 %348, -862048943
-  %350 = mul i32 %348, 380141568
-  %351 = lshr i32 %349, 17
-  %352 = or disjoint i32 %351, %350
-  %353 = mul i32 %352, 461845907
-  %354 = xor i32 %353, %345
-  %355 = xor i32 %354, %344
+  %341 = mul i32 %340, -1028477387
+  %342 = lshr i32 %341, 16
+  %343 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %344 = load i16, ptr %343, align 2, !tbaa !58
+  %345 = zext i16 %344 to i32
+  %346 = mul i32 %345, -862048943
+  %347 = mul i32 %345, 380141568
+  %348 = lshr i32 %346, 17
+  %349 = or disjoint i32 %348, %347
+  %350 = mul i32 %349, 461845907
+  %351 = xor i32 %350, %342
+  %352 = xor i32 %351, %341
   br label %common.ret209
 
-356:                                              ; preds = %2
-  %357 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %358 = tail call ptr @pm_string_source(ptr noundef nonnull %357) #9
-  %359 = tail call i64 @pm_string_length(ptr noundef nonnull %357) #9
-  %.not29.i113 = icmp ult i64 %359, 4
-  br i1 %.not29.i113, label %._crit_edge.i122, label %.lr.ph.preheader.i114
+353:                                              ; preds = %2
+  %354 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %355 = tail call ptr @pm_string_source(ptr noundef nonnull %354) #9
+  %356 = tail call i64 @pm_string_length(ptr noundef nonnull %354) #9
+  %357 = lshr i64 %356, 2
+  %.not29.i111 = icmp eq i64 %357, 0
+  br i1 %.not29.i111, label %._crit_edge.i119, label %.lr.ph.i112
 
-.lr.ph.preheader.i114:                            ; preds = %356
-  %360 = lshr i64 %359, 2
-  br label %.lr.ph.i115
+._crit_edge.loopexit.i117:                        ; preds = %.lr.ph.i112
+  %358 = and i64 %356, -4
+  %scevgep.i118 = getelementptr i8, ptr %355, i64 %358
+  br label %._crit_edge.i119
 
-._crit_edge.loopexit.i120:                        ; preds = %.lr.ph.i115
-  %361 = and i64 %359, -4
-  %scevgep.i121 = getelementptr i8, ptr %358, i64 %361
-  br label %._crit_edge.i122
+._crit_edge.i119:                                 ; preds = %._crit_edge.loopexit.i117, %353
+  %.027.lcssa.i120 = phi ptr [ %355, %353 ], [ %scevgep.i118, %._crit_edge.loopexit.i117 ]
+  %.026.lcssa.i121 = phi i32 [ -1756908916, %353 ], [ %370, %._crit_edge.loopexit.i117 ]
+  %359 = and i64 %356, 3
+  %.not2836.i122 = icmp eq i64 %359, 0
+  br i1 %.not2836.i122, label %murmur_hash.exit127, label %.lr.ph39.i123
 
-._crit_edge.i122:                                 ; preds = %._crit_edge.loopexit.i120, %356
-  %.027.lcssa.i123 = phi ptr [ %358, %356 ], [ %scevgep.i121, %._crit_edge.loopexit.i120 ]
-  %.026.lcssa.i124 = phi i32 [ -1756908916, %356 ], [ %373, %._crit_edge.loopexit.i120 ]
-  %362 = and i64 %359, 3
-  %.not2836.i125 = icmp eq i64 %362, 0
-  br i1 %.not2836.i125, label %murmur_hash.exit130, label %.lr.ph39.i126
+.lr.ph.i112:                                      ; preds = %353, %.lr.ph.i112
+  %.02532.i113 = phi i64 [ %371, %.lr.ph.i112 ], [ %357, %353 ]
+  %.02631.i114 = phi i32 [ %370, %.lr.ph.i112 ], [ -1756908916, %353 ]
+  %.02730.i115 = phi ptr [ %361, %.lr.ph.i112 ], [ %355, %353 ]
+  %360 = load i32, ptr %.02730.i115, align 1
+  %361 = getelementptr i8, ptr %.02730.i115, i64 4
+  %362 = mul i32 %360, -862048943
+  %363 = mul i32 %360, 380141568
+  %364 = lshr i32 %362, 17
+  %365 = or disjoint i32 %364, %363
+  %366 = mul i32 %365, 461845907
+  %367 = xor i32 %366, %.02631.i114
+  %368 = tail call i32 @llvm.fshl.i32(i32 %367, i32 %367, i32 13)
+  %369 = mul i32 %368, 5
+  %370 = add i32 %369, -430675100
+  %371 = add nsw i64 %.02532.i113, -1
+  %.not.i116 = icmp eq i64 %371, 0
+  br i1 %.not.i116, label %._crit_edge.loopexit.i117, label %.lr.ph.i112, !llvm.loop !60
 
-.lr.ph.i115:                                      ; preds = %.lr.ph.i115, %.lr.ph.preheader.i114
-  %.02532.i116 = phi i64 [ %374, %.lr.ph.i115 ], [ %360, %.lr.ph.preheader.i114 ]
-  %.02631.i117 = phi i32 [ %373, %.lr.ph.i115 ], [ -1756908916, %.lr.ph.preheader.i114 ]
-  %.02730.i118 = phi ptr [ %364, %.lr.ph.i115 ], [ %358, %.lr.ph.preheader.i114 ]
-  %363 = load i32, ptr %.02730.i118, align 1
-  %364 = getelementptr i8, ptr %.02730.i118, i64 4
-  %365 = mul i32 %363, -862048943
-  %366 = mul i32 %363, 380141568
-  %367 = lshr i32 %365, 17
-  %368 = or disjoint i32 %367, %366
-  %369 = mul i32 %368, 461845907
-  %370 = xor i32 %369, %.02631.i117
-  %371 = tail call i32 @llvm.fshl.i32(i32 %370, i32 %370, i32 13)
-  %372 = mul i32 %371, 5
-  %373 = add i32 %372, -430675100
-  %374 = add nsw i64 %.02532.i116, -1
-  %.not.i119 = icmp eq i64 %374, 0
-  br i1 %.not.i119, label %._crit_edge.loopexit.i120, label %.lr.ph.i115, !llvm.loop !60
+.lr.ph39.i123:                                    ; preds = %._crit_edge.i119, %.lr.ph39.i123
+  %.037.i124 = phi i64 [ %379, %.lr.ph39.i123 ], [ %359, %._crit_edge.i119 ]
+  %372 = phi i32 [ %378, %.lr.ph39.i123 ], [ 0, %._crit_edge.i119 ]
+  %373 = shl i32 %372, 8
+  %374 = getelementptr i8, ptr %.027.lcssa.i120, i64 %.037.i124
+  %375 = getelementptr i8, ptr %374, i64 -1
+  %376 = load i8, ptr %375, align 1, !tbaa !53
+  %377 = zext i8 %376 to i32
+  %378 = or disjoint i32 %373, %377
+  %379 = add nsw i64 %.037.i124, -1
+  %.not28.i125 = icmp eq i64 %379, 0
+  br i1 %.not28.i125, label %murmur_hash.exit127, label %.lr.ph39.i123, !llvm.loop !61
 
-.lr.ph39.i126:                                    ; preds = %._crit_edge.i122, %.lr.ph39.i126
-  %.037.i127 = phi i64 [ %382, %.lr.ph39.i126 ], [ %362, %._crit_edge.i122 ]
-  %375 = phi i32 [ %381, %.lr.ph39.i126 ], [ 0, %._crit_edge.i122 ]
-  %376 = shl i32 %375, 8
-  %377 = getelementptr i8, ptr %.027.lcssa.i123, i64 %.037.i127
-  %378 = getelementptr i8, ptr %377, i64 -1
-  %379 = load i8, ptr %378, align 1, !tbaa !53
-  %380 = zext i8 %379 to i32
-  %381 = or disjoint i32 %376, %380
-  %382 = add nsw i64 %.037.i127, -1
-  %.not28.i128 = icmp eq i64 %382, 0
-  br i1 %.not28.i128, label %murmur_hash.exit130, label %.lr.ph39.i126, !llvm.loop !61
-
-murmur_hash.exit130:                              ; preds = %.lr.ph39.i126, %._crit_edge.i122
-  %.0.i129 = phi i32 [ 0, %._crit_edge.i122 ], [ %381, %.lr.ph39.i126 ]
-  %383 = mul i32 %.0.i129, -862048943
-  %384 = mul i32 %.0.i129, 380141568
-  %385 = lshr i32 %383, 17
-  %386 = or disjoint i32 %385, %384
-  %387 = mul i32 %386, 461845907
-  %388 = trunc i64 %359 to i32
-  %389 = xor i32 %.026.lcssa.i124, %388
-  %390 = xor i32 %389, %387
-  %391 = lshr i32 %390, 16
+murmur_hash.exit127:                              ; preds = %.lr.ph39.i123, %._crit_edge.i119
+  %.0.i126 = phi i32 [ 0, %._crit_edge.i119 ], [ %378, %.lr.ph39.i123 ]
+  %380 = mul i32 %.0.i126, -862048943
+  %381 = mul i32 %.0.i126, 380141568
+  %382 = lshr i32 %380, 17
+  %383 = or disjoint i32 %382, %381
+  %384 = mul i32 %383, 461845907
+  %385 = trunc i64 %356 to i32
+  %386 = xor i32 %.026.lcssa.i121, %385
+  %387 = xor i32 %386, %384
+  %388 = lshr i32 %387, 16
+  %389 = xor i32 %388, %387
+  %390 = mul i32 %389, -2048144789
+  %391 = lshr i32 %390, 13
   %392 = xor i32 %391, %390
-  %393 = mul i32 %392, -2048144789
-  %394 = lshr i32 %393, 13
-  %395 = xor i32 %394, %393
-  %396 = mul i32 %395, -1028477387
-  %397 = lshr i32 %396, 16
-  %398 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %399 = load i16, ptr %398, align 2, !tbaa !58
-  %400 = zext i16 %399 to i32
-  %401 = mul i32 %400, -862048943
-  %402 = mul i32 %400, 380141568
-  %403 = lshr i32 %401, 17
-  %404 = or disjoint i32 %403, %402
-  %405 = mul i32 %404, 461845907
-  %406 = xor i32 %405, %397
-  %407 = xor i32 %406, %396
+  %393 = mul i32 %392, -1028477387
+  %394 = lshr i32 %393, 16
+  %395 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %396 = load i16, ptr %395, align 2, !tbaa !58
+  %397 = zext i16 %396 to i32
+  %398 = mul i32 %397, -862048943
+  %399 = mul i32 %397, 380141568
+  %400 = lshr i32 %398, 17
+  %401 = or disjoint i32 %400, %399
+  %402 = mul i32 %401, 461845907
+  %403 = xor i32 %402, %394
+  %404 = xor i32 %403, %393
   br label %common.ret209
 }
 

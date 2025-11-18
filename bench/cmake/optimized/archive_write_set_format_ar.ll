@@ -867,12 +867,12 @@ define internal fastcc range(i32 -1, 1) i32 @format_octal(i64 noundef range(i64 
   %9 = lshr i64 %.029, 3
   %10 = add nsw i32 %.025, -1
   %11 = icmp samesign ugt i32 %.025, 1
-  %12 = icmp samesign ugt i64 %.029, 7
+  %12 = icmp ne i64 %9, 0
   %13 = select i1 %11, i1 %12, i1 false
   br i1 %13, label %4, label %14, !llvm.loop !36
 
 14:                                               ; preds = %4
-  %15 = icmp samesign ult i64 %.029, 8
+  %15 = icmp eq i64 %9, 0
   br i1 %15, label %16, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %14

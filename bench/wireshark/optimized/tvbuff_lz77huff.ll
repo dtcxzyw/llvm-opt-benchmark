@@ -61,12 +61,12 @@ define noundef ptr @tvb_uncompress_lz77huff(ptr noundef %0, i32 noundef %1, i32 
   store volatile i32 %24, ptr %10, align 4
   %.0..0..0..0.8 = load volatile i32, ptr %10, align 4
   %25 = icmp eq i32 %.0..0..0..0.8, 0
-  br i1 %25, label %26, label %205
+  br i1 %25, label %26, label %204
 
 26:                                               ; preds = %23
   %.0..0..0..0.12 = load volatile ptr, ptr %9, align 8
   %27 = icmp eq ptr %.0..0..0..0.12, null
-  br i1 %27, label %28, label %205
+  br i1 %27, label %28, label %204
 
 28:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -322,10 +322,10 @@ bitstring_skip.exit.i.i:                          ; preds = %125, %bitstring_loo
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit.i.backedge
 
-.loopexit.i.backedge:                             ; preds = %203, %148
-  %.sroa.9.0.i.be = phi i32 [ %.sroa.9.4.i, %148 ], [ %.sroa.9.5.i, %203 ]
-  %.sroa.22.0.i.be = phi i32 [ %.sroa.22.2.i, %148 ], [ %.sroa.22.3.i, %203 ]
-  %.sroa.34.0.i.be = phi i32 [ %.sroa.34.2.i, %148 ], [ %.sroa.34.3.i, %203 ]
+.loopexit.i.backedge:                             ; preds = %202, %148
+  %.sroa.9.0.i.be = phi i32 [ %.sroa.9.4.i, %148 ], [ %.sroa.9.5.i, %202 ]
+  %.sroa.22.0.i.be = phi i32 [ %.sroa.22.2.i, %148 ], [ %.sroa.22.3.i, %202 ]
+  %.sroa.34.0.i.be = phi i32 [ %.sroa.34.2.i, %148 ], [ %.sroa.34.3.i, %202 ]
   br label %.loopexit.i
 
 150:                                              ; preds = %144
@@ -342,7 +342,7 @@ bitstring_skip.exit.i.i:                          ; preds = %125, %bitstring_loo
   %157 = and i32 %146, 15
   %158 = lshr i32 %156, 4
   %.neg.i = shl nsw i32 -1, %158
-  %159 = icmp samesign ult i32 %156, 16
+  %159 = icmp eq i32 %158, 0
   br i1 %159, label %bitstring_lookup.exit.i, label %160
 
 160:                                              ; preds = %155
@@ -358,151 +358,150 @@ bitstring_skip.exit.i.i:                          ; preds = %125, %bitstring_loo
 
 bitstring_lookup.exit.i:                          ; preds = %163, %160, %155
   %.neg81.i = phi i32 [ %.neg.i, %163 ], [ %.neg.i, %160 ], [ -1, %155 ]
-  %166 = phi i32 [ %158, %163 ], [ %158, %160 ], [ 0, %155 ]
   %.0.i37.i = phi i32 [ %165, %163 ], [ 0, %160 ], [ 0, %155 ]
   %.neg30.i = sub i32 %.neg81.i, %.0.i37.i
-  %167 = icmp eq i32 %157, 15
-  br i1 %167, label %168, label %bitstring_lookup.exit.thread.i
+  %166 = icmp eq i32 %157, 15
+  br i1 %166, label %167, label %bitstring_lookup.exit.thread.i
 
-168:                                              ; preds = %bitstring_lookup.exit.i
-  %169 = zext i32 %.sroa.9.4.i to i64
-  %.not31.i = icmp ugt i64 %13, %169
-  br i1 %.not31.i, label %170, label %do_uncompress.exit
+167:                                              ; preds = %bitstring_lookup.exit.i
+  %168 = zext i32 %.sroa.9.4.i to i64
+  %.not31.i = icmp ugt i64 %13, %168
+  br i1 %.not31.i, label %169, label %do_uncompress.exit
 
-170:                                              ; preds = %168
-  %171 = add i32 %.sroa.9.4.i, %1
-  %172 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %171)
-  %173 = zext i8 %172 to i32
-  %174 = add nuw nsw i32 %173, 15
-  %175 = add i32 %.sroa.9.4.i, 1
-  %176 = icmp eq i32 %174, 270
-  br i1 %176, label %177, label %bitstring_lookup.exit.thread.i
+169:                                              ; preds = %167
+  %170 = add i32 %.sroa.9.4.i, %1
+  %171 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %170)
+  %172 = zext i8 %171 to i32
+  %173 = add nuw nsw i32 %172, 15
+  %174 = add i32 %.sroa.9.4.i, 1
+  %175 = icmp eq i32 %173, 270
+  br i1 %175, label %176, label %bitstring_lookup.exit.thread.i
 
-177:                                              ; preds = %170
-  %178 = add i32 %.sroa.9.4.i, 2
-  %179 = zext i32 %178 to i64
-  %.not32.i = icmp ugt i64 %13, %179
-  br i1 %.not32.i, label %180, label %do_uncompress.exit
+176:                                              ; preds = %169
+  %177 = add i32 %.sroa.9.4.i, 2
+  %178 = zext i32 %177 to i64
+  %.not32.i = icmp ugt i64 %13, %178
+  br i1 %.not32.i, label %179, label %do_uncompress.exit
 
-180:                                              ; preds = %177
-  %181 = add i32 %175, %1
-  %182 = call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %0, i32 noundef %181)
-  %183 = zext i16 %182 to i32
-  %184 = add i32 %.sroa.9.4.i, 3
+179:                                              ; preds = %176
+  %180 = add i32 %174, %1
+  %181 = call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %0, i32 noundef %180)
+  %182 = zext i16 %181 to i32
+  %183 = add i32 %.sroa.9.4.i, 3
   br label %bitstring_lookup.exit.thread.i
 
-bitstring_lookup.exit.thread.i:                   ; preds = %180, %170, %bitstring_lookup.exit.i, %152
-  %.neg3085.i = phi i32 [ %.neg30.i, %180 ], [ %.neg30.i, %170 ], [ %.neg30.i, %bitstring_lookup.exit.i ], [ -1, %152 ]
-  %185 = phi i32 [ %166, %180 ], [ %166, %170 ], [ %166, %bitstring_lookup.exit.i ], [ 0, %152 ]
-  %.sroa.9.2.i = phi i32 [ %184, %180 ], [ %175, %170 ], [ %.sroa.9.4.i, %bitstring_lookup.exit.i ], [ %.sroa.9.4.i, %152 ]
-  %.021.i = phi i32 [ %183, %180 ], [ %174, %170 ], [ %157, %bitstring_lookup.exit.i ], [ 0, %152 ]
-  %186 = shl i32 %.sroa.22.2.i, %185
-  %187 = sub i32 %.sroa.34.2.i, %185
-  %188 = icmp slt i32 %187, 16
-  br i1 %188, label %189, label %bitstring_skip.exit.i
+bitstring_lookup.exit.thread.i:                   ; preds = %179, %169, %bitstring_lookup.exit.i, %152
+  %.neg3085.i = phi i32 [ %.neg30.i, %179 ], [ %.neg30.i, %169 ], [ %.neg30.i, %bitstring_lookup.exit.i ], [ -1, %152 ]
+  %184 = phi i32 [ %158, %179 ], [ %158, %169 ], [ %158, %bitstring_lookup.exit.i ], [ 0, %152 ]
+  %.sroa.9.2.i = phi i32 [ %183, %179 ], [ %174, %169 ], [ %.sroa.9.4.i, %bitstring_lookup.exit.i ], [ %.sroa.9.4.i, %152 ]
+  %.021.i = phi i32 [ %182, %179 ], [ %173, %169 ], [ %157, %bitstring_lookup.exit.i ], [ 0, %152 ]
+  %185 = shl i32 %.sroa.22.2.i, %184
+  %186 = sub i32 %.sroa.34.2.i, %184
+  %187 = icmp slt i32 %186, 16
+  br i1 %187, label %188, label %bitstring_skip.exit.i
 
-189:                                              ; preds = %bitstring_lookup.exit.thread.i
-  %190 = add i32 %.sroa.9.2.i, %1
-  %191 = call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %0, i32 noundef %190)
-  %192 = zext i16 %191 to i32
-  %193 = sub i32 16, %187
-  %194 = shl i32 %192, %193
-  %195 = add i32 %194, %186
-  %196 = add i32 %.sroa.9.2.i, 2
-  %197 = add nsw i32 %187, 16
+188:                                              ; preds = %bitstring_lookup.exit.thread.i
+  %189 = add i32 %.sroa.9.2.i, %1
+  %190 = call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %0, i32 noundef %189)
+  %191 = zext i16 %190 to i32
+  %192 = sub i32 16, %186
+  %193 = shl i32 %191, %192
+  %194 = add i32 %193, %185
+  %195 = add i32 %.sroa.9.2.i, 2
+  %196 = add nsw i32 %186, 16
   br label %bitstring_skip.exit.i
 
-bitstring_skip.exit.i:                            ; preds = %189, %bitstring_lookup.exit.thread.i
-  %.sroa.9.5.i = phi i32 [ %196, %189 ], [ %.sroa.9.2.i, %bitstring_lookup.exit.thread.i ]
-  %.sroa.22.3.i = phi i32 [ %195, %189 ], [ %186, %bitstring_lookup.exit.thread.i ]
-  %.sroa.34.3.i = phi i32 [ %197, %189 ], [ %187, %bitstring_lookup.exit.thread.i ]
-  %198 = add nuw nsw i32 %.021.i, 3
-  br label %199
+bitstring_skip.exit.i:                            ; preds = %188, %bitstring_lookup.exit.thread.i
+  %.sroa.9.5.i = phi i32 [ %195, %188 ], [ %.sroa.9.2.i, %bitstring_lookup.exit.thread.i ]
+  %.sroa.22.3.i = phi i32 [ %194, %188 ], [ %185, %bitstring_lookup.exit.thread.i ]
+  %.sroa.34.3.i = phi i32 [ %196, %188 ], [ %186, %bitstring_lookup.exit.thread.i ]
+  %197 = add nuw nsw i32 %.021.i, 3
+  br label %198
 
-199:                                              ; preds = %203, %bitstring_skip.exit.i
-  %.122.i = phi i32 [ %198, %bitstring_skip.exit.i ], [ %204, %203 ]
+198:                                              ; preds = %202, %bitstring_skip.exit.i
+  %.122.i = phi i32 [ %197, %bitstring_skip.exit.i ], [ %203, %202 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %200 = call i32 @wmem_array_get_count(ptr noundef %16)
-  %201 = add i32 %200, %.neg3085.i
-  %202 = call i32 @wmem_array_try_index(ptr noundef %16, i32 noundef %201, ptr noundef nonnull %7)
-  %.not33.i = icmp eq i32 %202, 0
-  br i1 %.not33.i, label %203, label %.critedge.i
+  %199 = call i32 @wmem_array_get_count(ptr noundef %16)
+  %200 = add i32 %199, %.neg3085.i
+  %201 = call i32 @wmem_array_try_index(ptr noundef %16, i32 noundef %200, ptr noundef nonnull %7)
+  %.not33.i = icmp eq i32 %201, 0
+  br i1 %.not33.i, label %202, label %.critedge.i
 
-203:                                              ; preds = %199
+202:                                              ; preds = %198
   call void @wmem_array_append(ptr noundef %16, ptr noundef nonnull %7, i32 noundef 1)
-  %204 = add nsw i32 %.122.i, -1
+  %203 = add nsw i32 %.122.i, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.not34.i = icmp eq i32 %204, 0
-  br i1 %.not34.i, label %.loopexit.i.backedge, label %199, !llvm.loop !13
+  %.not34.i = icmp eq i32 %203, 0
+  br i1 %.not34.i, label %.loopexit.i.backedge, label %198, !llvm.loop !13
 
-.critedge.i:                                      ; preds = %199
+.critedge.i:                                      ; preds = %198
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %do_uncompress.exit
 
-do_uncompress.exit:                               ; preds = %152, %168, %177, %bitstring_skip.exit.i.i, %28, %PrefixCodeTreeRebuild.exit.thread.i, %.critedge.i
-  %.0.i = phi i8 [ 0, %28 ], [ 0, %.critedge.i ], [ 0, %PrefixCodeTreeRebuild.exit.thread.i ], [ 0, %bitstring_skip.exit.i.i ], [ 1, %152 ], [ 0, %168 ], [ 0, %177 ]
+do_uncompress.exit:                               ; preds = %152, %167, %176, %bitstring_skip.exit.i.i, %28, %PrefixCodeTreeRebuild.exit.thread.i, %.critedge.i
+  %.0.i = phi i8 [ 0, %28 ], [ 0, %.critedge.i ], [ 0, %PrefixCodeTreeRebuild.exit.thread.i ], [ 0, %bitstring_skip.exit.i.i ], [ 1, %152 ], [ 0, %167 ], [ 0, %176 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store volatile i8 %.0.i, ptr %8, align 1
-  br label %205
+  br label %204
 
-205:                                              ; preds = %do_uncompress.exit, %26, %23
+204:                                              ; preds = %do_uncompress.exit, %26, %23
   %.0..0..0..0.9 = load volatile i32, ptr %10, align 4
-  %206 = icmp eq i32 %.0..0..0..0.9, 0
-  br i1 %206, label %207, label %210
+  %205 = icmp eq i32 %.0..0..0..0.9, 0
+  br i1 %205, label %206, label %209
 
-207:                                              ; preds = %205
+206:                                              ; preds = %204
   %.0..0..0..0.13 = load volatile ptr, ptr %9, align 8
   %.not29 = icmp eq ptr %.0..0..0..0.13, null
-  br i1 %.not29, label %210, label %208
+  br i1 %.not29, label %209, label %207
 
-208:                                              ; preds = %207
+207:                                              ; preds = %206
   %.0..0..0..0.10 = load volatile i32, ptr %10, align 4
-  %209 = or i32 %.0..0..0..0.10, 1
-  store volatile i32 %209, ptr %10, align 4
+  %208 = or i32 %.0..0..0..0.10, 1
+  store volatile i32 %208, ptr %10, align 4
   store volatile i8 0, ptr %8, align 1
-  br label %210
+  br label %209
 
-210:                                              ; preds = %208, %207, %205
+209:                                              ; preds = %207, %206, %204
   %.0..0..0..0.11 = load volatile i32, ptr %10, align 4
-  %211 = and i32 %.0..0..0..0.11, 1
-  %.not30 = icmp eq i32 %211, 0
-  br i1 %.not30, label %212, label %214
+  %210 = and i32 %.0..0..0..0.11, 1
+  %.not30 = icmp eq i32 %210, 0
+  br i1 %.not30, label %211, label %213
 
-212:                                              ; preds = %210
+211:                                              ; preds = %209
   %.0..0..0..0.14 = load volatile ptr, ptr %9, align 8
   %.not31 = icmp eq ptr %.0..0..0..0.14, null
-  br i1 %.not31, label %214, label %213
+  br i1 %.not31, label %213, label %212
 
-213:                                              ; preds = %212
+212:                                              ; preds = %211
   %.0..0..0..0.15 = load volatile ptr, ptr %9, align 8
   call void @except_rethrow(ptr noundef %.0..0..0..0.15) #11
   unreachable
 
-214:                                              ; preds = %212, %210
-  %215 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %216 = load volatile ptr, ptr %215, align 8
-  call void @except_free(ptr noundef %216)
-  %217 = call ptr @except_pop()
+213:                                              ; preds = %211, %209
+  %214 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %215 = load volatile ptr, ptr %214, align 8
+  call void @except_free(ptr noundef %215)
+  %216 = call ptr @except_pop()
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.0..0..0..0.23 = load volatile i8, ptr %8, align 1, !range !14, !noundef !15
-  %218 = trunc nuw i8 %.0..0..0..0.23 to i1
-  br i1 %218, label %219, label %225
+  %217 = trunc nuw i8 %.0..0..0..0.23 to i1
+  br i1 %217, label %218, label %224
 
-219:                                              ; preds = %214
-  %220 = call i32 @wmem_array_get_count(ptr noundef %16)
-  %221 = zext i32 %220 to i64
-  %222 = call noalias ptr @g_malloc(i64 noundef %221) #12
-  %223 = call ptr @wmem_array_get_raw(ptr noundef %16)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %222, ptr noundef align 1 %223, i64 noundef range(i64 0, 4294967296) %221, i1 noundef false) #13
-  %224 = call ptr @tvb_new_real_data(ptr noundef %222, i32 noundef %220, i32 noundef %220)
-  call void @tvb_set_free_cb(ptr noundef %224, ptr noundef nonnull @g_free)
-  br label %225
+218:                                              ; preds = %213
+  %219 = call i32 @wmem_array_get_count(ptr noundef %16)
+  %220 = zext i32 %219 to i64
+  %221 = call noalias ptr @g_malloc(i64 noundef %220) #12
+  %222 = call ptr @wmem_array_get_raw(ptr noundef %16)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %221, ptr noundef align 1 %222, i64 noundef range(i64 0, 4294967296) %220, i1 noundef false) #13
+  %223 = call ptr @tvb_new_real_data(ptr noundef %221, i32 noundef %219, i32 noundef %219)
+  call void @tvb_set_free_cb(ptr noundef %223, ptr noundef nonnull @g_free)
+  br label %224
 
-225:                                              ; preds = %214, %219
-  %.0 = phi ptr [ %224, %219 ], [ null, %214 ]
+224:                                              ; preds = %213, %218
+  %.0 = phi ptr [ %223, %218 ], [ null, %213 ]
   call void @wmem_destroy_allocator(ptr noundef %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.0

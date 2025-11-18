@@ -209,132 +209,130 @@ define internal range(i32 -2147483648, 2) i32 @xiph_handle_packet(ptr noundef %0
 
 90:                                               ; preds = %88
   %91 = getelementptr inbounds nuw i8, ptr %5, i64 6
-  %92 = icmp ult i8 %60, 64
-  br i1 %92, label %93, label %127
+  switch i32 %62, label %134 [
+    i32 0, label %92
+    i32 1, label %126
+  ]
 
-93:                                               ; preds = %90
-  %94 = tail call i32 @av_new_packet(ptr noundef %3, i32 noundef %69) #8
-  %95 = icmp slt i32 %94, 0
-  br i1 %95, label %96, label %97
+92:                                               ; preds = %90
+  %93 = tail call i32 @av_new_packet(ptr noundef %3, i32 noundef %69) #8
+  %94 = icmp slt i32 %93, 0
+  br i1 %94, label %95, label %96
 
-96:                                               ; preds = %93
+95:                                               ; preds = %92
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.21) #8
   br label %.critedge
 
-97:                                               ; preds = %93
-  %98 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %99 = load i32, ptr %98, align 8, !tbaa !33
-  %100 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  store i32 %99, ptr %100, align 4, !tbaa !40
-  %101 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %102 = load ptr, ptr %101, align 8, !tbaa !41
-  %103 = zext i16 %68 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %102, ptr nonnull align 1 %91, i64 %103, i1 false)
-  %104 = getelementptr inbounds nuw i8, ptr %91, i64 %103
-  %105 = sub nsw i32 %70, %69
-  %106 = add nsw i32 %65, -1
-  %107 = icmp samesign ugt i32 %65, 1
-  br i1 %107, label %108, label %.critedge
+96:                                               ; preds = %92
+  %97 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %98 = load i32, ptr %97, align 8, !tbaa !33
+  %99 = getelementptr inbounds nuw i8, ptr %3, i64 36
+  store i32 %98, ptr %99, align 4, !tbaa !40
+  %100 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %101 = load ptr, ptr %100, align 8, !tbaa !41
+  %102 = zext i16 %68 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %101, ptr nonnull align 1 %91, i64 %102, i1 false)
+  %103 = getelementptr inbounds nuw i8, ptr %91, i64 %102
+  %104 = sub nsw i32 %70, %69
+  %105 = add nsw i32 %65, -1
+  %106 = icmp samesign ugt i32 %65, 1
+  br i1 %106, label %107, label %.critedge
 
-108:                                              ; preds = %97
-  %109 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %110 = load i32, ptr %109, align 8, !tbaa !43
-  %111 = icmp sgt i32 %105, %110
-  br i1 %111, label %115, label %112
+107:                                              ; preds = %96
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %109 = load i32, ptr %108, align 8, !tbaa !43
+  %110 = icmp sgt i32 %104, %109
+  br i1 %110, label %114, label %111
 
-112:                                              ; preds = %108
-  %113 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %114 = load ptr, ptr %113, align 8, !tbaa !27
-  %.not135 = icmp eq ptr %114, null
-  br i1 %.not135, label %115, label %121
+111:                                              ; preds = %107
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %113 = load ptr, ptr %112, align 8, !tbaa !27
+  %.not135 = icmp eq ptr %113, null
+  br i1 %.not135, label %114, label %120
 
-115:                                              ; preds = %112, %108
-  %116 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @av_freep(ptr noundef nonnull %116) #8
-  %117 = shl nsw i32 %105, 1
-  store i32 %117, ptr %109, align 8, !tbaa !43
-  %118 = sext i32 %117 to i64
-  %119 = tail call noalias ptr @av_malloc(i64 noundef %118) #8
-  store ptr %119, ptr %116, align 8, !tbaa !27
-  %.not136 = icmp eq ptr %119, null
-  br i1 %.not136, label %120, label %121
+114:                                              ; preds = %111, %107
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  tail call void @av_freep(ptr noundef nonnull %115) #8
+  %116 = shl nsw i32 %104, 1
+  store i32 %116, ptr %108, align 8, !tbaa !43
+  %117 = sext i32 %116 to i64
+  %118 = tail call noalias ptr @av_malloc(i64 noundef %117) #8
+  store ptr %118, ptr %115, align 8, !tbaa !27
+  %.not136 = icmp eq ptr %118, null
+  br i1 %.not136, label %119, label %120
 
-120:                                              ; preds = %115
+119:                                              ; preds = %114
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.21) #8
   tail call void @av_packet_unref(ptr noundef nonnull %3) #8
   br label %.critedge
 
-121:                                              ; preds = %115, %112
-  %122 = phi ptr [ %119, %115 ], [ %114, %112 ]
-  %123 = sext i32 %105 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %122, ptr nonnull align 1 %104, i64 %123, i1 false)
-  %124 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  store i32 %105, ptr %124, align 4, !tbaa !30
-  %125 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 0, ptr %125, align 8, !tbaa !29
-  %126 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %106, ptr %126, align 4, !tbaa !31
+120:                                              ; preds = %114, %111
+  %121 = phi ptr [ %118, %114 ], [ %113, %111 ]
+  %122 = sext i32 %104 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %121, ptr nonnull align 1 %103, i64 %122, i1 false)
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  store i32 %104, ptr %123, align 4, !tbaa !30
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i32 0, ptr %124, align 8, !tbaa !29
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  store i32 %105, ptr %125, align 4, !tbaa !31
   br label %.critedge
 
-127:                                              ; preds = %90
-  %128 = icmp eq i32 %62, 1
-  br i1 %128, label %129, label %137
+126:                                              ; preds = %90
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  tail call void @ffio_free_dyn_buf(ptr noundef nonnull %127) #8
+  %128 = tail call i32 @avio_open_dyn_buf(ptr noundef nonnull %127) #8
+  %129 = icmp sgt i32 %128, -1
+  br i1 %129, label %130, label %.critedge
 
-129:                                              ; preds = %127
-  %130 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @ffio_free_dyn_buf(ptr noundef nonnull %130) #8
-  %131 = tail call i32 @avio_open_dyn_buf(ptr noundef nonnull %130) #8
-  %132 = icmp sgt i32 %131, -1
-  br i1 %132, label %133, label %.critedge
-
-133:                                              ; preds = %129
-  %134 = load ptr, ptr %130, align 8, !tbaa !44
-  tail call void @avio_write(ptr noundef %134, ptr noundef nonnull %91, i32 noundef %69) #8
-  %135 = load i32, ptr %4, align 4, !tbaa !45
-  %136 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %135, ptr %136, align 4, !tbaa !46
+130:                                              ; preds = %126
+  %131 = load ptr, ptr %127, align 8, !tbaa !44
+  tail call void @avio_write(ptr noundef %131, ptr noundef nonnull %91, i32 noundef %69) #8
+  %132 = load i32, ptr %4, align 4, !tbaa !45
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %132, ptr %133, align 4, !tbaa !46
   br label %.critedge
 
-137:                                              ; preds = %127
-  %138 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %139 = load i32, ptr %138, align 4, !tbaa !46
-  %140 = load i32, ptr %4, align 4, !tbaa !45
-  %.not133 = icmp eq i32 %139, %140
-  %141 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br i1 %.not133, label %143, label %142
+134:                                              ; preds = %90
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %136 = load i32, ptr %135, align 4, !tbaa !46
+  %137 = load i32, ptr %4, align 4, !tbaa !45
+  %.not133 = icmp eq i32 %136, %137
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  br i1 %.not133, label %140, label %139
 
-142:                                              ; preds = %137
-  tail call void @ffio_free_dyn_buf(ptr noundef nonnull %141) #8
+139:                                              ; preds = %134
+  tail call void @ffio_free_dyn_buf(ptr noundef nonnull %138) #8
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.26) #8
   br label %.critedge
 
-143:                                              ; preds = %137
-  %144 = load ptr, ptr %141, align 8, !tbaa !44
-  %.not134 = icmp eq ptr %144, null
-  br i1 %.not134, label %145, label %146
+140:                                              ; preds = %134
+  %141 = load ptr, ptr %138, align 8, !tbaa !44
+  %.not134 = icmp eq ptr %141, null
+  br i1 %.not134, label %142, label %143
 
-145:                                              ; preds = %143
+142:                                              ; preds = %140
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.27) #8
   br label %.critedge
 
-146:                                              ; preds = %143
-  tail call void @avio_write(ptr noundef nonnull %144, ptr noundef nonnull %91, i32 noundef %69) #8
-  %147 = icmp eq i32 %62, 3
-  br i1 %147, label %148, label %.critedge
+143:                                              ; preds = %140
+  tail call void @avio_write(ptr noundef nonnull %141, ptr noundef nonnull %91, i32 noundef %69) #8
+  %144 = icmp eq i32 %62, 3
+  br i1 %144, label %145, label %.critedge
 
-148:                                              ; preds = %146
-  %149 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %150 = load i32, ptr %149, align 8, !tbaa !33
-  %151 = tail call i32 @ff_rtp_finalize_packet(ptr noundef %3, ptr noundef nonnull %141, i32 noundef %150) #8
-  %152 = icmp slt i32 %151, 0
-  br i1 %152, label %153, label %.critedge
+145:                                              ; preds = %143
+  %146 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %147 = load i32, ptr %146, align 8, !tbaa !33
+  %148 = tail call i32 @ff_rtp_finalize_packet(ptr noundef %3, ptr noundef nonnull %138, i32 noundef %147) #8
+  %149 = icmp slt i32 %148, 0
+  br i1 %149, label %150, label %.critedge
 
-153:                                              ; preds = %148
+150:                                              ; preds = %145
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.28) #8
   br label %.critedge
 
-.critedge:                                        ; preds = %146, %133, %129, %153, %148, %97, %145, %142, %121, %120, %96, %89, %87, %72, %57, %38, %37, %33, %24
-  %.0 = phi i32 [ -1094995529, %57 ], [ -1094995529, %72 ], [ -1163346256, %87 ], [ -1163346256, %89 ], [ %94, %96 ], [ 1, %121 ], [ -12, %120 ], [ -1094995529, %142 ], [ -11, %145 ], [ -1094995529, %24 ], [ -1094995529, %33 ], [ %35, %37 ], [ %54, %38 ], [ 0, %97 ], [ %151, %153 ], [ 0, %148 ], [ %131, %129 ], [ -11, %133 ], [ -11, %146 ]
+.critedge:                                        ; preds = %143, %130, %126, %150, %145, %96, %142, %139, %120, %119, %95, %89, %87, %72, %57, %38, %37, %33, %24
+  %.0 = phi i32 [ -1094995529, %57 ], [ -1094995529, %72 ], [ -1163346256, %87 ], [ -1163346256, %89 ], [ %93, %95 ], [ 1, %120 ], [ -12, %119 ], [ -1094995529, %139 ], [ -11, %142 ], [ -1094995529, %24 ], [ -1094995529, %33 ], [ %35, %37 ], [ %54, %38 ], [ 0, %96 ], [ %148, %150 ], [ 0, %145 ], [ %128, %126 ], [ -11, %130 ], [ -11, %143 ]
   ret i32 %.0
 }
 

@@ -2949,7 +2949,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
   %50 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %0, i64 %.020.i.i.i.i.i
   %51 = load i64, ptr %46, align 4
   store i64 %51, ptr %50, align 4
-  %.not9.i.i.i = icmp ult i64 %.0921.in.i.i.i.i.i, 2
+  %.not9.i.i.i = icmp eq i64 %.0921.i.i78.i.i.i, 0
   br i1 %.not9.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !36
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit.i.i: ; preds = %49, %.lr.ph.i.i.i.i.i, %45
@@ -3292,7 +3292,7 @@ define linkonce_odr hidden void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_itera
   %42 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %.fr29, i64 %.020.i.i.i.us
   %43 = load i64, ptr %38, align 4
   store i64 %43, ptr %42, align 4
-  %.not9.i.us = icmp ult i64 %.0921.in.i.i.i.us, 2
+  %.not9.i.us = icmp eq i64 %.0921.i.i78.i.us, 0
   br i1 %.not9.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !36
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %41, %36

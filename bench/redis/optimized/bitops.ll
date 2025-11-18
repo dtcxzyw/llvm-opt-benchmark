@@ -708,7 +708,7 @@ define dso_local void @printBits(ptr noundef readonly captures(none) %0, i64 nou
   %8 = select i1 %.not10, i32 48, i32 49
   %putchar11 = tail call i32 @putchar(i32 %8)
   %9 = lshr i64 %.0812, 1
-  %.not = icmp samesign ult i64 %.0812, 2
+  %.not = icmp eq i64 %9, 0
   br i1 %.not, label %10, label %6, !llvm.loop !24
 
 10:                                               ; preds = %6

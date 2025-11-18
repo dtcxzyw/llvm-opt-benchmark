@@ -3447,7 +3447,7 @@ define hidden void @"_ZN60_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..hash..Ha
   br i1 %28, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h036d5e7edc746388E.exit63.i.i.i", label %29
 
 29:                                               ; preds = %27
-  %.not.i.i.i = icmp samesign ult i64 %4, 2
+  %.not.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i, label %_ZN4core4hash6Hasher9write_str17h84e52ea0eb5ede83E.llvm.12914733797323438017.exit, label %30
 
 30:                                               ; preds = %29
@@ -4138,13 +4138,13 @@ define hidden void @"_ZN69_$LT$core..ops..range..Bound$LT$T$GT$$u20$as$u20$core.
   %5 = add i64 %4, %3
   %6 = mul i64 %5, -1065810590584100411
   store i64 %6, ptr %1, align 8, !alias.scope !665
-  switch i64 %3, label %default.unreachable24 [
+  switch i64 %3, label %default.unreachable26 [
     i64 0, label %7
     i64 1, label %61
     i64 2, label %125
   ]
 
-default.unreachable24:                            ; preds = %2
+default.unreachable26:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -4199,7 +4199,7 @@ default.unreachable24:                            ; preds = %2
   br i1 %34, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h036d5e7edc746388E.exit63.i.i.i.i", label %35
 
 35:                                               ; preds = %33
-  %.not.i.i.i.i = icmp samesign ult i64 %10, 2
+  %.not.i.i.i.i = icmp eq i64 %11, 0
   br i1 %.not.i.i.i.i, label %.sink.split, label %36
 
 36:                                               ; preds = %35
@@ -4291,7 +4291,7 @@ default.unreachable24:                            ; preds = %2
   br i1 %88, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h036d5e7edc746388E.exit63.i.i.i.i14", label %89
 
 89:                                               ; preds = %87
-  %.not.i.i.i.i13 = icmp samesign ult i64 %64, 2
+  %.not.i.i.i.i13 = icmp eq i64 %65, 0
   br i1 %.not.i.i.i.i13, label %.sink.split, label %90
 
 90:                                               ; preds = %89

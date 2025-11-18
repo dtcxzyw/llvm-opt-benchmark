@@ -11817,7 +11817,7 @@ _ZN4lean3incEP11lean_objectm.exit:                ; preds = %_ZN4lean2ir11interp
   %464 = load ptr, ptr %463, align 8, !tbaa !6
   %465 = ptrtoint ptr %464 to i64
   %466 = lshr i64 %465, 1
-  %.not339 = icmp ult ptr %464, inttoptr (i64 2 to ptr)
+  %.not339 = icmp eq i64 %466, 0
   br i1 %.not339, label %._crit_edge328, label %.lr.ph327
 
 ._crit_edge328.loopexit:                          ; preds = %_ZN4lean3decEP11lean_object.exit

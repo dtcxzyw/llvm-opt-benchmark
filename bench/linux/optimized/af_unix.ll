@@ -3330,7 +3330,7 @@ define internal noundef range(i32 -22, 1) i32 @unix_shutdown(ptr noundef readonl
   br i1 %56, label %70, label %.sink.split
 
 57:                                               ; preds = %38
-  %58 = icmp eq i32 %1, 0
+  %58 = icmp eq i32 %41, 0
   br i1 %58, label %70, label %59
 
 59:                                               ; preds = %57

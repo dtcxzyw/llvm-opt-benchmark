@@ -2387,7 +2387,7 @@ _ZN6object4read3elf10relocation16parse_relocation17h50156b71074c3d73E.exit: ; pr
   %130 = shl i64 %.0.i.i.i174.i, 32
   %spec.select.i.i = select i1 %.0.i3.i, i64 %130, i64 %.0.i.i.i174.i
   %131 = lshr i64 %spec.select.i.i, 32
-  %132 = icmp ult i64 %spec.select.i.i, 4294967296
+  %132 = icmp eq i64 %131, 0
   %.13.i = select i1 %132, i64 2, i64 0
   %133 = tail call i64 @llvm.bswap.i64(i64 %.sink14.i)
   %.0.i.i20.i = select i1 %8, i64 %133, i64 %.sink14.i
@@ -2902,7 +2902,7 @@ _ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit: ; pr
   %106 = tail call i32 @llvm.bswap.i32(i32 %.sink15.i)
   %.0.i.i32.i = select i1 %8, i32 %106, i32 %.sink15.i
   %107 = lshr i32 %.0.i.i32.i, 8
-  %108 = icmp ult i32 %.0.i.i32.i, 256
+  %108 = icmp eq i32 %107, 0
   %.27.i = select i1 %108, i64 2, i64 0
   %109 = zext nneg i32 %107 to i64
   %110 = tail call i32 @llvm.bswap.i32(i32 %.sink14.i)

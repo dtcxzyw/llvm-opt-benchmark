@@ -11546,7 +11546,7 @@ _ZZN4llvm16DWARFTypePrinterINS_8DWARFDieEE26appendUnqualifiedNameAfterES1_S1_bEN
   %275 = getelementptr inbounds i8, ptr %.117.i, i64 -1
   store i8 %274, ptr %275, align 1, !tbaa !203, !noalias !598
   %276 = lshr i64 %.019.i, 4
-  %277 = icmp ult i64 %.019.i, 16
+  %277 = icmp eq i64 %276, 0
   br i1 %277, label %._crit_edge.i, label %.thread.i80, !llvm.loop !600
 
 _ZN4llvm9utohexstrB5cxx11Embj.exit:               ; preds = %._crit_edge.i.i.i, %268, %270

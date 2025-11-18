@@ -145,7 +145,7 @@ define internal range(i32 -2147483648, 1) i32 @read_packet(ptr noundef readonly 
   %24 = load ptr, ptr %23, align 8, !tbaa !44
   %25 = zext nneg i32 %11 to i64
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 %25
-  %.not54 = icmp samesign ult i32 %10, 8
+  %.not54 = icmp eq i32 %11, 0
   br i1 %.not54, label %flush_put_bits.exit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %22

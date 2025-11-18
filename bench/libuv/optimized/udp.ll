@@ -1238,7 +1238,7 @@ define internal void @uv__udp_io(ptr readnone captures(none) %0, ptr noundef %1,
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %37 = lshr i64 %29, 16
   %spec.store.select.i.i = call i64 @llvm.umin.i64(i64 %37, i64 20)
-  %.not66.i.i = icmp ult i64 %29, 65536
+  %.not66.i.i = icmp eq i64 %37, 0
   br i1 %.not66.i.i, label %.preheader57.i.i, label %.lr.ph.i.i
 
 .preheader57.i.i:                                 ; preds = %.lr.ph.i.i, %36

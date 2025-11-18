@@ -19188,7 +19188,7 @@ ft_mem_qalloc.exit:                               ; preds = %72
   store i32 10, ptr %8, align 4, !tbaa !168
   %100 = lshr i16 %97, 8
   %101 = zext nneg i16 %100 to i32
-  %102 = icmp ult i16 %97, 256
+  %102 = icmp eq i16 %100, 0
   br i1 %102, label %145, label %103
 
 103:                                              ; preds = %99

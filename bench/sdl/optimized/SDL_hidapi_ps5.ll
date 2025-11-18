@@ -1161,8 +1161,8 @@ HIDAPI_DriverPS5_UpdateEffects.exit:              ; preds = %17
   store i8 %28, ptr %29, align 2
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %5, i8 0, i64 47, i1 false)
-  %30 = or i16 %3, %2
-  %or.cond = icmp ugt i16 %30, 255
+  %30 = or i16 %27, %25
+  %or.cond = icmp ne i16 %30, 0
   %or.cond17.not = and i1 %or.cond, %24
   br i1 %or.cond17.not, label %31, label %HIDAPI_DriverPS5_UpdateEffects.exit15
 

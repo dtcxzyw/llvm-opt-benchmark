@@ -9045,7 +9045,7 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor13UnaryFlatLoopINS_11Stdd
 7:                                                ; preds = %5
   %8 = add i64 %4, 63
   %9 = lshr i64 %8, 6
-  %.not69 = icmp ult i64 %8, 64
+  %.not69 = icmp eq i64 %9, 0
   br i1 %.not69, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %7, %.loopexit57
@@ -9783,7 +9783,7 @@ _ZN6duckdb19STDDevBaseOperation17ConstantOperationIdNS_11StddevStateENS_19STDDev
 define linkonce_odr void @_ZN6duckdb17AggregateExecutor19UnaryFlatUpdateLoopINS_11StddevStateEdNS_19STDDevSampOperationEEEvPKT0_RNS_18AggregateInputDataEPT_mRNS_12ValidityMaskE(ptr noalias noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noalias noundef %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4) local_unnamed_addr #4 comdat align 2 {
   %6 = add i64 %3, 63
   %7 = lshr i64 %6, 6
-  %.not52 = icmp ult i64 %6, 64
+  %.not52 = icmp eq i64 %7, 0
   br i1 %.not52, label %._crit_edge, label %.lr.ph51
 
 .lr.ph51:                                         ; preds = %5
@@ -10581,7 +10581,7 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor13UnaryFlatLoopINS_11Stdd
 7:                                                ; preds = %5
   %8 = add i64 %4, 63
   %9 = lshr i64 %8, 6
-  %.not69 = icmp ult i64 %8, 64
+  %.not69 = icmp eq i64 %9, 0
   br i1 %.not69, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %7, %.loopexit57
@@ -11258,7 +11258,7 @@ _ZN6duckdb19STDDevBaseOperation17ConstantOperationIdNS_11StddevStateENS_18STDDev
 define linkonce_odr void @_ZN6duckdb17AggregateExecutor19UnaryFlatUpdateLoopINS_11StddevStateEdNS_18STDDevPopOperationEEEvPKT0_RNS_18AggregateInputDataEPT_mRNS_12ValidityMaskE(ptr noalias noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noalias noundef %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4) local_unnamed_addr #4 comdat align 2 {
   %6 = add i64 %3, 63
   %7 = lshr i64 %6, 6
-  %.not52 = icmp ult i64 %6, 64
+  %.not52 = icmp eq i64 %7, 0
   br i1 %.not52, label %._crit_edge, label %.lr.ph51
 
 .lr.ph51:                                         ; preds = %5
@@ -12056,7 +12056,7 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor13UnaryFlatLoopINS_11Stdd
 7:                                                ; preds = %5
   %8 = add i64 %4, 63
   %9 = lshr i64 %8, 6
-  %.not69 = icmp ult i64 %8, 64
+  %.not69 = icmp eq i64 %9, 0
   br i1 %.not69, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %7, %.loopexit57
@@ -12732,7 +12732,7 @@ _ZN6duckdb19STDDevBaseOperation17ConstantOperationIdNS_11StddevStateENS_15VarPop
 define linkonce_odr void @_ZN6duckdb17AggregateExecutor19UnaryFlatUpdateLoopINS_11StddevStateEdNS_15VarPopOperationEEEvPKT0_RNS_18AggregateInputDataEPT_mRNS_12ValidityMaskE(ptr noalias noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noalias noundef %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4) local_unnamed_addr #4 comdat align 2 {
   %6 = add i64 %3, 63
   %7 = lshr i64 %6, 6
-  %.not52 = icmp ult i64 %6, 64
+  %.not52 = icmp eq i64 %7, 0
   br i1 %.not52, label %._crit_edge, label %.lr.ph51
 
 .lr.ph51:                                         ; preds = %5
@@ -13530,7 +13530,7 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor13UnaryFlatLoopINS_11Stdd
 7:                                                ; preds = %5
   %8 = add i64 %4, 63
   %9 = lshr i64 %8, 6
-  %.not69 = icmp ult i64 %8, 64
+  %.not69 = icmp eq i64 %9, 0
   br i1 %.not69, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %7, %.loopexit57
@@ -14201,7 +14201,7 @@ _ZN6duckdb19STDDevBaseOperation17ConstantOperationIdNS_11StddevStateENS_16VarSam
 define linkonce_odr void @_ZN6duckdb17AggregateExecutor19UnaryFlatUpdateLoopINS_11StddevStateEdNS_16VarSampOperationEEEvPKT0_RNS_18AggregateInputDataEPT_mRNS_12ValidityMaskE(ptr noalias noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noalias noundef %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4) local_unnamed_addr #4 comdat align 2 {
   %6 = add i64 %3, 63
   %7 = lshr i64 %6, 6
-  %.not52 = icmp ult i64 %6, 64
+  %.not52 = icmp eq i64 %7, 0
   br i1 %.not52, label %._crit_edge, label %.lr.ph51
 
 .lr.ph51:                                         ; preds = %5
@@ -14999,7 +14999,7 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor13UnaryFlatLoopINS_11Stdd
 7:                                                ; preds = %5
   %8 = add i64 %4, 63
   %9 = lshr i64 %8, 6
-  %.not69 = icmp ult i64 %8, 64
+  %.not69 = icmp eq i64 %9, 0
   br i1 %.not69, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %7, %.loopexit57
@@ -15672,7 +15672,7 @@ _ZN6duckdb19STDDevBaseOperation17ConstantOperationIdNS_11StddevStateENS_31Standa
 define linkonce_odr void @_ZN6duckdb17AggregateExecutor19UnaryFlatUpdateLoopINS_11StddevStateEdNS_31StandardErrorOfTheMeanOperationEEEvPKT0_RNS_18AggregateInputDataEPT_mRNS_12ValidityMaskE(ptr noalias noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noalias noundef %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4) local_unnamed_addr #4 comdat align 2 {
   %6 = add i64 %3, 63
   %7 = lshr i64 %6, 6
-  %.not52 = icmp ult i64 %6, 64
+  %.not52 = icmp eq i64 %7, 0
   br i1 %.not52, label %._crit_edge, label %.lr.ph51
 
 .lr.ph51:                                         ; preds = %5
@@ -16113,7 +16113,7 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %11, %_ZN
 40:                                               ; preds = %33
   %41 = add i64 %3, 63
   %42 = lshr i64 %41, 6
-  %.not69.i = icmp ult i64 %41, 64
+  %.not69.i = icmp eq i64 %42, 0
   br i1 %.not69.i, label %_ZN6duckdb17AggregateExecutor13UnaryFlatLoopINS_8AvgStateIlEEsNS_23IntegerAverageOperationEEEvPKT0_RNS_18AggregateInputDataEPPT_RNS_12ValidityMaskEm.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %40, %.loopexit57.i
@@ -16960,7 +16960,7 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %7, %_ZN6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !270)
   %26 = add i64 %3, 63
   %27 = lshr i64 %26, 6
-  %.not50.i = icmp ult i64 %26, 64
+  %.not50.i = icmp eq i64 %27, 0
   br i1 %.not50.i, label %_ZN6duckdb17AggregateExecutor19UnaryFlatUpdateLoopINS_8AvgStateIlEEsNS_23IntegerAverageOperationEEEvPKT0_RNS_18AggregateInputDataEPT_mRNS_12ValidityMaskE.exit, label %.lr.ph49.i
 
 .lr.ph49.i:                                       ; preds = %23
@@ -17714,7 +17714,7 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor13UnaryFlatLoopINS_8AvgSt
 7:                                                ; preds = %5
   %8 = add i64 %4, 63
   %9 = lshr i64 %8, 6
-  %.not73 = icmp ult i64 %8, 64
+  %.not73 = icmp eq i64 %9, 0
   br i1 %.not73, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %7, %.loopexit61
@@ -18593,7 +18593,7 @@ _ZN6duckdb19UnifiedVectorFormatD2Ev.exit:         ; preds = %_ZN6duckdb15Selecti
 define linkonce_odr void @_ZN6duckdb17AggregateExecutor19UnaryFlatUpdateLoopINS_8AvgStateINS_9hugeint_tEEEiNS_30IntegerAverageOperationHugeintEEEvPKT0_RNS_18AggregateInputDataEPT_mRNS_12ValidityMaskE(ptr noalias noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noalias noundef %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4) local_unnamed_addr #4 comdat align 2 {
   %6 = add i64 %3, 63
   %7 = lshr i64 %6, 6
-  %.not52 = icmp ult i64 %6, 64
+  %.not52 = icmp eq i64 %7, 0
   br i1 %.not52, label %._crit_edge, label %.lr.ph51
 
 .lr.ph51:                                         ; preds = %5
@@ -19257,7 +19257,7 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor13UnaryFlatLoopINS_8AvgSt
 7:                                                ; preds = %5
   %8 = add i64 %4, 63
   %9 = lshr i64 %8, 6
-  %.not73 = icmp ult i64 %8, 64
+  %.not73 = icmp eq i64 %9, 0
   br i1 %.not73, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %7, %.loopexit61
@@ -19971,7 +19971,7 @@ _ZN6duckdb19UnifiedVectorFormatD2Ev.exit:         ; preds = %_ZN6duckdb15Selecti
 define linkonce_odr void @_ZN6duckdb17AggregateExecutor19UnaryFlatUpdateLoopINS_8AvgStateINS_9hugeint_tEEElNS_30IntegerAverageOperationHugeintEEEvPKT0_RNS_18AggregateInputDataEPT_mRNS_12ValidityMaskE(ptr noalias noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noalias noundef %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4) local_unnamed_addr #4 comdat align 2 {
   %6 = add i64 %3, 63
   %7 = lshr i64 %6, 6
-  %.not52 = icmp ult i64 %6, 64
+  %.not52 = icmp eq i64 %7, 0
   br i1 %.not52, label %._crit_edge, label %.lr.ph51
 
 .lr.ph51:                                         ; preds = %5
@@ -20696,7 +20696,7 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor13UnaryFlatLoopINS_8AvgSt
 7:                                                ; preds = %5
   %8 = add i64 %4, 63
   %9 = lshr i64 %8, 6
-  %.not87 = icmp ult i64 %8, 64
+  %.not87 = icmp eq i64 %9, 0
   br i1 %.not87, label %.loopexit, label %.lr.ph84
 
 .lr.ph84:                                         ; preds = %7, %.loopexit73
@@ -22424,7 +22424,7 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %8, %_ZN6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !355)
   %32 = add i64 %3, 63
   %33 = lshr i64 %32, 6
-  %.not55.i = icmp ult i64 %32, 64
+  %.not55.i = icmp eq i64 %33, 0
   br i1 %.not55.i, label %_ZN6duckdb17AggregateExecutor19UnaryFlatUpdateLoopINS_8AvgStateINS_9hugeint_tEEES3_NS_23HugeintAverageOperationEEEvPKT0_RNS_18AggregateInputDataEPT_mRNS_12ValidityMaskE.exit, label %.lr.ph54.i
 
 .lr.ph54.i:                                       ; preds = %28
@@ -23205,7 +23205,7 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor13UnaryFlatLoopINS_16Inte
 7:                                                ; preds = %5
   %8 = add i64 %4, 63
   %9 = lshr i64 %8, 6
-  %.not87 = icmp ult i64 %8, 64
+  %.not87 = icmp eq i64 %9, 0
   br i1 %.not87, label %.loopexit, label %.lr.ph84
 
 .lr.ph84:                                         ; preds = %7, %.loopexit73
@@ -24358,7 +24358,7 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %7, %_ZN6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !394)
   %21 = add i64 %3, 63
   %22 = lshr i64 %21, 6
-  %.not55.i = icmp ult i64 %21, 64
+  %.not55.i = icmp eq i64 %22, 0
   br i1 %.not55.i, label %_ZN6duckdb17AggregateExecutor19UnaryFlatUpdateLoopINS_16IntervalAvgStateENS_10interval_tENS_24IntervalAverageOperationEEEvPKT0_RNS_18AggregateInputDataEPT_mRNS_12ValidityMaskE.exit, label %.lr.ph54.i
 
 .lr.ph54.i:                                       ; preds = %17
@@ -25614,7 +25614,7 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %11, %_ZN
 39:                                               ; preds = %32
   %40 = add i64 %3, 63
   %41 = lshr i64 %40, 6
-  %.not69.i = icmp ult i64 %40, 64
+  %.not69.i = icmp eq i64 %41, 0
   br i1 %.not69.i, label %_ZN6duckdb17AggregateExecutor13UnaryFlatLoopINS_8AvgStateIdEEdNS_23NumericAverageOperationEEEvPKT0_RNS_18AggregateInputDataEPPT_RNS_12ValidityMaskEm.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %39, %.loopexit57.i
@@ -26344,7 +26344,7 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %7, %_ZN6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !431)
   %25 = add i64 %3, 63
   %26 = lshr i64 %25, 6
-  %.not50.i = icmp ult i64 %25, 64
+  %.not50.i = icmp eq i64 %26, 0
   br i1 %.not50.i, label %_ZN6duckdb17AggregateExecutor19UnaryFlatUpdateLoopINS_8AvgStateIdEEdNS_23NumericAverageOperationEEEvPKT0_RNS_18AggregateInputDataEPT_mRNS_12ValidityMaskE.exit, label %.lr.ph49.i
 
 .lr.ph49.i:                                       ; preds = %22
@@ -27084,7 +27084,7 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor13UnaryFlatLoopINS_8AvgSt
 7:                                                ; preds = %5
   %8 = add i64 %4, 63
   %9 = lshr i64 %8, 6
-  %.not73 = icmp ult i64 %8, 64
+  %.not73 = icmp eq i64 %9, 0
   br i1 %.not73, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %7, %.loopexit61
@@ -27811,7 +27811,7 @@ _ZN6duckdb19UnifiedVectorFormatD2Ev.exit:         ; preds = %_ZN6duckdb15Selecti
 define linkonce_odr void @_ZN6duckdb17AggregateExecutor19UnaryFlatUpdateLoopINS_8AvgStateINS_9hugeint_tEEElNS_24DiscreteAverageOperationEEEvPKT0_RNS_18AggregateInputDataEPT_mRNS_12ValidityMaskE(ptr noalias noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noalias noundef %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4) local_unnamed_addr #4 comdat align 2 {
   %6 = add i64 %3, 63
   %7 = lshr i64 %6, 6
-  %.not52 = icmp ult i64 %6, 64
+  %.not52 = icmp eq i64 %7, 0
   br i1 %.not52, label %._crit_edge, label %.lr.ph51
 
 .lr.ph51:                                         ; preds = %5
@@ -28543,7 +28543,7 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor13UnaryFlatLoopINS_13Kaha
 7:                                                ; preds = %5
   %8 = add i64 %4, 63
   %9 = lshr i64 %8, 6
-  %.not69 = icmp ult i64 %8, 64
+  %.not69 = icmp eq i64 %9, 0
   br i1 %.not69, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %7, %.loopexit57
@@ -29187,7 +29187,7 @@ _ZN6duckdb19UnifiedVectorFormatD2Ev.exit:         ; preds = %_ZN6duckdb15Selecti
 define linkonce_odr void @_ZN6duckdb17AggregateExecutor19UnaryFlatUpdateLoopINS_13KahanAvgStateEdNS_21KahanAverageOperationEEEvPKT0_RNS_18AggregateInputDataEPT_mRNS_12ValidityMaskE(ptr noalias noundef %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noalias noundef %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4) local_unnamed_addr #4 comdat align 2 {
   %6 = add i64 %3, 63
   %7 = lshr i64 %6, 6
-  %.not52 = icmp ult i64 %6, 64
+  %.not52 = icmp eq i64 %7, 0
   br i1 %.not52, label %._crit_edge, label %.lr.ph51
 
 .lr.ph51:                                         ; preds = %5

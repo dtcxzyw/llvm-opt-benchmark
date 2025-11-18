@@ -1952,7 +1952,7 @@ define internal fastcc range(i32 -1, 2) i32 @search_chunk(i32 %.132.val, i32 %.1
   %.098 = phi i32 [ %47, %46 ], [ %.2, %88 ]
   %49 = add i32 %.098, %.099
   %50 = lshr i32 %49, 1
-  %.not119 = icmp ult i32 %49, 2
+  %.not119 = icmp eq i32 %50, 0
   br i1 %.not119, label %58, label %51
 
 51:                                               ; preds = %48
@@ -2038,7 +2038,7 @@ read_encint.exit:                                 ; preds = %63, %66
 91:                                               ; preds = %88
   %92 = add nuw i32 %.2, %.2101
   %93 = lshr i32 %92, 1
-  %.not122 = icmp ult i32 %92, 2
+  %.not122 = icmp eq i32 %93, 0
   br i1 %.not122, label %101, label %94
 
 94:                                               ; preds = %91
@@ -2061,10 +2061,10 @@ read_encint.exit:                                 ; preds = %63, %66
   br i1 %.not12340, label %._crit_edge, label %.preheader32.lr.ph
 
 .preheader32.lr.ph:                               ; preds = %.thread, %101
-  %.010272 = phi i32 [ %34, %.thread ], [ %spec.select135, %101 ]
-  %.pn.in71 = phi i32 [ %., %.thread ], [ %103, %101 ]
-  %106 = add i32 %.010272, -1
-  %.pn = zext nneg i32 %.pn.in71 to i64
+  %.010271 = phi i32 [ %34, %.thread ], [ %spec.select135, %101 ]
+  %.pn.in70 = phi i32 [ %., %.thread ], [ %103, %101 ]
+  %106 = add i32 %.010271, -1
+  %.pn = zext nneg i32 %.pn.in70 to i64
   %.214 = getelementptr inbounds nuw i8, ptr %0, i64 %.pn
   br i1 %.not126.not, label %.preheader32.us, label %.preheader32
 

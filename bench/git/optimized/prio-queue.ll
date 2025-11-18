@@ -178,7 +178,7 @@ compare.exit:                                     ; preds = %31, %44
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %53, ptr noundef nonnull align 1 dereferenceable(16) %54, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %54, ptr noundef nonnull align 16 dereferenceable(16) %3, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.not31 = icmp ult i64 %32, 2
+  %.not31 = icmp eq i64 %33, 0
   br i1 %.not31, label %.loopexit, label %31, !llvm.loop !21
 
 .loopexit:                                        ; preds = %compare.exit, %52, %20

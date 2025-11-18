@@ -15491,7 +15491,7 @@ define hidden void @"_ZN61_$LT$smallbitvec..SmallBitVec$u20$as$u20$core..hash..H
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %28 = load i64, ptr %27, align 8, !noundef !4
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %30 = icmp ult i64 %22, 64
+  %30 = icmp eq i64 %25, 0
   br i1 %30, label %33, label %36
 
 .sink.split:                                      ; preds = %7, %50
@@ -15533,7 +15533,7 @@ define hidden void @"_ZN61_$LT$smallbitvec..SmallBitVec$u20$as$u20$core..hash..H
   %43 = tail call i64 @llvm.fshl.i64(i64 %.070.i, i64 %.070.i, i64 5)
   %44 = xor i64 %.val.i.i.i, %43
   %45 = mul i64 %44, 5871781006564002453
-  %46 = add nsw i64 %.sroa.11.071.i, -8
+  %46 = add i64 %.sroa.11.071.i, -8
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.0.072.i, i64 8
   %.not = icmp eq i64 %46, 0
   br i1 %.not, label %"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17h1b5bccc7a572b111E.exit", label %.lr.ph.i

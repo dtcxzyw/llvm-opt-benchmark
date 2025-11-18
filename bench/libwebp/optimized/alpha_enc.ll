@@ -283,7 +283,7 @@ GetFilterMap.exit.i.i:                            ; preds = %78, %GetNumColors.e
   %104 = add nuw nsw i32 %.04864.i.i, 1
   %105 = lshr i32 %.04565.i.i, 1
   %106 = icmp ne i32 %.2.i.i, 0
-  %107 = icmp ugt i32 %.04565.i.i, 1
+  %107 = icmp ne i32 %105, 0
   %108 = and i1 %107, %106
   br i1 %108, label %92, label %109, !llvm.loop !59
 

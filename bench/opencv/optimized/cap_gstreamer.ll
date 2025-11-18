@@ -31791,7 +31791,7 @@ define linkonce_odr void @_ZNSt5dequeIhSaIhEE23_M_new_elements_at_backEm(ptr nou
   br label %_ZNSt5dequeIhSaIhEE22_M_reserve_map_at_backEm.exit
 
 _ZNSt5dequeIhSaIhEE22_M_reserve_map_at_backEm.exit: ; preds = %29, %39
-  %.not26 = icmp ult i64 %30, 512
+  %.not26 = icmp eq i64 %31, 0
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt5dequeIhSaIhEE22_M_reserve_map_at_backEm.exit

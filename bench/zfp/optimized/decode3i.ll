@@ -610,7 +610,7 @@ stream_read_bit.exit._crit_edge.i:                ; preds = %stream_read_bit.exi
   store i32 %72, ptr %70, align 4, !tbaa !23, !alias.scope !29, !noalias !26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %73 = lshr i64 %.1114.i, 1
-  %.not55.i = icmp ult i64 %.1114.i, 2
+  %.not55.i = icmp eq i64 %73, 0
   br i1 %.not55.i, label %.loopexit.i, label %.lr.ph116.i
 
 decode_few_ints_uint32.exit:                      ; preds = %.loopexit.i, %.lr.ph124.i, %8
@@ -783,7 +783,7 @@ stream_read_bit.exit45.i:                         ; preds = %110, %._crit_edge.i
   store i32 %128, ptr %126, align 4, !tbaa !23, !alias.scope !36, !noalias !33
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i32, 1
   %129 = lshr i64 %.1100.i, 1
-  %.not38.i = icmp ult i64 %.1100.i, 2
+  %.not38.i = icmp eq i64 %129, 0
   br i1 %.not38.i, label %.loopexit.i34, label %.lr.ph101.i
 
 decode_few_ints_prec_uint32.exit:                 ; preds = %.loopexit.i34, %75

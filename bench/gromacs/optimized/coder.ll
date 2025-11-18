@@ -1064,8 +1064,8 @@ pack_triplet.exit:                                ; preds = %115
 Ptngc_out8bits.exit.i.i:                          ; preds = %.lr.ph.i.i.i, %214
   %234 = phi i32 [ %219, %214 ], [ %232, %.lr.ph.i.i.i ]
   %.10 = phi ptr [ %.9, %214 ], [ %229, %.lr.ph.i.i.i ]
-  %235 = tail call i32 @llvm.umax.i32(i32 %.021.i.i, i32 2)
-  %spec.store.select.i.i = lshr i32 %235, 1
+  %235 = lshr i32 %.021.i.i, 1
+  %spec.store.select.i.i = tail call i32 @llvm.umax.i32(i32 %235, i32 1)
   br i1 %.not.i.i, label %pack_stopbits_item.exit, label %204, !llvm.loop !33
 
 pack_stopbits_item.exit:                          ; preds = %Ptngc_out8bits.exit.i.i
@@ -1188,7 +1188,7 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %spec.select.i = or i32 %15, %.1427.i
   %16 = lshr i32 %.1378.i, 1
   %17 = lshr i32 %.2495.i, 1
-  %.not58.i = icmp ult i32 %.2495.i, 2
+  %.not58.i = icmp eq i32 %17, 0
   %.350.i = select i1 %.not58.i, i32 128, i32 %17
   %.3.idx.i = zext i1 %.not58.i to i64
   %.3.i = getelementptr inbounds nuw i8, ptr %.2466.i, i64 %.3.idx.i
@@ -1204,7 +1204,7 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %20 = zext i8 %19 to i32
   %21 = and i32 %.249.lcssa.i, %20
   %22 = lshr i32 %.249.lcssa.i, 1
-  %.not.i = icmp samesign ult i32 %.249.lcssa.i, 2
+  %.not.i = icmp eq i32 %22, 0
   %spec.select59.i = select i1 %.not.i, i32 128, i32 %22
   %spec.select60.idx.i = zext i1 %.not.i to i64
   %spec.select60.i = getelementptr inbounds nuw i8, ptr %.246.lcssa.i, i64 %spec.select60.idx.i
@@ -1290,7 +1290,7 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %63 = zext i1 %.not71.i to i32
   %spec.select.i44 = or disjoint i32 %62, %63
   %64 = lshr i32 %.1596.i, 1
-  %.not72.i = icmp ult i32 %.1596.i, 2
+  %.not72.i = icmp eq i32 %64, 0
   %.260.i = select i1 %.not72.i, i32 128, i32 %64
   %.2.idx.i = zext i1 %.not72.i to i64
   %.2.i = getelementptr inbounds nuw i8, ptr %.1577.i, i64 %.2.idx.i
@@ -1328,7 +1328,7 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %74 = zext i1 %.not69.us.i to i32
   %spec.select73.us.i = or disjoint i32 %73, %74
   %75 = lshr i32 %.4629.us.i, 1
-  %.not70.us.i = icmp ult i32 %.4629.us.i, 2
+  %.not70.us.i = icmp eq i32 %75, 0
   %.563.us.i = select i1 %.not70.us.i, i32 128, i32 %75
   %.5.idx.us.i = zext i1 %.not70.us.i to i64
   %.5.us.i = getelementptr inbounds nuw i8, ptr %.410.us.i, i64 %.5.idx.us.i

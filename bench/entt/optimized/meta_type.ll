@@ -16709,7 +16709,7 @@ _ZN4entt7resolveIbEENS_9meta_typeEv.exit:         ; preds = %1, %43
   store i32 %67, ptr %7, align 4, !tbaa !256
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !256
-  %68 = icmp ult i32 %66, 65536
+  %68 = icmp eq i32 %67, 0
   br i1 %68, label %69, label %70
 
 69:                                               ; preds = %_ZN4entt7resolveIbEENS_9meta_typeEv.exit
@@ -16994,7 +16994,7 @@ _ZN4entt7resolveI5clazzEENS_9meta_typeEv.exit:    ; preds = %151, %153
   store i32 %177, ptr %13, align 4, !tbaa !256
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4, !tbaa !256
-  %178 = icmp ult i32 %176, 65536
+  %178 = icmp eq i32 %177, 0
   br i1 %178, label %179, label %180
 
 179:                                              ; preds = %_ZN4entt7resolveI5clazzEENS_9meta_typeEv.exit

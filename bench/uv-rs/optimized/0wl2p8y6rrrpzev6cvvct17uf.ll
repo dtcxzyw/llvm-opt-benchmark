@@ -36361,7 +36361,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h0c1e4fdbd498b132E.llvm.94
   br i1 %96, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6a6bacf38e75e827E.exit63.i.i.i.i.i.i.i.i", label %97
 
 97:                                               ; preds = %95
-  %.not.i.i.i.i.i.i.i.i = icmp samesign ult i64 %72, 2
+  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %73, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %123, label %98
 
 98:                                               ; preds = %97
@@ -36481,9 +36481,9 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h0c1e4fdbd498b132E.llvm.94
 169:                                              ; preds = %12
   %.val5 = load ptr, ptr %0, align 8
   %.not5.i = icmp eq i64 %17, 0
-  br i1 %.not5.i, label %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17ha03222f1d74e39fbE.exit.thread95, label %.lr.ph.i
+  br i1 %.not5.i, label %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17ha03222f1d74e39fbE.exit.thread97, label %.lr.ph.i
 
-_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17ha03222f1d74e39fbE.exit.thread95: ; preds = %169
+_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17ha03222f1d74e39fbE.exit.thread97: ; preds = %169
   %170 = icmp ne ptr %.val5, null
   tail call void @llvm.assume(i1 %170)
   %171 = getelementptr inbounds nuw i8, ptr %.val5, i64 16
@@ -36502,9 +36502,9 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17ha03222f1d74e39fbE.ex
 
 ._crit_edge.i:                                    ; preds = %177
   %spec.select = tail call i64 @llvm.umax.i64(i64 %17, i64 16)
-  %spec.select111 = tail call i64 @llvm.umin.i64(i64 %17, i64 16)
+  %spec.select113 = tail call i64 @llvm.umin.i64(i64 %17, i64 16)
   %176 = getelementptr inbounds i8, ptr %.val5, i64 %spec.select
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %176, ptr nonnull align 1 %.val5, i64 %spec.select111, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %176, ptr nonnull align 1 %.val5, i64 %spec.select113, i1 false)
   br label %.lr.ph
 
 177:                                              ; preds = %177, %.lr.ph.i
@@ -36595,7 +36595,7 @@ _ZN4core3ptr19swap_nonoverlapping7runtime17h89a2254c9734b07cE.exit: ; preds = %_
   br i1 %218, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6a6bacf38e75e827E.exit63.i.i.i.i.i.i.i.i23", label %219
 
 219:                                              ; preds = %217
-  %.not.i.i.i.i.i.i.i.i22 = icmp samesign ult i64 %194, 2
+  %.not.i.i.i.i.i.i.i.i22 = icmp eq i64 %195, 0
   br i1 %.not.i.i.i.i.i.i.i.i22, label %245, label %220
 
 220:                                              ; preds = %219
@@ -36769,10 +36769,10 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc965d4257d991b2aE.exit.i.loo
   %.pre77 = mul nuw i64 %.pre75, 7
   br label %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc965d4257d991b2aE.exit.i
 
-_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc965d4257d991b2aE.exit.i: ; preds = %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17ha03222f1d74e39fbE.exit.thread95, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc965d4257d991b2aE.exit.i.loopexit
-  %.pre-phi78 = phi i64 [ %.pre77, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc965d4257d991b2aE.exit.i.loopexit ], [ %19, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17ha03222f1d74e39fbE.exit.thread95 ]
-  %319 = phi i64 [ %.pre73, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc965d4257d991b2aE.exit.i.loopexit ], [ %9, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17ha03222f1d74e39fbE.exit.thread95 ]
-  %320 = phi i64 [ %.pre72, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc965d4257d991b2aE.exit.i.loopexit ], [ -1, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17ha03222f1d74e39fbE.exit.thread95 ]
+_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc965d4257d991b2aE.exit.i: ; preds = %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17ha03222f1d74e39fbE.exit.thread97, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc965d4257d991b2aE.exit.i.loopexit
+  %.pre-phi78 = phi i64 [ %.pre77, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc965d4257d991b2aE.exit.i.loopexit ], [ %19, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17ha03222f1d74e39fbE.exit.thread97 ]
+  %319 = phi i64 [ %.pre73, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc965d4257d991b2aE.exit.i.loopexit ], [ %9, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17ha03222f1d74e39fbE.exit.thread97 ]
+  %320 = phi i64 [ %.pre72, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc965d4257d991b2aE.exit.i.loopexit ], [ -1, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17ha03222f1d74e39fbE.exit.thread97 ]
   %321 = icmp ult i64 %320, 8
   %.sroa.01.0.i.i = select i1 %321, i64 %320, i64 %.pre-phi78
   %322 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -38690,7 +38690,7 @@ define internal fastcc noundef i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14r
   br i1 %34, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6a6bacf38e75e827E.exit63.i.i.i.i.i.i", label %35
 
 35:                                               ; preds = %33
-  %.not.i.i.i.i.i.i = icmp samesign ult i64 %10, 2
+  %.not.i.i.i.i.i.i = icmp eq i64 %11, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZN4core4hash6Hasher9write_str17h41d94c93939949bfE.exit.i.i.i, label %36
 
 36:                                               ; preds = %35
@@ -38788,7 +38788,7 @@ _ZN4core4hash6Hasher9write_str17h41d94c93939949bfE.exit.i.i.i: ; preds = %"_ZN4c
   br i1 %87, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6a6bacf38e75e827E.exit63.i.i.i.i.i.i.i", label %88
 
 88:                                               ; preds = %86
-  %.not.i.i.i.i.i.i.i = icmp samesign ult i64 %62, 2
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %63, 0
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZN9hashbrown3map11make_hasher28_$u7b$$u7b$closure$u7d$$u7d$17hb3b0105267f30111E.exit", label %89
 
 89:                                               ; preds = %88
@@ -38873,7 +38873,7 @@ _ZN4core4hash6Hasher9write_str17h41d94c93939949bfE.exit.i.i.i: ; preds = %"_ZN4c
   br i1 %135, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6a6bacf38e75e827E.exit63.i.i.i14.i.i.i.i", label %136
 
 136:                                              ; preds = %134
-  %.not.i.i.i13.i.i.i.i = icmp samesign ult i64 %62, 2
+  %.not.i.i.i13.i.i.i.i = icmp eq i64 %63, 0
   br i1 %.not.i.i.i13.i.i.i.i, label %"_ZN9hashbrown3map11make_hasher28_$u7b$$u7b$closure$u7d$$u7d$17hb3b0105267f30111E.exit", label %137
 
 137:                                              ; preds = %136
@@ -39596,7 +39596,7 @@ default.unreachable:                              ; preds = %3
   br i1 %53, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6a6bacf38e75e827E.exit63.i.i.i.i.i.i.i", label %54
 
 54:                                               ; preds = %52
-  %.not.i.i.i.i.i.i.i = icmp samesign ult i64 %29, 2
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %30, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4core4hash6Hasher9write_str17h41d94c93939949bfE.exit.i.i.i.i, label %55
 
 55:                                               ; preds = %54
@@ -39702,7 +39702,7 @@ _ZN4core4hash6Hasher9write_str17h41d94c93939949bfE.exit.i.i.i.i: ; preds = %"_ZN
   br i1 %117, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6a6bacf38e75e827E.exit63.i.i.i14.i.i.i.i", label %118
 
 118:                                              ; preds = %116
-  %.not.i.i.i13.i.i.i.i = icmp samesign ult i64 %93, 2
+  %.not.i.i.i13.i.i.i.i = icmp eq i64 %94, 0
   br i1 %.not.i.i.i13.i.i.i.i, label %_ZN4core4hash6Hasher9write_str17h41d94c93939949bfE.exit20.i.i.i.i, label %119
 
 119:                                              ; preds = %118
@@ -39813,7 +39813,7 @@ _ZN4core4hash6Hasher9write_str17h41d94c93939949bfE.exit20.i.i.i.i: ; preds = %"_
   br i1 %185, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6a6bacf38e75e827E.exit63.i.i.i34.i.i.i.i", label %186
 
 186:                                              ; preds = %184
-  %.not.i.i.i33.i.i.i.i = icmp samesign ult i64 %161, 2
+  %.not.i.i.i33.i.i.i.i = icmp eq i64 %162, 0
   br i1 %.not.i.i.i33.i.i.i.i, label %_ZN4core4hash6Hasher9write_str17h41d94c93939949bfE.exit40.i.i.i.i, label %187
 
 187:                                              ; preds = %186
@@ -39916,7 +39916,7 @@ _ZN4core4hash6Hasher9write_str17h41d94c93939949bfE.exit40.i.i.i.i: ; preds = %"_
   br i1 %248, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6a6bacf38e75e827E.exit63.i.i.i54.i.i.i.i", label %249
 
 249:                                              ; preds = %247
-  %.not.i.i.i53.i.i.i.i = icmp samesign ult i64 %224, 2
+  %.not.i.i.i53.i.i.i.i = icmp eq i64 %225, 0
   br i1 %.not.i.i.i53.i.i.i.i, label %_ZN4core4hash6Hasher9write_str17h41d94c93939949bfE.exit60.i.i.i.i, label %250
 
 250:                                              ; preds = %249
@@ -40026,7 +40026,7 @@ _ZN4core4hash6Hasher9write_str17h41d94c93939949bfE.exit60.i.i.i.i: ; preds = %"_
   br i1 %316, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6a6bacf38e75e827E.exit63.i.i.i74.i.i.i.i", label %317
 
 317:                                              ; preds = %315
-  %.not.i.i.i73.i.i.i.i = icmp samesign ult i64 %292, 2
+  %.not.i.i.i73.i.i.i.i = icmp eq i64 %293, 0
   br i1 %.not.i.i.i73.i.i.i.i, label %_ZN4core4hash6Hasher9write_str17h41d94c93939949bfE.exit80.i.i.i.i, label %318
 
 318:                                              ; preds = %317
@@ -40129,7 +40129,7 @@ _ZN4core4hash6Hasher9write_str17h41d94c93939949bfE.exit80.i.i.i.i: ; preds = %"_
   br i1 %379, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6a6bacf38e75e827E.exit63.i.i.i94.i.i.i.i", label %380
 
 380:                                              ; preds = %378
-  %.not.i.i.i93.i.i.i.i = icmp samesign ult i64 %355, 2
+  %.not.i.i.i93.i.i.i.i = icmp eq i64 %356, 0
   br i1 %.not.i.i.i93.i.i.i.i, label %_ZN4core4hash6Hasher9write_str17h41d94c93939949bfE.exit100.i.i.i.i, label %381
 
 381:                                              ; preds = %380
@@ -40239,7 +40239,7 @@ _ZN4core4hash6Hasher9write_str17h41d94c93939949bfE.exit100.i.i.i.i: ; preds = %"
   br i1 %447, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6a6bacf38e75e827E.exit63.i.i.i114.i.i.i.i", label %448
 
 448:                                              ; preds = %446
-  %.not.i.i.i113.i.i.i.i = icmp samesign ult i64 %423, 2
+  %.not.i.i.i113.i.i.i.i = icmp eq i64 %424, 0
   br i1 %.not.i.i.i113.i.i.i.i, label %_ZN4core4hash6Hasher9write_str17h41d94c93939949bfE.exit120.i.i.i.i, label %449
 
 449:                                              ; preds = %448
@@ -40347,7 +40347,7 @@ _ZN4core4hash6Hasher9write_str17h41d94c93939949bfE.exit120.i.i.i.i: ; preds = %"
   br i1 %513, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6a6bacf38e75e827E.exit63.i.i.i134.i.i.i.i", label %514
 
 514:                                              ; preds = %512
-  %.not.i.i.i133.i.i.i.i = icmp samesign ult i64 %489, 2
+  %.not.i.i.i133.i.i.i.i = icmp eq i64 %490, 0
   br i1 %.not.i.i.i133.i.i.i.i, label %_ZN4core4hash6Hasher9write_str17h41d94c93939949bfE.exit140.i.i.i.i, label %515
 
 515:                                              ; preds = %514
@@ -40451,7 +40451,7 @@ _ZN4core4hash6Hasher9write_str17h41d94c93939949bfE.exit140.i.i.i.i: ; preds = %"
   br i1 %575, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6a6bacf38e75e827E.exit63.i.i.i154.i.i.i.i", label %576
 
 576:                                              ; preds = %574
-  %.not.i.i.i153.i.i.i.i = icmp samesign ult i64 %551, 2
+  %.not.i.i.i153.i.i.i.i = icmp eq i64 %552, 0
   br i1 %.not.i.i.i153.i.i.i.i, label %_ZN4core4hash6Hasher9write_str17h41d94c93939949bfE.exit160.i.i.i.i, label %577
 
 577:                                              ; preds = %576
@@ -40566,7 +40566,7 @@ _ZN4core4hash6Hasher9write_str17h41d94c93939949bfE.exit160.i.i.i.i: ; preds = %"
   br i1 %646, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6a6bacf38e75e827E.exit63.i.i.i174.i.i.i.i", label %647
 
 647:                                              ; preds = %645
-  %.not.i.i.i173.i.i.i.i = icmp samesign ult i64 %622, 2
+  %.not.i.i.i173.i.i.i.i = icmp eq i64 %623, 0
   br i1 %.not.i.i.i173.i.i.i.i, label %_ZN4core4hash6Hasher9write_str17h41d94c93939949bfE.exit180.i.i.i.i, label %648
 
 648:                                              ; preds = %647

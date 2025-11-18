@@ -94,7 +94,7 @@ define hidden void @_ZN10ZPageTable6insertEP5ZPage(ptr noundef nonnull readonly 
   %8 = lshr i64 %4, 21
   %9 = lshr i64 %7, 21
   %10 = add nuw nsw i64 %9, %8
-  %.not.i = icmp ult i64 %7, 2097152
+  %.not.i = icmp eq i64 %9, 0
   br i1 %.not.i, label %_ZN11ZGranuleMapIP5ZPageE3putE7zoffsetmS1_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
@@ -137,7 +137,7 @@ define hidden void @_ZN10ZPageTable6removeEP5ZPage(ptr noundef nonnull readonly 
   %8 = lshr i64 %4, 21
   %9 = lshr i64 %7, 21
   %10 = add nuw nsw i64 %9, %8
-  %.not.i = icmp ult i64 %7, 2097152
+  %.not.i = icmp eq i64 %9, 0
   br i1 %.not.i, label %_ZN11ZGranuleMapIP5ZPageE3putE7zoffsetmS1_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
@@ -168,7 +168,7 @@ define hidden void @_ZN10ZPageTable7replaceEP5ZPageS1_(ptr noundef nonnull reado
   %9 = lshr i64 %5, 21
   %10 = lshr i64 %8, 21
   %11 = add nuw nsw i64 %10, %9
-  %.not.i.i = icmp ult i64 %8, 2097152
+  %.not.i.i = icmp eq i64 %10, 0
   br i1 %.not.i.i, label %_ZN11ZGranuleMapIP5ZPageE11release_putE7zoffsetmS1_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %3

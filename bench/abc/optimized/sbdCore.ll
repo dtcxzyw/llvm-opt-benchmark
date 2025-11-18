@@ -5652,7 +5652,7 @@ define range(i32 0, 2) i32 @Sbd_ManExplore(ptr noundef captures(none) %0, i32 no
   %36 = load i32, ptr %35, align 4, !tbaa !166
   %.not = icmp eq i32 %36, 0
   %indvars.iv352.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %indvars.iv352.sroa.gep416 = getelementptr inbounds nuw i8, ptr %11, i64 1024
+  %indvars.iv352.sroa.gep420 = getelementptr inbounds nuw i8, ptr %11, i64 1024
   br i1 %.not, label %39, label %37
 
 37:                                               ; preds = %3
@@ -5798,7 +5798,7 @@ define range(i32 0, 2) i32 @Sbd_ManExplore(ptr noundef captures(none) %0, i32 no
   %108 = zext nneg i32 %107 to i64
   %109 = shl i64 %.032.i, %108
   %110 = xor i64 %109, %.032.i
-  %.not.i = icmp samesign ult i32 %.02831.i, 2
+  %.not.i = icmp eq i32 %107, 0
   br i1 %.not.i, label %.preheader.i231, label %.preheader.i, !llvm.loop !169
 
 .preheader.i231:                                  ; preds = %106, %130
@@ -5835,7 +5835,7 @@ define range(i32 0, 2) i32 @Sbd_ManExplore(ptr noundef captures(none) %0, i32 no
   %132 = zext nneg i32 %131 to i64
   %133 = shl i64 %.032.i232, %132
   %134 = xor i64 %133, %.032.i232
-  %.not.i235 = icmp samesign ult i32 %.02831.i233, 2
+  %.not.i235 = icmp eq i32 %131, 0
   br i1 %.not.i235, label %.preheader.i237, label %.preheader.i231, !llvm.loop !169
 
 .preheader.i237:                                  ; preds = %130, %154
@@ -5872,7 +5872,7 @@ define range(i32 0, 2) i32 @Sbd_ManExplore(ptr noundef captures(none) %0, i32 no
   %156 = zext nneg i32 %155 to i64
   %157 = shl i64 %.032.i238, %156
   %158 = xor i64 %157, %.032.i238
-  %.not.i241 = icmp samesign ult i32 %.02831.i239, 2
+  %.not.i241 = icmp eq i32 %155, 0
   br i1 %.not.i241, label %Sbd_TransposeMatrix64.exit242.preheader, label %.preheader.i237, !llvm.loop !169
 
 Sbd_TransposeMatrix64.exit242.preheader:          ; preds = %154
@@ -5904,9 +5904,9 @@ Sbd_TransposeMatrix64.exit242.preheader:          ; preds = %154
   %178 = getelementptr inbounds nuw i8, ptr %176, i64 512
   br label %179
 
-179:                                              ; preds = %169, %.loopexit404
-  %.not200 = phi i1 [ true, %169 ], [ false, %.loopexit404 ]
-  %indvars.iv336 = phi i64 [ 0, %169 ], [ 1, %.loopexit404 ]
+179:                                              ; preds = %169, %.loopexit408
+  %.not200 = phi i1 [ true, %169 ], [ false, %.loopexit408 ]
+  %indvars.iv336 = phi i64 [ 0, %169 ], [ 1, %.loopexit408 ]
   br i1 %.not200, label %184, label %180
 
 180:                                              ; preds = %179
@@ -5943,7 +5943,7 @@ Sbd_TransposeMatrix64.exit242.preheader:          ; preds = %154
   %199 = load i64, ptr %198, align 8, !tbaa !100
   %200 = and i64 %199, %189
   %201 = icmp eq i64 %200, %199
-  br i1 %201, label %.loopexit404, label %202
+  br i1 %201, label %.loopexit408, label %202
 
 202:                                              ; preds = %197, %192
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -6000,7 +6000,7 @@ Sbd_TransposeMatrix64.exit242.preheader:          ; preds = %154
 223:                                              ; preds = %._crit_edge.thread.i, %._crit_edge.i
   %.2.i = phi i32 [ %222, %._crit_edge.thread.i ], [ %.1.i, %._crit_edge.i ]
   %224 = icmp slt i32 %.2.i, %190
-  br i1 %224, label %.lr.ph8.i, label %.loopexit404
+  br i1 %224, label %.lr.ph8.i, label %.loopexit408
 
 .lr.ph8.i:                                        ; preds = %223
   %225 = sext i32 %.2.i to i64
@@ -6015,14 +6015,14 @@ Sbd_TransposeMatrix64.exit242.preheader:          ; preds = %154
   store i64 0, ptr %228, align 8, !tbaa !100
   %indvars.iv.next17.i = add nsw i64 %indvars.iv16.i, 1
   %exitcond20.not.i = icmp eq i64 %indvars.iv.next17.i, %wide.trip.count19.i
-  br i1 %exitcond20.not.i, label %.loopexit404, label %226, !llvm.loop !172
+  br i1 %exitcond20.not.i, label %.loopexit408, label %226, !llvm.loop !172
 
-.loopexit404:                                     ; preds = %197, %226, %223
+.loopexit408:                                     ; preds = %197, %226, %223
   %.055.i = phi i32 [ %.2.i, %223 ], [ %.2.i, %226 ], [ %190, %197 ]
   store i32 %.055.i, ptr %177, align 4, !tbaa !50
   br i1 %.not200, label %179, label %Sbd_TransposeMatrix64.exit242, !llvm.loop !173
 
-Sbd_TransposeMatrix64.exit242:                    ; preds = %180, %.loopexit404, %164
+Sbd_TransposeMatrix64.exit242:                    ; preds = %180, %.loopexit408, %164
   %indvars.iv.next340 = add nuw nsw i64 %indvars.iv339, 1
   %exitcond342.not = icmp eq i64 %indvars.iv.next340, 64
   br i1 %exitcond342.not, label %229, label %164, !llvm.loop !174
@@ -6047,7 +6047,7 @@ Sbd_TransposeMatrix64.exit242:                    ; preds = %180, %.loopexit404,
 .preheader284:                                    ; preds = %232, %._crit_edge
   %.not191 = phi i1 [ false, %._crit_edge ], [ true, %232 ]
   %indvars.iv352.sroa.phi = phi ptr [ %indvars.iv352.sroa.gep, %._crit_edge ], [ %13, %232 ]
-  %indvars.iv352.sroa.phi415 = phi ptr [ %indvars.iv352.sroa.gep416, %._crit_edge ], [ %11, %232 ]
+  %indvars.iv352.sroa.phi419 = phi ptr [ %indvars.iv352.sroa.gep420, %._crit_edge ], [ %11, %232 ]
   %238 = select i1 %.not191, ptr @.str.18, ptr @.str.17
   %239 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, ptr noundef nonnull %238)
   %240 = load i32, ptr %indvars.iv352.sroa.phi, align 4, !tbaa !50
@@ -6055,13 +6055,13 @@ Sbd_TransposeMatrix64.exit242:                    ; preds = %180, %.loopexit404,
   br i1 %241, label %.preheader283.lr.ph, label %._crit_edge
 
 .preheader283.lr.ph:                              ; preds = %.preheader284
-  %242 = getelementptr inbounds nuw i8, ptr %indvars.iv352.sroa.phi415, i64 512
+  %242 = getelementptr inbounds nuw i8, ptr %indvars.iv352.sroa.phi419, i64 512
   %wide.trip.count350 = zext nneg i32 %240 to i64
   br label %.preheader283
 
 .preheader283:                                    ; preds = %.preheader283.lr.ph, %253
   %indvars.iv347 = phi i64 [ 0, %.preheader283.lr.ph ], [ %indvars.iv.next348, %253 ]
-  %243 = getelementptr inbounds nuw i64, ptr %indvars.iv352.sroa.phi415, i64 %indvars.iv347
+  %243 = getelementptr inbounds nuw i64, ptr %indvars.iv352.sroa.phi419, i64 %indvars.iv347
   %244 = load i64, ptr %243, align 8, !tbaa !100
   %245 = getelementptr inbounds nuw i64, ptr %242, i64 %indvars.iv347
   br label %246
@@ -6285,7 +6285,7 @@ Sbd_ManCoverReverseOrder.exit:                    ; preds = %308
   %340 = zext nneg i32 %339 to i64
   %341 = shl i64 %.032.i260, %340
   %342 = xor i64 %341, %.032.i260
-  %.not.i263 = icmp samesign ult i32 %.02831.i261, 2
+  %.not.i263 = icmp eq i32 %339, 0
   br i1 %.not.i263, label %Sbd_TransposeMatrix64.exit264, label %.preheader.i259, !llvm.loop !169
 
 Sbd_TransposeMatrix64.exit264:                    ; preds = %338, %Sbd_TransposeMatrix64.exit264
@@ -6524,7 +6524,7 @@ Abc_Clock.exit279:                                ; preds = %Abc_Clock.exit277, 
   br i1 %exitcond361.not, label %.lr.ph311.preheader, label %.lr.ph307, !llvm.loop !186
 
 .lr.ph311.preheader:                              ; preds = %.lr.ph307
-  %putchar184402 = call i32 @putchar(i32 10)
+  %putchar184406 = call i32 @putchar(i32 10)
   br label %.lr.ph311
 
 .lr.ph311:                                        ; preds = %.lr.ph311.preheader, %.lr.ph311
@@ -6550,7 +6550,7 @@ Abc_Clock.exit279:                                ; preds = %Abc_Clock.exit277, 
   br label %._crit_edge316
 
 .lr.ph315.preheader:                              ; preds = %.lr.ph311
-  %putchar185403 = call i32 @putchar(i32 10)
+  %putchar185407 = call i32 @putchar(i32 10)
   br label %.lr.ph315
 
 .lr.ph315:                                        ; preds = %.lr.ph315.preheader, %.lr.ph315
@@ -12947,7 +12947,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 
 89:                                               ; preds = %.lr.ph
   %90 = ashr i32 %87, 1
-  %91 = icmp ult i32 %87, 2
+  %91 = icmp eq i32 %90, 0
   %92 = icmp eq i32 %90, %52
   %or.cond = or i1 %91, %92
   br i1 %or.cond, label %Vec_IntPushUniqueOrder.exit, label %93

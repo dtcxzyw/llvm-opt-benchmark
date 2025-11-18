@@ -52,7 +52,7 @@ define hidden i64 @_mi_commit_mask_committed_size(ptr noundef readonly captures(
   %11 = and i64 %.016, 1
   %spec.select = add i64 %11, %.215
   %12 = lshr i64 %.016, 1
-  %.not = icmp ult i64 %.016, 2
+  %.not = icmp eq i64 %12, 0
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %9
@@ -496,7 +496,7 @@ mi_segments_track_size.exit.i:                    ; preds = %75, %68
   %83 = and i64 %.016.i.i, 1
   %spec.select.i.i = add i64 %83, %.215.i.i
   %84 = lshr i64 %.016.i.i, 1
-  %.not.i.i15 = icmp ult i64 %.016.i.i, 2
+  %.not.i.i15 = icmp eq i64 %84, 0
   br i1 %.not.i.i15, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !7
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i, %81, %78
@@ -545,7 +545,7 @@ _mi_commit_mask_committed_size.exit.i:            ; preds = %.loopexit.i.i
   %105 = and i64 %.016.i33.i, 1
   %spec.select.i35.i = add i64 %105, %.215.i34.i
   %106 = lshr i64 %.016.i33.i, 1
-  %.not.i36.i = icmp ult i64 %.016.i33.i, 2
+  %.not.i36.i = icmp eq i64 %106, 0
   br i1 %.not.i36.i, label %.loopexit.i29.i, label %.lr.ph.i32.i, !llvm.loop !7
 
 .loopexit.i29.i:                                  ; preds = %.lr.ph.i32.i, %103, %.split23.i
@@ -2557,7 +2557,7 @@ mi_commit_mask_create_intersect.exit:             ; preds = %28, %.loopexit.i
   %40 = and i64 %.016.i, 1
   %spec.select.i = add i64 %40, %.215.i
   %41 = lshr i64 %.016.i, 1
-  %.not.i30 = icmp ult i64 %.016.i, 2
+  %.not.i30 = icmp eq i64 %41, 0
   br i1 %.not.i30, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !7
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %38, %mi_commit_mask_create_intersect.exit
@@ -2643,7 +2643,7 @@ mi_commit_mask_create_intersect.exit35:           ; preds = %59, %.loopexit.i38
   %71 = and i64 %.016.i42, 1
   %spec.select.i44 = add i64 %71, %.215.i43
   %72 = lshr i64 %.016.i42, 1
-  %.not.i45 = icmp ult i64 %.016.i42, 2
+  %.not.i45 = icmp eq i64 %72, 0
   br i1 %.not.i45, label %.loopexit.i38, label %.lr.ph.i41, !llvm.loop !7
 
 .loopexit.i38:                                    ; preds = %.lr.ph.i41, %69, %mi_commit_mask_create_intersect.exit35

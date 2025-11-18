@@ -3650,7 +3650,7 @@ define void @_ZN6colvar12alpha_angles17collect_gradientsERKSt6vectorIiSaIiEERS1_
   %.1.i = select i1 %.not19.i, double %.01621.i, double %18
   %19 = lshr i32 %.023.i, 1
   %20 = fmul double %.01522.i, %.01522.i
-  %.not.i = icmp samesign ult i32 %.023.i, 2
+  %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !179
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %14
@@ -7931,7 +7931,7 @@ define void @_ZN6colvar7dihedPC17collect_gradientsERKSt6vectorIiSaIiEERS1_IN12co
   %.1.i = select i1 %.not19.i, double %.01621.i, double %18
   %19 = lshr i32 %.023.i, 1
   %20 = fmul double %.01522.i, %.01522.i
-  %.not.i = icmp samesign ult i32 %.023.i, 2
+  %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !179
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %14

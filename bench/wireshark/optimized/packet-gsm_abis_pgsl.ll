@@ -649,7 +649,7 @@ define internal fastcc noundef ptr @get_egprs_data_block(ptr noundef %0, i32 nou
 
 22:                                               ; preds = %4
   %23 = getelementptr i8, ptr %20, i64 1
-  %.not.i = icmp ult i32 %8, 8
+  %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %clone_aligned_buffer_lsbf.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %22

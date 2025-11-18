@@ -4228,7 +4228,7 @@ define hidden noundef zeroext i1 @_ZN16G1ConcurrentMark14is_root_regionEP12G1Hea
   %17 = sub i64 %15, %16
   %18 = lshr i64 %17, 3
   %19 = load ptr, ptr %14, align 8
-  %20 = icmp ult i64 %17, 8
+  %20 = icmp eq i64 %18, 0
   %21 = getelementptr inbounds nuw ptr, ptr %.fr3, i64 %18
   br i1 %20, label %.lr.ph.split.i, label %.lr.ph.split.us.i
 
@@ -8130,7 +8130,7 @@ _ZNK13G1Predictions20predict_zero_boundedEPK12TruncatedSeq.exit: ; preds = %4, %
   %76 = load volatile i64, ptr %75, align 8
   %77 = mul i64 %76, 1023
   %78 = icmp ugt i64 %77, %73
-  br i1 %78, label %.lr.ph161, label %_ZN8G1CMTask18drain_global_stackEb.exit
+  br i1 %78, label %.lr.ph162, label %_ZN8G1CMTask18drain_global_stackEb.exit
 
 79:                                               ; preds = %112
   %80 = load ptr, ptr %52, align 8
@@ -8138,9 +8138,9 @@ _ZNK13G1Predictions20predict_zero_boundedEPK12TruncatedSeq.exit: ; preds = %4, %
   %82 = load volatile i64, ptr %81, align 8
   %83 = mul i64 %82, 1023
   %84 = icmp ugt i64 %83, %73
-  br i1 %84, label %.lr.ph161, label %_ZN8G1CMTask18drain_global_stackEb.exit, !llvm.loop !9
+  br i1 %84, label %.lr.ph162, label %_ZN8G1CMTask18drain_global_stackEb.exit, !llvm.loop !9
 
-.lr.ph161:                                        ; preds = %69, %79
+.lr.ph162:                                        ; preds = %69, %79
   %85 = phi ptr [ %80, %79 ], [ %70, %69 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8184) %8, i8 0, i64 8184, i1 false)
@@ -8148,12 +8148,12 @@ _ZNK13G1Predictions20predict_zero_boundedEPK12TruncatedSeq.exit: ; preds = %4, %
   %87 = call noundef zeroext i1 @_ZN13G1CMMarkStack13par_pop_chunkEP16G1TaskQueueEntry(ptr noundef nonnull align 8 dereferenceable(688) %86, ptr noundef nonnull %8)
   br i1 %87, label %.preheader.i.i, label %_ZN8G1CMTask29get_entries_from_global_stackEv.exit.thread.i
 
-_ZN8G1CMTask29get_entries_from_global_stackEv.exit.thread.i: ; preds = %.lr.ph161
+_ZN8G1CMTask29get_entries_from_global_stackEv.exit.thread.i: ; preds = %.lr.ph162
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %112
 
-.preheader.i.i:                                   ; preds = %.lr.ph161, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
-  %.046.i.i = phi i64 [ %107, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i ], [ 0, %.lr.ph161 ]
+.preheader.i.i:                                   ; preds = %.lr.ph162, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
+  %.046.i.i = phi i64 [ %107, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i ], [ 0, %.lr.ph162 ]
   %88 = getelementptr inbounds nuw %class.G1TaskQueueEntry, ptr %8, i64 %.046.i.i
   %89 = load i64, ptr %88, align 8
   %90 = inttoptr i64 %89 to ptr
@@ -8260,7 +8260,7 @@ _ZN8G1CMTask19update_region_limitEv.exit:         ; preds = %._ZN8G1CMTask19upda
   %141 = ptrtoint ptr %139 to i64
   %142 = sub i64 %140, %141
   %143 = lshr i64 %142, 3
-  %144 = icmp ult i64 %142, 8
+  %144 = icmp eq i64 %143, 0
   br i1 %144, label %145, label %181
 
 145:                                              ; preds = %_ZN8G1CMTask19update_region_limitEv.exit
@@ -8615,7 +8615,7 @@ _ZN8G1CMTask35abort_marking_if_regular_check_failEv.exit: ; preds = %291, %286, 
   %361 = load volatile i64, ptr %360, align 8
   %362 = mul i64 %361, 1023
   %363 = icmp ugt i64 %362, %359
-  br i1 %363, label %.lr.ph164, label %_ZN8G1CMTask18drain_global_stackEb.exit51
+  br i1 %363, label %.lr.ph165, label %_ZN8G1CMTask18drain_global_stackEb.exit51
 
 364:                                              ; preds = %414
   %365 = load ptr, ptr %52, align 8
@@ -8623,9 +8623,9 @@ _ZN8G1CMTask35abort_marking_if_regular_check_failEv.exit: ; preds = %291, %286, 
   %367 = load volatile i64, ptr %366, align 8
   %368 = mul i64 %367, 1023
   %369 = icmp ugt i64 %368, %359
-  br i1 %369, label %.lr.ph164, label %_ZN8G1CMTask18drain_global_stackEb.exit51, !llvm.loop !9
+  br i1 %369, label %.lr.ph165, label %_ZN8G1CMTask18drain_global_stackEb.exit51, !llvm.loop !9
 
-.lr.ph164:                                        ; preds = %355, %364
+.lr.ph165:                                        ; preds = %355, %364
   %370 = phi ptr [ %366, %364 ], [ %360, %355 ]
   %371 = phi ptr [ %365, %364 ], [ %356, %355 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -8634,11 +8634,11 @@ _ZN8G1CMTask35abort_marking_if_regular_check_failEv.exit: ; preds = %291, %286, 
   %.not.i.i.i.i68 = icmp eq ptr %372, null
   br i1 %.not.i.i.i.i68, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i.i, label %373
 
-373:                                              ; preds = %.lr.ph164
+373:                                              ; preds = %.lr.ph165
   call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %372) #23
   br label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i.i
 
-_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i.i: ; preds = %373, %.lr.ph164
+_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i.i: ; preds = %373, %.lr.ph165
   %374 = getelementptr inbounds nuw i8, ptr %371, i64 696
   %375 = load volatile ptr, ptr %374, align 8
   %.not.i.i.i = icmp eq ptr %375, null
@@ -8766,7 +8766,7 @@ _ZN8G1CMTask18drain_global_stackEb.exit51:        ; preds = %364, %355, %._ZN8G1
   %427 = load i64, ptr %426, align 8
   %428 = getelementptr inbounds ptr, ptr %425, i64 %427
   %.not88 = icmp ult ptr %423, %428
-  br i1 %.not88, label %429, label %.critedge2.thread137
+  br i1 %.not88, label %429, label %.critedge2.thread138
 
 429:                                              ; preds = %.lr.ph
   %430 = getelementptr inbounds nuw i8, ptr %421, i64 8
@@ -8975,19 +8975,19 @@ _ZN8G1CMTask35abort_marking_if_regular_check_failEv.exit55: ; preds = %511, %530
   br i1 %.lcssa98, label %.critedge2.thread, label %121, !llvm.loop !39
 
 .critedge2:                                       ; preds = %.critedge
-  br i1 %.lcssa98, label %.critedge2.thread, label %.critedge2.thread137
+  br i1 %.lcssa98, label %.critedge2.thread, label %.critedge2.thread138
 
-.critedge2.thread137:                             ; preds = %.lr.ph, %.critedge2
+.critedge2.thread138:                             ; preds = %.lr.ph, %.critedge2
   call void @_ZN8G1CMTask18drain_satb_buffersEv(ptr noundef nonnull align 8 dereferenceable(376) %0)
   br label %.critedge2.thread
 
-.critedge2.thread:                                ; preds = %544, %.critedge2.thread137, %.critedge2
+.critedge2.thread:                                ; preds = %544, %.critedge2.thread138, %.critedge2
   call void @_ZN8G1CMTask17drain_local_queueEb(ptr noundef nonnull align 8 dereferenceable(376) %0, i1 noundef zeroext false)
   %545 = load i8, ptr %46, align 8
   %546 = trunc i8 %545 to i1
-  br i1 %546, label %_ZN8G1CMTask18drain_global_stackEb.exit56, label %.preheader152
+  br i1 %546, label %_ZN8G1CMTask18drain_global_stackEb.exit56, label %.preheader153
 
-.preheader152:                                    ; preds = %.critedge2.thread, %_ZN8G1CMTask29get_entries_from_global_stackEv.exit11.i
+.preheader153:                                    ; preds = %.critedge2.thread, %_ZN8G1CMTask29get_entries_from_global_stackEv.exit11.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8184) %6, i8 0, i64 8184, i1 false)
   %547 = load ptr, ptr %52, align 8
@@ -8995,13 +8995,13 @@ _ZN8G1CMTask35abort_marking_if_regular_check_failEv.exit55: ; preds = %511, %530
   %549 = call noundef zeroext i1 @_ZN13G1CMMarkStack13par_pop_chunkEP16G1TaskQueueEntry(ptr noundef nonnull align 8 dereferenceable(688) %548, ptr noundef nonnull %6)
   br i1 %549, label %.preheader.i6.i, label %_ZN8G1CMTask29get_entries_from_global_stackEv.exit11.thread.i
 
-_ZN8G1CMTask29get_entries_from_global_stackEv.exit11.thread.i: ; preds = %.preheader152
+_ZN8G1CMTask29get_entries_from_global_stackEv.exit11.thread.i: ; preds = %.preheader153
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre113 = load i8, ptr %46, align 8
   br label %_ZN8G1CMTask18drain_global_stackEb.exit56
 
-.preheader.i6.i:                                  ; preds = %.preheader152, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i9.i
-  %.046.i7.i = phi i64 [ %569, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i9.i ], [ 0, %.preheader152 ]
+.preheader.i6.i:                                  ; preds = %.preheader153, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i9.i
+  %.046.i7.i = phi i64 [ %569, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i9.i ], [ 0, %.preheader153 ]
   %550 = getelementptr inbounds nuw %class.G1TaskQueueEntry, ptr %6, i64 %.046.i7.i
   %551 = load i64, ptr %550, align 8
   %552 = inttoptr i64 %551 to ptr
@@ -9047,7 +9047,7 @@ _ZN8G1CMTask29get_entries_from_global_stackEv.exit11.i: ; preds = %_ZN16GenericT
   call void @_ZN8G1CMTask17drain_local_queueEb(ptr noundef nonnull align 8 dereferenceable(376) %0, i1 noundef zeroext false)
   %574 = load i8, ptr %46, align 8
   %575 = trunc i8 %574 to i1
-  br i1 %575, label %_ZN8G1CMTask18drain_global_stackEb.exit56, label %.preheader152, !llvm.loop !13
+  br i1 %575, label %_ZN8G1CMTask18drain_global_stackEb.exit56, label %.preheader153, !llvm.loop !13
 
 _ZN8G1CMTask18drain_global_stackEb.exit56:        ; preds = %_ZN8G1CMTask29get_entries_from_global_stackEv.exit11.i, %.critedge2.thread, %_ZN8G1CMTask29get_entries_from_global_stackEv.exit11.thread.i
   %576 = phi i8 [ %545, %.critedge2.thread ], [ %.pre113, %_ZN8G1CMTask29get_entries_from_global_stackEv.exit11.thread.i ], [ %574, %_ZN8G1CMTask29get_entries_from_global_stackEv.exit11.i ]
@@ -9067,8 +9067,8 @@ _ZN8G1CMTask18drain_global_stackEb.exit56:        ; preds = %_ZN8G1CMTask29get_e
   %583 = getelementptr inbounds nuw i8, ptr %582, i64 8
   %584 = load i32, ptr %583, align 8
   %585 = shl i32 %584, 1
-  %.not.i.i57168 = icmp eq i32 %585, 0
-  br i1 %.not.i.i57168, label %_ZN16G1ConcurrentMark12try_stealingEjR16G1TaskQueueEntry.exit.thread, label %.lr.ph.i.i.preheader
+  %.not.i.i57169 = icmp eq i32 %585, 0
+  br i1 %.not.i.i57169, label %_ZN16G1ConcurrentMark12try_stealingEjR16G1TaskQueueEntry.exit.thread, label %.lr.ph.i.i.preheader
 
 586:                                              ; preds = %_ZN8G1CMTask18drain_global_stackEb.exit66
   store ptr null, ptr %11, align 8

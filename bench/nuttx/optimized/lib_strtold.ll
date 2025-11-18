@@ -459,7 +459,7 @@ scanexp.exit.i:                                   ; preds = %.lr.ph.i.i, %111
   %spec.select23.i.i = select i1 %.not18.i.i, x86_fp80 %.022.i136.i, x86_fp80 %155
   %156 = lshr i64 %.11421.i.i, 1
   %157 = fmul x86_fp80 %.01520.i.i, %.01520.i.i
-  %.not.i.i = icmp samesign ult i64 %.11421.i.i, 2
+  %.not.i.i = icmp eq i64 %156, 0
   br i1 %.not.i.i, label %scalbnx.exit.i, label %.lr.ph.split.i.i, !llvm.loop !16
 
 scalbnx.exit.i:                                   ; preds = %.lr.ph.split.i.i, %._crit_edge217.i
@@ -504,7 +504,7 @@ scalbnx.exit.i:                                   ; preds = %.lr.ph.split.i.i, %
   %.1.us.i.i = select i1 %.not18.us.i.i, x86_fp80 %.022.us.i.i, x86_fp80 %172
   %173 = lshr i64 %.11421.us.i.i, 1
   %174 = fmul x86_fp80 %.01520.us.i.i, %.01520.us.i.i
-  %.not.us.i.i = icmp samesign ult i64 %.11421.us.i.i, 2
+  %.not.us.i.i = icmp eq i64 %173, 0
   br i1 %.not.us.i.i, label %hexfloat.exit, label %.lr.ph.split.us.i.i, !llvm.loop !16
 
 .lr.ph.split.i140.i:                              ; preds = %.lr.ph.i138.i, %.lr.ph.split.i140.i
@@ -517,7 +517,7 @@ scalbnx.exit.i:                                   ; preds = %.lr.ph.split.i.i, %
   %spec.select23.i145.i = select i1 %.not18.i144.i, x86_fp80 %.022.i141.i, x86_fp80 %176
   %177 = lshr i64 %.11421.i142.i, 1
   %178 = fmul x86_fp80 %.01520.i143.i, %.01520.i143.i
-  %.not.i146.i = icmp samesign ult i64 %.11421.i142.i, 2
+  %.not.i146.i = icmp eq i64 %177, 0
   br i1 %.not.i146.i, label %hexfloat.exit, label %.lr.ph.split.i140.i, !llvm.loop !16
 
 179:                                              ; preds = %.critedge3.thread
@@ -843,7 +843,7 @@ ifallzero.exit79.i:                               ; preds = %243
   %.1.us.i.i88 = select i1 %.not18.us.i.i87, x86_fp80 %.022.us.i.i84, x86_fp80 %274
   %275 = lshr i64 %.11421.us.i.i85, 1
   %276 = fmul x86_fp80 %.01520.us.i.i86, %.01520.us.i.i86
-  %.not.us.i.i89 = icmp samesign ult i64 %.11421.us.i.i85, 2
+  %.not.us.i.i89 = icmp eq i64 %275, 0
   br i1 %.not.us.i.i89, label %hexfloat.exit, label %.lr.ph.split.us.i.i83, !llvm.loop !16
 
 .lr.ph.split.i.i75:                               ; preds = %.lr.ph.i80.i, %.lr.ph.split.i.i75
@@ -856,7 +856,7 @@ ifallzero.exit79.i:                               ; preds = %243
   %spec.select23.i.i79 = select i1 %.not18.i.i78, x86_fp80 %.022.i81.i, x86_fp80 %278
   %279 = lshr i64 %.11421.i.i76, 1
   %280 = fmul x86_fp80 %.01520.i.i77, %.01520.i.i77
-  %.not.i.i80 = icmp samesign ult i64 %.11421.i.i76, 2
+  %.not.i.i80 = icmp eq i64 %279, 0
   br i1 %.not.i.i80, label %hexfloat.exit, label %.lr.ph.split.i.i75, !llvm.loop !16
 
 281:                                              ; preds = %181, %183

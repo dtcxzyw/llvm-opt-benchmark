@@ -2417,7 +2417,7 @@ define internal noundef i32 @archive_write_mtree_finish_entry(ptr noundef readon
   %23 = load i32, ptr %22, align 4, !tbaa !128
   %24 = xor i32 %23, %17
   %25 = lshr i64 %.037.i, 8
-  %.not29.i = icmp ult i64 %.037.i, 256
+  %.not29.i = icmp eq i64 %25, 0
   br i1 %.not29.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !136
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i

@@ -15414,11 +15414,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm6any_ofIRKNS_15SmallVecto
   %5 = zext i32 %4 to i64
   %.idx2 = shl nuw nsw i64 %5, 3
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx2
-  %.not = icmp ult i32 %4, 4
+  %7 = lshr i64 %5, 2
+  %.not = icmp eq i64 %7, 0
   br i1 %.not, label %._crit_edge.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %1
-  %7 = lshr i64 %5, 2
   %8 = and i64 %.idx2, 34359738336
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %2, i64 %8
   br label %.lr.ph.i.i.i.i.i
@@ -15473,11 +15473,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm6any_ofIRKNS_15SmallVecto
 ._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %1
   %.pre-phi47.i.i.i.i.i = phi i32 [ %39, %._crit_edge.loopexit.i.i.i.i.i ], [ %4, %1 ]
   %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %2, %1 ]
-  switch i32 %.pre-phi47.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.unreachabledefault [
+  switch i32 %.pre-phi47.i.i.i.i.i, label %62 [
     i32 3, label %40
     i32 2, label %48
     i32 1, label %56
-    i32 0, label %62
   ]
 
 40:                                               ; preds = %._crit_edge.i.i.i.i.i
@@ -15492,7 +15491,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm6any_ofIRKNS_15SmallVecto
   %47 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i, i64 8
   br label %48
 
-48:                                               ; preds = %._crit_edge.i.i.i.i.i, %46
+48:                                               ; preds = %46, %._crit_edge.i.i.i.i.i
   %.1.i.i.i.i.i = phi ptr [ %47, %46 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %49 = load ptr, ptr %.1.i.i.i.i.i, align 8, !tbaa !507
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
@@ -15505,7 +15504,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm6any_ofIRKNS_15SmallVecto
   %55 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 8
   br label %56
 
-56:                                               ; preds = %._crit_edge.i.i.i.i.i, %54
+56:                                               ; preds = %54, %._crit_edge.i.i.i.i.i
   %.2.i.i.i.i.i = phi ptr [ %55, %54 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %57 = load ptr, ptr %.2.i.i.i.i.i, align 8, !tbaa !507
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
@@ -15514,10 +15513,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm6any_ofIRKNS_15SmallVecto
   %61 = icmp eq i32 %60, 18
   br i1 %61, label %_ZSt6any_ofIPKPN4llvm4TypeEZNS0_16BasicTTIImplBaseINS0_12BasicTTIImplEE30getTypeBasedIntrinsicInstrCostERKNS0_23IntrinsicCostAttributesENS0_19TargetTransformInfo14TargetCostKindEEUlPKS1_E_EbT_SG_T0_.exit, label %62
 
-._crit_edge.i.i.i.i.i.unreachabledefault:         ; preds = %._crit_edge.i.i.i.i.i
-  unreachable
-
-62:                                               ; preds = %._crit_edge.i.i.i.i.i, %56
+62:                                               ; preds = %56, %._crit_edge.i.i.i.i.i
   br label %_ZSt6any_ofIPKPN4llvm4TypeEZNS0_16BasicTTIImplBaseINS0_12BasicTTIImplEE30getTypeBasedIntrinsicInstrCostERKNS0_23IntrinsicCostAttributesENS0_19TargetTransformInfo14TargetCostKindEEUlPKS1_E_EbT_SG_T0_.exit
 
 _ZSt6any_ofIPKPN4llvm4TypeEZNS0_16BasicTTIImplBaseINS0_12BasicTTIImplEE30getTypeBasedIntrinsicInstrCostERKNS0_23IntrinsicCostAttributesENS0_19TargetTransformInfo14TargetCostKindEEUlPKS1_E_EbT_SG_T0_.exit.loopexit.split.loop.exit: ; preds = %14
@@ -15838,11 +15834,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm6any_ofIRKNS_15SmallVecto
   %5 = zext i32 %4 to i64
   %.idx2 = shl nuw nsw i64 %5, 3
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx2
-  %.not = icmp ult i32 %4, 4
+  %7 = lshr i64 %5, 2
+  %.not = icmp eq i64 %7, 0
   br i1 %.not, label %._crit_edge.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %1
-  %7 = lshr i64 %5, 2
   %8 = and i64 %.idx2, 34359738336
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %2, i64 %8
   br label %.lr.ph.i.i.i.i.i
@@ -15897,11 +15893,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm6any_ofIRKNS_15SmallVecto
 ._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %1
   %.pre-phi47.i.i.i.i.i = phi i32 [ %39, %._crit_edge.loopexit.i.i.i.i.i ], [ %4, %1 ]
   %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %2, %1 ]
-  switch i32 %.pre-phi47.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.unreachabledefault [
+  switch i32 %.pre-phi47.i.i.i.i.i, label %62 [
     i32 3, label %40
     i32 2, label %48
     i32 1, label %56
-    i32 0, label %62
   ]
 
 40:                                               ; preds = %._crit_edge.i.i.i.i.i
@@ -15916,7 +15911,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm6any_ofIRKNS_15SmallVecto
   %47 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i, i64 8
   br label %48
 
-48:                                               ; preds = %._crit_edge.i.i.i.i.i, %46
+48:                                               ; preds = %46, %._crit_edge.i.i.i.i.i
   %.1.i.i.i.i.i = phi ptr [ %47, %46 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %49 = load ptr, ptr %.1.i.i.i.i.i, align 8, !tbaa !507
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
@@ -15929,7 +15924,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm6any_ofIRKNS_15SmallVecto
   %55 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 8
   br label %56
 
-56:                                               ; preds = %._crit_edge.i.i.i.i.i, %54
+56:                                               ; preds = %54, %._crit_edge.i.i.i.i.i
   %.2.i.i.i.i.i = phi ptr [ %55, %54 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %57 = load ptr, ptr %.2.i.i.i.i.i, align 8, !tbaa !507
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
@@ -15938,10 +15933,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm6any_ofIRKNS_15SmallVecto
   %61 = icmp eq i32 %60, 18
   br i1 %61, label %_ZSt6any_ofIPKPN4llvm4TypeEZNS0_16BasicTTIImplBaseINS0_12BasicTTIImplEE30getTypeBasedIntrinsicInstrCostERKNS0_23IntrinsicCostAttributesENS0_19TargetTransformInfo14TargetCostKindEEUlPKS1_E0_EbT_SG_T0_.exit, label %62
 
-._crit_edge.i.i.i.i.i.unreachabledefault:         ; preds = %._crit_edge.i.i.i.i.i
-  unreachable
-
-62:                                               ; preds = %._crit_edge.i.i.i.i.i, %56
+62:                                               ; preds = %56, %._crit_edge.i.i.i.i.i
   br label %_ZSt6any_ofIPKPN4llvm4TypeEZNS0_16BasicTTIImplBaseINS0_12BasicTTIImplEE30getTypeBasedIntrinsicInstrCostERKNS0_23IntrinsicCostAttributesENS0_19TargetTransformInfo14TargetCostKindEEUlPKS1_E0_EbT_SG_T0_.exit
 
 _ZSt6any_ofIPKPN4llvm4TypeEZNS0_16BasicTTIImplBaseINS0_12BasicTTIImplEE30getTypeBasedIntrinsicInstrCostERKNS0_23IntrinsicCostAttributesENS0_19TargetTransformInfo14TargetCostKindEEUlPKS1_E0_EbT_SG_T0_.exit.loopexit.split.loop.exit: ; preds = %14
@@ -19414,7 +19406,7 @@ _ZNK4llvm16BasicTTIImplBaseINS_12BasicTTIImplEE23getTypeLegalizationCostEPNS_4Ty
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm9BitVectorC2Ejb.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !821
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i:        ; preds = %69
-  %.not.i.i = icmp ugt i32 %71, -65
+  %.not.i.i = icmp eq i32 %79, 0
   br i1 %.not.i.i, label %_ZN4llvm9BitVectorC2Ejb.exit, label %89
 
 89:                                               ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i
@@ -19472,7 +19464,7 @@ _ZN4llvm9BitVectorC2Ejb.exit:                     ; preds = %.lr.ph.i.i.i.i.i.i.
 ._crit_edge306:                                   ; preds = %._crit_edge.us, %_ZN4llvm9BitVectorC2Ejb.exit
   %.idx.i = shl nuw nsw i64 %80, 3
   %110 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx.i
-  %.not10.i = icmp ugt i32 %71, -65
+  %.not10.i = icmp eq i32 %79, 0
   br i1 %.not10.i, label %_ZNK4llvm9BitVector5countEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge306, %.lr.ph.i

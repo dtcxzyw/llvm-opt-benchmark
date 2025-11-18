@@ -2381,7 +2381,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   store i32 %161, ptr %160, align 4, !tbaa !91
   %162 = getelementptr inbounds nuw i8, ptr %160, i64 4
   store i32 %.val2.i.i.i.i.i21.i, ptr %162, align 4, !tbaa !89
-  %.not9.i.i24.i = icmp ult i64 %.0911.in.i.i.i.i19.i, 2
+  %.not9.i.i24.i = icmp eq i64 %.0911.i.i78.i.i20.i, 0
   br i1 %.not9.i.i24.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN5ceres8internal12_GLOBAL__N_119BuildJacobianLayoutERKNSC_7ProgramEiPS5_IPiSaISH_EEPS5_IiSaIiEEE3$_0EEEvT_SQ_SQ_RT0_.exit.i22.i", label %150, !llvm.loop !180
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN5ceres8internal12_GLOBAL__N_119BuildJacobianLayoutERKNSC_7ProgramEiPS5_IPiSaISH_EEPS5_IiSaIiEEE3$_0EEEvT_SQ_SQ_RT0_.exit.i22.i": ; preds = %159, %150, %143
@@ -2825,7 +2825,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
   %49 = getelementptr inbounds %"struct.ceres::internal::Cell", ptr %0, i64 %.018.i.i.i.i.i
   %50 = load i64, ptr %46, align 4
   store i64 %50, ptr %49, align 4
-  %.not10.i.i.i = icmp ult i64 %.0919.in.i.i.i.i.i, 2
+  %.not10.i.i.i = icmp eq i64 %.0919.i.i89.i.i.i, 0
   br i1 %.not10.i.i.i, label %.critedge.loopexit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !198
 
 .critedge.loopexit.i.i.i.i.i:                     ; preds = %48, %.lr.ph.i.i.i.i.i
@@ -3038,7 +3038,7 @@ define linkonce_odr hidden void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_itera
   %40 = getelementptr inbounds %"struct.ceres::internal::Cell", ptr %.fr30, i64 %.018.i.i.i.us
   %41 = load i64, ptr %37, align 4
   store i64 %41, ptr %40, align 4
-  %.not10.i.us = icmp ult i64 %.0919.in.i.i.i.us, 2
+  %.not10.i.us = icmp eq i64 %.0919.i.i89.i.us, 0
   br i1 %.not10.i.us, label %.critedge.loopexit.i.i.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !198
 
 .critedge.loopexit.i.i.i.us:                      ; preds = %39, %.lr.ph.i.i.i.us

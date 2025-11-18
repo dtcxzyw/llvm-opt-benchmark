@@ -3963,7 +3963,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK8rawspeed11NORangesSetINS_6Bu
   %.014.i = phi i64 [ %12, %.lr.ph.i ], [ %.1.i, %35 ]
   %.sroa.011.013.i = phi ptr [ %8, %.lr.ph.i ], [ %.sroa.011.1.i, %35 ]
   %19 = lshr i64 %.014.i, 1
-  %.not.i = icmp eq i64 %.014.i, 1
+  %.not.i = icmp eq i64 %19, 0
   br i1 %.not.i, label %_ZSt7advanceISt23_Rb_tree_const_iteratorIN8rawspeed6BufferEElEvRT_T0_.exit.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %18, %.preheader.i.i.i

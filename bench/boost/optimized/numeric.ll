@@ -4304,7 +4304,7 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIcSt19ostreambuf_iteratorIcSt11ch
   %28 = getelementptr inbounds i8, ptr %.224.i, i64 -1
   store i8 %27, ptr %28, align 1, !tbaa !16
   %29 = lshr i64 %.1.i, 3
-  %.not26.i = icmp ult i64 %.1.i, 8
+  %.not26.i = icmp eq i64 %29, 0
   br i1 %.not26.i, label %_ZSt13__int_to_charIcmEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit, label %.preheader28.i, !llvm.loop !66
 
 30:                                               ; preds = %6
@@ -4323,7 +4323,7 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIcSt19ostreambuf_iteratorIcSt11ch
   %36 = getelementptr inbounds i8, ptr %.3.i, i64 -1
   store i8 %35, ptr %36, align 1, !tbaa !16
   %37 = lshr i64 %.2.i, 4
-  %.not25.i = icmp ult i64 %.2.i, 16
+  %.not25.i = icmp eq i64 %37, 0
   br i1 %.not25.i, label %_ZSt13__int_to_charIcmEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit, label %33, !llvm.loop !67
 
 _ZSt13__int_to_charIcmEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit: ; preds = %33, %.preheader28.i, %.preheader.i
@@ -5767,7 +5767,7 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIcSt19ostreambuf_iteratorIcSt11ch
   %27 = getelementptr inbounds i8, ptr %.224.i, i64 -1
   store i8 %26, ptr %27, align 1, !tbaa !16
   %28 = lshr i64 %.1.i, 3
-  %.not26.i = icmp ult i64 %.1.i, 8
+  %.not26.i = icmp eq i64 %28, 0
   br i1 %.not26.i, label %_ZSt13__int_to_charIcmEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit, label %.preheader28.i, !llvm.loop !66
 
 29:                                               ; preds = %6
@@ -5786,7 +5786,7 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIcSt19ostreambuf_iteratorIcSt11ch
   %35 = getelementptr inbounds i8, ptr %.3.i, i64 -1
   store i8 %34, ptr %35, align 1, !tbaa !16
   %36 = lshr i64 %.2.i, 4
-  %.not25.i = icmp ult i64 %.2.i, 16
+  %.not25.i = icmp eq i64 %36, 0
   br i1 %.not25.i, label %_ZSt13__int_to_charIcmEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit, label %32, !llvm.loop !67
 
 _ZSt13__int_to_charIcmEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit: ; preds = %32, %.preheader28.i, %.preheader.i
@@ -6257,7 +6257,7 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIcSt19ostreambuf_iteratorIcSt11ch
   %28 = getelementptr inbounds i8, ptr %.224.i, i64 -1
   store i8 %27, ptr %28, align 1, !tbaa !16
   %29 = lshr i64 %.1.i, 3
-  %.not26.i = icmp ult i64 %.1.i, 8
+  %.not26.i = icmp eq i64 %29, 0
   br i1 %.not26.i, label %_ZSt13__int_to_charIcyEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit, label %.preheader28.i, !llvm.loop !97
 
 30:                                               ; preds = %6
@@ -6276,7 +6276,7 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIcSt19ostreambuf_iteratorIcSt11ch
   %36 = getelementptr inbounds i8, ptr %.3.i, i64 -1
   store i8 %35, ptr %36, align 1, !tbaa !16
   %37 = lshr i64 %.2.i, 4
-  %.not25.i = icmp ult i64 %.2.i, 16
+  %.not25.i = icmp eq i64 %37, 0
   br i1 %.not25.i, label %_ZSt13__int_to_charIcyEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit, label %33, !llvm.loop !98
 
 _ZSt13__int_to_charIcyEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit: ; preds = %33, %.preheader28.i, %.preheader.i
@@ -6780,7 +6780,7 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIcSt19ostreambuf_iteratorIcSt11ch
   %27 = getelementptr inbounds i8, ptr %.224.i, i64 -1
   store i8 %26, ptr %27, align 1, !tbaa !16
   %28 = lshr i64 %.1.i, 3
-  %.not26.i = icmp ult i64 %.1.i, 8
+  %.not26.i = icmp eq i64 %28, 0
   br i1 %.not26.i, label %_ZSt13__int_to_charIcyEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit, label %.preheader28.i, !llvm.loop !97
 
 29:                                               ; preds = %6
@@ -6799,7 +6799,7 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIcSt19ostreambuf_iteratorIcSt11ch
   %35 = getelementptr inbounds i8, ptr %.3.i, i64 -1
   store i8 %34, ptr %35, align 1, !tbaa !16
   %36 = lshr i64 %.2.i, 4
-  %.not25.i = icmp ult i64 %.2.i, 16
+  %.not25.i = icmp eq i64 %36, 0
   br i1 %.not25.i, label %_ZSt13__int_to_charIcyEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit, label %32, !llvm.loop !98
 
 _ZSt13__int_to_charIcyEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit: ; preds = %32, %.preheader28.i, %.preheader.i
@@ -10342,7 +10342,7 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11ch
   %28 = getelementptr inbounds i8, ptr %.224.i, i64 -4
   store i32 %27, ptr %28, align 4, !tbaa !105
   %29 = lshr i64 %.1.i, 3
-  %.not26.i = icmp ult i64 %.1.i, 8
+  %.not26.i = icmp eq i64 %29, 0
   br i1 %.not26.i, label %_ZSt13__int_to_charIwmEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit, label %.preheader28.i, !llvm.loop !142
 
 30:                                               ; preds = %6
@@ -10361,7 +10361,7 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11ch
   %36 = getelementptr inbounds i8, ptr %.3.i, i64 -4
   store i32 %35, ptr %36, align 4, !tbaa !105
   %37 = lshr i64 %.2.i, 4
-  %.not25.i = icmp ult i64 %.2.i, 16
+  %.not25.i = icmp eq i64 %37, 0
   br i1 %.not25.i, label %_ZSt13__int_to_charIwmEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit, label %33, !llvm.loop !143
 
 _ZSt13__int_to_charIwmEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit: ; preds = %33, %.preheader28.i, %.preheader.i
@@ -11462,7 +11462,7 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11ch
   %27 = getelementptr inbounds i8, ptr %.224.i, i64 -4
   store i32 %26, ptr %27, align 4, !tbaa !105
   %28 = lshr i64 %.1.i, 3
-  %.not26.i = icmp ult i64 %.1.i, 8
+  %.not26.i = icmp eq i64 %28, 0
   br i1 %.not26.i, label %_ZSt13__int_to_charIwmEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit, label %.preheader28.i, !llvm.loop !142
 
 29:                                               ; preds = %6
@@ -11481,7 +11481,7 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11ch
   %35 = getelementptr inbounds i8, ptr %.3.i, i64 -4
   store i32 %34, ptr %35, align 4, !tbaa !105
   %36 = lshr i64 %.2.i, 4
-  %.not25.i = icmp ult i64 %.2.i, 16
+  %.not25.i = icmp eq i64 %36, 0
   br i1 %.not25.i, label %_ZSt13__int_to_charIwmEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit, label %32, !llvm.loop !143
 
 _ZSt13__int_to_charIwmEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit: ; preds = %32, %.preheader28.i, %.preheader.i
@@ -11964,7 +11964,7 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11ch
   %28 = getelementptr inbounds i8, ptr %.224.i, i64 -4
   store i32 %27, ptr %28, align 4, !tbaa !105
   %29 = lshr i64 %.1.i, 3
-  %.not26.i = icmp ult i64 %.1.i, 8
+  %.not26.i = icmp eq i64 %29, 0
   br i1 %.not26.i, label %_ZSt13__int_to_charIwyEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit, label %.preheader28.i, !llvm.loop !165
 
 30:                                               ; preds = %6
@@ -11983,7 +11983,7 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11ch
   %36 = getelementptr inbounds i8, ptr %.3.i, i64 -4
   store i32 %35, ptr %36, align 4, !tbaa !105
   %37 = lshr i64 %.2.i, 4
-  %.not25.i = icmp ult i64 %.2.i, 16
+  %.not25.i = icmp eq i64 %37, 0
   br i1 %.not25.i, label %_ZSt13__int_to_charIwyEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit, label %33, !llvm.loop !166
 
 _ZSt13__int_to_charIwyEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit: ; preds = %33, %.preheader28.i, %.preheader.i
@@ -12499,7 +12499,7 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11ch
   %27 = getelementptr inbounds i8, ptr %.224.i, i64 -4
   store i32 %26, ptr %27, align 4, !tbaa !105
   %28 = lshr i64 %.1.i, 3
-  %.not26.i = icmp ult i64 %.1.i, 8
+  %.not26.i = icmp eq i64 %28, 0
   br i1 %.not26.i, label %_ZSt13__int_to_charIwyEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit, label %.preheader28.i, !llvm.loop !165
 
 29:                                               ; preds = %6
@@ -12518,7 +12518,7 @@ define linkonce_odr { ptr, i8 } @_ZNKSt7num_putIwSt19ostreambuf_iteratorIwSt11ch
   %35 = getelementptr inbounds i8, ptr %.3.i, i64 -4
   store i32 %34, ptr %35, align 4, !tbaa !105
   %36 = lshr i64 %.2.i, 4
-  %.not25.i = icmp ult i64 %.2.i, 16
+  %.not25.i = icmp eq i64 %36, 0
   br i1 %.not25.i, label %_ZSt13__int_to_charIwyEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit, label %32, !llvm.loop !166
 
 _ZSt13__int_to_charIwyEiPT_T0_PKS0_St13_Ios_Fmtflagsb.exit: ; preds = %32, %.preheader28.i, %.preheader.i

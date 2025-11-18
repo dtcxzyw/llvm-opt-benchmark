@@ -2046,8 +2046,8 @@ define internal fastcc range(i32 -1094995529, 1) i32 @mono_decode(ptr noundef %0
   br label %44
 
 42:                                               ; preds = %37
-  %43 = tail call i32 @llvm.umax.i32(i32 %39, i32 2)
-  %spec.store.select.i = lshr i32 %43, 1
+  %43 = lshr i32 %39, 1
+  %spec.store.select.i = tail call i32 @llvm.umax.i32(i32 %43, i32 1)
   br label %44
 
 44:                                               ; preds = %42, %40
@@ -2203,7 +2203,7 @@ decode_envelope.exit:                             ; preds = %get_vlc2.exit.i
   %135 = select i1 %.not136.us.i, i32 0, i32 %.010619.us.i
   %spec.select.us.i = add nsw i32 %135, %.012518.us.i
   %136 = lshr i32 %.010619.us.i, 1
-  %.not.us.i = icmp samesign ult i32 %.010619.us.i, 2
+  %.not.us.i = icmp eq i32 %136, 0
   br i1 %.not.us.i, label %.lr.ph.i21, label %.lr.ph.us.i, !llvm.loop !134
 
 .split.i:                                         ; preds = %.loopexit38
@@ -2212,7 +2212,7 @@ decode_envelope.exit:                             ; preds = %get_vlc2.exit.i
   br label %.preheader12.i
 
 .preheader12.i:                                   ; preds = %.lr.ph.i21, %.split.i
-  %.us-phi99.i = phi i32 [ %spec.select.i, %.split.i ], [ %spec.select.us.i, %.lr.ph.i21 ]
+  %.us-phi100.i = phi i32 [ %spec.select.i, %.split.i ], [ %spec.select.us.i, %.lr.ph.i21 ]
   %.1117.lcssa.i = phi i32 [ 0, %.split.i ], [ %148, %.lr.ph.i21 ]
   %137 = icmp sgt i32 %112, 1
   br i1 %137, label %.lr.ph45.i, label %._crit_edge46.i
@@ -2275,7 +2275,7 @@ decode_envelope.exit:                             ; preds = %get_vlc2.exit.i
   %159 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv75.i
   %160 = load i32, ptr %159, align 4, !tbaa !92
   %161 = sub nsw i32 %158, %160
-  %162 = add nsw i32 %161, %.us-phi99.i
+  %162 = add nsw i32 %161, %.us-phi100.i
   %.not135.i = icmp slt i32 %162, %.09736.i
   %163 = trunc nuw nsw i64 %indvars.iv75.i to i32
   %spec.select137.i = select i1 %.not135.i, i32 %.111234.i, i32 %163
@@ -2327,7 +2327,7 @@ decode_envelope.exit:                             ; preds = %get_vlc2.exit.i
   %185 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv70.i
   %186 = load i32, ptr %185, align 4, !tbaa !92
   %187 = sub nsw i32 %184, %186
-  %188 = add nsw i32 %187, %.us-phi99.i
+  %188 = add nsw i32 %187, %.us-phi100.i
   %189 = icmp slt i32 %188, %.031.i
   %190 = trunc nuw nsw i64 %indvars.iv70.i to i32
   %spec.select139.i = select i1 %189, i32 %190, i32 %.311429.i
@@ -2384,11 +2384,11 @@ decode_envelope.exit:                             ; preds = %get_vlc2.exit.i
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader10.i, %.preheader11.i, %.lr.ph54.i.preheader, %._crit_edge46.i
-  %.099.lcssa103.i = phi i32 [ %.099.lcssa.i, %._crit_edge46.i ], [ %.099.lcssa.i, %.lr.ph54.i.preheader ], [ %.09944.i, %.preheader11.i ], [ %.09944.i, %.preheader10.i ]
+  %.099.lcssa104.i = phi i32 [ %.099.lcssa.i, %._crit_edge46.i ], [ %.099.lcssa.i, %.lr.ph54.i.preheader ], [ %.09944.i, %.preheader11.i ], [ %.09944.i, %.preheader10.i ]
   br i1 %137, label %.lr.ph57.preheader.i, label %categorize.exit
 
 .lr.ph57.preheader.i:                             ; preds = %.preheader.i
-  %210 = sext i32 %.099.lcssa103.i to i64
+  %210 = sext i32 %.099.lcssa104.i to i64
   %211 = add nsw i32 %112, -1
   %212 = zext nneg i32 %211 to i64
   %213 = shl nsw i64 %210, 2

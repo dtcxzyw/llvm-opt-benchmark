@@ -4966,7 +4966,7 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev12_GLO
 96:                                               ; preds = %.lr.ph.i.i.i.i16.i
   %97 = getelementptr inbounds %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %.fr47.i, i64 %.06.i.i.i.i17.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %97, ptr noundef nonnull align 8 dereferenceable(32) %93, i64 32, i1 false), !tbaa.struct !190
-  %.not9.i.i24.i = icmp ult i64 %.097.in.i.i.i.i18.i, 2
+  %.not9.i.i24.i = icmp eq i64 %.097.i.i78.i.i19.i, 0
   br i1 %.not9.i.i24.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i21.i, label %.lr.ph.i.i.i.i16.i, !llvm.loop !218
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i21.i: ; preds = %96, %.lr.ph.i.i.i.i16.i, %92

@@ -268,54 +268,55 @@ thread-pre-split:                                 ; preds = %45, %.preheader, %5
 
 58:                                               ; preds = %55
   %59 = load i32, ptr @LastNonZeroWord, align 4, !tbaa !8
-  %.not2129 = icmp ult i32 %59, 4
+  %60 = lshr i32 %59, 2
+  %.not2129 = icmp eq i32 %60, 0
   br i1 %.not2129, label %._crit_edge, label %.lr.ph31
 
 .lr.ph31:                                         ; preds = %58, %.lr.ph31
-  %.230 = phi i32 [ %61, %.lr.ph31 ], [ 0, %58 ]
-  %.in = phi i32 [ %60, %.lr.ph31 ], [ %59, %58 ]
-  %60 = lshr i32 %.in, 2
-  %61 = add nuw nsw i32 %.230, 1
-  %.not21 = icmp ult i32 %.in, 16
+  %.230 = phi i32 [ %63, %.lr.ph31 ], [ 0, %58 ]
+  %61 = phi i32 [ %62, %.lr.ph31 ], [ %60, %58 ]
+  %62 = lshr i32 %61, 2
+  %63 = add nuw nsw i32 %.230, 1
+  %.not21 = icmp eq i32 %62, 0
   br i1 %.not21, label %._crit_edge, label %.lr.ph31, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph31, %58
-  %.2.lcssa = phi i32 [ 0, %58 ], [ %61, %.lr.ph31 ]
-  %62 = shl nsw i32 %10, 4
-  %63 = add nsw i32 %.2.lcssa, %62
-  store i32 %63, ptr @s_DiffVarNum, align 4, !tbaa !8
-  %64 = shl i32 %63, 1
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %66 = load ptr, ptr %65, align 8, !tbaa !11
-  %67 = ashr i32 %64, 5
-  %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds i32, ptr %66, i64 %68
-  %70 = load i32, ptr %69, align 4, !tbaa !8
-  %71 = and i32 %64, 30
-  %72 = lshr i32 %70, %71
-  %73 = and i32 %72, 3
-  store i32 %73, ptr @s_DiffVarValueP_old, align 4, !tbaa !8
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %75 = load ptr, ptr %74, align 8, !tbaa !11
-  %76 = getelementptr inbounds i32, ptr %75, i64 %68
-  %77 = load i32, ptr %76, align 4, !tbaa !8
-  %78 = lshr i32 %77, %71
-  %79 = and i32 %78, 3
-  store i32 %79, ptr @s_DiffVarValueQ, align 4, !tbaa !8
-  %80 = shl nuw i32 %79, %71
-  %81 = load i32, ptr %69, align 4, !tbaa !8
-  %82 = xor i32 %80, %81
-  store i32 %82, ptr %69, align 4, !tbaa !8
-  %83 = load i32, ptr @s_DiffVarNum, align 4, !tbaa !8
-  %84 = shl i32 %83, 1
-  %85 = ashr i32 %84, 5
-  %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds i32, ptr %66, i64 %86
-  %88 = load i32, ptr %87, align 4, !tbaa !8
-  %89 = and i32 %84, 30
-  %90 = lshr i32 %88, %89
-  %91 = and i32 %90, 3
-  store i32 %91, ptr @s_DiffVarValueP_new, align 4, !tbaa !8
+  %.2.lcssa = phi i32 [ 0, %58 ], [ %63, %.lr.ph31 ]
+  %64 = shl nsw i32 %10, 4
+  %65 = add nsw i32 %.2.lcssa, %64
+  store i32 %65, ptr @s_DiffVarNum, align 4, !tbaa !8
+  %66 = shl i32 %65, 1
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %68 = load ptr, ptr %67, align 8, !tbaa !11
+  %69 = ashr i32 %66, 5
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds i32, ptr %68, i64 %70
+  %72 = load i32, ptr %71, align 4, !tbaa !8
+  %73 = and i32 %66, 30
+  %74 = lshr i32 %72, %73
+  %75 = and i32 %74, 3
+  store i32 %75, ptr @s_DiffVarValueP_old, align 4, !tbaa !8
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %77 = load ptr, ptr %76, align 8, !tbaa !11
+  %78 = getelementptr inbounds i32, ptr %77, i64 %70
+  %79 = load i32, ptr %78, align 4, !tbaa !8
+  %80 = lshr i32 %79, %73
+  %81 = and i32 %80, 3
+  store i32 %81, ptr @s_DiffVarValueQ, align 4, !tbaa !8
+  %82 = shl nuw i32 %81, %73
+  %83 = load i32, ptr %71, align 4, !tbaa !8
+  %84 = xor i32 %82, %83
+  store i32 %84, ptr %71, align 4, !tbaa !8
+  %85 = load i32, ptr @s_DiffVarNum, align 4, !tbaa !8
+  %86 = shl i32 %85, 1
+  %87 = ashr i32 %86, 5
+  %88 = sext i32 %87 to i64
+  %89 = getelementptr inbounds i32, ptr %68, i64 %88
+  %90 = load i32, ptr %89, align 4, !tbaa !8
+  %91 = and i32 %86, 30
+  %92 = lshr i32 %90, %91
+  %93 = and i32 %92, 3
+  store i32 %93, ptr @s_DiffVarValueP_new, align 4, !tbaa !8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %30, %thread-pre-split, %._crit_edge, %57

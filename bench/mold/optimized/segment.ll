@@ -53,7 +53,7 @@ define hidden i64 @_mi_commit_mask_committed_size(ptr noundef readonly captures(
   %11 = and i64 %.016, 1
   %spec.select = add i64 %11, %.215
   %12 = lshr i64 %.016, 1
-  %.not = icmp ult i64 %.016, 2
+  %.not = icmp eq i64 %12, 0
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %9
@@ -720,7 +720,7 @@ mi_segments_track_size.exit.i:                    ; preds = %81, %74
   %96 = and i64 %.016.i.i, 1
   %spec.select.i.i = add i64 %96, %.215.i.i
   %97 = lshr i64 %.016.i.i, 1
-  %.not.i.i15 = icmp ult i64 %.016.i.i, 2
+  %.not.i.i15 = icmp eq i64 %97, 0
   br i1 %.not.i.i15, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !7
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i, %94, %91
@@ -1361,7 +1361,7 @@ define hidden void @mi_collect_reduce(i64 noundef %0) local_unnamed_addr #3 {
   %2 = tail call ptr @mi_heap_get_default() #11
   %3 = load ptr, ptr %2, align 8, !tbaa !67
   %4 = lshr i64 %0, 25
-  %5 = icmp ult i64 %0, 33554432
+  %5 = icmp eq i64 %4, 0
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %1
@@ -2425,7 +2425,7 @@ mi_commit_mask_create_intersect.exit:             ; preds = %31, %.loopexit.i
   %43 = and i64 %.016.i, 1
   %spec.select.i = add i64 %43, %.215.i
   %44 = lshr i64 %.016.i, 1
-  %.not.i12 = icmp ult i64 %.016.i, 2
+  %.not.i12 = icmp eq i64 %44, 0
   br i1 %.not.i12, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !7
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %41, %mi_commit_mask_create_intersect.exit
@@ -3593,7 +3593,7 @@ mi_commit_mask_create_intersect.exit.i.i:         ; preds = %40, %.loopexit.i.i.
   %52 = and i64 %.016.i.i.i, 1
   %spec.select.i.i.i = add i64 %52, %.215.i.i.i
   %53 = lshr i64 %.016.i.i.i, 1
-  %.not.i16.i.i = icmp ult i64 %.016.i.i.i, 2
+  %.not.i16.i.i = icmp eq i64 %53, 0
   br i1 %.not.i16.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !7
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i, %50, %mi_commit_mask_create_intersect.exit.i.i

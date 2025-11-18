@@ -4568,10 +4568,10 @@ _ZNSt16allocator_traitsISaIN10open_spiel14SpanTensorInfoEEE8allocateERS2_m.exit.
   %62 = load i64, ptr %61, align 8, !noalias !41
   %63 = getelementptr inbounds nuw i8, ptr %.pr.i27, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !41
+  %65 = lshr i64 %62, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !41
-  %65 = shl nuw nsw i64 %62, 1
-  %.idx.i = and i64 %65, 9223372036854775804
-  %.not.i.i.i.i17 = icmp ult i64 %62, 2
+  %.idx.i = shl nuw nsw i64 %65, 2
+  %.not.i.i.i.i17 = icmp eq i64 %65, 0
   br i1 %.not.i.i.i.i17, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread.i.i.i, label %.noexc4.i.i
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread.i.i.i: ; preds = %60

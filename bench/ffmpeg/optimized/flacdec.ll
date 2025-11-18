@@ -2696,7 +2696,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_residuals(ptr nound
   br i1 %70, label %.lr.ph117, label %.thread98
 
 .lr.ph117:                                        ; preds = %59
-  %.not.i = icmp ult i32 %66, 134217728
+  %.not.i = icmp eq i32 %67, 0
   %71 = add nsw i32 %67, -16
   %72 = sub nuw nsw i32 48, %67
   %.pre.i = sub nuw nsw i32 32, %67

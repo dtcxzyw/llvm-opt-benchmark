@@ -563,11 +563,11 @@ _ZN4llvm11SmallVectorINS_15AssumptionCache10ResultElemELj16EED2Ev.exit: ; preds 
   %31 = zext i32 %.val12 to i64
   %.idx3.i = shl nuw nsw i64 %31, 5
   %32 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx3.i
-  %.not.i = icmp ult i32 %.val12, 4
+  %33 = lshr i64 %31, 2
+  %.not.i = icmp eq i64 %33, 0
   br i1 %.not.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %26
-  %33 = lshr i64 %31, 2
   %34 = getelementptr inbounds nuw i8, ptr %.022, i64 24
   %35 = and i64 %.idx3.i, 137438953344
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %.val, i64 %35
@@ -640,11 +640,10 @@ _ZN4llvm11SmallVectorINS_15AssumptionCache10ResultElemELj16EED2Ev.exit: ; preds 
 ._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %26
   %.pre-phi80.i.i.i.i.i = phi i32 [ %60, %._crit_edge.loopexit.i.i.i.i.i ], [ %.val12, %26 ]
   %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %.val, %26 ]
-  switch i32 %.pre-phi80.i.i.i.i.i, label %default.unreachable [
+  switch i32 %.pre-phi80.i.i.i.i.i, label %"_ZN4llvm7none_ofIRNS_11SmallVectorINS_15AssumptionCache10ResultElemELj1EEEZNS2_20updateAffectedValuesEPNS_10AssumeInstEE3$_0EEbOT_T0_.exit.thread" [
     i32 3, label %61
     i32 2, label %._crit_edge._crit_edge.i.i.i.i.i
     i32 1, label %._crit_edge._crit_edge77.i.i.i.i.i
-    i32 0, label %"_ZN4llvm7none_ofIRNS_11SmallVectorINS_15AssumptionCache10ResultElemELj1EEEZNS2_20updateAffectedValuesEPNS_10AssumeInstEE3$_0EEbOT_T0_.exit.thread"
   ]
 
 61:                                               ; preds = %._crit_edge.i.i.i.i.i
@@ -698,9 +697,6 @@ _ZN4llvm11SmallVectorINS_15AssumptionCache10ResultElemELj16EED2Ev.exit: ; preds 
   %80 = load i32, ptr %79, align 8, !tbaa !86
   %81 = icmp eq i32 %.2.val53.i.i.i.i.i, %80
   br i1 %81, label %"_ZN4llvm7none_ofIRNS_11SmallVectorINS_15AssumptionCache10ResultElemELj1EEEZNS2_20updateAffectedValuesEPNS_10AssumeInstEE3$_0EEbOT_T0_.exit", label %"_ZN4llvm7none_ofIRNS_11SmallVectorINS_15AssumptionCache10ResultElemELj1EEEZNS2_20updateAffectedValuesEPNS_10AssumeInstEE3$_0EEbOT_T0_.exit.thread"
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i
-  unreachable
 
 .loopexit.split.loop.exit61.i.i.i.i.i:            ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm15AssumptionCache20updateAffectedValuesEPNS2_10AssumeInstEE3$_0EclIPNS3_10ResultElemEEEbT_.exit54.i.i.i.i.i"
   %82 = getelementptr inbounds nuw i8, ptr %.02970.i.i.i.i.i, i64 32
@@ -1805,11 +1801,11 @@ _ZN4llvm10CallbackVHD2Ev.exit17:                  ; preds = %_ZN4llvm15Assumptio
   %65 = zext i32 %64 to i64
   %.idx4.i = shl nuw nsw i64 %65, 5
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 %.idx4.i
-  %.not.i = icmp ult i32 %64, 4
+  %67 = lshr i64 %65, 2
+  %.not.i = icmp eq i64 %67, 0
   br i1 %.not.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %62
-  %67 = lshr i64 %65, 2
   %68 = getelementptr inbounds nuw i8, ptr %.027, i64 16
   %69 = load ptr, ptr %68, align 8, !tbaa !60
   %70 = and i64 %.idx4.i, 137438953344
@@ -1855,11 +1851,10 @@ _ZN4llvm10CallbackVHD2Ev.exit17:                  ; preds = %_ZN4llvm15Assumptio
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %62
   %.pre-phi57.i.i.i.i = phi i32 [ %91, %._crit_edge.loopexit.i.i.i.i ], [ %64, %62 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %63, %62 ]
-  switch i32 %.pre-phi57.i.i.i.i, label %default.unreachable [
+  switch i32 %.pre-phi57.i.i.i.i, label %_ZN4llvm12is_containedIRNS_11SmallVectorINS_15AssumptionCache10ResultElemELj1EEES3_EEbOT_RKT0_.exit.thread [
     i32 3, label %92
     i32 2, label %._crit_edge._crit_edge.i.i.i.i
     i32 1, label %._crit_edge._crit_edge52.i.i.i.i
-    i32 0, label %_ZN4llvm12is_containedIRNS_11SmallVectorINS_15AssumptionCache10ResultElemELj1EEES3_EEbOT_RKT0_.exit.thread
   ]
 
 ._crit_edge._crit_edge52.i.i.i.i:                 ; preds = %._crit_edge.i.i.i.i
@@ -1903,9 +1898,6 @@ _ZN4llvm10CallbackVHD2Ev.exit17:                  ; preds = %_ZN4llvm15Assumptio
   %110 = load ptr, ptr %109, align 8, !tbaa !60
   %111 = icmp eq ptr %110, %108
   br i1 %111, label %_ZN4llvm12is_containedIRNS_11SmallVectorINS_15AssumptionCache10ResultElemELj1EEES3_EEbOT_RKT0_.exit, label %_ZN4llvm12is_containedIRNS_11SmallVectorINS_15AssumptionCache10ResultElemELj1EEES3_EEbOT_RKT0_.exit.thread
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
-  unreachable
 
 .loopexit.split.loop.exit37.i.i.i.i:              ; preds = %75
   %112 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 32

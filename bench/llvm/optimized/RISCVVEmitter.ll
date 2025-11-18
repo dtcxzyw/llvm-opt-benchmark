@@ -7776,53 +7776,53 @@ define dso_local void @_ZN5clang16EmitRVVBuiltinCGERKN4llvm12RecordKeeperERNS0_1
   %33 = shl nuw nsw i64 %.010.i.i.i.i.i.i, 3
   %34 = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %33, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #24
   %.not.i.i.i.i.i.i = icmp eq ptr %34, null
-  br i1 %.not.i.i.i.i.i.i, label %select.unfold.i.i.i.i.i.i, label %35
+  br i1 %.not.i.i.i.i.i.i, label %select.unfold.i.i.i.i.i.i, label %36
 
 select.unfold.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i
-  %.not14.i.i.i.i.i.i = icmp samesign ult i64 %.010.i.i.in.in.i.i.i.i, 3
-  br i1 %.not14.i.i.i.i.i.i, label %.thread.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !131
+  %35 = icmp eq i64 %.010.i.i.i.i.i.i, 1
+  br i1 %35, label %.thread.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !131
 
-35:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %36 = getelementptr inbounds nuw i8, ptr %34, i64 %33
-  %37 = load i64, ptr %.val.i, align 8, !tbaa !124
-  store i64 %37, ptr %34, align 8, !tbaa !124
+36:                                               ; preds = %.lr.ph.i.i.i.i.i.i
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 %33
+  %38 = load i64, ptr %.val.i, align 8, !tbaa !124
+  store i64 %38, ptr %34, align 8, !tbaa !124
   %.not18.i.i.i.i.i.i.i = icmp eq i64 %.010.i.i.i.i.i.i, 1
-  %38 = inttoptr i64 %37 to ptr
-  br i1 %.not18.i.i.i.i.i.i.i, label %40, label %.lr.ph.i.i.preheader.i.i.i.i.i
+  %39 = inttoptr i64 %38 to ptr
+  br i1 %.not18.i.i.i.i.i.i.i, label %.lr.ph.i.i.i9.i.preheader.i.i.i, label %.lr.ph.i.i.preheader.i.i.i.i.i
 
-.lr.ph.i.i.preheader.i.i.i.i.i:                   ; preds = %35
+.lr.ph.i.i.preheader.i.i.i.i.i:                   ; preds = %36
   %.01317.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %34, i64 8
   %load_initial = load i64, ptr %34, align 8
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i.i
   %.01320.i.i.i.i.i.i.i = phi ptr [ %.013.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %.01317.i.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i.i ]
-  %.019.i.i.i.i.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i.i.i.i ], [ %34, %.lr.ph.i.i.preheader.i.i.i.i.i ]
+  %.019.i.i.i.i.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i.i.i.i.i ], [ %34, %.lr.ph.i.i.preheader.i.i.i.i.i ]
   store i64 %load_initial, ptr %.01320.i.i.i.i.i.i.i, align 8, !tbaa !124
   store ptr null, ptr %.019.i.i.i.i.i.i.i, align 8, !tbaa !124
-  %39 = getelementptr inbounds nuw i8, ptr %.019.i.i.i.i.i.i.i, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.019.i.i.i.i.i.i.i, i64 8
   %.013.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.01320.i.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %.013.i.i.i.i.i.i.i, %36
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %.013.i.i.i.i.i.i.i, %37
   br i1 %.not.i.i.i.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !132
 
 ._crit_edge.i.i.loopexit.i.i.i.i.i:               ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %.pre.i.i.i.i.i = load ptr, ptr %39, align 8, !tbaa !124
-  br label %40
+  %.pre.i.i.i.i.i = load ptr, ptr %40, align 8, !tbaa !124
+  br label %.lr.ph.i.i.i9.i.preheader.i.i.i
 
 .thread.i.i.i.i:                                  ; preds = %select.unfold.i.i.i.i.i.i, %27
   call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110RVVEmitter13createCodeGenERN4llvm11raw_ostreamEE3$_0EEEvT_SN_T0_"(ptr %.val.i, ptr %.val53.i)
   br label %"_ZN4llvm11stable_sortIRSt6vectorISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS5_EESaIS8_EEZN12_GLOBAL__N_110RVVEmitter13createCodeGenERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit.i"
 
-40:                                               ; preds = %._crit_edge.i.i.loopexit.i.i.i.i.i, %35
-  %41 = phi ptr [ %38, %35 ], [ %.pre.i.i.i.i.i, %._crit_edge.i.i.loopexit.i.i.i.i.i ]
-  %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %34, %35 ], [ %39, %._crit_edge.i.i.loopexit.i.i.i.i.i ]
+.lr.ph.i.i.i9.i.preheader.i.i.i:                  ; preds = %._crit_edge.i.i.loopexit.i.i.i.i.i, %36
+  %41 = phi ptr [ %39, %36 ], [ %.pre.i.i.i.i.i, %._crit_edge.i.i.loopexit.i.i.i.i.i ]
+  %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %34, %36 ], [ %40, %._crit_edge.i.i.loopexit.i.i.i.i.i ]
   store ptr null, ptr %.0.lcssa.i.i.i.i.i.i.i, align 8, !tbaa !124
   store ptr %41, ptr %.val.i, align 8, !tbaa !124
   call fastcc void @"_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_lNS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110RVVEmitter13createCodeGenERN4llvm11raw_ostreamEE3$_0EEEvT_SN_T0_T1_T2_"(ptr nonnull %.val.i, ptr %.val53.i, ptr noundef nonnull %34, i64 noundef %.010.i.i.i.i.i.i)
   br label %.lr.ph.i.i.i9.i.i.i.i
 
-.lr.ph.i.i.i9.i.i.i.i:                            ; preds = %_ZSt8_DestroyISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i.i.i.i, %40
-  %.05.i.i.i.i.i.i.i = phi ptr [ %43, %_ZSt8_DestroyISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i.i.i.i ], [ %34, %40 ]
+.lr.ph.i.i.i9.i.i.i.i:                            ; preds = %_ZSt8_DestroyISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i.i.i.i, %.lr.ph.i.i.i9.i.preheader.i.i.i
+  %.05.i.i.i.i.i.i.i = phi ptr [ %43, %_ZSt8_DestroyISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i.i.i.i ], [ %34, %.lr.ph.i.i.i9.i.preheader.i.i.i ]
   %42 = load ptr, ptr %.05.i.i.i.i.i.i.i, align 8, !tbaa !124
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN5clang5RISCV12RVVIntrinsicEEclEPS2_.exit.i.i.i.i.i.i.i.i.i
@@ -7835,7 +7835,7 @@ _ZNKSt14default_deleteIN5clang5RISCV12RVVIntrinsicEEclEPS2_.exit.i.i.i.i.i.i.i.i
 _ZSt8_DestroyISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN5clang5RISCV12RVVIntrinsicEEclEPS2_.exit.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i9.i.i.i.i
   store ptr null, ptr %.05.i.i.i.i.i.i.i, align 8, !tbaa !124
   %43 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i, i64 8
-  %.not.i.i.i10.i.i.i.i = icmp eq ptr %43, %36
+  %.not.i.i.i10.i.i.i.i = icmp eq ptr %43, %37
   br i1 %.not.i.i.i10.i.i.i.i, label %"_ZN4llvm11stable_sortIRSt6vectorISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS5_EESaIS8_EEZN12_GLOBAL__N_110RVVEmitter13createCodeGenERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit.i", label %.lr.ph.i.i.i9.i.i.i.i, !llvm.loop !126
 
 "_ZN4llvm11stable_sortIRSt6vectorISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS5_EESaIS8_EEZN12_GLOBAL__N_110RVVEmitter13createCodeGenERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit.i": ; preds = %_ZSt8_DestroyISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i.i.i.i, %.thread.i.i.i.i

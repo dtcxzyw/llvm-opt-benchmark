@@ -26741,7 +26741,7 @@ _ZSt13__adjust_heapIPN12_GLOBAL__N_110t_pdbindexElS1_N9__gnu_cxx5__ops15_Iter_co
 90:                                               ; preds = %.lr.ph.i.i.i.i14.i
   %91 = getelementptr inbounds nuw %"struct.(anonymous namespace)::t_pdbindex", ptr %0, i64 %.0133.i.i.i.i15.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %91, ptr noundef nonnull align 4 dereferenceable(16) %88, i64 16, i1 false), !tbaa.struct !403
-  %.not9.i.i20.i = icmp ult i64 %.04.in.i.i.i.i16.i, 2
+  %.not9.i.i20.i = icmp eq i64 %.048.i.i.i.i17.i, 0
   br i1 %.not9.i.i20.i, label %_ZSt10__pop_heapIPN12_GLOBAL__N_110t_pdbindexEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_RT0_.exit.i18.i, label %.lr.ph.i.i.i.i14.i, !llvm.loop !595
 
 _ZSt10__pop_heapIPN12_GLOBAL__N_110t_pdbindexEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_RT0_.exit.i18.i: ; preds = %90, %.lr.ph.i.i.i.i14.i, %87

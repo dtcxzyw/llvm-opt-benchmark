@@ -281,7 +281,7 @@ define hidden void @VP8PutBits(ptr noundef captures(none) %0, i32 noundef %1, i3
 
 VP8PutBitUniform.exit:                            ; preds = %17, %19, %29
   %30 = lshr i32 %.05, 1
-  %.not = icmp ult i32 %.05, 2
+  %.not = icmp eq i32 %30, 0
   br i1 %.not, label %31, label %8, !llvm.loop !21
 
 31:                                               ; preds = %VP8PutBitUniform.exit
@@ -389,7 +389,7 @@ VP8PutBitUniform.exit:                            ; preds = %12, %14, %26
 
 VP8PutBitUniform.exit.i:                          ; preds = %55, %45, %43
   %56 = lshr i32 %.05.i, 1
-  %.not.i8 = icmp ult i32 %.05.i, 2
+  %.not.i8 = icmp eq i32 %56, 0
   br i1 %.not.i8, label %VP8PutBits.exit, label %34, !llvm.loop !21
 
 57:                                               ; preds = %27
@@ -442,7 +442,7 @@ VP8PutBitUniform.exit.i:                          ; preds = %55, %45, %43
 
 VP8PutBitUniform.exit.i12:                        ; preds = %83, %73, %71
   %84 = lshr i32 %.05.i9, 1
-  %.not.i13 = icmp ult i32 %.05.i9, 2
+  %.not.i13 = icmp eq i32 %84, 0
   br i1 %.not.i13, label %VP8PutBits.exit, label %62, !llvm.loop !21
 
 VP8PutBits.exit:                                  ; preds = %VP8PutBitUniform.exit.i12, %VP8PutBitUniform.exit.i, %VP8PutBitUniform.exit
@@ -536,7 +536,7 @@ define hidden ptr @VP8BitWriterFinish(ptr noundef captures(none) %0) local_unnam
 
 VP8PutBitUniform.exit.i:                          ; preds = %21, %11, %7
   %22 = lshr i32 %.05.i, 1
-  %.not.i = icmp ult i32 %.05.i, 2
+  %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %VP8PutBits.exit, label %7, !llvm.loop !21
 
 VP8PutBits.exit:                                  ; preds = %VP8PutBitUniform.exit.i

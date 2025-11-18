@@ -38113,12 +38113,12 @@ define void @"_ZN234_$LT$polars_time..chunkedarray..string..infer..DatetimeInfer
 define internal { i32, i32 } @_ZN11polars_time12chunkedarray6string5infer14transform_date17h45f9d0d6dc40fd9dE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 {
   %5 = tail call i64 @_ZN6chrono5naive4date9NaiveDate14parse_from_str17h9e261ad239ddf537E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   %6 = trunc i64 %5 to i1
-  %.not7 = icmp ult i64 %5, 4294967296
+  %.sroa.5.0.extract.shift = lshr i64 %5, 32
+  %.not7 = icmp eq i64 %.sroa.5.0.extract.shift, 0
   %.not = or i1 %.not7, %6
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %4
-  %.sroa.5.0.extract.shift = lshr i64 %5, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
   %8 = tail call noundef i32 @_ZN11polars_time12chunkedarray4date18naive_date_to_date17ha2b3f4084cdd8827E(i32 noundef %.sroa.5.0.extract.trunc)
   br label %9
@@ -38168,12 +38168,12 @@ define { i64, i64 } @_ZN11polars_time12chunkedarray6string5infer21transform_date
 19:                                               ; preds = %10
   %20 = tail call i64 @_ZN6chrono5naive4date9NaiveDate14parse_from_str17h9e261ad239ddf537E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   %21 = trunc i64 %20 to i1
-  %.not8 = icmp ult i64 %20, 4294967296
+  %.sroa.57.0.extract.shift = lshr i64 %20, 32
+  %.not8 = icmp eq i64 %.sroa.57.0.extract.shift, 0
   %.not = or i1 %.not8, %21
   br i1 %.not, label %16, label %22
 
 22:                                               ; preds = %19
-  %.sroa.57.0.extract.shift = lshr i64 %20, 32
   %.sroa.57.0.extract.trunc = trunc nuw i64 %.sroa.57.0.extract.shift to i32
   store i32 %.sroa.57.0.extract.trunc, ptr %5, align 4
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -38246,12 +38246,12 @@ define { i64, i64 } @_ZN11polars_time12chunkedarray6string5infer21transform_date
 19:                                               ; preds = %10
   %20 = tail call i64 @_ZN6chrono5naive4date9NaiveDate14parse_from_str17h9e261ad239ddf537E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   %21 = trunc i64 %20 to i1
-  %.not8 = icmp ult i64 %20, 4294967296
+  %.sroa.57.0.extract.shift = lshr i64 %20, 32
+  %.not8 = icmp eq i64 %.sroa.57.0.extract.shift, 0
   %.not = or i1 %.not8, %21
   br i1 %.not, label %16, label %22
 
 22:                                               ; preds = %19
-  %.sroa.57.0.extract.shift = lshr i64 %20, 32
   %.sroa.57.0.extract.trunc = trunc nuw i64 %.sroa.57.0.extract.shift to i32
   store i32 %.sroa.57.0.extract.trunc, ptr %5, align 4
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -38324,12 +38324,12 @@ define { i64, i64 } @_ZN11polars_time12chunkedarray6string5infer21transform_date
 19:                                               ; preds = %10
   %20 = tail call i64 @_ZN6chrono5naive4date9NaiveDate14parse_from_str17h9e261ad239ddf537E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   %21 = trunc i64 %20 to i1
-  %.not8 = icmp ult i64 %20, 4294967296
+  %.sroa.57.0.extract.shift = lshr i64 %20, 32
+  %.not8 = icmp eq i64 %.sroa.57.0.extract.shift, 0
   %.not = or i1 %.not8, %21
   br i1 %.not, label %16, label %22
 
 22:                                               ; preds = %19
-  %.sroa.57.0.extract.shift = lshr i64 %20, 32
   %.sroa.57.0.extract.trunc = trunc nuw i64 %.sroa.57.0.extract.shift to i32
   store i32 %.sroa.57.0.extract.trunc, ptr %5, align 4
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 4

@@ -684,7 +684,7 @@ define internal noundef i32 @lj_ffh_tonumber(ptr noundef %0) #2 {
   %7 = load i64, ptr %6, align 8, !tbaa !14
   %8 = ashr i64 %7, 47
   %9 = icmp ult i64 %8, -13
-  br i1 %9, label %lj_strscan_numberobj.exit.thread70, label %10
+  br i1 %9, label %lj_strscan_numberobj.exit.thread71, label %10
 
 10:                                               ; preds = %5
   %11 = icmp eq i64 %8, -5
@@ -694,20 +694,20 @@ lj_strscan_numberobj.exit:                        ; preds = %10
   %12 = and i64 %7, 140737488355327
   %13 = inttoptr i64 %12 to ptr
   %14 = tail call i32 @lj_strscan_num(ptr noundef %13, ptr noundef nonnull %6) #11
-  %.not72 = icmp eq i32 %14, 0
-  %.pre79 = load i64, ptr %6, align 8, !tbaa !14
-  br i1 %.not72, label %lj_strscan_numberobj.exit.thread, label %lj_strscan_numberobj.exit.thread70
+  %.not73 = icmp eq i32 %14, 0
+  %.pre80 = load i64, ptr %6, align 8, !tbaa !14
+  br i1 %.not73, label %lj_strscan_numberobj.exit.thread, label %lj_strscan_numberobj.exit.thread71
 
-lj_strscan_numberobj.exit.thread70:               ; preds = %5, %lj_strscan_numberobj.exit
-  %15 = phi i64 [ %7, %5 ], [ %.pre79, %lj_strscan_numberobj.exit ]
+lj_strscan_numberobj.exit.thread71:               ; preds = %5, %lj_strscan_numberobj.exit
+  %15 = phi i64 [ %7, %5 ], [ %.pre80, %lj_strscan_numberobj.exit ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8, !tbaa !19
   %18 = getelementptr inbounds i8, ptr %17, i64 -16
   store i64 %15, ptr %18, align 8, !tbaa !14
-  br label %.critedge66
+  br label %.critedge67
 
 lj_strscan_numberobj.exit.thread:                 ; preds = %lj_strscan_numberobj.exit, %10
-  %19 = phi i64 [ %7, %10 ], [ %.pre79, %lj_strscan_numberobj.exit ]
+  %19 = phi i64 [ %7, %10 ], [ %.pre80, %lj_strscan_numberobj.exit ]
   %.mask = and i64 %19, -140737488355328
   %20 = icmp eq i64 %.mask, -1548112371908608
   br i1 %20, label %21, label %90
@@ -738,16 +738,16 @@ lj_strscan_numberobj.exit.thread:                 ; preds = %lj_strscan_numberob
   %40 = load ptr, ptr %27, align 8, !tbaa !51
   %41 = zext nneg i32 %39 to i64
   %42 = getelementptr inbounds nuw %struct.CType, ptr %40, i64 %41
-  %.pre78 = load i32, ptr %42, align 8, !tbaa !48
+  %.pre79 = load i32, ptr %42, align 8, !tbaa !48
   br label %43
 
 43:                                               ; preds = %38, %21
-  %44 = phi i32 [ %.pre78, %38 ], [ %36, %21 ]
+  %44 = phi i32 [ %.pre79, %38 ], [ %36, %21 ]
   %45 = icmp ult i32 %44, 268435456
   %46 = and i32 %44, -201326592
   %47 = icmp eq i32 %46, 872415232
-  %or.cond64 = or i1 %45, %47
-  br i1 %or.cond64, label %.critedge, label %90
+  %or.cond65 = or i1 %45, %47
+  br i1 %or.cond65, label %.critedge, label %90
 
 .critedge:                                        ; preds = %43
   %48 = load ptr, ptr %27, align 8, !tbaa !51
@@ -756,25 +756,25 @@ lj_strscan_numberobj.exit.thread:                 ; preds = %lj_strscan_numberob
   %51 = load ptr, ptr %50, align 8, !tbaa !19
   %52 = getelementptr inbounds i8, ptr %51, i64 -16
   tail call void @lj_cconv_ct_tv(ptr noundef nonnull %27, ptr noundef nonnull %49, ptr noundef nonnull %52, ptr noundef nonnull %6, i32 noundef 0) #11
-  br label %.critedge66
+  br label %.critedge67
 
 53:                                               ; preds = %1
   %54 = tail call ptr @lj_lib_checkstr(ptr noundef %0, i32 noundef 1) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %55 = add i32 %3, -37
   %or.cond = icmp ult i32 %55, -35
-  br i1 %or.cond, label %57, label %.preheader73.preheader
+  br i1 %or.cond, label %57, label %.preheader74.preheader
 
-.preheader73.preheader:                           ; preds = %53
+.preheader74.preheader:                           ; preds = %53
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  br label %.preheader73
+  br label %.preheader74
 
 57:                                               ; preds = %53
   tail call void @lj_err_arg(ptr noundef %0, i32 noundef 2, i32 noundef 1133) #10
   unreachable
 
-.preheader73:                                     ; preds = %.preheader73.preheader, %.preheader73
-  %.048 = phi ptr [ %63, %.preheader73 ], [ %56, %.preheader73.preheader ]
+.preheader74:                                     ; preds = %.preheader74.preheader, %.preheader74
+  %.048 = phi ptr [ %63, %.preheader74 ], [ %56, %.preheader74.preheader ]
   %58 = load i8, ptr %.048, align 1, !tbaa !14
   %59 = zext i8 %58 to i64
   %60 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %59
@@ -782,9 +782,9 @@ lj_strscan_numberobj.exit.thread:                 ; preds = %lj_strscan_numberob
   %62 = and i8 %61, 2
   %.not = icmp eq i8 %62, 0
   %63 = getelementptr inbounds nuw i8, ptr %.048, i64 1
-  br i1 %.not, label %64, label %.preheader73, !llvm.loop !52
+  br i1 %.not, label %64, label %.preheader74, !llvm.loop !52
 
-64:                                               ; preds = %.preheader73
+64:                                               ; preds = %.preheader74
   %.not60 = icmp eq i8 %58, 45
   %65 = icmp eq i8 %58, 43
   %66 = or i1 %.not60, %65
@@ -817,9 +817,9 @@ lj_strscan_numberobj.exit.thread:                 ; preds = %lj_strscan_numberob
 
 82:                                               ; preds = %.preheader
   %83 = icmp eq i8 %76, 0
-  br i1 %83, label %.critedge68, label %89
+  br i1 %83, label %.critedge69, label %89
 
-.critedge68:                                      ; preds = %82
+.critedge69:                                      ; preds = %82
   %84 = uitofp i64 %73 to double
   %85 = fneg double %84
   %.0 = select i1 %.not60, double %85, double %84
@@ -828,7 +828,7 @@ lj_strscan_numberobj.exit.thread:                 ; preds = %lj_strscan_numberob
   %88 = getelementptr inbounds i8, ptr %87, i64 -16
   store double %.0, ptr %88, align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %.critedge66
+  br label %.critedge67
 
 89:                                               ; preds = %64, %82, %72
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -839,9 +839,9 @@ lj_strscan_numberobj.exit.thread:                 ; preds = %lj_strscan_numberob
   %92 = load ptr, ptr %91, align 8, !tbaa !19
   %93 = getelementptr inbounds i8, ptr %92, i64 -16
   store i64 -1, ptr %93, align 8, !tbaa !14
-  br label %.critedge66
+  br label %.critedge67
 
-.critedge66:                                      ; preds = %lj_strscan_numberobj.exit.thread70, %.critedge, %.critedge68, %90
+.critedge67:                                      ; preds = %lj_strscan_numberobj.exit.thread71, %.critedge, %.critedge69, %90
   ret i32 2
 }
 

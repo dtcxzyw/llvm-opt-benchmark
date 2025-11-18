@@ -159,7 +159,7 @@ define void @_ZN10line_index9LineIndex3new17haaa10d7242ffbeb2E(ptr noalias nound
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
   %18 = lshr i64 %2, 4
-  %.not.i.i.i = icmp samesign ult i64 %2, 16
+  %.not.i.i.i = icmp eq i64 %18, 0
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph168.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.backedge.i.i.i, %15

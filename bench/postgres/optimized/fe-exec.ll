@@ -6799,27 +6799,27 @@ define noalias noundef ptr @PQunescapeBytea(ptr noundef readonly captures(addres
 
 12:                                               ; preds = %8
   %13 = add i64 %5, -2
-  %14 = tail call i64 @llvm.umax.i64(i64 %13, i64 2)
-  %15 = lshr i64 %14, 1
+  %14 = lshr i64 %13, 1
+  %15 = tail call i64 @llvm.umax.i64(i64 %14, i64 1)
   %16 = tail call noalias ptr @malloc(i64 noundef %15) #26
-  %.not98 = icmp eq ptr %16, null
-  br i1 %.not98, label %.critedge, label %17
+  %.not97 = icmp eq ptr %16, null
+  br i1 %.not97, label %.critedge, label %17
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %19 = load i8, ptr %18, align 1
-  %.not96112 = icmp eq i8 %19, 0
-  br i1 %.not96112, label %._crit_edge, label %.lr.ph115
+  %.not111 = icmp eq i8 %19, 0
+  br i1 %.not111, label %._crit_edge, label %.lr.ph114
 
-.lr.ph115:                                        ; preds = %17, %get_hex.exit.thread
+.lr.ph114:                                        ; preds = %17, %get_hex.exit.thread
   %20 = phi i8 [ %37, %get_hex.exit.thread ], [ %19, %17 ]
-  %.076114 = phi ptr [ %.177, %get_hex.exit.thread ], [ %16, %17 ]
-  %.078113 = phi ptr [ %.179, %get_hex.exit.thread ], [ %18, %17 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.078113, i64 1
+  %.076113 = phi ptr [ %.177, %get_hex.exit.thread ], [ %16, %17 ]
+  %.078112 = phi ptr [ %.179, %get_hex.exit.thread ], [ %18, %17 ]
+  %21 = getelementptr inbounds nuw i8, ptr %.078112, i64 1
   %or.cond.i = icmp ult i8 %20, 127
   br i1 %or.cond.i, label %get_hex.exit, label %get_hex.exit.threadthread-pre-split
 
-get_hex.exit:                                     ; preds = %.lr.ph115
+get_hex.exit:                                     ; preds = %.lr.ph114
   %22 = zext nneg i8 %20 to i64
   %23 = getelementptr inbounds nuw i8, ptr @hexlookup, i64 %22
   %24 = load i8, ptr %23, align 1
@@ -6830,36 +6830,36 @@ get_hex.exit:                                     ; preds = %.lr.ph115
   br i1 %or.cond, label %get_hex.exit.thread, label %28, !llvm.loop !39
 
 28:                                               ; preds = %get_hex.exit
-  %29 = getelementptr inbounds nuw i8, ptr %.078113, i64 2
-  %or.cond.i103 = icmp ult i8 %25, 127
-  br i1 %or.cond.i103, label %get_hex.exit105, label %get_hex.exit.threadthread-pre-split
+  %29 = getelementptr inbounds nuw i8, ptr %.078112, i64 2
+  %or.cond.i102 = icmp ult i8 %25, 127
+  br i1 %or.cond.i102, label %get_hex.exit104, label %get_hex.exit.threadthread-pre-split
 
-get_hex.exit105:                                  ; preds = %28
+get_hex.exit104:                                  ; preds = %28
   %30 = zext nneg i8 %25 to i64
   %31 = getelementptr inbounds nuw i8, ptr @hexlookup, i64 %30
   %32 = load i8, ptr %31, align 1
-  %.not97 = icmp eq i8 %32, -1
-  br i1 %.not97, label %get_hex.exit.threadthread-pre-split, label %33
+  %.not96 = icmp eq i8 %32, -1
+  br i1 %.not96, label %get_hex.exit.threadthread-pre-split, label %33
 
-33:                                               ; preds = %get_hex.exit105
+33:                                               ; preds = %get_hex.exit104
   %34 = shl i8 %24, 4
   %35 = or i8 %32, %34
-  %36 = getelementptr inbounds nuw i8, ptr %.076114, i64 1
-  store i8 %35, ptr %.076114, align 1
+  %36 = getelementptr inbounds nuw i8, ptr %.076113, i64 1
+  store i8 %35, ptr %.076113, align 1
   br label %get_hex.exit.threadthread-pre-split
 
-get_hex.exit.threadthread-pre-split:              ; preds = %33, %get_hex.exit105, %.lr.ph115, %28
-  %.179.ph = phi ptr [ %29, %28 ], [ %21, %.lr.ph115 ], [ %29, %get_hex.exit105 ], [ %29, %33 ]
-  %.177.ph = phi ptr [ %.076114, %28 ], [ %.076114, %.lr.ph115 ], [ %.076114, %get_hex.exit105 ], [ %36, %33 ]
+get_hex.exit.threadthread-pre-split:              ; preds = %33, %get_hex.exit104, %.lr.ph114, %28
+  %.179.ph = phi ptr [ %29, %28 ], [ %21, %.lr.ph114 ], [ %29, %get_hex.exit104 ], [ %29, %33 ]
+  %.177.ph = phi ptr [ %.076113, %28 ], [ %.076113, %.lr.ph114 ], [ %.076113, %get_hex.exit104 ], [ %36, %33 ]
   %.pr = load i8, ptr %.179.ph, align 1
   br label %get_hex.exit.thread
 
 get_hex.exit.thread:                              ; preds = %get_hex.exit.threadthread-pre-split, %get_hex.exit
   %37 = phi i8 [ %.pr, %get_hex.exit.threadthread-pre-split ], [ %25, %get_hex.exit ]
   %.179 = phi ptr [ %.179.ph, %get_hex.exit.threadthread-pre-split ], [ %21, %get_hex.exit ]
-  %.177 = phi ptr [ %.177.ph, %get_hex.exit.threadthread-pre-split ], [ %.076114, %get_hex.exit ]
-  %.not96 = icmp eq i8 %37, 0
-  br i1 %.not96, label %._crit_edge, label %.lr.ph115
+  %.177 = phi ptr [ %.177.ph, %get_hex.exit.threadthread-pre-split ], [ %.076113, %get_hex.exit ]
+  %.not = icmp eq i8 %37, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph114
 
 ._crit_edge:                                      ; preds = %get_hex.exit.thread, %17
   %.076.lcssa = phi ptr [ %16, %17 ], [ %.177, %get_hex.exit.thread ]
@@ -6875,16 +6875,16 @@ get_hex.exit.thread:                              ; preds = %get_hex.exit.thread
   br i1 %44, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %41
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  %.not116 = icmp eq i64 %5, 0
+  br i1 %.not116, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %73
-  %.081111 = phi i64 [ %.182, %73 ], [ 0, %.preheader ]
-  %.083110 = phi i64 [ %.184, %73 ], [ 0, %.preheader ]
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 %.083110
+  %.081110 = phi i64 [ %.182, %73 ], [ 0, %.preheader ]
+  %.083109 = phi i64 [ %.184, %73 ], [ 0, %.preheader ]
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 %.083109
   %46 = load i8, ptr %45, align 1
   %cond = icmp eq i8 %46, 92
-  %47 = add nuw i64 %.083110, 1
+  %47 = add nuw i64 %.083109, 1
   br i1 %cond, label %48, label %.sink.split
 
 48:                                               ; preds = %.lr.ph
@@ -6894,32 +6894,32 @@ get_hex.exit.thread:                              ; preds = %get_hex.exit.thread
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %48
-  %53 = add i64 %.083110, 2
+  %53 = add i64 %.083109, 2
   br label %.sink.split
 
 54:                                               ; preds = %48
   %55 = and i8 %50, -4
-  %or.cond100 = icmp eq i8 %55, 48
-  br i1 %or.cond100, label %56, label %73
+  %or.cond99 = icmp eq i8 %55, 48
+  br i1 %or.cond99, label %56, label %73
 
 56:                                               ; preds = %54
   %57 = getelementptr i8, ptr %45, i64 2
   %58 = load i8, ptr %57, align 1
   %59 = and i8 %58, -8
-  %or.cond101 = icmp eq i8 %59, 48
-  br i1 %or.cond101, label %60, label %73
+  %or.cond100 = icmp eq i8 %59, 48
+  br i1 %or.cond100, label %60, label %73
 
 60:                                               ; preds = %56
   %61 = getelementptr i8, ptr %45, i64 3
   %62 = load i8, ptr %61, align 1
   %63 = and i8 %62, -8
-  %or.cond102 = icmp eq i8 %63, 48
-  br i1 %or.cond102, label %64, label %73
+  %or.cond101 = icmp eq i8 %63, 48
+  br i1 %or.cond101, label %64, label %73
 
 64:                                               ; preds = %60
   %65 = shl i8 %50, 6
   %66 = shl i8 %58, 3
-  %67 = add i64 %.083110, 4
+  %67 = add i64 %.083109, 4
   %68 = add i8 %65, 80
   %69 = add i8 %68, %66
   %70 = add i8 %69, %62
@@ -6928,14 +6928,14 @@ get_hex.exit.thread:                              ; preds = %get_hex.exit.thread
 .sink.split:                                      ; preds = %.lr.ph, %64, %52
   %.sink = phi i8 [ 92, %52 ], [ %70, %64 ], [ %46, %.lr.ph ]
   %.184.ph = phi i64 [ %53, %52 ], [ %67, %64 ], [ %47, %.lr.ph ]
-  %71 = add i64 %.081111, 1
-  %72 = getelementptr inbounds nuw i8, ptr %43, i64 %.081111
+  %71 = add i64 %.081110, 1
+  %72 = getelementptr inbounds nuw i8, ptr %43, i64 %.081110
   store i8 %.sink, ptr %72, align 1
   br label %73
 
 73:                                               ; preds = %.sink.split, %60, %56, %54
   %.184 = phi i64 [ %47, %60 ], [ %47, %56 ], [ %47, %54 ], [ %.184.ph, %.sink.split ]
-  %.182 = phi i64 [ %.081111, %60 ], [ %.081111, %56 ], [ %.081111, %54 ], [ %71, %.sink.split ]
+  %.182 = phi i64 [ %.081110, %60 ], [ %.081110, %56 ], [ %.081110, %54 ], [ %71, %.sink.split ]
   %74 = icmp ult i64 %.184, %5
   br i1 %74, label %.lr.ph, label %.loopexit, !llvm.loop !40
 
@@ -6944,8 +6944,8 @@ get_hex.exit.thread:                              ; preds = %get_hex.exit.thread
   %.174 = phi i64 [ %40, %._crit_edge ], [ 0, %.preheader ], [ %.182, %73 ]
   %75 = add i64 %.174, 1
   %76 = tail call ptr @realloc(ptr noundef nonnull %.075, i64 noundef %75) #29
-  %.not99 = icmp eq ptr %76, null
-  br i1 %.not99, label %77, label %78
+  %.not98 = icmp eq ptr %76, null
+  br i1 %.not98, label %77, label %78
 
 77:                                               ; preds = %.loopexit
   tail call void @free(ptr noundef nonnull %.075) #27
@@ -6992,14 +6992,14 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #23
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #24
 
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #24
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #25
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #24
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #24
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -3193,21 +3193,18 @@ define hidden void @"_ZN16binary_heap_plus11binary_heap23BinaryHeap$LT$T$C$C$GT$
   store ptr %2, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load i64, ptr %7, align 8
-  %.not3.i = icmp ugt i64 %8, 1
+  %9 = lshr i64 %8, 1
+  %.not3.i = icmp ne i64 %9, 0
   %or.cond.not = select i1 %3, i1 %.not3.i, i1 false
-  br i1 %or.cond.not, label %.lr.ph.preheader.i, label %"_ZN16binary_heap_plus11binary_heap23BinaryHeap$LT$T$C$C$GT$7rebuild17hfbd94813339c092fE.llvm.12150801376095413471.exit"
+  br i1 %or.cond.not, label %.lr.ph.i, label %"_ZN16binary_heap_plus11binary_heap23BinaryHeap$LT$T$C$C$GT$7rebuild17hfbd94813339c092fE.llvm.12150801376095413471.exit"
 
 "_ZN16binary_heap_plus11binary_heap23BinaryHeap$LT$T$C$C$GT$7rebuild17hfbd94813339c092fE.llvm.12150801376095413471.exit": ; preds = %.noexc, %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-.lr.ph.preheader.i:                               ; preds = %4
-  %9 = lshr i64 %8, 1
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.noexc, %.lr.ph.preheader.i
-  %.04.i = phi i64 [ %10, %.noexc ], [ %9, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %4, %.noexc
+  %.04.i = phi i64 [ %10, %.noexc ], [ %9, %4 ]
   %10 = add nsw i64 %.04.i, -1
   %11 = load i64, ptr %7, align 8, !alias.scope !337, !noundef !4
   invoke void @"_ZN16binary_heap_plus11binary_heap23BinaryHeap$LT$T$C$C$GT$15sift_down_range17ha92cd6c8e970d3e8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %10, i64 noundef %11)
@@ -3511,18 +3508,15 @@ _ZN4core3ptr19swap_nonoverlapping17hdcbc1ba93f2c0665E.llvm.12150801376095413471.
 define hidden void @"_ZN16binary_heap_plus11binary_heap23BinaryHeap$LT$T$C$C$GT$7rebuild17hfbd94813339c092fE.llvm.12150801376095413471"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !noundef !4
-  %.not3 = icmp ult i64 %3, 2
-  br i1 %.not3, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %1
   %4 = lshr i64 %3, 1
-  br label %.lr.ph
+  %.not3 = icmp eq i64 %4, 0
+  br i1 %.not3, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.04 = phi i64 [ %5, %.lr.ph ], [ %4, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %1, %.lr.ph
+  %.04 = phi i64 [ %5, %.lr.ph ], [ %4, %1 ]
   %5 = add nsw i64 %.04, -1
   %6 = load i64, ptr %2, align 8, !noundef !4
   tail call void @"_ZN16binary_heap_plus11binary_heap23BinaryHeap$LT$T$C$C$GT$15sift_down_range17ha92cd6c8e970d3e8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %5, i64 noundef %6)

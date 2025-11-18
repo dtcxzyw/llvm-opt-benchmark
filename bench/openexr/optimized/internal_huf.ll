@@ -242,7 +242,7 @@ make_heap.exit.i:                                 ; preds = %adjust_heap.exit.i.
   %113 = lshr exact i64 %112, 3
   %114 = add nsw i64 %113, -1
   %115 = lshr i64 %114, 1
-  %.not.i.i.i = icmp samesign ult i64 %114, 2
+  %.not.i.i.i = icmp eq i64 %115, 0
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i76.i
 
 .lr.ph.i.i.i76.i:                                 ; preds = %103, %.lr.ph.i.i.i76.i
@@ -317,7 +317,7 @@ make_heap.exit.i:                                 ; preds = %adjust_heap.exit.i.
 153:                                              ; preds = %146
   %154 = getelementptr inbounds nuw ptr, ptr %28, i64 %.01421.i.i.i.i.i
   store ptr %148, ptr %154, align 8, !tbaa !12
-  %.not10.i.i.i = icmp ult i64 %.022.in.i.i.i.i.i, 2
+  %.not10.i.i.i = icmp eq i64 %.022.i.i.i.i.i, 0
   br i1 %.not10.i.i.i, label %intern_pop_heap.exit.i.i, label %146, !llvm.loop !16
 
 intern_pop_heap.exit.i.i:                         ; preds = %153, %146, %144
@@ -343,7 +343,7 @@ intern_pop_heap.exit.i.i:                         ; preds = %153, %146, %144
   %167 = lshr exact i64 %166, 3
   %168 = add nsw i64 %167, -1
   %169 = lshr i64 %168, 1
-  %.not.i.i78.i = icmp samesign ult i64 %168, 2
+  %.not.i.i78.i = icmp eq i64 %169, 0
   br i1 %.not.i.i78.i, label %._crit_edge.i.i.i84.i, label %.lr.ph.i.i.i79.i
 
 .lr.ph.i.i.i79.i:                                 ; preds = %163, %.lr.ph.i.i.i79.i
@@ -418,7 +418,7 @@ intern_pop_heap.exit.i.i:                         ; preds = %153, %146, %144
 207:                                              ; preds = %200
   %208 = getelementptr inbounds nuw ptr, ptr %28, i64 %.01421.i.i.i.i89.i
   store ptr %202, ptr %208, align 8, !tbaa !12
-  %.not10.i.i94.i = icmp ult i64 %.022.in.i.i.i.i90.i, 2
+  %.not10.i.i94.i = icmp eq i64 %.022.i.i.i.i91.i, 0
   br i1 %.not10.i.i94.i, label %intern_pop_heap.exit.i95.i, label %200, !llvm.loop !16
 
 intern_pop_heap.exit.i95.i:                       ; preds = %207, %200, %198
@@ -463,7 +463,7 @@ pop_heap.exit98.i:                                ; preds = %intern_pop_heap.exi
 228:                                              ; preds = %221
   %229 = getelementptr inbounds nuw ptr, ptr %28, i64 %.01421.i.i.i
   store ptr %223, ptr %229, align 8, !tbaa !12
-  %.not5.i.i = icmp ult i64 %.022.in.i.i.i, 2
+  %.not5.i.i = icmp eq i64 %.022.i.i.i, 0
   br i1 %.not5.i.i, label %push_heap.exit.i, label %221, !llvm.loop !16
 
 push_heap.exit.i:                                 ; preds = %228, %221, %pop_heap.exit98.i
@@ -2052,10 +2052,10 @@ define internal fastcc range(i32 0, 24) i32 @fasthuf_decode(ptr noundef %0, ptr 
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 283592
   %9 = load i64, ptr %8, align 8, !tbaa !92
   %10 = load i32, ptr %1, align 8, !tbaa !60
-  %.not307 = icmp eq i64 %5, 0
-  br i1 %.not307, label %._crit_edge306, label %.lr.ph305
+  %.not304 = icmp eq i64 %5, 0
+  br i1 %.not304, label %._crit_edge, label %.lr.ph
 
-.lr.ph305:                                        ; preds = %6
+.lr.ph:                                           ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val125 = load i64, ptr %11, align 1
   %12 = tail call i64 @llvm.bswap.i64(i64 %.val125)
@@ -2071,14 +2071,14 @@ define internal fastcc range(i32 0, 24) i32 @fasthuf_decode(ptr noundef %0, ptr 
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 12
   br label %22
 
-22:                                               ; preds = %.lr.ph305, %FastHufDecoder_refill.exit157
-  %.083303 = phi i64 [ 0, %.lr.ph305 ], [ %.386, %FastHufDecoder_refill.exit157 ]
-  %.087302 = phi i32 [ 64, %.lr.ph305 ], [ %.390, %FastHufDecoder_refill.exit157 ]
-  %.0187301 = phi ptr [ %14, %.lr.ph305 ], [ %.3, %FastHufDecoder_refill.exit157 ]
-  %.0189300 = phi i32 [ 64, %.lr.ph305 ], [ %.3192, %FastHufDecoder_refill.exit157 ]
-  %.0207299 = phi i64 [ %12, %.lr.ph305 ], [ %.3210, %FastHufDecoder_refill.exit157 ]
-  %.0228298 = phi i64 [ %13, %.lr.ph305 ], [ %.3231, %FastHufDecoder_refill.exit157 ]
-  %.0243297 = phi i64 [ %7, %.lr.ph305 ], [ %.3246, %FastHufDecoder_refill.exit157 ]
+22:                                               ; preds = %.lr.ph, %FastHufDecoder_refill.exit157
+  %.083303 = phi i64 [ 0, %.lr.ph ], [ %.386, %FastHufDecoder_refill.exit157 ]
+  %.087302 = phi i32 [ 64, %.lr.ph ], [ %.390, %FastHufDecoder_refill.exit157 ]
+  %.0187301 = phi ptr [ %14, %.lr.ph ], [ %.3, %FastHufDecoder_refill.exit157 ]
+  %.0189300 = phi i32 [ 64, %.lr.ph ], [ %.3192, %FastHufDecoder_refill.exit157 ]
+  %.0207299 = phi i64 [ %12, %.lr.ph ], [ %.3210, %FastHufDecoder_refill.exit157 ]
+  %.0228298 = phi i64 [ %13, %.lr.ph ], [ %.3231, %FastHufDecoder_refill.exit157 ]
+  %.0243297 = phi i64 [ %7, %.lr.ph ], [ %.3246, %FastHufDecoder_refill.exit157 ]
   %.not116 = icmp ugt i64 %9, %.0228298
   br i1 %.not116, label %29, label %23
 
@@ -2257,7 +2257,7 @@ FastHufDecoder_refill.exit:                       ; preds = %.sink.split.i, %37,
   %105 = shl i64 %.1229, %104
   %106 = sub nsw i32 %.188, %.094
   %107 = icmp eq i32 %.197, %10
-  br i1 %107, label %108, label %179
+  br i1 %107, label %108, label %180
 
 108:                                              ; preds = %103
   %109 = icmp slt i32 %106, 8
@@ -2390,14 +2390,14 @@ FastHufDecoder_refill.exit141:                    ; preds = %.sink.split.i131, %
   br label %.critedge
 
 166:                                              ; preds = %158
-  %167 = icmp ult i64 %.4232, 72057594037927936
-  br i1 %167, label %170, label %.lr.ph, !prof !109
+  %167 = icmp eq i64 %151, 0
+  br i1 %167, label %170, label %.preheader261, !prof !109
 
-.lr.ph:                                           ; preds = %166
+.preheader261:                                    ; preds = %166
   %168 = getelementptr i16, ptr %4, i64 %.083303
   %169 = getelementptr i8, ptr %168, i64 -2
   %.pre = load i16, ptr %169, align 2, !tbaa !3
-  br label %177
+  br label %178
 
 170:                                              ; preds = %166
   %.not119 = icmp eq ptr %0, null
@@ -2409,155 +2409,155 @@ FastHufDecoder_refill.exit141:                    ; preds = %.sink.split.i131, %
   %174 = tail call i32 (ptr, i32, ptr, ...) %173(ptr noundef nonnull %0, i32 noundef 23, ptr noundef nonnull @.str.8) #10
   br label %.critedge
 
-._crit_edge:                                      ; preds = %177
-  %175 = shl i64 %.4232, 8
-  %176 = add nsw i32 %.491, -8
-  br label %183
+175:                                              ; preds = %178
+  %176 = shl i64 %.4232, 8
+  %177 = add nsw i32 %.491, -8
+  br label %184
 
-177:                                              ; preds = %.lr.ph, %177
-  %indvars.iv337 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next338, %177 ]
-  %178 = getelementptr i16, ptr %168, i64 %indvars.iv337
-  store i16 %.pre, ptr %178, align 2, !tbaa !3
-  %indvars.iv.next338 = add nuw nsw i64 %indvars.iv337, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next338, %151
-  br i1 %exitcond.not, label %._crit_edge, label %177, !llvm.loop !116
+178:                                              ; preds = %.preheader261, %178
+  %indvars.iv333 = phi i64 [ 0, %.preheader261 ], [ %indvars.iv.next334, %178 ]
+  %179 = getelementptr i16, ptr %168, i64 %indvars.iv333
+  store i16 %.pre, ptr %179, align 2, !tbaa !3
+  %indvars.iv.next334 = add nuw nsw i64 %indvars.iv333, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next334, %151
+  br i1 %exitcond.not, label %175, label %178, !llvm.loop !116
 
-179:                                              ; preds = %103
-  %180 = trunc i32 %.197 to i16
-  %181 = getelementptr inbounds nuw i16, ptr %4, i64 %.083303
-  store i16 %180, ptr %181, align 2, !tbaa !3
-  %182 = add i64 %.083303, 1
-  br label %183
+180:                                              ; preds = %103
+  %181 = trunc i32 %.197 to i16
+  %182 = getelementptr inbounds nuw i16, ptr %4, i64 %.083303
+  store i16 %181, ptr %182, align 2, !tbaa !3
+  %183 = add i64 %.083303, 1
+  br label %184
 
-183:                                              ; preds = %._crit_edge, %179
-  %.5248 = phi i64 [ %.4247, %._crit_edge ], [ %.1244, %179 ]
-  %.5233 = phi i64 [ %175, %._crit_edge ], [ %105, %179 ]
-  %.5212 = phi i64 [ %.4211, %._crit_edge ], [ %.1208, %179 ]
-  %.5194 = phi i32 [ %.4193, %._crit_edge ], [ %.1190, %179 ]
-  %.5 = phi ptr [ %.4, %._crit_edge ], [ %.1, %179 ]
-  %.693 = phi i32 [ %176, %._crit_edge ], [ %106, %179 ]
-  %.386 = phi i64 [ %159, %._crit_edge ], [ %182, %179 ]
-  %184 = icmp slt i32 %.693, 12
-  br i1 %184, label %.preheader, label %FastHufDecoder_refill.exit157
+184:                                              ; preds = %175, %180
+  %.5248 = phi i64 [ %.4247, %175 ], [ %.1244, %180 ]
+  %.5233 = phi i64 [ %176, %175 ], [ %105, %180 ]
+  %.5212 = phi i64 [ %.4211, %175 ], [ %.1208, %180 ]
+  %.5194 = phi i32 [ %.4193, %175 ], [ %.1190, %180 ]
+  %.5 = phi ptr [ %.4, %175 ], [ %.1, %180 ]
+  %.693 = phi i32 [ %177, %175 ], [ %106, %180 ]
+  %.386 = phi i64 [ %159, %175 ], [ %183, %180 ]
+  %185 = icmp slt i32 %.693, 12
+  br i1 %185, label %.preheader, label %FastHufDecoder_refill.exit157
 
-.preheader:                                       ; preds = %183, %.sink.split.i147
-  %.14257 = phi i64 [ %.16259, %.sink.split.i147 ], [ %.5248, %183 ]
-  %.12240 = phi i64 [ %.13241, %.sink.split.i147 ], [ %.5233, %183 ]
-  %.16223 = phi i64 [ %.19226, %.sink.split.i147 ], [ %.5212, %183 ]
-  %.14203 = phi i32 [ 64, %.sink.split.i147 ], [ %.5194, %183 ]
-  %.16 = phi ptr [ %.19, %.sink.split.i147 ], [ %.5, %183 ]
-  %.041.i142 = phi i32 [ %.1.i143, %.sink.split.i147 ], [ %.693, %183 ]
-  %185 = icmp sgt i32 %.041.i142, 0
-  br i1 %185, label %186, label %197, !prof !25
+.preheader:                                       ; preds = %184, %.sink.split.i147
+  %.14257 = phi i64 [ %.16259, %.sink.split.i147 ], [ %.5248, %184 ]
+  %.12240 = phi i64 [ %.13241, %.sink.split.i147 ], [ %.5233, %184 ]
+  %.16223 = phi i64 [ %.19226, %.sink.split.i147 ], [ %.5212, %184 ]
+  %.14203 = phi i32 [ 64, %.sink.split.i147 ], [ %.5194, %184 ]
+  %.16 = phi ptr [ %.19, %.sink.split.i147 ], [ %.5, %184 ]
+  %.041.i142 = phi i32 [ %.1.i143, %.sink.split.i147 ], [ %.693, %184 ]
+  %186 = icmp sgt i32 %.041.i142, 0
+  br i1 %186, label %187, label %198, !prof !25
 
-186:                                              ; preds = %.preheader
-  %187 = sub nuw nsw i32 64, %.041.i142
-  %188 = zext nneg i32 %.041.i142 to i64
-  %189 = lshr i64 %.16223, %188
-  %190 = or i64 %189, %.12240
-  %.not.i156 = icmp slt i32 %.14203, %187
-  br i1 %.not.i156, label %195, label %191
+187:                                              ; preds = %.preheader
+  %188 = sub nuw nsw i32 64, %.041.i142
+  %189 = zext nneg i32 %.041.i142 to i64
+  %190 = lshr i64 %.16223, %189
+  %191 = or i64 %190, %.12240
+  %.not.i156 = icmp slt i32 %.14203, %188
+  br i1 %.not.i156, label %196, label %192
 
-191:                                              ; preds = %186
-  %192 = zext nneg i32 %187 to i64
-  %193 = shl i64 %.16223, %192
-  %194 = sub nsw i32 %.14203, %187
+192:                                              ; preds = %187
+  %193 = zext nneg i32 %188 to i64
+  %194 = shl i64 %.16223, %193
+  %195 = sub nsw i32 %.14203, %188
   br label %FastHufDecoder_refill.exit157
 
-195:                                              ; preds = %186
-  %196 = add nsw i32 %.041.i142, %.14203
-  br label %197
+196:                                              ; preds = %187
+  %197 = add nsw i32 %.041.i142, %.14203
+  br label %198
 
-197:                                              ; preds = %.preheader, %195
-  %.13241 = phi i64 [ %190, %195 ], [ %.16223, %.preheader ]
-  %.1.i143 = phi i32 [ %196, %195 ], [ %.14203, %.preheader ]
-  %198 = icmp ugt i64 %.14257, 63
-  br i1 %198, label %199, label %203, !prof !25
+198:                                              ; preds = %.preheader, %196
+  %.13241 = phi i64 [ %191, %196 ], [ %.16223, %.preheader ]
+  %.1.i143 = phi i32 [ %197, %196 ], [ %.14203, %.preheader ]
+  %199 = icmp ugt i64 %.14257, 63
+  br i1 %199, label %200, label %204, !prof !25
 
-199:                                              ; preds = %197
+200:                                              ; preds = %198
   %.val.i155 = load i64, ptr %.16, align 1, !noalias !117
-  %200 = tail call i64 @llvm.bswap.i64(i64 %.val.i155)
-  %201 = getelementptr inbounds nuw i8, ptr %.16, i64 8
-  %202 = add i64 %.14257, -64
+  %201 = tail call i64 @llvm.bswap.i64(i64 %.val.i155)
+  %202 = getelementptr inbounds nuw i8, ptr %.16, i64 8
+  %203 = add i64 %.14257, -64
   br label %.sink.split.i147
 
-203:                                              ; preds = %197
-  %204 = icmp samesign ugt i64 %.14257, 7
-  br i1 %204, label %.lr.ph.i149, label %218
+204:                                              ; preds = %198
+  %205 = icmp samesign ugt i64 %.14257, 7
+  br i1 %205, label %.lr.ph.i149, label %219
 
-.lr.ph.i149:                                      ; preds = %203, %.lr.ph.i149
-  %205 = phi i64 [ %211, %.lr.ph.i149 ], [ 0, %203 ]
-  %206 = phi ptr [ %212, %.lr.ph.i149 ], [ %.16, %203 ]
-  %.049.i151 = phi i64 [ %213, %.lr.ph.i149 ], [ 56, %203 ]
-  %207 = phi i64 [ %214, %.lr.ph.i149 ], [ %.14257, %203 ]
-  %208 = load i8, ptr %206, align 1, !tbaa !26, !noalias !117
-  %209 = zext i8 %208 to i64
-  %210 = shl i64 %209, %.049.i151
-  %211 = or i64 %210, %205
-  %212 = getelementptr inbounds nuw i8, ptr %206, i64 1
-  %213 = add i64 %.049.i151, -8
-  %214 = add i64 %207, -8
-  %215 = icmp ugt i64 %214, 7
-  br i1 %215, label %.lr.ph.i149, label %._crit_edge.i152, !llvm.loop !106
+.lr.ph.i149:                                      ; preds = %204, %.lr.ph.i149
+  %206 = phi i64 [ %212, %.lr.ph.i149 ], [ 0, %204 ]
+  %207 = phi ptr [ %213, %.lr.ph.i149 ], [ %.16, %204 ]
+  %.049.i151 = phi i64 [ %214, %.lr.ph.i149 ], [ 56, %204 ]
+  %208 = phi i64 [ %215, %.lr.ph.i149 ], [ %.14257, %204 ]
+  %209 = load i8, ptr %207, align 1, !tbaa !26, !noalias !117
+  %210 = zext i8 %209 to i64
+  %211 = shl i64 %210, %.049.i151
+  %212 = or i64 %211, %206
+  %213 = getelementptr inbounds nuw i8, ptr %207, i64 1
+  %214 = add i64 %.049.i151, -8
+  %215 = add i64 %208, -8
+  %216 = icmp ugt i64 %215, 7
+  br i1 %216, label %.lr.ph.i149, label %._crit_edge.i152, !llvm.loop !106
 
 ._crit_edge.i152:                                 ; preds = %.lr.ph.i149
   %scevgep.i153 = getelementptr i8, ptr %.16, i64 1
-  %216 = add nsw i64 %.14257, -8
-  %217 = lshr i64 %216, 3
-  %scevgep62.i154 = getelementptr i8, ptr %scevgep.i153, i64 %217
-  br label %218
+  %217 = add nsw i64 %.14257, -8
+  %218 = lshr i64 %217, 3
+  %scevgep62.i154 = getelementptr i8, ptr %scevgep.i153, i64 %218
+  br label %219
 
-218:                                              ; preds = %._crit_edge.i152, %203
-  %.15258 = phi i64 [ %214, %._crit_edge.i152 ], [ %.14257, %203 ]
-  %.17224 = phi i64 [ %211, %._crit_edge.i152 ], [ 0, %203 ]
-  %.17 = phi ptr [ %scevgep62.i154, %._crit_edge.i152 ], [ %.16, %203 ]
-  %.0.lcssa.i145 = phi i64 [ %213, %._crit_edge.i152 ], [ 56, %203 ]
+219:                                              ; preds = %._crit_edge.i152, %204
+  %.15258 = phi i64 [ %215, %._crit_edge.i152 ], [ %.14257, %204 ]
+  %.17224 = phi i64 [ %212, %._crit_edge.i152 ], [ 0, %204 ]
+  %.17 = phi ptr [ %scevgep62.i154, %._crit_edge.i152 ], [ %.16, %204 ]
+  %.0.lcssa.i145 = phi i64 [ %214, %._crit_edge.i152 ], [ 56, %204 ]
   %.not45.i146 = icmp eq i64 %.15258, 0
-  br i1 %.not45.i146, label %.sink.split.i147, label %219
+  br i1 %.not45.i146, label %.sink.split.i147, label %220
 
-219:                                              ; preds = %218
-  %220 = load i8, ptr %.17, align 1, !tbaa !26, !noalias !117
-  %221 = zext i8 %220 to i64
-  %222 = shl i64 %221, %.0.lcssa.i145
-  %223 = or i64 %222, %.17224
-  %224 = getelementptr inbounds nuw i8, ptr %.17, i64 1
+220:                                              ; preds = %219
+  %221 = load i8, ptr %.17, align 1, !tbaa !26, !noalias !117
+  %222 = zext i8 %221 to i64
+  %223 = shl i64 %222, %.0.lcssa.i145
+  %224 = or i64 %223, %.17224
+  %225 = getelementptr inbounds nuw i8, ptr %.17, i64 1
   br label %.sink.split.i147
 
-.sink.split.i147:                                 ; preds = %199, %219, %218
-  %.16259 = phi i64 [ 0, %218 ], [ 0, %219 ], [ %202, %199 ]
-  %.19226 = phi i64 [ %.17224, %218 ], [ %223, %219 ], [ %200, %199 ]
-  %.19 = phi ptr [ %.17, %218 ], [ %224, %219 ], [ %201, %199 ]
-  %225 = icmp slt i32 %.1.i143, 64
-  br i1 %225, label %.preheader, label %FastHufDecoder_refill.exit157, !llvm.loop !107
+.sink.split.i147:                                 ; preds = %200, %220, %219
+  %.16259 = phi i64 [ 0, %219 ], [ 0, %220 ], [ %203, %200 ]
+  %.19226 = phi i64 [ %.17224, %219 ], [ %224, %220 ], [ %201, %200 ]
+  %.19 = phi ptr [ %.17, %219 ], [ %225, %220 ], [ %202, %200 ]
+  %226 = icmp slt i32 %.1.i143, 64
+  br i1 %226, label %.preheader, label %FastHufDecoder_refill.exit157, !llvm.loop !107
 
-FastHufDecoder_refill.exit157:                    ; preds = %.sink.split.i147, %191, %183
-  %.3246 = phi i64 [ %.5248, %183 ], [ %.14257, %191 ], [ %.16259, %.sink.split.i147 ]
-  %.3231 = phi i64 [ %.5233, %183 ], [ %190, %191 ], [ %.13241, %.sink.split.i147 ]
-  %.3210 = phi i64 [ %.5212, %183 ], [ %193, %191 ], [ %.19226, %.sink.split.i147 ]
-  %.3192 = phi i32 [ %.5194, %183 ], [ %194, %191 ], [ 64, %.sink.split.i147 ]
-  %.3 = phi ptr [ %.5, %183 ], [ %.16, %191 ], [ %.19, %.sink.split.i147 ]
-  %.390 = phi i32 [ %.693, %183 ], [ 64, %191 ], [ 64, %.sink.split.i147 ]
-  %226 = icmp ult i64 %.386, %5
-  br i1 %226, label %22, label %._crit_edge306, !llvm.loop !123
+FastHufDecoder_refill.exit157:                    ; preds = %.sink.split.i147, %192, %184
+  %.3246 = phi i64 [ %.5248, %184 ], [ %.14257, %192 ], [ %.16259, %.sink.split.i147 ]
+  %.3231 = phi i64 [ %.5233, %184 ], [ %191, %192 ], [ %.13241, %.sink.split.i147 ]
+  %.3210 = phi i64 [ %.5212, %184 ], [ %194, %192 ], [ %.19226, %.sink.split.i147 ]
+  %.3192 = phi i32 [ %.5194, %184 ], [ %195, %192 ], [ 64, %.sink.split.i147 ]
+  %.3 = phi ptr [ %.5, %184 ], [ %.16, %192 ], [ %.19, %.sink.split.i147 ]
+  %.390 = phi i32 [ %.693, %184 ], [ 64, %192 ], [ 64, %.sink.split.i147 ]
+  %227 = icmp ult i64 %.386, %5
+  br i1 %227, label %22, label %._crit_edge, !llvm.loop !123
 
-._crit_edge306:                                   ; preds = %FastHufDecoder_refill.exit157, %6
+._crit_edge:                                      ; preds = %FastHufDecoder_refill.exit157, %6
   %.0243.lcssa = phi i64 [ %7, %6 ], [ %.3246, %FastHufDecoder_refill.exit157 ]
   %.not = icmp eq i64 %.0243.lcssa, 0
-  br i1 %.not, label %.critedge, label %227, !prof !25
+  br i1 %.not, label %.critedge, label %228, !prof !25
 
-227:                                              ; preds = %._crit_edge306
+228:                                              ; preds = %._crit_edge
   %.not115 = icmp eq ptr %0, null
-  br i1 %.not115, label %.critedge, label %228
+  br i1 %.not115, label %.critedge, label %229
 
-228:                                              ; preds = %227
-  %229 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %230 = load ptr, ptr %229, align 8, !tbaa !80
-  %231 = trunc i64 %.0243.lcssa to i32
-  %232 = tail call i32 (ptr, i32, ptr, ...) %230(ptr noundef nonnull %0, i32 noundef 23, ptr noundef nonnull @.str.9, i32 noundef %231) #10
+229:                                              ; preds = %228
+  %230 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %231 = load ptr, ptr %230, align 8, !tbaa !80
+  %232 = trunc i64 %.0243.lcssa to i32
+  %233 = tail call i32 (ptr, i32, ptr, ...) %231(ptr noundef nonnull %0, i32 noundef 23, ptr noundef nonnull @.str.9, i32 noundef %232) #10
   br label %.critedge
 
-.critedge:                                        ; preds = %154, %153, %162, %161, %171, %170, %82, %81, %99, %98, %._crit_edge306, %227, %228
-  %.6 = phi i32 [ 23, %228 ], [ 23, %227 ], [ 0, %._crit_edge306 ], [ 23, %98 ], [ 23, %99 ], [ 23, %81 ], [ 23, %82 ], [ 23, %170 ], [ 23, %171 ], [ 23, %161 ], [ 23, %162 ], [ 23, %153 ], [ 23, %154 ]
+.critedge:                                        ; preds = %154, %153, %162, %161, %171, %170, %82, %81, %99, %98, %._crit_edge, %228, %229
+  %.6 = phi i32 [ 23, %229 ], [ 23, %228 ], [ 0, %._crit_edge ], [ 23, %98 ], [ 23, %99 ], [ 23, %81 ], [ 23, %82 ], [ 23, %170 ], [ 23, %171 ], [ 23, %161 ], [ 23, %162 ], [ 23, %153 ], [ 23, %154 ]
   ret i32 %.6
 }
 
@@ -2721,7 +2721,7 @@ define internal fastcc range(i32 0, 24) i32 @hufDecode(ptr noundef readonly capt
   %9 = add nuw nsw i64 %3, 7
   %10 = lshr i64 %9, 3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 %10
-  %.not417 = icmp eq i64 %3, 0
+  %.not417 = icmp eq i64 %10, 0
   br i1 %.not417, label %._crit_edge398, label %.lr.ph397
 
 .loopexit332:                                     ; preds = %.loopexit331, %.lr.ph397

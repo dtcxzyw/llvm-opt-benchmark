@@ -1248,11 +1248,11 @@ _ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit: ; preds = %466, %4
 _ZNK4llvm3MVT19getScalarSizeInBitsEv.exit:        ; preds = %569, %578
   %.sroa.0.0.copyload.i.i436 = phi i64 [ %.sroa.0.0.copyload.i.i436.pre, %578 ], [ %.sroa.0.0.copyload.i.i, %569 ]
   %582 = lshr i64 %.sroa.0.0.copyload.i.i436, 3
-  %.not.i437 = icmp ugt i64 %.sroa.0.0.copyload.i.i436, 7
+  %.not.i437.not = icmp eq i64 %582, 0
   %583 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %582, i1 true)
   %584 = trunc nuw nsw i64 %583 to i8
   %585 = xor i8 %584, 63
-  %.sroa.0.0.i.i438 = select i1 %.not.i437, i8 %585, i8 0
+  %.sroa.0.0.i.i438 = select i1 %.not.i437.not, i8 0, i8 %585
   br label %.thread634.thread
 
 586:                                              ; preds = %546, %.thread606
@@ -3702,11 +3702,11 @@ _ZNK4llvm3MVT19getScalarSizeInBitsEv.exit:        ; preds = %.critedge21, %598
   %605 = getelementptr i8, ptr %604, i64 -16
   %.sroa.0.0.copyload.i.i = load i64, ptr %605, align 16
   %606 = lshr i64 %.sroa.0.0.copyload.i.i, 3
-  %.not.i310 = icmp ugt i64 %.sroa.0.0.copyload.i.i, 7
+  %.not.i310.not = icmp eq i64 %606, 0
   %607 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %606, i1 true)
   %608 = trunc nuw nsw i64 %607 to i8
   %609 = xor i8 %608, 63
-  %.sroa.0.0.i.i311 = select i1 %.not.i310, i8 %609, i8 0
+  %.sroa.0.0.i.i311 = select i1 %.not.i310.not, i8 0, i8 %609
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %610 = zext i16 %.sroa.0364.2421432 to i64
   %611 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %610

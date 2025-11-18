@@ -9711,48 +9711,48 @@ define dso_local zeroext i16 @__skb_checksum_complete_head(ptr noundef %0, i32 n
   %8 = shl i32 %7, 16
   %9 = and i32 %7, -65536
   %10 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %8, i32 %9) #24, !srcloc !194
-  %11 = icmp ugt i32 %10, -65537
-  br i1 %11, label %12, label %25, !prof !26
+  %11 = xor i32 %10, -1
+  %12 = lshr i32 %11, 16
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %14, label %27, !prof !26
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %14 = load i8, ptr %13, align 8
-  %15 = and i8 %14, 96
-  %16 = icmp eq i8 %15, 64
-  br i1 %16, label %17, label %25, !prof !6
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %16 = load i8, ptr %15, align 8
+  %17 = and i8 %16, 96
+  %18 = icmp eq i8 %17, 64
+  br i1 %18, label %19, label %27, !prof !6
 
-17:                                               ; preds = %12
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 129
-  %19 = load i24, ptr %18, align 1
-  %20 = and i24 %19, 16
-  %21 = icmp eq i24 %20, 0
-  br i1 %21, label %22, label %25
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 129
+  %21 = load i24, ptr %20, align 1
+  %22 = and i24 %21, 16
+  %23 = icmp eq i24 %22, 0
+  br i1 %23, label %24, label %27
 
-22:                                               ; preds = %17
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %24 = load ptr, ptr %23, align 8
-  tail call void @netdev_rx_csum_fault(ptr noundef %24, ptr noundef %0) #23
-  br label %25
+24:                                               ; preds = %19
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %26 = load ptr, ptr %25, align 8
+  tail call void @netdev_rx_csum_fault(ptr noundef %26, ptr noundef %0) #23
+  br label %27
 
-25:                                               ; preds = %22, %17, %12, %2
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %27 = load volatile i32, ptr %26, align 4
-  %28 = icmp eq i32 %27, 1
-  br i1 %28, label %29, label %35
+27:                                               ; preds = %24, %19, %14, %2
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  %29 = load volatile i32, ptr %28, align 4
+  %30 = icmp eq i32 %29, 1
+  br i1 %30, label %31, label %37
 
-29:                                               ; preds = %25
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 129
-  %31 = load i24, ptr %30, align 1
-  %32 = select i1 %11, i24 32768, i24 0
-  %33 = and i24 %31, -32769
-  %34 = or disjoint i24 %33, %32
-  store i24 %34, ptr %30, align 1
-  br label %35
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 129
+  %33 = load i24, ptr %32, align 1
+  %34 = select i1 %13, i24 32768, i24 0
+  %35 = and i24 %33, -32769
+  %36 = or disjoint i24 %35, %34
+  store i24 %36, ptr %32, align 1
+  br label %37
 
-35:                                               ; preds = %29, %25
-  %36 = xor i32 %10, -1
-  %37 = lshr i32 %36, 16
-  %38 = trunc nuw i32 %37 to i16
+37:                                               ; preds = %31, %27
+  %38 = trunc nuw i32 %12 to i16
   ret i16 %38
 }
 
@@ -9777,52 +9777,52 @@ define dso_local zeroext i16 @__skb_checksum_complete(ptr noundef %0) #0 align 1
   %11 = shl i32 %10, 16
   %12 = and i32 %10, -65536
   %13 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %11, i32 %12) #24, !srcloc !194
-  %14 = icmp ugt i32 %13, -65537
-  br i1 %14, label %15, label %27, !prof !26
+  %14 = xor i32 %13, -1
+  %15 = lshr i32 %14, 16
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %17, label %29, !prof !26
 
-15:                                               ; preds = %1
-  %16 = load i8, ptr %7, align 8
-  %17 = and i8 %16, 96
-  %18 = icmp eq i8 %17, 64
-  br i1 %18, label %19, label %27, !prof !6
+17:                                               ; preds = %1
+  %18 = load i8, ptr %7, align 8
+  %19 = and i8 %18, 96
+  %20 = icmp eq i8 %19, 64
+  br i1 %20, label %21, label %29, !prof !6
 
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 129
-  %21 = load i24, ptr %20, align 1
-  %22 = and i24 %21, 16
-  %23 = icmp eq i24 %22, 0
-  br i1 %23, label %24, label %27
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 129
+  %23 = load i24, ptr %22, align 1
+  %24 = and i24 %23, 16
+  %25 = icmp eq i24 %24, 0
+  br i1 %25, label %26, label %29
 
-24:                                               ; preds = %19
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %26 = load ptr, ptr %25, align 8
-  tail call void @netdev_rx_csum_fault(ptr noundef %26, ptr noundef %0) #23
-  br label %27
+26:                                               ; preds = %21
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %28 = load ptr, ptr %27, align 8
+  tail call void @netdev_rx_csum_fault(ptr noundef %28, ptr noundef %0) #23
+  br label %29
 
-27:                                               ; preds = %24, %19, %15, %1
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %29 = load volatile i32, ptr %28, align 4
-  %30 = icmp eq i32 %29, 1
-  br i1 %30, label %31, label %40
+29:                                               ; preds = %26, %21, %17, %1
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  %31 = load volatile i32, ptr %30, align 4
+  %32 = icmp eq i32 %31, 1
+  br i1 %32, label %33, label %42
 
-31:                                               ; preds = %27
+33:                                               ; preds = %29
   store i32 %6, ptr %8, align 8
-  %32 = load i8, ptr %7, align 8
-  %33 = and i8 %32, -97
-  %34 = or disjoint i8 %33, 64
-  store i8 %34, ptr %7, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 129
-  %36 = load i24, ptr %35, align 1
-  %37 = and i24 %36, -32785
-  %38 = select i1 %14, i24 32784, i24 16
-  %39 = or disjoint i24 %37, %38
-  store i24 %39, ptr %35, align 1
-  br label %40
+  %34 = load i8, ptr %7, align 8
+  %35 = and i8 %34, -97
+  %36 = or disjoint i8 %35, 64
+  store i8 %36, ptr %7, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 129
+  %38 = load i24, ptr %37, align 1
+  %39 = and i24 %38, -32785
+  %40 = select i1 %16, i24 32784, i24 16
+  %41 = or disjoint i24 %39, %40
+  store i24 %41, ptr %37, align 1
+  br label %42
 
-40:                                               ; preds = %31, %27
-  %41 = xor i32 %13, -1
-  %42 = lshr i32 %41, 16
-  %43 = trunc nuw i32 %42 to i16
+42:                                               ; preds = %33, %29
+  %43 = trunc nuw i32 %15 to i16
   ret i16 %43
 }
 

@@ -1038,7 +1038,7 @@ read_uncoded_coeff.exit90:                        ; preds = %.lr.ph.split.i82, %
 .preheader.lr.ph:                                 ; preds = %read_uncoded_coeff.exit90
   %134 = zext nneg i32 %85 to i64
   %135 = getelementptr inbounds nuw [3 x i8], ptr %2, i64 %134
-  %.not.i91 = icmp ult i32 %128, 536870912
+  %.not.i91 = icmp eq i32 %129, 0
   %136 = sub nuw nsw i32 32, %129
   %137 = or disjoint i32 %129, 32
   br label %.preheader

@@ -4751,7 +4751,7 @@ define internal fastcc range(i32 0, 17) i32 @dissect_dhcpv6_s46_ipv6_prefix(ptr 
   %7 = add nuw nsw i32 %3, 7
   %8 = lshr i32 %7, 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %6, i8 noundef 0, i64 noundef 16, i1 noundef false) #6
-  %.not = icmp eq i32 %3, 0
+  %.not = icmp eq i32 %8, 0
   br i1 %.not, label %12, label %9
 
 9:                                                ; preds = %5

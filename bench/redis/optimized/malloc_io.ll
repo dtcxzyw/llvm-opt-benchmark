@@ -1418,7 +1418,7 @@ u2s.exit:                                         ; preds = %.preheader.i
   %511 = getelementptr inbounds nuw i8, ptr %9, i64 %510
   store i8 %509, ptr %511, align 1, !tbaa !8
   %512 = lshr i64 %.1.i.i, 4
-  %.not.i.i = icmp ult i64 %.1.i.i, 16
+  %.not.i.i = icmp eq i64 %512, 0
   br i1 %.not.i.i, label %u2s.exit.i485, label %506, !llvm.loop !26
 
 u2s.exit.i485:                                    ; preds = %506
@@ -1757,7 +1757,7 @@ x2s.exit:                                         ; preds = %u2s.exit.i485, %517
   %660 = getelementptr inbounds nuw i8, ptr %10, i64 %659
   store i8 %658, ptr %660, align 1, !tbaa !8
   %661 = lshr i64 %.1.i.i488, 4
-  %.not.i.i490 = icmp ult i64 %.1.i.i488, 16
+  %.not.i.i490 = icmp eq i64 %661, 0
   br i1 %.not.i.i490, label %x2s.exit493, label %655, !llvm.loop !26
 
 x2s.exit493:                                      ; preds = %655

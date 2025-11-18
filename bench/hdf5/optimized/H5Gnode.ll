@@ -957,7 +957,7 @@ define internal range(i32 -1, 6) i32 @H5G__node_remove(ptr noundef %0, i64 nound
   br label %.thread179
 
 152:                                              ; preds = %148
-  %153 = icmp ult i32 %33, 2
+  %153 = icmp eq i32 %34, 0
   br i1 %153, label %154, label %161
 
 154:                                              ; preds = %152
@@ -1026,10 +1026,10 @@ define internal range(i32 -1, 6) i32 @H5G__node_remove(ptr noundef %0, i64 nound
   store i64 %190, ptr %181, align 8, !tbaa !72
   %191 = call i32 @H5O_link(ptr noundef nonnull %10, i32 noundef -1) #9
   %192 = icmp slt i32 %191, 0
-  br i1 %192, label %193, label %._crit_edge201
+  br i1 %192, label %193, label %._crit_edge199
 
-._crit_edge201:                                   ; preds = %188
-  %.pre202 = load i32, ptr %178, align 8, !tbaa !33
+._crit_edge199:                                   ; preds = %188
+  %.pre200 = load i32, ptr %178, align 8, !tbaa !33
   br label %197
 
 193:                                              ; preds = %188
@@ -1038,8 +1038,8 @@ define internal range(i32 -1, 6) i32 @H5G__node_remove(ptr noundef %0, i64 nound
   %196 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5G__node_remove, i32 noundef 870, i64 noundef %194, i64 noundef %195, ptr noundef nonnull @.str.53) #9
   br label %.thread174
 
-197:                                              ; preds = %._crit_edge201, %182
-  %198 = phi i32 [ %.pre202, %._crit_edge201 ], [ %183, %182 ]
+197:                                              ; preds = %._crit_edge199, %182
+  %198 = phi i32 [ %.pre200, %._crit_edge199 ], [ %183, %182 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %199 = zext i32 %198 to i64
   %200 = icmp samesign ult i64 %indvars.iv.next, %199

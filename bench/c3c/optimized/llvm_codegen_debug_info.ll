@@ -301,7 +301,7 @@ llvm_debug_current_scope.exit.i:                  ; preds = %.critedge.i.i, %26
   store i64 %7, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load ptr, ptr %34, align 8
-  %.not30.i = icmp ult i64 %7, 4294967296
+  %.not30.i = icmp eq i64 %.sroa.4.0.extract.shift.i, 0
   %36 = select i1 %.not30.i, i32 1, i32 %.sroa.4.0.extract.trunc.i
   %37 = tail call i32 @llvm.umax.i32(i32 %32, i32 1)
   %38 = tail call ptr @LLVMDIBuilderCreateDebugLocation(ptr noundef %35, i32 noundef %36, i32 noundef %37, ptr noundef %.016.i.i, ptr noundef null) #8
@@ -426,7 +426,7 @@ llvm_debug_current_scope.exit:                    ; preds = %21, %.critedge.i
   store i64 %1, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load ptr, ptr %29, align 8
-  %.not30 = icmp ult i64 %1, 4294967296
+  %.not30 = icmp eq i64 %.sroa.4.0.extract.shift, 0
   %31 = select i1 %.not30, i32 1, i32 %.sroa.4.0.extract.trunc
   %32 = tail call i32 @llvm.umax.i32(i32 %27, i32 1)
   %33 = tail call ptr @LLVMDIBuilderCreateDebugLocation(ptr noundef %30, i32 noundef %31, i32 noundef %32, ptr noundef %.016.i, ptr noundef null) #8
@@ -544,15 +544,15 @@ define dso_local void @llvm_debug_push_lexical_scope(ptr noundef %0, i64 %1) loc
 21:                                               ; preds = %19, %14
   %.028 = phi ptr [ %20, %19 ], [ %17, %14 ]
   %22 = trunc i64 %1 to i32
+  %23 = lshr i32 %22, 24
   %.sroa.4.0.extract.shift = lshr i64 %1, 32
   %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %24 = load ptr, ptr %23, align 8
-  %.not37 = icmp ult i64 %1, 4294967296
-  %25 = select i1 %.not37, i32 1, i32 %.sroa.4.0.extract.trunc
-  %26 = tail call i32 @llvm.umax.i32(i32 %22, i32 16777216)
-  %27 = lshr i32 %26, 24
-  %28 = tail call ptr @LLVMDIBuilderCreateLexicalBlock(ptr noundef %24, ptr noundef %.030, ptr noundef %.028, i32 noundef %25, i32 noundef %27) #8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %25 = load ptr, ptr %24, align 8
+  %.not37 = icmp eq i64 %.sroa.4.0.extract.shift, 0
+  %26 = select i1 %.not37, i32 1, i32 %.sroa.4.0.extract.trunc
+  %27 = tail call i32 @llvm.umax.i32(i32 %23, i32 1)
+  %28 = tail call ptr @LLVMDIBuilderCreateLexicalBlock(ptr noundef %25, ptr noundef %.030, ptr noundef %.028, i32 noundef %26, i32 noundef %27) #8
   %29 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i, label %30, label %33

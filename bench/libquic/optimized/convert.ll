@@ -1028,10 +1028,10 @@ define hidden range(i64 4, 536870918) i64 @BN_bn2mpi(ptr noundef %0, ptr noundef
   %4 = zext i32 %3 to i64
   %5 = add nuw nsw i64 %4, 7
   %6 = lshr i64 %5, 3
-  %.not = icmp ne i32 %3, 0
+  %.not = icmp ne i64 %6, 0
   %7 = and i64 %4, 7
   %8 = icmp eq i64 %7, 0
-  %or.cond40.not.not = and i1 %.not, %8
+  %or.cond40.not.not = and i1 %8, %.not
   %spec.select41 = zext i1 %or.cond40.not.not to i64
   %9 = add nuw nsw i64 %6, %spec.select41
   %10 = icmp eq ptr %1, null

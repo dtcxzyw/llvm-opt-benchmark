@@ -1059,7 +1059,7 @@ _ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticEventPieceELN9__gnu_cxx12_Lock_p
 
 .sink.split.sink.split:                           ; preds = %126, %_ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticEventPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit126
   %.sink = phi i32 [ %124, %_ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticEventPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit126 ], [ %128, %126 ]
-  %.sink586.ph = phi ptr [ %123, %_ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticEventPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit126 ], [ %127, %126 ]
+  %.sink587.ph = phi ptr [ %123, %_ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticEventPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit126 ], [ %127, %126 ]
   %130 = zext i32 %.sink to i64
   %131 = add nuw nsw i64 %130, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %45, i64 noundef %131, i64 noundef 8) #21
@@ -1067,12 +1067,12 @@ _ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticEventPieceELN9__gnu_cxx12_Lock_p
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %126, %_ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticEventPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit126
-  %.sink588 = phi i32 [ %124, %_ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticEventPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit126 ], [ %128, %126 ], [ %.pre.i132, %.sink.split.sink.split ]
-  %.sink586 = phi ptr [ %123, %_ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticEventPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit126 ], [ %127, %126 ], [ %.sink586.ph, %.sink.split.sink.split ]
+  %.sink589 = phi i32 [ %124, %_ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticEventPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit126 ], [ %128, %126 ], [ %.pre.i132, %.sink.split.sink.split ]
+  %.sink587 = phi ptr [ %123, %_ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticEventPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit126 ], [ %127, %126 ], [ %.sink587.ph, %.sink.split.sink.split ]
   %132 = load ptr, ptr %15, align 8, !tbaa !40
-  %133 = zext i32 %.sink588 to i64
+  %133 = zext i32 %.sink589 to i64
   %134 = getelementptr inbounds nuw ptr, ptr %132, i64 %133
-  %135 = ptrtoint ptr %.sink586 to i64
+  %135 = ptrtoint ptr %.sink587 to i64
   store i64 %135, ptr %134, align 1
   %136 = load i32, ptr %46, align 8, !tbaa !42
   %137 = add i32 %136, 1
@@ -1442,7 +1442,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit159:              ; preds = %315, %317
   %.015.i.i = phi i64 [ %.1.i.i, %341 ], [ %328, %_ZN4llvm11raw_ostreamlsEPKc.exit159 ]
   %.sroa.012.014.i.i = phi ptr [ %.sroa.012.1.i.i, %341 ], [ %326, %_ZN4llvm11raw_ostreamlsEPKc.exit159 ]
   %330 = lshr i64 %.015.i.i, 1
-  %.not.i.i162 = icmp eq i64 %.015.i.i, 1
+  %.not.i.i162 = icmp eq i64 %330, 0
   br i1 %.not.i.i162, label %_ZSt7advanceISt20_List_const_iteratorISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEEElEvRT_T0_.exit.i.i, label %.preheader.i.i11.i.i
 
 .preheader.i.i11.i.i:                             ; preds = %.lr.ph.i.i, %.preheader.i.i11.i.i
@@ -2718,7 +2718,7 @@ _ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %914
   br i1 %.not412, label %_ZN4llvm11raw_ostreamlsEPKc.exit273, label %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread.thread:  ; preds = %_ZN4llvmneENS_9StringRefES0_.exit
-  %.pre466573 = load ptr, ptr %198, align 8, !tbaa !360
+  %.pre466574 = load ptr, ptr %198, align 8, !tbaa !360
   br label %915
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %.lr.ph443
@@ -2726,10 +2726,10 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %.lr.ph443
   br i1 %913, label %_ZN4llvm11raw_ostreamlsEPKc.exit262, label %915
 
 915:                                              ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread, %_ZN4llvmneENS_9StringRefES0_.exit.thread
-  %.pre466574 = phi ptr [ %.pre466573, %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread ], [ %.pre466, %_ZN4llvmneENS_9StringRefES0_.exit.thread ]
+  %.pre466575 = phi ptr [ %.pre466574, %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread ], [ %.pre466, %_ZN4llvmneENS_9StringRefES0_.exit.thread ]
   %916 = load ptr, ptr %196, align 8, !tbaa !356
   %917 = ptrtoint ptr %916 to i64
-  %918 = ptrtoint ptr %.pre466574 to i64
+  %918 = ptrtoint ptr %.pre466575 to i64
   %919 = sub i64 %917, %918
   %920 = icmp ult i64 %919, 11
   br i1 %920, label %921, label %923
@@ -2740,7 +2740,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %.lr.ph443
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit262
 
 923:                                              ; preds = %915
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.pre466574, ptr noundef nonnull align 1 dereferenceable(11) @.str.20, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.pre466575, ptr noundef nonnull align 1 dereferenceable(11) @.str.20, i64 11, i1 false)
   %924 = load ptr, ptr %198, align 8, !tbaa !360
   %925 = getelementptr inbounds nuw i8, ptr %924, i64 11
   store ptr %925, ptr %198, align 8, !tbaa !360
@@ -7096,8 +7096,8 @@ define linkonce_odr hidden void @_ZN5clang6markup9EmitRangeERN4llvm11raw_ostream
   %.sroa.3.0.extract.shift = lshr i64 %2, 32
   %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
   %7 = icmp eq i32 %.sroa.024.0.extract.trunc, 0
-  %8 = icmp ult i64 %2, 4294967296
-  %.not2.i = or i1 %8, %7
+  %8 = icmp eq i64 %.sroa.3.0.extract.shift, 0
+  %.not2.i = or i1 %7, %8
   br i1 %.not2.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit23, label %9
 
 9:                                                ; preds = %6

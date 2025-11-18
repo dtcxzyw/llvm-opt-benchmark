@@ -292,7 +292,7 @@ define hidden void @_ZNK8rawspeed21SamsungV1Decompressor10decompressEv(ptr nound
   tail call void @llvm.assume(i1 %18)
   %19 = icmp sgt i32 %14, -1
   tail call void @llvm.assume(i1 %19)
-  %20 = icmp ugt i32 %16, 1
+  %20 = icmp ne i32 %17, 0
   tail call void @llvm.assume(i1 %20)
   %21 = icmp sgt i32 %17, -1
   tail call void @llvm.assume(i1 %21)
@@ -370,10 +370,10 @@ _ZN8rawspeed14BitStreamerMSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequen
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
   %53 = add nuw nsw i32 %35, 8
   %54 = zext nneg i32 %14 to i64
-  %55 = zext nneg i32 %17 to i64
   br i1 %23, label %.lr.ph217.split.preheader, label %.lr.ph217.split.us.preheader
 
 .lr.ph217.split.us.preheader:                     ; preds = %.lr.ph217
+  %55 = zext nneg i32 %17 to i64
   %56 = zext nneg i32 %17 to i64
   %57 = zext nneg i32 %12 to i64
   %wide.trip.count232 = zext nneg i32 %14 to i64

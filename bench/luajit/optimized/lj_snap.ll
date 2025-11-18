@@ -3300,7 +3300,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
 23:                                               ; preds = %.lr.ph, %tailrecurse
   %24 = phi ptr [ %11, %.lr.ph ], [ %78, %tailrecurse ]
   %25 = phi i64 [ %10, %.lr.ph ], [ %77, %tailrecurse ]
-  %.tr6678 = phi i32 [ %5, %.lr.ph ], [ %76, %tailrecurse ]
+  %.tr6680 = phi i32 [ %5, %.lr.ph ], [ %76, %tailrecurse ]
   %.in.in = getelementptr inbounds nuw i8, ptr %24, i64 6
   %.in = load i16, ptr %.in.in, align 2, !tbaa !40
   %26 = zext i16 %.in to i32
@@ -3325,7 +3325,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %.091.i = phi i32 [ %.1.i, %48 ], [ %26, %30 ]
   %37 = load i16, ptr %.02.i, align 8, !tbaa !40
   %38 = zext i16 %37 to i32
-  %39 = icmp eq i32 %.tr6678, %38
+  %39 = icmp eq i32 %.tr6680, %38
   br i1 %39, label %40, label %48
 
 40:                                               ; preds = %.lr.ph.i
@@ -3351,28 +3351,28 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
 
 snap_renameref.exit:                              ; preds = %48, %30, %23
   %.0 = phi i32 [ %26, %23 ], [ %26, %30 ], [ %.1.i, %48 ]
-  %.not59 = icmp samesign ult i32 %.0, 256
-  br i1 %.not59, label %74, label %53
+  %53 = lshr i32 %.0, 8
+  %.not59 = icmp eq i32 %53, 0
+  br i1 %.not59, label %74, label %54
 
-53:                                               ; preds = %snap_renameref.exit
-  %54 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %.sroa.0.0.copyload.le74 = load i8, ptr %54, align 4, !tbaa !40
-  %55 = lshr i32 %.0, 8
+54:                                               ; preds = %snap_renameref.exit
+  %55 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %.sroa.0.0.copyload.le76 = load i8, ptr %55, align 4, !tbaa !40
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 256
-  %57 = zext nneg i32 %55 to i64
+  %57 = zext nneg i32 %53 to i64
   %58 = getelementptr inbounds nuw i32, ptr %56, i64 %57
-  %59 = and i8 %.sroa.0.0.copyload.le74, 31
+  %59 = and i8 %.sroa.0.0.copyload.le76, 31
   %60 = add nsw i8 %59, -15
   %61 = icmp ult i8 %60, 5
   br i1 %61, label %62, label %65
 
-62:                                               ; preds = %53
+62:                                               ; preds = %54
   %63 = load i32, ptr %58, align 4, !tbaa !4
   %64 = sitofp i32 %63 to double
   store double %64, ptr %6, align 8, !tbaa !40
   br label %114
 
-65:                                               ; preds = %53
+65:                                               ; preds = %54
   %66 = icmp eq i8 %59, 14
   %67 = load i64, ptr %58, align 8, !tbaa !132
   br i1 %66, label %68, label %69
@@ -3557,18 +3557,18 @@ define internal fastcc void @snap_restoredata(ptr noundef readonly captures(none
 
 snap_renameref.exit:                              ; preds = %47, %28, %24
   %.052 = phi i32 [ %15, %24 ], [ %15, %28 ], [ %.1.i, %47 ]
-  %.not60 = icmp samesign ult i32 %.052, 256
-  br i1 %.not60, label %65, label %52
+  %52 = lshr i32 %.052, 8
+  %.not60 = icmp eq i32 %52, 0
+  br i1 %.not60, label %65, label %53
 
-52:                                               ; preds = %snap_renameref.exit
-  %53 = lshr i32 %.052, 8
+53:                                               ; preds = %snap_renameref.exit
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %55 = zext nneg i32 %53 to i64
+  %55 = zext nneg i32 %52 to i64
   %56 = getelementptr inbounds nuw i32, ptr %54, i64 %55
   %57 = icmp eq i32 %6, 8
   br i1 %57, label %58, label %77
 
-58:                                               ; preds = %52
+58:                                               ; preds = %53
   %59 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %60 = load i8, ptr %59, align 4, !tbaa !40
   %61 = and i8 %60, 31
@@ -3601,8 +3601,8 @@ snap_renameref.exit:                              ; preds = %47, %28, %24
   store double %76, ptr %5, align 8, !tbaa !133
   br label %88
 
-77:                                               ; preds = %.thread, %22, %52, %20
-  %.053 = phi ptr [ %21, %20 ], [ %56, %52 ], [ %12, %22 ], [ %.2, %.thread ]
+77:                                               ; preds = %.thread, %22, %53, %20
+  %.053 = phi ptr [ %21, %20 ], [ %56, %53 ], [ %12, %22 ], [ %.2, %.thread ]
   switch i32 %6, label %85 [
     i32 4, label %78
     i32 8, label %.thread2
@@ -3615,9 +3615,9 @@ snap_renameref.exit:                              ; preds = %47, %28, %24
   br label %88
 
 .thread2.sink.split:                              ; preds = %58, %22
-  %.sink5.in = phi ptr [ %12, %22 ], [ %56, %58 ]
-  %.sink5 = load i32, ptr %.sink5.in, align 4, !tbaa !40
-  %80 = zext i32 %.sink5 to i64
+  %.sink6.in = phi ptr [ %12, %22 ], [ %56, %58 ]
+  %.sink6 = load i32, ptr %.sink6.in, align 4, !tbaa !40
+  %80 = zext i32 %.sink6 to i64
   store i64 %80, ptr %8, align 8, !tbaa !132
   br label %.thread2
 

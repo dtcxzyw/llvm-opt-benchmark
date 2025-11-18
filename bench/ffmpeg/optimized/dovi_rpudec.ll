@@ -879,7 +879,7 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
 410:                                              ; preds = %341
   %411 = zext i8 %404 to i32
   %412 = and i32 %spec.select.i638, 7
-  %413 = icmp samesign ult i32 %373, 536870912
+  %413 = icmp eq i32 %374, 0
   %414 = lshr exact i32 128, %412
   %415 = and i32 %414, %411
   %416 = icmp ne i32 %415, 0
@@ -1187,7 +1187,7 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
   br label %593
 
 592:                                              ; preds = %593
-  %.not604 = icmp ult i32 %586, 536870912
+  %.not604 = icmp eq i32 %587, 0
   br i1 %.not604, label %.thread688, label %610
 
 593:                                              ; preds = %579, %593

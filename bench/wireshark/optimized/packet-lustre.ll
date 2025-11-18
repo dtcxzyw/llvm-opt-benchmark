@@ -3779,7 +3779,7 @@ dissect_struct_lu_ladvise_hdr.exit.i:             ; preds = %121, %113
   %321 = load i32, ptr @ett_lustre_fid_array, align 4
   %322 = tail call ptr @proto_item_add_subtree(ptr noundef %320, i32 noundef %321)
   %323 = lshr i32 %316, 4
-  %.not.i.i127 = icmp ult i32 %316, 16
+  %.not.i.i127 = icmp eq i32 %323, 0
   br i1 %.not.i.i127, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %318, %.lr.ph.i.i
@@ -6302,7 +6302,7 @@ dissect_struct_out_update_header.exit:            ; preds = %20, %27, %165, %168
 
 .preheader.i24:                                   ; preds = %178
   %184 = lshr i32 %182, 3
-  %.not41.i = icmp ult i32 %182, 8
+  %.not41.i = icmp eq i32 %184, 0
   br i1 %.not41.i, label %._crit_edge.i26, label %.lr.ph.i25
 
 .lr.ph.i25:                                       ; preds = %.preheader.i24, %.lr.ph.i25
@@ -6794,7 +6794,7 @@ define internal fastcc i32 @dissect_struct_niobuf_remote(ptr noundef %0, i32 nou
   %15 = add nuw nsw i32 %13, %14
   %16 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %15)
   %17 = lshr i32 %16, 4
-  %.not3 = icmp ult i32 %16, 16
+  %.not3 = icmp eq i32 %17, 0
   br i1 %.not3, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10, %.lr.ph
@@ -6862,7 +6862,7 @@ define internal fastcc i32 @dissect_rc_array(ptr noundef %0, i32 noundef %1, ptr
   %21 = load i32, ptr @ett_lustre_rcs, align 4
   %22 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %21)
   %23 = lshr i32 %18, 2
-  %.not3 = icmp ult i32 %18, 4
+  %.not3 = icmp eq i32 %23, 0
   br i1 %.not3, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17, %.lr.ph
@@ -8802,7 +8802,7 @@ define internal fastcc noundef i32 @dissect_struct_hsm_user_item_array(ptr nound
 
 .preheader:                                       ; preds = %10
   %16 = lshr i32 %14, 5
-  %.not = icmp ult i32 %14, 32
+  %.not = icmp eq i32 %16, 0
   br i1 %.not, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
@@ -8858,7 +8858,7 @@ define internal fastcc i32 @dissect_hsm_archive(ptr noundef %0, i32 noundef %1, 
   %19 = load i32, ptr @ett_lustre_hsm_archive, align 4
   %20 = tail call ptr @proto_item_add_subtree(ptr noundef %18, i32 noundef %19)
   %21 = lshr i32 %16, 2
-  %.not = icmp ult i32 %16, 4
+  %.not = icmp eq i32 %21, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %.lr.ph
@@ -9211,16 +9211,13 @@ define internal fastcc noundef i32 @dissect_struct_llog_log_hdr(ptr noundef %0, 
   %.neg81 = add i32 %.neg, %24
   %reass.sub = sub i32 %.neg81, %29
   %59 = add i32 %reass.sub, -72
-  %.not85 = icmp ult i32 %59, 4
-  br i1 %.not85, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %27
   %60 = lshr i32 %59, 2
-  br label %.lr.ph
+  %.not85 = icmp eq i32 %60, 0
+  br i1 %.not85, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.084 = phi i32 [ %64, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.07683 = phi i32 [ %63, %.lr.ph ], [ %58, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %27, %.lr.ph
+  %.084 = phi i32 [ %64, %.lr.ph ], [ 0, %27 ]
+  %.07683 = phi i32 [ %63, %.lr.ph ], [ %58, %27 ]
   %61 = load i32, ptr @hf_lustre_llog_log_hdr_bitmap, align 4
   %62 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %61, ptr noundef %0, i32 noundef %.07683, i32 noundef 4, i32 noundef -2147483648)
   %63 = add i32 %.07683, 4

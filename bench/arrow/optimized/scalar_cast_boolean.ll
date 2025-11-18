@@ -6880,7 +6880,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7co
   br i1 %exitcond54.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph45.i.i.i.i, !llvm.loop !339
 
 66:                                               ; preds = %.noexc12
-  %67 = icmp ult i32 %44, 65536
+  %67 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %67, label %.preheader33.i.i.i.i, label %.preheader35.i.i.i.i
 
 .preheader35.i.i.i.i:                             ; preds = %66
@@ -7555,7 +7555,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZN
   br i1 %exitcond54.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph45.i.i.i.i, !llvm.loop !360
 
 64:                                               ; preds = %.noexc12
-  %65 = icmp ult i32 %44, 65536
+  %65 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %65, label %.preheader33.i.i.i.i, label %.preheader35.i.i.i.i
 
 .preheader35.i.i.i.i:                             ; preds = %64
@@ -7920,7 +7920,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE9VisitVoidIZNS
   br i1 %exitcond55.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph46.i.i.i.i, !llvm.loop !380
 
 81:                                               ; preds = %.noexc13
-  %82 = icmp ult i32 %44, 65536
+  %82 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %82, label %.preheader34.i.i.i.i, label %.preheader36.i.i.i.i
 
 .preheader36.i.i.i.i:                             ; preds = %81

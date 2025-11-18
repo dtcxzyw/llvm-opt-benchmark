@@ -464,16 +464,13 @@ _ZSt7advanceIPKN4llvm17PatternsForOpcodeElEvRT_T0_.exit.i.i.i: ; preds = %4, %_Z
   store ptr %9, ptr %.sroa.6.0..sroa_idx, align 8
   %52 = getelementptr inbounds nuw %"struct.llvm::AliasPatternCond", ptr %51, i64 %49
   %53 = ptrtoint ptr %52 to i64
-  %.not.i = icmp ult i8 %48, 4
-  br i1 %.not.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.preheader.i
-
-.lr.ph.i.i.i.i.preheader.i:                       ; preds = %43
   %54 = lshr i64 %49, 2
-  br label %.lr.ph.i.i.i.i.i
+  %.not.i = icmp eq i64 %54, 0
+  br i1 %.not.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %65, %.lr.ph.i.i.i.i.preheader.i
-  %.032.i.i.i.i.i = phi i64 [ %67, %65 ], [ %54, %.lr.ph.i.i.i.i.preheader.i ]
-  %.02931.i.i.i.i.i = phi ptr [ %66, %65 ], [ %51, %.lr.ph.i.i.i.i.preheader.i ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %43, %65
+  %.032.i.i.i.i.i = phi i64 [ %67, %65 ], [ %54, %43 ]
+  %.02931.i.i.i.i.i = phi ptr [ %66, %65 ], [ %51, %43 ]
   %55 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm13MCInstPrinter18matchAliasPatternsEPKNS2_6MCInstEPKNS2_15MCSubtargetInfoERKNS2_17AliasMatchingDataEE3$_1EclIPKNS2_16AliasPatternCondEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(48) %5, ptr noundef %.02931.i.i.i.i.i)
   br i1 %55, label %"_ZN4llvm6all_ofIRNS_8ArrayRefINS_16AliasPatternCondEEEZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_1EEbOT_T0_.exit", label %56
 

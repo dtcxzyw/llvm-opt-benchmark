@@ -9597,16 +9597,16 @@ _ZN4llvm14iterator_rangeINS_11po_iteratorIPKNS_10BasicBlockENS_11SmallPtrSetIS4_
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %157 = load i32, ptr %156, align 8
-  %158 = icmp ult i32 %157, 2
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %160 = load i32, ptr %159, align 4
-  %161 = icmp eq i32 %160, 0
-  %or.cond = select i1 %158, i1 %161, i1 false
-  br i1 %or.cond, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_4LoopEiEjLj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E5clearEv.exit, label %162
+  %158 = lshr i32 %157, 1
+  %159 = icmp eq i32 %158, 0
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  %161 = load i32, ptr %160, align 4
+  %162 = icmp eq i32 %161, 0
+  %or.cond = select i1 %159, i1 %162, i1 false
+  br i1 %or.cond, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_4LoopEiEjLj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E5clearEv.exit, label %163
 
-162:                                              ; preds = %_ZN4llvm14iterator_rangeINS_11po_iteratorIPKNS_10BasicBlockENS_11SmallPtrSetIS4_Lj8EEELb0ENS_11GraphTraitsIS4_EEEEED2Ev.exit
-  %163 = shl i32 %157, 1
-  %164 = and i32 %163, -4
+163:                                              ; preds = %_ZN4llvm14iterator_rangeINS_11po_iteratorIPKNS_10BasicBlockENS_11SmallPtrSetIS4_Lj8EEELb0ENS_11GraphTraitsIS4_EEEEED2Ev.exit
+  %164 = shl i32 %158, 2
   %165 = and i32 %157, 1
   %.not.i.i.i34 = icmp eq i32 %165, 0
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -9617,11 +9617,11 @@ _ZN4llvm14iterator_rangeINS_11po_iteratorIPKNS_10BasicBlockENS_11SmallPtrSetIS4_
   %or.cond.i = and i1 %169, %170
   br i1 %or.cond.i, label %171, label %172
 
-171:                                              ; preds = %162
+171:                                              ; preds = %163
   call void @_ZN4llvm13SmallDenseMapISt4pairIPNS_4LoopEiEjLj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEE16shrink_and_clearEv(ptr noundef nonnull align 8 dereferenceable(104) %156)
   br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_4LoopEiEjLj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E5clearEv.exit
 
-172:                                              ; preds = %162
+172:                                              ; preds = %163
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %174 = load ptr, ptr %173, align 8
   %175 = select i1 %.not.i.i.i34, ptr %174, ptr %173
@@ -9639,7 +9639,7 @@ _ZN4llvm14iterator_rangeINS_11po_iteratorIPKNS_10BasicBlockENS_11SmallPtrSetIS4_
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %172
   %.pre-phi.i = phi i32 [ %.pre8.i, %._crit_edge.loopexit.i ], [ %165, %172 ]
   store i32 %.pre-phi.i, ptr %156, align 8
-  store i32 0, ptr %159, align 4, !tbaa !87
+  store i32 0, ptr %160, align 4, !tbaa !87
   br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_4LoopEiEjLj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E5clearEv.exit
 
 .lr.ph.i:                                         ; preds = %172, %.lr.ph.i
@@ -9654,16 +9654,16 @@ _ZN4llvm14iterator_rangeINS_11po_iteratorIPKNS_10BasicBlockENS_11SmallPtrSetIS4_
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_4LoopEiEjLj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E5clearEv.exit: ; preds = %_ZN4llvm14iterator_rangeINS_11po_iteratorIPKNS_10BasicBlockENS_11SmallPtrSetIS4_Lj8EEELb0ENS_11GraphTraitsIS4_EEEEED2Ev.exit, %171, %._crit_edge.i
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %181 = load i32, ptr %180, align 8
-  %182 = icmp ult i32 %181, 2
-  %183 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %184 = load i32, ptr %183, align 4
-  %185 = icmp eq i32 %184, 0
-  %or.cond117 = select i1 %182, i1 %185, i1 false
-  br i1 %or.cond117, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_10BasicBlockEjLj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E5clearEv.exit, label %186
+  %182 = lshr i32 %181, 1
+  %183 = icmp eq i32 %182, 0
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %185 = load i32, ptr %184, align 4
+  %186 = icmp eq i32 %185, 0
+  %or.cond117 = select i1 %183, i1 %186, i1 false
+  br i1 %or.cond117, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_10BasicBlockEjLj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E5clearEv.exit, label %187
 
-186:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_4LoopEiEjLj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E5clearEv.exit
-  %187 = shl i32 %181, 1
-  %188 = and i32 %187, -4
+187:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_4LoopEiEjLj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E5clearEv.exit
+  %188 = shl i32 %182, 2
   %189 = and i32 %181, 1
   %.not.i.i.i36 = icmp eq i32 %189, 0
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -9674,11 +9674,11 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_4LoopEiEjLj4ENS_12DenseMap
   %or.cond.i37 = and i1 %193, %194
   br i1 %or.cond.i37, label %195, label %196
 
-195:                                              ; preds = %186
+195:                                              ; preds = %187
   call void @_ZN4llvm13SmallDenseMapIPKNS_10BasicBlockEjLj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE16shrink_and_clearEv(ptr noundef nonnull align 8 dereferenceable(72) %180)
   br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_10BasicBlockEjLj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E5clearEv.exit
 
-196:                                              ; preds = %186
+196:                                              ; preds = %187
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %198 = load ptr, ptr %197, align 8
   %199 = select i1 %.not.i.i.i36, ptr %198, ptr %197
@@ -9696,7 +9696,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_4LoopEiEjLj4ENS_12DenseMap
 ._crit_edge.i43:                                  ; preds = %._crit_edge.loopexit.i41, %196
   %.pre-phi.i44 = phi i32 [ %.pre9.i, %._crit_edge.loopexit.i41 ], [ %189, %196 ]
   store i32 %.pre-phi.i44, ptr %180, align 8
-  store i32 0, ptr %183, align 4, !tbaa !80
+  store i32 0, ptr %184, align 4, !tbaa !80
   br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_10BasicBlockEjLj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E5clearEv.exit
 
 .lr.ph.i39:                                       ; preds = %196, %.lr.ph.i39
@@ -16858,12 +16858,12 @@ _ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPKNS_10BasicBlockELj8EEELb0EE10in
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapISt4pairIPNS_4LoopEiEjLj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEE16shrink_and_clearEv(ptr noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = load i32, ptr %0, align 8
-  %.not = icmp ult i32 %2, 2
-  br i1 %.not, label %10, label %3
+  %3 = lshr i32 %2, 1
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %10, label %4
 
-3:                                                ; preds = %1
-  %4 = lshr i32 %2, 1
-  %5 = add nsw i32 %4, -1
+4:                                                ; preds = %1
+  %5 = add nsw i32 %3, -1
   %6 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %5, i1 false)
   %7 = sub nuw nsw i32 33, %6
   %8 = shl nuw i32 1, %7
@@ -16872,8 +16872,8 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapISt4pairIPNS_4LoopEiEjLj
   %spec.store.select = select i1 %or.cond, i32 64, i32 %8
   br label %10
 
-10:                                               ; preds = %3, %1
-  %.0 = phi i32 [ %spec.store.select, %3 ], [ 0, %1 ]
+10:                                               ; preds = %4, %1
+  %.0 = phi i32 [ %spec.store.select, %4 ], [ 0, %1 ]
   %11 = and i32 %2, 1
   %12 = icmp ne i32 %11, 0
   %13 = icmp ult i32 %.0, 5
@@ -16986,12 +16986,12 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_4LoopEiEjLj4ENS_12DenseMap
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPKNS_10BasicBlockEjLj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE16shrink_and_clearEv(ptr noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = load i32, ptr %0, align 8
-  %.not = icmp ult i32 %2, 2
-  br i1 %.not, label %10, label %3
+  %3 = lshr i32 %2, 1
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %10, label %4
 
-3:                                                ; preds = %1
-  %4 = lshr i32 %2, 1
-  %5 = add nsw i32 %4, -1
+4:                                                ; preds = %1
+  %5 = add nsw i32 %3, -1
   %6 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %5, i1 false)
   %7 = sub nuw nsw i32 33, %6
   %8 = shl nuw i32 1, %7
@@ -17000,8 +17000,8 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPKNS_10BasicBlockEjLj4E
   %spec.store.select = select i1 %or.cond, i32 64, i32 %8
   br label %10
 
-10:                                               ; preds = %3, %1
-  %.0 = phi i32 [ %spec.store.select, %3 ], [ 0, %1 ]
+10:                                               ; preds = %4, %1
+  %.0 = phi i32 [ %spec.store.select, %4 ], [ 0, %1 ]
   %11 = and i32 %2, 1
   %12 = icmp ne i32 %11, 0
   %13 = icmp ult i32 %.0, 5

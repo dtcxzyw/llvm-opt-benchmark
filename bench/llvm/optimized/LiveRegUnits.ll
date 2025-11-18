@@ -530,11 +530,11 @@ define dso_local void @_ZN4llvm12LiveRegUnits12addPristinesERKNS_15MachineFuncti
   %14 = zext i32 %13 to i64
   %.idx2.i.i.i.i = shl nuw nsw i64 %14, 3
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx2.i.i.i.i
-  %.not.i.i.i.i = icmp ult i32 %13, 4
+  %16 = lshr i64 %14, 2
+  %.not.i.i.i.i = icmp eq i64 %16, 0
   br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i.i.i:               ; preds = %9
-  %16 = lshr i64 %14, 2
   %17 = and i64 %.idx2.i.i.i.i, 34359738336
   %scevgep.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %11, i64 %17
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
@@ -577,11 +577,10 @@ define dso_local void @_ZN4llvm12LiveRegUnits12addPristinesERKNS_15MachineFuncti
 ._crit_edge.i.i.i.i.i.i.i.i.i:                    ; preds = %._crit_edge.loopexit.i.i.i.i.i.i.i.i.i, %9
   %.pre-phi53.i.i.i.i.i.i.i.i.i = phi i32 [ %32, %._crit_edge.loopexit.i.i.i.i.i.i.i.i.i ], [ %13, %9 ]
   %.029.lcssa.i.i.i.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i.i.i.i ], [ %11, %9 ]
-  switch i32 %.pre-phi53.i.i.i.i.i.i.i.i.i, label %default.unreachable [
+  switch i32 %.pre-phi53.i.i.i.i.i.i.i.i.i, label %_ZNK4llvm12LiveRegUnits5emptyEv.exit.thread [
     i32 3, label %33
     i32 2, label %37
     i32 1, label %41
-    i32 0, label %_ZNK4llvm12LiveRegUnits5emptyEv.exit.thread
   ]
 
 33:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i
@@ -608,9 +607,6 @@ define dso_local void @_ZN4llvm12LiveRegUnits12addPristinesERKNS_15MachineFuncti
   %42 = load i64, ptr %.2.i.i.i.i.i.i.i.i.i, align 8, !tbaa !39
   %.not31.i.i.i.i.i.i.i.i.i = icmp eq i64 %42, 0
   br i1 %.not31.i.i.i.i.i.i.i.i.i, label %_ZNK4llvm12LiveRegUnits5emptyEv.exit.thread, label %_ZNK4llvm12LiveRegUnits5emptyEv.exit
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i
-  unreachable
 
 _ZNK4llvm12LiveRegUnits5emptyEv.exit.loopexit.split.loop.exit: ; preds = %19
   %43 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i.i, i64 8
@@ -710,7 +706,7 @@ _ZN4llvm12LiveRegUnits9removeRegEt.exit.loopexit: ; preds = %_ZN4llvm17MCRegUnit
   %89 = add i32 %88, 63
   %90 = lshr i32 %89, 6
   %91 = zext nneg i32 %90 to i64
-  %92 = icmp ult i32 %89, 64
+  %92 = icmp eq i32 %90, 0
   br i1 %92, label %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i.i.i, label %93
 
 93:                                               ; preds = %80

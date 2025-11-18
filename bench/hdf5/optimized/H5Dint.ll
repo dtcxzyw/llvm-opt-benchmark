@@ -6353,21 +6353,21 @@ H5VM_power2up.exit:                               ; preds = %131
 139:                                              ; preds = %136
   store i64 %.0.i, ptr %137, align 8, !tbaa !10
   %140 = lshr i64 %.0.i, 32
-  %.not.i = icmp ult i64 %.0.i, 4294967296
+  %.not.i = icmp eq i64 %140, 0
   br i1 %.not.i, label %167, label %141
 
 141:                                              ; preds = %139
   %142 = lshr i64 %.0.i, 48
-  %.not26.i = icmp ult i64 %.0.i, 281474976710656
+  %.not26.i = icmp eq i64 %142, 0
   br i1 %.not26.i, label %155, label %143
 
 143:                                              ; preds = %141
-  %.not28.i = icmp ult i64 %.0.i, 72057594037927936
-  br i1 %.not28.i, label %150, label %144
+  %144 = lshr i64 %.0.i, 56
+  %.not28.i = icmp eq i64 %144, 0
+  br i1 %.not28.i, label %150, label %145
 
-144:                                              ; preds = %143
-  %145 = lshr i64 %.0.i, 56
-  %146 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %145
+145:                                              ; preds = %143
+  %146 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %144
   %147 = load i8, ptr %146, align 1, !tbaa !59
   %148 = zext i8 %147 to i32
   %149 = add nuw nsw i32 %148, 56
@@ -6381,12 +6381,12 @@ H5VM_power2up.exit:                               ; preds = %131
   br label %H5VM_log2_gen.exit
 
 155:                                              ; preds = %141
-  %.not27.i = icmp samesign ult i64 %.0.i, 1099511627776
-  br i1 %.not27.i, label %162, label %156
+  %156 = lshr i64 %.0.i, 40
+  %.not27.i = icmp eq i64 %156, 0
+  br i1 %.not27.i, label %162, label %157
 
-156:                                              ; preds = %155
-  %157 = lshr i64 %.0.i, 40
-  %158 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %157
+157:                                              ; preds = %155
+  %158 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %156
   %159 = load i8, ptr %158, align 1, !tbaa !59
   %160 = zext i8 %159 to i32
   %161 = add nuw nsw i32 %160, 40
@@ -6401,16 +6401,16 @@ H5VM_power2up.exit:                               ; preds = %131
 
 167:                                              ; preds = %139
   %168 = lshr i64 %.0.i, 16
-  %.not23.i = icmp samesign ult i64 %.0.i, 65536
+  %.not23.i = icmp eq i64 %168, 0
   br i1 %.not23.i, label %181, label %169
 
 169:                                              ; preds = %167
-  %.not25.i = icmp samesign ult i64 %.0.i, 16777216
-  br i1 %.not25.i, label %176, label %170
+  %170 = lshr i64 %.0.i, 24
+  %.not25.i = icmp eq i64 %170, 0
+  br i1 %.not25.i, label %176, label %171
 
-170:                                              ; preds = %169
-  %171 = lshr i64 %.0.i, 24
-  %172 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %171
+171:                                              ; preds = %169
+  %172 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %170
   %173 = load i8, ptr %172, align 1, !tbaa !59
   %174 = zext i8 %173 to i32
   %175 = add nuw nsw i32 %174, 24
@@ -6424,12 +6424,12 @@ H5VM_power2up.exit:                               ; preds = %131
   br label %H5VM_log2_gen.exit
 
 181:                                              ; preds = %167
-  %.not24.i = icmp samesign ult i64 %.0.i, 256
-  br i1 %.not24.i, label %188, label %182
+  %182 = lshr i64 %.0.i, 8
+  %.not24.i = icmp eq i64 %182, 0
+  br i1 %.not24.i, label %188, label %183
 
-182:                                              ; preds = %181
-  %183 = lshr i64 %.0.i, 8
-  %184 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %183
+183:                                              ; preds = %181
+  %184 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %182
   %185 = load i8, ptr %184, align 1, !tbaa !59
   %186 = zext i8 %185 to i32
   %187 = add nuw nsw i32 %186, 8
@@ -6441,8 +6441,8 @@ H5VM_power2up.exit:                               ; preds = %131
   %191 = zext i8 %190 to i32
   br label %H5VM_log2_gen.exit
 
-H5VM_log2_gen.exit:                               ; preds = %144, %150, %156, %162, %170, %176, %182, %188
-  %.0.i153 = phi i32 [ %149, %144 ], [ %154, %150 ], [ %161, %156 ], [ %166, %162 ], [ %175, %170 ], [ %180, %176 ], [ %187, %182 ], [ %191, %188 ]
+H5VM_log2_gen.exit:                               ; preds = %145, %150, %157, %162, %171, %176, %183, %188
+  %.0.i153 = phi i32 [ %149, %145 ], [ %154, %150 ], [ %161, %157 ], [ %166, %162 ], [ %175, %171 ], [ %180, %176 ], [ %187, %183 ], [ %191, %188 ]
   %192 = getelementptr inbounds nuw i32, ptr %103, i64 %indvars.iv
   store i32 %.0.i153, ptr %192, align 4, !tbaa !61
   br label %.thread

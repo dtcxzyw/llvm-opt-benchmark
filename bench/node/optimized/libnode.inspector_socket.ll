@@ -2695,7 +2695,7 @@ for.body.i:                                       ; preds = %for.body.i, %_ZNSt6
 for.end.i:                                        ; preds = %for.body.i
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %extended_payload_length.i, i64 8
   call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %output, ptr nonnull %incdec.ptr.i.i.i66.i, ptr noundef nonnull %extended_payload_length.i, ptr noundef nonnull %add.ptr.i)
-  %cmp23.not.i = icmp ult i64 %remaining.0182.i, 256
+  %cmp23.not.i = icmp eq i64 %shr16.i, 0
   br i1 %cmp23.not.i, label %for.end.if.end32_crit_edge.i, label %do.body28.i
 
 for.end.if.end32_crit_edge.i:                     ; preds = %for.end.i

@@ -20514,12 +20514,11 @@ define hidden void @_ZN14polars_compute4cast12primitive_to24primitive_to_boolean
           to label %.noexc1.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i, !noalias !1233
 
 .noexc1.i.i:                                      ; preds = %52
-  %.not50.i.i.i = icmp ult i64 %38, 64
+  %.not50.i.i.i = icmp eq i64 %42, 0
   br i1 %.not50.i.i.i, label %.preheader35.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc1.i.i
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %umax.i.i.i = call i64 @llvm.umax.i64(i64 %42, i64 1)
   br label %54
 
 .preheader35.i.i.i:                               ; preds = %.noexc2.i.i, %.noexc1.i.i
@@ -20587,7 +20586,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h53629d1608666dc3E.exit.i
 .noexc2.i.i:                                      ; preds = %_ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h53629d1608666dc3E.exit.i.i.i
   %71 = add nuw nsw i64 %.sroa.019.037.i.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1239
-  %exitcond.not.i.i.i = icmp eq i64 %71, %umax.i.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %71, %42
   br i1 %exitcond.not.i.i.i, label %.preheader35.i.i.i, label %54
 
 ._crit_edge.i.i.i:                                ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit27.i.i.i", %.preheader35.i.i.i
@@ -21018,12 +21017,11 @@ define hidden void @_ZN14polars_compute4cast12primitive_to24primitive_to_boolean
           to label %.noexc1.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i, !noalias !1281
 
 .noexc1.i.i:                                      ; preds = %52
-  %.not50.i.i.i = icmp ult i64 %38, 64
+  %.not50.i.i.i = icmp eq i64 %42, 0
   br i1 %.not50.i.i.i, label %.preheader35.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc1.i.i
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %umax.i.i.i = call i64 @llvm.umax.i64(i64 %42, i64 1)
   br label %54
 
 .preheader35.i.i.i:                               ; preds = %.noexc2.i.i, %.noexc1.i.i
@@ -21091,7 +21089,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17he39da8d2b31a3cc6E.exit.i
 .noexc2.i.i:                                      ; preds = %_ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17he39da8d2b31a3cc6E.exit.i.i.i
   %71 = add nuw nsw i64 %.sroa.019.037.i.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1287
-  %exitcond.not.i.i.i = icmp eq i64 %71, %umax.i.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %71, %42
   br i1 %exitcond.not.i.i.i, label %.preheader35.i.i.i, label %54
 
 ._crit_edge.i.i.i:                                ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit27.i.i.i", %.preheader35.i.i.i
@@ -21522,12 +21520,11 @@ define hidden void @_ZN14polars_compute4cast12primitive_to24primitive_to_boolean
           to label %.noexc1.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i, !noalias !1329
 
 .noexc1.i.i:                                      ; preds = %52
-  %.not50.i.i.i = icmp ult i64 %38, 64
+  %.not50.i.i.i = icmp eq i64 %42, 0
   br i1 %.not50.i.i.i, label %.preheader35.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc1.i.i
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %umax.i.i.i = call i64 @llvm.umax.i64(i64 %42, i64 1)
   br label %54
 
 .preheader35.i.i.i:                               ; preds = %.noexc2.i.i, %.noexc1.i.i
@@ -21595,7 +21592,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h2c1f4809da6b4c04E.exit.i
 .noexc2.i.i:                                      ; preds = %_ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h2c1f4809da6b4c04E.exit.i.i.i
   %71 = add nuw nsw i64 %.sroa.019.037.i.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1335
-  %exitcond.not.i.i.i = icmp eq i64 %71, %umax.i.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %71, %42
   br i1 %exitcond.not.i.i.i, label %.preheader35.i.i.i, label %54
 
 ._crit_edge.i.i.i:                                ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit27.i.i.i", %.preheader35.i.i.i
@@ -22026,12 +22023,11 @@ define hidden void @_ZN14polars_compute4cast12primitive_to24primitive_to_boolean
           to label %.noexc1.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i, !noalias !1377
 
 .noexc1.i.i:                                      ; preds = %52
-  %.not50.i.i.i = icmp ult i64 %38, 64
+  %.not50.i.i.i = icmp eq i64 %42, 0
   br i1 %.not50.i.i.i, label %.preheader35.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc1.i.i
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %umax.i.i.i = call i64 @llvm.umax.i64(i64 %42, i64 1)
   br label %54
 
 .preheader35.i.i.i:                               ; preds = %.noexc2.i.i, %.noexc1.i.i
@@ -22099,7 +22095,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17he882d10b65fe8cc5E.exit.i
 .noexc2.i.i:                                      ; preds = %_ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17he882d10b65fe8cc5E.exit.i.i.i
   %71 = add nuw nsw i64 %.sroa.019.037.i.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1383
-  %exitcond.not.i.i.i = icmp eq i64 %71, %umax.i.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %71, %42
   br i1 %exitcond.not.i.i.i, label %.preheader35.i.i.i, label %54
 
 ._crit_edge.i.i.i:                                ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit27.i.i.i", %.preheader35.i.i.i
@@ -22530,12 +22526,11 @@ define hidden void @_ZN14polars_compute4cast12primitive_to24primitive_to_boolean
           to label %.noexc1.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i, !noalias !1425
 
 .noexc1.i.i:                                      ; preds = %52
-  %.not50.i.i.i = icmp ult i64 %38, 64
+  %.not50.i.i.i = icmp eq i64 %42, 0
   br i1 %.not50.i.i.i, label %.preheader35.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc1.i.i
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %umax.i.i.i = call i64 @llvm.umax.i64(i64 %42, i64 1)
   br label %54
 
 .preheader35.i.i.i:                               ; preds = %.noexc2.i.i, %.noexc1.i.i
@@ -22603,7 +22598,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h7d4cb69e8be468daE.exit.i
 .noexc2.i.i:                                      ; preds = %_ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h7d4cb69e8be468daE.exit.i.i.i
   %71 = add nuw nsw i64 %.sroa.019.037.i.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1431
-  %exitcond.not.i.i.i = icmp eq i64 %71, %umax.i.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %71, %42
   br i1 %exitcond.not.i.i.i, label %.preheader35.i.i.i, label %54
 
 ._crit_edge.i.i.i:                                ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit27.i.i.i", %.preheader35.i.i.i
@@ -23034,12 +23029,11 @@ define hidden void @_ZN14polars_compute4cast12primitive_to24primitive_to_boolean
           to label %.noexc1.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i, !noalias !1473
 
 .noexc1.i.i:                                      ; preds = %52
-  %.not50.i.i.i = icmp ult i64 %38, 64
+  %.not50.i.i.i = icmp eq i64 %42, 0
   br i1 %.not50.i.i.i, label %.preheader35.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc1.i.i
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %umax.i.i.i = call i64 @llvm.umax.i64(i64 %42, i64 1)
   br label %54
 
 .preheader35.i.i.i:                               ; preds = %.noexc2.i.i, %.noexc1.i.i
@@ -23107,7 +23101,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h0e79d9d1a0f2be86E.exit.i
 .noexc2.i.i:                                      ; preds = %_ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h0e79d9d1a0f2be86E.exit.i.i.i
   %71 = add nuw nsw i64 %.sroa.019.037.i.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1479
-  %exitcond.not.i.i.i = icmp eq i64 %71, %umax.i.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %71, %42
   br i1 %exitcond.not.i.i.i, label %.preheader35.i.i.i, label %54
 
 ._crit_edge.i.i.i:                                ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit27.i.i.i", %.preheader35.i.i.i
@@ -23538,12 +23532,11 @@ define hidden void @_ZN14polars_compute4cast12primitive_to24primitive_to_boolean
           to label %.noexc1.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i, !noalias !1521
 
 .noexc1.i.i:                                      ; preds = %52
-  %.not50.i.i.i = icmp ult i64 %38, 64
+  %.not50.i.i.i = icmp eq i64 %42, 0
   br i1 %.not50.i.i.i, label %.preheader35.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc1.i.i
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %umax.i.i.i = call i64 @llvm.umax.i64(i64 %42, i64 1)
   br label %54
 
 .preheader35.i.i.i:                               ; preds = %.noexc2.i.i, %.noexc1.i.i
@@ -23611,7 +23604,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hdd2575f0c3cb24a2E.exit.i
 .noexc2.i.i:                                      ; preds = %_ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hdd2575f0c3cb24a2E.exit.i.i.i
   %71 = add nuw nsw i64 %.sroa.019.037.i.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1527
-  %exitcond.not.i.i.i = icmp eq i64 %71, %umax.i.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %71, %42
   br i1 %exitcond.not.i.i.i, label %.preheader35.i.i.i, label %54
 
 ._crit_edge.i.i.i:                                ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit27.i.i.i", %.preheader35.i.i.i
@@ -24042,12 +24035,11 @@ define hidden void @_ZN14polars_compute4cast12primitive_to24primitive_to_boolean
           to label %.noexc1.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i, !noalias !1569
 
 .noexc1.i.i:                                      ; preds = %52
-  %.not50.i.i.i = icmp ult i64 %38, 64
+  %.not50.i.i.i = icmp eq i64 %42, 0
   br i1 %.not50.i.i.i, label %.preheader35.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc1.i.i
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %umax.i.i.i = call i64 @llvm.umax.i64(i64 %42, i64 1)
   br label %54
 
 .preheader35.i.i.i:                               ; preds = %.noexc2.i.i, %.noexc1.i.i
@@ -24115,7 +24107,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h322009c9492461daE.exit.i
 .noexc2.i.i:                                      ; preds = %_ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h322009c9492461daE.exit.i.i.i
   %71 = add nuw nsw i64 %.sroa.019.037.i.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1575
-  %exitcond.not.i.i.i = icmp eq i64 %71, %umax.i.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %71, %42
   br i1 %exitcond.not.i.i.i, label %.preheader35.i.i.i, label %54
 
 ._crit_edge.i.i.i:                                ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit27.i.i.i", %.preheader35.i.i.i
@@ -24546,12 +24538,11 @@ define hidden void @_ZN14polars_compute4cast12primitive_to24primitive_to_boolean
           to label %.noexc1.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i, !noalias !1617
 
 .noexc1.i.i:                                      ; preds = %52
-  %.not50.i.i.i = icmp ult i64 %38, 64
+  %.not50.i.i.i = icmp eq i64 %42, 0
   br i1 %.not50.i.i.i, label %.preheader35.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc1.i.i
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %umax.i.i.i = call i64 @llvm.umax.i64(i64 %42, i64 1)
   br label %54
 
 .preheader35.i.i.i:                               ; preds = %.noexc2.i.i, %.noexc1.i.i
@@ -24619,7 +24610,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h182cecb4729854bcE.exit.i
 .noexc2.i.i:                                      ; preds = %_ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h182cecb4729854bcE.exit.i.i.i
   %71 = add nuw nsw i64 %.sroa.019.037.i.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1623
-  %exitcond.not.i.i.i = icmp eq i64 %71, %umax.i.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %71, %42
   br i1 %exitcond.not.i.i.i, label %.preheader35.i.i.i, label %54
 
 ._crit_edge.i.i.i:                                ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit27.i.i.i", %.preheader35.i.i.i
@@ -25050,12 +25041,11 @@ define hidden void @_ZN14polars_compute4cast12primitive_to24primitive_to_boolean
           to label %.noexc1.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i, !noalias !1665
 
 .noexc1.i.i:                                      ; preds = %52
-  %.not50.i.i.i = icmp ult i64 %38, 64
+  %.not50.i.i.i = icmp eq i64 %42, 0
   br i1 %.not50.i.i.i, label %.preheader35.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc1.i.i
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %umax.i.i.i = call i64 @llvm.umax.i64(i64 %42, i64 1)
   br label %54
 
 .preheader35.i.i.i:                               ; preds = %.noexc2.i.i, %.noexc1.i.i
@@ -25123,7 +25113,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h77532aaa00b75447E.exit.i
 .noexc2.i.i:                                      ; preds = %_ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h77532aaa00b75447E.exit.i.i.i
   %71 = add nuw nsw i64 %.sroa.019.037.i.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1671
-  %exitcond.not.i.i.i = icmp eq i64 %71, %umax.i.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %71, %42
   br i1 %exitcond.not.i.i.i, label %.preheader35.i.i.i, label %54
 
 ._crit_edge.i.i.i:                                ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit27.i.i.i", %.preheader35.i.i.i
@@ -25554,12 +25544,11 @@ define hidden void @_ZN14polars_compute4cast12primitive_to24primitive_to_boolean
           to label %.noexc1.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i, !noalias !1713
 
 .noexc1.i.i:                                      ; preds = %52
-  %.not50.i.i.i = icmp ult i64 %38, 64
+  %.not50.i.i.i = icmp eq i64 %42, 0
   br i1 %.not50.i.i.i, label %.preheader35.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc1.i.i
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %umax.i.i.i = call i64 @llvm.umax.i64(i64 %42, i64 1)
   br label %54
 
 .preheader35.i.i.i:                               ; preds = %.noexc2.i.i, %.noexc1.i.i
@@ -25627,7 +25616,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h2c80505f7de9db15E.exit.i
 .noexc2.i.i:                                      ; preds = %_ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h2c80505f7de9db15E.exit.i.i.i
   %71 = add nuw nsw i64 %.sroa.019.037.i.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1719
-  %exitcond.not.i.i.i = icmp eq i64 %71, %umax.i.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %71, %42
   br i1 %exitcond.not.i.i.i, label %.preheader35.i.i.i, label %54
 
 ._crit_edge.i.i.i:                                ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit27.i.i.i", %.preheader35.i.i.i

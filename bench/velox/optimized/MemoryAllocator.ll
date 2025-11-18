@@ -3663,7 +3663,7 @@ while.body.i.i.i.i34.i:                           ; preds = %land.rhs.i.i.i.i19.
   %32 = load i32, ptr %add.ptr.i.i.i.i.i23.i, align 4
   %add.ptr.i8.i.i.i.i35.i = getelementptr inbounds i32, ptr %__first.coerce.fr.i, i64 %__holeIndex.addr.08.i.i.i.i20.i
   store i32 %32, ptr %add.ptr.i8.i.i.i.i35.i, align 4
-  %cmp.i.i.not.i.i36.i = icmp ult i64 %__parent.09.in.i.i.i.i21.i, 2
+  %cmp.i.i.not.i.i36.i = icmp eq i64 %__parent.09.i.i67.i.i22.i, 0
   br i1 %cmp.i.i.not.i.i36.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_SF_SF_RT0_.exit.i31.i", label %land.rhs.i.i.i.i19.i, !llvm.loop !41
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_SF_SF_RT0_.exit.i31.i": ; preds = %while.body.i.i.i.i34.i, %land.rhs.i.i.i.i19.i, %if.end35.i.i.i11.i

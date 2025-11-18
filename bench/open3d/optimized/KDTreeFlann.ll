@@ -2335,7 +2335,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 58:                                               ; preds = %.lr.ph.i.i.i.i.i
   %59 = getelementptr inbounds %"struct.nanoflann::ResultItem", ptr %0, i64 %.019.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false), !tbaa.struct !107
-  %.not10.i.i.i = icmp ult i64 %.0920.in.i.i.i.i.i, 2
+  %.not10.i.i.i = icmp eq i64 %.0920.i.i89.i.i.i, 0
   br i1 %.not10.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN9nanoflann10ResultItemIldEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS2_16IndexDist_SorterEEEEvT_SE_SE_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !109
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN9nanoflann10ResultItemIldEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS2_16IndexDist_SorterEEEEvT_SE_SE_RT0_.exit.i.i: ; preds = %58, %.lr.ph.i.i.i.i.i, %53
@@ -2833,7 +2833,7 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN9nanoflann10ResultItemIldEESt
 82:                                               ; preds = %.lr.ph.i.i.i15.us
   %83 = getelementptr inbounds %"struct.nanoflann::ResultItem", ptr %.fr44, i64 %.019.i.i.i16.us
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, ptr noundef nonnull align 8 dereferenceable(16) %78, i64 16, i1 false), !tbaa.struct !107
-  %.not10.i.us = icmp ult i64 %.0920.in.i.i.i17.us, 2
+  %.not10.i.us = icmp eq i64 %.0920.i.i89.i.us, 0
   br i1 %.not10.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN9nanoflann10ResultItemIldEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS2_16IndexDist_SorterEEEEvT_SE_SE_RT0_.exit.us, label %.lr.ph.i.i.i15.us, !llvm.loop !109
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN9nanoflann10ResultItemIldEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS2_16IndexDist_SorterEEEEvT_SE_SE_RT0_.exit.us: ; preds = %.lr.ph.i.i.i15.us, %82, %77

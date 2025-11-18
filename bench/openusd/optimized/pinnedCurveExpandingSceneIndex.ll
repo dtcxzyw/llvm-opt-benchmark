@@ -23764,7 +23764,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4iEPS1_ET0_T_S6_S5_.exit.i.
           to label %.noexc47.i unwind label %186
 
 .noexc47.i:                                       ; preds = %162
-  %166 = icmp ult i64 %163, 2
+  %166 = icmp eq i64 %164, 0
   br i1 %166, label %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec4iEmS1_ET_S3_T0_RKT1_.exit52.i.i, label %167
 
 167:                                              ; preds = %.noexc47.i
@@ -25144,7 +25144,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iEPS1_ET0_T_S6_S5_.exit.i.
           to label %.noexc47.i unwind label %186
 
 .noexc47.i:                                       ; preds = %162
-  %166 = icmp ult i64 %163, 2
+  %166 = icmp eq i64 %164, 0
   br i1 %166, label %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec3iEmS1_ET_S3_T0_RKT1_.exit52.i.i, label %167
 
 167:                                              ; preds = %.noexc47.i
@@ -26461,7 +26461,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2iEPS1_ET0_T_S6_S5_.exit.i.
           to label %.noexc47.i unwind label %190
 
 .noexc47.i:                                       ; preds = %164
-  %168 = icmp ult i64 %165, 2
+  %168 = icmp eq i64 %166, 0
   br i1 %168, label %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec2iEmS1_ET_S3_T0_RKT1_.exit52.i.i, label %169
 
 169:                                              ; preds = %.noexc47.i
@@ -27774,7 +27774,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4hEPS1_ET0_T_S6_S5_.exit.i.
           to label %.noexc47.i unwind label %190
 
 .noexc47.i:                                       ; preds = %164
-  %168 = icmp ult i64 %165, 2
+  %168 = icmp eq i64 %166, 0
   br i1 %168, label %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec4hEmS1_ET_S3_T0_RKT1_.exit52.i.i, label %169
 
 169:                                              ; preds = %.noexc47.i
@@ -29154,7 +29154,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hEPS1_ET0_T_S6_S5_.exit.i.
           to label %.noexc47.i unwind label %186
 
 .noexc47.i:                                       ; preds = %162
-  %166 = icmp ult i64 %163, 2
+  %166 = icmp eq i64 %164, 0
   br i1 %166, label %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec3hEmS1_ET_S3_T0_RKT1_.exit52.i.i, label %167
 
 167:                                              ; preds = %.noexc47.i
@@ -30471,7 +30471,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2hEPS1_ET0_T_S6_S5_.exit.i.
           to label %.noexc47.i unwind label %190
 
 .noexc47.i:                                       ; preds = %164
-  %168 = icmp ult i64 %165, 2
+  %168 = icmp eq i64 %166, 0
   br i1 %168, label %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec2hEmS1_ET_S3_T0_RKT1_.exit52.i.i, label %169
 
 169:                                              ; preds = %.noexc47.i
@@ -31782,7 +31782,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4fEPS1_ET0_T_S6_S5_.exit.i.
           to label %.noexc47.i unwind label %186
 
 .noexc47.i:                                       ; preds = %162
-  %166 = icmp ult i64 %163, 2
+  %166 = icmp eq i64 %164, 0
   br i1 %166, label %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec4fEmS1_ET_S3_T0_RKT1_.exit52.i.i, label %167
 
 167:                                              ; preds = %.noexc47.i
@@ -33170,7 +33170,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fEPS1_ET0_T_S6_S5_.exit.i.
           to label %.noexc47.i unwind label %186
 
 .noexc47.i:                                       ; preds = %162
-  %166 = icmp ult i64 %163, 2
+  %166 = icmp eq i64 %164, 0
   br i1 %166, label %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec3fEmS1_ET_S3_T0_RKT1_.exit52.i.i, label %167
 
 167:                                              ; preds = %.noexc47.i
@@ -34549,7 +34549,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2fEPS1_ET0_T_S6_S5_.exit.i.
           to label %.noexc47.i unwind label %190
 
 .noexc47.i:                                       ; preds = %164
-  %168 = icmp ult i64 %165, 2
+  %168 = icmp eq i64 %166, 0
   br i1 %168, label %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec2fEmS1_ET_S3_T0_RKT1_.exit52.i.i, label %169
 
 169:                                              ; preds = %.noexc47.i
@@ -35866,7 +35866,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4dEPS1_ET0_T_S6_S5_.exit.i.
           to label %.noexc47.i unwind label %186
 
 .noexc47.i:                                       ; preds = %162
-  %166 = icmp ult i64 %163, 2
+  %166 = icmp eq i64 %164, 0
   br i1 %166, label %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec4dEmS1_ET_S3_T0_RKT1_.exit52.i.i, label %167
 
 167:                                              ; preds = %.noexc47.i
@@ -37250,7 +37250,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dEPS1_ET0_T_S6_S5_.exit.i.
           to label %.noexc47.i unwind label %186
 
 .noexc47.i:                                       ; preds = %162
-  %166 = icmp ult i64 %163, 2
+  %166 = icmp eq i64 %164, 0
   br i1 %166, label %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec3dEmS1_ET_S3_T0_RKT1_.exit52.i.i, label %167
 
 167:                                              ; preds = %.noexc47.i
@@ -38624,7 +38624,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2dEPS1_ET0_T_S6_S5_.exit.i.
           to label %.noexc47.i unwind label %186
 
 .noexc47.i:                                       ; preds = %162
-  %166 = icmp ult i64 %163, 2
+  %166 = icmp eq i64 %164, 0
   br i1 %166, label %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec2dEmS1_ET_S3_T0_RKT1_.exit52.i.i, label %167
 
 167:                                              ; preds = %.noexc47.i
@@ -39935,7 +39935,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fEPS1_ET0_T_S6_S5_.exi
           to label %.noexc47.i unwind label %186
 
 .noexc47.i:                                       ; preds = %162
-  %166 = icmp ult i64 %163, 2
+  %166 = icmp eq i64 %164, 0
   br i1 %166, label %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fEmS1_ET_S3_T0_RKT1_.exit52.i.i, label %167
 
 167:                                              ; preds = %.noexc47.i
@@ -41479,7 +41479,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fEPS1_ET0_T_S6_S5_.exi
           to label %.noexc47.i unwind label %186
 
 .noexc47.i:                                       ; preds = %162
-  %166 = icmp ult i64 %163, 2
+  %166 = icmp eq i64 %164, 0
   br i1 %166, label %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fEmS1_ET_S3_T0_RKT1_.exit52.i.i, label %167
 
 167:                                              ; preds = %.noexc47.i
@@ -42900,7 +42900,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fEPS1_ET0_T_S6_S5_.exi
           to label %.noexc47.i unwind label %186
 
 .noexc47.i:                                       ; preds = %162
-  %166 = icmp ult i64 %163, 2
+  %166 = icmp eq i64 %164, 0
   br i1 %166, label %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fEmS1_ET_S3_T0_RKT1_.exit52.i.i, label %167
 
 167:                                              ; preds = %.noexc47.i
@@ -44288,7 +44288,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEPS1_ET0_T_S6_S5_.exi
           to label %.noexc47.i unwind label %186
 
 .noexc47.i:                                       ; preds = %162
-  %166 = icmp ult i64 %163, 2
+  %166 = icmp eq i64 %164, 0
   br i1 %166, label %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEmS1_ET_S3_T0_RKT1_.exit52.i.i, label %167
 
 167:                                              ; preds = %.noexc47.i
@@ -45814,7 +45814,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEPS1_ET0_T_S6_S5_.exi
           to label %.noexc47.i unwind label %186
 
 .noexc47.i:                                       ; preds = %162
-  %166 = icmp ult i64 %163, 2
+  %166 = icmp eq i64 %164, 0
   br i1 %166, label %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEmS1_ET_S3_T0_RKT1_.exit52.i.i, label %167
 
 167:                                              ; preds = %.noexc47.i
@@ -47226,7 +47226,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dEPS1_ET0_T_S6_S5_.exi
           to label %.noexc47.i unwind label %186
 
 .noexc47.i:                                       ; preds = %162
-  %166 = icmp ult i64 %163, 2
+  %166 = icmp eq i64 %164, 0
   br i1 %166, label %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dEmS1_ET_S3_T0_RKT1_.exit52.i.i, label %167
 
 167:                                              ; preds = %.noexc47.i
@@ -48610,7 +48610,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3fEPS1_ET0_T_S6_S5_.exit.
           to label %.noexc47.i unwind label %186
 
 .noexc47.i:                                       ; preds = %162
-  %166 = icmp ult i64 %163, 2
+  %166 = icmp eq i64 %164, 0
   br i1 %166, label %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange3fEmS1_ET_S3_T0_RKT1_.exit52.i.i, label %167
 
 167:                                              ; preds = %.noexc47.i
@@ -49981,7 +49981,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3dEPS1_ET0_T_S6_S5_.exit.
           to label %.noexc47.i unwind label %186
 
 .noexc47.i:                                       ; preds = %162
-  %166 = icmp ult i64 %163, 2
+  %166 = icmp eq i64 %164, 0
   br i1 %166, label %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange3dEmS1_ET_S3_T0_RKT1_.exit52.i.i, label %167
 
 167:                                              ; preds = %.noexc47.i
@@ -51346,7 +51346,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2fEPS1_ET0_T_S6_S5_.exit.
           to label %.noexc47.i unwind label %186
 
 .noexc47.i:                                       ; preds = %162
-  %166 = icmp ult i64 %163, 2
+  %166 = icmp eq i64 %164, 0
   br i1 %166, label %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange2fEmS1_ET_S3_T0_RKT1_.exit52.i.i, label %167
 
 167:                                              ; preds = %.noexc47.i
@@ -52738,7 +52738,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2dEPS1_ET0_T_S6_S5_.exit.
           to label %.noexc47.i unwind label %186
 
 .noexc47.i:                                       ; preds = %162
-  %166 = icmp ult i64 %163, 2
+  %166 = icmp eq i64 %164, 0
   br i1 %166, label %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange2dEmS1_ET_S3_T0_RKT1_.exit52.i.i, label %167
 
 167:                                              ; preds = %.noexc47.i
@@ -54128,7 +54128,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__9GfRange1fEPS1_ET0_T_S6_S5_.exit.
           to label %.noexc47.i unwind label %190
 
 .noexc47.i:                                       ; preds = %164
-  %168 = icmp ult i64 %165, 2
+  %168 = icmp eq i64 %166, 0
   br i1 %168, label %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange1fEmS1_ET_S3_T0_RKT1_.exit52.i.i, label %169
 
 169:                                              ; preds = %.noexc47.i
@@ -55445,7 +55445,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__9GfRange1dEPS1_ET0_T_S6_S5_.exit.
           to label %.noexc47.i unwind label %186
 
 .noexc47.i:                                       ; preds = %162
-  %166 = icmp ult i64 %163, 2
+  %166 = icmp eq i64 %164, 0
   br i1 %166, label %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange1dEmS1_ET_S3_T0_RKT1_.exit52.i.i, label %167
 
 167:                                              ; preds = %.noexc47.i
@@ -56809,7 +56809,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfIntervalEPS1_ET0_T_S6_S5_.exi
           to label %.noexc47.i unwind label %266
 
 .noexc47.i:                                       ; preds = %202
-  %206 = icmp ult i64 %203, 2
+  %206 = icmp eq i64 %204, 0
   br i1 %206, label %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfIntervalEmS1_ET_S3_T0_RKT1_.exit52.i.i, label %.lr.ph.i.i.i.i47.i.i
 
 .lr.ph.i.i.i.i47.i.i:                             ; preds = %.noexc47.i
@@ -58243,7 +58243,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__8GfRect2iEPS1_ET0_T_S6_S5_.exit.i
           to label %.noexc47.i unwind label %186
 
 .noexc47.i:                                       ; preds = %162
-  %166 = icmp ult i64 %163, 2
+  %166 = icmp eq i64 %164, 0
   br i1 %166, label %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__8GfRect2iEmS1_ET_S3_T0_RKT1_.exit52.i.i, label %167
 
 167:                                              ; preds = %.noexc47.i
@@ -59625,7 +59625,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfQuathEPS1_ET0_T_S6_S5_.exit.i.
           to label %.noexc47.i unwind label %190
 
 .noexc47.i:                                       ; preds = %164
-  %168 = icmp ult i64 %165, 2
+  %168 = icmp eq i64 %166, 0
   br i1 %168, label %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfQuathEmS1_ET_S3_T0_RKT1_.exit52.i.i, label %169
 
 169:                                              ; preds = %.noexc47.i
@@ -61007,7 +61007,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatfEPS1_ET0_T_S6_S5_.exit.i.
           to label %.noexc47.i unwind label %186
 
 .noexc47.i:                                       ; preds = %162
-  %166 = icmp ult i64 %163, 2
+  %166 = icmp eq i64 %164, 0
   br i1 %166, label %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfQuatfEmS1_ET_S3_T0_RKT1_.exit52.i.i, label %167
 
 167:                                              ; preds = %.noexc47.i
@@ -62397,7 +62397,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatdEPS1_ET0_T_S6_S5_.exit.i.
           to label %.noexc47.i unwind label %186
 
 .noexc47.i:                                       ; preds = %162
-  %166 = icmp ult i64 %163, 2
+  %166 = icmp eq i64 %164, 0
   br i1 %166, label %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfQuatdEmS1_ET_S3_T0_RKT1_.exit52.i.i, label %167
 
 167:                                              ; preds = %.noexc47.i
@@ -63783,7 +63783,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__12GfQuaternionEPS1_ET0_T_S6_S5_.e
           to label %.noexc47.i unwind label %186
 
 .noexc47.i:                                       ; preds = %162
-  %166 = icmp ult i64 %163, 2
+  %166 = icmp eq i64 %164, 0
   br i1 %166, label %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__12GfQuaternionEmS1_ET_S3_T0_RKT1_.exit52.i.i, label %167
 
 167:                                              ; preds = %.noexc47.i
@@ -65169,7 +65169,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuathEPS1_ET0_T_S6_S5_.ex
           to label %.noexc47.i unwind label %186
 
 .noexc47.i:                                       ; preds = %162
-  %166 = icmp ult i64 %163, 2
+  %166 = icmp eq i64 %164, 0
   br i1 %166, label %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuathEmS1_ET_S3_T0_RKT1_.exit52.i.i, label %167
 
 167:                                              ; preds = %.noexc47.i
@@ -66563,7 +66563,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfEPS1_ET0_T_S6_S5_.ex
           to label %.noexc47.i unwind label %186
 
 .noexc47.i:                                       ; preds = %162
-  %166 = icmp ult i64 %163, 2
+  %166 = icmp eq i64 %164, 0
   br i1 %166, label %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfEmS1_ET_S3_T0_RKT1_.exit52.i.i, label %167
 
 167:                                              ; preds = %.noexc47.i
@@ -67988,7 +67988,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdEPS1_ET0_T_S6_S5_.ex
           to label %.noexc47.i unwind label %186
 
 .noexc47.i:                                       ; preds = %162
-  %166 = icmp ult i64 %163, 2
+  %166 = icmp eq i64 %164, 0
   br i1 %166, label %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdEmS1_ET_S3_T0_RKT1_.exit52.i.i, label %167
 
 167:                                              ; preds = %.noexc47.i
@@ -69395,7 +69395,7 @@ _ZSt4copyIPKbPbET0_T_S4_S3_.exit.i.i:             ; preds = %155, %.noexc45.i
           to label %.noexc47.i unwind label %184
 
 .noexc47.i:                                       ; preds = %161
-  %165 = icmp ult i64 %162, 2
+  %165 = icmp eq i64 %163, 0
   br i1 %165, label %_ZSt6fill_nIPbmbET_S1_T0_RKT1_.exit46.i.i, label %.lr.ph.preheader.i.i.i.i44.i.i
 
 .lr.ph.preheader.i.i.i.i44.i.i:                   ; preds = %.noexc47.i
@@ -70640,7 +70640,7 @@ _ZSt4copyIPKcPcET0_T_S4_S3_.exit.i.i:             ; preds = %155, %.noexc45.i
           to label %.noexc47.i unwind label %184
 
 .noexc47.i:                                       ; preds = %161
-  %165 = icmp ult i64 %162, 2
+  %165 = icmp eq i64 %163, 0
   br i1 %165, label %_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit44.i.i, label %166
 
 166:                                              ; preds = %.noexc47.i
@@ -71881,7 +71881,7 @@ _ZSt4copyIPKhPhET0_T_S4_S3_.exit.i.i:             ; preds = %155, %.noexc45.i
           to label %.noexc47.i unwind label %184
 
 .noexc47.i:                                       ; preds = %161
-  %165 = icmp ult i64 %162, 2
+  %165 = icmp eq i64 %163, 0
   br i1 %165, label %_ZSt6fill_nIPhmhET_S1_T0_RKT1_.exit44.i.i, label %166
 
 166:                                              ; preds = %.noexc47.i
@@ -73135,7 +73135,7 @@ _ZSt4copyIPKsPsET0_T_S4_S3_.exit.i.i:             ; preds = %156, %.noexc45.i
           to label %.noexc47.i unwind label %190
 
 .noexc47.i:                                       ; preds = %164
-  %168 = icmp ult i64 %165, 2
+  %168 = icmp eq i64 %166, 0
   br i1 %168, label %_ZSt6fill_nIPsmsET_S1_T0_RKT1_.exit52.i.i, label %169
 
 169:                                              ; preds = %.noexc47.i
@@ -74424,7 +74424,7 @@ _ZSt4copyIPKtPtET0_T_S4_S3_.exit.i.i:             ; preds = %156, %.noexc45.i
           to label %.noexc47.i unwind label %190
 
 .noexc47.i:                                       ; preds = %164
-  %168 = icmp ult i64 %165, 2
+  %168 = icmp eq i64 %166, 0
   br i1 %168, label %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit52.i.i, label %169
 
 169:                                              ; preds = %.noexc47.i
@@ -75712,7 +75712,7 @@ _ZSt4copyIPKiPiET0_T_S4_S3_.exit.i.i:             ; preds = %154, %.noexc45.i
           to label %.noexc47.i unwind label %188
 
 .noexc47.i:                                       ; preds = %162
-  %166 = icmp ult i64 %163, 2
+  %166 = icmp eq i64 %164, 0
   br i1 %166, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit52.i.i, label %167
 
 167:                                              ; preds = %.noexc47.i
@@ -76450,7 +76450,7 @@ _ZSt4copyIPKjPjET0_T_S4_S3_.exit.i.i:             ; preds = %156, %.noexc45.i
           to label %.noexc47.i unwind label %190
 
 .noexc47.i:                                       ; preds = %164
-  %168 = icmp ult i64 %165, 2
+  %168 = icmp eq i64 %166, 0
   br i1 %168, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit52.i.i, label %169
 
 169:                                              ; preds = %.noexc47.i
@@ -77741,7 +77741,7 @@ _ZSt4copyIPKlPlET0_T_S4_S3_.exit.i.i:             ; preds = %156, %.noexc45.i
           to label %.noexc47.i unwind label %190
 
 .noexc47.i:                                       ; preds = %164
-  %168 = icmp ult i64 %165, 2
+  %168 = icmp eq i64 %166, 0
   br i1 %168, label %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit52.i.i, label %169
 
 169:                                              ; preds = %.noexc47.i
@@ -79032,7 +79032,7 @@ _ZSt4copyIPKmPmET0_T_S4_S3_.exit.i.i:             ; preds = %156, %.noexc45.i
           to label %.noexc47.i unwind label %190
 
 .noexc47.i:                                       ; preds = %164
-  %168 = icmp ult i64 %165, 2
+  %168 = icmp eq i64 %166, 0
   br i1 %168, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit52.i.i, label %169
 
 169:                                              ; preds = %.noexc47.i
@@ -80323,7 +80323,7 @@ _ZSt4copyIPKdPdET0_T_S4_S3_.exit.i.i:             ; preds = %156, %.noexc45.i
           to label %.noexc47.i unwind label %190
 
 .noexc47.i:                                       ; preds = %164
-  %168 = icmp ult i64 %165, 2
+  %168 = icmp eq i64 %166, 0
   br i1 %168, label %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit52.i.i, label %169
 
 169:                                              ; preds = %.noexc47.i
@@ -81628,7 +81628,7 @@ _ZSt4copyIPKfPfET0_T_S4_S3_.exit.i.i:             ; preds = %156, %.noexc45.i
           to label %.noexc47.i unwind label %190
 
 .noexc47.i:                                       ; preds = %164
-  %168 = icmp ult i64 %165, 2
+  %168 = icmp eq i64 %166, 0
   br i1 %168, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit52.i.i, label %169
 
 169:                                              ; preds = %.noexc47.i
@@ -82933,7 +82933,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEPS2_ET0_T_S7_S6_.e
           to label %.noexc47.i unwind label %182
 
 .noexc47.i:                                       ; preds = %160
-  %164 = icmp ult i64 %161, 2
+  %164 = icmp eq i64 %162, 0
   br i1 %164, label %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEmS2_ET_S4_T0_RKT1_.exit56.i.i, label %.lr.ph.preheader.i.i.i.i49.i.i
 
 .lr.ph.preheader.i.i.i.i49.i.i:                   ; preds = %.noexc47.i
@@ -84250,7 +84250,7 @@ _ZSt4copyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_ET0_T_SA_S9_
           to label %.noexc50.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 .noexc50.i:                                       ; preds = %169
-  %173 = icmp ult i64 %170, 2
+  %173 = icmp eq i64 %171, 0
   br i1 %173, label %_ZSt6fill_nIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmS5_ET_S7_T0_RKT1_.exit52.i.i, label %174
 
 174:                                              ; preds = %.noexc50.i
@@ -85749,7 +85749,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i.i.i51.i.i: ; pred
           to label %.noexc47.i unwind label %326
 
 .noexc47.i:                                       ; preds = %232
-  %236 = icmp ult i64 %233, 2
+  %236 = icmp eq i64 %234, 0
   br i1 %236, label %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7TfTokenEmS1_ET_S3_T0_RKT1_.exit67.i.i, label %237
 
 237:                                              ; preds = %.noexc47.i

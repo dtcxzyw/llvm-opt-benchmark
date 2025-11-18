@@ -18833,7 +18833,7 @@ define hidden void @_ZN14polars_compute6filter7boolean26filter_boolean_kernel_pe
 58:                                               ; preds = %53, %72
   %.sroa.036.2 = phi i64 [ %.sroa.036.189, %53 ], [ %76, %72 ]
   %.sroa.0.2 = phi ptr [ %.sroa.0.190, %53 ], [ %75, %72 ]
-  %59 = icmp ult i64 %.sroa.027.088, 72057594037927936
+  %59 = icmp eq i64 %57, 0
   br i1 %59, label %.outer._crit_edge, label %53
 
 .outer:                                           ; preds = %53
@@ -18849,7 +18849,7 @@ define hidden void @_ZN14polars_compute6filter7boolean26filter_boolean_kernel_pe
   %68 = and i64 %65, -8
   %69 = lshr i64 %64, %68
   %70 = and i64 %65, 7
-  %71 = icmp ult i64 %.sroa.027.088, 72057594037927936
+  %71 = icmp eq i64 %57, 0
   br i1 %71, label %.outer._crit_edge, label %.lr.ph
 
 72:                                               ; preds = %53
@@ -20852,12 +20852,11 @@ _ZN14polars_compute6gather7boolean20take_values_validity17h3c4656c834b2c6feE.exi
           to label %.noexc1.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i, !noalias !1675
 
 .noexc1.i.i:                                      ; preds = %115
-  %.not37.i.i.i = icmp ult i64 %104, 256
+  %.not37.i.i.i = icmp eq i64 %105, 0
   br i1 %.not37.i.i.i, label %.preheader27.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc1.i.i
   %116 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %umax.i.i.i = call i64 @llvm.umax.i64(i64 %105, i64 1)
   br label %117
 
 .preheader27.i.i.i:                               ; preds = %.noexc3.i.i, %.noexc1.i.i
@@ -20907,7 +20906,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h5243c228b6523f5cE.exit.i
 .noexc3.i.i:                                      ; preds = %_ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h5243c228b6523f5cE.exit.i.i.i
   %128 = add nuw nsw i64 %.sroa.019.028.i.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1690
-  %exitcond.not.i.i.i = icmp eq i64 %128, %umax.i.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %128, %105
   br i1 %exitcond.not.i.i.i, label %.preheader27.i.i.i, label %117
 
 ._crit_edge.i.i.i:                                ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit26.i.i.i", %.preheader27.i.i.i

@@ -100,8 +100,8 @@ luaO_ceillog2.exit:                               ; preds = %.lr.ph.i, %10
 define hidden i64 @luaO_applyparam(i8 noundef zeroext %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = zext i8 %0 to i32
   %4 = and i32 %3, 15
-  %.not = icmp ult i8 %0, 16
   %5 = lshr i32 %3, 4
+  %.not = icmp eq i32 %5, 0
   %6 = or disjoint i32 %4, 16
   %7 = add nsw i32 %5, -8
   %.023 = select i1 %.not, i32 %4, i32 %6

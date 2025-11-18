@@ -947,7 +947,7 @@ define internal ptr @Type_S15Fixed16_Read(ptr noundef readonly captures(none) %0
   br i1 %9, label %15, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %.not20 = icmp ult i32 %3, 4
+  %.not20 = icmp eq i32 %5, 0
   br i1 %.not20, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
@@ -1036,7 +1036,7 @@ define internal ptr @Type_U16Fixed16_Read(ptr noundef readonly captures(none) %0
   br i1 %10, label %19, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %.not20 = icmp ult i32 %3, 4
+  %.not20 = icmp eq i32 %6, 0
   br i1 %.not20, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
@@ -3698,14 +3698,14 @@ define internal range(i32 0, 2) i32 @Type_MLU_Write(ptr readnone captures(none) 
 ._crit_edge:                                      ; preds = %21, %16
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %50 = load ptr, ptr %49, align 8
-  %.not10.i = icmp ult i32 %48, 4
+  %49 = lshr i32 %48, 2
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %51 = load ptr, ptr %50, align 8
+  %.not10.i = icmp eq i32 %49, 0
   br i1 %.not10.i, label %_cmsWriteWCharArray.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge
-  %51 = lshr i32 %48, 2
-  %wide.trip.count.i = zext nneg i32 %51 to i64
+  %wide.trip.count.i = zext nneg i32 %49 to i64
   br label %.lr.ph.i
 
 52:                                               ; preds = %.lr.ph.i
@@ -3715,7 +3715,7 @@ define internal range(i32 0, 2) i32 @Type_MLU_Write(ptr readnone captures(none) 
 
 .lr.ph.i:                                         ; preds = %52, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %52 ]
-  %53 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv.i
   %54 = load i32, ptr %53, align 4
   %55 = trunc i32 %54 to i16
   %56 = tail call i32 @_cmsWriteUInt16Number(ptr noundef %1, i16 noundef zeroext %55) #14
@@ -10743,7 +10743,7 @@ define internal fastcc range(i32 0, 2) i32 @ReadOneWChar(ptr noundef %0, ptr nou
 29:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %.not25 = icmp ult i32 %22, 2
+  %.not25 = icmp eq i32 %23, 0
   br i1 %.not25, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %29, %52

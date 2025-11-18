@@ -358,7 +358,7 @@ bytestream2_put_be16.exit35.i:                    ; preds = %154, %137
 bytestream2_put_be16.exit37.i:                    ; preds = %175, %170, %165, %bytestream2_put_be16.exit35.i
   %.sroa.263.8.i = phi i32 [ 0, %175 ], [ 1, %170 ], [ 1, %165 ], [ 1, %bytestream2_put_be16.exit35.i ]
   %.sroa.0.8.i = phi ptr [ %179, %175 ], [ %171, %170 ], [ %166, %165 ], [ %.sroa.0.0.i, %bytestream2_put_be16.exit35.i ]
-  %.not.i = icmp ult i16 %.2129, 64
+  %.not.i = icmp eq i16 %140, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %bytestream2_put_be16.exit37.i

@@ -6336,7 +6336,7 @@ define internal fastcc void @term_set_attr(ptr noundef captures(none) %0, i64 %1
   %43 = shl i64 %40, 34
   %44 = ashr i64 %43, 62
   %.not46 = icmp eq i64 %42, %44
-  %.not47 = icmp ult i64 %41, 4611686018427387904
+  %.not47 = icmp eq i64 %42, 0
   %or.cond55 = or i1 %.not47, %.not46
   br i1 %or.cond55, label %term_bold.exit, label %45
 
@@ -6360,7 +6360,7 @@ term_bold.exit:                                   ; preds = %ic_strlen.exit.i.i,
   %54 = shl i64 %51, 2
   %55 = ashr i64 %54, 62
   %.not48 = icmp eq i64 %53, %55
-  %.not49 = icmp ult i64 %52, 4611686018427387904
+  %.not49 = icmp eq i64 %53, 0
   %or.cond56 = or i1 %.not49, %.not48
   br i1 %or.cond56, label %term_underline.exit, label %56
 
@@ -6384,7 +6384,7 @@ term_underline.exit:                              ; preds = %ic_strlen.exit.i.i5
   %65 = shl i64 %62, 32
   %66 = ashr i64 %65, 62
   %.not50 = icmp eq i64 %64, %66
-  %.not51 = icmp ult i64 %63, 4611686018427387904
+  %.not51 = icmp eq i64 %64, 0
   %or.cond57 = or i1 %.not51, %.not50
   br i1 %or.cond57, label %term_reverse.exit, label %67
 
@@ -6406,7 +6406,7 @@ term_reverse.exit:                                ; preds = %ic_strlen.exit.i.i6
   %74 = ashr i64 %1, 62
   %75 = ashr i64 %73, 62
   %.not52 = icmp eq i64 %74, %75
-  %.not53 = icmp ult i64 %1, 4611686018427387904
+  %.not53 = icmp eq i64 %74, 0
   %or.cond58 = or i1 %.not53, %.not52
   br i1 %or.cond58, label %term_italic.exit, label %76
 

@@ -8413,7 +8413,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %22, ptr %19, align 8, !tbaa !20
   store i64 0, ptr %32, align 8, !tbaa !24
   store i8 0, ptr %22, align 8, !tbaa !30
-  %.not.i15 = icmp ult i64 %3, 2
+  %.not.i15 = icmp eq i64 %.sink1.i, 0
   br i1 %.not.i15, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEELb0EE15DestroyElementsERS6_PS5_m.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %30, %48

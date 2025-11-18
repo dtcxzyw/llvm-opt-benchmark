@@ -218,12 +218,12 @@ nist_cp_bn.exit:                                  ; preds = %33, %28
   %104 = add nuw nsw i64 %103, %99
   %105 = trunc i64 %104 to i32
   store i32 %105, ptr %100, align 1
-  %.not114 = icmp samesign ult i64 %104, 4294967296
-  br i1 %.not114, label %114, label %106
+  %106 = lshr i64 %104, 32
+  %.not114 = icmp eq i64 %106, 0
+  br i1 %.not114, label %114, label %107
 
-106:                                              ; preds = %._crit_edge
-  %107 = lshr i64 %104, 32
-  %108 = add nuw nsw i64 %107, 4294967295
+107:                                              ; preds = %._crit_edge
+  %108 = add nuw nsw i64 %106, 4294967295
   %109 = and i64 %108, 4294967295
   %110 = getelementptr inbounds nuw [3 x i64], ptr @_nist_p_192, i64 %109
   %111 = tail call i64 @bn_sub_words(ptr noundef nonnull %.0105, ptr noundef nonnull %.0105, ptr noundef nonnull %110, i32 noundef 3) #7
@@ -231,8 +231,8 @@ nist_cp_bn.exit:                                  ; preds = %33, %28
   %113 = icmp ne i64 %112, 0
   br label %114
 
-114:                                              ; preds = %._crit_edge, %106
-  %.0104 = phi i1 [ %113, %106 ], [ true, %._crit_edge ]
+114:                                              ; preds = %._crit_edge, %107
+  %.0104 = phi i1 [ %113, %107 ], [ true, %._crit_edge ]
   %115 = call i64 @bn_sub_words(ptr noundef nonnull %6, ptr noundef nonnull %.0105, ptr noundef nonnull @_nist_p_192, i32 noundef 3) #7
   %116 = icmp ne i64 %115, 0
   %or.cond = select i1 %116, i1 %.0104, i1 false

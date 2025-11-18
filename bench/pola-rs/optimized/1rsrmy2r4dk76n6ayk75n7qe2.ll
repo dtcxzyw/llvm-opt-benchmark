@@ -21780,12 +21780,11 @@ define internal fastcc void @_ZN12polars_arrow6bitmap7mutable13MutableBitmap27ex
 
 46:                                               ; preds = %35
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf97c6f76ef8d5820E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %storemerge.i.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.94be3f66b0d0d495ab4504c7f93134c8.105), !noalias !1694
-  %.not92.i.i = icmp ult i64 %.pre-phi.i, 64
+  %.not92.i.i = icmp eq i64 %36, 0
   br i1 %.not92.i.i, label %.preheader36.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %46
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %umax.i.i = tail call i64 @llvm.umax.i64(i64 %36, i64 1)
   br label %50
 
 .preheader36.i.i:                                 ; preds = %_ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hfeec0e6831cc2433E.exit.i.i, %46
@@ -21913,7 +21912,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hfeec0e6831cc2433E.exit.i
   store i64 %95, ptr %6, align 8, !noalias !1692
   call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h35c5789c19d67278E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %6, ptr noundef nonnull %47, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.94be3f66b0d0d495ab4504c7f93134c8.108), !noalias !1694
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1692
-  %exitcond.not.i.i = icmp eq i64 %97, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %97, %36
   br i1 %exitcond.not.i.i, label %.preheader36.i.i, label %50
 
 ._crit_edge.i.i:                                  ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h57da5d0075da71f3E.exit27.i.i", %.preheader36.i.i
@@ -22264,9 +22263,9 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hc8132c8b4a8e8d2eE.exit.i: ; preds 
   br label %229
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap38extend_from_trusted_len_iter_unchecked17h5cd620ed1ed6c28cE.exit: ; preds = %231, %_ZN12polars_arrow6bitmap7mutable37extend_aligned_trusted_iter_unchecked17h96e45b54dd04aa70E.exit.i
-  %.sink93.i = phi i64 [ %.sroa.012.0.i, %_ZN12polars_arrow6bitmap7mutable37extend_aligned_trusted_iter_unchecked17h96e45b54dd04aa70E.exit.i ], [ %25, %231 ]
+  %.sink94.i = phi i64 [ %.sroa.012.0.i, %_ZN12polars_arrow6bitmap7mutable37extend_aligned_trusted_iter_unchecked17h96e45b54dd04aa70E.exit.i ], [ %25, %231 ]
   %251 = load i64, ptr %13, align 8, !alias.scope !1683, !noalias !1686, !noundef !6
-  %252 = add i64 %251, %.sink93.i
+  %252 = add i64 %251, %.sink94.i
   store i64 %252, ptr %13, align 8, !alias.scope !1683, !noalias !1686
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %19

@@ -2371,7 +2371,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_rle(ptr noundef non
   %76 = zext nneg i32 %75 to i64
   %77 = getelementptr i8, ptr %3, i64 %74
   %78 = getelementptr i8, ptr %77, i64 %76
-  %.not212 = icmp ugt i32 %38, 1048575
+  %.not212 = icmp ne i32 %39, 0
   br label %87
 
 79:                                               ; preds = %11

@@ -1959,20 +1959,20 @@ _ZNK4llvm6Triple10isOSDarwinEv.exit:              ; preds = %17, %16, %4
 
 31:                                               ; preds = %27, %20
   %32 = phi i32 [ %.pre.i, %27 ], [ %24, %20 ]
-  %.not44 = icmp ult i32 %32, 256
-  br i1 %.not44, label %.thread, label %33
+  %33 = lshr i32 %32, 8
+  %.not44 = icmp eq i32 %33, 0
+  br i1 %.not44, label %.thread, label %34
 
-33:                                               ; preds = %31
-  %34 = lshr i32 %32, 8
+34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %36 = load ptr, ptr %35, align 8, !tbaa !444
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 232
   %38 = load ptr, ptr %37, align 8, !tbaa !676
-  %39 = tail call noundef ptr @_ZN4llvm11PointerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %38, i32 noundef %34) #22
+  %39 = tail call noundef ptr @_ZN4llvm11PointerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %38, i32 noundef %33) #22
   br label %.thread
 
-.thread:                                          ; preds = %_ZNK4llvm6Triple10isOSDarwinEv.exit, %31, %33
-  %40 = phi ptr [ %39, %33 ], [ %19, %31 ], [ %19, %_ZNK4llvm6Triple10isOSDarwinEv.exit ]
+.thread:                                          ; preds = %_ZNK4llvm6Triple10isOSDarwinEv.exit, %31, %34
+  %40 = phi ptr [ %39, %34 ], [ %19, %31 ], [ %19, %_ZNK4llvm6Triple10isOSDarwinEv.exit ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %42 = load ptr, ptr %41, align 8, !tbaa !444
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8

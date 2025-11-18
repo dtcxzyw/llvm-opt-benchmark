@@ -10051,7 +10051,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %15, %17
   %22 = add nuw nsw i64 %21, 63
   %23 = lshr i64 %22, 6
   %24 = trunc nuw nsw i64 %23 to i32
-  %.not23 = icmp eq i32 %20, 0
+  %.not23 = icmp eq i64 %23, 0
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit

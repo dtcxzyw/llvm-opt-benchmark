@@ -20822,12 +20822,12 @@ _ZN13libraw_memmgr6mallocEm.exit:                 ; preds = %42
   store i32 %13, ptr %55, align 8, !tbaa !79
   %56 = getelementptr inbounds nuw i8, ptr %37, i64 12
   store i32 %23, ptr %56, align 4, !tbaa !181
-  %.not211 = icmp eq i16 %15, 0
+  %.not211 = icmp eq i32 %23, 0
   br i1 %.not211, label %._crit_edge185, label %.lr.ph184
 
 .lr.ph184:                                        ; preds = %54
   %57 = add nsw i32 %19, -1
-  %.not212 = icmp eq i16 %10, 0
+  %.not212 = icmp eq i32 %13, 0
   br i1 %.not212, label %._crit_edge185, label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph184, %._crit_edge.us
@@ -20930,12 +20930,12 @@ _ZN13libraw_memmgr6mallocEm.exit:                 ; preds = %42
   store i32 %13, ptr %104, align 8, !tbaa !79
   %105 = getelementptr inbounds nuw i8, ptr %.0146, i64 12
   store i32 %21, ptr %105, align 4, !tbaa !181
-  %.not213 = icmp eq i16 %15, 0
+  %.not213 = icmp eq i32 %21, 0
   br i1 %.not213, label %._crit_edge195, label %.lr.ph194
 
 .lr.ph194:                                        ; preds = %103
   %106 = add nsw i32 %19, -1
-  %.not214 = icmp eq i16 %10, 0
+  %.not214 = icmp eq i32 %13, 0
   br i1 %.not214, label %._crit_edge195, label %.lr.ph.us197
 
 .lr.ph.us197:                                     ; preds = %.lr.ph194, %._crit_edge.us198
@@ -21016,9 +21016,9 @@ _ZN13libraw_memmgr6mallocEm.exit:                 ; preds = %42
   %142 = getelementptr inbounds nuw i8, ptr %.1147, i64 12
   store i32 %19, ptr %142, align 4, !tbaa !181
   %.not215 = icmp eq i32 %19, 0
-  %.not216 = icmp eq i16 %10, 0
-  %or.cond281 = or i1 %.not215, %.not216
-  br i1 %or.cond281, label %.loopexit, label %.preheader.us
+  %.not216 = icmp eq i32 %13, 0
+  %or.cond285 = or i1 %.not215, %.not216
+  br i1 %or.cond285, label %.loopexit, label %.preheader.us
 
 .preheader.us:                                    ; preds = %140, %._crit_edge.us209
   %.0134207.us = phi i32 [ %166, %._crit_edge.us209 ], [ 0, %140 ]
@@ -21915,7 +21915,7 @@ _ZN13libraw_memmgr6callocEmm.exit:                ; preds = %38
   %98 = or disjoint i8 %91, 4
   store i8 %98, ptr %68, align 8, !tbaa !188
   %.not267 = icmp samesign ult i64 %indvars.iv, %63
-  br i1 %.not267, label %107, label %.sink.split542
+  br i1 %.not267, label %107, label %.sink.split543
 
 99:                                               ; preds = %90
   %100 = load i16, ptr %58, align 4, !tbaa !133
@@ -21925,16 +21925,16 @@ _ZN13libraw_memmgr6callocEmm.exit:                ; preds = %38
   %104 = sub i16 %100, %103
   %105 = getelementptr inbounds nuw i8, ptr %.0236404, i64 30
   store i16 %104, ptr %105, align 2, !tbaa !157
-  br i1 %61, label %.sink.split542, label %107
+  br i1 %61, label %.sink.split543, label %107
 
-.sink.split542:                                   ; preds = %99, %97
-  %.sink544 = phi i8 [ 12, %97 ], [ 8, %99 ]
-  %106 = or disjoint i8 %91, %.sink544
+.sink.split543:                                   ; preds = %99, %97
+  %.sink545 = phi i8 [ 12, %97 ], [ 8, %99 ]
+  %106 = or disjoint i8 %91, %.sink545
   store i8 %106, ptr %68, align 8, !tbaa !188
   br label %107
 
-107:                                              ; preds = %.sink.split542, %99, %93, %97
-  %108 = phi i8 [ %91, %99 ], [ %91, %93 ], [ %98, %97 ], [ %106, %.sink.split542 ]
+107:                                              ; preds = %.sink.split543, %99, %93, %97
+  %108 = phi i8 [ %91, %99 ], [ %91, %93 ], [ %98, %97 ], [ %106, %.sink.split543 ]
   br i1 %.not268, label %.loopexit364, label %109
 
 109:                                              ; preds = %107
@@ -22521,7 +22521,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit:           ; preds = %331, %365
   %390 = zext nneg i32 %373 to i64
   %391 = getelementptr inbounds nuw i32, ptr %389, i64 %390
   %392 = getelementptr inbounds nuw i8, ptr %391, i64 8
-  %.not359 = icmp eq i16 %.fr437, 0
+  %.not359 = icmp eq i32 %373, 0
   br i1 %.not359, label %.lr.ph424.split.us.split.preheader, label %.lr.ph424.split
 
 .lr.ph424.split.us.split.preheader:               ; preds = %.lr.ph424
@@ -22538,7 +22538,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit:           ; preds = %331, %365
   %.not282.us = icmp eq i32 %395, 0
   %396 = select i1 %.not282.us, ptr %392, ptr %389
   %397 = select i1 %.not282.us, ptr %389, ptr %392
-  invoke void @_Z21crxDecodeGolombNormalP12CrxBitstreamiPiS1_S1_(ptr noundef nonnull %7, i32 noundef %373, ptr noundef nonnull %397, ptr noundef nonnull %396, ptr noundef nonnull %8)
+  invoke void @_Z21crxDecodeGolombNormalP12CrxBitstreamiPiS1_S1_(ptr noundef nonnull %7, i32 noundef 0, ptr noundef nonnull %397, ptr noundef nonnull %396, ptr noundef nonnull %8)
           to label %398 unwind label %.loopexit.split-lp.split.us.split
 
 _Z18crxDecodeGolombTopP12CrxBitstreamiPiS1_.exit.us: ; preds = %.lr.ph424.split.us.split
@@ -23570,7 +23570,7 @@ _ZN6LibRaw5sgetnEiPh.exit117:                     ; preds = %.lr.ph.i113
 
 117:                                              ; preds = %116
   %.not89 = icmp ne i8 %63, 0
-  %.not90 = icmp ugt i8 %67, 15
+  %.not90 = icmp ne i8 %68, 0
   %or.cond121.not140 = select i1 %.not89, i1 true, i1 %.not90
   %.not91 = icmp ne i8 %54, 8
   %or.cond122.not139 = select i1 %or.cond121.not140, i1 true, i1 %.not91

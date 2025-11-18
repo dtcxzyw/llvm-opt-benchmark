@@ -10476,7 +10476,7 @@ _ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.loopexit: ; preds = %98
   br label %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.sink.split
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i:        ; preds = %98
-  %.not.i.i = icmp samesign ult i32 %99, 64
+  %.not.i.i = icmp eq i32 %100, 0
   br i1 %.not.i.i, label %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i, label %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.sink.split
 
 _ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.sink.split: ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i, %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.loopexit
@@ -10525,17 +10525,17 @@ _ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i96.loopexit: ; preds = %_ZN4llvm9BitVe
   br label %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i96.sink.split
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i90:      ; preds = %_ZN4llvm9BitVectorC2Ejb.exit
-  %.not.i.i91 = icmp samesign ult i32 %118, 64
+  %.not.i.i91 = icmp eq i32 %119, 0
   br i1 %.not.i.i91, label %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i96, label %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i96.sink.split
 
 _ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i96.sink.split: ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i90, %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i96.loopexit
-  %.sink337 = phi ptr [ %125, %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i96.loopexit ], [ %121, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i90 ]
+  %.sink335 = phi ptr [ %125, %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i96.loopexit ], [ %121, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i90 ]
   %.idx.i.i.i.i.i.i.i92 = shl nuw nsw i64 %120, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %.sink337, i8 -1, i64 %.idx.i.i.i.i.i.i.i92, i1 false), !tbaa !45
+  call void @llvm.memset.p0.i64(ptr align 8 %.sink335, i8 -1, i64 %.idx.i.i.i.i.i.i.i92, i1 false), !tbaa !45
   br label %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i96
 
 _ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i96:     ; preds = %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i96.sink.split, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i90
-  %126 = phi ptr [ %121, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i90 ], [ %.sink337, %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i96.sink.split ]
+  %126 = phi ptr [ %121, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i90 ], [ %.sink335, %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i96.sink.split ]
   store i32 %119, ptr %122, align 8, !tbaa !26
   %127 = getelementptr inbounds nuw i8, ptr %13, i64 64
   store i32 %94, ptr %127, align 8, !tbaa !577

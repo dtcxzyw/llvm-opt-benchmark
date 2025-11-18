@@ -977,7 +977,7 @@ define internal fastcc signext i16 @g726_decode(ptr noundef captures(none) %0, i
   %214 = zext nneg i32 %spec.select.i.i155 to i64
   %215 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %214
   %216 = load i8, ptr %215, align 1, !tbaa !66
-  %217 = icmp ugt i32 %209, 3
+  %217 = icmp ne i32 %210, 0
   %218 = zext i1 %217 to i8
   %.tr = or disjoint i8 %spec.select7.i.i156, %218
   %219 = shl i32 %spec.select.i153, 6
@@ -1038,7 +1038,7 @@ define internal fastcc signext i16 @g726_decode(ptr noundef captures(none) %0, i
   %257 = zext nneg i32 %spec.select.i.i160 to i64
   %258 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %257
   %259 = load i8, ptr %258, align 1, !tbaa !66
-  %260 = icmp ugt i32 %252, 3
+  %260 = icmp ne i32 %253, 0
   %261 = zext i1 %260 to i8
   %.tr194 = or disjoint i8 %spec.select7.i.i161, %261
   %262 = shl i32 %spec.select.i158, 6

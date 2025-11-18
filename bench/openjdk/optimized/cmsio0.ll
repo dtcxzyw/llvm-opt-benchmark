@@ -1663,17 +1663,14 @@ define hidden double @cmsGetProfileVersion(ptr noundef readonly captures(none) %
   %2 = alloca [100 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %4 = load i32, ptr %3, align 4
-  call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %.not.i = icmp ult i32 %4, 65536
-  br i1 %.not.i, label %BaseToBase.exit, label %.lr.ph.i.preheader
-
-.lr.ph.i.preheader:                               ; preds = %1
   %5 = lshr i32 %4, 16
-  br label %.lr.ph.i
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %.not.i = icmp eq i32 %5, 0
+  br i1 %.not.i, label %BaseToBase.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %.01718.i = phi i32 [ %9, %.lr.ph.i ], [ %5, %.lr.ph.i.preheader ]
+.lr.ph.i:                                         ; preds = %1, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %1 ]
+  %.01718.i = phi i32 [ %9, %.lr.ph.i ], [ %5, %1 ]
   %6 = trunc i32 %.01718.i to i8
   %7 = and i8 %6, 15
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
@@ -2326,17 +2323,14 @@ define internal fastcc range(i32 0, 2) i32 @SaveTags(ptr noundef captures(none) 
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %8 = load i32, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %.not.i.i = icmp ult i32 %8, 65536
-  br i1 %.not.i.i, label %cmsGetProfileVersion.exit, label %.lr.ph.i.preheader.i
-
-.lr.ph.i.preheader.i:                             ; preds = %2
   %9 = lshr i32 %8, 16
-  br label %.lr.ph.i.i
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %.not.i.i = icmp eq i32 %9, 0
+  br i1 %.not.i.i, label %cmsGetProfileVersion.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.i.preheader.i ]
-  %.01718.i.i = phi i32 [ %13, %.lr.ph.i.i ], [ %9, %.lr.ph.i.preheader.i ]
+.lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %2 ]
+  %.01718.i.i = phi i32 [ %13, %.lr.ph.i.i ], [ %9, %2 ]
   %10 = trunc i32 %.01718.i.i to i8
   %11 = and i8 %10, 15
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i.i
@@ -3222,17 +3216,14 @@ _cmsNewTag.exit:                                  ; preds = %_cmsSearchTag.exit.
 92:                                               ; preds = %81
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %94 = load i32, ptr %93, align 4
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %.not.i.i66 = icmp ult i32 %94, 65536
-  br i1 %.not.i.i66, label %cmsGetProfileVersion.exit, label %.lr.ph.i.preheader.i
-
-.lr.ph.i.preheader.i:                             ; preds = %92
   %95 = lshr i32 %94, 16
-  br label %.lr.ph.i.i
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %.not.i.i66 = icmp eq i32 %95, 0
+  br i1 %.not.i.i66, label %cmsGetProfileVersion.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.i.preheader.i ]
-  %.01718.i.i = phi i32 [ %99, %.lr.ph.i.i ], [ %95, %.lr.ph.i.preheader.i ]
+.lr.ph.i.i:                                       ; preds = %92, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %92 ]
+  %.01718.i.i = phi i32 [ %99, %.lr.ph.i.i ], [ %95, %92 ]
   %96 = trunc i32 %.01718.i.i to i8
   %97 = and i8 %96, 15
   %98 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i

@@ -1464,7 +1464,7 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i86: ; preds = %.noexc91
   unreachable
 
 _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i93: ; preds = %177
-  %.not.i.i.i.i94 = icmp ult i64 %sext, 4294967296
+  %.not.i.i.i.i94 = icmp eq i64 %148, 0
   br i1 %.not.i.i.i.i94, label %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i95, label %181
 
 _ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i95: ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i93

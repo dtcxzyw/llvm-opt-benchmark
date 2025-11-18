@@ -138915,7 +138915,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 48:                                               ; preds = %.lr.ph.i.i.i.i.i
   %49 = getelementptr inbounds i8, ptr %0, i64 %.019.i.i.i.i.i
   store i8 %46, ptr %49, align 1, !tbaa !11
-  %.not7.i.i.i = icmp ult i64 %.0920.in.i.i.i.i.i, 2
+  %.not7.i.i.i = icmp eq i64 %.0920.i.i56.i.i.i, 0
   br i1 %.not7.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !1976
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.i.i: ; preds = %48, %.lr.ph.i.i.i.i.i, %44
@@ -139111,7 +139111,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPcS
 39:                                               ; preds = %.lr.ph.i.i.i.us
   %40 = getelementptr inbounds i8, ptr %.fr27, i64 %.019.i.i.i.us
   store i8 %37, ptr %40, align 1, !tbaa !11
-  %.not7.i.us = icmp ult i64 %.0920.in.i.i.i.us, 2
+  %.not7.i.us = icmp eq i64 %.0920.i.i56.i.us, 0
   br i1 %.not7.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !1976
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %39, %34
@@ -191053,132 +191053,109 @@ define linkonce_odr void @_ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl18compu
 
 6:                                                ; preds = %2
   %7 = fcmp ogt double %1, 0.000000e+00
-  br i1 %7, label %9, label %8
+  br i1 %7, label %.preheader.i, label %8
 
 8:                                                ; preds = %6
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str.133, i32 noundef 17100, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.757) #41
   unreachable
 
-9:                                                ; preds = %6
-  %10 = bitcast double %1 to i64
-  %11 = and i64 %10, 4503599627370495
-  %12 = icmp ult i64 %10, 4503599627370496
-  br i1 %12, label %.thread, label %15
-
-.thread:                                          ; preds = %9
-  %13 = shl nuw nsw i64 %10, 1
-  %14 = or disjoint i64 %13, 1
-  br label %28
-
-15:                                               ; preds = %9
-  %16 = lshr i64 %10, 52
-  %17 = or disjoint i64 %11, 4503599627370496
-  %18 = trunc nuw nsw i64 %16 to i32
-  %19 = add nsw i32 %18, -1075
-  %20 = icmp eq i64 %11, 0
-  %21 = icmp ugt i64 %10, 9007199254740991
-  %22 = and i1 %21, %20
-  %23 = shl nuw nsw i64 %17, 1
-  %24 = or disjoint i64 %23, 1
-  %25 = add nsw i32 %18, -1076
-  br i1 %22, label %26, label %28
-
-26:                                               ; preds = %15
-  %27 = add nsw i32 %18, -1077
-  br label %.preheader.i
-
-28:                                               ; preds = %.thread, %15
-  %29 = phi i32 [ -1075, %.thread ], [ %25, %15 ]
-  %30 = phi i64 [ %14, %.thread ], [ %24, %15 ]
-  %31 = phi i64 [ %13, %.thread ], [ %23, %15 ]
-  %.sroa.846.055 = phi i32 [ -1074, %.thread ], [ %19, %15 ]
-  %.sroa.042.053 = phi i64 [ %11, %.thread ], [ %17, %15 ]
-  %32 = add nsw i64 %31, -1
-  br label %.preheader.i
-
-.preheader.i:                                     ; preds = %26, %28
-  %33 = phi i32 [ %25, %26 ], [ %29, %28 ]
-  %34 = phi i64 [ %24, %26 ], [ %30, %28 ]
-  %.sroa.846.054 = phi i32 [ %19, %26 ], [ %.sroa.846.055, %28 ]
-  %.sroa.042.052 = phi i64 [ 4503599627370496, %26 ], [ %.sroa.042.053, %28 ]
-  %.sroa.5.0 = phi i32 [ %27, %26 ], [ %29, %28 ]
-  %.sroa.0.0 = phi i64 [ 18014398509481983, %26 ], [ %32, %28 ]
+.preheader.i:                                     ; preds = %6
+  %9 = bitcast double %1 to i64
+  %10 = lshr i64 %9, 52
+  %11 = and i64 %9, 4503599627370495
+  %12 = icmp eq i64 %10, 0
+  %13 = or disjoint i64 %11, 4503599627370496
+  %14 = trunc nuw nsw i64 %10 to i32
+  %15 = add nsw i32 %14, -1075
+  %.sroa.042.0 = select i1 %12, i64 %11, i64 %13
+  %.sroa.846.0 = select i1 %12, i32 -1074, i32 %15
+  %16 = shl nuw nsw i64 %.sroa.042.0, 1
+  %17 = or disjoint i64 %16, 1
+  %18 = add nsw i32 %.sroa.846.0, -1
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %.sroa.0.05.i = phi i64 [ %35, %.lr.ph.i ], [ %34, %.preheader.i ]
-  %.sroa.6.04.i = phi i32 [ %36, %.lr.ph.i ], [ %33, %.preheader.i ]
-  %35 = shl nuw i64 %.sroa.0.05.i, 1
-  %36 = add nsw i32 %.sroa.6.04.i, -1
-  %37 = icmp sgt i64 %35, -1
-  br i1 %37, label %.lr.ph.i, label %_ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl5diyfp9normalizeES3_.exit, !llvm.loop !2594
+  %.sroa.0.05.i = phi i64 [ %19, %.lr.ph.i ], [ %17, %.preheader.i ]
+  %.sroa.6.04.i = phi i32 [ %20, %.lr.ph.i ], [ %18, %.preheader.i ]
+  %19 = shl nuw i64 %.sroa.0.05.i, 1
+  %20 = add nsw i32 %.sroa.6.04.i, -1
+  %21 = icmp sgt i64 %19, -1
+  br i1 %21, label %.lr.ph.i, label %_ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl5diyfp9normalizeES3_.exit, !llvm.loop !2594
 
 _ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl5diyfp9normalizeES3_.exit: ; preds = %.lr.ph.i
-  %38 = sub nsw i32 %.sroa.5.0, %36
-  %39 = icmp sgt i32 %38, -1
-  br i1 %39, label %40, label %.invoke.i
+  %22 = icmp eq i64 %11, 0
+  %23 = icmp ugt i64 %9, 9007199254740991
+  %24 = and i1 %23, %22
+  %25 = add nsw i32 %.sroa.846.0, -2
+  %.sroa.5.0 = select i1 %24, i32 %25, i32 %18
+  %26 = sub nsw i32 %.sroa.5.0, %20
+  %27 = icmp sgt i32 %26, -1
+  br i1 %27, label %28, label %.invoke.i
 
-40:                                               ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl5diyfp9normalizeES3_.exit
-  %41 = zext nneg i32 %38 to i64
-  %42 = shl i64 %.sroa.0.0, %41
-  %43 = lshr exact i64 %42, %41
-  %44 = icmp eq i64 %43, %.sroa.0.0
-  br i1 %44, label %_ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl5diyfp12normalize_toERKS3_i.exit, label %.invoke.i
+28:                                               ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl5diyfp9normalizeES3_.exit
+  %29 = shl nuw nsw i64 %.sroa.042.0, 2
+  %.sroa.0.0.v = select i1 %24, i64 %29, i64 %16
+  %.sroa.0.0 = add nsw i64 %.sroa.0.0.v, -1
+  %30 = zext nneg i32 %26 to i64
+  %31 = shl i64 %.sroa.0.0, %30
+  %32 = lshr exact i64 %31, %30
+  %33 = icmp eq i64 %32, %.sroa.0.0
+  br i1 %33, label %_ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl5diyfp12normalize_toERKS3_i.exit, label %.invoke.i
 
-.invoke.i:                                        ; preds = %40, %_ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl5diyfp9normalizeES3_.exit
-  %45 = phi i32 [ 17076, %_ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl5diyfp9normalizeES3_.exit ], [ 17077, %40 ]
-  %46 = phi ptr [ @.str.759, %_ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl5diyfp9normalizeES3_.exit ], [ @.str.760, %40 ]
-  invoke void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str.133, i32 noundef %45, ptr noundef nonnull @.str.53, ptr noundef nonnull %46) #41
-          to label %.cont.i unwind label %47
+.invoke.i:                                        ; preds = %28, %_ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl5diyfp9normalizeES3_.exit
+  %34 = phi i32 [ 17076, %_ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl5diyfp9normalizeES3_.exit ], [ 17077, %28 ]
+  %35 = phi ptr [ @.str.759, %_ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl5diyfp9normalizeES3_.exit ], [ @.str.760, %28 ]
+  invoke void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str.133, i32 noundef %34, ptr noundef nonnull @.str.53, ptr noundef nonnull %35) #41
+          to label %.cont.i unwind label %36
 
 .cont.i:                                          ; preds = %.invoke.i
   unreachable
 
-47:                                               ; preds = %.invoke.i
-  %48 = landingpad { ptr, i32 }
+36:                                               ; preds = %.invoke.i
+  %37 = landingpad { ptr, i32 }
           catch ptr null
-  %49 = extractvalue { ptr, i32 } %48, 0
-  tail call void @__clang_call_terminate(ptr %49) #44
+  %38 = extractvalue { ptr, i32 } %37, 0
+  tail call void @__clang_call_terminate(ptr %38) #44
   unreachable
 
-_ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl5diyfp12normalize_toERKS3_i.exit: ; preds = %40
-  %.not.i31 = icmp eq i64 %.sroa.042.052, 0
-  br i1 %.not.i31, label %50, label %.lr.ph.i37
+_ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl5diyfp12normalize_toERKS3_i.exit: ; preds = %28
+  %.not.i31 = icmp eq i64 %.sroa.042.0, 0
+  br i1 %.not.i31, label %39, label %.lr.ph.i37
 
-50:                                               ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl5diyfp12normalize_toERKS3_i.exit
+39:                                               ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl5diyfp12normalize_toERKS3_i.exit
   invoke void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str.133, i32 noundef 17057, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.758) #41
-          to label %51 unwind label %55
+          to label %40 unwind label %44
 
-51:                                               ; preds = %50
+40:                                               ; preds = %39
   unreachable
 
 .lr.ph.i37:                                       ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl5diyfp12normalize_toERKS3_i.exit, %.lr.ph.i37
-  %.sroa.0.05.i38 = phi i64 [ %52, %.lr.ph.i37 ], [ %.sroa.042.052, %_ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl5diyfp12normalize_toERKS3_i.exit ]
-  %.sroa.6.04.i39 = phi i32 [ %53, %.lr.ph.i37 ], [ %.sroa.846.054, %_ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl5diyfp12normalize_toERKS3_i.exit ]
-  %52 = shl nuw i64 %.sroa.0.05.i38, 1
-  %53 = add nsw i32 %.sroa.6.04.i39, -1
-  %54 = icmp sgt i64 %52, -1
-  br i1 %54, label %.lr.ph.i37, label %_ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl5diyfp9normalizeES3_.exit40, !llvm.loop !2594
+  %.sroa.0.05.i38 = phi i64 [ %41, %.lr.ph.i37 ], [ %.sroa.042.0, %_ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl5diyfp12normalize_toERKS3_i.exit ]
+  %.sroa.6.04.i39 = phi i32 [ %42, %.lr.ph.i37 ], [ %.sroa.846.0, %_ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl5diyfp12normalize_toERKS3_i.exit ]
+  %41 = shl nuw i64 %.sroa.0.05.i38, 1
+  %42 = add nsw i32 %.sroa.6.04.i39, -1
+  %43 = icmp sgt i64 %41, -1
+  br i1 %43, label %.lr.ph.i37, label %_ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl5diyfp9normalizeES3_.exit40, !llvm.loop !2594
 
-55:                                               ; preds = %50
-  %56 = landingpad { ptr, i32 }
+44:                                               ; preds = %39
+  %45 = landingpad { ptr, i32 }
           catch ptr null
-  %57 = extractvalue { ptr, i32 } %56, 0
-  tail call void @__clang_call_terminate(ptr %57) #44
+  %46 = extractvalue { ptr, i32 } %45, 0
+  tail call void @__clang_call_terminate(ptr %46) #44
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl5diyfp9normalizeES3_.exit40: ; preds = %.lr.ph.i37
-  store i64 %52, ptr %0, align 8
+  store i64 %41, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %53, ptr %.sroa.2.0..sroa_idx, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %42, ptr %58, align 8, !tbaa !72
+  store i32 %42, ptr %.sroa.2.0..sroa_idx, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %31, ptr %47, align 8, !tbaa !72
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %36, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !183
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %35, ptr %59, align 8, !tbaa !72
+  store i32 %20, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !183
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %19, ptr %48, align 8, !tbaa !72
   %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %36, ptr %.sroa.416.0..sroa_idx, align 8, !tbaa !183
+  store i32 %20, ptr %.sroa.416.0..sroa_idx, align 8, !tbaa !183
   ret void
 }
 

@@ -938,11 +938,11 @@ _ZNK6vectorIjLb0EjE3endEv.exit.i.i.i:             ; preds = %.noexc29
   br label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i:                ; preds = %_ZNK6vectorIjLb0EjE3endEv.exit.i.i.i, %44, %.noexc29
-  %.not.i = icmp ult i32 %31, 2
+  %47 = lshr i32 %31, 1
+  %.not.i = icmp eq i32 %47, 0
   br i1 %.not.i, label %_ZN6vectorIjLb0EjE7reverseEv.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i
-  %47 = lshr i32 %31, 1
   %wide.trip.count.i = zext nneg i32 %47 to i64
   br label %.lr.ph.i
 

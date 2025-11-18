@@ -8476,17 +8476,13 @@ for.body38:                                       ; preds = %for.body38.lr.ph, %
   %fneg = fneg double %22
   %cond = select i1 %inverse, double %22, double %fneg
   %div25 = lshr i64 %shl39, 1
-  %cmp4898.not = icmp eq i64 %s.0103, 0
-  br i1 %cmp4898.not, label %for.cond.cleanup49, label %for.cond51.preheader.preheader
+  %cmp4898.not = icmp eq i64 %div25, 0
+  br i1 %cmp4898.not, label %for.cond.cleanup49, label %for.cond51.preheader
 
-for.cond51.preheader.preheader:                   ; preds = %for.body38
-  %umax = tail call i64 @llvm.umax.i64(i64 %div25, i64 1)
-  br label %for.cond51.preheader
-
-for.cond51.preheader:                             ; preds = %for.cond51.preheader.preheader, %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit
-  %j.0101 = phi i64 [ %inc91, %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit ], [ 0, %for.cond51.preheader.preheader ]
-  %w.sroa.6.0100 = phi double [ %imag_mul_phi.i, %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit ], [ 0.000000e+00, %for.cond51.preheader.preheader ]
-  %w.sroa.0.099 = phi double [ %real_mul_phi.i, %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit ], [ 1.000000e+00, %for.cond51.preheader.preheader ]
+for.cond51.preheader:                             ; preds = %for.body38, %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit
+  %j.0101 = phi i64 [ %inc91, %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit ], [ 0, %for.body38 ]
+  %w.sroa.6.0100 = phi double [ %imag_mul_phi.i, %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit ], [ 0.000000e+00, %for.body38 ]
+  %w.sroa.0.099 = phi double [ %real_mul_phi.i, %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit ], [ 1.000000e+00, %for.body38 ]
   %cmp5296 = icmp ult i64 %j.0101, %shl
   br i1 %cmp5296, label %for.body54, label %for.cond.cleanup53
 
@@ -8519,7 +8515,7 @@ _ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit:          ; preds = %for.cond.cleanup53,
   %real_mul_phi.i = phi double [ %mul_r.i, %for.cond.cleanup53 ], [ %mul_r.i, %complex_mul_imag_nan.i ], [ %23, %complex_mul_libcall.i ]
   %imag_mul_phi.i = phi double [ %mul_i.i, %for.cond.cleanup53 ], [ %mul_i.i, %complex_mul_imag_nan.i ], [ %24, %complex_mul_libcall.i ]
   %inc91 = add nuw nsw i64 %j.0101, 1
-  %exitcond.not = icmp eq i64 %inc91, %umax
+  %exitcond.not = icmp eq i64 %inc91, %div25
   br i1 %exitcond.not, label %for.cond.cleanup49, label %for.cond51.preheader, !llvm.loop !218
 
 for.body54:                                       ; preds = %for.cond51.preheader, %_ZStmlIdESt7complexIT_ERKS2_S4_.exit

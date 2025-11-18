@@ -190,10 +190,9 @@ define internal fastcc void @print_error(i64 %0, ptr noundef %1, i32 noundef ran
   br i1 %exitcond.not, label %._crit_edge121, label %.lr.ph120, !llvm.loop !11
 
 ._crit_edge121:                                   ; preds = %.lr.ph120, %._crit_edge
-  %.not96 = icmp ult i32 %6, 16777216
-  %56 = icmp ugt i32 %8, %26
-  %or.cond104 = or i1 %.not96, %56
-  %.085 = select i1 %or.cond104, i32 0, i32 %8
+  %56 = add nsw i32 %8, -1
+  %or.cond104.not = icmp ult i32 %56, %26
+  %.085 = select i1 %or.cond104.not, i32 %8, i32 0
   %.not97 = icmp eq i32 %.085, 0
   %57 = sub i32 116, %24
   %58 = select i1 %.not97, i32 %57, i32 %.085
@@ -353,84 +352,83 @@ define dso_local void @span_to_scratch(i64 %0) local_unnamed_addr #0 {
   %.sroa.0.0.extract.trunc = trunc i64 %0 to i16
   %2 = trunc i64 %0 to i32
   %3 = lshr i32 %2, 16
-  %4 = lshr i64 %0, 24
+  %4 = lshr i32 %2, 24
   %.sroa.4.0.extract.shift = lshr i64 %0, 32
   %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
   %5 = tail call ptr @source_file_by_id(i16 noundef zeroext %.sroa.0.0.extract.trunc) #8
   %6 = and i32 %3, 255
-  %7 = icmp ugt i64 %0, 4294967295
+  %7 = icmp ne i64 %.sroa.4.0.extract.shift, 0
   %8 = icmp ne i32 %6, 0
   %or.cond = and i1 %7, %8
-  %9 = and i64 %0, 4278190080
-  %10 = icmp ne i64 %9, 0
-  %or.cond3 = and i1 %10, %or.cond
+  %9 = icmp ne i32 %4, 0
+  %or.cond3 = and i1 %9, %or.cond
   br i1 %or.cond3, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %1
-  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %12 = load ptr, ptr %11, align 8
-  %13 = icmp ugt i64 %0, 8589934591
-  br i1 %13, label %.lr.ph, label %._crit_edge
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp ugt i64 %0, 8589934591
+  br i1 %12, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader, %18
-  %.030 = phi ptr [ %14, %18 ], [ %12, %.preheader ]
-  %.02229 = phi i32 [ %.123, %18 ], [ 1, %.preheader ]
-  %14 = getelementptr inbounds nuw i8, ptr %.030, i64 1
-  %15 = load i8, ptr %.030, align 1
-  switch i8 %15, label %18 [
+.lr.ph:                                           ; preds = %.preheader, %17
+  %.030 = phi ptr [ %13, %17 ], [ %11, %.preheader ]
+  %.02229 = phi i32 [ %.123, %17 ], [ 1, %.preheader ]
+  %13 = getelementptr inbounds nuw i8, ptr %.030, i64 1
+  %14 = load i8, ptr %.030, align 1
+  switch i8 %14, label %17 [
     i8 0, label %.loopexit
-    i8 10, label %16
+    i8 10, label %15
   ]
 
-16:                                               ; preds = %.lr.ph
-  %17 = add nuw i32 %.02229, 1
-  br label %18
+15:                                               ; preds = %.lr.ph
+  %16 = add nuw i32 %.02229, 1
+  br label %17
 
-18:                                               ; preds = %.lr.ph, %16
-  %.123 = phi i32 [ %.02229, %.lr.ph ], [ %17, %16 ]
-  %19 = icmp ult i32 %.123, %.sroa.4.0.extract.trunc
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+17:                                               ; preds = %.lr.ph, %15
+  %.123 = phi i32 [ %.02229, %.lr.ph ], [ %16, %15 ]
+  %18 = icmp ult i32 %.123, %.sroa.4.0.extract.trunc
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %18, %.preheader
-  %.0.lcssa = phi ptr [ %12, %.preheader ], [ %14, %18 ]
-  %20 = and i64 %4, 255
-  %21 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 %20
-  %22 = getelementptr inbounds i8, ptr %21, i64 -1
+._crit_edge:                                      ; preds = %17, %.preheader
+  %.0.lcssa = phi ptr [ %11, %.preheader ], [ %13, %17 ]
+  %19 = zext nneg i32 %4 to i64
+  %20 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 %19
+  %21 = getelementptr inbounds i8, ptr %20, i64 -1
   %wide.trip.count = zext nneg i32 %6 to i64
-  br label %23
+  br label %22
 
-23:                                               ; preds = %._crit_edge, %28
-  %indvars.iv = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next, %28 ]
-  %.02131 = phi i1 [ false, %._crit_edge ], [ %.0.i25, %28 ]
-  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv
-  %25 = load i8, ptr %24, align 1
-  switch i8 %25, label %.sink.split [
-    i8 32, label %27
-    i8 9, label %27
-    i8 10, label %27
-    i8 13, label %26
+22:                                               ; preds = %._crit_edge, %27
+  %indvars.iv = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next, %27 ]
+  %.02131 = phi i1 [ false, %._crit_edge ], [ %.0.i25, %27 ]
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv
+  %24 = load i8, ptr %23, align 1
+  switch i8 %24, label %.sink.split [
+    i8 32, label %26
+    i8 9, label %26
+    i8 10, label %26
+    i8 13, label %25
   ]
 
-26:                                               ; preds = %23
+25:                                               ; preds = %22
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.char_is_whitespace, ptr noundef nonnull @.str.20, i32 noundef 581) #9
   unreachable
 
-27:                                               ; preds = %23, %23, %23
-  br i1 %.02131, label %28, label %.sink.split
+26:                                               ; preds = %22, %22, %22
+  br i1 %.02131, label %27, label %.sink.split
 
-.sink.split:                                      ; preds = %23, %27
-  %.sink = phi i8 [ 32, %27 ], [ %25, %23 ]
-  %.0.i25.ph = phi i1 [ true, %27 ], [ false, %23 ]
+.sink.split:                                      ; preds = %22, %26
+  %.sink = phi i8 [ 32, %26 ], [ %24, %22 ]
+  %.0.i25.ph = phi i1 [ true, %26 ], [ false, %22 ]
   tail call void @scratch_buffer_append_char(i8 noundef signext %.sink) #8
-  br label %28
+  br label %27
 
-28:                                               ; preds = %.sink.split, %27
-  %.0.i25 = phi i1 [ true, %27 ], [ %.0.i25.ph, %.sink.split ]
+27:                                               ; preds = %.sink.split, %26
+  %.0.i25 = phi i1 [ true, %26 ], [ %.0.i25.ph, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %23, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !15
 
-.loopexit:                                        ; preds = %.lr.ph, %28, %1
+.loopexit:                                        ; preds = %.lr.ph, %27, %1
   ret void
 }
 
@@ -443,55 +441,54 @@ define dso_local ptr @span_to_string(i64 %0) local_unnamed_addr #0 {
   %.sroa.0.0.extract.trunc = trunc i64 %0 to i16
   %2 = trunc i64 %0 to i32
   %3 = lshr i32 %2, 16
-  %4 = lshr i64 %0, 24
+  %4 = lshr i32 %2, 24
   %.sroa.4.0.extract.shift = lshr i64 %0, 32
   %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
   %5 = tail call ptr @source_file_by_id(i16 noundef zeroext %.sroa.0.0.extract.trunc) #8
   %6 = and i32 %3, 255
-  %7 = icmp ugt i64 %0, 4294967295
+  %7 = icmp ne i64 %.sroa.4.0.extract.shift, 0
   %8 = icmp ne i32 %6, 0
   %or.cond = and i1 %7, %8
-  %9 = and i64 %0, 4278190080
-  %10 = icmp ne i64 %9, 0
-  %or.cond3 = and i1 %10, %or.cond
+  %9 = icmp ne i32 %4, 0
+  %or.cond3 = and i1 %9, %or.cond
   br i1 %or.cond3, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %1
-  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %12 = load ptr, ptr %11, align 8
-  %13 = icmp ugt i64 %0, 8589934591
-  br i1 %13, label %.lr.ph, label %._crit_edge
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp ugt i64 %0, 8589934591
+  br i1 %12, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader, %18
-  %.01519 = phi ptr [ %14, %18 ], [ %12, %.preheader ]
-  %.01618 = phi i32 [ %.1, %18 ], [ 1, %.preheader ]
-  %14 = getelementptr inbounds nuw i8, ptr %.01519, i64 1
-  %15 = load i8, ptr %.01519, align 1
-  switch i8 %15, label %18 [
+.lr.ph:                                           ; preds = %.preheader, %17
+  %.01519 = phi ptr [ %13, %17 ], [ %11, %.preheader ]
+  %.01618 = phi i32 [ %.1, %17 ], [ 1, %.preheader ]
+  %13 = getelementptr inbounds nuw i8, ptr %.01519, i64 1
+  %14 = load i8, ptr %.01519, align 1
+  switch i8 %14, label %17 [
     i8 0, label %.loopexit
-    i8 10, label %16
+    i8 10, label %15
   ]
 
-16:                                               ; preds = %.lr.ph
-  %17 = add nuw i32 %.01618, 1
-  br label %18
+15:                                               ; preds = %.lr.ph
+  %16 = add nuw i32 %.01618, 1
+  br label %17
 
-18:                                               ; preds = %.lr.ph, %16
-  %.1 = phi i32 [ %.01618, %.lr.ph ], [ %17, %16 ]
-  %19 = icmp ult i32 %.1, %.sroa.4.0.extract.trunc
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+17:                                               ; preds = %.lr.ph, %15
+  %.1 = phi i32 [ %.01618, %.lr.ph ], [ %16, %15 ]
+  %18 = icmp ult i32 %.1, %.sroa.4.0.extract.trunc
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %18, %.preheader
-  %.015.lcssa = phi ptr [ %12, %.preheader ], [ %14, %18 ]
-  %20 = and i64 %4, 255
-  %21 = getelementptr inbounds nuw i8, ptr %.015.lcssa, i64 %20
-  %22 = getelementptr inbounds i8, ptr %21, i64 -1
-  %23 = zext nneg i32 %6 to i64
-  %24 = tail call ptr @str_copy(ptr noundef nonnull %22, i64 noundef %23) #8
+._crit_edge:                                      ; preds = %17, %.preheader
+  %.015.lcssa = phi ptr [ %11, %.preheader ], [ %13, %17 ]
+  %19 = zext nneg i32 %4 to i64
+  %20 = getelementptr inbounds nuw i8, ptr %.015.lcssa, i64 %19
+  %21 = getelementptr inbounds i8, ptr %20, i64 -1
+  %22 = zext nneg i32 %6 to i64
+  %23 = tail call ptr @str_copy(ptr noundef nonnull %21, i64 noundef %22) #8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %1, %._crit_edge
-  %.0 = phi ptr [ %24, %._crit_edge ], [ null, %1 ], [ null, %.lr.ph ]
+  %.0 = phi ptr [ %23, %._crit_edge ], [ null, %1 ], [ null, %.lr.ph ]
   ret ptr %.0
 }
 

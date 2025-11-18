@@ -6506,60 +6506,60 @@ define linkonce_odr void @_ZN4llvm11stable_sortIRSt6vectorISt4pairIjjESaIS3_EEEE
   %12 = shl nuw nsw i64 %.010.i.i.i.i, 3
   %13 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %12, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #30
   %.not.i.i.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %14
+  br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %15
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not14.i.i.i.i = icmp samesign ult i64 %.010.i.i.in.in.i.i, 3
-  br i1 %.not14.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !447
+  %14 = icmp eq i64 %.010.i.i.i.i, 1
+  br i1 %14, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !447
 
-14:                                               ; preds = %.lr.ph.i.i.i.i
-  %15 = getelementptr inbounds nuw i8, ptr %13, i64 %12
-  %16 = load i64, ptr %2, align 4
-  store i64 %16, ptr %13, align 4
+15:                                               ; preds = %.lr.ph.i.i.i.i
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %12
+  %17 = load i64, ptr %2, align 4
+  store i64 %17, ptr %13, align 4
   %.not18.i.i.i.i.i = icmp eq i64 %.010.i.i.i.i, 1
-  %17 = trunc i64 %16 to i32
-  br i1 %.not18.i.i.i.i.i, label %19, label %.lr.ph.i.i.preheader.i.i.i
+  %18 = trunc i64 %17 to i32
+  br i1 %.not18.i.i.i.i.i, label %20, label %.lr.ph.i.i.preheader.i.i.i
 
-.lr.ph.i.i.preheader.i.i.i:                       ; preds = %14
+.lr.ph.i.i.preheader.i.i.i:                       ; preds = %15
   %.01317.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   %load_initial = load i64, ptr %13, align 4
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
   %.01320.i.i.i.i.i = phi ptr [ %.013.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.01317.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i ]
-  %.019.i.i.i.i.i = phi ptr [ %18, %.lr.ph.i.i.i.i.i ], [ %13, %.lr.ph.i.i.preheader.i.i.i ]
+  %.019.i.i.i.i.i = phi ptr [ %19, %.lr.ph.i.i.i.i.i ], [ %13, %.lr.ph.i.i.preheader.i.i.i ]
   store i64 %load_initial, ptr %.01320.i.i.i.i.i, align 4
-  %18 = getelementptr inbounds nuw i8, ptr %.019.i.i.i.i.i, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.019.i.i.i.i.i, i64 8
   %.013.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.01320.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i = icmp eq ptr %.013.i.i.i.i.i, %15
+  %.not.i.i.i.i.i = icmp eq ptr %.013.i.i.i.i.i, %16
   br i1 %.not.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !448
 
 ._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i
-  %.pre.i.i.i.i.i = load i32, ptr %18, align 4, !tbaa !36
-  br label %19
+  %.pre.i.i.i.i.i = load i32, ptr %19, align 4, !tbaa !36
+  br label %20
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %6
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIjjESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_T0_(ptr %2, ptr %4)
-  br label %24
+  br label %25
 
-19:                                               ; preds = %._crit_edge.loopexit.i.i.i.i.i, %14
-  %20 = phi i32 [ %17, %14 ], [ %.pre.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ]
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %13, %14 ], [ %18, %._crit_edge.loopexit.i.i.i.i.i ]
-  store i32 %20, ptr %2, align 4, !tbaa !449
-  %21 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 4
-  %22 = load i32, ptr %21, align 4, !tbaa !36
-  %23 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %22, ptr %23, align 4, !tbaa !434
+20:                                               ; preds = %._crit_edge.loopexit.i.i.i.i.i, %15
+  %21 = phi i32 [ %18, %15 ], [ %.pre.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ]
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %13, %15 ], [ %19, %._crit_edge.loopexit.i.i.i.i.i ]
+  store i32 %21, ptr %2, align 4, !tbaa !449
+  %22 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 4
+  %23 = load i32, ptr %22, align 4, !tbaa !36
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i32 %23, ptr %24, align 4, !tbaa !434
   tail call void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairIjjESt6vectorIS3_SaIS3_EEEES4_lNS0_5__ops15_Iter_less_iterEEvT_SB_T0_T1_T2_(ptr nonnull %2, ptr %4, ptr noundef nonnull %13, i64 noundef %.010.i.i.i.i)
-  br label %24
+  br label %25
 
-24:                                               ; preds = %19, %.loopexit.i.i
-  %.sroa.3.017.i.i = phi i64 [ %12, %19 ], [ 0, %.loopexit.i.i ]
-  %.sroa.7.015.i.i = phi ptr [ %13, %19 ], [ null, %.loopexit.i.i ]
+25:                                               ; preds = %20, %.loopexit.i.i
+  %.sroa.3.017.i.i = phi i64 [ %12, %20 ], [ 0, %.loopexit.i.i ]
+  %.sroa.7.015.i.i = phi ptr [ %13, %20 ], [ null, %.loopexit.i.i ]
   tail call void @_ZdlPvm(ptr noundef %.sroa.7.015.i.i, i64 noundef %.sroa.3.017.i.i) #24
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIjjESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit
 
-_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIjjESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit: ; preds = %1, %24
+_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIjjESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit: ; preds = %1, %25
   ret void
 }
 

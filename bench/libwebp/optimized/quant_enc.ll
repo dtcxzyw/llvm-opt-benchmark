@@ -705,7 +705,7 @@ ExpandMatrix.exit88.i:                            ; preds = %.preheader.split.i8
   %384 = ashr i32 %383, 5
   %385 = getelementptr inbounds nuw i8, ptr %191, i64 716
   store i32 %384, ptr %385, align 4, !tbaa !77
-  %386 = icmp samesign ult i32 %364, 128
+  %386 = icmp eq i32 %365, 0
   br i1 %386, label %387, label %CheckLambdaValue.exit.i
 
 387:                                              ; preds = %ExpandMatrix.exit88.i
@@ -721,7 +721,7 @@ CheckLambdaValue.exit.i:                          ; preds = %387, %ExpandMatrix.
   br label %CheckLambdaValue.exit89.i
 
 CheckLambdaValue.exit89.i:                        ; preds = %389, %CheckLambdaValue.exit.i
-  %390 = icmp ult i32 %371, 64
+  %390 = icmp eq i32 %372, 0
   br i1 %390, label %391, label %CheckLambdaValue.exit90.i
 
 391:                                              ; preds = %CheckLambdaValue.exit89.i
@@ -729,7 +729,7 @@ CheckLambdaValue.exit89.i:                        ; preds = %389, %CheckLambdaVa
   br label %CheckLambdaValue.exit90.i
 
 CheckLambdaValue.exit90.i:                        ; preds = %391, %CheckLambdaValue.exit89.i
-  %392 = icmp ult i32 %363, 128
+  %392 = icmp eq i32 %374, 0
   br i1 %392, label %393, label %CheckLambdaValue.exit91.i
 
 393:                                              ; preds = %CheckLambdaValue.exit90.i
@@ -737,7 +737,7 @@ CheckLambdaValue.exit90.i:                        ; preds = %391, %CheckLambdaVa
   br label %CheckLambdaValue.exit91.i
 
 CheckLambdaValue.exit91.i:                        ; preds = %393, %CheckLambdaValue.exit90.i
-  %394 = icmp ult i32 %376, 8
+  %394 = icmp eq i32 %377, 0
   br i1 %394, label %395, label %CheckLambdaValue.exit92.i
 
 395:                                              ; preds = %CheckLambdaValue.exit91.i
@@ -745,7 +745,7 @@ CheckLambdaValue.exit91.i:                        ; preds = %393, %CheckLambdaVa
   br label %CheckLambdaValue.exit92.i
 
 CheckLambdaValue.exit92.i:                        ; preds = %395, %CheckLambdaValue.exit91.i
-  %396 = icmp ult i32 %367, 4
+  %396 = icmp eq i32 %379, 0
   br i1 %396, label %397, label %CheckLambdaValue.exit93.i
 
 397:                                              ; preds = %CheckLambdaValue.exit92.i
@@ -1247,23 +1247,23 @@ PickBestIntra16.exit:                             ; preds = %143, %163, %169, %1
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 56
   %228 = load i32, ptr %227, align 8, !tbaa !134, !noalias !135
   %229 = and i32 %220, 3
-  %230 = icmp eq i32 %229, 0
-  br i1 %230, label %231, label %235
+  %230 = ashr i32 %220, 2
+  %231 = icmp eq i32 %229, 0
+  br i1 %231, label %232, label %235
 
-231:                                              ; preds = %219
-  %232 = ashr exact i32 %220, 2
+232:                                              ; preds = %219
   %233 = load ptr, ptr %214, align 8, !tbaa !136, !alias.scope !133, !noalias !125
-  %234 = mul nsw i32 %228, %232
+  %234 = mul nsw i32 %228, %230
   %.pre140.i = sext i32 %234 to i64
   br label %235
 
-235:                                              ; preds = %231, %219
-  %.pre-phi.i = phi i64 [ %.pre140.i, %231 ], [ %221, %219 ]
-  %.sink.i.i = phi ptr [ %233, %231 ], [ %212, %219 ]
+235:                                              ; preds = %232, %219
+  %.pre-phi.i = phi i64 [ %.pre140.i, %232 ], [ %221, %219 ]
+  %.sink.i.i = phi ptr [ %233, %232 ], [ %212, %219 ]
   %236 = getelementptr i8, ptr %.sink.i.i, i64 %.pre-phi.i
   %.in.in.i.i = getelementptr i8, ptr %236, i64 -1
   %.in.i.i29 = load i8, ptr %.in.in.i.i, align 1, !tbaa !58, !noalias !130
-  %237 = icmp ult i32 %220, 4
+  %237 = icmp eq i32 %230, 0
   br i1 %237, label %238, label %243
 
 238:                                              ; preds = %235
@@ -2051,23 +2051,23 @@ IsFlatSource16.exit.thread.i:                     ; preds = %651, %649, %647, %6
   %679 = getelementptr inbounds nuw i8, ptr %678, i64 56
   %680 = load i32, ptr %679, align 8, !tbaa !134, !noalias !213
   %681 = and i32 %672, 3
-  %682 = icmp eq i32 %681, 0
-  br i1 %682, label %683, label %687
+  %682 = ashr i32 %672, 2
+  %683 = icmp eq i32 %681, 0
+  br i1 %683, label %684, label %687
 
-683:                                              ; preds = %670
-  %684 = ashr exact i32 %672, 2
+684:                                              ; preds = %670
   %685 = load ptr, ptr %664, align 8, !tbaa !136, !alias.scope !216, !noalias !208
-  %686 = mul nsw i32 %680, %684
+  %686 = mul nsw i32 %680, %682
   %.pre205.i = sext i32 %686 to i64
   br label %687
 
-687:                                              ; preds = %683, %670
-  %.pre-phi.i65 = phi i64 [ %.pre205.i, %683 ], [ %673, %670 ]
-  %.sink.i.i66 = phi ptr [ %685, %683 ], [ %662, %670 ]
+687:                                              ; preds = %684, %670
+  %.pre-phi.i65 = phi i64 [ %.pre205.i, %684 ], [ %673, %670 ]
+  %.sink.i.i66 = phi ptr [ %685, %684 ], [ %662, %670 ]
   %688 = getelementptr i8, ptr %.sink.i.i66, i64 %.pre-phi.i65
   %.in.in.i.i67 = getelementptr i8, ptr %688, i64 -1
   %.in.i.i68 = load i8, ptr %.in.in.i.i67, align 1, !tbaa !58, !noalias !213
-  %689 = icmp ult i32 %672, 4
+  %689 = icmp eq i32 %682, 0
   br i1 %689, label %690, label %695
 
 690:                                              ; preds = %687

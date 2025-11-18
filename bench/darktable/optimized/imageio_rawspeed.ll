@@ -1313,7 +1313,7 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit255:            ; preds = %302, %308, %311
   %350 = getelementptr inbounds nuw i8, ptr %335, i64 48
   %351 = load i32, ptr %350, align 8, !tbaa !230, !noalias !225
   %352 = ashr i32 %351, 2
-  %353 = icmp ugt i32 %351, 3
+  %353 = icmp ne i32 %352, 0
   call void @llvm.assume(i1 %353)
   %354 = icmp sgt i32 %352, -1
   call void @llvm.assume(i1 %354)
@@ -1383,7 +1383,7 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit255:            ; preds = %302, %308, %311
   %383 = getelementptr inbounds nuw i8, ptr %335, i64 48
   %384 = load i32, ptr %383, align 8, !tbaa !230, !noalias !234
   %385 = ashr i32 %384, 1
-  %386 = icmp ugt i32 %384, 1
+  %386 = icmp ne i32 %385, 0
   call void @llvm.assume(i1 %386)
   %387 = icmp sgt i32 %385, -1
   call void @llvm.assume(i1 %387)
@@ -1464,7 +1464,7 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit255:            ; preds = %302, %308, %311
   %424 = getelementptr inbounds nuw i8, ptr %409, i64 48
   %425 = load i32, ptr %424, align 8, !tbaa !230, !noalias !239
   %426 = ashr i32 %425, 2
-  %427 = icmp ugt i32 %425, 3
+  %427 = icmp ne i32 %426, 0
   call void @llvm.assume(i1 %427)
   %428 = icmp sgt i32 %426, -1
   call void @llvm.assume(i1 %428)
@@ -1547,7 +1547,7 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit255:            ; preds = %302, %308, %311
   %463 = getelementptr inbounds nuw i8, ptr %409, i64 48
   %464 = load i32, ptr %463, align 8, !tbaa !230, !noalias !245
   %465 = ashr i32 %464, 1
-  %466 = icmp ugt i32 %464, 1
+  %466 = icmp ne i32 %465, 0
   call void @llvm.assume(i1 %466)
   %467 = icmp sgt i32 %465, -1
   call void @llvm.assume(i1 %467)
@@ -2961,7 +2961,7 @@ define linkonce_odr void @_ZN8rawspeed12RawImageData32getByteDataAsUncroppedArra
 
 19:                                               ; preds = %2
   %20 = ashr i32 %16, 1
-  %21 = icmp ugt i32 %16, 1
+  %21 = icmp ne i32 %20, 0
   tail call void @llvm.assume(i1 %21)
   %22 = icmp sgt i32 %20, -1
   tail call void @llvm.assume(i1 %22)
@@ -2978,7 +2978,7 @@ define linkonce_odr void @_ZN8rawspeed12RawImageData32getByteDataAsUncroppedArra
 
 29:                                               ; preds = %2
   %30 = ashr i32 %16, 2
-  %31 = icmp ugt i32 %16, 3
+  %31 = icmp ne i32 %30, 0
   tail call void @llvm.assume(i1 %31)
   %32 = icmp sgt i32 %30, -1
   tail call void @llvm.assume(i1 %32)

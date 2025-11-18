@@ -410,7 +410,7 @@ define internal fastcc void @parse_compression_parameters(ptr noundef %0, ptr no
   %48 = zext i8 %47 to i32
   %49 = add nuw nsw i32 %48, 1
   %50 = lshr i32 %49, 1
-  %.not185 = icmp eq i8 %47, 0
+  %.not185 = icmp eq i32 %50, 0
   br i1 %.not185, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
@@ -420,8 +420,7 @@ define internal fastcc void @parse_compression_parameters(ptr noundef %0, ptr no
   br label %56
 
 .preheader:                                       ; preds = %56, %19
-  %.lcssa = phi i32 [ 0, %19 ], [ %50, %56 ]
-  %53 = icmp samesign ult i32 %.lcssa, %24
+  %53 = icmp samesign ult i32 %50, %24
   br i1 %53, label %.lr.ph174, label %.critedge
 
 .lr.ph174:                                        ; preds = %.preheader
@@ -450,8 +449,8 @@ define internal fastcc void @parse_compression_parameters(ptr noundef %0, ptr no
   br i1 %exitcond.not, label %.preheader, label %56, !llvm.loop !8
 
 69:                                               ; preds = %.lr.ph174, %74
-  %70 = phi i32 [ %.lcssa, %.lr.ph174 ], [ %81, %74 ]
-  %.0147173 = phi i32 [ %.lcssa, %.lr.ph174 ], [ %79, %74 ]
+  %70 = phi i32 [ %50, %.lr.ph174 ], [ %81, %74 ]
+  %.0147173 = phi i32 [ %50, %.lr.ph174 ], [ %79, %74 ]
   %.0151172 = phi i8 [ 0, %.lr.ph174 ], [ %80, %74 ]
   %71 = zext i8 %.0151172 to i64
   %72 = getelementptr ptr, ptr %55, i64 %71
@@ -471,7 +470,7 @@ define internal fastcc void @parse_compression_parameters(ptr noundef %0, ptr no
   br i1 %82, label %69, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %69, %74, %.preheader
-  %.lcssa169 = phi i32 [ %.lcssa, %.preheader ], [ %81, %74 ], [ %70, %69 ]
+  %.lcssa169 = phi i32 [ %50, %.preheader ], [ %81, %74 ], [ %70, %69 ]
   %83 = zext i16 %44 to i32
   %84 = add nuw nsw i32 %.lcssa169, %83
   br label %128

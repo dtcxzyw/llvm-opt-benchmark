@@ -85,10 +85,10 @@ define i16 @_ZN5arrow4util7Float169FromFloatEf(float noundef %0) local_unnamed_a
   br i1 %or.cond.i, label %11, label %17
 
 11:                                               ; preds = %10
-  %12 = and i32 %3, 64512
-  %13 = tail call i32 @llvm.umax.i32(i32 %8, i32 8192)
-  %14 = lshr i32 %13, 13
-  %15 = or disjoint i32 %14, %12
+  %12 = lshr i32 %8, 13
+  %13 = and i32 %3, 64512
+  %14 = tail call i32 @llvm.umax.i32(i32 %12, i32 1)
+  %15 = or disjoint i32 %14, %13
   %16 = trunc nuw i32 %15 to i16
   br label %_ZN5arrow4util12_GLOBAL__N_115BinaryConverterIjE10ToBinary16Ej.exit
 
@@ -228,7 +228,7 @@ define i16 @_ZN5arrow4util7Float1610FromDoubleEd(double noundef %0) local_unname
 12:                                               ; preds = %11
   %13 = lshr i64 %9, 42
   %14 = trunc nuw nsw i64 %13 to i16
-  %15 = icmp samesign ult i64 %9, 4398046511104
+  %15 = icmp eq i64 %13, 0
   %16 = select i1 %15, i16 1, i16 %14
   %17 = or disjoint i16 %5, %16
   %18 = or disjoint i16 %17, 31744

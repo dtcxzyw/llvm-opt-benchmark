@@ -1473,7 +1473,7 @@ define linkonce_odr void @_ZN6duckdb11AlpFetchRowIfEEvRNS_13ColumnSegmentERNS_16
 16:                                               ; preds = %.noexc, %9, %5
   %.012.i = phi i64 [ %2, %9 ], [ %15, %.noexc ], [ %2, %5 ]
   %17 = lshr i64 %.012.i, 10
-  %.not18.i = icmp ult i64 %.012.i, 1024
+  %.not18.i = icmp eq i64 %17, 0
   br i1 %.not18.i, label %22, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16
@@ -1591,7 +1591,7 @@ define linkonce_odr void @_ZN6duckdb7AlpSkipIfEEvRNS_13ColumnSegmentERNS_15Colum
 15:                                               ; preds = %11, %8, %3
   %.012.i = phi i64 [ %2, %8 ], [ %14, %11 ], [ %2, %3 ]
   %16 = lshr i64 %.012.i, 10
-  %.not18.i = icmp ult i64 %.012.i, 1024
+  %.not18.i = icmp eq i64 %16, 0
   br i1 %.not18.i, label %21, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %15
@@ -2709,7 +2709,7 @@ define linkonce_odr void @_ZN6duckdb11AlpFetchRowIdEEvRNS_13ColumnSegmentERNS_16
 16:                                               ; preds = %.noexc, %9, %5
   %.012.i = phi i64 [ %2, %9 ], [ %15, %.noexc ], [ %2, %5 ]
   %17 = lshr i64 %.012.i, 10
-  %.not18.i = icmp ult i64 %.012.i, 1024
+  %.not18.i = icmp eq i64 %17, 0
   br i1 %.not18.i, label %22, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16
@@ -2827,7 +2827,7 @@ define linkonce_odr void @_ZN6duckdb7AlpSkipIdEEvRNS_13ColumnSegmentERNS_15Colum
 15:                                               ; preds = %11, %8, %3
   %.012.i = phi i64 [ %2, %8 ], [ %14, %11 ], [ %2, %3 ]
   %16 = lshr i64 %.012.i, 10
-  %.not18.i = icmp ult i64 %.012.i, 1024
+  %.not18.i = icmp eq i64 %16, 0
   br i1 %.not18.i, label %21, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %15
@@ -5949,7 +5949,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14AlpCombination
 87:                                               ; preds = %.lr.ph.i.i.i.i.i
   %88 = getelementptr inbounds %"struct.duckdb::alp::AlpCombination", ptr %0, i64 %.018.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %88, ptr noundef nonnull align 8 dereferenceable(24) %85, i64 24, i1 false), !tbaa.struct !326
-  %.not8.i.i.i = icmp ult i64 %.0919.in.i.i.i.i.i, 2
+  %.not8.i.i.i = icmp eq i64 %.0919.i.i67.i.i.i, 0
   br i1 %.not8.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14AlpCombinationESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_SH_SH_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !357
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14AlpCombinationESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_SH_SH_RT0_.exit.i.i: ; preds = %87, %.lr.ph.i.i.i.i.i, %84

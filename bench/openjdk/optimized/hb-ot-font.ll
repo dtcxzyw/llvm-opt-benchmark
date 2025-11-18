@@ -5871,7 +5871,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT19CmapSubtableFormat49get_
   %reass.sub = sub nsw i32 %27, %28
   %29 = add nsw i32 %reass.sub, -16
   %30 = lshr i32 %29, 1
-  %.not5.i.i.i.not = icmp samesign ult i32 %11, 2
+  %.not5.i.i.i.not = icmp eq i32 %12, 0
   br i1 %.not5.i.i.i.not, label %_ZNK2OT19CmapSubtableFormat413accelerator_t9get_glyphEjPj.exit, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %3

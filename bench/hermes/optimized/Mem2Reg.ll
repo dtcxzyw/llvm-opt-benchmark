@@ -4319,7 +4319,7 @@ while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   store ptr %475, ptr %add.ptr2.i.i.i.i, align 8
   %second3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr2.i.i.i.i, i64 8
   store i32 %474, ptr %second3.i.i.i.i.i, align 8
-  %cmp.i.not.i.i.i = icmp ult i64 %__parent.017.in.i.i.i.i, 2
+  %cmp.i.not.i.i.i = icmp eq i64 %__parent.017.i34.i.i.i, 0
   br i1 %cmp.i.not.i.i.i, label %_ZNSt14priority_queueISt4pairIPN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEEjENS1_11SmallVectorIS7_Lj32EEENS1_11less_secondEE4pushEOS7_.exit.i, label %land.rhs.i.i.i.i, !llvm.loop !29
 
 _ZNSt14priority_queueISt4pairIPN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEEjENS1_11SmallVectorIS7_Lj32EEENS1_11less_secondEE4pushEOS7_.exit.i: ; preds = %while.body.i.i.i.i, %land.rhs.i.i.i.i, %_ZN4llvh23SmallVectorTemplateBaseISt4pairIPNS_15DomTreeNodeBaseIN6hermes10BasicBlockEEEjELb1EE9push_backERKS7_.exit.i.i
@@ -4464,7 +4464,7 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   store ptr %489, ptr %add.ptr2.i.i.i, align 8
   %second3.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr2.i.i.i, i64 8
   store i32 %488, ptr %second3.i.i.i.i, align 8
-  %cmp.i.i.not.i1129 = icmp ult i64 %__parent.017.in.i.i.i, 2
+  %cmp.i.i.not.i1129 = icmp eq i64 %__parent.017.i.i45.i, 0
   br i1 %cmp.i.i.not.i1129, label %_ZSt10__pop_heapIPSt4pairIPN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEEjEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_11less_secondEEEEvT_SE_SE_RT0_.exit, label %land.rhs.i.i.i, !llvm.loop !29
 
 _ZSt10__pop_heapIPSt4pairIPN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEEjEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_11less_secondEEEEvT_SE_SE_RT0_.exit: ; preds = %land.rhs.i.i.i, %while.body.i.i.i, %if.end18.i.i
@@ -5522,7 +5522,7 @@ while.body.i.i.i174.i:                            ; preds = %land.rhs.i.i.i167.i
   store ptr %582, ptr %add.ptr2.i.i.i175.i, align 8
   %second3.i.i.i.i176.i = getelementptr inbounds nuw i8, ptr %add.ptr2.i.i.i175.i, i64 8
   store i32 %581, ptr %second3.i.i.i.i176.i, align 8
-  %cmp.i.not.i.i177.i = icmp ult i64 %__parent.017.in.i.i.i169.i, 2
+  %cmp.i.not.i.i177.i = icmp eq i64 %__parent.017.i34.i.i170.i, 0
   br i1 %cmp.i.not.i.i177.i, label %_ZNSt14priority_queueISt4pairIPN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEEjENS1_11SmallVectorIS7_Lj32EEENS1_11less_secondEE4pushEOS7_.exit178.i, label %land.rhs.i.i.i167.i, !llvm.loop !29
 
 _ZNSt14priority_queueISt4pairIPN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEEjENS1_11SmallVectorIS7_Lj32EEENS1_11less_secondEE4pushEOS7_.exit178.i: ; preds = %while.body.i.i.i174.i, %land.rhs.i.i.i167.i, %_ZN4llvh23SmallVectorTemplateBaseISt4pairIPNS_15DomTreeNodeBaseIN6hermes10BasicBlockEEEjELb1EE9push_backERKS7_.exit.i152.i

@@ -1557,7 +1557,7 @@ define linkonce_odr hidden void @_ZN18XSaveLiveRegisters10initializeEP18XLoadBar
   store i32 0, ptr %6, align 4
   %7 = load i32, ptr @_ZN7OptoReg7vm2optoE, align 16
   %8 = lshr i32 %7, 6
-  %.not127 = icmp ult i32 %7, 64
+  %.not127 = icmp eq i32 %8, 0
   br i1 %.not127, label %.thread, label %9
 
 9:                                                ; preds = %2

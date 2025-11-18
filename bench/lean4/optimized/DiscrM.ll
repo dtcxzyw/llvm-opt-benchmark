@@ -1736,8 +1736,8 @@ lean_dec.exit446:                                 ; preds = %407, %406, %404, %l
 lean_obj_tag.exit643:                             ; preds = %lean_dec.exit446
   %408 = getelementptr i8, ptr %350, i64 4
   %.val.i642 = load i32, ptr %408, align 4
-  %.mask936 = and i32 %.val.i642, -16777216
-  %409 = icmp eq i32 %.mask936, 100663296
+  %.mask937 = and i32 %.val.i642, -16777216
+  %409 = icmp eq i32 %.mask937, 100663296
   br i1 %409, label %412, label %435
 
 lean_obj_tag.exit643.thread:                      ; preds = %lean_dec.exit446

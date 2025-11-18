@@ -312,7 +312,7 @@ ir_worklist_push.exit18.i:                        ; preds = %117, %.lr.ph457
   %140 = load i64, ptr %9, align 8, !tbaa !34
   %141 = or i64 %140, 2
   store i64 %141, ptr %9, align 8, !tbaa !34
-  %.not542 = icmp ult i32 %3, 64
+  %.not542 = icmp eq i32 %4, 0
   br i1 %.not542, label %.loopexit426, label %.lr.ph468
 
 .lr.ph468:                                        ; preds = %139, %165

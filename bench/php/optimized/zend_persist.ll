@@ -8591,7 +8591,7 @@ zend_ast_is_decl.exit:                            ; preds = %29
   %narrow = add nuw nsw i16 %38, 8
   %39 = zext nneg i16 %narrow to i64
   %40 = tail call ptr @zend_shared_memdup(ptr noundef nonnull %0, i64 noundef %39) #7
-  %.not50 = icmp ult i16 %3, 256
+  %.not50 = icmp eq i16 %37, 0
   br i1 %.not50, label %.loopexit, label %.lr.ph48
 
 .lr.ph48:                                         ; preds = %zend_ast_is_decl.exit

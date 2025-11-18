@@ -8219,17 +8219,14 @@ define linkonce_odr hidden noundef zeroext i1 @_Z18SetGenericPropertyIiEbRSt3map
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #29
   %7 = trunc i64 %6 to i32
   %8 = and i32 %7, 3
-  %.not60.i = icmp ult i32 %7, 4
-  br i1 %.not60.i, label %._crit_edge.i, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %5
   %9 = lshr i32 %7, 2
-  br label %.lr.ph.i
+  %.not60.i = icmp eq i32 %9, 0
+  br i1 %.not60.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.05463.i = phi ptr [ %20, %.lr.ph.i ], [ %1, %.lr.ph.preheader.i ]
-  %.05562.i = phi i32 [ %22, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %.15761.i = phi i32 [ %23, %.lr.ph.i ], [ %9, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %5, %.lr.ph.i
+  %.05463.i = phi ptr [ %20, %.lr.ph.i ], [ %1, %5 ]
+  %.05562.i = phi i32 [ %22, %.lr.ph.i ], [ 0, %5 ]
+  %.15761.i = phi i32 [ %23, %.lr.ph.i ], [ %9, %5 ]
   %10 = load i16, ptr %.05463.i, align 1
   %11 = zext i16 %10 to i32
   %12 = add i32 %.05562.i, %11

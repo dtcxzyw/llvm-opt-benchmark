@@ -540,10 +540,10 @@ progress_getnanotime.exit.i:                      ; preds = %28, %23
   %.0.i.i = phi i64 [ %27, %23 ], [ %29, %28 ]
   %31 = sub i64 %.0.i.i, %30
   %32 = mul i64 %31, 4398
-  %33 = load i64, ptr %20, align 8, !tbaa !18
-  %34 = tail call i64 @llvm.umax.i64(i64 %32, i64 4294967296)
-  %35 = lshr i64 %34, 32
-  %36 = sdiv i64 %33, %35
+  %33 = lshr i64 %32, 32
+  %34 = load i64, ptr %20, align 8, !tbaa !18
+  %35 = tail call i64 @llvm.umax.i64(i64 %33, i64 1)
+  %36 = sdiv i64 %34, %35
   %37 = getelementptr inbounds nuw i8, ptr %20, i64 104
   %38 = getelementptr inbounds nuw i8, ptr %20, i64 112
   store i64 0, ptr %38, align 8, !tbaa !25
@@ -558,7 +558,7 @@ progress_getnanotime.exit.i:                      ; preds = %28, %23
 
 throughput_string.exit.i:                         ; preds = %41, %progress_getnanotime.exit.i
   tail call void @strbuf_add(ptr noundef nonnull %37, ptr noundef nonnull @.str.2, i64 noundef 2) #12
-  tail call void @strbuf_humanise_bytes(ptr noundef nonnull %37, i64 noundef %33) #12
+  tail call void @strbuf_humanise_bytes(ptr noundef nonnull %37, i64 noundef %34) #12
   tail call void @strbuf_add(ptr noundef nonnull %37, ptr noundef nonnull @.str.3, i64 noundef 3) #12
   %42 = shl i64 %36, 10
   %43 = and i64 %42, 4294966272

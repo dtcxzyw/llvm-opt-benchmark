@@ -7071,7 +7071,7 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit: ; preds = %25
 38:                                               ; preds = %36
   %39 = sub nuw i64 %.sroa.610.0100, %.sroa.029.0
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.07.099, i64 %.sroa.029.0
-  %41 = icmp samesign ult i64 %26, 4294967296
+  %41 = icmp eq i64 %.sroa.635.0.extract.shift102, 0
   br i1 %41, label %43, label %62
 
 42:                                               ; preds = %36

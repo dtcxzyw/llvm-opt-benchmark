@@ -447,7 +447,7 @@ define range(i32 -1, 1) i32 @H5T__conv_i_i(ptr noundef %0, ptr noundef readonly 
   %136 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %137 = load i64, ptr %136, align 8, !tbaa !26
   %138 = lshr i64 %137, 1
-  %.not585 = icmp ult i64 %137, 2
+  %.not585 = icmp eq i64 %138, 0
   br i1 %.not585, label %.loopexit573, label %.lr.ph
 
 .lr.ph:                                           ; preds = %135, %.lr.ph
@@ -645,11 +645,11 @@ define range(i32 -1, 1) i32 @H5T__conv_i_i(ptr noundef %0, ptr noundef readonly 
   br i1 %245, label %.thread516, label %249
 
 .thread516:                                       ; preds = %238, %234
-  %H5E_CANTSET_g.sink645 = phi ptr [ @H5E_CANTSET_g, %234 ], [ @H5E_CANTRESTORE_g, %238 ]
-  %.sink642 = phi i32 [ 250, %234 ], [ 257, %238 ]
+  %H5E_CANTSET_g.sink647 = phi ptr [ @H5E_CANTSET_g, %234 ], [ @H5E_CANTRESTORE_g, %238 ]
+  %.sink644 = phi i32 [ 250, %234 ], [ 257, %238 ]
   %246 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !14
-  %247 = load i64, ptr %H5E_CANTSET_g.sink645, align 8, !tbaa !14
-  %248 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_i_i, i32 noundef %.sink642, i64 noundef %246, i64 noundef %247, ptr noundef nonnull @.str.6) #11
+  %247 = load i64, ptr %H5E_CANTSET_g.sink647, align 8, !tbaa !14
+  %248 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_i_i, i32 noundef %.sink644, i64 noundef %246, i64 noundef %247, ptr noundef nonnull @.str.6) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit574
 
@@ -738,11 +738,11 @@ define range(i32 -1, 1) i32 @H5T__conv_i_i(ptr noundef %0, ptr noundef readonly 
   br i1 %295, label %.thread525, label %299
 
 .thread525:                                       ; preds = %288, %284
-  %H5E_CANTSET_g.sink649 = phi ptr [ @H5E_CANTSET_g, %284 ], [ @H5E_CANTRESTORE_g, %288 ]
-  %.sink646 = phi i32 [ 284, %284 ], [ 291, %288 ]
+  %H5E_CANTSET_g.sink651 = phi ptr [ @H5E_CANTSET_g, %284 ], [ @H5E_CANTRESTORE_g, %288 ]
+  %.sink648 = phi i32 [ 284, %284 ], [ 291, %288 ]
   %296 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !14
-  %297 = load i64, ptr %H5E_CANTSET_g.sink649, align 8, !tbaa !14
-  %298 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_i_i, i32 noundef %.sink646, i64 noundef %296, i64 noundef %297, ptr noundef nonnull @.str.6) #11
+  %297 = load i64, ptr %H5E_CANTSET_g.sink651, align 8, !tbaa !14
+  %298 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_i_i, i32 noundef %.sink648, i64 noundef %296, i64 noundef %297, ptr noundef nonnull @.str.6) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit574
 
@@ -815,11 +815,11 @@ define range(i32 -1, 1) i32 @H5T__conv_i_i(ptr noundef %0, ptr noundef readonly 
   br i1 %331, label %.thread536, label %335
 
 .thread536:                                       ; preds = %324, %320
-  %H5E_CANTSET_g.sink653 = phi ptr [ @H5E_CANTSET_g, %320 ], [ @H5E_CANTRESTORE_g, %324 ]
-  %.sink650 = phi i32 [ 323, %320 ], [ 330, %324 ]
+  %H5E_CANTSET_g.sink655 = phi ptr [ @H5E_CANTSET_g, %320 ], [ @H5E_CANTRESTORE_g, %324 ]
+  %.sink652 = phi i32 [ 323, %320 ], [ 330, %324 ]
   %332 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !14
-  %333 = load i64, ptr %H5E_CANTSET_g.sink653, align 8, !tbaa !14
-  %334 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_i_i, i32 noundef %.sink650, i64 noundef %332, i64 noundef %333, ptr noundef nonnull @.str.6) #11
+  %333 = load i64, ptr %H5E_CANTSET_g.sink655, align 8, !tbaa !14
+  %334 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_i_i, i32 noundef %.sink652, i64 noundef %332, i64 noundef %333, ptr noundef nonnull @.str.6) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.loopexit574
 
@@ -942,11 +942,11 @@ define range(i32 -1, 1) i32 @H5T__conv_i_i(ptr noundef %0, ptr noundef readonly 
   br i1 %399, label %.thread545, label %403
 
 .thread545:                                       ; preds = %392, %388
-  %H5E_CANTSET_g.sink657 = phi ptr [ @H5E_CANTSET_g, %388 ], [ @H5E_CANTRESTORE_g, %392 ]
-  %.sink654 = phi i32 [ 377, %388 ], [ 384, %392 ]
+  %H5E_CANTSET_g.sink659 = phi ptr [ @H5E_CANTSET_g, %388 ], [ @H5E_CANTRESTORE_g, %392 ]
+  %.sink656 = phi i32 [ 377, %388 ], [ 384, %392 ]
   %400 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !14
-  %401 = load i64, ptr %H5E_CANTSET_g.sink657, align 8, !tbaa !14
-  %402 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_i_i, i32 noundef %.sink654, i64 noundef %400, i64 noundef %401, ptr noundef nonnull @.str.6) #11
+  %401 = load i64, ptr %H5E_CANTSET_g.sink659, align 8, !tbaa !14
+  %402 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_i_i, i32 noundef %.sink656, i64 noundef %400, i64 noundef %401, ptr noundef nonnull @.str.6) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.loopexit574
 
@@ -1051,11 +1051,11 @@ define range(i32 -1, 1) i32 @H5T__conv_i_i(ptr noundef %0, ptr noundef readonly 
   br i1 %460, label %.thread560, label %464
 
 .thread560:                                       ; preds = %453, %449
-  %H5E_CANTSET_g.sink661 = phi ptr [ @H5E_CANTSET_g, %449 ], [ @H5E_CANTRESTORE_g, %453 ]
-  %.sink658 = phi i32 [ 426, %449 ], [ 433, %453 ]
+  %H5E_CANTSET_g.sink663 = phi ptr [ @H5E_CANTSET_g, %449 ], [ @H5E_CANTRESTORE_g, %453 ]
+  %.sink660 = phi i32 [ 426, %449 ], [ 433, %453 ]
   %461 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !14
-  %462 = load i64, ptr %H5E_CANTSET_g.sink661, align 8, !tbaa !14
-  %463 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_i_i, i32 noundef %.sink658, i64 noundef %461, i64 noundef %462, ptr noundef nonnull @.str.6) #11
+  %462 = load i64, ptr %H5E_CANTSET_g.sink663, align 8, !tbaa !14
+  %463 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_i_i, i32 noundef %.sink660, i64 noundef %461, i64 noundef %462, ptr noundef nonnull @.str.6) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.loopexit574
 
@@ -1177,7 +1177,7 @@ define range(i32 -1, 1) i32 @H5T__conv_i_i(ptr noundef %0, ptr noundef readonly 
   %527 = getelementptr inbounds nuw i8, ptr %522, i64 16
   %528 = load i64, ptr %527, align 8, !tbaa !26
   %529 = lshr i64 %528, 1
-  %.not586 = icmp ult i64 %528, 2
+  %.not586 = icmp eq i64 %529, 0
   br i1 %.not586, label %.loopexit, label %.lr.ph577
 
 .lr.ph577:                                        ; preds = %526, %.lr.ph577
@@ -1699,7 +1699,7 @@ define range(i32 -1, 1) i32 @H5T__conv_i_f_loop(ptr noundef %0, ptr noundef read
 217:                                              ; preds = %213
   %218 = load ptr, ptr %2, align 8, !tbaa !25
   %.not410 = icmp eq ptr %218, null
-  br i1 %.not410, label %.thread532, label %219
+  br i1 %.not410, label %.thread534, label %219
 
 219:                                              ; preds = %217
   %220 = call i32 @H5T__reverse_order(ptr noundef %.1368, ptr noundef %.1374503, ptr noundef %0) #11
@@ -1719,11 +1719,11 @@ define range(i32 -1, 1) i32 @H5T__conv_i_f_loop(ptr noundef %0, ptr noundef read
   br i1 %230, label %.thread474, label %234
 
 .thread474:                                       ; preds = %223, %219
-  %H5E_CANTSET_g.sink543 = phi ptr [ @H5E_CANTSET_g, %219 ], [ @H5E_CANTRESTORE_g, %223 ]
-  %.sink540 = phi i32 [ 808, %219 ], [ 814, %223 ]
+  %H5E_CANTSET_g.sink545 = phi ptr [ @H5E_CANTSET_g, %219 ], [ @H5E_CANTRESTORE_g, %223 ]
+  %.sink542 = phi i32 [ 808, %219 ], [ 814, %223 ]
   %231 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !14
-  %232 = load i64, ptr %H5E_CANTSET_g.sink543, align 8, !tbaa !14
-  %233 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_i_f_loop, i32 noundef %.sink540, i64 noundef %231, i64 noundef %232, ptr noundef nonnull @.str.6) #11
+  %232 = load i64, ptr %H5E_CANTSET_g.sink545, align 8, !tbaa !14
+  %233 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_i_f_loop, i32 noundef %.sink542, i64 noundef %231, i64 noundef %232, ptr noundef nonnull @.str.6) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread484
 
@@ -1745,16 +1745,16 @@ define range(i32 -1, 1) i32 @H5T__conv_i_f_loop(ptr noundef %0, ptr noundef read
   %240 = icmp eq ptr %.pre, null
   %241 = icmp eq i32 %228, 0
   %or.cond15 = select i1 %240, i1 true, i1 %241
-  br i1 %or.cond15, label %.thread532, label %.thread479
+  br i1 %or.cond15, label %.thread534, label %.thread479
 
-.thread532:                                       ; preds = %217, %239
-  %.4535 = phi i32 [ %228, %239 ], [ %.2353, %217 ]
+.thread534:                                       ; preds = %217, %239
+  %.4537 = phi i32 [ %228, %239 ], [ %.2353, %217 ]
   call void @llvm.memset.p0.i64(ptr align 1 %67, i8 0, i64 %66, i1 false)
   br label %242
 
-242:                                              ; preds = %.thread532, %213
-  %.3 = phi i32 [ %.4535, %.thread532 ], [ %.2353, %213 ]
-  %.1350 = phi i64 [ %215, %.thread532 ], [ %.0349, %213 ]
+242:                                              ; preds = %.thread534, %213
+  %.3 = phi i32 [ %.4537, %.thread534 ], [ %.2353, %213 ]
+  %.1350 = phi i64 [ %215, %.thread534 ], [ %.0349, %213 ]
   %243 = icmp eq i32 %.3, 0
   br i1 %243, label %244, label %.thread479
 
@@ -1814,11 +1814,11 @@ define range(i32 -1, 1) i32 @H5T__conv_i_f_loop(ptr noundef %0, ptr noundef read
 
 .preheader490:                                    ; preds = %261
   %269 = lshr i64 %264, 2
-  %.not514 = icmp ult i64 %264, 4
+  %.not514 = icmp eq i64 %269, 0
   br i1 %.not514, label %.loopexit, label %.lr.ph500
 
 .preheader:                                       ; preds = %261
-  %.not515 = icmp ult i64 %264, 2
+  %.not515 = icmp eq i64 %265, 0
   br i1 %.not515, label %.loopexit, label %.lr.ph502
 
 .lr.ph502:                                        ; preds = %.preheader, %.lr.ph502

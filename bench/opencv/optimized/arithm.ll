@@ -12188,14 +12188,14 @@ declare double @llvm.floor.f64(double) #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @_ZN2cvL9inRange8uEPKhmS1_mS1_mPhmNS_5Size_IiEE(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef writeonly captures(none) %6, i64 noundef %7, i64 %8) #14 {
-  %.not35.i = icmp ugt i64 %8, 4294967295
+  %.sroa.3.0.extract.shift.i = lshr i64 %8, 32
+  %.not35.i = icmp ne i64 %.sroa.3.0.extract.shift.i, 0
   %.sroa.0.0.extract.trunc.i = trunc i64 %8 to i32
   %10 = icmp sgt i32 %.sroa.0.0.extract.trunc.i, 0
   %or.cond.i = and i1 %.not35.i, %10
   br i1 %or.cond.i, label %.preheader.us.preheader.i, label %_ZN2cvL8inRange_IhEEvPKT_mS3_mS3_mPhmNS_5Size_IiEE.exit
 
 .preheader.us.preheader.i:                        ; preds = %9
-  %.sroa.3.0.extract.shift.i = lshr i64 %8, 32
   %.sroa.3.0.extract.trunc.i = trunc nuw i64 %.sroa.3.0.extract.shift.i to i32
   %wide.trip.count.i = and i64 %8, 2147483647
   br label %.preheader.us.i
@@ -12247,14 +12247,14 @@ _ZN2cvL8inRange_IhEEvPKT_mS3_mS3_mPhmNS_5Size_IiEE.exit: ; preds = %._crit_edge.
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @_ZN2cvL9inRange8sEPKamS1_mS1_mPhmNS_5Size_IiEE(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef writeonly captures(none) %6, i64 noundef %7, i64 %8) #14 {
-  %.not35.i = icmp ugt i64 %8, 4294967295
+  %.sroa.3.0.extract.shift.i = lshr i64 %8, 32
+  %.not35.i = icmp ne i64 %.sroa.3.0.extract.shift.i, 0
   %.sroa.0.0.extract.trunc.i = trunc i64 %8 to i32
   %10 = icmp sgt i32 %.sroa.0.0.extract.trunc.i, 0
   %or.cond.i = and i1 %.not35.i, %10
   br i1 %or.cond.i, label %.preheader.us.preheader.i, label %_ZN2cvL8inRange_IaEEvPKT_mS3_mS3_mPhmNS_5Size_IiEE.exit
 
 .preheader.us.preheader.i:                        ; preds = %9
-  %.sroa.3.0.extract.shift.i = lshr i64 %8, 32
   %.sroa.3.0.extract.trunc.i = trunc nuw i64 %.sroa.3.0.extract.shift.i to i32
   %wide.trip.count.i = and i64 %8, 2147483647
   br label %.preheader.us.i
@@ -12306,17 +12306,17 @@ _ZN2cvL8inRange_IaEEvPKT_mS3_mS3_mPhmNS_5Size_IiEE.exit: ; preds = %._crit_edge.
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @_ZN2cvL10inRange16uEPKtmS1_mS1_mPhmNS_5Size_IiEE(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef writeonly captures(none) %6, i64 noundef %7, i64 %8) #14 {
+  %.sroa.3.0.extract.shift.i = lshr i64 %8, 32
   %10 = lshr i64 %1, 1
   %11 = lshr i64 %3, 1
   %12 = lshr i64 %5, 1
-  %.not35.i = icmp ugt i64 %8, 4294967295
+  %.not35.i = icmp ne i64 %.sroa.3.0.extract.shift.i, 0
   %.sroa.0.0.extract.trunc.i = trunc i64 %8 to i32
   %13 = icmp sgt i32 %.sroa.0.0.extract.trunc.i, 0
   %or.cond.i = and i1 %.not35.i, %13
   br i1 %or.cond.i, label %.preheader.us.preheader.i, label %_ZN2cvL8inRange_ItEEvPKT_mS3_mS3_mPhmNS_5Size_IiEE.exit
 
 .preheader.us.preheader.i:                        ; preds = %9
-  %.sroa.3.0.extract.shift.i = lshr i64 %8, 32
   %.sroa.3.0.extract.trunc.i = trunc nuw i64 %.sroa.3.0.extract.shift.i to i32
   %wide.trip.count.i = and i64 %8, 2147483647
   br label %.preheader.us.i
@@ -12368,17 +12368,17 @@ _ZN2cvL8inRange_ItEEvPKT_mS3_mS3_mPhmNS_5Size_IiEE.exit: ; preds = %._crit_edge.
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @_ZN2cvL10inRange16sEPKsmS1_mS1_mPhmNS_5Size_IiEE(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef writeonly captures(none) %6, i64 noundef %7, i64 %8) #14 {
+  %.sroa.3.0.extract.shift.i = lshr i64 %8, 32
   %10 = lshr i64 %1, 1
   %11 = lshr i64 %3, 1
   %12 = lshr i64 %5, 1
-  %.not35.i = icmp ugt i64 %8, 4294967295
+  %.not35.i = icmp ne i64 %.sroa.3.0.extract.shift.i, 0
   %.sroa.0.0.extract.trunc.i = trunc i64 %8 to i32
   %13 = icmp sgt i32 %.sroa.0.0.extract.trunc.i, 0
   %or.cond.i = and i1 %.not35.i, %13
   br i1 %or.cond.i, label %.preheader.us.preheader.i, label %_ZN2cvL8inRange_IsEEvPKT_mS3_mS3_mPhmNS_5Size_IiEE.exit
 
 .preheader.us.preheader.i:                        ; preds = %9
-  %.sroa.3.0.extract.shift.i = lshr i64 %8, 32
   %.sroa.3.0.extract.trunc.i = trunc nuw i64 %.sroa.3.0.extract.shift.i to i32
   %wide.trip.count.i = and i64 %8, 2147483647
   br label %.preheader.us.i
@@ -12430,17 +12430,17 @@ _ZN2cvL8inRange_IsEEvPKT_mS3_mS3_mPhmNS_5Size_IiEE.exit: ; preds = %._crit_edge.
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @_ZN2cvL10inRange32sEPKimS1_mS1_mPhmNS_5Size_IiEE(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef writeonly captures(none) %6, i64 noundef %7, i64 %8) #14 {
+  %.sroa.3.0.extract.shift.i = lshr i64 %8, 32
   %10 = lshr i64 %1, 2
   %11 = lshr i64 %3, 2
   %12 = lshr i64 %5, 2
-  %.not35.i = icmp ugt i64 %8, 4294967295
+  %.not35.i = icmp ne i64 %.sroa.3.0.extract.shift.i, 0
   %.sroa.0.0.extract.trunc.i = trunc i64 %8 to i32
   %13 = icmp sgt i32 %.sroa.0.0.extract.trunc.i, 0
   %or.cond.i = and i1 %.not35.i, %13
   br i1 %or.cond.i, label %.preheader.us.preheader.i, label %_ZN2cvL8inRange_IiEEvPKT_mS3_mS3_mPhmNS_5Size_IiEE.exit
 
 .preheader.us.preheader.i:                        ; preds = %9
-  %.sroa.3.0.extract.shift.i = lshr i64 %8, 32
   %.sroa.3.0.extract.trunc.i = trunc nuw i64 %.sroa.3.0.extract.shift.i to i32
   %wide.trip.count.i = and i64 %8, 2147483647
   br label %.preheader.us.i
@@ -12492,17 +12492,17 @@ _ZN2cvL8inRange_IiEEvPKT_mS3_mS3_mPhmNS_5Size_IiEE.exit: ; preds = %._crit_edge.
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @_ZN2cvL10inRange32fEPKfmS1_mS1_mPhmNS_5Size_IiEE(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef writeonly captures(none) %6, i64 noundef %7, i64 %8) #14 {
+  %.sroa.3.0.extract.shift.i = lshr i64 %8, 32
   %10 = lshr i64 %1, 2
   %11 = lshr i64 %3, 2
   %12 = lshr i64 %5, 2
-  %.not34.i = icmp ugt i64 %8, 4294967295
+  %.not34.i = icmp ne i64 %.sroa.3.0.extract.shift.i, 0
   %.sroa.0.0.extract.trunc.i = trunc i64 %8 to i32
   %13 = icmp sgt i32 %.sroa.0.0.extract.trunc.i, 0
   %or.cond.i = and i1 %.not34.i, %13
   br i1 %or.cond.i, label %.preheader.us.preheader.i, label %_ZN2cvL8inRange_IfEEvPKT_mS3_mS3_mPhmNS_5Size_IiEE.exit
 
 .preheader.us.preheader.i:                        ; preds = %9
-  %.sroa.3.0.extract.shift.i = lshr i64 %8, 32
   %.sroa.3.0.extract.trunc.i = trunc nuw i64 %.sroa.3.0.extract.shift.i to i32
   %wide.trip.count.i = and i64 %8, 2147483647
   br label %.preheader.us.i
@@ -12554,17 +12554,17 @@ _ZN2cvL8inRange_IfEEvPKT_mS3_mS3_mPhmNS_5Size_IiEE.exit: ; preds = %._crit_edge.
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @_ZN2cvL10inRange64fEPKdmS1_mS1_mPhmNS_5Size_IiEE(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef writeonly captures(none) %6, i64 noundef %7, i64 %8) #14 {
+  %.sroa.3.0.extract.shift.i = lshr i64 %8, 32
   %10 = lshr i64 %1, 3
   %11 = lshr i64 %3, 3
   %12 = lshr i64 %5, 3
-  %.not34.i = icmp ugt i64 %8, 4294967295
+  %.not34.i = icmp ne i64 %.sroa.3.0.extract.shift.i, 0
   %.sroa.0.0.extract.trunc.i = trunc i64 %8 to i32
   %13 = icmp sgt i32 %.sroa.0.0.extract.trunc.i, 0
   %or.cond.i = and i1 %.not34.i, %13
   br i1 %or.cond.i, label %.preheader.us.preheader.i, label %_ZN2cvL8inRange_IdEEvPKT_mS3_mS3_mPhmNS_5Size_IiEE.exit
 
 .preheader.us.preheader.i:                        ; preds = %9
-  %.sroa.3.0.extract.shift.i = lshr i64 %8, 32
   %.sroa.3.0.extract.trunc.i = trunc nuw i64 %.sroa.3.0.extract.shift.i to i32
   %wide.trip.count.i = and i64 %8, 2147483647
   br label %.preheader.us.i

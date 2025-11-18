@@ -16799,7 +16799,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 116:                                              ; preds = %.lr.ph.i.i.i.i13.i
   %117 = getelementptr inbounds i64, ptr %.fr8.i.i.i, i64 %.010.i.i.i.i14.i
   store i64 %114, ptr %117, align 8, !tbaa !4
-  %.not7.i.i.i = icmp ult i64 %.0911.in.i.i.i.i15.i, 2
+  %.not7.i.i.i = icmp eq i64 %.0911.i.i56.i.i.i, 0
   br i1 %.not7.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN6cmList11RemoveItemsEOS3_IlSaIlEEE3$_1EEEvT_SF_SF_RT0_.exit.i.i", label %.lr.ph.i.i.i.i13.i, !llvm.loop !545
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN6cmList11RemoveItemsEOS3_IlSaIlEEE3$_1EEEvT_SF_SF_RT0_.exit.i.i": ; preds = %116, %.lr.ph.i.i.i.i13.i, %112

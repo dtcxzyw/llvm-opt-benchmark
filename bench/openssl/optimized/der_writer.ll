@@ -269,7 +269,7 @@ define range(i32 0, 2) i32 @ossl_DER_w_octet_string_uint32(ptr noundef %0, i32 n
   %7 = getelementptr inbounds i8, ptr %.08, i64 -1
   store i8 %6, ptr %.08, align 1, !tbaa !8
   %8 = lshr i32 %.057, 8
-  %.not = icmp ult i32 %.057, 256
+  %.not = icmp eq i32 %8, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -393,7 +393,7 @@ define internal i32 @int_put_bytes_uint32(ptr noundef %0, ptr noundef readonly c
   %.01012 = phi i32 [ %6, %.lr.ph ], [ %4, %3 ]
   %5 = add nuw nsw i64 %.013, 1
   %6 = lshr i32 %.01012, 8
-  %.not = icmp ult i32 %.01012, 256
+  %.not = icmp eq i32 %6, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph

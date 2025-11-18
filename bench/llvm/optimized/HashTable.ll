@@ -517,7 +517,7 @@ _ZN4llvm5ErrorD2Ev.exit33:                        ; preds = %_ZN4llvm5ErrorD2Ev.
 
 _ZN4llvm5ErrorD2Ev.exit34:                        ; preds = %_ZNK4llvm15SparseBitVectorILj128EE9find_lastEv.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %.not72 = icmp ult i32 %39, 32
+  %.not72 = icmp eq i32 %40, 0
   br i1 %.not72, label %_ZN4llvm5ErrorD2Ev.exit45, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %_ZN4llvm5ErrorD2Ev.exit34
@@ -718,9 +718,9 @@ _ZN4llvm5ErrorD2Ev.exit43:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   br label %151
 
 _ZN4llvm5ErrorD2Ev.exit44:                        ; preds = %.split.us
-  %.us-phi = add i32 %.02473, 32
+  %.us-phi = add nuw i32 %.02473, 32
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %150 = add i32 %.02374, 1
+  %150 = add nuw nsw i32 %.02374, 1
   %.not = icmp eq i32 %150, %40
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit45, label %.preheader, !llvm.loop !103
 

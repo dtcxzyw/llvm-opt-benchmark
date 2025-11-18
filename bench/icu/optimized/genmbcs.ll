@@ -1274,28 +1274,28 @@ define internal noundef i32 @_ZL9MBCSWriteP12NewConverterPK20UConverterStaticDat
   %12 = load i16, ptr %11, align 8, !tbaa !17
   %13 = zext i16 %12 to i32
   %14 = add nuw nsw i32 %13, 1
-  %15 = and i32 %14, 1023
-  %.not108 = icmp eq i32 %15, 0
-  br i1 %.not108, label %27, label %16
+  %15 = lshr i32 %14, 10
+  %16 = and i32 %14, 1023
+  %.not108 = icmp eq i32 %16, 0
+  br i1 %.not108, label %27, label %17
 
-16:                                               ; preds = %10
-  %17 = lshr i32 %14, 10
+17:                                               ; preds = %10
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 65592
-  %19 = zext nneg i32 %17 to i64
+  %19 = zext nneg i32 %15 to i64
   %20 = getelementptr inbounds nuw i16, ptr %18, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !40
   %.not109 = icmp eq i16 %21, 0
   br i1 %.not109, label %27, label %22
 
-22:                                               ; preds = %16
+22:                                               ; preds = %17
   %23 = zext i16 %21 to i32
   %24 = lshr i32 %14, 4
   %25 = and i32 %24, 63
   %26 = add nuw nsw i32 %25, %23
   br label %.critedge
 
-27:                                               ; preds = %16, %10
-  %.old1.not = icmp ult i16 %12, 1023
+27:                                               ; preds = %17, %10
+  %.old1.not = icmp eq i32 %15, 0
   br i1 %.old1.not, label %.critedge, label %.preheader122
 
 .preheader122:                                    ; preds = %27
@@ -1308,7 +1308,7 @@ define internal noundef i32 @_ZL9MBCSWriteP12NewConverterPK20UConverterStaticDat
 32:                                               ; preds = %.preheader122, %32
   %indvars.iv = phi i64 [ %31, %.preheader122 ], [ %indvars.iv.next, %32 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %33 = getelementptr inbounds i16, ptr %28, i64 %indvars.iv.next
+  %33 = getelementptr inbounds nuw i16, ptr %28, i64 %indvars.iv.next
   %34 = load i16, ptr %33, align 2, !tbaa !40
   %35 = icmp eq i16 %34, 0
   %36 = icmp samesign ugt i64 %indvars.iv, 1
@@ -1423,11 +1423,11 @@ define internal noundef i32 @_ZL9MBCSWriteP12NewConverterPK20UConverterStaticDat
   br label %.sink.split
 
 .sink.split:                                      ; preds = %72, %87
-  %.sink137 = phi i8 [ %94, %87 ], [ 31, %72 ]
+  %.sink136 = phi i8 [ %94, %87 ], [ 31, %72 ]
   %.1102.ph = phi i32 [ %84, %87 ], [ %73, %72 ]
   %.099.ph = phi i32 [ %92, %87 ], [ 0, %72 ]
   %95 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store i8 %.sink137, ptr %95, align 2, !tbaa !15
+  store i8 %.sink136, ptr %95, align 2, !tbaa !15
   br label %96
 
 96:                                               ; preds = %.sink.split, %83, %72
@@ -1531,8 +1531,8 @@ define internal noundef i32 @_ZL9MBCSWriteP12NewConverterPK20UConverterStaticDat
   %163 = getelementptr inbounds nuw i32, ptr %162, i64 %.1104
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 67768
   %165 = getelementptr inbounds nuw i16, ptr %164, i64 %.1104
-  %.sink139 = select i1 %161, ptr %165, ptr %163
-  call void @udata_writeBlock(ptr noundef %2, ptr noundef nonnull %.sink139, i32 noundef %.1102)
+  %.sink138 = select i1 %161, ptr %165, ptr %163
+  call void @udata_writeBlock(ptr noundef %2, ptr noundef nonnull %.sink138, i32 noundef %.1102)
   %166 = load i32, ptr %101, align 4, !tbaa !81
   %167 = and i32 %166, 64
   %.not118 = icmp eq i32 %167, 0

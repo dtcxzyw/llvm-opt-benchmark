@@ -7401,7 +7401,7 @@ switch.early.test:                                ; preds = %4
 9:                                                ; preds = %switch.early.test
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %11 = lshr i32 %10, 1
-  %.not = icmp ult i32 %10, 2
+  %.not = icmp eq i32 %11, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %.lr.ph

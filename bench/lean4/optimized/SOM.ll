@@ -170,7 +170,7 @@ lean_nat_mul.exit.thread87:                       ; preds = %68
 
 70:                                               ; preds = %68
   %71 = lshr i64 %65, 1
-  %72 = icmp ult ptr %63, inttoptr (i64 2 to ptr)
+  %72 = icmp eq i64 %71, 0
   br i1 %72, label %lean_inc.exit, label %73
 
 73:                                               ; preds = %70
@@ -347,7 +347,7 @@ lean_nat_mul.exit.thread32:                       ; preds = %22
 
 24:                                               ; preds = %22
   %25 = lshr i64 %19, 1
-  %26 = icmp ult ptr %17, inttoptr (i64 2 to ptr)
+  %26 = icmp eq i64 %25, 0
   br i1 %26, label %lean_dec.exit, label %27
 
 27:                                               ; preds = %24
@@ -1405,7 +1405,7 @@ lean_nat_mul.exit.thread58:                       ; preds = %25
 
 27:                                               ; preds = %25
   %28 = lshr i64 %22, 1
-  %29 = icmp ult ptr %18, inttoptr (i64 2 to ptr)
+  %29 = icmp eq i64 %28, 0
   br i1 %29, label %lean_dec.exit21, label %30
 
 30:                                               ; preds = %27
@@ -5855,7 +5855,7 @@ define ptr @l_Nat_SOM_Poly_mulMon_go(ptr noundef %0, ptr noundef %1, ptr noundef
   %6 = and i64 %5, 1
   %.not61 = icmp eq i64 %6, 0
   %7 = lshr i64 %5, 1
-  %8 = icmp ult ptr %0, inttoptr (i64 2 to ptr)
+  %8 = icmp eq i64 %7, 0
   %9 = ptrtoint ptr %1 to i64
   %10 = and i64 %9, 1
   %.not62 = icmp eq i64 %10, 0

@@ -352,18 +352,10 @@ define range(i32 -1094995529, 1) i32 @av_dynamic_hdr_plus_from_t35(ptr noundef w
   %218 = shl nuw nsw i32 %196, 2
   %219 = mul nuw nsw i32 %218, %206
   %220 = icmp slt i32 %217, %219
-  br i1 %220, label %.critedge, label %.preheader297
+  br i1 %220, label %.critedge, label %.preheader296.us.preheader
 
-.preheader297:                                    ; preds = %212
-  %.not351 = icmp ult i32 %195, 134217728
-  br i1 %.not351, label %.loopexit298, label %.preheader296.lr.ph
-
-.preheader296.lr.ph:                              ; preds = %.preheader297
-  %.not352 = icmp ult i32 %205, 134217728
+.preheader296.us.preheader:                       ; preds = %212
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 1300
-  br i1 %.not352, label %.loopexit298, label %.preheader296.us.preheader
-
-.preheader296.us.preheader:                       ; preds = %.preheader296.lr.ph
   %wide.trip.count373 = zext nneg i32 %196 to i64
   %wide.trip.count368 = zext nneg i32 %206 to i64
   br label %.preheader296.us
@@ -400,8 +392,8 @@ define range(i32 -1094995529, 1) i32 @av_dynamic_hdr_plus_from_t35(ptr noundef w
   %exitcond374.not = icmp eq i64 %indvars.iv.next371, %wide.trip.count373
   br i1 %exitcond374.not, label %.loopexit298, label %.preheader296.us, !llvm.loop !42
 
-.loopexit298:                                     ; preds = %._crit_edge306.us, %.preheader297, %.preheader296.lr.ph, %166
-  %.promoted321 = phi i32 [ %spec.select.i283, %166 ], [ %208, %.preheader297 ], [ %208, %.preheader296.lr.ph ], [ %235, %._crit_edge306.us ]
+.loopexit298:                                     ; preds = %._crit_edge306.us, %166
+  %.promoted321 = phi i32 [ %spec.select.i283, %166 ], [ %235, %._crit_edge306.us ]
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %wide.trip.count387 = zext nneg i32 %25 to i64
   br label %237
@@ -452,7 +444,7 @@ define range(i32 -1094995529, 1) i32 @av_dynamic_hdr_plus_from_t35(ptr noundef w
   br i1 %268, label %.critedge, label %.preheader293
 
 .preheader293:                                    ; preds = %242
-  %.not353 = icmp ult i32 %260, 268435456
+  %.not353 = icmp eq i32 %261, 0
   br i1 %.not353, label %._crit_edge319, label %.lr.ph318
 
 .lr.ph318:                                        ; preds = %.preheader293
@@ -611,18 +603,10 @@ define range(i32 -1094995529, 1) i32 @av_dynamic_hdr_plus_from_t35(ptr noundef w
   %367 = shl nuw nsw i32 %345, 2
   %368 = mul nuw nsw i32 %367, %355
   %369 = icmp slt i32 %366, %368
-  br i1 %369, label %.critedge, label %.preheader291
+  br i1 %369, label %.critedge, label %.preheader290.us.preheader
 
-.preheader291:                                    ; preds = %361
-  %.not354 = icmp ult i32 %344, 134217728
-  br i1 %.not354, label %.loopexit292.preheader, label %.preheader290.lr.ph
-
-.preheader290.lr.ph:                              ; preds = %.preheader291
-  %.not355 = icmp ult i32 %354, 134217728
+.preheader290.us.preheader:                       ; preds = %361
   %370 = getelementptr inbounds nuw i8, ptr %0, i64 6304
-  br i1 %.not355, label %.loopexit292.preheader, label %.preheader290.us.preheader
-
-.preheader290.us.preheader:                       ; preds = %.preheader290.lr.ph
   %wide.trip.count397 = zext nneg i32 %345 to i64
   %wide.trip.count392 = zext nneg i32 %355 to i64
   br label %.preheader290.us
@@ -659,8 +643,8 @@ define range(i32 -1094995529, 1) i32 @av_dynamic_hdr_plus_from_t35(ptr noundef w
   %exitcond398.not = icmp eq i64 %indvars.iv.next395, %wide.trip.count397
   br i1 %exitcond398.not, label %.loopexit292.preheader, label %.preheader290.us, !llvm.loop !53
 
-.loopexit292.preheader:                           ; preds = %._crit_edge330.us, %.preheader291, %.preheader290.lr.ph, %320
-  %.lcssa339345348.ph = phi i32 [ %spec.select.i284, %320 ], [ %357, %.preheader290.lr.ph ], [ %357, %.preheader291 ], [ %384, %._crit_edge330.us ]
+.loopexit292.preheader:                           ; preds = %._crit_edge330.us, %320
+  %.lcssa339345348.ph = phi i32 [ %spec.select.i284, %320 ], [ %384, %._crit_edge330.us ]
   br label %.loopexit292
 
 .loopexit292:                                     ; preds = %.loopexit292.preheader, %484
@@ -742,7 +726,7 @@ define range(i32 -1094995529, 1) i32 @av_dynamic_hdr_plus_from_t35(ptr noundef w
   br i1 %440, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %403
-  %.not356 = icmp ult i32 %432, 268435456
+  %.not356 = icmp eq i32 %433, 0
   br i1 %.not356, label %.loopexit, label %.lr.ph341
 
 .lr.ph341:                                        ; preds = %.preheader

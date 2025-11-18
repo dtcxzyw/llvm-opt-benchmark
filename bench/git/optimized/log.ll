@@ -4364,7 +4364,7 @@ st_mult.exit.i:                                   ; preds = %1005
 .preheader110.i:                                  ; preds = %.preheader111.i, %1039
   %.076115.i = phi i64 [ %1041, %1039 ], [ %.0132.ph342, %.preheader111.i ]
   %1014 = lshr i64 %.076115.i, 1
-  %.not118.i = icmp samesign ult i64 %.076115.i, 2
+  %.not118.i = icmp eq i64 %1014, 0
   br i1 %.not118.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader110.i, %1030
@@ -4415,16 +4415,15 @@ st_mult.exit.i:                                   ; preds = %1005
   br i1 %exitcond121.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !258
 
 ._crit_edge.i:                                    ; preds = %1030, %.preheader110.i
-  %.178.lcssa.i = phi i64 [ 0, %.preheader110.i ], [ %1014, %1030 ]
   %1034 = and i64 %.076115.i, 1
   %.not99.i = icmp eq i64 %1034, 0
   br i1 %.not99.i, label %1039, label %1035
 
 1035:                                             ; preds = %._crit_edge.i
-  %.idx.i = shl nuw i64 %.178.lcssa.i, 4
+  %.idx.i = shl nuw i64 %1014, 4
   %1036 = getelementptr inbounds nuw i8, ptr %1008, i64 %.idx.i
   %1037 = load ptr, ptr %1036, align 8, !tbaa !239
-  %1038 = getelementptr inbounds nuw ptr, ptr %1008, i64 %.178.lcssa.i
+  %1038 = getelementptr inbounds nuw ptr, ptr %1008, i64 %1014
   store ptr %1037, ptr %1038, align 8, !tbaa !239
   br label %1039
 

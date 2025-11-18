@@ -5424,7 +5424,7 @@ define internal void @ieee754func(ptr noundef %0, i32 noundef %1, ptr noundef re
 33:                                               ; preds = %28
   %34 = ashr i64 %31, 52
   %35 = trunc nsw i64 %34 to i32
-  %36 = icmp ult i64 %31, 4503599627370496
+  %36 = icmp eq i64 %34, 0
   %37 = shl nuw nsw i64 %31, 1
   %38 = and i64 %31, 4503599627370495
   %39 = or disjoint i64 %38, 4503599627370496
@@ -33869,7 +33869,7 @@ define internal fastcc ptr @decimalFromDouble(double noundef %0) unnamed_addr #1
 7:                                                ; preds = %1
   %8 = ashr i64 %5, 52
   %9 = trunc nsw i64 %8 to i32
-  %10 = icmp ult i64 %5, 4503599627370496
+  %10 = icmp eq i64 %8, 0
   %11 = shl nuw nsw i64 %5, 1
   %12 = and i64 %5, 4503599627370495
   %13 = or disjoint i64 %12, 4503599627370496
@@ -33970,8 +33970,8 @@ define internal fastcc ptr @decimalPow2(i32 noundef %0) unnamed_addr #1 {
   %.024 = tail call i32 @llvm.abs.i32(i32 %0, i1 true)
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %23
-  %.125 = phi i32 [ %24, %23 ], [ %.024, %.preheader.preheader ]
+.preheader:                                       ; preds = %.preheader.preheader, %24
+  %.125 = phi i32 [ %22, %24 ], [ %.024, %.preheader.preheader ]
   %18 = and i32 %.125, 1
   %.not32 = icmp eq i32 %18, 0
   br i1 %.not32, label %21, label %19
@@ -33983,11 +33983,11 @@ define internal fastcc ptr @decimalPow2(i32 noundef %0) unnamed_addr #1 {
   br i1 %.not33, label %21, label %decimal_free.exit36
 
 21:                                               ; preds = %19, %.preheader
-  %22 = icmp samesign ult i32 %.125, 2
-  br i1 %22, label %decimal_free.exit39.sink.split, label %23
+  %22 = lshr i32 %.125, 1
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %decimal_free.exit39.sink.split, label %24
 
-23:                                               ; preds = %21
-  %24 = lshr i32 %.125, 1
+24:                                               ; preds = %21
   tail call fastcc void @decimalMul(ptr noundef nonnull %13, ptr noundef nonnull %13)
   br label %.preheader
 
@@ -34001,12 +34001,12 @@ decimal_free.exit36:                              ; preds = %19, %15, %11, %6
   br i1 %.not.i37, label %decimal_free.exit39, label %decimal_free.exit39.sink.split
 
 decimal_free.exit39.sink.split:                   ; preds = %21, %decimal_free.exit36
-  %.0.ph.sink49 = phi ptr [ %.0.ph, %decimal_free.exit36 ], [ %13, %21 ]
+  %.0.ph.sink50 = phi ptr [ %.0.ph, %decimal_free.exit36 ], [ %13, %21 ]
   %.026.ph = phi ptr [ null, %decimal_free.exit36 ], [ %4, %21 ]
-  %26 = getelementptr i8, ptr %.0.ph.sink49, i64 16
+  %26 = getelementptr i8, ptr %.0.ph.sink50, i64 16
   %.val.i38 = load ptr, ptr %26, align 8, !tbaa !56
   tail call void @sqlite3_free(ptr noundef %.val.i38) #44
-  tail call void @sqlite3_free(ptr noundef nonnull %.0.ph.sink49) #44
+  tail call void @sqlite3_free(ptr noundef nonnull %.0.ph.sink50) #44
   br label %decimal_free.exit39
 
 decimal_free.exit39:                              ; preds = %decimal_free.exit39.sink.split, %3, %1, %decimal_free.exit36, %9

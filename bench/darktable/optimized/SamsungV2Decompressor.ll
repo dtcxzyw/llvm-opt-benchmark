@@ -264,7 +264,7 @@ _ZN8rawspeed8RawImageD2Ev.exit:                   ; preds = %14, %11, %4
   %87 = and i16 %86, 16383
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 30
   store i16 %87, ptr %88, align 2, !tbaa !107
-  %89 = icmp ult i32 %.sroa.0.0..sroa.0.0..i.i.i103, 65536
+  %89 = icmp eq i32 %70, 0
   br i1 %89, label %95, label %90
 
 90:                                               ; preds = %82
@@ -616,7 +616,7 @@ _ZN8rawspeed10ByteStream9skipBytesEj.exit47:      ; preds = %68
   %95 = load i32, ptr %50, align 4, !tbaa !129, !noalias !122
   %96 = load i32, ptr %51, align 8, !tbaa !130, !noalias !122
   %97 = ashr i32 %96, 1
-  %98 = icmp ugt i32 %96, 1
+  %98 = icmp ne i32 %97, 0
   tail call void @llvm.assume(i1 %98)
   %99 = icmp sgt i32 %97, -1
   tail call void @llvm.assume(i1 %99)
@@ -1374,7 +1374,7 @@ _ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentia
   %428 = trunc nuw nsw i64 %indvars.iv483 to i32
   %429 = lshr i32 %428, 1
   %.urem = add nsw i32 %429, -1
-  %.cmp = icmp samesign ult i64 %indvars.iv483, 2
+  %.cmp = icmp eq i32 %429, 0
   %430 = select i1 %.cmp, i32 2, i32 %.urem
   %431 = select i1 %.not32.i, i32 %430, i32 %429
   %432 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv483

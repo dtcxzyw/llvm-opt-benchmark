@@ -680,7 +680,7 @@ bms_is_member.exit:                               ; preds = %9
   br i1 %.not12.i.not, label %bms_is_member.exit.thread, label %21
 
 21:                                               ; preds = %bms_is_member.exit
-  %.not25 = icmp samesign ult i32 %1, 64
+  %.not25 = icmp eq i32 %10, 0
   br i1 %.not25, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21, %28

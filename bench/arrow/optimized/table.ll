@@ -3036,7 +3036,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6Status7In
 
 _ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i: ; preds = %37
   store i64 0, ptr %5, align 8
-  %.not.i.i.i.i36 = icmp ult i64 %sext, 4294967296
+  %.not.i.i.i.i36 = icmp eq i64 %54, 0
   br i1 %.not.i.i.i.i36, label %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EEC2EmRKS4_.exit.thread.i, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
@@ -3065,7 +3065,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EEC2EmRKS4_.exit
   %sext114 = shl i64 %53, 28
   %63 = ashr i64 %sext114, 32
   %64 = icmp ugt i64 %63, 576460752303423487
-  %.not.i.i.i.i42 = icmp ult i64 %sext114, 4294967296
+  %.not.i.i.i.i42 = icmp eq i64 %63, 0
   %65 = shl nuw nsw i64 %63, 4
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 16

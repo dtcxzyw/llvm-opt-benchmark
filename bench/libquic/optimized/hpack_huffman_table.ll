@@ -2196,7 +2196,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %49 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %.018.i.i.i.i.i
   %50 = load i64, ptr %46, align 4
   store i64 %50, ptr %49, align 4
-  %.not10.i.i.i = icmp ult i64 %.0919.in.i.i.i.i.i, 2
+  %.not10.i.i.i = icmp eq i64 %.0919.i.i89.i.i.i, 0
   br i1 %.not10.i.i.i, label %.critedge.loopexit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !93
 
 .critedge.loopexit.i.i.i.i.i:                     ; preds = %48, %.lr.ph.i.i.i.i.i
@@ -2409,7 +2409,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN3
   %40 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %.fr30, i64 %.018.i.i.i.us
   %41 = load i64, ptr %37, align 4
   store i64 %41, ptr %40, align 4
-  %.not10.i.us = icmp ult i64 %.0919.in.i.i.i.us, 2
+  %.not10.i.us = icmp eq i64 %.0919.i.i89.i.us, 0
   br i1 %.not10.i.us, label %.critedge.loopexit.i.i.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !93
 
 .critedge.loopexit.i.i.i.us:                      ; preds = %39, %.lr.ph.i.i.i.us

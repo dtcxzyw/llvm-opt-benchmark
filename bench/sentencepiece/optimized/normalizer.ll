@@ -6849,11 +6849,11 @@ _ZN5Darts7Details8AutoPoolIhE6resizeEm.exit:      ; preds = %4, %.lr.ph.preheade
   %10 = load ptr, ptr %8, align 8, !tbaa !180
   %11 = getelementptr inbounds nuw %"class.Darts::Details::DawgUnit", ptr %10, i64 %9
   %12 = load i32, ptr %11, align 4, !tbaa !228
-  %.not43 = icmp ult i32 %12, 4
+  %13 = lshr i32 %12, 2
+  %.not43 = icmp eq i32 %13, 0
   br i1 %.not43, label %select.unfold._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN5Darts7Details8AutoPoolIhE6resizeEm.exit
-  %13 = lshr i32 %12, 2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br label %15
 

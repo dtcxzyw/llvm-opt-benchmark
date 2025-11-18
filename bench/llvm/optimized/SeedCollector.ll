@@ -1540,11 +1540,11 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9sandboxir11InstructionEPNS2_10SeedBundl
   %40 = zext i32 %39 to i64
   %.idx3.i = shl nuw nsw i64 %40, 3
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx3.i
-  %.not.i = icmp ult i32 %39, 4
+  %42 = lshr i64 %40, 2
+  %.not.i = icmp eq i64 %42, 0
   br i1 %.not.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %33
-  %42 = lshr i64 %40, 2
   %43 = and i64 %.idx3.i, 34359738336
   %scevgep.i.i.i.i = getelementptr i8, ptr %37, i64 %43
   br label %44
@@ -1587,11 +1587,10 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9sandboxir11InstructionEPNS2_10SeedBundl
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %33
   %.pre-phi56.i.i.i.i = phi i32 [ %63, %._crit_edge.loopexit.i.i.i.i ], [ %39, %33 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %37, %33 ]
-  switch i32 %.pre-phi56.i.i.i.i, label %default.unreachable [
+  switch i32 %.pre-phi56.i.i.i.i, label %75 [
     i32 3, label %64
     i32 2, label %._crit_edge._crit_edge.i.i.i.i
     i32 1, label %._crit_edge._crit_edge52.i.i.i.i
-    i32 0, label %75
   ]
 
 64:                                               ; preds = %._crit_edge.i.i.i.i
@@ -1618,9 +1617,6 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9sandboxir11InstructionEPNS2_10SeedBundl
   %73 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !78
   %74 = icmp eq ptr %73, %1
   br i1 %74, label %_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit, label %75
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
-  unreachable
 
 75:                                               ; preds = %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge.i.i.i.i
   br label %_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit

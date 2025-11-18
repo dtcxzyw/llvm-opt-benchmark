@@ -15648,11 +15648,11 @@ define dso_local noundef zeroext i1 @_ZNK4llvm12X86InstrInfo23preservesZeroValue
   %24 = zext i24 %23 to i64
   %.idx16 = shl nuw nsw i64 %24, 5
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx16
-  %.not15 = icmp ult i24 %23, 4
+  %26 = lshr i64 %24, 2
+  %.not15 = icmp eq i64 %26, 0
   br i1 %.not15, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %19
-  %26 = lshr i64 %24, 2
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %29 = and i64 %.idx16, 536870784
@@ -33709,11 +33709,11 @@ _ZNK4llvm12MachineInstr12isTerminatorENS0_9QueryTypeE.exit: ; preds = %4
   %37 = zext i8 %36 to i64
   %.idx4.i.i = shl nuw nsw i64 %37, 1
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx4.i.i
-  %.not.i.i = icmp ult i8 %36, 4
+  %39 = lshr i64 %37, 2
+  %.not.i.i = icmp eq i64 %39, 0
   br i1 %.not.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %24
-  %39 = lshr i64 %37, 2
   %40 = and i64 %.idx4.i.i, 504
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %34, i64 %40
   br label %41
@@ -33756,11 +33756,10 @@ _ZNK4llvm12MachineInstr12isTerminatorENS0_9QueryTypeE.exit: ; preds = %4
 ._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %24
   %.pre-phi56.i.i.i.i.i = phi i8 [ %60, %._crit_edge.loopexit.i.i.i.i.i ], [ %36, %24 ]
   %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %34, %24 ]
-  switch i8 %.pre-phi56.i.i.i.i.i, label %default.unreachable [
+  switch i8 %.pre-phi56.i.i.i.i.i, label %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.thread [
     i8 3, label %61
     i8 2, label %._crit_edge._crit_edge.i.i.i.i.i
     i8 1, label %._crit_edge._crit_edge52.i.i.i.i.i
-    i8 0, label %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.thread
   ]
 
 61:                                               ; preds = %._crit_edge.i.i.i.i.i
@@ -33787,9 +33786,6 @@ _ZNK4llvm12MachineInstr12isTerminatorENS0_9QueryTypeE.exit: ; preds = %4
   %70 = load i16, ptr %.2.i.i.i.i.i, align 2, !tbaa !622
   %71 = icmp eq i16 %70, 61
   br i1 %71, label %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit, label %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.thread
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i
-  unreachable
 
 _ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit: ; preds = %44
   %72 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 2
@@ -33854,11 +33850,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm11MCInstrDesc23hasImplic
   %13 = zext i8 %12 to i64
   %.idx4.i = shl nuw nsw i64 %13, 1
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx4.i
-  %.not.i = icmp ult i8 %12, 4
+  %15 = lshr i64 %13, 2
+  %.not.i = icmp eq i64 %15, 0
   br i1 %.not.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %2
-  %15 = lshr i64 %13, 2
   %16 = and i64 %.idx4.i, 504
   %scevgep.i.i.i.i = getelementptr i8, ptr %10, i64 %16
   br label %17
@@ -33905,11 +33901,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm11MCInstrDesc23hasImplic
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %2
   %.pre-phi56.i.i.i.i = phi i8 [ %40, %._crit_edge.loopexit.i.i.i.i ], [ %12, %2 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %10, %2 ]
-  switch i8 %.pre-phi56.i.i.i.i, label %default.unreachable [
+  switch i8 %.pre-phi56.i.i.i.i, label %55 [
     i8 3, label %41
     i8 2, label %._crit_edge._crit_edge.i.i.i.i
     i8 1, label %._crit_edge._crit_edge52.i.i.i.i
-    i8 0, label %55
   ]
 
 41:                                               ; preds = %._crit_edge.i.i.i.i
@@ -33939,9 +33934,6 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm11MCInstrDesc23hasImplic
   %53 = zext i16 %52 to i32
   %54 = icmp eq i32 %1, %53
   br i1 %54, label %_ZN4llvm12is_containedINS_8ArrayRefItEENS_10MCRegisterEEEbOT_RKT0_.exit, label %55
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
-  unreachable
 
 55:                                               ; preds = %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge.i.i.i.i
   br label %_ZN4llvm12is_containedINS_8ArrayRefItEENS_10MCRegisterEEEbOT_RKT0_.exit

@@ -187,8 +187,8 @@ define internal range(i32 -1094995529, 1) i32 @nut_read_header(ptr noundef %0) #
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.backedge, %1
-  %.039355 = phi i64 [ 0, %1 ], [ %26, %.critedge.backedge ]
-  %22 = tail call fastcc i64 @find_startcode(ptr noundef %8, i64 noundef 5642300418477196461, i64 noundef %.039355)
+  %.039356 = phi i64 [ 0, %1 ], [ %26, %.critedge.backedge ]
+  %22 = tail call fastcc i64 @find_startcode(ptr noundef %8, i64 noundef 5642300418477196461, i64 noundef %.039356)
   %23 = icmp slt i64 %22, 0
   br i1 %23, label %24, label %25
 
@@ -1341,7 +1341,7 @@ find_duration.exit.i:                             ; preds = %453, %449
   br label %.lr.ph207.us.i
 
 .preheader183.us.i:                               ; preds = %489
-  %.not161200.us.i = icmp ult i64 %486, 4
+  %.not161200.us.i = icmp eq i64 %490, 0
   %.pre259.i = trunc i64 %487 to i8
   br i1 %.not161200.us.i, label %._crit_edge.us.i, label %.lr.ph203.us.i
 

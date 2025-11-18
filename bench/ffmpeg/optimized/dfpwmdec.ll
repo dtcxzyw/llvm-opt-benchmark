@@ -106,7 +106,7 @@ define internal i32 @dfpwm_dec_frame(ptr noundef %0, ptr noundef %1, ptr noundef
   %48 = add nsw i32 %47, 512
   %49 = ashr i32 %48, 10
   %50 = add nsw i32 %49, %44
-  %51 = icmp ugt i32 %48, 1023
+  %51 = icmp ne i32 %49, 0
   %.not55.i = icmp eq i32 %50, %42
   %or.cond.i = select i1 %51, i1 true, i1 %.not55.i
   %52 = select i1 %.not.i, i32 -1, i32 1

@@ -512,8 +512,8 @@ _ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i.i.i: ; preds = %92
   br i1 %.not11.i.i.i, label %.sink.split.i.i.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i.i.i, %92
-  %.pre-phi.i.i.in91.i = phi i32 [ %.pre.i.i.i, %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i.i.i ], [ %88, %92 ]
-  %.pre-phi.i.i.i = zext i32 %.pre-phi.i.i.in91.i to i64
+  %.pre-phi.i.i.in92.i = phi i32 [ %.pre.i.i.i, %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i.i.i ], [ %88, %92 ]
+  %.pre-phi.i.i.i = zext i32 %.pre-phi.i.i.in92.i to i64
   %95 = load ptr, ptr %54, align 8, !tbaa !53
   %96 = getelementptr ptr, ptr %95, i64 %.pre-phi.i.i.i
   %97 = shl nuw nsw i64 %.pre-phi.i.i.i, 3
@@ -687,11 +687,11 @@ _ZL19createShuffleStrideN4llvm3MVTEiRNS_15SmallVectorImplIiEE.exit.i: ; preds = 
   br label %_ZL15concatSubVectorPPN4llvm5ValueENS_8ArrayRefIPNS_11InstructionEEEjRNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE.exit.i
 
 .preheader40.i.i:                                 ; preds = %_ZL19createShuffleStrideN4llvm3MVTEiRNS_15SmallVectorImplIiEE.exit.i
-  %.not.i44.i = icmp ult i32 %76, 32
-  br i1 %.not.i44.i, label %.preheader37.i.i, label %.preheader39.lr.ph.i.i
+  %172 = lshr i32 %76, 5
+  %.not.i44.i = icmp eq i32 %172, 0
+  br i1 %.not.i44.i, label %._crit_edge.i46.i, label %.preheader39.lr.ph.i.i
 
 .preheader39.lr.ph.i.i:                           ; preds = %.preheader40.i.i
-  %172 = lshr i32 %76, 5
   %173 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %174 = getelementptr inbounds nuw i8, ptr %170, i64 80
   %175 = getelementptr inbounds nuw i8, ptr %36, i64 32
@@ -706,15 +706,15 @@ _ZL19createShuffleStrideN4llvm3MVTEiRNS_15SmallVectorImplIiEE.exit.i: ; preds = 
   %indvars.iv47.i.i = phi i64 [ 0, %.preheader39.lr.ph.i.i ], [ %indvars.iv.next48.i.i, %181 ]
   %.idx.i.i = mul nuw nsw i64 %indvars.iv47.i.i, 48
   %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %85, i64 %.idx.i.i
-  %.idx60.i.i = mul nuw nsw i64 %indvars.iv47.i.i, 24
-  %invariant.gep62.i.i = getelementptr inbounds nuw i8, ptr %46, i64 %.idx60.i.i
+  %.idx61.i.i = mul nuw nsw i64 %indvars.iv47.i.i, 24
+  %invariant.gep63.i.i = getelementptr inbounds nuw i8, ptr %46, i64 %.idx61.i.i
   br label %182
 
-._crit_edge.i46.i:                                ; preds = %181
+._crit_edge.i46.i:                                ; preds = %181, %.preheader40.i.i
   %179 = icmp eq i32 %76, 32
   br i1 %179, label %_ZL15concatSubVectorPPN4llvm5ValueENS_8ArrayRefIPNS_11InstructionEEEjRNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE.exit.i, label %.preheader37.i.i
 
-.preheader37.i.i:                                 ; preds = %._crit_edge.i46.i, %.preheader40.i.i
+.preheader37.i.i:                                 ; preds = %._crit_edge.i46.i
   %180 = getelementptr inbounds nuw i8, ptr %39, i64 32
   br label %205
 
@@ -778,8 +778,8 @@ _ZNK4llvm13IRBuilderBase6InsertINS_17ShuffleVectorInstEEEPT_S4_RKNS_5TwineE.exit
 _ZN4llvm13IRBuilderBase19CreateShuffleVectorEPNS_5ValueES2_NS_8ArrayRefIiEERKNS_5TwineE.exit.i.i: ; preds = %_ZNK4llvm13IRBuilderBase6InsertINS_17ShuffleVectorInstEEEPT_S4_RKNS_5TwineE.exit.i.i.i, %182
   %.1.i.i.i = phi ptr [ %192, %_ZNK4llvm13IRBuilderBase6InsertINS_17ShuffleVectorInstEEEPT_S4_RKNS_5TwineE.exit.i.i.i ], [ %190, %182 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
-  %gep63.i.i = getelementptr inbounds nuw ptr, ptr %invariant.gep62.i.i, i64 %indvars.iv.i.i
-  store ptr %.1.i.i.i, ptr %gep63.i.i, align 8, !tbaa !222
+  %gep64.i.i = getelementptr inbounds nuw ptr, ptr %invariant.gep63.i.i, i64 %indvars.iv.i.i
+  store ptr %.1.i.i.i, ptr %gep64.i.i, align 8, !tbaa !222
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i45.i = icmp eq i64 %indvars.iv.next.i.i, 3
@@ -3830,11 +3830,11 @@ define internal fastcc void @_ZL16reorderSubVectorN4llvm3MVTERNS_15SmallVectorIm
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 32, ptr %28, align 4, !tbaa !56
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %.not = icmp ult i32 %5, 16
-  br i1 %.not, label %.preheader47, label %.lr.ph
+  %29 = lshr i32 %5, 4
+  %.not = icmp eq i32 %29, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %25
-  %29 = lshr i32 %5, 4
   %30 = mul nuw nsw i32 %29, %6
   %31 = add i16 %0, -138
   %spec.select.i.i.i = icmp ult i16 %31, 53
@@ -3884,11 +3884,11 @@ _ZNK4llvm3MVT20getVectorNumElementsEv.exit.i.us:  ; preds = %38, %.lr.ph.split.u
   %56 = icmp samesign ult i64 %indvars.iv.next54, %37
   br i1 %56, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !286
 
-._crit_edge:                                      ; preds = %_ZL15genShuffleBlandN4llvm3MVTENS_8ArrayRefIiEERNS_15SmallVectorImplIiEEii.exit.loopexit, %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i.us
+._crit_edge:                                      ; preds = %_ZL15genShuffleBlandN4llvm3MVTENS_8ArrayRefIiEERNS_15SmallVectorImplIiEEii.exit.loopexit, %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i.us, %25
   %57 = icmp eq i32 %5, 32
   br i1 %57, label %114, label %.preheader47
 
-.preheader47:                                     ; preds = %25, %._crit_edge
+.preheader47:                                     ; preds = %._crit_edge
   %58 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %wide.trip.count = zext nneg i32 %6 to i64
   br label %117
@@ -4069,11 +4069,11 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToC
   br i1 %.not, label %11, label %63
 
 11:                                               ; preds = %3
-  %.not.i.i = icmp ult i32 %8, 4
+  %12 = lshr i64 %9, 2
+  %.not.i.i = icmp eq i64 %12, 0
   br i1 %.not.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %11
-  %12 = lshr i64 %9, 2
   %13 = and i64 %.idx3.i.i, 68719476672
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %6, i64 %13
   br label %.lr.ph.i.i.i.i.i.i
@@ -4116,11 +4116,10 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToC
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %11
   %.pre-phi53.i.i.i.i.i.i = phi i32 [ %32, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %8, %11 ]
   %.029.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %6, %11 ]
-  switch i32 %.pre-phi53.i.i.i.i.i.i, label %default.unreachable [
+  switch i32 %.pre-phi53.i.i.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit [
     i32 3, label %33
     i32 2, label %38
     i32 1, label %43
-    i32 0, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit
   ]
 
 33:                                               ; preds = %._crit_edge.i.i.i.i.i.i
@@ -4190,9 +4189,6 @@ _ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IR
   %.017.i.i.i.i = getelementptr inbounds nuw i8, ptr %.01734.i.i.i.i, i64 16
   %.not.i.i.i.i = icmp eq ptr %.017.i.i.i.i, %10
   br i1 %.not.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !290
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i.i
-  unreachable
 
 _ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit: ; preds = %57, %._crit_edge.i.i.i.i.i.i, %43, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i
   %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i ], [ %10, %._crit_edge.i.i.i.i.i.i ], [ %10, %43 ], [ %.1.i.i.i.i, %57 ]

@@ -1120,17 +1120,14 @@ define signext range(i8 0, 2) i8 @uset_serializedContains_77(ptr noundef readonl
   br i1 %20, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %12
-  %21 = icmp ult i32 %15, 2
-  br i1 %21, label %.thread, label %.lr.ph103.preheader
+  %21 = ashr i32 %15, 1
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %.thread, label %.lr.ph103
 
-.lr.ph103.preheader:                              ; preds = %.preheader
-  %22 = ashr i32 %15, 1
-  br label %.lr.ph103
-
-.lr.ph103:                                        ; preds = %.lr.ph103.preheader, %.lr.ph103
-  %23 = phi i32 [ %30, %.lr.ph103 ], [ %22, %.lr.ph103.preheader ]
-  %.076102 = phi i32 [ %.076., %.lr.ph103 ], [ 0, %.lr.ph103.preheader ]
-  %.180101 = phi i32 [ %..180, %.lr.ph103 ], [ %15, %.lr.ph103.preheader ]
+.lr.ph103:                                        ; preds = %.preheader, %.lr.ph103
+  %23 = phi i32 [ %30, %.lr.ph103 ], [ %21, %.preheader ]
+  %.076102 = phi i32 [ %.076., %.lr.ph103 ], [ 0, %.preheader ]
+  %.180101 = phi i32 [ %..180, %.lr.ph103 ], [ %15, %.preheader ]
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds i16, ptr %6, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !32

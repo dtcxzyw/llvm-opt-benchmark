@@ -1131,41 +1131,41 @@ define hidden void @checkStatus(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br label %.thread
 
 .thread:                                          ; preds = %7, %16, %11
-  %24 = and i32 %2, 16777215
-  %.not.i = icmp samesign ult i32 %24, 65536
-  br i1 %.not.i, label %25, label %getJavaErrorCode.exit
+  %24 = lshr i32 %2, 16
+  %25 = and i32 %24, 255
+  %.not.i = icmp eq i32 %25, 0
+  br i1 %.not.i, label %26, label %getJavaErrorCode.exit
 
-25:                                               ; preds = %.thread
-  %26 = and i32 %2, 2
-  %.not10.i = icmp eq i32 %26, 0
-  br i1 %.not10.i, label %27, label %getJavaErrorCode.exit.thread
+26:                                               ; preds = %.thread
+  %27 = and i32 %2, 2
+  %.not10.i = icmp eq i32 %27, 0
+  br i1 %.not10.i, label %28, label %getJavaErrorCode.exit.thread
 
-27:                                               ; preds = %25
-  %28 = and i32 %2, 4
-  %.not11.i = icmp eq i32 %28, 0
-  br i1 %.not11.i, label %29, label %getJavaErrorCode.exit.thread
+28:                                               ; preds = %26
+  %29 = and i32 %2, 4
+  %.not11.i = icmp eq i32 %29, 0
+  br i1 %.not11.i, label %30, label %getJavaErrorCode.exit.thread
 
-29:                                               ; preds = %27
-  %30 = and i32 %2, 8
-  %.not12.i = icmp eq i32 %30, 0
-  br i1 %.not12.i, label %31, label %getJavaErrorCode.exit.thread
+30:                                               ; preds = %28
+  %31 = and i32 %2, 8
+  %.not12.i = icmp eq i32 %31, 0
+  br i1 %.not12.i, label %32, label %getJavaErrorCode.exit.thread
 
-31:                                               ; preds = %29
-  %32 = and i32 %2, 16
-  %.not13.i = icmp eq i32 %32, 0
+32:                                               ; preds = %30
+  %33 = and i32 %2, 16
+  %.not13.i = icmp eq i32 %33, 0
   br i1 %.not13.i, label %getJavaErrorCode.exit.thread63, label %getJavaErrorCode.exit.thread
 
 getJavaErrorCode.exit:                            ; preds = %.thread
-  %33 = lshr i32 %24, 16
-  %34 = zext nneg i32 %33 to i64
+  %34 = zext nneg i32 %25 to i64
   %35 = getelementptr i32, ptr @JAVA_ERROR_CODE, i64 %34
   %36 = getelementptr i8, ptr %35, i64 -4
   %37 = load i32, ptr %36, align 4
   %.not52 = icmp eq i32 %37, 0
   br i1 %.not52, label %getJavaErrorCode.exit.thread63, label %getJavaErrorCode.exit.thread
 
-getJavaErrorCode.exit.thread:                     ; preds = %31, %29, %27, %25, %getJavaErrorCode.exit
-  %.0.i62 = phi i32 [ %37, %getJavaErrorCode.exit ], [ 22, %31 ], [ 21, %29 ], [ 20, %27 ], [ 19, %25 ]
+getJavaErrorCode.exit.thread:                     ; preds = %32, %30, %28, %26, %getJavaErrorCode.exit
+  %.0.i62 = phi i32 [ %37, %getJavaErrorCode.exit ], [ 22, %32 ], [ 21, %30 ], [ 20, %28 ], [ 19, %26 ]
   %.not54 = icmp eq i32 %3, 0
   br i1 %.not54, label %44, label %38
 
@@ -1189,7 +1189,7 @@ getJavaErrorCode.exit.thread:                     ; preds = %31, %29, %27, %25, 
   %.not56 = icmp eq ptr %50, null
   br i1 %.not56, label %67, label %.sink.split
 
-getJavaErrorCode.exit.thread63:                   ; preds = %31, %getJavaErrorCode.exit
+getJavaErrorCode.exit.thread63:                   ; preds = %32, %getJavaErrorCode.exit
   %switch.selectcmp = icmp eq i32 %8, 33554432
   %switch.select = select i1 %switch.selectcmp, ptr @.str.95, ptr @.str.96
   %switch.selectcmp57 = icmp eq i32 %8, 16777216

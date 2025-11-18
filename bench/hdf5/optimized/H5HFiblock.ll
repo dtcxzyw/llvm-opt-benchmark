@@ -2678,16 +2678,16 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_iblock_root_halve(ptr nou
   %15 = udiv i32 %12, %14
   %16 = zext i32 %15 to i64
   %17 = lshr i64 %16, 16
-  %.not23.i = icmp ult i32 %15, 65536
+  %.not23.i = icmp eq i64 %17, 0
   br i1 %.not23.i, label %30, label %18
 
 18:                                               ; preds = %10
-  %.not25.i = icmp ult i32 %15, 16777216
-  br i1 %.not25.i, label %25, label %19
+  %19 = lshr i64 %16, 24
+  %.not25.i = icmp eq i64 %19, 0
+  br i1 %.not25.i, label %25, label %20
 
-19:                                               ; preds = %18
-  %20 = lshr i64 %16, 24
-  %21 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %20
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %19
   %22 = load i8, ptr %21, align 1, !tbaa !107
   %23 = zext i8 %22 to i32
   %24 = add nuw nsw i32 %23, 24
@@ -2701,12 +2701,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_iblock_root_halve(ptr nou
   br label %H5VM_log2_gen.exit
 
 30:                                               ; preds = %10
-  %.not24.i = icmp samesign ult i32 %15, 256
-  br i1 %.not24.i, label %37, label %31
+  %31 = lshr i64 %16, 8
+  %.not24.i = icmp eq i64 %31, 0
+  br i1 %.not24.i, label %37, label %32
 
-31:                                               ; preds = %30
-  %32 = lshr i64 %16, 8
-  %33 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %32
+32:                                               ; preds = %30
+  %33 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %31
   %34 = load i8, ptr %33, align 1, !tbaa !107
   %35 = zext i8 %34 to i32
   %36 = add nuw nsw i32 %35, 8
@@ -2718,8 +2718,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_iblock_root_halve(ptr nou
   %40 = zext i8 %39 to i32
   br label %H5VM_log2_gen.exit
 
-H5VM_log2_gen.exit:                               ; preds = %19, %25, %31, %37
-  %.0.i = phi i32 [ %24, %19 ], [ %29, %25 ], [ %36, %31 ], [ %40, %37 ]
+H5VM_log2_gen.exit:                               ; preds = %20, %25, %32, %37
+  %.0.i = phi i32 [ %24, %20 ], [ %29, %25 ], [ %36, %32 ], [ %40, %37 ]
   %41 = shl nuw i32 2, %.0.i
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %43 = load ptr, ptr %42, align 8, !tbaa !61
@@ -2899,8 +2899,8 @@ H5VM_log2_gen.exit:                               ; preds = %19, %25, %31, %37
   %.not118 = icmp ne i32 %150, 0
   %.pre131 = load i32, ptr %79, align 8, !tbaa !30
   %151 = icmp ult i32 %41, %.pre131
-  %or.cond139 = select i1 %.not118, i1 %151, i1 false
-  br i1 %or.cond139, label %152, label %165
+  %or.cond141 = select i1 %.not118, i1 %151, i1 false
+  br i1 %or.cond141, label %152, label %165
 
 152:                                              ; preds = %149
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -3297,9 +3297,9 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_size(ptr noundef readnone captures
 15:                                               ; preds = %7
   %16 = call ptr @H5HF__man_iblock_protect(ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext false, i32 noundef 128, ptr noundef nonnull %8)
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %.preheader.thread100, label %21
+  br i1 %17, label %.preheader.thread106, label %21
 
-.preheader.thread100:                             ; preds = %15
+.preheader.thread106:                             ; preds = %15
   %18 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !48
   %19 = load i64, ptr @H5E_CANTLOAD_g, align 8, !tbaa !48
   %20 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5HF__man_iblock_size, i32 noundef 1683, i64 noundef %18, i64 noundef %19, ptr noundef nonnull @.str.46) #6
@@ -3340,21 +3340,21 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_size(ptr noundef readnone captures
   %50 = getelementptr inbounds nuw i64, ptr %48, i64 %49
   %51 = load i64, ptr %50, align 8, !tbaa !48
   %52 = lshr i64 %51, 32
-  %.not.i = icmp ult i64 %51, 4294967296
+  %.not.i = icmp eq i64 %52, 0
   br i1 %.not.i, label %79, label %53
 
 53:                                               ; preds = %32
   %54 = lshr i64 %51, 48
-  %.not26.i = icmp ult i64 %51, 281474976710656
+  %.not26.i = icmp eq i64 %54, 0
   br i1 %.not26.i, label %67, label %55
 
 55:                                               ; preds = %53
-  %.not28.i = icmp ult i64 %51, 72057594037927936
-  br i1 %.not28.i, label %62, label %56
+  %56 = lshr i64 %51, 56
+  %.not28.i = icmp eq i64 %56, 0
+  br i1 %.not28.i, label %62, label %57
 
-56:                                               ; preds = %55
-  %57 = lshr i64 %51, 56
-  %58 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %57
+57:                                               ; preds = %55
+  %58 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %56
   %59 = load i8, ptr %58, align 1, !tbaa !107
   %60 = zext i8 %59 to i32
   %61 = add nuw nsw i32 %60, 56
@@ -3368,12 +3368,12 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_size(ptr noundef readnone captures
   br label %.preheader67.lr.ph
 
 67:                                               ; preds = %53
-  %.not27.i = icmp samesign ult i64 %51, 1099511627776
-  br i1 %.not27.i, label %74, label %68
+  %68 = lshr i64 %51, 40
+  %.not27.i = icmp eq i64 %68, 0
+  br i1 %.not27.i, label %74, label %69
 
-68:                                               ; preds = %67
-  %69 = lshr i64 %51, 40
-  %70 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %69
+69:                                               ; preds = %67
+  %70 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %68
   %71 = load i8, ptr %70, align 1, !tbaa !107
   %72 = zext i8 %71 to i32
   %73 = add nuw nsw i32 %72, 40
@@ -3388,16 +3388,16 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_size(ptr noundef readnone captures
 
 79:                                               ; preds = %32
   %80 = lshr i64 %51, 16
-  %.not23.i = icmp samesign ult i64 %51, 65536
+  %.not23.i = icmp eq i64 %80, 0
   br i1 %.not23.i, label %93, label %81
 
 81:                                               ; preds = %79
-  %.not25.i = icmp samesign ult i64 %51, 16777216
-  br i1 %.not25.i, label %88, label %82
+  %82 = lshr i64 %51, 24
+  %.not25.i = icmp eq i64 %82, 0
+  br i1 %.not25.i, label %88, label %83
 
-82:                                               ; preds = %81
-  %83 = lshr i64 %51, 24
-  %84 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %83
+83:                                               ; preds = %81
+  %84 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %82
   %85 = load i8, ptr %84, align 1, !tbaa !107
   %86 = zext i8 %85 to i32
   %87 = add nuw nsw i32 %86, 24
@@ -3411,12 +3411,12 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_size(ptr noundef readnone captures
   br label %.preheader67.lr.ph
 
 93:                                               ; preds = %79
-  %.not24.i = icmp samesign ult i64 %51, 256
-  br i1 %.not24.i, label %100, label %94
+  %94 = lshr i64 %51, 8
+  %.not24.i = icmp eq i64 %94, 0
+  br i1 %.not24.i, label %100, label %95
 
-94:                                               ; preds = %93
-  %95 = lshr i64 %51, 8
-  %96 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %95
+95:                                               ; preds = %93
+  %96 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %94
   %97 = load i8, ptr %96, align 1, !tbaa !107
   %98 = zext i8 %97 to i32
   %99 = add nuw nsw i32 %98, 8
@@ -3428,8 +3428,8 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_size(ptr noundef readnone captures
   %103 = zext i8 %102 to i32
   br label %.preheader67.lr.ph
 
-.preheader67.lr.ph:                               ; preds = %100, %94, %88, %82, %74, %68, %62, %56
-  %.0.i = phi i32 [ %61, %56 ], [ %66, %62 ], [ %73, %68 ], [ %78, %74 ], [ %87, %82 ], [ %92, %88 ], [ %99, %94 ], [ %103, %100 ]
+.preheader67.lr.ph:                               ; preds = %100, %95, %88, %83, %74, %69, %62, %57
+  %.0.i = phi i32 [ %61, %57 ], [ %66, %62 ], [ %73, %69 ], [ %78, %74 ], [ %87, %83 ], [ %92, %88 ], [ %99, %95 ], [ %103, %100 ]
   %104 = add i32 %46, %41
   %105 = sub i32 %.0.i, %104
   %106 = getelementptr inbounds nuw i8, ptr %16, i64 344
@@ -3495,7 +3495,7 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_size(ptr noundef readnone captures
   br label %.lr.ph77
 
 .lr.ph77:                                         ; preds = %._crit_edge, %129, %21
-  %.150.ph99 = phi i32 [ 0, %21 ], [ -1, %129 ], [ 0, %._crit_edge ]
+  %.150.ph105 = phi i32 [ 0, %21 ], [ -1, %129 ], [ 0, %._crit_edge ]
   %133 = load i8, ptr %8, align 1, !tbaa !3, !range !7, !noundef !8
   %134 = trunc nuw i8 %133 to i1
   %135 = getelementptr inbounds nuw i8, ptr %16, i64 336
@@ -3513,7 +3513,7 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_size(ptr noundef readnone captures
   br i1 %143, label %.lr.ph88, label %H5HF__man_iblock_unprotect.exit.thread, !prof !115
 
 .lr.ph88:                                         ; preds = %.lr.ph77.split.split, %160
-  %.1507687 = phi i32 [ -1, %160 ], [ %.150.ph99, %.lr.ph77.split.split ]
+  %.1507687 = phi i32 [ -1, %160 ], [ %.150.ph105, %.lr.ph77.split.split ]
   %144 = load i64, ptr %135, align 8, !tbaa !45
   %145 = icmp eq i64 %144, 0
   %146 = load ptr, ptr %136, align 8, !tbaa !29
@@ -3558,8 +3558,8 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_size(ptr noundef readnone captures
   %172 = select i1 %168, i1 true, i1 %171
   br i1 %172, label %.lr.ph88, label %H5HF__man_iblock_unprotect.exit.thread, !prof !116
 
-H5HF__man_iblock_unprotect.exit.thread:           ; preds = %._crit_edge.i, %160, %.preheader.thread100, %.lr.ph77.split.split, %.lr.ph77, %7
-  %.049 = phi i32 [ 0, %7 ], [ %.150.ph99, %.lr.ph77 ], [ %.150.ph99, %.lr.ph77.split.split ], [ -1, %.preheader.thread100 ], [ %.1507687, %._crit_edge.i ], [ -1, %160 ]
+H5HF__man_iblock_unprotect.exit.thread:           ; preds = %._crit_edge.i, %160, %.preheader.thread106, %.lr.ph77.split.split, %.lr.ph77, %7
+  %.049 = phi i32 [ 0, %7 ], [ %.150.ph105, %.lr.ph77 ], [ %.150.ph105, %.lr.ph77.split.split ], [ -1, %.preheader.thread106 ], [ %.1507687, %._crit_edge.i ], [ -1, %160 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.049
 }

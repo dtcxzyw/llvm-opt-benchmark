@@ -1488,11 +1488,11 @@ _zend_dfg_add_use_def_op.exit:                    ; preds = %468, %.thread, %.lr
   call void @llvm.memset.p0.i64(ptr align 8 %492, i8 0, i64 %485, i1 false)
   br i1 %20, label %.lr.ph199, label %.preheader
 
-.preheader:                                       ; preds = %491
-  %493 = icmp eq i32 %7, 0
+.preheader:                                       ; preds = %.lr.ph199, %491
+  %493 = icmp eq i64 %484, 0
   br i1 %493, label %.thread170, label %.lr.ph.i.preheader.lr.ph
 
-.lr.ph.i.preheader.lr.ph:                         ; preds = %.lr.ph199, %.preheader
+.lr.ph.i.preheader.lr.ph:                         ; preds = %.preheader
   %494 = zext i32 %9 to i64
   %495 = shl nuw nsw i64 %494, 3
   %.not.i155 = icmp eq i32 %9, 0
@@ -1512,7 +1512,7 @@ _zend_dfg_add_use_def_op.exit:                    ; preds = %468, %.thread, %.lr
   store i64 %504, ptr %502, align 8, !tbaa !11
   %505 = add nuw nsw i32 %.1147197, 1
   %exitcond212.not = icmp eq i32 %505, %7
-  br i1 %exitcond212.not, label %.lr.ph.i.preheader.lr.ph, label %.lr.ph199
+  br i1 %exitcond212.not, label %.preheader, label %.lr.ph199
 
 506:                                              ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1553,7 +1553,7 @@ zend_bitset_empty.exit:                           ; preds = %.lr.ph.i, %509
   %.01220.i = phi i32 [ %516, %513 ], [ %519, %517 ]
   %518 = lshr i64 %.021.i, 1
   %519 = add nsw i32 %.01220.i, 1
-  %.not17.i = icmp ult i64 %.021.i, 2
+  %.not17.i = icmp eq i64 %518, 0
   br i1 %.not17.i, label %zend_bitset_last.exit, label %517
 
 zend_bitset_last.exit:                            ; preds = %zend_bitset_empty.exit, %517

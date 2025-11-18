@@ -6656,7 +6656,7 @@ Vec_IntPush.exit80:                               ; preds = %.Vec_IntGrow.exit10
   %127 = add nuw nsw i32 %.05982, 1
   %128 = lshr i64 %.05683, 1
   %129 = icmp samesign ult i32 %.05982, 63
-  %130 = icmp ugt i64 %.05683, 1
+  %130 = icmp ne i64 %128, 0
   %131 = and i1 %129, %130
   br i1 %131, label %.lr.ph85, label %.preheader, !llvm.loop !167
 
@@ -6679,7 +6679,7 @@ Vec_IntPush.exit80:                               ; preds = %.Vec_IntGrow.exit10
   %140 = add nuw nsw i32 %.16086, 1
   %141 = lshr i64 %.087, 1
   %142 = icmp samesign ult i32 %.16086, 63
-  %143 = icmp ugt i64 %.087, 1
+  %143 = icmp ne i64 %141, 0
   %144 = and i1 %142, %143
   br i1 %144, label %.lr.ph88, label %._crit_edge89, !llvm.loop !168
 

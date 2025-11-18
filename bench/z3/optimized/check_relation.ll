@@ -4677,11 +4677,11 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZNK15ref_vector_co
 _ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i:           ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit
   %202 = getelementptr inbounds i8, ptr %200, i64 -4
   %203 = load i32, ptr %202, align 4, !tbaa !14
-  %.not.i = icmp ult i32 %203, 2
+  %204 = lshr i32 %203, 1
+  %.not.i = icmp eq i32 %204, 0
   br i1 %.not.i, label %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit67, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i
-  %204 = lshr i32 %203, 1
   %wide.trip.count.i = zext nneg i32 %204 to i64
   br label %.lr.ph.i
 
@@ -10496,11 +10496,11 @@ _ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit.i.i: ; preds = %.noexc64, %173
   br i1 %exitcond.not.i.i, label %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i, label %.lr.ph.i.i, !llvm.loop !653
 
 _ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i:           ; preds = %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit.i.i
-  %.not.i65 = icmp ult i32 %185, 2
+  %186 = lshr i32 %185, 1
+  %.not.i65 = icmp eq i32 %186, 0
   br i1 %.not.i65, label %_ZN6vectorIP4sortLb0EjE7reverseEv.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i
-  %186 = lshr i32 %185, 1
   %wide.trip.count.i = zext nneg i32 %186 to i64
   br label %.lr.ph.i
 

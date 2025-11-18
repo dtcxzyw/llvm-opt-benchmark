@@ -1123,11 +1123,11 @@ define dso_local noundef zeroext i1 @_ZNK4llvm9ValueInfo10isDSOLocalEb(ptr nound
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 %19
-  %.not.i = icmp ult i64 %20, 4
+  %23 = lshr i64 %20, 2
+  %.not.i = icmp eq i64 %23, 0
   br i1 %.not.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %21
-  %23 = lshr i64 %20, 2
   %24 = and i64 %19, 9223372036854775776
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %6, i64 %24
   br label %.lr.ph.i.i.i.i.i
@@ -1182,11 +1182,10 @@ define dso_local noundef zeroext i1 @_ZNK4llvm9ValueInfo10isDSOLocalEb(ptr nound
 ._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %21
   %.pre-phi56.i.i.i.i.i = phi i64 [ %43, %._crit_edge.loopexit.i.i.i.i.i ], [ %20, %21 ]
   %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %6, %21 ]
-  switch i64 %.pre-phi56.i.i.i.i.i, label %default.unreachable [
+  switch i64 %.pre-phi56.i.i.i.i.i, label %57 [
     i64 3, label %44
     i64 2, label %49
     i64 1, label %54
-    i64 0, label %57
   ]
 
 44:                                               ; preds = %._crit_edge.i.i.i.i.i
@@ -1222,9 +1221,6 @@ define dso_local noundef zeroext i1 @_ZNK4llvm9ValueInfo10isDSOLocalEb(ptr nound
   %56 = and i16 %.2.val.val.i.i.i.i.i, 256
   %.not.i38.i.i.i.i.i = icmp eq i16 %56, 0
   br i1 %.not.i38.i.i.i.i.i, label %"_ZN4llvm6all_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZNKS_9ValueInfo10isDSOLocalEbE3$_0EEbOT_T0_.exit", label %57
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i
-  unreachable
 
 57:                                               ; preds = %54, %._crit_edge.i.i.i.i.i
   br label %"_ZN4llvm6all_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZNKS_9ValueInfo10isDSOLocalEbE3$_0EEbOT_T0_.exit"
@@ -1269,11 +1265,11 @@ define dso_local noundef zeroext i1 @_ZNK4llvm9ValueInfo11canAutoHideEv(ptr noun
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 %10
-  %.not.i = icmp ult i64 %11, 4
+  %14 = lshr i64 %11, 2
+  %.not.i = icmp eq i64 %14, 0
   br i1 %.not.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %12
-  %14 = lshr i64 %11, 2
   %15 = and i64 %10, 9223372036854775776
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %5, i64 %15
   br label %.lr.ph.i.i.i.i.i
@@ -1328,11 +1324,10 @@ define dso_local noundef zeroext i1 @_ZNK4llvm9ValueInfo11canAutoHideEv(ptr noun
 ._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %12
   %.pre-phi56.i.i.i.i.i = phi i64 [ %34, %._crit_edge.loopexit.i.i.i.i.i ], [ %11, %12 ]
   %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %5, %12 ]
-  switch i64 %.pre-phi56.i.i.i.i.i, label %default.unreachable [
+  switch i64 %.pre-phi56.i.i.i.i.i, label %48 [
     i64 3, label %35
     i64 2, label %40
     i64 1, label %45
-    i64 0, label %48
   ]
 
 35:                                               ; preds = %._crit_edge.i.i.i.i.i
@@ -1368,9 +1363,6 @@ define dso_local noundef zeroext i1 @_ZNK4llvm9ValueInfo11canAutoHideEv(ptr noun
   %47 = and i16 %.2.val.val.i.i.i.i.i, 512
   %.not.i38.i.i.i.i.i = icmp eq i16 %47, 0
   br i1 %.not.i38.i.i.i.i.i, label %"_ZN4llvm6all_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZNKS_9ValueInfo11canAutoHideEvE3$_0EEbOT_T0_.exit", label %48
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i
-  unreachable
 
 48:                                               ; preds = %45, %._crit_edge.i.i.i.i.i
   br label %"_ZN4llvm6all_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZNKS_9ValueInfo11canAutoHideEvE3$_0EEbOT_T0_.exit"

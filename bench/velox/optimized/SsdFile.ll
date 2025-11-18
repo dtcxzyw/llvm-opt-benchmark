@@ -7098,7 +7098,7 @@ if.then.i.i62:                                    ; preds = %for.end
   unreachable
 
 _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %for.end
-  %cmp.not.i.i.i.i49 = icmp samesign ult i64 %call40, 4
+  %cmp.not.i.i.i.i49 = icmp eq i64 %div18, 0
   br i1 %cmp.not.i.i.i.i49, label %invoke.cont43, label %if.then.i.i.i.i.i50
 
 if.then.i.i.i.i.i50:                              ; preds = %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i

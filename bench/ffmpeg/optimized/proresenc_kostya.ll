@@ -3805,7 +3805,7 @@ put_bits.exit43:                                  ; preds = %110, %118, %98
   %119 = add nsw i32 %94, %.sink
   store i32 %.026.i.i41, ptr %0, align 8, !tbaa !112
   store i32 %119, ptr %96, align 4, !tbaa !111
-  %.not31 = icmp samesign ult i32 %1, 32
+  %.not31 = icmp eq i32 %6, 0
   br i1 %.not31, label %148, label %120
 
 120:                                              ; preds = %put_bits.exit43

@@ -1479,7 +1479,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPPN7datalog16rule_transf
 60:                                               ; preds = %54
   %61 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i.i.i.i.i
   store ptr %56, ptr %61, align 8, !tbaa !20
-  %.not12.i.i.i = icmp ult i64 %.018.in.i.i.i.i.i, 2
+  %.not12.i.i.i = icmp eq i64 %.018.i.i1011.i.i.i, 0
   br i1 %.not12.i.i.i, label %_ZSt10__pop_heapIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_RT0_.exit.i.i, label %54, !llvm.loop !254
 
 _ZSt10__pop_heapIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_RT0_.exit.i.i: ; preds = %60, %54, %51

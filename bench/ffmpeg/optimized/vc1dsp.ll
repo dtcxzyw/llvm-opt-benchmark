@@ -9259,7 +9259,7 @@ define internal fastcc void @vc1_loop_filter(ptr noundef captures(none) %0, i32 
   %73 = xor i32 %72, %34
   %74 = sub nsw i32 %73, %72
   %75 = ashr i32 %74, 1
-  %.not.i = icmp ult i32 %74, 2
+  %.not.i = icmp eq i32 %75, 0
   br i1 %.not.i, label %vc1_filter_line.exit66, label %76
 
 76:                                               ; preds = %71
@@ -9360,7 +9360,7 @@ vc1_filter_line.exit:                             ; preds = %82, %76
   %149 = xor i32 %148, %110
   %150 = sub nsw i32 %149, %148
   %151 = ashr i32 %150, 1
-  %.not.i28 = icmp ult i32 %150, 2
+  %.not.i28 = icmp eq i32 %151, 0
   br i1 %.not.i28, label %vc1_filter_line.exit36, label %152
 
 152:                                              ; preds = %147
@@ -9462,7 +9462,7 @@ vc1_filter_line.exit36:                           ; preds = %118, %147, %152, %1
   %226 = xor i32 %225, %187
   %227 = sub nsw i32 %226, %225
   %228 = ashr i32 %227, 1
-  %.not.i43 = icmp ult i32 %227, 2
+  %.not.i43 = icmp eq i32 %228, 0
   br i1 %.not.i43, label %vc1_filter_line.exit51, label %229
 
 229:                                              ; preds = %224
@@ -9564,7 +9564,7 @@ vc1_filter_line.exit51:                           ; preds = %195, %224, %229, %2
   %303 = xor i32 %302, %264
   %304 = sub nsw i32 %303, %302
   %305 = ashr i32 %304, 1
-  %.not.i58 = icmp ult i32 %304, 2
+  %.not.i58 = icmp eq i32 %305, 0
   br i1 %.not.i58, label %vc1_filter_line.exit66, label %306
 
 306:                                              ; preds = %301

@@ -26,12 +26,12 @@ define range(i64 0, -1) i64 @PaUtil_SelectClosestAvailableFormat(i64 noundef %0,
   %8 = lshr i64 %.0, 1
   %9 = and i64 %8, %4
   %10 = icmp eq i64 %9, 0
-  %11 = icmp ugt i64 %.0, 1
+  %11 = icmp ne i64 %8, 0
   %12 = and i1 %11, %10
   br i1 %12, label %.preheader21, label %.loopexit, !llvm.loop !3
 
 .loopexit:                                        ; preds = %.preheader21
-  %13 = icmp ult i64 %.0, 2
+  %13 = icmp eq i64 %8, 0
   br i1 %13, label %.preheader.preheader, label %20
 
 .preheader.preheader:                             ; preds = %7, %.loopexit

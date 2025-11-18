@@ -6970,12 +6970,15 @@ define dso_local void @KeccakP1600_ExtractAndAddBytes(ptr noundef readonly captu
 
 9:                                                ; preds = %5
   %10 = lshr i32 %4, 3
-  %.not.i = icmp ult i32 %4, 8
-  %.pre = zext nneg i32 %10 to i64
-  br i1 %.not.i, label %KeccakP1600_ExtractAndAddLanes.exit, label %.lr.ph.i
+  %.not.i = icmp eq i32 %10, 0
+  br i1 %.not.i, label %KeccakP1600_ExtractAndAddLanes.exit, label %.lr.ph.preheader.i
 
-.lr.ph.i:                                         ; preds = %9, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %9 ]
+.lr.ph.preheader.i:                               ; preds = %9
+  %wide.trip.count.i = zext nneg i32 %10 to i64
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %11 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i
@@ -6984,16 +6987,17 @@ define dso_local void @KeccakP1600_ExtractAndAddBytes(ptr noundef readonly captu
   %16 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.i
   store i64 %15, ptr %16, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %.pre
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %KeccakP1600_ExtractAndAddLanes.exit, label %.lr.ph.i, !llvm.loop !18
 
 KeccakP1600_ExtractAndAddLanes.exit:              ; preds = %.lr.ph.i, %9
+  %.pre-phi = phi i64 [ 0, %9 ], [ %wide.trip.count.i, %.lr.ph.i ]
   %17 = and i32 %4, -8
   %18 = zext i32 %17 to i64
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 %18
   %21 = and i32 %4, 7
-  %22 = getelementptr inbounds nuw i64, ptr %0, i64 %.pre
+  %22 = getelementptr inbounds nuw i64, ptr %0, i64 %.pre-phi
   %23 = load i64, ptr %22, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %23, ptr %7, align 8

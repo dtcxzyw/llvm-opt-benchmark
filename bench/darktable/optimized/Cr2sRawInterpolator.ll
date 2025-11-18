@@ -155,7 +155,7 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator15interpolate_
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %17 = load i32, ptr %16, align 8, !tbaa !102, !noalias !97
   %18 = ashr i32 %17, 1
-  %19 = icmp ugt i32 %17, 1
+  %19 = icmp ne i32 %18, 0
   tail call void @llvm.assume(i1 %19)
   %20 = icmp sgt i32 %18, -1
   tail call void @llvm.assume(i1 %20)
@@ -569,7 +569,7 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator15interpolate_
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %17 = load i32, ptr %16, align 8, !tbaa !102, !noalias !130
   %18 = ashr i32 %17, 1
-  %19 = icmp ugt i32 %17, 1
+  %19 = icmp ne i32 %18, 0
   tail call void @llvm.assume(i1 %19)
   %20 = icmp sgt i32 %18, -1
   tail call void @llvm.assume(i1 %20)
@@ -991,7 +991,7 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator19interpolate_
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %16 = load i32, ptr %15, align 8, !tbaa !102, !noalias !146
   %17 = ashr i32 %16, 1
-  %18 = icmp ugt i32 %16, 1
+  %18 = icmp ne i32 %17, 0
   tail call void @llvm.assume(i1 %18)
   %19 = icmp sgt i32 %17, -1
   tail call void @llvm.assume(i1 %19)
@@ -1289,7 +1289,7 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator19interpolate_
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %16 = load i32, ptr %15, align 8, !tbaa !102, !noalias !158
   %17 = ashr i32 %16, 1
-  %18 = icmp ugt i32 %16, 1
+  %18 = icmp ne i32 %17, 0
   tail call void @llvm.assume(i1 %18)
   %19 = icmp sgt i32 %17, -1
   tail call void @llvm.assume(i1 %19)
@@ -1596,7 +1596,7 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator19interpolate_
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %16 = load i32, ptr %15, align 8, !tbaa !102, !noalias !170
   %17 = ashr i32 %16, 1
-  %18 = icmp ugt i32 %16, 1
+  %18 = icmp ne i32 %17, 0
   tail call void @llvm.assume(i1 %18)
   %19 = icmp sgt i32 %17, -1
   tail call void @llvm.assume(i1 %19)
@@ -1891,7 +1891,7 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator19interpolate_
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %18 = load i32, ptr %17, align 8, !tbaa !102, !noalias !182
   %19 = ashr i32 %18, 1
-  %20 = icmp ugt i32 %18, 1
+  %20 = icmp ne i32 %19, 0
   tail call void @llvm.assume(i1 %20)
   %21 = icmp sgt i32 %19, -1
   tail call void @llvm.assume(i1 %21)
@@ -2371,7 +2371,7 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator19interpolate_
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %18 = load i32, ptr %17, align 8, !tbaa !102, !noalias !199
   %19 = ashr i32 %18, 1
-  %20 = icmp ugt i32 %18, 1
+  %20 = icmp ne i32 %19, 0
   tail call void @llvm.assume(i1 %20)
   %21 = icmp sgt i32 %19, -1
   tail call void @llvm.assume(i1 %21)

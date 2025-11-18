@@ -2714,18 +2714,15 @@ define hidden noundef ptr @_ZNK4Node5cloneEv(ptr noundef nonnull align 8 derefer
 _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %31, %33
   %.0.i.i = phi ptr [ %27, %31 ], [ %34, %33 ]
   %35 = zext i32 %11 to i64
-  %.not8.i = icmp eq i32 %11, 0
-  br i1 %.not8.i, label %_ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %_ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit
   %36 = add nuw nsw i64 %35, 7
   %37 = lshr i64 %36, 3
-  br label %.lr.ph.i
+  %.not8.i = icmp eq i64 %37, 0
+  br i1 %.not8.i, label %_ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.011.i = phi i64 [ %38, %.lr.ph.i ], [ %37, %.lr.ph.preheader.i ]
-  %.0610.i = phi ptr [ %39, %.lr.ph.i ], [ %0, %.lr.ph.preheader.i ]
-  %.079.i = phi ptr [ %41, %.lr.ph.i ], [ %.0.i.i, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %_ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit, %.lr.ph.i
+  %.011.i = phi i64 [ %38, %.lr.ph.i ], [ %37, %_ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit ]
+  %.0610.i = phi ptr [ %39, %.lr.ph.i ], [ %0, %_ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit ]
+  %.079.i = phi ptr [ %41, %.lr.ph.i ], [ %.0.i.i, %_ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit ]
   %38 = add nsw i64 %.011.i, -1
   %39 = getelementptr inbounds nuw i8, ptr %.0610.i, i64 8
   %40 = load ptr, ptr %.0610.i, align 8
@@ -4780,27 +4777,27 @@ _ZN4Node7del_outEPS_.exit:                        ; preds = %20, %8, %2
   %27 = add i32 %26, -1
   store i32 %27, ptr %25, align 8
   %28 = icmp ult i32 %1, %27
-  br i1 %28, label %.lr.ph.preheader.i, label %_ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit
+  br i1 %28, label %29, label %_ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit
 
-.lr.ph.preheader.i:                               ; preds = %_ZN4Node7del_outEPS_.exit
-  %29 = sub nuw i32 %27, %1
-  %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %.pre21, i64 %5
-  %32 = add nuw i32 %1, 1
-  %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %.pre21, i64 %33
+29:                                               ; preds = %_ZN4Node7del_outEPS_.exit
+  %30 = add nuw i32 %1, 1
+  %31 = zext i32 %30 to i64
+  %32 = getelementptr inbounds nuw ptr, ptr %.pre21, i64 %31
+  %33 = getelementptr inbounds nuw ptr, ptr %.pre21, i64 %5
+  %34 = sub nuw i32 %27, %1
+  %35 = zext i32 %34 to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.011.i = phi i64 [ %35, %.lr.ph.i ], [ %30, %.lr.ph.preheader.i ]
-  %.0610.i = phi ptr [ %36, %.lr.ph.i ], [ %34, %.lr.ph.preheader.i ]
-  %.079.i = phi ptr [ %38, %.lr.ph.i ], [ %31, %.lr.ph.preheader.i ]
-  %35 = add nsw i64 %.011.i, -1
-  %36 = getelementptr inbounds nuw i8, ptr %.0610.i, i64 8
-  %37 = load ptr, ptr %.0610.i, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %.079.i, i64 8
-  store ptr %37, ptr %.079.i, align 8
-  %.not.i9 = icmp eq i64 %35, 0
+.lr.ph.i:                                         ; preds = %29, %.lr.ph.i
+  %.011.i = phi i64 [ %36, %.lr.ph.i ], [ %35, %29 ]
+  %.0610.i = phi ptr [ %37, %.lr.ph.i ], [ %32, %29 ]
+  %.079.i = phi ptr [ %39, %.lr.ph.i ], [ %33, %29 ]
+  %36 = add nsw i64 %.011.i, -1
+  %37 = getelementptr inbounds nuw i8, ptr %.0610.i, i64 8
+  %38 = load ptr, ptr %.0610.i, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %.079.i, i64 8
+  store ptr %38, ptr %.079.i, align 8
+  %.not.i9 = icmp eq i64 %36, 0
   br i1 %.not.i9, label %_ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit.loopexit, label %.lr.ph.i, !llvm.loop !6
 
 _ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit.loopexit: ; preds = %.lr.ph.i
@@ -4809,56 +4806,56 @@ _ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit.loopexit: ; preds 
   br label %_ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit
 
 _ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit: ; preds = %_ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit.loopexit, %_ZN4Node7del_outEPS_.exit
-  %39 = phi ptr [ %.pre20, %_ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit.loopexit ], [ %.pre21, %_ZN4Node7del_outEPS_.exit ]
-  %40 = phi i32 [ %.pre, %_ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit.loopexit ], [ %27, %_ZN4Node7del_outEPS_.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %42 = load i32, ptr %41, align 4
-  %43 = add i32 %42, -1
-  %44 = icmp ult i32 %40, %43
-  %45 = zext i32 %40 to i64
-  br i1 %44, label %.lr.ph.i10, label %_ZN4Node17close_prec_gap_atEj.exit
+  %40 = phi ptr [ %.pre20, %_ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit.loopexit ], [ %.pre21, %_ZN4Node7del_outEPS_.exit ]
+  %41 = phi i32 [ %.pre, %_ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit.loopexit ], [ %27, %_ZN4Node7del_outEPS_.exit ]
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %43 = load i32, ptr %42, align 4
+  %44 = add i32 %43, -1
+  %45 = icmp ult i32 %41, %44
+  %46 = zext i32 %41 to i64
+  br i1 %45, label %.lr.ph.i10, label %_ZN4Node17close_prec_gap_atEj.exit
 
 .lr.ph.i10:                                       ; preds = %_ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit
-  %wide.trip.count.i = zext i32 %43 to i64
-  %indvars.iv.next.i14 = add nuw nsw i64 %45, 1
-  %46 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv.next.i14
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %._crit_edge.i, label %.lr.ph, !llvm.loop !23
+  %wide.trip.count.i = zext i32 %44 to i64
+  %indvars.iv.next.i14 = add nuw nsw i64 %46, 1
+  %47 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.next.i14
+  %48 = load ptr, ptr %47, align 8
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %._crit_edge.i, label %.lr.ph, !llvm.loop !23
 
 .lr.ph:                                           ; preds = %.lr.ph.i10
-  br label %49, !llvm.loop !23
+  br label %50, !llvm.loop !23
 
-49:                                               ; preds = %.lr.ph, %51
-  %50 = phi ptr [ %47, %.lr.ph ], [ %53, %51 ]
-  %indvars.iv.next.i15 = phi i64 [ %indvars.iv.next.i14, %.lr.ph ], [ %indvars.iv.next.i, %51 ]
+50:                                               ; preds = %.lr.ph, %52
+  %51 = phi ptr [ %48, %.lr.ph ], [ %54, %52 ]
+  %indvars.iv.next.i15 = phi i64 [ %indvars.iv.next.i14, %.lr.ph ], [ %indvars.iv.next.i, %52 ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i15, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN4Node17close_prec_gap_atEj.exit, label %51, !llvm.loop !23
+  br i1 %exitcond.not.i, label %_ZN4Node17close_prec_gap_atEj.exit, label %52, !llvm.loop !23
 
-51:                                               ; preds = %49
+52:                                               ; preds = %50
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.next.i15, 1
-  %52 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv.next.i
-  %53 = load ptr, ptr %52, align 8
-  %54 = icmp eq ptr %53, null
-  br i1 %54, label %.._crit_edge.i_crit_edge, label %49, !llvm.loop !23
+  %53 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.next.i
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %.._crit_edge.i_crit_edge, label %50, !llvm.loop !23
 
-.._crit_edge.i_crit_edge:                         ; preds = %51
+.._crit_edge.i_crit_edge:                         ; preds = %52
   br label %._crit_edge.i, !llvm.loop !23
 
 ._crit_edge.i:                                    ; preds = %.._crit_edge.i_crit_edge, %.lr.ph.i10
-  %indvars.iv.i.lcssa = phi i64 [ %indvars.iv.next.i15, %.._crit_edge.i_crit_edge ], [ %45, %.lr.ph.i10 ]
-  %.0911.i.lcssa = phi ptr [ %50, %.._crit_edge.i_crit_edge ], [ null, %.lr.ph.i10 ]
+  %indvars.iv.i.lcssa = phi i64 [ %indvars.iv.next.i15, %.._crit_edge.i_crit_edge ], [ %46, %.lr.ph.i10 ]
+  %.0911.i.lcssa = phi ptr [ %51, %.._crit_edge.i_crit_edge ], [ null, %.lr.ph.i10 ]
   %.pre24.i = and i64 %indvars.iv.i.lcssa, 4294967295
   br label %_ZN4Node17close_prec_gap_atEj.exit, !llvm.loop !23
 
-_ZN4Node17close_prec_gap_atEj.exit:               ; preds = %49, %_ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit, %._crit_edge.i
-  %.pre-phi25.i = phi i64 [ %.pre24.i, %._crit_edge.i ], [ %45, %_ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit ], [ %wide.trip.count.i, %49 ]
-  %.09.lcssa.i = phi ptr [ %.0911.i.lcssa, %._crit_edge.i ], [ null, %_ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit ], [ %50, %49 ]
-  %55 = getelementptr inbounds nuw ptr, ptr %39, i64 %45
-  store ptr %.09.lcssa.i, ptr %55, align 8
-  %56 = load ptr, ptr %3, align 8
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %.pre-phi25.i
-  store ptr null, ptr %57, align 8
+_ZN4Node17close_prec_gap_atEj.exit:               ; preds = %50, %_ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit, %._crit_edge.i
+  %.pre-phi25.i = phi i64 [ %.pre24.i, %._crit_edge.i ], [ %46, %_ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit ], [ %wide.trip.count.i, %50 ]
+  %.09.lcssa.i = phi ptr [ %.0911.i.lcssa, %._crit_edge.i ], [ null, %_ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit ], [ %51, %50 ]
+  %56 = getelementptr inbounds nuw ptr, ptr %40, i64 %46
+  store ptr %.09.lcssa.i, ptr %56, align 8
+  %57 = load ptr, ptr %3, align 8
+  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %.pre-phi25.i
+  store ptr null, ptr %58, align 8
   ret void
 }
 
@@ -6639,19 +6636,19 @@ _ZN4Node18find_exact_controlEPS_.exit:            ; preds = %40, %_ZNK10RegionNo
 112:                                              ; preds = %108
   %113 = load i32, ptr %8, align 8
   %.not8.i.i.i = icmp eq i32 %113, %110
-  br i1 %.not8.i.i.i, label %_ZN9Node_List6removeEj.exit, label %.lr.ph.preheader.i.i.i
+  br i1 %.not8.i.i.i, label %_ZN9Node_List6removeEj.exit, label %.lr.ph.i.preheader.i.i
 
-.lr.ph.preheader.i.i.i:                           ; preds = %112
+.lr.ph.i.preheader.i.i:                           ; preds = %112
   %114 = sub i32 %113, %110
   %115 = zext i32 %114 to i64
   %116 = and i64 %indvars.iv, 4294967295
   %117 = getelementptr inbounds nuw ptr, ptr %95, i64 %116
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
-  %.011.i.i.i = phi i64 [ %118, %.lr.ph.i.i.i ], [ %115, %.lr.ph.preheader.i.i.i ]
-  %.0610.i.i.i = phi ptr [ %119, %.lr.ph.i.i.i ], [ %117, %.lr.ph.preheader.i.i.i ]
-  %.079.i.i.i = phi ptr [ %121, %.lr.ph.i.i.i ], [ %109, %.lr.ph.preheader.i.i.i ]
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.preheader.i.i
+  %.011.i.i.i = phi i64 [ %118, %.lr.ph.i.i.i ], [ %115, %.lr.ph.i.preheader.i.i ]
+  %.0610.i.i.i = phi ptr [ %119, %.lr.ph.i.i.i ], [ %117, %.lr.ph.i.preheader.i.i ]
+  %.079.i.i.i = phi ptr [ %121, %.lr.ph.i.i.i ], [ %109, %.lr.ph.i.preheader.i.i ]
   %118 = add nsw i64 %.011.i.i.i, -1
   %119 = getelementptr inbounds nuw i8, ptr %.0610.i.i.i, i64 8
   %120 = load ptr, ptr %.0610.i.i.i, align 8
@@ -6661,26 +6658,26 @@ _ZN4Node18find_exact_controlEPS_.exit:            ; preds = %40, %_ZNK10RegionNo
   br i1 %.not.i.i.i, label %_ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !6
 
 _ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit.loopexit.i.i: ; preds = %.lr.ph.i.i.i
-  %.pre.i.i = load i32, ptr %8, align 8
-  %.pre = load ptr, ptr %6, align 8
+  %.pre.i.i = load ptr, ptr %6, align 8
+  %.pre3.i.i = load i32, ptr %8, align 8
   br label %_ZN9Node_List6removeEj.exit
 
 _ZN9Node_List6removeEj.exit:                      ; preds = %112, %_ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit.loopexit.i.i
-  %122 = phi ptr [ %.pre, %_ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit.loopexit.i.i ], [ %95, %112 ]
-  %123 = phi i32 [ %.pre.i.i, %_ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit.loopexit.i.i ], [ %110, %112 ]
-  %124 = add i32 %123, -1
+  %122 = phi i32 [ %.pre3.i.i, %_ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit.loopexit.i.i ], [ %110, %112 ]
+  %123 = phi ptr [ %.pre.i.i, %_ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit.loopexit.i.i ], [ %95, %112 ]
+  %124 = add i32 %122, -1
   %125 = zext i32 %124 to i64
-  %126 = getelementptr inbounds nuw ptr, ptr %122, i64 %125
+  %126 = getelementptr inbounds nuw ptr, ptr %123, i64 %125
   store ptr null, ptr %126, align 8
   %127 = load i32, ptr %5, align 8
   %128 = add i32 %127, -1
   store i32 %128, ptr %5, align 8
-  %.pre125 = load i32, ptr %84, align 8
+  %.pre = load i32, ptr %84, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %97, %_ZN9Node_List6removeEj.exit
   %129 = phi i32 [ %128, %_ZN9Node_List6removeEj.exit ], [ %94, %97 ]
-  %130 = phi i32 [ %.pre125, %_ZN9Node_List6removeEj.exit ], [ %85, %97 ]
+  %130 = phi i32 [ %.pre, %_ZN9Node_List6removeEj.exit ], [ %85, %97 ]
   %131 = icmp ugt i32 %130, 1
   br i1 %131, label %.lr.ph, label %._crit_edge
 
@@ -6727,7 +6724,7 @@ _ZN9Node_List6removeEj.exit:                      ; preds = %112, %_ZN4Copy23con
   store i32 %148, ptr %5, align 8
   %149 = load i32, ptr %8, align 8
   %.not.i.i = icmp ult i32 %129, %149
-  %.pre127 = load ptr, ptr %6, align 8
+  %.pre126 = load ptr, ptr %6, align 8
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %150
 
 150:                                              ; preds = %._crit_edge
@@ -6743,7 +6740,7 @@ _ZN9Node_List6removeEj.exit:                      ; preds = %112, %_ZN4Copy23con
   %157 = shl nuw nsw i64 %156, 3
   %158 = zext i32 %.0.i.i.i.i.i to i64
   %159 = shl nuw nsw i64 %158, 3
-  %160 = tail call noundef ptr @_ZN5Arena8AreallocEPvmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %155, ptr noundef %.pre127, i64 noundef %157, i64 noundef %159, i32 noundef 0) #15
+  %160 = tail call noundef ptr @_ZN5Arena8AreallocEPvmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %155, ptr noundef %.pre126, i64 noundef %157, i64 noundef %159, i32 noundef 0) #15
   store ptr %160, ptr %6, align 8
   %161 = getelementptr inbounds nuw ptr, ptr %160, i64 %156
   %162 = load i32, ptr %8, align 8
@@ -6751,11 +6748,11 @@ _ZN9Node_List6removeEj.exit:                      ; preds = %112, %_ZN4Copy23con
   %164 = zext i32 %163 to i64
   %165 = shl nuw nsw i64 %164, 3
   tail call void @llvm.memset.p0.i64(ptr align 1 %161, i8 0, i64 %165, i1 false)
-  %.pre126 = load ptr, ptr %6, align 8
+  %.pre125 = load ptr, ptr %6, align 8
   br label %_ZN9Node_List4pushEP4Node.exit
 
 _ZN9Node_List4pushEP4Node.exit:                   ; preds = %._crit_edge, %150
-  %166 = phi ptr [ %.pre127, %._crit_edge ], [ %.pre126, %150 ]
+  %166 = phi ptr [ %.pre126, %._crit_edge ], [ %.pre125, %150 ]
   %167 = zext i32 %129 to i64
   %168 = getelementptr inbounds nuw ptr, ptr %166, i64 %167
   store ptr %147, ptr %168, align 8
@@ -6773,8 +6770,8 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %._crit_edge, %150
   %or.cond85 = select i1 %or.cond84, i1 true, i1 %172
   %173 = add nsw i32 %.2, -1
   %.not = icmp eq ptr %.072, null
-  %or.cond147 = or i1 %or.cond85, %.not
-  br i1 %or.cond147, label %.loopexit88, label %.lr.ph105, !llvm.loop !36
+  %or.cond146 = or i1 %or.cond85, %.not
+  br i1 %or.cond146, label %.loopexit88, label %.lr.ph105, !llvm.loop !36
 
 .loopexit88:                                      ; preds = %18, %108, %.critedge81, %21, %.lr.ph105, %3, %33
   %.0 = phi i1 [ %34, %33 ], [ false, %3 ], [ true, %18 ], [ false, %108 ], [ false, %.critedge81 ], [ false, %21 ], [ false, %.lr.ph105 ]
@@ -8084,27 +8081,27 @@ _ZN4Copy24conjoint_words_to_higherEPKP12HeapWordImplPS1_m.exit: ; preds = %_ZN4C
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN10Node_Array6removeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 8
-  %6 = xor i32 %1, -1
-  %7 = add i32 %5, %6
-  %.not8.i = icmp eq i32 %7, 0
-  br i1 %.not8.i, label %_ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit, label %.lr.ph.preheader.i
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load i32, ptr %5, align 8
+  %7 = xor i32 %1, -1
+  %8 = add i32 %6, %7
+  %.not8.i = icmp eq i32 %8, 0
+  br i1 %.not8.i, label %_ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit, label %.lr.ph.i.preheader
 
-.lr.ph.preheader.i:                               ; preds = %2
-  %8 = zext i32 %7 to i64
-  %9 = load ptr, ptr %3, align 8
+.lr.ph.i.preheader:                               ; preds = %2
+  %9 = zext i32 %8 to i64
   %10 = zext i32 %1 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %10
   %12 = add i32 %1, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %9, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %4, i64 %13
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.011.i = phi i64 [ %15, %.lr.ph.i ], [ %8, %.lr.ph.preheader.i ]
-  %.0610.i = phi ptr [ %16, %.lr.ph.i ], [ %14, %.lr.ph.preheader.i ]
-  %.079.i = phi ptr [ %18, %.lr.ph.i ], [ %11, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+  %.011.i = phi i64 [ %15, %.lr.ph.i ], [ %9, %.lr.ph.i.preheader ]
+  %.0610.i = phi ptr [ %16, %.lr.ph.i ], [ %14, %.lr.ph.i.preheader ]
+  %.079.i = phi ptr [ %18, %.lr.ph.i ], [ %11, %.lr.ph.i.preheader ]
   %15 = add nsw i64 %.011.i, -1
   %16 = getelementptr inbounds nuw i8, ptr %.0610.i, i64 8
   %17 = load ptr, ptr %.0610.i, align 8
@@ -8114,12 +8111,13 @@ define hidden void @_ZN10Node_Array6removeEj(ptr noundef nonnull readonly align 
   br i1 %.not.i, label %_ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit.loopexit, label %.lr.ph.i, !llvm.loop !6
 
 _ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit.loopexit: ; preds = %.lr.ph.i
-  %.pre = load i32, ptr %4, align 8
+  %.pre = load ptr, ptr %3, align 8
+  %.pre3 = load i32, ptr %5, align 8
   br label %_ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit
 
 _ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit: ; preds = %_ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit.loopexit, %2
-  %19 = phi i32 [ %.pre, %_ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit.loopexit ], [ %5, %2 ]
-  %20 = load ptr, ptr %3, align 8
+  %19 = phi i32 [ %.pre3, %_ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit.loopexit ], [ %6, %2 ]
+  %20 = phi ptr [ %.pre, %_ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit.loopexit ], [ %4, %2 ]
   %21 = add i32 %19, -1
   %22 = zext i32 %21 to i64
   %23 = getelementptr inbounds nuw ptr, ptr %20, i64 %22

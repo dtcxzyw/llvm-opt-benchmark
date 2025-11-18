@@ -2215,7 +2215,7 @@ do.end342:                                        ; preds = %_ZNK2v820FunctionCa
   %div89 = lshr i32 %call344, 1
   %preopenc = getelementptr inbounds nuw i8, ptr %options, i64 4
   store i32 %div89, ptr %preopenc, align 4
-  %cmp.i.i101 = icmp ult i32 %call344, 2
+  %cmp.i.i101 = icmp eq i32 %div89, 0
   br i1 %cmp.i.i101, label %_ZN4node6CallocI16uvwasi_preopen_sEEPT_m.exit, label %_ZN4node15UncheckedCallocI16uvwasi_preopen_sEEPT_m.exit.i
 
 _ZN4node15UncheckedCallocI16uvwasi_preopen_sEEPT_m.exit.i: ; preds = %do.end342
@@ -23607,7 +23607,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %sw.bb
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ptr.0.i.i, i64 -1
   store i8 %add.i.i, ptr %incdec.ptr.i.i, align 1, !noalias !44
   %shr.i.i = lshr i64 %v.0.i.i, 3
-  %cmp.not.i.i = icmp samesign ult i64 %v.0.i.i, 8
+  %cmp.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.not.i.i, label %_ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i, !llvm.loop !47
 
 _ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i
@@ -23641,7 +23641,7 @@ do.body.i.i36:                                    ; preds = %do.body.i.i36, %sw.
   %incdec.ptr.i.i40 = getelementptr inbounds i8, ptr %ptr.0.i.i37, i64 -1
   store i8 %5, ptr %incdec.ptr.i.i40, align 1, !noalias !51
   %shr.i.i41 = lshr i64 %v.0.i.i38, 4
-  %cmp.not.i.i42 = icmp samesign ult i64 %v.0.i.i38, 16
+  %cmp.not.i.i42 = icmp eq i64 %shr.i.i41, 0
   br i1 %cmp.not.i.i42, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i36, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i36
@@ -23675,7 +23675,7 @@ do.body.i.i50:                                    ; preds = %do.body.i.i50, %sw.
   %incdec.ptr.i.i55 = getelementptr inbounds i8, ptr %ptr.0.i.i51, i64 -1
   store i8 %7, ptr %incdec.ptr.i.i55, align 1, !noalias !58
   %shr.i.i56 = lshr i64 %v.0.i.i52, 4
-  %cmp.not.i.i57 = icmp samesign ult i64 %v.0.i.i52, 16
+  %cmp.not.i.i57 = icmp eq i64 %shr.i.i56, 0
   br i1 %cmp.not.i.i57, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit61, label %do.body.i.i50, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit61: ; preds = %do.body.i.i50
@@ -23859,7 +23859,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %sw.bb
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ptr.0.i.i, i64 -1
   store i8 %add.i.i, ptr %incdec.ptr.i.i, align 1, !noalias !73
   %shr.i.i = lshr i64 %v.0.i.i, 3
-  %cmp.not.i.i = icmp samesign ult i64 %v.0.i.i, 8
+  %cmp.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.not.i.i, label %_ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i, !llvm.loop !47
 
 _ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i
@@ -23893,7 +23893,7 @@ do.body.i.i19:                                    ; preds = %do.body.i.i19, %sw.
   %incdec.ptr.i.i23 = getelementptr inbounds i8, ptr %ptr.0.i.i20, i64 -1
   store i8 %5, ptr %incdec.ptr.i.i23, align 1, !noalias !79
   %shr.i.i24 = lshr i64 %v.0.i.i21, 4
-  %cmp.not.i.i25 = icmp samesign ult i64 %v.0.i.i21, 16
+  %cmp.not.i.i25 = icmp eq i64 %shr.i.i24, 0
   br i1 %cmp.not.i.i25, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i19, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i19
@@ -23927,7 +23927,7 @@ do.body.i.i33:                                    ; preds = %do.body.i.i33, %sw.
   %incdec.ptr.i.i38 = getelementptr inbounds i8, ptr %ptr.0.i.i34, i64 -1
   store i8 %7, ptr %incdec.ptr.i.i38, align 1, !noalias !85
   %shr.i.i39 = lshr i64 %v.0.i.i35, 4
-  %cmp.not.i.i40 = icmp samesign ult i64 %v.0.i.i35, 16
+  %cmp.not.i.i40 = icmp eq i64 %shr.i.i39, 0
   br i1 %cmp.not.i.i40, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit44, label %do.body.i.i33, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit44: ; preds = %do.body.i.i33
@@ -24244,7 +24244,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %sw.bb
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ptr.0.i.i, i64 -1
   store i8 %add.i.i, ptr %incdec.ptr.i.i, align 1, !noalias !107
   %shr.i.i = lshr i64 %v.0.i.i, 3
-  %cmp.not.i.i = icmp samesign ult i64 %v.0.i.i, 8
+  %cmp.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.not.i.i, label %_ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i, !llvm.loop !47
 
 _ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i
@@ -24278,7 +24278,7 @@ do.body.i.i38:                                    ; preds = %do.body.i.i38, %sw.
   %incdec.ptr.i.i42 = getelementptr inbounds i8, ptr %ptr.0.i.i39, i64 -1
   store i8 %5, ptr %incdec.ptr.i.i42, align 1, !noalias !113
   %shr.i.i43 = lshr i64 %v.0.i.i40, 4
-  %cmp.not.i.i44 = icmp samesign ult i64 %v.0.i.i40, 16
+  %cmp.not.i.i44 = icmp eq i64 %shr.i.i43, 0
   br i1 %cmp.not.i.i44, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i38, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i38
@@ -24312,7 +24312,7 @@ do.body.i.i52:                                    ; preds = %do.body.i.i52, %sw.
   %incdec.ptr.i.i57 = getelementptr inbounds i8, ptr %ptr.0.i.i53, i64 -1
   store i8 %7, ptr %incdec.ptr.i.i57, align 1, !noalias !119
   %shr.i.i58 = lshr i64 %v.0.i.i54, 4
-  %cmp.not.i.i59 = icmp samesign ult i64 %v.0.i.i54, 16
+  %cmp.not.i.i59 = icmp eq i64 %shr.i.i58, 0
   br i1 %cmp.not.i.i59, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit63, label %do.body.i.i52, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit63: ; preds = %do.body.i.i52
@@ -24497,7 +24497,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %sw.bb
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ptr.0.i.i, i64 -1
   store i8 %add.i.i, ptr %incdec.ptr.i.i, align 1, !noalias !139
   %shr.i.i = lshr i64 %v.0.i.i, 3
-  %cmp.not.i.i = icmp ult i64 %v.0.i.i, 8
+  %cmp.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.not.i.i, label %_ZN4node12ToBaseStringILj3EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i, !llvm.loop !142
 
 _ZN4node12ToBaseStringILj3EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i
@@ -24530,7 +24530,7 @@ do.body.i.i35:                                    ; preds = %do.body.i.i35, %sw.
   %incdec.ptr.i.i39 = getelementptr inbounds i8, ptr %ptr.0.i.i36, i64 -1
   store i8 %5, ptr %incdec.ptr.i.i39, align 1, !noalias !146
   %shr.i.i40 = lshr i64 %v.0.i.i37, 4
-  %cmp.not.i.i41 = icmp ult i64 %v.0.i.i37, 16
+  %cmp.not.i.i41 = icmp eq i64 %shr.i.i40, 0
   br i1 %cmp.not.i.i41, label %_ZN4node12ToBaseStringILj4EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i35, !llvm.loop !149
 
 _ZN4node12ToBaseStringILj4EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i35
@@ -24563,7 +24563,7 @@ do.body.i.i48:                                    ; preds = %do.body.i.i48, %sw.
   %incdec.ptr.i.i53 = getelementptr inbounds i8, ptr %ptr.0.i.i49, i64 -1
   store i8 %7, ptr %incdec.ptr.i.i53, align 1, !noalias !153
   %shr.i.i54 = lshr i64 %v.0.i.i50, 4
-  %cmp.not.i.i55 = icmp ult i64 %v.0.i.i50, 16
+  %cmp.not.i.i55 = icmp eq i64 %shr.i.i54, 0
   br i1 %cmp.not.i.i55, label %_ZN4node12ToBaseStringILj4EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit59, label %do.body.i.i48, !llvm.loop !149
 
 _ZN4node12ToBaseStringILj4EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit59: ; preds = %do.body.i.i48
@@ -24863,7 +24863,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %sw.bb
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ptr.0.i.i, i64 -1
   store i8 %add.i.i, ptr %incdec.ptr.i.i, align 1, !noalias !175
   %shr.i.i = lshr i64 %v.0.i.i, 3
-  %cmp.not.i.i = icmp samesign ult i64 %v.0.i.i, 8
+  %cmp.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.not.i.i, label %_ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i, !llvm.loop !47
 
 _ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i
@@ -24897,7 +24897,7 @@ do.body.i.i40:                                    ; preds = %do.body.i.i40, %sw.
   %incdec.ptr.i.i44 = getelementptr inbounds i8, ptr %ptr.0.i.i41, i64 -1
   store i8 %5, ptr %incdec.ptr.i.i44, align 1, !noalias !181
   %shr.i.i45 = lshr i64 %v.0.i.i42, 4
-  %cmp.not.i.i46 = icmp samesign ult i64 %v.0.i.i42, 16
+  %cmp.not.i.i46 = icmp eq i64 %shr.i.i45, 0
   br i1 %cmp.not.i.i46, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i40, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i40
@@ -24931,7 +24931,7 @@ do.body.i.i54:                                    ; preds = %do.body.i.i54, %sw.
   %incdec.ptr.i.i59 = getelementptr inbounds i8, ptr %ptr.0.i.i55, i64 -1
   store i8 %7, ptr %incdec.ptr.i.i59, align 1, !noalias !187
   %shr.i.i60 = lshr i64 %v.0.i.i56, 4
-  %cmp.not.i.i61 = icmp samesign ult i64 %v.0.i.i56, 16
+  %cmp.not.i.i61 = icmp eq i64 %shr.i.i60, 0
   br i1 %cmp.not.i.i61, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit65, label %do.body.i.i54, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit65: ; preds = %do.body.i.i54
@@ -25116,7 +25116,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %sw.bb
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ptr.0.i.i, i64 -1
   store i8 %add.i.i, ptr %incdec.ptr.i.i, align 1, !noalias !207
   %shr.i.i = lshr i64 %v.0.i.i, 3
-  %cmp.not.i.i = icmp ult i64 %v.0.i.i, 8
+  %cmp.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.not.i.i, label %_ZN4node12ToBaseStringILj3EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i, !llvm.loop !142
 
 _ZN4node12ToBaseStringILj3EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i
@@ -25149,7 +25149,7 @@ do.body.i.i37:                                    ; preds = %do.body.i.i37, %sw.
   %incdec.ptr.i.i41 = getelementptr inbounds i8, ptr %ptr.0.i.i38, i64 -1
   store i8 %5, ptr %incdec.ptr.i.i41, align 1, !noalias !213
   %shr.i.i42 = lshr i64 %v.0.i.i39, 4
-  %cmp.not.i.i43 = icmp ult i64 %v.0.i.i39, 16
+  %cmp.not.i.i43 = icmp eq i64 %shr.i.i42, 0
   br i1 %cmp.not.i.i43, label %_ZN4node12ToBaseStringILj4EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i37, !llvm.loop !149
 
 _ZN4node12ToBaseStringILj4EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i37
@@ -25182,7 +25182,7 @@ do.body.i.i50:                                    ; preds = %do.body.i.i50, %sw.
   %incdec.ptr.i.i55 = getelementptr inbounds i8, ptr %ptr.0.i.i51, i64 -1
   store i8 %7, ptr %incdec.ptr.i.i55, align 1, !noalias !219
   %shr.i.i56 = lshr i64 %v.0.i.i52, 4
-  %cmp.not.i.i57 = icmp ult i64 %v.0.i.i52, 16
+  %cmp.not.i.i57 = icmp eq i64 %shr.i.i56, 0
   br i1 %cmp.not.i.i57, label %_ZN4node12ToBaseStringILj4EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit61, label %do.body.i.i50, !llvm.loop !149
 
 _ZN4node12ToBaseStringILj4EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit61: ; preds = %do.body.i.i50
@@ -25378,7 +25378,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %sw.bb
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ptr.0.i.i, i64 -1
   store i8 %add.i.i, ptr %incdec.ptr.i.i, align 1, !noalias !239
   %shr.i.i = lshr i64 %v.0.i.i, 3
-  %cmp.not.i.i = icmp samesign ult i64 %v.0.i.i, 8
+  %cmp.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.not.i.i, label %_ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i, !llvm.loop !47
 
 _ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i
@@ -25412,7 +25412,7 @@ do.body.i.i38:                                    ; preds = %do.body.i.i38, %sw.
   %incdec.ptr.i.i42 = getelementptr inbounds i8, ptr %ptr.0.i.i39, i64 -1
   store i8 %5, ptr %incdec.ptr.i.i42, align 1, !noalias !245
   %shr.i.i43 = lshr i64 %v.0.i.i40, 4
-  %cmp.not.i.i44 = icmp samesign ult i64 %v.0.i.i40, 16
+  %cmp.not.i.i44 = icmp eq i64 %shr.i.i43, 0
   br i1 %cmp.not.i.i44, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i38, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i38
@@ -25446,7 +25446,7 @@ do.body.i.i52:                                    ; preds = %do.body.i.i52, %sw.
   %incdec.ptr.i.i57 = getelementptr inbounds i8, ptr %ptr.0.i.i53, i64 -1
   store i8 %7, ptr %incdec.ptr.i.i57, align 1, !noalias !251
   %shr.i.i58 = lshr i64 %v.0.i.i54, 4
-  %cmp.not.i.i59 = icmp samesign ult i64 %v.0.i.i54, 16
+  %cmp.not.i.i59 = icmp eq i64 %shr.i.i58, 0
   br i1 %cmp.not.i.i59, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit63, label %do.body.i.i52, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit63: ; preds = %do.body.i.i52
@@ -25631,7 +25631,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %sw.bb
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ptr.0.i.i, i64 -1
   store i8 %add.i.i, ptr %incdec.ptr.i.i, align 1, !noalias !271
   %shr.i.i = lshr i64 %v.0.i.i, 3
-  %cmp.not.i.i = icmp ult i64 %v.0.i.i, 8
+  %cmp.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.not.i.i, label %_ZN4node12ToBaseStringILj3EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i, !llvm.loop !142
 
 _ZN4node12ToBaseStringILj3EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i
@@ -25664,7 +25664,7 @@ do.body.i.i35:                                    ; preds = %do.body.i.i35, %sw.
   %incdec.ptr.i.i39 = getelementptr inbounds i8, ptr %ptr.0.i.i36, i64 -1
   store i8 %5, ptr %incdec.ptr.i.i39, align 1, !noalias !277
   %shr.i.i40 = lshr i64 %v.0.i.i37, 4
-  %cmp.not.i.i41 = icmp ult i64 %v.0.i.i37, 16
+  %cmp.not.i.i41 = icmp eq i64 %shr.i.i40, 0
   br i1 %cmp.not.i.i41, label %_ZN4node12ToBaseStringILj4EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i35, !llvm.loop !149
 
 _ZN4node12ToBaseStringILj4EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i35
@@ -25697,7 +25697,7 @@ do.body.i.i48:                                    ; preds = %do.body.i.i48, %sw.
   %incdec.ptr.i.i53 = getelementptr inbounds i8, ptr %ptr.0.i.i49, i64 -1
   store i8 %7, ptr %incdec.ptr.i.i53, align 1, !noalias !283
   %shr.i.i54 = lshr i64 %v.0.i.i50, 4
-  %cmp.not.i.i55 = icmp ult i64 %v.0.i.i50, 16
+  %cmp.not.i.i55 = icmp eq i64 %shr.i.i54, 0
   br i1 %cmp.not.i.i55, label %_ZN4node12ToBaseStringILj4EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit59, label %do.body.i.i48, !llvm.loop !149
 
 _ZN4node12ToBaseStringILj4EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit59: ; preds = %do.body.i.i48
@@ -25838,7 +25838,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %sw.bb
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ptr.0.i.i, i64 -1
   store i8 %add.i.i, ptr %incdec.ptr.i.i, align 1, !noalias !297
   %shr.i.i = lshr i64 %v.0.i.i, 3
-  %cmp.not.i.i = icmp ult i64 %v.0.i.i, 8
+  %cmp.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.not.i.i, label %_ZN4node12ToBaseStringILj3EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i, !llvm.loop !142
 
 _ZN4node12ToBaseStringILj3EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i
@@ -25871,7 +25871,7 @@ do.body.i.i18:                                    ; preds = %do.body.i.i18, %sw.
   %incdec.ptr.i.i22 = getelementptr inbounds i8, ptr %ptr.0.i.i19, i64 -1
   store i8 %5, ptr %incdec.ptr.i.i22, align 1, !noalias !303
   %shr.i.i23 = lshr i64 %v.0.i.i20, 4
-  %cmp.not.i.i24 = icmp ult i64 %v.0.i.i20, 16
+  %cmp.not.i.i24 = icmp eq i64 %shr.i.i23, 0
   br i1 %cmp.not.i.i24, label %_ZN4node12ToBaseStringILj4EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i18, !llvm.loop !149
 
 _ZN4node12ToBaseStringILj4EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i18
@@ -25904,7 +25904,7 @@ do.body.i.i31:                                    ; preds = %do.body.i.i31, %sw.
   %incdec.ptr.i.i36 = getelementptr inbounds i8, ptr %ptr.0.i.i32, i64 -1
   store i8 %7, ptr %incdec.ptr.i.i36, align 1, !noalias !309
   %shr.i.i37 = lshr i64 %v.0.i.i33, 4
-  %cmp.not.i.i38 = icmp ult i64 %v.0.i.i33, 16
+  %cmp.not.i.i38 = icmp eq i64 %shr.i.i37, 0
   br i1 %cmp.not.i.i38, label %_ZN4node12ToBaseStringILj4EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit42, label %do.body.i.i31, !llvm.loop !149
 
 _ZN4node12ToBaseStringILj4EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit42: ; preds = %do.body.i.i31
@@ -26110,7 +26110,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %sw.bb
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ptr.0.i.i, i64 -1
   store i8 %add.i.i, ptr %incdec.ptr.i.i, align 1, !noalias !329
   %shr.i.i = lshr i64 %v.0.i.i, 3
-  %cmp.not.i.i = icmp samesign ult i64 %v.0.i.i, 8
+  %cmp.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.not.i.i, label %_ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i, !llvm.loop !47
 
 _ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i
@@ -26144,7 +26144,7 @@ do.body.i.i36:                                    ; preds = %do.body.i.i36, %sw.
   %incdec.ptr.i.i40 = getelementptr inbounds i8, ptr %ptr.0.i.i37, i64 -1
   store i8 %5, ptr %incdec.ptr.i.i40, align 1, !noalias !335
   %shr.i.i41 = lshr i64 %v.0.i.i38, 4
-  %cmp.not.i.i42 = icmp samesign ult i64 %v.0.i.i38, 16
+  %cmp.not.i.i42 = icmp eq i64 %shr.i.i41, 0
   br i1 %cmp.not.i.i42, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i36, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i36
@@ -26178,7 +26178,7 @@ do.body.i.i50:                                    ; preds = %do.body.i.i50, %sw.
   %incdec.ptr.i.i55 = getelementptr inbounds i8, ptr %ptr.0.i.i51, i64 -1
   store i8 %7, ptr %incdec.ptr.i.i55, align 1, !noalias !341
   %shr.i.i56 = lshr i64 %v.0.i.i52, 4
-  %cmp.not.i.i57 = icmp samesign ult i64 %v.0.i.i52, 16
+  %cmp.not.i.i57 = icmp eq i64 %shr.i.i56, 0
   br i1 %cmp.not.i.i57, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit61, label %do.body.i.i50, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit61: ; preds = %do.body.i.i50
@@ -26374,7 +26374,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %sw.bb
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ptr.0.i.i, i64 -1
   store i8 %add.i.i, ptr %incdec.ptr.i.i, align 1, !noalias !361
   %shr.i.i = lshr i64 %v.0.i.i, 3
-  %cmp.not.i.i = icmp samesign ult i64 %v.0.i.i, 8
+  %cmp.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.not.i.i, label %_ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i, !llvm.loop !47
 
 _ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i
@@ -26408,7 +26408,7 @@ do.body.i.i42:                                    ; preds = %do.body.i.i42, %sw.
   %incdec.ptr.i.i46 = getelementptr inbounds i8, ptr %ptr.0.i.i43, i64 -1
   store i8 %5, ptr %incdec.ptr.i.i46, align 1, !noalias !367
   %shr.i.i47 = lshr i64 %v.0.i.i44, 4
-  %cmp.not.i.i48 = icmp samesign ult i64 %v.0.i.i44, 16
+  %cmp.not.i.i48 = icmp eq i64 %shr.i.i47, 0
   br i1 %cmp.not.i.i48, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i42, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i42
@@ -26442,7 +26442,7 @@ do.body.i.i56:                                    ; preds = %do.body.i.i56, %sw.
   %incdec.ptr.i.i61 = getelementptr inbounds i8, ptr %ptr.0.i.i57, i64 -1
   store i8 %7, ptr %incdec.ptr.i.i61, align 1, !noalias !373
   %shr.i.i62 = lshr i64 %v.0.i.i58, 4
-  %cmp.not.i.i63 = icmp samesign ult i64 %v.0.i.i58, 16
+  %cmp.not.i.i63 = icmp eq i64 %shr.i.i62, 0
   br i1 %cmp.not.i.i63, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit67, label %do.body.i.i56, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit67: ; preds = %do.body.i.i56
@@ -26628,7 +26628,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %sw.bb
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ptr.0.i.i, i64 -1
   store i8 %add.i.i, ptr %incdec.ptr.i.i, align 1, !noalias !393
   %shr.i.i = lshr i64 %v.0.i.i, 3
-  %cmp.not.i.i = icmp samesign ult i64 %v.0.i.i, 8
+  %cmp.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.not.i.i, label %_ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i, !llvm.loop !47
 
 _ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i
@@ -26662,7 +26662,7 @@ do.body.i.i40:                                    ; preds = %do.body.i.i40, %sw.
   %incdec.ptr.i.i44 = getelementptr inbounds i8, ptr %ptr.0.i.i41, i64 -1
   store i8 %5, ptr %incdec.ptr.i.i44, align 1, !noalias !399
   %shr.i.i45 = lshr i64 %v.0.i.i42, 4
-  %cmp.not.i.i46 = icmp samesign ult i64 %v.0.i.i42, 16
+  %cmp.not.i.i46 = icmp eq i64 %shr.i.i45, 0
   br i1 %cmp.not.i.i46, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i40, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i40
@@ -26696,7 +26696,7 @@ do.body.i.i54:                                    ; preds = %do.body.i.i54, %sw.
   %incdec.ptr.i.i59 = getelementptr inbounds i8, ptr %ptr.0.i.i55, i64 -1
   store i8 %7, ptr %incdec.ptr.i.i59, align 1, !noalias !405
   %shr.i.i60 = lshr i64 %v.0.i.i56, 4
-  %cmp.not.i.i61 = icmp samesign ult i64 %v.0.i.i56, 16
+  %cmp.not.i.i61 = icmp eq i64 %shr.i.i60, 0
   br i1 %cmp.not.i.i61, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit65, label %do.body.i.i54, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit65: ; preds = %do.body.i.i54
@@ -26892,7 +26892,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %sw.bb
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ptr.0.i.i, i64 -1
   store i8 %add.i.i, ptr %incdec.ptr.i.i, align 1, !noalias !425
   %shr.i.i = lshr i64 %v.0.i.i, 3
-  %cmp.not.i.i = icmp samesign ult i64 %v.0.i.i, 8
+  %cmp.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.not.i.i, label %_ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i, !llvm.loop !47
 
 _ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i
@@ -26926,7 +26926,7 @@ do.body.i.i38:                                    ; preds = %do.body.i.i38, %sw.
   %incdec.ptr.i.i42 = getelementptr inbounds i8, ptr %ptr.0.i.i39, i64 -1
   store i8 %5, ptr %incdec.ptr.i.i42, align 1, !noalias !431
   %shr.i.i43 = lshr i64 %v.0.i.i40, 4
-  %cmp.not.i.i44 = icmp samesign ult i64 %v.0.i.i40, 16
+  %cmp.not.i.i44 = icmp eq i64 %shr.i.i43, 0
   br i1 %cmp.not.i.i44, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i38, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i38
@@ -26960,7 +26960,7 @@ do.body.i.i52:                                    ; preds = %do.body.i.i52, %sw.
   %incdec.ptr.i.i57 = getelementptr inbounds i8, ptr %ptr.0.i.i53, i64 -1
   store i8 %7, ptr %incdec.ptr.i.i57, align 1, !noalias !437
   %shr.i.i58 = lshr i64 %v.0.i.i54, 4
-  %cmp.not.i.i59 = icmp samesign ult i64 %v.0.i.i54, 16
+  %cmp.not.i.i59 = icmp eq i64 %shr.i.i58, 0
   br i1 %cmp.not.i.i59, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit63, label %do.body.i.i52, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit63: ; preds = %do.body.i.i52
@@ -27156,7 +27156,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %sw.bb
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ptr.0.i.i, i64 -1
   store i8 %add.i.i, ptr %incdec.ptr.i.i, align 1, !noalias !457
   %shr.i.i = lshr i64 %v.0.i.i, 3
-  %cmp.not.i.i = icmp samesign ult i64 %v.0.i.i, 8
+  %cmp.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.not.i.i, label %_ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i, !llvm.loop !47
 
 _ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i
@@ -27190,7 +27190,7 @@ do.body.i.i40:                                    ; preds = %do.body.i.i40, %sw.
   %incdec.ptr.i.i44 = getelementptr inbounds i8, ptr %ptr.0.i.i41, i64 -1
   store i8 %5, ptr %incdec.ptr.i.i44, align 1, !noalias !463
   %shr.i.i45 = lshr i64 %v.0.i.i42, 4
-  %cmp.not.i.i46 = icmp samesign ult i64 %v.0.i.i42, 16
+  %cmp.not.i.i46 = icmp eq i64 %shr.i.i45, 0
   br i1 %cmp.not.i.i46, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i40, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i40
@@ -27224,7 +27224,7 @@ do.body.i.i54:                                    ; preds = %do.body.i.i54, %sw.
   %incdec.ptr.i.i59 = getelementptr inbounds i8, ptr %ptr.0.i.i55, i64 -1
   store i8 %7, ptr %incdec.ptr.i.i59, align 1, !noalias !469
   %shr.i.i60 = lshr i64 %v.0.i.i56, 4
-  %cmp.not.i.i61 = icmp samesign ult i64 %v.0.i.i56, 16
+  %cmp.not.i.i61 = icmp eq i64 %shr.i.i60, 0
   br i1 %cmp.not.i.i61, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit65, label %do.body.i.i54, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit65: ; preds = %do.body.i.i54
@@ -27420,7 +27420,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %sw.bb
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ptr.0.i.i, i64 -1
   store i8 %add.i.i, ptr %incdec.ptr.i.i, align 1, !noalias !489
   %shr.i.i = lshr i64 %v.0.i.i, 3
-  %cmp.not.i.i = icmp samesign ult i64 %v.0.i.i, 8
+  %cmp.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.not.i.i, label %_ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i, !llvm.loop !47
 
 _ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i
@@ -27454,7 +27454,7 @@ do.body.i.i40:                                    ; preds = %do.body.i.i40, %sw.
   %incdec.ptr.i.i44 = getelementptr inbounds i8, ptr %ptr.0.i.i41, i64 -1
   store i8 %5, ptr %incdec.ptr.i.i44, align 1, !noalias !495
   %shr.i.i45 = lshr i64 %v.0.i.i42, 4
-  %cmp.not.i.i46 = icmp samesign ult i64 %v.0.i.i42, 16
+  %cmp.not.i.i46 = icmp eq i64 %shr.i.i45, 0
   br i1 %cmp.not.i.i46, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i40, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i40
@@ -27488,7 +27488,7 @@ do.body.i.i54:                                    ; preds = %do.body.i.i54, %sw.
   %incdec.ptr.i.i59 = getelementptr inbounds i8, ptr %ptr.0.i.i55, i64 -1
   store i8 %7, ptr %incdec.ptr.i.i59, align 1, !noalias !501
   %shr.i.i60 = lshr i64 %v.0.i.i56, 4
-  %cmp.not.i.i61 = icmp samesign ult i64 %v.0.i.i56, 16
+  %cmp.not.i.i61 = icmp eq i64 %shr.i.i60, 0
   br i1 %cmp.not.i.i61, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit65, label %do.body.i.i54, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit65: ; preds = %do.body.i.i54
@@ -27673,7 +27673,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %sw.bb
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ptr.0.i.i, i64 -1
   store i8 %add.i.i, ptr %incdec.ptr.i.i, align 1, !noalias !521
   %shr.i.i = lshr i64 %v.0.i.i, 3
-  %cmp.not.i.i = icmp ult i64 %v.0.i.i, 8
+  %cmp.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.not.i.i, label %_ZN4node12ToBaseStringILj3ElEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i, !llvm.loop !524
 
 _ZN4node12ToBaseStringILj3ElEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i
@@ -27706,7 +27706,7 @@ do.body.i.i37:                                    ; preds = %do.body.i.i37, %sw.
   %incdec.ptr.i.i41 = getelementptr inbounds i8, ptr %ptr.0.i.i38, i64 -1
   store i8 %5, ptr %incdec.ptr.i.i41, align 1, !noalias !528
   %shr.i.i42 = lshr i64 %v.0.i.i39, 4
-  %cmp.not.i.i43 = icmp ult i64 %v.0.i.i39, 16
+  %cmp.not.i.i43 = icmp eq i64 %shr.i.i42, 0
   br i1 %cmp.not.i.i43, label %_ZN4node12ToBaseStringILj4ElEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i37, !llvm.loop !531
 
 _ZN4node12ToBaseStringILj4ElEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i37
@@ -27739,7 +27739,7 @@ do.body.i.i50:                                    ; preds = %do.body.i.i50, %sw.
   %incdec.ptr.i.i55 = getelementptr inbounds i8, ptr %ptr.0.i.i51, i64 -1
   store i8 %7, ptr %incdec.ptr.i.i55, align 1, !noalias !535
   %shr.i.i56 = lshr i64 %v.0.i.i52, 4
-  %cmp.not.i.i57 = icmp ult i64 %v.0.i.i52, 16
+  %cmp.not.i.i57 = icmp eq i64 %shr.i.i56, 0
   br i1 %cmp.not.i.i57, label %_ZN4node12ToBaseStringILj4ElEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit61, label %do.body.i.i50, !llvm.loop !531
 
 _ZN4node12ToBaseStringILj4ElEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit61: ; preds = %do.body.i.i50
@@ -28041,7 +28041,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %sw.bb
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ptr.0.i.i, i64 -1
   store i8 %add.i.i, ptr %incdec.ptr.i.i, align 1, !noalias !555
   %shr.i.i = lshr i64 %v.0.i.i, 3
-  %cmp.not.i.i = icmp samesign ult i64 %v.0.i.i, 8
+  %cmp.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.not.i.i, label %_ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i, !llvm.loop !47
 
 _ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i
@@ -28075,7 +28075,7 @@ do.body.i.i46:                                    ; preds = %do.body.i.i46, %sw.
   %incdec.ptr.i.i50 = getelementptr inbounds i8, ptr %ptr.0.i.i47, i64 -1
   store i8 %5, ptr %incdec.ptr.i.i50, align 1, !noalias !561
   %shr.i.i51 = lshr i64 %v.0.i.i48, 4
-  %cmp.not.i.i52 = icmp samesign ult i64 %v.0.i.i48, 16
+  %cmp.not.i.i52 = icmp eq i64 %shr.i.i51, 0
   br i1 %cmp.not.i.i52, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i46, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i46
@@ -28109,7 +28109,7 @@ do.body.i.i60:                                    ; preds = %do.body.i.i60, %sw.
   %incdec.ptr.i.i65 = getelementptr inbounds i8, ptr %ptr.0.i.i61, i64 -1
   store i8 %7, ptr %incdec.ptr.i.i65, align 1, !noalias !567
   %shr.i.i66 = lshr i64 %v.0.i.i62, 4
-  %cmp.not.i.i67 = icmp samesign ult i64 %v.0.i.i62, 16
+  %cmp.not.i.i67 = icmp eq i64 %shr.i.i66, 0
   br i1 %cmp.not.i.i67, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit71, label %do.body.i.i60, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit71: ; preds = %do.body.i.i60
@@ -28295,7 +28295,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %sw.bb
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ptr.0.i.i, i64 -1
   store i8 %add.i.i, ptr %incdec.ptr.i.i, align 1, !noalias !587
   %shr.i.i = lshr i64 %v.0.i.i, 3
-  %cmp.not.i.i = icmp samesign ult i64 %v.0.i.i, 8
+  %cmp.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.not.i.i, label %_ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i, !llvm.loop !47
 
 _ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i
@@ -28329,7 +28329,7 @@ do.body.i.i44:                                    ; preds = %do.body.i.i44, %sw.
   %incdec.ptr.i.i48 = getelementptr inbounds i8, ptr %ptr.0.i.i45, i64 -1
   store i8 %5, ptr %incdec.ptr.i.i48, align 1, !noalias !593
   %shr.i.i49 = lshr i64 %v.0.i.i46, 4
-  %cmp.not.i.i50 = icmp samesign ult i64 %v.0.i.i46, 16
+  %cmp.not.i.i50 = icmp eq i64 %shr.i.i49, 0
   br i1 %cmp.not.i.i50, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i44, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i44
@@ -28363,7 +28363,7 @@ do.body.i.i58:                                    ; preds = %do.body.i.i58, %sw.
   %incdec.ptr.i.i63 = getelementptr inbounds i8, ptr %ptr.0.i.i59, i64 -1
   store i8 %7, ptr %incdec.ptr.i.i63, align 1, !noalias !599
   %shr.i.i64 = lshr i64 %v.0.i.i60, 4
-  %cmp.not.i.i65 = icmp samesign ult i64 %v.0.i.i60, 16
+  %cmp.not.i.i65 = icmp eq i64 %shr.i.i64, 0
   br i1 %cmp.not.i.i65, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit69, label %do.body.i.i58, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit69: ; preds = %do.body.i.i58
@@ -28549,7 +28549,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %sw.bb
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ptr.0.i.i, i64 -1
   store i8 %add.i.i, ptr %incdec.ptr.i.i, align 1, !noalias !619
   %shr.i.i = lshr i64 %v.0.i.i, 3
-  %cmp.not.i.i = icmp samesign ult i64 %v.0.i.i, 8
+  %cmp.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.not.i.i, label %_ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i, !llvm.loop !47
 
 _ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i
@@ -28583,7 +28583,7 @@ do.body.i.i42:                                    ; preds = %do.body.i.i42, %sw.
   %incdec.ptr.i.i46 = getelementptr inbounds i8, ptr %ptr.0.i.i43, i64 -1
   store i8 %5, ptr %incdec.ptr.i.i46, align 1, !noalias !625
   %shr.i.i47 = lshr i64 %v.0.i.i44, 4
-  %cmp.not.i.i48 = icmp samesign ult i64 %v.0.i.i44, 16
+  %cmp.not.i.i48 = icmp eq i64 %shr.i.i47, 0
   br i1 %cmp.not.i.i48, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i42, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i42
@@ -28617,7 +28617,7 @@ do.body.i.i56:                                    ; preds = %do.body.i.i56, %sw.
   %incdec.ptr.i.i61 = getelementptr inbounds i8, ptr %ptr.0.i.i57, i64 -1
   store i8 %7, ptr %incdec.ptr.i.i61, align 1, !noalias !631
   %shr.i.i62 = lshr i64 %v.0.i.i58, 4
-  %cmp.not.i.i63 = icmp samesign ult i64 %v.0.i.i58, 16
+  %cmp.not.i.i63 = icmp eq i64 %shr.i.i62, 0
   br i1 %cmp.not.i.i63, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit67, label %do.body.i.i56, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit67: ; preds = %do.body.i.i56
@@ -28813,7 +28813,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %sw.bb
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ptr.0.i.i, i64 -1
   store i8 %add.i.i, ptr %incdec.ptr.i.i, align 1, !noalias !651
   %shr.i.i = lshr i64 %v.0.i.i, 3
-  %cmp.not.i.i = icmp samesign ult i64 %v.0.i.i, 8
+  %cmp.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.not.i.i, label %_ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i, !llvm.loop !47
 
 _ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i
@@ -28847,7 +28847,7 @@ do.body.i.i46:                                    ; preds = %do.body.i.i46, %sw.
   %incdec.ptr.i.i50 = getelementptr inbounds i8, ptr %ptr.0.i.i47, i64 -1
   store i8 %5, ptr %incdec.ptr.i.i50, align 1, !noalias !657
   %shr.i.i51 = lshr i64 %v.0.i.i48, 4
-  %cmp.not.i.i52 = icmp samesign ult i64 %v.0.i.i48, 16
+  %cmp.not.i.i52 = icmp eq i64 %shr.i.i51, 0
   br i1 %cmp.not.i.i52, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i46, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i46
@@ -28881,7 +28881,7 @@ do.body.i.i60:                                    ; preds = %do.body.i.i60, %sw.
   %incdec.ptr.i.i65 = getelementptr inbounds i8, ptr %ptr.0.i.i61, i64 -1
   store i8 %7, ptr %incdec.ptr.i.i65, align 1, !noalias !663
   %shr.i.i66 = lshr i64 %v.0.i.i62, 4
-  %cmp.not.i.i67 = icmp samesign ult i64 %v.0.i.i62, 16
+  %cmp.not.i.i67 = icmp eq i64 %shr.i.i66, 0
   br i1 %cmp.not.i.i67, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit71, label %do.body.i.i60, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit71: ; preds = %do.body.i.i60
@@ -29067,7 +29067,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %sw.bb
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ptr.0.i.i, i64 -1
   store i8 %add.i.i, ptr %incdec.ptr.i.i, align 1, !noalias !683
   %shr.i.i = lshr i64 %v.0.i.i, 3
-  %cmp.not.i.i = icmp samesign ult i64 %v.0.i.i, 8
+  %cmp.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.not.i.i, label %_ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i, !llvm.loop !47
 
 _ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i
@@ -29101,7 +29101,7 @@ do.body.i.i44:                                    ; preds = %do.body.i.i44, %sw.
   %incdec.ptr.i.i48 = getelementptr inbounds i8, ptr %ptr.0.i.i45, i64 -1
   store i8 %5, ptr %incdec.ptr.i.i48, align 1, !noalias !689
   %shr.i.i49 = lshr i64 %v.0.i.i46, 4
-  %cmp.not.i.i50 = icmp samesign ult i64 %v.0.i.i46, 16
+  %cmp.not.i.i50 = icmp eq i64 %shr.i.i49, 0
   br i1 %cmp.not.i.i50, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i44, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i44
@@ -29135,7 +29135,7 @@ do.body.i.i58:                                    ; preds = %do.body.i.i58, %sw.
   %incdec.ptr.i.i63 = getelementptr inbounds i8, ptr %ptr.0.i.i59, i64 -1
   store i8 %7, ptr %incdec.ptr.i.i63, align 1, !noalias !695
   %shr.i.i64 = lshr i64 %v.0.i.i60, 4
-  %cmp.not.i.i65 = icmp samesign ult i64 %v.0.i.i60, 16
+  %cmp.not.i.i65 = icmp eq i64 %shr.i.i64, 0
   br i1 %cmp.not.i.i65, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit69, label %do.body.i.i58, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit69: ; preds = %do.body.i.i58
@@ -29321,7 +29321,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %sw.bb
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ptr.0.i.i, i64 -1
   store i8 %add.i.i, ptr %incdec.ptr.i.i, align 1, !noalias !715
   %shr.i.i = lshr i64 %v.0.i.i, 3
-  %cmp.not.i.i = icmp samesign ult i64 %v.0.i.i, 8
+  %cmp.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.not.i.i, label %_ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i, !llvm.loop !47
 
 _ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i
@@ -29355,7 +29355,7 @@ do.body.i.i42:                                    ; preds = %do.body.i.i42, %sw.
   %incdec.ptr.i.i46 = getelementptr inbounds i8, ptr %ptr.0.i.i43, i64 -1
   store i8 %5, ptr %incdec.ptr.i.i46, align 1, !noalias !721
   %shr.i.i47 = lshr i64 %v.0.i.i44, 4
-  %cmp.not.i.i48 = icmp samesign ult i64 %v.0.i.i44, 16
+  %cmp.not.i.i48 = icmp eq i64 %shr.i.i47, 0
   br i1 %cmp.not.i.i48, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i42, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i42
@@ -29389,7 +29389,7 @@ do.body.i.i56:                                    ; preds = %do.body.i.i56, %sw.
   %incdec.ptr.i.i61 = getelementptr inbounds i8, ptr %ptr.0.i.i57, i64 -1
   store i8 %7, ptr %incdec.ptr.i.i61, align 1, !noalias !727
   %shr.i.i62 = lshr i64 %v.0.i.i58, 4
-  %cmp.not.i.i63 = icmp samesign ult i64 %v.0.i.i58, 16
+  %cmp.not.i.i63 = icmp eq i64 %shr.i.i62, 0
   br i1 %cmp.not.i.i63, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit67, label %do.body.i.i56, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit67: ; preds = %do.body.i.i56
@@ -29585,7 +29585,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %sw.bb
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ptr.0.i.i, i64 -1
   store i8 %add.i.i, ptr %incdec.ptr.i.i, align 1, !noalias !747
   %shr.i.i = lshr i64 %v.0.i.i, 3
-  %cmp.not.i.i = icmp samesign ult i64 %v.0.i.i, 8
+  %cmp.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.not.i.i, label %_ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i, !llvm.loop !47
 
 _ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i
@@ -29619,7 +29619,7 @@ do.body.i.i50:                                    ; preds = %do.body.i.i50, %sw.
   %incdec.ptr.i.i54 = getelementptr inbounds i8, ptr %ptr.0.i.i51, i64 -1
   store i8 %5, ptr %incdec.ptr.i.i54, align 1, !noalias !753
   %shr.i.i55 = lshr i64 %v.0.i.i52, 4
-  %cmp.not.i.i56 = icmp samesign ult i64 %v.0.i.i52, 16
+  %cmp.not.i.i56 = icmp eq i64 %shr.i.i55, 0
   br i1 %cmp.not.i.i56, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i50, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i50
@@ -29653,7 +29653,7 @@ do.body.i.i64:                                    ; preds = %do.body.i.i64, %sw.
   %incdec.ptr.i.i69 = getelementptr inbounds i8, ptr %ptr.0.i.i65, i64 -1
   store i8 %7, ptr %incdec.ptr.i.i69, align 1, !noalias !759
   %shr.i.i70 = lshr i64 %v.0.i.i66, 4
-  %cmp.not.i.i71 = icmp samesign ult i64 %v.0.i.i66, 16
+  %cmp.not.i.i71 = icmp eq i64 %shr.i.i70, 0
   br i1 %cmp.not.i.i71, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit75, label %do.body.i.i64, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit75: ; preds = %do.body.i.i64
@@ -29839,7 +29839,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %sw.bb
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ptr.0.i.i, i64 -1
   store i8 %add.i.i, ptr %incdec.ptr.i.i, align 1, !noalias !779
   %shr.i.i = lshr i64 %v.0.i.i, 3
-  %cmp.not.i.i = icmp samesign ult i64 %v.0.i.i, 8
+  %cmp.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.not.i.i, label %_ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i, !llvm.loop !47
 
 _ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i
@@ -29873,7 +29873,7 @@ do.body.i.i48:                                    ; preds = %do.body.i.i48, %sw.
   %incdec.ptr.i.i52 = getelementptr inbounds i8, ptr %ptr.0.i.i49, i64 -1
   store i8 %5, ptr %incdec.ptr.i.i52, align 1, !noalias !785
   %shr.i.i53 = lshr i64 %v.0.i.i50, 4
-  %cmp.not.i.i54 = icmp samesign ult i64 %v.0.i.i50, 16
+  %cmp.not.i.i54 = icmp eq i64 %shr.i.i53, 0
   br i1 %cmp.not.i.i54, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i48, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i48
@@ -29907,7 +29907,7 @@ do.body.i.i62:                                    ; preds = %do.body.i.i62, %sw.
   %incdec.ptr.i.i67 = getelementptr inbounds i8, ptr %ptr.0.i.i63, i64 -1
   store i8 %7, ptr %incdec.ptr.i.i67, align 1, !noalias !791
   %shr.i.i68 = lshr i64 %v.0.i.i64, 4
-  %cmp.not.i.i69 = icmp samesign ult i64 %v.0.i.i64, 16
+  %cmp.not.i.i69 = icmp eq i64 %shr.i.i68, 0
   br i1 %cmp.not.i.i69, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit73, label %do.body.i.i62, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit73: ; preds = %do.body.i.i62
@@ -30093,7 +30093,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %sw.bb
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ptr.0.i.i, i64 -1
   store i8 %add.i.i, ptr %incdec.ptr.i.i, align 1, !noalias !811
   %shr.i.i = lshr i64 %v.0.i.i, 3
-  %cmp.not.i.i = icmp samesign ult i64 %v.0.i.i, 8
+  %cmp.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.not.i.i, label %_ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i, !llvm.loop !47
 
 _ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i
@@ -30127,7 +30127,7 @@ do.body.i.i46:                                    ; preds = %do.body.i.i46, %sw.
   %incdec.ptr.i.i50 = getelementptr inbounds i8, ptr %ptr.0.i.i47, i64 -1
   store i8 %5, ptr %incdec.ptr.i.i50, align 1, !noalias !817
   %shr.i.i51 = lshr i64 %v.0.i.i48, 4
-  %cmp.not.i.i52 = icmp samesign ult i64 %v.0.i.i48, 16
+  %cmp.not.i.i52 = icmp eq i64 %shr.i.i51, 0
   br i1 %cmp.not.i.i52, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i46, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i46
@@ -30161,7 +30161,7 @@ do.body.i.i60:                                    ; preds = %do.body.i.i60, %sw.
   %incdec.ptr.i.i65 = getelementptr inbounds i8, ptr %ptr.0.i.i61, i64 -1
   store i8 %7, ptr %incdec.ptr.i.i65, align 1, !noalias !823
   %shr.i.i66 = lshr i64 %v.0.i.i62, 4
-  %cmp.not.i.i67 = icmp samesign ult i64 %v.0.i.i62, 16
+  %cmp.not.i.i67 = icmp eq i64 %shr.i.i66, 0
   br i1 %cmp.not.i.i67, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit71, label %do.body.i.i60, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit71: ; preds = %do.body.i.i60
@@ -30347,7 +30347,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %sw.bb
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ptr.0.i.i, i64 -1
   store i8 %add.i.i, ptr %incdec.ptr.i.i, align 1, !noalias !843
   %shr.i.i = lshr i64 %v.0.i.i, 3
-  %cmp.not.i.i = icmp samesign ult i64 %v.0.i.i, 8
+  %cmp.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.not.i.i, label %_ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i, !llvm.loop !47
 
 _ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i
@@ -30381,7 +30381,7 @@ do.body.i.i44:                                    ; preds = %do.body.i.i44, %sw.
   %incdec.ptr.i.i48 = getelementptr inbounds i8, ptr %ptr.0.i.i45, i64 -1
   store i8 %5, ptr %incdec.ptr.i.i48, align 1, !noalias !849
   %shr.i.i49 = lshr i64 %v.0.i.i46, 4
-  %cmp.not.i.i50 = icmp samesign ult i64 %v.0.i.i46, 16
+  %cmp.not.i.i50 = icmp eq i64 %shr.i.i49, 0
   br i1 %cmp.not.i.i50, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i44, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i44
@@ -30415,7 +30415,7 @@ do.body.i.i58:                                    ; preds = %do.body.i.i58, %sw.
   %incdec.ptr.i.i63 = getelementptr inbounds i8, ptr %ptr.0.i.i59, i64 -1
   store i8 %7, ptr %incdec.ptr.i.i63, align 1, !noalias !855
   %shr.i.i64 = lshr i64 %v.0.i.i60, 4
-  %cmp.not.i.i65 = icmp samesign ult i64 %v.0.i.i60, 16
+  %cmp.not.i.i65 = icmp eq i64 %shr.i.i64, 0
   br i1 %cmp.not.i.i65, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit69, label %do.body.i.i58, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit69: ; preds = %do.body.i.i58
@@ -30601,7 +30601,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %sw.bb
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ptr.0.i.i, i64 -1
   store i8 %add.i.i, ptr %incdec.ptr.i.i, align 1, !noalias !875
   %shr.i.i = lshr i64 %v.0.i.i, 3
-  %cmp.not.i.i = icmp samesign ult i64 %v.0.i.i, 8
+  %cmp.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.not.i.i, label %_ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i, !llvm.loop !47
 
 _ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i
@@ -30635,7 +30635,7 @@ do.body.i.i42:                                    ; preds = %do.body.i.i42, %sw.
   %incdec.ptr.i.i46 = getelementptr inbounds i8, ptr %ptr.0.i.i43, i64 -1
   store i8 %5, ptr %incdec.ptr.i.i46, align 1, !noalias !881
   %shr.i.i47 = lshr i64 %v.0.i.i44, 4
-  %cmp.not.i.i48 = icmp samesign ult i64 %v.0.i.i44, 16
+  %cmp.not.i.i48 = icmp eq i64 %shr.i.i47, 0
   br i1 %cmp.not.i.i48, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i42, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i42
@@ -30669,7 +30669,7 @@ do.body.i.i56:                                    ; preds = %do.body.i.i56, %sw.
   %incdec.ptr.i.i61 = getelementptr inbounds i8, ptr %ptr.0.i.i57, i64 -1
   store i8 %7, ptr %incdec.ptr.i.i61, align 1, !noalias !887
   %shr.i.i62 = lshr i64 %v.0.i.i58, 4
-  %cmp.not.i.i63 = icmp samesign ult i64 %v.0.i.i58, 16
+  %cmp.not.i.i63 = icmp eq i64 %shr.i.i62, 0
   br i1 %cmp.not.i.i63, label %_ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit67, label %do.body.i.i56, !llvm.loop !54
 
 _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit67: ; preds = %do.body.i.i56
@@ -30854,7 +30854,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %sw.bb
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ptr.0.i.i, i64 -1
   store i8 %add.i.i, ptr %incdec.ptr.i.i, align 1, !noalias !907
   %shr.i.i = lshr i64 %v.0.i.i, 3
-  %cmp.not.i.i = icmp ult i64 %v.0.i.i, 8
+  %cmp.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.not.i.i, label %_ZN4node12ToBaseStringILj3EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i, !llvm.loop !142
 
 _ZN4node12ToBaseStringILj3EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i
@@ -30887,7 +30887,7 @@ do.body.i.i39:                                    ; preds = %do.body.i.i39, %sw.
   %incdec.ptr.i.i43 = getelementptr inbounds i8, ptr %ptr.0.i.i40, i64 -1
   store i8 %5, ptr %incdec.ptr.i.i43, align 1, !noalias !913
   %shr.i.i44 = lshr i64 %v.0.i.i41, 4
-  %cmp.not.i.i45 = icmp ult i64 %v.0.i.i41, 16
+  %cmp.not.i.i45 = icmp eq i64 %shr.i.i44, 0
   br i1 %cmp.not.i.i45, label %_ZN4node12ToBaseStringILj4EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i39, !llvm.loop !149
 
 _ZN4node12ToBaseStringILj4EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i39
@@ -30920,7 +30920,7 @@ do.body.i.i52:                                    ; preds = %do.body.i.i52, %sw.
   %incdec.ptr.i.i57 = getelementptr inbounds i8, ptr %ptr.0.i.i53, i64 -1
   store i8 %7, ptr %incdec.ptr.i.i57, align 1, !noalias !919
   %shr.i.i58 = lshr i64 %v.0.i.i54, 4
-  %cmp.not.i.i59 = icmp ult i64 %v.0.i.i54, 16
+  %cmp.not.i.i59 = icmp eq i64 %shr.i.i58, 0
   br i1 %cmp.not.i.i59, label %_ZN4node12ToBaseStringILj4EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit63, label %do.body.i.i52, !llvm.loop !149
 
 _ZN4node12ToBaseStringILj4EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit63: ; preds = %do.body.i.i52
@@ -31105,7 +31105,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %sw.bb
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ptr.0.i.i, i64 -1
   store i8 %add.i.i, ptr %incdec.ptr.i.i, align 1, !noalias !939
   %shr.i.i = lshr i64 %v.0.i.i, 3
-  %cmp.not.i.i = icmp ult i64 %v.0.i.i, 8
+  %cmp.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.not.i.i, label %_ZN4node12ToBaseStringILj3EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i, !llvm.loop !142
 
 _ZN4node12ToBaseStringILj3EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i
@@ -31138,7 +31138,7 @@ do.body.i.i37:                                    ; preds = %do.body.i.i37, %sw.
   %incdec.ptr.i.i41 = getelementptr inbounds i8, ptr %ptr.0.i.i38, i64 -1
   store i8 %5, ptr %incdec.ptr.i.i41, align 1, !noalias !945
   %shr.i.i42 = lshr i64 %v.0.i.i39, 4
-  %cmp.not.i.i43 = icmp ult i64 %v.0.i.i39, 16
+  %cmp.not.i.i43 = icmp eq i64 %shr.i.i42, 0
   br i1 %cmp.not.i.i43, label %_ZN4node12ToBaseStringILj4EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit, label %do.body.i.i37, !llvm.loop !149
 
 _ZN4node12ToBaseStringILj4EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit: ; preds = %do.body.i.i37
@@ -31171,7 +31171,7 @@ do.body.i.i50:                                    ; preds = %do.body.i.i50, %sw.
   %incdec.ptr.i.i55 = getelementptr inbounds i8, ptr %ptr.0.i.i51, i64 -1
   store i8 %7, ptr %incdec.ptr.i.i55, align 1, !noalias !951
   %shr.i.i56 = lshr i64 %v.0.i.i52, 4
-  %cmp.not.i.i57 = icmp ult i64 %v.0.i.i52, 16
+  %cmp.not.i.i57 = icmp eq i64 %shr.i.i56, 0
   br i1 %cmp.not.i.i57, label %_ZN4node12ToBaseStringILj4EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit61, label %do.body.i.i50, !llvm.loop !149
 
 _ZN4node12ToBaseStringILj4EmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_.exit61: ; preds = %do.body.i.i50

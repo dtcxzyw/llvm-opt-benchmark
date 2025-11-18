@@ -1056,18 +1056,15 @@ define dso_local range(i32 1, 0) i32 @encode_in_pack_object_header(ptr noundef w
   %9 = zext nneg i32 %8 to i64
   %10 = and i64 %3, 15
   %11 = or disjoint i64 %10, %9
-  %.not24 = icmp ult i64 %3, 16
-  br i1 %.not24, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %7
   %12 = lshr i64 %3, 4
-  br label %.lr.ph
+  %.not24 = icmp eq i64 %12, 0
+  br i1 %.not24, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %15
-  %.0.in28 = phi i64 [ %19, %15 ], [ %11, %.lr.ph.preheader ]
-  %.01727 = phi i32 [ %21, %15 ], [ 1, %.lr.ph.preheader ]
-  %.01826 = phi i64 [ %20, %15 ], [ %12, %.lr.ph.preheader ]
-  %.01925 = phi ptr [ %18, %15 ], [ %0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %7, %15
+  %.0.in28 = phi i64 [ %19, %15 ], [ %11, %7 ]
+  %.01727 = phi i32 [ %21, %15 ], [ 1, %7 ]
+  %.01826 = phi i64 [ %20, %15 ], [ %12, %7 ]
+  %.01925 = phi ptr [ %18, %15 ], [ %0, %7 ]
   %13 = icmp eq i32 %.01727, %1
   br i1 %13, label %14, label %15
 
@@ -1083,7 +1080,7 @@ define dso_local range(i32 1, 0) i32 @encode_in_pack_object_header(ptr noundef w
   %19 = and i64 %.01826, 127
   %20 = lshr i64 %.01826, 7
   %21 = add nuw nsw i32 %.01727, 1
-  %.not = icmp samesign ult i64 %.01826, 128
+  %.not = icmp eq i64 %20, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %15, %7

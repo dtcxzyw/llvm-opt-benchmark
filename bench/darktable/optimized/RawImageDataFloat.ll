@@ -169,7 +169,7 @@ _ZNSt5arrayIfLm4EE4fillERKf.exit:
   %13 = ashr i32 %12, 2
   %14 = icmp sgt i32 %10, -1
   tail call void @llvm.assume(i1 %14)
-  %15 = icmp ugt i32 %12, 3
+  %15 = icmp ne i32 %13, 0
   tail call void @llvm.assume(i1 %15)
   %16 = icmp sgt i32 %13, -1
   tail call void @llvm.assume(i1 %16)
@@ -465,7 +465,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat15scaleBlackWhiteEv(ptr nound
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load i32, ptr %11, align 8, !tbaa !102, !noalias !114
   %13 = ashr i32 %12, 2
-  %14 = icmp ugt i32 %12, 3
+  %14 = icmp ne i32 %13, 0
   tail call void @llvm.assume(i1 %14)
   %15 = icmp sgt i32 %13, -1
   tail call void @llvm.assume(i1 %15)
@@ -605,7 +605,7 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit:
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load i32, ptr %14, align 8, !tbaa !102, !noalias !126
   %16 = ashr i32 %15, 2
-  %17 = icmp ugt i32 %15, 3
+  %17 = icmp ne i32 %16, 0
   tail call void @llvm.assume(i1 %17)
   %18 = icmp sgt i32 %16, -1
   tail call void @llvm.assume(i1 %18)
@@ -747,7 +747,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11fixBadPixelEjji(ptr noundef
   %18 = ashr i32 %17, 2
   %19 = icmp sgt i32 %15, -1
   tail call void @llvm.assume(i1 %19)
-  %20 = icmp ugt i32 %17, 3
+  %20 = icmp ne i32 %18, 0
   tail call void @llvm.assume(i1 %20)
   %21 = icmp sgt i32 %18, -1
   tail call void @llvm.assume(i1 %21)

@@ -16465,7 +16465,8 @@ define internal fastcc noundef i32 @mov_write_btrt_tag(ptr noundef %0, ptr nound
   %4 = tail call fastcc { i64, i32 } @calculate_mpeg4_bit_rates(ptr noundef %1)
   %.fca.0.extract = extractvalue { i64, i32 } %4, 0
   %.fca.1.extract = extractvalue { i64, i32 } %4, 1
-  %5 = icmp ugt i64 %.fca.0.extract, 4294967295
+  %.sroa.06.4.extract.shift = lshr i64 %.fca.0.extract, 32
+  %5 = icmp ne i64 %.sroa.06.4.extract.shift, 0
   %.sroa.06.0.extract.trunc8 = trunc i64 %.fca.0.extract to i32
   %6 = or i32 %.fca.1.extract, %.sroa.06.0.extract.trunc8
   %7 = icmp ne i32 %6, 0
@@ -16473,7 +16474,6 @@ define internal fastcc noundef i32 @mov_write_btrt_tag(ptr noundef %0, ptr nound
   br i1 %or.cond5, label %8, label %14
 
 8:                                                ; preds = %2
-  %.sroa.06.4.extract.shift = lshr i64 %.fca.0.extract, 32
   %.sroa.06.4.extract.trunc = trunc nuw i64 %.sroa.06.4.extract.shift to i32
   tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
   tail call void @avio_wl32(ptr noundef %0, i32 noundef 1953657954) #17

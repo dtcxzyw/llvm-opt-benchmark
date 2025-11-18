@@ -12295,11 +12295,11 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC10isFpOrNEONERKNS_6MCIn
   %5 = zext i32 %.val1 to i64
   %.idx1.i = shl nuw nsw i64 %5, 4
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx1.i
-  %.not.i = icmp ult i32 %.val1, 4
+  %7 = lshr i64 %5, 2
+  %.not.i = icmp eq i64 %7, 0
   br i1 %.not.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %2
-  %7 = lshr i64 %5, 2
   %8 = and i64 %.idx1.i, 68719476672
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %.val, i64 %8
   br label %.lr.ph.i.i.i.i.i.i
@@ -12638,11 +12638,10 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i94.i.i.i.i.i.i: ;
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %2
   %.pre-phi273.i.i.i.i.i.i = phi i32 [ %139, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.val1, %2 ]
   %.029.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.val, %2 ]
-  switch i32 %.pre-phi273.i.i.i.i.i.i, label %default.unreachable [
+  switch i32 %.pre-phi273.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit165.thread192.i.i.i.i.i.i" [
     i32 3, label %140
     i32 2, label %173
     i32 1, label %206
-    i32 0, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit165.thread192.i.i.i.i.i.i"
   ]
 
 140:                                              ; preds = %._crit_edge.i.i.i.i.i.i
@@ -12892,9 +12891,6 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i157.i.i.i.i.i.i: 
   %.not195.i.i.i.i.i.i = icmp eq i32 %237, 0
   br i1 %.not195.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit165.thread192.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i.i
-  unreachable
-
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit165.thread192.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit165.i.i.i.i.i.i", %233, %228, %223, %206, %._crit_edge.i.i.i.i.i.i
   br label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
@@ -12973,11 +12969,11 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC7isQFormERKNS_6MCInstEP
   %5 = zext i32 %.val1 to i64
   %.idx1.i = shl nuw nsw i64 %5, 4
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx1.i
-  %.not.i = icmp ult i32 %.val1, 4
+  %7 = lshr i64 %5, 2
+  %.not.i = icmp eq i64 %7, 0
   br i1 %.not.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %2
-  %7 = lshr i64 %5, 2
   %8 = and i64 %.idx1.i, 68719476672
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %.val, i64 %8
   br label %.lr.ph.i.i.i.i.i.i
@@ -13084,11 +13080,10 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC7isQFormERKNS_6MCInstEP
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %2
   %.pre-phi81.i.i.i.i.i.i = phi i32 [ %55, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.val1, %2 ]
   %.029.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.val, %2 ]
-  switch i32 %.pre-phi81.i.i.i.i.i.i, label %default.unreachable [
+  switch i32 %.pre-phi81.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit57.thread.i.i.i.i.i.i" [
     i32 3, label %56
     i32 2, label %68
     i32 1, label %80
-    i32 0, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit57.thread.i.i.i.i.i.i"
   ]
 
 56:                                               ; preds = %._crit_edge.i.i.i.i.i.i
@@ -13164,9 +13159,6 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC7isQFormERKNS_6MCInstEP
   %.not59.i.i.i.i.i.i = icmp eq i32 %90, 0
   br i1 %.not59.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit57.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i.i
-  unreachable
-
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit57.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit57.i.i.i.i.i.i", %80, %._crit_edge.i.i.i.i.i.i
   br label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
@@ -13197,11 +13189,11 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC7isHFormERKNS_6MCInstEP
   %5 = zext i32 %.val1 to i64
   %.idx1.i = shl nuw nsw i64 %5, 4
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx1.i
-  %.not.i = icmp ult i32 %.val1, 4
+  %7 = lshr i64 %5, 2
+  %.not.i = icmp eq i64 %7, 0
   br i1 %.not.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %2
-  %7 = lshr i64 %5, 2
   %8 = and i64 %.idx1.i, 68719476672
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %.val, i64 %8
   br label %.lr.ph.i.i.i.i.i.i
@@ -13308,11 +13300,10 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC7isHFormERKNS_6MCInstEP
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %2
   %.pre-phi81.i.i.i.i.i.i = phi i32 [ %55, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.val1, %2 ]
   %.029.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.val, %2 ]
-  switch i32 %.pre-phi81.i.i.i.i.i.i, label %default.unreachable [
+  switch i32 %.pre-phi81.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit57.thread.i.i.i.i.i.i" [
     i32 3, label %56
     i32 2, label %68
     i32 1, label %80
-    i32 0, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit57.thread.i.i.i.i.i.i"
   ]
 
 56:                                               ; preds = %._crit_edge.i.i.i.i.i.i
@@ -13387,9 +13378,6 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC7isHFormERKNS_6MCInstEP
   %90 = and i32 %89, %88
   %.not59.i.i.i.i.i.i = icmp eq i32 %90, 0
   br i1 %.not59.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit57.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i.i
-  unreachable
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit57.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit57.i.i.i.i.i.i", %80, %._crit_edge.i.i.i.i.i.i
   br label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"

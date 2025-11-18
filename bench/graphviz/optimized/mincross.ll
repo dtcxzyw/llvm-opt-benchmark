@@ -6257,7 +6257,7 @@ nodes_append.exit:                                ; preds = %._crit_edge.i.i, %2
 
 288:                                              ; preds = %284
   %289 = lshr i64 %.val.pre, 1
-  %.not.i = icmp eq i64 %.val.pre, 1
+  %.not.i = icmp eq i64 %289, 0
   br i1 %.not.i, label %nodes_reverse.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %288

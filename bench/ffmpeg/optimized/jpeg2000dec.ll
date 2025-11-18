@@ -6198,7 +6198,7 @@ bytestream2_get_byte.exit:                        ; preds = %97, %98
 
 108:                                              ; preds = %bytestream2_get_byte.exit
   %109 = icmp eq i8 %103, 0
-  %110 = icmp samesign ult i32 %.0.i, 16
+  %110 = icmp eq i32 %105, 0
   %or.cond85 = select i1 %109, i1 true, i1 %110
   br i1 %or.cond85, label %111, label %116
 

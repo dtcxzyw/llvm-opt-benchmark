@@ -2792,14 +2792,14 @@ _ZNK10BlockBegin13number_of_suxEv.exit.thread.us: ; preds = %19
   %50 = phi i32 [ %29, %32 ], [ %48, %_ZNK10BlockBegin13number_of_suxEv.exit.thread.us ]
   %51 = load i64, ptr %14, align 8
   %52 = add i64 %51, 63
-  %.not.i.us = icmp ult i64 %52, 64
+  %53 = lshr i64 %52, 6
+  %.not.i.us = icmp eq i64 %53, 0
   br i1 %.not.i.us, label %_ZN6BitMap5clearEv.exit.us, label %.lr.ph.preheader.i.i.i.us
 
 .lr.ph.preheader.i.i.i.us:                        ; preds = %.thread.us
-  %53 = load ptr, ptr %2, align 8
-  %54 = lshr i64 %52, 3
-  %55 = and i64 %54, 2305843009213693944
-  call void @llvm.memset.p0.i64(ptr align 8 %53, i8 0, i64 %55, i1 false)
+  %54 = load ptr, ptr %2, align 8
+  %55 = shl nuw nsw i64 %53, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %54, i8 0, i64 %55, i1 false)
   br label %_ZN6BitMap5clearEv.exit.us
 
 _ZN6BitMap5clearEv.exit.us:                       ; preds = %.lr.ph.us, %34, %.lr.ph.preheader.i.i.i.us, %.thread.us

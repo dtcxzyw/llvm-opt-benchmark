@@ -4692,7 +4692,7 @@ define dso_local range(i32 -11993, 25551) i32 @intel_rps_read_punit_req_frequenc
   br i1 %22, label %.thread2, label %29
 
 23:                                               ; preds = %8
-  %24 = icmp ult i32 %11, 8388608
+  %24 = icmp eq i32 %12, 0
   br i1 %24, label %.thread2, label %25
 
 25:                                               ; preds = %23

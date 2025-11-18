@@ -198,7 +198,7 @@ define hidden i32 @internal_exr_apply_pxr24(ptr noundef %0) local_unnamed_addr #
 
 99:                                               ; preds = %98
   %100 = lshr i32 %96, 8
-  %101 = icmp samesign ult i32 %96, 256
+  %101 = icmp eq i32 %100, 0
   %102 = zext i1 %101 to i32
   %103 = or i32 %100, %102
   %104 = or disjoint i32 %103, 8355840

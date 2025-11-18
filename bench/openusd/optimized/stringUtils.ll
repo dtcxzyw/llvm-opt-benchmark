@@ -3261,20 +3261,20 @@ define internal fastcc { ptr, ptr } @_ZN32pxrInternal_v0_24__pxrReserved__L8Mism
   %7 = ptrtoint ptr %1 to i64
   %8 = ptrtoint ptr %0 to i64
   %9 = sub i64 %7, %8
-  %10 = trunc i64 %9 to i32
-  %11 = and i32 %10, 7
-  %.not1162 = icmp ult i64 %9, 8
+  %10 = lshr i64 %9, 3
+  %11 = trunc i64 %9 to i32
+  %12 = and i32 %11, 7
+  %.not1162 = icmp eq i64 %10, 0
   br i1 %.not1162, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %6
-  %12 = lshr i64 %9, 3
   %13 = and i64 %9, -8
   %scevgep = getelementptr i8, ptr %0, i64 %13
   %scevgep71 = getelementptr i8, ptr %2, i64 %13
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
-  %.in = phi i64 [ %21, %20 ], [ %12, %.lr.ph.preheader ]
+  %.in = phi i64 [ %21, %20 ], [ %10, %.lr.ph.preheader ]
   %.05164 = phi ptr [ %23, %20 ], [ %2, %.lr.ph.preheader ]
   %.05263 = phi ptr [ %22, %20 ], [ %0, %.lr.ph.preheader ]
   %.0.copyload5 = load i64, ptr %.05263, align 1
@@ -3291,7 +3291,7 @@ define internal fastcc { ptr, ptr } @_ZN32pxrInternal_v0_24__pxrReserved__L8Mism
   br label %66
 
 20:                                               ; preds = %.lr.ph
-  %21 = add i64 %.in, -1
+  %21 = add nsw i64 %.in, -1
   %22 = getelementptr inbounds nuw i8, ptr %.05263, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %.05164, i64 8
   %.not11 = icmp eq i64 %21, 0
@@ -3300,7 +3300,7 @@ define internal fastcc { ptr, ptr } @_ZN32pxrInternal_v0_24__pxrReserved__L8Mism
 ._crit_edge:                                      ; preds = %20, %6
   %.052.lcssa = phi ptr [ %0, %6 ], [ %scevgep, %20 ]
   %.051.lcssa = phi ptr [ %2, %6 ], [ %scevgep71, %20 ]
-  switch i32 %11, label %default.unreachable [
+  switch i32 %12, label %default.unreachable [
     i32 7, label %24
     i32 6, label %30
     i32 5, label %36

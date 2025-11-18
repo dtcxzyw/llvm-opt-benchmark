@@ -4377,7 +4377,7 @@ lean_nat_mul.exit.thread21:                       ; preds = %6
 
 8:                                                ; preds = %6
   %9 = lshr i64 %3, 1
-  %10 = icmp ult ptr %0, inttoptr (i64 2 to ptr)
+  %10 = icmp eq i64 %9, 0
   br i1 %10, label %lean_dec.exit, label %11
 
 11:                                               ; preds = %8

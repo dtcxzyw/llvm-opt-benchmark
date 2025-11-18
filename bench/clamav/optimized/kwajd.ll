@@ -1004,16 +1004,16 @@ define internal fastcc range(i32 0, 9) i32 @lzh_decompress(ptr noundef nonnull %
   %126 = icmp ugt i16 %125, 15
   br i1 %126, label %.preheader492, label %.loopexit494
 
-.preheader492:                                    ; preds = %._crit_edge581, %128
-  %.0330 = phi i32 [ %129, %128 ], [ 8388608, %._crit_edge581 ]
-  %.1327 = phi i16 [ %135, %128 ], [ %125, %._crit_edge581 ]
-  %127 = icmp samesign ult i32 %.0330, 2
-  br i1 %127, label %lzh_read_input.exit, label %128
+.preheader492:                                    ; preds = %._crit_edge581, %129
+  %.0330 = phi i32 [ %127, %129 ], [ 8388608, %._crit_edge581 ]
+  %.1327 = phi i16 [ %135, %129 ], [ %125, %._crit_edge581 ]
+  %127 = lshr i32 %.0330, 1
+  %128 = icmp eq i32 %127, 0
+  br i1 %128, label %lzh_read_input.exit, label %129
 
-128:                                              ; preds = %.preheader492
-  %129 = lshr i32 %.0330, 1
+129:                                              ; preds = %.preheader492
   %130 = zext i16 %.1327 to i64
-  %131 = and i32 %129, %.3348.lcssa
+  %131 = and i32 %127, %.3348.lcssa
   %.not430 = icmp ne i32 %131, 0
   %132 = zext i1 %.not430 to i64
   %.idx431 = shl nuw nsw i64 %130, 2
@@ -1023,8 +1023,8 @@ define internal fastcc range(i32 0, 9) i32 @lzh_decompress(ptr noundef nonnull %
   %136 = icmp ugt i16 %135, 15
   br i1 %136, label %.preheader492, label %.loopexit494
 
-.loopexit494:                                     ; preds = %128, %._crit_edge581
-  %.0326 = phi i16 [ %125, %._crit_edge581 ], [ %135, %128 ]
+.loopexit494:                                     ; preds = %129, %._crit_edge581
+  %.0326 = phi i16 [ %125, %._crit_edge581 ], [ %135, %129 ]
   %137 = zext nneg i16 %.0326 to i64
   %138 = getelementptr inbounds nuw i8, ptr %59, i64 %137
   %139 = load i8, ptr %138, align 1, !tbaa !31
@@ -1080,16 +1080,16 @@ define internal fastcc range(i32 0, 9) i32 @lzh_decompress(ptr noundef nonnull %
   %163 = icmp ugt i16 %162, 15
   br i1 %163, label %.preheader487, label %.loopexit489
 
-.preheader487:                                    ; preds = %._crit_edge591, %165
-  %.1331 = phi i32 [ %166, %165 ], [ 8388608, %._crit_edge591 ]
-  %.3329 = phi i16 [ %172, %165 ], [ %162, %._crit_edge591 ]
-  %164 = icmp samesign ult i32 %.1331, 2
-  br i1 %164, label %lzh_read_input.exit, label %165
+.preheader487:                                    ; preds = %._crit_edge591, %166
+  %.1331 = phi i32 [ %164, %166 ], [ 8388608, %._crit_edge591 ]
+  %.3329 = phi i16 [ %172, %166 ], [ %162, %._crit_edge591 ]
+  %164 = lshr i32 %.1331, 1
+  %165 = icmp eq i32 %164, 0
+  br i1 %165, label %lzh_read_input.exit, label %166
 
-165:                                              ; preds = %.preheader487
-  %166 = lshr i32 %.1331, 1
+166:                                              ; preds = %.preheader487
   %167 = zext i16 %.3329 to i64
-  %168 = and i32 %166, %.5350.lcssa
+  %168 = and i32 %164, %.5350.lcssa
   %.not426 = icmp ne i32 %168, 0
   %169 = zext i1 %.not426 to i64
   %.idx = shl nuw nsw i64 %167, 2
@@ -1099,8 +1099,8 @@ define internal fastcc range(i32 0, 9) i32 @lzh_decompress(ptr noundef nonnull %
   %173 = icmp ugt i16 %172, 15
   br i1 %173, label %.preheader487, label %.loopexit489
 
-.loopexit489:                                     ; preds = %165, %._crit_edge591
-  %.2328 = phi i16 [ %162, %._crit_edge591 ], [ %172, %165 ]
+.loopexit489:                                     ; preds = %166, %._crit_edge591
+  %.2328 = phi i16 [ %162, %._crit_edge591 ], [ %172, %166 ]
   %174 = zext nneg i16 %.2328 to i64
   %175 = getelementptr inbounds nuw i8, ptr %47, i64 %174
   %176 = load i8, ptr %175, align 1, !tbaa !31
@@ -1174,16 +1174,16 @@ define internal fastcc range(i32 0, 9) i32 @lzh_decompress(ptr noundef nonnull %
   %204 = icmp ugt i16 %203, 63
   br i1 %204, label %.preheader483, label %.loopexit485
 
-.preheader483:                                    ; preds = %._crit_edge602, %206
-  %.2332 = phi i32 [ %207, %206 ], [ 8388608, %._crit_edge602 ]
-  %.5 = phi i16 [ %213, %206 ], [ %203, %._crit_edge602 ]
-  %205 = icmp samesign ult i32 %.2332, 2
-  br i1 %205, label %lzh_read_input.exit, label %206
+.preheader483:                                    ; preds = %._crit_edge602, %207
+  %.2332 = phi i32 [ %205, %207 ], [ 8388608, %._crit_edge602 ]
+  %.5 = phi i16 [ %213, %207 ], [ %203, %._crit_edge602 ]
+  %205 = lshr i32 %.2332, 1
+  %206 = icmp eq i32 %205, 0
+  br i1 %206, label %lzh_read_input.exit, label %207
 
-206:                                              ; preds = %.preheader483
-  %207 = lshr i32 %.2332, 1
+207:                                              ; preds = %.preheader483
   %208 = zext i16 %.5 to i64
-  %209 = and i32 %207, %.6351.lcssa
+  %209 = and i32 %205, %.6351.lcssa
   %.not446 = icmp ne i32 %209, 0
   %210 = zext i1 %.not446 to i64
   %.idx447 = shl nuw nsw i64 %208, 2
@@ -1193,8 +1193,8 @@ define internal fastcc range(i32 0, 9) i32 @lzh_decompress(ptr noundef nonnull %
   %214 = icmp ugt i16 %213, 63
   br i1 %214, label %.preheader483, label %.loopexit485
 
-.loopexit485:                                     ; preds = %206, %._crit_edge602
-  %.4 = phi i16 [ %203, %._crit_edge602 ], [ %213, %206 ]
+.loopexit485:                                     ; preds = %207, %._crit_edge602
+  %.4 = phi i16 [ %203, %._crit_edge602 ], [ %213, %207 ]
   %215 = zext nneg i16 %.4 to i64
   %216 = getelementptr inbounds nuw i8, ptr %83, i64 %215
   %217 = load i8, ptr %216, align 1, !tbaa !31
@@ -1336,16 +1336,16 @@ define internal fastcc range(i32 0, 9) i32 @lzh_decompress(ptr noundef nonnull %
   %284 = icmp ugt i16 %283, 31
   br i1 %284, label %.preheader475, label %.loopexit477
 
-.preheader475:                                    ; preds = %._crit_edge624, %286
-  %.3333 = phi i32 [ %287, %286 ], [ 8388608, %._crit_edge624 ]
-  %.7 = phi i16 [ %293, %286 ], [ %283, %._crit_edge624 ]
-  %285 = icmp samesign ult i32 %.3333, 2
-  br i1 %285, label %lzh_read_input.exit, label %286
+.preheader475:                                    ; preds = %._crit_edge624, %287
+  %.3333 = phi i32 [ %285, %287 ], [ 8388608, %._crit_edge624 ]
+  %.7 = phi i16 [ %293, %287 ], [ %283, %._crit_edge624 ]
+  %285 = lshr i32 %.3333, 1
+  %286 = icmp eq i32 %285, 0
+  br i1 %286, label %lzh_read_input.exit, label %287
 
-286:                                              ; preds = %.preheader475
-  %287 = lshr i32 %.3333, 1
+287:                                              ; preds = %.preheader475
   %288 = zext i16 %.7 to i64
-  %289 = and i32 %287, %.9354.lcssa
+  %289 = and i32 %285, %.9354.lcssa
   %.not434 = icmp ne i32 %289, 0
   %290 = zext i1 %.not434 to i64
   %.idx435 = shl nuw nsw i64 %288, 2
@@ -1355,8 +1355,8 @@ define internal fastcc range(i32 0, 9) i32 @lzh_decompress(ptr noundef nonnull %
   %294 = icmp ugt i16 %293, 31
   br i1 %294, label %.preheader475, label %.loopexit477
 
-.loopexit477:                                     ; preds = %286, %._crit_edge624
-  %.6 = phi i16 [ %283, %._crit_edge624 ], [ %293, %286 ]
+.loopexit477:                                     ; preds = %287, %._crit_edge624
+  %.6 = phi i16 [ %283, %._crit_edge624 ], [ %293, %287 ]
   %295 = zext nneg i16 %.6 to i64
   %296 = getelementptr inbounds nuw i8, ptr %71, i64 %295
   %297 = load i8, ptr %296, align 1, !tbaa !31
@@ -1428,16 +1428,16 @@ define internal fastcc range(i32 0, 9) i32 @lzh_decompress(ptr noundef nonnull %
   %327 = icmp ugt i16 %326, 255
   br i1 %327, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %._crit_edge634, %329
-  %.4334 = phi i32 [ %330, %329 ], [ 8388608, %._crit_edge634 ]
-  %.9 = phi i16 [ %336, %329 ], [ %326, %._crit_edge634 ]
-  %328 = icmp samesign ult i32 %.4334, 2
-  br i1 %328, label %lzh_read_input.exit, label %329
+.preheader:                                       ; preds = %._crit_edge634, %330
+  %.4334 = phi i32 [ %328, %330 ], [ 8388608, %._crit_edge634 ]
+  %.9 = phi i16 [ %336, %330 ], [ %326, %._crit_edge634 ]
+  %328 = lshr i32 %.4334, 1
+  %329 = icmp eq i32 %328, 0
+  br i1 %329, label %lzh_read_input.exit, label %330
 
-329:                                              ; preds = %.preheader
-  %330 = lshr i32 %.4334, 1
+330:                                              ; preds = %.preheader
   %331 = zext i16 %.9 to i64
-  %332 = and i32 %330, %.11356.lcssa
+  %332 = and i32 %328, %.11356.lcssa
   %.not438 = icmp ne i32 %332, 0
   %333 = zext i1 %.not438 to i64
   %.idx439 = shl nuw nsw i64 %331, 2
@@ -1447,8 +1447,8 @@ define internal fastcc range(i32 0, 9) i32 @lzh_decompress(ptr noundef nonnull %
   %337 = icmp ugt i16 %336, 255
   br i1 %337, label %.preheader, label %.loopexit
 
-.loopexit:                                        ; preds = %329, %._crit_edge634
-  %.8 = phi i16 [ %326, %._crit_edge634 ], [ %336, %329 ]
+.loopexit:                                        ; preds = %330, %._crit_edge634
+  %.8 = phi i16 [ %326, %._crit_edge634 ], [ %336, %330 ]
   %338 = zext nneg i16 %.8 to i64
   %339 = getelementptr inbounds nuw i8, ptr %95, i64 %338
   %340 = load i8, ptr %339, align 1, !tbaa !31

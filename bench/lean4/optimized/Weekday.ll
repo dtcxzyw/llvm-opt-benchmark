@@ -3704,30 +3704,30 @@ _init_l_Std_Time_Weekday_instInhabitedOrdinal___closed__4.exit: ; preds = %321, 
 
 336:                                              ; preds = %333
   %337 = shl i64 %334, 31
-  %338 = icmp ult i64 %337, 4294967296
-  br i1 %338, label %_init_l_Std_Time_Weekday_instInhabitedOrdinal___closed__6.exit, label %339
+  %338 = ashr i64 %337, 32
+  %339 = icmp eq i64 %338, 0
+  br i1 %339, label %_init_l_Std_Time_Weekday_instInhabitedOrdinal___closed__6.exit, label %340
 
-339:                                              ; preds = %336
-  %340 = ashr i64 %337, 32
+340:                                              ; preds = %336
   %341 = shl i64 %331, 31
   %342 = ashr i64 %341, 32
-  %343 = srem i64 %342, %340
+  %343 = srem i64 %342, %338
   %344 = icmp slt i64 %343, 0
-  %.p.i.i = tail call i64 @llvm.abs.i64(i64 %340, i1 true)
+  %.p.i.i = tail call i64 @llvm.abs.i64(i64 %338, i1 true)
   %345 = select i1 %344, i64 %.p.i.i, i64 0
   %.0.i.i24 = add nsw i64 %345, %343
   %346 = add nsw i64 %.0.i.i24, 2147483648
   %347 = icmp samesign ult i64 %346, 4294967296
   br i1 %347, label %348, label %353, !prof !9
 
-348:                                              ; preds = %339
+348:                                              ; preds = %340
   %349 = shl nsw i64 %.0.i.i24, 1
   %350 = and i64 %349, 8589934590
   %351 = or disjoint i64 %350, 1
   %352 = inttoptr i64 %351 to ptr
   br label %_init_l_Std_Time_Weekday_instInhabitedOrdinal___closed__6.exit
 
-353:                                              ; preds = %339
+353:                                              ; preds = %340
   %354 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %.0.i.i24) #7
   br label %_init_l_Std_Time_Weekday_instInhabitedOrdinal___closed__6.exit
 
@@ -3796,30 +3796,30 @@ _init_l_Std_Time_Weekday_instInhabitedOrdinal___closed__7.exit: ; preds = %371, 
 
 386:                                              ; preds = %383
   %387 = shl i64 %384, 31
-  %388 = icmp ult i64 %387, 4294967296
-  br i1 %388, label %_init_l_Std_Time_Weekday_instInhabitedOrdinal___closed__8.exit, label %389
+  %388 = ashr i64 %387, 32
+  %389 = icmp eq i64 %388, 0
+  br i1 %389, label %_init_l_Std_Time_Weekday_instInhabitedOrdinal___closed__8.exit, label %390
 
-389:                                              ; preds = %386
-  %390 = ashr i64 %387, 32
+390:                                              ; preds = %386
   %391 = shl i64 %381, 31
   %392 = ashr i64 %391, 32
-  %393 = srem i64 %392, %390
+  %393 = srem i64 %392, %388
   %394 = icmp slt i64 %393, 0
-  %.p.i.i32 = tail call i64 @llvm.abs.i64(i64 %390, i1 true)
+  %.p.i.i32 = tail call i64 @llvm.abs.i64(i64 %388, i1 true)
   %395 = select i1 %394, i64 %.p.i.i32, i64 0
   %.0.i.i33 = add nsw i64 %395, %393
   %396 = add nsw i64 %.0.i.i33, 2147483648
   %397 = icmp samesign ult i64 %396, 4294967296
   br i1 %397, label %398, label %403, !prof !9
 
-398:                                              ; preds = %389
+398:                                              ; preds = %390
   %399 = shl nsw i64 %.0.i.i33, 1
   %400 = and i64 %399, 8589934590
   %401 = or disjoint i64 %400, 1
   %402 = inttoptr i64 %401 to ptr
   br label %_init_l_Std_Time_Weekday_instInhabitedOrdinal___closed__8.exit
 
-403:                                              ; preds = %389
+403:                                              ; preds = %390
   %404 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %.0.i.i33) #7
   br label %_init_l_Std_Time_Weekday_instInhabitedOrdinal___closed__8.exit
 
@@ -3932,30 +3932,30 @@ _init_l_Std_Time_Weekday_instOrdOrdinal___closed__2.exit: ; preds = %_init_l_Std
 
 447:                                              ; preds = %444
   %448 = shl i64 %445, 31
-  %449 = icmp ult i64 %448, 4294967296
-  br i1 %449, label %_init_l_Std_Time_Weekday_toOrdinal___closed__2.exit, label %450
+  %449 = ashr i64 %448, 32
+  %450 = icmp eq i64 %449, 0
+  br i1 %450, label %_init_l_Std_Time_Weekday_toOrdinal___closed__2.exit, label %451
 
-450:                                              ; preds = %447
-  %451 = ashr i64 %448, 32
+451:                                              ; preds = %447
   %452 = shl i64 %442, 31
   %453 = ashr i64 %452, 32
-  %454 = srem i64 %453, %451
+  %454 = srem i64 %453, %449
   %455 = icmp slt i64 %454, 0
-  %.p.i.i46 = tail call i64 @llvm.abs.i64(i64 %451, i1 true)
+  %.p.i.i46 = tail call i64 @llvm.abs.i64(i64 %449, i1 true)
   %456 = select i1 %455, i64 %.p.i.i46, i64 0
   %.0.i.i47 = add nsw i64 %456, %454
   %457 = add nsw i64 %.0.i.i47, 2147483648
   %458 = icmp samesign ult i64 %457, 4294967296
   br i1 %458, label %459, label %464, !prof !9
 
-459:                                              ; preds = %450
+459:                                              ; preds = %451
   %460 = shl nsw i64 %.0.i.i47, 1
   %461 = and i64 %460, 8589934590
   %462 = or disjoint i64 %461, 1
   %463 = inttoptr i64 %462 to ptr
   br label %_init_l_Std_Time_Weekday_toOrdinal___closed__2.exit
 
-464:                                              ; preds = %450
+464:                                              ; preds = %451
   %465 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %.0.i.i47) #7
   br label %_init_l_Std_Time_Weekday_toOrdinal___closed__2.exit
 
@@ -4024,30 +4024,30 @@ _init_l_Std_Time_Weekday_toOrdinal___closed__3.exit: ; preds = %482, %487, %.cri
 
 497:                                              ; preds = %494
   %498 = shl i64 %495, 31
-  %499 = icmp ult i64 %498, 4294967296
-  br i1 %499, label %_init_l_Std_Time_Weekday_toOrdinal___closed__4.exit, label %500
+  %499 = ashr i64 %498, 32
+  %500 = icmp eq i64 %499, 0
+  br i1 %500, label %_init_l_Std_Time_Weekday_toOrdinal___closed__4.exit, label %501
 
-500:                                              ; preds = %497
-  %501 = ashr i64 %498, 32
+501:                                              ; preds = %497
   %502 = shl i64 %492, 31
   %503 = ashr i64 %502, 32
-  %504 = srem i64 %503, %501
+  %504 = srem i64 %503, %499
   %505 = icmp slt i64 %504, 0
-  %.p.i.i56 = tail call i64 @llvm.abs.i64(i64 %501, i1 true)
+  %.p.i.i56 = tail call i64 @llvm.abs.i64(i64 %499, i1 true)
   %506 = select i1 %505, i64 %.p.i.i56, i64 0
   %.0.i.i57 = add nsw i64 %506, %504
   %507 = add nsw i64 %.0.i.i57, 2147483648
   %508 = icmp samesign ult i64 %507, 4294967296
   br i1 %508, label %509, label %514, !prof !9
 
-509:                                              ; preds = %500
+509:                                              ; preds = %501
   %510 = shl nsw i64 %.0.i.i57, 1
   %511 = and i64 %510, 8589934590
   %512 = or disjoint i64 %511, 1
   %513 = inttoptr i64 %512 to ptr
   br label %_init_l_Std_Time_Weekday_toOrdinal___closed__4.exit
 
-514:                                              ; preds = %500
+514:                                              ; preds = %501
   %515 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %.0.i.i57) #7
   br label %_init_l_Std_Time_Weekday_toOrdinal___closed__4.exit
 
@@ -4109,30 +4109,30 @@ _init_l_Std_Time_Weekday_toOrdinal___closed__5.exit: ; preds = %525, %530, %.cri
 
 540:                                              ; preds = %537
   %541 = shl i64 %538, 31
-  %542 = icmp ult i64 %541, 4294967296
-  br i1 %542, label %_init_l_Std_Time_Weekday_toOrdinal___closed__8.exit, label %543
+  %542 = ashr i64 %541, 32
+  %543 = icmp eq i64 %542, 0
+  br i1 %543, label %_init_l_Std_Time_Weekday_toOrdinal___closed__8.exit, label %544
 
-543:                                              ; preds = %540
-  %544 = ashr i64 %541, 32
+544:                                              ; preds = %540
   %545 = shl i64 %535, 31
   %546 = ashr i64 %545, 32
-  %547 = srem i64 %546, %544
+  %547 = srem i64 %546, %542
   %548 = icmp slt i64 %547, 0
-  %.p.i.i70 = tail call i64 @llvm.abs.i64(i64 %544, i1 true)
+  %.p.i.i70 = tail call i64 @llvm.abs.i64(i64 %542, i1 true)
   %549 = select i1 %548, i64 %.p.i.i70, i64 0
   %.0.i.i71 = add nsw i64 %549, %547
   %550 = add nsw i64 %.0.i.i71, 2147483648
   %551 = icmp samesign ult i64 %550, 4294967296
   br i1 %551, label %552, label %557, !prof !9
 
-552:                                              ; preds = %543
+552:                                              ; preds = %544
   %553 = shl nsw i64 %.0.i.i71, 1
   %554 = and i64 %553, 8589934590
   %555 = or disjoint i64 %554, 1
   %556 = inttoptr i64 %555 to ptr
   br label %_init_l_Std_Time_Weekday_toOrdinal___closed__8.exit
 
-557:                                              ; preds = %543
+557:                                              ; preds = %544
   %558 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %.0.i.i71) #7
   br label %_init_l_Std_Time_Weekday_toOrdinal___closed__8.exit
 
@@ -4201,30 +4201,30 @@ _init_l_Std_Time_Weekday_toOrdinal___closed__9.exit: ; preds = %575, %580, %.cri
 
 590:                                              ; preds = %587
   %591 = shl i64 %588, 31
-  %592 = icmp ult i64 %591, 4294967296
-  br i1 %592, label %_init_l_Std_Time_Weekday_toOrdinal___closed__10.exit, label %593
+  %592 = ashr i64 %591, 32
+  %593 = icmp eq i64 %592, 0
+  br i1 %593, label %_init_l_Std_Time_Weekday_toOrdinal___closed__10.exit, label %594
 
-593:                                              ; preds = %590
-  %594 = ashr i64 %591, 32
+594:                                              ; preds = %590
   %595 = shl i64 %585, 31
   %596 = ashr i64 %595, 32
-  %597 = srem i64 %596, %594
+  %597 = srem i64 %596, %592
   %598 = icmp slt i64 %597, 0
-  %.p.i.i80 = tail call i64 @llvm.abs.i64(i64 %594, i1 true)
+  %.p.i.i80 = tail call i64 @llvm.abs.i64(i64 %592, i1 true)
   %599 = select i1 %598, i64 %.p.i.i80, i64 0
   %.0.i.i81 = add nsw i64 %599, %597
   %600 = add nsw i64 %.0.i.i81, 2147483648
   %601 = icmp samesign ult i64 %600, 4294967296
   br i1 %601, label %602, label %607, !prof !9
 
-602:                                              ; preds = %593
+602:                                              ; preds = %594
   %603 = shl nsw i64 %.0.i.i81, 1
   %604 = and i64 %603, 8589934590
   %605 = or disjoint i64 %604, 1
   %606 = inttoptr i64 %605 to ptr
   br label %_init_l_Std_Time_Weekday_toOrdinal___closed__10.exit
 
-607:                                              ; preds = %593
+607:                                              ; preds = %594
   %608 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %.0.i.i81) #7
   br label %_init_l_Std_Time_Weekday_toOrdinal___closed__10.exit
 
@@ -4286,30 +4286,30 @@ _init_l_Std_Time_Weekday_toOrdinal___closed__11.exit: ; preds = %618, %623, %.cr
 
 633:                                              ; preds = %630
   %634 = shl i64 %631, 31
-  %635 = icmp ult i64 %634, 4294967296
-  br i1 %635, label %_init_l_Std_Time_Weekday_toOrdinal___closed__14.exit, label %636
+  %635 = ashr i64 %634, 32
+  %636 = icmp eq i64 %635, 0
+  br i1 %636, label %_init_l_Std_Time_Weekday_toOrdinal___closed__14.exit, label %637
 
-636:                                              ; preds = %633
-  %637 = ashr i64 %634, 32
+637:                                              ; preds = %633
   %638 = shl i64 %628, 31
   %639 = ashr i64 %638, 32
-  %640 = srem i64 %639, %637
+  %640 = srem i64 %639, %635
   %641 = icmp slt i64 %640, 0
-  %.p.i.i94 = tail call i64 @llvm.abs.i64(i64 %637, i1 true)
+  %.p.i.i94 = tail call i64 @llvm.abs.i64(i64 %635, i1 true)
   %642 = select i1 %641, i64 %.p.i.i94, i64 0
   %.0.i.i95 = add nsw i64 %642, %640
   %643 = add nsw i64 %.0.i.i95, 2147483648
   %644 = icmp samesign ult i64 %643, 4294967296
   br i1 %644, label %645, label %650, !prof !9
 
-645:                                              ; preds = %636
+645:                                              ; preds = %637
   %646 = shl nsw i64 %.0.i.i95, 1
   %647 = and i64 %646, 8589934590
   %648 = or disjoint i64 %647, 1
   %649 = inttoptr i64 %648 to ptr
   br label %_init_l_Std_Time_Weekday_toOrdinal___closed__14.exit
 
-650:                                              ; preds = %636
+650:                                              ; preds = %637
   %651 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %.0.i.i95) #7
   br label %_init_l_Std_Time_Weekday_toOrdinal___closed__14.exit
 
@@ -4378,30 +4378,30 @@ _init_l_Std_Time_Weekday_toOrdinal___closed__15.exit: ; preds = %668, %673, %.cr
 
 683:                                              ; preds = %680
   %684 = shl i64 %681, 31
-  %685 = icmp ult i64 %684, 4294967296
-  br i1 %685, label %_init_l_Std_Time_Weekday_toOrdinal___closed__16.exit, label %686
+  %685 = ashr i64 %684, 32
+  %686 = icmp eq i64 %685, 0
+  br i1 %686, label %_init_l_Std_Time_Weekday_toOrdinal___closed__16.exit, label %687
 
-686:                                              ; preds = %683
-  %687 = ashr i64 %684, 32
+687:                                              ; preds = %683
   %688 = shl i64 %678, 31
   %689 = ashr i64 %688, 32
-  %690 = srem i64 %689, %687
+  %690 = srem i64 %689, %685
   %691 = icmp slt i64 %690, 0
-  %.p.i.i104 = tail call i64 @llvm.abs.i64(i64 %687, i1 true)
+  %.p.i.i104 = tail call i64 @llvm.abs.i64(i64 %685, i1 true)
   %692 = select i1 %691, i64 %.p.i.i104, i64 0
   %.0.i.i105 = add nsw i64 %692, %690
   %693 = add nsw i64 %.0.i.i105, 2147483648
   %694 = icmp samesign ult i64 %693, 4294967296
   br i1 %694, label %695, label %700, !prof !9
 
-695:                                              ; preds = %686
+695:                                              ; preds = %687
   %696 = shl nsw i64 %.0.i.i105, 1
   %697 = and i64 %696, 8589934590
   %698 = or disjoint i64 %697, 1
   %699 = inttoptr i64 %698 to ptr
   br label %_init_l_Std_Time_Weekday_toOrdinal___closed__16.exit
 
-700:                                              ; preds = %686
+700:                                              ; preds = %687
   %701 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %.0.i.i105) #7
   br label %_init_l_Std_Time_Weekday_toOrdinal___closed__16.exit
 
@@ -4463,30 +4463,30 @@ _init_l_Std_Time_Weekday_toOrdinal___closed__17.exit: ; preds = %711, %716, %.cr
 
 726:                                              ; preds = %723
   %727 = shl i64 %724, 31
-  %728 = icmp ult i64 %727, 4294967296
-  br i1 %728, label %_init_l_Std_Time_Weekday_toOrdinal___closed__20.exit, label %729
+  %728 = ashr i64 %727, 32
+  %729 = icmp eq i64 %728, 0
+  br i1 %729, label %_init_l_Std_Time_Weekday_toOrdinal___closed__20.exit, label %730
 
-729:                                              ; preds = %726
-  %730 = ashr i64 %727, 32
+730:                                              ; preds = %726
   %731 = shl i64 %721, 31
   %732 = ashr i64 %731, 32
-  %733 = srem i64 %732, %730
+  %733 = srem i64 %732, %728
   %734 = icmp slt i64 %733, 0
-  %.p.i.i118 = tail call i64 @llvm.abs.i64(i64 %730, i1 true)
+  %.p.i.i118 = tail call i64 @llvm.abs.i64(i64 %728, i1 true)
   %735 = select i1 %734, i64 %.p.i.i118, i64 0
   %.0.i.i119 = add nsw i64 %735, %733
   %736 = add nsw i64 %.0.i.i119, 2147483648
   %737 = icmp samesign ult i64 %736, 4294967296
   br i1 %737, label %738, label %743, !prof !9
 
-738:                                              ; preds = %729
+738:                                              ; preds = %730
   %739 = shl nsw i64 %.0.i.i119, 1
   %740 = and i64 %739, 8589934590
   %741 = or disjoint i64 %740, 1
   %742 = inttoptr i64 %741 to ptr
   br label %_init_l_Std_Time_Weekday_toOrdinal___closed__20.exit
 
-743:                                              ; preds = %729
+743:                                              ; preds = %730
   %744 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %.0.i.i119) #7
   br label %_init_l_Std_Time_Weekday_toOrdinal___closed__20.exit
 
@@ -4555,30 +4555,30 @@ _init_l_Std_Time_Weekday_toOrdinal___closed__21.exit: ; preds = %761, %766, %.cr
 
 776:                                              ; preds = %773
   %777 = shl i64 %774, 31
-  %778 = icmp ult i64 %777, 4294967296
-  br i1 %778, label %_init_l_Std_Time_Weekday_toOrdinal___closed__22.exit, label %779
+  %778 = ashr i64 %777, 32
+  %779 = icmp eq i64 %778, 0
+  br i1 %779, label %_init_l_Std_Time_Weekday_toOrdinal___closed__22.exit, label %780
 
-779:                                              ; preds = %776
-  %780 = ashr i64 %777, 32
+780:                                              ; preds = %776
   %781 = shl i64 %771, 31
   %782 = ashr i64 %781, 32
-  %783 = srem i64 %782, %780
+  %783 = srem i64 %782, %778
   %784 = icmp slt i64 %783, 0
-  %.p.i.i128 = tail call i64 @llvm.abs.i64(i64 %780, i1 true)
+  %.p.i.i128 = tail call i64 @llvm.abs.i64(i64 %778, i1 true)
   %785 = select i1 %784, i64 %.p.i.i128, i64 0
   %.0.i.i129 = add nsw i64 %785, %783
   %786 = add nsw i64 %.0.i.i129, 2147483648
   %787 = icmp samesign ult i64 %786, 4294967296
   br i1 %787, label %788, label %793, !prof !9
 
-788:                                              ; preds = %779
+788:                                              ; preds = %780
   %789 = shl nsw i64 %.0.i.i129, 1
   %790 = and i64 %789, 8589934590
   %791 = or disjoint i64 %790, 1
   %792 = inttoptr i64 %791 to ptr
   br label %_init_l_Std_Time_Weekday_toOrdinal___closed__22.exit
 
-793:                                              ; preds = %779
+793:                                              ; preds = %780
   %794 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %.0.i.i129) #7
   br label %_init_l_Std_Time_Weekday_toOrdinal___closed__22.exit
 
@@ -4639,30 +4639,30 @@ _init_l_Std_Time_Weekday_toOrdinal___closed__23.exit: ; preds = %804, %809, %.cr
 
 819:                                              ; preds = %816
   %820 = shl i64 %817, 31
-  %821 = icmp ult i64 %820, 4294967296
-  br i1 %821, label %_init_l_Std_Time_Weekday_toOrdinal___closed__25.exit, label %822
+  %821 = ashr i64 %820, 32
+  %822 = icmp eq i64 %821, 0
+  br i1 %822, label %_init_l_Std_Time_Weekday_toOrdinal___closed__25.exit, label %823
 
-822:                                              ; preds = %819
-  %823 = ashr i64 %820, 32
+823:                                              ; preds = %819
   %824 = shl i64 %814, 31
   %825 = ashr i64 %824, 32
-  %826 = srem i64 %825, %823
+  %826 = srem i64 %825, %821
   %827 = icmp slt i64 %826, 0
-  %.p.i.i142 = tail call i64 @llvm.abs.i64(i64 %823, i1 true)
+  %.p.i.i142 = tail call i64 @llvm.abs.i64(i64 %821, i1 true)
   %828 = select i1 %827, i64 %.p.i.i142, i64 0
   %.0.i.i143 = add nsw i64 %828, %826
   %829 = add nsw i64 %.0.i.i143, 2147483648
   %830 = icmp samesign ult i64 %829, 4294967296
   br i1 %830, label %831, label %836, !prof !9
 
-831:                                              ; preds = %822
+831:                                              ; preds = %823
   %832 = shl nsw i64 %.0.i.i143, 1
   %833 = and i64 %832, 8589934590
   %834 = or disjoint i64 %833, 1
   %835 = inttoptr i64 %834 to ptr
   br label %_init_l_Std_Time_Weekday_toOrdinal___closed__25.exit
 
-836:                                              ; preds = %822
+836:                                              ; preds = %823
   %837 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %.0.i.i143) #7
   br label %_init_l_Std_Time_Weekday_toOrdinal___closed__25.exit
 
@@ -4731,30 +4731,30 @@ _init_l_Std_Time_Weekday_toOrdinal___closed__26.exit: ; preds = %854, %859, %.cr
 
 869:                                              ; preds = %866
   %870 = shl i64 %867, 31
-  %871 = icmp ult i64 %870, 4294967296
-  br i1 %871, label %_init_l_Std_Time_Weekday_toOrdinal___closed__27.exit, label %872
+  %871 = ashr i64 %870, 32
+  %872 = icmp eq i64 %871, 0
+  br i1 %872, label %_init_l_Std_Time_Weekday_toOrdinal___closed__27.exit, label %873
 
-872:                                              ; preds = %869
-  %873 = ashr i64 %870, 32
+873:                                              ; preds = %869
   %874 = shl i64 %864, 31
   %875 = ashr i64 %874, 32
-  %876 = srem i64 %875, %873
+  %876 = srem i64 %875, %871
   %877 = icmp slt i64 %876, 0
-  %.p.i.i152 = tail call i64 @llvm.abs.i64(i64 %873, i1 true)
+  %.p.i.i152 = tail call i64 @llvm.abs.i64(i64 %871, i1 true)
   %878 = select i1 %877, i64 %.p.i.i152, i64 0
   %.0.i.i153 = add nsw i64 %878, %876
   %879 = add nsw i64 %.0.i.i153, 2147483648
   %880 = icmp samesign ult i64 %879, 4294967296
   br i1 %880, label %881, label %886, !prof !9
 
-881:                                              ; preds = %872
+881:                                              ; preds = %873
   %882 = shl nsw i64 %.0.i.i153, 1
   %883 = and i64 %882, 8589934590
   %884 = or disjoint i64 %883, 1
   %885 = inttoptr i64 %884 to ptr
   br label %_init_l_Std_Time_Weekday_toOrdinal___closed__27.exit
 
-886:                                              ; preds = %872
+886:                                              ; preds = %873
   %887 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %.0.i.i153) #7
   br label %_init_l_Std_Time_Weekday_toOrdinal___closed__27.exit
 
@@ -4816,30 +4816,30 @@ _init_l_Std_Time_Weekday_toOrdinal___closed__28.exit: ; preds = %897, %902, %.cr
 
 912:                                              ; preds = %909
   %913 = shl i64 %910, 31
-  %914 = icmp ult i64 %913, 4294967296
-  br i1 %914, label %_init_l_Std_Time_Weekday_toOrdinal___closed__31.exit, label %915
+  %914 = ashr i64 %913, 32
+  %915 = icmp eq i64 %914, 0
+  br i1 %915, label %_init_l_Std_Time_Weekday_toOrdinal___closed__31.exit, label %916
 
-915:                                              ; preds = %912
-  %916 = ashr i64 %913, 32
+916:                                              ; preds = %912
   %917 = shl i64 %907, 31
   %918 = ashr i64 %917, 32
-  %919 = srem i64 %918, %916
+  %919 = srem i64 %918, %914
   %920 = icmp slt i64 %919, 0
-  %.p.i.i166 = tail call i64 @llvm.abs.i64(i64 %916, i1 true)
+  %.p.i.i166 = tail call i64 @llvm.abs.i64(i64 %914, i1 true)
   %921 = select i1 %920, i64 %.p.i.i166, i64 0
   %.0.i.i167 = add nsw i64 %921, %919
   %922 = add nsw i64 %.0.i.i167, 2147483648
   %923 = icmp samesign ult i64 %922, 4294967296
   br i1 %923, label %924, label %929, !prof !9
 
-924:                                              ; preds = %915
+924:                                              ; preds = %916
   %925 = shl nsw i64 %.0.i.i167, 1
   %926 = and i64 %925, 8589934590
   %927 = or disjoint i64 %926, 1
   %928 = inttoptr i64 %927 to ptr
   br label %_init_l_Std_Time_Weekday_toOrdinal___closed__31.exit
 
-929:                                              ; preds = %915
+929:                                              ; preds = %916
   %930 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %.0.i.i167) #7
   br label %_init_l_Std_Time_Weekday_toOrdinal___closed__31.exit
 
@@ -4908,30 +4908,30 @@ _init_l_Std_Time_Weekday_toOrdinal___closed__32.exit: ; preds = %947, %952, %.cr
 
 962:                                              ; preds = %959
   %963 = shl i64 %960, 31
-  %964 = icmp ult i64 %963, 4294967296
-  br i1 %964, label %_init_l_Std_Time_Weekday_toOrdinal___closed__33.exit, label %965
+  %964 = ashr i64 %963, 32
+  %965 = icmp eq i64 %964, 0
+  br i1 %965, label %_init_l_Std_Time_Weekday_toOrdinal___closed__33.exit, label %966
 
-965:                                              ; preds = %962
-  %966 = ashr i64 %963, 32
+966:                                              ; preds = %962
   %967 = shl i64 %957, 31
   %968 = ashr i64 %967, 32
-  %969 = srem i64 %968, %966
+  %969 = srem i64 %968, %964
   %970 = icmp slt i64 %969, 0
-  %.p.i.i176 = tail call i64 @llvm.abs.i64(i64 %966, i1 true)
+  %.p.i.i176 = tail call i64 @llvm.abs.i64(i64 %964, i1 true)
   %971 = select i1 %970, i64 %.p.i.i176, i64 0
   %.0.i.i177 = add nsw i64 %971, %969
   %972 = add nsw i64 %.0.i.i177, 2147483648
   %973 = icmp samesign ult i64 %972, 4294967296
   br i1 %973, label %974, label %979, !prof !9
 
-974:                                              ; preds = %965
+974:                                              ; preds = %966
   %975 = shl nsw i64 %.0.i.i177, 1
   %976 = and i64 %975, 8589934590
   %977 = or disjoint i64 %976, 1
   %978 = inttoptr i64 %977 to ptr
   br label %_init_l_Std_Time_Weekday_toOrdinal___closed__33.exit
 
-979:                                              ; preds = %965
+979:                                              ; preds = %966
   %980 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %.0.i.i177) #7
   br label %_init_l_Std_Time_Weekday_toOrdinal___closed__33.exit
 

@@ -130,7 +130,7 @@ sub_2:                                            ; preds = %sub_1
   %. = select i1 %.not63, ptr %0, ptr %3
   call void @PHP_MD5Update(ptr noundef nonnull %4, ptr noundef nonnull %., i64 noundef 1) #8
   %27 = lshr i32 %.05688, 1
-  %.not59 = icmp ult i32 %.05688, 2
+  %.not59 = icmp eq i32 %27, 0
   br i1 %.not59, label %._crit_edge91, label %.lr.ph90
 
 ._crit_edge91:                                    ; preds = %.lr.ph90, %._crit_edge

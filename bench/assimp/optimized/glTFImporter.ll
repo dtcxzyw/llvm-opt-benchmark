@@ -6787,7 +6787,7 @@ switch.lookup1735:                                ; preds = %_ZN4glTF8Accessor7I
 859:                                              ; preds = %854
   store i64 %855, ptr %858, align 16
   %860 = getelementptr inbounds nuw i8, ptr %858, i64 8
-  %861 = icmp ult i32 %719, 2
+  %861 = icmp eq i32 %849, 0
   br i1 %861, label %.loopexit582, label %862
 
 862:                                              ; preds = %859
@@ -7358,7 +7358,7 @@ _ZNK10glTFCommon3RefIN4glTF8AccessorEEcvbEv.exit362.thread: ; preds = %._crit_ed
 1115:                                             ; preds = %1110
   store i64 %1111, ptr %1114, align 16
   %1116 = getelementptr inbounds nuw i8, ptr %1114, i64 8
-  %1117 = icmp ult i32 %1078, 2
+  %1117 = icmp eq i32 %1105, 0
   br i1 %1117, label %.loopexit571, label %1118
 
 1118:                                             ; preds = %1115

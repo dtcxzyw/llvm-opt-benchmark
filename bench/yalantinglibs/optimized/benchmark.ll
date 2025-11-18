@@ -30862,7 +30862,7 @@ arraydestroy.done143:                             ; preds = %_ZN6WeaponD2Ev.exit
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp80) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp76) #25
   %div17 = lshr i64 %object_count, 1
-  %cmp110.not = icmp ult i64 %object_count, 2
+  %cmp110.not = icmp eq i64 %div17, 0
   br i1 %cmp110.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %arraydestroy.done143
@@ -38206,7 +38206,7 @@ entry:
   %ref.tmp247 = alloca %"class.std::allocator.2", align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %div5 = lshr i64 %object_count, 1
-  %cmp380.not = icmp ult i64 %object_count, 2
+  %cmp380.not = icmp eq i64 %div5, 0
   br i1 %cmp380.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -44760,7 +44760,7 @@ define linkonce_odr dso_local void @_ZN15protobuf_sample15create_monstersEm(ptr 
 entry:
   tail call void @_ZN6mygame8MonstersC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef null)
   %div67 = lshr i64 %object_count, 1
-  %cmp716.not = icmp ult i64 %object_count, 2
+  %cmp716.not = icmp eq i64 %div67, 0
   br i1 %cmp716.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry

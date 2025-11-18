@@ -5260,11 +5260,11 @@ _ZN6bufferIP4sortLb0ELj16EE6expandEv.exit.i:      ; preds = %.noexc109, %._crit_
   %128 = zext i32 %115 to i64
   %.idx202 = shl nuw nsw i64 %128, 3
   %129 = getelementptr inbounds nuw i8, ptr %116, i64 %.idx202
-  %.not201 = icmp ult i32 %115, 4
+  %130 = lshr i64 %128, 2
+  %.not201 = icmp eq i64 %130, 0
   br i1 %.not201, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %114
-  %130 = lshr i64 %128, 2
   %131 = and i64 %.idx202, 34359738336
   %scevgep.i.i.i = getelementptr i8, ptr %116, i64 %131
   br label %132
@@ -5286,13 +5286,13 @@ _ZN6bufferIP4sortLb0ELj16EE6expandEv.exit.i:      ; preds = %.noexc109, %._crit_
   %140 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 16
   %141 = load ptr, ptr %140, align 8, !tbaa !214
   %142 = icmp eq ptr %141, %127
-  br i1 %142, label %_ZSt4findIP6symbolS0_ET_S2_S2_RKT0_.exit.loopexit.split.loop.exit286, label %143
+  br i1 %142, label %_ZSt4findIP6symbolS0_ET_S2_S2_RKT0_.exit.loopexit.split.loop.exit287, label %143
 
 143:                                              ; preds = %139
   %144 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 24
   %145 = load ptr, ptr %144, align 8, !tbaa !214
   %146 = icmp eq ptr %145, %127
-  br i1 %146, label %_ZSt4findIP6symbolS0_ET_S2_S2_RKT0_.exit.loopexit.split.loop.exit288, label %147
+  br i1 %146, label %_ZSt4findIP6symbolS0_ET_S2_S2_RKT0_.exit.loopexit.split.loop.exit289, label %147
 
 147:                                              ; preds = %143
   %148 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 32
@@ -5307,11 +5307,10 @@ _ZN6bufferIP4sortLb0ELj16EE6expandEv.exit.i:      ; preds = %.noexc109, %._crit_
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %114
   %.pre-phi56.i.i.i = phi i32 [ %151, %._crit_edge.loopexit.i.i.i ], [ %115, %114 ]
   %.029.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %116, %114 ]
-  switch i32 %.pre-phi56.i.i.i, label %._crit_edge.i.i.i.unreachabledefault [
+  switch i32 %.pre-phi56.i.i.i, label %_ZSt4findIP6symbolS0_ET_S2_S2_RKT0_.exit.thread [
     i32 3, label %152
     i32 2, label %._crit_edge._crit_edge.i.i.i
     i32 1, label %._crit_edge._crit_edge52.i.i.i
-    i32 0, label %_ZSt4findIP6symbolS0_ET_S2_S2_RKT0_.exit.thread
   ]
 
 152:                                              ; preds = %._crit_edge.i.i.i
@@ -5343,16 +5342,16 @@ _ZSt4findIP6symbolS0_ET_S2_S2_RKT0_.exit.loopexit.split.loop.exit: ; preds = %13
   %163 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 8
   br label %_ZSt4findIP6symbolS0_ET_S2_S2_RKT0_.exit
 
-_ZSt4findIP6symbolS0_ET_S2_S2_RKT0_.exit.loopexit.split.loop.exit286: ; preds = %139
+_ZSt4findIP6symbolS0_ET_S2_S2_RKT0_.exit.loopexit.split.loop.exit287: ; preds = %139
   %164 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 16
   br label %_ZSt4findIP6symbolS0_ET_S2_S2_RKT0_.exit
 
-_ZSt4findIP6symbolS0_ET_S2_S2_RKT0_.exit.loopexit.split.loop.exit288: ; preds = %143
+_ZSt4findIP6symbolS0_ET_S2_S2_RKT0_.exit.loopexit.split.loop.exit289: ; preds = %143
   %165 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 24
   br label %_ZSt4findIP6symbolS0_ET_S2_S2_RKT0_.exit
 
-_ZSt4findIP6symbolS0_ET_S2_S2_RKT0_.exit:         ; preds = %132, %_ZSt4findIP6symbolS0_ET_S2_S2_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIP6symbolS0_ET_S2_S2_RKT0_.exit.loopexit.split.loop.exit286, %_ZSt4findIP6symbolS0_ET_S2_S2_RKT0_.exit.loopexit.split.loop.exit288, %152, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge52.i.i.i
-  %.028.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %152 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %163, %_ZSt4findIP6symbolS0_ET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %164, %_ZSt4findIP6symbolS0_ET_S2_S2_RKT0_.exit.loopexit.split.loop.exit286 ], [ %165, %_ZSt4findIP6symbolS0_ET_S2_S2_RKT0_.exit.loopexit.split.loop.exit288 ], [ %.02946.i.i.i, %132 ]
+_ZSt4findIP6symbolS0_ET_S2_S2_RKT0_.exit:         ; preds = %132, %_ZSt4findIP6symbolS0_ET_S2_S2_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIP6symbolS0_ET_S2_S2_RKT0_.exit.loopexit.split.loop.exit287, %_ZSt4findIP6symbolS0_ET_S2_S2_RKT0_.exit.loopexit.split.loop.exit289, %152, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge52.i.i.i
+  %.028.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %152 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %163, %_ZSt4findIP6symbolS0_ET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %164, %_ZSt4findIP6symbolS0_ET_S2_S2_RKT0_.exit.loopexit.split.loop.exit287 ], [ %165, %_ZSt4findIP6symbolS0_ET_S2_S2_RKT0_.exit.loopexit.split.loop.exit289 ], [ %.02946.i.i.i, %132 ]
   %.not90 = icmp eq ptr %.028.i.i.i, %129
   br i1 %.not90, label %_ZSt4findIP6symbolS0_ET_S2_S2_RKT0_.exit.thread, label %166
 
@@ -5445,10 +5444,7 @@ _ZN6bufferI6symbolLb1ELj16EE6expandEv.exit.i:     ; preds = %.noexc126, %._crit_
           cleanup
   br label %359
 
-._crit_edge.i.i.i.unreachabledefault:             ; preds = %._crit_edge.i.i.i
-  unreachable
-
-_ZSt4findIP6symbolS0_ET_S2_S2_RKT0_.exit.thread:  ; preds = %._crit_edge.i.i.i, %._crit_edge._crit_edge52.i.i.i, %_ZSt4findIP6symbolS0_ET_S2_S2_RKT0_.exit
+_ZSt4findIP6symbolS0_ET_S2_S2_RKT0_.exit.thread:  ; preds = %._crit_edge._crit_edge52.i.i.i, %._crit_edge.i.i.i, %_ZSt4findIP6symbolS0_ET_S2_S2_RKT0_.exit
   %198 = load i32, ptr %16, align 4, !tbaa !213
   %.not.i127 = icmp ult i32 %115, %198
   br i1 %.not.i127, label %_ZN6bufferI6symbolLb1ELj16EE9push_backERKS0_.exit, label %199
@@ -8139,7 +8135,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %45, %51
   br i1 %71, label %72, label %100
 
 72:                                               ; preds = %68
-  %73 = icmp ult i32 %69, 64
+  %73 = icmp eq i32 %70, 0
   br i1 %73, label %_ZNK10quantifier9get_childEj.exit, label %74
 
 74:                                               ; preds = %72
@@ -12695,7 +12691,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %43, %49
   br i1 %69, label %70, label %98
 
 70:                                               ; preds = %66
-  %71 = icmp ult i32 %67, 64
+  %71 = icmp eq i32 %68, 0
   br i1 %71, label %_ZNK10quantifier9get_childEj.exit, label %72
 
 72:                                               ; preds = %70
@@ -17930,7 +17926,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %45, %51
   br i1 %71, label %72, label %100
 
 72:                                               ; preds = %68
-  %73 = icmp ult i32 %69, 64
+  %73 = icmp eq i32 %70, 0
   br i1 %73, label %_ZNK10quantifier9get_childEj.exit, label %74
 
 74:                                               ; preds = %72
@@ -21157,7 +21153,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %43, %49
   br i1 %69, label %70, label %98
 
 70:                                               ; preds = %66
-  %71 = icmp ult i32 %67, 64
+  %71 = icmp eq i32 %68, 0
   br i1 %71, label %_ZNK10quantifier9get_childEj.exit, label %72
 
 72:                                               ; preds = %70

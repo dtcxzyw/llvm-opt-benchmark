@@ -846,7 +846,7 @@ define noundef zeroext i1 @rel_oid_str_to_bytes(ptr noundef readonly captures(ad
   %69 = getelementptr i8, ptr %4, i64 %indvars.iv.next
   store i8 %68, ptr %69, align 1
   %70 = lshr i32 %.255, 7
-  %71 = icmp ugt i32 %.255, 127
+  %71 = icmp ne i32 %70, 0
   %72 = icmp ne i64 %indvars.iv.next, 0
   %73 = and i1 %71, %72
   br i1 %73, label %66, label %74, !llvm.loop !14

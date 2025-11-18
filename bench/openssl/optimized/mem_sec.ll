@@ -96,7 +96,7 @@ define range(i32 0, 3) i32 @CRYPTO_secure_malloc_init(i64 noundef %0, i64 nounde
   %23 = phi i64 [ %24, %.preheader ], [ -1, %18 ]
   %24 = add nsw i64 %23, 1
   %25 = lshr i64 %.03548.i, 1
-  %.not42.i = icmp samesign ult i64 %.03548.i, 2
+  %.not42.i = icmp eq i64 %25, 0
   br i1 %.not42.i, label %26, label %.preheader, !llvm.loop !14
 
 26:                                               ; preds = %.preheader

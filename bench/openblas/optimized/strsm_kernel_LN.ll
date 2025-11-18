@@ -281,7 +281,8 @@ solve.exit228:                                    ; preds = %.split.i223
   br label %128
 
 128:                                              ; preds = %.preheader283, %233
-  %.1168327 = phi i64 [ 2, %.preheader283 ], [ %234, %233 ]
+  %.not187 = phi i1 [ false, %.preheader283 ], [ true, %233 ]
+  %.1168327 = phi i64 [ 2, %.preheader283 ], [ 1, %233 ]
   %.1174326 = phi ptr [ %.0173.lcssa, %.preheader283 ], [ %.2175, %233 ]
   %.1177325 = phi ptr [ %.0176.lcssa, %.preheader283 ], [ %.2178, %233 ]
   %129 = and i64 %.1168327, %1
@@ -530,8 +531,6 @@ solve.exit279:                                    ; preds = %.split.i274
 233:                                              ; preds = %.loopexit, %128
   %.2178 = phi ptr [ %232, %.loopexit ], [ %.1177325, %128 ]
   %.2175 = phi ptr [ %230, %.loopexit ], [ %.1174326, %128 ]
-  %234 = lshr i64 %.1168327, 1
-  %.not187 = icmp samesign ult i64 %.1168327, 2
   br i1 %.not187, label %.loopexit284, label %128, !llvm.loop !15
 
 .loopexit284:                                     ; preds = %233, %._crit_edge

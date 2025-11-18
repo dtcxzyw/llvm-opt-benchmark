@@ -3169,17 +3169,14 @@ sane_qsort.exit.i.i:                              ; preds = %1370, %._crit_edge.
   %1427 = zext i32 %1426 to i64
   %1428 = and i64 %1421, 15
   %1429 = or disjoint i64 %1428, %1427
-  %.not38.i.i.i = icmp ult i64 %1421, 16
-  br i1 %.not38.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.preheader.i.i.i
-
-.lr.ph.preheader.i.i.i:                           ; preds = %1420
   %1430 = lshr i64 %1421, 4
-  br label %.lr.ph.i.i.i
+  %.not38.i.i.i = icmp eq i64 %1430, 0
+  br i1 %.not38.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ]
-  %.0.in41.i.i.i = phi i64 [ %1429, %.lr.ph.preheader.i.i.i ], [ %1434, %.lr.ph.i.i.i ]
-  %.03539.i.i.i = phi i64 [ %1430, %.lr.ph.preheader.i.i.i ], [ %1435, %.lr.ph.i.i.i ]
+.lr.ph.i.i.i:                                     ; preds = %1420, %.lr.ph.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ 0, %1420 ]
+  %.0.in41.i.i.i = phi i64 [ %1434, %.lr.ph.i.i.i ], [ %1429, %1420 ]
+  %.03539.i.i.i = phi i64 [ %1435, %.lr.ph.i.i.i ], [ %1430, %1420 ]
   %1431 = trunc i64 %.0.in41.i.i.i to i8
   %1432 = or i8 %1431, -128
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -3187,7 +3184,7 @@ sane_qsort.exit.i.i:                              ; preds = %1370, %._crit_edge.
   store i8 %1432, ptr %1433, align 1, !tbaa !23
   %1434 = and i64 %.03539.i.i.i, 127
   %1435 = lshr i64 %.03539.i.i.i, 7
-  %.not.i.i.i206 = icmp samesign ult i64 %.03539.i.i.i, 128
+  %.not.i.i.i206 = icmp eq i64 %1435, 0
   br i1 %.not.i.i.i206, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !125
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %.lr.ph.i.i.i

@@ -2236,7 +2236,7 @@ define void @_ZN2cv4gapi5fluid6Buffer4Priv4initERKNS_8GMatDescEiiNS_5Rect_IiEE(p
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i32 %3, ptr %12, align 8, !tbaa !90
   %13 = icmp eq i32 %.sroa.017.0.extract.trunc, 0
-  %14 = icmp ult i64 %4, 4294967296
+  %14 = icmp eq i64 %.sroa.3.0.extract.shift, 0
   %or.cond = and i1 %13, %14
   br i1 %or.cond, label %15, label %_ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit.thread
 
@@ -2245,7 +2245,7 @@ define void @_ZN2cv4gapi5fluid6Buffer4Priv4initERKNS_8GMatDescEiiNS_5Rect_IiEE(p
   br i1 %16, label %_ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit, label %_ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit.thread
 
 _ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit:            ; preds = %15
-  %17 = icmp ult i64 %5, 4294967296
+  %17 = icmp eq i64 %.sroa.8.8.extract.shift, 0
   br i1 %17, label %18, label %_ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit.thread
 
 18:                                               ; preds = %_ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit

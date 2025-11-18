@@ -1567,7 +1567,7 @@ _ZNK5clang12TemplateName24getAsDeducedTemplateNameEv.exit: ; preds = %11
   %narrow = mul nuw nsw i32 %79, 24
   %.idx = zext nneg i32 %narrow to i64
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 %.idx
-  %.not80 = icmp ult i32 %77, 131072
+  %.not80 = icmp eq i32 %79, 0
   br i1 %.not80, label %_ZNK5clang12TemplateName7getKindEv.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK5clang12TemplateName24getAsDeducedTemplateNameEv.exit, %.lr.ph

@@ -1502,7 +1502,7 @@ define internal fastcc void @dtls1_hm_fragment_mark(ptr noundef nonnull captures
 
 41:                                               ; preds = %._crit_edge, %34, %18
   %42 = lshr i64 %6, 3
-  %.not58 = icmp ult i32 %5, 8
+  %.not58 = icmp eq i64 %42, 0
   %.pre.pre = load ptr, ptr %7, align 8, !tbaa !15
   br i1 %.not58, label %._crit_edge57, label %.lr.ph56
 

@@ -295,16 +295,16 @@ veci_push.exit:                                   ; preds = %85, %122
   %137 = icmp ugt i32 %136, 4095
   br i1 %137, label %.lr.ph142, label %.critedge2
 
-.lr.ph142:                                        ; preds = %135, %140
-  %indvars.iv = phi i64 [ %indvars.iv.next, %140 ], [ 1, %135 ]
+.lr.ph142:                                        ; preds = %135, %141
+  %indvars.iv = phi i64 [ %indvars.iv.next, %141 ], [ 1, %135 ]
   %138 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv
   %139 = load i32, ptr %138, align 4, !tbaa !27
-  %.not109 = icmp ult i32 %139, 2
-  br i1 %.not109, label %.critedge2, label %140
+  %140 = ashr i32 %139, 1
+  %.not109 = icmp eq i32 %140, 0
+  br i1 %.not109, label %.critedge2, label %141
 
-140:                                              ; preds = %.lr.ph142
-  %141 = ashr i32 %139, 1
-  call fastcc void @proof_chain_resolve(ptr noundef nonnull %0, ptr noundef null, i32 noundef %141)
+141:                                              ; preds = %.lr.ph142
+  call fastcc void @proof_chain_resolve(ptr noundef nonnull %0, ptr noundef null, i32 noundef %140)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %142 = load i32, ptr %51, align 4
   %143 = lshr i32 %142, 11
@@ -312,7 +312,7 @@ veci_push.exit:                                   ; preds = %85, %122
   %145 = icmp samesign ult i64 %indvars.iv.next, %144
   br i1 %145, label %.lr.ph142, label %.critedge2, !llvm.loop !42
 
-.critedge2:                                       ; preds = %.lr.ph142, %140, %135
+.critedge2:                                       ; preds = %.lr.ph142, %141, %135
   %146 = call fastcc i32 @proof_chain_stop(ptr noundef nonnull %0)
   %147 = call fastcc i32 @clause2_create_new(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %14, i32 noundef 1, i32 noundef %146)
   %148 = load ptr, ptr %15, align 8, !tbaa !43
@@ -371,11 +371,11 @@ clause2_read.exit127:                             ; preds = %158, %159
   br i1 %.not110, label %192, label %174
 
 174:                                              ; preds = %169
-  %.not17.i = icmp ult i32 %172, 2048
+  %175 = lshr i32 %172, 11
+  %.not17.i = icmp eq i32 %175, 0
   br i1 %.not17.i, label %sat_clause_compute_lbd.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %174
-  %175 = lshr i32 %172, 11
   %.val.i = load ptr, ptr %18, align 8, !tbaa !46
   %wide.trip.count.i = zext nneg i32 %175 to i64
   br label %176
@@ -1525,11 +1525,11 @@ clause2_read.exit:                                ; preds = %Sat_MemAppend.exit,
 98:                                               ; preds = %clause2_read.exit
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %100 = load i32, ptr %97, align 4
-  %.not17.i = icmp ult i32 %100, 2048
+  %101 = lshr i32 %100, 11
+  %.not17.i = icmp eq i32 %101, 0
   br i1 %.not17.i, label %sat_clause_compute_lbd.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %98
-  %101 = lshr i32 %100, 11
   %102 = getelementptr inbounds nuw i8, ptr %97, i64 4
   %103 = getelementptr i8, ptr %0, i64 240
   %.val.i41 = load ptr, ptr %103, align 8, !tbaa !46
@@ -3548,16 +3548,16 @@ clause2_read.exit:                                ; preds = %160, %161
   %175 = icmp ugt i32 %174, 4095
   br i1 %175, label %.lr.ph163, label %.critedge2
 
-.lr.ph163:                                        ; preds = %clause2_read.exit, %178
-  %indvars.iv = phi i64 [ %indvars.iv.next, %178 ], [ 1, %clause2_read.exit ]
+.lr.ph163:                                        ; preds = %clause2_read.exit, %179
+  %indvars.iv = phi i64 [ %indvars.iv.next, %179 ], [ 1, %clause2_read.exit ]
   %176 = getelementptr inbounds nuw i32, ptr %173, i64 %indvars.iv
   %177 = load i32, ptr %176, align 4, !tbaa !27
-  %.not123 = icmp ult i32 %177, 2
-  br i1 %.not123, label %.critedge2, label %178
+  %178 = ashr i32 %177, 1
+  %.not123 = icmp eq i32 %178, 0
+  br i1 %.not123, label %.critedge2, label %179
 
-178:                                              ; preds = %.lr.ph163
-  %179 = ashr i32 %177, 1
-  tail call fastcc void @proof_chain_resolve(ptr noundef %0, ptr noundef null, i32 noundef %179)
+179:                                              ; preds = %.lr.ph163
+  tail call fastcc void @proof_chain_resolve(ptr noundef %0, ptr noundef null, i32 noundef %178)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %180 = load i32, ptr %172, align 4
   %181 = lshr i32 %180, 11
@@ -3565,7 +3565,7 @@ clause2_read.exit:                                ; preds = %160, %161
   %183 = icmp samesign ult i64 %indvars.iv.next, %182
   br i1 %183, label %.lr.ph163, label %.critedge2, !llvm.loop !123
 
-.critedge2:                                       ; preds = %.lr.ph163, %178, %clause2_read.exit
+.critedge2:                                       ; preds = %.lr.ph163, %179, %clause2_read.exit
   %184 = tail call fastcc i32 @proof_chain_stop(ptr noundef %0)
   %185 = tail call fastcc i32 @clause2_create_new(ptr noundef %0, ptr noundef nonnull %.val191196, ptr noundef nonnull %65, i32 noundef 1, i32 noundef %184)
   %186 = load i32, ptr %.val191196, align 4, !tbaa !27
@@ -5645,8 +5645,8 @@ define noundef i32 @sat_solver2_check_watched(ptr noundef readonly captures(none
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %25, align 4
   %28 = lshr i32 %27, 11
-  %.not = icmp ult i32 %27, 2048
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i32 %28, 0
+  br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph48
   %.val34 = load ptr, ptr %10, align 8, !tbaa !3
@@ -5664,23 +5664,19 @@ define noundef i32 @sat_solver2_check_watched(ptr noundef readonly captures(none
   %36 = sext i8 %35 to i32
   %37 = and i32 %31, 1
   %38 = icmp eq i32 %37, %36
-  br i1 %38, label %._crit_edge.loopexit, label %39
+  br i1 %38, label %._crit_edge, label %39
 
 39:                                               ; preds = %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.thread, label %29, !llvm.loop !177
 
-._crit_edge.loopexit:                             ; preds = %29
+._crit_edge:                                      ; preds = %29
   %40 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph48
-  %.031.lcssa = phi i32 [ 0, %.lr.ph48 ], [ %40, %._crit_edge.loopexit ]
-  %41 = icmp eq i32 %.031.lcssa, %28
+  %41 = icmp eq i32 %28, %40
   br i1 %41, label %._crit_edge.thread, label %45
 
-._crit_edge.thread:                               ; preds = %39, %._crit_edge
+._crit_edge.thread:                               ; preds = %39, %.lr.ph48, %._crit_edge
   %42 = add nsw i32 %.03046, 1
   %43 = sext i32 %.03046 to i64
   %44 = getelementptr inbounds i32, ptr %.val, i64 %43
@@ -6097,12 +6093,12 @@ veci_push.exit139:                                ; preds = %190, %213
 
 .critedge.sink.split:                             ; preds = %veci_push.exit133, %veci_push.exit139
   %.sink = phi i32 [ %215, %veci_push.exit139 ], [ %154, %veci_push.exit133 ]
-  %.sink382 = phi ptr [ %214, %veci_push.exit139 ], [ %156, %veci_push.exit133 ]
-  %.lcssa374.sink = phi i32 [ %55, %veci_push.exit139 ], [ %122, %veci_push.exit133 ]
+  %.sink384 = phi ptr [ %214, %veci_push.exit139 ], [ %156, %veci_push.exit133 ]
+  %.lcssa376.sink = phi i32 [ %55, %veci_push.exit139 ], [ %122, %veci_push.exit133 ]
   %.0102.ph = phi i32 [ -1, %veci_push.exit139 ], [ %120, %veci_push.exit133 ]
   %217 = sext i32 %.sink to i64
-  %218 = getelementptr inbounds i32, ptr %.sink382, i64 %217
-  store i32 %.lcssa374.sink, ptr %218, align 4, !tbaa !27
+  %218 = getelementptr inbounds i32, ptr %.sink384, i64 %217
+  store i32 %.lcssa376.sink, ptr %218, align 4, !tbaa !27
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %veci_push.exit136
@@ -6623,7 +6619,7 @@ act_clause2_bump.exit.i.i:                        ; preds = %act_clause2_rescale
   %482 = getelementptr inbounds nuw i32, ptr %477, i64 %indvars.iv.i.i
   %483 = load i32, ptr %482, align 4, !tbaa !27
   %484 = ashr i32 %483, 1
-  %.not142.i.i = icmp ult i32 %483, 2
+  %.not142.i.i = icmp eq i32 %484, 0
   br i1 %.not142.i.i, label %.critedge.i.i, label %485
 
 485:                                              ; preds = %.lr.ph.i.i
@@ -7114,7 +7110,7 @@ clause2_read.exit189.i.i:                         ; preds = %710, %704
   %723 = getelementptr inbounds nuw i32, ptr %719, i64 %indvars.iv251.i.i
   %724 = load i32, ptr %723, align 4, !tbaa !27
   %725 = ashr i32 %724, 1
-  %.not145.i.i = icmp ult i32 %724, 2
+  %.not145.i.i = icmp eq i32 %725, 0
   br i1 %.not145.i.i, label %.critedge2.i.i, label %726
 
 726:                                              ; preds = %.lr.ph221.i.i
@@ -8336,7 +8332,7 @@ define internal fastcc i32 @solver2_analyze_final(ptr noundef captures(none) ini
   %24 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !27
   %26 = ashr i32 %25, 1
-  %.not = icmp ult i32 %25, 2
+  %.not = icmp eq i32 %26, 0
   br i1 %.not, label %.critedge, label %27
 
 27:                                               ; preds = %23
@@ -8512,7 +8508,7 @@ clause2_read.exit:                                ; preds = %107
   %121 = getelementptr inbounds nuw i32, ptr %118, i64 %indvars.iv87
   %122 = load i32, ptr %121, align 4, !tbaa !27
   %123 = ashr i32 %122, 1
-  %.not58 = icmp ult i32 %122, 2
+  %.not58 = icmp eq i32 %123, 0
   br i1 %.not58, label %.critedge2, label %124
 
 124:                                              ; preds = %.lr.ph79
@@ -9126,7 +9122,7 @@ var_add_tag.exit:                                 ; preds = %clause2_read.exit.t
   %78 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
   %79 = load i32, ptr %78, align 4, !tbaa !27
   %80 = ashr i32 %79, 1
-  %.not41 = icmp ult i32 %79, 2
+  %.not41 = icmp eq i32 %80, 0
   %.pre78.pre.pre81 = load ptr, ptr %3, align 8, !tbaa !23
   br i1 %.not41, label %.critedge, label %81
 
@@ -9479,7 +9475,7 @@ clause2_read.exit:                                ; preds = %2
   %27 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !27
   %29 = ashr i32 %28, 1
-  %.not20 = icmp ult i32 %28, 2
+  %.not20 = icmp eq i32 %29, 0
   br i1 %.not20, label %.critedge.loopexit, label %30
 
 30:                                               ; preds = %25

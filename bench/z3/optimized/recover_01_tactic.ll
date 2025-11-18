@@ -1745,7 +1745,7 @@ _ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataE
   %60 = zext nneg i32 %59 to i64
   %61 = shl nuw nsw i64 %60, 4
   %62 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %61)
-  %.not6.i.i.i.i.i.i.i = icmp ult i32 %58, 2
+  %.not6.i.i.i.i.i.i.i = icmp eq i32 %59, 0
   br i1 %.not6.i.i.i.i.i.i.i, label %_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE11alloc_tableEj.exit.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE12delete_tableEv.exit.i.i
@@ -4205,7 +4205,7 @@ define linkonce_odr hidden void @_ZN14parray_managerIN11ast_manager17expr_array_
 .preheader.i.unreachabledefault:                  ; preds = %.preheader.i
   unreachable
 
-default.unreachable91:                            ; preds = %65
+default.unreachable92:                            ; preds = %65
   unreachable
 
 _ZNK14parray_managerIN11ast_manager17expr_array_configEE4sizeERKNS2_3refE.exit: ; preds = %16, %20, %24
@@ -4214,7 +4214,7 @@ _ZNK14parray_managerIN11ast_manager17expr_array_configEE4sizeERKNS2_3refE.exit: 
   %28 = load i32, ptr %3, align 8
   %29 = lshr i32 %28, 30
   %30 = icmp ne i32 %29, 3
-  %31 = icmp ugt i32 %.07.i, 1
+  %31 = icmp ne i32 %27, 0
   %32 = select i1 %30, i1 %31, i1 false
   br i1 %32, label %.lr.ph, label %._crit_edge
 
@@ -4300,7 +4300,7 @@ _ZNK6vectorIPN14parray_managerIN11ast_manager17expr_array_configEE4cellELb0EjE4s
   %73 = load ptr, ptr %72, align 8, !tbaa !46
   %74 = load i32, ptr %69, align 8
   %75 = lshr i32 %74, 30
-  switch i32 %75, label %default.unreachable91 [
+  switch i32 %75, label %default.unreachable92 [
     i32 0, label %76
     i32 1, label %90
     i32 2, label %124

@@ -6188,12 +6188,12 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_17SerialTreeLearnerEE1
   %38 = add nsw i64 %37, 1
   %39 = add nsw i64 %37, 2
   %40 = mul i64 %38, %39
-  %.not43 = icmp ult i64 %40, 2
+  %41 = lshr i64 %40, 1
+  %.not43 = icmp eq i64 %41, 0
   %.pre.pre = load i32, ptr %5, align 4, !tbaa !153
   br i1 %.not43, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %29
-  %41 = lshr i64 %40, 1
   %42 = sext i32 %.pre.pre to i64
   %43 = load ptr, ptr %22, align 8, !tbaa !181
   %44 = getelementptr inbounds nuw %"class.std::vector.75", ptr %43, i64 %42
@@ -7581,7 +7581,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 50:                                               ; preds = %.lr.ph.i.i.i.i.i
   %51 = getelementptr inbounds i32, ptr %0, i64 %.019.i.i.i.i.i
   store i32 %48, ptr %51, align 4, !tbaa !153
-  %.not7.i.i.i = icmp ult i64 %.0920.in.i.i.i.i.i, 2
+  %.not7.i.i.i = icmp eq i64 %.0920.i.i56.i.i.i, 0
   br i1 %.not7.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !398
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.i.i: ; preds = %50, %.lr.ph.i.i.i.i.i, %46
@@ -7779,7 +7779,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPiS
 40:                                               ; preds = %.lr.ph.i.i.i.us
   %41 = getelementptr inbounds i32, ptr %.fr27, i64 %.019.i.i.i.us
   store i32 %38, ptr %41, align 4, !tbaa !153
-  %.not7.i.us = icmp ult i64 %.0920.in.i.i.i.us, 2
+  %.not7.i.us = icmp eq i64 %.0920.i.i56.i.us, 0
   br i1 %.not7.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !398
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %40, %35
@@ -19729,11 +19729,11 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_17SerialTreeLearnerEE1
   %39 = add nsw i64 %38, 1
   %40 = add nsw i64 %38, 2
   %41 = mul i64 %39, %40
-  %.not39 = icmp ult i64 %41, 2
+  %42 = lshr i64 %41, 1
+  %.not39 = icmp eq i64 %42, 0
   br i1 %.not39, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %30
-  %42 = lshr i64 %41, 1
   %43 = load ptr, ptr %22, align 8, !tbaa !181
   %44 = getelementptr inbounds nuw %"class.std::vector.75", ptr %43, i64 %24
   %45 = load ptr, ptr %44, align 8, !tbaa !173
@@ -25954,12 +25954,12 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_14GPUTreeLearnerEE15Ca
   %38 = add nsw i64 %37, 1
   %39 = add nsw i64 %37, 2
   %40 = mul i64 %38, %39
-  %.not43 = icmp ult i64 %40, 2
+  %41 = lshr i64 %40, 1
+  %.not43 = icmp eq i64 %41, 0
   %.pre.pre = load i32, ptr %5, align 4, !tbaa !153
   br i1 %.not43, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %29
-  %41 = lshr i64 %40, 1
   %42 = sext i32 %.pre.pre to i64
   %43 = load ptr, ptr %22, align 8, !tbaa !181
   %44 = getelementptr inbounds nuw %"class.std::vector.75", ptr %43, i64 %42
@@ -27646,11 +27646,11 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_14GPUTreeLearnerEE15Ca
   %39 = add nsw i64 %38, 1
   %40 = add nsw i64 %38, 2
   %41 = mul i64 %39, %40
-  %.not39 = icmp ult i64 %41, 2
+  %42 = lshr i64 %41, 1
+  %.not39 = icmp eq i64 %42, 0
   br i1 %.not39, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %30
-  %42 = lshr i64 %41, 1
   %43 = load ptr, ptr %22, align 8, !tbaa !181
   %44 = getelementptr inbounds nuw %"class.std::vector.75", ptr %43, i64 %24
   %45 = load ptr, ptr %44, align 8, !tbaa !173

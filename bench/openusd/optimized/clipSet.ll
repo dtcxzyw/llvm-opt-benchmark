@@ -10285,7 +10285,7 @@ define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPSt6vectorIN32pxrInterna
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt13__stable_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS3_22Usd_SortByExternalTimeEEEEvT_SE_T0_(ptr %0, ptr %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %0, %1
-  br i1 %3, label %19, label %4
+  br i1 %3, label %20, label %4
 
 4:                                                ; preds = %2
   %5 = ptrtoint ptr %1 to i64
@@ -10305,58 +10305,58 @@ define linkonce_odr void @_ZSt13__stable_sortIN9__gnu_cxx17__normal_iteratorIPN3
   %10 = mul nuw nsw i64 %storemerge26.i.i, 24
   %11 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %10, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #25
   %.not.i.i = icmp eq ptr %11, null
-  br i1 %.not.i.i, label %select.unfold.i.i, label %12
+  br i1 %.not.i.i, label %select.unfold.i.i, label %13
 
 select.unfold.i.i:                                ; preds = %.lr.ph.i.i
-  %.not10.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in, 3
-  br i1 %.not10.i.i, label %.loopexit28, label %.lr.ph.i.i, !llvm.loop !109
+  %12 = icmp eq i64 %storemerge26.i.i, 1
+  br i1 %12, label %.loopexit28, label %.lr.ph.i.i, !llvm.loop !109
 
-12:                                               ; preds = %.lr.ph.i.i
-  %13 = getelementptr inbounds nuw i8, ptr %11, i64 %10
+13:                                               ; preds = %.lr.ph.i.i
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   %.not18.i.i.i = icmp eq i64 %storemerge26.i.i, 1
   br i1 %.not18.i.i.i, label %.loopexit, label %.lr.ph.i.i.preheader.i
 
-.lr.ph.i.i.preheader.i:                           ; preds = %12
+.lr.ph.i.i.preheader.i:                           ; preds = %13
   %.01317.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 24
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i
   %.01320.i.i.i = phi ptr [ %.013.i.i.i, %.lr.ph.i.i.i ], [ %.01317.i.i.i, %.lr.ph.i.i.preheader.i ]
-  %.019.i.i.i = phi ptr [ %14, %.lr.ph.i.i.i ], [ %11, %.lr.ph.i.i.preheader.i ]
+  %.019.i.i.i = phi ptr [ %15, %.lr.ph.i.i.i ], [ %11, %.lr.ph.i.i.preheader.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.01320.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.019.i.i.i, i64 24, i1 false)
-  %14 = getelementptr inbounds nuw i8, ptr %.019.i.i.i, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %.019.i.i.i, i64 24
   %.013.i.i.i = getelementptr inbounds nuw i8, ptr %.01320.i.i.i, i64 24
-  %.not.i.i.i = icmp eq ptr %.013.i.i.i, %13
+  %.not.i.i.i = icmp eq ptr %.013.i.i.i, %14
   br i1 %.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !110
 
 .loopexit28:                                      ; preds = %select.unfold.i.i, %4
   invoke void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS3_22Usd_SortByExternalTimeEEEEvT_SE_T0_(ptr %0, ptr %1)
-          to label %.loopexit28._crit_edge unwind label %15
+          to label %.loopexit28._crit_edge unwind label %16
 
-15:                                               ; preds = %.loopexit, %.loopexit28
+16:                                               ; preds = %.loopexit, %.loopexit28
   %.sroa.1.027 = phi i64 [ %storemerge26.i.i, %.loopexit ], [ 0, %.loopexit28 ]
   %.sroa.6.024 = phi ptr [ %11, %.loopexit ], [ null, %.loopexit28 ]
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = mul i64 %.sroa.1.027, 24
-  tail call void @_ZdlPvm(ptr noundef %.sroa.6.024, i64 noundef %17) #20
-  resume { ptr, i32 } %16
+  %18 = mul i64 %.sroa.1.027, 24
+  tail call void @_ZdlPvm(ptr noundef %.sroa.6.024, i64 noundef %18) #20
+  resume { ptr, i32 } %17
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i, %12
-  %.0.lcssa.i.i.i = phi ptr [ %11, %12 ], [ %14, %.lr.ph.i.i.i ]
+.loopexit:                                        ; preds = %.lr.ph.i.i.i, %13
+  %.0.lcssa.i.i.i = phi ptr [ %11, %13 ], [ %15, %.lr.ph.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(17) %.0.lcssa.i.i.i, i64 17, i1 false)
   invoke void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterINS3_22Usd_SortByExternalTimeEEEEvT_SE_T0_T1_T2_(ptr nonnull %0, ptr %1, ptr noundef nonnull %11, i64 noundef %storemerge26.i.i)
-          to label %.loopexit28._crit_edge unwind label %15
+          to label %.loopexit28._crit_edge unwind label %16
 
 .loopexit28._crit_edge:                           ; preds = %.loopexit28, %.loopexit
   %.sroa.1.025 = phi i64 [ %storemerge26.i.i, %.loopexit ], [ 0, %.loopexit28 ]
   %.sroa.6.022 = phi ptr [ %11, %.loopexit ], [ null, %.loopexit28 ]
-  %18 = mul i64 %.sroa.1.025, 24
-  tail call void @_ZdlPvm(ptr noundef %.sroa.6.022, i64 noundef %18) #20
-  br label %19
+  %19 = mul i64 %.sroa.1.025, 24
+  tail call void @_ZdlPvm(ptr noundef %.sroa.6.022, i64 noundef %19) #20
+  br label %20
 
-19:                                               ; preds = %2, %.loopexit28._crit_edge
+20:                                               ; preds = %2, %.loopexit28._crit_edge
   ret void
 }
 

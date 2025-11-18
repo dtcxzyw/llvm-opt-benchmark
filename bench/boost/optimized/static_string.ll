@@ -97717,7 +97717,7 @@ _ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.ex
   %353 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5973, ptr noundef nonnull @.str.13, i32 noundef 1812, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL9testEraseEv, i1 noundef zeroext %351)
   %354 = lshr i64 %350, 56
   %355 = trunc nuw i64 %354 to i8
-  %356 = icmp ult i64 %350, 72057594037927936
+  %356 = icmp eq i64 %354, 0
   %357 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.1296, ptr noundef nonnull @.str.13, i32 noundef 1813, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL9testEraseEv, i1 noundef zeroext %356)
   %358 = getelementptr inbounds nuw i8, ptr %6, i64 6
   store i8 %355, ptr %358, align 1

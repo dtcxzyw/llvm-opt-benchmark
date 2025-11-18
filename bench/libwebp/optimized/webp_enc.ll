@@ -687,7 +687,7 @@ GetPSNR.exit.i:                                   ; preds = %29, %22
   %40 = load i64, ptr %39, align 8, !tbaa !94
   %41 = lshr i64 %24, 2
   %42 = icmp ne i64 %40, 0
-  %43 = icmp ugt i64 %24, 3
+  %43 = icmp ne i64 %41, 0
   %or.cond.i19.i = and i1 %43, %42
   br i1 %or.cond.i19.i, label %44, label %GetPSNR.exit20.i
 
@@ -728,14 +728,14 @@ GetPSNR.exit22.i:                                 ; preds = %57, %GetPSNR.exit20
   %67 = add i64 %40, %26
   %68 = add i64 %67, %55
   %69 = mul i64 %24, 3
-  %70 = icmp ne i64 %68, 0
-  %71 = icmp ugt i64 %69, 1
-  %or.cond.i23.i = and i1 %71, %70
-  br i1 %or.cond.i23.i, label %72, label %GetPSNR.exit24.i
+  %70 = lshr i64 %69, 1
+  %71 = icmp ne i64 %68, 0
+  %72 = icmp ne i64 %70, 0
+  %or.cond.i23.i = and i1 %72, %71
+  br i1 %or.cond.i23.i, label %73, label %GetPSNR.exit24.i
 
-72:                                               ; preds = %GetPSNR.exit22.i
-  %73 = lshr i64 %69, 1
-  %74 = uitofp nneg i64 %73 to double
+73:                                               ; preds = %GetPSNR.exit22.i
+  %74 = uitofp nneg i64 %70 to double
   %75 = fmul double %74, 6.502500e+04
   %76 = uitofp i64 %68 to double
   %77 = fdiv double %75, %76
@@ -744,8 +744,8 @@ GetPSNR.exit22.i:                                 ; preds = %57, %GetPSNR.exit20
   %80 = fptrunc double %79 to float
   br label %GetPSNR.exit24.i
 
-GetPSNR.exit24.i:                                 ; preds = %72, %GetPSNR.exit22.i
-  %81 = phi float [ %80, %72 ], [ 9.900000e+01, %GetPSNR.exit22.i ]
+GetPSNR.exit24.i:                                 ; preds = %73, %GetPSNR.exit22.i
+  %81 = phi float [ %80, %73 ], [ 9.900000e+01, %GetPSNR.exit22.i ]
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store float %81, ptr %82, align 4, !tbaa !95
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 23536

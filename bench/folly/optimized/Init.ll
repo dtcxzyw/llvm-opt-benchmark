@@ -68,11 +68,11 @@ define void @_ZN5folly11initLoggingESt16initializer_listINS_5RangeIPKcEEE(ptr re
   %8 = tail call noundef ptr @_ZN5folly20getBaseLoggingConfigEv()
   %.idx66 = shl nuw nsw i64 %1, 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx66
-  %.not65 = icmp ult i64 %1, 4
+  %10 = lshr i64 %1, 2
+  %.not65 = icmp eq i64 %10, 0
   br i1 %.not65, label %._crit_edge.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %2
-  %10 = lshr i64 %1, 2
   %11 = and i64 %.idx66, 9223372036854775744
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %0, i64 %11
   br label %.lr.ph.i.i.i.i.i
@@ -123,11 +123,10 @@ define void @_ZN5folly11initLoggingESt16initializer_listINS_5RangeIPKcEEE(ptr re
 ._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %2
   %.pre-phi63.i.i.i.i.i = phi i64 [ %26, %._crit_edge.loopexit.i.i.i.i.i ], [ %1, %2 ]
   %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %0, %2 ]
-  switch i64 %.pre-phi63.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.unreachabledefault [
+  switch i64 %.pre-phi63.i.i.i.i.i, label %37 [
     i64 3, label %27
     i64 2, label %31
     i64 1, label %35
-    i64 0, label %37
   ]
 
 27:                                               ; preds = %._crit_edge.i.i.i.i.i
@@ -141,7 +140,7 @@ define void @_ZN5folly11initLoggingESt16initializer_listINS_5RangeIPKcEEE(ptr re
   %30 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i, i64 16
   br label %31
 
-31:                                               ; preds = %._crit_edge.i.i.i.i.i, %29
+31:                                               ; preds = %29, %._crit_edge.i.i.i.i.i
   %.1.i.i.i.i.i = phi ptr [ %30, %29 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.1.val.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i, align 8, !tbaa !7
   %32 = getelementptr i8, ptr %.1.i.i.i.i.i, i64 8
@@ -153,7 +152,7 @@ define void @_ZN5folly11initLoggingESt16initializer_listINS_5RangeIPKcEEE(ptr re
   %34 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 16
   br label %35
 
-35:                                               ; preds = %._crit_edge.i.i.i.i.i, %33
+35:                                               ; preds = %33, %._crit_edge.i.i.i.i.i
   %.2.i.i.i.i.i = phi ptr [ %34, %33 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.2.val.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i, align 8, !tbaa !7
   %36 = getelementptr i8, ptr %.2.i.i.i.i.i, i64 8
@@ -161,10 +160,7 @@ define void @_ZN5folly11initLoggingESt16initializer_listINS_5RangeIPKcEEE(ptr re
   %.not41.i.i.i.i.i = icmp eq ptr %.2.val.i.i.i.i.i, %.2.val39.i.i.i.i.i
   br i1 %.not41.i.i.i.i.i, label %37, label %"_ZSt6any_ofIPKN5folly5RangeIPKcEEZNS0_11initLoggingESt16initializer_listIS4_EE3$_0EbT_SA_T0_.exit"
 
-._crit_edge.i.i.i.i.i.unreachabledefault:         ; preds = %._crit_edge.i.i.i.i.i
-  unreachable
-
-37:                                               ; preds = %._crit_edge.i.i.i.i.i, %35
+37:                                               ; preds = %35, %._crit_edge.i.i.i.i.i
   br label %"_ZSt6any_ofIPKN5folly5RangeIPKcEEZNS0_11initLoggingESt16initializer_listIS4_EE3$_0EbT_SA_T0_.exit"
 
 "_ZSt6any_ofIPKN5folly5RangeIPKcEEZNS0_11initLoggingESt16initializer_listIS4_EE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit": ; preds = %13

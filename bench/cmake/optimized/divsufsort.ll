@@ -295,7 +295,7 @@ define internal fastcc range(i32 -2147483645, -2147483648) i32 @sort_typeBstar(p
   %16 = add nsw i32 %15, 1
   store i32 %16, ptr %14, align 4, !tbaa !4
   %.not321 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not321, label %.loopexit828, label %17
+  br i1 %.not321, label %.loopexit829, label %17
 
 17:                                               ; preds = %12
   %18 = add nsw i64 %indvars.iv, -1
@@ -320,7 +320,7 @@ define internal fastcc range(i32 -2147483645, -2147483648) i32 @sort_typeBstar(p
   %33 = getelementptr inbounds i32, ptr %1, i64 %32
   store i32 %24, ptr %33, align 4, !tbaa !4
   %34 = icmp sgt i32 %23, 1
-  br i1 %34, label %.lr.ph.preheader, label %.loopexit828
+  br i1 %34, label %.lr.ph.preheader, label %.loopexit829
 
 .lr.ph.preheader:                                 ; preds = %22
   %35 = add nsw i32 %23, -2
@@ -346,9 +346,9 @@ define internal fastcc range(i32 -2147483645, -2147483648) i32 @sort_typeBstar(p
   store i32 %46, ptr %44, align 4, !tbaa !4
   %47 = add nsw i32 %.5251419, -1
   %48 = icmp sgt i32 %.5251419, 0
-  br i1 %48, label %.lr.ph, label %.loopexit828, !llvm.loop !15
+  br i1 %48, label %.lr.ph, label %.loopexit829, !llvm.loop !15
 
-.loopexit828:                                     ; preds = %22, %12, %40
+.loopexit829:                                     ; preds = %22, %12, %40
   %.1261.ph = phi i32 [ %31, %40 ], [ %.0260425, %12 ], [ %31, %22 ]
   br label %49
 
@@ -359,11 +359,11 @@ define internal fastcc range(i32 -2147483645, -2147483648) i32 @sort_typeBstar(p
   %exitcond584.not = icmp eq i64 %indvars.iv.next582, 256
   br i1 %exitcond584.not, label %65, label %49, !llvm.loop !16
 
-49:                                               ; preds = %.loopexit828, %.loopexit337
-  %indvars.iv581 = phi i64 [ 0, %.loopexit828 ], [ %indvars.iv.next582, %.loopexit337 ]
-  %indvars.iv576 = phi i64 [ 1, %.loopexit828 ], [ %indvars.iv.next577, %.loopexit337 ]
-  %.6252434 = phi i32 [ 0, %.loopexit828 ], [ %.7253.lcssa, %.loopexit337 ]
-  %.0265433 = phi i32 [ 0, %.loopexit828 ], [ %.1266.lcssa, %.loopexit337 ]
+49:                                               ; preds = %.loopexit829, %.loopexit337
+  %indvars.iv581 = phi i64 [ 0, %.loopexit829 ], [ %indvars.iv.next582, %.loopexit337 ]
+  %indvars.iv576 = phi i64 [ 1, %.loopexit829 ], [ %indvars.iv.next577, %.loopexit337 ]
+  %.6252434 = phi i32 [ 0, %.loopexit829 ], [ %.7253.lcssa, %.loopexit337 ]
+  %.0265433 = phi i32 [ 0, %.loopexit829 ], [ %.1266.lcssa, %.loopexit337 ]
   %50 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv581
   %51 = load i32, ptr %50, align 4, !tbaa !4
   %52 = add nsw i32 %51, %.6252434
@@ -380,9 +380,9 @@ define internal fastcc range(i32 -2147483645, -2147483648) i32 @sort_typeBstar(p
   br i1 %60, label %.lr.ph431.preheader, label %.loopexit337
 
 .lr.ph431.preheader:                              ; preds = %49
-  %.idx806 = shl nuw nsw i64 %indvars.iv581, 10
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %3, i64 %.idx806
-  %invariant.gep918 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv581
+  %.idx807 = shl nuw nsw i64 %indvars.iv581, 10
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %3, i64 %.idx807
+  %invariant.gep919 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv581
   br label %.lr.ph431
 
 .lr.ph431:                                        ; preds = %.lr.ph431.preheader, %.lr.ph431
@@ -393,9 +393,9 @@ define internal fastcc range(i32 -2147483645, -2147483648) i32 @sort_typeBstar(p
   %61 = load i32, ptr %gep, align 4, !tbaa !4
   %62 = add nsw i32 %61, %.1266428
   store i32 %62, ptr %gep, align 4, !tbaa !4
-  %.idx807 = shl nuw nsw i64 %indvars.iv578, 10
-  %gep919 = getelementptr inbounds nuw i8, ptr %invariant.gep918, i64 %.idx807
-  %63 = load i32, ptr %gep919, align 4, !tbaa !4
+  %.idx808 = shl nuw nsw i64 %indvars.iv578, 10
+  %gep920 = getelementptr inbounds nuw i8, ptr %invariant.gep919, i64 %.idx808
+  %63 = load i32, ptr %gep920, align 4, !tbaa !4
   %64 = add nsw i32 %63, %.7253429
   %indvars.iv.next579 = add nuw nsw i64 %indvars.iv578, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next579, 256
@@ -443,8 +443,8 @@ define internal fastcc range(i32 -2147483645, -2147483648) i32 @sort_typeBstar(p
   %92 = trunc nuw nsw i64 %indvars.iv585 to i32
   store i32 %92, ptr %91, align 4, !tbaa !4
   %indvars.iv.next586 = add nsw i64 %indvars.iv585, -1
-  %.not922 = icmp eq i64 %indvars.iv585, 0
-  br i1 %.not922, label %.preheader336.lr.ph, label %.lr.ph437, !llvm.loop !18
+  %.not923 = icmp eq i64 %indvars.iv585, 0
+  br i1 %.not923, label %.preheader336.lr.ph, label %.lr.ph437, !llvm.loop !18
 
 .preheader336.lr.ph:                              ; preds = %.lr.ph437, %68
   %93 = add nsw i32 %66, -1
@@ -724,7 +724,7 @@ ss_isqrt.exit.thread.i:                           ; preds = %ss_isqrt.exit.i, %1
   %.2.i = phi ptr [ %245, %242 ], [ %.1108165.i, %.lr.ph169.i ]
   %247 = shl i32 %.1102166.i, 1
   %248 = lshr i32 %.1167.i, 1
-  %.not117.i = icmp samesign ult i32 %.1167.i, 2
+  %.not117.i = icmp eq i32 %248, 0
   br i1 %.not117.i, label %._crit_edge170.i, label %.lr.ph169.i, !llvm.loop !21
 
 ._crit_edge170.i:                                 ; preds = %246, %._crit_edge162.thread.i
@@ -4204,7 +4204,7 @@ trsort.exit:                                      ; preds = %.thread158.i, %2066
   %2106 = getelementptr inbounds nuw i8, ptr %2105, i64 4
   %2107 = load i32, ptr %2106, align 4, !tbaa !4
   %2108 = add nsw i32 %2107, -1
-  %invariant.gep920 = getelementptr i32, ptr %3, i64 %indvars.iv611
+  %invariant.gep921 = getelementptr i32, ptr %3, i64 %indvars.iv611
   %indvars.iv611.tr = trunc i64 %indvars.iv611 to i32
   %2109 = shl i32 %indvars.iv611.tr, 8
   br label %2110
@@ -4213,11 +4213,11 @@ trsort.exit:                                      ; preds = %.thread158.i, %2066
   %indvars.iv608 = phi i64 [ 255, %.lr.ph473 ], [ %indvars.iv.next609, %._crit_edge466 ]
   %.17470 = phi i32 [ %2108, %.lr.ph473 ], [ %.18.lcssa, %._crit_edge466 ]
   %.1263469 = phi i32 [ %.0262477, %.lr.ph473 ], [ %.2264.lcssa, %._crit_edge466 ]
-  %.idx808 = shl i64 %indvars.iv608, 10
-  %gep921 = getelementptr i8, ptr %invariant.gep920, i64 %.idx808
-  %2111 = load i32, ptr %gep921, align 4, !tbaa !4
+  %.idx809 = shl i64 %indvars.iv608, 10
+  %gep922 = getelementptr i8, ptr %invariant.gep921, i64 %.idx809
+  %2111 = load i32, ptr %gep922, align 4, !tbaa !4
   %2112 = sub i32 %.17470, %2111
-  store i32 %.17470, ptr %gep921, align 4, !tbaa !4
+  store i32 %.17470, ptr %gep922, align 4, !tbaa !4
   %2113 = trunc nuw nsw i64 %indvars.iv608 to i32
   %2114 = or i32 %2109, %2113
   %2115 = sext i32 %2114 to i64

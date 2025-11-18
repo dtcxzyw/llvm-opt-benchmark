@@ -327,11 +327,11 @@ define dso_local void @_ZN4llvm30RAIITemporaryObserverInstallerD2Ev(ptr noundef 
   %9 = zext i32 %8 to i64
   %.idx3.i.i = shl nuw nsw i64 %9, 3
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx3.i.i
-  %.not.i.i = icmp ult i32 %8, 4
+  %11 = lshr i64 %9, 2
+  %.not.i.i = icmp eq i64 %11, 0
   br i1 %.not.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %1
-  %11 = lshr i64 %9, 2
   %12 = and i64 %.idx3.i.i, 34359738336
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %6, i64 %12
   br label %13
@@ -374,11 +374,10 @@ define dso_local void @_ZN4llvm30RAIITemporaryObserverInstallerD2Ev(ptr noundef 
 ._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %1
   %.pre-phi56.i.i.i.i.i = phi i32 [ %32, %._crit_edge.loopexit.i.i.i.i.i ], [ %8, %1 ]
   %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %6, %1 ]
-  switch i32 %.pre-phi56.i.i.i.i.i, label %default.unreachable [
+  switch i32 %.pre-phi56.i.i.i.i.i, label %44 [
     i32 3, label %33
     i32 2, label %._crit_edge._crit_edge.i.i.i.i.i
     i32 1, label %._crit_edge._crit_edge52.i.i.i.i.i
-    i32 0, label %44
   ]
 
 33:                                               ; preds = %._crit_edge.i.i.i.i.i
@@ -405,9 +404,6 @@ define dso_local void @_ZN4llvm30RAIITemporaryObserverInstallerD2Ev(ptr noundef 
   %42 = load ptr, ptr %.2.i.i.i.i.i, align 8, !tbaa !160
   %43 = icmp eq ptr %42, %4
   br i1 %43, label %_ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.exit.i, label %44
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i
-  unreachable
 
 44:                                               ; preds = %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge.i.i.i.i.i
   br label %_ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.exit.i

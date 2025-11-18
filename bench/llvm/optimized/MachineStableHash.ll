@@ -654,7 +654,7 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %312
   %323 = add i32 %322, 31
   %324 = lshr i32 %323, 5
   %325 = zext nneg i32 %324 to i64
-  %.not.i.i.i132 = icmp ult i32 %323, 32
+  %.not.i.i.i132 = icmp eq i32 %324, 0
   br i1 %.not.i.i.i132, label %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.thread.i.i, label %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i

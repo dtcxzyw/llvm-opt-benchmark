@@ -34166,7 +34166,7 @@ define internal fastcc void @_ZN8wasmtime7runtime9component6values10push_flags17
 28:                                               ; preds = %7, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfcb7264134546339E.exit"
   %29 = lshr i32 %.052, 1
   %30 = add i32 %.03, 1
-  %.not = icmp ult i32 %.052, 2
+  %.not = icmp eq i32 %29, 0
   br i1 %.not, label %._crit_edge, label %7
 }
 

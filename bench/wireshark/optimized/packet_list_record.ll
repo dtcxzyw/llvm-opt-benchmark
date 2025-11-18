@@ -3617,7 +3617,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %7, %9, %1
   %27 = tail call noalias noundef ptr @_Znam(i64 noundef %26) #29
   store i64 %21, ptr %27, align 16
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = icmp ult i64 %20, 128
+  %29 = icmp eq i64 %21, 0
   br i1 %29, label %.loopexit32, label %30
 
 30:                                               ; preds = %_ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit
@@ -3647,7 +3647,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %7, %9, %1
   store i64 %.0.i, ptr %18, align 8
   %44 = add i64 %19, 127
   %45 = lshr i64 %44, 7
-  %.not35 = icmp ult i64 %44, 128
+  %.not35 = icmp eq i64 %45, 0
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.loopexit32

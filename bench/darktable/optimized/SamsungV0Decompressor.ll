@@ -815,7 +815,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor10decompressEv(ptr nound
   tail call void @llvm.assume(i1 %19)
   %20 = icmp sgt i32 %15, -1
   tail call void @llvm.assume(i1 %20)
-  %21 = icmp ugt i32 %17, 1
+  %21 = icmp ne i32 %18, 0
   tail call void @llvm.assume(i1 %21)
   %22 = icmp sgt i32 %18, -1
   tail call void @llvm.assume(i1 %22)
@@ -907,7 +907,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %18 = ashr i32 %17, 1
   %19 = icmp sgt i32 %13, -1
   tail call void @llvm.assume(i1 %19)
-  %20 = icmp ugt i32 %17, 1
+  %20 = icmp ne i32 %18, 0
   tail call void @llvm.assume(i1 %20)
   %21 = icmp sgt i32 %18, -1
   tail call void @llvm.assume(i1 %21)

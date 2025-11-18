@@ -595,14 +595,14 @@ if.end52:                                         ; preds = %if.then51, %sw.bb49
   br i1 %41, label %if.end55, label %Next
 
 if.end55:                                         ; preds = %if.end52
-  %cmp57.not = icmp ult i16 %34, 2
+  %42 = lshr i16 %34, 1
+  %cmp57.not = icmp eq i16 %42, 0
   br i1 %cmp57.not, label %if.end60, label %if.then58
 
 if.then58:                                        ; preds = %if.end55
-  %42 = trunc nsw i64 %indvars.iv263 to i32
-  %43 = lshr i16 %34, 1
-  %shr.i81 = zext nneg i16 %43 to i32
-  %add = add nsw i32 %42, %shr.i81
+  %43 = trunc nsw i64 %indvars.iv263 to i32
+  %shr.i81 = zext nneg i16 %42 to i32
+  %add = add nsw i32 %43, %shr.i81
   tail call void @_ZN3re28BitState4PushEiPKc(ptr noundef nonnull align 8 dereferenceable(116) %this, i32 noundef %add, ptr noundef %p.1.ph)
   br label %if.end60
 

@@ -39576,7 +39576,7 @@ _ZN4entt7resolveI5clazzEENS_9meta_typeEv.exit:    ; preds = %_ZN4entt12meta_fact
   store i32 %133, ptr %12, align 4, !tbaa !795
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !795
-  %134 = icmp ult i32 %132, 65536
+  %134 = icmp eq i32 %133, 0
   br i1 %134, label %135, label %136
 
 135:                                              ; preds = %_ZN4entt7resolveI5clazzEENS_9meta_typeEv.exit
@@ -39804,14 +39804,14 @@ _ZN4entt8literalsli3_hsEPKcm.exit157:             ; preds = %_ZNKSt14default_del
   store ptr %189, ptr %209, align 8, !tbaa !68, !alias.scope !797
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %18, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !800
-  %210 = getelementptr inbounds nuw i8, ptr %18, i64 72
-  store ptr %183, ptr %210, align 8, !tbaa !482, !alias.scope !797
+  %210 = lshr i32 %.pre, 16
+  %211 = getelementptr inbounds nuw i8, ptr %18, i64 72
+  store ptr %183, ptr %211, align 8, !tbaa !482, !alias.scope !797
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
-  %211 = lshr i32 %.pre, 16
-  store i32 %211, ptr %17, align 4, !tbaa !795
+  store i32 %210, ptr %17, align 4, !tbaa !795
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 0, ptr %19, align 4, !tbaa !795
-  %212 = icmp ult i32 %.pre, 65536
+  %212 = icmp eq i32 %210, 0
   br i1 %212, label %213, label %215
 
 213:                                              ; preds = %.thread, %206
@@ -40134,14 +40134,14 @@ _ZNSt10shared_ptrIN4entt8internal14meta_func_nodeEEC2ERKS3_.exit.i.i: ; preds = 
   store ptr %306, ptr %328, align 8, !tbaa !68, !alias.scope !801
   %.phi.trans.insert725 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %.pre726 = load i32, ptr %.phi.trans.insert725, align 4, !tbaa !806
-  %329 = getelementptr inbounds nuw i8, ptr %24, i64 80
-  store ptr %288, ptr %329, align 8, !tbaa !804, !alias.scope !801
+  %329 = lshr i32 %.pre726, 16
+  %330 = getelementptr inbounds nuw i8, ptr %24, i64 80
+  store ptr %288, ptr %330, align 8, !tbaa !804, !alias.scope !801
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i196)
-  %330 = lshr i32 %.pre726, 16
-  store i32 %330, ptr %23, align 4, !tbaa !795
+  store i32 %329, ptr %23, align 4, !tbaa !795
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !795
-  %331 = icmp ult i32 %.pre726, 65536
+  %331 = icmp eq i32 %329, 0
   br i1 %331, label %332, label %334
 
 332:                                              ; preds = %.thread867, %323
@@ -40611,14 +40611,14 @@ _ZNK4entt9meta_func4nextEv.exit:                  ; preds = %_ZNSt10shared_ptrIN
   store ptr %490, ptr %511, align 8, !tbaa !68, !alias.scope !810
   %.phi.trans.insert727 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %.pre728 = load i32, ptr %.phi.trans.insert727, align 4, !tbaa !806
-  %512 = getelementptr inbounds nuw i8, ptr %30, i64 80
-  store ptr %430, ptr %512, align 8, !tbaa !804, !alias.scope !810
+  %512 = lshr i32 %.pre728, 16
+  %513 = getelementptr inbounds nuw i8, ptr %30, i64 80
+  store ptr %430, ptr %513, align 8, !tbaa !804, !alias.scope !810
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i251)
-  %513 = lshr i32 %.pre728, 16
-  store i32 %513, ptr %29, align 4, !tbaa !795
+  store i32 %512, ptr %29, align 4, !tbaa !795
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i32 0, ptr %32, align 4, !tbaa !795
-  %514 = icmp ult i32 %.pre728, 65536
+  %514 = icmp eq i32 %512, 0
   br i1 %514, label %515, label %517
 
 515:                                              ; preds = %_ZNK4entt9meta_func4nextEv.exit.thread, %_ZNK4entt9meta_func4nextEv.exit

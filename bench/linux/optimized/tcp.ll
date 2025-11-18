@@ -9173,7 +9173,7 @@ define internal fastcc noundef range(i32 -27, 1) i32 @tcp_repair_options_est(ptr
   br label %103
 
 88:                                               ; preds = %.critedge
-  %89 = icmp ult i64 %65, 4294967296
+  %89 = icmp eq i64 %69, 0
   br i1 %89, label %90, label %.loopexit
 
 90:                                               ; preds = %88
@@ -9188,7 +9188,7 @@ define internal fastcc noundef range(i32 -27, 1) i32 @tcp_repair_options_est(ptr
   br label %103
 
 98:                                               ; preds = %.critedge
-  %99 = icmp ult i64 %65, 4294967296
+  %99 = icmp eq i64 %69, 0
   br i1 %99, label %100, label %.loopexit
 
 100:                                              ; preds = %98

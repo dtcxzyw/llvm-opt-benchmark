@@ -244,7 +244,7 @@ define i32 @wc_PRF_TLSv1(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 nou
 
 ._crit_edge.i:                                    ; preds = %35
   %39 = lshr i32 %1, 3
-  %.not.i.i = icmp samesign ult i32 %1, 8
+  %.not.i.i = icmp eq i32 %39, 0
   br i1 %.not.i.i, label %XorWords.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge.i, %.lr.ph.i.i

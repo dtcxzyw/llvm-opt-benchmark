@@ -52,7 +52,7 @@ define dso_local ptr @GinDataLeafPageGetItems(ptr noundef %0, ptr noundef %1, i4
   %15 = zext i16 %14 to i64
   %16 = add nsw i64 %15, -32
   %17 = getelementptr i8, ptr %0, i64 %15
-  %.not33 = icmp ult i48 %2, 4294967296
+  %.not33 = icmp eq i48 %.sroa.3.0.extract.shift, 0
   br i1 %.not33, label %63, label %18
 
 18:                                               ; preds = %12
@@ -75,22 +75,22 @@ define dso_local ptr @GinDataLeafPageGetItems(ptr noundef %0, ptr noundef %1, i4
   %31 = zext i48 %30 to i64
   %32 = or disjoint i64 %28, %31
   %33 = or disjoint i64 %32, %.sroa.3.0.extract.trunc
-  %.val.i42 = load i16, ptr %.02835, align 2
+  %.val.i41 = load i16, ptr %.02835, align 2
   %34 = getelementptr i8, ptr %24, i64 10
-  %.val5.i43 = load i16, ptr %34, align 2
-  %35 = zext i16 %.val.i42 to i64
-  %36 = zext i16 %.val5.i43 to i64
+  %.val5.i42 = load i16, ptr %34, align 2
+  %35 = zext i16 %.val.i41 to i64
+  %36 = zext i16 %.val5.i42 to i64
   %37 = shl nuw i64 %35, 48
   %38 = shl nuw nsw i64 %36, 32
   %39 = or disjoint i64 %38, %37
   %40 = getelementptr i8, ptr %24, i64 12
-  %.val8.i44 = load i16, ptr %40, align 2
-  %41 = zext i16 %.val8.i44 to i64
+  %.val8.i43 = load i16, ptr %40, align 2
+  %41 = zext i16 %.val8.i43 to i64
   %42 = or disjoint i64 %39, %41
-  %.not3445 = icmp ugt i64 %42, %33
-  br i1 %.not3445, label %.critedge, label %.lr.ph48
+  %.not3444 = icmp ugt i64 %42, %33
+  br i1 %.not3444, label %.critedge, label %.lr.ph47
 
-43:                                               ; preds = %.lr.ph48
+43:                                               ; preds = %.lr.ph47
   %.val.i = load i16, ptr %.028, align 2
   %44 = getelementptr i8, ptr %58, i64 10
   %.val5.i = load i16, ptr %44, align 2
@@ -104,26 +104,26 @@ define dso_local ptr @GinDataLeafPageGetItems(ptr noundef %0, ptr noundef %1, i4
   %51 = zext i16 %.val8.i to i64
   %52 = or disjoint i64 %49, %51
   %.not34 = icmp ugt i64 %52, %33
-  br i1 %.not34, label %.critedge, label %.lr.ph48, !llvm.loop !4
+  br i1 %.not34, label %.critedge, label %.lr.ph47, !llvm.loop !4
 
-.lr.ph48:                                         ; preds = %.lr.ph, %43
-  %.pn3747 = phi ptr [ %58, %43 ], [ %24, %.lr.ph ]
-  %.0283846 = phi ptr [ %.028, %43 ], [ %.02835, %.lr.ph ]
-  %53 = getelementptr inbounds nuw i8, ptr %.pn3747, i64 14
+.lr.ph47:                                         ; preds = %.lr.ph, %43
+  %.pn3746 = phi ptr [ %58, %43 ], [ %24, %.lr.ph ]
+  %.0283845 = phi ptr [ %.028, %43 ], [ %.02835, %.lr.ph ]
+  %53 = getelementptr inbounds nuw i8, ptr %.pn3746, i64 14
   %54 = load i16, ptr %53, align 2
   %55 = zext i16 %54 to i64
   %56 = add nuw nsw i64 %55, 1
   %57 = and i64 %56, 131070
-  %58 = getelementptr inbounds nuw i8, ptr %.0283846, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr %.0283845, i64 %57
   %.028 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %59 = icmp ult ptr %.028, %17
   br i1 %59, label %43, label %..critedge.loopexit_crit_edge, !llvm.loop !4
 
-..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph48
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph47
   br label %.critedge, !llvm.loop !4
 
 .critedge:                                        ; preds = %43, %.lr.ph, %..critedge.loopexit_crit_edge, %18
-  %.130.lcssa = phi ptr [ %11, %18 ], [ %.0283846, %..critedge.loopexit_crit_edge ], [ %11, %.lr.ph ], [ %.0283846, %43 ]
+  %.130.lcssa = phi ptr [ %11, %18 ], [ %.0283845, %..critedge.loopexit_crit_edge ], [ %11, %.lr.ph ], [ %.0283845, %43 ]
   %60 = ptrtoint ptr %17 to i64
   %61 = ptrtoint ptr %.130.lcssa to i64
   %62 = sub i64 %60, %61

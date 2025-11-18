@@ -219,7 +219,7 @@ define internal i32 @svq1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %80 = add i32 %63, 8
   %81 = tail call i32 @llvm.umin.i32(i32 %62, i32 %80)
   store i32 %81, ptr %70, align 8, !tbaa !47
-  %82 = icmp ult i32 %78, 16777216
+  %82 = icmp eq i32 %79, 0
   br i1 %82, label %83, label %92
 
 83:                                               ; preds = %.loopexit218
@@ -320,7 +320,7 @@ default.unreachable:                              ; preds = %92
   store i32 %132, ptr %70, align 8, !tbaa !47
   %133 = trunc nuw i32 %130 to i8
   store i8 %133, ptr %9, align 16, !tbaa !48
-  %.not15.i.i = icmp ult i32 %129, 16777216
+  %.not15.i.i = icmp eq i32 %130, 0
   br i1 %.not15.i.i, label %svq1_parse_string.exit.i, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %122
@@ -414,8 +414,8 @@ svq1_parse_string.exit.i:                         ; preds = %.lr.ph.i.i, %122
   %191 = add i32 %182, 12
   %192 = call i32 @llvm.umin.i32(i32 %153, i32 %191)
   store i32 %192, ptr %70, align 8, !tbaa !47
-  %193 = icmp ugt i32 %179, 1048575
-  %194 = icmp ugt i32 %189, 1048575
+  %193 = icmp ne i32 %180, 0
+  %194 = icmp ne i32 %190, 0
   %or.cond.i177 = select i1 %193, i1 %194, i1 false
   br i1 %or.cond.i177, label %203, label %.thread
 
@@ -1310,17 +1310,17 @@ get_vlc2.exit:                                    ; preds = %._crit_edge, %74
 
 .preheader137:                                    ; preds = %get_vlc2.exit
   %98 = zext i32 %48 to i64
-  %wide.trip.count303 = zext i32 %51 to i64
+  %wide.trip.count298 = zext i32 %51 to i64
   br label %99
 
 99:                                               ; preds = %.preheader137, %99
-  %indvars.iv299 = phi i64 [ 0, %.preheader137 ], [ %indvars.iv.next300, %99 ]
-  %100 = mul nsw i64 %indvars.iv299, %.sext
+  %indvars.iv294 = phi i64 [ 0, %.preheader137 ], [ %indvars.iv.next295, %99 ]
+  %100 = mul nsw i64 %indvars.iv294, %.sext
   %101 = getelementptr inbounds i32, ptr %45, i64 %100
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %101, i8 0, i64 %98, i1 false)
-  %indvars.iv.next300 = add nuw nsw i64 %indvars.iv299, 1
-  %exitcond304.not = icmp eq i64 %indvars.iv.next300, %wide.trip.count303
-  br i1 %exitcond304.not, label %.loopexit, label %99, !llvm.loop !87
+  %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 1
+  %exitcond299.not = icmp eq i64 %indvars.iv.next295, %wide.trip.count298
+  br i1 %exitcond299.not, label %.loopexit, label %99, !llvm.loop !87
 
 102:                                              ; preds = %get_vlc2.exit
   %103 = icmp sgt i32 %.062.i, 1
@@ -1414,17 +1414,17 @@ get_vlc2.exit135:                                 ; preds = %108, %125, %146
 .preheader138:                                    ; preds = %get_vlc2.exit135
   %169 = trunc i32 %.062.i133 to i8
   %170 = zext i32 %48 to i64
-  %wide.trip.count297 = zext i32 %51 to i64
+  %wide.trip.count292 = zext i32 %51 to i64
   br label %171
 
 171:                                              ; preds = %.preheader138, %171
-  %indvars.iv293 = phi i64 [ 0, %.preheader138 ], [ %indvars.iv.next294, %171 ]
-  %172 = mul nsw i64 %indvars.iv293, %.sext
+  %indvars.iv288 = phi i64 [ 0, %.preheader138 ], [ %indvars.iv.next289, %171 ]
+  %172 = mul nsw i64 %indvars.iv288, %.sext
   %173 = getelementptr inbounds i32, ptr %45, i64 %172
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %173, i8 %169, i64 %170, i1 false)
-  %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
-  %exitcond298.not = icmp eq i64 %indvars.iv.next294, %wide.trip.count297
-  br i1 %exitcond298.not, label %.loopexit, label %171, !llvm.loop !88
+  %indvars.iv.next289 = add nuw nsw i64 %indvars.iv288, 1
+  %exitcond293.not = icmp eq i64 %indvars.iv.next289, %wide.trip.count292
+  br i1 %exitcond293.not, label %.loopexit, label %171, !llvm.loop !88
 
 .lr.ph162:                                        ; preds = %get_vlc2.exit135
   %174 = getelementptr inbounds nuw ptr, ptr @ff_svq1_intra_codebooks, i64 %52
@@ -1468,13 +1468,12 @@ get_vlc2.exit135:                                 ; preds = %108, %125, %146
   %200 = shl nuw nsw i32 %96, 7
   %201 = sub nsw i32 %.062.i133, %200
   %202 = mul i32 %201, 65537
-  %.not225 = icmp ugt i32 %.2, -5
+  %203 = lshr i32 %48, 2
+  %.not225 = icmp eq i32 %203, 0
   br i1 %.not225, label %.loopexit, label %.preheader136.us.us.preheader
 
 .preheader136.us.us.preheader:                    ; preds = %._crit_edge163
-  %203 = lshr i32 %48, 2
-  %umax = tail call i32 @llvm.umax.i32(i32 %203, i32 1)
-  %wide.trip.count257 = zext nneg i32 %umax to i64
+  %wide.trip.count257 = zext nneg i32 %203 to i64
   %wide.trip.count252 = zext nneg i32 %96 to i64
   br label %.preheader136.us.us
 
@@ -1561,8 +1560,8 @@ get_vlc2.exit135:                                 ; preds = %108, %125, %146
 ._crit_edge173.split.us.us.us:                    ; preds = %230
   %248 = getelementptr inbounds i32, ptr %.0108191.us.us, i64 %.sext
   %249 = add nuw i32 %.2111190.us.us, 1
-  %exitcond260.not = icmp eq i32 %249, %51
-  br i1 %exitcond260.not, label %.loopexit, label %.preheader136.us.us, !llvm.loop !92
+  %exitcond259.not = icmp eq i32 %249, %51
+  br i1 %exitcond259.not, label %.loopexit, label %.preheader136.us.us, !llvm.loop !92
 
 .loopexit:                                        ; preds = %._crit_edge173.split.us.us.us, %171, %99, %._crit_edge163
   %250 = add nsw i32 %.1124.lcssa, 1

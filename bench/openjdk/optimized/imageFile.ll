@@ -161,20 +161,20 @@ define hidden void @_ZN13ImageLocation8set_dataEPh(ptr noundef nonnull writeonly
 
 .lr.ph.preheader:                                 ; preds = %2
   %3 = load i8, ptr %1, align 1
-  %.not1117 = icmp eq i8 %3, 0
-  br i1 %.not1117, label %.critedge, label %.lr.ph19
+  %.not1118 = icmp eq i8 %3, 0
+  br i1 %.not1118, label %.critedge, label %.lr.ph20
 
-.lr.ph19:                                         ; preds = %.lr.ph.preheader, %_ZN13ImageLocation15attribute_valueEPhh.exit
+.lr.ph20:                                         ; preds = %.lr.ph.preheader, %_ZN13ImageLocation15attribute_valueEPhh.exit
   %4 = phi i8 [ %19, %_ZN13ImageLocation15attribute_valueEPhh.exit ], [ %3, %.lr.ph.preheader ]
-  %.01318 = phi ptr [ %18, %_ZN13ImageLocation15attribute_valueEPhh.exit ], [ %1, %.lr.ph.preheader ]
+  %.01319 = phi ptr [ %18, %_ZN13ImageLocation15attribute_valueEPhh.exit ], [ %1, %.lr.ph.preheader ]
   %5 = lshr i8 %4, 3
-  %6 = icmp ult i8 %4, 8
+  %6 = icmp eq i8 %5, 0
   br i1 %6, label %.critedge, label %7
 
-7:                                                ; preds = %.lr.ph19
+7:                                                ; preds = %.lr.ph20
   %8 = and i8 %4, 7
   %narrow.i = add nuw nsw i8 %8, 1
-  %9 = getelementptr inbounds nuw i8, ptr %.01318, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.01319, i64 1
   %wide.trip.count.i = zext nneg i8 %narrow.i to i64
   br label %.lr.ph.i
 
@@ -194,13 +194,13 @@ _ZN13ImageLocation15attribute_valueEPhh.exit:     ; preds = %.lr.ph.i
   %15 = zext nneg i8 %5 to i64
   %16 = getelementptr inbounds nuw i64, ptr %0, i64 %15
   store i64 %14, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %.01318, i64 %wide.trip.count.i
+  %17 = getelementptr inbounds nuw i8, ptr %.01319, i64 %wide.trip.count.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %19 = load i8, ptr %18, align 1
   %.not11 = icmp eq i8 %19, 0
-  br i1 %.not11, label %.critedge, label %.lr.ph19
+  br i1 %.not11, label %.critedge, label %.lr.ph20
 
-.critedge:                                        ; preds = %.lr.ph19, %_ZN13ImageLocation15attribute_valueEPhh.exit, %.lr.ph.preheader, %2
+.critedge:                                        ; preds = %.lr.ph20, %_ZN13ImageLocation15attribute_valueEPhh.exit, %.lr.ph.preheader, %2
   ret void
 }
 
@@ -460,7 +460,7 @@ _ZN12ImageStrings4findEP6EndianPKcPij.exit:       ; preds = %_ZN12ImageStrings9h
   %53 = phi i8 [ %68, %_ZN13ImageLocation15attribute_valueEPhh.exit.i ], [ %52, %.lr.ph.i.preheader ]
   %.013.i21 = phi ptr [ %67, %_ZN13ImageLocation15attribute_valueEPhh.exit.i ], [ %51, %.lr.ph.i.preheader ]
   %54 = lshr i8 %53, 3
-  %55 = icmp ult i8 %53, 8
+  %55 = icmp eq i8 %54, 0
   br i1 %55, label %_ZN13ImageLocation8set_dataEPh.exit, label %56
 
 56:                                               ; preds = %.lr.ph
@@ -1802,7 +1802,7 @@ _ZN12ImageStrings4findEP6EndianPKcPij.exit:       ; preds = %_ZN12ImageStrings9h
   %54 = phi i8 [ %69, %_ZN13ImageLocation15attribute_valueEPhh.exit.i.i ], [ %53, %.lr.ph.i.preheader.i ]
   %.013.i3.i = phi ptr [ %68, %_ZN13ImageLocation15attribute_valueEPhh.exit.i.i ], [ %52, %.lr.ph.i.preheader.i ]
   %55 = lshr i8 %54, 3
-  %56 = icmp ult i8 %54, 8
+  %56 = icmp eq i8 %55, 0
   br i1 %56, label %_ZN13ImageLocationC2EPh.exit, label %57
 
 57:                                               ; preds = %.lr.ph.i
@@ -1871,7 +1871,7 @@ define hidden void @_ZNK15ImageFileReader12get_resourceEjPh(ptr noundef nonnull 
   %10 = phi i8 [ %25, %_ZN13ImageLocation15attribute_valueEPhh.exit.i.i ], [ %9, %.lr.ph.i.preheader.i ]
   %.013.i3.i = phi ptr [ %24, %_ZN13ImageLocation15attribute_valueEPhh.exit.i.i ], [ %8, %.lr.ph.i.preheader.i ]
   %11 = lshr i8 %10, 3
-  %12 = icmp ult i8 %10, 8
+  %12 = icmp eq i8 %11, 0
   br i1 %12, label %_ZN13ImageLocationC2EPh.exit, label %13
 
 13:                                               ; preds = %.lr.ph.i

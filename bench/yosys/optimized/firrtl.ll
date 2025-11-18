@@ -36345,7 +36345,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_112FirrtlWorker9make_exprB5cxx11ERK
   %46 = ptrtoint ptr %44 to i64
   %47 = sub i64 %45, %46
   %.not.i.i.i.i.i = icmp eq ptr %43, %44
-  br i1 %.not.i.i.i.i.i, label %.thread549, label %48
+  br i1 %.not.i.i.i.i.i, label %.thread548, label %48
 
 48:                                               ; preds = %39
   %49 = icmp slt i64 %47, 0
@@ -36385,7 +36385,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i:
   %56 = icmp eq ptr %40, null
   br i1 %56, label %60, label %176
 
-.thread549:                                       ; preds = %39
+.thread548:                                       ; preds = %39
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.0173.0380, i64 32
   %58 = load i64, ptr %57, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -36398,10 +36398,10 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i:
 60:                                               ; preds = %53
   br i1 %51, label %.noexc49.thread, label %63
 
-.noexc49.thread:                                  ; preds = %.thread549, %60
-  %61 = phi ptr [ %50, %60 ], [ null, %.thread549 ]
-  %.pre-phi462547553557 = phi i64 [ %.pre461, %60 ], [ 0, %.thread549 ]
-  %62 = getelementptr inbounds i8, ptr null, i64 %.pre-phi462547553557
+.noexc49.thread:                                  ; preds = %.thread548, %60
+  %61 = phi ptr [ %50, %60 ], [ null, %.thread548 ]
+  %.pre-phi462546552556 = phi i64 [ %.pre461, %60 ], [ 0, %.thread548 ]
+  %62 = getelementptr inbounds i8, ptr null, i64 %.pre-phi462546552556
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EEC2ERKS4_.exit
 
 63:                                               ; preds = %60
@@ -36765,12 +36765,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZN
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0144.2180, i64 noundef %175) #27
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit58
 
-176:                                              ; preds = %.thread549, %53
-  %177 = phi i64 [ %58, %.thread549 ], [ %55, %53 ]
-  %178 = phi ptr [ null, %.thread549 ], [ %50, %53 ]
+176:                                              ; preds = %.thread548, %53
+  %177 = phi i64 [ %58, %.thread548 ], [ %55, %53 ]
+  %178 = phi ptr [ null, %.thread548 ], [ %50, %53 ]
   %.sroa.19.36.extract.shift170 = lshr i64 %177, 32
   %.sroa.19.36.extract.trunc171 = trunc nuw i64 %.sroa.19.36.extract.shift170 to i32
-  %179 = icmp ult i64 %177, 4294967296
+  %179 = icmp eq i64 %.sroa.19.36.extract.shift170, 0
   br i1 %179, label %180, label %218
 
 180:                                              ; preds = %176

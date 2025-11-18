@@ -4205,7 +4205,7 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i1136: ; preds = %if.then.i.
 _ZN2EA4StdC9Stopwatch7RestartEv.exit.i1140:       ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i1136, %if.then2.i.i.i1154
   %.sink.i.i.i1141 = phi i64 [ %514, %if.then2.i.i.i1154 ], [ %add.i.i.i.i1139, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i1136 ]
   store i64 %.sink.i.i.i1141, ptr %stopwatch1, align 8
-  %cmp.not5.i1142 = icmp ult i64 %sub.ptr.div.i1129, 2
+  %cmp.not5.i1142 = icmp eq i64 %div35134, 0
   br i1 %cmp.not5.i1142, label %while.end.i1148, label %while.body.i1143
 
 while.body.i1143:                                 ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1140, %call.i.i.i1145.noexc

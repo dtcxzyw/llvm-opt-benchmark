@@ -3880,7 +3880,7 @@ define internal noundef zeroext i1 @pcapng_process_if_descr_block_option(ptr nou
   %62 = tail call noalias ptr @g_malloc_n(i64 noundef %61, i64 noundef 8) #22
   %63 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %62, ptr %63, align 8
-  %.not = icmp ult i16 %3, 9
+  %.not = icmp eq i32 %59, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %57

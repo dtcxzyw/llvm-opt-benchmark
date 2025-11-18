@@ -971,7 +971,7 @@ define void @commit_params(ptr noundef readonly captures(none) %0, ptr noundef r
   %.03443 = phi i32 [ %59, %.lr.ph ], [ 0, %23 ]
   %59 = add nuw nsw i32 %.03443, 1
   %60 = ashr i32 %.044, 1
-  %.not = icmp ult i32 %.044, 2
+  %.not = icmp eq i32 %60, 0
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 }
 
@@ -1068,7 +1068,7 @@ define void @init_pipe(ptr noundef readonly captures(none) %0, ptr noundef reado
   %.03038 = phi i32 [ %51, %.lr.ph ], [ 0, %11 ]
   %51 = add nuw nsw i32 %.03038, 1
   %52 = ashr i32 %.039, 1
-  %.not = icmp ult i32 %.039, 2
+  %.not = icmp eq i32 %52, 0
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 }
 

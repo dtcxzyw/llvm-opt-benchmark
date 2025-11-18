@@ -28978,6 +28978,7 @@ _ZN2cv12cpu_baselineL12GEMMBlockMulIfdEEvPKT_mS4_mPT0_mNS_5Size_IiEES8_i.exit: ;
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @_ZN2cv12cpu_baselineL13GEMMStore_32fEPKfmPKdmPfmNS_5Size_IiEEddi(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, double noundef %7, double noundef %8, i32 noundef %9) unnamed_addr #8 {
   %.fr72.i = freeze i64 %6
+  %.sroa.3.0.extract.shift.i = lshr i64 %.fr72.i, 32
   %11 = lshr i64 %1, 2
   %12 = lshr i64 %3, 3
   %13 = lshr i64 %5, 2
@@ -28988,14 +28989,13 @@ define internal void @_ZN2cv12cpu_baselineL13GEMMStore_32fEPKfmPKdmPfmNS_5Size_I
   %.44.i = select i1 %.not41.i, i64 1, i64 %11
   %.035.i = select i1 %.not.i, i64 0, i64 %..i
   %.0.i = select i1 %.not.i, i64 0, i64 %.44.i
-  %.not4251.i = icmp ugt i64 %.fr72.i, 4294967295
+  %.not4251.i = icmp ne i64 %.sroa.3.0.extract.shift.i, 0
   %.sroa.0.0.extract.trunc.i = trunc i64 %.fr72.i to i32
   %15 = icmp sgt i32 %.sroa.0.0.extract.trunc.i, 0
   %or.cond.i = and i1 %.not4251.i, %15
   br i1 %or.cond.i, label %.lr.ph58.split.us.split.us.preheader.i, label %_ZN2cv12cpu_baselineL9GEMMStoreIfdEEvPKT_mPKT0_mPS2_mNS_5Size_IiEEddi.exit
 
 .lr.ph58.split.us.split.us.preheader.i:           ; preds = %10
-  %.sroa.3.0.extract.shift.i = lshr i64 %.fr72.i, 32
   %.sroa.3.0.extract.trunc.i = trunc nuw i64 %.sroa.3.0.extract.shift.i to i32
   %wide.trip.count86.i = and i64 %.fr72.i, 2147483647
   br label %.lr.ph58.split.us.split.us.i
@@ -30400,6 +30400,7 @@ _ZN2cv12cpu_baselineL12GEMMBlockMulIddEEvPKT_mS4_mPT0_mNS_5Size_IiEES8_i.exit: ;
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @_ZN2cv12cpu_baselineL13GEMMStore_64fEPKdmS2_mPdmNS_5Size_IiEEddi(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, double noundef %7, double noundef %8, i32 noundef %9) unnamed_addr #8 {
   %.fr72.i = freeze i64 %6
+  %.sroa.3.0.extract.shift.i = lshr i64 %.fr72.i, 32
   %11 = lshr i64 %1, 3
   %12 = lshr i64 %3, 3
   %13 = lshr i64 %5, 3
@@ -30410,14 +30411,13 @@ define internal void @_ZN2cv12cpu_baselineL13GEMMStore_64fEPKdmS2_mPdmNS_5Size_I
   %.44.i = select i1 %.not41.i, i64 1, i64 %11
   %.035.i = select i1 %.not.i, i64 0, i64 %..i
   %.0.i = select i1 %.not.i, i64 0, i64 %.44.i
-  %.not4251.i = icmp ugt i64 %.fr72.i, 4294967295
+  %.not4251.i = icmp ne i64 %.sroa.3.0.extract.shift.i, 0
   %.sroa.0.0.extract.trunc.i = trunc i64 %.fr72.i to i32
   %15 = icmp sgt i32 %.sroa.0.0.extract.trunc.i, 0
   %or.cond.i = and i1 %.not4251.i, %15
   br i1 %or.cond.i, label %.lr.ph58.split.us.split.us.preheader.i, label %_ZN2cv12cpu_baselineL9GEMMStoreIddEEvPKT_mPKT0_mPS2_mNS_5Size_IiEEddi.exit
 
 .lr.ph58.split.us.split.us.preheader.i:           ; preds = %10
-  %.sroa.3.0.extract.shift.i = lshr i64 %.fr72.i, 32
   %.sroa.3.0.extract.trunc.i = trunc nuw i64 %.sroa.3.0.extract.shift.i to i32
   %wide.trip.count86.i = and i64 %.fr72.i, 2147483647
   br label %.lr.ph58.split.us.split.us.i
@@ -32085,6 +32085,7 @@ _ZN2cv12cpu_baselineL12GEMMBlockMulINS_7ComplexIfEENS2_IdEEEEvPKT_mS7_mPT0_mNS_5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @_ZN2cv12cpu_baselineL14GEMMStore_32fcEPKNS_7ComplexIfEEmPKNS1_IdEEmPS2_mNS_5Size_IiEEddi(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, double noundef %7, double noundef %8, i32 noundef %9) unnamed_addr #21 {
   %.fr104.i = freeze i64 %6
+  %.sroa.3.0.extract.shift.i = lshr i64 %.fr104.i, 32
   %11 = lshr i64 %1, 3
   %12 = lshr i64 %3, 4
   %13 = lshr i64 %5, 3
@@ -32095,14 +32096,13 @@ define internal void @_ZN2cv12cpu_baselineL14GEMMStore_32fcEPKNS_7ComplexIfEEmPK
   %.45.i = select i1 %.not42.i, i64 1, i64 %11
   %.037.i = select i1 %.not.i, i64 0, i64 %..i
   %.036.i = select i1 %.not.i, i64 0, i64 %.45.i
-  %.not4379.i = icmp ugt i64 %.fr104.i, 4294967295
+  %.not4379.i = icmp ne i64 %.sroa.3.0.extract.shift.i, 0
   %.sroa.034.0.extract.trunc.i = trunc i64 %.fr104.i to i32
   %15 = icmp sgt i32 %.sroa.034.0.extract.trunc.i, 0
   %or.cond.i = and i1 %.not4379.i, %15
   br i1 %or.cond.i, label %.lr.ph86.split.us.split.us.preheader.i, label %_ZN2cv12cpu_baselineL9GEMMStoreINS_7ComplexIfEENS2_IdEEEEvPKT_mPKT0_mPS5_mNS_5Size_IiEEddi.exit
 
 .lr.ph86.split.us.split.us.preheader.i:           ; preds = %10
-  %.sroa.3.0.extract.shift.i = lshr i64 %.fr104.i, 32
   %.sroa.3.0.extract.trunc.i = trunc nuw i64 %.sroa.3.0.extract.shift.i to i32
   %wide.trip.count118.i = and i64 %.fr104.i, 2147483647
   br label %.lr.ph86.split.us.split.us.i
@@ -33648,6 +33648,7 @@ _ZN2cv12cpu_baselineL12GEMMBlockMulINS_7ComplexIdEES3_EEvPKT_mS6_mPT0_mNS_5Size_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @_ZN2cv12cpu_baselineL14GEMMStore_64fcEPKNS_7ComplexIdEEmS4_mPS2_mNS_5Size_IiEEddi(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, double noundef %7, double noundef %8, i32 noundef %9) unnamed_addr #8 {
   %.fr96.i = freeze i64 %6
+  %.sroa.3.0.extract.shift.i = lshr i64 %.fr96.i, 32
   %11 = lshr i64 %1, 4
   %12 = lshr i64 %3, 4
   %13 = lshr i64 %5, 4
@@ -33658,14 +33659,13 @@ define internal void @_ZN2cv12cpu_baselineL14GEMMStore_64fcEPKNS_7ComplexIdEEmS4
   %.46.i = select i1 %.not43.i, i64 1, i64 %11
   %.039.i = select i1 %.not.i, i64 0, i64 %..i
   %.038.i = select i1 %.not.i, i64 0, i64 %.46.i
-  %.not4472.i = icmp ugt i64 %.fr96.i, 4294967295
+  %.not4472.i = icmp ne i64 %.sroa.3.0.extract.shift.i, 0
   %.sroa.035.0.extract.trunc.i = trunc i64 %.fr96.i to i32
   %15 = icmp sgt i32 %.sroa.035.0.extract.trunc.i, 0
   %or.cond.i = and i1 %.not4472.i, %15
   br i1 %or.cond.i, label %.lr.ph79.split.us.split.us.preheader.i, label %_ZN2cv12cpu_baselineL9GEMMStoreINS_7ComplexIdEES3_EEvPKT_mPKT0_mPS4_mNS_5Size_IiEEddi.exit
 
 .lr.ph79.split.us.split.us.preheader.i:           ; preds = %10
-  %.sroa.3.0.extract.shift.i = lshr i64 %.fr96.i, 32
   %.sroa.3.0.extract.trunc.i = trunc nuw i64 %.sroa.3.0.extract.shift.i to i32
   %wide.trip.count110.i = and i64 %.fr96.i, 2147483647
   br label %.lr.ph79.split.us.split.us.i

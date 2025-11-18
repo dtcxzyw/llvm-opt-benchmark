@@ -1861,27 +1861,27 @@ define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec13write_to_fileEP8_IO_FILE
   %3 = tail call noundef i32 @_ZN5o3dgc16Arithmetic_Codec12stop_encoderEv(ptr noundef nonnull align 8 dereferenceable(44) %0)
   br label %4
 
-4:                                                ; preds = %10, %2
-  %.014 = phi i32 [ 0, %2 ], [ %12, %10 ]
-  %.013 = phi i32 [ %3, %2 ], [ %11, %10 ]
+4:                                                ; preds = %11, %2
+  %.014 = phi i32 [ 0, %2 ], [ %12, %11 ]
+  %.013 = phi i32 [ %3, %2 ], [ %6, %11 ]
   %5 = and i32 %.013, 127
-  %.not = icmp ult i32 %.013, 128
-  %6 = or disjoint i32 %5, 128
-  %spec.select = select i1 %.not, i32 %5, i32 %6
-  %7 = tail call i32 @putc(i32 noundef %spec.select, ptr noundef %1)
-  %8 = icmp eq i32 %7, -1
-  br i1 %8, label %9, label %10
+  %6 = lshr i32 %.013, 7
+  %.not = icmp eq i32 %6, 0
+  %7 = or disjoint i32 %5, 128
+  %spec.select = select i1 %.not, i32 %5, i32 %7
+  %8 = tail call i32 @putc(i32 noundef %spec.select, ptr noundef %1)
+  %9 = icmp eq i32 %8, -1
+  br i1 %9, label %10, label %11
 
-9:                                                ; preds = %4
+10:                                               ; preds = %4
   tail call fastcc void @_ZN5o3dgcL8AC_ErrorEPKc(ptr noundef nonnull @.str.8) #15
   unreachable
 
-10:                                               ; preds = %4
-  %11 = lshr i32 %.013, 7
+11:                                               ; preds = %4
   %12 = add nuw nsw i32 %.014, 1
   br i1 %.not, label %13, label %4, !llvm.loop !17
 
-13:                                               ; preds = %10
+13:                                               ; preds = %11
   %14 = load ptr, ptr %0, align 8
   %15 = zext i32 %3 to i64
   %16 = tail call i64 @fwrite(ptr noundef %14, i64 noundef 1, i64 noundef %15, ptr noundef %1)

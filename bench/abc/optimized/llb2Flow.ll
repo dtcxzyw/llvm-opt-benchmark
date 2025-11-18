@@ -1331,23 +1331,22 @@ define i32 @Llb_ManCutLiNum(ptr noundef readonly captures(none) %0, ptr noundef 
 .preheader:                                       ; preds = %9
   %14 = trunc i64 %.val28 to i32
   %15 = lshr i32 %14, 6
-  %.not48 = icmp ult i32 %14, 64
+  %.not48 = icmp eq i32 %15, 0
   br i1 %.not48, label %.critedge2, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 36
   %.val31 = load ptr, ptr %7, align 8, !tbaa !35
   %.not.i = icmp eq ptr %.val31, null
-  br i1 %.not.i, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.not.i, label %.lr.ph.split.us.split.preheader, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph
-  %umax53 = tail call i32 @llvm.umax.i32(i32 %15, i32 1)
+.lr.ph.split.us.split.preheader:                  ; preds = %.lr.ph
   %.val30.us.sink = load ptr, ptr %6, align 8, !tbaa !62
   br label %.lr.ph.split.us.split
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %Aig_ManObj.exit.us
-  %.238.us = phi i32 [ %28, %Aig_ManObj.exit.us ], [ %.02144, %.lr.ph.split.us ]
-  %.02337.us = phi i32 [ %29, %Aig_ManObj.exit.us ], [ 0, %.lr.ph.split.us ]
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us.split.preheader, %Aig_ManObj.exit.us
+  %.238.us = phi i32 [ %28, %Aig_ManObj.exit.us ], [ %.02144, %.lr.ph.split.us.split.preheader ]
+  %.02337.us = phi i32 [ %29, %Aig_ManObj.exit.us ], [ 0, %.lr.ph.split.us.split.preheader ]
   %.not25.us = icmp eq i32 %.02337.us, 0
   br i1 %.not25.us, label %23, label %17
 
@@ -1370,13 +1369,12 @@ Aig_ManObj.exit.us:                               ; preds = %23, %17
   %27 = getelementptr inbounds i32, ptr %.val30.us.sink, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !43
   %29 = add nuw nsw i32 %.02337.us, 1
-  %exitcond54.not = icmp eq i32 %29, %umax53
-  br i1 %exitcond54.not, label %.critedge2, label %.lr.ph.split.us.split, !llvm.loop !63
+  %exitcond53.not = icmp eq i32 %29, %15
+  br i1 %exitcond53.not, label %.critedge2, label %.lr.ph.split.us.split, !llvm.loop !63
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %30 = getelementptr i8, ptr %.val31, i64 8
   %.val.i = load ptr, ptr %30, align 8, !tbaa !9
-  %umax = tail call i32 @llvm.umax.i32(i32 %15, i32 1)
   %.val30.sink = load ptr, ptr %6, align 8, !tbaa !62
   br label %31
 
@@ -1426,15 +1424,15 @@ Saig_ObjIsLi.exit:                                ; preds = %Aig_ManObj.exit
 
 Saig_ObjIsLi.exit.thread:                         ; preds = %Aig_ManObj.exit, %Saig_ObjIsLi.exit
   %51 = add nuw nsw i32 %.02337, 1
-  %exitcond.not = icmp eq i32 %51, %umax
+  %exitcond.not = icmp eq i32 %51, %15
   br i1 %exitcond.not, label %.critedge2, label %31, !llvm.loop !63
 
 .critedge2:                                       ; preds = %Saig_ObjIsLi.exit.thread, %Aig_ManObj.exit.us, %.preheader, %.split, %9
   %.122 = phi i32 [ %.02144, %9 ], [ %43, %.split ], [ %.02144, %.preheader ], [ %28, %Aig_ManObj.exit.us ], [ %43, %Saig_ObjIsLi.exit.thread ]
   %.1 = phi i32 [ %.045, %9 ], [ %50, %.split ], [ %.045, %.preheader ], [ %.045, %Aig_ManObj.exit.us ], [ %.045, %Saig_ObjIsLi.exit.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond56.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond56.not, label %.critedge, label %9, !llvm.loop !64
+  %exitcond55.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond55.not, label %.critedge, label %9, !llvm.loop !64
 
 .critedge:                                        ; preds = %.critedge2, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %.1, %.critedge2 ]
@@ -2259,11 +2257,11 @@ define range(i32 0, 2) i32 @Llb_ManFlowBwdPath2_rec(ptr noundef %0, ptr noundef 
 
 36:                                               ; preds = %5
   %37 = trunc i64 %8 to i32
-  %.not21.i = icmp ult i32 %37, 64
+  %38 = lshr i32 %37, 6
+  %.not21.i = icmp eq i32 %38, 0
   br i1 %.not21.i, label %Llb_ObjGetFanoutPath.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %36
-  %38 = lshr i32 %37, 6
   %39 = getelementptr i8, ptr %0, i64 176
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %41 = getelementptr i8, ptr %0, i64 32
@@ -2298,8 +2296,8 @@ define range(i32 0, 2) i32 @Llb_ManFlowBwdPath2_rec(ptr noundef %0, ptr noundef 
   br label %Aig_ManObj.exit.i
 
 Aig_ManObj.exit.i:                                ; preds = %52, %46
-  %.sink22.i = phi i32 [ %54, %52 ], [ %51, %46 ]
-  %55 = sext i32 %.sink22.i to i64
+  %.sink23.i = phi i32 [ %54, %52 ], [ %51, %46 ]
+  %55 = sext i32 %.sink23.i to i64
   %56 = getelementptr inbounds i32, ptr %.val15.sink.i, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !43
   %58 = ashr i32 %57, 1
@@ -5078,9 +5076,6 @@ declare i32 @llvm.smin.i32(i32, i32) #17
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #18
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #17
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

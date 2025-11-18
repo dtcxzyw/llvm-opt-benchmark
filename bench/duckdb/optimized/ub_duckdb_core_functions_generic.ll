@@ -13121,7 +13121,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds
 96:                                               ; preds = %91
   %97 = add i64 %12, 63
   %98 = lshr i64 %97, 6
-  %.not18.i.i.i.i = icmp ult i64 %97, 64
+  %.not18.i.i.i.i = icmp eq i64 %98, 0
   br i1 %.not18.i.i.i.i, label %"_ZN6duckdb14BinaryExecutor7ExecuteINS_8string_tES2_bZNS_L20InSearchPathFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0EEvS8_S8_S8_mT2_.exit", label %.lr.ph15.i.i.i.i
 
 .lr.ph15.i.i.i.i:                                 ; preds = %96
@@ -13366,7 +13366,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i58.i.i: ; pre
 192:                                              ; preds = %187
   %193 = add i64 %12, 63
   %194 = lshr i64 %193, 6
-  %.not18.i.i61.i.i = icmp ult i64 %193, 64
+  %.not18.i.i61.i.i = icmp eq i64 %194, 0
   br i1 %.not18.i.i61.i.i, label %"_ZN6duckdb14BinaryExecutor7ExecuteINS_8string_tES2_bZNS_L20InSearchPathFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0EEvS8_S8_S8_mT2_.exit", label %.lr.ph15.i.i62.i.i
 
 .lr.ph15.i.i62.i.i:                               ; preds = %192
@@ -13591,7 +13591,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i106.i.i: ; pr
 285:                                              ; preds = %279
   %286 = add i64 %12, 63
   %287 = lshr i64 %286, 6
-  %.not18.i.i109.i.i = icmp ult i64 %286, 64
+  %.not18.i.i109.i.i = icmp eq i64 %287, 0
   br i1 %.not18.i.i109.i.i, label %"_ZN6duckdb14BinaryExecutor7ExecuteINS_8string_tES2_bZNS_L20InSearchPathFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0EEvS8_S8_S8_mT2_.exit", label %.lr.ph15.i.i110.i.i
 
 .lr.ph15.i.i110.i.i:                              ; preds = %285, %.loopexit5.i.i113.i.i
@@ -17255,14 +17255,14 @@ define linkonce_odr void @_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEE
   %7 = load i64, ptr %1, align 8, !tbaa !80, !noalias !458
   store ptr null, ptr %6, align 8, !tbaa !461, !noalias !458
   %8 = add i64 %7, 63
-  %9 = lshr i64 %8, 3
-  %10 = and i64 %9, 2305843009213693944
+  %9 = lshr i64 %8, 6
+  %10 = shl nuw nsw i64 %9, 3
   %11 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %10) #27
           to label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i unwind label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit10.i.i.i.i.i.i.i.i.i, !noalias !458
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i: ; preds = %2
   store ptr %11, ptr %6, align 8, !tbaa !452, !noalias !458
-  %.not.i.i.i.i.i.i.i.i.i = icmp ult i64 %8, 64
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %9, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %13, label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i

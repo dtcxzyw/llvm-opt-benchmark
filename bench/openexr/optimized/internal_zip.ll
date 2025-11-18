@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @internal_zip_reconstruct_bytes(ptr noundef writeonly captures(none) %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %5 = icmp samesign ugt i64 %2, 1
-  br i1 %5, label %.lr.ph.preheader.i, label %._crit_edge.i
+  br i1 %5, label %.lr.ph.preheader.i, label %reconstruct.exit
 
 .lr.ph.preheader.i:                               ; preds = %3
   %.09.i = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -28,18 +28,18 @@ define hidden void @internal_zip_reconstruct_bytes(ptr noundef writeonly capture
   %10 = icmp ult ptr %.0.i, %4
   br i1 %10, label %.lr.ph.i, label %reconstruct.exit, !llvm.loop !6
 
-reconstruct.exit:                                 ; preds = %.lr.ph.i
+reconstruct.exit:                                 ; preds = %.lr.ph.i, %3
   %11 = lshr i64 %2, 5
   %12 = add i64 %2, 1
   %13 = lshr i64 %12, 1
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 %13
-  %.not50.i = icmp ult i64 %2, 32
+  %.not50.i = icmp eq i64 %11, 0
   br i1 %.not50.i, label %._crit_edge.i, label %.lr.ph.i4
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i4, %3, %reconstruct.exit
-  %.030.lcssa.i = phi ptr [ %0, %reconstruct.exit ], [ %0, %3 ], [ %23, %.lr.ph.i4 ]
-  %.029.lcssa.i = phi ptr [ %14, %reconstruct.exit ], [ %4, %3 ], [ %18, %.lr.ph.i4 ]
-  %.028.lcssa.i = phi ptr [ %1, %reconstruct.exit ], [ %1, %3 ], [ %16, %.lr.ph.i4 ]
+._crit_edge.i:                                    ; preds = %.lr.ph.i4, %reconstruct.exit
+  %.030.lcssa.i = phi ptr [ %0, %reconstruct.exit ], [ %23, %.lr.ph.i4 ]
+  %.029.lcssa.i = phi ptr [ %14, %reconstruct.exit ], [ %18, %.lr.ph.i4 ]
+  %.028.lcssa.i = phi ptr [ %1, %reconstruct.exit ], [ %16, %.lr.ph.i4 ]
   %15 = and i64 %2, -32
   %.not51.i = icmp eq i64 %15, %2
   br i1 %.not51.i, label %interleave.exit, label %.lr.ph48.i
@@ -196,7 +196,7 @@ define hidden i32 @internal_exr_undo_zip(ptr noundef %0, ptr noundef %1, i64 nou
 29:                                               ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 %25
   %31 = icmp samesign ugt i64 %25, 1
-  br i1 %31, label %.lr.ph.preheader.i.i.i, label %._crit_edge.i.i.i
+  br i1 %31, label %.lr.ph.preheader.i.i.i, label %reconstruct.exit.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %29
   %.09.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 1
@@ -214,18 +214,18 @@ define hidden i32 @internal_exr_undo_zip(ptr noundef %0, ptr noundef %1, i64 nou
   %36 = icmp ult ptr %.0.i.i.i, %30
   br i1 %36, label %.lr.ph.i.i.i, label %reconstruct.exit.i.i, !llvm.loop !6
 
-reconstruct.exit.i.i:                             ; preds = %.lr.ph.i.i.i
+reconstruct.exit.i.i:                             ; preds = %.lr.ph.i.i.i, %29
   %37 = lshr i64 %25, 5
   %38 = add i64 %25, 1
   %39 = lshr i64 %38, 1
   %40 = getelementptr inbounds nuw i8, ptr %16, i64 %39
-  %.not50.i.i.i = icmp ult i64 %25, 32
+  %.not50.i.i.i = icmp eq i64 %37, 0
   br i1 %.not50.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i4.i.i
 
-._crit_edge.i.i.i:                                ; preds = %.lr.ph.i4.i.i, %reconstruct.exit.i.i, %29
-  %.030.lcssa.i.i.i = phi ptr [ %3, %reconstruct.exit.i.i ], [ %3, %29 ], [ %49, %.lr.ph.i4.i.i ]
-  %.029.lcssa.i.i.i = phi ptr [ %40, %reconstruct.exit.i.i ], [ %30, %29 ], [ %44, %.lr.ph.i4.i.i ]
-  %.028.lcssa.i.i.i = phi ptr [ %16, %reconstruct.exit.i.i ], [ %16, %29 ], [ %42, %.lr.ph.i4.i.i ]
+._crit_edge.i.i.i:                                ; preds = %.lr.ph.i4.i.i, %reconstruct.exit.i.i
+  %.030.lcssa.i.i.i = phi ptr [ %3, %reconstruct.exit.i.i ], [ %49, %.lr.ph.i4.i.i ]
+  %.029.lcssa.i.i.i = phi ptr [ %40, %reconstruct.exit.i.i ], [ %44, %.lr.ph.i4.i.i ]
+  %.028.lcssa.i.i.i = phi ptr [ %16, %reconstruct.exit.i.i ], [ %42, %.lr.ph.i4.i.i ]
   %41 = and i64 %25, -32
   %.not51.i.i.i = icmp eq i64 %41, %25
   br i1 %.not51.i.i.i, label %undo_zip_impl.exit, label %.lr.ph48.i.i.i

@@ -2454,7 +2454,7 @@ define noundef i64 @_ZNK5faiss8IndexIVF12sa_code_sizeEv(ptr noundef nonnull read
   %.046.i = phi i64 [ %6, %.lr.ph.i ], [ %4, %1 ]
   %5 = add nuw nsw i64 %.07.i, 1
   %6 = lshr i64 %.046.i, 8
-  %.not.i = icmp ult i64 %.046.i, 256
+  %.not.i = icmp eq i64 %6, 0
   br i1 %.not.i, label %_ZNK5faiss15Level1Quantizer16coarse_code_sizeEv.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZNK5faiss15Level1Quantizer16coarse_code_sizeEv.exit: ; preds = %.lr.ph.i, %1
@@ -3338,7 +3338,7 @@ define void @_ZN5faiss8IndexIVF12add_sa_codesElPKhPKl(ptr noundef nonnull align 
   %.046.i = phi i64 [ %11, %.lr.ph.i ], [ %9, %4 ]
   %10 = add nuw nsw i64 %.07.i, 1
   %11 = lshr i64 %.046.i, 8
-  %.not.i = icmp ult i64 %.046.i, 256
+  %.not.i = icmp eq i64 %11, 0
   br i1 %.not.i, label %_ZNK5faiss15Level1Quantizer16coarse_code_sizeEv.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZNK5faiss15Level1Quantizer16coarse_code_sizeEv.exit: ; preds = %.lr.ph.i, %4
@@ -6236,7 +6236,7 @@ define noundef i64 @_ZNK5faiss15Level1Quantizer16coarse_code_sizeEv(ptr noundef 
   %.046 = phi i64 [ %6, %.lr.ph ], [ %4, %1 ]
   %5 = add nuw nsw i64 %.07, 1
   %6 = lshr i64 %.046, 8
-  %.not = icmp ult i64 %.046, 256
+  %.not = icmp eq i64 %6, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !102
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
@@ -6261,7 +6261,7 @@ define void @_ZNK5faiss15Level1Quantizer13encode_listnoElPh(ptr noundef nonnull 
   store i8 %7, ptr %.059, align 1, !tbaa !67
   %9 = ashr i64 %.068, 8
   %10 = lshr i64 %.010, 8
-  %.not = icmp ult i64 %.010, 256
+  %.not = icmp eq i64 %10, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !158
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -6289,7 +6289,7 @@ define noundef range(i64 0, -9223372036854775808) i64 @_ZNK5faiss15Level1Quantiz
   %11 = or i64 %10, %.01521
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %12 = lshr i64 %.01620, 8
-  %.not = icmp ult i64 %.01620, 256
+  %.not = icmp eq i64 %12, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !159
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -11556,7 +11556,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %67,
   %.046.i = phi i64 [ %105, %.lr.ph.i ], [ %103, %101 ]
   %104 = add nuw nsw i64 %.07.i, 1
   %105 = lshr i64 %.046.i, 8
-  %.not.i = icmp ult i64 %.046.i, 256
+  %.not.i = icmp eq i64 %105, 0
   br i1 %.not.i, label %_ZNK5faiss15Level1Quantizer16coarse_code_sizeEv.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZNK5faiss15Level1Quantizer16coarse_code_sizeEv.exit: ; preds = %.lr.ph.i, %101
@@ -11710,7 +11710,7 @@ define internal void @_ZNK5faiss8IndexIVF23search_and_return_codesElPKflPfPlPhbP
   store i8 %60, ptr %.059.i, align 1, !tbaa !67
   %62 = lshr i64 %.068.i, 8
   %63 = lshr i64 %.010.i, 8
-  %.not.i = icmp ult i64 %.010.i, 256
+  %.not.i = icmp eq i64 %63, 0
   br i1 %.not.i, label %_ZNK5faiss15Level1Quantizer13encode_listnoElPh.exit, label %.lr.ph.i, !llvm.loop !158
 
 _ZNK5faiss15Level1Quantizer13encode_listnoElPh.exit: ; preds = %.lr.ph.i, %57

@@ -417,21 +417,20 @@ define dso_local void @__quicklistCompress(ptr noundef readonly captures(none) %
 19:                                               ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i64, ptr %20, align 8
-  %22 = and i64 %21, 4294901760
-  %.not = icmp eq i64 %22, 0
-  br i1 %.not, label %.loopexit, label %23
-
-23:                                               ; preds = %19
-  %24 = lshr i64 %21, 15
-  %25 = and i64 %24, 131070
+  %22 = trunc i64 %21 to i32
+  %23 = lshr i32 %22, 16
+  %.not = icmp eq i32 %23, 0
+  %24 = shl nuw nsw i32 %23, 1
+  %25 = zext nneg i32 %24 to i64
   %26 = icmp ult i64 %4, %25
-  br i1 %26, label %.loopexit, label %.preheader
+  %or.cond52 = select i1 %.not, i1 true, i1 %26
+  br i1 %or.cond52, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %23, %78
-  %.038 = phi ptr [ %82, %78 ], [ %7, %23 ]
-  %.037.in = phi ptr [ %.037, %78 ], [ %13, %23 ]
-  %.036 = phi i32 [ %27, %78 ], [ 0, %23 ]
-  %.0 = phi i32 [ %.1, %78 ], [ 0, %23 ]
+.preheader:                                       ; preds = %19, %78
+  %.038 = phi ptr [ %82, %78 ], [ %7, %19 ]
+  %.037.in = phi ptr [ %.037, %78 ], [ %13, %19 ]
+  %.036 = phi i32 [ %27, %78 ], [ 0, %19 ]
+  %.0 = phi i32 [ %.1, %78 ], [ 0, %19 ]
   %.037 = load ptr, ptr %.037.in, align 8, !tbaa !16
   %27 = add nuw nsw i32 %.036, 1
   %28 = load i64, ptr %20, align 8
@@ -579,7 +578,7 @@ __quicklistDecompressNode.exit49:                 ; preds = %73, %72, %55, %__qu
   %109 = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %.037)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %78, %__quicklistDecompressNode.exit49, %108, %103, %102, %19, %23, %2
+.loopexit:                                        ; preds = %78, %__quicklistDecompressNode.exit49, %108, %103, %102, %19, %2
   ret void
 }
 

@@ -546,7 +546,7 @@ define hidden void @_ZN5ropey4tree9node_text8NodeText16insert_str_split17hc04ccf
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit": ; preds = %._crit_edge
   tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
-  %51 = icmp ult i64 %15, 2
+  %51 = icmp eq i64 %16, 0
   %52 = icmp eq i64 %.sroa.0.0.sroa.speculated.i, %48
   %or.cond.i.i = or i1 %51, %52
   br i1 %or.cond.i.i, label %_ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit.i, label %53

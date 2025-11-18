@@ -4289,16 +4289,13 @@ define internal fastcc void @"_ZN4llvm8erase_ifINS_11SmallVectorINSt7__cxx1112ba
   %3 = zext i32 %.val3 to i64
   %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.val, i64 %3
   %5 = ptrtoint ptr %4 to i64
-  %.not.i = icmp ult i32 %.val3, 4
-  br i1 %.not.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.preheader.i
-
-.lr.ph.i.i.i.i.preheader.i:                       ; preds = %1
   %6 = lshr i64 %3, 2
-  br label %.lr.ph.i.i.i.i.i
+  %.not.i = icmp eq i64 %6, 0
+  br i1 %.not.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %29, %.lr.ph.i.i.i.i.preheader.i
-  %.038.i.i.i.i.i = phi i64 [ %31, %29 ], [ %6, %.lr.ph.i.i.i.i.preheader.i ]
-  %.02937.i.i.i.i.i = phi ptr [ %30, %29 ], [ %.val, %.lr.ph.i.i.i.i.preheader.i ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %1, %29
+  %.038.i.i.i.i.i = phi i64 [ %31, %29 ], [ %6, %1 ]
+  %.02937.i.i.i.i.i = phi ptr [ %30, %29 ], [ %.val, %1 ]
   %7 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.02937.i.i.i.i.i, ptr noundef nonnull @.str.14) #17
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %"_ZSt9__find_ifIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9__gnu_cxx5__ops10_Iter_predIZN5clang6Parser26ParseMicrosoftAsmStatementENSA_14SourceLocationEE3$_1EEET_SF_SF_T0_.exit.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang6Parser26ParseMicrosoftAsmStatementENS2_14SourceLocationEE3$_1EclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit.i.i.i.i.i"

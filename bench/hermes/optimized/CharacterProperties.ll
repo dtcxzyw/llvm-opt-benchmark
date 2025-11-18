@@ -405,7 +405,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointR
   br i1 %spec.select.i.i27.i.i, label %if.end11.i.i, label %if.else6.i.i
 
 if.else6.i.i:                                     ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i.i, %if.else.i.i
-  %cmp27.i.i.i.not = icmp samesign ult i64 %__len.095.i.i, 2
+  %cmp27.i.i.i.not = icmp eq i64 %shr.i.i, 0
   br i1 %cmp27.i.i.i.not, label %_ZSt13__lower_boundIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EEET_S9_S9_RKT0_T1_.exit.i.i, label %while.body.i.i33.i
 
 while.body.i.i33.i:                               ; preds = %if.else6.i.i, %.thread.i.i.i
@@ -719,12 +719,12 @@ for.body12:                                       ; preds = %for.body12.lr.ph, %
   %__begin16.0226 = phi ptr [ %54, %for.body12.lr.ph ], [ %incdec.ptr17, %_ZN6hermesL25addPrecanonicalCharactersENS_14CodePointRangeEPNS_12CodePointSetEb.exit ]
   %agg.tmp14.sroa.0.0.copyload = load i64, ptr %__begin16.0226, align 4
   %range.sroa.0.0.extract.trunc.i40 = trunc i64 %agg.tmp14.sroa.0.0.copyload to i32
-  %cmp.i43 = icmp ult i64 %agg.tmp14.sroa.0.0.copyload, 4294967296
+  %range.sroa.4.0.extract.shift.i41 = lshr i64 %agg.tmp14.sroa.0.0.copyload, 32
+  %cmp.i43 = icmp eq i64 %range.sroa.4.0.extract.shift.i41, 0
   %brmerge = select i1 %cmp.i43, i1 true, i1 %cmp6.not49.i
   br i1 %brmerge, label %_ZN6hermesL25addPrecanonicalCharactersENS_14CodePointRangeEPNS_12CodePointSetEb.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.body12
-  %range.sroa.4.0.extract.shift.i41 = lshr i64 %agg.tmp14.sroa.0.0.copyload, 32
   %range.sroa.4.0.extract.trunc.i42 = trunc nuw i64 %range.sroa.4.0.extract.shift.i41 to i32
   %add.i3.i.i = add i32 %range.sroa.4.0.extract.trunc.i42, %range.sroa.0.0.extract.trunc.i40
   br label %for.body.i48
@@ -744,7 +744,7 @@ for.body.i48:                                     ; preds = %for.inc31.i, %for.b
   %cmp.i.i53 = icmp ule i32 %add.i.i.i52, %range.sroa.0.0.extract.trunc.i40
   %cmp4.i.i = icmp uge i32 %add.i51, %add.i3.i.i
   %.not66.i = select i1 %cmp.i.i53, i1 true, i1 %cmp4.i.i
-  %cmp2044.not.i = icmp ult i32 %55, 16777216
+  %cmp2044.not.i = icmp eq i32 %56, 0
   %or.cond.i = or i1 %cmp2044.not.i, %.not66.i
   br i1 %or.cond.i, label %for.inc31.i, label %for.body21.lr.ph.i
 
@@ -829,7 +829,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointR
   br i1 %spec.select.i.i27.i.i87, label %if.end11.i.i188, label %if.else6.i.i88
 
 if.else6.i.i88:                                   ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN6hermes12CodePointSet3addENS2_14CodePointRangeEEUlS4_S4_E_EclIKS4_PS4_EEbRT_T0_.exit.i.i82, %if.else.i.i81
-  %cmp27.i.i.i93.not = icmp samesign ult i64 %__len.095.i.i65, 2
+  %cmp27.i.i.i93.not = icmp eq i64 %shr.i.i67, 0
   br i1 %cmp27.i.i.i93.not, label %_ZSt13__lower_boundIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EEET_S9_S9_RKT0_T1_.exit.i.i94, label %while.body.i.i.i163
 
 while.body.i.i.i163:                              ; preds = %if.else6.i.i88, %.thread.i.i.i186
@@ -870,8 +870,8 @@ _ZSt13__lower_boundIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_v
   %add.ptr.i.i33.i.i98.idx = shl nuw nsw i64 %__len.095.i.i65, 3
   %incdec.ptr8.i.i100 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i22.i, i64 8
   %77 = add nuw nsw i64 %add.ptr.i.i.i22.i.idx, 8
-  %gepdiff271 = sub nsw i64 %add.ptr.i.i33.i.i98.idx, %77
-  %sub.ptr.div.i.i.i41.i.i104 = ashr exact i64 %gepdiff271, 3
+  %gepdiff272 = sub nsw i64 %add.ptr.i.i33.i.i98.idx, %77
+  %sub.ptr.div.i.i.i41.i.i104 = ashr exact i64 %gepdiff272, 3
   %cmp25.i.i.i105 = icmp sgt i64 %sub.ptr.div.i.i.i41.i.i104, 0
   br i1 %cmp25.i.i.i105, label %while.body.i50.i.i135, label %_ZSt13__equal_rangeIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EENS4_14_Val_comp_iterIS7_EEESt4pairIT_SC_ESC_SC_RKT0_T1_T2_.exit.i106
 

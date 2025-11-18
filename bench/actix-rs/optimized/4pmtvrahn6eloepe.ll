@@ -6077,11 +6077,11 @@ define internal fastcc void @_ZN6brotli3enc19backward_references2hq12EvaluateNod
   br i1 %39, label %47, label %51, !prof !216
 
 40:                                               ; preds = %29
-  %41 = icmp ult i32 %24, 134217728
-  %42 = add i32 %27, 15
-  %43 = lshr i32 %24, 27
-  %44 = add nsw i32 %43, -1
-  %.03.i = select i1 %41, i32 %42, i32 %44
+  %41 = lshr i32 %24, 27
+  %42 = icmp eq i32 %41, 0
+  %43 = add i32 %27, 15
+  %44 = add nsw i32 %41, -1
+  %.03.i = select i1 %42, i32 %43, i32 %44
   %.not.i = icmp eq i32 %.03.i, 0
   br i1 %.not.i, label %36, label %45
 
@@ -7173,11 +7173,11 @@ _ZN6brotli3enc19backward_references2hq28ComputeShortestPathFromNodes17hfd9e46c3c
   br i1 %or.cond.i.i.us.i, label %205, label %212
 
 205:                                              ; preds = %198
-  %206 = icmp ult i32 %193, 134217728
-  %207 = add i32 %196, 15
-  %208 = lshr i32 %193, 27
-  %209 = add nsw i32 %208, -1
-  %.03.i.i.us.i = select i1 %206, i32 %207, i32 %209
+  %206 = lshr i32 %193, 27
+  %207 = icmp eq i32 %206, 0
+  %208 = add i32 %196, 15
+  %209 = add nsw i32 %206, -1
+  %.03.i.i.us.i = select i1 %207, i32 %208, i32 %209
   %.not.i.i.us.i = icmp eq i32 %.03.i.i.us.i, 0
   br i1 %.not.i.i.us.i, label %212, label %210
 
@@ -7299,11 +7299,11 @@ _ZN6brotli3enc19backward_references2hq12EvaluateNode17h5324db64ff98ae38E.exit.us
   br i1 %261, label %269, label %.invoke.i, !prof !216
 
 262:                                              ; preds = %251
-  %263 = icmp ult i32 %246, 134217728
-  %264 = add i32 %249, 15
-  %265 = lshr i32 %246, 27
-  %266 = add nsw i32 %265, -1
-  %.03.i.i.i = select i1 %263, i32 %264, i32 %266
+  %263 = lshr i32 %246, 27
+  %264 = icmp eq i32 %263, 0
+  %265 = add i32 %249, 15
+  %266 = add nsw i32 %263, -1
+  %.03.i.i.i = select i1 %264, i32 %265, i32 %266
   %.not.i.i.i = icmp eq i32 %.03.i.i.i, 0
   br i1 %.not.i.i.i, label %258, label %267
 
@@ -8307,11 +8307,11 @@ _ZN6brotli3enc19backward_references2hq30ZopfliCostModelSetFromCommands17h44f0831
   br i1 %or.cond.i.i.us.i, label %327, label %334
 
 327:                                              ; preds = %312
-  %328 = icmp ult i32 %317, 134217728
-  %329 = add i32 %320, 15
-  %330 = lshr i32 %317, 27
-  %331 = add nsw i32 %330, -1
-  %.03.i.i.us.i = select i1 %328, i32 %329, i32 %331
+  %328 = lshr i32 %317, 27
+  %329 = icmp eq i32 %328, 0
+  %330 = add i32 %320, 15
+  %331 = add nsw i32 %328, -1
+  %.03.i.i.us.i = select i1 %329, i32 %330, i32 %331
   %.not.i.i.us.i = icmp eq i32 %.03.i.i.us.i, 0
   br i1 %.not.i.i.us.i, label %334, label %332
 
@@ -8445,11 +8445,11 @@ _ZN6brotli3enc19backward_references2hq12EvaluateNode17h5324db64ff98ae38E.exit.us
   br i1 %391, label %399, label %.invoke, !prof !216
 
 392:                                              ; preds = %373
-  %393 = icmp ult i32 %378, 134217728
-  %394 = add i32 %381, 15
-  %395 = lshr i32 %378, 27
-  %396 = add nsw i32 %395, -1
-  %.03.i.i.i = select i1 %393, i32 %394, i32 %396
+  %393 = lshr i32 %378, 27
+  %394 = icmp eq i32 %393, 0
+  %395 = add i32 %381, 15
+  %396 = add nsw i32 %393, -1
+  %.03.i.i.i = select i1 %394, i32 %395, i32 %396
   %.not.i.i.i = icmp eq i32 %.03.i.i.i, 0
   br i1 %.not.i.i.i, label %388, label %397
 

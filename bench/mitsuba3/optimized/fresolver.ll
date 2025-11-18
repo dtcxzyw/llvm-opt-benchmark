@@ -499,7 +499,7 @@ define linkonce_odr hidden ptr @_ZNSt3__16removeB8ne190000INS_11__wrap_iterIPN7m
   br i1 %.not.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i, label %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i.i:                         ; preds = %41
-  %.not1924.i.i.i.i.i.i.i = icmp ult i8 %27, 2
+  %.not1924.i.i.i.i.i.i.i = icmp eq i8 %31, 0
   br i1 %.not1924.i.i.i.i.i.i.i, label %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.preheader.i.i.i.i.i.i.i, %48
@@ -1808,7 +1808,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__111__find_implB8ne190000IPN7mits
   br i1 %.not.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i, label %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i.i:                         ; preds = %41
-  %.not1924.i.i.i.i.i.i.i = icmp ult i8 %27, 2
+  %.not1924.i.i.i.i.i.i.i = icmp eq i8 %31, 0
   br i1 %.not1924.i.i.i.i.i.i.i, label %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.preheader.i.i.i.i.i.i.i, %48
@@ -1924,7 +1924,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__111__find_implB8ne190000IPKN7mit
   br i1 %.not.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i, label %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i.i:                         ; preds = %41
-  %.not1924.i.i.i.i.i.i.i = icmp ult i8 %27, 2
+  %.not1924.i.i.i.i.i.i.i = icmp eq i8 %31, 0
   br i1 %.not1924.i.i.i.i.i.i.i, label %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.preheader.i.i.i.i.i.i.i, %48

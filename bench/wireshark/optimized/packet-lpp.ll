@@ -20332,8 +20332,8 @@ define internal i32 @dissect_lpp_T_toa(ptr noundef %0, i32 noundef %1, ptr nound
   %9 = ptrtoint ptr %8 to i64
   %10 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 255, ptr noundef nonnull %6, i1 noundef zeroext false)
   %11 = sub i32 %10, %1
-  %12 = call i32 @llvm.umax.i32(i32 %11, i32 8)
-  %13 = ashr i32 %12, 3
+  %12 = ashr i32 %11, 3
+  %13 = call i32 @llvm.umax.i32(i32 %12, i32 1)
   %14 = and i64 %9, 4294967295
   %15 = icmp eq i64 %14, 3
   %16 = load i32, ptr %6, align 4
@@ -20593,8 +20593,8 @@ define internal i32 @dissect_lpp_T_toa_ext_v1240(ptr noundef %0, i32 noundef %1,
   %9 = ptrtoint ptr %8 to i64
   %10 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 256, i32 noundef 1023, ptr noundef nonnull %6, i1 noundef zeroext false)
   %11 = sub i32 %10, %1
-  %12 = call i32 @llvm.umax.i32(i32 %11, i32 8)
-  %13 = ashr i32 %12, 3
+  %12 = ashr i32 %11, 3
+  %13 = call i32 @llvm.umax.i32(i32 %12, i32 1)
   %14 = and i64 %9, 4294967295
   %15 = icmp eq i64 %14, 3
   %16 = load i32, ptr %6, align 4

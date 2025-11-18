@@ -2463,12 +2463,12 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %69, %_ZNKSt7__cxx11
   %90 = lshr i32 %62, 4
   call void @_ZN10duckdb_re23DFA10AddToQueueEPNS0_5WorkqEij(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull %2, i32 noundef %90, i32 noundef %4)
   %91 = load i16, ptr %77, align 2, !tbaa !104
-  %.not36 = icmp ult i16 %91, 2
-  br i1 %.not36, label %.preheader, label %92
+  %92 = lshr i16 %91, 1
+  %.not36 = icmp eq i16 %92, 0
+  br i1 %.not36, label %.preheader, label %93
 
-92:                                               ; preds = %89
-  %93 = lshr i16 %91, 1
-  %94 = zext nneg i16 %93 to i64
+93:                                               ; preds = %89
+  %94 = zext nneg i16 %92 to i64
   %95 = getelementptr i32, ptr %.042, i64 %94
   %96 = getelementptr i8, ptr %95, i64 -4
   br label %_ZN10duckdb_re23DFA5Workq4markEv.exit
@@ -2504,8 +2504,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %69, %_ZNKSt7__cxx11
   %112 = icmp eq i32 %110, 0
   br i1 %112, label %.critedge, label %_ZN10duckdb_re23DFA5Workq4markEv.exit
 
-_ZN10duckdb_re23DFA5Workq4markEv.exit:            ; preds = %56, %56, %56, %56, %56, %47, %42, %39, %111, %106, %92, %100, %76, %_ZN10LogMessageD2Ev.exit
-  %.1 = phi ptr [ %.042, %_ZN10LogMessageD2Ev.exit ], [ %.042, %56 ], [ %.042, %56 ], [ %.042, %56 ], [ %.042, %56 ], [ %.042, %56 ], [ %96, %92 ], [ %105, %100 ], [ %.042, %76 ], [ %.042, %106 ], [ %.042, %111 ], [ %.042, %39 ], [ %.042, %42 ], [ %.042, %47 ]
+_ZN10duckdb_re23DFA5Workq4markEv.exit:            ; preds = %56, %56, %56, %56, %56, %47, %42, %39, %111, %106, %93, %100, %76, %_ZN10LogMessageD2Ev.exit
+  %.1 = phi ptr [ %.042, %_ZN10LogMessageD2Ev.exit ], [ %.042, %56 ], [ %.042, %56 ], [ %.042, %56 ], [ %.042, %56 ], [ %.042, %56 ], [ %96, %93 ], [ %105, %100 ], [ %.042, %76 ], [ %.042, %106 ], [ %.042, %111 ], [ %.042, %39 ], [ %.042, %42 ], [ %.042, %47 ]
   %113 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %114 = load ptr, ptr %11, align 8, !tbaa !85
   %115 = load i32, ptr %1, align 8, !tbaa !81
@@ -12585,7 +12585,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_I
 51:                                               ; preds = %.lr.ph.i.i.i.i.i
   %52 = getelementptr inbounds i32, ptr %0, i64 %.01317.i.i.i.i.i
   store i32 %49, ptr %52, align 4, !tbaa !77
-  %.not8.i.i.i = icmp ult i64 %.018.in.i.i.i.i.i, 2
+  %.not8.i.i.i = icmp eq i64 %.018.i.i67.i.i.i, 0
   br i1 %.not8.i.i.i, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !271
 
 _ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.i.i: ; preds = %51, %.lr.ph.i.i.i.i.i, %47

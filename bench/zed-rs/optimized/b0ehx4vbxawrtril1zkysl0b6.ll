@@ -18969,8 +18969,8 @@ define hidden void @_ZN4core5slice4sort8unstable8heapsort8heapsort17h49633b4e86f
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %16, i64 40, i1 false), !alias.scope !4878
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.not1.i18 = icmp ugt i64 %15, 1
-  br i1 %.not1.i18, label %.lr.ph.i.preheader, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h0099d8f2cac63b07E.exit.thread
+  %.not1.i19 = icmp ugt i64 %15, 1
+  br i1 %.not1.i19, label %.lr.ph.i.preheader, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h0099d8f2cac63b07E.exit.thread
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.sroa.4.012 = phi i64 [ %17, %.lr.ph ], [ %10, %.lr.ph.preheader ]
@@ -19142,8 +19142,8 @@ _ZN4core5slice4sort8unstable8heapsort9sift_down17h72cf61f43e5c5ac1E.exit: ; pred
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %34, i64 40, i1 false), !alias.scope !4888
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not1.i1133 = icmp ugt i64 %33, 1
-  br i1 %.not1.i1133, label %.lr.ph.i12.preheader, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h72cf61f43e5c5ac1E.exit20.thread
+  %.not1.i1134 = icmp ugt i64 %33, 1
+  br i1 %.not1.i1134, label %.lr.ph.i12.preheader, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h72cf61f43e5c5ac1E.exit20.thread
 
 _ZN4core5slice4sort8unstable8heapsort9sift_down17h72cf61f43e5c5ac1E.exit20.thread: ; preds = %_ZN4core5slice4sort8unstable8heapsort9sift_down17h72cf61f43e5c5ac1E.exit20, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h965790496eb683deE.exit.preheader"
   ret void

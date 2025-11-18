@@ -1225,7 +1225,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaI26grpc_compres
   %16 = getelementptr inbounds nuw i32, ptr %15, i64 %.sink1.i
   %17 = load i32, ptr %1, align 4, !tbaa !21
   store i32 %17, ptr %16, align 4, !tbaa !21
-  %.not.i15 = icmp ult i64 %3, 2
+  %.not.i15 = icmp eq i64 %.sink1.i, 0
   br i1 %.not.i15, label %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaI26grpc_compression_algorithmENS1_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISC_E7pointerERT0_NSH_9size_typeE.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaI26grpc_compression_algorithmELb0EE8AllocateERS4_m.exit.i

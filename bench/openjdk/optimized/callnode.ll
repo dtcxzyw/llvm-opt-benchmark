@@ -1953,7 +1953,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit24:    ; preds = %70, %75
   %114 = getelementptr inbounds nuw i8, ptr %4, i64 92
   store i32 0, ptr %114, align 4
   %115 = lshr i32 %112, 6
-  %.not.i = icmp ult i32 %112, 64
+  %.not.i = icmp eq i32 %115, 0
   br i1 %.not.i, label %.thread.i, label %116
 
 116:                                              ; preds = %111

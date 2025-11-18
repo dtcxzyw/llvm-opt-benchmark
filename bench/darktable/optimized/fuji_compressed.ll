@@ -189,7 +189,7 @@ _Z10setup_qlutPaPi.exit:                          ; preds = %34, %15
   %.1.i = phi i32 [ %45, %.preheader.i ], [ 0, %_Z10setup_qlutPaPi.exit ]
   %45 = add nuw nsw i32 %.1.i, 1
   %46 = ashr i32 %.04.i, 1
-  %.not5.i = icmp ult i32 %.04.i, 2
+  %.not5.i = icmp eq i32 %46, 0
   br i1 %.not5.i, label %_ZL8log2ceili.exit, label %.preheader.i, !llvm.loop !23
 
 _ZL8log2ceili.exit:                               ; preds = %.preheader.i, %_Z10setup_qlutPaPi.exit
@@ -206,7 +206,7 @@ _ZL8log2ceili.exit:                               ; preds = %.preheader.i, %_Z10
   %.1.i32 = phi i32 [ %49, %.preheader.i30 ], [ 0, %_ZL8log2ceili.exit ]
   %49 = add nuw nsw i32 %.1.i32, 1
   %50 = ashr i32 %.04.i31, 1
-  %.not5.i33 = icmp ult i32 %.04.i31, 2
+  %.not5.i33 = icmp eq i32 %50, 0
   br i1 %.not5.i33, label %_ZL8log2ceili.exit35.loopexit, label %.preheader.i30, !llvm.loop !23
 
 _ZL8log2ceili.exit35.loopexit:                    ; preds = %.preheader.i30
@@ -359,7 +359,7 @@ _Z10setup_qlutPaPi.exit.i:                        ; preds = %54
   %.1.i.i = phi i32 [ %59, %.preheader.i.i ], [ 0, %_Z10setup_qlutPaPi.exit.i ]
   %59 = add nuw nsw i32 %.1.i.i, 1
   %60 = lshr i32 %.04.i.i, 1
-  %.not5.i.i = icmp samesign ult i32 %.04.i.i, 2
+  %.not5.i.i = icmp eq i32 %60, 0
   br i1 %.not5.i.i, label %_ZL8log2ceili.exit.i, label %.preheader.i.i, !llvm.loop !23
 
 _ZL8log2ceili.exit.i:                             ; preds = %.preheader.i.i
@@ -374,7 +374,7 @@ _ZL8log2ceili.exit.i:                             ; preds = %.preheader.i.i
   %.1.i32.i = phi i32 [ %63, %.preheader.i30.i ], [ 0, %_ZL8log2ceili.exit.i ]
   %63 = add nuw nsw i32 %.1.i32.i, 1
   %64 = lshr i32 %.04.i31.i, 1
-  %.not5.i33.i = icmp samesign ult i32 %.04.i31.i, 2
+  %.not5.i33.i = icmp eq i32 %64, 0
   br i1 %.not5.i33.i, label %_Z16init_main_qtableP22fuji_compressed_paramsh.exit, label %.preheader.i30.i, !llvm.loop !23
 
 _Z16init_main_qtableP22fuji_compressed_paramsh.exit: ; preds = %.preheader.i30.i
@@ -403,7 +403,7 @@ _Z16init_main_qtableP22fuji_compressed_paramsh.exit: ; preds = %.preheader.i30.i
   %.1.i = phi i32 [ %73, %.preheader.i ], [ 0, %.preheader.preheader.i ]
   %73 = add nuw nsw i32 %.1.i, 1
   %74 = lshr i32 %.04.i, 1
-  %.not5.i = icmp samesign ult i32 %.04.i, 2
+  %.not5.i = icmp eq i32 %74, 0
   br i1 %.not5.i, label %.lr.ph.i, label %.preheader.i, !llvm.loop !23
 
 .lr.ph.i:                                         ; preds = %.preheader.i
@@ -486,7 +486,7 @@ _Z16init_main_qtableP22fuji_compressed_paramsh.exit: ; preds = %.preheader.i30.i
   %.1.i66 = phi i32 [ %105, %.preheader.i64 ], [ 0, %.preheader.preheader.i63 ]
   %105 = add nuw nsw i32 %.1.i66, 1
   %106 = lshr i32 %.04.i65, 1
-  %.not5.i67 = icmp samesign ult i32 %.04.i65, 2
+  %.not5.i67 = icmp eq i32 %106, 0
   br i1 %.not5.i67, label %.lr.ph.i71, label %.preheader.i64, !llvm.loop !23
 
 .lr.ph.i71:                                       ; preds = %.preheader.i64
@@ -569,7 +569,7 @@ _Z16init_main_qtableP22fuji_compressed_paramsh.exit: ; preds = %.preheader.i30.i
   %.1.i86 = phi i32 [ %137, %.preheader.i84 ], [ 0, %.preheader.preheader.i83 ]
   %137 = add nuw nsw i32 %.1.i86, 1
   %138 = lshr i32 %.04.i85, 1
-  %.not5.i87 = icmp samesign ult i32 %.04.i85, 2
+  %.not5.i87 = icmp eq i32 %138, 0
   br i1 %.not5.i87, label %.lr.ph.i91, label %.preheader.i84, !llvm.loop !23
 
 .lr.ph.i91:                                       ; preds = %.preheader.i84

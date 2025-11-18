@@ -61876,7 +61876,7 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.llvm.7325118056162354838.ex
   %186 = lshr i64 %185, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !13249)
   call void @llvm.experimental.noalias.scope.decl(metadata !13252)
-  %.not.i.i146 = icmp ult i64 %185, 2
+  %.not.i.i146 = icmp eq i64 %186, 0
   br i1 %.not.i.i146, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h9354cbd67461668eE.exit", label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %183

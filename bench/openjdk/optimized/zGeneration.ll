@@ -1172,7 +1172,7 @@ _ZN11ZGeneration14flip_age_pagesEPK22ZRelocationSetSelector.exit: ; preds = %_ZN
   %157 = lshr i64 %153, 21
   %158 = lshr i64 %156, 21
   %159 = add nuw nsw i64 %158, %157
-  %.not.i.i5 = icmp ult i64 %156, 2097152
+  %.not.i.i5 = icmp eq i64 %158, 0
   br i1 %.not.i.i5, label %_ZN16ZForwardingTable6insertEP11ZForwarding.exit, label %.lr.ph.i.i6
 
 .lr.ph.i.i6:                                      ; preds = %149, %.lr.ph.i.i6
@@ -1623,7 +1623,7 @@ define hidden void @_ZN11ZGeneration20reset_relocation_setEv(ptr noundef nonnull
   %15 = lshr i64 %11, 21
   %16 = lshr i64 %14, 21
   %17 = add nuw nsw i64 %16, %15
-  %.not.i.i = icmp ult i64 %14, 2097152
+  %.not.i.i = icmp eq i64 %16, 0
   br i1 %.not.i.i, label %_ZN16ZForwardingTable6removeEP11ZForwarding.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %7, %.lr.ph.i.i
@@ -2558,7 +2558,7 @@ define hidden void @_ZN16ZGenerationYoung31concurrent_reset_relocation_setEv(ptr
   %17 = lshr i64 %13, 21
   %18 = lshr i64 %16, 21
   %19 = add nuw nsw i64 %18, %17
-  %.not.i.i.i = icmp ult i64 %16, 2097152
+  %.not.i.i.i = icmp eq i64 %18, 0
   br i1 %.not.i.i.i, label %_ZN16ZForwardingTable6removeEP11ZForwarding.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %9, %.lr.ph.i.i.i
@@ -3795,7 +3795,7 @@ define hidden void @_ZN14ZGenerationOld31concurrent_reset_relocation_setEv(ptr n
   %17 = lshr i64 %13, 21
   %18 = lshr i64 %16, 21
   %19 = add nuw nsw i64 %18, %17
-  %.not.i.i.i = icmp ult i64 %16, 2097152
+  %.not.i.i.i = icmp eq i64 %18, 0
   br i1 %.not.i.i.i, label %_ZN16ZForwardingTable6removeEP11ZForwarding.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %9, %.lr.ph.i.i.i

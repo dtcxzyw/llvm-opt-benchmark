@@ -110,8 +110,8 @@ cconv_childqual.exit54:                           ; preds = %.preheader
   %.not39 = icmp eq i32 %19, %.062
   %37 = lshr i32 %34, 28
   %.not40 = icmp eq i32 %10, %37
-  %or.cond79 = and i1 %.not39, %.not40
-  br i1 %or.cond79, label %46, label %.thread
+  %or.cond77 = and i1 %.not39, %.not40
+  br i1 %or.cond77, label %46, label %.thread
 
 38:                                               ; preds = %33
   %39 = and i32 %3, 8
@@ -128,8 +128,8 @@ cconv_childqual.exit54:                           ; preds = %.preheader
   %43 = icmp eq i32 %.mask37, 1073741824
   %.mask38 = and i32 %34, -268435456
   %44 = icmp eq i32 %.mask38, 1073741824
-  %or.cond78 = or i1 %43, %44
-  br i1 %or.cond78, label %.thread, label %45
+  %or.cond76 = or i1 %43, %44
+  br i1 %or.cond76, label %.thread, label %45
 
 45:                                               ; preds = %42, %38
   %.old = lshr i32 %34, 28
@@ -145,7 +145,7 @@ cconv_childqual.exit54:                           ; preds = %.preheader
   br i1 %.not41, label %51, label %.thread
 
 51:                                               ; preds = %46
-  %52 = icmp ult i32 %9, 268435456
+  %52 = icmp eq i32 %10, 0
   br i1 %52, label %53, label %56
 
 53:                                               ; preds = %51
@@ -811,145 +811,145 @@ define internal fastcc void @cconv_err_conv(ptr noundef readonly captures(none) 
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = and i32 %3, 2
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %24, label %16
+  br i1 %.not, label %25, label %16
 
 16:                                               ; preds = %4
   %17 = load i32, ptr %2, align 8, !tbaa !17
-  %18 = icmp ult i32 %17, 268435456
-  %.mask = and i32 %17, -268435456
-  %19 = icmp eq i32 %.mask, 805306368
-  %20 = select i1 %19, i64 5, i64 1
-  %21 = select i1 %18, i64 4, i64 %20
-  %22 = getelementptr inbounds nuw ptr, ptr @lj_obj_typename, i64 %21
-  %23 = load ptr, ptr %22, align 8, !tbaa !36
-  br label %34
+  %18 = lshr i32 %17, 28
+  %19 = icmp eq i32 %18, 0
+  %20 = icmp eq i32 %18, 3
+  %21 = select i1 %20, i64 5, i64 1
+  %22 = select i1 %19, i64 4, i64 %21
+  %23 = getelementptr inbounds nuw ptr, ptr @lj_obj_typename, i64 %22
+  %24 = load ptr, ptr %23, align 8, !tbaa !36
+  br label %35
 
-24:                                               ; preds = %4
-  %25 = load ptr, ptr %5, align 8, !tbaa !35
-  %26 = load ptr, ptr %0, align 8, !tbaa !4
-  %27 = ptrtoint ptr %2 to i64
-  %28 = ptrtoint ptr %26 to i64
-  %29 = sub i64 %27, %28
-  %30 = sdiv exact i64 %29, 24
-  %31 = trunc i64 %30 to i32
-  %32 = tail call ptr @lj_ctype_repr(ptr noundef %25, i32 noundef %31, ptr noundef null) #10
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  br label %34
+25:                                               ; preds = %4
+  %26 = load ptr, ptr %5, align 8, !tbaa !35
+  %27 = load ptr, ptr %0, align 8, !tbaa !4
+  %28 = ptrtoint ptr %2 to i64
+  %29 = ptrtoint ptr %27 to i64
+  %30 = sub i64 %28, %29
+  %31 = sdiv exact i64 %30, 24
+  %32 = trunc i64 %31 to i32
+  %33 = tail call ptr @lj_ctype_repr(ptr noundef %26, i32 noundef %32, ptr noundef null) #10
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  br label %35
 
-34:                                               ; preds = %24, %16
-  %.0 = phi ptr [ %23, %16 ], [ %33, %24 ]
-  %.not18 = icmp ult i32 %3, 256
-  br i1 %.not18, label %38, label %35
-
-35:                                               ; preds = %34
+35:                                               ; preds = %25, %16
+  %.0 = phi ptr [ %24, %16 ], [ %34, %25 ]
   %36 = lshr i32 %3, 8
+  %.not18 = icmp eq i32 %36, 0
   %37 = load ptr, ptr %5, align 8, !tbaa !35
+  br i1 %.not18, label %39, label %38
+
+38:                                               ; preds = %35
   tail call void (ptr, i32, i32, ...) @lj_err_argv(ptr noundef %37, i32 noundef %36, i32 noundef 3239, ptr noundef %.0, ptr noundef nonnull %14) #11
   unreachable
 
-38:                                               ; preds = %34
-  %39 = load ptr, ptr %5, align 8, !tbaa !35
-  tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef %39, i32 noundef 3239, ptr noundef %.0, ptr noundef nonnull %14) #11
+39:                                               ; preds = %35
+  tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef %37, i32 noundef 3239, ptr noundef %.0, ptr noundef nonnull %14) #11
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @lj_cconv_tv_ct(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = load i32, ptr %1, align 8, !tbaa !17
-  %7 = icmp ult i32 %6, 268435456
-  br i1 %7, label %8, label %33
+  %7 = lshr i32 %6, 28
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %9, label %34
 
-8:                                                ; preds = %5
-  %.not = icmp samesign ult i32 %6, 134217728
-  br i1 %.not, label %9, label %18
+9:                                                ; preds = %5
+  %.not = icmp ult i32 %6, 134217728
+  br i1 %.not, label %10, label %19
 
-9:                                                ; preds = %8
-  %10 = icmp samesign ult i32 %6, 67108864
-  br i1 %10, label %11, label %15
+10:                                               ; preds = %9
+  %11 = icmp samesign ult i32 %6, 67108864
+  br i1 %11, label %12, label %16
 
-11:                                               ; preds = %9
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %13 = load i32, ptr %12, align 4, !tbaa !22
-  %14 = icmp ugt i32 %13, 4
-  br i1 %14, label %41, label %15
+12:                                               ; preds = %10
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %14 = load i32, ptr %13, align 4, !tbaa !22
+  %15 = icmp ugt i32 %14, 4
+  br i1 %15, label %42, label %16
 
-15:                                               ; preds = %11, %9
-  %16 = load ptr, ptr %0, align 8, !tbaa !4
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 336
-  tail call void @lj_cconv_ct_ct(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef nonnull %1, ptr noundef %3, ptr noundef %4, i32 noundef 0)
-  br label %59
+16:                                               ; preds = %12, %10
+  %17 = load ptr, ptr %0, align 8, !tbaa !4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 336
+  tail call void @lj_cconv_ct_ct(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef nonnull %1, ptr noundef %3, ptr noundef %4, i32 noundef 0)
+  br label %60
 
-18:                                               ; preds = %8
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %20 = load i32, ptr %19, align 4, !tbaa !22
-  %21 = icmp eq i32 %20, 1
-  br i1 %21, label %22, label %25
+19:                                               ; preds = %9
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %21 = load i32, ptr %20, align 4, !tbaa !22
+  %22 = icmp eq i32 %21, 1
+  br i1 %22, label %23, label %26
 
-22:                                               ; preds = %18
-  %23 = load i8, ptr %4, align 1, !tbaa !23
-  %24 = icmp ne i8 %23, 0
-  br label %28
+23:                                               ; preds = %19
+  %24 = load i8, ptr %4, align 1, !tbaa !23
+  %25 = icmp ne i8 %24, 0
+  br label %29
 
-25:                                               ; preds = %18
-  %26 = load i32, ptr %4, align 4, !tbaa !24
-  %27 = icmp ne i32 %26, 0
-  br label %28
+26:                                               ; preds = %19
+  %27 = load i32, ptr %4, align 4, !tbaa !24
+  %28 = icmp ne i32 %27, 0
+  br label %29
 
-28:                                               ; preds = %25, %22
-  %.in = phi i1 [ %24, %22 ], [ %27, %25 ]
-  %29 = select i1 %.in, i64 -281474976710657, i64 -140737488355329
-  store i64 %29, ptr %3, align 8, !tbaa !23
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %31 = load ptr, ptr %30, align 8, !tbaa !38
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 240
-  store i64 %29, ptr %32, align 8, !tbaa !23
-  br label %59
+29:                                               ; preds = %26, %23
+  %.in = phi i1 [ %25, %23 ], [ %28, %26 ]
+  %30 = select i1 %.in, i64 -281474976710657, i64 -140737488355329
+  store i64 %30, ptr %3, align 8, !tbaa !23
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %32 = load ptr, ptr %31, align 8, !tbaa !38
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 240
+  store i64 %30, ptr %33, align 8, !tbaa !23
+  br label %60
 
-33:                                               ; preds = %5
-  %34 = and i32 %6, -67108864
-  %35 = icmp eq i32 %34, 805306368
-  %36 = icmp ult i32 %6, 536870912
-  %or.cond = or i1 %35, %36
-  br i1 %or.cond, label %37, label %._crit_edge
+34:                                               ; preds = %5
+  %35 = and i32 %6, -67108864
+  %36 = icmp eq i32 %35, 805306368
+  %37 = icmp eq i32 %7, 1
+  %or.cond = or i1 %36, %37
+  br i1 %or.cond, label %38, label %._crit_edge
 
-._crit_edge:                                      ; preds = %33
+._crit_edge:                                      ; preds = %34
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !22
-  br label %41
+  br label %42
 
-37:                                               ; preds = %33
-  %38 = tail call ptr @lj_cdata_newref(ptr noundef %0, ptr noundef %4, i32 noundef %2) #10
-  %39 = ptrtoint ptr %38 to i64
-  %40 = or i64 %39, -1548112371908608
-  store i64 %40, ptr %3, align 8, !tbaa !23
-  br label %59
+38:                                               ; preds = %34
+  %39 = tail call ptr @lj_cdata_newref(ptr noundef %0, ptr noundef %4, i32 noundef %2) #10
+  %40 = ptrtoint ptr %39 to i64
+  %41 = or i64 %40, -1548112371908608
+  store i64 %41, ptr %3, align 8, !tbaa !23
+  br label %60
 
-41:                                               ; preds = %._crit_edge, %11
-  %42 = phi i32 [ %.pre, %._crit_edge ], [ %13, %11 ]
-  %43 = load ptr, ptr %0, align 8, !tbaa !4
-  %44 = ptrtoint ptr %1 to i64
-  %45 = ptrtoint ptr %43 to i64
-  %46 = sub i64 %44, %45
-  %47 = sdiv exact i64 %46, 24
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %49 = load ptr, ptr %48, align 8, !tbaa !35
-  %50 = zext i32 %42 to i64
-  %51 = add nuw nsw i64 %50, 16
-  %52 = tail call ptr @lj_mem_newgco(ptr noundef %49, i64 noundef %51) #10
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 9
-  store i8 10, ptr %53, align 1, !tbaa !39
-  %54 = trunc i64 %47 to i16
-  %55 = getelementptr inbounds nuw i8, ptr %52, i64 10
-  store i16 %54, ptr %55, align 2, !tbaa !41
-  %56 = ptrtoint ptr %52 to i64
-  %57 = or i64 %56, -1548112371908608
-  store i64 %57, ptr %3, align 8, !tbaa !23
-  %58 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %58, ptr align 1 %4, i64 %50, i1 false)
-  br label %59
+42:                                               ; preds = %._crit_edge, %12
+  %43 = phi i32 [ %.pre, %._crit_edge ], [ %14, %12 ]
+  %44 = load ptr, ptr %0, align 8, !tbaa !4
+  %45 = ptrtoint ptr %1 to i64
+  %46 = ptrtoint ptr %44 to i64
+  %47 = sub i64 %45, %46
+  %48 = sdiv exact i64 %47, 24
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %50 = load ptr, ptr %49, align 8, !tbaa !35
+  %51 = zext i32 %43 to i64
+  %52 = add nuw nsw i64 %51, 16
+  %53 = tail call ptr @lj_mem_newgco(ptr noundef %50, i64 noundef %52) #10
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 9
+  store i8 10, ptr %54, align 1, !tbaa !39
+  %55 = trunc i64 %48 to i16
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 10
+  store i16 %55, ptr %56, align 2, !tbaa !41
+  %57 = ptrtoint ptr %53 to i64
+  %58 = or i64 %57, -1548112371908608
+  store i64 %58, ptr %3, align 8, !tbaa !23
+  %59 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %59, ptr align 1 %4, i64 %51, i1 false)
+  br label %60
 
-59:                                               ; preds = %15, %28, %41, %37
-  %.0 = phi i32 [ 1, %41 ], [ 1, %37 ], [ 0, %28 ], [ 0, %15 ]
+60:                                               ; preds = %16, %29, %42, %38
+  %.0 = phi i32 [ 1, %42 ], [ 1, %38 ], [ 0, %29 ], [ 0, %16 ]
   ret i32 %.0
 }
 
@@ -1487,18 +1487,17 @@ define internal fastcc void @cconv_err_convtv(ptr noundef readonly captures(none
   %spec.select = xor i64 %17, -1
   %18 = getelementptr inbounds nuw ptr, ptr @lj_obj_itypename, i64 %spec.select
   %19 = load ptr, ptr %18, align 8, !tbaa !36
-  %.not = icmp ult i32 %3, 256
-  br i1 %.not, label %23, label %20
+  %20 = lshr i32 %3, 8
+  %.not = icmp eq i32 %20, 0
+  %21 = load ptr, ptr %5, align 8, !tbaa !35
+  br i1 %.not, label %23, label %22
 
-20:                                               ; preds = %4
-  %21 = lshr i32 %3, 8
-  %22 = load ptr, ptr %5, align 8, !tbaa !35
-  tail call void (ptr, i32, i32, ...) @lj_err_argv(ptr noundef %22, i32 noundef %21, i32 noundef 3239, ptr noundef %19, ptr noundef nonnull %14) #11
+22:                                               ; preds = %4
+  tail call void (ptr, i32, i32, ...) @lj_err_argv(ptr noundef %21, i32 noundef %20, i32 noundef 3239, ptr noundef %19, ptr noundef nonnull %14) #11
   unreachable
 
 23:                                               ; preds = %4
-  %24 = load ptr, ptr %5, align 8, !tbaa !35
-  tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef %24, i32 noundef 3239, ptr noundef %19, ptr noundef nonnull %14) #11
+  tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef %21, i32 noundef 3239, ptr noundef %19, ptr noundef nonnull %14) #11
   unreachable
 }
 

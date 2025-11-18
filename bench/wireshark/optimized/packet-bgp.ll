@@ -8789,7 +8789,7 @@ define internal fastcc range(i32 4, 65540) i32 @decode_link_state_attribute_tlv(
   %14 = load i32, ptr @ett_bgp_link_state, align 4
   %15 = tail call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14)
   %16 = lshr i32 %11, 1
-  %.not1549 = icmp ult i16 %8, 2
+  %.not1549 = icmp eq i32 %16, 0
   br i1 %.not1549, label %.loopexit, label %.lr.ph1548
 
 .lr.ph1548:                                       ; preds = %9
@@ -8801,16 +8801,16 @@ define internal fastcc range(i32 4, 65540) i32 @decode_link_state_attribute_tlv(
   %19 = shl nuw i32 %.013961547, 1
   %20 = add i32 %17, %19
   %21 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %20)
-  %.not1487 = icmp ult i16 %21, 4096
-  br i1 %.not1487, label %26, label %22
+  %22 = lshr i16 %21, 12
+  %.not1487 = icmp eq i16 %22, 0
+  br i1 %.not1487, label %26, label %23
 
-22:                                               ; preds = %18
-  %23 = lshr i16 %21, 12
-  %24 = zext nneg i16 %23 to i32
+23:                                               ; preds = %18
+  %24 = zext nneg i16 %22 to i32
   %25 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %15, ptr noundef nonnull @ei_bgp_ls_error, ptr noundef nonnull @.str.1913, i32 noundef %24)
   br label %26
 
-26:                                               ; preds = %22, %18
+26:                                               ; preds = %23, %18
   %27 = load i32, ptr @hf_bgp_ls_nlri_multi_topology_id, align 4
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %27, ptr noundef %1, i32 noundef %20, i32 noundef 2, i32 noundef 0)
   %29 = add nuw nsw i32 %.013961547, 1
@@ -8934,14 +8934,14 @@ define internal fastcc range(i32 4, 65540) i32 @decode_link_state_attribute_tlv(
   %119 = add i32 %.013891544, 7
   %120 = icmp eq i16 %118, 3
   %. = select i1 %120, i32 3, i32 4
-  %.1631 = select i1 %120, i32 10, i32 11
-  %.1632 = select i1 %120, i32 -10, i32 -11
+  %.1632 = select i1 %120, i32 10, i32 11
+  %.1633 = select i1 %120, i32 -10, i32 -11
   %hf_bgp_ls_sr_tlv_capabilities_sid_label.val = load i32, ptr @hf_bgp_ls_sr_tlv_capabilities_sid_label, align 4
   %hf_bgp_ls_sr_tlv_capabilities_sid_index.val = load i32, ptr @hf_bgp_ls_sr_tlv_capabilities_sid_index, align 4
   %121 = select i1 %120, i32 %hf_bgp_ls_sr_tlv_capabilities_sid_label.val, i32 %hf_bgp_ls_sr_tlv_capabilities_sid_index.val
   %122 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %121, ptr noundef %1, i32 noundef %119, i32 noundef %., i32 noundef 0)
-  %123 = add i32 %.013891544, %.1631
-  %124 = add nsw i32 %.013871545, %.1632
+  %123 = add i32 %.013891544, %.1632
+  %124 = add nsw i32 %.013871545, %.1633
   %125 = icmp sgt i32 %124, 0
   br i1 %125, label %.lr.ph1546, label %.loopexit, !llvm.loop !39
 
@@ -8981,15 +8981,15 @@ define internal fastcc range(i32 4, 65540) i32 @decode_link_state_attribute_tlv(
   %151 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %148)
   %152 = add i32 %.013831541, 7
   %153 = icmp eq i16 %151, 3
-  %.1633 = select i1 %153, i32 3, i32 4
-  %.1634 = select i1 %153, i32 10, i32 11
-  %.1635 = select i1 %153, i32 -10, i32 -11
+  %.1634 = select i1 %153, i32 3, i32 4
+  %.1635 = select i1 %153, i32 10, i32 11
+  %.1636 = select i1 %153, i32 -10, i32 -11
   %hf_bgp_ls_sr_tlv_local_block_sid_label.val = load i32, ptr @hf_bgp_ls_sr_tlv_local_block_sid_label, align 4
   %hf_bgp_ls_sr_tlv_local_block_sid_index.val = load i32, ptr @hf_bgp_ls_sr_tlv_local_block_sid_index, align 4
   %154 = select i1 %153, i32 %hf_bgp_ls_sr_tlv_local_block_sid_label.val, i32 %hf_bgp_ls_sr_tlv_local_block_sid_index.val
-  %155 = tail call ptr @proto_tree_add_item(ptr noundef %132, i32 noundef %154, ptr noundef %1, i32 noundef %152, i32 noundef %.1633, i32 noundef 0)
-  %156 = add i32 %.013831541, %.1634
-  %157 = add nsw i32 %.013821542, %.1635
+  %155 = tail call ptr @proto_tree_add_item(ptr noundef %132, i32 noundef %154, ptr noundef %1, i32 noundef %152, i32 noundef %.1634, i32 noundef 0)
+  %156 = add i32 %.013831541, %.1635
+  %157 = add nsw i32 %.013821542, %.1636
   %158 = icmp sgt i32 %157, 0
   br i1 %158, label %.lr.ph1543, label %.loopexit, !llvm.loop !40
 
@@ -9522,8 +9522,8 @@ decode_link_state_attribute_flex_algo_subtlv.exit: ; preds = %248, %287, %.prehe
   br label %516
 
 513:                                              ; preds = %504
-  %.not1595 = icmp eq i16 %8, 4
-  br i1 %.not1595, label %516, label %514
+  %.not1596 = icmp eq i16 %8, 4
+  br i1 %.not1596, label %516, label %514
 
 514:                                              ; preds = %513
   %515 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %510, ptr noundef nonnull @ei_bgp_ls_error, ptr noundef nonnull @.str.2071, i32 noundef %506, i32 noundef 3, i32 noundef 4)
@@ -9571,16 +9571,16 @@ decode_link_state_attribute_flex_algo_subtlv.exit: ; preds = %248, %287, %.prehe
   %544 = load i32, ptr @hf_bgp_ls_tlv_link_protection_type_value, align 4
   %545 = load i32, ptr @ett_bgp_mp_reach_nlri, align 4
   %546 = tail call ptr @proto_tree_add_bitmask(ptr noundef %534, ptr noundef %1, i32 noundef %542, i32 noundef %544, i32 noundef %545, ptr noundef nonnull @decode_link_state_attribute_tlv.nlri_flags, i32 noundef 0)
-  %.not1471 = icmp ult i8 %543, 64
-  br i1 %.not1471, label %551, label %547
+  %547 = lshr i8 %543, 6
+  %.not1471 = icmp eq i8 %547, 0
+  br i1 %.not1471, label %551, label %548
 
-547:                                              ; preds = %537
-  %548 = lshr i8 %543, 6
-  %549 = zext nneg i8 %548 to i32
+548:                                              ; preds = %537
+  %549 = zext nneg i8 %547 to i32
   %550 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %546, ptr noundef nonnull @ei_bgp_ls_error, ptr noundef nonnull @.str.2073, i32 noundef %549)
   br label %551
 
-551:                                              ; preds = %547, %537
+551:                                              ; preds = %548, %537
   %552 = add i32 %2, 5
   %553 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %552)
   %.not1472 = icmp eq i8 %553, 0
@@ -9932,11 +9932,11 @@ decode_link_state_attribute_flex_algo_subtlv.exit: ; preds = %248, %287, %.prehe
 
 799:                                              ; preds = %780, %780, %798
   %hf_bgp_ls_sr_tlv_srv6_endx_sid_neighbor_isis.sink = phi ptr [ @hf_bgp_ls_sr_tlv_srv6_endx_sid_neighbor_isis, %798 ], [ @hf_bgp_ls_sr_tlv_srv6_endx_sid_neighbor_ospf, %780 ], [ @hf_bgp_ls_sr_tlv_srv6_endx_sid_neighbor_ospf, %780 ]
-  %.sink1627 = phi i32 [ 6, %798 ], [ 4, %780 ], [ 4, %780 ]
-  %.sink1625 = phi i32 [ 16, %798 ], [ 14, %780 ], [ 14, %780 ]
+  %.sink1628 = phi i32 [ 6, %798 ], [ 4, %780 ], [ 4, %780 ]
+  %.sink1626 = phi i32 [ 16, %798 ], [ 14, %780 ], [ 14, %780 ]
   %800 = load i32, ptr %hf_bgp_ls_sr_tlv_srv6_endx_sid_neighbor_isis.sink, align 4
-  %801 = tail call ptr @proto_tree_add_item(ptr noundef %766, i32 noundef %800, ptr noundef %1, i32 noundef %797, i32 noundef %.sink1627, i32 noundef 0)
-  %802 = add i32 %2, %.sink1625
+  %801 = tail call ptr @proto_tree_add_item(ptr noundef %766, i32 noundef %800, ptr noundef %1, i32 noundef %797, i32 noundef %.sink1628, i32 noundef 0)
+  %802 = add i32 %2, %.sink1626
   %803 = load i32, ptr @hf_bgp_ls_sr_tlv_srv6_endx_sid_sid, align 4
   %804 = tail call ptr @proto_tree_add_item(ptr noundef %766, i32 noundef %803, ptr noundef %1, i32 noundef %802, i32 noundef 16, i32 noundef 0)
   %805 = add i32 %802, 16
@@ -10295,10 +10295,10 @@ decode_link_state_attribute_flex_algo_subtlv.exit: ; preds = %248, %287, %.prehe
   %1023 = tail call ptr @proto_tree_add_item(ptr noundef %1021, i32 noundef %1022, ptr noundef %1, i32 noundef %2, i32 noundef 2, i32 noundef 0)
   %1024 = load i32, ptr @hf_bgp_ls_length, align 4
   %1025 = tail call ptr @proto_tree_add_item(ptr noundef %1021, i32 noundef %1024, ptr noundef %1, i32 noundef %7, i32 noundef 2, i32 noundef 0)
-  %switch.selectcmp.case11636 = icmp eq i8 %4, 6
-  %switch.selectcmp.case21637 = icmp eq i8 %4, 3
-  %switch.selectcmp1638 = or i1 %switch.selectcmp.case11636, %switch.selectcmp.case21637
-  %1026 = select i1 %switch.selectcmp1638, ptr @decode_link_state_attribute_tlv.prefix_sid_ospf_flags, ptr @decode_link_state_attribute_tlv.prefix_sid_isis_flags
+  %switch.selectcmp.case11637 = icmp eq i8 %4, 6
+  %switch.selectcmp.case21638 = icmp eq i8 %4, 3
+  %switch.selectcmp1639 = or i1 %switch.selectcmp.case11637, %switch.selectcmp.case21638
+  %1026 = select i1 %switch.selectcmp1639, ptr @decode_link_state_attribute_tlv.prefix_sid_ospf_flags, ptr @decode_link_state_attribute_tlv.prefix_sid_isis_flags
   %1027 = add i32 %2, 4
   %1028 = load i32, ptr @hf_bgp_ls_sr_tlv_prefix_sid_flags, align 4
   %1029 = load i32, ptr @ett_bgp_link_state, align 4
@@ -12854,16 +12854,16 @@ define internal fastcc i32 @decode_evpn_nlri(ptr noundef %0, ptr noundef %1, i32
   %21 = load i32, ptr @hf_bgp_evpn_nlri_len, align 4
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %21, ptr noundef %1, i32 noundef %8, i32 noundef 1, i32 noundef 0)
   %23 = zext i8 %7 to i32
-  switch i8 %7, label %302 [
+  switch i8 %7, label %296 [
     i8 1, label %24
     i8 2, label %54
-    i8 3, label %127
-    i8 4, label %168
-    i8 5, label %207
-    i8 6, label %263
-    i8 7, label %263
-    i8 8, label %263
-    i8 10, label %263
+    i8 3, label %125
+    i8 4, label %164
+    i8 5, label %201
+    i8 6, label %257
+    i8 7, label %257
+    i8 8, label %257
+    i8 10, label %257
   ]
 
 24:                                               ; preds = %4
@@ -12872,7 +12872,7 @@ define internal fastcc i32 @decode_evpn_nlri(ptr noundef %0, ptr noundef %1, i32
 
 26:                                               ; preds = %24
   %27 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %15, ptr noundef nonnull @ei_bgp_evpn_nlri_rt_len_err, ptr noundef nonnull @.str.1889, i32 noundef %11)
-  br label %304
+  br label %298
 
 28:                                               ; preds = %24
   %29 = load i32, ptr @hf_bgp_evpn_nlri_rd, align 4
@@ -12909,12 +12909,12 @@ define internal fastcc i32 @decode_evpn_nlri(ptr noundef %0, ptr noundef %1, i32
 48:                                               ; preds = %45, %45
   %49 = load i32, ptr @hf_bgp_evpn_nlri_vni, align 4
   %50 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %49, ptr noundef %1, i32 noundef %38, i32 noundef 3, i32 noundef 0)
-  br label %304
+  br label %298
 
 51:                                               ; preds = %45, %42, %28
   %52 = load i32, ptr @hf_bgp_evpn_nlri_mpls_ls1, align 4
   %53 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %52, ptr noundef %1, i32 noundef %38, i32 noundef 3, i32 noundef 0)
-  br label %304
+  br label %298
 
 54:                                               ; preds = %4
   %55 = icmp ult i8 %9, 33
@@ -12922,7 +12922,7 @@ define internal fastcc i32 @decode_evpn_nlri(ptr noundef %0, ptr noundef %1, i32
 
 56:                                               ; preds = %54
   %57 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %15, ptr noundef nonnull @ei_bgp_evpn_nlri_rt_len_err, ptr noundef nonnull @.str.1890, i32 noundef %11)
-  br label %304
+  br label %298
 
 58:                                               ; preds = %54
   %59 = load i32, ptr @hf_bgp_evpn_nlri_rd, align 4
@@ -12948,9 +12948,10 @@ define internal fastcc i32 @decode_evpn_nlri(ptr noundef %0, ptr noundef %1, i32
   %77 = load i32, ptr @hf_bgp_evpn_nlri_iplen, align 4
   %78 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %77, ptr noundef %1, i32 noundef %74, i32 noundef 1, i32 noundef 0)
   %79 = add i32 %2, 32
-  switch i8 %76, label %96 [
+  switch i8 %76, label %298 [
     i8 4, label %80
     i8 16, label %88
+    i8 0, label %96
   ]
 
 80:                                               ; preds = %58
@@ -12959,13 +12960,13 @@ define internal fastcc i32 @decode_evpn_nlri(ptr noundef %0, ptr noundef %1, i32
 
 82:                                               ; preds = %80
   %83 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %15, ptr noundef nonnull @ei_bgp_evpn_nlri_rt_len_err, ptr noundef nonnull @.str.1890, i32 noundef %11)
-  br label %304
+  br label %298
 
 84:                                               ; preds = %80
   %85 = load i32, ptr @hf_bgp_evpn_nlri_ip_addr, align 4
   %86 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %85, ptr noundef %1, i32 noundef %79, i32 noundef 4, i32 noundef 0)
   %87 = add i32 %2, 36
-  br label %100
+  br label %98
 
 88:                                               ; preds = %58
   %89 = icmp ult i8 %9, 49
@@ -12973,390 +12974,380 @@ define internal fastcc i32 @decode_evpn_nlri(ptr noundef %0, ptr noundef %1, i32
 
 90:                                               ; preds = %88
   %91 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %15, ptr noundef nonnull @ei_bgp_evpn_nlri_rt_len_err, ptr noundef nonnull @.str.1890, i32 noundef %11)
-  br label %304
+  br label %298
 
 92:                                               ; preds = %88
   %93 = load i32, ptr @hf_bgp_evpn_nlri_ipv6_addr, align 4
   %94 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %93, ptr noundef %1, i32 noundef %79, i32 noundef 16, i32 noundef 0)
   %95 = add i32 %2, 48
-  br label %100
+  br label %98
 
 96:                                               ; preds = %58
-  %97 = icmp ult i8 %75, 8
-  br i1 %97, label %98, label %304
+  %97 = tail call ptr @proto_tree_add_expert(ptr noundef %15, ptr noundef %3, ptr noundef nonnull @ei_bgp_evpn_nlri_rt4_no_ip, ptr noundef %1, i32 noundef %74, i32 noundef 1)
+  br label %98
 
-98:                                               ; preds = %96
-  %99 = tail call ptr @proto_tree_add_expert(ptr noundef %15, ptr noundef %3, ptr noundef nonnull @ei_bgp_evpn_nlri_rt4_no_ip, ptr noundef %1, i32 noundef %74, i32 noundef 1)
-  br label %100
+98:                                               ; preds = %92, %96, %84
+  %.1 = phi i32 [ %87, %84 ], [ %95, %92 ], [ %79, %96 ]
+  %99 = tail call ptr @wmem_file_scope()
+  %100 = load i32, ptr @proto_bgp, align 4
+  %101 = tail call ptr @p_get_proto_data(ptr noundef %99, ptr noundef %3, i32 noundef %100, i32 noundef 1)
+  %.not384 = icmp eq ptr %101, null
+  br i1 %.not384, label %114, label %102
 
-100:                                              ; preds = %92, %98, %84
-  %.1 = phi i32 [ %87, %84 ], [ %95, %92 ], [ %79, %98 ]
-  %101 = tail call ptr @wmem_file_scope()
-  %102 = load i32, ptr @proto_bgp, align 4
-  %103 = tail call ptr @p_get_proto_data(ptr noundef %101, ptr noundef %3, i32 noundef %102, i32 noundef 1)
-  %.not384 = icmp eq ptr %103, null
-  br i1 %.not384, label %116, label %104
+102:                                              ; preds = %98
+  %103 = load i8, ptr %101, align 2, !range !30, !noundef !31
+  %104 = trunc nuw i8 %103 to i1
+  br i1 %104, label %105, label %114
 
-104:                                              ; preds = %100
-  %105 = load i8, ptr %103, align 2, !range !30, !noundef !31
-  %106 = trunc nuw i8 %105 to i1
-  br i1 %106, label %107, label %116
-
-107:                                              ; preds = %104
-  %108 = getelementptr inbounds nuw i8, ptr %103, i64 2
-  %109 = load i16, ptr %108, align 2
-  switch i16 %109, label %116 [
-    i16 8, label %110
-    i16 12, label %110
+105:                                              ; preds = %102
+  %106 = getelementptr inbounds nuw i8, ptr %101, i64 2
+  %107 = load i16, ptr %106, align 2
+  switch i16 %107, label %114 [
+    i16 8, label %108
+    i16 12, label %108
   ]
 
-110:                                              ; preds = %107, %107
-  %111 = load i32, ptr @hf_bgp_evpn_nlri_vni, align 4
-  %112 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %111, ptr noundef %1, i32 noundef %.1, i32 noundef 3, i32 noundef 0)
-  %113 = add i32 %.1, 3
-  %114 = sub i32 %113, %6
-  %115 = icmp slt i32 %114, %11
-  br i1 %115, label %.sink.split, label %125
+108:                                              ; preds = %105, %105
+  %109 = load i32, ptr @hf_bgp_evpn_nlri_vni, align 4
+  %110 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %109, ptr noundef %1, i32 noundef %.1, i32 noundef 3, i32 noundef 0)
+  %111 = add i32 %.1, 3
+  %112 = sub i32 %111, %6
+  %113 = icmp slt i32 %112, %11
+  br i1 %113, label %.sink.split, label %123
 
-116:                                              ; preds = %107, %104, %100
-  %117 = load i32, ptr @hf_bgp_evpn_nlri_mpls_ls1, align 4
-  %118 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %117, ptr noundef %1, i32 noundef %.1, i32 noundef 3, i32 noundef 0)
-  %119 = add i32 %.1, 3
-  %120 = sub i32 %119, %6
-  %121 = icmp slt i32 %120, %11
-  br i1 %121, label %.sink.split, label %125
+114:                                              ; preds = %105, %102, %98
+  %115 = load i32, ptr @hf_bgp_evpn_nlri_mpls_ls1, align 4
+  %116 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %115, ptr noundef %1, i32 noundef %.1, i32 noundef 3, i32 noundef 0)
+  %117 = add i32 %.1, 3
+  %118 = sub i32 %117, %6
+  %119 = icmp slt i32 %118, %11
+  br i1 %119, label %.sink.split, label %123
 
-.sink.split:                                      ; preds = %116, %110
-  %hf_bgp_evpn_nlri_mpls_ls2.sink = phi ptr [ @hf_bgp_evpn_nlri_vni, %110 ], [ @hf_bgp_evpn_nlri_mpls_ls2, %116 ]
-  %.sink395 = phi i32 [ %113, %110 ], [ %119, %116 ]
-  %122 = load i32, ptr %hf_bgp_evpn_nlri_mpls_ls2.sink, align 4
-  %123 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %122, ptr noundef %1, i32 noundef %.sink395, i32 noundef 3, i32 noundef 0)
-  %124 = add i32 %.1, 6
-  br label %125
+.sink.split:                                      ; preds = %114, %108
+  %hf_bgp_evpn_nlri_mpls_ls2.sink = phi ptr [ @hf_bgp_evpn_nlri_vni, %108 ], [ @hf_bgp_evpn_nlri_mpls_ls2, %114 ]
+  %.sink395 = phi i32 [ %111, %108 ], [ %117, %114 ]
+  %120 = load i32, ptr %hf_bgp_evpn_nlri_mpls_ls2.sink, align 4
+  %121 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %120, ptr noundef %1, i32 noundef %.sink395, i32 noundef 3, i32 noundef 0)
+  %122 = add i32 %.1, 6
+  br label %123
 
-125:                                              ; preds = %.sink.split, %116, %110
-  %.2 = phi i32 [ %113, %110 ], [ %119, %116 ], [ %124, %.sink.split ]
-  %126 = sub i32 %.2, %2
-  br label %304
+123:                                              ; preds = %.sink.split, %114, %108
+  %.2 = phi i32 [ %111, %108 ], [ %117, %114 ], [ %122, %.sink.split ]
+  %124 = sub i32 %.2, %2
+  br label %298
 
-127:                                              ; preds = %4
-  %128 = icmp ult i8 %9, 13
-  br i1 %128, label %129, label %131
+125:                                              ; preds = %4
+  %126 = icmp ult i8 %9, 13
+  br i1 %126, label %127, label %129
 
-129:                                              ; preds = %127
-  %130 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %15, ptr noundef nonnull @ei_bgp_evpn_nlri_rt_len_err, ptr noundef nonnull @.str.1891, i32 noundef %11)
-  br label %304
+127:                                              ; preds = %125
+  %128 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %15, ptr noundef nonnull @ei_bgp_evpn_nlri_rt_len_err, ptr noundef nonnull @.str.1891, i32 noundef %11)
+  br label %298
 
-131:                                              ; preds = %127
-  %132 = load i32, ptr @hf_bgp_evpn_nlri_rd, align 4
-  %133 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %132, ptr noundef %1, i32 noundef %6, i32 noundef 8, i32 noundef 0)
-  %134 = getelementptr inbounds nuw i8, ptr %3, i64 408
-  %135 = load ptr, ptr %134, align 8
-  %136 = tail call ptr @decode_bgp_rd(ptr noundef %135, ptr noundef %1, i32 noundef %6)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %133, ptr noundef nonnull @.str.75, ptr noundef %136)
-  %137 = add i32 %2, 10
-  %138 = load i32, ptr @hf_bgp_evpn_nlri_etag, align 4
-  %139 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %138, ptr noundef %1, i32 noundef %137, i32 noundef 4, i32 noundef 0)
-  %140 = add i32 %2, 14
-  %141 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %140)
-  %142 = lshr i8 %141, 3
-  %143 = load i32, ptr @hf_bgp_evpn_nlri_iplen, align 4
-  %144 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %143, ptr noundef %1, i32 noundef %140, i32 noundef 1, i32 noundef 0)
-  %145 = add i32 %2, 15
-  switch i8 %142, label %162 [
-    i8 4, label %146
-    i8 16, label %154
+129:                                              ; preds = %125
+  %130 = load i32, ptr @hf_bgp_evpn_nlri_rd, align 4
+  %131 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %130, ptr noundef %1, i32 noundef %6, i32 noundef 8, i32 noundef 0)
+  %132 = getelementptr inbounds nuw i8, ptr %3, i64 408
+  %133 = load ptr, ptr %132, align 8
+  %134 = tail call ptr @decode_bgp_rd(ptr noundef %133, ptr noundef %1, i32 noundef %6)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %131, ptr noundef nonnull @.str.75, ptr noundef %134)
+  %135 = add i32 %2, 10
+  %136 = load i32, ptr @hf_bgp_evpn_nlri_etag, align 4
+  %137 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %136, ptr noundef %1, i32 noundef %135, i32 noundef 4, i32 noundef 0)
+  %138 = add i32 %2, 14
+  %139 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %138)
+  %140 = lshr i8 %139, 3
+  %141 = load i32, ptr @hf_bgp_evpn_nlri_iplen, align 4
+  %142 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %141, ptr noundef %1, i32 noundef %138, i32 noundef 1, i32 noundef 0)
+  %143 = add i32 %2, 15
+  switch i8 %140, label %298 [
+    i8 4, label %144
+    i8 16, label %152
+    i8 0, label %160
   ]
 
-146:                                              ; preds = %131
-  %147 = icmp ult i8 %9, 17
-  br i1 %147, label %148, label %150
+144:                                              ; preds = %129
+  %145 = icmp ult i8 %9, 17
+  br i1 %145, label %146, label %148
 
-148:                                              ; preds = %146
-  %149 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %15, ptr noundef nonnull @ei_bgp_evpn_nlri_rt_len_err, ptr noundef nonnull @.str.1891, i32 noundef %11)
-  br label %304
+146:                                              ; preds = %144
+  %147 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %15, ptr noundef nonnull @ei_bgp_evpn_nlri_rt_len_err, ptr noundef nonnull @.str.1891, i32 noundef %11)
+  br label %298
 
-150:                                              ; preds = %146
-  %151 = load i32, ptr @hf_bgp_evpn_nlri_ip_addr, align 4
-  %152 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %151, ptr noundef %1, i32 noundef %145, i32 noundef 4, i32 noundef 0)
-  %153 = add i32 %2, 19
-  br label %166
+148:                                              ; preds = %144
+  %149 = load i32, ptr @hf_bgp_evpn_nlri_ip_addr, align 4
+  %150 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %149, ptr noundef %1, i32 noundef %143, i32 noundef 4, i32 noundef 0)
+  %151 = add i32 %2, 19
+  br label %162
 
-154:                                              ; preds = %131
-  %155 = icmp ult i8 %9, 29
-  br i1 %155, label %156, label %158
+152:                                              ; preds = %129
+  %153 = icmp ult i8 %9, 29
+  br i1 %153, label %154, label %156
 
-156:                                              ; preds = %154
-  %157 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %15, ptr noundef nonnull @ei_bgp_evpn_nlri_rt_len_err, ptr noundef nonnull @.str.1891, i32 noundef %11)
-  br label %304
+154:                                              ; preds = %152
+  %155 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %15, ptr noundef nonnull @ei_bgp_evpn_nlri_rt_len_err, ptr noundef nonnull @.str.1891, i32 noundef %11)
+  br label %298
 
-158:                                              ; preds = %154
-  %159 = load i32, ptr @hf_bgp_evpn_nlri_ipv6_addr, align 4
-  %160 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %159, ptr noundef %1, i32 noundef %145, i32 noundef 16, i32 noundef 0)
-  %161 = add i32 %2, 31
-  br label %166
+156:                                              ; preds = %152
+  %157 = load i32, ptr @hf_bgp_evpn_nlri_ipv6_addr, align 4
+  %158 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %157, ptr noundef %1, i32 noundef %143, i32 noundef 16, i32 noundef 0)
+  %159 = add i32 %2, 31
+  br label %162
 
-162:                                              ; preds = %131
-  %163 = icmp ult i8 %141, 8
-  br i1 %163, label %164, label %304
+160:                                              ; preds = %129
+  %161 = tail call ptr @proto_tree_add_expert(ptr noundef %15, ptr noundef %3, ptr noundef nonnull @ei_bgp_evpn_nlri_rt4_no_ip, ptr noundef %1, i32 noundef %143, i32 noundef 1)
+  br label %162
 
-164:                                              ; preds = %162
-  %165 = tail call ptr @proto_tree_add_expert(ptr noundef %15, ptr noundef %3, ptr noundef nonnull @ei_bgp_evpn_nlri_rt4_no_ip, ptr noundef %1, i32 noundef %145, i32 noundef 1)
-  br label %166
+162:                                              ; preds = %156, %160, %148
+  %.3 = phi i32 [ %151, %148 ], [ %159, %156 ], [ %143, %160 ]
+  %163 = sub i32 %.3, %2
+  br label %298
 
-166:                                              ; preds = %158, %164, %150
-  %.3 = phi i32 [ %153, %150 ], [ %161, %158 ], [ %145, %164 ]
-  %167 = sub i32 %.3, %2
-  br label %304
+164:                                              ; preds = %4
+  %165 = icmp ult i8 %9, 19
+  br i1 %165, label %166, label %168
 
-168:                                              ; preds = %4
-  %169 = icmp ult i8 %9, 19
-  br i1 %169, label %170, label %172
+166:                                              ; preds = %164
+  %167 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %15, ptr noundef nonnull @ei_bgp_evpn_nlri_rt_len_err, ptr noundef nonnull @.str.1892, i32 noundef %11)
+  br label %298
 
-170:                                              ; preds = %168
-  %171 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %15, ptr noundef nonnull @ei_bgp_evpn_nlri_rt_len_err, ptr noundef nonnull @.str.1892, i32 noundef %11)
-  br label %304
-
-172:                                              ; preds = %168
-  %173 = load i32, ptr @hf_bgp_evpn_nlri_rd, align 4
-  %174 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %173, ptr noundef %1, i32 noundef %6, i32 noundef 8, i32 noundef 0)
-  %175 = getelementptr inbounds nuw i8, ptr %3, i64 408
-  %176 = load ptr, ptr %175, align 8
-  %177 = tail call ptr @decode_bgp_rd(ptr noundef %176, ptr noundef %1, i32 noundef %6)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %174, ptr noundef nonnull @.str.75, ptr noundef %177)
-  %178 = add i32 %2, 10
-  tail call fastcc void @decode_evpn_nlri_esi(ptr noundef %15, ptr noundef %1, i32 noundef %178, ptr noundef %3)
-  %179 = add i32 %2, 20
-  %180 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %179)
-  %181 = lshr i8 %180, 3
-  %182 = load i32, ptr @hf_bgp_evpn_nlri_iplen, align 4
-  %183 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %182, ptr noundef %1, i32 noundef %179, i32 noundef 1, i32 noundef 0)
-  %184 = add i32 %2, 21
-  switch i8 %181, label %201 [
-    i8 4, label %185
-    i8 16, label %193
+168:                                              ; preds = %164
+  %169 = load i32, ptr @hf_bgp_evpn_nlri_rd, align 4
+  %170 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %169, ptr noundef %1, i32 noundef %6, i32 noundef 8, i32 noundef 0)
+  %171 = getelementptr inbounds nuw i8, ptr %3, i64 408
+  %172 = load ptr, ptr %171, align 8
+  %173 = tail call ptr @decode_bgp_rd(ptr noundef %172, ptr noundef %1, i32 noundef %6)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %170, ptr noundef nonnull @.str.75, ptr noundef %173)
+  %174 = add i32 %2, 10
+  tail call fastcc void @decode_evpn_nlri_esi(ptr noundef %15, ptr noundef %1, i32 noundef %174, ptr noundef %3)
+  %175 = add i32 %2, 20
+  %176 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %175)
+  %177 = lshr i8 %176, 3
+  %178 = load i32, ptr @hf_bgp_evpn_nlri_iplen, align 4
+  %179 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %178, ptr noundef %1, i32 noundef %175, i32 noundef 1, i32 noundef 0)
+  %180 = add i32 %2, 21
+  switch i8 %177, label %298 [
+    i8 4, label %181
+    i8 16, label %189
+    i8 0, label %197
   ]
 
-185:                                              ; preds = %172
-  %186 = icmp ult i8 %9, 23
-  br i1 %186, label %187, label %189
+181:                                              ; preds = %168
+  %182 = icmp ult i8 %9, 23
+  br i1 %182, label %183, label %185
 
-187:                                              ; preds = %185
-  %188 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %15, ptr noundef nonnull @ei_bgp_evpn_nlri_rt_len_err, ptr noundef nonnull @.str.1892, i32 noundef %11)
-  br label %304
+183:                                              ; preds = %181
+  %184 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %15, ptr noundef nonnull @ei_bgp_evpn_nlri_rt_len_err, ptr noundef nonnull @.str.1892, i32 noundef %11)
+  br label %298
 
-189:                                              ; preds = %185
-  %190 = load i32, ptr @hf_bgp_evpn_nlri_ip_addr, align 4
-  %191 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %190, ptr noundef %1, i32 noundef %184, i32 noundef 4, i32 noundef 0)
-  %192 = add i32 %2, 25
-  br label %205
+185:                                              ; preds = %181
+  %186 = load i32, ptr @hf_bgp_evpn_nlri_ip_addr, align 4
+  %187 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %186, ptr noundef %1, i32 noundef %180, i32 noundef 4, i32 noundef 0)
+  %188 = add i32 %2, 25
+  br label %199
 
-193:                                              ; preds = %172
-  %194 = icmp ult i8 %9, 35
-  br i1 %194, label %195, label %197
+189:                                              ; preds = %168
+  %190 = icmp ult i8 %9, 35
+  br i1 %190, label %191, label %193
 
-195:                                              ; preds = %193
-  %196 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %15, ptr noundef nonnull @ei_bgp_evpn_nlri_rt_len_err, ptr noundef nonnull @.str.1892, i32 noundef %11)
-  br label %304
+191:                                              ; preds = %189
+  %192 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %15, ptr noundef nonnull @ei_bgp_evpn_nlri_rt_len_err, ptr noundef nonnull @.str.1892, i32 noundef %11)
+  br label %298
 
-197:                                              ; preds = %193
-  %198 = load i32, ptr @hf_bgp_evpn_nlri_ipv6_addr, align 4
-  %199 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %198, ptr noundef %1, i32 noundef %184, i32 noundef 16, i32 noundef 0)
-  %200 = add i32 %2, 37
-  br label %205
+193:                                              ; preds = %189
+  %194 = load i32, ptr @hf_bgp_evpn_nlri_ipv6_addr, align 4
+  %195 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %194, ptr noundef %1, i32 noundef %180, i32 noundef 16, i32 noundef 0)
+  %196 = add i32 %2, 37
+  br label %199
 
-201:                                              ; preds = %172
-  %202 = icmp ult i8 %180, 8
-  br i1 %202, label %203, label %304
+197:                                              ; preds = %168
+  %198 = tail call ptr @proto_tree_add_expert(ptr noundef %15, ptr noundef %3, ptr noundef nonnull @ei_bgp_evpn_nlri_rt4_no_ip, ptr noundef %1, i32 noundef %180, i32 noundef 1)
+  br label %199
+
+199:                                              ; preds = %193, %197, %185
+  %.4 = phi i32 [ %188, %185 ], [ %196, %193 ], [ %180, %197 ]
+  %200 = sub i32 %.4, %2
+  br label %298
+
+201:                                              ; preds = %4
+  %202 = icmp ult i8 %9, 26
+  br i1 %202, label %203, label %205
 
 203:                                              ; preds = %201
-  %204 = tail call ptr @proto_tree_add_expert(ptr noundef %15, ptr noundef %3, ptr noundef nonnull @ei_bgp_evpn_nlri_rt4_no_ip, ptr noundef %1, i32 noundef %184, i32 noundef 1)
-  br label %205
+  %204 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %15, ptr noundef nonnull @ei_bgp_evpn_nlri_rt_len_err, ptr noundef nonnull @.str.1892, i32 noundef %11)
+  br label %298
 
-205:                                              ; preds = %197, %203, %189
-  %.4 = phi i32 [ %192, %189 ], [ %200, %197 ], [ %184, %203 ]
-  %206 = sub i32 %.4, %2
-  br label %304
-
-207:                                              ; preds = %4
-  %208 = icmp ult i8 %9, 26
-  br i1 %208, label %209, label %211
-
-209:                                              ; preds = %207
-  %210 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %15, ptr noundef nonnull @ei_bgp_evpn_nlri_rt_len_err, ptr noundef nonnull @.str.1892, i32 noundef %11)
-  br label %304
-
-211:                                              ; preds = %207
-  %212 = load i32, ptr @hf_bgp_evpn_nlri_rd, align 4
-  %213 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %212, ptr noundef %1, i32 noundef %6, i32 noundef 8, i32 noundef 0)
-  %214 = getelementptr inbounds nuw i8, ptr %3, i64 408
-  %215 = load ptr, ptr %214, align 8
-  %216 = tail call ptr @decode_bgp_rd(ptr noundef %215, ptr noundef %1, i32 noundef %6)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %213, ptr noundef nonnull @.str.75, ptr noundef %216)
-  %217 = add i32 %2, 10
-  tail call fastcc void @decode_evpn_nlri_esi(ptr noundef %15, ptr noundef %1, i32 noundef %217, ptr noundef %3)
-  %218 = add i32 %2, 20
-  %219 = load i32, ptr @hf_bgp_evpn_nlri_etag, align 4
-  %220 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %219, ptr noundef %1, i32 noundef %218, i32 noundef 4, i32 noundef 0)
-  %221 = add i32 %2, 24
-  %222 = load i32, ptr @hf_bgp_evpn_nlri_prefix_len, align 4
-  %223 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %222, ptr noundef %1, i32 noundef %221, i32 noundef 1, i32 noundef 0)
-  %224 = add i32 %2, 25
-  switch i8 %9, label %261 [
-    i8 34, label %225
-    i8 58, label %243
+205:                                              ; preds = %201
+  %206 = load i32, ptr @hf_bgp_evpn_nlri_rd, align 4
+  %207 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %206, ptr noundef %1, i32 noundef %6, i32 noundef 8, i32 noundef 0)
+  %208 = getelementptr inbounds nuw i8, ptr %3, i64 408
+  %209 = load ptr, ptr %208, align 8
+  %210 = tail call ptr @decode_bgp_rd(ptr noundef %209, ptr noundef %1, i32 noundef %6)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %207, ptr noundef nonnull @.str.75, ptr noundef %210)
+  %211 = add i32 %2, 10
+  tail call fastcc void @decode_evpn_nlri_esi(ptr noundef %15, ptr noundef %1, i32 noundef %211, ptr noundef %3)
+  %212 = add i32 %2, 20
+  %213 = load i32, ptr @hf_bgp_evpn_nlri_etag, align 4
+  %214 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %213, ptr noundef %1, i32 noundef %212, i32 noundef 4, i32 noundef 0)
+  %215 = add i32 %2, 24
+  %216 = load i32, ptr @hf_bgp_evpn_nlri_prefix_len, align 4
+  %217 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %216, ptr noundef %1, i32 noundef %215, i32 noundef 1, i32 noundef 0)
+  %218 = add i32 %2, 25
+  switch i8 %9, label %255 [
+    i8 34, label %219
+    i8 58, label %237
   ]
 
-225:                                              ; preds = %211
-  %226 = load i32, ptr @hf_bgp_evpn_nlri_ip_addr, align 4
-  %227 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %226, ptr noundef %1, i32 noundef %224, i32 noundef 4, i32 noundef 0)
-  %228 = add i32 %2, 29
-  %229 = load i32, ptr @hf_bgp_evpn_nlri_ipv4_gtw, align 4
-  %230 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %229, ptr noundef %1, i32 noundef %228, i32 noundef 4, i32 noundef 0)
-  %231 = add i32 %2, 33
-  %232 = tail call fastcc ptr @load_path_attr_data(ptr noundef %3)
-  %.not383 = icmp eq ptr %232, null
-  br i1 %.not383, label %242, label %233
+219:                                              ; preds = %205
+  %220 = load i32, ptr @hf_bgp_evpn_nlri_ip_addr, align 4
+  %221 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %220, ptr noundef %1, i32 noundef %218, i32 noundef 4, i32 noundef 0)
+  %222 = add i32 %2, 29
+  %223 = load i32, ptr @hf_bgp_evpn_nlri_ipv4_gtw, align 4
+  %224 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %223, ptr noundef %1, i32 noundef %222, i32 noundef 4, i32 noundef 0)
+  %225 = add i32 %2, 33
+  %226 = tail call fastcc ptr @load_path_attr_data(ptr noundef %3)
+  %.not383 = icmp eq ptr %226, null
+  br i1 %.not383, label %236, label %227
 
-233:                                              ; preds = %225
-  %234 = load i8, ptr %232, align 2, !range !30, !noundef !31
-  %235 = trunc nuw i8 %234 to i1
-  br i1 %235, label %236, label %242
+227:                                              ; preds = %219
+  %228 = load i8, ptr %226, align 2, !range !30, !noundef !31
+  %229 = trunc nuw i8 %228 to i1
+  br i1 %229, label %230, label %236
 
-236:                                              ; preds = %233
-  %237 = getelementptr inbounds nuw i8, ptr %232, i64 2
-  %238 = load i16, ptr %237, align 2
-  switch i16 %238, label %242 [
-    i16 8, label %239
-    i16 12, label %239
+230:                                              ; preds = %227
+  %231 = getelementptr inbounds nuw i8, ptr %226, i64 2
+  %232 = load i16, ptr %231, align 2
+  switch i16 %232, label %236 [
+    i16 8, label %233
+    i16 12, label %233
   ]
 
-239:                                              ; preds = %236, %236
-  %240 = load i32, ptr @hf_bgp_evpn_nlri_vni, align 4
-  %241 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %240, ptr noundef %1, i32 noundef %231, i32 noundef 3, i32 noundef 0)
-  br label %304
+233:                                              ; preds = %230, %230
+  %234 = load i32, ptr @hf_bgp_evpn_nlri_vni, align 4
+  %235 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %234, ptr noundef %1, i32 noundef %225, i32 noundef 3, i32 noundef 0)
+  br label %298
 
-242:                                              ; preds = %236, %233, %225
-  tail call fastcc void @decode_MPLS_stack_tree(ptr noundef %1, i32 noundef %231, ptr noundef %15)
-  br label %304
+236:                                              ; preds = %230, %227, %219
+  tail call fastcc void @decode_MPLS_stack_tree(ptr noundef %1, i32 noundef %225, ptr noundef %15)
+  br label %298
 
-243:                                              ; preds = %211
-  %244 = load i32, ptr @hf_bgp_evpn_nlri_ipv6_addr, align 4
-  %245 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %244, ptr noundef %1, i32 noundef %224, i32 noundef 16, i32 noundef 0)
-  %246 = add i32 %2, 41
-  %247 = load i32, ptr @hf_bgp_evpn_nlri_ipv6_gtw, align 4
-  %248 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %247, ptr noundef %1, i32 noundef %246, i32 noundef 16, i32 noundef 0)
-  %249 = add i32 %2, 57
-  %250 = tail call fastcc ptr @load_path_attr_data(ptr noundef %3)
-  %.not = icmp eq ptr %250, null
-  br i1 %.not, label %260, label %251
+237:                                              ; preds = %205
+  %238 = load i32, ptr @hf_bgp_evpn_nlri_ipv6_addr, align 4
+  %239 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %238, ptr noundef %1, i32 noundef %218, i32 noundef 16, i32 noundef 0)
+  %240 = add i32 %2, 41
+  %241 = load i32, ptr @hf_bgp_evpn_nlri_ipv6_gtw, align 4
+  %242 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %241, ptr noundef %1, i32 noundef %240, i32 noundef 16, i32 noundef 0)
+  %243 = add i32 %2, 57
+  %244 = tail call fastcc ptr @load_path_attr_data(ptr noundef %3)
+  %.not = icmp eq ptr %244, null
+  br i1 %.not, label %254, label %245
 
-251:                                              ; preds = %243
-  %252 = load i8, ptr %250, align 2, !range !30, !noundef !31
-  %253 = trunc nuw i8 %252 to i1
-  br i1 %253, label %254, label %260
+245:                                              ; preds = %237
+  %246 = load i8, ptr %244, align 2, !range !30, !noundef !31
+  %247 = trunc nuw i8 %246 to i1
+  br i1 %247, label %248, label %254
 
-254:                                              ; preds = %251
-  %255 = getelementptr inbounds nuw i8, ptr %250, i64 2
-  %256 = load i16, ptr %255, align 2
-  switch i16 %256, label %260 [
-    i16 8, label %257
-    i16 12, label %257
+248:                                              ; preds = %245
+  %249 = getelementptr inbounds nuw i8, ptr %244, i64 2
+  %250 = load i16, ptr %249, align 2
+  switch i16 %250, label %254 [
+    i16 8, label %251
+    i16 12, label %251
   ]
 
-257:                                              ; preds = %254, %254
-  %258 = load i32, ptr @hf_bgp_evpn_nlri_vni, align 4
-  %259 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %258, ptr noundef %1, i32 noundef %249, i32 noundef 3, i32 noundef 0)
-  br label %304
+251:                                              ; preds = %248, %248
+  %252 = load i32, ptr @hf_bgp_evpn_nlri_vni, align 4
+  %253 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %252, ptr noundef %1, i32 noundef %243, i32 noundef 3, i32 noundef 0)
+  br label %298
 
-260:                                              ; preds = %254, %251, %243
-  tail call fastcc void @decode_MPLS_stack_tree(ptr noundef %1, i32 noundef %249, ptr noundef %15)
-  br label %304
+254:                                              ; preds = %248, %245, %237
+  tail call fastcc void @decode_MPLS_stack_tree(ptr noundef %1, i32 noundef %243, ptr noundef %15)
+  br label %298
 
-261:                                              ; preds = %211
-  %262 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %15, ptr noundef nonnull @ei_bgp_evpn_nlri_rt_len_err, ptr noundef nonnull @.str.1893, i32 noundef %11)
-  br label %304
+255:                                              ; preds = %205
+  %256 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %15, ptr noundef nonnull @ei_bgp_evpn_nlri_rt_len_err, ptr noundef nonnull @.str.1893, i32 noundef %11)
+  br label %298
 
-263:                                              ; preds = %4, %4, %4, %4
-  %264 = icmp ult i8 %9, 15
-  br i1 %264, label %265, label %267
+257:                                              ; preds = %4, %4, %4, %4
+  %258 = icmp ult i8 %9, 15
+  br i1 %258, label %259, label %261
 
-265:                                              ; preds = %263
-  %266 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %15, ptr noundef nonnull @ei_bgp_evpn_nlri_rt_len_err, ptr noundef nonnull @.str.1894, i32 noundef %11, i32 noundef %23)
-  br label %304
+259:                                              ; preds = %257
+  %260 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %15, ptr noundef nonnull @ei_bgp_evpn_nlri_rt_len_err, ptr noundef nonnull @.str.1894, i32 noundef %11, i32 noundef %23)
+  br label %298
 
-267:                                              ; preds = %263
-  %268 = load i32, ptr @hf_bgp_evpn_nlri_rd, align 4
-  %269 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %268, ptr noundef %1, i32 noundef %6, i32 noundef 8, i32 noundef 0)
-  %270 = getelementptr inbounds nuw i8, ptr %3, i64 408
-  %271 = load ptr, ptr %270, align 8
-  %272 = tail call ptr @decode_bgp_rd(ptr noundef %271, ptr noundef %1, i32 noundef %6)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %269, ptr noundef nonnull @.str.75, ptr noundef %272)
-  %273 = add i32 %2, 10
-  %274 = add nsw i8 %7, -7
-  %or.cond = icmp ult i8 %274, 2
-  br i1 %or.cond, label %275, label %277
+261:                                              ; preds = %257
+  %262 = load i32, ptr @hf_bgp_evpn_nlri_rd, align 4
+  %263 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %262, ptr noundef %1, i32 noundef %6, i32 noundef 8, i32 noundef 0)
+  %264 = getelementptr inbounds nuw i8, ptr %3, i64 408
+  %265 = load ptr, ptr %264, align 8
+  %266 = tail call ptr @decode_bgp_rd(ptr noundef %265, ptr noundef %1, i32 noundef %6)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %263, ptr noundef nonnull @.str.75, ptr noundef %266)
+  %267 = add i32 %2, 10
+  %268 = add nsw i8 %7, -7
+  %or.cond = icmp ult i8 %268, 2
+  br i1 %or.cond, label %269, label %271
 
-275:                                              ; preds = %267
-  tail call fastcc void @decode_evpn_nlri_esi(ptr noundef %15, ptr noundef %1, i32 noundef %273, ptr noundef %3)
-  %276 = add i32 %2, 20
-  br label %277
+269:                                              ; preds = %261
+  tail call fastcc void @decode_evpn_nlri_esi(ptr noundef %15, ptr noundef %1, i32 noundef %267, ptr noundef %3)
+  %270 = add i32 %2, 20
+  br label %271
 
-277:                                              ; preds = %267, %275
-  %.5 = phi i32 [ %276, %275 ], [ %273, %267 ]
-  %278 = load i32, ptr @hf_bgp_evpn_nlri_etag, align 4
-  %279 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %278, ptr noundef %1, i32 noundef %.5, i32 noundef 4, i32 noundef 0)
-  %280 = add i32 %.5, 4
-  %281 = tail call fastcc i32 @decode_mcast_vpn_nlri_addresses(ptr noundef %15, ptr noundef %1, i32 noundef %280)
-  %282 = icmp slt i32 %281, 0
-  br i1 %282, label %304, label %283
+271:                                              ; preds = %261, %269
+  %.5 = phi i32 [ %270, %269 ], [ %267, %261 ]
+  %272 = load i32, ptr @hf_bgp_evpn_nlri_etag, align 4
+  %273 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %272, ptr noundef %1, i32 noundef %.5, i32 noundef 4, i32 noundef 0)
+  %274 = add i32 %.5, 4
+  %275 = tail call fastcc i32 @decode_mcast_vpn_nlri_addresses(ptr noundef %15, ptr noundef %1, i32 noundef %274)
+  %276 = icmp slt i32 %275, 0
+  br i1 %276, label %298, label %277
 
-283:                                              ; preds = %277
-  %284 = load i32, ptr @hf_bgp_evpn_nlri_igmp_mc_or_length, align 4
-  %285 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %284, ptr noundef %1, i32 noundef %281, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5)
-  %286 = add nuw i32 %281, 1
-  %287 = load i32, ptr %5, align 4
-  switch i32 %287, label %292 [
+277:                                              ; preds = %271
+  %278 = load i32, ptr @hf_bgp_evpn_nlri_igmp_mc_or_length, align 4
+  %279 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %278, ptr noundef %1, i32 noundef %275, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5)
+  %280 = add nuw i32 %275, 1
+  %281 = load i32, ptr %5, align 4
+  switch i32 %281, label %286 [
     i32 32, label %.sink.split396
-    i32 128, label %288
+    i32 128, label %282
   ]
 
-288:                                              ; preds = %283
+282:                                              ; preds = %277
   br label %.sink.split396
 
-.sink.split396:                                   ; preds = %283, %288
-  %hf_bgp_evpn_nlri_igmp_mc_or_addr_ipv6.sink = phi ptr [ @hf_bgp_evpn_nlri_igmp_mc_or_addr_ipv6, %288 ], [ @hf_bgp_evpn_nlri_igmp_mc_or_addr_ipv4, %283 ]
-  %.sink398 = phi i32 [ 16, %288 ], [ 4, %283 ]
-  %.sink = phi i32 [ 17, %288 ], [ 5, %283 ]
-  %289 = load i32, ptr %hf_bgp_evpn_nlri_igmp_mc_or_addr_ipv6.sink, align 4
-  %290 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %289, ptr noundef %1, i32 noundef %286, i32 noundef %.sink398, i32 noundef 0)
-  %291 = add nuw i32 %281, %.sink
-  br label %292
+.sink.split396:                                   ; preds = %277, %282
+  %hf_bgp_evpn_nlri_igmp_mc_or_addr_ipv6.sink = phi ptr [ @hf_bgp_evpn_nlri_igmp_mc_or_addr_ipv6, %282 ], [ @hf_bgp_evpn_nlri_igmp_mc_or_addr_ipv4, %277 ]
+  %.sink398 = phi i32 [ 16, %282 ], [ 4, %277 ]
+  %.sink = phi i32 [ 17, %282 ], [ 5, %277 ]
+  %283 = load i32, ptr %hf_bgp_evpn_nlri_igmp_mc_or_addr_ipv6.sink, align 4
+  %284 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %283, ptr noundef %1, i32 noundef %280, i32 noundef %.sink398, i32 noundef 0)
+  %285 = add nuw i32 %275, %.sink
+  br label %286
 
-292:                                              ; preds = %.sink.split396, %283
-  %.6 = phi i32 [ %286, %283 ], [ %291, %.sink.split396 ]
-  %293 = sub i32 %.6, %6
-  %294 = icmp slt i32 %293, %11
-  br i1 %294, label %295, label %300
+286:                                              ; preds = %.sink.split396, %277
+  %.6 = phi i32 [ %280, %277 ], [ %285, %.sink.split396 ]
+  %287 = sub i32 %.6, %6
+  %288 = icmp slt i32 %287, %11
+  br i1 %288, label %289, label %294
 
-295:                                              ; preds = %292
-  %296 = load i32, ptr @hf_bgp_evpn_nlri_igmp_mc_flags, align 4
-  %297 = load i32, ptr @ett_bgp_evpn_nlri_mc, align 4
-  %298 = call ptr @proto_tree_add_bitmask(ptr noundef %15, ptr noundef %1, i32 noundef %.6, i32 noundef %296, i32 noundef %297, ptr noundef nonnull @evpn_nlri_igmp_mc_flags, i32 noundef 0)
-  %299 = add nuw i32 %.6, 1
-  br label %300
+289:                                              ; preds = %286
+  %290 = load i32, ptr @hf_bgp_evpn_nlri_igmp_mc_flags, align 4
+  %291 = load i32, ptr @ett_bgp_evpn_nlri_mc, align 4
+  %292 = call ptr @proto_tree_add_bitmask(ptr noundef %15, ptr noundef %1, i32 noundef %.6, i32 noundef %290, i32 noundef %291, ptr noundef nonnull @evpn_nlri_igmp_mc_flags, i32 noundef 0)
+  %293 = add nuw i32 %.6, 1
+  br label %294
 
-300:                                              ; preds = %295, %292
-  %.7 = phi i32 [ %299, %295 ], [ %.6, %292 ]
-  %301 = sub i32 %.7, %2
-  br label %304
+294:                                              ; preds = %289, %286
+  %.7 = phi i32 [ %293, %289 ], [ %.6, %286 ]
+  %295 = sub i32 %.7, %2
+  br label %298
 
-302:                                              ; preds = %4
-  %303 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %0, ptr noundef nonnull @ei_bgp_evpn_nlri_rt_type_err, ptr noundef nonnull @.str.1895, i32 noundef %23)
-  br label %304
+296:                                              ; preds = %4
+  %297 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %0, ptr noundef nonnull @ei_bgp_evpn_nlri_rt_type_err, ptr noundef nonnull @.str.1895, i32 noundef %23)
+  br label %298
 
-304:                                              ; preds = %125, %166, %205, %300, %51, %48, %242, %239, %260, %257, %277, %201, %162, %96, %302, %265, %261, %209, %195, %187, %170, %156, %148, %129, %90, %82, %56, %26
-  %.0 = phi i32 [ -1, %302 ], [ -1, %26 ], [ -1, %56 ], [ -1, %82 ], [ -1, %90 ], [ -1, %129 ], [ -1, %148 ], [ -1, %156 ], [ -1, %170 ], [ -1, %187 ], [ -1, %195 ], [ -1, %209 ], [ -1, %261 ], [ -1, %265 ], [ -1, %96 ], [ -1, %162 ], [ -1, %201 ], [ -1, %277 ], [ %126, %125 ], [ %167, %166 ], [ %206, %205 ], [ %301, %300 ], [ 27, %51 ], [ 27, %48 ], [ 36, %242 ], [ 36, %239 ], [ 60, %260 ], [ 60, %257 ]
+298:                                              ; preds = %123, %162, %199, %294, %51, %48, %236, %233, %254, %251, %271, %168, %129, %58, %296, %259, %255, %203, %191, %183, %166, %154, %146, %127, %90, %82, %56, %26
+  %.0 = phi i32 [ -1, %296 ], [ -1, %26 ], [ -1, %56 ], [ -1, %82 ], [ -1, %90 ], [ -1, %127 ], [ -1, %146 ], [ -1, %154 ], [ -1, %166 ], [ -1, %183 ], [ -1, %191 ], [ -1, %203 ], [ -1, %255 ], [ -1, %259 ], [ -1, %58 ], [ -1, %129 ], [ -1, %168 ], [ -1, %271 ], [ %124, %123 ], [ %163, %162 ], [ %200, %199 ], [ %295, %294 ], [ 27, %51 ], [ 27, %48 ], [ 36, %236 ], [ 36, %233 ], [ 60, %254 ], [ 60, %251 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -13661,16 +13652,16 @@ define internal fastcc range(i32 -1, 65536) i32 @decode_bgp_link_nlri_link_descr
   %119 = tail call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %118, ptr noundef %0, i32 noundef %19, i32 noundef 2, i32 noundef 0)
   %120 = add i32 %.0116183, 4
   %121 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %120)
-  %.not137 = icmp ult i16 %121, 4096
-  br i1 %.not137, label %126, label %122
+  %122 = lshr i16 %121, 12
+  %.not137 = icmp eq i16 %122, 0
+  br i1 %.not137, label %126, label %123
 
-122:                                              ; preds = %111
-  %123 = lshr i16 %121, 12
-  %124 = zext nneg i16 %123 to i32
+123:                                              ; preds = %111
+  %124 = zext nneg i16 %122 to i32
   %125 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %115, ptr noundef nonnull @ei_bgp_ls_error, ptr noundef nonnull @.str.1913, i32 noundef %124)
   br label %126
 
-126:                                              ; preds = %122, %111
+126:                                              ; preds = %123, %111
   %127 = load i32, ptr @hf_bgp_ls_nlri_multi_topology_id, align 4
   %128 = tail call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %127, ptr noundef %0, i32 noundef %120, i32 noundef 2, i32 noundef 0)
   br label %129
@@ -13752,16 +13743,16 @@ define internal fastcc range(i32 -1, 65536) i32 @decode_bgp_link_nlri_prefix_des
   %37 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %36, ptr noundef %0, i32 noundef %20, i32 noundef 2, i32 noundef 0)
   %38 = add i32 %.083117, 4
   %39 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %38)
-  %.not90 = icmp ult i16 %39, 4096
-  br i1 %.not90, label %44, label %40
+  %40 = lshr i16 %39, 12
+  %.not90 = icmp eq i16 %40, 0
+  br i1 %.not90, label %44, label %41
 
-40:                                               ; preds = %29
-  %41 = lshr i16 %39, 12
-  %42 = zext nneg i16 %41 to i32
+41:                                               ; preds = %29
+  %42 = zext nneg i16 %40 to i32
   %43 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %33, ptr noundef nonnull @ei_bgp_ls_error, ptr noundef nonnull @.str.1913, i32 noundef %42)
   br label %44
 
-44:                                               ; preds = %40, %29
+44:                                               ; preds = %41, %29
   %45 = load i32, ptr @hf_bgp_ls_nlri_multi_topology_id, align 4
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %45, ptr noundef %0, i32 noundef %38, i32 noundef 2, i32 noundef 0)
   br label %89
@@ -13912,16 +13903,16 @@ define internal fastcc range(i32 -1, 65536) i32 @decode_bgp_link_nlri_srv6_sid_d
   %40 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %39, ptr noundef %0, i32 noundef %19, i32 noundef 2, i32 noundef 0)
   %41 = add i32 %.06592, 4
   %42 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %41)
-  %.not74 = icmp ult i16 %42, 4096
-  br i1 %.not74, label %47, label %43
+  %43 = lshr i16 %42, 12
+  %.not74 = icmp eq i16 %43, 0
+  br i1 %.not74, label %47, label %44
 
-43:                                               ; preds = %32
-  %44 = lshr i16 %42, 12
-  %45 = zext nneg i16 %44 to i32
+44:                                               ; preds = %32
+  %45 = zext nneg i16 %43 to i32
   %46 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %36, ptr noundef nonnull @ei_bgp_ls_error, ptr noundef nonnull @.str.1913, i32 noundef %45)
   br label %47
 
-47:                                               ; preds = %43, %32
+47:                                               ; preds = %44, %32
   %48 = load i32, ptr @hf_bgp_ls_nlri_multi_topology_id, align 4
   %49 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %48, ptr noundef %0, i32 noundef %41, i32 noundef 2, i32 noundef 0)
   br label %62

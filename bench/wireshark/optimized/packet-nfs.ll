@@ -5894,16 +5894,19 @@ define internal i32 @dissect_fhandle_data_PRIMARY_DATA(ptr noundef %0, ptr readn
 5:                                                ; preds = %4
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 4)
   %7 = icmp ugt i32 %6, 805306367
-  br i1 %7, label %33, label %8
+  br i1 %7, label %31, label %8
 
 8:                                                ; preds = %5
-  %9 = load i32, ptr @hf_nfs4_fh_pd_share, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648)
-  %11 = load i32, ptr @hf_nfs4_fh_pd_flags, align 4
-  %12 = load i32, ptr @ett_nfs4_fh_pd_flags, align 4
-  %13 = tail call ptr @proto_tree_add_bitmask(ptr noundef nonnull %2, ptr noundef %0, i32 noundef 4, i32 noundef %11, i32 noundef %12, ptr noundef nonnull @dissect_fhandle_data_PRIMARY_DATA.fh_flags, i32 noundef -2147483648)
-  %14 = icmp samesign ult i32 %6, 268435456
-  br i1 %14, label %15, label %18
+  %9 = lshr i32 %6, 28
+  %10 = load i32, ptr @hf_nfs4_fh_pd_share, align 4
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648)
+  %12 = load i32, ptr @hf_nfs4_fh_pd_flags, align 4
+  %13 = load i32, ptr @ett_nfs4_fh_pd_flags, align 4
+  %14 = tail call ptr @proto_tree_add_bitmask(ptr noundef nonnull %2, ptr noundef %0, i32 noundef 4, i32 noundef %12, i32 noundef %13, ptr noundef nonnull @dissect_fhandle_data_PRIMARY_DATA.fh_flags, i32 noundef -2147483648)
+  switch i32 %9, label %23 [
+    i32 0, label %15
+    i32 1, label %18
+  ]
 
 15:                                               ; preds = %8
   %16 = load i32, ptr @hf_nfs4_fh_pd_inum, align 4
@@ -5911,32 +5914,27 @@ define internal i32 @dissect_fhandle_data_PRIMARY_DATA(ptr noundef %0, ptr readn
   br label %.sink.split
 
 18:                                               ; preds = %8
-  %.mask = and i32 %6, 805306368
-  %19 = icmp eq i32 %.mask, 268435456
-  br i1 %19, label %20, label %25
-
-20:                                               ; preds = %18
-  %21 = load i32, ptr @hf_nfs4_fh_pd_container, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %21, ptr noundef %0, i32 noundef 8, i32 noundef 8, i32 noundef -2147483648)
-  %23 = load i32, ptr @hf_nfs4_fh_pd_inum, align 4
-  %24 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %23, ptr noundef %0, i32 noundef 16, i32 noundef 8, i32 noundef -2147483648)
+  %19 = load i32, ptr @hf_nfs4_fh_pd_container, align 4
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %19, ptr noundef %0, i32 noundef 8, i32 noundef 8, i32 noundef -2147483648)
+  %21 = load i32, ptr @hf_nfs4_fh_pd_inum, align 4
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %21, ptr noundef %0, i32 noundef 16, i32 noundef 8, i32 noundef -2147483648)
   br label %.sink.split
 
-25:                                               ; preds = %18
-  %26 = load i32, ptr @hf_nfs4_fh_pd_spaces, align 4
-  %27 = load i32, ptr @ett_nfs4_fh_pd_spaces, align 4
-  %28 = tail call ptr @proto_tree_add_bitmask(ptr noundef nonnull %2, ptr noundef %0, i32 noundef 8, i32 noundef %26, i32 noundef %27, ptr noundef nonnull @dissect_fhandle_data_PRIMARY_DATA.fh_spaces, i32 noundef -2147483648)
-  %29 = load i32, ptr @hf_nfs4_fh_pd_sites, align 4
-  %30 = load i32, ptr @ett_nfs4_fh_pd_sites, align 4
-  %31 = tail call ptr @proto_tree_add_bitmask(ptr noundef nonnull %2, ptr noundef %0, i32 noundef 16, i32 noundef %29, i32 noundef %30, ptr noundef nonnull @dissect_fhandle_data_PRIMARY_DATA.fh_sites, i32 noundef -2147483648)
+23:                                               ; preds = %8
+  %24 = load i32, ptr @hf_nfs4_fh_pd_spaces, align 4
+  %25 = load i32, ptr @ett_nfs4_fh_pd_spaces, align 4
+  %26 = tail call ptr @proto_tree_add_bitmask(ptr noundef nonnull %2, ptr noundef %0, i32 noundef 8, i32 noundef %24, i32 noundef %25, ptr noundef nonnull @dissect_fhandle_data_PRIMARY_DATA.fh_spaces, i32 noundef -2147483648)
+  %27 = load i32, ptr @hf_nfs4_fh_pd_sites, align 4
+  %28 = load i32, ptr @ett_nfs4_fh_pd_sites, align 4
+  %29 = tail call ptr @proto_tree_add_bitmask(ptr noundef nonnull %2, ptr noundef %0, i32 noundef 16, i32 noundef %27, i32 noundef %28, ptr noundef nonnull @dissect_fhandle_data_PRIMARY_DATA.fh_sites, i32 noundef -2147483648)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %15, %25, %20, %4
-  %32 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  br label %33
+.sink.split:                                      ; preds = %15, %23, %18, %4
+  %30 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  br label %31
 
-33:                                               ; preds = %.sink.split, %5
-  %.0 = phi i32 [ 0, %5 ], [ %32, %.sink.split ]
+31:                                               ; preds = %.sink.split, %5
+  %.0 = phi i32 [ 0, %5 ], [ %30, %.sink.split ]
   ret i32 %.0
 }
 

@@ -501,11 +501,11 @@ veci_push.exit60:                                 ; preds = %veci_push.exit, %96
 clause_read.exit:                                 ; preds = %116, %117
   %128 = phi ptr [ %127, %117 ], [ null, %116 ]
   %129 = load i32, ptr %128, align 4
-  %.not17.i = icmp ult i32 %129, 2048
+  %130 = lshr i32 %129, 11
+  %.not17.i = icmp eq i32 %130, 0
   br i1 %.not17.i, label %sat_clause_compute_lbd.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %clause_read.exit
-  %130 = lshr i32 %129, 11
   %131 = getelementptr inbounds nuw i8, ptr %128, i64 4
   %132 = getelementptr i8, ptr %0, i64 200
   %.val.i = load ptr, ptr %132, align 8, !tbaa !47
@@ -1336,11 +1336,11 @@ veci_push.exit:                                   ; preds = %134, %171
   br i1 %.not113, label %202, label %184
 
 184:                                              ; preds = %._crit_edge172
-  %.not17.i = icmp ult i32 %182, 2048
+  %185 = lshr i32 %182, 11
+  %.not17.i = icmp eq i32 %185, 0
   br i1 %.not17.i, label %sat_clause_compute_lbd.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %184
-  %185 = lshr i32 %182, 11
   %.val.i = load ptr, ptr %12, align 8, !tbaa !47
   %wide.trip.count.i = zext nneg i32 %185 to i64
   br label %186

@@ -66,7 +66,7 @@ define dso_local void @_ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j(
   %18 = getelementptr inbounds nuw i32, ptr %6, i64 %17
   store i32 %.sink, ptr %18, align 4, !tbaa !4
   %19 = lshr i32 %.04754.us, 1
-  %.not50.us = icmp samesign ult i32 %.04754.us, 2
+  %.not50.us = icmp eq i32 %19, 0
   br i1 %.not50.us, label %.preheader.preheader, label %.split.us, !llvm.loop !8
 
 .split:                                           ; preds = %.lr.ph, %35
@@ -103,7 +103,7 @@ define dso_local void @_ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j(
 
 35:                                               ; preds = %28, %32, %21
   %36 = lshr i32 %.04754, 1
-  %.not50 = icmp samesign ult i32 %.04754, 2
+  %.not50 = icmp eq i32 %36, 0
   br i1 %.not50, label %.preheader.preheader, label %.split, !llvm.loop !8
 
 .preheader.preheader:                             ; preds = %.split.us, %35
@@ -165,7 +165,7 @@ define dso_local noundef range(i32 -2147483648, 257) i32 @_ZN4absl12crc_internal
   %8 = select i1 %.not17.i, i32 0, i32 %0
   %.1.i = xor i32 %8, %7
   %9 = lshr i32 %.020.i, 1
-  %.not.i = icmp ult i32 %.020.i, 2
+  %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit, label %3, !llvm.loop !13
 
 _ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit: ; preds = %3
@@ -212,7 +212,7 @@ _ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit: ; preds = %3
   %23 = select i1 %.not17.i21, i32 0, i32 %0
   %.1.i22 = xor i32 %23, %22
   %24 = lshr i32 %.020.i16, 1
-  %.not.i23 = icmp ult i32 %.020.i16, 2
+  %.not.i23 = icmp eq i32 %24, 0
   br i1 %.not.i23, label %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit24, label %18, !llvm.loop !13
 
 _ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit24: ; preds = %18
@@ -312,7 +312,7 @@ define dso_local void @_ZN4absl12crc_internal5CRC3210InitTablesEv(ptr noundef no
 
 18:                                               ; preds = %15, %11, %4
   %19 = lshr i32 %.04754.i, 1
-  %.not50.i = icmp samesign ult i32 %.04754.i, 2
+  %.not50.i = icmp eq i32 %19, 0
   br i1 %.not50.i, label %.preheader.i, label %.split.i, !llvm.loop !8
 
 .loopexit.i:                                      ; preds = %27
@@ -373,7 +373,7 @@ _ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j.exit.preheader: ; preds
   %46 = getelementptr inbounds nuw i32, ptr %34, i64 %45
   store i32 %.sink.i46, ptr %46, align 4, !tbaa !4
   %47 = lshr i32 %.04754.us.i42, 1
-  %.not50.us.i47 = icmp samesign ult i32 %.04754.us.i42, 2
+  %.not50.us.i47 = icmp eq i32 %47, 0
   br i1 %.not50.us.i47, label %.preheader.i48.preheader, label %.split.us.i41, !llvm.loop !8
 
 .split.i57:                                       ; preds = %.lr.ph.i39, %63
@@ -410,7 +410,7 @@ _ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j.exit.preheader: ; preds
 
 63:                                               ; preds = %60, %56, %49
   %64 = lshr i32 %.04754.i58, 1
-  %.not50.i61 = icmp samesign ult i32 %.04754.i58, 2
+  %.not50.i61 = icmp eq i32 %64, 0
   br i1 %.not50.i61, label %.preheader.i48.preheader, label %.split.i57, !llvm.loop !8
 
 .preheader.i48.preheader:                         ; preds = %.split.us.i41, %63
@@ -485,7 +485,7 @@ _ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j.exit62.preheader: ; pre
   %92 = select i1 %.not17.i.i, i32 0, i32 -2097792136
   %.1.i.i = xor i32 %92, %91
   %93 = lshr i32 %.020.i.i, 1
-  %.not.i.i = icmp ult i32 %.020.i.i, 2
+  %.not.i.i = icmp eq i32 %93, 0
   br i1 %.not.i.i, label %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit.i, label %87, !llvm.loop !13
 
 _ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit.i: ; preds = %87
@@ -532,7 +532,7 @@ _ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit.i: ; preds = %87
   %107 = select i1 %.not17.i21.i, i32 0, i32 -2097792136
   %.1.i22.i = xor i32 %107, %106
   %108 = lshr i32 %.020.i16.i, 1
-  %.not.i23.i = icmp ult i32 %.020.i16.i, 2
+  %.not.i23.i = icmp eq i32 %108, 0
   br i1 %.not.i23.i, label %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit24.i, label %102, !llvm.loop !13
 
 _ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit24.i: ; preds = %102
@@ -600,7 +600,7 @@ _ZN4absl12crc_internal7CRCImpl15FillZeroesTableEjPA256_j.exit: ; preds = %96
 
 134:                                              ; preds = %131, %127, %120
   %135 = lshr i32 %.04754.i86, 1
-  %.not50.i89 = icmp samesign ult i32 %.04754.i86, 2
+  %.not50.i89 = icmp eq i32 %135, 0
   br i1 %.not50.i89, label %.preheader.i76, label %.split.i85, !llvm.loop !8
 
 .loopexit.i81:                                    ; preds = %142
@@ -649,7 +649,7 @@ _ZN4absl12crc_internal7CRCImpl15FillZeroesTableEjPA256_j.exit: ; preds = %96
   %154 = select i1 %.not17.i.i99, i32 0, i32 -1888602208
   %.1.i.i100 = xor i32 %154, %153
   %155 = lshr i32 %.020.i.i94, 1
-  %.not.i.i101 = icmp ult i32 %.020.i.i94, 2
+  %.not.i.i101 = icmp eq i32 %155, 0
   br i1 %.not.i.i101, label %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit.i102, label %149, !llvm.loop !13
 
 _ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit.i102: ; preds = %149
@@ -700,7 +700,7 @@ _ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit.i102: ; preds = %14
   %170 = select i1 %.not17.i21.i117, i32 0, i32 -1888602208
   %.1.i22.i118 = xor i32 %170, %169
   %171 = lshr i32 %.020.i16.i112, 1
-  %.not.i23.i119 = icmp ult i32 %.020.i16.i112, 2
+  %.not.i23.i119 = icmp eq i32 %171, 0
   br i1 %.not.i23.i119, label %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit24.i120, label %165, !llvm.loop !13
 
 _ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit24.i120: ; preds = %165
@@ -1527,7 +1527,7 @@ define dso_local void @_ZN4absl12crc_internal5CRC3218ExtendByZeroesImplEPjmPKjS4
   %.1 = phi i32 [ %26, %25 ], [ %.03141, %12 ]
   %64 = add nuw nsw i32 %.03240, 15
   %65 = lshr i64 %.03042, 4
-  %.not35 = icmp ult i64 %.03042, 16
+  %.not35 = icmp eq i64 %65, 0
   br i1 %.not35, label %11, label %12, !llvm.loop !30
 
 66:                                               ; preds = %11, %4
@@ -1628,7 +1628,7 @@ define dso_local void @_ZNK4absl12crc_internal5CRC3214ExtendByZeroesEPjm(ptr nou
   %.1.i = phi i32 [ %26, %25 ], [ %.03141.i, %12 ]
   %64 = add nuw nsw i32 %.03240.i, 15
   %65 = lshr i64 %.03042.i, 4
-  %.not35.i = icmp ult i64 %.03042.i, 16
+  %.not35.i = icmp eq i64 %65, 0
   br i1 %.not35.i, label %11, label %12, !llvm.loop !30
 
 _ZN4absl12crc_internal5CRC3218ExtendByZeroesImplEPjmPKjS4_.exit: ; preds = %3, %11
@@ -1731,7 +1731,7 @@ define dso_local void @_ZNK4absl12crc_internal5CRC3216UnextendByZeroesEPjm(ptr n
   %.1.i = phi i32 [ %28, %27 ], [ %.03141.i, %14 ]
   %66 = add nuw nsw i32 %.03240.i, 15
   %67 = lshr i64 %.03042.i, 4
-  %.not35.i = icmp ult i64 %.03042.i, 16
+  %.not35.i = icmp eq i64 %67, 0
   br i1 %.not35.i, label %12, label %14, !llvm.loop !30
 
 _ZN4absl12crc_internal5CRC3218ExtendByZeroesImplEPjmPKjS4_.exit: ; preds = %3, %12

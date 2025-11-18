@@ -6776,7 +6776,7 @@ entry:
   %sizeAndChunkShiftAndPackedBegin_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8
   %shr.i.i.i = lshr i64 %0, 8
-  %cmp.not = icmp ult i64 %0, 256
+  %cmp.not = icmp eq i64 %shr.i.i.i, 0
   %.pre = load ptr, ptr %this, align 8
   br i1 %cmp.not, label %if.end7, label %if.then
 
@@ -8418,7 +8418,7 @@ while.body.i.i.i14:                               ; preds = %land.rhs.i.i.i
   store ptr %20, ptr %add.ptr.i8.i.i.i, align 8
   %second3.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i8.i.i.i, i64 8
   store double %call.val.i.i.i.i, ptr %second3.i.i.i.i, align 8
-  %cmp.i.i.not.i = icmp ult i64 %__parent.08.in.i.i.i, 2
+  %cmp.i.i.not.i = icmp eq i64 %__parent.08.i.i34.i, 0
   br i1 %cmp.i.i.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_SI_SI_RT0_.exit, label %land.rhs.i.i.i, !llvm.loop !60
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_SI_SI_RT0_.exit: ; preds = %land.rhs.i.i.i, %while.body.i.i.i14, %if.end35.i.i

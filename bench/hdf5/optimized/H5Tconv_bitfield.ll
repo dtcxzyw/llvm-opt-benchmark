@@ -223,7 +223,7 @@ define range(i32 -1, 1) i32 @H5T__conv_b_b(ptr noundef %0, ptr noundef readonly 
   %119 = getelementptr inbounds nuw i8, ptr %114, i64 16
   %120 = load i64, ptr %119, align 8, !tbaa !27
   %121 = lshr i64 %120, 1
-  %.not235 = icmp ult i64 %120, 2
+  %.not235 = icmp eq i64 %121, 0
   br i1 %.not235, label %.loopexit225, label %.lr.ph
 
 .lr.ph:                                           ; preds = %118, %.lr.ph
@@ -361,10 +361,10 @@ define range(i32 -1, 1) i32 @H5T__conv_b_b(ptr noundef %0, ptr noundef readonly 
   br label %.loopexit226
 
 192:                                              ; preds = %183, %187
-  %.sink256 = phi i1 [ true, %187 ], [ false, %183 ]
+  %.sink258 = phi i1 [ true, %187 ], [ false, %183 ]
   %193 = getelementptr inbounds nuw i8, ptr %184, i64 64
   %194 = load i64, ptr %193, align 8, !tbaa !25
-  call void @H5T__bit_set(ptr noundef %.0183, i64 noundef 0, i64 noundef %194, i1 noundef zeroext %.sink256) #8
+  call void @H5T__bit_set(ptr noundef %.0183, i64 noundef 0, i64 noundef %194, i1 noundef zeroext %.sink258) #8
   %195 = load ptr, ptr %65, align 8, !tbaa !16
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 64
   %197 = load i64, ptr %196, align 8, !tbaa !25
@@ -388,12 +388,12 @@ define range(i32 -1, 1) i32 @H5T__conv_b_b(ptr noundef %0, ptr noundef readonly 
   br label %.loopexit226
 
 208:                                              ; preds = %192, %203
-  %.sink259 = phi i1 [ true, %203 ], [ false, %192 ]
+  %.sink261 = phi i1 [ true, %203 ], [ false, %192 ]
   %209 = getelementptr inbounds nuw i8, ptr %195, i64 16
   %210 = load i64, ptr %209, align 8, !tbaa !27
   %211 = shl i64 %210, 3
   %212 = sub i64 %211, %200
-  call void @H5T__bit_set(ptr noundef %.0183, i64 noundef %200, i64 noundef %212, i1 noundef zeroext %.sink259) #8
+  call void @H5T__bit_set(ptr noundef %.0183, i64 noundef %200, i64 noundef %212, i1 noundef zeroext %.sink261) #8
   %213 = load ptr, ptr %65, align 8, !tbaa !16
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 48
   %215 = load i32, ptr %214, align 8, !tbaa !25
@@ -405,7 +405,7 @@ define range(i32 -1, 1) i32 @H5T__conv_b_b(ptr noundef %0, ptr noundef readonly 
   %218 = getelementptr inbounds nuw i8, ptr %213, i64 16
   %219 = load i64, ptr %218, align 8, !tbaa !27
   %220 = lshr i64 %219, 1
-  %.not236 = icmp ult i64 %219, 2
+  %.not236 = icmp eq i64 %220, 0
   br i1 %.not236, label %.loopexit, label %.lr.ph229
 
 .lr.ph229:                                        ; preds = %217, %.lr.ph229

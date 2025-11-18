@@ -1237,12 +1237,12 @@ define internal fastcc noundef i64 @_ZL25XXH3_hashLong_64b_defaultPKvmmPKhm(ptr 
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %3, ptr noundef nonnull align 64 dereferenceable(64) @__const._ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E.acc, i64 64, i1 false)
   %4 = add i64 %1, -1
+  %5 = lshr i64 %4, 10
   %.promoted3 = load <8 x i64>, ptr %3, align 64
-  %.not = icmp ult i64 %4, 1024
+  %.not = icmp eq i64 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %5 = lshr i64 %4, 10
   %6 = load <16 x i32>, ptr getelementptr inbounds nuw (i8, ptr @_ZL12XXH3_kSecret, i64 128), align 64, !tbaa !12
   br label %7
 
@@ -1762,7 +1762,7 @@ _ZL20XXH3_len_17to128_64bPKhmS0_mm.exit:          ; preds = %108, %135, %163, %1
   %272 = icmp samesign ule i64 %270, %271
   tail call void @llvm.assume(i1 %272)
   %273 = getelementptr inbounds nuw i8, ptr %0, i64 %269
-  %.not63 = icmp ult i64 %.recomposed, 64
+  %.not63 = icmp eq i64 %270, 0
   br i1 %.not63, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %._crit_edge, %.lr.ph
@@ -2144,12 +2144,12 @@ define internal fastcc noundef i64 @_ZL26XXH3_hashLong_64b_withSeedPKvmmPKhm(ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %4, ptr noundef nonnull align 64 dereferenceable(64) @__const._ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E.acc, i64 64, i1 false)
   %9 = add i64 %1, -1
+  %10 = lshr i64 %9, 10
   %.promoted17 = load <8 x i64>, ptr %4, align 64
-  %.not32 = icmp ult i64 %9, 1024
+  %.not32 = icmp eq i64 %10, 0
   br i1 %.not32, label %._crit_edge23, label %.lr.ph22
 
 .lr.ph22:                                         ; preds = %8
-  %10 = lshr i64 %9, 10
   %11 = load <16 x i32>, ptr getelementptr inbounds nuw (i8, ptr @_ZL12XXH3_kSecret, i64 128), align 64, !tbaa !12
   br label %12
 
@@ -2195,8 +2195,8 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit39.i.i:  ; preds = %15
   %41 = mul <8 x i64> %37, splat (i64 -7046029290881679360)
   %42 = add <8 x i64> %40, %41
   %43 = add nuw nsw i64 %.0.i12.i20, 1
-  %exitcond47.not = icmp eq i64 %43, %10
-  br i1 %exitcond47.not, label %._crit_edge23, label %12, !llvm.loop !30
+  %exitcond46.not = icmp eq i64 %43, %10
+  br i1 %exitcond46.not, label %._crit_edge23, label %12, !llvm.loop !30
 
 ._crit_edge23:                                    ; preds = %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit39.i.i, %8
   %.lcssa1518.lcssa = phi <8 x i64> [ %.promoted17, %8 ], [ %42, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit39.i.i ]
@@ -2228,8 +2228,8 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit39.i.i:  ; preds = %15
   %62 = add <8 x i64> %49, %61
   %63 = add <8 x i64> %62, %60
   %64 = add nuw nsw i64 %.0.i.i.i27, 1
-  %exitcond48.not = icmp eq i64 %64, %47
-  br i1 %exitcond48.not, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i, label %.lr.ph29, !llvm.loop !29
+  %exitcond47.not = icmp eq i64 %64, %47
+  br i1 %exitcond47.not, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i, label %.lr.ph29, !llvm.loop !29
 
 _ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i: ; preds = %.lr.ph29, %._crit_edge23
   %.lcssa26 = phi <8 x i64> [ %.lcssa1518.lcssa, %._crit_edge23 ], [ %63, %.lr.ph29 ]
@@ -2305,12 +2305,12 @@ _ZL28XXH3_initCustomSecret_avx512Pvm.exit.i:      ; preds = %104
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %5, ptr noundef nonnull align 64 dereferenceable(64) @__const._ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E.acc, i64 64, i1 false)
   %109 = add i64 %1, -1
+  %110 = lshr i64 %109, 10
   %.promoted5 = load <8 x i64>, ptr %5, align 64
-  %.not = icmp ult i64 %109, 1024
+  %.not = icmp eq i64 %110, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZL28XXH3_initCustomSecret_avx512Pvm.exit.i
-  %110 = lshr i64 %109, 10
   %111 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %112 = load <16 x i32>, ptr %111, align 64, !tbaa !12
   br label %113
@@ -2804,7 +2804,7 @@ _ZL20XXH3_len_17to128_64bPKhmS0_mm.exit:          ; preds = %104, %132, %160, %1
   %268 = icmp samesign ule i64 %266, %267
   tail call void @llvm.assume(i1 %268)
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 %265
-  %.not69 = icmp ult i64 %.recomposed, 64
+  %.not69 = icmp eq i64 %266, 0
   br i1 %.not69, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %._crit_edge, %.lr.ph
@@ -3804,16 +3804,12 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit40.i:    ; preds = %.preheader
   br i1 %exitcond35.not, label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %.lr.ph, !llvm.loop !29
 
 80:                                               ; preds = %16
-  %.not31 = icmp eq i32 %14, 64
-  br i1 %.not31, label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %.lr.ph28.preheader
+  %.not31 = icmp eq i32 %18, 0
+  br i1 %.not31, label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %.lr.ph28
 
-.lr.ph28.preheader:                               ; preds = %80
-  %umax36 = tail call i64 @llvm.umax.i64(i64 %19, i64 1)
-  br label %.lr.ph28
-
-.lr.ph28:                                         ; preds = %.lr.ph28.preheader, %.lr.ph28
-  %.0.i.i27 = phi i64 [ %96, %.lr.ph28 ], [ 0, %.lr.ph28.preheader ]
-  %81 = phi <8 x i64> [ %95, %.lr.ph28 ], [ %.promoted25, %.lr.ph28.preheader ]
+.lr.ph28:                                         ; preds = %80, %.lr.ph28
+  %.0.i.i27 = phi i64 [ %96, %.lr.ph28 ], [ 0, %80 ]
+  %81 = phi <8 x i64> [ %95, %.lr.ph28 ], [ %.promoted25, %80 ]
   %82 = shl i64 %.0.i.i27, 6
   %83 = getelementptr inbounds nuw i8, ptr %24, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 320
@@ -3830,8 +3826,8 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit40.i:    ; preds = %.preheader
   %94 = add <8 x i64> %81, %93
   %95 = add <8 x i64> %94, %92
   %96 = add nuw nsw i64 %.0.i.i27, 1
-  %exitcond37.not = icmp eq i64 %96, %umax36
-  br i1 %exitcond37.not, label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %.lr.ph28, !llvm.loop !29
+  %exitcond36.not = icmp eq i64 %96, %19
+  br i1 %exitcond36.not, label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %.lr.ph28, !llvm.loop !29
 
 _ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit: ; preds = %.lr.ph, %.lr.ph28, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit40.i, %80
   %storemerge = phi <8 x i64> [ %.promoted25, %80 ], [ %60, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit40.i ], [ %95, %.lr.ph28 ], [ %78, %.lr.ph ]
@@ -4288,12 +4284,12 @@ define internal fastcc { i64, i64 } @_ZL26XXH3_hashLong_128b_defaultPKvmmS0_m(pt
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %3, ptr noundef nonnull align 64 dereferenceable(64) @__const._ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E.acc, i64 64, i1 false)
   %4 = add i64 %1, -1
+  %5 = lshr i64 %4, 10
   %.promoted4 = load <8 x i64>, ptr %3, align 64
-  %.not = icmp ult i64 %4, 1024
+  %.not = icmp eq i64 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %5 = lshr i64 %4, 10
   %6 = load <16 x i32>, ptr getelementptr inbounds nuw (i8, ptr @_ZL12XXH3_kSecret, i64 128), align 64, !tbaa !12
   br label %7
 
@@ -4957,7 +4953,7 @@ _ZL21XXH3_len_17to128_128bPKhmS0_mm.exit:         ; preds = %163, %233
   %359 = icmp samesign ule i64 %357, %358
   tail call void @llvm.assume(i1 %359)
   %360 = getelementptr inbounds nuw i8, ptr %0, i64 %356
-  %.not110 = icmp ult i64 %.recomposed, 64
+  %.not110 = icmp eq i64 %357, 0
   br i1 %.not110, label %_ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %._crit_edge, %.lr.ph
@@ -5480,12 +5476,12 @@ define internal fastcc { i64, i64 } @_ZL27XXH3_hashLong_128b_withSeedPKvmmS0_m(p
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %4, ptr noundef nonnull align 64 dereferenceable(64) @__const._ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E.acc, i64 64, i1 false)
   %9 = add i64 %1, -1
+  %10 = lshr i64 %9, 10
   %.promoted21 = load <8 x i64>, ptr %4, align 64
-  %.not36 = icmp ult i64 %9, 1024
+  %.not36 = icmp eq i64 %10, 0
   br i1 %.not36, label %._crit_edge27, label %.lr.ph26
 
 .lr.ph26:                                         ; preds = %8
-  %10 = lshr i64 %9, 10
   %11 = load <16 x i32>, ptr getelementptr inbounds nuw (i8, ptr @_ZL12XXH3_kSecret, i64 128), align 64, !tbaa !12
   br label %12
 
@@ -5531,8 +5527,8 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit39.i.i16.i: ; preds = %15
   %41 = mul <8 x i64> %37, splat (i64 -7046029290881679360)
   %42 = add <8 x i64> %40, %41
   %43 = add nuw nsw i64 %.0.i.i11.i24, 1
-  %exitcond53.not = icmp eq i64 %43, %10
-  br i1 %exitcond53.not, label %._crit_edge27, label %12, !llvm.loop !30
+  %exitcond52.not = icmp eq i64 %43, %10
+  br i1 %exitcond52.not, label %._crit_edge27, label %12, !llvm.loop !30
 
 ._crit_edge27:                                    ; preds = %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit39.i.i16.i, %8
   %.lcssa1922.lcssa = phi <8 x i64> [ %.promoted21, %8 ], [ %42, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit39.i.i16.i ]
@@ -5564,8 +5560,8 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit39.i.i16.i: ; preds = %15
   %62 = add <8 x i64> %49, %61
   %63 = add <8 x i64> %62, %60
   %64 = add nuw nsw i64 %.0.i.i.i12.i31, 1
-  %exitcond54.not = icmp eq i64 %64, %47
-  br i1 %exitcond54.not, label %_ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E.exit17.i, label %.lr.ph33, !llvm.loop !29
+  %exitcond53.not = icmp eq i64 %64, %47
+  br i1 %exitcond53.not, label %_ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E.exit17.i, label %.lr.ph33, !llvm.loop !29
 
 _ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E.exit17.i: ; preds = %.lr.ph33, %._crit_edge27
   %.lcssa30 = phi <8 x i64> [ %.lcssa1922.lcssa, %._crit_edge27 ], [ %63, %.lr.ph33 ]
@@ -5676,12 +5672,12 @@ _ZL28XXH3_initCustomSecret_avx512Pvm.exit.i:      ; preds = %128
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %5, ptr noundef nonnull align 64 dereferenceable(64) @__const._ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E.acc, i64 64, i1 false)
   %133 = add i64 %1, -1
+  %134 = lshr i64 %133, 10
   %.promoted9 = load <8 x i64>, ptr %5, align 64
-  %.not = icmp ult i64 %133, 1024
+  %.not = icmp eq i64 %134, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZL28XXH3_initCustomSecret_avx512Pvm.exit.i
-  %134 = lshr i64 %133, 10
   %135 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %136 = load <16 x i32>, ptr %135, align 64, !tbaa !12
   br label %137
@@ -6317,7 +6313,7 @@ _ZL21XXH3_len_17to128_128bPKhmS0_mm.exit:         ; preds = %158, %228
   %355 = icmp samesign ule i64 %353, %354
   tail call void @llvm.assume(i1 %355)
   %356 = getelementptr inbounds nuw i8, ptr %0, i64 %352
-  %.not115 = icmp ult i64 %.recomposed, 64
+  %.not115 = icmp eq i64 %353, 0
   br i1 %.not115, label %_ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %._crit_edge, %.lr.ph
@@ -7310,16 +7306,12 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit40.i:    ; preds = %.preheader
   br i1 %exitcond48.not, label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %.lr.ph, !llvm.loop !29
 
 80:                                               ; preds = %16
-  %.not43 = icmp eq i32 %14, 64
-  br i1 %.not43, label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %.lr.ph40.preheader
+  %.not43 = icmp eq i32 %18, 0
+  br i1 %.not43, label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %.lr.ph40
 
-.lr.ph40.preheader:                               ; preds = %80
-  %umax49 = tail call i64 @llvm.umax.i64(i64 %19, i64 1)
-  br label %.lr.ph40
-
-.lr.ph40:                                         ; preds = %.lr.ph40.preheader, %.lr.ph40
-  %.0.i.i39 = phi i64 [ %96, %.lr.ph40 ], [ 0, %.lr.ph40.preheader ]
-  %81 = phi <8 x i64> [ %95, %.lr.ph40 ], [ %.promoted37, %.lr.ph40.preheader ]
+.lr.ph40:                                         ; preds = %80, %.lr.ph40
+  %.0.i.i39 = phi i64 [ %96, %.lr.ph40 ], [ 0, %80 ]
+  %81 = phi <8 x i64> [ %95, %.lr.ph40 ], [ %.promoted37, %80 ]
   %82 = shl i64 %.0.i.i39, 6
   %83 = getelementptr inbounds nuw i8, ptr %24, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 320
@@ -7336,8 +7328,8 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit40.i:    ; preds = %.preheader
   %94 = add <8 x i64> %81, %93
   %95 = add <8 x i64> %94, %92
   %96 = add nuw nsw i64 %.0.i.i39, 1
-  %exitcond50.not = icmp eq i64 %96, %umax49
-  br i1 %exitcond50.not, label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %.lr.ph40, !llvm.loop !29
+  %exitcond49.not = icmp eq i64 %96, %19
+  br i1 %exitcond49.not, label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %.lr.ph40, !llvm.loop !29
 
 _ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit: ; preds = %.lr.ph, %.lr.ph40, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit40.i, %80
   %storemerge = phi <8 x i64> [ %.promoted37, %80 ], [ %60, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit40.i ], [ %95, %.lr.ph40 ], [ %78, %.lr.ph ]
@@ -8022,9 +8014,6 @@ declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #31
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #31
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #31
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }

@@ -3432,30 +3432,30 @@ _init_l_Std_Time_Month_instInhabitedOrdinal___closed__4.exit: ; preds = %61, %66
 
 76:                                               ; preds = %73
   %77 = shl i64 %74, 31
-  %78 = icmp ult i64 %77, 4294967296
-  br i1 %78, label %_init_l_Std_Time_Month_instInhabitedOrdinal___closed__6.exit, label %79
+  %78 = ashr i64 %77, 32
+  %79 = icmp eq i64 %78, 0
+  br i1 %79, label %_init_l_Std_Time_Month_instInhabitedOrdinal___closed__6.exit, label %80
 
-79:                                               ; preds = %76
-  %80 = ashr i64 %77, 32
+80:                                               ; preds = %76
   %81 = shl i64 %71, 31
   %82 = ashr i64 %81, 32
-  %83 = srem i64 %82, %80
+  %83 = srem i64 %82, %78
   %84 = icmp slt i64 %83, 0
-  %.p.i.i = tail call i64 @llvm.abs.i64(i64 %80, i1 true)
+  %.p.i.i = tail call i64 @llvm.abs.i64(i64 %78, i1 true)
   %85 = select i1 %84, i64 %.p.i.i, i64 0
   %.0.i.i24 = add nsw i64 %85, %83
   %86 = add nsw i64 %.0.i.i24, 2147483648
   %87 = icmp samesign ult i64 %86, 4294967296
   br i1 %87, label %88, label %93, !prof !10
 
-88:                                               ; preds = %79
+88:                                               ; preds = %80
   %89 = shl nsw i64 %.0.i.i24, 1
   %90 = and i64 %89, 8589934590
   %91 = or disjoint i64 %90, 1
   %92 = inttoptr i64 %91 to ptr
   br label %_init_l_Std_Time_Month_instInhabitedOrdinal___closed__6.exit
 
-93:                                               ; preds = %79
+93:                                               ; preds = %80
   %94 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i24) #5
   br label %_init_l_Std_Time_Month_instInhabitedOrdinal___closed__6.exit
 
@@ -3524,30 +3524,30 @@ _init_l_Std_Time_Month_instInhabitedOrdinal___closed__7.exit: ; preds = %111, %1
 
 126:                                              ; preds = %123
   %127 = shl i64 %124, 31
-  %128 = icmp ult i64 %127, 4294967296
-  br i1 %128, label %_init_l_Std_Time_Month_instInhabitedOrdinal___closed__8.exit, label %129
+  %128 = ashr i64 %127, 32
+  %129 = icmp eq i64 %128, 0
+  br i1 %129, label %_init_l_Std_Time_Month_instInhabitedOrdinal___closed__8.exit, label %130
 
-129:                                              ; preds = %126
-  %130 = ashr i64 %127, 32
+130:                                              ; preds = %126
   %131 = shl i64 %121, 31
   %132 = ashr i64 %131, 32
-  %133 = srem i64 %132, %130
+  %133 = srem i64 %132, %128
   %134 = icmp slt i64 %133, 0
-  %.p.i.i32 = tail call i64 @llvm.abs.i64(i64 %130, i1 true)
+  %.p.i.i32 = tail call i64 @llvm.abs.i64(i64 %128, i1 true)
   %135 = select i1 %134, i64 %.p.i.i32, i64 0
   %.0.i.i33 = add nsw i64 %135, %133
   %136 = add nsw i64 %.0.i.i33, 2147483648
   %137 = icmp samesign ult i64 %136, 4294967296
   br i1 %137, label %138, label %143, !prof !10
 
-138:                                              ; preds = %129
+138:                                              ; preds = %130
   %139 = shl nsw i64 %.0.i.i33, 1
   %140 = and i64 %139, 8589934590
   %141 = or disjoint i64 %140, 1
   %142 = inttoptr i64 %141 to ptr
   br label %_init_l_Std_Time_Month_instInhabitedOrdinal___closed__8.exit
 
-143:                                              ; preds = %129
+143:                                              ; preds = %130
   %144 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i33) #5
   br label %_init_l_Std_Time_Month_instInhabitedOrdinal___closed__8.exit
 
@@ -3829,30 +3829,30 @@ _init_l_Std_Time_Month_instInhabitedQuarter___closed__4.exit: ; preds = %238, %2
 
 253:                                              ; preds = %250
   %254 = shl i64 %251, 31
-  %255 = icmp ult i64 %254, 4294967296
-  br i1 %255, label %_init_l_Std_Time_Month_instInhabitedQuarter___closed__5.exit, label %256
+  %255 = ashr i64 %254, 32
+  %256 = icmp eq i64 %255, 0
+  br i1 %256, label %_init_l_Std_Time_Month_instInhabitedQuarter___closed__5.exit, label %257
 
-256:                                              ; preds = %253
-  %257 = ashr i64 %254, 32
+257:                                              ; preds = %253
   %258 = shl i64 %248, 31
   %259 = ashr i64 %258, 32
-  %260 = srem i64 %259, %257
+  %260 = srem i64 %259, %255
   %261 = icmp slt i64 %260, 0
-  %.p.i.i54 = tail call i64 @llvm.abs.i64(i64 %257, i1 true)
+  %.p.i.i54 = tail call i64 @llvm.abs.i64(i64 %255, i1 true)
   %262 = select i1 %261, i64 %.p.i.i54, i64 0
   %.0.i.i55 = add nsw i64 %262, %260
   %263 = add nsw i64 %.0.i.i55, 2147483648
   %264 = icmp samesign ult i64 %263, 4294967296
   br i1 %264, label %265, label %270, !prof !10
 
-265:                                              ; preds = %256
+265:                                              ; preds = %257
   %266 = shl nsw i64 %.0.i.i55, 1
   %267 = and i64 %266, 8589934590
   %268 = or disjoint i64 %267, 1
   %269 = inttoptr i64 %268 to ptr
   br label %_init_l_Std_Time_Month_instInhabitedQuarter___closed__5.exit
 
-270:                                              ; preds = %256
+270:                                              ; preds = %257
   %271 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i55) #5
   br label %_init_l_Std_Time_Month_instInhabitedQuarter___closed__5.exit
 
@@ -3921,30 +3921,30 @@ _init_l_Std_Time_Month_instInhabitedQuarter___closed__6.exit: ; preds = %288, %2
 
 303:                                              ; preds = %300
   %304 = shl i64 %301, 31
-  %305 = icmp ult i64 %304, 4294967296
-  br i1 %305, label %_init_l_Std_Time_Month_instInhabitedQuarter___closed__7.exit, label %306
+  %305 = ashr i64 %304, 32
+  %306 = icmp eq i64 %305, 0
+  br i1 %306, label %_init_l_Std_Time_Month_instInhabitedQuarter___closed__7.exit, label %307
 
-306:                                              ; preds = %303
-  %307 = ashr i64 %304, 32
+307:                                              ; preds = %303
   %308 = shl i64 %298, 31
   %309 = ashr i64 %308, 32
-  %310 = srem i64 %309, %307
+  %310 = srem i64 %309, %305
   %311 = icmp slt i64 %310, 0
-  %.p.i.i64 = tail call i64 @llvm.abs.i64(i64 %307, i1 true)
+  %.p.i.i64 = tail call i64 @llvm.abs.i64(i64 %305, i1 true)
   %312 = select i1 %311, i64 %.p.i.i64, i64 0
   %.0.i.i65 = add nsw i64 %312, %310
   %313 = add nsw i64 %.0.i.i65, 2147483648
   %314 = icmp samesign ult i64 %313, 4294967296
   br i1 %314, label %315, label %320, !prof !10
 
-315:                                              ; preds = %306
+315:                                              ; preds = %307
   %316 = shl nsw i64 %.0.i.i65, 1
   %317 = and i64 %316, 8589934590
   %318 = or disjoint i64 %317, 1
   %319 = inttoptr i64 %318 to ptr
   br label %_init_l_Std_Time_Month_instInhabitedQuarter___closed__7.exit
 
-320:                                              ; preds = %306
+320:                                              ; preds = %307
   %321 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i65) #5
   br label %_init_l_Std_Time_Month_instInhabitedQuarter___closed__7.exit
 
@@ -4018,30 +4018,30 @@ _init_l_Std_Time_Month_instInhabitedQuarter___closed__8.exit: ; preds = %331, %3
 
 349:                                              ; preds = %346
   %350 = shl i64 %347, 31
-  %351 = icmp ult i64 %350, 4294967296
-  br i1 %351, label %_init_l_Std_Time_Month_Ordinal_february___closed__3.exit, label %352
+  %351 = ashr i64 %350, 32
+  %352 = icmp eq i64 %351, 0
+  br i1 %352, label %_init_l_Std_Time_Month_Ordinal_february___closed__3.exit, label %353
 
-352:                                              ; preds = %349
-  %353 = ashr i64 %350, 32
+353:                                              ; preds = %349
   %354 = shl i64 %344, 31
   %355 = ashr i64 %354, 32
-  %356 = srem i64 %355, %353
+  %356 = srem i64 %355, %351
   %357 = icmp slt i64 %356, 0
-  %.p.i.i80 = tail call i64 @llvm.abs.i64(i64 %353, i1 true)
+  %.p.i.i80 = tail call i64 @llvm.abs.i64(i64 %351, i1 true)
   %358 = select i1 %357, i64 %.p.i.i80, i64 0
   %.0.i.i81 = add nsw i64 %358, %356
   %359 = add nsw i64 %.0.i.i81, 2147483648
   %360 = icmp samesign ult i64 %359, 4294967296
   br i1 %360, label %361, label %366, !prof !10
 
-361:                                              ; preds = %352
+361:                                              ; preds = %353
   %362 = shl nsw i64 %.0.i.i81, 1
   %363 = and i64 %362, 8589934590
   %364 = or disjoint i64 %363, 1
   %365 = inttoptr i64 %364 to ptr
   br label %_init_l_Std_Time_Month_Ordinal_february___closed__3.exit
 
-366:                                              ; preds = %352
+366:                                              ; preds = %353
   %367 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i81) #5
   br label %_init_l_Std_Time_Month_Ordinal_february___closed__3.exit
 
@@ -4110,30 +4110,30 @@ _init_l_Std_Time_Month_Ordinal_february___closed__4.exit: ; preds = %384, %389, 
 
 399:                                              ; preds = %396
   %400 = shl i64 %397, 31
-  %401 = icmp ult i64 %400, 4294967296
-  br i1 %401, label %_init_l_Std_Time_Month_Ordinal_february___closed__5.exit, label %402
+  %401 = ashr i64 %400, 32
+  %402 = icmp eq i64 %401, 0
+  br i1 %402, label %_init_l_Std_Time_Month_Ordinal_february___closed__5.exit, label %403
 
-402:                                              ; preds = %399
-  %403 = ashr i64 %400, 32
+403:                                              ; preds = %399
   %404 = shl i64 %394, 31
   %405 = ashr i64 %404, 32
-  %406 = srem i64 %405, %403
+  %406 = srem i64 %405, %401
   %407 = icmp slt i64 %406, 0
-  %.p.i.i90 = tail call i64 @llvm.abs.i64(i64 %403, i1 true)
+  %.p.i.i90 = tail call i64 @llvm.abs.i64(i64 %401, i1 true)
   %408 = select i1 %407, i64 %.p.i.i90, i64 0
   %.0.i.i91 = add nsw i64 %408, %406
   %409 = add nsw i64 %.0.i.i91, 2147483648
   %410 = icmp samesign ult i64 %409, 4294967296
   br i1 %410, label %411, label %416, !prof !10
 
-411:                                              ; preds = %402
+411:                                              ; preds = %403
   %412 = shl nsw i64 %.0.i.i91, 1
   %413 = and i64 %412, 8589934590
   %414 = or disjoint i64 %413, 1
   %415 = inttoptr i64 %414 to ptr
   br label %_init_l_Std_Time_Month_Ordinal_february___closed__5.exit
 
-416:                                              ; preds = %402
+416:                                              ; preds = %403
   %417 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i91) #5
   br label %_init_l_Std_Time_Month_Ordinal_february___closed__5.exit
 
@@ -4197,30 +4197,30 @@ _init_l_Std_Time_Month_Ordinal_february___closed__6.exit: ; preds = %427, %432, 
 
 443:                                              ; preds = %440
   %444 = shl i64 %441, 31
-  %445 = icmp ult i64 %444, 4294967296
-  br i1 %445, label %_init_l_Std_Time_Month_Ordinal_march___closed__2.exit, label %446
+  %445 = ashr i64 %444, 32
+  %446 = icmp eq i64 %445, 0
+  br i1 %446, label %_init_l_Std_Time_Month_Ordinal_march___closed__2.exit, label %447
 
-446:                                              ; preds = %443
-  %447 = ashr i64 %444, 32
+447:                                              ; preds = %443
   %448 = shl i64 %438, 31
   %449 = ashr i64 %448, 32
-  %450 = srem i64 %449, %447
+  %450 = srem i64 %449, %445
   %451 = icmp slt i64 %450, 0
-  %.p.i.i104 = tail call i64 @llvm.abs.i64(i64 %447, i1 true)
+  %.p.i.i104 = tail call i64 @llvm.abs.i64(i64 %445, i1 true)
   %452 = select i1 %451, i64 %.p.i.i104, i64 0
   %.0.i.i105 = add nsw i64 %452, %450
   %453 = add nsw i64 %.0.i.i105, 2147483648
   %454 = icmp samesign ult i64 %453, 4294967296
   br i1 %454, label %455, label %460, !prof !10
 
-455:                                              ; preds = %446
+455:                                              ; preds = %447
   %456 = shl nsw i64 %.0.i.i105, 1
   %457 = and i64 %456, 8589934590
   %458 = or disjoint i64 %457, 1
   %459 = inttoptr i64 %458 to ptr
   br label %_init_l_Std_Time_Month_Ordinal_march___closed__2.exit
 
-460:                                              ; preds = %446
+460:                                              ; preds = %447
   %461 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i105) #5
   br label %_init_l_Std_Time_Month_Ordinal_march___closed__2.exit
 
@@ -4289,30 +4289,30 @@ _init_l_Std_Time_Month_Ordinal_march___closed__3.exit: ; preds = %478, %483, %.c
 
 493:                                              ; preds = %490
   %494 = shl i64 %491, 31
-  %495 = icmp ult i64 %494, 4294967296
-  br i1 %495, label %_init_l_Std_Time_Month_Ordinal_march___closed__4.exit, label %496
+  %495 = ashr i64 %494, 32
+  %496 = icmp eq i64 %495, 0
+  br i1 %496, label %_init_l_Std_Time_Month_Ordinal_march___closed__4.exit, label %497
 
-496:                                              ; preds = %493
-  %497 = ashr i64 %494, 32
+497:                                              ; preds = %493
   %498 = shl i64 %488, 31
   %499 = ashr i64 %498, 32
-  %500 = srem i64 %499, %497
+  %500 = srem i64 %499, %495
   %501 = icmp slt i64 %500, 0
-  %.p.i.i114 = tail call i64 @llvm.abs.i64(i64 %497, i1 true)
+  %.p.i.i114 = tail call i64 @llvm.abs.i64(i64 %495, i1 true)
   %502 = select i1 %501, i64 %.p.i.i114, i64 0
   %.0.i.i115 = add nsw i64 %502, %500
   %503 = add nsw i64 %.0.i.i115, 2147483648
   %504 = icmp samesign ult i64 %503, 4294967296
   br i1 %504, label %505, label %510, !prof !10
 
-505:                                              ; preds = %496
+505:                                              ; preds = %497
   %506 = shl nsw i64 %.0.i.i115, 1
   %507 = and i64 %506, 8589934590
   %508 = or disjoint i64 %507, 1
   %509 = inttoptr i64 %508 to ptr
   br label %_init_l_Std_Time_Month_Ordinal_march___closed__4.exit
 
-510:                                              ; preds = %496
+510:                                              ; preds = %497
   %511 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i115) #5
   br label %_init_l_Std_Time_Month_Ordinal_march___closed__4.exit
 
@@ -4377,30 +4377,30 @@ _init_l_Std_Time_Month_Ordinal_march___closed__5.exit: ; preds = %521, %526, %.c
 
 537:                                              ; preds = %534
   %538 = shl i64 %535, 31
-  %539 = icmp ult i64 %538, 4294967296
-  br i1 %539, label %_init_l_Std_Time_Month_Ordinal_april___closed__3.exit, label %540
+  %539 = ashr i64 %538, 32
+  %540 = icmp eq i64 %539, 0
+  br i1 %540, label %_init_l_Std_Time_Month_Ordinal_april___closed__3.exit, label %541
 
-540:                                              ; preds = %537
-  %541 = ashr i64 %538, 32
+541:                                              ; preds = %537
   %542 = shl i64 %532, 31
   %543 = ashr i64 %542, 32
-  %544 = srem i64 %543, %541
+  %544 = srem i64 %543, %539
   %545 = icmp slt i64 %544, 0
-  %.p.i.i128 = tail call i64 @llvm.abs.i64(i64 %541, i1 true)
+  %.p.i.i128 = tail call i64 @llvm.abs.i64(i64 %539, i1 true)
   %546 = select i1 %545, i64 %.p.i.i128, i64 0
   %.0.i.i129 = add nsw i64 %546, %544
   %547 = add nsw i64 %.0.i.i129, 2147483648
   %548 = icmp samesign ult i64 %547, 4294967296
   br i1 %548, label %549, label %554, !prof !10
 
-549:                                              ; preds = %540
+549:                                              ; preds = %541
   %550 = shl nsw i64 %.0.i.i129, 1
   %551 = and i64 %550, 8589934590
   %552 = or disjoint i64 %551, 1
   %553 = inttoptr i64 %552 to ptr
   br label %_init_l_Std_Time_Month_Ordinal_april___closed__3.exit
 
-554:                                              ; preds = %540
+554:                                              ; preds = %541
   %555 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i129) #5
   br label %_init_l_Std_Time_Month_Ordinal_april___closed__3.exit
 
@@ -4469,30 +4469,30 @@ _init_l_Std_Time_Month_Ordinal_april___closed__4.exit: ; preds = %572, %577, %.c
 
 587:                                              ; preds = %584
   %588 = shl i64 %585, 31
-  %589 = icmp ult i64 %588, 4294967296
-  br i1 %589, label %_init_l_Std_Time_Month_Ordinal_april___closed__5.exit, label %590
+  %589 = ashr i64 %588, 32
+  %590 = icmp eq i64 %589, 0
+  br i1 %590, label %_init_l_Std_Time_Month_Ordinal_april___closed__5.exit, label %591
 
-590:                                              ; preds = %587
-  %591 = ashr i64 %588, 32
+591:                                              ; preds = %587
   %592 = shl i64 %582, 31
   %593 = ashr i64 %592, 32
-  %594 = srem i64 %593, %591
+  %594 = srem i64 %593, %589
   %595 = icmp slt i64 %594, 0
-  %.p.i.i138 = tail call i64 @llvm.abs.i64(i64 %591, i1 true)
+  %.p.i.i138 = tail call i64 @llvm.abs.i64(i64 %589, i1 true)
   %596 = select i1 %595, i64 %.p.i.i138, i64 0
   %.0.i.i139 = add nsw i64 %596, %594
   %597 = add nsw i64 %.0.i.i139, 2147483648
   %598 = icmp samesign ult i64 %597, 4294967296
   br i1 %598, label %599, label %604, !prof !10
 
-599:                                              ; preds = %590
+599:                                              ; preds = %591
   %600 = shl nsw i64 %.0.i.i139, 1
   %601 = and i64 %600, 8589934590
   %602 = or disjoint i64 %601, 1
   %603 = inttoptr i64 %602 to ptr
   br label %_init_l_Std_Time_Month_Ordinal_april___closed__5.exit
 
-604:                                              ; preds = %590
+604:                                              ; preds = %591
   %605 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i139) #5
   br label %_init_l_Std_Time_Month_Ordinal_april___closed__5.exit
 
@@ -4557,30 +4557,30 @@ _init_l_Std_Time_Month_Ordinal_april___closed__6.exit: ; preds = %615, %620, %.c
 
 631:                                              ; preds = %628
   %632 = shl i64 %629, 31
-  %633 = icmp ult i64 %632, 4294967296
-  br i1 %633, label %_init_l_Std_Time_Month_Ordinal_may___closed__3.exit, label %634
+  %633 = ashr i64 %632, 32
+  %634 = icmp eq i64 %633, 0
+  br i1 %634, label %_init_l_Std_Time_Month_Ordinal_may___closed__3.exit, label %635
 
-634:                                              ; preds = %631
-  %635 = ashr i64 %632, 32
+635:                                              ; preds = %631
   %636 = shl i64 %626, 31
   %637 = ashr i64 %636, 32
-  %638 = srem i64 %637, %635
+  %638 = srem i64 %637, %633
   %639 = icmp slt i64 %638, 0
-  %.p.i.i152 = tail call i64 @llvm.abs.i64(i64 %635, i1 true)
+  %.p.i.i152 = tail call i64 @llvm.abs.i64(i64 %633, i1 true)
   %640 = select i1 %639, i64 %.p.i.i152, i64 0
   %.0.i.i153 = add nsw i64 %640, %638
   %641 = add nsw i64 %.0.i.i153, 2147483648
   %642 = icmp samesign ult i64 %641, 4294967296
   br i1 %642, label %643, label %648, !prof !10
 
-643:                                              ; preds = %634
+643:                                              ; preds = %635
   %644 = shl nsw i64 %.0.i.i153, 1
   %645 = and i64 %644, 8589934590
   %646 = or disjoint i64 %645, 1
   %647 = inttoptr i64 %646 to ptr
   br label %_init_l_Std_Time_Month_Ordinal_may___closed__3.exit
 
-648:                                              ; preds = %634
+648:                                              ; preds = %635
   %649 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i153) #5
   br label %_init_l_Std_Time_Month_Ordinal_may___closed__3.exit
 
@@ -4649,30 +4649,30 @@ _init_l_Std_Time_Month_Ordinal_may___closed__4.exit: ; preds = %666, %671, %.cri
 
 681:                                              ; preds = %678
   %682 = shl i64 %679, 31
-  %683 = icmp ult i64 %682, 4294967296
-  br i1 %683, label %_init_l_Std_Time_Month_Ordinal_may___closed__5.exit, label %684
+  %683 = ashr i64 %682, 32
+  %684 = icmp eq i64 %683, 0
+  br i1 %684, label %_init_l_Std_Time_Month_Ordinal_may___closed__5.exit, label %685
 
-684:                                              ; preds = %681
-  %685 = ashr i64 %682, 32
+685:                                              ; preds = %681
   %686 = shl i64 %676, 31
   %687 = ashr i64 %686, 32
-  %688 = srem i64 %687, %685
+  %688 = srem i64 %687, %683
   %689 = icmp slt i64 %688, 0
-  %.p.i.i162 = tail call i64 @llvm.abs.i64(i64 %685, i1 true)
+  %.p.i.i162 = tail call i64 @llvm.abs.i64(i64 %683, i1 true)
   %690 = select i1 %689, i64 %.p.i.i162, i64 0
   %.0.i.i163 = add nsw i64 %690, %688
   %691 = add nsw i64 %.0.i.i163, 2147483648
   %692 = icmp samesign ult i64 %691, 4294967296
   br i1 %692, label %693, label %698, !prof !10
 
-693:                                              ; preds = %684
+693:                                              ; preds = %685
   %694 = shl nsw i64 %.0.i.i163, 1
   %695 = and i64 %694, 8589934590
   %696 = or disjoint i64 %695, 1
   %697 = inttoptr i64 %696 to ptr
   br label %_init_l_Std_Time_Month_Ordinal_may___closed__5.exit
 
-698:                                              ; preds = %684
+698:                                              ; preds = %685
   %699 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i163) #5
   br label %_init_l_Std_Time_Month_Ordinal_may___closed__5.exit
 
@@ -4737,30 +4737,30 @@ _init_l_Std_Time_Month_Ordinal_may___closed__6.exit: ; preds = %709, %714, %.cri
 
 725:                                              ; preds = %722
   %726 = shl i64 %723, 31
-  %727 = icmp ult i64 %726, 4294967296
-  br i1 %727, label %_init_l_Std_Time_Month_Ordinal_june___closed__3.exit, label %728
+  %727 = ashr i64 %726, 32
+  %728 = icmp eq i64 %727, 0
+  br i1 %728, label %_init_l_Std_Time_Month_Ordinal_june___closed__3.exit, label %729
 
-728:                                              ; preds = %725
-  %729 = ashr i64 %726, 32
+729:                                              ; preds = %725
   %730 = shl i64 %720, 31
   %731 = ashr i64 %730, 32
-  %732 = srem i64 %731, %729
+  %732 = srem i64 %731, %727
   %733 = icmp slt i64 %732, 0
-  %.p.i.i176 = tail call i64 @llvm.abs.i64(i64 %729, i1 true)
+  %.p.i.i176 = tail call i64 @llvm.abs.i64(i64 %727, i1 true)
   %734 = select i1 %733, i64 %.p.i.i176, i64 0
   %.0.i.i177 = add nsw i64 %734, %732
   %735 = add nsw i64 %.0.i.i177, 2147483648
   %736 = icmp samesign ult i64 %735, 4294967296
   br i1 %736, label %737, label %742, !prof !10
 
-737:                                              ; preds = %728
+737:                                              ; preds = %729
   %738 = shl nsw i64 %.0.i.i177, 1
   %739 = and i64 %738, 8589934590
   %740 = or disjoint i64 %739, 1
   %741 = inttoptr i64 %740 to ptr
   br label %_init_l_Std_Time_Month_Ordinal_june___closed__3.exit
 
-742:                                              ; preds = %728
+742:                                              ; preds = %729
   %743 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i177) #5
   br label %_init_l_Std_Time_Month_Ordinal_june___closed__3.exit
 
@@ -4829,30 +4829,30 @@ _init_l_Std_Time_Month_Ordinal_june___closed__4.exit: ; preds = %760, %765, %.cr
 
 775:                                              ; preds = %772
   %776 = shl i64 %773, 31
-  %777 = icmp ult i64 %776, 4294967296
-  br i1 %777, label %_init_l_Std_Time_Month_Ordinal_june___closed__5.exit, label %778
+  %777 = ashr i64 %776, 32
+  %778 = icmp eq i64 %777, 0
+  br i1 %778, label %_init_l_Std_Time_Month_Ordinal_june___closed__5.exit, label %779
 
-778:                                              ; preds = %775
-  %779 = ashr i64 %776, 32
+779:                                              ; preds = %775
   %780 = shl i64 %770, 31
   %781 = ashr i64 %780, 32
-  %782 = srem i64 %781, %779
+  %782 = srem i64 %781, %777
   %783 = icmp slt i64 %782, 0
-  %.p.i.i186 = tail call i64 @llvm.abs.i64(i64 %779, i1 true)
+  %.p.i.i186 = tail call i64 @llvm.abs.i64(i64 %777, i1 true)
   %784 = select i1 %783, i64 %.p.i.i186, i64 0
   %.0.i.i187 = add nsw i64 %784, %782
   %785 = add nsw i64 %.0.i.i187, 2147483648
   %786 = icmp samesign ult i64 %785, 4294967296
   br i1 %786, label %787, label %792, !prof !10
 
-787:                                              ; preds = %778
+787:                                              ; preds = %779
   %788 = shl nsw i64 %.0.i.i187, 1
   %789 = and i64 %788, 8589934590
   %790 = or disjoint i64 %789, 1
   %791 = inttoptr i64 %790 to ptr
   br label %_init_l_Std_Time_Month_Ordinal_june___closed__5.exit
 
-792:                                              ; preds = %778
+792:                                              ; preds = %779
   %793 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i187) #5
   br label %_init_l_Std_Time_Month_Ordinal_june___closed__5.exit
 
@@ -4917,30 +4917,30 @@ _init_l_Std_Time_Month_Ordinal_june___closed__6.exit: ; preds = %803, %808, %.cr
 
 819:                                              ; preds = %816
   %820 = shl i64 %817, 31
-  %821 = icmp ult i64 %820, 4294967296
-  br i1 %821, label %_init_l_Std_Time_Month_Ordinal_july___closed__3.exit, label %822
+  %821 = ashr i64 %820, 32
+  %822 = icmp eq i64 %821, 0
+  br i1 %822, label %_init_l_Std_Time_Month_Ordinal_july___closed__3.exit, label %823
 
-822:                                              ; preds = %819
-  %823 = ashr i64 %820, 32
+823:                                              ; preds = %819
   %824 = shl i64 %814, 31
   %825 = ashr i64 %824, 32
-  %826 = srem i64 %825, %823
+  %826 = srem i64 %825, %821
   %827 = icmp slt i64 %826, 0
-  %.p.i.i200 = tail call i64 @llvm.abs.i64(i64 %823, i1 true)
+  %.p.i.i200 = tail call i64 @llvm.abs.i64(i64 %821, i1 true)
   %828 = select i1 %827, i64 %.p.i.i200, i64 0
   %.0.i.i201 = add nsw i64 %828, %826
   %829 = add nsw i64 %.0.i.i201, 2147483648
   %830 = icmp samesign ult i64 %829, 4294967296
   br i1 %830, label %831, label %836, !prof !10
 
-831:                                              ; preds = %822
+831:                                              ; preds = %823
   %832 = shl nsw i64 %.0.i.i201, 1
   %833 = and i64 %832, 8589934590
   %834 = or disjoint i64 %833, 1
   %835 = inttoptr i64 %834 to ptr
   br label %_init_l_Std_Time_Month_Ordinal_july___closed__3.exit
 
-836:                                              ; preds = %822
+836:                                              ; preds = %823
   %837 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i201) #5
   br label %_init_l_Std_Time_Month_Ordinal_july___closed__3.exit
 
@@ -5009,30 +5009,30 @@ _init_l_Std_Time_Month_Ordinal_july___closed__4.exit: ; preds = %854, %859, %.cr
 
 869:                                              ; preds = %866
   %870 = shl i64 %867, 31
-  %871 = icmp ult i64 %870, 4294967296
-  br i1 %871, label %_init_l_Std_Time_Month_Ordinal_july___closed__5.exit, label %872
+  %871 = ashr i64 %870, 32
+  %872 = icmp eq i64 %871, 0
+  br i1 %872, label %_init_l_Std_Time_Month_Ordinal_july___closed__5.exit, label %873
 
-872:                                              ; preds = %869
-  %873 = ashr i64 %870, 32
+873:                                              ; preds = %869
   %874 = shl i64 %864, 31
   %875 = ashr i64 %874, 32
-  %876 = srem i64 %875, %873
+  %876 = srem i64 %875, %871
   %877 = icmp slt i64 %876, 0
-  %.p.i.i210 = tail call i64 @llvm.abs.i64(i64 %873, i1 true)
+  %.p.i.i210 = tail call i64 @llvm.abs.i64(i64 %871, i1 true)
   %878 = select i1 %877, i64 %.p.i.i210, i64 0
   %.0.i.i211 = add nsw i64 %878, %876
   %879 = add nsw i64 %.0.i.i211, 2147483648
   %880 = icmp samesign ult i64 %879, 4294967296
   br i1 %880, label %881, label %886, !prof !10
 
-881:                                              ; preds = %872
+881:                                              ; preds = %873
   %882 = shl nsw i64 %.0.i.i211, 1
   %883 = and i64 %882, 8589934590
   %884 = or disjoint i64 %883, 1
   %885 = inttoptr i64 %884 to ptr
   br label %_init_l_Std_Time_Month_Ordinal_july___closed__5.exit
 
-886:                                              ; preds = %872
+886:                                              ; preds = %873
   %887 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i211) #5
   br label %_init_l_Std_Time_Month_Ordinal_july___closed__5.exit
 
@@ -5097,30 +5097,30 @@ _init_l_Std_Time_Month_Ordinal_july___closed__6.exit: ; preds = %897, %902, %.cr
 
 913:                                              ; preds = %910
   %914 = shl i64 %911, 31
-  %915 = icmp ult i64 %914, 4294967296
-  br i1 %915, label %_init_l_Std_Time_Month_Ordinal_august___closed__3.exit, label %916
+  %915 = ashr i64 %914, 32
+  %916 = icmp eq i64 %915, 0
+  br i1 %916, label %_init_l_Std_Time_Month_Ordinal_august___closed__3.exit, label %917
 
-916:                                              ; preds = %913
-  %917 = ashr i64 %914, 32
+917:                                              ; preds = %913
   %918 = shl i64 %908, 31
   %919 = ashr i64 %918, 32
-  %920 = srem i64 %919, %917
+  %920 = srem i64 %919, %915
   %921 = icmp slt i64 %920, 0
-  %.p.i.i224 = tail call i64 @llvm.abs.i64(i64 %917, i1 true)
+  %.p.i.i224 = tail call i64 @llvm.abs.i64(i64 %915, i1 true)
   %922 = select i1 %921, i64 %.p.i.i224, i64 0
   %.0.i.i225 = add nsw i64 %922, %920
   %923 = add nsw i64 %.0.i.i225, 2147483648
   %924 = icmp samesign ult i64 %923, 4294967296
   br i1 %924, label %925, label %930, !prof !10
 
-925:                                              ; preds = %916
+925:                                              ; preds = %917
   %926 = shl nsw i64 %.0.i.i225, 1
   %927 = and i64 %926, 8589934590
   %928 = or disjoint i64 %927, 1
   %929 = inttoptr i64 %928 to ptr
   br label %_init_l_Std_Time_Month_Ordinal_august___closed__3.exit
 
-930:                                              ; preds = %916
+930:                                              ; preds = %917
   %931 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i225) #5
   br label %_init_l_Std_Time_Month_Ordinal_august___closed__3.exit
 
@@ -5189,30 +5189,30 @@ _init_l_Std_Time_Month_Ordinal_august___closed__4.exit: ; preds = %948, %953, %.
 
 963:                                              ; preds = %960
   %964 = shl i64 %961, 31
-  %965 = icmp ult i64 %964, 4294967296
-  br i1 %965, label %_init_l_Std_Time_Month_Ordinal_august___closed__5.exit, label %966
+  %965 = ashr i64 %964, 32
+  %966 = icmp eq i64 %965, 0
+  br i1 %966, label %_init_l_Std_Time_Month_Ordinal_august___closed__5.exit, label %967
 
-966:                                              ; preds = %963
-  %967 = ashr i64 %964, 32
+967:                                              ; preds = %963
   %968 = shl i64 %958, 31
   %969 = ashr i64 %968, 32
-  %970 = srem i64 %969, %967
+  %970 = srem i64 %969, %965
   %971 = icmp slt i64 %970, 0
-  %.p.i.i234 = tail call i64 @llvm.abs.i64(i64 %967, i1 true)
+  %.p.i.i234 = tail call i64 @llvm.abs.i64(i64 %965, i1 true)
   %972 = select i1 %971, i64 %.p.i.i234, i64 0
   %.0.i.i235 = add nsw i64 %972, %970
   %973 = add nsw i64 %.0.i.i235, 2147483648
   %974 = icmp samesign ult i64 %973, 4294967296
   br i1 %974, label %975, label %980, !prof !10
 
-975:                                              ; preds = %966
+975:                                              ; preds = %967
   %976 = shl nsw i64 %.0.i.i235, 1
   %977 = and i64 %976, 8589934590
   %978 = or disjoint i64 %977, 1
   %979 = inttoptr i64 %978 to ptr
   br label %_init_l_Std_Time_Month_Ordinal_august___closed__5.exit
 
-980:                                              ; preds = %966
+980:                                              ; preds = %967
   %981 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i235) #5
   br label %_init_l_Std_Time_Month_Ordinal_august___closed__5.exit
 
@@ -5277,30 +5277,30 @@ _init_l_Std_Time_Month_Ordinal_august___closed__6.exit: ; preds = %991, %996, %.
 
 1007:                                             ; preds = %1004
   %1008 = shl i64 %1005, 31
-  %1009 = icmp ult i64 %1008, 4294967296
-  br i1 %1009, label %_init_l_Std_Time_Month_Ordinal_september___closed__3.exit, label %1010
+  %1009 = ashr i64 %1008, 32
+  %1010 = icmp eq i64 %1009, 0
+  br i1 %1010, label %_init_l_Std_Time_Month_Ordinal_september___closed__3.exit, label %1011
 
-1010:                                             ; preds = %1007
-  %1011 = ashr i64 %1008, 32
+1011:                                             ; preds = %1007
   %1012 = shl i64 %1002, 31
   %1013 = ashr i64 %1012, 32
-  %1014 = srem i64 %1013, %1011
+  %1014 = srem i64 %1013, %1009
   %1015 = icmp slt i64 %1014, 0
-  %.p.i.i248 = tail call i64 @llvm.abs.i64(i64 %1011, i1 true)
+  %.p.i.i248 = tail call i64 @llvm.abs.i64(i64 %1009, i1 true)
   %1016 = select i1 %1015, i64 %.p.i.i248, i64 0
   %.0.i.i249 = add nsw i64 %1016, %1014
   %1017 = add nsw i64 %.0.i.i249, 2147483648
   %1018 = icmp samesign ult i64 %1017, 4294967296
   br i1 %1018, label %1019, label %1024, !prof !10
 
-1019:                                             ; preds = %1010
+1019:                                             ; preds = %1011
   %1020 = shl nsw i64 %.0.i.i249, 1
   %1021 = and i64 %1020, 8589934590
   %1022 = or disjoint i64 %1021, 1
   %1023 = inttoptr i64 %1022 to ptr
   br label %_init_l_Std_Time_Month_Ordinal_september___closed__3.exit
 
-1024:                                             ; preds = %1010
+1024:                                             ; preds = %1011
   %1025 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i249) #5
   br label %_init_l_Std_Time_Month_Ordinal_september___closed__3.exit
 
@@ -5369,30 +5369,30 @@ _init_l_Std_Time_Month_Ordinal_september___closed__4.exit: ; preds = %1042, %104
 
 1057:                                             ; preds = %1054
   %1058 = shl i64 %1055, 31
-  %1059 = icmp ult i64 %1058, 4294967296
-  br i1 %1059, label %_init_l_Std_Time_Month_Ordinal_september___closed__5.exit, label %1060
+  %1059 = ashr i64 %1058, 32
+  %1060 = icmp eq i64 %1059, 0
+  br i1 %1060, label %_init_l_Std_Time_Month_Ordinal_september___closed__5.exit, label %1061
 
-1060:                                             ; preds = %1057
-  %1061 = ashr i64 %1058, 32
+1061:                                             ; preds = %1057
   %1062 = shl i64 %1052, 31
   %1063 = ashr i64 %1062, 32
-  %1064 = srem i64 %1063, %1061
+  %1064 = srem i64 %1063, %1059
   %1065 = icmp slt i64 %1064, 0
-  %.p.i.i258 = tail call i64 @llvm.abs.i64(i64 %1061, i1 true)
+  %.p.i.i258 = tail call i64 @llvm.abs.i64(i64 %1059, i1 true)
   %1066 = select i1 %1065, i64 %.p.i.i258, i64 0
   %.0.i.i259 = add nsw i64 %1066, %1064
   %1067 = add nsw i64 %.0.i.i259, 2147483648
   %1068 = icmp samesign ult i64 %1067, 4294967296
   br i1 %1068, label %1069, label %1074, !prof !10
 
-1069:                                             ; preds = %1060
+1069:                                             ; preds = %1061
   %1070 = shl nsw i64 %.0.i.i259, 1
   %1071 = and i64 %1070, 8589934590
   %1072 = or disjoint i64 %1071, 1
   %1073 = inttoptr i64 %1072 to ptr
   br label %_init_l_Std_Time_Month_Ordinal_september___closed__5.exit
 
-1074:                                             ; preds = %1060
+1074:                                             ; preds = %1061
   %1075 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i259) #5
   br label %_init_l_Std_Time_Month_Ordinal_september___closed__5.exit
 
@@ -5457,30 +5457,30 @@ _init_l_Std_Time_Month_Ordinal_september___closed__6.exit: ; preds = %1085, %109
 
 1101:                                             ; preds = %1098
   %1102 = shl i64 %1099, 31
-  %1103 = icmp ult i64 %1102, 4294967296
-  br i1 %1103, label %_init_l_Std_Time_Month_Ordinal_october___closed__3.exit, label %1104
+  %1103 = ashr i64 %1102, 32
+  %1104 = icmp eq i64 %1103, 0
+  br i1 %1104, label %_init_l_Std_Time_Month_Ordinal_october___closed__3.exit, label %1105
 
-1104:                                             ; preds = %1101
-  %1105 = ashr i64 %1102, 32
+1105:                                             ; preds = %1101
   %1106 = shl i64 %1096, 31
   %1107 = ashr i64 %1106, 32
-  %1108 = srem i64 %1107, %1105
+  %1108 = srem i64 %1107, %1103
   %1109 = icmp slt i64 %1108, 0
-  %.p.i.i272 = tail call i64 @llvm.abs.i64(i64 %1105, i1 true)
+  %.p.i.i272 = tail call i64 @llvm.abs.i64(i64 %1103, i1 true)
   %1110 = select i1 %1109, i64 %.p.i.i272, i64 0
   %.0.i.i273 = add nsw i64 %1110, %1108
   %1111 = add nsw i64 %.0.i.i273, 2147483648
   %1112 = icmp samesign ult i64 %1111, 4294967296
   br i1 %1112, label %1113, label %1118, !prof !10
 
-1113:                                             ; preds = %1104
+1113:                                             ; preds = %1105
   %1114 = shl nsw i64 %.0.i.i273, 1
   %1115 = and i64 %1114, 8589934590
   %1116 = or disjoint i64 %1115, 1
   %1117 = inttoptr i64 %1116 to ptr
   br label %_init_l_Std_Time_Month_Ordinal_october___closed__3.exit
 
-1118:                                             ; preds = %1104
+1118:                                             ; preds = %1105
   %1119 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i273) #5
   br label %_init_l_Std_Time_Month_Ordinal_october___closed__3.exit
 
@@ -5549,30 +5549,30 @@ _init_l_Std_Time_Month_Ordinal_october___closed__4.exit: ; preds = %1136, %1141,
 
 1151:                                             ; preds = %1148
   %1152 = shl i64 %1149, 31
-  %1153 = icmp ult i64 %1152, 4294967296
-  br i1 %1153, label %_init_l_Std_Time_Month_Ordinal_october___closed__5.exit, label %1154
+  %1153 = ashr i64 %1152, 32
+  %1154 = icmp eq i64 %1153, 0
+  br i1 %1154, label %_init_l_Std_Time_Month_Ordinal_october___closed__5.exit, label %1155
 
-1154:                                             ; preds = %1151
-  %1155 = ashr i64 %1152, 32
+1155:                                             ; preds = %1151
   %1156 = shl i64 %1146, 31
   %1157 = ashr i64 %1156, 32
-  %1158 = srem i64 %1157, %1155
+  %1158 = srem i64 %1157, %1153
   %1159 = icmp slt i64 %1158, 0
-  %.p.i.i282 = tail call i64 @llvm.abs.i64(i64 %1155, i1 true)
+  %.p.i.i282 = tail call i64 @llvm.abs.i64(i64 %1153, i1 true)
   %1160 = select i1 %1159, i64 %.p.i.i282, i64 0
   %.0.i.i283 = add nsw i64 %1160, %1158
   %1161 = add nsw i64 %.0.i.i283, 2147483648
   %1162 = icmp samesign ult i64 %1161, 4294967296
   br i1 %1162, label %1163, label %1168, !prof !10
 
-1163:                                             ; preds = %1154
+1163:                                             ; preds = %1155
   %1164 = shl nsw i64 %.0.i.i283, 1
   %1165 = and i64 %1164, 8589934590
   %1166 = or disjoint i64 %1165, 1
   %1167 = inttoptr i64 %1166 to ptr
   br label %_init_l_Std_Time_Month_Ordinal_october___closed__5.exit
 
-1168:                                             ; preds = %1154
+1168:                                             ; preds = %1155
   %1169 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i283) #5
   br label %_init_l_Std_Time_Month_Ordinal_october___closed__5.exit
 
@@ -5636,30 +5636,30 @@ _init_l_Std_Time_Month_Ordinal_october___closed__6.exit: ; preds = %1179, %1184,
 
 1195:                                             ; preds = %1192
   %1196 = shl i64 %1193, 31
-  %1197 = icmp ult i64 %1196, 4294967296
-  br i1 %1197, label %_init_l_Std_Time_Month_Ordinal_november___closed__2.exit, label %1198
+  %1197 = ashr i64 %1196, 32
+  %1198 = icmp eq i64 %1197, 0
+  br i1 %1198, label %_init_l_Std_Time_Month_Ordinal_november___closed__2.exit, label %1199
 
-1198:                                             ; preds = %1195
-  %1199 = ashr i64 %1196, 32
+1199:                                             ; preds = %1195
   %1200 = shl i64 %1190, 31
   %1201 = ashr i64 %1200, 32
-  %1202 = srem i64 %1201, %1199
+  %1202 = srem i64 %1201, %1197
   %1203 = icmp slt i64 %1202, 0
-  %.p.i.i296 = tail call i64 @llvm.abs.i64(i64 %1199, i1 true)
+  %.p.i.i296 = tail call i64 @llvm.abs.i64(i64 %1197, i1 true)
   %1204 = select i1 %1203, i64 %.p.i.i296, i64 0
   %.0.i.i297 = add nsw i64 %1204, %1202
   %1205 = add nsw i64 %.0.i.i297, 2147483648
   %1206 = icmp samesign ult i64 %1205, 4294967296
   br i1 %1206, label %1207, label %1212, !prof !10
 
-1207:                                             ; preds = %1198
+1207:                                             ; preds = %1199
   %1208 = shl nsw i64 %.0.i.i297, 1
   %1209 = and i64 %1208, 8589934590
   %1210 = or disjoint i64 %1209, 1
   %1211 = inttoptr i64 %1210 to ptr
   br label %_init_l_Std_Time_Month_Ordinal_november___closed__2.exit
 
-1212:                                             ; preds = %1198
+1212:                                             ; preds = %1199
   %1213 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i297) #5
   br label %_init_l_Std_Time_Month_Ordinal_november___closed__2.exit
 
@@ -5728,30 +5728,30 @@ _init_l_Std_Time_Month_Ordinal_november___closed__3.exit: ; preds = %1230, %1235
 
 1245:                                             ; preds = %1242
   %1246 = shl i64 %1243, 31
-  %1247 = icmp ult i64 %1246, 4294967296
-  br i1 %1247, label %_init_l_Std_Time_Month_Ordinal_november___closed__4.exit, label %1248
+  %1247 = ashr i64 %1246, 32
+  %1248 = icmp eq i64 %1247, 0
+  br i1 %1248, label %_init_l_Std_Time_Month_Ordinal_november___closed__4.exit, label %1249
 
-1248:                                             ; preds = %1245
-  %1249 = ashr i64 %1246, 32
+1249:                                             ; preds = %1245
   %1250 = shl i64 %1240, 31
   %1251 = ashr i64 %1250, 32
-  %1252 = srem i64 %1251, %1249
+  %1252 = srem i64 %1251, %1247
   %1253 = icmp slt i64 %1252, 0
-  %.p.i.i306 = tail call i64 @llvm.abs.i64(i64 %1249, i1 true)
+  %.p.i.i306 = tail call i64 @llvm.abs.i64(i64 %1247, i1 true)
   %1254 = select i1 %1253, i64 %.p.i.i306, i64 0
   %.0.i.i307 = add nsw i64 %1254, %1252
   %1255 = add nsw i64 %.0.i.i307, 2147483648
   %1256 = icmp samesign ult i64 %1255, 4294967296
   br i1 %1256, label %1257, label %1262, !prof !10
 
-1257:                                             ; preds = %1248
+1257:                                             ; preds = %1249
   %1258 = shl nsw i64 %.0.i.i307, 1
   %1259 = and i64 %1258, 8589934590
   %1260 = or disjoint i64 %1259, 1
   %1261 = inttoptr i64 %1260 to ptr
   br label %_init_l_Std_Time_Month_Ordinal_november___closed__4.exit
 
-1262:                                             ; preds = %1248
+1262:                                             ; preds = %1249
   %1263 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i307) #5
   br label %_init_l_Std_Time_Month_Ordinal_november___closed__4.exit
 
@@ -5816,30 +5816,30 @@ _init_l_Std_Time_Month_Ordinal_november___closed__5.exit: ; preds = %1273, %1278
 
 1289:                                             ; preds = %1286
   %1290 = shl i64 %1287, 31
-  %1291 = icmp ult i64 %1290, 4294967296
-  br i1 %1291, label %_init_l_Std_Time_Month_Ordinal_december___closed__3.exit, label %1292
+  %1291 = ashr i64 %1290, 32
+  %1292 = icmp eq i64 %1291, 0
+  br i1 %1292, label %_init_l_Std_Time_Month_Ordinal_december___closed__3.exit, label %1293
 
-1292:                                             ; preds = %1289
-  %1293 = ashr i64 %1290, 32
+1293:                                             ; preds = %1289
   %1294 = shl i64 %1284, 31
   %1295 = ashr i64 %1294, 32
-  %1296 = srem i64 %1295, %1293
+  %1296 = srem i64 %1295, %1291
   %1297 = icmp slt i64 %1296, 0
-  %.p.i.i320 = tail call i64 @llvm.abs.i64(i64 %1293, i1 true)
+  %.p.i.i320 = tail call i64 @llvm.abs.i64(i64 %1291, i1 true)
   %1298 = select i1 %1297, i64 %.p.i.i320, i64 0
   %.0.i.i321 = add nsw i64 %1298, %1296
   %1299 = add nsw i64 %.0.i.i321, 2147483648
   %1300 = icmp samesign ult i64 %1299, 4294967296
   br i1 %1300, label %1301, label %1306, !prof !10
 
-1301:                                             ; preds = %1292
+1301:                                             ; preds = %1293
   %1302 = shl nsw i64 %.0.i.i321, 1
   %1303 = and i64 %1302, 8589934590
   %1304 = or disjoint i64 %1303, 1
   %1305 = inttoptr i64 %1304 to ptr
   br label %_init_l_Std_Time_Month_Ordinal_december___closed__3.exit
 
-1306:                                             ; preds = %1292
+1306:                                             ; preds = %1293
   %1307 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i321) #5
   br label %_init_l_Std_Time_Month_Ordinal_december___closed__3.exit
 
@@ -5908,30 +5908,30 @@ _init_l_Std_Time_Month_Ordinal_december___closed__4.exit: ; preds = %1324, %1329
 
 1339:                                             ; preds = %1336
   %1340 = shl i64 %1337, 31
-  %1341 = icmp ult i64 %1340, 4294967296
-  br i1 %1341, label %_init_l_Std_Time_Month_Ordinal_december___closed__5.exit, label %1342
+  %1341 = ashr i64 %1340, 32
+  %1342 = icmp eq i64 %1341, 0
+  br i1 %1342, label %_init_l_Std_Time_Month_Ordinal_december___closed__5.exit, label %1343
 
-1342:                                             ; preds = %1339
-  %1343 = ashr i64 %1340, 32
+1343:                                             ; preds = %1339
   %1344 = shl i64 %1334, 31
   %1345 = ashr i64 %1344, 32
-  %1346 = srem i64 %1345, %1343
+  %1346 = srem i64 %1345, %1341
   %1347 = icmp slt i64 %1346, 0
-  %.p.i.i330 = tail call i64 @llvm.abs.i64(i64 %1343, i1 true)
+  %.p.i.i330 = tail call i64 @llvm.abs.i64(i64 %1341, i1 true)
   %1348 = select i1 %1347, i64 %.p.i.i330, i64 0
   %.0.i.i331 = add nsw i64 %1348, %1346
   %1349 = add nsw i64 %.0.i.i331, 2147483648
   %1350 = icmp samesign ult i64 %1349, 4294967296
   br i1 %1350, label %1351, label %1356, !prof !10
 
-1351:                                             ; preds = %1342
+1351:                                             ; preds = %1343
   %1352 = shl nsw i64 %.0.i.i331, 1
   %1353 = and i64 %1352, 8589934590
   %1354 = or disjoint i64 %1353, 1
   %1355 = inttoptr i64 %1354 to ptr
   br label %_init_l_Std_Time_Month_Ordinal_december___closed__5.exit
 
-1356:                                             ; preds = %1342
+1356:                                             ; preds = %1343
   %1357 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i331) #5
   br label %_init_l_Std_Time_Month_Ordinal_december___closed__5.exit
 
@@ -6663,30 +6663,30 @@ _init_l___private_Std_Time_Date_Unit_Month_0__Std_Time_Month_Ordinal_monthSizesN
 
 1647:                                             ; preds = %1644
   %1648 = shl i64 %1645, 31
-  %1649 = icmp ult i64 %1648, 4294967296
-  br i1 %1649, label %_init_l___private_Std_Time_Date_Unit_Month_0__Std_Time_Month_Ordinal_monthSizesNonLeap___closed__6.exit, label %1650
+  %1649 = ashr i64 %1648, 32
+  %1650 = icmp eq i64 %1649, 0
+  br i1 %1650, label %_init_l___private_Std_Time_Date_Unit_Month_0__Std_Time_Month_Ordinal_monthSizesNonLeap___closed__6.exit, label %1651
 
-1650:                                             ; preds = %1647
-  %1651 = ashr i64 %1648, 32
+1651:                                             ; preds = %1647
   %1652 = shl i64 %1642, 31
   %1653 = ashr i64 %1652, 32
-  %1654 = srem i64 %1653, %1651
+  %1654 = srem i64 %1653, %1649
   %1655 = icmp slt i64 %1654, 0
-  %.p.i.i359 = tail call i64 @llvm.abs.i64(i64 %1651, i1 true)
+  %.p.i.i359 = tail call i64 @llvm.abs.i64(i64 %1649, i1 true)
   %1656 = select i1 %1655, i64 %.p.i.i359, i64 0
   %.0.i.i360 = add nsw i64 %1656, %1654
   %1657 = add nsw i64 %.0.i.i360, 2147483648
   %1658 = icmp samesign ult i64 %1657, 4294967296
   br i1 %1658, label %1659, label %1664, !prof !10
 
-1659:                                             ; preds = %1650
+1659:                                             ; preds = %1651
   %1660 = shl nsw i64 %.0.i.i360, 1
   %1661 = and i64 %1660, 8589934590
   %1662 = or disjoint i64 %1661, 1
   %1663 = inttoptr i64 %1662 to ptr
   br label %_init_l___private_Std_Time_Date_Unit_Month_0__Std_Time_Month_Ordinal_monthSizesNonLeap___closed__6.exit
 
-1664:                                             ; preds = %1650
+1664:                                             ; preds = %1651
   %1665 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i360) #5
   br label %_init_l___private_Std_Time_Date_Unit_Month_0__Std_Time_Month_Ordinal_monthSizesNonLeap___closed__6.exit
 
@@ -6755,30 +6755,30 @@ _init_l___private_Std_Time_Date_Unit_Month_0__Std_Time_Month_Ordinal_monthSizesN
 
 1697:                                             ; preds = %1694
   %1698 = shl i64 %1695, 31
-  %1699 = icmp ult i64 %1698, 4294967296
-  br i1 %1699, label %_init_l___private_Std_Time_Date_Unit_Month_0__Std_Time_Month_Ordinal_monthSizesNonLeap___closed__8.exit, label %1700
+  %1699 = ashr i64 %1698, 32
+  %1700 = icmp eq i64 %1699, 0
+  br i1 %1700, label %_init_l___private_Std_Time_Date_Unit_Month_0__Std_Time_Month_Ordinal_monthSizesNonLeap___closed__8.exit, label %1701
 
-1700:                                             ; preds = %1697
-  %1701 = ashr i64 %1698, 32
+1701:                                             ; preds = %1697
   %1702 = shl i64 %1692, 31
   %1703 = ashr i64 %1702, 32
-  %1704 = srem i64 %1703, %1701
+  %1704 = srem i64 %1703, %1699
   %1705 = icmp slt i64 %1704, 0
-  %.p.i.i369 = tail call i64 @llvm.abs.i64(i64 %1701, i1 true)
+  %.p.i.i369 = tail call i64 @llvm.abs.i64(i64 %1699, i1 true)
   %1706 = select i1 %1705, i64 %.p.i.i369, i64 0
   %.0.i.i370 = add nsw i64 %1706, %1704
   %1707 = add nsw i64 %.0.i.i370, 2147483648
   %1708 = icmp samesign ult i64 %1707, 4294967296
   br i1 %1708, label %1709, label %1714, !prof !10
 
-1709:                                             ; preds = %1700
+1709:                                             ; preds = %1701
   %1710 = shl nsw i64 %.0.i.i370, 1
   %1711 = and i64 %1710, 8589934590
   %1712 = or disjoint i64 %1711, 1
   %1713 = inttoptr i64 %1712 to ptr
   br label %_init_l___private_Std_Time_Date_Unit_Month_0__Std_Time_Month_Ordinal_monthSizesNonLeap___closed__8.exit
 
-1714:                                             ; preds = %1700
+1714:                                             ; preds = %1701
   %1715 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i370) #5
   br label %_init_l___private_Std_Time_Date_Unit_Month_0__Std_Time_Month_Ordinal_monthSizesNonLeap___closed__8.exit
 
@@ -6840,30 +6840,30 @@ _init_l___private_Std_Time_Date_Unit_Month_0__Std_Time_Month_Ordinal_monthSizesN
 
 1740:                                             ; preds = %1737
   %1741 = shl i64 %1738, 31
-  %1742 = icmp ult i64 %1741, 4294967296
-  br i1 %1742, label %_init_l___private_Std_Time_Date_Unit_Month_0__Std_Time_Month_Ordinal_monthSizesNonLeap___closed__12.exit, label %1743
+  %1742 = ashr i64 %1741, 32
+  %1743 = icmp eq i64 %1742, 0
+  br i1 %1743, label %_init_l___private_Std_Time_Date_Unit_Month_0__Std_Time_Month_Ordinal_monthSizesNonLeap___closed__12.exit, label %1744
 
-1743:                                             ; preds = %1740
-  %1744 = ashr i64 %1741, 32
+1744:                                             ; preds = %1740
   %1745 = shl i64 %1735, 31
   %1746 = ashr i64 %1745, 32
-  %1747 = srem i64 %1746, %1744
+  %1747 = srem i64 %1746, %1742
   %1748 = icmp slt i64 %1747, 0
-  %.p.i.i383 = tail call i64 @llvm.abs.i64(i64 %1744, i1 true)
+  %.p.i.i383 = tail call i64 @llvm.abs.i64(i64 %1742, i1 true)
   %1749 = select i1 %1748, i64 %.p.i.i383, i64 0
   %.0.i.i384 = add nsw i64 %1749, %1747
   %1750 = add nsw i64 %.0.i.i384, 2147483648
   %1751 = icmp samesign ult i64 %1750, 4294967296
   br i1 %1751, label %1752, label %1757, !prof !10
 
-1752:                                             ; preds = %1743
+1752:                                             ; preds = %1744
   %1753 = shl nsw i64 %.0.i.i384, 1
   %1754 = and i64 %1753, 8589934590
   %1755 = or disjoint i64 %1754, 1
   %1756 = inttoptr i64 %1755 to ptr
   br label %_init_l___private_Std_Time_Date_Unit_Month_0__Std_Time_Month_Ordinal_monthSizesNonLeap___closed__12.exit
 
-1757:                                             ; preds = %1743
+1757:                                             ; preds = %1744
   %1758 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i384) #5
   br label %_init_l___private_Std_Time_Date_Unit_Month_0__Std_Time_Month_Ordinal_monthSizesNonLeap___closed__12.exit
 
@@ -6932,30 +6932,30 @@ _init_l___private_Std_Time_Date_Unit_Month_0__Std_Time_Month_Ordinal_monthSizesN
 
 1790:                                             ; preds = %1787
   %1791 = shl i64 %1788, 31
-  %1792 = icmp ult i64 %1791, 4294967296
-  br i1 %1792, label %_init_l___private_Std_Time_Date_Unit_Month_0__Std_Time_Month_Ordinal_monthSizesNonLeap___closed__14.exit, label %1793
+  %1792 = ashr i64 %1791, 32
+  %1793 = icmp eq i64 %1792, 0
+  br i1 %1793, label %_init_l___private_Std_Time_Date_Unit_Month_0__Std_Time_Month_Ordinal_monthSizesNonLeap___closed__14.exit, label %1794
 
-1793:                                             ; preds = %1790
-  %1794 = ashr i64 %1791, 32
+1794:                                             ; preds = %1790
   %1795 = shl i64 %1785, 31
   %1796 = ashr i64 %1795, 32
-  %1797 = srem i64 %1796, %1794
+  %1797 = srem i64 %1796, %1792
   %1798 = icmp slt i64 %1797, 0
-  %.p.i.i393 = tail call i64 @llvm.abs.i64(i64 %1794, i1 true)
+  %.p.i.i393 = tail call i64 @llvm.abs.i64(i64 %1792, i1 true)
   %1799 = select i1 %1798, i64 %.p.i.i393, i64 0
   %.0.i.i394 = add nsw i64 %1799, %1797
   %1800 = add nsw i64 %.0.i.i394, 2147483648
   %1801 = icmp samesign ult i64 %1800, 4294967296
   br i1 %1801, label %1802, label %1807, !prof !10
 
-1802:                                             ; preds = %1793
+1802:                                             ; preds = %1794
   %1803 = shl nsw i64 %.0.i.i394, 1
   %1804 = and i64 %1803, 8589934590
   %1805 = or disjoint i64 %1804, 1
   %1806 = inttoptr i64 %1805 to ptr
   br label %_init_l___private_Std_Time_Date_Unit_Month_0__Std_Time_Month_Ordinal_monthSizesNonLeap___closed__14.exit
 
-1807:                                             ; preds = %1793
+1807:                                             ; preds = %1794
   %1808 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i394) #5
   br label %_init_l___private_Std_Time_Date_Unit_Month_0__Std_Time_Month_Ordinal_monthSizesNonLeap___closed__14.exit
 
@@ -7016,30 +7016,30 @@ _init_l___private_Std_Time_Date_Unit_Month_0__Std_Time_Month_Ordinal_monthSizesN
 
 1833:                                             ; preds = %1830
   %1834 = shl i64 %1831, 31
-  %1835 = icmp ult i64 %1834, 4294967296
-  br i1 %1835, label %_init_l___private_Std_Time_Date_Unit_Month_0__Std_Time_Month_Ordinal_monthSizesNonLeap___closed__17.exit, label %1836
+  %1835 = ashr i64 %1834, 32
+  %1836 = icmp eq i64 %1835, 0
+  br i1 %1836, label %_init_l___private_Std_Time_Date_Unit_Month_0__Std_Time_Month_Ordinal_monthSizesNonLeap___closed__17.exit, label %1837
 
-1836:                                             ; preds = %1833
-  %1837 = ashr i64 %1834, 32
+1837:                                             ; preds = %1833
   %1838 = shl i64 %1828, 31
   %1839 = ashr i64 %1838, 32
-  %1840 = srem i64 %1839, %1837
+  %1840 = srem i64 %1839, %1835
   %1841 = icmp slt i64 %1840, 0
-  %.p.i.i407 = tail call i64 @llvm.abs.i64(i64 %1837, i1 true)
+  %.p.i.i407 = tail call i64 @llvm.abs.i64(i64 %1835, i1 true)
   %1842 = select i1 %1841, i64 %.p.i.i407, i64 0
   %.0.i.i408 = add nsw i64 %1842, %1840
   %1843 = add nsw i64 %.0.i.i408, 2147483648
   %1844 = icmp samesign ult i64 %1843, 4294967296
   br i1 %1844, label %1845, label %1850, !prof !10
 
-1845:                                             ; preds = %1836
+1845:                                             ; preds = %1837
   %1846 = shl nsw i64 %.0.i.i408, 1
   %1847 = and i64 %1846, 8589934590
   %1848 = or disjoint i64 %1847, 1
   %1849 = inttoptr i64 %1848 to ptr
   br label %_init_l___private_Std_Time_Date_Unit_Month_0__Std_Time_Month_Ordinal_monthSizesNonLeap___closed__17.exit
 
-1850:                                             ; preds = %1836
+1850:                                             ; preds = %1837
   %1851 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i408) #5
   br label %_init_l___private_Std_Time_Date_Unit_Month_0__Std_Time_Month_Ordinal_monthSizesNonLeap___closed__17.exit
 
@@ -7108,30 +7108,30 @@ _init_l___private_Std_Time_Date_Unit_Month_0__Std_Time_Month_Ordinal_monthSizesN
 
 1883:                                             ; preds = %1880
   %1884 = shl i64 %1881, 31
-  %1885 = icmp ult i64 %1884, 4294967296
-  br i1 %1885, label %_init_l___private_Std_Time_Date_Unit_Month_0__Std_Time_Month_Ordinal_monthSizesNonLeap___closed__19.exit, label %1886
+  %1885 = ashr i64 %1884, 32
+  %1886 = icmp eq i64 %1885, 0
+  br i1 %1886, label %_init_l___private_Std_Time_Date_Unit_Month_0__Std_Time_Month_Ordinal_monthSizesNonLeap___closed__19.exit, label %1887
 
-1886:                                             ; preds = %1883
-  %1887 = ashr i64 %1884, 32
+1887:                                             ; preds = %1883
   %1888 = shl i64 %1878, 31
   %1889 = ashr i64 %1888, 32
-  %1890 = srem i64 %1889, %1887
+  %1890 = srem i64 %1889, %1885
   %1891 = icmp slt i64 %1890, 0
-  %.p.i.i417 = tail call i64 @llvm.abs.i64(i64 %1887, i1 true)
+  %.p.i.i417 = tail call i64 @llvm.abs.i64(i64 %1885, i1 true)
   %1892 = select i1 %1891, i64 %.p.i.i417, i64 0
   %.0.i.i418 = add nsw i64 %1892, %1890
   %1893 = add nsw i64 %.0.i.i418, 2147483648
   %1894 = icmp samesign ult i64 %1893, 4294967296
   br i1 %1894, label %1895, label %1900, !prof !10
 
-1895:                                             ; preds = %1886
+1895:                                             ; preds = %1887
   %1896 = shl nsw i64 %.0.i.i418, 1
   %1897 = and i64 %1896, 8589934590
   %1898 = or disjoint i64 %1897, 1
   %1899 = inttoptr i64 %1898 to ptr
   br label %_init_l___private_Std_Time_Date_Unit_Month_0__Std_Time_Month_Ordinal_monthSizesNonLeap___closed__19.exit
 
-1900:                                             ; preds = %1886
+1900:                                             ; preds = %1887
   %1901 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i418) #5
   br label %_init_l___private_Std_Time_Date_Unit_Month_0__Std_Time_Month_Ordinal_monthSizesNonLeap___closed__19.exit
 
@@ -7454,30 +7454,30 @@ _init_l___private_Std_Time_Date_Unit_Month_0__Std_Time_Month_Ordinal_monthSizesN
 
 2025:                                             ; preds = %2022
   %2026 = shl i64 %2023, 31
-  %2027 = icmp ult i64 %2026, 4294967296
-  br i1 %2027, label %_init_l_Std_Time_Month_Ordinal_days___closed__3.exit, label %2028
+  %2027 = ashr i64 %2026, 32
+  %2028 = icmp eq i64 %2027, 0
+  br i1 %2028, label %_init_l_Std_Time_Month_Ordinal_days___closed__3.exit, label %2029
 
-2028:                                             ; preds = %2025
-  %2029 = ashr i64 %2026, 32
+2029:                                             ; preds = %2025
   %2030 = shl i64 %2020, 31
   %2031 = ashr i64 %2030, 32
-  %2032 = srem i64 %2031, %2029
+  %2032 = srem i64 %2031, %2027
   %2033 = icmp slt i64 %2032, 0
-  %.p.i.i431 = tail call i64 @llvm.abs.i64(i64 %2029, i1 true)
+  %.p.i.i431 = tail call i64 @llvm.abs.i64(i64 %2027, i1 true)
   %2034 = select i1 %2033, i64 %.p.i.i431, i64 0
   %.0.i.i432 = add nsw i64 %2034, %2032
   %2035 = add nsw i64 %.0.i.i432, 2147483648
   %2036 = icmp samesign ult i64 %2035, 4294967296
   br i1 %2036, label %2037, label %2042, !prof !10
 
-2037:                                             ; preds = %2028
+2037:                                             ; preds = %2029
   %2038 = shl nsw i64 %.0.i.i432, 1
   %2039 = and i64 %2038, 8589934590
   %2040 = or disjoint i64 %2039, 1
   %2041 = inttoptr i64 %2040 to ptr
   br label %_init_l_Std_Time_Month_Ordinal_days___closed__3.exit
 
-2042:                                             ; preds = %2028
+2042:                                             ; preds = %2029
   %2043 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i432) #5
   br label %_init_l_Std_Time_Month_Ordinal_days___closed__3.exit
 
@@ -7546,30 +7546,30 @@ _init_l_Std_Time_Month_Ordinal_days___closed__4.exit: ; preds = %2060, %2065, %.
 
 2075:                                             ; preds = %2072
   %2076 = shl i64 %2073, 31
-  %2077 = icmp ult i64 %2076, 4294967296
-  br i1 %2077, label %_init_l_Std_Time_Month_Ordinal_days___closed__5.exit, label %2078
+  %2077 = ashr i64 %2076, 32
+  %2078 = icmp eq i64 %2077, 0
+  br i1 %2078, label %_init_l_Std_Time_Month_Ordinal_days___closed__5.exit, label %2079
 
-2078:                                             ; preds = %2075
-  %2079 = ashr i64 %2076, 32
+2079:                                             ; preds = %2075
   %2080 = shl i64 %2070, 31
   %2081 = ashr i64 %2080, 32
-  %2082 = srem i64 %2081, %2079
+  %2082 = srem i64 %2081, %2077
   %2083 = icmp slt i64 %2082, 0
-  %.p.i.i441 = tail call i64 @llvm.abs.i64(i64 %2079, i1 true)
+  %.p.i.i441 = tail call i64 @llvm.abs.i64(i64 %2077, i1 true)
   %2084 = select i1 %2083, i64 %.p.i.i441, i64 0
   %.0.i.i442 = add nsw i64 %2084, %2082
   %2085 = add nsw i64 %.0.i.i442, 2147483648
   %2086 = icmp samesign ult i64 %2085, 4294967296
   br i1 %2086, label %2087, label %2092, !prof !10
 
-2087:                                             ; preds = %2078
+2087:                                             ; preds = %2079
   %2088 = shl nsw i64 %.0.i.i442, 1
   %2089 = and i64 %2088, 8589934590
   %2090 = or disjoint i64 %2089, 1
   %2091 = inttoptr i64 %2090 to ptr
   br label %_init_l_Std_Time_Month_Ordinal_days___closed__5.exit
 
-2092:                                             ; preds = %2078
+2092:                                             ; preds = %2079
   %2093 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i442) #5
   br label %_init_l_Std_Time_Month_Ordinal_days___closed__5.exit
 

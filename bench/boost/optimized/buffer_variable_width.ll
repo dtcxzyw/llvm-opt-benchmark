@@ -163702,7 +163702,7 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iterato
 43:                                               ; preds = %.lr.ph.i.i.i
   %44 = getelementptr inbounds %"struct.boost::geometry::detail::overlay::turn_with_point", ptr %0, i64 %.018.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %44, ptr noundef nonnull align 8 dereferenceable(48) %39, i64 48, i1 false)
-  %.not13.i = icmp ult i64 %.0919.in.i.i.i, 2
+  %.not13.i = icmp eq i64 %.0919.i.i1112.i, 0
   br i1 %.not13.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointI14specific_pointEESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS5_12get_clustersISA_INS4_6buffer16buffer_turn_infoIS7_NS3_13segment_ratioIdEEEESaISL_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlSP_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKSY_RKS10_E_EEEvSY_SY_SY_S11_.exit, label %.lr.ph.i.i.i, !llvm.loop !3184
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointI14specific_pointEESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS5_12get_clustersISA_INS4_6buffer16buffer_turn_infoIS7_NS3_13segment_ratioIdEEEESaISL_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlSP_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKSY_RKS10_E_EEEvSY_SY_SY_S11_.exit: ; preds = %.lr.ph.i.i.i, %43, %38
@@ -166417,7 +166417,7 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iterato
 41:                                               ; preds = %.lr.ph.i.i.i
   %42 = getelementptr inbounds %"struct.boost::geometry::detail::overlay::sort_by_side::ranked_point", ptr %0, i64 %.018.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %42, ptr noundef nonnull align 8 dereferenceable(136) %39, i64 136, i1 false)
-  %.not8.i = icmp ult i64 %.0919.in.i.i.i, 2
+  %.not8.i = icmp eq i64 %.0919.i.i67.i, 0
   br i1 %.not8.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay12sort_by_side12ranked_pointI14specific_pointEESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterINS6_12less_by_sideIS8_S8_NS3_10strategies6buffer9cartesianIvEENS6_13less_by_indexESt4lessIiEEEEEEvT_SR_SR_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !3267
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay12sort_by_side12ranked_pointI14specific_pointEESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterINS6_12less_by_sideIS8_S8_NS3_10strategies6buffer9cartesianIvEENS6_13less_by_indexESt4lessIiEEEEEEvT_SR_SR_RT0_.exit: ; preds = %.lr.ph.i.i.i, %41, %38
@@ -175739,7 +175739,7 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iterato
 41:                                               ; preds = %.lr.ph.i.i.i
   %42 = getelementptr inbounds %"struct.boost::geometry::detail::overlay::indexed_turn_operation", ptr %0, i64 %.018.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %39, i64 40, i1 false), !tbaa.struct !3442
-  %.not8.i = icmp ult i64 %.0919.in.i.i.i, 2
+  %.not8.i = icmp eq i64 %.0919.i.i67.i, 0
   br i1 %.not8.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay22indexed_turn_operationINS4_6buffer21buffer_turn_operationI14specific_pointNS3_13segment_ratioIdEEEEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterINS5_21less_by_segment_ratioISF_INS7_16buffer_turn_infoIS9_SB_EESaISN_EESD_NS7_24buffered_ring_collectionINS7_13buffered_ringINS3_5model4ringIS9_Lb1ELb1ESF_SaEEEEEESW_NS4_17no_rescale_policyENS3_10strategies6buffer9cartesianIvEELb0ELb0EEEEEEvT_S14_S14_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !3460
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay22indexed_turn_operationINS4_6buffer21buffer_turn_operationI14specific_pointNS3_13segment_ratioIdEEEEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterINS5_21less_by_segment_ratioISF_INS7_16buffer_turn_infoIS9_SB_EESaISN_EESD_NS7_24buffered_ring_collectionINS7_13buffered_ringINS3_5model4ringIS9_Lb1ELb1ESF_SaEEEEEESW_NS4_17no_rescale_policyENS3_10strategies6buffer9cartesianIvEELb0ELb0EEEEEEvT_S14_S14_RT0_.exit: ; preds = %.lr.ph.i.i.i, %41, %38
@@ -185047,7 +185047,7 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iterato
 41:                                               ; preds = %.lr.ph.i.i.i
   %42 = getelementptr inbounds %"struct.boost::geometry::detail::overlay::sort_by_side::ranked_point", ptr %0, i64 %.018.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %42, ptr noundef nonnull align 8 dereferenceable(136) %39, i64 136, i1 false)
-  %.not8.i = icmp ult i64 %.0919.in.i.i.i, 2
+  %.not8.i = icmp eq i64 %.0919.i.i67.i, 0
   br i1 %.not8.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay12sort_by_side12ranked_pointI14specific_pointEESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterINS6_12less_by_sideIS8_S8_NS3_10strategies6buffer9cartesianIvEENS6_13less_by_indexESt7greaterIiEEEEEEvT_SR_SR_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !3669
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay12sort_by_side12ranked_pointI14specific_pointEESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterINS6_12less_by_sideIS8_S8_NS3_10strategies6buffer9cartesianIvEENS6_13less_by_indexESt7greaterIiEEEEEEvT_SR_SR_RT0_.exit: ; preds = %.lr.ph.i.i.i, %41, %38

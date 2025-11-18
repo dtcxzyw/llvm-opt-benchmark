@@ -1998,7 +1998,7 @@ _ZNSt6vectorISt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet12AbstractBandESt
   %181 = phi i32 [ %182, %.lr.ph88 ], [ 0, %177 ]
   %182 = add nuw nsw i32 %181, 1
   %183 = ashr i32 %.086, 1
-  %.not49 = icmp ult i32 %.086, 2
+  %.not49 = icmp eq i32 %183, 0
   br i1 %.not49, label %._crit_edge89, label %.lr.ph88, !llvm.loop !215
 
 184:                                              ; preds = %180
@@ -4507,8 +4507,8 @@ _ZN8rawspeed15VC5Decompressor8BandDataC2Eii.exit: ; preds = %_ZNSt16allocator_tr
   store i16 %.sroa.01.0.extract.trunc.i.i, ptr %18, align 2, !tbaa !41
   store i32 %.sroa.43.0.extract.trunc.i.i, ptr %19, align 4, !tbaa !35
   %.not1.i = icmp eq i16 %.sroa.01.0.extract.trunc.i.i, 1
-  %.not2.i = icmp ult i64 %63, 4294967296
-  %or.cond.i = and i1 %.not2.i, %.not1.i
+  %.not2.i = icmp eq i64 %.sroa.43.0.extract.shift.i.i, 0
+  %or.cond.i = and i1 %.not1.i, %.not2.i
   br i1 %or.cond.i, label %_ZZNK8rawspeed15VC5Decompressor7Wavelet12HighPassBand6decodeEvEN7DeRLVer13verifyIsAtEndEv.exit, label %.invoke120
 
 .invoke120:                                       ; preds = %.noexc16, %._crit_edge57
@@ -4725,8 +4725,8 @@ _ZNK8rawspeed20PrefixCodeLUTDecoderINS_10VC5CodeTagENS_23PrefixCodeVectorDecoder
   %156 = shl i64 %150, 1
   store i64 %156, ptr %9, align 8, !tbaa !313
   %157 = sub i16 0, %152
-  %.not433.i = icmp slt i64 %150, 0
-  %spec.select.i = select i1 %.not433.i, i16 %157, i16 %152
+  %.not434.i = icmp slt i64 %150, 0
+  %spec.select.i = select i1 %.not434.i, i16 %157, i16 %152
   br label %.noexc21
 
 .noexc21:                                         ; preds = %153, %_ZNK8rawspeed20PrefixCodeLUTDecoderINS_10VC5CodeTagENS_23PrefixCodeVectorDecoderIS1_EEE6decodeINS_14BitStreamerMSBELb0EEEiRT_.exit.i
@@ -5104,7 +5104,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   tail call void @llvm.assume(i1 %16)
   %17 = icmp sgt i32 %12, -1
   tail call void @llvm.assume(i1 %17)
-  %18 = icmp ugt i32 %14, 1
+  %18 = icmp ne i32 %15, 0
   tail call void @llvm.assume(i1 %18)
   %19 = icmp sgt i32 %15, -1
   tail call void @llvm.assume(i1 %19)
@@ -5180,11 +5180,11 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   tail call void @llvm.assume(i1 %49)
   %50 = icmp samesign uge i32 %.sroa.4338.0.copyload, %.sroa.5339.0.copyload
   tail call void @llvm.assume(i1 %50)
-  %.not = icmp samesign ult i32 %12, 2
+  %.not = icmp eq i32 %22, 0
   br i1 %.not, label %._crit_edge351, label %.preheader345.lr.ph
 
 .preheader345.lr.ph:                              ; preds = %1
-  %.not352 = icmp samesign ult i32 %10, 2
+  %.not352 = icmp eq i32 %21, 0
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -5200,7 +5200,6 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   %60 = zext nneg i32 %.sroa.5311.0.copyload to i64
   %61 = zext nneg i32 %.sroa.5325.0.copyload to i64
   %62 = zext nneg i32 %.sroa.5339.0.copyload to i64
-  %umax = tail call i32 @llvm.umax.i32(i32 %21, i32 1)
   %63 = zext nneg i32 %.sroa.6298.0.copyload to i64
   %64 = zext nneg i32 %.sroa.4296.0.copyload to i64
   %65 = zext nneg i32 %.sroa.6312.0.copyload to i64
@@ -5210,7 +5209,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   %69 = zext nneg i32 %.sroa.6340.0.copyload to i64
   %70 = zext nneg i32 %.sroa.4338.0.copyload to i64
   %wide.trip.count364 = zext nneg i32 %22 to i64
-  %wide.trip.count = zext nneg i32 %umax to i64
+  %wide.trip.count = zext nneg i32 %21 to i64
   br label %.preheader345.us
 
 .preheader345.us:                                 ; preds = %.preheader345.us.preheader, %._crit_edge.us
@@ -5356,7 +5355,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   tail call void @llvm.assume(i1 %20)
   %21 = icmp sgt i32 %16, -1
   tail call void @llvm.assume(i1 %21)
-  %22 = icmp ugt i32 %18, 1
+  %22 = icmp ne i32 %19, 0
   tail call void @llvm.assume(i1 %22)
   %23 = icmp sgt i32 %19, -1
   tail call void @llvm.assume(i1 %23)
@@ -5432,11 +5431,11 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   tail call void @llvm.assume(i1 %53)
   %54 = icmp samesign uge i32 %.sroa.4338.0.copyload, %.sroa.5339.0.copyload
   tail call void @llvm.assume(i1 %54)
-  %.not = icmp samesign ult i32 %16, 2
+  %.not = icmp eq i32 %26, 0
   br i1 %.not, label %._crit_edge349, label %.preheader343.lr.ph
 
 .preheader343.lr.ph:                              ; preds = %1
-  %.not350 = icmp samesign ult i32 %14, 2
+  %.not350 = icmp eq i32 %25, 0
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -5457,7 +5456,6 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   %68 = zext nneg i32 %.sroa.5311.0.copyload to i64
   %69 = zext nneg i32 %.sroa.5325.0.copyload to i64
   %70 = zext nneg i32 %.sroa.5339.0.copyload to i64
-  %umax = call i32 @llvm.umax.i32(i32 %25, i32 1)
   %71 = zext nneg i32 %.sroa.6298.0.copyload to i64
   %72 = zext nneg i32 %.sroa.4296.0.copyload to i64
   %73 = zext nneg i32 %.sroa.6312.0.copyload to i64
@@ -5467,7 +5465,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   %77 = zext nneg i32 %.sroa.6340.0.copyload to i64
   %78 = zext nneg i32 %.sroa.4338.0.copyload to i64
   %wide.trip.count362 = zext nneg i32 %26 to i64
-  %wide.trip.count = zext nneg i32 %umax to i64
+  %wide.trip.count = zext nneg i32 %25 to i64
   %79 = xor i64 %63, -1
   %80 = getelementptr i32, ptr %4, i64 %79
   %81 = ptrtoint ptr %62 to i64
@@ -6319,8 +6317,8 @@ _ZNK8rawspeed20PrefixCodeLUTDecoderINS_10VC5CodeTagENS_23PrefixCodeVectorDecoder
   %105 = shl i64 %98, 1
   store i64 %105, ptr %1, align 8, !tbaa !313
   %106 = sub i16 0, %101
-  %.not433 = icmp slt i64 %98, 0
-  %spec.select = select i1 %.not433, i16 %106, i16 %101
+  %.not434 = icmp slt i64 %98, 0
+  %spec.select = select i1 %.not434, i16 %106, i16 %101
   %107 = zext i16 %spec.select to i64
   br label %108
 
@@ -6888,9 +6886,6 @@ declare i64 @llvm.umin.i64(i64, i64) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.abs.i16(i16, i1 immarg) #32
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #31
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }

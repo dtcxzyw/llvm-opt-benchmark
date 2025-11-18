@@ -220,12 +220,12 @@ highpass_filter.exit:                             ; preds = %45
   %93 = add nsw i64 %91, 2147516416
   %.not.i26.i.i = icmp samesign ult i64 %93, 4294967296
   %94 = icmp sgt i32 %90, -32769
-  %95 = select i1 %94, i32 2147483647, i32 -2147483648
+  %95 = select i1 %94, i32 2147418112, i32 -2147483648
   %.0.i27.i.i = select i1 %.not.i26.i.i, i32 %92, i32 %95
   %96 = lshr i32 %.0.i27.i.i, 16
   %97 = trunc nuw i32 %96 to i16
   store i16 %97, ptr %.01321.i, align 2, !tbaa !40
-  %.not.i.i116 = icmp ult i32 %.0.i27.i.i, 65536
+  %.not.i.i116 = icmp eq i32 %96, 0
   br i1 %.not.i.i116, label %98, label %.preheader.i.i
 
 98:                                               ; preds = %84
@@ -272,7 +272,7 @@ comp_autocorr.exit.loopexit.i:                    ; preds = %.preheader.i.i
   br label %comp_autocorr.exit.i
 
 comp_autocorr.exit.i:                             ; preds = %comp_autocorr.exit.loopexit.i, %98
-  %125 = phi i16 [ %.pre.i, %comp_autocorr.exit.loopexit.i ], [ %97, %98 ]
+  %125 = phi i16 [ %.pre.i, %comp_autocorr.exit.loopexit.i ], [ 0, %98 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %126 = getelementptr inbounds nuw i8, ptr %.01321.i, i64 2
   call void @llvm.lifetime.start.p0(ptr nonnull %21)

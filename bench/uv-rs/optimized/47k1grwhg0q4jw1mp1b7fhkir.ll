@@ -3507,7 +3507,7 @@ define hidden void @"_ZN58_$LT$uv_auth..realm..Realm$u20$as$u20$core..hash..Hash
   br i1 %28, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h85d734ad905f7313E.exit79.i.i.i", label %29
 
 29:                                               ; preds = %27
-  %.not.i.i.i = icmp samesign ult i64 %4, 2
+  %.not.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i, label %_ZN4core4hash6Hasher9write_str17hb6cfa8d47778bd25E.llvm.9463595199498220115.exit, label %30
 
 30:                                               ; preds = %29
@@ -3619,7 +3619,7 @@ _ZN4core4hash6Hasher9write_str17hb6cfa8d47778bd25E.llvm.9463595199498220115.exit
   br i1 %98, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h85d734ad905f7313E.exit79.i.i.i14", label %99
 
 99:                                               ; preds = %97
-  %.not.i.i.i13 = icmp samesign ult i64 %74, 2
+  %.not.i.i.i13 = icmp eq i64 %75, 0
   br i1 %.not.i.i.i13, label %_ZN4core4hash6Hasher9write_str17hb6cfa8d47778bd25E.llvm.9463595199498220115.exit20, label %100
 
 100:                                              ; preds = %99

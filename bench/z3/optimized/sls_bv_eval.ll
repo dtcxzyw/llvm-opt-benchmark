@@ -5503,7 +5503,7 @@ define hidden void @_ZNK3sls7bv_eval7set_divERKNS_5bvectES3_jRS1_S4_(ptr noundef
   %9 = lshr i64 %8, 5
   %10 = trunc nuw nsw i64 %9 to i32
   %11 = load ptr, ptr %2, align 8
-  %12 = icmp ne i32 %3, 0
+  %12 = icmp ne i64 %9, 0
   %umin = zext i1 %12 to i32
   br label %13
 
@@ -5530,7 +5530,7 @@ define hidden void @_ZNK3sls7bv_eval7set_divERKNS_5bvectES3_jRS1_S4_(ptr noundef
   %23 = getelementptr inbounds nuw i32, ptr %11, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !102
   %25 = icmp eq i32 %24, 0
-  %.not39 = icmp eq i32 %3, 0
+  %.not39 = icmp eq i64 %9, 0
   %.pre50 = load ptr, ptr %4, align 8, !tbaa !97
   br i1 %25, label %.preheader, label %.preheader34
 
@@ -5873,7 +5873,7 @@ _ZNK3sls12bv_valuation7is_zeroEv.exit37.thread:   ; preds = %106, %_ZNK3sls12bv_
   %156 = lshr i64 %155, 5
   %157 = trunc nuw nsw i64 %156 to i32
   %158 = load ptr, ptr %150, align 8
-  %159 = icmp ne i32 %151, 0
+  %159 = icmp ne i64 %156, 0
   %umin.i = zext i1 %159 to i32
   br label %160
 
@@ -5900,7 +5900,7 @@ _ZNK3sls12bv_valuation7is_zeroEv.exit37.thread:   ; preds = %106, %_ZNK3sls12bv_
   %170 = getelementptr inbounds nuw i32, ptr %158, i64 %169
   %171 = load i32, ptr %170, align 4, !tbaa !102
   %172 = icmp eq i32 %171, 0
-  %.not39.i = icmp eq i32 %151, 0
+  %.not39.i = icmp eq i64 %156, 0
   %.pre50.i = load ptr, ptr %152, align 8, !tbaa !97
   br i1 %172, label %.preheader.i, label %.preheader34.i
 
@@ -9336,10 +9336,10 @@ _ZNK3sls12bv_valuation8set_zeroERNS_5bvectE.exit141.thread: ; preds = %_ZNK3sls1
 
 _ZNK3sls12bv_valuation8set_zeroERNS_5bvectE.exit135: ; preds = %169
   %.not.i136 = icmp eq i32 %171, 0
-  br i1 %.not.i136, label %_ZNK3sls12bv_valuation8set_zeroERNS_5bvectE.exit141.thread256, label %.lr.ph.i137
+  br i1 %.not.i136, label %_ZNK3sls12bv_valuation8set_zeroERNS_5bvectE.exit141.thread258, label %.lr.ph.i137
 
-_ZNK3sls12bv_valuation8set_zeroERNS_5bvectE.exit141.thread256: ; preds = %_ZNK3sls12bv_valuation8set_zeroERNS_5bvectE.exit135
-  %.pre.i142257 = load ptr, ptr %122, align 8, !tbaa !97
+_ZNK3sls12bv_valuation8set_zeroERNS_5bvectE.exit141.thread258: ; preds = %_ZNK3sls12bv_valuation8set_zeroERNS_5bvectE.exit135
+  %.pre.i142259 = load ptr, ptr %122, align 8, !tbaa !97
   br label %_ZNK3sls12bv_valuation7set_oneERNS_5bvectE.exit147
 
 .lr.ph.i137:                                      ; preds = %_ZNK3sls12bv_valuation8set_zeroERNS_5bvectE.exit135
@@ -9371,8 +9371,8 @@ _ZNK3sls12bv_valuation8set_zeroERNS_5bvectE.exit141: ; preds = %175
   %184 = icmp samesign ult i64 %indvars.iv.next.i146, %183
   br i1 %184, label %.lr.ph.i144, label %_ZNK3sls12bv_valuation7set_oneERNS_5bvectE.exit147, !llvm.loop !238
 
-_ZNK3sls12bv_valuation7set_oneERNS_5bvectE.exit147: ; preds = %.lr.ph.i144, %_ZNK3sls12bv_valuation8set_zeroERNS_5bvectE.exit141.thread256, %_ZNK3sls12bv_valuation8set_zeroERNS_5bvectE.exit141.thread, %_ZNK3sls12bv_valuation8set_zeroERNS_5bvectE.exit141
-  %.pre.i142209 = phi ptr [ %.pre.i142208, %_ZNK3sls12bv_valuation8set_zeroERNS_5bvectE.exit141.thread ], [ %.pre.i142, %_ZNK3sls12bv_valuation8set_zeroERNS_5bvectE.exit141 ], [ %.pre.i142257, %_ZNK3sls12bv_valuation8set_zeroERNS_5bvectE.exit141.thread256 ], [ %.pre.i142, %.lr.ph.i144 ]
+_ZNK3sls12bv_valuation7set_oneERNS_5bvectE.exit147: ; preds = %.lr.ph.i144, %_ZNK3sls12bv_valuation8set_zeroERNS_5bvectE.exit141.thread258, %_ZNK3sls12bv_valuation8set_zeroERNS_5bvectE.exit141.thread, %_ZNK3sls12bv_valuation8set_zeroERNS_5bvectE.exit141
+  %.pre.i142209 = phi ptr [ %.pre.i142208, %_ZNK3sls12bv_valuation8set_zeroERNS_5bvectE.exit141.thread ], [ %.pre.i142, %_ZNK3sls12bv_valuation8set_zeroERNS_5bvectE.exit141 ], [ %.pre.i142259, %_ZNK3sls12bv_valuation8set_zeroERNS_5bvectE.exit141.thread258 ], [ %.pre.i142, %.lr.ph.i144 ]
   store i32 1, ptr %.pre.i142209, align 4, !tbaa !102
   %185 = load i32, ptr %35, align 4, !tbaa !131
   %186 = shl i32 %185, 1
@@ -9442,7 +9442,7 @@ _ZN6vectorIjLb0EjE7reserveEj.exit:                ; preds = %_ZNK6vectorIjLb0EjE
   %211 = lshr i64 %210, 5
   %212 = trunc nuw nsw i64 %211 to i32
   %213 = load ptr, ptr %116, align 8
-  %214 = icmp ne i32 %208, 0
+  %214 = icmp ne i64 %211, 0
   %umin.i = zext i1 %214 to i32
   br label %215
 
@@ -9469,7 +9469,7 @@ _ZN6vectorIjLb0EjE7reserveEj.exit:                ; preds = %_ZNK6vectorIjLb0EjE
   %225 = getelementptr inbounds nuw i32, ptr %213, i64 %224
   %226 = load i32, ptr %225, align 4, !tbaa !102
   %227 = icmp eq i32 %226, 0
-  %.not39.i = icmp eq i32 %208, 0
+  %.not39.i = icmp eq i64 %211, 0
   %.pre50.i = load ptr, ptr %117, align 8, !tbaa !97
   br i1 %227, label %.preheader.i, label %.preheader34.i
 
@@ -11350,7 +11350,7 @@ _ZNK3sls12bv_valuation6is_oneERKNS_5bvectE.exit124: ; preds = %.lr.ph, %_ZNK3sls
   %263 = lshr i64 %262, 5
   %264 = trunc nuw nsw i64 %263 to i32
   %265 = load ptr, ptr %1, align 8
-  %266 = icmp ne i32 %258, 0
+  %266 = icmp ne i64 %263, 0
   %umin.i = zext i1 %266 to i32
   br label %267
 
@@ -11377,7 +11377,7 @@ _ZNK3sls12bv_valuation6is_oneERKNS_5bvectE.exit124: ; preds = %.lr.ph, %_ZNK3sls
   %277 = getelementptr inbounds nuw i32, ptr %265, i64 %276
   %278 = load i32, ptr %277, align 4, !tbaa !102
   %279 = icmp eq i32 %278, 0
-  %.not39.i = icmp eq i32 %258, 0
+  %.not39.i = icmp eq i64 %263, 0
   %.pre50.i = load ptr, ptr %259, align 8, !tbaa !97
   br i1 %279, label %.preheader.i, label %.preheader34.i
 
@@ -11688,7 +11688,7 @@ _ZN3sls7bv_eval21mul_overflow_on_fixedERKNS_12bv_valuationERKNS_5bvectE.exit: ; 
   %134 = lshr i64 %133, 5
   %135 = trunc nuw nsw i64 %134 to i32
   %136 = load ptr, ptr %127, align 8
-  %137 = icmp ne i32 %129, 0
+  %137 = icmp ne i64 %134, 0
   %umin.i = zext i1 %137 to i32
   br label %138
 
@@ -11715,7 +11715,7 @@ _ZN3sls7bv_eval21mul_overflow_on_fixedERKNS_12bv_valuationERKNS_5bvectE.exit: ; 
   %148 = getelementptr inbounds nuw i32, ptr %136, i64 %147
   %149 = load i32, ptr %148, align 4, !tbaa !102
   %150 = icmp eq i32 %149, 0
-  %.not39.i = icmp eq i32 %129, 0
+  %.not39.i = icmp eq i64 %134, 0
   %.pre50.i = load ptr, ptr %130, align 8, !tbaa !97
   br i1 %150, label %.preheader.i, label %.preheader34.i
 

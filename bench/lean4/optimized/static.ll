@@ -8075,7 +8075,7 @@ _Z17_mi_stat_increaseP15mi_stat_count_sm.exit:    ; preds = %23, %_ZL24mi_atomic
   br i1 %61, label %._crit_edge.thread.i, label %62
 
 62:                                               ; preds = %60
-  %63 = icmp samesign ult i64 %34, 33554432
+  %63 = icmp eq i64 %35, 0
   br i1 %63, label %._crit_edge.thread.i, label %64
 
 64:                                               ; preds = %62
@@ -8092,67 +8092,64 @@ _ZL15mi_bitmap_mask_mm.exit24.i.i:                ; preds = %55
   %70 = shl i64 %69, %57
   %.0.i23.i.i = select i1 %68, i64 -1, i64 %70
   %71 = sub nsw i64 %35, %67
-  %72 = and i64 %71, 63
-  %notmask.i25.i.i = shl nsw i64 -1, %72
-  %73 = getelementptr inbounds nuw %"struct.std::atomic", ptr %56, i64 %41
-  %74 = xor i64 %.0.i23.i.i, -1
-  %75 = atomicrmw and ptr %73, i64 %74 acq_rel, align 8
-  %76 = and i64 %75, %.0.i23.i.i
-  %.not.i = icmp eq i64 %76, %.0.i23.i.i
-  %.032.i = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %.not1633.i = icmp ult i64 %71, 64
+  %72 = lshr i64 %71, 6
+  %73 = and i64 %71, 63
+  %notmask.i25.i.i = shl nsw i64 -1, %73
+  %74 = getelementptr inbounds nuw %"struct.std::atomic", ptr %56, i64 %41
+  %75 = xor i64 %.0.i23.i.i, -1
+  %76 = atomicrmw and ptr %74, i64 %75 acq_rel, align 8
+  %77 = and i64 %76, %.0.i23.i.i
+  %.not.i = icmp eq i64 %77, %.0.i23.i.i
+  %.032.i = getelementptr inbounds nuw i8, ptr %74, i64 8
+  %.not1633.i = icmp eq i64 %72, 0
   br i1 %.not1633.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.thread.i:                             ; preds = %64, %62, %60
   %.030.ph.i = phi i64 [ -1, %60 ], [ 0, %62 ], [ %66, %64 ]
-  %77 = getelementptr inbounds nuw %"struct.std::atomic", ptr %56, i64 %41
-  %78 = xor i64 %.030.ph.i, -1
-  %79 = atomicrmw and ptr %77, i64 %78 acq_rel, align 8
-  %80 = and i64 %79, %.030.ph.i
-  %.not45.i = icmp eq i64 %80, %.030.ph.i
-  br i1 %.not45.i, label %.critedge47, label %88
+  %78 = getelementptr inbounds nuw %"struct.std::atomic", ptr %56, i64 %41
+  %79 = xor i64 %.030.ph.i, -1
+  %80 = atomicrmw and ptr %78, i64 %79 acq_rel, align 8
+  %81 = and i64 %80, %.030.ph.i
+  %.not45.i = icmp eq i64 %81, %.030.ph.i
+  br i1 %.not45.i, label %.critedge47, label %87
 
-.lr.ph.i:                                         ; preds = %_ZL15mi_bitmap_mask_mm.exit24.i.i
-  %81 = lshr i64 %71, 6
-  br label %82
-
-82:                                               ; preds = %82, %.lr.ph.i
-  %.036.i = phi ptr [ %.032.i, %.lr.ph.i ], [ %.0.i, %82 ]
-  %.135.i = phi i1 [ %.not.i, %.lr.ph.i ], [ %spec.select20.i, %82 ]
-  %.01434.i = phi i64 [ %81, %.lr.ph.i ], [ %83, %82 ]
-  %83 = add nsw i64 %.01434.i, -1
-  %84 = atomicrmw xchg ptr %.036.i, i64 0 acq_rel, align 8
-  %.not19.i = icmp eq i64 %84, -1
+.lr.ph.i:                                         ; preds = %_ZL15mi_bitmap_mask_mm.exit24.i.i, %.lr.ph.i
+  %.036.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.032.i, %_ZL15mi_bitmap_mask_mm.exit24.i.i ]
+  %.135.i = phi i1 [ %spec.select20.i, %.lr.ph.i ], [ %.not.i, %_ZL15mi_bitmap_mask_mm.exit24.i.i ]
+  %.01434.i = phi i64 [ %82, %.lr.ph.i ], [ %72, %_ZL15mi_bitmap_mask_mm.exit24.i.i ]
+  %82 = add nsw i64 %.01434.i, -1
+  %83 = atomicrmw xchg ptr %.036.i, i64 0 acq_rel, align 8
+  %.not19.i = icmp eq i64 %83, -1
   %spec.select20.i = select i1 %.not19.i, i1 %.135.i, i1 false
   %.0.i = getelementptr inbounds nuw i8, ptr %.036.i, i64 8
-  %.not16.i = icmp eq i64 %83, 0
-  br i1 %.not16.i, label %._crit_edge.i, label %82, !llvm.loop !143
+  %.not16.i = icmp eq i64 %82, 0
+  br i1 %.not16.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !143
 
-._crit_edge.i:                                    ; preds = %82, %_ZL15mi_bitmap_mask_mm.exit24.i.i
-  %.1.lcssa.i = phi i1 [ %.not.i, %_ZL15mi_bitmap_mask_mm.exit24.i.i ], [ %spec.select20.i, %82 ]
-  %.0.lcssa.i = phi ptr [ %.032.i, %_ZL15mi_bitmap_mask_mm.exit24.i.i ], [ %.0.i, %82 ]
-  %.not17.i = icmp eq i64 %72, 0
-  br i1 %.not17.i, label %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit, label %85
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %_ZL15mi_bitmap_mask_mm.exit24.i.i
+  %.1.lcssa.i = phi i1 [ %.not.i, %_ZL15mi_bitmap_mask_mm.exit24.i.i ], [ %spec.select20.i, %.lr.ph.i ]
+  %.0.lcssa.i = phi ptr [ %.032.i, %_ZL15mi_bitmap_mask_mm.exit24.i.i ], [ %.0.i, %.lr.ph.i ]
+  %.not17.i = icmp eq i64 %73, 0
+  br i1 %.not17.i, label %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit, label %84
 
-85:                                               ; preds = %._crit_edge.i
-  %86 = atomicrmw and ptr %.0.lcssa.i, i64 %notmask.i25.i.i acq_rel, align 8
-  %87 = or i64 %86, %notmask.i25.i.i
-  %.not18.i = icmp eq i64 %87, -1
+84:                                               ; preds = %._crit_edge.i
+  %85 = atomicrmw and ptr %.0.lcssa.i, i64 %notmask.i25.i.i acq_rel, align 8
+  %86 = or i64 %85, %notmask.i25.i.i
+  %.not18.i = icmp eq i64 %86, -1
   %spec.select21.i = select i1 %.not18.i, i1 %.1.lcssa.i, i1 false
-  br i1 %spec.select21.i, label %.critedge47, label %88
+  br i1 %spec.select21.i, label %.critedge47, label %87
 
 _Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit: ; preds = %._crit_edge.i
-  br i1 %.1.lcssa.i, label %.critedge47, label %88
+  br i1 %.1.lcssa.i, label %.critedge47, label %87
 
-88:                                               ; preds = %._crit_edge.thread.i, %85, %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit
+87:                                               ; preds = %._crit_edge.thread.i, %84, %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit
   tail call void (i32, ptr, ...) @_Z17_mi_error_messageiPKcz(i32 noundef 11, ptr noundef nonnull @.str.7, ptr noundef nonnull %0, i64 noundef %1)
   br label %.critedge
 
-.critedge47:                                      ; preds = %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit, %85, %._crit_edge.thread.i, %25, %_Z17_mi_stat_increaseP15mi_stat_count_sm.exit
+.critedge47:                                      ; preds = %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit, %84, %._crit_edge.thread.i, %25, %_Z17_mi_stat_increaseP15mi_stat_count_sm.exit
   tail call fastcc void @_ZL19mi_arenas_try_purgebb(i1 noundef zeroext false, i1 noundef zeroext false)
   br label %.critedge
 
-.critedge:                                        ; preds = %37, %42, %88, %.critedge47, %4
+.critedge:                                        ; preds = %37, %42, %87, %.critedge47, %4
   ret void
 }
 
@@ -8250,57 +8247,54 @@ _ZL15mi_bitmap_mask_mm.exit24.i:                  ; preds = %4
   %19 = shl i64 %18, %6
   %.0.i23.i = select i1 %17, i64 -1, i64 %19
   %20 = sub i64 %2, %16
-  %21 = and i64 %20, 63
-  %notmask.i25.i = shl nsw i64 -1, %21
-  %22 = getelementptr inbounds nuw %"struct.std::atomic", ptr %0, i64 %5
-  %23 = xor i64 %.0.i23.i, -1
-  %24 = atomicrmw and ptr %22, i64 %23 acq_rel, align 8
-  %25 = and i64 %24, %.0.i23.i
-  %.not = icmp eq i64 %25, %.0.i23.i
-  %.032 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %.not1633 = icmp ult i64 %20, 64
+  %21 = lshr i64 %20, 6
+  %22 = and i64 %20, 63
+  %notmask.i25.i = shl nsw i64 -1, %22
+  %23 = getelementptr inbounds nuw %"struct.std::atomic", ptr %0, i64 %5
+  %24 = xor i64 %.0.i23.i, -1
+  %25 = atomicrmw and ptr %23, i64 %24 acq_rel, align 8
+  %26 = and i64 %25, %.0.i23.i
+  %.not = icmp eq i64 %26, %.0.i23.i
+  %.032 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %.not1633 = icmp eq i64 %21, 0
   br i1 %.not1633, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %9, %11, %13
   %.030.ph = phi i64 [ -1, %9 ], [ 0, %11 ], [ %15, %13 ]
-  %26 = getelementptr inbounds nuw %"struct.std::atomic", ptr %0, i64 %5
-  %27 = xor i64 %.030.ph, -1
-  %28 = atomicrmw and ptr %26, i64 %27 acq_rel, align 8
-  %29 = and i64 %28, %.030.ph
-  %.not45 = icmp eq i64 %29, %.030.ph
-  br label %37
+  %27 = getelementptr inbounds nuw %"struct.std::atomic", ptr %0, i64 %5
+  %28 = xor i64 %.030.ph, -1
+  %29 = atomicrmw and ptr %27, i64 %28 acq_rel, align 8
+  %30 = and i64 %29, %.030.ph
+  %.not45 = icmp eq i64 %30, %.030.ph
+  br label %36
 
-.lr.ph:                                           ; preds = %_ZL15mi_bitmap_mask_mm.exit24.i
-  %30 = lshr i64 %20, 6
-  br label %31
-
-31:                                               ; preds = %.lr.ph, %31
-  %.036 = phi ptr [ %.032, %.lr.ph ], [ %.0, %31 ]
-  %.135 = phi i1 [ %.not, %.lr.ph ], [ %spec.select20, %31 ]
-  %.01434 = phi i64 [ %30, %.lr.ph ], [ %32, %31 ]
-  %32 = add nsw i64 %.01434, -1
-  %33 = atomicrmw xchg ptr %.036, i64 0 acq_rel, align 8
-  %.not19 = icmp eq i64 %33, -1
+.lr.ph:                                           ; preds = %_ZL15mi_bitmap_mask_mm.exit24.i, %.lr.ph
+  %.036 = phi ptr [ %.0, %.lr.ph ], [ %.032, %_ZL15mi_bitmap_mask_mm.exit24.i ]
+  %.135 = phi i1 [ %spec.select20, %.lr.ph ], [ %.not, %_ZL15mi_bitmap_mask_mm.exit24.i ]
+  %.01434 = phi i64 [ %31, %.lr.ph ], [ %21, %_ZL15mi_bitmap_mask_mm.exit24.i ]
+  %31 = add nsw i64 %.01434, -1
+  %32 = atomicrmw xchg ptr %.036, i64 0 acq_rel, align 8
+  %.not19 = icmp eq i64 %32, -1
   %spec.select20 = select i1 %.not19, i1 %.135, i1 false
   %.0 = getelementptr inbounds nuw i8, ptr %.036, i64 8
-  %.not16 = icmp eq i64 %32, 0
-  br i1 %.not16, label %._crit_edge, label %31, !llvm.loop !143
+  %.not16 = icmp eq i64 %31, 0
+  br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !143
 
-._crit_edge:                                      ; preds = %31, %_ZL15mi_bitmap_mask_mm.exit24.i
-  %.1.lcssa = phi i1 [ %.not, %_ZL15mi_bitmap_mask_mm.exit24.i ], [ %spec.select20, %31 ]
-  %.0.lcssa = phi ptr [ %.032, %_ZL15mi_bitmap_mask_mm.exit24.i ], [ %.0, %31 ]
-  %.not17 = icmp eq i64 %21, 0
-  br i1 %.not17, label %37, label %34
+._crit_edge:                                      ; preds = %.lr.ph, %_ZL15mi_bitmap_mask_mm.exit24.i
+  %.1.lcssa = phi i1 [ %.not, %_ZL15mi_bitmap_mask_mm.exit24.i ], [ %spec.select20, %.lr.ph ]
+  %.0.lcssa = phi ptr [ %.032, %_ZL15mi_bitmap_mask_mm.exit24.i ], [ %.0, %.lr.ph ]
+  %.not17 = icmp eq i64 %22, 0
+  br i1 %.not17, label %36, label %33
 
-34:                                               ; preds = %._crit_edge
-  %35 = atomicrmw and ptr %.0.lcssa, i64 %notmask.i25.i acq_rel, align 8
-  %36 = or i64 %35, %notmask.i25.i
-  %.not18 = icmp eq i64 %36, -1
+33:                                               ; preds = %._crit_edge
+  %34 = atomicrmw and ptr %.0.lcssa, i64 %notmask.i25.i acq_rel, align 8
+  %35 = or i64 %34, %notmask.i25.i
+  %.not18 = icmp eq i64 %35, -1
   %spec.select21 = select i1 %.not18, i1 %.1.lcssa, i1 false
-  br label %37
+  br label %36
 
-37:                                               ; preds = %._crit_edge.thread, %34, %._crit_edge
-  %.3 = phi i1 [ %.1.lcssa, %._crit_edge ], [ %spec.select21, %34 ], [ %.not45, %._crit_edge.thread ]
+36:                                               ; preds = %._crit_edge.thread, %33, %._crit_edge
+  %.3 = phi i1 [ %.1.lcssa, %._crit_edge ], [ %spec.select21, %33 ], [ %.not45, %._crit_edge.thread ]
   ret i1 %.3
 }
 
@@ -8526,7 +8520,7 @@ _ZL20mi_arena_purge_delayv.exit30:                ; preds = %mi_option_get.exit.
   br label %47
 
 47:                                               ; preds = %_ZL20mi_arena_purge_delayv.exit30, %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit.thread
-  %.02053 = phi i64 [ 0, %_ZL20mi_arena_purge_delayv.exit30 ], [ %412, %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit.thread ]
+  %.02053 = phi i64 [ 0, %_ZL20mi_arena_purge_delayv.exit30 ], [ %409, %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit.thread ]
   %.02252 = phi i64 [ %32, %_ZL20mi_arena_purge_delayv.exit30 ], [ %.224.ph, %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit.thread ]
   %48 = getelementptr inbounds nuw %"struct.std::atomic.6", ptr @_ZL9mi_arenas, i64 %.02053
   %49 = load atomic i64, ptr %48 acquire, align 8
@@ -8567,11 +8561,11 @@ _ZSt39atomic_compare_exchange_strong_explicitIlEbPSt6atomicIT_EPNSt15__type_iden
   br label %68
 
 ._crit_edge.i:                                    ; preds = %.loopexit136.i
-  br i1 %.151.i, label %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit, label %390
+  br i1 %.151.i, label %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit, label %387
 
 68:                                               ; preds = %.loopexit136.i, %.lr.ph.i
-  %69 = phi i64 [ %63, %.lr.ph.i ], [ %387, %.loopexit136.i ]
-  %.049152.i = phi i64 [ 0, %.lr.ph.i ], [ %388, %.loopexit136.i ]
+  %69 = phi i64 [ %63, %.lr.ph.i ], [ %384, %.loopexit136.i ]
+  %.049152.i = phi i64 [ 0, %.lr.ph.i ], [ %385, %.loopexit136.i ]
   %.050151.i = phi i1 [ true, %.lr.ph.i ], [ %.151.i, %.loopexit136.i ]
   %.052150.i = phi i1 [ false, %.lr.ph.i ], [ %.153.i, %.loopexit136.i ]
   %70 = load ptr, ptr %64, align 8, !tbaa !151
@@ -8587,7 +8581,7 @@ _ZSt39atomic_compare_exchange_strong_explicitIlEbPSt6atomicIT_EPNSt15__type_iden
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.critedge62.i, %.preheader135.i
-  %.046148.i = phi i64 [ 0, %.preheader135.i ], [ %385, %.critedge62.i ]
+  %.046148.i = phi i64 [ 0, %.preheader135.i ], [ %382, %.critedge62.i ]
   %.047147.i = phi i64 [ %72, %.preheader135.i ], [ %.148.i, %.critedge62.i ]
   %.2146.i = phi i1 [ %.050151.i, %.preheader135.i ], [ %.3.i, %.critedge62.i ]
   %.254145.i = phi i1 [ %.052150.i, %.preheader135.i ], [ %.355.i, %.critedge62.i ]
@@ -8653,9 +8647,9 @@ _Z20_mi_bitmap_try_claimPSt6atomicImEmmm.exit.i:  ; preds = %.lr.ph.i.i
   %98 = icmp ult i64 %.046148.i, %97
   br i1 %98, label %.preheader.i.i, label %_ZL20mi_arena_purge_rangeP10mi_arena_smmmm.exit.thread.i
 
-.preheader.i.i:                                   ; preds = %_Z20_mi_bitmap_try_claimPSt6atomicImEmmm.exit.i, %376
-  %.029.i.i = phi i64 [ %378, %376 ], [ %.046148.i, %_Z20_mi_bitmap_try_claimPSt6atomicImEmmm.exit.i ]
-  %.02328.i.i = phi i1 [ %.1.i.i, %376 ], [ false, %_Z20_mi_bitmap_try_claimPSt6atomicImEmmm.exit.i ]
+.preheader.i.i:                                   ; preds = %_Z20_mi_bitmap_try_claimPSt6atomicImEmmm.exit.i, %373
+  %.029.i.i = phi i64 [ %375, %373 ], [ %.046148.i, %_Z20_mi_bitmap_try_claimPSt6atomicImEmmm.exit.i ]
+  %.02328.i.i = phi i1 [ %.1.i.i, %373 ], [ false, %_Z20_mi_bitmap_try_claimPSt6atomicImEmmm.exit.i ]
   br label %99
 
 99:                                               ; preds = %103, %.preheader.i.i
@@ -8676,7 +8670,7 @@ _Z20_mi_bitmap_try_claimPSt6atomicImEmmm.exit.i:  ; preds = %.lr.ph.i.i
   %.022.lcssa.i.i = phi i64 [ %104, %103 ], [ %.02227.i.i, %99 ]
   %.022.lcssa.i.fr.i = freeze i64 %.022.lcssa.i.i
   %.not26.i.i = icmp eq i64 %.022.lcssa.i.fr.i, 0
-  br i1 %.not26.i.i, label %376, label %107
+  br i1 %.not26.i.i, label %373, label %107
 
 107:                                              ; preds = %.critedge.i.i
   %108 = add i64 %.029.i.i, %73
@@ -9225,182 +9219,175 @@ _ZL15mi_bitmap_mask_mm.exit24.i.i.i.i:            ; preds = %_Z15_mi_os_purge_ex
   %347 = xor i64 %notmask.i22.i.i.i.i, -1
   %348 = shl i64 %347, %115
   %349 = sub i64 %.022.lcssa.i.fr.i, %345
-  %350 = and i64 %349, 63
-  %notmask.i25.i.i.i.i = shl nsw i64 -1, %350
-  %351 = getelementptr inbounds nuw %"struct.std::atomic", ptr %337, i64 %114
-  %352 = xor i64 %348, -1
-  %353 = select i1 %346, i64 0, i64 %352
-  %354 = atomicrmw and ptr %351, i64 %353 acq_rel, align 8
-  %.032.i.i.i = getelementptr inbounds nuw i8, ptr %351, i64 8
-  %.not1633.i.i.i = icmp ult i64 %349, 64
+  %350 = lshr i64 %349, 6
+  %351 = and i64 %349, 63
+  %notmask.i25.i.i.i.i = shl nsw i64 -1, %351
+  %352 = getelementptr inbounds nuw %"struct.std::atomic", ptr %337, i64 %114
+  %353 = xor i64 %348, -1
+  %354 = select i1 %346, i64 0, i64 %353
+  %355 = atomicrmw and ptr %352, i64 %354 acq_rel, align 8
+  %.032.i.i.i = getelementptr inbounds nuw i8, ptr %352, i64 8
+  %.not1633.i.i.i = icmp eq i64 %350, 0
   br i1 %.not1633.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %_ZL15mi_bitmap_mask_mm.exit24.i.i.i.i
-  %355 = lshr i64 %349, 6
-  br label %356
-
-356:                                              ; preds = %356, %.lr.ph.i.i.i
-  %.036.i.i.i = phi ptr [ %.032.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i71.i, %356 ]
-  %.01434.i.i.i = phi i64 [ %355, %.lr.ph.i.i.i ], [ %357, %356 ]
-  %357 = add nsw i64 %.01434.i.i.i, -1
-  %358 = atomicrmw xchg ptr %.036.i.i.i, i64 0 acq_rel, align 8
+.lr.ph.i.i.i:                                     ; preds = %_ZL15mi_bitmap_mask_mm.exit24.i.i.i.i, %.lr.ph.i.i.i
+  %.036.i.i.i = phi ptr [ %.0.i.i71.i, %.lr.ph.i.i.i ], [ %.032.i.i.i, %_ZL15mi_bitmap_mask_mm.exit24.i.i.i.i ]
+  %.01434.i.i.i = phi i64 [ %356, %.lr.ph.i.i.i ], [ %350, %_ZL15mi_bitmap_mask_mm.exit24.i.i.i.i ]
+  %356 = add nsw i64 %.01434.i.i.i, -1
+  %357 = atomicrmw xchg ptr %.036.i.i.i, i64 0 acq_rel, align 8
   %.0.i.i71.i = getelementptr inbounds nuw i8, ptr %.036.i.i.i, i64 8
-  %.not16.i.i.i = icmp eq i64 %357, 0
-  br i1 %.not16.i.i.i, label %._crit_edge.i.i.i, label %356, !llvm.loop !143
+  %.not16.i.i.i = icmp eq i64 %356, 0
+  br i1 %.not16.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !143
 
-._crit_edge.i.i.i:                                ; preds = %356, %_ZL15mi_bitmap_mask_mm.exit24.i.i.i.i
-  %.0.lcssa.i.i.i = phi ptr [ %.032.i.i.i, %_ZL15mi_bitmap_mask_mm.exit24.i.i.i.i ], [ %.0.i.i71.i, %356 ]
-  %.not17.i.i.i = icmp eq i64 %350, 0
-  br i1 %.not17.i.i.i, label %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.i.i, label %359
+._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %_ZL15mi_bitmap_mask_mm.exit24.i.i.i.i
+  %.0.lcssa.i.i.i = phi ptr [ %.032.i.i.i, %_ZL15mi_bitmap_mask_mm.exit24.i.i.i.i ], [ %.0.i.i71.i, %.lr.ph.i.i.i ]
+  %.not17.i.i.i = icmp eq i64 %351, 0
+  br i1 %.not17.i.i.i, label %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.i.i, label %358
 
-359:                                              ; preds = %._crit_edge.i.i.i
-  %360 = atomicrmw and ptr %.0.lcssa.i.i.i, i64 %notmask.i25.i.i.i.i acq_rel, align 8
+358:                                              ; preds = %._crit_edge.i.i.i
+  %359 = atomicrmw and ptr %.0.lcssa.i.i.i, i64 %notmask.i25.i.i.i.i acq_rel, align 8
   br label %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.i.i
 
-_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.i.i: ; preds = %359, %._crit_edge.i.i.i
+_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.i.i: ; preds = %358, %._crit_edge.i.i.i
   br i1 %.0.in.i.i32, label %_ZL15mi_bitmap_mask_mm.exit24.i.i19.i.i, label %_ZL14mi_arena_purgeP10mi_arena_smm.exit.i
 
 _Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.thread.thread.i.i: ; preds = %338
-  %361 = getelementptr inbounds nuw %"struct.std::atomic", ptr %337, i64 %114
-  %362 = atomicrmw xchg ptr %361, i64 0 acq_rel, align 8
+  %360 = getelementptr inbounds nuw %"struct.std::atomic", ptr %337, i64 %114
+  %361 = atomicrmw xchg ptr %360, i64 0 acq_rel, align 8
   br i1 %.0.in.i.i32, label %._crit_edge.thread.i42.i.i, label %_ZL14mi_arena_purgeP10mi_arena_smm.exit.i
 
 _ZL15mi_bitmap_mask_mm.exit24.i.i19.i.i:          ; preds = %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.i.i
-  %363 = load ptr, ptr %67, align 8, !tbaa !142
-  %364 = getelementptr inbounds nuw %"struct.std::atomic", ptr %363, i64 %114
-  %365 = atomicrmw and ptr %364, i64 %353 acq_rel, align 8
-  %.032.i24.i.i = getelementptr inbounds nuw i8, ptr %364, i64 8
+  %362 = load ptr, ptr %67, align 8, !tbaa !142
+  %363 = getelementptr inbounds nuw %"struct.std::atomic", ptr %362, i64 %114
+  %364 = atomicrmw and ptr %363, i64 %354 acq_rel, align 8
+  %.032.i24.i.i = getelementptr inbounds nuw i8, ptr %363, i64 8
   br i1 %.not1633.i.i.i, label %._crit_edge.i34.i.i, label %.lr.ph.i26.i.i
 
 ._crit_edge.thread.i42.i.i:                       ; preds = %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.thread.thread.i.i, %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.thread.i.i
   %.030.ph.i43.i.i = phi i64 [ 0, %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.thread.thread.i.i ], [ %342, %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.thread.i.i ]
-  %366 = load ptr, ptr %67, align 8, !tbaa !142
-  %367 = getelementptr inbounds nuw %"struct.std::atomic", ptr %366, i64 %114
-  %368 = atomicrmw and ptr %367, i64 %.030.ph.i43.i.i acq_rel, align 8
+  %365 = load ptr, ptr %67, align 8, !tbaa !142
+  %366 = getelementptr inbounds nuw %"struct.std::atomic", ptr %365, i64 %114
+  %367 = atomicrmw and ptr %366, i64 %.030.ph.i43.i.i acq_rel, align 8
   br label %_ZL14mi_arena_purgeP10mi_arena_smm.exit.i
 
-.lr.ph.i26.i.i:                                   ; preds = %_ZL15mi_bitmap_mask_mm.exit24.i.i19.i.i
-  %369 = lshr i64 %349, 6
-  br label %370
-
-370:                                              ; preds = %370, %.lr.ph.i26.i.i
-  %.036.i27.i.i = phi ptr [ %.032.i24.i.i, %.lr.ph.i26.i.i ], [ %.0.i32.i.i, %370 ]
-  %.01434.i29.i.i = phi i64 [ %369, %.lr.ph.i26.i.i ], [ %371, %370 ]
-  %371 = add nsw i64 %.01434.i29.i.i, -1
-  %372 = atomicrmw xchg ptr %.036.i27.i.i, i64 0 acq_rel, align 8
+.lr.ph.i26.i.i:                                   ; preds = %_ZL15mi_bitmap_mask_mm.exit24.i.i19.i.i, %.lr.ph.i26.i.i
+  %.036.i27.i.i = phi ptr [ %.0.i32.i.i, %.lr.ph.i26.i.i ], [ %.032.i24.i.i, %_ZL15mi_bitmap_mask_mm.exit24.i.i19.i.i ]
+  %.01434.i29.i.i = phi i64 [ %368, %.lr.ph.i26.i.i ], [ %350, %_ZL15mi_bitmap_mask_mm.exit24.i.i19.i.i ]
+  %368 = add nsw i64 %.01434.i29.i.i, -1
+  %369 = atomicrmw xchg ptr %.036.i27.i.i, i64 0 acq_rel, align 8
   %.0.i32.i.i = getelementptr inbounds nuw i8, ptr %.036.i27.i.i, i64 8
-  %.not16.i33.i.i = icmp eq i64 %371, 0
-  br i1 %.not16.i33.i.i, label %._crit_edge.i34.i.i, label %370, !llvm.loop !143
+  %.not16.i33.i.i = icmp eq i64 %368, 0
+  br i1 %.not16.i33.i.i, label %._crit_edge.i34.i.i, label %.lr.ph.i26.i.i, !llvm.loop !143
 
-._crit_edge.i34.i.i:                              ; preds = %370, %_ZL15mi_bitmap_mask_mm.exit24.i.i19.i.i
-  %.0.lcssa.i36.i.i = phi ptr [ %.032.i24.i.i, %_ZL15mi_bitmap_mask_mm.exit24.i.i19.i.i ], [ %.0.i32.i.i, %370 ]
-  br i1 %.not17.i.i.i, label %_ZL14mi_arena_purgeP10mi_arena_smm.exit.i, label %373
+._crit_edge.i34.i.i:                              ; preds = %.lr.ph.i26.i.i, %_ZL15mi_bitmap_mask_mm.exit24.i.i19.i.i
+  %.0.lcssa.i36.i.i = phi ptr [ %.032.i24.i.i, %_ZL15mi_bitmap_mask_mm.exit24.i.i19.i.i ], [ %.0.i32.i.i, %.lr.ph.i26.i.i ]
+  br i1 %.not17.i.i.i, label %_ZL14mi_arena_purgeP10mi_arena_smm.exit.i, label %370
 
-373:                                              ; preds = %._crit_edge.i34.i.i
-  %374 = atomicrmw and ptr %.0.lcssa.i36.i.i, i64 %notmask.i25.i.i.i.i acq_rel, align 8
+370:                                              ; preds = %._crit_edge.i34.i.i
+  %371 = atomicrmw and ptr %.0.lcssa.i36.i.i, i64 %notmask.i25.i.i.i.i acq_rel, align 8
   br label %_ZL14mi_arena_purgeP10mi_arena_smm.exit.i
 
-_ZL14mi_arena_purgeP10mi_arena_smm.exit.i:        ; preds = %373, %._crit_edge.i34.i.i, %._crit_edge.thread.i42.i.i, %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.thread.thread.i.i, %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.i.i, %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.thread.i.i
-  %375 = icmp eq i64 %.022.lcssa.i.fr.i, %.145144.i
-  %spec.select.i.i = select i1 %375, i1 true, i1 %.02328.i.i
-  br label %376
+_ZL14mi_arena_purgeP10mi_arena_smm.exit.i:        ; preds = %370, %._crit_edge.i34.i.i, %._crit_edge.thread.i42.i.i, %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.thread.thread.i.i, %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.i.i, %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.thread.i.i
+  %372 = icmp eq i64 %.022.lcssa.i.fr.i, %.145144.i
+  %spec.select.i.i = select i1 %372, i1 true, i1 %.02328.i.i
+  br label %373
 
-376:                                              ; preds = %_ZL14mi_arena_purgeP10mi_arena_smm.exit.i, %.critedge.i.i
+373:                                              ; preds = %_ZL14mi_arena_purgeP10mi_arena_smm.exit.i, %.critedge.i.i
   %.1.i.i = phi i1 [ %spec.select.i.i, %_ZL14mi_arena_purgeP10mi_arena_smm.exit.i ], [ %.02328.i.i, %.critedge.i.i ]
-  %377 = add i64 %.029.i.i, 1
-  %378 = add i64 %377, %.022.lcssa.i.fr.i
-  %379 = icmp ult i64 %378, %97
-  br i1 %379, label %.preheader.i.i, label %_ZL20mi_arena_purge_rangeP10mi_arena_smmmm.exit.i, !llvm.loop !158
+  %374 = add i64 %.029.i.i, 1
+  %375 = add i64 %374, %.022.lcssa.i.fr.i
+  %376 = icmp ult i64 %375, %97
+  br i1 %376, label %.preheader.i.i, label %_ZL20mi_arena_purge_rangeP10mi_arena_smmmm.exit.i, !llvm.loop !158
 
-_ZL20mi_arena_purge_rangeP10mi_arena_smmmm.exit.i: ; preds = %376
+_ZL20mi_arena_purge_rangeP10mi_arena_smmmm.exit.i: ; preds = %373
   %spec.select.i = select i1 %.1.i.i, i1 %.2146.i, i1 false
   br label %_ZL20mi_arena_purge_rangeP10mi_arena_smmmm.exit.thread.i
 
 _ZL20mi_arena_purge_rangeP10mi_arena_smmmm.exit.thread.i: ; preds = %_ZL20mi_arena_purge_rangeP10mi_arena_smmmm.exit.i, %_Z20_mi_bitmap_try_claimPSt6atomicImEmmm.exit.i
-  %380 = phi i1 [ false, %_Z20_mi_bitmap_try_claimPSt6atomicImEmmm.exit.i ], [ %spec.select.i, %_ZL20mi_arena_purge_rangeP10mi_arena_smmmm.exit.i ]
-  %381 = xor i64 %85, -1
-  %382 = select i1 %83, i64 0, i64 %381
-  %383 = atomicrmw and ptr %75, i64 %382 acq_rel, align 8
+  %377 = phi i1 [ false, %_Z20_mi_bitmap_try_claimPSt6atomicImEmmm.exit.i ], [ %spec.select.i, %_ZL20mi_arena_purge_rangeP10mi_arena_smmmm.exit.i ]
+  %378 = xor i64 %85, -1
+  %379 = select i1 %83, i64 0, i64 %378
+  %380 = atomicrmw and ptr %75, i64 %379 acq_rel, align 8
   br label %.critedge62.i
 
 .critedge62.i:                                    ; preds = %.loopexit.i, %_ZL20mi_arena_purge_rangeP10mi_arena_smmmm.exit.thread.i, %.critedge.i
   %.145138.i = phi i64 [ %.145144.i, %_ZL20mi_arena_purge_rangeP10mi_arena_smmmm.exit.thread.i ], [ 0, %.critedge.i ], [ 0, %.loopexit.i ]
   %.355.i = phi i1 [ true, %_ZL20mi_arena_purge_rangeP10mi_arena_smmmm.exit.thread.i ], [ %.254145.i, %.critedge.i ], [ %.254145.i, %.loopexit.i ]
-  %.3.i = phi i1 [ %380, %_ZL20mi_arena_purge_rangeP10mi_arena_smmmm.exit.thread.i ], [ %.2146.i, %.critedge.i ], [ %.2146.i, %.loopexit.i ]
+  %.3.i = phi i1 [ %377, %_ZL20mi_arena_purge_rangeP10mi_arena_smmmm.exit.thread.i ], [ %.2146.i, %.critedge.i ], [ %.2146.i, %.loopexit.i ]
   %.148.i = phi i64 [ %96, %_ZL20mi_arena_purge_rangeP10mi_arena_smmmm.exit.thread.i ], [ %.047147.i, %.critedge.i ], [ %.047147.i, %.loopexit.i ]
-  %384 = add nuw nsw i64 %.046148.i, 1
-  %385 = add i64 %384, %.145138.i
-  %386 = icmp ult i64 %385, 64
-  br i1 %386, label %.preheader.i, label %.loopexit136.loopexit.i, !llvm.loop !159
+  %381 = add nuw nsw i64 %.046148.i, 1
+  %382 = add i64 %381, %.145138.i
+  %383 = icmp ult i64 %382, 64
+  br i1 %383, label %.preheader.i, label %.loopexit136.loopexit.i, !llvm.loop !159
 
 .loopexit136.loopexit.i:                          ; preds = %.critedge62.i
   %.pre.i = load i64, ptr %62, align 8, !tbaa !105
   br label %.loopexit136.i
 
 .loopexit136.i:                                   ; preds = %.loopexit136.loopexit.i, %68
-  %387 = phi i64 [ %69, %68 ], [ %.pre.i, %.loopexit136.loopexit.i ]
+  %384 = phi i64 [ %69, %68 ], [ %.pre.i, %.loopexit136.loopexit.i ]
   %.153.i = phi i1 [ %.052150.i, %68 ], [ %.355.i, %.loopexit136.loopexit.i ]
   %.151.i = phi i1 [ %.050151.i, %68 ], [ %.3.i, %.loopexit136.loopexit.i ]
-  %388 = add nuw i64 %.049152.i, 1
-  %389 = icmp ult i64 %388, %387
-  br i1 %389, label %68, label %._crit_edge.i, !llvm.loop !160
+  %385 = add nuw i64 %.049152.i, 1
+  %386 = icmp ult i64 %385, %384
+  br i1 %386, label %68, label %._crit_edge.i, !llvm.loop !160
 
-390:                                              ; preds = %._crit_edge.i
-  %391 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 488), align 8, !tbaa !106
-  %392 = icmp eq i32 %391, 0
-  br i1 %392, label %393, label %mi_option_get.exit.i.i, !prof !17
+387:                                              ; preds = %._crit_edge.i
+  %388 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 488), align 8, !tbaa !106
+  %389 = icmp eq i32 %388, 0
+  br i1 %389, label %390, label %mi_option_get.exit.i.i, !prof !17
 
-393:                                              ; preds = %390
+390:                                              ; preds = %387
   call fastcc void @_ZL14mi_option_initP16mi_option_desc_s(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 480))
   br label %mi_option_get.exit.i.i
 
-mi_option_get.exit.i.i:                           ; preds = %393, %390
-  %394 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 480), align 16, !tbaa !110
-  %395 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 776), align 8, !tbaa !106
-  %396 = icmp eq i32 %395, 0
-  br i1 %396, label %397, label %_ZL20mi_arena_purge_delayv.exit.i, !prof !17
+mi_option_get.exit.i.i:                           ; preds = %390, %387
+  %391 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 480), align 16, !tbaa !110
+  %392 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 776), align 8, !tbaa !106
+  %393 = icmp eq i32 %392, 0
+  br i1 %393, label %394, label %_ZL20mi_arena_purge_delayv.exit.i, !prof !17
 
-397:                                              ; preds = %mi_option_get.exit.i.i
+394:                                              ; preds = %mi_option_get.exit.i.i
   call fastcc void @_ZL14mi_option_initP16mi_option_desc_s(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 768))
   br label %_ZL20mi_arena_purge_delayv.exit.i
 
-_ZL20mi_arena_purge_delayv.exit.i:                ; preds = %397, %mi_option_get.exit.i.i
-  %398 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 768), align 16, !tbaa !110
-  %399 = mul nsw i64 %398, %394
+_ZL20mi_arena_purge_delayv.exit.i:                ; preds = %394, %mi_option_get.exit.i.i
+  %395 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 768), align 16, !tbaa !110
+  %396 = mul nsw i64 %395, %391
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %400 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #57
-  %401 = load i64, ptr %3, align 8, !tbaa !148
-  %402 = mul nsw i64 %401, 1000
-  %403 = load i64, ptr %33, align 8, !tbaa !150
-  %404 = sdiv i64 %403, 1000000
+  %397 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #57
+  %398 = load i64, ptr %3, align 8, !tbaa !148
+  %399 = mul nsw i64 %398, 1000
+  %400 = load i64, ptr %33, align 8, !tbaa !150
+  %401 = sdiv i64 %400, 1000000
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %405 = add i64 %402, %399
-  %406 = add i64 %405, %404
-  %407 = cmpxchg ptr %55, i64 0, i64 %406 acq_rel acquire, align 8
-  br i1 %.153.i, label %408, label %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit.thread
+  %402 = add i64 %399, %396
+  %403 = add i64 %402, %401
+  %404 = cmpxchg ptr %55, i64 0, i64 %403 acq_rel acquire, align 8
+  br i1 %.153.i, label %405, label %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit.thread
 
 _ZL18mi_arena_try_purgeP10mi_arena_slb.exit:      ; preds = %._crit_edge.i
-  br i1 %.153.i, label %408, label %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit.thread
+  br i1 %.153.i, label %405, label %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit.thread
 
-408:                                              ; preds = %_ZL20mi_arena_purge_delayv.exit.i, %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit
-  %409 = icmp ult i64 %.02252, 2
-  br i1 %409, label %.thread43, label %410
+405:                                              ; preds = %_ZL20mi_arena_purge_delayv.exit.i, %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit
+  %406 = icmp ult i64 %.02252, 2
+  br i1 %406, label %.thread43, label %407
 
-410:                                              ; preds = %408
-  %411 = add i64 %.02252, -1
+407:                                              ; preds = %405
+  %408 = add i64 %.02252, -1
   br label %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit.thread
 
-_ZL18mi_arena_try_purgeP10mi_arena_slb.exit.thread: ; preds = %_ZSt39atomic_compare_exchange_strong_explicitIlEbPSt6atomicIT_EPNSt15__type_identityIS1_E4typeES6_St12memory_orderS8_.exit.i, %57, %50, %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit, %410, %47, %_ZL20mi_arena_purge_delayv.exit.i
-  %.224.ph = phi i64 [ %.02252, %_ZL20mi_arena_purge_delayv.exit.i ], [ %.02252, %47 ], [ %.02252, %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit ], [ %411, %410 ], [ %.02252, %50 ], [ %.02252, %57 ], [ %.02252, %_ZSt39atomic_compare_exchange_strong_explicitIlEbPSt6atomicIT_EPNSt15__type_identityIS1_E4typeES6_St12memory_orderS8_.exit.i ]
-  %412 = add nuw i64 %.02053, 1
-  %exitcond.not = icmp eq i64 %412, %30
-  br i1 %exitcond.not, label %413, label %47, !llvm.loop !161
+_ZL18mi_arena_try_purgeP10mi_arena_slb.exit.thread: ; preds = %_ZSt39atomic_compare_exchange_strong_explicitIlEbPSt6atomicIT_EPNSt15__type_identityIS1_E4typeES6_St12memory_orderS8_.exit.i, %57, %50, %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit, %407, %47, %_ZL20mi_arena_purge_delayv.exit.i
+  %.224.ph = phi i64 [ %.02252, %_ZL20mi_arena_purge_delayv.exit.i ], [ %.02252, %47 ], [ %.02252, %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit ], [ %408, %407 ], [ %.02252, %50 ], [ %.02252, %57 ], [ %.02252, %_ZSt39atomic_compare_exchange_strong_explicitIlEbPSt6atomicIT_EPNSt15__type_identityIS1_E4typeES6_St12memory_orderS8_.exit.i ]
+  %409 = add nuw i64 %.02053, 1
+  %exitcond.not = icmp eq i64 %409, %30
+  br i1 %exitcond.not, label %410, label %47, !llvm.loop !161
 
-413:                                              ; preds = %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit.thread
+410:                                              ; preds = %_ZL18mi_arena_try_purgeP10mi_arena_slb.exit.thread
   store atomic i64 0, ptr @_ZL22mi_arenas_purge_expire release, align 64
   br label %.thread43
 
-.thread43:                                        ; preds = %408, %413
+.thread43:                                        ; preds = %405, %410
   store atomic i64 0, ptr @_ZZL19mi_arenas_try_purgebbE11purge_guard release, align 8
   br label %.critedge, !llvm.loop !162
 
@@ -14191,7 +14178,7 @@ _Z22_mi_segment_page_startPK12mi_segment_sPK9mi_page_sPm.exit: ; preds = %83, %8
   br label %135
 
 .preheader123:                                    ; preds = %135, %123
-  %.not112135 = icmp eq i16 %100, 0
+  %.not112135 = icmp eq i64 %.zext, 0
   br i1 %.not112135, label %.critedge117, label %.lr.ph139
 
 .lr.ph139:                                        ; preds = %.preheader123
@@ -17156,11 +17143,11 @@ _ZL7mi_outccPPcS_.exit53.i:                       ; preds = %225, %.split56.us.i
   %228 = ptrtoint ptr %227 to i64
   %229 = ptrtoint ptr %.5306 to i64
   %230 = sub i64 %228, %229
-  %.not58.i = icmp ult i64 %230, 2
+  %231 = lshr i64 %230, 1
+  %.not58.i = icmp eq i64 %231, 0
   br i1 %.not58.i, label %_ZL7mi_outsPKcPPcS1_.exit, label %.lr.ph.i259
 
 .lr.ph.i259:                                      ; preds = %_ZL7mi_outccPPcS_.exit53.i
-  %231 = lshr i64 %230, 1
   %232 = getelementptr i8, ptr %.5306, i64 %230
   br label %233
 
@@ -17374,11 +17361,11 @@ _ZL7mi_outccPPcS_.exit53.i265:                    ; preds = %323, %.split56.us.i
   %326 = ptrtoint ptr %325 to i64
   %327 = ptrtoint ptr %.0302342 to i64
   %328 = sub i64 %326, %327
-  %.not58.i266 = icmp ult i64 %328, 2
+  %329 = lshr i64 %328, 1
+  %.not58.i266 = icmp eq i64 %329, 0
   br i1 %.not58.i266, label %_ZL7mi_outsPKcPPcS1_.exit, label %.lr.ph.i267
 
 .lr.ph.i267:                                      ; preds = %_ZL7mi_outccPPcS_.exit53.i265
-  %329 = lshr i64 %328, 1
   %330 = getelementptr i8, ptr %.0302342, i64 %328
   br label %331
 
@@ -18546,7 +18533,7 @@ define hidden void @_Z17_mi_prim_mem_initP18mi_os_mem_config_s(ptr noundef write
   store i64 %4, ptr %7, align 8, !tbaa !261
   %8 = tail call i64 @sysconf(i32 noundef 85) #57
   %9 = lshr i64 %4, 10
-  %10 = icmp samesign ugt i64 %4, 1023
+  %10 = icmp ne i64 %9, 0
   %11 = icmp sgt i64 %8, 0
   %or.cond = select i1 %10, i1 %11, i1 false
   br i1 %or.cond, label %12, label %16
@@ -22532,7 +22519,7 @@ define hidden noundef i64 @_Z30_mi_commit_mask_committed_sizePK16mi_commit_mask_
   %11 = and i64 %.016, 1
   %spec.select = add i64 %11, %.215
   %12 = lshr i64 %.016, 1
-  %.not = icmp ult i64 %.016, 2
+  %.not = icmp eq i64 %12, 0
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !281
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %9
@@ -23202,7 +23189,7 @@ _Z24_mi_segment_map_freed_atPK12mi_segment_s.exit.i: ; preds = %_ZSt37atomic_com
   %96 = and i64 %.016.i.i, 1
   %spec.select.i.i = add i64 %96, %.215.i.i
   %97 = lshr i64 %.016.i.i, 1
-  %.not.i.i13 = icmp ult i64 %.016.i.i, 2
+  %.not.i.i13 = icmp eq i64 %97, 0
   br i1 %.not.i.i13, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !281
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i, %94, %91
@@ -24362,7 +24349,7 @@ mi_collect.exit:                                  ; preds = %1
   %24 = load ptr, ptr %23, align 8, !tbaa !187
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = lshr i64 %0, 25
-  %27 = icmp ult i64 %0, 33554432
+  %27 = icmp eq i64 %26, 0
   br i1 %27, label %28, label %35
 
 28:                                               ; preds = %22
@@ -31840,241 +31827,235 @@ _ZL15mi_bitmap_mask_mm.exit24.i.i:                ; preds = %31
   %46 = xor i64 %notmask.i22.i.i, -1
   %47 = shl i64 %46, %33
   %48 = sub nsw i64 %1, %44
-  %49 = and i64 %48, 63
-  %notmask.i25.i.i = shl nsw i64 -1, %49
-  %50 = getelementptr inbounds nuw %"struct.std::atomic", ptr %30, i64 %32
-  %51 = xor i64 %47, -1
-  %52 = select i1 %45, i64 0, i64 %51
-  %53 = atomicrmw and ptr %50, i64 %52 acq_rel, align 8
-  %.032.i = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %.not1633.i = icmp ult i64 %48, 64
+  %49 = lshr i64 %48, 6
+  %50 = and i64 %48, 63
+  %notmask.i25.i.i = shl nsw i64 -1, %50
+  %51 = getelementptr inbounds nuw %"struct.std::atomic", ptr %30, i64 %32
+  %52 = xor i64 %47, -1
+  %53 = select i1 %45, i64 0, i64 %52
+  %54 = atomicrmw and ptr %51, i64 %53 acq_rel, align 8
+  %.032.i = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %.not1633.i = icmp eq i64 %49, 0
   br i1 %.not1633.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.thread.i:                             ; preds = %40, %38, %36
   %.030.ph.i = phi i64 [ 0, %36 ], [ -1, %38 ], [ %43, %40 ]
-  %54 = getelementptr inbounds nuw %"struct.std::atomic", ptr %30, i64 %32
-  %55 = atomicrmw and ptr %54, i64 %.030.ph.i acq_rel, align 8
+  %55 = getelementptr inbounds nuw %"struct.std::atomic", ptr %30, i64 %32
+  %56 = atomicrmw and ptr %55, i64 %.030.ph.i acq_rel, align 8
   br label %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit
 
-.lr.ph.i:                                         ; preds = %_ZL15mi_bitmap_mask_mm.exit24.i.i
-  %56 = lshr i64 %48, 6
-  br label %57
-
-57:                                               ; preds = %57, %.lr.ph.i
-  %.036.i = phi ptr [ %.032.i, %.lr.ph.i ], [ %.0.i, %57 ]
-  %.01434.i = phi i64 [ %56, %.lr.ph.i ], [ %58, %57 ]
-  %58 = add nsw i64 %.01434.i, -1
-  %59 = atomicrmw xchg ptr %.036.i, i64 0 acq_rel, align 8
+.lr.ph.i:                                         ; preds = %_ZL15mi_bitmap_mask_mm.exit24.i.i, %.lr.ph.i
+  %.036.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.032.i, %_ZL15mi_bitmap_mask_mm.exit24.i.i ]
+  %.01434.i = phi i64 [ %57, %.lr.ph.i ], [ %49, %_ZL15mi_bitmap_mask_mm.exit24.i.i ]
+  %57 = add nsw i64 %.01434.i, -1
+  %58 = atomicrmw xchg ptr %.036.i, i64 0 acq_rel, align 8
   %.0.i = getelementptr inbounds nuw i8, ptr %.036.i, i64 8
-  %.not16.i = icmp eq i64 %58, 0
-  br i1 %.not16.i, label %._crit_edge.i, label %57, !llvm.loop !143
+  %.not16.i = icmp eq i64 %57, 0
+  br i1 %.not16.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !143
 
-._crit_edge.i:                                    ; preds = %57, %_ZL15mi_bitmap_mask_mm.exit24.i.i
-  %.0.lcssa.i = phi ptr [ %.032.i, %_ZL15mi_bitmap_mask_mm.exit24.i.i ], [ %.0.i, %57 ]
-  %.not17.i = icmp eq i64 %49, 0
-  br i1 %.not17.i, label %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit, label %60
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %_ZL15mi_bitmap_mask_mm.exit24.i.i
+  %.0.lcssa.i = phi ptr [ %.032.i, %_ZL15mi_bitmap_mask_mm.exit24.i.i ], [ %.0.i, %.lr.ph.i ]
+  %.not17.i = icmp eq i64 %50, 0
+  br i1 %.not17.i, label %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit, label %59
 
-60:                                               ; preds = %._crit_edge.i
-  %61 = atomicrmw and ptr %.0.lcssa.i, i64 %notmask.i25.i.i acq_rel, align 8
+59:                                               ; preds = %._crit_edge.i
+  %60 = atomicrmw and ptr %.0.lcssa.i, i64 %notmask.i25.i.i acq_rel, align 8
   br label %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit
 
-_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit: ; preds = %60, %._crit_edge.i, %._crit_edge.thread.i, %14
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  %63 = load i8, ptr %62, align 2, !tbaa !343, !range !86, !noundef !87
-  %64 = trunc nuw i8 %63 to i1
-  br i1 %64, label %65, label %73
+_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit: ; preds = %59, %._crit_edge.i, %._crit_edge.thread.i, %14
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 26
+  %62 = load i8, ptr %61, align 2, !tbaa !343, !range !86, !noundef !87
+  %63 = trunc nuw i8 %62 to i1
+  br i1 %63, label %64, label %72
 
-65:                                               ; preds = %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %67 = load ptr, ptr %66, align 8, !tbaa !168
-  %.not46 = icmp eq ptr %67, null
-  br i1 %.not46, label %73, label %68
+64:                                               ; preds = %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %66 = load ptr, ptr %65, align 8, !tbaa !168
+  %.not46 = icmp eq ptr %66, null
+  br i1 %.not46, label %72, label %67
 
-68:                                               ; preds = %65
-  %69 = load i64, ptr %5, align 8, !tbaa !69
-  %70 = tail call noundef zeroext i1 @_Z23_mi_bitmap_claim_acrossPSt6atomicImEmmmPbPm(ptr noundef nonnull %67, i64 poison, i64 noundef %1, i64 noundef %69, ptr noundef null, ptr noundef null)
-  %71 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  %72 = zext i1 %70 to i8
-  store i8 %72, ptr %71, align 2, !tbaa !130
-  br label %73
+67:                                               ; preds = %64
+  %68 = load i64, ptr %5, align 8, !tbaa !69
+  %69 = tail call noundef zeroext i1 @_Z23_mi_bitmap_claim_acrossPSt6atomicImEmmmPbPm(ptr noundef nonnull %66, i64 poison, i64 noundef %1, i64 noundef %68, ptr noundef null, ptr noundef null)
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 18
+  %71 = zext i1 %69 to i8
+  store i8 %71, ptr %70, align 2, !tbaa !130
+  br label %72
 
-73:                                               ; preds = %68, %65, %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %75 = load ptr, ptr %74, align 8, !tbaa !142
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %77, label %79
+72:                                               ; preds = %67, %64, %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %74 = load ptr, ptr %73, align 8, !tbaa !142
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %76, label %78
 
-77:                                               ; preds = %73
-  %78 = getelementptr inbounds nuw i8, ptr %3, i64 17
-  store i8 1, ptr %78, align 1, !tbaa !344
+76:                                               ; preds = %72
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 17
+  store i8 1, ptr %77, align 1, !tbaa !344
   br label %_ZL18mi_arena_try_claimP10mi_arena_smPm.exit
 
-79:                                               ; preds = %73
-  br i1 %2, label %80, label %100
+78:                                               ; preds = %72
+  br i1 %2, label %79, label %99
 
-80:                                               ; preds = %79
-  %81 = getelementptr inbounds nuw i8, ptr %3, i64 17
-  store i8 1, ptr %81, align 1, !tbaa !344
+79:                                               ; preds = %78
+  %80 = getelementptr inbounds nuw i8, ptr %3, i64 17
+  store i8 1, ptr %80, align 1, !tbaa !344
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !69
-  %82 = load i64, ptr %5, align 8, !tbaa !69
-  %83 = call noundef zeroext i1 @_Z23_mi_bitmap_claim_acrossPSt6atomicImEmmmPbPm(ptr noundef nonnull %75, i64 poison, i64 noundef %1, i64 noundef %82, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  %84 = load i8, ptr %6, align 1, !tbaa !88, !range !86, !noundef !87
-  %85 = trunc nuw i8 %84 to i1
-  br i1 %85, label %86, label %99
+  %81 = load i64, ptr %5, align 8, !tbaa !69
+  %82 = call noundef zeroext i1 @_Z23_mi_bitmap_claim_acrossPSt6atomicImEmmmPbPm(ptr noundef nonnull %74, i64 poison, i64 noundef %1, i64 noundef %81, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %83 = load i8, ptr %6, align 1, !tbaa !88, !range !86, !noundef !87
+  %84 = trunc nuw i8 %83 to i1
+  br i1 %84, label %85, label %98
 
-86:                                               ; preds = %80
-  %87 = shl i64 %1, 25
-  %88 = load i64, ptr %7, align 8, !tbaa !69
-  %89 = sub i64 %1, %88
-  %90 = shl i64 %89, 25
+85:                                               ; preds = %79
+  %86 = shl i64 %1, 25
+  %87 = load i64, ptr %7, align 8, !tbaa !69
+  %88 = sub i64 %1, %87
+  %89 = shl i64 %88, 25
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 0, ptr %8, align 1, !tbaa !88
-  %91 = call noundef zeroext i1 @_Z16_mi_os_commit_exPvmPbm(ptr noundef %21, i64 noundef %87, ptr noundef nonnull %8, i64 noundef %90)
-  br i1 %91, label %93, label %92
+  %90 = call noundef zeroext i1 @_Z16_mi_os_commit_exPvmPbm(ptr noundef %21, i64 noundef %86, ptr noundef nonnull %8, i64 noundef %89)
+  br i1 %90, label %92, label %91
 
-92:                                               ; preds = %86
-  store i8 0, ptr %81, align 1, !tbaa !344
-  br label %98
+91:                                               ; preds = %85
+  store i8 0, ptr %80, align 1, !tbaa !344
+  br label %97
 
-93:                                               ; preds = %86
-  %94 = load i8, ptr %8, align 1, !tbaa !88, !range !86, !noundef !87
-  %95 = trunc nuw i8 %94 to i1
-  br i1 %95, label %96, label %98
+92:                                               ; preds = %85
+  %93 = load i8, ptr %8, align 1, !tbaa !88, !range !86, !noundef !87
+  %94 = trunc nuw i8 %93 to i1
+  br i1 %94, label %95, label %97
 
-96:                                               ; preds = %93
-  %97 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i8 1, ptr %97, align 2, !tbaa !130
-  br label %98
+95:                                               ; preds = %92
+  %96 = getelementptr inbounds nuw i8, ptr %3, i64 18
+  store i8 1, ptr %96, align 2, !tbaa !130
+  br label %97
 
-98:                                               ; preds = %93, %96, %92
+97:                                               ; preds = %92, %95, %91
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %99
+  br label %98
 
-99:                                               ; preds = %98, %80
+98:                                               ; preds = %97, %79
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZL18mi_arena_try_claimP10mi_arena_smPm.exit
 
-100:                                              ; preds = %79
+99:                                               ; preds = %78
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8, !tbaa !69
-  %101 = load i64, ptr %5, align 8, !tbaa !69
-  %102 = call fastcc noundef zeroext i1 @_ZL28mi_bitmap_is_claimedx_acrossPSt6atomicImEmmmPbPm(ptr noundef nonnull readonly %75, i64 noundef %1, i64 noundef %101, ptr noundef null, ptr noundef nonnull %9)
-  %103 = getelementptr inbounds nuw i8, ptr %3, i64 17
-  %104 = zext i1 %102 to i8
-  store i8 %104, ptr %103, align 1, !tbaa !344
-  %105 = load i64, ptr %9, align 8
-  %106 = icmp eq i64 %105, 0
-  %or.cond.not = select i1 %102, i1 true, i1 %106
-  br i1 %or.cond.not, label %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit74, label %107
+  %100 = load i64, ptr %5, align 8, !tbaa !69
+  %101 = call fastcc noundef zeroext i1 @_ZL28mi_bitmap_is_claimedx_acrossPSt6atomicImEmmmPbPm(ptr noundef nonnull readonly %74, i64 noundef %1, i64 noundef %100, ptr noundef null, ptr noundef nonnull %9)
+  %102 = getelementptr inbounds nuw i8, ptr %3, i64 17
+  %103 = zext i1 %101 to i8
+  store i8 %103, ptr %102, align 1, !tbaa !344
+  %104 = load i64, ptr %9, align 8
+  %105 = icmp eq i64 %104, 0
+  %or.cond.not = select i1 %101, i1 true, i1 %105
+  br i1 %or.cond.not, label %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit74, label %106
 
-107:                                              ; preds = %100
-  %108 = shl i64 %105, 25
-  %109 = sub nsw i64 0, %108
-  %110 = icmp eq i64 %108, 0
-  br i1 %110, label %_Z17_mi_stat_decreaseP15mi_stat_count_sm.exit, label %111
+106:                                              ; preds = %99
+  %107 = shl i64 %104, 25
+  %108 = sub nsw i64 0, %107
+  %109 = icmp eq i64 %107, 0
+  br i1 %109, label %_Z17_mi_stat_decreaseP15mi_stat_count_sm.exit, label %110
 
-111:                                              ; preds = %107
-  %112 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 72), i64 %109 monotonic, align 8
-  %113 = sub nsw i64 %112, %108
-  %114 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64) monotonic, align 64
-  %.old3.i.i.i = icmp slt i64 %114, %113
+110:                                              ; preds = %106
+  %111 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 72), i64 %108 monotonic, align 8
+  %112 = sub nsw i64 %111, %107
+  %113 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64) monotonic, align 64
+  %.old3.i.i.i = icmp slt i64 %113, %112
   br i1 %.old3.i.i.i, label %.preheader.i.i.i, label %_ZL24mi_atomic_maxi64_relaxedPVll.exit.i.i
 
-.preheader.i.i.i:                                 ; preds = %111, %.preheader.i.i.i
-  %.0.i.i.i = phi i64 [ %117, %.preheader.i.i.i ], [ %114, %111 ]
-  %115 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 %.0.i.i.i, i64 %113 release monotonic, align 8
-  %116 = extractvalue { i64, i1 } %115, 1
-  %117 = extractvalue { i64, i1 } %115, 0
-  %118 = icmp sge i64 %117, %113
-  %or.cond.not.i.i.i = select i1 %116, i1 true, i1 %118
+.preheader.i.i.i:                                 ; preds = %110, %.preheader.i.i.i
+  %.0.i.i.i = phi i64 [ %116, %.preheader.i.i.i ], [ %113, %110 ]
+  %114 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 %.0.i.i.i, i64 %112 release monotonic, align 8
+  %115 = extractvalue { i64, i1 } %114, 1
+  %116 = extractvalue { i64, i1 } %114, 0
+  %117 = icmp sge i64 %116, %112
+  %or.cond.not.i.i.i = select i1 %115, i1 true, i1 %117
   br i1 %or.cond.not.i.i.i, label %_ZL24mi_atomic_maxi64_relaxedPVll.exit.i.i, label %.preheader.i.i.i, !llvm.loop !140
 
-_ZL24mi_atomic_maxi64_relaxedPVll.exit.i.i:       ; preds = %.preheader.i.i.i, %111
-  %119 = icmp slt i64 %108, 0
-  br i1 %119, label %120, label %_Z17_mi_stat_decreaseP15mi_stat_count_sm.exit
+_ZL24mi_atomic_maxi64_relaxedPVll.exit.i.i:       ; preds = %.preheader.i.i.i, %110
+  %118 = icmp slt i64 %107, 0
+  br i1 %118, label %119, label %_Z17_mi_stat_decreaseP15mi_stat_count_sm.exit
 
-120:                                              ; preds = %_ZL24mi_atomic_maxi64_relaxedPVll.exit.i.i
-  %121 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 56), i64 %109 monotonic, align 8
+119:                                              ; preds = %_ZL24mi_atomic_maxi64_relaxedPVll.exit.i.i
+  %120 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 56), i64 %108 monotonic, align 8
   br label %_Z17_mi_stat_decreaseP15mi_stat_count_sm.exit
 
-_Z17_mi_stat_decreaseP15mi_stat_count_sm.exit:    ; preds = %107, %_ZL24mi_atomic_maxi64_relaxedPVll.exit.i.i, %120
-  %122 = load ptr, ptr %74, align 8, !tbaa !142
-  %123 = load i64, ptr %5, align 8, !tbaa !69
-  %124 = lshr i64 %123, 6
-  %125 = and i64 %123, 63
-  %126 = add nuw nsw i64 %125, %1
-  %127 = icmp samesign ult i64 %126, 65
-  br i1 %127, label %128, label %_ZL15mi_bitmap_mask_mm.exit24.i.i48, !prof !23
+_Z17_mi_stat_decreaseP15mi_stat_count_sm.exit:    ; preds = %106, %_ZL24mi_atomic_maxi64_relaxedPVll.exit.i.i, %119
+  %121 = load ptr, ptr %73, align 8, !tbaa !142
+  %122 = load i64, ptr %5, align 8, !tbaa !69
+  %123 = lshr i64 %122, 6
+  %124 = and i64 %122, 63
+  %125 = add nuw nsw i64 %124, %1
+  %126 = icmp samesign ult i64 %125, 65
+  br i1 %126, label %127, label %_ZL15mi_bitmap_mask_mm.exit24.i.i48, !prof !23
 
-128:                                              ; preds = %_Z17_mi_stat_decreaseP15mi_stat_count_sm.exit
-  %129 = icmp samesign ugt i64 %1, 63
-  br i1 %129, label %._crit_edge.thread.i71, label %130
+127:                                              ; preds = %_Z17_mi_stat_decreaseP15mi_stat_count_sm.exit
+  %128 = icmp samesign ugt i64 %1, 63
+  br i1 %128, label %._crit_edge.thread.i71, label %129
 
-130:                                              ; preds = %128
-  %131 = icmp eq i64 %1, 0
-  br i1 %131, label %._crit_edge.thread.i71, label %132
+129:                                              ; preds = %127
+  %130 = icmp eq i64 %1, 0
+  br i1 %130, label %._crit_edge.thread.i71, label %131
 
-132:                                              ; preds = %130
+131:                                              ; preds = %129
   %notmask.i.i.i70 = shl nsw i64 -1, %1
-  %133 = xor i64 %notmask.i.i.i70, -1
-  %134 = shl i64 %133, %125
-  %135 = xor i64 %134, -1
+  %132 = xor i64 %notmask.i.i.i70, -1
+  %133 = shl i64 %132, %124
+  %134 = xor i64 %133, -1
   br label %._crit_edge.thread.i71
 
 _ZL15mi_bitmap_mask_mm.exit24.i.i48:              ; preds = %_Z17_mi_stat_decreaseP15mi_stat_count_sm.exit
-  %136 = sub nuw nsw i64 64, %125
-  %137 = icmp eq i64 %125, 0
-  %notmask.i22.i.i49 = shl nsw i64 -1, %136
-  %138 = xor i64 %notmask.i22.i.i49, -1
-  %139 = shl i64 %138, %125
-  %140 = sub nsw i64 %1, %136
-  %141 = and i64 %140, 63
+  %135 = sub nuw nsw i64 64, %124
+  %136 = icmp eq i64 %124, 0
+  %notmask.i22.i.i49 = shl nsw i64 -1, %135
+  %137 = xor i64 %notmask.i22.i.i49, -1
+  %138 = shl i64 %137, %124
+  %139 = sub nsw i64 %1, %135
+  %140 = lshr i64 %139, 6
+  %141 = and i64 %139, 63
   %notmask.i25.i.i51 = shl nsw i64 -1, %141
-  %142 = getelementptr inbounds nuw %"struct.std::atomic", ptr %122, i64 %124
-  %143 = xor i64 %139, -1
-  %144 = select i1 %137, i64 0, i64 %143
+  %142 = getelementptr inbounds nuw %"struct.std::atomic", ptr %121, i64 %123
+  %143 = xor i64 %138, -1
+  %144 = select i1 %136, i64 0, i64 %143
   %145 = atomicrmw and ptr %142, i64 %144 acq_rel, align 8
   %.032.i53 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  %.not1633.i54 = icmp ult i64 %140, 64
+  %.not1633.i54 = icmp eq i64 %140, 0
   br i1 %.not1633.i54, label %._crit_edge.i63, label %.lr.ph.i55
 
-._crit_edge.thread.i71:                           ; preds = %132, %130, %128
-  %.030.ph.i72 = phi i64 [ 0, %128 ], [ -1, %130 ], [ %135, %132 ]
-  %146 = getelementptr inbounds nuw %"struct.std::atomic", ptr %122, i64 %124
+._crit_edge.thread.i71:                           ; preds = %131, %129, %127
+  %.030.ph.i72 = phi i64 [ 0, %127 ], [ -1, %129 ], [ %134, %131 ]
+  %146 = getelementptr inbounds nuw %"struct.std::atomic", ptr %121, i64 %123
   %147 = atomicrmw and ptr %146, i64 %.030.ph.i72 acq_rel, align 8
   br label %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit74
 
-.lr.ph.i55:                                       ; preds = %_ZL15mi_bitmap_mask_mm.exit24.i.i48
-  %148 = lshr i64 %140, 6
-  br label %149
-
-149:                                              ; preds = %149, %.lr.ph.i55
-  %.036.i56 = phi ptr [ %.032.i53, %.lr.ph.i55 ], [ %.0.i61, %149 ]
-  %.01434.i58 = phi i64 [ %148, %.lr.ph.i55 ], [ %150, %149 ]
-  %150 = add nsw i64 %.01434.i58, -1
-  %151 = atomicrmw xchg ptr %.036.i56, i64 0 acq_rel, align 8
+.lr.ph.i55:                                       ; preds = %_ZL15mi_bitmap_mask_mm.exit24.i.i48, %.lr.ph.i55
+  %.036.i56 = phi ptr [ %.0.i61, %.lr.ph.i55 ], [ %.032.i53, %_ZL15mi_bitmap_mask_mm.exit24.i.i48 ]
+  %.01434.i58 = phi i64 [ %148, %.lr.ph.i55 ], [ %140, %_ZL15mi_bitmap_mask_mm.exit24.i.i48 ]
+  %148 = add nsw i64 %.01434.i58, -1
+  %149 = atomicrmw xchg ptr %.036.i56, i64 0 acq_rel, align 8
   %.0.i61 = getelementptr inbounds nuw i8, ptr %.036.i56, i64 8
-  %.not16.i62 = icmp eq i64 %150, 0
-  br i1 %.not16.i62, label %._crit_edge.i63, label %149, !llvm.loop !143
+  %.not16.i62 = icmp eq i64 %148, 0
+  br i1 %.not16.i62, label %._crit_edge.i63, label %.lr.ph.i55, !llvm.loop !143
 
-._crit_edge.i63:                                  ; preds = %149, %_ZL15mi_bitmap_mask_mm.exit24.i.i48
-  %.0.lcssa.i65 = phi ptr [ %.032.i53, %_ZL15mi_bitmap_mask_mm.exit24.i.i48 ], [ %.0.i61, %149 ]
+._crit_edge.i63:                                  ; preds = %.lr.ph.i55, %_ZL15mi_bitmap_mask_mm.exit24.i.i48
+  %.0.lcssa.i65 = phi ptr [ %.032.i53, %_ZL15mi_bitmap_mask_mm.exit24.i.i48 ], [ %.0.i61, %.lr.ph.i55 ]
   %.not17.i66 = icmp eq i64 %141, 0
-  br i1 %.not17.i66, label %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit74, label %152
+  br i1 %.not17.i66, label %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit74, label %150
 
-152:                                              ; preds = %._crit_edge.i63
-  %153 = atomicrmw and ptr %.0.lcssa.i65, i64 %notmask.i25.i.i51 acq_rel, align 8
+150:                                              ; preds = %._crit_edge.i63
+  %151 = atomicrmw and ptr %.0.lcssa.i65, i64 %notmask.i25.i.i51 acq_rel, align 8
   br label %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit74
 
-_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit74: ; preds = %152, %._crit_edge.i63, %._crit_edge.thread.i71, %100
+_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit74: ; preds = %150, %._crit_edge.i63, %._crit_edge.thread.i71, %99
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZL18mi_arena_try_claimP10mi_arena_smPm.exit
 
-_ZL18mi_arena_try_claimP10mi_arena_smPm.exit:     ; preds = %4, %77, %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit74, %99
-  %.0 = phi ptr [ %21, %99 ], [ %21, %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit74 ], [ %21, %77 ], [ null, %4 ]
+_ZL18mi_arena_try_claimP10mi_arena_smPm.exit:     ; preds = %4, %76, %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit74, %98
+  %.0 = phi ptr [ %21, %98 ], [ %21, %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit74 ], [ %21, %76 ], [ null, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
@@ -32137,98 +32118,91 @@ _ZL15mi_bitmap_mask_mm.exit24.i.i:                ; preds = %19
   %36 = xor i64 %notmask.i22.i.i, -1
   %37 = shl i64 %36, %23
   %38 = sub i64 %2, %34
-  %39 = and i64 %38, 63
-  %notmask.i25.i.i = shl nsw i64 -1, %39
-  %40 = getelementptr inbounds nuw %"struct.std::atomic", ptr %21, i64 %22
-  %41 = xor i64 %37, -1
-  %42 = select i1 %35, i64 0, i64 %41
-  %43 = atomicrmw and ptr %40, i64 %42 acq_rel, align 8
-  %.032.i = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %.not1633.i = icmp ult i64 %38, 64
+  %39 = lshr i64 %38, 6
+  %40 = and i64 %38, 63
+  %notmask.i25.i.i = shl nsw i64 -1, %40
+  %41 = getelementptr inbounds nuw %"struct.std::atomic", ptr %21, i64 %22
+  %42 = xor i64 %37, -1
+  %43 = select i1 %35, i64 0, i64 %42
+  %44 = atomicrmw and ptr %41, i64 %43 acq_rel, align 8
+  %.032.i = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %.not1633.i = icmp eq i64 %39, 0
   br i1 %.not1633.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZL15mi_bitmap_mask_mm.exit24.i.i
-  %44 = lshr i64 %38, 6
-  br label %45
-
-45:                                               ; preds = %45, %.lr.ph.i
-  %.036.i = phi ptr [ %.032.i, %.lr.ph.i ], [ %.0.i, %45 ]
-  %.01434.i = phi i64 [ %44, %.lr.ph.i ], [ %46, %45 ]
-  %46 = add nsw i64 %.01434.i, -1
-  %47 = atomicrmw xchg ptr %.036.i, i64 0 acq_rel, align 8
+.lr.ph.i:                                         ; preds = %_ZL15mi_bitmap_mask_mm.exit24.i.i, %.lr.ph.i
+  %.036.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.032.i, %_ZL15mi_bitmap_mask_mm.exit24.i.i ]
+  %.01434.i = phi i64 [ %45, %.lr.ph.i ], [ %39, %_ZL15mi_bitmap_mask_mm.exit24.i.i ]
+  %45 = add nsw i64 %.01434.i, -1
+  %46 = atomicrmw xchg ptr %.036.i, i64 0 acq_rel, align 8
   %.0.i = getelementptr inbounds nuw i8, ptr %.036.i, i64 8
-  %.not16.i = icmp eq i64 %46, 0
-  br i1 %.not16.i, label %._crit_edge.i, label %45, !llvm.loop !143
+  %.not16.i = icmp eq i64 %45, 0
+  br i1 %.not16.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !143
 
-._crit_edge.i:                                    ; preds = %45, %_ZL15mi_bitmap_mask_mm.exit24.i.i
-  %.0.lcssa.i = phi ptr [ %.032.i, %_ZL15mi_bitmap_mask_mm.exit24.i.i ], [ %.0.i, %45 ]
-  %.not17.i = icmp eq i64 %39, 0
-  br i1 %.not17.i, label %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit, label %48
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %_ZL15mi_bitmap_mask_mm.exit24.i.i
+  %.0.lcssa.i = phi ptr [ %.032.i, %_ZL15mi_bitmap_mask_mm.exit24.i.i ], [ %.0.i, %.lr.ph.i ]
+  %.not17.i = icmp eq i64 %40, 0
+  br i1 %.not17.i, label %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit, label %47
 
-48:                                               ; preds = %._crit_edge.i
-  %49 = atomicrmw and ptr %.0.lcssa.i, i64 %notmask.i25.i.i acq_rel, align 8
+47:                                               ; preds = %._crit_edge.i
+  %48 = atomicrmw and ptr %.0.lcssa.i, i64 %notmask.i25.i.i acq_rel, align 8
   br label %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit
 
-_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit: ; preds = %._crit_edge.i, %48
+_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit: ; preds = %._crit_edge.i, %47
   br i1 %.0.in, label %_ZL15mi_bitmap_mask_mm.exit24.i.i19, label %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit45
 
 _Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.thread.thread: ; preds = %26
-  %50 = getelementptr inbounds nuw %"struct.std::atomic", ptr %21, i64 %22
-  %51 = atomicrmw xchg ptr %50, i64 0 acq_rel, align 8
+  %49 = getelementptr inbounds nuw %"struct.std::atomic", ptr %21, i64 %22
+  %50 = atomicrmw xchg ptr %49, i64 0 acq_rel, align 8
   br i1 %.0.in, label %.thread.thread, label %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit45
 
 .thread.thread:                                   ; preds = %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.thread.thread
-  %52 = load ptr, ptr %10, align 8, !tbaa !142
+  %51 = load ptr, ptr %10, align 8, !tbaa !142
   br label %._crit_edge.thread.i42
 
 .thread:                                          ; preds = %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.thread
-  %53 = load ptr, ptr %10, align 8, !tbaa !142
-  %54 = icmp eq i64 %2, 0
-  br i1 %54, label %._crit_edge.thread.i42, label %55
+  %52 = load ptr, ptr %10, align 8, !tbaa !142
+  %53 = icmp eq i64 %2, 0
+  br i1 %53, label %._crit_edge.thread.i42, label %54
 
-55:                                               ; preds = %.thread
+54:                                               ; preds = %.thread
   %notmask.i.i.i41 = shl nsw i64 -1, %2
-  %56 = xor i64 %notmask.i.i.i41, -1
-  %57 = shl i64 %56, %23
-  %58 = xor i64 %57, -1
+  %55 = xor i64 %notmask.i.i.i41, -1
+  %56 = shl i64 %55, %23
+  %57 = xor i64 %56, -1
   br label %._crit_edge.thread.i42
 
 _ZL15mi_bitmap_mask_mm.exit24.i.i19:              ; preds = %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit
-  %59 = load ptr, ptr %10, align 8, !tbaa !142
-  %60 = getelementptr inbounds nuw %"struct.std::atomic", ptr %59, i64 %22
-  %61 = atomicrmw and ptr %60, i64 %42 acq_rel, align 8
-  %.032.i24 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %58 = load ptr, ptr %10, align 8, !tbaa !142
+  %59 = getelementptr inbounds nuw %"struct.std::atomic", ptr %58, i64 %22
+  %60 = atomicrmw and ptr %59, i64 %43 acq_rel, align 8
+  %.032.i24 = getelementptr inbounds nuw i8, ptr %59, i64 8
   br i1 %.not1633.i, label %._crit_edge.i34, label %.lr.ph.i26
 
-._crit_edge.thread.i42:                           ; preds = %.thread.thread, %55, %.thread
-  %62 = phi ptr [ %53, %.thread ], [ %53, %55 ], [ %52, %.thread.thread ]
-  %.030.ph.i43 = phi i64 [ -1, %.thread ], [ %58, %55 ], [ 0, %.thread.thread ]
-  %63 = getelementptr inbounds nuw %"struct.std::atomic", ptr %62, i64 %22
-  %64 = atomicrmw and ptr %63, i64 %.030.ph.i43 acq_rel, align 8
+._crit_edge.thread.i42:                           ; preds = %.thread.thread, %54, %.thread
+  %61 = phi ptr [ %52, %.thread ], [ %52, %54 ], [ %51, %.thread.thread ]
+  %.030.ph.i43 = phi i64 [ -1, %.thread ], [ %57, %54 ], [ 0, %.thread.thread ]
+  %62 = getelementptr inbounds nuw %"struct.std::atomic", ptr %61, i64 %22
+  %63 = atomicrmw and ptr %62, i64 %.030.ph.i43 acq_rel, align 8
   br label %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit45
 
-.lr.ph.i26:                                       ; preds = %_ZL15mi_bitmap_mask_mm.exit24.i.i19
-  %65 = lshr i64 %38, 6
-  br label %66
-
-66:                                               ; preds = %66, %.lr.ph.i26
-  %.036.i27 = phi ptr [ %.032.i24, %.lr.ph.i26 ], [ %.0.i32, %66 ]
-  %.01434.i29 = phi i64 [ %65, %.lr.ph.i26 ], [ %67, %66 ]
-  %67 = add nsw i64 %.01434.i29, -1
-  %68 = atomicrmw xchg ptr %.036.i27, i64 0 acq_rel, align 8
+.lr.ph.i26:                                       ; preds = %_ZL15mi_bitmap_mask_mm.exit24.i.i19, %.lr.ph.i26
+  %.036.i27 = phi ptr [ %.0.i32, %.lr.ph.i26 ], [ %.032.i24, %_ZL15mi_bitmap_mask_mm.exit24.i.i19 ]
+  %.01434.i29 = phi i64 [ %64, %.lr.ph.i26 ], [ %39, %_ZL15mi_bitmap_mask_mm.exit24.i.i19 ]
+  %64 = add nsw i64 %.01434.i29, -1
+  %65 = atomicrmw xchg ptr %.036.i27, i64 0 acq_rel, align 8
   %.0.i32 = getelementptr inbounds nuw i8, ptr %.036.i27, i64 8
-  %.not16.i33 = icmp eq i64 %67, 0
-  br i1 %.not16.i33, label %._crit_edge.i34, label %66, !llvm.loop !143
+  %.not16.i33 = icmp eq i64 %64, 0
+  br i1 %.not16.i33, label %._crit_edge.i34, label %.lr.ph.i26, !llvm.loop !143
 
-._crit_edge.i34:                                  ; preds = %66, %_ZL15mi_bitmap_mask_mm.exit24.i.i19
-  %.0.lcssa.i36 = phi ptr [ %.032.i24, %_ZL15mi_bitmap_mask_mm.exit24.i.i19 ], [ %.0.i32, %66 ]
-  br i1 %.not17.i, label %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit45, label %69
+._crit_edge.i34:                                  ; preds = %.lr.ph.i26, %_ZL15mi_bitmap_mask_mm.exit24.i.i19
+  %.0.lcssa.i36 = phi ptr [ %.032.i24, %_ZL15mi_bitmap_mask_mm.exit24.i.i19 ], [ %.0.i32, %.lr.ph.i26 ]
+  br i1 %.not17.i, label %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit45, label %66
 
-69:                                               ; preds = %._crit_edge.i34
-  %70 = atomicrmw and ptr %.0.lcssa.i36, i64 %notmask.i25.i.i acq_rel, align 8
+66:                                               ; preds = %._crit_edge.i34
+  %67 = atomicrmw and ptr %.0.lcssa.i36, i64 %notmask.i25.i.i acq_rel, align 8
   br label %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit45
 
-_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit45: ; preds = %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.thread.thread, %69, %._crit_edge.i34, %._crit_edge.thread.i42, %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.thread, %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit
+_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit45: ; preds = %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.thread.thread, %66, %._crit_edge.i34, %._crit_edge.thread.i42, %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.thread, %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -33318,7 +33292,7 @@ _ZL31mi_commit_mask_create_intersectPK16mi_commit_mask_sS1_PS_.exit: ; preds = %
   %43 = and i64 %.016.i, 1
   %spec.select.i = add i64 %43, %.215.i
   %44 = lshr i64 %.016.i, 1
-  %.not.i12 = icmp ult i64 %.016.i, 2
+  %.not.i12 = icmp eq i64 %44, 0
   br i1 %.not.i12, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !281
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %41, %_ZL31mi_commit_mask_create_intersectPK16mi_commit_mask_sS1_PS_.exit
@@ -34752,7 +34726,7 @@ _ZL31mi_commit_mask_create_intersectPK16mi_commit_mask_sS1_PS_.exit.i.i: ; preds
   %53 = and i64 %.016.i.i.i, 1
   %spec.select.i.i.i = add i64 %53, %.215.i.i.i
   %54 = lshr i64 %.016.i.i.i, 1
-  %.not.i16.i.i = icmp ult i64 %.016.i.i.i, 2
+  %.not.i16.i.i = icmp eq i64 %54, 0
   br i1 %.not.i16.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !281
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i, %51, %_ZL31mi_commit_mask_create_intersectPK16mi_commit_mask_sS1_PS_.exit.i.i

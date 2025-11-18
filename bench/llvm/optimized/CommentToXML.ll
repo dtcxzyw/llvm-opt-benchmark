@@ -5646,8 +5646,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_116FullCommentPartsC2EPKN5clang8com
   %26 = load i64, ptr %25, align 8, !tbaa !540
   %.idx = shl nuw nsw i64 %26, 3
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx
-  %.not96 = icmp eq i64 %26, 0
-  br i1 %.not96, label %_ZN4llvm11stable_sortIRNS_11SmallVectorIPKN5clang8comments19ParamCommandCommentELj8EEEN12_GLOBAL__N_131ParamCommandCommentCompareIndexEEEvOT_T0_.exit, label %.lr.ph
+  %.not95 = icmp eq i64 %26, 0
+  br i1 %.not95, label %_ZN4llvm11stable_sortIRNS_11SmallVectorIPKN5clang8comments19ParamCommandCommentELj8EEEN12_GLOBAL__N_131ParamCommandCommentCompareIndexEEEvOT_T0_.exit, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread
   %.val.pre = load ptr, ptr %10, align 8, !tbaa !80
@@ -5668,417 +5668,417 @@ define internal fastcc void @_ZN12_GLOBAL__N_116FullCommentPartsC2EPKN5clang8com
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPPKN5clang8comments19ParamCommandCommentES4_EC2ES5_l.exit.i.i.i
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not14.i.i.i.i.i = icmp samesign ult i64 %.010.i.i.in.in.i.i.i, 3
-  br i1 %.not14.i.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !541
+  %33 = icmp eq i64 %.010.i.i.i.i.i, 1
+  br i1 %33, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !541
 
 .loopexit.i.i.i:                                  ; preds = %select.unfold.i.i.i.i.i
   tail call fastcc void @_ZSt21__inplace_stable_sortIPPKN5clang8comments19ParamCommandCommentEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_131ParamCommandCommentCompareIndexEEEEvT_SC_T0_(ptr noundef %.val.pre, ptr noundef nonnull %29)
-  br label %33
+  br label %34
 
 _ZNSt17_Temporary_bufferIPPKN5clang8comments19ParamCommandCommentES4_EC2ES5_l.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
   tail call fastcc void @_ZSt22__stable_sort_adaptiveIPPKN5clang8comments19ParamCommandCommentES5_lN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_131ParamCommandCommentCompareIndexEEEEvT_SC_T0_T1_T2_(ptr noundef %.val.pre, ptr noundef nonnull %29, ptr noundef nonnull %32, i64 noundef %.010.i.i.i.i.i)
-  br label %33
+  br label %34
 
-33:                                               ; preds = %_ZNSt17_Temporary_bufferIPPKN5clang8comments19ParamCommandCommentES4_EC2ES5_l.exit.i.i.i, %.loopexit.i.i.i
+34:                                               ; preds = %_ZNSt17_Temporary_bufferIPPKN5clang8comments19ParamCommandCommentES4_EC2ES5_l.exit.i.i.i, %.loopexit.i.i.i
   %.sroa.3.021.i.i.i = phi i64 [ %31, %_ZNSt17_Temporary_bufferIPPKN5clang8comments19ParamCommandCommentES4_EC2ES5_l.exit.i.i.i ], [ 0, %.loopexit.i.i.i ]
   tail call void @_ZdlPvm(ptr noundef %32, i64 noundef %.sroa.3.021.i.i.i) #19
   br label %_ZN4llvm11stable_sortIRNS_11SmallVectorIPKN5clang8comments19ParamCommandCommentELj8EEEN12_GLOBAL__N_131ParamCommandCommentCompareIndexEEEvOT_T0_.exit
 
-_ZN4llvm11stable_sortIRNS_11SmallVectorIPKN5clang8comments19ParamCommandCommentELj8EEEN12_GLOBAL__N_131ParamCommandCommentCompareIndexEEEvOT_T0_.exit: ; preds = %3, %._crit_edge, %33
+_ZN4llvm11stable_sortIRNS_11SmallVectorIPKN5clang8comments19ParamCommandCommentELj8EEEN12_GLOBAL__N_131ParamCommandCommentCompareIndexEEEvOT_T0_.exit: ; preds = %3, %._crit_edge, %34
   %.val51 = load ptr, ptr %14, align 8, !tbaa !80
   %.val52 = load i32, ptr %16, align 8, !tbaa !79
-  %34 = zext i32 %.val52 to i64
-  %.idx.i53 = shl nuw nsw i64 %34, 3
-  %35 = getelementptr inbounds nuw i8, ptr %.val51, i64 %.idx.i53
-  %36 = icmp eq i32 %.val52, 0
-  br i1 %36, label %_ZN4llvm11stable_sortIRNS_11SmallVectorIPKN5clang8comments20TParamCommandCommentELj4EEEN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEvOT_T0_.exit, label %.lr.ph.i.i.i.i.i54
+  %35 = zext i32 %.val52 to i64
+  %.idx.i53 = shl nuw nsw i64 %35, 3
+  %36 = getelementptr inbounds nuw i8, ptr %.val51, i64 %.idx.i53
+  %37 = icmp eq i32 %.val52, 0
+  br i1 %37, label %_ZN4llvm11stable_sortIRNS_11SmallVectorIPKN5clang8comments20TParamCommandCommentELj4EEEN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEvOT_T0_.exit, label %.lr.ph.i.i.i.i.i54
 
 .lr.ph.i.i.i.i.i54:                               ; preds = %_ZN4llvm11stable_sortIRNS_11SmallVectorIPKN5clang8comments19ParamCommandCommentELj8EEEN12_GLOBAL__N_131ParamCommandCommentCompareIndexEEEvOT_T0_.exit, %select.unfold.i.i.i.i.i60
-  %.010.i.i.in.in.i.i.i55 = phi i64 [ %.010.i.i.i.i.i57, %select.unfold.i.i.i.i.i60 ], [ %34, %_ZN4llvm11stable_sortIRNS_11SmallVectorIPKN5clang8comments19ParamCommandCommentELj8EEEN12_GLOBAL__N_131ParamCommandCommentCompareIndexEEEvOT_T0_.exit ]
+  %.010.i.i.in.in.i.i.i55 = phi i64 [ %.010.i.i.i.i.i57, %select.unfold.i.i.i.i.i60 ], [ %35, %_ZN4llvm11stable_sortIRNS_11SmallVectorIPKN5clang8comments19ParamCommandCommentELj8EEEN12_GLOBAL__N_131ParamCommandCommentCompareIndexEEEvOT_T0_.exit ]
   %.010.i.i.in.i.i.i56 = add nuw nsw i64 %.010.i.i.in.in.i.i.i55, 1
   %.010.i.i.i.i.i57 = lshr i64 %.010.i.i.in.i.i.i56, 1
-  %37 = shl nuw nsw i64 %.010.i.i.i.i.i57, 3
-  %38 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %37, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
-  %.not.i.i.i.i.i58 = icmp eq ptr %38, null
+  %38 = shl nuw nsw i64 %.010.i.i.i.i.i57, 3
+  %39 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %38, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
+  %.not.i.i.i.i.i58 = icmp eq ptr %39, null
   br i1 %.not.i.i.i.i.i58, label %select.unfold.i.i.i.i.i60, label %_ZNSt17_Temporary_bufferIPPKN5clang8comments20TParamCommandCommentES4_EC2ES5_l.exit.i.i.i
 
 select.unfold.i.i.i.i.i60:                        ; preds = %.lr.ph.i.i.i.i.i54
-  %.not14.i.i.i.i.i61 = icmp samesign ult i64 %.010.i.i.in.in.i.i.i55, 3
-  br i1 %.not14.i.i.i.i.i61, label %.loopexit.i.i.i62, label %.lr.ph.i.i.i.i.i54, !llvm.loop !542
+  %40 = icmp eq i64 %.010.i.i.i.i.i57, 1
+  br i1 %40, label %.loopexit.i.i.i61, label %.lr.ph.i.i.i.i.i54, !llvm.loop !542
 
-.loopexit.i.i.i62:                                ; preds = %select.unfold.i.i.i.i.i60
-  tail call fastcc void @_ZSt21__inplace_stable_sortIPPKN5clang8comments20TParamCommandCommentEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEEvT_SC_T0_(ptr noundef %.val51, ptr noundef nonnull %35)
-  br label %39
+.loopexit.i.i.i61:                                ; preds = %select.unfold.i.i.i.i.i60
+  tail call fastcc void @_ZSt21__inplace_stable_sortIPPKN5clang8comments20TParamCommandCommentEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEEvT_SC_T0_(ptr noundef %.val51, ptr noundef nonnull %36)
+  br label %41
 
 _ZNSt17_Temporary_bufferIPPKN5clang8comments20TParamCommandCommentES4_EC2ES5_l.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i54
-  tail call fastcc void @_ZSt22__stable_sort_adaptiveIPPKN5clang8comments20TParamCommandCommentES5_lN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEEvT_SC_T0_T1_T2_(ptr noundef %.val51, ptr noundef nonnull %35, ptr noundef nonnull %38, i64 noundef %.010.i.i.i.i.i57)
-  br label %39
+  tail call fastcc void @_ZSt22__stable_sort_adaptiveIPPKN5clang8comments20TParamCommandCommentES5_lN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEEvT_SC_T0_T1_T2_(ptr noundef %.val51, ptr noundef nonnull %36, ptr noundef nonnull %39, i64 noundef %.010.i.i.i.i.i57)
+  br label %41
 
-39:                                               ; preds = %_ZNSt17_Temporary_bufferIPPKN5clang8comments20TParamCommandCommentES4_EC2ES5_l.exit.i.i.i, %.loopexit.i.i.i62
-  %.sroa.3.021.i.i.i59 = phi i64 [ %37, %_ZNSt17_Temporary_bufferIPPKN5clang8comments20TParamCommandCommentES4_EC2ES5_l.exit.i.i.i ], [ 0, %.loopexit.i.i.i62 ]
-  tail call void @_ZdlPvm(ptr noundef %38, i64 noundef %.sroa.3.021.i.i.i59) #19
+41:                                               ; preds = %_ZNSt17_Temporary_bufferIPPKN5clang8comments20TParamCommandCommentES4_EC2ES5_l.exit.i.i.i, %.loopexit.i.i.i61
+  %.sroa.3.021.i.i.i59 = phi i64 [ %38, %_ZNSt17_Temporary_bufferIPPKN5clang8comments20TParamCommandCommentES4_EC2ES5_l.exit.i.i.i ], [ 0, %.loopexit.i.i.i61 ]
+  tail call void @_ZdlPvm(ptr noundef %39, i64 noundef %.sroa.3.021.i.i.i59) #19
   br label %_ZN4llvm11stable_sortIRNS_11SmallVectorIPKN5clang8comments20TParamCommandCommentELj4EEEN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEvOT_T0_.exit
 
-_ZN4llvm11stable_sortIRNS_11SmallVectorIPKN5clang8comments20TParamCommandCommentELj4EEEN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEvOT_T0_.exit: ; preds = %_ZN4llvm11stable_sortIRNS_11SmallVectorIPKN5clang8comments19ParamCommandCommentELj8EEEN12_GLOBAL__N_131ParamCommandCommentCompareIndexEEEvOT_T0_.exit, %39
+_ZN4llvm11stable_sortIRNS_11SmallVectorIPKN5clang8comments20TParamCommandCommentELj4EEEN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEvOT_T0_.exit: ; preds = %_ZN4llvm11stable_sortIRNS_11SmallVectorIPKN5clang8comments19ParamCommandCommentELj8EEEN12_GLOBAL__N_131ParamCommandCommentCompareIndexEEEvOT_T0_.exit, %41
   ret void
 
 .lr.ph:                                           ; preds = %3, %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread
-  %.097 = phi ptr [ %216, %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread ], [ %24, %3 ]
-  %40 = load ptr, ptr %.097, align 8, !tbaa !76
-  %.not41 = icmp eq ptr %40, null
-  br i1 %.not41, label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread, label %41
+  %.096 = phi ptr [ %218, %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread ], [ %24, %3 ]
+  %42 = load ptr, ptr %.096, align 8, !tbaa !76
+  %.not41 = icmp eq ptr %42, null
+  br i1 %.not41, label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread, label %43
 
-41:                                               ; preds = %.lr.ph
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 12
-  %43 = load i8, ptr %42, align 4
-  switch i8 %43, label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread [
-    i8 9, label %195
-    i8 7, label %44
-    i8 8, label %70
-    i8 12, label %117
-    i8 11, label %151
-    i8 10, label %182
+43:                                               ; preds = %.lr.ph
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 12
+  %45 = load i8, ptr %44, align 4
+  switch i8 %45, label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread [
+    i8 9, label %197
+    i8 7, label %46
+    i8 8, label %72
+    i8 12, label %119
+    i8 11, label %153
+    i8 10, label %184
   ]
 
-44:                                               ; preds = %41
-  %45 = load i16, ptr %42, align 4
-  %46 = and i16 %45, 256
-  %.not.i = icmp eq i16 %46, 0
-  br i1 %.not.i, label %_ZNK5clang8comments16ParagraphComment12isWhitespaceEv.exit, label %47
+46:                                               ; preds = %43
+  %47 = load i16, ptr %44, align 4
+  %48 = and i16 %47, 256
+  %.not.i = icmp eq i16 %48, 0
+  br i1 %.not.i, label %_ZNK5clang8comments16ParagraphComment12isWhitespaceEv.exit, label %49
 
-47:                                               ; preds = %44
-  %48 = and i16 %45, 512
-  %.not86 = icmp eq i16 %48, 0
-  br i1 %.not86, label %54, label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread
+49:                                               ; preds = %46
+  %50 = and i16 %47, 512
+  %.not85 = icmp eq i16 %50, 0
+  br i1 %.not85, label %56, label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread
 
-_ZNK5clang8comments16ParagraphComment12isWhitespaceEv.exit: ; preds = %44
-  %49 = tail call noundef zeroext i1 @_ZNK5clang8comments16ParagraphComment19isWhitespaceNoCacheEv(ptr noundef nonnull align 8 dereferenceable(32) %40) #19
-  %50 = load i16, ptr %42, align 4
-  %51 = and i16 %50, -769
-  %52 = select i1 %49, i16 768, i16 256
-  %53 = or disjoint i16 %51, %52
-  store i16 %53, ptr %42, align 4
-  br i1 %49, label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread, label %54
+_ZNK5clang8comments16ParagraphComment12isWhitespaceEv.exit: ; preds = %46
+  %51 = tail call noundef zeroext i1 @_ZNK5clang8comments16ParagraphComment19isWhitespaceNoCacheEv(ptr noundef nonnull align 8 dereferenceable(32) %42) #19
+  %52 = load i16, ptr %44, align 4
+  %53 = and i16 %52, -769
+  %54 = select i1 %51, i16 768, i16 256
+  %55 = or disjoint i16 %53, %54
+  store i16 %55, ptr %44, align 4
+  br i1 %51, label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread, label %56
 
-54:                                               ; preds = %47, %_ZNK5clang8comments16ParagraphComment12isWhitespaceEv.exit
-  %55 = load ptr, ptr %5, align 8, !tbaa !71
-  %.not49 = icmp eq ptr %55, null
-  br i1 %.not49, label %56, label %57
+56:                                               ; preds = %49, %_ZNK5clang8comments16ParagraphComment12isWhitespaceEv.exit
+  %57 = load ptr, ptr %5, align 8, !tbaa !71
+  %.not49 = icmp eq ptr %57, null
+  br i1 %.not49, label %58, label %59
 
-56:                                               ; preds = %54
-  store ptr %40, ptr %5, align 8, !tbaa !71
-  br label %57
+58:                                               ; preds = %56
+  store ptr %42, ptr %5, align 8, !tbaa !71
+  br label %59
 
-57:                                               ; preds = %56, %54
-  %58 = load i32, ptr %21, align 8, !tbaa !79
-  %59 = load i32, ptr %22, align 4, !tbaa !538
-  %.not.i.i.not.i = icmp ult i32 %58, %59
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockContentCommentELb1EE9push_backES5_.exit, label %60, !prof !543
+59:                                               ; preds = %58, %56
+  %60 = load i32, ptr %21, align 8, !tbaa !79
+  %61 = load i32, ptr %22, align 4, !tbaa !538
+  %.not.i.i.not.i = icmp ult i32 %60, %61
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockContentCommentELb1EE9push_backES5_.exit, label %62, !prof !543
 
-60:                                               ; preds = %57
-  %61 = zext i32 %58 to i64
-  %62 = add nuw nsw i64 %61, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %20, i64 noundef %62, i64 noundef 8) #19
+62:                                               ; preds = %59
+  %63 = zext i32 %60 to i64
+  %64 = add nuw nsw i64 %63, 1
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %20, i64 noundef %64, i64 noundef 8) #19
   %.pre.i = load i32, ptr %21, align 8, !tbaa !79
   br label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockContentCommentELb1EE9push_backES5_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockContentCommentELb1EE9push_backES5_.exit: ; preds = %57, %60
-  %63 = phi i32 [ %58, %57 ], [ %.pre.i, %60 ]
-  %64 = load ptr, ptr %19, align 8, !tbaa !80
-  %65 = zext i32 %63 to i64
-  %66 = getelementptr inbounds nuw ptr, ptr %64, i64 %65
-  %67 = ptrtoint ptr %40 to i64
-  store i64 %67, ptr %66, align 1
-  %68 = load i32, ptr %21, align 8, !tbaa !79
-  %69 = add i32 %68, 1
-  store i32 %69, ptr %21, align 8, !tbaa !79
+_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockContentCommentELb1EE9push_backES5_.exit: ; preds = %59, %62
+  %65 = phi i32 [ %60, %59 ], [ %.pre.i, %62 ]
+  %66 = load ptr, ptr %19, align 8, !tbaa !80
+  %67 = zext i32 %65 to i64
+  %68 = getelementptr inbounds nuw ptr, ptr %66, i64 %67
+  %69 = ptrtoint ptr %42 to i64
+  store i64 %69, ptr %68, align 1
+  %70 = load i32, ptr %21, align 8, !tbaa !79
+  %71 = add i32 %70, 1
+  store i32 %71, ptr %21, align 8, !tbaa !79
   br label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread
 
-70:                                               ; preds = %41
-  %71 = load i32, ptr %42, align 4
-  %72 = lshr i32 %71, 8
-  %73 = and i32 %72, 1048575
-  %74 = tail call noundef ptr @_ZNK5clang8comments13CommandTraits14getCommandInfoEj(ptr noundef nonnull align 8 dereferenceable(64) %2, i32 noundef %73) #19
-  %75 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not43 = icmp eq ptr %75, null
-  br i1 %.not43, label %76, label %81
+72:                                               ; preds = %43
+  %73 = load i32, ptr %44, align 4
+  %74 = lshr i32 %73, 8
+  %75 = and i32 %74, 1048575
+  %76 = tail call noundef ptr @_ZNK5clang8comments13CommandTraits14getCommandInfoEj(ptr noundef nonnull align 8 dereferenceable(64) %2, i32 noundef %75) #19
+  %77 = load ptr, ptr %0, align 8, !tbaa !70
+  %.not43 = icmp eq ptr %77, null
+  br i1 %.not43, label %78, label %83
 
-76:                                               ; preds = %70
-  %77 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %78 = load i64, ptr %77, align 8
-  %79 = and i64 %78, 67108864
-  %.not44 = icmp eq i64 %79, 0
-  br i1 %.not44, label %81, label %80
+78:                                               ; preds = %72
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 16
+  %80 = load i64, ptr %79, align 8
+  %81 = and i64 %80, 67108864
+  %.not44 = icmp eq i64 %81, 0
+  br i1 %.not44, label %83, label %82
 
-80:                                               ; preds = %76
-  store ptr %40, ptr %0, align 8, !tbaa !70
+82:                                               ; preds = %78
+  store ptr %42, ptr %0, align 8, !tbaa !70
   br label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread
 
-81:                                               ; preds = %76, %70
-  %82 = load ptr, ptr %4, align 8, !tbaa !37
-  %.not45 = icmp ne ptr %82, null
-  %83 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %84 = load i64, ptr %83, align 8
-  %85 = and i64 %84, 4294967296
-  %.not46 = icmp eq i64 %85, 0
+83:                                               ; preds = %78, %72
+  %84 = load ptr, ptr %4, align 8, !tbaa !37
+  %.not45 = icmp ne ptr %84, null
+  %85 = getelementptr inbounds nuw i8, ptr %76, i64 16
+  %86 = load i64, ptr %85, align 8
+  %87 = and i64 %86, 4294967296
+  %.not46 = icmp eq i64 %87, 0
   %or.cond = select i1 %.not45, i1 true, i1 %.not46
-  br i1 %or.cond, label %._crit_edge107, label %86
+  br i1 %or.cond, label %._crit_edge106, label %88
 
-86:                                               ; preds = %81
-  store ptr %40, ptr %4, align 8, !tbaa !37
+88:                                               ; preds = %83
+  store ptr %42, ptr %4, align 8, !tbaa !37
   br label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread
 
-._crit_edge107:                                   ; preds = %81
-  %87 = and i64 %84, 134217728
-  %.not47 = icmp eq i64 %87, 0
-  br i1 %.not47, label %101, label %88
+._crit_edge106:                                   ; preds = %83
+  %89 = and i64 %86, 134217728
+  %.not47 = icmp eq i64 %89, 0
+  br i1 %.not47, label %103, label %90
 
-88:                                               ; preds = %._crit_edge107
-  %89 = load i32, ptr %8, align 8, !tbaa !79
-  %90 = load i32, ptr %9, align 4, !tbaa !538
-  %.not.i.i.not.i63 = icmp ult i32 %89, %90
-  br i1 %.not.i.i.not.i63, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockCommandCommentELb1EE9push_backES5_.exit, label %91, !prof !543
+90:                                               ; preds = %._crit_edge106
+  %91 = load i32, ptr %8, align 8, !tbaa !79
+  %92 = load i32, ptr %9, align 4, !tbaa !538
+  %.not.i.i.not.i62 = icmp ult i32 %91, %92
+  br i1 %.not.i.i.not.i62, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockCommandCommentELb1EE9push_backES5_.exit, label %93, !prof !543
 
-91:                                               ; preds = %88
-  %92 = zext i32 %89 to i64
-  %93 = add nuw nsw i64 %92, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %7, i64 noundef %93, i64 noundef 8) #19
-  %.pre.i64 = load i32, ptr %8, align 8, !tbaa !79
+93:                                               ; preds = %90
+  %94 = zext i32 %91 to i64
+  %95 = add nuw nsw i64 %94, 1
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %7, i64 noundef %95, i64 noundef 8) #19
+  %.pre.i63 = load i32, ptr %8, align 8, !tbaa !79
   br label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockCommandCommentELb1EE9push_backES5_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockCommandCommentELb1EE9push_backES5_.exit: ; preds = %88, %91
-  %94 = phi i32 [ %89, %88 ], [ %.pre.i64, %91 ]
-  %95 = load ptr, ptr %6, align 8, !tbaa !80
-  %96 = zext i32 %94 to i64
-  %97 = getelementptr inbounds nuw ptr, ptr %95, i64 %96
-  %98 = ptrtoint ptr %40 to i64
-  store i64 %98, ptr %97, align 1
-  %99 = load i32, ptr %8, align 8, !tbaa !79
-  %100 = add i32 %99, 1
-  store i32 %100, ptr %8, align 8, !tbaa !79
+_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockCommandCommentELb1EE9push_backES5_.exit: ; preds = %90, %93
+  %96 = phi i32 [ %91, %90 ], [ %.pre.i63, %93 ]
+  %97 = load ptr, ptr %6, align 8, !tbaa !80
+  %98 = zext i32 %96 to i64
+  %99 = getelementptr inbounds nuw ptr, ptr %97, i64 %98
+  %100 = ptrtoint ptr %42 to i64
+  store i64 %100, ptr %99, align 1
+  %101 = load i32, ptr %8, align 8, !tbaa !79
+  %102 = add i32 %101, 1
+  store i32 %102, ptr %8, align 8, !tbaa !79
   br label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread
 
-101:                                              ; preds = %._crit_edge107
-  %102 = and i64 %84, 1073741824
-  %.not48 = icmp eq i64 %102, 0
-  br i1 %.not48, label %104, label %103
+103:                                              ; preds = %._crit_edge106
+  %104 = and i64 %86, 1073741824
+  %.not48 = icmp eq i64 %104, 0
+  br i1 %.not48, label %106, label %105
 
-103:                                              ; preds = %101
-  tail call void @_ZN4llvm13TinyPtrVectorIPKN5clang8comments19BlockCommandCommentEE9push_backES5_(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull %40)
+105:                                              ; preds = %103
+  tail call void @_ZN4llvm13TinyPtrVectorIPKN5clang8comments19BlockCommandCommentEE9push_backES5_(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull %42)
   br label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread
 
-104:                                              ; preds = %101
-  %105 = load i32, ptr %21, align 8, !tbaa !79
-  %106 = load i32, ptr %22, align 4, !tbaa !538
-  %.not.i.i.not.i65 = icmp ult i32 %105, %106
-  br i1 %.not.i.i.not.i65, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockContentCommentELb1EE9push_backES5_.exit67, label %107, !prof !543
+106:                                              ; preds = %103
+  %107 = load i32, ptr %21, align 8, !tbaa !79
+  %108 = load i32, ptr %22, align 4, !tbaa !538
+  %.not.i.i.not.i64 = icmp ult i32 %107, %108
+  br i1 %.not.i.i.not.i64, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockContentCommentELb1EE9push_backES5_.exit66, label %109, !prof !543
 
-107:                                              ; preds = %104
-  %108 = zext i32 %105 to i64
-  %109 = add nuw nsw i64 %108, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %20, i64 noundef %109, i64 noundef 8) #19
-  %.pre.i66 = load i32, ptr %21, align 8, !tbaa !79
-  br label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockContentCommentELb1EE9push_backES5_.exit67
+109:                                              ; preds = %106
+  %110 = zext i32 %107 to i64
+  %111 = add nuw nsw i64 %110, 1
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %20, i64 noundef %111, i64 noundef 8) #19
+  %.pre.i65 = load i32, ptr %21, align 8, !tbaa !79
+  br label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockContentCommentELb1EE9push_backES5_.exit66
 
-_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockContentCommentELb1EE9push_backES5_.exit67: ; preds = %104, %107
-  %110 = phi i32 [ %105, %104 ], [ %.pre.i66, %107 ]
-  %111 = load ptr, ptr %19, align 8, !tbaa !80
-  %112 = zext i32 %110 to i64
-  %113 = getelementptr inbounds nuw ptr, ptr %111, i64 %112
-  %114 = ptrtoint ptr %40 to i64
-  store i64 %114, ptr %113, align 1
-  %115 = load i32, ptr %21, align 8, !tbaa !79
-  %116 = add i32 %115, 1
-  store i32 %116, ptr %21, align 8, !tbaa !79
+_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockContentCommentELb1EE9push_backES5_.exit66: ; preds = %106, %109
+  %112 = phi i32 [ %107, %106 ], [ %.pre.i65, %109 ]
+  %113 = load ptr, ptr %19, align 8, !tbaa !80
+  %114 = zext i32 %112 to i64
+  %115 = getelementptr inbounds nuw ptr, ptr %113, i64 %114
+  %116 = ptrtoint ptr %42 to i64
+  store i64 %116, ptr %115, align 1
+  %117 = load i32, ptr %21, align 8, !tbaa !79
+  %118 = add i32 %117, 1
+  store i32 %118, ptr %21, align 8, !tbaa !79
   br label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread
 
-117:                                              ; preds = %41
-  %118 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %119 = load i64, ptr %118, align 8, !tbaa !28
-  %120 = and i64 %119, 4294967295
-  %.not85 = icmp eq i64 %120, 0
-  br i1 %.not85, label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread, label %121
+119:                                              ; preds = %43
+  %120 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %121 = load i64, ptr %120, align 8, !tbaa !28
+  %122 = and i64 %121, 4294967295
+  %.not84 = icmp eq i64 %122, 0
+  br i1 %.not84, label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread, label %123
 
-121:                                              ; preds = %117
-  %122 = load i32, ptr %42, align 4
-  %123 = icmp slt i32 %122, 0
-  br i1 %123, label %138, label %124
+123:                                              ; preds = %119
+  %124 = load i32, ptr %44, align 4
+  %125 = icmp slt i32 %124, 0
+  br i1 %125, label %140, label %126
 
-124:                                              ; preds = %121
-  %125 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  %126 = load ptr, ptr %125, align 8, !tbaa !93
-  %.not.i68 = icmp eq ptr %126, null
-  br i1 %.not.i68, label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread, label %127
+126:                                              ; preds = %123
+  %127 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  %128 = load ptr, ptr %127, align 8, !tbaa !93
+  %.not.i67 = icmp eq ptr %128, null
+  br i1 %.not.i67, label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread, label %129
 
-127:                                              ; preds = %124
-  %128 = getelementptr inbounds nuw i8, ptr %126, i64 12
-  %129 = load i16, ptr %128, align 4
-  %130 = and i16 %129, 256
-  %.not.i.i = icmp eq i16 %130, 0
-  br i1 %.not.i.i, label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit, label %131
+129:                                              ; preds = %126
+  %130 = getelementptr inbounds nuw i8, ptr %128, i64 12
+  %131 = load i16, ptr %130, align 4
+  %132 = and i16 %131, 256
+  %.not.i.i = icmp eq i16 %132, 0
+  br i1 %.not.i.i, label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit, label %133
 
-131:                                              ; preds = %127
-  %132 = and i16 %129, 512
-  %.not141 = icmp eq i16 %132, 0
-  br i1 %.not141, label %138, label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread
+133:                                              ; preds = %129
+  %134 = and i16 %131, 512
+  %.not140 = icmp eq i16 %134, 0
+  br i1 %.not140, label %140, label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread
 
-_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit: ; preds = %127
-  %133 = tail call noundef zeroext i1 @_ZNK5clang8comments16ParagraphComment19isWhitespaceNoCacheEv(ptr noundef nonnull align 8 dereferenceable(32) %126) #19
-  %134 = load i16, ptr %128, align 4
-  %135 = and i16 %134, -769
-  %136 = select i1 %133, i16 768, i16 256
-  %137 = or disjoint i16 %135, %136
-  store i16 %137, ptr %128, align 4
-  br i1 %133, label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread, label %138
+_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit: ; preds = %129
+  %135 = tail call noundef zeroext i1 @_ZNK5clang8comments16ParagraphComment19isWhitespaceNoCacheEv(ptr noundef nonnull align 8 dereferenceable(32) %128) #19
+  %136 = load i16, ptr %130, align 4
+  %137 = and i16 %136, -769
+  %138 = select i1 %135, i16 768, i16 256
+  %139 = or disjoint i16 %137, %138
+  store i16 %139, ptr %130, align 4
+  br i1 %135, label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread, label %140
 
-138:                                              ; preds = %131, %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit, %121
-  %139 = load i32, ptr %12, align 8, !tbaa !79
-  %140 = load i32, ptr %13, align 4, !tbaa !538
-  %.not.i.i.not.i69 = icmp ult i32 %139, %140
-  br i1 %.not.i.i.not.i69, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19ParamCommandCommentELb1EE9push_backES5_.exit, label %141, !prof !543
+140:                                              ; preds = %133, %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit, %123
+  %141 = load i32, ptr %12, align 8, !tbaa !79
+  %142 = load i32, ptr %13, align 4, !tbaa !538
+  %.not.i.i.not.i68 = icmp ult i32 %141, %142
+  br i1 %.not.i.i.not.i68, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19ParamCommandCommentELb1EE9push_backES5_.exit, label %143, !prof !543
 
-141:                                              ; preds = %138
-  %142 = zext i32 %139 to i64
-  %143 = add nuw nsw i64 %142, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %11, i64 noundef %143, i64 noundef 8) #19
-  %.pre.i70 = load i32, ptr %12, align 8, !tbaa !79
+143:                                              ; preds = %140
+  %144 = zext i32 %141 to i64
+  %145 = add nuw nsw i64 %144, 1
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %11, i64 noundef %145, i64 noundef 8) #19
+  %.pre.i69 = load i32, ptr %12, align 8, !tbaa !79
   br label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19ParamCommandCommentELb1EE9push_backES5_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19ParamCommandCommentELb1EE9push_backES5_.exit: ; preds = %138, %141
-  %144 = phi i32 [ %139, %138 ], [ %.pre.i70, %141 ]
-  %145 = load ptr, ptr %10, align 8, !tbaa !80
-  %146 = zext i32 %144 to i64
-  %147 = getelementptr inbounds nuw ptr, ptr %145, i64 %146
-  %148 = ptrtoint ptr %40 to i64
-  store i64 %148, ptr %147, align 1
-  %149 = load i32, ptr %12, align 8, !tbaa !79
-  %150 = add i32 %149, 1
-  store i32 %150, ptr %12, align 8, !tbaa !79
+_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19ParamCommandCommentELb1EE9push_backES5_.exit: ; preds = %140, %143
+  %146 = phi i32 [ %141, %140 ], [ %.pre.i69, %143 ]
+  %147 = load ptr, ptr %10, align 8, !tbaa !80
+  %148 = zext i32 %146 to i64
+  %149 = getelementptr inbounds nuw ptr, ptr %147, i64 %148
+  %150 = ptrtoint ptr %42 to i64
+  store i64 %150, ptr %149, align 1
+  %151 = load i32, ptr %12, align 8, !tbaa !79
+  %152 = add i32 %151, 1
+  store i32 %152, ptr %12, align 8, !tbaa !79
   br label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread
 
-151:                                              ; preds = %41
-  %152 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %153 = load i64, ptr %152, align 8, !tbaa !28
-  %154 = and i64 %153, 4294967295
-  %.not84 = icmp eq i64 %154, 0
-  br i1 %.not84, label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread, label %155
+153:                                              ; preds = %43
+  %154 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %155 = load i64, ptr %154, align 8, !tbaa !28
+  %156 = and i64 %155, 4294967295
+  %.not83 = icmp eq i64 %156, 0
+  br i1 %.not83, label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread, label %157
 
-155:                                              ; preds = %151
-  %156 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  %157 = load ptr, ptr %156, align 8, !tbaa !93
-  %.not.i71 = icmp eq ptr %157, null
-  br i1 %.not.i71, label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread, label %158
+157:                                              ; preds = %153
+  %158 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  %159 = load ptr, ptr %158, align 8, !tbaa !93
+  %.not.i70 = icmp eq ptr %159, null
+  br i1 %.not.i70, label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread, label %160
 
-158:                                              ; preds = %155
-  %159 = getelementptr inbounds nuw i8, ptr %157, i64 12
-  %160 = load i16, ptr %159, align 4
-  %161 = and i16 %160, 256
-  %.not.i.i72 = icmp eq i16 %161, 0
-  br i1 %.not.i.i72, label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit75, label %162
+160:                                              ; preds = %157
+  %161 = getelementptr inbounds nuw i8, ptr %159, i64 12
+  %162 = load i16, ptr %161, align 4
+  %163 = and i16 %162, 256
+  %.not.i.i71 = icmp eq i16 %163, 0
+  br i1 %.not.i.i71, label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit74, label %164
 
-162:                                              ; preds = %158
-  %163 = and i16 %160, 512
-  %.not140 = icmp eq i16 %163, 0
-  br i1 %.not140, label %169, label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread
+164:                                              ; preds = %160
+  %165 = and i16 %162, 512
+  %.not139 = icmp eq i16 %165, 0
+  br i1 %.not139, label %171, label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread
 
-_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit75: ; preds = %158
-  %164 = tail call noundef zeroext i1 @_ZNK5clang8comments16ParagraphComment19isWhitespaceNoCacheEv(ptr noundef nonnull align 8 dereferenceable(32) %157) #19
-  %165 = load i16, ptr %159, align 4
-  %166 = and i16 %165, -769
-  %167 = select i1 %164, i16 768, i16 256
-  %168 = or disjoint i16 %166, %167
-  store i16 %168, ptr %159, align 4
-  br i1 %164, label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread, label %169
+_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit74: ; preds = %160
+  %166 = tail call noundef zeroext i1 @_ZNK5clang8comments16ParagraphComment19isWhitespaceNoCacheEv(ptr noundef nonnull align 8 dereferenceable(32) %159) #19
+  %167 = load i16, ptr %161, align 4
+  %168 = and i16 %167, -769
+  %169 = select i1 %166, i16 768, i16 256
+  %170 = or disjoint i16 %168, %169
+  store i16 %170, ptr %161, align 4
+  br i1 %166, label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread, label %171
 
-169:                                              ; preds = %162, %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit75
-  %170 = load i32, ptr %16, align 8, !tbaa !79
-  %171 = load i32, ptr %17, align 4, !tbaa !538
-  %.not.i.i.not.i76 = icmp ult i32 %170, %171
-  br i1 %.not.i.i.not.i76, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments20TParamCommandCommentELb1EE9push_backES5_.exit, label %172, !prof !543
+171:                                              ; preds = %164, %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit74
+  %172 = load i32, ptr %16, align 8, !tbaa !79
+  %173 = load i32, ptr %17, align 4, !tbaa !538
+  %.not.i.i.not.i75 = icmp ult i32 %172, %173
+  br i1 %.not.i.i.not.i75, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments20TParamCommandCommentELb1EE9push_backES5_.exit, label %174, !prof !543
 
-172:                                              ; preds = %169
-  %173 = zext i32 %170 to i64
-  %174 = add nuw nsw i64 %173, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull %15, i64 noundef %174, i64 noundef 8) #19
-  %.pre.i77 = load i32, ptr %16, align 8, !tbaa !79
+174:                                              ; preds = %171
+  %175 = zext i32 %172 to i64
+  %176 = add nuw nsw i64 %175, 1
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull %15, i64 noundef %176, i64 noundef 8) #19
+  %.pre.i76 = load i32, ptr %16, align 8, !tbaa !79
   br label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments20TParamCommandCommentELb1EE9push_backES5_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments20TParamCommandCommentELb1EE9push_backES5_.exit: ; preds = %169, %172
-  %175 = phi i32 [ %170, %169 ], [ %.pre.i77, %172 ]
-  %176 = load ptr, ptr %14, align 8, !tbaa !80
-  %177 = zext i32 %175 to i64
-  %178 = getelementptr inbounds nuw ptr, ptr %176, i64 %177
-  %179 = ptrtoint ptr %40 to i64
-  store i64 %179, ptr %178, align 1
-  %180 = load i32, ptr %16, align 8, !tbaa !79
-  %181 = add i32 %180, 1
-  store i32 %181, ptr %16, align 8, !tbaa !79
+_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments20TParamCommandCommentELb1EE9push_backES5_.exit: ; preds = %171, %174
+  %177 = phi i32 [ %172, %171 ], [ %.pre.i76, %174 ]
+  %178 = load ptr, ptr %14, align 8, !tbaa !80
+  %179 = zext i32 %177 to i64
+  %180 = getelementptr inbounds nuw ptr, ptr %178, i64 %179
+  %181 = ptrtoint ptr %42 to i64
+  store i64 %181, ptr %180, align 1
+  %182 = load i32, ptr %16, align 8, !tbaa !79
+  %183 = add i32 %182, 1
+  store i32 %183, ptr %16, align 8, !tbaa !79
   br label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread
 
-182:                                              ; preds = %41
-  %183 = load i32, ptr %21, align 8, !tbaa !79
-  %184 = load i32, ptr %22, align 4, !tbaa !538
-  %.not.i.i.not.i78 = icmp ult i32 %183, %184
-  br i1 %.not.i.i.not.i78, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockContentCommentELb1EE9push_backES5_.exit80, label %185, !prof !543
+184:                                              ; preds = %43
+  %185 = load i32, ptr %21, align 8, !tbaa !79
+  %186 = load i32, ptr %22, align 4, !tbaa !538
+  %.not.i.i.not.i77 = icmp ult i32 %185, %186
+  br i1 %.not.i.i.not.i77, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockContentCommentELb1EE9push_backES5_.exit79, label %187, !prof !543
 
-185:                                              ; preds = %182
-  %186 = zext i32 %183 to i64
-  %187 = add nuw nsw i64 %186, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %20, i64 noundef %187, i64 noundef 8) #19
-  %.pre.i79 = load i32, ptr %21, align 8, !tbaa !79
-  br label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockContentCommentELb1EE9push_backES5_.exit80
+187:                                              ; preds = %184
+  %188 = zext i32 %185 to i64
+  %189 = add nuw nsw i64 %188, 1
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %20, i64 noundef %189, i64 noundef 8) #19
+  %.pre.i78 = load i32, ptr %21, align 8, !tbaa !79
+  br label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockContentCommentELb1EE9push_backES5_.exit79
 
-_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockContentCommentELb1EE9push_backES5_.exit80: ; preds = %182, %185
-  %188 = phi i32 [ %183, %182 ], [ %.pre.i79, %185 ]
-  %189 = load ptr, ptr %19, align 8, !tbaa !80
-  %190 = zext i32 %188 to i64
-  %191 = getelementptr inbounds nuw ptr, ptr %189, i64 %190
-  %192 = ptrtoint ptr %40 to i64
-  store i64 %192, ptr %191, align 1
-  %193 = load i32, ptr %21, align 8, !tbaa !79
-  %194 = add i32 %193, 1
-  store i32 %194, ptr %21, align 8, !tbaa !79
+_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockContentCommentELb1EE9push_backES5_.exit79: ; preds = %184, %187
+  %190 = phi i32 [ %185, %184 ], [ %.pre.i78, %187 ]
+  %191 = load ptr, ptr %19, align 8, !tbaa !80
+  %192 = zext i32 %190 to i64
+  %193 = getelementptr inbounds nuw ptr, ptr %191, i64 %192
+  %194 = ptrtoint ptr %42 to i64
+  store i64 %194, ptr %193, align 1
+  %195 = load i32, ptr %21, align 8, !tbaa !79
+  %196 = add i32 %195, 1
+  store i32 %196, ptr %21, align 8, !tbaa !79
   br label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread
 
-195:                                              ; preds = %41
-  %196 = load i32, ptr %42, align 4
-  %197 = lshr i32 %196, 8
-  %198 = and i32 %197, 1048575
-  %199 = tail call noundef ptr @_ZNK5clang8comments13CommandTraits14getCommandInfoEj(ptr noundef nonnull align 8 dereferenceable(64) %2, i32 noundef %198) #19
-  %200 = getelementptr inbounds nuw i8, ptr %199, i64 16
-  %201 = load i64, ptr %200, align 8
-  %202 = and i64 %201, 274877906944
-  %.not42 = icmp eq i64 %202, 0
-  br i1 %.not42, label %203, label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread
+197:                                              ; preds = %43
+  %198 = load i32, ptr %44, align 4
+  %199 = lshr i32 %198, 8
+  %200 = and i32 %199, 1048575
+  %201 = tail call noundef ptr @_ZNK5clang8comments13CommandTraits14getCommandInfoEj(ptr noundef nonnull align 8 dereferenceable(64) %2, i32 noundef %200) #19
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 16
+  %203 = load i64, ptr %202, align 8
+  %204 = and i64 %203, 274877906944
+  %.not42 = icmp eq i64 %204, 0
+  br i1 %.not42, label %205, label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread
 
-203:                                              ; preds = %195
-  %204 = load i32, ptr %21, align 8, !tbaa !79
-  %205 = load i32, ptr %22, align 4, !tbaa !538
-  %.not.i.i.not.i81 = icmp ult i32 %204, %205
-  br i1 %.not.i.i.not.i81, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockContentCommentELb1EE9push_backES5_.exit83, label %206, !prof !543
+205:                                              ; preds = %197
+  %206 = load i32, ptr %21, align 8, !tbaa !79
+  %207 = load i32, ptr %22, align 4, !tbaa !538
+  %.not.i.i.not.i80 = icmp ult i32 %206, %207
+  br i1 %.not.i.i.not.i80, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockContentCommentELb1EE9push_backES5_.exit82, label %208, !prof !543
 
-206:                                              ; preds = %203
-  %207 = zext i32 %204 to i64
-  %208 = add nuw nsw i64 %207, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %20, i64 noundef %208, i64 noundef 8) #19
-  %.pre.i82 = load i32, ptr %21, align 8, !tbaa !79
-  br label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockContentCommentELb1EE9push_backES5_.exit83
+208:                                              ; preds = %205
+  %209 = zext i32 %206 to i64
+  %210 = add nuw nsw i64 %209, 1
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %20, i64 noundef %210, i64 noundef 8) #19
+  %.pre.i81 = load i32, ptr %21, align 8, !tbaa !79
+  br label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockContentCommentELb1EE9push_backES5_.exit82
 
-_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockContentCommentELb1EE9push_backES5_.exit83: ; preds = %203, %206
-  %209 = phi i32 [ %204, %203 ], [ %.pre.i82, %206 ]
-  %210 = load ptr, ptr %19, align 8, !tbaa !80
-  %211 = zext i32 %209 to i64
-  %212 = getelementptr inbounds nuw ptr, ptr %210, i64 %211
-  %213 = ptrtoint ptr %40 to i64
-  store i64 %213, ptr %212, align 1
-  %214 = load i32, ptr %21, align 8, !tbaa !79
-  %215 = add i32 %214, 1
-  store i32 %215, ptr %21, align 8, !tbaa !79
+_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockContentCommentELb1EE9push_backES5_.exit82: ; preds = %205, %208
+  %211 = phi i32 [ %206, %205 ], [ %.pre.i81, %208 ]
+  %212 = load ptr, ptr %19, align 8, !tbaa !80
+  %213 = zext i32 %211 to i64
+  %214 = getelementptr inbounds nuw ptr, ptr %212, i64 %213
+  %215 = ptrtoint ptr %42 to i64
+  store i64 %215, ptr %214, align 1
+  %216 = load i32, ptr %21, align 8, !tbaa !79
+  %217 = add i32 %216, 1
+  store i32 %217, ptr %21, align 8, !tbaa !79
   br label %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread
 
-_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread: ; preds = %162, %131, %155, %124, %47, %41, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockContentCommentELb1EE9push_backES5_.exit80, %_ZNK5clang8comments16ParagraphComment12isWhitespaceEv.exit, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockContentCommentELb1EE9push_backES5_.exit, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockContentCommentELb1EE9push_backES5_.exit67, %103, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockCommandCommentELb1EE9push_backES5_.exit, %86, %80, %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit, %117, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19ParamCommandCommentELb1EE9push_backES5_.exit, %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit75, %151, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments20TParamCommandCommentELb1EE9push_backES5_.exit, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockContentCommentELb1EE9push_backES5_.exit83, %195, %.lr.ph
-  %216 = getelementptr inbounds nuw i8, ptr %.097, i64 8
-  %.not = icmp eq ptr %216, %27
+_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread: ; preds = %164, %133, %157, %126, %49, %43, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockContentCommentELb1EE9push_backES5_.exit79, %_ZNK5clang8comments16ParagraphComment12isWhitespaceEv.exit, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockContentCommentELb1EE9push_backES5_.exit, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockContentCommentELb1EE9push_backES5_.exit66, %105, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockCommandCommentELb1EE9push_backES5_.exit, %88, %82, %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit, %119, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19ParamCommandCommentELb1EE9push_backES5_.exit, %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit74, %153, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments20TParamCommandCommentELb1EE9push_backES5_.exit, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockContentCommentELb1EE9push_backES5_.exit82, %197, %.lr.ph
+  %218 = getelementptr inbounds nuw i8, ptr %.096, i64 8
+  %.not = icmp eq ptr %218, %27
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !544
 }
 

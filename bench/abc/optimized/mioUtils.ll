@@ -2333,8 +2333,8 @@ define noundef ptr @Mio_CollectRootsNew(ptr noundef %0, i32 noundef %1, ptr noun
   %39 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %40 = load i32, ptr %39, align 8
   %41 = lshr i32 %40, 28
-  %.not16.i.i = icmp ult i32 %40, 268435456
-  br i1 %.not16.i.i, label %Mio_CellDelayAve.exit.i, label %.lr.ph.i.i
+  %.not14.i.i = icmp eq i32 %41, 0
+  br i1 %.not14.i.i, label %Mio_CellDelayAve.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %19, i64 24
@@ -2343,10 +2343,10 @@ define noundef ptr @Mio_CollectRootsNew(ptr noundef %0, i32 noundef %1, ptr noun
 
 43:                                               ; preds = %43, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %43 ]
-  %.0912.i.i = phi float [ 0.000000e+00, %.lr.ph.i.i ], [ %46, %43 ]
+  %.0911.i.i = phi float [ 0.000000e+00, %.lr.ph.i.i ], [ %46, %43 ]
   %44 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv.i.i
   %45 = load float, ptr %44, align 4, !tbaa !123
-  %46 = fadd float %.0912.i.i, %45
+  %46 = fadd float %.0911.i.i, %45
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %Mio_CellDelayAve.exit.i, label %43, !llvm.loop !124
@@ -2355,7 +2355,7 @@ Mio_CellDelayAve.exit.i:                          ; preds = %43, %38
   %.09.lcssa.i.i = phi float [ 0.000000e+00, %38 ], [ %46, %43 ]
   %47 = uitofp nneg i32 %41 to float
   %48 = fdiv float %.09.lcssa.i.i, %47
-  %.1.i.i = select i1 %.not16.i.i, float %.09.lcssa.i.i, float %48
+  %.1.i.i = select i1 %.not14.i.i, float %.09.lcssa.i.i, float %48
   %49 = tail call ptr @Mio_GateReadPins(ptr noundef nonnull %.091165) #30
   %.not13.i.i = icmp eq ptr %49, null
   br i1 %.not13.i.i, label %Mio_GateDelayAve.exit.i, label %.lr.ph.i19.i
@@ -2779,8 +2779,8 @@ Mio_CollectCopy.exit:                             ; preds = %83, %142, %114, %17
   %252 = getelementptr inbounds nuw i8, ptr %240, i64 12
   %253 = load float, ptr %252, align 4, !tbaa !112
   %254 = fpext float %253 to double
-  %.not16.i = icmp ult i32 %248, 268435456
-  br i1 %.not16.i, label %Mio_CellDelayAve.exit, label %.lr.ph.i141
+  %.not14.i = icmp eq i32 %249, 0
+  br i1 %.not14.i, label %Mio_CellDelayAve.exit, label %.lr.ph.i141
 
 .lr.ph.i141:                                      ; preds = %246
   %255 = getelementptr inbounds nuw i8, ptr %240, i64 24
@@ -2789,10 +2789,10 @@ Mio_CollectCopy.exit:                             ; preds = %83, %142, %114, %17
 
 256:                                              ; preds = %256, %.lr.ph.i141
   %indvars.iv.i142 = phi i64 [ 0, %.lr.ph.i141 ], [ %indvars.iv.next.i143, %256 ]
-  %.0912.i = phi float [ 0.000000e+00, %.lr.ph.i141 ], [ %259, %256 ]
+  %.0911.i = phi float [ 0.000000e+00, %.lr.ph.i141 ], [ %259, %256 ]
   %257 = getelementptr inbounds nuw float, ptr %255, i64 %indvars.iv.i142
   %258 = load float, ptr %257, align 4, !tbaa !123
-  %259 = fadd float %.0912.i, %258
+  %259 = fadd float %.0911.i, %258
   %indvars.iv.next.i143 = add nuw nsw i64 %indvars.iv.i142, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i143, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Mio_CellDelayAve.exit, label %256, !llvm.loop !124
@@ -2801,7 +2801,7 @@ Mio_CellDelayAve.exit:                            ; preds = %256, %246
   %.09.lcssa.i = phi float [ 0.000000e+00, %246 ], [ %259, %256 ]
   %260 = uitofp nneg i32 %249 to float
   %261 = fdiv float %.09.lcssa.i, %260
-  %.1.i = select i1 %.not16.i, float %.09.lcssa.i, float %261
+  %.1.i = select i1 %.not14.i, float %.09.lcssa.i, float %261
   %262 = fpext float %.1.i to double
   %263 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, ptr noundef nonnull %243, i32 noundef %249, i32 noundef %251, double noundef %254, double noundef %262)
   br label %264
@@ -2945,17 +2945,17 @@ define noundef ptr @Mio_CollectRootsNew2(ptr noundef %0, i32 noundef %1, ptr nou
 
 60:                                               ; preds = %._crit_edge.i, %21
   %61 = phi i32 [ %58, %._crit_edge.i ], [ 0, %21 ]
-  %.not30.i = icmp eq i32 %41, 0
-  br i1 %.not30.i, label %Mio_CollectCopy2.exit, label %62
+  %62 = and i32 %16, 15
+  %.not30.i = icmp eq i32 %62, 0
+  br i1 %.not30.i, label %Mio_CollectCopy2.exit, label %63
 
-62:                                               ; preds = %60
-  %63 = and i32 %16, 15
-  %64 = sdiv i32 %61, %63
+63:                                               ; preds = %60
+  %64 = sdiv i32 %61, %62
   store i32 %64, ptr %45, align 8, !tbaa !135
   br label %Mio_CollectCopy2.exit
 
-Mio_CollectCopy2.exit:                            ; preds = %62, %60, %.lr.ph, %18
-  %.1113 = phi i32 [ %.0112153, %.lr.ph ], [ %.0112153, %18 ], [ %22, %60 ], [ %22, %62 ]
+Mio_CollectCopy2.exit:                            ; preds = %63, %60, %.lr.ph, %18
+  %.1113 = phi i32 [ %.0112153, %.lr.ph ], [ %.0112153, %18 ], [ %22, %60 ], [ %22, %63 ]
   %65 = tail call ptr @Mio_GateReadNext(ptr noundef nonnull %.0109154) #30
   %.not = icmp eq ptr %65, null
   br i1 %.not, label %.preheader148, label %.lr.ph, !llvm.loop !137
@@ -3049,9 +3049,9 @@ Mio_CompareTwo2.exit:                             ; preds = %90
   br label %Mio_CompareTwo2.exit.thread.sink.split
 
 Mio_CompareTwo2.exit.thread.sink.split:           ; preds = %Mio_CompareTwo2.exit, %76, %84, %98, %102, %106
-  %.lcssa222.sink = phi ptr [ %109, %106 ], [ %105, %102 ], [ %101, %98 ], [ %69, %84 ], [ %69, %76 ], [ %69, %Mio_CompareTwo2.exit ]
+  %.lcssa223.sink = phi ptr [ %109, %106 ], [ %105, %102 ], [ %101, %98 ], [ %69, %84 ], [ %69, %76 ], [ %69, %Mio_CompareTwo2.exit ]
   %.1111.ph = phi i32 [ %107, %106 ], [ %.0110159, %102 ], [ %.0110159, %98 ], [ %.0110159, %84 ], [ %.0110159, %76 ], [ %.0110159, %Mio_CompareTwo2.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.lcssa222.sink, ptr noundef nonnull align 8 dereferenceable(80) %.0114157, i64 80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.lcssa223.sink, ptr noundef nonnull align 8 dereferenceable(80) %.0114157, i64 80, i1 false)
   br label %Mio_CompareTwo2.exit.thread
 
 Mio_CompareTwo2.exit.thread:                      ; preds = %Mio_CompareTwo2.exit.thread.sink.split, %90, %82, %Mio_CompareTwo2.exit

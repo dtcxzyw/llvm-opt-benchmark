@@ -2371,7 +2371,7 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
 
 133:                                              ; preds = %lean_array_uset.exit
   %134 = lshr i64 %131, 1
-  %135 = icmp ult ptr %.0.i183355, inttoptr (i64 2 to ptr)
+  %135 = icmp eq i64 %134, 0
   br i1 %135, label %lean_nat_mul.exit180, label %136
 
 136:                                              ; preds = %133
@@ -2441,8 +2441,8 @@ lean_dec.exit209:                                 ; preds = %159, %158, %156, %l
   br i1 %.not385, label %166, label %lean_dec.exit208.thread, !prof !17
 
 lean_dec.exit208.thread:                          ; preds = %lean_dec.exit209
-  %.not438 = icmp ugt ptr %.1.i357, %163
-  br i1 %.not438, label %174, label %176
+  %.not440 = icmp ugt ptr %.1.i357, %163
+  br i1 %.not440, label %174, label %176
 
 166:                                              ; preds = %lean_dec.exit209
   %167 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %.1.i357, ptr noundef nonnull %163) #4
@@ -2979,7 +2979,7 @@ lean_array_uset.exit328:                          ; preds = %lean_ensure_exclusi
 
 368:                                              ; preds = %lean_array_uset.exit328
   %369 = lshr i64 %366, 1
-  %370 = icmp ult ptr %.0.i367, inttoptr (i64 2 to ptr)
+  %370 = icmp eq i64 %369, 0
   br i1 %370, label %lean_nat_mul.exit, label %371
 
 371:                                              ; preds = %368
@@ -3049,8 +3049,8 @@ lean_dec.exit199:                                 ; preds = %394, %393, %391, %l
   br i1 %.not378, label %401, label %lean_dec.exit198.thread, !prof !17
 
 lean_dec.exit198.thread:                          ; preds = %lean_dec.exit199
-  %.not437 = icmp ugt ptr %.1.i330369, %398
-  br i1 %.not437, label %409, label %417
+  %.not439 = icmp ugt ptr %.1.i330369, %398
+  br i1 %.not439, label %409, label %417
 
 401:                                              ; preds = %lean_dec.exit199
   %402 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %.1.i330369, ptr noundef nonnull %398) #4

@@ -692,16 +692,13 @@ define internal fastcc i32 @dissect_ancp_tlv(ptr noundef %0, ptr noundef %1, i32
 12:                                               ; preds = %3
   %13 = load i32, ptr @ett_ancp_ext_tlv_type, align 4
   %14 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %13)
-  %.not68 = icmp ult i16 %10, 8
-  br i1 %.not68, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %12
   %15 = lshr i16 %10, 3
-  br label %.lr.ph
+  %.not68 = icmp eq i16 %15, 0
+  br i1 %.not68, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %35
-  %.070 = phi i32 [ %38, %35 ], [ %11, %.lr.ph.preheader ]
-  %.06769 = phi i16 [ %39, %35 ], [ %15, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %12, %35
+  %.070 = phi i32 [ %38, %35 ], [ %11, %12 ]
+  %.06769 = phi i16 [ %39, %35 ], [ %15, %12 ]
   %16 = load i32, ptr @hf_ancp_dsl_line_stlv_type, align 4
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %16, ptr noundef %0, i32 noundef %.070, i32 noundef 2, i32 noundef 0)
   %18 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.070)

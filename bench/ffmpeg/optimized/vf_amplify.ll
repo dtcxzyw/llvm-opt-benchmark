@@ -242,26 +242,26 @@ define internal noundef i32 @amplify_frame(ptr noundef readonly captures(none) %
   %39 = getelementptr inbounds ptr, ptr %7, i64 %38
   %40 = icmp sgt i32 %13, 0
   %41 = fmul nsz float %19, 0.000000e+00
-  %wide.trip.count450 = zext nneg i32 %13 to i64
+  %wide.trip.count447 = zext nneg i32 %13 to i64
   br label %42
 
 42:                                               ; preds = %.lr.ph378, %.loopexit
-  %indvars.iv456 = phi i64 [ 0, %.lr.ph378 ], [ %indvars.iv.next457, %.loopexit ]
-  %43 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv456
+  %indvars.iv453 = phi i64 [ 0, %.lr.ph378 ], [ %indvars.iv.next454, %.loopexit ]
+  %43 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv453
   %44 = load i32, ptr %43, align 4, !tbaa !50
   %45 = mul nsw i32 %44, %2
   %46 = sdiv i32 %45, %3
   %47 = mul nsw i32 %44, %34
   %48 = sdiv i32 %47, %3
-  %49 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv456
+  %49 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv453
   %50 = load ptr, ptr %49, align 8, !tbaa !64
-  %51 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv456
+  %51 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv453
   %52 = load i32, ptr %51, align 4, !tbaa !50
   %53 = mul nsw i32 %52, %46
   %54 = sext i32 %53 to i64
   %55 = getelementptr inbounds i8, ptr %50, i64 %54
   %56 = sext i32 %52 to i64
-  %57 = trunc nuw nsw i64 %indvars.iv456 to i32
+  %57 = trunc nuw nsw i64 %indvars.iv453 to i32
   %58 = shl nuw i32 1, %57
   %59 = load i32, ptr %36, align 8, !tbaa !65
   %60 = and i32 %59, %58
@@ -273,22 +273,22 @@ define internal noundef i32 @amplify_frame(ptr noundef readonly captures(none) %
   br i1 %61, label %.preheader.lr.ph, label %.loopexit
 
 .preheader.lr.ph:                                 ; preds = %.preheader319
-  %62 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv456
+  %62 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv453
   %63 = load i32, ptr %62, align 4, !tbaa !50
   %.not381 = icmp eq i32 %63, 0
   br i1 %.not381, label %.loopexit, label %.preheader
 
 64:                                               ; preds = %42
   %65 = load ptr, ptr %39, align 8, !tbaa !42
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv456
+  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv453
   %67 = load ptr, ptr %66, align 8, !tbaa !64
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 64
-  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv456
+  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv453
   %70 = load i32, ptr %69, align 4, !tbaa !50
   %71 = mul nsw i32 %70, %46
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds i8, ptr %67, i64 %72
-  %74 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv456
+  %74 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv453
   %75 = load i32, ptr %74, align 4, !tbaa !50
   %76 = sub nsw i32 %48, %46
   tail call void @av_image_copy_plane(ptr noundef %55, i32 noundef %52, ptr noundef %73, i32 noundef %70, i32 noundef %75, i32 noundef %76) #8
@@ -305,17 +305,17 @@ define internal noundef i32 @amplify_frame(ptr noundef readonly captures(none) %
   br i1 %40, label %.lr.ph369.us, label %.lr.ph371.split
 
 .lr.ph369.us:                                     ; preds = %.lr.ph371, %100
-  %indvars.iv452 = phi i64 [ %indvars.iv.next453, %100 ], [ 0, %.lr.ph371 ]
+  %indvars.iv449 = phi i64 [ %indvars.iv.next450, %100 ], [ 0, %.lr.ph371 ]
   %78 = load ptr, ptr %39, align 8, !tbaa !42
-  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv456
+  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv453
   %80 = load ptr, ptr %79, align 8, !tbaa !64
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 64
-  %82 = getelementptr inbounds nuw i32, ptr %81, i64 %indvars.iv456
+  %82 = getelementptr inbounds nuw i32, ptr %81, i64 %indvars.iv453
   %83 = load i32, ptr %82, align 4, !tbaa !50
   %84 = mul nsw i32 %83, %.0283373
   %85 = sext i32 %84 to i64
   %86 = getelementptr inbounds i8, ptr %80, i64 %85
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 %indvars.iv452
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 %indvars.iv449
   %88 = load i8, ptr %87, align 1, !tbaa !66
   br label %105
 
@@ -339,34 +339,34 @@ define internal noundef i32 @amplify_frame(ptr noundef readonly captures(none) %
 
 100:                                              ; preds = %._crit_edge.us, %89
   %.sink = phi i8 [ %.0.i.us, %89 ], [ %88, %._crit_edge.us ]
-  %101 = getelementptr inbounds nuw i8, ptr %.0282375, i64 %indvars.iv452
+  %101 = getelementptr inbounds nuw i8, ptr %.0282375, i64 %indvars.iv449
   store i8 %.sink, ptr %101, align 1, !tbaa !66
-  %indvars.iv.next453 = add nuw nsw i64 %indvars.iv452, 1
+  %indvars.iv.next450 = add nuw nsw i64 %indvars.iv449, 1
   %102 = load i32, ptr %62, align 4, !tbaa !50
   %103 = zext i32 %102 to i64
-  %104 = icmp samesign ult i64 %indvars.iv.next453, %103
+  %104 = icmp samesign ult i64 %indvars.iv.next450, %103
   br i1 %104, label %.lr.ph369.us, label %._crit_edge372, !llvm.loop !67
 
 105:                                              ; preds = %.lr.ph369.us, %105
-  %indvars.iv447 = phi i64 [ 0, %.lr.ph369.us ], [ %indvars.iv.next448, %105 ]
+  %indvars.iv444 = phi i64 [ 0, %.lr.ph369.us ], [ %indvars.iv.next445, %105 ]
   %.0287368.us = phi i32 [ 0, %.lr.ph369.us ], [ %119, %105 ]
-  %106 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv447
+  %106 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv444
   %107 = load ptr, ptr %106, align 8, !tbaa !42
-  %108 = getelementptr inbounds nuw ptr, ptr %107, i64 %indvars.iv456
+  %108 = getelementptr inbounds nuw ptr, ptr %107, i64 %indvars.iv453
   %109 = load ptr, ptr %108, align 8, !tbaa !64
   %110 = getelementptr inbounds nuw i8, ptr %107, i64 64
-  %111 = getelementptr inbounds nuw i32, ptr %110, i64 %indvars.iv456
+  %111 = getelementptr inbounds nuw i32, ptr %110, i64 %indvars.iv453
   %112 = load i32, ptr %111, align 4, !tbaa !50
   %113 = mul nsw i32 %112, %.0283373
   %114 = sext i32 %113 to i64
   %115 = getelementptr inbounds i8, ptr %109, i64 %114
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 %indvars.iv452
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 %indvars.iv449
   %117 = load i8, ptr %116, align 1, !tbaa !66
   %118 = zext i8 %117 to i32
   %119 = add nuw nsw i32 %.0287368.us, %118
-  %indvars.iv.next448 = add nuw nsw i64 %indvars.iv447, 1
-  %exitcond451.not = icmp eq i64 %indvars.iv.next448, %wide.trip.count450
-  br i1 %exitcond451.not, label %._crit_edge.us, label %105, !llvm.loop !68
+  %indvars.iv.next445 = add nuw nsw i64 %indvars.iv444, 1
+  %exitcond448.not = icmp eq i64 %indvars.iv.next445, %wide.trip.count447
+  br i1 %exitcond448.not, label %._crit_edge.us, label %105, !llvm.loop !68
 
 ._crit_edge.us:                                   ; preds = %105
   %120 = uitofp nneg i32 %119 to float
@@ -383,21 +383,21 @@ define internal noundef i32 @amplify_frame(ptr noundef readonly captures(none) %
   %127 = phi i32 [ 0, %.preheader ], [ %102, %100 ], [ %159, %157 ]
   %128 = getelementptr inbounds i8, ptr %.0282375, i64 %56
   %129 = add nsw i32 %.0283373, 1
-  %exitcond455.not = icmp eq i32 %129, %48
-  br i1 %exitcond455.not, label %.loopexit, label %.preheader, !llvm.loop !69
+  %exitcond452.not = icmp eq i32 %129, %48
+  br i1 %exitcond452.not, label %.loopexit, label %.preheader, !llvm.loop !69
 
 .lr.ph371.split:                                  ; preds = %.lr.ph371, %157
-  %indvars.iv444 = phi i64 [ %indvars.iv.next445, %157 ], [ 0, %.lr.ph371 ]
+  %indvars.iv441 = phi i64 [ %indvars.iv.next442, %157 ], [ 0, %.lr.ph371 ]
   %130 = load ptr, ptr %39, align 8, !tbaa !42
-  %131 = getelementptr inbounds nuw ptr, ptr %130, i64 %indvars.iv456
+  %131 = getelementptr inbounds nuw ptr, ptr %130, i64 %indvars.iv453
   %132 = load ptr, ptr %131, align 8, !tbaa !64
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 64
-  %134 = getelementptr inbounds nuw i32, ptr %133, i64 %indvars.iv456
+  %134 = getelementptr inbounds nuw i32, ptr %133, i64 %indvars.iv453
   %135 = load i32, ptr %134, align 4, !tbaa !50
   %136 = mul nsw i32 %135, %.0283373
   %137 = sext i32 %136 to i64
   %138 = getelementptr inbounds i8, ptr %132, i64 %137
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 %indvars.iv444
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 %indvars.iv441
   %140 = load i8, ptr %139, align 1, !tbaa !66
   %141 = uitofp i8 %140 to float
   %142 = fsub nsz float %141, %41
@@ -426,20 +426,20 @@ define internal noundef i32 @amplify_frame(ptr noundef readonly captures(none) %
   br label %157
 
 157:                                              ; preds = %.lr.ph371.split, %146
-  %.sink459 = phi i8 [ %.0.i, %146 ], [ %140, %.lr.ph371.split ]
-  %158 = getelementptr inbounds nuw i8, ptr %.0282375, i64 %indvars.iv444
-  store i8 %.sink459, ptr %158, align 1, !tbaa !66
-  %indvars.iv.next445 = add nuw nsw i64 %indvars.iv444, 1
+  %.sink456 = phi i8 [ %.0.i, %146 ], [ %140, %.lr.ph371.split ]
+  %158 = getelementptr inbounds nuw i8, ptr %.0282375, i64 %indvars.iv441
+  store i8 %.sink456, ptr %158, align 1, !tbaa !66
+  %indvars.iv.next442 = add nuw nsw i64 %indvars.iv441, 1
   %159 = load i32, ptr %62, align 4, !tbaa !50
   %160 = zext i32 %159 to i64
-  %161 = icmp samesign ult i64 %indvars.iv.next445, %160
+  %161 = icmp samesign ult i64 %indvars.iv.next442, %160
   br i1 %161, label %.lr.ph371.split, label %._crit_edge372, !llvm.loop !67
 
 .loopexit:                                        ; preds = %._crit_edge372, %.preheader.lr.ph, %.preheader319, %64
-  %indvars.iv.next457 = add nuw nsw i64 %indvars.iv456, 1
+  %indvars.iv.next454 = add nuw nsw i64 %indvars.iv453, 1
   %162 = load i32, ptr %30, align 8, !tbaa !63
   %163 = sext i32 %162 to i64
-  %164 = icmp slt i64 %indvars.iv.next457, %163
+  %164 = icmp slt i64 %indvars.iv.next454, %163
   br i1 %164, label %42, label %.loopexit320, !llvm.loop !71
 
 165:                                              ; preds = %4
@@ -468,28 +468,28 @@ define internal noundef i32 @amplify_frame(ptr noundef readonly captures(none) %
   %notmask.i = shl nsw i32 -1, %23
   %183 = xor i32 %notmask.i, -1
   %184 = fmul nsz float %19, 0.000000e+00
-  %wide.trip.count429 = zext nneg i32 %13 to i64
+  %wide.trip.count427 = zext nneg i32 %13 to i64
   br label %185
 
 185:                                              ; preds = %.lr.ph366, %.loopexit323
   %186 = phi i32 [ %172, %.lr.ph366 ], [ %300, %.loopexit323 ]
-  %indvars.iv441 = phi i64 [ 0, %.lr.ph366 ], [ %indvars.iv.next442, %.loopexit323 ]
-  %187 = getelementptr inbounds nuw i32, ptr %175, i64 %indvars.iv441
+  %indvars.iv438 = phi i64 [ 0, %.lr.ph366 ], [ %indvars.iv.next439, %.loopexit323 ]
+  %187 = getelementptr inbounds nuw i32, ptr %175, i64 %indvars.iv438
   %188 = load i32, ptr %187, align 4, !tbaa !50
   %189 = mul nsw i32 %188, %2
   %190 = sdiv i32 %189, %3
   %191 = mul nsw i32 %188, %176
   %192 = sdiv i32 %191, %3
-  %193 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv441
+  %193 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv438
   %194 = load ptr, ptr %193, align 8, !tbaa !64
-  %195 = getelementptr inbounds nuw i32, ptr %177, i64 %indvars.iv441
+  %195 = getelementptr inbounds nuw i32, ptr %177, i64 %indvars.iv438
   %196 = load i32, ptr %195, align 4, !tbaa !50
   %197 = mul nsw i32 %196, %190
   %198 = sext i32 %197 to i64
   %199 = getelementptr inbounds i8, ptr %194, i64 %198
   %200 = sext i32 %196 to i64
   %201 = lshr i64 %200, 1
-  %202 = trunc nuw nsw i64 %indvars.iv441 to i32
+  %202 = trunc nuw nsw i64 %indvars.iv438 to i32
   %203 = shl nuw i32 1, %202
   %204 = load i32, ptr %178, align 8, !tbaa !65
   %205 = and i32 %204, %203
@@ -501,36 +501,35 @@ define internal noundef i32 @amplify_frame(ptr noundef readonly captures(none) %
   br i1 %206, label %.preheader321.lr.ph, label %.loopexit323
 
 .preheader321.lr.ph:                              ; preds = %.preheader322
-  %207 = getelementptr inbounds nuw i32, ptr %179, i64 %indvars.iv441
+  %207 = getelementptr inbounds nuw i32, ptr %179, i64 %indvars.iv438
   %208 = load i32, ptr %207, align 4, !tbaa !50
-  %.not380 = icmp ult i32 %208, 2
+  %209 = sext i32 %208 to i64
+  %210 = lshr i64 %209, 1
+  %.not380 = icmp eq i64 %210, 0
   br i1 %.not380, label %.loopexit323, label %.preheader321.lr.ph.split.us
 
 .preheader321.lr.ph.split.us:                     ; preds = %.preheader321.lr.ph
-  %209 = sext i32 %208 to i64
-  %210 = lshr i64 %209, 1
   %211 = load ptr, ptr %181, align 8, !tbaa !42
-  %212 = getelementptr inbounds nuw ptr, ptr %211, i64 %indvars.iv441
+  %212 = getelementptr inbounds nuw ptr, ptr %211, i64 %indvars.iv438
   %213 = load ptr, ptr %212, align 8, !tbaa !64
   %214 = getelementptr inbounds nuw i8, ptr %211, i64 64
-  %215 = getelementptr inbounds nuw i32, ptr %214, i64 %indvars.iv441
+  %215 = getelementptr inbounds nuw i32, ptr %214, i64 %indvars.iv438
   %216 = load i32, ptr %215, align 4, !tbaa !50
-  %umax434 = tail call i64 @llvm.umax.i64(i64 %210, i64 1)
   %217 = sext i32 %190 to i64
   %218 = sext i32 %216 to i64
-  %wide.trip.count439 = sext i32 %192 to i64
+  %wide.trip.count436 = sext i32 %192 to i64
   br i1 %182, label %.preheader321.us.us, label %.preheader321.us
 
 .preheader321.us.us:                              ; preds = %.preheader321.lr.ph.split.us, %._crit_edge349.split.us.us.us
-  %indvars.iv436 = phi i64 [ %indvars.iv.next437, %._crit_edge349.split.us.us.us ], [ %217, %.preheader321.lr.ph.split.us ]
+  %indvars.iv433 = phi i64 [ %indvars.iv.next434, %._crit_edge349.split.us.us.us ], [ %217, %.preheader321.lr.ph.split.us ]
   %.0292352.us.us = phi ptr [ %260, %._crit_edge349.split.us.us.us ], [ %199, %.preheader321.lr.ph.split.us ]
-  %219 = mul nsw i64 %indvars.iv436, %218
+  %219 = mul nsw i64 %indvars.iv433, %218
   %220 = getelementptr inbounds i8, ptr %213, i64 %219
   br label %.lr.ph346.us.us.us
 
 .lr.ph346.us.us.us:                               ; preds = %236, %.preheader321.us.us
-  %indvars.iv431 = phi i64 [ %indvars.iv.next432, %236 ], [ 0, %.preheader321.us.us ]
-  %221 = shl nuw nsw i64 %indvars.iv431, 1
+  %indvars.iv429 = phi i64 [ %indvars.iv.next430, %236 ], [ 0, %.preheader321.us.us ]
+  %221 = shl nuw nsw i64 %indvars.iv429, 1
   %222 = getelementptr inbounds nuw i8, ptr %220, i64 %221
   %223 = load i16, ptr %222, align 2, !tbaa !72
   br label %238
@@ -555,33 +554,33 @@ define internal noundef i32 @amplify_frame(ptr noundef readonly captures(none) %
   br label %236
 
 236:                                              ; preds = %._crit_edge.us.us.us363, %224
-  %.sink460 = phi i16 [ %235, %224 ], [ %223, %._crit_edge.us.us.us363 ]
-  %237 = getelementptr inbounds nuw i16, ptr %.0292352.us.us, i64 %indvars.iv431
-  store i16 %.sink460, ptr %237, align 2, !tbaa !72
-  %indvars.iv.next432 = add nuw nsw i64 %indvars.iv431, 1
-  %exitcond435.not = icmp eq i64 %indvars.iv.next432, %umax434
-  br i1 %exitcond435.not, label %._crit_edge349.split.us.us.us, label %.lr.ph346.us.us.us, !llvm.loop !74
+  %.sink457 = phi i16 [ %235, %224 ], [ %223, %._crit_edge.us.us.us363 ]
+  %237 = getelementptr inbounds nuw i16, ptr %.0292352.us.us, i64 %indvars.iv429
+  store i16 %.sink457, ptr %237, align 2, !tbaa !72
+  %indvars.iv.next430 = add nuw nsw i64 %indvars.iv429, 1
+  %exitcond432.not = icmp eq i64 %indvars.iv.next430, %210
+  br i1 %exitcond432.not, label %._crit_edge349.split.us.us.us, label %.lr.ph346.us.us.us, !llvm.loop !74
 
 238:                                              ; preds = %238, %.lr.ph346.us.us.us
-  %indvars.iv426 = phi i64 [ %indvars.iv.next427, %238 ], [ 0, %.lr.ph346.us.us.us ]
+  %indvars.iv424 = phi i64 [ %indvars.iv.next425, %238 ], [ 0, %.lr.ph346.us.us.us ]
   %.0294344.us.us.us = phi i32 [ %252, %238 ], [ 0, %.lr.ph346.us.us.us ]
-  %239 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv426
+  %239 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv424
   %240 = load ptr, ptr %239, align 8, !tbaa !42
-  %241 = getelementptr inbounds nuw ptr, ptr %240, i64 %indvars.iv441
+  %241 = getelementptr inbounds nuw ptr, ptr %240, i64 %indvars.iv438
   %242 = load ptr, ptr %241, align 8, !tbaa !64
   %243 = getelementptr inbounds nuw i8, ptr %240, i64 64
-  %244 = getelementptr inbounds nuw i32, ptr %243, i64 %indvars.iv441
+  %244 = getelementptr inbounds nuw i32, ptr %243, i64 %indvars.iv438
   %245 = load i32, ptr %244, align 4, !tbaa !50
   %246 = sext i32 %245 to i64
-  %247 = mul nsw i64 %indvars.iv436, %246
+  %247 = mul nsw i64 %indvars.iv433, %246
   %248 = getelementptr inbounds i8, ptr %242, i64 %247
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 %221
   %250 = load i16, ptr %249, align 2, !tbaa !72
   %251 = zext i16 %250 to i32
   %252 = add nuw nsw i32 %.0294344.us.us.us, %251
-  %indvars.iv.next427 = add nuw nsw i64 %indvars.iv426, 1
-  %exitcond430.not = icmp eq i64 %indvars.iv.next427, %wide.trip.count429
-  br i1 %exitcond430.not, label %._crit_edge.us.us.us363, label %238, !llvm.loop !75
+  %indvars.iv.next425 = add nuw nsw i64 %indvars.iv424, 1
+  %exitcond428.not = icmp eq i64 %indvars.iv.next425, %wide.trip.count427
+  br i1 %exitcond428.not, label %._crit_edge.us.us.us363, label %238, !llvm.loop !75
 
 ._crit_edge.us.us.us363:                          ; preds = %238
   %253 = uitofp nneg i32 %252 to float
@@ -596,20 +595,20 @@ define internal noundef i32 @amplify_frame(ptr noundef readonly captures(none) %
 
 ._crit_edge349.split.us.us.us:                    ; preds = %236
   %260 = getelementptr inbounds nuw i16, ptr %.0292352.us.us, i64 %201
-  %indvars.iv.next437 = add nsw i64 %indvars.iv436, 1
-  %exitcond440.not = icmp eq i64 %indvars.iv.next437, %wide.trip.count439
-  br i1 %exitcond440.not, label %.loopexit323, label %.preheader321.us.us, !llvm.loop !76
+  %indvars.iv.next434 = add nsw i64 %indvars.iv433, 1
+  %exitcond437.not = icmp eq i64 %indvars.iv.next434, %wide.trip.count436
+  br i1 %exitcond437.not, label %.loopexit323, label %.preheader321.us.us, !llvm.loop !76
 
 .preheader321.us:                                 ; preds = %.preheader321.lr.ph.split.us, %._crit_edge349.split.us361
-  %indvars.iv421 = phi i64 [ %indvars.iv.next422, %._crit_edge349.split.us361 ], [ %217, %.preheader321.lr.ph.split.us ]
+  %indvars.iv419 = phi i64 [ %indvars.iv.next420, %._crit_edge349.split.us361 ], [ %217, %.preheader321.lr.ph.split.us ]
   %.0292352.us = phi ptr [ %286, %._crit_edge349.split.us361 ], [ %199, %.preheader321.lr.ph.split.us ]
-  %261 = mul nsw i64 %indvars.iv421, %218
+  %261 = mul nsw i64 %indvars.iv419, %218
   %262 = getelementptr inbounds i8, ptr %213, i64 %261
   br label %263
 
 263:                                              ; preds = %.preheader321.us, %284
-  %indvars.iv416 = phi i64 [ 0, %.preheader321.us ], [ %indvars.iv.next417, %284 ]
-  %264 = shl nuw nsw i64 %indvars.iv416, 1
+  %indvars.iv415 = phi i64 [ 0, %.preheader321.us ], [ %indvars.iv.next416, %284 ]
+  %264 = shl nuw nsw i64 %indvars.iv415, 1
   %265 = getelementptr inbounds nuw i8, ptr %262, i64 %264
   %266 = load i16, ptr %265, align 2, !tbaa !72
   %267 = uitofp i16 %266 to float
@@ -640,41 +639,41 @@ define internal noundef i32 @amplify_frame(ptr noundef readonly captures(none) %
   br label %284
 
 284:                                              ; preds = %263, %272
-  %.sink461 = phi i16 [ %283, %272 ], [ %266, %263 ]
-  %285 = getelementptr inbounds nuw i16, ptr %.0292352.us, i64 %indvars.iv416
-  store i16 %.sink461, ptr %285, align 2, !tbaa !72
-  %indvars.iv.next417 = add nuw nsw i64 %indvars.iv416, 1
-  %exitcond420.not = icmp eq i64 %indvars.iv.next417, %umax434
-  br i1 %exitcond420.not, label %._crit_edge349.split.us361, label %263, !llvm.loop !74
+  %.sink458 = phi i16 [ %283, %272 ], [ %266, %263 ]
+  %285 = getelementptr inbounds nuw i16, ptr %.0292352.us, i64 %indvars.iv415
+  store i16 %.sink458, ptr %285, align 2, !tbaa !72
+  %indvars.iv.next416 = add nuw nsw i64 %indvars.iv415, 1
+  %exitcond418.not = icmp eq i64 %indvars.iv.next416, %210
+  br i1 %exitcond418.not, label %._crit_edge349.split.us361, label %263, !llvm.loop !74
 
 ._crit_edge349.split.us361:                       ; preds = %284
   %286 = getelementptr inbounds nuw i16, ptr %.0292352.us, i64 %201
-  %indvars.iv.next422 = add nsw i64 %indvars.iv421, 1
-  %exitcond425.not = icmp eq i64 %indvars.iv.next422, %wide.trip.count439
-  br i1 %exitcond425.not, label %.loopexit323, label %.preheader321.us, !llvm.loop !76
+  %indvars.iv.next420 = add nsw i64 %indvars.iv419, 1
+  %exitcond423.not = icmp eq i64 %indvars.iv.next420, %wide.trip.count436
+  br i1 %exitcond423.not, label %.loopexit323, label %.preheader321.us, !llvm.loop !76
 
 287:                                              ; preds = %185
   %288 = load ptr, ptr %181, align 8, !tbaa !42
-  %289 = getelementptr inbounds nuw ptr, ptr %288, i64 %indvars.iv441
+  %289 = getelementptr inbounds nuw ptr, ptr %288, i64 %indvars.iv438
   %290 = load ptr, ptr %289, align 8, !tbaa !64
   %291 = getelementptr inbounds nuw i8, ptr %288, i64 64
-  %292 = getelementptr inbounds nuw i32, ptr %291, i64 %indvars.iv441
+  %292 = getelementptr inbounds nuw i32, ptr %291, i64 %indvars.iv438
   %293 = load i32, ptr %292, align 4, !tbaa !50
   %294 = mul nsw i32 %293, %190
   %295 = sext i32 %294 to i64
   %296 = getelementptr inbounds i8, ptr %290, i64 %295
-  %297 = getelementptr inbounds nuw i32, ptr %179, i64 %indvars.iv441
+  %297 = getelementptr inbounds nuw i32, ptr %179, i64 %indvars.iv438
   %298 = load i32, ptr %297, align 4, !tbaa !50
   %299 = sub nsw i32 %192, %190
   tail call void @av_image_copy_plane(ptr noundef %199, i32 noundef %196, ptr noundef %296, i32 noundef %293, i32 noundef %298, i32 noundef %299) #8
-  %.pre464 = load i32, ptr %171, align 8, !tbaa !63
+  %.pre461 = load i32, ptr %171, align 8, !tbaa !63
   br label %.loopexit323
 
 .loopexit323:                                     ; preds = %._crit_edge349.split.us361, %._crit_edge349.split.us.us.us, %.preheader321.lr.ph, %.preheader322, %287
-  %300 = phi i32 [ %186, %.preheader322 ], [ %.pre464, %287 ], [ %186, %.preheader321.lr.ph ], [ %186, %._crit_edge349.split.us.us.us ], [ %186, %._crit_edge349.split.us361 ]
-  %indvars.iv.next442 = add nuw nsw i64 %indvars.iv441, 1
+  %300 = phi i32 [ %186, %.preheader322 ], [ %.pre461, %287 ], [ %186, %.preheader321.lr.ph ], [ %186, %._crit_edge349.split.us.us.us ], [ %186, %._crit_edge349.split.us361 ]
+  %indvars.iv.next439 = add nuw nsw i64 %indvars.iv438, 1
   %301 = sext i32 %300 to i64
-  %302 = icmp slt i64 %indvars.iv.next442, %301
+  %302 = icmp slt i64 %indvars.iv.next439, %301
   br i1 %302, label %185, label %.loopexit320, !llvm.loop !77
 
 303:                                              ; preds = %165
@@ -695,23 +694,23 @@ define internal noundef i32 @amplify_frame(ptr noundef readonly captures(none) %
 
 313:                                              ; preds = %.lr.ph, %.loopexit327
   %314 = phi i32 [ %172, %.lr.ph ], [ %412, %.loopexit327 ]
-  %indvars.iv413 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next414, %.loopexit327 ]
-  %315 = getelementptr inbounds nuw i32, ptr %304, i64 %indvars.iv413
+  %indvars.iv412 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next413, %.loopexit327 ]
+  %315 = getelementptr inbounds nuw i32, ptr %304, i64 %indvars.iv412
   %316 = load i32, ptr %315, align 4, !tbaa !50
   %317 = mul nsw i32 %316, %2
   %318 = sdiv i32 %317, %3
   %319 = mul nsw i32 %316, %305
   %320 = sdiv i32 %319, %3
-  %321 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv413
+  %321 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv412
   %322 = load ptr, ptr %321, align 8, !tbaa !64
-  %323 = getelementptr inbounds nuw i32, ptr %306, i64 %indvars.iv413
+  %323 = getelementptr inbounds nuw i32, ptr %306, i64 %indvars.iv412
   %324 = load i32, ptr %323, align 4, !tbaa !50
   %325 = mul nsw i32 %324, %318
   %326 = sext i32 %325 to i64
   %327 = getelementptr inbounds i8, ptr %322, i64 %326
   %328 = sext i32 %324 to i64
   %329 = lshr i64 %328, 2
-  %330 = trunc nuw nsw i64 %indvars.iv413 to i32
+  %330 = trunc nuw nsw i64 %indvars.iv412 to i32
   %331 = shl nuw i32 1, %330
   %332 = load i32, ptr %307, align 8, !tbaa !65
   %333 = and i32 %332, %331
@@ -723,30 +722,29 @@ define internal noundef i32 @amplify_frame(ptr noundef readonly captures(none) %
   br i1 %334, label %.preheader325.lr.ph, label %.loopexit327
 
 .preheader325.lr.ph:                              ; preds = %.preheader326
-  %335 = getelementptr inbounds nuw i32, ptr %308, i64 %indvars.iv413
+  %335 = getelementptr inbounds nuw i32, ptr %308, i64 %indvars.iv412
   %336 = load i32, ptr %335, align 4, !tbaa !50
-  %.not379 = icmp ult i32 %336, 4
+  %337 = sext i32 %336 to i64
+  %338 = lshr i64 %337, 2
+  %.not379 = icmp eq i64 %338, 0
   br i1 %.not379, label %.loopexit327, label %.preheader325.lr.ph.split.us
 
 .preheader325.lr.ph.split.us:                     ; preds = %.preheader325.lr.ph
-  %337 = sext i32 %336 to i64
-  %338 = lshr i64 %337, 2
   %339 = load ptr, ptr %310, align 8, !tbaa !42
-  %340 = getelementptr inbounds nuw ptr, ptr %339, i64 %indvars.iv413
+  %340 = getelementptr inbounds nuw ptr, ptr %339, i64 %indvars.iv412
   %341 = load ptr, ptr %340, align 8, !tbaa !64
   %342 = getelementptr inbounds nuw i8, ptr %339, i64 64
-  %343 = getelementptr inbounds nuw i32, ptr %342, i64 %indvars.iv413
+  %343 = getelementptr inbounds nuw i32, ptr %342, i64 %indvars.iv412
   %344 = load i32, ptr %343, align 4, !tbaa !50
-  %umax406 = tail call i64 @llvm.umax.i64(i64 %338, i64 1)
   %345 = sext i32 %318 to i64
   %346 = sext i32 %344 to i64
-  %wide.trip.count411 = sext i32 %320 to i64
+  %wide.trip.count410 = sext i32 %320 to i64
   br i1 %311, label %.preheader325.us.us, label %.preheader325.us
 
 .preheader325.us.us:                              ; preds = %.preheader325.lr.ph.split.us, %._crit_edge333.split.us.us.us
-  %indvars.iv408 = phi i64 [ %indvars.iv.next409, %._crit_edge333.split.us.us.us ], [ %345, %.preheader325.lr.ph.split.us ]
+  %indvars.iv407 = phi i64 [ %indvars.iv.next408, %._crit_edge333.split.us.us.us ], [ %345, %.preheader325.lr.ph.split.us ]
   %.0288334.us.us = phi ptr [ %379, %._crit_edge333.split.us.us.us ], [ %327, %.preheader325.lr.ph.split.us ]
-  %347 = mul nsw i64 %indvars.iv408, %346
+  %347 = mul nsw i64 %indvars.iv407, %346
   %348 = getelementptr inbounds i8, ptr %341, i64 %347
   br label %.lr.ph.us.us.us
 
@@ -767,25 +765,25 @@ define internal noundef i32 @amplify_frame(ptr noundef readonly captures(none) %
   br label %358
 
 358:                                              ; preds = %._crit_edge.us.us.us, %352
-  %.sink462 = phi float [ %357, %352 ], [ %351, %._crit_edge.us.us.us ]
+  %.sink459 = phi float [ %357, %352 ], [ %351, %._crit_edge.us.us.us ]
   %359 = getelementptr inbounds nuw float, ptr %.0288334.us.us, i64 %indvars.iv403
-  store float %.sink462, ptr %359, align 4, !tbaa !78
+  store float %.sink459, ptr %359, align 4, !tbaa !78
   %indvars.iv.next404 = add nuw nsw i64 %indvars.iv403, 1
-  %exitcond407.not = icmp eq i64 %indvars.iv.next404, %umax406
-  br i1 %exitcond407.not, label %._crit_edge333.split.us.us.us, label %.lr.ph.us.us.us, !llvm.loop !79
+  %exitcond406.not = icmp eq i64 %indvars.iv.next404, %338
+  br i1 %exitcond406.not, label %._crit_edge333.split.us.us.us, label %.lr.ph.us.us.us, !llvm.loop !79
 
 360:                                              ; preds = %360, %.lr.ph.us.us.us
   %indvars.iv398 = phi i64 [ %indvars.iv.next399, %360 ], [ 0, %.lr.ph.us.us.us ]
   %.0281329.us.us.us = phi float [ %373, %360 ], [ 0.000000e+00, %.lr.ph.us.us.us ]
   %361 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv398
   %362 = load ptr, ptr %361, align 8, !tbaa !42
-  %363 = getelementptr inbounds nuw ptr, ptr %362, i64 %indvars.iv413
+  %363 = getelementptr inbounds nuw ptr, ptr %362, i64 %indvars.iv412
   %364 = load ptr, ptr %363, align 8, !tbaa !64
   %365 = getelementptr inbounds nuw i8, ptr %362, i64 64
-  %366 = getelementptr inbounds nuw i32, ptr %365, i64 %indvars.iv413
+  %366 = getelementptr inbounds nuw i32, ptr %365, i64 %indvars.iv412
   %367 = load i32, ptr %366, align 4, !tbaa !50
   %368 = sext i32 %367 to i64
-  %369 = mul nsw i64 %indvars.iv408, %368
+  %369 = mul nsw i64 %indvars.iv407, %368
   %370 = getelementptr inbounds i8, ptr %364, i64 %369
   %371 = getelementptr inbounds nuw i8, ptr %370, i64 %349
   %372 = load float, ptr %371, align 4, !tbaa !78
@@ -805,9 +803,9 @@ define internal noundef i32 @amplify_frame(ptr noundef readonly captures(none) %
 
 ._crit_edge333.split.us.us.us:                    ; preds = %358
   %379 = getelementptr inbounds nuw float, ptr %.0288334.us.us, i64 %329
-  %indvars.iv.next409 = add nsw i64 %indvars.iv408, 1
-  %exitcond412.not = icmp eq i64 %indvars.iv.next409, %wide.trip.count411
-  br i1 %exitcond412.not, label %.loopexit327, label %.preheader325.us.us, !llvm.loop !81
+  %indvars.iv.next408 = add nsw i64 %indvars.iv407, 1
+  %exitcond411.not = icmp eq i64 %indvars.iv.next408, %wide.trip.count410
+  br i1 %exitcond411.not, label %.loopexit327, label %.preheader325.us.us, !llvm.loop !81
 
 .preheader325.us:                                 ; preds = %.preheader325.lr.ph.split.us, %._crit_edge333.split.us341
   %indvars.iv394 = phi i64 [ %indvars.iv.next395, %._crit_edge333.split.us341 ], [ %345, %.preheader325.lr.ph.split.us ]
@@ -838,30 +836,30 @@ define internal noundef i32 @amplify_frame(ptr noundef readonly captures(none) %
   br label %396
 
 396:                                              ; preds = %382, %390
-  %.sink463 = phi float [ %395, %390 ], [ %385, %382 ]
+  %.sink460 = phi float [ %395, %390 ], [ %385, %382 ]
   %397 = getelementptr inbounds nuw float, ptr %.0288334.us, i64 %indvars.iv
-  store float %.sink463, ptr %397, align 4, !tbaa !78
+  store float %.sink460, ptr %397, align 4, !tbaa !78
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax406
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %338
   br i1 %exitcond.not, label %._crit_edge333.split.us341, label %382, !llvm.loop !79
 
 ._crit_edge333.split.us341:                       ; preds = %396
   %398 = getelementptr inbounds nuw float, ptr %.0288334.us, i64 %329
   %indvars.iv.next395 = add nsw i64 %indvars.iv394, 1
-  %exitcond397.not = icmp eq i64 %indvars.iv.next395, %wide.trip.count411
+  %exitcond397.not = icmp eq i64 %indvars.iv.next395, %wide.trip.count410
   br i1 %exitcond397.not, label %.loopexit327, label %.preheader325.us, !llvm.loop !81
 
 399:                                              ; preds = %313
   %400 = load ptr, ptr %310, align 8, !tbaa !42
-  %401 = getelementptr inbounds nuw ptr, ptr %400, i64 %indvars.iv413
+  %401 = getelementptr inbounds nuw ptr, ptr %400, i64 %indvars.iv412
   %402 = load ptr, ptr %401, align 8, !tbaa !64
   %403 = getelementptr inbounds nuw i8, ptr %400, i64 64
-  %404 = getelementptr inbounds nuw i32, ptr %403, i64 %indvars.iv413
+  %404 = getelementptr inbounds nuw i32, ptr %403, i64 %indvars.iv412
   %405 = load i32, ptr %404, align 4, !tbaa !50
   %406 = mul nsw i32 %405, %318
   %407 = sext i32 %406 to i64
   %408 = getelementptr inbounds i8, ptr %402, i64 %407
-  %409 = getelementptr inbounds nuw i32, ptr %308, i64 %indvars.iv413
+  %409 = getelementptr inbounds nuw i32, ptr %308, i64 %indvars.iv412
   %410 = load i32, ptr %409, align 4, !tbaa !50
   %411 = sub nsw i32 %320, %318
   tail call void @av_image_copy_plane(ptr noundef %327, i32 noundef %324, ptr noundef %408, i32 noundef %405, i32 noundef %410, i32 noundef %411) #8
@@ -870,9 +868,9 @@ define internal noundef i32 @amplify_frame(ptr noundef readonly captures(none) %
 
 .loopexit327:                                     ; preds = %._crit_edge333.split.us341, %._crit_edge333.split.us.us.us, %.preheader325.lr.ph, %.preheader326, %399
   %412 = phi i32 [ %314, %.preheader326 ], [ %.pre, %399 ], [ %314, %.preheader325.lr.ph ], [ %314, %._crit_edge333.split.us.us.us ], [ %314, %._crit_edge333.split.us341 ]
-  %indvars.iv.next414 = add nuw nsw i64 %indvars.iv413, 1
+  %indvars.iv.next413 = add nuw nsw i64 %indvars.iv412, 1
   %413 = sext i32 %412 to i64
-  %414 = icmp slt i64 %indvars.iv.next414, %413
+  %414 = icmp slt i64 %indvars.iv.next413, %413
   br i1 %414, label %313, label %.loopexit320, !llvm.loop !82
 
 .loopexit320:                                     ; preds = %.loopexit327, %.loopexit323, %.loopexit, %303, %174, %25
@@ -979,9 +977,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #7

@@ -464,49 +464,47 @@ define ptr @ossl_sa_get(ptr noundef readonly captures(address_is_null) %0, i64 n
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_sa_set(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %.loopexit, label %.preheader48
+  br i1 %4, label %.loopexit, label %.preheader
 
-.preheader48:                                     ; preds = %3
-  %5 = icmp ult i64 %1, 16
-  br i1 %5, label %.preheader, label %.lr.ph
+.preheader:                                       ; preds = %3, %7
+  %.03951 = phi i64 [ %5, %7 ], [ %1, %3 ]
+  %.04050 = phi i32 [ %8, %7 ], [ 1, %3 ]
+  %5 = lshr i64 %.03951, 4
+  %6 = icmp eq i64 %5, 0
+  br i1 %6, label %9, label %7
 
-.preheader:                                       ; preds = %.lr.ph, %.preheader48
-  %.040.lcssa = phi i32 [ 1, %.preheader48 ], [ %10, %.lr.ph ]
-  %6 = load i32, ptr %0, align 8, !tbaa !12
-  %7 = icmp slt i32 %6, %.040.lcssa
-  br i1 %7, label %.lr.ph53, label %._crit_edge
+7:                                                ; preds = %.preheader
+  %8 = add nuw nsw i32 %.04050, 1
+  %exitcond.not = icmp eq i32 %8, 16
+  br i1 %exitcond.not, label %9, label %.preheader, !llvm.loop !18
 
-.lr.ph53:                                         ; preds = %.preheader
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+9:                                                ; preds = %.preheader, %7
+  %.040.lcssa = phi i32 [ %.04050, %.preheader ], [ 16, %7 ]
+  %10 = load i32, ptr %0, align 8, !tbaa !12
+  %11 = icmp slt i32 %10, %.040.lcssa
+  br i1 %11, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %9
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %13
 
-.lr.ph:                                           ; preds = %.preheader48, %.lr.ph
-  %.03952 = phi i64 [ %9, %.lr.ph ], [ %1, %.preheader48 ]
-  %.04051 = phi i32 [ %10, %.lr.ph ], [ 1, %.preheader48 ]
-  %9 = lshr i64 %.03952, 4
-  %10 = add nuw nsw i32 %.04051, 1
-  %11 = icmp samesign ugt i32 %.04051, 14
-  %12 = icmp ult i64 %.03952, 256
-  %or.cond = select i1 %11, i1 true, i1 %12
-  br i1 %or.cond, label %.preheader, label %.lr.ph, !llvm.loop !18
-
-13:                                               ; preds = %.lr.ph53, %16
+13:                                               ; preds = %.lr.ph, %16
   %14 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 128, ptr noundef nonnull @.str, i32 noundef 176) #5
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.loopexit, label %16
 
 16:                                               ; preds = %13
-  %17 = load ptr, ptr %8, align 8, !tbaa !7
+  %17 = load ptr, ptr %12, align 8, !tbaa !7
   store ptr %17, ptr %14, align 8, !tbaa !11
-  store ptr %14, ptr %8, align 8, !tbaa !7
+  store ptr %14, ptr %12, align 8, !tbaa !7
   %18 = load i32, ptr %0, align 8, !tbaa !12
   %19 = add nsw i32 %18, 1
   store i32 %19, ptr %0, align 8, !tbaa !12
   %20 = icmp slt i32 %19, %.040.lcssa
   br i1 %20, label %13, label %._crit_edge, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %16, %.preheader
-  %.lcssa = phi i32 [ %6, %.preheader ], [ %19, %16 ]
+._crit_edge:                                      ; preds = %16, %9
+  %.lcssa = phi i32 [ %10, %9 ], [ %19, %16 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load i64, ptr %21, align 8, !tbaa !16
   %23 = icmp ult i64 %22, %1
@@ -518,39 +516,39 @@ define range(i32 0, 2) i32 @ossl_sa_set(ptr noundef captures(address_is_null) %0
 
 25:                                               ; preds = %24, %._crit_edge
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.055 = load ptr, ptr %26, align 8, !tbaa !11
+  %.052 = load ptr, ptr %26, align 8, !tbaa !11
   %27 = icmp sgt i32 %.lcssa, 1
-  br i1 %27, label %.lr.ph60.preheader, label %._crit_edge61
+  br i1 %27, label %.lr.ph57.preheader, label %._crit_edge58
 
-.lr.ph60.preheader:                               ; preds = %25
+.lr.ph57.preheader:                               ; preds = %25
   %28 = zext nneg i32 %.lcssa to i64
-  br label %.lr.ph60
+  br label %.lr.ph57
 
-.lr.ph60:                                         ; preds = %.lr.ph60.preheader, %38
-  %indvars.iv = phi i64 [ %28, %.lr.ph60.preheader ], [ %indvars.iv.next, %38 ]
-  %.057 = phi ptr [ %.055, %.lr.ph60.preheader ], [ %.0, %38 ]
+.lr.ph57:                                         ; preds = %.lr.ph57.preheader, %38
+  %indvars.iv = phi i64 [ %28, %.lr.ph57.preheader ], [ %indvars.iv.next, %38 ]
+  %.054 = phi ptr [ %.052, %.lr.ph57.preheader ], [ %.0, %38 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %29 = shl nsw i64 %indvars.iv.next, 2
   %30 = lshr i64 %1, %29
   %31 = and i64 %30, 15
-  %32 = getelementptr inbounds nuw ptr, ptr %.057, i64 %31
+  %32 = getelementptr inbounds nuw ptr, ptr %.054, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !11
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %38
 
-35:                                               ; preds = %.lr.ph60
+35:                                               ; preds = %.lr.ph57
   %36 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 128, ptr noundef nonnull @.str, i32 noundef 176) #5
   store ptr %36, ptr %32, align 8, !tbaa !11
   %37 = icmp eq ptr %36, null
   br i1 %37, label %.loopexit, label %38
 
-38:                                               ; preds = %35, %.lr.ph60
-  %.0 = phi ptr [ %36, %35 ], [ %33, %.lr.ph60 ]
+38:                                               ; preds = %35, %.lr.ph57
+  %.0 = phi ptr [ %36, %35 ], [ %33, %.lr.ph57 ]
   %39 = icmp samesign ugt i64 %indvars.iv, 2
-  br i1 %39, label %.lr.ph60, label %._crit_edge61, !llvm.loop !20
+  br i1 %39, label %.lr.ph57, label %._crit_edge58, !llvm.loop !20
 
-._crit_edge61:                                    ; preds = %38, %25
-  %.0.lcssa = phi ptr [ %.055, %25 ], [ %.0, %38 ]
+._crit_edge58:                                    ; preds = %38, %25
+  %.0.lcssa = phi ptr [ %.052, %25 ], [ %.0, %38 ]
   %40 = and i64 %1, 15
   %41 = getelementptr inbounds nuw ptr, ptr %.0.lcssa, i64 %40
   %cond = icmp eq ptr %2, null
@@ -558,17 +556,17 @@ define range(i32 0, 2) i32 @ossl_sa_set(ptr noundef captures(address_is_null) %0
   %.not = icmp eq ptr %42, null
   br i1 %cond, label %43, label %44
 
-43:                                               ; preds = %._crit_edge61
+43:                                               ; preds = %._crit_edge58
   br i1 %.not, label %48, label %.sink.split
 
-44:                                               ; preds = %._crit_edge61
+44:                                               ; preds = %._crit_edge58
   br i1 %.not, label %.sink.split, label %48
 
 .sink.split:                                      ; preds = %44, %43
-  %.sink82 = phi i64 [ -1, %43 ], [ 1, %44 ]
+  %.sink79 = phi i64 [ -1, %43 ], [ 1, %44 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %46 = load i64, ptr %45, align 8, !tbaa !15
-  %47 = add i64 %46, %.sink82
+  %47 = add i64 %46, %.sink79
   store i64 %47, ptr %45, align 8, !tbaa !15
   br label %48
 

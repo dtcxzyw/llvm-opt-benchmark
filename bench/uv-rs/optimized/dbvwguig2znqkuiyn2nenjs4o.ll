@@ -732,7 +732,7 @@ define hidden void @"_ZN80_$LT$uv_platform_tags..platform_tag..PlatformTag$u20$a
   br i1 %119, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit63.i.i.i", label %120
 
 120:                                              ; preds = %118
-  %.not.i.i.i = icmp samesign ult i64 %95, 2
+  %.not.i.i.i = icmp eq i64 %96, 0
   br i1 %.not.i.i.i, label %_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit, label %121
 
 121:                                              ; preds = %120
@@ -838,7 +838,7 @@ _ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit: ; preds = %"_ZN4core6re
   br i1 %183, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit63.i.i.i14", label %184
 
 184:                                              ; preds = %182
-  %.not.i.i.i13 = icmp samesign ult i64 %159, 2
+  %.not.i.i.i13 = icmp eq i64 %160, 0
   br i1 %.not.i.i.i13, label %_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit20, label %185
 
 185:                                              ; preds = %184
@@ -944,7 +944,7 @@ _ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit20: ; preds = %"_ZN4core6
   br i1 %247, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit63.i.i.i34", label %248
 
 248:                                              ; preds = %246
-  %.not.i.i.i33 = icmp samesign ult i64 %223, 2
+  %.not.i.i.i33 = icmp eq i64 %224, 0
   br i1 %.not.i.i.i33, label %_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit40, label %249
 
 249:                                              ; preds = %248
@@ -1050,7 +1050,7 @@ _ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit40: ; preds = %"_ZN4core6
   br i1 %311, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit63.i.i.i54", label %312
 
 312:                                              ; preds = %310
-  %.not.i.i.i53 = icmp samesign ult i64 %287, 2
+  %.not.i.i.i53 = icmp eq i64 %288, 0
   br i1 %.not.i.i.i53, label %_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit60, label %313
 
 313:                                              ; preds = %312
@@ -1156,7 +1156,7 @@ _ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit60: ; preds = %"_ZN4core6
   br i1 %375, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit63.i.i.i74", label %376
 
 376:                                              ; preds = %374
-  %.not.i.i.i73 = icmp samesign ult i64 %351, 2
+  %.not.i.i.i73 = icmp eq i64 %352, 0
   br i1 %.not.i.i.i73, label %_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit80, label %377
 
 377:                                              ; preds = %376
@@ -1262,7 +1262,7 @@ _ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit80: ; preds = %"_ZN4core6
   br i1 %439, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit63.i.i.i94", label %440
 
 440:                                              ; preds = %438
-  %.not.i.i.i93 = icmp samesign ult i64 %415, 2
+  %.not.i.i.i93 = icmp eq i64 %416, 0
   br i1 %.not.i.i.i93, label %_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit100, label %441
 
 441:                                              ; preds = %440
@@ -1368,7 +1368,7 @@ _ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit100: ; preds = %"_ZN4core
   br i1 %503, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit63.i.i.i114", label %504
 
 504:                                              ; preds = %502
-  %.not.i.i.i113 = icmp samesign ult i64 %479, 2
+  %.not.i.i.i113 = icmp eq i64 %480, 0
   br i1 %.not.i.i.i113, label %_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit120, label %505
 
 505:                                              ; preds = %504

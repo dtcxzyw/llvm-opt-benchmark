@@ -947,7 +947,7 @@ gv_recalloc.exit:                                 ; preds = %19, %26, %28
   %53 = getelementptr inbounds nuw %struct.Pair, ptr %52, i64 %39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.not = icmp ult i64 %.037, 2
+  %.not = icmp eq i64 %39, 0
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !46
 
 .critedge:                                        ; preds = %46, %44, %.critedge2, %30

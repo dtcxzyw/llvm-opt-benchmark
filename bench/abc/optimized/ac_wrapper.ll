@@ -2945,7 +2945,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter_les
 51:                                               ; preds = %.lr.ph.i.i.i.i.i
   %52 = getelementptr inbounds i32, ptr %0, i64 %.01317.i.i.i.i.i
   store i32 %49, ptr %52, align 4, !tbaa !41
-  %.not8.i.i.i = icmp ult i64 %.018.in.i.i.i.i.i, 2
+  %.not8.i.i.i = icmp eq i64 %.018.i.i67.i.i.i, 0
   br i1 %.not8.i.i.i, label %_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !162
 
 _ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.i.i: ; preds = %51, %.lr.ph.i.i.i.i.i, %47
@@ -4341,7 +4341,7 @@ _ZN3acd21ac_decomposition_impl15local_extend_toERN5kitty18static_truth_tableILj1
   %261 = getelementptr inbounds i8, ptr %.sroa.07.014.i.i.i.i, i64 -1
   store i8 %.sink.i.i.i.i, ptr %261, align 1, !tbaa !68
   %262 = lshr i64 %.015.i.i.i.i, 4
-  %.not.i.i.i.i64 = icmp ult i64 %.015.i.i.i.i, 16
+  %.not.i.i.i.i64 = icmp eq i64 %262, 0
   %263 = load ptr, ptr %5, align 8
   %.not10.i.i.i.i = icmp eq ptr %261, %263
   %or.cond.i.i.i.i = select i1 %.not.i.i.i.i64, i1 true, i1 %.not10.i.i.i.i
@@ -4407,7 +4407,7 @@ _ZN5kitty9print_hexINS_18static_truth_tableILj11ELb0EEEEEvRKT_RSo.exit: ; preds 
   %286 = getelementptr inbounds i8, ptr %.sroa.07.014.i.i.i.i72, i64 -1
   store i8 %.sink.i.i.i.i73, ptr %286, align 1, !tbaa !68
   %287 = lshr i64 %.015.i.i.i.i71, 4
-  %.not.i.i.i.i74 = icmp ult i64 %.015.i.i.i.i71, 16
+  %.not.i.i.i.i74 = icmp eq i64 %287, 0
   %288 = load ptr, ptr %4, align 8
   %.not10.i.i.i.i75 = icmp eq ptr %286, %288
   %or.cond.i.i.i.i76 = select i1 %.not.i.i.i.i74, i1 true, i1 %.not10.i.i.i.i75
@@ -6748,7 +6748,7 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN3acd21ac_decomposition_impl
 96:                                               ; preds = %.lr.ph.i.i.i.i.i
   %97 = getelementptr inbounds %"struct.acd::ac_decomposition_impl::encoding_column", ptr %0, i64 %.018.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %97, ptr noundef nonnull align 8 dereferenceable(32) %92, i64 32, i1 false), !tbaa.struct !281
-  %.not13.i.i.i = icmp ult i64 %.0919.in.i.i.i.i.i, 2
+  %.not13.i.i.i = icmp eq i64 %.0919.i.i1112.i.i.i, 0
   br i1 %.not13.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3acd21ac_decomposition_impl15encoding_columnESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_22create_covering_matrixILb0EEEbRKS6_IN5kitty18static_truth_tableILj11ELb0EEESaISF_EERS8_bEUlRKS4_SM_E0_EEEvT_SP_SP_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !283
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3acd21ac_decomposition_impl15encoding_columnESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_22create_covering_matrixILb0EEEbRKS6_IN5kitty18static_truth_tableILj11ELb0EEESaISF_EERS8_bEUlRKS4_SM_E0_EEEvT_SP_SP_RT0_.exit.i.i: ; preds = %96, %.lr.ph.i.i.i.i.i, %91
@@ -8092,7 +8092,7 @@ define linkonce_odr void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPN3ac
 43:                                               ; preds = %.lr.ph.i.i.i
   %44 = getelementptr inbounds %"struct.acd::ac_decomposition_impl::encoding_column", ptr %0, i64 %.018.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %39, i64 32, i1 false), !tbaa.struct !281
-  %.not13.i = icmp ult i64 %.0919.in.i.i.i, 2
+  %.not13.i = icmp eq i64 %.0919.i.i1112.i, 0
   br i1 %.not13.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3acd21ac_decomposition_impl15encoding_columnESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_22create_covering_matrixILb1EEEbRKS6_IN5kitty18static_truth_tableILj11ELb0EEESaISF_EERS8_bEUlRKS4_SM_E_EEEvT_SP_SP_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !309
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3acd21ac_decomposition_impl15encoding_columnESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_22create_covering_matrixILb1EEEbRKS6_IN5kitty18static_truth_tableILj11ELb0EEESaISF_EERS8_bEUlRKS4_SM_E_EEEvT_SP_SP_RT0_.exit: ; preds = %.lr.ph.i.i.i, %43, %38
@@ -13131,7 +13131,7 @@ _ZN5kitty12swap_inplaceILj6EEEvRNS_18static_truth_tableIXT_ELb1EEEhh.exit: ; pre
   %176 = getelementptr inbounds i8, ptr %.sroa.07.014.i.i.i.i, i64 -1
   store i8 %.sink.i.i.i.i, ptr %176, align 1, !tbaa !68
   %177 = lshr i64 %.015.i.i.i.i, 4
-  %.not.i.i.i.i = icmp ult i64 %.015.i.i.i.i, 16
+  %.not.i.i.i.i = icmp eq i64 %177, 0
   %178 = load ptr, ptr %4, align 8
   %.not10.i.i.i.i = icmp eq ptr %176, %178
   %or.cond.i.i.i.i = select i1 %.not.i.i.i.i, i1 true, i1 %.not10.i.i.i.i
@@ -13188,7 +13188,7 @@ _ZN5kitty9print_hexINS_18static_truth_tableILj6ELb1EEEEEvRKT_RSo.exit: ; preds =
   %199 = getelementptr inbounds i8, ptr %.sroa.07.014.i.i.i.i79, i64 -1
   store i8 %.sink.i.i.i.i80, ptr %199, align 1, !tbaa !68
   %200 = lshr i64 %.015.i.i.i.i78, 4
-  %.not.i.i.i.i81 = icmp ult i64 %.015.i.i.i.i78, 16
+  %.not.i.i.i.i81 = icmp eq i64 %200, 0
   %201 = load ptr, ptr %3, align 8
   %.not10.i.i.i.i82 = icmp eq ptr %199, %201
   %or.cond.i.i.i.i83 = select i1 %.not.i.i.i.i81, i1 true, i1 %.not10.i.i.i.i82
@@ -13611,7 +13611,7 @@ _ZN5kitty19dynamic_truth_tableC2Ej.exit:          ; preds = %_ZSt6fill_nIPmmmET_
   %38 = getelementptr inbounds i8, ptr %.sroa.07.014.i.i.i, i64 -1
   store i8 %.sink.i.i.i, ptr %38, align 1, !tbaa !68
   %39 = lshr i64 %.015.i.i.i, 4
-  %.not.i.i.i = icmp ult i64 %.015.i.i.i, 16
+  %.not.i.i.i = icmp eq i64 %39, 0
   %40 = load ptr, ptr %3, align 8
   %.not10.i.i.i = icmp eq ptr %38, %40
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 true, i1 %.not10.i.i.i

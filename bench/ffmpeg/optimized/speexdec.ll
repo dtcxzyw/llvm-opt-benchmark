@@ -2154,7 +2154,7 @@ define internal range(i32 -2147483648, 1) i32 @sb_decode(ptr noundef %0, ptr nou
   store i32 %68, ptr %41, align 8, !tbaa !94
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i32 %66, ptr %69, align 8, !tbaa !66
-  %.not196 = icmp ult i32 %65, 536870912
+  %.not196 = icmp eq i32 %66, 0
   br i1 %.not196, label %77, label %70
 
 70:                                               ; preds = %54

@@ -24951,7 +24951,7 @@ _ZNSt8multimapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St4lessIS1_ESaISt4
   %.015.i.i = phi i64 [ %.1.i.i, %55 ], [ %44, %.lr.ph.i.i.i.i ]
   %.sroa.012.014.i.i = phi ptr [ %.sroa.012.1.i.i, %55 ], [ %38, %.lr.ph.i.i.i.i ]
   %45 = lshr i64 %.015.i.i, 1
-  %.not.i.i = icmp eq i64 %.015.i.i, 1
+  %.not.i.i = icmp eq i64 %45, 0
   br i1 %.not.i.i, label %_ZSt7advanceISt23_Rb_tree_const_iteratorISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathES3_EElEvRT_T0_.exit.i.i, label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %.lr.ph.i.i, %.preheader.i.i.i.i

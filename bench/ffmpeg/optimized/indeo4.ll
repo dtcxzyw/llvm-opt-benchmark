@@ -1187,8 +1187,8 @@ define internal range(i32 -1163346256, 1) i32 @decode_band_hdr(ptr noundef %0, p
 
 180:                                              ; preds = %178
   %181 = icmp samesign ult i32 %168, 10
-  %182 = icmp samesign ugt i32 %105, 1
-  %or.cond = select i1 %181, i1 %182, i1 false
+  %182 = icmp ne i32 %113, 0
+  %or.cond = and i1 %182, %181
   br i1 %or.cond, label %183, label %184
 
 183:                                              ; preds = %180
@@ -1251,7 +1251,7 @@ define internal range(i32 -1163346256, 1) i32 @decode_band_hdr(ptr noundef %0, p
 210:                                              ; preds = %198
   %211 = add nsw i32 %205, -5
   %or.cond9 = icmp ult i32 %211, 5
-  %.not178.not = icmp samesign ult i32 %105, 2
+  %.not178.not = icmp eq i32 %113, 0
   br i1 %or.cond9, label %212, label %214
 
 212:                                              ; preds = %210
@@ -1326,8 +1326,8 @@ define internal range(i32 -1163346256, 1) i32 @decode_band_hdr(ptr noundef %0, p
   %244 = shl nuw i64 1, %243
   %245 = and i64 %244, 29184
   %.not179 = icmp ne i64 %245, 0
-  %246 = icmp samesign ugt i32 %105, 1
-  %or.cond190 = select i1 %.not179, i1 %246, i1 false
+  %246 = icmp ne i32 %113, 0
+  %or.cond190 = and i1 %246, %.not179
   br i1 %or.cond190, label %247, label %248
 
 247:                                              ; preds = %240

@@ -1683,7 +1683,7 @@ _ZN14num_bigint_dig7biguint7BigUint10normalized17h0033912b23334545E.exit: ; pred
   %46 = lshr i64 %2, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !422)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !425)
-  %.not.i.i2 = icmp eq i64 %2, 1
+  %.not.i.i2 = icmp eq i64 %46, 0
   br i1 %.not.i.i2, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hfca829174ad5f321E.exit", label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hf992db3548116149E.exit"
@@ -2568,7 +2568,7 @@ _ZN14num_bigint_dig7biguint7BigUint11to_bytes_le17ha195162582573453E.exit.i.i.i:
   %115 = lshr i64 %.pre2.i.i.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !626)
   call void @llvm.experimental.noalias.scope.decl(metadata !629)
-  %.not.i.i.i.i.i = icmp ult i64 %.pre2.i.i.i, 2
+  %.not.i.i.i.i.i = icmp eq i64 %115, 0
   br i1 %.not.i.i.i.i.i, label %thread-pre-split.i.i, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %.noexc2.i.i
@@ -4918,7 +4918,7 @@ _ZN14num_bigint_dig7biguint7BigUint11to_bytes_le17ha195162582573453E.exit.i.i.i:
   %692 = lshr i64 %.pre2.i.i.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1290)
   call void @llvm.experimental.noalias.scope.decl(metadata !1293)
-  %.not.i.i.i.i.i = icmp ult i64 %.pre2.i.i.i, 2
+  %.not.i.i.i.i.i = icmp eq i64 %692, 0
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %.noexc2.i.i
@@ -5068,7 +5068,7 @@ _ZN14num_bigint_dig7biguint7BigUint4bits17h01b8eccdbbf1b049E.exit60.i: ; preds =
   br i1 %737, label %_ZN14num_bigint_dig7biguint7BigUint4bits17h01b8eccdbbf1b049E.exit60.thread.i, label %738
 
 738:                                              ; preds = %_ZN14num_bigint_dig7biguint7BigUint4bits17h01b8eccdbbf1b049E.exit60.i
-  %.not.i.i61.i = icmp ult i64 %677, 8
+  %.not.i.i61.i = icmp eq i64 %678, 0
   br i1 %.not.i.i61.i, label %.invoke.i.i66.i, label %745
 
 _ZN14num_bigint_dig7biguint7BigUint4bits17h01b8eccdbbf1b049E.exit60.thread.i: ; preds = %_ZN14num_bigint_dig7biguint7BigUint4bits17h01b8eccdbbf1b049E.exit60.i
@@ -5461,9 +5461,9 @@ _ZN3rsa8pkcs1v157decrypt17h37271c9b3068f28fE.exit.thread: ; preds = %_ZN3rsa8pkc
   ret void
 
 854:                                              ; preds = %853, %841
-  %.sink193 = phi ptr [ %850, %853 ], [ %.sroa.668.0138, %841 ]
+  %.sink194 = phi ptr [ %850, %853 ], [ %.sroa.668.0138, %841 ]
   %855 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink193, ptr %855, align 8
+  store ptr %.sink194, ptr %855, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   %856 = icmp eq i64 %100, 0
   br i1 %856, label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h0df03ec9c0b8970cE.exit56", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9708849161435668323.exit.i.i1.i57"

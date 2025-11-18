@@ -593,8 +593,9 @@ define internal range(i32 1, 1068) i32 @calculate_s5066dts_dpdu_len(ptr readnone
   %narrow = add nuw nsw i8 %11, 2
   %narrow26 = add nuw nsw i8 %narrow, %13
   %14 = zext nneg i8 %narrow26 to i32
-  %15 = icmp ult i8 %.fr, 16
-  br i1 %15, label %17, label %switch.early.test
+  %15 = and i8 %.fr, -48
+  %or.cond = icmp eq i8 %15, 0
+  br i1 %or.cond, label %17, label %switch.early.test
 
 switch.early.test:                                ; preds = %8
   %16 = lshr i8 %.fr, 4
@@ -602,10 +603,9 @@ switch.early.test:                                ; preds = %8
     i8 8, label %17
     i8 7, label %17
     i8 4, label %17
-    i8 2, label %17
   ]
 
-17:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %8
+17:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %8
   %narrow27 = add nuw nsw i8 %11, 6
   %18 = zext nneg i8 %narrow27 to i32
   %19 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %18)
@@ -875,7 +875,7 @@ dissect_s5066dts_eow.exit:                        ; preds = %63, %78, %81, %88, 
   %145 = tail call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %144, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0)
   %146 = load i32, ptr @hf_s5066dts_header_size, align 4
   %147 = tail call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %146, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0)
-  %.not60.i = icmp ult i8 %16, 32
+  %.not60.i = icmp eq i8 %17, 0
   br i1 %.not60.i, label %dissect_s5066dts_address.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %dissect_s5066dts_eow.exit, %.lr.ph.i
@@ -1019,18 +1019,18 @@ dissect_s5066dts_address.exit:                    ; preds = %.lr.ph.i, %dissect_
 
 dissect_s5066dts_header_crc.exit:                 ; preds = %226, %227
   %229 = add nuw nsw i32 %.0143, 2
-  %230 = icmp ult i8 %.fr, 16
-  br i1 %230, label %231, label %switch.early.test
+  %230 = and i8 %.fr, -48
+  %or.cond = icmp eq i8 %230, 0
+  br i1 %or.cond, label %231, label %switch.early.test
 
 switch.early.test:                                ; preds = %dissect_s5066dts_header_crc.exit
   switch i8 %12, label %dissect_s5066dts_cpdu_crc.exit [
     i8 8, label %231
     i8 7, label %231
     i8 4, label %231
-    i8 2, label %231
   ]
 
-231:                                              ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %dissect_s5066dts_header_crc.exit
+231:                                              ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %dissect_s5066dts_header_crc.exit
   %232 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %191)
   %233 = and i16 %232, 1023
   %234 = zext nneg i16 %233 to i32

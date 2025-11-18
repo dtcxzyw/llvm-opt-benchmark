@@ -486,7 +486,7 @@ define void @_ZN7rocksdb25CompactionMergingIterator25AddToMinHeapOrCheckStatusEP
   store i64 %17, ptr %10, align 8, !tbaa !17
   store ptr %1, ptr %16, align 8, !tbaa !32
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %.pre12 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !26
+  %.pre14 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !26
   br label %_ZN7rocksdb10autovectorIPNS_25CompactionMergingIterator8HeapItemELm8EE9push_backERKS3_.exit
 
 18:                                               ; preds = %8
@@ -555,7 +555,7 @@ _ZNSt6vectorIPN7rocksdb25CompactionMergingIterator8HeapItemESaIS3_EE17_M_realloc
   br label %_ZN7rocksdb10autovectorIPNS_25CompactionMergingIterator8HeapItemELm8EE9push_backERKS3_.exit
 
 _ZN7rocksdb10autovectorIPNS_25CompactionMergingIterator8HeapItemELm8EE9push_backERKS3_.exit: ; preds = %13, %24, %_ZNSt6vectorIPN7rocksdb25CompactionMergingIterator8HeapItemESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
-  %46 = phi ptr [ %.pre12, %13 ], [ %25, %24 ], [ %43, %_ZNSt6vectorIPN7rocksdb25CompactionMergingIterator8HeapItemESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ]
+  %46 = phi ptr [ %.pre14, %13 ], [ %25, %24 ], [ %43, %_ZNSt6vectorIPN7rocksdb25CompactionMergingIterator8HeapItemESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ]
   %47 = phi i64 [ %17, %13 ], [ %11, %24 ], [ %.pre, %_ZNSt6vectorIPN7rocksdb25CompactionMergingIterator8HeapItemESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %49 = load ptr, ptr %48, align 8, !tbaa !25
@@ -576,8 +576,8 @@ _ZN7rocksdb10autovectorIPNS_25CompactionMergingIterator8HeapItemELm8EE9push_back
   %.not18.i.i = icmp eq i64 %55, 0
   br i1 %.not18.i.i, label %_ZN7rocksdb10BinaryHeapIPNS_25CompactionMergingIterator8HeapItemENS1_28CompactionHeapItemComparatorEE4pushERKS3_.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %_ZN7rocksdb10autovectorIPNS_25CompactionMergingIterator8HeapItemELm8EE9push_backERKS3_.exit, %73
-  %.01119.i.i = phi i64 [ %64, %73 ], [ %55, %_ZN7rocksdb10autovectorIPNS_25CompactionMergingIterator8HeapItemELm8EE9push_backERKS3_.exit ]
+.lr.ph.i.i:                                       ; preds = %_ZN7rocksdb10autovectorIPNS_25CompactionMergingIterator8HeapItemELm8EE9push_backERKS3_.exit, %74
+  %.01119.i.i = phi i64 [ %64, %74 ], [ %55, %_ZN7rocksdb10autovectorIPNS_25CompactionMergingIterator8HeapItemELm8EE9push_backERKS3_.exit ]
   %63 = add i64 %.01119.i.i, -1
   %64 = lshr i64 %63, 1
   %65 = icmp ult i64 %.01119.i.i, 17
@@ -589,39 +589,40 @@ _ZN7rocksdb10autovectorIPNS_25CompactionMergingIterator8HeapItemELm8EE9push_back
   %.0.i12.i.i = select i1 %65, ptr %67, ptr %70
   %71 = load ptr, ptr %.0.i12.i.i, align 8, !tbaa !32
   %72 = tail call noundef zeroext i1 @_ZNK7rocksdb25CompactionMergingIterator28CompactionHeapItemComparatorclEPNS0_8HeapItemES3_(ptr noundef nonnull align 8 dereferenceable(120) %9, ptr noundef %71, ptr noundef %62)
-  br i1 %72, label %73, label %.thread.i.i
+  %73 = load ptr, ptr %57, align 8
+  br i1 %72, label %74, label %.thread.i.i
 
-73:                                               ; preds = %.lr.ph.i.i
-  %74 = load ptr, ptr %57, align 8
-  %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %64
+74:                                               ; preds = %.lr.ph.i.i
+  %75 = getelementptr inbounds nuw ptr, ptr %73, i64 %64
   %76 = load ptr, ptr %48, align 8
   %77 = getelementptr ptr, ptr %76, i64 %64
   %78 = getelementptr i8, ptr %77, i64 -64
   %.0.i13.i.i = select i1 %65, ptr %75, ptr %78
   %79 = load ptr, ptr %.0.i13.i.i, align 8, !tbaa !32
   %80 = icmp ult i64 %.01119.i.i, 8
-  %81 = getelementptr inbounds nuw ptr, ptr %74, i64 %.01119.i.i
+  %81 = getelementptr inbounds nuw ptr, ptr %73, i64 %.01119.i.i
   %82 = getelementptr ptr, ptr %76, i64 %.01119.i.i
   %83 = getelementptr i8, ptr %82, i64 -64
   %.0.i14.i.i = select i1 %80, ptr %81, ptr %83
   store ptr %79, ptr %.0.i14.i.i, align 8, !tbaa !32
-  %.not.i.i = icmp ult i64 %63, 2
-  br i1 %.not.i.i, label %.thread.i.i, label %.lr.ph.i.i
+  %.not.i.i = icmp eq i64 %64, 0
+  br i1 %.not.i.i, label %.thread.thread26.i.i, label %.lr.ph.i.i
 
-.thread.i.i:                                      ; preds = %73, %.lr.ph.i.i
-  %.011.lcssa.ph.i.i = phi i64 [ %64, %73 ], [ %.01119.i.i, %.lr.ph.i.i ]
-  %.011.lcssa.ph.fr.i.i = freeze i64 %.011.lcssa.ph.i.i
-  %.pre.i.i = load ptr, ptr %57, align 8
+.thread.thread26.i.i:                             ; preds = %74
+  %.pre28.i.i = load ptr, ptr %57, align 8
+  br label %_ZN7rocksdb10BinaryHeapIPNS_25CompactionMergingIterator8HeapItemENS1_28CompactionHeapItemComparatorEE4pushERKS3_.exit
+
+.thread.i.i:                                      ; preds = %.lr.ph.i.i
   %.pre22.i.i = load ptr, ptr %48, align 8
-  %84 = icmp ult i64 %.011.lcssa.ph.fr.i.i, 8
-  %85 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %.011.lcssa.ph.fr.i.i
-  %86 = getelementptr ptr, ptr %.pre22.i.i, i64 %.011.lcssa.ph.fr.i.i
+  %84 = icmp ult i64 %.01119.i.i, 8
+  %85 = getelementptr inbounds nuw ptr, ptr %73, i64 %.01119.i.i
+  %86 = getelementptr ptr, ptr %.pre22.i.i, i64 %.01119.i.i
   %87 = getelementptr i8, ptr %86, i64 -64
   %spec.select.i.i = select i1 %84, ptr %85, ptr %87
   br label %_ZN7rocksdb10BinaryHeapIPNS_25CompactionMergingIterator8HeapItemENS1_28CompactionHeapItemComparatorEE4pushERKS3_.exit
 
-_ZN7rocksdb10BinaryHeapIPNS_25CompactionMergingIterator8HeapItemENS1_28CompactionHeapItemComparatorEE4pushERKS3_.exit: ; preds = %_ZN7rocksdb10autovectorIPNS_25CompactionMergingIterator8HeapItemELm8EE9push_backERKS3_.exit, %.thread.i.i
-  %88 = phi ptr [ %58, %_ZN7rocksdb10autovectorIPNS_25CompactionMergingIterator8HeapItemELm8EE9push_backERKS3_.exit ], [ %spec.select.i.i, %.thread.i.i ]
+_ZN7rocksdb10BinaryHeapIPNS_25CompactionMergingIterator8HeapItemENS1_28CompactionHeapItemComparatorEE4pushERKS3_.exit: ; preds = %_ZN7rocksdb10autovectorIPNS_25CompactionMergingIterator8HeapItemELm8EE9push_backERKS3_.exit, %.thread.thread26.i.i, %.thread.i.i
+  %88 = phi ptr [ %.pre28.i.i, %.thread.thread26.i.i ], [ %58, %_ZN7rocksdb10autovectorIPNS_25CompactionMergingIterator8HeapItemELm8EE9push_backERKS3_.exit ], [ %spec.select.i.i, %.thread.i.i ]
   store ptr %62, ptr %88, align 8, !tbaa !32
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i64 -1, ptr %89, align 8, !tbaa !27
@@ -830,7 +831,7 @@ _ZNK7rocksdb25TruncatedRangeDelIterator9start_keyEv.exit: ; preds = %33, %42
   store i64 %57, ptr %50, align 8, !tbaa !17
   store ptr %49, ptr %56, align 8, !tbaa !32
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %.pre7 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !26
+  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !26
   br label %_ZN7rocksdb10autovectorIPNS_25CompactionMergingIterator8HeapItemELm8EE9push_backEOS3_.exit
 
 58:                                               ; preds = %_ZNK7rocksdb25TruncatedRangeDelIterator9start_keyEv.exit
@@ -899,7 +900,7 @@ _ZNSt6vectorIPN7rocksdb25CompactionMergingIterator8HeapItemESaIS3_EE17_M_realloc
   br label %_ZN7rocksdb10autovectorIPNS_25CompactionMergingIterator8HeapItemELm8EE9push_backEOS3_.exit
 
 _ZN7rocksdb10autovectorIPNS_25CompactionMergingIterator8HeapItemELm8EE9push_backEOS3_.exit: ; preds = %53, %64, %_ZNSt6vectorIPN7rocksdb25CompactionMergingIterator8HeapItemESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
-  %86 = phi ptr [ %.pre7, %53 ], [ %65, %64 ], [ %83, %_ZNSt6vectorIPN7rocksdb25CompactionMergingIterator8HeapItemESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ]
+  %86 = phi ptr [ %.pre9, %53 ], [ %65, %64 ], [ %83, %_ZNSt6vectorIPN7rocksdb25CompactionMergingIterator8HeapItemESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ]
   %87 = phi i64 [ %57, %53 ], [ %51, %64 ], [ %.pre, %_ZNSt6vectorIPN7rocksdb25CompactionMergingIterator8HeapItemESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ]
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %89 = load ptr, ptr %88, align 8, !tbaa !25
@@ -920,8 +921,8 @@ _ZN7rocksdb10autovectorIPNS_25CompactionMergingIterator8HeapItemELm8EE9push_back
   %.not18.i.i = icmp eq i64 %95, 0
   br i1 %.not18.i.i, label %_ZN7rocksdb10BinaryHeapIPNS_25CompactionMergingIterator8HeapItemENS1_28CompactionHeapItemComparatorEE4pushEOS3_.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %_ZN7rocksdb10autovectorIPNS_25CompactionMergingIterator8HeapItemELm8EE9push_backEOS3_.exit, %113
-  %.01119.i.i = phi i64 [ %104, %113 ], [ %95, %_ZN7rocksdb10autovectorIPNS_25CompactionMergingIterator8HeapItemELm8EE9push_backEOS3_.exit ]
+.lr.ph.i.i:                                       ; preds = %_ZN7rocksdb10autovectorIPNS_25CompactionMergingIterator8HeapItemELm8EE9push_backEOS3_.exit, %114
+  %.01119.i.i = phi i64 [ %104, %114 ], [ %95, %_ZN7rocksdb10autovectorIPNS_25CompactionMergingIterator8HeapItemELm8EE9push_backEOS3_.exit ]
   %103 = add i64 %.01119.i.i, -1
   %104 = lshr i64 %103, 1
   %105 = icmp ult i64 %.01119.i.i, 17
@@ -933,39 +934,40 @@ _ZN7rocksdb10autovectorIPNS_25CompactionMergingIterator8HeapItemELm8EE9push_back
   %.0.i12.i.i = select i1 %105, ptr %107, ptr %110
   %111 = load ptr, ptr %.0.i12.i.i, align 8, !tbaa !32
   %112 = call noundef zeroext i1 @_ZNK7rocksdb25CompactionMergingIterator28CompactionHeapItemComparatorclEPNS0_8HeapItemES3_(ptr noundef nonnull align 8 dereferenceable(120) %47, ptr noundef %111, ptr noundef %102)
-  br i1 %112, label %113, label %.thread.i.i
+  %113 = load ptr, ptr %97, align 8
+  br i1 %112, label %114, label %.thread.i.i
 
-113:                                              ; preds = %.lr.ph.i.i
-  %114 = load ptr, ptr %97, align 8
-  %115 = getelementptr inbounds nuw ptr, ptr %114, i64 %104
+114:                                              ; preds = %.lr.ph.i.i
+  %115 = getelementptr inbounds nuw ptr, ptr %113, i64 %104
   %116 = load ptr, ptr %88, align 8
   %117 = getelementptr ptr, ptr %116, i64 %104
   %118 = getelementptr i8, ptr %117, i64 -64
   %.0.i13.i.i = select i1 %105, ptr %115, ptr %118
   %119 = load ptr, ptr %.0.i13.i.i, align 8, !tbaa !32
   %120 = icmp ult i64 %.01119.i.i, 8
-  %121 = getelementptr inbounds nuw ptr, ptr %114, i64 %.01119.i.i
+  %121 = getelementptr inbounds nuw ptr, ptr %113, i64 %.01119.i.i
   %122 = getelementptr ptr, ptr %116, i64 %.01119.i.i
   %123 = getelementptr i8, ptr %122, i64 -64
   %.0.i14.i.i = select i1 %120, ptr %121, ptr %123
   store ptr %119, ptr %.0.i14.i.i, align 8, !tbaa !32
-  %.not.i.i = icmp ult i64 %103, 2
-  br i1 %.not.i.i, label %.thread.i.i, label %.lr.ph.i.i
+  %.not.i.i = icmp eq i64 %104, 0
+  br i1 %.not.i.i, label %.thread.thread26.i.i, label %.lr.ph.i.i
 
-.thread.i.i:                                      ; preds = %113, %.lr.ph.i.i
-  %.011.lcssa.ph.i.i = phi i64 [ %104, %113 ], [ %.01119.i.i, %.lr.ph.i.i ]
-  %.011.lcssa.ph.fr.i.i = freeze i64 %.011.lcssa.ph.i.i
-  %.pre.i.i = load ptr, ptr %97, align 8
+.thread.thread26.i.i:                             ; preds = %114
+  %.pre28.i.i = load ptr, ptr %97, align 8
+  br label %_ZN7rocksdb10BinaryHeapIPNS_25CompactionMergingIterator8HeapItemENS1_28CompactionHeapItemComparatorEE4pushEOS3_.exit
+
+.thread.i.i:                                      ; preds = %.lr.ph.i.i
   %.pre22.i.i = load ptr, ptr %88, align 8
-  %124 = icmp ult i64 %.011.lcssa.ph.fr.i.i, 8
-  %125 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %.011.lcssa.ph.fr.i.i
-  %126 = getelementptr ptr, ptr %.pre22.i.i, i64 %.011.lcssa.ph.fr.i.i
+  %124 = icmp ult i64 %.01119.i.i, 8
+  %125 = getelementptr inbounds nuw ptr, ptr %113, i64 %.01119.i.i
+  %126 = getelementptr ptr, ptr %.pre22.i.i, i64 %.01119.i.i
   %127 = getelementptr i8, ptr %126, i64 -64
   %spec.select.i.i = select i1 %124, ptr %125, ptr %127
   br label %_ZN7rocksdb10BinaryHeapIPNS_25CompactionMergingIterator8HeapItemENS1_28CompactionHeapItemComparatorEE4pushEOS3_.exit
 
-_ZN7rocksdb10BinaryHeapIPNS_25CompactionMergingIterator8HeapItemENS1_28CompactionHeapItemComparatorEE4pushEOS3_.exit: ; preds = %_ZN7rocksdb10autovectorIPNS_25CompactionMergingIterator8HeapItemELm8EE9push_backEOS3_.exit, %.thread.i.i
-  %128 = phi ptr [ %98, %_ZN7rocksdb10autovectorIPNS_25CompactionMergingIterator8HeapItemELm8EE9push_backEOS3_.exit ], [ %spec.select.i.i, %.thread.i.i ]
+_ZN7rocksdb10BinaryHeapIPNS_25CompactionMergingIterator8HeapItemENS1_28CompactionHeapItemComparatorEE4pushEOS3_.exit: ; preds = %_ZN7rocksdb10autovectorIPNS_25CompactionMergingIterator8HeapItemELm8EE9push_backEOS3_.exit, %.thread.thread26.i.i, %.thread.i.i
+  %128 = phi ptr [ %.pre28.i.i, %.thread.thread26.i.i ], [ %98, %_ZN7rocksdb10autovectorIPNS_25CompactionMergingIterator8HeapItemELm8EE9push_backEOS3_.exit ], [ %spec.select.i.i, %.thread.i.i ]
   store ptr %102, ptr %128, align 8, !tbaa !32
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i64 -1, ptr %129, align 8, !tbaa !27

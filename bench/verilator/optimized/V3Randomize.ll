@@ -17453,25 +17453,25 @@ _ZN7AstNode9privateIsI13AstConstraintPS_EEbPKS_.exit.i: ; preds = %_ZN7AstNode9p
   br i1 %21, label %22, label %_ZZZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistENKUlP8AstClassE_clES3_ENKUlS3_P7AstNodeE_clES3_S6_.exit
 
 22:                                               ; preds = %12
-  %23 = icmp ult i32 %.sroa.0.0.extract.trunc.i.i, 2
-  br i1 %23, label %24, label %31
+  %23 = lshr i32 %.sroa.0.0.extract.trunc.i.i, 1
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %25, label %32
 
-24:                                               ; preds = %22
-  %25 = load ptr, ptr %10, align 8, !tbaa !440
-  %26 = load i32, ptr %25, align 4, !tbaa !16
-  %27 = add i32 %26, 1
-  store i32 %27, ptr %25, align 4, !tbaa !16
-  %28 = shl i32 %26, 1
-  %29 = or disjoint i32 %28, 1
-  %.sroa.0.0.insert.ext.i.i = zext i32 %29 to i64
+25:                                               ; preds = %22
+  %26 = load ptr, ptr %10, align 8, !tbaa !440
+  %27 = load i32, ptr %26, align 4, !tbaa !16
+  %28 = add i32 %27, 1
+  store i32 %28, ptr %26, align 4, !tbaa !16
+  %29 = shl i32 %27, 1
+  %30 = or disjoint i32 %29, 1
+  %.sroa.0.0.insert.ext.i.i = zext i32 %30 to i64
   store i64 %.sroa.0.0.insert.ext.i.i, ptr %18, align 8, !tbaa !14
-  %30 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4, !tbaa !16
-  store i32 %30, ptr %14, align 8, !tbaa !101
+  %31 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4, !tbaa !16
+  store i32 %31, ptr %14, align 8, !tbaa !101
   br label %_ZZZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistENKUlP8AstClassE_clES3_ENKUlS3_P7AstNodeE_clES3_S6_.exit
 
-31:                                               ; preds = %22
-  %32 = lshr i32 %.sroa.0.0.extract.trunc.i.i, 1
-  %33 = add nuw nsw i32 %32, 1
+32:                                               ; preds = %22
+  %33 = add nuw nsw i32 %23, 1
   %34 = load ptr, ptr %10, align 8, !tbaa !440
   store i32 %33, ptr %34, align 4, !tbaa !16
   br label %_ZZZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistENKUlP8AstClassE_clES3_ENKUlS3_P7AstNodeE_clES3_S6_.exit
@@ -17489,30 +17489,30 @@ _ZN7AstNode9privateIsI13AstConstraintPS_EEbPKS_.exit.i: ; preds = %_ZN7AstNode9p
   br i1 %43, label %44, label %_ZZZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistENKUlP8AstClassE_clES3_ENKUlS3_P7AstNodeE_clES3_S6_.exit
 
 44:                                               ; preds = %35
-  %45 = icmp ult i32 %.sroa.0.0.extract.trunc.i19.i, 2
-  br i1 %45, label %46, label %53
+  %45 = lshr i32 %.sroa.0.0.extract.trunc.i19.i, 1
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %47, label %54
 
-46:                                               ; preds = %44
-  %47 = load ptr, ptr %9, align 8, !tbaa !441
-  %48 = load i32, ptr %47, align 4, !tbaa !16
-  %49 = add i32 %48, 1
-  store i32 %49, ptr %47, align 4, !tbaa !16
-  %50 = shl i32 %48, 1
-  %51 = or disjoint i32 %50, 1
-  %.sroa.0.0.insert.ext.i20.i = zext i32 %51 to i64
+47:                                               ; preds = %44
+  %48 = load ptr, ptr %9, align 8, !tbaa !441
+  %49 = load i32, ptr %48, align 4, !tbaa !16
+  %50 = add i32 %49, 1
+  store i32 %50, ptr %48, align 4, !tbaa !16
+  %51 = shl i32 %49, 1
+  %52 = or disjoint i32 %51, 1
+  %.sroa.0.0.insert.ext.i20.i = zext i32 %52 to i64
   store i64 %.sroa.0.0.insert.ext.i20.i, ptr %40, align 8, !tbaa !14
-  %52 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4, !tbaa !16
-  store i32 %52, ptr %36, align 8, !tbaa !101
+  %53 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4, !tbaa !16
+  store i32 %53, ptr %36, align 8, !tbaa !101
   br label %_ZZZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistENKUlP8AstClassE_clES3_ENKUlS3_P7AstNodeE_clES3_S6_.exit
 
-53:                                               ; preds = %44
-  %54 = lshr i32 %.sroa.0.0.extract.trunc.i19.i, 1
-  %55 = add nuw nsw i32 %54, 1
+54:                                               ; preds = %44
+  %55 = add nuw nsw i32 %45, 1
   %56 = load ptr, ptr %9, align 8, !tbaa !441
   store i32 %55, ptr %56, align 4, !tbaa !16
   br label %_ZZZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistENKUlP8AstClassE_clES3_ENKUlS3_P7AstNodeE_clES3_S6_.exit
 
-_ZZZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistENKUlP8AstClassE_clES3_ENKUlS3_P7AstNodeE_clES3_S6_.exit: ; preds = %53, %46, %35, %31, %24, %12, %_ZN7AstNode9privateIsI13AstConstraintPS_EEbPKS_.exit.i
+_ZZZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistENKUlP8AstClassE_clES3_ENKUlS3_P7AstNodeE_clES3_S6_.exit: ; preds = %54, %47, %35, %32, %25, %12, %_ZN7AstNode9privateIsI13AstConstraintPS_EEbPKS_.exit.i
   %57 = getelementptr inbounds nuw i8, ptr %.013, i64 8
   %.0 = load ptr, ptr %57, align 8, !tbaa !149
   %.not10 = icmp eq ptr %.0, null

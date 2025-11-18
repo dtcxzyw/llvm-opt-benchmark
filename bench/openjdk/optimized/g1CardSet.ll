@@ -2212,14 +2212,14 @@ define hidden noundef nonnull ptr @_ZN9G1CardSet31create_coarsened_array_of_card
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 1, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %.not.i.i = icmp eq i32 %8, 0
+  %20 = zext i32 %8 to i64
+  %21 = add nuw nsw i64 %20, 63
+  %22 = lshr i64 %21, 6
+  %.not.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i, label %_ZN15G1CardSetBitMapC2Ejj.exit, label %.lr.ph.preheader.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %4
-  %20 = zext i32 %8 to i64
-  %21 = add nuw nsw i64 %20, 63
-  %22 = lshr i64 %21, 3
-  %23 = and i64 %22, 1073741816
+  %23 = shl nuw nsw i64 %22, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %19, i8 0, i64 %23, i1 false)
   br label %_ZN15G1CardSetBitMapC2Ejj.exit
 

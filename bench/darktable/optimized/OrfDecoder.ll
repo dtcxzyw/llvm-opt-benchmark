@@ -1962,7 +1962,7 @@ _ZNK8rawspeed10ByteStream19peekRemainingBufferEv.exit70: ; preds = %36
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 48
   %59 = load i32, ptr %58, align 8, !tbaa !167, !noalias !100
   %60 = ashr i32 %59, 1
-  %61 = icmp ugt i32 %59, 1
+  %61 = icmp ne i32 %60, 0
   tail call void @llvm.assume(i1 %61)
   %62 = icmp sgt i32 %60, -1
   tail call void @llvm.assume(i1 %62)

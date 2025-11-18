@@ -2271,30 +2271,30 @@ define hidden void @_ZN22ComputeLinearScanOrder17assign_loop_depthEP10BlockBegin
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, 63
-  %.not.i.i = icmp ult i64 %5, 64
+  %6 = lshr i64 %5, 6
+  %.not.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i, label %_ZN6BitMap5clearEv.exit.i, label %.lr.ph.preheader.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load ptr, ptr %6, align 8
-  %8 = lshr i64 %5, 3
-  %9 = and i64 %8, 2305843009213693944
-  tail call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 %9, i1 false)
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %8 = load ptr, ptr %7, align 8
+  %9 = shl nuw nsw i64 %6, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 %9, i1 false)
   br label %_ZN6BitMap5clearEv.exit.i
 
 _ZN6BitMap5clearEv.exit.i:                        ; preds = %.lr.ph.preheader.i.i.i.i, %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, 63
-  %.not.i1.i = icmp ult i64 %12, 64
+  %13 = lshr i64 %12, 6
+  %.not.i1.i = icmp eq i64 %13, 0
   br i1 %.not.i1.i, label %_ZN22ComputeLinearScanOrder12init_visitedEv.exit, label %.lr.ph.preheader.i.i.i2.i
 
 .lr.ph.preheader.i.i.i2.i:                        ; preds = %_ZN6BitMap5clearEv.exit.i
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load ptr, ptr %13, align 8
-  %15 = lshr i64 %12, 3
-  %16 = and i64 %15, 2305843009213693944
-  tail call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 %16, i1 false)
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %15 = load ptr, ptr %14, align 8
+  %16 = shl nuw nsw i64 %13, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %15, i8 0, i64 %16, i1 false)
   br label %_ZN22ComputeLinearScanOrder12init_visitedEv.exit
 
 _ZN22ComputeLinearScanOrder12init_visitedEv.exit: ; preds = %_ZN6BitMap5clearEv.exit.i, %.lr.ph.preheader.i.i.i2.i
@@ -2798,30 +2798,30 @@ _ZNK4Base9osr_entryEv.exit:                       ; preds = %_ZNK8BlockEnd13numb
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %71 = load i64, ptr %70, align 8
   %72 = add i64 %71, 63
-  %.not.i.i.i39 = icmp ult i64 %72, 64
+  %73 = lshr i64 %72, 6
+  %.not.i.i.i39 = icmp eq i64 %73, 0
   br i1 %.not.i.i.i39, label %_ZN6BitMap5clearEv.exit.i.i, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %54
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %74 = load ptr, ptr %73, align 8
-  %75 = lshr i64 %72, 3
-  %76 = and i64 %75, 2305843009213693944
-  tail call void @llvm.memset.p0.i64(ptr align 8 %74, i8 0, i64 %76, i1 false)
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %75 = load ptr, ptr %74, align 8
+  %76 = shl nuw nsw i64 %73, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %75, i8 0, i64 %76, i1 false)
   br label %_ZN6BitMap5clearEv.exit.i.i
 
 _ZN6BitMap5clearEv.exit.i.i:                      ; preds = %.lr.ph.preheader.i.i.i.i.i, %54
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %78 = load i64, ptr %77, align 8
   %79 = add i64 %78, 63
-  %.not.i1.i.i = icmp ult i64 %79, 64
+  %80 = lshr i64 %79, 6
+  %.not.i1.i.i = icmp eq i64 %80, 0
   br i1 %.not.i1.i.i, label %_ZN22ComputeLinearScanOrder17compute_dominatorEP10BlockBeginS1_.exit, label %.lr.ph.preheader.i.i.i2.i.i
 
 .lr.ph.preheader.i.i.i2.i.i:                      ; preds = %_ZN6BitMap5clearEv.exit.i.i
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %81 = load ptr, ptr %80, align 8
-  %82 = lshr i64 %79, 3
-  %83 = and i64 %82, 2305843009213693944
-  tail call void @llvm.memset.p0.i64(ptr align 8 %81, i8 0, i64 %83, i1 false)
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %82 = load ptr, ptr %81, align 8
+  %83 = shl nuw nsw i64 %80, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %82, i8 0, i64 %83, i1 false)
   br label %_ZN22ComputeLinearScanOrder17compute_dominatorEP10BlockBeginS1_.exit
 
 _ZN22ComputeLinearScanOrder17compute_dominatorEP10BlockBeginS1_.exit: ; preds = %_ZN6BitMap5clearEv.exit.i.i, %.lr.ph.preheader.i.i.i2.i.i
@@ -2837,30 +2837,30 @@ _ZNK4Base9osr_entryEv.exit.thread:                ; preds = %_ZNK8BlockEnd13numb
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %88 = load i64, ptr %87, align 8
   %89 = add i64 %88, 63
-  %.not.i.i.i40 = icmp ult i64 %89, 64
+  %90 = lshr i64 %89, 6
+  %.not.i.i.i40 = icmp eq i64 %90, 0
   br i1 %.not.i.i.i40, label %_ZN6BitMap5clearEv.exit.i.i42, label %.lr.ph.preheader.i.i.i.i.i41
 
 .lr.ph.preheader.i.i.i.i.i41:                     ; preds = %_ZNK4Base9osr_entryEv.exit.thread
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %91 = load ptr, ptr %90, align 8
-  %92 = lshr i64 %89, 3
-  %93 = and i64 %92, 2305843009213693944
-  tail call void @llvm.memset.p0.i64(ptr align 8 %91, i8 0, i64 %93, i1 false)
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %92 = load ptr, ptr %91, align 8
+  %93 = shl nuw nsw i64 %90, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %92, i8 0, i64 %93, i1 false)
   br label %_ZN6BitMap5clearEv.exit.i.i42
 
 _ZN6BitMap5clearEv.exit.i.i42:                    ; preds = %.lr.ph.preheader.i.i.i.i.i41, %_ZNK4Base9osr_entryEv.exit.thread
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %95 = load i64, ptr %94, align 8
   %96 = add i64 %95, 63
-  %.not.i1.i.i43 = icmp ult i64 %96, 64
+  %97 = lshr i64 %96, 6
+  %.not.i1.i.i43 = icmp eq i64 %97, 0
   br i1 %.not.i1.i.i43, label %_ZN22ComputeLinearScanOrder17compute_dominatorEP10BlockBeginS1_.exit45, label %.lr.ph.preheader.i.i.i2.i.i44
 
 .lr.ph.preheader.i.i.i2.i.i44:                    ; preds = %_ZN6BitMap5clearEv.exit.i.i42
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %98 = load ptr, ptr %97, align 8
-  %99 = lshr i64 %96, 3
-  %100 = and i64 %99, 2305843009213693944
-  tail call void @llvm.memset.p0.i64(ptr align 8 %98, i8 0, i64 %100, i1 false)
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %99 = load ptr, ptr %98, align 8
+  %100 = shl nuw nsw i64 %97, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %99, i8 0, i64 %100, i1 false)
   br label %_ZN22ComputeLinearScanOrder17compute_dominatorEP10BlockBeginS1_.exit45
 
 _ZN22ComputeLinearScanOrder17compute_dominatorEP10BlockBeginS1_.exit45: ; preds = %_ZN6BitMap5clearEv.exit.i.i42, %.lr.ph.preheader.i.i.i2.i.i44
@@ -3012,27 +3012,27 @@ _ZN22ComputeLinearScanOrder12append_blockEP10BlockBegin.exit53: ; preds = %170, 
   store ptr %86, ptr %191, align 8
   %192 = load i64, ptr %87, align 8
   %193 = add i64 %192, 63
-  %.not.i.i.i54 = icmp ult i64 %193, 64
+  %194 = lshr i64 %193, 6
+  %.not.i.i.i54 = icmp eq i64 %194, 0
   br i1 %.not.i.i.i54, label %_ZN6BitMap5clearEv.exit.i.i56, label %.lr.ph.preheader.i.i.i.i.i55
 
 .lr.ph.preheader.i.i.i.i.i55:                     ; preds = %_ZN22ComputeLinearScanOrder12append_blockEP10BlockBegin.exit53
-  %194 = load ptr, ptr %158, align 8
-  %195 = lshr i64 %193, 3
-  %196 = and i64 %195, 2305843009213693944
-  tail call void @llvm.memset.p0.i64(ptr align 8 %194, i8 0, i64 %196, i1 false)
+  %195 = load ptr, ptr %158, align 8
+  %196 = shl nuw nsw i64 %194, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %195, i8 0, i64 %196, i1 false)
   br label %_ZN6BitMap5clearEv.exit.i.i56
 
 _ZN6BitMap5clearEv.exit.i.i56:                    ; preds = %.lr.ph.preheader.i.i.i.i.i55, %_ZN22ComputeLinearScanOrder12append_blockEP10BlockBegin.exit53
   %197 = load i64, ptr %94, align 8
   %198 = add i64 %197, 63
-  %.not.i1.i.i57 = icmp ult i64 %198, 64
+  %199 = lshr i64 %198, 6
+  %.not.i1.i.i57 = icmp eq i64 %199, 0
   br i1 %.not.i1.i.i57, label %_ZN22ComputeLinearScanOrder17compute_dominatorEP10BlockBeginS1_.exit59, label %.lr.ph.preheader.i.i.i2.i.i58
 
 .lr.ph.preheader.i.i.i2.i.i58:                    ; preds = %_ZN6BitMap5clearEv.exit.i.i56
-  %199 = load ptr, ptr %159, align 8
-  %200 = lshr i64 %198, 3
-  %201 = and i64 %200, 2305843009213693944
-  tail call void @llvm.memset.p0.i64(ptr align 8 %199, i8 0, i64 %201, i1 false)
+  %200 = load ptr, ptr %159, align 8
+  %201 = shl nuw nsw i64 %199, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %200, i8 0, i64 %201, i1 false)
   br label %_ZN22ComputeLinearScanOrder17compute_dominatorEP10BlockBeginS1_.exit59
 
 _ZN22ComputeLinearScanOrder17compute_dominatorEP10BlockBeginS1_.exit59: ; preds = %_ZN6BitMap5clearEv.exit.i.i56, %.lr.ph.preheader.i.i.i2.i.i58
@@ -3101,27 +3101,27 @@ _ZNK10BlockBegin13number_of_suxEv.exit:           ; preds = %_ZN22ComputeLinearS
   %237 = load ptr, ptr %236, align 8
   %238 = load i64, ptr %87, align 8
   %239 = add i64 %238, 63
-  %.not.i.i.i67 = icmp ult i64 %239, 64
+  %240 = lshr i64 %239, 6
+  %.not.i.i.i67 = icmp eq i64 %240, 0
   br i1 %.not.i.i.i67, label %_ZN6BitMap5clearEv.exit.i.i69, label %.lr.ph.preheader.i.i.i.i.i68
 
 .lr.ph.preheader.i.i.i.i.i68:                     ; preds = %.lr.ph
-  %240 = load ptr, ptr %158, align 8
-  %241 = lshr i64 %239, 3
-  %242 = and i64 %241, 2305843009213693944
-  tail call void @llvm.memset.p0.i64(ptr align 8 %240, i8 0, i64 %242, i1 false)
+  %241 = load ptr, ptr %158, align 8
+  %242 = shl nuw nsw i64 %240, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %241, i8 0, i64 %242, i1 false)
   br label %_ZN6BitMap5clearEv.exit.i.i69
 
 _ZN6BitMap5clearEv.exit.i.i69:                    ; preds = %.lr.ph.preheader.i.i.i.i.i68, %.lr.ph
   %243 = load i64, ptr %94, align 8
   %244 = add i64 %243, 63
-  %.not.i1.i.i70 = icmp ult i64 %244, 64
+  %245 = lshr i64 %244, 6
+  %.not.i1.i.i70 = icmp eq i64 %245, 0
   br i1 %.not.i1.i.i70, label %_ZN22ComputeLinearScanOrder17compute_dominatorEP10BlockBeginS1_.exit72, label %.lr.ph.preheader.i.i.i2.i.i71
 
 .lr.ph.preheader.i.i.i2.i.i71:                    ; preds = %_ZN6BitMap5clearEv.exit.i.i69
-  %245 = load ptr, ptr %159, align 8
-  %246 = lshr i64 %244, 3
-  %247 = and i64 %246, 2305843009213693944
-  tail call void @llvm.memset.p0.i64(ptr align 8 %245, i8 0, i64 %247, i1 false)
+  %246 = load ptr, ptr %159, align 8
+  %247 = shl nuw nsw i64 %245, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %246, i8 0, i64 %247, i1 false)
   br label %_ZN22ComputeLinearScanOrder17compute_dominatorEP10BlockBeginS1_.exit72
 
 _ZN22ComputeLinearScanOrder17compute_dominatorEP10BlockBeginS1_.exit72: ; preds = %_ZN6BitMap5clearEv.exit.i.i69, %.lr.ph.preheader.i.i.i2.i.i71
@@ -3787,14 +3787,14 @@ define hidden noundef ptr @_ZN22ComputeLinearScanOrder16common_dominatorEP10Bloc
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, 63
-  %.not.i = icmp ult i64 %7, 64
+  %8 = lshr i64 %7, 6
+  %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %_ZN6BitMap5clearEv.exit, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %3
-  %8 = load ptr, ptr %4, align 8
-  %9 = lshr i64 %7, 3
-  %10 = and i64 %9, 2305843009213693944
-  tail call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 %10, i1 false)
+  %9 = load ptr, ptr %4, align 8
+  %10 = shl nuw nsw i64 %8, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 %10, i1 false)
   br label %_ZN6BitMap5clearEv.exit
 
 _ZN6BitMap5clearEv.exit:                          ; preds = %3, %.lr.ph.preheader.i.i.i
@@ -3857,30 +3857,30 @@ define hidden void @_ZN22ComputeLinearScanOrder17compute_dominatorEP10BlockBegin
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, 63
-  %.not.i.i = icmp ult i64 %6, 64
+  %7 = lshr i64 %6, 6
+  %.not.i.i = icmp eq i64 %7, 0
   br i1 %.not.i.i, label %_ZN6BitMap5clearEv.exit.i, label %.lr.ph.preheader.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %3
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load ptr, ptr %7, align 8
-  %9 = lshr i64 %6, 3
-  %10 = and i64 %9, 2305843009213693944
-  tail call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 %10, i1 false)
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %9 = load ptr, ptr %8, align 8
+  %10 = shl nuw nsw i64 %7, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 %10, i1 false)
   br label %_ZN6BitMap5clearEv.exit.i
 
 _ZN6BitMap5clearEv.exit.i:                        ; preds = %.lr.ph.preheader.i.i.i.i, %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, 63
-  %.not.i1.i = icmp ult i64 %13, 64
+  %14 = lshr i64 %13, 6
+  %.not.i1.i = icmp eq i64 %14, 0
   br i1 %.not.i1.i, label %_ZN22ComputeLinearScanOrder12init_visitedEv.exit, label %.lr.ph.preheader.i.i.i2.i
 
 .lr.ph.preheader.i.i.i2.i:                        ; preds = %_ZN6BitMap5clearEv.exit.i
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load ptr, ptr %14, align 8
-  %16 = lshr i64 %13, 3
-  %17 = and i64 %16, 2305843009213693944
-  tail call void @llvm.memset.p0.i64(ptr align 8 %15, i8 0, i64 %17, i1 false)
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %16 = load ptr, ptr %15, align 8
+  %17 = shl nuw nsw i64 %14, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %16, i8 0, i64 %17, i1 false)
   br label %_ZN22ComputeLinearScanOrder12init_visitedEv.exit
 
 _ZN22ComputeLinearScanOrder12init_visitedEv.exit: ; preds = %_ZN6BitMap5clearEv.exit.i, %.lr.ph.preheader.i.i.i2.i
@@ -3926,17 +3926,17 @@ define hidden void @_ZN22ComputeLinearScanOrder22compute_dominator_implEP10Block
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %29 = load i64, ptr %28, align 8
   %30 = add i64 %29, 63
-  %.not.i.i = icmp ult i64 %30, 64
+  %31 = lshr i64 %30, 6
+  %.not.i.i = icmp eq i64 %31, 0
   br i1 %.not.i.i, label %.lr.ph.i.preheader, label %.lr.ph.preheader.i.i.i.i
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph.preheader.i.i.i.i, %26
   br label %.lr.ph.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %26
-  %31 = load ptr, ptr %27, align 8
-  %32 = lshr i64 %30, 3
-  %33 = and i64 %32, 2305843009213693944
-  tail call void @llvm.memset.p0.i64(ptr align 8 %31, i8 0, i64 %33, i1 false)
+  %32 = load ptr, ptr %27, align 8
+  %33 = shl nuw nsw i64 %31, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %32, i8 0, i64 %33, i1 false)
   br label %.lr.ph.i.preheader
 
 .preheader.i:                                     ; preds = %.lr.ph.i
@@ -4282,9 +4282,9 @@ define hidden noundef zeroext i1 @_ZN22ComputeLinearScanOrder23compute_dominator
   %wide.trip.count86 = zext nneg i32 %4 to i64
   br label %8
 
-8:                                                ; preds = %.lr.ph74, %131
-  %indvars.iv84 = phi i64 [ 1, %.lr.ph74 ], [ %indvars.iv.next85, %131 ]
-  %.02872 = phi i1 [ false, %.lr.ph74 ], [ %.1, %131 ]
+8:                                                ; preds = %.lr.ph74, %130
+  %indvars.iv84 = phi i64 [ 1, %.lr.ph74 ], [ %indvars.iv.next85, %130 ]
+  %.02872 = phi i1 [ false, %.lr.ph74 ], [ %.1, %130 ]
   %9 = load ptr, ptr %2, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -4314,20 +4314,20 @@ define hidden noundef zeroext i1 @_ZN22ComputeLinearScanOrder23compute_dominator
   %.not63 = icmp eq i32 %26, 0
   %27 = load i64, ptr %7, align 8
   %28 = add i64 %27, 63
-  %.not.i.i48 = icmp ult i64 %28, 64
-  br i1 %.not63, label %98, label %29
+  %29 = lshr i64 %28, 6
+  %.not.i.i48 = icmp eq i64 %29, 0
+  br i1 %.not63, label %98, label %30
 
-29:                                               ; preds = %21
+30:                                               ; preds = %21
   br i1 %.not.i.i48, label %_ZN6BitMap5clearEv.exit.i, label %.lr.ph.preheader.i.i.i.i
 
-.lr.ph.preheader.i.i.i.i:                         ; preds = %29
-  %30 = load ptr, ptr %6, align 8
-  %31 = lshr i64 %28, 3
-  %32 = and i64 %31, 2305843009213693944
-  tail call void @llvm.memset.p0.i64(ptr align 8 %30, i8 0, i64 %32, i1 false)
+.lr.ph.preheader.i.i.i.i:                         ; preds = %30
+  %31 = load ptr, ptr %6, align 8
+  %32 = shl nuw nsw i64 %29, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %31, i8 0, i64 %32, i1 false)
   br label %_ZN6BitMap5clearEv.exit.i
 
-_ZN6BitMap5clearEv.exit.i:                        ; preds = %.lr.ph.preheader.i.i.i.i, %29
+_ZN6BitMap5clearEv.exit.i:                        ; preds = %.lr.ph.preheader.i.i.i.i, %30
   %.not11.i = icmp eq ptr %.03167, null
   br i1 %.not11.i, label %.preheader.i, label %.lr.ph.i
 
@@ -4397,14 +4397,14 @@ _ZN22ComputeLinearScanOrder16common_dominatorEP10BlockBeginS1_.exit: ; preds = %
   %66 = load ptr, ptr %65, align 8
   %67 = load i64, ptr %7, align 8
   %68 = add i64 %67, 63
-  %.not.i.i33 = icmp ult i64 %68, 64
+  %69 = lshr i64 %68, 6
+  %.not.i.i33 = icmp eq i64 %69, 0
   br i1 %.not.i.i33, label %_ZN6BitMap5clearEv.exit.i35, label %.lr.ph.preheader.i.i.i.i34
 
 .lr.ph.preheader.i.i.i.i34:                       ; preds = %63
-  %69 = load ptr, ptr %6, align 8
-  %70 = lshr i64 %68, 3
-  %71 = and i64 %70, 2305843009213693944
-  tail call void @llvm.memset.p0.i64(ptr align 8 %69, i8 0, i64 %71, i1 false)
+  %70 = load ptr, ptr %6, align 8
+  %71 = shl nuw nsw i64 %69, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %70, i8 0, i64 %71, i1 false)
   br label %_ZN6BitMap5clearEv.exit.i35
 
 _ZN6BitMap5clearEv.exit.i35:                      ; preds = %.lr.ph.preheader.i.i.i.i34, %63
@@ -4468,9 +4468,8 @@ _ZN22ComputeLinearScanOrder16common_dominatorEP10BlockBeginS1_.exit47: ; preds =
 
 .lr.ph.preheader.i.i.i.i49:                       ; preds = %98
   %99 = load ptr, ptr %6, align 8
-  %100 = lshr i64 %28, 3
-  %101 = and i64 %100, 2305843009213693944
-  tail call void @llvm.memset.p0.i64(ptr align 8 %99, i8 0, i64 %101, i1 false)
+  %100 = shl nuw nsw i64 %29, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %99, i8 0, i64 %100, i1 false)
   br label %_ZN6BitMap5clearEv.exit.i50
 
 _ZN6BitMap5clearEv.exit.i50:                      ; preds = %.lr.ph.preheader.i.i.i.i49, %98
@@ -4482,72 +4481,72 @@ _ZN6BitMap5clearEv.exit.i50:                      ; preds = %.lr.ph.preheader.i.
   br i1 %.not913.i56, label %_ZN22ComputeLinearScanOrder16common_dominatorEP10BlockBeginS1_.exit62, label %.lr.ph15.i57
 
 .lr.ph15.i57:                                     ; preds = %.preheader.i55
-  %102 = load ptr, ptr %6, align 8
-  br label %115
+  %101 = load ptr, ptr %6, align 8
+  br label %114
 
 .lr.ph.i52:                                       ; preds = %_ZN6BitMap5clearEv.exit.i50, %.lr.ph.i52
-  %.0812.i53 = phi ptr [ %114, %.lr.ph.i52 ], [ %.03167, %_ZN6BitMap5clearEv.exit.i50 ]
-  %103 = getelementptr inbounds nuw i8, ptr %.0812.i53, i64 104
-  %104 = load i32, ptr %103, align 8
-  %105 = sext i32 %104 to i64
-  %106 = and i64 %105, 63
-  %107 = shl nuw i64 1, %106
-  %108 = load ptr, ptr %6, align 8
-  %109 = lshr i64 %105, 6
-  %110 = getelementptr inbounds nuw i64, ptr %108, i64 %109
-  %111 = load i64, ptr %110, align 8
-  %112 = or i64 %107, %111
-  store i64 %112, ptr %110, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %.0812.i53, i64 208
-  %114 = load ptr, ptr %113, align 8
-  %.not.i54 = icmp eq ptr %114, null
+  %.0812.i53 = phi ptr [ %113, %.lr.ph.i52 ], [ %.03167, %_ZN6BitMap5clearEv.exit.i50 ]
+  %102 = getelementptr inbounds nuw i8, ptr %.0812.i53, i64 104
+  %103 = load i32, ptr %102, align 8
+  %104 = sext i32 %103 to i64
+  %105 = and i64 %104, 63
+  %106 = shl nuw i64 1, %105
+  %107 = load ptr, ptr %6, align 8
+  %108 = lshr i64 %104, 6
+  %109 = getelementptr inbounds nuw i64, ptr %107, i64 %108
+  %110 = load i64, ptr %109, align 8
+  %111 = or i64 %106, %110
+  store i64 %111, ptr %109, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %.0812.i53, i64 208
+  %113 = load ptr, ptr %112, align 8
+  %.not.i54 = icmp eq ptr %113, null
   br i1 %.not.i54, label %.preheader.i55, label %.lr.ph.i52, !llvm.loop !35
 
-115:                                              ; preds = %125, %.lr.ph15.i57
-  %.014.i58 = phi ptr [ %24, %.lr.ph15.i57 ], [ %127, %125 ]
-  %116 = getelementptr inbounds nuw i8, ptr %.014.i58, i64 104
-  %117 = load i32, ptr %116, align 8
-  %118 = sext i32 %117 to i64
-  %119 = lshr i64 %118, 6
-  %120 = getelementptr inbounds nuw i64, ptr %102, i64 %119
-  %121 = load i64, ptr %120, align 8
-  %122 = and i64 %118, 63
-  %123 = shl nuw i64 1, %122
-  %124 = and i64 %123, %121
-  %.not10.i59 = icmp eq i64 %124, 0
-  br i1 %.not10.i59, label %125, label %_ZN22ComputeLinearScanOrder16common_dominatorEP10BlockBeginS1_.exit62
+114:                                              ; preds = %124, %.lr.ph15.i57
+  %.014.i58 = phi ptr [ %24, %.lr.ph15.i57 ], [ %126, %124 ]
+  %115 = getelementptr inbounds nuw i8, ptr %.014.i58, i64 104
+  %116 = load i32, ptr %115, align 8
+  %117 = sext i32 %116 to i64
+  %118 = lshr i64 %117, 6
+  %119 = getelementptr inbounds nuw i64, ptr %101, i64 %118
+  %120 = load i64, ptr %119, align 8
+  %121 = and i64 %117, 63
+  %122 = shl nuw i64 1, %121
+  %123 = and i64 %122, %120
+  %.not10.i59 = icmp eq i64 %123, 0
+  br i1 %.not10.i59, label %124, label %_ZN22ComputeLinearScanOrder16common_dominatorEP10BlockBeginS1_.exit62
 
-125:                                              ; preds = %115
-  %126 = getelementptr inbounds nuw i8, ptr %.014.i58, i64 208
-  %127 = load ptr, ptr %126, align 8
-  %.not9.i61 = icmp eq ptr %127, null
-  br i1 %.not9.i61, label %_ZN22ComputeLinearScanOrder16common_dominatorEP10BlockBeginS1_.exit62, label %115, !llvm.loop !36
+124:                                              ; preds = %114
+  %125 = getelementptr inbounds nuw i8, ptr %.014.i58, i64 208
+  %126 = load ptr, ptr %125, align 8
+  %.not9.i61 = icmp eq ptr %126, null
+  br i1 %.not9.i61, label %_ZN22ComputeLinearScanOrder16common_dominatorEP10BlockBeginS1_.exit62, label %114, !llvm.loop !36
 
-_ZN22ComputeLinearScanOrder16common_dominatorEP10BlockBeginS1_.exit62: ; preds = %_ZN22ComputeLinearScanOrder16common_dominatorEP10BlockBeginS1_.exit47, %125, %115, %_ZN22ComputeLinearScanOrder16common_dominatorEP10BlockBeginS1_.exit, %.preheader.i55
-  %.2 = phi ptr [ null, %.preheader.i55 ], [ %.0.lcssa.i, %_ZN22ComputeLinearScanOrder16common_dominatorEP10BlockBeginS1_.exit ], [ %.014.i58, %115 ], [ null, %125 ], [ %.0.lcssa.i45, %_ZN22ComputeLinearScanOrder16common_dominatorEP10BlockBeginS1_.exit47 ]
+_ZN22ComputeLinearScanOrder16common_dominatorEP10BlockBeginS1_.exit62: ; preds = %_ZN22ComputeLinearScanOrder16common_dominatorEP10BlockBeginS1_.exit47, %124, %114, %_ZN22ComputeLinearScanOrder16common_dominatorEP10BlockBeginS1_.exit, %.preheader.i55
+  %.2 = phi ptr [ null, %.preheader.i55 ], [ %.0.lcssa.i, %_ZN22ComputeLinearScanOrder16common_dominatorEP10BlockBeginS1_.exit ], [ %.014.i58, %114 ], [ null, %124 ], [ %.0.lcssa.i45, %_ZN22ComputeLinearScanOrder16common_dominatorEP10BlockBeginS1_.exit47 ]
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count82
   br i1 %exitcond83.not, label %._crit_edge, label %21, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %_ZN22ComputeLinearScanOrder16common_dominatorEP10BlockBeginS1_.exit62, %8
   %.031.lcssa = phi ptr [ %16, %8 ], [ %.2, %_ZN22ComputeLinearScanOrder16common_dominatorEP10BlockBeginS1_.exit62 ]
-  %128 = getelementptr inbounds nuw i8, ptr %13, i64 208
-  %129 = load ptr, ptr %128, align 8
-  %.not = icmp eq ptr %.031.lcssa, %129
-  br i1 %.not, label %131, label %130
+  %127 = getelementptr inbounds nuw i8, ptr %13, i64 208
+  %128 = load ptr, ptr %127, align 8
+  %.not = icmp eq ptr %.031.lcssa, %128
+  br i1 %.not, label %130, label %129
 
-130:                                              ; preds = %._crit_edge
-  store ptr %.031.lcssa, ptr %128, align 8
-  br label %131
+129:                                              ; preds = %._crit_edge
+  store ptr %.031.lcssa, ptr %127, align 8
+  br label %130
 
-131:                                              ; preds = %._crit_edge, %130
-  %.1 = phi i1 [ true, %130 ], [ %.02872, %._crit_edge ]
+130:                                              ; preds = %._crit_edge, %129
+  %.1 = phi i1 [ true, %129 ], [ %.02872, %._crit_edge ]
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count86
   br i1 %exitcond87.not, label %._crit_edge75, label %8, !llvm.loop !40
 
-._crit_edge75:                                    ; preds = %131, %1
-  %.028.lcssa = phi i1 [ false, %1 ], [ %.1, %131 ]
+._crit_edge75:                                    ; preds = %130, %1
+  %.028.lcssa = phi i1 [ false, %1 ], [ %.1, %130 ]
   ret i1 %.028.lcssa
 }
 

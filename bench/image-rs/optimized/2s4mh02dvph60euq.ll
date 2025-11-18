@@ -4060,7 +4060,7 @@ define internal fastcc void @_ZN5image6codecs3bmp7decoder18set_1bit_pixel_run17h
   %35 = getelementptr inbounds nuw i8, ptr %17, i64 2
   store i8 %.sroa.5.0.copyload, ptr %35, align 1
   %36 = lshr i8 %.0, 1
-  %37 = icmp ult i8 %.0, 2
+  %37 = icmp eq i8 %36, 0
   br i1 %37, label %.loopexit, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a58d1a8701d08d8E.exit.split"
 
 38:                                               ; preds = %30
@@ -20158,7 +20158,8 @@ _ZN5image6codecs3hdr7decoder9read_byte17h43382b213b2ebc56E.exit62.i189.i.i.i: ; 
   %467 = getelementptr inbounds nuw { [3 x i8] }, ptr %.sroa.094.0382.i.i, i64 %.sroa.8.0379.i.i
   %468 = getelementptr inbounds nuw { [3 x i8], i8 }, ptr %463, i64 %.sroa.8.0379.i.i
   %.sroa.019.0.copyload.i.i = load i32, ptr %468, align 1, !noalias !2888
-  %469 = icmp ult i32 %.sroa.019.0.copyload.i.i, 16777216
+  %.sroa.6.0.extract.shift.i.i.i.i = lshr i32 %.sroa.019.0.copyload.i.i, 24
+  %469 = icmp eq i32 %.sroa.6.0.extract.shift.i.i.i.i, 0
   br i1 %469, label %.thread.i.i.i, label %_ZN5image6codecs3hdr7decoder10Rgbe8Pixel6to_hdr17h51c8ac1c435bc88bE.exit.i.i.i
 
 .thread145.i.i:                                   ; preds = %509, %462
@@ -20166,7 +20167,6 @@ _ZN5image6codecs3hdr7decoder9read_byte17h43382b213b2ebc56E.exit62.i189.i.i.i: ; 
   br i1 %470, label %.thread.i.i, label %132
 
 _ZN5image6codecs3hdr7decoder10Rgbe8Pixel6to_hdr17h51c8ac1c435bc88bE.exit.i.i.i: ; preds = %.lr.ph.split.i.i
-  %.sroa.6.0.extract.shift.i.i.i.i = lshr i32 %.sroa.019.0.copyload.i.i, 24
   %.sroa.6.0.extract.trunc.i.i.i.i = trunc nuw i32 %.sroa.6.0.extract.shift.i.i.i.i to i8
   %.sroa.5.0.extract.shift.i.i.i.i = lshr i32 %.sroa.019.0.copyload.i.i, 16
   %.sroa.5.0.extract.trunc.i.i.i.i = trunc i32 %.sroa.5.0.extract.shift.i.i.i.i to i8
@@ -22061,7 +22061,8 @@ _ZN5image6codecs3hdr7decoder9read_byte17h3d8f04c0d9d32060E.exit62.i189.i.i.i: ; 
   %467 = getelementptr inbounds nuw { [3 x i8] }, ptr %.sroa.093.0381.i.i, i64 %.sroa.8.0378.i.i
   %468 = getelementptr inbounds nuw { [3 x i8], i8 }, ptr %463, i64 %.sroa.8.0378.i.i
   %.sroa.019.0.copyload.i.i = load i32, ptr %468, align 1, !noalias !3220
-  %469 = icmp ult i32 %.sroa.019.0.copyload.i.i, 16777216
+  %.sroa.6.0.extract.shift.i.i.i.i.i = lshr i32 %.sroa.019.0.copyload.i.i, 24
+  %469 = icmp eq i32 %.sroa.6.0.extract.shift.i.i.i.i.i, 0
   br i1 %469, label %.thread.i.i88.i.i, label %_ZN5image6codecs3hdr7decoder10Rgbe8Pixel6to_hdr17h51c8ac1c435bc88bE.exit.i.i.i.i
 
 .thread144.i.i:                                   ; preds = %509, %462
@@ -22069,7 +22070,6 @@ _ZN5image6codecs3hdr7decoder9read_byte17h3d8f04c0d9d32060E.exit62.i189.i.i.i: ; 
   br i1 %470, label %.thread.i.i, label %132
 
 _ZN5image6codecs3hdr7decoder10Rgbe8Pixel6to_hdr17h51c8ac1c435bc88bE.exit.i.i.i.i: ; preds = %.lr.ph.split.i.i
-  %.sroa.6.0.extract.shift.i.i.i.i.i = lshr i32 %.sroa.019.0.copyload.i.i, 24
   %.sroa.6.0.extract.trunc.i.i.i.i.i = trunc nuw i32 %.sroa.6.0.extract.shift.i.i.i.i.i to i8
   %.sroa.5.0.extract.shift.i.i.i.i.i = lshr i32 %.sroa.019.0.copyload.i.i, 16
   %.sroa.5.0.extract.trunc.i.i.i.i.i = trunc i32 %.sroa.5.0.extract.shift.i.i.i.i.i to i8
@@ -27157,7 +27157,7 @@ _ZN5image5error13EncodingError3new17ha45963421d8ffb5fE.exit: ; preds = %35
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %3, ptr %50, align 8, !alias.scope !4256
   %51 = lshr i64 %3, 1
-  %.not.i.i.i = icmp ult i64 %3, 2
+  %.not.i.i.i = icmp eq i64 %51, 0
   br i1 %.not.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h9646470263a4cf9cE.exit, label %.lr.ph.split.i.i.i
 
 .lr.ph.split.i.i.i:                               ; preds = %45
@@ -27349,7 +27349,7 @@ _ZN5image5error13EncodingError3new17ha45963421d8ffb5fE.exit: ; preds = %35
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %3, ptr %50, align 8, !alias.scope !4293
   %51 = lshr i64 %3, 1
-  %.not.i.i.i = icmp ult i64 %3, 2
+  %.not.i.i.i = icmp eq i64 %51, 0
   br i1 %.not.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator8for_each17hfeae7e9cc4499c22E.exit, label %.lr.ph.split.i.i.i
 
 .lr.ph.split.i.i.i:                               ; preds = %45
@@ -28011,15 +28011,12 @@ define internal fastcc noundef zeroext i1 @"_ZN5image6codecs4webp7encoder20WebPE
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !4438
   %47 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %48 = load i64, ptr %47, align 8, !alias.scope !4453, !noalias !4449, !noundef !4
-  %.not3.i.i.i = icmp ult i64 %48, 2
-  br i1 %.not3.i.i.i, label %.loopexit97, label %.lr.ph.preheader.i.i.i
-
-.lr.ph.preheader.i.i.i:                           ; preds = %.noexc
   %49 = lshr i64 %48, 1
-  br label %.lr.ph.i.i.i
+  %.not3.i.i.i = icmp eq i64 %49, 0
+  br i1 %.not3.i.i.i, label %.loopexit97, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %.noexc.i.i, %.lr.ph.preheader.i.i.i
-  %.04.i.i.i = phi i64 [ %50, %.noexc.i.i ], [ %49, %.lr.ph.preheader.i.i.i ]
+.lr.ph.i.i.i:                                     ; preds = %.noexc, %.noexc.i.i
+  %.04.i.i.i = phi i64 [ %50, %.noexc.i.i ], [ %49, %.noexc ]
   %50 = add nsw i64 %.04.i.i.i, -1
   %51 = load i64, ptr %47, align 8, !alias.scope !4453, !noalias !4449, !noundef !4
   invoke void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$15sift_down_range17hec982d15490c4d5cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %50, i64 noundef %51)

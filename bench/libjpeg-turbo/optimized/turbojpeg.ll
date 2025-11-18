@@ -10030,8 +10030,8 @@ define range(i32 -1, 1) i32 @tj3SetCroppingRegion(ptr noundef captures(address_i
 
 19:                                               ; preds = %7
   %20 = icmp eq i32 %.sroa.0.sroa.0.0.extract.trunc, 0
-  %21 = icmp ult i64 %1, 4294967296
-  %or.cond = and i1 %21, %20
+  %21 = icmp eq i64 %.sroa.0.sroa.10.0.extract.shift, 0
+  %or.cond = and i1 %20, %21
   %22 = and i64 %2, 4294967295
   %23 = icmp eq i64 %22, 0
   %24 = icmp eq i64 %2, 0

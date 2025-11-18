@@ -222,7 +222,7 @@ define noundef i32 @H5T__reverse_order(ptr noundef writeonly captures(none) %0, 
 
 42:                                               ; preds = %36
   %43 = lshr i64 %14, 1
-  %.not94 = icmp ult i64 %14, 2
+  %.not94 = icmp eq i64 %43, 0
   br i1 %.not94, label %.loopexit, label %.lr.ph86
 
 .lr.ph89.preheader:                               ; preds = %.lr.ph86
@@ -620,7 +620,7 @@ define range(i32 -1, 1) i32 @H5T__conv_order(ptr noundef readonly captures(addre
 
 .preheader207:                                    ; preds = %185
   %.not226 = icmp eq i64 %4, 0
-  %.not227 = icmp ult i64 %189, 2
+  %.not227 = icmp eq i64 %191, 0
   %or.cond247 = select i1 %.not226, i1 true, i1 %.not227
   br i1 %or.cond247, label %.loopexit, label %.preheader206.us
 
@@ -651,7 +651,7 @@ define range(i32 -1, 1) i32 @H5T__conv_order(ptr noundef readonly captures(addre
 204:                                              ; preds = %185
   %205 = lshr i64 %189, 2
   %.not228 = icmp eq i64 %4, 0
-  %.not229 = icmp ult i64 %189, 4
+  %.not229 = icmp eq i64 %205, 0
   %or.cond248 = select i1 %.not228, i1 true, i1 %.not229
   br i1 %or.cond248, label %.loopexit, label %.preheader.us.us
 

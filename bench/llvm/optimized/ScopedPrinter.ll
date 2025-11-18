@@ -400,7 +400,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   %40 = getelementptr inbounds i8, ptr %.117.i, i64 -1
   store i8 %39, ptr %40, align 1, !tbaa !19, !noalias !16
   %41 = lshr i64 %.019.i, 4
-  %42 = icmp ult i64 %.019.i, 16
+  %42 = icmp eq i64 %41, 0
   br i1 %42, label %._crit_edge.i, label %.thread.i, !llvm.loop !26
 
 _ZN4llvm9utohexstrB5cxx11Embj.exit:               ; preds = %._crit_edge.i.i.i, %34, %36

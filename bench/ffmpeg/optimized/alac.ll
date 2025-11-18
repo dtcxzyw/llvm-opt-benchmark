@@ -531,7 +531,7 @@ define internal i32 @alac_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %197 = add i32 %188, 8
   %198 = tail call i32 @llvm.umin.i32(i32 %177, i32 %197)
   store i32 %198, ptr %68, align 8, !tbaa !60
-  %199 = icmp ugt i32 %195, 16777215
+  %199 = icmp ne i32 %196, 0
   %or.cond.i60 = select i1 %49, i1 %199, i1 false
   %200 = icmp ugt i32 %185, 536870911
   %or.cond6.i = select i1 %or.cond.i60, i1 %200, i1 false
@@ -598,12 +598,12 @@ define internal i32 @alac_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %246 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv365.i
   store i32 %243, ptr %246, align 4, !tbaa !47
   %.not259.i = icmp uge i32 %243, %201
-  %.not260.i = icmp ult i32 %220, 268435456
+  %.not260.i = icmp eq i32 %221, 0
   %or.cond279.i = select i1 %.not259.i, i1 true, i1 %.not260.i
   br i1 %or.cond279.i, label %.critedge.thread.i, label %.preheader289.i
 
 .preheader289.i:                                  ; preds = %202
-  %.not327.i = icmp ult i32 %242, 134217728
+  %.not327.i = icmp eq i32 %243, 0
   br i1 %.not327.i, label %._crit_edge303.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader289.i

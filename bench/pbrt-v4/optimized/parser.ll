@@ -46279,7 +46279,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %37,
 
 51:                                               ; preds = %43
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.not29 = icmp samesign ult i64 %47, 2
+  %.not29 = icmp eq i64 %48, 0
   br i1 %.not29, label %_ZNSt6vectorIN4pbrt6Point2IfEESaIS2_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIN4pbrt6Point2IfEESaIS2_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIN4pbrt6Point2IfEESaIS2_EE11_M_allocateEm.exit.i: ; preds = %51

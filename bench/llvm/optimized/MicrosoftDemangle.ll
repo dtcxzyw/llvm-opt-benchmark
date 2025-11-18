@@ -9648,7 +9648,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsEc.exit: ; preds = %204, %._ZN4llvm16i
   br i1 %.not15.i, label %._crit_edge.i, label %.preheader.i
 
 .loopexit.i:                                      ; preds = %223
-  %.not.i = icmp ult i32 %.11112.i, 16
+  %.not.i = icmp eq i32 %232, 0
   br i1 %.not.i, label %._crit_edge.loopexit.i, label %.preheader.i, !llvm.loop !156
 
 .preheader.i:                                     ; preds = %221, %.loopexit.i
@@ -9675,8 +9675,8 @@ _ZN4llvm16itanium_demangle12OutputBufferlsEc.exit: ; preds = %204, %._ZN4llvm16i
   br i1 %224, label %223, label %.loopexit.i, !llvm.loop !157
 
 ._crit_edge.loopexit.i:                           ; preds = %.loopexit.i
-  %sext24.i = shl i64 %indvars.iv.next.i, 32
-  %233 = ashr exact i64 %sext24.i, 32
+  %sext25.i = shl i64 %indvars.iv.next.i, 32
+  %233 = ashr exact i64 %sext25.i, 32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %221

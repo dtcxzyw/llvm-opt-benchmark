@@ -47565,11 +47565,11 @@ define noundef zeroext i1 @"_ZN69_$LT$ide_db..RootDatabase$u20$as$u20$salsa..plu
 40:                                               ; preds = %3
   %41 = load ptr, ptr %0, align 8, !nonnull !11, !noundef !11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10895)
-  %42 = icmp ult i64 %1, 281474976710656
+  %.sroa.5.0.extract.shift.i = lshr i64 %1, 48
+  %42 = icmp eq i64 %.sroa.5.0.extract.shift.i, 0
   br i1 %42, label %_ZN6ide_db31LineIndexDatabaseGroupStorage__9fmt_index17h3fc2a4078c46caf0E.exit, label %43
 
 43:                                               ; preds = %40
-  %.sroa.5.0.extract.shift.i = lshr i64 %1, 48
   %.sroa.5.0.extract.trunc.i = trunc nuw i64 %.sroa.5.0.extract.shift.i to i16
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !10898
   store i16 %.sroa.5.0.extract.trunc.i, ptr %6, align 2, !noalias !10898
@@ -47702,11 +47702,11 @@ define noundef zeroext i1 @"_ZN69_$LT$ide_db..RootDatabase$u20$as$u20$salsa..plu
 40:                                               ; preds = %3
   %41 = load ptr, ptr %0, align 8, !nonnull !11, !noundef !11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10914)
-  %42 = icmp ult i64 %1, 281474976710656
+  %.sroa.5.0.extract.shift.i = lshr i64 %1, 48
+  %42 = icmp eq i64 %.sroa.5.0.extract.shift.i, 0
   br i1 %42, label %_ZN6ide_db31LineIndexDatabaseGroupStorage__19maybe_changed_after17h62ecd5709eb3341aE.exit, label %43
 
 43:                                               ; preds = %40
-  %.sroa.5.0.extract.shift.i = lshr i64 %1, 48
   %.sroa.5.0.extract.trunc.i = trunc nuw i64 %.sroa.5.0.extract.shift.i to i16
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !10917
   store i16 %.sroa.5.0.extract.trunc.i, ptr %6, align 2, !noalias !10917
@@ -47840,11 +47840,11 @@ define noundef zeroext i1 @"_ZN69_$LT$ide_db..RootDatabase$u20$as$u20$salsa..plu
   br label %_ZN6ide_db31LineIndexDatabaseGroupStorage__23cycle_recovery_strategy17h7813d70502350bbeE.exit
 
 42:                                               ; preds = %2
-  %43 = icmp ult i64 %1, 281474976710656
+  %.sroa.4.0.extract.shift.i = lshr i64 %1, 48
+  %43 = icmp eq i64 %.sroa.4.0.extract.shift.i, 0
   br i1 %43, label %_ZN6ide_db31LineIndexDatabaseGroupStorage__23cycle_recovery_strategy17h7813d70502350bbeE.exit, label %44
 
 44:                                               ; preds = %42
-  %.sroa.4.0.extract.shift.i = lshr i64 %1, 48
   %.sroa.4.0.extract.trunc.i = trunc nuw i64 %.sroa.4.0.extract.shift.i to i16
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i16 %.sroa.4.0.extract.trunc.i, ptr %8, align 2
@@ -48241,7 +48241,8 @@ define noundef zeroext i1 @_ZN6ide_db31LineIndexDatabaseGroupStorage__9fmt_index
   %6 = alloca [1 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca i16, align 2
-  %9 = icmp ult i64 %3, 281474976710656
+  %.sroa.5.0.extract.shift = lshr i64 %3, 48
+  %9 = icmp eq i64 %.sroa.5.0.extract.shift, 0
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %5
@@ -48252,7 +48253,6 @@ define noundef zeroext i1 @_ZN6ide_db31LineIndexDatabaseGroupStorage__9fmt_index
   ret i1 %13
 
 14:                                               ; preds = %5
-  %.sroa.5.0.extract.shift = lshr i64 %3, 48
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i16
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i16 %.sroa.5.0.extract.trunc, ptr %8, align 2
@@ -48279,7 +48279,8 @@ define noundef zeroext i1 @_ZN6ide_db31LineIndexDatabaseGroupStorage__19maybe_ch
   %6 = alloca [1 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca i16, align 2
-  %9 = icmp ult i64 %3, 281474976710656
+  %.sroa.5.0.extract.shift = lshr i64 %3, 48
+  %9 = icmp eq i64 %.sroa.5.0.extract.shift, 0
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %5
@@ -48290,7 +48291,6 @@ define noundef zeroext i1 @_ZN6ide_db31LineIndexDatabaseGroupStorage__19maybe_ch
   ret i1 %13
 
 14:                                               ; preds = %5
-  %.sroa.5.0.extract.shift = lshr i64 %3, 48
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i16
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i16 %.sroa.5.0.extract.trunc, ptr %8, align 2
@@ -48317,14 +48317,14 @@ define noundef zeroext i1 @_ZN6ide_db31LineIndexDatabaseGroupStorage__23cycle_re
   %5 = alloca [1 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca i16, align 2
-  %8 = icmp ult i64 %3, 281474976710656
+  %.sroa.4.0.extract.shift = lshr i64 %3, 48
+  %8 = icmp eq i64 %.sroa.4.0.extract.shift, 0
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %4
   ret i1 false
 
 10:                                               ; preds = %4
-  %.sroa.4.0.extract.shift = lshr i64 %3, 48
   %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i16
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i16 %.sroa.4.0.extract.trunc, ptr %7, align 2

@@ -22,7 +22,7 @@ define dso_local noundef ptr @bloom_create(i64 noundef %0, i32 noundef %1, i64 n
   %.056.i = phi i64 [ %11, %.lr.ph.i ], [ %9, %3 ]
   %10 = add nsw i32 %.07.i, 1
   %11 = lshr i64 %.056.i, 1
-  %12 = icmp ugt i64 %.056.i, 1
+  %12 = icmp ne i64 %11, 0
   %13 = icmp slt i32 %.07.i, 31
   %14 = select i1 %12, i1 %13, i1 false
   br i1 %14, label %.lr.ph.i, label %my_bloom_power.exit.loopexit, !llvm.loop !4

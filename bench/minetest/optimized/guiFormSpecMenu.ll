@@ -54407,7 +54407,7 @@ entry:
   %0 = and i64 %screensize.coerce, 4294967295
   %cmp = icmp eq i64 %0, 0
   %cmp2 = icmp ult i64 %screensize.coerce, 4294967296
-  %or.cond = or i1 %cmp2, %cmp
+  %or.cond = or i1 %cmp, %cmp2
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry

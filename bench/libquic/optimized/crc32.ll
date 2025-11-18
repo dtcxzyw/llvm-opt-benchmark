@@ -381,7 +381,7 @@ define internal fastcc i64 @crc32_combine_(i64 noundef %0, i64 noundef %1, i64 n
   %.1.i.i = phi i64 [ %16, %14 ], [ %.012.i.i, %.lr.ph.i.i ]
   %18 = lshr i64 %.0611.i.i, 1
   %19 = getelementptr inbounds nuw i8, ptr %.0710.i.i, i64 8
-  %.not.i.i = icmp ult i64 %.0611.i.i, 2
+  %.not.i.i = icmp eq i64 %18, 0
   br i1 %.not.i.i, label %gf2_matrix_times.exit.i, label %.lr.ph.i.i, !llvm.loop !16
 
 gf2_matrix_times.exit.i:                          ; preds = %17, %.preheader80
@@ -416,7 +416,7 @@ gf2_matrix_square.exit:                           ; preds = %gf2_matrix_times.ex
   %.1.i.i35 = phi i64 [ %26, %24 ], [ %.012.i.i31, %.lr.ph.i.i30 ]
   %28 = lshr i64 %.0611.i.i32, 1
   %29 = getelementptr inbounds nuw i8, ptr %.0710.i.i33, i64 8
-  %.not.i.i36 = icmp ult i64 %.0611.i.i32, 2
+  %.not.i.i36 = icmp eq i64 %28, 0
   br i1 %.not.i.i36, label %gf2_matrix_times.exit.i37, label %.lr.ph.i.i30, !llvm.loop !16
 
 gf2_matrix_times.exit.i37:                        ; preds = %27, %gf2_matrix_square.exit
@@ -429,7 +429,7 @@ gf2_matrix_times.exit.i37:                        ; preds = %27, %gf2_matrix_squ
 
 gf2_matrix_square.exit41:                         ; preds = %gf2_matrix_times.exit.i37, %gf2_matrix_times.exit79
   %.022 = phi i64 [ %.3, %gf2_matrix_times.exit79 ], [ %0, %gf2_matrix_times.exit.i37 ]
-  %.020 = phi i64 [ %51, %gf2_matrix_times.exit79 ], [ %2, %gf2_matrix_times.exit.i37 ]
+  %.020 = phi i64 [ %71, %gf2_matrix_times.exit79 ], [ %2, %gf2_matrix_times.exit.i37 ]
   br label %31
 
 31:                                               ; preds = %gf2_matrix_times.exit.i51, %gf2_matrix_square.exit41
@@ -456,7 +456,7 @@ gf2_matrix_square.exit41:                         ; preds = %gf2_matrix_times.ex
   %.1.i.i49 = phi i64 [ %37, %35 ], [ %.012.i.i45, %.lr.ph.i.i44 ]
   %39 = lshr i64 %.0611.i.i46, 1
   %40 = getelementptr inbounds nuw i8, ptr %.0710.i.i47, i64 8
-  %.not.i.i50 = icmp ult i64 %.0611.i.i46, 2
+  %.not.i.i50 = icmp eq i64 %39, 0
   br i1 %.not.i.i50, label %gf2_matrix_times.exit.i51, label %.lr.ph.i.i44, !llvm.loop !16
 
 gf2_matrix_times.exit.i51:                        ; preds = %38, %31
@@ -493,82 +493,82 @@ gf2_matrix_square.exit55:                         ; preds = %gf2_matrix_times.ex
   %.1.i = phi i64 [ %47, %45 ], [ %.012.i, %.lr.ph.i ]
   %49 = lshr i64 %.0611.i, 1
   %50 = getelementptr inbounds nuw i8, ptr %.0710.i, i64 8
-  %.not.i = icmp ult i64 %.0611.i, 2
+  %.not.i = icmp eq i64 %49, 0
   br i1 %.not.i, label %gf2_matrix_times.exit, label %.lr.ph.i, !llvm.loop !16
 
 gf2_matrix_times.exit:                            ; preds = %48, %43, %gf2_matrix_square.exit55
   %.1 = phi i64 [ %.022, %gf2_matrix_square.exit55 ], [ 0, %43 ], [ %.1.i, %48 ]
-  %51 = lshr i64 %.020, 2
-  %52 = icmp ult i64 %.020, 2
-  br i1 %52, label %72, label %.preheader
+  %51 = icmp ult i64 %.020, 2
+  br i1 %51, label %72, label %.preheader
 
 .preheader:                                       ; preds = %gf2_matrix_times.exit, %gf2_matrix_times.exit.i65
   %indvars.iv.i56 = phi i64 [ %indvars.iv.next.i67, %gf2_matrix_times.exit.i65 ], [ 0, %gf2_matrix_times.exit ]
-  %53 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i56
-  %54 = load i64, ptr %53, align 8, !tbaa !13
-  %.not9.i.i57 = icmp eq i64 %54, 0
+  %52 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i56
+  %53 = load i64, ptr %52, align 8, !tbaa !13
+  %.not9.i.i57 = icmp eq i64 %53, 0
   br i1 %.not9.i.i57, label %gf2_matrix_times.exit.i65, label %.lr.ph.i.i58
 
-.lr.ph.i.i58:                                     ; preds = %.preheader, %59
-  %.012.i.i59 = phi i64 [ %.1.i.i63, %59 ], [ 0, %.preheader ]
-  %.0611.i.i60 = phi i64 [ %60, %59 ], [ %54, %.preheader ]
-  %.0710.i.i61 = phi ptr [ %61, %59 ], [ %4, %.preheader ]
-  %55 = and i64 %.0611.i.i60, 1
-  %.not8.i.i62 = icmp eq i64 %55, 0
-  br i1 %.not8.i.i62, label %59, label %56
+.lr.ph.i.i58:                                     ; preds = %.preheader, %58
+  %.012.i.i59 = phi i64 [ %.1.i.i63, %58 ], [ 0, %.preheader ]
+  %.0611.i.i60 = phi i64 [ %59, %58 ], [ %53, %.preheader ]
+  %.0710.i.i61 = phi ptr [ %60, %58 ], [ %4, %.preheader ]
+  %54 = and i64 %.0611.i.i60, 1
+  %.not8.i.i62 = icmp eq i64 %54, 0
+  br i1 %.not8.i.i62, label %58, label %55
 
-56:                                               ; preds = %.lr.ph.i.i58
-  %57 = load i64, ptr %.0710.i.i61, align 8, !tbaa !13
-  %58 = xor i64 %57, %.012.i.i59
-  br label %59
+55:                                               ; preds = %.lr.ph.i.i58
+  %56 = load i64, ptr %.0710.i.i61, align 8, !tbaa !13
+  %57 = xor i64 %56, %.012.i.i59
+  br label %58
 
-59:                                               ; preds = %56, %.lr.ph.i.i58
-  %.1.i.i63 = phi i64 [ %58, %56 ], [ %.012.i.i59, %.lr.ph.i.i58 ]
-  %60 = lshr i64 %.0611.i.i60, 1
-  %61 = getelementptr inbounds nuw i8, ptr %.0710.i.i61, i64 8
-  %.not.i.i64 = icmp ult i64 %.0611.i.i60, 2
+58:                                               ; preds = %55, %.lr.ph.i.i58
+  %.1.i.i63 = phi i64 [ %57, %55 ], [ %.012.i.i59, %.lr.ph.i.i58 ]
+  %59 = lshr i64 %.0611.i.i60, 1
+  %60 = getelementptr inbounds nuw i8, ptr %.0710.i.i61, i64 8
+  %.not.i.i64 = icmp eq i64 %59, 0
   br i1 %.not.i.i64, label %gf2_matrix_times.exit.i65, label %.lr.ph.i.i58, !llvm.loop !16
 
-gf2_matrix_times.exit.i65:                        ; preds = %59, %.preheader
-  %.0.lcssa.i.i66 = phi i64 [ 0, %.preheader ], [ %.1.i.i63, %59 ]
-  %62 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i56
-  store i64 %.0.lcssa.i.i66, ptr %62, align 8, !tbaa !13
+gf2_matrix_times.exit.i65:                        ; preds = %58, %.preheader
+  %.0.lcssa.i.i66 = phi i64 [ 0, %.preheader ], [ %.1.i.i63, %58 ]
+  %61 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i56
+  store i64 %.0.lcssa.i.i66, ptr %61, align 8, !tbaa !13
   %indvars.iv.next.i67 = add nuw nsw i64 %indvars.iv.i56, 1
   %exitcond.not.i68 = icmp eq i64 %indvars.iv.next.i67, 32
   br i1 %exitcond.not.i68, label %gf2_matrix_square.exit69, label %.preheader, !llvm.loop !17
 
 gf2_matrix_square.exit69:                         ; preds = %gf2_matrix_times.exit.i65
-  %63 = and i64 %.020, 2
-  %.not26 = icmp eq i64 %63, 0
-  br i1 %.not26, label %gf2_matrix_times.exit79, label %64
+  %62 = and i64 %.020, 2
+  %.not26 = icmp eq i64 %62, 0
+  br i1 %.not26, label %gf2_matrix_times.exit79, label %63
 
-64:                                               ; preds = %gf2_matrix_square.exit69
+63:                                               ; preds = %gf2_matrix_square.exit69
   %.not9.i70 = icmp eq i64 %.1, 0
   br i1 %.not9.i70, label %gf2_matrix_times.exit79, label %.lr.ph.i71
 
-.lr.ph.i71:                                       ; preds = %64, %69
-  %.012.i72 = phi i64 [ %.1.i76, %69 ], [ 0, %64 ]
-  %.0611.i73 = phi i64 [ %70, %69 ], [ %.1, %64 ]
-  %.0710.i74 = phi ptr [ %71, %69 ], [ %5, %64 ]
-  %65 = and i64 %.0611.i73, 1
-  %.not8.i75 = icmp eq i64 %65, 0
-  br i1 %.not8.i75, label %69, label %66
+.lr.ph.i71:                                       ; preds = %63, %68
+  %.012.i72 = phi i64 [ %.1.i76, %68 ], [ 0, %63 ]
+  %.0611.i73 = phi i64 [ %69, %68 ], [ %.1, %63 ]
+  %.0710.i74 = phi ptr [ %70, %68 ], [ %5, %63 ]
+  %64 = and i64 %.0611.i73, 1
+  %.not8.i75 = icmp eq i64 %64, 0
+  br i1 %.not8.i75, label %68, label %65
 
-66:                                               ; preds = %.lr.ph.i71
-  %67 = load i64, ptr %.0710.i74, align 8, !tbaa !13
-  %68 = xor i64 %67, %.012.i72
-  br label %69
+65:                                               ; preds = %.lr.ph.i71
+  %66 = load i64, ptr %.0710.i74, align 8, !tbaa !13
+  %67 = xor i64 %66, %.012.i72
+  br label %68
 
-69:                                               ; preds = %66, %.lr.ph.i71
-  %.1.i76 = phi i64 [ %68, %66 ], [ %.012.i72, %.lr.ph.i71 ]
-  %70 = lshr i64 %.0611.i73, 1
-  %71 = getelementptr inbounds nuw i8, ptr %.0710.i74, i64 8
-  %.not.i77 = icmp ult i64 %.0611.i73, 2
+68:                                               ; preds = %65, %.lr.ph.i71
+  %.1.i76 = phi i64 [ %67, %65 ], [ %.012.i72, %.lr.ph.i71 ]
+  %69 = lshr i64 %.0611.i73, 1
+  %70 = getelementptr inbounds nuw i8, ptr %.0710.i74, i64 8
+  %.not.i77 = icmp eq i64 %69, 0
   br i1 %.not.i77, label %gf2_matrix_times.exit79, label %.lr.ph.i71, !llvm.loop !16
 
-gf2_matrix_times.exit79:                          ; preds = %69, %64, %gf2_matrix_square.exit69
-  %.3 = phi i64 [ %.1, %gf2_matrix_square.exit69 ], [ 0, %64 ], [ %.1.i76, %69 ]
-  %.not27 = icmp ult i64 %.020, 4
+gf2_matrix_times.exit79:                          ; preds = %68, %63, %gf2_matrix_square.exit69
+  %.3 = phi i64 [ %.1, %gf2_matrix_square.exit69 ], [ 0, %63 ], [ %.1.i76, %68 ]
+  %71 = lshr i64 %.020, 2
+  %.not27 = icmp eq i64 %71, 0
   br i1 %.not27, label %72, label %gf2_matrix_square.exit41, !llvm.loop !18
 
 72:                                               ; preds = %gf2_matrix_times.exit, %gf2_matrix_times.exit79

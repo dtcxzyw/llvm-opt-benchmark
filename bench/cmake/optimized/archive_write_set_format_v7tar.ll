@@ -358,7 +358,7 @@ define internal range(i32 -2147483648, 1) i32 @archive_write_v7tar_header(ptr no
   br i1 %105, label %98, label %106, !llvm.loop !36
 
 106:                                              ; preds = %98
-  %107 = icmp samesign ult i64 %.01621.i.i.i, 8
+  %107 = icmp eq i64 %104, 0
   br i1 %107, label %format_number.exit.thread.i, label %108
 
 108:                                              ; preds = %106
@@ -396,7 +396,7 @@ format_number.exit.thread.i:                      ; preds = %108, %106
   br i1 %121, label %114, label %122, !llvm.loop !36
 
 122:                                              ; preds = %114
-  %123 = icmp samesign ult i64 %.01621.i.i83.i, 8
+  %123 = icmp eq i64 %120, 0
   br i1 %123, label %format_number.exit86.i, label %.preheader19.preheader.i.i84.i
 
 .preheader19.preheader.i.i84.i:                   ; preds = %122
@@ -437,7 +437,7 @@ format_number.exit86.i:                           ; preds = %124, %122
   br i1 %137, label %130, label %138, !llvm.loop !36
 
 138:                                              ; preds = %130
-  %139 = icmp samesign ult i64 %.01621.i.i89.i, 8
+  %139 = icmp eq i64 %136, 0
   br i1 %139, label %format_number.exit93.i, label %.preheader19.preheader.i.i90.i
 
 .preheader19.preheader.i.i90.i:                   ; preds = %138
@@ -478,7 +478,7 @@ format_number.exit93.i:                           ; preds = %140, %138
   br i1 %153, label %146, label %154, !llvm.loop !36
 
 154:                                              ; preds = %146
-  %155 = icmp samesign ult i64 %.01621.i.i96.i, 8
+  %155 = icmp eq i64 %152, 0
   br i1 %155, label %format_number.exit100.i, label %.preheader19.preheader.i.i97.i
 
 .preheader19.preheader.i.i97.i:                   ; preds = %154
@@ -519,7 +519,7 @@ format_number.exit100.i:                          ; preds = %156, %154
   br i1 %169, label %162, label %170, !llvm.loop !36
 
 170:                                              ; preds = %162
-  %171 = icmp samesign ult i64 %.01621.i.i103.i, 8
+  %171 = icmp eq i64 %168, 0
   br i1 %171, label %format_number.exit107.i, label %.preheader19.preheader.i.i104.i
 
 .preheader19.preheader.i.i104.i:                  ; preds = %170
@@ -562,11 +562,11 @@ format_number.exit107.i:                          ; preds = %172, %170
 
 181:                                              ; preds = %181, %180
   %indvars.iv.i = phi i64 [ 0, %180 ], [ %indvars.iv.next.i, %181 ]
-  %.067129.i = phi i32 [ 0, %180 ], [ %185, %181 ]
+  %.067135.i = phi i32 [ 0, %180 ], [ %185, %181 ]
   %182 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i
   %183 = load i8, ptr %182, align 1, !tbaa !26
   %184 = zext i8 %183 to i32
-  %185 = add i32 %.067129.i, %184
+  %185 = add i32 %.067135.i, %184
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 512
   br i1 %exitcond.not.i, label %186, label %181, !llvm.loop !38
@@ -591,7 +591,7 @@ format_number.exit107.i:                          ; preds = %172, %170
   br i1 %196, label %189, label %197, !llvm.loop !36
 
 197:                                              ; preds = %189
-  %198 = icmp samesign ult i64 %.01621.i.i, 8
+  %198 = icmp eq i64 %195, 0
   br i1 %198, label %format_header_v7tar.exit, label %.preheader19.preheader.i.i
 
 .preheader19.preheader.i.i:                       ; preds = %197

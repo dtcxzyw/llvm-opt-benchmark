@@ -1011,7 +1011,7 @@ define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noun
 
 112:                                              ; preds = %._crit_edge
   %113 = icmp slt i32 %57, 0
-  %114 = icmp ult i32 %43, 2
+  %114 = icmp eq i32 %44, 0
   %or.cond = and i1 %114, %113
   br i1 %or.cond, label %115, label %193
 
@@ -2208,7 +2208,7 @@ define internal fastcc range(i32 -1, 6) i32 @H5B__remove_helper(ptr noundef %0, 
   br i1 %114, label %115, label %124
 
 115:                                              ; preds = %112
-  %.not264 = icmp ult i32 %44, 2
+  %.not264 = icmp eq i32 %45, 0
   br i1 %.not264, label %117, label %116
 
 116:                                              ; preds = %115
@@ -2393,7 +2393,7 @@ define internal fastcc range(i32 -1, 6) i32 @H5B__remove_helper(ptr noundef %0, 
   br label %336
 
 229:                                              ; preds = %141
-  %230 = icmp ult i32 %44, 2
+  %230 = icmp eq i32 %45, 0
   br i1 %230, label %231, label %274
 
 231:                                              ; preds = %229

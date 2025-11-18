@@ -3730,7 +3730,7 @@ _ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i.i.i.i.i: ; preds = %198, %
   %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i32 %.sroa.0.0.insert.insert.i.i.i.i.i.i to i16
   %.sroa.13.0.extract.shift.i.i.i.i.i = lshr i32 %.sroa.0.0.insert.insert.i.i.i.i.i.i, 16
   %.sroa.13.0.extract.trunc.i.i.i.i.i = trunc nuw i32 %.sroa.13.0.extract.shift.i.i.i.i.i to i16
-  %202 = icmp ult i32 %.sroa.0.0.insert.insert.i.i.i.i.i.i, 65536
+  %202 = icmp eq i32 %.sroa.13.0.extract.shift.i.i.i.i.i, 0
   %or.cond.i.i.i.i.i = select i1 %202, i1 %169, i1 false
   br i1 %or.cond.i.i.i.i.i, label %203, label %206
 
@@ -5089,7 +5089,7 @@ _ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i.i.i.i.i: ; preds = %198, %
   %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i32 %.sroa.0.0.insert.insert.i.i.i.i.i.i to i16
   %.sroa.13.0.extract.shift.i.i.i.i.i = lshr i32 %.sroa.0.0.insert.insert.i.i.i.i.i.i, 16
   %.sroa.13.0.extract.trunc.i.i.i.i.i = trunc nuw i32 %.sroa.13.0.extract.shift.i.i.i.i.i to i16
-  %202 = icmp ult i32 %.sroa.0.0.insert.insert.i.i.i.i.i.i, 65536
+  %202 = icmp eq i32 %.sroa.13.0.extract.shift.i.i.i.i.i, 0
   %or.cond.i.i.i.i.i = select i1 %202, i1 %169, i1 false
   br i1 %or.cond.i.i.i.i.i, label %203, label %206
 
@@ -6448,7 +6448,7 @@ _ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i.i.i.i.i: ; preds = %193, %
   %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i32 %.sroa.0.0.insert.insert.i.i.i.i.i.i to i16
   %.sroa.13.0.extract.shift.i.i.i.i.i = lshr i32 %.sroa.0.0.insert.insert.i.i.i.i.i.i, 16
   %.sroa.13.0.extract.trunc.i.i.i.i.i = trunc nuw i32 %.sroa.13.0.extract.shift.i.i.i.i.i to i16
-  %197 = icmp ult i32 %.sroa.0.0.insert.insert.i.i.i.i.i.i, 65536
+  %197 = icmp eq i32 %.sroa.13.0.extract.shift.i.i.i.i.i, 0
   %or.cond.i.i.i.i.i = select i1 %197, i1 %165, i1 false
   br i1 %or.cond.i.i.i.i.i, label %198, label %201
 
@@ -7381,7 +7381,7 @@ _ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i.i.i.i.i: ; preds = %193, %
   %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i32 %.sroa.0.0.insert.insert.i.i.i.i.i.i to i16
   %.sroa.13.0.extract.shift.i.i.i.i.i = lshr i32 %.sroa.0.0.insert.insert.i.i.i.i.i.i, 16
   %.sroa.13.0.extract.trunc.i.i.i.i.i = trunc nuw i32 %.sroa.13.0.extract.shift.i.i.i.i.i to i16
-  %197 = icmp ult i32 %.sroa.0.0.insert.insert.i.i.i.i.i.i, 65536
+  %197 = icmp eq i32 %.sroa.13.0.extract.shift.i.i.i.i.i, 0
   %or.cond.i.i.i.i.i = select i1 %197, i1 %165, i1 false
   br i1 %or.cond.i.i.i.i.i, label %198, label %201
 
@@ -8397,7 +8397,7 @@ _ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i.i.i.i.i: ; preds = %236, %
   %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i32 %.sroa.0.0.insert.insert.i.i.i.i.i.i to i16
   %.sroa.13.0.extract.shift.i.i.i.i.i = lshr i32 %.sroa.0.0.insert.insert.i.i.i.i.i.i, 16
   %.sroa.13.0.extract.trunc.i.i.i.i.i = trunc nuw i32 %.sroa.13.0.extract.shift.i.i.i.i.i to i16
-  %240 = icmp ult i32 %.sroa.0.0.insert.insert.i.i.i.i.i.i, 65536
+  %240 = icmp eq i32 %.sroa.13.0.extract.shift.i.i.i.i.i, 0
   %or.cond.i.i.i.i.i = select i1 %240, i1 %207, i1 false
   br i1 %or.cond.i.i.i.i.i, label %241, label %244
 
@@ -9566,7 +9566,7 @@ _ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i.i.i.i.i: ; preds = %196, %
   %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i32 %.sroa.0.0.insert.insert.i.i.i.i.i.i to i16
   %.sroa.13.0.extract.shift.i.i.i.i.i = lshr i32 %.sroa.0.0.insert.insert.i.i.i.i.i.i, 16
   %.sroa.13.0.extract.trunc.i.i.i.i.i = trunc nuw i32 %.sroa.13.0.extract.shift.i.i.i.i.i to i16
-  %200 = icmp ult i32 %.sroa.0.0.insert.insert.i.i.i.i.i.i, 65536
+  %200 = icmp eq i32 %.sroa.13.0.extract.shift.i.i.i.i.i, 0
   %or.cond.i.i.i.i.i = select i1 %200, i1 %167, i1 false
   br i1 %or.cond.i.i.i.i.i, label %201, label %204
 
@@ -10745,7 +10745,7 @@ _ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i.i.i.i.i: ; preds = %198, %
   %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i32 %.sroa.0.0.insert.insert.i.i.i.i.i.i to i16
   %.sroa.13.0.extract.shift.i.i.i.i.i = lshr i32 %.sroa.0.0.insert.insert.i.i.i.i.i.i, 16
   %.sroa.13.0.extract.trunc.i.i.i.i.i = trunc nuw i32 %.sroa.13.0.extract.shift.i.i.i.i.i to i16
-  %202 = icmp ult i32 %.sroa.0.0.insert.insert.i.i.i.i.i.i, 65536
+  %202 = icmp eq i32 %.sroa.13.0.extract.shift.i.i.i.i.i, 0
   %or.cond.i.i.i.i.i = select i1 %202, i1 %169, i1 false
   br i1 %or.cond.i.i.i.i.i, label %203, label %206
 

@@ -8220,7 +8220,7 @@ define linkonce_odr hidden void @_ZSt13__heap_selectISt16reverse_iteratorIN9__gn
   %69 = getelementptr inbounds %"struct.cv::ximgproc::Box", ptr %24, i64 %68
   %70 = getelementptr inbounds i8, ptr %69, i64 -20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %70, ptr noundef nonnull align 4 dereferenceable(20) %65, i64 20, i1 false), !tbaa.struct !163
-  %.not5.i = icmp ult i64 %.016.in.i.i.i, 2
+  %.not5.i = icmp eq i64 %.016.i.i34.i, 0
   br i1 %.not5.i, label %_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN2cv8ximgproc3BoxESt6vectorIS5_SaIS5_EEEEENS1_5__ops15_Iter_comp_iterIPFbRKS5_SF_EEEEvT_SJ_SJ_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !357
 
 _ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN2cv8ximgproc3BoxESt6vectorIS5_SaIS5_EEEEENS1_5__ops15_Iter_comp_iterIPFbRKS5_SF_EEEEvT_SJ_SJ_RT0_.exit: ; preds = %.lr.ph.i.i.i, %67, %62
@@ -8344,7 +8344,7 @@ define linkonce_odr hidden void @_ZSt11__sort_heapISt16reverse_iteratorIN9__gnu_
   %57 = getelementptr inbounds %"struct.cv::ximgproc::Box", ptr %12, i64 %56
   %58 = getelementptr inbounds i8, ptr %57, i64 -20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %58, ptr noundef nonnull align 4 dereferenceable(20) %53, i64 20, i1 false), !tbaa.struct !163
-  %.not5.i = icmp ult i64 %.016.in.i.i.i, 2
+  %.not5.i = icmp eq i64 %.016.i.i34.i, 0
   br i1 %.not5.i, label %_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN2cv8ximgproc3BoxESt6vectorIS5_SaIS5_EEEEENS1_5__ops15_Iter_comp_iterIPFbRKS5_SF_EEEEvT_SJ_SJ_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !357
 
 _ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN2cv8ximgproc3BoxESt6vectorIS5_SaIS5_EEEEENS1_5__ops15_Iter_comp_iterIPFbRKS5_SF_EEEEvT_SJ_SJ_RT0_.exit: ; preds = %.lr.ph.i.i.i, %55, %50

@@ -108,8 +108,13 @@ thread-pre-split:                                 ; preds = %25
   %40 = zext nneg i32 %39 to i64
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !20
-  %43 = icmp ult i8 %42, 64
-  br i1 %43, label %44, label %49
+  %43 = lshr i8 %42, 6
+  switch i8 %43, label %default.unreachable [
+    i8 0, label %44
+    i8 1, label %49
+    i8 2, label %61
+    i8 3, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  ]
 
 44:                                               ; preds = %38
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -120,70 +125,66 @@ thread-pre-split:                                 ; preds = %25
   br label %_ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit.thread12
 
 49:                                               ; preds = %38
-  %50 = lshr i8 %42, 6
-  switch i8 %50, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit [
-    i8 1, label %51
-    i8 2, label %63
-  ]
+  %50 = icmp eq i32 %30, 1
+  br i1 %50, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %51
 
 51:                                               ; preds = %49
-  %52 = icmp eq i32 %30, 1
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %53
-
-53:                                               ; preds = %51
-  %54 = add nsw i32 %30, -2
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %54, ptr %55, align 8, !tbaa !21
-  %56 = getelementptr inbounds nuw i8, ptr %36, i64 %31
-  %57 = getelementptr inbounds i8, ptr %56, i64 -2
-  %.val.i = load i8, ptr %57, align 1, !tbaa !20
-  %58 = getelementptr i8, ptr %56, i64 -1
-  %.val29.i = load i8, ptr %58, align 1, !tbaa !20
-  %59 = zext i8 %.val29.i to i32
-  %60 = shl nuw nsw i32 %59, 8
-  %61 = zext i8 %.val.i to i32
-  %.masked30.i = and i32 %60, 16128
-  %62 = or disjoint i32 %.masked30.i, %61
+  %52 = add nsw i32 %30, -2
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %52, ptr %53, align 8, !tbaa !21
+  %54 = getelementptr inbounds nuw i8, ptr %36, i64 %31
+  %55 = getelementptr inbounds i8, ptr %54, i64 -2
+  %.val.i = load i8, ptr %55, align 1, !tbaa !20
+  %56 = getelementptr i8, ptr %54, i64 -1
+  %.val29.i = load i8, ptr %56, align 1, !tbaa !20
+  %57 = zext i8 %.val29.i to i32
+  %58 = shl nuw nsw i32 %57, 8
+  %59 = zext i8 %.val.i to i32
+  %.masked30.i = and i32 %58, 16128
+  %60 = or disjoint i32 %.masked30.i, %59
   br label %_ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit.thread12
 
-63:                                               ; preds = %49
-  %64 = icmp samesign ult i32 %30, 3
-  br i1 %64, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit
+61:                                               ; preds = %38
+  %62 = icmp samesign ult i32 %30, 3
+  br i1 %62, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit
 
-_ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit.thread12: ; preds = %53, %44
-  %.ph = phi i32 [ %48, %44 ], [ %62, %53 ]
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %66 = add nuw nsw i32 %.ph, 4096
-  store i32 %66, ptr %65, align 4, !tbaa !22
-  br label %81
+default.unreachable:                              ; preds = %38
+  unreachable
 
-_ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit: ; preds = %63
-  %67 = add nsw i32 %30, -3
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %67, ptr %68, align 8, !tbaa !21
-  %69 = getelementptr inbounds nuw i8, ptr %36, i64 %31
-  %70 = getelementptr inbounds i8, ptr %69, i64 -3
-  %71 = getelementptr i8, ptr %69, i64 -2
-  %72 = load i16, ptr %71, align 1
-  %73 = zext i16 %72 to i32
-  %74 = shl nuw nsw i32 %73, 8
-  %75 = load i8, ptr %70, align 1, !tbaa !20
-  %76 = zext i8 %75 to i32
-  %.masked.i = and i32 %74, 4194048
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %78 = or disjoint i32 %76, 4096
-  %79 = add nuw nsw i32 %78, %.masked.i
-  store i32 %79, ptr %77, align 4, !tbaa !22
-  %80 = icmp samesign ult i32 %.masked.i, 1044480
-  br i1 %80, label %81, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+_ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit.thread12: ; preds = %51, %44
+  %.ph = phi i32 [ %48, %44 ], [ %60, %51 ]
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %64 = add nuw nsw i32 %.ph, 4096
+  store i32 %64, ptr %63, align 4, !tbaa !22
+  br label %79
 
-81:                                               ; preds = %_ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit.thread12, %_ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit
-  %82 = add nsw i64 %28, %31
-  store i64 %82, ptr %6, align 8, !tbaa !13
+_ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit: ; preds = %61
+  %65 = add nsw i32 %30, -3
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %65, ptr %66, align 8, !tbaa !21
+  %67 = getelementptr inbounds nuw i8, ptr %36, i64 %31
+  %68 = getelementptr inbounds i8, ptr %67, i64 -3
+  %69 = getelementptr i8, ptr %67, i64 -2
+  %70 = load i16, ptr %69, align 1
+  %71 = zext i16 %70 to i32
+  %72 = shl nuw nsw i32 %71, 8
+  %73 = load i8, ptr %68, align 1, !tbaa !20
+  %74 = zext i8 %73 to i32
+  %.masked.i = and i32 %72, 4194048
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %76 = or disjoint i32 %74, 4096
+  %77 = add nuw nsw i32 %76, %.masked.i
+  store i32 %77, ptr %75, align 4, !tbaa !22
+  %78 = icmp samesign ult i32 %.masked.i, 1044480
+  br i1 %78, label %79, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+
+79:                                               ; preds = %_ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit.thread12, %_ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit
+  %80 = add nsw i64 %28, %31
+  store i64 %80, ptr %6, align 8, !tbaa !13
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %49, %63, %51, %34, %19, %_ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit, %27, %25, %81
-  %.1 = phi i1 [ true, %81 ], [ false, %25 ], [ false, %27 ], [ false, %_ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit ], [ false, %19 ], [ false, %34 ], [ false, %51 ], [ false, %63 ], [ false, %49 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %38, %61, %49, %34, %19, %_ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit, %27, %25, %79
+  %.1 = phi i1 [ true, %79 ], [ false, %25 ], [ false, %27 ], [ false, %_ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit ], [ false, %19 ], [ false, %34 ], [ false, %49 ], [ false, %61 ], [ false, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
 

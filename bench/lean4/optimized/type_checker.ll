@@ -17621,7 +17621,7 @@ define linkonce_odr hidden noundef ptr @_ZN4lean7nat_mulEP11lean_objectS1_(ptr n
 
 8:                                                ; preds = %5
   %9 = lshr i64 %3, 1
-  %10 = icmp ult ptr %0, inttoptr (i64 2 to ptr)
+  %10 = icmp eq i64 %9, 0
   br i1 %10, label %_ZL12lean_nat_mulP11lean_objectS0_.exit, label %11
 
 11:                                               ; preds = %8
@@ -17674,13 +17674,13 @@ define linkonce_odr hidden noundef ptr @_ZN4lean7nat_modEP11lean_objectS1_(ptr n
   br i1 %.not11.i, label %.critedge.i, label %8, !prof !304
 
 8:                                                ; preds = %5
-  %9 = icmp ult ptr %1, inttoptr (i64 2 to ptr)
-  br i1 %9, label %_ZL12lean_nat_modP11lean_objectS0_.exit, label %10
+  %9 = lshr i64 %6, 1
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %_ZL12lean_nat_modP11lean_objectS0_.exit, label %11
 
-10:                                               ; preds = %8
-  %11 = lshr i64 %3, 1
-  %12 = lshr i64 %6, 1
-  %13 = urem i64 %11, %12
+11:                                               ; preds = %8
+  %12 = lshr i64 %3, 1
+  %13 = urem i64 %12, %9
   %14 = shl nuw i64 %13, 1
   %15 = or disjoint i64 %14, 1
   %16 = inttoptr i64 %15 to ptr
@@ -17690,8 +17690,8 @@ define linkonce_odr hidden noundef ptr @_ZN4lean7nat_modEP11lean_objectS1_(ptr n
   %17 = tail call ptr @lean_nat_big_mod(ptr noundef %0, ptr noundef %1)
   br label %_ZL12lean_nat_modP11lean_objectS0_.exit
 
-_ZL12lean_nat_modP11lean_objectS0_.exit:          ; preds = %8, %10, %.critedge.i
-  %.1.i = phi ptr [ %17, %.critedge.i ], [ %16, %10 ], [ %0, %8 ]
+_ZL12lean_nat_modP11lean_objectS0_.exit:          ; preds = %8, %11, %.critedge.i
+  %.1.i = phi ptr [ %17, %.critedge.i ], [ %16, %11 ], [ %0, %8 ]
   ret ptr %.1.i
 }
 
@@ -17709,13 +17709,13 @@ define linkonce_odr hidden noundef ptr @_ZN4lean7nat_divEP11lean_objectS1_(ptr n
   br i1 %.not10.i, label %.critedge.i, label %8, !prof !304
 
 8:                                                ; preds = %5
-  %9 = icmp ult ptr %1, inttoptr (i64 2 to ptr)
-  br i1 %9, label %_ZL12lean_nat_divP11lean_objectS0_.exit, label %10
+  %9 = lshr i64 %6, 1
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %_ZL12lean_nat_divP11lean_objectS0_.exit, label %11
 
-10:                                               ; preds = %8
-  %11 = lshr i64 %6, 1
+11:                                               ; preds = %8
   %12 = lshr i64 %3, 1
-  %13 = udiv i64 %12, %11
+  %13 = udiv i64 %12, %9
   %14 = shl nuw i64 %13, 1
   %15 = or disjoint i64 %14, 1
   %16 = inttoptr i64 %15 to ptr
@@ -17725,8 +17725,8 @@ define linkonce_odr hidden noundef ptr @_ZN4lean7nat_divEP11lean_objectS1_(ptr n
   %17 = tail call ptr @lean_nat_big_div(ptr noundef %0, ptr noundef %1)
   br label %_ZL12lean_nat_divP11lean_objectS0_.exit
 
-_ZL12lean_nat_divP11lean_objectS0_.exit:          ; preds = %8, %10, %.critedge.i
-  %.1.i = phi ptr [ %17, %.critedge.i ], [ %16, %10 ], [ inttoptr (i64 1 to ptr), %8 ]
+_ZL12lean_nat_divP11lean_objectS0_.exit:          ; preds = %8, %11, %.critedge.i
+  %.1.i = phi ptr [ %17, %.critedge.i ], [ %16, %11 ], [ inttoptr (i64 1 to ptr), %8 ]
   ret ptr %.1.i
 }
 

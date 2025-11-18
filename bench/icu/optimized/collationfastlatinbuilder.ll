@@ -1486,7 +1486,7 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %16, %27, %32
   %105 = phi i64 [ %99, %.thread ], [ %97, %87 ], [ %45, %37 ]
   %106 = lshr i64 %105, 32
   %107 = trunc nuw i64 %106 to i32
-  %108 = icmp ult i64 %105, 4294967296
+  %108 = icmp eq i64 %106, 0
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 7288
   %110 = load i32, ptr %109, align 8
   %111 = icmp ult i32 %110, %107
@@ -1514,7 +1514,7 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %16, %27, %32
 122:                                              ; preds = %120
   %123 = lshr i64 %121, 32
   %124 = trunc nuw i64 %123 to i32
-  %125 = icmp ult i64 %121, 4294967296
+  %125 = icmp eq i64 %123, 0
   br i1 %125, label %126, label %127
 
 126:                                              ; preds = %122

@@ -20,7 +20,7 @@ define ptr @l_Nat_lcm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 8:                                                ; preds = %5
   %9 = lshr i64 %3, 1
-  %10 = icmp ult ptr %0, inttoptr (i64 2 to ptr)
+  %10 = icmp eq i64 %9, 0
   br i1 %10, label %lean_nat_mul.exit, label %11
 
 11:                                               ; preds = %8
@@ -60,20 +60,20 @@ lean_nat_mul.exit:                                ; preds = %8, %15, %19, %.crit
   br i1 %.not.i12, label %lean_nat_div.exit, label %26, !prof !4
 
 26:                                               ; preds = %lean_nat_mul.exit
-  br i1 %25, label %lean_nat_div.exit.thread28, label %28, !prof !4
+  br i1 %25, label %lean_nat_div.exit.thread29, label %28, !prof !4
 
-lean_nat_div.exit.thread28:                       ; preds = %26
+lean_nat_div.exit.thread29:                       ; preds = %26
   %27 = tail call ptr @lean_nat_big_div(ptr noundef %.2.i, ptr noundef %22) #4
   br label %38
 
 28:                                               ; preds = %26
-  %29 = icmp ult ptr %22, inttoptr (i64 2 to ptr)
-  br i1 %29, label %lean_dec.exit9, label %30
+  %29 = lshr i64 %.pre19, 1
+  %30 = icmp eq i64 %29, 0
+  br i1 %30, label %lean_dec.exit9, label %31
 
-30:                                               ; preds = %28
-  %31 = lshr i64 %.pre19, 1
+31:                                               ; preds = %28
   %32 = lshr i64 %23, 1
-  %33 = udiv i64 %32, %31
+  %33 = udiv i64 %32, %29
   %34 = shl nuw i64 %33, 1
   %35 = or disjoint i64 %34, 1
   %36 = inttoptr i64 %35 to ptr
@@ -83,8 +83,8 @@ lean_nat_div.exit:                                ; preds = %lean_nat_mul.exit
   %37 = tail call ptr @lean_nat_big_div(ptr noundef %.2.i, ptr noundef %22) #4
   br i1 %25, label %38, label %lean_dec.exit.thread
 
-38:                                               ; preds = %lean_nat_div.exit.thread28, %lean_nat_div.exit
-  %39 = phi ptr [ %27, %lean_nat_div.exit.thread28 ], [ %37, %lean_nat_div.exit ]
+38:                                               ; preds = %lean_nat_div.exit.thread29, %lean_nat_div.exit
+  %39 = phi ptr [ %27, %lean_nat_div.exit.thread29 ], [ %37, %lean_nat_div.exit ]
   %40 = load i32, ptr %22, align 4, !tbaa !5
   %41 = icmp sgt i32 %40, 1
   br i1 %41, label %42, label %44, !prof !10
@@ -106,7 +106,7 @@ lean_dec.exit:                                    ; preds = %45, %44, %42
   br i1 %.not.i12, label %lean_dec.exit.thread, label %lean_dec.exit9
 
 lean_dec.exit.thread:                             ; preds = %lean_nat_div.exit, %lean_dec.exit
-  %.1.i2732 = phi ptr [ %39, %lean_dec.exit ], [ %37, %lean_nat_div.exit ]
+  %.1.i2833 = phi ptr [ %39, %lean_dec.exit ], [ %37, %lean_nat_div.exit ]
   %46 = load i32, ptr %.2.i, align 4, !tbaa !5
   %47 = icmp sgt i32 %46, 1
   br i1 %47, label %48, label %50, !prof !10
@@ -124,9 +124,9 @@ lean_dec.exit.thread:                             ; preds = %lean_nat_div.exit, 
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.2.i) #4
   br label %lean_dec.exit9
 
-lean_dec.exit9:                                   ; preds = %28, %30, %51, %50, %48, %lean_dec.exit
-  %.1.i2731 = phi ptr [ %.1.i2732, %51 ], [ %.1.i2732, %50 ], [ %.1.i2732, %48 ], [ %39, %lean_dec.exit ], [ %36, %30 ], [ inttoptr (i64 1 to ptr), %28 ]
-  ret ptr %.1.i2731
+lean_dec.exit9:                                   ; preds = %28, %31, %51, %50, %48, %lean_dec.exit
+  %.1.i2832 = phi ptr [ %.1.i2833, %51 ], [ %.1.i2833, %50 ], [ %.1.i2833, %48 ], [ %39, %lean_dec.exit ], [ %36, %31 ], [ inttoptr (i64 1 to ptr), %28 ]
+  ret ptr %.1.i2832
 }
 
 declare ptr @lean_nat_gcd(ptr noundef, ptr noundef) local_unnamed_addr #1

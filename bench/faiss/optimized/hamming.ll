@@ -29011,7 +29011,7 @@ define internal void @_ZN5faiss15pack_bitstringsEmmiPKiPhm.omp_outlined(ptr noal
   %62 = or i8 %60, %61
   store i8 %62, ptr %59, align 1, !tbaa !14
   %63 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp samesign ult i64 %.01318.i, 256
+  %.not16.i = icmp eq i64 %63, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !993
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %41, %49
@@ -29251,7 +29251,7 @@ define internal void @_ZN5faiss15pack_bitstringsEmmPKiS1_Phm.omp_outlined(ptr no
   %64 = or i8 %62, %63
   store i8 %64, ptr %61, align 1, !tbaa !14
   %65 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp samesign ult i64 %.01318.i, 256
+  %.not16.i = icmp eq i64 %65, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !993
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %43, %51

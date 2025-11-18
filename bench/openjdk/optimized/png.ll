@@ -4367,7 +4367,7 @@ define hidden void @png_ascii_from_fp(ptr noalias noundef %0, ptr noundef captur
   br label %.preheader.i.preheader
 
 31:                                               ; preds = %22
-  %.not24.i = icmp samesign ult i32 %25, 256
+  %.not24.i = icmp eq i32 %26, 0
   br i1 %.not24.i, label %png_pow10.exit, label %.preheader.i.preheader
 
 .preheader.i.preheader:                           ; preds = %31, %.thread.i
@@ -4384,7 +4384,7 @@ define hidden void @png_ascii_from_fp(ptr noalias noundef %0, ptr noundef captur
   %.2.i = select i1 %.not.i, double %.1.i, double %33
   %34 = fmul double %.0.i, %.0.i
   %35 = lshr i32 %.117.i, 1
-  %.not22.i = icmp samesign ult i32 %.117.i, 2
+  %.not22.i = icmp eq i32 %35, 0
   br i1 %.not22.i, label %36, label %.preheader.i, !llvm.loop !62
 
 36:                                               ; preds = %.preheader.i
@@ -4438,7 +4438,7 @@ png_pow10.exit:                                   ; preds = %31, %36, %37
   %.2.i161 = select i1 %.not.i160, double %.1.i158, double %50
   %51 = fmul double %.0.i159, %.0.i159
   %52 = lshr i32 %.117.i157, 1
-  %.not22.i162 = icmp samesign ult i32 %.117.i157, 2
+  %.not22.i162 = icmp eq i32 %52, 0
   br i1 %.not22.i162, label %png_pow10.exit165, label %.preheader.i156, !llvm.loop !62
 
 png_pow10.exit165:                                ; preds = %.preheader.i156

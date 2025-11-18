@@ -2134,7 +2134,7 @@ avifBitsRefill.exit.i151.i.i:                     ; preds = %884, %882
   %898 = trunc nuw nsw i64 %897 to i16
   %899 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i16 %898, ptr %899, align 4
-  %900 = icmp ugt i64 %894, 72057594037927935
+  %900 = icmp ne i64 %897, 0
   %901 = icmp ne i64 %878, 13
   %902 = select i1 %901, i1 true, i1 %900
   %.not80.i.i = icmp eq i32 %.075.i.i, 0

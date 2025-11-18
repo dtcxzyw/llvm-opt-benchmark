@@ -3661,7 +3661,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter
 144:                                              ; preds = %138
   %145 = getelementptr inbounds nuw i32, ptr %0, i64 %.0134.i.i.i.i10.i
   store i32 %.val14.i.i.i.i13.i, ptr %145, align 4, !tbaa !45
-  %.not3.i.i.i = icmp ult i64 %.05.in.i.i.i.i11.i, 2
+  %.not3.i.i.i = icmp eq i64 %.059.i.i.i.i12.i, 0
   br i1 %.not3.i.i.i, label %"_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5faiss14ZnSphereSearch6searchEPKfPfS8_S0_S0_E3$_0EEEvT_SB_SB_RT0_.exit.i.i", label %138, !llvm.loop !120
 
 "_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5faiss14ZnSphereSearch6searchEPKfPfS8_S0_S0_E3$_0EEEvT_SB_SB_RT0_.exit.i.i": ; preds = %144, %138, %134
@@ -4230,7 +4230,7 @@ _ZN5faiss14ZnSphereSearchD2Ev.exit:               ; preds = %_ZN5faiss7RepeatsD2
   %storemerge50 = phi i64 [ %144, %.lr.ph53 ], [ 0, %._crit_edge ]
   %143 = lshr i64 %.051, 8
   %144 = add nuw nsw i64 %storemerge50, 1
-  %.not = icmp ult i64 %.051, 256
+  %.not = icmp eq i64 %143, 0
   br i1 %.not, label %._crit_edge54, label %.lr.ph53, !llvm.loop !131
 
 ._crit_edge54:                                    ; preds = %.lr.ph53, %3, %._crit_edge
@@ -5042,7 +5042,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit101:            ; preds = %31, %33, %35, %37
   %storemerge90137 = phi i32 [ %85, %.lr.ph140 ], [ 0, %._crit_edge135 ]
   %84 = lshr i64 %.082138, 8
   %85 = add nuw nsw i32 %storemerge90137, 1
-  %.not91 = icmp ult i64 %.082138, 256
+  %.not91 = icmp eq i64 %84, 0
   br i1 %.not91, label %._crit_edge141, label %.lr.ph140, !llvm.loop !152
 
 ._crit_edge141:                                   ; preds = %.lr.ph140, %._crit_edge135
@@ -5812,7 +5812,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %13
   %.04191.in = phi i32 [ %4, %.preheader.lr.ph ], [ %.04191, %._crit_edge ]
   %.04390 = phi i32 [ 1, %.preheader.lr.ph ], [ %47, %._crit_edge ]
   %.04191 = lshr i32 %.04191.in, 1
-  %.not = icmp ult i32 %.04191.in, 2
+  %.not = icmp eq i32 %.04191, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph87
 
 .lr.ph87:                                         ; preds = %.preheader

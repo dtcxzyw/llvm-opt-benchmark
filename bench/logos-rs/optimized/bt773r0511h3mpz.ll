@@ -104,7 +104,8 @@ define zeroext i1 @"_ZN13logos_codegen5graph5impls5debug79_$LT$impl$u20$core..fm
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %8, align 8
   %9 = call i64 @"_ZN95_$LT$logos_codegen..graph..fork..ForkIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31bda62dc7938527E"(ptr nonnull align 8 %5)
-  %10 = icmp ult i64 %9, 4294967296
+  %.sroa.4.0.extract.shift6 = lshr i64 %9, 32
+  %10 = icmp eq i64 %.sroa.4.0.extract.shift6, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
@@ -118,15 +119,16 @@ define zeroext i1 @"_ZN13logos_codegen5graph5impls5debug79_$LT$impl$u20$core..fm
   br i1 %.not, label %23, label %20
 
 14:                                               ; preds = %.lr.ph, %14
+  %.sroa.4.0.extract.shift7 = phi i64 [ %.sroa.4.0.extract.shift6, %.lr.ph ], [ %.sroa.4.0.extract.shift, %14 ]
   %15 = phi i64 [ %9, %.lr.ph ], [ %18, %14 ]
-  %.sroa.4.0.extract.shift = lshr i64 %15, 32
-  %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
+  %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift7 to i32
   %16 = trunc i64 %15 to i16
   store i16 %16, ptr %11, align 4
   store i32 %.sroa.4.0.extract.trunc, ptr %4, align 4
   %17 = call align 8 ptr @_ZN4core3fmt8builders8DebugSet5entry17h97cee4100b5a60bdE(ptr nonnull align 8 %6, ptr nonnull align 1 %4, ptr nonnull align 8 @anon.343a85c169baf784e69415944ce08f85.4)
   %18 = call i64 @"_ZN95_$LT$logos_codegen..graph..fork..ForkIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31bda62dc7938527E"(ptr nonnull align 8 %5)
-  %19 = icmp ult i64 %18, 4294967296
+  %.sroa.4.0.extract.shift = lshr i64 %18, 32
+  %19 = icmp eq i64 %.sroa.4.0.extract.shift, 0
   br i1 %19, label %._crit_edge, label %14
 
 20:                                               ; preds = %._crit_edge

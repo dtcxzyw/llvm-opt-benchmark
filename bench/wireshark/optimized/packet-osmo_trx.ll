@@ -1109,61 +1109,61 @@ define internal fastcc void @dissect_otrxd_mts(ptr noundef %0, ptr noundef %1, p
 10:                                               ; preds = %4
   %11 = load i32, ptr @hf_otrxd_nope_ind_pad, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0)
-  br label %44
+  br label %42
 
 13:                                               ; preds = %4
   %14 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   %15 = zext i8 %14 to i32
   %16 = lshr i32 %15, 5
-  %17 = icmp ult i8 %14, 32
-  %18 = icmp eq i32 %16, 3
-  %or.cond = or i1 %17, %18
-  br i1 %or.cond, label %19, label %25
+  switch i32 %16, label %23 [
+    i32 0, label %17
+    i32 3, label %17
+  ]
 
-19:                                               ; preds = %13
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  store i32 %16, ptr %20, align 4
-  %21 = tail call ptr @val_to_str(i32 noundef %16, ptr noundef nonnull @otrxd_mod_2b_vals, ptr noundef nonnull @.str.115)
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr %21, ptr %22, align 8
-  %23 = load i32, ptr @hf_otrxd_mod_2b, align 4
-  %24 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %23, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0)
-  br label %38
+17:                                               ; preds = %13, %13
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  store i32 %16, ptr %18, align 4
+  %19 = tail call ptr @val_to_str(i32 noundef %16, ptr noundef nonnull @otrxd_mod_2b_vals, ptr noundef nonnull @.str.115)
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store ptr %19, ptr %20, align 8
+  %21 = load i32, ptr @hf_otrxd_mod_2b, align 4
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %21, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0)
+  br label %36
 
-25:                                               ; preds = %13
-  %26 = lshr i32 %15, 4
-  %.not = icmp eq i32 %26, 3
-  br i1 %.not, label %33, label %27
+23:                                               ; preds = %13
+  %24 = lshr i32 %15, 4
+  %.not = icmp eq i32 %24, 3
+  br i1 %.not, label %31, label %25
 
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  store i32 %26, ptr %28, align 4
-  %29 = tail call ptr @val_to_str(i32 noundef %26, ptr noundef nonnull @otrxd_mod_3b_vals, ptr noundef nonnull @.str.115)
-  %30 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr %29, ptr %30, align 8
-  %31 = load i32, ptr @hf_otrxd_mod_3b, align 4
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %31, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0)
-  br label %38
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  store i32 %24, ptr %26, align 4
+  %27 = tail call ptr @val_to_str(i32 noundef %24, ptr noundef nonnull @otrxd_mod_3b_vals, ptr noundef nonnull @.str.115)
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store ptr %27, ptr %28, align 8
+  %29 = load i32, ptr @hf_otrxd_mod_3b, align 4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %29, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0)
+  br label %36
 
-33:                                               ; preds = %25
-  %34 = lshr i32 %15, 3
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  store i32 %34, ptr %35, align 4
-  %36 = tail call ptr @val_to_str(i32 noundef %34, ptr noundef nonnull @otrxd_mod_4b_vals, ptr noundef nonnull @.str.115)
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr %36, ptr %37, align 8
-  br label %38
+31:                                               ; preds = %23
+  %32 = lshr i32 %15, 3
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  store i32 %32, ptr %33, align 4
+  %34 = tail call ptr @val_to_str(i32 noundef %32, ptr noundef nonnull @otrxd_mod_4b_vals, ptr noundef nonnull @.str.115)
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store ptr %34, ptr %35, align 8
+  br label %36
 
-38:                                               ; preds = %27, %33, %19
-  %hf_otrxd_tsc_set_x2.sink = phi ptr [ @hf_otrxd_tsc_set_x2, %27 ], [ @hf_otrxd_mod_4b, %33 ], [ @hf_otrxd_tsc_set_x4, %19 ]
-  %39 = load i32, ptr %hf_otrxd_tsc_set_x2.sink, align 4
-  %40 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %39, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0)
-  %41 = load i32, ptr @hf_otrxd_tsc, align 4
-  %42 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %43 = tail call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %41, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %42)
-  br label %44
+36:                                               ; preds = %25, %31, %17
+  %hf_otrxd_tsc_set_x2.sink = phi ptr [ @hf_otrxd_tsc_set_x2, %25 ], [ @hf_otrxd_mod_4b, %31 ], [ @hf_otrxd_tsc_set_x4, %17 ]
+  %37 = load i32, ptr %hf_otrxd_tsc_set_x2.sink, align 4
+  %38 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %37, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0)
+  %39 = load i32, ptr @hf_otrxd_tsc, align 4
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %41 = tail call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %39, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %40)
+  br label %42
 
-44:                                               ; preds = %38, %10
+42:                                               ; preds = %36, %10
   ret void
 }
 

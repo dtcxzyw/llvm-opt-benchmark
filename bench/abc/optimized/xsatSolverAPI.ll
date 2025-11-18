@@ -1825,7 +1825,7 @@ Vec_IntPush.exit.i:                               ; preds = %495, %Vec_IntGrow.e
   %526 = sext i32 %525 to i64
   %527 = getelementptr inbounds i32, ptr %.val9.i, i64 %526
   store i32 %.02341.i.i, ptr %527, align 4, !tbaa !11
-  %.not.i14.i = icmp ult i32 %.042.in.i.i, 2
+  %.not.i14.i = icmp eq i32 %.042.i.i, 0
   br i1 %.not.i14.i, label %.split24.i.i, label %514, !llvm.loop !98
 
 xSAT_HeapInsert.exit:                             ; preds = %.split24.i.i, %.split.i.i

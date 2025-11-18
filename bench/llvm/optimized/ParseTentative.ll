@@ -5750,11 +5750,11 @@ define dso_local noundef zeroext i1 @_ZN5clang6Parser21isTentativelyDeclaredEPNS
   %7 = zext i32 %6 to i64
   %.idx4.i = shl nuw nsw i64 %7, 3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx4.i
-  %.not.i = icmp ult i32 %6, 4
+  %9 = lshr i64 %7, 2
+  %.not.i = icmp eq i64 %9, 0
   br i1 %.not.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %2
-  %9 = lshr i64 %7, 2
   %10 = and i64 %.idx4.i, 34359738336
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %10
   br label %11
@@ -5797,11 +5797,10 @@ define dso_local noundef zeroext i1 @_ZN5clang6Parser21isTentativelyDeclaredEPNS
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %2
   %.pre-phi56.i.i.i.i = phi i32 [ %30, %._crit_edge.loopexit.i.i.i.i ], [ %6, %2 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %4, %2 ]
-  switch i32 %.pre-phi56.i.i.i.i, label %default.unreachable [
+  switch i32 %.pre-phi56.i.i.i.i, label %42 [
     i32 3, label %31
     i32 2, label %._crit_edge._crit_edge.i.i.i.i
     i32 1, label %._crit_edge._crit_edge52.i.i.i.i
-    i32 0, label %42
   ]
 
 31:                                               ; preds = %._crit_edge.i.i.i.i
@@ -5828,9 +5827,6 @@ define dso_local noundef zeroext i1 @_ZN5clang6Parser21isTentativelyDeclaredEPNS
   %40 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !952
   %41 = icmp eq ptr %40, %1
   br i1 %41, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPKN5clang14IdentifierInfoELj8EEEPS3_EEbOT_RKT0_.exit, label %42
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
-  unreachable
 
 42:                                               ; preds = %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge.i.i.i.i
   br label %_ZN4llvm12is_containedIRNS_11SmallVectorIPKN5clang14IdentifierInfoELj8EEEPS3_EEbOT_RKT0_.exit
@@ -7275,16 +7271,13 @@ _ZNK5clang14TypoCorrection9isKeywordEv.exit.i.i.i.i.i: ; preds = %_ZNK5clang14Ty
   %10 = shl nuw nsw i64 %9, 3
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 %10
   %12 = ptrtoint ptr %11 to i64
-  %.not = icmp ult i32 %4, 4
-  br i1 %.not, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.preheader
-
-.lr.ph.i.i.i.i.i.preheader:                       ; preds = %_ZNK5clang14TypoCorrection9isKeywordEv.exit.i.i.i.i.i
   %13 = lshr i64 %9, 2
-  br label %.lr.ph.i.i.i.i.i
+  %.not = icmp eq i64 %13, 0
+  br i1 %.not, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %24
-  %.044.i.i.i.i.i = phi i64 [ %26, %24 ], [ %13, %.lr.ph.i.i.i.i.i.preheader ]
-  %.02943.i.i.i.i.i = phi ptr [ %25, %24 ], [ %6, %.lr.ph.i.i.i.i.i.preheader ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %_ZNK5clang14TypoCorrection9isKeywordEv.exit.i.i.i.i.i, %24
+  %.044.i.i.i.i.i = phi i64 [ %26, %24 ], [ %13, %_ZNK5clang14TypoCorrection9isKeywordEv.exit.i.i.i.i.i ]
+  %.02943.i.i.i.i.i = phi ptr [ %25, %24 ], [ %6, %_ZNK5clang14TypoCorrection9isKeywordEv.exit.i.i.i.i.i ]
   %.029.val.i.i.i.i.i = load ptr, ptr %.02943.i.i.i.i.i, align 8, !tbaa !1016
   %14 = tail call noundef zeroext i1 @_ZNK5clang9NamedDecl19isCXXInstanceMemberEv(ptr noundef nonnull align 8 dereferenceable(48) %.029.val.i.i.i.i.i) #10
   br i1 %14, label %15, label %_ZN4llvm6all_ofIRKN5clang14TypoCorrectionEZN12_GLOBAL__N_117TentativeParseCCC17ValidateCandidateES4_EUlPNS1_9NamedDeclEE_EEbOT_T0_.exit

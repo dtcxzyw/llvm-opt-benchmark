@@ -5054,16 +5054,13 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN4llvm11GlobalV
   %4 = zext i32 %.val3 to i64
   %5 = getelementptr inbounds nuw %"class.llvm::GlobPattern", ptr %.val2, i64 %4
   %6 = ptrtoint ptr %5 to i64
-  %.not.i.i.i.i = icmp ult i32 %.val3, 4
-  br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.preheader.i.i.i.i
-
-.lr.ph.i.i.i.i.i.preheader.i.i.i.i:               ; preds = %2
   %7 = lshr i64 %4, 2
-  br label %.lr.ph.i.i.i.i.i.i.i.i.i
+  %.not.i.i.i.i = icmp eq i64 %7, 0
+  br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %30, %.lr.ph.i.i.i.i.i.preheader.i.i.i.i
-  %.038.i.i.i.i.i.i.i.i.i = phi i64 [ %32, %30 ], [ %7, %.lr.ph.i.i.i.i.i.preheader.i.i.i.i ]
-  %.02937.i.i.i.i.i.i.i.i.i = phi ptr [ %31, %30 ], [ %.val2, %.lr.ph.i.i.i.i.i.preheader.i.i.i.i ]
+.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %2, %30
+  %.038.i.i.i.i.i.i.i.i.i = phi i64 [ %32, %30 ], [ %7, %2 ]
+  %.02937.i.i.i.i.i.i.i.i.i = phi ptr [ %31, %30 ], [ %.val2, %2 ]
   %8 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #18
   %9 = extractvalue { ptr, i64 } %8, 0
   %10 = extractvalue { ptr, i64 } %8, 1

@@ -9594,8 +9594,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(20) ptr @_ZN1
   %27 = icmp ugt i32 %15, 16
   %28 = mul i32 %15, 3
   %29 = icmp ugt i32 %26, %28
-  %or.cond18.i = select i1 %27, i1 %29, i1 false
-  br i1 %or.cond18.i, label %30, label %._crit_edge.thread.i
+  %or.cond19.i = select i1 %27, i1 %29, i1 false
+  br i1 %or.cond19.i, label %30, label %._crit_edge.thread.i
 
 30:                                               ; preds = %._crit_edge.i
   %31 = icmp eq ptr %13, null
@@ -9614,7 +9614,7 @@ _ZN14core_hashtableI17default_map_entryIN3sls12array_plugin11select_argsEPN3euf5
   %35 = zext nneg i32 %34 to i64
   %36 = mul nuw nsw i64 %35, 24
   %37 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %36)
-  %.not11.i.i.i.i.i.i = icmp ult i32 %33, 2
+  %.not11.i.i.i.i.i.i = icmp eq i32 %34, 0
   br i1 %.not11.i.i.i.i.i.i, label %_ZN14core_hashtableI17default_map_entryIN3sls12array_plugin11select_argsEPN3euf5enodeEEN9table2mapIS7_NS2_16select_args_hashENS2_14select_args_eqEE15entry_hash_procENSB_13entry_eq_procEE11alloc_tableEj.exit.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZN14core_hashtableI17default_map_entryIN3sls12array_plugin11select_argsEPN3euf5enodeEEN9table2mapIS7_NS2_16select_args_hashENS2_14select_args_eqEE15entry_hash_procENSB_13entry_eq_procEE12delete_tableEv.exit.i, %.lr.ph.i.i.i.i.i.i

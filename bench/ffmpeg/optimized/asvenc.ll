@@ -914,7 +914,7 @@ put_bits.exit.i:                                  ; preds = %53, %45, %35
   %68 = lshr i32 %67, 16
   %69 = trunc nuw i32 %68 to i16
   store i16 %69, ptr %61, align 2, !tbaa !41
-  %.not.i = icmp ult i32 %67, 65536
+  %.not.i = icmp eq i32 %68, 0
   %spec.select.i = select i1 %.not.i, i32 0, i32 8
   %70 = add nuw nsw i32 %59, 8
   %71 = zext nneg i32 %70 to i64
@@ -928,7 +928,7 @@ put_bits.exit.i:                                  ; preds = %53, %45, %35
   %79 = lshr i32 %78, 16
   %80 = trunc nuw i32 %79 to i16
   store i16 %80, ptr %72, align 2, !tbaa !41
-  %.not62.i = icmp ult i32 %78, 65536
+  %.not62.i = icmp eq i32 %79, 0
   %81 = or disjoint i32 %spec.select.i, 4
   %.1.i = select i1 %.not62.i, i32 %spec.select.i, i32 %81
   %82 = add nuw nsw i32 %59, 1
@@ -943,7 +943,7 @@ put_bits.exit.i:                                  ; preds = %53, %45, %35
   %91 = lshr i32 %90, 16
   %92 = trunc nuw i32 %91 to i16
   store i16 %92, ptr %84, align 2, !tbaa !41
-  %.not63.i = icmp ult i32 %90, 65536
+  %.not63.i = icmp eq i32 %91, 0
   %93 = or disjoint i32 %.1.i, 2
   %.2.i = select i1 %.not63.i, i32 %.1.i, i32 %93
   %94 = add nuw nsw i32 %59, 9
@@ -958,7 +958,7 @@ put_bits.exit.i:                                  ; preds = %53, %45, %35
   %103 = lshr i32 %102, 16
   %104 = trunc nuw i32 %103 to i16
   store i16 %104, ptr %96, align 2, !tbaa !41
-  %.not64.i = icmp ugt i32 %102, 65535
+  %.not64.i = icmp ne i32 %103, 0
   %105 = zext i1 %.not64.i to i32
   %.3.i = or disjoint i32 %.2.i, %105
   %.not65.i = icmp eq i32 %.3.i, 0
@@ -1835,7 +1835,7 @@ put_bits_le.exit90.i:                             ; preds = %555, %put_bits_le.e
   %575 = lshr i32 %574, 16
   %576 = trunc nuw i32 %575 to i16
   store i16 %576, ptr %568, align 2, !tbaa !41
-  %.not77.i = icmp ult i32 %574, 65536
+  %.not77.i = icmp eq i32 %575, 0
   %spec.select.i14 = select i1 %.not77.i, i32 0, i32 8
   %577 = add nuw nsw i32 %566, 8
   %578 = zext nneg i32 %577 to i64
@@ -1849,7 +1849,7 @@ put_bits_le.exit90.i:                             ; preds = %555, %put_bits_le.e
   %586 = lshr i32 %585, 16
   %587 = trunc nuw i32 %586 to i16
   store i16 %587, ptr %579, align 2, !tbaa !41
-  %.not78.i = icmp ult i32 %585, 65536
+  %.not78.i = icmp eq i32 %586, 0
   %588 = or disjoint i32 %spec.select.i14, 4
   %.1.i15 = select i1 %.not78.i, i32 %spec.select.i14, i32 %588
   %589 = add nuw nsw i32 %566, 1
@@ -1864,7 +1864,7 @@ put_bits_le.exit90.i:                             ; preds = %555, %put_bits_le.e
   %598 = lshr i32 %597, 16
   %599 = trunc nuw i32 %598 to i16
   store i16 %599, ptr %591, align 2, !tbaa !41
-  %.not79.i = icmp ult i32 %597, 65536
+  %.not79.i = icmp eq i32 %598, 0
   %600 = or disjoint i32 %.1.i15, 2
   %.2.i16 = select i1 %.not79.i, i32 %.1.i15, i32 %600
   %601 = add nuw nsw i32 %566, 9
@@ -1879,7 +1879,7 @@ put_bits_le.exit90.i:                             ; preds = %555, %put_bits_le.e
   %610 = lshr i32 %609, 16
   %611 = trunc nuw i32 %610 to i16
   store i16 %611, ptr %603, align 2, !tbaa !41
-  %.not80.i = icmp ugt i32 %609, 65535
+  %.not80.i = icmp ne i32 %610, 0
   %612 = zext i1 %.not80.i to i32
   %.3.i17 = or disjoint i32 %.2.i16, %612
   %.not81.i = icmp eq i64 %indvars.iv.i13, 0

@@ -601,7 +601,7 @@ define dso_local void @expireSlaveKeys() local_unnamed_addr #0 {
 
 12:                                               ; preds = %79, %10
   %13 = phi ptr [ %.pre, %10 ], [ %80, %79 ]
-  %.029 = phi i32 [ 0, %10 ], [ %.1.lcssa55, %79 ]
+  %.029 = phi i32 [ 0, %10 ], [ %.1.lcssa56, %79 ]
   %.028 = phi i32 [ 0, %10 ], [ %70, %79 ]
   %14 = tail call ptr @dictGetRandomKey(ptr noundef %13) #10
   %15 = tail call ptr @dictGetKey(ptr noundef %14) #10
@@ -705,7 +705,7 @@ activeExpireCycleTryExpire.exit:                  ; preds = %sdslen.exit.i, %27,
   %.2 = phi i32 [ %.3, %activeExpireCycleTryExpire.exit ], [ %.143, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %61 = lshr i64 %.03042, 1
-  %62 = icmp ugt i64 %.03042, 1
+  %62 = icmp ne i64 %61, 0
   %63 = sext i32 %60 to i64
   %64 = icmp slt i64 %indvars.iv.next, %63
   %65 = select i1 %62, i1 %64, i1 false
@@ -720,15 +720,15 @@ activeExpireCycleTryExpire.exit:                  ; preds = %sdslen.exit.i, %27,
   br label %69
 
 ._crit_edge.thread:                               ; preds = %12, %._crit_edge
-  %.1.lcssa56 = phi i32 [ %.2, %._crit_edge ], [ %.029, %12 ]
+  %.1.lcssa57 = phi i32 [ %.2, %._crit_edge ], [ %.029, %12 ]
   %67 = load ptr, ptr @slaveKeysWithExpire, align 8, !tbaa !70
   %68 = tail call i32 @dictDelete(ptr noundef %67, ptr noundef %15) #10
   br label %69
 
 69:                                               ; preds = %._crit_edge.thread, %66
-  %.1.lcssa55 = phi i32 [ %.1.lcssa56, %._crit_edge.thread ], [ %.2, %66 ]
+  %.1.lcssa56 = phi i32 [ %.1.lcssa57, %._crit_edge.thread ], [ %.2, %66 ]
   %70 = add nuw nsw i32 %.028, 1
-  %71 = icmp sgt i32 %.1.lcssa55, 3
+  %71 = icmp sgt i32 %.1.lcssa56, 3
   br i1 %71, label %.thread, label %72
 
 72:                                               ; preds = %69

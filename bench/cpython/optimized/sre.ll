@@ -1754,7 +1754,7 @@ define internal ptr @_sre_template(ptr noundef readonly captures(none) %0, ptr n
 _Py_NewRef.exit.i:                                ; preds = %32, %25
   %34 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr %29, ptr %34, align 8, !tbaa !58
-  %.not20.i = icmp samesign ult i64 %.val62.i, 2
+  %.not20.i = icmp eq i64 %21, 0
   br i1 %.not20.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_Py_NewRef.exit.i

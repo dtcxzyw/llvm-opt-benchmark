@@ -129,7 +129,7 @@ define dso_local void @_ZN4llvm7CCStateC2EjbRNS_15MachineFunctionERNS_15SmallVec
   %44 = add i32 %43, 31
   %45 = lshr i32 %44, 5
   %46 = zext nneg i32 %45 to i64
-  %47 = icmp ult i32 %44, 32
+  %47 = icmp eq i32 %45, 0
   br i1 %47, label %_ZN4llvm15SmallVectorImplIjE6resizeEm.exit, label %48
 
 48:                                               ; preds = %7

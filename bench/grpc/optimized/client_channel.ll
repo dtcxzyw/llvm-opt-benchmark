@@ -26770,15 +26770,12 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = select i1 %.not, ptr %4, ptr %5
-  %.not5.i = icmp ult i64 %2, 2
-  br i1 %.not5.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEELb0EE15DestroyElementsERS6_PS5_m.exit, label %.lr.ph.i.preheader
-
-.lr.ph.i.preheader:                               ; preds = %1
   %7 = lshr i64 %2, 1
-  br label %.lr.ph.i
+  %.not5.i = icmp eq i64 %7, 0
+  br i1 %.not5.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEELb0EE15DestroyElementsERS6_PS5_m.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i
-  %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %7, %.lr.ph.i.preheader ]
+.lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i
+  %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
   %9 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -26827,15 +26824,12 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = select i1 %.not, ptr %4, ptr %5
-  %.not5.i = icmp ult i64 %2, 2
-  br i1 %.not5.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0EE15DestroyElementsERS9_PS8_m.exit, label %.lr.ph.i.preheader
-
-.lr.ph.i.preheader:                               ; preds = %1
   %7 = lshr i64 %2, 1
-  br label %.lr.ph.i
+  %.not5.i = icmp eq i64 %7, 0
+  br i1 %.not5.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0EE15DestroyElementsERS9_PS8_m.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i
-  %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i ], [ %7, %.lr.ph.i.preheader ]
+.lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i
+  %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
   %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !201
@@ -29617,17 +29611,14 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
 33:                                               ; preds = %1
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load i64, ptr %34, align 8, !tbaa !157
-  %.not.i25 = icmp ult i64 %35, 2
-  br i1 %.not.i25, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeISt4pairIN9grpc_core14UniqueTypeNameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS5_13RefCountedPtrINS5_10Blackboard5EntryEEEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyISD_SH_EENS0_13hash_internal4HashISD_EESt8equal_toISD_ESaIS4_IKSD_SH_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSI_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.lr.ph30.preheader
-
-.lr.ph30.preheader:                               ; preds = %33
   %36 = lshr i64 %35, 1
-  br label %.lr.ph30
+  %.not.i25 = icmp eq i64 %36, 0
+  br i1 %.not.i25, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeISt4pairIN9grpc_core14UniqueTypeNameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS5_13RefCountedPtrINS5_10Blackboard5EntryEEEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyISD_SH_EENS0_13hash_internal4HashISD_EESt8equal_toISD_ESaIS4_IKSD_SH_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSI_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.lr.ph30
 
-.lr.ph30:                                         ; preds = %.lr.ph30.preheader, %._crit_edge
-  %.0.i28 = phi ptr [ %41, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %.lr.ph30.preheader ]
-  %.025.i27 = phi ptr [ %40, %._crit_edge ], [ %5, %.lr.ph30.preheader ]
-  %.026.i26 = phi i64 [ %.1.i.lcssa, %._crit_edge ], [ %36, %.lr.ph30.preheader ]
+.lr.ph30:                                         ; preds = %33, %._crit_edge
+  %.0.i28 = phi ptr [ %41, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %33 ]
+  %.025.i27 = phi ptr [ %40, %._crit_edge ], [ %5, %33 ]
+  %.026.i26 = phi i64 [ %.1.i.lcssa, %._crit_edge ], [ %36, %33 ]
   %37 = load <16 x i8>, ptr %.025.i27, align 1, !tbaa !161
   %38 = icmp sgt <16 x i8> %37, splat (i8 -1)
   %39 = bitcast <16 x i1> %38 to i16

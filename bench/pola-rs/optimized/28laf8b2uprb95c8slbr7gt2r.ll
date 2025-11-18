@@ -42131,7 +42131,7 @@ define hidden void @"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitive
   %4 = load i64, ptr %0, align 8, !range !1500, !noundef !6
   %5 = add nuw i64 %4, 7
   %6 = lshr i64 %5, 3
-  %7 = icmp eq i64 %4, 0
+  %7 = icmp eq i64 %6, 0
   br i1 %7, label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h96aca07d5500d3b6E.exit", label %8
 
 8:                                                ; preds = %1
@@ -42235,7 +42235,7 @@ define hidden void @"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitive
   %4 = load i64, ptr %0, align 8, !range !1500, !noundef !6
   %5 = add nuw i64 %4, 7
   %6 = lshr i64 %5, 3
-  %7 = icmp eq i64 %4, 0
+  %7 = icmp eq i64 %6, 0
   br i1 %7, label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h96aca07d5500d3b6E.exit", label %8
 
 8:                                                ; preds = %1
@@ -42339,7 +42339,7 @@ define hidden void @"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitive
   %4 = load i64, ptr %0, align 8, !range !1500, !noundef !6
   %5 = add nuw i64 %4, 7
   %6 = lshr i64 %5, 3
-  %7 = icmp eq i64 %4, 0
+  %7 = icmp eq i64 %6, 0
   br i1 %7, label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h96aca07d5500d3b6E.exit", label %8
 
 8:                                                ; preds = %1
@@ -42443,7 +42443,7 @@ define hidden void @"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitive
   %4 = load i64, ptr %0, align 8, !range !1500, !noundef !6
   %5 = add nuw i64 %4, 7
   %6 = lshr i64 %5, 3
-  %7 = icmp eq i64 %4, 0
+  %7 = icmp eq i64 %6, 0
   br i1 %7, label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h96aca07d5500d3b6E.exit", label %8
 
 8:                                                ; preds = %1
@@ -42547,7 +42547,7 @@ define hidden void @"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitive
   %4 = load i64, ptr %0, align 8, !range !1500, !noundef !6
   %5 = add nuw i64 %4, 7
   %6 = lshr i64 %5, 3
-  %7 = icmp eq i64 %4, 0
+  %7 = icmp eq i64 %6, 0
   br i1 %7, label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h96aca07d5500d3b6E.exit", label %8
 
 8:                                                ; preds = %1
@@ -42651,7 +42651,7 @@ define hidden void @"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitive
   %4 = load i64, ptr %0, align 8, !range !1500, !noundef !6
   %5 = add nuw i64 %4, 7
   %6 = lshr i64 %5, 3
-  %7 = icmp eq i64 %4, 0
+  %7 = icmp eq i64 %6, 0
   br i1 %7, label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h96aca07d5500d3b6E.exit", label %8
 
 8:                                                ; preds = %1
@@ -42755,7 +42755,7 @@ define hidden void @"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitive
   %4 = load i64, ptr %0, align 8, !range !1500, !noundef !6
   %5 = add nuw i64 %4, 7
   %6 = lshr i64 %5, 3
-  %7 = icmp eq i64 %4, 0
+  %7 = icmp eq i64 %6, 0
   br i1 %7, label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h96aca07d5500d3b6E.exit", label %8
 
 8:                                                ; preds = %1
@@ -42859,7 +42859,7 @@ define hidden void @"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitive
   %4 = load i64, ptr %0, align 8, !range !1500, !noundef !6
   %5 = add nuw i64 %4, 7
   %6 = lshr i64 %5, 3
-  %7 = icmp eq i64 %4, 0
+  %7 = icmp eq i64 %6, 0
   br i1 %7, label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h96aca07d5500d3b6E.exit", label %8
 
 8:                                                ; preds = %1
@@ -42963,7 +42963,7 @@ define hidden void @"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitive
   %4 = load i64, ptr %0, align 8, !range !1500, !noundef !6
   %5 = add nuw i64 %4, 7
   %6 = lshr i64 %5, 3
-  %7 = icmp eq i64 %4, 0
+  %7 = icmp eq i64 %6, 0
   br i1 %7, label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h96aca07d5500d3b6E.exit", label %8
 
 8:                                                ; preds = %1
@@ -43067,7 +43067,7 @@ define hidden void @"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitive
   %4 = load i64, ptr %0, align 8, !range !1500, !noundef !6
   %5 = add nuw i64 %4, 7
   %6 = lshr i64 %5, 3
-  %7 = icmp eq i64 %4, 0
+  %7 = icmp eq i64 %6, 0
   br i1 %7, label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h96aca07d5500d3b6E.exit", label %8
 
 8:                                                ; preds = %1
@@ -43171,7 +43171,7 @@ define hidden void @"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitive
   %4 = load i64, ptr %0, align 8, !range !1500, !noundef !6
   %5 = add nuw i64 %4, 7
   %6 = lshr i64 %5, 3
-  %7 = icmp eq i64 %4, 0
+  %7 = icmp eq i64 %6, 0
   br i1 %7, label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h96aca07d5500d3b6E.exit", label %8
 
 8:                                                ; preds = %1

@@ -3248,11 +3248,11 @@ define dso_local void @_ZN5clang10installapi13DylibVerifier11assignSliceERKN4llv
   %8 = zext i32 %4 to i64
   %.idx3.i = shl nuw nsw i64 %8, 4
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx3.i
-  %.not.i6 = icmp ult i32 %4, 4
+  %10 = lshr i64 %8, 2
+  %.not.i6 = icmp eq i64 %10, 0
   br i1 %.not.i6, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %5
-  %10 = lshr i64 %8, 2
   %11 = and i64 %.idx3.i, 68719476672
   %scevgep.i.i.i.i = getelementptr i8, ptr %.val, i64 %11
   br label %12
@@ -3319,11 +3319,10 @@ define dso_local void @_ZN5clang10installapi13DylibVerifier11assignSliceERKN4llv
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %5
   %.pre-phi77.i.i.i.i = phi i32 [ %43, %._crit_edge.loopexit.i.i.i.i ], [ %4, %5 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %.val, %5 ]
-  switch i32 %.pre-phi77.i.i.i.i, label %default.unreachable [
+  switch i32 %.pre-phi77.i.i.i.i, label %64 [
     i32 3, label %44
     i32 2, label %._crit_edge._crit_edge.i.i.i.i
     i32 1, label %._crit_edge._crit_edge72.i.i.i.i
-    i32 0, label %64
   ]
 
 44:                                               ; preds = %._crit_edge.i.i.i.i
@@ -3368,9 +3367,6 @@ define dso_local void @_ZN5clang10installapi13DylibVerifier11assignSliceERKN4llv
   %62 = icmp eq i32 %.val5, %.2.val.val41.i.i.i.i
   %63 = select i1 %61, i1 %62, i1 false
   br i1 %63, label %"_ZN4llvm7find_ifIRNS_11SmallVectorISt10shared_ptrINS_5MachO12RecordsSliceEELj4EEEZN5clang10installapi13DylibVerifier11assignSliceERKNS3_6TargetEE3$_0EEDaOT_T0_.exit", label %64
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
-  unreachable
 
 64:                                               ; preds = %._crit_edge._crit_edge72.i.i.i.i, %._crit_edge.i.i.i.i
   %.pre = load ptr, ptr %9, align 8, !tbaa !303

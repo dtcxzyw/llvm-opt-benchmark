@@ -13850,7 +13850,7 @@ define hidden void @"_ZN156_$LT$polars_parquet_format..thrift..protocol..compact
 
 26:                                               ; preds = %.thread, %21
   %27 = phi i8 [ 2, %.thread ], [ %.pre122, %21 ]
-  %28 = icmp ult i8 %14, 16
+  %28 = icmp eq i8 %15, 0
   br i1 %28, label %30, label %37
 
 29:                                               ; preds = %43, %51, %46, %24, %23, %13
@@ -65345,7 +65345,7 @@ common.resume:                                    ; preds = %.body.i, %.body
   invoke void @"_ZN4core3ptr141drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RF$dyn$u20$polars_arrow..array..Array$C$polars_parquet..arrow..write..pages..BitmapState$RP$$GT$$GT$17h4ba64736620d9397E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %53) #33
           to label %common.resume unwind label %462
 
-100:                                              ; preds = %.invoke822
+100:                                              ; preds = %.invoke825
   %101 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -65424,13 +65424,13 @@ common.resume:                                    ; preds = %.body.i, %.body
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10)
   br label %145
 
-thread-pre-split:                                 ; preds = %.invoke822, %"_ZN4core3ptr69drop_in_place$LT$polars_parquet..arrow..write..pages..BitmapState$GT$17he18e0675453acd68E.exit79", %"_ZN4core3ptr69drop_in_place$LT$polars_parquet..arrow..write..pages..BitmapState$GT$17he18e0675453acd68E.exit120"
+thread-pre-split:                                 ; preds = %.invoke825, %"_ZN4core3ptr69drop_in_place$LT$polars_parquet..arrow..write..pages..BitmapState$GT$17he18e0675453acd68E.exit79", %"_ZN4core3ptr69drop_in_place$LT$polars_parquet..arrow..write..pages..BitmapState$GT$17he18e0675453acd68E.exit120"
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10)
   %.pr = load i64, ptr %90, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10)
   %144 = icmp eq i64 %.pr, 0
-  br i1 %144, label %.thread675, label %145
+  br i1 %144, label %.thread678, label %145
 
 145:                                              ; preds = %102, %thread-pre-split
   %146 = phi i64 [ 1, %102 ], [ %.pr, %thread-pre-split ]
@@ -65451,7 +65451,7 @@ thread-pre-split:                                 ; preds = %.invoke822, %"_ZN4c
   %.sroa.6623.0..sroa_idx = getelementptr inbounds nuw i8, ptr %152, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.10, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6623.0..sroa_idx, i64 32, i1 false)
   %.not = icmp eq i64 %.sroa.5622.0.copyload, 3
-  br i1 %.not, label %.thread675, label %153
+  br i1 %.not, label %.thread678, label %153
 
 153:                                              ; preds = %145
   %154 = icmp ne ptr %.sroa.0620.0.copyload, null
@@ -65671,8 +65671,8 @@ thread-pre-split:                                 ; preds = %.invoke822, %"_ZN4c
   call void @llvm.experimental.noalias.scope.decl(metadata !4121)
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !4124
-  %.not112.i = icmp eq i64 %.sroa.0.0.copyload, 1
-  br i1 %.not112.i, label %228, label %236
+  %.not113.i = icmp eq i64 %.sroa.0.0.copyload, 1
+  br i1 %.not113.i, label %228, label %236
 
 228:                                              ; preds = %227
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %109, i64 32, i1 false)
@@ -65713,7 +65713,7 @@ thread-pre-split:                                 ; preds = %.invoke822, %"_ZN4c
 242:                                              ; preds = %228
   %243 = call i64 @llvm.uadd.sat.i64(i64 %235, i64 7)
   %244 = lshr i64 %243, 3
-  %245 = icmp ult i64 %243, 8
+  %245 = icmp eq i64 %244, 0
   br i1 %245, label %251, label %246
 
 246:                                              ; preds = %242
@@ -66154,7 +66154,7 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i33.i: ; preds 
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
   %408 = call i64 @llvm.uadd.sat.i64(i64 %404, i64 7)
   %409 = lshr i64 %408, 3
-  %410 = icmp ult i64 %408, 8
+  %410 = icmp eq i64 %409, 0
   br i1 %410, label %416, label %411
 
 411:                                              ; preds = %407
@@ -66394,7 +66394,7 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i86: ; preds = 
 .unreachabledefault:                              ; preds = %479
   unreachable
 
-default.unreachable674:                           ; preds = %708
+default.unreachable677:                           ; preds = %708
   unreachable
 
 484:                                              ; preds = %479
@@ -66520,7 +66520,7 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i104: ; preds =
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   %526 = load i64, ptr %52, align 8, !range !671, !alias.scope !4236, !noundef !12
   %527 = icmp eq i64 %526, 1
-  br i1 %527, label %.invoke822, label %thread-pre-split
+  br i1 %527, label %.invoke825, label %thread-pre-split
 
 528:                                              ; preds = %205
   %529 = extractvalue { ptr, ptr } %208, 0
@@ -66543,8 +66543,8 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i104: ; preds =
   call void @llvm.experimental.noalias.scope.decl(metadata !4239)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !4242
-  %.not112.i125 = icmp eq i64 %.sroa.0221.0.copyload, 1
-  br i1 %.not112.i125, label %539, label %547
+  %.not113.i125 = icmp eq i64 %.sroa.0221.0.copyload, 1
+  br i1 %.not113.i125, label %539, label %547
 
 539:                                              ; preds = %538
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %109, i64 32, i1 false)
@@ -66585,7 +66585,7 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i104: ; preds =
 553:                                              ; preds = %539
   %554 = call i64 @llvm.uadd.sat.i64(i64 %546, i64 7)
   %555 = lshr i64 %554, 3
-  %556 = icmp ult i64 %554, 8
+  %556 = icmp eq i64 %555, 0
   br i1 %556, label %562, label %557
 
 557:                                              ; preds = %553
@@ -67010,7 +67010,7 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i33.i133: ; pre
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !4293
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8.i.i.i)
   %713 = load i64, ptr %50, align 8, !range !671, !noalias !4293, !noundef !12
-  switch i64 %713, label %default.unreachable674 [
+  switch i64 %713, label %default.unreachable677 [
     i64 0, label %717
     i64 1, label %714
     i64 2, label %715
@@ -67298,9 +67298,9 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i200: ; preds =
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   %810 = load i64, ptr %52, align 8, !range !671, !alias.scope !4350, !noundef !12
   %811 = icmp eq i64 %810, 1
-  br i1 %811, label %.invoke822, label %thread-pre-split
+  br i1 %811, label %.invoke825, label %thread-pre-split
 
-.invoke822:                                       ; preds = %"_ZN4core3ptr69drop_in_place$LT$polars_parquet..arrow..write..pages..BitmapState$GT$17he18e0675453acd68E.exit79", %"_ZN4core3ptr69drop_in_place$LT$polars_parquet..arrow..write..pages..BitmapState$GT$17he18e0675453acd68E.exit120"
+.invoke825:                                       ; preds = %"_ZN4core3ptr69drop_in_place$LT$polars_parquet..arrow..write..pages..BitmapState$GT$17he18e0675453acd68E.exit79", %"_ZN4core3ptr69drop_in_place$LT$polars_parquet..arrow..write..pages..BitmapState$GT$17he18e0675453acd68E.exit120"
   invoke void @"_ZN4core3ptr60drop_in_place$LT$polars_arrow..bitmap..immutable..Bitmap$GT$17h914356f7585a5259E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %127)
           to label %thread-pre-split unwind label %100
 
@@ -67308,7 +67308,7 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i200: ; preds =
   invoke void @"_ZN4core3ptr60drop_in_place$LT$polars_arrow..bitmap..immutable..Bitmap$GT$17h914356f7585a5259E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %109) #33
           to label %.thread unwind label %462
 
-.thread675:                                       ; preds = %thread-pre-split, %145
+.thread678:                                       ; preds = %thread-pre-split, %145
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10)
   call void @"_ZN4core3ptr141drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RF$dyn$u20$polars_arrow..array..Array$C$polars_parquet..arrow..write..pages..BitmapState$RP$$GT$$GT$17h4ba64736620d9397E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %53)
   call void @llvm.lifetime.end.p0(ptr nonnull %53)

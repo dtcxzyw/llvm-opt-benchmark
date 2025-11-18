@@ -51,7 +51,7 @@ define hidden void @_mi_prim_mem_init(ptr noundef writeonly captures(none) initi
   store i64 %4, ptr %7, align 8, !tbaa !9
   %8 = tail call i64 @sysconf(i32 noundef 85) #10
   %9 = lshr i64 %4, 10
-  %10 = icmp samesign ugt i64 %4, 1023
+  %10 = icmp ne i64 %9, 0
   %11 = icmp sgt i64 %8, 0
   %or.cond = select i1 %10, i1 %11, i1 false
   br i1 %or.cond, label %12, label %16

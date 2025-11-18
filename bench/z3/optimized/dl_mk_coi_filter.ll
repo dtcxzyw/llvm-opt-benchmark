@@ -4731,8 +4731,8 @@ _ZNK14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eq
   %47 = icmp ugt i32 %35, 16
   %48 = mul i32 %35, 3
   %49 = icmp ugt i32 %46, %48
-  %or.cond18.i = select i1 %47, i1 %49, i1 false
-  br i1 %or.cond18.i, label %50, label %._crit_edge.thread.i
+  %or.cond19.i = select i1 %47, i1 %49, i1 false
+  br i1 %or.cond19.i, label %50, label %._crit_edge.thread.i
 
 50:                                               ; preds = %._crit_edge.i
   %51 = icmp eq ptr %33, null
@@ -4751,7 +4751,7 @@ _ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqI
   %55 = zext nneg i32 %54 to i64
   %56 = shl nuw nsw i64 %55, 4
   %57 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %56)
-  %.not6.i.i.i.i.i.i = icmp ult i32 %53, 2
+  %.not6.i.i.i.i.i.i = icmp eq i32 %54, 0
   br i1 %.not6.i.i.i.i.i.i, label %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE11alloc_tableEj.exit.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12delete_tableEv.exit.i, %.lr.ph.i.i.i.i.i.i
@@ -7023,8 +7023,8 @@ _ZNK14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eq
   %45 = icmp ugt i32 %33, 16
   %46 = mul i32 %33, 3
   %47 = icmp ugt i32 %44, %46
-  %or.cond18.i = select i1 %45, i1 %47, i1 false
-  br i1 %or.cond18.i, label %48, label %._crit_edge.thread.i
+  %or.cond19.i = select i1 %45, i1 %47, i1 false
+  br i1 %or.cond19.i, label %48, label %._crit_edge.thread.i
 
 48:                                               ; preds = %._crit_edge.i
   %49 = icmp eq ptr %31, null
@@ -7043,7 +7043,7 @@ _ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqI
   %53 = zext nneg i32 %52 to i64
   %54 = shl nuw nsw i64 %53, 4
   %55 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %54)
-  %.not6.i.i.i.i.i.i = icmp ult i32 %51, 2
+  %.not6.i.i.i.i.i.i = icmp eq i32 %52, 0
   br i1 %.not6.i.i.i.i.i.i, label %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE11alloc_tableEj.exit.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12delete_tableEv.exit.i, %.lr.ph.i.i.i.i.i.i

@@ -3837,7 +3837,7 @@ define noundef i32 @_ZNK6icu_776NFRule12prefixLengthERKNS_13UnicodeStringES3_R10
   %32 = load i16, ptr %31, align 8, !tbaa !23
   %33 = and i16 %32, 1
   %.not6.i.i56 = icmp eq i16 %33, 0
-  br i1 %.not, label %96, label %34
+  br i1 %.not, label %98, label %34
 
 34:                                               ; preds = %17
   br i1 %.not.i.i53, label %.sink.split.i.i.i, label %35
@@ -3897,55 +3897,56 @@ _ZNK6icu_7713UnicodeString10startsWithERKS0_.exit.thread: ; preds = %35, %.sink.
 
 57:                                               ; preds = %56
   store i32 7, ptr %3, align 4, !tbaa !31
-  br label %88
+  br label %90
 
 58:                                               ; preds = %53
   %59 = landingpad { ptr, i32 }
           cleanup
-  br label %95
+  br label %97
 
 60:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !31
   %61 = invoke noundef i32 @_ZN6icu_7724CollationElementIterator4nextER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %54, ptr noundef nonnull align 4 dereferenceable(4) %7)
-          to label %62 unwind label %68
+          to label %62 unwind label %69
 
 62:                                               ; preds = %60
   %63 = invoke noundef i32 @_ZN6icu_7724CollationElementIterator4nextER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %55, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %.preheader74 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.preheader74:                                     ; preds = %62, %79
-  %64 = phi ptr [ %80, %79 ], [ %55, %62 ]
-  %.030 = phi i32 [ %78, %79 ], [ %61, %62 ]
-  %.029 = phi i32 [ %81, %79 ], [ %63, %62 ]
+.preheader74:                                     ; preds = %62, %81
+  %64 = phi ptr [ %82, %81 ], [ %55, %62 ]
+  %.030 = phi i32 [ %80, %81 ], [ %61, %62 ]
+  %.029 = phi i32 [ %83, %81 ], [ %63, %62 ]
   %.not46 = icmp eq i32 %.029, -1
-  br i1 %.not46, label %82, label %.preheader70
+  br i1 %.not46, label %84, label %.preheader70
 
-.preheader70:                                     ; preds = %.preheader74, %66
-  %.2 = phi i32 [ %67, %66 ], [ %.030, %.preheader74 ]
-  %65 = icmp ult i32 %.2, 65536
-  br i1 %65, label %66, label %.preheader
+.preheader70:                                     ; preds = %.preheader74, %67
+  %.2 = phi i32 [ %68, %67 ], [ %.030, %.preheader74 ]
+  %65 = lshr i32 %.2, 16
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %67, label %.preheader
 
-66:                                               ; preds = %.preheader70
-  %67 = invoke noundef i32 @_ZN6icu_7724CollationElementIterator4nextER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %54, ptr noundef nonnull align 4 dereferenceable(4) %7)
+67:                                               ; preds = %.preheader70
+  %68 = invoke noundef i32 @_ZN6icu_7724CollationElementIterator4nextER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %54, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %.preheader70 unwind label %.loopexit.split-lp.loopexit, !llvm.loop !66
 
-68:                                               ; preds = %60
-  %69 = landingpad { ptr, i32 }
+69:                                               ; preds = %60
+  %70 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit:                                        ; preds = %71
+.loopexit:                                        ; preds = %73
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %66
+.loopexit.split-lp.loopexit:                      ; preds = %67
   %lpad.loopexit71 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %77, %79
+.loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %79, %81
   %lpad.loopexit76 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -3955,129 +3956,129 @@ _ZNK6icu_7713UnicodeString10startsWithERKS0_.exit.thread: ; preds = %35, %.sink.
           cleanup
   br label %.loopexit.split-lp
 
-.preheader:                                       ; preds = %.preheader70, %71
-  %.1 = phi i32 [ %72, %71 ], [ %.029, %.preheader70 ]
-  %70 = icmp ult i32 %.1, 65536
-  br i1 %70, label %71, label %73
-
-71:                                               ; preds = %.preheader
-  %72 = invoke noundef i32 @_ZN6icu_7724CollationElementIterator4nextER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %64, ptr noundef nonnull align 4 dereferenceable(4) %7)
-          to label %.preheader unwind label %.loopexit, !llvm.loop !67
+.preheader:                                       ; preds = %.preheader70, %73
+  %.1 = phi i32 [ %74, %73 ], [ %.029, %.preheader70 ]
+  %71 = lshr i32 %.1, 16
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %73, label %75
 
 73:                                               ; preds = %.preheader
-  %74 = icmp eq i32 %.1, -1
-  br i1 %74, label %82, label %75
+  %74 = invoke noundef i32 @_ZN6icu_7724CollationElementIterator4nextER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %64, ptr noundef nonnull align 4 dereferenceable(4) %7)
+          to label %.preheader unwind label %.loopexit, !llvm.loop !67
 
-75:                                               ; preds = %73
-  %76 = icmp ne i32 %.2, -1
-  %.not47.unshifted = xor i32 %.1, %.2
-  %.not47 = icmp ult i32 %.not47.unshifted, 65536
-  %or.cond = and i1 %76, %.not47
-  br i1 %or.cond, label %77, label %.loopexit75
+75:                                               ; preds = %.preheader
+  %76 = icmp eq i32 %.1, -1
+  br i1 %76, label %84, label %77
 
 77:                                               ; preds = %75
-  %78 = invoke noundef i32 @_ZN6icu_7724CollationElementIterator4nextER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %54, ptr noundef nonnull align 4 dereferenceable(4) %7)
-          to label %79 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
+  %78 = icmp ne i32 %.2, -1
+  %.not47 = icmp eq i32 %65, %71
+  %or.cond = and i1 %78, %.not47
+  br i1 %or.cond, label %79, label %.loopexit75
 
 79:                                               ; preds = %77
-  %80 = load ptr, ptr %6, align 8, !tbaa !63
-  %81 = invoke noundef i32 @_ZN6icu_7724CollationElementIterator4nextER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %80, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %80 = invoke noundef i32 @_ZN6icu_7724CollationElementIterator4nextER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %54, ptr noundef nonnull align 4 dereferenceable(4) %7)
+          to label %81 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
+
+81:                                               ; preds = %79
+  %82 = load ptr, ptr %6, align 8, !tbaa !63
+  %83 = invoke noundef i32 @_ZN6icu_7724CollationElementIterator4nextER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %82, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %.preheader74 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit, !llvm.loop !68
 
-82:                                               ; preds = %73, %.preheader74
-  %.131 = phi i32 [ %.2, %73 ], [ %.030, %.preheader74 ]
-  %83 = invoke noundef i32 @_ZNK6icu_7724CollationElementIterator9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(104) %54)
-          to label %84 unwind label %86
+84:                                               ; preds = %75, %.preheader74
+  %.131 = phi i32 [ %.2, %75 ], [ %.030, %.preheader74 ]
+  %85 = invoke noundef i32 @_ZNK6icu_7724CollationElementIterator9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(104) %54)
+          to label %86 unwind label %88
 
-84:                                               ; preds = %82
+86:                                               ; preds = %84
   %.not48 = icmp ne i32 %.131, -1
-  %85 = sext i1 %.not48 to i32
-  %spec.select = add nsw i32 %83, %85
+  %87 = sext i1 %.not48 to i32
+  %spec.select = add nsw i32 %85, %87
   br label %.loopexit75
 
-86:                                               ; preds = %82
-  %87 = landingpad { ptr, i32 }
+88:                                               ; preds = %84
+  %89 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit75:                                      ; preds = %75, %84
-  %.3 = phi i32 [ %spec.select, %84 ], [ 0, %75 ]
+.loopexit75:                                      ; preds = %77, %86
+  %.3 = phi i32 [ %spec.select, %86 ], [ 0, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %88
+  br label %90
 
-.loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %86, %68
-  %.pn.pn = phi { ptr, i32 } [ %69, %68 ], [ %87, %86 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit71, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit76, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+.loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %88, %69
+  %.pn.pn = phi { ptr, i32 } [ %70, %69 ], [ %89, %88 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit71, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit76, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN6icu_7712LocalPointerINS_24CollationElementIteratorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #9
-  br label %95
+  br label %97
 
-88:                                               ; preds = %.loopexit75, %57
-  %89 = phi ptr [ %55, %57 ], [ %64, %.loopexit75 ]
+90:                                               ; preds = %.loopexit75, %57
+  %91 = phi ptr [ %55, %57 ], [ %64, %.loopexit75 ]
   %.240 = phi i32 [ 0, %57 ], [ %.3, %.loopexit75 ]
-  %90 = icmp eq ptr %89, null
-  br i1 %90, label %_ZN6icu_7712LocalPointerINS_24CollationElementIteratorEED2Ev.exit, label %91
+  %92 = icmp eq ptr %91, null
+  br i1 %92, label %_ZN6icu_7712LocalPointerINS_24CollationElementIteratorEED2Ev.exit, label %93
 
-91:                                               ; preds = %88
-  call void @_ZN6icu_7724CollationElementIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %89) #9
-  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %89) #9
+93:                                               ; preds = %90
+  call void @_ZN6icu_7724CollationElementIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %91) #9
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %91) #9
   %.pre = load ptr, ptr %5, align 8, !tbaa !63
   br label %_ZN6icu_7712LocalPointerINS_24CollationElementIteratorEED2Ev.exit
 
-_ZN6icu_7712LocalPointerINS_24CollationElementIteratorEED2Ev.exit: ; preds = %88, %91
-  %92 = phi ptr [ %54, %88 ], [ %.pre, %91 ]
+_ZN6icu_7712LocalPointerINS_24CollationElementIteratorEED2Ev.exit: ; preds = %90, %93
+  %94 = phi ptr [ %54, %90 ], [ %.pre, %93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %93 = icmp eq ptr %92, null
-  br i1 %93, label %_ZN6icu_7712LocalPointerINS_24CollationElementIteratorEED2Ev.exit52, label %94
+  %95 = icmp eq ptr %94, null
+  br i1 %95, label %_ZN6icu_7712LocalPointerINS_24CollationElementIteratorEED2Ev.exit52, label %96
 
-94:                                               ; preds = %_ZN6icu_7712LocalPointerINS_24CollationElementIteratorEED2Ev.exit
-  call void @_ZN6icu_7724CollationElementIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %92) #9
-  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %92) #9
+96:                                               ; preds = %_ZN6icu_7712LocalPointerINS_24CollationElementIteratorEED2Ev.exit
+  call void @_ZN6icu_7724CollationElementIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %94) #9
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %94) #9
   br label %_ZN6icu_7712LocalPointerINS_24CollationElementIteratorEED2Ev.exit52
 
-_ZN6icu_7712LocalPointerINS_24CollationElementIteratorEED2Ev.exit52: ; preds = %_ZN6icu_7712LocalPointerINS_24CollationElementIteratorEED2Ev.exit, %94
+_ZN6icu_7712LocalPointerINS_24CollationElementIteratorEED2Ev.exit52: ; preds = %_ZN6icu_7712LocalPointerINS_24CollationElementIteratorEED2Ev.exit, %96
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK6icu_7713UnicodeString10startsWithERKS0_.exit60.thread
 
-95:                                               ; preds = %.loopexit.split-lp, %58
+97:                                               ; preds = %.loopexit.split-lp, %58
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.loopexit.split-lp ], [ %59, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN6icu_7712LocalPointerINS_24CollationElementIteratorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.pn
 
-96:                                               ; preds = %17
-  br i1 %.not.i.i53, label %.sink.split.i.i.i55, label %97
+98:                                               ; preds = %17
+  br i1 %.not.i.i53, label %.sink.split.i.i.i55, label %99
 
-97:                                               ; preds = %96
-  br i1 %.not6.i.i56, label %_ZNK6icu_7713UnicodeString10startsWithERKS0_.exit60.thread, label %104
+99:                                               ; preds = %98
+  br i1 %.not6.i.i56, label %_ZNK6icu_7713UnicodeString10startsWithERKS0_.exit60.thread, label %106
 
-.sink.split.i.i.i55:                              ; preds = %96
+.sink.split.i.i.i55:                              ; preds = %98
   br i1 %.not6.i.i56, label %_ZNK6icu_7713UnicodeString10startsWithERKS0_.exit60, label %_ZNK6icu_7713UnicodeString10startsWithERKS0_.exit60.thread
 
 _ZNK6icu_7713UnicodeString10startsWithERKS0_.exit60: ; preds = %.sink.split.i.i.i55
   %spec.select12.i.i57 = tail call i32 @llvm.smin.i32(i32 %29, i32 0)
   %.010.i.i58 = tail call i32 @llvm.smax.i32(i32 %29, i32 0)
-  %98 = and i16 %24, 2
-  %.not.i.i.i59 = icmp eq i16 %98, 0
-  %99 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  %100 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %101 = load ptr, ptr %100, align 8
-  %102 = select i1 %.not.i.i.i59, ptr %101, ptr %99
-  %103 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString17doEqualsSubstringEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef 0, i32 noundef %29, ptr noundef %102, i32 noundef %spec.select12.i.i57, i32 noundef %.010.i.i58)
-  %.not68 = icmp eq i8 %103, 0
-  br i1 %.not68, label %_ZNK6icu_7713UnicodeString10startsWithERKS0_.exit60.thread, label %104
+  %100 = and i16 %24, 2
+  %.not.i.i.i59 = icmp eq i16 %100, 0
+  %101 = getelementptr inbounds nuw i8, ptr %2, i64 10
+  %102 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %103 = load ptr, ptr %102, align 8
+  %104 = select i1 %.not.i.i.i59, ptr %103, ptr %101
+  %105 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString17doEqualsSubstringEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef 0, i32 noundef %29, ptr noundef %104, i32 noundef %spec.select12.i.i57, i32 noundef %.010.i.i58)
+  %.not68 = icmp eq i8 %105, 0
+  br i1 %.not68, label %_ZNK6icu_7713UnicodeString10startsWithERKS0_.exit60.thread, label %106
 
-104:                                              ; preds = %97, %_ZNK6icu_7713UnicodeString10startsWithERKS0_.exit60
-  %105 = load i16, ptr %8, align 8, !tbaa !23
-  %106 = icmp slt i16 %105, 0
-  %107 = ashr i16 %105, 5
-  %108 = sext i16 %107 to i32
-  %109 = load i32, ptr %13, align 4
-  %110 = select i1 %106, i32 %109, i32 %108
+106:                                              ; preds = %99, %_ZNK6icu_7713UnicodeString10startsWithERKS0_.exit60
+  %107 = load i16, ptr %8, align 8, !tbaa !23
+  %108 = icmp slt i16 %107, 0
+  %109 = ashr i16 %107, 5
+  %110 = sext i16 %109 to i32
+  %111 = load i32, ptr %13, align 4
+  %112 = select i1 %108, i32 %111, i32 %110
   br label %_ZNK6icu_7713UnicodeString10startsWithERKS0_.exit60.thread
 
-_ZNK6icu_7713UnicodeString10startsWithERKS0_.exit60.thread: ; preds = %97, %.sink.split.i.i.i55, %_ZNK6icu_7713UnicodeString10startsWithERKS0_.exit60, %52, %_ZN6icu_7712LocalPointerINS_24CollationElementIteratorEED2Ev.exit52, %4, %104, %42
-  %.038 = phi i32 [ %48, %42 ], [ %110, %104 ], [ 0, %4 ], [ 0, %52 ], [ %.240, %_ZN6icu_7712LocalPointerINS_24CollationElementIteratorEED2Ev.exit52 ], [ 0, %_ZNK6icu_7713UnicodeString10startsWithERKS0_.exit60 ], [ 0, %.sink.split.i.i.i55 ], [ 0, %97 ]
+_ZNK6icu_7713UnicodeString10startsWithERKS0_.exit60.thread: ; preds = %99, %.sink.split.i.i.i55, %_ZNK6icu_7713UnicodeString10startsWithERKS0_.exit60, %52, %_ZN6icu_7712LocalPointerINS_24CollationElementIteratorEED2Ev.exit52, %4, %106, %42
+  %.038 = phi i32 [ %48, %42 ], [ %112, %106 ], [ 0, %4 ], [ 0, %52 ], [ %.240, %_ZN6icu_7712LocalPointerINS_24CollationElementIteratorEED2Ev.exit52 ], [ 0, %_ZNK6icu_7713UnicodeString10startsWithERKS0_.exit60 ], [ 0, %.sink.split.i.i.i55 ], [ 0, %99 ]
   ret i32 %.038
 }
 

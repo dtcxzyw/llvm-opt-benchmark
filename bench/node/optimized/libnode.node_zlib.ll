@@ -4534,10 +4534,10 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit411: ; preds = %if.end5.i, %if
   br i1 %tobool.i1141, label %if.end40, label %return
 
 if.end40:                                         ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit411
-  %cmp41 = icmp ugt i64 %call36, 4294967295
+  %or.cond = icmp ugt i64 %call36, 8589934591
   %19 = add nsw i64 %ref.tmp26.sroa.357.0.extract.shift, -6
-  %20 = icmp ult i64 %19, -5
-  %or.cond4 = and i1 %cmp41, %20
+  %20 = icmp ult i64 %19, -4
+  %or.cond4 = and i1 %or.cond, %20
   br i1 %or.cond4, label %do.body52, label %lor.lhs.false.i382
 
 do.body52:                                        ; preds = %if.end40
@@ -5042,10 +5042,10 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit411: ; preds = %if.end5.i, %if
   br i1 %tobool.i1141, label %if.end40, label %return
 
 if.end40:                                         ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit411
-  %cmp41 = icmp ugt i64 %call36, 4294967295
+  %or.cond = icmp ugt i64 %call36, 8589934591
   %19 = add nsw i64 %ref.tmp26.sroa.357.0.extract.shift, -6
-  %20 = icmp ult i64 %19, -5
-  %or.cond4 = and i1 %cmp41, %20
+  %20 = icmp ult i64 %19, -4
+  %or.cond4 = and i1 %or.cond, %20
   br i1 %or.cond4, label %do.body52, label %lor.lhs.false.i382
 
 do.body52:                                        ; preds = %if.end40
@@ -5945,7 +5945,7 @@ _ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE10InitStreamEPjN2v8
   store ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE11FreeForZlibEPvS4_, ptr %zfree.i, align 8
   %opaque4.i = getelementptr inbounds nuw i8, ptr %retval.i17.0.i, i64 432
   store ptr %retval.i17.0.i, ptr %opaque4.i, align 8
-  %cmp.i = icmp ult i64 %call41, 4294967296
+  %cmp.i = icmp eq i64 %ref.tmp.sroa.357.0.extract.shift, 0
   br i1 %cmp.i, label %land.lhs.true.i, label %do.body.i
 
 land.lhs.true.i:                                  ; preds = %_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE10InitStreamEPjN2v85LocalINS5_8FunctionEEE.exit
@@ -9992,10 +9992,10 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit411: ; preds = %if.end5.i, %if
   br i1 %tobool.i1141, label %if.end40, label %return
 
 if.end40:                                         ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit411
-  %cmp41 = icmp ugt i64 %call36, 4294967295
+  %or.cond = icmp ugt i64 %call36, 8589934591
   %19 = add nsw i64 %ref.tmp26.sroa.357.0.extract.shift, -6
-  %20 = icmp ult i64 %19, -5
-  %or.cond4 = and i1 %cmp41, %20
+  %20 = icmp ult i64 %19, -4
+  %or.cond4 = and i1 %or.cond, %20
   br i1 %or.cond4, label %do.body52, label %lor.lhs.false.i382
 
 do.body52:                                        ; preds = %if.end40
@@ -10499,10 +10499,10 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit411: ; preds = %if.end5.i, %if
   br i1 %tobool.i1141, label %if.end40, label %return
 
 if.end40:                                         ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit411
-  %cmp41 = icmp ugt i64 %call36, 4294967295
+  %or.cond = icmp ugt i64 %call36, 8589934591
   %19 = add nsw i64 %ref.tmp26.sroa.357.0.extract.shift, -6
-  %20 = icmp ult i64 %19, -5
-  %or.cond4 = and i1 %cmp41, %20
+  %20 = icmp ult i64 %19, -4
+  %or.cond4 = and i1 %or.cond, %20
   br i1 %or.cond4, label %do.body52, label %lor.lhs.false.i382
 
 do.body52:                                        ; preds = %if.end40
@@ -12632,10 +12632,10 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit411: ; preds = %if.end5.i, %if
   br i1 %tobool.i1141, label %if.end40, label %return
 
 if.end40:                                         ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit411
-  %cmp41 = icmp ugt i64 %call36, 4294967295
+  %or.cond = icmp ugt i64 %call36, 8589934591
   %19 = add nsw i64 %ref.tmp26.sroa.357.0.extract.shift, -6
-  %20 = icmp ult i64 %19, -5
-  %or.cond4 = and i1 %cmp41, %20
+  %20 = icmp ult i64 %19, -4
+  %or.cond4 = and i1 %or.cond, %20
   br i1 %or.cond4, label %do.body52, label %lor.lhs.false.i382
 
 do.body52:                                        ; preds = %if.end40
@@ -13139,10 +13139,10 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit411: ; preds = %if.end5.i, %if
   br i1 %tobool.i1141, label %if.end40, label %return
 
 if.end40:                                         ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit411
-  %cmp41 = icmp ugt i64 %call36, 4294967295
+  %or.cond = icmp ugt i64 %call36, 8589934591
   %19 = add nsw i64 %ref.tmp26.sroa.357.0.extract.shift, -6
-  %20 = icmp ult i64 %19, -5
-  %or.cond4 = and i1 %cmp41, %20
+  %20 = icmp ult i64 %19, -4
+  %or.cond4 = and i1 %or.cond, %20
   br i1 %or.cond4, label %do.body52, label %lor.lhs.false.i382
 
 do.body52:                                        ; preds = %if.end40

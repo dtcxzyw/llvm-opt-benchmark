@@ -9587,8 +9587,8 @@ define linkonce_odr hidden void @_ZN14core_hashtableI18default_hash_entryIN3sat1
   %23 = icmp ugt i32 %11, 16
   %24 = mul i32 %11, 3
   %25 = icmp ugt i32 %22, %24
-  %or.cond18 = select i1 %23, i1 %25, i1 false
-  br i1 %or.cond18, label %26, label %._crit_edge.thread
+  %or.cond19 = select i1 %23, i1 %25, i1 false
+  br i1 %or.cond19, label %26, label %._crit_edge.thread
 
 26:                                               ; preds = %._crit_edge
   %27 = icmp eq ptr %9, null
@@ -9607,7 +9607,7 @@ _ZN14core_hashtableI18default_hash_entryIN3sat14cut_simplifier7bin_relEENS3_4has
   %31 = zext nneg i32 %30 to i64
   %32 = mul nuw nsw i64 %31, 20
   %33 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %32)
-  %.not11.i.i.i.i.i = icmp ult i32 %29, 2
+  %.not11.i.i.i.i.i = icmp eq i32 %30, 0
   br i1 %.not11.i.i.i.i.i, label %_ZN14core_hashtableI18default_hash_entryIN3sat14cut_simplifier7bin_relEENS3_4hashENS3_2eqEE11alloc_tableEj.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN14core_hashtableI18default_hash_entryIN3sat14cut_simplifier7bin_relEENS3_4hashENS3_2eqEE12delete_tableEv.exit, %.lr.ph.i.i.i.i.i

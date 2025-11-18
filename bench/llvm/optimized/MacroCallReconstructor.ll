@@ -443,11 +443,11 @@ _ZN5clang6format17UnwrappedLineNodeD2Ev.exit:     ; preds = %_ZNSt7__cxx114listI
   ]
 
 65:                                               ; preds = %61, %61
-  %.not56 = icmp ult i32 %55, 4
+  %66 = lshr i64 %56, 2
+  %.not56 = icmp eq i64 %66, 0
   br i1 %.not56, label %._crit_edge.i.i.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %65
-  %66 = lshr i64 %56, 2
   %67 = and i64 %.idx, 34359738336
   %scevgep.i.i.i = getelementptr i8, ptr %53, i64 %67
   br label %.lr.ph.i.i.i
@@ -498,11 +498,10 @@ _ZN5clang6format17UnwrappedLineNodeD2Ev.exit:     ; preds = %_ZNSt7__cxx114listI
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %65
   %.pre-phi56.i.i.i = phi i32 [ %82, %._crit_edge.loopexit.i.i.i ], [ %55, %65 ]
   %.029.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %53, %65 ]
-  switch i32 %.pre-phi56.i.i.i, label %default.unreachable [
+  switch i32 %.pre-phi56.i.i.i, label %93 [
     i32 3, label %83
     i32 2, label %87
     i32 1, label %91
-    i32 0, label %93
   ]
 
 83:                                               ; preds = %._crit_edge.i.i.i
@@ -516,7 +515,7 @@ _ZN5clang6format17UnwrappedLineNodeD2Ev.exit:     ; preds = %_ZNSt7__cxx114listI
   %86 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i, i64 8
   br label %87
 
-87:                                               ; preds = %._crit_edge.i.i.i, %85
+87:                                               ; preds = %85, %._crit_edge.i.i.i
   %.1.i.i.i = phi ptr [ %86, %85 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.1.val.i.i.i = load ptr, ptr %.1.i.i.i, align 8, !tbaa !46
   %88 = getelementptr i8, ptr %.1.val.i.i.i, i64 16
@@ -528,7 +527,7 @@ _ZN5clang6format17UnwrappedLineNodeD2Ev.exit:     ; preds = %_ZNSt7__cxx114listI
   %90 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 8
   br label %91
 
-91:                                               ; preds = %._crit_edge.i.i.i, %89
+91:                                               ; preds = %89, %._crit_edge.i.i.i
   %.2.i.i.i = phi ptr [ %90, %89 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.2.val.i.i.i = load ptr, ptr %.2.i.i.i, align 8, !tbaa !46
   %92 = getelementptr i8, ptr %.2.val.i.i.i, i64 16
@@ -536,10 +535,7 @@ _ZN5clang6format17UnwrappedLineNodeD2Ev.exit:     ; preds = %_ZNSt7__cxx114listI
   %.not.i.i.i38.not.i.i.i = icmp eq i32 %.2.val.val.i.i.i, 0
   br i1 %.not.i.i.i38.not.i.i.i, label %93, label %"_ZSt7find_ifIPSt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS4_EEZNS3_19createUnwrappedLineERKS4_iE3$_2ET_SC_SC_T0_.exit"
 
-default.unreachable:                              ; preds = %._crit_edge.i.i.i
-  unreachable
-
-93:                                               ; preds = %._crit_edge.i.i.i, %91
+93:                                               ; preds = %91, %._crit_edge.i.i.i
   %.pre = load ptr, ptr %57, align 8, !tbaa !46
   br label %"_ZSt7find_ifIPSt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS4_EEZNS3_19createUnwrappedLineERKS4_iE3$_2ET_SC_SC_T0_.exit"
 

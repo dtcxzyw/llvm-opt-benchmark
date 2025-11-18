@@ -230,7 +230,7 @@ solve.exit184:                                    ; preds = %.split47.us.i171
   %.3132 = phi ptr [ %85, %solve.exit184 ], [ %.2131256, %53 ]
   %.3128 = phi ptr [ %86, %solve.exit184 ], [ %.2127257, %53 ]
   %88 = lshr i64 %.1121258, 1
-  %.not154 = icmp samesign ult i64 %.1121258, 2
+  %.not154 = icmp eq i64 %88, 0
   br i1 %.not154, label %.loopexit244, label %53, !llvm.loop !12
 
 .loopexit244:                                     ; preds = %87, %.loopexit246
@@ -258,7 +258,8 @@ solve.exit184:                                    ; preds = %.split47.us.i171
   br label %98
 
 98:                                               ; preds = %.preheader239, %180
-  %.1279 = phi i64 [ 2, %.preheader239 ], [ %181, %180 ]
+  %.not144 = phi i1 [ false, %.preheader239 ], [ true, %180 ]
+  %.1279 = phi i64 [ 2, %.preheader239 ], [ 1, %180 ]
   %.1123278 = phi i64 [ %.0122.lcssa, %.preheader239 ], [ %.2124, %180 ]
   %.1137277 = phi ptr [ %.0136.lcssa, %.preheader239 ], [ %.2138, %180 ]
   %.1140276 = phi ptr [ %.0139.lcssa, %.preheader239 ], [ %.2141, %180 ]
@@ -472,7 +473,7 @@ solve.exit236:                                    ; preds = %.split47.us.i223
   %.6135 = phi ptr [ %171, %solve.exit236 ], [ %.5134273, %139 ]
   %.6 = phi ptr [ %172, %solve.exit236 ], [ %.5274, %139 ]
   %174 = lshr i64 %.3275, 1
-  %.not147 = icmp samesign ult i64 %.3275, 2
+  %.not147 = icmp eq i64 %174, 0
   br i1 %.not147, label %.loopexit, label %139, !llvm.loop !15
 
 .loopexit:                                        ; preds = %173, %._crit_edge270
@@ -487,8 +488,6 @@ solve.exit236:                                    ; preds = %.split47.us.i223
   %.2141 = phi ptr [ %178, %.loopexit ], [ %.1140276, %98 ]
   %.2138 = phi ptr [ %176, %.loopexit ], [ %.1137277, %98 ]
   %.2124 = phi i64 [ %179, %.loopexit ], [ %.1123278, %98 ]
-  %181 = lshr i64 %.1279, 1
-  %.not144 = icmp samesign ult i64 %.1279, 2
   br i1 %.not144, label %.loopexit240, label %98, !llvm.loop !16
 
 .loopexit240:                                     ; preds = %180, %._crit_edge

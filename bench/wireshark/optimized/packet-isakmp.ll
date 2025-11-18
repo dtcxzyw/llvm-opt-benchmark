@@ -8566,7 +8566,7 @@ define internal i32 @ikev2_key_hash_func(ptr noundef readonly captures(none) %0)
   %4 = lshr i32 %3, 2
   %5 = zext nneg i32 %4 to i64
   %6 = load ptr, ptr %0, align 8
-  %.not = icmp ult i32 %3, 4
+  %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
@@ -8587,7 +8587,7 @@ define internal i32 @ikev2_key_hash_func(ptr noundef readonly captures(none) %0)
   %14 = zext nneg i32 %13 to i64
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
-  %.not27 = icmp ult i32 %12, 4
+  %.not27 = icmp eq i32 %13, 0
   br i1 %.not27, label %._crit_edge25, label %.lr.ph24
 
 .lr.ph24:                                         ; preds = %._crit_edge, %.lr.ph24

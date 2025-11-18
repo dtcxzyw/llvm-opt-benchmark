@@ -553,8 +553,8 @@ _ZN6vectorISt4pairIP9func_decljELb0EjE5resetEv.exit: ; preds = %_ZN15ref_vector_
   %43 = icmp ugt i32 %31, 16
   %44 = mul i32 %31, 3
   %45 = icmp ugt i32 %42, %44
-  %or.cond18.i = select i1 %43, i1 %45, i1 false
-  br i1 %or.cond18.i, label %46, label %._crit_edge.thread.i
+  %or.cond19.i = select i1 %43, i1 %45, i1 false
+  br i1 %or.cond19.i, label %46, label %._crit_edge.thread.i
 
 46:                                               ; preds = %._crit_edge.i
   %47 = icmp eq ptr %29, null
@@ -573,7 +573,7 @@ _ZN14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_h
   %51 = zext nneg i32 %50 to i64
   %52 = mul nuw nsw i64 %51, 24
   %53 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %52)
-  %.not11.i.i.i.i.i.i = icmp ult i32 %49, 2
+  %.not11.i.i.i.i.i.i = icmp eq i32 %50, 0
   br i1 %.not11.i.i.i.i.i.i, label %_ZN14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE11alloc_tableEj.exit.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZN14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE12delete_tableEv.exit.i, %.lr.ph.i.i.i.i.i.i
@@ -642,8 +642,8 @@ _ZN14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_h
   %78 = icmp ugt i32 %66, 16
   %79 = mul i32 %66, 3
   %80 = icmp ugt i32 %77, %79
-  %or.cond18.i.i = select i1 %78, i1 %80, i1 false
-  br i1 %or.cond18.i.i, label %81, label %._crit_edge.thread.i.i
+  %or.cond19.i.i = select i1 %78, i1 %80, i1 false
+  br i1 %or.cond19.i.i, label %81, label %._crit_edge.thread.i.i
 
 81:                                               ; preds = %._crit_edge.i.i
   %82 = icmp eq ptr %64, null
@@ -662,7 +662,7 @@ _ZN14core_hashtableI17default_map_entryISt4pairIP9func_decljES3_EN9table2mapIS5_
   %86 = zext nneg i32 %85 to i64
   %87 = shl nuw nsw i64 %86, 5
   %88 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %87)
-  %.not11.i.i.i.i.i.i.i = icmp ult i32 %84, 2
+  %.not11.i.i.i.i.i.i.i = icmp eq i32 %85, 0
   br i1 %.not11.i.i.i.i.i.i.i, label %_ZN14core_hashtableI17default_map_entryISt4pairIP9func_decljES3_EN9table2mapIS5_9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE15entry_hash_procENSE_13entry_eq_procEE11alloc_tableEj.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN14core_hashtableI17default_map_entryISt4pairIP9func_decljES3_EN9table2mapIS5_9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE15entry_hash_procENSE_13entry_eq_procEE12delete_tableEv.exit.i.i, %.lr.ph.i.i.i.i.i.i.i
@@ -1434,8 +1434,8 @@ define hidden void @_ZN7datalog21mk_unbound_compressor12detect_tasksERKNS_8rule_
   %74 = icmp ugt i32 %62, 16
   %75 = mul i32 %62, 3
   %76 = icmp ugt i32 %73, %75
-  %or.cond18.i.i.i = select i1 %74, i1 %76, i1 false
-  br i1 %or.cond18.i.i.i, label %77, label %._crit_edge.thread.i.i.i
+  %or.cond19.i.i.i = select i1 %74, i1 %76, i1 false
+  br i1 %or.cond19.i.i.i, label %77, label %._crit_edge.thread.i.i.i
 
 77:                                               ; preds = %._crit_edge.i.i.i
   %78 = icmp eq ptr %60, null
@@ -1454,7 +1454,7 @@ _ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_h
   %82 = zext nneg i32 %81 to i64
   %83 = shl nuw nsw i64 %82, 4
   %84 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %83)
-  %.not6.i.i.i.i.i.i.i.i = icmp ult i32 %80, 2
+  %.not6.i.i.i.i.i.i.i.i = icmp eq i32 %81, 0
   br i1 %.not6.i.i.i.i.i.i.i.i, label %_ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE11alloc_tableEj.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %_ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE12delete_tableEv.exit.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i
@@ -1626,8 +1626,8 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN7datalog21mk_unbound_compressor12
   %52 = icmp ugt i32 %40, 16
   %53 = mul i32 %40, 3
   %54 = icmp ugt i32 %51, %53
-  %or.cond18.i.i.i = select i1 %52, i1 %54, i1 false
-  br i1 %or.cond18.i.i.i, label %55, label %._crit_edge.thread.i.i.i
+  %or.cond19.i.i.i = select i1 %52, i1 %54, i1 false
+  br i1 %or.cond19.i.i.i, label %55, label %._crit_edge.thread.i.i.i
 
 55:                                               ; preds = %._crit_edge.i.i.i
   %56 = icmp eq ptr %38, null
@@ -1646,7 +1646,7 @@ _ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_h
   %60 = zext nneg i32 %59 to i64
   %61 = shl nuw nsw i64 %60, 4
   %62 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %61)
-  %.not6.i.i.i.i.i.i.i.i = icmp ult i32 %58, 2
+  %.not6.i.i.i.i.i.i.i.i = icmp eq i32 %59, 0
   br i1 %.not6.i.i.i.i.i.i.i.i, label %_ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE11alloc_tableEj.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %_ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE12delete_tableEv.exit.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i
@@ -1819,12 +1819,12 @@ _ZNK8uint_set8containsEj.exit.thread:             ; preds = %81, %_ZNK6vectorIjL
 _ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit.thread: ; preds = %.lr.ph.i.i, %149, %.lr.ph34.i.i, %.preheader.i.i, %_ZNK8uint_set8containsEj.exit.thread, %_ZNK8uint_set8containsEj.exit, %74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit.thread154, label %74, !llvm.loop !345
+  br i1 %exitcond.not, label %_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit.thread155, label %74, !llvm.loop !345
 
 _ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit: ; preds = %124, %140, %_ZN7counter5resetEv.exit
   %storemerge113 = phi i32 [ 0, %_ZN7counter5resetEv.exit ], [ %102, %140 ], [ %102, %124 ]
   %151 = icmp eq i32 %storemerge113, %28
-  br i1 %151, label %_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit.thread154, label %152
+  br i1 %151, label %_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit.thread155, label %152
 
 152:                                              ; preds = %_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit
   %153 = ptrtoint ptr %26 to i64
@@ -2322,7 +2322,7 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %_ZN15ref_vector_cor
 
 _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit, %371
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit.thread154
+  br label %_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit.thread155
 
 376:                                              ; preds = %.loopexit, %.loopexit.split-lp, %360, %292
   %.pn49 = phi { ptr, i32 } [ %293, %292 ], [ %.pn, %360 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
@@ -2340,7 +2340,7 @@ _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %_ZN7obj_refI3app11a
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %.pn52
 
-_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit.thread154: ; preds = %_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit.thread, %_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit, %_ZN6vectorIP4exprLb0EjED2Ev.exit
+_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit.thread155: ; preds = %_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit.thread, %_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit, %_ZN6vectorIP4exprLb0EjED2Ev.exit
   %.0 = phi i32 [ %.1, %_ZN6vectorIP4exprLb0EjED2Ev.exit ], [ 0, %_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit ], [ 0, %_ZNK14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE8containsERKS4_.exit.thread ]
   ret i32 %.0
 }
@@ -4041,9 +4041,9 @@ _ZNK6vectorISt4pairIP9func_decljELb0EjE5emptyEv.exit: ; preds = %_ZNK6vectorISt4
   %.idx.i = mul nuw nsw i64 %85, 24
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 %.idx.i
   %.not11.i = icmp eq i32 %84, 0
-  br i1 %.not11.i, label %_ZN14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE5resetEv.exit.thread94, label %.lr.ph.i
+  br i1 %.not11.i, label %_ZN14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE5resetEv.exit.thread95, label %.lr.ph.i
 
-_ZN14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE5resetEv.exit.thread94: ; preds = %82
+_ZN14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE5resetEv.exit.thread95: ; preds = %82
   store i32 0, ptr %65, align 4, !tbaa !226
   store i32 0, ptr %66, align 8, !tbaa !227
   br label %.lr.ph58.preheader
@@ -4075,8 +4075,8 @@ _ZN14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_h
   %96 = icmp ugt i32 %84, 16
   %97 = mul i32 %84, 3
   %98 = icmp ugt i32 %95, %97
-  %or.cond18.i = select i1 %96, i1 %98, i1 false
-  br i1 %or.cond18.i, label %99, label %_ZN14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE5resetEv.exit
+  %or.cond19.i = select i1 %96, i1 %98, i1 false
+  br i1 %or.cond19.i, label %99, label %_ZN14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE5resetEv.exit
 
 99:                                               ; preds = %._crit_edge.i
   %100 = icmp eq ptr %83, null
@@ -4095,7 +4095,7 @@ _ZN14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_h
   %104 = zext nneg i32 %103 to i64
   %105 = mul nuw nsw i64 %104, 24
   %106 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %105)
-  %.not11.i.i.i.i.i.i = icmp ult i32 %102, 2
+  %.not11.i.i.i.i.i.i = icmp eq i32 %103, 0
   br i1 %.not11.i.i.i.i.i.i, label %_ZN14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE11alloc_tableEj.exit.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZN14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE12delete_tableEv.exit.i, %.lr.ph.i.i.i.i.i.i
@@ -4119,9 +4119,9 @@ _ZN14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_h
   %109 = icmp eq ptr %.pr.pre, null
   br i1 %109, label %_ZNK6vectorISt4pairIP9func_decljELb0EjE5emptyEv.exit47.preheader, label %.lr.ph58.preheader
 
-.lr.ph58.preheader:                               ; preds = %77, %_ZN14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE5resetEv.exit.thread94, %_ZN14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE5resetEv.exit
-  %.pr93 = phi ptr [ %.pr.pre, %_ZN14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE5resetEv.exit ], [ %73, %_ZN14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE5resetEv.exit.thread94 ], [ %73, %77 ]
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pr93, i64 -4
+.lr.ph58.preheader:                               ; preds = %77, %_ZN14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE5resetEv.exit.thread95, %_ZN14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE5resetEv.exit
+  %.pr94 = phi ptr [ %.pr.pre, %_ZN14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE5resetEv.exit ], [ %73, %_ZN14core_hashtableI18default_hash_entryISt4pairIP9func_decljEE9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE5resetEv.exit.thread95 ], [ %73, %77 ]
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pr94, i64 -4
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !262
   %110 = icmp eq i32 %.pre, 0
   br i1 %110, label %_ZNK6vectorISt4pairIP9func_decljELb0EjE5emptyEv.exit47.preheader, label %_ZN6vectorISt4pairIP9func_decljELb0EjE4backEv.exit
@@ -4132,7 +4132,7 @@ _ZNK6vectorISt4pairIP9func_decljELb0EjE5emptyEv.exit47.preheader: ; preds = %_ZN
   br i1 %112, label %.critedge.loopexit, label %_ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE4sizeEv.exit
 
 _ZN6vectorISt4pairIP9func_decljELb0EjE4backEv.exit: ; preds = %.lr.ph58.preheader, %_ZN6vectorISt4pairIP9func_decljELb0EjE4backEv.exit
-  %113 = phi ptr [ %118, %_ZN6vectorISt4pairIP9func_decljELb0EjE4backEv.exit ], [ %.pr93, %.lr.ph58.preheader ]
+  %113 = phi ptr [ %118, %_ZN6vectorISt4pairIP9func_decljELb0EjE4backEv.exit ], [ %.pr94, %.lr.ph58.preheader ]
   %114 = phi i32 [ %121, %_ZN6vectorISt4pairIP9func_decljELb0EjE4backEv.exit ], [ %.pre, %.lr.ph58.preheader ]
   %115 = add i32 %114, -1
   %116 = zext i32 %115 to i64

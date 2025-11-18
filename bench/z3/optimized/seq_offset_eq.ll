@@ -1185,8 +1185,8 @@ define hidden void @_ZN3smt13seq_offset_eq12pop_scope_ehEj(ptr noundef nonnull a
   %34 = icmp ugt i32 %23, 16
   %35 = mul i32 %23, 3
   %36 = icmp ugt i32 %33, %35
-  %or.cond18.i.i = select i1 %34, i1 %36, i1 false
-  br i1 %or.cond18.i.i, label %37, label %._crit_edge.thread.i.i
+  %or.cond19.i.i = select i1 %34, i1 %36, i1 false
+  br i1 %or.cond19.i.i, label %37, label %._crit_edge.thread.i.i
 
 37:                                               ; preds = %._crit_edge.i.i
   %38 = icmp eq ptr %21, null
@@ -1205,7 +1205,7 @@ _ZN14core_hashtableIN12obj_pair_mapIN3smt5enodeES2_iE5entryE8obj_hashINS3_8key_d
   %42 = zext nneg i32 %41 to i64
   %43 = mul nuw nsw i64 %42, 24
   %44 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %43)
-  %.not11.i.i.i.i.i.i.i = icmp ult i32 %40, 2
+  %.not11.i.i.i.i.i.i.i = icmp eq i32 %41, 0
   br i1 %.not11.i.i.i.i.i.i.i, label %_ZN14core_hashtableIN12obj_pair_mapIN3smt5enodeES2_iE5entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE11alloc_tableEj.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN14core_hashtableIN12obj_pair_mapIN3smt5enodeES2_iE5entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE12delete_tableEv.exit.i.i, %.lr.ph.i.i.i.i.i.i.i
@@ -1295,7 +1295,7 @@ _ZN14core_hashtableI14obj_hash_entryIN3smt5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_
   %77 = zext nneg i32 %76 to i64
   %78 = shl nuw nsw i64 %77, 3
   %79 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %78)
-  %.not6.i.i.i.i.i.i = icmp ult i32 %75, 2
+  %.not6.i.i.i.i.i.i = icmp eq i32 %76, 0
   br i1 %.not6.i.i.i.i.i.i, label %_ZN14core_hashtableI14obj_hash_entryIN3smt5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE11alloc_tableEj.exit.i, label %.lr.ph.preheader.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %_ZN14core_hashtableI14obj_hash_entryIN3smt5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE12delete_tableEv.exit.i

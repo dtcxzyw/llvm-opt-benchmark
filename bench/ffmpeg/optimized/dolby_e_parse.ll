@@ -364,7 +364,7 @@ define range(i32 -1094995529, 1) i32 @ff_dolby_e_parse_header(ptr noundef %0, pt
   %83 = add i32 %73, 10
   %84 = tail call i32 @llvm.umin.i32(i32 %71, i32 %83)
   store i32 %84, ptr %68, align 8, !tbaa !26
-  %.not101 = icmp ult i32 %81, 4194304
+  %.not101 = icmp eq i32 %82, 0
   br i1 %.not101, label %85, label %88
 
 85:                                               ; preds = %66

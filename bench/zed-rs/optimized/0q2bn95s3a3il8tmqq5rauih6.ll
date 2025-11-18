@@ -103776,7 +103776,7 @@ define internal fastcc noundef range(i8 1, 3) i8 @_ZN9html5ever9tokenizer8char_r
   unreachable
 
 283:                                              ; preds = %278
-  %284 = icmp ult i64 %15, 4294967296
+  %284 = icmp eq i64 %17, 0
   %. = select i1 %284, i8 1, i8 2
   %285 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i64 %15, ptr %285, align 4

@@ -455,12 +455,11 @@ if.end.i44.i:                                     ; preds = %for.body.i.i
   %58 = load i64, ptr %cmsg.029.i.i, align 8
   %sub.i.i = add i64 %58, -16
   %div19.i.i = lshr i64 %sub.i.i, 2
-  %cmp524.not.i.i = icmp ult i64 %sub.i.i, 4
+  %cmp524.not.i.i = icmp eq i64 %div19.i.i, 0
   br i1 %cmp524.not.i.i, label %for.inc22.i.i, label %for.body6.lr.ph.i.i
 
 for.body6.lr.ph.i.i:                              ; preds = %if.end.i44.i
   %__cmsg_data.i.i = getelementptr inbounds nuw i8, ptr %cmsg.029.i.i, i64 16
-  %umax.i.i = call i64 @llvm.umax.i64(i64 %div19.i.i, i64 1)
   br label %for.body6.i.i
 
 for.body6.i.i:                                    ; preds = %for.inc19.i.i, %for.body6.lr.ph.i.i
@@ -545,7 +544,7 @@ if.else.i.i:                                      ; preds = %for.body6.i.i
 
 for.inc19.i.i:                                    ; preds = %if.else.i.i, %uv__stream_queue_fd.exit.thread.i.i
   %inc20.i.i = add nuw nsw i64 %i.025.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %inc20.i.i, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %inc20.i.i, %div19.i.i
   br i1 %exitcond.not.i.i, label %for.inc22.i.i, label %for.body6.i.i
 
 for.inc22.i.i:                                    ; preds = %for.inc19.i.i, %if.end.i44.i, %if.then.i.i
@@ -2166,9 +2165,6 @@ declare i64 @sendmsg(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #8
 
 declare i64 @writev(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10

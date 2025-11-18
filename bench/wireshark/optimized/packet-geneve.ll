@@ -220,7 +220,7 @@ define internal i32 @dissect_geneve(ptr noundef %0, ptr noundef %1, ptr noundef 
   %14 = load i32, ptr @hf_geneve_version, align 4
   %15 = zext nneg i8 %13 to i32
   %16 = tail call ptr @proto_tree_add_uint(ptr noundef %11, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %15)
-  %.not = icmp ult i8 %12, 64
+  %.not = icmp eq i8 %13, 0
   br i1 %.not, label %20, label %17
 
 17:                                               ; preds = %4
@@ -366,7 +366,7 @@ proto_item_set_hidden.exit.i.i:                   ; preds = %103, %100, %79
   %113 = tail call ptr @proto_item_add_subtree(ptr noundef %111, i32 noundef %112)
   %114 = load i32, ptr @hf_geneve_option_flags_reserved, align 4
   %115 = tail call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %114, ptr noundef %0, i32 noundef %61, i32 noundef 1, i32 noundef 0)
-  %.not103.i.i = icmp ult i8 %107, 32
+  %.not103.i.i = icmp eq i8 %108, 0
   br i1 %.not103.i.i, label %117, label %116
 
 116:                                              ; preds = %proto_item_set_hidden.exit.i.i

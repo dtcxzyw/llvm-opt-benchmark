@@ -452,11 +452,11 @@ sub_1:                                            ; preds = %sub_0
   %46 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %47 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #10
   %48 = trunc i64 %47 to i32
-  %.not.i = icmp ult i32 %48, 2
+  %49 = lshr i32 %48, 1
+  %.not.i = icmp eq i32 %49, 0
   br i1 %.not.i, label %hex_to_bin.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %45
-  %49 = lshr i32 %48, 1
   %invariant.umin.i = call i32 @llvm.umin.i32(i32 %49, i32 16)
   %wide.trip.count.i = zext nneg i32 %invariant.umin.i to i64
   br label %.lr.ph.i

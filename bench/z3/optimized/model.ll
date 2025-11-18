@@ -4383,8 +4383,8 @@ _ZNK6vectorIP9func_declLb0EjE3endEv.exit:         ; preds = %_ZN8top_sortI9func_
   %93 = icmp ugt i32 %82, 16
   %94 = mul i32 %82, 3
   %95 = icmp ugt i32 %92, %94
-  %or.cond18.i.i = select i1 %93, i1 %95, i1 false
-  br i1 %or.cond18.i.i, label %96, label %._crit_edge.thread.i.i
+  %or.cond19.i.i = select i1 %93, i1 %95, i1 false
+  br i1 %or.cond19.i.i, label %96, label %._crit_edge.thread.i.i
 
 96:                                               ; preds = %._crit_edge.i.i
   %97 = icmp eq ptr %81, null
@@ -4409,7 +4409,7 @@ _ZN14core_hashtableIN7obj_mapI9func_decljE13obj_map_entryE8obj_hashINS2_8key_dat
           to label %.noexc44 unwind label %125
 
 .noexc44:                                         ; preds = %_ZN14core_hashtableIN7obj_mapI9func_decljE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE12delete_tableEv.exit.i.i
-  %.not6.i.i.i.i.i.i.i = icmp ult i32 %99, 2
+  %.not6.i.i.i.i.i.i.i = icmp eq i32 %100, 0
   br i1 %.not6.i.i.i.i.i.i.i, label %_ZN14core_hashtableIN7obj_mapI9func_decljE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE11alloc_tableEj.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.noexc44, %.lr.ph.i.i.i.i.i.i.i

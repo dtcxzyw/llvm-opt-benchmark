@@ -30261,7 +30261,7 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
 63:                                               ; preds = %57
   %64 = getelementptr inbounds i64, ptr %0, i64 %.019.i.i.i.i.i
   store i64 %59, ptr %64, align 8, !tbaa !4
-  %.not10.i.i.i = icmp ult i64 %.0920.in.i.i.i.i.i, 2
+  %.not10.i.i.i = icmp eq i64 %.0920.i.i89.i.i.i, 0
   br i1 %.not10.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN3igl13IndexLessThanIRKS3_IjSaIjEEEEEEEvT_SH_SH_RT0_.exit.i.i, label %57, !llvm.loop !1041
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN3igl13IndexLessThanIRKS3_IjSaIjEEEEEEEvT_SH_SH_RT0_.exit.i.i: ; preds = %63, %57, %53
@@ -30663,7 +30663,7 @@ define linkonce_odr dso_local void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_it
 53:                                               ; preds = %.lr.ph.i.i.i.us
   %54 = getelementptr inbounds i64, ptr %.fr26, i64 %.019.i.i.i.us
   store i64 %49, ptr %54, align 8, !tbaa !4
-  %.not10.i.us = icmp ult i64 %.0920.in.i.i.i.us, 2
+  %.not10.i.us = icmp eq i64 %.0920.i.i89.i.us, 0
   br i1 %.not10.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN3igl13IndexLessThanIRKS3_IjSaIjEEEEEEEvT_SH_SH_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !1041
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN3igl13IndexLessThanIRKS3_IjSaIjEEEEEEEvT_SH_SH_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %53, %46
@@ -32183,7 +32183,7 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
 63:                                               ; preds = %57
   %64 = getelementptr inbounds i64, ptr %0, i64 %.019.i.i.i.i.i
   store i64 %59, ptr %64, align 8, !tbaa !4
-  %.not10.i.i.i = icmp ult i64 %.0920.in.i.i.i.i.i, 2
+  %.not10.i.i.i = icmp eq i64 %.0920.i.i89.i.i.i, 0
   br i1 %.not10.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN3igl13IndexLessThanIRKS3_IdSaIdEEEEEEEvT_SH_SH_RT0_.exit.i.i, label %57, !llvm.loop !1092
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN3igl13IndexLessThanIRKS3_IdSaIdEEEEEEEvT_SH_SH_RT0_.exit.i.i: ; preds = %63, %57, %53
@@ -32585,7 +32585,7 @@ define linkonce_odr dso_local void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_it
 53:                                               ; preds = %.lr.ph.i.i.i.us
   %54 = getelementptr inbounds i64, ptr %.fr26, i64 %.019.i.i.i.us
   store i64 %49, ptr %54, align 8, !tbaa !4
-  %.not10.i.us = icmp ult i64 %.0920.in.i.i.i.us, 2
+  %.not10.i.us = icmp eq i64 %.0920.i.i89.i.us, 0
   br i1 %.not10.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN3igl13IndexLessThanIRKS3_IdSaIdEEEEEEEvT_SH_SH_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !1092
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN3igl13IndexLessThanIRKS3_IdSaIdEEEEEEEvT_SH_SH_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %53, %46
@@ -46028,7 +46028,7 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
 63:                                               ; preds = %57
   %64 = getelementptr inbounds i64, ptr %0, i64 %.019.i.i.i.i.i
   store i64 %59, ptr %64, align 8, !tbaa !4
-  %.not10.i.i.i = icmp ult i64 %.0920.in.i.i.i.i.i, 2
+  %.not10.i.i.i = icmp eq i64 %.0920.i.i89.i.i.i, 0
   br i1 %.not10.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN3igl13IndexLessThanIRKS3_IiSaIiEEEEEEEvT_SH_SH_RT0_.exit.i.i, label %57, !llvm.loop !1519
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN3igl13IndexLessThanIRKS3_IiSaIiEEEEEEEvT_SH_SH_RT0_.exit.i.i: ; preds = %63, %57, %53
@@ -46430,7 +46430,7 @@ define linkonce_odr dso_local void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_it
 53:                                               ; preds = %.lr.ph.i.i.i.us
   %54 = getelementptr inbounds i64, ptr %.fr26, i64 %.019.i.i.i.us
   store i64 %49, ptr %54, align 8, !tbaa !4
-  %.not10.i.us = icmp ult i64 %.0920.in.i.i.i.us, 2
+  %.not10.i.us = icmp eq i64 %.0920.i.i89.i.us, 0
   br i1 %.not10.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN3igl13IndexLessThanIRKS3_IiSaIiEEEEEEEvT_SH_SH_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !1519
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN3igl13IndexLessThanIRKS3_IiSaIiEEEEEEEvT_SH_SH_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %53, %46
@@ -52926,7 +52926,7 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops1
 68:                                               ; preds = %60
   %69 = getelementptr inbounds i32, ptr %0, i64 %.01317.i.i.i.i.i
   store i32 %62, ptr %69, align 4, !tbaa !23
-  %.not11.i.i.i = icmp ult i64 %.018.in.i.i.i.i.i, 2
+  %.not11.i.i.i = icmp eq i64 %.018.i.i910.i.i.i, 0
   br i1 %.not11.i.i.i, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl19IndexVectorLessThanIKN5Eigen5BlockIKNS6_6MatrixIiLi1ELi6ELi1ELi1ELi6EEELi1ELi1ELb0EEEEEEEEvT_SF_SF_RT0_.exit.i.i, label %60, !llvm.loop !1729
 
 _ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl19IndexVectorLessThanIKN5Eigen5BlockIKNS6_6MatrixIiLi1ELi6ELi1ELi1ELi6EEELi1ELi1ELb0EEEEEEEEvT_SF_SF_RT0_.exit.i.i: ; preds = %68, %60, %56
@@ -53556,7 +53556,7 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops1
 68:                                               ; preds = %60
   %69 = getelementptr inbounds i32, ptr %0, i64 %.01317.i.i.i.i.i
   store i32 %62, ptr %69, align 4, !tbaa !23
-  %.not11.i.i.i = icmp ult i64 %.018.in.i.i.i.i.i, 2
+  %.not11.i.i.i = icmp eq i64 %.018.i.i910.i.i.i, 0
   br i1 %.not11.i.i.i, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl19IndexVectorLessThanIKN5Eigen5BlockIKNS6_6MatrixIiLi1ELi6ELi1ELi1ELi6EEELi1ELi6ELb1EEEEEEEEvT_SF_SF_RT0_.exit.i.i, label %60, !llvm.loop !1742
 
 _ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl19IndexVectorLessThanIKN5Eigen5BlockIKNS6_6MatrixIiLi1ELi6ELi1ELi1ELi6EEELi1ELi6ELb1EEEEEEEEvT_SF_SF_RT0_.exit.i.i: ; preds = %68, %60, %56
@@ -57216,7 +57216,7 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
 63:                                               ; preds = %56
   %64 = getelementptr inbounds i64, ptr %0, i64 %.019.i.i.i.i.i
   store i64 %58, ptr %64, align 8, !tbaa !4
-  %.not10.i.i.i = icmp ult i64 %.0920.in.i.i.i.i.i, 2
+  %.not10.i.i.i = icmp eq i64 %.0920.i.i89.i.i.i, 0
   br i1 %.not10.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN3igl13IndexLessThanIRKS3_IlSaIlEEEEEEEvT_SH_SH_RT0_.exit.i.i, label %56, !llvm.loop !1853
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN3igl13IndexLessThanIRKS3_IlSaIlEEEEEEEvT_SH_SH_RT0_.exit.i.i: ; preds = %63, %56, %53
@@ -57622,7 +57622,7 @@ define linkonce_odr dso_local void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_it
 54:                                               ; preds = %.lr.ph.i.i.i.us
   %55 = getelementptr inbounds i64, ptr %.fr26, i64 %.019.i.i.i.us
   store i64 %49, ptr %55, align 8, !tbaa !4
-  %.not10.i.us = icmp ult i64 %.0920.in.i.i.i.us, 2
+  %.not10.i.us = icmp eq i64 %.0920.i.i89.i.us, 0
   br i1 %.not10.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN3igl13IndexLessThanIRKS3_IlSaIlEEEEEEEvT_SH_SH_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !1853
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN3igl13IndexLessThanIRKS3_IlSaIlEEEEEEEvT_SH_SH_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %54, %46
@@ -61308,7 +61308,7 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
 63:                                               ; preds = %57
   %64 = getelementptr inbounds i64, ptr %0, i64 %.019.i.i.i.i.i
   store i64 %59, ptr %64, align 8, !tbaa !4
-  %.not10.i.i.i = icmp ult i64 %.0920.in.i.i.i.i.i, 2
+  %.not10.i.i.i = icmp eq i64 %.0920.i.i89.i.i.i, 0
   br i1 %.not10.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN3igl13IndexLessThanIRKS3_IfSaIfEEEEEEEvT_SH_SH_RT0_.exit.i.i, label %57, !llvm.loop !1970
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN3igl13IndexLessThanIRKS3_IfSaIfEEEEEEEvT_SH_SH_RT0_.exit.i.i: ; preds = %63, %57, %53
@@ -61710,7 +61710,7 @@ define linkonce_odr dso_local void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_it
 53:                                               ; preds = %.lr.ph.i.i.i.us
   %54 = getelementptr inbounds i64, ptr %.fr26, i64 %.019.i.i.i.us
   store i64 %49, ptr %54, align 8, !tbaa !4
-  %.not10.i.us = icmp ult i64 %.0920.in.i.i.i.us, 2
+  %.not10.i.us = icmp eq i64 %.0920.i.i89.i.us, 0
   br i1 %.not10.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN3igl13IndexLessThanIRKS3_IfSaIfEEEEEEEvT_SH_SH_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !1970
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN3igl13IndexLessThanIRKS3_IfSaIfEEEEEEEvT_SH_SH_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %53, %46

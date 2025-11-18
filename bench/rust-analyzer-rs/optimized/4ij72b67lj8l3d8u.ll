@@ -22224,7 +22224,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %115, %.thread
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %96)
   %.sroa.0776.4.extract.shift = lshr i64 %131, 32
-  %132 = icmp ult i64 %131, 4294967296
+  %132 = icmp eq i64 %.sroa.0776.4.extract.shift, 0
   %.sink5.i = select i1 %132, i64 928, i64 936
   %.sink.i.v = select i1 %132, i64 %131, i64 %.sroa.0776.4.extract.shift
   %.sink.i = trunc i64 %.sink.i.v to i32
@@ -24362,7 +24362,7 @@ _ZN7hir_def8ModuleId7def_map17h12ba535c1628be3bE.exit: ; preds = %130
   call void @llvm.lifetime.start.p0(ptr nonnull %95)
   call void @llvm.lifetime.start.p0(ptr nonnull %94)
   %.sroa.0.4.extract.shift = lshr i64 %931, 32
-  %932 = icmp ult i64 %931, 4294967296
+  %932 = icmp eq i64 %.sroa.0.4.extract.shift, 0
   %.sink5.i463 = select i1 %932, i64 912, i64 920
   %.sink.i464.v = select i1 %932, i64 %931, i64 %.sroa.0.4.extract.shift
   %.sink.i464 = trunc i64 %.sink.i464.v to i32
@@ -24378,7 +24378,7 @@ _ZN7hir_def8ModuleId7def_map17h12ba535c1628be3bE.exit: ; preds = %130
   %.sroa.217.0.copyload = load i32, ptr %.sroa.217.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %91)
   %.sroa.0766.4.extract.shift = lshr i64 %938, 32
-  %939 = icmp ult i64 %938, 4294967296
+  %939 = icmp eq i64 %.sroa.0766.4.extract.shift, 0
   %.sink5.i466 = select i1 %939, i64 912, i64 920
   %.sink.i467.v = select i1 %939, i64 %938, i64 %.sroa.0766.4.extract.shift
   %.sink.i467 = trunc i64 %.sink.i467.v to i32
@@ -26529,7 +26529,7 @@ define void @_ZN7hir_def4attr14AttrsWithOwner10source_map17hef004eb477395d9bE(pt
   call void @llvm.lifetime.start.p0(ptr nonnull %75)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6944)
   %.sroa.0117.4.extract.shift = lshr i64 %83, 32
-  %84 = icmp ult i64 %83, 4294967296
+  %84 = icmp eq i64 %.sroa.0117.4.extract.shift, 0
   %.sink5.i = select i1 %84, i64 928, i64 936
   %.sink.i.v = select i1 %84, i64 %83, i64 %.sroa.0117.4.extract.shift
   %.sink.i = trunc i64 %.sink.i.v to i32
@@ -51787,7 +51787,7 @@ define hidden noundef zeroext i1 @_ZN7hir_def10visibility10Visibility24is_visibl
   %66 = lshr i64 %.sroa.5.0.copyload.i41, 32
   %67 = trunc nuw i64 %66 to i32
   %.sroa.068.4.extract.shift = lshr i64 %.sroa.566.0..sroa.566.0..sroa.566.0..sroa.566.4., 32
-  %68 = icmp ult i64 %.sroa.566.0..sroa.566.0..sroa.566.0..sroa.566.4., 4294967296
+  %68 = icmp eq i64 %.sroa.068.4.extract.shift, 0
   %.sink5.i45 = select i1 %68, i64 928, i64 936
   %.sink.i46.v = select i1 %68, i64 %.sroa.566.0..sroa.566.0..sroa.566.0..sroa.566.4., i64 %.sroa.068.4.extract.shift
   %.sink.i46 = trunc i64 %.sink.i46.v to i32

@@ -14377,8 +14377,9 @@ _ZN4jiff5civil13iso_week_date11ISOWeekDate10new_ranged17h4d023a3c11bedfeaE.exit:
   %.sroa.5.0.extract.trunc.i = trunc nuw nsw i32 %.sroa.5.0.extract.shift.i to i16
   %69 = call noundef i32 @_ZN4jiff5civil4date24iso_week_start_from_year17h55be01f0ca994b93E(i16 noundef %.sroa.01.0.extract.trunc.i)
   %70 = sext i8 %.sroa.4.0.extract.trunc.i to i16
-  %71 = add i32 %.sroa.014.0.copyload, -16777216
-  %72 = icmp ult i32 %71, 117440512
+  %71 = icmp ne i32 %.sroa.5.0.extract.shift.i, 0
+  %72 = icmp ult i32 %.sroa.014.0.copyload, 134217728
+  call void @llvm.assume(i1 %71)
   call void @llvm.assume(i1 %72)
   %73 = call noundef i64 @_ZN4jiff4util1t1C17hf556d0428fe559b5E(i64 noundef 1)
   %74 = trunc i64 %73 to i16

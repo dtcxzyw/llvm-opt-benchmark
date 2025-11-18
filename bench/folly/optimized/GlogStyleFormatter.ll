@@ -3266,7 +3266,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit73: ; preds =
   %216 = load i64, ptr %215, align 1
   store i64 %216, ptr %213, align 1
   %217 = lshr i32 %.01720.i, 8
-  %.not.i = icmp ult i32 %.01720.i, 256
+  %.not.i = icmp eq i32 %217, 0
   br i1 %.not.i, label %.preheader.i, label %.preheader19.i, !llvm.loop !145
 
 .preheader.i:                                     ; preds = %.preheader19.i, %.preheader.i
@@ -3809,7 +3809,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit73: ; preds =
   %207 = load i64, ptr %206, align 1
   store i64 %207, ptr %205, align 1
   %208 = lshr i64 %.01720.i, 8
-  %.not.i = icmp ult i64 %.01720.i, 256
+  %.not.i = icmp eq i64 %208, 0
   br i1 %.not.i, label %.preheader.i, label %.preheader19.i, !llvm.loop !151
 
 .preheader.i:                                     ; preds = %.preheader19.i, %.preheader.i
@@ -4338,7 +4338,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit72: ; preds =
   %202 = load i64, ptr %201, align 1
   store i64 %202, ptr %200, align 1
   %203 = lshr i64 %.01720.i, 8
-  %.not.i = icmp ult i64 %.01720.i, 256
+  %.not.i = icmp eq i64 %203, 0
   br i1 %.not.i, label %.preheader.i, label %.preheader19.i, !llvm.loop !151
 
 .preheader.i:                                     ; preds = %.preheader19.i, %.preheader.i
@@ -5406,7 +5406,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit72: ; preds =
   %211 = load i64, ptr %210, align 1
   store i64 %211, ptr %208, align 1
   %212 = lshr i32 %.01720.i, 8
-  %.not.i = icmp ult i32 %.01720.i, 256
+  %.not.i = icmp eq i32 %212, 0
   br i1 %.not.i, label %.preheader.i, label %.preheader19.i, !llvm.loop !145
 
 .preheader.i:                                     ; preds = %.preheader19.i, %.preheader.i

@@ -213,129 +213,129 @@ define void @_ZN6crypto12SymmetricKey21DeriveKeyFromPasswordENS0_9AlgorithmERKNS
 
 10:                                               ; preds = %6
   switch i64 %5, label %11 [
-    i64 256, label %.thread
-    i64 128, label %.thread
+    i64 256, label %12
+    i64 128, label %12
   ]
 
 11:                                               ; preds = %10
   store ptr null, ptr %0, align 8, !tbaa !14
-  br label %55
+  br label %56
 
-12:                                               ; preds = %6
-  %13 = icmp ult i64 %5, 8
-  br i1 %13, label %14, label %.thread
+12:                                               ; preds = %6, %10, %10
+  %13 = lshr i64 %5, 3
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %15, label %16
 
-14:                                               ; preds = %12
+15:                                               ; preds = %12
   store ptr null, ptr %0, align 8, !tbaa !14
-  br label %55
+  br label %56
 
-.thread:                                          ; preds = %10, %10, %12
-  %15 = lshr i64 %5, 3
+16:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %16 = tail call noundef ptr @_ZN15tracked_objects17GetProgramCounterEv()
-  call void @_ZN15tracked_objects8LocationC1EPKcS2_iPKv(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @__func__._ZN6crypto12SymmetricKey21DeriveKeyFromPasswordENS0_9AlgorithmERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_mm, ptr noundef nonnull @.str, i32 noundef 75, ptr noundef %16)
+  %17 = tail call noundef ptr @_ZN15tracked_objects17GetProgramCounterEv()
+  call void @_ZN15tracked_objects8LocationC1EPKcS2_iPKv(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @__func__._ZN6crypto12SymmetricKey21DeriveKeyFromPasswordENS0_9AlgorithmERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_mm, ptr noundef nonnull @.str, i32 noundef 75, ptr noundef %17)
   call void @_ZN15tracked_objects8LocationC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
   call void @_ZN6crypto17EnsureOpenSSLInitEv()
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %17 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #13
-          to label %18 unwind label %40
+  %18 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #13
+          to label %19 unwind label %41
 
-18:                                               ; preds = %.thread
-  invoke void @_ZN6crypto12SymmetricKeyC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %17)
-          to label %19 unwind label %42
+19:                                               ; preds = %16
+  invoke void @_ZN6crypto12SymmetricKeyC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %18)
+          to label %20 unwind label %43
 
-19:                                               ; preds = %18
-  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %21 = add nuw nsw i64 %15, 1
-  %22 = invoke noundef ptr @_ZN4base9WriteIntoEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull %20, i64 noundef %21)
-          to label %23 unwind label %44
+20:                                               ; preds = %19
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %22 = add nuw nsw i64 %13, 1
+  %23 = invoke noundef ptr @_ZN4base9WriteIntoEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull %21, i64 noundef %22)
+          to label %24 unwind label %45
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %2, align 8, !tbaa !13
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %26 = load i64, ptr %25, align 8, !tbaa !6
-  %27 = load ptr, ptr %3, align 8, !tbaa !13
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %29 = load i64, ptr %28, align 8, !tbaa !6
-  %30 = trunc i64 %4 to i32
-  %31 = invoke i32 @PKCS5_PBKDF2_HMAC_SHA1(ptr noundef %24, i64 noundef %26, ptr noundef %27, i64 noundef %29, i32 noundef %30, i64 noundef %15, ptr noundef %22)
-          to label %32 unwind label %46
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %2, align 8, !tbaa !13
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %27 = load i64, ptr %26, align 8, !tbaa !6
+  %28 = load ptr, ptr %3, align 8, !tbaa !13
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %30 = load i64, ptr %29, align 8, !tbaa !6
+  %31 = trunc i64 %4 to i32
+  %32 = invoke i32 @PKCS5_PBKDF2_HMAC_SHA1(ptr noundef %25, i64 noundef %27, ptr noundef %28, i64 noundef %30, i32 noundef %31, i64 noundef %13, ptr noundef %23)
+          to label %33 unwind label %47
 
-32:                                               ; preds = %23
-  %33 = icmp eq i32 %31, 1
-  br i1 %33, label %_ZNSt10unique_ptrIN6crypto12SymmetricKeyESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN6crypto12SymmetricKeyEEclEPS1_.exit.i
+33:                                               ; preds = %24
+  %34 = icmp eq i32 %32, 1
+  br i1 %34, label %_ZNSt10unique_ptrIN6crypto12SymmetricKeyESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN6crypto12SymmetricKeyEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN6crypto12SymmetricKeyEEclEPS1_.exit.i: ; preds = %32
-  %34 = load ptr, ptr %17, align 8, !tbaa !3
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %17) #11
+_ZNKSt14default_deleteIN6crypto12SymmetricKeyEEclEPS1_.exit.i: ; preds = %33
+  %35 = load ptr, ptr %18, align 8, !tbaa !3
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %37 = load ptr, ptr %36, align 8
+  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %18) #11
   br label %_ZNSt10unique_ptrIN6crypto12SymmetricKeyESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN6crypto12SymmetricKeyESt14default_deleteIS1_EED2Ev.exit: ; preds = %32, %_ZNKSt14default_deleteIN6crypto12SymmetricKeyEEclEPS1_.exit.i
-  %.sink = phi ptr [ null, %_ZNKSt14default_deleteIN6crypto12SymmetricKeyEEclEPS1_.exit.i ], [ %17, %32 ]
+_ZNSt10unique_ptrIN6crypto12SymmetricKeyESt14default_deleteIS1_EED2Ev.exit: ; preds = %33, %_ZNKSt14default_deleteIN6crypto12SymmetricKeyEEclEPS1_.exit.i
+  %.sink = phi ptr [ null, %_ZNKSt14default_deleteIN6crypto12SymmetricKeyEEclEPS1_.exit.i ], [ %18, %33 ]
   store ptr %.sink, ptr %0, align 8, !tbaa !17
   invoke void @_ZN6crypto20ClearOpenSSLERRStackERKN15tracked_objects8LocationE(ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %_ZN6crypto21OpenSSLErrStackTracerD2Ev.exit unwind label %37
+          to label %_ZN6crypto21OpenSSLErrStackTracerD2Ev.exit unwind label %38
 
-37:                                               ; preds = %_ZNSt10unique_ptrIN6crypto12SymmetricKeyESt14default_deleteIS1_EED2Ev.exit
-  %38 = landingpad { ptr, i32 }
+38:                                               ; preds = %_ZNSt10unique_ptrIN6crypto12SymmetricKeyESt14default_deleteIS1_EED2Ev.exit
+  %39 = landingpad { ptr, i32 }
           catch ptr null
-  %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #12
+  %40 = extractvalue { ptr, i32 } %39, 0
+  call void @__clang_call_terminate(ptr %40) #12
   unreachable
 
 _ZN6crypto21OpenSSLErrStackTracerD2Ev.exit:       ; preds = %_ZNSt10unique_ptrIN6crypto12SymmetricKeyESt14default_deleteIS1_EED2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %55
+  br label %56
 
-40:                                               ; preds = %.thread
-  %41 = landingpad { ptr, i32 }
+41:                                               ; preds = %16
+  %42 = landingpad { ptr, i32 }
           cleanup
-  br label %51
+  br label %52
 
-42:                                               ; preds = %18
-  %43 = landingpad { ptr, i32 }
+43:                                               ; preds = %19
+  %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %17) #10
-  br label %51
+  call void @_ZdlPv(ptr noundef nonnull %18) #10
+  br label %52
 
-44:                                               ; preds = %19
-  %45 = landingpad { ptr, i32 }
-          cleanup
-  br label %_ZNSt10unique_ptrIN6crypto12SymmetricKeyESt14default_deleteIS1_EED2Ev.exit24
-
-46:                                               ; preds = %23
-  %47 = landingpad { ptr, i32 }
+45:                                               ; preds = %20
+  %46 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIN6crypto12SymmetricKeyESt14default_deleteIS1_EED2Ev.exit24
 
-_ZNSt10unique_ptrIN6crypto12SymmetricKeyESt14default_deleteIS1_EED2Ev.exit24: ; preds = %46, %44
-  %.pn = phi { ptr, i32 } [ %47, %46 ], [ %45, %44 ]
-  %48 = load ptr, ptr %17, align 8, !tbaa !3
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %50 = load ptr, ptr %49, align 8
-  call void %50(ptr noundef nonnull align 8 dereferenceable(40) %17) #11
-  br label %51
+47:                                               ; preds = %24
+  %48 = landingpad { ptr, i32 }
+          cleanup
+  br label %_ZNSt10unique_ptrIN6crypto12SymmetricKeyESt14default_deleteIS1_EED2Ev.exit24
 
-51:                                               ; preds = %_ZNSt10unique_ptrIN6crypto12SymmetricKeyESt14default_deleteIS1_EED2Ev.exit24, %42, %40
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt10unique_ptrIN6crypto12SymmetricKeyESt14default_deleteIS1_EED2Ev.exit24 ], [ %43, %42 ], [ %41, %40 ]
+_ZNSt10unique_ptrIN6crypto12SymmetricKeyESt14default_deleteIS1_EED2Ev.exit24: ; preds = %47, %45
+  %.pn = phi { ptr, i32 } [ %48, %47 ], [ %46, %45 ]
+  %49 = load ptr, ptr %18, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %51 = load ptr, ptr %50, align 8
+  call void %51(ptr noundef nonnull align 8 dereferenceable(40) %18) #11
+  br label %52
+
+52:                                               ; preds = %_ZNSt10unique_ptrIN6crypto12SymmetricKeyESt14default_deleteIS1_EED2Ev.exit24, %43, %41
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt10unique_ptrIN6crypto12SymmetricKeyESt14default_deleteIS1_EED2Ev.exit24 ], [ %44, %43 ], [ %42, %41 ]
   invoke void @_ZN6crypto20ClearOpenSSLERRStackERKN15tracked_objects8LocationE(ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %_ZN6crypto21OpenSSLErrStackTracerD2Ev.exit25 unwind label %52
+          to label %_ZN6crypto21OpenSSLErrStackTracerD2Ev.exit25 unwind label %53
 
-52:                                               ; preds = %51
-  %53 = landingpad { ptr, i32 }
+53:                                               ; preds = %52
+  %54 = landingpad { ptr, i32 }
           catch ptr null
-  %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #12
+  %55 = extractvalue { ptr, i32 } %54, 0
+  call void @__clang_call_terminate(ptr %55) #12
   unreachable
 
-_ZN6crypto21OpenSSLErrStackTracerD2Ev.exit25:     ; preds = %51
+_ZN6crypto21OpenSSLErrStackTracerD2Ev.exit25:     ; preds = %52
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn.pn
 
-55:                                               ; preds = %14, %_ZN6crypto21OpenSSLErrStackTracerD2Ev.exit, %11
+56:                                               ; preds = %15, %_ZN6crypto21OpenSSLErrStackTracerD2Ev.exit, %11
   ret void
 }
 

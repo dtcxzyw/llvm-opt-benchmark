@@ -24979,7 +24979,7 @@ _ZNSt14_Function_baseD2Ev.exit784:                ; preds = %.loopexit1783, %874
   %880 = load i64, ptr %108, align 8, !tbaa !177
   %881 = lshr i64 %880, 1
   store i64 %881, ptr %108, align 8, !tbaa !177
-  %.not235 = icmp ult i64 %880, 2
+  %.not235 = icmp eq i64 %881, 0
   br i1 %.not235, label %.noexc.i736, label %867, !llvm.loop !524
 
 882:                                              ; preds = %.lr.ph17.i

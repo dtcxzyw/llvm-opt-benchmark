@@ -2268,7 +2268,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110: ; preds = %19
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %36, ptr %4, align 8, !tbaa !65
   %37 = icmp eq ptr %25, null
-  %38 = icmp samesign ugt i64 %34, 7
+  %38 = icmp ne i64 %35, 0
   %or.cond.i = and i1 %37, %38
   br i1 %or.cond.i, label %39, label %40
 

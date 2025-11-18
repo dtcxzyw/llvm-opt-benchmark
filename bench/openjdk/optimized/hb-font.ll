@@ -6127,18 +6127,18 @@ define hidden noundef nonnull ptr @hb_font_create(ptr noundef %0) local_unnamed_
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
-  %.not8 = icmp ult i32 %5, 65536
-  br i1 %.not8, label %hb_font_set_var_named_instance.exit, label %6
+  %6 = lshr i32 %5, 16
+  %.not8 = icmp eq i32 %6, 0
+  br i1 %.not8, label %hb_font_set_var_named_instance.exit, label %7
 
-6:                                                ; preds = %3
-  %7 = lshr i32 %5, 16
-  %8 = add nsw i32 %7, -1
+7:                                                ; preds = %3
+  %8 = add nsw i32 %6, -1
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %10 = load atomic i32, ptr %9 monotonic, align 4
   %.not.i.i = icmp eq i32 %10, 0
   br i1 %.not.i.i, label %hb_font_set_var_named_instance.exit, label %11
 
-11:                                               ; preds = %6
+11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 116
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, %8
@@ -6155,7 +6155,7 @@ define hidden noundef nonnull ptr @hb_font_create(ptr noundef %0) local_unnamed_
   tail call void @hb_font_set_variations(ptr noundef nonnull %2, ptr noundef null, i32 noundef 0)
   br label %hb_font_set_var_named_instance.exit
 
-hb_font_set_var_named_instance.exit:              ; preds = %15, %11, %6, %3, %1
+hb_font_set_var_named_instance.exit:              ; preds = %15, %11, %7, %3, %1
   ret ptr %2
 }
 

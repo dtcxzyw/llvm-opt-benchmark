@@ -3524,12 +3524,12 @@ define internal fastcc void @display_raw_cyclic_data(i8 noundef zeroext range(i8
 
 16:                                               ; preds = %12
   %17 = lshr i16 %2, 1
-  %.not85 = icmp eq i16 %2, 1
+  %.not85 = icmp eq i16 %17, 0
   br i1 %.not85, label %._crit_edge.thread, label %.lr.ph.split.split.us
 
 .thread106:                                       ; preds = %12
   %18 = lshr i16 %2, 2
-  %.not85109 = icmp ult i16 %2, 4
+  %.not85109 = icmp eq i16 %18, 0
   br i1 %.not85109, label %._crit_edge.thread, label %.lr.ph.split.split
 
 .lr.ph.split.us:                                  ; preds = %12, %31

@@ -5129,7 +5129,7 @@ define void @_ZN6google8protobuf7strings8AlphaNumC2ENS1_3HexE(ptr noundef nonnul
   store i8 %13, ptr %14, align 1, !tbaa !11
   %15 = lshr i64 %.012, 4
   %16 = lshr i64 %.0, 4
-  %.not = icmp ult i64 %.0, 16
+  %.not = icmp eq i64 %16, 0
   br i1 %.not, label %17, label %10, !llvm.loop !94
 
 17:                                               ; preds = %10

@@ -49061,7 +49061,7 @@ _ZN5wasmi6engine10translator14FuncTranslator9fuel_info17h9b17200746cc50baE.exit:
   %49 = lshr i64 %48, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4748)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4751)
-  %.not15.i.i = icmp ult i64 %48, 2
+  %.not15.i.i = icmp eq i64 %49, 0
   br i1 %.not15.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hfbad04350e19a67dE.exit", label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %45

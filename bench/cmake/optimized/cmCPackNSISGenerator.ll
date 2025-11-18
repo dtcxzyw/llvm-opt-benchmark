@@ -16600,8 +16600,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit625: ; preds = %_Z
 
 .noexc.i627.loopexit:                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit649
   %1085 = add i64 %1155, 512
-  %1086 = call i64 @llvm.umax.i64(i64 %1085, i64 1024)
-  %1087 = lshr i64 %1086, 10
+  %1086 = lshr i64 %1085, 10
+  %1087 = call i64 @llvm.umax.i64(i64 %1086, i64 1)
   br label %.noexc.i627
 
 .noexc.i627:                                      ; preds = %.noexc.i627.loopexit, %1079

@@ -757,7 +757,7 @@ dequantize.exit.i:                                ; preds = %.loopexit.i.i, %._c
   %292 = call i32 @llvm.umin.i32(i32 %34, i32 %291)
   %293 = getelementptr inbounds nuw i8, ptr %64, i64 8700
   store i32 %290, ptr %293, align 4, !tbaa !81
-  %.not.i.i = icmp ult i32 %289, 1073741824
+  %.not.i.i = icmp eq i32 %290, 0
   %294 = lshr i32 %292, 3
   %295 = zext nneg i32 %294 to i64
   %296 = getelementptr inbounds nuw i8, ptr %28, i64 %295

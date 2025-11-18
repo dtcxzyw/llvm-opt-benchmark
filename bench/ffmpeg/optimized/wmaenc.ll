@@ -324,7 +324,7 @@ apply_window_and_mdct.exit:                       ; preds = %37
   %81 = icmp slt i32 %80, 1
   %spec.select = select i1 %81, i32 %79, i32 %.06990
   %82 = lshr i32 %.06691, 1
-  %.not75 = icmp samesign ult i32 %.06691, 2
+  %.not75 = icmp eq i32 %82, 0
   br i1 %.not75, label %.preheader85, label %76, !llvm.loop !83
 
 .lr.ph93:                                         ; preds = %.preheader85, %.lr.ph93

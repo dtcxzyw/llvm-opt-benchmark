@@ -10500,7 +10500,7 @@ _ZN7rocksdb6StatusD2Ev.exit74:                    ; preds = %403, %_ZNKSt14defau
   %412 = lshr i32 %.fr, 7
   %413 = lshr i64 %396, 4
   %414 = trunc i64 %413 to i32
-  %415 = icmp ult i32 %.fr, 128
+  %415 = icmp eq i32 %412, 0
   br i1 %415, label %509, label %416
 
 416:                                              ; preds = %410
@@ -10627,7 +10627,7 @@ _ZN7rocksdb6ribbon14BackSubstBlockINS0_15StandardBandingINS0_23StandardRehasherA
   br i1 %.not91.i.i, label %_ZNSt10unique_ptrIA_N7rocksdb11Unsigned128ESt14default_deleteIS2_EED2Ev.exit.i.i, label %.lr.ph95.i.i
 
 .lr.ph95.i.i:                                     ; preds = %._crit_edge.i.i, %.noexc83
-  %.048.lcssa.i5.i = phi i32 [ %461, %._crit_edge.i.i ], [ %.0.i.i132.i.i, %.noexc83 ]
+  %.048.lcssa137.i.i = phi i32 [ %461, %._crit_edge.i.i ], [ %.0.i.i132.i.i, %.noexc83 ]
   %470 = add nsw i32 %.val54.fr133.i.i, -1
   %.not.i59.i.i = icmp eq i32 %470, 0
   %wide.trip.count.i61.i.i = zext i32 %470 to i64
@@ -10645,7 +10645,7 @@ _ZN7rocksdb6ribbon14BackSubstBlockINS0_15StandardBandingINS0_23StandardRehasherA
 
 .lr.ph95.split.i.i:                               ; preds = %.loopexit.i.i, %.lr.ph95.split.preheader.i.i
   %indvars.iv108.i.i = phi i32 [ %471, %.lr.ph95.split.preheader.i.i ], [ %474, %.loopexit.i.i ]
-  %.193.i.i = phi i32 [ %.048.lcssa.i5.i, %.lr.ph95.split.preheader.i.i ], [ %501, %.loopexit.i.i ]
+  %.193.i.i = phi i32 [ %.048.lcssa137.i.i, %.lr.ph95.split.preheader.i.i ], [ %501, %.loopexit.i.i ]
   %474 = add i32 %indvars.iv108.i.i, -1
   %475 = shl i32 %474, 7
   %.not82.i.i = icmp eq i32 %475, -128

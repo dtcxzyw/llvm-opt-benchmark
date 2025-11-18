@@ -916,7 +916,7 @@ _ZN8rawspeed23PanasonicV5Decompressor11ProxyStreamD2Ev.exit: ; preds = %._crit_e
   %60 = load i32, ptr %38, align 4, !tbaa !160, !noalias !156
   %61 = load i32, ptr %39, align 8, !tbaa !161, !noalias !156
   %62 = ashr i32 %61, 1
-  %63 = icmp ugt i32 %61, 1
+  %63 = icmp ne i32 %62, 0
   call void @llvm.assume(i1 %63)
   %64 = icmp sgt i32 %62, -1
   call void @llvm.assume(i1 %64)
@@ -1451,7 +1451,7 @@ _ZN8rawspeed23PanasonicV5Decompressor11ProxyStreamD2Ev.exit: ; preds = %._crit_e
   %60 = load i32, ptr %38, align 4, !tbaa !160, !noalias !170
   %61 = load i32, ptr %39, align 8, !tbaa !161, !noalias !170
   %62 = ashr i32 %61, 1
-  %63 = icmp ugt i32 %61, 1
+  %63 = icmp ne i32 %62, 0
   call void @llvm.assume(i1 %63)
   %64 = icmp sgt i32 %62, -1
   call void @llvm.assume(i1 %64)

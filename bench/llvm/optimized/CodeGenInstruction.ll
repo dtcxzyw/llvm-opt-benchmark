@@ -7168,22 +7168,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit23: ; preds = 
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 172
   store i32 6, ptr %92, align 4, !tbaa !321
   %93 = icmp ugt i32 %87, 447
-  br i1 %93, label %_ZN4llvm9BitVectorC2Ejb.exit.thread.loopexit, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i
+  br i1 %93, label %_ZN4llvm9BitVectorC2Ejb.exit.thread, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i
 
-_ZN4llvm9BitVectorC2Ejb.exit.thread.loopexit:     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit23
+_ZN4llvm9BitVectorC2Ejb.exit.thread:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit23
   store i32 0, ptr %91, align 8, !tbaa !76
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(68) %86, ptr noundef nonnull %90, i64 noundef %89, i64 noundef 8) #18
   %94 = load ptr, ptr %86, align 8, !tbaa !75
-  br label %_ZN4llvm9BitVectorC2Ejb.exit.thread
-
-_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i:        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit23
-  %.not.i.i = icmp samesign ult i32 %87, 64
-  br i1 %.not.i.i, label %_ZN4llvm9BitVectorC2Ejb.exit, label %_ZN4llvm9BitVectorC2Ejb.exit.thread
-
-_ZN4llvm9BitVectorC2Ejb.exit.thread:              ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i, %_ZN4llvm9BitVectorC2Ejb.exit.thread.loopexit
-  %.sink = phi ptr [ %94, %_ZN4llvm9BitVectorC2Ejb.exit.thread.loopexit ], [ %90, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i ]
-  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %89, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %.sink, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !71
+  %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %89, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %94, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !71
   store i32 %88, ptr %91, align 8, !tbaa !76
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i32 %6, ptr %95, align 8, !tbaa !322
@@ -7193,7 +7185,16 @@ _ZN4llvm9BitVectorC2Ejb.exit.thread:              ; preds = %_ZSt6fill_nIPmmmET_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %97, i8 0, i64 16, i1 false)
   br label %.lr.ph.preheader.i.i.i.i.i
 
-_ZN4llvm9BitVectorC2Ejb.exit:                     ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i
+_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i:        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit23
+  %.not.i.i = icmp eq i32 %88, 0
+  br i1 %.not.i.i, label %_ZN4llvm9BitVectorC2Ejb.exit, label %_ZN4llvm9BitVectorC2Ejb.exit.loopexit
+
+_ZN4llvm9BitVectorC2Ejb.exit.loopexit:            ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %89, 3
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %90, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !71
+  br label %_ZN4llvm9BitVectorC2Ejb.exit
+
+_ZN4llvm9BitVectorC2Ejb.exit:                     ; preds = %_ZN4llvm9BitVectorC2Ejb.exit.loopexit, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i
   store i32 %88, ptr %91, align 8, !tbaa !76
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i32 %6, ptr %98, align 8, !tbaa !322

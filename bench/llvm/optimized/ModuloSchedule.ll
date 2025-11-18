@@ -14905,7 +14905,7 @@ _ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.loopexit: ; preds = %1
   br label %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.sink.split
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i:        ; preds = %1
-  %.not.i.i = icmp samesign ult i32 %14, 64
+  %.not.i.i = icmp eq i32 %15, 0
   br i1 %.not.i.i, label %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i, label %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.sink.split
 
 _ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.sink.split: ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i, %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.loopexit
@@ -14957,17 +14957,17 @@ _ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i101.loopexit: ; preds = %_ZN4llvm9BitV
   br label %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i101.sink.split
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i95:      ; preds = %_ZN4llvm9BitVectorC2Ejb.exit
-  %.not.i.i96 = icmp samesign ult i32 %36, 64
+  %.not.i.i96 = icmp eq i32 %37, 0
   br i1 %.not.i.i96, label %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i101, label %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i101.sink.split
 
 _ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i101.sink.split: ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i95, %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i101.loopexit
-  %.sink666 = phi ptr [ %43, %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i101.loopexit ], [ %39, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i95 ]
+  %.sink664 = phi ptr [ %43, %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i101.loopexit ], [ %39, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i95 ]
   %.idx.i.i.i.i.i.i.i97 = shl nuw nsw i64 %38, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %.sink666, i8 -1, i64 %.idx.i.i.i.i.i.i.i97, i1 false), !tbaa !55
+  call void @llvm.memset.p0.i64(ptr align 8 %.sink664, i8 -1, i64 %.idx.i.i.i.i.i.i.i97, i1 false), !tbaa !55
   br label %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i101
 
 _ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i101:    ; preds = %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i101.sink.split, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i95
-  %44 = phi ptr [ %39, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i95 ], [ %.sink666, %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i101.sink.split ]
+  %44 = phi ptr [ %39, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i95 ], [ %.sink664, %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i101.sink.split ]
   store i32 %37, ptr %40, align 8, !tbaa !26
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i32 %35, ptr %45, align 8, !tbaa !642
@@ -16812,15 +16812,15 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EE9push_backES2_.ex
   %1023 = getelementptr inbounds nuw i8, ptr %1022, i64 48
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %1023, align 8
   %1024 = call ptr @_ZN4llvm17MachineBasicBlock14getFirstNonPHIEv(ptr noundef nonnull align 8 dereferenceable(288) %1022) #19
-  %.0.copyload.i.i.i.i.i.i.i.i.i220709 = load i64, ptr %1024, align 8
-  %1025 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i220709, -8
-  %.sroa.0334.0.in710 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
-  %.not377711 = icmp eq i64 %.sroa.0334.0.in710, %1025
-  br i1 %.not377711, label %.loopexit, label %.preheader.i.i.i
+  %.0.copyload.i.i.i.i.i.i.i.i.i220707 = load i64, ptr %1024, align 8
+  %1025 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i220707, -8
+  %.sroa.0334.0.in708 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
+  %.not377709 = icmp eq i64 %.sroa.0334.0.in708, %1025
+  br i1 %.not377709, label %.loopexit, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph461, %.preheader.i.i.i
-  %.sroa.0334.0.in712 = phi i64 [ %.sroa.0334.0.in, %.preheader.i.i.i ], [ %.sroa.0334.0.in710, %.lr.ph461 ]
-  %.sroa.0334.0 = inttoptr i64 %.sroa.0334.0.in712 to ptr
+  %.sroa.0334.0.in710 = phi i64 [ %.sroa.0334.0.in, %.preheader.i.i.i ], [ %.sroa.0334.0.in708, %.lr.ph461 ]
+  %.sroa.0334.0 = inttoptr i64 %.sroa.0334.0.in710 to ptr
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.sroa.0334.0, align 8
   call void @_ZN4llvm29PeelingModuloScheduleExpander13rewriteUsesOfEPNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef nonnull %.sroa.0334.0)
   %1026 = call ptr @_ZN4llvm17MachineBasicBlock14getFirstNonPHIEv(ptr noundef nonnull align 8 dereferenceable(288) %1022) #19

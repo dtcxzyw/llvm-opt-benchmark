@@ -3307,7 +3307,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   store i64 %51, ptr %52, align 8, !tbaa !118
   %53 = lshr i128 %50, 64
   %54 = add nuw i64 %.03958, 1
-  %.not43 = icmp samesign ugt i128 %50, 18446744073709551615
+  %.not43 = icmp ne i128 %53, 0
   %55 = load i64, ptr %44, align 16
   %56 = icmp ult i64 %54, %55
   %or.cond = select i1 %.not43, i1 %56, i1 false
@@ -9658,7 +9658,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br i1 %.not38, label %._crit_edge, label %.lr.ph, !llvm.loop !181
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %.not39 = icmp ult i128 %92, 18446744073709551616
+  %.not39 = icmp eq i128 %94, 0
   br i1 %.not39, label %._crit_edge.thread, label %97
 
 97:                                               ; preds = %._crit_edge
@@ -10509,7 +10509,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
   store i64 %.sroa.083.0.extract.trunc, ptr %372, align 8, !tbaa !118
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 8
   store i64 %.sroa.284.0.extract.trunc, ptr %373, align 8, !tbaa !118
-  %.not.i316 = icmp ult i128 %366, 18446744073709551616
+  %.not.i316 = icmp eq i128 %.sroa.284.0.extract.shift, 0
   %374 = select i1 %.not.i316, i64 1, i64 2
   invoke void @_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm(ptr noundef nonnull align 16 dereferenceable(27) %0, i64 noundef %374, i64 noundef %374)
           to label %_ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEaSIoEENSt9enable_ifIXaasr3std7is_sameIT_oEE5valuentL_ZNSt17integral_constantIbLb0EE5valueEEERS6_E4typeES9_.exit317 unwind label %375
@@ -10539,7 +10539,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
   store i64 %.sroa.0.0.extract.trunc, ptr %385, align 8, !tbaa !118
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 8
   store i64 %.sroa.2.0.extract.trunc, ptr %386, align 8, !tbaa !118
-  %.not.i315 = icmp ult i128 %380, 18446744073709551616
+  %.not.i315 = icmp eq i128 %.sroa.2.0.extract.shift, 0
   %387 = select i1 %.not.i315, i64 1, i64 2
   invoke void @_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm(ptr noundef nonnull align 16 dereferenceable(27) %3, i64 noundef %387, i64 noundef %387)
           to label %_ZN5boost14multiprecision8backends13eval_subtractILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELm0ELm0ELS3_1ELS4_0ES5_EENSt9enable_ifIXaantsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valuentsr18is_trivial_cpp_intINS7_IXT4_EXT5_EXT6_EXT7_ET8_EEEE5valueEvE4typeERS9_RKSB_.exit.sink.split unwind label %388
@@ -10952,7 +10952,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %812
 
 ._crit_edge497:                                   ; preds = %578
-  %577 = icmp ult i128 %583, 18446744073709551616
+  %577 = icmp eq i128 %585, 0
   %or.cond3 = or i1 %570, %577
   br i1 %or.cond3, label %._crit_edge497.thread, label %587
 
@@ -11062,8 +11062,8 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
 .lr.ph501.preheader:                              ; preds = %612
   %616 = getelementptr inbounds nuw i64, ptr %614, i64 %615
   %617 = load i64, ptr %616, align 8, !tbaa !118
-  %.not2.i615 = icmp eq i64 %617, 0
-  br i1 %.not2.i615, label %.lr.ph, label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE9normalizeEv.exit.loopexit
+  %.not2.i614 = icmp eq i64 %617, 0
+  br i1 %.not2.i614, label %.lr.ph, label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE9normalizeEv.exit.loopexit
 
 .lr.ph501:                                        ; preds = %.lr.ph
   %618 = getelementptr inbounds nuw i64, ptr %614, i64 %621
@@ -12097,7 +12097,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   store i64 %.sroa.08.0.extract.trunc, ptr %256, align 8, !tbaa !118
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 8
   store i64 %.sroa.29.0.extract.trunc, ptr %257, align 8, !tbaa !118
-  %.not.i160 = icmp ult i128 %250, 18446744073709551616
+  %.not.i160 = icmp eq i128 %.sroa.29.0.extract.shift, 0
   %258 = select i1 %.not.i160, i64 1, i64 2
   %259 = load i64, ptr %0, align 16
   %spec.select.i.i195 = select i1 %253, i64 2, i64 %259

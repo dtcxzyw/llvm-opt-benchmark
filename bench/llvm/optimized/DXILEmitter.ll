@@ -6398,7 +6398,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit56.i280:          ; preds = %2669, %2667
   %2687 = getelementptr inbounds i8, ptr %.117.i.i, i64 -1
   store i8 %2686, ptr %2687, align 1, !tbaa !38, !noalias !151
   %2688 = lshr i64 %.019.i.i, 4
-  %2689 = icmp samesign ult i64 %.019.i.i, 16
+  %2689 = icmp eq i64 %2688, 0
   br i1 %2689, label %._crit_edge.i.i, label %.thread.i57.i, !llvm.loop !154
 
 _ZN4llvm9utohexstrB5cxx11Embj.exit.i:             ; preds = %2683, %2681, %._crit_edge.i.i.i.i282
@@ -10535,7 +10535,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %156 = load ptr, ptr %137, align 8, !tbaa !46
   %157 = getelementptr inbounds ptr, ptr %0, i64 %.010.i.i.i.i16.i
   store ptr %156, ptr %157, align 8, !tbaa !46
-  %.not7.i.i24.i = icmp ult i64 %.0911.in.i.i.i.i17.i, 2
+  %.not7.i.i24.i = icmp eq i64 %.0911.i.i56.i.i18.i, 0
   br i1 %.not7.i.i24.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6RecordESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZL22ascendingSortByVersionRS9_E3$_0EEEvT_SG_SG_RT0_.exit.i21.i", label %.lr.ph.i.i.i.i15.i, !llvm.loop !245
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6RecordESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZL22ascendingSortByVersionRS9_E3$_0EEEvT_SG_SG_RT0_.exit.i21.i": ; preds = %"_ZZL22ascendingSortByVersionRSt6vectorIPKN4llvm6RecordESaIS3_EEENK3$_0clES3_S3_.exit.thread.i23.i", %"_ZZL22ascendingSortByVersionRSt6vectorIPKN4llvm6RecordESaIS3_EEENK3$_0clES3_S3_.exit.i19.i", %136

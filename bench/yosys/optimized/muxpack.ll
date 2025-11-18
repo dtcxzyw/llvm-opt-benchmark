@@ -11585,7 +11585,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit.i232:            ; preds = %_ZN5Yosys5RTLIL7Sig
 4553:                                             ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit.i232
   %4554 = lshr i64 %4551, 32
   %4555 = trunc nuw i64 %4554 to i32
-  %.not.i.i.i.i.i13.i = icmp ult i64 %4551, 4294967296
+  %.not.i.i.i.i.i13.i = icmp eq i64 %4554, 0
   br i1 %.not.i.i.i.i.i13.i, label %4556, label %_ZNK5Yosys7hashlib4dictINS_5RTLIL7SigSpecEPNS2_4CellENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i.i235
 
 4556:                                             ; preds = %4553

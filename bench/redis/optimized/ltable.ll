@@ -1949,7 +1949,7 @@ luaH_getnum.exit35.i:                             ; preds = %92, %88, %69
 
 106:                                              ; preds = %.lr.ph.i
   %107 = uitofp nneg i32 %99 to double
-  %108 = icmp ult i32 %98, 2
+  %108 = icmp eq i32 %99, 0
   br i1 %108, label %hashnum.exit.i40.i.preheader, label %.preheader.i.i36.i
 
 .preheader.i.i36.i:                               ; preds = %106

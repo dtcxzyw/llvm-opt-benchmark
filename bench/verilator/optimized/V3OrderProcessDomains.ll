@@ -5786,73 +5786,73 @@ define linkonce_odr dso_local void @_ZNSt17_Temporary_bufferISt15_Deque_iterator
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %select.unfold.i, %.lr.ph.preheader.i
-  %.010.i = phi i64 [ %12, %select.unfold.i ], [ %8, %.lr.ph.preheader.i ]
+  %.010.i = phi i64 [ %13, %select.unfold.i ], [ %8, %.lr.ph.preheader.i ]
   %9 = shl nuw nsw i64 %.010.i, 5
   %10 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %9, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #29
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %select.unfold.i, label %13
+  br i1 %.not.i, label %select.unfold.i, label %14
 
 select.unfold.i:                                  ; preds = %.lr.ph.i
-  %11 = add nuw nsw i64 %.010.i, 1
-  %12 = lshr i64 %11, 1
-  %.not14.i = icmp samesign ult i64 %.010.i, 2
-  br i1 %.not14.i, label %_ZSt20get_temporary_bufferINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIPT_lEl.exit.thread, label %.lr.ph.i, !llvm.loop !277
+  %11 = icmp eq i64 %.010.i, 1
+  %12 = add nuw nsw i64 %.010.i, 1
+  %13 = lshr i64 %12, 1
+  br i1 %11, label %_ZSt20get_temporary_bufferINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIPT_lEl.exit.thread, label %.lr.ph.i, !llvm.loop !277
 
-13:                                               ; preds = %.lr.ph.i
-  %14 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %10, i64 %.010.i
-  %15 = load ptr, ptr %1, align 8, !tbaa !212
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !216
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !217
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !218
+14:                                               ; preds = %.lr.ph.i
+  %15 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %10, i64 %.010.i
+  %16 = load ptr, ptr %1, align 8, !tbaa !212
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !216
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %20 = load ptr, ptr %19, align 8, !tbaa !217
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %22 = load ptr, ptr %21, align 8, !tbaa !218
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr %15, ptr %4, align 8, !tbaa !212
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %17, ptr %22, align 8, !tbaa !216
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %19, ptr %23, align 8, !tbaa !217
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %21, ptr %24, align 8, !tbaa !218
-  invoke void @_ZNSt38__uninitialized_construct_buf_dispatchILb0EE5__ucrIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt15_Deque_iteratorIS7_RS7_S8_EEEvT_SC_T0_(ptr noundef nonnull %10, ptr noundef nonnull %14, ptr noundef nonnull %4)
-          to label %25 unwind label %26
+  store ptr %16, ptr %4, align 8, !tbaa !212
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %18, ptr %23, align 8, !tbaa !216
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %20, ptr %24, align 8, !tbaa !217
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr %22, ptr %25, align 8, !tbaa !218
+  invoke void @_ZNSt38__uninitialized_construct_buf_dispatchILb0EE5__ucrIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt15_Deque_iteratorIS7_RS7_S8_EEEvT_SC_T0_(ptr noundef nonnull %10, ptr noundef nonnull %15, ptr noundef nonnull %4)
+          to label %26 unwind label %27
 
-25:                                               ; preds = %13
+26:                                               ; preds = %14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %10, ptr %6, align 8, !tbaa !272
   store i64 %.010.i, ptr %5, align 8, !tbaa !274
   br label %_ZSt20get_temporary_bufferINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIPT_lEl.exit.thread
 
-26:                                               ; preds = %13
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %14
+  %28 = landingpad { ptr, i32 }
           catch ptr null
-  %28 = extractvalue { ptr, i32 } %27, 0
-  %29 = call ptr @__cxa_begin_catch(ptr %28) #23
+  %29 = extractvalue { ptr, i32 } %28, 0
+  %30 = call ptr @__cxa_begin_catch(ptr %29) #23
   call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef %9) #23
   invoke void @__cxa_rethrow() #25
-          to label %36 unwind label %30
+          to label %37 unwind label %31
 
-30:                                               ; preds = %26
-  %31 = landingpad { ptr, i32 }
+31:                                               ; preds = %27
+  %32 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %32 unwind label %33
+          to label %33 unwind label %34
 
-32:                                               ; preds = %30
-  resume { ptr, i32 } %31
+33:                                               ; preds = %31
+  resume { ptr, i32 } %32
 
-_ZSt20get_temporary_bufferINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIPT_lEl.exit.thread: ; preds = %select.unfold.i, %3, %25
+_ZSt20get_temporary_bufferINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIPT_lEl.exit.thread: ; preds = %select.unfold.i, %3, %26
   ret void
 
-33:                                               ; preds = %30
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %31
+  %35 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #24
+  %36 = extractvalue { ptr, i32 } %35, 0
+  call void @__clang_call_terminate(ptr %36) #24
   unreachable
 
-36:                                               ; preds = %26
+37:                                               ; preds = %27
   unreachable
 }
 

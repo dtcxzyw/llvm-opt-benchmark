@@ -2674,7 +2674,7 @@ define linkonce_odr hidden void @_ZN7mitsuba17AttributeCallbackINS_7TextureIfN5d
   br i1 %.not.i.i, label %.preheader.i, label %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit
 
 .preheader.i:                                     ; preds = %21
-  %.not1924.i = icmp ult i8 %7, 2
+  %.not1924.i = icmp eq i8 %11, 0
   br i1 %.not1924.i, label %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %28
@@ -2797,7 +2797,7 @@ define linkonce_odr hidden void @_ZN7mitsuba17AttributeCallbackINS_7TextureIfN5d
   br i1 %.not.i.i, label %.preheader.i, label %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit
 
 .preheader.i:                                     ; preds = %21
-  %.not1924.i = icmp ult i8 %7, 2
+  %.not1924.i = icmp eq i8 %11, 0
   br i1 %.not1924.i, label %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %28
@@ -2918,7 +2918,7 @@ define linkonce_odr hidden void @_ZN7mitsuba17AttributeCallbackINS_7TextureIfN5d
   br i1 %.not.i.i, label %.preheader.i, label %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit
 
 .preheader.i:                                     ; preds = %21
-  %.not1924.i = icmp ult i8 %7, 2
+  %.not1924.i = icmp eq i8 %11, 0
   br i1 %.not1924.i, label %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %28
@@ -3041,7 +3041,7 @@ define linkonce_odr hidden void @_ZN7mitsuba17AttributeCallbackINS_7TextureIfN5d
   br i1 %.not.i.i, label %.preheader.i, label %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit
 
 .preheader.i:                                     ; preds = %21
-  %.not1924.i = icmp ult i8 %7, 2
+  %.not1924.i = icmp eq i8 %11, 0
   br i1 %.not1924.i, label %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %28
@@ -3119,7 +3119,7 @@ define linkonce_odr hidden void @_ZN7mitsuba17AttributeCallbackINS_7TextureIfN5d
   br i1 %.not.i.i, label %.preheader.i, label %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit
 
 .preheader.i:                                     ; preds = %21
-  %.not1924.i = icmp ult i8 %7, 2
+  %.not1924.i = icmp eq i8 %11, 0
   br i1 %.not1924.i, label %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %28
@@ -3242,7 +3242,7 @@ define linkonce_odr hidden void @_ZN7mitsuba17AttributeCallbackINS_7TextureIfN5d
   br i1 %.not.i.i, label %.preheader.i, label %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit
 
 .preheader.i:                                     ; preds = %21
-  %.not1924.i = icmp ult i8 %7, 2
+  %.not1924.i = icmp eq i8 %11, 0
   br i1 %.not1924.i, label %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %28

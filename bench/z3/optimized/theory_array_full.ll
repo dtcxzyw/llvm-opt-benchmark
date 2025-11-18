@@ -4332,7 +4332,7 @@ _ZN6vectorIPN3smt17theory_array_full13var_data_fullELb0EjE3endEv.exit: ; preds =
   %8 = shl nuw nsw i64 %7, 3
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 %8
   %.not4.i = icmp eq i32 %6, 0
-  br i1 %.not4.i, label %_ZSt8for_eachIPPN3smt17theory_array_full13var_data_fullE11delete_procIS2_EET0_T_S8_S7_.exit.thread12, label %.lr.ph.i
+  br i1 %.not4.i, label %_ZSt8for_eachIPPN3smt17theory_array_full13var_data_fullE11delete_procIS2_EET0_T_S8_S7_.exit.thread13, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN6vectorIPN3smt17theory_array_full13var_data_fullELb0EjE3endEv.exit, %_ZN11delete_procIN3smt17theory_array_full13var_data_fullEEclEPS2_.exit.i
   %.05.i = phi ptr [ %11, %_ZN11delete_procIN3smt17theory_array_full13var_data_fullEEclEPS2_.exit.i ], [ %3, %_ZN6vectorIPN3smt17theory_array_full13var_data_fullELb0EjE3endEv.exit ]
@@ -4353,15 +4353,15 @@ _ZN11delete_procIN3smt17theory_array_full13var_data_fullEEclEPS2_.exit.i: ; pred
 _ZSt8for_eachIPPN3smt17theory_array_full13var_data_fullE11delete_procIS2_EET0_T_S8_S7_.exit: ; preds = %_ZN11delete_procIN3smt17theory_array_full13var_data_fullEEclEPS2_.exit.i
   %.pre = load ptr, ptr %2, align 8, !tbaa !6
   %.not.i1 = icmp eq ptr %.pre, null
-  br i1 %.not.i1, label %_ZN6vectorIPN3smt17theory_array_full13var_data_fullELb0EjE5resetEv.exit, label %_ZSt8for_eachIPPN3smt17theory_array_full13var_data_fullE11delete_procIS2_EET0_T_S8_S7_.exit.thread12
+  br i1 %.not.i1, label %_ZN6vectorIPN3smt17theory_array_full13var_data_fullELb0EjE5resetEv.exit, label %_ZSt8for_eachIPPN3smt17theory_array_full13var_data_fullE11delete_procIS2_EET0_T_S8_S7_.exit.thread13
 
-_ZSt8for_eachIPPN3smt17theory_array_full13var_data_fullE11delete_procIS2_EET0_T_S8_S7_.exit.thread12: ; preds = %_ZN6vectorIPN3smt17theory_array_full13var_data_fullELb0EjE3endEv.exit, %_ZSt8for_eachIPPN3smt17theory_array_full13var_data_fullE11delete_procIS2_EET0_T_S8_S7_.exit
+_ZSt8for_eachIPPN3smt17theory_array_full13var_data_fullE11delete_procIS2_EET0_T_S8_S7_.exit.thread13: ; preds = %_ZN6vectorIPN3smt17theory_array_full13var_data_fullELb0EjE3endEv.exit, %_ZSt8for_eachIPPN3smt17theory_array_full13var_data_fullE11delete_procIS2_EET0_T_S8_S7_.exit
   %12 = phi ptr [ %.pre, %_ZSt8for_eachIPPN3smt17theory_array_full13var_data_fullE11delete_procIS2_EET0_T_S8_S7_.exit ], [ %3, %_ZN6vectorIPN3smt17theory_array_full13var_data_fullELb0EjE3endEv.exit ]
   %13 = getelementptr inbounds i8, ptr %12, i64 -4
   store i32 0, ptr %13, align 4, !tbaa !535
   br label %_ZN6vectorIPN3smt17theory_array_full13var_data_fullELb0EjE5resetEv.exit
 
-_ZN6vectorIPN3smt17theory_array_full13var_data_fullELb0EjE5resetEv.exit: ; preds = %1, %_ZSt8for_eachIPPN3smt17theory_array_full13var_data_fullE11delete_procIS2_EET0_T_S8_S7_.exit, %_ZSt8for_eachIPPN3smt17theory_array_full13var_data_fullE11delete_procIS2_EET0_T_S8_S7_.exit.thread12
+_ZN6vectorIPN3smt17theory_array_full13var_data_fullELb0EjE5resetEv.exit: ; preds = %1, %_ZSt8for_eachIPPN3smt17theory_array_full13var_data_fullE11delete_procIS2_EET0_T_S8_S7_.exit, %_ZSt8for_eachIPPN3smt17theory_array_full13var_data_fullE11delete_procIS2_EET0_T_S8_S7_.exit.thread13
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 580
   %16 = load i32, ptr %15, align 4, !tbaa !533
@@ -4408,8 +4408,8 @@ _ZN6vectorIPN3smt17theory_array_full13var_data_fullELb0EjE5resetEv.exit: ; preds
   %35 = icmp ugt i32 %24, 16
   %36 = mul i32 %24, 3
   %37 = icmp ugt i32 %34, %36
-  %or.cond18.i.i = select i1 %35, i1 %37, i1 false
-  br i1 %or.cond18.i.i, label %38, label %._crit_edge.thread.i.i
+  %or.cond19.i.i = select i1 %35, i1 %37, i1 false
+  br i1 %or.cond19.i.i, label %38, label %._crit_edge.thread.i.i
 
 38:                                               ; preds = %._crit_edge.i.i
   %39 = icmp eq ptr %22, null
@@ -4428,7 +4428,7 @@ _ZN14core_hashtableIN12obj_pair_mapI4exprS1_bE5entryE8obj_hashINS2_8key_dataEE10
   %43 = zext nneg i32 %42 to i64
   %44 = mul nuw nsw i64 %43, 24
   %45 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %44)
-  %.not11.i.i.i.i.i.i.i = icmp ult i32 %41, 2
+  %.not11.i.i.i.i.i.i.i = icmp eq i32 %42, 0
   br i1 %.not11.i.i.i.i.i.i.i, label %_ZN14core_hashtableIN12obj_pair_mapI4exprS1_bE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE11alloc_tableEj.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN14core_hashtableIN12obj_pair_mapI4exprS1_bE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE12delete_tableEv.exit.i.i, %.lr.ph.i.i.i.i.i.i.i
@@ -8603,8 +8603,8 @@ _ZN6vectorIPN3smt17theory_array_full13var_data_fullELb0EjE6shrinkEj.exit: ; pred
   %49 = icmp ugt i32 %38, 16
   %50 = mul i32 %38, 3
   %51 = icmp ugt i32 %48, %50
-  %or.cond18.i.i = select i1 %49, i1 %51, i1 false
-  br i1 %or.cond18.i.i, label %52, label %._crit_edge.thread.i.i
+  %or.cond19.i.i = select i1 %49, i1 %51, i1 false
+  br i1 %or.cond19.i.i, label %52, label %._crit_edge.thread.i.i
 
 52:                                               ; preds = %._crit_edge.i.i
   %53 = icmp eq ptr %36, null
@@ -8623,7 +8623,7 @@ _ZN14core_hashtableIN12obj_pair_mapI4exprS1_bE5entryE8obj_hashINS2_8key_dataEE10
   %57 = zext nneg i32 %56 to i64
   %58 = mul nuw nsw i64 %57, 24
   %59 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %58)
-  %.not11.i.i.i.i.i.i.i = icmp ult i32 %55, 2
+  %.not11.i.i.i.i.i.i.i = icmp eq i32 %56, 0
   br i1 %.not11.i.i.i.i.i.i.i, label %_ZN14core_hashtableIN12obj_pair_mapI4exprS1_bE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE11alloc_tableEj.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN14core_hashtableIN12obj_pair_mapI4exprS1_bE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE12delete_tableEv.exit.i.i, %.lr.ph.i.i.i.i.i.i.i

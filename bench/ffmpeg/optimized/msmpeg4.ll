@@ -513,7 +513,7 @@ define internal fastcc void @init_h263_dc_for_msmpeg4() unnamed_addr #5 {
   %.04958 = phi i32 [ %7, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %6 = lshr i32 %.04859, 1
   %7 = add nuw nsw i32 %.04958, 1
-  %.not = icmp samesign ult i32 %.04859, 2
+  %.not = icmp eq i32 %6, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2

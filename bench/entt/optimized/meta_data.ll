@@ -4461,7 +4461,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   store i32 %849, ptr %49, align 4, !tbaa !113
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
   store i32 0, ptr %50, align 4, !tbaa !113
-  %850 = icmp ult i32 %848, 65536
+  %850 = icmp eq i32 %849, 0
   br i1 %850, label %851, label %852
 
 851:                                              ; preds = %847
@@ -5730,14 +5730,14 @@ _ZN4entt7resolveI5clazzEENS_9meta_typeEv.exit:    ; preds = %1, %49
   store ptr %79, ptr %99, align 8, !tbaa !61, !alias.scope !142
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !70
-  %100 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store ptr %73, ptr %100, align 8, !tbaa !33, !alias.scope !142
+  %100 = lshr i32 %.pre, 16
+  %101 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  store ptr %73, ptr %101, align 8, !tbaa !33, !alias.scope !142
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
-  %101 = lshr i32 %.pre, 16
-  store i32 %101, ptr %7, align 4, !tbaa !113
+  store i32 %100, ptr %7, align 4, !tbaa !113
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !113
-  %102 = icmp ult i32 %.pre, 65536
+  %102 = icmp eq i32 %100, 0
   br i1 %102, label %103, label %105
 
 103:                                              ; preds = %.thread, %96
@@ -6154,14 +6154,14 @@ _ZN4entt7resolveI5clazzEENS_9meta_typeEv.exit93:  ; preds = %212, %214
   store ptr %244, ptr %264, align 8, !tbaa !61, !alias.scope !152
   %.phi.trans.insert313 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %.pre314 = load i32, ptr %.phi.trans.insert313, align 4, !tbaa !70
-  %265 = getelementptr inbounds nuw i8, ptr %15, i64 72
-  store ptr %238, ptr %265, align 8, !tbaa !33, !alias.scope !152
+  %265 = lshr i32 %.pre314, 16
+  %266 = getelementptr inbounds nuw i8, ptr %15, i64 72
+  store ptr %238, ptr %266, align 8, !tbaa !33, !alias.scope !152
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i103)
-  %266 = lshr i32 %.pre314, 16
-  store i32 %266, ptr %14, align 4, !tbaa !113
+  store i32 %265, ptr %14, align 4, !tbaa !113
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 0, ptr %17, align 4, !tbaa !113
-  %267 = icmp ult i32 %.pre314, 65536
+  %267 = icmp eq i32 %265, 0
   br i1 %267, label %268, label %270
 
 268:                                              ; preds = %.thread378, %261

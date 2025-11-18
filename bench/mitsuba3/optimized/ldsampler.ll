@@ -532,7 +532,7 @@ _ZN7mitsuba13sample_tea_32IjEENSt3__14pairIT_S3_EES3_S3_i.exit: ; preds = %.lr.p
   %58 = lshr i32 %.021.i, 1
   %59 = lshr i32 %.01520.i, 1
   %60 = xor i32 %59, %.01520.i
-  %.not.i8 = icmp ult i32 %.021.i, 2
+  %.not.i8 = icmp eq i32 %58, 0
   br i1 %.not.i8, label %_ZN7mitsuba7sobol_2IjfEET0_T_S2_.exit, label %.lr.ph.i7, !llvm.loop !9
 
 _ZN7mitsuba7sobol_2IjfEET0_T_S2_.exit:            ; preds = %.lr.ph.i7, %_ZN7mitsuba13sample_tea_32IjEENSt3__14pairIT_S3_EES3_S3_i.exit

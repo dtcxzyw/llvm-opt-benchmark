@@ -8307,7 +8307,7 @@ define { ptr, ptr } @"_ZN79_$LT$fish..ast..Traversal$u20$as$u20$core..iter..trai
   %24 = sub nuw i64 %20, %7
   %25 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %23, i64 %7
   %26 = lshr i64 %24, 1
-  %.not16.i.i = icmp ult i64 %24, 2
+  %.not16.i.i = icmp eq i64 %26, 0
   br i1 %.not16.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h2d16c0ac7a3b763dE.exit", label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %22
@@ -28788,8 +28788,8 @@ define void @"_ZN120_$LT$fish..builtins..string..split..Fields$u20$as$u20$core..
 
 55:                                               ; preds = %53
   %56 = ashr i64 %52, 32
-  %57 = icmp ult i64 %44, 4294967296
-  %58 = icmp ult i64 %52, 4294967296
+  %57 = icmp eq i64 %51, 0
+  %58 = icmp eq i64 %56, 0
   %or.cond.i = or i1 %57, %58
   br i1 %or.cond.i, label %75, label %59
 
@@ -28820,7 +28820,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17hcc1058b8dfe8d16aE.exit.i: ; pre
 
 66:                                               ; preds = %64
   %67 = ashr i64 %46, 32
-  %.not.i = icmp ult i64 %46, 4294967296
+  %.not.i = icmp eq i64 %67, 0
   br i1 %.not.i, label %75, label %68
 
 68:                                               ; preds = %66
@@ -30358,15 +30358,15 @@ define { i32, i32 } @"_ZN97_$LT$fish..builtins..string..split..Split$u20$as$u20$
   br label %254
 
 254:                                              ; preds = %224, %250
-  %storemerge267 = phi i64 [ %247, %250 ], [ %126, %224 ]
+  %storemerge268 = phi i64 [ %247, %250 ], [ %126, %224 ]
   %storemerge = phi ptr [ %251, %250 ], [ %.sroa.5.0.copyload, %224 ]
-  store i64 %storemerge267, ptr %25, align 8
+  store i64 %storemerge268, ptr %25, align 8
   store ptr %storemerge, ptr %.sroa.440.0..sroa_idx, align 8
   store i64 %.sroa.7.0.copyload, ptr %.sroa.541.0..sroa_idx, align 8
   %255 = lshr i64 %.sroa.7.0.copyload, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !2902)
   call void @llvm.experimental.noalias.scope.decl(metadata !2905)
-  %.not15.i.i = icmp ult i64 %.sroa.7.0.copyload, 2
+  %.not15.i.i = icmp eq i64 %255, 0
   br i1 %.not15.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h790ee441f5e7d93cE.exit", label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %254
@@ -33625,7 +33625,7 @@ define hidden i24 @_ZN4fish5color7Color249from_bits17hcc28d0dbad6e9e25E(i32 noun
   %3 = alloca [4 x i8], align 4
   %4 = lshr i32 %0, 24
   store i32 %4, ptr %3, align 4
-  %5 = icmp ult i32 %0, 16777216
+  %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %9, !prof !179
 
 6:                                                ; preds = %1
@@ -34299,7 +34299,7 @@ define internal fastcc noundef i64 @_ZN4fish5color13convert_color17had639c909f77
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3289
   %11 = lshr i32 %10, 24
   store i32 %11, ptr %5, align 4, !noalias !3289
-  %12 = icmp ult i32 %10, 16777216
+  %12 = icmp eq i32 %11, 0
   br i1 %12, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h7acd9e356af37515E.exit, label %13, !prof !179
 
 13:                                               ; preds = %3

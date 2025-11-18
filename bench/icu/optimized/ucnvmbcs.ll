@@ -4645,18 +4645,18 @@ define internal void @_ZL13ucnv_MBCSLoadP20UConverterSharedDataP18UConverterLoad
   %40 = phi i32 [ %11, %.thread ], [ %31, %24 ]
   %.0217 = phi i64 [ 32, %.thread ], [ %29, %24 ]
   %.0178216 = phi i1 [ true, %.thread ], [ %26, %24 ]
-  %.not = icmp ult i32 %40, 256
-  br i1 %.not, label %46, label %41
+  %41 = lshr i32 %40, 8
+  %.not = icmp eq i32 %41, 0
+  br i1 %.not, label %46, label %42
 
-41:                                               ; preds = %37
-  %42 = lshr i32 %40, 8
-  %43 = zext nneg i32 %42 to i64
+42:                                               ; preds = %37
+  %43 = zext nneg i32 %41 to i64
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store ptr %44, ptr %45, align 8, !tbaa !124
   br label %46
 
-46:                                               ; preds = %41, %37
+46:                                               ; preds = %42, %37
   switch i8 %39, label %167 [
     i8 14, label %47
     i8 0, label %168
@@ -4967,7 +4967,7 @@ define internal void @_ZL13ucnv_MBCSLoadP20UConverterSharedDataP18UConverterLoad
   %209 = load i8, ptr %208, align 1
   %210 = icmp ne i8 %209, 0
   %or.cond = select i1 %207, i1 %210, i1 false
-  br i1 %or.cond, label %211, label %.thread250
+  br i1 %or.cond, label %211, label %.thread251
 
 211:                                              ; preds = %171, %206
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4981,13 +4981,13 @@ define internal void @_ZL13ucnv_MBCSLoadP20UConverterSharedDataP18UConverterLoad
   %219 = load i8, ptr %218, align 1, !tbaa !28
   %220 = icmp ugt i8 %219, 2
   %221 = icmp samesign ult i8 %216, 2
-  %or.cond252 = select i1 %220, i1 %221, i1 false
-  br i1 %or.cond252, label %223, label %.thread251
+  %or.cond253 = select i1 %220, i1 %221, i1 false
+  br i1 %or.cond253, label %223, label %.thread252
 
-.thread250:                                       ; preds = %206
+.thread251:                                       ; preds = %206
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 253
   store i8 3, ptr %222, align 1, !tbaa !14
-  br label %.thread251
+  br label %.thread252
 
 223:                                              ; preds = %211
   %224 = load i8, ptr %8, align 8, !tbaa !140
@@ -4998,11 +4998,11 @@ define internal void @_ZL13ucnv_MBCSLoadP20UConverterSharedDataP18UConverterLoad
 
 228:                                              ; preds = %223
   %229 = icmp ugt i8 %227, 14
-  br i1 %229, label %232, label %.thread251
+  br i1 %229, label %232, label %.thread252
 
 230:                                              ; preds = %223
   %231 = icmp ugt i8 %227, -42
-  br i1 %231, label %250, label %.thread251
+  br i1 %231, label %250, label %.thread252
 
 232:                                              ; preds = %228
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 254
@@ -5032,7 +5032,7 @@ define internal void @_ZL13ucnv_MBCSLoadP20UConverterSharedDataP18UConverterLoad
 248:                                              ; preds = %236
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i16 4095, ptr %249, align 8, !tbaa !158
-  br label %.thread251
+  br label %.thread252
 
 250:                                              ; preds = %230
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 254
@@ -5056,16 +5056,16 @@ define internal void @_ZL13ucnv_MBCSLoadP20UConverterSharedDataP18UConverterLoad
   %263 = or disjoint i16 %262, 255
   %264 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i16 %263, ptr %264, align 8, !tbaa !158
-  br label %.thread251
+  br label %.thread252
 
-.thread251:                                       ; preds = %.thread250, %248, %256, %230, %228, %211
-  %265 = phi i8 [ %216, %248 ], [ %216, %256 ], [ %216, %230 ], [ %216, %228 ], [ %216, %211 ], [ 3, %.thread250 ]
+.thread252:                                       ; preds = %.thread251, %248, %256, %230, %228, %211
+  %265 = phi i8 [ %216, %248 ], [ %216, %256 ], [ %216, %230 ], [ %216, %228 ], [ %216, %211 ], [ 3, %.thread251 ]
   %266 = load ptr, ptr %179, align 8, !tbaa !138
   br label %267
 
-267:                                              ; preds = %.thread251, %267
-  %indvars.iv228 = phi i64 [ 0, %.thread251 ], [ %indvars.iv.next229, %267 ]
-  %.0180223 = phi i32 [ -1, %.thread251 ], [ %.1, %267 ]
+267:                                              ; preds = %.thread252, %267
+  %indvars.iv228 = phi i64 [ 0, %.thread252 ], [ %indvars.iv.next229, %267 ]
+  %.0180223 = phi i32 [ -1, %.thread252 ], [ %.1, %267 ]
   %268 = getelementptr inbounds nuw i32, ptr %266, i64 %indvars.iv228
   %269 = load i32, ptr %268, align 4, !tbaa !27
   %270 = or disjoint i64 %indvars.iv228, 2147483648
@@ -5137,7 +5137,7 @@ define internal void @_ZL13ucnv_MBCSLoadP20UConverterSharedDataP18UConverterLoad
   %315 = zext i16 %314 to i32
   %316 = add nuw nsw i32 %315, 1
   %317 = lshr i32 %316, 6
-  %.not70.i = icmp ult i16 %314, 63
+  %.not70.i = icmp eq i32 %317, 0
   br i1 %.not70.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %297

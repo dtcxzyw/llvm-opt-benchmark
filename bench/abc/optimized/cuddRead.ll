@@ -37,11 +37,11 @@ define range(i32 0, 2) i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nou
   %30 = phi i32 [ %31, %.lr.ph ], [ %28, %24 ]
   %31 = lshr i32 %30, 1
   %32 = add nuw nsw i32 %.0192244, 1
-  %.not = icmp ult i32 %30, 2
+  %.not = icmp eq i32 %31, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  store i32 %31, ptr %16, align 4, !tbaa !25
+  store i32 0, ptr %16, align 4, !tbaa !25
   br label %33
 
 33:                                               ; preds = %._crit_edge, %24
@@ -118,11 +118,11 @@ define range(i32 0, 2) i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nou
   %67 = phi i32 [ %68, %.lr.ph248 ], [ %65, %61 ]
   %68 = lshr i32 %67, 1
   %69 = add nuw nsw i32 %.0191246, 1
-  %.not275 = icmp ult i32 %67, 2
+  %.not275 = icmp eq i32 %68, 0
   br i1 %.not275, label %._crit_edge249, label %.lr.ph248, !llvm.loop !30
 
 ._crit_edge249:                                   ; preds = %.lr.ph248
-  store i32 %68, ptr %17, align 4, !tbaa !25
+  store i32 0, ptr %17, align 4, !tbaa !25
   br label %70
 
 70:                                               ; preds = %._crit_edge249, %61
@@ -348,7 +348,7 @@ define range(i32 0, 2) i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nou
 
 186:                                              ; preds = %.lr.ph272, %249
   %187 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18) #6
-  switch i32 %187, label %._crit_edge273.loopexit353 [
+  switch i32 %187, label %._crit_edge273.loopexit349 [
     i32 -1, label %._crit_edge273
     i32 3, label %188
   ]
@@ -357,7 +357,7 @@ define range(i32 0, 2) i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nou
   %189 = load i32, ptr %16, align 4, !tbaa !25
   %190 = load i32, ptr %9, align 4, !tbaa !25
   %.not226 = icmp slt i32 %189, %190
-  br i1 %.not226, label %191, label %._crit_edge273.loopexit353
+  br i1 %.not226, label %191, label %._crit_edge273.loopexit349
 
 191:                                              ; preds = %188
   %192 = load i32, ptr %17, align 4, !tbaa !25
@@ -366,7 +366,7 @@ define range(i32 0, 2) i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nou
   %195 = or i32 %192, %189
   %196 = icmp slt i32 %195, 0
   %or.cond3 = or i1 %194, %196
-  br i1 %or.cond3, label %._crit_edge273.loopexit353, label %197
+  br i1 %or.cond3, label %._crit_edge273.loopexit349, label %197
 
 197:                                              ; preds = %191
   %198 = load i32, ptr %181, align 4, !tbaa !34
@@ -494,11 +494,11 @@ define range(i32 0, 2) i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nou
   %.not224 = icmp eq i32 %257, 0
   br i1 %.not224, label %186, label %._crit_edge273, !llvm.loop !44
 
-._crit_edge273.loopexit353:                       ; preds = %186, %191, %188
+._crit_edge273.loopexit349:                       ; preds = %186, %191, %188
   br label %._crit_edge273
 
-._crit_edge273:                                   ; preds = %124, %110, %159, %145, %186, %249, %._crit_edge273.loopexit353, %._crit_edge257, %15, %248, %237, %223, %206, %96, %83, %59, %46
-  %.0198 = phi i32 [ 0, %46 ], [ 0, %59 ], [ 0, %83 ], [ 0, %96 ], [ 0, %206 ], [ 0, %223 ], [ 0, %237 ], [ 0, %248 ], [ 0, %15 ], [ 1, %._crit_edge257 ], [ 0, %._crit_edge273.loopexit353 ], [ 1, %249 ], [ 1, %186 ], [ 0, %145 ], [ 0, %159 ], [ 0, %110 ], [ 0, %124 ]
+._crit_edge273:                                   ; preds = %124, %110, %159, %145, %186, %249, %._crit_edge273.loopexit349, %._crit_edge257, %15, %248, %237, %223, %206, %96, %83, %59, %46
+  %.0198 = phi i32 [ 0, %46 ], [ 0, %59 ], [ 0, %83 ], [ 0, %96 ], [ 0, %206 ], [ 0, %223 ], [ 0, %237 ], [ 0, %248 ], [ 0, %15 ], [ 1, %._crit_edge257 ], [ 0, %._crit_edge273.loopexit349 ], [ 1, %249 ], [ 1, %186 ], [ 0, %145 ], [ 0, %159 ], [ 0, %110 ], [ 0, %124 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -557,11 +557,11 @@ define range(i32 0, 2) i32 @Cudd_bddRead(ptr noundef %0, ptr noundef %1, ptr nou
   %27 = phi i32 [ %28, %.lr.ph ], [ %25, %22 ]
   %28 = lshr i32 %27, 1
   %29 = add nuw nsw i32 %.0141176, 1
-  %.not = icmp ult i32 %27, 2
+  %.not = icmp eq i32 %28, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  store i32 %28, ptr %14, align 4, !tbaa !25
+  store i32 0, ptr %14, align 4, !tbaa !25
   br label %30
 
 30:                                               ; preds = %._crit_edge, %22
@@ -610,11 +610,11 @@ define range(i32 0, 2) i32 @Cudd_bddRead(ptr noundef %0, ptr noundef %1, ptr nou
   %50 = phi i32 [ %51, %.lr.ph180 ], [ %48, %45 ]
   %51 = lshr i32 %50, 1
   %52 = add nuw nsw i32 %.0140178, 1
-  %.not207 = icmp ult i32 %50, 2
+  %.not207 = icmp eq i32 %51, 0
   br i1 %.not207, label %._crit_edge181, label %.lr.ph180, !llvm.loop !46
 
 ._crit_edge181:                                   ; preds = %.lr.ph180
-  store i32 %51, ptr %15, align 4, !tbaa !25
+  store i32 0, ptr %15, align 4, !tbaa !25
   br label %53
 
 53:                                               ; preds = %._crit_edge181, %45
@@ -760,7 +760,7 @@ define range(i32 0, 2) i32 @Cudd_bddRead(ptr noundef %0, ptr noundef %1, ptr nou
 
 121:                                              ; preds = %.lr.ph204, %184
   %122 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull %14, ptr noundef nonnull %15) #6
-  switch i32 %122, label %._crit_edge205.loopexit268 [
+  switch i32 %122, label %._crit_edge205.loopexit264 [
     i32 -1, label %._crit_edge205
     i32 2, label %123
   ]
@@ -769,7 +769,7 @@ define range(i32 0, 2) i32 @Cudd_bddRead(ptr noundef %0, ptr noundef %1, ptr nou
   %124 = load i32, ptr %14, align 4, !tbaa !25
   %125 = load i32, ptr %7, align 4, !tbaa !25
   %.not166 = icmp slt i32 %124, %125
-  br i1 %.not166, label %126, label %._crit_edge205.loopexit268
+  br i1 %.not166, label %126, label %._crit_edge205.loopexit264
 
 126:                                              ; preds = %123
   %127 = load i32, ptr %15, align 4, !tbaa !25
@@ -778,7 +778,7 @@ define range(i32 0, 2) i32 @Cudd_bddRead(ptr noundef %0, ptr noundef %1, ptr nou
   %130 = or i32 %127, %124
   %131 = icmp slt i32 %130, 0
   %or.cond3 = or i1 %129, %131
-  br i1 %or.cond3, label %._crit_edge205.loopexit268, label %132
+  br i1 %or.cond3, label %._crit_edge205.loopexit264, label %132
 
 132:                                              ; preds = %126
   %133 = load i32, ptr %113, align 4, !tbaa !34
@@ -846,8 +846,8 @@ define range(i32 0, 2) i32 @Cudd_bddRead(ptr noundef %0, ptr noundef %1, ptr nou
   %159 = ptrtoint ptr %158 to i64
   %160 = xor i64 %159, 1
   %161 = inttoptr i64 %160 to ptr
-  %.sink255 = select i1 %.not167, ptr %161, ptr %158
-  %162 = call ptr @Cudd_bddAnd(ptr noundef %1, ptr noundef %.1146197, ptr noundef %.sink255) #6
+  %.sink253 = select i1 %.not167, ptr %161, ptr %158
+  %162 = call ptr @Cudd_bddAnd(ptr noundef %1, ptr noundef %.1146197, ptr noundef %.sink253) #6
   %163 = icmp eq ptr %162, null
   br i1 %163, label %164, label %165
 
@@ -905,11 +905,11 @@ define range(i32 0, 2) i32 @Cudd_bddRead(ptr noundef %0, ptr noundef %1, ptr nou
   %.not164 = icmp eq i32 %194, 0
   br i1 %.not164, label %121, label %._crit_edge205, !llvm.loop !53
 
-._crit_edge205.loopexit268:                       ; preds = %121, %126, %123
+._crit_edge205.loopexit264:                       ; preds = %121, %126, %123
   br label %._crit_edge205
 
-._crit_edge205:                                   ; preds = %80, %101, %121, %184, %._crit_edge205.loopexit268, %._crit_edge189, %13, %183, %164, %144, %66, %43
-  %.0149 = phi i32 [ 0, %43 ], [ 0, %66 ], [ 0, %144 ], [ 0, %164 ], [ 0, %183 ], [ 0, %13 ], [ 1, %._crit_edge189 ], [ 0, %._crit_edge205.loopexit268 ], [ 1, %184 ], [ 1, %121 ], [ 0, %101 ], [ 0, %80 ]
+._crit_edge205:                                   ; preds = %80, %101, %121, %184, %._crit_edge205.loopexit264, %._crit_edge189, %13, %183, %164, %144, %66, %43
+  %.0149 = phi i32 [ 0, %43 ], [ 0, %66 ], [ 0, %144 ], [ 0, %164 ], [ 0, %183 ], [ 0, %13 ], [ 1, %._crit_edge189 ], [ 0, %._crit_edge205.loopexit264 ], [ 1, %184 ], [ 1, %121 ], [ 0, %101 ], [ 0, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.0149

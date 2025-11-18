@@ -234,274 +234,261 @@ define noundef i64 @_ZN5arrow8internal17ComputeBitmapHashEPKhmll(ptr noundef rea
   %6 = xor i64 %5, %1
   %7 = srem i64 %2, 8
   %8 = sdiv i64 %2, 8
-  %9 = getelementptr i8, ptr %0, i64 %8
+  %9 = getelementptr inbounds i8, ptr %0, i64 %8
   %10 = lshr i64 %3, 6
-  %11 = add nsw i64 %10, -1
-  %12 = icmp ult i64 %3, 64
-  %spec.select.i.i = select i1 %12, i64 0, i64 %11
-  %13 = shl i64 %spec.select.i.i, 6
-  %14 = sub i64 %3, %13
-  %15 = trunc i64 %14 to i32
-  %sext.i.i = shl i64 %14, 32
-  %16 = ashr i64 %sext.i.i, 35
-  %17 = and i64 %3, 7
-  %18 = icmp ne i64 %17, 0
-  %19 = zext i1 %18 to i64
-  %20 = add nsw i64 %16, %19
-  %21 = trunc nsw i64 %20 to i32
-  %22 = icmp sgt i64 %spec.select.i.i, 0
-  br i1 %22, label %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit.thread.i, label %23
+  %spec.select.i.i = tail call i64 @llvm.usub.sat.i64(i64 %10, i64 1)
+  %11 = shl nuw i64 %spec.select.i.i, 6
+  %12 = sub i64 %3, %11
+  %13 = trunc i64 %12 to i32
+  %sext.i.i = shl i64 %12, 32
+  %14 = ashr i64 %sext.i.i, 35
+  %15 = and i64 %3, 7
+  %16 = icmp ne i64 %15, 0
+  %17 = zext i1 %16 to i64
+  %18 = add nsw i64 %14, %17
+  %19 = trunc nsw i64 %18 to i32
+  %.not.i.i = icmp ult i64 %3, 128
+  br i1 %.not.i.i, label %20, label %.lr.ph.preheader.i
 
-_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit.thread.i: ; preds = %4
-  %.0.copyload.i.i.i.i = load i64, ptr %9, align 1
-  br label %.lr.ph.i.preheader
+20:                                               ; preds = %4
+  %.not8.i.i = icmp eq i64 %3, 0
+  br i1 %.not8.i.i, label %._crit_edge.i, label %21
 
-23:                                               ; preds = %4
-  %24 = icmp sgt i64 %3, 0
-  br i1 %24, label %25, label %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit.i
-
-25:                                               ; preds = %23
+21:                                               ; preds = %20
   %.0.copyload.i.i7.i.i = load i8, ptr %9, align 1
   %.sroa.23.40.insert.ext.i = zext i8 %.0.copyload.i.i7.i.i to i64
-  br label %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit.i
-
-_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit.i: ; preds = %25, %23
-  %.sroa.23.2.i = phi i64 [ %.sroa.23.40.insert.ext.i, %25 ], [ undef, %23 ]
-  %.not44.i = icmp eq i64 %spec.select.i.i, 0
-  br i1 %.not44.i, label %._crit_edge.i, label %.lr.ph.i.preheader
-
-.lr.ph.i.preheader:                               ; preds = %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit.i, %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit.thread.i
-  %.sroa.23.046.i.ph = phi i64 [ %.0.copyload.i.i.i.i, %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit.thread.i ], [ %.sroa.23.2.i, %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit.i ]
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.048.i = phi i64 [ %34, %.lr.ph.i ], [ %6, %.lr.ph.i.preheader ]
-  %.02747.i = phi i64 [ %26, %.lr.ph.i ], [ %spec.select.i.i, %.lr.ph.i.preheader ]
-  %.sroa.23.046.i = phi i64 [ %28, %.lr.ph.i ], [ %.sroa.23.046.i.ph, %.lr.ph.i.preheader ]
-  %.sroa.6.045.i = phi ptr [ %27, %.lr.ph.i ], [ %9, %.lr.ph.i.preheader ]
-  %26 = add nsw i64 %.02747.i, -1
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.6.045.i, i64 8
-  %.0.copyload.i.i.i31.i = load i64, ptr %27, align 1
-  %28 = freeze i64 %.0.copyload.i.i.i31.i
-  %.0.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %28, i64 %.sroa.23.046.i, i64 %7)
-  %29 = mul i64 %.0.i.i, -4132994306676758123
-  %30 = lshr i64 %29, 47
-  %31 = xor i64 %30, %29
-  %32 = mul i64 %31, -4132994306676758123
-  %33 = xor i64 %32, %.048.i
-  %34 = mul i64 %33, -4132994306676758123
-  %.not.i = icmp eq i64 %26, 0
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !32
-
-._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %35 = shl nsw i64 %spec.select.i.i, 3
-  %scevgep.i = getelementptr i8, ptr %9, i64 %35
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit.i
-  %.sroa.6.0.lcssa.i = phi ptr [ %9, %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit.i ], [ %scevgep.i, %._crit_edge.loopexit.i ]
-  %.sroa.23.0.lcssa.i = phi i64 [ %.sroa.23.2.i, %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit.i ], [ %28, %._crit_edge.loopexit.i ]
-  %.0.lcssa.i = phi i64 [ %6, %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit.i ], [ %34, %._crit_edge.loopexit.i ]
-  %.not29.i = icmp eq i64 %20, 0
+.lr.ph.preheader.i:                               ; preds = %4
+  %.0.copyload.i.i.i.i = load i64, ptr %9, align 1
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+  %.049.i = phi i64 [ %30, %.lr.ph.i ], [ %6, %.lr.ph.preheader.i ]
+  %.02748.i = phi i64 [ %22, %.lr.ph.i ], [ %spec.select.i.i, %.lr.ph.preheader.i ]
+  %.sroa.23.047.i = phi i64 [ %24, %.lr.ph.i ], [ %.0.copyload.i.i.i.i, %.lr.ph.preheader.i ]
+  %.sroa.6.046.i = phi ptr [ %23, %.lr.ph.i ], [ %9, %.lr.ph.preheader.i ]
+  %22 = add nsw i64 %.02748.i, -1
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.6.046.i, i64 8
+  %.0.copyload.i.i.i31.i = load i64, ptr %23, align 1
+  %24 = freeze i64 %.0.copyload.i.i.i31.i
+  %.0.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %24, i64 %.sroa.23.047.i, i64 %7)
+  %25 = mul i64 %.0.i.i, -4132994306676758123
+  %26 = lshr i64 %25, 47
+  %27 = xor i64 %26, %25
+  %28 = mul i64 %27, -4132994306676758123
+  %29 = xor i64 %28, %.049.i
+  %30 = mul i64 %29, -4132994306676758123
+  %.not.i = icmp eq i64 %22, 0
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !32
+
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %21, %20
+  %.sroa.6.0.lcssa.i = phi ptr [ %9, %20 ], [ %9, %21 ], [ %23, %.lr.ph.i ]
+  %.sroa.23.0.lcssa.i = phi i64 [ undef, %20 ], [ %.sroa.23.40.insert.ext.i, %21 ], [ %24, %.lr.ph.i ]
+  %.0.lcssa.i = phi i64 [ %6, %20 ], [ %6, %21 ], [ %30, %.lr.ph.i ]
+  %.not29.i = icmp eq i64 %18, 0
   br i1 %.not29.i, label %_ZN5arrow8internal12_GLOBAL__N_118MurmurHashBitmap64EPKhmmm.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge.i
-  %.not.i.i = icmp eq i64 %7, 0
-  %36 = trunc nsw i64 %7 to i32
-  %37 = sub nsw i32 8, %36
-  br i1 %.not.i.i, label %.preheader.split.us.i, label %.preheader.split.i
+  %.not.i33.i = icmp eq i64 %7, 0
+  %31 = trunc nsw i64 %7 to i32
+  %32 = sub nsw i32 8, %31
+  br i1 %.not.i33.i, label %.preheader.split.us.i, label %.preheader.split.i
 
 .preheader.split.us.i:                            ; preds = %.preheader.i, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.us.i
-  %.sroa.15.0.us.i = phi i32 [ %.sroa.15.1.us.i, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.us.i ], [ %15, %.preheader.i ]
+  %.sroa.15.0.us.i = phi i32 [ %.sroa.15.1.us.i, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.us.i ], [ %13, %.preheader.i ]
   %.sroa.6.1.us.i = phi ptr [ %.sroa.6.2.us.i, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.us.i ], [ %.sroa.6.0.lcssa.i, %.preheader.i ]
   %.sroa.23.1.us.i = phi i64 [ %.sroa.23.3.us.i, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.us.i ], [ %.sroa.23.0.lcssa.i, %.preheader.i ]
-  %.026.us.i = phi i32 [ %68, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.us.i ], [ %21, %.preheader.i ]
-  %.025.us.i = phi i64 [ %67, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.us.i ], [ 0, %.preheader.i ]
-  %38 = icmp slt i32 %.sroa.15.0.us.i, 9
-  br i1 %38, label %42, label %39
+  %.026.us.i = phi i32 [ %63, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.us.i ], [ %19, %.preheader.i ]
+  %.025.us.i = phi i64 [ %62, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.us.i ], [ 0, %.preheader.i ]
+  %33 = icmp slt i32 %.sroa.15.0.us.i, 9
+  br i1 %33, label %37, label %34
 
-39:                                               ; preds = %.preheader.split.us.i
-  %40 = getelementptr inbounds nuw i8, ptr %.sroa.6.1.us.i, i64 1
-  %.0.copyload.i.i.i32.us.i = load i8, ptr %40, align 1
-  %.sroa.23.40.insert.ext41.us.i = zext i8 %.0.copyload.i.i.i32.us.i to i64
-  %41 = add nsw i32 %.sroa.15.0.us.i, -8
+34:                                               ; preds = %.preheader.split.us.i
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.6.1.us.i, i64 1
+  %.0.copyload.i.i.i32.us.i = load i8, ptr %35, align 1
+  %.sroa.23.40.insert.ext42.us.i = zext i8 %.0.copyload.i.i.i32.us.i to i64
+  %36 = add nsw i32 %.sroa.15.0.us.i, -8
   br label %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.us.i
 
-42:                                               ; preds = %.preheader.split.us.i
-  %43 = sext i32 %.sroa.15.0.us.i to i64
-  %44 = icmp sgt i32 %.sroa.15.0.us.i, 0
-  br i1 %44, label %.lr.ph.preheader.i.us.i, label %._crit_edge.i.us.i
+37:                                               ; preds = %.preheader.split.us.i
+  %38 = sext i32 %.sroa.15.0.us.i to i64
+  %39 = icmp sgt i32 %.sroa.15.0.us.i, 0
+  br i1 %39, label %.lr.ph.preheader.i.us.i, label %._crit_edge.i.us.i
 
-.lr.ph.preheader.i.us.i:                          ; preds = %42
-  %45 = load i8, ptr %.sroa.6.1.us.i, align 1, !tbaa !34
+.lr.ph.preheader.i.us.i:                          ; preds = %37
+  %40 = load i8, ptr %.sroa.6.1.us.i, align 1, !tbaa !34
   %wide.trip.count.i.us.i = zext nneg i32 %.sroa.15.0.us.i to i64
   br label %.lr.ph.i.us.i
 
 .lr.ph.i.us.i:                                    ; preds = %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.us.i, %.lr.ph.preheader.i.us.i
-  %.027.i.us.i = phi i8 [ %spec.select.i33.us.i, %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.us.i ], [ 0, %.lr.ph.preheader.i.us.i ]
+  %.027.i.us.i = phi i8 [ %spec.select.i34.us.i, %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.us.i ], [ 0, %.lr.ph.preheader.i.us.i ]
   %.sroa.16.025.i.us.i = phi i64 [ %.sroa.16.1.i.us.i, %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.us.i ], [ 0, %.lr.ph.preheader.i.us.i ]
-  %.sroa.4.024.i.us.i = phi i64 [ %53, %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.us.i ], [ 0, %.lr.ph.preheader.i.us.i ]
+  %.sroa.4.024.i.us.i = phi i64 [ %48, %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.us.i ], [ 0, %.lr.ph.preheader.i.us.i ]
   %.sroa.1319.023.i.us.i = phi i64 [ %.sroa.1319.1.i.us.i, %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.us.i ], [ 0, %.lr.ph.preheader.i.us.i ]
-  %.sroa.9.022.i.us.i = phi i8 [ %.sroa.9.2.i.us.i, %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.us.i ], [ %45, %.lr.ph.preheader.i.us.i ]
-  %46 = lshr i8 %.027.i.us.i, 1
-  %47 = zext i8 %.sroa.9.022.i.us.i to i32
-  %48 = trunc nsw i64 %.sroa.16.025.i.us.i to i32
-  %49 = shl nuw nsw i32 1, %48
-  %50 = and i32 %49, %47
-  %.not21.i.us.i = icmp eq i32 %50, 0
-  %51 = or disjoint i8 %46, -128
-  %spec.select.i33.us.i = select i1 %.not21.i.us.i, i8 %46, i8 %51
-  %52 = add nsw i64 %.sroa.16.025.i.us.i, 1
-  %53 = add nuw nsw i64 %.sroa.4.024.i.us.i, 1
-  %54 = icmp eq i64 %52, 8
-  br i1 %54, label %55, label %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.us.i, !prof !35
+  %.sroa.9.022.i.us.i = phi i8 [ %.sroa.9.2.i.us.i, %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.us.i ], [ %40, %.lr.ph.preheader.i.us.i ]
+  %41 = lshr i8 %.027.i.us.i, 1
+  %42 = zext i8 %.sroa.9.022.i.us.i to i32
+  %43 = trunc nsw i64 %.sroa.16.025.i.us.i to i32
+  %44 = shl nuw nsw i32 1, %43
+  %45 = and i32 %44, %42
+  %.not21.i.us.i = icmp eq i32 %45, 0
+  %46 = or disjoint i8 %41, -128
+  %spec.select.i34.us.i = select i1 %.not21.i.us.i, i8 %41, i8 %46
+  %47 = add nsw i64 %.sroa.16.025.i.us.i, 1
+  %48 = add nuw nsw i64 %.sroa.4.024.i.us.i, 1
+  %49 = icmp eq i64 %47, 8
+  br i1 %49, label %50, label %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.us.i, !prof !35
 
-55:                                               ; preds = %.lr.ph.i.us.i
-  %56 = add nsw i64 %.sroa.1319.023.i.us.i, 1
-  %57 = icmp slt i64 %53, %43
-  br i1 %57, label %58, label %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.us.i, !prof !36
+50:                                               ; preds = %.lr.ph.i.us.i
+  %51 = add nsw i64 %.sroa.1319.023.i.us.i, 1
+  %52 = icmp slt i64 %48, %38
+  br i1 %52, label %53, label %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.us.i, !prof !36
 
-58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %.sroa.6.1.us.i, i64 %56
-  %60 = load i8, ptr %59, align 1, !tbaa !34
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds i8, ptr %.sroa.6.1.us.i, i64 %51
+  %55 = load i8, ptr %54, align 1, !tbaa !34
   br label %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.us.i
 
-_ZN5arrow8internal12BitmapReader4NextEv.exit.i.us.i: ; preds = %58, %55, %.lr.ph.i.us.i
-  %.sroa.9.2.i.us.i = phi i8 [ %60, %58 ], [ %.sroa.9.022.i.us.i, %55 ], [ %.sroa.9.022.i.us.i, %.lr.ph.i.us.i ]
-  %.sroa.1319.1.i.us.i = phi i64 [ %56, %58 ], [ %56, %55 ], [ %.sroa.1319.023.i.us.i, %.lr.ph.i.us.i ]
-  %.sroa.16.1.i.us.i = phi i64 [ 0, %58 ], [ 0, %55 ], [ %52, %.lr.ph.i.us.i ]
-  %exitcond.not.i.us.i = icmp eq i64 %53, %wide.trip.count.i.us.i
+_ZN5arrow8internal12BitmapReader4NextEv.exit.i.us.i: ; preds = %53, %50, %.lr.ph.i.us.i
+  %.sroa.9.2.i.us.i = phi i8 [ %55, %53 ], [ %.sroa.9.022.i.us.i, %50 ], [ %.sroa.9.022.i.us.i, %.lr.ph.i.us.i ]
+  %.sroa.1319.1.i.us.i = phi i64 [ %51, %53 ], [ %51, %50 ], [ %.sroa.1319.023.i.us.i, %.lr.ph.i.us.i ]
+  %.sroa.16.1.i.us.i = phi i64 [ 0, %53 ], [ 0, %50 ], [ %47, %.lr.ph.i.us.i ]
+  %exitcond.not.i.us.i = icmp eq i64 %48, %wide.trip.count.i.us.i
   br i1 %exitcond.not.i.us.i, label %._crit_edge.loopexit.i.us.i, label %.lr.ph.i.us.i, !llvm.loop !37
 
 ._crit_edge.loopexit.i.us.i:                      ; preds = %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.us.i
-  %61 = zext i8 %spec.select.i33.us.i to i32
+  %56 = zext i8 %spec.select.i34.us.i to i32
   br label %._crit_edge.i.us.i
 
-._crit_edge.i.us.i:                               ; preds = %._crit_edge.loopexit.i.us.i, %42
-  %.0.lcssa.i.us.i = phi i32 [ %61, %._crit_edge.loopexit.i.us.i ], [ 0, %42 ]
-  %62 = sub nsw i32 8, %.sroa.15.0.us.i
-  %63 = lshr i32 %.0.lcssa.i.us.i, %62
-  %64 = zext nneg i32 %63 to i64
+._crit_edge.i.us.i:                               ; preds = %._crit_edge.loopexit.i.us.i, %37
+  %.0.lcssa.i.us.i = phi i32 [ %56, %._crit_edge.loopexit.i.us.i ], [ 0, %37 ]
+  %57 = sub nsw i32 8, %.sroa.15.0.us.i
+  %58 = lshr i32 %.0.lcssa.i.us.i, %57
+  %59 = zext nneg i32 %58 to i64
   br label %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.us.i
 
-_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.us.i: ; preds = %._crit_edge.i.us.i, %39
-  %.sroa.15.1.us.i = phi i32 [ 0, %._crit_edge.i.us.i ], [ %41, %39 ]
-  %.sroa.6.2.us.i = phi ptr [ %.sroa.6.1.us.i, %._crit_edge.i.us.i ], [ %40, %39 ]
-  %.sroa.23.3.us.i = phi i64 [ %.sroa.23.1.us.i, %._crit_edge.i.us.i ], [ %.sroa.23.40.insert.ext41.us.i, %39 ]
-  %.2.i.us.i = phi i64 [ %64, %._crit_edge.i.us.i ], [ %.sroa.23.1.us.i, %39 ]
-  %65 = shl i64 %.025.us.i, 8
-  %66 = and i64 %.2.i.us.i, 255
-  %67 = or disjoint i64 %66, %65
-  %68 = add nsw i32 %.026.us.i, -1
-  %.not30.us.i = icmp eq i32 %68, 0
+_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.us.i: ; preds = %._crit_edge.i.us.i, %34
+  %.sroa.15.1.us.i = phi i32 [ 0, %._crit_edge.i.us.i ], [ %36, %34 ]
+  %.sroa.6.2.us.i = phi ptr [ %.sroa.6.1.us.i, %._crit_edge.i.us.i ], [ %35, %34 ]
+  %.sroa.23.3.us.i = phi i64 [ %.sroa.23.1.us.i, %._crit_edge.i.us.i ], [ %.sroa.23.40.insert.ext42.us.i, %34 ]
+  %.2.i.us.i = phi i64 [ %59, %._crit_edge.i.us.i ], [ %.sroa.23.1.us.i, %34 ]
+  %60 = shl i64 %.025.us.i, 8
+  %61 = and i64 %.2.i.us.i, 255
+  %62 = or disjoint i64 %61, %60
+  %63 = add nsw i32 %.026.us.i, -1
+  %.not30.us.i = icmp eq i32 %63, 0
   br i1 %.not30.us.i, label %.split.us.i, label %.preheader.split.us.i, !llvm.loop !38
 
 .preheader.split.i:                               ; preds = %.preheader.i, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i
-  %.sroa.15.0.i = phi i32 [ %.sroa.15.1.i, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i ], [ %15, %.preheader.i ]
+  %.sroa.15.0.i = phi i32 [ %.sroa.15.1.i, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i ], [ %13, %.preheader.i ]
   %.sroa.6.1.i = phi ptr [ %.sroa.6.2.i, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i ], [ %.sroa.6.0.lcssa.i, %.preheader.i ]
   %.sroa.23.1.i = phi i64 [ %.sroa.23.3.i, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i ], [ %.sroa.23.0.lcssa.i, %.preheader.i ]
-  %.026.i = phi i32 [ %105, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i ], [ %21, %.preheader.i ]
-  %.025.i = phi i64 [ %104, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i ], [ 0, %.preheader.i ]
-  %69 = icmp slt i32 %.sroa.15.0.i, 9
-  br i1 %69, label %70, label %92
+  %.026.i = phi i32 [ %100, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i ], [ %19, %.preheader.i ]
+  %.025.i = phi i64 [ %99, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i ], [ 0, %.preheader.i ]
+  %64 = icmp slt i32 %.sroa.15.0.i, 9
+  br i1 %64, label %65, label %87
 
-70:                                               ; preds = %.preheader.split.i
-  %71 = sext i32 %.sroa.15.0.i to i64
-  %72 = icmp sgt i32 %.sroa.15.0.i, 0
-  br i1 %72, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
+65:                                               ; preds = %.preheader.split.i
+  %66 = sext i32 %.sroa.15.0.i to i64
+  %67 = icmp sgt i32 %.sroa.15.0.i, 0
+  br i1 %67, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %70
-  %73 = load i8, ptr %.sroa.6.1.i, align 1, !tbaa !34
+.lr.ph.preheader.i.i:                             ; preds = %65
+  %68 = load i8, ptr %.sroa.6.1.i, align 1, !tbaa !34
   %wide.trip.count.i.i = zext nneg i32 %.sroa.15.0.i to i64
   br label %.lr.ph.i.i
 
 ._crit_edge.loopexit.i.i:                         ; preds = %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.i
-  %74 = zext i8 %spec.select.i33.i to i32
+  %69 = zext i8 %spec.select.i34.i to i32
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %70
-  %.0.lcssa.i.i = phi i32 [ %74, %._crit_edge.loopexit.i.i ], [ 0, %70 ]
-  %75 = sub nsw i32 8, %.sroa.15.0.i
-  %76 = lshr i32 %.0.lcssa.i.i, %75
+._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %65
+  %.0.lcssa.i.i = phi i32 [ %69, %._crit_edge.loopexit.i.i ], [ 0, %65 ]
+  %70 = sub nsw i32 8, %.sroa.15.0.i
+  %71 = lshr i32 %.0.lcssa.i.i, %70
   br label %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.i, %.lr.ph.preheader.i.i
-  %.027.i.i = phi i8 [ %spec.select.i33.i, %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.i ], [ 0, %.lr.ph.preheader.i.i ]
+  %.027.i.i = phi i8 [ %spec.select.i34.i, %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.i ], [ 0, %.lr.ph.preheader.i.i ]
   %.sroa.16.025.i.i = phi i64 [ %.sroa.16.1.i.i, %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.i ], [ %7, %.lr.ph.preheader.i.i ]
-  %.sroa.4.024.i.i = phi i64 [ %84, %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.i ], [ 0, %.lr.ph.preheader.i.i ]
+  %.sroa.4.024.i.i = phi i64 [ %79, %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.i ], [ 0, %.lr.ph.preheader.i.i ]
   %.sroa.1319.023.i.i = phi i64 [ %.sroa.1319.1.i.i, %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.i ], [ 0, %.lr.ph.preheader.i.i ]
-  %.sroa.9.022.i.i = phi i8 [ %.sroa.9.2.i.i, %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.i ], [ %73, %.lr.ph.preheader.i.i ]
-  %77 = lshr i8 %.027.i.i, 1
-  %78 = zext i8 %.sroa.9.022.i.i to i32
-  %79 = trunc nsw i64 %.sroa.16.025.i.i to i32
-  %80 = shl nuw nsw i32 1, %79
-  %81 = and i32 %80, %78
-  %.not21.i.i = icmp eq i32 %81, 0
-  %82 = or disjoint i8 %77, -128
-  %spec.select.i33.i = select i1 %.not21.i.i, i8 %77, i8 %82
-  %83 = add nsw i64 %.sroa.16.025.i.i, 1
-  %84 = add nuw nsw i64 %.sroa.4.024.i.i, 1
-  %85 = icmp eq i64 %83, 8
-  br i1 %85, label %86, label %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.i, !prof !35
+  %.sroa.9.022.i.i = phi i8 [ %.sroa.9.2.i.i, %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.i ], [ %68, %.lr.ph.preheader.i.i ]
+  %72 = lshr i8 %.027.i.i, 1
+  %73 = zext i8 %.sroa.9.022.i.i to i32
+  %74 = trunc nsw i64 %.sroa.16.025.i.i to i32
+  %75 = shl nuw nsw i32 1, %74
+  %76 = and i32 %75, %73
+  %.not21.i.i = icmp eq i32 %76, 0
+  %77 = or disjoint i8 %72, -128
+  %spec.select.i34.i = select i1 %.not21.i.i, i8 %72, i8 %77
+  %78 = add nsw i64 %.sroa.16.025.i.i, 1
+  %79 = add nuw nsw i64 %.sroa.4.024.i.i, 1
+  %80 = icmp eq i64 %78, 8
+  br i1 %80, label %81, label %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.i, !prof !35
 
-86:                                               ; preds = %.lr.ph.i.i
-  %87 = add nsw i64 %.sroa.1319.023.i.i, 1
-  %88 = icmp slt i64 %84, %71
-  br i1 %88, label %89, label %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.i, !prof !36
+81:                                               ; preds = %.lr.ph.i.i
+  %82 = add nsw i64 %.sroa.1319.023.i.i, 1
+  %83 = icmp slt i64 %79, %66
+  br i1 %83, label %84, label %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.i, !prof !36
 
-89:                                               ; preds = %86
-  %90 = getelementptr inbounds i8, ptr %.sroa.6.1.i, i64 %87
-  %91 = load i8, ptr %90, align 1, !tbaa !34
+84:                                               ; preds = %81
+  %85 = getelementptr inbounds i8, ptr %.sroa.6.1.i, i64 %82
+  %86 = load i8, ptr %85, align 1, !tbaa !34
   br label %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.i
 
-_ZN5arrow8internal12BitmapReader4NextEv.exit.i.i: ; preds = %89, %86, %.lr.ph.i.i
-  %.sroa.9.2.i.i = phi i8 [ %91, %89 ], [ %.sroa.9.022.i.i, %86 ], [ %.sroa.9.022.i.i, %.lr.ph.i.i ]
-  %.sroa.1319.1.i.i = phi i64 [ %87, %89 ], [ %87, %86 ], [ %.sroa.1319.023.i.i, %.lr.ph.i.i ]
-  %.sroa.16.1.i.i = phi i64 [ 0, %89 ], [ 0, %86 ], [ %83, %.lr.ph.i.i ]
-  %exitcond.not.i.i = icmp eq i64 %84, %wide.trip.count.i.i
+_ZN5arrow8internal12BitmapReader4NextEv.exit.i.i: ; preds = %84, %81, %.lr.ph.i.i
+  %.sroa.9.2.i.i = phi i8 [ %86, %84 ], [ %.sroa.9.022.i.i, %81 ], [ %.sroa.9.022.i.i, %.lr.ph.i.i ]
+  %.sroa.1319.1.i.i = phi i64 [ %82, %84 ], [ %82, %81 ], [ %.sroa.1319.023.i.i, %.lr.ph.i.i ]
+  %.sroa.16.1.i.i = phi i64 [ 0, %84 ], [ 0, %81 ], [ %78, %.lr.ph.i.i ]
+  %exitcond.not.i.i = icmp eq i64 %79, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !37
 
-92:                                               ; preds = %.preheader.split.i
-  %93 = getelementptr inbounds nuw i8, ptr %.sroa.6.1.i, i64 1
-  %.0.copyload.i.i.i32.i = load i8, ptr %93, align 1
-  %94 = trunc i64 %.sroa.23.1.i to i32
-  %95 = and i32 %94, 255
-  %96 = lshr i32 %95, %36
-  %97 = zext i8 %.0.copyload.i.i.i32.i to i32
-  %98 = shl nuw nsw i32 %97, %37
-  %99 = or i32 %98, %96
-  %.sroa.23.40.insert.ext41.i = zext i8 %.0.copyload.i.i.i32.i to i64
-  %100 = add nsw i32 %.sroa.15.0.i, -8
+87:                                               ; preds = %.preheader.split.i
+  %88 = getelementptr inbounds nuw i8, ptr %.sroa.6.1.i, i64 1
+  %.0.copyload.i.i.i32.i = load i8, ptr %88, align 1
+  %89 = trunc i64 %.sroa.23.1.i to i32
+  %90 = and i32 %89, 255
+  %91 = lshr i32 %90, %31
+  %92 = zext i8 %.0.copyload.i.i.i32.i to i32
+  %93 = shl nuw nsw i32 %92, %32
+  %94 = or i32 %93, %91
+  %.sroa.23.40.insert.ext42.i = zext i8 %.0.copyload.i.i.i32.i to i64
+  %95 = add nsw i32 %.sroa.15.0.i, -8
   br label %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i
 
-_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i: ; preds = %92, %._crit_edge.i.i
-  %.sroa.15.1.i = phi i32 [ 0, %._crit_edge.i.i ], [ %100, %92 ]
-  %.sroa.6.2.i = phi ptr [ %.sroa.6.1.i, %._crit_edge.i.i ], [ %93, %92 ]
-  %.sroa.23.3.i = phi i64 [ %.sroa.23.1.i, %._crit_edge.i.i ], [ %.sroa.23.40.insert.ext41.i, %92 ]
-  %.2.i.in.i = phi i32 [ %76, %._crit_edge.i.i ], [ %99, %92 ]
-  %101 = shl i64 %.025.i, 8
-  %102 = and i32 %.2.i.in.i, 255
-  %103 = zext nneg i32 %102 to i64
-  %104 = or disjoint i64 %101, %103
-  %105 = add nsw i32 %.026.i, -1
-  %.not30.i = icmp eq i32 %105, 0
+_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i: ; preds = %87, %._crit_edge.i.i
+  %.sroa.15.1.i = phi i32 [ 0, %._crit_edge.i.i ], [ %95, %87 ]
+  %.sroa.6.2.i = phi ptr [ %.sroa.6.1.i, %._crit_edge.i.i ], [ %88, %87 ]
+  %.sroa.23.3.i = phi i64 [ %.sroa.23.1.i, %._crit_edge.i.i ], [ %.sroa.23.40.insert.ext42.i, %87 ]
+  %.2.i.in.i = phi i32 [ %71, %._crit_edge.i.i ], [ %94, %87 ]
+  %96 = shl i64 %.025.i, 8
+  %97 = and i32 %.2.i.in.i, 255
+  %98 = zext nneg i32 %97 to i64
+  %99 = or disjoint i64 %96, %98
+  %100 = add nsw i32 %.026.i, -1
+  %.not30.i = icmp eq i32 %100, 0
   br i1 %.not30.i, label %.split.us.i, label %.preheader.split.i, !llvm.loop !38
 
 .split.us.i:                                      ; preds = %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.us.i
-  %.us-phi.i = phi i64 [ %67, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.us.i ], [ %104, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i ]
-  %106 = xor i64 %.us-phi.i, %.0.lcssa.i
-  %107 = mul i64 %106, -4132994306676758123
+  %.us-phi.i = phi i64 [ %62, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.us.i ], [ %99, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i ]
+  %101 = xor i64 %.us-phi.i, %.0.lcssa.i
+  %102 = mul i64 %101, -4132994306676758123
   br label %_ZN5arrow8internal12_GLOBAL__N_118MurmurHashBitmap64EPKhmmm.exit
 
 _ZN5arrow8internal12_GLOBAL__N_118MurmurHashBitmap64EPKhmmm.exit: ; preds = %._crit_edge.i, %.split.us.i
-  %.1.i = phi i64 [ %107, %.split.us.i ], [ %.0.lcssa.i, %._crit_edge.i ]
-  %108 = lshr i64 %.1.i, 47
-  %109 = xor i64 %108, %.1.i
-  %110 = mul i64 %109, -4132994306676758123
-  %111 = lshr i64 %110, 47
-  %112 = xor i64 %111, %110
-  ret i64 %112
+  %.1.i = phi i64 [ %102, %.split.us.i ], [ %.0.lcssa.i, %._crit_edge.i ]
+  %103 = lshr i64 %.1.i, 47
+  %104 = xor i64 %103, %.1.i
+  %105 = mul i64 %104, -4132994306676758123
+  %106 = lshr i64 %105, 47
+  %107 = xor i64 %106, %105
+  ret i64 %107
 }
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #2
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshr.i64(i64, i64, i64) #2

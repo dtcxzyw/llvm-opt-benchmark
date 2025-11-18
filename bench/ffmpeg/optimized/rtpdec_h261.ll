@@ -71,7 +71,7 @@ define internal range(i32 -2147483648, 1) i32 @h261_handle_packet(ptr noundef %0
   %38 = lshr i32 %32, 7
   %39 = or disjoint i32 %37, %38
   %40 = icmp ugt i8 %34, 15
-  %41 = icmp ugt i8 %21, 31
+  %41 = icmp ne i32 %23, 0
   %or.cond = select i1 %40, i1 true, i1 %41
   %42 = icmp ne i32 %39, 0
   %or.cond3 = select i1 %or.cond, i1 true, i1 %42
@@ -95,7 +95,7 @@ define internal range(i32 -2147483648, 1) i32 @h261_handle_packet(ptr noundef %0
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %53 = load i32, ptr %52, align 4, !tbaa !13
   %54 = icmp ne i32 %53, 0
-  %55 = icmp ugt i8 %21, 31
+  %55 = icmp ne i32 %23, 0
   %or.cond7 = select i1 %54, i1 true, i1 %55
   br i1 %or.cond7, label %56, label %121
 

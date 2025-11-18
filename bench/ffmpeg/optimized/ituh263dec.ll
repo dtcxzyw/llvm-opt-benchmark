@@ -5358,7 +5358,7 @@ check_marker.exit:                                ; preds = %.thread
   store i32 %370, ptr %371, align 8, !tbaa !53
   %372 = add i32 %343, 10
   store i32 %372, ptr %3, align 8, !tbaa !73
-  %.not280 = icmp ult i32 %193, 536870912
+  %.not280 = icmp eq i32 %194, 0
   br i1 %.not280, label %496, label %373
 
 373:                                              ; preds = %360
@@ -5517,7 +5517,7 @@ check_marker.exit:                                ; preds = %.thread
   store i32 %487, ptr %3, align 8, !tbaa !73
   %488 = mul nuw nsw i32 %486, %477
   store i32 %488, ptr %478, align 4, !tbaa !64
-  %.not282 = icmp ult i32 %485, 33554432
+  %.not282 = icmp eq i32 %486, 0
   br i1 %.not282, label %.thread311, label %489
 
 .thread311:                                       ; preds = %464

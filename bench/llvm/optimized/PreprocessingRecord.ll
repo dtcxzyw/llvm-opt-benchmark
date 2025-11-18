@@ -239,13 +239,13 @@ define dso_local void @_ZN5clang19PreprocessingRecordC2ERNS_13SourceManagerE(ptr
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang19PreprocessingRecord30getPreprocessedEntitiesInRangeENS_11SourceRangeE(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::iterator_range") align 8 captures(none) initializes((0, 4), (8, 20), (24, 32)) %0, ptr noundef nonnull align 8 dereferenceable(240) %1, i64 %2) local_unnamed_addr #3 align 2 {
   %.sroa.018.0.extract.trunc = trunc i64 %2 to i32
+  %.sroa.524.0.extract.shift = lshr i64 %2, 32
   %4 = icmp eq i32 %.sroa.018.0.extract.trunc, 0
-  %5 = icmp ult i64 %2, 4294967296
-  %.not2.i = or i1 %5, %4
+  %5 = icmp eq i64 %.sroa.524.0.extract.shift, 0
+  %.not2.i = or i1 %4, %5
   br i1 %.not2.i, label %51, label %6
 
 6:                                                ; preds = %3
-  %.sroa.524.0.extract.shift = lshr i64 %2, 32
   %.sroa.524.0.extract.trunc = trunc nuw i64 %.sroa.524.0.extract.shift to i32
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !59
@@ -324,15 +324,15 @@ _ZN5clang19PreprocessingRecord34getPreprocessedEntitiesInRangeSlowENS_11SourceRa
 
 51:                                               ; preds = %3, %_ZN5clang19PreprocessingRecord34getPreprocessedEntitiesInRangeSlowENS_11SourceRangeE.exit, %14
   %.sroa.07.0.extract.trunc.sink = phi i32 [ %.sroa.07.0.extract.trunc, %_ZN5clang19PreprocessingRecord34getPreprocessedEntitiesInRangeSlowENS_11SourceRangeE.exit ], [ %16, %14 ], [ 0, %3 ]
-  %.sink32 = phi ptr [ %1, %_ZN5clang19PreprocessingRecord34getPreprocessedEntitiesInRangeSlowENS_11SourceRangeE.exit ], [ %1, %14 ], [ null, %3 ]
+  %.sink31 = phi ptr [ %1, %_ZN5clang19PreprocessingRecord34getPreprocessedEntitiesInRangeSlowENS_11SourceRangeE.exit ], [ %1, %14 ], [ null, %3 ]
   %.sroa.5.0.extract.trunc.pre-phi.sink = phi i32 [ %.sroa.5.0.extract.trunc.pre-phi, %_ZN5clang19PreprocessingRecord34getPreprocessedEntitiesInRangeSlowENS_11SourceRangeE.exit ], [ %18, %14 ], [ 0, %3 ]
   store i32 %.sroa.07.0.extract.trunc.sink, ptr %0, align 8
   %.sroa.24.0..sroa_idx.i.i3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink32, ptr %.sroa.24.0..sroa_idx.i.i3, align 8
+  store ptr %.sink31, ptr %.sroa.24.0..sroa_idx.i.i3, align 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.5.0.extract.trunc.pre-phi.sink, ptr %52, align 8
   %.sroa.21.0..sroa_idx.i.i4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sink32, ptr %.sroa.21.0..sroa_idx.i.i4, align 8
+  store ptr %.sink31, ptr %.sroa.21.0..sroa_idx.i.i4, align 8
   ret void
 }
 
@@ -624,8 +624,8 @@ define dso_local i64 @_ZNK5clang19PreprocessingRecord36findLocalPreprocessedEnti
   %.sroa.3.0.extract.shift = lshr i64 %1, 32
   %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
   %3 = icmp eq i32 %.sroa.014.0.extract.trunc, 0
-  %4 = icmp ult i64 %1, 4294967296
-  %.not2.i = or i1 %4, %3
+  %4 = icmp eq i64 %.sroa.3.0.extract.shift, 0
+  %.not2.i = or i1 %3, %4
   br i1 %.not2.i, label %_ZNK5clang19PreprocessingRecord30findEndLocalPreprocessedEntityENS_14SourceLocationE.exit, label %5
 
 5:                                                ; preds = %2

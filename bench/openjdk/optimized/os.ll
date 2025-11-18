@@ -2522,23 +2522,23 @@ define hidden void @_ZN2os18print_summary_infoEP12outputStreamPcm(ptr noundef no
   tail call void @_ZN2os20get_summary_cpu_infoEPcm(ptr noundef %1, i64 noundef %2) #29
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.34, ptr noundef %1) #29
   %4 = tail call noundef i64 @_ZN2os15physical_memoryEv() #29
-  %5 = icmp ult i64 %4, 1073741824
-  br i1 %5, label %6, label %10
+  %5 = lshr i64 %4, 30
+  %6 = icmp eq i64 %5, 0
+  br i1 %6, label %7, label %11
 
-6:                                                ; preds = %3
-  %7 = tail call noundef i64 @_ZN2os15physical_memoryEv() #29
-  %8 = lshr i64 %7, 20
-  %9 = load i32, ptr @_ZN2os16_processor_countE, align 4
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.35, i32 noundef %9, i64 noundef %8) #29
+7:                                                ; preds = %3
+  %8 = tail call noundef i64 @_ZN2os15physical_memoryEv() #29
+  %9 = lshr i64 %8, 20
+  %10 = load i32, ptr @_ZN2os16_processor_countE, align 4
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.35, i32 noundef %10, i64 noundef %9) #29
   br label %13
 
-10:                                               ; preds = %3
-  %11 = lshr i64 %4, 30
+11:                                               ; preds = %3
   %12 = load i32, ptr @_ZN2os16_processor_countE, align 4
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.36, i32 noundef %12, i64 noundef %11) #29
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.36, i32 noundef %12, i64 noundef %5) #29
   br label %13
 
-13:                                               ; preds = %10, %6
+13:                                               ; preds = %11, %7
   tail call void @_ZN2os19get_summary_os_infoEPcm(ptr noundef %1, i64 noundef %2) #29
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #30
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %1, i64 noundef %14) #29

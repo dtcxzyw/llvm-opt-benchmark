@@ -697,9 +697,9 @@ define hidden void @_ZN12thrift_codec6encode12write_varint17h98f39864c578507dE(p
   %6 = trunc i64 %.sroa.0.0 to i8
   %7 = and i8 %6, 127
   %8 = lshr i64 %.sroa.0.0, 7
-  %9 = icmp ult i64 %.sroa.0.0, 128
+  %9 = icmp eq i64 %8, 0
   %masksel = select i1 %9, i8 0, i8 -128
-  %spec.select = or disjoint i8 %7, %masksel
+  %spec.select = or disjoint i8 %masksel, %7
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !37
   store i8 %spec.select, ptr %4, align 1, !noalias !37
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he55b90e851844799E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7e31815fc6de9ce5100553543fa38e53.19)
@@ -9957,9 +9957,9 @@ _ZN9trackable5error12ErrorKindExt5cause17h151105b410ef07ddE.exit: ; preds = %"_Z
   %42 = trunc i64 %.sroa.0.0.i to i8
   %43 = and i8 %42, 127
   %44 = lshr i64 %.sroa.0.0.i, 7
-  %45 = icmp samesign ult i64 %.sroa.0.0.i, 128
+  %45 = icmp eq i64 %44, 0
   %masksel.i = select i1 %45, i8 0, i8 -128
-  %spec.select.i = or disjoint i8 %43, %masksel.i
+  %spec.select.i = or disjoint i8 %masksel.i, %43
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1092
   store i8 %spec.select.i, ptr %4, align 1, !noalias !1092
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he55b90e851844799E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7e31815fc6de9ce5100553543fa38e53.19), !noalias !1098
@@ -15953,9 +15953,9 @@ default.unreachable238:                           ; preds = %3
   %44 = trunc i64 %.sroa.0.0.i.i.i to i8
   %45 = and i8 %44, 127
   %46 = lshr i64 %.sroa.0.0.i.i.i, 7
-  %47 = icmp samesign ult i64 %.sroa.0.0.i.i.i, 128
+  %47 = icmp eq i64 %46, 0
   %masksel.i.i.i = select i1 %47, i8 0, i8 -128
-  %spec.select.i.i.i = or disjoint i8 %45, %masksel.i.i.i
+  %spec.select.i.i.i = or disjoint i8 %masksel.i.i.i, %45
   call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !2048
   store i8 %spec.select.i.i.i, ptr %25, align 1, !noalias !2048
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he55b90e851844799E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 %25, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7e31815fc6de9ce5100553543fa38e53.19), !noalias !2060
@@ -15977,9 +15977,9 @@ default.unreachable238:                           ; preds = %3
   %56 = trunc i64 %.sroa.0.0.i.i to i8
   %57 = and i8 %56, 127
   %58 = lshr i64 %.sroa.0.0.i.i, 7
-  %59 = icmp samesign ult i64 %.sroa.0.0.i.i, 128
+  %59 = icmp eq i64 %58, 0
   %masksel.i.i = select i1 %59, i8 0, i8 -128
-  %spec.select.i.i = or disjoint i8 %57, %masksel.i.i
+  %spec.select.i.i = or disjoint i8 %masksel.i.i, %57
   call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !2062
   store i8 %spec.select.i.i, ptr %24, align 1, !noalias !2062
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he55b90e851844799E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 %24, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7e31815fc6de9ce5100553543fa38e53.19), !noalias !2071
@@ -16000,9 +16000,9 @@ default.unreachable238:                           ; preds = %3
   %67 = trunc i64 %.sroa.0.0.i.i37 to i8
   %68 = and i8 %67, 127
   %69 = lshr i64 %.sroa.0.0.i.i37, 7
-  %70 = icmp ult i64 %.sroa.0.0.i.i37, 128
+  %70 = icmp eq i64 %69, 0
   %masksel.i.i38 = select i1 %70, i8 0, i8 -128
-  %spec.select.i.i39 = or disjoint i8 %68, %masksel.i.i38
+  %spec.select.i.i39 = or disjoint i8 %masksel.i.i38, %68
   call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !2072
   store i8 %spec.select.i.i39, ptr %23, align 1, !noalias !2072
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he55b90e851844799E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 %23, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7e31815fc6de9ce5100553543fa38e53.19), !noalias !2081
@@ -16272,9 +16272,9 @@ _ZN9trackable5error12ErrorKindExt5cause17h151105b410ef07ddE.exit: ; preds = %"_Z
   %157 = trunc i64 %.sroa.0.0.i.i179 to i8
   %158 = and i8 %157, 127
   %159 = lshr i64 %.sroa.0.0.i.i179, 7
-  %160 = icmp samesign ult i64 %.sroa.0.0.i.i179, 128
+  %160 = icmp eq i64 %159, 0
   %masksel.i.i180 = select i1 %160, i8 0, i8 -128
-  %spec.select.i.i181 = or disjoint i8 %158, %masksel.i.i180
+  %spec.select.i.i181 = or disjoint i8 %masksel.i.i180, %158
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !2177
   store i8 %spec.select.i.i181, ptr %7, align 1, !noalias !2177
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he55b90e851844799E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7e31815fc6de9ce5100553543fa38e53.19), !noalias !2186
@@ -17493,9 +17493,9 @@ define hidden void @"_ZN97_$LT$thrift_codec..data..thrift_struct..Struct$u20$as$
   %66 = trunc i64 %.sroa.0.0.i.i.i to i8
   %67 = and i8 %66, 127
   %68 = lshr i64 %.sroa.0.0.i.i.i, 7
-  %69 = icmp samesign ult i64 %.sroa.0.0.i.i.i, 128
+  %69 = icmp eq i64 %68, 0
   %masksel.i.i.i = select i1 %69, i8 0, i8 -128
-  %spec.select.i.i.i = or disjoint i8 %67, %masksel.i.i.i
+  %spec.select.i.i.i = or disjoint i8 %masksel.i.i.i, %67
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !2376
   store i8 %spec.select.i.i.i, ptr %8, align 1, !noalias !2376
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he55b90e851844799E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7e31815fc6de9ce5100553543fa38e53.19), !noalias !2388

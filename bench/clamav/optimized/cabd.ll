@@ -2407,8 +2407,8 @@ define internal i32 @cabd_sys_read(ptr noundef captures(none) %0, ptr noundef %1
   %99 = icmp sgt i32 %98, 38912
   %100 = icmp samesign ugt i32 %98, 65535
   %or.cond.i = or i1 %.not, %100
-  %or.cond81.i = select i1 %99, i1 %or.cond.i, i1 false
-  br i1 %or.cond81.i, label %cabd_sys_read_block.exit.thread, label %101
+  %or.cond80.i = select i1 %99, i1 %or.cond.i, i1 false
+  br i1 %or.cond80.i, label %cabd_sys_read_block.exit.thread, label %101
 
 101:                                              ; preds = %84
   %102 = load i16, ptr %27, align 1
@@ -2435,21 +2435,18 @@ define internal i32 @cabd_sys_read(ptr noundef captures(none) %0, ptr noundef %1
   %117 = zext i8 %116 to i32
   %118 = or disjoint i32 %115, %117
   %.not61.i = icmp eq i32 %118, 0
-  %.pre84.i = load ptr, ptr %37, align 8, !tbaa !92
+  %.pre83.i = load ptr, ptr %37, align 8, !tbaa !92
   br i1 %.not61.i, label %148, label %119
 
 119:                                              ; preds = %108
-  %.not22.i.i = icmp samesign ult i32 %90, 4
-  br i1 %.not22.i.i, label %._crit_edge.i.i, label %.lr.ph.preheader.i.i
-
-.lr.ph.preheader.i.i:                             ; preds = %119
   %120 = lshr i32 %90, 2
-  br label %.lr.ph.i.i
+  %.not22.i.i = icmp eq i32 %120, 0
+  br i1 %.not22.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %.01725.i.i = phi i32 [ %121, %.lr.ph.i.i ], [ %120, %.lr.ph.preheader.i.i ]
-  %.01824.i.i = phi i32 [ %123, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
-  %.01923.i.i = phi ptr [ %124, %.lr.ph.i.i ], [ %.pre84.i, %.lr.ph.preheader.i.i ]
+.lr.ph.i.i:                                       ; preds = %119, %.lr.ph.i.i
+  %.01725.i.i = phi i32 [ %121, %.lr.ph.i.i ], [ %120, %119 ]
+  %.01824.i.i = phi i32 [ %123, %.lr.ph.i.i ], [ 0, %119 ]
+  %.01923.i.i = phi ptr [ %124, %.lr.ph.i.i ], [ %.pre83.i, %119 ]
   %121 = add nsw i32 %.01725.i.i, -1
   %122 = load i32, ptr %.01923.i.i, align 1
   %123 = xor i32 %122, %.01824.i.i
@@ -2458,7 +2455,7 @@ define internal i32 @cabd_sys_read(ptr noundef captures(none) %0, ptr noundef %1
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %119
-  %.019.lcssa.i.i = phi ptr [ %.pre84.i, %119 ], [ %124, %.lr.ph.i.i ]
+  %.019.lcssa.i.i = phi ptr [ %.pre83.i, %119 ], [ %124, %.lr.ph.i.i ]
   %.018.lcssa.i.i = phi i32 [ 0, %119 ], [ %123, %.lr.ph.i.i ]
   %125 = and i32 %89, 3
   switch i32 %125, label %default.unreachable [
@@ -2515,7 +2512,7 @@ cabd_checksum.exit.i:                             ; preds = %137, %._crit_edge.i
   br label %148
 
 148:                                              ; preds = %145, %cabd_checksum.exit.i, %108
-  %149 = phi ptr [ %.pre.i, %145 ], [ %.pre84.i, %cabd_checksum.exit.i ], [ %.pre84.i, %108 ]
+  %149 = phi ptr [ %.pre.i, %145 ], [ %.pre83.i, %cabd_checksum.exit.i ], [ %.pre83.i, %108 ]
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 %96
   store ptr %150, ptr %37, align 8, !tbaa !92
   %151 = load i8, ptr %28, align 1, !tbaa !73

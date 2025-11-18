@@ -32,7 +32,7 @@ if.then:                                          ; preds = %entry
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i3.i.i5.i.i, i64 %conv.i.i
   store i8 0, ptr %call5.i.i.i.i3.i.i5.i.i, align 1, !tbaa !16
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i3.i.i5.i.i, i64 1
-  %cmp.i.i.i.i.i.i.i.i.i = icmp ult i32 %mul.i.i, 8
+  %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %shr.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZN6BitmapC2Ejj.exit.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then
@@ -42,9 +42,9 @@ if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then
 
 _ZN6BitmapC2Ejj.exit.i:                           ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %if.then
   %__first.addr.0.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %if.then ], [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
-  %cmp88.not.i = icmp ult i64 %src.val.fr, 4294967296
+  %cmp88.not.i = icmp eq i64 %dim.sroa.11.0.extract.shift.i, 0
   %cmp586.not.i = icmp eq i32 %dim.sroa.0.0.extract.trunc.i, 0
-  %or.cond.i = or i1 %cmp88.not.i, %cmp586.not.i
+  %or.cond.i = or i1 %cmp586.not.i, %cmp88.not.i
   br i1 %or.cond.i, label %for.cond.cleanup.i, label %for.cond3.preheader.us.preheader.i
 
 for.cond3.preheader.us.preheader.i:               ; preds = %_ZN6BitmapC2Ejj.exit.i
@@ -552,7 +552,7 @@ if.else:                                          ; preds = %entry
   %add.ptr.i.i.i.i.i10 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i3.i.i5.i.i9, i64 %conv.i.i8
   store i8 0, ptr %call5.i.i.i.i3.i.i5.i.i9, align 1, !tbaa !16
   %incdec.ptr.i.i.i.i.i.i.i11 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i3.i.i5.i.i9, i64 1
-  %cmp.i.i.i.i.i.i.i.i.i13 = icmp ult i32 %mul.i.i5, 8
+  %cmp.i.i.i.i.i.i.i.i.i13 = icmp eq i32 %shr.i.i.i6, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i13, label %_ZN6BitmapC2Ejj.exit.i15, label %if.then.i.i.i.i.i.i.i.i.i.i.i14
 
 if.then.i.i.i.i.i.i.i.i.i.i.i14:                  ; preds = %if.else

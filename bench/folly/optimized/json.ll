@@ -5362,7 +5362,7 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pa
   %95 = getelementptr inbounds %"class.std::reference_wrapper", ptr %.fr48.i.i, i64 %.010.i.i.i.i15.i
   %96 = load i64, ptr %91, align 8
   store i64 %96, ptr %95, align 8
-  %.not12.i.i.i = icmp ult i64 %.0911.in.i.i.i.i16.i, 2
+  %.not12.i.i.i = icmp eq i64 %.0911.i.i1011.i.i.i, 0
   br i1 %.not12.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_RSP_.exit.i.i, label %.lr.ph.i.i.i.i14.i, !llvm.loop !251
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_RSP_.exit.i.i: ; preds = %94, %.lr.ph.i.i.i.i14.i, %90
@@ -5742,7 +5742,7 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pa
   %109 = getelementptr inbounds %"class.std::reference_wrapper", ptr %.fr18.i.i.i, i64 %.010.i.i.i.i15.i
   %110 = load i64, ptr %106, align 8
   store i64 %110, ptr %109, align 8
-  %.not10.i.i.i = icmp ult i64 %.0911.in.i.i.i.i16.i, 2
+  %.not10.i.i.i = icmp eq i64 %.0911.i.i89.i.i.i, 0
   br i1 %.not10.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_RSP_.exit.i.i, label %.lr.ph.i.i.i.i14.i, !llvm.loop !259
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_RSP_.exit.i.i: ; preds = %108, %.lr.ph.i.i.i.i14.i, %105

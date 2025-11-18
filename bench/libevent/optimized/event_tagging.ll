@@ -48,7 +48,7 @@ define void @evtag_encode_int(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   store i8 %.sink.i, ptr %7, align 1
   %18 = lshr i32 %.02124.i, 4
   %19 = add nuw nsw i32 %.02025.i, 1
-  %.not.i = icmp ult i32 %.02124.i, 16
+  %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !3
 
 ._crit_edge.i:                                    ; preds = %17
@@ -66,10 +66,10 @@ define void @evtag_encode_int(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   br label %encode_int_internal.exit
 
 encode_int_internal.exit:                         ; preds = %2, %._crit_edge.i
-  %.020.lcssa30.i = phi i64 [ 1, %2 ], [ %27, %._crit_edge.i ]
+  %.020.lcssa31.i = phi i64 [ 1, %2 ], [ %27, %._crit_edge.i ]
   %28 = phi i8 [ 0, %2 ], [ %24, %._crit_edge.i ]
   store i8 %28, ptr %3, align 1
-  %29 = call i32 @evbuffer_add(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %.020.lcssa30.i) #7
+  %29 = call i32 @evbuffer_add(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %.020.lcssa31.i) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -113,7 +113,7 @@ define void @evtag_encode_int64(ptr noundef %0, i64 noundef %1) local_unnamed_ad
   store i8 %.sink.i, ptr %7, align 1
   %18 = lshr i64 %.02124.i, 4
   %19 = add nuw nsw i32 %.02025.i, 1
-  %.not.i = icmp ult i64 %.02124.i, 16
+  %.not.i = icmp eq i64 %18, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %17
@@ -131,10 +131,10 @@ define void @evtag_encode_int64(ptr noundef %0, i64 noundef %1) local_unnamed_ad
   br label %encode_int64_internal.exit
 
 encode_int64_internal.exit:                       ; preds = %2, %._crit_edge.i
-  %.020.lcssa30.i = phi i64 [ 1, %2 ], [ %27, %._crit_edge.i ]
+  %.020.lcssa31.i = phi i64 [ 1, %2 ], [ %27, %._crit_edge.i ]
   %28 = phi i8 [ 0, %2 ], [ %24, %._crit_edge.i ]
   store i8 %28, ptr %3, align 1
-  %29 = call i32 @evbuffer_add(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %.020.lcssa30.i) #7
+  %29 = call i32 @evbuffer_add(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %.020.lcssa31.i) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -152,9 +152,9 @@ define range(i32 -2147483647, -2147483648) i32 @evtag_encode_tag(ptr noundef %0,
   %5 = trunc i32 %.011 to i8
   %6 = and i8 %5, 127
   %7 = lshr i32 %.011, 7
-  %.not = icmp ult i32 %.011, 128
+  %.not = icmp eq i32 %7, 0
   %masksel = select i1 %.not, i8 0, i8 -128
-  %.0 = or disjoint i8 %6, %masksel
+  %.0 = or disjoint i8 %masksel, %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   store i8 %.0, ptr %8, align 1
@@ -250,9 +250,9 @@ define void @evtag_marshal(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 n
   %8 = trunc i32 %.011.i to i8
   %9 = and i8 %8, 127
   %10 = lshr i32 %.011.i, 7
-  %.not.i = icmp ult i32 %.011.i, 128
+  %.not.i = icmp eq i32 %10, 0
   %masksel.i = select i1 %.not.i, i8 0, i8 -128
-  %.0.i = or disjoint i8 %9, %masksel.i
+  %.0.i = or disjoint i8 %masksel.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i
   store i8 %.0.i, ptr %11, align 1
@@ -303,7 +303,7 @@ evtag_encode_tag.exit:                            ; preds = %12, %13
   store i8 %.sink.i.i, ptr %19, align 1
   %30 = lshr i32 %.02124.i.i, 4
   %31 = add nuw nsw i32 %.02025.i.i, 1
-  %.not.i.i = icmp ult i32 %.02124.i.i, 16
+  %.not.i.i = icmp eq i32 %30, 0
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !3
 
 ._crit_edge.i.i:                                  ; preds = %29
@@ -321,10 +321,10 @@ evtag_encode_tag.exit:                            ; preds = %12, %13
   br label %evtag_encode_int.exit
 
 evtag_encode_int.exit:                            ; preds = %evtag_encode_tag.exit, %._crit_edge.i.i
-  %.020.lcssa30.i.i = phi i64 [ 1, %evtag_encode_tag.exit ], [ %39, %._crit_edge.i.i ]
+  %.020.lcssa31.i.i = phi i64 [ 1, %evtag_encode_tag.exit ], [ %39, %._crit_edge.i.i ]
   %40 = phi i8 [ 0, %evtag_encode_tag.exit ], [ %36, %._crit_edge.i.i ]
   store i8 %40, ptr %5, align 1
-  %41 = call i32 @evbuffer_add(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %.020.lcssa30.i.i) #7
+  %41 = call i32 @evbuffer_add(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %.020.lcssa31.i.i) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %42 = zext i32 %3 to i64
   %43 = call i32 @evbuffer_add(ptr noundef %0, ptr noundef %2, i64 noundef %42) #7
@@ -345,9 +345,9 @@ define void @evtag_marshal_buffer(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %7 = trunc i32 %.011.i to i8
   %8 = and i8 %7, 127
   %9 = lshr i32 %.011.i, 7
-  %.not.i = icmp ult i32 %.011.i, 128
+  %.not.i = icmp eq i32 %9, 0
   %masksel.i = select i1 %.not.i, i8 0, i8 -128
-  %.0.i = or disjoint i8 %8, %masksel.i
+  %.0.i = or disjoint i8 %masksel.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i
   store i8 %.0.i, ptr %10, align 1
@@ -400,7 +400,7 @@ evtag_encode_tag.exit:                            ; preds = %11, %12
   store i8 %.sink.i.i, ptr %20, align 1
   %31 = lshr i32 %.02124.i.i, 4
   %32 = add nuw nsw i32 %.02025.i.i, 1
-  %.not.i.i = icmp ult i32 %.02124.i.i, 16
+  %.not.i.i = icmp eq i32 %31, 0
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !3
 
 ._crit_edge.i.i:                                  ; preds = %30
@@ -418,10 +418,10 @@ evtag_encode_tag.exit:                            ; preds = %11, %12
   br label %evtag_encode_int.exit
 
 evtag_encode_int.exit:                            ; preds = %evtag_encode_tag.exit, %._crit_edge.i.i
-  %.020.lcssa30.i.i = phi i64 [ 1, %evtag_encode_tag.exit ], [ %40, %._crit_edge.i.i ]
+  %.020.lcssa31.i.i = phi i64 [ 1, %evtag_encode_tag.exit ], [ %40, %._crit_edge.i.i ]
   %41 = phi i8 [ 0, %evtag_encode_tag.exit ], [ %37, %._crit_edge.i.i ]
   store i8 %41, ptr %4, align 1
-  %42 = call i32 @evbuffer_add(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %.020.lcssa30.i.i) #7
+  %42 = call i32 @evbuffer_add(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %.020.lcssa31.i.i) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %43 = call i32 @evbuffer_add_buffer(ptr noundef %0, ptr noundef %2) #7
   ret void
@@ -470,7 +470,7 @@ define void @evtag_marshal_int(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   store i8 %.sink.i, ptr %10, align 1
   %21 = lshr i32 %.02124.i, 4
   %22 = add nuw nsw i32 %.02025.i, 1
-  %.not.i = icmp ult i32 %.02124.i, 16
+  %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !3
 
 ._crit_edge.i:                                    ; preds = %20
@@ -487,7 +487,7 @@ define void @evtag_marshal_int(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   br label %encode_int_internal.exit
 
 encode_int_internal.exit:                         ; preds = %3, %._crit_edge.i
-  %.020.lcssa30.i = phi i32 [ 1, %3 ], [ %29, %._crit_edge.i ]
+  %.020.lcssa31.i = phi i32 [ 1, %3 ], [ %29, %._crit_edge.i ]
   %30 = phi i8 [ 0, %3 ], [ %27, %._crit_edge.i ]
   store i8 %30, ptr %6, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -500,9 +500,9 @@ encode_int_internal.exit:                         ; preds = %3, %._crit_edge.i
   %32 = trunc i32 %.011.i to i8
   %33 = and i8 %32, 127
   %34 = lshr i32 %.011.i, 7
-  %.not.i6 = icmp ult i32 %.011.i, 128
+  %.not.i6 = icmp eq i32 %34, 0
   %masksel.i = select i1 %.not.i6, i8 0, i8 -128
-  %.0.i = or disjoint i8 %33, %masksel.i
+  %.0.i = or disjoint i8 %masksel.i, %33
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i
   store i8 %.0.i, ptr %35, align 1
@@ -525,7 +525,7 @@ encode_int_internal.exit:                         ; preds = %3, %._crit_edge.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %53
   %.02025.i.i = phi i32 [ %55, %53 ], [ 1, %.lr.ph.i.i.preheader ]
-  %.02124.i.i = phi i32 [ %54, %53 ], [ %.020.lcssa30.i, %.lr.ph.i.i.preheader ]
+  %.02124.i.i = phi i32 [ %54, %53 ], [ %.020.lcssa31.i, %.lr.ph.i.i.preheader ]
   %40 = and i32 %.02025.i.i, 1
   %.not22.i.i = icmp eq i32 %40, 0
   %41 = lshr i32 %.02025.i.i, 1
@@ -552,7 +552,7 @@ encode_int_internal.exit:                         ; preds = %3, %._crit_edge.i
   store i8 %.sink.i.i, ptr %43, align 1
   %54 = lshr i32 %.02124.i.i, 4
   %55 = add nuw nsw i32 %.02025.i.i, 1
-  %.not.i.i = icmp samesign ult i32 %.02124.i.i, 16
+  %.not.i.i = icmp eq i32 %54, 0
   br i1 %.not.i.i, label %evtag_encode_int.exit, label %.lr.ph.i.i, !llvm.loop !3
 
 evtag_encode_int.exit:                            ; preds = %53
@@ -570,7 +570,7 @@ evtag_encode_int.exit:                            ; preds = %53
   store i8 %60, ptr %4, align 1
   %64 = call i32 @evbuffer_add(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %63) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %65 = zext nneg i32 %.020.lcssa30.i to i64
+  %65 = zext nneg i32 %.020.lcssa31.i to i64
   %66 = call i32 @evbuffer_add(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %65) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -615,7 +615,7 @@ define void @evtag_marshal_int64(ptr noundef %0, i32 noundef %1, i64 noundef %2)
   store i8 %.sink.i, ptr %10, align 1
   %21 = lshr i64 %.02124.i, 4
   %22 = add nuw nsw i32 %.02025.i, 1
-  %.not.i = icmp ult i64 %.02124.i, 16
+  %.not.i = icmp eq i64 %21, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %20
@@ -632,7 +632,7 @@ define void @evtag_marshal_int64(ptr noundef %0, i32 noundef %1, i64 noundef %2)
   br label %encode_int64_internal.exit
 
 encode_int64_internal.exit:                       ; preds = %3, %._crit_edge.i
-  %.020.lcssa30.i = phi i32 [ 1, %3 ], [ %29, %._crit_edge.i ]
+  %.020.lcssa31.i = phi i32 [ 1, %3 ], [ %29, %._crit_edge.i ]
   %30 = phi i8 [ 0, %3 ], [ %27, %._crit_edge.i ]
   store i8 %30, ptr %6, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -645,9 +645,9 @@ encode_int64_internal.exit:                       ; preds = %3, %._crit_edge.i
   %32 = trunc i32 %.011.i to i8
   %33 = and i8 %32, 127
   %34 = lshr i32 %.011.i, 7
-  %.not.i6 = icmp ult i32 %.011.i, 128
+  %.not.i6 = icmp eq i32 %34, 0
   %masksel.i = select i1 %.not.i6, i8 0, i8 -128
-  %.0.i = or disjoint i8 %33, %masksel.i
+  %.0.i = or disjoint i8 %masksel.i, %33
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i
   store i8 %.0.i, ptr %35, align 1
@@ -670,7 +670,7 @@ encode_int64_internal.exit:                       ; preds = %3, %._crit_edge.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %53
   %.02025.i.i = phi i32 [ %55, %53 ], [ 1, %.lr.ph.i.i.preheader ]
-  %.02124.i.i = phi i32 [ %54, %53 ], [ %.020.lcssa30.i, %.lr.ph.i.i.preheader ]
+  %.02124.i.i = phi i32 [ %54, %53 ], [ %.020.lcssa31.i, %.lr.ph.i.i.preheader ]
   %40 = and i32 %.02025.i.i, 1
   %.not22.i.i = icmp eq i32 %40, 0
   %41 = lshr i32 %.02025.i.i, 1
@@ -697,7 +697,7 @@ encode_int64_internal.exit:                       ; preds = %3, %._crit_edge.i
   store i8 %.sink.i.i, ptr %43, align 1
   %54 = lshr i32 %.02124.i.i, 4
   %55 = add nuw nsw i32 %.02025.i.i, 1
-  %.not.i.i = icmp samesign ult i32 %.02124.i.i, 16
+  %.not.i.i = icmp eq i32 %54, 0
   br i1 %.not.i.i, label %evtag_encode_int.exit, label %.lr.ph.i.i, !llvm.loop !3
 
 evtag_encode_int.exit:                            ; preds = %53
@@ -715,7 +715,7 @@ evtag_encode_int.exit:                            ; preds = %53
   store i8 %60, ptr %4, align 1
   %64 = call i32 @evbuffer_add(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %63) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %65 = zext nneg i32 %.020.lcssa30.i to i64
+  %65 = zext nneg i32 %.020.lcssa31.i to i64
   %66 = call i32 @evbuffer_add(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %65) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -771,7 +771,7 @@ define void @evtag_marshal_timeval(ptr noundef %0, i32 noundef %1, ptr noundef r
   store i8 %.sink.i, ptr %10, align 1
   %21 = lshr i32 %.02124.i, 4
   %22 = add nuw nsw i32 %.02025.i, 1
-  %.not.i = icmp ult i32 %.02124.i, 16
+  %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !3
 
 ._crit_edge.i:                                    ; preds = %20
@@ -788,10 +788,10 @@ define void @evtag_marshal_timeval(ptr noundef %0, i32 noundef %1, ptr noundef r
   br label %encode_int_internal.exit
 
 encode_int_internal.exit:                         ; preds = %3, %._crit_edge.i
-  %.020.lcssa30.i = phi i32 [ 1, %3 ], [ %29, %._crit_edge.i ]
+  %.020.lcssa31.i = phi i32 [ 1, %3 ], [ %29, %._crit_edge.i ]
   %30 = phi i8 [ 0, %3 ], [ %27, %._crit_edge.i ]
   store i8 %30, ptr %4, align 1
-  %31 = zext nneg i32 %.020.lcssa30.i to i64
+  %31 = zext nneg i32 %.020.lcssa31.i to i64
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %34 = load i64, ptr %33, align 8
@@ -829,7 +829,7 @@ encode_int_internal.exit:                         ; preds = %3, %._crit_edge.i
   store i8 %.sink.i12, ptr %39, align 1
   %50 = lshr i32 %.02124.i9, 4
   %51 = add nuw nsw i32 %.02025.i8, 1
-  %.not.i13 = icmp ult i32 %.02124.i9, 16
+  %.not.i13 = icmp eq i32 %50, 0
   br i1 %.not.i13, label %._crit_edge.i14, label %.lr.ph.i7, !llvm.loop !3
 
 ._crit_edge.i14:                                  ; preds = %49
@@ -846,10 +846,10 @@ encode_int_internal.exit:                         ; preds = %3, %._crit_edge.i
   br label %encode_int_internal.exit19
 
 encode_int_internal.exit19:                       ; preds = %encode_int_internal.exit, %._crit_edge.i14
-  %.020.lcssa30.i18 = phi i32 [ 1, %encode_int_internal.exit ], [ %58, %._crit_edge.i14 ]
+  %.020.lcssa31.i18 = phi i32 [ 1, %encode_int_internal.exit ], [ %58, %._crit_edge.i14 ]
   %59 = phi i8 [ 0, %encode_int_internal.exit ], [ %56, %._crit_edge.i14 ]
   store i8 %59, ptr %32, align 1
-  %60 = add nuw nsw i32 %.020.lcssa30.i18, %.020.lcssa30.i
+  %60 = add nuw nsw i32 %.020.lcssa31.i18, %.020.lcssa31.i
   call void @evtag_marshal(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4, i32 noundef %60)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void

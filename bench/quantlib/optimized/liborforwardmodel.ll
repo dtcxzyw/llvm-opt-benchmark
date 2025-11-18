@@ -4360,7 +4360,7 @@ if.then.i.i102:                                   ; preds = %invoke.cont45
   unreachable
 
 _ZNSt6vectorIN8QuantLib6PeriodESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %invoke.cont45
-  %cmp.not.i.i.i.i = icmp samesign ult i64 %call14, 2
+  %cmp.not.i.i.i.i = icmp eq i64 %div56, 0
   br i1 %cmp.not.i.i.i.i, label %invoke.cont50.thread, label %for.body.preheader.i.i.i.i.i
 
 invoke.cont50.thread:                             ; preds = %_ZNSt6vectorIN8QuantLib6PeriodESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i

@@ -2190,8 +2190,8 @@ read_unsigned_long.exit.thread:                   ; preds = %59
 read_unsigned_long.exit:                          ; preds = %68
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %.mask11 = and i64 %69, 2147483648
-  %.not17 = icmp eq i64 %.mask11, 0
+  %.mask12 = and i64 %69, 2147483648
+  %.not17 = icmp eq i64 %.mask12, 0
   br i1 %.not17, label %71, label %145
 
 71:                                               ; preds = %read_unsigned_long.exit
@@ -2251,7 +2251,7 @@ read_memory.exit.i:                               ; preds = %90
   %96 = and i64 %95, 3
   %97 = icmp eq i64 %96, 2
   %98 = lshr i64 %95, 3
-  %99 = icmp ult i64 %95, 8
+  %99 = icmp eq i64 %98, 0
   br i1 %99, label %read_py_long.exit.thread8, label %100
 
 read_py_long.exit.thread8:                        ; preds = %94
@@ -2310,11 +2310,11 @@ read_memory.exit37.i:                             ; preds = %120
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %123 = and i64 %121, 2147483648
   %.not33.i = icmp eq i64 %123, 0
-  br i1 %.not33.i, label %.lr.ph.i, label %131
+  br i1 %.not33.i, label %.preheader.i, label %131
 
-.lr.ph.i:                                         ; preds = %read_memory.exit37.i, %.lr.ph.i
-  %.02744.i = phi i64 [ %130, %.lr.ph.i ], [ 0, %read_memory.exit37.i ]
-  %.02843.i = phi i64 [ %129, %.lr.ph.i ], [ 0, %read_memory.exit37.i ]
+.preheader.i:                                     ; preds = %read_memory.exit37.i, %.preheader.i
+  %.02744.i = phi i64 [ %130, %.preheader.i ], [ 0, %read_memory.exit37.i ]
+  %.02843.i = phi i64 [ %129, %.preheader.i ], [ 0, %read_memory.exit37.i ]
   %124 = getelementptr i32, ptr %102, i64 %.02744.i
   %125 = load i32, ptr %124, align 4, !tbaa !6
   %126 = zext i32 %125 to i64
@@ -2323,7 +2323,7 @@ read_memory.exit37.i:                             ; preds = %120
   %129 = add i64 %128, %.02843.i
   %130 = add nuw nsw i64 %.02744.i, 1
   %exitcond.not.i = icmp eq i64 %130, %98
-  br i1 %exitcond.not.i, label %read_py_long.exit, label %.lr.ph.i, !llvm.loop !81
+  br i1 %exitcond.not.i, label %read_py_long.exit, label %.preheader.i, !llvm.loop !81
 
 131:                                              ; preds = %read_memory.exit37.i, %read_memory.exit37.thread.i
   call void @PyMem_RawFree(ptr noundef nonnull %102) #9
@@ -2333,7 +2333,7 @@ read_py_long.exit.thread:                         ; preds = %read_memory.exit.i,
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %134
 
-read_py_long.exit:                                ; preds = %.lr.ph.i
+read_py_long.exit:                                ; preds = %.preheader.i
   call void @PyMem_RawFree(ptr noundef nonnull %102) #9
   %132 = sub i64 0, %129
   %spec.select.i = select i1 %97, i64 %132, i64 %129
@@ -2596,8 +2596,8 @@ read_ssize_t.exit.thread:                         ; preds = %91
 read_ssize_t.exit:                                ; preds = %100
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.mask85 = and i64 %101, 2147483648
-  %.not30.i = icmp eq i64 %.mask85, 0
+  %.mask86 = and i64 %101, 2147483648
+  %.not30.i = icmp eq i64 %.mask86, 0
   br i1 %.not30.i, label %103, label %parse_tasks_in_set.exit.thread72
 
 103:                                              ; preds = %read_ssize_t.exit

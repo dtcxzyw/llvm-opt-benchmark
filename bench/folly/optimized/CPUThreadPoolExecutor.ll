@@ -5457,7 +5457,7 @@ define linkonce_odr void @_ZN5folly13hazptr_domainISt6atomicE14do_reclamationEi(
   %27 = lshr i64 %23, 22
   %28 = load i64, ptr %7, align 8, !tbaa !319, !noalias !320
   %29 = lshr i64 %28, 8
-  %.not.i12 = icmp ult i64 %28, 256
+  %.not.i12 = icmp eq i64 %29, 0
   %.pre.i = load ptr, ptr %6, align 8, !tbaa !313, !noalias !320
   br i1 %.not.i12, label %.thread65.i, label %30
 
@@ -17797,19 +17797,19 @@ _ZN5folly16ThrottledLifoSem8casStateERmm.exit.i:  ; preds = %_ZN5folly13hazptr_h
 ._crit_edge.i:                                    ; preds = %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i, %_ZN5folly13hazptr_holderISt6atomicED2Ev.exit
   %.0.lcssa.i = phi i64 [ %182, %_ZN5folly13hazptr_holderISt6atomicED2Ev.exit ], [ %190, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i ]
   %.lcssa.i = phi i64 [ %184, %_ZN5folly13hazptr_holderISt6atomicED2Ev.exit ], [ %192, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i ]
-  %.not.i26 = icmp ugt i64 %.0.lcssa.i, 8589934591
-  %197 = and i64 %.0.lcssa.i, 4294967296
-  %.not10.i = icmp eq i64 %197, 0
+  %197 = lshr i64 %.0.lcssa.i, 33
+  %.not.i26 = icmp ne i64 %197, 0
+  %198 = and i64 %.0.lcssa.i, 4294967296
+  %.not10.i = icmp eq i64 %198, 0
   %or.cond.i = and i1 %.not.i26, %.not10.i
-  br i1 %or.cond.i, label %198, label %_ZN5folly16ThrottledLifoSem4postEj.exit
+  br i1 %or.cond.i, label %199, label %_ZN5folly16ThrottledLifoSem4postEj.exit
 
-198:                                              ; preds = %._crit_edge.i
+199:                                              ; preds = %._crit_edge.i
   tail call void @_ZN5folly16ThrottledLifoSem21maybeStartWakingChainEv(ptr noundef nonnull align 64 dereferenceable(136) %180)
   br label %_ZN5folly16ThrottledLifoSem4postEj.exit
 
-_ZN5folly16ThrottledLifoSem4postEj.exit:          ; preds = %._crit_edge.i, %198
-  %199 = lshr i64 %.0.lcssa.i, 33
-  %200 = icmp samesign ule i64 %.lcssa.i, %199
+_ZN5folly16ThrottledLifoSem4postEj.exit:          ; preds = %._crit_edge.i, %199
+  %200 = icmp samesign ule i64 %.lcssa.i, %197
   %201 = zext i1 %200 to i8
   ret i8 %201
 }
@@ -21374,19 +21374,19 @@ _ZN5folly16ThrottledLifoSem8casStateERmm.exit.i:  ; preds = %_ZN5folly14Unbounde
 ._crit_edge.i:                                    ; preds = %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i, %_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ESt6atomicE11enqueueImplIS2_EEvOT_.exit
   %.0.lcssa.i = phi i64 [ %205, %_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ESt6atomicE11enqueueImplIS2_EEvOT_.exit ], [ %213, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i ]
   %.lcssa.i = phi i64 [ %207, %_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ESt6atomicE11enqueueImplIS2_EEvOT_.exit ], [ %215, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i ]
-  %.not.i12 = icmp ugt i64 %.0.lcssa.i, 8589934591
-  %220 = and i64 %.0.lcssa.i, 4294967296
-  %.not10.i = icmp eq i64 %220, 0
+  %220 = lshr i64 %.0.lcssa.i, 33
+  %.not.i12 = icmp ne i64 %220, 0
+  %221 = and i64 %.0.lcssa.i, 4294967296
+  %.not10.i = icmp eq i64 %221, 0
   %or.cond.i = and i1 %.not.i12, %.not10.i
-  br i1 %or.cond.i, label %221, label %_ZN5folly16ThrottledLifoSem4postEj.exit
+  br i1 %or.cond.i, label %222, label %_ZN5folly16ThrottledLifoSem4postEj.exit
 
-221:                                              ; preds = %._crit_edge.i
+222:                                              ; preds = %._crit_edge.i
   tail call void @_ZN5folly16ThrottledLifoSem21maybeStartWakingChainEv(ptr noundef nonnull align 64 dereferenceable(136) %203)
   br label %_ZN5folly16ThrottledLifoSem4postEj.exit
 
-_ZN5folly16ThrottledLifoSem4postEj.exit:          ; preds = %._crit_edge.i, %221
-  %222 = lshr i64 %.0.lcssa.i, 33
-  %223 = icmp samesign ule i64 %.lcssa.i, %222
+_ZN5folly16ThrottledLifoSem4postEj.exit:          ; preds = %._crit_edge.i, %222
+  %223 = icmp samesign ule i64 %.lcssa.i, %220
   %224 = zext i1 %223 to i8
   ret i8 %224
 }
@@ -27982,7 +27982,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN5folly18ThreadPoolE
   br i1 %27, label %52, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %26
-  %.not53 = icmp ult i64 %.02150.i.i, 2
+  %.not53 = icmp eq i64 %16, 0
   br i1 %.not53, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valINS4_10ThreadList7CompareEEEET_SH_SH_RKT0_T1_.exit.i.i, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i.i.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i.i.i: ; preds = %.critedge.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i.i.i

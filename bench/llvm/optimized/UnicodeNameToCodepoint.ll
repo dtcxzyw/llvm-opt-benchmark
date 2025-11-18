@@ -782,7 +782,7 @@ _ZN4llvm11SmallStringILj64EE6appendENS_9StringRefE.exit.i: ; preds = %233, %_ZN4
   %260 = getelementptr inbounds i8, ptr %.117.i.i, i64 -1
   store i8 %259, ptr %260, align 1, !tbaa !11, !noalias !25
   %261 = lshr i64 %.019.i.i, 4
-  %262 = icmp ult i64 %.019.i.i, 16
+  %262 = icmp eq i64 %261, 0
   br i1 %262, label %._crit_edge.i.i21, label %.thread.i.i, !llvm.loop !33
 
 _ZN4llvm9utohexstrB5cxx11Embj.exit.i:             ; preds = %255, %253, %._crit_edge.i.i.i.i

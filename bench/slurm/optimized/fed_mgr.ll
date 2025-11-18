@@ -2310,7 +2310,7 @@ define internal fastcc void @_handle_removed_clusters(ptr noundef nonnull readon
   br label %9
 
 9:                                                ; preds = %.lr.ph, %_cleanup_removed_cluster_jobs.exit
-  %10 = phi ptr [ %7, %.lr.ph ], [ %137, %_cleanup_removed_cluster_jobs.exit ]
+  %10 = phi ptr [ %7, %.lr.ph ], [ %143, %_cleanup_removed_cluster_jobs.exit ]
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 280
   %12 = load ptr, ptr %11, align 8
   %.not10 = icmp eq ptr %12, null
@@ -2363,7 +2363,7 @@ define internal fastcc void @_handle_removed_clusters(ptr noundef nonnull readon
   br label %41
 
 41:                                               ; preds = %_is_fed_job.exit.thread.i, %.lr.ph.i
-  %42 = phi ptr [ %36, %.lr.ph.i ], [ %136, %_is_fed_job.exit.thread.i ]
+  %42 = phi ptr [ %36, %.lr.ph.i ], [ %142, %_is_fed_job.exit.thread.i ]
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 448
   %44 = load i32, ptr %43, align 8
   %45 = and i32 %44, 255
@@ -2386,8 +2386,8 @@ define internal fastcc void @_handle_removed_clusters(ptr noundef nonnull readon
   %54 = getelementptr inbounds nuw i8, ptr %42, i64 392
   %55 = load i32, ptr %54, align 8
   %56 = lshr i32 %55, 26
-  %.not5.i.i = icmp ult i32 %55, 67108864
-  br i1 %.not5.i.i, label %57, label %_is_fed_job.exit.i.i
+  %.not5.i.i = icmp eq i32 %56, 0
+  br i1 %.not5.i.i, label %57, label %61
 
 57:                                               ; preds = %53, %50
   %58 = tail call i32 @get_log_level() #16
@@ -2398,149 +2398,165 @@ define internal fastcc void @_handle_removed_clusters(ptr noundef nonnull readon
   tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.183, ptr noundef nonnull %42) #16
   br label %_is_fed_job.exit.thread.i
 
-_is_fed_job.exit.i.i:                             ; preds = %53
-  %61 = add nsw i32 %56, -1
-  %62 = zext nneg i32 %61 to i64
-  %63 = shl nuw i64 1, %62
-  %64 = getelementptr inbounds nuw i8, ptr %52, i64 32
-  %65 = load i64, ptr %64, align 8
-  %66 = load i32, ptr %22, align 8
-  %67 = add i32 %66, -1
-  %68 = zext nneg i32 %67 to i64
-  %69 = shl nuw i64 1, %68
-  %70 = xor i64 %69, -1
-  %71 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  %72 = load i64, ptr %71, align 8
-  %73 = and i64 %72, %70
-  store i64 %73, ptr %71, align 8
-  %74 = load i32, ptr %22, align 8
-  %75 = add i32 %74, -1
-  %76 = zext nneg i32 %75 to i64
-  %77 = shl nuw i64 1, %76
-  %78 = xor i64 %77, -1
-  %79 = load ptr, ptr %51, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
-  %81 = load i64, ptr %80, align 8
-  %82 = and i64 %81, %78
-  store i64 %82, ptr %80, align 8
-  %83 = load ptr, ptr %51, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 32
-  %85 = load i64, ptr %84, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %49, i64 192
-  %87 = load i32, ptr %86, align 8
-  %88 = add i32 %87, -1
-  %89 = zext nneg i32 %88 to i64
-  %90 = shl nuw i64 1, %89
-  %91 = and i64 %90, %85
-  %.not10.i.i = icmp eq i64 %91, 0
-  br i1 %.not10.i.i, label %92, label %93
+61:                                               ; preds = %53
+  %62 = add nsw i32 %56, -1
+  %63 = zext nneg i32 %62 to i64
+  %64 = shl nuw nsw i64 1, %63
+  %65 = getelementptr inbounds nuw i8, ptr %52, i64 32
+  %66 = load i64, ptr %65, align 8
+  %.not5.i.i.i = icmp ult i32 %55, 67108864
+  br i1 %.not5.i.i.i, label %67, label %_is_fed_job.exit.i.i
 
-92:                                               ; preds = %_is_fed_job.exit.i.i
+67:                                               ; preds = %61
+  %68 = tail call i32 @get_log_level() #16
+  %69 = icmp sgt i32 %68, 5
+  br i1 %69, label %70, label %_remove_sibling_bit.exit.i
+
+70:                                               ; preds = %67
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.183, ptr noundef nonnull %42) #16
+  br label %_remove_sibling_bit.exit.i
+
+_is_fed_job.exit.i.i:                             ; preds = %61
+  %71 = load i32, ptr %22, align 8
+  %72 = add i32 %71, -1
+  %73 = zext nneg i32 %72 to i64
+  %74 = shl nuw i64 1, %73
+  %75 = xor i64 %74, -1
+  %76 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %77 = load i64, ptr %76, align 8
+  %78 = and i64 %77, %75
+  store i64 %78, ptr %76, align 8
+  %79 = load i32, ptr %22, align 8
+  %80 = add i32 %79, -1
+  %81 = zext nneg i32 %80 to i64
+  %82 = shl nuw i64 1, %81
+  %83 = xor i64 %82, -1
+  %84 = load ptr, ptr %51, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 32
+  %86 = load i64, ptr %85, align 8
+  %87 = and i64 %86, %83
+  store i64 %87, ptr %85, align 8
+  %88 = load ptr, ptr %51, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 32
+  %90 = load i64, ptr %89, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %49, i64 192
+  %92 = load i32, ptr %91, align 8
+  %93 = add i32 %92, -1
+  %94 = zext nneg i32 %93 to i64
+  %95 = shl nuw i64 1, %94
+  %96 = and i64 %95, %90
+  %.not10.i.i = icmp eq i64 %96, 0
+  br i1 %.not10.i.i, label %97, label %98
+
+97:                                               ; preds = %_is_fed_job.exit.i.i
   tail call void @job_state_set_flag(ptr noundef nonnull %42, i32 noundef 524288) #16
-  br label %_remove_sibling_bit.exit.i
+  br label %101
 
-93:                                               ; preds = %_is_fed_job.exit.i.i
-  %94 = load i32, ptr %83, align 8
-  %.not11.i.i = icmp eq i32 %94, 0
-  br i1 %.not11.i.i, label %95, label %_remove_sibling_bit.exit.i
+98:                                               ; preds = %_is_fed_job.exit.i.i
+  %99 = load i32, ptr %88, align 8
+  %.not11.i.i = icmp eq i32 %99, 0
+  br i1 %.not11.i.i, label %100, label %101
 
-95:                                               ; preds = %93
+100:                                              ; preds = %98
   tail call void @job_state_unset_flag(ptr noundef nonnull %42, i32 noundef 524288) #16
+  br label %101
+
+101:                                              ; preds = %100, %98, %97
+  tail call void @update_job_fed_details(ptr noundef nonnull %42) #16
   br label %_remove_sibling_bit.exit.i
 
-_remove_sibling_bit.exit.i:                       ; preds = %95, %93, %92
-  tail call void @update_job_fed_details(ptr noundef nonnull %42) #16
-  %96 = load i32, ptr %22, align 8
-  %97 = icmp ne i32 %56, %96
-  br i1 %97, label %98, label %112
+_remove_sibling_bit.exit.i:                       ; preds = %101, %70, %67
+  %102 = load i32, ptr %22, align 8
+  %103 = icmp ne i32 %56, %102
+  br i1 %103, label %104, label %118
 
-98:                                               ; preds = %_remove_sibling_bit.exit.i
-  %99 = load ptr, ptr %51, align 8
-  %.not46.i = icmp ne ptr %99, null
-  %100 = icmp eq i32 %56, %33
-  %or.cond54.i = select i1 %.not46.i, i1 %100, i1 false
-  br i1 %or.cond54.i, label %101, label %104
+104:                                              ; preds = %_remove_sibling_bit.exit.i
+  %105 = load ptr, ptr %51, align 8
+  %.not46.i = icmp ne ptr %105, null
+  %106 = icmp eq i32 %56, %33
+  %or.cond54.i = select i1 %.not46.i, i1 %106, i1 false
+  br i1 %or.cond54.i, label %107, label %110
 
-101:                                              ; preds = %98
-  %102 = load i32, ptr %99, align 8
-  %103 = icmp eq i32 %102, %96
-  br i1 %103, label %112, label %104
+107:                                              ; preds = %104
+  %108 = load i32, ptr %105, align 8
+  %109 = icmp eq i32 %108, %102
+  br i1 %109, label %118, label %110
 
-104:                                              ; preds = %101, %98
-  %105 = add i32 %96, -1
-  %106 = zext nneg i32 %105 to i64
-  %107 = shl nuw i64 1, %106
-  %108 = and i64 %107, %65
-  %.not47.i = icmp eq i64 %108, 0
-  br i1 %.not47.i, label %_is_fed_job.exit.thread.i, label %109
+110:                                              ; preds = %107, %104
+  %111 = add i32 %102, -1
+  %112 = zext nneg i32 %111 to i64
+  %113 = shl nuw i64 1, %112
+  %114 = and i64 %113, %66
+  %.not47.i = icmp eq i64 %114, 0
+  br i1 %.not47.i, label %_is_fed_job.exit.thread.i, label %115
 
-109:                                              ; preds = %104
-  %110 = xor i64 %107, -1
-  %111 = and i64 %65, %110
-  %.not48.i = icmp eq i64 %111, 0
-  br i1 %.not48.i, label %112, label %_is_fed_job.exit.thread.i
+115:                                              ; preds = %110
+  %116 = xor i64 %113, -1
+  %117 = and i64 %66, %116
+  %.not48.i = icmp eq i64 %117, 0
+  br i1 %.not48.i, label %118, label %_is_fed_job.exit.thread.i
 
-112:                                              ; preds = %109, %101, %_remove_sibling_bit.exit.i
-  %113 = load i32, ptr %43, align 8
-  %114 = and i32 %113, 255
-  %115 = icmp eq i32 %114, 0
-  br i1 %115, label %116, label %._crit_edge73.i
+118:                                              ; preds = %115, %107, %_remove_sibling_bit.exit.i
+  %119 = load i32, ptr %43, align 8
+  %120 = and i32 %119, 255
+  %121 = icmp eq i32 %120, 0
+  br i1 %121, label %122, label %._crit_edge73.i
 
-._crit_edge73.i:                                  ; preds = %112
-  %.pre.i = and i64 %65, %40
-  br label %119
+._crit_edge73.i:                                  ; preds = %118
+  %.pre.i = and i64 %66, %40
+  br label %125
 
-116:                                              ; preds = %112
-  %117 = and i64 %65, %63
-  %.not49.i = icmp ne i64 %117, 0
-  %or.cond55.not72.i = select i1 %97, i1 true, i1 %.not49.i
-  %118 = and i64 %65, %40
-  %.not50.i = icmp eq i64 %118, 0
+122:                                              ; preds = %118
+  %123 = and i64 %66, %64
+  %.not49.i = icmp ne i64 %123, 0
+  %or.cond55.not72.i = select i1 %103, i1 true, i1 %.not49.i
+  %124 = and i64 %66, %40
+  %.not50.i = icmp eq i64 %124, 0
   %or.cond69.i = select i1 %or.cond55.not72.i, i1 true, i1 %.not50.i
-  br i1 %or.cond69.i, label %119, label %_is_fed_job.exit.thread.i, !llvm.loop !19
+  br i1 %or.cond69.i, label %125, label %_is_fed_job.exit.thread.i, !llvm.loop !19
 
-119:                                              ; preds = %116, %._crit_edge73.i
-  %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge73.i ], [ %118, %116 ]
+125:                                              ; preds = %122, %._crit_edge73.i
+  %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge73.i ], [ %124, %122 ]
   tail call void @job_record_free_fed_details(ptr noundef nonnull %51) #16
-  %120 = load i32, ptr %22, align 8
-  %121 = icmp eq i32 %56, %120
+  %126 = load i32, ptr %22, align 8
+  %127 = icmp eq i32 %56, %126
   %.not51.i = icmp eq i64 %.pre-phi.i, 0
-  %or.cond70.i = select i1 %121, i1 %.not51.i, i1 false
-  br i1 %or.cond70.i, label %_is_fed_job.exit.thread.i, label %122, !llvm.loop !19
+  %or.cond70.i = select i1 %127, i1 %.not51.i, i1 false
+  br i1 %or.cond70.i, label %_is_fed_job.exit.thread.i, label %128, !llvm.loop !19
 
-122:                                              ; preds = %119
-  %123 = load i32, ptr %43, align 8
-  %124 = and i32 %123, 255
-  %125 = icmp samesign ugt i32 %124, 2
-  %126 = and i32 %123, 32768
-  %127 = icmp eq i32 %126, 0
-  %or.cond57.i = and i1 %125, %127
-  br i1 %or.cond57.i, label %_is_fed_job.exit.thread.i, label %128
+128:                                              ; preds = %125
+  %129 = load i32, ptr %43, align 8
+  %130 = and i32 %129, 255
+  %131 = icmp samesign ugt i32 %130, 2
+  %132 = and i32 %129, 32768
+  %133 = icmp eq i32 %132, 0
+  %or.cond57.i = and i1 %131, %133
+  br i1 %or.cond57.i, label %_is_fed_job.exit.thread.i, label %134
 
-128:                                              ; preds = %122
-  %.not52.i = icmp ne i32 %126, 0
-  %129 = icmp eq i32 %124, 1
-  %or.cond59.i = or i1 %.not52.i, %129
-  br i1 %or.cond59.i, label %_is_fed_job.exit.thread.i, label %130
+134:                                              ; preds = %128
+  %.not52.i = icmp ne i32 %132, 0
+  %135 = icmp eq i32 %130, 1
+  %or.cond59.i = or i1 %.not52.i, %135
+  br i1 %or.cond59.i, label %_is_fed_job.exit.thread.i, label %136
 
-130:                                              ; preds = %128
-  %131 = getelementptr inbounds nuw i8, ptr %42, i64 856
-  tail call void @slurm_xfree(ptr noundef nonnull %131) #16
+136:                                              ; preds = %134
+  %137 = getelementptr inbounds nuw i8, ptr %42, i64 856
+  tail call void @slurm_xfree(ptr noundef nonnull %137) #16
   tail call void @job_state_set(ptr noundef nonnull %42, i32 noundef 524292) #16
-  %132 = getelementptr inbounds nuw i8, ptr %42, i64 912
-  store i64 %29, ptr %132, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %42, i64 232
-  store i64 %29, ptr %133, align 8
-  %134 = getelementptr inbounds nuw i8, ptr %42, i64 928
-  store i32 0, ptr %134, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %42, i64 920
-  tail call void @slurm_xfree(ptr noundef nonnull %135) #16
+  %138 = getelementptr inbounds nuw i8, ptr %42, i64 912
+  store i64 %29, ptr %138, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %42, i64 232
+  store i64 %29, ptr %139, align 8
+  %140 = getelementptr inbounds nuw i8, ptr %42, i64 928
+  store i32 0, ptr %140, align 8
+  %141 = getelementptr inbounds nuw i8, ptr %42, i64 920
+  tail call void @slurm_xfree(ptr noundef nonnull %141) #16
   tail call void @job_completion_logger(ptr noundef nonnull %42, i1 noundef zeroext false) #16
   br label %_is_fed_job.exit.thread.i
 
-_is_fed_job.exit.thread.i:                        ; preds = %130, %128, %122, %119, %116, %109, %104, %60, %57, %41
-  %136 = tail call ptr @list_next(ptr noundef %35) #16
-  %.not44.i = icmp eq ptr %136, null
+_is_fed_job.exit.thread.i:                        ; preds = %136, %134, %128, %125, %122, %115, %110, %60, %57, %41
+  %142 = tail call ptr @list_next(ptr noundef %35) #16
+  %.not44.i = icmp eq ptr %142, null
   br i1 %.not44.i, label %._crit_edge.i, label %41
 
 ._crit_edge.i:                                    ; preds = %_is_fed_job.exit.thread.i, %31
@@ -2548,8 +2564,8 @@ _is_fed_job.exit.thread.i:                        ; preds = %130, %128, %122, %1
   br label %_cleanup_removed_cluster_jobs.exit
 
 _cleanup_removed_cluster_jobs.exit:               ; preds = %._crit_edge.i, %21, %13, %9
-  %137 = tail call ptr @list_next(ptr noundef %6) #16
-  %.not = icmp eq ptr %137, null
+  %143 = tail call ptr @list_next(ptr noundef %6) #16
+  %.not = icmp eq ptr %143, null
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %_cleanup_removed_cluster_jobs.exit, %2
@@ -2780,28 +2796,28 @@ define internal fastcc void @_cleanup_removed_origin_jobs() unnamed_addr #0 {
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 280
   %24 = load ptr, ptr %23, align 8
   %.not4.i = icmp eq ptr %24, null
-  br i1 %.not4.i, label %28, label %25
+  br i1 %.not4.i, label %29, label %25
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 392
   %27 = load i32, ptr %26, align 8
-  %.not5.i = icmp ult i32 %27, 67108864
-  br i1 %.not5.i, label %28, label %_is_fed_job.exit
+  %28 = lshr i32 %27, 26
+  %.not5.i = icmp eq i32 %28, 0
+  br i1 %.not5.i, label %29, label %_is_fed_job.exit
 
-28:                                               ; preds = %25, %22
-  %29 = tail call i32 @get_log_level() #16
-  %30 = icmp sgt i32 %29, 5
-  br i1 %30, label %31, label %_is_fed_job.exit.thread
+29:                                               ; preds = %25, %22
+  %30 = tail call i32 @get_log_level() #16
+  %31 = icmp sgt i32 %30, 5
+  br i1 %31, label %32, label %_is_fed_job.exit.thread
 
-31:                                               ; preds = %28
+32:                                               ; preds = %29
   tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.183, ptr noundef nonnull %14) #16
   br label %_is_fed_job.exit.thread
 
 _is_fed_job.exit:                                 ; preds = %25
-  %32 = lshr i32 %27, 26
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %34 = load i64, ptr %33, align 8
-  %35 = icmp eq i32 %5, %32
+  %35 = icmp eq i32 %5, %28
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %_is_fed_job.exit
@@ -2856,7 +2872,7 @@ _is_fed_job.exit:                                 ; preds = %25
   tail call void @job_completion_logger(ptr noundef nonnull %14, i1 noundef zeroext false) #16
   br label %_is_fed_job.exit.thread
 
-_is_fed_job.exit.thread:                          ; preds = %28, %31, %49, %44, %38, %13, %56
+_is_fed_job.exit.thread:                          ; preds = %29, %32, %49, %44, %38, %13, %56
   %59 = tail call ptr @list_next(ptr noundef %7) #16
   %.not36 = icmp eq ptr %59, null
   br i1 %.not36, label %._crit_edge, label %13
@@ -4289,33 +4305,33 @@ define dso_local range(i32 0, 2) i32 @fed_mgr_is_origin_job(ptr noundef %0) loca
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8
   %.not4.i = icmp eq ptr %5, null
-  br i1 %.not4.i, label %9, label %6
+  br i1 %.not4.i, label %10, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %8 = load i32, ptr %7, align 8
-  %.not5.i = icmp ult i32 %8, 67108864
-  br i1 %.not5.i, label %9, label %_is_fed_job.exit
+  %9 = lshr i32 %8, 26
+  %.not5.i = icmp eq i32 %9, 0
+  br i1 %.not5.i, label %10, label %_is_fed_job.exit
 
-9:                                                ; preds = %6, %3
-  %10 = tail call i32 @get_log_level() #16
-  %11 = icmp sgt i32 %10, 5
-  br i1 %11, label %12, label %_is_fed_job.exit.thread
+10:                                               ; preds = %6, %3
+  %11 = tail call i32 @get_log_level() #16
+  %12 = icmp sgt i32 %11, 5
+  br i1 %12, label %13, label %_is_fed_job.exit.thread
 
-12:                                               ; preds = %9
+13:                                               ; preds = %10
   tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.183, ptr noundef nonnull %0) #16
   br label %_is_fed_job.exit.thread
 
 _is_fed_job.exit:                                 ; preds = %6
-  %13 = lshr i32 %8, 26
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %15 = load i32, ptr %14, align 8
-  %.not1 = icmp eq i32 %15, %13
+  %.not1 = icmp eq i32 %15, %9
   %. = zext i1 %.not1 to i32
   br label %_is_fed_job.exit.thread
 
-_is_fed_job.exit.thread:                          ; preds = %9, %12, %1, %_is_fed_job.exit
-  %.0 = phi i32 [ %., %_is_fed_job.exit ], [ 1, %1 ], [ 1, %12 ], [ 1, %9 ]
+_is_fed_job.exit.thread:                          ; preds = %10, %13, %1, %_is_fed_job.exit
+  %.0 = phi i32 [ %., %_is_fed_job.exit ], [ 1, %1 ], [ 1, %13 ], [ 1, %10 ]
   ret i32 %.0
 }
 
@@ -5367,7 +5383,7 @@ define dso_local zeroext i1 @fed_mgr_is_tracker_only_job(ptr noundef %0) local_u
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %8 = load i32, ptr %7, align 8
   %9 = lshr i32 %8, 26
-  %.not5.i = icmp ult i32 %8, 67108864
+  %.not5.i = icmp eq i32 %9, 0
   br i1 %.not5.i, label %10, label %_is_fed_job.exit
 
 10:                                               ; preds = %6, %3
@@ -5466,7 +5482,7 @@ define dso_local range(i32 -1, 1) i32 @fed_mgr_job_lock(ptr noundef %0) local_un
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %17 = load i32, ptr %16, align 8
   %18 = lshr i32 %17, 26
-  %.not5.i = icmp ult i32 %17, 67108864
+  %.not5.i = icmp eq i32 %18, 0
   br i1 %.not5.i, label %19, label %_is_fed_job.exit
 
 19:                                               ; preds = %15, %12
@@ -5679,7 +5695,7 @@ _persist_fed_job_lock.exit.thread.i:              ; preds = %97, %.sink.split.i.
   %.1.i = phi i64 [ %87, %86 ], [ %111, %108 ], [ %.02951.i, %94 ], [ %.02951.i, %88 ], [ %.02951.i, %79 ]
   %113 = lshr i64 %.02852.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %.not.i34 = icmp ult i64 %.02852.i, 2
+  %.not.i34 = icmp eq i64 %113, 0
   br i1 %.not.i34, label %.critedge.loopexit.i, label %79, !llvm.loop !34
 
 .critedge.loopexit.i:                             ; preds = %112
@@ -6127,7 +6143,7 @@ define dso_local range(i32 -1, 1) i32 @fed_mgr_job_unlock(ptr noundef %0) local_
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %12 = load i32, ptr %11, align 8
   %13 = lshr i32 %12, 26
-  %.not5.i = icmp ult i32 %12, 67108864
+  %.not5.i = icmp eq i32 %13, 0
   br i1 %.not5.i, label %14, label %_is_fed_job.exit
 
 14:                                               ; preds = %10, %7
@@ -6201,7 +6217,7 @@ _is_fed_job.exit:                                 ; preds = %10
   %48 = load i64, ptr %47, align 8
   %49 = add nsw i32 %13, -1
   %50 = zext nneg i32 %49 to i64
-  %51 = shl nuw i64 1, %50
+  %51 = shl nuw nsw i64 1, %50
   %52 = xor i64 %51, -1
   %53 = and i64 %48, %52
   call fastcc void @_job_unlock_spec_sibs(ptr noundef nonnull %0, i64 noundef %53)
@@ -6376,7 +6392,7 @@ _persist_fed_job_unlock.exit:                     ; preds = %32, %39, %.sink.spl
 43:                                               ; preds = %24, %_persist_fed_job_unlock.exit, %27, %17
   %44 = lshr i64 %.01015, 1
   %45 = add nuw nsw i32 %.016, 1
-  %.not = icmp ult i64 %.01015, 2
+  %.not = icmp eq i64 %44, 0
   br i1 %.not, label %._crit_edge, label %17, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %43, %2
@@ -6403,7 +6419,7 @@ define dso_local range(i32 -1, 1) i32 @fed_mgr_job_start(ptr noundef %0, i64 nou
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %13 = load i32, ptr %12, align 8
   %14 = lshr i32 %13, 26
-  %.not5.i = icmp ult i32 %13, 67108864
+  %.not5.i = icmp eq i32 %14, 0
   br i1 %.not5.i, label %15, label %_is_fed_job.exit
 
 15:                                               ; preds = %11, %8
@@ -6477,7 +6493,7 @@ _is_fed_job.exit:                                 ; preds = %11
   %49 = load i64, ptr %48, align 8
   %50 = add nsw i32 %14, -1
   %51 = zext nneg i32 %50 to i64
-  %52 = shl nuw i64 1, %51
+  %52 = shl nuw nsw i64 1, %51
   %53 = add i32 %20, -1
   %54 = zext nneg i32 %53 to i64
   %55 = shl nuw i64 1, %54
@@ -6737,7 +6753,7 @@ _persist_fed_job_revoke.exit:                     ; preds = %29, %32, %36
 40:                                               ; preds = %27, %_persist_fed_job_revoke.exit, %16, %18
   %41 = lshr i64 %.023, 1
   %42 = add nuw nsw i32 %.01422, 1
-  %.not16 = icmp ult i64 %.023, 2
+  %.not16 = icmp eq i64 %41, 0
   br i1 %.not16, label %.loopexit, label %16, !llvm.loop !37
 
 .loopexit:                                        ; preds = %40, %4
@@ -6816,7 +6832,7 @@ define dso_local range(i32 -1, 1) i32 @fed_mgr_job_complete(ptr noundef %0, i32 
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %16 = load i32, ptr %15, align 8
   %17 = lshr i32 %16, 26
-  %.not5.i = icmp ult i32 %16, 67108864
+  %.not5.i = icmp eq i32 %17, 0
   br i1 %.not5.i, label %18, label %_is_fed_job.exit
 
 18:                                               ; preds = %14, %11
@@ -6948,28 +6964,28 @@ define dso_local noundef i32 @fed_mgr_job_revoke_sibs(ptr noundef %0) local_unna
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %6 = load ptr, ptr %5, align 8
   %.not4.i = icmp eq ptr %6, null
-  br i1 %.not4.i, label %10, label %7
+  br i1 %.not4.i, label %11, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %9 = load i32, ptr %8, align 8
-  %.not5.i = icmp ult i32 %9, 67108864
-  br i1 %.not5.i, label %10, label %_is_fed_job.exit
+  %10 = lshr i32 %9, 26
+  %.not5.i = icmp eq i32 %10, 0
+  br i1 %.not5.i, label %11, label %_is_fed_job.exit
 
-10:                                               ; preds = %7, %4
-  %11 = tail call i32 @get_log_level() #16
-  %12 = icmp sgt i32 %11, 5
-  br i1 %12, label %13, label %_is_fed_job.exit.thread
+11:                                               ; preds = %7, %4
+  %12 = tail call i32 @get_log_level() #16
+  %13 = icmp sgt i32 %12, 5
+  br i1 %13, label %14, label %_is_fed_job.exit.thread
 
-13:                                               ; preds = %10
+14:                                               ; preds = %11
   tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.183, ptr noundef nonnull %0) #16
   br label %_is_fed_job.exit.thread
 
 _is_fed_job.exit:                                 ; preds = %7
-  %14 = lshr i32 %9, 26
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %16 = load i32, ptr %15, align 8
-  %.not5 = icmp eq i32 %14, %16
+  %.not5 = icmp eq i32 %10, %16
   br i1 %.not5, label %17, label %_is_fed_job.exit.thread
 
 17:                                               ; preds = %_is_fed_job.exit
@@ -6998,7 +7014,7 @@ _is_fed_job.exit:                                 ; preds = %7
   tail call fastcc void @_revoke_sibling_jobs(i32 noundef %25, i32 noundef %28, i64 noundef %31, i64 noundef %2)
   br label %_is_fed_job.exit.thread
 
-_is_fed_job.exit.thread:                          ; preds = %10, %13, %1, %_is_fed_job.exit, %24
+_is_fed_job.exit.thread:                          ; preds = %11, %14, %1, %_is_fed_job.exit, %24
   ret i32 0
 }
 
@@ -7026,7 +7042,7 @@ define dso_local noundef i32 @fed_mgr_job_revoke(ptr noundef %0, i1 noundef zero
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %18 = load i32, ptr %17, align 8
   %19 = lshr i32 %18, 26
-  %.not5.i = icmp ult i32 %18, 67108864
+  %.not5.i = icmp eq i32 %19, 0
   br i1 %.not5.i, label %20, label %_is_fed_job.exit
 
 20:                                               ; preds = %16, %13
@@ -7193,7 +7209,7 @@ define dso_local ptr @fed_mgr_cluster_ids_to_names(i64 noundef %0) local_unnamed
 21:                                               ; preds = %14, %19, %.lr.ph
   %22 = lshr i64 %.0817, 1
   %23 = add nuw nsw i32 %.0718, 1
-  %.not12 = icmp ult i64 %.0817, 2
+  %.not12 = icmp eq i64 %22, 0
   br i1 %.not12, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !38
 
 .loopexit.loopexit:                               ; preds = %21
@@ -7230,7 +7246,7 @@ define dso_local range(i32 -1, 1) i32 @fed_mgr_job_requeue_test(ptr noundef %0, 
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %15 = load i32, ptr %14, align 8
   %16 = lshr i32 %15, 26
-  %.not5.i = icmp ult i32 %15, 67108864
+  %.not5.i = icmp eq i32 %16, 0
   br i1 %.not5.i, label %17, label %_is_fed_job.exit
 
 17:                                               ; preds = %13, %10
@@ -7875,9 +7891,9 @@ _is_fed_job.exit:                                 ; preds = %11
 
 .thread.i:                                        ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %.02540.i = load i64, ptr %29, align 8
-  %.not3241.i = icmp eq i64 %.02540.i, 0
-  br i1 %.not3241.i, label %_cancel_sibling_jobs.exit, label %.lr.ph.thread.i
+  %.02542.i = load i64, ptr %29, align 8
+  %.not3243.i = icmp eq i64 %.02542.i, 0
+  br i1 %.not3243.i, label %_cancel_sibling_jobs.exit, label %.lr.ph.thread.i
 
 .lr.ph.thread.i:                                  ; preds = %.thread.i
   %30 = and i16 %2, -129
@@ -7932,12 +7948,12 @@ _is_fed_job.exit:                                 ; preds = %11
 53:                                               ; preds = %51, %48, %44, %41, %32, %.lr.ph.split.us.i
   %54 = lshr i64 %.133.us.i, 1
   %55 = add nuw nsw i32 %.02434.us.i, 1
-  %.not.us.i = icmp ult i64 %.133.us.i, 2
+  %.not.us.i = icmp eq i64 %54, 0
   br i1 %.not.us.i, label %_cancel_sibling_jobs.exit, label %.lr.ph.split.us.i, !llvm.loop !39
 
 .lr.ph.split.i:                                   ; preds = %71, %.lr.ph.thread.i
   %.02434.i = phi i32 [ %73, %71 ], [ 1, %.lr.ph.thread.i ]
-  %.133.i = phi i64 [ %72, %71 ], [ %.02540.i, %.lr.ph.thread.i ]
+  %.133.i = phi i64 [ %72, %71 ], [ %.02542.i, %.lr.ph.thread.i ]
   %56 = and i64 %.133.i, 1
   %.not28.i = icmp eq i64 %56, 0
   br i1 %.not28.i, label %71, label %57
@@ -7972,7 +7988,7 @@ _is_fed_job.exit:                                 ; preds = %11
 71:                                               ; preds = %68, %66, %57, %.lr.ph.split.i
   %72 = lshr i64 %.133.i, 1
   %73 = add nuw nsw i32 %.02434.i, 1
-  %.not.i8 = icmp ult i64 %.133.i, 2
+  %.not.i8 = icmp eq i64 %72, 0
   br i1 %.not.i8, label %_cancel_sibling_jobs.exit, label %.lr.ph.split.i, !llvm.loop !39
 
 _cancel_sibling_jobs.exit:                        ; preds = %71, %53, %14, %17, %5, %.thread.i, %26
@@ -7989,28 +8005,28 @@ define dso_local zeroext i1 @fed_mgr_job_started_on_sib(ptr noundef %0) local_un
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8
   %.not4.i = icmp eq ptr %5, null
-  br i1 %.not4.i, label %9, label %6
+  br i1 %.not4.i, label %10, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %8 = load i32, ptr %7, align 8
-  %.not5.i = icmp ult i32 %8, 67108864
-  br i1 %.not5.i, label %9, label %_is_fed_job.exit
+  %9 = lshr i32 %8, 26
+  %.not5.i = icmp eq i32 %9, 0
+  br i1 %.not5.i, label %10, label %_is_fed_job.exit
 
-9:                                                ; preds = %6, %3
-  %10 = tail call i32 @get_log_level() #16
-  %11 = icmp sgt i32 %10, 5
-  br i1 %11, label %12, label %_is_fed_job.exit.thread
+10:                                               ; preds = %6, %3
+  %11 = tail call i32 @get_log_level() #16
+  %12 = icmp sgt i32 %11, 5
+  br i1 %12, label %13, label %_is_fed_job.exit.thread
 
-12:                                               ; preds = %9
+13:                                               ; preds = %10
   tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.183, ptr noundef nonnull %0) #16
   br label %_is_fed_job.exit.thread
 
 _is_fed_job.exit:                                 ; preds = %6
-  %13 = lshr i32 %8, 26
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %15 = load i32, ptr %14, align 8
-  %16 = icmp eq i32 %15, %13
+  %16 = icmp eq i32 %15, %9
   br i1 %16, label %17, label %_is_fed_job.exit.thread
 
 17:                                               ; preds = %_is_fed_job.exit
@@ -8023,12 +8039,12 @@ _is_fed_job.exit:                                 ; preds = %6
 21:                                               ; preds = %17
   %22 = load i32, ptr %5, align 8
   %.not6 = icmp ne i32 %22, 0
-  %23 = icmp ne i32 %22, %13
+  %23 = icmp ne i32 %22, %9
   %spec.select = and i1 %.not6, %23
   br label %_is_fed_job.exit.thread
 
-_is_fed_job.exit.thread:                          ; preds = %9, %12, %1, %21, %17, %_is_fed_job.exit
-  %24 = phi i1 [ false, %17 ], [ false, %_is_fed_job.exit ], [ %spec.select, %21 ], [ false, %1 ], [ false, %12 ], [ false, %9 ]
+_is_fed_job.exit.thread:                          ; preds = %10, %13, %1, %21, %17, %_is_fed_job.exit
+  %24 = phi i1 [ false, %17 ], [ false, %_is_fed_job.exit ], [ %spec.select, %21 ], [ false, %1 ], [ false, %13 ], [ false, %10 ]
   ret i1 %24
 }
 
@@ -8036,85 +8052,87 @@ _is_fed_job.exit.thread:                          ; preds = %9, %12, %1, %21, %1
 define dso_local zeroext i1 @fed_mgr_is_job_id_in_fed(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @fed_mgr_cluster_rec, align 8
   %.not = icmp eq ptr %2, null
-  %.not4 = icmp ult i32 %0, 67108864
-  %or.cond = or i1 %.not4, %.not
-  br i1 %or.cond, label %_get_all_sibling_bits.exit, label %3
+  br i1 %.not, label %_get_all_sibling_bits.exit, label %3
 
 3:                                                ; preds = %1
   %4 = lshr i32 %0, 26
-  %5 = add nsw i32 %4, -1
-  %6 = zext nneg i32 %5 to i64
-  %7 = shl nuw nsw i64 1, %6
-  %8 = load ptr, ptr @fed_mgr_fed_rec, align 8
-  %.not.i = icmp eq ptr %8, null
-  br i1 %.not.i, label %_get_all_sibling_bits.exit, label %9
+  %.not4 = icmp eq i32 %4, 0
+  br i1 %.not4, label %_get_all_sibling_bits.exit, label %5
 
-9:                                                ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %11 = load ptr, ptr %10, align 8
-  %.not7.i = icmp eq ptr %11, null
-  br i1 %.not7.i, label %_get_all_sibling_bits.exit, label %12
+5:                                                ; preds = %3
+  %6 = add nsw i32 %4, -1
+  %7 = zext nneg i32 %6 to i64
+  %8 = shl nuw nsw i64 1, %7
+  %9 = load ptr, ptr @fed_mgr_fed_rec, align 8
+  %.not.i = icmp eq ptr %9, null
+  br i1 %.not.i, label %_get_all_sibling_bits.exit, label %10
 
-12:                                               ; preds = %9
-  %13 = tail call ptr @list_iterator_create(ptr noundef nonnull %11) #16
-  %14 = tail call ptr @list_next(ptr noundef %13) #16
-  %.not89.i = icmp eq ptr %14, null
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %12 = load ptr, ptr %11, align 8
+  %.not7.i = icmp eq ptr %12, null
+  br i1 %.not7.i, label %_get_all_sibling_bits.exit, label %13
+
+13:                                               ; preds = %10
+  %14 = tail call ptr @list_iterator_create(ptr noundef nonnull %12) #16
+  %15 = tail call ptr @list_next(ptr noundef %14) #16
+  %.not89.i = icmp eq ptr %15, null
   br i1 %.not89.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %12, %.lr.ph.i
-  %15 = phi ptr [ %22, %.lr.ph.i ], [ %14, %12 ]
-  %.110.i = phi i64 [ %21, %.lr.ph.i ], [ 0, %12 ]
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 192
-  %17 = load i32, ptr %16, align 8
-  %18 = add i32 %17, -1
-  %19 = zext nneg i32 %18 to i64
-  %20 = shl nuw i64 1, %19
-  %21 = or i64 %20, %.110.i
-  %22 = tail call ptr @list_next(ptr noundef %13) #16
-  %.not8.i = icmp eq ptr %22, null
+.lr.ph.i:                                         ; preds = %13, %.lr.ph.i
+  %16 = phi ptr [ %23, %.lr.ph.i ], [ %15, %13 ]
+  %.110.i = phi i64 [ %22, %.lr.ph.i ], [ 0, %13 ]
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 192
+  %18 = load i32, ptr %17, align 8
+  %19 = add i32 %18, -1
+  %20 = zext nneg i32 %19 to i64
+  %21 = shl nuw i64 1, %20
+  %22 = or i64 %21, %.110.i
+  %23 = tail call ptr @list_next(ptr noundef %14) #16
+  %.not8.i = icmp eq ptr %23, null
   br i1 %.not8.i, label %._crit_edge.i.loopexit, label %.lr.ph.i, !llvm.loop !31
 
 ._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i
-  %23 = and i64 %21, %7
-  %24 = icmp ne i64 %23, 0
+  %24 = and i64 %22, %8
+  %25 = icmp ne i64 %24, 0
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %12
-  %.1.lcssa.i = phi i1 [ false, %12 ], [ %24, %._crit_edge.i.loopexit ]
-  tail call void @list_iterator_destroy(ptr noundef %13) #16
+._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %13
+  %.1.lcssa.i = phi i1 [ false, %13 ], [ %25, %._crit_edge.i.loopexit ]
+  tail call void @list_iterator_destroy(ptr noundef %14) #16
   br label %_get_all_sibling_bits.exit
 
-_get_all_sibling_bits.exit:                       ; preds = %._crit_edge.i, %9, %3, %1
-  %.0 = phi i1 [ false, %1 ], [ %.1.lcssa.i, %._crit_edge.i ], [ false, %9 ], [ false, %3 ]
+_get_all_sibling_bits.exit:                       ; preds = %._crit_edge.i, %10, %5, %3, %1
+  %.0 = phi i1 [ false, %1 ], [ false, %3 ], [ %.1.lcssa.i, %._crit_edge.i ], [ false, %10 ], [ false, %5 ]
   ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @fed_mgr_is_origin_job_id(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr @fed_mgr_cluster_rec, align 8
-  %3 = icmp ne ptr %2, null
-  %4 = icmp ugt i32 %0, 67108863
-  %or.cond = and i1 %4, %3
-  br i1 %or.cond, label %9, label %5
+  %2 = lshr i32 %0, 26
+  %3 = load ptr, ptr @fed_mgr_cluster_rec, align 8
+  %4 = icmp ne ptr %3, null
+  %5 = icmp ne i32 %2, 0
+  %or.cond = and i1 %5, %4
+  br i1 %or.cond, label %10, label %6
 
-5:                                                ; preds = %1
-  %6 = tail call i32 @get_log_level() #16
-  %7 = icmp sgt i32 %6, 5
-  br i1 %7, label %8, label %14
+6:                                                ; preds = %1
+  %7 = tail call i32 @get_log_level() #16
+  %8 = icmp sgt i32 %7, 5
+  br i1 %8, label %9, label %14
 
-8:                                                ; preds = %5
+9:                                                ; preds = %6
   tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.63, ptr noundef nonnull @__func__.fed_mgr_is_origin_job_id, i32 noundef %0) #16
   br label %14
 
-9:                                                ; preds = %1
-  %10 = lshr i32 %0, 26
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 192
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %12 = load i32, ptr %11, align 8
-  %13 = icmp eq i32 %12, %10
+  %13 = icmp eq i32 %12, %2
   br label %14
 
-14:                                               ; preds = %9, %5, %8
-  %.0 = phi i1 [ true, %8 ], [ true, %5 ], [ %13, %9 ]
+14:                                               ; preds = %10, %6, %9
+  %.0 = phi i1 [ true, %9 ], [ true, %6 ], [ %13, %10 ]
   ret i1 %.0
 }
 
@@ -8134,7 +8152,7 @@ define dso_local zeroext i1 @fed_mgr_is_singleton_satisfied(ptr noundef %0, ptr 
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %10 = load i32, ptr %9, align 8
   %11 = lshr i32 %10, 26
-  %.not5.i = icmp ult i32 %10, 67108864
+  %.not5.i = icmp eq i32 %11, 0
   br i1 %.not5.i, label %12, label %_is_fed_job.exit
 
 12:                                               ; preds = %8, %5
@@ -8316,30 +8334,30 @@ _is_fed_job.exit:                                 ; preds = %7
 36:                                               ; preds = %34
   %37 = load ptr, ptr %5, align 8
   %.not4.i.i = icmp eq ptr %37, null
-  br i1 %.not4.i.i, label %40, label %38
+  br i1 %.not4.i.i, label %41, label %38
 
 38:                                               ; preds = %36
   %39 = load i32, ptr %8, align 8
-  %.not5.i.i = icmp ult i32 %39, 67108864
-  br i1 %.not5.i.i, label %40, label %fed_mgr_is_origin_job.exit
+  %40 = lshr i32 %39, 26
+  %.not5.i.i = icmp eq i32 %40, 0
+  br i1 %.not5.i.i, label %41, label %fed_mgr_is_origin_job.exit
 
-40:                                               ; preds = %38, %36
-  %41 = tail call i32 @get_log_level() #16
-  %42 = icmp sgt i32 %41, 5
-  br i1 %42, label %43, label %fed_mgr_is_origin_job.exit.thread
+41:                                               ; preds = %38, %36
+  %42 = tail call i32 @get_log_level() #16
+  %43 = icmp sgt i32 %42, 5
+  br i1 %43, label %44, label %fed_mgr_is_origin_job.exit.thread
 
-43:                                               ; preds = %40
+44:                                               ; preds = %41
   tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.183, ptr noundef nonnull %0) #16
   br label %fed_mgr_is_origin_job.exit.thread
 
 fed_mgr_is_origin_job.exit:                       ; preds = %38
-  %44 = lshr i32 %39, 26
   %45 = getelementptr inbounds nuw i8, ptr %35, i64 192
   %46 = load i32, ptr %45, align 8
-  %.not1.i.not = icmp eq i32 %46, %44
+  %.not1.i.not = icmp eq i32 %46, %40
   br i1 %.not1.i.not, label %fed_mgr_is_origin_job.exit.thread, label %47
 
-fed_mgr_is_origin_job.exit.thread:                ; preds = %40, %43, %34, %fed_mgr_is_origin_job.exit
+fed_mgr_is_origin_job.exit.thread:                ; preds = %41, %44, %34, %fed_mgr_is_origin_job.exit
   tail call fastcc void @_add_remove_sibling_jobs(ptr noundef nonnull %0)
   br label %47
 
@@ -8520,30 +8538,30 @@ define internal fastcc void @_add_remove_sibling_jobs(ptr noundef %0) unnamed_ad
 36:                                               ; preds = %29
   %37 = load ptr, ptr %7, align 8
   %.not4.i.i = icmp eq ptr %37, null
-  br i1 %.not4.i.i, label %40, label %38
+  br i1 %.not4.i.i, label %41, label %38
 
 38:                                               ; preds = %36
   %39 = load i32, ptr %4, align 8
-  %.not5.i.i = icmp ult i32 %39, 67108864
-  br i1 %.not5.i.i, label %40, label %fed_mgr_is_origin_job.exit
+  %40 = lshr i32 %39, 26
+  %.not5.i.i = icmp eq i32 %40, 0
+  br i1 %.not5.i.i, label %41, label %fed_mgr_is_origin_job.exit
 
-40:                                               ; preds = %38, %36
-  %41 = call i32 @get_log_level() #16
-  %42 = icmp sgt i32 %41, 5
-  br i1 %42, label %43, label %fed_mgr_is_origin_job.exit.thread
+41:                                               ; preds = %38, %36
+  %42 = call i32 @get_log_level() #16
+  %43 = icmp sgt i32 %42, 5
+  br i1 %43, label %44, label %fed_mgr_is_origin_job.exit.thread
 
-43:                                               ; preds = %40
+44:                                               ; preds = %41
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.183, ptr noundef nonnull %0) #16
   br label %fed_mgr_is_origin_job.exit.thread
 
 fed_mgr_is_origin_job.exit:                       ; preds = %38
-  %44 = lshr i32 %39, 26
   %45 = getelementptr inbounds nuw i8, ptr %35, i64 192
   %46 = load i32, ptr %45, align 8
-  %.not1.i.not = icmp eq i32 %46, %44
+  %.not1.i.not = icmp eq i32 %46, %40
   br i1 %.not1.i.not, label %fed_mgr_is_origin_job.exit.thread, label %53
 
-fed_mgr_is_origin_job.exit.thread:                ; preds = %40, %43, %29, %fed_mgr_is_origin_job.exit
+fed_mgr_is_origin_job.exit.thread:                ; preds = %41, %44, %29, %fed_mgr_is_origin_job.exit
   %47 = add nsw i32 %6, -1
   %48 = zext nneg i32 %47 to i64
   %49 = shl nuw i64 1, %48
@@ -8587,30 +8605,30 @@ fed_mgr_is_origin_job.exit.thread:                ; preds = %40, %43, %29, %fed_
 70:                                               ; preds = %68
   %71 = load ptr, ptr %7, align 8
   %.not4.i.i51 = icmp eq ptr %71, null
-  br i1 %.not4.i.i51, label %74, label %72
+  br i1 %.not4.i.i51, label %75, label %72
 
 72:                                               ; preds = %70
   %73 = load i32, ptr %4, align 8
-  %.not5.i.i52 = icmp ult i32 %73, 67108864
-  br i1 %.not5.i.i52, label %74, label %fed_mgr_is_origin_job.exit57
+  %74 = lshr i32 %73, 26
+  %.not5.i.i52 = icmp eq i32 %74, 0
+  br i1 %.not5.i.i52, label %75, label %fed_mgr_is_origin_job.exit57
 
-74:                                               ; preds = %72, %70
-  %75 = call i32 @get_log_level() #16
-  %76 = icmp sgt i32 %75, 5
-  br i1 %76, label %77, label %fed_mgr_is_origin_job.exit57.thread
+75:                                               ; preds = %72, %70
+  %76 = call i32 @get_log_level() #16
+  %77 = icmp sgt i32 %76, 5
+  br i1 %77, label %78, label %fed_mgr_is_origin_job.exit57.thread
 
-77:                                               ; preds = %74
+78:                                               ; preds = %75
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.183, ptr noundef nonnull %0) #16
   br label %fed_mgr_is_origin_job.exit57.thread
 
 fed_mgr_is_origin_job.exit57:                     ; preds = %72
-  %78 = lshr i32 %73, 26
   %79 = getelementptr inbounds nuw i8, ptr %69, i64 192
   %80 = load i32, ptr %79, align 8
-  %.not1.i54.not = icmp eq i32 %80, %78
+  %.not1.i54.not = icmp eq i32 %80, %74
   br i1 %.not1.i54.not, label %fed_mgr_is_origin_job.exit57.thread, label %86
 
-fed_mgr_is_origin_job.exit57.thread:              ; preds = %74, %77, %68, %fed_mgr_is_origin_job.exit57
+fed_mgr_is_origin_job.exit57.thread:              ; preds = %75, %78, %68, %fed_mgr_is_origin_job.exit57
   %81 = add nsw i32 %6, -1
   %82 = zext nneg i32 %81 to i64
   %83 = shl nuw i64 1, %82
@@ -8770,30 +8788,30 @@ _is_fed_job.exit:                                 ; preds = %7
 40:                                               ; preds = %38
   %41 = load ptr, ptr %5, align 8
   %.not4.i.i = icmp eq ptr %41, null
-  br i1 %.not4.i.i, label %44, label %42
+  br i1 %.not4.i.i, label %45, label %42
 
 42:                                               ; preds = %40
   %43 = load i32, ptr %8, align 8
-  %.not5.i.i = icmp ult i32 %43, 67108864
-  br i1 %.not5.i.i, label %44, label %fed_mgr_is_origin_job.exit
+  %44 = lshr i32 %43, 26
+  %.not5.i.i = icmp eq i32 %44, 0
+  br i1 %.not5.i.i, label %45, label %fed_mgr_is_origin_job.exit
 
-44:                                               ; preds = %42, %40
-  %45 = tail call i32 @get_log_level() #16
-  %46 = icmp sgt i32 %45, 5
-  br i1 %46, label %47, label %fed_mgr_is_origin_job.exit.thread
+45:                                               ; preds = %42, %40
+  %46 = tail call i32 @get_log_level() #16
+  %47 = icmp sgt i32 %46, 5
+  br i1 %47, label %48, label %fed_mgr_is_origin_job.exit.thread
 
-47:                                               ; preds = %44
+48:                                               ; preds = %45
   tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.183, ptr noundef nonnull %0) #16
   br label %fed_mgr_is_origin_job.exit.thread
 
 fed_mgr_is_origin_job.exit:                       ; preds = %42
-  %48 = lshr i32 %43, 26
   %49 = getelementptr inbounds nuw i8, ptr %39, i64 192
   %50 = load i32, ptr %49, align 8
-  %.not1.i.not = icmp eq i32 %50, %48
+  %.not1.i.not = icmp eq i32 %50, %44
   br i1 %.not1.i.not, label %fed_mgr_is_origin_job.exit.thread, label %51
 
-fed_mgr_is_origin_job.exit.thread:                ; preds = %44, %47, %38, %fed_mgr_is_origin_job.exit
+fed_mgr_is_origin_job.exit.thread:                ; preds = %45, %48, %38, %fed_mgr_is_origin_job.exit
   tail call fastcc void @_add_remove_sibling_jobs(ptr noundef nonnull %0)
   br label %51
 
@@ -11162,7 +11180,7 @@ fed_mgr_get_cluster_by_name.exit.thread.i.i39.i:  ; preds = %fed_mgr_get_cluster
   br i1 %.not.i.i.i.i.i.i, label %fed_mgr_is_origin_job.exit.thread.i.i.i.i, label %433
 
 433:                                              ; preds = %431
-  %.not5.i.i.i.i.i.i = icmp ult i32 %413, 67108864
+  %.not5.i.i.i.i.i.i = icmp eq i32 %414, 0
   br i1 %.not5.i.i.i.i.i.i, label %434, label %fed_mgr_is_origin_job.exit.i.i.i.i
 
 434:                                              ; preds = %433

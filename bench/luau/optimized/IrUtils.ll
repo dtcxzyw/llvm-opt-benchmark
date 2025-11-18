@@ -103,7 +103,7 @@ define dso_local void @_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE(p
   %22 = add i16 %21, -1
   store i16 %22, ptr %20, align 2, !tbaa !25
   %23 = icmp eq i16 %22, 0
-  %24 = icmp ugt i32 %1, 15
+  %24 = icmp ne i32 %16, 0
   %or.cond.i = and i1 %24, %23
   br i1 %or.cond.i, label %25, label %_ZN4Luau7CodeGenL13removeInstUseERNS0_10IrFunctionEj.exit
 
@@ -225,7 +225,7 @@ define dso_local void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr
   %23 = add i16 %22, -1
   store i16 %23, ptr %21, align 2, !tbaa !25
   %24 = icmp eq i16 %23, 0
-  %25 = icmp ugt i32 %.sroa.06.0.copyload, 15
+  %25 = icmp ne i32 %17, 0
   %or.cond.i.i = and i1 %25, %24
   br i1 %or.cond.i.i, label %26, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit
 
@@ -302,7 +302,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit: ; preds = %16, %_Z
   %61 = add i16 %60, -1
   store i16 %61, ptr %59, align 2, !tbaa !25
   %62 = icmp eq i16 %61, 0
-  %63 = icmp ugt i32 %.sroa.05.0.copyload, 15
+  %63 = icmp ne i32 %55, 0
   %or.cond.i.i28 = and i1 %63, %62
   br i1 %or.cond.i.i28, label %64, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit31
 
@@ -379,7 +379,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit31: ; preds = %54, %
   %99 = add i16 %98, -1
   store i16 %99, ptr %97, align 2, !tbaa !25
   %100 = icmp eq i16 %99, 0
-  %101 = icmp ugt i32 %.sroa.04.0.copyload, 15
+  %101 = icmp ne i32 %93, 0
   %or.cond.i.i32 = and i1 %101, %100
   br i1 %or.cond.i.i32, label %102, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit35
 
@@ -456,7 +456,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit35: ; preds = %92, %
   %137 = add i16 %136, -1
   store i16 %137, ptr %135, align 2, !tbaa !25
   %138 = icmp eq i16 %137, 0
-  %139 = icmp ugt i32 %.sroa.03.0.copyload, 15
+  %139 = icmp ne i32 %131, 0
   %or.cond.i.i36 = and i1 %139, %138
   br i1 %or.cond.i.i36, label %140, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit39
 
@@ -533,7 +533,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit39: ; preds = %130, 
   %175 = add i16 %174, -1
   store i16 %175, ptr %173, align 2, !tbaa !25
   %176 = icmp eq i16 %175, 0
-  %177 = icmp ugt i32 %.sroa.02.0.copyload, 15
+  %177 = icmp ne i32 %169, 0
   %or.cond.i.i40 = and i1 %177, %176
   br i1 %or.cond.i.i40, label %178, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit43
 
@@ -610,7 +610,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit43: ; preds = %168, 
   %213 = add i16 %212, -1
   store i16 %213, ptr %211, align 2, !tbaa !25
   %214 = icmp eq i16 %213, 0
-  %215 = icmp ugt i32 %.sroa.01.0.copyload, 15
+  %215 = icmp ne i32 %207, 0
   %or.cond.i.i44 = and i1 %215, %214
   br i1 %or.cond.i.i44, label %216, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit47
 
@@ -687,7 +687,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit47: ; preds = %206, 
   %251 = add i16 %250, -1
   store i16 %251, ptr %249, align 2, !tbaa !25
   %252 = icmp eq i16 %251, 0
-  %253 = icmp ugt i32 %.sroa.0.0.copyload, 15
+  %253 = icmp ne i32 %245, 0
   %or.cond.i.i48 = and i1 %253, %252
   br i1 %or.cond.i.i48, label %254, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit51
 
@@ -873,7 +873,7 @@ _ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit: ; preds = %3, %5, %14
   %41 = add i16 %40, -1
   store i16 %41, ptr %39, align 2, !tbaa !25
   %42 = icmp eq i16 %41, 0
-  %43 = icmp ugt i32 %.sroa.0.0.copyload, 15
+  %43 = icmp ne i32 %35, 0
   %or.cond.i.i = and i1 %43, %42
   br i1 %or.cond.i.i, label %44, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit
 
@@ -1216,7 +1216,7 @@ _ZN4Luau7CodeGen4killERNS0_10IrFunctionEjj.exit:  ; preds = %148, %136
   %169 = add i16 %168, -1
   store i16 %169, ptr %167, align 2, !tbaa !25
   %170 = icmp eq i16 %169, 0
-  %171 = icmp ugt i32 %.sroa.06.0.copyload, 15
+  %171 = icmp ne i32 %163, 0
   %or.cond.i.i = and i1 %171, %170
   br i1 %or.cond.i.i, label %172, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit
 
@@ -1291,7 +1291,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit: ; preds = %149, %1
   %205 = add i16 %204, -1
   store i16 %205, ptr %203, align 2, !tbaa !25
   %206 = icmp eq i16 %205, 0
-  %207 = icmp ugt i32 %.sroa.05.0.copyload, 15
+  %207 = icmp ne i32 %199, 0
   %or.cond.i.i51 = and i1 %207, %206
   br i1 %or.cond.i.i51, label %208, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit58
 
@@ -1366,7 +1366,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit58: ; preds = %_ZN4L
   %241 = add i16 %240, -1
   store i16 %241, ptr %239, align 2, !tbaa !25
   %242 = icmp eq i16 %241, 0
-  %243 = icmp ugt i32 %.sroa.04.0.copyload, 15
+  %243 = icmp ne i32 %235, 0
   %or.cond.i.i59 = and i1 %243, %242
   br i1 %or.cond.i.i59, label %244, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit66
 
@@ -1441,7 +1441,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit66: ; preds = %_ZN4L
   %277 = add i16 %276, -1
   store i16 %277, ptr %275, align 2, !tbaa !25
   %278 = icmp eq i16 %277, 0
-  %279 = icmp ugt i32 %.sroa.03.0.copyload, 15
+  %279 = icmp ne i32 %271, 0
   %or.cond.i.i67 = and i1 %279, %278
   br i1 %or.cond.i.i67, label %280, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit74
 
@@ -1516,7 +1516,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit74: ; preds = %_ZN4L
   %313 = add i16 %312, -1
   store i16 %313, ptr %311, align 2, !tbaa !25
   %314 = icmp eq i16 %313, 0
-  %315 = icmp ugt i32 %.sroa.02.0.copyload, 15
+  %315 = icmp ne i32 %307, 0
   %or.cond.i.i75 = and i1 %315, %314
   br i1 %or.cond.i.i75, label %316, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit82
 
@@ -1591,7 +1591,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit82: ; preds = %_ZN4L
   %349 = add i16 %348, -1
   store i16 %349, ptr %347, align 2, !tbaa !25
   %350 = icmp eq i16 %349, 0
-  %351 = icmp ugt i32 %.sroa.01.0.copyload, 15
+  %351 = icmp ne i32 %343, 0
   %or.cond.i.i83 = and i1 %351, %350
   br i1 %or.cond.i.i83, label %352, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit90
 
@@ -1666,7 +1666,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit90: ; preds = %_ZN4L
   %385 = add i16 %384, -1
   store i16 %385, ptr %383, align 2, !tbaa !25
   %386 = icmp eq i16 %385, 0
-  %387 = icmp ugt i32 %.sroa.0.0.copyload, 15
+  %387 = icmp ne i32 %379, 0
   %or.cond.i.i91 = and i1 %387, %386
   br i1 %or.cond.i.i91, label %388, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit98
 
@@ -1813,7 +1813,7 @@ _ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit: ; preds = %3, %5, %14
   %42 = add i16 %41, -1
   store i16 %42, ptr %40, align 2, !tbaa !25
   %43 = icmp eq i16 %42, 0
-  %44 = icmp ugt i32 %.sroa.06.0.copyload, 15
+  %44 = icmp ne i32 %36, 0
   %or.cond.i.i = and i1 %44, %43
   br i1 %or.cond.i.i, label %45, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit
 
@@ -1890,7 +1890,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit: ; preds = %_ZN4Lua
   %80 = add i16 %79, -1
   store i16 %80, ptr %78, align 2, !tbaa !25
   %81 = icmp eq i16 %80, 0
-  %82 = icmp ugt i32 %.sroa.05.0.copyload, 15
+  %82 = icmp ne i32 %74, 0
   %or.cond.i.i31 = and i1 %82, %81
   br i1 %or.cond.i.i31, label %83, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit38
 
@@ -1967,7 +1967,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit38: ; preds = %_ZN4L
   %118 = add i16 %117, -1
   store i16 %118, ptr %116, align 2, !tbaa !25
   %119 = icmp eq i16 %118, 0
-  %120 = icmp ugt i32 %.sroa.04.0.copyload, 15
+  %120 = icmp ne i32 %112, 0
   %or.cond.i.i39 = and i1 %120, %119
   br i1 %or.cond.i.i39, label %121, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit46
 
@@ -2044,7 +2044,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit46: ; preds = %_ZN4L
   %156 = add i16 %155, -1
   store i16 %156, ptr %154, align 2, !tbaa !25
   %157 = icmp eq i16 %156, 0
-  %158 = icmp ugt i32 %.sroa.03.0.copyload, 15
+  %158 = icmp ne i32 %150, 0
   %or.cond.i.i47 = and i1 %158, %157
   br i1 %or.cond.i.i47, label %159, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit54
 
@@ -2121,7 +2121,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit54: ; preds = %_ZN4L
   %194 = add i16 %193, -1
   store i16 %194, ptr %192, align 2, !tbaa !25
   %195 = icmp eq i16 %194, 0
-  %196 = icmp ugt i32 %.sroa.02.0.copyload, 15
+  %196 = icmp ne i32 %188, 0
   %or.cond.i.i55 = and i1 %196, %195
   br i1 %or.cond.i.i55, label %197, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit62
 
@@ -2198,7 +2198,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit62: ; preds = %_ZN4L
   %232 = add i16 %231, -1
   store i16 %232, ptr %230, align 2, !tbaa !25
   %233 = icmp eq i16 %232, 0
-  %234 = icmp ugt i32 %.sroa.01.0.copyload, 15
+  %234 = icmp ne i32 %226, 0
   %or.cond.i.i63 = and i1 %234, %233
   br i1 %or.cond.i.i63, label %235, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit70
 
@@ -2275,7 +2275,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit70: ; preds = %_ZN4L
   %270 = add i16 %269, -1
   store i16 %270, ptr %268, align 2, !tbaa !25
   %271 = icmp eq i16 %270, 0
-  %272 = icmp ugt i32 %.sroa.0.0.copyload, 15
+  %272 = icmp ne i32 %264, 0
   %or.cond.i.i71 = and i1 %272, %271
   br i1 %or.cond.i.i71, label %273, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit78
 
@@ -2407,7 +2407,7 @@ define dso_local void @_ZN4Luau7CodeGen18applySubstitutionsERNS0_10IrFunctionERN
   %56 = add i16 %55, -1
   store i16 %56, ptr %54, align 2, !tbaa !25
   %57 = icmp eq i16 %56, 0
-  %58 = icmp ugt i32 %.sroa.0.0.copyload, 15
+  %58 = icmp ne i32 %50, 0
   %or.cond.i.i = and i1 %58, %57
   br i1 %or.cond.i.i, label %59, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit
 

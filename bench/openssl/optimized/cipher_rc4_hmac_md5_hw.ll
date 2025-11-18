@@ -71,7 +71,7 @@ define internal range(i32 0, 2) i32 @cipher_hw_rc4_hmac_md5_cipher(ptr noundef %
 27:                                               ; preds = %23
   %28 = sub nuw i64 %spec.select, %.0153
   %29 = lshr i64 %28, 6
-  %.not176 = icmp ult i64 %28, 64
+  %.not176 = icmp eq i64 %29, 0
   br i1 %.not176, label %54, label %30
 
 30:                                               ; preds = %27
@@ -160,7 +160,7 @@ define internal range(i32 0, 2) i32 @cipher_hw_rc4_hmac_md5_cipher(ptr noundef %
 78:                                               ; preds = %75
   %79 = sub nuw i64 %3, %.1156
   %80 = lshr i64 %79, 6
-  %.not173 = icmp ult i64 %79, 64
+  %.not173 = icmp eq i64 %80, 0
   br i1 %.not173, label %103, label %81
 
 81:                                               ; preds = %78

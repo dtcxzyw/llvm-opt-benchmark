@@ -408,12 +408,12 @@ define hidden nonnull ptr @lj_strfmt_wptr(ptr noundef writeonly captures(ret: ad
   br label %30
 
 10:                                               ; preds = %2
-  %.not = icmp ult ptr %1, inttoptr (i64 4294967296 to ptr)
-  br i1 %.not, label %.lr.ph.preheader, label %11
+  %11 = ashr i64 %3, 32
+  %.not = icmp eq i64 %11, 0
+  br i1 %.not, label %.lr.ph.preheader, label %12
 
-11:                                               ; preds = %10
-  %12 = lshr i64 %3, 32
-  %13 = trunc nuw i64 %12 to i32
+12:                                               ; preds = %10
+  %13 = trunc nsw i64 %11 to i32
   %14 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %13, i1 true)
   %15 = lshr i32 %14, 2
   %16 = and i32 %15, 6
@@ -421,8 +421,8 @@ define hidden nonnull ptr @lj_strfmt_wptr(ptr noundef writeonly captures(ret: ad
   %18 = add nuw nsw i32 %17, 12
   br label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %11, %10
-  %19 = phi i32 [ %18, %11 ], [ 10, %10 ]
+.lr.ph.preheader:                                 ; preds = %12, %10
+  %19 = phi i32 [ %18, %12 ], [ 10, %10 ]
   store i8 48, ptr %0, align 1, !tbaa !13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 120, ptr %20, align 1, !tbaa !13
@@ -621,12 +621,12 @@ lj_buf_more.exit:                                 ; preds = %2, %11
   br label %lj_strfmt_wptr.exit
 
 20:                                               ; preds = %lj_buf_more.exit
-  %.not.i = icmp ult ptr %1, inttoptr (i64 4294967296 to ptr)
-  br i1 %.not.i, label %.lr.ph.preheader.i, label %21
+  %21 = ashr i64 %13, 32
+  %.not.i = icmp eq i64 %21, 0
+  br i1 %.not.i, label %.lr.ph.preheader.i, label %22
 
-21:                                               ; preds = %20
-  %22 = lshr i64 %13, 32
-  %23 = trunc nuw i64 %22 to i32
+22:                                               ; preds = %20
+  %23 = trunc nsw i64 %21 to i32
   %24 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %23, i1 true)
   %25 = lshr i32 %24, 2
   %26 = and i32 %25, 6
@@ -634,8 +634,8 @@ lj_buf_more.exit:                                 ; preds = %2, %11
   %28 = add nuw nsw i32 %27, 12
   br label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %21, %20
-  %29 = phi i32 [ %28, %21 ], [ 10, %20 ]
+.lr.ph.preheader.i:                               ; preds = %22, %20
+  %29 = phi i32 [ %28, %22 ], [ 10, %20 ]
   store i8 48, ptr %.0.i, align 1, !tbaa !13
   %30 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   store i8 120, ptr %30, align 1, !tbaa !13
@@ -964,7 +964,7 @@ define hidden noundef ptr @lj_strfmt_putfxint(ptr noundef returned %0, i32 nound
   %9 = sub i64 0, %2
   %10 = lshr i32 %1, 24
   %11 = add nsw i32 %10, -1
-  %.not102130 = icmp ult i32 %1, 16777216
+  %.not102130 = icmp eq i32 %10, 0
   %12 = and i32 %1, -1037
   %spec.select124131 = select i1 %.not102130, i32 %1, i32 %12
   br label %26
@@ -984,7 +984,7 @@ define hidden noundef ptr @lj_strfmt_putfxint(ptr noundef returned %0, i32 nound
   %.094 = phi i32 [ 0, %3 ], [ 299, %13 ], [ %spec.select, %15 ]
   %18 = lshr i32 %1, 24
   %19 = add nsw i32 %18, -1
-  %.not102 = icmp ult i32 %1, 16777216
+  %.not102 = icmp eq i32 %18, 0
   %20 = and i32 %1, -1025
   %spec.select124 = select i1 %.not102, i32 %1, i32 %20
   %21 = icmp eq i64 %2, 0
@@ -1068,7 +1068,7 @@ define hidden noundef ptr @lj_strfmt_putfxint(ptr noundef returned %0, i32 nound
   %.ptr119 = getelementptr inbounds i8, ptr %4, i64 %.384.add
   store i8 %47, ptr %.ptr119, align 1, !tbaa !13
   %48 = lshr i64 %.2, 4
-  %.not110 = icmp ult i64 %.2, 16
+  %.not110 = icmp eq i64 %48, 0
   br i1 %.not110, label %49, label %44, !llvm.loop !42
 
 49:                                               ; preds = %44
@@ -1088,7 +1088,7 @@ define hidden noundef ptr @lj_strfmt_putfxint(ptr noundef returned %0, i32 nound
   %.ptr117 = getelementptr inbounds i8, ptr %4, i64 %.485.add
   store i8 %54, ptr %.ptr117, align 1, !tbaa !13
   %55 = lshr i64 %.3, 3
-  %.not107 = icmp ult i64 %.3, 8
+  %.not107 = icmp eq i64 %55, 0
   br i1 %.not107, label %56, label %.preheader143, !llvm.loop !43
 
 56:                                               ; preds = %.preheader143
@@ -1909,12 +1909,12 @@ lj_buf_more.exit.i136:                            ; preds = %298, %287
   br label %lj_strfmt_putptr.exit
 
 307:                                              ; preds = %lj_buf_more.exit.i136
-  %.not.i.i = icmp ult ptr %290, inttoptr (i64 4294967296 to ptr)
-  br i1 %.not.i.i, label %.lr.ph.preheader.i.i, label %308
+  %308 = ashr i64 %300, 32
+  %.not.i.i = icmp eq i64 %308, 0
+  br i1 %.not.i.i, label %.lr.ph.preheader.i.i, label %309
 
-308:                                              ; preds = %307
-  %309 = lshr i64 %300, 32
-  %310 = trunc nuw i64 %309 to i32
+309:                                              ; preds = %307
+  %310 = trunc nsw i64 %308 to i32
   %311 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %310, i1 true)
   %312 = lshr i32 %311, 2
   %313 = and i32 %312, 6
@@ -1922,8 +1922,8 @@ lj_buf_more.exit.i136:                            ; preds = %298, %287
   %315 = add nuw nsw i32 %314, 12
   br label %.lr.ph.preheader.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %308, %307
-  %316 = phi i32 [ %315, %308 ], [ 10, %307 ]
+.lr.ph.preheader.i.i:                             ; preds = %309, %307
+  %316 = phi i32 [ %315, %309 ], [ 10, %307 ]
   store i8 48, ptr %.0.i.i137, align 1, !tbaa !13
   %317 = getelementptr inbounds nuw i8, ptr %.0.i.i137, i64 1
   store i8 120, ptr %317, align 1, !tbaa !13
@@ -2073,12 +2073,12 @@ define hidden ptr @lj_strfmt_obj(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br label %lj_strfmt_wptr.exit
 
 55:                                               ; preds = %43
-  %.not.i = icmp ult ptr %47, inttoptr (i64 4294967296 to ptr)
-  br i1 %.not.i, label %.lr.ph.preheader.i, label %56
+  %56 = ashr i64 %48, 32
+  %.not.i = icmp eq i64 %56, 0
+  br i1 %.not.i, label %.lr.ph.preheader.i, label %57
 
-56:                                               ; preds = %55
-  %57 = lshr i64 %48, 32
-  %58 = trunc nuw i64 %57 to i32
+57:                                               ; preds = %55
+  %58 = trunc nsw i64 %56 to i32
   %59 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %58, i1 true)
   %60 = lshr i32 %59, 2
   %61 = and i32 %60, 6
@@ -2086,8 +2086,8 @@ define hidden ptr @lj_strfmt_obj(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %63 = add nuw nsw i32 %62, 12
   br label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %56, %55
-  %64 = phi i32 [ %63, %56 ], [ 10, %55 ]
+.lr.ph.preheader.i:                               ; preds = %57, %55
+  %64 = phi i32 [ %63, %57 ], [ 10, %55 ]
   store i8 48, ptr %31, align 1, !tbaa !13
   %65 = getelementptr inbounds nuw i8, ptr %29, i64 3
   store i8 120, ptr %65, align 1, !tbaa !13
@@ -2422,12 +2422,12 @@ lj_buf_more.exit.i:                               ; preds = %142, %132
   br label %lj_strfmt_putptr.exit
 
 151:                                              ; preds = %lj_buf_more.exit.i
-  %.not.i.i = icmp ult ptr %134, inttoptr (i64 4294967296 to ptr)
-  br i1 %.not.i.i, label %.lr.ph.preheader.i.i, label %152
+  %152 = ashr i64 %144, 32
+  %.not.i.i = icmp eq i64 %152, 0
+  br i1 %.not.i.i, label %.lr.ph.preheader.i.i, label %153
 
-152:                                              ; preds = %151
-  %153 = lshr i64 %144, 32
-  %154 = trunc nuw i64 %153 to i32
+153:                                              ; preds = %151
+  %154 = trunc nsw i64 %152 to i32
   %155 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %154, i1 true)
   %156 = lshr i32 %155, 2
   %157 = and i32 %156, 6
@@ -2435,8 +2435,8 @@ lj_buf_more.exit.i:                               ; preds = %142, %132
   %159 = add nuw nsw i32 %158, 12
   br label %.lr.ph.preheader.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %152, %151
-  %160 = phi i32 [ %159, %152 ], [ 10, %151 ]
+.lr.ph.preheader.i.i:                             ; preds = %153, %151
+  %160 = phi i32 [ %159, %153 ], [ 10, %151 ]
   store i8 48, ptr %.0.i.i40, align 1, !tbaa !13
   %161 = getelementptr inbounds nuw i8, ptr %.0.i.i40, i64 1
   store i8 120, ptr %161, align 1, !tbaa !13

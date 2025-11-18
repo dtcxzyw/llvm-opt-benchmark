@@ -22644,7 +22644,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN13sentencepiece7unigram12_GLOBAL__N_120Bou
   store i64 %.pre.i.i.i.i23.i, ptr %112, align 8, !tbaa !226
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   store i64 %.val2.i.i.i.i.i22.i, ptr %113, align 8, !tbaa !223
-  %.not.i.i27.i = icmp ult i64 %.0913.in.i.i.i.i20.i, 2
+  %.not.i.i27.i = icmp eq i64 %.0913.i.i56.i.i21.i, 0
   br i1 %.not.i.i27.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIllESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EEEvSG_SG_SG_RSJ_.exit.i16.i, label %.lr.ph.i.i.i.i18.i, !llvm.loop !606
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIllESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EEEvSG_SG_SG_RSJ_.exit.i16.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESI_EEbS7_RSA_.exit.thread.i.i.i.i26.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN13sentencepiece7unigram12_GLOBAL__N_120BoundedPriorityQueueIlE6resizeEvEUlRKT_RKT0_E_EclINS_17__normal_iteratorIPSt4pairIllESt6vectorISI_SaISI_EEEESI_EEbS7_RSA_.exit.i.i.i.i24.i, %105
@@ -30943,7 +30943,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN13sentencepiece6SortedIifEESt6vectorISt4pa
   store i32 %68, ptr %69, align 4, !tbaa !354
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   store float %62, ptr %70, align 4, !tbaa !356
-  %.not.i = icmp ult i64 %.0923.in.i.i.i, 2
+  %.not.i = icmp eq i64 %.0923.i.i89.i, 0
   br i1 %.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIifESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIifEES5_IS2_IT_T0_ESaISF_EERKSH_EUlRKS3_SL_E_EEEvSD_SD_SD_RSE_.exit, label %.lr.ph.i.i.i, !llvm.loop !771
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIifESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIifEES5_IS2_IT_T0_ESaISF_EERKSH_EUlRKS3_SL_E_EEEvSD_SD_SD_RSE_.exit: ; preds = %64, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN13sentencepiece6SortedIifEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IifESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESD_EEbS6_RS7_.exit.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN13sentencepiece6SortedIifEESt6vectorISt4pairIT_T0_ESaIS8_EERKSA_EUlRKS5_IifESF_E_EclINS_17__normal_iteratorIPSD_S4_ISD_SaISD_EEEESD_EEbS6_RS7_.exit.thread.i.i.i, %57

@@ -4597,7 +4597,7 @@ define internal fastcc range(i32 0, 6) i32 @to_float(ptr noundef nonnull capture
   br label %rb_float_new_inline.exit
 
 24:                                               ; preds = %14
-  %25 = icmp ult i64 %3, 2
+  %25 = icmp eq i64 %11, 0
   br i1 %25, label %rb_float_new_inline.exit, label %26
 
 26:                                               ; preds = %24, %10

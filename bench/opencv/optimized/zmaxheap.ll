@@ -199,7 +199,7 @@ _ZN2cv5arucoL25_zmaxheap_ensure_capacityEPNS0_8zmaxheapEi.exit: ; preds = %._ZN2
 42:                                               ; preds = %34
   %43 = load ptr, ptr %33, align 8, !tbaa !12
   tail call void %43(ptr noundef nonnull %0, i32 noundef %.02225, i32 noundef %36)
-  %.not27 = icmp ult i32 %35, 2
+  %.not27 = icmp eq i32 %36, 0
   br i1 %.not27, label %.thread, label %34
 
 .thread:                                          ; preds = %42, %34, %_ZN2cv5arucoL25_zmaxheap_ensure_capacityEPNS0_8zmaxheapEi.exit

@@ -8061,16 +8061,13 @@ _ZN4llvm3AnyD2Ev.exit47:                          ; preds = %_ZL8unwrapIRIN4llvm
   %77 = zext i32 %.val34 to i64
   %78 = getelementptr inbounds nuw ptr, ptr %.val, i64 %77
   %79 = ptrtoint ptr %78 to i64
-  %.not.i.i48 = icmp ult i32 %.val34, 4
-  br i1 %.not.i.i48, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.preheader.i.i
-
-.lr.ph.i.i.i.i.i.preheader.i.i:                   ; preds = %74
   %80 = lshr i64 %77, 2
-  br label %.lr.ph.i.i.i.i.i.i.i49
+  %.not.i.i48 = icmp eq i64 %80, 0
+  br i1 %.not.i.i48, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i49
 
-.lr.ph.i.i.i.i.i.i.i49:                           ; preds = %111, %.lr.ph.i.i.i.i.i.preheader.i.i
-  %.057.i.i.i.i.i.i.i = phi i64 [ %113, %111 ], [ %80, %.lr.ph.i.i.i.i.i.preheader.i.i ]
-  %.sroa.031.056.i.i.i.i.i.i.i = phi ptr [ %112, %111 ], [ %.val, %.lr.ph.i.i.i.i.i.preheader.i.i ]
+.lr.ph.i.i.i.i.i.i.i49:                           ; preds = %74, %111
+  %.057.i.i.i.i.i.i.i = phi i64 [ %113, %111 ], [ %80, %74 ]
+  %.sroa.031.056.i.i.i.i.i.i.i = phi ptr [ %112, %111 ], [ %.val, %74 ]
   %81 = load ptr, ptr %.sroa.031.056.i.i.i.i.i.i.i, align 8, !tbaa !113
   %82 = getelementptr i8, ptr %81, i64 8
   %.val.i.i.i.i.i.i.i.i = load ptr, ptr %82, align 8, !tbaa !115
@@ -8100,7 +8097,7 @@ _ZN4llvm3AnyD2Ev.exit47:                          ; preds = %_ZL8unwrapIRIN4llvm
   %100 = extractvalue { ptr, i64 } %99, 0
   %101 = extractvalue { ptr, i64 } %99, 1
   %102 = call noundef zeroext i1 @_ZN4llvm21isFunctionInPrintListENS_9StringRefE(ptr %100, i64 %101) #26
-  br i1 %102, label %"_ZN4llvm6any_ofIRKNS_13LazyCallGraph3SCCEZN12_GLOBAL__N_126sccContainsFilterPrintFuncES4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit140", label %103
+  br i1 %102, label %"_ZN4llvm6any_ofIRKNS_13LazyCallGraph3SCCEZN12_GLOBAL__N_126sccContainsFilterPrintFuncES4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit141", label %103
 
 103:                                              ; preds = %95
   %104 = getelementptr inbounds nuw i8, ptr %.sroa.031.056.i.i.i.i.i.i.i, i64 24
@@ -8111,7 +8108,7 @@ _ZN4llvm3AnyD2Ev.exit47:                          ; preds = %_ZL8unwrapIRIN4llvm
   %108 = extractvalue { ptr, i64 } %107, 0
   %109 = extractvalue { ptr, i64 } %107, 1
   %110 = call noundef zeroext i1 @_ZN4llvm21isFunctionInPrintListENS_9StringRefE(ptr %108, i64 %109) #26
-  br i1 %110, label %"_ZN4llvm6any_ofIRKNS_13LazyCallGraph3SCCEZN12_GLOBAL__N_126sccContainsFilterPrintFuncES4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit142", label %111
+  br i1 %110, label %"_ZN4llvm6any_ofIRKNS_13LazyCallGraph3SCCEZN12_GLOBAL__N_126sccContainsFilterPrintFuncES4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit143", label %111
 
 111:                                              ; preds = %103
   %112 = getelementptr inbounds nuw i8, ptr %.sroa.031.056.i.i.i.i.i.i.i, i64 32
@@ -8179,16 +8176,16 @@ _ZN4llvm3AnyD2Ev.exit47:                          ; preds = %_ZL8unwrapIRIN4llvm
   %141 = getelementptr inbounds nuw i8, ptr %.sroa.031.056.i.i.i.i.i.i.i, i64 8
   br label %"_ZN4llvm6any_ofIRKNS_13LazyCallGraph3SCCEZN12_GLOBAL__N_126sccContainsFilterPrintFuncES4_E3$_0EEbOT_T0_.exit.i"
 
-"_ZN4llvm6any_ofIRKNS_13LazyCallGraph3SCCEZN12_GLOBAL__N_126sccContainsFilterPrintFuncES4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit140": ; preds = %95
+"_ZN4llvm6any_ofIRKNS_13LazyCallGraph3SCCEZN12_GLOBAL__N_126sccContainsFilterPrintFuncES4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit141": ; preds = %95
   %142 = getelementptr inbounds nuw i8, ptr %.sroa.031.056.i.i.i.i.i.i.i, i64 16
   br label %"_ZN4llvm6any_ofIRKNS_13LazyCallGraph3SCCEZN12_GLOBAL__N_126sccContainsFilterPrintFuncES4_E3$_0EEbOT_T0_.exit.i"
 
-"_ZN4llvm6any_ofIRKNS_13LazyCallGraph3SCCEZN12_GLOBAL__N_126sccContainsFilterPrintFuncES4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit142": ; preds = %103
+"_ZN4llvm6any_ofIRKNS_13LazyCallGraph3SCCEZN12_GLOBAL__N_126sccContainsFilterPrintFuncES4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit143": ; preds = %103
   %143 = getelementptr inbounds nuw i8, ptr %.sroa.031.056.i.i.i.i.i.i.i, i64 24
   br label %"_ZN4llvm6any_ofIRKNS_13LazyCallGraph3SCCEZN12_GLOBAL__N_126sccContainsFilterPrintFuncES4_E3$_0EEbOT_T0_.exit.i"
 
-"_ZN4llvm6any_ofIRKNS_13LazyCallGraph3SCCEZN12_GLOBAL__N_126sccContainsFilterPrintFuncES4_E3$_0EEbOT_T0_.exit.i": ; preds = %.lr.ph.i.i.i.i.i.i.i49, %"_ZN4llvm6any_ofIRKNS_13LazyCallGraph3SCCEZN12_GLOBAL__N_126sccContainsFilterPrintFuncES4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRKNS_13LazyCallGraph3SCCEZN12_GLOBAL__N_126sccContainsFilterPrintFuncES4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit140", %"_ZN4llvm6any_ofIRKNS_13LazyCallGraph3SCCEZN12_GLOBAL__N_126sccContainsFilterPrintFuncES4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit142", %134, %125, %116
-  %.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i, %116 ], [ %.sroa.031.1.i.i.i.i.i.i.i, %125 ], [ %spec.select.i.i.i.i.i.i.i, %134 ], [ %141, %"_ZN4llvm6any_ofIRKNS_13LazyCallGraph3SCCEZN12_GLOBAL__N_126sccContainsFilterPrintFuncES4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit" ], [ %142, %"_ZN4llvm6any_ofIRKNS_13LazyCallGraph3SCCEZN12_GLOBAL__N_126sccContainsFilterPrintFuncES4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit140" ], [ %143, %"_ZN4llvm6any_ofIRKNS_13LazyCallGraph3SCCEZN12_GLOBAL__N_126sccContainsFilterPrintFuncES4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit142" ], [ %.sroa.031.056.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i49 ]
+"_ZN4llvm6any_ofIRKNS_13LazyCallGraph3SCCEZN12_GLOBAL__N_126sccContainsFilterPrintFuncES4_E3$_0EEbOT_T0_.exit.i": ; preds = %.lr.ph.i.i.i.i.i.i.i49, %"_ZN4llvm6any_ofIRKNS_13LazyCallGraph3SCCEZN12_GLOBAL__N_126sccContainsFilterPrintFuncES4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRKNS_13LazyCallGraph3SCCEZN12_GLOBAL__N_126sccContainsFilterPrintFuncES4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit141", %"_ZN4llvm6any_ofIRKNS_13LazyCallGraph3SCCEZN12_GLOBAL__N_126sccContainsFilterPrintFuncES4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit143", %134, %125, %116
+  %.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i, %116 ], [ %.sroa.031.1.i.i.i.i.i.i.i, %125 ], [ %spec.select.i.i.i.i.i.i.i, %134 ], [ %141, %"_ZN4llvm6any_ofIRKNS_13LazyCallGraph3SCCEZN12_GLOBAL__N_126sccContainsFilterPrintFuncES4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit" ], [ %142, %"_ZN4llvm6any_ofIRKNS_13LazyCallGraph3SCCEZN12_GLOBAL__N_126sccContainsFilterPrintFuncES4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit141" ], [ %143, %"_ZN4llvm6any_ofIRKNS_13LazyCallGraph3SCCEZN12_GLOBAL__N_126sccContainsFilterPrintFuncES4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit143" ], [ %.sroa.031.056.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i49 ]
   %.not.i50 = icmp eq ptr %78, %.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i.i
   br i1 %.not.i50, label %"_ZN4llvm6any_ofIRKNS_13LazyCallGraph3SCCEZN12_GLOBAL__N_126sccContainsFilterPrintFuncES4_E3$_0EEbOT_T0_.exit.thread.i", label %_ZN12_GLOBAL__N_129moduleContainsFilterPrintFuncERKN4llvm6ModuleE.exit
 

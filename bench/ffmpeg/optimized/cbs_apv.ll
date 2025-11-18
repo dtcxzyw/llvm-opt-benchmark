@@ -3416,7 +3416,7 @@ define internal fastcc void @cbs_apv_derive_tile_info(ptr noundef writeonly capt
   %8 = load i32, ptr %7, align 4, !tbaa !63
   %9 = add i32 %8, 15
   %10 = lshr i32 %9, 4
-  %.not = icmp ult i32 %5, 16
+  %.not = icmp eq i32 %6, 0
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
@@ -3448,16 +3448,16 @@ define internal fastcc void @cbs_apv_derive_tile_info(ptr noundef writeonly capt
   unreachable
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.0.lcssa53 = phi i32 [ %19, %._crit_edge ], [ 0, %2 ]
+  %.0.lcssa55 = phi i32 [ %19, %._crit_edge ], [ 0, %2 ]
   %22 = trunc i32 %5 to i16
   %23 = and i16 %22, -16
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %25 = zext nneg i32 %.0.lcssa53 to i64
+  %25 = zext nneg i32 %.0.lcssa55 to i64
   %26 = getelementptr inbounds nuw i16, ptr %24, i64 %25
   store i16 %23, ptr %26, align 2, !tbaa !108
-  %27 = trunc nuw nsw i32 %.0.lcssa53 to i8
+  %27 = trunc nuw nsw i32 %.0.lcssa55 to i8
   store i8 %27, ptr %0, align 2, !tbaa !174
-  %.not46 = icmp ult i32 %9, 16
+  %.not46 = icmp eq i32 %10, 0
   br i1 %.not46, label %._crit_edge44, label %.lr.ph43
 
 .lr.ph43:                                         ; preds = %._crit_edge.thread
@@ -3502,7 +3502,7 @@ define internal fastcc void @cbs_apv_derive_tile_info(ptr noundef writeonly capt
   %44 = trunc nuw nsw i32 %.1.lcssa to i8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %44, ptr %45, align 1, !tbaa !177
-  %46 = mul nuw nsw i32 %.1.lcssa, %.0.lcssa53
+  %46 = mul nuw nsw i32 %.1.lcssa, %.0.lcssa55
   %47 = trunc nuw nsw i32 %46 to i16
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %47, ptr %48, align 2, !tbaa !178

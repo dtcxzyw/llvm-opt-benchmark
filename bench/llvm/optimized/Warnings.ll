@@ -103,30 +103,30 @@ define dso_local void @_ZN5clang21ProcessWarningOptionsERNS_17DiagnosticsEngineE
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 9
   store i8 %50, ptr %51, align 1, !tbaa !57
   %52 = load i64, ptr %22, align 4
-  %.not = icmp ult i64 %52, 4294967296
-  br i1 %.not, label %57, label %53
+  %53 = lshr i64 %52, 32
+  %.not = icmp eq i64 %53, 0
+  br i1 %.not, label %57, label %54
 
-53:                                               ; preds = %4
-  %54 = lshr i64 %52, 32
-  %55 = trunc nuw i64 %54 to i32
+54:                                               ; preds = %4
+  %55 = trunc nuw i64 %53 to i32
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %55, ptr %56, align 4, !tbaa !58
   br label %57
 
-57:                                               ; preds = %53, %4
+57:                                               ; preds = %54, %4
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %59 = load i64, ptr %58, align 4
-  %.not134 = icmp ult i64 %59, 4294967296
-  br i1 %.not134, label %64, label %60
+  %60 = lshr i64 %59, 32
+  %.not134 = icmp eq i64 %60, 0
+  br i1 %.not134, label %64, label %61
 
-60:                                               ; preds = %57
-  %61 = lshr i64 %59, 32
-  %62 = trunc nuw i64 %61 to i32
+61:                                               ; preds = %57
+  %62 = trunc nuw i64 %60 to i32
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %62, ptr %63, align 8, !tbaa !59
   br label %64
 
-64:                                               ; preds = %60, %57
+64:                                               ; preds = %61, %57
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %66 = load i64, ptr %65, align 4
   %67 = trunc i64 %66 to i32

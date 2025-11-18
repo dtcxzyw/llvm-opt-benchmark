@@ -147657,7 +147657,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br i1 %.not38, label %._crit_edge, label %.lr.ph, !llvm.loop !2567
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %.not39 = icmp ult i128 %92, 18446744073709551616
+  %.not39 = icmp eq i128 %94, 0
   br i1 %.not39, label %._crit_edge.thread, label %97
 
 97:                                               ; preds = %._crit_edge
@@ -147899,7 +147899,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   store i64 %51, ptr %52, align 8, !tbaa !1539
   %53 = lshr i128 %50, 64
   %54 = add nuw i64 %.03958, 1
-  %.not43 = icmp samesign ugt i128 %50, 18446744073709551615
+  %.not43 = icmp ne i128 %53, 0
   %55 = load i64, ptr %44, align 16
   %56 = icmp ult i64 %54, %55
   %or.cond = select i1 %.not43, i1 %56, i1 false
@@ -149244,7 +149244,7 @@ define linkonce_odr hidden void @_ZN5boost14multiprecision8backends13eval_multip
   store i64 %.sroa.0.0.extract.trunc, ptr %43, align 8, !tbaa !1539
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 %.sroa.2.0.extract.trunc, ptr %44, align 8, !tbaa !1539
-  %.not.i111 = icmp ult i128 %37, 18446744073709551616
+  %.not.i111 = icmp eq i128 %.sroa.2.0.extract.shift, 0
   %45 = select i1 %.not.i111, i64 1, i64 2
   %46 = load i64, ptr %0, align 16
   %spec.select.i.i114 = select i1 %40, i64 2, i64 %46
@@ -149671,10 +149671,10 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   %248 = shl nuw nsw i64 %spec.select.i135, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %246, i8 0, i64 %248, i1 false)
   %.not = icmp eq i64 %9, 0
-  %.promoted.pre160 = load i64, ptr %247, align 16, !tbaa !2517
+  %.promoted.pre159 = load i64, ptr %247, align 16, !tbaa !2517
   %.not154 = icmp eq i64 %11, 0
-  %or.cond176 = select i1 %.not, i1 true, i1 %.not154
-  br i1 %or.cond176, label %._crit_edge150, label %.preheader.us
+  %or.cond175 = select i1 %.not, i1 true, i1 %.not154
+  br i1 %or.cond175, label %._crit_edge150, label %.preheader.us
 
 .preheader.us:                                    ; preds = %241, %257
   %.088149.us = phi i64 [ %258, %257 ], [ 0, %241 ]
@@ -149684,7 +149684,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
 
 251:                                              ; preds = %._crit_edge.us
   %252 = add i64 %11, %.088149.us
-  %253 = icmp ult i64 %252, %.promoted.pre160
+  %253 = icmp ult i64 %252, %.promoted.pre159
   br i1 %253, label %254, label %257
 
 254:                                              ; preds = %251
@@ -149695,8 +149695,8 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
 
 257:                                              ; preds = %254, %251, %._crit_edge.us
   %258 = add nuw i64 %.088149.us, 1
-  %exitcond159.not = icmp eq i64 %258, %9
-  br i1 %exitcond159.not, label %._crit_edge150, label %.preheader.us, !llvm.loop !2571
+  %exitcond158.not = icmp eq i64 %258, %9
+  br i1 %exitcond158.not, label %._crit_edge150, label %.preheader.us, !llvm.loop !2571
 
 259:                                              ; preds = %.preheader.us, %259
   %.0147.us = phi i64 [ 0, %.preheader.us ], [ %273, %259 ]
@@ -149720,7 +149720,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br i1 %exitcond.not, label %._crit_edge.us, label %259, !llvm.loop !2572
 
 ._crit_edge.us:                                   ; preds = %259
-  %.not.us = icmp ult i128 %270, 18446744073709551616
+  %.not.us = icmp eq i128 %272, 0
   br i1 %.not.us, label %257, label %251
 
 ._crit_edge150:                                   ; preds = %257, %241
@@ -149728,29 +149728,29 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   %275 = trunc nuw i8 %274 to i1
   %276 = load ptr, ptr %244, align 8
   %277 = select i1 %275, ptr %0, ptr %276
-  %278 = add i64 %.promoted.pre160, -1
+  %278 = add i64 %.promoted.pre159, -1
   %.not.i151 = icmp eq i64 %278, 0
   br i1 %.not.i151, label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE9normalizeEv.exit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %._crit_edge150
   %279 = getelementptr inbounds nuw i64, ptr %277, i64 %278
   %280 = load i64, ptr %279, align 8, !tbaa !1539
-  %.not2.i179 = icmp eq i64 %280, 0
-  br i1 %.not2.i179, label %.lr.ph180, label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE9normalizeEv.exit.loopexit
+  %.not2.i177 = icmp eq i64 %280, 0
+  br i1 %.not2.i177, label %.lr.ph178, label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE9normalizeEv.exit.loopexit
 
-.lr.ph:                                           ; preds = %.lr.ph180
+.lr.ph:                                           ; preds = %.lr.ph178
   %281 = getelementptr inbounds nuw i64, ptr %277, i64 %284
   %282 = load i64, ptr %281, align 8, !tbaa !1539
   %.not2.i = icmp eq i64 %282, 0
-  br i1 %.not2.i, label %.lr.ph180, label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE9normalizeEv.exit.loopexit.loopexit, !llvm.loop !2538
+  br i1 %.not2.i, label %.lr.ph178, label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE9normalizeEv.exit.loopexit.loopexit, !llvm.loop !2538
 
-.lr.ph180:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph178:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %283 = phi i64 [ %284, %.lr.ph ], [ %278, %.lr.ph.preheader ]
   %284 = add i64 %283, -1
   %.not.i = icmp eq i64 %284, 0
   br i1 %.not.i, label %._ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE9normalizeEv.exit.loopexit_crit_edge, label %.lr.ph, !llvm.loop !2538
 
-._ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE9normalizeEv.exit.loopexit_crit_edge: ; preds = %.lr.ph180
+._ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE9normalizeEv.exit.loopexit_crit_edge: ; preds = %.lr.ph178
   store i64 %283, ptr %247, align 16, !tbaa !2517
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE9normalizeEv.exit.loopexit, !llvm.loop !2538
 
@@ -149759,7 +149759,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE9normalizeEv.exit.loopexit
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE9normalizeEv.exit.loopexit: ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE9normalizeEv.exit.loopexit.loopexit, %._ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE9normalizeEv.exit.loopexit_crit_edge, %.lr.ph.preheader
-  %.lcssa.ph = phi i64 [ 1, %._ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE9normalizeEv.exit.loopexit_crit_edge ], [ %.promoted.pre160, %.lr.ph.preheader ], [ %283, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE9normalizeEv.exit.loopexit.loopexit ]
+  %.lcssa.ph = phi i64 [ 1, %._ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE9normalizeEv.exit.loopexit_crit_edge ], [ %.promoted.pre159, %.lr.ph.preheader ], [ %283, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE9normalizeEv.exit.loopexit.loopexit ]
   %285 = icmp eq i64 %.lcssa.ph, 1
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE9normalizeEv.exit
 
@@ -153244,7 +153244,7 @@ define linkonce_odr hidden void @_ZN5boost14multiprecision8backends12cpp_int_bas
   store i64 %35, ptr %31, align 8, !tbaa !1539
   %36 = lshr i128 %34, 64
   %37 = add nuw i64 %.03957.i, 1
-  %.not43.i = icmp samesign ugt i128 %34, 18446744073709551615
+  %.not43.i = icmp ne i128 %36, 0
   %38 = load i64, ptr %2, align 16
   %39 = icmp ult i64 %37, %38
   %or.cond.i = select i1 %.not43.i, i1 %39, i1 false
@@ -154513,7 +154513,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
   store i64 %.sroa.083.0.extract.trunc, ptr %372, align 8, !tbaa !1539
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 8
   store i64 %.sroa.284.0.extract.trunc, ptr %373, align 8, !tbaa !1539
-  %.not.i313 = icmp ult i128 %366, 18446744073709551616
+  %.not.i313 = icmp eq i128 %.sroa.284.0.extract.shift, 0
   %374 = select i1 %.not.i313, i64 1, i64 2
   invoke void @_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm(ptr noundef nonnull align 16 dereferenceable(27) %0, i64 noundef %374, i64 noundef %374)
           to label %_ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEaSIoEENSt9enable_ifIXaasr3std7is_sameIT_oEE5valuentL_ZNSt17integral_constantIbLb0EE5valueEEERS6_E4typeES9_.exit314 unwind label %375
@@ -154543,7 +154543,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
   store i64 %.sroa.0.0.extract.trunc, ptr %385, align 8, !tbaa !1539
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 8
   store i64 %.sroa.2.0.extract.trunc, ptr %386, align 8, !tbaa !1539
-  %.not.i312 = icmp ult i128 %380, 18446744073709551616
+  %.not.i312 = icmp eq i128 %.sroa.2.0.extract.shift, 0
   %387 = select i1 %.not.i312, i64 1, i64 2
   invoke void @_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm(ptr noundef nonnull align 16 dereferenceable(27) %3, i64 noundef %387, i64 noundef %387)
           to label %_ZN5boost14multiprecision8backends13eval_subtractILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELm0ELm0ELS3_1ELS4_0ES5_EENSt9enable_ifIXaantsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valuentsr18is_trivial_cpp_intINS7_IXT4_EXT5_EXT6_EXT7_ET8_EEEE5valueEvE4typeERS9_RKSB_.exit330.sink.split unwind label %388
@@ -154956,7 +154956,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %812
 
 ._crit_edge503:                                   ; preds = %578
-  %577 = icmp ult i128 %583, 18446744073709551616
+  %577 = icmp eq i128 %585, 0
   %or.cond3 = or i1 %570, %577
   br i1 %or.cond3, label %._crit_edge503.thread, label %587
 
@@ -155066,8 +155066,8 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
 .lr.ph507.preheader:                              ; preds = %612
   %616 = getelementptr inbounds nuw i64, ptr %614, i64 %615
   %617 = load i64, ptr %616, align 8, !tbaa !1539
-  %.not2.i621 = icmp eq i64 %617, 0
-  br i1 %.not2.i621, label %.lr.ph, label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE9normalizeEv.exit.loopexit
+  %.not2.i620 = icmp eq i64 %617, 0
+  br i1 %.not2.i620, label %.lr.ph, label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE9normalizeEv.exit.loopexit
 
 .lr.ph507:                                        ; preds = %.lr.ph
   %618 = getelementptr inbounds nuw i64, ptr %614, i64 %621
@@ -156101,7 +156101,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   store i64 %.sroa.08.0.extract.trunc, ptr %256, align 8, !tbaa !1539
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 8
   store i64 %.sroa.29.0.extract.trunc, ptr %257, align 8, !tbaa !1539
-  %.not.i160 = icmp ult i128 %250, 18446744073709551616
+  %.not.i160 = icmp eq i128 %.sroa.29.0.extract.shift, 0
   %258 = select i1 %.not.i160, i64 1, i64 2
   %259 = load i64, ptr %0, align 16
   %spec.select.i.i195 = select i1 %253, i64 2, i64 %259
@@ -160163,7 +160163,7 @@ _ZN5boost14multiprecision8backends13eval_bit_testILm668ELm668ELNS0_16cpp_integer
   store i64 %127, ptr %123, align 8, !tbaa !1539
   %128 = lshr i128 %126, 64
   %129 = add nuw i64 %.03957.i, 1
-  %.not43.i = icmp samesign ugt i128 %126, 18446744073709551615
+  %.not43.i = icmp ne i128 %128, 0
   %130 = load i64, ptr %4, align 16
   %131 = icmp ult i64 %129, %130
   %or.cond.i88 = select i1 %.not43.i, i1 %131, i1 false
@@ -160601,7 +160601,7 @@ define linkonce_odr hidden void @_ZN5boost14multiprecision8backends12cpp_int_bas
   store i64 %35, ptr %31, align 8, !tbaa !1539
   %36 = lshr i128 %34, 64
   %37 = add nuw i64 %.03957.i, 1
-  %.not43.i = icmp samesign ugt i128 %34, 18446744073709551615
+  %.not43.i = icmp ne i128 %36, 0
   %38 = load i64, ptr %2, align 16
   %39 = icmp ult i64 %37, %38
   %or.cond.i = select i1 %.not43.i, i1 %39, i1 false

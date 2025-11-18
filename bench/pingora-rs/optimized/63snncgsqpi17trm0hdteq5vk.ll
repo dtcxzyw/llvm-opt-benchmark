@@ -2169,7 +2169,7 @@ define hidden void @"_ZN6brotli3enc10prior_eval22PriorEval$LT$Alloc$GT$16update_
   %57 = getelementptr inbounds nuw { [16 x i16] }, ptr %.val2529, i64 %54
   %58 = getelementptr inbounds nuw i16, ptr %57, i64 %49
   %59 = load i16, ptr %58, align 2, !noalias !137, !noundef !3
-  %60 = icmp ult i8 %5, 16
+  %60 = icmp eq i8 %47, 0
   br i1 %60, label %_ZN6brotli3enc10prior_eval3CDF4cost17hc1e6c306da7dae80E.exit, label %61
 
 61:                                               ; preds = %56
@@ -7304,11 +7304,11 @@ _ZN6brotli3enc10prior_eval9init_cdfs17h0155feaf34b467daE.exit235: ; preds = %.lr
   %.sroa.573.0.extract.shift = lshr i64 %19, 32
   %.sroa.573.0.extract.trunc = trunc i64 %.sroa.573.0.extract.shift to i16
   %207 = icmp eq i16 %.sroa.573.0.extract.trunc, 0
-  %208 = icmp ult i64 %19, 281474976710656
+  %.sroa.674.0.extract.shift = lshr i64 %19, 48
+  %208 = icmp eq i64 %.sroa.674.0.extract.shift, 0
   %or.cond20 = select i1 %207, i1 %208, i1 false
   %.sroa.1449.0 = select i1 %or.cond20, i16 %32, i16 %.sroa.573.0.extract.trunc
   %209 = icmp eq i16 %.sroa.1449.0, 0
-  %.sroa.674.0.extract.shift = lshr i64 %19, 48
   %.sroa.674.0.extract.trunc = trunc nuw i64 %.sroa.674.0.extract.shift to i16
   %.sroa.1853.0 = select i1 %or.cond20, i16 %34, i16 %.sroa.674.0.extract.trunc
   %210 = icmp eq i16 %.sroa.1853.0, 0
@@ -7331,11 +7331,11 @@ _ZN6brotli3enc10prior_eval9init_cdfs17h0155feaf34b467daE.exit235: ; preds = %.lr
   %.sroa.569.0.extract.shift = lshr i64 %18, 32
   %.sroa.569.0.extract.trunc = trunc i64 %.sroa.569.0.extract.shift to i16
   %215 = icmp eq i16 %.sroa.569.0.extract.trunc, 0
-  %216 = icmp ult i64 %18, 281474976710656
+  %.sroa.670.0.extract.shift = lshr i64 %18, 48
+  %216 = icmp eq i64 %.sroa.670.0.extract.shift, 0
   %or.cond8 = select i1 %215, i1 %216, i1 false
   %.sroa.14.0 = select i1 %or.cond8, i16 %25, i16 %.sroa.569.0.extract.trunc
   %217 = icmp eq i16 %.sroa.14.0, 0
-  %.sroa.670.0.extract.shift = lshr i64 %18, 48
   %.sroa.670.0.extract.trunc = trunc nuw i64 %.sroa.670.0.extract.shift to i16
   %.sroa.18.0 = select i1 %or.cond8, i16 %27, i16 %.sroa.670.0.extract.trunc
   %218 = icmp eq i16 %.sroa.18.0, 0
@@ -9519,7 +9519,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h2524b7c22a637bd5E.exit293.i.i: ; pred
   %.not137.i.i = icmp ugt i64 %751, %233
   %.idx417.i.i = shl nuw nsw i64 %751, 5
   %752 = getelementptr inbounds nuw i8, ptr %232, i64 %.idx417.i.i
-  %753 = icmp ult i64 %.sroa.07.0478.i, 8
+  %753 = icmp eq i64 %751, 0
   %754 = and i64 %.sroa.07.0478.i, -8
   %755 = and i64 %.sroa.07.0478.i, 7
   %756 = and i64 %.sroa.07.0478.i, 4294967295
@@ -9528,7 +9528,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h2524b7c22a637bd5E.exit293.i.i: ; pred
   %759 = icmp ugt i64 %758, %233
   %.idx418.i.i = shl nuw nsw i64 %758, 5
   %760 = getelementptr inbounds nuw i8, ptr %232, i64 %.idx418.i.i
-  %761 = icmp eq i64 %756, 0
+  %761 = icmp eq i64 %758, 0
   br i1 %.not137.i.i, label %.lr.ph400.split.us.i.i, label %.lr.ph400.split.preheader.i.i, !prof !13
 
 .lr.ph400.split.preheader.i.i:                    ; preds = %.lr.ph400.i.i
@@ -12060,7 +12060,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h281a935aa60f7ab2E.exit293.i.i: ; pred
   %.not137.i.i159 = icmp ugt i64 %1632, %1114
   %.idx418.i.i160 = shl nuw nsw i64 %1632, 5
   %1633 = getelementptr inbounds nuw i8, ptr %1113, i64 %.idx418.i.i160
-  %1634 = icmp ult i64 %.sroa.07.0478.i111, 8
+  %1634 = icmp eq i64 %1632, 0
   %1635 = and i64 %.sroa.07.0478.i111, -8
   %1636 = and i64 %.sroa.07.0478.i111, 7
   %1637 = and i64 %.sroa.07.0478.i111, 4294967295
@@ -12069,7 +12069,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h281a935aa60f7ab2E.exit293.i.i: ; pred
   %1640 = icmp ugt i64 %1639, %1114
   %.idx419.i.i161 = shl nuw nsw i64 %1639, 5
   %1641 = getelementptr inbounds nuw i8, ptr %1113, i64 %.idx419.i.i161
-  %1642 = icmp eq i64 %1637, 0
+  %1642 = icmp eq i64 %1639, 0
   br i1 %.not137.i.i159, label %.lr.ph400.split.us.i.i503, label %.lr.ph400.split.preheader.i.i162, !prof !13
 
 .lr.ph400.split.preheader.i.i162:                 ; preds = %.lr.ph400.i.i158
@@ -14596,7 +14596,7 @@ _ZN6brotli3enc9histogram14HistogramClear17hb75b51e44fa0c2faE.exit293.i.i: ; pred
   %.not137.i.i649 = icmp ugt i64 %2510, %1992
   %.idx418.i.i650 = shl nuw nsw i64 %2510, 5
   %2511 = getelementptr inbounds nuw i8, ptr %1991, i64 %.idx418.i.i650
-  %2512 = icmp ult i64 %.sroa.07.0478.i601, 8
+  %2512 = icmp eq i64 %2510, 0
   %2513 = and i64 %.sroa.07.0478.i601, -8
   %2514 = and i64 %.sroa.07.0478.i601, 7
   %2515 = and i64 %.sroa.07.0478.i601, 4294967295
@@ -14605,7 +14605,7 @@ _ZN6brotli3enc9histogram14HistogramClear17hb75b51e44fa0c2faE.exit293.i.i: ; pred
   %2518 = icmp ugt i64 %2517, %1992
   %.idx419.i.i651 = shl nuw nsw i64 %2517, 5
   %2519 = getelementptr inbounds nuw i8, ptr %1991, i64 %.idx419.i.i651
-  %2520 = icmp eq i64 %2515, 0
+  %2520 = icmp eq i64 %2517, 0
   br i1 %.not137.i.i649, label %.lr.ph400.split.us.i.i1024, label %.lr.ph400.split.preheader.i.i652, !prof !13
 
 .lr.ph400.split.preheader.i.i652:                 ; preds = %.lr.ph400.i.i648

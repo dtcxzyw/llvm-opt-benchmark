@@ -880,8 +880,8 @@ define dso_local range(i32 0, 2) i32 @pkeyutl_main(i32 noundef %0, ptr noundef %
 293:                                              ; preds = %292
   %294 = zext nneg i32 %287 to i64
   %295 = lshr i64 %294, 1
-  %.not640 = icmp samesign ult i32 %287, 2
-  br i1 %.not640, label %.thread446, label %.lr.ph639
+  %.not640 = icmp eq i64 %295, 0
+  br i1 %.not640, label %.loopexit, label %.lr.ph639
 
 .lr.ph639:                                        ; preds = %293, %.lr.ph639
   %.0252638 = phi i64 [ %305, %.lr.ph639 ], [ 0, %293 ]
@@ -900,7 +900,7 @@ define dso_local range(i32 0, 2) i32 @pkeyutl_main(i32 noundef %0, ptr noundef %
   %exitcond769.not = icmp eq i64 %305, %295
   br i1 %exitcond769.not, label %.loopexit, label %.lr.ph639, !llvm.loop !20
 
-.loopexit:                                        ; preds = %.lr.ph639, %292
+.loopexit:                                        ; preds = %.lr.ph639, %293, %292
   %306 = icmp samesign ugt i32 %287, 64
   %or.cond38 = and i1 %or.cond8399405408, %306
   br i1 %or.cond38, label %307, label %.thread446
@@ -910,8 +910,8 @@ define dso_local range(i32 0, 2) i32 @pkeyutl_main(i32 noundef %0, ptr noundef %
   %309 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %308, ptr noundef nonnull @.str.113, i32 noundef %287, i32 noundef 64) #9
   br label %.thread443
 
-.thread446:                                       ; preds = %293, %284, %.loopexit
-  %.0318451 = phi i32 [ %287, %.loopexit ], [ 0, %284 ], [ %287, %293 ]
+.thread446:                                       ; preds = %284, %.loopexit
+  %.0318451 = phi i32 [ %287, %.loopexit ], [ 0, %284 ]
   br i1 %156, label %310, label %325
 
 310:                                              ; preds = %.thread446

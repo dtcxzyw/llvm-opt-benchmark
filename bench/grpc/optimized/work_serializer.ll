@@ -1523,15 +1523,12 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 16
   %6 = select i1 %.not, ptr %4, ptr %5
-  %.not5.i = icmp ult i64 %2, 2
-  br i1 %.not5.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, label %.lr.ph.i.preheader
-
-.lr.ph.i.preheader:                               ; preds = %1
   %7 = lshr i64 %2, 1
-  br label %.lr.ph.i
+  %.not5.i = icmp eq i64 %7, 0
+  br i1 %.not5.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.06.i = phi i64 [ %8, %.lr.ph.i ], [ %7, %.lr.ph.i.preheader ]
+.lr.ph.i:                                         ; preds = %1, %.lr.ph.i
+  %.06.i = phi i64 [ %8, %.lr.ph.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
   %9 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -1654,7 +1651,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14W
   store ptr %23, ptr %24, align 8, !tbaa !43
   store ptr @_ZN4absl12lts_2024072222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %18, align 16, !tbaa !41
   store ptr null, ptr %22, align 8, !tbaa !43
-  %.not.i16 = icmp ult i64 %4, 2
+  %.not.i16 = icmp eq i64 %.sink1.i, 0
   br i1 %.not.i16, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE8AllocateERS7_m.exit.i, %.lr.ph.i
@@ -1759,7 +1756,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14W
   br i1 %.not, label %.lr.ph.preheader.i, label %39
 
 17:                                               ; preds = %9
-  %.not.i = icmp samesign ult i64 %4, 2
+  %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.thread58, label %.lr.ph.preheader.i
 
 .thread58:                                        ; preds = %17
@@ -1851,14 +1848,14 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !106
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !106
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %37
+  br label %36
 
 12:                                               ; preds = %2
   br i1 %.not33, label %13, label %.thread32
 
 13:                                               ; preds = %12
   tail call void @_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE19SwapInlinedElementsINS8_21ElementwiseSwapPolicyEEEvT_PS8_(ptr noundef nonnull align 16 dereferenceable(48) %0, ptr noundef nonnull %1)
-  br label %37
+  br label %36
 
 .thread32:                                        ; preds = %8, %12
   %14 = phi i64 [ %4, %12 ], [ %6, %8 ]
@@ -1870,7 +1867,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
   %18 = load i64, ptr %17, align 8, !tbaa !84
   %19 = getelementptr inbounds nuw i8, ptr %.031, i64 16
   %20 = lshr i64 %14, 1
-  %.not.i = icmp ult i64 %14, 2
+  %.not.i = icmp eq i64 %20, 0
   br i1 %.not.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.thread32, %.lr.ph.i
@@ -1896,34 +1893,31 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 
 _ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEENS1_20IteratorValueAdapterIS7_St13move_iteratorIPS6_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISF_E7pointerERT0_NSK_9size_typeE.exit: ; preds = %.lr.ph.i
   %.pre = load i64, ptr %.031, align 8, !tbaa !35
-  %31 = icmp ult i64 %.pre, 2
-  br i1 %31, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, label %.lr.ph.i15.preheader
-
-.lr.ph.i15.preheader:                             ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEENS1_20IteratorValueAdapterIS7_St13move_iteratorIPS6_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISF_E7pointerERT0_NSK_9size_typeE.exit
   %.pre35 = lshr i64 %.pre, 1
-  br label %.lr.ph.i15
+  %.not5.i = icmp eq i64 %.pre35, 0
+  br i1 %.not5.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, label %.lr.ph.i15
 
-.lr.ph.i15:                                       ; preds = %.lr.ph.i15.preheader, %.lr.ph.i15
-  %.06.i = phi i64 [ %32, %.lr.ph.i15 ], [ %.pre35, %.lr.ph.i15.preheader ]
-  %32 = add nsw i64 %.06.i, -1
-  %33 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %19, i64 %32
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %35 = load ptr, ptr %34, align 16, !tbaa !41
-  tail call void %35(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %33, ptr noundef nonnull align 16 dereferenceable(32) %33) #26
-  %.not.i16 = icmp eq i64 %32, 0
+.lr.ph.i15:                                       ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEENS1_20IteratorValueAdapterIS7_St13move_iteratorIPS6_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISF_E7pointerERT0_NSK_9size_typeE.exit, %.lr.ph.i15
+  %.06.i = phi i64 [ %31, %.lr.ph.i15 ], [ %.pre35, %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEENS1_20IteratorValueAdapterIS7_St13move_iteratorIPS6_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISF_E7pointerERT0_NSK_9size_typeE.exit ]
+  %31 = add nsw i64 %.06.i, -1
+  %32 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %19, i64 %31
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %34 = load ptr, ptr %33, align 16, !tbaa !41
+  tail call void %34(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %32, ptr noundef nonnull align 16 dereferenceable(32) %32) #26
+  %.not.i16 = icmp eq i64 %31, 0
   br i1 %.not.i16, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, label %.lr.ph.i15, !llvm.loop !101
 
 _ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit: ; preds = %.lr.ph.i15, %.thread32, %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEENS1_20IteratorValueAdapterIS7_St13move_iteratorIPS6_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISF_E7pointerERT0_NSK_9size_typeE.exit
   store ptr %16, ptr %19, align 16, !tbaa !84
-  %36 = getelementptr inbounds nuw i8, ptr %.031, i64 24
-  store i64 %18, ptr %36, align 8, !tbaa !84
-  br label %37
+  %35 = getelementptr inbounds nuw i8, ptr %.031, i64 24
+  store i64 %18, ptr %35, align 8, !tbaa !84
+  br label %36
 
-37:                                               ; preds = %13, %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, %9
-  %38 = load i64, ptr %0, align 16, !tbaa !35
-  %39 = load i64, ptr %1, align 8, !tbaa !35
-  store i64 %39, ptr %0, align 16, !tbaa !35
-  store i64 %38, ptr %1, align 8, !tbaa !35
+36:                                               ; preds = %13, %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, %9
+  %37 = load i64, ptr %0, align 16, !tbaa !35
+  %38 = load i64, ptr %1, align 8, !tbaa !35
+  store i64 %38, ptr %0, align 16, !tbaa !35
+  store i64 %37, ptr %1, align 8, !tbaa !35
   ret void
 }
 
@@ -1945,7 +1939,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.idx.i = shl nuw nsw i64 %11, 5
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i
-  %.not8.i.i = icmp ult i64 %10, 2
+  %.not8.i.i = icmp eq i64 %11, 0
   br i1 %.not8.i.i, label %_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE5SwapNENS8_21ElementwiseSwapPolicyEPS8_m.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2

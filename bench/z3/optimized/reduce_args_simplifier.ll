@@ -1157,7 +1157,7 @@ _ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE
   %33 = zext nneg i32 %32 to i64
   %34 = shl nuw nsw i64 %33, 3
   %35 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %34)
-  %.not6.i.i.i.i.i.i = icmp ult i32 %31, 2
+  %.not6.i.i.i.i.i.i = icmp eq i32 %32, 0
   br i1 %.not6.i.i.i.i.i.i, label %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE11alloc_tableEj.exit.i, label %.lr.ph.preheader.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12delete_tableEv.exit.i
@@ -5457,7 +5457,7 @@ _ZN14core_hashtableIN7obj_mapI9func_decl10bit_vectorE13obj_map_entryE8obj_hashIN
   %38 = zext nneg i32 %37 to i64
   %39 = mul nuw nsw i64 %38, 24
   %40 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %39)
-  %.not11.i.i.i.i.i = icmp ult i32 %36, 2
+  %.not11.i.i.i.i.i = icmp eq i32 %37, 0
   br i1 %.not11.i.i.i.i.i, label %_ZN14core_hashtableIN7obj_mapI9func_decl10bit_vectorE13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE11alloc_tableEj.exit, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZN14core_hashtableIN7obj_mapI9func_decl10bit_vectorE13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE12delete_tableEv.exit
@@ -15130,7 +15130,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %45, %51
   br i1 %71, label %72, label %100
 
 72:                                               ; preds = %68
-  %73 = icmp ult i32 %69, 64
+  %73 = icmp eq i32 %70, 0
   br i1 %73, label %_ZNK10quantifier9get_childEj.exit, label %74
 
 74:                                               ; preds = %72
@@ -18975,7 +18975,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %43, %49
   br i1 %69, label %70, label %98
 
 70:                                               ; preds = %66
-  %71 = icmp ult i32 %67, 64
+  %71 = icmp eq i32 %68, 0
   br i1 %71, label %_ZNK10quantifier9get_childEj.exit, label %72
 
 72:                                               ; preds = %70

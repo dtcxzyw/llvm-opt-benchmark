@@ -377,7 +377,7 @@ _ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit: ; preds = %2
   store i8 %.sink, ptr %16, align 1, !tbaa !15
   %17 = lshr i64 %.023, 4
   %18 = add nsw i64 %.01822, -1
-  %19 = icmp ugt i64 %.023, 15
+  %19 = icmp ne i64 %17, 0
   %20 = icmp ne i64 %.01822, 0
   %21 = and i1 %19, %20
   br i1 %21, label %.preheader, label %22, !llvm.loop !30

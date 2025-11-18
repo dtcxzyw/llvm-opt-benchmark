@@ -101,20 +101,20 @@ define dso_local noundef range(i32 -19, 1) i32 @intel_pasid_alloc_table(ptr noun
   %30 = tail call i32 @pci_max_pasids(ptr noundef %29) #8
   %31 = load i32, ptr @intel_pasid_max_id, align 4
   %32 = tail call i32 @llvm.umin.i32(i32 %30, i32 %31)
-  %33 = icmp ult i32 %32, 8
-  br i1 %33, label %.thread6, label %34
+  %33 = lshr i32 %32, 3
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %.thread6, label %35
 
-34:                                               ; preds = %28
-  %35 = lshr i32 %32, 3
-  %36 = zext nneg i32 %35 to i64
+35:                                               ; preds = %28
+  %36 = zext nneg i32 %33 to i64
   %37 = add nsw i64 %36, -1
   %38 = lshr i64 %37, 12
   %39 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %38, i32 -1) #10, !srcloc !12
   %40 = add i32 %39, 1
   br label %.thread6
 
-.thread6:                                         ; preds = %23, %34, %28
-  %41 = phi i32 [ 0, %28 ], [ %40, %34 ], [ 0, %23 ]
+.thread6:                                         ; preds = %23, %35, %28
+  %41 = phi i32 [ 0, %28 ], [ %40, %35 ], [ 0, %23 ]
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 280

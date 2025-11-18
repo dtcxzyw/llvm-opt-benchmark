@@ -1058,12 +1058,12 @@ priv_init_scratch.exit.thread:                    ; preds = %69, %priv_init_scra
   store i8 %111, ptr %112, align 1, !tbaa !83
   %.not97 = icmp eq i8 %99, 0
   %.not100 = icmp eq i8 %108, 0
-  %.not101 = icmp samesign ult i32 %.0148152, 4096
-  %or.cond185 = select i1 %.not100, i1 %.not101, i1 false
   br i1 %.not97, label %122, label %113
 
 113:                                              ; preds = %96
-  br i1 %or.cond185, label %.sink.split, label %114
+  %.not99 = icmp samesign ult i32 %.0148152, 4096
+  %or.cond = select i1 %.not100, i1 %.not99, i1 false
+  br i1 %or.cond, label %.thread161, label %114
 
 114:                                              ; preds = %113
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1082,15 +1082,21 @@ priv_init_scratch.exit.thread:                    ; preds = %69, %priv_init_scra
   br label %priv_destroy_scratch.exit
 
 122:                                              ; preds = %96
+  %.not101 = icmp eq i32 %110, 0
+  %or.cond185 = and i1 %.not101, %.not100
   br i1 %or.cond185, label %.sink.split, label %124
 
-.sink.split:                                      ; preds = %122, %113
-  %.sink299 = phi i32 [ 1, %113 ], [ 0, %122 ]
+.thread161:                                       ; preds = %113
+  %.not101162 = icmp eq i32 %110, 0
+  br i1 %.not101162, label %.sink.split, label %124
+
+.sink.split:                                      ; preds = %122, %.thread161
+  %.sink299 = phi i32 [ 1, %.thread161 ], [ 0, %122 ]
   %123 = getelementptr inbounds nuw i8, ptr %88, i64 4
   store i32 %.sink299, ptr %123, align 4, !tbaa !3
   br label %124
 
-124:                                              ; preds = %.sink.split, %122
+124:                                              ; preds = %.sink.split, %.thread161, %122
   %125 = load ptr, ptr %72, align 8, !tbaa !73
   %126 = call i32 %125(ptr noundef nonnull %25, ptr noundef nonnull %27, i64 noundef 1) #9
   %.not103200 = icmp eq i32 %126, 0

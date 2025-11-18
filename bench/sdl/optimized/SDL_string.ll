@@ -1326,11 +1326,11 @@ define hidden noalias ptr @SDL_strndup_REAL(ptr noundef readonly captures(none) 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
 define hidden noundef ptr @SDL_strrev_REAL(ptr noundef returned captures(ret: address, provenance) %0) local_unnamed_addr #15 {
   %2 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #24
-  %.not13 = icmp ult i64 %2, 2
+  %3 = lshr i64 %2, 1
+  %.not13 = icmp eq i64 %3, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
-  %3 = lshr i64 %2, 1
   %4 = getelementptr i8, ptr %0, i64 %2
   br label %.lr.ph
 
@@ -1608,11 +1608,11 @@ define hidden noundef ptr @SDL_itoa_REAL(i32 noundef %0, ptr noundef returned ca
 .loopexit.i.i:                                    ; preds = %9
   store i8 0, ptr %13, align 1
   %15 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #24
-  %.not13.i.i.i = icmp ult i64 %15, 2
+  %16 = lshr i64 %15, 1
+  %.not13.i.i.i = icmp eq i64 %16, 0
   br i1 %.not13.i.i.i, label %SDL_ltoa_REAL.exit, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %.loopexit.i.i
-  %16 = lshr i64 %15, 1
   %17 = getelementptr i8, ptr %6, i64 %15
   br label %.lr.ph.i.i.i
 
@@ -1659,11 +1659,11 @@ define hidden noundef ptr @SDL_itoa_REAL(i32 noundef %0, ptr noundef returned ca
   %.1.i15.i = phi ptr [ %31, %30 ], [ %28, %24 ]
   store i8 0, ptr %.1.i15.i, align 1
   %32 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #24
-  %.not13.i.i16.i = icmp ult i64 %32, 2
+  %33 = lshr i64 %32, 1
+  %.not13.i.i16.i = icmp eq i64 %33, 0
   br i1 %.not13.i.i16.i, label %SDL_ltoa_REAL.exit, label %.lr.ph.preheader.i.i17.i
 
 .lr.ph.preheader.i.i17.i:                         ; preds = %.loopexit.i14.i
-  %33 = lshr i64 %32, 1
   %34 = getelementptr i8, ptr %1, i64 %32
   br label %.lr.ph.i.i18.i
 
@@ -1712,11 +1712,11 @@ define hidden noundef ptr @SDL_ltoa_REAL(i64 noundef %0, ptr noundef returned ca
 .loopexit.i:                                      ; preds = %8
   store i8 0, ptr %12, align 1
   %14 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #24
-  %.not13.i.i = icmp ult i64 %14, 2
+  %15 = lshr i64 %14, 1
+  %.not13.i.i = icmp eq i64 %15, 0
   br i1 %.not13.i.i, label %SDL_ultoa_REAL.exit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %.loopexit.i
-  %15 = lshr i64 %14, 1
   %16 = getelementptr i8, ptr %5, i64 %14
   br label %.lr.ph.i.i
 
@@ -1763,11 +1763,11 @@ define hidden noundef ptr @SDL_ltoa_REAL(i64 noundef %0, ptr noundef returned ca
   %.1.i15 = phi ptr [ %30, %29 ], [ %27, %23 ]
   store i8 0, ptr %.1.i15, align 1
   %31 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #24
-  %.not13.i.i16 = icmp ult i64 %31, 2
+  %32 = lshr i64 %31, 1
+  %.not13.i.i16 = icmp eq i64 %32, 0
   br i1 %.not13.i.i16, label %SDL_ultoa_REAL.exit, label %.lr.ph.preheader.i.i17
 
 .lr.ph.preheader.i.i17:                           ; preds = %.loopexit.i14
-  %32 = lshr i64 %31, 1
   %33 = getelementptr i8, ptr %1, i64 %31
   br label %.lr.ph.i.i18
 
@@ -1820,11 +1820,11 @@ define hidden noundef ptr @SDL_uitoa_REAL(i32 noundef %0, ptr noundef returned c
   %.1.i = phi ptr [ %13, %12 ], [ %10, %6 ]
   store i8 0, ptr %.1.i, align 1
   %14 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #24
-  %.not13.i.i = icmp ult i64 %14, 2
+  %15 = lshr i64 %14, 1
+  %.not13.i.i = icmp eq i64 %15, 0
   br i1 %.not13.i.i, label %SDL_ultoa_REAL.exit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %.loopexit.i
-  %15 = lshr i64 %14, 1
   %16 = getelementptr i8, ptr %1, i64 %14
   br label %.lr.ph.i.i
 
@@ -1876,11 +1876,11 @@ define hidden noundef ptr @SDL_ultoa_REAL(i64 noundef %0, ptr noundef returned c
   %.1 = phi ptr [ %12, %11 ], [ %9, %5 ]
   store i8 0, ptr %.1, align 1
   %13 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #24
-  %.not13.i = icmp ult i64 %13, 2
+  %14 = lshr i64 %13, 1
+  %.not13.i = icmp eq i64 %14, 0
   br i1 %.not13.i, label %SDL_strrev_REAL.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.loopexit
-  %14 = lshr i64 %13, 1
   %15 = getelementptr i8, ptr %1, i64 %13
   br label %.lr.ph.i
 
@@ -1929,11 +1929,11 @@ define hidden noundef ptr @SDL_lltoa_REAL(i64 noundef %0, ptr noundef returned c
 .loopexit.i:                                      ; preds = %8
   store i8 0, ptr %12, align 1
   %14 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #24
-  %.not13.i.i = icmp ult i64 %14, 2
+  %15 = lshr i64 %14, 1
+  %.not13.i.i = icmp eq i64 %15, 0
   br i1 %.not13.i.i, label %SDL_ulltoa_REAL.exit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %.loopexit.i
-  %15 = lshr i64 %14, 1
   %16 = getelementptr i8, ptr %5, i64 %14
   br label %.lr.ph.i.i
 
@@ -1980,11 +1980,11 @@ define hidden noundef ptr @SDL_lltoa_REAL(i64 noundef %0, ptr noundef returned c
   %.1.i15 = phi ptr [ %30, %29 ], [ %27, %23 ]
   store i8 0, ptr %.1.i15, align 1
   %31 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #24
-  %.not13.i.i16 = icmp ult i64 %31, 2
+  %32 = lshr i64 %31, 1
+  %.not13.i.i16 = icmp eq i64 %32, 0
   br i1 %.not13.i.i16, label %SDL_ulltoa_REAL.exit, label %.lr.ph.preheader.i.i17
 
 .lr.ph.preheader.i.i17:                           ; preds = %.loopexit.i14
-  %32 = lshr i64 %31, 1
   %33 = getelementptr i8, ptr %1, i64 %31
   br label %.lr.ph.i.i18
 
@@ -2036,11 +2036,11 @@ define hidden noundef ptr @SDL_ulltoa_REAL(i64 noundef %0, ptr noundef returned 
   %.1 = phi ptr [ %12, %11 ], [ %9, %5 ]
   store i8 0, ptr %.1, align 1
   %13 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #24
-  %.not13.i = icmp ult i64 %13, 2
+  %14 = lshr i64 %13, 1
+  %.not13.i = icmp eq i64 %14, 0
   br i1 %.not13.i, label %SDL_strrev_REAL.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.loopexit
-  %14 = lshr i64 %13, 1
   %15 = getelementptr i8, ptr %1, i64 %13
   br label %.lr.ph.i
 

@@ -4462,7 +4462,7 @@ define hidden void @"_ZN73_$LT$uv_pep508..marker..algebra..Variable$u20$as$u20$c
   %5 = load i64, ptr %1, align 8, !alias.scope !915, !noundef !3
   %6 = add i64 %5, %4
   %7 = mul i64 %6, -1065810590584100411
-  switch i8 %3, label %default.unreachable47 [
+  switch i8 %3, label %default.unreachable50 [
     i8 0, label %8
     i8 1, label %14
     i8 2, label %20
@@ -4470,7 +4470,7 @@ define hidden void @"_ZN73_$LT$uv_pep508..marker..algebra..Variable$u20$as$u20$c
     i8 4, label %158
   ]
 
-default.unreachable47:                            ; preds = %2
+default.unreachable50:                            ; preds = %2
   unreachable
 
 8:                                                ; preds = %2
@@ -4545,7 +4545,7 @@ default.unreachable47:                            ; preds = %2
   br i1 %52, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h036d5e7edc746388E.exit63.i.i.i", label %53
 
 53:                                               ; preds = %51
-  %.not.i.i.i = icmp samesign ult i64 %28, 2
+  %.not.i.i.i = icmp eq i64 %29, 0
   br i1 %.not.i.i.i, label %_ZN4core4hash6Hasher9write_str17h84e52ea0eb5ede83E.exit, label %54
 
 54:                                               ; preds = %53
@@ -4656,7 +4656,7 @@ _ZN4core4hash6Hasher9write_str17h84e52ea0eb5ede83E.exit: ; preds = %"_ZN4core6re
   br i1 %121, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h036d5e7edc746388E.exit63.i.i.i14", label %122
 
 122:                                              ; preds = %120
-  %.not.i.i.i13 = icmp samesign ult i64 %97, 2
+  %.not.i.i.i13 = icmp eq i64 %98, 0
   br i1 %.not.i.i.i13, label %_ZN4core4hash6Hasher9write_str17h84e52ea0eb5ede83E.exit20, label %123
 
 123:                                              ; preds = %122
@@ -4762,7 +4762,7 @@ _ZN4core4hash6Hasher9write_str17h84e52ea0eb5ede83E.exit20: ; preds = %"_ZN4core6
   br i1 %185, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h036d5e7edc746388E.exit63.i.i.i34", label %186
 
 186:                                              ; preds = %184
-  %.not.i.i.i33 = icmp samesign ult i64 %161, 2
+  %.not.i.i.i33 = icmp eq i64 %162, 0
   br i1 %.not.i.i.i33, label %_ZN4core4hash6Hasher9write_str17h84e52ea0eb5ede83E.exit40, label %187
 
 187:                                              ; preds = %186

@@ -373,7 +373,7 @@ aptx_qmf_tree_analysis.exit.i.i:                  ; preds = %aptx_qmf_polyphase_
   %.not.i50.i.i.i = icmp sgt i64 %179, %172
   %spec.select.i.i.i.i = select i1 %.not.i50.i.i.i, i32 %.010.i54.i.i.i, i32 %174
   %180 = lshr i32 %.0.i4955.i.i.i, 1
-  %.not.i18.i.i = icmp ult i32 %.0.i4955.i.i.i, 2
+  %.not.i18.i.i = icmp eq i32 %180, 0
   br i1 %.not.i18.i.i, label %aptx_quantize_difference.exit.i.i, label %173, !llvm.loop !65
 
 aptx_quantize_difference.exit.i.i:                ; preds = %173, %.aptx_bin_search.exit_crit_edge.i.i.i

@@ -1779,7 +1779,7 @@ define internal i32 @dissect_rtp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %781
 
 58:                                               ; preds = %4
-  %59 = icmp ult i8 %17, 64
+  %59 = icmp eq i32 %19, 0
   br i1 %59, label %60, label %83
 
 60:                                               ; preds = %58
@@ -3836,13 +3836,16 @@ declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 define internal zeroext i1 @dissect_rtp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0)
   %6 = icmp slt i32 %5, 2
-  br i1 %6, label %112, label %7
+  br i1 %6, label %111, label %7
 
 7:                                                ; preds = %4
   %8 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %9 = zext i8 %8 to i32
-  %10 = icmp ult i8 %8, 64
-  br i1 %10, label %11, label %32
+  %10 = lshr i32 %9, 6
+  switch i32 %10, label %111 [
+    i32 0, label %11
+    i32 2, label %32
+  ]
 
 11:                                               ; preds = %7
   %12 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.317, i64 noundef 4)
@@ -3852,11 +3855,11 @@ define internal zeroext i1 @dissect_rtp_heur(ptr noundef %0, ptr noundef %1, ptr
 13:                                               ; preds = %11
   %14 = load ptr, ptr @zrtp_handle, align 8
   %15 = tail call i32 @call_dissector_only(ptr noundef %14, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
-  br label %112
+  br label %111
 
 16:                                               ; preds = %11
   %17 = load i32, ptr @global_rtp_version0_type, align 4
-  switch i32 %17, label %112 [
+  switch i32 %17, label %111 [
     i32 1, label %18
     i32 2, label %22
     i32 3, label %26
@@ -3867,151 +3870,146 @@ define internal zeroext i1 @dissect_rtp_heur(ptr noundef %0, ptr noundef %1, ptr
   %19 = load ptr, ptr @stun_handle, align 8
   %20 = tail call i32 @call_dissector_only(ptr noundef %19, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   %21 = icmp ne i32 %20, 0
-  br label %112
+  br label %111
 
 22:                                               ; preds = %16
   %23 = load ptr, ptr @classicstun_handle, align 8
   %24 = tail call i32 @call_dissector_only(ptr noundef %23, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   %25 = icmp ne i32 %24, 0
-  br label %112
+  br label %111
 
 26:                                               ; preds = %16
   %27 = load ptr, ptr @t38_handle, align 8
   %28 = tail call i32 @call_dissector_only(ptr noundef %27, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
-  br label %112
+  br label %111
 
 29:                                               ; preds = %16
   %30 = load ptr, ptr @sprt_handle, align 8
   %31 = tail call i32 @call_dissector_only(ptr noundef %30, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
-  br label %112
+  br label %111
 
 32:                                               ; preds = %7
-  %.mask = and i32 %9, 192
-  %.not = icmp eq i32 %.mask, 128
-  br i1 %.not, label %33, label %112
+  %33 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %34 = and i8 %33, 127
+  %35 = add nsw i8 %34, -72
+  %or.cond = icmp ult i8 %35, 5
+  br i1 %or.cond, label %111, label %36
 
-33:                                               ; preds = %32
-  %34 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
-  %35 = and i8 %34, 127
-  %36 = add nsw i8 %35, -72
-  %or.cond = icmp ult i8 %36, 5
-  br i1 %or.cond, label %112, label %37
+36:                                               ; preds = %32
+  %37 = shl nuw nsw i32 %9, 2
+  %38 = and i32 %37, 60
+  %39 = add nuw nsw i32 %38, 12
+  %40 = and i32 %9, 16
+  %.not85 = icmp eq i32 %40, 0
+  br i1 %.not85, label %51, label %41
 
-37:                                               ; preds = %33
-  %38 = shl nuw nsw i32 %9, 2
-  %39 = and i32 %38, 60
-  %40 = add nuw nsw i32 %39, 12
-  %41 = and i32 %9, 16
-  %.not85 = icmp eq i32 %41, 0
-  br i1 %.not85, label %52, label %42
+41:                                               ; preds = %36
+  %42 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %39)
+  %43 = icmp slt i32 %42, 4
+  br i1 %43, label %111, label %44
 
-42:                                               ; preds = %37
-  %43 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %40)
-  %44 = icmp slt i32 %43, 4
-  br i1 %44, label %112, label %45
+44:                                               ; preds = %41
+  %45 = add nuw nsw i32 %38, 14
+  %46 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %45, i32 noundef 0)
+  %47 = zext i16 %46 to i32
+  %48 = shl nuw nsw i32 %47, 2
+  %49 = add nuw nsw i32 %38, 16
+  %50 = add nuw nsw i32 %49, %48
+  br label %51
 
-45:                                               ; preds = %42
-  %46 = add nuw nsw i32 %39, 14
-  %47 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %46, i32 noundef 0)
-  %48 = zext i16 %47 to i32
-  %49 = shl nuw nsw i32 %48, 2
-  %50 = add nuw nsw i32 %39, 16
-  %51 = add nuw nsw i32 %50, %49
-  br label %52
+51:                                               ; preds = %44, %36
+  %.082 = phi i32 [ %50, %44 ], [ %39, %36 ]
+  %52 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %53 = icmp ult i32 %52, %.082
+  br i1 %53, label %111, label %54
 
-52:                                               ; preds = %45, %37
-  %.082 = phi i32 [ %51, %45 ], [ %40, %37 ]
-  %53 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %54 = icmp ult i32 %53, %.082
-  br i1 %54, label %112, label %55
+54:                                               ; preds = %51
+  %55 = and i32 %9, 32
+  %.not86 = icmp eq i32 %55, 0
+  br i1 %.not86, label %68, label %56
 
-55:                                               ; preds = %52
-  %56 = and i32 %9, 32
-  %.not86 = icmp eq i32 %56, 0
-  br i1 %.not86, label %69, label %57
+56:                                               ; preds = %54
+  %57 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  %58 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %59 = icmp eq i32 %57, %58
+  br i1 %59, label %60, label %68
 
-57:                                               ; preds = %55
-  %58 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  %59 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %60 = icmp eq i32 %58, %59
-  br i1 %60, label %61, label %69
+60:                                               ; preds = %56
+  %61 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %62 = add i32 %61, -1
+  %63 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %62)
+  %64 = zext i8 %63 to i32
+  %65 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.082)
+  %66 = icmp slt i32 %65, %64
+  %67 = icmp eq i8 %63, 0
+  %or.cond3 = or i1 %67, %66
+  br i1 %or.cond3, label %111, label %68
 
-61:                                               ; preds = %57
-  %62 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %63 = add i32 %62, -1
-  %64 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %63)
-  %65 = zext i8 %64 to i32
-  %66 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.082)
-  %67 = icmp slt i32 %66, %65
-  %68 = icmp eq i8 %64, 0
-  %or.cond3 = or i1 %68, %67
-  br i1 %or.cond3, label %112, label %69
+68:                                               ; preds = %56, %60, %54
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %70 = load i32, ptr %69, align 4
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 280
+  %74 = load i32, ptr %73, align 8
+  %75 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %74)
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  %77 = load i32, ptr %76, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 284
+  %79 = load i32, ptr %78, align 4
+  %80 = tail call ptr @find_conversation(i32 noundef %70, ptr noundef nonnull %71, ptr noundef nonnull %72, i32 noundef %75, i32 noundef %77, i32 noundef %79, i32 noundef 65536)
+  %.not87 = icmp eq ptr %80, null
+  br i1 %.not87, label %81, label %109
 
-69:                                               ; preds = %57, %61, %55
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %71 = load i32, ptr %70, align 4
-  %72 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %75 = load i32, ptr %74, align 8
-  %76 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %75)
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %78 = load i32, ptr %77, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 284
-  %80 = load i32, ptr %79, align 4
-  %81 = tail call ptr @find_conversation(i32 noundef %71, ptr noundef nonnull %72, ptr noundef nonnull %73, i32 noundef %76, i32 noundef %78, i32 noundef %80, i32 noundef 65536)
-  %.not87 = icmp eq ptr %81, null
-  br i1 %.not87, label %82, label %110
+81:                                               ; preds = %68
+  %82 = load i32, ptr %69, align 4
+  %83 = load i32, ptr %73, align 8
+  %84 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %83)
+  %85 = load i32, ptr %76, align 8
+  %86 = load i32, ptr %78, align 4
+  %87 = tail call ptr @conversation_new(i32 noundef %82, ptr noundef nonnull %71, ptr noundef nonnull %72, i32 noundef %84, i32 noundef %85, i32 noundef %86, i32 noundef 1)
+  %88 = load i32, ptr @proto_rtp, align 4
+  %89 = tail call ptr @conversation_get_proto_data(ptr noundef %87, i32 noundef %88)
+  %.not88 = icmp eq ptr %89, null
+  br i1 %.not88, label %90, label %103
 
-82:                                               ; preds = %69
-  %83 = load i32, ptr %70, align 4
-  %84 = load i32, ptr %74, align 8
-  %85 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %84)
-  %86 = load i32, ptr %77, align 8
-  %87 = load i32, ptr %79, align 4
-  %88 = tail call ptr @conversation_new(i32 noundef %83, ptr noundef nonnull %72, ptr noundef nonnull %73, i32 noundef %85, i32 noundef %86, i32 noundef %87, i32 noundef 1)
-  %89 = load i32, ptr @proto_rtp, align 4
-  %90 = tail call ptr @conversation_get_proto_data(ptr noundef %88, i32 noundef %89)
-  %.not88 = icmp eq ptr %90, null
-  br i1 %.not88, label %91, label %104
+90:                                               ; preds = %81
+  %91 = tail call ptr @wmem_file_scope()
+  %92 = tail call noalias dereferenceable_or_null(80) ptr @wmem_alloc0(ptr noundef %91, i64 noundef 80) #14
+  %93 = tail call ptr @wmem_file_scope()
+  %94 = tail call noalias ptr @wmem_map_new(ptr noundef %93, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal)
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 32
+  store ptr %94, ptr %95, align 8
+  %96 = tail call ptr @wmem_file_scope()
+  %97 = tail call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %96, i64 noundef 8) #14
+  %98 = getelementptr inbounds nuw i8, ptr %92, i64 40
+  store ptr %97, ptr %98, align 8
+  %99 = tail call ptr @wmem_file_scope()
+  %100 = tail call noalias ptr @wmem_tree_new(ptr noundef %99)
+  %101 = load ptr, ptr %98, align 8
+  store ptr %100, ptr %101, align 8
+  %102 = load i32, ptr @proto_rtp, align 4
+  tail call void @conversation_add_proto_data(ptr noundef %87, i32 noundef %102, ptr noundef %92)
+  br label %103
 
-91:                                               ; preds = %82
-  %92 = tail call ptr @wmem_file_scope()
-  %93 = tail call noalias dereferenceable_or_null(80) ptr @wmem_alloc0(ptr noundef %92, i64 noundef 80) #14
-  %94 = tail call ptr @wmem_file_scope()
-  %95 = tail call noalias ptr @wmem_map_new(ptr noundef %94, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal)
-  %96 = getelementptr inbounds nuw i8, ptr %93, i64 32
-  store ptr %95, ptr %96, align 8
-  %97 = tail call ptr @wmem_file_scope()
-  %98 = tail call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %97, i64 noundef 8) #14
-  %99 = getelementptr inbounds nuw i8, ptr %93, i64 40
-  store ptr %98, ptr %99, align 8
-  %100 = tail call ptr @wmem_file_scope()
-  %101 = tail call noalias ptr @wmem_tree_new(ptr noundef %100)
-  %102 = load ptr, ptr %99, align 8
-  store ptr %101, ptr %102, align 8
-  %103 = load i32, ptr @proto_rtp, align 4
-  tail call void @conversation_add_proto_data(ptr noundef %88, i32 noundef %103, ptr noundef %93)
-  br label %104
+103:                                              ; preds = %90, %81
+  %.0 = phi ptr [ %89, %81 ], [ %92, %90 ]
+  %104 = tail call i64 @g_strlcpy(ptr noundef %.0, ptr noundef nonnull @.str.347, i64 noundef 12)
+  %105 = load i32, ptr %69, align 4
+  %106 = getelementptr inbounds nuw i8, ptr %.0, i64 12
+  store i32 %105, ptr %106, align 4
+  %107 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  store i32 0, ptr %107, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %.0, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %108, i8 0, i64 24, i1 false)
+  br label %109
 
-104:                                              ; preds = %91, %82
-  %.0 = phi ptr [ %90, %82 ], [ %93, %91 ]
-  %105 = tail call i64 @g_strlcpy(ptr noundef %.0, ptr noundef nonnull @.str.347, i64 noundef 12)
-  %106 = load i32, ptr %70, align 4
-  %107 = getelementptr inbounds nuw i8, ptr %.0, i64 12
-  store i32 %106, ptr %107, align 4
-  %108 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  store i32 0, ptr %108, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %.0, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %109, i8 0, i64 24, i1 false)
-  br label %110
+109:                                              ; preds = %103, %68
+  %110 = tail call i32 @dissect_rtp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
+  br label %111
 
-110:                                              ; preds = %104, %69
-  %111 = tail call i32 @dissect_rtp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
-  br label %112
-
-112:                                              ; preds = %61, %52, %42, %33, %32, %16, %4, %110, %29, %26, %22, %18, %13
-  %.081 = phi i1 [ %21, %18 ], [ %25, %22 ], [ true, %26 ], [ true, %29 ], [ true, %13 ], [ true, %110 ], [ false, %4 ], [ false, %16 ], [ false, %32 ], [ false, %33 ], [ false, %42 ], [ false, %52 ], [ false, %61 ]
+111:                                              ; preds = %60, %51, %41, %32, %7, %16, %4, %109, %29, %26, %22, %18, %13
+  %.081 = phi i1 [ %21, %18 ], [ %25, %22 ], [ true, %26 ], [ true, %29 ], [ true, %13 ], [ true, %109 ], [ false, %4 ], [ false, %16 ], [ false, %7 ], [ false, %32 ], [ false, %41 ], [ false, %51 ], [ false, %60 ]
   ret i1 %.081
 }
 

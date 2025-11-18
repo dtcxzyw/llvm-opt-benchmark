@@ -27274,7 +27274,8 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_.exit206: ; preds = %_Z
 948:                                              ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_.exit206
   %949 = load ptr, ptr %0, align 8, !tbaa !7
   %950 = call i32 @_ZN5clang4Sema19getLocForEndOfTokenENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(17504) %949, i32 %.sroa.0.0.copyload.i207, i32 noundef 0) #16
-  %.not130 = icmp ult i32 %355, 65536
+  %.mask = and i32 %355, -16842752
+  %.not130 = icmp eq i32 %.mask, 0
   %951 = select i1 %.not130, ptr @.str.11, ptr @.str.10
   %952 = select i1 %.not130, i64 9, i64 11
   call void @llvm.lifetime.start.p0(ptr nonnull %21)

@@ -30991,23 +30991,27 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_s
   br label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha1d36c173785937dE.exit.i"
 
 .loopexit.i:                                      ; preds = %15
-  %5 = getelementptr inbounds nuw i8, ptr %.sroa.06.013.i, i64 32
-  %6 = add nsw i64 %.sroa.57.014.i, -16
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i, i64 32
+  %6 = add nsw i64 %.sroa.57.015.i, -16
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %.lr.ph.preheader.i.i, label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha1d36c173785937dE.exit.i"
+  br i1 %7, label %.preheader.i, label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha1d36c173785937dE.exit.i"
 
 "_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha1d36c173785937dE.exit.i": ; preds = %.loopexit.i, %4
-  %.sroa.57.014.i = phi i64 [ %6, %.loopexit.i ], [ 128, %4 ]
-  %.sroa.06.013.i = phi ptr [ %5, %.loopexit.i ], [ %0, %4 ]
+  %.sroa.57.015.i = phi i64 [ %6, %.loopexit.i ], [ 128, %4 ]
+  %.sroa.06.014.i = phi ptr [ %5, %.loopexit.i ], [ %0, %4 ]
   br label %15
 
-.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
+.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i", %.preheader.i
   %8 = icmp samesign ugt i64 %.sroa.0.013.i.i, 9
-  br i1 %8, label %.lr.ph.preheader.i.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17hdea473114142f39cE.exit"
+  br i1 %8, label %.preheader.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17hdea473114142f39cE.exit"
 
-.lr.ph.preheader.i.i:                             ; preds = %.loopexit.i, %.loopexit.i.i
+.preheader.i:                                     ; preds = %.loopexit.i, %.loopexit.i.i
   %.sroa.0.013.i.i = phi i64 [ %9, %.loopexit.i.i ], [ 16, %.loopexit.i ]
   %9 = lshr i64 %.sroa.0.013.i.i, 1
+  %.not.i.i = icmp eq i64 %9, 0
+  br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.preheader.i.i
+
+.lr.ph.preheader.i.i:                             ; preds = %.preheader.i
   %invariant.gep.i.i = getelementptr inbounds nuw double, ptr %3, i64 %9
   br label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
@@ -31024,11 +31028,11 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_s
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
 15:                                               ; preds = %15, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha1d36c173785937dE.exit.i"
-  %.sroa.03.012.i = phi i64 [ 0, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha1d36c173785937dE.exit.i" ], [ %16, %15 ]
-  %16 = add nuw nsw i64 %.sroa.03.012.i, 1
-  %17 = getelementptr inbounds nuw double, ptr %3, i64 %.sroa.03.012.i
+  %.sroa.03.013.i = phi i64 [ 0, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha1d36c173785937dE.exit.i" ], [ %16, %15 ]
+  %16 = add nuw nsw i64 %.sroa.03.013.i, 1
+  %17 = getelementptr inbounds nuw double, ptr %3, i64 %.sroa.03.013.i
   %18 = load double, ptr %17, align 8, !noalias !2443, !noundef !6
-  %19 = getelementptr inbounds nuw i16, ptr %.sroa.06.013.i, i64 %.sroa.03.012.i
+  %19 = getelementptr inbounds nuw i16, ptr %.sroa.06.014.i, i64 %.sroa.03.013.i
   %20 = load i16, ptr %19, align 2, !alias.scope !2443, !noundef !6
   %21 = sitofp i16 %20 to double
   %22 = fadd double %18, %21
@@ -31078,23 +31082,27 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_s
   br label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h458f892ee47c06e1E.exit.i"
 
 .loopexit.i:                                      ; preds = %15
-  %5 = getelementptr inbounds nuw i8, ptr %.sroa.06.013.i, i64 16
-  %6 = add nsw i64 %.sroa.57.014.i, -16
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i, i64 16
+  %6 = add nsw i64 %.sroa.57.015.i, -16
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %.lr.ph.preheader.i.i, label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h458f892ee47c06e1E.exit.i"
+  br i1 %7, label %.preheader.i, label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h458f892ee47c06e1E.exit.i"
 
 "_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h458f892ee47c06e1E.exit.i": ; preds = %.loopexit.i, %4
-  %.sroa.57.014.i = phi i64 [ %6, %.loopexit.i ], [ 128, %4 ]
-  %.sroa.06.013.i = phi ptr [ %5, %.loopexit.i ], [ %0, %4 ]
+  %.sroa.57.015.i = phi i64 [ %6, %.loopexit.i ], [ 128, %4 ]
+  %.sroa.06.014.i = phi ptr [ %5, %.loopexit.i ], [ %0, %4 ]
   br label %15
 
-.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
+.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i", %.preheader.i
   %8 = icmp samesign ugt i64 %.sroa.0.013.i.i, 9
-  br i1 %8, label %.lr.ph.preheader.i.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h807410e30fe09740E.exit"
+  br i1 %8, label %.preheader.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h807410e30fe09740E.exit"
 
-.lr.ph.preheader.i.i:                             ; preds = %.loopexit.i, %.loopexit.i.i
+.preheader.i:                                     ; preds = %.loopexit.i, %.loopexit.i.i
   %.sroa.0.013.i.i = phi i64 [ %9, %.loopexit.i.i ], [ 16, %.loopexit.i ]
   %9 = lshr i64 %.sroa.0.013.i.i, 1
+  %.not.i.i = icmp eq i64 %9, 0
+  br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.preheader.i.i
+
+.lr.ph.preheader.i.i:                             ; preds = %.preheader.i
   %invariant.gep.i.i = getelementptr inbounds nuw double, ptr %3, i64 %9
   br label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
@@ -31111,11 +31119,11 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_s
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
 15:                                               ; preds = %15, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h458f892ee47c06e1E.exit.i"
-  %.sroa.03.012.i = phi i64 [ 0, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h458f892ee47c06e1E.exit.i" ], [ %16, %15 ]
-  %16 = add nuw nsw i64 %.sroa.03.012.i, 1
-  %17 = getelementptr inbounds nuw double, ptr %3, i64 %.sroa.03.012.i
+  %.sroa.03.013.i = phi i64 [ 0, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h458f892ee47c06e1E.exit.i" ], [ %16, %15 ]
+  %16 = add nuw nsw i64 %.sroa.03.013.i, 1
+  %17 = getelementptr inbounds nuw double, ptr %3, i64 %.sroa.03.013.i
   %18 = load double, ptr %17, align 8, !noalias !2449, !noundef !6
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.06.013.i, i64 %.sroa.03.012.i
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i, i64 %.sroa.03.013.i
   %20 = load i8, ptr %19, align 1, !alias.scope !2449, !noundef !6
   %21 = uitofp i8 %20 to double
   %22 = fadd double %18, %21
@@ -31165,23 +31173,27 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_s
   br label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc5027bcd0b0bcddE.exit.i"
 
 .loopexit.i:                                      ; preds = %15
-  %5 = getelementptr inbounds nuw i8, ptr %.sroa.06.013.i, i64 128
-  %6 = add nsw i64 %.sroa.57.014.i, -16
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i, i64 128
+  %6 = add nsw i64 %.sroa.57.015.i, -16
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %.lr.ph.preheader.i.i, label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc5027bcd0b0bcddE.exit.i"
+  br i1 %7, label %.preheader.i, label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc5027bcd0b0bcddE.exit.i"
 
 "_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc5027bcd0b0bcddE.exit.i": ; preds = %.loopexit.i, %4
-  %.sroa.57.014.i = phi i64 [ %6, %.loopexit.i ], [ 128, %4 ]
-  %.sroa.06.013.i = phi ptr [ %5, %.loopexit.i ], [ %0, %4 ]
+  %.sroa.57.015.i = phi i64 [ %6, %.loopexit.i ], [ 128, %4 ]
+  %.sroa.06.014.i = phi ptr [ %5, %.loopexit.i ], [ %0, %4 ]
   br label %15
 
-.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
+.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i", %.preheader.i
   %8 = icmp samesign ugt i64 %.sroa.0.013.i.i, 9
-  br i1 %8, label %.lr.ph.preheader.i.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17ha79261584c04a77eE.exit"
+  br i1 %8, label %.preheader.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17ha79261584c04a77eE.exit"
 
-.lr.ph.preheader.i.i:                             ; preds = %.loopexit.i, %.loopexit.i.i
+.preheader.i:                                     ; preds = %.loopexit.i, %.loopexit.i.i
   %.sroa.0.013.i.i = phi i64 [ %9, %.loopexit.i.i ], [ 16, %.loopexit.i ]
   %9 = lshr i64 %.sroa.0.013.i.i, 1
+  %.not.i.i = icmp eq i64 %9, 0
+  br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.preheader.i.i
+
+.lr.ph.preheader.i.i:                             ; preds = %.preheader.i
   %invariant.gep.i.i = getelementptr inbounds nuw double, ptr %3, i64 %9
   br label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
@@ -31198,11 +31210,11 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_s
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
 15:                                               ; preds = %15, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc5027bcd0b0bcddE.exit.i"
-  %.sroa.03.012.i = phi i64 [ 0, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc5027bcd0b0bcddE.exit.i" ], [ %16, %15 ]
-  %16 = add nuw nsw i64 %.sroa.03.012.i, 1
-  %17 = getelementptr inbounds nuw double, ptr %3, i64 %.sroa.03.012.i
+  %.sroa.03.013.i = phi i64 [ 0, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc5027bcd0b0bcddE.exit.i" ], [ %16, %15 ]
+  %16 = add nuw nsw i64 %.sroa.03.013.i, 1
+  %17 = getelementptr inbounds nuw double, ptr %3, i64 %.sroa.03.013.i
   %18 = load double, ptr %17, align 8, !noalias !2455, !noundef !6
-  %19 = getelementptr inbounds nuw i64, ptr %.sroa.06.013.i, i64 %.sroa.03.012.i
+  %19 = getelementptr inbounds nuw i64, ptr %.sroa.06.014.i, i64 %.sroa.03.013.i
   %20 = load i64, ptr %19, align 8, !alias.scope !2455, !noundef !6
   %21 = uitofp i64 %20 to double
   %22 = fadd double %18, %21
@@ -31252,23 +31264,27 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_s
   br label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf54e369d8c9d0f58E.exit.i"
 
 .loopexit.i:                                      ; preds = %15
-  %5 = getelementptr inbounds nuw i8, ptr %.sroa.06.013.i, i64 64
-  %6 = add nsw i64 %.sroa.57.014.i, -16
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i, i64 64
+  %6 = add nsw i64 %.sroa.57.015.i, -16
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %.lr.ph.preheader.i.i, label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf54e369d8c9d0f58E.exit.i"
+  br i1 %7, label %.preheader.i, label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf54e369d8c9d0f58E.exit.i"
 
 "_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf54e369d8c9d0f58E.exit.i": ; preds = %.loopexit.i, %4
-  %.sroa.57.014.i = phi i64 [ %6, %.loopexit.i ], [ 128, %4 ]
-  %.sroa.06.013.i = phi ptr [ %5, %.loopexit.i ], [ %0, %4 ]
+  %.sroa.57.015.i = phi i64 [ %6, %.loopexit.i ], [ 128, %4 ]
+  %.sroa.06.014.i = phi ptr [ %5, %.loopexit.i ], [ %0, %4 ]
   br label %15
 
-.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
+.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i", %.preheader.i
   %8 = icmp samesign ugt i64 %.sroa.0.013.i.i, 9
-  br i1 %8, label %.lr.ph.preheader.i.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h830173406cb160bfE.exit"
+  br i1 %8, label %.preheader.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h830173406cb160bfE.exit"
 
-.lr.ph.preheader.i.i:                             ; preds = %.loopexit.i, %.loopexit.i.i
+.preheader.i:                                     ; preds = %.loopexit.i, %.loopexit.i.i
   %.sroa.0.013.i.i = phi i64 [ %9, %.loopexit.i.i ], [ 16, %.loopexit.i ]
   %9 = lshr i64 %.sroa.0.013.i.i, 1
+  %.not.i.i = icmp eq i64 %9, 0
+  br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.preheader.i.i
+
+.lr.ph.preheader.i.i:                             ; preds = %.preheader.i
   %invariant.gep.i.i = getelementptr inbounds nuw double, ptr %3, i64 %9
   br label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
@@ -31285,11 +31301,11 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_s
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
 15:                                               ; preds = %15, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf54e369d8c9d0f58E.exit.i"
-  %.sroa.03.012.i = phi i64 [ 0, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf54e369d8c9d0f58E.exit.i" ], [ %16, %15 ]
-  %16 = add nuw nsw i64 %.sroa.03.012.i, 1
-  %17 = getelementptr inbounds nuw double, ptr %3, i64 %.sroa.03.012.i
+  %.sroa.03.013.i = phi i64 [ 0, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf54e369d8c9d0f58E.exit.i" ], [ %16, %15 ]
+  %16 = add nuw nsw i64 %.sroa.03.013.i, 1
+  %17 = getelementptr inbounds nuw double, ptr %3, i64 %.sroa.03.013.i
   %18 = load double, ptr %17, align 8, !noalias !2461, !noundef !6
-  %19 = getelementptr inbounds nuw i32, ptr %.sroa.06.013.i, i64 %.sroa.03.012.i
+  %19 = getelementptr inbounds nuw i32, ptr %.sroa.06.014.i, i64 %.sroa.03.013.i
   %20 = load i32, ptr %19, align 4, !alias.scope !2461, !noundef !6
   %21 = sitofp i32 %20 to double
   %22 = fadd double %18, %21
@@ -31339,23 +31355,27 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_s
   br label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha55123d5f7dee199E.exit.i"
 
 .loopexit.i:                                      ; preds = %15
-  %5 = getelementptr inbounds nuw i8, ptr %.sroa.06.013.i, i64 16
-  %6 = add nsw i64 %.sroa.57.014.i, -16
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i, i64 16
+  %6 = add nsw i64 %.sroa.57.015.i, -16
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %.lr.ph.preheader.i.i, label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha55123d5f7dee199E.exit.i"
+  br i1 %7, label %.preheader.i, label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha55123d5f7dee199E.exit.i"
 
 "_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha55123d5f7dee199E.exit.i": ; preds = %.loopexit.i, %4
-  %.sroa.57.014.i = phi i64 [ %6, %.loopexit.i ], [ 128, %4 ]
-  %.sroa.06.013.i = phi ptr [ %5, %.loopexit.i ], [ %0, %4 ]
+  %.sroa.57.015.i = phi i64 [ %6, %.loopexit.i ], [ 128, %4 ]
+  %.sroa.06.014.i = phi ptr [ %5, %.loopexit.i ], [ %0, %4 ]
   br label %15
 
-.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
+.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i", %.preheader.i
   %8 = icmp samesign ugt i64 %.sroa.0.013.i.i, 9
-  br i1 %8, label %.lr.ph.preheader.i.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h48d46a58d23a72c2E.exit"
+  br i1 %8, label %.preheader.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h48d46a58d23a72c2E.exit"
 
-.lr.ph.preheader.i.i:                             ; preds = %.loopexit.i, %.loopexit.i.i
+.preheader.i:                                     ; preds = %.loopexit.i, %.loopexit.i.i
   %.sroa.0.013.i.i = phi i64 [ %9, %.loopexit.i.i ], [ 16, %.loopexit.i ]
   %9 = lshr i64 %.sroa.0.013.i.i, 1
+  %.not.i.i = icmp eq i64 %9, 0
+  br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.preheader.i.i
+
+.lr.ph.preheader.i.i:                             ; preds = %.preheader.i
   %invariant.gep.i.i = getelementptr inbounds nuw double, ptr %3, i64 %9
   br label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
@@ -31372,11 +31392,11 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_s
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
 15:                                               ; preds = %15, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha55123d5f7dee199E.exit.i"
-  %.sroa.03.012.i = phi i64 [ 0, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha55123d5f7dee199E.exit.i" ], [ %16, %15 ]
-  %16 = add nuw nsw i64 %.sroa.03.012.i, 1
-  %17 = getelementptr inbounds nuw double, ptr %3, i64 %.sroa.03.012.i
+  %.sroa.03.013.i = phi i64 [ 0, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha55123d5f7dee199E.exit.i" ], [ %16, %15 ]
+  %16 = add nuw nsw i64 %.sroa.03.013.i, 1
+  %17 = getelementptr inbounds nuw double, ptr %3, i64 %.sroa.03.013.i
   %18 = load double, ptr %17, align 8, !noalias !2467, !noundef !6
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.06.013.i, i64 %.sroa.03.012.i
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i, i64 %.sroa.03.013.i
   %20 = load i8, ptr %19, align 1, !alias.scope !2467, !noundef !6
   %21 = sitofp i8 %20 to double
   %22 = fadd double %18, %21
@@ -31426,23 +31446,27 @@ define internal fastcc noundef float @_ZN14polars_compute9float_sum12pairwise_su
   br label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h24184eec6fda6c96E.exit.i"
 
 .loopexit.i:                                      ; preds = %15
-  %5 = getelementptr inbounds nuw i8, ptr %.sroa.06.013.i, i64 64
-  %6 = add nsw i64 %.sroa.57.014.i, -16
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i, i64 64
+  %6 = add nsw i64 %.sroa.57.015.i, -16
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %.lr.ph.preheader.i.i, label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h24184eec6fda6c96E.exit.i"
+  br i1 %7, label %.preheader.i, label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h24184eec6fda6c96E.exit.i"
 
 "_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h24184eec6fda6c96E.exit.i": ; preds = %.loopexit.i, %4
-  %.sroa.57.014.i = phi i64 [ %6, %.loopexit.i ], [ 128, %4 ]
-  %.sroa.06.013.i = phi ptr [ %5, %.loopexit.i ], [ %0, %4 ]
+  %.sroa.57.015.i = phi i64 [ %6, %.loopexit.i ], [ 128, %4 ]
+  %.sroa.06.014.i = phi ptr [ %5, %.loopexit.i ], [ %0, %4 ]
   br label %15
 
-.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17hcdad712adf1cc33cE.exit.i.i"
+.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17hcdad712adf1cc33cE.exit.i.i", %.preheader.i
   %8 = icmp samesign ugt i64 %.sroa.0.013.i.i, 9
-  br i1 %8, label %.lr.ph.preheader.i.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h64622fa5f412547aE.exit"
+  br i1 %8, label %.preheader.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h64622fa5f412547aE.exit"
 
-.lr.ph.preheader.i.i:                             ; preds = %.loopexit.i, %.loopexit.i.i
+.preheader.i:                                     ; preds = %.loopexit.i, %.loopexit.i.i
   %.sroa.0.013.i.i = phi i64 [ %9, %.loopexit.i.i ], [ 16, %.loopexit.i ]
   %9 = lshr i64 %.sroa.0.013.i.i, 1
+  %.not.i.i = icmp eq i64 %9, 0
+  br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.preheader.i.i
+
+.lr.ph.preheader.i.i:                             ; preds = %.preheader.i
   %invariant.gep.i.i = getelementptr inbounds nuw float, ptr %3, i64 %9
   br label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17hcdad712adf1cc33cE.exit.i.i"
 
@@ -31459,11 +31483,11 @@ define internal fastcc noundef float @_ZN14polars_compute9float_sum12pairwise_su
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17hcdad712adf1cc33cE.exit.i.i"
 
 15:                                               ; preds = %15, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h24184eec6fda6c96E.exit.i"
-  %.sroa.03.012.i = phi i64 [ 0, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h24184eec6fda6c96E.exit.i" ], [ %16, %15 ]
-  %16 = add nuw nsw i64 %.sroa.03.012.i, 1
-  %17 = getelementptr inbounds nuw float, ptr %3, i64 %.sroa.03.012.i
+  %.sroa.03.013.i = phi i64 [ 0, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h24184eec6fda6c96E.exit.i" ], [ %16, %15 ]
+  %16 = add nuw nsw i64 %.sroa.03.013.i, 1
+  %17 = getelementptr inbounds nuw float, ptr %3, i64 %.sroa.03.013.i
   %18 = load float, ptr %17, align 4, !noalias !2473, !noundef !6
-  %19 = getelementptr inbounds nuw float, ptr %.sroa.06.013.i, i64 %.sroa.03.012.i
+  %19 = getelementptr inbounds nuw float, ptr %.sroa.06.014.i, i64 %.sroa.03.013.i
   %20 = load float, ptr %19, align 4, !alias.scope !2473, !noundef !6
   %21 = fadd float %18, %20
   store float %21, ptr %17, align 4, !noalias !2473
@@ -31512,23 +31536,27 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_s
   br label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h031bd110d256d5d4E.exit.i"
 
 .loopexit.i:                                      ; preds = %15
-  %5 = getelementptr inbounds nuw i8, ptr %.sroa.06.013.i, i64 256
-  %6 = add nsw i64 %.sroa.57.014.i, -16
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i, i64 256
+  %6 = add nsw i64 %.sroa.57.015.i, -16
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %.lr.ph.preheader.i.i, label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h031bd110d256d5d4E.exit.i"
+  br i1 %7, label %.preheader.i, label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h031bd110d256d5d4E.exit.i"
 
 "_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h031bd110d256d5d4E.exit.i": ; preds = %.loopexit.i, %4
-  %.sroa.57.014.i = phi i64 [ %6, %.loopexit.i ], [ 128, %4 ]
-  %.sroa.06.013.i = phi ptr [ %5, %.loopexit.i ], [ %0, %4 ]
+  %.sroa.57.015.i = phi i64 [ %6, %.loopexit.i ], [ 128, %4 ]
+  %.sroa.06.014.i = phi ptr [ %5, %.loopexit.i ], [ %0, %4 ]
   br label %15
 
-.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
+.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i", %.preheader.i
   %8 = icmp samesign ugt i64 %.sroa.0.013.i.i, 9
-  br i1 %8, label %.lr.ph.preheader.i.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h01580817e1568b7fE.exit"
+  br i1 %8, label %.preheader.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h01580817e1568b7fE.exit"
 
-.lr.ph.preheader.i.i:                             ; preds = %.loopexit.i, %.loopexit.i.i
+.preheader.i:                                     ; preds = %.loopexit.i, %.loopexit.i.i
   %.sroa.0.013.i.i = phi i64 [ %9, %.loopexit.i.i ], [ 16, %.loopexit.i ]
   %9 = lshr i64 %.sroa.0.013.i.i, 1
+  %.not.i.i = icmp eq i64 %9, 0
+  br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.preheader.i.i
+
+.lr.ph.preheader.i.i:                             ; preds = %.preheader.i
   %invariant.gep.i.i = getelementptr inbounds nuw double, ptr %3, i64 %9
   br label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
@@ -31545,11 +31573,11 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_s
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
 15:                                               ; preds = %15, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h031bd110d256d5d4E.exit.i"
-  %.sroa.03.012.i = phi i64 [ 0, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h031bd110d256d5d4E.exit.i" ], [ %16, %15 ]
-  %16 = add nuw nsw i64 %.sroa.03.012.i, 1
-  %17 = getelementptr inbounds nuw double, ptr %3, i64 %.sroa.03.012.i
+  %.sroa.03.013.i = phi i64 [ 0, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h031bd110d256d5d4E.exit.i" ], [ %16, %15 ]
+  %16 = add nuw nsw i64 %.sroa.03.013.i, 1
+  %17 = getelementptr inbounds nuw double, ptr %3, i64 %.sroa.03.013.i
   %18 = load double, ptr %17, align 8, !noalias !2479, !noundef !6
-  %19 = getelementptr inbounds nuw i128, ptr %.sroa.06.013.i, i64 %.sroa.03.012.i
+  %19 = getelementptr inbounds nuw i128, ptr %.sroa.06.014.i, i64 %.sroa.03.013.i
   %20 = load i128, ptr %19, align 16, !alias.scope !2479, !noundef !6
   %21 = sitofp i128 %20 to double
   %22 = fadd double %18, %21
@@ -31599,23 +31627,27 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_s
   br label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h24184eec6fda6c96E.exit.i"
 
 .loopexit.i:                                      ; preds = %15
-  %5 = getelementptr inbounds nuw i8, ptr %.sroa.06.013.i, i64 64
-  %6 = add nsw i64 %.sroa.57.014.i, -16
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i, i64 64
+  %6 = add nsw i64 %.sroa.57.015.i, -16
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %.lr.ph.preheader.i.i, label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h24184eec6fda6c96E.exit.i"
+  br i1 %7, label %.preheader.i, label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h24184eec6fda6c96E.exit.i"
 
 "_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h24184eec6fda6c96E.exit.i": ; preds = %.loopexit.i, %4
-  %.sroa.57.014.i = phi i64 [ %6, %.loopexit.i ], [ 128, %4 ]
-  %.sroa.06.013.i = phi ptr [ %5, %.loopexit.i ], [ %0, %4 ]
+  %.sroa.57.015.i = phi i64 [ %6, %.loopexit.i ], [ 128, %4 ]
+  %.sroa.06.014.i = phi ptr [ %5, %.loopexit.i ], [ %0, %4 ]
   br label %15
 
-.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
+.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i", %.preheader.i
   %8 = icmp samesign ugt i64 %.sroa.0.013.i.i, 9
-  br i1 %8, label %.lr.ph.preheader.i.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h2cbca75ae5e1559eE.exit"
+  br i1 %8, label %.preheader.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h2cbca75ae5e1559eE.exit"
 
-.lr.ph.preheader.i.i:                             ; preds = %.loopexit.i, %.loopexit.i.i
+.preheader.i:                                     ; preds = %.loopexit.i, %.loopexit.i.i
   %.sroa.0.013.i.i = phi i64 [ %9, %.loopexit.i.i ], [ 16, %.loopexit.i ]
   %9 = lshr i64 %.sroa.0.013.i.i, 1
+  %.not.i.i = icmp eq i64 %9, 0
+  br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.preheader.i.i
+
+.lr.ph.preheader.i.i:                             ; preds = %.preheader.i
   %invariant.gep.i.i = getelementptr inbounds nuw double, ptr %3, i64 %9
   br label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
@@ -31632,11 +31664,11 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_s
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
 15:                                               ; preds = %15, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h24184eec6fda6c96E.exit.i"
-  %.sroa.03.012.i = phi i64 [ 0, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h24184eec6fda6c96E.exit.i" ], [ %16, %15 ]
-  %16 = add nuw nsw i64 %.sroa.03.012.i, 1
-  %17 = getelementptr inbounds nuw double, ptr %3, i64 %.sroa.03.012.i
+  %.sroa.03.013.i = phi i64 [ 0, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h24184eec6fda6c96E.exit.i" ], [ %16, %15 ]
+  %16 = add nuw nsw i64 %.sroa.03.013.i, 1
+  %17 = getelementptr inbounds nuw double, ptr %3, i64 %.sroa.03.013.i
   %18 = load double, ptr %17, align 8, !noalias !2485, !noundef !6
-  %19 = getelementptr inbounds nuw float, ptr %.sroa.06.013.i, i64 %.sroa.03.012.i
+  %19 = getelementptr inbounds nuw float, ptr %.sroa.06.014.i, i64 %.sroa.03.013.i
   %20 = load float, ptr %19, align 4, !alias.scope !2485, !noundef !6
   %21 = fpext float %20 to double
   %22 = fadd double %18, %21
@@ -31686,23 +31718,27 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_s
   br label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hccaac343922a2d1eE.exit.i"
 
 .loopexit.i:                                      ; preds = %15
-  %5 = getelementptr inbounds nuw i8, ptr %.sroa.06.013.i, i64 32
-  %6 = add nsw i64 %.sroa.57.014.i, -16
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i, i64 32
+  %6 = add nsw i64 %.sroa.57.015.i, -16
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %.lr.ph.preheader.i.i, label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hccaac343922a2d1eE.exit.i"
+  br i1 %7, label %.preheader.i, label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hccaac343922a2d1eE.exit.i"
 
 "_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hccaac343922a2d1eE.exit.i": ; preds = %.loopexit.i, %4
-  %.sroa.57.014.i = phi i64 [ %6, %.loopexit.i ], [ 128, %4 ]
-  %.sroa.06.013.i = phi ptr [ %5, %.loopexit.i ], [ %0, %4 ]
+  %.sroa.57.015.i = phi i64 [ %6, %.loopexit.i ], [ 128, %4 ]
+  %.sroa.06.014.i = phi ptr [ %5, %.loopexit.i ], [ %0, %4 ]
   br label %15
 
-.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
+.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i", %.preheader.i
   %8 = icmp samesign ugt i64 %.sroa.0.013.i.i, 9
-  br i1 %8, label %.lr.ph.preheader.i.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17hd24e713d7ab21c36E.exit"
+  br i1 %8, label %.preheader.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17hd24e713d7ab21c36E.exit"
 
-.lr.ph.preheader.i.i:                             ; preds = %.loopexit.i, %.loopexit.i.i
+.preheader.i:                                     ; preds = %.loopexit.i, %.loopexit.i.i
   %.sroa.0.013.i.i = phi i64 [ %9, %.loopexit.i.i ], [ 16, %.loopexit.i ]
   %9 = lshr i64 %.sroa.0.013.i.i, 1
+  %.not.i.i = icmp eq i64 %9, 0
+  br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.preheader.i.i
+
+.lr.ph.preheader.i.i:                             ; preds = %.preheader.i
   %invariant.gep.i.i = getelementptr inbounds nuw double, ptr %3, i64 %9
   br label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
@@ -31719,11 +31755,11 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_s
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
 15:                                               ; preds = %15, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hccaac343922a2d1eE.exit.i"
-  %.sroa.03.012.i = phi i64 [ 0, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hccaac343922a2d1eE.exit.i" ], [ %16, %15 ]
-  %16 = add nuw nsw i64 %.sroa.03.012.i, 1
-  %17 = getelementptr inbounds nuw double, ptr %3, i64 %.sroa.03.012.i
+  %.sroa.03.013.i = phi i64 [ 0, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hccaac343922a2d1eE.exit.i" ], [ %16, %15 ]
+  %16 = add nuw nsw i64 %.sroa.03.013.i, 1
+  %17 = getelementptr inbounds nuw double, ptr %3, i64 %.sroa.03.013.i
   %18 = load double, ptr %17, align 8, !noalias !2491, !noundef !6
-  %19 = getelementptr inbounds nuw i16, ptr %.sroa.06.013.i, i64 %.sroa.03.012.i
+  %19 = getelementptr inbounds nuw i16, ptr %.sroa.06.014.i, i64 %.sroa.03.013.i
   %20 = load i16, ptr %19, align 2, !alias.scope !2491, !noundef !6
   %21 = uitofp i16 %20 to double
   %22 = fadd double %18, %21
@@ -31773,23 +31809,27 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_s
   br label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc97f53926151419eE.exit.i"
 
 .loopexit.i:                                      ; preds = %15
-  %5 = getelementptr inbounds nuw i8, ptr %.sroa.06.013.i, i64 128
-  %6 = add nsw i64 %.sroa.57.014.i, -16
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i, i64 128
+  %6 = add nsw i64 %.sroa.57.015.i, -16
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %.lr.ph.preheader.i.i, label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc97f53926151419eE.exit.i"
+  br i1 %7, label %.preheader.i, label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc97f53926151419eE.exit.i"
 
 "_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc97f53926151419eE.exit.i": ; preds = %.loopexit.i, %4
-  %.sroa.57.014.i = phi i64 [ %6, %.loopexit.i ], [ 128, %4 ]
-  %.sroa.06.013.i = phi ptr [ %5, %.loopexit.i ], [ %0, %4 ]
+  %.sroa.57.015.i = phi i64 [ %6, %.loopexit.i ], [ 128, %4 ]
+  %.sroa.06.014.i = phi ptr [ %5, %.loopexit.i ], [ %0, %4 ]
   br label %15
 
-.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
+.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i", %.preheader.i
   %8 = icmp samesign ugt i64 %.sroa.0.013.i.i, 9
-  br i1 %8, label %.lr.ph.preheader.i.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h0c4b84c83542b3e7E.exit"
+  br i1 %8, label %.preheader.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h0c4b84c83542b3e7E.exit"
 
-.lr.ph.preheader.i.i:                             ; preds = %.loopexit.i, %.loopexit.i.i
+.preheader.i:                                     ; preds = %.loopexit.i, %.loopexit.i.i
   %.sroa.0.013.i.i = phi i64 [ %9, %.loopexit.i.i ], [ 16, %.loopexit.i ]
   %9 = lshr i64 %.sroa.0.013.i.i, 1
+  %.not.i.i = icmp eq i64 %9, 0
+  br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.preheader.i.i
+
+.lr.ph.preheader.i.i:                             ; preds = %.preheader.i
   %invariant.gep.i.i = getelementptr inbounds nuw double, ptr %3, i64 %9
   br label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
@@ -31806,11 +31846,11 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_s
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
 15:                                               ; preds = %15, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc97f53926151419eE.exit.i"
-  %.sroa.03.012.i = phi i64 [ 0, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc97f53926151419eE.exit.i" ], [ %16, %15 ]
-  %16 = add nuw nsw i64 %.sroa.03.012.i, 1
-  %17 = getelementptr inbounds nuw double, ptr %3, i64 %.sroa.03.012.i
+  %.sroa.03.013.i = phi i64 [ 0, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc97f53926151419eE.exit.i" ], [ %16, %15 ]
+  %16 = add nuw nsw i64 %.sroa.03.013.i, 1
+  %17 = getelementptr inbounds nuw double, ptr %3, i64 %.sroa.03.013.i
   %18 = load double, ptr %17, align 8, !noalias !2497, !noundef !6
-  %19 = getelementptr inbounds nuw double, ptr %.sroa.06.013.i, i64 %.sroa.03.012.i
+  %19 = getelementptr inbounds nuw double, ptr %.sroa.06.014.i, i64 %.sroa.03.013.i
   %20 = load double, ptr %19, align 8, !alias.scope !2497, !noundef !6
   %21 = fadd double %18, %20
   store double %21, ptr %17, align 8, !noalias !2497
@@ -31859,23 +31899,27 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_s
   br label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd96aaab49912b15E.exit.i"
 
 .loopexit.i:                                      ; preds = %15
-  %5 = getelementptr inbounds nuw i8, ptr %.sroa.06.013.i, i64 128
-  %6 = add nsw i64 %.sroa.57.014.i, -16
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i, i64 128
+  %6 = add nsw i64 %.sroa.57.015.i, -16
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %.lr.ph.preheader.i.i, label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd96aaab49912b15E.exit.i"
+  br i1 %7, label %.preheader.i, label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd96aaab49912b15E.exit.i"
 
 "_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd96aaab49912b15E.exit.i": ; preds = %.loopexit.i, %4
-  %.sroa.57.014.i = phi i64 [ %6, %.loopexit.i ], [ 128, %4 ]
-  %.sroa.06.013.i = phi ptr [ %5, %.loopexit.i ], [ %0, %4 ]
+  %.sroa.57.015.i = phi i64 [ %6, %.loopexit.i ], [ 128, %4 ]
+  %.sroa.06.014.i = phi ptr [ %5, %.loopexit.i ], [ %0, %4 ]
   br label %15
 
-.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
+.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i", %.preheader.i
   %8 = icmp samesign ugt i64 %.sroa.0.013.i.i, 9
-  br i1 %8, label %.lr.ph.preheader.i.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17hc01d3aa7efc47d82E.exit"
+  br i1 %8, label %.preheader.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17hc01d3aa7efc47d82E.exit"
 
-.lr.ph.preheader.i.i:                             ; preds = %.loopexit.i, %.loopexit.i.i
+.preheader.i:                                     ; preds = %.loopexit.i, %.loopexit.i.i
   %.sroa.0.013.i.i = phi i64 [ %9, %.loopexit.i.i ], [ 16, %.loopexit.i ]
   %9 = lshr i64 %.sroa.0.013.i.i, 1
+  %.not.i.i = icmp eq i64 %9, 0
+  br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.preheader.i.i
+
+.lr.ph.preheader.i.i:                             ; preds = %.preheader.i
   %invariant.gep.i.i = getelementptr inbounds nuw double, ptr %3, i64 %9
   br label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
@@ -31892,11 +31936,11 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_s
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
 15:                                               ; preds = %15, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd96aaab49912b15E.exit.i"
-  %.sroa.03.012.i = phi i64 [ 0, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd96aaab49912b15E.exit.i" ], [ %16, %15 ]
-  %16 = add nuw nsw i64 %.sroa.03.012.i, 1
-  %17 = getelementptr inbounds nuw double, ptr %3, i64 %.sroa.03.012.i
+  %.sroa.03.013.i = phi i64 [ 0, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd96aaab49912b15E.exit.i" ], [ %16, %15 ]
+  %16 = add nuw nsw i64 %.sroa.03.013.i, 1
+  %17 = getelementptr inbounds nuw double, ptr %3, i64 %.sroa.03.013.i
   %18 = load double, ptr %17, align 8, !noalias !2503, !noundef !6
-  %19 = getelementptr inbounds nuw i64, ptr %.sroa.06.013.i, i64 %.sroa.03.012.i
+  %19 = getelementptr inbounds nuw i64, ptr %.sroa.06.014.i, i64 %.sroa.03.013.i
   %20 = load i64, ptr %19, align 8, !alias.scope !2503, !noundef !6
   %21 = sitofp i64 %20 to double
   %22 = fadd double %18, %21
@@ -31946,23 +31990,27 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_s
   br label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h363ced98468770afE.exit.i"
 
 .loopexit.i:                                      ; preds = %15
-  %5 = getelementptr inbounds nuw i8, ptr %.sroa.06.013.i, i64 64
-  %6 = add nsw i64 %.sroa.57.014.i, -16
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i, i64 64
+  %6 = add nsw i64 %.sroa.57.015.i, -16
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %.lr.ph.preheader.i.i, label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h363ced98468770afE.exit.i"
+  br i1 %7, label %.preheader.i, label %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h363ced98468770afE.exit.i"
 
 "_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h363ced98468770afE.exit.i": ; preds = %.loopexit.i, %4
-  %.sroa.57.014.i = phi i64 [ %6, %.loopexit.i ], [ 128, %4 ]
-  %.sroa.06.013.i = phi ptr [ %5, %.loopexit.i ], [ %0, %4 ]
+  %.sroa.57.015.i = phi i64 [ %6, %.loopexit.i ], [ 128, %4 ]
+  %.sroa.06.014.i = phi ptr [ %5, %.loopexit.i ], [ %0, %4 ]
   br label %15
 
-.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
+.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i", %.preheader.i
   %8 = icmp samesign ugt i64 %.sroa.0.013.i.i, 9
-  br i1 %8, label %.lr.ph.preheader.i.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h6b1aa96eec74671eE.exit"
+  br i1 %8, label %.preheader.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h6b1aa96eec74671eE.exit"
 
-.lr.ph.preheader.i.i:                             ; preds = %.loopexit.i, %.loopexit.i.i
+.preheader.i:                                     ; preds = %.loopexit.i, %.loopexit.i.i
   %.sroa.0.013.i.i = phi i64 [ %9, %.loopexit.i.i ], [ 16, %.loopexit.i ]
   %9 = lshr i64 %.sroa.0.013.i.i, 1
+  %.not.i.i = icmp eq i64 %9, 0
+  br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.preheader.i.i
+
+.lr.ph.preheader.i.i:                             ; preds = %.preheader.i
   %invariant.gep.i.i = getelementptr inbounds nuw double, ptr %3, i64 %9
   br label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
@@ -31979,11 +32027,11 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_s
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
 15:                                               ; preds = %15, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h363ced98468770afE.exit.i"
-  %.sroa.03.012.i = phi i64 [ 0, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h363ced98468770afE.exit.i" ], [ %16, %15 ]
-  %16 = add nuw nsw i64 %.sroa.03.012.i, 1
-  %17 = getelementptr inbounds nuw double, ptr %3, i64 %.sroa.03.012.i
+  %.sroa.03.013.i = phi i64 [ 0, %"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h363ced98468770afE.exit.i" ], [ %16, %15 ]
+  %16 = add nuw nsw i64 %.sroa.03.013.i, 1
+  %17 = getelementptr inbounds nuw double, ptr %3, i64 %.sroa.03.013.i
   %18 = load double, ptr %17, align 8, !noalias !2509, !noundef !6
-  %19 = getelementptr inbounds nuw i32, ptr %.sroa.06.013.i, i64 %.sroa.03.012.i
+  %19 = getelementptr inbounds nuw i32, ptr %.sroa.06.014.i, i64 %.sroa.03.013.i
   %20 = load i32, ptr %19, align 4, !alias.scope !2509, !noundef !6
   %21 = uitofp i32 %20 to double
   %22 = fadd double %18, %21
@@ -33567,26 +33615,30 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   br label %19
 
 .loopexit.i:                                      ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.i, i64 16
-  %16 = add nsw i64 %.sroa.57.021.i, -16
-  %17 = add nuw nsw i64 %.sroa.12.022.i, 1
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i, i64 16
+  %16 = add nsw i64 %.sroa.57.022.i, -16
+  %17 = add nuw nsw i64 %.sroa.12.023.i, 1
   %18 = icmp eq i64 %16, 0
-  br i1 %18, label %.lr.ph.preheader.i.i, label %19
+  br i1 %18, label %.preheader.i, label %19
 
 19:                                               ; preds = %.loopexit.i, %7
-  %.sroa.12.022.i = phi i64 [ 0, %7 ], [ %17, %.loopexit.i ]
-  %.sroa.57.021.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
-  %.sroa.0.020.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
-  %20 = shl i64 %.sroa.12.022.i, 4
+  %.sroa.12.023.i = phi i64 [ 0, %7 ], [ %17, %.loopexit.i ]
+  %.sroa.57.022.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
+  %.sroa.0.021.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
+  %20 = shl i64 %.sroa.12.023.i, 4
   br label %28
 
-.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
+.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i", %.preheader.i
   %21 = icmp samesign ugt i64 %.sroa.0.013.i.i, 9
-  br i1 %21, label %.lr.ph.preheader.i.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h7573cacd577251d2E.exit"
+  br i1 %21, label %.preheader.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h7573cacd577251d2E.exit"
 
-.lr.ph.preheader.i.i:                             ; preds = %.loopexit.i, %.loopexit.i.i
+.preheader.i:                                     ; preds = %.loopexit.i, %.loopexit.i.i
   %.sroa.0.013.i.i = phi i64 [ %22, %.loopexit.i.i ], [ 16, %.loopexit.i ]
   %22 = lshr i64 %.sroa.0.013.i.i, 1
+  %.not.i.i = icmp eq i64 %22, 0
+  br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.preheader.i.i
+
+.lr.ph.preheader.i.i:                             ; preds = %.preheader.i
   %invariant.gep.i.i = getelementptr inbounds nuw double, ptr %4, i64 %22
   br label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
@@ -33603,9 +33655,9 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
 28:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i, %19
-  %.sroa.03.019.i = phi i64 [ 0, %19 ], [ %29, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i ]
-  %29 = add nuw nsw i64 %.sroa.03.019.i, 1
-  %30 = add nuw nsw i64 %.sroa.03.019.i, %20
+  %.sroa.03.020.i = phi i64 [ 0, %19 ], [ %29, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i ]
+  %29 = add nuw nsw i64 %.sroa.03.020.i, 1
+  %30 = add nuw nsw i64 %.sroa.03.020.i, %20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2563)
   %31 = icmp ult i64 %30, %9
   br i1 %31, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
@@ -33624,14 +33676,14 @@ _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i: ; preds
   br i1 %40, label %41, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 41:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i, i64 %.sroa.03.020.i
   %43 = load i8, ptr %42, align 1, !alias.scope !2551, !noalias !2554, !noundef !6
   %44 = sitofp i8 %43 to double
   br label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %41, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
   %.sroa.02.0.i = phi double [ %44, %41 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
-  %45 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.019.i
+  %45 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.020.i
   %46 = load double, ptr %45, align 8, !noalias !2556, !noundef !6
   %47 = fadd double %.sroa.02.0.i, %46
   store double %47, ptr %45, align 8, !noalias !2556
@@ -33713,26 +33765,30 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   br label %19
 
 .loopexit.i:                                      ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.i, i64 64
-  %16 = add nsw i64 %.sroa.57.021.i, -16
-  %17 = add nuw nsw i64 %.sroa.12.022.i, 1
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i, i64 64
+  %16 = add nsw i64 %.sroa.57.022.i, -16
+  %17 = add nuw nsw i64 %.sroa.12.023.i, 1
   %18 = icmp eq i64 %16, 0
-  br i1 %18, label %.lr.ph.preheader.i.i, label %19
+  br i1 %18, label %.preheader.i, label %19
 
 19:                                               ; preds = %.loopexit.i, %7
-  %.sroa.12.022.i = phi i64 [ 0, %7 ], [ %17, %.loopexit.i ]
-  %.sroa.57.021.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
-  %.sroa.0.020.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
-  %20 = shl i64 %.sroa.12.022.i, 4
+  %.sroa.12.023.i = phi i64 [ 0, %7 ], [ %17, %.loopexit.i ]
+  %.sroa.57.022.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
+  %.sroa.0.021.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
+  %20 = shl i64 %.sroa.12.023.i, 4
   br label %28
 
-.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
+.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i", %.preheader.i
   %21 = icmp samesign ugt i64 %.sroa.0.013.i.i, 9
-  br i1 %21, label %.lr.ph.preheader.i.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17hc6e50caba01418b2E.exit"
+  br i1 %21, label %.preheader.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17hc6e50caba01418b2E.exit"
 
-.lr.ph.preheader.i.i:                             ; preds = %.loopexit.i, %.loopexit.i.i
+.preheader.i:                                     ; preds = %.loopexit.i, %.loopexit.i.i
   %.sroa.0.013.i.i = phi i64 [ %22, %.loopexit.i.i ], [ 16, %.loopexit.i ]
   %22 = lshr i64 %.sroa.0.013.i.i, 1
+  %.not.i.i = icmp eq i64 %22, 0
+  br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.preheader.i.i
+
+.lr.ph.preheader.i.i:                             ; preds = %.preheader.i
   %invariant.gep.i.i = getelementptr inbounds nuw double, ptr %4, i64 %22
   br label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
@@ -33749,9 +33805,9 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
 28:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i, %19
-  %.sroa.03.019.i = phi i64 [ 0, %19 ], [ %29, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i ]
-  %29 = add nuw nsw i64 %.sroa.03.019.i, 1
-  %30 = add nuw nsw i64 %.sroa.03.019.i, %20
+  %.sroa.03.020.i = phi i64 [ 0, %19 ], [ %29, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i ]
+  %29 = add nuw nsw i64 %.sroa.03.020.i, 1
+  %30 = add nuw nsw i64 %.sroa.03.020.i, %20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2577)
   %31 = icmp ult i64 %30, %9
   br i1 %31, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
@@ -33770,14 +33826,14 @@ _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i: ; preds
   br i1 %40, label %41, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 41:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
-  %42 = getelementptr inbounds nuw i32, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
+  %42 = getelementptr inbounds nuw i32, ptr %.sroa.0.021.i, i64 %.sroa.03.020.i
   %43 = load i32, ptr %42, align 4, !alias.scope !2565, !noalias !2568, !noundef !6
   %44 = sitofp i32 %43 to double
   br label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %41, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
   %.sroa.02.0.i = phi double [ %44, %41 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
-  %45 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.019.i
+  %45 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.020.i
   %46 = load double, ptr %45, align 8, !noalias !2570, !noundef !6
   %47 = fadd double %.sroa.02.0.i, %46
   store double %47, ptr %45, align 8, !noalias !2570
@@ -33859,26 +33915,30 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   br label %19
 
 .loopexit.i:                                      ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.i, i64 32
-  %16 = add nsw i64 %.sroa.57.021.i, -16
-  %17 = add nuw nsw i64 %.sroa.12.022.i, 1
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i, i64 32
+  %16 = add nsw i64 %.sroa.57.022.i, -16
+  %17 = add nuw nsw i64 %.sroa.12.023.i, 1
   %18 = icmp eq i64 %16, 0
-  br i1 %18, label %.lr.ph.preheader.i.i, label %19
+  br i1 %18, label %.preheader.i, label %19
 
 19:                                               ; preds = %.loopexit.i, %7
-  %.sroa.12.022.i = phi i64 [ 0, %7 ], [ %17, %.loopexit.i ]
-  %.sroa.57.021.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
-  %.sroa.0.020.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
-  %20 = shl i64 %.sroa.12.022.i, 4
+  %.sroa.12.023.i = phi i64 [ 0, %7 ], [ %17, %.loopexit.i ]
+  %.sroa.57.022.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
+  %.sroa.0.021.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
+  %20 = shl i64 %.sroa.12.023.i, 4
   br label %28
 
-.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
+.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i", %.preheader.i
   %21 = icmp samesign ugt i64 %.sroa.0.013.i.i, 9
-  br i1 %21, label %.lr.ph.preheader.i.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17hdef2cf46a7c9f6f7E.exit"
+  br i1 %21, label %.preheader.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17hdef2cf46a7c9f6f7E.exit"
 
-.lr.ph.preheader.i.i:                             ; preds = %.loopexit.i, %.loopexit.i.i
+.preheader.i:                                     ; preds = %.loopexit.i, %.loopexit.i.i
   %.sroa.0.013.i.i = phi i64 [ %22, %.loopexit.i.i ], [ 16, %.loopexit.i ]
   %22 = lshr i64 %.sroa.0.013.i.i, 1
+  %.not.i.i = icmp eq i64 %22, 0
+  br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.preheader.i.i
+
+.lr.ph.preheader.i.i:                             ; preds = %.preheader.i
   %invariant.gep.i.i = getelementptr inbounds nuw double, ptr %4, i64 %22
   br label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
@@ -33895,9 +33955,9 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
 28:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i, %19
-  %.sroa.03.019.i = phi i64 [ 0, %19 ], [ %29, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i ]
-  %29 = add nuw nsw i64 %.sroa.03.019.i, 1
-  %30 = add nuw nsw i64 %.sroa.03.019.i, %20
+  %.sroa.03.020.i = phi i64 [ 0, %19 ], [ %29, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i ]
+  %29 = add nuw nsw i64 %.sroa.03.020.i, 1
+  %30 = add nuw nsw i64 %.sroa.03.020.i, %20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2591)
   %31 = icmp ult i64 %30, %9
   br i1 %31, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
@@ -33916,14 +33976,14 @@ _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i: ; preds
   br i1 %40, label %41, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 41:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
-  %42 = getelementptr inbounds nuw i16, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
+  %42 = getelementptr inbounds nuw i16, ptr %.sroa.0.021.i, i64 %.sroa.03.020.i
   %43 = load i16, ptr %42, align 2, !alias.scope !2579, !noalias !2582, !noundef !6
   %44 = sitofp i16 %43 to double
   br label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %41, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
   %.sroa.02.0.i = phi double [ %44, %41 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
-  %45 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.019.i
+  %45 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.020.i
   %46 = load double, ptr %45, align 8, !noalias !2584, !noundef !6
   %47 = fadd double %.sroa.02.0.i, %46
   store double %47, ptr %45, align 8, !noalias !2584
@@ -34005,26 +34065,30 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   br label %19
 
 .loopexit.i:                                      ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.i, i64 128
-  %16 = add nsw i64 %.sroa.57.021.i, -16
-  %17 = add nuw nsw i64 %.sroa.12.022.i, 1
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i, i64 128
+  %16 = add nsw i64 %.sroa.57.022.i, -16
+  %17 = add nuw nsw i64 %.sroa.12.023.i, 1
   %18 = icmp eq i64 %16, 0
-  br i1 %18, label %.lr.ph.preheader.i.i, label %19
+  br i1 %18, label %.preheader.i, label %19
 
 19:                                               ; preds = %.loopexit.i, %7
-  %.sroa.12.022.i = phi i64 [ 0, %7 ], [ %17, %.loopexit.i ]
-  %.sroa.57.021.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
-  %.sroa.0.020.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
-  %20 = shl i64 %.sroa.12.022.i, 4
+  %.sroa.12.023.i = phi i64 [ 0, %7 ], [ %17, %.loopexit.i ]
+  %.sroa.57.022.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
+  %.sroa.0.021.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
+  %20 = shl i64 %.sroa.12.023.i, 4
   br label %28
 
-.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
+.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i", %.preheader.i
   %21 = icmp samesign ugt i64 %.sroa.0.013.i.i, 9
-  br i1 %21, label %.lr.ph.preheader.i.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17ha9543dd9975cd711E.exit"
+  br i1 %21, label %.preheader.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17ha9543dd9975cd711E.exit"
 
-.lr.ph.preheader.i.i:                             ; preds = %.loopexit.i, %.loopexit.i.i
+.preheader.i:                                     ; preds = %.loopexit.i, %.loopexit.i.i
   %.sroa.0.013.i.i = phi i64 [ %22, %.loopexit.i.i ], [ 16, %.loopexit.i ]
   %22 = lshr i64 %.sroa.0.013.i.i, 1
+  %.not.i.i = icmp eq i64 %22, 0
+  br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.preheader.i.i
+
+.lr.ph.preheader.i.i:                             ; preds = %.preheader.i
   %invariant.gep.i.i = getelementptr inbounds nuw double, ptr %4, i64 %22
   br label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
@@ -34041,9 +34105,9 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
 28:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i, %19
-  %.sroa.03.019.i = phi i64 [ 0, %19 ], [ %29, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i ]
-  %29 = add nuw nsw i64 %.sroa.03.019.i, 1
-  %30 = add nuw nsw i64 %.sroa.03.019.i, %20
+  %.sroa.03.020.i = phi i64 [ 0, %19 ], [ %29, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i ]
+  %29 = add nuw nsw i64 %.sroa.03.020.i, 1
+  %30 = add nuw nsw i64 %.sroa.03.020.i, %20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2605)
   %31 = icmp ult i64 %30, %9
   br i1 %31, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
@@ -34062,13 +34126,13 @@ _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i: ; preds
   br i1 %40, label %41, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 41:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
-  %42 = getelementptr inbounds nuw double, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
+  %42 = getelementptr inbounds nuw double, ptr %.sroa.0.021.i, i64 %.sroa.03.020.i
   %43 = load double, ptr %42, align 8, !alias.scope !2593, !noalias !2596, !noundef !6
   br label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %41, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
   %.sroa.02.0.i = phi double [ %43, %41 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
-  %44 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.019.i
+  %44 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.020.i
   %45 = load double, ptr %44, align 8, !noalias !2598, !noundef !6
   %46 = fadd double %.sroa.02.0.i, %45
   store double %46, ptr %44, align 8, !noalias !2598
@@ -34150,26 +34214,30 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   br label %19
 
 .loopexit.i:                                      ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.i, i64 64
-  %16 = add nsw i64 %.sroa.57.021.i, -16
-  %17 = add nuw nsw i64 %.sroa.12.022.i, 1
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i, i64 64
+  %16 = add nsw i64 %.sroa.57.022.i, -16
+  %17 = add nuw nsw i64 %.sroa.12.023.i, 1
   %18 = icmp eq i64 %16, 0
-  br i1 %18, label %.lr.ph.preheader.i.i, label %19
+  br i1 %18, label %.preheader.i, label %19
 
 19:                                               ; preds = %.loopexit.i, %7
-  %.sroa.12.022.i = phi i64 [ 0, %7 ], [ %17, %.loopexit.i ]
-  %.sroa.57.021.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
-  %.sroa.0.020.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
-  %20 = shl i64 %.sroa.12.022.i, 4
+  %.sroa.12.023.i = phi i64 [ 0, %7 ], [ %17, %.loopexit.i ]
+  %.sroa.57.022.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
+  %.sroa.0.021.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
+  %20 = shl i64 %.sroa.12.023.i, 4
   br label %28
 
-.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
+.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i", %.preheader.i
   %21 = icmp samesign ugt i64 %.sroa.0.013.i.i, 9
-  br i1 %21, label %.lr.ph.preheader.i.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h27189c0ebfb539a8E.exit"
+  br i1 %21, label %.preheader.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h27189c0ebfb539a8E.exit"
 
-.lr.ph.preheader.i.i:                             ; preds = %.loopexit.i, %.loopexit.i.i
+.preheader.i:                                     ; preds = %.loopexit.i, %.loopexit.i.i
   %.sroa.0.013.i.i = phi i64 [ %22, %.loopexit.i.i ], [ 16, %.loopexit.i ]
   %22 = lshr i64 %.sroa.0.013.i.i, 1
+  %.not.i.i = icmp eq i64 %22, 0
+  br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.preheader.i.i
+
+.lr.ph.preheader.i.i:                             ; preds = %.preheader.i
   %invariant.gep.i.i = getelementptr inbounds nuw double, ptr %4, i64 %22
   br label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
@@ -34186,9 +34254,9 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
 28:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i, %19
-  %.sroa.03.019.i = phi i64 [ 0, %19 ], [ %29, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i ]
-  %29 = add nuw nsw i64 %.sroa.03.019.i, 1
-  %30 = add nuw nsw i64 %.sroa.03.019.i, %20
+  %.sroa.03.020.i = phi i64 [ 0, %19 ], [ %29, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i ]
+  %29 = add nuw nsw i64 %.sroa.03.020.i, 1
+  %30 = add nuw nsw i64 %.sroa.03.020.i, %20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2619)
   %31 = icmp ult i64 %30, %9
   br i1 %31, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
@@ -34207,14 +34275,14 @@ _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i: ; preds
   br i1 %40, label %41, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 41:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
-  %42 = getelementptr inbounds nuw i32, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
+  %42 = getelementptr inbounds nuw i32, ptr %.sroa.0.021.i, i64 %.sroa.03.020.i
   %43 = load i32, ptr %42, align 4, !alias.scope !2607, !noalias !2610, !noundef !6
   %44 = uitofp i32 %43 to double
   br label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %41, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
   %.sroa.02.0.i = phi double [ %44, %41 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
-  %45 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.019.i
+  %45 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.020.i
   %46 = load double, ptr %45, align 8, !noalias !2612, !noundef !6
   %47 = fadd double %.sroa.02.0.i, %46
   store double %47, ptr %45, align 8, !noalias !2612
@@ -34296,26 +34364,30 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   br label %19
 
 .loopexit.i:                                      ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.i, i64 16
-  %16 = add nsw i64 %.sroa.57.021.i, -16
-  %17 = add nuw nsw i64 %.sroa.12.022.i, 1
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i, i64 16
+  %16 = add nsw i64 %.sroa.57.022.i, -16
+  %17 = add nuw nsw i64 %.sroa.12.023.i, 1
   %18 = icmp eq i64 %16, 0
-  br i1 %18, label %.lr.ph.preheader.i.i, label %19
+  br i1 %18, label %.preheader.i, label %19
 
 19:                                               ; preds = %.loopexit.i, %7
-  %.sroa.12.022.i = phi i64 [ 0, %7 ], [ %17, %.loopexit.i ]
-  %.sroa.57.021.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
-  %.sroa.0.020.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
-  %20 = shl i64 %.sroa.12.022.i, 4
+  %.sroa.12.023.i = phi i64 [ 0, %7 ], [ %17, %.loopexit.i ]
+  %.sroa.57.022.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
+  %.sroa.0.021.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
+  %20 = shl i64 %.sroa.12.023.i, 4
   br label %28
 
-.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
+.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i", %.preheader.i
   %21 = icmp samesign ugt i64 %.sroa.0.013.i.i, 9
-  br i1 %21, label %.lr.ph.preheader.i.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17hec5ac84e65693ebaE.exit"
+  br i1 %21, label %.preheader.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17hec5ac84e65693ebaE.exit"
 
-.lr.ph.preheader.i.i:                             ; preds = %.loopexit.i, %.loopexit.i.i
+.preheader.i:                                     ; preds = %.loopexit.i, %.loopexit.i.i
   %.sroa.0.013.i.i = phi i64 [ %22, %.loopexit.i.i ], [ 16, %.loopexit.i ]
   %22 = lshr i64 %.sroa.0.013.i.i, 1
+  %.not.i.i = icmp eq i64 %22, 0
+  br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.preheader.i.i
+
+.lr.ph.preheader.i.i:                             ; preds = %.preheader.i
   %invariant.gep.i.i = getelementptr inbounds nuw double, ptr %4, i64 %22
   br label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
@@ -34332,9 +34404,9 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
 28:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i, %19
-  %.sroa.03.019.i = phi i64 [ 0, %19 ], [ %29, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i ]
-  %29 = add nuw nsw i64 %.sroa.03.019.i, 1
-  %30 = add nuw nsw i64 %.sroa.03.019.i, %20
+  %.sroa.03.020.i = phi i64 [ 0, %19 ], [ %29, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i ]
+  %29 = add nuw nsw i64 %.sroa.03.020.i, 1
+  %30 = add nuw nsw i64 %.sroa.03.020.i, %20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2633)
   %31 = icmp ult i64 %30, %9
   br i1 %31, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
@@ -34353,14 +34425,14 @@ _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i: ; preds
   br i1 %40, label %41, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 41:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i, i64 %.sroa.03.020.i
   %43 = load i8, ptr %42, align 1, !alias.scope !2621, !noalias !2624, !noundef !6
   %44 = uitofp i8 %43 to double
   br label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %41, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
   %.sroa.02.0.i = phi double [ %44, %41 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
-  %45 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.019.i
+  %45 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.020.i
   %46 = load double, ptr %45, align 8, !noalias !2626, !noundef !6
   %47 = fadd double %.sroa.02.0.i, %46
   store double %47, ptr %45, align 8, !noalias !2626
@@ -34442,26 +34514,30 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   br label %19
 
 .loopexit.i:                                      ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.i, i64 256
-  %16 = add nsw i64 %.sroa.57.021.i, -16
-  %17 = add nuw nsw i64 %.sroa.12.022.i, 1
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i, i64 256
+  %16 = add nsw i64 %.sroa.57.022.i, -16
+  %17 = add nuw nsw i64 %.sroa.12.023.i, 1
   %18 = icmp eq i64 %16, 0
-  br i1 %18, label %.lr.ph.preheader.i.i, label %19
+  br i1 %18, label %.preheader.i, label %19
 
 19:                                               ; preds = %.loopexit.i, %7
-  %.sroa.12.022.i = phi i64 [ 0, %7 ], [ %17, %.loopexit.i ]
-  %.sroa.57.021.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
-  %.sroa.0.020.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
-  %20 = shl i64 %.sroa.12.022.i, 4
+  %.sroa.12.023.i = phi i64 [ 0, %7 ], [ %17, %.loopexit.i ]
+  %.sroa.57.022.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
+  %.sroa.0.021.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
+  %20 = shl i64 %.sroa.12.023.i, 4
   br label %28
 
-.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
+.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i", %.preheader.i
   %21 = icmp samesign ugt i64 %.sroa.0.013.i.i, 9
-  br i1 %21, label %.lr.ph.preheader.i.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h5f35546e90aea5d8E.exit"
+  br i1 %21, label %.preheader.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h5f35546e90aea5d8E.exit"
 
-.lr.ph.preheader.i.i:                             ; preds = %.loopexit.i, %.loopexit.i.i
+.preheader.i:                                     ; preds = %.loopexit.i, %.loopexit.i.i
   %.sroa.0.013.i.i = phi i64 [ %22, %.loopexit.i.i ], [ 16, %.loopexit.i ]
   %22 = lshr i64 %.sroa.0.013.i.i, 1
+  %.not.i.i = icmp eq i64 %22, 0
+  br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.preheader.i.i
+
+.lr.ph.preheader.i.i:                             ; preds = %.preheader.i
   %invariant.gep.i.i = getelementptr inbounds nuw double, ptr %4, i64 %22
   br label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
@@ -34478,9 +34554,9 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
 28:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i, %19
-  %.sroa.03.019.i = phi i64 [ 0, %19 ], [ %29, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i ]
-  %29 = add nuw nsw i64 %.sroa.03.019.i, 1
-  %30 = add nuw nsw i64 %.sroa.03.019.i, %20
+  %.sroa.03.020.i = phi i64 [ 0, %19 ], [ %29, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i ]
+  %29 = add nuw nsw i64 %.sroa.03.020.i, 1
+  %30 = add nuw nsw i64 %.sroa.03.020.i, %20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2647)
   %31 = icmp ult i64 %30, %9
   br i1 %31, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
@@ -34499,14 +34575,14 @@ _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i: ; preds
   br i1 %40, label %41, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 41:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
-  %42 = getelementptr inbounds nuw i128, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
+  %42 = getelementptr inbounds nuw i128, ptr %.sroa.0.021.i, i64 %.sroa.03.020.i
   %43 = load i128, ptr %42, align 16, !alias.scope !2635, !noalias !2638, !noundef !6
   %44 = sitofp i128 %43 to double
   br label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %41, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
   %.sroa.02.0.i = phi double [ %44, %41 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
-  %45 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.019.i
+  %45 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.020.i
   %46 = load double, ptr %45, align 8, !noalias !2640, !noundef !6
   %47 = fadd double %.sroa.02.0.i, %46
   store double %47, ptr %45, align 8, !noalias !2640
@@ -34588,26 +34664,30 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   br label %19
 
 .loopexit.i:                                      ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.i, i64 64
-  %16 = add nsw i64 %.sroa.57.021.i, -16
-  %17 = add nuw nsw i64 %.sroa.12.022.i, 1
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i, i64 64
+  %16 = add nsw i64 %.sroa.57.022.i, -16
+  %17 = add nuw nsw i64 %.sroa.12.023.i, 1
   %18 = icmp eq i64 %16, 0
-  br i1 %18, label %.lr.ph.preheader.i.i, label %19
+  br i1 %18, label %.preheader.i, label %19
 
 19:                                               ; preds = %.loopexit.i, %7
-  %.sroa.12.022.i = phi i64 [ 0, %7 ], [ %17, %.loopexit.i ]
-  %.sroa.57.021.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
-  %.sroa.0.020.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
-  %20 = shl i64 %.sroa.12.022.i, 4
+  %.sroa.12.023.i = phi i64 [ 0, %7 ], [ %17, %.loopexit.i ]
+  %.sroa.57.022.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
+  %.sroa.0.021.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
+  %20 = shl i64 %.sroa.12.023.i, 4
   br label %28
 
-.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
+.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i", %.preheader.i
   %21 = icmp samesign ugt i64 %.sroa.0.013.i.i, 9
-  br i1 %21, label %.lr.ph.preheader.i.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h5e8e16536e536d7aE.exit"
+  br i1 %21, label %.preheader.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h5e8e16536e536d7aE.exit"
 
-.lr.ph.preheader.i.i:                             ; preds = %.loopexit.i, %.loopexit.i.i
+.preheader.i:                                     ; preds = %.loopexit.i, %.loopexit.i.i
   %.sroa.0.013.i.i = phi i64 [ %22, %.loopexit.i.i ], [ 16, %.loopexit.i ]
   %22 = lshr i64 %.sroa.0.013.i.i, 1
+  %.not.i.i = icmp eq i64 %22, 0
+  br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.preheader.i.i
+
+.lr.ph.preheader.i.i:                             ; preds = %.preheader.i
   %invariant.gep.i.i = getelementptr inbounds nuw double, ptr %4, i64 %22
   br label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
@@ -34624,9 +34704,9 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
 28:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i, %19
-  %.sroa.03.019.i = phi i64 [ 0, %19 ], [ %29, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i ]
-  %29 = add nuw nsw i64 %.sroa.03.019.i, 1
-  %30 = add nuw nsw i64 %.sroa.03.019.i, %20
+  %.sroa.03.020.i = phi i64 [ 0, %19 ], [ %29, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i ]
+  %29 = add nuw nsw i64 %.sroa.03.020.i, 1
+  %30 = add nuw nsw i64 %.sroa.03.020.i, %20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2661)
   %31 = icmp ult i64 %30, %9
   br i1 %31, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
@@ -34645,14 +34725,14 @@ _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i: ; preds
   br i1 %40, label %41, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 41:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
-  %42 = getelementptr inbounds nuw float, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
+  %42 = getelementptr inbounds nuw float, ptr %.sroa.0.021.i, i64 %.sroa.03.020.i
   %43 = load float, ptr %42, align 4, !alias.scope !2649, !noalias !2652, !noundef !6
   %44 = fpext float %43 to double
   br label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %41, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
   %.sroa.02.0.i = phi double [ %44, %41 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
-  %45 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.019.i
+  %45 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.020.i
   %46 = load double, ptr %45, align 8, !noalias !2654, !noundef !6
   %47 = fadd double %.sroa.02.0.i, %46
   store double %47, ptr %45, align 8, !noalias !2654
@@ -34734,26 +34814,30 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   br label %19
 
 .loopexit.i:                                      ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.i, i64 128
-  %16 = add nsw i64 %.sroa.57.021.i, -16
-  %17 = add nuw nsw i64 %.sroa.12.022.i, 1
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i, i64 128
+  %16 = add nsw i64 %.sroa.57.022.i, -16
+  %17 = add nuw nsw i64 %.sroa.12.023.i, 1
   %18 = icmp eq i64 %16, 0
-  br i1 %18, label %.lr.ph.preheader.i.i, label %19
+  br i1 %18, label %.preheader.i, label %19
 
 19:                                               ; preds = %.loopexit.i, %7
-  %.sroa.12.022.i = phi i64 [ 0, %7 ], [ %17, %.loopexit.i ]
-  %.sroa.57.021.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
-  %.sroa.0.020.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
-  %20 = shl i64 %.sroa.12.022.i, 4
+  %.sroa.12.023.i = phi i64 [ 0, %7 ], [ %17, %.loopexit.i ]
+  %.sroa.57.022.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
+  %.sroa.0.021.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
+  %20 = shl i64 %.sroa.12.023.i, 4
   br label %28
 
-.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
+.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i", %.preheader.i
   %21 = icmp samesign ugt i64 %.sroa.0.013.i.i, 9
-  br i1 %21, label %.lr.ph.preheader.i.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17hb5ce83df2a56a434E.exit"
+  br i1 %21, label %.preheader.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17hb5ce83df2a56a434E.exit"
 
-.lr.ph.preheader.i.i:                             ; preds = %.loopexit.i, %.loopexit.i.i
+.preheader.i:                                     ; preds = %.loopexit.i, %.loopexit.i.i
   %.sroa.0.013.i.i = phi i64 [ %22, %.loopexit.i.i ], [ 16, %.loopexit.i ]
   %22 = lshr i64 %.sroa.0.013.i.i, 1
+  %.not.i.i = icmp eq i64 %22, 0
+  br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.preheader.i.i
+
+.lr.ph.preheader.i.i:                             ; preds = %.preheader.i
   %invariant.gep.i.i = getelementptr inbounds nuw double, ptr %4, i64 %22
   br label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
@@ -34770,9 +34854,9 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
 28:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i, %19
-  %.sroa.03.019.i = phi i64 [ 0, %19 ], [ %29, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i ]
-  %29 = add nuw nsw i64 %.sroa.03.019.i, 1
-  %30 = add nuw nsw i64 %.sroa.03.019.i, %20
+  %.sroa.03.020.i = phi i64 [ 0, %19 ], [ %29, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i ]
+  %29 = add nuw nsw i64 %.sroa.03.020.i, 1
+  %30 = add nuw nsw i64 %.sroa.03.020.i, %20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2675)
   %31 = icmp ult i64 %30, %9
   br i1 %31, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
@@ -34791,14 +34875,14 @@ _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i: ; preds
   br i1 %40, label %41, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 41:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
-  %42 = getelementptr inbounds nuw i64, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
+  %42 = getelementptr inbounds nuw i64, ptr %.sroa.0.021.i, i64 %.sroa.03.020.i
   %43 = load i64, ptr %42, align 8, !alias.scope !2663, !noalias !2666, !noundef !6
   %44 = sitofp i64 %43 to double
   br label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %41, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
   %.sroa.02.0.i = phi double [ %44, %41 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
-  %45 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.019.i
+  %45 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.020.i
   %46 = load double, ptr %45, align 8, !noalias !2668, !noundef !6
   %47 = fadd double %.sroa.02.0.i, %46
   store double %47, ptr %45, align 8, !noalias !2668
@@ -34880,26 +34964,30 @@ define internal fastcc noundef float @_ZN14polars_compute9float_sum22pairwise_su
   br label %19
 
 .loopexit.i:                                      ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.i, i64 64
-  %16 = add nsw i64 %.sroa.57.021.i, -16
-  %17 = add nuw nsw i64 %.sroa.12.022.i, 1
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i, i64 64
+  %16 = add nsw i64 %.sroa.57.022.i, -16
+  %17 = add nuw nsw i64 %.sroa.12.023.i, 1
   %18 = icmp eq i64 %16, 0
-  br i1 %18, label %.lr.ph.preheader.i.i, label %19
+  br i1 %18, label %.preheader.i, label %19
 
 19:                                               ; preds = %.loopexit.i, %7
-  %.sroa.12.022.i = phi i64 [ 0, %7 ], [ %17, %.loopexit.i ]
-  %.sroa.57.021.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
-  %.sroa.0.020.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
-  %20 = shl i64 %.sroa.12.022.i, 4
+  %.sroa.12.023.i = phi i64 [ 0, %7 ], [ %17, %.loopexit.i ]
+  %.sroa.57.022.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
+  %.sroa.0.021.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
+  %20 = shl i64 %.sroa.12.023.i, 4
   br label %28
 
-.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17hcdad712adf1cc33cE.exit.i.i"
+.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17hcdad712adf1cc33cE.exit.i.i", %.preheader.i
   %21 = icmp samesign ugt i64 %.sroa.0.013.i.i, 9
-  br i1 %21, label %.lr.ph.preheader.i.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h792377b49a7dc294E.exit"
+  br i1 %21, label %.preheader.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h792377b49a7dc294E.exit"
 
-.lr.ph.preheader.i.i:                             ; preds = %.loopexit.i, %.loopexit.i.i
+.preheader.i:                                     ; preds = %.loopexit.i, %.loopexit.i.i
   %.sroa.0.013.i.i = phi i64 [ %22, %.loopexit.i.i ], [ 16, %.loopexit.i ]
   %22 = lshr i64 %.sroa.0.013.i.i, 1
+  %.not.i.i = icmp eq i64 %22, 0
+  br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.preheader.i.i
+
+.lr.ph.preheader.i.i:                             ; preds = %.preheader.i
   %invariant.gep.i.i = getelementptr inbounds nuw float, ptr %4, i64 %22
   br label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17hcdad712adf1cc33cE.exit.i.i"
 
@@ -34916,9 +35004,9 @@ define internal fastcc noundef float @_ZN14polars_compute9float_sum22pairwise_su
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17hcdad712adf1cc33cE.exit.i.i"
 
 28:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i, %19
-  %.sroa.03.019.i = phi i64 [ 0, %19 ], [ %29, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i ]
-  %29 = add nuw nsw i64 %.sroa.03.019.i, 1
-  %30 = add nuw nsw i64 %.sroa.03.019.i, %20
+  %.sroa.03.020.i = phi i64 [ 0, %19 ], [ %29, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i ]
+  %29 = add nuw nsw i64 %.sroa.03.020.i, 1
+  %30 = add nuw nsw i64 %.sroa.03.020.i, %20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2689)
   %31 = icmp ult i64 %30, %9
   br i1 %31, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
@@ -34937,13 +35025,13 @@ _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i: ; preds
   br i1 %40, label %41, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 41:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
-  %42 = getelementptr inbounds nuw float, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
+  %42 = getelementptr inbounds nuw float, ptr %.sroa.0.021.i, i64 %.sroa.03.020.i
   %43 = load float, ptr %42, align 4, !alias.scope !2677, !noalias !2680, !noundef !6
   br label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %41, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
   %.sroa.02.0.i = phi float [ %43, %41 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
-  %44 = getelementptr inbounds nuw float, ptr %4, i64 %.sroa.03.019.i
+  %44 = getelementptr inbounds nuw float, ptr %4, i64 %.sroa.03.020.i
   %45 = load float, ptr %44, align 4, !noalias !2682, !noundef !6
   %46 = fadd float %.sroa.02.0.i, %45
   store float %46, ptr %44, align 4, !noalias !2682
@@ -35025,26 +35113,30 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   br label %19
 
 .loopexit.i:                                      ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.i, i64 32
-  %16 = add nsw i64 %.sroa.57.021.i, -16
-  %17 = add nuw nsw i64 %.sroa.12.022.i, 1
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i, i64 32
+  %16 = add nsw i64 %.sroa.57.022.i, -16
+  %17 = add nuw nsw i64 %.sroa.12.023.i, 1
   %18 = icmp eq i64 %16, 0
-  br i1 %18, label %.lr.ph.preheader.i.i, label %19
+  br i1 %18, label %.preheader.i, label %19
 
 19:                                               ; preds = %.loopexit.i, %7
-  %.sroa.12.022.i = phi i64 [ 0, %7 ], [ %17, %.loopexit.i ]
-  %.sroa.57.021.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
-  %.sroa.0.020.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
-  %20 = shl i64 %.sroa.12.022.i, 4
+  %.sroa.12.023.i = phi i64 [ 0, %7 ], [ %17, %.loopexit.i ]
+  %.sroa.57.022.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
+  %.sroa.0.021.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
+  %20 = shl i64 %.sroa.12.023.i, 4
   br label %28
 
-.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
+.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i", %.preheader.i
   %21 = icmp samesign ugt i64 %.sroa.0.013.i.i, 9
-  br i1 %21, label %.lr.ph.preheader.i.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17he007ff237d96bef8E.exit"
+  br i1 %21, label %.preheader.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17he007ff237d96bef8E.exit"
 
-.lr.ph.preheader.i.i:                             ; preds = %.loopexit.i, %.loopexit.i.i
+.preheader.i:                                     ; preds = %.loopexit.i, %.loopexit.i.i
   %.sroa.0.013.i.i = phi i64 [ %22, %.loopexit.i.i ], [ 16, %.loopexit.i ]
   %22 = lshr i64 %.sroa.0.013.i.i, 1
+  %.not.i.i = icmp eq i64 %22, 0
+  br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.preheader.i.i
+
+.lr.ph.preheader.i.i:                             ; preds = %.preheader.i
   %invariant.gep.i.i = getelementptr inbounds nuw double, ptr %4, i64 %22
   br label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
@@ -35061,9 +35153,9 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
 28:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i, %19
-  %.sroa.03.019.i = phi i64 [ 0, %19 ], [ %29, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i ]
-  %29 = add nuw nsw i64 %.sroa.03.019.i, 1
-  %30 = add nuw nsw i64 %.sroa.03.019.i, %20
+  %.sroa.03.020.i = phi i64 [ 0, %19 ], [ %29, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i ]
+  %29 = add nuw nsw i64 %.sroa.03.020.i, 1
+  %30 = add nuw nsw i64 %.sroa.03.020.i, %20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2703)
   %31 = icmp ult i64 %30, %9
   br i1 %31, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
@@ -35082,14 +35174,14 @@ _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i: ; preds
   br i1 %40, label %41, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 41:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
-  %42 = getelementptr inbounds nuw i16, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
+  %42 = getelementptr inbounds nuw i16, ptr %.sroa.0.021.i, i64 %.sroa.03.020.i
   %43 = load i16, ptr %42, align 2, !alias.scope !2691, !noalias !2694, !noundef !6
   %44 = uitofp i16 %43 to double
   br label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %41, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
   %.sroa.02.0.i = phi double [ %44, %41 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
-  %45 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.019.i
+  %45 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.020.i
   %46 = load double, ptr %45, align 8, !noalias !2696, !noundef !6
   %47 = fadd double %.sroa.02.0.i, %46
   store double %47, ptr %45, align 8, !noalias !2696
@@ -35171,26 +35263,30 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   br label %19
 
 .loopexit.i:                                      ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.i, i64 128
-  %16 = add nsw i64 %.sroa.57.021.i, -16
-  %17 = add nuw nsw i64 %.sroa.12.022.i, 1
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i, i64 128
+  %16 = add nsw i64 %.sroa.57.022.i, -16
+  %17 = add nuw nsw i64 %.sroa.12.023.i, 1
   %18 = icmp eq i64 %16, 0
-  br i1 %18, label %.lr.ph.preheader.i.i, label %19
+  br i1 %18, label %.preheader.i, label %19
 
 19:                                               ; preds = %.loopexit.i, %7
-  %.sroa.12.022.i = phi i64 [ 0, %7 ], [ %17, %.loopexit.i ]
-  %.sroa.57.021.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
-  %.sroa.0.020.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
-  %20 = shl i64 %.sroa.12.022.i, 4
+  %.sroa.12.023.i = phi i64 [ 0, %7 ], [ %17, %.loopexit.i ]
+  %.sroa.57.022.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
+  %.sroa.0.021.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
+  %20 = shl i64 %.sroa.12.023.i, 4
   br label %28
 
-.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
+.loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i", %.preheader.i
   %21 = icmp samesign ugt i64 %.sroa.0.013.i.i, 9
-  br i1 %21, label %.lr.ph.preheader.i.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h7087dbdc1bc4e414E.exit"
+  br i1 %21, label %.preheader.i, label %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h7087dbdc1bc4e414E.exit"
 
-.lr.ph.preheader.i.i:                             ; preds = %.loopexit.i, %.loopexit.i.i
+.preheader.i:                                     ; preds = %.loopexit.i, %.loopexit.i.i
   %.sroa.0.013.i.i = phi i64 [ %22, %.loopexit.i.i ], [ 16, %.loopexit.i ]
   %22 = lshr i64 %.sroa.0.013.i.i, 1
+  %.not.i.i = icmp eq i64 %22, 0
+  br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.preheader.i.i
+
+.lr.ph.preheader.i.i:                             ; preds = %.preheader.i
   %invariant.gep.i.i = getelementptr inbounds nuw double, ptr %4, i64 %22
   br label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
@@ -35207,9 +35303,9 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17ha62c17705a54b295E.exit.i.i"
 
 28:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i, %19
-  %.sroa.03.019.i = phi i64 [ 0, %19 ], [ %29, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i ]
-  %29 = add nuw nsw i64 %.sroa.03.019.i, 1
-  %30 = add nuw nsw i64 %.sroa.03.019.i, %20
+  %.sroa.03.020.i = phi i64 [ 0, %19 ], [ %29, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i ]
+  %29 = add nuw nsw i64 %.sroa.03.020.i, 1
+  %30 = add nuw nsw i64 %.sroa.03.020.i, %20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2717)
   %31 = icmp ult i64 %30, %9
   br i1 %31, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
@@ -35228,14 +35324,14 @@ _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i: ; preds
   br i1 %40, label %41, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 41:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
-  %42 = getelementptr inbounds nuw i64, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
+  %42 = getelementptr inbounds nuw i64, ptr %.sroa.0.021.i, i64 %.sroa.03.020.i
   %43 = load i64, ptr %42, align 8, !alias.scope !2705, !noalias !2708, !noundef !6
   %44 = uitofp i64 %43 to double
   br label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %41, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
   %.sroa.02.0.i = phi double [ %44, %41 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
-  %45 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.019.i
+  %45 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.020.i
   %46 = load double, ptr %45, align 8, !noalias !2710, !noundef !6
   %47 = fadd double %.sroa.02.0.i, %46
   store double %47, ptr %45, align 8, !noalias !2710
@@ -61091,8 +61187,8 @@ define internal fastcc void @_ZN4core5slice4sort6stable5drift4sort17hf4b2deda7f7
   %.sroa.0.0 = phi i64 [ %.sroa.0.0.sroa.speculated.i, %16 ], [ %15, %14 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %.not3.i76 = icmp ugt i64 %.sroa.0.0, 2
-  %.not3.i81 = icmp ugt i64 %.sroa.0.0, 2
+  %.not3.i77 = icmp ugt i64 %.sroa.0.0, 2
+  %.not3.i82 = icmp ugt i64 %.sroa.0.0, 2
   br label %20
 
 20:                                               ; preds = %112, %19
@@ -61108,8 +61204,8 @@ define internal fastcc void @_ZN4core5slice4sort6stable5drift4sort17hf4b2deda7f7
   %.not.i30 = icmp ult i64 %22, %.sroa.0.0
   br i1 %.not.i30, label %24, label %25
 
-24:                                               ; preds = %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread79, %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread, %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6fddcdc5b61fedb4E.exit"
-  br i1 %4, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h05245028cfa7b373E.exit34", label %47
+24:                                               ; preds = %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread80, %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread, %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6fddcdc5b61fedb4E.exit"
+  br i1 %4, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h05245028cfa7b373E.exit34", label %48
 
 25:                                               ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6fddcdc5b61fedb4E.exit"
   %26 = icmp ult i64 %22, 2
@@ -61118,15 +61214,15 @@ define internal fastcc void @_ZN4core5slice4sort6stable5drift4sort17hf4b2deda7f7
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %29 = tail call noundef range(i8 -1, 3) i8 @"_ZN68_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6abc7bdf499f6492E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %23), !noalias !4842
-  %30 = icmp slt i8 %29, 0
+  %30 = icmp sgt i8 %29, -1
   %.not64 = icmp eq i64 %22, 2
-  br i1 %30, label %.preheader, label %.preheader45
+  br i1 %30, label %.preheader45, label %.preheader
 
 .preheader45:                                     ; preds = %27
   br i1 %.not64, label %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread, label %.lr.ph
 
 .preheader:                                       ; preds = %27
-  br i1 %.not64, label %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread79, label %.lr.ph51
+  br i1 %.not64, label %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread80, label %.lr.ph51
 
 .lr.ph:                                           ; preds = %.preheader45, %36
   %.sroa.01.1.i.i47 = phi i64 [ %37, %36 ], [ 2, %.preheader45 ]
@@ -61156,49 +61252,47 @@ define internal fastcc void @_ZN4core5slice4sort6stable5drift4sort17hf4b2deda7f7
   %exitcond67.not = icmp eq i64 %44, %22
   br i1 %exitcond67.not, label %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i, label %.lr.ph51
 
-_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i: ; preds = %36, %.lr.ph, %43, %.lr.ph51
-  %.sroa.0.0.i.i = phi i64 [ %22, %43 ], [ %.sroa.01.0.i.i50, %.lr.ph51 ], [ %22, %36 ], [ %.sroa.01.1.i.i47, %.lr.ph ]
+_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i: ; preds = %43, %.lr.ph51, %36, %.lr.ph
+  %.sroa.0.0.i.i = phi i64 [ %22, %36 ], [ %.sroa.01.1.i.i47, %.lr.ph ], [ %22, %43 ], [ %.sroa.01.0.i.i50, %.lr.ph51 ]
   %45 = icmp ule i64 %.sroa.0.0.i.i, %22
   tail call void @llvm.assume(i1 %45)
   %.not3.i = icmp ult i64 %.sroa.0.0.i.i, %.sroa.0.0
   br i1 %.not3.i, label %24, label %46
 
-_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread79: ; preds = %.preheader
-  br i1 %.not3.i81, label %24, label %.lr.ph.preheader.i.i
+_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread80: ; preds = %.preheader
+  br i1 %.not3.i82, label %24, label %.lr.ph.preheader.i.i
 
 _ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread: ; preds = %.preheader45
-  br i1 %.not3.i76, label %24, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hc9f7375c7a93c0afE.exit"
+  br i1 %.not3.i77, label %24, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hc9f7375c7a93c0afE.exit"
 
 46:                                               ; preds = %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i
-  br i1 %30, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h05245028cfa7b373E.exit33", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hc9f7375c7a93c0afE.exit"
+  %47 = lshr i64 %.sroa.0.0.i.i, 1
+  %.not16.i.i = icmp eq i64 %47, 0
+  %or.cond = or i1 %30, %.not16.i.i
+  br i1 %or.cond, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hc9f7375c7a93c0afE.exit", label %.lr.ph.preheader.i.i
 
-47:                                               ; preds = %24
+48:                                               ; preds = %24
   %.sroa.0.0.sroa.speculated.i36 = tail call noundef i64 @llvm.umin.i64(i64 %22, i64 %.sroa.0.0)
-  %48 = shl i64 %.sroa.0.0.sroa.speculated.i36, 1
+  %49 = shl i64 %.sroa.0.0.sroa.speculated.i36, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17h8c8a1b4f1df4ec46E.exit
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h05245028cfa7b373E.exit34": ; preds = %24
   %.sroa.0.0.sroa.speculated.i35 = tail call noundef i64 @llvm.umin.i64(i64 %22, i64 32)
   tail call void @_ZN4core5slice4sort6stable9quicksort9quicksort17h0bb8505c95f59490E(ptr noalias noundef nonnull align 8 %23, i64 noundef %.sroa.0.0.sroa.speculated.i35, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef 0, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) null, ptr noalias noundef nonnull align 1 %5)
-  %49 = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i35, 1
-  %50 = or disjoint i64 %49, 1
+  %50 = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i35, 1
+  %51 = or disjoint i64 %50, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17h8c8a1b4f1df4ec46E.exit
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hc9f7375c7a93c0afE.exit": ; preds = %_ZN4core10intrinsics25typed_swap_nonoverlapping17h97f137ef2e20a8d9E.exit.i.i, %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread, %25, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h05245028cfa7b373E.exit33", %46
-  %.sroa.0.0.i.i4144 = phi i64 [ %.sroa.0.0.i.i, %46 ], [ 1, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h05245028cfa7b373E.exit33" ], [ %22, %25 ], [ 2, %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread ], [ %.sroa.0.0.i.i778487, %_ZN4core10intrinsics25typed_swap_nonoverlapping17h97f137ef2e20a8d9E.exit.i.i ]
-  %51 = shl i64 %.sroa.0.0.i.i4144, 1
-  %52 = or disjoint i64 %51, 1
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hc9f7375c7a93c0afE.exit": ; preds = %_ZN4core10intrinsics25typed_swap_nonoverlapping17h97f137ef2e20a8d9E.exit.i.i, %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread, %25, %46
+  %.sroa.0.0.i.i4144 = phi i64 [ %.sroa.0.0.i.i, %46 ], [ %22, %25 ], [ 2, %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread ], [ %.sroa.0.0.i.i788588, %_ZN4core10intrinsics25typed_swap_nonoverlapping17h97f137ef2e20a8d9E.exit.i.i ]
+  %52 = shl i64 %.sroa.0.0.i.i4144, 1
+  %53 = or disjoint i64 %52, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17h8c8a1b4f1df4ec46E.exit
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h05245028cfa7b373E.exit33": ; preds = %46
-  %53 = lshr i64 %.sroa.0.0.i.i, 1
-  %.not16.i.i = icmp ult i64 %.sroa.0.0.i.i, 2
-  br i1 %.not16.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hc9f7375c7a93c0afE.exit", label %.lr.ph.preheader.i.i
-
-.lr.ph.preheader.i.i:                             ; preds = %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread79, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h05245028cfa7b373E.exit33"
-  %54 = phi i64 [ %53, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h05245028cfa7b373E.exit33" ], [ 1, %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread79 ]
-  %.sroa.0.0.i.i778487 = phi i64 [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h05245028cfa7b373E.exit33" ], [ 2, %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread79 ]
-  %55 = getelementptr inbounds nuw { { { ptr, i64, i32, i16, i8, i8 } } }, ptr %23, i64 %.sroa.0.0.i.i778487
+.lr.ph.preheader.i.i:                             ; preds = %46, %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread80
+  %54 = phi i64 [ 1, %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread80 ], [ %47, %46 ]
+  %.sroa.0.0.i.i788588 = phi i64 [ 2, %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread80 ], [ %.sroa.0.0.i.i, %46 ]
+  %55 = getelementptr inbounds nuw { { { ptr, i64, i32, i16, i8, i8 } } }, ptr %23, i64 %.sroa.0.0.i.i788588
   br label %56
 
 56:                                               ; preds = %_ZN4core10intrinsics25typed_swap_nonoverlapping17h97f137ef2e20a8d9E.exit.i.i, %.lr.ph.preheader.i.i
@@ -61220,8 +61314,8 @@ _ZN4core10intrinsics25typed_swap_nonoverlapping17h97f137ef2e20a8d9E.exit.i.i: ; 
   %exitcond.not.i.i = icmp eq i64 %62, %54
   br i1 %exitcond.not.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hc9f7375c7a93c0afE.exit", label %56
 
-_ZN4core5slice4sort6stable5drift10create_run17h8c8a1b4f1df4ec46E.exit: ; preds = %47, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h05245028cfa7b373E.exit34", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hc9f7375c7a93c0afE.exit"
-  %.sroa.0.0.i31 = phi i64 [ %52, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hc9f7375c7a93c0afE.exit" ], [ %50, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h05245028cfa7b373E.exit34" ], [ %48, %47 ]
+_ZN4core5slice4sort6stable5drift10create_run17h8c8a1b4f1df4ec46E.exit: ; preds = %48, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h05245028cfa7b373E.exit34", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hc9f7375c7a93c0afE.exit"
+  %.sroa.0.0.i31 = phi i64 [ %53, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hc9f7375c7a93c0afE.exit" ], [ %51, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h05245028cfa7b373E.exit34" ], [ %49, %48 ]
   %63 = lshr i64 %.sroa.017.0, 1
   %64 = lshr i64 %.sroa.0.0.i31, 1
   %factor = shl i64 %.sroa.08.0, 1

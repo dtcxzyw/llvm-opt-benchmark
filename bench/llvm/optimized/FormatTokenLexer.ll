@@ -9034,16 +9034,13 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit: ; preds = %.lr.ph, %
 define dso_local noundef zeroext i1 @_ZN5clang6format16FormatTokenLexer17tryMergeTokensAnyEN4llvm8ArrayRefINS3_INS_3tok9TokenKindEEEEENS0_9TokenTypeE(ptr noundef nonnull align 8 dereferenceable(3824) %0, ptr %1, i64 %2, i8 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw %"class.llvm::ArrayRef.173", ptr %1, i64 %2
   %6 = ptrtoint ptr %5 to i64
-  %.not.i = icmp ult i64 %2, 4
-  br i1 %.not.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.preheader.i
-
-.lr.ph.i.i.i.i.i.preheader.i:                     ; preds = %4
   %7 = lshr i64 %2, 2
-  br label %.lr.ph.i.i.i.i.i.i
+  %.not.i = icmp eq i64 %7, 0
+  br i1 %.not.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %22, %.lr.ph.i.i.i.i.i.preheader.i
-  %.071.i.i.i.i.i.i = phi i64 [ %24, %22 ], [ %7, %.lr.ph.i.i.i.i.i.preheader.i ]
-  %.02970.i.i.i.i.i.i = phi ptr [ %23, %22 ], [ %1, %.lr.ph.i.i.i.i.i.preheader.i ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %4, %22
+  %.071.i.i.i.i.i.i = phi i64 [ %24, %22 ], [ %7, %4 ]
+  %.02970.i.i.i.i.i.i = phi ptr [ %23, %22 ], [ %1, %4 ]
   %.029.val.i.i.i.i.i.i = load ptr, ptr %.02970.i.i.i.i.i.i, align 8, !tbaa !98
   %8 = getelementptr i8, ptr %.02970.i.i.i.i.i.i, i64 8
   %.029.val31.i.i.i.i.i.i = load i64, ptr %8, align 8, !tbaa !99

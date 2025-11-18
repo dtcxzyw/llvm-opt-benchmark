@@ -3338,7 +3338,7 @@ _ZN14core_hashtableIN7obj_mapI9func_declP4exprE13obj_map_entryE8obj_hashINS4_8ke
   %53 = zext nneg i32 %52 to i64
   %54 = shl nuw nsw i64 %53, 4
   %55 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %54)
-  %.not6.i.i.i.i.i.i.i = icmp ult i32 %51, 2
+  %.not6.i.i.i.i.i.i.i = icmp eq i32 %52, 0
   br i1 %.not6.i.i.i.i.i.i.i, label %_ZN14core_hashtableIN7obj_mapI9func_declP4exprE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE11alloc_tableEj.exit.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %_ZN14core_hashtableIN7obj_mapI9func_declP4exprE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE12delete_tableEv.exit.i.i
@@ -3542,7 +3542,7 @@ _ZN14core_hashtableIN7obj_mapI9func_declP4exprE13obj_map_entryE8obj_hashINS4_8ke
   %61 = zext nneg i32 %60 to i64
   %62 = shl nuw nsw i64 %61, 4
   %63 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %62)
-  %.not6.i.i.i.i.i.i.i = icmp ult i32 %59, 2
+  %.not6.i.i.i.i.i.i.i = icmp eq i32 %60, 0
   br i1 %.not6.i.i.i.i.i.i.i, label %_ZN14core_hashtableIN7obj_mapI9func_declP4exprE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE11alloc_tableEj.exit.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %_ZN14core_hashtableIN7obj_mapI9func_declP4exprE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE12delete_tableEv.exit.i.i
@@ -9157,7 +9157,7 @@ define linkonce_odr hidden void @_ZN14parray_managerIN11ast_manager17expr_array_
 .preheader.i.unreachabledefault:                  ; preds = %.preheader.i
   unreachable
 
-default.unreachable91:                            ; preds = %65
+default.unreachable92:                            ; preds = %65
   unreachable
 
 _ZNK14parray_managerIN11ast_manager17expr_array_configEE4sizeERKNS2_3refE.exit: ; preds = %16, %20, %24
@@ -9166,7 +9166,7 @@ _ZNK14parray_managerIN11ast_manager17expr_array_configEE4sizeERKNS2_3refE.exit: 
   %28 = load i32, ptr %3, align 8
   %29 = lshr i32 %28, 30
   %30 = icmp ne i32 %29, 3
-  %31 = icmp ugt i32 %.07.i, 1
+  %31 = icmp ne i32 %27, 0
   %32 = select i1 %30, i1 %31, i1 false
   br i1 %32, label %.lr.ph, label %._crit_edge
 
@@ -9252,7 +9252,7 @@ _ZNK6vectorIPN14parray_managerIN11ast_manager17expr_array_configEE4cellELb0EjE4s
   %73 = load ptr, ptr %72, align 8, !tbaa !116
   %74 = load i32, ptr %69, align 8
   %75 = lshr i32 %74, 30
-  switch i32 %75, label %default.unreachable91 [
+  switch i32 %75, label %default.unreachable92 [
     i32 0, label %76
     i32 1, label %90
     i32 2, label %124
@@ -10082,7 +10082,7 @@ define linkonce_odr hidden void @_ZN14parray_managerIN11ast_manager28expr_depend
 .preheader.i.unreachabledefault:                  ; preds = %.preheader.i
   unreachable
 
-default.unreachable91:                            ; preds = %65
+default.unreachable92:                            ; preds = %65
   unreachable
 
 _ZNK14parray_managerIN11ast_manager28expr_dependency_array_configEE4sizeERKNS2_3refE.exit: ; preds = %16, %20, %24
@@ -10091,7 +10091,7 @@ _ZNK14parray_managerIN11ast_manager28expr_dependency_array_configEE4sizeERKNS2_3
   %28 = load i32, ptr %3, align 8
   %29 = lshr i32 %28, 30
   %30 = icmp ne i32 %29, 3
-  %31 = icmp ugt i32 %.07.i, 1
+  %31 = icmp ne i32 %27, 0
   %32 = select i1 %30, i1 %31, i1 false
   br i1 %32, label %.lr.ph, label %._crit_edge
 
@@ -10177,7 +10177,7 @@ _ZNK6vectorIPN14parray_managerIN11ast_manager28expr_dependency_array_configEE4ce
   %73 = load ptr, ptr %72, align 8, !tbaa !116
   %74 = load i32, ptr %69, align 8
   %75 = lshr i32 %74, 30
-  switch i32 %75, label %default.unreachable91 [
+  switch i32 %75, label %default.unreachable92 [
     i32 0, label %76
     i32 1, label %90
     i32 2, label %124
@@ -15788,7 +15788,7 @@ declare void @_ZN11mpz_managerILb1EE3negER3mpz(ptr noundef nonnull align 8 deref
 define linkonce_odr hidden void @_ZSt13__stable_sortIPN12pb2bv_tactic3imp8monomialEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_11monomial_ltEEEEvT_S9_T0_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #16 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::_Temporary_buffer", align 8
   %4 = icmp eq ptr %0, %1
-  br i1 %4, label %34, label %5
+  br i1 %4, label %35, label %5
 
 5:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -15806,80 +15806,80 @@ define linkonce_odr hidden void @_ZSt13__stable_sortIPN12pb2bv_tactic3imp8monomi
   br i1 %14, label %.lr.ph.i.i, label %_ZNSt17_Temporary_bufferIPN12pb2bv_tactic3imp8monomialES2_EC2ES3_l.exit
 
 .lr.ph.i.i:                                       ; preds = %5, %select.unfold.i.i
-  %.010.i.i = phi i64 [ %18, %select.unfold.i.i ], [ %11, %5 ]
+  %.010.i.i = phi i64 [ %19, %select.unfold.i.i ], [ %11, %5 ]
   %15 = mul nuw nsw i64 %.010.i.i, 40
   %16 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %15, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #28
   %.not.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i, label %select.unfold.i.i, label %21
+  br i1 %.not.i.i, label %select.unfold.i.i, label %22
 
 select.unfold.i.i:                                ; preds = %.lr.ph.i.i
-  %17 = add nuw nsw i64 %.010.i.i, 1
-  %18 = lshr i64 %17, 1
-  %.not14.i.i = icmp samesign ult i64 %.010.i.i, 2
-  br i1 %.not14.i.i, label %_ZNSt17_Temporary_bufferIPN12pb2bv_tactic3imp8monomialES2_EC2ES3_l.exit, label %.lr.ph.i.i, !llvm.loop !428
+  %17 = icmp eq i64 %.010.i.i, 1
+  %18 = add nuw nsw i64 %.010.i.i, 1
+  %19 = lshr i64 %18, 1
+  br i1 %17, label %_ZNSt17_Temporary_bufferIPN12pb2bv_tactic3imp8monomialES2_EC2ES3_l.exit, label %.lr.ph.i.i, !llvm.loop !428
 
 _ZNSt17_Temporary_bufferIPN12pb2bv_tactic3imp8monomialES2_EC2ES3_l.exit: ; preds = %select.unfold.i.i, %5
   invoke void @_ZSt21__inplace_stable_sortIPN12pb2bv_tactic3imp8monomialEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_11monomial_ltEEEEvT_S9_T0_(ptr noundef %0, ptr noundef %1)
-          to label %_ZNSt17_Temporary_bufferIPN12pb2bv_tactic3imp8monomialES2_ED2Ev.exit unwind label %19
+          to label %_ZNSt17_Temporary_bufferIPN12pb2bv_tactic3imp8monomialES2_ED2Ev.exit unwind label %20
 
-19:                                               ; preds = %21, %_ZNSt17_Temporary_bufferIPN12pb2bv_tactic3imp8monomialES2_EC2ES3_l.exit
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %22, %_ZNSt17_Temporary_bufferIPN12pb2bv_tactic3imp8monomialES2_EC2ES3_l.exit
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt17_Temporary_bufferIPN12pb2bv_tactic3imp8monomialES2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %20
+  resume { ptr, i32 } %21
 
-21:                                               ; preds = %.lr.ph.i.i
-  %22 = getelementptr inbounds nuw %"struct.pb2bv_tactic::imp::monomial", ptr %16, i64 %.010.i.i
-  tail call void @_ZNSt38__uninitialized_construct_buf_dispatchILb0EE5__ucrIPN12pb2bv_tactic3imp8monomialES5_EEvT_S6_T0_(ptr noundef nonnull %16, ptr noundef nonnull %22, ptr noundef %0)
+22:                                               ; preds = %.lr.ph.i.i
+  %23 = getelementptr inbounds nuw %"struct.pb2bv_tactic::imp::monomial", ptr %16, i64 %.010.i.i
+  tail call void @_ZNSt38__uninitialized_construct_buf_dispatchILb0EE5__ucrIPN12pb2bv_tactic3imp8monomialES5_EEvT_S6_T0_(ptr noundef nonnull %16, ptr noundef nonnull %23, ptr noundef %0)
   store ptr %16, ptr %13, align 8, !tbaa !429
   store i64 %.010.i.i, ptr %12, align 8, !tbaa !430
   invoke void @_ZSt22__stable_sort_adaptiveIPN12pb2bv_tactic3imp8monomialES3_lN9__gnu_cxx5__ops15_Iter_comp_iterINS1_11monomial_ltEEEEvT_S9_T0_T1_T2_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %16, i64 noundef %.010.i.i)
-          to label %23 unwind label %19
+          to label %24 unwind label %20
 
-23:                                               ; preds = %21
+24:                                               ; preds = %22
   %.idx.i = mul nsw i64 %.010.i.i, 40
-  %24 = getelementptr inbounds i8, ptr %16, i64 %.idx.i
+  %25 = getelementptr inbounds i8, ptr %16, i64 %.idx.i
   %.not4.i.i.i = icmp eq i64 %.010.i.i, 0
   br i1 %.not4.i.i.i, label %_ZNSt17_Temporary_bufferIPN12pb2bv_tactic3imp8monomialES2_ED2Ev.exit, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %23, %_ZSt8_DestroyIN12pb2bv_tactic3imp8monomialEEvPT_.exit.i.i.i
-  %.05.i.i.i = phi ptr [ %30, %_ZSt8_DestroyIN12pb2bv_tactic3imp8monomialEEvPT_.exit.i.i.i ], [ %16, %23 ]
-  %25 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !139
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %25, ptr noundef nonnull align 8 dereferenceable(40) %.05.i.i.i)
-          to label %.noexc.i.i.i.i.i.i.i unwind label %27
+.lr.ph.i.i.i:                                     ; preds = %24, %_ZSt8_DestroyIN12pb2bv_tactic3imp8monomialEEvPT_.exit.i.i.i
+  %.05.i.i.i = phi ptr [ %31, %_ZSt8_DestroyIN12pb2bv_tactic3imp8monomialEEvPT_.exit.i.i.i ], [ %16, %24 ]
+  %26 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !139
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %26, ptr noundef nonnull align 8 dereferenceable(40) %.05.i.i.i)
+          to label %.noexc.i.i.i.i.i.i.i unwind label %28
 
 .noexc.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i
-  %26 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 16
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %25, ptr noundef nonnull align 8 dereferenceable(16) %26)
-          to label %_ZSt8_DestroyIN12pb2bv_tactic3imp8monomialEEvPT_.exit.i.i.i unwind label %27
+  %27 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 16
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %26, ptr noundef nonnull align 8 dereferenceable(16) %27)
+          to label %_ZSt8_DestroyIN12pb2bv_tactic3imp8monomialEEvPT_.exit.i.i.i unwind label %28
 
-27:                                               ; preds = %.noexc.i.i.i.i.i.i.i, %.lr.ph.i.i.i
-  %28 = landingpad { ptr, i32 }
+28:                                               ; preds = %.noexc.i.i.i.i.i.i.i, %.lr.ph.i.i.i
+  %29 = landingpad { ptr, i32 }
           catch ptr null
-  %29 = extractvalue { ptr, i32 } %28, 0
-  tail call void @__clang_call_terminate(ptr %29) #24
+  %30 = extractvalue { ptr, i32 } %29, 0
+  tail call void @__clang_call_terminate(ptr %30) #24
   unreachable
 
 _ZSt8_DestroyIN12pb2bv_tactic3imp8monomialEEvPT_.exit.i.i.i: ; preds = %.noexc.i.i.i.i.i.i.i
-  %30 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 40
-  %.not.i.i.i = icmp eq ptr %30, %24
+  %31 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 40
+  %.not.i.i.i = icmp eq ptr %31, %25
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN12pb2bv_tactic3imp8monomialEEvT_S4_.exit.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !431
 
 _ZSt8_DestroyIPN12pb2bv_tactic3imp8monomialEEvT_S4_.exit.loopexit.i: ; preds = %_ZSt8_DestroyIN12pb2bv_tactic3imp8monomialEEvPT_.exit.i.i.i
   %.pre.i = load ptr, ptr %13, align 8, !tbaa !429
   %.pre1.i = load i64, ptr %12, align 8, !tbaa !430
-  %31 = mul i64 %.pre1.i, 40
+  %32 = mul i64 %.pre1.i, 40
   br label %_ZNSt17_Temporary_bufferIPN12pb2bv_tactic3imp8monomialES2_ED2Ev.exit
 
-_ZNSt17_Temporary_bufferIPN12pb2bv_tactic3imp8monomialES2_ED2Ev.exit: ; preds = %_ZNSt17_Temporary_bufferIPN12pb2bv_tactic3imp8monomialES2_EC2ES3_l.exit, %23, %_ZSt8_DestroyIPN12pb2bv_tactic3imp8monomialEEvT_S4_.exit.loopexit.i
-  %32 = phi i64 [ %31, %_ZSt8_DestroyIPN12pb2bv_tactic3imp8monomialEEvT_S4_.exit.loopexit.i ], [ 0, %23 ], [ 0, %_ZNSt17_Temporary_bufferIPN12pb2bv_tactic3imp8monomialES2_EC2ES3_l.exit ]
-  %33 = phi ptr [ %.pre.i, %_ZSt8_DestroyIPN12pb2bv_tactic3imp8monomialEEvT_S4_.exit.loopexit.i ], [ %16, %23 ], [ null, %_ZNSt17_Temporary_bufferIPN12pb2bv_tactic3imp8monomialES2_EC2ES3_l.exit ]
-  tail call void @_ZdlPvm(ptr noundef %33, i64 noundef %32) #23
+_ZNSt17_Temporary_bufferIPN12pb2bv_tactic3imp8monomialES2_ED2Ev.exit: ; preds = %_ZNSt17_Temporary_bufferIPN12pb2bv_tactic3imp8monomialES2_EC2ES3_l.exit, %24, %_ZSt8_DestroyIPN12pb2bv_tactic3imp8monomialEEvT_S4_.exit.loopexit.i
+  %33 = phi i64 [ %32, %_ZSt8_DestroyIPN12pb2bv_tactic3imp8monomialEEvT_S4_.exit.loopexit.i ], [ 0, %24 ], [ 0, %_ZNSt17_Temporary_bufferIPN12pb2bv_tactic3imp8monomialES2_EC2ES3_l.exit ]
+  %34 = phi ptr [ %.pre.i, %_ZSt8_DestroyIPN12pb2bv_tactic3imp8monomialEEvT_S4_.exit.loopexit.i ], [ %16, %24 ], [ null, %_ZNSt17_Temporary_bufferIPN12pb2bv_tactic3imp8monomialES2_EC2ES3_l.exit ]
+  tail call void @_ZdlPvm(ptr noundef %34, i64 noundef %33) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %34
+  br label %35
 
-34:                                               ; preds = %2, %_ZNSt17_Temporary_bufferIPN12pb2bv_tactic3imp8monomialES2_ED2Ev.exit
+35:                                               ; preds = %2, %_ZNSt17_Temporary_bufferIPN12pb2bv_tactic3imp8monomialES2_ED2Ev.exit
   ret void
 }
 
@@ -28153,7 +28153,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %45, %51
   br i1 %71, label %72, label %100
 
 72:                                               ; preds = %68
-  %73 = icmp ult i32 %69, 64
+  %73 = icmp eq i32 %70, 0
   br i1 %73, label %_ZNK10quantifier9get_childEj.exit, label %74
 
 74:                                               ; preds = %72
@@ -31712,7 +31712,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %43, %49
   br i1 %69, label %70, label %98
 
 70:                                               ; preds = %66
-  %71 = icmp ult i32 %67, 64
+  %71 = icmp eq i32 %68, 0
   br i1 %71, label %_ZNK10quantifier9get_childEj.exit, label %72
 
 72:                                               ; preds = %70

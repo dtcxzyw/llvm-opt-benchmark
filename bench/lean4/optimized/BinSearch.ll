@@ -511,7 +511,7 @@ lean_nat_eq.exit.thread:                          ; preds = %lean_dec.exit101
   br i1 %171, label %.thread206, label %.thread
 
 172:                                              ; preds = %lean_nat_eq.exit
-  %173 = icmp ult ptr %.1.i179200, inttoptr (i64 2 to ptr)
+  %173 = icmp eq i64 %46, 0
   br i1 %173, label %lean_dec.exit102, label %174
 
 174:                                              ; preds = %172
@@ -1470,7 +1470,7 @@ lean_nat_eq.exit.thread:                          ; preds = %lean_dec.exit101
   br i1 %169, label %.thread198, label %.thread
 
 170:                                              ; preds = %lean_nat_eq.exit
-  %171 = icmp ult ptr %.1.i171192, inttoptr (i64 2 to ptr)
+  %171 = icmp eq i64 %44, 0
   br i1 %171, label %lean_dec.exit100, label %172
 
 172:                                              ; preds = %170
@@ -2394,7 +2394,7 @@ lean_nat_eq.exit.thread:                          ; preds = %lean_dec.exit101
   br i1 %169, label %.thread198, label %.thread
 
 170:                                              ; preds = %lean_nat_eq.exit
-  %171 = icmp ult ptr %.1.i171192, inttoptr (i64 2 to ptr)
+  %171 = icmp eq i64 %44, 0
   br i1 %171, label %lean_dec.exit100, label %172
 
 172:                                              ; preds = %170
@@ -3652,7 +3652,7 @@ lean_nat_eq.exit.thread:                          ; preds = %149
   br i1 %150, label %.thread187, label %.thread
 
 151:                                              ; preds = %lean_nat_eq.exit
-  %152 = icmp ult ptr %.1.i163181, inttoptr (i64 2 to ptr)
+  %152 = icmp eq i64 %44, 0
   br i1 %152, label %lean_dec.exit96, label %153
 
 153:                                              ; preds = %151
@@ -4518,7 +4518,7 @@ lean_nat_eq.exit.thread:                          ; preds = %149
   br i1 %150, label %.thread187, label %.thread
 
 151:                                              ; preds = %lean_nat_eq.exit
-  %152 = icmp ult ptr %.1.i163181, inttoptr (i64 2 to ptr)
+  %152 = icmp eq i64 %44, 0
   br i1 %152, label %lean_dec.exit96, label %153
 
 153:                                              ; preds = %151

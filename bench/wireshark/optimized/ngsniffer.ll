@@ -2263,7 +2263,7 @@ define internal fastcc noundef zeroext i1 @read_blob(ptr noundef %0, ptr noundef
   %.0126170.i = phi i32 [ %.1127.i, %146 ], [ 0, %.preheader.i ]
   %.0128169.i = phi ptr [ %.1129.i, %146 ], [ %26, %.preheader.i ]
   %31 = lshr i32 %.0126170.i, 1
-  %32 = icmp ult i32 %.0126170.i, 2
+  %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %39
 
 33:                                               ; preds = %.lr.ph.i

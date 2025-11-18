@@ -2916,7 +2916,7 @@ define internal fastcc void @dissect_range(ptr noundef %0, ptr noundef %1, ptr n
 23:                                               ; preds = %16
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.498, i32 noundef %21)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.499, i32 noundef %21)
-  %24 = icmp ult i16 %19, 4096
+  %24 = icmp eq i16 %20, 0
   %25 = and i8 %6, 1
   %.not111 = icmp eq i8 %25, 0
   %or.cond119 = and i1 %.not111, %24
@@ -2990,7 +2990,7 @@ define internal fastcc void @dissect_range(ptr noundef %0, ptr noundef %1, ptr n
 
 57:                                               ; preds = %54
   %58 = icmp eq i32 %.pre, 0
-  %59 = icmp ult i16 %19, 4096
+  %59 = icmp eq i16 %20, 0
   %or.cond = or i1 %58, %59
   %60 = icmp ne i32 %48, 1
   %or.cond4 = and i1 %60, %or.cond

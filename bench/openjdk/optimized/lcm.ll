@@ -4310,7 +4310,7 @@ _ZN5Block8map_nodeEP4Nodej.exit222:               ; preds = %449, %453
   %484 = load ptr, ptr %445, align 8
   %485 = call noundef i32 @_ZNK7Matcher15c_frame_pointerEv(ptr noundef nonnull align 8 dereferenceable(1008) %484) #8
   %486 = lshr i32 %485, 6
-  %.not245 = icmp ult i32 %485, 64
+  %.not245 = icmp eq i32 %486, 0
   br i1 %.not245, label %.thread239, label %487
 
 487:                                              ; preds = %483

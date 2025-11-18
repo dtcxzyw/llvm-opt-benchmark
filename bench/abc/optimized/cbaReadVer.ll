@@ -5001,19 +5001,19 @@ Cba_FonRange.exit:                                ; preds = %12, %._crit_edge.i.
   %51 = zext nneg i32 %1 to i64
   %52 = getelementptr inbounds nuw i32, ptr %.val.i.i.i, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !23
-  %.not.i.i = icmp ult i32 %53, 2
-  br i1 %.not.i.i, label %Cba_NtkRangeSize.exit, label %54
+  %54 = ashr i32 %53, 1
+  %.not.i.i = icmp eq i32 %54, 0
+  br i1 %.not.i.i, label %Cba_NtkRangeSize.exit, label %55
 
-54:                                               ; preds = %Cba_FonRange.exit
-  %55 = load ptr, ptr %0, align 8, !tbaa !78
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 40
-  %57 = load ptr, ptr %56, align 8, !tbaa !87
-  %58 = getelementptr i8, ptr %57, i64 8
-  %.val.i.i5 = load ptr, ptr %58, align 8, !tbaa !51
-  %59 = getelementptr i8, ptr %.val.i.i5, i64 8
-  %.val.val.i.i = load ptr, ptr %59, align 8, !tbaa !22
-  %60 = shl nsw i32 %53, 1
-  %61 = and i32 %60, -4
+55:                                               ; preds = %Cba_FonRange.exit
+  %56 = load ptr, ptr %0, align 8, !tbaa !78
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 40
+  %58 = load ptr, ptr %57, align 8, !tbaa !87
+  %59 = getelementptr i8, ptr %58, i64 8
+  %.val.i.i5 = load ptr, ptr %59, align 8, !tbaa !51
+  %60 = getelementptr i8, ptr %.val.i.i5, i64 8
+  %.val.val.i.i = load ptr, ptr %60, align 8, !tbaa !22
+  %61 = shl nsw i32 %54, 2
   %62 = sext i32 %61 to i64
   %63 = getelementptr inbounds i32, ptr %.val.val.i.i, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !89
@@ -5024,8 +5024,8 @@ Cba_FonRange.exit:                                ; preds = %12, %._crit_edge.i.
   %69 = add nuw nsw i32 %68, 1
   br label %Cba_NtkRangeSize.exit
 
-Cba_NtkRangeSize.exit:                            ; preds = %9, %54, %Cba_FonRange.exit, %3
-  %70 = phi i32 [ %8, %3 ], [ %69, %54 ], [ 1, %Cba_FonRange.exit ], [ 1, %9 ]
+Cba_NtkRangeSize.exit:                            ; preds = %9, %55, %Cba_FonRange.exit, %3
+  %70 = phi i32 [ %8, %3 ], [ %69, %55 ], [ 1, %Cba_FonRange.exit ], [ 1, %9 ]
   ret i32 %70
 }
 

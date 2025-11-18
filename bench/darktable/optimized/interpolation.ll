@@ -1606,13 +1606,9 @@ define internal noundef float @_maketaps_bilinear(ptr noundef writeonly captures
 .preheader31:                                     ; preds = %.preheader32
   %12 = shl i64 %1, 30
   %13 = add i64 %12, 3221225472
-  %.not = icmp ult i64 %13, 4294967296
-  br i1 %.not, label %._crit_edge, label %.preheader30.preheader
-
-.preheader30.preheader:                           ; preds = %.preheader31
   %14 = ashr i64 %13, 32
-  %umax = tail call i64 @llvm.umax.i64(i64 %14, i64 1)
-  br label %.preheader30
+  %.not = icmp eq i64 %14, 0
+  br i1 %.not, label %._crit_edge, label %.preheader30
 
 .preheader32:                                     ; preds = %9, %.preheader32
   %.02834 = phi i64 [ %20, %.preheader32 ], [ 0, %9 ]
@@ -1626,8 +1622,8 @@ define internal noundef float @_maketaps_bilinear(ptr noundef writeonly captures
   %exitcond38.not = icmp eq i64 %20, 4
   br i1 %exitcond38.not, label %.preheader31, label %.preheader32
 
-.preheader30:                                     ; preds = %.preheader30.preheader, %29
-  %.02637 = phi i64 [ %30, %29 ], [ 0, %.preheader30.preheader ]
+.preheader30:                                     ; preds = %.preheader31, %29
+  %.02637 = phi i64 [ %30, %29 ], [ 0, %.preheader31 ]
   %.idx = shl i64 %.02637, 4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   br label %22
@@ -1651,7 +1647,7 @@ define internal noundef float @_maketaps_bilinear(ptr noundef writeonly captures
 
 29:                                               ; preds = %.preheader
   %30 = add nuw i64 %.02637, 1
-  %exitcond41.not = icmp eq i64 %30, %umax
+  %exitcond41.not = icmp eq i64 %30, %14
   br i1 %exitcond41.not, label %._crit_edge, label %.preheader30
 
 .preheader:                                       ; preds = %22, %.preheader
@@ -1693,13 +1689,9 @@ define internal noundef float @_maketaps_bicubic(ptr noundef writeonly captures(
 .preheader76:                                     ; preds = %.preheader77
   %18 = shl i64 %1, 30
   %19 = add i64 %18, 3221225472
-  %.not = icmp ult i64 %19, 4294967296
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader76
   %20 = ashr i64 %19, 32
-  %umax = tail call i64 @llvm.umax.i64(i64 %20, i64 1)
-  br label %.lr.ph
+  %.not = icmp eq i64 %20, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .preheader77:                                     ; preds = %15, %.preheader77
   %.07279 = phi i64 [ %26, %.preheader77 ], [ 0, %15 ]
@@ -1718,8 +1710,8 @@ define internal noundef float @_maketaps_bicubic(ptr noundef writeonly captures(
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret float 1.000000e+00
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %82
-  %.07086 = phi i64 [ %83, %82 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader76, %82
+  %.07086 = phi i64 [ %83, %82 ], [ 0, %.preheader76 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br label %28
@@ -1831,7 +1823,7 @@ define internal noundef float @_maketaps_bicubic(ptr noundef writeonly captures(
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %83 = add nuw i64 %.07086, 1
-  %exitcond94.not = icmp eq i64 %83, %umax
+  %exitcond94.not = icmp eq i64 %83, %20
   br i1 %exitcond94.not, label %._crit_edge, label %.lr.ph
 
 .preheader:                                       ; preds = %75, %.preheader
@@ -1898,13 +1890,9 @@ define internal float @_maketaps_lanczos(ptr noundef captures(none) %0, i64 noun
 .preheader87:                                     ; preds = %37
   %34 = shl i64 %1, 30
   %35 = add i64 %34, 3221225472
-  %.not101 = icmp ult i64 %35, 4294967296
-  br i1 %.not101, label %.preheader, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader87
   %36 = ashr i64 %35, 32
-  %umax = tail call i64 @llvm.umax.i64(i64 %36, i64 1)
-  br label %.lr.ph
+  %.not101 = icmp eq i64 %36, 0
+  br i1 %.not101, label %.preheader, label %.lr.ph
 
 37:                                               ; preds = %27, %37
   %.07491 = phi i64 [ 0, %27 ], [ %39, %37 ]
@@ -1918,8 +1906,8 @@ define internal float @_maketaps_lanczos(ptr noundef captures(none) %0, i64 noun
   %.not102 = icmp eq i64 %1, 0
   br i1 %.not102, label %._crit_edge, label %.lr.ph100
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %170
-  %.07297 = phi i64 [ %171, %170 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader87, %170
+  %.07297 = phi i64 [ %171, %170 ], [ 0, %.preheader87 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   br label %41
@@ -2170,7 +2158,7 @@ dt_vector_sin.exit84:                             ; preds = %.preheader.i81
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %171 = add nuw i64 %.07297, 1
-  %exitcond110.not = icmp eq i64 %171, %umax
+  %exitcond110.not = icmp eq i64 %171, %36
   br i1 %exitcond110.not, label %.preheader, label %.lr.ph
 
 .preheader85:                                     ; preds = %162, %.preheader85
@@ -2566,9 +2554,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #14

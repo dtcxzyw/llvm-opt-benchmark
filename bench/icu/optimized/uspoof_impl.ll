@@ -1788,7 +1788,7 @@ define noundef range(i32 1, 257) i32 @_ZNK6icu_779SpoofData16confusableLookupEiR
   %33 = load ptr, ptr %32, align 8, !tbaa !55
   %34 = getelementptr inbounds i16, ptr %33, i64 %23
   %35 = load i16, ptr %34, align 2, !tbaa !56
-  %36 = icmp ult i32 %25, 16777216
+  %36 = icmp eq i32 %30, 0
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %29
@@ -1817,7 +1817,7 @@ _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.i: ; preds = %39
   resume { ptr, i32 } %46
 
 _ZNK6icu_779SpoofData13appendValueToEiRNS_13UnicodeStringE.exit: ; preds = %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.i, %37, %27
-  %.019 = phi i32 [ 1, %27 ], [ %31, %37 ], [ %31, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.i ]
+  %.019 = phi i32 [ 1, %27 ], [ 1, %37 ], [ %31, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.i ]
   ret i32 %.019
 }
 
@@ -2576,7 +2576,7 @@ define noundef range(i32 1, 257) i32 @_ZNK6icu_779SpoofData13appendValueToEiRNS_
   %13 = load ptr, ptr %12, align 8, !tbaa !55
   %14 = getelementptr inbounds i16, ptr %13, i64 %7
   %15 = load i16, ptr %14, align 2, !tbaa !56
-  %16 = icmp ult i32 %9, 16777216
+  %16 = icmp eq i32 %10, 0
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %3

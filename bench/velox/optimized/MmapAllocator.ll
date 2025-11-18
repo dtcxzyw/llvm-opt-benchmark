@@ -1351,9 +1351,9 @@ if.end.i.i.i:                                     ; preds = %if.then.i218
   %cmp1.i.i.i = icmp eq i64 %shl.i.i.i, %div2.i.i
   %mul.i.i.i = shl nuw nsw i64 2, %sub.i.i.i
   %spec.select.i.i.i = select i1 %cmp1.i.i.i, i64 %div2.i.i, i64 %mul.i.i.i
-  %54 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %spec.select.i.i.i, i1 false)
+  %54 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %spec.select.i.i.i, i1 true)
   %55 = trunc nuw nsw i64 %54 to i32
-  %56 = sub nuw nsw i32 63, %55
+  %56 = xor i32 %55, 63
   %57 = call i32 @llvm.umin.i32(i32 %56, i32 19)
   %58 = zext nneg i32 %57 to i64
   br label %_ZN8facebook5velox6memory5Stats9sizeIndexEl.exit.i
@@ -1773,8 +1773,8 @@ if.end.i.i12:                                     ; preds = %if.then10
 
 _ZN8facebook5velox6memory5Stats9sizeIndexEl.exit: ; preds = %if.then10, %if.end.i.i12
   %retval.0.i = phi i64 [ 0, %if.then10 ], [ %19, %if.end.i.i12 ]
-  %arrayidx.i.i = getelementptr %"struct.facebook::velox::memory::SizeClassStats", ptr %this, i64 %retval.0.i
-  %freeClocks = getelementptr i8, ptr %arrayidx.i.i, i64 88
+  %arrayidx.i.i = getelementptr inbounds nuw %"struct.facebook::velox::memory::SizeClassStats", ptr %this, i64 %retval.0.i
+  %freeClocks = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 88
   %20 = atomicrmw add ptr %freeClocks, i64 %sub.i seq_cst, align 8
   br label %if.end18
 
@@ -2446,9 +2446,9 @@ if.end.i.i.i:                                     ; preds = %if.then.i
   %cmp1.i.i.i = icmp eq i64 %shl.i.i.i, %div2.i.i
   %mul.i.i.i = shl nuw nsw i64 2, %sub.i.i.i
   %spec.select.i.i.i = select i1 %cmp1.i.i.i, i64 %div2.i.i, i64 %mul.i.i.i
-  %2 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %spec.select.i.i.i, i1 false)
+  %2 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %spec.select.i.i.i, i1 true)
   %3 = trunc nuw nsw i64 %2 to i32
-  %4 = sub nuw nsw i32 63, %3
+  %4 = xor i32 %3, 63
   %5 = call i32 @llvm.umin.i32(i32 %4, i32 19)
   %6 = zext nneg i32 %5 to i64
   br label %_ZN8facebook5velox6memory5Stats9sizeIndexEl.exit.i
@@ -3270,20 +3270,20 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i.i, label %_ZN8facebook5velox6memory5Stats9sizeIndexEl.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i
-  %cmp.i.i.i = icmp ult i64 %0, 4096
+  %div2.i.i = lshr i64 %0, 12
+  %cmp.i.i.i = icmp eq i64 %div2.i.i, 0
   br i1 %cmp.i.i.i, label %_ZN8facebook5velox6memory5Stats9sizeIndexEl.exit.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i
-  %div2.i.i = lshr i64 %0, 12
   %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %div2.i.i, i1 true)
   %sub.i.i.i = xor i64 %2, 63
   %shl.i.i.i = shl nuw nsw i64 1, %sub.i.i.i
   %cmp1.i.i.i = icmp eq i64 %shl.i.i.i, %div2.i.i
   %mul.i.i.i = shl nuw nsw i64 2, %sub.i.i.i
   %spec.select.i.i.i = select i1 %cmp1.i.i.i, i64 %div2.i.i, i64 %mul.i.i.i
-  %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %spec.select.i.i.i, i1 false)
+  %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %spec.select.i.i.i, i1 true)
   %4 = trunc nuw nsw i64 %3 to i32
-  %5 = sub nuw nsw i32 63, %4
+  %5 = xor i32 %4, 63
   %6 = tail call i32 @llvm.umin.i32(i32 %5, i32 19)
   %7 = zext nneg i32 %6 to i64
   br label %_ZN8facebook5velox6memory5Stats9sizeIndexEl.exit.i

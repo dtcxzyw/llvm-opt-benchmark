@@ -4396,11 +4396,11 @@ event_mm_realloc_.exit.i.i.i:                     ; preds = %334, %332
   store ptr %340, ptr %353, align 8
   %354 = getelementptr inbounds nuw i8, ptr %340, i64 40
   store i64 %.02127.i.i.i, ptr %354, align 8
-  %.not.i5.i.i = icmp ult i64 %.028.in.i.i.i, 2
+  %.not.i5.i.i = icmp eq i64 %.028.i.i.i, 0
   br i1 %.not.i5.i.i, label %min_heap_shift_up_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !30
 
 min_heap_shift_up_.exit.i.i:                      ; preds = %352, %350, %345, %336
-  %.021.lcssa.i.i.i = phi i64 [ 0, %336 ], [ %.02127.i.i.i, %350 ], [ %.028.i.i.i, %352 ], [ %.02127.i.i.i, %345 ]
+  %.021.lcssa.i.i.i = phi i64 [ 0, %336 ], [ %.02127.i.i.i, %350 ], [ 0, %352 ], [ %.02127.i.i.i, %345 ]
   %355 = load ptr, ptr %320, align 8
   %356 = getelementptr inbounds nuw ptr, ptr %355, i64 %.021.lcssa.i.i.i
   store ptr %0, ptr %356, align 8
@@ -9413,7 +9413,7 @@ is_common_timeout.exit.thread:                    ; preds = %2, %is_common_timeo
   store ptr %53, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %53, i64 40
   store i64 %48, ptr %69, align 8
-  %.not24.i.i = icmp ult i64 %48, 3
+  %.not24.i.i = icmp eq i64 %51, 0
   br i1 %.not24.i.i, label %min_heap_shift_up_unconditional_.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %67
@@ -9449,11 +9449,11 @@ is_common_timeout.exit.thread:                    ; preds = %2, %is_common_timeo
   store ptr %75, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %75, i64 40
   store i64 %.025.i.i, ptr %88, align 8
-  %.not.i.i = icmp ult i64 %.in.i.i, 2
+  %.not.i.i = icmp eq i64 %72, 0
   br i1 %.not.i.i, label %min_heap_shift_up_unconditional_.exit.i, label %71, !llvm.loop !38
 
 min_heap_shift_up_unconditional_.exit.i:          ; preds = %.backedge.i.i, %85, %80, %67
-  %.0.lcssa.i.i = phi i64 [ %51, %67 ], [ %.025.i.i, %80 ], [ %72, %.backedge.i.i ], [ %.025.i.i, %85 ]
+  %.0.lcssa.i.i = phi i64 [ 0, %67 ], [ %.025.i.i, %80 ], [ 0, %.backedge.i.i ], [ %.025.i.i, %85 ]
   %89 = load ptr, ptr %38, align 8
   %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %.0.lcssa.i.i
   store ptr %47, ptr %90, align 8

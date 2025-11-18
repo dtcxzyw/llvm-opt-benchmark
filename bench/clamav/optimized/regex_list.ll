@@ -143,8 +143,8 @@ define i32 @regex_list_match(ptr noundef %0, ptr noundef %1, ptr noundef readonl
 44:                                               ; preds = %41
   %45 = add i64 %42, 1
   %46 = tail call ptr @cli_max_malloc(i64 noundef %45) #14
-  %.not90 = icmp eq ptr %46, null
-  br i1 %.not90, label %47, label %48
+  %.not91 = icmp eq ptr %46, null
+  br i1 %.not91, label %47, label %48
 
 47:                                               ; preds = %44
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.4) #14
@@ -170,13 +170,13 @@ define i32 @regex_list_match(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   store i8 0, ptr %57, align 1, !tbaa !10
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull %46) #14
   %59 = call i32 @cli_ac_initdata(ptr noundef nonnull %9, i32 noundef 0, i32 noundef 0, i32 noundef 0, i8 noundef zeroext 8) #14
-  %.not93 = icmp eq i32 %59, 0
-  br i1 %.not93, label %60, label %138
+  %.not94 = icmp eq i32 %59, 0
+  br i1 %.not94, label %60, label %138
 
 60:                                               ; preds = %56
   %61 = call ptr @cli_safer_strdup(ptr noundef nonnull %46) #14
-  %.not94 = icmp eq ptr %61, null
-  br i1 %.not94, label %138, label %62
+  %.not95 = icmp eq ptr %61, null
+  br i1 %.not95, label %138, label %62
 
 62:                                               ; preds = %60
   call fastcc void @reverse_string(ptr noundef %61)
@@ -204,27 +204,27 @@ define i32 @regex_list_match(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   %76 = icmp ne ptr %75, null
   %77 = icmp ne i32 %74, 0
   %78 = select i1 %76, i1 true, i1 %77
-  br i1 %78, label %.lr.ph116, label %._crit_edge117.thread
+  br i1 %78, label %.lr.ph117, label %._crit_edge118.thread
 
-._crit_edge117.thread:                            ; preds = %68
+._crit_edge118.thread:                            ; preds = %68
   call void @free(ptr noundef nonnull %46) #14
   br label %136
 
-.lr.ph116:                                        ; preds = %68
+.lr.ph117:                                        ; preds = %68
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %80 = getelementptr i8, ptr %spec.select, i64 %32
   br label %81
 
-81:                                               ; preds = %.lr.ph116, %130
-  %82 = phi ptr [ %75, %.lr.ph116 ], [ %131, %130 ]
-  %83 = phi i1 [ %76, %.lr.ph116 ], [ %132, %130 ]
-  %.075114 = phi i32 [ %74, %.lr.ph116 ], [ %.1, %130 ]
-  %.177113 = phi i32 [ 0, %.lr.ph116 ], [ %.2.lcssa, %130 ]
+81:                                               ; preds = %.lr.ph117, %130
+  %82 = phi ptr [ %75, %.lr.ph117 ], [ %131, %130 ]
+  %83 = phi i1 [ %76, %.lr.ph117 ], [ %132, %130 ]
+  %.075115 = phi i32 [ %74, %.lr.ph117 ], [ %.1, %130 ]
+  %.177114 = phi i32 [ 0, %.lr.ph117 ], [ %.2.lcssa, %130 ]
   br i1 %83, label %88, label %84
 
 84:                                               ; preds = %81
   %85 = load ptr, ptr %79, align 8, !tbaa !36
-  %86 = sext i32 %.075114 to i64
+  %86 = sext i32 %.075115 to i64
   %87 = getelementptr inbounds %struct.regex_list_ht, ptr %85, i64 %86
   br label %90
 
@@ -234,25 +234,25 @@ define i32 @regex_list_match(ptr noundef %0, ptr noundef %1, ptr noundef readonl
 
 90:                                               ; preds = %88, %84
   %storemerge.in = phi ptr [ %87, %84 ], [ %89, %88 ]
-  %.1 = phi i32 [ 0, %84 ], [ %.075114, %88 ]
-  %storemerge96110 = load ptr, ptr %storemerge.in, align 8, !tbaa !37
-  store ptr %storemerge96110, ptr %8, align 8, !tbaa !38
-  %.not97111 = icmp eq i32 %.177113, 0
-  %91 = icmp ne ptr %storemerge96110, null
-  %92 = select i1 %.not97111, i1 %91, i1 false
+  %.1 = phi i32 [ 0, %84 ], [ %.075115, %88 ]
+  %storemerge97111 = load ptr, ptr %storemerge.in, align 8, !tbaa !37
+  store ptr %storemerge97111, ptr %8, align 8, !tbaa !38
+  %.not98112 = icmp eq i32 %.177114, 0
+  %91 = icmp ne ptr %storemerge97111, null
+  %92 = select i1 %.not98112, i1 %91, i1 false
   br i1 %92, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %90, %validate_subdomain.exit.thread107
-  %storemerge96112 = phi ptr [ %storemerge96, %validate_subdomain.exit.thread107 ], [ %storemerge96110, %90 ]
-  %93 = getelementptr inbounds nuw i8, ptr %storemerge96112, i64 8
+.lr.ph:                                           ; preds = %90, %validate_subdomain.exit.thread108
+  %storemerge97113 = phi ptr [ %storemerge97, %validate_subdomain.exit.thread108 ], [ %storemerge97111, %90 ]
+  %93 = getelementptr inbounds nuw i8, ptr %storemerge97113, i64 8
   %94 = load ptr, ptr %93, align 8, !tbaa !40
-  %.not99 = icmp eq ptr %94, null
-  br i1 %.not99, label %95, label %validate_subdomain.exit
+  %.not100 = icmp eq ptr %94, null
+  br i1 %.not100, label %95, label %validate_subdomain.exit
 
 95:                                               ; preds = %.lr.ph
-  %96 = load ptr, ptr %storemerge96112, align 8, !tbaa !42
+  %96 = load ptr, ptr %storemerge97113, align 8, !tbaa !42
   %.not62.i = icmp eq ptr %96, null
-  br i1 %.not62.i, label %validate_subdomain.exit.thread107, label %97
+  br i1 %.not62.i, label %validate_subdomain.exit.thread108, label %97
 
 97:                                               ; preds = %95
   %98 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %96) #15
@@ -282,18 +282,18 @@ define i32 @regex_list_match(ptr noundef %0, ptr noundef %1, ptr noundef readonl
 
 107:                                              ; preds = %104, %104, %100
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %98, i64 1)
-  %108 = load ptr, ptr %storemerge96112, align 8, !tbaa !42
+  %108 = load ptr, ptr %storemerge97113, align 8, !tbaa !42
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.24, ptr noundef nonnull %46, ptr noundef %108) #14
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.25, ptr noundef nonnull %1) #14
   %.not64.not.i = icmp ugt i64 %32, %spec.select.i
-  br i1 %.not64.not.i, label %109, label %validate_subdomain.exit.thread107.thread
+  br i1 %.not64.not.i, label %109, label %validate_subdomain.exit.thread108.thread
 
 109:                                              ; preds = %107
   %110 = xor i64 %spec.select.i, -1
   %111 = getelementptr i8, ptr %80, i64 %110
   %112 = load i8, ptr %111, align 1, !tbaa !10
   %.not65.i = icmp eq i8 %112, 46
-  br i1 %.not65.i, label %validate_subdomain.exit.thread107.thread, label %113
+  br i1 %.not65.i, label %validate_subdomain.exit.thread108.thread, label %113
 
 113:                                              ; preds = %109
   %114 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
@@ -303,73 +303,73 @@ define i32 @regex_list_match(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 %115
   store i8 46, ptr %116, align 1, !tbaa !10
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.27, ptr noundef nonnull %1) #14
-  br label %validate_subdomain.exit.thread107.thread
+  br label %validate_subdomain.exit.thread108.thread
 
 117:                                              ; preds = %104, %102, %97
   %.056.i = phi i8 [ %106, %104 ], [ %99, %102 ], [ %99, %97 ]
-  %118 = load ptr, ptr %storemerge96112, align 8, !tbaa !42
+  %118 = load ptr, ptr %storemerge97113, align 8, !tbaa !42
   %119 = sext i8 %.056.i to i32
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.28, ptr noundef nonnull %46, ptr noundef %118, i32 noundef %119) #14
-  br label %validate_subdomain.exit.thread107
+  br label %validate_subdomain.exit.thread108
 
 validate_subdomain.exit:                          ; preds = %.lr.ph
   %120 = call i32 @cli_regexec(ptr noundef nonnull %94, ptr noundef nonnull %46, i64 noundef 0, ptr noundef null, i32 noundef 0) #14
-  %.not100.not = icmp eq i32 %120, 0
-  br i1 %.not100.not, label %validate_subdomain.exit.thread107.thread, label %validate_subdomain.exit.thread107
+  %.not101.not = icmp eq i32 %120, 0
+  br i1 %.not101.not, label %validate_subdomain.exit.thread108.thread, label %validate_subdomain.exit.thread108
 
-validate_subdomain.exit.thread107.thread:         ; preds = %validate_subdomain.exit, %109, %113, %107
+validate_subdomain.exit.thread108.thread:         ; preds = %validate_subdomain.exit, %109, %113, %107
   %121 = load ptr, ptr %8, align 8, !tbaa !38
   %122 = load ptr, ptr %121, align 8, !tbaa !42
   store ptr %122, ptr %5, align 8, !tbaa !8
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  %storemerge96133 = load ptr, ptr %123, align 8, !tbaa !37
-  store ptr %storemerge96133, ptr %8, align 8, !tbaa !38
+  %storemerge97134 = load ptr, ptr %123, align 8, !tbaa !37
+  store ptr %storemerge97134, ptr %8, align 8, !tbaa !38
   br label %._crit_edge.loopexit
 
-validate_subdomain.exit.thread107:                ; preds = %95, %117, %validate_subdomain.exit
+validate_subdomain.exit.thread108:                ; preds = %95, %117, %validate_subdomain.exit
   %124 = load ptr, ptr %8, align 8, !tbaa !38
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
-  %storemerge96 = load ptr, ptr %125, align 8, !tbaa !37
-  store ptr %storemerge96, ptr %8, align 8, !tbaa !38
-  %.not138 = icmp eq ptr %storemerge96, null
-  br i1 %.not138, label %._crit_edge.loopexit, label %.lr.ph
+  %storemerge97 = load ptr, ptr %125, align 8, !tbaa !37
+  store ptr %storemerge97, ptr %8, align 8, !tbaa !38
+  %.not139 = icmp eq ptr %storemerge97, null
+  br i1 %.not139, label %._crit_edge.loopexit, label %.lr.ph
 
-._crit_edge.loopexit:                             ; preds = %validate_subdomain.exit.thread107, %validate_subdomain.exit.thread107.thread
-  %.3105134 = phi i32 [ 1, %validate_subdomain.exit.thread107.thread ], [ 0, %validate_subdomain.exit.thread107 ]
+._crit_edge.loopexit:                             ; preds = %validate_subdomain.exit.thread108, %validate_subdomain.exit.thread108.thread
+  %.3106135 = phi i32 [ 1, %validate_subdomain.exit.thread108.thread ], [ 0, %validate_subdomain.exit.thread108 ]
   %.pre = load ptr, ptr %10, align 8, !tbaa !3
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %90
   %126 = phi ptr [ %82, %90 ], [ %.pre, %._crit_edge.loopexit ]
-  %.2.lcssa = phi i32 [ %.177113, %90 ], [ %.3105134, %._crit_edge.loopexit ]
-  %.not98 = icmp eq ptr %126, null
-  br i1 %.not98, label %130, label %127
+  %.2.lcssa = phi i32 [ %.177114, %90 ], [ %.3106135, %._crit_edge.loopexit ]
+  %.not99 = icmp eq ptr %126, null
+  br i1 %.not99, label %130, label %127
 
 127:                                              ; preds = %._crit_edge
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 24
   %129 = load ptr, ptr %128, align 8, !tbaa !43
   store ptr %129, ptr %10, align 8, !tbaa !3
   call void @free(ptr noundef nonnull %126) #14
-  %.pre119 = load ptr, ptr %10, align 8, !tbaa !3
+  %.pre120 = load ptr, ptr %10, align 8, !tbaa !3
   br label %130
 
 130:                                              ; preds = %127, %._crit_edge
-  %131 = phi ptr [ %.pre119, %127 ], [ null, %._crit_edge ]
+  %131 = phi ptr [ %.pre120, %127 ], [ null, %._crit_edge ]
   %132 = icmp ne ptr %131, null
   %133 = icmp ne i32 %.1, 0
   %134 = select i1 %132, i1 true, i1 %133
-  br i1 %134, label %81, label %._crit_edge117
+  br i1 %134, label %81, label %._crit_edge118
 
-._crit_edge117:                                   ; preds = %130
+._crit_edge118:                                   ; preds = %130
   %135 = icmp eq i32 %.2.lcssa, 0
   call void @free(ptr noundef %46) #14
   br i1 %135, label %136, label %137
 
-136:                                              ; preds = %._crit_edge117.thread, %._crit_edge117
+136:                                              ; preds = %._crit_edge118.thread, %._crit_edge118
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6) #14
   br label %138
 
-137:                                              ; preds = %._crit_edge117
+137:                                              ; preds = %._crit_edge118
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.7) #14
   br label %138
 
@@ -401,7 +401,7 @@ declare ptr @cli_safer_strdup(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @reverse_string(ptr noundef nonnull captures(none) %0) unnamed_addr #4 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #15
   %3 = lshr i64 %2, 1
-  %.not = icmp ult i64 %2, 2
+  %.not = icmp eq i64 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
@@ -956,7 +956,7 @@ define internal fastcc i32 @add_static_pattern(ptr noundef nonnull %0, ptr nound
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
   %5 = lshr i64 %4, 1
-  %.not.i = icmp ult i64 %4, 2
+  %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %reverse_string.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
@@ -1160,8 +1160,8 @@ define i32 @cli_build_regex_list(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @cli_hashtab_free(ptr noundef nonnull %0) #14
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = tail call i32 @cli_ac_buildtrie(ptr noundef nonnull %8) #14
-  %.not12 = icmp eq i32 %9, 0
-  br i1 %.not12, label %10, label %15
+  %.not13 = icmp eq i32 %9, 0
+  br i1 %.not13, label %10, label %15
 
 10:                                               ; preds = %7
   %11 = load i8, ptr %3, align 8

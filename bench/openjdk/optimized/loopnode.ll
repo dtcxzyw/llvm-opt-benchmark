@@ -24382,7 +24382,7 @@ define hidden void @_ZN14PhaseIdealLoop15build_loop_treeEv(ptr noundef nonnull a
   %8 = sub i32 %5, %7
   %9 = lshr i32 %8, 1
   %10 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %9, i32 noundef 8) #17
-  %.not140 = icmp ult i32 %8, 2
+  %.not140 = icmp eq i32 %9, 0
   br i1 %.not140, label %.lr.ph19.preheader.i, label %_ZN13GrowableArrayIP4NodeEC2Ei.exit
 
 _ZN13GrowableArrayIP4NodeEC2Ei.exit:              ; preds = %1
@@ -24685,8 +24685,8 @@ _ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit34: ;
   br i1 %154, label %._crit_edge.thread, label %_ZN14PhaseIdealLoop20check_grow_preordersEv.exit
 
 ._crit_edge.thread:                               ; preds = %105, %._crit_edge
-  %.sroa.40.4.lcssa181 = phi ptr [ %.sroa.40.5, %._crit_edge ], [ %.sroa.40.0166, %105 ]
-  %.sroa.25.4.lcssa180 = phi i32 [ %.sroa.25.5, %._crit_edge ], [ %.sroa.25.0165, %105 ]
+  %.sroa.40.4.lcssa183 = phi ptr [ %.sroa.40.5, %._crit_edge ], [ %.sroa.40.0166, %105 ]
+  %.sroa.25.4.lcssa182 = phi i32 [ %.sroa.25.5, %._crit_edge ], [ %.sroa.25.0165, %105 ]
   %155 = add nsw i32 %.sroa.0.0164, -1
   %156 = tail call noundef i32 @_ZN14PhaseIdealLoop20build_loop_tree_implEP4Nodei(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef nonnull %27, i32 noundef %.017167)
   %157 = load ptr, ptr %2, align 8
@@ -24733,8 +24733,8 @@ _ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit34: ;
 
 _ZN14PhaseIdealLoop20check_grow_preordersEv.exit: ; preds = %172, %167, %186, %._crit_edge, %._crit_edge160
   %.sroa.0.3 = phi i32 [ %.sroa.0.1.lcssa, %._crit_edge160 ], [ %.sroa.0.5, %._crit_edge ], [ %187, %186 ], [ %155, %167 ], [ %155, %172 ]
-  %.sroa.25.3 = phi i32 [ %.sroa.25.1.lcssa, %._crit_edge160 ], [ %.sroa.25.5, %._crit_edge ], [ %.sroa.25.0165, %186 ], [ %.sroa.25.4.lcssa180, %167 ], [ %.sroa.25.4.lcssa180, %172 ]
-  %.sroa.40.3 = phi ptr [ %.sroa.40.1.lcssa, %._crit_edge160 ], [ %.sroa.40.5, %._crit_edge ], [ %.sroa.40.0166, %186 ], [ %.sroa.40.4.lcssa181, %167 ], [ %.sroa.40.4.lcssa181, %172 ]
+  %.sroa.25.3 = phi i32 [ %.sroa.25.1.lcssa, %._crit_edge160 ], [ %.sroa.25.5, %._crit_edge ], [ %.sroa.25.0165, %186 ], [ %.sroa.25.4.lcssa182, %167 ], [ %.sroa.25.4.lcssa182, %172 ]
+  %.sroa.40.3 = phi ptr [ %.sroa.40.1.lcssa, %._crit_edge160 ], [ %.sroa.40.5, %._crit_edge ], [ %.sroa.40.0166, %186 ], [ %.sroa.40.4.lcssa183, %167 ], [ %.sroa.40.4.lcssa183, %172 ]
   %.1 = phi i32 [ %102, %._crit_edge160 ], [ %.017167, %._crit_edge ], [ %.017167, %186 ], [ %.017167, %167 ], [ %.017167, %172 ]
   %.not = icmp eq i32 %.sroa.0.3, 0
   br i1 %.not, label %_ZN13GrowableArrayIP4NodeED2Ev.exit, label %23, !llvm.loop !99

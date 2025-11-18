@@ -773,7 +773,7 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1006parserNtB2_6Parser7process(p
   br i1 %cond.i.i, label %47, label %45
 
 45:                                               ; preds = %47, %44
-  %46 = icmp ult i8 %.sroa.01.0.i, 16
+  %46 = icmp eq i8 %41, 0
   br i1 %46, label %48, label %49
 
 47:                                               ; preds = %44

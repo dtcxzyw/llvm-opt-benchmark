@@ -95162,16 +95162,16 @@ define hidden void @_ZN6yara_x7modules6dotnet6parser8var_uint17h7b6e0704efa8246c
   br i1 %32, label %34, label %68
 
 34:                                               ; preds = %.loopexit77.thread, %.loopexit77
-  %.pn139 = phi { ptr, i64 } [ %30, %.loopexit77.thread ], [ %33, %.loopexit77 ]
-  %.sroa.032.0.i.i.i.i.i123 = phi i64 [ 0, %.loopexit77.thread ], [ 1, %.loopexit77 ]
-  %35 = extractvalue { ptr, i64 } %.pn139, 0
-  %36 = extractvalue { ptr, i64 } %.pn139, 1
+  %.pn140 = phi { ptr, i64 } [ %30, %.loopexit77.thread ], [ %33, %.loopexit77 ]
+  %.sroa.032.0.i.i.i.i.i124 = phi i64 [ 0, %.loopexit77.thread ], [ 1, %.loopexit77 ]
+  %35 = extractvalue { ptr, i64 } %.pn140, 0
+  %36 = extractvalue { ptr, i64 } %.pn140, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !4835
   store ptr %35, ptr %14, align 8, !noalias !4835
   %37 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %36, ptr %37, align 8, !noalias !4835
   %38 = shl i64 %36, 3
-  %39 = add nuw nsw i64 %.sroa.032.0.i.i.i.i.i123, 7
+  %39 = add nuw nsw i64 %.sroa.032.0.i.i.i.i.i124, 7
   %40 = icmp ult i64 %38, %39
   br i1 %40, label %66, label %41
 
@@ -95187,7 +95187,7 @@ define hidden void @_ZN6yara_x7modules6dotnet6parser8var_uint17h7b6e0704efa8246c
   br label %45
 
 45:                                               ; preds = %57, %41
-  %.sroa.015.013.i.i.i.i = phi i64 [ %.sroa.032.0.i.i.i.i.i123, %41 ], [ 0, %57 ]
+  %.sroa.015.013.i.i.i.i = phi i64 [ %.sroa.032.0.i.i.i.i.i124, %41 ], [ 0, %57 ]
   %46 = phi i1 [ true, %41 ], [ false, %57 ]
   %.sroa.07.012.i.i.i.i = phi i64 [ 7, %41 ], [ 0, %57 ]
   %.sroa.0.011.i.i.i.i = phi i32 [ 0, %41 ], [ %58, %57 ]
@@ -95238,7 +95238,7 @@ _ZN3nom8internal6Parser5parse17hf6bc684445267845E.exit.thread.i: ; preds = %45, 
 68:                                               ; preds = %.loopexit77, %"_ZN3nom4bits8complete4take28_$u7b$$u7b$closure$u7d$$u7d$17hdf751652d11a16c5E.exit.i.i.i.i", %66
   %.sroa.6.1.ph.i.sink.i.i.in = phi ptr [ %35, %66 ], [ %1, %"_ZN3nom4bits8complete4take28_$u7b$$u7b$closure$u7d$$u7d$17hdf751652d11a16c5E.exit.i.i.i.i" ], [ %1, %.loopexit77 ]
   %.sink423.i.i = phi i64 [ %36, %66 ], [ %2, %"_ZN3nom4bits8complete4take28_$u7b$$u7b$closure$u7d$$u7d$17hdf751652d11a16c5E.exit.i.i.i.i" ], [ %2, %.loopexit77 ]
-  %.sink.i.i = phi i64 [ %.sroa.032.0.i.i.i.i.i123, %66 ], [ 0, %"_ZN3nom4bits8complete4take28_$u7b$$u7b$closure$u7d$$u7d$17hdf751652d11a16c5E.exit.i.i.i.i" ], [ 0, %.loopexit77 ]
+  %.sink.i.i = phi i64 [ %.sroa.032.0.i.i.i.i.i124, %66 ], [ 0, %"_ZN3nom4bits8complete4take28_$u7b$$u7b$closure$u7d$$u7d$17hdf751652d11a16c5E.exit.i.i.i.i" ], [ 0, %.loopexit77 ]
   %.sroa.19.1.ph.i.sink.i.i = phi i32 [ 24, %66 ], [ 24, %"_ZN3nom4bits8complete4take28_$u7b$$u7b$closure$u7d$$u7d$17hdf751652d11a16c5E.exit.i.i.i.i" ], [ 26, %.loopexit77 ]
   %.sroa.6.1.ph.i.sink.i.i = ptrtoint ptr %.sroa.6.1.ph.i.sink.i.i.in to i64
   store i64 1, ptr %23, align 8, !alias.scope !4843, !noalias !4846
@@ -95403,8 +95403,8 @@ _ZN3nom8internal6Parser5parse17hf6bc684445267845E.exit.thread28.i: ; preds = %86
 
 .loopexit:                                        ; preds = %114
   %119 = extractvalue { i1, i8 } %116, 1
-  %.mask120 = and i8 %119, -32
-  %120 = icmp eq i8 %.mask120, -64
+  %.mask121 = and i8 %119, -32
+  %120 = icmp eq i8 %.mask121, -64
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !4878
   %121 = call { ptr, i64 } @"_ZN55_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..Input$GT$9take_from17hac1973d380a4b04cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8, i64 noundef 0), !noalias !4889
   %122 = extractvalue { ptr, i64 } %121, 0
@@ -95631,16 +95631,16 @@ define hidden void @_ZN6yara_x7modules6dotnet6parser8var_sint17ha6c25a14ad86ea89
   br i1 %32, label %34, label %72
 
 34:                                               ; preds = %.loopexit86.thread, %.loopexit86
-  %.pn148 = phi { ptr, i64 } [ %30, %.loopexit86.thread ], [ %33, %.loopexit86 ]
-  %.sroa.032.0.i.i.i.i.i132 = phi i64 [ 0, %.loopexit86.thread ], [ 1, %.loopexit86 ]
-  %35 = extractvalue { ptr, i64 } %.pn148, 0
-  %36 = extractvalue { ptr, i64 } %.pn148, 1
+  %.pn149 = phi { ptr, i64 } [ %30, %.loopexit86.thread ], [ %33, %.loopexit86 ]
+  %.sroa.032.0.i.i.i.i.i133 = phi i64 [ 0, %.loopexit86.thread ], [ 1, %.loopexit86 ]
+  %35 = extractvalue { ptr, i64 } %.pn149, 0
+  %36 = extractvalue { ptr, i64 } %.pn149, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !4952
   store ptr %35, ptr %14, align 8, !noalias !4952
   %37 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %36, ptr %37, align 8, !noalias !4952
   %38 = shl i64 %36, 3
-  %39 = add nuw nsw i64 %.sroa.032.0.i.i.i.i.i132, 7
+  %39 = add nuw nsw i64 %.sroa.032.0.i.i.i.i.i133, 7
   %40 = icmp ult i64 %38, %39
   br i1 %40, label %66, label %41
 
@@ -95656,7 +95656,7 @@ define hidden void @_ZN6yara_x7modules6dotnet6parser8var_sint17ha6c25a14ad86ea89
   br label %45
 
 45:                                               ; preds = %57, %41
-  %.sroa.015.013.i.i.i.i = phi i64 [ %.sroa.032.0.i.i.i.i.i132, %41 ], [ 0, %57 ]
+  %.sroa.015.013.i.i.i.i = phi i64 [ %.sroa.032.0.i.i.i.i.i133, %41 ], [ 0, %57 ]
   %46 = phi i1 [ true, %41 ], [ false, %57 ]
   %.sroa.07.012.i.i.i.i = phi i64 [ 7, %41 ], [ 0, %57 ]
   %.sroa.0.011.i.i.i.i = phi i32 [ 0, %41 ], [ %58, %57 ]
@@ -95713,7 +95713,7 @@ _ZN3nom8internal6Parser5parse17h0b1891475ed17b35E.exit.thread.i: ; preds = %45, 
   %.sroa.11215.0.ph.i.i = phi i32 [ 24, %66 ], [ 24, %"_ZN3nom4bits8complete4take28_$u7b$$u7b$closure$u7d$$u7d$17hdf751652d11a16c5E.exit.i.i.i.i" ], [ 26, %.loopexit86 ]
   %.sroa.7.sroa.0247.0.ph.in.i.i = phi ptr [ %35, %66 ], [ %1, %"_ZN3nom4bits8complete4take28_$u7b$$u7b$closure$u7d$$u7d$17hdf751652d11a16c5E.exit.i.i.i.i" ], [ %1, %.loopexit86 ]
   %.sroa.7.sroa.7251.0.ph.i.i = phi i64 [ %36, %66 ], [ %2, %"_ZN3nom4bits8complete4take28_$u7b$$u7b$closure$u7d$$u7d$17hdf751652d11a16c5E.exit.i.i.i.i" ], [ %2, %.loopexit86 ]
-  %.sroa.7.sroa.8255.0.ph.i.i = phi i64 [ %.sroa.032.0.i.i.i.i.i132, %66 ], [ 0, %"_ZN3nom4bits8complete4take28_$u7b$$u7b$closure$u7d$$u7d$17hdf751652d11a16c5E.exit.i.i.i.i" ], [ 0, %.loopexit86 ]
+  %.sroa.7.sroa.8255.0.ph.i.i = phi i64 [ %.sroa.032.0.i.i.i.i.i133, %66 ], [ 0, %"_ZN3nom4bits8complete4take28_$u7b$$u7b$closure$u7d$$u7d$17hdf751652d11a16c5E.exit.i.i.i.i" ], [ 0, %.loopexit86 ]
   %.sroa.7.sroa.0247.0.ph.i.i = ptrtoint ptr %.sroa.7.sroa.0247.0.ph.in.i.i to i64
   store i64 1, ptr %23, align 8, !alias.scope !4935, !noalias !4960
   %.sroa.4218.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -95882,8 +95882,8 @@ _ZN3nom8internal6Parser5parse17h0b1891475ed17b35E.exit.thread28.i: ; preds = %90
 
 .loopexit:                                        ; preds = %122
   %127 = extractvalue { i1, i8 } %124, 1
-  %.mask129 = and i8 %127, -32
-  %128 = icmp eq i8 %.mask129, -64
+  %.mask130 = and i8 %127, -32
+  %128 = icmp eq i8 %.mask130, -64
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !4992
   %129 = call { ptr, i64 } @"_ZN55_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..Input$GT$9take_from17hac1973d380a4b04cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8, i64 noundef 0), !noalias !5003
   %130 = extractvalue { ptr, i64 } %129, 0

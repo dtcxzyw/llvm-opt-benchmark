@@ -34142,11 +34142,11 @@ _ZNK5clang22InitializationSequence27isConstructorInitializationEv.exit: ; preds 
   %37 = zext i32 %36 to i64
   %.idx4.i = shl nuw nsw i64 %37, 3
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx4.i
-  %.not.i = icmp ult i32 %36, 4
+  %39 = lshr i64 %37, 2
+  %.not.i = icmp eq i64 %39, 0
   br i1 %.not.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %31
-  %39 = lshr i64 %37, 2
   %40 = and i64 %.idx4.i, 34359738336
   %scevgep.i.i.i.i = getelementptr i8, ptr %34, i64 %40
   br label %41
@@ -34189,11 +34189,10 @@ _ZNK5clang22InitializationSequence27isConstructorInitializationEv.exit: ; preds 
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %31
   %.pre-phi68.i.i.i.i = phi i32 [ %56, %._crit_edge.loopexit.i.i.i.i ], [ %36, %31 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %34, %31 ]
-  switch i32 %.pre-phi68.i.i.i.i, label %default.unreachable [
+  switch i32 %.pre-phi68.i.i.i.i, label %_ZN4llvm12is_containedIRNS_11SmallVectorIN5clang8QualTypeELj4EEES3_EEbOT_RKT0_.exit.thread [
     i32 3, label %57
     i32 2, label %._crit_edge._crit_edge.i.i.i.i
     i32 1, label %._crit_edge._crit_edge65.i.i.i.i
-    i32 0, label %_ZN4llvm12is_containedIRNS_11SmallVectorIN5clang8QualTypeELj4EEES3_EEbOT_RKT0_.exit.thread
   ]
 
 57:                                               ; preds = %._crit_edge.i.i.i.i
@@ -34220,9 +34219,6 @@ _ZNK5clang22InitializationSequence27isConstructorInitializationEv.exit: ; preds 
   %.0.copyload.i.i.i.i.i40.i.i.i.i = load i64, ptr %.2.i.i.i.i, align 8
   %64 = icmp eq i64 %.0.copyload.i.i.i.i.i40.i.i.i.i, %.sroa.0.0.copyload.i
   br i1 %64, label %_ZN4llvm12is_containedIRNS_11SmallVectorIN5clang8QualTypeELj4EEES3_EEbOT_RKT0_.exit, label %_ZN4llvm12is_containedIRNS_11SmallVectorIN5clang8QualTypeELj4EEES3_EEbOT_RKT0_.exit.thread
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
-  unreachable
 
 _ZN4llvm12is_containedIRNS_11SmallVectorIN5clang8QualTypeELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit: ; preds = %43
   %65 = getelementptr inbounds nuw i8, ptr %.02958.i.i.i.i, i64 8
@@ -34256,11 +34252,11 @@ _ZN4llvm12is_containedIRNS_11SmallVectorIN5clang8QualTypeELj4EEES3_EEbOT_RKT0_.e
   %75 = zext i32 %.val24 to i64
   %.idx1.i = mul nuw nsw i64 %75, 168
   %76 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx1.i
-  %.not.i25 = icmp ult i32 %.val24, 4
+  %77 = lshr i64 %75, 2
+  %.not.i25 = icmp eq i64 %77, 0
   br i1 %.not.i25, label %._crit_edge.i.i.i.i29, label %.lr.ph.preheader.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %68
-  %77 = lshr i64 %75, 2
   %78 = mul nuw nsw i64 %77, 672
   %scevgep.i.i.i.i26 = getelementptr i8, ptr %.val, i64 %78
   br label %.lr.ph.i.i.i.i27

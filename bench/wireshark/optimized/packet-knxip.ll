@@ -2481,7 +2481,7 @@ define internal fastcc void @dissect_dibs(ptr noundef %0, ptr noundef %1, ptr no
   %142 = and i8 %.0115135.i.i, 1
   %spec.select.i.i = add i8 %142, %.0113136.i.i
   %143 = lshr i8 %.0115135.i.i, 1
-  %.not121.i.i = icmp ult i8 %.0115135.i.i, 2
+  %.not121.i.i = icmp eq i8 %143, 0
   br i1 %.not121.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !17
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i

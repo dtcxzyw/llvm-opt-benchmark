@@ -8005,7 +8005,7 @@ define internal fastcc void @adpcm_swf_decode(ptr captures(none) %.32.val, i32 %
   %spec.select.us.us = add nsw i32 %65, %.062.us.us
   %66 = ashr i32 %.063.us.us, 1
   %67 = lshr i32 %.0.us.us, 1
-  %.not72.us.us = icmp samesign ult i32 %.0.us.us, 2
+  %.not72.us.us = icmp eq i32 %67, 0
   br i1 %.not72.us.us, label %68, label %63, !llvm.loop !188
 
 68:                                               ; preds = %63

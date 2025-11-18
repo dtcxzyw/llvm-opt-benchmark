@@ -883,31 +883,31 @@ aclitem_match.exit.thread:                        ; preds = %95, %aclitem_match.
 177:                                              ; preds = %167, %164
   %178 = xor i64 %165, -1
   %179 = and i64 %151, %178
-  %.not98 = icmp ult i64 %179, 4294967296
-  br i1 %.not98, label %recursive_revoke.exit, label %180
+  %180 = lshr i64 %179, 32
+  %.not98 = icmp eq i64 %180, 0
+  br i1 %.not98, label %recursive_revoke.exit, label %181
 
-180:                                              ; preds = %177
-  %181 = load i32, ptr %1, align 8
+181:                                              ; preds = %177
+  %182 = load i32, ptr %1, align 8
   tail call fastcc void @check_acl(ptr noundef %.1)
-  %182 = icmp eq i32 %181, %3
-  br i1 %182, label %recursive_revoke.exit, label %183
+  %183 = icmp eq i32 %182, %3
+  br i1 %183, label %recursive_revoke.exit, label %184
 
-183:                                              ; preds = %180
-  %184 = and i64 %179, -4294967296
-  %185 = tail call i64 @aclmask(ptr noundef %.1, i32 noundef %181, i32 noundef %3, i64 noundef %184, i32 noundef 0)
-  %186 = xor i64 %185, -1
-  %187 = and i64 %179, %186
-  %188 = lshr i64 %187, 32
-  %189 = icmp ult i64 %187, 4294967296
-  br i1 %189, label %recursive_revoke.exit, label %.preheader
+184:                                              ; preds = %181
+  %185 = and i64 %179, -4294967296
+  %186 = tail call i64 @aclmask(ptr noundef %.1, i32 noundef %182, i32 noundef %3, i64 noundef %185, i32 noundef 0)
+  %187 = lshr i64 %186, 32
+  %188 = xor i64 %187, -1
+  %189 = and i64 %180, %188
+  %190 = icmp eq i64 %189, 0
+  br i1 %190, label %recursive_revoke.exit, label %.preheader
 
-.preheader:                                       ; preds = %183
-  %190 = icmp eq i32 %4, 0
-  %191 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %192 = and i64 %187, -4294967296
-  %193 = or disjoint i64 %188, %192
+.preheader:                                       ; preds = %184
+  %191 = icmp eq i32 %4, 0
+  %192 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %193 = mul nuw i64 %189, 4294967297
   %194 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  br i1 %190, label %.preheader.split.us, label %.preheader.split
+  br i1 %191, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader
   %195 = getelementptr inbounds nuw i8, ptr %.1, i64 16
@@ -945,13 +945,13 @@ aclitem_match.exit.thread:                        ; preds = %95, %aclitem_match.
   %212 = getelementptr inbounds nuw %struct.AclItem, ptr %210, i64 %indvars.iv143
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 4
   %214 = load i32, ptr %213, align 4
-  %215 = icmp eq i32 %214, %181
+  %215 = icmp eq i32 %214, %182
   br i1 %215, label %216, label %224
 
 216:                                              ; preds = %.lr.ph116.us
   %217 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %218 = load i64, ptr %217, align 8
-  %219 = and i64 %218, %188
+  %219 = and i64 %218, %189
   %.not44.i.us = icmp eq i64 %219, 0
   br i1 %.not44.i.us, label %224, label %.split.us
 
@@ -1006,19 +1006,19 @@ aclitem_match.exit.thread:                        ; preds = %95, %aclitem_match.
   %242 = getelementptr inbounds nuw %struct.AclItem, ptr %240, i64 %indvars.iv138
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 4
   %244 = load i32, ptr %243, align 4
-  %245 = icmp eq i32 %244, %181
+  %245 = icmp eq i32 %244, %182
   br i1 %245, label %246, label %253
 
 246:                                              ; preds = %.lr.ph116
   %247 = getelementptr inbounds nuw i8, ptr %242, i64 8
   %248 = load i64, ptr %247, align 8
-  %249 = and i64 %248, %188
+  %249 = and i64 %248, %189
   %.not44.i = icmp eq i64 %249, 0
   br i1 %.not44.i, label %253, label %250
 
 250:                                              ; preds = %246
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i32 %181, ptr %191, align 4
+  store i32 %182, ptr %192, align 4
   %251 = load i32, ptr %242, align 8
   store i32 %251, ptr %6, align 8
   store i64 %193, ptr %194, align 8
@@ -1032,8 +1032,8 @@ aclitem_match.exit.thread:                        ; preds = %95, %aclitem_match.
   %exitcond142.not = icmp eq i64 %indvars.iv.next139, %wide.trip.count141
   br i1 %exitcond142.not, label %recursive_revoke.exit, label %.lr.ph116, !llvm.loop !8
 
-recursive_revoke.exit:                            ; preds = %238, %253, %224, %208, %183, %180, %177
-  %.2 = phi ptr [ %.1, %177 ], [ %.1, %180 ], [ %.1, %183 ], [ %.1, %208 ], [ %.1, %224 ], [ %.038.i, %253 ], [ %.038.i, %238 ]
+recursive_revoke.exit:                            ; preds = %238, %253, %224, %208, %184, %181, %177
+  %.2 = phi ptr [ %.1, %177 ], [ %.1, %181 ], [ %.1, %184 ], [ %.1, %208 ], [ %.1, %224 ], [ %.038.i, %253 ], [ %.038.i, %238 ]
   ret ptr %.2
 }
 
@@ -7694,32 +7694,32 @@ define dso_local void @select_best_grantor(i32 noundef %0, i64 noundef %1, ptr n
   %23 = icmp eq i64 %7, 0
   %24 = load i32, ptr %13, align 4
   %25 = icmp sgt i32 %24, 0
-  br i1 %23, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.preheader
+  br i1 %23, label %.lr.ph.split.split.us.split.split.us, label %.lr.ph.split.split.preheader
 
 .lr.ph.split.split.preheader:                     ; preds = %.lr.ph.split
-  br i1 %25, label %.lr.ph94, label %.critedge
+  br i1 %25, label %.lr.ph96, label %.critedge
 
-.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split
+.lr.ph.split.split.us.split.split.us:             ; preds = %.lr.ph.split
   br i1 %25, label %aclmask_direct.exit.us.us, label %.critedge
 
-aclmask_direct.exit.us.us:                        ; preds = %.lr.ph.split.split.us.split.us
+aclmask_direct.exit.us.us:                        ; preds = %.lr.ph.split.split.us.split.split.us
   %26 = load ptr, ptr %14, align 8
   %27 = load i32, ptr %26, align 8
   tail call fastcc void @check_acl(ptr noundef nonnull readonly %2)
   br label %.critedge.sink.split
 
-.lr.ph94:                                         ; preds = %.lr.ph.split.split.preheader, %.thread
-  %.sroa.6.06093 = phi i32 [ %62, %.thread ], [ 0, %.lr.ph.split.split.preheader ]
-  %.06192 = phi i32 [ %.1.ph, %.thread ], [ 0, %.lr.ph.split.split.preheader ]
+.lr.ph96:                                         ; preds = %.lr.ph.split.split.preheader, %.thread
+  %.sroa.6.06095 = phi i32 [ %62, %.thread ], [ 0, %.lr.ph.split.split.preheader ]
+  %.06194 = phi i32 [ %.1.ph, %.thread ], [ 0, %.lr.ph.split.split.preheader ]
   %28 = load ptr, ptr %14, align 8
-  %29 = sext i32 %.sroa.6.06093 to i64
+  %29 = sext i32 %.sroa.6.06095 to i64
   %30 = getelementptr inbounds %union.ListCell, ptr %28, i64 %29
   %31 = load i32, ptr %30, align 8
   tail call fastcc void @check_acl(ptr noundef nonnull readonly %2)
   %32 = icmp eq i32 %31, %3
   br i1 %32, label %.critedge.sink.split, label %33
 
-33:                                               ; preds = %.lr.ph94
+33:                                               ; preds = %.lr.ph96
   %34 = load i32, ptr %16, align 4
   %35 = load i32, ptr %17, align 4
   %.not45.i = icmp eq i32 %35, 0
@@ -7784,11 +7784,11 @@ aclmask_direct.exit:                              ; preds = %.thread.i
   %58 = and i32 %57, 1
   %spec.select.i = add i32 %58, %.08.i
   %59 = lshr i64 %.057.i, 1
-  %.not.i = icmp ult i64 %.057.i, 2
+  %.not.i = icmp eq i64 %59, 0
   br i1 %.not.i, label %count_one_bits.exit, label %.preheader, !llvm.loop !31
 
 count_one_bits.exit:                              ; preds = %.preheader
-  %60 = icmp sgt i32 %spec.select.i, %.06192
+  %60 = icmp sgt i32 %spec.select.i, %.06194
   br i1 %60, label %61, label %.thread
 
 61:                                               ; preds = %count_one_bits.exit
@@ -7797,20 +7797,20 @@ count_one_bits.exit:                              ; preds = %.preheader
   br label %.thread
 
 .thread:                                          ; preds = %44, %56, %61, %count_one_bits.exit
-  %.1.ph = phi i32 [ %.06192, %count_one_bits.exit ], [ %spec.select.i, %61 ], [ %.06192, %56 ], [ %.06192, %44 ]
-  %62 = add nuw i32 %.sroa.6.06093, 1
+  %.1.ph = phi i32 [ %.06194, %count_one_bits.exit ], [ %spec.select.i, %61 ], [ %.06194, %56 ], [ %.06194, %44 ]
+  %62 = add nuw i32 %.sroa.6.06095, 1
   %63 = load i32, ptr %13, align 4
   %64 = icmp slt i32 %62, %63
-  br i1 %64, label %.lr.ph94, label %.critedge
+  br i1 %64, label %.lr.ph96, label %.critedge
 
-.critedge.sink.split:                             ; preds = %.lr.ph94, %aclmask_direct.exit, %51, %aclmask_direct.exit.us.us, %6, %9
-  %.us-phi.sink = phi i32 [ %3, %9 ], [ %3, %6 ], [ %27, %aclmask_direct.exit.us.us ], [ %31, %51 ], [ %31, %aclmask_direct.exit ], [ %3, %.lr.ph94 ]
-  %.us-phi65.sink = phi i64 [ %7, %9 ], [ %7, %6 ], [ 0, %aclmask_direct.exit.us.us ], [ %7, %51 ], [ %7, %aclmask_direct.exit ], [ %7, %.lr.ph94 ]
+.critedge.sink.split:                             ; preds = %.lr.ph96, %aclmask_direct.exit, %51, %aclmask_direct.exit.us.us, %6, %9
+  %.us-phi.sink = phi i32 [ %3, %9 ], [ %3, %6 ], [ %27, %aclmask_direct.exit.us.us ], [ %31, %51 ], [ %31, %aclmask_direct.exit ], [ %3, %.lr.ph96 ]
+  %.us-phi65.sink = phi i64 [ %7, %9 ], [ %7, %6 ], [ 0, %aclmask_direct.exit.us.us ], [ %7, %51 ], [ %7, %aclmask_direct.exit ], [ %7, %.lr.ph96 ]
   store i32 %.us-phi.sink, ptr %4, align 4
   store i64 %.us-phi65.sink, ptr %5, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %.thread, %.lr.ph.split.split.preheader, %.critedge.sink.split, %11, %.lr.ph.split.split.us.split.us, %.lr.ph.split.us
+.critedge:                                        ; preds = %.thread, %.lr.ph.split.split.preheader, %.critedge.sink.split, %11, %.lr.ph.split.split.us.split.split.us, %.lr.ph.split.us
   ret void
 }
 

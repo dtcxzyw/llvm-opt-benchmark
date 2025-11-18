@@ -8494,7 +8494,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %100 = getelementptr inbounds %"class.clang::tooling::Range", ptr %.fr63.i.i, i64 %.010.i.i.i.i15.i
   %101 = load i64, ptr %95, align 4
   store i64 %101, ptr %100, align 4
-  %.not7.i.i.i = icmp ult i64 %.0911.in.i.i.i.i16.i, 2
+  %.not7.i.i.i = icmp eq i64 %.0911.i.i56.i.i.i, 0
   br i1 %.not7.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5clang7tooling5RangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZL20combineAndSortRangesS8_E3$_0EEEvT_SE_SE_RT0_.exit.i.i", label %.lr.ph.i.i.i.i14.i, !llvm.loop !437
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5clang7tooling5RangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZL20combineAndSortRangesS8_E3$_0EEEvT_SE_SE_RT0_.exit.i.i": ; preds = %99, %.lr.ph.i.i.i.i14.i, %94

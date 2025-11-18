@@ -171,21 +171,21 @@ define range(i32 -1, 1) i32 @H5HF__man_iter_start_offset(ptr noundef %0, ptr nou
   %76 = getelementptr inbounds nuw i64, ptr %48, i64 %75
   %77 = load i64, ptr %76, align 8, !tbaa !14
   %78 = lshr i64 %77, 32
-  %.not.i = icmp ult i64 %77, 4294967296
+  %.not.i = icmp eq i64 %78, 0
   br i1 %.not.i, label %105, label %79
 
 79:                                               ; preds = %62
   %80 = lshr i64 %77, 48
-  %.not26.i = icmp ult i64 %77, 281474976710656
+  %.not26.i = icmp eq i64 %80, 0
   br i1 %.not26.i, label %93, label %81
 
 81:                                               ; preds = %79
-  %.not28.i = icmp ult i64 %77, 72057594037927936
-  br i1 %.not28.i, label %88, label %82
+  %82 = lshr i64 %77, 56
+  %.not28.i = icmp eq i64 %82, 0
+  br i1 %.not28.i, label %88, label %83
 
-82:                                               ; preds = %81
-  %83 = lshr i64 %77, 56
-  %84 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %83
+83:                                               ; preds = %81
+  %84 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %82
   %85 = load i8, ptr %84, align 1, !tbaa !56
   %86 = zext i8 %85 to i32
   %87 = add nuw nsw i32 %86, 56
@@ -199,12 +199,12 @@ define range(i32 -1, 1) i32 @H5HF__man_iter_start_offset(ptr noundef %0, ptr nou
   br label %H5VM_log2_gen.exit
 
 93:                                               ; preds = %79
-  %.not27.i = icmp samesign ult i64 %77, 1099511627776
-  br i1 %.not27.i, label %100, label %94
+  %94 = lshr i64 %77, 40
+  %.not27.i = icmp eq i64 %94, 0
+  br i1 %.not27.i, label %100, label %95
 
-94:                                               ; preds = %93
-  %95 = lshr i64 %77, 40
-  %96 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %95
+95:                                               ; preds = %93
+  %96 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %94
   %97 = load i8, ptr %96, align 1, !tbaa !56
   %98 = zext i8 %97 to i32
   %99 = add nuw nsw i32 %98, 40
@@ -219,16 +219,16 @@ define range(i32 -1, 1) i32 @H5HF__man_iter_start_offset(ptr noundef %0, ptr nou
 
 105:                                              ; preds = %62
   %106 = lshr i64 %77, 16
-  %.not23.i = icmp samesign ult i64 %77, 65536
+  %.not23.i = icmp eq i64 %106, 0
   br i1 %.not23.i, label %119, label %107
 
 107:                                              ; preds = %105
-  %.not25.i = icmp samesign ult i64 %77, 16777216
-  br i1 %.not25.i, label %114, label %108
+  %108 = lshr i64 %77, 24
+  %.not25.i = icmp eq i64 %108, 0
+  br i1 %.not25.i, label %114, label %109
 
-108:                                              ; preds = %107
-  %109 = lshr i64 %77, 24
-  %110 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %109
+109:                                              ; preds = %107
+  %110 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %108
   %111 = load i8, ptr %110, align 1, !tbaa !56
   %112 = zext i8 %111 to i32
   %113 = add nuw nsw i32 %112, 24
@@ -242,12 +242,12 @@ define range(i32 -1, 1) i32 @H5HF__man_iter_start_offset(ptr noundef %0, ptr nou
   br label %H5VM_log2_gen.exit
 
 119:                                              ; preds = %105
-  %.not24.i = icmp samesign ult i64 %77, 256
-  br i1 %.not24.i, label %126, label %120
+  %120 = lshr i64 %77, 8
+  %.not24.i = icmp eq i64 %120, 0
+  br i1 %.not24.i, label %126, label %121
 
-120:                                              ; preds = %119
-  %121 = lshr i64 %77, 8
-  %122 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %121
+121:                                              ; preds = %119
+  %122 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %120
   %123 = load i8, ptr %122, align 1, !tbaa !56
   %124 = zext i8 %123 to i32
   %125 = add nuw nsw i32 %124, 8
@@ -259,8 +259,8 @@ define range(i32 -1, 1) i32 @H5HF__man_iter_start_offset(ptr noundef %0, ptr nou
   %129 = zext i8 %128 to i32
   br label %H5VM_log2_gen.exit
 
-H5VM_log2_gen.exit:                               ; preds = %82, %88, %94, %100, %108, %114, %120, %126
-  %.0.i = phi i32 [ %87, %82 ], [ %92, %88 ], [ %99, %94 ], [ %104, %100 ], [ %113, %108 ], [ %118, %114 ], [ %125, %120 ], [ %129, %126 ]
+H5VM_log2_gen.exit:                               ; preds = %83, %88, %95, %100, %109, %114, %121, %126
+  %.0.i = phi i32 [ %87, %83 ], [ %92, %88 ], [ %99, %95 ], [ %104, %100 ], [ %113, %109 ], [ %118, %114 ], [ %125, %121 ], [ %129, %126 ]
   %130 = load i32, ptr %19, align 8, !tbaa !57
   %131 = add nuw nsw i32 %.0.i, 1
   %132 = sub i32 %131, %130

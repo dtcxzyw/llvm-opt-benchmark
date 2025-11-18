@@ -1640,7 +1640,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %15, %_ZN
 58:                                               ; preds = %57, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %59 = add i64 %2, 63
   %60 = lshr i64 %59, 6
-  %.not95 = icmp ult i64 %59, 64
+  %.not95 = icmp eq i64 %60, 0
   br i1 %.not95, label %.loopexit, label %.lr.ph92
 
 .lr.ph92:                                         ; preds = %58
@@ -2339,7 +2339,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %27, %2
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i: ; preds = %31
   store ptr %39, ptr %35, align 8, !tbaa !123, !noalias !116
-  %.not.i.i.i.i.i.i.i.i.i = icmp ult i64 %36, 64
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %37, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit12.i.i.i.i.i.i.i.i.i: ; preds = %31
@@ -3002,14 +3002,14 @@ define linkonce_odr void @_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEE
   %7 = load i64, ptr %1, align 8, !tbaa !93, !noalias !132
   store ptr null, ptr %6, align 8, !tbaa !121, !noalias !132
   %8 = add i64 %7, 63
-  %9 = lshr i64 %8, 3
-  %10 = and i64 %9, 2305843009213693944
+  %9 = lshr i64 %8, 6
+  %10 = shl nuw nsw i64 %9, 3
   %11 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %10) #20
           to label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i unwind label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit10.i.i.i.i.i.i.i.i.i, !noalias !132
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i: ; preds = %2
   store ptr %11, ptr %6, align 8, !tbaa !123, !noalias !132
-  %.not.i.i.i.i.i.i.i.i.i = icmp ult i64 %8, 64
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %9, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %13, label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i
@@ -3998,7 +3998,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %15, %_ZN
 58:                                               ; preds = %57, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %59 = add i64 %2, 63
   %60 = lshr i64 %59, 6
-  %.not95 = icmp ult i64 %59, 64
+  %.not95 = icmp eq i64 %60, 0
   br i1 %.not95, label %.loopexit, label %.lr.ph92
 
 .lr.ph92:                                         ; preds = %58
@@ -5189,7 +5189,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %16, %_ZN
 59:                                               ; preds = %58, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %60 = add i64 %2, 63
   %61 = lshr i64 %60, 6
-  %.not97 = icmp ult i64 %60, 64
+  %.not97 = icmp eq i64 %61, 0
   br i1 %.not97, label %.loopexit, label %.lr.ph94
 
 .lr.ph94:                                         ; preds = %59

@@ -2045,7 +2045,7 @@ define hidden noundef i32 @_ZN10duckdb_re28Compiler18AddSuffixRecursiveEii(ptr n
 15:                                               ; preds = %3
   %.sroa.022.4.extract.shift = lshr i64 %.fca.0.extract, 32
   %.sroa.022.4.extract.trunc = trunc nuw i64 %.sroa.022.4.extract.shift to i32
-  %16 = icmp ult i64 %.fca.0.extract, 4294967296
+  %16 = icmp eq i64 %.sroa.022.4.extract.shift, 0
   br i1 %16, label %._crit_edge, label %17
 
 ._crit_edge:                                      ; preds = %15

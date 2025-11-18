@@ -2940,7 +2940,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %6
   %.ptr.i = getelementptr inbounds nuw i8, ptr %19, i64 %.0.add.i
   store i8 %27, ptr %.ptr.i, align 1, !tbaa !11
   %28 = lshr i64 %.017.i, 1
-  %.not.i = icmp ult i64 %.017.i, 2
+  %.not.i = icmp eq i64 %28, 0
   br i1 %.not.i, label %_php_math_longtobase_pwr2.exit, label %23
 
 _php_math_longtobase_pwr2.exit:                   ; preds = %23
@@ -3036,7 +3036,7 @@ zend_string_alloc.exit:                           ; preds = %.critedge, %16
   %.ptr.i = getelementptr inbounds nuw i8, ptr %22, i64 %.0.add.i
   store i8 %30, ptr %.ptr.i, align 1, !tbaa !11
   %31 = lshr i64 %.017.i, 3
-  %.not.i = icmp ult i64 %.017.i, 8
+  %.not.i = icmp eq i64 %31, 0
   br i1 %.not.i, label %_php_math_longtobase_pwr2.exit, label %26
 
 _php_math_longtobase_pwr2.exit:                   ; preds = %26
@@ -3124,7 +3124,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %6
   %.ptr.i = getelementptr inbounds nuw i8, ptr %19, i64 %.0.add.i
   store i8 %27, ptr %.ptr.i, align 1, !tbaa !11
   %28 = lshr i64 %.017.i, 4
-  %.not.i = icmp ult i64 %.017.i, 16
+  %.not.i = icmp eq i64 %28, 0
   br i1 %.not.i, label %_php_math_longtobase_pwr2.exit, label %23
 
 _php_math_longtobase_pwr2.exit:                   ; preds = %23
@@ -3198,7 +3198,7 @@ zend_string_alloc.exit:                           ; preds = %thread-pre-split, %
   %.ptr.i = getelementptr inbounds nuw i8, ptr %15, i64 %.0.add.i
   store i8 %23, ptr %.ptr.i, align 1, !tbaa !11
   %24 = lshr i64 %.017.i, 4
-  %.not.i = icmp ult i64 %.017.i, 16
+  %.not.i = icmp eq i64 %24, 0
   br i1 %.not.i, label %_php_math_longtobase_pwr2.exit, label %19
 
 _php_math_longtobase_pwr2.exit:                   ; preds = %19

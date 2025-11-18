@@ -735,7 +735,7 @@ Min_CubesAreEqual.exit.loopexit:                  ; preds = %15
   tail call void @Extra_MmFixedEntryRecycle(ptr noundef %.val, ptr noundef nonnull %1) #5
   %.val97 = load ptr, ptr %21, align 8, !tbaa !33
   tail call void @Extra_MmFixedEntryRecycle(ptr noundef %.val97, ptr noundef nonnull %.082136) #5
-  br label %129
+  br label %127
 
 Min_CubesAreEqual.exit._crit_edge:                ; preds = %Min_CubesAreEqual.exit.loopexit, %2
   %22 = and i32 %6, 1023
@@ -804,7 +804,7 @@ Min_CubesTransform.exit:                          ; preds = %40, %31
   %56 = getelementptr i8, ptr %0, i64 8
   %.val98 = load ptr, ptr %56, align 8, !tbaa !33
   tail call void @Extra_MmFixedEntryRecycle(ptr noundef %.val98, ptr noundef nonnull %.183) #5
-  br label %129
+  br label %127
 
 .loopexit123.loopexit:                            ; preds = %27
   %.pre = load ptr, ptr %3, align 8, !tbaa !12
@@ -877,23 +877,23 @@ Min_CubesTransform.exit113:                       ; preds = %73, %64
   %89 = getelementptr i8, ptr %0, i64 8
   %.val99 = load ptr, ptr %89, align 8, !tbaa !33
   tail call void @Extra_MmFixedEntryRecycle(ptr noundef %.val99, ptr noundef nonnull %.284) #5
-  br label %129
+  br label %127
 
 90:                                               ; preds = %60
   %91 = load i32, ptr %5, align 8
-  %.not91 = icmp ult i32 %91, 4194304
+  %92 = lshr i32 %91, 22
+  %.not91 = icmp eq i32 %92, 0
   %.pre155 = load ptr, ptr %3, align 8, !tbaa !12
-  br i1 %.not91, label %.loopexit, label %92
+  br i1 %.not91, label %.loopexit, label %93
 
-92:                                               ; preds = %90
-  %93 = lshr i32 %91, 22
-  %94 = zext nneg i32 %93 to i64
+93:                                               ; preds = %90
+  %94 = zext nneg i32 %92 to i64
   %95 = getelementptr ptr, ptr %.pre155, i64 %94
   %96 = getelementptr i8, ptr %95, i64 -8
   br label %97
 
-97:                                               ; preds = %98, %92
-  %.3 = phi ptr [ %96, %92 ], [ %.385, %98 ]
+97:                                               ; preds = %98, %93
+  %.3 = phi ptr [ %96, %93 ], [ %.385, %98 ]
   %.385 = load ptr, ptr %.3, align 8, !tbaa !14
   %.not92 = icmp eq ptr %.385, null
   br i1 %.not92, label %.loopexit.loopexit, label %98
@@ -944,31 +944,31 @@ Min_CubesTransform.exit120:                       ; preds = %110, %101
   %122 = getelementptr i8, ptr %0, i64 8
   %.val100 = load ptr, ptr %122, align 8, !tbaa !33
   tail call void @Extra_MmFixedEntryRecycle(ptr noundef %.val100, ptr noundef nonnull %.385) #5
-  br label %129
+  br label %127
 
 .loopexit.loopexit:                               ; preds = %97
   %.pre154 = load ptr, ptr %3, align 8, !tbaa !12
   %.pre156 = load i32, ptr %5, align 8
+  %.pre160 = lshr i32 %.pre156, 22
+  %123 = zext nneg i32 %.pre160 to i64
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %90
-  %123 = phi i32 [ %.pre156, %.loopexit.loopexit ], [ %91, %90 ]
+  %.pre-phi161 = phi i64 [ %123, %.loopexit.loopexit ], [ 0, %90 ]
   %124 = phi ptr [ %.pre154, %.loopexit.loopexit ], [ %.pre155, %90 ]
-  %125 = lshr i32 %123, 22
-  %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr inbounds nuw ptr, ptr %124, i64 %126
-  %128 = load ptr, ptr %127, align 8, !tbaa !14
-  store ptr %128, ptr %1, align 8, !tbaa !15
-  store ptr %1, ptr %127, align 8, !tbaa !14
-  br label %129
+  %125 = getelementptr inbounds nuw ptr, ptr %124, i64 %.pre-phi161
+  %126 = load ptr, ptr %125, align 8, !tbaa !14
+  store ptr %126, ptr %1, align 8, !tbaa !15
+  store ptr %1, ptr %125, align 8, !tbaa !14
+  br label %127
 
-129:                                              ; preds = %.loopexit, %Min_CubesTransform.exit120, %Min_CubesTransform.exit113, %Min_CubesTransform.exit, %.loopexit124
-  %.sink175 = phi i32 [ 1, %.loopexit ], [ -1, %Min_CubesTransform.exit120 ], [ -1, %Min_CubesTransform.exit113 ], [ -1, %Min_CubesTransform.exit ], [ -1, %.loopexit124 ]
+127:                                              ; preds = %.loopexit, %Min_CubesTransform.exit120, %Min_CubesTransform.exit113, %Min_CubesTransform.exit, %.loopexit124
+  %.sink177 = phi i32 [ 1, %.loopexit ], [ -1, %Min_CubesTransform.exit120 ], [ -1, %Min_CubesTransform.exit113 ], [ -1, %Min_CubesTransform.exit ], [ -1, %.loopexit124 ]
   %.086 = phi i32 [ 0, %.loopexit ], [ 1, %Min_CubesTransform.exit120 ], [ 1, %Min_CubesTransform.exit113 ], [ 1, %Min_CubesTransform.exit ], [ 0, %.loopexit124 ]
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %131 = load i32, ptr %130, align 8, !tbaa !3
-  %132 = add nsw i32 %131, %.sink175
-  store i32 %132, ptr %130, align 8, !tbaa !3
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %129 = load i32, ptr %128, align 8, !tbaa !3
+  %130 = add nsw i32 %129, %.sink177
+  store i32 %130, ptr %128, align 8, !tbaa !3
   ret i32 %.086
 }
 

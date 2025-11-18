@@ -1005,12 +1005,12 @@ define dso_local void @gen8_gt_irq_handler(ptr noundef %0, i32 noundef %1) local
   br label %20
 
 20:                                               ; preds = %15, %12
-  %21 = icmp ult i32 %10, 65536
-  br i1 %21, label %29, label %22
+  %21 = lshr i32 %10, 16
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %29, label %23
 
-22:                                               ; preds = %20
-  %23 = lshr i32 %10, 16
-  %24 = trunc nuw i32 %23 to i16
+23:                                               ; preds = %20
+  %24 = trunc nuw i32 %21 to i16
   %25 = getelementptr i8, ptr %0, i64 4472
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 784
@@ -1018,7 +1018,7 @@ define dso_local void @gen8_gt_irq_handler(ptr noundef %0, i32 noundef %1) local
   tail call void %28(ptr noundef %26, i16 noundef zeroext %24) #3
   br label %29
 
-29:                                               ; preds = %22, %20
+29:                                               ; preds = %23, %20
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %10, ptr elementtype(i32) %9) #3, !srcloc !7
   br label %30
 
@@ -1047,12 +1047,12 @@ define dso_local void @gen8_gt_irq_handler(ptr noundef %0, i32 noundef %1) local
   br label %45
 
 45:                                               ; preds = %40, %37
-  %46 = icmp ult i32 %35, 65536
-  br i1 %46, label %54, label %47
+  %46 = lshr i32 %35, 16
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %54, label %48
 
-47:                                               ; preds = %45
-  %48 = lshr i32 %35, 16
-  %49 = trunc nuw i32 %48 to i16
+48:                                               ; preds = %45
+  %49 = trunc nuw i32 %46 to i16
   %50 = getelementptr i8, ptr %0, i64 4336
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 784
@@ -1060,7 +1060,7 @@ define dso_local void @gen8_gt_irq_handler(ptr noundef %0, i32 noundef %1) local
   tail call void %53(ptr noundef %51, i16 noundef zeroext %49) #3
   br label %54
 
-54:                                               ; preds = %47, %45
+54:                                               ; preds = %48, %45
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %35, ptr elementtype(i32) %34) #3, !srcloc !7
   br label %55
 

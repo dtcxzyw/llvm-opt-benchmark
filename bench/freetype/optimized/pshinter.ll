@@ -5016,8 +5016,7 @@ ps_mask_table_test_intersect.exit.thread27.i:     ; preds = %ps_mask_table_test_
 
 81:                                               ; preds = %80, %._crit_edge.i22.i
   %.pre-phi78.i.i = phi i32 [ %.pre77.i.i, %._crit_edge.i22.i ], [ %67, %80 ]
-  %.pre-phi.i.i = phi i32 [ %.pre76.i.i, %._crit_edge.i22.i ], [ %66, %80 ]
-  %.not6672.i.i = icmp ult i32 %.pre-phi.i.i, 8
+  %.not6672.i.i = icmp eq i32 %.pre-phi78.i.i, 0
   br i1 %.not6672.i.i, label %.thread.i.i, label %.lr.ph.preheader.i23.i
 
 .lr.ph.preheader.i23.i:                           ; preds = %81
@@ -5735,12 +5734,12 @@ ps_mask_ensure.exit.i:                            ; preds = %77
   %103 = trunc i32 %spec.select.i to i8
   store i8 %103, ptr %.02754.i, align 1, !tbaa !49
   %104 = lshr i32 %.02953.i, 1
-  %105 = icmp ult i32 %.02953.i, 2
+  %105 = icmp eq i32 %104, 0
   %.132.idx.i = zext i1 %105 to i64
   %.132.i = getelementptr inbounds nuw i8, ptr %.03152.i, i64 %.132.idx.i
   %.130.i = select i1 %105, i32 128, i32 %104
   %106 = ashr i32 %.02655.i, 1
-  %107 = icmp ult i32 %.02655.i, 2
+  %107 = icmp eq i32 %106, 0
   %.128.idx.i = zext i1 %107 to i64
   %.128.i = getelementptr inbounds nuw i8, ptr %.02754.i, i64 %.128.idx.i
   %.1.i = select i1 %107, i32 128, i32 %106

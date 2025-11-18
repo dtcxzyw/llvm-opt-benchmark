@@ -8117,11 +8117,11 @@ _interpolate_and_mask.exit.i:                     ; preds = %._crit_edge.us.i.i3
   %2914 = load ptr, ptr %16, align 8, !tbaa !160, !noalias !169
   call void @llvm.experimental.noalias.scope.decl(metadata !183)
   call void @llvm.experimental.noalias.scope.decl(metadata !186)
-  %.not.i86.i = icmp ult i32 %2671, 4
+  %.not.i86.i = icmp eq i64 %2676, 0
   br i1 %.not.i86.i, label %interpolate_bilinear.exit.i, label %.preheader.lr.ph.i87.i
 
 .preheader.lr.ph.i87.i:                           ; preds = %_interpolate_and_mask.exit.i
-  %.not97.i.i = icmp ult i32 %2674, 4
+  %.not97.i.i = icmp eq i64 %2677, 0
   %2915 = add nsw i64 %2675, -1
   %2916 = add nsw i64 %2672, -1
   br i1 %.not97.i.i, label %interpolate_bilinear.exit108.i, label %.preheader.lr.ph.split.us.i.i339
@@ -8137,7 +8137,7 @@ _interpolate_and_mask.exit.i:                     ; preds = %._crit_edge.us.i.i3
 
 .preheader.us.i88.i:                              ; preds = %._crit_edge.us.i90.i, %.preheader.lr.ph.split.us.i.i339
   %.08393.us.i.i = phi i64 [ 0, %.preheader.lr.ph.split.us.i.i339 ], [ %2984, %._crit_edge.us.i90.i ]
-  %2923 = uitofp i64 %.08393.us.i.i to float
+  %2923 = uitofp nneg i64 %.08393.us.i.i to float
   %2924 = fmul reassoc nsz arcp contract afn float %2918, %2923
   %2925 = fmul reassoc nsz arcp contract afn float %2924, %2921
   %2926 = call reassoc nsz arcp contract afn float @llvm.floor.f32(float %2925)
@@ -8156,7 +8156,7 @@ _interpolate_and_mask.exit.i:                     ; preds = %._crit_edge.us.i.i3
 
 2938:                                             ; preds = %2962, %.preheader.us.i88.i
   %.08492.us.i.i = phi i64 [ 0, %.preheader.us.i88.i ], [ %2963, %2962 ]
-  %2939 = uitofp i64 %.08492.us.i.i to float
+  %2939 = uitofp nneg i64 %.08492.us.i.i to float
   %2940 = fmul reassoc nsz arcp contract afn float %2920, %2939
   %2941 = fmul reassoc nsz arcp contract afn float %2940, %2922
   %2942 = call reassoc nsz arcp contract afn float @llvm.floor.f32(float %2941)
@@ -8187,7 +8187,7 @@ _interpolate_and_mask.exit.i:                     ; preds = %._crit_edge.us.i.i3
   br label %2964
 
 2962:                                             ; preds = %2964
-  %2963 = add nuw i64 %.08492.us.i.i, 1
+  %2963 = add nuw nsw i64 %.08492.us.i.i, 1
   %exitcond99.not.i.i = icmp eq i64 %2963, %2677
   br i1 %exitcond99.not.i.i, label %._crit_edge.us.i90.i, label %2938
 
@@ -8217,7 +8217,7 @@ _interpolate_and_mask.exit.i:                     ; preds = %._crit_edge.us.i.i3
   br i1 %exitcond.not.i89.i, label %2962, label %2964
 
 ._crit_edge.us.i90.i:                             ; preds = %2962
-  %2984 = add nuw i64 %.08393.us.i.i, 1
+  %2984 = add nuw nsw i64 %.08393.us.i.i, 1
   %exitcond100.not.i.i = icmp eq i64 %2984, %2676
   br i1 %exitcond100.not.i.i, label %.preheader.lr.ph.split.us.i94.i, label %.preheader.us.i88.i
 
@@ -8235,7 +8235,7 @@ interpolate_bilinear.exit.i:                      ; preds = %_interpolate_and_ma
 
 .preheader.us.i95.i:                              ; preds = %._crit_edge.us.i106.i, %.preheader.lr.ph.split.us.i94.i
   %.08393.us.i96.i = phi i64 [ 0, %.preheader.lr.ph.split.us.i94.i ], [ %3050, %._crit_edge.us.i106.i ]
-  %2989 = uitofp i64 %.08393.us.i96.i to float
+  %2989 = uitofp nneg i64 %.08393.us.i96.i to float
   %2990 = fmul reassoc nsz arcp contract afn float %2918, %2989
   %2991 = fmul reassoc nsz arcp contract afn float %2990, %2987
   %2992 = call reassoc nsz arcp contract afn float @llvm.floor.f32(float %2991)
@@ -8254,7 +8254,7 @@ interpolate_bilinear.exit.i:                      ; preds = %_interpolate_and_ma
 
 3004:                                             ; preds = %3028, %.preheader.us.i95.i
   %.08492.us.i97.i = phi i64 [ 0, %.preheader.us.i95.i ], [ %3029, %3028 ]
-  %3005 = uitofp i64 %.08492.us.i97.i to float
+  %3005 = uitofp nneg i64 %.08492.us.i97.i to float
   %3006 = fmul reassoc nsz arcp contract afn float %2920, %3005
   %3007 = fmul reassoc nsz arcp contract afn float %3006, %2988
   %3008 = call reassoc nsz arcp contract afn float @llvm.floor.f32(float %3007)
@@ -8285,7 +8285,7 @@ interpolate_bilinear.exit.i:                      ; preds = %_interpolate_and_ma
   br label %3030
 
 3028:                                             ; preds = %3030
-  %3029 = add nuw i64 %.08492.us.i97.i, 1
+  %3029 = add nuw nsw i64 %.08492.us.i97.i, 1
   %exitcond99.not.i105.i = icmp eq i64 %3029, %2677
   br i1 %exitcond99.not.i105.i, label %._crit_edge.us.i106.i, label %3004
 
@@ -8315,7 +8315,7 @@ interpolate_bilinear.exit.i:                      ; preds = %_interpolate_and_ma
   br i1 %exitcond.not.i104.i, label %3028, label %3030
 
 ._crit_edge.us.i106.i:                            ; preds = %3028
-  %3050 = add nuw i64 %.08393.us.i96.i, 1
+  %3050 = add nuw nsw i64 %.08393.us.i96.i, 1
   %exitcond100.not.i107.i = icmp eq i64 %3050, %2676
   br i1 %exitcond100.not.i107.i, label %interpolate_bilinear.exit108.i, label %.preheader.us.i95.i
 

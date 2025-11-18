@@ -1569,7 +1569,7 @@ define void @rb_Digest_RMD160_Update(ptr noundef %0, ptr noundef readonly captur
   %31 = sub i64 %2, %30
   %32 = lshr i64 %31, 6
   %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 %30
-  %.not = icmp ult i64 %31, 64
+  %.not = icmp eq i64 %32, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %26, %.lr.ph

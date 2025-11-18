@@ -778,7 +778,7 @@ land.rhs.i.i.i.i14.i:                             ; preds = %while.body.i.i.i.i2
 while.body.i.i.i.i25.i:                           ; preds = %land.rhs.i.i.i.i14.i
   %add.ptr.i8.i.i.i.i26.i = getelementptr inbounds i32, ptr %__first.coerce.fr.i.i.i, i64 %__holeIndex.addr.08.i.i.i.i15.i
   store i32 %29, ptr %add.ptr.i8.i.i.i.i26.i, align 4
-  %cmp.i.i.not.i.i.i = icmp ult i64 %__parent.09.in.i.i.i.i16.i, 2
+  %cmp.i.i.not.i.i.i = icmp eq i64 %__parent.09.i.i67.i.i.i, 0
   br i1 %cmp.i.i.not.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN8facebook5velox5cache14SsdFileTracker22findEvictionCandidatesEiiRKS5_E3$_0EEEvT_SH_SH_RT0_.exit.i.i", label %land.rhs.i.i.i.i14.i, !llvm.loop !12
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN8facebook5velox5cache14SsdFileTracker22findEvictionCandidatesEiiRKS5_E3$_0EEEvT_SH_SH_RT0_.exit.i.i": ; preds = %while.body.i.i.i.i25.i, %land.rhs.i.i.i.i14.i, %if.end35.i.i.i11.i

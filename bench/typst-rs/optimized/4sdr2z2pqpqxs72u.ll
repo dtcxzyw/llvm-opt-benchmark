@@ -6925,7 +6925,7 @@ _ZN5image5error13EncodingError3new17h535291966a7710c1E.exit: ; preds = %.noexc.i
   %53 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %3, ptr %53, align 8, !alias.scope !1178
   %54 = lshr i64 %3, 1
-  %.not.i = icmp ult i64 %3, 2
+  %.not.i = icmp eq i64 %54, 0
   br i1 %.not.i, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17hac63ecf939181209E.exit", label %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617hfa3fd2a8ff26d3bbE.exit.i.i.i"
 
 "_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617hfa3fd2a8ff26d3bbE.exit.i.i.i": ; preds = %48, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617hfa3fd2a8ff26d3bbE.exit.i.i.i"

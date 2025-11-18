@@ -1332,7 +1332,7 @@ define hidden noundef zeroext i1 @_ZN11doc_manager8fold_negER3doc(ptr noundef no
   %18 = load ptr, ptr %17, align 8, !tbaa !27
   %19 = load i32, ptr %7, align 8, !tbaa !44
   %20 = lshr i32 %19, 1
-  %.not2942.not.i = icmp ult i32 %19, 2
+  %.not2942.not.i = icmp eq i32 %20, 0
   br i1 %.not2942.not.i, label %.thread49, label %.lr.ph.i.outer
 
 .lr.ph.i.outer:                                   ; preds = %14, %.thread.i
@@ -1392,8 +1392,8 @@ define hidden noundef zeroext i1 @_ZN11doc_manager8fold_negER3doc(ptr noundef no
 
 .thread.i.thread:                                 ; preds = %47
   %49 = add nuw nsw i32 %.02543.i, 1
-  %exitcond.not.i85 = icmp eq i32 %49, %20
-  br i1 %exitcond.not.i85, label %.thread49, label %.lr.ph.i, !llvm.loop !46
+  %exitcond.not.i86 = icmp eq i32 %49, %20
+  br i1 %exitcond.not.i86, label %.thread49, label %.lr.ph.i, !llvm.loop !46
 
 _ZN11doc_manager11diff_by_012ERK3tbvS2_Rj.exit:   ; preds = %.thread.i
   %cond.not.not = icmp eq i32 %.32236.i, 0
@@ -1537,7 +1537,7 @@ define hidden noundef range(i32 0, 4) i32 @_ZN11doc_manager11diff_by_012ERK3tbvS
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %6 = load i32, ptr %5, align 8, !tbaa !44
   %7 = lshr i32 %6, 1
-  %.not2942.not = icmp ult i32 %6, 2
+  %.not2942.not = icmp eq i32 %7, 0
   br i1 %.not2942.not, label %.thread38, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %.thread
@@ -3363,7 +3363,7 @@ define hidden noundef range(i32 0, 6) i32 @_ZN11doc_manager14pick_resolventERK3t
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %14 = load i32, ptr %13, align 8, !tbaa !44
   %15 = lshr i32 %14, 1
-  %.not93128.not = icmp ult i32 %14, 2
+  %.not93128.not = icmp eq i32 %15, 0
   br i1 %.not93128.not, label %.thread, label %.lr.ph133
 
 .lr.ph133:                                        ; preds = %.preheader
@@ -3516,9 +3516,9 @@ define hidden noundef range(i32 0, 6) i32 @_ZN11doc_manager14pick_resolventERK3t
   br i1 %.not94, label %.thread, label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %78, %76, %._crit_edge, %.thread108
-  %.075132.lcssa149.sink = phi i32 [ %.278, %.thread108 ], [ %.075132, %._crit_edge ], [ %.075132, %76 ], [ %.075132, %78 ]
+  %.075132.lcssa150.sink = phi i32 [ %.278, %.thread108 ], [ %.075132, %._crit_edge ], [ %.075132, %76 ], [ %.075132, %78 ]
   %.0.ph = phi i32 [ 5, %.thread108 ], [ 4, %78 ], [ 3, %76 ], [ 2, %._crit_edge ]
-  store i32 %.075132.lcssa149.sink, ptr %4, align 4, !tbaa !45
+  store i32 %.075132.lcssa150.sink, ptr %4, align 4, !tbaa !45
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %.thread.sink.split, %.preheader, %.thread108, %5
@@ -6498,16 +6498,16 @@ declare noundef zeroext i1 @_ZNK11tbv_manager8containsERK3tbvRK7svectorIjjES2_S6
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK11doc_manager7displayERSoRK3doc(ptr noundef nonnull align 8 dereferenceable(1080) %0, ptr noundef nonnull returned align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(88) %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %5 = load i32, ptr %4, align 8, !tbaa !44
-  %6 = icmp ult i32 %5, 2
-  br i1 %6, label %7, label %9
+  %6 = lshr i32 %5, 1
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %8, label %10
 
-7:                                                ; preds = %3
-  %8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.3, i64 noundef 2)
+8:                                                ; preds = %3
+  %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.3, i64 noundef 2)
   br label %_ZNK11doc_manager7displayERSoRK3docjj.exit
 
-9:                                                ; preds = %3
-  %10 = lshr i32 %5, 1
-  %11 = add nsw i32 %10, -1
+10:                                               ; preds = %3
+  %11 = add nsw i32 %6, -1
   %12 = load ptr, ptr %2, align 8, !tbaa !20
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK11tbv_manager7displayERSoRK3tbvjj(ptr noundef nonnull align 8 dereferenceable(1080) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %12, i32 noundef %11, i32 noundef 0)
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -6515,13 +6515,13 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK11doc_manager7
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %_ZNK11doc_manager7displayERSoRK3docjj.exit, label %17
 
-17:                                               ; preds = %9
+17:                                               ; preds = %10
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.4, i64 noundef 3)
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK10union_bvecI11tbv_manager3tbvE7displayERKS0_RSojj(ptr noundef nonnull align 8 dereferenceable(80) %18, ptr noundef nonnull align 8 dereferenceable(1080) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %11, i32 noundef 0)
   br label %_ZNK11doc_manager7displayERSoRK3docjj.exit
 
-_ZNK11doc_manager7displayERSoRK3docjj.exit:       ; preds = %17, %9, %7
+_ZNK11doc_manager7displayERSoRK3docjj.exit:       ; preds = %17, %10, %8
   ret ptr %1
 }
 

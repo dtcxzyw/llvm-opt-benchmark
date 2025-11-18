@@ -2245,11 +2245,11 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_115AArch64FastISel18fastLowe
   %26 = zext i32 %25 to i64
   %.idx2.i.i.i = shl nuw nsw i64 %26, 3
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx2.i.i.i
-  %.not.i.i.i = icmp ult i32 %25, 4
+  %28 = lshr i64 %26, 2
+  %.not.i.i.i = icmp eq i64 %28, 0
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i.i:                 ; preds = %19
-  %28 = lshr i64 %26, 2
   %29 = and i64 %.idx2.i.i.i, 34359738336
   %scevgep.i.i.i.i.i.i.i.i = getelementptr i8, ptr %23, i64 %29
   br label %.lr.ph.i.i.i.i.i.i.i.i
@@ -2292,11 +2292,10 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_115AArch64FastISel18fastLowe
 ._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %._crit_edge.loopexit.i.i.i.i.i.i.i.i, %19
   %.pre-phi53.i.i.i.i.i.i.i.i = phi i32 [ %44, %._crit_edge.loopexit.i.i.i.i.i.i.i.i ], [ %25, %19 ]
   %.029.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i.i.i ], [ %23, %19 ]
-  switch i32 %.pre-phi53.i.i.i.i.i.i.i.i, label %default.unreachable [
+  switch i32 %.pre-phi53.i.i.i.i.i.i.i.i, label %_ZNK4llvm16AArch64Subtarget20hasCustomCallingConvEv.exit.thread [
     i32 3, label %45
     i32 2, label %49
     i32 1, label %53
-    i32 0, label %_ZNK4llvm16AArch64Subtarget20hasCustomCallingConvEv.exit.thread
   ]
 
 45:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i.i
@@ -2323,9 +2322,6 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_115AArch64FastISel18fastLowe
   %54 = load i64, ptr %.2.i.i.i.i.i.i.i.i, align 8, !tbaa !361
   %.not31.i.i.i.i.i.i.i.i = icmp eq i64 %54, 0
   br i1 %.not31.i.i.i.i.i.i.i.i, label %_ZNK4llvm16AArch64Subtarget20hasCustomCallingConvEv.exit.thread, label %_ZNK4llvm16AArch64Subtarget20hasCustomCallingConvEv.exit
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i.i.i.i
-  unreachable
 
 _ZNK4llvm16AArch64Subtarget20hasCustomCallingConvEv.exit.loopexit.split.loop.exit: ; preds = %31
   %55 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i, i64 8

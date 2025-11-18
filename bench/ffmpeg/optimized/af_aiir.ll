@@ -1113,7 +1113,7 @@ check_stability.exit:                             ; preds = %.loopexit.i217, %22
 326:                                              ; preds = %299
   %327 = load i32, ptr %309, align 4, !tbaa !92
   %328 = icmp sgt i32 %327, 0
-  br i1 %328, label %.lr.ph.i225, label %._crit_edge61.thread208.i
+  br i1 %328, label %.lr.ph.i225, label %._crit_edge61.thread220.i
 
 .lr.ph.i225:                                      ; preds = %326
   %329 = getelementptr inbounds nuw i8, ptr %.val163, i64 84
@@ -1330,7 +1330,7 @@ get_response.exit.i:                              ; preds = %._crit_edge.i.i229,
   %exitcond115.not.i = icmp eq i64 %indvars.iv.next112.i, %wide.trip.count114.i
   br i1 %exitcond115.not.i, label %.lr.ph54.i.lver.check, label %.lr.ph47.i, !llvm.loop !102
 
-._crit_edge61.thread208.i:                        ; preds = %326
+._crit_edge61.thread220.i:                        ; preds = %326
   store double 0.000000e+00, ptr %315, align 8, !tbaa !75
   %441 = getelementptr inbounds nuw i8, ptr %321, i64 8
   %442 = load double, ptr %441, align 8, !tbaa !75
@@ -1341,10 +1341,10 @@ get_response.exit.i:                              ; preds = %._crit_edge.i.i229,
   %443 = load double, ptr %312, align 8, !tbaa !75
   %444 = shl nuw nsw i64 %wide.trip.count.i227, 3
   %scevgep = getelementptr i8, ptr %315, i64 %444
-  %scevgep654 = getelementptr i8, ptr %312, i64 8
-  %scevgep655 = getelementptr i8, ptr %312, i64 %444
-  %bound0 = icmp ult ptr %315, %scevgep655
-  %bound1 = icmp ult ptr %scevgep654, %scevgep
+  %scevgep666 = getelementptr i8, ptr %312, i64 8
+  %scevgep667 = getelementptr i8, ptr %312, i64 %444
+  %bound0 = icmp ult ptr %315, %scevgep667
+  %bound1 = icmp ult ptr %scevgep666, %scevgep
   %found.conflict = and i1 %bound0, %bound1
   br i1 %found.conflict, label %.lr.ph54.i.lver.orig, label %.lr.ph54.i.ph
 
@@ -1373,8 +1373,8 @@ get_response.exit.i:                              ; preds = %._crit_edge.i.i229,
   br label %.lr.ph54.i
 
 .lr.ph60.i:                                       ; preds = %.lr.ph54.i, %.lr.ph54.i.lver.orig
-  %.lcssa633 = phi double [ %453, %.lr.ph54.i.lver.orig ], [ %464, %.lr.ph54.i ]
-  %.lcssa632 = phi double [ %454, %.lr.ph54.i.lver.orig ], [ %465, %.lr.ph54.i ]
+  %.lcssa645 = phi double [ %453, %.lr.ph54.i.lver.orig ], [ %464, %.lr.ph54.i ]
+  %.lcssa644 = phi double [ %454, %.lr.ph54.i.lver.orig ], [ %465, %.lr.ph54.i ]
   %455 = uitofp nneg i32 %327 to double
   %456 = sitofp i32 %301 to double
   %457 = fdiv nsz double %455, %456
@@ -1422,15 +1422,15 @@ get_response.exit.i:                              ; preds = %._crit_edge.i.i229,
   br label %.lr.ph69.i
 
 .lr.ph69.i:                                       ; preds = %466, %._crit_edge61.i
-  %.0182.lcssa207.i = phi double [ 0x7FEFFFFFFFFFFFFF, %._crit_edge61.i ], [ %474, %466 ]
-  %.0183.lcssa205.i = phi double [ 0xFFEFFFFFFFFFFFFF, %._crit_edge61.i ], [ %475, %466 ]
-  %.0185.lcssa188199.i = phi double [ %476, %._crit_edge61.i ], [ %.lcssa632, %466 ]
-  %.0184.lcssa189197.i = phi double [ %476, %._crit_edge61.i ], [ %.lcssa633, %466 ]
+  %.0182.lcssa219.i = phi double [ 0x7FEFFFFFFFFFFFFF, %._crit_edge61.i ], [ %474, %466 ]
+  %.0183.lcssa217.i = phi double [ 0xFFEFFFFFFFFFFFFF, %._crit_edge61.i ], [ %475, %466 ]
+  %.0185.lcssa200211.i = phi double [ %476, %._crit_edge61.i ], [ %.lcssa644, %466 ]
+  %.0184.lcssa201209.i = phi double [ %476, %._crit_edge61.i ], [ %.lcssa645, %466 ]
   %storemerge.in = getelementptr inbounds nuw i8, ptr %321, i64 8
   %storemerge = load double, ptr %storemerge.in, align 8, !tbaa !75
   store double %storemerge, ptr %321, align 8, !tbaa !75
-  %477 = fsub nsz double %.0183.lcssa205.i, %.0182.lcssa207.i
-  %478 = fsub nsz double %.0185.lcssa188199.i, %.0184.lcssa189197.i
+  %477 = fsub nsz double %.0183.lcssa217.i, %.0182.lcssa219.i
+  %478 = fsub nsz double %.0185.lcssa200211.i, %.0184.lcssa201209.i
   br label %479
 
 479:                                              ; preds = %draw_line.exit230.i, %.lr.ph69.i
@@ -1448,13 +1448,13 @@ get_response.exit.i:                              ; preds = %._crit_edge.i.i229,
   %487 = fptosi double %486 to i32
   %488 = getelementptr inbounds nuw double, ptr %321, i64 %indvars.iv126.i
   %489 = load double, ptr %488, align 8, !tbaa !75
-  %490 = fsub nsz double %489, %.0182.lcssa207.i
+  %490 = fsub nsz double %489, %.0182.lcssa219.i
   %491 = fdiv nsz double %490, %477
   %492 = fmul nsz double %491, %485
   %493 = fptosi double %492 to i32
   %494 = getelementptr inbounds nuw double, ptr %312, i64 %indvars.iv126.i
   %495 = load double, ptr %494, align 8, !tbaa !75
-  %496 = fsub nsz double %495, %.0184.lcssa189197.i
+  %496 = fsub nsz double %495, %.0184.lcssa201209.i
   %497 = fdiv nsz double %496, %478
   %498 = fmul nsz double %497, %485
   %499 = fptosi double %498 to i32
@@ -1700,7 +1700,7 @@ draw_line.exit230.i:                              ; preds = %598, %draw_line.exi
 644:                                              ; preds = %643, %641
   %645 = getelementptr inbounds nuw i8, ptr %.129.i.i, i64 4
   %646 = lshr i32 %.02328.i.i, 1
-  %.not26.i.i = icmp samesign ult i32 %.02328.i.i, 2
+  %.not26.i.i = icmp eq i32 %646, 0
   br i1 %.not26.i.i, label %647, label %641, !llvm.loop !107
 
 647:                                              ; preds = %644
@@ -1766,7 +1766,7 @@ drawtext.exit.i:                                  ; preds = %652
 677:                                              ; preds = %676, %666
   %678 = getelementptr inbounds nuw i8, ptr %.129.i243.i, i64 4
   %679 = lshr i32 %.02328.i244.i, 1
-  %.not26.i246.i = icmp samesign ult i32 %.02328.i244.i, 2
+  %.not26.i246.i = icmp eq i32 %679, 0
   br i1 %.not26.i246.i, label %680, label %666, !llvm.loop !107
 
 680:                                              ; preds = %677
@@ -1786,11 +1786,11 @@ drawtext.exit.i:                                  ; preds = %652
   br i1 %.not.i249.i, label %drawtext.exit251.i.preheader, label %.lr.ph.i237.i, !llvm.loop !109
 
 drawtext.exit251.i.preheader:                     ; preds = %686, %drawtext.exit.i
-  %.ph698 = phi i32 [ %.pre.i253.pre.i, %drawtext.exit.i ], [ %681, %686 ]
+  %.ph710 = phi i32 [ %.pre.i253.pre.i, %drawtext.exit.i ], [ %681, %686 ]
   br label %drawtext.exit251.i
 
 drawtext.exit251.i:                               ; preds = %drawtext.exit251.i.preheader, %717
-  %689 = phi i32 [ %713, %717 ], [ %.ph698, %drawtext.exit251.i.preheader ]
+  %689 = phi i32 [ %713, %717 ], [ %.ph710, %drawtext.exit251.i.preheader ]
   %indvars.iv.i254.i = phi i64 [ %indvars.iv.next.i263.i, %717 ], [ 0, %drawtext.exit251.i.preheader ]
   %690 = getelementptr inbounds nuw i8, ptr @.str.93, i64 %indvars.iv.i254.i
   %691 = load ptr, ptr %298, align 8, !tbaa !30
@@ -1806,14 +1806,14 @@ drawtext.exit251.i:                               ; preds = %drawtext.exit251.i.
   %701 = sext i8 %700 to i32
   %702 = shl nsw i32 %701, 3
   %703 = sext i32 %702 to i64
-  %invariant.gep258.i = getelementptr i8, ptr @avpriv_cga_font, i64 %703
+  %invariant.gep270.i = getelementptr i8, ptr @avpriv_cga_font, i64 %703
   br label %.preheader.i255.i
 
 .preheader.i255.i:                                ; preds = %712, %drawtext.exit251.i
   %indvars.iv132.i = phi i64 [ %indvars.iv.next133.i, %712 ], [ 0, %drawtext.exit251.i ]
   %.031.i256.i = phi ptr [ %716, %712 ], [ %699, %drawtext.exit251.i ]
-  %gep259.i = getelementptr i8, ptr %invariant.gep258.i, i64 %indvars.iv132.i
-  %704 = load i8, ptr %gep259.i, align 1, !tbaa !105
+  %gep271.i = getelementptr i8, ptr %invariant.gep270.i, i64 %indvars.iv132.i
+  %704 = load i8, ptr %gep271.i, align 1, !tbaa !105
   %705 = zext i8 %704 to i32
   br label %706
 
@@ -1831,7 +1831,7 @@ drawtext.exit251.i:                               ; preds = %drawtext.exit251.i.
 709:                                              ; preds = %708, %706
   %710 = getelementptr inbounds nuw i8, ptr %.129.i258.i, i64 4
   %711 = lshr i32 %.02328.i259.i, 1
-  %.not26.i261.i = icmp samesign ult i32 %.02328.i259.i, 2
+  %.not26.i261.i = icmp eq i32 %711, 0
   br i1 %.not26.i261.i, label %712, label %706, !llvm.loop !107
 
 712:                                              ; preds = %709
@@ -1897,7 +1897,7 @@ drawtext.exit266.i:                               ; preds = %717
 742:                                              ; preds = %741, %731
   %743 = getelementptr inbounds nuw i8, ptr %.129.i274.i, i64 4
   %744 = lshr i32 %.02328.i275.i, 1
-  %.not26.i277.i = icmp samesign ult i32 %.02328.i275.i, 2
+  %.not26.i277.i = icmp eq i32 %744, 0
   br i1 %.not26.i277.i, label %745, label %731, !llvm.loop !107
 
 745:                                              ; preds = %742
@@ -1917,11 +1917,11 @@ drawtext.exit266.i:                               ; preds = %717
   br i1 %.not.i280.i, label %drawtext.exit282.i.preheader, label %.lr.ph.i268.i, !llvm.loop !109
 
 drawtext.exit282.i.preheader:                     ; preds = %751, %drawtext.exit266.i
-  %.ph693 = phi i32 [ %.pre.i284.pre.i, %drawtext.exit266.i ], [ %746, %751 ]
+  %.ph705 = phi i32 [ %.pre.i284.pre.i, %drawtext.exit266.i ], [ %746, %751 ]
   br label %drawtext.exit282.i
 
 drawtext.exit282.i:                               ; preds = %drawtext.exit282.i.preheader, %782
-  %754 = phi i32 [ %778, %782 ], [ %.ph693, %drawtext.exit282.i.preheader ]
+  %754 = phi i32 [ %778, %782 ], [ %.ph705, %drawtext.exit282.i.preheader ]
   %indvars.iv.i285.i = phi i64 [ %indvars.iv.next.i294.i, %782 ], [ 0, %drawtext.exit282.i.preheader ]
   %755 = getelementptr inbounds nuw i8, ptr @.str.94, i64 %indvars.iv.i285.i
   %756 = load ptr, ptr %298, align 8, !tbaa !30
@@ -1937,14 +1937,14 @@ drawtext.exit282.i:                               ; preds = %drawtext.exit282.i.
   %766 = sext i8 %765 to i32
   %767 = shl nsw i32 %766, 3
   %768 = sext i32 %767 to i64
-  %invariant.gep260.i = getelementptr i8, ptr @avpriv_cga_font, i64 %768
+  %invariant.gep272.i = getelementptr i8, ptr @avpriv_cga_font, i64 %768
   br label %.preheader.i286.i
 
 .preheader.i286.i:                                ; preds = %777, %drawtext.exit282.i
   %indvars.iv135.i = phi i64 [ %indvars.iv.next136.i, %777 ], [ 0, %drawtext.exit282.i ]
   %.031.i287.i = phi ptr [ %781, %777 ], [ %764, %drawtext.exit282.i ]
-  %gep261.i = getelementptr i8, ptr %invariant.gep260.i, i64 %indvars.iv135.i
-  %769 = load i8, ptr %gep261.i, align 1, !tbaa !105
+  %gep273.i = getelementptr i8, ptr %invariant.gep272.i, i64 %indvars.iv135.i
+  %769 = load i8, ptr %gep273.i, align 1, !tbaa !105
   %770 = zext i8 %769 to i32
   br label %771
 
@@ -1962,7 +1962,7 @@ drawtext.exit282.i:                               ; preds = %drawtext.exit282.i.
 774:                                              ; preds = %773, %771
   %775 = getelementptr inbounds nuw i8, ptr %.129.i289.i, i64 4
   %776 = lshr i32 %.02328.i290.i, 1
-  %.not26.i292.i = icmp samesign ult i32 %.02328.i290.i, 2
+  %.not26.i292.i = icmp eq i32 %776, 0
   br i1 %.not26.i292.i, label %777, label %771, !llvm.loop !107
 
 777:                                              ; preds = %774
@@ -1980,7 +1980,7 @@ drawtext.exit282.i:                               ; preds = %drawtext.exit282.i.
   br i1 %.not.i295.i, label %drawtext.exit297.i, label %drawtext.exit282.i, !llvm.loop !109
 
 drawtext.exit297.i:                               ; preds = %782
-  %783 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 32, ptr noundef nonnull @.str.92, double noundef %.0185.lcssa188199.i) #16
+  %783 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 32, ptr noundef nonnull @.str.92, double noundef %.0185.lcssa200211.i) #16
   %784 = load i8, ptr %2, align 16, !tbaa !105
   %.not32.i298.i = icmp eq i8 %784, 0
   %.pre.i315.pre.i = load i32, ptr %305, align 8, !tbaa !31
@@ -2028,7 +2028,7 @@ drawtext.exit297.i:                               ; preds = %782
 807:                                              ; preds = %806, %796
   %808 = getelementptr inbounds nuw i8, ptr %.129.i305.i, i64 4
   %809 = lshr i32 %.02328.i306.i, 1
-  %.not26.i308.i = icmp samesign ult i32 %.02328.i306.i, 2
+  %.not26.i308.i = icmp eq i32 %809, 0
   br i1 %.not26.i308.i, label %810, label %796, !llvm.loop !107
 
 810:                                              ; preds = %807
@@ -2048,11 +2048,11 @@ drawtext.exit297.i:                               ; preds = %782
   br i1 %.not.i311.i, label %drawtext.exit313.i.preheader, label %.lr.ph.i299.i, !llvm.loop !109
 
 drawtext.exit313.i.preheader:                     ; preds = %816, %drawtext.exit297.i
-  %.ph688 = phi i32 [ %.pre.i315.pre.i, %drawtext.exit297.i ], [ %811, %816 ]
+  %.ph700 = phi i32 [ %.pre.i315.pre.i, %drawtext.exit297.i ], [ %811, %816 ]
   br label %drawtext.exit313.i
 
 drawtext.exit313.i:                               ; preds = %drawtext.exit313.i.preheader, %847
-  %819 = phi i32 [ %843, %847 ], [ %.ph688, %drawtext.exit313.i.preheader ]
+  %819 = phi i32 [ %843, %847 ], [ %.ph700, %drawtext.exit313.i.preheader ]
   %indvars.iv.i316.i = phi i64 [ %indvars.iv.next.i325.i, %847 ], [ 0, %drawtext.exit313.i.preheader ]
   %820 = getelementptr inbounds nuw i8, ptr @.str.95, i64 %indvars.iv.i316.i
   %821 = load ptr, ptr %298, align 8, !tbaa !30
@@ -2068,14 +2068,14 @@ drawtext.exit313.i:                               ; preds = %drawtext.exit313.i.
   %831 = sext i8 %830 to i32
   %832 = shl nsw i32 %831, 3
   %833 = sext i32 %832 to i64
-  %invariant.gep262.i = getelementptr i8, ptr @avpriv_cga_font, i64 %833
+  %invariant.gep274.i = getelementptr i8, ptr @avpriv_cga_font, i64 %833
   br label %.preheader.i317.i
 
 .preheader.i317.i:                                ; preds = %842, %drawtext.exit313.i
   %indvars.iv138.i = phi i64 [ %indvars.iv.next139.i, %842 ], [ 0, %drawtext.exit313.i ]
   %.031.i318.i = phi ptr [ %846, %842 ], [ %829, %drawtext.exit313.i ]
-  %gep263.i = getelementptr i8, ptr %invariant.gep262.i, i64 %indvars.iv138.i
-  %834 = load i8, ptr %gep263.i, align 1, !tbaa !105
+  %gep275.i = getelementptr i8, ptr %invariant.gep274.i, i64 %indvars.iv138.i
+  %834 = load i8, ptr %gep275.i, align 1, !tbaa !105
   %835 = zext i8 %834 to i32
   br label %836
 
@@ -2093,7 +2093,7 @@ drawtext.exit313.i:                               ; preds = %drawtext.exit313.i.
 839:                                              ; preds = %838, %836
   %840 = getelementptr inbounds nuw i8, ptr %.129.i320.i, i64 4
   %841 = lshr i32 %.02328.i321.i, 1
-  %.not26.i323.i = icmp samesign ult i32 %.02328.i321.i, 2
+  %.not26.i323.i = icmp eq i32 %841, 0
   br i1 %.not26.i323.i, label %842, label %836, !llvm.loop !107
 
 842:                                              ; preds = %839
@@ -2111,7 +2111,7 @@ drawtext.exit313.i:                               ; preds = %drawtext.exit313.i.
   br i1 %.not.i326.i, label %drawtext.exit328.i, label %drawtext.exit313.i, !llvm.loop !109
 
 drawtext.exit328.i:                               ; preds = %847
-  %848 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 32, ptr noundef nonnull @.str.92, double noundef %.0184.lcssa189197.i) #16
+  %848 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 32, ptr noundef nonnull @.str.92, double noundef %.0184.lcssa201209.i) #16
   %849 = load i8, ptr %2, align 16, !tbaa !105
   %.not32.i329.i = icmp eq i8 %849, 0
   %.pre.i346.pre.i = load i32, ptr %305, align 8, !tbaa !31
@@ -2159,7 +2159,7 @@ drawtext.exit328.i:                               ; preds = %847
 872:                                              ; preds = %871, %861
   %873 = getelementptr inbounds nuw i8, ptr %.129.i336.i, i64 4
   %874 = lshr i32 %.02328.i337.i, 1
-  %.not26.i339.i = icmp samesign ult i32 %.02328.i337.i, 2
+  %.not26.i339.i = icmp eq i32 %874, 0
   br i1 %.not26.i339.i, label %875, label %861, !llvm.loop !107
 
 875:                                              ; preds = %872
@@ -2179,11 +2179,11 @@ drawtext.exit328.i:                               ; preds = %847
   br i1 %.not.i342.i, label %drawtext.exit344.i.preheader, label %.lr.ph.i330.i, !llvm.loop !109
 
 drawtext.exit344.i.preheader:                     ; preds = %881, %drawtext.exit328.i
-  %.ph683 = phi i32 [ %.pre.i346.pre.i, %drawtext.exit328.i ], [ %876, %881 ]
+  %.ph695 = phi i32 [ %.pre.i346.pre.i, %drawtext.exit328.i ], [ %876, %881 ]
   br label %drawtext.exit344.i
 
 drawtext.exit344.i:                               ; preds = %drawtext.exit344.i.preheader, %912
-  %884 = phi i32 [ %908, %912 ], [ %.ph683, %drawtext.exit344.i.preheader ]
+  %884 = phi i32 [ %908, %912 ], [ %.ph695, %drawtext.exit344.i.preheader ]
   %indvars.iv.i347.i = phi i64 [ %indvars.iv.next.i356.i, %912 ], [ 0, %drawtext.exit344.i.preheader ]
   %885 = getelementptr inbounds nuw i8, ptr @.str.96, i64 %indvars.iv.i347.i
   %886 = load ptr, ptr %298, align 8, !tbaa !30
@@ -2199,14 +2199,14 @@ drawtext.exit344.i:                               ; preds = %drawtext.exit344.i.
   %896 = sext i8 %895 to i32
   %897 = shl nsw i32 %896, 3
   %898 = sext i32 %897 to i64
-  %invariant.gep264.i = getelementptr i8, ptr @avpriv_cga_font, i64 %898
+  %invariant.gep276.i = getelementptr i8, ptr @avpriv_cga_font, i64 %898
   br label %.preheader.i348.i
 
 .preheader.i348.i:                                ; preds = %907, %drawtext.exit344.i
   %indvars.iv141.i = phi i64 [ %indvars.iv.next142.i, %907 ], [ 0, %drawtext.exit344.i ]
   %.031.i349.i = phi ptr [ %911, %907 ], [ %894, %drawtext.exit344.i ]
-  %gep265.i = getelementptr i8, ptr %invariant.gep264.i, i64 %indvars.iv141.i
-  %899 = load i8, ptr %gep265.i, align 1, !tbaa !105
+  %gep277.i = getelementptr i8, ptr %invariant.gep276.i, i64 %indvars.iv141.i
+  %899 = load i8, ptr %gep277.i, align 1, !tbaa !105
   %900 = zext i8 %899 to i32
   br label %901
 
@@ -2224,7 +2224,7 @@ drawtext.exit344.i:                               ; preds = %drawtext.exit344.i.
 904:                                              ; preds = %903, %901
   %905 = getelementptr inbounds nuw i8, ptr %.129.i351.i, i64 4
   %906 = lshr i32 %.02328.i352.i, 1
-  %.not26.i354.i = icmp samesign ult i32 %.02328.i352.i, 2
+  %.not26.i354.i = icmp eq i32 %906, 0
   br i1 %.not26.i354.i, label %907, label %901, !llvm.loop !107
 
 907:                                              ; preds = %904
@@ -2242,7 +2242,7 @@ drawtext.exit344.i:                               ; preds = %drawtext.exit344.i.
   br i1 %.not.i357.i, label %drawtext.exit359.i, label %drawtext.exit344.i, !llvm.loop !109
 
 drawtext.exit359.i:                               ; preds = %912
-  %913 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 32, ptr noundef nonnull @.str.92, double noundef %.0183.lcssa205.i) #16
+  %913 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 32, ptr noundef nonnull @.str.92, double noundef %.0183.lcssa217.i) #16
   %914 = load i8, ptr %2, align 16, !tbaa !105
   %.not32.i360.i = icmp eq i8 %914, 0
   %.pre.i377.pre.i = load i32, ptr %305, align 8, !tbaa !31
@@ -2290,7 +2290,7 @@ drawtext.exit359.i:                               ; preds = %912
 937:                                              ; preds = %936, %926
   %938 = getelementptr inbounds nuw i8, ptr %.129.i367.i, i64 4
   %939 = lshr i32 %.02328.i368.i, 1
-  %.not26.i370.i = icmp samesign ult i32 %.02328.i368.i, 2
+  %.not26.i370.i = icmp eq i32 %939, 0
   br i1 %.not26.i370.i, label %940, label %926, !llvm.loop !107
 
 940:                                              ; preds = %937
@@ -2330,14 +2330,14 @@ drawtext.exit375.i:                               ; preds = %drawtext.exit375.i.
   %961 = sext i8 %960 to i32
   %962 = shl nsw i32 %961, 3
   %963 = sext i32 %962 to i64
-  %invariant.gep266.i = getelementptr i8, ptr @avpriv_cga_font, i64 %963
+  %invariant.gep278.i = getelementptr i8, ptr @avpriv_cga_font, i64 %963
   br label %.preheader.i379.i
 
 .preheader.i379.i:                                ; preds = %972, %drawtext.exit375.i
   %indvars.iv144.i = phi i64 [ %indvars.iv.next145.i, %972 ], [ 0, %drawtext.exit375.i ]
   %.031.i380.i = phi ptr [ %976, %972 ], [ %959, %drawtext.exit375.i ]
-  %gep267.i = getelementptr i8, ptr %invariant.gep266.i, i64 %indvars.iv144.i
-  %964 = load i8, ptr %gep267.i, align 1, !tbaa !105
+  %gep279.i = getelementptr i8, ptr %invariant.gep278.i, i64 %indvars.iv144.i
+  %964 = load i8, ptr %gep279.i, align 1, !tbaa !105
   %965 = zext i8 %964 to i32
   br label %966
 
@@ -2355,7 +2355,7 @@ drawtext.exit375.i:                               ; preds = %drawtext.exit375.i.
 969:                                              ; preds = %968, %966
   %970 = getelementptr inbounds nuw i8, ptr %.129.i382.i, i64 4
   %971 = lshr i32 %.02328.i383.i, 1
-  %.not26.i385.i = icmp samesign ult i32 %.02328.i383.i, 2
+  %.not26.i385.i = icmp eq i32 %971, 0
   br i1 %.not26.i385.i, label %972, label %966, !llvm.loop !107
 
 972:                                              ; preds = %969
@@ -2373,7 +2373,7 @@ drawtext.exit375.i:                               ; preds = %drawtext.exit375.i.
   br i1 %.not.i388.i, label %drawtext.exit390.i, label %drawtext.exit375.i, !llvm.loop !109
 
 drawtext.exit390.i:                               ; preds = %977
-  %978 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 32, ptr noundef nonnull @.str.92, double noundef %.0182.lcssa207.i) #16
+  %978 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 32, ptr noundef nonnull @.str.92, double noundef %.0182.lcssa219.i) #16
   %979 = load i8, ptr %2, align 16, !tbaa !105
   %.not32.i391.i = icmp eq i8 %979, 0
   br i1 %.not32.i391.i, label %draw_response.exit, label %.lr.ph.i392.i
@@ -2424,7 +2424,7 @@ drawtext.exit390.i:                               ; preds = %977
 1003:                                             ; preds = %1002, %992
   %1004 = getelementptr inbounds nuw i8, ptr %.129.i398.i, i64 4
   %1005 = lshr i32 %.02328.i399.i, 1
-  %.not26.i401.i = icmp samesign ult i32 %.02328.i399.i, 2
+  %.not26.i401.i = icmp eq i32 %1005, 0
   br i1 %.not26.i401.i, label %1006, label %992, !llvm.loop !107
 
 1006:                                             ; preds = %1003
@@ -2443,7 +2443,7 @@ drawtext.exit390.i:                               ; preds = %977
   %.not.i404.i = icmp eq i8 %1014, 0
   br i1 %.not.i404.i, label %draw_response.exit, label %980, !llvm.loop !109
 
-draw_response.exit:                               ; preds = %1012, %299, %._crit_edge61.thread208.i, %._crit_edge70.i, %619, %drawtext.exit390.i
+draw_response.exit:                               ; preds = %1012, %299, %._crit_edge61.thread220.i, %._crit_edge70.i, %619, %drawtext.exit390.i
   call void @av_free(ptr noundef %321) #16
   call void @av_free(ptr noundef %315) #16
   call void @av_free(ptr noundef %312) #16
@@ -2923,10 +2923,10 @@ convert_zp2tf.exit.thread:                        ; preds = %.critedge372, %1022
   %1208 = load i32, ptr %11, align 4, !tbaa !63
   %smax = call i32 @llvm.smax.i32(i32 %1208, i32 0)
   %wide.trip.count454 = zext nneg i32 %smax to i64
-  %exitcond455.not651 = icmp slt i32 %1208, 1
-  br i1 %exitcond455.not651, label %.critedge2, label %.lr.ph653.preheader
+  %exitcond455.not663 = icmp slt i32 %1208, 1
+  br i1 %exitcond455.not663, label %.critedge2, label %.lr.ph665.preheader
 
-.lr.ph653.preheader:                              ; preds = %.lr.ph370
+.lr.ph665.preheader:                              ; preds = %.lr.ph370
   %1209 = load ptr, ptr %16, align 8, !tbaa !34
   %.val164 = load ptr, ptr %6, align 8, !tbaa !4
   %1210 = getelementptr i8, ptr %.val164, i64 56
@@ -2934,18 +2934,18 @@ convert_zp2tf.exit.thread:                        ; preds = %.critedge372, %1022
   %1211 = getelementptr i8, ptr %.val164, i64 104
   %.val164.val165 = load ptr, ptr %1211, align 8, !tbaa !34
   %.not.i263 = icmp eq i32 %.val164.val, 0
-  br label %.lr.ph653
+  br label %.lr.ph665
 
-.lr.ph653:                                        ; preds = %.lr.ph653.preheader, %normalize_coeffs.exit
-  %indvars.iv451652 = phi i64 [ %indvars.iv.next452, %normalize_coeffs.exit ], [ 0, %.lr.ph653.preheader ]
-  %1212 = getelementptr inbounds nuw %struct.IIRChannel, ptr %1209, i64 %indvars.iv451652
+.lr.ph665:                                        ; preds = %.lr.ph665.preheader, %normalize_coeffs.exit
+  %indvars.iv451664 = phi i64 [ %indvars.iv.next452, %normalize_coeffs.exit ], [ 0, %.lr.ph665.preheader ]
+  %1212 = getelementptr inbounds nuw %struct.IIRChannel, ptr %1209, i64 %indvars.iv451664
   %1213 = load i32, ptr %1212, align 8, !tbaa !31
   %1214 = icmp sgt i32 %1213, 1
   %1215 = getelementptr inbounds nuw i8, ptr %1212, i64 8
   %1216 = load ptr, ptr %1215, align 8, !tbaa !74
   br i1 %1214, label %.lr.ph364, label %._crit_edge
 
-.lr.ph364:                                        ; preds = %.lr.ph653
+.lr.ph364:                                        ; preds = %.lr.ph665
   %wide.trip.count444 = zext nneg i32 %1213 to i64
   %.pre457 = load double, ptr %1216, align 8, !tbaa !75
   br label %1217
@@ -2960,7 +2960,7 @@ convert_zp2tf.exit.thread:                        ; preds = %.critedge372, %1022
   %exitcond445.not = icmp eq i64 %indvars.iv.next442, %wide.trip.count444
   br i1 %exitcond445.not, label %._crit_edge, label %1217, !llvm.loop !120
 
-._crit_edge:                                      ; preds = %1217, %.lr.ph653
+._crit_edge:                                      ; preds = %1217, %.lr.ph665
   store double 1.000000e+00, ptr %1216, align 8, !tbaa !75
   %1221 = getelementptr inbounds nuw i8, ptr %1212, i64 4
   %1222 = load i32, ptr %1221, align 4, !tbaa !31
@@ -2986,7 +2986,7 @@ convert_zp2tf.exit.thread:                        ; preds = %.critedge372, %1022
   br i1 %exitcond450.not, label %._crit_edge368, label %1227, !llvm.loop !121
 
 ._crit_edge368:                                   ; preds = %1227, %._crit_edge
-  %1232 = getelementptr inbounds nuw %struct.IIRChannel, ptr %.val164.val165, i64 %indvars.iv451652
+  %1232 = getelementptr inbounds nuw %struct.IIRChannel, ptr %.val164.val165, i64 %indvars.iv451664
   br i1 %.not.i263, label %normalize_coeffs.exit, label %.preheader1.i
 
 .preheader1.i:                                    ; preds = %._crit_edge368
@@ -3052,9 +3052,9 @@ convert_zp2tf.exit.thread:                        ; preds = %.critedge372, %1022
   br i1 %exitcond24.not.i, label %normalize_coeffs.exit, label %1252, !llvm.loop !119
 
 normalize_coeffs.exit:                            ; preds = %1252, %._crit_edge368, %.preheader1.i, %._crit_edge.i270
-  %indvars.iv.next452 = add nuw nsw i64 %indvars.iv451652, 1
+  %indvars.iv.next452 = add nuw nsw i64 %indvars.iv451664, 1
   %exitcond455.not = icmp eq i64 %indvars.iv.next452, %wide.trip.count454
-  br i1 %exitcond455.not, label %.critedge2, label %.lr.ph653
+  br i1 %exitcond455.not, label %.critedge2, label %.lr.ph665
 
 .critedge2:                                       ; preds = %normalize_coeffs.exit, %.lr.ph370, %.lr.ph, %.critedge
   %1256 = getelementptr inbounds nuw i8, ptr %10, i64 36

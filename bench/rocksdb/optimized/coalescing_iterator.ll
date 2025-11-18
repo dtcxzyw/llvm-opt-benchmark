@@ -774,8 +774,8 @@ define linkonce_odr void @_ZN7rocksdb10BinaryHeapINS_18CoalescingIterator19WideC
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 8
   br label %12
 
-12:                                               ; preds = %.lr.ph, %34
-  %.0920 = phi i64 [ %1, %.lr.ph ], [ %14, %34 ]
+12:                                               ; preds = %.lr.ph, %38
+  %.0920 = phi i64 [ %1, %.lr.ph ], [ %14, %38 ]
   %13 = add i64 %.0920, -1
   %14 = lshr i64 %13, 1
   %15 = icmp ult i64 %.0920, 17
@@ -802,44 +802,31 @@ define linkonce_odr void @_ZN7rocksdb10BinaryHeapINS_18CoalescingIterator19WideC
   %31 = icmp sgt i32 %30, %.sroa.5.0.copyload
   %32 = icmp sgt i32 %.0.i.i, 0
   %33 = select i1 %28, i1 %31, i1 %32
-  br i1 %33, label %34, label %.thread
+  %34 = icmp ult i64 %.0920, 8
+  %35 = getelementptr inbounds nuw %"struct.rocksdb::CoalescingIterator::WideColumnWithOrder", ptr %16, i64 %.0920
+  %36 = getelementptr %"struct.rocksdb::CoalescingIterator::WideColumnWithOrder", ptr %18, i64 %.0920
+  %37 = getelementptr i8, ptr %36, i64 -128
+  %.0.i12 = select i1 %34, ptr %35, ptr %37
+  br i1 %33, label %38, label %.thread.thread
 
-34:                                               ; preds = %12
-  %35 = icmp ult i64 %.0920, 8
-  %36 = getelementptr inbounds nuw %"struct.rocksdb::CoalescingIterator::WideColumnWithOrder", ptr %16, i64 %.0920
-  %37 = getelementptr %"struct.rocksdb::CoalescingIterator::WideColumnWithOrder", ptr %18, i64 %.0920
-  %38 = getelementptr i8, ptr %37, i64 -128
-  %.0.i12 = select i1 %35, ptr %36, ptr %38
+38:                                               ; preds = %12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i12, ptr noundef nonnull align 8 dereferenceable(16) %.0.i10, i64 16, i1 false), !tbaa.struct !59
-  %.not = icmp ult i64 %13, 2
+  %.not = icmp eq i64 %14, 0
   br i1 %.not, label %..thread.loopexit_crit_edge, label %12
 
-..thread.loopexit_crit_edge:                      ; preds = %34
+..thread.loopexit_crit_edge:                      ; preds = %38
   %.pre.pre = load ptr, ptr %4, align 8
-  %.pre23.pre = load ptr, ptr %7, align 8
-  br label %.thread
-
-.thread:                                          ; preds = %12, %..thread.loopexit_crit_edge
-  %39 = phi ptr [ %.pre23.pre, %..thread.loopexit_crit_edge ], [ %18, %12 ]
-  %40 = phi ptr [ %.pre.pre, %..thread.loopexit_crit_edge ], [ %16, %12 ]
-  %.09.lcssa = phi i64 [ %14, %..thread.loopexit_crit_edge ], [ %.0920, %12 ]
-  %.09.lcssa.fr = freeze i64 %.09.lcssa
-  %41 = icmp ult i64 %.09.lcssa.fr, 8
-  %42 = getelementptr inbounds nuw %"struct.rocksdb::CoalescingIterator::WideColumnWithOrder", ptr %40, i64 %.09.lcssa.fr
-  %43 = getelementptr %"struct.rocksdb::CoalescingIterator::WideColumnWithOrder", ptr %39, i64 %.09.lcssa.fr
-  %44 = getelementptr i8, ptr %43, i64 -128
-  %spec.select = select i1 %41, ptr %42, ptr %44
   br label %.thread.thread
 
-.thread.thread:                                   ; preds = %.thread, %2
-  %45 = phi ptr [ %5, %2 ], [ %spec.select, %.thread ]
-  store ptr %.sroa.0.0.copyload, ptr %45, align 8, !tbaa !38
-  %.sroa.5.0..0.i13.sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 8
+.thread.thread:                                   ; preds = %12, %..thread.loopexit_crit_edge, %2
+  %39 = phi ptr [ %.pre.pre, %..thread.loopexit_crit_edge ], [ %5, %2 ], [ %.0.i12, %12 ]
+  store ptr %.sroa.0.0.copyload, ptr %39, align 8, !tbaa !38
+  %.sroa.5.0..0.i13.sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i32 %.sroa.5.0.copyload, ptr %.sroa.5.0..0.i13.sroa_idx, align 8, !tbaa !41
-  %.sroa.6.0..0.i13.sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 12
+  %.sroa.6.0..0.i13.sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 12
   store i32 %.sroa.6.0.copyload, ptr %.sroa.6.0..0.i13.sroa_idx, align 4
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i64 -1, ptr %46, align 8, !tbaa !16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store i64 -1, ptr %40, align 8, !tbaa !16
   ret void
 }
 

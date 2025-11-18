@@ -677,7 +677,7 @@ define void @_ZN5arrow17BinaryViewBuilder16AppendArraySliceERKNS_9ArraySpanEll(p
   br i1 %exitcond20.not.i, label %.loopexit.i.loopexit, label %"_ZZN5arrow17BinaryViewBuilder16AppendArraySliceERKNS_9ArraySpanEllENK3$_0clEv.exit.i", !llvm.loop !77
 
 34:                                               ; preds = %.lr.ph18.i
-  %35 = icmp ult i32 %23, 65536
+  %35 = icmp eq i32 %.sroa.8.0.extract.shift.i, 0
   %36 = sext i16 %.sroa.0.0.extract.trunc.i to i64
   br i1 %35, label %.preheader6.i, label %.preheader8.i
 

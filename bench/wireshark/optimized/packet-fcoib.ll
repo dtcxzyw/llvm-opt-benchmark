@@ -244,7 +244,7 @@ define internal i32 @dissect_fcoib(ptr noundef %0, ptr noundef %1, ptr noundef %
   %15 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
   %16 = lshr i8 %15, 4
   %17 = zext nneg i8 %16 to i32
-  %.not = icmp ult i8 %15, 16
+  %.not = icmp eq i8 %16, 0
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %11

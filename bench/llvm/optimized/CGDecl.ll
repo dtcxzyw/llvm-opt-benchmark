@@ -7947,7 +7947,7 @@ _ZNK5clang8QualType19isVolatileQualifiedEv.exit:  ; preds = %4, %39
   br i1 %66, label %88, label %67
 
 67:                                               ; preds = %64
-  %.not = icmp ult i64 %35, 4294967296
+  %.not = icmp eq i64 %36, 0
   br i1 %.not, label %71, label %68
 
 68:                                               ; preds = %67
@@ -7971,7 +7971,7 @@ _ZNK5clang8QualType19isVolatileQualifiedEv.exit:  ; preds = %4, %39
   br i1 %78, label %88, label %79
 
 79:                                               ; preds = %76
-  %.not51 = icmp ult i64 %35, 4294967296
+  %.not51 = icmp eq i64 %36, 0
   br i1 %.not51, label %83, label %80
 
 80:                                               ; preds = %79
@@ -7981,10 +7981,10 @@ _ZNK5clang8QualType19isVolatileQualifiedEv.exit:  ; preds = %4, %39
 
 83:                                               ; preds = %80, %79
   %84 = load ptr, ptr %24, align 8, !tbaa !282
-  %.sroa.3148.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.3148.0.copyload = load ptr, ptr %.sroa.3148.0..sroa_idx, align 8
+  %.sroa.3150.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sroa.3150.0.copyload = load ptr, ptr %.sroa.3150.0..sroa_idx, align 8
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %86 = call noundef ptr @_ZN5clang7CodeGen24initializationPatternForERNS0_13CodeGenModuleEPN4llvm4TypeE(ptr noundef nonnull align 8 dereferenceable(3608) %84, ptr noundef %.sroa.3148.0.copyload) #20
+  %86 = call noundef ptr @_ZN5clang7CodeGen24initializationPatternForERNS0_13CodeGenModuleEPN4llvm4TypeE(ptr noundef nonnull align 8 dereferenceable(3608) %84, ptr noundef %.sroa.3150.0.copyload) #20
   %87 = call fastcc noundef ptr @_ZL16constWithPaddingRN5clang7CodeGen13CodeGenModuleE9IsPatternPN4llvm8ConstantE(ptr noundef nonnull align 8 dereferenceable(3608) %84, i32 noundef 1, ptr noundef %86)
   call fastcc void @_ZL21emitStoresForConstantRN5clang7CodeGen13CodeGenModuleERKNS_7VarDeclENS0_7AddressEbRNS0_11CGBuilderTyEPN4llvm8ConstantEb(ptr noundef nonnull align 8 dereferenceable(3608) %84, ptr noundef nonnull align 8 dereferenceable(100) %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %3, i1 noundef zeroext %45, ptr noundef nonnull align 8 dereferenceable(160) %85, ptr noundef %87, i1 noundef zeroext true)
   br label %88

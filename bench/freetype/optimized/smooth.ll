@@ -1137,19 +1137,19 @@ gray_sweep.exit:                                  ; preds = %._crit_edge.thread.
   %266 = load i32, ptr %.077, align 4, !tbaa !3
   %267 = load i32, ptr %54, align 4, !tbaa !3
   %268 = sub nsw i32 %266, %267
-  %269 = icmp ult i32 %268, 2
-  br i1 %269, label %.thread, label %270
+  %269 = ashr i32 %268, 1
+  %270 = icmp eq i32 %269, 0
+  br i1 %270, label %.thread, label %271
 
-270:                                              ; preds = %265
-  %271 = ashr i32 %268, 1
+271:                                              ; preds = %265
   %272 = getelementptr inbounds nuw i8, ptr %.077, i64 8
   store i32 %267, ptr %272, align 4, !tbaa !3
-  %273 = add nsw i32 %271, %267
+  %273 = add nsw i32 %269, %267
   store i32 %273, ptr %54, align 4, !tbaa !3
   br label %274
 
-274:                                              ; preds = %gray_sweep.exit, %270
-  %.178 = phi ptr [ %54, %270 ], [ %264, %gray_sweep.exit ]
+274:                                              ; preds = %gray_sweep.exit, %271
+  %.178 = phi ptr [ %54, %271 ], [ %264, %gray_sweep.exit ]
   %.not92 = icmp ult ptr %.178, %4
   br i1 %.not92, label %275, label %53, !llvm.loop !122
 

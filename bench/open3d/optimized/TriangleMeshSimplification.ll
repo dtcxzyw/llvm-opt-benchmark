@@ -9097,7 +9097,7 @@ _ZNSt6vectorISt5tupleIJdiiEESaIS1_EE9push_backEOS1_.exit.i: ; preds = %77, %73
   store i32 %99, ptr %100, align 4, !tbaa !59
   %101 = load i32, ptr %92, align 4, !tbaa !59
   store i32 %101, ptr %96, align 8, !tbaa !59
-  %.not.i.i6 = icmp ult i64 %.0911.in.i.i.i, 2
+  %.not.i.i6 = icmp eq i64 %.0911.i89.i.i, 0
   br i1 %.not.i.i6, label %"_ZNSt14priority_queueISt5tupleIJdiiEESt6vectorIS1_SaIS1_EEZNK6open3d8geometry12TriangleMesh25SimplifyQuadricDecimationEiddE3$_0E4pushEOS1_.exit", label %.lr.ph.i.i.i, !llvm.loop !404
 
 "_ZNSt14priority_queueISt5tupleIJdiiEESt6vectorIS1_SaIS1_EEZNK6open3d8geometry12TriangleMesh25SimplifyQuadricDecimationEiddE3$_0E4pushEOS1_.exit": ; preds = %.lr.ph.i.i.i, %95, %_ZNSt6vectorISt5tupleIJdiiEESaIS1_EE9push_backEOS1_.exit.i

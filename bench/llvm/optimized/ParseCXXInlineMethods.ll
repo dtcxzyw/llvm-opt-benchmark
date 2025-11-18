@@ -1907,11 +1907,11 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang6Parser21LateParsedDeclarationELb1EE9p
   %468 = zext i32 %.val99 to i64
   %.idx1.i = mul nuw nsw i64 %468, 24
   %469 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx1.i
-  %.not.i122 = icmp ult i32 %.val99, 4
+  %470 = lshr i64 %468, 2
+  %.not.i122 = icmp eq i64 %470, 0
   br i1 %.not.i122, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %467
-  %470 = lshr i64 %468, 2
   %471 = mul nuw nsw i64 %470, 96
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %.val, i64 %471
   br label %.lr.ph.i.i.i.i.i.i

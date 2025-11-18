@@ -1268,7 +1268,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
   br label %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit.i
 
 _ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit.i: ; preds = %282, %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5clearEv.exit.i.i.i.i.i
-  %.not139 = icmp ult i64 %.0923.in.i, 2
+  %.not139 = icmp eq i64 %.0923.i135138, 0
   br i1 %.not139, label %.critedge.i, label %.lr.ph.i, !llvm.loop !79
 
 .critedge.i:                                      ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit.i, %.lr.ph.i, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit3.i

@@ -323,7 +323,7 @@ define internal range(i32 0, 2) i32 @kmac_final(ptr noundef readonly captures(no
   %.078.i.i = phi i32 [ %16, %.lr.ph.i.i ], [ 0, %12 ]
   %16 = add nuw nsw i32 %.078.i.i, 1
   %17 = lshr i64 %.09.i.i, 8
-  %18 = icmp ugt i64 %.09.i.i, 255
+  %18 = icmp ne i64 %17, 0
   %19 = icmp samesign ult i32 %.078.i.i, 7
   %20 = select i1 %18, i1 %19, i1 false
   br i1 %20, label %.lr.ph.i.i, label %get_encode_size.exit.i, !llvm.loop !21
@@ -535,7 +535,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   %.078.i.i = phi i32 [ %45, %.lr.ph.i.i ], [ 0, %43 ]
   %45 = add nuw nsw i32 %.078.i.i, 1
   %46 = lshr i64 %.09.i.i, 8
-  %47 = icmp samesign ugt i64 %.09.i.i, 255
+  %47 = icmp ne i64 %46, 0
   %48 = icmp samesign ult i32 %.078.i.i, 7
   %49 = select i1 %47, i1 %48, i1 false
   br i1 %49, label %.lr.ph.i.i, label %get_encode_size.exit.i, !llvm.loop !21
@@ -768,7 +768,7 @@ define internal fastcc range(i32 0, 2) i32 @kmac_setkey(ptr noundef %0, ptr noun
   %.078.i.i.i = phi i32 [ %20, %.lr.ph.i.i.i ], [ 0, %18 ]
   %20 = add nuw nsw i32 %.078.i.i.i, 1
   %21 = lshr i64 %.09.i.i.i, 8
-  %22 = icmp samesign ugt i64 %.09.i.i.i, 255
+  %22 = icmp ne i64 %21, 0
   %23 = icmp samesign ult i32 %.078.i.i.i, 7
   %24 = select i1 %22, i1 %23, i1 false
   br i1 %24, label %.lr.ph.i.i.i, label %get_encode_size.exit.i.i, !llvm.loop !21

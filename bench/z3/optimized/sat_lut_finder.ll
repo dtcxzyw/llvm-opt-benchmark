@@ -3180,7 +3180,7 @@ define hidden noundef zeroext i1 @_ZN3sat10lut_finder14lut_is_definedEjj(ptr nou
 define linkonce_odr hidden void @_ZN6vectorIjLb0EjE5eraseERKj(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !31
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %_ZN6vectorIjLb0EjE3endEv.exit5.thread33, label %_ZN6vectorIjLb0EjE3endEv.exit
+  br i1 %4, label %_ZN6vectorIjLb0EjE3endEv.exit5.thread34, label %_ZN6vectorIjLb0EjE3endEv.exit
 
 _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %2
   %5 = getelementptr inbounds i8, ptr %3, i64 -4
@@ -3189,11 +3189,11 @@ _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %2
   %.idx9 = shl nuw nsw i64 %7, 2
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx9
   %9 = ptrtoint ptr %3 to i64
-  %.not8 = icmp ult i32 %6, 4
+  %10 = lshr i64 %7, 2
+  %.not8 = icmp eq i64 %10, 0
   br i1 %.not8, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN6vectorIjLb0EjE3endEv.exit
-  %10 = lshr i64 %7, 2
   %11 = load i32, ptr %1, align 4, !tbaa !10
   %12 = and i64 %.idx9, 17179869168
   %scevgep.i.i.i = getelementptr i8, ptr %3, i64 %12
@@ -3216,13 +3216,13 @@ _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %2
   %21 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 8
   %22 = load i32, ptr %21, align 4, !tbaa !10
   %23 = icmp eq i32 %22, %11
-  br i1 %23, label %_ZSt4findIPjjET_S1_S1_RKT0_.exit.loopexit.split.loop.exit36, label %24
+  br i1 %23, label %_ZSt4findIPjjET_S1_S1_RKT0_.exit.loopexit.split.loop.exit37, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 12
   %26 = load i32, ptr %25, align 4, !tbaa !10
   %27 = icmp eq i32 %26, %11
-  br i1 %27, label %_ZSt4findIPjjET_S1_S1_RKT0_.exit.loopexit.split.loop.exit38, label %28
+  br i1 %27, label %_ZSt4findIPjjET_S1_S1_RKT0_.exit.loopexit.split.loop.exit39, label %28
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 16
@@ -3237,11 +3237,10 @@ _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %2
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %_ZN6vectorIjLb0EjE3endEv.exit
   %.pre-phi56.i.i.i = phi i32 [ %32, %._crit_edge.loopexit.i.i.i ], [ %6, %_ZN6vectorIjLb0EjE3endEv.exit ]
   %.029.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %3, %_ZN6vectorIjLb0EjE3endEv.exit ]
-  switch i32 %.pre-phi56.i.i.i, label %._crit_edge.i.i.i.unreachabledefault [
+  switch i32 %.pre-phi56.i.i.i, label %_ZN6vectorIjLb0EjE3endEv.exit5.thread [
     i32 3, label %33
     i32 2, label %._crit_edge._crit_edge.i.i.i
     i32 1, label %._crit_edge._crit_edge52.i.i.i
-    i32 0, label %_ZN6vectorIjLb0EjE3endEv.exit5.thread
   ]
 
 ._crit_edge._crit_edge52.i.i.i:                   ; preds = %._crit_edge.i.i.i
@@ -3285,25 +3284,22 @@ _ZSt4findIPjjET_S1_S1_RKT0_.exit.loopexit.split.loop.exit: ; preds = %16
   %49 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 4
   br label %_ZN6vectorIjLb0EjE3endEv.exit5.thread
 
-_ZSt4findIPjjET_S1_S1_RKT0_.exit.loopexit.split.loop.exit36: ; preds = %20
+_ZSt4findIPjjET_S1_S1_RKT0_.exit.loopexit.split.loop.exit37: ; preds = %20
   %50 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 8
   br label %_ZN6vectorIjLb0EjE3endEv.exit5.thread
 
-_ZSt4findIPjjET_S1_S1_RKT0_.exit.loopexit.split.loop.exit38: ; preds = %24
+_ZSt4findIPjjET_S1_S1_RKT0_.exit.loopexit.split.loop.exit39: ; preds = %24
   %51 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 12
   br label %_ZN6vectorIjLb0EjE3endEv.exit5.thread
 
-._crit_edge.i.i.i.unreachabledefault:             ; preds = %._crit_edge.i.i.i
-  unreachable
-
-_ZN6vectorIjLb0EjE3endEv.exit5.thread:            ; preds = %13, %39, %33, %._crit_edge.i.i.i, %_ZSt4findIPjjET_S1_S1_RKT0_.exit.loopexit.split.loop.exit38, %_ZSt4findIPjjET_S1_S1_RKT0_.exit.loopexit.split.loop.exit36, %_ZSt4findIPjjET_S1_S1_RKT0_.exit.loopexit.split.loop.exit, %45
-  %.028.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %33 ], [ %.1.i.i.i, %39 ], [ %8, %._crit_edge.i.i.i ], [ %spec.select, %45 ], [ %49, %_ZSt4findIPjjET_S1_S1_RKT0_.exit.loopexit.split.loop.exit ], [ %50, %_ZSt4findIPjjET_S1_S1_RKT0_.exit.loopexit.split.loop.exit36 ], [ %51, %_ZSt4findIPjjET_S1_S1_RKT0_.exit.loopexit.split.loop.exit38 ], [ %.02946.i.i.i, %13 ]
+_ZN6vectorIjLb0EjE3endEv.exit5.thread:            ; preds = %13, %39, %33, %._crit_edge.i.i.i, %_ZSt4findIPjjET_S1_S1_RKT0_.exit.loopexit.split.loop.exit39, %_ZSt4findIPjjET_S1_S1_RKT0_.exit.loopexit.split.loop.exit37, %_ZSt4findIPjjET_S1_S1_RKT0_.exit.loopexit.split.loop.exit, %45
+  %.028.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %33 ], [ %.1.i.i.i, %39 ], [ %8, %._crit_edge.i.i.i ], [ %spec.select, %45 ], [ %49, %_ZSt4findIPjjET_S1_S1_RKT0_.exit.loopexit.split.loop.exit ], [ %50, %_ZSt4findIPjjET_S1_S1_RKT0_.exit.loopexit.split.loop.exit37 ], [ %51, %_ZSt4findIPjjET_S1_S1_RKT0_.exit.loopexit.split.loop.exit39 ], [ %.02946.i.i.i, %13 ]
   %52 = getelementptr inbounds i8, ptr %3, i64 -4
   %53 = load i32, ptr %52, align 4, !tbaa !10
   %54 = zext i32 %53 to i64
   %55 = getelementptr inbounds nuw i32, ptr %3, i64 %54
   %.not7 = icmp eq ptr %.028.i.i.i, %55
-  br i1 %.not7, label %_ZN6vectorIjLb0EjE3endEv.exit5.thread33, label %_ZN6vectorIjLb0EjE3endEv.exit.i
+  br i1 %.not7, label %_ZN6vectorIjLb0EjE3endEv.exit5.thread34, label %_ZN6vectorIjLb0EjE3endEv.exit.i
 
 _ZN6vectorIjLb0EjE3endEv.exit.i:                  ; preds = %_ZN6vectorIjLb0EjE3endEv.exit5.thread
   %56 = getelementptr inbounds nuw i32, ptr %3, i64 %54
@@ -3327,9 +3323,9 @@ _ZN6vectorIjLb0EjE5eraseEPj.exit:                 ; preds = %_ZN6vectorIjLb0EjE3
   %65 = load i32, ptr %64, align 4, !tbaa !10
   %66 = add i32 %65, -1
   store i32 %66, ptr %64, align 4, !tbaa !10
-  br label %_ZN6vectorIjLb0EjE3endEv.exit5.thread33
+  br label %_ZN6vectorIjLb0EjE3endEv.exit5.thread34
 
-_ZN6vectorIjLb0EjE3endEv.exit5.thread33:          ; preds = %2, %_ZN6vectorIjLb0EjE3endEv.exit5.thread, %_ZN6vectorIjLb0EjE5eraseEPj.exit
+_ZN6vectorIjLb0EjE3endEv.exit5.thread34:          ; preds = %2, %_ZN6vectorIjLb0EjE3endEv.exit5.thread, %_ZN6vectorIjLb0EjE5eraseEPj.exit
   ret void
 }
 
@@ -3684,7 +3680,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPN3sat7literalElN9__gnu_
 50:                                               ; preds = %.lr.ph.i.i.i.i.i
   %51 = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %.01317.i.i.i.i.i
   store i32 %48, ptr %51, align 4, !tbaa !10
-  %.not9.i.i.i = icmp ult i64 %.018.in.i.i.i.i.i, 2
+  %.not9.i.i.i = icmp eq i64 %.018.i.i78.i.i.i, 0
   br i1 %.not9.i.i.i, label %_ZSt10__pop_heapIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !97
 
 _ZSt10__pop_heapIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_RT0_.exit.i.i: ; preds = %50, %.lr.ph.i.i.i.i.i, %46

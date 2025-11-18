@@ -2993,7 +2993,7 @@ define internal fastcc void @_ZN10num_bigint7biguint7BigUint13from_bytes_be17h66
   %13 = lshr i64 %2, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !450)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !453)
-  %.not.i.i = icmp eq i64 %2, 1
+  %.not.i.i = icmp eq i64 %13, 0
   br i1 %.not.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h7e68fd92be8912b5E.exit", label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %8
@@ -103689,7 +103689,7 @@ define hidden void @_ZN14deltalake_core6kernel8snapshot11log_segment10LogSegment
   %115 = lshr i64 %114, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !27267)
   call void @llvm.experimental.noalias.scope.decl(metadata !27270)
-  %.not.i.i = icmp ult i64 %114, 2
+  %.not.i.i = icmp eq i64 %115, 0
   br i1 %.not.i.i, label %.loopexit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %112

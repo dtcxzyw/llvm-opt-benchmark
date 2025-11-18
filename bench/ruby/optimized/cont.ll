@@ -1588,7 +1588,7 @@ fiber_store.exit:                                 ; preds = %200, %205
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 40
   %250 = load i32, ptr %249, align 8, !tbaa !201
   %251 = ashr i32 %250, 1
-  %.not.i.i.i = icmp ult i32 %250, 2
+  %.not.i.i.i = icmp eq i32 %251, 0
   %spec.store.select.i.i.i = select i1 %.not.i.i.i, i32 8, i32 %251
   %252 = tail call i32 @madvise(ptr noundef %246, i64 noundef %234, i32 noundef %spec.store.select.i.i.i) #9
   br label %fiber_pool_stack_release.exit.i
@@ -3852,7 +3852,7 @@ define internal void @cont_free(ptr noundef %0) #0 {
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 40
   %46 = load i32, ptr %45, align 8, !tbaa !201
   %47 = ashr i32 %46, 1
-  %.not.i.i.i = icmp ult i32 %46, 2
+  %.not.i.i.i = icmp eq i32 %47, 0
   %spec.store.select.i.i.i = select i1 %.not.i.i.i, i32 8, i32 %47
   %48 = tail call i32 @madvise(ptr noundef %42, i64 noundef %30, i32 noundef %spec.store.select.i.i.i) #9
   br label %fiber_pool_stack_release.exit.i

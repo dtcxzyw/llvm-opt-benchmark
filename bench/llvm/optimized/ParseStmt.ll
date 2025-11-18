@@ -4058,16 +4058,13 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofIRN5clang16ParsedAttr
   %1 = zext i32 %.16.val to i64
   %2 = getelementptr inbounds nuw ptr, ptr %.8.val, i64 %1
   %3 = ptrtoint ptr %2 to i64
-  %.not = icmp ult i32 %.16.val, 4
-  br i1 %.not, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i.preheader
-
-.lr.ph.i.i.i.i.preheader:                         ; preds = %0
   %4 = lshr i64 %1, 2
-  br label %.lr.ph.i.i.i.i
+  %.not = icmp eq i64 %4, 0
+  br i1 %.not, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %19
-  %.045.i.i.i.i = phi i64 [ %21, %19 ], [ %4, %.lr.ph.i.i.i.i.preheader ]
-  %.sroa.025.044.i.i.i.i = phi ptr [ %20, %19 ], [ %.8.val, %.lr.ph.i.i.i.i.preheader ]
+.lr.ph.i.i.i.i:                                   ; preds = %0, %19
+  %.045.i.i.i.i = phi i64 [ %21, %19 ], [ %4, %0 ]
+  %.sroa.025.044.i.i.i.i = phi ptr [ %20, %19 ], [ %.8.val, %0 ]
   %5 = load ptr, ptr %.sroa.025.044.i.i.i.i, align 8, !tbaa !1054
   %6 = tail call noundef zeroext i1 @_ZNK5clang10ParsedAttr10isStmtAttrEv(ptr noundef nonnull align 8 dereferenceable(72) %5) #16
   br i1 %6, label %7, label %"_ZSt6all_ofIN5clang20ParsedAttributesView8iteratorEZNS0_6Parser42ParseStatementOrDeclarationAfterAttributesERN4llvm11SmallVectorIPNS0_4StmtELj32EEENS3_17ParsedStmtContextEPNS0_14SourceLocationERNS0_16ParsedAttributesESE_E3$_0EbT_SG_T0_.exit"
@@ -16529,11 +16526,11 @@ define dso_local noundef zeroext i1 @_ZN5clang6Parser23trySkippingFunctionBodyEv
   %30 = zext i32 %.val3 to i64
   %.idx1.i = mul nuw nsw i64 %30, 24
   %31 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx1.i
-  %.not.i = icmp ult i32 %.val3, 4
+  %32 = lshr i64 %30, 2
+  %.not.i = icmp eq i64 %32, 0
   br i1 %.not.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %11
-  %32 = lshr i64 %30, 2
   %33 = mul nuw nsw i64 %32, 96
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %.val, i64 %33
   br label %.lr.ph.i.i.i.i.i.i

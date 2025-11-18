@@ -13205,11 +13205,11 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %47 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %1, ptr %47, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1702)
-  %48 = getelementptr { i64, [2 x i64] }, ptr %2, i64 %15
-  %49 = getelementptr i8, ptr %48, i64 -24
-  %50 = add i64 %1, -1
-  %51 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %2, i64 %50
-  %52 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %0, i64 %50
+  %48 = add i64 %1, -1
+  %49 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %2, i64 %48
+  %50 = getelementptr { i64, [2 x i64] }, ptr %2, i64 %15
+  %51 = getelementptr i8, ptr %50, i64 -24
+  %52 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %0, i64 %48
   %53 = getelementptr i8, ptr %.val, i64 8
   br label %58
 
@@ -13222,10 +13222,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 
 58:                                               ; preds = %.noexc31, %._crit_edge
   %.sroa.0.010.i = phi ptr [ %2, %._crit_edge ], [ %82, %.noexc31 ]
-  %.sroa.06.09.i = phi ptr [ %48, %._crit_edge ], [ %80, %.noexc31 ]
+  %.sroa.06.09.i = phi ptr [ %50, %._crit_edge ], [ %80, %.noexc31 ]
   %.sroa.010.08.i = phi ptr [ %0, %._crit_edge ], [ %83, %.noexc31 ]
-  %.sroa.013.07.i = phi ptr [ %49, %._crit_edge ], [ %104, %.noexc31 ]
-  %.sroa.015.06.i = phi ptr [ %51, %._crit_edge ], [ %103, %.noexc31 ]
+  %.sroa.013.07.i = phi ptr [ %51, %._crit_edge ], [ %104, %.noexc31 ]
+  %.sroa.015.06.i = phi ptr [ %49, %._crit_edge ], [ %103, %.noexc31 ]
   %.sroa.017.05.i = phi ptr [ %52, %._crit_edge ], [ %105, %.noexc31 ]
   %.sroa.018.04.i = phi i64 [ 0, %._crit_edge ], [ %59, %.noexc31 ]
   %59 = add nuw nsw i64 %.sroa.018.04.i, 1
@@ -13612,11 +13612,11 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %1, ptr %46, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1735)
-  %47 = getelementptr { i64, [2 x i64] }, ptr %2, i64 %15
-  %48 = getelementptr i8, ptr %47, i64 -24
-  %49 = add i64 %1, -1
-  %50 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %2, i64 %49
-  %51 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %0, i64 %49
+  %47 = add i64 %1, -1
+  %48 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %2, i64 %47
+  %49 = getelementptr { i64, [2 x i64] }, ptr %2, i64 %15
+  %50 = getelementptr i8, ptr %49, i64 -24
+  %51 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %0, i64 %47
   br label %56
 
 ._crit_edge.i:                                    ; preds = %.noexc27
@@ -13628,10 +13628,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 
 56:                                               ; preds = %.noexc27, %._crit_edge
   %.sroa.0.010.i = phi ptr [ %2, %._crit_edge ], [ %75, %.noexc27 ]
-  %.sroa.06.09.i = phi ptr [ %47, %._crit_edge ], [ %77, %.noexc27 ]
+  %.sroa.06.09.i = phi ptr [ %49, %._crit_edge ], [ %77, %.noexc27 ]
   %.sroa.010.08.i = phi ptr [ %0, %._crit_edge ], [ %72, %.noexc27 ]
-  %.sroa.013.07.i = phi ptr [ %48, %._crit_edge ], [ %84, %.noexc27 ]
-  %.sroa.015.06.i = phi ptr [ %50, %._crit_edge ], [ %83, %.noexc27 ]
+  %.sroa.013.07.i = phi ptr [ %50, %._crit_edge ], [ %84, %.noexc27 ]
+  %.sroa.015.06.i = phi ptr [ %48, %._crit_edge ], [ %83, %.noexc27 ]
   %.sroa.017.05.i = phi ptr [ %51, %._crit_edge ], [ %85, %.noexc27 ]
   %.sroa.018.04.i = phi i64 [ 0, %._crit_edge ], [ %57, %.noexc27 ]
   %57 = add nuw nsw i64 %.sroa.018.04.i, 1

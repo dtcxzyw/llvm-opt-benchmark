@@ -10744,7 +10744,7 @@ define linkonce_odr void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP9Alig
 38:                                               ; preds = %.lr.ph.i.i
   %39 = getelementptr inbounds %class.AlignPair, ptr %0, i64 %.018.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(25) %39, ptr noundef nonnull align 4 dereferenceable(25) %35, i64 25, i1 false)
-  %.not16 = icmp ult i64 %.0919.in.i.i, 2
+  %.not16 = icmp eq i64 %.0919.i.i1415, 0
   br i1 %.not16, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !115
 
 .loopexit:                                        ; preds = %38, %.lr.ph.i.i, %33
@@ -11748,7 +11748,7 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIP9AlignPairSt6vectorIS2_SaIS2_E
 71:                                               ; preds = %.lr.ph.i.i.i13
   %72 = getelementptr inbounds %class.AlignPair, ptr %0, i64 %.018.i.i.i14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(25) %72, ptr noundef nonnull align 4 dereferenceable(25) %69, i64 25, i1 false)
-  %.not13.i = icmp ult i64 %.0919.in.i.i.i15, 2
+  %.not13.i = icmp eq i64 %.0919.i.i1112.i, 0
   br i1 %.not13.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP9AlignPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterI8orderingEEEvT_SC_SC_RT0_.exit, label %.lr.ph.i.i.i13, !llvm.loop !125
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP9AlignPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterI8orderingEEEvT_SC_SC_RT0_.exit: ; preds = %.lr.ph.i.i.i13, %71, %.thread, %68
@@ -11864,7 +11864,7 @@ define linkonce_odr void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIP9Ali
 37:                                               ; preds = %.lr.ph.i.i.i
   %38 = getelementptr inbounds %class.AlignPair, ptr %0, i64 %.018.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(25) %38, ptr noundef nonnull align 4 dereferenceable(25) %35, i64 25, i1 false)
-  %.not13.i = icmp ult i64 %.0919.in.i.i.i, 2
+  %.not13.i = icmp eq i64 %.0919.i.i1112.i, 0
   br i1 %.not13.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP9AlignPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterI8orderingEEEvT_SC_SC_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !125
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP9AlignPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterI8orderingEEEvT_SC_SC_RT0_.exit: ; preds = %.lr.ph.i.i.i, %37, %34

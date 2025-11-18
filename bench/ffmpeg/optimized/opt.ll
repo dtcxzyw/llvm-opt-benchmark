@@ -2980,21 +2980,27 @@ get_number.exit:                                  ; preds = %4, %10, %14
   %58 = sitofp i32 %.012.ph29 to double
   %59 = fdiv nsz double %57, %58
   %60 = call i64 @av_d2q(double noundef %59, i32 noundef 16777216) #20
+  %.sroa.4.0.extract.shift.i = lshr i64 %60, 32
   %61 = and i64 %60, 4294967295
   %62 = icmp eq i64 %61, 0
-  %63 = icmp ult i64 %60, 4294967296
-  %or.cond.not13.i = or i1 %63, %62
+  %63 = icmp eq i64 %.sroa.4.0.extract.shift.i, 0
+  %or.cond.not13.i = or i1 %62, %63
   %64 = fcmp nsz une double %59, 0.000000e+00
   %or.cond4.i = and i1 %64, %or.cond.not13.i
   br i1 %or.cond4.i, label %65, label %double_to_rational.exit
 
 65:                                               ; preds = %55
   %66 = call i64 @av_d2q(double noundef %59, i32 noundef 2147483647) #20
+  %.sroa.4.0.extract.shift10.i = lshr i64 %66, 32
+  %.pre.i = and i64 %66, 4294967295
   br label %double_to_rational.exit
 
 double_to_rational.exit:                          ; preds = %55, %65
-  %.sroa.4.0.in.in.i = phi i64 [ %66, %65 ], [ %60, %55 ]
-  store i64 %.sroa.4.0.in.in.i, ptr %3, align 4
+  %.sroa.07.0.insert.ext.pre-phi.i = phi i64 [ %61, %55 ], [ %.pre.i, %65 ]
+  %.sroa.4.0.in.i = phi i64 [ %.sroa.4.0.extract.shift.i, %55 ], [ %.sroa.4.0.extract.shift10.i, %65 ]
+  %.sroa.4.0.insert.shift.i = shl nuw i64 %.sroa.4.0.in.i, 32
+  %.sroa.07.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.07.0.insert.ext.pre-phi.i
+  store i64 %.sroa.07.0.insert.insert.i, ptr %3, align 4
   br label %67
 
 67:                                               ; preds = %get_number.exit, %.thread31, %double_to_rational.exit
@@ -3005,21 +3011,27 @@ double_to_rational.exit:                          ; preds = %55, %65
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
 define internal fastcc i64 @double_to_rational(double noundef %0) unnamed_addr #4 {
   %2 = tail call i64 @av_d2q(double noundef %0, i32 noundef 16777216) #20
+  %.sroa.4.0.extract.shift = lshr i64 %2, 32
   %3 = and i64 %2, 4294967295
   %4 = icmp eq i64 %3, 0
-  %5 = icmp ult i64 %2, 4294967296
-  %or.cond.not13 = or i1 %5, %4
+  %5 = icmp eq i64 %.sroa.4.0.extract.shift, 0
+  %or.cond.not13 = or i1 %4, %5
   %6 = fcmp nsz une double %0, 0.000000e+00
   %or.cond4 = and i1 %6, %or.cond.not13
   br i1 %or.cond4, label %7, label %9
 
 7:                                                ; preds = %1
   %8 = tail call i64 @av_d2q(double noundef %0, i32 noundef 2147483647) #20
+  %.sroa.4.0.extract.shift10 = lshr i64 %8, 32
+  %.pre = and i64 %8, 4294967295
   br label %9
 
 9:                                                ; preds = %1, %7
-  %.sroa.4.0.in.in = phi i64 [ %8, %7 ], [ %2, %1 ]
-  ret i64 %.sroa.4.0.in.in
+  %.sroa.07.0.insert.ext.pre-phi = phi i64 [ %3, %1 ], [ %.pre, %7 ]
+  %.sroa.4.0.in = phi i64 [ %.sroa.4.0.extract.shift, %1 ], [ %.sroa.4.0.extract.shift10, %7 ]
+  %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.in, 32
+  %.sroa.07.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %.sroa.07.0.insert.ext.pre-phi
+  ret i64 %.sroa.07.0.insert.insert
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5806,21 +5818,27 @@ read_number.exit.us:                              ; preds = %59, %57
   %114 = sitofp i32 %.0109.ph.us to double
   %115 = fdiv nsz double %113, %114
   %116 = call i64 @av_d2q(double noundef %115, i32 noundef 16777216) #20
+  %.sroa.4.0.extract.shift.i.us = lshr i64 %116, 32
   %117 = and i64 %116, 4294967295
   %118 = icmp eq i64 %117, 0
-  %119 = icmp ult i64 %116, 4294967296
-  %or.cond.not13.i.us = or i1 %119, %118
+  %119 = icmp eq i64 %.sroa.4.0.extract.shift.i.us, 0
+  %or.cond.not13.i.us = or i1 %118, %119
   %120 = fcmp nsz une double %115, 0.000000e+00
   %or.cond4.i.us = and i1 %120, %or.cond.not13.i.us
   br i1 %or.cond4.i.us, label %121, label %double_to_rational.exit.us
 
 121:                                              ; preds = %111
   %122 = call i64 @av_d2q(double noundef %115, i32 noundef 2147483647) #20
+  %.sroa.4.0.extract.shift10.i.us = lshr i64 %122, 32
+  %.pre.i.us = and i64 %122, 4294967295
   br label %double_to_rational.exit.us
 
 double_to_rational.exit.us:                       ; preds = %121, %111
-  %.sroa.4.0.in.in.i.us = phi i64 [ %122, %121 ], [ %116, %111 ]
-  store i64 %.sroa.4.0.in.in.i.us, ptr %74, align 4
+  %.sroa.07.0.insert.ext.pre-phi.i.us = phi i64 [ %117, %111 ], [ %.pre.i.us, %121 ]
+  %.sroa.4.0.in.i.us = phi i64 [ %.sroa.4.0.extract.shift.i.us, %111 ], [ %.sroa.4.0.extract.shift10.i.us, %121 ]
+  %.sroa.4.0.insert.shift.i.us = shl nuw i64 %.sroa.4.0.in.i.us, 32
+  %.sroa.07.0.insert.insert.i.us = or disjoint i64 %.sroa.4.0.insert.shift.i.us, %.sroa.07.0.insert.ext.pre-phi.i.us
+  store i64 %.sroa.07.0.insert.insert.i.us, ptr %74, align 4
   br label %read_number.exit.us149
 
 123:                                              ; preds = %107

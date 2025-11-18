@@ -514,7 +514,7 @@ reset_ts.exit663:                                 ; preds = %186, %._crit_edge.i
   br i1 %.not.i.i39.i, label %remove_mem_copy_all.exit.i, label %.lr.ph.i.i37.i
 
 remove_mem_copy_all.exit.i:                       ; preds = %217, %192, %.loopexit.i
-  %.not45.i = icmp ult i32 %21, 16777216
+  %.not45.i = icmp eq i32 %26, 0
   br i1 %.not45.i, label %fold_call.exit, label %.lr.ph44.i
 
 .lr.ph44.i:                                       ; preds = %remove_mem_copy_all.exit.i

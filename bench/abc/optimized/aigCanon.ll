@@ -1319,7 +1319,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
 Kit_TruthNot.exit:                                ; preds = %select.unfold.i, %43
   %67 = getelementptr inbounds nuw i8, ptr %57, i64 568
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %67, ptr noundef nonnull align 8 dereferenceable(1) %58, i64 %56, i1 false)
-  %.not66 = icmp ult i32 %19, 67108864
+  %.not66 = icmp eq i32 %20, 0
   br i1 %.not66, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %Kit_TruthNot.exit

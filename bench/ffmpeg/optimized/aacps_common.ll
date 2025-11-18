@@ -774,7 +774,7 @@ read_icc_data.exit:                               ; preds = %get_vlc2.exit.i260,
 
 481:                                              ; preds = %457
   %482 = shl nuw nsw i32 %465, 3
-  %.not427 = icmp ult i32 %464, 268435456
+  %.not427 = icmp eq i32 %465, 0
   br i1 %.not427, label %.thread363, label %.lr.ph420
 
 .lr.ph420:                                        ; preds = %.thread484, %481

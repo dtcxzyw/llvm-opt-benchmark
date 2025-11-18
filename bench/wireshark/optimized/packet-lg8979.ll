@@ -1108,7 +1108,7 @@ select.unfold:                                    ; preds = %39, %37, %35, %33, 
 333:                                              ; preds = %.lr.ph997
   %334 = lshr i8 %226, 1
   %335 = zext nneg i8 %334 to i32
-  %.not900 = icmp ult i8 %226, 2
+  %.not900 = icmp eq i8 %334, 0
   br i1 %.not900, label %.loopexit, label %.lr.ph882
 
 .lr.ph882:                                        ; preds = %333, %.lr.ph882
@@ -1203,7 +1203,7 @@ select.unfold:                                    ; preds = %39, %37, %35, %33, 
 403:                                              ; preds = %.lr.ph997
   %404 = lshr i8 %226, 1
   %405 = zext nneg i8 %404 to i32
-  %.not899 = icmp ult i8 %226, 2
+  %.not899 = icmp eq i8 %404, 0
   br i1 %.not899, label %.loopexit, label %.lr.ph873
 
 .lr.ph873:                                        ; preds = %403, %.lr.ph873

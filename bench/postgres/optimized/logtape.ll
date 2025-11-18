@@ -783,11 +783,11 @@ define dso_local void @LogicalTapeRewindForRead(ptr noundef captures(none) initi
 79:                                               ; preds = %.lr.ph.i
   %80 = getelementptr inbounds nuw i64, ptr %72, i64 %.032.i
   store i64 %77, ptr %80, align 8
-  %.not28.i = icmp ult i64 %74, 2
+  %.not28.i = icmp eq i64 %75, 0
   br i1 %.not28.i, label %.thread.i, label %.lr.ph.i
 
 .thread.i:                                        ; preds = %79, %.lr.ph.i, %70
-  %.0.lcssa.i = phi i64 [ 0, %70 ], [ %75, %79 ], [ %.032.i, %.lr.ph.i ]
+  %.0.lcssa.i = phi i64 [ 0, %70 ], [ 0, %79 ], [ %.032.i, %.lr.ph.i ]
   %81 = getelementptr inbounds nuw i64, ptr %72, i64 %.0.lcssa.i
   store i64 %57, ptr %81, align 8
   br label %ltsReleaseBlock.exit
@@ -980,11 +980,11 @@ ltsReadBlock.exit:                                ; preds = %17
 57:                                               ; preds = %.lr.ph.i
   %58 = getelementptr inbounds nuw i64, ptr %50, i64 %.032.i
   store i64 %55, ptr %58, align 8
-  %.not28.i = icmp ult i64 %52, 2
+  %.not28.i = icmp eq i64 %53, 0
   br i1 %.not28.i, label %.thread.i, label %.lr.ph.i
 
 .thread.i:                                        ; preds = %57, %.lr.ph.i, %48
-  %.0.lcssa.i = phi i64 [ 0, %48 ], [ %53, %57 ], [ %.032.i, %.lr.ph.i ]
+  %.0.lcssa.i = phi i64 [ 0, %48 ], [ 0, %57 ], [ %.032.i, %.lr.ph.i ]
   %59 = getelementptr inbounds nuw i64, ptr %50, i64 %.0.lcssa.i
   store i64 %19, ptr %59, align 8
   br label %ltsReleaseBlock.exit

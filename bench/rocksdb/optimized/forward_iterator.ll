@@ -6829,7 +6829,7 @@ _ZNSt6vectorIPN7rocksdb20InternalIteratorBaseINS0_5SliceEEESaIS4_EE9push_backERK
   %67 = load ptr, ptr %47, align 8, !tbaa !369
   %68 = getelementptr inbounds ptr, ptr %34, i64 %.019.i.i
   store ptr %67, ptr %68, align 8, !tbaa !369
-  %.not.i4 = icmp ult i64 %.0920.in.i.i, 2
+  %.not.i4 = icmp eq i64 %.0920.i78.i, 0
   br i1 %.not.i4, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb20InternalIteratorBaseINS2_5SliceEEESt6vectorIS6_SaIS6_EEEENS2_17MinIterComparatorEEvT_SD_T0_.exit, label %46, !llvm.loop !592
 
 _ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb20InternalIteratorBaseINS2_5SliceEEESt6vectorIS6_SaIS6_EEEENS2_17MinIterComparatorEEvT_SD_T0_.exit: ; preds = %46, %66, %_ZNSt6vectorIPN7rocksdb20InternalIteratorBaseINS0_5SliceEEESaIS4_EE9push_backERKS4_.exit
@@ -7087,7 +7087,7 @@ _ZNSt6vectorIPN7rocksdb20InternalIteratorBaseINS0_5SliceEEESaIS4_EE9push_backEOS
   %67 = load ptr, ptr %47, align 8, !tbaa !369
   %68 = getelementptr inbounds ptr, ptr %34, i64 %.019.i.i
   store ptr %67, ptr %68, align 8, !tbaa !369
-  %.not.i = icmp ult i64 %.0920.in.i.i, 2
+  %.not.i = icmp eq i64 %.0920.i78.i, 0
   br i1 %.not.i, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb20InternalIteratorBaseINS2_5SliceEEESt6vectorIS6_SaIS6_EEEENS2_17MinIterComparatorEEvT_SD_T0_.exit, label %46, !llvm.loop !592
 
 _ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb20InternalIteratorBaseINS2_5SliceEEESt6vectorIS6_SaIS6_EEEENS2_17MinIterComparatorEEvT_SD_T0_.exit: ; preds = %46, %66, %_ZNSt6vectorIPN7rocksdb20InternalIteratorBaseINS0_5SliceEEESaIS4_EE9push_backEOS4_.exit

@@ -18928,14 +18928,14 @@ _ZNSt8__detail13__to_chars_16IjEENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINS
   br label %.lr.ph35.i.i.preheader
 
 ._crit_edge.i.i.loopexit:                         ; preds = %227
-  %.pn.i.i388 = zext nneg i8 %224 to i64
-  %storemerge.in.i.i389 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail13__to_chars_16IjEENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES3_IS7_sES3_IS7_iES3_IS7_lES3_IS7_xES3_IS7_nEEES2_IJS3_IS7_hES3_IS7_tES3_IS7_jES3_IS7_mES3_IS7_yES3_IS7_oEEES3_IcS7_EEE5valueESt15to_chars_resultE4typeEPcSQ_S5_E8__digits, i64 %.pn.i.i388
-  %storemerge.i.i390 = load i8, ptr %storemerge.in.i.i389, align 1, !tbaa !15
-  store i8 %storemerge.i.i390, ptr %9, align 1, !tbaa !15
+  %.pn.i.i385 = zext nneg i8 %224 to i64
+  %storemerge.in.i.i386 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail13__to_chars_16IjEENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES3_IS7_sES3_IS7_iES3_IS7_lES3_IS7_xES3_IS7_nEEES2_IJS3_IS7_hES3_IS7_tES3_IS7_jES3_IS7_mES3_IS7_yES3_IS7_oEEES3_IcS7_EEE5valueESt15to_chars_resultE4typeEPcSQ_S5_E8__digits, i64 %.pn.i.i385
+  %storemerge.i.i387 = load i8, ptr %storemerge.in.i.i386, align 1, !tbaa !15
+  store i8 %storemerge.i.i387, ptr %9, align 1, !tbaa !15
   %239 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %223, i8 noundef signext 48)
   br label %.lr.ph35.i.i.preheader
 
-.lr.ph35.i.i.preheader:                           ; preds = %_ZNSt8__detail13__to_chars_16IjEENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES3_IS7_sES3_IS7_iES3_IS7_lES3_IS7_xES3_IS7_nEEES2_IJS3_IS7_hES3_IS7_tES3_IS7_jES3_IS7_mES3_IS7_yES3_IS7_oEEES3_IcS7_EEE5valueESt15to_chars_resultE4typeEPcSQ_S5_.exit.sink.split.i, %._crit_edge.i.i.loopexit
+.lr.ph35.i.i.preheader:                           ; preds = %._crit_edge.i.i.loopexit, %_ZNSt8__detail13__to_chars_16IjEENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES3_IS7_sES3_IS7_iES3_IS7_lES3_IS7_xES3_IS7_nEEES2_IJS3_IS7_hES3_IS7_tES3_IS7_jES3_IS7_mES3_IS7_yES3_IS7_oEEES3_IcS7_EEE5valueESt15to_chars_resultE4typeEPcSQ_S5_.exit.sink.split.i
   br label %.lr.ph35.i.i
 
 .lr.ph35.i.i:                                     ; preds = %.lr.ph35.i.i.preheader, %245

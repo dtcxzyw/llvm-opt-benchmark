@@ -5161,7 +5161,7 @@ define internal void @opj_tcd_code_block_enc_deallocate(ptr noundef captures(non
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8, !tbaa !126
   %7 = lshr i32 %6, 6
-  %.not27 = icmp ult i32 %6, 64
+  %.not27 = icmp eq i32 %7, 0
   br i1 %.not27, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %19

@@ -876,7 +876,7 @@ switch.lookup208:                                 ; preds = %170
 383:                                              ; preds = %367, %379
   %384 = phi ptr [ %382, %379 ], [ @.str.27, %367 ]
   %385 = zext nneg i8 %373 to i32
-  %386 = icmp ult i8 %371, 16
+  %386 = icmp eq i8 %373, 0
   %387 = select i1 %386, ptr @.str.65, ptr @.str.66
   %388 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.64, i32 noundef %374, i32 noundef %376, i32 noundef %377, ptr noundef %384, i32 noundef %385, ptr noundef nonnull %387)
   br label %.loopexit

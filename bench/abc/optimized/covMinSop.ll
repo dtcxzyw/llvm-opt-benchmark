@@ -1069,7 +1069,7 @@ Min_CubesAreEqual.exit.loopexit:                  ; preds = %17
   br i1 %.not, label %.preheader134, label %.lr.ph.i, !llvm.loop !34
 
 .preheader134:                                    ; preds = %Min_CubesAreEqual.exit.loopexit, %2
-  %.not182 = icmp ult i32 %6, 4194304
+  %.not182 = icmp eq i32 %7, 0
   br i1 %.not182, label %.preheader, label %.lr.ph162
 
 .lr.ph162:                                        ; preds = %.preheader134

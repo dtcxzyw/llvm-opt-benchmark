@@ -1121,7 +1121,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPcvEET_S7_RKS3_.exit: ; 
   %34 = lshr i64 %.019, 4
   %35 = add i32 %.01218, 1
   %36 = icmp uge i32 %35, %3
-  %37 = icmp ult i64 %.019, 16
+  %37 = icmp eq i64 %34, 0
   %.not15 = select i1 %.not24, i1 %37, i1 %36
   br i1 %.not15, label %._crit_edge, label %28, !llvm.loop !243
 }

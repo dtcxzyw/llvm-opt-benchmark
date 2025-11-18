@@ -5837,7 +5837,7 @@ define linkonce_odr void @_ZN9grpc_core15metadata_detail20GetStringValueHelperI1
   %18 = lshr i64 %13, 1
   %.idx = mul nuw nsw i64 %18, 40
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
-  %.not14 = icmp ult i64 %13, 2
+  %.not14 = icmp eq i64 %18, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7

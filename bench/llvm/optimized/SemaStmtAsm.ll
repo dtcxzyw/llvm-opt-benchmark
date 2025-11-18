@@ -6901,51 +6901,51 @@ define linkonce_odr void @_ZN4llvm11stable_sortIRNS_11SmallVectorISt4pairINS_9St
   %8 = mul nuw nsw i64 %.010.i.i.i.i, 24
   %9 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %8, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #26
   %.not.i.i.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %10
+  br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %11
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not14.i.i.i.i = icmp samesign ult i64 %.010.i.i.in.in.i.i, 3
-  br i1 %.not14.i.i.i.i, label %.loopexit23.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1211
+  %10 = icmp eq i64 %.010.i.i.i.i, 1
+  br i1 %10, label %.loopexit23.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1211
 
-10:                                               ; preds = %.lr.ph.i.i.i.i
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %8
+11:                                               ; preds = %.lr.ph.i.i.i.i
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %.not19.i.i.i.i.i = icmp eq i64 %.010.i.i.i.i, 1
   br i1 %.not19.i.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.preheader.i.i.i
 
-.lr.ph.i.i.preheader.i.i.i:                       ; preds = %10
+.lr.ph.i.i.preheader.i.i.i:                       ; preds = %11
   %.01518.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 24
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
   %.01521.i.i.i.i.i = phi ptr [ %.015.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.01518.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i ]
-  %.020.i.i.i.i.i = phi ptr [ %12, %.lr.ph.i.i.i.i.i ], [ %9, %.lr.ph.i.i.preheader.i.i.i ]
+  %.020.i.i.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i.i.i ], [ %9, %.lr.ph.i.i.preheader.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.01521.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.020.i.i.i.i.i, i64 24, i1 false)
-  %12 = getelementptr inbounds nuw i8, ptr %.020.i.i.i.i.i, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %.020.i.i.i.i.i, i64 24
   %.015.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.01521.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i = icmp eq ptr %.015.i.i.i.i.i, %11
+  %.not.i.i.i.i.i = icmp eq ptr %.015.i.i.i.i.i, %12
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !1212
 
 .loopexit23.i.i:                                  ; preds = %select.unfold.i.i.i.i
   tail call void @_ZSt21__inplace_stable_sortIPSt4pairIN4llvm9StringRefEPN5clang4ExprEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SD_T0_(ptr noundef %2, ptr noundef nonnull %6)
-  br label %16
+  br label %17
 
-.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %10
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %9, %10 ], [ %12, %.lr.ph.i.i.i.i.i ]
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %11
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %9, %11 ], [ %13, %.lr.ph.i.i.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %.0.lcssa.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !1213
-  %13 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !1047
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %14, ptr %15, align 8, !tbaa !1138
+  %14 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
+  %15 = load ptr, ptr %14, align 8, !tbaa !1047
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store ptr %15, ptr %16, align 8, !tbaa !1138
   tail call void @_ZSt22__stable_sort_adaptiveIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_lN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SD_T0_T1_T2_(ptr noundef nonnull %2, ptr noundef nonnull %6, ptr noundef nonnull %9, i64 noundef %.010.i.i.i.i)
-  br label %16
+  br label %17
 
-16:                                               ; preds = %.loopexit.i.i, %.loopexit23.i.i
+17:                                               ; preds = %.loopexit.i.i, %.loopexit23.i.i
   %.sroa.3.021.i.i = phi i64 [ %8, %.loopexit.i.i ], [ 0, %.loopexit23.i.i ]
   tail call void @_ZdlPvm(ptr noundef %9, i64 noundef %.sroa.3.021.i.i) #21
   br label %_ZSt11stable_sortIPSt4pairIN4llvm9StringRefEPN5clang4ExprEENS1_10less_firstEEvT_S9_T0_.exit
 
-_ZSt11stable_sortIPSt4pairIN4llvm9StringRefEPN5clang4ExprEENS1_10less_firstEEvT_S9_T0_.exit: ; preds = %1, %16
+_ZSt11stable_sortIPSt4pairIN4llvm9StringRefEPN5clang4ExprEENS1_10less_firstEEvT_S9_T0_.exit: ; preds = %1, %17
   ret void
 }
 

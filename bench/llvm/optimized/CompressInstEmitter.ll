@@ -12369,86 +12369,86 @@ define internal fastcc void @"_ZN4llvm11stable_sortIRNS_11SmallVectorIN12_GLOBAL
   %5 = mul nuw nsw i64 %.012.i.i.i.i, 608
   %6 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %5, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #25
   %.not.i.i.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %7
+  br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %8
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not16.i.i.i.i = icmp samesign ult i64 %.012.i.i.in.in.i.i, 3
-  br i1 %.not16.i.i.i.i, label %.thread.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !407
+  %7 = icmp eq i64 %.012.i.i.i.i, 1
+  br i1 %7, label %.thread.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !407
 
-7:                                                ; preds = %.lr.ph.i.i.i.i
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %5
+8:                                                ; preds = %.lr.ph.i.i.i.i
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %5
   tail call fastcc void @_ZN12_GLOBAL__N_119CompressInstEmitter11CompressPatC2EOS1_(ptr noundef nonnull align 8 dereferenceable(601) %6, ptr noundef nonnull align 8 dereferenceable(601) %.0.val)
   %.not19.i.i.i.i.i = icmp eq i64 %.012.i.i.i.i, 1
   br i1 %.not19.i.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.preheader.i.i.i
 
-.lr.ph.i.i.preheader.i.i.i:                       ; preds = %7
+.lr.ph.i.i.preheader.i.i.i:                       ; preds = %8
   %.01518.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 608
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
   %.01521.i.i.i.i.i = phi ptr [ %.015.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.01518.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i ]
-  %.020.i.i.i.i.i = phi ptr [ %9, %.lr.ph.i.i.i.i.i ], [ %6, %.lr.ph.i.i.preheader.i.i.i ]
+  %.020.i.i.i.i.i = phi ptr [ %10, %.lr.ph.i.i.i.i.i ], [ %6, %.lr.ph.i.i.preheader.i.i.i ]
   tail call fastcc void @_ZN12_GLOBAL__N_119CompressInstEmitter11CompressPatC2EOS1_(ptr noundef nonnull align 8 dereferenceable(601) %.01521.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(601) %.020.i.i.i.i.i)
-  %9 = getelementptr inbounds nuw i8, ptr %.020.i.i.i.i.i, i64 608
+  %10 = getelementptr inbounds nuw i8, ptr %.020.i.i.i.i.i, i64 608
   %.015.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.01521.i.i.i.i.i, i64 608
-  %.not.i.i.i.i.i = icmp eq ptr %.015.i.i.i.i.i, %8
+  %.not.i.i.i.i.i = icmp eq ptr %.015.i.i.i.i.i, %9
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !408
 
 .thread.i.i:                                      ; preds = %select.unfold.i.i.i.i
   tail call fastcc void @"_ZSt21__inplace_stable_sortIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23emitCompressInstEmitterERN4llvm11raw_ostreamENS1_11EmitterTypeEE3$_0EEEvT_SD_T0_"(ptr noundef %.0.val, ptr noundef nonnull %3, i32 range(i32 0, 3) %0)
   br label %_ZNSt17_Temporary_bufferIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES2_ED2Ev.exit.i.i
 
-.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %7
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %6, %7 ], [ %9, %.lr.ph.i.i.i.i.i ]
-  %10 = tail call fastcc noundef nonnull align 8 dereferenceable(601) ptr @_ZN12_GLOBAL__N_119CompressInstEmitter11CompressPataSEOS1_(ptr noundef nonnull align 8 dereferenceable(601) %.0.val, ptr noundef nonnull align 8 dereferenceable(601) %.0.lcssa.i.i.i.i.i)
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %8
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %6, %8 ], [ %10, %.lr.ph.i.i.i.i.i ]
+  %11 = tail call fastcc noundef nonnull align 8 dereferenceable(601) ptr @_ZN12_GLOBAL__N_119CompressInstEmitter11CompressPataSEOS1_(ptr noundef nonnull align 8 dereferenceable(601) %.0.val, ptr noundef nonnull align 8 dereferenceable(601) %.0.lcssa.i.i.i.i.i)
   tail call fastcc void @"_ZSt22__stable_sort_adaptiveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23emitCompressInstEmitterERN4llvm11raw_ostreamENS1_11EmitterTypeEE3$_0EEEvT_SD_T0_T1_T2_"(ptr noundef nonnull %.0.val, ptr noundef nonnull %3, ptr noundef nonnull %6, i64 noundef %.012.i.i.i.i, i32 range(i32 0, 3) %0)
-  %.not4.i.i.i.i.i = icmp eq i64 %.012.i.i.in.in.i.i, 0
+  %.not4.i.i.i.i.i = icmp eq i64 %.012.i.i.i.i, 0
   br i1 %.not4.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES2_ED2Ev.exit.i.i, label %.lr.ph.i.i.i17.i.i
 
 .lr.ph.i.i.i17.i.i:                               ; preds = %.loopexit.i.i, %_ZSt8_DestroyIN12_GLOBAL__N_119CompressInstEmitter11CompressPatEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %30, %_ZSt8_DestroyIN12_GLOBAL__N_119CompressInstEmitter11CompressPatEEvPT_.exit.i.i.i.i.i ], [ %6, %.loopexit.i.i ]
-  %11 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 552
-  %12 = load ptr, ptr %11, align 8, !tbaa !8
-  %13 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 568
-  %14 = icmp eq ptr %12, %13
-  br i1 %14, label %_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEED2Ev.exit.i.i.i.i.i.i.i, label %15
+  %.05.i.i.i.i.i = phi ptr [ %31, %_ZSt8_DestroyIN12_GLOBAL__N_119CompressInstEmitter11CompressPatEEvPT_.exit.i.i.i.i.i ], [ %6, %.loopexit.i.i ]
+  %12 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 552
+  %13 = load ptr, ptr %12, align 8, !tbaa !8
+  %14 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 568
+  %15 = icmp eq ptr %13, %14
+  br i1 %15, label %_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEED2Ev.exit.i.i.i.i.i.i.i, label %16
 
-15:                                               ; preds = %.lr.ph.i.i.i17.i.i
-  tail call void @free(ptr noundef %12) #20
+16:                                               ; preds = %.lr.ph.i.i.i17.i.i
+  tail call void @free(ptr noundef %13) #20
   br label %_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEED2Ev.exit.i.i.i.i.i.i.i
 
-_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEED2Ev.exit.i.i.i.i.i.i.i: ; preds = %15, %.lr.ph.i.i.i17.i.i
-  %16 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 504
-  %17 = load ptr, ptr %16, align 8, !tbaa !8
-  %18 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 520
-  %19 = icmp eq ptr %17, %18
-  br i1 %19, label %_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEED2Ev.exit1.i.i.i.i.i.i.i, label %20
+_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEED2Ev.exit.i.i.i.i.i.i.i: ; preds = %16, %.lr.ph.i.i.i17.i.i
+  %17 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 504
+  %18 = load ptr, ptr %17, align 8, !tbaa !8
+  %19 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 520
+  %20 = icmp eq ptr %18, %19
+  br i1 %20, label %_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEED2Ev.exit1.i.i.i.i.i.i.i, label %21
 
-20:                                               ; preds = %_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEED2Ev.exit.i.i.i.i.i.i.i
-  tail call void @free(ptr noundef %17) #20
+21:                                               ; preds = %_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEED2Ev.exit.i.i.i.i.i.i.i
+  tail call void @free(ptr noundef %18) #20
   br label %_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEED2Ev.exit1.i.i.i.i.i.i.i
 
-_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEED2Ev.exit1.i.i.i.i.i.i.i: ; preds = %20, %_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEED2Ev.exit.i.i.i.i.i.i.i
-  %21 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 480
-  %22 = load ptr, ptr %21, align 8, !tbaa !13
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %22, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN12_GLOBAL__N_119CompressInstEmitter11CompressPatEEvPT_.exit.i.i.i.i.i, label %23
+_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEED2Ev.exit1.i.i.i.i.i.i.i: ; preds = %21, %_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEED2Ev.exit.i.i.i.i.i.i.i
+  %22 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 480
+  %23 = load ptr, ptr %22, align 8, !tbaa !13
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %23, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN12_GLOBAL__N_119CompressInstEmitter11CompressPatEEvPT_.exit.i.i.i.i.i, label %24
 
-23:                                               ; preds = %_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEED2Ev.exit1.i.i.i.i.i.i.i
-  %24 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 496
-  %25 = load ptr, ptr %24, align 8, !tbaa !16
-  %26 = ptrtoint ptr %25 to i64
-  %27 = ptrtoint ptr %22 to i64
-  %28 = sub i64 %26, %27
-  tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %28) #21
+24:                                               ; preds = %_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEED2Ev.exit1.i.i.i.i.i.i.i
+  %25 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 496
+  %26 = load ptr, ptr %25, align 8, !tbaa !16
+  %27 = ptrtoint ptr %26 to i64
+  %28 = ptrtoint ptr %23 to i64
+  %29 = sub i64 %27, %28
+  tail call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef %29) #21
   br label %_ZSt8_DestroyIN12_GLOBAL__N_119CompressInstEmitter11CompressPatEEvPT_.exit.i.i.i.i.i
 
-_ZSt8_DestroyIN12_GLOBAL__N_119CompressInstEmitter11CompressPatEEvPT_.exit.i.i.i.i.i: ; preds = %23, %_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEED2Ev.exit1.i.i.i.i.i.i.i
-  %29 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 240
-  tail call void @_ZN4llvm18CodeGenInstructionD2Ev(ptr noundef nonnull align 8 dereferenceable(236) %29) #20
+_ZSt8_DestroyIN12_GLOBAL__N_119CompressInstEmitter11CompressPatEEvPT_.exit.i.i.i.i.i: ; preds = %24, %_ZN4llvm10IndexedMapIN12_GLOBAL__N_119CompressInstEmitter6OpDataENS_8identityIjEEED2Ev.exit1.i.i.i.i.i.i.i
+  %30 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 240
+  tail call void @_ZN4llvm18CodeGenInstructionD2Ev(ptr noundef nonnull align 8 dereferenceable(236) %30) #20
   tail call void @_ZN4llvm18CodeGenInstructionD2Ev(ptr noundef nonnull align 8 dereferenceable(601) %.05.i.i.i.i.i) #20
-  %30 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 608
-  %.not.i.i.i18.i.i = icmp eq ptr %30, %8
+  %31 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 608
+  %.not.i.i.i18.i.i = icmp eq ptr %31, %9
   br i1 %.not.i.i.i18.i.i, label %_ZNSt17_Temporary_bufferIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES2_ED2Ev.exit.i.i, label %.lr.ph.i.i.i17.i.i, !llvm.loop !409
 
 _ZNSt17_Temporary_bufferIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES2_ED2Ev.exit.i.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_119CompressInstEmitter11CompressPatEEvPT_.exit.i.i.i.i.i, %.loopexit.i.i, %.thread.i.i

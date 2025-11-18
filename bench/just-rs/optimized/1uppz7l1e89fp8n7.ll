@@ -1504,22 +1504,22 @@ define hidden noalias noundef ptr @_ZN3std2io5Write9write_all17h5ec9d12cc0cba19c
 20:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1c602a7b6d57ccd6E.exit.i.i.us", %13
   %.sroa.5.0.i.i.us = phi i64 [ %2, %13 ], [ %15, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1c602a7b6d57ccd6E.exit.i.i.us" ]
   %.sroa.0.0.i.i.us = phi ptr [ %1, %13 ], [ %16, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1c602a7b6d57ccd6E.exit.i.i.us" ]
-  %21 = and i64 %.sroa.5.0.i.i.us, -64
-  %22 = and i64 %.sroa.5.0.i.i.us, 63
-  %23 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.us, i64 %21
-  %24 = icmp ult i64 %.sroa.5.0.i.i.us, 64
-  br i1 %24, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1c602a7b6d57ccd6E.exit41.i.i.us", label %25
+  %21 = lshr i64 %.sroa.5.0.i.i.us, 6
+  %22 = and i64 %.sroa.5.0.i.i.us, -64
+  %23 = and i64 %.sroa.5.0.i.i.us, 63
+  %24 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.us, i64 %22
+  %25 = icmp eq i64 %21, 0
+  br i1 %25, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1c602a7b6d57ccd6E.exit41.i.i.us", label %26
 
-25:                                               ; preds = %20
-  %26 = lshr i64 %.sroa.5.0.i.i.us, 6
+26:                                               ; preds = %20
   %27 = load i64, ptr %7, align 8, !alias.scope !346, !noalias !351, !noundef !4
-  %28 = add i64 %27, %26
+  %28 = add i64 %27, %21
   store i64 %28, ptr %7, align 8, !alias.scope !346, !noalias !351
-  tail call void @_ZN4sha26sha25611compress25617h59f6893dd7c729b0E(ptr noalias noundef nonnull align 8 dereferenceable(112) %0, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.us, i64 noundef range(i64 1, 0) %26), !noalias !356
+  tail call void @_ZN4sha26sha25611compress25617h59f6893dd7c729b0E(ptr noalias noundef nonnull align 8 dereferenceable(112) %0, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.us, i64 noundef range(i64 1, 0) %21), !noalias !356
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1c602a7b6d57ccd6E.exit41.i.i.us"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1c602a7b6d57ccd6E.exit41.i.i.us": ; preds = %25, %20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(65) %5, ptr nonnull readonly align 1 %23, i64 %22, i1 false), !alias.scope !357, !noalias !361
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1c602a7b6d57ccd6E.exit41.i.i.us": ; preds = %26, %20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(65) %5, ptr nonnull readonly align 1 %24, i64 %23, i1 false), !alias.scope !357, !noalias !361
   br label %._crit_edge.split.us
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1c602a7b6d57ccd6E.exit44.i.i.us": ; preds = %.lr.ph.split.us
@@ -1529,7 +1529,7 @@ define hidden noalias noundef ptr @_ZN3std2io5Write9write_all17h5ec9d12cc0cba19c
   br label %._crit_edge.split.us
 
 ._crit_edge.split.us:                             ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1c602a7b6d57ccd6E.exit44.i.i.us", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1c602a7b6d57ccd6E.exit41.i.i.us"
-  %storemerge.in.i.i.us = phi i64 [ %22, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1c602a7b6d57ccd6E.exit41.i.i.us" ], [ %30, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1c602a7b6d57ccd6E.exit44.i.i.us" ]
+  %storemerge.in.i.i.us = phi i64 [ %23, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1c602a7b6d57ccd6E.exit41.i.i.us" ], [ %30, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1c602a7b6d57ccd6E.exit44.i.i.us" ]
   %storemerge.i.i.us = trunc nuw nsw i64 %storemerge.in.i.i.us to i8
   store i8 %storemerge.i.i.us, ptr %6, align 8, !alias.scope !325, !noalias !327
   br label %31
@@ -10927,13 +10927,13 @@ define internal void @_ZN4just8function6sha25617h65cd834f4c242278E(ptr noalias n
   br i1 %23, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1c602a7b6d57ccd6E.exit44.i.i.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1c602a7b6d57ccd6E.exit41.i.i.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1c602a7b6d57ccd6E.exit41.i.i.i": ; preds = %"_ZN90_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h61390da3b8de11deE.exit"
-  %24 = and i64 %3, -64
-  %25 = and i64 %3, 63
-  %26 = getelementptr inbounds i8, ptr %2, i64 %24
-  %27 = lshr i64 %3, 6
-  store i64 %27, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !2635, !noalias !2642
-  call void @_ZN4sha26sha25611compress25617h59f6893dd7c729b0E(ptr noalias noundef nonnull align 8 dereferenceable(112) %14, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef range(i64 1, 0) %27), !noalias !2648
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(65) %22, ptr nonnull readonly align 1 %26, i64 %25, i1 false), !alias.scope !2649, !noalias !2654
+  %24 = lshr i64 %3, 6
+  %25 = and i64 %3, -64
+  %26 = and i64 %3, 63
+  %27 = getelementptr inbounds i8, ptr %2, i64 %25
+  store i64 %24, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !2635, !noalias !2642
+  call void @_ZN4sha26sha25611compress25617h59f6893dd7c729b0E(ptr noalias noundef nonnull align 8 dereferenceable(112) %14, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef range(i64 1, 0) %24), !noalias !2648
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(65) %22, ptr nonnull readonly align 1 %27, i64 %26, i1 false), !alias.scope !2649, !noalias !2654
   br label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1c602a7b6d57ccd6E.exit44.i.i.i": ; preds = %"_ZN90_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h61390da3b8de11deE.exit"
@@ -10941,7 +10941,7 @@ define internal void @_ZN4just8function6sha25617h65cd834f4c242278E(ptr noalias n
   br label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1c602a7b6d57ccd6E.exit44.i.i.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1c602a7b6d57ccd6E.exit41.i.i.i"
-  %storemerge.in.i.i.i = phi i64 [ %25, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1c602a7b6d57ccd6E.exit41.i.i.i" ], [ %3, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1c602a7b6d57ccd6E.exit44.i.i.i" ]
+  %storemerge.in.i.i.i = phi i64 [ %26, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1c602a7b6d57ccd6E.exit41.i.i.i" ], [ %3, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1c602a7b6d57ccd6E.exit44.i.i.i" ]
   %storemerge.i.i.i = trunc nuw nsw i64 %storemerge.in.i.i.i to i8
   store i8 %storemerge.i.i.i, ptr %.sroa.42.0..sroa_idx.i, align 8, !alias.scope !2662, !noalias !2663
   call void @llvm.lifetime.start.p0(ptr nonnull %13)

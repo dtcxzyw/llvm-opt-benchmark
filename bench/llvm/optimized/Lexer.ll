@@ -2416,7 +2416,7 @@ define internal fastcc i32 @_ZL23getBeginningOfFileTokenN5clang14SourceLocationE
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 %.sroa.5.0.extract.shift
   %.not.i = icmp ule i64 %12, %.sroa.5.0.extract.shift
-  %.not1418.i = icmp ult i64 %7, 4294967296
+  %.not1418.i = icmp eq i64 %.sroa.5.0.extract.shift, 0
   %or.cond33 = or i1 %.not1418.i, %.not.i
   br i1 %or.cond33, label %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit.thread, label %.lr.ph.i
 
@@ -3391,8 +3391,8 @@ define dso_local { i64, i8 } @_ZN5clang5Lexer17makeFileCharRangeENS_15CharSource
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %.sroa.10.0.extract.trunc, ptr %6, align 4
   %10 = icmp eq i32 %.sroa.0131.0.extract.trunc, 0
-  %11 = icmp ult i64 %0, 4294967296
-  %or.cond = or i1 %11, %10
+  %11 = icmp eq i64 %.sroa.10.0.extract.shift, 0
+  %or.cond = or i1 %10, %11
   br i1 %or.cond, label %172, label %12
 
 12:                                               ; preds = %4
@@ -3781,7 +3781,7 @@ define internal fastcc { i64, i8 } @_ZL21makeRangeFromFileLocsN5clang15CharSourc
 9:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %.sroa.2.0.extract.trunc, ptr %6, align 4
-  %10 = icmp ult i64 %0, 4294967296
+  %10 = icmp eq i64 %.sroa.2.0.extract.shift, 0
   br i1 %10, label %_ZN5clang5Lexer19getLocForEndOfTokenENS_14SourceLocationEjRKNS_13SourceManagerERKNS_11LangOptionsE.exit.thread, label %11
 
 11:                                               ; preds = %9
@@ -3960,8 +3960,8 @@ define dso_local { ptr, i64 } @_ZN5clang5Lexer13getSourceTextENS_15CharSourceRan
   %.sroa.437.0.extract.shift = lshr i64 %.fca.0.extract, 32
   %.sroa.437.0.extract.trunc = trunc nuw i64 %.sroa.437.0.extract.shift to i32
   %9 = icmp eq i32 %.sroa.035.0.extract.trunc, 0
-  %10 = icmp ult i64 %.fca.0.extract, 4294967296
-  %.not2.i = or i1 %10, %9
+  %10 = icmp eq i64 %.sroa.437.0.extract.shift, 0
+  %.not2.i = or i1 %9, %10
   br i1 %.not2.i, label %11, label %13
 
 11:                                               ; preds = %5
@@ -4531,7 +4531,7 @@ define dso_local { ptr, i64 } @_ZN5clang5Lexer21getIndentationForLineENS_14Sourc
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 %.sroa.5.0.extract.shift
-  %.not1418.i = icmp ult i64 %6, 4294967296
+  %.not1418.i = icmp eq i64 %.sroa.5.0.extract.shift, 0
   br i1 %.not1418.i, label %_ZL19findBeginningOfLineN4llvm9StringRefEj.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %14, %40

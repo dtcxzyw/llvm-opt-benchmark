@@ -827,26 +827,30 @@ define internal fastcc noalias ptr @array2string(ptr noundef nonnull readonly ca
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #9
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %10, ptr nonnull align 1 %8, i64 %9, i1 false)
   %11 = lshr i32 %7, 1
-  %.not37 = icmp ult i32 %7, 2
-  %.pre39 = zext nneg i32 %11 to i64
-  br i1 %.not37, label %._crit_edge, label %.lr.ph
+  %.not37 = icmp eq i32 %11, 0
+  br i1 %.not37, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %2, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
+.lr.ph.preheader:                                 ; preds = %2
+  %wide.trip.count = zext nneg i32 %11 to i64
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %12 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv
   %13 = load i16, ptr %12, align 2, !tbaa !66
   %rev = tail call i16 @llvm.bswap.i16(i16 %13)
   store i16 %rev, ptr %12, align 2, !tbaa !66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %.pre39
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
+  %.pre-phi = phi i64 [ 0, %2 ], [ %wide.trip.count, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !6
-  %14 = call noalias ptr @g_utf16_to_utf8(ptr noundef %10, i64 noundef %.pre39, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
+  %14 = call noalias ptr @g_utf16_to_utf8(ptr noundef %10, i64 noundef %.pre-phi, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
   call void @free(ptr noundef %10) #10
   %15 = load ptr, ptr %5, align 8, !tbaa !6
   %.not = icmp eq ptr %15, null

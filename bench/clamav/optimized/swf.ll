@@ -1104,7 +1104,7 @@ fmap_readn.exit328:                               ; preds = %391
   %398 = shl nuw nsw i32 %395, 8
   %399 = or disjoint i32 %398, %397
   %400 = lshr i32 %399, 6
-  %401 = icmp samesign ult i32 %399, 64
+  %401 = icmp eq i32 %400, 0
   br i1 %401, label %.critedge, label %402
 
 fmap_readn.exit323.thread:                        ; preds = %.lr.ph562

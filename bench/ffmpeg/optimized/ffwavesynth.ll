@@ -719,7 +719,7 @@ pink_fill.exit.i:                                 ; preds = %117, %93
 178:                                              ; preds = %175, %173
   %179 = lshr i32 %.04664.i, 1
   %180 = getelementptr inbounds nuw i8, ptr %.04763.i, i64 4
-  %.not54.i = icmp ult i32 %.04664.i, 2
+  %.not54.i = icmp eq i32 %179, 0
   br i1 %.not54.i, label %..loopexit_crit_edge.i, label %173, !llvm.loop !80
 
 .outer._crit_edge.i:                              ; preds = %.loopexit.i, %140
@@ -748,7 +748,7 @@ pink_fill.exit.i:                                 ; preds = %117, %93
 189:                                              ; preds = %186, %.lr.ph75.i
   %190 = lshr i32 %.173.i, 1
   %191 = getelementptr inbounds nuw i8, ptr %.14872.i, i64 4
-  %.not.i47 = icmp ult i32 %.173.i, 2
+  %.not.i47 = icmp eq i32 %190, 0
   br i1 %.not.i47, label %wavesynth_synth_sample.exit, label %.lr.ph75.i, !llvm.loop !81
 
 wavesynth_synth_sample.exit:                      ; preds = %189, %.outer._crit_edge.thread.i, %.outer._crit_edge.i
@@ -952,7 +952,7 @@ phi_at.exit:                                      ; preds = %23, %27
   %78 = mul i32 %77, %.01219.i
   %79 = mul i32 %.01318.i, %.01318.i
   %80 = lshr i32 %.01417.i, 1
-  %.not.i55 = icmp ult i32 %.01417.i, 2
+  %.not.i55 = icmp eq i32 %80, 0
   br i1 %.not.i55, label %lcg_seek.exit, label %.lr.ph.i, !llvm.loop !87
 
 lcg_seek.exit:                                    ; preds = %.lr.ph.i, %65
@@ -990,7 +990,7 @@ lcg_seek.exit:                                    ; preds = %.lr.ph.i, %65
   %97 = mul i32 %96, %.01219.i59
   %98 = mul i32 %.01318.i60, %.01318.i60
   %99 = lshr i32 %.01417.i61, 1
-  %.not.i64 = icmp ult i32 %.01417.i61, 2
+  %.not.i64 = icmp eq i32 %99, 0
   br i1 %.not.i64, label %lcg_seek.exit66, label %.lr.ph.i57, !llvm.loop !87
 
 lcg_seek.exit66:                                  ; preds = %.lr.ph.i57, %83

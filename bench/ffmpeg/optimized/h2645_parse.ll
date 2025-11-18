@@ -947,7 +947,7 @@ get_bit_length.exit:                              ; preds = %200, %202
   %252 = add nsw i32 %249, -1
   %253 = getelementptr inbounds nuw i8, ptr %163, i64 72
   store i32 %252, ptr %253, align 8, !tbaa !50
-  %254 = icmp ult i32 %248, 536870912
+  %254 = icmp eq i32 %249, 0
   br i1 %254, label %vvc_parse_nal_header.exit.thread, label %255
 
 255:                                              ; preds = %235
@@ -996,7 +996,7 @@ vvc_nal_unit_name.exit.i:                         ; preds = %255
   %280 = add nsw i32 %277, -1
   %281 = getelementptr inbounds nuw i8, ptr %163, i64 72
   store i32 %280, ptr %281, align 8, !tbaa !50
-  %282 = icmp ult i32 %276, 536870912
+  %282 = icmp eq i32 %277, 0
   br i1 %282, label %hevc_parse_nal_header.exit, label %hevc_parse_nal_header.exit.thread
 
 hevc_parse_nal_header.exit:                       ; preds = %261, %262

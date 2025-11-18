@@ -4854,7 +4854,7 @@ define internal fastcc range(i32 -1, 1) i32 @svq3_decode_block(ptr noundef captu
   %13 = load i32, ptr %12, align 8, !tbaa !57
   %14 = load ptr, ptr %0, align 8, !tbaa !55
   %15 = icmp eq i32 %3, 3
-  %.not56 = icmp samesign ult i32 %3, 2
+  %.not56 = icmp eq i32 %6, 0
   %16 = zext nneg i32 %6 to i64
   %17 = getelementptr inbounds nuw [16 x %struct.anon], ptr @svq3_dct_tables, i64 %16
   %.not54 = icmp eq i32 %3, 2

@@ -85,16 +85,16 @@ define dso_local void @_ZN5clang4sema17FunctionScopeInfo5ClearEv(ptr noundef non
   store ptr null, ptr %10, align 8, !tbaa !7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %12 = load i32, ptr %11, align 8
-  %13 = icmp ult i32 %12, 2
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  %15 = load i32, ptr %14, align 4
-  %16 = icmp eq i32 %15, 0
-  %or.cond.i = select i1 %13, i1 %16, i1 false
-  br i1 %or.cond.i, label %_ZN4llvm9MapVectorIPN5clang11ParmVarDeclEPNS1_4StmtENS_13SmallDenseMapIS3_jLj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S5_ELj4EEEE5clearEv.exit, label %17
+  %13 = lshr i32 %12, 1
+  %14 = icmp eq i32 %13, 0
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 196
+  %16 = load i32, ptr %15, align 4
+  %17 = icmp eq i32 %16, 0
+  %or.cond.i = select i1 %14, i1 %17, i1 false
+  br i1 %or.cond.i, label %_ZN4llvm9MapVectorIPN5clang11ParmVarDeclEPNS1_4StmtENS_13SmallDenseMapIS3_jLj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S5_ELj4EEEE5clearEv.exit, label %18
 
-17:                                               ; preds = %1
-  %18 = shl i32 %12, 1
-  %19 = and i32 %18, -4
+18:                                               ; preds = %1
+  %19 = shl i32 %13, 2
   %20 = and i32 %12, 1
   %.not.i.i.i.i = icmp eq i32 %20, 0
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -105,11 +105,11 @@ define dso_local void @_ZN5clang4sema17FunctionScopeInfo5ClearEv(ptr noundef non
   %or.cond.i.i = and i1 %24, %25
   br i1 %or.cond.i.i, label %26, label %27
 
-26:                                               ; preds = %17
+26:                                               ; preds = %18
   tail call void @_ZN4llvm13SmallDenseMapIPN5clang11ParmVarDeclEjLj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE16shrink_and_clearEv(ptr noundef nonnull align 8 dereferenceable(152) %11)
   br label %_ZN4llvm9MapVectorIPN5clang11ParmVarDeclEPNS1_4StmtENS_13SmallDenseMapIS3_jLj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S5_ELj4EEEE5clearEv.exit
 
-27:                                               ; preds = %17
+27:                                               ; preds = %18
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %29 = load ptr, ptr %28, align 8
   %30 = select i1 %.not.i.i.i.i, ptr %29, ptr %28
@@ -127,7 +127,7 @@ define dso_local void @_ZN5clang4sema17FunctionScopeInfo5ClearEv(ptr noundef non
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %27
   %.pre-phi.i.i = phi i32 [ %.pre9.i.i, %._crit_edge.loopexit.i.i ], [ %20, %27 ]
   store i32 %.pre-phi.i.i, ptr %11, align 8
-  store i32 0, ptr %14, align 4, !tbaa !68
+  store i32 0, ptr %15, align 4, !tbaa !68
   br label %_ZN4llvm9MapVectorIPN5clang11ParmVarDeclEPNS1_4StmtENS_13SmallDenseMapIS3_jLj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S5_ELj4EEEE5clearEv.exit
 
 .lr.ph.i.i:                                       ; preds = %27, %.lr.ph.i.i
@@ -223,16 +223,16 @@ _ZN4llvm15SmallVectorImplIN5clang4sema23PossiblyUnreachableDiagEE5clearEv.exit: 
   store i32 0, ptr %50, align 8, !tbaa !73
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %70 = load i32, ptr %69, align 8
-  %71 = icmp ult i32 %70, 2
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 764
-  %73 = load i32, ptr %72, align 4
-  %74 = icmp eq i32 %73, 0
-  %or.cond = select i1 %71, i1 %74, i1 false
-  br i1 %or.cond, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang4sema17FunctionScopeInfo19WeakObjectProfileTyENS_11SmallVectorINS4_9WeakUseTyELj4EEELj8ENS5_12DenseMapInfoENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_S9_SC_E5clearEv.exit, label %75
+  %71 = lshr i32 %70, 1
+  %72 = icmp eq i32 %71, 0
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 764
+  %74 = load i32, ptr %73, align 4
+  %75 = icmp eq i32 %74, 0
+  %or.cond = select i1 %72, i1 %75, i1 false
+  br i1 %or.cond, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang4sema17FunctionScopeInfo19WeakObjectProfileTyENS_11SmallVectorINS4_9WeakUseTyELj4EEELj8ENS5_12DenseMapInfoENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_S9_SC_E5clearEv.exit, label %76
 
-75:                                               ; preds = %_ZN4llvm15SmallVectorImplIN5clang4sema23PossiblyUnreachableDiagEE5clearEv.exit
-  %76 = shl i32 %70, 1
-  %77 = and i32 %76, -4
+76:                                               ; preds = %_ZN4llvm15SmallVectorImplIN5clang4sema23PossiblyUnreachableDiagEE5clearEv.exit
+  %77 = shl i32 %71, 2
   %78 = and i32 %70, 1
   %.not.i.i.i = icmp eq i32 %78, 0
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 776
@@ -243,11 +243,11 @@ _ZN4llvm15SmallVectorImplIN5clang4sema23PossiblyUnreachableDiagEE5clearEv.exit: 
   %or.cond.i4 = and i1 %82, %83
   br i1 %or.cond.i4, label %84, label %85
 
-84:                                               ; preds = %75
+84:                                               ; preds = %76
   tail call void @_ZN4llvm13SmallDenseMapIN5clang4sema17FunctionScopeInfo19WeakObjectProfileTyENS_11SmallVectorINS3_9WeakUseTyELj4EEELj8ENS4_12DenseMapInfoENS_6detail12DenseMapPairIS4_S7_EEE16shrink_and_clearEv(ptr noundef nonnull align 8 dereferenceable(520) %69)
   br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang4sema17FunctionScopeInfo19WeakObjectProfileTyENS_11SmallVectorINS4_9WeakUseTyELj4EEELj8ENS5_12DenseMapInfoENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_S9_SC_E5clearEv.exit
 
-85:                                               ; preds = %75
+85:                                               ; preds = %76
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %87 = load ptr, ptr %86, align 8
   %88 = select i1 %.not.i.i.i, ptr %87, ptr %86
@@ -265,7 +265,7 @@ _ZN4llvm15SmallVectorImplIN5clang4sema23PossiblyUnreachableDiagEE5clearEv.exit: 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %85
   %.pre-phi.i = phi i32 [ %.pre16.i, %._crit_edge.loopexit.i ], [ %78, %85 ]
   store i32 %.pre-phi.i, ptr %69, align 8
-  store i32 0, ptr %72, align 4, !tbaa !130
+  store i32 0, ptr %73, align 4, !tbaa !130
   br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang4sema17FunctionScopeInfo19WeakObjectProfileTyENS_11SmallVectorINS4_9WeakUseTyELj4EEELj8ENS5_12DenseMapInfoENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_S9_SC_E5clearEv.exit
 
 .lr.ph.i:                                         ; preds = %85, %105
@@ -2027,12 +2027,12 @@ _ZN5clang17DiagnosticStorageD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPN5clang11ParmVarDeclEjLj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE16shrink_and_clearEv(ptr noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = load i32, ptr %0, align 8
-  %.not = icmp ult i32 %2, 2
-  br i1 %.not, label %10, label %3
+  %3 = lshr i32 %2, 1
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %10, label %4
 
-3:                                                ; preds = %1
-  %4 = lshr i32 %2, 1
-  %5 = add nsw i32 %4, -1
+4:                                                ; preds = %1
+  %5 = add nsw i32 %3, -1
   %6 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %5, i1 false)
   %7 = sub nuw nsw i32 33, %6
   %8 = shl nuw i32 1, %7
@@ -2041,8 +2041,8 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPN5clang11ParmVarDeclEj
   %spec.store.select = select i1 %or.cond, i32 64, i32 %8
   br label %10
 
-10:                                               ; preds = %3, %1
-  %.0 = phi i32 [ %spec.store.select, %3 ], [ 0, %1 ]
+10:                                               ; preds = %4, %1
+  %.0 = phi i32 [ %spec.store.select, %4 ], [ 0, %1 ]
   %11 = and i32 %2, 1
   %12 = icmp ne i32 %11, 0
   %13 = icmp ult i32 %.0, 5
@@ -2202,7 +2202,7 @@ _ZN4llvm11SmallVectorIN5clang4sema17FunctionScopeInfo9WeakUseTyELj4EED2Ev.exit.i
   br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang4sema17FunctionScopeInfo19WeakObjectProfileTyENS_11SmallVectorINS4_9WeakUseTyELj4EEELj8ENS5_12DenseMapInfoENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_S9_SC_E10destroyAllEv.exit, label %.lr.ph.i, !llvm.loop !276
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang4sema17FunctionScopeInfo19WeakObjectProfileTyENS_11SmallVectorINS4_9WeakUseTyELj4EEELj8ENS5_12DenseMapInfoENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_S9_SC_E10destroyAllEv.exit: ; preds = %_ZN4llvm11SmallVectorIN5clang4sema17FunctionScopeInfo9WeakUseTyELj4EED2Ev.exit.i, %1
-  %.not = icmp ult i32 %2, 2
+  %.not = icmp eq i32 %3, 0
   br i1 %.not, label %32, label %26
 
 26:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang4sema17FunctionScopeInfo19WeakObjectProfileTyENS_11SmallVectorINS4_9WeakUseTyELj4EEELj8ENS5_12DenseMapInfoENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_S9_SC_E10destroyAllEv.exit

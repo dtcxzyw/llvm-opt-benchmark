@@ -76,7 +76,7 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
   %17 = load i32, ptr %1, align 4
   %.not = icmp ne i32 %17, -12
   %. = sext i1 %.not to i32
-  br label %361
+  br label %362
 
 18:                                               ; preds = %3
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %4, ptr noundef nonnull dereferenceable(4) @netmon_1_x_magic, i64 4)
@@ -86,12 +86,12 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
 19:                                               ; preds = %18
   %bcmp364 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %4, ptr noundef nonnull dereferenceable(4) @netmon_2_x_magic, i64 4)
   %.not365 = icmp eq i32 %bcmp364, 0
-  br i1 %.not365, label %20, label %361
+  br i1 %.not365, label %20, label %362
 
 20:                                               ; preds = %19, %18
   %21 = load ptr, ptr %0, align 8
   %22 = call zeroext i1 @wtap_read_bytes(ptr noundef %21, ptr noundef nonnull %5, i32 noundef 60, ptr noundef %1, ptr noundef %2)
-  br i1 %22, label %23, label %361
+  br i1 %22, label %23, label %362
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -109,7 +109,7 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
   %28 = zext i8 %25 to i32
   %29 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str, i32 noundef %28)
   store ptr %29, ptr %2, align 8
-  br label %361
+  br label %362
 
 30:                                               ; preds = %23, %26
   %.0332.in = phi ptr [ @netmon_2_x_file_type_subtype, %26 ], [ @netmon_1_x_file_type_subtype, %23 ]
@@ -138,7 +138,7 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
   %43 = zext i16 %36 to i32
   %44 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef %43)
   store ptr %44, ptr %2, align 8
-  br label %361
+  br label %362
 
 45:                                               ; preds = %38
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -262,17 +262,17 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
   store i32 -13, ptr %1, align 4
   %116 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef %111)
   store ptr %116, ptr %2, align 8
-  br label %361
+  br label %362
 
 117:                                              ; preds = %.thread
-  %118 = icmp ult i32 %111, 4
+  %118 = icmp eq i32 %112, 0
   br i1 %118, label %119, label %121
 
 119:                                              ; preds = %117
   store i32 -13, ptr %1, align 4
   %120 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef %111)
   store ptr %120, ptr %2, align 8
-  br label %361
+  br label %362
 
 121:                                              ; preds = %117
   %122 = icmp ugt i32 %111, -2147483645
@@ -282,14 +282,14 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
   store i32 -13, ptr %1, align 4
   %124 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef %111)
   store ptr %124, ptr %2, align 8
-  br label %361
+  br label %362
 
 125:                                              ; preds = %121
   %126 = load ptr, ptr %0, align 8
   %127 = zext i32 %95 to i64
   %128 = call i64 @file_seek(ptr noundef %126, i64 noundef %127, i32 noundef 0, ptr noundef %1)
   %129 = icmp eq i64 %128, -1
-  br i1 %129, label %361, label %130
+  br i1 %129, label %362, label %130
 
 130:                                              ; preds = %125
   %.not368 = icmp eq i32 %.0335, 0
@@ -303,7 +303,7 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
   store i32 -13, ptr %1, align 4
   %134 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.5, i32 noundef %.0335)
   store ptr %134, ptr %2, align 8
-  br label %361
+  br label %362
 
 135:                                              ; preds = %131
   %136 = icmp samesign ult i32 %.0335, 17
@@ -313,7 +313,7 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
   store i32 -13, ptr %1, align 4
   %138 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef %.0335)
   store ptr %138, ptr %2, align 8
-  br label %361
+  br label %362
 
 139:                                              ; preds = %135
   %140 = zext i32 %.0333 to i64
@@ -324,7 +324,7 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
   store i32 -13, ptr %1, align 4
   %143 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef %.0333)
   store ptr %143, ptr %2, align 8
-  br label %361
+  br label %362
 
 144:                                              ; preds = %139, %130
   %145 = icmp ne i32 %.0334, 0
@@ -340,7 +340,7 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
   store i32 -13, ptr %1, align 4
   %150 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef %.0339)
   store ptr %150, ptr %2, align 8
-  br label %361
+  br label %362
 
 151:                                              ; preds = %147
   %152 = zext i32 %.0334 to i64
@@ -351,468 +351,470 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
   store i32 -13, ptr %1, align 4
   %155 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.9, i32 noundef %.0334)
   store ptr %155, ptr %2, align 8
-  br label %361
+  br label %362
 
 156:                                              ; preds = %151, %144
   %157 = load ptr, ptr %0, align 8
   %158 = call i64 @file_seek(ptr noundef %157, i64 noundef %127, i32 noundef 0, ptr noundef %1)
   %159 = icmp eq i64 %158, -1
-  br i1 %159, label %361, label %160
+  br i1 %159, label %362, label %160
 
 160:                                              ; preds = %156
   %161 = call noalias ptr @g_try_malloc(i64 noundef %113) #12
-  %162 = icmp eq ptr %161, null
-  br i1 %162, label %163, label %164
-
-163:                                              ; preds = %160
-  store i32 12, ptr %1, align 4
-  br label %361
+  %162 = icmp ne i32 %111, 0
+  %163 = icmp eq ptr %161, null
+  %or.cond14 = select i1 %162, i1 %163, i1 false
+  br i1 %or.cond14, label %164, label %165
 
 164:                                              ; preds = %160
-  %165 = load ptr, ptr %0, align 8
-  %166 = call zeroext i1 @wtap_read_bytes(ptr noundef %165, ptr noundef nonnull %161, i32 noundef %111, ptr noundef %1, ptr noundef %2)
-  br i1 %166, label %168, label %167
-
-167:                                              ; preds = %164
-  call void @g_free(ptr noundef nonnull %161)
-  br label %361
-
-168:                                              ; preds = %164
-  %169 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  store i32 %112, ptr %169, align 8
-  %170 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  store ptr %161, ptr %170, align 8
-  br i1 %.not368, label %247, label %171
-
-171:                                              ; preds = %168
-  %172 = call ptr @g_hash_table_new_full(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal, ptr noundef null, ptr noundef nonnull @netmonrec_comment_destroy)
-  %173 = icmp eq ptr %172, null
-  br i1 %173, label %174, label %175
-
-174:                                              ; preds = %171
   store i32 12, ptr %1, align 4
-  br label %361
+  br label %362
 
-175:                                              ; preds = %171
-  %176 = load ptr, ptr %0, align 8
-  %177 = add i32 %.0333, %.0335
-  %178 = zext i32 %177 to i64
-  %179 = call i64 @file_seek(ptr noundef %176, i64 noundef %178, i32 noundef 0, ptr noundef %1)
-  %180 = icmp eq i64 %179, -1
-  br i1 %180, label %181, label %182
+165:                                              ; preds = %160
+  %166 = load ptr, ptr %0, align 8
+  %167 = call zeroext i1 @wtap_read_bytes(ptr noundef %166, ptr noundef %161, i32 noundef %111, ptr noundef %1, ptr noundef %2)
+  br i1 %167, label %169, label %168
 
-181:                                              ; preds = %175
-  call void @g_hash_table_destroy(ptr noundef nonnull %172)
-  br label %361
+168:                                              ; preds = %165
+  call void @g_free(ptr noundef %161)
+  br label %362
 
-182:                                              ; preds = %175
-  %183 = load ptr, ptr %0, align 8
-  %184 = zext i32 %.0333 to i64
-  %185 = call i64 @file_seek(ptr noundef %183, i64 noundef %184, i32 noundef 0, ptr noundef %1)
-  %186 = icmp eq i64 %185, -1
-  br i1 %186, label %190, label %.preheader399
+169:                                              ; preds = %165
+  %170 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  store i32 %112, ptr %170, align 8
+  %171 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  store ptr %161, ptr %171, align 8
+  br i1 %.not368, label %248, label %172
 
-.preheader399:                                    ; preds = %182
-  %187 = icmp samesign ugt i32 %.0335, 16
-  br i1 %187, label %.lr.ph, label %._crit_edge
+172:                                              ; preds = %169
+  %173 = call ptr @g_hash_table_new_full(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal, ptr noundef null, ptr noundef nonnull @netmonrec_comment_destroy)
+  %174 = icmp eq ptr %173, null
+  br i1 %174, label %175, label %176
+
+175:                                              ; preds = %172
+  store i32 12, ptr %1, align 4
+  br label %362
+
+176:                                              ; preds = %172
+  %177 = load ptr, ptr %0, align 8
+  %178 = add i32 %.0333, %.0335
+  %179 = zext i32 %178 to i64
+  %180 = call i64 @file_seek(ptr noundef %177, i64 noundef %179, i32 noundef 0, ptr noundef %1)
+  %181 = icmp eq i64 %180, -1
+  br i1 %181, label %182, label %183
+
+182:                                              ; preds = %176
+  call void @g_hash_table_destroy(ptr noundef nonnull %173)
+  br label %362
+
+183:                                              ; preds = %176
+  %184 = load ptr, ptr %0, align 8
+  %185 = zext i32 %.0333 to i64
+  %186 = call i64 @file_seek(ptr noundef %184, i64 noundef %185, i32 noundef 0, ptr noundef %1)
+  %187 = icmp eq i64 %186, -1
+  br i1 %187, label %191, label %.preheader399
+
+.preheader399:                                    ; preds = %183
+  %188 = icmp samesign ugt i32 %.0335, 16
+  br i1 %188, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader399
-  %188 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %189 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  br label %191
+  %189 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %190 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  br label %192
 
-190:                                              ; preds = %182
-  call void @g_hash_table_destroy(ptr noundef nonnull %172)
-  br label %361
+191:                                              ; preds = %183
+  call void @g_hash_table_destroy(ptr noundef nonnull %173)
+  br label %362
 
-191:                                              ; preds = %.lr.ph, %244
-  %.1336446 = phi i32 [ %.0335, %.lr.ph ], [ %.2337, %244 ]
+192:                                              ; preds = %.lr.ph, %245
+  %.1336446 = phi i32 [ %.0335, %.lr.ph ], [ %.2337, %245 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %192 = load ptr, ptr %0, align 8
-  %193 = call zeroext i1 @wtap_read_bytes(ptr noundef %192, ptr noundef nonnull %7, i32 noundef 12, ptr noundef %1, ptr noundef %2)
-  br i1 %193, label %194, label %.thread392
+  %193 = load ptr, ptr %0, align 8
+  %194 = call zeroext i1 @wtap_read_bytes(ptr noundef %193, ptr noundef nonnull %7, i32 noundef 12, ptr noundef %1, ptr noundef %2)
+  br i1 %194, label %195, label %.thread392
 
-194:                                              ; preds = %191
-  %195 = add i32 %.1336446, -12
-  %196 = load i32, ptr %188, align 4
-  %197 = icmp eq i32 %196, 0
-  br i1 %197, label %198, label %200
+195:                                              ; preds = %192
+  %196 = add i32 %.1336446, -12
+  %197 = load i32, ptr %189, align 4
+  %198 = icmp eq i32 %197, 0
+  br i1 %198, label %199, label %201
 
-198:                                              ; preds = %194
+199:                                              ; preds = %195
   store i32 -13, ptr %1, align 4
-  %199 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.10)
+  %200 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.10)
   br label %.thread392.sink.split
 
-200:                                              ; preds = %194
-  %201 = icmp ugt i32 %196, %195
-  br i1 %201, label %202, label %204
+201:                                              ; preds = %195
+  %202 = icmp ugt i32 %197, %196
+  br i1 %202, label %203, label %205
 
-202:                                              ; preds = %200
+203:                                              ; preds = %201
   store i32 -13, ptr %1, align 4
-  %203 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.11, i32 noundef %196, i32 noundef %195)
+  %204 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.11, i32 noundef %197, i32 noundef %196)
   br label %.thread392.sink.split
 
-204:                                              ; preds = %200
-  %205 = call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #12
-  %206 = load i32, ptr %7, align 4
-  store i32 %206, ptr %205, align 8
-  %207 = load i32, ptr %189, align 4
-  %208 = getelementptr inbounds nuw i8, ptr %205, i64 4
-  store i32 %207, ptr %208, align 4
-  %209 = zext i32 %207 to i64
-  %210 = inttoptr i64 %209 to ptr
-  %211 = call i32 @g_hash_table_insert(ptr noundef nonnull %172, ptr noundef %210, ptr noundef %205)
-  %212 = zext i32 %196 to i64
-  %213 = call noalias ptr @g_malloc(i64 noundef %212) #12
-  %214 = load ptr, ptr %0, align 8
-  %215 = call zeroext i1 @wtap_read_bytes(ptr noundef %214, ptr noundef %213, i32 noundef %196, ptr noundef %1, ptr noundef %2)
-  br i1 %215, label %216, label %.thread392
+205:                                              ; preds = %201
+  %206 = call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #12
+  %207 = load i32, ptr %7, align 4
+  store i32 %207, ptr %206, align 8
+  %208 = load i32, ptr %190, align 4
+  %209 = getelementptr inbounds nuw i8, ptr %206, i64 4
+  store i32 %208, ptr %209, align 4
+  %210 = zext i32 %208 to i64
+  %211 = inttoptr i64 %210 to ptr
+  %212 = call i32 @g_hash_table_insert(ptr noundef nonnull %173, ptr noundef %211, ptr noundef %206)
+  %213 = zext i32 %197 to i64
+  %214 = call noalias ptr @g_malloc(i64 noundef %213) #12
+  %215 = load ptr, ptr %0, align 8
+  %216 = call zeroext i1 @wtap_read_bytes(ptr noundef %215, ptr noundef %214, i32 noundef %197, ptr noundef %1, ptr noundef %2)
+  br i1 %216, label %217, label %.thread392
 
-216:                                              ; preds = %204
-  %217 = sub i32 %195, %196
-  %218 = call fastcc ptr @utf_16_to_utf_8(ptr noundef %213, i32 noundef %196)
-  %219 = getelementptr inbounds nuw i8, ptr %205, i64 8
-  store ptr %218, ptr %219, align 8
-  call void @g_free(ptr noundef %213)
-  %220 = icmp ult i32 %217, 4
-  br i1 %220, label %221, label %223
+217:                                              ; preds = %205
+  %218 = sub i32 %196, %197
+  %219 = call fastcc ptr @utf_16_to_utf_8(ptr noundef %214, i32 noundef %197)
+  %220 = getelementptr inbounds nuw i8, ptr %206, i64 8
+  store ptr %219, ptr %220, align 8
+  call void @g_free(ptr noundef %214)
+  %221 = icmp ult i32 %218, 4
+  br i1 %221, label %222, label %224
 
-221:                                              ; preds = %216
+222:                                              ; preds = %217
   store i32 -13, ptr %1, align 4
-  %222 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.12)
+  %223 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.12)
   br label %.thread392.sink.split
 
-223:                                              ; preds = %216
-  %224 = load ptr, ptr %0, align 8
-  %225 = call zeroext i1 @wtap_read_bytes(ptr noundef %224, ptr noundef nonnull %8, i32 noundef 4, ptr noundef %1, ptr noundef %2)
-  br i1 %225, label %226, label %.thread392
+224:                                              ; preds = %217
+  %225 = load ptr, ptr %0, align 8
+  %226 = call zeroext i1 @wtap_read_bytes(ptr noundef %225, ptr noundef nonnull %8, i32 noundef 4, ptr noundef %1, ptr noundef %2)
+  br i1 %226, label %227, label %.thread392
 
-226:                                              ; preds = %223
-  %227 = add i32 %217, -4
-  %228 = load i32, ptr %8, align 4
-  %229 = getelementptr inbounds nuw i8, ptr %205, i64 16
-  store i32 %228, ptr %229, align 8
-  %.not370 = icmp eq i32 %228, 0
-  br i1 %.not370, label %244, label %230
+227:                                              ; preds = %224
+  %228 = add i32 %218, -4
+  %229 = load i32, ptr %8, align 4
+  %230 = getelementptr inbounds nuw i8, ptr %206, i64 16
+  store i32 %229, ptr %230, align 8
+  %.not370 = icmp eq i32 %229, 0
+  br i1 %.not370, label %245, label %231
 
-230:                                              ; preds = %226
-  %231 = icmp ugt i32 %228, %227
-  br i1 %231, label %232, label %234
+231:                                              ; preds = %227
+  %232 = icmp ugt i32 %229, %228
+  br i1 %232, label %233, label %235
 
-232:                                              ; preds = %230
+233:                                              ; preds = %231
   store i32 -13, ptr %1, align 4
-  %233 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.13, i32 noundef %228, i32 noundef %227)
+  %234 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.13, i32 noundef %229, i32 noundef %228)
   br label %.thread392.sink.split
 
-234:                                              ; preds = %230
-  %235 = zext i32 %228 to i64
-  %236 = call noalias ptr @g_malloc(i64 noundef %235) #12
-  %237 = getelementptr inbounds nuw i8, ptr %205, i64 24
-  store ptr %236, ptr %237, align 8
-  %238 = load ptr, ptr %0, align 8
-  %239 = load i32, ptr %229, align 8
-  %240 = call zeroext i1 @wtap_read_bytes(ptr noundef %238, ptr noundef %236, i32 noundef %239, ptr noundef %1, ptr noundef %2)
-  br i1 %240, label %241, label %.thread392
+235:                                              ; preds = %231
+  %236 = zext i32 %229 to i64
+  %237 = call noalias ptr @g_malloc(i64 noundef %236) #12
+  %238 = getelementptr inbounds nuw i8, ptr %206, i64 24
+  store ptr %237, ptr %238, align 8
+  %239 = load ptr, ptr %0, align 8
+  %240 = load i32, ptr %230, align 8
+  %241 = call zeroext i1 @wtap_read_bytes(ptr noundef %239, ptr noundef %237, i32 noundef %240, ptr noundef %1, ptr noundef %2)
+  br i1 %241, label %242, label %.thread392
 
-241:                                              ; preds = %234
-  %242 = load i32, ptr %229, align 8
-  %243 = sub i32 %227, %242
-  br label %244
+242:                                              ; preds = %235
+  %243 = load i32, ptr %230, align 8
+  %244 = sub i32 %228, %243
+  br label %245
 
-.thread392.sink.split:                            ; preds = %232, %221, %202, %198
-  %.sink568 = phi ptr [ %199, %198 ], [ %203, %202 ], [ %222, %221 ], [ %233, %232 ]
+.thread392.sink.split:                            ; preds = %233, %222, %203, %199
+  %.sink568 = phi ptr [ %200, %199 ], [ %204, %203 ], [ %223, %222 ], [ %234, %233 ]
   store ptr %.sink568, ptr %2, align 8
   br label %.thread392
 
-.thread392:                                       ; preds = %234, %223, %204, %191, %.thread392.sink.split
-  call void @g_hash_table_destroy(ptr noundef nonnull %172)
+.thread392:                                       ; preds = %235, %224, %205, %192, %.thread392.sink.split
+  call void @g_hash_table_destroy(ptr noundef nonnull %173)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %361
+  br label %362
 
-244:                                              ; preds = %226, %241
-  %.2337 = phi i32 [ %243, %241 ], [ %227, %226 ]
+245:                                              ; preds = %227, %242
+  %.2337 = phi i32 [ %244, %242 ], [ %228, %227 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %245 = icmp ugt i32 %.2337, 16
-  br i1 %245, label %191, label %._crit_edge, !llvm.loop !6
+  %246 = icmp ugt i32 %.2337, 16
+  br i1 %246, label %192, label %._crit_edge, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %244, %.preheader399
-  %246 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  store ptr %172, ptr %246, align 8
-  br label %247
+._crit_edge:                                      ; preds = %245, %.preheader399
+  %247 = getelementptr inbounds nuw i8, ptr %47, i64 32
+  store ptr %173, ptr %247, align 8
+  br label %248
 
-247:                                              ; preds = %._crit_edge, %168
-  br i1 %or.cond12, label %248, label %350
+248:                                              ; preds = %._crit_edge, %169
+  br i1 %or.cond12, label %249, label %351
 
-248:                                              ; preds = %247
+249:                                              ; preds = %248
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %249 = load ptr, ptr %0, align 8
-  %250 = zext i32 %.0334 to i64
-  %251 = call i64 @file_seek(ptr noundef %249, i64 noundef %250, i32 noundef 0, ptr noundef %1)
-  %252 = icmp eq i64 %251, -1
-  br i1 %252, label %.critedge372, label %253
+  %250 = load ptr, ptr %0, align 8
+  %251 = zext i32 %.0334 to i64
+  %252 = call i64 @file_seek(ptr noundef %250, i64 noundef %251, i32 noundef 0, ptr noundef %1)
+  %253 = icmp eq i64 %252, -1
+  br i1 %253, label %.critedge372, label %254
 
-253:                                              ; preds = %248
-  %254 = call ptr @g_hash_table_new_full(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal, ptr noundef null, ptr noundef nonnull @netmonrec_process_info_destroy)
-  %255 = icmp eq ptr %254, null
-  br i1 %255, label %256, label %257
+254:                                              ; preds = %249
+  %255 = call ptr @g_hash_table_new_full(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal, ptr noundef null, ptr noundef nonnull @netmonrec_process_info_destroy)
+  %256 = icmp eq ptr %255, null
+  br i1 %256, label %257, label %258
 
-256:                                              ; preds = %253
+257:                                              ; preds = %254
   store i32 12, ptr %1, align 4
   br label %.critedge372
 
-257:                                              ; preds = %253
-  %258 = load ptr, ptr %0, align 8
-  %259 = call zeroext i1 @wtap_read_bytes(ptr noundef %258, ptr noundef nonnull %9, i32 noundef 2, ptr noundef %1, ptr noundef %2)
-  br i1 %259, label %.preheader, label %260
+258:                                              ; preds = %254
+  %259 = load ptr, ptr %0, align 8
+  %260 = call zeroext i1 @wtap_read_bytes(ptr noundef %259, ptr noundef nonnull %9, i32 noundef 2, ptr noundef %1, ptr noundef %2)
+  br i1 %260, label %.preheader, label %261
 
-260:                                              ; preds = %257
-  call void @g_hash_table_destroy(ptr noundef nonnull %254)
+261:                                              ; preds = %258
+  call void @g_hash_table_destroy(ptr noundef nonnull %255)
   br label %.critedge372
 
-.preheader:                                       ; preds = %257, %346
-  %.1340447 = phi i32 [ %347, %346 ], [ %.0339, %257 ]
+.preheader:                                       ; preds = %258, %347
+  %.1340447 = phi i32 [ %348, %347 ], [ %.0339, %258 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %261 = call noalias dereferenceable_or_null(72) ptr @g_malloc0(i64 noundef 72) #12
-  %262 = load ptr, ptr %0, align 8
-  %263 = call zeroext i1 @wtap_read_bytes(ptr noundef %262, ptr noundef nonnull %10, i32 noundef 4, ptr noundef %1, ptr noundef %2)
-  br i1 %263, label %265, label %264
-
-264:                                              ; preds = %.preheader
-  call void @g_free(ptr noundef %261)
-  call void @g_hash_table_destroy(ptr noundef nonnull %254)
-  br label %.thread396
+  %262 = call noalias dereferenceable_or_null(72) ptr @g_malloc0(i64 noundef 72) #12
+  %263 = load ptr, ptr %0, align 8
+  %264 = call zeroext i1 @wtap_read_bytes(ptr noundef %263, ptr noundef nonnull %10, i32 noundef 4, ptr noundef %1, ptr noundef %2)
+  br i1 %264, label %266, label %265
 
 265:                                              ; preds = %.preheader
-  %266 = load i32, ptr %10, align 4
-  %267 = icmp ugt i32 %266, 65536
-  br i1 %267, label %268, label %270
+  call void @g_free(ptr noundef %262)
+  call void @g_hash_table_destroy(ptr noundef nonnull %255)
+  br label %.thread396
 
-268:                                              ; preds = %265
+266:                                              ; preds = %.preheader
+  %267 = load i32, ptr %10, align 4
+  %268 = icmp ugt i32 %267, 65536
+  br i1 %268, label %269, label %271
+
+269:                                              ; preds = %266
   store i32 -13, ptr %1, align 4
-  %269 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.14, i32 noundef %266, i32 noundef 65536)
-  store ptr %269, ptr %2, align 8
-  call void @g_free(ptr noundef %261)
-  call void @g_hash_table_destroy(ptr noundef nonnull %254)
+  %270 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.14, i32 noundef %267, i32 noundef 65536)
+  store ptr %270, ptr %2, align 8
+  call void @g_free(ptr noundef %262)
+  call void @g_hash_table_destroy(ptr noundef nonnull %255)
   br label %.thread396
 
-270:                                              ; preds = %265
-  %271 = zext nneg i32 %266 to i64
-  %272 = call noalias ptr @g_malloc(i64 noundef %271) #12
-  %273 = load ptr, ptr %0, align 8
-  %274 = call zeroext i1 @wtap_read_bytes(ptr noundef %273, ptr noundef %272, i32 noundef %266, ptr noundef %1, ptr noundef %2)
-  br i1 %274, label %276, label %275
+271:                                              ; preds = %266
+  %272 = zext nneg i32 %267 to i64
+  %273 = call noalias ptr @g_malloc(i64 noundef %272) #12
+  %274 = load ptr, ptr %0, align 8
+  %275 = call zeroext i1 @wtap_read_bytes(ptr noundef %274, ptr noundef %273, i32 noundef %267, ptr noundef %1, ptr noundef %2)
+  br i1 %275, label %277, label %276
 
-275:                                              ; preds = %270
-  call void @g_free(ptr noundef %261)
-  call void @g_hash_table_destroy(ptr noundef nonnull %254)
+276:                                              ; preds = %271
+  call void @g_free(ptr noundef %262)
+  call void @g_hash_table_destroy(ptr noundef nonnull %255)
   br label %.thread396
 
-276:                                              ; preds = %270
-  %277 = call fastcc ptr @utf_16_to_utf_8(ptr noundef %272, i32 noundef %266)
-  store ptr %277, ptr %261, align 8
-  call void @g_free(ptr noundef %272)
-  %278 = load ptr, ptr %0, align 8
-  %279 = call zeroext i1 @wtap_read_bytes(ptr noundef %278, ptr noundef nonnull %10, i32 noundef 4, ptr noundef %1, ptr noundef %2)
-  br i1 %279, label %281, label %280
+277:                                              ; preds = %271
+  %278 = call fastcc ptr @utf_16_to_utf_8(ptr noundef %273, i32 noundef %267)
+  store ptr %278, ptr %262, align 8
+  call void @g_free(ptr noundef %273)
+  %279 = load ptr, ptr %0, align 8
+  %280 = call zeroext i1 @wtap_read_bytes(ptr noundef %279, ptr noundef nonnull %10, i32 noundef 4, ptr noundef %1, ptr noundef %2)
+  br i1 %280, label %282, label %281
 
-280:                                              ; preds = %276
-  call void @g_free(ptr noundef %261)
-  call void @g_hash_table_destroy(ptr noundef nonnull %254)
+281:                                              ; preds = %277
+  call void @g_free(ptr noundef %262)
+  call void @g_hash_table_destroy(ptr noundef nonnull %255)
   br label %.thread396
 
-281:                                              ; preds = %276
-  %282 = load i32, ptr %10, align 4
-  %283 = getelementptr inbounds nuw i8, ptr %261, i64 8
-  store i32 %282, ptr %283, align 8
-  %284 = load ptr, ptr %0, align 8
-  %285 = zext i32 %282 to i64
-  %286 = call i64 @file_seek(ptr noundef %284, i64 noundef %285, i32 noundef 1, ptr noundef %1)
-  %287 = icmp eq i64 %286, -1
-  br i1 %287, label %288, label %289
+282:                                              ; preds = %277
+  %283 = load i32, ptr %10, align 4
+  %284 = getelementptr inbounds nuw i8, ptr %262, i64 8
+  store i32 %283, ptr %284, align 8
+  %285 = load ptr, ptr %0, align 8
+  %286 = zext i32 %283 to i64
+  %287 = call i64 @file_seek(ptr noundef %285, i64 noundef %286, i32 noundef 1, ptr noundef %1)
+  %288 = icmp eq i64 %287, -1
+  br i1 %288, label %289, label %290
 
-288:                                              ; preds = %281
-  call void @g_free(ptr noundef %261)
-  call void @g_hash_table_destroy(ptr noundef nonnull %254)
+289:                                              ; preds = %282
+  call void @g_free(ptr noundef %262)
+  call void @g_hash_table_destroy(ptr noundef nonnull %255)
   br label %.thread396
 
-289:                                              ; preds = %281
-  store i32 0, ptr %283, align 8
-  %290 = load ptr, ptr %0, align 8
-  %291 = call zeroext i1 @wtap_read_bytes(ptr noundef %290, ptr noundef nonnull %10, i32 noundef 4, ptr noundef %1, ptr noundef %2)
-  br i1 %291, label %293, label %292
+290:                                              ; preds = %282
+  store i32 0, ptr %284, align 8
+  %291 = load ptr, ptr %0, align 8
+  %292 = call zeroext i1 @wtap_read_bytes(ptr noundef %291, ptr noundef nonnull %10, i32 noundef 4, ptr noundef %1, ptr noundef %2)
+  br i1 %292, label %294, label %293
 
-292:                                              ; preds = %289
-  call void @g_free(ptr noundef %261)
-  call void @g_hash_table_destroy(ptr noundef nonnull %254)
+293:                                              ; preds = %290
+  call void @g_free(ptr noundef %262)
+  call void @g_hash_table_destroy(ptr noundef nonnull %255)
   br label %.thread396
 
-293:                                              ; preds = %289
-  %294 = load i32, ptr %10, align 4
-  %295 = getelementptr inbounds nuw i8, ptr %261, i64 24
-  store i32 %294, ptr %295, align 8
-  %296 = zext i32 %294 to i64
-  %297 = inttoptr i64 %296 to ptr
-  %298 = call i32 @g_hash_table_insert(ptr noundef nonnull %254, ptr noundef %297, ptr noundef %261)
-  %299 = load ptr, ptr %0, align 8
-  %300 = call zeroext i1 @wtap_read_bytes(ptr noundef %299, ptr noundef nonnull %11, i32 noundef 2, ptr noundef %1, ptr noundef %2)
-  br i1 %300, label %302, label %301
+294:                                              ; preds = %290
+  %295 = load i32, ptr %10, align 4
+  %296 = getelementptr inbounds nuw i8, ptr %262, i64 24
+  store i32 %295, ptr %296, align 8
+  %297 = zext i32 %295 to i64
+  %298 = inttoptr i64 %297 to ptr
+  %299 = call i32 @g_hash_table_insert(ptr noundef nonnull %255, ptr noundef %298, ptr noundef %262)
+  %300 = load ptr, ptr %0, align 8
+  %301 = call zeroext i1 @wtap_read_bytes(ptr noundef %300, ptr noundef nonnull %11, i32 noundef 2, ptr noundef %1, ptr noundef %2)
+  br i1 %301, label %303, label %302
 
-301:                                              ; preds = %293
-  call void @g_hash_table_destroy(ptr noundef nonnull %254)
+302:                                              ; preds = %294
+  call void @g_hash_table_destroy(ptr noundef nonnull %255)
   br label %.thread396
 
-302:                                              ; preds = %293
+303:                                              ; preds = %294
   %.val388 = load i16, ptr %11, align 2
-  %303 = getelementptr inbounds nuw i8, ptr %261, i64 28
-  store i16 %.val388, ptr %303, align 4
-  %304 = load ptr, ptr %0, align 8
-  %305 = call zeroext i1 @wtap_read_bytes(ptr noundef %304, ptr noundef nonnull %11, i32 noundef 2, ptr noundef %1, ptr noundef %2)
-  br i1 %305, label %307, label %306
+  %304 = getelementptr inbounds nuw i8, ptr %262, i64 28
+  store i16 %.val388, ptr %304, align 4
+  %305 = load ptr, ptr %0, align 8
+  %306 = call zeroext i1 @wtap_read_bytes(ptr noundef %305, ptr noundef nonnull %11, i32 noundef 2, ptr noundef %1, ptr noundef %2)
+  br i1 %306, label %308, label %307
 
-306:                                              ; preds = %302
-  call void @g_hash_table_destroy(ptr noundef nonnull %254)
+307:                                              ; preds = %303
+  call void @g_hash_table_destroy(ptr noundef nonnull %255)
   br label %.thread396
 
-307:                                              ; preds = %302
-  %308 = load ptr, ptr %0, align 8
-  %309 = call zeroext i1 @wtap_read_bytes(ptr noundef %308, ptr noundef nonnull %11, i32 noundef 2, ptr noundef %1, ptr noundef %2)
-  br i1 %309, label %311, label %310
+308:                                              ; preds = %303
+  %309 = load ptr, ptr %0, align 8
+  %310 = call zeroext i1 @wtap_read_bytes(ptr noundef %309, ptr noundef nonnull %11, i32 noundef 2, ptr noundef %1, ptr noundef %2)
+  br i1 %310, label %312, label %311
 
-310:                                              ; preds = %307
-  call void @g_hash_table_destroy(ptr noundef nonnull %254)
+311:                                              ; preds = %308
+  call void @g_hash_table_destroy(ptr noundef nonnull %255)
   br label %.thread396
 
-311:                                              ; preds = %307
+312:                                              ; preds = %308
   %.val390 = load i16, ptr %11, align 2
-  %312 = getelementptr inbounds nuw i8, ptr %261, i64 30
-  store i16 %.val390, ptr %312, align 2
-  %313 = load ptr, ptr %0, align 8
-  %314 = call zeroext i1 @wtap_read_bytes(ptr noundef %313, ptr noundef nonnull %11, i32 noundef 2, ptr noundef %1, ptr noundef %2)
-  br i1 %314, label %316, label %315
+  %313 = getelementptr inbounds nuw i8, ptr %262, i64 30
+  store i16 %.val390, ptr %313, align 2
+  %314 = load ptr, ptr %0, align 8
+  %315 = call zeroext i1 @wtap_read_bytes(ptr noundef %314, ptr noundef nonnull %11, i32 noundef 2, ptr noundef %1, ptr noundef %2)
+  br i1 %315, label %317, label %316
 
-315:                                              ; preds = %311
-  call void @g_hash_table_destroy(ptr noundef nonnull %254)
+316:                                              ; preds = %312
+  call void @g_hash_table_destroy(ptr noundef nonnull %255)
   br label %.thread396
 
-316:                                              ; preds = %311
-  %317 = load ptr, ptr %0, align 8
-  %318 = call zeroext i1 @wtap_read_bytes(ptr noundef %317, ptr noundef nonnull %10, i32 noundef 4, ptr noundef %1, ptr noundef %2)
-  br i1 %318, label %320, label %319
+317:                                              ; preds = %312
+  %318 = load ptr, ptr %0, align 8
+  %319 = call zeroext i1 @wtap_read_bytes(ptr noundef %318, ptr noundef nonnull %10, i32 noundef 4, ptr noundef %1, ptr noundef %2)
+  br i1 %319, label %321, label %320
 
-319:                                              ; preds = %316
-  call void @g_hash_table_destroy(ptr noundef nonnull %254)
+320:                                              ; preds = %317
+  call void @g_hash_table_destroy(ptr noundef nonnull %255)
   br label %.thread396
 
-320:                                              ; preds = %316
-  %321 = load i32, ptr %10, align 4
-  %322 = icmp ne i32 %321, 0
-  %323 = getelementptr inbounds nuw i8, ptr %261, i64 32
-  %324 = zext i1 %322 to i8
-  store i8 %324, ptr %323, align 8
-  br i1 %322, label %325, label %335
+321:                                              ; preds = %317
+  %322 = load i32, ptr %10, align 4
+  %323 = icmp ne i32 %322, 0
+  %324 = getelementptr inbounds nuw i8, ptr %262, i64 32
+  %325 = zext i1 %323 to i8
+  store i8 %325, ptr %324, align 8
+  br i1 %323, label %326, label %336
 
-325:                                              ; preds = %320
-  %326 = load ptr, ptr %0, align 8
-  %327 = getelementptr inbounds nuw i8, ptr %261, i64 36
-  %328 = call zeroext i1 @wtap_read_bytes(ptr noundef %326, ptr noundef nonnull %327, i32 noundef 16, ptr noundef %1, ptr noundef %2)
-  br i1 %328, label %330, label %329
+326:                                              ; preds = %321
+  %327 = load ptr, ptr %0, align 8
+  %328 = getelementptr inbounds nuw i8, ptr %262, i64 36
+  %329 = call zeroext i1 @wtap_read_bytes(ptr noundef %327, ptr noundef nonnull %328, i32 noundef 16, ptr noundef %1, ptr noundef %2)
+  br i1 %329, label %331, label %330
 
-329:                                              ; preds = %325
-  call void @g_hash_table_destroy(ptr noundef nonnull %254)
+330:                                              ; preds = %326
+  call void @g_hash_table_destroy(ptr noundef nonnull %255)
   br label %.thread396
 
-330:                                              ; preds = %325
-  %331 = load ptr, ptr %0, align 8
-  %332 = getelementptr inbounds nuw i8, ptr %261, i64 52
-  %333 = call zeroext i1 @wtap_read_bytes(ptr noundef %331, ptr noundef nonnull %332, i32 noundef 16, ptr noundef %1, ptr noundef %2)
-  br i1 %333, label %346, label %334
+331:                                              ; preds = %326
+  %332 = load ptr, ptr %0, align 8
+  %333 = getelementptr inbounds nuw i8, ptr %262, i64 52
+  %334 = call zeroext i1 @wtap_read_bytes(ptr noundef %332, ptr noundef nonnull %333, i32 noundef 16, ptr noundef %1, ptr noundef %2)
+  br i1 %334, label %347, label %335
 
-334:                                              ; preds = %330
-  call void @g_hash_table_destroy(ptr noundef nonnull %254)
+335:                                              ; preds = %331
+  call void @g_hash_table_destroy(ptr noundef nonnull %255)
   br label %.thread396
 
-335:                                              ; preds = %320
+336:                                              ; preds = %321
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %336 = load ptr, ptr %0, align 8
-  %337 = call zeroext i1 @wtap_read_bytes(ptr noundef %336, ptr noundef nonnull %12, i32 noundef 16, ptr noundef %1, ptr noundef %2)
-  br i1 %337, label %338, label %345
+  %337 = load ptr, ptr %0, align 8
+  %338 = call zeroext i1 @wtap_read_bytes(ptr noundef %337, ptr noundef nonnull %12, i32 noundef 16, ptr noundef %1, ptr noundef %2)
+  br i1 %338, label %339, label %346
 
-338:                                              ; preds = %335
-  %339 = load i32, ptr %12, align 16
-  %340 = getelementptr inbounds nuw i8, ptr %261, i64 36
-  store i32 %339, ptr %340, align 4
-  %341 = load ptr, ptr %0, align 8
-  %342 = call zeroext i1 @wtap_read_bytes(ptr noundef %341, ptr noundef nonnull %12, i32 noundef 16, ptr noundef %1, ptr noundef %2)
-  br i1 %342, label %.critedge, label %345
+339:                                              ; preds = %336
+  %340 = load i32, ptr %12, align 16
+  %341 = getelementptr inbounds nuw i8, ptr %262, i64 36
+  store i32 %340, ptr %341, align 4
+  %342 = load ptr, ptr %0, align 8
+  %343 = call zeroext i1 @wtap_read_bytes(ptr noundef %342, ptr noundef nonnull %12, i32 noundef 16, ptr noundef %1, ptr noundef %2)
+  br i1 %343, label %.critedge, label %346
 
-.critedge:                                        ; preds = %338
-  %343 = load i32, ptr %12, align 16
-  %344 = getelementptr inbounds nuw i8, ptr %261, i64 52
-  store i32 %343, ptr %344, align 4
+.critedge:                                        ; preds = %339
+  %344 = load i32, ptr %12, align 16
+  %345 = getelementptr inbounds nuw i8, ptr %262, i64 52
+  store i32 %344, ptr %345, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %346
+  br label %347
 
-345:                                              ; preds = %338, %335
-  call void @g_hash_table_destroy(ptr noundef nonnull %254)
+346:                                              ; preds = %339, %336
+  call void @g_hash_table_destroy(ptr noundef nonnull %255)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread396
 
-.thread396:                                       ; preds = %268, %288, %334, %329, %345, %319, %315, %310, %306, %301, %292, %280, %275, %264
+.thread396:                                       ; preds = %269, %289, %335, %330, %346, %320, %316, %311, %307, %302, %293, %281, %276, %265
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge372
 
-346:                                              ; preds = %330, %.critedge
-  %347 = add i32 %.1340447, -1
+347:                                              ; preds = %331, %.critedge
+  %348 = add i32 %.1340447, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %.not369 = icmp eq i32 %347, 0
-  br i1 %.not369, label %348, label %.preheader, !llvm.loop !8
+  %.not369 = icmp eq i32 %348, 0
+  br i1 %.not369, label %349, label %.preheader, !llvm.loop !8
 
-348:                                              ; preds = %346
-  %349 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  store ptr %254, ptr %349, align 8
+349:                                              ; preds = %347
+  %350 = getelementptr inbounds nuw i8, ptr %47, i64 40
+  store ptr %255, ptr %350, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %350
+  br label %351
 
-350:                                              ; preds = %348, %247
-  %351 = getelementptr inbounds nuw i8, ptr %47, i64 48
-  store i32 0, ptr %351, align 8
-  %352 = load i8, ptr %91, align 4
-  switch i8 %352, label %361 [
-    i8 1, label %353
-    i8 2, label %355
+351:                                              ; preds = %349, %248
+  %352 = getelementptr inbounds nuw i8, ptr %47, i64 48
+  store i32 0, ptr %352, align 8
+  %353 = load i8, ptr %91, align 4
+  switch i8 %353, label %362 [
+    i8 1, label %354
+    i8 2, label %356
   ]
 
-353:                                              ; preds = %350
-  %354 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store i32 3, ptr %354, align 4
-  br label %361
+354:                                              ; preds = %351
+  %355 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  store i32 3, ptr %355, align 4
+  br label %362
 
-355:                                              ; preds = %350
-  %356 = load i8, ptr %93, align 1
-  %357 = icmp ugt i8 %356, 2
-  %358 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  br i1 %357, label %359, label %360
+356:                                              ; preds = %351
+  %357 = load i8, ptr %93, align 1
+  %358 = icmp ugt i8 %357, 2
+  %359 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  br i1 %358, label %360, label %361
 
-359:                                              ; preds = %355
-  store i32 7, ptr %358, align 4
-  br label %361
+360:                                              ; preds = %356
+  store i32 7, ptr %359, align 4
+  br label %362
 
-360:                                              ; preds = %355
-  store i32 6, ptr %358, align 4
-  br label %361
+361:                                              ; preds = %356
+  store i32 6, ptr %359, align 4
+  br label %362
 
-.critedge372:                                     ; preds = %.thread396, %248, %260, %256
+.critedge372:                                     ; preds = %.thread396, %249, %261, %257
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %361
+  br label %362
 
-361:                                              ; preds = %.thread392, %350, %353, %360, %359, %.critedge372, %156, %125, %20, %19, %16, %190, %181, %174, %167, %163, %154, %149, %142, %137, %133, %123, %119, %115, %42, %27
-  %.0 = phi i32 [ -1, %27 ], [ -1, %42 ], [ -1, %115 ], [ -1, %119 ], [ -1, %123 ], [ -1, %133 ], [ -1, %137 ], [ -1, %142 ], [ -1, %149 ], [ -1, %154 ], [ -1, %163 ], [ -1, %174 ], [ -1, %181 ], [ -1, %190 ], [ -1, %167 ], [ %., %16 ], [ 0, %19 ], [ -1, %20 ], [ -1, %125 ], [ -1, %156 ], [ -1, %.critedge372 ], [ 1, %359 ], [ 1, %360 ], [ 1, %353 ], [ 1, %350 ], [ -1, %.thread392 ]
+362:                                              ; preds = %.thread392, %351, %354, %361, %360, %.critedge372, %156, %125, %20, %19, %16, %191, %182, %175, %168, %164, %154, %149, %142, %137, %133, %123, %119, %115, %42, %27
+  %.0 = phi i32 [ -1, %27 ], [ -1, %42 ], [ -1, %115 ], [ -1, %119 ], [ -1, %123 ], [ -1, %133 ], [ -1, %137 ], [ -1, %142 ], [ -1, %149 ], [ -1, %154 ], [ -1, %164 ], [ -1, %175 ], [ -1, %182 ], [ -1, %191 ], [ -1, %168 ], [ %., %16 ], [ 0, %19 ], [ -1, %20 ], [ -1, %125 ], [ -1, %156 ], [ -1, %.critedge372 ], [ 1, %360 ], [ 1, %361 ], [ 1, %354 ], [ 1, %351 ], [ -1, %.thread392 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

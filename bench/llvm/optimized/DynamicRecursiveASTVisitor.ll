@@ -78337,11 +78337,11 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE24WalkUpFromObjCObjec
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %55
   %72 = phi i32 [ %.pre.i, %._crit_edge.loopexit.i ], [ %57, %55 ]
-  %.not2820.i = icmp ult i32 %72, 67108864
+  %73 = lshr i32 %72, 26
+  %.not2820.i = icmp eq i32 %73, 0
   br i1 %.not2820.i, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE25TraverseObjCObjectTypeLocENS_17ObjCObjectTypeLocE.exit, label %.lr.ph23.i
 
 .lr.ph23.i:                                       ; preds = %._crit_edge.i
-  %73 = lshr i32 %72, 26
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %76 = zext nneg i32 %73 to i64
@@ -153725,11 +153725,11 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE24WalkUpFromObjCObjec
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %55
   %72 = phi i32 [ %.pre.i, %._crit_edge.loopexit.i ], [ %57, %55 ]
-  %.not2820.i = icmp ult i32 %72, 67108864
+  %73 = lshr i32 %72, 26
+  %.not2820.i = icmp eq i32 %73, 0
   br i1 %.not2820.i, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE25TraverseObjCObjectTypeLocENS_17ObjCObjectTypeLocE.exit, label %.lr.ph23.i
 
 .lr.ph23.i:                                       ; preds = %._crit_edge.i
-  %73 = lshr i32 %72, 26
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %76 = zext nneg i32 %73 to i64

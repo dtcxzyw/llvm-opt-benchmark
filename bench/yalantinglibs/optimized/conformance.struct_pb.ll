@@ -88,7 +88,7 @@ do.body.i:                                        ; preds = %do.body.i, %for.bod
   %v.addr.i.0 = phi i64 [ %5, %for.body ], [ %shr.i, %do.body.i ]
   %inc.i = add nuw nsw i64 %ret.i.0, 1
   %shr.i = lshr i64 %v.addr.i.0, 7
-  %cmp.i.not = icmp ult i64 %v.addr.i.0, 128
+  %cmp.i.not = icmp eq i64 %shr.i, 0
   br i1 %cmp.i.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit, label %do.body.i, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit: ; preds = %do.body.i
@@ -786,7 +786,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end
   %v.addr.i.0 = phi i64 [ %conv, %if.end ], [ %shr.i, %do.body.i ]
   %inc.i = add nuw nsw i64 %ret.i.0, 1
   %shr.i = lshr i64 %v.addr.i.0, 7
-  %cmp.i.not = icmp samesign ult i64 %v.addr.i.0, 128
+  %cmp.i.not = icmp eq i64 %shr.i, 0
   br i1 %cmp.i.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit, label %do.body.i, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit: ; preds = %do.body.i
@@ -1469,7 +1469,7 @@ do.body.i154:                                     ; preds = %do.body.i154, %_ZSt
   %v.addr.i152.0 = phi i64 [ %4, %_ZSt3getILm1EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit ], [ %shr.i156, %do.body.i154 ]
   %inc.i155 = add nuw nsw i64 %ret.i153.0, 1
   %shr.i156 = lshr i64 %v.addr.i152.0, 7
-  %cmp.i157.not = icmp ult i64 %v.addr.i152.0, 128
+  %cmp.i157.not = icmp eq i64 %shr.i156, 0
   br i1 %cmp.i157.not, label %if.end.thread, label %do.body.i154, !llvm.loop !5
 
 if.end.thread:                                    ; preds = %do.body.i154
@@ -1488,7 +1488,7 @@ do.body.i147:                                     ; preds = %do.body.i147, %_ZSt
   %v.addr.i145.0 = phi i64 [ %5, %_ZSt3getILm2EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit ], [ %shr.i149, %do.body.i147 ]
   %inc.i148 = add nuw nsw i64 %ret.i146.0, 1
   %shr.i149 = lshr i64 %v.addr.i145.0, 7
-  %cmp.i150.not = icmp ult i64 %v.addr.i145.0, 128
+  %cmp.i150.not = icmp eq i64 %shr.i149, 0
   br i1 %cmp.i150.not, label %_ZSt3getILm2EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit72, label %do.body.i147, !llvm.loop !5
 
 _ZSt3getILm2EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit72: ; preds = %do.body.i147
@@ -1507,7 +1507,7 @@ do.body.i140:                                     ; preds = %do.body.i140, %_ZSt
   %v.addr.i138.0 = phi i64 [ %6, %_ZSt3getILm3EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit ], [ %shr.i142, %do.body.i140 ]
   %inc.i141 = add nuw nsw i64 %ret.i139.0, 1
   %shr.i142 = lshr i64 %v.addr.i138.0, 7
-  %cmp.i143.not = icmp ult i64 %v.addr.i138.0, 128
+  %cmp.i143.not = icmp eq i64 %shr.i142, 0
   br i1 %cmp.i143.not, label %_ZSt3getILm3EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit87, label %do.body.i140, !llvm.loop !5
 
 _ZSt3getILm3EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit87: ; preds = %do.body.i140
@@ -1526,7 +1526,7 @@ do.body.i133:                                     ; preds = %do.body.i133, %_ZSt
   %ret.i132.0 = phi i64 [ 0, %_ZSt3getILm4EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit ], [ %inc.i134, %do.body.i133 ]
   %inc.i134 = add nuw nsw i64 %ret.i132.0, 1
   %shr.i135 = lshr i64 %v.addr.i131.0, 7
-  %cmp.i136.not = icmp ult i64 %v.addr.i131.0, 128
+  %cmp.i136.not = icmp eq i64 %shr.i135, 0
   br i1 %cmp.i136.not, label %_ZSt3getILm4EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit102, label %do.body.i133, !llvm.loop !5
 
 _ZSt3getILm4EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit102: ; preds = %do.body.i133
@@ -1551,7 +1551,7 @@ do.body.i126:                                     ; preds = %do.body.i126, %if.t
   %ret.i125.0 = phi i64 [ 0, %if.then57 ], [ %inc.i127, %do.body.i126 ]
   %inc.i127 = add nuw nsw i64 %ret.i125.0, 1
   %shr.i128 = lshr i64 %v.addr.i124.0, 7
-  %cmp.i129.not = icmp ult i64 %v.addr.i124.0, 128
+  %cmp.i129.not = icmp eq i64 %shr.i128, 0
   br i1 %cmp.i129.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit130, label %do.body.i126, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit130: ; preds = %do.body.i126
@@ -1571,7 +1571,7 @@ do.body.i119:                                     ; preds = %if.end62, %do.body.
   %ret.i118.0 = phi i64 [ %inc.i120, %do.body.i119 ], [ 0, %if.end62 ]
   %inc.i120 = add nuw nsw i64 %ret.i118.0, 1
   %shr.i121 = lshr i64 %v.addr.i117.0, 7
-  %cmp.i122.not = icmp ult i64 %v.addr.i117.0, 128
+  %cmp.i122.not = icmp eq i64 %shr.i121, 0
   br i1 %cmp.i122.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit123, label %do.body.i119, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit123: ; preds = %do.body.i119
@@ -1596,7 +1596,7 @@ do.body.i112:                                     ; preds = %do.body.i112, %if.t
   %ret.i111.0 = phi i64 [ 0, %if.then75 ], [ %inc.i113, %do.body.i112 ]
   %inc.i113 = add nuw nsw i64 %ret.i111.0, 1
   %shr.i114 = lshr i64 %v.addr.i110.0, 7
-  %cmp.i115.not = icmp ult i64 %v.addr.i110.0, 128
+  %cmp.i115.not = icmp eq i64 %shr.i114, 0
   br i1 %cmp.i115.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit116, label %do.body.i112, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit116: ; preds = %do.body.i112
@@ -4684,7 +4684,7 @@ do.body.i182:                                     ; preds = %do.body.i182, %_ZSt
   %v.addr.i180.0 = phi i64 [ %4, %_ZSt3getILm1EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit ], [ %shr.i184, %do.body.i182 ]
   %inc.i183 = add nuw nsw i64 %ret.i181.0, 1
   %shr.i184 = lshr i64 %v.addr.i180.0, 7
-  %cmp.i185.not = icmp ult i64 %v.addr.i180.0, 128
+  %cmp.i185.not = icmp eq i64 %shr.i184, 0
   br i1 %cmp.i185.not, label %if.end.thread, label %do.body.i182, !llvm.loop !5
 
 if.end.thread:                                    ; preds = %do.body.i182
@@ -4703,7 +4703,7 @@ do.body.i175:                                     ; preds = %do.body.i175, %_ZSt
   %ret.i174.0 = phi i64 [ 0, %_ZSt3getILm2EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit ], [ %inc.i176, %do.body.i175 ]
   %inc.i176 = add nuw nsw i64 %ret.i174.0, 1
   %shr.i177 = lshr i64 %v.addr.i173.0, 7
-  %cmp.i178.not = icmp ult i64 %v.addr.i173.0, 128
+  %cmp.i178.not = icmp eq i64 %shr.i177, 0
   br i1 %cmp.i178.not, label %_ZSt3getILm2EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit74, label %do.body.i175, !llvm.loop !5
 
 _ZSt3getILm2EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit74: ; preds = %do.body.i175
@@ -4722,7 +4722,7 @@ do.body.i168:                                     ; preds = %do.body.i168, %_ZSt
   %ret.i167.0 = phi i64 [ 0, %_ZSt3getILm3EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit ], [ %inc.i169, %do.body.i168 ]
   %inc.i169 = add nuw nsw i64 %ret.i167.0, 1
   %shr.i170 = lshr i64 %v.addr.i166.0, 7
-  %cmp.i171.not = icmp ult i64 %v.addr.i166.0, 128
+  %cmp.i171.not = icmp eq i64 %shr.i170, 0
   br i1 %cmp.i171.not, label %_ZSt3getILm3EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit89, label %do.body.i168, !llvm.loop !5
 
 _ZSt3getILm3EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit89: ; preds = %do.body.i168
@@ -4741,7 +4741,7 @@ do.body.i161:                                     ; preds = %do.body.i161, %_ZSt
   %ret.i160.0 = phi i64 [ 0, %_ZSt3getILm4EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit ], [ %inc.i162, %do.body.i161 ]
   %inc.i162 = add nuw nsw i64 %ret.i160.0, 1
   %shr.i163 = lshr i64 %v.addr.i159.0, 7
-  %cmp.i164.not = icmp ult i64 %v.addr.i159.0, 128
+  %cmp.i164.not = icmp eq i64 %shr.i163, 0
   br i1 %cmp.i164.not, label %_ZSt3getILm4EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit104, label %do.body.i161, !llvm.loop !5
 
 _ZSt3getILm4EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit104: ; preds = %do.body.i161
@@ -4760,7 +4760,7 @@ do.body.i154:                                     ; preds = %do.body.i154, %_ZSt
   %ret.i153.0 = phi i64 [ 0, %_ZSt3getILm5EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit ], [ %inc.i155, %do.body.i154 ]
   %inc.i155 = add nuw nsw i64 %ret.i153.0, 1
   %shr.i156 = lshr i64 %v.addr.i152.0, 7
-  %cmp.i157.not = icmp ult i64 %v.addr.i152.0, 128
+  %cmp.i157.not = icmp eq i64 %shr.i156, 0
   br i1 %cmp.i157.not, label %_ZSt3getILm5EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit119, label %do.body.i154, !llvm.loop !5
 
 _ZSt3getILm5EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit119: ; preds = %do.body.i154
@@ -4779,7 +4779,7 @@ do.body.i147:                                     ; preds = %do.body.i147, %_ZSt
   %ret.i146.0 = phi i64 [ 0, %_ZSt3getILm6EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit ], [ %inc.i148, %do.body.i147 ]
   %inc.i148 = add nuw nsw i64 %ret.i146.0, 1
   %shr.i149 = lshr i64 %v.addr.i145.0, 7
-  %cmp.i150.not = icmp ult i64 %v.addr.i145.0, 128
+  %cmp.i150.not = icmp eq i64 %shr.i149, 0
   br i1 %cmp.i150.not, label %_ZSt3getILm6EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit134, label %do.body.i147, !llvm.loop !5
 
 _ZSt3getILm6EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit134: ; preds = %do.body.i147
@@ -4798,7 +4798,7 @@ do.body.i140:                                     ; preds = %do.body.i140, %_ZSt
   %ret.i139.0 = phi i64 [ 0, %_ZSt3getILm7EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit ], [ %inc.i141, %do.body.i140 ]
   %inc.i141 = add nuw nsw i64 %ret.i139.0, 1
   %shr.i142 = lshr i64 %v.addr.i138.0, 7
-  %cmp.i143.not = icmp ult i64 %v.addr.i138.0, 128
+  %cmp.i143.not = icmp eq i64 %shr.i142, 0
   br i1 %cmp.i143.not, label %_ZSt3getILm7EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit149, label %do.body.i140, !llvm.loop !5
 
 _ZSt3getILm7EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit149: ; preds = %do.body.i140
@@ -4817,7 +4817,7 @@ do.body.i133:                                     ; preds = %do.body.i133, %_ZSt
   %ret.i132.0 = phi i64 [ 0, %_ZSt3getILm8EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit ], [ %inc.i134, %do.body.i133 ]
   %inc.i134 = add nuw nsw i64 %ret.i132.0, 1
   %shr.i135 = lshr i64 %v.addr.i131.0, 7
-  %cmp.i136.not = icmp ult i64 %v.addr.i131.0, 128
+  %cmp.i136.not = icmp eq i64 %shr.i135, 0
   br i1 %cmp.i136.not, label %_ZSt3getILm8EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit164, label %do.body.i133, !llvm.loop !5
 
 _ZSt3getILm8EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit164: ; preds = %do.body.i133
@@ -4836,7 +4836,7 @@ do.body.i:                                        ; preds = %do.body.i, %_ZSt3ge
   %ret.i.0 = phi i64 [ 0, %_ZSt3getILm9EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit ], [ %inc.i, %do.body.i ]
   %inc.i = add nuw nsw i64 %ret.i.0, 1
   %shr.i = lshr i64 %v.addr.i.0, 7
-  %cmp.i.not = icmp ult i64 %v.addr.i.0, 128
+  %cmp.i.not = icmp eq i64 %shr.i, 0
   br i1 %cmp.i.not, label %_ZSt3getILm9EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit179, label %do.body.i, !llvm.loop !5
 
 _ZSt3getILm9EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_S6_S6_S6_S6_S6_S6_EERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit179: ; preds = %do.body.i

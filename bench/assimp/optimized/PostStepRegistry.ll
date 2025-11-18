@@ -2740,17 +2740,14 @@ define linkonce_odr hidden void @_Z21SetGenericPropertyPtrIN6Assimp21SharedPostP
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
   %8 = trunc i64 %7 to i32
   %9 = and i32 %8, 3
-  %.not60.i = icmp ult i32 %8, 4
-  br i1 %.not60.i, label %._crit_edge.i, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %6
   %10 = lshr i32 %8, 2
-  br label %.lr.ph.i
+  %.not60.i = icmp eq i32 %10, 0
+  br i1 %.not60.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.05463.i = phi ptr [ %21, %.lr.ph.i ], [ %1, %.lr.ph.preheader.i ]
-  %.05562.i = phi i32 [ %23, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %.15761.i = phi i32 [ %24, %.lr.ph.i ], [ %10, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %6, %.lr.ph.i
+  %.05463.i = phi ptr [ %21, %.lr.ph.i ], [ %1, %6 ]
+  %.05562.i = phi i32 [ %23, %.lr.ph.i ], [ 0, %6 ]
+  %.15761.i = phi i32 [ %24, %.lr.ph.i ], [ %10, %6 ]
   %11 = load i16, ptr %.05463.i, align 1
   %12 = zext i16 %11 to i32
   %13 = add i32 %.05562.i, %12

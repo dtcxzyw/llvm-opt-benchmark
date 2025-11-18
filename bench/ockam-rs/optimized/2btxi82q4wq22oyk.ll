@@ -12043,10 +12043,10 @@ _ZN10ockam_abac6parser13ident_pattern17hdb12897b9694b045E.exit313: ; preds = %34
   br label %511
 
 511:                                              ; preds = %529, %526, %508
-  %.sink747 = phi ptr [ %530, %529 ], [ %527, %526 ], [ %509, %508 ]
-  %.pn751 = phi { ptr, i64 } [ %492, %529 ], [ %490, %526 ], [ %488, %508 ]
-  %.sink = extractvalue { ptr, i64 } %.pn751, 1
-  store ptr %.sink747, ptr %0, align 8
+  %.sink745 = phi ptr [ %530, %529 ], [ %527, %526 ], [ %509, %508 ]
+  %.pn749 = phi { ptr, i64 } [ %492, %529 ], [ %490, %526 ], [ %488, %508 ]
+  %.sink = extractvalue { ptr, i64 } %.pn749, 1
+  store ptr %.sink745, ptr %0, align 8
   %.sroa.0120.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink, ptr %.sroa.0120.sroa.4.0..sroa_idx, align 8
   %.sroa.0120.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -12119,7 +12119,7 @@ _ZN10ockam_abac6parser13ident_pattern17hdb12897b9694b045E.exit313: ; preds = %34
   %536 = lshr i64 %534, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1734)
   call void @llvm.experimental.noalias.scope.decl(metadata !1737)
-  %.not.i.i = icmp ult i64 %534, 2
+  %.not.i.i = icmp eq i64 %536, 0
   br i1 %.not.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h18bfb0e1448612b0E.exit", label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %.loopexit
@@ -12351,12 +12351,12 @@ _ZN10ockam_abac6parser13ident_pattern17hdb12897b9694b045E.exit313: ; preds = %34
   br label %610
 
 610:                                              ; preds = %614, %611, %607
-  %.sink749 = phi ptr [ %615, %614 ], [ %612, %611 ], [ %608, %607 ]
-  %.pn750 = phi { ptr, i64 } [ %594, %614 ], [ %592, %611 ], [ %590, %607 ]
-  %.sink748 = extractvalue { ptr, i64 } %.pn750, 1
-  store ptr %.sink749, ptr %0, align 8
+  %.sink747 = phi ptr [ %615, %614 ], [ %612, %611 ], [ %608, %607 ]
+  %.pn748 = phi { ptr, i64 } [ %594, %614 ], [ %592, %611 ], [ %590, %607 ]
+  %.sink746 = extractvalue { ptr, i64 } %.pn748, 1
+  store ptr %.sink747, ptr %0, align 8
   %.sroa.0135.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink748, ptr %.sroa.0135.sroa.4.0..sroa_idx, align 8
+  store i64 %.sink746, ptr %.sroa.0135.sroa.4.0..sroa_idx, align 8
   %.sroa.0135.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 24, ptr %.sroa.0135.sroa.5.0..sroa_idx, align 8
   %.sroa.4136.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -12425,7 +12425,7 @@ _ZN10ockam_abac6parser13ident_pattern17hdb12897b9694b045E.exit313: ; preds = %34
   %635 = lshr i64 %633, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1793)
   call void @llvm.experimental.noalias.scope.decl(metadata !1796)
-  %.not.i.i396 = icmp ult i64 %633, 2
+  %.not.i.i396 = icmp eq i64 %635, 0
   br i1 %.not.i.i396, label %.loopexit537, label %.lr.ph.preheader.i.i397
 
 .lr.ph.preheader.i.i397:                          ; preds = %.loopexit538
@@ -12446,16 +12446,16 @@ _ZN10ockam_abac6parser13ident_pattern17hdb12897b9694b045E.exit313: ; preds = %34
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %640 = add nuw nsw i64 %.011.i.i399, 1
   %exitcond.not.i.i400 = icmp eq i64 %640, %635
-  br i1 %exitcond.not.i.i400, label %.lr.ph578, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17heb045fa7a34919e9E.exit10.i.i398"
+  br i1 %exitcond.not.i.i400, label %.loopexit537, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17heb045fa7a34919e9E.exit10.i.i398"
 
-.loopexit537:                                     ; preds = %.loopexit538
-  %641 = icmp eq i64 %633, 0
-  br i1 %641, label %select.unfold, label %.lr.ph578
+.loopexit537:                                     ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17heb045fa7a34919e9E.exit10.i.i398", %.loopexit538
+  %.idx = shl nsw i64 %633, 5
+  %641 = getelementptr inbounds i8, ptr %634, i64 %.idx
+  %642 = icmp eq i64 %633, 0
+  br i1 %642, label %select.unfold, label %.lr.ph578
 
-.lr.ph578:                                        ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17heb045fa7a34919e9E.exit10.i.i398", %.loopexit537
-  %.idx684.pn = shl nsw i64 %633, 5
-  %642 = getelementptr inbounds i8, ptr %634, i64 %.idx684.pn
-  %643 = ptrtoint ptr %642 to i64
+.lr.ph578:                                        ; preds = %.loopexit537
+  %643 = ptrtoint ptr %641 to i64
   br label %644
 
 644:                                              ; preds = %.lr.ph578, %"_ZN4core3ptr84drop_in_place$LT$core..result..Result$LT$bool$C$ockam_abac..error..EvalError$GT$$GT$17h1c1106815fd33470E.exit"
@@ -12467,7 +12467,7 @@ _ZN10ockam_abac6parser13ident_pattern17hdb12897b9694b045E.exit313: ; preds = %34
   br i1 %.not.i.i406576, label %646, label %648
 
 646:                                              ; preds = %644
-  %647 = icmp eq ptr %.sroa.8.0495575, %642
+  %647 = icmp eq ptr %.sroa.8.0495575, %641
   br i1 %647, label %select.unfold.loopexit, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h893abe2535492e61E.exit.i.thread531"
 
 648:                                              ; preds = %644
@@ -12619,7 +12619,7 @@ select.unfold:                                    ; preds = %136, %select.unfold
 
 "_ZN4core3ptr84drop_in_place$LT$core..result..Result$LT$bool$C$ockam_abac..error..EvalError$GT$$GT$17h1c1106815fd33470E.exit": ; preds = %678, %680
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  %690 = icmp eq ptr %645, %642
+  %690 = icmp eq ptr %645, %641
   br i1 %690, label %select.unfold.loopexit, label %644
 
 691:                                              ; preds = %.loopexit536, %.loopexit.split-lp, %585

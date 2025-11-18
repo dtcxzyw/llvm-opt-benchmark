@@ -3153,11 +3153,11 @@ define linkonce_odr hidden void @_ZN4llvm17TimeTraceProfiler3endERNS_22TimeTrace
   %12 = zext i32 %11 to i64
   %.idx3.i = shl nuw nsw i64 %12, 3
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx3.i
-  %.not.i = icmp ult i32 %11, 4
+  %14 = lshr i64 %12, 2
+  %.not.i = icmp eq i64 %14, 0
   br i1 %.not.i, label %._crit_edge.i.i.i.i, label %.lr.ph.preheader.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %2
-  %14 = lshr i64 %12, 2
   %15 = and i64 %.idx3.i, 34359738336
   %scevgep.i.i.i.i = getelementptr i8, ptr %9, i64 %15
   br label %.lr.ph.i.i.i.i
@@ -3200,11 +3200,10 @@ define linkonce_odr hidden void @_ZN4llvm17TimeTraceProfiler3endERNS_22TimeTrace
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %2
   %.pre-phi53.i.i.i.i = phi i32 [ %34, %._crit_edge.loopexit.i.i.i.i ], [ %11, %2 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %9, %2 ]
-  switch i32 %.pre-phi53.i.i.i.i, label %default.unreachable [
+  switch i32 %.pre-phi53.i.i.i.i, label %48 [
     i32 3, label %35
     i32 2, label %40
     i32 1, label %45
-    i32 0, label %48
   ]
 
 35:                                               ; preds = %._crit_edge.i.i.i.i
@@ -3231,9 +3230,6 @@ define linkonce_odr hidden void @_ZN4llvm17TimeTraceProfiler3endERNS_22TimeTrace
   %46 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !151
   %47 = icmp eq ptr %46, %1
   br i1 %47, label %_ZN4llvm7find_ifIRNS_11SmallVectorISt10unique_ptrI15InProgressEntrySt14default_deleteIS3_EELj16EEEZNS_17TimeTraceProfiler3endERNS_22TimeTraceProfilerEntryEEUlRKS6_E_EEDaOT_T0_.exit, label %48
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
-  unreachable
 
 48:                                               ; preds = %45, %._crit_edge.i.i.i.i
   br label %_ZN4llvm7find_ifIRNS_11SmallVectorISt10unique_ptrI15InProgressEntrySt14default_deleteIS3_EELj16EEEZNS_17TimeTraceProfiler3endERNS_22TimeTraceProfilerEntryEEUlRKS6_E_EEDaOT_T0_.exit

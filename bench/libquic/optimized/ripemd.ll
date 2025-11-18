@@ -61,25 +61,25 @@ define hidden noundef i32 @RIPEMD160_Update(ptr noundef captures(none) %0, ptr n
 35:                                               ; preds = %28, %._crit_edge
   %.053 = phi i64 [ %31, %28 ], [ %2, %._crit_edge ]
   %.051 = phi ptr [ %30, %28 ], [ %1, %._crit_edge ]
-  %.not57 = icmp ult i64 %.053, 64
-  br i1 %.not57, label %41, label %36
+  %36 = lshr i64 %.053, 6
+  %.not57 = icmp eq i64 %36, 0
+  br i1 %.not57, label %41, label %37
 
-36:                                               ; preds = %35
-  %37 = lshr i64 %.053, 6
-  tail call fastcc void @ripemd160_block_data_order(ptr noundef nonnull %0, ptr noundef %.051, i64 noundef %37)
+37:                                               ; preds = %35
+  tail call fastcc void @ripemd160_block_data_order(ptr noundef nonnull %0, ptr noundef %.051, i64 noundef %36)
   %38 = and i64 %.053, -64
   %39 = getelementptr inbounds nuw i8, ptr %.051, i64 %38
   %40 = and i64 %.053, 63
   br label %41
 
-41:                                               ; preds = %36, %35
-  %.154 = phi i64 [ %40, %36 ], [ %.053, %35 ]
-  %.152 = phi ptr [ %39, %36 ], [ %.051, %35 ]
+41:                                               ; preds = %37, %35
+  %.154 = phi i64 [ %40, %37 ], [ %.053, %35 ]
+  %.152 = phi ptr [ %39, %37 ], [ %.051, %35 ]
   %.not58 = icmp eq i64 %.154, 0
   br i1 %.not58, label %45, label %42
 
 42:                                               ; preds = %41
-  %43 = trunc nuw nsw i64 %.154 to i32
+  %43 = trunc i64 %.154 to i32
   store i32 %43, ptr %19, align 4, !tbaa !12
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 28
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %44, ptr align 1 %.152, i64 %.154, i1 false)
@@ -1825,28 +1825,28 @@ define hidden noundef ptr @RIPEMD160(ptr noundef readonly captures(none) %0, i64
   store i32 %16, ptr %14, align 4, !tbaa !11
   store i32 %13, ptr %5, align 4, !tbaa !6
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 92
-  %.not57.i = icmp ult i64 %1, 64
-  br i1 %.not57.i, label %.thread, label %18
+  %18 = lshr i64 %1, 6
+  %.not57.i = icmp eq i64 %18, 0
+  br i1 %.not57.i, label %.thread, label %19
 
-18:                                               ; preds = %11
-  %19 = lshr i64 %1, 6
-  call fastcc void @ripemd160_block_data_order(ptr noundef nonnull %4, ptr noundef %0, i64 noundef %19)
+19:                                               ; preds = %11
+  call fastcc void @ripemd160_block_data_order(ptr noundef nonnull %4, ptr noundef %0, i64 noundef %18)
   %20 = and i64 %1, -64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 %20
   %22 = and i64 %1, 63
   %.not58.i = icmp eq i64 %22, 0
   br i1 %.not58.i, label %RIPEMD160_Update.exit, label %.thread
 
-.thread:                                          ; preds = %11, %18
-  %.152.i8 = phi ptr [ %21, %18 ], [ %0, %11 ]
-  %.154.i7 = phi i64 [ %22, %18 ], [ %1, %11 ]
-  %23 = trunc nuw nsw i64 %.154.i7 to i32
+.thread:                                          ; preds = %11, %19
+  %.152.i9 = phi ptr [ %21, %19 ], [ %0, %11 ]
+  %.154.i8 = phi i64 [ %22, %19 ], [ %1, %11 ]
+  %23 = trunc i64 %.154.i8 to i32
   store i32 %23, ptr %17, align 4, !tbaa !12
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %24, ptr align 1 %.152.i8, i64 %.154.i7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %24, ptr align 1 %.152.i9, i64 %.154.i8, i1 false)
   br label %RIPEMD160_Update.exit
 
-RIPEMD160_Update.exit:                            ; preds = %3, %18, %.thread
+RIPEMD160_Update.exit:                            ; preds = %3, %19, %.thread
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 92
   %26 = load i32, ptr %25, align 4, !tbaa !12
   %27 = zext i32 %26 to i64

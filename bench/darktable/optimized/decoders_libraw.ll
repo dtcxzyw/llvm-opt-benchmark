@@ -785,11 +785,11 @@ define void @_ZN6LibRaw19fuji_14bit_load_rawEv(ptr noundef nonnull align 8 deref
   br i1 %or.cond4955, label %.lr.ph58, label %.critedge
 
 37:                                               ; preds = %23
-  %.not.i = icmp ult i32 %28, 4
+  %38 = lshr i32 %28, 2
+  %.not.i = icmp eq i32 %38, 0
   br i1 %.not.i, label %_ZL9swab32arrPjj.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %37
-  %38 = lshr i32 %28, 2
   %wide.trip.count.i = zext nneg i32 %38 to i64
   br label %.lr.ph.i
 
@@ -3949,7 +3949,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 54:                                               ; preds = %.lr.ph.i.i.i.i.i
   %55 = getelementptr inbounds %struct.p1_row_info_t, ptr %0, i64 %.018.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %50, i64 16, i1 false), !tbaa.struct !170
-  %.not10.i.i.i = icmp ult i64 %.0919.in.i.i.i.i.i, 2
+  %.not10.i.i.i = icmp eq i64 %.0919.i.i89.i.i.i, 0
   br i1 %.not10.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP13p1_row_info_tSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_less_iterEEvT_SA_SA_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !173
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP13p1_row_info_tSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_less_iterEEvT_SA_SA_RT0_.exit.i.i: ; preds = %54, %.lr.ph.i.i.i.i.i, %49
@@ -4424,7 +4424,7 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIP13p1_row_info_tSt6vectorIS2_Sa
 86:                                               ; preds = %.lr.ph.i.i.i12.us
   %87 = getelementptr inbounds %struct.p1_row_info_t, ptr %.fr40, i64 %.018.i.i.i13.us
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull align 8 dereferenceable(16) %82, i64 16, i1 false), !tbaa.struct !170
-  %.not10.i.us = icmp ult i64 %.0919.in.i.i.i14.us, 2
+  %.not10.i.us = icmp eq i64 %.0919.i.i89.i.us, 0
   br i1 %.not10.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP13p1_row_info_tSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_less_iterEEvT_SA_SA_RT0_.exit.us, label %.lr.ph.i.i.i12.us, !llvm.loop !173
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP13p1_row_info_tSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_less_iterEEvT_SA_SA_RT0_.exit.us: ; preds = %.lr.ph.i.i.i12.us, %86, %81

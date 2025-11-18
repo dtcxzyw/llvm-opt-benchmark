@@ -941,10 +941,10 @@ define internal fastcc noundef range(i32 0, -2147483648) i32 @_ZN6icu_7712_GLOBA
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %27
 
-27:                                               ; preds = %142, %21
-  %.0144 = phi i32 [ %6, %21 ], [ %.8152, %142 ]
-  %.0125 = phi i32 [ %6, %21 ], [ %.6131, %142 ]
-  %.0113 = phi i32 [ 0, %21 ], [ %.8, %142 ]
+27:                                               ; preds = %141, %21
+  %.0144 = phi i32 [ %6, %21 ], [ %.8152, %141 ]
+  %.0125 = phi i32 [ %6, %21 ], [ %.6131, %141 ]
+  %.0113 = phi i32 [ 0, %21 ], [ %.8, %141 ]
   %28 = icmp slt i32 %.0144, %7
   br i1 %28, label %.lr.ph, label %.thread198
 
@@ -970,7 +970,7 @@ define internal fastcc noundef range(i32 0, -2147483648) i32 @_ZN6icu_7712_GLOBA
   %40 = sext i8 %37 to i16
   %41 = add nsw i32 %.1145247, 1
   %.not239 = icmp eq i8 %37, 0
-  br i1 %.not239, label %.thread187, label %65
+  br i1 %.not239, label %.thread187, label %64
 
 42:                                               ; preds = %.lr.ph
   %43 = icmp ugt i16 %31, -10241
@@ -998,247 +998,244 @@ define internal fastcc noundef range(i32 0, -2147483648) i32 @_ZN6icu_7712_GLOBA
   %60 = add nsw i32 %.1145247, 1
   %61 = and i32 %57, 2
   %.not167 = icmp eq i32 %61, 0
-  %62 = icmp ult i16 %56, 128
-  %or.cond300 = or i1 %.not167, %62
-  br i1 %or.cond300, label %.thread187, label %63, !llvm.loop !35
+  %62 = ashr i16 %56, 7
+  %63 = icmp eq i16 %62, 0
+  %or.cond301 = or i1 %.not167, %63
+  br i1 %or.cond301, label %.thread187, label %64, !llvm.loop !35
 
-63:                                               ; preds = %59
-  %64 = ashr i16 %56, 7
-  br label %65
+64:                                               ; preds = %59, %39
+  %.5149 = phi i32 [ %41, %39 ], [ %60, %59 ]
+  %.5137 = phi i16 [ %40, %39 ], [ %62, %59 ]
+  %65 = add i16 %.5137, %31
+  %66 = sext i32 %.1126249 to i64
+  %67 = getelementptr inbounds i16, ptr %4, i64 %66
+  %68 = xor i32 %.1126249, -1
+  %69 = add i32 %.5149, %68
+  %70 = icmp slt i32 %69, 1
+  br i1 %70, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit, label %71
 
-65:                                               ; preds = %63, %39
-  %.5149 = phi i32 [ %41, %39 ], [ %60, %63 ]
-  %.5137 = phi i16 [ %40, %39 ], [ %64, %63 ]
-  %66 = add i16 %.5137, %31
-  %67 = sext i32 %.1126249 to i64
-  %68 = getelementptr inbounds i16, ptr %4, i64 %67
-  %69 = xor i32 %.1126249, -1
-  %70 = add i32 %.5149, %69
-  %71 = icmp slt i32 %70, 1
-  br i1 %71, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit, label %72
+71:                                               ; preds = %64
+  br i1 %.not.i.i, label %73, label %72
 
-72:                                               ; preds = %65
-  br i1 %.not.i.i, label %74, label %73
+72:                                               ; preds = %71
+  call void @_ZN6icu_775Edits12addUnchangedEi(ptr noundef nonnull align 8 dereferenceable(232) %8, i32 noundef range(i32 1, -2147483648) %69)
+  br label %73
 
-73:                                               ; preds = %72
-  call void @_ZN6icu_775Edits12addUnchangedEi(ptr noundef nonnull align 8 dereferenceable(232) %8, i32 noundef range(i32 1, -2147483648) %70)
-  br label %74
+73:                                               ; preds = %72, %71
+  br i1 %.not18.i.i, label %74, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit
 
-74:                                               ; preds = %73, %72
-  br i1 %.not18.i.i, label %75, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit
+74:                                               ; preds = %73
+  %75 = sub nuw nsw i32 2147483647, %.1114250
+  %76 = icmp samesign ugt i32 %69, %75
+  br i1 %76, label %.thread217, label %77
 
-75:                                               ; preds = %74
-  %76 = sub nuw nsw i32 2147483647, %.1114250
-  %77 = icmp samesign ugt i32 %70, %76
-  br i1 %77, label %.thread217, label %78
+77:                                               ; preds = %74
+  %78 = add nuw nsw i32 %69, %.1114250
+  %.not19.i.i = icmp sgt i32 %78, %3
+  br i1 %.not19.i.i, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit, label %79
 
-78:                                               ; preds = %75
-  %79 = add nuw nsw i32 %70, %.1114250
-  %.not19.i.i = icmp sgt i32 %79, %3
-  br i1 %.not19.i.i, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit, label %80
-
-80:                                               ; preds = %78
-  %81 = zext nneg i32 %.1114250 to i64
-  %82 = getelementptr inbounds nuw i16, ptr %2, i64 %81
-  %83 = call ptr @u_memcpy_77(ptr noundef %82, ptr noundef %68, i32 noundef range(i32 1, -2147483648) %70)
+79:                                               ; preds = %77
+  %80 = zext nneg i32 %.1114250 to i64
+  %81 = getelementptr inbounds nuw i16, ptr %2, i64 %80
+  %82 = call ptr @u_memcpy_77(ptr noundef %81, ptr noundef %67, i32 noundef range(i32 1, -2147483648) %69)
   br label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit
 
-_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit: ; preds = %80, %78, %74, %65
-  %.0.i = phi i32 [ %.1114250, %65 ], [ %.1114250, %74 ], [ %79, %80 ], [ %79, %78 ]
-  %84 = icmp slt i32 %.0.i, %3
-  br i1 %84, label %85, label %88
+_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit: ; preds = %79, %77, %73, %64
+  %.0.i = phi i32 [ %.1114250, %64 ], [ %.1114250, %73 ], [ %78, %79 ], [ %78, %77 ]
+  %83 = icmp slt i32 %.0.i, %3
+  br i1 %83, label %84, label %87
 
-85:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit
-  %86 = zext nneg i32 %.0.i to i64
-  %87 = getelementptr inbounds nuw i16, ptr %2, i64 %86
-  store i16 %66, ptr %87, align 2, !tbaa !14
-  br label %90
+84:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit
+  %85 = zext nneg i32 %.0.i to i64
+  %86 = getelementptr inbounds nuw i16, ptr %2, i64 %85
+  store i16 %65, ptr %86, align 2, !tbaa !14
+  br label %89
 
-88:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit
-  %89 = icmp eq i32 %.0.i, 2147483647
-  br i1 %89, label %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit, label %90
+87:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit
+  %88 = icmp eq i32 %.0.i, 2147483647
+  br i1 %88, label %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit, label %89
 
-90:                                               ; preds = %88, %85
-  %91 = add nuw nsw i32 %.0.i, 1
+89:                                               ; preds = %87, %84
+  %90 = add nuw nsw i32 %.0.i, 1
   br label %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit
 
-_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit: ; preds = %88, %90
-  %.0.i172 = phi i32 [ %91, %90 ], [ -1, %88 ]
-  br i1 %.not.i.i, label %93, label %92
+_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit: ; preds = %87, %89
+  %.0.i172 = phi i32 [ %90, %89 ], [ -1, %87 ]
+  br i1 %.not.i.i, label %92, label %91
 
-92:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit
+91:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit
   call void @_ZN6icu_775Edits10addReplaceEii(ptr noundef nonnull align 8 dereferenceable(232) %8, i32 noundef 1, i32 noundef 1)
-  br label %93
+  br label %92
 
-93:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit, %92
-  %94 = icmp slt i32 %.0.i172, 0
-  br i1 %94, label %.thread217, label %.thread187
+92:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit, %91
+  %93 = icmp slt i32 %.0.i172, 0
+  br i1 %93, label %.thread217, label %.thread187
 
-.thread217:                                       ; preds = %75, %93
+.thread217:                                       ; preds = %74, %92
   store i32 8, ptr %9, align 4, !tbaa !3
   br label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit182
 
-.thread187:                                       ; preds = %59, %93, %39
-  %.4148 = phi i32 [ %41, %39 ], [ %.5149, %93 ], [ %60, %59 ]
-  %.2143 = phi i16 [ %31, %39 ], [ %66, %93 ], [ %31, %59 ]
-  %.3128 = phi i32 [ %.1126249, %39 ], [ %.5149, %93 ], [ %.1126249, %59 ]
-  %.3116 = phi i32 [ %.1114250, %39 ], [ %.0.i172, %93 ], [ %.1114250, %59 ]
-  %95 = icmp slt i32 %.4148, %7
-  br i1 %95, label %.lr.ph, label %.thread198.loopexit
+.thread187:                                       ; preds = %59, %92, %39
+  %.4148 = phi i32 [ %41, %39 ], [ %.5149, %92 ], [ %60, %59 ]
+  %.2143 = phi i16 [ %31, %39 ], [ %65, %92 ], [ %31, %59 ]
+  %.3128 = phi i32 [ %.1126249, %39 ], [ %.5149, %92 ], [ %.1126249, %59 ]
+  %.3116 = phi i32 [ %.1114250, %39 ], [ %.0.i172, %92 ], [ %.1114250, %59 ]
+  %94 = icmp slt i32 %.4148, %7
+  br i1 %94, label %.lr.ph, label %.thread198.loopexit
 
 .thread198.loopexit:                              ; preds = %44, %34, %42, %.thread187
   %.1145.lcssa.ph = phi i32 [ %.4148, %.thread187 ], [ %.1145247, %42 ], [ %.1145247, %34 ], [ %.1145247, %44 ]
   %.1126.lcssa.ph = phi i32 [ %.3128, %.thread187 ], [ %.1126249, %42 ], [ %.1126249, %34 ], [ %.1126249, %44 ]
   %.1114.lcssa.ph = phi i32 [ %.3116, %.thread187 ], [ %.1114250, %42 ], [ %.1114250, %34 ], [ %.1114250, %44 ]
   %.1142.ph = phi i16 [ %.2143, %.thread187 ], [ %31, %42 ], [ %31, %34 ], [ %31, %44 ]
-  %96 = zext i16 %.1142.ph to i32
+  %95 = zext i16 %.1142.ph to i32
   br label %.thread198
 
 .thread198:                                       ; preds = %.thread198.loopexit, %27
   %.1145.lcssa = phi i32 [ %.0144, %27 ], [ %.1145.lcssa.ph, %.thread198.loopexit ]
   %.1126.lcssa = phi i32 [ %.0125, %27 ], [ %.1126.lcssa.ph, %.thread198.loopexit ]
   %.1114.lcssa = phi i32 [ %.0113, %27 ], [ %.1114.lcssa.ph, %.thread198.loopexit ]
-  %.1142 = phi i32 [ 0, %27 ], [ %96, %.thread198.loopexit ]
+  %.1142 = phi i32 [ 0, %27 ], [ %95, %.thread198.loopexit ]
   %.not169 = icmp slt i32 %.1145.lcssa, %7
-  br i1 %.not169, label %97, label %.thread223
+  br i1 %.not169, label %96, label %.thread223
 
-97:                                               ; preds = %.thread198
-  %98 = add nsw i32 %.1145.lcssa, 1
-  %99 = and i32 %.1142, 64512
-  %100 = icmp eq i32 %99, 55296
-  %101 = icmp slt i32 %98, %7
-  %or.cond171 = select i1 %100, i1 %101, i1 false
-  br i1 %or.cond171, label %102, label %114
+96:                                               ; preds = %.thread198
+  %97 = add nsw i32 %.1145.lcssa, 1
+  %98 = and i32 %.1142, 64512
+  %99 = icmp eq i32 %98, 55296
+  %100 = icmp slt i32 %97, %7
+  %or.cond171 = select i1 %99, i1 %100, i1 false
+  br i1 %or.cond171, label %101, label %113
 
-102:                                              ; preds = %97
-  %103 = sext i32 %98 to i64
-  %104 = getelementptr inbounds i16, ptr %4, i64 %103
-  %105 = load i16, ptr %104, align 2, !tbaa !14
-  %106 = zext i16 %105 to i32
-  %107 = and i32 %106, 64512
-  %108 = icmp eq i32 %107, 56320
-  br i1 %108, label %109, label %114
+101:                                              ; preds = %96
+  %102 = sext i32 %97 to i64
+  %103 = getelementptr inbounds i16, ptr %4, i64 %102
+  %104 = load i16, ptr %103, align 2, !tbaa !14
+  %105 = zext i16 %104 to i32
+  %106 = and i32 %105, 64512
+  %107 = icmp eq i32 %106, 56320
+  br i1 %107, label %108, label %113
 
-109:                                              ; preds = %102
-  %110 = shl nuw nsw i32 %.1142, 10
-  %111 = add nsw i32 %110, -56613888
-  %112 = add nuw nsw i32 %111, %106
-  %113 = add nsw i32 %.1145.lcssa, 2
-  br label %114
+108:                                              ; preds = %101
+  %109 = shl nuw nsw i32 %.1142, 10
+  %110 = add nsw i32 %109, -56613888
+  %111 = add nuw nsw i32 %110, %105
+  %112 = add nsw i32 %.1145.lcssa, 2
+  br label %113
 
-114:                                              ; preds = %97, %102, %109
-  %.8152 = phi i32 [ %113, %109 ], [ %98, %102 ], [ %98, %97 ]
-  %.0 = phi i32 [ %112, %109 ], [ %.1142, %102 ], [ %.1142, %97 ]
+113:                                              ; preds = %96, %101, %108
+  %.8152 = phi i32 [ %112, %108 ], [ %97, %101 ], [ %97, %96 ]
+  %.0 = phi i32 [ %111, %108 ], [ %.1142, %101 ], [ %.1142, %96 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8, !tbaa !20
-  br i1 %24, label %115, label %117
+  br i1 %24, label %114, label %116
 
-115:                                              ; preds = %114
+114:                                              ; preds = %113
   store i32 %.1145.lcssa, ptr %25, align 4, !tbaa !18
   store i32 %.8152, ptr %26, align 8, !tbaa !19
-  %116 = call i32 @ucase_toFullLower_77(i32 noundef %.0, ptr noundef nonnull @_ZN6icu_7712_GLOBAL__N_125utf16_caseContextIteratorEPva, ptr noundef %5, ptr noundef nonnull %11, i32 noundef %0)
-  br label %119
+  %115 = call i32 @ucase_toFullLower_77(i32 noundef %.0, ptr noundef nonnull @_ZN6icu_7712_GLOBAL__N_125utf16_caseContextIteratorEPva, ptr noundef %5, ptr noundef nonnull %11, i32 noundef %0)
+  br label %118
 
-117:                                              ; preds = %114
-  %118 = call i32 @ucase_toFullFolding_77(i32 noundef %.0, ptr noundef nonnull %11, i32 noundef %1)
-  br label %119
+116:                                              ; preds = %113
+  %117 = call i32 @ucase_toFullFolding_77(i32 noundef %.0, ptr noundef nonnull %11, i32 noundef %1)
+  br label %118
 
-119:                                              ; preds = %117, %115
-  %.1 = phi i32 [ %116, %115 ], [ %118, %117 ]
-  %120 = icmp sgt i32 %.1, -1
-  br i1 %120, label %121, label %142
+118:                                              ; preds = %116, %114
+  %.1 = phi i32 [ %115, %114 ], [ %117, %116 ]
+  %119 = icmp sgt i32 %.1, -1
+  br i1 %119, label %120, label %141
 
-121:                                              ; preds = %119
-  %122 = sext i32 %.1126.lcssa to i64
-  %123 = getelementptr inbounds i16, ptr %4, i64 %122
-  %124 = sub nsw i32 %.1145.lcssa, %.1126.lcssa
-  %125 = icmp slt i32 %124, 1
-  br i1 %125, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit177, label %126
+120:                                              ; preds = %118
+  %121 = sext i32 %.1126.lcssa to i64
+  %122 = getelementptr inbounds i16, ptr %4, i64 %121
+  %123 = sub nsw i32 %.1145.lcssa, %.1126.lcssa
+  %124 = icmp slt i32 %123, 1
+  br i1 %124, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit177, label %125
 
-126:                                              ; preds = %121
-  br i1 %.not.i.i, label %128, label %127
+125:                                              ; preds = %120
+  br i1 %.not.i.i, label %127, label %126
 
-127:                                              ; preds = %126
-  call void @_ZN6icu_775Edits12addUnchangedEi(ptr noundef nonnull align 8 dereferenceable(232) %8, i32 noundef range(i32 1, -2147483648) %124)
-  br label %128
+126:                                              ; preds = %125
+  call void @_ZN6icu_775Edits12addUnchangedEi(ptr noundef nonnull align 8 dereferenceable(232) %8, i32 noundef range(i32 1, -2147483648) %123)
+  br label %127
 
-128:                                              ; preds = %127, %126
-  br i1 %.not18.i.i, label %129, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit177
+127:                                              ; preds = %126, %125
+  br i1 %.not18.i.i, label %128, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit177
 
-129:                                              ; preds = %128
-  %130 = sub nuw nsw i32 2147483647, %.1114.lcssa
-  %131 = icmp samesign ugt i32 %124, %130
-  br i1 %131, label %.thread214, label %132
+128:                                              ; preds = %127
+  %129 = sub nuw nsw i32 2147483647, %.1114.lcssa
+  %130 = icmp samesign ugt i32 %123, %129
+  br i1 %130, label %.thread214, label %131
 
-132:                                              ; preds = %129
-  %133 = add nuw nsw i32 %124, %.1114.lcssa
-  %.not19.i.i176 = icmp sgt i32 %133, %3
-  br i1 %.not19.i.i176, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit177, label %134
+131:                                              ; preds = %128
+  %132 = add nuw nsw i32 %123, %.1114.lcssa
+  %.not19.i.i176 = icmp sgt i32 %132, %3
+  br i1 %.not19.i.i176, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit177, label %133
 
-134:                                              ; preds = %132
-  %135 = zext nneg i32 %.1114.lcssa to i64
-  %136 = getelementptr inbounds nuw i16, ptr %2, i64 %135
-  %137 = call ptr @u_memcpy_77(ptr noundef %136, ptr noundef %123, i32 noundef range(i32 1, -2147483648) %124)
+133:                                              ; preds = %131
+  %134 = zext nneg i32 %.1114.lcssa to i64
+  %135 = getelementptr inbounds nuw i16, ptr %2, i64 %134
+  %136 = call ptr @u_memcpy_77(ptr noundef %135, ptr noundef %122, i32 noundef range(i32 1, -2147483648) %123)
   br label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit177
 
-_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit177: ; preds = %134, %132, %128, %121
-  %.0.i175 = phi i32 [ %.1114.lcssa, %121 ], [ %.1114.lcssa, %128 ], [ %133, %134 ], [ %133, %132 ]
-  %138 = load ptr, ptr %11, align 8, !tbaa !20
-  %139 = sub nsw i32 %.8152, %.1145.lcssa
-  %140 = call fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_112appendResultEPDsiiiPKDsijPNS_5EditsE(ptr noundef %2, i32 noundef %.0.i175, i32 noundef %3, i32 noundef %.1, ptr noundef %138, i32 noundef %139, i32 noundef %1, ptr noundef %8)
-  %141 = icmp slt i32 %140, 0
-  br i1 %141, label %.thread214, label %142
+_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit177: ; preds = %133, %131, %127, %120
+  %.0.i175 = phi i32 [ %.1114.lcssa, %120 ], [ %.1114.lcssa, %127 ], [ %132, %133 ], [ %132, %131 ]
+  %137 = load ptr, ptr %11, align 8, !tbaa !20
+  %138 = sub nsw i32 %.8152, %.1145.lcssa
+  %139 = call fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_112appendResultEPDsiiiPKDsijPNS_5EditsE(ptr noundef %2, i32 noundef %.0.i175, i32 noundef %3, i32 noundef %.1, ptr noundef %137, i32 noundef %138, i32 noundef %1, ptr noundef %8)
+  %140 = icmp slt i32 %139, 0
+  br i1 %140, label %.thread214, label %141
 
-.thread214:                                       ; preds = %129, %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit177
+.thread214:                                       ; preds = %128, %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit177
   store i32 8, ptr %9, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit182
 
-142:                                              ; preds = %119, %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit177
-  %.6131 = phi i32 [ %.1126.lcssa, %119 ], [ %.8152, %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit177 ]
-  %.8 = phi i32 [ %.1114.lcssa, %119 ], [ %140, %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit177 ]
+141:                                              ; preds = %118, %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit177
+  %.6131 = phi i32 [ %.1126.lcssa, %118 ], [ %.8152, %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit177 ]
+  %.8 = phi i32 [ %.1114.lcssa, %118 ], [ %139, %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit177 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %27
 
 .thread223:                                       ; preds = %.thread198
-  %143 = sext i32 %.1126.lcssa to i64
-  %144 = getelementptr inbounds i16, ptr %4, i64 %143
-  %145 = sub nsw i32 %.1145.lcssa, %.1126.lcssa
-  %146 = icmp slt i32 %145, 1
-  br i1 %146, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit182, label %147
+  %142 = sext i32 %.1126.lcssa to i64
+  %143 = getelementptr inbounds i16, ptr %4, i64 %142
+  %144 = sub nsw i32 %.1145.lcssa, %.1126.lcssa
+  %145 = icmp slt i32 %144, 1
+  br i1 %145, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit182, label %146
 
-147:                                              ; preds = %.thread223
-  br i1 %.not.i.i, label %149, label %148
+146:                                              ; preds = %.thread223
+  br i1 %.not.i.i, label %148, label %147
 
-148:                                              ; preds = %147
-  call void @_ZN6icu_775Edits12addUnchangedEi(ptr noundef nonnull align 8 dereferenceable(232) %8, i32 noundef range(i32 1, -2147483648) %145)
-  br label %149
+147:                                              ; preds = %146
+  call void @_ZN6icu_775Edits12addUnchangedEi(ptr noundef nonnull align 8 dereferenceable(232) %8, i32 noundef range(i32 1, -2147483648) %144)
+  br label %148
 
-149:                                              ; preds = %148, %147
-  br i1 %.not18.i.i, label %150, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit182
+148:                                              ; preds = %147, %146
+  br i1 %.not18.i.i, label %149, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit182
 
-150:                                              ; preds = %149
-  %151 = sub nuw nsw i32 2147483647, %.1114.lcssa
-  %152 = icmp samesign ugt i32 %145, %151
-  br i1 %152, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit182.thread, label %153
+149:                                              ; preds = %148
+  %150 = sub nuw nsw i32 2147483647, %.1114.lcssa
+  %151 = icmp samesign ugt i32 %144, %150
+  br i1 %151, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit182.thread, label %152
 
-153:                                              ; preds = %150
-  %154 = add nuw nsw i32 %145, %.1114.lcssa
-  %.not19.i.i181 = icmp sgt i32 %154, %3
-  br i1 %.not19.i.i181, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit182, label %155
+152:                                              ; preds = %149
+  %153 = add nuw nsw i32 %144, %.1114.lcssa
+  %.not19.i.i181 = icmp sgt i32 %153, %3
+  br i1 %.not19.i.i181, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit182, label %154
 
-155:                                              ; preds = %153
-  %156 = zext nneg i32 %.1114.lcssa to i64
-  %157 = getelementptr inbounds nuw i16, ptr %2, i64 %156
-  %158 = call ptr @u_memcpy_77(ptr noundef %157, ptr noundef %144, i32 noundef range(i32 1, -2147483648) %145)
+154:                                              ; preds = %152
+  %155 = zext nneg i32 %.1114.lcssa to i64
+  %156 = getelementptr inbounds nuw i16, ptr %2, i64 %155
+  %157 = call ptr @u_memcpy_77(ptr noundef %156, ptr noundef %143, i32 noundef range(i32 1, -2147483648) %144)
   br label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit182
 
-_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit182.thread: ; preds = %150
+_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit182.thread: ; preds = %149
   store i32 8, ptr %9, align 4, !tbaa !3
   br label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit182
 
-_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit182: ; preds = %155, %153, %149, %.thread223, %.thread214, %.thread217, %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit182.thread
-  %.6 = phi i32 [ 0, %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit182.thread ], [ 0, %.thread217 ], [ 0, %.thread214 ], [ %.1114.lcssa, %.thread223 ], [ %.1114.lcssa, %149 ], [ %154, %155 ], [ %154, %153 ]
+_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit182: ; preds = %154, %152, %148, %.thread223, %.thread214, %.thread217, %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit182.thread
+  %.6 = phi i32 [ 0, %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit182.thread ], [ 0, %.thread217 ], [ 0, %.thread214 ], [ %.1114.lcssa, %.thread223 ], [ %.1114.lcssa, %148 ], [ %153, %154 ], [ %153, %152 ]
   ret i32 %.6
 }
 
@@ -1904,7 +1901,7 @@ define range(i32 0, -2147483648) i32 @ustrcase_internalToUpper_77(i32 noundef %0
 
 13:                                               ; preds = %9
   %14 = tail call noundef i32 @_ZN6icu_7710GreekUpper7toUpperEjPDsiPKDsiPNS_5EditsER10UErrorCode(i32 noundef %1, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
-  br label %155
+  br label %154
 
 15:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -1923,10 +1920,10 @@ define range(i32 0, -2147483648) i32 @ustrcase_internalToUpper_77(i32 noundef %0
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 24
   br label %23
 
-23:                                               ; preds = %137, %15
-  %.0132.i = phi i32 [ 0, %15 ], [ %.8140.i, %137 ]
-  %.0113.i = phi i32 [ 0, %15 ], [ %.6119.i, %137 ]
-  %.0101.i = phi i32 [ 0, %15 ], [ %.8.i, %137 ]
+23:                                               ; preds = %136, %15
+  %.0132.i = phi i32 [ 0, %15 ], [ %.8140.i, %136 ]
+  %.0113.i = phi i32 [ 0, %15 ], [ %.6119.i, %136 ]
+  %.0101.i = phi i32 [ 0, %15 ], [ %.8.i, %136 ]
   %24 = icmp slt i32 %.0132.i, %6
   br i1 %24, label %.lr.ph.i, label %.thread184.i
 
@@ -1952,7 +1949,7 @@ define range(i32 0, -2147483648) i32 @ustrcase_internalToUpper_77(i32 noundef %0
   %36 = sext i8 %33 to i16
   %37 = add nsw i32 %.1133233.i, 1
   %.not225.i = icmp eq i8 %33, 0
-  br i1 %.not225.i, label %.thread173.i, label %61
+  br i1 %.not225.i, label %.thread173.i, label %60
 
 38:                                               ; preds = %.lr.ph.i
   %39 = icmp ugt i16 %27, -10241
@@ -1980,97 +1977,94 @@ define range(i32 0, -2147483648) i32 @ustrcase_internalToUpper_77(i32 noundef %0
   %56 = add nsw i32 %.1133233.i, 1
   %57 = and i32 %53, 3
   %.not154.i = icmp ne i32 %57, 1
-  %58 = icmp ult i16 %52, 128
-  %or.cond284.i = or i1 %58, %.not154.i
-  br i1 %or.cond284.i, label %.thread173.i, label %59, !llvm.loop !38
+  %58 = ashr i16 %52, 7
+  %59 = icmp eq i16 %58, 0
+  %or.cond285.i = or i1 %59, %.not154.i
+  br i1 %or.cond285.i, label %.thread173.i, label %60, !llvm.loop !38
 
-59:                                               ; preds = %55
-  %60 = ashr i16 %52, 7
-  br label %61
+60:                                               ; preds = %55, %35
+  %.5137.i = phi i32 [ %37, %35 ], [ %56, %55 ]
+  %.5125.i = phi i16 [ %36, %35 ], [ %58, %55 ]
+  %61 = add i16 %.5125.i, %27
+  %62 = sext i32 %.1114235.i to i64
+  %63 = getelementptr inbounds i16, ptr %5, i64 %62
+  %64 = xor i32 %.1114235.i, -1
+  %65 = add i32 %.5137.i, %64
+  %66 = icmp slt i32 %65, 1
+  br i1 %66, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit.i, label %67
 
-61:                                               ; preds = %59, %35
-  %.5137.i = phi i32 [ %37, %35 ], [ %56, %59 ]
-  %.5125.i = phi i16 [ %36, %35 ], [ %60, %59 ]
-  %62 = add i16 %.5125.i, %27
-  %63 = sext i32 %.1114235.i to i64
-  %64 = getelementptr inbounds i16, ptr %5, i64 %63
-  %65 = xor i32 %.1114235.i, -1
-  %66 = add i32 %.5137.i, %65
-  %67 = icmp slt i32 %66, 1
-  br i1 %67, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit.i, label %68
+67:                                               ; preds = %60
+  br i1 %.not.i.i.i, label %69, label %68
 
-68:                                               ; preds = %61
-  br i1 %.not.i.i.i, label %70, label %69
+68:                                               ; preds = %67
+  call void @_ZN6icu_775Edits12addUnchangedEi(ptr noundef nonnull align 8 dereferenceable(232) %7, i32 noundef range(i32 1, -2147483648) %65)
+  br label %69
 
-69:                                               ; preds = %68
-  call void @_ZN6icu_775Edits12addUnchangedEi(ptr noundef nonnull align 8 dereferenceable(232) %7, i32 noundef range(i32 1, -2147483648) %66)
-  br label %70
+69:                                               ; preds = %68, %67
+  br i1 %.not18.i.i.i, label %70, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit.i
 
-70:                                               ; preds = %69, %68
-  br i1 %.not18.i.i.i, label %71, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit.i
+70:                                               ; preds = %69
+  %71 = sub nsw i32 2147483647, %.1102236.i
+  %72 = icmp samesign ugt i32 %65, %71
+  br i1 %72, label %.thread203.i, label %73
 
-71:                                               ; preds = %70
-  %72 = sub nsw i32 2147483647, %.1102236.i
-  %73 = icmp samesign ugt i32 %66, %72
-  br i1 %73, label %.thread203.i, label %74
+73:                                               ; preds = %70
+  %74 = add nsw i32 %65, %.1102236.i
+  %.not19.i.i.i = icmp sgt i32 %74, %4
+  br i1 %.not19.i.i.i, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit.i, label %75
 
-74:                                               ; preds = %71
-  %75 = add nsw i32 %66, %.1102236.i
-  %.not19.i.i.i = icmp sgt i32 %75, %4
-  br i1 %.not19.i.i.i, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit.i, label %76
-
-76:                                               ; preds = %74
-  %77 = sext i32 %.1102236.i to i64
-  %78 = getelementptr inbounds i16, ptr %3, i64 %77
-  %79 = call ptr @u_memcpy_77(ptr noundef %78, ptr noundef %64, i32 noundef range(i32 1, -2147483648) %66)
+75:                                               ; preds = %73
+  %76 = sext i32 %.1102236.i to i64
+  %77 = getelementptr inbounds i16, ptr %3, i64 %76
+  %78 = call ptr @u_memcpy_77(ptr noundef %77, ptr noundef %63, i32 noundef range(i32 1, -2147483648) %65)
   br label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit.i
 
-_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit.i: ; preds = %76, %74, %70, %61
-  %.0.i.i = phi i32 [ %.1102236.i, %61 ], [ %.1102236.i, %70 ], [ %75, %76 ], [ %75, %74 ]
-  %80 = icmp sgt i32 %.0.i.i, -1
-  br i1 %80, label %81, label %.thread203.i
+_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit.i: ; preds = %75, %73, %69, %60
+  %.0.i.i = phi i32 [ %.1102236.i, %60 ], [ %.1102236.i, %69 ], [ %74, %75 ], [ %74, %73 ]
+  %79 = icmp sgt i32 %.0.i.i, -1
+  br i1 %79, label %80, label %.thread203.i
 
-81:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit.i
-  %82 = icmp slt i32 %.0.i.i, %4
-  br i1 %82, label %83, label %86
+80:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit.i
+  %81 = icmp slt i32 %.0.i.i, %4
+  br i1 %81, label %82, label %85
 
-83:                                               ; preds = %81
-  %84 = zext nneg i32 %.0.i.i to i64
-  %85 = getelementptr inbounds nuw i16, ptr %3, i64 %84
-  store i16 %62, ptr %85, align 2, !tbaa !14
-  br label %88
+82:                                               ; preds = %80
+  %83 = zext nneg i32 %.0.i.i to i64
+  %84 = getelementptr inbounds nuw i16, ptr %3, i64 %83
+  store i16 %61, ptr %84, align 2, !tbaa !14
+  br label %87
 
-86:                                               ; preds = %81
-  %87 = icmp eq i32 %.0.i.i, 2147483647
-  br i1 %87, label %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit.i, label %88
+85:                                               ; preds = %80
+  %86 = icmp eq i32 %.0.i.i, 2147483647
+  br i1 %86, label %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit.i, label %87
 
-88:                                               ; preds = %86, %83
-  %89 = add nuw nsw i32 %.0.i.i, 1
+87:                                               ; preds = %85, %82
+  %88 = add nuw nsw i32 %.0.i.i, 1
   br label %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit.i
 
-_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit.i: ; preds = %88, %86
-  %.0.i158.i = phi i32 [ %89, %88 ], [ -1, %86 ]
-  br i1 %.not.i.i.i, label %91, label %90
+_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit.i: ; preds = %87, %85
+  %.0.i158.i = phi i32 [ %88, %87 ], [ -1, %85 ]
+  br i1 %.not.i.i.i, label %90, label %89
 
-90:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit.i
+89:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit.i
   call void @_ZN6icu_775Edits10addReplaceEii(ptr noundef nonnull align 8 dereferenceable(232) %7, i32 noundef 1, i32 noundef 1)
-  br label %91
+  br label %90
 
-91:                                               ; preds = %90, %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit.i
-  %92 = icmp slt i32 %.0.i158.i, 0
-  br i1 %92, label %.thread203.i, label %.thread173.i
+90:                                               ; preds = %89, %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit.i
+  %91 = icmp slt i32 %.0.i158.i, 0
+  br i1 %91, label %.thread203.i, label %.thread173.i
 
-.thread203.i:                                     ; preds = %91, %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit.i, %71
+.thread203.i:                                     ; preds = %90, %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit.i, %70
   store i32 8, ptr %8, align 4, !tbaa !3
   br label %_ZN6icu_7712_GLOBAL__N_17toUpperEijPDsiPKDsP12UCaseContextiPNS_5EditsER10UErrorCode.exit
 
-.thread173.i:                                     ; preds = %91, %55, %35
-  %.4136.i = phi i32 [ %37, %35 ], [ %.5137.i, %91 ], [ %56, %55 ]
-  %.2131.i = phi i16 [ %27, %35 ], [ %62, %91 ], [ %27, %55 ]
-  %.3116.i = phi i32 [ %.1114235.i, %35 ], [ %.5137.i, %91 ], [ %.1114235.i, %55 ]
-  %.3104.i = phi i32 [ %.1102236.i, %35 ], [ %.0.i158.i, %91 ], [ %.1102236.i, %55 ]
-  %93 = icmp slt i32 %.4136.i, %6
-  br i1 %93, label %.lr.ph.i, label %.thread173.i..thread184.loopexit.i_crit_edge
+.thread173.i:                                     ; preds = %90, %55, %35
+  %.4136.i = phi i32 [ %37, %35 ], [ %.5137.i, %90 ], [ %56, %55 ]
+  %.2131.i = phi i16 [ %27, %35 ], [ %61, %90 ], [ %27, %55 ]
+  %.3116.i = phi i32 [ %.1114235.i, %35 ], [ %.5137.i, %90 ], [ %.1114235.i, %55 ]
+  %.3104.i = phi i32 [ %.1102236.i, %35 ], [ %.0.i158.i, %90 ], [ %.1102236.i, %55 ]
+  %92 = icmp slt i32 %.4136.i, %6
+  br i1 %92, label %.lr.ph.i, label %.thread173.i..thread184.loopexit.i_crit_edge
 
 .thread173.i..thread184.loopexit.i_crit_edge:     ; preds = %.thread173.i
   %.pre = zext i16 %.2131.i to i32
@@ -2082,169 +2076,169 @@ _ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit.i: ; preds = %88, %86
   %.1102.lcssa.i = phi i32 [ %.0101.i, %23 ], [ %.3104.i, %.thread173.i..thread184.loopexit.i_crit_edge ], [ %.1102236.i, %40 ], [ %.1102236.i, %38 ], [ %.1102236.i, %30 ]
   %.1130.i = phi i32 [ 0, %23 ], [ %.pre, %.thread173.i..thread184.loopexit.i_crit_edge ], [ %28, %40 ], [ %28, %38 ], [ %28, %30 ]
   %.not156.i = icmp slt i32 %.1133.lcssa.i, %6
-  br i1 %.not156.i, label %94, label %.thread209.i
+  br i1 %.not156.i, label %93, label %.thread209.i
 
-94:                                               ; preds = %.thread184.i
-  %95 = add nsw i32 %.1133.lcssa.i, 1
+93:                                               ; preds = %.thread184.i
+  %94 = add nsw i32 %.1133.lcssa.i, 1
   store i32 %.1133.lcssa.i, ptr %21, align 4, !tbaa !18
-  %96 = and i32 %.1130.i, 64512
-  %97 = icmp eq i32 %96, 55296
-  %98 = icmp slt i32 %95, %6
-  %or.cond.i = select i1 %97, i1 %98, i1 false
-  br i1 %or.cond.i, label %99, label %111
+  %95 = and i32 %.1130.i, 64512
+  %96 = icmp eq i32 %95, 55296
+  %97 = icmp slt i32 %94, %6
+  %or.cond.i = select i1 %96, i1 %97, i1 false
+  br i1 %or.cond.i, label %98, label %110
 
-99:                                               ; preds = %94
-  %100 = sext i32 %95 to i64
-  %101 = getelementptr inbounds i16, ptr %5, i64 %100
-  %102 = load i16, ptr %101, align 2, !tbaa !14
-  %103 = zext i16 %102 to i32
-  %104 = and i32 %103, 64512
-  %105 = icmp eq i32 %104, 56320
-  br i1 %105, label %106, label %111
+98:                                               ; preds = %93
+  %99 = sext i32 %94 to i64
+  %100 = getelementptr inbounds i16, ptr %5, i64 %99
+  %101 = load i16, ptr %100, align 2, !tbaa !14
+  %102 = zext i16 %101 to i32
+  %103 = and i32 %102, 64512
+  %104 = icmp eq i32 %103, 56320
+  br i1 %104, label %105, label %110
 
-106:                                              ; preds = %99
-  %107 = shl nuw nsw i32 %.1130.i, 10
-  %108 = add nsw i32 %107, -56613888
-  %109 = add nuw nsw i32 %108, %103
-  %110 = add nsw i32 %.1133.lcssa.i, 2
-  br label %111
+105:                                              ; preds = %98
+  %106 = shl nuw nsw i32 %.1130.i, 10
+  %107 = add nsw i32 %106, -56613888
+  %108 = add nuw nsw i32 %107, %102
+  %109 = add nsw i32 %.1133.lcssa.i, 2
+  br label %110
 
-111:                                              ; preds = %106, %99, %94
-  %.8140.i = phi i32 [ %110, %106 ], [ %95, %99 ], [ %95, %94 ]
-  %.0.i = phi i32 [ %109, %106 ], [ %.1130.i, %99 ], [ %.1130.i, %94 ]
+110:                                              ; preds = %105, %98, %93
+  %.8140.i = phi i32 [ %109, %105 ], [ %94, %98 ], [ %94, %93 ]
+  %.0.i = phi i32 [ %108, %105 ], [ %.1130.i, %98 ], [ %.1130.i, %93 ]
   store i32 %.8140.i, ptr %22, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8, !tbaa !20
-  %112 = call i32 @ucase_toFullUpper_77(i32 noundef %.0.i, ptr noundef nonnull @_ZN6icu_7712_GLOBAL__N_125utf16_caseContextIteratorEPva, ptr noundef nonnull %11, ptr noundef nonnull %10, i32 noundef range(i32 5, 4) %0)
-  %113 = icmp sgt i32 %112, -1
-  br i1 %113, label %114, label %137
+  %111 = call i32 @ucase_toFullUpper_77(i32 noundef %.0.i, ptr noundef nonnull @_ZN6icu_7712_GLOBAL__N_125utf16_caseContextIteratorEPva, ptr noundef nonnull %11, ptr noundef nonnull %10, i32 noundef range(i32 5, 4) %0)
+  %112 = icmp sgt i32 %111, -1
+  br i1 %112, label %113, label %136
 
-114:                                              ; preds = %111
-  %115 = sext i32 %.1114.lcssa.i to i64
-  %116 = getelementptr inbounds i16, ptr %5, i64 %115
-  %117 = sub nsw i32 %.1133.lcssa.i, %.1114.lcssa.i
-  %118 = icmp slt i32 %117, 1
-  br i1 %118, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit163.i, label %119
+113:                                              ; preds = %110
+  %114 = sext i32 %.1114.lcssa.i to i64
+  %115 = getelementptr inbounds i16, ptr %5, i64 %114
+  %116 = sub nsw i32 %.1133.lcssa.i, %.1114.lcssa.i
+  %117 = icmp slt i32 %116, 1
+  br i1 %117, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit163.i, label %118
 
-119:                                              ; preds = %114
-  br i1 %.not.i.i.i, label %121, label %120
+118:                                              ; preds = %113
+  br i1 %.not.i.i.i, label %120, label %119
 
-120:                                              ; preds = %119
-  call void @_ZN6icu_775Edits12addUnchangedEi(ptr noundef nonnull align 8 dereferenceable(232) %7, i32 noundef range(i32 1, -2147483648) %117)
-  br label %121
+119:                                              ; preds = %118
+  call void @_ZN6icu_775Edits12addUnchangedEi(ptr noundef nonnull align 8 dereferenceable(232) %7, i32 noundef range(i32 1, -2147483648) %116)
+  br label %120
 
-121:                                              ; preds = %120, %119
-  br i1 %.not18.i.i.i, label %122, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit163.i
+120:                                              ; preds = %119, %118
+  br i1 %.not18.i.i.i, label %121, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit163.i
 
-122:                                              ; preds = %121
-  %123 = sub nsw i32 2147483647, %.1102.lcssa.i
-  %124 = icmp samesign ugt i32 %117, %123
-  br i1 %124, label %.thread200.i, label %125
+121:                                              ; preds = %120
+  %122 = sub nsw i32 2147483647, %.1102.lcssa.i
+  %123 = icmp samesign ugt i32 %116, %122
+  br i1 %123, label %.thread200.i, label %124
 
-125:                                              ; preds = %122
-  %126 = add nsw i32 %117, %.1102.lcssa.i
-  %.not19.i.i162.i = icmp sgt i32 %126, %4
-  br i1 %.not19.i.i162.i, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit163.i, label %127
+124:                                              ; preds = %121
+  %125 = add nsw i32 %116, %.1102.lcssa.i
+  %.not19.i.i162.i = icmp sgt i32 %125, %4
+  br i1 %.not19.i.i162.i, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit163.i, label %126
 
-127:                                              ; preds = %125
-  %128 = sext i32 %.1102.lcssa.i to i64
-  %129 = getelementptr inbounds i16, ptr %3, i64 %128
-  %130 = call ptr @u_memcpy_77(ptr noundef %129, ptr noundef %116, i32 noundef range(i32 1, -2147483648) %117)
+126:                                              ; preds = %124
+  %127 = sext i32 %.1102.lcssa.i to i64
+  %128 = getelementptr inbounds i16, ptr %3, i64 %127
+  %129 = call ptr @u_memcpy_77(ptr noundef %128, ptr noundef %115, i32 noundef range(i32 1, -2147483648) %116)
   br label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit163.i
 
-_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit163.i: ; preds = %127, %125, %121, %114
-  %.0.i161.i = phi i32 [ %.1102.lcssa.i, %114 ], [ %.1102.lcssa.i, %121 ], [ %126, %127 ], [ %126, %125 ]
-  %131 = icmp sgt i32 %.0.i161.i, -1
-  br i1 %131, label %132, label %.thread200.i
+_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit163.i: ; preds = %126, %124, %120, %113
+  %.0.i161.i = phi i32 [ %.1102.lcssa.i, %113 ], [ %.1102.lcssa.i, %120 ], [ %125, %126 ], [ %125, %124 ]
+  %130 = icmp sgt i32 %.0.i161.i, -1
+  br i1 %130, label %131, label %.thread200.i
 
-132:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit163.i
-  %133 = load ptr, ptr %10, align 8, !tbaa !20
-  %134 = sub nsw i32 %.8140.i, %.1133.lcssa.i
-  %135 = call fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_112appendResultEPDsiiiPKDsijPNS_5EditsE(ptr noundef %3, i32 noundef %.0.i161.i, i32 noundef %4, i32 noundef %112, ptr noundef %133, i32 noundef %134, i32 noundef %1, ptr noundef %7)
-  %136 = icmp slt i32 %135, 0
-  br i1 %136, label %.thread200.i, label %137
+131:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit163.i
+  %132 = load ptr, ptr %10, align 8, !tbaa !20
+  %133 = sub nsw i32 %.8140.i, %.1133.lcssa.i
+  %134 = call fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_112appendResultEPDsiiiPKDsijPNS_5EditsE(ptr noundef %3, i32 noundef %.0.i161.i, i32 noundef %4, i32 noundef %111, ptr noundef %132, i32 noundef %133, i32 noundef %1, ptr noundef %7)
+  %135 = icmp slt i32 %134, 0
+  br i1 %135, label %.thread200.i, label %136
 
-.thread200.i:                                     ; preds = %132, %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit163.i, %122
+.thread200.i:                                     ; preds = %131, %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit163.i, %121
   store i32 8, ptr %8, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN6icu_7712_GLOBAL__N_17toUpperEijPDsiPKDsP12UCaseContextiPNS_5EditsER10UErrorCode.exit
 
-137:                                              ; preds = %132, %111
-  %.6119.i = phi i32 [ %.1114.lcssa.i, %111 ], [ %.8140.i, %132 ]
-  %.8.i = phi i32 [ %.1102.lcssa.i, %111 ], [ %135, %132 ]
+136:                                              ; preds = %131, %110
+  %.6119.i = phi i32 [ %.1114.lcssa.i, %110 ], [ %.8140.i, %131 ]
+  %.8.i = phi i32 [ %.1102.lcssa.i, %110 ], [ %134, %131 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %23
 
 .thread209.i:                                     ; preds = %.thread184.i
-  %138 = sext i32 %.1114.lcssa.i to i64
-  %139 = getelementptr inbounds i16, ptr %5, i64 %138
-  %140 = sub nsw i32 %.1133.lcssa.i, %.1114.lcssa.i
-  %141 = icmp slt i32 %140, 1
-  br i1 %141, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit168.i, label %142
+  %137 = sext i32 %.1114.lcssa.i to i64
+  %138 = getelementptr inbounds i16, ptr %5, i64 %137
+  %139 = sub nsw i32 %.1133.lcssa.i, %.1114.lcssa.i
+  %140 = icmp slt i32 %139, 1
+  br i1 %140, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit168.i, label %141
 
-142:                                              ; preds = %.thread209.i
-  br i1 %.not.i.i.i, label %144, label %143
+141:                                              ; preds = %.thread209.i
+  br i1 %.not.i.i.i, label %143, label %142
 
-143:                                              ; preds = %142
-  call void @_ZN6icu_775Edits12addUnchangedEi(ptr noundef nonnull align 8 dereferenceable(232) %7, i32 noundef range(i32 1, -2147483648) %140)
-  br label %144
+142:                                              ; preds = %141
+  call void @_ZN6icu_775Edits12addUnchangedEi(ptr noundef nonnull align 8 dereferenceable(232) %7, i32 noundef range(i32 1, -2147483648) %139)
+  br label %143
 
-144:                                              ; preds = %143, %142
-  br i1 %.not18.i.i.i, label %145, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit168.i
+143:                                              ; preds = %142, %141
+  br i1 %.not18.i.i.i, label %144, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit168.i
 
-145:                                              ; preds = %144
-  %146 = sub nsw i32 2147483647, %.1102.lcssa.i
-  %147 = icmp samesign ugt i32 %140, %146
-  br i1 %147, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit168.thread.i, label %148
+144:                                              ; preds = %143
+  %145 = sub nsw i32 2147483647, %.1102.lcssa.i
+  %146 = icmp samesign ugt i32 %139, %145
+  br i1 %146, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit168.thread.i, label %147
 
-148:                                              ; preds = %145
-  %149 = add nsw i32 %140, %.1102.lcssa.i
-  %.not19.i.i167.i = icmp sgt i32 %149, %4
-  br i1 %.not19.i.i167.i, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit168.i, label %150
+147:                                              ; preds = %144
+  %148 = add nsw i32 %139, %.1102.lcssa.i
+  %.not19.i.i167.i = icmp sgt i32 %148, %4
+  br i1 %.not19.i.i167.i, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit168.i, label %149
 
-150:                                              ; preds = %148
-  %151 = sext i32 %.1102.lcssa.i to i64
-  %152 = getelementptr inbounds i16, ptr %3, i64 %151
-  %153 = call ptr @u_memcpy_77(ptr noundef %152, ptr noundef %139, i32 noundef range(i32 1, -2147483648) %140)
+149:                                              ; preds = %147
+  %150 = sext i32 %.1102.lcssa.i to i64
+  %151 = getelementptr inbounds i16, ptr %3, i64 %150
+  %152 = call ptr @u_memcpy_77(ptr noundef %151, ptr noundef %138, i32 noundef range(i32 1, -2147483648) %139)
   br label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit168.i
 
-_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit168.i: ; preds = %150, %148, %144, %.thread209.i
-  %.0.i166.i = phi i32 [ %.1102.lcssa.i, %.thread209.i ], [ %.1102.lcssa.i, %144 ], [ %149, %150 ], [ %149, %148 ]
-  %154 = icmp slt i32 %.0.i166.i, 0
-  br i1 %154, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit168.thread.i, label %_ZN6icu_7712_GLOBAL__N_17toUpperEijPDsiPKDsP12UCaseContextiPNS_5EditsER10UErrorCode.exit
+_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit168.i: ; preds = %149, %147, %143, %.thread209.i
+  %.0.i166.i = phi i32 [ %.1102.lcssa.i, %.thread209.i ], [ %.1102.lcssa.i, %143 ], [ %148, %149 ], [ %148, %147 ]
+  %153 = icmp slt i32 %.0.i166.i, 0
+  br i1 %153, label %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit168.thread.i, label %_ZN6icu_7712_GLOBAL__N_17toUpperEijPDsiPKDsP12UCaseContextiPNS_5EditsER10UErrorCode.exit
 
-_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit168.thread.i: ; preds = %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit168.i, %145
+_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit168.thread.i: ; preds = %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit168.i, %144
   store i32 8, ptr %8, align 4, !tbaa !3
   br label %_ZN6icu_7712_GLOBAL__N_17toUpperEijPDsiPKDsP12UCaseContextiPNS_5EditsER10UErrorCode.exit
 
 _ZN6icu_7712_GLOBAL__N_17toUpperEijPDsiPKDsP12UCaseContextiPNS_5EditsER10UErrorCode.exit: ; preds = %.thread203.i, %.thread200.i, %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit168.i, %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit168.thread.i
   %.6.i = phi i32 [ 0, %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit168.thread.i ], [ %.0.i166.i, %_ZN6icu_7712_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit168.i ], [ 0, %.thread203.i ], [ 0, %.thread200.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %155
+  br label %154
 
-155:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_17toUpperEijPDsiPKDsP12UCaseContextiPNS_5EditsER10UErrorCode.exit, %13
+154:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_17toUpperEijPDsiPKDsP12UCaseContextiPNS_5EditsER10UErrorCode.exit, %13
   %.0 = phi i32 [ %14, %13 ], [ %.6.i, %_ZN6icu_7712_GLOBAL__N_17toUpperEijPDsiPKDsP12UCaseContextiPNS_5EditsER10UErrorCode.exit ]
-  %156 = load i32, ptr %8, align 4, !tbaa !3
-  %157 = icmp sgt i32 %156, 0
-  br i1 %157, label %_ZN6icu_7712_GLOBAL__N_126checkOverflowAndEditsErrorEiiPNS_5EditsER10UErrorCode.exit, label %158
+  %155 = load i32, ptr %8, align 4, !tbaa !3
+  %156 = icmp sgt i32 %155, 0
+  br i1 %156, label %_ZN6icu_7712_GLOBAL__N_126checkOverflowAndEditsErrorEiiPNS_5EditsER10UErrorCode.exit, label %157
 
-158:                                              ; preds = %155
-  %159 = icmp sgt i32 %.0, %4
-  br i1 %159, label %160, label %161
+157:                                              ; preds = %154
+  %158 = icmp sgt i32 %.0, %4
+  br i1 %158, label %159, label %160
 
-160:                                              ; preds = %158
+159:                                              ; preds = %157
   store i32 15, ptr %8, align 4, !tbaa !3
   br label %_ZN6icu_7712_GLOBAL__N_126checkOverflowAndEditsErrorEiiPNS_5EditsER10UErrorCode.exit
 
-161:                                              ; preds = %158
+160:                                              ; preds = %157
   %.not7.i = icmp eq ptr %7, null
-  br i1 %.not7.i, label %_ZN6icu_7712_GLOBAL__N_126checkOverflowAndEditsErrorEiiPNS_5EditsER10UErrorCode.exit, label %162
+  br i1 %.not7.i, label %_ZN6icu_7712_GLOBAL__N_126checkOverflowAndEditsErrorEiiPNS_5EditsER10UErrorCode.exit, label %161
 
-162:                                              ; preds = %161
-  %163 = call noundef signext i8 @_ZNK6icu_775Edits11copyErrorToER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(232) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+161:                                              ; preds = %160
+  %162 = call noundef signext i8 @_ZNK6icu_775Edits11copyErrorToER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(232) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
   br label %_ZN6icu_7712_GLOBAL__N_126checkOverflowAndEditsErrorEiiPNS_5EditsER10UErrorCode.exit
 
-_ZN6icu_7712_GLOBAL__N_126checkOverflowAndEditsErrorEiiPNS_5EditsER10UErrorCode.exit: ; preds = %155, %160, %161, %162
+_ZN6icu_7712_GLOBAL__N_126checkOverflowAndEditsErrorEiiPNS_5EditsER10UErrorCode.exit: ; preds = %154, %159, %160, %161
   ret i32 %.0
 }
 

@@ -381,7 +381,7 @@ lv_color_24_24_mix.exit193.us:                    ; preds = %167, %141, %131
   %191 = mul nuw i16 %190, %16
   %192 = lshr i16 %191, 8
   %193 = zext nneg i16 %192 to i32
-  %194 = icmp ult i16 %191, 256
+  %194 = icmp eq i16 %192, 0
   br i1 %194, label %lv_color_24_24_mix.exit194.us, label %195
 
 195:                                              ; preds = %184
@@ -946,7 +946,7 @@ lv_color_24_24_mix.exit.us243.i:                  ; preds = %lv_color_24_24_mix.
   %284 = zext i8 %283 to i16
   %285 = mul nuw i16 %284, %141
   %286 = lshr i16 %285, 8
-  %287 = icmp ult i16 %285, 256
+  %287 = icmp eq i16 %286, 0
   br i1 %287, label %lv_color_24_24_mix.exit186.us.i, label %288
 
 288:                                              ; preds = %267
@@ -1475,7 +1475,7 @@ lv_color_24_24_mix.exit.us.i:                     ; preds = %569, %535, %525
   %593 = zext i8 %592 to i32
   %594 = mul nuw nsw i32 %593, %519
   %595 = lshr i32 %594, 8
-  %596 = icmp samesign ult i32 %594, 256
+  %596 = icmp eq i32 %595, 0
   br i1 %596, label %lv_color_24_24_mix.exit164.us.i, label %597
 
 597:                                              ; preds = %587
@@ -1587,7 +1587,7 @@ lv_color_24_24_mix.exit164.us.i:                  ; preds = %632, %599, %587
   %660 = zext i8 %659 to i16
   %661 = mul nuw i16 %660, %657
   %662 = lshr i16 %661, 8
-  %663 = icmp ult i16 %661, 256
+  %663 = icmp eq i16 %662, 0
   br i1 %663, label %lv_color_24_24_mix.exit165.us.i, label %664
 
 664:                                              ; preds = %651
@@ -1698,7 +1698,7 @@ lv_color_24_24_mix.exit165.us.i:                  ; preds = %699, %666, %651
   %728 = mul nuw nsw i32 %724, %519
   %729 = mul nuw nsw i32 %728, %727
   %730 = lshr i32 %729, 16
-  %731 = icmp samesign ult i32 %729, 65536
+  %731 = icmp eq i32 %730, 0
   br i1 %731, label %lv_color_24_24_mix.exit166.us.i, label %732
 
 732:                                              ; preds = %718
@@ -2270,7 +2270,7 @@ lv_color_8_24_mix.exit166.us.i:                   ; preds = %1031, %1006, %995
   %1053 = mul nuw i16 %1052, %902
   %1054 = lshr i16 %1053, 8
   %1055 = zext nneg i16 %1054 to i32
-  %1056 = icmp ult i16 %1053, 256
+  %1056 = icmp eq i16 %1054, 0
   br i1 %1056, label %lv_color_8_24_mix.exit167.us.i, label %1057
 
 1057:                                             ; preds = %1045
@@ -2664,7 +2664,7 @@ lv_color_8_24_mix.exit.us.i:                      ; preds = %1264, %1239, %1228
   %1284 = zext i8 %1283 to i32
   %1285 = mul nuw nsw i32 %1284, %1222
   %1286 = lshr i32 %1285, 8
-  %1287 = icmp samesign ult i32 %1285, 256
+  %1287 = icmp eq i32 %1286, 0
   br i1 %1287, label %lv_color_8_24_mix.exit167.us.i98, label %1288
 
 1288:                                             ; preds = %1277
@@ -2764,7 +2764,7 @@ lv_color_8_24_mix.exit167.us.i98:                 ; preds = %1314, %1290, %1277
   %1339 = mul nuw i16 %1338, %1335
   %1340 = lshr i16 %1339, 8
   %1341 = zext nneg i16 %1340 to i32
-  %1342 = icmp ult i16 %1339, 256
+  %1342 = icmp eq i16 %1340, 0
   br i1 %1342, label %lv_color_8_24_mix.exit168.us.i, label %1343
 
 1343:                                             ; preds = %1328
@@ -2863,7 +2863,7 @@ lv_color_8_24_mix.exit168.us.i:                   ; preds = %1370, %1345, %1328
   %1395 = mul nuw nsw i32 %1391, %1222
   %1396 = mul nuw nsw i32 %1395, %1394
   %1397 = lshr i32 %1396, 16
-  %1398 = icmp samesign ult i32 %1396, 65536
+  %1398 = icmp eq i32 %1397, 0
   br i1 %1398, label %lv_color_8_24_mix.exit169.us.i, label %1399
 
 1399:                                             ; preds = %1384
@@ -3407,7 +3407,7 @@ lv_color_8_24_mix.exit169.us.i129:                ; preds = %1691, %1666, %1648
   %1720 = mul nuw i16 %1719, %1566
   %1721 = lshr i16 %1720, 8
   %1722 = zext nneg i16 %1721 to i32
-  %1723 = icmp ult i16 %1720, 256
+  %1723 = icmp eq i16 %1721, 0
   br i1 %1723, label %lv_color_8_24_mix.exit170.us.i, label %1724
 
 1724:                                             ; preds = %1705
@@ -4004,7 +4004,7 @@ lv_color_24_24_mix.exit195.us:                    ; preds = %275, %241, %231
   %302 = zext i8 %301 to i16
   %303 = mul nuw i16 %302, %136
   %304 = lshr i16 %303, 8
-  %305 = icmp ult i16 %303, 256
+  %305 = icmp eq i16 %304, 0
   br i1 %305, label %lv_color_24_24_mix.exit196.us, label %306
 
 306:                                              ; preds = %296

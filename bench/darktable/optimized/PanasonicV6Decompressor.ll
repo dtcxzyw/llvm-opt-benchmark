@@ -573,7 +573,7 @@ _ZNK8rawspeed10ByteStream12getSubStreamEjj.exit:  ; preds = %2
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %38 = load i32, ptr %37, align 8, !tbaa !131, !noalias !126
   %39 = ashr i32 %38, 1
-  %40 = icmp ugt i32 %38, 1
+  %40 = icmp ne i32 %39, 0
   tail call void @llvm.assume(i1 %40)
   %41 = icmp sgt i32 %39, -1
   tail call void @llvm.assume(i1 %41)
@@ -887,7 +887,7 @@ _ZNK8rawspeed10ByteStream12getSubStreamEjj.exit:  ; preds = %2
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %38 = load i32, ptr %37, align 8, !tbaa !131, !noalias !139
   %39 = ashr i32 %38, 1
-  %40 = icmp ugt i32 %38, 1
+  %40 = icmp ne i32 %39, 0
   tail call void @llvm.assume(i1 %40)
   %41 = icmp sgt i32 %39, -1
   tail call void @llvm.assume(i1 %41)

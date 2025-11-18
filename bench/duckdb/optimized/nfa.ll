@@ -735,8 +735,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZStlsISt11char_tra
   store ptr %.2, ptr %68, align 8, !tbaa !105
   br label %.backedge
 
-.backedge:                                        ; preds = %174, %88, %168
-  %.sink = phi i32 [ 1, %88 ], [ %170, %168 ], [ 1, %174 ]
+.backedge:                                        ; preds = %174, %88, %169
+  %.sink = phi i32 [ 1, %88 ], [ %170, %169 ], [ 1, %174 ]
   %91 = add nsw i32 %.sroa.065.0, %.sink
   br label %39
 
@@ -889,12 +889,12 @@ _ZN10duckdb_re23NFA11AllocThreadEv.exit:          ; preds = %116, %_ZNSt5dequeIN
   store i32 %165, ptr %.2, align 8, !tbaa !120
   store ptr %.2, ptr %68, align 8, !tbaa !105
   %166 = load i16, ptr %151, align 2, !tbaa !120
-  %167 = icmp ult i16 %166, 2
-  br i1 %167, label %.loopexit, label %168
+  %167 = lshr i16 %166, 1
+  %168 = icmp eq i16 %167, 0
+  br i1 %168, label %.loopexit, label %169
 
-168:                                              ; preds = %163
-  %169 = lshr i16 %166, 1
-  %170 = zext nneg i16 %169 to i32
+169:                                              ; preds = %163
+  %170 = zext nneg i16 %167 to i32
   br label %.backedge
 
 171:                                              ; preds = %_ZN10duckdb_re211SparseArrayIPNS_3NFA6ThreadEE7set_newEiRKS3_.exit

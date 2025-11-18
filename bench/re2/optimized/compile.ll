@@ -2083,7 +2083,7 @@ if.end:                                           ; preds = %if.then
   br label %return
 
 if.end6:                                          ; preds = %entry
-  %cmp7 = icmp ult i64 %0, 4294967296
+  %cmp7 = icmp eq i64 %f.sroa.6.0.extract.shift, 0
   br i1 %cmp7, label %if.end6.if.end21_crit_edge, label %if.else
 
 if.end6.if.end21_crit_edge:                       ; preds = %if.end6

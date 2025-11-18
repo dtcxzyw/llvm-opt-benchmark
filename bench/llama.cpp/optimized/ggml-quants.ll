@@ -17949,7 +17949,7 @@ best_index_int8.exit280:                          ; preds = %286, %291, %302
   %318 = shl nsw i64 %indvars.iv92, 5
   %319 = shl nsw i64 %indvars.iv92, 4
   %invariant.gep = getelementptr inbounds nuw i8, ptr %8, i64 %318
-  %invariant.gep109 = getelementptr inbounds nuw i8, ptr %3, i64 %319
+  %invariant.gep112 = getelementptr inbounds nuw i8, ptr %3, i64 %319
   br label %321
 
 ._crit_edge37:                                    ; preds = %320
@@ -17968,8 +17968,8 @@ best_index_int8.exit280:                          ; preds = %286, %291, %302
   %324 = load i8, ptr %323, align 1, !tbaa !13
   %325 = shl i8 %324, 4
   %326 = or i8 %325, %322
-  %gep110 = getelementptr inbounds nuw i8, ptr %invariant.gep109, i64 %indvars.iv88
-  store i8 %326, ptr %gep110, align 1, !tbaa !13
+  %gep113 = getelementptr inbounds nuw i8, ptr %invariant.gep112, i64 %indvars.iv88
+  store i8 %326, ptr %gep113, align 1, !tbaa !13
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next89, 16
   br i1 %exitcond91.not, label %320, label %321, !llvm.loop !1097

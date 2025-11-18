@@ -1439,7 +1439,7 @@ define void @_ZN5faiss27compute_PQ_dis_tables_dsub2EmmPKfmS1_bPf(i64 noundef %0,
   br i1 %26, label %.preheader107, label %307
 
 .preheader107:                                    ; preds = %7
-  %.not = icmp ult i64 %0, 2
+  %.not = icmp eq i64 %24, 0
   br i1 %.not, label %._crit_edge124, label %.lr.ph123
 
 .lr.ph123:                                        ; preds = %.preheader107

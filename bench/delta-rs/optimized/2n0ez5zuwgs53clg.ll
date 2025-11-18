@@ -48137,7 +48137,7 @@ define hidden noundef range(i64 1, 0) i64 @"_ZN56_$LT$i64$u20$as$u20$integer_enc
   %.01927 = phi i64 [ %10, %.lr.ph ], [ %6, %3 ]
   %9 = add nuw nsw i64 %.128, 1
   %10 = lshr i64 %.01927, 7
-  %.not = icmp ult i64 %.01927, 128
+  %.not = icmp eq i64 %10, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 11:                                               ; preds = %.loopexit
@@ -61710,7 +61710,7 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
   %.01927.i = phi i64 [ %12, %.lr.ph.i ], [ %7, %3 ]
   %11 = add nuw nsw i64 %.128.i, 1
   %12 = lshr i64 %.01927.i, 7
-  %.not.i = icmp ult i64 %.01927.i, 128
+  %.not.i = icmp eq i64 %12, 0
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i
 
 13:                                               ; preds = %.loopexit.i
@@ -61832,7 +61832,7 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
   %.01927.i = phi i64 [ %12, %.lr.ph.i ], [ %7, %3 ]
   %11 = add nuw nsw i64 %.128.i, 1
   %12 = lshr i64 %.01927.i, 7
-  %.not.i = icmp ult i64 %.01927.i, 128
+  %.not.i = icmp eq i64 %12, 0
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i
 
 13:                                               ; preds = %.loopexit.i
@@ -62134,7 +62134,7 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
   %.01927.i = phi i64 [ %12, %.lr.ph.i ], [ %7, %3 ]
   %11 = add nuw nsw i64 %.128.i, 1
   %12 = lshr i64 %.01927.i, 7
-  %.not.i = icmp ult i64 %.01927.i, 128
+  %.not.i = icmp eq i64 %12, 0
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i
 
 13:                                               ; preds = %.loopexit.i
@@ -62438,7 +62438,7 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
   %.01927.i = phi i64 [ %12, %.lr.ph.i ], [ %7, %3 ]
   %11 = add nuw nsw i64 %.128.i, 1
   %12 = lshr i64 %.01927.i, 7
-  %.not.i = icmp ult i64 %.01927.i, 128
+  %.not.i = icmp eq i64 %12, 0
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i
 
 13:                                               ; preds = %.loopexit.i

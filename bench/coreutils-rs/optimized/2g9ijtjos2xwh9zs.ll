@@ -5208,7 +5208,7 @@ common.resume:                                    ; preds = %207, %28
   %125 = lshr i64 %123, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1384)
   call void @llvm.experimental.noalias.scope.decl(metadata !1387)
-  %.not.i.i = icmp ult i64 %123, 2
+  %.not.i.i = icmp eq i64 %125, 0
   br i1 %.not.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hf89b29a95cac8a7bE.exit", label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %122
@@ -5693,7 +5693,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9mergesort17h9
           to label %43 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hf89b29a95cac8a7bE.exit": ; preds = %_ZN4core3ptr19swap_nonoverlapping17h45446940a5c53ec3E.exit.i.i, %.thread.thread, %51
-  %.080 = phi i64 [ %.2, %51 ], [ %.3280395, %.thread.thread ], [ %.3280395, %_ZN4core3ptr19swap_nonoverlapping17h45446940a5c53ec3E.exit.i.i ]
+  %.080 = phi i64 [ %.2, %51 ], [ %.3280396, %.thread.thread ], [ %.3280396, %_ZN4core3ptr19swap_nonoverlapping17h45446940a5c53ec3E.exit.i.i ]
   %.not94230 = icmp ne i64 %.080, 0
   %30 = sub i64 %.079273, %.080
   %31 = icmp ult i64 %30, 10
@@ -5707,7 +5707,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9mergesort17h9
   br i1 %32, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %34, label %.invoke469, label %.invoke
+  br i1 %34, label %.invoke470, label %.invoke
 
 .loopexit144:                                     ; preds = %216
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -5729,7 +5729,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9mergesort17h9
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke471, %.invoke469, %.invoke, %204
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke472, %.invoke470, %.invoke, %204
   %lpad.loopexit.split-lp152 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -5836,16 +5836,16 @@ define hidden noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9mergesort17h9
 
 .thread:                                          ; preds = %73
   %75 = icmp ugt i64 %.3, %.079273
-  br i1 %75, label %.invoke469, label %.thread.thread
+  br i1 %75, label %.invoke470, label %.thread.thread
 
 .thread.thread:                                   ; preds = %71, %.thread
-  %.3280395 = phi i64 [ %.3, %.thread ], [ 0, %71 ]
-  %76 = sub nuw i64 %.079273, %.3280395
-  %77 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i64 %.3280395
+  %.3280396 = phi i64 [ %.3, %.thread ], [ 0, %71 ]
+  %76 = sub nuw i64 %.079273, %.3280396
+  %77 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i64 %.3280396
   %78 = lshr i64 %76, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1487)
   call void @llvm.experimental.noalias.scope.decl(metadata !1490)
-  %.not.i.i = icmp ult i64 %76, 2
+  %.not.i.i = icmp eq i64 %78, 0
   br i1 %.not.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hf89b29a95cac8a7bE.exit", label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %.thread.thread
@@ -5912,7 +5912,7 @@ _ZN4core3ptr19swap_nonoverlapping17h45446940a5c53ec3E.exit.i.i: ; preds = %84
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN5rayon5slice9mergesort11insert_head17hc3f026430ad36930E.exit
   %.181232 = phi i64 [ %103, %_ZN5rayon5slice9mergesort11insert_head17hc3f026430ad36930E.exit ], [ %.080, %.lr.ph ]
   %103 = add i64 %.181232, -1
-  br i1 %34, label %.invoke469, label %104
+  br i1 %34, label %.invoke470, label %104
 
 104:                                              ; preds = %.lr.ph.split
   %105 = sub i64 %.079273, %103
@@ -5990,7 +5990,7 @@ _ZN4core3ptr19swap_nonoverlapping17h45446940a5c53ec3E.exit.i.i: ; preds = %84
   %.sroa.4.0.i.ph = phi i64 [ %133, %.thread18.i ], [ %131, %130 ]
   %139 = add nuw i64 %.sroa.4.0.i.ph, 1
   %140 = icmp ult i64 %139, %storemerge265
-  br i1 %140, label %141, label %.invoke471, !prof !1374
+  br i1 %140, label %141, label %.invoke472, !prof !1374
 
 141:                                              ; preds = %138
   %142 = getelementptr inbounds { i64, i64 }, ptr %108, i64 %139
@@ -6003,20 +6003,20 @@ _ZN4core3ptr19swap_nonoverlapping17h45446940a5c53ec3E.exit.i.i: ; preds = %84
   %149 = load i64, ptr %148, align 8, !noundef !18
   %150 = add i64 %149, %147
   %151 = icmp ugt i64 %143, %150
-  br i1 %151, label %.invoke469, label %152
+  br i1 %151, label %.invoke470, label %152
 
 152:                                              ; preds = %141
   %153 = icmp ugt i64 %150, %1
   br i1 %153, label %.invoke, label %159
 
-.invoke469:                                       ; preds = %.thread, %.lr.ph.split, %141, %.lr.ph.split.us
+.invoke470:                                       ; preds = %.thread, %.lr.ph.split, %141, %.lr.ph.split.us
   %154 = phi i64 [ %33, %.lr.ph.split.us ], [ %143, %141 ], [ %103, %.lr.ph.split ], [ %.3, %.thread ]
   %155 = phi i64 [ %.079273, %.lr.ph.split.us ], [ %150, %141 ], [ %.079273, %.lr.ph.split ], [ %.079273, %.thread ]
   %156 = phi ptr [ @anon.5510db2c7e61de0b2d2879ef0cabf3d4.100, %.lr.ph.split.us ], [ @anon.5510db2c7e61de0b2d2879ef0cabf3d4.97, %141 ], [ @anon.5510db2c7e61de0b2d2879ef0cabf3d4.100, %.lr.ph.split ], [ @anon.5510db2c7e61de0b2d2879ef0cabf3d4.94, %.thread ]
   invoke void @_ZN4core5slice5index22slice_index_order_fail17h2e9882225a126cdcE(i64 noundef %154, i64 noundef %155, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %156) #41
-          to label %.cont470 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.cont471 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.cont470:                                         ; preds = %.invoke469
+.cont471:                                         ; preds = %.invoke470
   unreachable
 
 .invoke:                                          ; preds = %152, %.lr.ph.split.us
@@ -6134,7 +6134,7 @@ _ZN4core3ptr19swap_nonoverlapping17h45446940a5c53ec3E.exit.i.i: ; preds = %84
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.17.1.i, ptr align 8 %.sroa.0.0.i124, i64 %195, i1 false), !noalias !1524
   %196 = load i64, ptr %10, align 8, !noundef !18
   %197 = icmp ult i64 %.sroa.4.0.i.ph, %196
-  br i1 %197, label %198, label %.invoke471, !prof !1374
+  br i1 %197, label %198, label %.invoke472, !prof !1374
 
 198:                                              ; preds = %.loopexit
   %199 = load ptr, ptr %9, align 8, !nonnull !18, !noundef !18
@@ -6169,14 +6169,14 @@ _ZN4core3ptr19swap_nonoverlapping17h45446940a5c53ec3E.exit.i.i: ; preds = %84
   %212 = icmp ugt i64 %210, 1
   br i1 %212, label %.lr.ph266, label %._crit_edge267
 
-.invoke471:                                       ; preds = %.loopexit, %138
+.invoke472:                                       ; preds = %.loopexit, %138
   %213 = phi i64 [ %139, %138 ], [ %.sroa.4.0.i.ph, %.loopexit ]
   %214 = phi i64 [ %storemerge265, %138 ], [ %196, %.loopexit ]
   %215 = phi ptr [ @anon.5510db2c7e61de0b2d2879ef0cabf3d4.95, %138 ], [ @anon.5510db2c7e61de0b2d2879ef0cabf3d4.98, %.loopexit ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %213, i64 noundef %214, ptr noalias noundef readonly align 8 dereferenceable(24) %215) #41
-          to label %.cont472 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.cont473 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.cont472:                                         ; preds = %.invoke471
+.cont473:                                         ; preds = %.invoke472
   unreachable
 
 216:                                              ; preds = %104

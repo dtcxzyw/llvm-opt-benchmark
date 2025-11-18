@@ -8434,7 +8434,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIPSt5arrayIiLm2EElN9__gnu_cxx5__
   %50 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.01316.i.i.i.i.i
   %51 = load i64, ptr %47, align 4, !tbaa !17
   store i64 %51, ptr %50, align 4, !tbaa !17
-  %.not11.i.i.i = icmp ult i64 %.017.in.i.i.i.i.i, 2
+  %.not11.i.i.i = icmp eq i64 %.017.i.i910.i.i.i, 0
   br i1 %.not11.i.i.i, label %.critedge.loopexit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !153
 
 .critedge.loopexit.i.i.i.i.i:                     ; preds = %49, %.lr.ph.i.i.i.i.i
@@ -8888,7 +8888,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIPSt5arrayIfLm2EElN9__gnu_cxx5__
   %51 = getelementptr inbounds %"struct.std::array.56", ptr %0, i64 %.01316.i.i.i.i.i
   %52 = load i64, ptr %48, align 4, !tbaa !17
   store i64 %52, ptr %51, align 4, !tbaa !17
-  %.not11.i.i.i = icmp ult i64 %.017.in.i.i.i.i.i, 2
+  %.not11.i.i.i = icmp eq i64 %.017.i.i910.i.i.i, 0
   br i1 %.not11.i.i.i, label %.critedge.loopexit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !162
 
 .critedge.loopexit.i.i.i.i.i:                     ; preds = %50, %.lr.ph.i.i.i.i.i

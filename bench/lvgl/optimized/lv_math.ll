@@ -230,7 +230,7 @@ define void @lv_sqrt(i32 noundef %0, ptr noundef writeonly captures(none) %1, i3
   %.not = icmp ugt i32 %7, %4
   %spec.select = select i1 %.not, i32 %.0, i32 %6
   %8 = lshr i32 %.012, 1
-  %.not14 = icmp ult i32 %.012, 2
+  %.not14 = icmp eq i32 %8, 0
   br i1 %.not14, label %9, label %5, !llvm.loop !10
 
 9:                                                ; preds = %5
@@ -524,7 +524,7 @@ define i64 @lv_pow(i64 noundef %0, i8 noundef signext %1) local_unnamed_addr #1 
   %spec.select = mul nsw i64 %4, %.014
   %5 = ashr i8 %.0813, 1
   %6 = mul nsw i64 %.0912, %.0912
-  %.not = icmp ult i8 %.0813, 2
+  %.not = icmp eq i8 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2

@@ -2351,7 +2351,7 @@ define internal fastcc void @CopyBW2Grey8(ptr noundef readonly captures(none) %0
 .lr.ph55:                                         ; preds = %6
   %10 = sext i32 %1 to i64
   %11 = zext nneg i32 %3 to i64
-  %.not60 = icmp samesign ult i32 %4, 8
+  %.not60 = icmp eq i32 %7, 0
   %.not37 = icmp eq i32 %8, 0
   br i1 %.not60, label %.lr.ph55.split, label %.lr.ph55.split.us
 

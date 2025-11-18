@@ -5863,7 +5863,7 @@ av_ts_make_string.exit.i:                         ; preds = %130, %129
   %184 = sitofp i32 %.sroa.2.0.extract.trunc.i79.i.i to double
   %185 = fdiv nsz double %183, %184
   %186 = fcmp nsz ule double %181, %185
-  %187 = icmp ugt i64 %178, 4294967295
+  %187 = icmp ne i64 %.sroa.2.0.extract.shift.i.i.i, 0
   %or.cond5.i.i = and i1 %187, %186
   br i1 %or.cond5.i.i, label %189, label %188
 

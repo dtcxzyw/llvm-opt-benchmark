@@ -1029,7 +1029,7 @@ for.body.i:                                       ; preds = %if.then, %for.body.
   %n.addr.04.i = phi i64 [ %shr.i, %for.body.i ], [ %sub.ptr.div, %if.then ]
   %shr.i = ashr i64 %n.addr.04.i, 1
   %inc.i = add nuw nsw i32 %i.05.i, 1
-  %tobool.not.i = icmp ult i64 %n.addr.04.i, 2
+  %tobool.not.i = icmp eq i64 %shr.i, 0
   br i1 %tobool.not.i, label %_ZN5eastl8Internal4Log2IlEET_S2_.exit, label %for.body.i, !llvm.loop !15
 
 _ZN5eastl8Internal4Log2IlEET_S2_.exit:            ; preds = %for.body.i

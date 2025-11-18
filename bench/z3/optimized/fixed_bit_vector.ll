@@ -40,14 +40,14 @@ define hidden void @_ZN16fixed_bit_vector3setERKS_jj(ptr noundef nonnull align 4
 9:                                                ; preds = %4
   %10 = sub i32 %2, %3
   %11 = add i32 %10, 1
-  %.not39 = icmp ult i32 %11, 32
+  %12 = lshr i32 %11, 5
+  %.not39 = icmp eq i32 %12, 0
   br i1 %.not39, label %._crit_edge, label %.lr.ph35.preheader
 
 .lr.ph35.preheader:                               ; preds = %9
-  %12 = lshr exact i32 %3, 5
-  %13 = lshr i32 %11, 5
-  %14 = zext nneg i32 %12 to i64
-  %wide.trip.count = zext nneg i32 %13 to i64
+  %13 = lshr exact i32 %3, 5
+  %14 = zext nneg i32 %13 to i64
+  %wide.trip.count = zext nneg i32 %12 to i64
   %invariant.gep = getelementptr inbounds nuw i32, ptr %0, i64 %14
   br label %.lr.ph35
 
@@ -63,8 +63,8 @@ define hidden void @_ZN16fixed_bit_vector3setERKS_jj(ptr noundef nonnull align 4
   %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
   store i32 %17, ptr %gep, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond44.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond44.not, label %._crit_edge, label %.lr.ph35, !llvm.loop !7
+  %exitcond43.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond43.not, label %._crit_edge, label %.lr.ph35, !llvm.loop !7
 
 .lr.ph38:                                         ; preds = %._crit_edge, %.lr.ph38
   %.02836 = phi i32 [ %34, %.lr.ph38 ], [ %15, %._crit_edge ]

@@ -2521,18 +2521,18 @@ Gia_ObjIsPi.exit.thread.i:                        ; preds = %Gia_ObjIsPi.exit.i,
   %218 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val41.i, i64 %217
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 8
   %220 = load i32, ptr %219, align 4, !tbaa !3
-  %221 = icmp ult i32 %220, 2
-  br i1 %221, label %Gia_ObjUnrReadCi.exit, label %222
+  %221 = ashr i32 %220, 1
+  %222 = icmp eq i32 %221, 0
+  br i1 %222, label %Gia_ObjUnrReadCi.exit, label %223
 
-222:                                              ; preds = %203
-  %223 = ashr i32 %220, 1
+223:                                              ; preds = %203
   %.val64.i = load ptr, ptr %28, align 8, !tbaa !73
   %224 = getelementptr i8, ptr %.val64.i, i64 8
   %.val64.val.i = load ptr, ptr %224, align 8, !tbaa !33
   %.val63.i = load ptr, ptr %29, align 8, !tbaa !71
   %225 = getelementptr i8, ptr %.val63.i, i64 8
   %.val63.val.i = load ptr, ptr %225, align 8, !tbaa !33
-  %226 = sext i32 %223 to i64
+  %226 = sext i32 %221 to i64
   %227 = getelementptr inbounds i32, ptr %.val63.val.i, i64 %226
   %228 = load i32, ptr %227, align 4, !tbaa !34
   %229 = sext i32 %228 to i64
@@ -2541,8 +2541,8 @@ Gia_ObjIsPi.exit.thread.i:                        ; preds = %Gia_ObjIsPi.exit.i,
   %232 = load i32, ptr %231, align 4, !tbaa !34
   br label %Gia_ObjUnrReadCi.exit
 
-Gia_ObjUnrReadCi.exit:                            ; preds = %222, %203, %196, %169, %157, %135, %136, %Gia_ObjUnrReadCopy0.exit92, %139, %Gia_ObjUnrReadCopy1.exit
-  %.3 = phi i32 [ %106, %Gia_ObjUnrReadCopy1.exit ], [ %130, %135 ], [ %130, %136 ], [ %130, %Gia_ObjUnrReadCopy0.exit92 ], [ %.2100, %139 ], [ %168, %157 ], [ %202, %196 ], [ 0, %169 ], [ %232, %222 ], [ 0, %203 ]
+Gia_ObjUnrReadCi.exit:                            ; preds = %223, %203, %196, %169, %157, %135, %136, %Gia_ObjUnrReadCopy0.exit92, %139, %Gia_ObjUnrReadCopy1.exit
+  %.3 = phi i32 [ %106, %Gia_ObjUnrReadCopy1.exit ], [ %130, %135 ], [ %130, %136 ], [ %130, %Gia_ObjUnrReadCopy0.exit92 ], [ %.2100, %139 ], [ %168, %157 ], [ %202, %196 ], [ 0, %169 ], [ %232, %223 ], [ 0, %203 ]
   %.val72 = load ptr, ptr %29, align 8, !tbaa !71
   %.val73 = load ptr, ptr %28, align 8, !tbaa !73
   %233 = getelementptr i8, ptr %.val72, i64 8

@@ -22892,7 +22892,7 @@ define noundef zeroext i1 @_ZN6duckdb15ExtensionHelper23CheckExtensionSignatureE
   %16 = lshr i64 %15, 20
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  %.not.i.i.i.i.i = icmp ult i64 %15, 1048576
+  %.not.i.i.i.i.i = icmp eq i64 %16, 0
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.i.i
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.i.i: ; preds = %3
@@ -60723,7 +60723,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.u
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.us, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.us
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %26 = lshr i64 %.0.us, 4
-  %.not.us = icmp ult i64 %.0.us, 16
+  %.not.us = icmp eq i64 %26, 0
   br i1 %.not.us, label %.split12.us, label %.split.us, !llvm.loop !1314
 
 .split10.us:                                      ; preds = %.split.us
@@ -60822,7 +60822,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %55 = lshr i64 %.0, 4
-  %.not = icmp ult i64 %.0, 16
+  %.not = icmp eq i64 %55, 0
   br i1 %.not, label %.split12.us, label %.split, !llvm.loop !1314
 
 .split10:                                         ; preds = %.split

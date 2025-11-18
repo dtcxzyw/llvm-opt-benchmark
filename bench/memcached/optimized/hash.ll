@@ -298,15 +298,12 @@ define internal fastcc i64 @XXH3_hashLong_64b_default(ptr noalias noundef readon
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, ptr noundef nonnull align 16 dereferenceable(64) @__const.XXH3_hashLong_64b_internal.acc, i64 64, i1 false), !noalias !18
   %4 = add i64 %1, -1
-  %.not = icmp ult i64 %4, 1024
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %2
   %5 = lshr i64 %4, 10
-  br label %.lr.ph
+  %.not = icmp eq i64 %5, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %XXH3_scrambleAcc_sse2.exit.i
-  %.0.i4 = phi i64 [ %48, %XXH3_scrambleAcc_sse2.exit.i ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %2, %XXH3_scrambleAcc_sse2.exit.i
+  %.0.i4 = phi i64 [ %48, %XXH3_scrambleAcc_sse2.exit.i ], [ 0, %2 ]
   %6 = shl nuw i64 %.0.i4, 10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)

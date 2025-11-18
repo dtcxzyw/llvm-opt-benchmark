@@ -92,7 +92,7 @@ define internal i32 @read_header(ptr noundef %0) #1 {
   %48 = lshr i32 %47, 3
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %48, ptr %49, align 4, !tbaa !43
-  %50 = icmp eq i16 %45, 0
+  %50 = icmp eq i32 %48, 0
   br i1 %50, label %.loopexit, label %51
 
 51:                                               ; preds = %8

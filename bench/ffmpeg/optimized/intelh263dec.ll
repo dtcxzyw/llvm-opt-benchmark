@@ -284,15 +284,15 @@ check_marker.exit:                                ; preds = %23
 174:                                              ; preds = %164
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %36, i32 noundef 16, ptr noundef nonnull @.str.6) #5
   %.pre = load i32, ptr %3, align 8, !tbaa !4
-  %.pre103 = load ptr, ptr %2, align 8, !tbaa !13
-  %.pre104 = load i32, ptr %8, align 8, !tbaa !12
-  %.pre105 = load ptr, ptr %35, align 8, !tbaa !15
+  %.pre105 = load ptr, ptr %2, align 8, !tbaa !13
+  %.pre106 = load i32, ptr %8, align 8, !tbaa !12
+  %.pre107 = load ptr, ptr %35, align 8, !tbaa !15
   br label %175
 
 175:                                              ; preds = %174, %164
-  %176 = phi ptr [ %.pre105, %174 ], [ %36, %164 ]
-  %177 = phi i32 [ %.pre104, %174 ], [ %9, %164 ]
-  %178 = phi ptr [ %.pre103, %174 ], [ %10, %164 ]
+  %176 = phi ptr [ %.pre107, %174 ], [ %36, %164 ]
+  %177 = phi i32 [ %.pre106, %174 ], [ %9, %164 ]
+  %178 = phi ptr [ %.pre105, %174 ], [ %10, %164 ]
   %179 = phi i32 [ %.pre, %174 ], [ %173, %164 ]
   %180 = lshr i32 %179, 3
   %181 = zext nneg i32 %180 to i64
@@ -330,15 +330,15 @@ check_marker.exit:                                ; preds = %23
 
 205:                                              ; preds = %175
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %176, i32 noundef 16, ptr noundef nonnull @.str.6) #5
-  %.pre106 = load i32, ptr %3, align 8, !tbaa !4
-  %.pre107 = load ptr, ptr %2, align 8, !tbaa !13
-  %.pre108 = load i32, ptr %8, align 8, !tbaa !12
+  %.pre108 = load i32, ptr %3, align 8, !tbaa !4
+  %.pre109 = load ptr, ptr %2, align 8, !tbaa !13
+  %.pre110 = load i32, ptr %8, align 8, !tbaa !12
   br label %206
 
 206:                                              ; preds = %205, %175
-  %207 = phi i32 [ %.pre108, %205 ], [ %177, %175 ]
-  %208 = phi ptr [ %.pre107, %205 ], [ %178, %175 ]
-  %209 = phi i32 [ %.pre106, %205 ], [ %spec.select.i99, %175 ]
+  %207 = phi i32 [ %.pre110, %205 ], [ %177, %175 ]
+  %208 = phi ptr [ %.pre109, %205 ], [ %178, %175 ]
+  %209 = phi i32 [ %.pre108, %205 ], [ %spec.select.i99, %175 ]
   %210 = lshr i32 %209, 3
   %211 = zext nneg i32 %210 to i64
   %212 = getelementptr inbounds nuw i8, ptr %208, i64 %211
@@ -375,15 +375,15 @@ check_marker.exit:                                ; preds = %23
 231:                                              ; preds = %221
   %232 = load ptr, ptr %35, align 8, !tbaa !15
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %232, i32 noundef 16, ptr noundef nonnull @.str.6) #5
-  %.pre109 = load i32, ptr %3, align 8, !tbaa !4
-  %.pre110 = load i32, ptr %8, align 8, !tbaa !12
-  %.pre111 = load ptr, ptr %2, align 8, !tbaa !13
+  %.pre111 = load i32, ptr %3, align 8, !tbaa !4
+  %.pre112 = load i32, ptr %8, align 8, !tbaa !12
+  %.pre113 = load ptr, ptr %2, align 8, !tbaa !13
   br label %233
 
 233:                                              ; preds = %231, %221
-  %234 = phi ptr [ %.pre111, %231 ], [ %208, %221 ]
-  %235 = phi i32 [ %.pre110, %231 ], [ %207, %221 ]
-  %236 = phi i32 [ %.pre109, %231 ], [ %230, %221 ]
+  %234 = phi ptr [ %.pre113, %231 ], [ %208, %221 ]
+  %235 = phi i32 [ %.pre112, %231 ], [ %207, %221 ]
+  %236 = phi i32 [ %.pre111, %231 ], [ %230, %221 ]
   %237 = lshr i32 %236, 3
   %238 = zext nneg i32 %237 to i64
   %239 = getelementptr inbounds nuw i8, ptr %234, i64 %238
@@ -394,8 +394,8 @@ check_marker.exit:                                ; preds = %23
   %244 = add i32 %236, 5
   %245 = tail call i32 @llvm.umin.i32(i32 %235, i32 %244)
   store i32 %245, ptr %3, align 8, !tbaa !4
-  %.mask102 = and i32 %243, -134217728
-  %.not90 = icmp eq i32 %.mask102, 134217728
+  %.mask104 = and i32 %243, -134217728
+  %.not90 = icmp eq i32 %.mask104, 134217728
   br i1 %.not90, label %248, label %246
 
 246:                                              ; preds = %233
@@ -472,14 +472,14 @@ check_marker.exit:                                ; preds = %23
   %301 = getelementptr inbounds nuw %struct.AVRational, ptr @ff_h263_pixel_aspect, i64 %300
   %302 = load i64, ptr %301, align 8
   store i64 %302, ptr %299, align 8
-  %.pre112 = load ptr, ptr %35, align 8, !tbaa !15
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre112, i64 128
-  %.pre113 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !50
+  %.pre114 = load ptr, ptr %35, align 8, !tbaa !15
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre114, i64 128
+  %.pre115 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !50
   br label %303
 
 303:                                              ; preds = %297, %272
-  %304 = phi i32 [ %.pre113, %297 ], [ %281, %272 ]
-  %305 = phi ptr [ %.pre112, %297 ], [ %284, %272 ]
+  %304 = phi i32 [ %.pre115, %297 ], [ %281, %272 ]
+  %305 = phi ptr [ %.pre114, %297 ], [ %284, %272 ]
   %306 = icmp eq i32 %304, 0
   br i1 %306, label %307, label %308
 

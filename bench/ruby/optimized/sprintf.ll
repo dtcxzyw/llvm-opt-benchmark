@@ -5992,7 +5992,7 @@ exponent.exit782:                                 ; preds = %388, %.lr.ph.prehea
   %700 = getelementptr i8, ptr %.3.i785, i64 -1
   store i8 %699, ptr %700, align 1, !tbaa !21
   %701 = lshr i64 %.031.i, 3
-  %.not35.i = icmp ult i64 %.031.i, 8
+  %.not35.i = icmp eq i64 %701, 0
   br i1 %.not35.i, label %702, label %.preheader.i784, !llvm.loop !177
 
 702:                                              ; preds = %.preheader.i784
@@ -6015,7 +6015,7 @@ exponent.exit782:                                 ; preds = %388, %.lr.ph.prehea
   %708 = getelementptr i8, ptr %.4.i, i64 -1
   store i8 %707, ptr %708, align 1, !tbaa !21
   %709 = lshr i64 %.132.i, 4
-  %.not.i783 = icmp ult i64 %.132.i, 16
+  %.not.i783 = icmp eq i64 %709, 0
   br i1 %.not.i783, label %BSD__ultoa.exit, label %.preheader39.i, !llvm.loop !178
 
 .unreachabledefault:                              ; preds = %676

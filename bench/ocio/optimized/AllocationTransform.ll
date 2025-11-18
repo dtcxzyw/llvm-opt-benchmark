@@ -702,7 +702,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_5devl
   unreachable
 
 _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
-  %.not.i.i.i.i = icmp ult i64 %sext, 4294967296
+  %.not.i.i.i.i = icmp eq i64 %16, 0
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit, label %.noexc26
 
 .noexc26:                                         ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
@@ -912,7 +912,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev17BuildAllocationOpERNS_10OpRcPtrVec
   %sext = shl i64 %21, 30
   %22 = ashr i64 %sext, 32
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.not = icmp ult i64 %sext, 4294967296
+  %.not = icmp eq i64 %22, 0
   br i1 %.not, label %_ZNK19OpenColorIO_v2_5dev19AllocationTransform7getVarsEPf.exit, label %24
 
 24:                                               ; preds = %3

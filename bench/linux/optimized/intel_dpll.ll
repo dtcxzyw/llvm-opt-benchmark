@@ -711,7 +711,7 @@ define internal fastcc zeroext i1 @chv_find_best_dpll(ptr noundef readonly captu
   br i1 %58, label %67, label %59
 
 59:                                               ; preds = %48
-  %60 = icmp samesign ugt i64 %49, 2199999
+  %60 = icmp ne i64 %56, 0
   %61 = icmp slt i32 %44, 1
   %62 = xor i1 %61, %60
   %63 = select i1 %62, i32 2, i32 -2

@@ -17603,7 +17603,7 @@ _ZN5clang10extractapi20DeclarationFragments6appendEN4llvm9StringRefENS1_12Fragme
   %36 = trunc i64 %.pre to i32
   %37 = lshr i32 %36, 16
   store i32 %37, ptr %20, align 4, !tbaa !287
-  %.not = icmp ult i32 %36, 65536
+  %.not = icmp eq i32 %37, 0
   %.sink234.sroa.gep = getelementptr inbounds nuw i8, ptr %30, i64 16
   %.sink234.sroa.gep235 = getelementptr inbounds nuw i8, ptr %31, i64 16
   br i1 %.not, label %99, label %38

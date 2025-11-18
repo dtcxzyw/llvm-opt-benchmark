@@ -4167,7 +4167,7 @@ define internal fastcc void @write_codec_attr(ptr noundef readonly captures(none
   %111 = load i8, ptr %110, align 1, !tbaa !102
   %112 = lshr i8 %111, 4
   %113 = zext nneg i8 %112 to i32
-  %.not116 = icmp ult i8 %111, 16
+  %.not116 = icmp eq i8 %112, 0
   %114 = select i1 %.not116, ptr @.str.131, ptr @.str.130
   %115 = getelementptr inbounds nuw i8, ptr %94, i64 6
   %116 = load i8, ptr %115, align 1, !tbaa !102

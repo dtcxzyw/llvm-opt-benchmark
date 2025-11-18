@@ -507,7 +507,7 @@ define hidden void @_ZN11RegisterMapC2EPKS_(ptr noundef nonnull writeonly align 
 40:                                               ; preds = %36, %.lr.ph
   %41 = lshr i64 %.02226, 1
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
-  %.not = icmp ult i64 %.02226, 2
+  %.not = icmp eq i64 %41, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %40, %31

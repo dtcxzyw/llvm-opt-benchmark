@@ -3840,7 +3840,7 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__o
 144:                                              ; preds = %138
   %145 = getelementptr inbounds i64, ptr %.fr8.i.i.i, i64 %.010.i.i.i.i14.i
   store i64 %140, ptr %145, align 8, !tbaa !120
-  %.not9.i.i.i = icmp ult i64 %.0911.in.i.i.i.i15.i, 2
+  %.not9.i.i.i = icmp eq i64 %.0911.i.i78.i.i.i, 0
   br i1 %.not9.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_119Vec3iGreaterThanIdxEEEEvT_SC_SC_RT0_.exit.i.i, label %138, !llvm.loop !207
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_119Vec3iGreaterThanIdxEEEEvT_SC_SC_RT0_.exit.i.i: ; preds = %144, %138, %135

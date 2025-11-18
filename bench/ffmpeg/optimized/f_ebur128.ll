@@ -2765,7 +2765,7 @@ define internal void @drawtext(ptr noundef readonly captures(none) %0, i32 nound
 37:                                               ; preds = %36, %35
   %38 = getelementptr inbounds nuw i8, ptr %.135, i64 3
   %39 = lshr i32 %.02534, 1
-  %.not32 = icmp samesign ult i32 %.02534, 2
+  %.not32 = icmp eq i32 %39, 0
   br i1 %.not32, label %40, label %25, !llvm.loop !169
 
 40:                                               ; preds = %37

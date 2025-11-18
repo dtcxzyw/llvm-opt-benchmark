@@ -5047,7 +5047,7 @@ Vec_IntPush.exit83:                               ; preds = %.Vec_IntGrow.exit10
   %.0812.i = phi i32 [ %256, %.lr.ph.i84 ], [ %255, %.lr.ph.preheader.i ]
   %256 = lshr i32 %.0812.i, 4
   %257 = add nuw nsw i32 %.013.i, 1
-  %.not.i = icmp ult i32 %.0812.i, 16
+  %.not.i = icmp eq i32 %256, 0
   br i1 %.not.i, label %Abc_Base16Log.exit, label %.lr.ph.i84, !llvm.loop !75
 
 Abc_Base16Log.exit:                               ; preds = %.lr.ph.i84, %._crit_edge

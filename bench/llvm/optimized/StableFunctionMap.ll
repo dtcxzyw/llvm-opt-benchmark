@@ -2132,53 +2132,53 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImNS_11SmallVectorISt10unique_ptrINS_17Stable
   %41 = shl nuw nsw i64 %.010.i.i.i.i, 3
   %42 = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %41, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #24
   %.not.i.i.i.i = icmp eq ptr %42, null
-  br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %43
+  br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %44
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not14.i.i.i.i = icmp samesign ult i64 %.010.i.i.in.in.i.i, 3
-  br i1 %.not14.i.i.i.i, label %.thread.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !169
+  %43 = icmp eq i64 %.010.i.i.i.i, 1
+  br i1 %43, label %.thread.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !169
 
-43:                                               ; preds = %.lr.ph.i.i.i.i
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 %41
-  %45 = load i64, ptr %35, align 8, !tbaa !120
-  store i64 %45, ptr %42, align 8, !tbaa !120
+44:                                               ; preds = %.lr.ph.i.i.i.i
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 %41
+  %46 = load i64, ptr %35, align 8, !tbaa !120
+  store i64 %46, ptr %42, align 8, !tbaa !120
   %.not19.i.i.i.i.i = icmp eq i64 %.010.i.i.i.i, 1
-  %46 = inttoptr i64 %45 to ptr
-  br i1 %.not19.i.i.i.i.i, label %48, label %.lr.ph.i.i.preheader.i.i.i
+  %47 = inttoptr i64 %46 to ptr
+  br i1 %.not19.i.i.i.i.i, label %.lr.ph.i.i.i12.i.preheader.i, label %.lr.ph.i.i.preheader.i.i.i
 
-.lr.ph.i.i.preheader.i.i.i:                       ; preds = %43
+.lr.ph.i.i.preheader.i.i.i:                       ; preds = %44
   %.01518.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %42, i64 8
   %load_initial = load i64, ptr %42, align 8
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
   %.01521.i.i.i.i.i = phi ptr [ %.015.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.01518.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i ]
-  %.020.i.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i.i ], [ %42, %.lr.ph.i.i.preheader.i.i.i ]
+  %.020.i.i.i.i.i = phi ptr [ %48, %.lr.ph.i.i.i.i.i ], [ %42, %.lr.ph.i.i.preheader.i.i.i ]
   store i64 %load_initial, ptr %.01521.i.i.i.i.i, align 8, !tbaa !120
   store ptr null, ptr %.020.i.i.i.i.i, align 8, !tbaa !120
-  %47 = getelementptr inbounds nuw i8, ptr %.020.i.i.i.i.i, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.020.i.i.i.i.i, i64 8
   %.015.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.01521.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i = icmp eq ptr %.015.i.i.i.i.i, %44
+  %.not.i.i.i.i.i = icmp eq ptr %.015.i.i.i.i.i, %45
   br i1 %.not.i.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !170
 
 ._crit_edge.i.i.loopexit.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i
-  %.pre.i.i.i = load ptr, ptr %47, align 8, !tbaa !120
-  br label %48
+  %.pre.i.i.i = load ptr, ptr %48, align 8, !tbaa !120
+  br label %.lr.ph.i.i.i12.i.preheader.i
 
 .thread.i.i:                                      ; preds = %select.unfold.i.i.i.i
   call fastcc void @"_ZSt21__inplace_stable_sortIPSt10unique_ptrIN4llvm17StableFunctionMap19StableFunctionEntryESt14default_deleteIS3_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8finalizeEbE3$_0EEEvT_SD_T0_"(ptr noundef %35, ptr noundef nonnull %39, ptr nonnull %0)
   br label %"_ZSt11stable_sortIPSt10unique_ptrIN4llvm17StableFunctionMap19StableFunctionEntryESt14default_deleteIS3_EEZNS2_8finalizeEbE3$_0EvT_S9_T0_.exit"
 
-48:                                               ; preds = %._crit_edge.i.i.loopexit.i.i.i, %43
-  %49 = phi ptr [ %46, %43 ], [ %.pre.i.i.i, %._crit_edge.i.i.loopexit.i.i.i ]
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %42, %43 ], [ %47, %._crit_edge.i.i.loopexit.i.i.i ]
+.lr.ph.i.i.i12.i.preheader.i:                     ; preds = %._crit_edge.i.i.loopexit.i.i.i, %44
+  %49 = phi ptr [ %47, %44 ], [ %.pre.i.i.i, %._crit_edge.i.i.loopexit.i.i.i ]
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %42, %44 ], [ %48, %._crit_edge.i.i.loopexit.i.i.i ]
   store ptr null, ptr %.0.lcssa.i.i.i.i.i, align 8, !tbaa !120
   store ptr %49, ptr %35, align 8, !tbaa !120
   call fastcc void @"_ZSt22__stable_sort_adaptiveIPSt10unique_ptrIN4llvm17StableFunctionMap19StableFunctionEntryESt14default_deleteIS3_EES7_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8finalizeEbE3$_0EEEvT_SD_T0_T1_T2_"(ptr noundef nonnull %35, ptr noundef nonnull %39, ptr noundef nonnull %42, i64 noundef %.010.i.i.i.i, ptr nonnull %0)
   br label %.lr.ph.i.i.i12.i.i
 
-.lr.ph.i.i.i12.i.i:                               ; preds = %_ZSt8_DestroyISt10unique_ptrIN4llvm17StableFunctionMap19StableFunctionEntryESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i.i, %48
-  %.05.i.i.i.i.i = phi ptr [ %59, %_ZSt8_DestroyISt10unique_ptrIN4llvm17StableFunctionMap19StableFunctionEntryESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i.i ], [ %42, %48 ]
+.lr.ph.i.i.i12.i.i:                               ; preds = %_ZSt8_DestroyISt10unique_ptrIN4llvm17StableFunctionMap19StableFunctionEntryESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i.i, %.lr.ph.i.i.i12.i.preheader.i
+  %.05.i.i.i.i.i = phi ptr [ %59, %_ZSt8_DestroyISt10unique_ptrIN4llvm17StableFunctionMap19StableFunctionEntryESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i.i ], [ %42, %.lr.ph.i.i.i12.i.preheader.i ]
   %50 = load ptr, ptr %.05.i.i.i.i.i, align 8, !tbaa !120
   %.not.i.i.i.i.i.i.i = icmp eq ptr %50, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN4llvm17StableFunctionMap19StableFunctionEntryESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i.i, label %51
@@ -2206,7 +2206,7 @@ _ZNKSt14default_deleteIN4llvm17StableFunctionMap19StableFunctionEntryEEclEPS2_.e
 _ZSt8_DestroyISt10unique_ptrIN4llvm17StableFunctionMap19StableFunctionEntryESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm17StableFunctionMap19StableFunctionEntryEEclEPS2_.exit.i.i.i.i.i.i.i, %.lr.ph.i.i.i12.i.i
   store ptr null, ptr %.05.i.i.i.i.i, align 8, !tbaa !120
   %59 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
-  %.not.i.i.i13.i.i = icmp eq ptr %59, %44
+  %.not.i.i.i13.i.i = icmp eq ptr %59, %45
   br i1 %.not.i.i.i13.i.i, label %"_ZSt11stable_sortIPSt10unique_ptrIN4llvm17StableFunctionMap19StableFunctionEntryESt14default_deleteIS3_EEZNS2_8finalizeEbE3$_0EvT_S9_T0_.exit", label %.lr.ph.i.i.i12.i.i, !llvm.loop !171
 
 "_ZSt11stable_sortIPSt10unique_ptrIN4llvm17StableFunctionMap19StableFunctionEntryESt14default_deleteIS3_EEZNS2_8finalizeEbE3$_0EvT_S9_T0_.exit": ; preds = %_ZSt8_DestroyISt10unique_ptrIN4llvm17StableFunctionMap19StableFunctionEntryESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i.i, %.thread.i.i

@@ -93,11 +93,11 @@ if.else:                                          ; preds = %if.then15
 if.end32:                                         ; preds = %if.then22, %if.end
   %len.addr.0 = phi i64 [ %sub25, %if.then22 ], [ %len, %if.end ]
   %data.0 = phi ptr [ %add.ptr24, %if.then22 ], [ %data_, %if.end ]
-  %cmp33.not = icmp ult i64 %len.addr.0, 64
+  %div47 = lshr i64 %len.addr.0, 6
+  %cmp33.not = icmp eq i64 %div47, 0
   br i1 %cmp33.not, label %if.end38, label %if.then35
 
 if.then35:                                        ; preds = %if.end32
-  %div47 = lshr i64 %len.addr.0, 6
   tail call fastcc void @sha256_block_data_order(ptr noundef nonnull %c, ptr noundef %data.0, i64 noundef %div47)
   %mul = and i64 %len.addr.0, -64
   %add.ptr36 = getelementptr inbounds i8, ptr %data.0, i64 %mul
@@ -112,7 +112,7 @@ if.end38:                                         ; preds = %if.then35, %if.end3
 
 if.then41:                                        ; preds = %if.end38
   %data42 = getelementptr inbounds nuw i8, ptr %c, i64 40
-  %conv44 = trunc nuw nsw i64 %len.addr.1 to i32
+  %conv44 = trunc i64 %len.addr.1 to i32
   store i32 %conv44, ptr %num, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data42, ptr align 1 %data.1, i64 %len.addr.1, i1 false)
   br label %return
@@ -1483,11 +1483,11 @@ if.end32.i:                                       ; preds = %entry
   store i32 %conv8.i, ptr %Nh.i, align 4
   store i32 %shl.i, ptr %0, align 4
   %num.i = getelementptr inbounds nuw i8, ptr %c, i64 104
-  %cmp33.not.i = icmp ult i64 %n, 64
+  %div47.i = lshr i64 %n, 6
+  %cmp33.not.i = icmp eq i64 %div47.i, 0
   br i1 %cmp33.not.i, label %if.then41.i, label %if.end38.i
 
 if.end38.i:                                       ; preds = %if.end32.i
-  %div47.i = lshr i64 %n, 6
   call fastcc void @sha256_block_data_order(ptr noundef nonnull %c, ptr noundef %d, i64 noundef %div47.i)
   %mul.i = and i64 %n, -64
   %add.ptr36.i = getelementptr inbounds i8, ptr %d, i64 %mul.i
@@ -1499,7 +1499,7 @@ if.then41.i:                                      ; preds = %if.end32.i, %if.end
   %data.1.i21 = phi ptr [ %add.ptr36.i, %if.end38.i ], [ %d, %if.end32.i ]
   %len.addr.1.i20 = phi i64 [ %sub37.i, %if.end38.i ], [ %n, %if.end32.i ]
   %data42.i = getelementptr inbounds nuw i8, ptr %c, i64 40
-  %conv44.i = trunc nuw nsw i64 %len.addr.1.i20 to i32
+  %conv44.i = trunc i64 %len.addr.1.i20 to i32
   store i32 %conv44.i, ptr %num.i, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data42.i, ptr align 1 %data.1.i21, i64 %len.addr.1.i20, i1 false)
   br label %SHA256_Update.exit

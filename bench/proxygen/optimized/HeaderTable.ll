@@ -1703,12 +1703,12 @@ if.then19:                                        ; preds = %if.then
   %names_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %sizeAndChunkShiftAndPackedBegin_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %9 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i.i.i, align 8
-  %cmp.not.i.i = icmp ugt i64 %9, 255
+  %shr.i.i.i.i.i = lshr i64 %9, 8
+  %cmp.not.i.i.not = icmp eq i64 %shr.i.i.i.i.i, 0
   %10 = load ptr, ptr %names_, align 8
-  br i1 %cmp.not.i.i, label %for.body.preheader, label %if.end63
+  br i1 %cmp.not.i.i.not, label %if.end63, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.then19
-  %shr.i.i.i.i.i = lshr i64 %9, 8
   %add.ptr.i.i = getelementptr inbounds nuw %"struct.std::pair.8", ptr %10, i64 %shr.i.i.i.i.i
   br label %for.body
 

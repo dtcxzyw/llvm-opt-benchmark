@@ -31,8 +31,8 @@ define noundef i32 @"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2
   %7 = icmp samesign ugt i32 %4, 2139095039
   br i1 %7, label %8, label %9
 
-8:                                                ; preds = %52, %14, %13, %6, %1, %17
-  %.0 = phi i32 [ %.023, %17 ], [ 0, %1 ], [ -2147483648, %6 ], [ %., %13 ], [ %.33, %14 ], [ %.34, %52 ]
+8:                                                ; preds = %50, %14, %13, %6, %1, %17
+  %.0 = phi i32 [ %.023, %17 ], [ 0, %1 ], [ -2147483648, %6 ], [ %., %13 ], [ %.33, %14 ], [ %.34, %50 ]
   ret i32 %.0
 
 9:                                                ; preds = %6
@@ -53,7 +53,7 @@ define noundef i32 @"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2
 
 15:                                               ; preds = %11
   %16 = icmp samesign ult i32 %4, 58720257
-  br i1 %16, label %52, label %17
+  br i1 %16, label %50, label %17
 
 17:                                               ; preds = %15
   %18 = lshr i32 %2, 23
@@ -86,19 +86,16 @@ define noundef i32 @"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2
   %44 = add nuw i64 %43, %42
   %45 = lshr i64 %44, 32
   %46 = trunc nuw i64 %45 to i32
-  %47 = icmp slt i32 %23, 0
-  %48 = icmp ugt i32 %20, 3
-  %.35 = sext i1 %48 to i32
-  %.028.neg = select i1 %47, i32 1, i32 %.35
+  %.028.neg = tail call i32 @llvm.scmp.i32.i32(i32 0, i32 %23)
   %.024 = tail call i32 @llvm.abs.i32(i32 %23, i1 true)
-  %49 = icmp samesign ugt i32 %.024, 31
-  %.neg = select i1 %49, i32 %.028.neg, i32 0
-  %50 = add i32 %.neg, %46
-  %51 = sub i32 0, %50
-  %.023 = select i1 %.not, i32 %50, i32 %51
+  %47 = icmp samesign ugt i32 %.024, 31
+  %.neg = select i1 %47, i32 %.028.neg, i32 0
+  %48 = add i32 %.neg, %46
+  %49 = sub i32 0, %48
+  %.023 = select i1 %.not, i32 %48, i32 %49
   br label %8
 
-52:                                               ; preds = %15
+50:                                               ; preds = %15
   %.34 = select i1 %.not, i32 1, i32 -1
   br label %8
 }
@@ -116,8 +113,8 @@ define noundef i32 @"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2
   %7 = icmp samesign ugt i64 %4, 9218868437227405311
   br i1 %7, label %8, label %9
 
-8:                                                ; preds = %49, %14, %13, %6, %1, %17
-  %.0 = phi i32 [ %.023, %17 ], [ 0, %1 ], [ -2147483648, %6 ], [ %., %13 ], [ %.33, %14 ], [ %.34, %49 ]
+8:                                                ; preds = %47, %14, %13, %6, %1, %17
+  %.0 = phi i32 [ %.023, %17 ], [ 0, %1 ], [ -2147483648, %6 ], [ %., %13 ], [ %.33, %14 ], [ %.34, %47 ]
   ret i32 %.0
 
 9:                                                ; preds = %6
@@ -138,7 +135,7 @@ define noundef i32 @"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2
 
 15:                                               ; preds = %11
   %16 = icmp samesign ult i64 %4, 4066750463515557889
-  br i1 %16, label %49, label %17
+  br i1 %16, label %47, label %17
 
 17:                                               ; preds = %15
   %18 = lshr i64 %2, 52
@@ -168,19 +165,16 @@ define noundef i32 @"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2
   %41 = add nuw i64 %40, %39
   %42 = lshr i64 %41, 32
   %43 = trunc nuw i64 %42 to i32
-  %44 = icmp slt i64 %23, 0
-  %45 = icmp ugt i64 %20, 3
-  %.35 = sext i1 %45 to i32
-  %.028.neg = select i1 %44, i32 1, i32 %.35
+  %.028.neg = tail call i32 @llvm.scmp.i32.i64(i64 0, i64 %23)
   %.024 = tail call i64 @llvm.abs.i64(i64 %23, i1 true)
-  %46 = icmp samesign ugt i64 %.024, 31
-  %.neg = select i1 %46, i32 %.028.neg, i32 0
-  %47 = add i32 %.neg, %43
-  %48 = sub i32 0, %47
-  %.023 = select i1 %.not, i32 %47, i32 %48
+  %44 = icmp samesign ugt i64 %.024, 31
+  %.neg = select i1 %44, i32 %.028.neg, i32 0
+  %45 = add i32 %.neg, %43
+  %46 = sub i32 0, %45
+  %.023 = select i1 %.not, i32 %45, i32 %46
   br label %8
 
-49:                                               ; preds = %15
+47:                                               ; preds = %15
   %.34 = select i1 %.not, i32 1, i32 -1
   br label %8
 }
@@ -1018,47 +1012,47 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.llvm.1728913642
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$7form_ui17he5341a176309829aE"(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 {
-  %5 = icmp ult i32 %0, 29
-  br i1 %5, label %7, label %6
+  %5 = lshr i64 %3, 32
+  %6 = icmp ult i32 %0, 29
+  br i1 %6, label %8, label %7
 
-6:                                                ; preds = %4
+7:                                                ; preds = %4
   switch i32 %0, label %17 [
     i32 30, label %14
     i32 29, label %18
   ]
 
-7:                                                ; preds = %4
-  %8 = lshr i64 %3, 32
-  %9 = trunc nuw i64 %8 to i32
+8:                                                ; preds = %4
+  %9 = trunc nuw i64 %5 to i32
   %10 = lshr i64 %3, 31
   %11 = trunc i64 %10 to i8
   %12 = sub nuw nsw i32 28, %0
   %13 = shl i32 %2, %12
   br label %21
 
-14:                                               ; preds = %6
+14:                                               ; preds = %7
   %15 = trunc i32 %2 to i8
   %16 = lshr i8 %15, 1
   br label %17
 
-17:                                               ; preds = %18, %6, %14
-  %.118 = phi i32 [ 0, %6 ], [ %2, %14 ], [ 0, %18 ]
-  %.116 = phi i8 [ 0, %6 ], [ %16, %14 ], [ %19, %18 ]
-  %.1 = phi i32 [ %2, %6 ], [ 0, %14 ], [ %20, %18 ]
-  %.not = icmp ult i64 %3, 4294967296
+17:                                               ; preds = %18, %7, %14
+  %.118 = phi i32 [ 0, %7 ], [ %2, %14 ], [ 0, %18 ]
+  %.116 = phi i8 [ 0, %7 ], [ %16, %14 ], [ %19, %18 ]
+  %.1 = phi i32 [ %2, %7 ], [ 0, %14 ], [ %20, %18 ]
+  %.not = icmp eq i64 %5, 0
   %spec.select = select i1 %.not, i32 %.118, i32 1
   br label %21
 
-18:                                               ; preds = %6
+18:                                               ; preds = %7
   %19 = trunc i32 %2 to i8
   %20 = ashr i32 %2, 1
   br label %17
 
-21:                                               ; preds = %17, %7
-  %.017 = phi i32 [ 0, %7 ], [ %spec.select, %17 ]
-  %.015 = phi i8 [ %11, %7 ], [ %.116, %17 ]
-  %.014 = phi i32 [ %9, %7 ], [ 0, %17 ]
-  %.0 = phi i32 [ %13, %7 ], [ %.1, %17 ]
+21:                                               ; preds = %17, %8
+  %.017 = phi i32 [ 0, %8 ], [ %spec.select, %17 ]
+  %.015 = phi i8 [ %11, %8 ], [ %.116, %17 ]
+  %.014 = phi i32 [ %9, %8 ], [ 0, %17 ]
+  %.0 = phi i32 [ %13, %8 ], [ %.1, %17 ]
   %22 = add i32 %.014, %1
   %23 = add i32 %22, %.0
   %24 = trunc i8 %.015 to i1
@@ -1237,35 +1231,35 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.llvm.1728913642
   %76 = and i64 %.036, 1152921504606846975
   %77 = zext nneg i32 %.043 to i64
   %78 = lshr i64 %76, %77
-  %79 = icmp samesign ult i32 %.043, 29
-  br i1 %79, label %85, label %80
+  %79 = lshr i64 %78, 32
+  %80 = icmp samesign ult i32 %.043, 29
+  br i1 %80, label %86, label %81
 
-80:                                               ; preds = %75
-  %81 = icmp eq i32 %.043, 30
-  %82 = trunc nuw nsw i32 %.140 to i8
-  %83 = lshr i32 %.140, 1
-  %.118.i = select i1 %81, i32 %.140, i32 0
-  %84 = zext i1 %81 to i8
-  %.116.i = lshr i8 %82, %84
-  %.1.i = select i1 %81, i32 0, i32 %83
-  %.not.i = icmp samesign ult i64 %78, 4294967296
+81:                                               ; preds = %75
+  %82 = icmp eq i32 %.043, 30
+  %83 = trunc nuw nsw i32 %.140 to i8
+  %84 = lshr i32 %.140, 1
+  %.118.i = select i1 %82, i32 %.140, i32 0
+  %85 = zext i1 %82 to i8
+  %.116.i = lshr i8 %83, %85
+  %.1.i = select i1 %82, i32 0, i32 %84
+  %.not.i = icmp eq i64 %79, 0
   %spec.select.i = select i1 %.not.i, i32 %.118.i, i32 1
   br label %92
 
-85:                                               ; preds = %75
-  %86 = lshr i64 %78, 32
-  %87 = trunc nuw nsw i64 %86 to i32
+86:                                               ; preds = %75
+  %87 = trunc nuw nsw i64 %79 to i32
   %88 = lshr i64 %78, 31
   %89 = trunc i64 %88 to i8
   %90 = sub nuw nsw i32 28, %.043
   %91 = shl nuw nsw i32 %.140, %90
   br label %92
 
-92:                                               ; preds = %80, %85
-  %.017.i68 = phi i32 [ 0, %85 ], [ %spec.select.i, %80 ]
-  %.015.i = phi i8 [ %89, %85 ], [ %.116.i, %80 ]
-  %.014.i = phi i32 [ %87, %85 ], [ 0, %80 ]
-  %.0.i = phi i32 [ %91, %85 ], [ %.1.i, %80 ]
+92:                                               ; preds = %81, %86
+  %.017.i68 = phi i32 [ 0, %86 ], [ %spec.select.i, %81 ]
+  %.015.i = phi i8 [ %89, %86 ], [ %.116.i, %81 ]
+  %.014.i = phi i32 [ %87, %86 ], [ 0, %81 ]
+  %.0.i = phi i32 [ %91, %86 ], [ %.1.i, %81 ]
   %93 = add nuw i32 %.014.i, %.042
   %94 = add nuw i32 %93, %.0.i
   %95 = trunc i8 %.015.i to i1
@@ -1443,35 +1437,35 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.llvm.1728913642
   %76 = add nuw nsw i32 %.040, 2
   %77 = zext nneg i32 %76 to i64
   %78 = lshr i64 %75, %77
-  %79 = icmp samesign ult i32 %.040, 29
-  br i1 %79, label %85, label %80
+  %79 = lshr i64 %78, 32
+  %80 = icmp samesign ult i32 %.040, 29
+  br i1 %80, label %86, label %81
 
-80:                                               ; preds = %74
-  %81 = icmp eq i32 %.040, 30
-  %82 = trunc nuw nsw i32 %.042 to i8
-  %83 = lshr i32 %.042, 1
-  %.118.i = select i1 %81, i32 %.042, i32 0
-  %84 = zext i1 %81 to i8
-  %.116.i = lshr i8 %82, %84
-  %.1.i = select i1 %81, i32 0, i32 %83
-  %.not.i = icmp samesign ult i64 %78, 4294967296
+81:                                               ; preds = %74
+  %82 = icmp eq i32 %.040, 30
+  %83 = trunc nuw nsw i32 %.042 to i8
+  %84 = lshr i32 %.042, 1
+  %.118.i = select i1 %82, i32 %.042, i32 0
+  %85 = zext i1 %82 to i8
+  %.116.i = lshr i8 %83, %85
+  %.1.i = select i1 %82, i32 0, i32 %84
+  %.not.i = icmp eq i64 %79, 0
   %spec.select.i = select i1 %.not.i, i32 %.118.i, i32 1
   br label %92
 
-85:                                               ; preds = %74
-  %86 = lshr i64 %78, 32
-  %87 = trunc nuw nsw i64 %86 to i32
+86:                                               ; preds = %74
+  %87 = trunc nuw nsw i64 %79 to i32
   %88 = lshr i64 %78, 31
   %89 = trunc i64 %88 to i8
   %90 = sub nuw nsw i32 28, %.040
   %91 = shl nuw nsw i32 %.042, %90
   br label %92
 
-92:                                               ; preds = %80, %85
-  %.017.i67 = phi i32 [ 0, %85 ], [ %spec.select.i, %80 ]
-  %.015.i = phi i8 [ %89, %85 ], [ %.116.i, %80 ]
-  %.014.i = phi i32 [ %87, %85 ], [ 0, %80 ]
-  %.0.i = phi i32 [ %91, %85 ], [ %.1.i, %80 ]
+92:                                               ; preds = %81, %86
+  %.017.i67 = phi i32 [ 0, %86 ], [ %spec.select.i, %81 ]
+  %.015.i = phi i8 [ %89, %86 ], [ %.116.i, %81 ]
+  %.014.i = phi i32 [ %87, %86 ], [ 0, %81 ]
+  %.0.i = phi i32 [ %91, %86 ], [ %.1.i, %81 ]
   %93 = add nuw i32 %.014.i, %.041
   %94 = add nuw i32 %93, %.0.i
   %95 = trunc i8 %.015.i to i1
@@ -1680,35 +1674,35 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.llvm.1728913642
   %85 = add nuw nsw i32 %.063, 2
   %86 = zext nneg i32 %85 to i64
   %87 = lshr i64 %84, %86
-  %88 = icmp samesign ult i32 %.063, 29
-  br i1 %88, label %94, label %89
+  %88 = lshr i64 %87, 32
+  %89 = icmp samesign ult i32 %.063, 29
+  br i1 %89, label %95, label %90
 
-89:                                               ; preds = %83
-  %90 = icmp eq i32 %.063, 30
-  %91 = trunc i32 %.060.lcssa to i8
-  %92 = ashr i32 %.060.lcssa, 1
-  %.118.i = select i1 %90, i32 %.060.lcssa, i32 0
-  %93 = zext i1 %90 to i8
-  %.116.i = lshr i8 %91, %93
-  %.1.i = select i1 %90, i32 0, i32 %92
-  %.not.i = icmp samesign ult i64 %87, 4294967296
+90:                                               ; preds = %83
+  %91 = icmp eq i32 %.063, 30
+  %92 = trunc i32 %.060.lcssa to i8
+  %93 = ashr i32 %.060.lcssa, 1
+  %.118.i = select i1 %91, i32 %.060.lcssa, i32 0
+  %94 = zext i1 %91 to i8
+  %.116.i = lshr i8 %92, %94
+  %.1.i = select i1 %91, i32 0, i32 %93
+  %.not.i = icmp eq i64 %88, 0
   %spec.select.i = select i1 %.not.i, i32 %.118.i, i32 1
   br label %101
 
-94:                                               ; preds = %83
-  %95 = lshr i64 %87, 32
-  %96 = trunc nuw nsw i64 %95 to i32
+95:                                               ; preds = %83
+  %96 = trunc nuw nsw i64 %88 to i32
   %97 = lshr i64 %87, 31
   %98 = trunc i64 %97 to i8
   %99 = sub nuw nsw i32 28, %.063
   %100 = shl i32 %.060.lcssa, %99
   br label %101
 
-101:                                              ; preds = %89, %94
-  %.017.i82 = phi i32 [ 0, %94 ], [ %spec.select.i, %89 ]
-  %.015.i = phi i8 [ %98, %94 ], [ %.116.i, %89 ]
-  %.014.i = phi i32 [ %96, %94 ], [ 0, %89 ]
-  %.0.i83 = phi i32 [ %100, %94 ], [ %.1.i, %89 ]
+101:                                              ; preds = %90, %95
+  %.017.i82 = phi i32 [ 0, %95 ], [ %spec.select.i, %90 ]
+  %.015.i = phi i8 [ %98, %95 ], [ %.116.i, %90 ]
+  %.014.i = phi i32 [ %96, %95 ], [ 0, %90 ]
+  %.0.i83 = phi i32 [ %100, %95 ], [ %.1.i, %90 ]
   %102 = add nuw i32 %.014.i, %.062
   %103 = add i32 %102, %.0.i83
   %104 = trunc i8 %.015.i to i1
@@ -1991,7 +1985,8 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit: ; preds =
   %36 = sub i8 0, %.09.lcssa.i32
   %37 = sub i8 1, %.09.lcssa.i32
   %38 = ashr i8 %37, 1
-  %39 = and i8 %38, 31
+  %spec.store.select = tail call i8 @llvm.umax.i8(i8 %38, i8 1)
+  %39 = and i8 %spec.store.select, 31
   %40 = zext nneg i8 %39 to i32
   %41 = lshr i32 1073741824, %40
   br label %42
@@ -2000,7 +1995,7 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit: ; preds =
   %43 = phi i32 [ %35, %34 ], [ %27, %26 ]
   %.pn.in.in = phi i8 [ %36, %34 ], [ %.211.i28, %26 ]
   %.021 = phi i32 [ %41, %34 ], [ %33, %26 ]
-  %.1 = phi i8 [ %38, %34 ], [ %29, %26 ]
+  %.1 = phi i8 [ %spec.store.select, %34 ], [ %29, %26 ]
   %.pn.in = zext i8 %.pn.in.in to i32
   %.pn = shl i32 %.pn.in, 31
   %.022 = or i32 %.pn, %43
@@ -2075,8 +2070,8 @@ _ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit: ; preds = %
   %24 = icmp slt i8 %13, 0
   br i1 %24, label %35, label %26
 
-25:                                               ; preds = %45, %3
-  %.0 = phi i32 [ %5, %3 ], [ %.0.i, %45 ]
+25:                                               ; preds = %46, %3
+  %.0 = phi i32 [ %5, %3 ], [ %.0.i, %46 ]
   ret i32 %.0
 
 26:                                               ; preds = %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit.thread, %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit
@@ -2085,11 +2080,12 @@ _ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit: ; preds = %
   %28 = and i8 %.211.i30, 3
   %29 = add nuw i8 %.211.i30, 4
   %30 = ashr i8 %29, 2
-  %31 = and i8 %30, 31
+  %spec.store.select = tail call i8 @llvm.umax.i8(i8 %30, i8 1)
+  %31 = and i8 %spec.store.select, 31
   %32 = zext nneg i8 %31 to i32
   %33 = lshr i32 2147483647, %32
   %34 = xor i32 %33, 2147483647
-  br label %45
+  br label %46
 
 35:                                               ; preds = %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit.thread31, %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit
   %36 = phi i32 [ %12, %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit.thread31 ], [ %23, %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit ]
@@ -2099,28 +2095,29 @@ _ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit: ; preds = %
   %39 = and i8 %38, 2
   %40 = or disjoint i8 %39, %37
   %41 = sub i8 3, %.09.lcssa.i34
-  %spec.store.select2 = ashr i8 %41, 2
-  %42 = and i8 %spec.store.select2, 31
-  %43 = zext nneg i8 %42 to i32
-  %44 = lshr i32 1073741824, %43
-  br label %45
+  %42 = ashr i8 %41, 2
+  %spec.store.select2 = tail call i8 @llvm.umax.i8(i8 %42, i8 1)
+  %43 = and i8 %spec.store.select2, 31
+  %44 = zext nneg i8 %43 to i32
+  %45 = lshr i32 1073741824, %44
+  br label %46
 
-45:                                               ; preds = %35, %26
-  %46 = phi i32 [ %36, %35 ], [ %27, %26 ]
+46:                                               ; preds = %35, %26
+  %47 = phi i32 [ %36, %35 ], [ %27, %26 ]
   %.pn.in.in = phi i8 [ %40, %35 ], [ %28, %26 ]
-  %.024 = phi i32 [ %44, %35 ], [ %34, %26 ]
-  %.023 = phi i8 [ %spec.store.select2, %35 ], [ %30, %26 ]
+  %.024 = phi i32 [ %45, %35 ], [ %34, %26 ]
+  %.023 = phi i8 [ %spec.store.select2, %35 ], [ %spec.store.select, %26 ]
   %.pn.in = zext nneg i8 %.pn.in.in to i32
   %.pn = shl nuw nsw i32 %.pn.in, 29
-  %.025 = or i32 %.pn, %46
-  %47 = add nsw i8 %.023, 1
-  %48 = and i8 %47, 31
-  %49 = zext nneg i8 %48 to i32
-  %50 = lshr i32 %.025, %49
-  %51 = add nuw i32 %50, %.024
-  %52 = sub i32 0, %51
+  %.025 = or i32 %.pn, %47
+  %48 = add nsw i8 %.023, 1
+  %49 = and i8 %48, 31
+  %50 = zext nneg i8 %49 to i32
+  %51 = lshr i32 %.025, %50
+  %52 = add nuw i32 %51, %.024
+  %53 = sub i32 0, %52
   %.not46 = icmp slt i8 %0, 0
-  %.0.i = select i1 %.not46, i32 %52, i32 %51
+  %.0.i = select i1 %.not46, i32 %53, i32 %52
   br label %25
 }
 
@@ -2242,7 +2239,7 @@ define range(i64 0, -4294967295) i64 @"_ZN59_$LT$softposit..p32e2..P32E2$u20$as$
   call void @"_ZN39_$LT$f64$u20$as$u20$num_traits..Num$GT$14from_str_radix17h0a4767a2e72cb71bE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i32 noundef %2)
   %5 = load i8, ptr %4, align 8, !range !11, !noundef !4
   %trunc = trunc nuw i8 %5 to i1
-  br i1 %trunc, label %58, label %6
+  br i1 %trunc, label %56, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2277,7 +2274,7 @@ define range(i64 0, -4294967295) i64 @"_ZN59_$LT$softposit..p32e2..P32E2$u20$as$
 
 21:                                               ; preds = %17
   %22 = icmp samesign ult i64 %11, 4066750463515557889
-  br i1 %22, label %55, label %23
+  br i1 %22, label %53, label %23
 
 23:                                               ; preds = %21
   %24 = lshr i64 %9, 52
@@ -2307,39 +2304,36 @@ define range(i64 0, -4294967295) i64 @"_ZN59_$LT$softposit..p32e2..P32E2$u20$as$
   %47 = add nuw i64 %46, %45
   %48 = lshr i64 %47, 32
   %49 = trunc nuw i64 %48 to i32
-  %50 = icmp slt i64 %29, 0
-  %51 = icmp ugt i64 %26, 3
-  %.35.i = sext i1 %51 to i32
-  %.028.neg.i = select i1 %50, i32 1, i32 %.35.i
+  %.028.neg.i = tail call i32 @llvm.scmp.i32.i64(i64 0, i64 %29)
   %.024.i = tail call i64 @llvm.abs.i64(i64 %29, i1 true)
-  %52 = icmp samesign ugt i64 %.024.i, 31
-  %.neg.i = select i1 %52, i32 %.028.neg.i, i32 0
-  %53 = add i32 %.neg.i, %49
-  %54 = sub i32 0, %53
-  %.023.i = select i1 %.not.i, i32 %53, i32 %54
+  %50 = icmp samesign ugt i64 %.024.i, 31
+  %.neg.i = select i1 %50, i32 %.028.neg.i, i32 0
+  %51 = add i32 %.neg.i, %49
+  %52 = sub i32 0, %51
+  %.023.i = select i1 %.not.i, i32 %51, i32 %52
   br label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$8from_f6417hd3c83f3f036168c9E.exit"
 
-55:                                               ; preds = %21
+53:                                               ; preds = %21
   %.34.i = select i1 %.not.i, i32 1, i32 -1
   br label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$8from_f6417hd3c83f3f036168c9E.exit"
 
-"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$8from_f6417hd3c83f3f036168c9E.exit": ; preds = %6, %13, %19, %20, %23, %55
-  %.0.i = phi i32 [ %.023.i, %23 ], [ 0, %6 ], [ -2147483648, %13 ], [ %..i, %19 ], [ %.33.i, %20 ], [ %.34.i, %55 ]
-  %56 = zext i32 %.0.i to i64
-  %57 = shl nuw i64 %56, 32
-  br label %64
+"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$8from_f6417hd3c83f3f036168c9E.exit": ; preds = %6, %13, %19, %20, %23, %53
+  %.0.i = phi i32 [ %.023.i, %23 ], [ 0, %6 ], [ -2147483648, %13 ], [ %..i, %19 ], [ %.33.i, %20 ], [ %.34.i, %53 ]
+  %54 = zext i32 %.0.i to i64
+  %55 = shl nuw i64 %54, 32
+  br label %62
 
-58:                                               ; preds = %3
-  %59 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %60 = load i8, ptr %59, align 1, !range !11, !noundef !4
+56:                                               ; preds = %3
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %58 = load i8, ptr %57, align 1, !range !11, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %61 = zext nneg i8 %60 to i64
-  %62 = shl nuw nsw i64 %61, 8
-  %63 = or disjoint i64 %62, 1
-  br label %64
+  %59 = zext nneg i8 %58 to i64
+  %60 = shl nuw nsw i64 %59, 8
+  %61 = or disjoint i64 %60, 1
+  br label %62
 
-64:                                               ; preds = %58, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$8from_f6417hd3c83f3f036168c9E.exit"
-  %.sroa.3.0.insert.insert = phi i64 [ %57, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$8from_f6417hd3c83f3f036168c9E.exit" ], [ %63, %58 ]
+62:                                               ; preds = %56, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$8from_f6417hd3c83f3f036168c9E.exit"
+  %.sroa.3.0.insert.insert = phi i64 [ %55, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$8from_f6417hd3c83f3f036168c9E.exit" ], [ %61, %56 ]
   ret i64 %.sroa.3.0.insert.insert
 }
 
@@ -3749,8 +3743,17 @@ declare float @llvm.fabs.f32(float) #9
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #9
 
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.umax.i8(i8, i8) #9
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #9
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #10
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #10

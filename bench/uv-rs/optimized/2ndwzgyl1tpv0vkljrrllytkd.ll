@@ -45662,7 +45662,7 @@ define internal fastcc void @_ZN11uv_resolver5error12display_tree17h4710847418f2
   %30 = lshr i64 %29, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !10079)
   call void @llvm.experimental.noalias.scope.decl(metadata !10082)
-  %.not15.i.i = icmp ult i64 %29, 2
+  %.not15.i.i = icmp eq i64 %30, 0
   br i1 %.not15.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h1f5667eb3e76c9cdE.exit", label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %27

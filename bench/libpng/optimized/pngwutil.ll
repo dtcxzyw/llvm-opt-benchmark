@@ -4582,7 +4582,7 @@ define void @png_write_find_filter(ptr noalias noundef %0, ptr noundef readonly 
   %34 = zext nneg i32 %12 to i64
   %.0201.i = getelementptr inbounds nuw i8, ptr %.val128, i64 1
   %.0222.i = getelementptr inbounds nuw i8, ptr %14, i64 1
-  %.not.i = icmp eq i8 %9, 0
+  %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %.preheader.i, label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %32
@@ -4632,7 +4632,7 @@ define void @png_write_find_filter(ptr noalias noundef %0, ptr noundef readonly 
   %47 = zext nneg i32 %12 to i64
   %.0331.i = getelementptr inbounds nuw i8, ptr %.val130, i64 1
   %.0352.i = getelementptr inbounds nuw i8, ptr %14, i64 1
-  %.not.i131 = icmp eq i8 %9, 0
+  %.not.i131 = icmp eq i32 %12, 0
   br i1 %.not.i131, label %.preheader.i134, label %.lr.ph.i132
 
 .preheader.i134:                                  ; preds = %.lr.ph.i132, %45
@@ -4813,7 +4813,7 @@ png_setup_up_row.exit:                            ; preds = %.lr.ph.i144, %87
   %.02029.i = getelementptr inbounds nuw i8, ptr %111, i64 1
   %.01830.i = getelementptr inbounds nuw i8, ptr %113, i64 1
   %.02231.i = getelementptr inbounds nuw i8, ptr %14, i64 1
-  %.not.i148 = icmp eq i8 %9, 0
+  %.not.i148 = icmp eq i32 %12, 0
   br i1 %.not.i148, label %.preheader.i153, label %.lr.ph.i149
 
 .preheader.i153:                                  ; preds = %.lr.ph.i149, %109
@@ -4881,7 +4881,7 @@ png_setup_up_row.exit:                            ; preds = %.lr.ph.i144, %87
   %.03344.i = getelementptr inbounds nuw i8, ptr %136, i64 1
   %.03145.i = getelementptr inbounds nuw i8, ptr %138, i64 1
   %.03546.i = getelementptr inbounds nuw i8, ptr %14, i64 1
-  %.not.i157 = icmp eq i8 %9, 0
+  %.not.i157 = icmp eq i32 %12, 0
   br i1 %.not.i157, label %.preheader.i162, label %.lr.ph.i158
 
 .preheader.i162:                                  ; preds = %.lr.ph.i158, %134
@@ -4984,7 +4984,7 @@ png_setup_avg_row.exit:                           ; preds = %.lr.ph63.i, %.prehe
   %.04564.i = getelementptr inbounds nuw i8, ptr %180, i64 1
   %.04765.i = getelementptr inbounds nuw i8, ptr %182, i64 1
   %.066.i = getelementptr inbounds nuw i8, ptr %14, i64 1
-  %.not81.i = icmp eq i8 %9, 0
+  %.not81.i = icmp eq i32 %12, 0
   br i1 %.not81.i, label %.preheader.i172, label %.lr.ph.i170
 
 .preheader.i172:                                  ; preds = %.lr.ph.i170, %178
@@ -5064,7 +5064,7 @@ png_setup_avg_row.exit:                           ; preds = %.lr.ph63.i, %.prehe
   %.05879.i = getelementptr inbounds nuw i8, ptr %209, i64 1
   %.06080.i = getelementptr inbounds nuw i8, ptr %211, i64 1
   %.05781.i = getelementptr inbounds nuw i8, ptr %14, i64 1
-  %.not109.i = icmp eq i8 %9, 0
+  %.not109.i = icmp eq i32 %12, 0
   br i1 %.not109.i, label %.preheader.i180, label %.lr.ph.i178
 
 .preheader.i180:                                  ; preds = %.lr.ph.i178, %207

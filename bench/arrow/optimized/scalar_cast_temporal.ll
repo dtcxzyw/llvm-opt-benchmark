@@ -19163,7 +19163,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %5, %_ZSt26__thro
   br i1 %exitcond26.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !247
 
 42:                                               ; preds = %.lr.ph21.i.i.i.i
-  %43 = icmp ult i32 %26, 65536
+  %43 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %43, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %42
@@ -19783,7 +19783,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE9VisitVoidIZNS_
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !275
 
 56:                                               ; preds = %.noexc9
-  %57 = icmp ult i32 %34, 65536
+  %57 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %57, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %56
@@ -20097,7 +20097,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %5, %_ZSt26__thro
   br i1 %exitcond26.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !287
 
 42:                                               ; preds = %.lr.ph21.i.i.i.i
-  %43 = icmp ult i32 %26, 65536
+  %43 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %43, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %42
@@ -20281,7 +20281,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE9VisitVoidIZNS_
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !295
 
 61:                                               ; preds = %.noexc9
-  %62 = icmp ult i32 %34, 65536
+  %62 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %62, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %61
@@ -20597,7 +20597,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %5, %_ZSt26__thro
   br i1 %exitcond26.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !307
 
 41:                                               ; preds = %.lr.ph21.i.i.i.i
-  %42 = icmp ult i32 %26, 65536
+  %42 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %42, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %41
@@ -20777,7 +20777,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE9VisitVoidIZNS_
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !313
 
 60:                                               ; preds = %.noexc9
-  %61 = icmp ult i32 %34, 65536
+  %61 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %61, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %60
@@ -21091,7 +21091,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %5, %_ZSt26__thro
   br i1 %exitcond26.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !325
 
 41:                                               ; preds = %.lr.ph21.i.i.i.i
-  %42 = icmp ult i32 %26, 65536
+  %42 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %42, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %41
@@ -21271,7 +21271,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE9VisitVoidIZNS_
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !331
 
 60:                                               ; preds = %.noexc9
-  %61 = icmp ult i32 %34, 65536
+  %61 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %61, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %60
@@ -21550,7 +21550,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %exitcond50.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph42.i.i.i.i, !llvm.loop !346
 
 49:                                               ; preds = %.noexc9
-  %50 = icmp ult i32 %33, 65536
+  %50 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %50, label %.preheader30.i.i.i.i, label %.preheader32.i.i.i.i
 
 .preheader32.i.i.i.i:                             ; preds = %49
@@ -22230,7 +22230,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %exitcond50.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph42.i.i.i.i, !llvm.loop !364
 
 47:                                               ; preds = %.noexc9
-  %48 = icmp ult i32 %33, 65536
+  %48 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %48, label %.preheader30.i.i.i.i, label %.preheader32.i.i.i.i
 
 .preheader32.i.i.i.i:                             ; preds = %47
@@ -23533,7 +23533,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %5, %_ZSt26__thro
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !397
 
 43:                                               ; preds = %.lr.ph20.i.i.i.i
-  %44 = icmp ult i32 %26, 65536
+  %44 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %44, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %43
@@ -23715,7 +23715,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE9VisitVoidIZNS_
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !403
 
 57:                                               ; preds = %.noexc9
-  %58 = icmp ult i32 %34, 65536
+  %58 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %58, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %57
@@ -24031,7 +24031,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %5, %_ZSt26__thro
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !415
 
 43:                                               ; preds = %.lr.ph20.i.i.i.i
-  %44 = icmp ult i32 %26, 65536
+  %44 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %44, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %43
@@ -24219,7 +24219,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE9VisitVoidIZNS_
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !421
 
 62:                                               ; preds = %.noexc9
-  %63 = icmp ult i32 %34, 65536
+  %63 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %63, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %62
@@ -24537,7 +24537,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %5, %_ZSt26__thro
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !433
 
 41:                                               ; preds = %.lr.ph20.i.i.i.i
-  %42 = icmp ult i32 %26, 65536
+  %42 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %42, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %41
@@ -24717,7 +24717,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE9VisitVoidIZNS_
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !439
 
 60:                                               ; preds = %.noexc9
-  %61 = icmp ult i32 %34, 65536
+  %61 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %61, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %60
@@ -25031,7 +25031,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %5, %_ZSt26__thro
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !451
 
 41:                                               ; preds = %.lr.ph20.i.i.i.i
-  %42 = icmp ult i32 %26, 65536
+  %42 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %42, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %41
@@ -25211,7 +25211,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE9VisitVoidIZNS_
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !457
 
 60:                                               ; preds = %.noexc9
-  %61 = icmp ult i32 %34, 65536
+  %61 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %61, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %60
@@ -25415,7 +25415,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %exitcond50.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph42.i.i.i.i, !llvm.loop !469
 
 49:                                               ; preds = %.noexc9
-  %50 = icmp ult i32 %33, 65536
+  %50 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %50, label %.preheader30.i.i.i.i, label %.preheader32.i.i.i.i
 
 .preheader32.i.i.i.i:                             ; preds = %49
@@ -26007,7 +26007,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %exitcond50.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph42.i.i.i.i, !llvm.loop !481
 
 47:                                               ; preds = %.noexc9
-  %48 = icmp ult i32 %33, 65536
+  %48 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %48, label %.preheader30.i.i.i.i, label %.preheader32.i.i.i.i
 
 .preheader32.i.i.i.i:                             ; preds = %47
@@ -28864,7 +28864,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %5, %_ZSt26__thro
   br i1 %exitcond26.not.i.i.i.i, label %.loopexit.i.i.i.i, label %31, !llvm.loop !574
 
 46:                                               ; preds = %.lr.ph21.i.i.i.i
-  %47 = icmp ult i32 %27, 65536
+  %47 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %47, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %46
@@ -29051,7 +29051,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE9VisitVoidIZNS_
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !582
 
 60:                                               ; preds = %.noexc9
-  %61 = icmp ult i32 %35, 65536
+  %61 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %61, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %60
@@ -29379,7 +29379,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %5, %_ZSt26__thro
   br i1 %exitcond26.not.i.i.i.i, label %.loopexit.i.i.i.i, label %31, !llvm.loop !596
 
 46:                                               ; preds = %.lr.ph21.i.i.i.i
-  %47 = icmp ult i32 %27, 65536
+  %47 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %47, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %46
@@ -29572,7 +29572,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE9VisitVoidIZNS_
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !604
 
 65:                                               ; preds = %.noexc9
-  %66 = icmp ult i32 %35, 65536
+  %66 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %66, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %65
@@ -29904,7 +29904,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %5, %_ZSt26__thro
   br i1 %exitcond26.not.i.i.i.i, label %.loopexit.i.i.i.i, label %31, !llvm.loop !618
 
 45:                                               ; preds = %.lr.ph21.i.i.i.i
-  %46 = icmp ult i32 %27, 65536
+  %46 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %46, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %45
@@ -30093,7 +30093,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE9VisitVoidIZNS_
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !626
 
 64:                                               ; preds = %.noexc9
-  %65 = icmp ult i32 %35, 65536
+  %65 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %65, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %64
@@ -30423,7 +30423,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %5, %_ZSt26__thro
   br i1 %exitcond26.not.i.i.i.i, label %.loopexit.i.i.i.i, label %31, !llvm.loop !640
 
 45:                                               ; preds = %.lr.ph21.i.i.i.i
-  %46 = icmp ult i32 %27, 65536
+  %46 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %46, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %45
@@ -30612,7 +30612,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE9VisitVoidIZNS_
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !648
 
 64:                                               ; preds = %.noexc9
-  %65 = icmp ult i32 %35, 65536
+  %65 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %65, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %64
@@ -30946,7 +30946,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %5, %_ZSt26__thro
   br i1 %exitcond26.not.i.i.i.i, label %.loopexit.i.i.i.i, label %31, !llvm.loop !662
 
 47:                                               ; preds = %.lr.ph21.i.i.i.i
-  %48 = icmp ult i32 %27, 65536
+  %48 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %48, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %47
@@ -31137,7 +31137,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE9VisitVoidIZNS_
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !670
 
 61:                                               ; preds = %.noexc9
-  %62 = icmp ult i32 %35, 65536
+  %62 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %62, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %61
@@ -31469,7 +31469,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %5, %_ZSt26__thro
   br i1 %exitcond26.not.i.i.i.i, label %.loopexit.i.i.i.i, label %31, !llvm.loop !684
 
 47:                                               ; preds = %.lr.ph21.i.i.i.i
-  %48 = icmp ult i32 %27, 65536
+  %48 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %48, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %47
@@ -31666,7 +31666,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE9VisitVoidIZNS_
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !692
 
 66:                                               ; preds = %.noexc9
-  %67 = icmp ult i32 %35, 65536
+  %67 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %67, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %66
@@ -32000,7 +32000,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %5, %_ZSt26__thro
   br i1 %exitcond26.not.i.i.i.i, label %.loopexit.i.i.i.i, label %31, !llvm.loop !706
 
 45:                                               ; preds = %.lr.ph21.i.i.i.i
-  %46 = icmp ult i32 %27, 65536
+  %46 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %46, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %45
@@ -32189,7 +32189,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE9VisitVoidIZNS_
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !714
 
 64:                                               ; preds = %.noexc9
-  %65 = icmp ult i32 %35, 65536
+  %65 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %65, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %64
@@ -32519,7 +32519,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %5, %_ZSt26__thro
   br i1 %exitcond26.not.i.i.i.i, label %.loopexit.i.i.i.i, label %31, !llvm.loop !728
 
 45:                                               ; preds = %.lr.ph21.i.i.i.i
-  %46 = icmp ult i32 %27, 65536
+  %46 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %46, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %45
@@ -32708,7 +32708,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE9VisitVoidIZNS_
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !736
 
 64:                                               ; preds = %.noexc9
-  %65 = icmp ult i32 %35, 65536
+  %65 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %65, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %64
@@ -33215,7 +33215,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE9VisitVoidIZNS_
   br i1 %exitcond30.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph22.i.i.i.i, !llvm.loop !756
 
 114:                                              ; preds = %.noexc9
-  %115 = icmp ult i32 %39, 65536
+  %115 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %115, label %.preheader6.i.i.i.i, label %.preheader8.i.i.i.i
 
 .preheader8.i.i.i.i:                              ; preds = %114
@@ -33719,7 +33719,7 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   br i1 %exitcond30.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph22.i.i.i.i, !llvm.loop !776
 
 129:                                              ; preds = %.noexc9
-  %130 = icmp ult i32 %47, 65536
+  %130 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %130, label %.preheader6.i.i.i.i, label %.preheader8.i.i.i.i
 
 .preheader8.i.i.i.i:                              ; preds = %129
@@ -34361,7 +34361,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE9VisitVoidIZNS_
   br i1 %exitcond30.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph22.i.i.i.i, !llvm.loop !802
 
 114:                                              ; preds = %.noexc9
-  %115 = icmp ult i32 %39, 65536
+  %115 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %115, label %.preheader6.i.i.i.i, label %.preheader8.i.i.i.i
 
 .preheader8.i.i.i.i:                              ; preds = %114
@@ -34871,7 +34871,7 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   br i1 %exitcond30.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph22.i.i.i.i, !llvm.loop !822
 
 134:                                              ; preds = %.noexc9
-  %135 = icmp ult i32 %47, 65536
+  %135 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %135, label %.preheader6.i.i.i.i, label %.preheader8.i.i.i.i
 
 .preheader8.i.i.i.i:                              ; preds = %134
@@ -35515,7 +35515,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE9VisitVoidIZNS_
   br i1 %exitcond30.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph22.i.i.i.i, !llvm.loop !848
 
 112:                                              ; preds = %.noexc9
-  %113 = icmp ult i32 %39, 65536
+  %113 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %113, label %.preheader6.i.i.i.i, label %.preheader8.i.i.i.i
 
 .preheader8.i.i.i.i:                              ; preds = %112
@@ -36017,7 +36017,7 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   br i1 %exitcond30.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph22.i.i.i.i, !llvm.loop !868
 
 132:                                              ; preds = %.noexc9
-  %133 = icmp ult i32 %47, 65536
+  %133 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %133, label %.preheader6.i.i.i.i, label %.preheader8.i.i.i.i
 
 .preheader8.i.i.i.i:                              ; preds = %132
@@ -36657,7 +36657,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE9VisitVoidIZNS_
   br i1 %exitcond30.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph22.i.i.i.i, !llvm.loop !894
 
 112:                                              ; preds = %.noexc9
-  %113 = icmp ult i32 %39, 65536
+  %113 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %113, label %.preheader6.i.i.i.i, label %.preheader8.i.i.i.i
 
 .preheader8.i.i.i.i:                              ; preds = %112
@@ -37159,7 +37159,7 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   br i1 %exitcond30.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph22.i.i.i.i, !llvm.loop !914
 
 132:                                              ; preds = %.noexc9
-  %133 = icmp ult i32 %47, 65536
+  %133 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %133, label %.preheader6.i.i.i.i, label %.preheader8.i.i.i.i
 
 .preheader8.i.i.i.i:                              ; preds = %132
@@ -38555,7 +38555,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %5, %_ZSt26__thro
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !956
 
 45:                                               ; preds = %.lr.ph20.i.i.i.i
-  %46 = icmp ult i32 %27, 65536
+  %46 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %46, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %45
@@ -38744,7 +38744,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE9VisitVoidIZNS_
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !962
 
 60:                                               ; preds = %.noexc9
-  %61 = icmp ult i32 %35, 65536
+  %61 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %61, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %60
@@ -39071,7 +39071,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %5, %_ZSt26__thro
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !974
 
 45:                                               ; preds = %.lr.ph20.i.i.i.i
-  %46 = icmp ult i32 %27, 65536
+  %46 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %46, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %45
@@ -39266,7 +39266,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE9VisitVoidIZNS_
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !980
 
 65:                                               ; preds = %.noexc9
-  %66 = icmp ult i32 %35, 65536
+  %66 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %66, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %65
@@ -39595,7 +39595,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %5, %_ZSt26__thro
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !992
 
 43:                                               ; preds = %.lr.ph20.i.i.i.i
-  %44 = icmp ult i32 %27, 65536
+  %44 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %44, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %43
@@ -39782,7 +39782,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE9VisitVoidIZNS_
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !998
 
 63:                                               ; preds = %.noexc9
-  %64 = icmp ult i32 %35, 65536
+  %64 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %64, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %63
@@ -40107,7 +40107,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %5, %_ZSt26__thro
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !1010
 
 43:                                               ; preds = %.lr.ph20.i.i.i.i
-  %44 = icmp ult i32 %27, 65536
+  %44 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %44, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %43
@@ -40294,7 +40294,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE9VisitVoidIZNS_
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !1016
 
 63:                                               ; preds = %.noexc9
-  %64 = icmp ult i32 %35, 65536
+  %64 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %64, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %63
@@ -40623,7 +40623,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %5, %_ZSt26__thro
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !1028
 
 45:                                               ; preds = %.lr.ph20.i.i.i.i
-  %46 = icmp ult i32 %27, 65536
+  %46 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %46, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %45
@@ -40812,7 +40812,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE9VisitVoidIZNS_
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !1034
 
 60:                                               ; preds = %.noexc9
-  %61 = icmp ult i32 %35, 65536
+  %61 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %61, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %60
@@ -41139,7 +41139,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %5, %_ZSt26__thro
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !1046
 
 45:                                               ; preds = %.lr.ph20.i.i.i.i
-  %46 = icmp ult i32 %27, 65536
+  %46 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %46, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %45
@@ -41334,7 +41334,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE9VisitVoidIZNS_
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !1052
 
 65:                                               ; preds = %.noexc9
-  %66 = icmp ult i32 %35, 65536
+  %66 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %66, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %65
@@ -41663,7 +41663,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %5, %_ZSt26__thro
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !1064
 
 43:                                               ; preds = %.lr.ph20.i.i.i.i
-  %44 = icmp ult i32 %27, 65536
+  %44 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %44, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %43
@@ -41850,7 +41850,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE9VisitVoidIZNS_
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !1070
 
 63:                                               ; preds = %.noexc9
-  %64 = icmp ult i32 %35, 65536
+  %64 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %64, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %63
@@ -42175,7 +42175,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %5, %_ZSt26__thro
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !1082
 
 43:                                               ; preds = %.lr.ph20.i.i.i.i
-  %44 = icmp ult i32 %27, 65536
+  %44 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %44, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %43
@@ -42362,7 +42362,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE9VisitVoidIZNS_
   br i1 %exitcond25.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph17.i.i.i.i, !llvm.loop !1088
 
 63:                                               ; preds = %.noexc9
-  %64 = icmp ult i32 %35, 65536
+  %64 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %64, label %.preheader5.i.i.i.i, label %.preheader7.i.i.i.i
 
 .preheader7.i.i.i.i:                              ; preds = %63
@@ -42862,7 +42862,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE9VisitVoidIZNS_
   br i1 %exitcond30.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph22.i.i.i.i, !llvm.loop !1106
 
 111:                                              ; preds = %.noexc9
-  %112 = icmp ult i32 %39, 65536
+  %112 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %112, label %.preheader6.i.i.i.i, label %.preheader8.i.i.i.i
 
 .preheader8.i.i.i.i:                              ; preds = %111
@@ -43354,7 +43354,7 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   br i1 %exitcond30.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph22.i.i.i.i, !llvm.loop !1124
 
 126:                                              ; preds = %.noexc9
-  %127 = icmp ult i32 %47, 65536
+  %127 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %127, label %.preheader6.i.i.i.i, label %.preheader8.i.i.i.i
 
 .preheader8.i.i.i.i:                              ; preds = %126
@@ -43984,7 +43984,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE9VisitVoidIZNS_
   br i1 %exitcond30.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph22.i.i.i.i, !llvm.loop !1148
 
 111:                                              ; preds = %.noexc9
-  %112 = icmp ult i32 %39, 65536
+  %112 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %112, label %.preheader6.i.i.i.i, label %.preheader8.i.i.i.i
 
 .preheader8.i.i.i.i:                              ; preds = %111
@@ -44482,7 +44482,7 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   br i1 %exitcond30.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph22.i.i.i.i, !llvm.loop !1166
 
 131:                                              ; preds = %.noexc9
-  %132 = icmp ult i32 %47, 65536
+  %132 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %132, label %.preheader6.i.i.i.i, label %.preheader8.i.i.i.i
 
 .preheader8.i.i.i.i:                              ; preds = %131
@@ -45114,7 +45114,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE9VisitVoidIZNS_
   br i1 %exitcond30.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph22.i.i.i.i, !llvm.loop !1190
 
 109:                                              ; preds = %.noexc9
-  %110 = icmp ult i32 %39, 65536
+  %110 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %110, label %.preheader6.i.i.i.i, label %.preheader8.i.i.i.i
 
 .preheader8.i.i.i.i:                              ; preds = %109
@@ -45604,7 +45604,7 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   br i1 %exitcond30.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph22.i.i.i.i, !llvm.loop !1208
 
 129:                                              ; preds = %.noexc9
-  %130 = icmp ult i32 %47, 65536
+  %130 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %130, label %.preheader6.i.i.i.i, label %.preheader8.i.i.i.i
 
 .preheader8.i.i.i.i:                              ; preds = %129
@@ -46232,7 +46232,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE9VisitVoidIZNS_
   br i1 %exitcond30.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph22.i.i.i.i, !llvm.loop !1232
 
 109:                                              ; preds = %.noexc9
-  %110 = icmp ult i32 %39, 65536
+  %110 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %110, label %.preheader6.i.i.i.i, label %.preheader8.i.i.i.i
 
 .preheader8.i.i.i.i:                              ; preds = %109
@@ -46722,7 +46722,7 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   br i1 %exitcond30.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph22.i.i.i.i, !llvm.loop !1250
 
 129:                                              ; preds = %.noexc9
-  %130 = icmp ult i32 %47, 65536
+  %130 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %130, label %.preheader6.i.i.i.i, label %.preheader8.i.i.i.i
 
 .preheader8.i.i.i.i:                              ; preds = %129
@@ -47903,7 +47903,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %exitcond50.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph42.i.i.i.i, !llvm.loop !1292
 
 49:                                               ; preds = %.noexc9
-  %50 = icmp ult i32 %33, 65536
+  %50 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %50, label %.preheader30.i.i.i.i, label %.preheader32.i.i.i.i
 
 .preheader32.i.i.i.i:                             ; preds = %49
@@ -49407,7 +49407,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %exitcond50.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph42.i.i.i.i, !llvm.loop !1320
 
 47:                                               ; preds = %.noexc9
-  %48 = icmp ult i32 %33, 65536
+  %48 = icmp eq i32 %.sroa.7.0.extract.shift.i.i.i.i, 0
   br i1 %48, label %.preheader30.i.i.i.i, label %.preheader32.i.i.i.i
 
 .preheader32.i.i.i.i:                             ; preds = %47

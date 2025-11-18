@@ -4917,26 +4917,26 @@ define hidden i64 @ruby_num_interval_step_size(i64 noundef %0, i64 noundef %1, i
   br i1 %or.cond76.not, label %35, label %8
 
 8:                                                ; preds = %4
-  %9 = icmp ult i64 %2, 2
-  br i1 %9, label %10, label %17
+  %9 = ashr i64 %2, 1
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %11, label %18
 
-10:                                               ; preds = %8
-  %11 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
-  %12 = load ptr, ptr %11, align 8, !tbaa !21
-  %13 = load i64, ptr @rb_cFloat, align 8, !tbaa !7
-  %14 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %12, i64 noundef %13, i64 noundef 4, i64 noundef 24) #27
-  %15 = inttoptr i64 %14 to ptr
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store double 0x7FF0000000000000, ptr %16, align 8, !tbaa !24
-  tail call void @rb_obj_freeze_inline(i64 noundef %14) #27
+11:                                               ; preds = %8
+  %12 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
+  %13 = load ptr, ptr %12, align 8, !tbaa !21
+  %14 = load i64, ptr @rb_cFloat, align 8, !tbaa !7
+  %15 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %13, i64 noundef %14, i64 noundef 4, i64 noundef 24) #27
+  %16 = inttoptr i64 %15 to ptr
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store double 0x7FF0000000000000, ptr %17, align 8, !tbaa !24
+  tail call void @rb_obj_freeze_inline(i64 noundef %15) #27
   br label %rb_ulong2num_inline.exit
 
-17:                                               ; preds = %8
-  %18 = ashr i64 %2, 1
+18:                                               ; preds = %8
   %19 = ashr i64 %1, 1
   %20 = ashr i64 %0, 1
   %21 = sub nsw i64 %19, %20
-  %22 = icmp slt i64 %18, 0
+  %22 = icmp slt i64 %9, 0
   %23 = sub nsw i64 0, %21
   %.046 = select i1 %22, i64 %23, i64 %21
   %.not51 = icmp ne i32 %3, 0
@@ -4945,8 +4945,8 @@ define hidden i64 @ruby_num_interval_step_size(i64 noundef %0, i64 noundef %1, i
   %25 = icmp slt i64 %.147, 0
   br i1 %25, label %rb_ulong2num_inline.exit, label %26
 
-26:                                               ; preds = %17
-  %.045 = tail call i64 @llvm.abs.i64(i64 %18, i1 true)
+26:                                               ; preds = %18
+  %.045 = tail call i64 @llvm.abs.i64(i64 %9, i1 true)
   %27 = udiv i64 %.147, %.045
   %28 = add nuw i64 %27, 1
   %29 = icmp samesign ult i64 %27, 4611686018427387903
@@ -5230,8 +5230,8 @@ RB_FLOAT_TYPE_P.exit56.thread67:                  ; preds = %60, %RB_FLOAT_TYPE_
   %179 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %172, i64 noundef 43, i32 noundef 1, i64 noundef 3) #27
   br label %rb_ulong2num_inline.exit
 
-rb_ulong2num_inline.exit:                         ; preds = %142, %140, %136, %33, %30, %159, %167, %178, %173, %151, %155, %10, %17
-  %.1 = phi i64 [ %14, %10 ], [ 1, %17 ], [ %154, %151 ], [ %156, %155 ], [ %163, %159 ], [ 1, %167 ], [ %179, %178 ], [ %172, %173 ], [ %32, %30 ], [ %34, %33 ], [ %146, %142 ], [ %139, %136 ], [ -9223372036854775806, %140 ]
+rb_ulong2num_inline.exit:                         ; preds = %142, %140, %136, %33, %30, %159, %167, %178, %173, %151, %155, %11, %18
+  %.1 = phi i64 [ %15, %11 ], [ 1, %18 ], [ %154, %151 ], [ %156, %155 ], [ %163, %159 ], [ 1, %167 ], [ %179, %178 ], [ %172, %173 ], [ %32, %30 ], [ %34, %33 ], [ %146, %142 ], [ %139, %136 ], [ -9223372036854775806, %140 ]
   ret i64 %.1
 }
 
@@ -6289,7 +6289,7 @@ define dso_local i64 @rb_fix2str(i64 noundef %0, i32 noundef %1) local_unnamed_a
   unreachable
 
 9:                                                ; preds = %2
-  %10 = icmp ult i64 %0, 2
+  %10 = icmp eq i64 %5, 0
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
@@ -6350,58 +6350,46 @@ define hidden i64 @rb_fix_to_s(i64 noundef %0) local_unnamed_addr #2 {
 4:                                                ; preds = %1
   %5 = getelementptr i64, ptr @rb_fix_to_s_static, i64 %3
   %6 = load i64, ptr %5, align 8, !tbaa !7
-  br label %28
+  br label %23
 
 7:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 65
-  %9 = icmp ult i64 %0, 2
-  br i1 %9, label %10, label %12
+  %.020.i = tail call i64 @llvm.abs.i64(i64 %3, i1 true)
+  br label %9
 
-10:                                               ; preds = %7
-  %11 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @.str.21, i64 noundef 1) #27
+9:                                                ; preds = %9, %7
+  %.022.i = phi ptr [ %8, %7 ], [ %13, %9 ]
+  %.1.i = phi i64 [ %.020.i, %7 ], [ %14, %9 ]
+  %10 = urem i64 %.1.i, 10
+  %11 = getelementptr i8, ptr @ruby_digitmap, i64 %10
+  %12 = load i8, ptr %11, align 1, !tbaa !20
+  %13 = getelementptr i8, ptr %.022.i, i64 -1
+  store i8 %12, ptr %13, align 1, !tbaa !20
+  %14 = udiv i64 %.1.i, 10
+  %.not.i = icmp samesign ult i64 %.1.i, 10
+  br i1 %.not.i, label %15, label %9, !llvm.loop !45
+
+15:                                               ; preds = %9
+  %16 = icmp sgt i64 %3, -1
+  br i1 %16, label %rb_fix2str.exit, label %17
+
+17:                                               ; preds = %15
+  %18 = getelementptr i8, ptr %.022.i, i64 -2
+  store i8 45, ptr %18, align 1, !tbaa !20
   br label %rb_fix2str.exit
 
-12:                                               ; preds = %7
-  %.020.i = tail call i64 @llvm.abs.i64(i64 %3, i1 true)
-  br label %13
-
-13:                                               ; preds = %13, %12
-  %.022.i = phi ptr [ %8, %12 ], [ %17, %13 ]
-  %.1.i = phi i64 [ %.020.i, %12 ], [ %18, %13 ]
-  %14 = urem i64 %.1.i, 10
-  %15 = getelementptr i8, ptr @ruby_digitmap, i64 %14
-  %16 = load i8, ptr %15, align 1, !tbaa !20
-  %17 = getelementptr i8, ptr %.022.i, i64 -1
-  store i8 %16, ptr %17, align 1, !tbaa !20
-  %18 = udiv i64 %.1.i, 10
-  %.not.i = icmp samesign ult i64 %.1.i, 10
-  br i1 %.not.i, label %19, label %13, !llvm.loop !45
-
-19:                                               ; preds = %13
-  %20 = icmp sgt i64 %3, -1
-  br i1 %20, label %23, label %21
-
-21:                                               ; preds = %19
-  %22 = getelementptr i8, ptr %.022.i, i64 -2
-  store i8 45, ptr %22, align 1, !tbaa !20
+rb_fix2str.exit:                                  ; preds = %15, %17
+  %.123.i = phi ptr [ %18, %17 ], [ %13, %15 ]
+  %19 = ptrtoint ptr %8 to i64
+  %20 = ptrtoint ptr %.123.i to i64
+  %21 = sub i64 %19, %20
+  %22 = call i64 @rb_usascii_str_new(ptr noundef nonnull %.123.i, i64 noundef %21) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %23
 
-23:                                               ; preds = %21, %19
-  %.123.i = phi ptr [ %22, %21 ], [ %17, %19 ]
-  %24 = ptrtoint ptr %8 to i64
-  %25 = ptrtoint ptr %.123.i to i64
-  %26 = sub i64 %24, %25
-  %27 = call i64 @rb_usascii_str_new(ptr noundef nonnull %.123.i, i64 noundef %26) #27
-  br label %rb_fix2str.exit
-
-rb_fix2str.exit:                                  ; preds = %10, %23
-  %.021.i = phi i64 [ %11, %10 ], [ %27, %23 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %28
-
-28:                                               ; preds = %rb_fix2str.exit, %4
-  %.0 = phi i64 [ %6, %4 ], [ %.021.i, %rb_fix2str.exit ]
+23:                                               ; preds = %rb_fix2str.exit, %4
+  %.0 = phi i64 [ %6, %4 ], [ %22, %rb_fix2str.exit ]
   ret i64 %.0
 }
 
@@ -6476,7 +6464,7 @@ define hidden i64 @rb_int2str(i64 noundef %0, i32 noundef %1) local_unnamed_addr
   unreachable
 
 11:                                               ; preds = %5
-  %12 = icmp ult i64 %0, 2
+  %12 = icmp eq i64 %7, 0
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %11
@@ -7057,7 +7045,7 @@ rb_integer_type_p.exit.thread25:                  ; preds = %16, %16, %6, %18, %
 33:                                               ; preds = %24
   %34 = sitofp i64 %28 to double
   %35 = sitofp i64 %25 to double
-  %.not31.i = icmp ult i64 %.017, 2
+  %.not31.i = icmp eq i64 %25, 0
   br i1 %.not31.i, label %38, label %36, !prof !46
 
 36:                                               ; preds = %33
@@ -7065,7 +7053,7 @@ rb_integer_type_p.exit.thread25:                  ; preds = %16, %16, %6, %18, %
   br label %fix_fdiv_double.exit
 
 38:                                               ; preds = %33
-  %39 = icmp ult i64 %.018, 2
+  %39 = icmp eq i64 %28, 0
   br i1 %39, label %fix_fdiv_double.exit, label %40
 
 40:                                               ; preds = %38
@@ -7492,7 +7480,7 @@ rb_float_value_inline.exit:                       ; preds = %40, %46
   unreachable
 
 .thread.i:                                        ; preds = %51
-  %53 = icmp ugt i64 %0, 1
+  %53 = icmp ne i64 %.in, 0
   %54 = tail call double @llvm.fabs.f64(double %.0.i15) #32
   %55 = fcmp une double %54, 0x7FF0000000000000
   %or.cond = and i1 %53, %55
@@ -7708,7 +7696,7 @@ rb_float_value_inline.exit.i:                     ; preds = %57, %51
   unreachable
 
 ._crit_edge.i.i:                                  ; preds = %62
-  %64 = icmp ugt i64 %0, 1
+  %64 = icmp ne i64 %.in.i, 0
   %65 = tail call double @llvm.fabs.f64(double %.0.i17.i) #32
   %66 = fcmp une double %65, 0x7FF0000000000000
   %or.cond.i = and i1 %64, %66
@@ -7893,7 +7881,7 @@ fix_uminus.exit:                                  ; preds = %19, %22
   br label %fix_pow.exit
 
 27:                                               ; preds = %25
-  %28 = icmp ult i64 %0, 2
+  %28 = icmp eq i64 %7, 0
   br i1 %28, label %fix_pow.exit, label %29
 
 29:                                               ; preds = %27
@@ -7939,7 +7927,7 @@ int_even_p.exit:                                  ; preds = %39
   br label %fix_pow.exit
 
 47:                                               ; preds = %42
-  %48 = icmp ult i64 %0, 2
+  %48 = icmp eq i64 %7, 0
   br i1 %48, label %fix_pow.exit, label %49
 
 49:                                               ; preds = %47
@@ -8651,7 +8639,7 @@ define hidden i64 @rb_int_lshift(i64 noundef %0, i64 noundef %1) #2 {
 
 rb_num2long_inline.exit.i:                        ; preds = %2
   %4 = ashr i64 %0, 1
-  %.not.i = icmp ult i64 %0, 2
+  %.not.i = icmp eq i64 %4, 0
   br i1 %.not.i, label %5, label %7
 
 5:                                                ; preds = %rb_num2long_inline.exit.i
@@ -8752,7 +8740,7 @@ define hidden i64 @rb_int_rshift(i64 noundef %0, i64 noundef %1) #2 {
 
 4:                                                ; preds = %2
   %5 = ashr i64 %0, 1
-  %.not.i = icmp ult i64 %0, 2
+  %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %6, label %8
 
 6:                                                ; preds = %4
@@ -8771,7 +8759,7 @@ define hidden i64 @rb_int_rshift(i64 noundef %0, i64 noundef %1) #2 {
 
 13:                                               ; preds = %8
   %14 = ashr i64 %1, 1
-  %15 = icmp ult i64 %1, 2
+  %15 = icmp eq i64 %14, 0
   br i1 %15, label %rb_fix_rshift.exit, label %16
 
 16:                                               ; preds = %13
@@ -12519,21 +12507,21 @@ rbimpl_RB_TYPE_P_fastpath.exit22.thread:          ; preds = %rb_integer_type_p.e
   br i1 %.not32, label %57, label %42
 
 42:                                               ; preds = %40
-  %43 = icmp ult i64 %2, 2
-  br i1 %43, label %44, label %46
+  %43 = ashr i64 %2, 1
+  %44 = icmp eq i64 %43, 0
+  br i1 %44, label %45, label %47
 
-44:                                               ; preds = %42
-  %45 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef 1) #27
+45:                                               ; preds = %42
+  %46 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef 1) #27
   br label %rb_fix_digits.exit
 
-46:                                               ; preds = %42
-  %47 = ashr i64 %2, 1
+47:                                               ; preds = %42
   %48 = tail call i64 @rb_ary_new() #27
-  %.not22.i = icmp slt i64 %47, %.0
+  %.not22.i = icmp slt i64 %43, %.0
   br i1 %.not22.i, label %rb_long2num_inline.exit21.i, label %rb_long2num_inline.exit.i
 
-rb_long2num_inline.exit.i:                        ; preds = %46, %rb_long2num_inline.exit.i
-  %.01623.i = phi i64 [ %53, %rb_long2num_inline.exit.i ], [ %47, %46 ]
+rb_long2num_inline.exit.i:                        ; preds = %47, %rb_long2num_inline.exit.i
+  %.01623.i = phi i64 [ %53, %rb_long2num_inline.exit.i ], [ %43, %47 ]
   %49 = urem i64 %.01623.i, %.0
   %50 = shl nuw nsw i64 %49, 1
   %51 = or disjoint i64 %50, 1
@@ -12542,8 +12530,8 @@ rb_long2num_inline.exit.i:                        ; preds = %46, %rb_long2num_in
   %.not.i24 = icmp samesign ult i64 %53, %.0
   br i1 %.not.i24, label %rb_long2num_inline.exit21.i, label %rb_long2num_inline.exit.i, !llvm.loop !73
 
-rb_long2num_inline.exit21.i:                      ; preds = %rb_long2num_inline.exit.i, %46
-  %.016.lcssa.i = phi i64 [ %47, %46 ], [ %53, %rb_long2num_inline.exit.i ]
+rb_long2num_inline.exit21.i:                      ; preds = %rb_long2num_inline.exit.i, %47
+  %.016.lcssa.i = phi i64 [ %43, %47 ], [ %53, %rb_long2num_inline.exit.i ]
   %54 = shl nsw i64 %.016.lcssa.i, 1
   %55 = or disjoint i64 %54, 1
   %56 = tail call i64 @rb_ary_push(i64 noundef %48, i64 noundef %55) #27
@@ -12569,8 +12557,8 @@ rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %57
   %69 = tail call fastcc i64 @rb_int_digits_bigbase(i64 noundef %2, i64 noundef %68)
   br label %rb_fix_digits.exit
 
-rb_fix_digits.exit:                               ; preds = %57, %rb_long2num_inline.exit21.i, %44, %rbimpl_RB_TYPE_P_fastpath.exit, %66, %30
-  %.018 = phi i64 [ %31, %30 ], [ %69, %66 ], [ 4, %rbimpl_RB_TYPE_P_fastpath.exit ], [ %45, %44 ], [ %48, %rb_long2num_inline.exit21.i ], [ 4, %57 ]
+rb_fix_digits.exit:                               ; preds = %57, %rb_long2num_inline.exit21.i, %45, %rbimpl_RB_TYPE_P_fastpath.exit, %66, %30
+  %.018 = phi i64 [ %31, %30 ], [ %69, %66 ], [ 4, %rbimpl_RB_TYPE_P_fastpath.exit ], [ %46, %45 ], [ %48, %rb_long2num_inline.exit21.i ], [ 4, %57 ]
   ret i64 %.018
 }
 
@@ -15221,7 +15209,7 @@ RB_FLOAT_TYPE_P.exit.thread.thread:               ; preds = %rbimpl_RB_TYPE_P_fa
   br label %rb_float_new_inline.exit
 
 59:                                               ; preds = %49
-  %60 = icmp ult i64 %0, 2
+  %60 = icmp eq i64 %46, 0
   br i1 %60, label %rb_float_new_inline.exit, label %61
 
 61:                                               ; preds = %59, %45
@@ -16387,8 +16375,8 @@ rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %19
   %24 = inttoptr i64 %.056 to ptr
   %25 = load i64, ptr %24, align 8, !tbaa !11
   %26 = and i64 %25, 8223
-  %or.cond130 = icmp eq i64 %26, 10
-  br i1 %or.cond130, label %27, label %rbimpl_RB_TYPE_P_fastpath.exit.thread
+  %or.cond129 = icmp eq i64 %26, 10
+  br i1 %or.cond129, label %27, label %rbimpl_RB_TYPE_P_fastpath.exit.thread
 
 27:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit
   %28 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
@@ -16413,7 +16401,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %19, %rbimpl_RB_TYPE
   unreachable
 
 37:                                               ; preds = %31
-  %38 = icmp ult i64 %0, 2
+  %38 = icmp eq i64 %33, 0
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %37

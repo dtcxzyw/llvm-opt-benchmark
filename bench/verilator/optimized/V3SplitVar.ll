@@ -29855,7 +29855,7 @@ define linkonce_odr dso_local void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iter
   store i32 %57, ptr %64, align 4, !tbaa !537
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   store i8 %60, ptr %65, align 4, !tbaa !539
-  %.not10.i = icmp ult i64 %.0922.in.i.i.i, 2
+  %.not10.i = icmp eq i64 %.0922.i.i89.i, 0
   br i1 %.not10.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIibESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN12PackedVarRef11SortByFirstEEEEvT_SE_SE_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !648
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIibESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN12PackedVarRef11SortByFirstEEEEvT_SE_SE_RT0_.exit: ; preds = %.lr.ph.i.i.i, %63, %55

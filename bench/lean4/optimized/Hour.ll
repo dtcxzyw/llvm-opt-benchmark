@@ -820,30 +820,30 @@ lean_int_emod.exit.thread23:                      ; preds = %27
 
 31:                                               ; preds = %27
   %32 = shl i64 %28, 31
-  %33 = icmp ult i64 %32, 4294967296
-  br i1 %33, label %lean_dec.exit9, label %34
+  %33 = ashr i64 %32, 32
+  %34 = icmp eq i64 %33, 0
+  br i1 %34, label %lean_dec.exit9, label %35
 
-34:                                               ; preds = %31
-  %35 = ashr i64 %32, 32
+35:                                               ; preds = %31
   %36 = shl i64 %25, 31
   %37 = ashr i64 %36, 32
-  %38 = srem i64 %37, %35
+  %38 = srem i64 %37, %33
   %39 = icmp slt i64 %38, 0
-  %.p.i = tail call i64 @llvm.abs.i64(i64 %35, i1 true)
+  %.p.i = tail call i64 @llvm.abs.i64(i64 %33, i1 true)
   %40 = select i1 %39, i64 %.p.i, i64 0
   %.0.i14 = add nsw i64 %40, %38
   %41 = add nsw i64 %.0.i14, 2147483648
   %42 = icmp samesign ult i64 %41, 4294967296
   br i1 %42, label %43, label %48, !prof !10
 
-43:                                               ; preds = %34
+43:                                               ; preds = %35
   %44 = shl nsw i64 %.0.i14, 1
   %45 = and i64 %44, 8589934590
   %46 = or disjoint i64 %45, 1
   %47 = inttoptr i64 %46 to ptr
   br label %lean_dec.exit9
 
-48:                                               ; preds = %34
+48:                                               ; preds = %35
   %49 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %.0.i14) #4
   br label %lean_dec.exit9
 
@@ -1536,30 +1536,30 @@ _init_l_Std_Time_Hour_instInhabitedOrdinal___closed__5.exit: ; preds = %71, %76,
 
 86:                                               ; preds = %83
   %87 = shl i64 %84, 31
-  %88 = icmp ult i64 %87, 4294967296
-  br i1 %88, label %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__7.exit, label %89
+  %88 = ashr i64 %87, 32
+  %89 = icmp eq i64 %88, 0
+  br i1 %89, label %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__7.exit, label %90
 
-89:                                               ; preds = %86
-  %90 = ashr i64 %87, 32
+90:                                               ; preds = %86
   %91 = shl i64 %81, 31
   %92 = ashr i64 %91, 32
-  %93 = srem i64 %92, %90
+  %93 = srem i64 %92, %88
   %94 = icmp slt i64 %93, 0
-  %.p.i.i = tail call i64 @llvm.abs.i64(i64 %90, i1 true)
+  %.p.i.i = tail call i64 @llvm.abs.i64(i64 %88, i1 true)
   %95 = select i1 %94, i64 %.p.i.i, i64 0
   %.0.i.i40 = add nsw i64 %95, %93
   %96 = add nsw i64 %.0.i.i40, 2147483648
   %97 = icmp samesign ult i64 %96, 4294967296
   br i1 %97, label %98, label %103, !prof !10
 
-98:                                               ; preds = %89
+98:                                               ; preds = %90
   %99 = shl nsw i64 %.0.i.i40, 1
   %100 = and i64 %99, 8589934590
   %101 = or disjoint i64 %100, 1
   %102 = inttoptr i64 %101 to ptr
   br label %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__7.exit
 
-103:                                              ; preds = %89
+103:                                              ; preds = %90
   %104 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %.0.i.i40) #4
   br label %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__7.exit
 
@@ -1628,30 +1628,30 @@ _init_l_Std_Time_Hour_instInhabitedOrdinal___closed__8.exit: ; preds = %121, %12
 
 136:                                              ; preds = %133
   %137 = shl i64 %134, 31
-  %138 = icmp ult i64 %137, 4294967296
-  br i1 %138, label %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__9.exit, label %139
+  %138 = ashr i64 %137, 32
+  %139 = icmp eq i64 %138, 0
+  br i1 %139, label %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__9.exit, label %140
 
-139:                                              ; preds = %136
-  %140 = ashr i64 %137, 32
+140:                                              ; preds = %136
   %141 = shl i64 %131, 31
   %142 = ashr i64 %141, 32
-  %143 = srem i64 %142, %140
+  %143 = srem i64 %142, %138
   %144 = icmp slt i64 %143, 0
-  %.p.i.i48 = tail call i64 @llvm.abs.i64(i64 %140, i1 true)
+  %.p.i.i48 = tail call i64 @llvm.abs.i64(i64 %138, i1 true)
   %145 = select i1 %144, i64 %.p.i.i48, i64 0
   %.0.i.i49 = add nsw i64 %145, %143
   %146 = add nsw i64 %.0.i.i49, 2147483648
   %147 = icmp samesign ult i64 %146, 4294967296
   br i1 %147, label %148, label %153, !prof !10
 
-148:                                              ; preds = %139
+148:                                              ; preds = %140
   %149 = shl nsw i64 %.0.i.i49, 1
   %150 = and i64 %149, 8589934590
   %151 = or disjoint i64 %150, 1
   %152 = inttoptr i64 %151 to ptr
   br label %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__9.exit
 
-153:                                              ; preds = %139
+153:                                              ; preds = %140
   %154 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %.0.i.i49) #4
   br label %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__9.exit
 
@@ -1937,30 +1937,30 @@ _init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__3.exit: ; preds = %237
 
 252:                                              ; preds = %249
   %253 = shl i64 %250, 31
-  %254 = icmp ult i64 %253, 4294967296
-  br i1 %254, label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__4.exit, label %255
+  %254 = ashr i64 %253, 32
+  %255 = icmp eq i64 %254, 0
+  br i1 %255, label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__4.exit, label %256
 
-255:                                              ; preds = %252
-  %256 = ashr i64 %253, 32
+256:                                              ; preds = %252
   %257 = shl i64 %247, 31
   %258 = ashr i64 %257, 32
-  %259 = srem i64 %258, %256
+  %259 = srem i64 %258, %254
   %260 = icmp slt i64 %259, 0
-  %.p.i.i66 = tail call i64 @llvm.abs.i64(i64 %256, i1 true)
+  %.p.i.i66 = tail call i64 @llvm.abs.i64(i64 %254, i1 true)
   %261 = select i1 %260, i64 %.p.i.i66, i64 0
   %.0.i.i67 = add nsw i64 %261, %259
   %262 = add nsw i64 %.0.i.i67, 2147483648
   %263 = icmp samesign ult i64 %262, 4294967296
   br i1 %263, label %264, label %269, !prof !10
 
-264:                                              ; preds = %255
+264:                                              ; preds = %256
   %265 = shl nsw i64 %.0.i.i67, 1
   %266 = and i64 %265, 8589934590
   %267 = or disjoint i64 %266, 1
   %268 = inttoptr i64 %267 to ptr
   br label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__4.exit
 
-269:                                              ; preds = %255
+269:                                              ; preds = %256
   %270 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %.0.i.i67) #4
   br label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__4.exit
 
@@ -2029,30 +2029,30 @@ _init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__5.exit: ; preds = %287
 
 302:                                              ; preds = %299
   %303 = shl i64 %300, 31
-  %304 = icmp ult i64 %303, 4294967296
-  br i1 %304, label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__6.exit, label %305
+  %304 = ashr i64 %303, 32
+  %305 = icmp eq i64 %304, 0
+  br i1 %305, label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__6.exit, label %306
 
-305:                                              ; preds = %302
-  %306 = ashr i64 %303, 32
+306:                                              ; preds = %302
   %307 = shl i64 %297, 31
   %308 = ashr i64 %307, 32
-  %309 = srem i64 %308, %306
+  %309 = srem i64 %308, %304
   %310 = icmp slt i64 %309, 0
-  %.p.i.i76 = tail call i64 @llvm.abs.i64(i64 %306, i1 true)
+  %.p.i.i76 = tail call i64 @llvm.abs.i64(i64 %304, i1 true)
   %311 = select i1 %310, i64 %.p.i.i76, i64 0
   %.0.i.i77 = add nsw i64 %311, %309
   %312 = add nsw i64 %.0.i.i77, 2147483648
   %313 = icmp samesign ult i64 %312, 4294967296
   br i1 %313, label %314, label %319, !prof !10
 
-314:                                              ; preds = %305
+314:                                              ; preds = %306
   %315 = shl nsw i64 %.0.i.i77, 1
   %316 = and i64 %315, 8589934590
   %317 = or disjoint i64 %316, 1
   %318 = inttoptr i64 %317 to ptr
   br label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__6.exit
 
-319:                                              ; preds = %305
+319:                                              ; preds = %306
   %320 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %.0.i.i77) #4
   br label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__6.exit
 

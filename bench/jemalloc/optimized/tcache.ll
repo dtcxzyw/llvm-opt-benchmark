@@ -1486,22 +1486,22 @@ define hidden void @je_tcache_bin_flush_stashed(ptr noundef %0, ptr noundef read
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 18
   %11 = load i16, ptr %10, align 2, !tbaa !148
   %12 = add i16 %.neg, %11
-  %13 = icmp ult i16 %12, 8
-  br i1 %13, label %492, label %14
+  %13 = lshr i16 %12, 3
+  %14 = icmp eq i16 %13, 0
+  br i1 %14, label %492, label %15
 
-14:                                               ; preds = %5
-  %15 = lshr i16 %12, 3
+15:                                               ; preds = %5
   %.val = load ptr, ptr %2, align 8, !tbaa !52
   %16 = ptrtoint ptr %.val to i64
   %17 = trunc i64 %16 to i16
   %18 = sub i16 %.val25, %17
-  %19 = zext nneg i16 %15 to i32
+  %19 = zext nneg i16 %13 to i32
   %20 = zext i16 %18 to i64
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 %20
   %22 = zext i16 %.val28 to i64
   %23 = sub nsw i64 0, %22
   %24 = getelementptr inbounds ptr, ptr %21, i64 %23
-  %25 = zext nneg i16 %15 to i64
+  %25 = zext nneg i16 %13 to i64
   %26 = zext i32 %3 to i64
   %27 = getelementptr inbounds nuw i64, ptr @je_sz_index2size_tab, i64 %26
   %28 = load i64, ptr %27, align 8, !tbaa !19
@@ -1520,8 +1520,8 @@ define hidden void @je_tcache_bin_flush_stashed(ptr noundef %0, ptr noundef read
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   br i1 %4, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %14, %tcache_bin_flush_impl_small.exit.us
-  %.0.i.us = phi i32 [ %101, %tcache_bin_flush_impl_small.exit.us ], [ 0, %14 ]
+.split.us:                                        ; preds = %15, %tcache_bin_flush_impl_small.exit.us
+  %.0.i.us = phi i32 [ %101, %tcache_bin_flush_impl_small.exit.us ], [ 0, %15 ]
   %41 = sub i32 %19, %.0.i.us
   %spec.store.select.i.us = tail call i32 @llvm.umin.i32(i32 %41, i32 256)
   %42 = zext i32 %.0.i.us to i64
@@ -2212,8 +2212,8 @@ arena_dalloc_bin_locked_step.exit.us:             ; preds = %340, %330, %326, %3
   %372 = getelementptr inbounds nuw i8, ptr %125, i64 224
   br label %208
 
-.split:                                           ; preds = %14, %tcache_bin_flush_impl_large.exit
-  %.0.i = phi i32 [ %480, %tcache_bin_flush_impl_large.exit ], [ 0, %14 ]
+.split:                                           ; preds = %15, %tcache_bin_flush_impl_large.exit
+  %.0.i = phi i32 [ %480, %tcache_bin_flush_impl_large.exit ], [ 0, %15 ]
   %373 = sub i32 %19, %.0.i
   %spec.store.select.i = tail call i32 @llvm.umin.i32(i32 %373, i32 256)
   %374 = zext i32 %.0.i to i64
@@ -4930,7 +4930,7 @@ define internal fastcc noundef zeroext i1 @tcache_try_gc_bin(ptr noundef %0, ptr
   %.val = load ptr, ptr %7, align 8, !tbaa !52
   %8 = icmp eq ptr %.val, @je_disabled_bin
   %9 = getelementptr i8, ptr %7, i64 22
-  br i1 %8, label %197, label %10
+  br i1 %8, label %196, label %10
 
 10:                                               ; preds = %4
   %11 = icmp ult i32 %3, 36
@@ -4949,7 +4949,7 @@ define internal fastcc noundef zeroext i1 @tcache_try_gc_bin(ptr noundef %0, ptr
   %.val.i.i = load i16, ptr %18, align 8, !tbaa !53
   %19 = sub i16 %.val58.i, %.val.i.i
   %20 = lshr i16 %19, 3
-  %.not.i = icmp ult i16 %19, 8
+  %.not.i = icmp eq i16 %20, 0
   br i1 %.not.i, label %38, label %21
 
 21:                                               ; preds = %12
@@ -5266,34 +5266,34 @@ tcache_gc_small_bin_shuffle.exit.i:               ; preds = %168, %.preheader1.i
   %179 = getelementptr i8, ptr %7, i64 20
   %.val4.i.i = load i16, ptr %179, align 4, !tbaa !54
   %180 = sub i16 %.val4.i.i, %.val.i.i24
-  %181 = icmp ugt i16 %180, 7
-  br i1 %181, label %182, label %tcache_gc_small.exit
+  %181 = lshr i16 %180, 3
+  %.not = icmp eq i16 %181, 0
+  br i1 %.not, label %tcache_gc_small.exit, label %182
 
 182:                                              ; preds = %177
-  %183 = lshr i16 %180, 3
-  %184 = zext nneg i16 %183 to i32
+  %183 = zext nneg i16 %181 to i32
   %.val.i25 = load ptr, ptr %7, align 8, !tbaa !52
-  %185 = ptrtoint ptr %.val.i25 to i64
-  %186 = trunc i64 %185 to i16
-  %187 = sub i16 %.val4.i.i, %186
-  %188 = lshr i16 %187, 3
-  %189 = zext nneg i16 %188 to i32
-  %190 = lshr i32 %184, 2
-  %191 = sub nsw i32 %190, %184
-  %192 = add nsw i32 %191, %189
-  tail call void @je_tcache_bin_flush_large(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %7, i32 noundef %3, i32 noundef %192)
+  %184 = ptrtoint ptr %.val.i25 to i64
+  %185 = trunc i64 %184 to i16
+  %186 = sub i16 %.val4.i.i, %185
+  %187 = lshr i16 %186, 3
+  %188 = zext nneg i16 %187 to i32
+  %189 = lshr i32 %183, 2
+  %190 = sub nsw i32 %189, %183
+  %191 = add nsw i32 %190, %188
+  tail call void @je_tcache_bin_flush_large(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %7, i32 noundef %3, i32 noundef %191)
   br label %tcache_gc_small.exit
 
 tcache_gc_small.exit:                             ; preds = %182, %177, %173, %tcache_gc_small_bin_shuffle.exit.i, %62
   %.in = phi i1 [ true, %173 ], [ false, %62 ], [ false, %tcache_gc_small_bin_shuffle.exit.i ], [ false, %177 ], [ true, %182 ]
-  %193 = load ptr, ptr %7, align 8, !tbaa !52
-  %194 = ptrtoint ptr %193 to i64
-  %195 = trunc i64 %194 to i16
-  %196 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i16 %195, ptr %196, align 8, !tbaa !53
-  br label %197
+  %192 = load ptr, ptr %7, align 8, !tbaa !52
+  %193 = ptrtoint ptr %192 to i64
+  %194 = trunc i64 %193 to i16
+  %195 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i16 %194, ptr %195, align 8, !tbaa !53
+  br label %196
 
-197:                                              ; preds = %4, %tcache_gc_small.exit
+196:                                              ; preds = %4, %tcache_gc_small.exit
   %.0 = phi i1 [ %.in, %tcache_gc_small.exit ], [ false, %4 ]
   ret i1 %.0
 }

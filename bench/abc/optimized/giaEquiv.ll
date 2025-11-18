@@ -281,7 +281,7 @@ Vec_IntFreeP.exit.i:                              ; preds = %15, %6
 
 36:                                               ; preds = %32
   %37 = ashr i32 %35, 1
-  %.not27 = icmp ult i32 %35, 2
+  %.not27 = icmp eq i32 %37, 0
   br i1 %.not27, label %49, label %38
 
 38:                                               ; preds = %36
@@ -769,33 +769,33 @@ Vec_IntFree.exit:                                 ; preds = %.critedge4, %120
 139:                                              ; preds = %.lr.ph165
   %140 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %141 = load i32, ptr %140, align 4, !tbaa !37
-  %142 = icmp ult i32 %141, 2
-  br i1 %142, label %143, label %147
+  %142 = ashr i32 %141, 1
+  %143 = icmp eq i32 %142, 0
+  br i1 %143, label %144, label %148
 
-143:                                              ; preds = %139
+144:                                              ; preds = %139
   %.val111 = load ptr, ptr %123, align 8, !tbaa !49
-  %144 = getelementptr inbounds nuw %struct.Gia_Rpr_t_, ptr %.val111, i64 %indvars.iv150164
-  %145 = load i32, ptr %144, align 4
-  %146 = and i32 %145, -268435456
-  store i32 %146, ptr %144, align 4
+  %145 = getelementptr inbounds nuw %struct.Gia_Rpr_t_, ptr %.val111, i64 %indvars.iv150164
+  %146 = load i32, ptr %145, align 4
+  %147 = and i32 %146, -268435456
+  store i32 %147, ptr %145, align 4
   br label %161
 
-147:                                              ; preds = %139
-  %148 = ashr i32 %141, 1
+148:                                              ; preds = %139
   %.val95 = load ptr, ptr %132, align 8, !tbaa !36
-  %149 = sext i32 %148 to i64
+  %149 = sext i32 %142 to i64
   %150 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val95, i64 %149
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %152 = load i32, ptr %151, align 4, !tbaa !37
   %.not90 = icmp eq i32 %152, -1
   br i1 %.not90, label %153, label %155
 
-153:                                              ; preds = %147
+153:                                              ; preds = %148
   %154 = trunc nuw nsw i64 %indvars.iv150164 to i32
   store i32 %154, ptr %151, align 4, !tbaa !37
   br label %161
 
-155:                                              ; preds = %147
+155:                                              ; preds = %148
   %.val112 = load ptr, ptr %123, align 8, !tbaa !49
   %156 = getelementptr inbounds nuw %struct.Gia_Rpr_t_, ptr %.val112, i64 %indvars.iv150164
   %157 = load i32, ptr %156, align 4
@@ -805,7 +805,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge4, %120
   store i32 %160, ptr %156, align 4
   br label %161
 
-161:                                              ; preds = %143, %153, %155, %.lr.ph165
+161:                                              ; preds = %144, %153, %155, %.lr.ph165
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150164, 1
   %162 = load i32, ptr %3, align 8, !tbaa !12
   %163 = sext i32 %162 to i64
@@ -4265,13 +4265,13 @@ define void @Gia_ManEquivDeriveReprs(ptr noundef readonly captures(none) %0, ptr
   %30 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val61, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i32, ptr %31, align 4, !tbaa !37
-  %33 = icmp ult i32 %32, 2
-  br i1 %33, label %40, label %34
+  %33 = ashr i32 %32, 1
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %40, label %35
 
-34:                                               ; preds = %27
-  %35 = ashr i32 %32, 1
+35:                                               ; preds = %27
   %.val68 = load ptr, ptr %7, align 8, !tbaa !49
-  %36 = sext i32 %35 to i64
+  %36 = sext i32 %33 to i64
   %37 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val68, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = and i32 %38, -268435456
@@ -4279,8 +4279,8 @@ define void @Gia_ManEquivDeriveReprs(ptr noundef readonly captures(none) %0, ptr
   %.val56.pre = load i32, ptr %9, align 8, !tbaa !12
   br label %40
 
-40:                                               ; preds = %34, %19, %27, %23
-  %.val56 = phi i32 [ %.val56.pre, %34 ], [ %.val56102, %19 ], [ %.val56102, %27 ], [ %.val56102, %23 ]
+40:                                               ; preds = %35, %19, %27, %23
+  %.val56 = phi i32 [ %.val56.pre, %35 ], [ %.val56102, %19 ], [ %.val56102, %27 ], [ %.val56102, %23 ]
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %41 = sext i32 %.val56 to i64
   %42 = icmp slt i64 %indvars.iv.next94, %41

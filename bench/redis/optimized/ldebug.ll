@@ -954,7 +954,7 @@ precheck.exit:                                    ; preds = %26
   ]
 
 66:                                               ; preds = %62
-  %67 = icmp ult i32 %50, 8388608
+  %67 = icmp eq i32 %63, 0
   br i1 %67, label %checkArgMode.exit, label %.critedge232
 
 68:                                               ; preds = %62

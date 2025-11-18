@@ -675,7 +675,7 @@ define range(i32 -2, 1) i32 @CRYPTO_ccm128_encrypt_ccm64(ptr noundef %0, ptr nou
   %33 = or disjoint i64 %.085.lcssa, %32
   store i8 1, ptr %30, align 1, !tbaa !3
   %.not92 = icmp eq i64 %33, %3
-  br i1 %.not92, label %34, label %94
+  br i1 %.not92, label %34, label %102
 
 34:                                               ; preds = %._crit_edge
   %35 = add i64 %3, 15
@@ -686,11 +686,11 @@ define range(i32 -2, 1) i32 @CRYPTO_ccm128_encrypt_ccm64(ptr noundef %0, ptr nou
   %40 = add i64 %39, %37
   store i64 %40, ptr %38, align 8, !tbaa !6
   %41 = icmp ugt i64 %40, 2305843009213693952
-  br i1 %41, label %94, label %42
+  br i1 %41, label %102, label %42
 
 42:                                               ; preds = %34
   %43 = lshr i64 %3, 4
-  %.not93 = icmp ult i64 %3, 16
+  %.not93 = icmp eq i64 %43, 0
   br i1 %.not93, label %ctr64_add.exit, label %44
 
 44:                                               ; preds = %42
@@ -726,8 +726,8 @@ define range(i32 -2, 1) i32 @CRYPTO_ccm128_encrypt_ccm64(ptr noundef %0, ptr nou
 61:                                               ; preds = %52
   %62 = lshr i64 %.014.i, 8
   %63 = lshr i64 %59, 8
-  %64 = icmp samesign ugt i64 %.014.i, 255
-  %65 = icmp samesign ugt i64 %59, 255
+  %64 = icmp ne i64 %62, 0
+  %65 = icmp ne i64 %63, 0
   %66 = select i1 %64, i1 true, i1 %65
   br i1 %66, label %52, label %ctr64_add.exit, !llvm.loop !24
 
@@ -743,57 +743,61 @@ ctr64_add.exit:                                   ; preds = %61, %52, %42
   br label %68
 
 68:                                               ; preds = %.preheader, %68
-  %indvars.iv109 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next110, %68 ]
-  %69 = getelementptr inbounds nuw i8, ptr %.081, i64 %indvars.iv109
-  %70 = load i8, ptr %69, align 1, !tbaa !3
-  %71 = getelementptr inbounds nuw i8, ptr %67, i64 %indvars.iv109
-  %72 = load i8, ptr %71, align 1, !tbaa !3
-  %73 = xor i8 %72, %70
-  store i8 %73, ptr %71, align 1, !tbaa !3
-  %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
-  %exitcond112.not = icmp eq i64 %indvars.iv.next110, %.083
-  br i1 %exitcond112.not, label %74, label %68, !llvm.loop !25
+  %69 = phi i64 [ 0, %.preheader ], [ %76, %68 ]
+  %.1102 = phi i32 [ 0, %.preheader ], [ %75, %68 ]
+  %70 = getelementptr inbounds nuw i8, ptr %.081, i64 %69
+  %71 = load i8, ptr %70, align 1, !tbaa !3
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 %69
+  %73 = load i8, ptr %72, align 1, !tbaa !3
+  %74 = xor i8 %73, %71
+  store i8 %74, ptr %72, align 1, !tbaa !3
+  %75 = add i32 %.1102, 1
+  %76 = zext i32 %75 to i64
+  %77 = icmp ugt i64 %.083, %76
+  br i1 %77, label %68, label %78, !llvm.loop !25
 
-74:                                               ; preds = %68
+78:                                               ; preds = %68
   tail call void %9(ptr noundef nonnull %67, ptr noundef nonnull %67, ptr noundef %11) #7
   call void %9(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %11) #7
-  br label %75
+  br label %79
 
-75:                                               ; preds = %74, %75
-  %indvars.iv113 = phi i64 [ 0, %74 ], [ %indvars.iv.next114, %75 ]
-  %76 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv113
-  %77 = load i8, ptr %76, align 1, !tbaa !3
-  %78 = getelementptr inbounds nuw i8, ptr %.081, i64 %indvars.iv113
-  %79 = load i8, ptr %78, align 1, !tbaa !3
-  %80 = xor i8 %79, %77
-  %81 = getelementptr inbounds nuw i8, ptr %.082, i64 %indvars.iv113
-  store i8 %80, ptr %81, align 1, !tbaa !3
-  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
-  %exitcond116.not = icmp eq i64 %indvars.iv.next114, %.083
-  br i1 %exitcond116.not, label %._crit_edge106, label %75, !llvm.loop !26
+79:                                               ; preds = %78, %79
+  %80 = phi i64 [ 0, %78 ], [ %88, %79 ]
+  %.2103 = phi i32 [ 0, %78 ], [ %87, %79 ]
+  %81 = getelementptr inbounds nuw i8, ptr %6, i64 %80
+  %82 = load i8, ptr %81, align 1, !tbaa !3
+  %83 = getelementptr inbounds nuw i8, ptr %.081, i64 %80
+  %84 = load i8, ptr %83, align 1, !tbaa !3
+  %85 = xor i8 %84, %82
+  %86 = getelementptr inbounds nuw i8, ptr %.082, i64 %80
+  store i8 %85, ptr %86, align 1, !tbaa !3
+  %87 = add i32 %.2103, 1
+  %88 = zext i32 %87 to i64
+  %89 = icmp samesign ugt i64 %.083, %88
+  br i1 %89, label %79, label %._crit_edge106, !llvm.loop !26
 
-._crit_edge106:                                   ; preds = %75, %44, %ctr64_add.exit
-  %82 = zext nneg i32 %22 to i64
-  %scevgep = getelementptr i8, ptr %0, i64 %82
-  %83 = sub nuw nsw i32 16, %22
-  %84 = zext nneg i32 %83 to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %84, i1 false), !tbaa !3
+._crit_edge106:                                   ; preds = %79, %44, %ctr64_add.exit
+  %90 = zext nneg i32 %22 to i64
+  %scevgep = getelementptr i8, ptr %0, i64 %90
+  %91 = sub nuw nsw i32 16, %22
+  %92 = zext nneg i32 %91 to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %92, i1 false), !tbaa !3
   call void %9(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %11) #7
-  %85 = load i64, ptr %6, align 8, !tbaa !3
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %87 = load i64, ptr %86, align 8, !tbaa !3
-  %88 = xor i64 %87, %85
-  store i64 %88, ptr %86, align 8, !tbaa !3
-  %89 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %90 = load i64, ptr %89, align 8, !tbaa !3
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %92 = load i64, ptr %91, align 8, !tbaa !3
-  %93 = xor i64 %92, %90
-  store i64 %93, ptr %91, align 8, !tbaa !3
+  %93 = load i64, ptr %6, align 8, !tbaa !3
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %95 = load i64, ptr %94, align 8, !tbaa !3
+  %96 = xor i64 %95, %93
+  store i64 %96, ptr %94, align 8, !tbaa !3
+  %97 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %98 = load i64, ptr %97, align 8, !tbaa !3
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %100 = load i64, ptr %99, align 8, !tbaa !3
+  %101 = xor i64 %100, %98
+  store i64 %101, ptr %99, align 8, !tbaa !3
   store i8 %7, ptr %0, align 8, !tbaa !3
-  br label %94
+  br label %102
 
-94:                                               ; preds = %34, %._crit_edge, %._crit_edge106
+102:                                              ; preds = %34, %._crit_edge, %._crit_edge106
   %.0 = phi i32 [ 0, %._crit_edge106 ], [ -1, %._crit_edge ], [ -2, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -854,11 +858,11 @@ define range(i32 -1, 1) i32 @CRYPTO_ccm128_decrypt_ccm64(ptr noundef %0, ptr nou
   %30 = or disjoint i64 %.076.lcssa, %29
   store i8 1, ptr %27, align 1, !tbaa !3
   %.not82 = icmp eq i64 %30, %3
-  br i1 %.not82, label %31, label %81
+  br i1 %.not82, label %31, label %85
 
 31:                                               ; preds = %._crit_edge
   %32 = lshr i64 %3, 4
-  %.not83 = icmp ult i64 %3, 16
+  %.not83 = icmp eq i64 %32, 0
   br i1 %.not83, label %ctr64_add.exit, label %33
 
 33:                                               ; preds = %31
@@ -894,8 +898,8 @@ define range(i32 -1, 1) i32 @CRYPTO_ccm128_decrypt_ccm64(ptr noundef %0, ptr nou
 50:                                               ; preds = %41
   %51 = lshr i64 %.014.i, 8
   %52 = lshr i64 %48, 8
-  %53 = icmp samesign ugt i64 %.014.i, 255
-  %54 = icmp samesign ugt i64 %48, 255
+  %53 = icmp ne i64 %51, 0
+  %54 = icmp ne i64 %52, 0
   %55 = select i1 %53, i1 true, i1 %54
   br i1 %55, label %41, label %ctr64_add.exit, !llvm.loop !24
 
@@ -912,48 +916,50 @@ ctr64_add.exit:                                   ; preds = %50, %41, %31
   br label %58
 
 58:                                               ; preds = %56, %58
-  %indvars.iv98 = phi i64 [ 0, %56 ], [ %indvars.iv.next99, %58 ]
-  %59 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv98
-  %60 = load i8, ptr %59, align 1, !tbaa !3
-  %61 = getelementptr inbounds nuw i8, ptr %.072, i64 %indvars.iv98
-  %62 = load i8, ptr %61, align 1, !tbaa !3
-  %63 = xor i8 %62, %60
-  %64 = getelementptr inbounds nuw i8, ptr %.073, i64 %indvars.iv98
-  store i8 %63, ptr %64, align 1, !tbaa !3
-  %65 = getelementptr inbounds nuw i8, ptr %57, i64 %indvars.iv98
-  %66 = load i8, ptr %65, align 1, !tbaa !3
-  %67 = xor i8 %66, %63
-  store i8 %67, ptr %65, align 1, !tbaa !3
-  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
-  %exitcond101.not = icmp eq i64 %indvars.iv.next99, %.074
-  br i1 %exitcond101.not, label %68, label %58, !llvm.loop !28
+  %59 = phi i64 [ 0, %56 ], [ %70, %58 ]
+  %.192 = phi i32 [ 0, %56 ], [ %69, %58 ]
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 %59
+  %61 = load i8, ptr %60, align 1, !tbaa !3
+  %62 = getelementptr inbounds nuw i8, ptr %.072, i64 %59
+  %63 = load i8, ptr %62, align 1, !tbaa !3
+  %64 = xor i8 %63, %61
+  %65 = getelementptr inbounds nuw i8, ptr %.073, i64 %59
+  store i8 %64, ptr %65, align 1, !tbaa !3
+  %66 = getelementptr inbounds nuw i8, ptr %57, i64 %59
+  %67 = load i8, ptr %66, align 1, !tbaa !3
+  %68 = xor i8 %67, %64
+  store i8 %68, ptr %66, align 1, !tbaa !3
+  %69 = add i32 %.192, 1
+  %70 = zext i32 %69 to i64
+  %71 = icmp ugt i64 %.074, %70
+  br i1 %71, label %58, label %72, !llvm.loop !28
 
-68:                                               ; preds = %58
+72:                                               ; preds = %58
   call void %9(ptr noundef nonnull %57, ptr noundef nonnull %57, ptr noundef %11) #7
   br label %._crit_edge95
 
-._crit_edge95:                                    ; preds = %33, %68, %ctr64_add.exit
-  %69 = zext nneg i32 %19 to i64
-  %scevgep = getelementptr i8, ptr %0, i64 %69
-  %70 = sub nuw nsw i32 16, %19
-  %71 = zext nneg i32 %70 to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %71, i1 false), !tbaa !3
+._crit_edge95:                                    ; preds = %33, %72, %ctr64_add.exit
+  %73 = zext nneg i32 %19 to i64
+  %scevgep = getelementptr i8, ptr %0, i64 %73
+  %74 = sub nuw nsw i32 16, %19
+  %75 = zext nneg i32 %74 to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %75, i1 false), !tbaa !3
   call void %9(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %11) #7
-  %72 = load i64, ptr %6, align 8, !tbaa !3
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %74 = load i64, ptr %73, align 8, !tbaa !3
-  %75 = xor i64 %74, %72
-  store i64 %75, ptr %73, align 8, !tbaa !3
-  %76 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %77 = load i64, ptr %76, align 8, !tbaa !3
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %79 = load i64, ptr %78, align 8, !tbaa !3
-  %80 = xor i64 %79, %77
-  store i64 %80, ptr %78, align 8, !tbaa !3
+  %76 = load i64, ptr %6, align 8, !tbaa !3
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %78 = load i64, ptr %77, align 8, !tbaa !3
+  %79 = xor i64 %78, %76
+  store i64 %79, ptr %77, align 8, !tbaa !3
+  %80 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %81 = load i64, ptr %80, align 8, !tbaa !3
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %83 = load i64, ptr %82, align 8, !tbaa !3
+  %84 = xor i64 %83, %81
+  store i64 %84, ptr %82, align 8, !tbaa !3
   store i8 %7, ptr %0, align 8, !tbaa !3
-  br label %81
+  br label %85
 
-81:                                               ; preds = %._crit_edge, %._crit_edge95
+85:                                               ; preds = %._crit_edge, %._crit_edge95
   %.0 = phi i32 [ 0, %._crit_edge95 ], [ -1, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0

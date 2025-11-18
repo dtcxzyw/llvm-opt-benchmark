@@ -409,7 +409,7 @@ decode_envelope.exit.thread:                      ; preds = %50, %decode_envelop
   %156 = select i1 %.not.i186, i32 0, i32 %.0116150.i
   %spec.select.i = add nsw i32 %156, %.0106151.i
   %157 = lshr i32 %.0116150.i, 1
-  %.not181.i = icmp samesign ult i32 %.0116150.i, 2
+  %.not181.i = icmp eq i32 %157, 0
   br i1 %.not181.i, label %.lr.ph.i, label %.preheader146.i, !llvm.loop !75
 
 .lr.ph.i:                                         ; preds = %155, %.lr.ph.i
@@ -437,7 +437,7 @@ decode_envelope.exit.thread:                      ; preds = %50, %decode_envelop
   br i1 %exitcond189.not.i, label %._crit_edge.i179, label %.lr.ph.i, !llvm.loop !76
 
 ._crit_edge.i179:                                 ; preds = %.lr.ph.i, %.preheader145.._crit_edge_crit_edge.i
-  %.0106.lcssa212.i = phi i32 [ -32, %.preheader145.._crit_edge_crit_edge.i ], [ %spec.select.i, %.lr.ph.i ]
+  %.0106.lcssa213.i = phi i32 [ -32, %.preheader145.._crit_edge_crit_edge.i ], [ %spec.select.i, %.lr.ph.i ]
   %.pre-phi.i = phi i64 [ %.pre.i, %.preheader145.._crit_edge_crit_edge.i ], [ %wide.trip.count.i182, %.lr.ph.i ]
   %.1113.lcssa.i = phi i32 [ 0, %.preheader145.._crit_edge_crit_edge.i ], [ %171, %.lr.ph.i ]
   %172 = getelementptr inbounds nuw i8, ptr %7, i64 64
@@ -488,7 +488,7 @@ decode_envelope.exit.thread:                      ; preds = %50, %decode_envelop
   %183 = load i32, ptr %182, align 4, !tbaa !37
   %184 = shl i32 %179, 1
   %185 = add i32 %184, %183
-  %186 = sub i32 %.0106.lcssa212.i, %185
+  %186 = sub i32 %.0106.lcssa213.i, %185
   %187 = icmp sgt i32 %186, %.0101163.i
   %spec.select127.i = tail call i32 @llvm.smax.i32(i32 %186, i32 %.0101163.i)
   %188 = trunc nuw nsw i64 %indvars.iv.next196.i to i32
@@ -539,7 +539,7 @@ decode_envelope.exit.thread:                      ; preds = %50, %decode_envelop
   %213 = load i32, ptr %212, align 4, !tbaa !37
   %214 = shl nuw i32 %209, 1
   %215 = add i32 %214, %213
-  %216 = sub i32 %.0106.lcssa212.i, %215
+  %216 = sub i32 %.0106.lcssa213.i, %215
   %217 = icmp slt i32 %216, %.2103156.i
   %spec.select129.i = tail call i32 @llvm.smin.i32(i32 %216, i32 %.2103156.i)
   %218 = trunc nuw nsw i64 %indvars.iv190.i to i32
@@ -608,7 +608,7 @@ categorize_regions.exit:                          ; preds = %.preheader.i181
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.not258 = icmp ult i32 %128, 268435456
+  %.not258 = icmp eq i32 %129, 0
   br i1 %.not258, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %categorize_regions.exit
@@ -1188,7 +1188,7 @@ thread-pre-split:                                 ; preds = %decode_vector.exit.
   %519 = lshr i32 %.0141253, %.0138254
   %520 = xor i32 %519, %.0141253
   %521 = lshr i32 %.0138254, 1
-  %.not168 = icmp samesign ult i32 %.0138254, 2
+  %.not168 = icmp eq i32 %521, 0
   br i1 %.not168, label %514, label %518, !llvm.loop !98
 
 522:                                              ; preds = %508

@@ -2755,7 +2755,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder19readCoolpixSplitRawENS_10ByteStre
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %18 = load i32, ptr %17, align 8, !tbaa !157, !noalias !151
   %19 = ashr i32 %18, 1
-  %20 = icmp ugt i32 %18, 1
+  %20 = icmp ne i32 %19, 0
   tail call void @llvm.assume(i1 %20)
   %21 = icmp sgt i32 %19, -1
   tail call void @llvm.assume(i1 %21)
@@ -3292,7 +3292,7 @@ _ZN8rawspeed18RawImageCurveGuardC2EPKNS_8RawImageERKSt6vectorItSaItEEb.exit: ; p
   call void @llvm.assume(i1 %101)
   %102 = icmp sgt i32 %97, -1
   call void @llvm.assume(i1 %102)
-  %103 = icmp ugt i32 %99, 1
+  %103 = icmp ne i32 %100, 0
   call void @llvm.assume(i1 %103)
   %104 = icmp sgt i32 %100, -1
   call void @llvm.assume(i1 %104)

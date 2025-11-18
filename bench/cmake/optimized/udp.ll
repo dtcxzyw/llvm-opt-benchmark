@@ -1311,7 +1311,7 @@ uv_udp_using_recvmmsg.exit.i:                     ; preds = %33
   %37 = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !65
   %38 = lshr i64 %37, 16
   %spec.store.select.i.i = call i64 @llvm.umin.i64(i64 %38, i64 20)
-  %.not65.i.i = icmp ult i64 %37, 65536
+  %.not65.i.i = icmp eq i64 %38, 0
   br i1 %.not65.i.i, label %.preheader56.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %36

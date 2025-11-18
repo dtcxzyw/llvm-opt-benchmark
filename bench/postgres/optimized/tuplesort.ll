@@ -842,11 +842,11 @@ reversedirection.exit.i:                          ; preds = %.lr.ph.i.i, %147
   %186 = zext nneg i32 %.01720.i.i to i64
   %187 = getelementptr inbounds nuw %struct.SortTuple, ptr %170, i64 %186
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %187, ptr noundef nonnull align 8 dereferenceable(24) %182, i64 24, i1 false)
-  %.not23.i.i = icmp ult i32 %178, 2
+  %.not23.i.i = icmp eq i32 %179, 0
   br i1 %.not23.i.i, label %tuplesort_heap_insert.exit.i, label %.lr.ph.i22.i
 
 tuplesort_heap_insert.exit.i:                     ; preds = %185, %.lr.ph.i22.i, %174
-  %.017.lcssa.i.i = phi i32 [ %175, %174 ], [ %.01720.i.i, %.lr.ph.i22.i ], [ %179, %185 ]
+  %.017.lcssa.i.i = phi i32 [ %175, %174 ], [ %.01720.i.i, %.lr.ph.i22.i ], [ 0, %185 ]
   %188 = sext i32 %.017.lcssa.i.i to i64
   %189 = getelementptr inbounds %struct.SortTuple, ptr %170, i64 %188
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %189, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
@@ -3553,11 +3553,11 @@ getlen.exit.i:                                    ; preds = %14
   %41 = zext nneg i32 %.01720.i to i64
   %42 = getelementptr inbounds nuw %struct.SortTuple, ptr %26, i64 %41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %37, i64 24, i1 false)
-  %.not23.i = icmp ult i32 %33, 2
+  %.not23.i = icmp eq i32 %34, 0
   br i1 %.not23.i, label %tuplesort_heap_insert.exit, label %.lr.ph.i
 
 tuplesort_heap_insert.exit:                       ; preds = %.lr.ph.i, %40, %29
-  %.017.lcssa.i = phi i32 [ %30, %29 ], [ %34, %40 ], [ %.01720.i, %.lr.ph.i ]
+  %.017.lcssa.i = phi i32 [ %30, %29 ], [ 0, %40 ], [ %.01720.i, %.lr.ph.i ]
   %43 = sext i32 %.017.lcssa.i to i64
   %44 = getelementptr inbounds %struct.SortTuple, ptr %26, i64 %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)

@@ -13120,7 +13120,7 @@ while.body.i94:                                   ; preds = %while.body.i94, %wh
   %shr.i.i.i99 = lshr i32 %add.i1.i.i98, 6
   %xor.i.i.i100 = xor i32 %shr.i.i.i99, %add.i1.i.i98
   %shr.i101 = lshr i32 %imm.addr.04.i95, 8
-  %tobool.not.i102 = icmp ult i32 %imm.addr.04.i95, 256
+  %tobool.not.i102 = icmp eq i32 %shr.i101, 0
   br i1 %tobool.not.i102, label %while.cond.while.end_crit_edge.i103, label %while.body.i94, !llvm.loop !112
 
 while.cond.while.end_crit_edge.i103:              ; preds = %while.body.i94
@@ -13326,7 +13326,7 @@ while.body.i213:                                  ; preds = %while.body.i213, %w
   %shr.i.i.i218 = lshr i32 %add.i1.i.i217, 6
   %xor.i.i.i219 = xor i32 %shr.i.i.i218, %add.i1.i.i217
   %shr.i220 = lshr i32 %imm.addr.04.i214, 8
-  %tobool.not.i221 = icmp samesign ult i32 %imm.addr.04.i214, 256
+  %tobool.not.i221 = icmp eq i32 %shr.i220, 0
   br i1 %tobool.not.i221, label %while.cond.while.end_crit_edge.i222, label %while.body.i213, !llvm.loop !112
 
 while.cond.while.end_crit_edge.i222:              ; preds = %while.body.i213
@@ -13440,7 +13440,7 @@ while.body.i279:                                  ; preds = %while.body.i279, %w
   %shr.i.i.i284 = lshr i32 %add.i1.i.i283, 6
   %xor.i.i.i285 = xor i32 %shr.i.i.i284, %add.i1.i.i283
   %shr.i286 = lshr i32 %imm.addr.04.i280, 8
-  %tobool.not.i287 = icmp ult i32 %imm.addr.04.i280, 256
+  %tobool.not.i287 = icmp eq i32 %shr.i286, 0
   br i1 %tobool.not.i287, label %while.cond.while.end_crit_edge.i288, label %while.body.i279, !llvm.loop !112
 
 while.cond.while.end_crit_edge.i288:              ; preds = %while.body.i279
@@ -13543,7 +13543,7 @@ while.body.i334:                                  ; preds = %while.body.i334, %w
   %shr.i.i.i339 = lshr i32 %add.i1.i.i338, 6
   %xor.i.i.i340 = xor i32 %shr.i.i.i339, %add.i1.i.i338
   %shr.i341 = lshr i32 %imm.addr.04.i335, 8
-  %tobool.not.i342 = icmp ult i32 %imm.addr.04.i335, 256
+  %tobool.not.i342 = icmp eq i32 %shr.i341, 0
   br i1 %tobool.not.i342, label %while.cond.while.end_crit_edge.i343, label %while.body.i334, !llvm.loop !112
 
 while.cond.while.end_crit_edge.i343:              ; preds = %while.body.i334
@@ -13657,7 +13657,7 @@ while.body.i399:                                  ; preds = %while.body.i399, %w
   %shr.i.i.i404 = lshr i32 %add.i1.i.i403, 6
   %xor.i.i.i405 = xor i32 %shr.i.i.i404, %add.i1.i.i403
   %shr.i406 = lshr i32 %imm.addr.04.i400, 8
-  %tobool.not.i407 = icmp ult i32 %imm.addr.04.i400, 256
+  %tobool.not.i407 = icmp eq i32 %shr.i406, 0
   br i1 %tobool.not.i407, label %while.cond.while.end_crit_edge.i408, label %while.body.i399, !llvm.loop !112
 
 while.cond.while.end_crit_edge.i408:              ; preds = %while.body.i399
@@ -13769,7 +13769,7 @@ while.body.i465:                                  ; preds = %while.body.i465, %w
   %shr.i.i.i470 = lshr i32 %add.i1.i.i469, 6
   %xor.i.i.i471 = xor i32 %shr.i.i.i470, %add.i1.i.i469
   %shr.i472 = lshr i32 %imm.addr.04.i466, 8
-  %tobool.not.i473 = icmp ult i32 %imm.addr.04.i466, 256
+  %tobool.not.i473 = icmp eq i32 %shr.i472, 0
   br i1 %tobool.not.i473, label %while.cond.while.end_crit_edge.i474, label %while.body.i465, !llvm.loop !112
 
 while.cond.while.end_crit_edge.i474:              ; preds = %while.body.i465
@@ -13887,7 +13887,7 @@ while.body.i529:                                  ; preds = %while.body.i529, %w
   %shr.i.i.i534 = lshr i32 %add.i1.i.i533, 6
   %xor.i.i.i535 = xor i32 %shr.i.i.i534, %add.i1.i.i533
   %shr.i536 = lshr i32 %imm.addr.04.i530, 8
-  %tobool.not.i537 = icmp ult i32 %imm.addr.04.i530, 256
+  %tobool.not.i537 = icmp eq i32 %shr.i536, 0
   br i1 %tobool.not.i537, label %while.cond.while.end_crit_edge.i538, label %while.body.i529, !llvm.loop !112
 
 while.cond.while.end_crit_edge.i538:              ; preds = %while.body.i529

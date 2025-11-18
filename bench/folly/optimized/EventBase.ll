@@ -4467,7 +4467,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPol
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 15
   %5 = load i8, ptr %4, align 1, !tbaa !326
   %6 = icmp eq i8 %5, -1
-  br i1 %6, label %41, label %7
+  br i1 %6, label %42, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4481,8 +4481,8 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPol
   %14 = xor i64 %notmask.i, -1
   %15 = lshr i64 %14, 12
   %16 = add nuw nsw i64 %15, 1
-  %.not.i.i = icmp ult i64 %9, 256
-  br i1 %.not.i.i, label %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit, label %.lr.ph.i.i
+  %.not.i.i = icmp eq i64 %10, 0
+  br i1 %.not.i.i, label %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %7, %_ZNSt16allocator_traitsISaISt4pairIKmSt10unique_ptrIvPFvPvEEEEE7destroyIS7_EEvRS8_PT_.exit.i.i
   %.05.i.i = phi i64 [ %27, %_ZNSt16allocator_traitsISaISt4pairIKmSt10unique_ptrIvPFvPvEEEEE7destroyIS7_EEvRS8_PT_.exit.i.i ], [ 0, %7 ]
@@ -4510,40 +4510,44 @@ _ZNSt16allocator_traitsISaISt4pairIKmSt10unique_ptrIvPFvPvEEEEE7destroyIS7_EEvRS
   store ptr null, ptr %19, align 8, !tbaa !270
   %27 = add nuw nsw i64 %.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %27, %10
-  br i1 %exitcond.not.i.i, label %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit, label %.lr.ph.i.i, !llvm.loop !347
+  br i1 %exitcond.not.i.i, label %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !347
 
-_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit: ; preds = %_ZNSt16allocator_traitsISaISt4pairIKmSt10unique_ptrIvPFvPvEEEEE7destroyIS7_EEvRS8_PT_.exit.i.i
+_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit.loopexit: ; preds = %_ZNSt16allocator_traitsISaISt4pairIKmSt10unique_ptrIvPFvPvEEEEE7destroyIS7_EEvRS8_PT_.exit.i.i
   %.pre = load i64, ptr %8, align 8, !tbaa !208
-  %28 = icmp ult i64 %.pre, 256
-  br i1 %28, label %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit, label %29
+  br label %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit
 
-29:                                               ; preds = %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit
-  %30 = and i64 %.pre, 255
-  store i64 %30, ptr %8, align 8, !tbaa !208
+_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit: ; preds = %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit.loopexit, %7
+  %28 = phi i64 [ %.pre, %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit.loopexit ], [ %9, %7 ]
+  %29 = icmp ult i64 %28, 256
+  br i1 %29, label %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit, label %30
+
+30:                                               ; preds = %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit
+  %31 = and i64 %28, 255
+  store i64 %31, ptr %8, align 8, !tbaa !208
   br label %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit
 
-_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit: ; preds = %7, %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit, %29
-  %31 = phi i64 [ %.pre, %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit ], [ %30, %29 ], [ %9, %7 ]
-  %32 = load ptr, ptr %2, align 8, !tbaa !207
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 12
-  %.0.copyload.i = load i16, ptr %33, align 1
-  %34 = zext i16 %.0.copyload.i to i64
-  %35 = icmp eq i64 %31, 0
-  %36 = shl nuw nsw i64 %34, 2
-  %.neg17 = sub nuw nsw i64 -16, %36
-  %.neg18 = shl i64 -64, %31
-  %.0.i.neg = select i1 %35, i64 %.neg17, i64 %.neg18
+_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit: ; preds = %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit, %30
+  %32 = phi i64 [ %28, %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit ], [ %31, %30 ]
+  %33 = load ptr, ptr %2, align 8, !tbaa !207
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 12
+  %.0.copyload.i = load i16, ptr %34, align 1
+  %35 = zext i16 %.0.copyload.i to i64
+  %36 = icmp eq i64 %32, 0
+  %37 = shl nuw nsw i64 %35, 2
+  %.neg17 = sub nuw nsw i64 -16, %37
+  %.neg18 = shl i64 -64, %32
+  %.0.i.neg = select i1 %36, i64 %.neg17, i64 %.neg18
   store ptr @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance, ptr %2, align 8, !tbaa !207
   store i64 0, ptr %8, align 8, !tbaa !208
-  %37 = and i64 %.0.i.neg, -8
-  %38 = mul nuw nsw i64 %13, 24
-  %39 = mul i64 %38, %16
-  %40 = sub i64 %39, %37
-  tail call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %40) #33
+  %38 = and i64 %.0.i.neg, -8
+  %39 = mul nuw nsw i64 %13, 24
+  %40 = mul i64 %39, %16
+  %41 = sub i64 %40, %38
+  tail call void @_ZdlPvm(ptr noundef nonnull %33, i64 noundef %41) #33
   store ptr null, ptr %0, align 8, !tbaa !206
-  br label %41
+  br label %42
 
-41:                                               ; preds = %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit, %1
+42:                                               ; preds = %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit, %1
   ret void
 }
 
@@ -8363,11 +8367,11 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPol
   %15 = xor i64 %notmask.i, -1
   %16 = lshr i64 %15, 12
   %17 = add nuw nsw i64 %16, 1
-  %.not.i.i = icmp ult i64 %9, 256
+  %.not.i.i = icmp eq i64 %12, 0
   br i1 %11, label %18, label %30
 
 18:                                               ; preds = %7
-  br i1 %.not.i.i, label %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit.thread19, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %18, %_ZNSt16allocator_traitsISaISt4pairIKmSt10unique_ptrIvPFvPvEEEEE7destroyIS7_EEvRS8_PT_.exit.i.i
   %.05.i.i = phi i64 [ %29, %_ZNSt16allocator_traitsISaISt4pairIKmSt10unique_ptrIvPFvPvEEEEE7destroyIS7_EEvRS8_PT_.exit.i.i ], [ 0, %18 ]
@@ -8398,7 +8402,7 @@ _ZNSt16allocator_traitsISaISt4pairIKmSt10unique_ptrIvPFvPvEEEEE7destroyIS7_EEvRS
   br i1 %exitcond.not.i.i, label %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit, label %.lr.ph.i.i, !llvm.loop !347
 
 30:                                               ; preds = %7
-  br i1 %.not.i.i, label %.thread22, label %.lr.ph.i
+  br i1 %.not.i.i, label %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %30, %_ZNSt16allocator_traitsISaISt4pairIKmSt10unique_ptrIvPFvPvEEEEE7destroyIS7_EEvRS8_PT_.exit.i
   %.05.i = phi i64 [ %41, %_ZNSt16allocator_traitsISaISt4pairIKmSt10unique_ptrIvPFvPvEEEEE7destroyIS7_EEvRS8_PT_.exit.i ], [ 0, %30 ]
@@ -8431,73 +8435,85 @@ _ZNSt16allocator_traitsISaISt4pairIKmSt10unique_ptrIvPFvPvEEEEE7destroyIS7_EEvRS
 _ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit: ; preds = %_ZNSt16allocator_traitsISaISt4pairIKmSt10unique_ptrIvPFvPvEEEEE7destroyIS7_EEvRS8_PT_.exit.i, %_ZNSt16allocator_traitsISaISt4pairIKmSt10unique_ptrIvPFvPvEEEEE7destroyIS7_EEvRS8_PT_.exit.i.i
   %42 = load i64, ptr %8, align 8, !tbaa !208
   %43 = icmp ult i64 %42, 256
-  br i1 %43, label %57, label %44
+  br i1 %43, label %59, label %46
 
-44:                                               ; preds = %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit
-  br i1 %11, label %.thread20, label %.thread
+_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit.thread19: ; preds = %18
+  %44 = icmp ult i64 %9, 256
+  br i1 %44, label %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit, label %.thread20
 
-.thread:                                          ; preds = %44
+_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit.thread: ; preds = %30
+  %45 = icmp ult i64 %9, 256
+  br i1 %45, label %.thread22, label %.thread
+
+46:                                               ; preds = %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit
+  br i1 %11, label %.thread20, label %..thread_crit_edge
+
+..thread_crit_edge:                               ; preds = %46
   %.pre = load ptr, ptr %2, align 8, !tbaa !207
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 12
   %.0.copyload.i.pre = load i16, ptr %.phi.trans.insert, align 1
-  br label %48
+  br label %.thread
 
-45:                                               ; preds = %48
-  %46 = load ptr, ptr %2, align 8, !tbaa !207
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 12
-  store i16 %.0.copyload.i.pre, ptr %47, align 1
+.thread:                                          ; preds = %..thread_crit_edge, %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit.thread
+  %.0.copyload.i = phi i16 [ %.0.copyload.i.pre, %..thread_crit_edge ], [ %.0.copyload.i.i, %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit.thread ]
+  br label %50
+
+47:                                               ; preds = %50
+  %48 = load ptr, ptr %2, align 8, !tbaa !207
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 12
+  store i16 %.0.copyload.i, ptr %49, align 1
   %.pre29 = load i64, ptr %8, align 8, !tbaa !208
   br label %.thread20
 
-48:                                               ; preds = %.thread, %48
-  %.026 = phi i64 [ 0, %.thread ], [ %51, %48 ]
-  %49 = load ptr, ptr %2, align 8, !tbaa !207
-  %50 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.157", ptr %49, i64 %.026
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %50, i8 0, i64 16, i1 false)
-  %51 = add nuw i64 %.026, 1
-  %52 = load i64, ptr %8, align 8, !tbaa !208
-  %53 = and i64 %52, 255
-  %.0.highbits = lshr i64 %51, %53
-  %54 = icmp eq i64 %.0.highbits, 0
-  br i1 %54, label %48, label %45, !llvm.loop !455
+50:                                               ; preds = %.thread, %50
+  %.026 = phi i64 [ 0, %.thread ], [ %53, %50 ]
+  %51 = load ptr, ptr %2, align 8, !tbaa !207
+  %52 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.157", ptr %51, i64 %.026
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %52, i8 0, i64 16, i1 false)
+  %53 = add nuw i64 %.026, 1
+  %54 = load i64, ptr %8, align 8, !tbaa !208
+  %55 = and i64 %54, 255
+  %.0.highbits = lshr i64 %53, %55
+  %56 = icmp eq i64 %.0.highbits, 0
+  br i1 %56, label %50, label %47, !llvm.loop !455
 
-.thread20:                                        ; preds = %45, %44
-  %55 = phi i64 [ %.pre29, %45 ], [ %42, %44 ]
-  %56 = and i64 %55, 255
-  store i64 %56, ptr %8, align 8, !tbaa !208
-  br label %57
+.thread20:                                        ; preds = %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit.thread19, %47, %46
+  %57 = phi i64 [ %9, %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit.thread19 ], [ %.pre29, %47 ], [ %42, %46 ]
+  %58 = and i64 %57, 255
+  store i64 %58, ptr %8, align 8, !tbaa !208
+  br label %59
 
-57:                                               ; preds = %.thread20, %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit
-  %58 = phi i64 [ %56, %.thread20 ], [ %42, %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit ]
+59:                                               ; preds = %.thread20, %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit
+  %60 = phi i64 [ %58, %.thread20 ], [ %42, %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit ]
   br i1 %11, label %._ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit_crit_edge, label %.thread22
 
-._ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit_crit_edge: ; preds = %57
+._ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit_crit_edge: ; preds = %59
   %.pre30 = load ptr, ptr %2, align 8, !tbaa !207
   %.phi.trans.insert31 = getelementptr inbounds nuw i8, ptr %.pre30, i64 12
   %.0.copyload.i17.pre = load i16, ptr %.phi.trans.insert31, align 1
   %.pre34 = zext i16 %.0.copyload.i17.pre to i64
   br label %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit
 
-_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit: ; preds = %18, %._ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit_crit_edge
-  %.pre-phi35 = phi i64 [ %.pre34, %._ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit_crit_edge ], [ %14, %18 ]
-  %.pre-phi = phi i64 [ %58, %._ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit_crit_edge ], [ %10, %18 ]
-  %59 = phi ptr [ %.pre30, %._ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit_crit_edge ], [ %3, %18 ]
-  %60 = icmp eq i64 %.pre-phi, 0
-  %61 = shl nuw nsw i64 %.pre-phi35, 2
-  %.neg23 = sub nuw nsw i64 -16, %61
+_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit: ; preds = %._ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit_crit_edge, %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit.thread19
+  %.pre-phi35 = phi i64 [ %.pre34, %._ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit_crit_edge ], [ %14, %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit.thread19 ]
+  %.pre-phi = phi i64 [ %60, %._ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit_crit_edge ], [ %10, %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit.thread19 ]
+  %61 = phi ptr [ %.pre30, %._ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit_crit_edge ], [ %3, %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit.thread19 ]
+  %62 = icmp eq i64 %.pre-phi, 0
+  %63 = shl nuw nsw i64 %.pre-phi35, 2
+  %.neg23 = sub nuw nsw i64 -16, %63
   %.neg24 = shl i64 -64, %.pre-phi
-  %.0.i.neg = select i1 %60, i64 %.neg23, i64 %.neg24
+  %.0.i.neg = select i1 %62, i64 %.neg23, i64 %.neg24
   store ptr @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance, ptr %2, align 8, !tbaa !207
   store i64 0, ptr %8, align 8, !tbaa !208
-  %62 = and i64 %.0.i.neg, -8
-  %63 = mul nuw nsw i64 %14, 24
-  %64 = mul i64 %63, %17
-  %65 = sub i64 %64, %62
-  tail call void @_ZdlPvm(ptr noundef nonnull %59, i64 noundef %65) #33
+  %64 = and i64 %.0.i.neg, -8
+  %65 = mul nuw nsw i64 %14, 24
+  %66 = mul i64 %65, %17
+  %67 = sub i64 %66, %64
+  tail call void @_ZdlPvm(ptr noundef nonnull %61, i64 noundef %67) #33
   store ptr null, ptr %0, align 8, !tbaa !206
   br label %.thread22
 
-.thread22:                                        ; preds = %30, %57, %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit, %1
+.thread22:                                        ; preds = %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11beforeResetEmm.exit.thread, %59, %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit, %1
   ret void
 }
 

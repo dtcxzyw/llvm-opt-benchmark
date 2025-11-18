@@ -4893,24 +4893,24 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
   %245 = load ptr, ptr %161, align 8, !tbaa !519, !noalias !552
   call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %12, ptr noundef nonnull align 8 dereferenceable(15248) %245, i32 %.sroa.0.0.copyload.i, i32 noundef 1270) #22
   %246 = load i16, ptr %164, align 8, !tbaa !523
-  %switch.tableidx241 = add i16 %246, -1
-  %247 = icmp ult i16 %switch.tableidx241, 19
-  br i1 %247, label %switch.hole_check242, label %248
+  %switch.tableidx240 = add i16 %246, -1
+  %247 = icmp ult i16 %switch.tableidx240, 19
+  br i1 %247, label %switch.hole_check241, label %248
 
-248:                                              ; preds = %switch.hole_check242, %_ZN5clang17DiagnosticBuilderD2Ev.exit
+248:                                              ; preds = %switch.hole_check241, %_ZN5clang17DiagnosticBuilderD2Ev.exit
   %249 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %250 = load ptr, ptr %249, align 8, !tbaa !524
   %251 = ptrtoint ptr %250 to i64
   br label %_ZNK5clang5Token17getIdentifierInfoEv.exit93
 
-switch.hole_check242:                             ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit
-  %switch.maskindex243 = zext nneg i16 %switch.tableidx241 to i32
-  %switch.shifted244 = lshr i32 524225, %switch.maskindex243
-  %switch.lobit245 = trunc i32 %switch.shifted244 to i1
-  br i1 %switch.lobit245, label %_ZNK5clang5Token17getIdentifierInfoEv.exit93, label %248
+switch.hole_check241:                             ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit
+  %switch.maskindex242 = zext nneg i16 %switch.tableidx240 to i32
+  %switch.shifted243 = lshr i32 524225, %switch.maskindex242
+  %switch.lobit244 = trunc i32 %switch.shifted243 to i1
+  br i1 %switch.lobit244, label %_ZNK5clang5Token17getIdentifierInfoEv.exit93, label %248
 
-_ZNK5clang5Token17getIdentifierInfoEv.exit93:     ; preds = %switch.hole_check242, %248
-  %.0.i92 = phi i64 [ %251, %248 ], [ 0, %switch.hole_check242 ]
+_ZNK5clang5Token17getIdentifierInfoEv.exit93:     ; preds = %switch.hole_check241, %248
+  %.0.i92 = phi i64 [ %251, %248 ], [ 0, %switch.hole_check241 ]
   %252 = load ptr, ptr %12, align 8, !tbaa !525
   %.not.i123 = icmp eq ptr %252, null
   br i1 %.not.i123, label %253, label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit140
@@ -5153,23 +5153,23 @@ _ZN5clang14MacroDirective12getMacroInfoEv.exit.i: ; preds = %329, %326
 352:                                              ; preds = %339
   %353 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %354 = load i16, ptr %353, align 8, !tbaa !523
-  %switch.tableidx246 = add i16 %354, -1
-  %355 = icmp ult i16 %switch.tableidx246, 19
-  br i1 %355, label %switch.hole_check247, label %356
+  %switch.tableidx245 = add i16 %354, -1
+  %355 = icmp ult i16 %switch.tableidx245, 19
+  br i1 %355, label %switch.hole_check246, label %356
 
-356:                                              ; preds = %switch.hole_check247, %352
+356:                                              ; preds = %switch.hole_check246, %352
   %357 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %358 = load ptr, ptr %357, align 8, !tbaa !524
   br label %_ZNK5clang5Token17getIdentifierInfoEv.exit107
 
-switch.hole_check247:                             ; preds = %352
-  %switch.maskindex248 = zext nneg i16 %switch.tableidx246 to i32
-  %switch.shifted249 = lshr i32 524225, %switch.maskindex248
-  %switch.lobit250 = trunc i32 %switch.shifted249 to i1
-  br i1 %switch.lobit250, label %_ZNK5clang5Token17getIdentifierInfoEv.exit107, label %356
+switch.hole_check246:                             ; preds = %352
+  %switch.maskindex247 = zext nneg i16 %switch.tableidx245 to i32
+  %switch.shifted248 = lshr i32 524225, %switch.maskindex247
+  %switch.lobit249 = trunc i32 %switch.shifted248 to i1
+  br i1 %switch.lobit249, label %_ZNK5clang5Token17getIdentifierInfoEv.exit107, label %356
 
-_ZNK5clang5Token17getIdentifierInfoEv.exit107:    ; preds = %switch.hole_check247, %356
-  %.0.i106 = phi ptr [ %358, %356 ], [ null, %switch.hole_check247 ]
+_ZNK5clang5Token17getIdentifierInfoEv.exit107:    ; preds = %switch.hole_check246, %356
+  %.0.i106 = phi ptr [ %358, %356 ], [ null, %switch.hole_check246 ]
   %359 = getelementptr inbounds nuw i8, ptr %340, i64 16
   %360 = load ptr, ptr %359, align 8, !tbaa !561
   %361 = getelementptr inbounds nuw i8, ptr %360, i64 16
@@ -5289,11 +5289,11 @@ _ZN5clang12Preprocessor12getMacroInfoEPKNS_14IdentifierInfoE.exit.i: ; preds = %
   %407 = zext i32 %406 to i64
   %.idx4.i.i = shl nuw nsw i64 %407, 3
   %408 = getelementptr inbounds nuw i8, ptr %404, i64 %.idx4.i.i
-  %.not.i17.i = icmp ult i32 %406, 4
+  %409 = lshr i64 %407, 2
+  %.not.i17.i = icmp eq i64 %409, 0
   br i1 %.not.i17.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %402
-  %409 = lshr i64 %407, 2
   %410 = and i64 %.idx4.i.i, 34359738336
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %404, i64 %410
   br label %411
@@ -5309,13 +5309,13 @@ _ZN5clang12Preprocessor12getMacroInfoEPKNS_14IdentifierInfoE.exit.i: ; preds = %
   %415 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
   %416 = load ptr, ptr %415, align 8, !tbaa !245
   %417 = icmp eq ptr %416, %364
-  br i1 %417, label %_ZL29isTrivialSingleTokenExpansionPKN5clang9MacroInfoEPKNS_14IdentifierInfoERNS_12PreprocessorE.exit.loopexit.split.loop.exit231, label %418
+  br i1 %417, label %_ZL29isTrivialSingleTokenExpansionPKN5clang9MacroInfoEPKNS_14IdentifierInfoERNS_12PreprocessorE.exit.loopexit.split.loop.exit230, label %418
 
 418:                                              ; preds = %414
   %419 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
   %420 = load ptr, ptr %419, align 8, !tbaa !245
   %421 = icmp eq ptr %420, %364
-  br i1 %421, label %_ZL29isTrivialSingleTokenExpansionPKN5clang9MacroInfoEPKNS_14IdentifierInfoERNS_12PreprocessorE.exit.loopexit.split.loop.exit229, label %422
+  br i1 %421, label %_ZL29isTrivialSingleTokenExpansionPKN5clang9MacroInfoEPKNS_14IdentifierInfoERNS_12PreprocessorE.exit.loopexit.split.loop.exit228, label %422
 
 422:                                              ; preds = %418
   %423 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 24
@@ -5336,11 +5336,10 @@ _ZN5clang12Preprocessor12getMacroInfoEPKNS_14IdentifierInfoE.exit.i: ; preds = %
 ._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %402
   %.pre-phi56.i.i.i.i.i = phi i32 [ %430, %._crit_edge.loopexit.i.i.i.i.i ], [ %406, %402 ]
   %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %404, %402 ]
-  switch i32 %.pre-phi56.i.i.i.i.i, label %default.unreachable [
+  switch i32 %.pre-phi56.i.i.i.i.i, label %_ZL29isTrivialSingleTokenExpansionPKN5clang9MacroInfoEPKNS_14IdentifierInfoERNS_12PreprocessorE.exit.thread156 [
     i32 3, label %431
     i32 2, label %._crit_edge._crit_edge.i.i.i.i.i
     i32 1, label %._crit_edge._crit_edge52.i.i.i.i.i
-    i32 0, label %_ZL29isTrivialSingleTokenExpansionPKN5clang9MacroInfoEPKNS_14IdentifierInfoERNS_12PreprocessorE.exit.thread156
   ]
 
 431:                                              ; preds = %._crit_edge.i.i.i.i.i
@@ -5368,23 +5367,20 @@ _ZN5clang12Preprocessor12getMacroInfoEPKNS_14IdentifierInfoE.exit.i: ; preds = %
   %441 = icmp eq ptr %440, %364
   br i1 %441, label %_ZL29isTrivialSingleTokenExpansionPKN5clang9MacroInfoEPKNS_14IdentifierInfoERNS_12PreprocessorE.exit, label %_ZL29isTrivialSingleTokenExpansionPKN5clang9MacroInfoEPKNS_14IdentifierInfoERNS_12PreprocessorE.exit.thread156
 
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i
-  unreachable
-
 _ZL29isTrivialSingleTokenExpansionPKN5clang9MacroInfoEPKNS_14IdentifierInfoERNS_12PreprocessorE.exit.loopexit.split.loop.exit: ; preds = %422
   %442 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 24
   br label %_ZL29isTrivialSingleTokenExpansionPKN5clang9MacroInfoEPKNS_14IdentifierInfoERNS_12PreprocessorE.exit
 
-_ZL29isTrivialSingleTokenExpansionPKN5clang9MacroInfoEPKNS_14IdentifierInfoERNS_12PreprocessorE.exit.loopexit.split.loop.exit229: ; preds = %418
+_ZL29isTrivialSingleTokenExpansionPKN5clang9MacroInfoEPKNS_14IdentifierInfoERNS_12PreprocessorE.exit.loopexit.split.loop.exit228: ; preds = %418
   %443 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
   br label %_ZL29isTrivialSingleTokenExpansionPKN5clang9MacroInfoEPKNS_14IdentifierInfoERNS_12PreprocessorE.exit
 
-_ZL29isTrivialSingleTokenExpansionPKN5clang9MacroInfoEPKNS_14IdentifierInfoERNS_12PreprocessorE.exit.loopexit.split.loop.exit231: ; preds = %414
+_ZL29isTrivialSingleTokenExpansionPKN5clang9MacroInfoEPKNS_14IdentifierInfoERNS_12PreprocessorE.exit.loopexit.split.loop.exit230: ; preds = %414
   %444 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
   br label %_ZL29isTrivialSingleTokenExpansionPKN5clang9MacroInfoEPKNS_14IdentifierInfoERNS_12PreprocessorE.exit
 
-_ZL29isTrivialSingleTokenExpansionPKN5clang9MacroInfoEPKNS_14IdentifierInfoERNS_12PreprocessorE.exit: ; preds = %411, %_ZL29isTrivialSingleTokenExpansionPKN5clang9MacroInfoEPKNS_14IdentifierInfoERNS_12PreprocessorE.exit.loopexit.split.loop.exit, %_ZL29isTrivialSingleTokenExpansionPKN5clang9MacroInfoEPKNS_14IdentifierInfoERNS_12PreprocessorE.exit.loopexit.split.loop.exit229, %_ZL29isTrivialSingleTokenExpansionPKN5clang9MacroInfoEPKNS_14IdentifierInfoERNS_12PreprocessorE.exit.loopexit.split.loop.exit231, %431, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i
-  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %431 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %442, %_ZL29isTrivialSingleTokenExpansionPKN5clang9MacroInfoEPKNS_14IdentifierInfoERNS_12PreprocessorE.exit.loopexit.split.loop.exit ], [ %443, %_ZL29isTrivialSingleTokenExpansionPKN5clang9MacroInfoEPKNS_14IdentifierInfoERNS_12PreprocessorE.exit.loopexit.split.loop.exit229 ], [ %444, %_ZL29isTrivialSingleTokenExpansionPKN5clang9MacroInfoEPKNS_14IdentifierInfoERNS_12PreprocessorE.exit.loopexit.split.loop.exit231 ], [ %.02946.i.i.i.i.i, %411 ]
+_ZL29isTrivialSingleTokenExpansionPKN5clang9MacroInfoEPKNS_14IdentifierInfoERNS_12PreprocessorE.exit: ; preds = %411, %_ZL29isTrivialSingleTokenExpansionPKN5clang9MacroInfoEPKNS_14IdentifierInfoERNS_12PreprocessorE.exit.loopexit.split.loop.exit, %_ZL29isTrivialSingleTokenExpansionPKN5clang9MacroInfoEPKNS_14IdentifierInfoERNS_12PreprocessorE.exit.loopexit.split.loop.exit228, %_ZL29isTrivialSingleTokenExpansionPKN5clang9MacroInfoEPKNS_14IdentifierInfoERNS_12PreprocessorE.exit.loopexit.split.loop.exit230, %431, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i
+  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %431 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %442, %_ZL29isTrivialSingleTokenExpansionPKN5clang9MacroInfoEPKNS_14IdentifierInfoERNS_12PreprocessorE.exit.loopexit.split.loop.exit ], [ %443, %_ZL29isTrivialSingleTokenExpansionPKN5clang9MacroInfoEPKNS_14IdentifierInfoERNS_12PreprocessorE.exit.loopexit.split.loop.exit228 ], [ %444, %_ZL29isTrivialSingleTokenExpansionPKN5clang9MacroInfoEPKNS_14IdentifierInfoERNS_12PreprocessorE.exit.loopexit.split.loop.exit230 ], [ %.02946.i.i.i.i.i, %411 ]
   %.not30.i = icmp eq ptr %.028.i.i.i.i.i, %408
   br i1 %.not30.i, label %_ZL29isTrivialSingleTokenExpansionPKN5clang9MacroInfoEPKNS_14IdentifierInfoERNS_12PreprocessorE.exit.thread156, label %_ZL29isTrivialSingleTokenExpansionPKN5clang9MacroInfoEPKNS_14IdentifierInfoERNS_12PreprocessorE.exit.thread154
 

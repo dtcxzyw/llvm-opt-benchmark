@@ -74978,7 +74978,7 @@ _ZNK7glslang11TArraySizes10getNumDimsEv.exit:     ; preds = %18
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNK7glslang11TArraySizes10getNumDimsEv.exit
-  %.not.i.i.i.i = icmp ult i64 %sext, 4294967296
+  %.not.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, label %36
 
 36:                                               ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
@@ -75958,7 +75958,7 @@ _ZNK7glslang11TArraySizes10getNumDimsEv.exit:     ; preds = %16
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNK7glslang11TArraySizes10getNumDimsEv.exit
-  %.not.i.i.i.i = icmp ult i64 %sext, 4294967296
+  %.not.i.i.i.i = icmp eq i64 %31, 0
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, label %34
 
 34:                                               ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i

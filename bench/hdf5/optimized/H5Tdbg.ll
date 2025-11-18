@@ -173,16 +173,16 @@ switch.lookup:                                    ; preds = %24
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %39 = load i32, ptr %38, align 8, !tbaa !27
   %40 = icmp ult i32 %39, 5
-  br i1 %40, label %switch.lookup169, label %42
+  br i1 %40, label %switch.lookup168, label %42
 
-switch.lookup169:                                 ; preds = %37
+switch.lookup168:                                 ; preds = %37
   %41 = zext nneg i32 %39 to i64
-  %switch.gep170 = getelementptr inbounds nuw ptr, ptr @switch.table.H5T_debug.1, i64 %41
-  %switch.load171 = load ptr, ptr %switch.gep170, align 8
+  %switch.gep169 = getelementptr inbounds nuw ptr, ptr @switch.table.H5T_debug.1, i64 %41
+  %switch.load170 = load ptr, ptr %switch.gep169, align 8
   br label %42
 
-42:                                               ; preds = %switch.lookup169, %37
-  %.0121 = phi ptr [ @.str, %37 ], [ %switch.load171, %switch.lookup169 ]
+42:                                               ; preds = %switch.lookup168, %37
+  %.0121 = phi ptr [ @.str, %37 ], [ %switch.load170, %switch.lookup168 ]
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %44 = load i64, ptr %43, align 8, !tbaa !28
   %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.25, ptr noundef nonnull %.0120, ptr noundef nonnull %.0121, i64 noundef %44) #5
@@ -335,13 +335,13 @@ switch.lookup169:                                 ; preds = %37
   %120 = load ptr, ptr %10, align 8, !tbaa !10
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 104
   %122 = load i64, ptr %121, align 8, !tbaa !26
-  %.not135 = icmp ult i64 %122, 4294967296
-  br i1 %.not135, label %127, label %123
+  %123 = lshr i64 %122, 32
+  %.not135 = icmp eq i64 %123, 0
+  br i1 %.not135, label %127, label %124
 
-123:                                              ; preds = %104
-  %124 = lshr i64 %122, 32
+124:                                              ; preds = %104
   %125 = and i64 %122, 4294967295
-  %126 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.46, i64 noundef %124, i64 noundef %125) #5
+  %126 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.46, i64 noundef %123, i64 noundef %125) #5
   br label %.critedge.thread
 
 127:                                              ; preds = %104
@@ -560,7 +560,7 @@ switch.lookup169:                                 ; preds = %37
   %247 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.65, i32 noundef %48) #5
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %84, %92, %127, %123, %76, %._crit_edge, %._crit_edge149, %246, %244, %242, %240, %238, %229, %174, %176
+.critedge.thread:                                 ; preds = %84, %92, %127, %124, %76, %._crit_edge, %._crit_edge149, %246, %244, %242, %240, %238, %229, %174, %176
   %fputc140 = tail call i32 @fputc(i32 125, ptr %1)
   br label %.critedge
 

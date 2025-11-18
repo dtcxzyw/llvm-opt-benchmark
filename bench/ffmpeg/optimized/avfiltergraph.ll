@@ -3555,7 +3555,7 @@ define void @ff_avfilter_graph_update_heap(ptr noundef readonly captures(none) %
 
 .preheader.i:                                     ; preds = %2
   %.not3.i = icmp eq i32 %4, 0
-  br i1 %.not3.i, label %.preheader.i7, label %.lr.ph.i
+  br i1 %.not3.i, label %heap_bubble_up.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 216
@@ -3567,8 +3567,8 @@ define void @ff_avfilter_graph_update_heap(ptr noundef readonly captures(none) %
   tail call void @abort() #16
   unreachable
 
-10:                                               ; preds = %18, %.lr.ph.i
-  %.0204.i = phi i32 [ %4, %.lr.ph.i ], [ %12, %18 ]
+10:                                               ; preds = %20, %.lr.ph.i
+  %.0204.i = phi i32 [ %4, %.lr.ph.i ], [ %12, %20 ]
   %11 = add nsw i32 %.0204.i, -1
   %12 = lshr i32 %11, 1
   %13 = zext nneg i32 %12 to i64
@@ -3577,82 +3577,87 @@ define void @ff_avfilter_graph_update_heap(ptr noundef readonly captures(none) %
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 216
   %17 = load i64, ptr %16, align 8, !tbaa !200
   %.not22.i = icmp slt i64 %17, %8
-  br i1 %.not22.i, label %18, label %.preheader.i7
+  %18 = zext nneg i32 %.0204.i to i64
+  %19 = getelementptr inbounds nuw ptr, ptr %.val, i64 %18
+  br i1 %.not22.i, label %20, label %heap_bubble_up.exit
 
-18:                                               ; preds = %10
-  %19 = zext nneg i32 %.0204.i to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %.val, i64 %19
-  store ptr %15, ptr %20, align 8, !tbaa !183
+20:                                               ; preds = %10
+  store ptr %15, ptr %19, align 8, !tbaa !183
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 392
   store i32 %.0204.i, ptr %21, align 8, !tbaa !173
-  %.not.i = icmp ult i32 %11, 2
-  br i1 %.not.i, label %.preheader.i7, label %10
+  %.not.i = icmp eq i32 %12, 0
+  br i1 %.not.i, label %heap_bubble_up.exit.thread, label %10
 
-.preheader.i7:                                    ; preds = %18, %10, %.preheader.i
-  %.020.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %12, %18 ], [ %.0204.i, %10 ]
-  %22 = zext nneg i32 %.020.lcssa.i to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %.val, i64 %22
-  store ptr %1, ptr %23, align 8, !tbaa !183
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %25 = load i32, ptr %24, align 8, !tbaa !188
-  %26 = shl nuw nsw i32 %.020.lcssa.i, 1
-  %27 = or disjoint i32 %26, 1
-  %.not37.i = icmp slt i32 %27, %25
+heap_bubble_up.exit.thread:                       ; preds = %20, %.preheader.i
+  store ptr %1, ptr %.val, align 8, !tbaa !183
+  br label %.preheader.i7
+
+heap_bubble_up.exit:                              ; preds = %10
+  store ptr %1, ptr %19, align 8, !tbaa !183
+  br label %.preheader.i7
+
+.preheader.i7:                                    ; preds = %heap_bubble_up.exit, %heap_bubble_up.exit.thread
+  %storemerge = phi i32 [ %.0204.i, %heap_bubble_up.exit ], [ 0, %heap_bubble_up.exit.thread ]
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %23 = load i32, ptr %22, align 8, !tbaa !188
+  %24 = shl nuw nsw i32 %storemerge, 1
+  %25 = or disjoint i32 %24, 1
+  %.not37.i = icmp slt i32 %25, %23
   br i1 %.not37.i, label %.lr.ph.i8, label %heap_bubble_down.exit
 
 .lr.ph.i8:                                        ; preds = %.preheader.i7
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  %29 = load i64, ptr %28, align 8, !tbaa !200
-  br label %30
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %27 = load i64, ptr %26, align 8, !tbaa !200
+  br label %28
 
-30:                                               ; preds = %54, %.lr.ph.i8
-  %31 = phi i32 [ %27, %.lr.ph.i8 ], [ %58, %54 ]
-  %32 = phi i32 [ %26, %.lr.ph.i8 ], [ %57, %54 ]
-  %.02938.i = phi i32 [ %.020.lcssa.i, %.lr.ph.i8 ], [ %.028.i, %54 ]
-  %33 = add nuw nsw i32 %32, 2
-  %34 = icmp slt i32 %33, %25
-  br i1 %34, label %35, label %47
+28:                                               ; preds = %52, %.lr.ph.i8
+  %29 = phi i32 [ %25, %.lr.ph.i8 ], [ %57, %52 ]
+  %30 = phi i32 [ %24, %.lr.ph.i8 ], [ %56, %52 ]
+  %.02938.i = phi i32 [ %storemerge, %.lr.ph.i8 ], [ %.028.i, %52 ]
+  %31 = add nuw nsw i32 %30, 2
+  %32 = icmp slt i32 %31, %23
+  br i1 %32, label %33, label %45
 
-35:                                               ; preds = %30
-  %36 = zext nneg i32 %33 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %.val, i64 %36
-  %38 = load ptr, ptr %37, align 8, !tbaa !183
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 216
-  %40 = load i64, ptr %39, align 8, !tbaa !200
-  %41 = zext nneg i32 %31 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %.val, i64 %41
-  %43 = load ptr, ptr %42, align 8, !tbaa !183
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 216
-  %45 = load i64, ptr %44, align 8, !tbaa !200
-  %46 = icmp slt i64 %40, %45
-  %spec.select.i = select i1 %46, i32 %33, i32 %31
-  br label %47
+33:                                               ; preds = %28
+  %34 = zext nneg i32 %31 to i64
+  %35 = getelementptr inbounds nuw ptr, ptr %.val, i64 %34
+  %36 = load ptr, ptr %35, align 8, !tbaa !183
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 216
+  %38 = load i64, ptr %37, align 8, !tbaa !200
+  %39 = zext nneg i32 %29 to i64
+  %40 = getelementptr inbounds nuw ptr, ptr %.val, i64 %39
+  %41 = load ptr, ptr %40, align 8, !tbaa !183
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 216
+  %43 = load i64, ptr %42, align 8, !tbaa !200
+  %44 = icmp slt i64 %38, %43
+  %spec.select.i = select i1 %44, i32 %31, i32 %29
+  br label %45
 
-47:                                               ; preds = %35, %30
-  %.028.i = phi i32 [ %31, %30 ], [ %spec.select.i, %35 ]
-  %48 = zext nneg i32 %.028.i to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %.val, i64 %48
-  %50 = load ptr, ptr %49, align 8, !tbaa !183
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 216
-  %52 = load i64, ptr %51, align 8, !tbaa !200
-  %53 = icmp slt i64 %29, %52
-  %.pre10 = zext nneg i32 %.02938.i to i64
-  br i1 %53, label %heap_bubble_down.exit, label %54
+45:                                               ; preds = %33, %28
+  %.028.i = phi i32 [ %29, %28 ], [ %spec.select.i, %33 ]
+  %46 = zext nneg i32 %.028.i to i64
+  %47 = getelementptr inbounds nuw ptr, ptr %.val, i64 %46
+  %48 = load ptr, ptr %47, align 8, !tbaa !183
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 216
+  %50 = load i64, ptr %49, align 8, !tbaa !200
+  %51 = icmp slt i64 %27, %50
+  br i1 %51, label %heap_bubble_down.exit, label %52
 
-54:                                               ; preds = %47
-  %55 = getelementptr inbounds nuw ptr, ptr %.val, i64 %.pre10
-  store ptr %50, ptr %55, align 8, !tbaa !183
-  %56 = getelementptr inbounds nuw i8, ptr %50, i64 392
-  store i32 %.02938.i, ptr %56, align 8, !tbaa !173
-  %57 = shl nuw nsw i32 %.028.i, 1
-  %58 = or disjoint i32 %57, 1
-  %.not.i9 = icmp slt i32 %58, %25
-  br i1 %.not.i9, label %30, label %heap_bubble_down.exit
+52:                                               ; preds = %45
+  %53 = zext nneg i32 %.02938.i to i64
+  %54 = getelementptr inbounds nuw ptr, ptr %.val, i64 %53
+  store ptr %48, ptr %54, align 8, !tbaa !183
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 392
+  store i32 %.02938.i, ptr %55, align 8, !tbaa !173
+  %56 = shl nuw nsw i32 %.028.i, 1
+  %57 = or disjoint i32 %56, 1
+  %.not.i9 = icmp slt i32 %57, %23
+  br i1 %.not.i9, label %28, label %heap_bubble_down.exit
 
-heap_bubble_down.exit:                            ; preds = %54, %47, %.preheader.i7
-  %.pre-phi = phi i64 [ %22, %.preheader.i7 ], [ %48, %54 ], [ %.pre10, %47 ]
-  %.029.lcssa.i = phi i32 [ %.020.lcssa.i, %.preheader.i7 ], [ %.028.i, %54 ], [ %.02938.i, %47 ]
-  %59 = getelementptr inbounds nuw ptr, ptr %.val, i64 %.pre-phi
+heap_bubble_down.exit:                            ; preds = %45, %52, %.preheader.i7
+  %.029.lcssa.i = phi i32 [ %storemerge, %.preheader.i7 ], [ %.02938.i, %45 ], [ %.028.i, %52 ]
+  %58 = zext nneg i32 %.029.lcssa.i to i64
+  %59 = getelementptr inbounds nuw ptr, ptr %.val, i64 %58
   store ptr %1, ptr %59, align 8, !tbaa !183
   store i32 %.029.lcssa.i, ptr %3, align 8, !tbaa !173
   ret void

@@ -2712,7 +2712,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPol
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !16
   %11 = lshr i64 %10, 8
-  %.not = icmp ult i64 %10, 256
+  %.not = icmp eq i64 %11, 0
   br i1 %.not, label %..thread67_crit_edge, label %12
 
 ..thread67_crit_edge:                             ; preds = %8
@@ -2909,12 +2909,12 @@ _ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit:  ; preds = %92
   br label %123
 
 123:                                              ; preds = %52, %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit
-  %.sink103 = phi ptr [ %53, %52 ], [ %101, %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit ]
-  %.lcssa101.sink = phi i64 [ %40, %52 ], [ %94, %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit ]
+  %.sink102 = phi ptr [ %53, %52 ], [ %101, %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit ]
+  %.lcssa100.sink = phi i64 [ %40, %52 ], [ %94, %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit ]
   %.sink = phi i8 [ 0, %52 ], [ 1, %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit ]
-  store ptr %.sink103, ptr %0, align 8, !tbaa !157
+  store ptr %.sink102, ptr %0, align 8, !tbaa !157
   %.sroa.543.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.lcssa101.sink, ptr %.sroa.543.0..sroa_idx, align 8, !tbaa !35
+  store i64 %.lcssa100.sink, ptr %.sroa.543.0..sroa_idx, align 8, !tbaa !35
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %124, align 8, !tbaa !159
   ret void
@@ -3618,7 +3618,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPoli
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !16
   %9 = lshr i64 %8, 8
-  %.not = icmp ult i64 %8, 256
+  %.not = icmp eq i64 %9, 0
   %.pre = load ptr, ptr %1, align 8, !tbaa !25
   br i1 %.not, label %.thread65, label %10
 
@@ -3797,12 +3797,12 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_9EventBaseEvvvvEEE1
   br label %107
 
 107:                                              ; preds = %45, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_9EventBaseEvvvvEEE13insertAtBlankIJS5_EEEvNS1_11F14ItemIterIPNS1_8F14ChunkIS5_EEEESt4pairImmEDpOT_.exit
-  %.sink100 = phi ptr [ %46, %45 ], [ %92, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_9EventBaseEvvvvEEE13insertAtBlankIJS5_EEEvNS1_11F14ItemIterIPNS1_8F14ChunkIS5_EEEESt4pairImmEDpOT_.exit ]
-  %.lcssa98.sink = phi i64 [ %36, %45 ], [ %85, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_9EventBaseEvvvvEEE13insertAtBlankIJS5_EEEvNS1_11F14ItemIterIPNS1_8F14ChunkIS5_EEEESt4pairImmEDpOT_.exit ]
+  %.sink99 = phi ptr [ %46, %45 ], [ %92, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_9EventBaseEvvvvEEE13insertAtBlankIJS5_EEEvNS1_11F14ItemIterIPNS1_8F14ChunkIS5_EEEESt4pairImmEDpOT_.exit ]
+  %.lcssa97.sink = phi i64 [ %36, %45 ], [ %85, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_9EventBaseEvvvvEEE13insertAtBlankIJS5_EEEvNS1_11F14ItemIterIPNS1_8F14ChunkIS5_EEEESt4pairImmEDpOT_.exit ]
   %.sink = phi i8 [ 0, %45 ], [ 1, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_9EventBaseEvvvvEEE13insertAtBlankIJS5_EEEvNS1_11F14ItemIterIPNS1_8F14ChunkIS5_EEEESt4pairImmEDpOT_.exit ]
-  store ptr %.sink100, ptr %0, align 8, !tbaa !205
+  store ptr %.sink99, ptr %0, align 8, !tbaa !205
   %.sroa.541.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.lcssa98.sink, ptr %.sroa.541.0..sroa_idx, align 8, !tbaa !35
+  store i64 %.lcssa97.sink, ptr %.sroa.541.0..sroa_idx, align 8, !tbaa !35
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %108, align 8, !tbaa !207
   ret void
@@ -4360,7 +4360,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPoli
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !16
   %9 = lshr i64 %8, 8
-  %.not = icmp ult i64 %8, 256
+  %.not = icmp eq i64 %9, 0
   %.pre = load ptr, ptr %1, align 8, !tbaa !73
   br i1 %.not, label %.thread65, label %10
 
@@ -4539,12 +4539,12 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_6detail18EventBaseL
   br label %107
 
 107:                                              ; preds = %45, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_6detail18EventBaseLocalBaseEvvvvEEE13insertAtBlankIJS6_EEEvNS1_11F14ItemIterIPNS1_8F14ChunkIS6_EEEESt4pairImmEDpOT_.exit
-  %.sink100 = phi ptr [ %46, %45 ], [ %92, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_6detail18EventBaseLocalBaseEvvvvEEE13insertAtBlankIJS6_EEEvNS1_11F14ItemIterIPNS1_8F14ChunkIS6_EEEESt4pairImmEDpOT_.exit ]
-  %.lcssa98.sink = phi i64 [ %36, %45 ], [ %85, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_6detail18EventBaseLocalBaseEvvvvEEE13insertAtBlankIJS6_EEEvNS1_11F14ItemIterIPNS1_8F14ChunkIS6_EEEESt4pairImmEDpOT_.exit ]
+  %.sink99 = phi ptr [ %46, %45 ], [ %92, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_6detail18EventBaseLocalBaseEvvvvEEE13insertAtBlankIJS6_EEEvNS1_11F14ItemIterIPNS1_8F14ChunkIS6_EEEESt4pairImmEDpOT_.exit ]
+  %.lcssa97.sink = phi i64 [ %36, %45 ], [ %85, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_6detail18EventBaseLocalBaseEvvvvEEE13insertAtBlankIJS6_EEEvNS1_11F14ItemIterIPNS1_8F14ChunkIS6_EEEESt4pairImmEDpOT_.exit ]
   %.sink = phi i8 [ 0, %45 ], [ 1, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_6detail18EventBaseLocalBaseEvvvvEEE13insertAtBlankIJS6_EEEvNS1_11F14ItemIterIPNS1_8F14ChunkIS6_EEEESt4pairImmEDpOT_.exit ]
-  store ptr %.sink100, ptr %0, align 8, !tbaa !234
+  store ptr %.sink99, ptr %0, align 8, !tbaa !234
   %.sroa.541.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.lcssa98.sink, ptr %.sroa.541.0..sroa_idx, align 8, !tbaa !35
+  store i64 %.lcssa97.sink, ptr %.sroa.541.0..sroa_idx, align 8, !tbaa !35
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %108, align 8, !tbaa !236
   ret void

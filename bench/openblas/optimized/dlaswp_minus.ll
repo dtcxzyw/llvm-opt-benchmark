@@ -27,8 +27,8 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   %.idx1079 = shl nsw i64 %12, 3
   %23 = add nsw i64 %.idx1079, 8
   %.idx1080 = shl nsw i64 %22, 3
-  %.not1229 = icmp eq i64 %23, %.idx1080
-  br i1 %.not1229, label %.loopexit, label %.lr.ph1180.preheader
+  %.not1230 = icmp eq i64 %23, %.idx1080
+  br i1 %.not1230, label %.loopexit, label %.lr.ph1180.preheader
 
 .lr.ph1180.preheader:                             ; preds = %20
   %24 = getelementptr i8, ptr %4, i64 %.idx1079
@@ -50,11 +50,11 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph1180, !llvm.loop !9
 
 31:                                               ; preds = %18
-  %.not = icmp samesign ult i64 %0, 4
+  %32 = lshr i64 %0, 2
+  %.not = icmp eq i64 %32, 0
   br i1 %.not, label %.loopexit1081, label %.preheader
 
 .preheader:                                       ; preds = %31
-  %32 = lshr i64 %0, 2
   %33 = shl nsw i64 %5, 1
   %34 = mul nsw i64 %5, 3
   %35 = getelementptr inbounds i32, ptr %15, i64 %9

@@ -5352,8 +5352,8 @@ luaG_typeerror.exit:                              ; preds = %462
   %473 = lshr i32 %65, 14
   %474 = and i32 %473, 511
   store ptr %64, ptr %40, align 8, !tbaa !142
-  %reass.sub479 = sub nsw i32 %474, %472
-  %475 = add nsw i32 %reass.sub479, 1
+  %reass.sub481 = sub nsw i32 %474, %472
+  %475 = add nsw i32 %reass.sub481, 1
   tail call fastcc void @luaV_concat(ptr noundef %0, i32 noundef %475, i32 noundef %474)
   %476 = load ptr, ptr %46, align 8, !tbaa !29
   %477 = getelementptr inbounds nuw i8, ptr %476, i64 120
@@ -5418,8 +5418,8 @@ luaG_typeerror.exit:                              ; preds = %462
   br label %luaC_step.exit23.sink.split
 
 luaC_step.exit23.sink.split:                      ; preds = %502, %505, %508
-  %.sink373 = phi i64 [ %515, %508 ], [ %507, %505 ], [ %504, %502 ]
-  store i64 %.sink373, ptr %479, align 8, !tbaa !66
+  %.sink375 = phi i64 [ %515, %508 ], [ %507, %505 ], [ %504, %502 ]
+  store i64 %.sink375, ptr %479, align 8, !tbaa !66
   br label %luaC_step.exit23
 
 luaC_step.exit23:                                 ; preds = %luaC_step.exit23.sink.split, %471
@@ -5513,11 +5513,11 @@ luaC_step.exit23:                                 ; preds = %luaC_step.exit23.si
   br label %luaV_equalval.exit
 
 572:                                              ; preds = %564, %560
-  %.sink379 = phi ptr [ %561, %560 ], [ %565, %564 ]
-  %.sink377 = phi ptr [ %562, %560 ], [ %566, %564 ]
-  %573 = getelementptr inbounds nuw i8, ptr %.sink379, i64 16
+  %.sink381 = phi ptr [ %561, %560 ], [ %565, %564 ]
+  %.sink379 = phi ptr [ %562, %560 ], [ %566, %564 ]
+  %573 = getelementptr inbounds nuw i8, ptr %.sink381, i64 16
   %574 = load ptr, ptr %573, align 8, !tbaa !46
-  %575 = getelementptr inbounds nuw i8, ptr %.sink377, i64 16
+  %575 = getelementptr inbounds nuw i8, ptr %.sink379, i64 16
   %576 = load ptr, ptr %575, align 8, !tbaa !46
   %577 = icmp eq ptr %574, null
   br i1 %577, label %luaV_equalval.exit, label %578
@@ -5526,8 +5526,8 @@ luaC_step.exit23:                                 ; preds = %luaC_step.exit23.si
   %579 = getelementptr inbounds nuw i8, ptr %574, i64 10
   %580 = load i8, ptr %579, align 2, !tbaa !129
   %581 = and i8 %580, 16
-  %.not.i387 = icmp eq i8 %581, 0
-  br i1 %.not.i387, label %582, label %luaV_equalval.exit
+  %.not.i389 = icmp eq i8 %581, 0
+  br i1 %.not.i389, label %582, label %luaV_equalval.exit
 
 582:                                              ; preds = %578
   %583 = load ptr, ptr %46, align 8, !tbaa !29
@@ -5540,8 +5540,8 @@ luaC_step.exit23:                                 ; preds = %luaC_step.exit23.si
   %588 = getelementptr inbounds nuw i8, ptr %585, i64 12
   %589 = load i32, ptr %588, align 4, !tbaa !46
   %590 = zext nneg i8 %.val.i.i to i64
-  %notmask.i.i.i389 = shl nsw i64 -1, %590
-  %591 = trunc i64 %notmask.i.i.i389 to i32
+  %notmask.i.i.i391 = shl nsw i64 -1, %590
+  %591 = trunc i64 %notmask.i.i.i391 to i32
   %592 = xor i32 %591, -1
   %593 = and i32 %589, %592
   %594 = sext i32 %593 to i64
@@ -5640,8 +5640,8 @@ luaH_getstr.exit.i33.i:                           ; preds = %636, %632
   br label %luaV_equalval.exit
 
 luaT_gettm.exit36.i:                              ; preds = %luaH_getstr.exit.i33.i
-  %.not.i.i390 = icmp eq i32 %608, %640
-  br i1 %.not.i.i390, label %644, label %luaV_equalval.exit
+  %.not.i.i392 = icmp eq i32 %608, %640
+  br i1 %.not.i.i392, label %644, label %luaV_equalval.exit
 
 644:                                              ; preds = %luaT_gettm.exit36.i
   switch i32 %608, label %653 [
@@ -5714,16 +5714,16 @@ get_compTM.exit:                                  ; preds = %645, %649, %653, %l
 
 luaD_growstack.exit.sink.split.i:                 ; preds = %get_compTM.exit
   %681 = load i32, ptr %45, align 8, !tbaa !31
-  %.not.i.i391 = icmp slt i32 %681, 3
+  %.not.i.i393 = icmp slt i32 %681, 3
   %682 = add nsw i32 %681, 3
   %683 = shl nuw nsw i32 %681, 1
-  %.sink.i = select i1 %.not.i.i391, i32 %682, i32 %683
+  %.sink.i = select i1 %.not.i.i393, i32 %682, i32 %683
   tail call fastcc void @luaD_reallocstack(ptr noundef nonnull %0, i32 noundef %.sink.i)
-  %.pre559 = load ptr, ptr %44, align 8, !tbaa !62
+  %.pre561 = load ptr, ptr %44, align 8, !tbaa !62
   br label %callTMres.exit
 
 callTMres.exit:                                   ; preds = %get_compTM.exit, %luaD_growstack.exit.sink.split.i
-  %684 = phi ptr [ %676, %get_compTM.exit ], [ %.pre559, %luaD_growstack.exit.sink.split.i ]
+  %684 = phi ptr [ %676, %get_compTM.exit ], [ %.pre561, %luaD_growstack.exit.sink.split.i ]
   %685 = ptrtoint ptr %660 to i64
   %686 = ptrtoint ptr %661 to i64
   %687 = sub i64 %685, %686
@@ -6084,7 +6084,7 @@ luaT_gettmbyobj.exit101:                          ; preds = %871, %875, %852
   br i1 %890, label %.luaO_rawequalObj.exit92.thread120_crit_edge, label %luaO_rawequalObj.exit92.thread
 
 .luaO_rawequalObj.exit92.thread120_crit_edge:     ; preds = %887
-  %.pre555 = load i64, ptr %836, align 8, !tbaa !46
+  %.pre557 = load i64, ptr %836, align 8, !tbaa !46
   br label %luaO_rawequalObj.exit92.thread120
 
 891:                                              ; preds = %881
@@ -6102,7 +6102,7 @@ luaO_rawequalObj.exit92:                          ; preds = %881
   br i1 %898, label %luaO_rawequalObj.exit92.thread120, label %luaO_rawequalObj.exit92.thread
 
 luaO_rawequalObj.exit92.thread120:                ; preds = %.luaO_rawequalObj.exit92.thread120_crit_edge, %882, %891, %luaO_rawequalObj.exit92
-  %900 = phi i64 [ %.pre555, %.luaO_rawequalObj.exit92.thread120_crit_edge ], [ %886, %882 ], [ %895, %891 ], [ %899, %luaO_rawequalObj.exit92 ]
+  %900 = phi i64 [ %.pre557, %.luaO_rawequalObj.exit92.thread120_crit_edge ], [ %886, %882 ], [ %895, %891 ], [ %899, %luaO_rawequalObj.exit92 ]
   %901 = load ptr, ptr %44, align 8, !tbaa !62
   %902 = load ptr, ptr %51, align 8, !tbaa !30
   store i64 %900, ptr %901, align 8, !tbaa !46
@@ -6129,20 +6129,20 @@ luaO_rawequalObj.exit92.thread120:                ; preds = %.luaO_rawequalObj.e
   %918 = ptrtoint ptr %916 to i64
   %919 = sub i64 %917, %918
   %920 = icmp slt i64 %919, 49
-  br i1 %920, label %luaD_growstack.exit.sink.split.i392, label %callTMres.exit395
+  br i1 %920, label %luaD_growstack.exit.sink.split.i394, label %callTMres.exit397
 
-luaD_growstack.exit.sink.split.i392:              ; preds = %luaO_rawequalObj.exit92.thread120
+luaD_growstack.exit.sink.split.i394:              ; preds = %luaO_rawequalObj.exit92.thread120
   %921 = load i32, ptr %45, align 8, !tbaa !31
-  %.not.i.i393 = icmp slt i32 %921, 3
+  %.not.i.i395 = icmp slt i32 %921, 3
   %922 = add nsw i32 %921, 3
   %923 = shl nuw nsw i32 %921, 1
-  %.sink.i394 = select i1 %.not.i.i393, i32 %922, i32 %923
-  tail call fastcc void @luaD_reallocstack(ptr noundef nonnull %0, i32 noundef %.sink.i394)
-  %.pre556 = load ptr, ptr %44, align 8, !tbaa !62
-  br label %callTMres.exit395
+  %.sink.i396 = select i1 %.not.i.i395, i32 %922, i32 %923
+  tail call fastcc void @luaD_reallocstack(ptr noundef nonnull %0, i32 noundef %.sink.i396)
+  %.pre558 = load ptr, ptr %44, align 8, !tbaa !62
+  br label %callTMres.exit397
 
-callTMres.exit395:                                ; preds = %luaO_rawequalObj.exit92.thread120, %luaD_growstack.exit.sink.split.i392
-  %924 = phi ptr [ %916, %luaO_rawequalObj.exit92.thread120 ], [ %.pre556, %luaD_growstack.exit.sink.split.i392 ]
+callTMres.exit397:                                ; preds = %luaO_rawequalObj.exit92.thread120, %luaD_growstack.exit.sink.split.i394
+  %924 = phi ptr [ %916, %luaO_rawequalObj.exit92.thread120 ], [ %.pre558, %luaD_growstack.exit.sink.split.i394 ]
   %925 = ptrtoint ptr %901 to i64
   %926 = ptrtoint ptr %902 to i64
   %927 = sub i64 %925, %926
@@ -6168,12 +6168,12 @@ callTMres.exit395:                                ; preds = %luaO_rawequalObj.ex
     i32 1, label %940
   ]
 
-940:                                              ; preds = %callTMres.exit395
+940:                                              ; preds = %callTMres.exit397
   %941 = load i32, ptr %937, align 8, !tbaa !46
   %942 = icmp ne i32 %941, 0
   br label %lessequal.exit
 
-.fold.split.i.i:                                  ; preds = %callTMres.exit395
+.fold.split.i.i:                                  ; preds = %callTMres.exit397
   br label %lessequal.exit
 
 luaO_rawequalObj.exit92.thread:                   ; preds = %887, %882, %891, %luaT_gettmbyobj.exit101, %luaT_gettmbyobj.exit110, %luaO_rawequalObj.exit92
@@ -6345,7 +6345,7 @@ luaT_gettmbyobj.exit:                             ; preds = %1015, %1019, %996
   br i1 %1034, label %.luaO_rawequalObj.exit.thread129_crit_edge, label %luaO_rawequalObj.exit.thread
 
 .luaO_rawequalObj.exit.thread129_crit_edge:       ; preds = %1031
-  %.pre557 = load i64, ptr %980, align 8, !tbaa !46
+  %.pre559 = load i64, ptr %980, align 8, !tbaa !46
   br label %luaO_rawequalObj.exit.thread129
 
 1035:                                             ; preds = %1025
@@ -6363,7 +6363,7 @@ luaO_rawequalObj.exit:                            ; preds = %1025
   br i1 %1042, label %luaO_rawequalObj.exit.thread129, label %luaO_rawequalObj.exit.thread
 
 luaO_rawequalObj.exit.thread129:                  ; preds = %.luaO_rawequalObj.exit.thread129_crit_edge, %1026, %1035, %luaO_rawequalObj.exit
-  %1044 = phi i64 [ %.pre557, %.luaO_rawequalObj.exit.thread129_crit_edge ], [ %1030, %1026 ], [ %1039, %1035 ], [ %1043, %luaO_rawequalObj.exit ]
+  %1044 = phi i64 [ %.pre559, %.luaO_rawequalObj.exit.thread129_crit_edge ], [ %1030, %1026 ], [ %1039, %1035 ], [ %1043, %luaO_rawequalObj.exit ]
   %1045 = load ptr, ptr %44, align 8, !tbaa !62
   %1046 = load ptr, ptr %51, align 8, !tbaa !30
   store i64 %1044, ptr %1045, align 8, !tbaa !46
@@ -6390,20 +6390,20 @@ luaO_rawequalObj.exit.thread129:                  ; preds = %.luaO_rawequalObj.e
   %1062 = ptrtoint ptr %1060 to i64
   %1063 = sub i64 %1061, %1062
   %1064 = icmp slt i64 %1063, 49
-  br i1 %1064, label %luaD_growstack.exit.sink.split.i396, label %callTMres.exit399
+  br i1 %1064, label %luaD_growstack.exit.sink.split.i398, label %callTMres.exit401
 
-luaD_growstack.exit.sink.split.i396:              ; preds = %luaO_rawequalObj.exit.thread129
+luaD_growstack.exit.sink.split.i398:              ; preds = %luaO_rawequalObj.exit.thread129
   %1065 = load i32, ptr %45, align 8, !tbaa !31
-  %.not.i.i397 = icmp slt i32 %1065, 3
+  %.not.i.i399 = icmp slt i32 %1065, 3
   %1066 = add nsw i32 %1065, 3
   %1067 = shl nuw nsw i32 %1065, 1
-  %.sink.i398 = select i1 %.not.i.i397, i32 %1066, i32 %1067
-  tail call fastcc void @luaD_reallocstack(ptr noundef nonnull %0, i32 noundef %.sink.i398)
-  %.pre558 = load ptr, ptr %44, align 8, !tbaa !62
-  br label %callTMres.exit399
+  %.sink.i400 = select i1 %.not.i.i399, i32 %1066, i32 %1067
+  tail call fastcc void @luaD_reallocstack(ptr noundef nonnull %0, i32 noundef %.sink.i400)
+  %.pre560 = load ptr, ptr %44, align 8, !tbaa !62
+  br label %callTMres.exit401
 
-callTMres.exit399:                                ; preds = %luaO_rawequalObj.exit.thread129, %luaD_growstack.exit.sink.split.i396
-  %1068 = phi ptr [ %1060, %luaO_rawequalObj.exit.thread129 ], [ %.pre558, %luaD_growstack.exit.sink.split.i396 ]
+callTMres.exit401:                                ; preds = %luaO_rawequalObj.exit.thread129, %luaD_growstack.exit.sink.split.i398
+  %1068 = phi ptr [ %1060, %luaO_rawequalObj.exit.thread129 ], [ %.pre560, %luaD_growstack.exit.sink.split.i398 ]
   %1069 = ptrtoint ptr %1045 to i64
   %1070 = ptrtoint ptr %1046 to i64
   %1071 = sub i64 %1069, %1070
@@ -6429,12 +6429,12 @@ callTMres.exit399:                                ; preds = %luaO_rawequalObj.ex
     i32 1, label %1084
   ]
 
-1084:                                             ; preds = %callTMres.exit399
+1084:                                             ; preds = %callTMres.exit401
   %1085 = load i32, ptr %1081, align 8, !tbaa !46
   %.not150 = icmp eq i32 %1085, 0
   br label %lessequal.exit
 
-.fold.split.i31.i:                                ; preds = %callTMres.exit399
+.fold.split.i31.i:                                ; preds = %callTMres.exit401
   br label %lessequal.exit
 
 luaO_rawequalObj.exit.thread:                     ; preds = %luaO_rawequalObj.exit, %luaT_gettmbyobj.exit88, %luaT_gettmbyobj.exit, %1035, %1026, %1031
@@ -6444,8 +6444,8 @@ luaO_rawequalObj.exit.thread:                     ; preds = %luaO_rawequalObj.ex
   tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef %0, ptr noundef nonnull @.str.45, ptr noundef nonnull %1088)
   unreachable
 
-lessequal.exit:                                   ; preds = %.fold.split.i31.i, %1084, %callTMres.exit399, %callTMres.exit395, %940, %.fold.split.i.i, %770, %l_strcmp.exit.i
-  %.0.i27.shrunk = phi i1 [ %773, %770 ], [ %798, %l_strcmp.exit.i ], [ false, %callTMres.exit395 ], [ %942, %940 ], [ true, %.fold.split.i.i ], [ true, %callTMres.exit399 ], [ %.not150, %1084 ], [ false, %.fold.split.i31.i ]
+lessequal.exit:                                   ; preds = %.fold.split.i31.i, %1084, %callTMres.exit401, %callTMres.exit397, %940, %.fold.split.i.i, %770, %l_strcmp.exit.i
+  %.0.i27.shrunk = phi i1 [ %773, %770 ], [ %798, %l_strcmp.exit.i ], [ false, %callTMres.exit397 ], [ %942, %940 ], [ true, %.fold.split.i.i ], [ true, %callTMres.exit401 ], [ %.not150, %1084 ], [ false, %.fold.split.i31.i ]
   %.0.i27 = zext i1 %.0.i27.shrunk to i32
   %1089 = icmp eq i32 %67, %.0.i27
   br i1 %1089, label %1090, label %1096
@@ -6546,22 +6546,22 @@ lessequal.exit:                                   ; preds = %.fold.split.i31.i, 
   br label %.critedge.i.backedge
 
 1142:                                             ; preds = %.critedge.i
-  %1143 = lshr i32 %65, 14
-  %1144 = and i32 %1143, 511
-  %1145 = add nsw i32 %1144, -1
-  %.not762.i = icmp ult i32 %65, 8388608
-  br i1 %.not762.i, label %1150, label %1146
+  %1143 = lshr i32 %65, 23
+  %1144 = lshr i32 %65, 14
+  %1145 = and i32 %1144, 511
+  %1146 = add nsw i32 %1145, -1
+  %.not762.i = icmp eq i32 %1143, 0
+  br i1 %.not762.i, label %1150, label %1147
 
-1146:                                             ; preds = %1142
-  %1147 = lshr i32 %65, 23
-  %1148 = zext nneg i32 %1147 to i64
+1147:                                             ; preds = %1142
+  %1148 = zext nneg i32 %1143 to i64
   %1149 = getelementptr inbounds nuw %struct.lua_TValue, ptr %69, i64 %1148
   store ptr %1149, ptr %44, align 8, !tbaa !62
   br label %1150
 
-1150:                                             ; preds = %1146, %1142
+1150:                                             ; preds = %1147, %1142
   store ptr %64, ptr %40, align 8, !tbaa !142
-  %1151 = tail call fastcc i32 @luaD_precall(ptr noundef %0, ptr noundef %69, i32 noundef %1145)
+  %1151 = tail call fastcc i32 @luaD_precall(ptr noundef %0, ptr noundef %69, i32 noundef %1146)
   switch i32 %1151, label %luaV_execute.exit [
     i32 0, label %1152
     i32 1, label %1154
@@ -6572,7 +6572,7 @@ lessequal.exit:                                   ; preds = %.fold.split.i31.i, 
   br label %.loopexit.outer.backedge
 
 1154:                                             ; preds = %1150
-  %.not763.i = icmp eq i32 %1144, 0
+  %.not763.i = icmp eq i32 %1145, 0
   br i1 %.not763.i, label %1159, label %1155
 
 1155:                                             ; preds = %1154
@@ -6587,17 +6587,17 @@ lessequal.exit:                                   ; preds = %.fold.split.i31.i, 
   br label %.critedge.i.backedge
 
 1161:                                             ; preds = %.critedge.i
-  %.not760.i = icmp ult i32 %65, 8388608
-  br i1 %.not760.i, label %1166, label %1162
+  %1162 = lshr i32 %65, 23
+  %.not760.i = icmp eq i32 %1162, 0
+  br i1 %.not760.i, label %1166, label %1163
 
-1162:                                             ; preds = %1161
-  %1163 = lshr i32 %65, 23
-  %1164 = zext nneg i32 %1163 to i64
+1163:                                             ; preds = %1161
+  %1164 = zext nneg i32 %1162 to i64
   %1165 = getelementptr inbounds nuw %struct.lua_TValue, ptr %69, i64 %1164
   store ptr %1165, ptr %44, align 8, !tbaa !62
   br label %1166
 
-1166:                                             ; preds = %1162, %1161
+1166:                                             ; preds = %1163, %1161
   store ptr %64, ptr %40, align 8, !tbaa !142
   %1167 = tail call fastcc i32 @luaD_precall(ptr noundef %0, ptr noundef %69, i32 noundef -1)
   switch i32 %1167, label %luaV_execute.exit [
@@ -6674,18 +6674,18 @@ lessequal.exit:                                   ; preds = %.fold.split.i31.i, 
   br label %.critedge.i.backedge
 
 1207:                                             ; preds = %.critedge.i
-  %.not757.i = icmp ult i32 %65, 8388608
-  br i1 %.not757.i, label %1213, label %1208
+  %1208 = lshr i32 %65, 23
+  %.not757.i = icmp eq i32 %1208, 0
+  br i1 %.not757.i, label %1213, label %1209
 
-1208:                                             ; preds = %1207
-  %1209 = lshr i32 %65, 23
-  %1210 = zext nneg i32 %1209 to i64
+1209:                                             ; preds = %1207
+  %1210 = zext nneg i32 %1208 to i64
   %1211 = getelementptr inbounds nuw %struct.lua_TValue, ptr %69, i64 %1210
   %1212 = getelementptr inbounds i8, ptr %1211, i64 -16
   store ptr %1212, ptr %44, align 8, !tbaa !62
   br label %1213
 
-1213:                                             ; preds = %1208, %1207
+1213:                                             ; preds = %1209, %1207
   %1214 = load ptr, ptr %47, align 8, !tbaa !38
   %.not758.i = icmp eq ptr %1214, null
   br i1 %.not758.i, label %1216, label %1215
@@ -6767,11 +6767,11 @@ luaD_poscall.exit.thread:                         ; preds = %1216
   br label %.loopexit.outer
 
 ..thread_crit_edge:                               ; preds = %1245
-  %.pre554 = load ptr, ptr %41, align 8, !tbaa !83
+  %.pre556 = load ptr, ptr %41, align 8, !tbaa !83
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %luaD_poscall.exit.thread
-  %1246 = phi ptr [ %.pre554, %..thread_crit_edge ], [ %1218, %luaD_poscall.exit.thread ]
+  %1246 = phi ptr [ %.pre556, %..thread_crit_edge ], [ %1218, %luaD_poscall.exit.thread ]
   %1247 = phi i32 [ %1241, %..thread_crit_edge ], [ %1243, %luaD_poscall.exit.thread ]
   %1248 = getelementptr inbounds nuw i8, ptr %1246, i64 16
   %1249 = load ptr, ptr %1248, align 8, !tbaa !119
@@ -6974,7 +6974,7 @@ luaV_tonumber.exit46.thread:                      ; preds = %luaV_tonumber.exit.
   ]
 
 luaV_tonumber.exit46.thread.luaV_tonumber.exit58.thread_crit_edge: ; preds = %luaV_tonumber.exit46.thread
-  %.pre553 = load double, ptr %1272, align 8, !tbaa !46
+  %.pre555 = load double, ptr %1272, align 8, !tbaa !46
   br label %luaV_tonumber.exit58.thread
 
 1329:                                             ; preds = %luaV_tonumber.exit46.thread
@@ -7046,7 +7046,7 @@ luaV_tonumber.exit58:                             ; preds = %luaO_str2d.exit.i53
   unreachable
 
 luaV_tonumber.exit58.thread:                      ; preds = %luaV_tonumber.exit46.thread.luaV_tonumber.exit58.thread_crit_edge, %1353
-  %1354 = phi double [ %.pre553, %luaV_tonumber.exit46.thread.luaV_tonumber.exit58.thread_crit_edge ], [ %.010.i49, %1353 ]
+  %1354 = phi double [ %.pre555, %luaV_tonumber.exit46.thread.luaV_tonumber.exit58.thread_crit_edge ], [ %.010.i49, %1353 ]
   %1355 = load double, ptr %69, align 8, !tbaa !46
   %1356 = fsub double %1355, %1354
   store double %1356, ptr %69, align 8, !tbaa !46
@@ -7121,7 +7121,7 @@ luaV_tonumber.exit58.thread:                      ; preds = %luaV_tonumber.exit4
   %1403 = lshr i32 %65, 23
   %1404 = lshr i32 %65, 14
   %1405 = and i32 %1404, 511
-  %1406 = icmp ult i32 %65, 8388608
+  %1406 = icmp eq i32 %1403, 0
   br i1 %1406, label %1407, label %1418
 
 1407:                                             ; preds = %1402
@@ -7626,8 +7626,8 @@ luaF_findupval.exit:                              ; preds = %luaM_realloc_.exit1
   br label %luaC_step.exit72.sink.split
 
 luaC_step.exit72.sink.split:                      ; preds = %1664, %1667, %1670
-  %.sink381 = phi i64 [ %1677, %1670 ], [ %1669, %1667 ], [ %1666, %1664 ]
-  store i64 %.sink381, ptr %1641, align 8, !tbaa !66
+  %.sink383 = phi i64 [ %1677, %1670 ], [ %1669, %1667 ], [ %1666, %1664 ]
+  store i64 %.sink383, ptr %1641, align 8, !tbaa !66
   br label %luaC_step.exit72
 
 luaC_step.exit72:                                 ; preds = %luaC_step.exit72.sink.split, %._crit_edge
@@ -7652,7 +7652,7 @@ luaC_step.exit72:                                 ; preds = %luaC_step.exit72.si
   %1694 = zext i8 %1693 to i32
   %1695 = xor i32 %1694, -1
   %1696 = add i32 %1690, %1695
-  %1697 = icmp ult i32 %65, 8388608
+  %1697 = icmp eq i32 %1680, 0
   br i1 %1697, label %1698, label %1713
 
 1698:                                             ; preds = %1679
@@ -7672,8 +7672,8 @@ luaD_growstack.exit.sink.split:                   ; preds = %1698
   %.not.i73 = icmp sgt i32 %1696, %1706
   %1707 = add nsw i32 %1706, %1696
   %1708 = shl nsw i32 %1706, 1
-  %.sink382 = select i1 %.not.i73, i32 %1707, i32 %1708
-  tail call fastcc void @luaD_reallocstack(ptr noundef nonnull %0, i32 noundef %.sink382)
+  %.sink384 = select i1 %.not.i73, i32 %1707, i32 %1708
+  tail call fastcc void @luaD_reallocstack(ptr noundef nonnull %0, i32 noundef %.sink384)
   br label %luaD_growstack.exit
 
 luaD_growstack.exit:                              ; preds = %luaD_growstack.exit.sink.split, %1698
@@ -7719,10 +7719,10 @@ luaD_growstack.exit:                              ; preds = %luaD_growstack.exit
   br label %1727
 
 1727:                                             ; preds = %1717, %1719
-  %.sink383 = phi i32 [ %1726, %1719 ], [ 0, %1717 ]
+  %.sink385 = phi i32 [ %1726, %1719 ], [ 0, %1717 ]
   %1728 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.0720.i, i64 %indvars.iv
   %1729 = getelementptr inbounds nuw i8, ptr %1728, i64 8
-  store i32 %.sink383, ptr %1729, align 8, !tbaa !69
+  store i32 %.sink385, ptr %1729, align 8, !tbaa !69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge.i.backedge, label %1717, !llvm.loop !189
@@ -7795,8 +7795,8 @@ luaV_execute.exit:                                ; preds = %luaD_poscall.exit, 
   br label %luaC_step.exit.sink.split
 
 luaC_step.exit.sink.split:                        ; preds = %1759, %1762, %1765
-  %.sink386 = phi i64 [ %1772, %1765 ], [ %1764, %1762 ], [ %1761, %1759 ]
-  store i64 %.sink386, ptr %1736, align 8, !tbaa !66
+  %.sink388 = phi i64 [ %1772, %1765 ], [ %1764, %1762 ], [ %1761, %1759 ]
+  store i64 %.sink388, ptr %1736, align 8, !tbaa !66
   br label %luaC_step.exit
 
 luaC_step.exit:                                   ; preds = %luaC_step.exit.sink.split, %luaV_execute.exit
@@ -9405,7 +9405,7 @@ luaH_getnum.exit35.i:                             ; preds = %90, %86, %68
 
 104:                                              ; preds = %.lr.ph.i
   %105 = uitofp nneg i32 %97 to double
-  %106 = icmp ult i32 %96, 2
+  %106 = icmp eq i32 %97, 0
   br i1 %106, label %hashnum.exit.i40.i.preheader, label %.preheader.i.i36.i
 
 .preheader.i.i36.i:                               ; preds = %104

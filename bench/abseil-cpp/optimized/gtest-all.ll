@@ -50883,8 +50883,8 @@ define dso_local void @_ZN7testing9TestSuite3RunEv(ptr noundef nonnull align 8 d
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7testing8UnitTest11GetInstanceEvE8instance) #61
   br label %_ZN7testing8UnitTest11GetInstanceEv.exit
 
-common.resume:                                    ; preds = %230, %205, %62, %45, %27, %13
-  %common.resume.op = phi { ptr, i32 } [ %14, %13 ], [ %28, %27 ], [ %46, %45 ], [ %63, %62 ], [ %206, %205 ], [ %231, %230 ]
+common.resume:                                    ; preds = %231, %206, %63, %46, %27, %13
+  %common.resume.op = phi { ptr, i32 } [ %14, %13 ], [ %28, %27 ], [ %47, %46 ], [ %64, %63 ], [ %207, %206 ], [ %232, %231 ]
   resume { ptr, i32 } %common.resume.op
 
 13:                                               ; preds = %10
@@ -50962,434 +50962,434 @@ _ZN7testing8UnitTest11GetInstanceEv.exit20:       ; preds = %_ZN7testing8UnitTes
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN7testing8TestInfoESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not14.i.i.i.i = icmp samesign ult i64 %.010.i.i.in.in.i.i, 3
-  br i1 %.not14.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1018
+  %45 = icmp eq i64 %.010.i.i.i.i, 1
+  br i1 %45, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1018
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %37
   invoke fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPPN7testing8TestInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_9TestSuite3RunEvE3$_0EEEvT_SF_T0_"(ptr %33, ptr %35)
-          to label %.loopexit._crit_edge.i.i unwind label %45
+          to label %.loopexit._crit_edge.i.i unwind label %46
 
-45:                                               ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN7testing8TestInfoESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.i.i, %.loopexit.i.i
+46:                                               ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN7testing8TestInfoESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.i.i, %.loopexit.i.i
   %.sroa.4.027.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN7testing8TestInfoESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.024.i.i = phi ptr [ %44, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN7testing8TestInfoESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %46 = landingpad { ptr, i32 }
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %47 = shl nuw nsw i64 %.sroa.4.027.i.i, 3
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.024.i.i, i64 noundef %47) #61
+  %48 = shl nuw nsw i64 %.sroa.4.027.i.i, 3
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.024.i.i, i64 noundef %48) #61
   br label %common.resume
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN7testing8TestInfoESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   invoke fastcc void @"_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPPN7testing8TestInfoESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterIZNS2_9TestSuite3RunEvE3$_0EEEvT_SF_T0_T1_T2_"(ptr %33, ptr %35, ptr noundef nonnull %44, i64 noundef %.010.i.i.i.i)
-          to label %.loopexit._crit_edge.i.i unwind label %45
+          to label %.loopexit._crit_edge.i.i unwind label %46
 
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN7testing8TestInfoESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.i.i
   %.sroa.4.025.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN7testing8TestInfoESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.022.i.i = phi ptr [ %44, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN7testing8TestInfoESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %48 = shl nuw nsw i64 %.sroa.4.025.i.i, 3
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.022.i.i, i64 noundef %48) #61
+  %49 = shl nuw nsw i64 %.sroa.4.025.i.i, 3
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.022.i.i, i64 noundef %49) #61
   br label %"_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPPN7testing8TestInfoESt6vectorIS4_SaIS4_EEEEZNS2_9TestSuite3RunEvE3$_0EvT_SC_T0_.exit"
 
 "_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPPN7testing8TestInfoESt6vectorIS4_SaIS4_EEEEZNS2_9TestSuite3RunEvE3$_0EvT_SC_T0_.exit": ; preds = %_ZN7testing8UnitTest11GetInstanceEv.exit20, %.loopexit._crit_edge.i.i
-  %49 = load ptr, ptr %31, align 8, !tbaa !33
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 48
-  %51 = load ptr, ptr %50, align 8
-  tail call void %51(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(264) %0)
-  %52 = load ptr, ptr %31, align 8, !tbaa !33
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 56
-  %54 = load ptr, ptr %53, align 8
-  tail call void %54(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(264) %0)
-  %55 = load atomic i8, ptr @_ZGVZN7testing8UnitTest11GetInstanceEvE8instance acquire, align 8
-  %56 = icmp eq i8 %55, 0
-  br i1 %56, label %57, label %_ZN7testing8UnitTest11GetInstanceEv.exit22, !prof !56
+  %50 = load ptr, ptr %31, align 8, !tbaa !33
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 48
+  %52 = load ptr, ptr %51, align 8
+  tail call void %52(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(264) %0)
+  %53 = load ptr, ptr %31, align 8, !tbaa !33
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 56
+  %55 = load ptr, ptr %54, align 8
+  tail call void %55(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(264) %0)
+  %56 = load atomic i8, ptr @_ZGVZN7testing8UnitTest11GetInstanceEvE8instance acquire, align 8
+  %57 = icmp eq i8 %56, 0
+  br i1 %57, label %58, label %_ZN7testing8UnitTest11GetInstanceEv.exit22, !prof !56
 
-57:                                               ; preds = %"_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPPN7testing8TestInfoESt6vectorIS4_SaIS4_EEEEZNS2_9TestSuite3RunEvE3$_0EvT_SC_T0_.exit"
-  %58 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7testing8UnitTest11GetInstanceEvE8instance) #61
-  %.not.i21 = icmp eq i32 %58, 0
-  br i1 %.not.i21, label %_ZN7testing8UnitTest11GetInstanceEv.exit22, label %59
+58:                                               ; preds = %"_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPPN7testing8TestInfoESt6vectorIS4_SaIS4_EEEEZNS2_9TestSuite3RunEvE3$_0EvT_SC_T0_.exit"
+  %59 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7testing8UnitTest11GetInstanceEvE8instance) #61
+  %.not.i21 = icmp eq i32 %59, 0
+  br i1 %.not.i21, label %_ZN7testing8UnitTest11GetInstanceEv.exit22, label %60
 
-59:                                               ; preds = %57
+60:                                               ; preds = %58
   invoke void @_ZN7testing8UnitTestC2Ev(ptr noundef nonnull align 8 dereferenceable(72) @_ZZN7testing8UnitTest11GetInstanceEvE8instance)
-          to label %60 unwind label %62
+          to label %61 unwind label %63
 
-60:                                               ; preds = %59
-  %61 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7testing8UnitTestD2Ev, ptr nonnull @_ZZN7testing8UnitTest11GetInstanceEvE8instance, ptr nonnull @__dso_handle) #61
+61:                                               ; preds = %60
+  %62 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7testing8UnitTestD2Ev, ptr nonnull @_ZZN7testing8UnitTest11GetInstanceEvE8instance, ptr nonnull @__dso_handle) #61
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7testing8UnitTest11GetInstanceEvE8instance) #61
   br label %_ZN7testing8UnitTest11GetInstanceEv.exit22
 
-62:                                               ; preds = %59
-  %63 = landingpad { ptr, i32 }
+63:                                               ; preds = %60
+  %64 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7testing8UnitTest11GetInstanceEvE8instance) #61
   br label %common.resume
 
-_ZN7testing8UnitTest11GetInstanceEv.exit22:       ; preds = %"_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPPN7testing8TestInfoESt6vectorIS4_SaIS4_EEEEZNS2_9TestSuite3RunEvE3$_0EvT_SC_T0_.exit", %57, %60
-  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7testing8UnitTest11GetInstanceEvE8instance, i64 64), align 8, !tbaa !57
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 640
-  %66 = load ptr, ptr %65, align 8, !tbaa !605
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %68, label %._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge.i
+_ZN7testing8UnitTest11GetInstanceEv.exit22:       ; preds = %"_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPPN7testing8TestInfoESt6vectorIS4_SaIS4_EEEEZNS2_9TestSuite3RunEvE3$_0EvT_SC_T0_.exit", %58, %61
+  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7testing8UnitTest11GetInstanceEvE8instance, i64 64), align 8, !tbaa !57
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 640
+  %67 = load ptr, ptr %66, align 8, !tbaa !605
+  %68 = icmp eq ptr %67, null
+  br i1 %68, label %69, label %._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge.i
 
 ._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge.i: ; preds = %_ZN7testing8UnitTest11GetInstanceEv.exit22
-  %.pre.i = load ptr, ptr %66, align 8, !tbaa !33
+  %.pre.i = load ptr, ptr %67, align 8, !tbaa !33
   br label %_ZN7testing8UnitTest16UponLeavingGTestEv.exit
 
-68:                                               ; preds = %_ZN7testing8UnitTest11GetInstanceEv.exit22
-  %69 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #59
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 16), ptr %69, align 8, !tbaa !33
-  store ptr %69, ptr %65, align 8, !tbaa !605
+69:                                               ; preds = %_ZN7testing8UnitTest11GetInstanceEv.exit22
+  %70 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #59
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 16), ptr %70, align 8, !tbaa !33
+  store ptr %70, ptr %66, align 8, !tbaa !605
   br label %_ZN7testing8UnitTest16UponLeavingGTestEv.exit
 
-_ZN7testing8UnitTest16UponLeavingGTestEv.exit:    ; preds = %._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge.i, %68
-  %70 = phi ptr [ getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 16), %68 ], [ %.pre.i, %._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge.i ]
-  %71 = phi ptr [ %69, %68 ], [ %66, %._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge.i ]
-  %72 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  %73 = load ptr, ptr %72, align 8
-  tail call void %73(ptr noundef nonnull align 8 dereferenceable(8) %71)
+_ZN7testing8UnitTest16UponLeavingGTestEv.exit:    ; preds = %._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge.i, %69
+  %71 = phi ptr [ getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 16), %69 ], [ %.pre.i, %._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge.i ]
+  %72 = phi ptr [ %70, %69 ], [ %67, %._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge.i ]
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 24
+  %74 = load ptr, ptr %73, align 8
+  tail call void %74(ptr noundef nonnull align 8 dereferenceable(8) %72)
   tail call void @_ZN7testing8internal35HandleExceptionsInMethodIfSupportedINS_9TestSuiteEvEET0_PT_MS4_FS3_vEPKc(ptr noundef nonnull %0, i64 ptrtoint (ptr @_ZN7testing9TestSuite17RunSetUpTestSuiteEv to i64), i64 0, ptr noundef nonnull @.str.219)
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %76 = load ptr, ptr %75, align 8, !tbaa !548
-  %77 = load ptr, ptr %74, align 8, !tbaa !550
-  %78 = ptrtoint ptr %76 to i64
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %77 = load ptr, ptr %76, align 8, !tbaa !548
+  %78 = load ptr, ptr %75, align 8, !tbaa !550
   %79 = ptrtoint ptr %77 to i64
-  %80 = sub i64 %78, %79
-  %81 = sdiv exact i64 %80, 112
-  %82 = trunc i64 %81 to i32
-  %83 = icmp sgt i32 %82, 0
-  br i1 %83, label %.lr.ph.preheader.i, label %.loopexit.i
+  %80 = ptrtoint ptr %78 to i64
+  %81 = sub i64 %79, %80
+  %82 = sdiv exact i64 %81, 112
+  %83 = trunc i64 %82 to i32
+  %84 = icmp sgt i32 %83, 0
+  br i1 %84, label %.lr.ph.preheader.i, label %.loopexit.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZN7testing8UnitTest16UponLeavingGTestEv.exit
-  %wide.trip.count.i = and i64 %81, 2147483647
+  %wide.trip.count.i = and i64 %82, 2147483647
   br label %.lr.ph.i
 
-84:                                               ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i
+85:                                               ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond16.not.i, label %.lr.ph.i.i, label %.lr.ph.i, !llvm.loop !720
 
-.lr.ph.i:                                         ; preds = %84, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %84 ]
-  %exitcond.not.i = icmp eq i64 %indvars.iv.i, %81
-  br i1 %exitcond.not.i, label %85, label %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i
+.lr.ph.i:                                         ; preds = %85, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %85 ]
+  %exitcond.not.i = icmp eq i64 %indvars.iv.i, %82
+  br i1 %exitcond.not.i, label %86, label %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i
 
-85:                                               ; preds = %.lr.ph.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.549, i64 noundef %81, i64 noundef %81) #62
+86:                                               ; preds = %.lr.ph.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.549, i64 noundef %82, i64 noundef %82) #62
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i: ; preds = %.lr.ph.i
-  %86 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %77, i64 %indvars.iv.i
-  %87 = load i32, ptr %86, align 8, !tbaa !547
-  %88 = add i32 %87, -1
-  %spec.select.i.i = icmp ult i32 %88, 2
-  br i1 %spec.select.i.i, label %_ZNK7testing10TestResult6FailedEv.exit, label %84
+  %87 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %78, i64 %indvars.iv.i
+  %88 = load i32, ptr %87, align 8, !tbaa !547
+  %89 = add i32 %88, -1
+  %spec.select.i.i = icmp ult i32 %89, 2
+  br i1 %spec.select.i.i, label %_ZNK7testing10TestResult6FailedEv.exit, label %85
 
-89:                                               ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i
+90:                                               ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond16.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i
   br i1 %exitcond16.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !720
 
-.lr.ph.i.i:                                       ; preds = %84, %89
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %89 ], [ 0, %84 ]
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.i.i, %81
-  br i1 %exitcond.not.i.i, label %90, label %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i
+.lr.ph.i.i:                                       ; preds = %85, %90
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %90 ], [ 0, %85 ]
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.i.i, %82
+  br i1 %exitcond.not.i.i, label %91, label %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i
 
-90:                                               ; preds = %.lr.ph.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.549, i64 noundef %81, i64 noundef %81) #62
+91:                                               ; preds = %.lr.ph.i.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.549, i64 noundef %82, i64 noundef %82) #62
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i: ; preds = %.lr.ph.i.i
-  %91 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %77, i64 %indvars.iv.i.i
-  %92 = load i32, ptr %91, align 8, !tbaa !547
-  %93 = add i32 %92, -1
-  %spec.select.i.i.i = icmp ult i32 %93, 2
-  br i1 %spec.select.i.i.i, label %_ZNK7testing10TestResult6FailedEv.exit, label %89
+  %92 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %78, i64 %indvars.iv.i.i
+  %93 = load i32, ptr %92, align 8, !tbaa !547
+  %94 = add i32 %93, -1
+  %spec.select.i.i.i = icmp ult i32 %94, 2
+  br i1 %spec.select.i.i.i, label %_ZNK7testing10TestResult6FailedEv.exit, label %90
 
-.loopexit.i:                                      ; preds = %89, %_ZN7testing8UnitTest16UponLeavingGTestEv.exit
-  %.not7.i.i = icmp eq ptr %77, %76
+.loopexit.i:                                      ; preds = %90, %_ZN7testing8UnitTest16UponLeavingGTestEv.exit
+  %.not7.i.i = icmp eq ptr %78, %77
   br i1 %.not7.i.i, label %_ZNK7testing10TestResult6FailedEv.exit, label %.lr.ph.i1.i
 
 .lr.ph.i1.i:                                      ; preds = %.loopexit.i, %.lr.ph.i1.i
   %.09.i.i = phi i32 [ %spec.select.i.i23, %.lr.ph.i1.i ], [ 0, %.loopexit.i ]
-  %.sroa.04.08.i.i = phi ptr [ %97, %.lr.ph.i1.i ], [ %77, %.loopexit.i ]
-  %94 = load i32, ptr %.sroa.04.08.i.i, align 8, !tbaa !547
-  %95 = icmp eq i32 %94, 3
-  %96 = zext i1 %95 to i32
-  %spec.select.i.i23 = add nuw nsw i32 %.09.i.i, %96
-  %97 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i, i64 112
-  %.not.i.i = icmp eq ptr %97, %76
+  %.sroa.04.08.i.i = phi ptr [ %98, %.lr.ph.i1.i ], [ %78, %.loopexit.i ]
+  %95 = load i32, ptr %.sroa.04.08.i.i, align 8, !tbaa !547
+  %96 = icmp eq i32 %95, 3
+  %97 = zext i1 %96 to i32
+  %spec.select.i.i23 = add nuw nsw i32 %.09.i.i, %97
+  %98 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i, i64 112
+  %.not.i.i = icmp eq ptr %98, %77
   br i1 %.not.i.i, label %_ZN7testing8internal7CountIfISt6vectorINS_14TestPartResultESaIS3_EEPFbRKS3_EEEiRKT_T0_.exit.loopexit.i, label %.lr.ph.i1.i, !llvm.loop !721
 
 _ZN7testing8internal7CountIfISt6vectorINS_14TestPartResultESaIS3_EEPFbRKS3_EEEiRKT_T0_.exit.loopexit.i: ; preds = %.lr.ph.i1.i
-  %98 = icmp ne i32 %spec.select.i.i23, 0
+  %99 = icmp ne i32 %spec.select.i.i23, 0
   br label %_ZNK7testing10TestResult6FailedEv.exit
 
 _ZNK7testing10TestResult6FailedEv.exit:           ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i, %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i, %_ZN7testing8internal7CountIfISt6vectorINS_14TestPartResultESaIS3_EEPFbRKS3_EEEiRKT_T0_.exit.loopexit.i, %.loopexit.i
-  %99 = phi i1 [ false, %.loopexit.i ], [ %98, %_ZN7testing8internal7CountIfISt6vectorINS_14TestPartResultESaIS3_EEPFbRKS3_EEEiRKT_T0_.exit.loopexit.i ], [ false, %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i ], [ true, %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i ]
-  %100 = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #61
-  %101 = sdiv i64 %100, 1000000
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i64 %101, ptr %102, align 8, !tbaa !1019
-  %103 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #61
-  %104 = load ptr, ptr %34, align 8, !tbaa !726
-  %105 = load ptr, ptr %32, align 8, !tbaa !727
-  %106 = ptrtoint ptr %104 to i64
+  %100 = phi i1 [ false, %.loopexit.i ], [ %99, %_ZN7testing8internal7CountIfISt6vectorINS_14TestPartResultESaIS3_EEPFbRKS3_EEEiRKT_T0_.exit.loopexit.i ], [ false, %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i ], [ true, %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i ]
+  %101 = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #61
+  %102 = sdiv i64 %101, 1000000
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i64 %102, ptr %103, align 8, !tbaa !1019
+  %104 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #61
+  %105 = load ptr, ptr %34, align 8, !tbaa !726
+  %106 = load ptr, ptr %32, align 8, !tbaa !727
   %107 = ptrtoint ptr %105 to i64
-  %108 = sub i64 %106, %107
-  %109 = lshr exact i64 %108, 3
-  %110 = trunc i64 %109 to i32
-  %111 = icmp sgt i32 %110, 0
-  br i1 %111, label %.lr.ph, label %.loopexit
+  %108 = ptrtoint ptr %106 to i64
+  %109 = sub i64 %107, %108
+  %110 = lshr exact i64 %109, 3
+  %111 = trunc i64 %110 to i32
+  %112 = icmp sgt i32 %111, 0
+  br i1 %112, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %_ZNK7testing10TestResult6FailedEv.exit
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  br label %114
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  br label %115
 
-114:                                              ; preds = %.lr.ph, %_ZNK7testing10TestResult6FailedEv.exit41.thread
+115:                                              ; preds = %.lr.ph, %_ZNK7testing10TestResult6FailedEv.exit41.thread
   %indvars.iv81 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next82, %_ZNK7testing10TestResult6FailedEv.exit41.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK7testing10TestResult6FailedEv.exit41.thread ]
-  %115 = phi ptr [ %105, %.lr.ph ], [ %.pre, %_ZNK7testing10TestResult6FailedEv.exit41.thread ]
-  %116 = load ptr, ptr %113, align 8, !tbaa !1017
-  %117 = load ptr, ptr %112, align 8, !tbaa !1013
-  %118 = ptrtoint ptr %116 to i64
+  %116 = phi ptr [ %106, %.lr.ph ], [ %.pre, %_ZNK7testing10TestResult6FailedEv.exit41.thread ]
+  %117 = load ptr, ptr %114, align 8, !tbaa !1017
+  %118 = load ptr, ptr %113, align 8, !tbaa !1013
   %119 = ptrtoint ptr %117 to i64
-  %120 = sub i64 %118, %119
-  %sext97 = shl i64 %120, 30
-  %121 = ashr i64 %sext97, 32
-  %.not.i.i24 = icmp slt i64 %indvars.iv, %121
+  %120 = ptrtoint ptr %118 to i64
+  %121 = sub i64 %119, %120
+  %sext97 = shl i64 %121, 30
+  %122 = ashr i64 %sext97, 32
+  %.not.i.i24 = icmp slt i64 %indvars.iv, %122
   tail call void @llvm.assume(i1 %.not.i.i24)
-  %122 = getelementptr inbounds nuw i32, ptr %117, i64 %indvars.iv
-  %123 = load i32, ptr %122, align 4, !tbaa !55
-  %124 = icmp sgt i32 %123, -1
-  tail call void @llvm.assume(i1 %124)
-  %125 = zext nneg i32 %123 to i64
-  %126 = getelementptr inbounds nuw ptr, ptr %115, i64 %125
-  %127 = load ptr, ptr %126, align 8, !tbaa !716
-  br i1 %99, label %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i, label %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i26
+  %123 = getelementptr inbounds nuw i32, ptr %118, i64 %indvars.iv
+  %124 = load i32, ptr %123, align 4, !tbaa !55
+  %125 = icmp sgt i32 %124, -1
+  tail call void @llvm.assume(i1 %125)
+  %126 = zext nneg i32 %124 to i64
+  %127 = getelementptr inbounds nuw ptr, ptr %116, i64 %126
+  %128 = load ptr, ptr %127, align 8, !tbaa !716
+  br i1 %100, label %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i, label %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i26
 
-_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i: ; preds = %114
-  tail call void @_ZN7testing8TestInfo4SkipEv(ptr noundef nonnull align 8 dereferenceable(272) %127)
-  br label %128
+_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i: ; preds = %115
+  tail call void @_ZN7testing8TestInfo4SkipEv(ptr noundef nonnull align 8 dereferenceable(272) %128)
+  br label %129
 
-_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i26: ; preds = %114
-  tail call void @_ZN7testing8TestInfo3RunEv(ptr noundef nonnull align 8 dereferenceable(272) %127)
-  br label %128
+_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i26: ; preds = %115
+  tail call void @_ZN7testing8TestInfo3RunEv(ptr noundef nonnull align 8 dereferenceable(272) %128)
+  br label %129
 
-128:                                              ; preds = %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i26, %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i
-  %129 = load i8, ptr @_ZN7testing21FLAGS_gtest_fail_fastE, align 1, !tbaa !29, !range !17, !noundef !18
-  %130 = trunc nuw i8 %129 to i1
+129:                                              ; preds = %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i26, %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i
+  %130 = load i8, ptr @_ZN7testing21FLAGS_gtest_fail_fastE, align 1, !tbaa !29, !range !17, !noundef !18
+  %131 = trunc nuw i8 %130 to i1
   %.pre = load ptr, ptr %32, align 8, !tbaa !727
-  br i1 %130, label %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i29, label %_ZNK7testing10TestResult6FailedEv.exit41.thread
+  br i1 %131, label %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i29, label %_ZNK7testing10TestResult6FailedEv.exit41.thread
 
-_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i29: ; preds = %128
-  %131 = load ptr, ptr %113, align 8, !tbaa !1017
-  %132 = load ptr, ptr %112, align 8, !tbaa !1013
-  %133 = ptrtoint ptr %131 to i64
+_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i29: ; preds = %129
+  %132 = load ptr, ptr %114, align 8, !tbaa !1017
+  %133 = load ptr, ptr %113, align 8, !tbaa !1013
   %134 = ptrtoint ptr %132 to i64
-  %135 = sub i64 %133, %134
-  %sext98 = shl i64 %135, 30
-  %136 = ashr i64 %sext98, 32
-  %.not.i.i28 = icmp slt i64 %indvars.iv, %136
+  %135 = ptrtoint ptr %133 to i64
+  %136 = sub i64 %134, %135
+  %sext98 = shl i64 %136, 30
+  %137 = ashr i64 %sext98, 32
+  %.not.i.i28 = icmp slt i64 %indvars.iv, %137
   tail call void @llvm.assume(i1 %.not.i.i28)
-  %137 = getelementptr inbounds nuw i32, ptr %132, i64 %indvars.iv
-  %138 = load i32, ptr %137, align 4, !tbaa !55
-  %139 = icmp sgt i32 %138, -1
-  tail call void @llvm.assume(i1 %139)
-  %140 = zext nneg i32 %138 to i64
-  %141 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %140
-  %142 = load ptr, ptr %141, align 8, !tbaa !716
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 200
-  %144 = getelementptr inbounds nuw i8, ptr %142, i64 208
-  %145 = load ptr, ptr %144, align 8, !tbaa !548
-  %146 = load ptr, ptr %143, align 8, !tbaa !550
-  %147 = ptrtoint ptr %145 to i64
+  %138 = getelementptr inbounds nuw i32, ptr %133, i64 %indvars.iv
+  %139 = load i32, ptr %138, align 4, !tbaa !55
+  %140 = icmp sgt i32 %139, -1
+  tail call void @llvm.assume(i1 %140)
+  %141 = zext nneg i32 %139 to i64
+  %142 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %141
+  %143 = load ptr, ptr %142, align 8, !tbaa !716
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 200
+  %145 = getelementptr inbounds nuw i8, ptr %143, i64 208
+  %146 = load ptr, ptr %145, align 8, !tbaa !548
+  %147 = load ptr, ptr %144, align 8, !tbaa !550
   %148 = ptrtoint ptr %146 to i64
-  %149 = sub i64 %147, %148
-  %150 = sdiv exact i64 %149, 112
-  %151 = trunc i64 %150 to i32
-  %152 = icmp sgt i32 %151, 0
-  br i1 %152, label %.lr.ph.preheader.i32, label %_ZNK7testing10TestResult6FailedEv.exit41.thread
+  %149 = ptrtoint ptr %147 to i64
+  %150 = sub i64 %148, %149
+  %151 = sdiv exact i64 %150, 112
+  %152 = trunc i64 %151 to i32
+  %153 = icmp sgt i32 %152, 0
+  br i1 %153, label %.lr.ph.preheader.i32, label %_ZNK7testing10TestResult6FailedEv.exit41.thread
 
 .lr.ph.preheader.i32:                             ; preds = %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i29
-  %wide.trip.count.i33 = and i64 %150, 2147483647
+  %wide.trip.count.i33 = and i64 %151, 2147483647
   br label %.lr.ph.i34
 
-153:                                              ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i37
+154:                                              ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i37
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i35, 1
   %exitcond16.not.i40 = icmp eq i64 %indvars.iv.next.i39, %wide.trip.count.i33
   br i1 %exitcond16.not.i40, label %_ZNK7testing10TestResult6FailedEv.exit41.thread, label %.lr.ph.i34, !llvm.loop !720
 
-.lr.ph.i34:                                       ; preds = %153, %.lr.ph.preheader.i32
-  %indvars.iv.i35 = phi i64 [ 0, %.lr.ph.preheader.i32 ], [ %indvars.iv.next.i39, %153 ]
-  %exitcond.not.i36 = icmp eq i64 %indvars.iv.i35, %150
-  br i1 %exitcond.not.i36, label %154, label %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i37
+.lr.ph.i34:                                       ; preds = %154, %.lr.ph.preheader.i32
+  %indvars.iv.i35 = phi i64 [ 0, %.lr.ph.preheader.i32 ], [ %indvars.iv.next.i39, %154 ]
+  %exitcond.not.i36 = icmp eq i64 %indvars.iv.i35, %151
+  br i1 %exitcond.not.i36, label %155, label %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i37
 
-154:                                              ; preds = %.lr.ph.i34
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.549, i64 noundef %150, i64 noundef %150) #62
+155:                                              ; preds = %.lr.ph.i34
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.549, i64 noundef %151, i64 noundef %151) #62
   unreachable
 
 _ZNK7testing10TestResult17GetTestPartResultEi.exit.i37: ; preds = %.lr.ph.i34
-  %155 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %146, i64 %indvars.iv.i35
-  %156 = load i32, ptr %155, align 8, !tbaa !547
-  %157 = add i32 %156, -1
-  %spec.select.i.i38 = icmp ult i32 %157, 2
-  br i1 %spec.select.i.i38, label %_ZNK7testing10TestResult6FailedEv.exit41.preheader, label %153
+  %156 = getelementptr inbounds nuw %"class.testing::TestPartResult", ptr %147, i64 %indvars.iv.i35
+  %157 = load i32, ptr %156, align 8, !tbaa !547
+  %158 = add i32 %157, -1
+  %spec.select.i.i38 = icmp ult i32 %158, 2
+  br i1 %spec.select.i.i38, label %_ZNK7testing10TestResult6FailedEv.exit41.preheader, label %154
 
 _ZNK7testing10TestResult6FailedEv.exit41.preheader: ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i37
-  %158 = trunc nuw nsw i64 %indvars.iv to i32
-  %.01870 = add nuw nsw i32 %158, 1
-  %159 = load ptr, ptr %34, align 8, !tbaa !726
-  %160 = ptrtoint ptr %159 to i64
-  %161 = ptrtoint ptr %.pre to i64
-  %162 = sub i64 %160, %161
-  %163 = lshr exact i64 %162, 3
-  %164 = trunc i64 %163 to i32
-  %165 = icmp slt i32 %.01870, %164
-  br i1 %165, label %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i43, label %.loopexit
+  %159 = trunc nuw nsw i64 %indvars.iv to i32
+  %.01870 = add nuw nsw i32 %159, 1
+  %160 = load ptr, ptr %34, align 8, !tbaa !726
+  %161 = ptrtoint ptr %160 to i64
+  %162 = ptrtoint ptr %.pre to i64
+  %163 = sub i64 %161, %162
+  %164 = lshr exact i64 %163, 3
+  %165 = trunc i64 %164 to i32
+  %166 = icmp slt i32 %.01870, %165
+  br i1 %166, label %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i43, label %.loopexit
 
 _ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i43: ; preds = %_ZNK7testing10TestResult6FailedEv.exit41.preheader, %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i43
   %indvars.iv85 = phi i64 [ %indvars.iv.next86, %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i43 ], [ %indvars.iv81, %_ZNK7testing10TestResult6FailedEv.exit41.preheader ]
-  %166 = phi ptr [ %180, %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i43 ], [ %.pre, %_ZNK7testing10TestResult6FailedEv.exit41.preheader ]
-  %167 = load ptr, ptr %113, align 8, !tbaa !1017
-  %168 = load ptr, ptr %112, align 8, !tbaa !1013
-  %169 = ptrtoint ptr %167 to i64
+  %167 = phi ptr [ %181, %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i43 ], [ %.pre, %_ZNK7testing10TestResult6FailedEv.exit41.preheader ]
+  %168 = load ptr, ptr %114, align 8, !tbaa !1017
+  %169 = load ptr, ptr %113, align 8, !tbaa !1013
   %170 = ptrtoint ptr %168 to i64
-  %171 = sub i64 %169, %170
-  %sext100 = shl i64 %171, 30
-  %172 = ashr i64 %sext100, 32
-  %.not.i.i42 = icmp slt i64 %indvars.iv85, %172
+  %171 = ptrtoint ptr %169 to i64
+  %172 = sub i64 %170, %171
+  %sext100 = shl i64 %172, 30
+  %173 = ashr i64 %sext100, 32
+  %.not.i.i42 = icmp slt i64 %indvars.iv85, %173
   tail call void @llvm.assume(i1 %.not.i.i42)
-  %173 = getelementptr inbounds nuw i32, ptr %168, i64 %indvars.iv85
-  %174 = load i32, ptr %173, align 4, !tbaa !55
-  %175 = icmp sgt i32 %174, -1
-  tail call void @llvm.assume(i1 %175)
-  %176 = zext nneg i32 %174 to i64
-  %177 = getelementptr inbounds nuw ptr, ptr %166, i64 %176
-  %178 = load ptr, ptr %177, align 8, !tbaa !716
-  tail call void @_ZN7testing8TestInfo4SkipEv(ptr noundef nonnull align 8 dereferenceable(272) %178)
+  %174 = getelementptr inbounds nuw i32, ptr %169, i64 %indvars.iv85
+  %175 = load i32, ptr %174, align 4, !tbaa !55
+  %176 = icmp sgt i32 %175, -1
+  tail call void @llvm.assume(i1 %176)
+  %177 = zext nneg i32 %175 to i64
+  %178 = getelementptr inbounds nuw ptr, ptr %167, i64 %177
+  %179 = load ptr, ptr %178, align 8, !tbaa !716
+  tail call void @_ZN7testing8TestInfo4SkipEv(ptr noundef nonnull align 8 dereferenceable(272) %179)
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
-  %179 = load ptr, ptr %34, align 8, !tbaa !726
-  %180 = load ptr, ptr %32, align 8, !tbaa !727
-  %181 = ptrtoint ptr %179 to i64
+  %180 = load ptr, ptr %34, align 8, !tbaa !726
+  %181 = load ptr, ptr %32, align 8, !tbaa !727
   %182 = ptrtoint ptr %180 to i64
-  %183 = sub i64 %181, %182
-  %184 = lshr exact i64 %183, 3
-  %185 = trunc i64 %184 to i32
-  %186 = trunc nuw i64 %indvars.iv.next86 to i32
-  %187 = icmp slt i32 %186, %185
-  br i1 %187, label %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i43, label %.loopexit, !llvm.loop !1020
+  %183 = ptrtoint ptr %181 to i64
+  %184 = sub i64 %182, %183
+  %185 = lshr exact i64 %184, 3
+  %186 = trunc i64 %185 to i32
+  %187 = trunc nuw i64 %indvars.iv.next86 to i32
+  %188 = icmp slt i32 %187, %186
+  br i1 %188, label %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i43, label %.loopexit, !llvm.loop !1020
 
-_ZNK7testing10TestResult6FailedEv.exit41.thread:  ; preds = %153, %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i29, %128
+_ZNK7testing10TestResult6FailedEv.exit41.thread:  ; preds = %154, %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i29, %129
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %188 = load ptr, ptr %34, align 8, !tbaa !726
-  %189 = ptrtoint ptr %188 to i64
-  %190 = ptrtoint ptr %.pre to i64
-  %191 = sub i64 %189, %190
-  %sext99 = shl i64 %191, 29
-  %192 = ashr i64 %sext99, 32
-  %193 = icmp slt i64 %indvars.iv.next, %192
+  %189 = load ptr, ptr %34, align 8, !tbaa !726
+  %190 = ptrtoint ptr %189 to i64
+  %191 = ptrtoint ptr %.pre to i64
+  %192 = sub i64 %190, %191
+  %sext99 = shl i64 %192, 29
+  %193 = ashr i64 %sext99, 32
+  %194 = icmp slt i64 %indvars.iv.next, %193
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
-  br i1 %193, label %114, label %.loopexit, !llvm.loop !1021
+  br i1 %194, label %115, label %.loopexit, !llvm.loop !1021
 
 .loopexit:                                        ; preds = %_ZNK7testing10TestResult6FailedEv.exit41.thread, %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i43, %_ZNK7testing10TestResult6FailedEv.exit, %_ZNK7testing10TestResult6FailedEv.exit41.preheader
-  %194 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #61
-  %195 = sub nsw i64 %194, %103
-  %196 = sdiv i64 %195, 1000000
-  %197 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i64 %196, ptr %197, align 8, !tbaa !1022
-  %198 = load atomic i8, ptr @_ZGVZN7testing8UnitTest11GetInstanceEvE8instance acquire, align 8
-  %199 = icmp eq i8 %198, 0
-  br i1 %199, label %200, label %_ZN7testing8UnitTest11GetInstanceEv.exit46, !prof !56
+  %195 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #61
+  %196 = sub nsw i64 %195, %104
+  %197 = sdiv i64 %196, 1000000
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store i64 %197, ptr %198, align 8, !tbaa !1022
+  %199 = load atomic i8, ptr @_ZGVZN7testing8UnitTest11GetInstanceEvE8instance acquire, align 8
+  %200 = icmp eq i8 %199, 0
+  br i1 %200, label %201, label %_ZN7testing8UnitTest11GetInstanceEv.exit46, !prof !56
 
-200:                                              ; preds = %.loopexit
-  %201 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7testing8UnitTest11GetInstanceEvE8instance) #61
-  %.not.i45 = icmp eq i32 %201, 0
-  br i1 %.not.i45, label %_ZN7testing8UnitTest11GetInstanceEv.exit46, label %202
+201:                                              ; preds = %.loopexit
+  %202 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7testing8UnitTest11GetInstanceEvE8instance) #61
+  %.not.i45 = icmp eq i32 %202, 0
+  br i1 %.not.i45, label %_ZN7testing8UnitTest11GetInstanceEv.exit46, label %203
 
-202:                                              ; preds = %200
+203:                                              ; preds = %201
   invoke void @_ZN7testing8UnitTestC2Ev(ptr noundef nonnull align 8 dereferenceable(72) @_ZZN7testing8UnitTest11GetInstanceEvE8instance)
-          to label %203 unwind label %205
+          to label %204 unwind label %206
 
-203:                                              ; preds = %202
-  %204 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7testing8UnitTestD2Ev, ptr nonnull @_ZZN7testing8UnitTest11GetInstanceEvE8instance, ptr nonnull @__dso_handle) #61
+204:                                              ; preds = %203
+  %205 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7testing8UnitTestD2Ev, ptr nonnull @_ZZN7testing8UnitTest11GetInstanceEvE8instance, ptr nonnull @__dso_handle) #61
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7testing8UnitTest11GetInstanceEvE8instance) #61
   br label %_ZN7testing8UnitTest11GetInstanceEv.exit46
 
-205:                                              ; preds = %202
-  %206 = landingpad { ptr, i32 }
+206:                                              ; preds = %203
+  %207 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7testing8UnitTest11GetInstanceEvE8instance) #61
   br label %common.resume
 
-_ZN7testing8UnitTest11GetInstanceEv.exit46:       ; preds = %.loopexit, %200, %203
-  %207 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7testing8UnitTest11GetInstanceEvE8instance, i64 64), align 8, !tbaa !57
-  %208 = getelementptr inbounds nuw i8, ptr %207, i64 640
-  %209 = load ptr, ptr %208, align 8, !tbaa !605
-  %210 = icmp eq ptr %209, null
-  br i1 %210, label %211, label %._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge.i47
+_ZN7testing8UnitTest11GetInstanceEv.exit46:       ; preds = %.loopexit, %201, %204
+  %208 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7testing8UnitTest11GetInstanceEvE8instance, i64 64), align 8, !tbaa !57
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 640
+  %210 = load ptr, ptr %209, align 8, !tbaa !605
+  %211 = icmp eq ptr %210, null
+  br i1 %211, label %212, label %._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge.i47
 
 ._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge.i47: ; preds = %_ZN7testing8UnitTest11GetInstanceEv.exit46
-  %.pre.i48 = load ptr, ptr %209, align 8, !tbaa !33
+  %.pre.i48 = load ptr, ptr %210, align 8, !tbaa !33
   br label %_ZN7testing8UnitTest16UponLeavingGTestEv.exit49
 
-211:                                              ; preds = %_ZN7testing8UnitTest11GetInstanceEv.exit46
-  %212 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #59
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 16), ptr %212, align 8, !tbaa !33
-  store ptr %212, ptr %208, align 8, !tbaa !605
+212:                                              ; preds = %_ZN7testing8UnitTest11GetInstanceEv.exit46
+  %213 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #59
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 16), ptr %213, align 8, !tbaa !33
+  store ptr %213, ptr %209, align 8, !tbaa !605
   br label %_ZN7testing8UnitTest16UponLeavingGTestEv.exit49
 
-_ZN7testing8UnitTest16UponLeavingGTestEv.exit49:  ; preds = %._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge.i47, %211
-  %213 = phi ptr [ getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 16), %211 ], [ %.pre.i48, %._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge.i47 ]
-  %214 = phi ptr [ %212, %211 ], [ %209, %._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge.i47 ]
-  %215 = getelementptr inbounds nuw i8, ptr %213, i64 24
-  %216 = load ptr, ptr %215, align 8
-  tail call void %216(ptr noundef nonnull align 8 dereferenceable(8) %214)
+_ZN7testing8UnitTest16UponLeavingGTestEv.exit49:  ; preds = %._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge.i47, %212
+  %214 = phi ptr [ getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 16), %212 ], [ %.pre.i48, %._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge.i47 ]
+  %215 = phi ptr [ %213, %212 ], [ %210, %._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge.i47 ]
+  %216 = getelementptr inbounds nuw i8, ptr %214, i64 24
+  %217 = load ptr, ptr %216, align 8
+  tail call void %217(ptr noundef nonnull align 8 dereferenceable(8) %215)
   tail call void @_ZN7testing8internal35HandleExceptionsInMethodIfSupportedINS_9TestSuiteEvEET0_PT_MS4_FS3_vEPKc(ptr noundef nonnull %0, i64 ptrtoint (ptr @_ZN7testing9TestSuite20RunTearDownTestSuiteEv to i64), i64 0, ptr noundef nonnull @.str.220)
-  %217 = load ptr, ptr %31, align 8, !tbaa !33
-  %218 = getelementptr inbounds nuw i8, ptr %217, i64 96
-  %219 = load ptr, ptr %218, align 8
-  tail call void %219(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(264) %0)
-  %220 = load ptr, ptr %31, align 8, !tbaa !33
-  %221 = getelementptr inbounds nuw i8, ptr %220, i64 104
-  %222 = load ptr, ptr %221, align 8
-  tail call void %222(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(264) %0)
-  %223 = load atomic i8, ptr @_ZGVZN7testing8UnitTest11GetInstanceEvE8instance acquire, align 8
-  %224 = icmp eq i8 %223, 0
-  br i1 %224, label %225, label %_ZN7testing8UnitTest11GetInstanceEv.exit51, !prof !56
+  %218 = load ptr, ptr %31, align 8, !tbaa !33
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 96
+  %220 = load ptr, ptr %219, align 8
+  tail call void %220(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(264) %0)
+  %221 = load ptr, ptr %31, align 8, !tbaa !33
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 104
+  %223 = load ptr, ptr %222, align 8
+  tail call void %223(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(264) %0)
+  %224 = load atomic i8, ptr @_ZGVZN7testing8UnitTest11GetInstanceEvE8instance acquire, align 8
+  %225 = icmp eq i8 %224, 0
+  br i1 %225, label %226, label %_ZN7testing8UnitTest11GetInstanceEv.exit51, !prof !56
 
-225:                                              ; preds = %_ZN7testing8UnitTest16UponLeavingGTestEv.exit49
-  %226 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7testing8UnitTest11GetInstanceEvE8instance) #61
-  %.not.i50 = icmp eq i32 %226, 0
-  br i1 %.not.i50, label %_ZN7testing8UnitTest11GetInstanceEv.exit51, label %227
+226:                                              ; preds = %_ZN7testing8UnitTest16UponLeavingGTestEv.exit49
+  %227 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7testing8UnitTest11GetInstanceEvE8instance) #61
+  %.not.i50 = icmp eq i32 %227, 0
+  br i1 %.not.i50, label %_ZN7testing8UnitTest11GetInstanceEv.exit51, label %228
 
-227:                                              ; preds = %225
+228:                                              ; preds = %226
   invoke void @_ZN7testing8UnitTestC2Ev(ptr noundef nonnull align 8 dereferenceable(72) @_ZZN7testing8UnitTest11GetInstanceEvE8instance)
-          to label %228 unwind label %230
+          to label %229 unwind label %231
 
-228:                                              ; preds = %227
-  %229 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7testing8UnitTestD2Ev, ptr nonnull @_ZZN7testing8UnitTest11GetInstanceEvE8instance, ptr nonnull @__dso_handle) #61
+229:                                              ; preds = %228
+  %230 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7testing8UnitTestD2Ev, ptr nonnull @_ZZN7testing8UnitTest11GetInstanceEvE8instance, ptr nonnull @__dso_handle) #61
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7testing8UnitTest11GetInstanceEvE8instance) #61
   br label %_ZN7testing8UnitTest11GetInstanceEv.exit51
 
-230:                                              ; preds = %227
-  %231 = landingpad { ptr, i32 }
+231:                                              ; preds = %228
+  %232 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7testing8UnitTest11GetInstanceEvE8instance) #61
   br label %common.resume
 
-_ZN7testing8UnitTest11GetInstanceEv.exit51:       ; preds = %_ZN7testing8UnitTest16UponLeavingGTestEv.exit49, %225, %228
+_ZN7testing8UnitTest11GetInstanceEv.exit51:       ; preds = %_ZN7testing8UnitTest16UponLeavingGTestEv.exit49, %226, %229
   tail call void @_ZN7testing8internal9MutexBase4LockEv(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @_ZZN7testing8UnitTest11GetInstanceEvE8instance, i64 8))
-  %232 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7testing8UnitTest11GetInstanceEvE8instance, i64 64), align 8, !tbaa !57
-  %233 = getelementptr inbounds nuw i8, ptr %232, i64 472
-  store ptr null, ptr %233, align 8, !tbaa !695
+  %233 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7testing8UnitTest11GetInstanceEvE8instance, i64 64), align 8, !tbaa !57
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 472
+  store ptr null, ptr %234, align 8, !tbaa !695
   invoke void @_ZN7testing8internal9MutexBase6UnlockEv(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @_ZZN7testing8UnitTest11GetInstanceEvE8instance, i64 8))
-          to label %_ZN7testing8UnitTest22set_current_test_suiteEPNS_9TestSuiteE.exit52 unwind label %234
+          to label %_ZN7testing8UnitTest22set_current_test_suiteEPNS_9TestSuiteE.exit52 unwind label %235
 
-234:                                              ; preds = %_ZN7testing8UnitTest11GetInstanceEv.exit51
-  %235 = landingpad { ptr, i32 }
+235:                                              ; preds = %_ZN7testing8UnitTest11GetInstanceEv.exit51
+  %236 = landingpad { ptr, i32 }
           catch ptr null
-  %236 = extractvalue { ptr, i32 } %235, 0
-  tail call void @__clang_call_terminate(ptr %236) #66
+  %237 = extractvalue { ptr, i32 } %236, 0
+  tail call void @__clang_call_terminate(ptr %237) #66
   unreachable
 
 _ZN7testing8UnitTest22set_current_test_suiteEPNS_9TestSuiteE.exit52: ; preds = %_ZN7testing8UnitTest11GetInstanceEv.exit51, %1

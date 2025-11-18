@@ -2548,7 +2548,7 @@ lean_dec.exit37:                                  ; preds = %28, %27, %25, %19
 
 32:                                               ; preds = %29
   %33 = lshr i64 %30, 1
-  %34 = icmp ult ptr %.029.ph, inttoptr (i64 2 to ptr)
+  %34 = icmp eq i64 %33, 0
   br i1 %34, label %lean_dec.exit36, label %35
 
 35:                                               ; preds = %32
@@ -3716,7 +3716,7 @@ lean_dec.exit128.backedge:                        ; preds = %34, %lean_dec.exit1
 
 38:                                               ; preds = %35
   %39 = lshr i64 %36, 1
-  %40 = icmp ult ptr %32, inttoptr (i64 2 to ptr)
+  %40 = icmp eq i64 %39, 0
   br i1 %40, label %lean_dec.exit126, label %41
 
 41:                                               ; preds = %38
@@ -3964,7 +3964,7 @@ lean_dec.exit121:                                 ; preds = %138, %137, %135, %l
 
 140:                                              ; preds = %139
   %141 = lshr i64 %122, 1
-  %142 = icmp ult ptr %32, inttoptr (i64 2 to ptr)
+  %142 = icmp eq i64 %141, 0
   br i1 %142, label %lean_dec.exit120, label %143
 
 143:                                              ; preds = %140
@@ -6548,7 +6548,7 @@ lean_dec.exit37:                                  ; preds = %28, %27, %25, %19
 
 32:                                               ; preds = %29
   %33 = lshr i64 %30, 1
-  %34 = icmp ult ptr %.029.ph, inttoptr (i64 2 to ptr)
+  %34 = icmp eq i64 %33, 0
   br i1 %34, label %lean_dec.exit36, label %35
 
 35:                                               ; preds = %32
@@ -7225,7 +7225,7 @@ lean_dec.exit37:                                  ; preds = %28, %27, %25, %19
 
 32:                                               ; preds = %29
   %33 = lshr i64 %30, 1
-  %34 = icmp ult ptr %.029.ph, inttoptr (i64 2 to ptr)
+  %34 = icmp eq i64 %33, 0
   br i1 %34, label %lean_dec.exit36, label %35
 
 35:                                               ; preds = %32
@@ -7999,7 +7999,7 @@ lean_dec.exit35:                                  ; preds = %28, %27, %25, %19
 
 32:                                               ; preds = %29
   %33 = lshr i64 %30, 1
-  %34 = icmp ult ptr %.027.ph, inttoptr (i64 2 to ptr)
+  %34 = icmp eq i64 %33, 0
   br i1 %34, label %lean_dec.exit34, label %35
 
 35:                                               ; preds = %32
@@ -10492,7 +10492,7 @@ lean_dec.exit29:                                  ; preds = %28, %27, %25, %19
 
 31:                                               ; preds = %lean_dec.exit29
   %32 = lshr i64 %29, 1
-  %33 = icmp ult ptr %.023, inttoptr (i64 2 to ptr)
+  %33 = icmp eq i64 %32, 0
   br i1 %33, label %lean_dec.exit28, label %34
 
 34:                                               ; preds = %31

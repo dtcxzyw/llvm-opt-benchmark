@@ -7649,7 +7649,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17he827c85459ace0b0E.exit: ; preds
   %90 = lshr i64 %89, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !991)
   call void @llvm.experimental.noalias.scope.decl(metadata !994)
-  %.not15.i.i.i = icmp ult i64 %89, 2
+  %.not15.i.i.i = icmp eq i64 %90, 0
   br i1 %.not15.i.i.i, label %.loopexit, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %._crit_edge51.i
@@ -27193,7 +27193,7 @@ define hidden void @_ZN5rayon5slice9mergesort13par_mergesort17h339a646c7afabb7aE
   %117 = lshr i64 %115, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !4147)
   call void @llvm.experimental.noalias.scope.decl(metadata !4150)
-  %.not15.i.i = icmp ult i64 %115, 2
+  %.not15.i.i = icmp eq i64 %117, 0
   br i1 %.not15.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h86465f0a18b43e22E.exit", label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %114
@@ -27672,7 +27672,7 @@ define hidden void @_ZN5rayon5slice9mergesort13par_mergesort17h719818d9b3daaf5eE
   %117 = lshr i64 %115, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !4207)
   call void @llvm.experimental.noalias.scope.decl(metadata !4210)
-  %.not15.i.i = icmp ult i64 %115, 2
+  %.not15.i.i = icmp eq i64 %117, 0
   br i1 %.not15.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h86465f0a18b43e22E.exit", label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %114
@@ -28035,7 +28035,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
   br i1 %16, label %.lr.ph.split.us, label %.lr.ph.split, !prof !978
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %18, label %.invoke353, label %.split153.us.invoke, !prof !978
+  br i1 %18, label %.invoke354, label %.split153.us.invoke, !prof !978
 
 .loopexit:                                        ; preds = %185, %.loopexit.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -28052,7 +28052,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.split153.us.invoke, %.invoke353, %.invoke
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.split153.us.invoke, %.invoke354, %.invoke
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -28120,7 +28120,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 
 .thread:                                          ; preds = %39, %37
   %45 = icmp ult i64 %.sroa.027.0188, %.sroa.02.3
-  br i1 %45, label %.invoke353, label %46, !prof !978
+  br i1 %45, label %.invoke354, label %46, !prof !978
 
 46:                                               ; preds = %.thread
   %47 = sub nuw i64 %.sroa.027.0188, %.sroa.02.3
@@ -28128,17 +28128,17 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
   %49 = lshr i64 %47, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !4247)
   call void @llvm.experimental.noalias.scope.decl(metadata !4250)
-  %.not15.i.i = icmp ult i64 %47, 2
+  %.not15.i.i = icmp eq i64 %49, 0
   br i1 %.not15.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h86465f0a18b43e22E.exit", label %.lr.ph.preheader.i.i
 
-.invoke353:                                       ; preds = %.thread, %.lr.ph.split, %117, %.lr.ph.split.us
+.invoke354:                                       ; preds = %.thread, %.lr.ph.split, %117, %.lr.ph.split.us
   %50 = phi i64 [ %17, %.lr.ph.split.us ], [ %119, %117 ], [ %73, %.lr.ph.split ], [ %.sroa.02.3, %.thread ]
   %51 = phi i64 [ %.sroa.027.0188, %.lr.ph.split.us ], [ %126, %117 ], [ %.sroa.027.0188, %.lr.ph.split ], [ %.sroa.027.0188, %.thread ]
   %52 = phi ptr [ @anon.1cbea542ae809c1039c35fdd7e48a055.275, %.lr.ph.split.us ], [ @anon.1cbea542ae809c1039c35fdd7e48a055.272, %117 ], [ @anon.1cbea542ae809c1039c35fdd7e48a055.275, %.lr.ph.split ], [ @anon.1cbea542ae809c1039c35fdd7e48a055.268, %.thread ]
   invoke void @_ZN4core5slice5index22slice_index_order_fail17h6e5a6dffd042468aE(i64 noundef %50, i64 noundef %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %52) #43
-          to label %.cont354 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.cont355 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.cont354:                                         ; preds = %.invoke353
+.cont355:                                         ; preds = %.invoke354
   unreachable
 
 .lr.ph.preheader.i.i:                             ; preds = %46
@@ -28195,7 +28195,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN5rayon5slice9mergesort11insert_head17hf6d4058cc7f2a201E.exit
   %.sroa.02.1149 = phi i64 [ %73, %_ZN5rayon5slice9mergesort11insert_head17hf6d4058cc7f2a201E.exit ], [ %.sroa.02.0, %.lr.ph ]
   %73 = add i64 %.sroa.02.1149, -1
-  br i1 %18, label %.invoke353, label %74, !prof !978
+  br i1 %18, label %.invoke354, label %74, !prof !978
 
 74:                                               ; preds = %.lr.ph.split
   %75 = sub i64 %.sroa.027.0188, %73
@@ -28302,7 +28302,7 @@ thread-pre-split:                                 ; preds = %185
   %125 = load i64, ptr %124, align 8, !noundef !12
   %126 = add i64 %125, %123
   %127 = icmp ult i64 %126, %119
-  br i1 %127, label %.invoke353, label %131, !prof !978
+  br i1 %127, label %.invoke354, label %131, !prof !978
 
 .invoke:                                          ; preds = %182, %114
   %128 = phi i64 [ %115, %114 ], [ %.sroa.4.0.i.ph, %182 ]
@@ -28577,7 +28577,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
   br i1 %16, label %.lr.ph.split.us, label %.lr.ph.split, !prof !978
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %18, label %.invoke353, label %.split153.us.invoke, !prof !978
+  br i1 %18, label %.invoke354, label %.split153.us.invoke, !prof !978
 
 .loopexit:                                        ; preds = %185, %.loopexit.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -28594,7 +28594,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.split153.us.invoke, %.invoke353, %.invoke
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.split153.us.invoke, %.invoke354, %.invoke
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -28662,7 +28662,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 
 .thread:                                          ; preds = %39, %37
   %45 = icmp ult i64 %.sroa.027.0188, %.sroa.02.3
-  br i1 %45, label %.invoke353, label %46, !prof !978
+  br i1 %45, label %.invoke354, label %46, !prof !978
 
 46:                                               ; preds = %.thread
   %47 = sub nuw i64 %.sroa.027.0188, %.sroa.02.3
@@ -28670,17 +28670,17 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
   %49 = lshr i64 %47, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !4274)
   call void @llvm.experimental.noalias.scope.decl(metadata !4277)
-  %.not15.i.i = icmp ult i64 %47, 2
+  %.not15.i.i = icmp eq i64 %49, 0
   br i1 %.not15.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h86465f0a18b43e22E.exit", label %.lr.ph.preheader.i.i
 
-.invoke353:                                       ; preds = %.thread, %.lr.ph.split, %117, %.lr.ph.split.us
+.invoke354:                                       ; preds = %.thread, %.lr.ph.split, %117, %.lr.ph.split.us
   %50 = phi i64 [ %17, %.lr.ph.split.us ], [ %119, %117 ], [ %73, %.lr.ph.split ], [ %.sroa.02.3, %.thread ]
   %51 = phi i64 [ %.sroa.027.0188, %.lr.ph.split.us ], [ %126, %117 ], [ %.sroa.027.0188, %.lr.ph.split ], [ %.sroa.027.0188, %.thread ]
   %52 = phi ptr [ @anon.1cbea542ae809c1039c35fdd7e48a055.275, %.lr.ph.split.us ], [ @anon.1cbea542ae809c1039c35fdd7e48a055.272, %117 ], [ @anon.1cbea542ae809c1039c35fdd7e48a055.275, %.lr.ph.split ], [ @anon.1cbea542ae809c1039c35fdd7e48a055.268, %.thread ]
   invoke void @_ZN4core5slice5index22slice_index_order_fail17h6e5a6dffd042468aE(i64 noundef %50, i64 noundef %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %52) #43
-          to label %.cont354 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.cont355 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.cont354:                                         ; preds = %.invoke353
+.cont355:                                         ; preds = %.invoke354
   unreachable
 
 .lr.ph.preheader.i.i:                             ; preds = %46
@@ -28737,7 +28737,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN5rayon5slice9mergesort11insert_head17h725e97e36b123074E.exit
   %.sroa.02.1149 = phi i64 [ %73, %_ZN5rayon5slice9mergesort11insert_head17h725e97e36b123074E.exit ], [ %.sroa.02.0, %.lr.ph ]
   %73 = add i64 %.sroa.02.1149, -1
-  br i1 %18, label %.invoke353, label %74, !prof !978
+  br i1 %18, label %.invoke354, label %74, !prof !978
 
 74:                                               ; preds = %.lr.ph.split
   %75 = sub i64 %.sroa.027.0188, %73
@@ -28844,7 +28844,7 @@ thread-pre-split:                                 ; preds = %185
   %125 = load i64, ptr %124, align 8, !noundef !12
   %126 = add i64 %125, %123
   %127 = icmp ult i64 %126, %119
-  br i1 %127, label %.invoke353, label %131, !prof !978
+  br i1 %127, label %.invoke354, label %131, !prof !978
 
 .invoke:                                          ; preds = %182, %114
   %128 = phi i64 [ %115, %114 ], [ %.sroa.4.0.i.ph, %182 ]

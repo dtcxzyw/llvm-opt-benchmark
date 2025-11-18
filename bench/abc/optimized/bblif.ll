@@ -1826,7 +1826,7 @@ define ptr @Bbl_ObjFaninNext(ptr noundef readonly captures(address, ret: address
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 4
   %5 = lshr i32 %4, 4
-  %.not17 = icmp ult i32 %4, 16
+  %.not17 = icmp eq i32 %5, 0
   br i1 %.not17, label %.critedge, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %2
@@ -1928,16 +1928,16 @@ define void @Bbl_ManDumpBlif(ptr noundef readonly captures(none) %0, ptr noundef
   br label %28
 
 28:                                               ; preds = %Bbl_ObjFaninNext.exit, %.lr.ph
-  %.pn113.in.in = phi ptr [ %26, %.lr.ph ], [ %42, %Bbl_ObjFaninNext.exit ]
-  %.pn113.in = load i32, ptr %.pn113.in.in, align 4, !tbaa !15
-  %.pn113 = sext i32 %.pn113.in to i64
-  %.pn = sub nsw i64 0, %.pn113
+  %.pn115.in.in = phi ptr [ %26, %.lr.ph ], [ %42, %Bbl_ObjFaninNext.exit ]
+  %.pn115.in = load i32, ptr %.pn115.in.in, align 4, !tbaa !15
+  %.pn115 = sext i32 %.pn115.in to i64
+  %.pn = sub nsw i64 0, %.pn115
   %.081 = getelementptr inbounds i8, ptr %.04483, i64 %.pn
   %29 = load i32, ptr %.081, align 4, !tbaa !30
   %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.23, i32 noundef %29) #26
   %31 = load i32, ptr %14, align 4
   %32 = lshr i32 %31, 4
-  %.not17.i = icmp ult i32 %31, 16
+  %.not17.i = icmp eq i32 %32, 0
   br i1 %.not17.i, label %.critedge.i, label %.lr.ph.split.preheader.i
 
 .lr.ph.split.preheader.i:                         ; preds = %28
@@ -1948,7 +1948,7 @@ define void @Bbl_ManDumpBlif(ptr noundef readonly captures(none) %0, ptr noundef
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i, %36 ]
   %33 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv.i
   %34 = load i32, ptr %33, align 4, !tbaa !15
-  %35 = icmp eq i32 %.pn113.in, %34
+  %35 = icmp eq i32 %.pn115.in, %34
   br i1 %35, label %.critedge.loopexit.i, label %36
 
 36:                                               ; preds = %.lr.ph.split.i
@@ -2028,16 +2028,16 @@ select.unfold._crit_edge:                         ; preds = %select.unfold
   br label %70
 
 70:                                               ; preds = %Bbl_ObjFaninNext.exit74, %.lr.ph88
-  %.pn115.in.in = phi ptr [ %68, %.lr.ph88 ], [ %84, %Bbl_ObjFaninNext.exit74 ]
-  %.pn115.in = load i32, ptr %.pn115.in.in, align 4, !tbaa !15
-  %.pn115 = sext i32 %.pn115.in to i64
-  %.pn114 = sub nsw i64 0, %.pn115
-  %.187 = getelementptr inbounds i8, ptr %.14591, i64 %.pn114
+  %.pn117.in.in = phi ptr [ %68, %.lr.ph88 ], [ %84, %Bbl_ObjFaninNext.exit74 ]
+  %.pn117.in = load i32, ptr %.pn117.in.in, align 4, !tbaa !15
+  %.pn117 = sext i32 %.pn117.in to i64
+  %.pn116 = sub nsw i64 0, %.pn117
+  %.187 = getelementptr inbounds i8, ptr %.14591, i64 %.pn116
   %71 = load i32, ptr %.187, align 4, !tbaa !30
   %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.23, i32 noundef %71) #26
   %73 = load i32, ptr %64, align 4
   %74 = lshr i32 %73, 4
-  %.not17.i64 = icmp ult i32 %73, 16
+  %.not17.i64 = icmp eq i32 %74, 0
   br i1 %.not17.i64, label %.critedge.i72, label %.lr.ph.split.preheader.i65
 
 .lr.ph.split.preheader.i65:                       ; preds = %70
@@ -2048,7 +2048,7 @@ select.unfold._crit_edge:                         ; preds = %select.unfold
   %indvars.iv.i68 = phi i64 [ 0, %.lr.ph.split.preheader.i65 ], [ %indvars.iv.next.i69, %78 ]
   %75 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv.i68
   %76 = load i32, ptr %75, align 4, !tbaa !15
-  %77 = icmp eq i32 %.pn115.in, %76
+  %77 = icmp eq i32 %.pn117.in, %76
   br i1 %77, label %.critedge.loopexit.i71, label %78
 
 78:                                               ; preds = %.lr.ph.split.i67

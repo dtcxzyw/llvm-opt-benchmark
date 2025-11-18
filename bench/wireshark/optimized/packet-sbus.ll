@@ -2489,7 +2489,7 @@ define internal fastcc noundef i32 @add_media_response_to_tree(i32 noundef range
   %17 = lshr i32 %16, 3
   %18 = load i32, ptr @ett_sbus_data, align 4
   %19 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %2, i32 noundef %4, i32 noundef %17, i32 noundef %18, ptr noundef null, ptr noundef nonnull @.str.382)
-  %.not53 = icmp eq i32 %1, 0
+  %.not53 = icmp eq i32 %17, 0
   br i1 %.not53, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %28

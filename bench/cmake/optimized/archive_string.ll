@@ -1367,7 +1367,7 @@ define dso_local i32 @archive_strncat_l(ptr noundef %0, ptr noundef %1, i64 noun
 
 12:                                               ; preds = %8
   %13 = lshr i64 %2, 1
-  %.not21.i = icmp ult i64 %2, 2
+  %.not21.i = icmp eq i64 %13, 0
   br i1 %.not21.i, label %utf16nbytes.exit.thread.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %12, %.critedge2.i

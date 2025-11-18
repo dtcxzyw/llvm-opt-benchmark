@@ -165,11 +165,11 @@ define hidden noundef ptr @_ZN11tbv_manager8allocateEm(ptr noundef nonnull align
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 dereferenceable(4) %3, i8 -86, i64 %7, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %9 = load i32, ptr %8, align 8, !tbaa !16
-  %.not12 = icmp ult i32 %9, 2
+  %10 = lshr i32 %9, 1
+  %.not12 = icmp eq i32 %10, 0
   br i1 %.not12, label %select.unfold._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
-  %10 = lshr i32 %9, 1
   %spec.select = tail call i32 @llvm.umin.i32(i32 %10, i32 64)
   br label %.lr.ph
 
@@ -178,7 +178,7 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %2
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %select.unfold
   %.in = phi i32 [ %11, %select.unfold ], [ %spec.select, %.lr.ph.preheader ]
-  %11 = add nsw i32 %.in, -1
+  %11 = add i32 %.in, -1
   %12 = zext nneg i32 %11 to i64
   %13 = shl nuw i64 1, %12
   %14 = and i64 %13, %1
@@ -343,11 +343,11 @@ define hidden noundef ptr @_ZN11tbv_manager8allocateERK3tbvPKj(ptr noundef nonnu
   %5 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill0ER16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %7 = load i32, ptr %6, align 8, !tbaa !16
-  %.not = icmp ult i32 %7, 2
+  %8 = lshr i32 %7, 1
+  %.not = icmp eq i32 %8, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
-  %8 = lshr i32 %7, 1
   %wide.trip.count = zext nneg i32 %8 to i64
   br label %.lr.ph
 
@@ -403,7 +403,7 @@ define hidden noundef ptr @_ZN11tbv_manager8allocateEPKc(ptr noundef nonnull ali
   %8 = lshr i32 %7, 1
   %9 = load i8, ptr %1, align 1, !tbaa !22
   %10 = icmp ne i8 %9, 0
-  %11 = icmp ugt i32 %7, 1
+  %11 = icmp ne i32 %8, 0
   %12 = select i1 %10, i1 %11, i1 false
   br i1 %12, label %.lr.ph, label %._crit_edge
 
@@ -697,11 +697,11 @@ _ZNK8rational9is_uint64Ev.exit:                   ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 dereferenceable(4) %18, i8 -86, i64 %22, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %24 = load i32, ptr %23, align 8, !tbaa !16
-  %.not12.i = icmp ult i32 %24, 2
+  %25 = lshr i32 %24, 1
+  %.not12.i = icmp eq i32 %25, 0
   br i1 %.not12.i, label %_ZN11tbv_manager8allocateEm.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %15
-  %25 = lshr i32 %24, 1
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %25, i32 64)
   br label %.lr.ph.i
 
@@ -754,11 +754,11 @@ _ZNK8rational9is_uint64Ev.exit.thread:            ; preds = %2, %_ZNK8rational9i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 dereferenceable(4) %49, i8 -86, i64 %53, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %55 = load i32, ptr %54, align 8, !tbaa !16
-  %.not22 = icmp ult i32 %55, 2
+  %56 = lshr i32 %55, 1
+  %.not22 = icmp eq i32 %56, 0
   br i1 %.not22, label %_ZN11tbv_manager8allocateEm.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK8rational9is_uint64Ev.exit.thread
-  %56 = lshr i32 %55, 1
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1034,7 +1034,7 @@ define hidden void @_ZN11tbv_manager10complementERK3tbvR10ptr_vectorIS0_E(ptr no
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %5 = load i32, ptr %4, align 8, !tbaa !16
   %6 = lshr i32 %5, 1
-  %.not = icmp ult i32 %5, 2
+  %.not = icmp eq i32 %6, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %61, %3
@@ -1119,14 +1119,14 @@ define hidden void @_ZN11tbv_manager10complementERK3tbvR10ptr_vectorIS0_E(ptr no
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %51, %33
-  %.sink27 = phi ptr [ %31, %33 ], [ %49, %51 ], [ %.pre.i11, %.sink.split.sink.split ]
-  %.sink26 = phi i32 [ %35, %33 ], [ %53, %51 ], [ %.pre2.i13, %.sink.split.sink.split ]
+  %.sink28 = phi ptr [ %31, %33 ], [ %49, %51 ], [ %.pre.i11, %.sink.split.sink.split ]
+  %.sink27 = phi i32 [ %35, %33 ], [ %53, %51 ], [ %.pre2.i13, %.sink.split.sink.split ]
   %.sink = phi ptr [ %22, %33 ], [ %40, %51 ], [ %.sink.ph, %.sink.split.sink.split ]
-  %57 = getelementptr inbounds i8, ptr %.sink27, i64 -4
-  %58 = zext i32 %.sink26 to i64
-  %59 = getelementptr inbounds nuw ptr, ptr %.sink27, i64 %58
+  %57 = getelementptr inbounds i8, ptr %.sink28, i64 -4
+  %58 = zext i32 %.sink27 to i64
+  %59 = getelementptr inbounds nuw ptr, ptr %.sink28, i64 %58
   store ptr %.sink, ptr %59, align 8, !tbaa !43
-  %60 = add i32 %.sink26, 1
+  %60 = add i32 %.sink27, 1
   store i32 %60, ptr %57, align 4, !tbaa !17
   br label %61
 
@@ -1425,20 +1425,20 @@ default.unreachable19:                            ; preds = %.lr.ph
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK11tbv_manager7displayERSoRK3tbv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(552) %0, ptr noundef nonnull returned align 8 dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %5 = load i32, ptr %4, align 8, !tbaa !16
-  %6 = icmp ult i32 %5, 2
-  br i1 %6, label %7, label %9
+  %6 = lshr i32 %5, 1
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %8, label %10
 
-7:                                                ; preds = %3
-  %8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.2, i64 noundef 2)
+8:                                                ; preds = %3
+  %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.2, i64 noundef 2)
   br label %13
 
-9:                                                ; preds = %3
-  %10 = lshr i32 %5, 1
-  %11 = add nsw i32 %10, -1
+10:                                               ; preds = %3
+  %11 = add nsw i32 %6, -1
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK11tbv_manager7displayERSoRK3tbvjj(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, i32 noundef %11, i32 noundef 0)
   br label %13
 
-13:                                               ; preds = %9, %7
+13:                                               ; preds = %10, %8
   ret ptr %1
 }
 

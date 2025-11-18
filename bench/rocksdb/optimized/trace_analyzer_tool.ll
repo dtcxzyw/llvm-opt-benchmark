@@ -11776,7 +11776,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterISt4pairIjjEEEclINS_17__normal_ite
   store i32 %415, ptr %423, align 4, !tbaa !385
   %424 = getelementptr inbounds nuw i8, ptr %423, i64 4
   store i32 %422, ptr %424, align 4, !tbaa !387
-  %.not.i.i351 = icmp ult i64 %.0923.in.i.i.i, 2
+  %.not.i.i351 = icmp eq i64 %.0923.i78.i.i, 0
   br i1 %.not.i.i351, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !388
 
 .loopexit:                                        ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterISt4pairIjjEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEES4_EEbT_RT0_.exit.thread.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterISt4pairIjjEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEES4_EEbT_RT0_.exit.i.i.i, %417, %_ZNSt6vectorISt4pairIjjESaIS1_EE9push_backEOS1_.exit.i
@@ -11930,7 +11930,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterISt4pairIjjEEEclINS_17__normal_ite
   store i32 %485, ptr %493, align 4, !tbaa !385
   %494 = getelementptr inbounds nuw i8, ptr %493, i64 4
   store i32 %492, ptr %494, align 4, !tbaa !387
-  %.not.i.i.i356 = icmp ult i64 %.0923.in.i.i.i.i.i, 2
+  %.not.i.i.i356 = icmp eq i64 %.0923.i.i89.i.i.i, 0
   br i1 %.not.i.i.i356, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIjjESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterISt7greaterIS3_EEEEvT_SE_SE_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !388
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIjjESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterISt7greaterIS3_EEEEvT_SE_SE_RT0_.exit.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterISt4pairIjjEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEES4_EEbT_RT0_.exit.thread.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterISt4pairIjjEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEES4_EEbT_RT0_.exit.i.i.i.i.i, %487, %482
@@ -12072,7 +12072,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterISt4pairIjjEEEclINS_17__normal_ite
   store i32 %536, ptr %544, align 4, !tbaa !385
   %545 = getelementptr inbounds nuw i8, ptr %544, i64 4
   store i32 %543, ptr %545, align 4, !tbaa !387
-  %.not.i.i375 = icmp ult i64 %.0923.in.i.i.i371, 2
+  %.not.i.i375 = icmp eq i64 %.0923.i78.i.i372, 0
   br i1 %.not.i.i375, label %.loopexit774, label %.lr.ph.i.i.i369, !llvm.loop !388
 
 .loopexit774:                                     ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterISt4pairIjjEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEES4_EEbT_RT0_.exit.thread.i.i.i374, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterISt4pairIjjEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEES4_EEbT_RT0_.exit.i.i.i373, %538, %_ZNSt6vectorISt4pairIjjESaIS1_EE9push_backEOS1_.exit.i363
@@ -12714,7 +12714,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterISt4pairIjjEEEclINS_17__normal_ite
   store i32 %772, ptr %780, align 4, !tbaa !385
   %781 = getelementptr inbounds nuw i8, ptr %780, i64 4
   store i32 %779, ptr %781, align 4, !tbaa !387
-  %.not.i.i.i453 = icmp ult i64 %.0923.in.i.i.i.i.i449, 2
+  %.not.i.i.i453 = icmp eq i64 %.0923.i.i89.i.i.i450, 0
   br i1 %.not.i.i.i453, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIjjESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterISt7greaterIS3_EEEEvT_SE_SE_RT0_.exit.i.i444, label %.lr.ph.i.i.i.i.i447, !llvm.loop !388
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIjjESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterISt7greaterIS3_EEEEvT_SE_SE_RT0_.exit.i.i444: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterISt4pairIjjEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEES4_EEbT_RT0_.exit.thread.i.i.i.i.i452, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterISt4pairIjjEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEES4_EEbT_RT0_.exit.i.i.i.i.i451, %774, %769

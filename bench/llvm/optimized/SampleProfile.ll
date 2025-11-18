@@ -30301,7 +30301,7 @@ _ZN12_GLOBAL__N_117CandidateComparerclERKNS_15InlineCandidateES3_.exit.i: ; pred
 440:                                              ; preds = %_ZN12_GLOBAL__N_117CandidateComparerclERKNS_15InlineCandidateES3_.exit.i, %_ZNK4llvm10sampleprof15FunctionSamples7getGUIDEv.exit28.i.i, %433, %425
   %441 = getelementptr inbounds %"struct.(anonymous namespace)::InlineCandidate", ptr %.sroa.0336.14.i, i64 %.06.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %441, ptr noundef nonnull align 8 dereferenceable(32) %422, i64 32, i1 false), !tbaa.struct !1332
-  %.not.i4.i.i = icmp ult i64 %.097.in.i.i.i.i, 2
+  %.not.i4.i.i = icmp eq i64 %.097.i2122.i.i.i, 0
   br i1 %.not.i4.i.i, label %_ZNSt14priority_queueIN12_GLOBAL__N_115InlineCandidateESt6vectorIS1_SaIS1_EENS0_17CandidateComparerEE4pushERKS1_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !1333
 
 _ZNSt14priority_queueIN12_GLOBAL__N_115InlineCandidateESt6vectorIS1_SaIS1_EENS0_17CandidateComparerEE4pushERKS1_.exit.i: ; preds = %440, %_ZN12_GLOBAL__N_117CandidateComparerclERKNS_15InlineCandidateES3_.exit.i, %_ZNK4llvm10sampleprof15FunctionSamples7getGUIDEv.exit28.i.i, %433, %425, %_ZNSt6vectorIN12_GLOBAL__N_115InlineCandidateESaIS1_EE9push_backERKS1_.exit.i.i
@@ -30427,7 +30427,7 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.thread.i: ; preds 
 488:                                              ; preds = %.lr.ph.i.i126
   %489 = getelementptr inbounds %"struct.(anonymous namespace)::InlineCandidate", ptr %.sroa.0336.3514.i, i64 %.06.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %489, ptr noundef nonnull align 8 dereferenceable(32) %484, i64 32, i1 false), !tbaa.struct !1332
-  %.not137 = icmp ult i64 %.097.in.i.i, 2
+  %.not137 = icmp eq i64 %.097.i.i134136, 0
   br i1 %.not137, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_115InlineCandidateESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterINS2_17CandidateComparerEEEEvT_T0_SE_T1_T2_.exit, label %.lr.ph.i.i126, !llvm.loop !1333
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_115InlineCandidateESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterINS2_17CandidateComparerEEEEvT_T0_SE_T1_T2_.exit: ; preds = %.lr.ph.i.i126, %488, %483
@@ -30917,7 +30917,7 @@ _ZN12_GLOBAL__N_117CandidateComparerclERKNS_15InlineCandidateES3_.exit231.us.i: 
 686:                                              ; preds = %_ZN12_GLOBAL__N_117CandidateComparerclERKNS_15InlineCandidateES3_.exit231.us.i, %683
   %687 = getelementptr inbounds %"struct.(anonymous namespace)::InlineCandidate", ptr %.sroa.0336.15.i, i64 %.06.i.i.i123.us.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %687, ptr noundef nonnull align 8 dereferenceable(32) %681, i64 32, i1 false), !tbaa.struct !1332
-  %.not.i4.i128.us.i = icmp ult i64 %.097.in.i.i.i124.us.i, 2
+  %.not.i4.i128.us.i = icmp eq i64 %.097.i2122.i.i125.us.i, 0
   br i1 %.not.i4.i128.us.i, label %_ZNSt14priority_queueIN12_GLOBAL__N_115InlineCandidateESt6vectorIS1_SaIS1_EENS0_17CandidateComparerEE7emplaceIJRS1_EEEvDpOT_.exit.i, label %.lr.ph.i.i.i122.us.i, !llvm.loop !1333
 
 .lr.ph.i.i.i122.i:                                ; preds = %.lr.ph.i.i.i122.preheader.i, %705
@@ -30996,7 +30996,7 @@ _ZNK4llvm10sampleprof15FunctionSamples7getGUIDEv.exit28.i229.i: ; preds = %703, 
 705:                                              ; preds = %_ZNK4llvm10sampleprof15FunctionSamples7getGUIDEv.exit28.i229.i, %698, %691
   %706 = getelementptr inbounds %"struct.(anonymous namespace)::InlineCandidate", ptr %.sroa.0336.15.i, i64 %.06.i.i.i123.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %706, ptr noundef nonnull align 8 dereferenceable(32) %688, i64 32, i1 false), !tbaa.struct !1332
-  %.not.i4.i128.i = icmp ult i64 %.097.in.i.i.i124.i, 2
+  %.not.i4.i128.i = icmp eq i64 %.097.i2122.i.i125.i, 0
   br i1 %.not.i4.i128.i, label %_ZNSt14priority_queueIN12_GLOBAL__N_115InlineCandidateESt6vectorIS1_SaIS1_EENS0_17CandidateComparerEE7emplaceIJRS1_EEEvDpOT_.exit.i, label %.lr.ph.i.i.i122.i, !llvm.loop !1333
 
 _ZNSt14priority_queueIN12_GLOBAL__N_115InlineCandidateESt6vectorIS1_SaIS1_EENS0_17CandidateComparerEE7emplaceIJRS1_EEEvDpOT_.exit.i: ; preds = %705, %_ZNK4llvm10sampleprof15FunctionSamples7getGUIDEv.exit28.i229.i, %698, %693, %691, %686, %_ZN12_GLOBAL__N_117CandidateComparerclERKNS_15InlineCandidateES3_.exit231.us.i, %683, %_ZNSt6vectorIN12_GLOBAL__N_115InlineCandidateESaIS1_EE12emplace_backIJRS1_EEES5_DpOT_.exit.i.i
@@ -31378,7 +31378,7 @@ _ZNSt6vectorIN12_GLOBAL__N_115InlineCandidateESaIS1_EE12emplace_backIJRS1_EEES5_
 832:                                              ; preds = %.lr.ph.i.i.i169.i
   %833 = getelementptr inbounds %"struct.(anonymous namespace)::InlineCandidate", ptr %.sroa.0336.16.i, i64 %.06.i.i.i170.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %833, ptr noundef nonnull align 8 dereferenceable(32) %828, i64 32, i1 false), !tbaa.struct !1332
-  %.not.i4.i175.i = icmp ult i64 %.097.in.i.i.i171.i, 2
+  %.not.i4.i175.i = icmp eq i64 %.097.i2122.i.i172.i, 0
   br i1 %.not.i4.i175.i, label %_ZNSt14priority_queueIN12_GLOBAL__N_115InlineCandidateESt6vectorIS1_SaIS1_EENS0_17CandidateComparerEE7emplaceIJRS1_EEEvDpOT_.exit183.i, label %.lr.ph.i.i.i169.i, !llvm.loop !1333
 
 _ZNSt14priority_queueIN12_GLOBAL__N_115InlineCandidateESt6vectorIS1_SaIS1_EENS0_17CandidateComparerEE7emplaceIJRS1_EEEvDpOT_.exit183.i: ; preds = %832, %.lr.ph.i.i.i169.i, %_ZNSt6vectorIN12_GLOBAL__N_115InlineCandidateESaIS1_EE12emplace_backIJRS1_EEES5_DpOT_.exit.i155.i
@@ -40951,7 +40951,7 @@ _ZNK4llvm10sampleprof15FunctionSamples7getGUIDEv.exit.i.i: ; preds = %151, %149
   %155 = load ptr, ptr %141, align 8, !tbaa !883
   %156 = getelementptr inbounds ptr, ptr %0, i64 %.010.i.i.i14.i
   store ptr %155, ptr %156, align 8, !tbaa !883
-  %.not7.i.i = icmp ult i64 %.0911.in.i.i.i15.i, 2
+  %.not7.i.i = icmp eq i64 %.0911.i.i56.i.i, 0
   br i1 %.not7.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm10sampleprof15FunctionSamplesESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_119SampleProfileLoader31findIndirectCallFunctionSamplesERKNS2_11InstructionERmE3$_0EEEvT_SM_SM_RT0_.exit.i", label %.lr.ph.i.i.i13.i, !llvm.loop !1582
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm10sampleprof15FunctionSamplesESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_119SampleProfileLoader31findIndirectCallFunctionSamplesERKNS2_11InstructionERmE3$_0EEEvT_SM_SM_RT0_.exit.i": ; preds = %154, %"_ZZNK12_GLOBAL__N_119SampleProfileLoader31findIndirectCallFunctionSamplesERKN4llvm11InstructionERmENK3$_0clEPKNS1_10sampleprof15FunctionSamplesESA_.exit.i", %145, %139, %._crit_edge.i.i9.thread.i
@@ -41151,7 +41151,7 @@ _ZNK4llvm10sampleprof15FunctionSamples7getGUIDEv.exit.i.i28: ; preds = %217, %21
   %221 = load ptr, ptr %207, align 8, !tbaa !883
   %222 = getelementptr inbounds ptr, ptr %0, i64 %.010.i.i.i.i17
   store ptr %221, ptr %222, align 8, !tbaa !883
-  %.not7.i.i22 = icmp ult i64 %.0911.in.i.i.i.i18, 2
+  %.not7.i.i22 = icmp eq i64 %.0911.i.i56.i.i19, 0
   br i1 %.not7.i.i22, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm10sampleprof15FunctionSamplesESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_119SampleProfileLoader31findIndirectCallFunctionSamplesERKNS2_11InstructionERmE3$_0EEEvT_SM_SM_RT0_.exit.i20", label %.lr.ph.i.i.i.i16, !llvm.loop !1582
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm10sampleprof15FunctionSamplesESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_119SampleProfileLoader31findIndirectCallFunctionSamplesERKNS2_11InstructionERmE3$_0EEEvT_SM_SM_RT0_.exit.i20": ; preds = %220, %"_ZZNK12_GLOBAL__N_119SampleProfileLoader31findIndirectCallFunctionSamplesERKN4llvm11InstructionERmENK3$_0clEPKNS1_10sampleprof15FunctionSamplesESA_.exit.i34", %211, %205
@@ -42908,7 +42908,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIP18InstrProfValueDatalN9__g
 96:                                               ; preds = %.lr.ph.i.i.i.i14.i
   %97 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %.0133.i.i.i.i15.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef nonnull align 8 dereferenceable(16) %92, i64 16, i1 false), !tbaa.struct !1033
-  %.not1.i.i25.i = icmp ult i64 %.04.in.i.i.i.i16.i, 2
+  %.not1.i.i25.i = icmp eq i64 %.048.i.i.i.i17.i, 0
   br i1 %.not1.i.i25.i, label %"_ZSt10__pop_heapIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_RT0_.exit.i22.i", label %.lr.ph.i.i.i.i14.i, !llvm.loop !1616
 
 "_ZSt10__pop_heapIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_RT0_.exit.i22.i": ; preds = %96, %.lr.ph.i.i.i.i14.i, %91

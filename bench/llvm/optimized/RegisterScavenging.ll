@@ -573,7 +573,7 @@ _ZN4llvm9BitVectorC2Ejb.exit.loopexit:            ; preds = %3
   br label %_ZN4llvm9BitVectorC2Ejb.exit.sink.split
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i:        ; preds = %3
-  %.not.i.i = icmp samesign ult i32 %7, 64
+  %.not.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i, label %_ZN4llvm9BitVectorC2Ejb.exit, label %_ZN4llvm9BitVectorC2Ejb.exit.sink.split
 
 _ZN4llvm9BitVectorC2Ejb.exit.sink.split:          ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit
@@ -1226,7 +1226,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit.i.i.i: ; p
   %56 = add i32 %55, 63
   %57 = lshr i32 %56, 6
   %58 = zext nneg i32 %57 to i64
-  %59 = icmp ult i32 %56, 64
+  %59 = icmp eq i32 %57, 0
   br i1 %59, label %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i.i.i.i, label %60
 
 60:                                               ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit.i.i.i

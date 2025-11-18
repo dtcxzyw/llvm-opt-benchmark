@@ -5417,7 +5417,6 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit25: ; preds = %_ZN4llvm
 
 141:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit25, %_ZNK4llvm6APSInt10isNegativeEv.exit, %96
   %.pre-phi76 = phi i32 [ %.pre75, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit25 ], [ %31, %_ZNK4llvm6APSInt10isNegativeEv.exit ], [ %31, %96 ]
-  %.pre-phi = phi i32 [ %.pre74, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit25 ], [ %30, %_ZNK4llvm6APSInt10isNegativeEv.exit ], [ %30, %96 ]
   %142 = sub nsw i32 0, %.pre-phi76
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %143 = icmp sgt i32 %32, %142
@@ -5469,7 +5468,7 @@ _ZN4llvm5APIntD2Ev.exit27:                        ; preds = %148, %153, %156
   %160 = and i32 %.pre-phi76, 63
   %161 = zext nneg i32 %160 to i64
   %162 = lshr i64 -1, %161
-  %163 = icmp ult i32 %.pre-phi, 524288
+  %163 = icmp eq i32 %.pre-phi76, 0
   %spec.select.i.i28 = select i1 %163, i64 0, i64 %162, !prof !37
   store i64 %spec.select.i.i28, ptr %13, align 8, !tbaa !13, !alias.scope !181
   br label %_ZN4llvm5APInt10getAllOnesEj.exit

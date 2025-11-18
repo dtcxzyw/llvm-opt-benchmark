@@ -1061,13 +1061,12 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %16
   br i1 %111, label %418, label %.preheader444
 
 .preheader444:                                    ; preds = %97
-  %.not = icmp ult i32 %107, 8
+  %112 = lshr i64 %108, 3
+  %.not = icmp eq i64 %112, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader444
-  %112 = lshr i64 %108, 3
   %113 = uitofp i64 %108 to double
-  %umax = tail call i64 @llvm.umax.i64(i64 %112, i64 1)
   %114 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %113
   br label %121
 
@@ -1134,7 +1133,7 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %16
   %154 = getelementptr inbounds nuw i8, ptr %132, i64 60
   store float %148, ptr %154, align 4, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %112
   br i1 %exitcond.not, label %._crit_edge, label %121
 
 155:                                              ; preds = %._crit_edge
@@ -1236,8 +1235,8 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %16
   %.0357449 = phi float [ 0x47EFFFFFE0000000, %.lr.ph452.preheader ], [ %.1358, %229 ]
   %.0360448 = phi float [ 0x3810000000000000, %.lr.ph452.preheader ], [ %.1361, %229 ]
   %.0362447 = phi float [ 0x3810000000000000, %.lr.ph452.preheader ], [ %.1363, %229 ]
-  %.idx532 = shl nuw nsw i64 %indvars.iv485, 3
-  %214 = getelementptr inbounds nuw i8, ptr %110, i64 %.idx532
+  %.idx533 = shl nuw nsw i64 %indvars.iv485, 3
+  %214 = getelementptr inbounds nuw i8, ptr %110, i64 %.idx533
   %215 = load float, ptr %214, align 8, !tbaa !20
   %216 = tail call i1 @llvm.is.fpclass.f32(float %215, i32 759)
   br i1 %216, label %229, label %217

@@ -295,7 +295,7 @@ define internal fastcc noundef range(i32 -2147483645, -2147483648) i32 @_ZN11duc
   %16 = add nsw i32 %15, 1
   store i32 %16, ptr %14, align 4, !tbaa !3
   %.not321 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not321, label %.loopexit825, label %17
+  br i1 %.not321, label %.loopexit826, label %17
 
 17:                                               ; preds = %12
   %18 = add nsw i64 %indvars.iv, -1
@@ -320,7 +320,7 @@ define internal fastcc noundef range(i32 -2147483645, -2147483648) i32 @_ZN11duc
   %33 = getelementptr inbounds i32, ptr %1, i64 %32
   store i32 %24, ptr %33, align 4, !tbaa !3
   %34 = icmp sgt i32 %23, 1
-  br i1 %34, label %.lr.ph.preheader, label %.loopexit825
+  br i1 %34, label %.lr.ph.preheader, label %.loopexit826
 
 .lr.ph.preheader:                                 ; preds = %22
   %35 = add nsw i32 %23, -2
@@ -346,9 +346,9 @@ define internal fastcc noundef range(i32 -2147483645, -2147483648) i32 @_ZN11duc
   store i32 %46, ptr %44, align 4, !tbaa !3
   %47 = add nsw i32 %.5251418, -1
   %48 = icmp sgt i32 %.5251418, 0
-  br i1 %48, label %.lr.ph, label %.loopexit825, !llvm.loop !14
+  br i1 %48, label %.lr.ph, label %.loopexit826, !llvm.loop !14
 
-.loopexit825:                                     ; preds = %22, %12, %40
+.loopexit826:                                     ; preds = %22, %12, %40
   %.1261.ph = phi i32 [ %31, %40 ], [ %.0260424, %12 ], [ %31, %22 ]
   br label %49
 
@@ -359,11 +359,11 @@ define internal fastcc noundef range(i32 -2147483645, -2147483648) i32 @_ZN11duc
   %exitcond582.not = icmp eq i64 %indvars.iv.next580, 256
   br i1 %exitcond582.not, label %65, label %49, !llvm.loop !15
 
-49:                                               ; preds = %.loopexit825, %.loopexit336
-  %indvars.iv579 = phi i64 [ 0, %.loopexit825 ], [ %indvars.iv.next580, %.loopexit336 ]
-  %indvars.iv574 = phi i64 [ 1, %.loopexit825 ], [ %indvars.iv.next575, %.loopexit336 ]
-  %.6252433 = phi i32 [ 0, %.loopexit825 ], [ %.7253.lcssa, %.loopexit336 ]
-  %.0265432 = phi i32 [ 0, %.loopexit825 ], [ %.1266.lcssa, %.loopexit336 ]
+49:                                               ; preds = %.loopexit826, %.loopexit336
+  %indvars.iv579 = phi i64 [ 0, %.loopexit826 ], [ %indvars.iv.next580, %.loopexit336 ]
+  %indvars.iv574 = phi i64 [ 1, %.loopexit826 ], [ %indvars.iv.next575, %.loopexit336 ]
+  %.6252433 = phi i32 [ 0, %.loopexit826 ], [ %.7253.lcssa, %.loopexit336 ]
+  %.0265432 = phi i32 [ 0, %.loopexit826 ], [ %.1266.lcssa, %.loopexit336 ]
   %50 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv579
   %51 = load i32, ptr %50, align 4, !tbaa !3
   %52 = add nsw i32 %51, %.6252433
@@ -380,9 +380,9 @@ define internal fastcc noundef range(i32 -2147483645, -2147483648) i32 @_ZN11duc
   br i1 %60, label %.lr.ph430.preheader, label %.loopexit336
 
 .lr.ph430.preheader:                              ; preds = %49
-  %.idx804 = shl nuw nsw i64 %indvars.iv579, 10
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %3, i64 %.idx804
-  %invariant.gep915 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv579
+  %.idx805 = shl nuw nsw i64 %indvars.iv579, 10
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %3, i64 %.idx805
+  %invariant.gep916 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv579
   br label %.lr.ph430
 
 .lr.ph430:                                        ; preds = %.lr.ph430.preheader, %.lr.ph430
@@ -393,9 +393,9 @@ define internal fastcc noundef range(i32 -2147483645, -2147483648) i32 @_ZN11duc
   %61 = load i32, ptr %gep, align 4, !tbaa !3
   %62 = add nsw i32 %61, %.1266427
   store i32 %62, ptr %gep, align 4, !tbaa !3
-  %.idx805 = shl nuw nsw i64 %indvars.iv576, 10
-  %gep916 = getelementptr inbounds nuw i8, ptr %invariant.gep915, i64 %.idx805
-  %63 = load i32, ptr %gep916, align 4, !tbaa !3
+  %.idx806 = shl nuw nsw i64 %indvars.iv576, 10
+  %gep917 = getelementptr inbounds nuw i8, ptr %invariant.gep916, i64 %.idx806
+  %63 = load i32, ptr %gep917, align 4, !tbaa !3
   %64 = add nsw i32 %63, %.7253428
   %indvars.iv.next577 = add nuw nsw i64 %indvars.iv576, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next577, 256
@@ -443,8 +443,8 @@ define internal fastcc noundef range(i32 -2147483645, -2147483648) i32 @_ZN11duc
   %92 = trunc nuw nsw i64 %indvars.iv583 to i32
   store i32 %92, ptr %91, align 4, !tbaa !3
   %indvars.iv.next584 = add nsw i64 %indvars.iv583, -1
-  %.not919 = icmp eq i64 %indvars.iv583, 0
-  br i1 %.not919, label %.preheader335.lr.ph, label %.lr.ph436, !llvm.loop !17
+  %.not920 = icmp eq i64 %indvars.iv583, 0
+  br i1 %.not920, label %.preheader335.lr.ph, label %.lr.ph436, !llvm.loop !17
 
 .preheader335.lr.ph:                              ; preds = %.lr.ph436, %68
   %93 = add nsw i32 %66, -1
@@ -724,7 +724,7 @@ _ZN11duckdb_zstdL8ss_isqrtEi.exit.thread.i:       ; preds = %_ZN11duckdb_zstdL8s
   %.2.i = phi ptr [ %245, %242 ], [ %.1108165.i, %.lr.ph169.i ]
   %247 = shl i32 %.1102166.i, 1
   %248 = lshr i32 %.1167.i, 1
-  %.not117.i = icmp samesign ult i32 %.1167.i, 2
+  %.not117.i = icmp eq i32 %248, 0
   br i1 %.not117.i, label %._crit_edge170.i, label %.lr.ph169.i, !llvm.loop !20
 
 ._crit_edge170.i:                                 ; preds = %246, %._crit_edge162.thread.i
@@ -4210,7 +4210,7 @@ _ZN11duckdb_zstdL6trsortEPiS0_ii.exit:            ; preds = %.thread158.i, %2067
   %2107 = getelementptr inbounds nuw i8, ptr %2106, i64 4
   %2108 = load i32, ptr %2107, align 4, !tbaa !3
   %2109 = add nsw i32 %2108, -1
-  %invariant.gep917 = getelementptr i32, ptr %3, i64 %indvars.iv609
+  %invariant.gep918 = getelementptr i32, ptr %3, i64 %indvars.iv609
   %indvars.iv609.tr = trunc i64 %indvars.iv609 to i32
   %2110 = shl i32 %indvars.iv609.tr, 8
   br label %2111
@@ -4219,11 +4219,11 @@ _ZN11duckdb_zstdL6trsortEPiS0_ii.exit:            ; preds = %.thread158.i, %2067
   %indvars.iv606 = phi i64 [ 255, %.lr.ph472 ], [ %indvars.iv.next607, %._crit_edge465 ]
   %.17469 = phi i32 [ %2109, %.lr.ph472 ], [ %.18.lcssa, %._crit_edge465 ]
   %.1263468 = phi i32 [ %.0262476, %.lr.ph472 ], [ %.2264.lcssa, %._crit_edge465 ]
-  %.idx806 = shl i64 %indvars.iv606, 10
-  %gep918 = getelementptr i8, ptr %invariant.gep917, i64 %.idx806
-  %2112 = load i32, ptr %gep918, align 4, !tbaa !3
+  %.idx807 = shl i64 %indvars.iv606, 10
+  %gep919 = getelementptr i8, ptr %invariant.gep918, i64 %.idx807
+  %2112 = load i32, ptr %gep919, align 4, !tbaa !3
   %2113 = sub i32 %.17469, %2112
-  store i32 %.17469, ptr %gep918, align 4, !tbaa !3
+  store i32 %.17469, ptr %gep919, align 4, !tbaa !3
   %2114 = trunc nuw nsw i64 %indvars.iv606 to i32
   %2115 = or i32 %2110, %2114
   %2116 = sext i32 %2115 to i64

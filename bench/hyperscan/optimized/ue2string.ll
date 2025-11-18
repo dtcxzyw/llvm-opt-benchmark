@@ -1685,7 +1685,7 @@ _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11cha
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load i64, ptr %12, align 8
   %14 = lshr i64 %13, 1
-  %.not15 = icmp ult i64 %13, 2
+  %.not15 = icmp eq i64 %14, 0
   br i1 %.not15, label %._crit_edge, label %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit
 
 ._crit_edge:                                      ; preds = %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit12, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit
@@ -1771,7 +1771,7 @@ _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11cha
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load i64, ptr %13, align 8
   %15 = lshr i64 %14, 1
-  %.not15.i = icmp ult i64 %14, 2
+  %.not15.i = icmp eq i64 %15, 0
   br i1 %.not15.i, label %_ZN3ue211ue2_literal7reverseEv.exit, label %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit.i
 
 _ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit.i:  ; preds = %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit.i, %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit12.i

@@ -172,21 +172,21 @@ define internal i32 @vqc_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %65 = and i32 %64, 7
   %66 = add nsw i32 %65, -1
   %or.cond.i52 = icmp ult i32 %66, 4
-  %67 = load i16, ptr %17, align 1, !tbaa !40
-  %68 = icmp ugt i8 %21, 15
-  %69 = icmp ugt i16 %67, 1
-  %or.cond = select i1 %68, i1 true, i1 %69
-  br i1 %or.cond, label %70, label %75
+  %67 = lshr i8 %21, 4
+  %68 = load i16, ptr %17, align 1, !tbaa !40
+  %69 = lshr i16 %68, 1
+  %70 = icmp ne i8 %67, 0
+  %71 = icmp ne i16 %69, 0
+  %or.cond = select i1 %70, i1 true, i1 %71
+  br i1 %or.cond, label %72, label %75
 
-70:                                               ; preds = %24
-  %71 = lshr i16 %67, 1
-  %72 = zext nneg i16 %71 to i32
-  %73 = lshr i8 %21, 4
-  %74 = zext nneg i8 %73 to i32
-  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.4, i32 noundef %74, i32 noundef %72) #7
+72:                                               ; preds = %24
+  %73 = zext nneg i16 %69 to i32
+  %74 = zext nneg i8 %67 to i32
+  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.4, i32 noundef %74, i32 noundef %73) #7
   br label %75
 
-75:                                               ; preds = %24, %70
+75:                                               ; preds = %24, %72
   %76 = shl nsw i32 -256, %65
   %77 = select i1 %or.cond.i52, i32 %76, i32 -256
   %78 = shl nsw i32 -128, %60

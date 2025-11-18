@@ -110,7 +110,7 @@ define dso_local void @rtc_time64_to_tm(i64 noundef %0, ptr noundef writeonly ca
   br label %35
 
 27:                                               ; preds = %2
-  %28 = icmp samesign ult i32 %13, 1461
+  %28 = icmp eq i64 %16, 0
   %29 = select i1 %28, i32 %11, i32 %17
   %30 = and i32 %29, 3
   %31 = icmp eq i32 %30, 0
@@ -309,7 +309,7 @@ define dso_local void @rtc_ktime_to_tm(ptr dead_on_unwind noalias writable write
   br label %41
 
 33:                                               ; preds = %2
-  %34 = icmp samesign ult i32 %19, 1461
+  %34 = icmp eq i64 %22, 0
   %35 = select i1 %34, i32 %17, i32 %23
   %36 = and i32 %35, 3
   %37 = icmp eq i32 %36, 0

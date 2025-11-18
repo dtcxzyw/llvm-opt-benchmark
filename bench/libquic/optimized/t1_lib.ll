@@ -4877,7 +4877,7 @@ define internal range(i32 0, 2) i32 @ext_ec_curves_parse_clienthello(ptr noundef
 24:                                               ; preds = %16
   %25 = call i64 @CBS_len(ptr noundef nonnull %4) #21
   %26 = lshr i64 %25, 1
-  %.not23 = icmp ult i64 %25, 2
+  %.not23 = icmp eq i64 %26, 0
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 27:                                               ; preds = %.lr.ph

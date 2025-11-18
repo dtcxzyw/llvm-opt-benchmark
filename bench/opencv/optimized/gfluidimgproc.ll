@@ -6421,8 +6421,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %42,
 
 47:                                               ; preds = %35
   %48 = icmp eq i32 %.sroa.0.0.extract.trunc, 0
-  %49 = icmp ult i64 %1, 4294967296
-  %or.cond = or i1 %49, %48
+  %49 = icmp eq i64 %.sroa.3.0.extract.shift, 0
+  %or.cond = or i1 %48, %49
   br i1 %or.cond, label %50, label %63
 
 50:                                               ; preds = %47

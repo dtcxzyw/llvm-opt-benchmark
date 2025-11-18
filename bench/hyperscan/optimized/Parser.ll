@@ -16633,7 +16633,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i3865: ; preds = 
   %6377 = add i32 %6376, %.0711.i
   %6378 = lshr i32 %.0810.i, 3
   %6379 = mul i32 %.012.i, 10
-  %.not.i3870 = icmp ult i32 %.0810.i, 8
+  %.not.i3870 = icmp eq i32 %6378, 0
   br i1 %.not.i3870, label %_ZN3ue2L14parseAsDecimalEj.exit, label %.lr.ph.i, !llvm.loop !199
 
 _ZN3ue2L14parseAsDecimalEj.exit:                  ; preds = %.lr.ph.i, %6372
@@ -18332,7 +18332,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4068: ; preds = %6
   %6795 = add i32 %6794, %.0711.i4072
   %6796 = lshr i32 %.0810.i4073, 3
   %6797 = mul i32 %.012.i4071, 10
-  %.not.i4074 = icmp ult i32 %.0810.i4073, 8
+  %.not.i4074 = icmp eq i32 %6796, 0
   br i1 %.not.i4074, label %_ZN3ue2L14parseAsDecimalEj.exit4076, label %.lr.ph.i4070, !llvm.loop !199
 
 _ZN3ue2L14parseAsDecimalEj.exit4076:              ; preds = %.lr.ph.i4070, %6790

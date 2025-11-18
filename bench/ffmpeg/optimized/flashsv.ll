@@ -416,7 +416,7 @@ define internal range(i32 4, 1) i32 @flashsv_decode_frame(ptr noundef %0, ptr no
 224:                                              ; preds = %206
   %225 = load i32, ptr %57, align 4, !tbaa !45
   %226 = icmp eq i32 %225, 2
-  %227 = icmp ugt i32 %217, 65535
+  %227 = icmp ne i32 %218, 0
   %or.cond.us = and i1 %227, %226
   br i1 %or.cond.us, label %228, label %.thread332.us
 

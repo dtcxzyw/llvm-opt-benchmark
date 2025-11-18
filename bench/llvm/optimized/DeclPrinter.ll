@@ -14684,11 +14684,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_111DeclPrinter15VisitFriendDeclEPN5
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %11 = load i32, ptr %10, align 8
-  %.not52 = icmp ult i32 %11, 2
+  %12 = lshr i32 %11, 1
+  %.not52 = icmp eq i32 %12, 0
   br i1 %.not52, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9
-  %12 = lshr i32 %11, 1
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %wide.trip.count = zext nneg i32 %12 to i64
   br label %39
@@ -14759,9 +14759,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN4l
   %45 = and i32 %44, 126
   %46 = add nsw i32 %45, -38
   %47 = icmp ult i32 %46, -6
-  %.not234755 = icmp eq i64 %7, 0
+  %.not234756 = icmp eq i64 %7, 0
   %not..not.i.i.i.i.i = xor i1 %.not.i.i.i.i.i, true
-  %.not2347 = or i1 %.not234755, %not..not.i.i.i.i.i
+  %.not2347 = or i1 %.not234756, %not..not.i.i.i.i.i
   %.not23 = or i1 %.not2347, %47
   br i1 %.not23, label %63, label %48
 

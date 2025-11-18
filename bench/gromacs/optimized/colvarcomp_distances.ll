@@ -3402,7 +3402,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.us.us: ; preds = %_ZN12colvarmodule13
   %.1.i = select i1 %.not19.i, double %.01621.i, double %102
   %103 = lshr i32 %.023.i, 1
   %104 = fmul double %.01522.i, %.01522.i
-  %.not.i = icmp samesign ult i32 %.023.i, 2
+  %.not.i = icmp eq i32 %103, 0
   br i1 %.not.i, label %._crit_edge.i.loopexit, label %.lr.ph.i, !llvm.loop !261
 
 ._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i
@@ -3529,7 +3529,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit:       ; preds = %83, %._crit_edge.i.
   %.1.i20 = select i1 %.not19.i19, double %.01621.i18, double %170
   %171 = lshr i32 %.023.i16, 1
   %172 = fmul double %.01522.i17, %.01522.i17
-  %.not.i21 = icmp samesign ult i32 %.023.i16, 2
+  %.not.i21 = icmp eq i32 %171, 0
   br i1 %.not.i21, label %._crit_edge.i22, label %.lr.ph.i15, !llvm.loop !261
 
 ._crit_edge.i22:                                  ; preds = %.lr.ph.i15, %166
@@ -3637,7 +3637,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit25:     ; preds = %156, %._crit_edge.i
   %.1.i33 = select i1 %.not19.i32, double %.01621.i31, double %242
   %243 = lshr i32 %.023.i29, 1
   %244 = fmul double %.01522.i30, %.01522.i30
-  %.not.i34 = icmp samesign ult i32 %.023.i29, 2
+  %.not.i34 = icmp eq i32 %243, 0
   br i1 %.not.i34, label %._crit_edge.i35, label %.lr.ph.i28, !llvm.loop !261
 
 ._crit_edge.i35:                                  ; preds = %.lr.ph.i28, %239

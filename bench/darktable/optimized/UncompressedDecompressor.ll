@@ -186,7 +186,7 @@ _ZNK8rawspeed24UncompressedDecompressor11sanityCheckEjPKji.exit: ; preds = %1
   %34 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %35 = load i32, ptr %34, align 8, !tbaa !101, !noalias !31
   %36 = ashr i32 %35, 1
-  %37 = icmp ugt i32 %35, 1
+  %37 = icmp ne i32 %36, 0
   tail call void @llvm.assume(i1 %37)
   %38 = icmp sgt i32 %36, -1
   tail call void @llvm.assume(i1 %38)
@@ -368,7 +368,7 @@ _ZNK8rawspeed24UncompressedDecompressor11sanityCheckEjPKji.exit: ; preds = %1
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %34 = load i32, ptr %33, align 8, !tbaa !101, !noalias !110
   %35 = ashr i32 %34, 1
-  %36 = icmp ugt i32 %34, 1
+  %36 = icmp ne i32 %35, 0
   tail call void @llvm.assume(i1 %36)
   %37 = icmp sgt i32 %35, -1
   tail call void @llvm.assume(i1 %37)
@@ -510,7 +510,7 @@ _ZNK8rawspeed24UncompressedDecompressor11sanityCheckEPKji.exit: ; preds = %_ZN8r
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %41 = load i32, ptr %40, align 8, !tbaa !101, !noalias !117
   %42 = ashr i32 %41, 1
-  %43 = icmp ugt i32 %41, 1
+  %43 = icmp ne i32 %42, 0
   tail call void @llvm.assume(i1 %43)
   %44 = icmp sgt i32 %42, -1
   tail call void @llvm.assume(i1 %44)
@@ -775,7 +775,7 @@ _ZNK8rawspeed24UncompressedDecompressor11sanityCheckEPKji.exit: ; preds = %_ZN8r
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %41 = load i32, ptr %40, align 8, !tbaa !101, !noalias !122
   %42 = ashr i32 %41, 1
-  %43 = icmp ugt i32 %41, 1
+  %43 = icmp ne i32 %42, 0
   tail call void @llvm.assume(i1 %43)
   %44 = icmp sgt i32 %42, -1
   tail call void @llvm.assume(i1 %44)
@@ -956,7 +956,7 @@ _ZNK8rawspeed24UncompressedDecompressor11sanityCheckEjPKji.exit: ; preds = %1
   %35 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %36 = load i32, ptr %35, align 8, !tbaa !101, !noalias !127
   %37 = ashr i32 %36, 1
-  %38 = icmp ugt i32 %36, 1
+  %38 = icmp ne i32 %37, 0
   tail call void @llvm.assume(i1 %38)
   %39 = icmp sgt i32 %37, -1
   tail call void @llvm.assume(i1 %39)
@@ -1099,7 +1099,7 @@ _ZNK8rawspeed24UncompressedDecompressor11sanityCheckEjPKji.exit: ; preds = %1
   %35 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %36 = load i32, ptr %35, align 8, !tbaa !101, !noalias !132
   %37 = ashr i32 %36, 1
-  %38 = icmp ugt i32 %36, 1
+  %38 = icmp ne i32 %37, 0
   tail call void @llvm.assume(i1 %38)
   %39 = icmp sgt i32 %37, -1
   tail call void @llvm.assume(i1 %39)
@@ -1588,7 +1588,7 @@ define hidden void @_ZN8rawspeed24UncompressedDecompressor19readUncompressedRawE
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 604
   %36 = load i32, ptr %35, align 4, !tbaa !100, !noalias !167
   %37 = ashr i32 %5, 2
-  %38 = icmp ugt i32 %5, 3
+  %38 = icmp ne i32 %37, 0
   tail call void @llvm.assume(i1 %38)
   %39 = icmp sgt i32 %37, -1
   tail call void @llvm.assume(i1 %39)
@@ -1772,7 +1772,7 @@ _ZN8rawspeed14copyPixelsImplENS_10Array1DRefISt4byteEENS0_IKS1_EE.exit28.i.i: ; 
   %130 = getelementptr inbounds nuw i8, ptr %3, i64 604
   %131 = load i32, ptr %130, align 4, !tbaa !100, !noalias !173
   %132 = ashr i32 %5, 1
-  %133 = icmp ugt i32 %5, 1
+  %133 = icmp ne i32 %132, 0
   tail call void @llvm.assume(i1 %133)
   %134 = icmp sgt i32 %132, -1
   tail call void @llvm.assume(i1 %134)
@@ -1903,7 +1903,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor14decode
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %17 = load i32, ptr %16, align 8, !tbaa !101, !noalias !176
   %18 = ashr i32 %17, 2
-  %19 = icmp ugt i32 %17, 3
+  %19 = icmp ne i32 %18, 0
   tail call void @llvm.assume(i1 %19)
   %20 = icmp sgt i32 %18, -1
   tail call void @llvm.assume(i1 %20)
@@ -2150,7 +2150,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor14decode
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %17 = load i32, ptr %16, align 8, !tbaa !101, !noalias !192
   %18 = ashr i32 %17, 2
-  %19 = icmp ugt i32 %17, 3
+  %19 = icmp ne i32 %18, 0
   tail call void @llvm.assume(i1 %19)
   %20 = icmp sgt i32 %18, -1
   tail call void @llvm.assume(i1 %20)
@@ -2394,7 +2394,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor14decode
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %17 = load i32, ptr %16, align 8, !tbaa !101, !noalias !199
   %18 = ashr i32 %17, 2
-  %19 = icmp ugt i32 %17, 3
+  %19 = icmp ne i32 %18, 0
   tail call void @llvm.assume(i1 %19)
   %20 = icmp sgt i32 %18, -1
   tail call void @llvm.assume(i1 %20)
@@ -2641,7 +2641,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor14decode
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %17 = load i32, ptr %16, align 8, !tbaa !101, !noalias !204
   %18 = ashr i32 %17, 2
-  %19 = icmp ugt i32 %17, 3
+  %19 = icmp ne i32 %18, 0
   tail call void @llvm.assume(i1 %19)
   %20 = icmp sgt i32 %18, -1
   tail call void @llvm.assume(i1 %20)
@@ -2885,7 +2885,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor15decode
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %17 = load i32, ptr %16, align 8, !tbaa !101, !noalias !209
   %18 = ashr i32 %17, 1
-  %19 = icmp ugt i32 %17, 1
+  %19 = icmp ne i32 %18, 0
   tail call void @llvm.assume(i1 %19)
   %20 = icmp sgt i32 %18, -1
   tail call void @llvm.assume(i1 %20)
@@ -3102,7 +3102,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor15decode
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %18 = load i32, ptr %17, align 8, !tbaa !101, !noalias !214
   %19 = ashr i32 %18, 1
-  %20 = icmp ugt i32 %18, 1
+  %20 = icmp ne i32 %19, 0
   tail call void @llvm.assume(i1 %20)
   %21 = icmp sgt i32 %19, -1
   tail call void @llvm.assume(i1 %21)
@@ -3336,7 +3336,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor15decode
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %17 = load i32, ptr %16, align 8, !tbaa !101, !noalias !222
   %18 = ashr i32 %17, 1
-  %19 = icmp ugt i32 %17, 1
+  %19 = icmp ne i32 %18, 0
   tail call void @llvm.assume(i1 %19)
   %20 = icmp sgt i32 %18, -1
   tail call void @llvm.assume(i1 %20)
@@ -3551,7 +3551,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor15decode
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %17 = load i32, ptr %16, align 8, !tbaa !101, !noalias !229
   %18 = ashr i32 %17, 1
-  %19 = icmp ugt i32 %17, 1
+  %19 = icmp ne i32 %18, 0
   tail call void @llvm.assume(i1 %19)
   %20 = icmp sgt i32 %18, -1
   tail call void @llvm.assume(i1 %20)

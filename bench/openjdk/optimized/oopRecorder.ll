@@ -487,7 +487,7 @@ define weak_odr hidden noundef i32 @_ZN13ValueRecorderIP8MetadataE16maybe_find_i
   %17 = getelementptr inbounds nuw i32, ptr %6, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = ashr i32 %18, 1
-  %20 = icmp ult i32 %18, 2
+  %20 = icmp eq i32 %19, 0
   br i1 %20, label %.loopexit28, label %21
 
 21:                                               ; preds = %8
@@ -1015,7 +1015,7 @@ define weak_odr hidden noundef i32 @_ZN13ValueRecorderIP8_jobjectE16maybe_find_i
   %17 = getelementptr inbounds nuw i32, ptr %6, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = ashr i32 %18, 1
-  %20 = icmp ult i32 %18, 2
+  %20 = icmp eq i32 %19, 0
   br i1 %20, label %.loopexit28, label %21
 
 21:                                               ; preds = %8
@@ -2040,7 +2040,7 @@ define weak_odr hidden noundef i32 @_ZN13ValueRecorderIPhE16maybe_find_indexES0_
   %17 = getelementptr inbounds nuw i32, ptr %6, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = ashr i32 %18, 1
-  %20 = icmp ult i32 %18, 2
+  %20 = icmp eq i32 %19, 0
   br i1 %20, label %.loopexit28, label %21
 
 21:                                               ; preds = %8

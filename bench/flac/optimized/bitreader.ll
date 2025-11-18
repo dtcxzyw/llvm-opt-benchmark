@@ -999,16 +999,16 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_skip_bits_no_crc(ptr noundef 
 
 14:                                               ; preds = %12, %4
   %.021 = phi i32 [ %13, %12 ], [ %1, %4 ]
-  %.not28 = icmp ult i32 %.021, 8
-  br i1 %.not28, label %20, label %15
+  %15 = lshr i32 %.021, 3
+  %.not28 = icmp eq i32 %15, 0
+  br i1 %.not28, label %20, label %16
 
-15:                                               ; preds = %14
-  %16 = lshr i32 %.021, 3
-  %17 = tail call i32 @FLAC__bitreader_skip_byte_block_aligned_no_crc(ptr noundef nonnull %0, i32 noundef %16)
+16:                                               ; preds = %14
+  %17 = tail call i32 @FLAC__bitreader_skip_byte_block_aligned_no_crc(ptr noundef nonnull %0, i32 noundef %15)
   %.not29 = icmp eq i32 %17, 0
   br i1 %.not29, label %.sink.split, label %18
 
-18:                                               ; preds = %15
+18:                                               ; preds = %16
   %19 = and i32 %.021, 7
   br label %20
 
@@ -1025,8 +1025,8 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_skip_bits_no_crc(ptr noundef 
 23:                                               ; preds = %20, %21
   br label %.sink.split
 
-.sink.split:                                      ; preds = %21, %15, %8, %23
-  %.1.ph = phi i32 [ 1, %23 ], [ 0, %8 ], [ 0, %15 ], [ 0, %21 ]
+.sink.split:                                      ; preds = %21, %16, %8, %23
+  %.1.ph = phi i32 [ 1, %23 ], [ 0, %8 ], [ 0, %16 ], [ 0, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %24
 

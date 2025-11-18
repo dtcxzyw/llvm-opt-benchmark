@@ -402,184 +402,186 @@ define internal i32 @dissect_bfd_control(ptr noundef %0, ptr noundef %1, ptr nou
   %8 = load ptr, ptr %6, align 8
   tail call void @col_clear(ptr noundef %8, i32 noundef 25)
   %9 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
-  %10 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
-  %11 = and i8 %10, 31
-  %12 = zext nneg i8 %11 to i32
-  %13 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
-  %14 = zext i8 %13 to i32
-  %cond = icmp ugt i8 %9, 31
-  %15 = and i32 %14, 192
-  %16 = and i32 %14, 4
-  %17 = icmp ne i32 %16, 0
-  %18 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
-  %19 = zext i8 %18 to i32
-  %20 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
-  %21 = zext i8 %20 to i32
-  %22 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4)
-  %23 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8)
-  %24 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12)
-  %25 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16)
-  %26 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 20)
-  br i1 %cond, label %30, label %27
+  %10 = lshr i8 %9, 5
+  %11 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
+  %12 = and i8 %11, 31
+  %13 = zext nneg i8 %12 to i32
+  %14 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %15 = zext i8 %14 to i32
+  %cond.not = icmp eq i8 %10, 0
+  %16 = and i32 %15, 192
+  %17 = and i32 %15, 4
+  %18 = icmp ne i32 %17, 0
+  %19 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %20 = zext i8 %19 to i32
+  %21 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
+  %22 = zext i8 %21 to i32
+  %23 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4)
+  %24 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8)
+  %25 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12)
+  %26 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16)
+  %27 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 20)
+  br i1 %cond.not, label %28, label %31
 
-27:                                               ; preds = %4
-  %28 = load ptr, ptr %6, align 8
-  %29 = tail call ptr @val_to_str_const(i32 noundef %12, ptr noundef nonnull @bfd_control_v0_diag_values, ptr noundef nonnull @.str.138)
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %28, i32 noundef 25, ptr noundef nonnull @.str.137, ptr noundef %29, i32 noundef %14)
-  br label %36
+28:                                               ; preds = %4
+  %29 = load ptr, ptr %6, align 8
+  %30 = tail call ptr @val_to_str_const(i32 noundef %13, ptr noundef nonnull @bfd_control_v0_diag_values, ptr noundef nonnull @.str.138)
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %29, i32 noundef 25, ptr noundef nonnull @.str.137, ptr noundef %30, i32 noundef %15)
+  br label %37
 
-30:                                               ; preds = %4
-  %31 = and i32 %14, 62
-  %32 = load ptr, ptr %6, align 8
-  %33 = tail call ptr @val_to_str_const(i32 noundef %12, ptr noundef nonnull @bfd_control_v1_diag_values, ptr noundef nonnull @.str.138)
-  %34 = lshr i32 %14, 6
-  %35 = tail call ptr @val_to_str_const(i32 noundef %34, ptr noundef nonnull @bfd_control_sta_values, ptr noundef nonnull @.str.138)
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %32, i32 noundef 25, ptr noundef nonnull @.str.139, ptr noundef %33, ptr noundef %35, i32 noundef %31)
-  br label %36
+31:                                               ; preds = %4
+  %32 = and i32 %15, 62
+  %33 = load ptr, ptr %6, align 8
+  %34 = tail call ptr @val_to_str_const(i32 noundef %13, ptr noundef nonnull @bfd_control_v1_diag_values, ptr noundef nonnull @.str.138)
+  %35 = lshr i32 %15, 6
+  %36 = tail call ptr @val_to_str_const(i32 noundef %35, ptr noundef nonnull @bfd_control_sta_values, ptr noundef nonnull @.str.138)
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %33, i32 noundef 25, ptr noundef nonnull @.str.139, ptr noundef %34, ptr noundef %36, i32 noundef %32)
+  br label %37
 
-36:                                               ; preds = %30, %27
+37:                                               ; preds = %31, %28
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %72, label %37
+  br i1 %.not, label %73, label %38
 
-37:                                               ; preds = %36
-  %38 = load i32, ptr @proto_bfd, align 4
-  %39 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %38, ptr noundef %0, i32 noundef 0, i32 noundef %21, ptr noundef nonnull @.str.140)
-  %40 = load i32, ptr @ett_bfd, align 4
-  %41 = tail call ptr @proto_item_add_subtree(ptr noundef %39, i32 noundef %40)
-  %42 = load i32, ptr @hf_bfd_version, align 4
-  %43 = and i8 %9, -32
-  %44 = zext i8 %43 to i32
-  %45 = tail call ptr @proto_tree_add_uint(ptr noundef %41, i32 noundef %42, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %44)
-  %46 = load i32, ptr @hf_bfd_diag, align 4
-  %47 = tail call ptr @proto_tree_add_uint(ptr noundef %41, i32 noundef %46, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %12)
-  br i1 %cond, label %48, label %.critedge
+38:                                               ; preds = %37
+  %39 = load i32, ptr @proto_bfd, align 4
+  %40 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %39, ptr noundef %0, i32 noundef 0, i32 noundef %22, ptr noundef nonnull @.str.140)
+  %41 = load i32, ptr @ett_bfd, align 4
+  %42 = tail call ptr @proto_item_add_subtree(ptr noundef %40, i32 noundef %41)
+  %43 = load i32, ptr @hf_bfd_version, align 4
+  %44 = and i8 %9, -32
+  %45 = zext i8 %44 to i32
+  %46 = tail call ptr @proto_tree_add_uint(ptr noundef %42, i32 noundef %43, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %45)
+  %47 = load i32, ptr @hf_bfd_diag, align 4
+  %48 = tail call ptr @proto_tree_add_uint(ptr noundef %42, i32 noundef %47, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %13)
+  br i1 %cond.not, label %.critedge, label %49
 
-48:                                               ; preds = %37
-  %49 = load i32, ptr @hf_bfd_sta, align 4
-  %50 = tail call ptr @proto_tree_add_uint(ptr noundef %41, i32 noundef %49, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %15)
+49:                                               ; preds = %38
+  %50 = load i32, ptr @hf_bfd_sta, align 4
+  %51 = tail call ptr @proto_tree_add_uint(ptr noundef %42, i32 noundef %50, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %16)
   br label %.critedge
 
-.critedge:                                        ; preds = %37, %48
-  %dissect_bfd_control.bfd_message_flags.141.sink = phi ptr [ @dissect_bfd_control.bfd_message_flags.141, %48 ], [ @dissect_bfd_control.bfd_message_flags, %37 ]
-  %51 = load i32, ptr @hf_bfd_flags, align 4
-  %52 = load i32, ptr @ett_bfd_flags, align 4
-  %53 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %41, ptr noundef %0, i32 noundef 1, i32 noundef %51, i32 noundef %52, ptr noundef nonnull %dissect_bfd_control.bfd_message_flags.141.sink, i32 noundef 0, i32 noundef 4)
-  %54 = load i32, ptr @hf_bfd_detect_time_multiplier, align 4
-  %55 = udiv i32 %24, 1000
-  %56 = mul nuw nsw i32 %55, %19
-  %57 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %41, i32 noundef %54, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef %19, ptr noundef nonnull @.str.142, i32 noundef %19, i32 noundef %56)
-  %58 = load i32, ptr @hf_bfd_message_length, align 4
-  %59 = tail call ptr @proto_tree_add_uint(ptr noundef %41, i32 noundef %58, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef %21)
-  %60 = load i32, ptr @hf_bfd_my_discriminator, align 4
-  %61 = tail call ptr @proto_tree_add_uint(ptr noundef %41, i32 noundef %60, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef %22)
-  %62 = load i32, ptr @hf_bfd_your_discriminator, align 4
-  %63 = tail call ptr @proto_tree_add_uint(ptr noundef %41, i32 noundef %62, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef %23)
-  %64 = load i32, ptr @hf_bfd_desired_min_tx_interval, align 4
-  %65 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %41, i32 noundef %64, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef %24, ptr noundef nonnull @.str.143, i32 noundef %55, i32 noundef %24)
-  %66 = load i32, ptr @hf_bfd_required_min_rx_interval, align 4
-  %67 = udiv i32 %25, 1000
-  %68 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %41, i32 noundef %66, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef %25, ptr noundef nonnull @.str.143, i32 noundef %67, i32 noundef %25)
-  %69 = load i32, ptr @hf_bfd_required_min_echo_interval, align 4
-  %70 = udiv i32 %26, 1000
-  %71 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %41, i32 noundef %69, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef %26, ptr noundef nonnull @.str.143, i32 noundef %70, i32 noundef %26)
-  br label %72
+.critedge:                                        ; preds = %38, %49
+  %dissect_bfd_control.bfd_message_flags.141.sink = phi ptr [ @dissect_bfd_control.bfd_message_flags.141, %49 ], [ @dissect_bfd_control.bfd_message_flags, %38 ]
+  %52 = load i32, ptr @hf_bfd_flags, align 4
+  %53 = load i32, ptr @ett_bfd_flags, align 4
+  %54 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %42, ptr noundef %0, i32 noundef 1, i32 noundef %52, i32 noundef %53, ptr noundef nonnull %dissect_bfd_control.bfd_message_flags.141.sink, i32 noundef 0, i32 noundef 4)
+  %55 = load i32, ptr @hf_bfd_detect_time_multiplier, align 4
+  %56 = udiv i32 %25, 1000
+  %57 = mul nuw nsw i32 %56, %20
+  %58 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %42, i32 noundef %55, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef %20, ptr noundef nonnull @.str.142, i32 noundef %20, i32 noundef %57)
+  %59 = load i32, ptr @hf_bfd_message_length, align 4
+  %60 = tail call ptr @proto_tree_add_uint(ptr noundef %42, i32 noundef %59, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef %22)
+  %61 = load i32, ptr @hf_bfd_my_discriminator, align 4
+  %62 = tail call ptr @proto_tree_add_uint(ptr noundef %42, i32 noundef %61, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef %23)
+  %63 = load i32, ptr @hf_bfd_your_discriminator, align 4
+  %64 = tail call ptr @proto_tree_add_uint(ptr noundef %42, i32 noundef %63, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef %24)
+  %65 = load i32, ptr @hf_bfd_desired_min_tx_interval, align 4
+  %66 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %42, i32 noundef %65, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef %25, ptr noundef nonnull @.str.143, i32 noundef %56, i32 noundef %25)
+  %67 = load i32, ptr @hf_bfd_required_min_rx_interval, align 4
+  %68 = udiv i32 %26, 1000
+  %69 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %42, i32 noundef %67, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef %26, ptr noundef nonnull @.str.143, i32 noundef %68, i32 noundef %26)
+  %70 = load i32, ptr @hf_bfd_required_min_echo_interval, align 4
+  %71 = udiv i32 %27, 1000
+  %72 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %42, i32 noundef %70, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef %27, ptr noundef nonnull @.str.143, i32 noundef %71, i32 noundef %27)
+  br label %73
 
-72:                                               ; preds = %.critedge, %36
-  %.090 = phi ptr [ %41, %.critedge ], [ null, %36 ]
-  %or.cond = select i1 %cond, i1 %17, i1 false
-  br i1 %or.cond, label %73, label %113
-
-73:                                               ; preds = %72
-  %74 = icmp ugt i8 %20, 27
-  br i1 %74, label %75, label %110
+73:                                               ; preds = %.critedge, %37
+  %.090 = phi ptr [ %42, %.critedge ], [ null, %37 ]
+  %74 = icmp ne i8 %10, 0
+  %or.cond = select i1 %74, i1 %18, i1 false
+  br i1 %or.cond, label %75, label %115
 
 75:                                               ; preds = %73
+  %76 = icmp ugt i8 %21, 27
+  br i1 %76, label %77, label %112
+
+77:                                               ; preds = %75
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %76 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 24)
-  %77 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 25)
+  %78 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 24)
+  %79 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 25)
   %.not.i = icmp eq ptr %.090, null
-  br i1 %.not.i, label %._crit_edge.i, label %78
+  br i1 %.not.i, label %._crit_edge.i, label %80
 
-._crit_edge.i:                                    ; preds = %75
-  %.pre.i = zext i8 %76 to i32
-  br label %90
+._crit_edge.i:                                    ; preds = %77
+  %.pre.i = zext i8 %78 to i32
+  br label %92
 
-78:                                               ; preds = %75
-  %79 = zext i8 %77 to i32
-  %80 = load i32, ptr @ett_bfd_auth, align 4
-  %81 = zext i8 %76 to i32
-  %82 = tail call ptr @val_to_str(i32 noundef %81, ptr noundef nonnull @bfd_control_auth_type_values, ptr noundef nonnull @.str.147)
-  %83 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %.090, ptr noundef %0, i32 noundef 24, i32 noundef %79, i32 noundef %80, ptr noundef null, ptr noundef nonnull @.str.146, ptr noundef %82)
-  %84 = load i32, ptr @hf_bfd_auth_type, align 4
-  %85 = tail call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %84, ptr noundef %0, i32 noundef 24, i32 noundef 1, i32 noundef 0)
-  %86 = load i32, ptr @hf_bfd_auth_len, align 4
-  %87 = tail call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %86, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0)
-  %88 = load i32, ptr @hf_bfd_auth_key, align 4
-  %89 = tail call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %88, ptr noundef %0, i32 noundef 26, i32 noundef 1, i32 noundef 0)
-  br label %90
+80:                                               ; preds = %77
+  %81 = zext i8 %79 to i32
+  %82 = load i32, ptr @ett_bfd_auth, align 4
+  %83 = zext i8 %78 to i32
+  %84 = tail call ptr @val_to_str(i32 noundef %83, ptr noundef nonnull @bfd_control_auth_type_values, ptr noundef nonnull @.str.147)
+  %85 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %.090, ptr noundef %0, i32 noundef 24, i32 noundef %81, i32 noundef %82, ptr noundef null, ptr noundef nonnull @.str.146, ptr noundef %84)
+  %86 = load i32, ptr @hf_bfd_auth_type, align 4
+  %87 = tail call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %86, ptr noundef %0, i32 noundef 24, i32 noundef 1, i32 noundef 0)
+  %88 = load i32, ptr @hf_bfd_auth_len, align 4
+  %89 = tail call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %88, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0)
+  %90 = load i32, ptr @hf_bfd_auth_key, align 4
+  %91 = tail call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %90, ptr noundef %0, i32 noundef 26, i32 noundef 1, i32 noundef 0)
+  br label %92
 
-90:                                               ; preds = %78, %._crit_edge.i
-  %.pre-phi.i = phi i32 [ %.pre.i, %._crit_edge.i ], [ %81, %78 ]
-  %.0.i = phi ptr [ null, %._crit_edge.i ], [ %83, %78 ]
-  switch i8 %76, label %dissect_bfd_authentication.exit [
-    i8 1, label %91
+92:                                               ; preds = %80, %._crit_edge.i
+  %.pre-phi.i = phi i32 [ %.pre.i, %._crit_edge.i ], [ %83, %80 ]
+  %.0.i = phi ptr [ null, %._crit_edge.i ], [ %85, %80 ]
+  switch i8 %78, label %dissect_bfd_authentication.exit [
+    i8 1, label %93
     i8 2, label %get_bfd_required_auth_len.exit.i
     i8 3, label %get_bfd_required_auth_len.exit.i
-    i8 4, label %99
-    i8 5, label %99
+    i8 4, label %101
+    i8 5, label %101
   ]
 
-91:                                               ; preds = %90
-  %92 = load i32, ptr @hf_bfd_auth_password, align 4
-  %93 = zext i8 %77 to i32
-  %94 = add nsw i32 %93, -3
-  %95 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %96 = load ptr, ptr %95, align 8
-  %97 = call ptr @proto_tree_add_item_ret_string(ptr noundef %.0.i, i32 noundef %92, ptr noundef %0, i32 noundef 27, i32 noundef %94, i32 noundef 0, ptr noundef %96, ptr noundef nonnull %5)
-  %98 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef null, ptr noundef nonnull @.str.148, ptr noundef %98)
+93:                                               ; preds = %92
+  %94 = load i32, ptr @hf_bfd_auth_password, align 4
+  %95 = zext i8 %79 to i32
+  %96 = add nsw i32 %95, -3
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %98 = load ptr, ptr %97, align 8
+  %99 = call ptr @proto_tree_add_item_ret_string(ptr noundef %.0.i, i32 noundef %94, ptr noundef %0, i32 noundef 27, i32 noundef %96, i32 noundef 0, ptr noundef %98, ptr noundef nonnull %5)
+  %100 = load ptr, ptr %5, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef null, ptr noundef nonnull @.str.148, ptr noundef %100)
   br label %dissect_bfd_authentication.exit
 
-99:                                               ; preds = %90, %90
+101:                                              ; preds = %92, %92
   br label %get_bfd_required_auth_len.exit.i
 
-get_bfd_required_auth_len.exit.i:                 ; preds = %99, %90, %90
-  %.0.i.i = phi i8 [ 28, %99 ], [ 24, %90 ], [ 24, %90 ]
-  %.not45.i = icmp eq i8 %77, %.0.i.i
-  br i1 %.not45.i, label %104, label %100
+get_bfd_required_auth_len.exit.i:                 ; preds = %101, %92, %92
+  %.0.i.i = phi i8 [ 28, %101 ], [ 24, %92 ], [ 24, %92 ]
+  %.not45.i = icmp eq i8 %79, %.0.i.i
+  br i1 %.not45.i, label %106, label %102
 
-100:                                              ; preds = %get_bfd_required_auth_len.exit.i
-  %101 = zext i8 %77 to i32
-  %102 = tail call ptr @val_to_str(i32 noundef %.pre-phi.i, ptr noundef nonnull @bfd_control_auth_type_values, ptr noundef nonnull @.str.147)
-  %103 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0.i, ptr noundef %1, ptr noundef nonnull @ei_bfd_auth_len_invalid, ptr noundef %0, i32 noundef 24, i32 noundef %101, ptr noundef nonnull @.str.149, i32 noundef %101, ptr noundef %102)
+102:                                              ; preds = %get_bfd_required_auth_len.exit.i
+  %103 = zext i8 %79 to i32
+  %104 = tail call ptr @val_to_str(i32 noundef %.pre-phi.i, ptr noundef nonnull @bfd_control_auth_type_values, ptr noundef nonnull @.str.147)
+  %105 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0.i, ptr noundef %1, ptr noundef nonnull @ei_bfd_auth_len_invalid, ptr noundef %0, i32 noundef 24, i32 noundef %103, ptr noundef nonnull @.str.149, i32 noundef %103, ptr noundef %104)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef null, ptr noundef nonnull @.str.150)
-  br label %104
+  br label %106
 
-104:                                              ; preds = %100, %get_bfd_required_auth_len.exit.i
+106:                                              ; preds = %102, %get_bfd_required_auth_len.exit.i
   br i1 %.not.i, label %dissect_bfd_authentication.exit, label %get_bfd_checksum_len.exit.i
 
-get_bfd_checksum_len.exit.i:                      ; preds = %104
-  %105 = load i32, ptr @hf_bfd_auth_seq_num, align 4
-  %106 = tail call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %105, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef 0)
-  %107 = load i32, ptr @hf_bfd_checksum, align 4
-  %108 = and i8 %76, -2
-  %switch.i = icmp eq i8 %108, 2
+get_bfd_checksum_len.exit.i:                      ; preds = %106
+  %107 = load i32, ptr @hf_bfd_auth_seq_num, align 4
+  %108 = tail call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %107, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef 0)
+  %109 = load i32, ptr @hf_bfd_checksum, align 4
+  %110 = and i8 %78, -2
+  %switch.i = icmp eq i8 %110, 2
   %..i = select i1 %switch.i, i32 16, i32 20
-  %109 = tail call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %107, ptr noundef %0, i32 noundef 32, i32 noundef %..i, i32 noundef 0)
+  %111 = tail call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %109, ptr noundef %0, i32 noundef 32, i32 noundef %..i, i32 noundef 0)
   br label %dissect_bfd_authentication.exit
 
-dissect_bfd_authentication.exit:                  ; preds = %90, %91, %104, %get_bfd_checksum_len.exit.i
+dissect_bfd_authentication.exit:                  ; preds = %92, %93, %106, %get_bfd_checksum_len.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %113
+  br label %115
 
-110:                                              ; preds = %73
-  %111 = add nsw i32 %21, -24
-  %112 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.090, ptr noundef %1, ptr noundef nonnull @ei_bfd_auth_no_data, ptr noundef %0, i32 noundef 24, i32 noundef %111, ptr noundef nonnull @.str.144, i32 noundef %21)
-  br label %113
+112:                                              ; preds = %75
+  %113 = add nsw i32 %22, -24
+  %114 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.090, ptr noundef %1, ptr noundef nonnull @ei_bfd_auth_no_data, ptr noundef %0, i32 noundef 24, i32 noundef %113, ptr noundef nonnull @.str.144, i32 noundef %22)
+  br label %115
 
-113:                                              ; preds = %dissect_bfd_authentication.exit, %110, %72
-  %114 = call i32 @tvb_captured_length(ptr noundef %0)
-  ret i32 %114
+115:                                              ; preds = %dissect_bfd_authentication.exit, %112, %73
+  %116 = call i32 @tvb_captured_length(ptr noundef %0)
+  ret i32 %116
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

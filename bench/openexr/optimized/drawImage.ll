@@ -274,7 +274,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_12spERN7Imf_3_47Array2DINS0_4RgbaEE
   %.1.i = select i1 %.not9.i, float %.012.i, float %67
   %68 = fmul float %.0810.i, %.0810.i
   %69 = lshr i32 %.0711.i, 1
-  %.not.i = icmp samesign ult i32 %.0711.i, 2
+  %.not.i = icmp eq i32 %69, 0
   br i1 %.not.i, label %_ZN12_GLOBAL__N_12pwEfi.exit, label %65, !llvm.loop !14
 
 _ZN12_GLOBAL__N_12pwEfi.exit:                     ; preds = %65
@@ -857,7 +857,7 @@ define dso_local void @_Z10drawImage2RN7Imf_3_47Array2DIN9Imath_3_24halfEEERNS0_
   %.1.i.i = select i1 %.not9.i.i, float %.012.i.i, float %135
   %136 = fmul float %.0810.i.i, %.0810.i.i
   %137 = lshr i32 %.0711.i.i, 1
-  %.not.i.i = icmp samesign ult i32 %.0711.i.i, 2
+  %.not.i.i = icmp eq i32 %137, 0
   br i1 %.not.i.i, label %_ZN12_GLOBAL__N_12pwEfi.exit.i, label %133, !llvm.loop !14
 
 _ZN12_GLOBAL__N_12pwEfi.exit.i:                   ; preds = %133

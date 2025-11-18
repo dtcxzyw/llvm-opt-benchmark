@@ -4589,7 +4589,7 @@ lpc_encode_choose_datapath.exit174:               ; preds = %.preheader.i57.i116
 
 ._crit_edge540.i:                                 ; preds = %lpc_encode_choose_datapath.exit174
   %419 = lshr i32 %.0331543.i, 1
-  %.not357.i = icmp samesign ult i32 %.0331543.i, 2
+  %.not357.i = icmp eq i32 %419, 0
   br i1 %.not357.i, label %420, label %.lr.ph539.preheader.i, !llvm.loop !177
 
 420:                                              ; preds = %._crit_edge540.i

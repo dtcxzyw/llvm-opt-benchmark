@@ -2138,7 +2138,7 @@ define internal fastcc range(i32 0, 2) i32 @PutCoeffs(ptr noundef %0, i32 nounde
   %135 = zext i8 %134 to i32
   %136 = tail call i32 @VP8PutBit(ptr noundef %0, i32 noundef %132, i32 noundef %135) #9
   %137 = lshr i32 %.185108, 1
-  %.not104 = icmp samesign ult i32 %.185108, 2
+  %.not104 = icmp eq i32 %137, 0
   br i1 %.not104, label %.loopexit, label %129, !llvm.loop !130
 
 .loopexit:                                        ; preds = %129, %60, %53, %81, %85, %39

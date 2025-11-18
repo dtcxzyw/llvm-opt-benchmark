@@ -697,7 +697,7 @@ _ZNK5clang8comments16ParagraphComment12isWhitespaceEv.exit: ; preds = %15
   %.sroa.0.0.copyload.i = load i64, ptr %37, align 8
   %.sroa.324.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 32
   %.sroa.324.0.extract.trunc = trunc nuw i64 %.sroa.324.0.extract.shift to i32
-  %.not29 = icmp ult i64 %.sroa.0.0.copyload.i, 4294967296
+  %.not29 = icmp eq i64 %.sroa.324.0.extract.shift, 0
   br i1 %.not29, label %.thread, label %51
 
 .thread:                                          ; preds = %28, %32

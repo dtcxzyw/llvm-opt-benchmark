@@ -1480,7 +1480,7 @@ _ZNK6icu_7715Normalizer2Impl9nextFCD16ERPKDsS2_.exit: ; preds = %10, %20, %46
   %.5 = phi ptr [ %14, %10 ], [ %14, %20 ], [ %.4, %46 ]
   %.0.i = phi i16 [ 0, %10 ], [ 0, %20 ], [ %47, %46 ]
   %49 = lshr i16 %.0.i, 8
-  %50 = icmp ugt i16 %.0.i, 255
+  %50 = icmp ne i16 %49, 0
   %.not23 = icmp eq ptr %.041, %48
   %or.cond28 = select i1 %50, i1 true, i1 %.not23
   br i1 %or.cond28, label %54, label %51
@@ -1493,7 +1493,7 @@ _ZNK6icu_7715Normalizer2Impl9nextFCD16ERPKDsS2_.exit: ; preds = %10, %20, %46
   br label %137
 
 54:                                               ; preds = %_ZNK6icu_7715Normalizer2Impl9nextFCD16ERPKDsS2_.exit
-  %.not24 = icmp ult i16 %.0.i, 256
+  %.not24 = icmp eq i16 %49, 0
   br i1 %.not24, label %130, label %55
 
 55:                                               ; preds = %54
@@ -2347,7 +2347,7 @@ _ZNK6icu_7715Normalizer2Impl13previousFCD16EPKDsRS2_.exit41: ; preds = %76, %89,
   %138 = trunc nuw i16 %137 to i8
   %139 = load ptr, ptr %9, align 8, !tbaa !43
   %140 = icmp eq ptr %.5, %139
-  %141 = icmp ult i16 %.0.i, 256
+  %141 = icmp eq i16 %137, 0
   %or.cond = or i1 %141, %140
   br i1 %or.cond, label %142, label %10
 

@@ -122,7 +122,7 @@ define dso_local i32 @float_to_shortest_decimal_bufn(float noundef %0, ptr nound
   %73 = add nuw i64 %72, %71
   %74 = lshr i64 %73, %60
   %75 = trunc i64 %74 to i32
-  %.not163.i = icmp samesign ult i32 %.0.i21, 4
+  %.not163.i = icmp eq i32 %44, 0
   br i1 %.not163.i, label %.thread.i, label %76
 
 76:                                               ; preds = %42
@@ -134,7 +134,7 @@ define dso_local i32 @float_to_shortest_decimal_bufn(float noundef %0, ptr nound
 
 80:                                               ; preds = %76
   %81 = add nsw i32 %44, -1
-  %82 = mul nsw i32 %81, 1217359
+  %82 = mul nuw nsw i32 %81, 1217359
   %83 = lshr i32 %82, 19
   %84 = zext nneg i32 %81 to i64
   %85 = getelementptr inbounds nuw i64, ptr @FLOAT_POW5_INV_SPLIT, i64 %84
@@ -235,7 +235,7 @@ multipleOfPowerOf5.exit173.i:                     ; preds = %.lr.ph.i.i169.i, %1
   %146 = add nuw i64 %145, %144
   %147 = lshr i64 %146, %133
   %148 = trunc i64 %147 to i32
-  %.not.i22 = icmp samesign ult i32 %115, 1048576
+  %.not.i22 = icmp eq i32 %116, 0
   %.pre.i = add i32 %141, -1
   br i1 %.not.i22, label %.thread176.thread231.i, label %149
 
@@ -269,7 +269,7 @@ multipleOfPowerOf5.exit173.i:                     ; preds = %.lr.ph.i.i169.i, %1
 
 171:                                              ; preds = %152, %149
   %.2149.i = phi i8 [ %170, %152 ], [ 0, %149 ]
-  %172 = icmp samesign ult i32 %115, 2097152
+  %172 = icmp eq i32 %116, 1
   br i1 %172, label %.thread176.thread231.i, label %173
 
 173:                                              ; preds = %171

@@ -59,26 +59,26 @@ define noundef i32 @RIPEMD160_Update(ptr noundef captures(none) %0, ptr noundef 
 35:                                               ; preds = %28, %._crit_edge
   %.054 = phi i64 [ %31, %28 ], [ %2, %._crit_edge ]
   %.053 = phi ptr [ %30, %28 ], [ %1, %._crit_edge ]
-  %.not58 = icmp ult i64 %.054, 64
-  br i1 %.not58, label %41, label %36
+  %36 = lshr i64 %.054, 6
+  %.not58 = icmp eq i64 %36, 0
+  br i1 %.not58, label %41, label %37
 
-36:                                               ; preds = %35
-  %37 = lshr i64 %.054, 6
-  tail call void @ripemd160_block_data_order(ptr noundef nonnull %0, ptr noundef %.053, i64 noundef %37)
+37:                                               ; preds = %35
+  tail call void @ripemd160_block_data_order(ptr noundef nonnull %0, ptr noundef %.053, i64 noundef %36)
   %38 = and i64 %.054, -64
   %39 = getelementptr inbounds nuw i8, ptr %.053, i64 %38
   %40 = and i64 %.054, 63
   br label %41
 
-41:                                               ; preds = %36, %35
-  %.155 = phi i64 [ %40, %36 ], [ %.054, %35 ]
-  %.1 = phi ptr [ %39, %36 ], [ %.053, %35 ]
+41:                                               ; preds = %37, %35
+  %.155 = phi i64 [ %40, %37 ], [ %.054, %35 ]
+  %.1 = phi ptr [ %39, %37 ], [ %.053, %35 ]
   %.not59 = icmp eq i64 %.155, 0
   br i1 %.not59, label %45, label %42
 
 42:                                               ; preds = %41
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %44 = trunc nuw nsw i64 %.155 to i32
+  %44 = trunc i64 %.155 to i32
   store i32 %44, ptr %19, align 4, !tbaa !9
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr align 1 %.1, i64 %.155, i1 false)
   br label %45

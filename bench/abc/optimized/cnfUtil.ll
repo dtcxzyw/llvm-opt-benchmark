@@ -615,7 +615,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %67
 70:                                               ; preds = %46
   %71 = lshr i64 %47, 56
   %72 = trunc nuw nsw i64 %71 to i32
-  %.not.i52 = icmp ult i64 %47, 72057594037927936
+  %.not.i52 = icmp eq i64 %71, 0
   br i1 %.not.i52, label %Dar_ObjBestCut.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %70

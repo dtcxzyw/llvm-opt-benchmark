@@ -52,7 +52,7 @@ define void @dt_heal(ptr noundef readonly captures(none) %0, ptr noundef capture
 
 .lr.ph84.i:                                       ; preds = %23
   %29 = lshr i64 %24, 1
-  %.not89.i = icmp ult i32 %3, 2
+  %.not89.i = icmp eq i64 %29, 0
   %30 = and i32 %3, 1
   %.not77.i = icmp eq i32 %30, 0
   %31 = add nsw i64 %24, -1
@@ -579,7 +579,7 @@ _heal_laplace_loop.exit:                          ; preds = %273, %274
 
 .lr.ph68.i:                                       ; preds = %_heal_laplace_loop.exit
   %275 = lshr i64 %24, 1
-  %.not73.i = icmp ult i32 %3, 2
+  %.not73.i = icmp eq i64 %275, 0
   %276 = and i32 %3, 1
   %.not61.i = icmp eq i32 %276, 0
   %277 = add nsw i64 %24, -1

@@ -27332,7 +27332,7 @@ _ZN3fmt3v116detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %27, %20
   %42 = lshr i64 %9, 1
   %43 = and i64 %9, 1
   %44 = getelementptr inbounds nuw i8, ptr @.str.72, i64 %42
-  %.not24.i.i.i8 = icmp eq i64 %9, 1
+  %.not24.i.i.i8 = icmp samesign eq i64 %42, 0
   br i1 %.not24.i.i.i8, label %_ZN6spdlog7details13scoped_padder6pad_itEl.exit24, label %.lr.ph27.i.i.i9
 
 .lr.ph27.i.i.i9:                                  ; preds = %41

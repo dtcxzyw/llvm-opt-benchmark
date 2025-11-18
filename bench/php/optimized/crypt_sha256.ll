@@ -300,11 +300,11 @@ sha256_finish_ctx.exit._crit_edge:                ; preds = %sha256_finish_ctx.e
 
 130:                                              ; preds = %128, %129
   %131 = lshr i64 %.1392477, 1
-  %.not428 = icmp ult i64 %.1392477, 2
+  %.not428 = icmp eq i64 %131, 0
   br i1 %.not428, label %._crit_edge, label %.lr.ph478
 
 ._crit_edge:                                      ; preds = %130, %sha256_finish_ctx.exit._crit_edge
-  %.not428476636 = phi i1 [ true, %sha256_finish_ctx.exit._crit_edge ], [ false, %130 ]
+  %.not428476637 = phi i1 [ true, %sha256_finish_ctx.exit._crit_edge ], [ false, %130 ]
   %132 = load i32, ptr %71, align 4, !tbaa !13
   %133 = load i32, ptr %69, align 4, !tbaa !11
   %134 = add i32 %133, %132
@@ -380,7 +380,7 @@ sha256_finish_ctx.exit445:                        ; preds = %169
   store i32 0, ptr %80, align 4, !tbaa !11
   store i32 0, ptr %79, align 4, !tbaa !11
   store i32 0, ptr %81, align 4, !tbaa !13
-  br i1 %.not428476636, label %._crit_edge.i446.thread, label %.lr.ph480
+  br i1 %.not428476637, label %._crit_edge.i446.thread, label %.lr.ph480
 
 .lr.ph480:                                        ; preds = %sha256_finish_ctx.exit445, %.lr.ph480
   %.2393479 = phi i64 [ %174, %.lr.ph480 ], [ 0, %sha256_finish_ctx.exit445 ]
@@ -407,7 +407,7 @@ sha256_finish_ctx.exit445:                        ; preds = %169
 ._crit_edge.i446:                                 ; preds = %177, %._crit_edge481
   %179 = phi i32 [ %178, %177 ], [ %.pre623, %._crit_edge481 ]
   %.inv.i447 = icmp ult i32 %.pre.fr, 56
-  %spec.select687 = select i1 %.inv.i447, i32 56, i32 120
+  %spec.select688 = select i1 %.inv.i447, i32 56, i32 120
   %180 = call i32 @llvm.fshl.i32(i32 %179, i32 %175, i32 3)
   %181 = call i32 @llvm.bswap.i32(i32 %180)
   br label %._crit_edge.i446.thread
@@ -416,7 +416,7 @@ sha256_finish_ctx.exit445:                        ; preds = %169
   %182 = phi i32 [ 0, %sha256_finish_ctx.exit445 ], [ %181, %._crit_edge.i446 ]
   %183 = phi i32 [ 0, %sha256_finish_ctx.exit445 ], [ %.pre.fr, %._crit_edge.i446 ]
   %184 = phi i32 [ 0, %sha256_finish_ctx.exit445 ], [ %175, %._crit_edge.i446 ]
-  %185 = phi i32 [ 56, %sha256_finish_ctx.exit445 ], [ %spec.select687, %._crit_edge.i446 ]
+  %185 = phi i32 [ 56, %sha256_finish_ctx.exit445 ], [ %spec.select688, %._crit_edge.i446 ]
   %186 = sub i32 %185, %183
   %187 = zext i32 %186 to i64
   %188 = zext i32 %183 to i64
@@ -734,8 +734,8 @@ sha256_finish_ctx.exit466:                        ; preds = %318
   %346 = getelementptr inbounds nuw i8, ptr %.2400, i64 %spec.select.i467
   store i8 36, ptr %346, align 1, !tbaa !9
   %347 = add nsw i32 %343, -1
-  %.not688 = icmp eq i32 %347, 0
-  br i1 %.not688, label %._crit_edge589.thread, label %.lr.ph498.preheader
+  %.not689 = icmp eq i32 %347, 0
+  br i1 %.not689, label %._crit_edge589.thread, label %.lr.ph498.preheader
 
 .lr.ph498.preheader:                              ; preds = %345
   %348 = getelementptr inbounds nuw i8, ptr %346, i64 1
@@ -773,8 +773,8 @@ sha256_finish_ctx.exit466:                        ; preds = %318
   br i1 %371, label %.lr.ph498, label %._crit_edge499
 
 ._crit_edge499:                                   ; preds = %.lr.ph498
-  %.not689 = icmp eq i32 %367, 0
-  br i1 %.not689, label %._crit_edge589.thread, label %.lr.ph507.preheader
+  %.not690 = icmp eq i32 %367, 0
+  br i1 %.not690, label %._crit_edge589.thread, label %.lr.ph507.preheader
 
 .lr.ph507.preheader:                              ; preds = %._crit_edge499
   %372 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -812,8 +812,8 @@ sha256_finish_ctx.exit466:                        ; preds = %318
   br i1 %395, label %.lr.ph507, label %._crit_edge508
 
 ._crit_edge508:                                   ; preds = %.lr.ph507
-  %.not690 = icmp eq i32 %391, 0
-  br i1 %.not690, label %._crit_edge589.thread, label %.lr.ph516.preheader
+  %.not691 = icmp eq i32 %391, 0
+  br i1 %.not691, label %._crit_edge589.thread, label %.lr.ph516.preheader
 
 .lr.ph516.preheader:                              ; preds = %._crit_edge508
   %396 = getelementptr inbounds nuw i8, ptr %4, i64 22
@@ -851,8 +851,8 @@ sha256_finish_ctx.exit466:                        ; preds = %318
   br i1 %419, label %.lr.ph516, label %._crit_edge517
 
 ._crit_edge517:                                   ; preds = %.lr.ph516
-  %.not691 = icmp eq i32 %415, 0
-  br i1 %.not691, label %._crit_edge589.thread, label %.lr.ph525.preheader
+  %.not692 = icmp eq i32 %415, 0
+  br i1 %.not692, label %._crit_edge589.thread, label %.lr.ph525.preheader
 
 .lr.ph525.preheader:                              ; preds = %._crit_edge517
   %420 = getelementptr inbounds nuw i8, ptr %4, i64 13
@@ -890,8 +890,8 @@ sha256_finish_ctx.exit466:                        ; preds = %318
   br i1 %443, label %.lr.ph525, label %._crit_edge526
 
 ._crit_edge526:                                   ; preds = %.lr.ph525
-  %.not692 = icmp eq i32 %439, 0
-  br i1 %.not692, label %._crit_edge589.thread, label %.lr.ph534.preheader
+  %.not693 = icmp eq i32 %439, 0
+  br i1 %.not693, label %._crit_edge589.thread, label %.lr.ph534.preheader
 
 .lr.ph534.preheader:                              ; preds = %._crit_edge526
   %444 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -929,8 +929,8 @@ sha256_finish_ctx.exit466:                        ; preds = %318
   br i1 %467, label %.lr.ph534, label %._crit_edge535
 
 ._crit_edge535:                                   ; preds = %.lr.ph534
-  %.not693 = icmp eq i32 %463, 0
-  br i1 %.not693, label %._crit_edge589.thread, label %.lr.ph543.preheader
+  %.not694 = icmp eq i32 %463, 0
+  br i1 %.not694, label %._crit_edge589.thread, label %.lr.ph543.preheader
 
 .lr.ph543.preheader:                              ; preds = %._crit_edge535
   %468 = getelementptr inbounds nuw i8, ptr %4, i64 25
@@ -968,8 +968,8 @@ sha256_finish_ctx.exit466:                        ; preds = %318
   br i1 %491, label %.lr.ph543, label %._crit_edge544
 
 ._crit_edge544:                                   ; preds = %.lr.ph543
-  %.not694 = icmp eq i32 %487, 0
-  br i1 %.not694, label %._crit_edge589.thread, label %.lr.ph552.preheader
+  %.not695 = icmp eq i32 %487, 0
+  br i1 %.not695, label %._crit_edge589.thread, label %.lr.ph552.preheader
 
 .lr.ph552.preheader:                              ; preds = %._crit_edge544
   %492 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1007,8 +1007,8 @@ sha256_finish_ctx.exit466:                        ; preds = %318
   br i1 %515, label %.lr.ph552, label %._crit_edge553
 
 ._crit_edge553:                                   ; preds = %.lr.ph552
-  %.not695 = icmp eq i32 %511, 0
-  br i1 %.not695, label %._crit_edge589.thread, label %.lr.ph561.preheader
+  %.not696 = icmp eq i32 %511, 0
+  br i1 %.not696, label %._crit_edge589.thread, label %.lr.ph561.preheader
 
 .lr.ph561.preheader:                              ; preds = %._crit_edge553
   %516 = getelementptr inbounds nuw i8, ptr %4, i64 7
@@ -1046,8 +1046,8 @@ sha256_finish_ctx.exit466:                        ; preds = %318
   br i1 %539, label %.lr.ph561, label %._crit_edge562
 
 ._crit_edge562:                                   ; preds = %.lr.ph561
-  %.not696 = icmp eq i32 %535, 0
-  br i1 %.not696, label %._crit_edge589.thread, label %.lr.ph570.preheader
+  %.not697 = icmp eq i32 %535, 0
+  br i1 %.not697, label %._crit_edge589.thread, label %.lr.ph570.preheader
 
 .lr.ph570.preheader:                              ; preds = %._crit_edge562
   %540 = getelementptr inbounds nuw i8, ptr %4, i64 28
@@ -1085,8 +1085,8 @@ sha256_finish_ctx.exit466:                        ; preds = %318
   br i1 %563, label %.lr.ph570, label %._crit_edge571
 
 ._crit_edge571:                                   ; preds = %.lr.ph570
-  %.not697 = icmp eq i32 %559, 0
-  br i1 %.not697, label %._crit_edge589.thread, label %.lr.ph579.preheader
+  %.not698 = icmp eq i32 %559, 0
+  br i1 %.not698, label %._crit_edge589.thread, label %.lr.ph579.preheader
 
 .lr.ph579.preheader:                              ; preds = %._crit_edge571
   %564 = getelementptr inbounds nuw i8, ptr %4, i64 19
@@ -1124,8 +1124,8 @@ sha256_finish_ctx.exit466:                        ; preds = %318
   br i1 %587, label %.lr.ph579, label %._crit_edge580
 
 ._crit_edge580:                                   ; preds = %.lr.ph579
-  %.not698 = icmp eq i32 %583, 0
-  br i1 %.not698, label %._crit_edge589.thread, label %.lr.ph588.preheader
+  %.not699 = icmp eq i32 %583, 0
+  br i1 %.not699, label %._crit_edge589.thread, label %.lr.ph588.preheader
 
 .lr.ph588.preheader:                              ; preds = %._crit_edge580
   %588 = getelementptr inbounds nuw i8, ptr %4, i64 30

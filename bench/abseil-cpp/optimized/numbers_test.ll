@@ -9717,7 +9717,7 @@ _ZN4absl16numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i: ; preds = %
   %.neg8910.i.i.i.i = lshr i32 %.neg8.lhs.trunc.i.i.i.i, 2
   %narrow.i.i.i.i = sub nuw nsw i32 16, %.neg8910.i.i.i.i
   %33 = zext nneg i32 %narrow.i.i.i.i to i64
-  %.not.i.i.i.not = icmp ugt i64 %0, 1152921504606846975
+  %.not.i.i.i.not = icmp eq i32 %.neg8910.i.i.i.i, 0
   br i1 %.not.i.i.i.not, label %_ZN4absl16strings_internal22ExtractStringificationINS_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i, label %34
 
 34:                                               ; preds = %_ZN4absl16numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i

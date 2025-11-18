@@ -2119,12 +2119,11 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit:    ; preds = %._crit_edge, %15
   %23 = load i32, ptr %11, align 8, !tbaa !24
   %24 = add i32 %23, 1
   store i32 %24, ptr %11, align 8, !tbaa !24
-  %.not35 = icmp ult i32 %5, 32
+  %.not35 = icmp eq i32 %7, 0
   br i1 %.not35, label %._crit_edge34, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %umax = tail call i32 @llvm.umax.i32(i32 %7, i32 1)
   br label %.preheader
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
@@ -2179,7 +2178,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit21:  ; preds = %39, %41
   %49 = add i32 %48, 1
   store i32 %49, ptr %11, align 8, !tbaa !24
   %50 = add nuw nsw i32 %.01633, 1
-  %exitcond40.not = icmp eq i32 %50, %umax
+  %exitcond40.not = icmp eq i32 %50, %7
   br i1 %exitcond40.not, label %._crit_edge34, label %.preheader, !llvm.loop !169
 
 51:                                               ; preds = %.preheader, %51
@@ -10608,7 +10607,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit29:  ; preds = %_ZN4llvm16FoldingSe
   %105 = shl nuw nsw i32 %78, 3
   %.idx49 = zext nneg i32 %105 to i64
   %106 = getelementptr inbounds nuw i8, ptr %77, i64 %.idx49
-  %.not2145 = icmp ult i32 %73, 67108864
+  %.not2145 = icmp eq i32 %78, 0
   br i1 %.not2145, label %._crit_edge48, label %.lr.ph47
 
 .lr.ph:                                           ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit, %.lr.ph

@@ -29,7 +29,7 @@ define internal i32 @tmv_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %11 = load i32, ptr %10, align 4, !tbaa !30
   %12 = ashr i32 %11, 3
-  %13 = tail call i32 @ff_get_buffer(ptr noundef %0, ptr noundef %1, i32 noundef 0) #6
+  %13 = tail call i32 @ff_get_buffer(ptr noundef %0, ptr noundef %1, i32 noundef 0) #5
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %48, label %15
 
@@ -42,7 +42,7 @@ define internal i32 @tmv_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %15
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.2) #6
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.2) #5
   store i32 0, ptr %2, align 4, !tbaa !32
   br label %48
 
@@ -54,18 +54,16 @@ define internal i32 @tmv_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %26 = load ptr, ptr %24, align 8, !tbaa !33
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(960) %27, i8 0, i64 960, i1 false)
-  %.not = icmp ult i32 %11, 8
+  %.not = icmp eq i32 %12, 0
   br i1 %.not, label %._crit_edge43, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %22
-  %.not44 = icmp ult i32 %8, 8
+  %.not44 = icmp eq i32 %9, 0
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 64
   br i1 %.not44, label %._crit_edge43, label %.preheader.us.preheader
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
-  %umax = tail call i32 @llvm.umax.i32(i32 %9, i32 1)
-  %umax47 = tail call i32 @llvm.umax.i32(i32 %12, i32 1)
-  %wide.trip.count = zext i32 %umax to i64
+  %wide.trip.count = zext i32 %9 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
@@ -89,7 +87,7 @@ define internal i32 @tmv_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %39 = and i64 %38, 4294967288
   %40 = getelementptr inbounds nuw i8, ptr %.03441.us, i64 %39
   %41 = load i32, ptr %28, align 8, !tbaa !32
-  tail call void @ff_draw_pc_font(ptr noundef %40, i32 noundef %41, ptr noundef nonnull @avpriv_cga_font, i32 noundef 8, i32 noundef %32, i32 noundef %37, i32 noundef %35) #6
+  tail call void @ff_draw_pc_font(ptr noundef %40, i32 noundef %41, ptr noundef nonnull @avpriv_cga_font, i32 noundef 8, i32 noundef %32, i32 noundef %37, i32 noundef %35) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %29, !llvm.loop !35
@@ -100,8 +98,8 @@ define internal i32 @tmv_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds i8, ptr %.03441.us, i64 %44
   %46 = add nuw i32 %.03640.us, 1
-  %exitcond48.not = icmp eq i32 %46, %umax47
-  br i1 %exitcond48.not, label %._crit_edge43, label %.preheader.us, !llvm.loop !37
+  %exitcond47.not = icmp eq i32 %46, %12
+  br i1 %exitcond47.not, label %._crit_edge43, label %.preheader.us, !llvm.loop !37
 
 ._crit_edge43:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %22
   store i32 1, ptr %2, align 4, !tbaa !32
@@ -125,16 +123,12 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 declare void @ff_draw_pc_font(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #5
-
 attributes #0 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

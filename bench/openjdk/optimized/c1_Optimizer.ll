@@ -3975,14 +3975,14 @@ define hidden void @_ZN19NullCheckEliminator11iterate_oneEP10BlockBegin(ptr noun
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, 63
-  %.not.i.i.i = icmp ult i64 %7, 64
+  %8 = lshr i64 %7, 6
+  %.not.i.i.i = icmp eq i64 %8, 0
   br i1 %.not.i.i.i, label %_ZN19NullCheckEliminator21clear_visitable_stateEv.exit, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %2
-  %8 = load ptr, ptr %4, align 8
-  %9 = lshr i64 %7, 3
-  %10 = and i64 %9, 2305843009213693944
-  tail call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 %10, i1 false)
+  %9 = load ptr, ptr %4, align 8
+  %10 = shl nuw nsw i64 %8, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 %10, i1 false)
   br label %_ZN19NullCheckEliminator21clear_visitable_stateEv.exit
 
 _ZN19NullCheckEliminator21clear_visitable_stateEv.exit: ; preds = %2, %.lr.ph.preheader.i.i.i.i.i

@@ -10902,9 +10902,9 @@ define linkonce_odr void @_ZN6duckdb12RleBpEncoder20WriteCurrentBlockRLEERNS_11W
   %16 = trunc i64 %.06.i to i8
   %17 = and i8 %16, 127
   %18 = lshr i64 %.06.i, 7
-  %.not.i = icmp ult i64 %.06.i, 128
+  %.not.i = icmp eq i64 %18, 0
   %masksel.i = select i1 %.not.i, i8 0, i8 -128
-  %.0.i = or disjoint i8 %17, %masksel.i
+  %.0.i = or disjoint i8 %masksel.i, %17
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 %.0.i, ptr %9, align 1, !tbaa !114
   %19 = load ptr, ptr %1, align 8, !tbaa !3

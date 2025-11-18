@@ -1091,7 +1091,7 @@ enc_uint64.exit218.i:                             ; preds = %122, %119
   br i1 %.not169310.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %131, %.lr.ph.i.backedge
-  %133 = phi i8 [ %.be366, %.lr.ph.i.backedge ], [ 0, %131 ]
+  %133 = phi i8 [ %.be368, %.lr.ph.i.backedge ], [ 0, %131 ]
   %.0134312.i = phi ptr [ %.0134312.i.be, %.lr.ph.i.backedge ], [ %.0134309.i, %131 ]
   %.0132311.i = phi i8 [ %.0132311.i.be, %.lr.ph.i.backedge ], [ -128, %131 ]
   %134 = getelementptr inbounds nuw i8, ptr %.0134312.i, i64 48
@@ -1106,36 +1106,36 @@ enc_uint64.exit218.i:                             ; preds = %122, %119
 
 139:                                              ; preds = %137, %.lr.ph.i
   %140 = phi i8 [ %138, %137 ], [ %133, %.lr.ph.i ]
-  %141 = icmp ult i8 %.0132311.i, 2
-  br i1 %141, label %142, label %146
+  %141 = lshr i8 %.0132311.i, 1
+  %142 = icmp eq i8 %141, 0
+  br i1 %142, label %143, label %147
 
-142:                                              ; preds = %139
-  %143 = call fastcc i64 @compress_out(ptr noundef nonnull %0, ptr noundef nonnull %13, i64 noundef 1, i32 noundef 1)
-  %144 = trunc i64 %143 to i32
-  %145 = icmp slt i32 %144, 0
-  br i1 %145, label %make_header.exit.thread, label %.thread.i
+143:                                              ; preds = %139
+  %144 = call fastcc i64 @compress_out(ptr noundef nonnull %0, ptr noundef nonnull %13, i64 noundef 1, i32 noundef 1)
+  %145 = trunc i64 %144 to i32
+  %146 = icmp slt i32 %145, 0
+  br i1 %146, label %make_header.exit.thread, label %.thread.i
 
-146:                                              ; preds = %139
-  %147 = lshr i8 %.0132311.i, 1
+147:                                              ; preds = %139
   %148 = getelementptr inbounds nuw i8, ptr %.0134312.i, i64 24
   %.0134.i = load ptr, ptr %148, align 8, !tbaa !64
   %.not169.i = icmp eq ptr %.0134.i, null
   br i1 %.not169.i, label %._crit_edge.i, label %.lr.ph.i.backedge
 
-.thread.i:                                        ; preds = %142
+.thread.i:                                        ; preds = %143
   store i8 0, ptr %13, align 1, !tbaa !46
   %149 = getelementptr inbounds nuw i8, ptr %.0134312.i, i64 24
-  %.0134417.i = load ptr, ptr %149, align 8, !tbaa !64
-  %.not169418.i = icmp eq ptr %.0134417.i, null
-  br i1 %.not169418.i, label %._crit_edge.thread.i, label %.lr.ph.i.backedge
+  %.0134419.i = load ptr, ptr %149, align 8, !tbaa !64
+  %.not169420.i = icmp eq ptr %.0134419.i, null
+  br i1 %.not169420.i, label %._crit_edge.thread.i, label %.lr.ph.i.backedge
 
-.lr.ph.i.backedge:                                ; preds = %.thread.i, %146
-  %.be366 = phi i8 [ %140, %146 ], [ 0, %.thread.i ]
-  %.0134312.i.be = phi ptr [ %.0134.i, %146 ], [ %.0134417.i, %.thread.i ]
-  %.0132311.i.be = phi i8 [ %147, %146 ], [ -128, %.thread.i ]
+.lr.ph.i.backedge:                                ; preds = %.thread.i, %147
+  %.be368 = phi i8 [ %140, %147 ], [ 0, %.thread.i ]
+  %.0134312.i.be = phi ptr [ %.0134.i, %147 ], [ %.0134419.i, %.thread.i ]
+  %.0132311.i.be = phi i8 [ %141, %147 ], [ -128, %.thread.i ]
   br label %.lr.ph.i, !llvm.loop !85
 
-._crit_edge.i:                                    ; preds = %146
+._crit_edge.i:                                    ; preds = %147
   %150 = call fastcc i64 @compress_out(ptr noundef nonnull %0, ptr noundef nonnull %13, i64 noundef 1, i32 noundef 1)
   %151 = trunc i64 %150 to i32
   %152 = icmp slt i32 %151, 0
@@ -1231,14 +1231,14 @@ enc_uint64.exit234.i:                             ; preds = %172, %169
 192:                                              ; preds = %190, %186
   %193 = phi i8 [ %191, %190 ], [ %183, %186 ]
   %194 = lshr i8 %.2315.i, 1
-  %195 = icmp ult i8 %.2315.i, 2
+  %195 = icmp eq i8 %194, 0
   br i1 %195, label %196, label %200
 
 196:                                              ; preds = %192
   %197 = call fastcc i64 @compress_out(ptr noundef nonnull %0, ptr noundef nonnull %13, i64 noundef 1, i32 noundef 1)
   %198 = trunc i64 %197 to i32
   %199 = icmp slt i32 %198, 0
-  br i1 %199, label %make_header.exit.thread, label %.thread423.i
+  br i1 %199, label %make_header.exit.thread, label %.thread425.i
 
 200:                                              ; preds = %192, %.lr.ph318.i
   %201 = phi i8 [ %183, %.lr.ph318.i ], [ %193, %192 ]
@@ -1248,17 +1248,17 @@ enc_uint64.exit234.i:                             ; preds = %172, %169
   %.not171.i = icmp eq ptr %.1135.i, null
   br i1 %.not171.i, label %._crit_edge319.i, label %.lr.ph318.i.backedge
 
-.thread423.i:                                     ; preds = %196
+.thread425.i:                                     ; preds = %196
   store i8 0, ptr %13, align 1, !tbaa !46
   %203 = getelementptr inbounds nuw i8, ptr %.1135316.i, i64 24
-  %.1135425.i = load ptr, ptr %203, align 8, !tbaa !64
-  %.not171426.i = icmp eq ptr %.1135425.i, null
-  br i1 %.not171426.i, label %enc_uint64.exit242.i, label %.lr.ph318.i.backedge
+  %.1135427.i = load ptr, ptr %203, align 8, !tbaa !64
+  %.not171428.i = icmp eq ptr %.1135427.i, null
+  br i1 %.not171428.i, label %enc_uint64.exit242.i, label %.lr.ph318.i.backedge
 
-.lr.ph318.i.backedge:                             ; preds = %.thread423.i, %200
-  %.be = phi i8 [ %201, %200 ], [ 0, %.thread423.i ]
-  %.1135316.i.be = phi ptr [ %.1135.i, %200 ], [ %.1135425.i, %.thread423.i ]
-  %.2315.i.be = phi i8 [ %.3.i, %200 ], [ -128, %.thread423.i ]
+.lr.ph318.i.backedge:                             ; preds = %.thread425.i, %200
+  %.be = phi i8 [ %201, %200 ], [ 0, %.thread425.i ]
+  %.1135316.i.be = phi ptr [ %.1135.i, %200 ], [ %.1135427.i, %.thread425.i ]
+  %.2315.i.be = phi i8 [ %.3.i, %200 ], [ -128, %.thread425.i ]
   br label %.lr.ph318.i, !llvm.loop !86
 
 ._crit_edge319.i:                                 ; preds = %200
@@ -1271,7 +1271,7 @@ enc_uint64.exit234.i:                             ; preds = %172, %169
   %208 = icmp slt i32 %207, 0
   br i1 %208, label %make_header.exit.thread, label %enc_uint64.exit242.i
 
-enc_uint64.exit242.i:                             ; preds = %.thread423.i, %205, %._crit_edge319.i, %181, %._crit_edge.thread.i
+enc_uint64.exit242.i:                             ; preds = %.thread425.i, %205, %._crit_edge319.i, %181, %._crit_edge.thread.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 17, ptr %4, align 1
   %209 = call fastcc i64 @compress_out(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 1, i32 noundef 1)
@@ -1431,8 +1431,8 @@ enc_uint64.exit250.i:                             ; preds = %224, %221
   %289 = icmp slt i32 %288, 0
   br i1 %289, label %make_header.exit.thread, label %make_header.exit
 
-make_header.exit.thread:                          ; preds = %142, %196, %.lr.ph325.i, %.lr.ph330.i, %65, %enc_uint64.exit186.i, %78, %enc_uint64.exit194.i, %enc_uint64.exit202.i, %enc_uint64.exit210.i, %enc_uint64.exit218.i, %._crit_edge.i, %enc_uint64.exit226.i, %enc_uint64.exit234.i, %205, %enc_uint64.exit242.i, %enc_uint64.exit250.i, %233, %._crit_edge326.i, %251, %254, %257, %260, %266, %269, %._crit_edge331.i
-  %.0138.i.ph = phi i32 [ %288, %._crit_edge331.i ], [ %270, %269 ], [ %267, %266 ], [ %264, %260 ], [ %258, %257 ], [ %255, %254 ], [ %252, %251 ], [ %249, %._crit_edge326.i ], [ %234, %233 ], [ %231, %enc_uint64.exit250.i ], [ %210, %enc_uint64.exit242.i ], [ %207, %205 ], [ %179, %enc_uint64.exit234.i ], [ %158, %enc_uint64.exit226.i ], [ %151, %._crit_edge.i ], [ %129, %enc_uint64.exit218.i ], [ %108, %enc_uint64.exit210.i ], [ %102, %enc_uint64.exit202.i ], [ %82, %enc_uint64.exit194.i ], [ %79, %78 ], [ %76, %enc_uint64.exit186.i ], [ %70, %65 ], [ %286, %.lr.ph330.i ], [ %247, %.lr.ph325.i ], [ %198, %196 ], [ %144, %142 ]
+make_header.exit.thread:                          ; preds = %143, %196, %.lr.ph325.i, %.lr.ph330.i, %65, %enc_uint64.exit186.i, %78, %enc_uint64.exit194.i, %enc_uint64.exit202.i, %enc_uint64.exit210.i, %enc_uint64.exit218.i, %._crit_edge.i, %enc_uint64.exit226.i, %enc_uint64.exit234.i, %205, %enc_uint64.exit242.i, %enc_uint64.exit250.i, %233, %._crit_edge326.i, %251, %254, %257, %260, %266, %269, %._crit_edge331.i
+  %.0138.i.ph = phi i32 [ %288, %._crit_edge331.i ], [ %270, %269 ], [ %267, %266 ], [ %264, %260 ], [ %258, %257 ], [ %255, %254 ], [ %252, %251 ], [ %249, %._crit_edge326.i ], [ %234, %233 ], [ %231, %enc_uint64.exit250.i ], [ %210, %enc_uint64.exit242.i ], [ %207, %205 ], [ %179, %enc_uint64.exit234.i ], [ %158, %enc_uint64.exit226.i ], [ %151, %._crit_edge.i ], [ %129, %enc_uint64.exit218.i ], [ %108, %enc_uint64.exit210.i ], [ %102, %enc_uint64.exit202.i ], [ %82, %enc_uint64.exit194.i ], [ %79, %78 ], [ %76, %enc_uint64.exit186.i ], [ %70, %65 ], [ %286, %.lr.ph330.i ], [ %247, %.lr.ph325.i ], [ %198, %196 ], [ %145, %143 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %flush_wbuff.exit
 
@@ -3766,36 +3766,36 @@ enc_uint64.exit116:                               ; preds = %enc_uint64.exit108
 
 91:                                               ; preds = %89, %.lr.ph
   %92 = phi i8 [ %90, %89 ], [ %85, %.lr.ph ]
-  %93 = icmp ult i8 %.0158, 2
-  br i1 %93, label %94, label %98
+  %93 = lshr i8 %.0158, 1
+  %94 = icmp eq i8 %93, 0
+  br i1 %94, label %95, label %99
 
-94:                                               ; preds = %91
-  %95 = call fastcc i64 @compress_out(ptr noundef nonnull %0, ptr noundef nonnull %13, i64 noundef 1, i32 noundef 1)
-  %96 = trunc i64 %95 to i32
-  %97 = icmp slt i32 %96, 0
-  br i1 %97, label %.loopexit, label %.thread
+95:                                               ; preds = %91
+  %96 = call fastcc i64 @compress_out(ptr noundef nonnull %0, ptr noundef nonnull %13, i64 noundef 1, i32 noundef 1)
+  %97 = trunc i64 %96 to i32
+  %98 = icmp slt i32 %97, 0
+  br i1 %98, label %.loopexit, label %.thread
 
-98:                                               ; preds = %91
-  %99 = lshr i8 %.0158, 1
+99:                                               ; preds = %91
   %100 = getelementptr inbounds nuw i8, ptr %.060159, i64 24
   %.060 = load ptr, ptr %100, align 8, !tbaa !64
   %.not = icmp eq ptr %.060, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.backedge
 
-.lr.ph.backedge:                                  ; preds = %98, %.thread
-  %.be = phi i8 [ %92, %98 ], [ 0, %.thread ]
-  %.060159.be = phi ptr [ %.060, %98 ], [ %.060208, %.thread ]
-  %.0158.be = phi i8 [ %99, %98 ], [ -128, %.thread ]
+.lr.ph.backedge:                                  ; preds = %99, %.thread
+  %.be = phi i8 [ %92, %99 ], [ 0, %.thread ]
+  %.060159.be = phi ptr [ %.060, %99 ], [ %.060209, %.thread ]
+  %.0158.be = phi i8 [ %93, %99 ], [ -128, %.thread ]
   br label %.lr.ph, !llvm.loop !170
 
-.thread:                                          ; preds = %94
+.thread:                                          ; preds = %95
   store i8 0, ptr %13, align 1, !tbaa !46
   %101 = getelementptr inbounds nuw i8, ptr %.060159, i64 24
-  %.060208 = load ptr, ptr %101, align 8, !tbaa !64
-  %.not209 = icmp eq ptr %.060208, null
-  br i1 %.not209, label %enc_uint64.exit124, label %.lr.ph.backedge
+  %.060209 = load ptr, ptr %101, align 8, !tbaa !64
+  %.not210 = icmp eq ptr %.060209, null
+  br i1 %.not210, label %enc_uint64.exit124, label %.lr.ph.backedge
 
-._crit_edge:                                      ; preds = %98
+._crit_edge:                                      ; preds = %99
   %102 = call fastcc i64 @compress_out(ptr noundef nonnull %0, ptr noundef nonnull %13, i64 noundef 1, i32 noundef 1)
   %103 = trunc i64 %102 to i32
   %104 = icmp slt i32 %103, 0
@@ -3846,8 +3846,8 @@ enc_uint64.exit124:                               ; preds = %.thread, %83, %._cr
   %.not76 = icmp eq ptr %.161, null
   br i1 %.not76, label %.loopexit, label %.lr.ph164, !llvm.loop !171
 
-.loopexit:                                        ; preds = %94, %114, %127, %108, %enc_uint64.exit124, %._crit_edge, %enc_uint64.exit116, %enc_uint64.exit108, %enc_uint64.exit100, %50, %enc_uint64.exit92, %enc_uint64.exit84, %enc_uint64.exit
-  %.062 = phi i32 [ %24, %enc_uint64.exit ], [ %45, %enc_uint64.exit84 ], [ %48, %enc_uint64.exit92 ], [ 0, %50 ], [ %53, %enc_uint64.exit100 ], [ %78, %enc_uint64.exit108 ], [ %81, %enc_uint64.exit116 ], [ %103, %._crit_edge ], [ %106, %enc_uint64.exit124 ], [ 0, %108 ], [ %125, %114 ], [ 0, %127 ], [ %96, %94 ]
+.loopexit:                                        ; preds = %95, %114, %127, %108, %enc_uint64.exit124, %._crit_edge, %enc_uint64.exit116, %enc_uint64.exit108, %enc_uint64.exit100, %50, %enc_uint64.exit92, %enc_uint64.exit84, %enc_uint64.exit
+  %.062 = phi i32 [ %24, %enc_uint64.exit ], [ %45, %enc_uint64.exit84 ], [ %48, %enc_uint64.exit92 ], [ 0, %50 ], [ %53, %enc_uint64.exit100 ], [ %78, %enc_uint64.exit108 ], [ %81, %enc_uint64.exit116 ], [ %103, %._crit_edge ], [ %106, %enc_uint64.exit124 ], [ 0, %108 ], [ %125, %114 ], [ 0, %127 ], [ %97, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.062

@@ -2620,7 +2620,7 @@ default.unreachable.i.i.i.i:                      ; preds = %.noexc.i.i.i
 .thread11.i.i.i:                                  ; preds = %66, %.noexc.i.i.i
   %67 = getelementptr inbounds { ptr, i64 }, ptr %11, i64 %storemerge17.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false), !noalias !547
-  %.not.i.i6.i = icmp ult i64 %54, 2
+  %.not.i.i6.i = icmp eq i64 %55, 0
   br i1 %.not.i.i6.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h2ff7a84dac969ad4E.exit.i", label %53
 
 68:                                               ; preds = %.thread8.i.i.i.i, %41, %.noexc.i.i
@@ -2637,7 +2637,7 @@ default.unreachable.i.i.i.i:                      ; preds = %.noexc.i.i.i
   br i1 %.not.not.not.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 "_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h2ff7a84dac969ad4E.exit.i": ; preds = %.thread11.i.i.i, %66, %.noexc.i.i.i, %48
-  %storemerge.lcssa.i.i.i = phi i64 [ 0, %48 ], [ %55, %.thread11.i.i.i ], [ %storemerge17.i.i.i, %.noexc.i.i.i ], [ %storemerge17.i.i.i, %66 ]
+  %storemerge.lcssa.i.i.i = phi i64 [ 0, %48 ], [ 0, %.thread11.i.i.i ], [ %storemerge17.i.i.i, %.noexc.i.i.i ], [ %storemerge17.i.i.i, %66 ]
   %76 = getelementptr inbounds { ptr, i64 }, ptr %11, i64 %storemerge.lcssa.i.i.i
   store ptr %13, ptr %76, align 8, !noalias !547
   %.sroa.13.16..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %76, i64 8
@@ -2842,7 +2842,7 @@ default.unreachable.i.i.i.i:                      ; preds = %.noexc.i.i.i
 .thread11.i.i.i:                                  ; preds = %66, %.noexc.i.i.i
   %67 = getelementptr inbounds { ptr, i64 }, ptr %11, i64 %storemerge17.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false), !noalias !560
-  %.not.i.i7.i = icmp ult i64 %54, 2
+  %.not.i.i7.i = icmp eq i64 %55, 0
   br i1 %.not.i.i7.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h7815d7cf41f942c7E.exit.i", label %53
 
 68:                                               ; preds = %.thread8.i.i.i.i, %41, %.noexc.i.i
@@ -2859,7 +2859,7 @@ default.unreachable.i.i.i.i:                      ; preds = %.noexc.i.i.i
   br i1 %.not.not.not.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 "_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h7815d7cf41f942c7E.exit.i": ; preds = %.thread11.i.i.i, %66, %.noexc.i.i.i, %48
-  %storemerge.lcssa.i.i.i = phi i64 [ 0, %48 ], [ %55, %.thread11.i.i.i ], [ %storemerge17.i.i.i, %.noexc.i.i.i ], [ %storemerge17.i.i.i, %66 ]
+  %storemerge.lcssa.i.i.i = phi i64 [ 0, %48 ], [ 0, %.thread11.i.i.i ], [ %storemerge17.i.i.i, %.noexc.i.i.i ], [ %storemerge17.i.i.i, %66 ]
   %76 = getelementptr inbounds { ptr, i64 }, ptr %11, i64 %storemerge.lcssa.i.i.i
   store ptr %13, ptr %76, align 8, !noalias !560
   %.sroa.13.16..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %76, i64 8
@@ -3189,7 +3189,7 @@ default.unreachable.i:                            ; preds = %.noexc15
   br i1 %.not13, label %.thread11, label %.thread
 
 .thread:                                          ; preds = %.thread11, %.noexc15, %30, %1
-  %storemerge.lcssa = phi i64 [ 0, %1 ], [ %storemerge21, %30 ], [ %storemerge21, %.noexc15 ], [ %13, %.thread11 ]
+  %storemerge.lcssa = phi i64 [ 0, %1 ], [ %storemerge21, %30 ], [ %storemerge21, %.noexc15 ], [ 0, %.thread11 ]
   %31 = getelementptr inbounds { ptr, i64 }, ptr %.8.val, i64 %storemerge.lcssa
   store ptr %5, ptr %31, align 8
   %.sroa.13.16..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -3199,7 +3199,7 @@ default.unreachable.i:                            ; preds = %.noexc15
 .thread11:                                        ; preds = %30, %.noexc15
   %32 = getelementptr inbounds { ptr, i64 }, ptr %.8.val, i64 %storemerge21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false)
-  %.not = icmp ult i64 %12, 2
+  %.not = icmp eq i64 %13, 0
   br i1 %.not, label %.thread, label %11
 
 .loopexit:                                        ; preds = %"_ZN112_$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$3key17haccce7939794add4E.exit15.i.i"
@@ -4324,7 +4324,7 @@ default.unreachable.i.i.i:                        ; preds = %.noexc.i.i
 .thread11.i.i:                                    ; preds = %90, %.noexc.i.i
   %91 = getelementptr inbounds { ptr, i64 }, ptr %.val.i43, i64 %storemerge17.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef nonnull align 8 dereferenceable(16) %81, i64 16, i1 false)
-  %.not.i.i44 = icmp ult i64 %78, 2
+  %.not.i.i44 = icmp eq i64 %79, 0
   br i1 %.not.i.i44, label %.loopexit, label %77
 
 92:                                               ; preds = %77
@@ -4337,7 +4337,7 @@ default.unreachable.i.i.i:                        ; preds = %.noexc.i.i
   br label %.body47
 
 .loopexit:                                        ; preds = %.thread11.i.i, %90, %.noexc.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hcf5becd48a89331aE.exit.i"
-  %storemerge.lcssa.i.i = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hcf5becd48a89331aE.exit.i" ], [ %storemerge17.i.i, %90 ], [ %storemerge17.i.i, %.noexc.i.i ], [ %79, %.thread11.i.i ]
+  %storemerge.lcssa.i.i = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hcf5becd48a89331aE.exit.i" ], [ %storemerge17.i.i, %90 ], [ %storemerge17.i.i, %.noexc.i.i ], [ 0, %.thread11.i.i ]
   %95 = getelementptr inbounds { ptr, i64 }, ptr %.val.i43, i64 %storemerge.lcssa.i.i
   store ptr %72, ptr %95, align 8
   %.sroa.13.16..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %95, i64 8
@@ -4695,7 +4695,7 @@ default.unreachable.i.i.i:                        ; preds = %.noexc.i.i
 .thread11.i.i:                                    ; preds = %79, %.noexc.i.i
   %80 = getelementptr inbounds { ptr, i64 }, ptr %.val.i44, i64 %storemerge17.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(16) %70, i64 16, i1 false)
-  %.not.i.i45 = icmp ult i64 %67, 2
+  %.not.i.i45 = icmp eq i64 %68, 0
   br i1 %.not.i.i45, label %.loopexit, label %66
 
 81:                                               ; preds = %66
@@ -4708,7 +4708,7 @@ default.unreachable.i.i.i:                        ; preds = %.noexc.i.i
   br label %.body46
 
 .loopexit:                                        ; preds = %.thread11.i.i, %79, %.noexc.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he5a52820378054beE.exit.i"
-  %storemerge.lcssa.i.i = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he5a52820378054beE.exit.i" ], [ %storemerge17.i.i, %79 ], [ %storemerge17.i.i, %.noexc.i.i ], [ %68, %.thread11.i.i ]
+  %storemerge.lcssa.i.i = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he5a52820378054beE.exit.i" ], [ %storemerge17.i.i, %79 ], [ %storemerge17.i.i, %.noexc.i.i ], [ 0, %.thread11.i.i ]
   %84 = getelementptr inbounds { ptr, i64 }, ptr %.val.i44, i64 %storemerge.lcssa.i.i
   store ptr %61, ptr %84, align 8
   %.sroa.13.16..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %84, i64 8

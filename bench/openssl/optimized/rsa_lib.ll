@@ -396,7 +396,7 @@ define zeroext range(i16 0, 1201) i16 @ossl_ifc_ffc_compute_security_bits(i32 no
   %21 = select i1 %20, i32 %.01322.i, i32 0
   %.2.i = add i32 %21, %.123.i
   %22 = lshr i32 %.01322.i, 1
-  %.not.i = icmp samesign ult i32 %.01322.i, 2
+  %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %ilog_e.exit, label %.preheader.i, !llvm.loop !46
 
 ilog_e.exit:                                      ; preds = %.preheader.i

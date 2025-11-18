@@ -782,7 +782,7 @@ define hidden void @"_ZN73_$LT$uv_distribution_types..id..VersionId$u20$as$u20$c
   br i1 %38, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h57675b37d8eba251E.exit63.i.i.i", label %39
 
 39:                                               ; preds = %37
-  %.not.i.i.i = icmp samesign ult i64 %14, 2
+  %.not.i.i.i = icmp eq i64 %15, 0
   br i1 %.not.i.i.i, label %_ZN4core4hash6Hasher9write_str17hf23774fc921fa339E.llvm.5715959519649084371.exit, label %40
 
 40:                                               ; preds = %39
@@ -1147,7 +1147,7 @@ _ZN4core4hash6Hasher9write_str17hf23774fc921fa339E.llvm.5715959519649084371.exit
   br i1 %111, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h57675b37d8eba251E.exit63.i.i.i14", label %112
 
 112:                                              ; preds = %110
-  %.not.i.i.i13 = icmp samesign ult i64 %87, 2
+  %.not.i.i.i13 = icmp eq i64 %88, 0
   br i1 %.not.i.i.i13, label %_ZN4core4hash6Hasher9write_str17hf23774fc921fa339E.llvm.5715959519649084371.exit20, label %113
 
 113:                                              ; preds = %112

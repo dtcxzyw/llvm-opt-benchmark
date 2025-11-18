@@ -994,7 +994,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit.i:         ; preds = %_ZNSt6vectorIiSaIiE
   %.pn.i = phi ptr [ %82, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i ], [ %63, %68 ]
   %89 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 4
   %90 = lshr i64 %.02375.i, 1
-  %.not.i = icmp samesign ult i64 %.02375.i, 2
+  %.not.i = icmp eq i64 %90, 0
   br i1 %.not.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %62, !llvm.loop !85
 
 .loopexit.i:                                      ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i.i
@@ -1136,7 +1136,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit43.i:                ; preds = %_ZNKSt6vectorIiSaIi
   br label %.body
 
 .loopexit:                                        ; preds = %.lr.ph80.i, %._crit_edge.i
-  %.021.lcssa110.i = phi i8 [ 0, %._crit_edge.i ], [ %133, %.lr.ph80.i ]
+  %.021.lcssa111.i = phi i8 [ 0, %._crit_edge.i ], [ %133, %.lr.ph80.i ]
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.3) #23
   %138 = add nuw nsw i64 %indvars.iv, %34
   %139 = load ptr, ptr %31, align 8, !tbaa !83
@@ -1145,7 +1145,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit43.i:                ; preds = %_ZNKSt6vectorIiSaIi
   %142 = mul i64 %141, %138
   %143 = getelementptr inbounds nuw i8, ptr %139, i64 %142
   %144 = getelementptr inbounds i8, ptr %143, i64 %55
-  store i8 %.021.lcssa110.i, ptr %144, align 1, !tbaa !40
+  store i8 %.021.lcssa111.i, ptr %144, align 1, !tbaa !40
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %41, label %45, !llvm.loop !88
 

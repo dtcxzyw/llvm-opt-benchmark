@@ -1735,7 +1735,7 @@ _ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3std
   br i1 %.not441, label %.preheader935, label %.critedge
 
 .preheader935:                                    ; preds = %591
-  %.not442938 = icmp ult i32 %592, 67108864
+  %.not442938 = icmp eq i32 %593, 0
   br i1 %.not442938, label %.critedge489, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader935

@@ -231,7 +231,7 @@ define hidden void @_ZNK8rawspeed20SonyArw1Decompressor10decompressENS_10ByteStr
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %14 = load i32, ptr %13, align 8, !tbaa !102, !noalias !96
   %15 = ashr i32 %14, 1
-  %16 = icmp ugt i32 %14, 1
+  %16 = icmp ne i32 %15, 0
   tail call void @llvm.assume(i1 %16)
   %17 = icmp sgt i32 %15, -1
   tail call void @llvm.assume(i1 %17)
@@ -379,7 +379,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %75 = add nsw i32 %.sroa.13.5, -2
   %76 = trunc nuw nsw i64 %71 to i32
   %77 = sub nuw nsw i32 4, %76
-  %78 = icmp ult i64 %.sroa.036.5, 4611686018427387904
+  %78 = icmp eq i64 %71, 0
   br i1 %78, label %.preheader, label %.critedge.thread
 
 .preheader:                                       ; preds = %74, %82

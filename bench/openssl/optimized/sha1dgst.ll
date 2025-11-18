@@ -59,26 +59,26 @@ define noundef i32 @SHA1_Update(ptr noundef %0, ptr noundef %1, i64 noundef %2) 
 35:                                               ; preds = %28, %._crit_edge
   %.054 = phi i64 [ %31, %28 ], [ %2, %._crit_edge ]
   %.053 = phi ptr [ %30, %28 ], [ %1, %._crit_edge ]
-  %.not58 = icmp ult i64 %.054, 64
-  br i1 %.not58, label %41, label %36
+  %36 = lshr i64 %.054, 6
+  %.not58 = icmp eq i64 %36, 0
+  br i1 %.not58, label %41, label %37
 
-36:                                               ; preds = %35
-  %37 = lshr i64 %.054, 6
-  tail call void @sha1_block_data_order(ptr noundef nonnull %0, ptr noundef %.053, i64 noundef %37) #6
+37:                                               ; preds = %35
+  tail call void @sha1_block_data_order(ptr noundef nonnull %0, ptr noundef %.053, i64 noundef %36) #6
   %38 = and i64 %.054, -64
   %39 = getelementptr inbounds nuw i8, ptr %.053, i64 %38
   %40 = and i64 %.054, 63
   br label %41
 
-41:                                               ; preds = %36, %35
-  %.155 = phi i64 [ %40, %36 ], [ %.054, %35 ]
-  %.1 = phi ptr [ %39, %36 ], [ %.053, %35 ]
+41:                                               ; preds = %37, %35
+  %.155 = phi i64 [ %40, %37 ], [ %.054, %35 ]
+  %.1 = phi ptr [ %39, %37 ], [ %.053, %35 ]
   %.not59 = icmp eq i64 %.155, 0
   br i1 %.not59, label %45, label %42
 
 42:                                               ; preds = %41
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %44 = trunc nuw nsw i64 %.155 to i32
+  %44 = trunc i64 %.155 to i32
   store i32 %44, ptr %19, align 4, !tbaa !9
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr align 1 %.1, i64 %.155, i1 false)
   br label %45
@@ -318,20 +318,20 @@ define range(i32 -2, 2) i32 @ossl_sha1_ctrl(ptr noundef %0, i32 noundef %1, i32 
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 %29
   %31 = add nsw i64 %20, -16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(68) %22, i8 0, i64 68, i1 false)
-  %.not58.i = icmp samesign ult i64 %31, 64
-  br i1 %.not58.i, label %37, label %32
+  %32 = lshr i64 %31, 6
+  %.not58.i = icmp eq i64 %32, 0
+  br i1 %.not58.i, label %37, label %33
 
-32:                                               ; preds = %28
-  %33 = lshr i64 %31, 6
-  tail call void @sha1_block_data_order(ptr noundef nonnull %0, ptr noundef %30, i64 noundef %33) #6
+33:                                               ; preds = %28
+  tail call void @sha1_block_data_order(ptr noundef nonnull %0, ptr noundef %30, i64 noundef %32) #6
   %34 = and i64 %31, -64
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 %34
   %36 = and i64 %31, 63
   br label %37
 
-37:                                               ; preds = %32, %28
-  %.155.i = phi i64 [ %36, %32 ], [ %31, %28 ]
-  %.1.i = phi ptr [ %35, %32 ], [ %30, %28 ]
+37:                                               ; preds = %33, %28
+  %.155.i = phi i64 [ %36, %33 ], [ %31, %28 ]
+  %.1.i = phi ptr [ %35, %33 ], [ %30, %28 ]
   %.not59.i = icmp eq i64 %.155.i, 0
   br i1 %.not59.i, label %SHA1_Update.exit, label %.thread52
 
@@ -339,7 +339,7 @@ define range(i32 -2, 2) i32 @ossl_sha1_ctrl(ptr noundef %0, i32 noundef %1, i32 
   %.1.i57 = phi ptr [ %.1.i, %37 ], [ %3, %9 ]
   %.155.i56 = phi i64 [ %.155.i, %37 ], [ 48, %9 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %39 = trunc nuw nsw i64 %.155.i56 to i32
+  %39 = trunc nuw i64 %.155.i56 to i32
   store i32 %39, ptr %18, align 4, !tbaa !9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %38, ptr noundef nonnull align 1 dereferenceable(1) %.1.i57, i64 %.155.i56, i1 false)
   br label %SHA1_Update.exit
@@ -379,20 +379,20 @@ SHA1_Update.exit:                                 ; preds = %25, %37, %.thread52
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 %56
   %58 = add nsw i64 %47, -24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(68) %49, i8 0, i64 68, i1 false)
-  %.not58.i20 = icmp samesign ult i64 %58, 64
-  br i1 %.not58.i20, label %64, label %59
+  %59 = lshr i64 %58, 6
+  %.not58.i20 = icmp eq i64 %59, 0
+  br i1 %.not58.i20, label %64, label %60
 
-59:                                               ; preds = %55
-  %60 = lshr i64 %58, 6
-  call void @sha1_block_data_order(ptr noundef nonnull %0, ptr noundef nonnull %57, i64 noundef %60) #6
+60:                                               ; preds = %55
+  call void @sha1_block_data_order(ptr noundef nonnull %0, ptr noundef nonnull %57, i64 noundef %59) #6
   %61 = and i64 %58, -64
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 %61
   %63 = and i64 %58, 63
   br label %64
 
-64:                                               ; preds = %59, %55
-  %.155.i21 = phi i64 [ %63, %59 ], [ %58, %55 ]
-  %.1.i22 = phi ptr [ %62, %59 ], [ %57, %55 ]
+64:                                               ; preds = %60, %55
+  %.155.i21 = phi i64 [ %63, %60 ], [ %58, %55 ]
+  %.1.i22 = phi ptr [ %62, %60 ], [ %57, %55 ]
   %.not59.i23 = icmp eq i64 %.155.i21, 0
   br i1 %.not59.i23, label %SHA1_Update.exit48, label %.thread62
 
@@ -400,7 +400,7 @@ SHA1_Update.exit:                                 ; preds = %25, %37, %.thread52
   %.1.i2267 = phi ptr [ %.1.i22, %64 ], [ %5, %SHA1_Update.exit ]
   %.155.i2166 = phi i64 [ %.155.i21, %64 ], [ 40, %SHA1_Update.exit ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %66 = trunc nuw nsw i64 %.155.i2166 to i32
+  %66 = trunc nuw i64 %.155.i2166 to i32
   store i32 %66, ptr %18, align 4, !tbaa !9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %65, ptr noundef nonnull align 1 dereferenceable(1) %.1.i2267, i64 %.155.i2166, i1 false)
   br label %SHA1_Update.exit48

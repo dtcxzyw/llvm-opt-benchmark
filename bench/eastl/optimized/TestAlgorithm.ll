@@ -8529,7 +8529,7 @@ while.body.i4093:                                 ; preds = %while.body.i.i.i409
   %777 = phi ptr [ %783, %if.end.i4100 ], [ %773, %while.body.i.i.i4091 ]
   %d.07.i = phi i64 [ %d.1.i4101, %if.end.i4100 ], [ %inc.i.i.i4092, %while.body.i.i.i4091 ]
   %shr.i4094 = lshr i64 %d.07.i, 1
-  %cmp.i.i.i.not.i = icmp eq i64 %d.07.i, 1
+  %cmp.i.i.i.not.i = icmp eq i64 %shr.i4094, 0
   br i1 %cmp.i.i.i.not.i, label %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit.i, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i4093, %while.body.i.i.i.i
@@ -9129,7 +9129,7 @@ while.body.i4465:                                 ; preds = %while.body.i.i.i446
   %871 = phi ptr [ %877, %if.end.i4479 ], [ %867, %while.body.i.i.i4461 ]
   %len.07.i = phi i64 [ %len.1.i4480, %if.end.i4479 ], [ %inc.i.i.i4463, %while.body.i.i.i4461 ]
   %shr.i4466 = lshr i64 %len.07.i, 1
-  %cmp.i.i.i.not.i4467 = icmp eq i64 %len.07.i, 1
+  %cmp.i.i.i.not.i4467 = icmp eq i64 %shr.i4466, 0
   br i1 %cmp.i.i.i.not.i4467, label %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit.i4472, label %while.body.i.i.i.i4468
 
 while.body.i.i.i.i4468:                           ; preds = %while.body.i4465, %while.body.i.i.i.i4468
@@ -9983,7 +9983,7 @@ while.body.i4888:                                 ; preds = %while.body.i.i.i488
   %agg.tmp2775.sroa.0.0 = phi ptr [ %agg.tmp2775.sroa.0.1, %if.end15.i4915 ], [ %983, %while.body.i.i.i4884 ]
   %d.048.i = phi i64 [ %d.1.i4916, %if.end15.i4915 ], [ %inc.i.i.i4886, %while.body.i.i.i4884 ]
   %shr.i4889 = lshr i64 %d.048.i, 1
-  %cmp.i.i.i.not.i4890 = icmp eq i64 %d.048.i, 1
+  %cmp.i.i.i.not.i4890 = icmp eq i64 %shr.i4889, 0
   br i1 %cmp.i.i.i.not.i4890, label %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit.i4895, label %while.body.i.i.i.i4891
 
 while.body.i.i.i.i4891:                           ; preds = %while.body.i4888, %while.body.i.i.i.i4891
@@ -10028,7 +10028,7 @@ while.body.i.i4901:                               ; preds = %while.body.i.i.i10.
   %993 = phi ptr [ %999, %if.end.i.i4907 ], [ %agg.tmp2775.sroa.0.0, %while.body.i.i.i10.i ]
   %d.07.i.i = phi i64 [ %d.1.i.i4908, %if.end.i.i4907 ], [ %inc.i.i.i11.i, %while.body.i.i.i10.i ]
   %shr.i.i4902 = lshr i64 %d.07.i.i, 1
-  %cmp.i.i.i.not.i.i = icmp eq i64 %d.07.i.i, 1
+  %cmp.i.i.i.not.i.i = icmp eq i64 %shr.i.i4902, 0
   br i1 %cmp.i.i.i.not.i.i, label %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit.i.i, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %while.body.i.i4901, %while.body.i.i.i.i.i
@@ -10078,7 +10078,7 @@ while.body.i18.i:                                 ; preds = %while.body.i.i.i14.
   %1005 = phi ptr [ %1011, %if.end.i32.i ], [ %1001, %while.body.i.i.i14.i ]
   %len.07.i.i = phi i64 [ %len.1.i.i4909, %if.end.i32.i ], [ %inc.i.i.i16.i, %while.body.i.i.i14.i ]
   %shr.i19.i = lshr i64 %len.07.i.i, 1
-  %cmp.i.i.i.not.i20.i = icmp eq i64 %len.07.i.i, 1
+  %cmp.i.i.i.not.i20.i = icmp eq i64 %shr.i19.i, 0
   br i1 %cmp.i.i.i.not.i20.i, label %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit.i25.i, label %while.body.i.i.i.i21.i
 
 while.body.i.i.i.i21.i:                           ; preds = %while.body.i18.i, %while.body.i.i.i.i21.i
@@ -14353,7 +14353,7 @@ while.body.i.i7775:                               ; preds = %while.body.i.i.i.i7
   %1505 = phi ptr [ %1511, %if.end.i.i7787 ], [ %1497, %while.body.i.i.i.i7770 ]
   %d.07.i.i7776 = phi i64 [ %d.1.i.i7788, %if.end.i.i7787 ], [ %inc.i.i.i.i7772, %while.body.i.i.i.i7770 ]
   %shr.i.i7777 = lshr i64 %d.07.i.i7776, 1
-  %cmp.i.i.i.not.i.i7778 = icmp eq i64 %d.07.i.i7776, 1
+  %cmp.i.i.i.not.i.i7778 = icmp eq i64 %shr.i.i7777, 0
   br i1 %cmp.i.i.i.not.i.i7778, label %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit.i.i7783, label %while.body.i.i.i.i.i7779
 
 while.body.i.i.i.i.i7779:                         ; preds = %while.body.i.i7775, %while.body.i.i.i.i.i7779
@@ -14431,7 +14431,7 @@ while.body.i.i7818:                               ; preds = %while.body.i.i.i.i7
   %1523 = phi ptr [ %1529, %if.end.i.i7830 ], [ %1516, %while.body.i.i.i.i7813 ]
   %d.07.i.i7819 = phi i64 [ %d.1.i.i7831, %if.end.i.i7830 ], [ %inc.i.i.i.i7815, %while.body.i.i.i.i7813 ]
   %shr.i.i7820 = lshr i64 %d.07.i.i7819, 1
-  %cmp.i.i.i.not.i.i7821 = icmp eq i64 %d.07.i.i7819, 1
+  %cmp.i.i.i.not.i.i7821 = icmp eq i64 %shr.i.i7820, 0
   br i1 %cmp.i.i.i.not.i.i7821, label %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit.i.i7826, label %while.body.i.i.i.i.i7822
 
 while.body.i.i.i.i.i7822:                         ; preds = %while.body.i.i7818, %while.body.i.i.i.i.i7822
@@ -14523,7 +14523,7 @@ while.body.i.i7909:                               ; preds = %while.body.i.i.i.i7
   %1545 = phi ptr [ %1551, %if.end.i.i7921 ], [ %1537, %while.body.i.i.i.i7904 ]
   %d.07.i.i7910 = phi i64 [ %d.1.i.i7922, %if.end.i.i7921 ], [ %inc.i.i.i.i7906, %while.body.i.i.i.i7904 ]
   %shr.i.i7911 = lshr i64 %d.07.i.i7910, 1
-  %cmp.i.i.i.not.i.i7912 = icmp eq i64 %d.07.i.i7910, 1
+  %cmp.i.i.i.not.i.i7912 = icmp eq i64 %shr.i.i7911, 0
   br i1 %cmp.i.i.i.not.i.i7912, label %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit.i.i7917, label %while.body.i.i.i.i.i7913
 
 while.body.i.i.i.i.i7913:                         ; preds = %while.body.i.i7909, %while.body.i.i.i.i.i7913
@@ -14612,7 +14612,7 @@ while.body.i.i7970:                               ; preds = %while.body.i.i.i.i7
   %1564 = phi ptr [ %1570, %if.end.i.i7982 ], [ %1558, %while.body.i.i.i.i7965 ]
   %d.07.i.i7971 = phi i64 [ %d.1.i.i7983, %if.end.i.i7982 ], [ %inc.i.i.i.i7967, %while.body.i.i.i.i7965 ]
   %shr.i.i7972 = lshr i64 %d.07.i.i7971, 1
-  %cmp.i.i.i.not.i.i7973 = icmp eq i64 %d.07.i.i7971, 1
+  %cmp.i.i.i.not.i.i7973 = icmp eq i64 %shr.i.i7972, 0
   br i1 %cmp.i.i.i.not.i.i7973, label %_ZN5eastl7advanceINS_12ListIteratorI10TestObjectPS2_RS2_EElEEvRT_T0_.exit.i.i7978, label %while.body.i.i.i.i.i7974
 
 while.body.i.i.i.i.i7974:                         ; preds = %while.body.i.i7970, %while.body.i.i.i.i.i7974
@@ -20221,7 +20221,7 @@ for.body.i.i.i11398:                              ; preds = %for.body.i.i.i11398
   %n.addr.04.i.i.i11400 = phi i64 [ %shr.i.i.i11401, %for.body.i.i.i11398 ], [ %sub.ptr.div.i.i11397, %.noexc11389 ]
   %shr.i.i.i11401 = lshr i64 %n.addr.04.i.i.i11400, 1
   %inc.i.i.i11402 = add nuw nsw i32 %i.05.i.i.i11399, 1
-  %tobool.not.i.i.i11403 = icmp samesign ult i64 %n.addr.04.i.i.i11400, 2
+  %tobool.not.i.i.i11403 = icmp eq i64 %shr.i.i.i11401, 0
   br i1 %tobool.not.i.i.i11403, label %_ZN5eastl8Internal4Log2IlEET_S2_.exit.i.i11404, label %for.body.i.i.i11398, !llvm.loop !816
 
 _ZN5eastl8Internal4Log2IlEET_S2_.exit.i.i11404:   ; preds = %for.body.i.i.i11398
@@ -20618,7 +20618,7 @@ for.body.i.i.i11554:                              ; preds = %for.body.i.i.i11554
   %n.addr.04.i.i.i11556 = phi i64 [ %shr.i.i.i11557, %for.body.i.i.i11554 ], [ %sub.ptr.div.i.i11553, %if.then.i.i11549 ]
   %shr.i.i.i11557 = ashr i64 %n.addr.04.i.i.i11556, 1
   %inc.i.i.i11558 = add nuw nsw i32 %i.05.i.i.i11555, 1
-  %tobool.not.i.i.i11559 = icmp ult i64 %n.addr.04.i.i.i11556, 2
+  %tobool.not.i.i.i11559 = icmp eq i64 %shr.i.i.i11557, 0
   br i1 %tobool.not.i.i.i11559, label %_ZN5eastl8Internal4Log2IlEET_S2_.exit.i.i11560, label %for.body.i.i.i11554, !llvm.loop !816
 
 _ZN5eastl8Internal4Log2IlEET_S2_.exit.i.i11560:   ; preds = %for.body.i.i.i11554
@@ -21620,7 +21620,7 @@ _ZN5eastl9DequeBaseIiNS_9allocatorELj64EEC2EmRKS1_.exit: ; preds = %while.body.i
   %rem.i.i = and i64 %n, 63
   %add.ptr15.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %rem.i.i
   store ptr %add.ptr15.i.i, ptr %mItEnd.i, align 8
-  %cmp8.i.not = icmp ult i64 %n, 64
+  %cmp8.i.not = icmp eq i64 %div8.i.i, 0
   br i1 %cmp8.i.not, label %invoke.cont, label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN5eastl9DequeBaseIiNS_9allocatorELj64EEC2EmRKS1_.exit, %while.body.i
@@ -22603,7 +22603,7 @@ _ZN5eastl9DequeBaseIiNS_9allocatorELj64EEC2EmRKS1_.exit: ; preds = %while.body.i
   %rem.i.i = and i64 %n, 63
   %add.ptr15.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %rem.i.i
   store ptr %add.ptr15.i.i, ptr %mItEnd.i, align 8
-  %cmp8.i.not = icmp ult i64 %n, 64
+  %cmp8.i.not = icmp eq i64 %div8.i.i, 0
   br i1 %cmp8.i.not, label %invoke.cont, label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN5eastl9DequeBaseIiNS_9allocatorELj64EEC2EmRKS1_.exit, %while.body.i
@@ -24568,7 +24568,7 @@ for.body.i:                                       ; preds = %if.then, %for.body.
   %n.addr.04.i = phi i64 [ %shr.i, %for.body.i ], [ %sub.ptr.div, %if.then ]
   %shr.i = ashr i64 %n.addr.04.i, 1
   %inc.i = add nuw nsw i32 %i.05.i, 1
-  %tobool.not.i = icmp ult i64 %n.addr.04.i, 2
+  %tobool.not.i = icmp eq i64 %shr.i, 0
   br i1 %tobool.not.i, label %_ZN5eastl8Internal4Log2IlEET_S2_.exit, label %for.body.i, !llvm.loop !816
 
 _ZN5eastl8Internal4Log2IlEET_S2_.exit:            ; preds = %for.body.i

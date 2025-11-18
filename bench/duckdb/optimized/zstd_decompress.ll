@@ -477,8 +477,8 @@ define noundef i64 @_ZN11duckdb_zstd20ZSTD_frameHeaderSizeEPKvm(ptr noundef read
   %17 = zext nneg i32 %9 to i64
   %18 = getelementptr inbounds nuw i64, ptr @_ZN11duckdb_zstdL18ZSTD_fcs_fieldSizeE, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !57
-  %.not.i = icmp ult i8 %6, 64
-  %20 = and i1 %.not.i, %11
+  %.not.i = icmp eq i32 %9, 0
+  %20 = and i1 %11, %.not.i
   %21 = zext i1 %20 to i64
   %22 = add i64 %16, 5
   %23 = add i64 %22, %19
@@ -568,10 +568,10 @@ _ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit130
   br label %.critedge116
 
 _ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit: ; preds = %17, %_ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit130
-  %.sink158.in = phi ptr [ %20, %_ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit130 ], [ %1, %17 ]
+  %.sink157.in = phi ptr [ %20, %_ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit130 ], [ %1, %17 ]
   %.sink144 = phi i64 [ %6, %_ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit130 ], [ 1, %17 ]
-  %.sink158 = load i8, ptr %.sink158.in, align 1, !tbaa !56
-  %30 = zext i8 %.sink158 to i32
+  %.sink157 = load i8, ptr %.sink157.in, align 1, !tbaa !56
+  %30 = zext i8 %.sink157 to i32
   %31 = and i32 %30, 3
   %32 = lshr i32 %30, 6
   %33 = and i32 %30, 32
@@ -584,8 +584,8 @@ _ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit: ;
   %40 = zext nneg i32 %32 to i64
   %41 = getelementptr inbounds nuw i64, ptr @_ZN11duckdb_zstdL18ZSTD_fcs_fieldSizeE, i64 %40
   %42 = load i64, ptr %41, align 8, !tbaa !57
-  %.not.i128 = icmp ult i8 %.sink158, 64
-  %43 = and i1 %.not.i128, %34
+  %.not.i128 = icmp eq i32 %32, 0
+  %43 = and i1 %34, %.not.i128
   %44 = zext i1 %43 to i64
   %45 = add i64 %39, %.sink144
   %46 = add i64 %45, %42
@@ -1388,8 +1388,8 @@ _ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit.i:
   %112 = zext nneg i32 %104 to i64
   %113 = getelementptr inbounds nuw i64, ptr @_ZN11duckdb_zstdL18ZSTD_fcs_fieldSizeE, i64 %112
   %114 = load i64, ptr %113, align 8, !tbaa !57
-  %.not.i.i75 = icmp ult i8 %101, 64
-  %115 = and i1 %.not.i.i75, %106
+  %.not.i.i75 = icmp eq i32 %104, 0
+  %115 = and i1 %106, %.not.i.i75
   %116 = zext i1 %115 to i64
   %117 = add i64 %111, %98
   %118 = add i64 %117, %114
@@ -1928,8 +1928,8 @@ _ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit: ;
   %52 = zext nneg i32 %44 to i64
   %53 = getelementptr inbounds nuw i64, ptr @_ZN11duckdb_zstdL18ZSTD_fcs_fieldSizeE, i64 %52
   %54 = load i64, ptr %53, align 8, !tbaa !57
-  %.not.i163 = icmp ult i8 %41, 64
-  %55 = and i1 %.not.i163, %46
+  %.not.i163 = icmp eq i32 %44, 0
+  %55 = and i1 %46, %.not.i163
   %56 = zext i1 %55 to i64
   %57 = add i64 %51, %36
   %58 = add i64 %57, %54

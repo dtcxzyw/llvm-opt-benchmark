@@ -2997,7 +2997,7 @@ define internal fastcc void @draw_legend(ptr noundef readonly captures(none) %0,
 61:                                               ; preds = %58, %56
   %62 = getelementptr inbounds nuw i8, ptr %.189119.us.i, i64 1
   %63 = lshr i32 %.192118.us.i, 1
-  %.not103.us.i = icmp samesign ult i32 %.192118.us.i, 2
+  %.not103.us.i = icmp eq i32 %63, 0
   br i1 %.not103.us.i, label %64, label %56, !llvm.loop !166
 
 64:                                               ; preds = %61
@@ -3118,7 +3118,7 @@ drawtext.exit:                                    ; preds = %.lr.ph134.split.us.
 122:                                              ; preds = %119, %109
   %123 = getelementptr inbounds nuw i8, ptr %.189119.us.i530, i64 1
   %124 = lshr i32 %.192118.us.i531, 1
-  %.not103.us.i533 = icmp samesign ult i32 %.192118.us.i531, 2
+  %.not103.us.i533 = icmp eq i32 %124, 0
   br i1 %.not103.us.i533, label %125, label %109, !llvm.loop !166
 
 125:                                              ; preds = %122
@@ -3256,7 +3256,7 @@ drawtext.exit549:                                 ; preds = %.lr.ph134.split.us.
 189:                                              ; preds = %186, %176
   %190 = getelementptr inbounds nuw i8, ptr %.189119.us.i558, i64 1
   %191 = lshr i32 %.192118.us.i559, 1
-  %.not103.us.i561 = icmp samesign ult i32 %.192118.us.i559, 2
+  %.not103.us.i561 = icmp eq i32 %191, 0
   br i1 %.not103.us.i561, label %192, label %176, !llvm.loop !166
 
 192:                                              ; preds = %189
@@ -3795,7 +3795,7 @@ get_hz.exit.thread:                               ; preds = %414, %get_hz.exit
 475:                                              ; preds = %472, %462
   %476 = getelementptr inbounds nuw i8, ptr %.189119.us.i590, i64 1
   %477 = lshr i32 %.192118.us.i591, 1
-  %.not103.us.i593 = icmp samesign ult i32 %.192118.us.i591, 2
+  %.not103.us.i593 = icmp eq i32 %477, 0
   br i1 %.not103.us.i593, label %478, label %462, !llvm.loop !166
 
 478:                                              ; preds = %475
@@ -3982,7 +3982,7 @@ get_time.exit:                                    ; preds = %514, %520, %526, %5
 568:                                              ; preds = %565, %555
   %569 = getelementptr inbounds nuw i8, ptr %.189119.us.i622, i64 1
   %570 = lshr i32 %.192118.us.i623, 1
-  %.not103.us.i625 = icmp samesign ult i32 %.192118.us.i623, 2
+  %.not103.us.i625 = icmp eq i32 %570, 0
   br i1 %.not103.us.i625, label %571, label %555, !llvm.loop !166
 
 571:                                              ; preds = %568
@@ -4107,7 +4107,7 @@ drawtext.exit644:                                 ; preds = %.lr.ph134.split.us.
 629:                                              ; preds = %626, %616
   %630 = getelementptr inbounds nuw i8, ptr %.189119.us.i653, i64 1
   %631 = lshr i32 %.192118.us.i654, 1
-  %.not103.us.i656 = icmp samesign ult i32 %.192118.us.i654, 2
+  %.not103.us.i656 = icmp eq i32 %631, 0
   br i1 %.not103.us.i656, label %632, label %616, !llvm.loop !166
 
 632:                                              ; preds = %629
@@ -4546,7 +4546,7 @@ get_hz.exit677.thread:                            ; preds = %801, %get_hz.exit67
 862:                                              ; preds = %859, %849
   %863 = getelementptr inbounds nuw i8, ptr %.189119.us.i686, i64 1
   %864 = lshr i32 %.192118.us.i687, 1
-  %.not103.us.i689 = icmp samesign ult i32 %.192118.us.i687, 2
+  %.not103.us.i689 = icmp eq i32 %864, 0
   br i1 %.not103.us.i689, label %865, label %849, !llvm.loop !166
 
 865:                                              ; preds = %862
@@ -4674,7 +4674,7 @@ drawtext.exit708:                                 ; preds = %.lr.ph134.split.us.
 926:                                              ; preds = %923, %913
   %927 = getelementptr inbounds nuw i8, ptr %.189119.us.i717, i64 1
   %928 = lshr i32 %.192118.us.i718, 1
-  %.not103.us.i720 = icmp samesign ult i32 %.192118.us.i718, 2
+  %.not103.us.i720 = icmp eq i32 %928, 0
   br i1 %.not103.us.i720, label %929, label %913, !llvm.loop !166
 
 929:                                              ; preds = %926
@@ -4860,7 +4860,7 @@ get_time.exit741:                                 ; preds = %964, %970, %976, %9
 1017:                                             ; preds = %1014, %1004
   %1018 = getelementptr inbounds nuw i8, ptr %.189119.us.i750, i64 1
   %1019 = lshr i32 %.192118.us.i751, 1
-  %.not103.us.i753 = icmp samesign ult i32 %.192118.us.i751, 2
+  %.not103.us.i753 = icmp eq i32 %1019, 0
   br i1 %.not103.us.i753, label %1020, label %1004, !llvm.loop !166
 
 1020:                                             ; preds = %1017
@@ -5136,7 +5136,7 @@ color_range.exit.thread:                          ; preds = %1119, %1129
   %1140 = load float, ptr %1064, align 4, !tbaa !193
   %1141 = fmul nsz float %.2823.ph, %1140
   %1142 = fmul nsz float %1139, %1140
-  %.val5211167 = load float, ptr %1065, align 4, !tbaa !134
+  %.val5211177 = load float, ptr %1065, align 4, !tbaa !134
   br label %pick_color.exit
 
 color_range.exit:                                 ; preds = %1114, %1104, %1104, %1104, %1104, %1104, %1104, %1104, %1104, %1104, %1104, %1104, %1104, %1104, %1104
@@ -5233,15 +5233,15 @@ color_range.exit:                                 ; preds = %1114, %1104, %1104,
   br label %pick_color.exit
 
 pick_color.exit:                                  ; preds = %color_range.exit.thread, %color_range.exit, %1169, %1179, %1186
-  %.val5211169 = phi float [ %.val521, %1169 ], [ %.val521, %1179 ], [ %.val521, %1186 ], [ %.val521, %color_range.exit ], [ %.val5211167, %color_range.exit.thread ]
+  %.val5211179 = phi float [ %.val521, %1169 ], [ %.val521, %1179 ], [ %.val521, %1186 ], [ %.val521, %color_range.exit ], [ %.val5211177, %color_range.exit.thread ]
   %1209 = phi float [ %1155, %1169 ], [ %1155, %1179 ], [ %1155, %1186 ], [ %1155, %color_range.exit ], [ %1142, %color_range.exit.thread ]
   %1210 = phi float [ %1154, %1169 ], [ %1154, %1179 ], [ %1154, %1186 ], [ %1154, %color_range.exit ], [ %1141, %color_range.exit.thread ]
-  %.21168 = phi float [ %.0824, %1169 ], [ %.0824, %1179 ], [ %.0824, %1186 ], [ %.0824, %color_range.exit ], [ %.1, %color_range.exit.thread ]
+  %.21178 = phi float [ %.0824, %1169 ], [ %.0824, %1179 ], [ %.0824, %1186 ], [ %.0824, %color_range.exit ], [ %.1, %color_range.exit.thread ]
   %.sink11.i = phi float [ %1171, %1169 ], [ %1181, %1179 ], [ %1196, %1186 ], [ %1091, %color_range.exit ], [ %1091, %color_range.exit.thread ]
   %.sink10.i = phi float [ %1173, %1169 ], [ %1183, %1179 ], [ %1202, %1186 ], [ %1091, %color_range.exit ], [ %1091, %color_range.exit.thread ]
   %.sink8.i = phi float [ %1175, %1169 ], [ %1185, %1179 ], [ %1208, %1186 ], [ %1091, %color_range.exit ], [ %1091, %color_range.exit.thread ]
-  %1211 = fmul nsz float %.val5211169, 2.550000e+02
-  %1212 = fmul nsz float %.21168, %.sink11.i
+  %1211 = fmul nsz float %.val5211179, 2.550000e+02
+  %1212 = fmul nsz float %.21178, %.sink11.i
   %1213 = fmul nsz float %1210, %.sink10.i
   %1214 = fmul nsz float %1209, %.sink8.i
   %1215 = fmul nsz float %1091, %1211
@@ -5502,7 +5502,7 @@ get_iscale.exit:                                  ; preds = %1330, %1335, %1337,
 1391:                                             ; preds = %1388, %1378
   %1392 = getelementptr inbounds nuw i8, ptr %.189119.us.i785, i64 1
   %1393 = lshr i32 %.192118.us.i786, 1
-  %.not103.us.i788 = icmp samesign ult i32 %.192118.us.i786, 2
+  %.not103.us.i788 = icmp eq i32 %1393, 0
   br i1 %.not103.us.i788, label %1394, label %1378, !llvm.loop !166
 
 1394:                                             ; preds = %1391
@@ -5972,7 +5972,7 @@ define internal fastcc void @drawtext(ptr noundef readonly captures(none) %0, i3
 31:                                               ; preds = %28, %18
   %32 = getelementptr inbounds nuw i8, ptr %.189119.us, i64 1
   %33 = lshr i32 %.192118.us, 1
-  %.not103.us = icmp samesign ult i32 %.192118.us, 2
+  %.not103.us = icmp eq i32 %33, 0
   br i1 %.not103.us, label %34, label %18, !llvm.loop !166
 
 34:                                               ; preds = %31
@@ -6095,13 +6095,13 @@ define internal fastcc void @drawtext(ptr noundef readonly captures(none) %0, i3
   %89 = sext i32 %88 to i64
   %90 = getelementptr inbounds i8, ptr %.090116, i64 %89
   %91 = lshr i32 %.091115, 1
-  %.not105 = icmp samesign ult i32 %.091115, 2
+  %.not105 = icmp eq i32 %91, 0
   br i1 %.not105, label %92, label %72, !llvm.loop !200
 
 92:                                               ; preds = %87
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not164 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not164, label %.loopexit114, label %64, !llvm.loop !201
+  %.not166 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not166, label %.loopexit114, label %64, !llvm.loop !201
 
 .loopexit114:                                     ; preds = %92
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
@@ -6144,13 +6144,13 @@ define internal fastcc void @drawtext(ptr noundef readonly captures(none) %0, i3
   %107 = sext i32 %106 to i64
   %108 = getelementptr inbounds i8, ptr %.082126, i64 %107
   %109 = lshr i32 %.083125, 1
-  %.not101 = icmp samesign ult i32 %.083125, 2
+  %.not101 = icmp eq i32 %109, 0
   br i1 %.not101, label %110, label %.preheader, !llvm.loop !202
 
 110:                                              ; preds = %.preheader
   %111 = add nsw i32 %.085127, -1
-  %.not165 = icmp eq i32 %.085127, 0
-  br i1 %.not165, label %.loopexit109, label %99, !llvm.loop !203
+  %.not167 = icmp eq i32 %.085127, 0
+  br i1 %.not167, label %.loopexit109, label %99, !llvm.loop !203
 
 .loopexit109:                                     ; preds = %110
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
@@ -7047,8 +7047,8 @@ clear_combine_buffer.exit:                        ; preds = %23
   %indvars.iv419 = phi i64 [ 0, %.lr.ph360.preheader ], [ %indvars.iv.next420, %.lr.ph360 ]
   %.0266358 = phi ptr [ %147, %.lr.ph360.preheader ], [ %160, %.lr.ph360 ]
   %148 = load ptr, ptr %127, align 8, !tbaa !131
-  %.idx459 = shl nsw i64 %indvars.iv419, 4
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 %.idx459
+  %.idx460 = shl nsw i64 %indvars.iv419, 4
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 %.idx460
   %150 = getelementptr inbounds nuw float, ptr %149, i64 %indvars.iv422
   %151 = load float, ptr %150, align 4, !tbaa !114
   %152 = fcmp nsz ogt float %151, 0.000000e+00
@@ -7105,8 +7105,8 @@ clear_combine_buffer.exit:                        ; preds = %23
   %indvars.iv426 = phi i64 [ 0, %.lr.ph366 ], [ %indvars.iv.next427, %185 ]
   %.0265364 = phi ptr [ %184, %.lr.ph366 ], [ %198, %185 ]
   %186 = load ptr, ptr %127, align 8, !tbaa !131
-  %.idx460 = shl nsw i64 %indvars.iv426, 4
-  %187 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx460
+  %.idx461 = shl nsw i64 %indvars.iv426, 4
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx461
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 12
   %189 = load float, ptr %188, align 4, !tbaa !114
   %190 = fcmp nsz ogt float %189, 0.000000e+00
@@ -7346,8 +7346,8 @@ clear_combine_buffer.exit:                        ; preds = %23
   %indvars.iv404 = phi i64 [ 0, %.lr.ph345 ], [ %indvars.iv.next405, %320 ]
   %.0263343 = phi ptr [ %319, %.lr.ph345 ], [ %330, %320 ]
   %321 = load ptr, ptr %272, align 8, !tbaa !131
-  %.idx458 = shl nsw i64 %indvars.iv404, 4
-  %322 = getelementptr inbounds nuw i8, ptr %321, i64 %.idx458
+  %.idx459 = shl nsw i64 %indvars.iv404, 4
+  %322 = getelementptr inbounds nuw i8, ptr %321, i64 %.idx459
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 12
   %324 = load float, ptr %323, align 4, !tbaa !114
   %325 = fcmp nsz ogt float %324, 0.000000e+00
@@ -7412,8 +7412,8 @@ clear_combine_buffer.exit:                        ; preds = %23
 360:                                              ; preds = %353
   %361 = icmp eq i32 %355, 1
   %362 = icmp slt i32 %352, 1
-  %or.cond474 = select i1 %361, i1 %362, i1 false
-  br i1 %or.cond474, label %363, label %.thread308
+  %or.cond475 = select i1 %361, i1 %362, i1 false
+  br i1 %or.cond475, label %363, label %.thread308
 
 363:                                              ; preds = %360
   %364 = load i32, ptr %15, align 4, !tbaa !102
@@ -7727,13 +7727,13 @@ get_time.exit:                                    ; preds = %411, %417, %423, %4
   %545 = sext i32 %544 to i64
   %546 = getelementptr inbounds i8, ptr %.090116.i, i64 %545
   %547 = lshr i32 %.091115.i, 1
-  %.not105.i = icmp samesign ult i32 %.091115.i, 2
+  %.not105.i = icmp eq i32 %547, 0
   br i1 %.not105.i, label %548, label %528, !llvm.loop !200
 
 548:                                              ; preds = %543
   %indvars.iv.next.i306 = add nsw i64 %indvars.iv.i305, -1
-  %.not164.i = icmp eq i64 %indvars.iv.i305, 0
-  br i1 %.not164.i, label %.loopexit114.i, label %520, !llvm.loop !201
+  %.not166.i = icmp eq i64 %indvars.iv.i305, 0
+  br i1 %.not166.i, label %.loopexit114.i, label %520, !llvm.loop !201
 
 .loopexit114.i:                                   ; preds = %548
   %indvars.iv.next141.i = add nuw nsw i64 %indvars.iv140.i, 1
@@ -7773,13 +7773,13 @@ get_time.exit:                                    ; preds = %411, %417, %423, %4
   %563 = sext i32 %562 to i64
   %564 = getelementptr inbounds i8, ptr %.082126.i, i64 %563
   %565 = lshr i32 %.083125.i, 1
-  %.not101.i = icmp samesign ult i32 %.083125.i, 2
+  %.not101.i = icmp eq i32 %565, 0
   br i1 %.not101.i, label %566, label %.preheader.i, !llvm.loop !202
 
 566:                                              ; preds = %.preheader.i
   %567 = add nsw i32 %.085127.i, -1
-  %.not165.i = icmp eq i32 %.085127.i, 0
-  br i1 %.not165.i, label %.loopexit109.i, label %555, !llvm.loop !203
+  %.not167.i = icmp eq i32 %.085127.i, 0
+  br i1 %.not167.i, label %.loopexit109.i, label %555, !llvm.loop !203
 
 .loopexit109.i:                                   ; preds = %566
   %indvars.iv.next150.i = add nuw nsw i64 %indvars.iv149.i, 1

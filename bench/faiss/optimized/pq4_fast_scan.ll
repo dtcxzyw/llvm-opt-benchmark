@@ -955,7 +955,7 @@ _ZN5faiss12pq4_pack_LUTEiiPKhPh.exit.us:          ; preds = %.lr.ph, %_ZN5faiss1
   %33 = and i32 %.01925.us, 15
   %34 = ashr i32 %.01925.us, 4
   %35 = add nuw nsw i32 %33, %.02024.us
-  %.not.us = icmp ult i32 %.01925.us, 16
+  %.not.us = icmp eq i32 %34, 0
   br i1 %.not.us, label %._crit_edge, label %_ZN5faiss12pq4_pack_LUTEiiPKhPh.exit.us, !llvm.loop !39
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN5faiss12pq4_pack_LUTEiiPKhPh.exit
@@ -1007,7 +1007,7 @@ _ZN5faiss12pq4_pack_LUTEiiPKhPh.exit.us:          ; preds = %.lr.ph, %_ZN5faiss1
 
 _ZN5faiss12pq4_pack_LUTEiiPKhPh.exit:             ; preds = %._crit_edge.us.i, %.lr.ph.split
   %58 = add nuw nsw i32 %36, %.02024
-  %.not = icmp ult i32 %.01925, 16
+  %.not = icmp eq i32 %37, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %_ZN5faiss12pq4_pack_LUTEiiPKhPh.exit.us, %_ZN5faiss12pq4_pack_LUTEiiPKhPh.exit, %28
@@ -1094,7 +1094,7 @@ _ZN5faiss12_GLOBAL__N_116pack_LUT_1_q_mapEiPKiiPKhPh.exit.us: ; preds = %.lr.ph,
   %34 = and i32 %.01925.us, 15
   %35 = ashr i32 %.01925.us, 4
   %36 = add nuw nsw i32 %34, %.02024.us
-  %.not.us = icmp ult i32 %.01925.us, 16
+  %.not.us = icmp eq i32 %35, 0
   br i1 %.not.us, label %._crit_edge, label %_ZN5faiss12_GLOBAL__N_116pack_LUT_1_q_mapEiPKiiPKhPh.exit.us, !llvm.loop !40
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN5faiss12_GLOBAL__N_116pack_LUT_1_q_mapEiPKiiPKhPh.exit
@@ -1149,7 +1149,7 @@ _ZN5faiss12_GLOBAL__N_116pack_LUT_1_q_mapEiPKiiPKhPh.exit.us: ; preds = %.lr.ph,
 
 _ZN5faiss12_GLOBAL__N_116pack_LUT_1_q_mapEiPKiiPKhPh.exit: ; preds = %._crit_edge.us.i, %.lr.ph.split
   %62 = add nuw nsw i32 %37, %.02024
-  %.not = icmp ult i32 %.01925, 16
+  %.not = icmp eq i32 %38, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %_ZN5faiss12_GLOBAL__N_116pack_LUT_1_q_mapEiPKiiPKhPh.exit.us, %_ZN5faiss12_GLOBAL__N_116pack_LUT_1_q_mapEiPKiiPKhPh.exit, %29

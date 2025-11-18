@@ -49241,7 +49241,7 @@ _ZNK4entt14basic_registryINS_6entityESaIS1_EE7currentES1_.exit65: ; preds = %106
   store i16 %113, ptr %10, align 2, !tbaa !106
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i16 0, ptr %11, align 2, !tbaa !106
-  %.not.i66 = icmp ult i32 %111, 1048576
+  %.not.i66 = icmp eq i32 %112, 0
   br i1 %.not.i66, label %115, label %114
 
 114:                                              ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE7currentES1_.exit65.thread, %_ZNK4entt14basic_registryINS_6entityESaIS1_EE7currentES1_.exit65
@@ -49647,7 +49647,7 @@ _ZNK4entt14basic_registryINS_6entityESaIS1_EE7currentES1_.exit118: ; preds = %25
   store i16 %260, ptr %20, align 2, !tbaa !106
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i16 0, ptr %21, align 2, !tbaa !106
-  %261 = icmp ult i32 %258, 1048576
+  %261 = icmp eq i32 %259, 0
   br i1 %261, label %262, label %263
 
 262:                                              ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE7currentES1_.exit118
@@ -52367,7 +52367,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   store i16 %527, ptr %43, align 2, !tbaa !106
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store i32 0, ptr %44, align 4, !tbaa !33
-  %528 = icmp ult i32 %525, 1048576
+  %528 = icmp eq i32 %526, 0
   br i1 %528, label %529, label %530
 
 529:                                              ; preds = %524
@@ -55655,7 +55655,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   store i16 %305, ptr %23, align 2, !tbaa !106
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i32 0, ptr %24, align 4, !tbaa !33
-  %306 = icmp ult i32 %303, 1048576
+  %306 = icmp eq i32 %304, 0
   br i1 %306, label %307, label %308
 
 307:                                              ; preds = %302
@@ -56542,7 +56542,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   store i16 %587, ptr %48, align 2, !tbaa !106
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   store i32 0, ptr %49, align 4, !tbaa !33
-  %588 = icmp ult i32 %422, 1048576
+  %588 = icmp eq i32 %586, 0
   br i1 %588, label %589, label %590
 
 589:                                              ; preds = %585
@@ -56915,7 +56915,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   store i16 %705, ptr %58, align 2, !tbaa !106
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
   store i32 0, ptr %59, align 4, !tbaa !33
-  %706 = icmp ult i32 %703, 1048576
+  %706 = icmp eq i32 %704, 0
   br i1 %706, label %707, label %708
 
 707:                                              ; preds = %702
@@ -59514,7 +59514,7 @@ _ZNK4entt14basic_registryINS_6entityESaIS1_EE7currentES1_.exit: ; preds = %39
   store i16 %46, ptr %5, align 2, !tbaa !106
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !33
-  %47 = icmp ult i32 %44, 1048576
+  %47 = icmp eq i32 %45, 0
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE7currentES1_.exit
@@ -59709,7 +59709,7 @@ _ZNK4entt14basic_registryINS_6entityESaIS1_EE7currentES1_.exit67: ; preds = %108
   store i16 %115, ptr %10, align 2, !tbaa !106
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !33
-  %116 = icmp ult i32 %113, 1048576
+  %116 = icmp eq i32 %114, 0
   br i1 %116, label %117, label %118
 
 117:                                              ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE7currentES1_.exit67
@@ -242288,7 +242288,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopISt16reverse_iteratorIN9_
   %73 = getelementptr inbounds i32, ptr %17, i64 %72
   %74 = getelementptr inbounds i8, ptr %73, i64 -4
   store i32 %69, ptr %74, align 4, !tbaa !61
-  %.not4.i.i.i = icmp ult i64 %.017.in.i.i.i.i.i, 2
+  %.not4.i.i.i = icmp eq i64 %.017.i.i23.i.i.i, 0
   br i1 %.not4.i.i.i, label %_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_SG_SG_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !2867
 
 _ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_SG_SG_RT0_.exit.i.i: ; preds = %71, %.lr.ph.i.i.i.i.i, %65
@@ -242710,7 +242710,7 @@ define linkonce_odr hidden void @_ZSt13__heap_selectISt16reverse_iteratorIN9__gn
   %64 = getelementptr inbounds i32, ptr %13, i64 %63
   %65 = getelementptr inbounds i8, ptr %64, i64 -4
   store i32 %60, ptr %65, align 4, !tbaa !61
-  %.not4.i.us = icmp ult i64 %.017.in.i.i.i.us, 2
+  %.not4.i.us = icmp eq i64 %.017.i.i23.i.us, 0
   br i1 %.not4.i.us, label %_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_SG_SG_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !2867
 
 _ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_SG_SG_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %62, %55

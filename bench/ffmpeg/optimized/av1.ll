@@ -1061,7 +1061,7 @@ uvlc.exit:                                        ; preds = %._crit_edge.thread.
   %419 = icmp eq i32 %381, 13
   %420 = icmp eq i32 %369, 1
   %brmerge.not94.i = select i1 %420, i1 %419, i1 false
-  %421 = icmp ult i32 %392, 16777216
+  %421 = icmp eq i32 %393, 0
   %or.cond89.i = select i1 %brmerge.not94.i, i1 %421, i1 false
   br i1 %or.cond89.i, label %422, label %.thread75.i
 

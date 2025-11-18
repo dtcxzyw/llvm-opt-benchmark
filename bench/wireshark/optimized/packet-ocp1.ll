@@ -627,112 +627,113 @@ define internal void @format_occ(ptr noundef %0, i64 noundef %1) #0 {
   %3 = lshr i64 %1, 32
   %4 = trunc nuw i64 %3 to i32
   %5 = trunc i64 %1 to i32
-  %6 = add i64 %1, -60129542144
-  %or.cond = icmp ult i64 %6, -55834574848
-  br i1 %or.cond, label %7, label %9
+  %6 = icmp eq i64 %3, 0
+  %7 = icmp ugt i64 %1, 60129542143
+  %or.cond = or i1 %7, %6
+  br i1 %or.cond, label %8, label %10
 
-7:                                                ; preds = %2
-  %8 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.172)
-  br label %48
+8:                                                ; preds = %2
+  %9 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.172)
+  br label %49
 
-9:                                                ; preds = %2
-  %10 = lshr i64 %1, 16
-  %trunc = trunc i64 %10 to i16
-  switch i16 %trunc, label %42 [
-    i16 1, label %11
-    i16 3, label %14
+10:                                               ; preds = %2
+  %11 = lshr i64 %1, 16
+  %trunc = trunc i64 %11 to i16
+  switch i16 %trunc, label %43 [
+    i16 1, label %12
+    i16 3, label %15
   ]
 
-11:                                               ; preds = %9
-  %12 = and i32 %5, 65535
-  %13 = tail call ptr @val_to_str_const(i32 noundef %12, ptr noundef nonnull @OcaRootMethods, ptr noundef nonnull @.str.173)
-  br label %45
+12:                                               ; preds = %10
+  %13 = and i32 %5, 65535
+  %14 = tail call ptr @val_to_str_const(i32 noundef %13, ptr noundef nonnull @OcaRootMethods, ptr noundef nonnull @.str.173)
+  br label %46
 
-14:                                               ; preds = %9
-  %15 = and i32 %5, 65535
+15:                                               ; preds = %10
+  %16 = and i32 %5, 65535
   switch i32 %4, label %default.unreachable [
-    i32 1, label %16
-    i32 2, label %18
-    i32 3, label %20
-    i32 4, label %22
-    i32 5, label %24
-    i32 6, label %26
-    i32 7, label %28
-    i32 8, label %30
-    i32 9, label %32
-    i32 10, label %34
-    i32 11, label %36
-    i32 12, label %38
-    i32 13, label %40
+    i32 1, label %17
+    i32 2, label %19
+    i32 3, label %21
+    i32 4, label %23
+    i32 5, label %25
+    i32 6, label %27
+    i32 7, label %29
+    i32 8, label %31
+    i32 9, label %33
+    i32 10, label %35
+    i32 11, label %37
+    i32 12, label %39
+    i32 13, label %41
   ]
 
-16:                                               ; preds = %14
-  %17 = tail call ptr @val_to_str_const(i32 noundef %15, ptr noundef nonnull @OcaDeviceManagerMethods, ptr noundef nonnull @.str.173)
-  br label %45
+17:                                               ; preds = %15
+  %18 = tail call ptr @val_to_str_const(i32 noundef %16, ptr noundef nonnull @OcaDeviceManagerMethods, ptr noundef nonnull @.str.173)
+  br label %46
 
-18:                                               ; preds = %14
-  %19 = tail call ptr @val_to_str_const(i32 noundef %15, ptr noundef nonnull @OcaSecurityManagerMethods, ptr noundef nonnull @.str.173)
-  br label %45
+19:                                               ; preds = %15
+  %20 = tail call ptr @val_to_str_const(i32 noundef %16, ptr noundef nonnull @OcaSecurityManagerMethods, ptr noundef nonnull @.str.173)
+  br label %46
 
-20:                                               ; preds = %14
-  %21 = tail call ptr @val_to_str_const(i32 noundef %15, ptr noundef nonnull @OcaFirmwareManagerMethods, ptr noundef nonnull @.str.173)
-  br label %45
+21:                                               ; preds = %15
+  %22 = tail call ptr @val_to_str_const(i32 noundef %16, ptr noundef nonnull @OcaFirmwareManagerMethods, ptr noundef nonnull @.str.173)
+  br label %46
 
-22:                                               ; preds = %14
-  %23 = tail call ptr @val_to_str_const(i32 noundef %15, ptr noundef nonnull @OcaSubscriptionManagerMethods, ptr noundef nonnull @.str.173)
-  br label %45
+23:                                               ; preds = %15
+  %24 = tail call ptr @val_to_str_const(i32 noundef %16, ptr noundef nonnull @OcaSubscriptionManagerMethods, ptr noundef nonnull @.str.173)
+  br label %46
 
-24:                                               ; preds = %14
-  %25 = tail call ptr @val_to_str_const(i32 noundef %15, ptr noundef nonnull @OcaPowerManagerMethods, ptr noundef nonnull @.str.173)
-  br label %45
+25:                                               ; preds = %15
+  %26 = tail call ptr @val_to_str_const(i32 noundef %16, ptr noundef nonnull @OcaPowerManagerMethods, ptr noundef nonnull @.str.173)
+  br label %46
 
-26:                                               ; preds = %14
-  %27 = tail call ptr @val_to_str_const(i32 noundef %15, ptr noundef nonnull @OcaNetworkManagerMethods, ptr noundef nonnull @.str.173)
-  br label %45
+27:                                               ; preds = %15
+  %28 = tail call ptr @val_to_str_const(i32 noundef %16, ptr noundef nonnull @OcaNetworkManagerMethods, ptr noundef nonnull @.str.173)
+  br label %46
 
-28:                                               ; preds = %14
-  %29 = tail call ptr @val_to_str_const(i32 noundef %15, ptr noundef nonnull @OcaMediaClockManagerMethods, ptr noundef nonnull @.str.173)
-  br label %45
+29:                                               ; preds = %15
+  %30 = tail call ptr @val_to_str_const(i32 noundef %16, ptr noundef nonnull @OcaMediaClockManagerMethods, ptr noundef nonnull @.str.173)
+  br label %46
 
-30:                                               ; preds = %14
-  %31 = tail call ptr @val_to_str_const(i32 noundef %15, ptr noundef nonnull @OcaLibraryManagerMethods, ptr noundef nonnull @.str.173)
-  br label %45
+31:                                               ; preds = %15
+  %32 = tail call ptr @val_to_str_const(i32 noundef %16, ptr noundef nonnull @OcaLibraryManagerMethods, ptr noundef nonnull @.str.173)
+  br label %46
 
-32:                                               ; preds = %14
-  %33 = tail call ptr @val_to_str_const(i32 noundef %15, ptr noundef nonnull @OcaAudioProcessingManagerMethods, ptr noundef nonnull @.str.173)
-  br label %45
+33:                                               ; preds = %15
+  %34 = tail call ptr @val_to_str_const(i32 noundef %16, ptr noundef nonnull @OcaAudioProcessingManagerMethods, ptr noundef nonnull @.str.173)
+  br label %46
 
-34:                                               ; preds = %14
-  %35 = tail call ptr @val_to_str_const(i32 noundef %15, ptr noundef nonnull @OcaDeviceTimeManagerMethods, ptr noundef nonnull @.str.173)
-  br label %45
+35:                                               ; preds = %15
+  %36 = tail call ptr @val_to_str_const(i32 noundef %16, ptr noundef nonnull @OcaDeviceTimeManagerMethods, ptr noundef nonnull @.str.173)
+  br label %46
 
-36:                                               ; preds = %14
-  %37 = tail call ptr @val_to_str_const(i32 noundef %15, ptr noundef nonnull @OcaTaskManagerMethods, ptr noundef nonnull @.str.173)
-  br label %45
+37:                                               ; preds = %15
+  %38 = tail call ptr @val_to_str_const(i32 noundef %16, ptr noundef nonnull @OcaTaskManagerMethods, ptr noundef nonnull @.str.173)
+  br label %46
 
-38:                                               ; preds = %14
-  %39 = tail call ptr @val_to_str_const(i32 noundef %15, ptr noundef nonnull @OcaCodingManagerMethods, ptr noundef nonnull @.str.173)
-  br label %45
+39:                                               ; preds = %15
+  %40 = tail call ptr @val_to_str_const(i32 noundef %16, ptr noundef nonnull @OcaCodingManagerMethods, ptr noundef nonnull @.str.173)
+  br label %46
 
-40:                                               ; preds = %14
-  %41 = tail call ptr @val_to_str_const(i32 noundef %15, ptr noundef nonnull @OcaDiagnosticManagerMethods, ptr noundef nonnull @.str.173)
-  br label %45
+41:                                               ; preds = %15
+  %42 = tail call ptr @val_to_str_const(i32 noundef %16, ptr noundef nonnull @OcaDiagnosticManagerMethods, ptr noundef nonnull @.str.173)
+  br label %46
 
-default.unreachable:                              ; preds = %14
+default.unreachable:                              ; preds = %15
   unreachable
 
-42:                                               ; preds = %9
-  %43 = tail call ptr @val_to_str_const(i32 noundef %4, ptr noundef nonnull @OcaFixedONo, ptr noundef nonnull @.str.174)
-  %44 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.175, ptr noundef %43, ptr noundef nonnull @.str.173)
-  br label %48
+43:                                               ; preds = %10
+  %44 = tail call ptr @val_to_str_const(i32 noundef %4, ptr noundef nonnull @OcaFixedONo, ptr noundef nonnull @.str.174)
+  %45 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.175, ptr noundef %44, ptr noundef nonnull @.str.173)
+  br label %49
 
-45:                                               ; preds = %16, %18, %20, %22, %24, %26, %28, %30, %32, %34, %36, %38, %40, %11
-  %.0 = phi ptr [ %13, %11 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ]
-  %46 = tail call ptr @val_to_str_const(i32 noundef %4, ptr noundef nonnull @OcaFixedONo, ptr noundef nonnull @.str.174)
-  %47 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.175, ptr noundef %46, ptr noundef %.0)
-  br label %48
+46:                                               ; preds = %17, %19, %21, %23, %25, %27, %29, %31, %33, %35, %37, %39, %41, %12
+  %.0 = phi ptr [ %14, %12 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ]
+  %47 = tail call ptr @val_to_str_const(i32 noundef %4, ptr noundef nonnull @OcaFixedONo, ptr noundef nonnull @.str.174)
+  %48 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.175, ptr noundef %47, ptr noundef %.0)
+  br label %49
 
-48:                                               ; preds = %42, %45, %7
+49:                                               ; preds = %43, %46, %8
   ret void
 }
 

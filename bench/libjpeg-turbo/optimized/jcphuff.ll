@@ -769,7 +769,7 @@ emit_symbol.exit66:                               ; preds = %180, %186
   call fastcc void @emit_bits(ptr noundef nonnull %6, i32 noundef %61, i32 noundef %167)
   %195 = getelementptr inbounds nuw i8, ptr %57, i64 2
   %196 = lshr i64 %56, 1
-  %.not63 = icmp ult i64 %56, 2
+  %.not63 = icmp eq i64 %196, 0
   br i1 %.not63, label %._crit_edge79, label %53, !llvm.loop !85
 
 ._crit_edge79:                                    ; preds = %emit_symbol.exit66, %34
@@ -1842,7 +1842,7 @@ emit_buffered_bits.exit:                          ; preds = %emit_bits.exit150, 
   %.080.be = phi i32 [ %.1.lcssa, %464 ], [ 0, %emit_buffered_bits.exit98 ]
   %.0.be = lshr i64 %64, 1
   %.0166.be = lshr i64 %61, 1
-  %.not87 = icmp ult i64 %61, 2
+  %.not87 = icmp eq i64 %.0166.be, 0
   br i1 %.not87, label %._crit_edge192, label %58, !llvm.loop !91
 
 470:                                              ; preds = %._crit_edge

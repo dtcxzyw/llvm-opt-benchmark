@@ -5987,8 +5987,8 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 64
   tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h6d26d2ae8d10bc4fE(ptr noundef %5, ptr noundef %6, ptr nonnull %.0.val)
-  %7 = getelementptr i8, ptr %2, i64 48
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  %8 = getelementptr i8, ptr %2, i64 48
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %10 = getelementptr i8, ptr %.0.val, i64 8
   br label %15
@@ -6005,8 +6005,8 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %.sroa.0.010.i = phi ptr [ %2, %3 ], [ %23, %15 ]
   %.sroa.06.09.i = phi ptr [ %6, %3 ], [ %21, %15 ]
   %.sroa.010.08.i = phi ptr [ %1, %3 ], [ %24, %15 ]
-  %.sroa.013.07.i = phi ptr [ %7, %3 ], [ %29, %15 ]
-  %.sroa.015.06.i = phi ptr [ %8, %3 ], [ %28, %15 ]
+  %.sroa.013.07.i = phi ptr [ %8, %3 ], [ %29, %15 ]
+  %.sroa.015.06.i = phi ptr [ %7, %3 ], [ %28, %15 ]
   %.sroa.017.05.i = phi ptr [ %9, %3 ], [ %30, %15 ]
   %.sroa.018.04.i = phi i64 [ 0, %3 ], [ %16, %15 ]
   %16 = add nuw nsw i64 %.sroa.018.04.i, 1
@@ -6806,11 +6806,11 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
   store ptr %0, ptr %36, align 8, !noalias !541
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %1, ptr %37, align 8, !noalias !541
-  %38 = getelementptr { { i8, [15 x i8] }, i64, {} }, ptr %7, i64 %10
-  %39 = getelementptr i8, ptr %38, i64 -24
-  %40 = add nsw i64 %1, -1
-  %41 = getelementptr inbounds nuw { { i8, [15 x i8] }, i64, {} }, ptr %7, i64 %40
-  %42 = getelementptr inbounds nuw { { i8, [15 x i8] }, i64, {} }, ptr %0, i64 %40
+  %38 = add nsw i64 %1, -1
+  %39 = getelementptr inbounds nuw { { i8, [15 x i8] }, i64, {} }, ptr %7, i64 %38
+  %40 = getelementptr { { i8, [15 x i8] }, i64, {} }, ptr %7, i64 %10
+  %41 = getelementptr i8, ptr %40, i64 -24
+  %42 = getelementptr inbounds nuw { { i8, [15 x i8] }, i64, {} }, ptr %0, i64 %38
   call void @llvm.assume(i1 %21)
   br label %47
 
@@ -6823,10 +6823,10 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
 
 47:                                               ; preds = %.noexc22.i, %35
   %.sroa.0.010.i.i = phi ptr [ %7, %35 ], [ %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, %.noexc22.i ]
-  %.sroa.06.09.i.i = phi ptr [ %38, %35 ], [ %.sroa.sel.idx.sroa.sel.idx.sroa.sel, %.noexc22.i ]
+  %.sroa.06.09.i.i = phi ptr [ %40, %35 ], [ %.sroa.sel.idx.sroa.sel.idx.sroa.sel, %.noexc22.i ]
   %.sroa.010.08.i.i = phi ptr [ %0, %35 ], [ %51, %.noexc22.i ]
-  %.sroa.013.07.i.i = phi ptr [ %39, %35 ], [ %55, %.noexc22.i ]
-  %.sroa.015.06.i.i = phi ptr [ %41, %35 ], [ %54, %.noexc22.i ]
+  %.sroa.013.07.i.i = phi ptr [ %41, %35 ], [ %55, %.noexc22.i ]
+  %.sroa.015.06.i.i = phi ptr [ %39, %35 ], [ %54, %.noexc22.i ]
   %.sroa.017.05.i.i = phi ptr [ %42, %35 ], [ %56, %.noexc22.i ]
   %.sroa.018.04.i.i = phi i64 [ 0, %35 ], [ %48, %.noexc22.i ]
   %48 = add nuw nsw i64 %.sroa.018.04.i.i, 1
@@ -10018,11 +10018,11 @@ define internal fastcc void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h
   store ptr %.sroa.0.0.lcssa, ptr %60, align 8, !noalias !691
   %61 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 %.sroa.11.0.lcssa, ptr %61, align 8, !noalias !691
-  %62 = getelementptr { i8, [15 x i8] }, ptr %14, i64 %26
-  %63 = getelementptr i8, ptr %62, i64 -16
-  %64 = add nsw i64 %.sroa.11.0.lcssa, -1
-  %65 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %14, i64 %64
-  %66 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %.sroa.0.0.lcssa, i64 %64
+  %62 = add nsw i64 %.sroa.11.0.lcssa, -1
+  %63 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %14, i64 %62
+  %64 = getelementptr { i8, [15 x i8] }, ptr %14, i64 %26
+  %65 = getelementptr i8, ptr %64, i64 -16
+  %66 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %.sroa.0.0.lcssa, i64 %62
   call void @llvm.assume(i1 %45)
   br label %71
 
@@ -10035,10 +10035,10 @@ define internal fastcc void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h
 
 71:                                               ; preds = %.noexc24.i.i, %59
   %.sroa.0.010.i.i.i = phi ptr [ %14, %59 ], [ %.sroa.sel4.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, %.noexc24.i.i ]
-  %.sroa.06.09.i.i.i = phi ptr [ %62, %59 ], [ %.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, %.noexc24.i.i ]
+  %.sroa.06.09.i.i.i = phi ptr [ %64, %59 ], [ %.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, %.noexc24.i.i ]
   %.sroa.010.08.i.i.i = phi ptr [ %.sroa.0.0.lcssa, %59 ], [ %75, %.noexc24.i.i ]
-  %.sroa.013.07.i.i.i = phi ptr [ %63, %59 ], [ %79, %.noexc24.i.i ]
-  %.sroa.015.06.i.i.i = phi ptr [ %65, %59 ], [ %78, %.noexc24.i.i ]
+  %.sroa.013.07.i.i.i = phi ptr [ %65, %59 ], [ %79, %.noexc24.i.i ]
+  %.sroa.015.06.i.i.i = phi ptr [ %63, %59 ], [ %78, %.noexc24.i.i ]
   %.sroa.017.05.i.i.i = phi ptr [ %66, %59 ], [ %80, %.noexc24.i.i ]
   %.sroa.018.04.i.i.i = phi i64 [ 0, %59 ], [ %72, %.noexc24.i.i ]
   %72 = add nuw nsw i64 %.sroa.018.04.i.i.i, 1
@@ -26084,7 +26084,7 @@ define hidden noundef nonnull align 8 ptr @_ZN18ty_python_semantic15module_resol
 13:                                               ; preds = %2
   %14 = lshr i64 %11, 32
   %15 = trunc nuw i64 %14 to i32
-  %16 = icmp ugt i64 %11, 4294967295
+  %16 = icmp ne i64 %14, 0
   tail call void @llvm.assume(i1 %16)
   %17 = trunc i64 %11 to i32
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 2272
@@ -28786,7 +28786,7 @@ define hidden noundef nonnull align 8 ptr @_ZN18ty_python_semantic15module_resol
 13:                                               ; preds = %2
   %14 = lshr i64 %11, 32
   %15 = trunc nuw i64 %14 to i32
-  %16 = icmp ugt i64 %11, 4294967295
+  %16 = icmp ne i64 %14, 0
   tail call void @llvm.assume(i1 %16)
   %17 = trunc i64 %11 to i32
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 2272
@@ -30261,7 +30261,7 @@ define hidden noundef nonnull align 8 ptr @_ZN18ty_python_semantic15module_resol
 12:                                               ; preds = %2
   %13 = lshr i64 %10, 32
   %14 = trunc nuw i64 %13 to i32
-  %15 = icmp ugt i64 %10, 4294967295
+  %15 = icmp ne i64 %13, 0
   tail call void @llvm.assume(i1 %15)
   %16 = trunc i64 %10 to i32
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 2272
@@ -32505,7 +32505,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(40) ptr @"_ZN18ty
 8:                                                ; preds = %1
   %9 = lshr i64 %6, 32
   %10 = trunc nuw i64 %9 to i32
-  %11 = icmp ugt i64 %6, 4294967295
+  %11 = icmp ne i64 %9, 0
   tail call void @llvm.assume(i1 %11)
   %12 = trunc i64 %6 to i32
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 2272
@@ -32589,7 +32589,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN18ty_python_s
 11:                                               ; preds = %2
   %12 = lshr i64 %9, 32
   %13 = trunc nuw i64 %12 to i32
-  %14 = icmp ugt i64 %9, 4294967295
+  %14 = icmp ne i64 %12, 0
   tail call void @llvm.assume(i1 %14)
   %15 = trunc i64 %9 to i32
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 2272
@@ -32844,7 +32844,7 @@ define internal fastcc noundef nonnull align 128 ptr @"_ZN18ty_python_semantic6u
 7:                                                ; preds = %1
   %8 = lshr i64 %5, 32
   %9 = trunc nuw i64 %8 to i32
-  %10 = icmp ugt i64 %5, 4294967295
+  %10 = icmp ne i64 %8, 0
   tail call void @llvm.assume(i1 %10)
   %11 = trunc i64 %5 to i32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2272
@@ -33159,7 +33159,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN18ty_python_se
 12:                                               ; preds = %2
   %13 = lshr i64 %10, 32
   %14 = trunc nuw i64 %13 to i32
-  %15 = icmp ugt i64 %10, 4294967295
+  %15 = icmp ne i64 %13, 0
   tail call void @llvm.assume(i1 %15)
   %16 = trunc i64 %10 to i32
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 2272

@@ -39228,12 +39228,12 @@ nbap_parse_ib_sg_data_var1.exit:                  ; preds = %68, %78
 
 148:                                              ; preds = %143, %.lr.ph237
   %149 = lshr i32 %.0196234, 1
-  %150 = icmp ult i32 %.0196234, 2
+  %150 = icmp eq i32 %149, 0
   %151 = zext i1 %150 to i32
   %spec.select = add i32 %.0198233, %151
   %spec.select219 = select i1 %150, i32 128, i32 %149
   %152 = lshr i8 %.1202232, 1
-  %153 = icmp ult i8 %.1202232, 2
+  %153 = icmp eq i8 %152, 0
   %154 = zext i1 %153 to i8
   %.2205 = add i8 %.1204231, %154
   %.2 = select i1 %153, i8 -128, i8 %152

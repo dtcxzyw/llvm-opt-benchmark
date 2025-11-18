@@ -106,7 +106,6 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite9SkipFiel
 entry:
   %value6 = alloca i64, align 8
   %value31 = alloca i32, align 4
-  %shr.i = and i32 %tag, -8
   %cmp = icmp ult i32 %tag, 8
   br i1 %cmp, label %return, label %if.end
 
@@ -276,7 +275,8 @@ if.then.i46:                                      ; preds = %if.end23
   br label %_ZN6google8protobuf2io16CodedInputStream23DecrementRecursionDepthEv.exit
 
 _ZN6google8protobuf2io16CodedInputStream23DecrementRecursionDepthEv.exit: ; preds = %if.end23, %if.then.i46
-  %or.i = or disjoint i32 %shr.i, 4
+  %shl.i = and i32 %tag, -8
+  %or.i = or disjoint i32 %shl.i, 4
   %cmp.i48 = icmp eq i32 %16, %or.i
   br label %return
 
@@ -357,7 +357,6 @@ entry:
   %value6 = alloca i64, align 8
   %temp = alloca %"class.std::__cxx11::basic_string", align 8
   %value32 = alloca i32, align 4
-  %shr.i = and i32 %tag, -8
   %cmp = icmp ult i32 %tag, 8
   br i1 %cmp, label %return, label %if.end
 
@@ -804,7 +803,8 @@ if.then.i153:                                     ; preds = %if.end24
   br label %_ZN6google8protobuf2io16CodedInputStream23DecrementRecursionDepthEv.exit
 
 _ZN6google8protobuf2io16CodedInputStream23DecrementRecursionDepthEv.exit: ; preds = %if.end24, %if.then.i153
-  %or.i = or disjoint i32 %shr.i, 4
+  %shl.i = and i32 %tag, -8
+  %or.i = or disjoint i32 %shl.i, 4
   %41 = load i32, ptr %last_tag_.i.i, align 8
   %cmp.i155 = icmp eq i32 %41, %or.i
   br label %return

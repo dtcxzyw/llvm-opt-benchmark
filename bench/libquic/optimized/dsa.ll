@@ -1417,7 +1417,7 @@ define hidden i32 @DSA_size(ptr noundef readonly captures(none) %0) local_unname
   %.069.i = phi i64 [ %9, %.preheader.i ], [ %7, %.preheader.i.preheader ]
   %8 = add nuw nsw i64 %.010.i, 1
   %9 = lshr i64 %.069.i, 8
-  %.not.i = icmp samesign ult i64 %.069.i, 256
+  %.not.i = icmp eq i64 %9, 0
   br i1 %.not.i, label %der_len_len.exit, label %.preheader.i, !llvm.loop !43
 
 der_len_len.exit:                                 ; preds = %.preheader.i, %1
@@ -1439,7 +1439,7 @@ der_len_len.exit:                                 ; preds = %.preheader.i, %1
   %.069.i18 = phi i64 [ %18, %.preheader.i16 ], [ %15, %14 ]
   %17 = add nuw nsw i64 %.010.i17, 1
   %18 = lshr i64 %.069.i18, 8
-  %.not.i19 = icmp ult i64 %.069.i18, 256
+  %.not.i19 = icmp eq i64 %18, 0
   br i1 %.not.i19, label %der_len_len.exit21, label %.preheader.i16, !llvm.loop !43
 
 der_len_len.exit21:                               ; preds = %.preheader.i16, %14

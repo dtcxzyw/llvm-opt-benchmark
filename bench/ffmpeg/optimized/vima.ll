@@ -339,7 +339,7 @@ define internal void @predict_table_init() #3 {
   %spec.select = add nsw i32 %8, %.01723
   %9 = ashr i32 %.025, 1
   %10 = lshr i32 %.01624, 1
-  %.not = icmp samesign ult i32 %.01624, 2
+  %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %6, !llvm.loop !43
 
 11:                                               ; preds = %6

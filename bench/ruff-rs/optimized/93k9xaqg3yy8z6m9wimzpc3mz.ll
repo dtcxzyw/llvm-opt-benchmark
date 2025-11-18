@@ -17003,9 +17003,10 @@ define hidden void @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6repeat17hd9a
           to label %.preheader unwind label %30
 
 .preheader:                                       ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hecf5364e73f96382E.exit"
-  %.not8 = icmp eq i64 %3, 1
-  %.pre10 = load i64, ptr %27, align 8
-  br i1 %.not8, label %._crit_edge, label %.lr.ph
+  %.sroa.01.08 = lshr i64 %3, 1
+  %.not9 = icmp eq i64 %.sroa.01.08, 0
+  %.pre11 = load i64, ptr %27, align 8
+  br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 29:                                               ; preds = %11
   tail call void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.5bc7f885d7c4a73c810aa79227528d26.1048, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5bc7f885d7c4a73c810aa79227528d26.1049) #23
@@ -17018,16 +17019,15 @@ define hidden void @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6repeat17hd9a
           to label %48 unwind label %46
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %32 = phi i64 [ %.pre10, %.preheader ], [ %40, %.lr.ph ]
+  %32 = phi i64 [ %.pre11, %.preheader ], [ %40, %.lr.ph ]
   %33 = icmp sgt i64 %32, -1
   call void @llvm.assume(i1 %33)
   %.not7 = icmp eq i64 %13, %32
   br i1 %.not7, label %41, label %42
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %34 = phi i64 [ %40, %.lr.ph ], [ %.pre10, %.preheader ]
-  %.sroa.01.0.in9 = phi i64 [ %.sroa.01.0, %.lr.ph ], [ %3, %.preheader ]
-  %.sroa.01.0 = lshr i64 %.sroa.01.0.in9, 1
+  %34 = phi i64 [ %40, %.lr.ph ], [ %.pre11, %.preheader ]
+  %.sroa.01.010 = phi i64 [ %.sroa.01.0, %.lr.ph ], [ %.sroa.01.08, %.preheader ]
   %35 = load ptr, ptr %26, align 8, !nonnull !3, !noundef !3
   %36 = icmp sgt i64 %34, -1
   call void @llvm.assume(i1 %36)
@@ -17038,7 +17038,8 @@ define hidden void @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6repeat17hd9a
   call void @llvm.assume(i1 %39)
   %40 = shl nuw i64 %38, 1
   store i64 %40, ptr %27, align 8
-  %.not = icmp ult i64 %.sroa.01.0.in9, 4
+  %.sroa.01.0 = lshr i64 %.sroa.01.010, 1
+  %.not = icmp eq i64 %.sroa.01.0, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 41:                                               ; preds = %42, %._crit_edge

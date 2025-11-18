@@ -28780,8 +28780,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %123, %121
 
 _ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %100, %111, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %126
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %127 = call i64 @llvm.umax.i64(i64 %103, i64 128)
-  %spec.store.select = lshr i64 %127, 7
+  %127 = lshr i64 %103, 7
+  %spec.store.select = call i64 @llvm.umax.i64(i64 %127, i64 1)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %128 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %128, ptr %8, align 8, !tbaa !364
@@ -65449,7 +65449,7 @@ define linkonce_odr void @_ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE23_M_new_el
   br label %_ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE22_M_reserve_map_at_backEm.exit
 
 _ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE22_M_reserve_map_at_backEm.exit: ; preds = %33, %43
-  %.not22 = icmp ult i64 %34, 64
+  %.not22 = icmp eq i64 %35, 0
   br i1 %.not22, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE22_M_reserve_map_at_backEm.exit

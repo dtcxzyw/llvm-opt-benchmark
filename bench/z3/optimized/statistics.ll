@@ -3214,7 +3214,7 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIPPcN9__gnu_cxx5__ops15_Iter_c
 47:                                               ; preds = %.lr.ph.i.i.i
   %48 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i.i.i
   store ptr %44, ptr %48, align 8, !tbaa !22
-  %.not10.i = icmp ult i64 %.018.in.i.i.i, 2
+  %.not10.i = icmp eq i64 %.018.i.i89.i, 0
   br i1 %.not10.i, label %_ZSt10__pop_heapIPPcN9__gnu_cxx5__ops15_Iter_comp_iterI6str_ltEEEvT_S7_S7_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !96
 
 _ZSt10__pop_heapIPPcN9__gnu_cxx5__ops15_Iter_comp_iterI6str_ltEEEvT_S7_S7_RT0_.exit: ; preds = %.lr.ph.i.i.i, %47, %42

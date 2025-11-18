@@ -71,7 +71,7 @@ define internal range(i32 0, 52) i32 @swf_probe(ptr noundef readonly captures(no
   %31 = load i32, ptr %25, align 1, !tbaa !12
   %32 = tail call i32 @llvm.bswap.i32(i32 %31)
   %33 = lshr i32 %32, 27
-  %.not39 = icmp ult i32 %32, 134217728
+  %.not39 = icmp eq i32 %33, 0
   br i1 %.not39, label %161, label %34
 
 34:                                               ; preds = %30

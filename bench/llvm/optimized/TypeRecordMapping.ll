@@ -1053,7 +1053,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %24, %20
   %58 = getelementptr inbounds i8, ptr %.117.i, i64 -1
   store i8 %57, ptr %58, align 1, !tbaa !39, !noalias !89
   %59 = lshr i64 %.019.i, 4
-  %60 = icmp samesign ult i64 %.019.i, 16
+  %60 = icmp eq i64 %59, 0
   br i1 %60, label %._crit_edge.i, label %.thread.i, !llvm.loop !92
 
 _ZN4llvmplERKNS_5TwineES2_.exit33:                ; preds = %._crit_edge.i.i.i, %52, %54
@@ -2472,7 +2472,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_.ex
   %193 = getelementptr inbounds i8, ptr %.117.i, i64 -1
   store i8 %192, ptr %193, align 1, !tbaa !39, !noalias !147
   %194 = lshr i64 %.019.i, 4
-  %195 = icmp samesign ult i64 %.019.i, 16
+  %195 = icmp eq i64 %194, 0
   br i1 %195, label %._crit_edge.i, label %.thread.i, !llvm.loop !92
 
 _ZN4llvm9utohexstrB5cxx11Embj.exit:               ; preds = %._crit_edge.i.i.i28, %187, %189
@@ -3866,7 +3866,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_.ex
   %196 = getelementptr inbounds i8, ptr %.117.i, i64 -1
   store i8 %195, ptr %196, align 1, !tbaa !39, !noalias !184
   %197 = lshr i64 %.019.i, 4
-  %198 = icmp samesign ult i64 %.019.i, 16
+  %198 = icmp eq i64 %197, 0
   br i1 %198, label %._crit_edge.i, label %.thread.i, !llvm.loop !92
 
 _ZN4llvm9utohexstrB5cxx11Embj.exit:               ; preds = %._crit_edge.i.i.i27, %190, %192
@@ -10615,7 +10615,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_.ex
   %314 = getelementptr inbounds i8, ptr %.117.i.i, i64 -1
   store i8 %313, ptr %314, align 1, !tbaa !39, !noalias !445
   %315 = lshr i64 %.019.i.i, 4
-  %316 = icmp samesign ult i64 %.019.i.i, 16
+  %316 = icmp eq i64 %315, 0
   br i1 %316, label %._crit_edge.i.i48, label %.thread.i.i, !llvm.loop !92
 
 _ZN4llvm9utohexstrB5cxx11Embj.exit.i:             ; preds = %310, %308, %._crit_edge.i.i.i29.i
@@ -12170,7 +12170,7 @@ _ZSt13__adjust_heapIPN4llvm9EnumEntryItEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterI
 89:                                               ; preds = %.lr.ph.i.i.i.i.i
   %90 = getelementptr inbounds %"struct.llvm::EnumEntry.62", ptr %0, i64 %.01316.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %90, ptr noundef nonnull align 8 dereferenceable(34) %87, i64 34, i1 false), !tbaa.struct !130
-  %.not9.i.i.i = icmp ult i64 %.017.in.i.i.i.i.i, 2
+  %.not9.i.i.i = icmp eq i64 %.017.i.i78.i.i.i, 0
   br i1 %.not9.i.i.i, label %_ZSt10__pop_heapIPN4llvm9EnumEntryItEEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS2_S8_EEEEvT_SC_SC_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !459
 
 _ZSt10__pop_heapIPN4llvm9EnumEntryItEEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS2_S8_EEEEvT_SC_SC_RT0_.exit.i.i: ; preds = %89, %.lr.ph.i.i.i.i.i, %86
@@ -12643,7 +12643,7 @@ _ZSt13__adjust_heapIPN4llvm9EnumEntryIhEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterI
 89:                                               ; preds = %.lr.ph.i.i.i.i.i
   %90 = getelementptr inbounds %"struct.llvm::EnumEntry.70", ptr %0, i64 %.01316.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %90, ptr noundef nonnull align 8 dereferenceable(33) %87, i64 33, i1 false), !tbaa.struct !173
-  %.not9.i.i.i = icmp ult i64 %.017.in.i.i.i.i.i, 2
+  %.not9.i.i.i = icmp eq i64 %.017.i.i78.i.i.i, 0
   br i1 %.not9.i.i.i, label %_ZSt10__pop_heapIPN4llvm9EnumEntryIhEEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS2_S8_EEEEvT_SC_SC_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !475
 
 _ZSt10__pop_heapIPN4llvm9EnumEntryIhEEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS2_S8_EEEEvT_SC_SC_RT0_.exit.i.i: ; preds = %89, %.lr.ph.i.i.i.i.i, %86

@@ -14677,7 +14677,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN3euf9ac_plugin4nodeElN9_
 94:                                               ; preds = %90
   %95 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i10.i
   store ptr %.val.i.i.i.i13.i, ptr %95, align 8, !tbaa !148
-  %.not3.i.i.i = icmp ult i64 %.04.in.i.i.i.i11.i, 2
+  %.not3.i.i.i = icmp eq i64 %.048.i.i.i.i12.i, 0
   br i1 %.not3.i.i.i, label %"_ZSt10__pop_heapIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_RT0_.exit.i.i", label %90, !llvm.loop !281
 
 "_ZSt10__pop_heapIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_RT0_.exit.i.i": ; preds = %94, %90, %88
@@ -16274,8 +16274,8 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIjN3euf9
   %24 = icmp ugt i32 %12, 16
   %25 = mul i32 %12, 3
   %26 = icmp ugt i32 %23, %25
-  %or.cond18 = select i1 %24, i1 %26, i1 false
-  br i1 %or.cond18, label %27, label %._crit_edge.thread
+  %or.cond19 = select i1 %24, i1 %26, i1 false
+  br i1 %or.cond19, label %27, label %._crit_edge.thread
 
 27:                                               ; preds = %._crit_edge
   %28 = icmp eq ptr %10, null
@@ -16294,7 +16294,7 @@ _ZN14core_hashtableI17default_map_entryIjN3euf9ac_plugin6sharedEEN9table2mapIS4_
   %32 = zext nneg i32 %31 to i64
   %33 = mul nuw nsw i64 %32, 56
   %34 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %33)
-  %.not11.i.i.i.i.i = icmp ult i32 %30, 2
+  %.not11.i.i.i.i.i = icmp eq i32 %31, 0
   br i1 %.not11.i.i.i.i.i, label %_ZN14core_hashtableI17default_map_entryIjN3euf9ac_plugin6sharedEEN9table2mapIS4_NS2_13monomial_hashENS2_11monomial_eqEE15entry_hash_procENS8_13entry_eq_procEE11alloc_tableEj.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN14core_hashtableI17default_map_entryIjN3euf9ac_plugin6sharedEEN9table2mapIS4_NS2_13monomial_hashENS2_11monomial_eqEE15entry_hash_procENS8_13entry_eq_procEE12delete_tableEv.exit, %.lr.ph.i.i.i.i.i

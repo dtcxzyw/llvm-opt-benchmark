@@ -748,7 +748,7 @@ select.unfold:                                    ; preds = %50, %43, %43, %52, 
   %66 = add i16 %65, %.0915.i
   %67 = lshr i16 %.01113.i, 4
   %68 = mul i16 %.016.i, 10
-  %.not.i = icmp ult i16 %.01113.i, 16
+  %.not.i = icmp eq i16 %67, 0
   br i1 %.not.i, label %convert_bcd_to_dec.exit, label %.lr.ph.i, !llvm.loop !8
 
 convert_bcd_to_dec.exit:                          ; preds = %.lr.ph.i, %.thread177
@@ -869,7 +869,7 @@ convert_bcd_to_dec.exit:                          ; preds = %.lr.ph.i, %.thread1
   %131 = add i16 %130, %.0915.i115
   %132 = lshr i16 %.01113.i117, 4
   %133 = mul i16 %.016.i114, 10
-  %.not.i119 = icmp ult i16 %.01113.i117, 16
+  %.not.i119 = icmp eq i16 %132, 0
   br i1 %.not.i119, label %convert_bcd_to_dec.exit122, label %.lr.ph.i113, !llvm.loop !8
 
 convert_bcd_to_dec.exit122:                       ; preds = %.lr.ph.i113
@@ -991,7 +991,7 @@ default.unreachable:                              ; preds = %181
   %205 = add i16 %204, %.0915.i126
   %206 = lshr i16 %.01113.i128, 4
   %207 = mul i16 %.016.i125, 10
-  %.not.i130 = icmp ult i16 %.01113.i128, 16
+  %.not.i130 = icmp eq i16 %206, 0
   br i1 %.not.i130, label %convert_bcd_to_dec.exit133, label %.lr.ph.i124, !llvm.loop !8
 
 convert_bcd_to_dec.exit133:                       ; preds = %.lr.ph.i124
@@ -1022,7 +1022,7 @@ convert_bcd_to_dec.exit133:                       ; preds = %.lr.ph.i124
   %219 = add i16 %218, %.0915.i137
   %220 = lshr i16 %.01113.i139, 4
   %221 = mul i16 %.016.i136, 10
-  %.not.i141 = icmp ult i16 %.01113.i139, 16
+  %.not.i141 = icmp eq i16 %220, 0
   br i1 %.not.i141, label %convert_bcd_to_dec.exit144, label %.lr.ph.i135, !llvm.loop !8
 
 convert_bcd_to_dec.exit144:                       ; preds = %.lr.ph.i135

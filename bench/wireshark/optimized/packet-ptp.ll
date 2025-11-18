@@ -4537,7 +4537,7 @@ define internal fastcc void @disect_ptp_v2_tlvs(ptr noundef %0, i32 noundef %1, 
 
 .preheader:                                       ; preds = %49
   %56 = lshr i32 %32, 3
-  %.not778 = icmp ult i16 %29, 8
+  %.not778 = icmp eq i32 %56, 0
   br i1 %.not778, label %.loopexit, label %.lr.ph771.preheader
 
 .lr.ph771.preheader:                              ; preds = %.preheader

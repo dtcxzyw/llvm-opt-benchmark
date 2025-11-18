@@ -1071,7 +1071,7 @@ define hidden noundef zeroext i1 @_ZN10ttf_parser6tables4cmap7format29Subtable21
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 2
   %.val.i.i.i46.i.i.i = load i16, ptr %31, align 1, !alias.scope !165, !noalias !160
   %32 = tail call i16 @llvm.bswap.i16(i16 %.val.i.i.i46.i.i.i)
-  %33 = icmp ult i16 %20, 8
+  %33 = icmp eq i16 %21, 0
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %28
@@ -1231,7 +1231,7 @@ define hidden void @_ZN10ttf_parser6tables4cmap7format69Subtable610codepoints17h
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN10ttf_parser6tables4cmap8Subtable10codepoints17h8cd33444b1e539ccE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(104) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(2456) %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = load i64, ptr %0, align 8, !range !194, !noundef !4
-  switch i64 %4, label %default.unreachable72 [
+  switch i64 %4, label %default.unreachable73 [
     i64 0, label %5
     i64 1, label %19
     i64 2, label %72
@@ -1243,7 +1243,7 @@ define hidden void @_ZN10ttf_parser6tables4cmap8Subtable10codepoints17h8cd33444b
     i64 8, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h893fde1fa5cf70c4E.llvm.15772558698018558306.exit
   ]
 
-default.unreachable72:                            ; preds = %3
+default.unreachable73:                            ; preds = %3
   unreachable
 
 5:                                                ; preds = %3
@@ -1327,7 +1327,7 @@ default.unreachable72:                            ; preds = %3
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 2
   %.val.i.i.i46.i.i.i.i = load i16, ptr %47, align 1, !alias.scope !232, !noalias !227
   %48 = tail call i16 @llvm.bswap.i16(i16 %.val.i.i.i46.i.i.i.i)
-  %49 = icmp ult i16 %36, 8
+  %49 = icmp eq i16 %37, 0
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %44

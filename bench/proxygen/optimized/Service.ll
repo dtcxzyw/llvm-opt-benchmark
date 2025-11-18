@@ -807,7 +807,7 @@ entry:
   %sizeAndChunkShiftAndPackedBegin_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8
   %shr.i.i.i = lshr i64 %0, 8
-  %cmp.not = icmp ult i64 %0, 256
+  %cmp.not = icmp eq i64 %shr.i.i.i, 0
   %.pre = load ptr, ptr %this, align 8
   br i1 %cmp.not, label %if.end9, label %if.then
 

@@ -20115,9 +20115,9 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %64
   %80 = lshr i64 %.1.i278, 6
   %81 = and i64 %.1.i278, 63
   %.not20.i.i = icmp eq i64 %81, 63
-  br i1 %.not20.i.i, label %.preheader454, label %82
+  br i1 %.not20.i.i, label %.preheader458, label %82
 
-.preheader454:                                    ; preds = %82, %79
+.preheader458:                                    ; preds = %82, %79
   br label %89
 
 82:                                               ; preds = %79
@@ -20126,14 +20126,14 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %64
   %85 = shl nsw i64 -2, %81
   %86 = and i64 %84, %85
   %.not21.i.i = icmp eq i64 %86, 0
-  br i1 %.not21.i.i, label %.preheader454, label %87
+  br i1 %.not21.i.i, label %.preheader458, label %87
 
 87:                                               ; preds = %82
   %88 = and i64 %.1.i278, 192
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
-89:                                               ; preds = %.preheader454, %91
-  %.0.in.i.i = phi i64 [ %.0.i.i, %91 ], [ %80, %.preheader454 ]
+89:                                               ; preds = %.preheader458, %91
+  %.0.in.i.i = phi i64 [ %.0.i.i, %91 ], [ %80, %.preheader458 ]
   %90 = icmp samesign ult i64 %.0.in.i.i, 3
   br i1 %90, label %91, label %._crit_edge
 
@@ -20149,10 +20149,10 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %64
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
 _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %87, %94
-  %.sink423 = phi i64 [ %86, %87 ], [ %93, %94 ]
-  %.sink422 = phi i64 [ %88, %87 ], [ %95, %94 ]
-  %96 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sink423, i1 true)
-  %97 = or disjoint i64 %96, %.sink422
+  %.sink427 = phi i64 [ %86, %87 ], [ %93, %94 ]
+  %.sink426 = phi i64 [ %88, %87 ], [ %95, %94 ]
+  %96 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sink427, i1 true)
+  %97 = or disjoint i64 %96, %.sink426
   %98 = lshr i64 %97, 4
   %99 = icmp eq i64 %98, %72
   br i1 %99, label %.lr.ph, label %._crit_edge
@@ -20349,12 +20349,12 @@ _ZNSt3mapIttSt4lessItESaISt4pairIKttEEED2Ev.exit: ; preds = %._crit_edge288
   %196 = icmp ult i32 %.fr, %148
   %spec.select.i183 = and i1 %196, %195
   %spec.select = select i1 %spec.select.i183, ptr %.0811.i.i.i.i74, ptr %.012.i.i.i.i73
-  %spec.select424 = select i1 %spec.select.i183, i64 24, i64 16
+  %spec.select428 = select i1 %spec.select.i183, i64 24, i64 16
   br label %.thread
 
 .thread:                                          ; preds = %.noexc81, %.lr.ph.i.i.i.i72
   %197 = phi ptr [ %.0811.i.i.i.i74, %.lr.ph.i.i.i.i72 ], [ %spec.select, %.noexc81 ]
-  %198 = phi i64 [ 24, %.lr.ph.i.i.i.i72 ], [ %spec.select424, %.noexc81 ]
+  %198 = phi i64 [ 24, %.lr.ph.i.i.i.i72 ], [ %spec.select428, %.noexc81 ]
   %.1.in.i.i.i.i77 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i73, i64 %198
   %.1.i.i.i.i78 = load ptr, ptr %.1.in.i.i.i.i77, align 8
   %.not.i.i.i.i79 = icmp eq ptr %.1.i.i.i.i78, null
@@ -21052,11 +21052,11 @@ _ZN3ue2L9nibUpdateERSt3mapIjtSt4lessIjESaISt4pairIKjtEEEj.exit.loopexit: ; preds
 
 _ZN3ue2L9nibUpdateERSt3mapIjtSt4lessIjESaISt4pairIKjtEEEj.exit: ; preds = %_ZN3ue2L9nibUpdateERSt3mapIjtSt4lessIjESaISt4pairIKjtEEEj.exit.loopexit, %361
   %491 = phi i32 [ %.pre344, %_ZN3ue2L9nibUpdateERSt3mapIjtSt4lessIjESaISt4pairIKjtEEEj.exit.loopexit ], [ %364, %361 ]
-  %.not.i62295 = icmp ult i32 %491, 65536
+  %492 = lshr i32 %491, 16
+  %.not.i62295 = icmp eq i32 %492, 0
   br i1 %.not.i62295, label %_ZN3ue2L13nibMaskUpdateERSt5arrayIhLm32EEjh.exit64, label %.lr.ph298
 
 .lr.ph298:                                        ; preds = %_ZN3ue2L9nibUpdateERSt3mapIjtSt4lessIjESaISt4pairIKjtEEEj.exit
-  %492 = lshr i32 %491, 16
   %493 = load i8, ptr %6, align 1
   %.fr314 = freeze i8 %493
   %494 = zext i8 %.fr314 to i32
@@ -21086,7 +21086,7 @@ _ZN3ue2L9nibUpdateERSt3mapIjtSt4lessIjESaISt4pairIKjtEEEj.exit: ; preds = %_ZN3u
 507:                                              ; preds = %502, %.lr.ph298.split.us
   %508 = lshr i32 %.010.i60296.us, 1
   %indvars.iv.next335 = add nuw nsw i64 %indvars.iv334, 1
-  %.not.i62.us = icmp samesign ult i32 %.010.i60296.us, 2
+  %.not.i62.us = icmp eq i32 %508, 0
   br i1 %.not.i62.us, label %_ZN3ue2L13nibMaskUpdateERSt5arrayIhLm32EEjh.exit64, label %.lr.ph298.split.us, !llvm.loop !594
 
 .lr.ph298.split:                                  ; preds = %.lr.ph298, %514
@@ -21106,7 +21106,7 @@ _ZN3ue2L9nibUpdateERSt3mapIjtSt4lessIjESaISt4pairIKjtEEEj.exit: ; preds = %_ZN3u
 514:                                              ; preds = %510, %.lr.ph298.split
   %515 = lshr i32 %.010.i60296, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not.i62 = icmp samesign ult i32 %.010.i60296, 2
+  %.not.i62 = icmp eq i32 %515, 0
   br i1 %.not.i62, label %_ZN3ue2L13nibMaskUpdateERSt5arrayIhLm32EEjh.exit64, label %.lr.ph298.split, !llvm.loop !594
 
 _ZN3ue2L13nibMaskUpdateERSt5arrayIhLm32EEjh.exit64: ; preds = %514, %507, %_ZN3ue2L9nibUpdateERSt3mapIjtSt4lessIjESaISt4pairIKjtEEEj.exit
@@ -21144,7 +21144,7 @@ _ZN3ue2L13nibMaskUpdateERSt5arrayIhLm32EEjh.exit64: ; preds = %514, %507, %_ZN3u
 531:                                              ; preds = %526, %.lr.ph303.split.us
   %532 = lshr i32 %.010.i301.us, 1
   %indvars.iv.next341 = add nuw nsw i64 %indvars.iv340, 1
-  %.not.i59.us = icmp samesign ult i32 %.010.i301.us, 2
+  %.not.i59.us = icmp eq i32 %532, 0
   br i1 %.not.i59.us, label %_ZN3ue2L13nibMaskUpdateERSt5arrayIhLm32EEjh.exit, label %.lr.ph303.split.us, !llvm.loop !594
 
 .lr.ph303.split:                                  ; preds = %.lr.ph303, %538
@@ -21164,7 +21164,7 @@ _ZN3ue2L13nibMaskUpdateERSt5arrayIhLm32EEjh.exit64: ; preds = %514, %507, %_ZN3u
 538:                                              ; preds = %534, %.lr.ph303.split
   %539 = lshr i32 %.010.i301, 1
   %indvars.iv.next338 = add nuw nsw i64 %indvars.iv337, 1
-  %.not.i59 = icmp samesign ult i32 %.010.i301, 2
+  %.not.i59 = icmp eq i32 %539, 0
   br i1 %.not.i59, label %_ZN3ue2L13nibMaskUpdateERSt5arrayIhLm32EEjh.exit, label %.lr.ph303.split, !llvm.loop !594
 
 _ZN3ue2L13nibMaskUpdateERSt5arrayIhLm32EEjh.exit: ; preds = %538, %531, %_ZN3ue2L13nibMaskUpdateERSt5arrayIhLm32EEjh.exit64

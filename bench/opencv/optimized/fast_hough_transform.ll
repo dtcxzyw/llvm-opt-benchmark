@@ -6199,7 +6199,7 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iterato
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %58 = load i64, ptr %56, align 4
   store i64 %58, ptr %57, align 4
-  %.not12.i = icmp ult i64 %.01020.in.i.i.i, 2
+  %.not12.i = icmp eq i64 %.01020.i.i1011.i, 0
   br i1 %.not12.i, label %.critedge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !221
 
 .critedge.loopexit.i.i.i:                         ; preds = %53, %.lr.ph.i.i.i
@@ -6748,7 +6748,7 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iterato
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %58 = load i64, ptr %56, align 4
   store i64 %58, ptr %57, align 4
-  %.not12.i = icmp ult i64 %.01020.in.i.i.i, 2
+  %.not12.i = icmp eq i64 %.01020.i.i1011.i, 0
   br i1 %.not12.i, label %.critedge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !230
 
 .critedge.loopexit.i.i.i:                         ; preds = %53, %.lr.ph.i.i.i
@@ -7195,7 +7195,7 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iterato
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %58 = load i64, ptr %56, align 4
   store i64 %58, ptr %57, align 4
-  %.not12.i = icmp ult i64 %.01020.in.i.i.i, 2
+  %.not12.i = icmp eq i64 %.01020.i.i1011.i, 0
   br i1 %.not12.i, label %.critedge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !238
 
 .critedge.loopexit.i.i.i:                         ; preds = %53, %.lr.ph.i.i.i
@@ -7642,7 +7642,7 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iterato
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %58 = load i64, ptr %56, align 4
   store i64 %58, ptr %57, align 4
-  %.not12.i = icmp ult i64 %.01020.in.i.i.i, 2
+  %.not12.i = icmp eq i64 %.01020.i.i1011.i, 0
   br i1 %.not12.i, label %.critedge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !246
 
 .critedge.loopexit.i.i.i:                         ; preds = %53, %.lr.ph.i.i.i
@@ -8089,7 +8089,7 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iterato
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %58 = load i64, ptr %56, align 4
   store i64 %58, ptr %57, align 4
-  %.not12.i = icmp ult i64 %.01020.in.i.i.i, 2
+  %.not12.i = icmp eq i64 %.01020.i.i1011.i, 0
   br i1 %.not12.i, label %.critedge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !254
 
 .critedge.loopexit.i.i.i:                         ; preds = %53, %.lr.ph.i.i.i
@@ -8537,7 +8537,7 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iterato
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %59 = load i64, ptr %57, align 4
   store i64 %59, ptr %58, align 4
-  %.not12.i = icmp ult i64 %.01020.in.i.i.i, 2
+  %.not12.i = icmp eq i64 %.01020.i.i1011.i, 0
   br i1 %.not12.i, label %.critedge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !262
 
 .critedge.loopexit.i.i.i:                         ; preds = %54, %.lr.ph.i.i.i
@@ -8984,7 +8984,7 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iterato
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %56 = load i64, ptr %54, align 8
   store i64 %56, ptr %55, align 8
-  %.not10.i = icmp ult i64 %.0919.in.i.i.i, 2
+  %.not10.i = icmp eq i64 %.0919.i.i89.i, 0
   br i1 %.not10.i, label %.critedge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !270
 
 .critedge.loopexit.i.i.i:                         ; preds = %51, %.lr.ph.i.i.i

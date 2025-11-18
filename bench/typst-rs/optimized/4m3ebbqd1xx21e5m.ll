@@ -67001,7 +67001,7 @@ define hidden void @_ZN5typst6layout6inline19linebreak_optimized17h36a47c79d1edd
   %41 = lshr i64 %.pre-phi.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !12030)
   call void @llvm.experimental.noalias.scope.decl(metadata !12033)
-  %.not.i.i = icmp ult i64 %.pre-phi.i, 2
+  %.not.i.i = icmp eq i64 %41, 0
   br i1 %.not.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h1890181123a6ccb1E.exit", label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %._crit_edge
@@ -69478,7 +69478,7 @@ _ZN5typst6layout6inline4Item3len17h247497bfffa351a7E.llvm.9217674556973953327.ex
   %192 = lshr i64 %190, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !12456)
   call void @llvm.experimental.noalias.scope.decl(metadata !12459)
-  %.not.i.i.i = icmp ult i64 %190, 2
+  %.not.i.i.i = icmp eq i64 %192, 0
   br i1 %.not.i.i.i, label %.backedge.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %188
@@ -69785,8 +69785,8 @@ _ZN5typst6layout6inline7reorder17h3c86da03265a06edE.exit: ; preds = %.noexc.i, %
 
 284:                                              ; preds = %.thread314, %280
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
-  %.not423 = icmp eq i64 %254, 1
-  br i1 %.not423, label %285, label %287
+  %.not424 = icmp eq i64 %254, 1
+  br i1 %.not424, label %285, label %287
 
 285:                                              ; preds = %284
   %.pn1.i111 = load i64, ptr %.pn1.in.i, align 8, !alias.scope !12540, !noundef !4
@@ -69990,8 +69990,8 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h3c531494c3d682b7E.exit.i.i.i.i.i.i
 
 354:                                              ; preds = %.thread318, %350
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
-  %.not438 = icmp eq i64 %254, 1
-  br i1 %.not438, label %355, label %357
+  %.not439 = icmp eq i64 %254, 1
+  br i1 %.not439, label %355, label %357
 
 355:                                              ; preds = %354
   %.pn1.i149 = load i64, ptr %.pn1.in.i127, align 8, !alias.scope !12619, !noundef !4

@@ -34925,7 +34925,7 @@ if.else.i.i.i:                                    ; preds = %while.body.i.i.i
   br i1 %cmp.i.i12.i.i.i, label %if.end31.i.i.i, label %if.else15.i.i.i
 
 if.else15.i.i.i:                                  ; preds = %if.else.i.i.i
-  %cmp7.i.i.i.i.not = icmp samesign ult i64 %__len.060.i.i.i, 2
+  %cmp7.i.i.i.i.not = icmp eq i64 %shr.i.i.i, 0
   br i1 %cmp7.i.i.i.i.not, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKN5boost16re_detail_10740020named_subexpressions4nameESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SE_SE_RKT0_T1_.exit.i.i.i, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.else15.i.i.i, %while.body.i.i.i.i
@@ -36930,7 +36930,7 @@ if.else.i.i.i:                                    ; preds = %while.body.i.i.i
   br i1 %cmp.i.i12.i.i.i, label %if.end31.i.i.i, label %if.else15.i.i.i
 
 if.else15.i.i.i:                                  ; preds = %if.else.i.i.i
-  %cmp7.i.i.i.i.not = icmp samesign ult i64 %__len.060.i.i.i, 2
+  %cmp7.i.i.i.i.not = icmp eq i64 %shr.i.i.i, 0
   br i1 %cmp7.i.i.i.i.not, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKN5boost16re_detail_10740020named_subexpressions4nameESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SE_SE_RKT0_T1_.exit.i.i.i, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.else15.i.i.i, %while.body.i.i.i.i
@@ -37150,7 +37150,7 @@ if.else.i.i.i62:                                  ; preds = %while.body.i.i.i51
   br i1 %cmp.i.i12.i.i.i63, label %if.end31.i.i.i113, label %if.else15.i.i.i64
 
 if.else15.i.i.i64:                                ; preds = %if.else.i.i.i62
-  %cmp7.i.i.i.i68.not = icmp samesign ult i64 %__len.060.i.i.i52, 2
+  %cmp7.i.i.i.i68.not = icmp eq i64 %shr.i.i.i54, 0
   br i1 %cmp7.i.i.i.i68.not, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKN5boost16re_detail_10740020named_subexpressions4nameESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SE_SE_RKT0_T1_.exit.i.i.i69, label %while.body.i.i.i.i97
 
 while.body.i.i.i.i97:                             ; preds = %if.else15.i.i.i64, %while.body.i.i.i.i97

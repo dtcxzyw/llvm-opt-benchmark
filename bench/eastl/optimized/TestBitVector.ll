@@ -831,7 +831,7 @@ define weak_odr dso_local void @_ZN5eastl9bitvectorINS_9allocatorEmNS_6vectorImS
 entry:
   %sub = add i64 %n, 63
   %div2 = lshr i64 %sub, 6
-  %tobool.not.i.i.i = icmp ult i64 %sub, 64
+  %tobool.not.i.i.i = icmp eq i64 %div2, 0
   br i1 %tobool.not.i.i.i, label %_ZN5eastl10VectorBaseImNS_9allocatorEEC2EmRKS1_.exit.thread.i, label %for.body.preheader.i.i
 
 _ZN5eastl10VectorBaseImNS_9allocatorEEC2EmRKS1_.exit.thread.i: ; preds = %entry
@@ -869,7 +869,7 @@ entry:
   %sub = add i64 %n, 63
   %div2 = lshr i64 %sub, 6
   %cond = sext i1 %value to i64
-  %tobool.not.i.i.i = icmp ult i64 %sub, 64
+  %tobool.not.i.i.i = icmp eq i64 %div2, 0
   br i1 %tobool.not.i.i.i, label %_ZN5eastl10VectorBaseImNS_9allocatorEEC2EmRKS1_.exit.thread.i, label %_ZN5eastl10VectorBaseImNS_9allocatorEEC2EmRKS1_.exit.i
 
 _ZN5eastl10VectorBaseImNS_9allocatorEEC2EmRKS1_.exit.thread.i: ; preds = %entry
@@ -3075,7 +3075,7 @@ entry:
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %allocator, i64 8
   %2 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
   store i64 %2, ptr %mAllocVolume.i.i.i.i.i, align 8
-  %tobool.not.i.i.i = icmp ult i64 %sub, 64
+  %tobool.not.i.i.i = icmp eq i64 %div2, 0
   br i1 %tobool.not.i.i.i, label %_ZN5eastl10VectorBaseIm15MallocAllocatorEC2EmRKS1_.exit.thread.i, label %for.body.preheader.i.i
 
 _ZN5eastl10VectorBaseIm15MallocAllocatorEC2EmRKS1_.exit.thread.i: ; preds = %entry
@@ -3124,7 +3124,7 @@ entry:
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %allocator, i64 8
   %2 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
   store i64 %2, ptr %mAllocVolume.i.i.i.i.i, align 8
-  %tobool.not.i.i.i = icmp ult i64 %sub, 64
+  %tobool.not.i.i.i = icmp eq i64 %div2, 0
   br i1 %tobool.not.i.i.i, label %_ZN5eastl10VectorBaseIm15MallocAllocatorEC2EmRKS1_.exit.thread.i, label %_ZN5eastl10VectorBaseIm15MallocAllocatorEC2EmRKS1_.exit.i
 
 _ZN5eastl10VectorBaseIm15MallocAllocatorEC2EmRKS1_.exit.thread.i: ; preds = %entry
@@ -3894,7 +3894,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp2.not.i, label %_ZN5eastl10VectorBaseIm15MallocAllocatorE10DoAllocateEm.exit.i.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
-  %cmp3.i = icmp ult i64 %sub, 64
+  %cmp3.i = icmp eq i64 %div2, 0
   br i1 %cmp3.i, label %if.end13.i.sink.split, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
@@ -5099,7 +5099,7 @@ define weak_odr dso_local void @_ZN5eastl9bitvectorINS_9allocatorEhNS_6vectorIhS
 entry:
   %sub = add i64 %n, 7
   %div2 = lshr i64 %sub, 3
-  %tobool.not.i.i.i = icmp ult i64 %sub, 8
+  %tobool.not.i.i.i = icmp eq i64 %div2, 0
   br i1 %tobool.not.i.i.i, label %_ZN5eastl10VectorBaseIhNS_9allocatorEEC2EmRKS1_.exit.thread.i, label %for.body.preheader.i.i
 
 _ZN5eastl10VectorBaseIhNS_9allocatorEEC2EmRKS1_.exit.thread.i: ; preds = %entry
@@ -5135,7 +5135,7 @@ define weak_odr dso_local void @_ZN5eastl9bitvectorINS_9allocatorEhNS_6vectorIhS
 entry:
   %sub = add i64 %n, 7
   %div2 = lshr i64 %sub, 3
-  %tobool.not.i.i.i = icmp ult i64 %sub, 8
+  %tobool.not.i.i.i = icmp eq i64 %div2, 0
   br i1 %tobool.not.i.i.i, label %_ZN5eastl10VectorBaseIhNS_9allocatorEEC2EmRKS1_.exit.thread.i, label %for.body.preheader.i.i.i.i.i
 
 _ZN5eastl10VectorBaseIhNS_9allocatorEEC2EmRKS1_.exit.thread.i: ; preds = %entry
@@ -7554,7 +7554,7 @@ define weak_odr dso_local void @_ZN5eastl9bitvectorINS_9allocatorEsNS_6vectorIsS
 entry:
   %sub = add i64 %n, 15
   %div2 = lshr i64 %sub, 4
-  %tobool.not.i.i.i = icmp ult i64 %sub, 16
+  %tobool.not.i.i.i = icmp eq i64 %div2, 0
   br i1 %tobool.not.i.i.i, label %_ZN5eastl10VectorBaseIsNS_9allocatorEEC2EmRKS1_.exit.thread.i, label %for.body.preheader.i.i
 
 _ZN5eastl10VectorBaseIsNS_9allocatorEEC2EmRKS1_.exit.thread.i: ; preds = %entry
@@ -7592,7 +7592,7 @@ entry:
   %sub = add i64 %n, 15
   %div2 = lshr i64 %sub, 4
   %conv = sext i1 %value to i16
-  %tobool.not.i.i.i = icmp ult i64 %sub, 16
+  %tobool.not.i.i.i = icmp eq i64 %div2, 0
   br i1 %tobool.not.i.i.i, label %_ZN5eastl10VectorBaseIsNS_9allocatorEEC2EmRKS1_.exit.thread.i, label %_ZN5eastl10VectorBaseIsNS_9allocatorEEC2EmRKS1_.exit.i
 
 _ZN5eastl10VectorBaseIsNS_9allocatorEEC2EmRKS1_.exit.thread.i: ; preds = %entry
@@ -9734,7 +9734,7 @@ define weak_odr dso_local void @_ZN5eastl9bitvectorINS_9allocatorEiNS_6vectorIiS
 entry:
   %sub = add i64 %n, 31
   %div2 = lshr i64 %sub, 5
-  %tobool.not.i.i.i = icmp ult i64 %sub, 32
+  %tobool.not.i.i.i = icmp eq i64 %div2, 0
   br i1 %tobool.not.i.i.i, label %_ZN5eastl10VectorBaseIiNS_9allocatorEEC2EmRKS1_.exit.thread.i, label %for.body.preheader.i.i
 
 _ZN5eastl10VectorBaseIiNS_9allocatorEEC2EmRKS1_.exit.thread.i: ; preds = %entry
@@ -9772,7 +9772,7 @@ entry:
   %sub = add i64 %n, 31
   %div2 = lshr i64 %sub, 5
   %cond = sext i1 %value to i32
-  %tobool.not.i.i.i = icmp ult i64 %sub, 32
+  %tobool.not.i.i.i = icmp eq i64 %div2, 0
   br i1 %tobool.not.i.i.i, label %_ZN5eastl10VectorBaseIiNS_9allocatorEEC2EmRKS1_.exit.thread.i, label %_ZN5eastl10VectorBaseIiNS_9allocatorEEC2EmRKS1_.exit.i
 
 _ZN5eastl10VectorBaseIiNS_9allocatorEEC2EmRKS1_.exit.thread.i: ; preds = %entry
@@ -11954,7 +11954,7 @@ define weak_odr dso_local void @_ZN5eastl9bitvectorINS_9allocatorElNS_6vectorIlS
 entry:
   %sub = add i64 %n, 63
   %div2 = lshr i64 %sub, 6
-  %tobool.not.i.i.i = icmp ult i64 %sub, 64
+  %tobool.not.i.i.i = icmp eq i64 %div2, 0
   br i1 %tobool.not.i.i.i, label %_ZN5eastl10VectorBaseIlNS_9allocatorEEC2EmRKS1_.exit.thread.i, label %for.body.preheader.i.i
 
 _ZN5eastl10VectorBaseIlNS_9allocatorEEC2EmRKS1_.exit.thread.i: ; preds = %entry
@@ -11992,7 +11992,7 @@ entry:
   %sub = add i64 %n, 63
   %div2 = lshr i64 %sub, 6
   %cond = sext i1 %value to i64
-  %tobool.not.i.i.i = icmp ult i64 %sub, 64
+  %tobool.not.i.i.i = icmp eq i64 %div2, 0
   br i1 %tobool.not.i.i.i, label %_ZN5eastl10VectorBaseIlNS_9allocatorEEC2EmRKS1_.exit.thread.i, label %_ZN5eastl10VectorBaseIlNS_9allocatorEEC2EmRKS1_.exit.i
 
 _ZN5eastl10VectorBaseIlNS_9allocatorEEC2EmRKS1_.exit.thread.i: ; preds = %entry

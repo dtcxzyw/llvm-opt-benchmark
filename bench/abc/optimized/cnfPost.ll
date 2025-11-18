@@ -46,7 +46,7 @@ define void @Cnf_ManPostprocess_old(ptr noundef readonly captures(none) %0) loca
   %19 = load i32, ptr inttoptr (i64 4 to ptr), align 4
   %.fr = freeze i32 %19
   %20 = lshr i32 %.fr, 29
-  %.not = icmp ult i32 %.fr, 536870912
+  %.not = icmp eq i32 %20, 0
   br i1 %.not, label %.critedge2, label %Aig_ManObj.exit.lr.ph
 
 Aig_ManObj.exit.lr.ph:                            ; preds = %.preheader

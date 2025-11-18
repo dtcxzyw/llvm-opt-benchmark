@@ -4117,7 +4117,7 @@ define dso_local i64 @dictScanDefrag(ptr noundef captures(none) %0, i64 noundef 
   %9 = load i64, ptr %8, align 8, !tbaa !14
   %10 = sub i64 0, %9
   %11 = icmp eq i64 %7, %10
-  br i1 %11, label %159, label %12
+  br i1 %11, label %163, label %12
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -4132,7 +4132,7 @@ define dso_local i64 @dictScanDefrag(ptr noundef captures(none) %0, i64 noundef 
   %.not = icmp eq i64 %19, -1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %21 = load i8, ptr %20, align 2, !tbaa !13
-  br i1 %.not, label %22, label %68
+  br i1 %.not, label %22, label %70
 
 22:                                               ; preds = %12
   %23 = sext i8 %21 to i64
@@ -4142,10 +4142,10 @@ define dso_local i64 @dictScanDefrag(ptr noundef captures(none) %0, i64 noundef 
   %26 = xor i64 %notmask, -1
   %27 = select i1 %24, i64 0, i64 %26
   %.not106 = icmp eq ptr %3, null
-  br i1 %.not106, label %._crit_edge159, label %28
+  br i1 %.not106, label %._crit_edge156, label %28
 
-._crit_edge159:                                   ; preds = %22
-  %.pre160 = and i64 %27, %1
+._crit_edge156:                                   ; preds = %22
+  %.pre157 = and i64 %27, %1
   br label %33
 
 28:                                               ; preds = %22
@@ -4156,269 +4156,269 @@ define dso_local i64 @dictScanDefrag(ptr noundef captures(none) %0, i64 noundef 
   tail call fastcc void @dictDefragBucket(ptr noundef %32, ptr noundef %3)
   br label %33
 
-33:                                               ; preds = %._crit_edge159, %28
-  %.pre-phi = phi i64 [ %.pre160, %._crit_edge159 ], [ %31, %28 ]
+33:                                               ; preds = %._crit_edge156, %28
+  %.pre-phi = phi i64 [ %.pre157, %._crit_edge156 ], [ %31, %28 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !11
   %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.pre-phi
   %37 = load ptr, ptr %36, align 8, !tbaa !31
-  %.not107147 = icmp eq ptr %37, null
-  br i1 %.not107147, label %._crit_edge151, label %.lr.ph150
+  %.not107144 = icmp eq ptr %37, null
+  br i1 %.not107144, label %._crit_edge148, label %.lr.ph147
 
-.lr.ph150:                                        ; preds = %33, %dictGetNext.exit
-  %.093148 = phi ptr [ %.0.i, %dictGetNext.exit ], [ %37, %33 ]
-  %38 = ptrtoint ptr %.093148 to i64
+.lr.ph147:                                        ; preds = %33, %dictGetNext.exit
+  %.093145 = phi ptr [ %.0.i, %dictGetNext.exit ], [ %37, %33 ]
+  %38 = ptrtoint ptr %.093145 to i64
   %39 = and i64 %38, 3
   %.not.i = icmp eq i64 %39, 0
   br i1 %.not.i, label %dictGetNext.exit, label %dictGetNext.exit.thread
 
-dictGetNext.exit.thread:                          ; preds = %.lr.ph150
-  tail call void %2(ptr noundef %4, ptr noundef nonnull %.093148) #25
-  br label %._crit_edge151
+dictGetNext.exit.thread:                          ; preds = %.lr.ph147
+  tail call void %2(ptr noundef %4, ptr noundef nonnull %.093145) #25
+  br label %._crit_edge148
 
-dictGetNext.exit:                                 ; preds = %.lr.ph150
+dictGetNext.exit:                                 ; preds = %.lr.ph147
   %40 = and i64 %38, 4
   %.not5.i = icmp eq i64 %40, 0
   %41 = and i64 %38, -8
   %42 = inttoptr i64 %41 to ptr
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %44 = getelementptr inbounds nuw i8, ptr %.093148, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.093145, i64 16
   %.0.i.in = select i1 %.not5.i, ptr %44, ptr %43
   %.0.i = load ptr, ptr %.0.i.in, align 8, !tbaa !31
-  tail call void %2(ptr noundef %4, ptr noundef nonnull %.093148) #25
+  tail call void %2(ptr noundef %4, ptr noundef nonnull %.093145) #25
   %.not107 = icmp eq ptr %.0.i, null
-  br i1 %.not107, label %._crit_edge151, label %.lr.ph150, !llvm.loop !84
+  br i1 %.not107, label %._crit_edge148, label %.lr.ph147, !llvm.loop !84
 
-._crit_edge151:                                   ; preds = %dictGetNext.exit, %dictGetNext.exit.thread, %33
+._crit_edge148:                                   ; preds = %dictGetNext.exit, %dictGetNext.exit.thread, %33
   %45 = xor i64 %27, -1
   %46 = or i64 %1, %45
   br label %47
 
-47:                                               ; preds = %47, %._crit_edge151
-  %.016.i = phi i64 [ -1, %._crit_edge151 ], [ %50, %47 ]
-  %.01115.i = phi i64 [ 64, %._crit_edge151 ], [ %48, %47 ]
-  %.01214.i = phi i64 [ %46, %._crit_edge151 ], [ %56, %47 ]
-  %48 = lshr i64 %.01115.i, 1
-  %49 = shl i64 %.016.i, %48
-  %50 = xor i64 %49, %.016.i
+47:                                               ; preds = %47, %._crit_edge148
+  %48 = phi i64 [ 32, %._crit_edge148 ], [ %57, %47 ]
+  %.015.i = phi i64 [ -1, %._crit_edge148 ], [ %50, %47 ]
+  %.01214.i = phi i64 [ %46, %._crit_edge148 ], [ %56, %47 ]
+  %49 = shl i64 %.015.i, %48
+  %50 = xor i64 %49, %.015.i
   %51 = lshr i64 %.01214.i, %48
   %52 = and i64 %50, %51
   %53 = shl i64 %.01214.i, %48
   %54 = xor i64 %50, -1
   %55 = and i64 %53, %54
   %56 = or i64 %52, %55
-  %.not.i114 = icmp samesign ult i64 %.01115.i, 4
+  %57 = lshr i64 %48, 1
+  %.not.i114 = icmp eq i64 %57, 0
   br i1 %.not.i114, label %rev.exit, label %47, !llvm.loop !85
 
 rev.exit:                                         ; preds = %47
-  %57 = add i64 %56, 1
-  br label %58
+  %58 = add i64 %56, 1
+  br label %59
 
-58:                                               ; preds = %58, %rev.exit
-  %.016.i115 = phi i64 [ -1, %rev.exit ], [ %61, %58 ]
-  %.01115.i116 = phi i64 [ 64, %rev.exit ], [ %59, %58 ]
-  %.01214.i117 = phi i64 [ %57, %rev.exit ], [ %67, %58 ]
-  %59 = lshr i64 %.01115.i116, 1
-  %60 = shl i64 %.016.i115, %59
-  %61 = xor i64 %60, %.016.i115
-  %62 = lshr i64 %.01214.i117, %59
-  %63 = and i64 %61, %62
-  %64 = shl i64 %.01214.i117, %59
-  %65 = xor i64 %61, -1
-  %66 = and i64 %64, %65
-  %67 = or i64 %63, %66
-  %.not.i118 = icmp samesign ult i64 %.01115.i116, 4
-  br i1 %.not.i118, label %rev.exit119, label %58, !llvm.loop !85
+59:                                               ; preds = %59, %rev.exit
+  %60 = phi i64 [ 32, %rev.exit ], [ %69, %59 ]
+  %.015.i115 = phi i64 [ -1, %rev.exit ], [ %62, %59 ]
+  %.01214.i116 = phi i64 [ %58, %rev.exit ], [ %68, %59 ]
+  %61 = shl i64 %.015.i115, %60
+  %62 = xor i64 %61, %.015.i115
+  %63 = lshr i64 %.01214.i116, %60
+  %64 = and i64 %62, %63
+  %65 = shl i64 %.01214.i116, %60
+  %66 = xor i64 %62, -1
+  %67 = and i64 %65, %66
+  %68 = or i64 %64, %67
+  %69 = lshr i64 %60, 1
+  %.not.i117 = icmp eq i64 %69, 0
+  br i1 %.not.i117, label %rev.exit118, label %59, !llvm.loop !85
 
-68:                                               ; preds = %12
-  %69 = icmp ne i8 %21, -1
-  %70 = sext i8 %21 to i64
-  %71 = and i64 %70, 4294967295
-  %72 = shl nuw i64 1, %71
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 51
-  %74 = load i8, ptr %73, align 1, !tbaa !13
-  %75 = icmp eq i8 %74, -1
-  %76 = sext i8 %74 to i64
-  %77 = and i64 %76, 4294967295
-  %78 = shl nuw i64 1, %77
-  %79 = icmp ult i64 %78, %72
-  %80 = select i1 %75, i1 true, i1 %79
-  %81 = select i1 %69, i1 %80, i1 false
-  %.095 = zext i1 %81 to i64
-  %not. = xor i1 %81, true
+70:                                               ; preds = %12
+  %71 = icmp ne i8 %21, -1
+  %72 = sext i8 %21 to i64
+  %73 = and i64 %72, 4294967295
+  %74 = shl nuw i64 1, %73
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 51
+  %76 = load i8, ptr %75, align 1, !tbaa !13
+  %77 = icmp eq i8 %76, -1
+  %78 = sext i8 %76 to i64
+  %79 = and i64 %78, 4294967295
+  %80 = shl nuw i64 1, %79
+  %81 = icmp ult i64 %80, %74
+  %82 = select i1 %77, i1 true, i1 %81
+  %83 = select i1 %71, i1 %82, i1 false
+  %.095 = zext i1 %83 to i64
+  %not. = xor i1 %83, true
   %.094 = zext i1 %not. to i64
-  %82 = getelementptr inbounds nuw i8, ptr %20, i64 %.095
-  %83 = load i8, ptr %82, align 1, !tbaa !13
-  %84 = sext i8 %83 to i64
-  %85 = icmp eq i8 %83, -1
-  %86 = and i64 %84, 4294967295
-  %notmask108 = shl nsw i64 -1, %86
-  %87 = xor i64 %notmask108, -1
-  %88 = select i1 %85, i64 0, i64 %87
-  %89 = getelementptr inbounds nuw i8, ptr %20, i64 %.094
-  %90 = load i8, ptr %89, align 1, !tbaa !13
-  %91 = sext i8 %90 to i64
-  %92 = icmp eq i8 %90, -1
-  %93 = and i64 %91, 4294967295
-  %notmask109 = shl nsw i64 -1, %93
-  %94 = xor i64 %notmask109, -1
-  %95 = select i1 %92, i64 0, i64 %94
+  %84 = getelementptr inbounds nuw i8, ptr %20, i64 %.095
+  %85 = load i8, ptr %84, align 1, !tbaa !13
+  %86 = sext i8 %85 to i64
+  %87 = icmp eq i8 %85, -1
+  %88 = and i64 %86, 4294967295
+  %notmask108 = shl nsw i64 -1, %88
+  %89 = xor i64 %notmask108, -1
+  %90 = select i1 %87, i64 0, i64 %89
+  %91 = getelementptr inbounds nuw i8, ptr %20, i64 %.094
+  %92 = load i8, ptr %91, align 1, !tbaa !13
+  %93 = sext i8 %92 to i64
+  %94 = icmp eq i8 %92, -1
+  %95 = and i64 %93, 4294967295
+  %notmask109 = shl nsw i64 -1, %95
+  %96 = xor i64 %notmask109, -1
+  %97 = select i1 %94, i64 0, i64 %96
   %.not110 = icmp eq ptr %3, null
-  br i1 %.not110, label %._crit_edge158, label %96
+  br i1 %.not110, label %._crit_edge155, label %98
 
-._crit_edge158:                                   ; preds = %68
-  %.pre161 = and i64 %88, %1
-  br label %102
+._crit_edge155:                                   ; preds = %70
+  %.pre158 = and i64 %90, %1
+  br label %104
 
-96:                                               ; preds = %68
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %.095
-  %99 = load ptr, ptr %98, align 8, !tbaa !11
-  %100 = and i64 %88, %1
-  %101 = getelementptr inbounds nuw ptr, ptr %99, i64 %100
-  tail call fastcc void @dictDefragBucket(ptr noundef %101, ptr noundef %3)
-  br label %102
+98:                                               ; preds = %70
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %100 = getelementptr inbounds nuw ptr, ptr %99, i64 %.095
+  %101 = load ptr, ptr %100, align 8, !tbaa !11
+  %102 = and i64 %90, %1
+  %103 = getelementptr inbounds nuw ptr, ptr %101, i64 %102
+  tail call fastcc void @dictDefragBucket(ptr noundef %103, ptr noundef %3)
+  br label %104
 
-102:                                              ; preds = %._crit_edge158, %96
-  %.pre-phi162 = phi i64 [ %.pre161, %._crit_edge158 ], [ %100, %96 ]
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %104 = getelementptr inbounds nuw ptr, ptr %103, i64 %.095
-  %105 = load ptr, ptr %104, align 8, !tbaa !11
-  %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %.pre-phi162
-  %107 = load ptr, ptr %106, align 8, !tbaa !31
-  %.not111142 = icmp eq ptr %107, null
-  br i1 %.not111142, label %.preheader, label %.lr.ph
+104:                                              ; preds = %._crit_edge155, %98
+  %.pre-phi159 = phi i64 [ %.pre158, %._crit_edge155 ], [ %102, %98 ]
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %.095
+  %107 = load ptr, ptr %106, align 8, !tbaa !11
+  %108 = getelementptr inbounds nuw ptr, ptr %107, i64 %.pre-phi159
+  %109 = load ptr, ptr %108, align 8, !tbaa !31
+  %.not111139 = icmp eq ptr %109, null
+  br i1 %.not111139, label %.preheader, label %.lr.ph
 
-.preheader:                                       ; preds = %dictGetNext.exit123, %dictGetNext.exit123.thread, %102
-  %108 = xor i64 %95, %88
-  %109 = getelementptr inbounds nuw ptr, ptr %103, i64 %.094
-  %110 = xor i64 %95, -1
-  br label %118
+.preheader:                                       ; preds = %dictGetNext.exit122, %dictGetNext.exit122.thread, %104
+  %110 = xor i64 %97, %90
+  %111 = getelementptr inbounds nuw ptr, ptr %105, i64 %.094
+  %112 = xor i64 %97, -1
+  br label %120
 
-.lr.ph:                                           ; preds = %102, %dictGetNext.exit123
-  %.1143 = phi ptr [ %.0.i121, %dictGetNext.exit123 ], [ %107, %102 ]
-  %111 = ptrtoint ptr %.1143 to i64
-  %112 = and i64 %111, 3
-  %.not.i120 = icmp eq i64 %112, 0
-  br i1 %.not.i120, label %dictGetNext.exit123, label %dictGetNext.exit123.thread
+.lr.ph:                                           ; preds = %104, %dictGetNext.exit122
+  %.1140 = phi ptr [ %.0.i120, %dictGetNext.exit122 ], [ %109, %104 ]
+  %113 = ptrtoint ptr %.1140 to i64
+  %114 = and i64 %113, 3
+  %.not.i119 = icmp eq i64 %114, 0
+  br i1 %.not.i119, label %dictGetNext.exit122, label %dictGetNext.exit122.thread
 
-dictGetNext.exit123.thread:                       ; preds = %.lr.ph
-  tail call void %2(ptr noundef %4, ptr noundef nonnull %.1143) #25
+dictGetNext.exit122.thread:                       ; preds = %.lr.ph
+  tail call void %2(ptr noundef %4, ptr noundef nonnull %.1140) #25
   br label %.preheader
 
-dictGetNext.exit123:                              ; preds = %.lr.ph
-  %113 = and i64 %111, 4
-  %.not5.i122 = icmp eq i64 %113, 0
-  %114 = and i64 %111, -8
-  %115 = inttoptr i64 %114 to ptr
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  %117 = getelementptr inbounds nuw i8, ptr %.1143, i64 16
-  %.0.i121.in = select i1 %.not5.i122, ptr %117, ptr %116
-  %.0.i121 = load ptr, ptr %.0.i121.in, align 8, !tbaa !31
-  tail call void %2(ptr noundef %4, ptr noundef nonnull %.1143) #25
-  %.not111 = icmp eq ptr %.0.i121, null
+dictGetNext.exit122:                              ; preds = %.lr.ph
+  %115 = and i64 %113, 4
+  %.not5.i121 = icmp eq i64 %115, 0
+  %116 = and i64 %113, -8
+  %117 = inttoptr i64 %116 to ptr
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %.1140, i64 16
+  %.0.i120.in = select i1 %.not5.i121, ptr %119, ptr %118
+  %.0.i120 = load ptr, ptr %.0.i120.in, align 8, !tbaa !31
+  tail call void %2(ptr noundef %4, ptr noundef nonnull %.1140) #25
+  %.not111 = icmp eq ptr %.0.i120, null
   br i1 %.not111, label %.preheader, label %.lr.ph, !llvm.loop !86
 
-118:                                              ; preds = %.preheader, %rev.exit137
-  %.197 = phi i64 [ %152, %rev.exit137 ], [ %1, %.preheader ]
-  %.pre156 = load ptr, ptr %109, align 8, !tbaa !11
-  %.pre163 = and i64 %.197, %95
-  br i1 %.not110, label %._crit_edge157, label %119
+120:                                              ; preds = %.preheader, %rev.exit134
+  %.197 = phi i64 [ %155, %rev.exit134 ], [ %1, %.preheader ]
+  %.pre153 = load ptr, ptr %111, align 8, !tbaa !11
+  %.pre160 = and i64 %.197, %97
+  br i1 %.not110, label %._crit_edge154, label %121
 
-119:                                              ; preds = %118
-  %120 = getelementptr inbounds nuw ptr, ptr %.pre156, i64 %.pre163
-  tail call fastcc void @dictDefragBucket(ptr noundef %120, ptr noundef %3)
-  %.pre = load ptr, ptr %109, align 8, !tbaa !11
-  br label %._crit_edge157
+121:                                              ; preds = %120
+  %122 = getelementptr inbounds nuw ptr, ptr %.pre153, i64 %.pre160
+  tail call fastcc void @dictDefragBucket(ptr noundef %122, ptr noundef %3)
+  %.pre = load ptr, ptr %111, align 8, !tbaa !11
+  br label %._crit_edge154
 
-._crit_edge157:                                   ; preds = %118, %119
-  %121 = phi ptr [ %.pre, %119 ], [ %.pre156, %118 ]
-  %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %.pre163
-  %123 = load ptr, ptr %122, align 8, !tbaa !31
-  %.not112144 = icmp eq ptr %123, null
-  br i1 %.not112144, label %._crit_edge, label %.lr.ph146
+._crit_edge154:                                   ; preds = %120, %121
+  %123 = phi ptr [ %.pre, %121 ], [ %.pre153, %120 ]
+  %124 = getelementptr inbounds nuw ptr, ptr %123, i64 %.pre160
+  %125 = load ptr, ptr %124, align 8, !tbaa !31
+  %.not112141 = icmp eq ptr %125, null
+  br i1 %.not112141, label %._crit_edge, label %.lr.ph143
 
-.lr.ph146:                                        ; preds = %._crit_edge157, %dictGetNext.exit127
-  %.2145 = phi ptr [ %.0.i125, %dictGetNext.exit127 ], [ %123, %._crit_edge157 ]
-  %124 = ptrtoint ptr %.2145 to i64
-  %125 = and i64 %124, 3
-  %.not.i124 = icmp eq i64 %125, 0
-  br i1 %.not.i124, label %dictGetNext.exit127, label %dictGetNext.exit127.thread
+.lr.ph143:                                        ; preds = %._crit_edge154, %dictGetNext.exit126
+  %.2142 = phi ptr [ %.0.i124, %dictGetNext.exit126 ], [ %125, %._crit_edge154 ]
+  %126 = ptrtoint ptr %.2142 to i64
+  %127 = and i64 %126, 3
+  %.not.i123 = icmp eq i64 %127, 0
+  br i1 %.not.i123, label %dictGetNext.exit126, label %dictGetNext.exit126.thread
 
-dictGetNext.exit127.thread:                       ; preds = %.lr.ph146
-  tail call void %2(ptr noundef %4, ptr noundef nonnull %.2145) #25
+dictGetNext.exit126.thread:                       ; preds = %.lr.ph143
+  tail call void %2(ptr noundef %4, ptr noundef nonnull %.2142) #25
   br label %._crit_edge
 
-dictGetNext.exit127:                              ; preds = %.lr.ph146
-  %126 = and i64 %124, 4
-  %.not5.i126 = icmp eq i64 %126, 0
-  %127 = and i64 %124, -8
-  %128 = inttoptr i64 %127 to ptr
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
-  %130 = getelementptr inbounds nuw i8, ptr %.2145, i64 16
-  %.0.i125.in = select i1 %.not5.i126, ptr %130, ptr %129
-  %.0.i125 = load ptr, ptr %.0.i125.in, align 8, !tbaa !31
-  tail call void %2(ptr noundef %4, ptr noundef nonnull %.2145) #25
-  %.not112 = icmp eq ptr %.0.i125, null
-  br i1 %.not112, label %._crit_edge, label %.lr.ph146, !llvm.loop !87
+dictGetNext.exit126:                              ; preds = %.lr.ph143
+  %128 = and i64 %126, 4
+  %.not5.i125 = icmp eq i64 %128, 0
+  %129 = and i64 %126, -8
+  %130 = inttoptr i64 %129 to ptr
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %.2142, i64 16
+  %.0.i124.in = select i1 %.not5.i125, ptr %132, ptr %131
+  %.0.i124 = load ptr, ptr %.0.i124.in, align 8, !tbaa !31
+  tail call void %2(ptr noundef %4, ptr noundef nonnull %.2142) #25
+  %.not112 = icmp eq ptr %.0.i124, null
+  br i1 %.not112, label %._crit_edge, label %.lr.ph143, !llvm.loop !87
 
-._crit_edge:                                      ; preds = %dictGetNext.exit127, %dictGetNext.exit127.thread, %._crit_edge157
-  %131 = or i64 %.197, %110
-  br label %132
+._crit_edge:                                      ; preds = %dictGetNext.exit126, %dictGetNext.exit126.thread, %._crit_edge154
+  %133 = or i64 %.197, %112
+  br label %134
 
-132:                                              ; preds = %132, %._crit_edge
-  %.016.i128 = phi i64 [ -1, %._crit_edge ], [ %135, %132 ]
-  %.01115.i129 = phi i64 [ 64, %._crit_edge ], [ %133, %132 ]
-  %.01214.i130 = phi i64 [ %131, %._crit_edge ], [ %141, %132 ]
-  %133 = lshr i64 %.01115.i129, 1
-  %134 = shl i64 %.016.i128, %133
-  %135 = xor i64 %134, %.016.i128
-  %136 = lshr i64 %.01214.i130, %133
-  %137 = and i64 %135, %136
-  %138 = shl i64 %.01214.i130, %133
-  %139 = xor i64 %135, -1
-  %140 = and i64 %138, %139
-  %141 = or i64 %137, %140
-  %.not.i131 = icmp samesign ult i64 %.01115.i129, 4
-  br i1 %.not.i131, label %rev.exit132, label %132, !llvm.loop !85
+134:                                              ; preds = %134, %._crit_edge
+  %135 = phi i64 [ 32, %._crit_edge ], [ %144, %134 ]
+  %.015.i127 = phi i64 [ -1, %._crit_edge ], [ %137, %134 ]
+  %.01214.i128 = phi i64 [ %133, %._crit_edge ], [ %143, %134 ]
+  %136 = shl i64 %.015.i127, %135
+  %137 = xor i64 %136, %.015.i127
+  %138 = lshr i64 %.01214.i128, %135
+  %139 = and i64 %137, %138
+  %140 = shl i64 %.01214.i128, %135
+  %141 = xor i64 %137, -1
+  %142 = and i64 %140, %141
+  %143 = or i64 %139, %142
+  %144 = lshr i64 %135, 1
+  %.not.i129 = icmp eq i64 %144, 0
+  br i1 %.not.i129, label %rev.exit130, label %134, !llvm.loop !85
 
-rev.exit132:                                      ; preds = %132
-  %142 = add i64 %141, 1
-  br label %143
+rev.exit130:                                      ; preds = %134
+  %145 = add i64 %143, 1
+  br label %146
 
-143:                                              ; preds = %143, %rev.exit132
-  %.016.i133 = phi i64 [ -1, %rev.exit132 ], [ %146, %143 ]
-  %.01115.i134 = phi i64 [ 64, %rev.exit132 ], [ %144, %143 ]
-  %.01214.i135 = phi i64 [ %142, %rev.exit132 ], [ %152, %143 ]
-  %144 = lshr i64 %.01115.i134, 1
-  %145 = shl i64 %.016.i133, %144
-  %146 = xor i64 %145, %.016.i133
-  %147 = lshr i64 %.01214.i135, %144
-  %148 = and i64 %146, %147
-  %149 = shl i64 %.01214.i135, %144
-  %150 = xor i64 %146, -1
+146:                                              ; preds = %146, %rev.exit130
+  %147 = phi i64 [ 32, %rev.exit130 ], [ %156, %146 ]
+  %.015.i131 = phi i64 [ -1, %rev.exit130 ], [ %149, %146 ]
+  %.01214.i132 = phi i64 [ %145, %rev.exit130 ], [ %155, %146 ]
+  %148 = shl i64 %.015.i131, %147
+  %149 = xor i64 %148, %.015.i131
+  %150 = lshr i64 %.01214.i132, %147
   %151 = and i64 %149, %150
-  %152 = or i64 %148, %151
-  %.not.i136 = icmp samesign ult i64 %.01115.i134, 4
-  br i1 %.not.i136, label %rev.exit137, label %143, !llvm.loop !85
+  %152 = shl i64 %.01214.i132, %147
+  %153 = xor i64 %149, -1
+  %154 = and i64 %152, %153
+  %155 = or i64 %151, %154
+  %156 = lshr i64 %147, 1
+  %.not.i133 = icmp eq i64 %156, 0
+  br i1 %.not.i133, label %rev.exit134, label %146, !llvm.loop !85
 
-rev.exit137:                                      ; preds = %143
-  %153 = and i64 %152, %108
-  %.not113 = icmp eq i64 %153, 0
-  br i1 %.not113, label %rev.exit119, label %118, !llvm.loop !88
+rev.exit134:                                      ; preds = %146
+  %157 = and i64 %155, %110
+  %.not113 = icmp eq i64 %157, 0
+  br i1 %.not113, label %rev.exit118, label %120, !llvm.loop !88
 
-rev.exit119:                                      ; preds = %rev.exit137, %58
-  %.096 = phi i64 [ %67, %58 ], [ %152, %rev.exit137 ]
-  %154 = load i16, ptr %13, align 8
-  %155 = add i16 %154, 32767
-  %156 = and i16 %155, 32767
-  %157 = and i16 %154, -32768
-  %158 = or disjoint i16 %156, %157
-  store i16 %158, ptr %13, align 8
-  br label %159
+rev.exit118:                                      ; preds = %rev.exit134, %59
+  %.096 = phi i64 [ %68, %59 ], [ %155, %rev.exit134 ]
+  %158 = load i16, ptr %13, align 8
+  %159 = add i16 %158, 32767
+  %160 = and i16 %159, 32767
+  %161 = and i16 %158, -32768
+  %162 = or disjoint i16 %160, %161
+  store i16 %162, ptr %13, align 8
+  br label %163
 
-159:                                              ; preds = %5, %rev.exit119
-  %.0 = phi i64 [ %.096, %rev.exit119 ], [ 0, %5 ]
+163:                                              ; preds = %5, %rev.exit118
+  %.0 = phi i64 [ %.096, %rev.exit118 ], [ 0, %5 ]
   ret i64 %.0
 }
 

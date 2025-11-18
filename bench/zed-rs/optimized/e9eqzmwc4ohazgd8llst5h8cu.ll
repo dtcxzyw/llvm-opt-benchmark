@@ -918,15 +918,15 @@ define internal fastcc noundef ptr @"_ZN18alacritty_terminal10event_loop22EventL
   %30 = icmp eq ptr %.sroa.069.2, null
   br i1 %30, label %"_ZN4core3ptr178drop_in_place$LT$core..option..Option$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alacritty_terminal..term..Term$LT$terminal..ZedListener$GT$$GT$$GT$$GT$17hbff3b57968f76e7bE.exit", label %31
 
-31:                                               ; preds = %.body.thread186, %.body
-  %.pn190 = phi { ptr, i32 } [ %lpad.loopexit79, %.body.thread186 ], [ %.pn, %.body ]
-  %.sroa.069.2189 = phi ptr [ %.sroa.069.0.ph, %.body.thread186 ], [ %.sroa.069.2, %.body ]
-  %32 = cmpxchg ptr %.sroa.069.2189, i8 1, i8 0 release monotonic, align 1
+31:                                               ; preds = %.body.thread187, %.body
+  %.pn191 = phi { ptr, i32 } [ %lpad.loopexit79, %.body.thread187 ], [ %.pn, %.body ]
+  %.sroa.069.2190 = phi ptr [ %.sroa.069.0.ph, %.body.thread187 ], [ %.sroa.069.2, %.body ]
+  %32 = cmpxchg ptr %.sroa.069.2190, i8 1, i8 0 release monotonic, align 1
   %33 = extractvalue { i8, i1 } %32, 1
   br i1 %33, label %"_ZN4core3ptr178drop_in_place$LT$core..option..Option$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alacritty_terminal..term..Term$LT$terminal..ZedListener$GT$$GT$$GT$$GT$17hbff3b57968f76e7bE.exit", label %34
 
 34:                                               ; preds = %31
-  invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17ha4648bd3047b88eeE(ptr noundef nonnull align 1 %.sroa.069.2189, i1 noundef zeroext false)
+  invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17ha4648bd3047b88eeE(ptr noundef nonnull align 1 %.sroa.069.2190, i1 noundef zeroext false)
           to label %"_ZN4core3ptr178drop_in_place$LT$core..option..Option$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alacritty_terminal..term..Term$LT$terminal..ZedListener$GT$$GT$$GT$$GT$17hbff3b57968f76e7bE.exit" unwind label %171
 
 .loopexit:                                        ; preds = %123, %.noexc55, %142, %.sink.split.i.i.i, %146, %.sink.split7.i.i.i, %149
@@ -934,7 +934,7 @@ define internal fastcc noundef ptr @"_ZN18alacritty_terminal10event_loop22EventL
           cleanup
   br label %.body
 
-.body.thread186:                                  ; preds = %.outer.split
+.body.thread187:                                  ; preds = %.outer.split
   %lpad.loopexit79 = landingpad { ptr, i32 }
           cleanup
   br label %31
@@ -1174,7 +1174,7 @@ define internal fastcc noundef ptr @"_ZN18alacritty_terminal10event_loop22EventL
 
 .outer.split:                                     ; preds = %.outer
   %116 = invoke { i64, ptr } @"_ZN47_$LT$std..fs..File$u20$as$u20$std..io..Read$GT$4read17h1237ec96a414caceE"(ptr noalias noundef nonnull align 4 dereferenceable(4) %19, ptr noalias noundef nonnull align 1 %2, i64 noundef 1048576)
-          to label %35 unwind label %.body.thread186
+          to label %35 unwind label %.body.thread187
 
 117:                                              ; preds = %.lr.ph, %"_ZN3vte4ansi18Processor$LT$T$GT$7advance17h630a4a0b0f6e8519E.exit"
   %.sroa.071.0136 = phi ptr [ %2, %.lr.ph ], [ %118, %"_ZN3vte4ansi18Processor$LT$T$GT$7advance17h630a4a0b0f6e8519E.exit" ]
@@ -1250,7 +1250,7 @@ define internal fastcc noundef ptr @"_ZN18alacritty_terminal10event_loop22EventL
           to label %.noexc58 unwind label %.loopexit
 
 .noexc58:                                         ; preds = %.sink.split.i.i.i, %143
-  %144 = icmp ult i8 %.sroa.01.0.i.i, 16
+  %144 = icmp eq i8 %140, 0
   br i1 %144, label %.noexc59, label %146
 
 145:                                              ; preds = %143
@@ -1332,7 +1332,7 @@ define internal fastcc noundef ptr @"_ZN18alacritty_terminal10event_loop22EventL
   br label %151
 
 "_ZN4core3ptr178drop_in_place$LT$core..option..Option$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alacritty_terminal..term..Term$LT$terminal..ZedListener$GT$$GT$$GT$$GT$17hbff3b57968f76e7bE.exit": ; preds = %.body.thread, %165, %34, %.body, %31
-  %.pn.pn = phi { ptr, i32 } [ %166, %165 ], [ %.pn190, %34 ], [ %.pn, %.body ], [ %.pn190, %31 ], [ %lpad.loopexit79.us, %.body.thread ]
+  %.pn.pn = phi { ptr, i32 } [ %166, %165 ], [ %.pn191, %34 ], [ %.pn, %.body ], [ %.pn191, %31 ], [ %lpad.loopexit79.us, %.body.thread ]
   %162 = cmpxchg ptr %14, i8 1, i8 0 release monotonic, align 1
   %163 = extractvalue { i8, i1 } %162, 1
   br i1 %163, label %"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$17h7963921dc5e7cbe9E.exit", label %164
@@ -1352,16 +1352,16 @@ define internal fastcc noundef ptr @"_ZN18alacritty_terminal10event_loop22EventL
   br i1 %168, label %"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$17h7963921dc5e7cbe9E.exit67", label %"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$17h7963921dc5e7cbe9E.exit67.sink.split"
 
 "_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$17h7963921dc5e7cbe9E.exit67.sink.split": ; preds = %"_ZN4core3ptr178drop_in_place$LT$core..option..Option$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alacritty_terminal..term..Term$LT$terminal..ZedListener$GT$$GT$$GT$$GT$17hbff3b57968f76e7bE.exit63", %"_ZN4core3ptr178drop_in_place$LT$core..option..Option$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alacritty_terminal..term..Term$LT$terminal..ZedListener$GT$$GT$$GT$$GT$17hbff3b57968f76e7bE.exit44"
-  %.sroa.05.0.ph = phi ptr [ %.us-phi123193, %"_ZN4core3ptr178drop_in_place$LT$core..option..Option$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alacritty_terminal..term..Term$LT$terminal..ZedListener$GT$$GT$$GT$$GT$17hbff3b57968f76e7bE.exit44" ], [ null, %"_ZN4core3ptr178drop_in_place$LT$core..option..Option$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alacritty_terminal..term..Term$LT$terminal..ZedListener$GT$$GT$$GT$$GT$17hbff3b57968f76e7bE.exit63" ]
+  %.sroa.05.0.ph = phi ptr [ %.us-phi123194, %"_ZN4core3ptr178drop_in_place$LT$core..option..Option$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alacritty_terminal..term..Term$LT$terminal..ZedListener$GT$$GT$$GT$$GT$17hbff3b57968f76e7bE.exit44" ], [ null, %"_ZN4core3ptr178drop_in_place$LT$core..option..Option$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alacritty_terminal..term..Term$LT$terminal..ZedListener$GT$$GT$$GT$$GT$17hbff3b57968f76e7bE.exit63" ]
   call void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17ha4648bd3047b88eeE(ptr noundef nonnull align 1 %14, i1 noundef zeroext false)
   br label %"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$17h7963921dc5e7cbe9E.exit67"
 
 "_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$17h7963921dc5e7cbe9E.exit67": ; preds = %"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$17h7963921dc5e7cbe9E.exit67.sink.split", %"_ZN4core3ptr178drop_in_place$LT$core..option..Option$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alacritty_terminal..term..Term$LT$terminal..ZedListener$GT$$GT$$GT$$GT$17hbff3b57968f76e7bE.exit44", %"_ZN4core3ptr178drop_in_place$LT$core..option..Option$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alacritty_terminal..term..Term$LT$terminal..ZedListener$GT$$GT$$GT$$GT$17hbff3b57968f76e7bE.exit63"
-  %.sroa.05.0 = phi ptr [ null, %"_ZN4core3ptr178drop_in_place$LT$core..option..Option$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alacritty_terminal..term..Term$LT$terminal..ZedListener$GT$$GT$$GT$$GT$17hbff3b57968f76e7bE.exit63" ], [ %.us-phi123193, %"_ZN4core3ptr178drop_in_place$LT$core..option..Option$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alacritty_terminal..term..Term$LT$terminal..ZedListener$GT$$GT$$GT$$GT$17hbff3b57968f76e7bE.exit44" ], [ %.sroa.05.0.ph, %"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$17h7963921dc5e7cbe9E.exit67.sink.split" ]
+  %.sroa.05.0 = phi ptr [ null, %"_ZN4core3ptr178drop_in_place$LT$core..option..Option$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alacritty_terminal..term..Term$LT$terminal..ZedListener$GT$$GT$$GT$$GT$17hbff3b57968f76e7bE.exit63" ], [ %.us-phi123194, %"_ZN4core3ptr178drop_in_place$LT$core..option..Option$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alacritty_terminal..term..Term$LT$terminal..ZedListener$GT$$GT$$GT$$GT$17hbff3b57968f76e7bE.exit44" ], [ %.sroa.05.0.ph, %"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$17h7963921dc5e7cbe9E.exit67.sink.split" ]
   ret ptr %.sroa.05.0
 
 "_ZN4core3ptr178drop_in_place$LT$core..option..Option$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alacritty_terminal..term..Term$LT$terminal..ZedListener$GT$$GT$$GT$$GT$17hbff3b57968f76e7bE.exit44": ; preds = %86, %46, %.split
-  %.us-phi123193 = phi ptr [ %37, %46 ], [ %37, %.split ], [ %83, %86 ]
+  %.us-phi123194 = phi ptr [ %37, %46 ], [ %37, %.split ], [ %83, %86 ]
   %169 = cmpxchg ptr %14, i8 1, i8 0 release monotonic, align 1
   %170 = extractvalue { i8, i1 } %169, 1
   br i1 %170, label %"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$17h7963921dc5e7cbe9E.exit67", label %"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$17h7963921dc5e7cbe9E.exit67.sink.split"

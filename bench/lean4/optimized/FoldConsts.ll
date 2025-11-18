@@ -1422,7 +1422,7 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
 
 146:                                              ; preds = %lean_array_uset.exit
   %147 = lshr i64 %144, 1
-  %148 = icmp ult ptr %.0.i335687, inttoptr (i64 2 to ptr)
+  %148 = icmp eq i64 %147, 0
   br i1 %148, label %lean_nat_mul.exit332, label %149
 
 149:                                              ; preds = %146
@@ -1492,8 +1492,8 @@ lean_dec.exit379:                                 ; preds = %172, %171, %169, %l
   br i1 %.not708, label %179, label %lean_dec.exit378.thread, !prof !14
 
 lean_dec.exit378.thread:                          ; preds = %lean_dec.exit379
-  %.not862 = icmp ugt ptr %.1.i542689, %176
-  br i1 %.not862, label %187, label %203
+  %.not864 = icmp ugt ptr %.1.i542689, %176
+  br i1 %.not864, label %187, label %203
 
 179:                                              ; preds = %lean_dec.exit379
   %180 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %.1.i542689, ptr noundef nonnull %176) #4
@@ -1843,7 +1843,7 @@ lean_array_uset.exit575:                          ; preds = %lean_ensure_exclusi
 
 320:                                              ; preds = %lean_array_uset.exit575
   %321 = lshr i64 %318, 1
-  %322 = icmp ult ptr %.0.i693, inttoptr (i64 2 to ptr)
+  %322 = icmp eq i64 %321, 0
   br i1 %322, label %lean_nat_mul.exit, label %323
 
 323:                                              ; preds = %320
@@ -1913,8 +1913,8 @@ lean_dec.exit372:                                 ; preds = %346, %345, %343, %l
   br i1 %.not703, label %353, label %lean_dec.exit371.thread, !prof !14
 
 lean_dec.exit371.thread:                          ; preds = %lean_dec.exit372
-  %.not861 = icmp ugt ptr %.1.i577695, %350
-  br i1 %.not861, label %361, label %383
+  %.not863 = icmp ugt ptr %.1.i577695, %350
+  br i1 %.not863, label %361, label %383
 
 353:                                              ; preds = %lean_dec.exit372
   %354 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %.1.i577695, ptr noundef nonnull %350) #4

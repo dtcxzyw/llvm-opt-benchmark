@@ -1814,7 +1814,7 @@ mbedtls_mpi_bitlen.exit:                          ; preds = %2, %_ZL11mbedtls_cl
 
 mbedtls_mpi_grow.exit.thread:                     ; preds = %32, %43, %mbedtls_mpi_bitlen.exit
   %44 = phi i64 [ %6, %32 ], [ %30, %43 ], [ %6, %mbedtls_mpi_bitlen.exit ]
-  %.not44 = icmp ult i64 %1, 64
+  %.not44 = icmp eq i64 %3, 0
   br i1 %.not44, label %.loopexit, label %45
 
 45:                                               ; preds = %mbedtls_mpi_grow.exit.thread
@@ -1827,15 +1827,15 @@ mbedtls_mpi_grow.exit.thread:                     ; preds = %32, %43, %mbedtls_m
   %49 = xor i64 %3, -1
   br label %53
 
-.preheader51:                                     ; preds = %53, %45
-  %.039.lcssa = phi i64 [ %44, %45 ], [ %58, %53 ]
-  %.not4554 = icmp eq i64 %.039.lcssa, 0
+.preheader51:                                     ; preds = %45
+  %.not4554 = icmp eq i64 %44, 0
   br i1 %.not4554, label %.loopexit, label %.lr.ph56
 
-.lr.ph56:                                         ; preds = %.preheader51
+.lr.ph56:                                         ; preds = %53, %.preheader51
+  %.039.lcssa77 = phi i64 [ %44, %.preheader51 ], [ %58, %53 ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %51 = load ptr, ptr %50, align 8, !tbaa !11
-  %52 = shl nuw nsw i64 %.039.lcssa, 3
+  %52 = shl nuw nsw i64 %.039.lcssa77, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %51, i8 0, i64 %52, i1 false), !tbaa !13
   br label %.loopexit
 
@@ -1848,7 +1848,7 @@ mbedtls_mpi_grow.exit.thread:                     ; preds = %32, %43, %mbedtls_m
   store i64 %56, ptr %57, align 8, !tbaa !13
   %58 = add i64 %.03953, -1
   %59 = icmp ugt i64 %58, %3
-  br i1 %59, label %53, label %.preheader51, !llvm.loop !36
+  br i1 %59, label %53, label %.lr.ph56, !llvm.loop !36
 
 .loopexit:                                        ; preds = %.lr.ph56, %.preheader51, %mbedtls_mpi_grow.exit.thread
   %.not46 = icmp eq i64 %4, 0
@@ -1942,7 +1942,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_shift_r(ptr noundef captures(no
   br label %mbedtls_mpi_lset.exit
 
 28:                                               ; preds = %8
-  %.not = icmp ult i64 %1, 64
+  %.not = icmp eq i64 %3, 0
   br i1 %.not, label %.loopexit, label %.preheader44
 
 .preheader44:                                     ; preds = %28

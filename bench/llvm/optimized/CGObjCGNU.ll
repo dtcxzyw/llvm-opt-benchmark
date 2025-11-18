@@ -29977,7 +29977,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN5
   %40 = getelementptr inbounds %"class.clang::Selector", ptr %.fr31, i64 %.020.i.i.i.us
   %41 = load i64, ptr %36, align 8, !tbaa !347
   store i64 %41, ptr %40, align 8, !tbaa !347
-  %.not9.i.us = icmp ult i64 %.0921.in.i.i.i.us, 2
+  %.not9.i.us = icmp eq i64 %.0921.i.i78.i.us, 0
   br i1 %.not9.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5clang8SelectorESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !1860
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5clang8SelectorESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %39, %34
@@ -30166,7 +30166,7 @@ define linkonce_odr void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPN5cl
   %43 = getelementptr inbounds %"class.clang::Selector", ptr %0, i64 %.020.i.i.i
   %44 = load i64, ptr %39, align 8, !tbaa !347
   store i64 %44, ptr %43, align 8, !tbaa !347
-  %.not9.i = icmp ult i64 %.0921.in.i.i.i, 2
+  %.not9.i = icmp eq i64 %.0921.i.i78.i, 0
   br i1 %.not9.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5clang8SelectorESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !1860
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5clang8SelectorESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit: ; preds = %.lr.ph.i.i.i, %42, %38

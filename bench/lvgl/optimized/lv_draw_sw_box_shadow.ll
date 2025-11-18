@@ -883,16 +883,13 @@ shadow_draw_corner_buf.exit:                      ; preds = %.lr.ph116.i, %.lr.p
 
 .lr.ph477:                                        ; preds = %.loopexit444
   %456 = zext nneg i32 %88 to i64
-  %.not493 = icmp eq i32 %88, 1
-  br i1 %.not493, label %._crit_edge478, label %.lr.ph473.us.preheader
-
-.lr.ph473.us.preheader:                           ; preds = %.lr.ph477
   %457 = lshr i32 %88, 1
-  br label %.lr.ph473.us
+  %.not493 = icmp eq i32 %457, 0
+  br i1 %.not493, label %._crit_edge478, label %.lr.ph473.us
 
-.lr.ph473.us:                                     ; preds = %.lr.ph473.us.preheader, %._crit_edge.us
-  %.4475.us = phi ptr [ %458, %._crit_edge.us ], [ %92, %.lr.ph473.us.preheader ]
-  %.5371474.us = phi i32 [ %464, %._crit_edge.us ], [ 0, %.lr.ph473.us.preheader ]
+.lr.ph473.us:                                     ; preds = %.lr.ph477, %._crit_edge.us
+  %.4475.us = phi ptr [ %458, %._crit_edge.us ], [ %92, %.lr.ph477 ]
+  %.5371474.us = phi i32 [ %464, %._crit_edge.us ], [ 0, %.lr.ph477 ]
   %458 = getelementptr inbounds nuw i8, ptr %.4475.us, i64 %456
   br label %459
 

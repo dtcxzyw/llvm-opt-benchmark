@@ -1983,7 +1983,7 @@ define i32 @Gia_Rsb2ManInsert_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %22 = getelementptr i8, ptr %21, i64 -4
   %23 = load i32, ptr %22, align 4, !tbaa !30
   %24 = ashr i32 %23, 1
-  %25 = icmp ult i32 %23, 2
+  %25 = icmp eq i32 %24, 0
   br i1 %25, label %138, label %26
 
 26:                                               ; preds = %16

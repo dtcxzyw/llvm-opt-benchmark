@@ -507,7 +507,7 @@ define internal fastcc noundef i64 @_ZL17XXH3_hashLong_64bPKhmS0_m(ptr noundef r
   %5 = lshr i64 %4, 10
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, ptr noundef nonnull align 16 dereferenceable(64) @__const._Z18XXH3_hashLong_128bPKhmS0_m.acc, i64 64, i1 false)
-  %.not = icmp ult i64 %1, 1025
+  %.not = icmp eq i64 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZL23XXH3_scrambleAcc_scalarPmPKh.exit, %2
@@ -1013,7 +1013,7 @@ _ZL21XXH3_len_17to128_128bPKhmS0_mm.exit:         ; preds = %115, %177
   %254 = lshr i64 %253, 10
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, ptr noundef nonnull align 16 dereferenceable(64) @__const._Z18XXH3_hashLong_128bPKhmS0_m.acc, i64 64, i1 false)
-  %.not = icmp ult i64 %1, 1025
+  %.not = icmp eq i64 %254, 0
   br i1 %.not, label %_Z18XXH3_hashLong_128bPKhmS0_m.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %252, %_ZL23XXH3_scrambleAcc_scalarPmPKh.exit

@@ -4010,7 +4010,7 @@ render_fontconfig.exit:                           ; preds = %render_freetype.exi
   store i8 %spec.select.i, ptr %52, align 1, !tbaa !148
   %53 = lshr i32 %.0291.i, 1
   %54 = getelementptr inbounds nuw i8, ptr %.02.i, i64 4
-  %.not.i40 = icmp samesign ult i32 %.0291.i, 2
+  %.not.i40 = icmp eq i32 %53, 0
   br i1 %.not.i40, label %55, label %50, !llvm.loop !170
 
 55:                                               ; preds = %50

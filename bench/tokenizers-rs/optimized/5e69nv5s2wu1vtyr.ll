@@ -16467,7 +16467,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h3401e0123965832cE.exit: ; preds = 
   %190 = lshr i64 %.sroa.7128.1, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !3022)
   call void @llvm.experimental.noalias.scope.decl(metadata !3025)
-  %.not.i.i80 = icmp ult i64 %.sroa.7128.1, 2
+  %.not.i.i80 = icmp eq i64 %190, 0
   br i1 %.not.i.i80, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h47104ded75974859E.exit", label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %188
@@ -17103,7 +17103,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17ha41db9d3e8f6db43E.exit: ; preds = 
   %187 = lshr i64 %.sroa.7128.1, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !3157)
   call void @llvm.experimental.noalias.scope.decl(metadata !3160)
-  %.not.i.i80 = icmp ult i64 %.sroa.7128.1, 2
+  %.not.i.i80 = icmp eq i64 %187, 0
   br i1 %.not.i.i80, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h47104ded75974859E.exit", label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %185
@@ -17740,7 +17740,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hfa768d451191709bE.exit: ; preds = 
   %188 = lshr i64 %.sroa.7128.1, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !3292)
   call void @llvm.experimental.noalias.scope.decl(metadata !3295)
-  %.not.i.i80 = icmp ult i64 %.sroa.7128.1, 2
+  %.not.i.i80 = icmp eq i64 %188, 0
   br i1 %.not.i.i80, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h47104ded75974859E.exit", label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %186
@@ -18376,7 +18376,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hf3e50410b76eb8c1E.exit: ; preds = 
   %187 = lshr i64 %.sroa.7128.1, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !3427)
   call void @llvm.experimental.noalias.scope.decl(metadata !3430)
-  %.not.i.i80 = icmp ult i64 %.sroa.7128.1, 2
+  %.not.i.i80 = icmp eq i64 %187, 0
   br i1 %.not.i.i80, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h47104ded75974859E.exit", label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %185
@@ -19047,7 +19047,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h004ac5429e5fa5b7E.exit: ; preds = 
   %194 = lshr i64 %.sroa.7128.1, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !3569)
   call void @llvm.experimental.noalias.scope.decl(metadata !3572)
-  %.not.i.i80 = icmp ult i64 %.sroa.7128.1, 2
+  %.not.i.i80 = icmp eq i64 %194, 0
   br i1 %.not.i.i80, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h47104ded75974859E.exit", label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %192
@@ -19718,7 +19718,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h59cdc12238a6a7bdE.exit: ; preds = 
   %194 = lshr i64 %.sroa.7128.1, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !3711)
   call void @llvm.experimental.noalias.scope.decl(metadata !3714)
-  %.not.i.i80 = icmp ult i64 %.sroa.7128.1, 2
+  %.not.i.i80 = icmp eq i64 %194, 0
   br i1 %.not.i.i80, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h47104ded75974859E.exit", label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %192
@@ -20354,7 +20354,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h97360db56ff0cedbE.exit: ; preds = 
   %187 = lshr i64 %.sroa.7128.1, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !3846)
   call void @llvm.experimental.noalias.scope.decl(metadata !3849)
-  %.not.i.i80 = icmp ult i64 %.sroa.7128.1, 2
+  %.not.i.i80 = icmp eq i64 %187, 0
   br i1 %.not.i.i80, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h47104ded75974859E.exit", label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %185
@@ -20990,7 +20990,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h80c40a7cff038ed4E.exit: ; preds = 
   %187 = lshr i64 %.sroa.7128.1, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !3981)
   call void @llvm.experimental.noalias.scope.decl(metadata !3984)
-  %.not.i.i80 = icmp ult i64 %.sroa.7128.1, 2
+  %.not.i.i80 = icmp eq i64 %187, 0
   br i1 %.not.i.i80, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h47104ded75974859E.exit", label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %185

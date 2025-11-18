@@ -8972,247 +8972,246 @@ define internal fastcc void @_ZN3ue2L15findMaskLiteralERKSt6vectorINS_9CharReach
   %9 = ptrtoint ptr %.fr111 to i64
   %10 = ptrtoint ptr %.fr104110 to i64
   %11 = sub i64 %9, %10
-  %12 = lshr i64 %11, 5
   %.not129 = icmp ult i64 %11, 32
   br i1 %.not129, label %.thread100, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  br label %20
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  br label %19
 
-.thread100:                                       ; preds = %92, %5
-  %.079.lcssa = phi i64 [ 0, %5 ], [ %.281, %92 ]
-  %.077.lcssa = phi i64 [ 0, %5 ], [ %.178, %92 ]
-  %.075.lcssa = phi i64 [ 0, %5 ], [ %.pre-phi, %92 ]
-  %.066.lcssa = phi i64 [ 0, %5 ], [ %.268, %92 ]
-  %.064.lcssa = phi i64 [ 0, %5 ], [ %.2, %92 ]
-  %.lcssa109 = phi i64 [ %12, %5 ], [ %97, %92 ]
-  %14 = sub i64 %.075.lcssa, %.077.lcssa
-  %.not83 = icmp ult i64 %14, %.079.lcssa
-  %15 = sub i64 %.lcssa109, %.075.lcssa
-  %16 = icmp ult i64 %15, 32
-  %spec.select105 = select i1 %16, i64 %.075.lcssa, i64 %.066.lcssa
-  %spec.select106 = select i1 %16, i64 %.077.lcssa, i64 %.064.lcssa
-  %17 = select i1 %.not83, i64 %.066.lcssa, i64 %spec.select105
-  %18 = select i1 %.not83, i64 %.064.lcssa, i64 %spec.select106
-  %19 = icmp ult i64 %18, %17
-  br i1 %19, label %.lr.ph128, label %._crit_edge
+.thread100:                                       ; preds = %91, %5
+  %.079.lcssa = phi i64 [ 0, %5 ], [ %.281, %91 ]
+  %.077.lcssa = phi i64 [ 0, %5 ], [ %.178, %91 ]
+  %.075.lcssa = phi i64 [ 0, %5 ], [ %.pre-phi, %91 ]
+  %.066.lcssa = phi i64 [ 0, %5 ], [ %.268, %91 ]
+  %.064.lcssa = phi i64 [ 0, %5 ], [ %.2, %91 ]
+  %.lcssa109 = phi i64 [ 0, %5 ], [ %96, %91 ]
+  %13 = sub i64 %.075.lcssa, %.077.lcssa
+  %.not83 = icmp ult i64 %13, %.079.lcssa
+  %14 = sub i64 %.lcssa109, %.075.lcssa
+  %15 = icmp ult i64 %14, 32
+  %spec.select105 = select i1 %15, i64 %.075.lcssa, i64 %.066.lcssa
+  %spec.select106 = select i1 %15, i64 %.077.lcssa, i64 %.064.lcssa
+  %16 = select i1 %.not83, i64 %.066.lcssa, i64 %spec.select105
+  %17 = select i1 %.not83, i64 %.064.lcssa, i64 %spec.select106
+  %18 = icmp ult i64 %17, %16
+  br i1 %18, label %.lr.ph128, label %._crit_edge
 
-20:                                               ; preds = %.lr.ph, %92
-  %.pre135.pre137 = phi ptr [ %.fr104110, %.lr.ph ], [ %.fr104, %92 ]
-  %.061120 = phi i1 [ false, %.lr.ph ], [ %.1, %92 ]
-  %.062118 = phi i1 [ false, %.lr.ph ], [ %.163, %92 ]
-  %.064117 = phi i64 [ 0, %.lr.ph ], [ %.2, %92 ]
-  %.066116 = phi i64 [ 0, %.lr.ph ], [ %.268, %92 ]
-  %.074115 = phi i64 [ 0, %.lr.ph ], [ %.pre-phi, %92 ]
-  %.077113 = phi i64 [ 0, %.lr.ph ], [ %.178, %92 ]
-  %.079112 = phi i64 [ 0, %.lr.ph ], [ %.281, %92 ]
-  %21 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %.pre135.pre137, i64 %.074115
-  %22 = load i64, ptr %21, align 8
-  %23 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %22)
-  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %25 = load i64, ptr %24, align 8
-  %26 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %25)
-  %27 = add nuw nsw i64 %26, %23
-  %28 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %29 = load i64, ptr %28, align 8
-  %30 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %29)
-  %31 = add nuw nsw i64 %27, %30
-  %32 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %33 = load i64, ptr %32, align 8
-  %34 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %33)
-  %35 = add nuw nsw i64 %31, %34
-  %.not84 = icmp eq i64 %35, 1
-  br i1 %.not84, label %38, label %36
+19:                                               ; preds = %.lr.ph, %91
+  %.pre135.pre137 = phi ptr [ %.fr104110, %.lr.ph ], [ %.fr104, %91 ]
+  %.061120 = phi i1 [ false, %.lr.ph ], [ %.1, %91 ]
+  %.062118 = phi i1 [ false, %.lr.ph ], [ %.163, %91 ]
+  %.064117 = phi i64 [ 0, %.lr.ph ], [ %.2, %91 ]
+  %.066116 = phi i64 [ 0, %.lr.ph ], [ %.268, %91 ]
+  %.074115 = phi i64 [ 0, %.lr.ph ], [ %.pre-phi, %91 ]
+  %.077113 = phi i64 [ 0, %.lr.ph ], [ %.178, %91 ]
+  %.079112 = phi i64 [ 0, %.lr.ph ], [ %.281, %91 ]
+  %20 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %.pre135.pre137, i64 %.074115
+  %21 = load i64, ptr %20, align 8
+  %22 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %21)
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %24 = load i64, ptr %23, align 8
+  %25 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %24)
+  %26 = add nuw nsw i64 %25, %22
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %28 = load i64, ptr %27, align 8
+  %29 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %28)
+  %30 = add nuw nsw i64 %26, %29
+  %31 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %32 = load i64, ptr %31, align 8
+  %33 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %32)
+  %34 = add nuw nsw i64 %30, %33
+  %.not84 = icmp eq i64 %34, 1
+  br i1 %.not84, label %37, label %35
 
-36:                                               ; preds = %20
-  %37 = tail call noundef zeroext i1 @_ZNK3ue29CharReach14isCaselessCharEv(ptr noundef nonnull align 8 dereferenceable(32) %21)
-  %not. = xor i1 %37, true
+35:                                               ; preds = %19
+  %36 = tail call noundef zeroext i1 @_ZNK3ue29CharReach14isCaselessCharEv(ptr noundef nonnull align 8 dereferenceable(32) %20)
+  %not. = xor i1 %36, true
   %spec.select = zext i1 %not. to i8
   %.pre135.pre.pre = load ptr, ptr %0, align 8
-  br label %38
+  br label %37
 
-38:                                               ; preds = %36, %20
-  %.pre135.pre = phi ptr [ %.pre135.pre137, %20 ], [ %.pre135.pre.pre, %36 ]
-  %.070 = phi i8 [ 0, %20 ], [ %spec.select, %36 ]
-  %39 = trunc nuw i8 %.070 to i1
-  %.not = xor i1 %39, true
+37:                                               ; preds = %35, %19
+  %.pre135.pre = phi ptr [ %.pre135.pre137, %19 ], [ %.pre135.pre.pre, %35 ]
+  %.070 = phi i8 [ 0, %19 ], [ %spec.select, %35 ]
+  %38 = trunc nuw i8 %.070 to i1
+  %.not = xor i1 %38, true
   %or.cond = and i1 %1, %.not
-  %40 = load i32, ptr %13, align 8
-  %41 = add i32 %40, 1
-  %42 = zext i32 %41 to i64
-  %.not85 = icmp ult i64 %.074115, %42
+  %39 = load i32, ptr %12, align 8
+  %40 = add i32 %39, 1
+  %41 = zext i32 %40 to i64
+  %.not85 = icmp ult i64 %.074115, %41
   %spec.select88 = select i1 %.not85, i8 %.070, i8 1
   %.171 = select i1 %or.cond, i8 %spec.select88, i8 %.070
-  %43 = trunc nuw i8 %.171 to i1
-  %.not2 = xor i1 %43, true
+  %42 = trunc nuw i8 %.171 to i1
+  %.not2 = xor i1 %42, true
   %or.cond4 = select i1 %.not2, i1 %.061120, i1 false
-  br i1 %or.cond4, label %44, label %65
+  br i1 %or.cond4, label %43, label %64
 
-44:                                               ; preds = %38
-  %45 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %.pre135.pre, i64 %.074115
-  %46 = tail call noundef zeroext i1 @_ZNK3ue29CharReach7isAlphaEv(ptr noundef nonnull align 8 dereferenceable(32) %45)
-  %47 = load ptr, ptr %0, align 8
-  br i1 %46, label %48, label %.thread95
+43:                                               ; preds = %37
+  %44 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %.pre135.pre, i64 %.074115
+  %45 = tail call noundef zeroext i1 @_ZNK3ue29CharReach7isAlphaEv(ptr noundef nonnull align 8 dereferenceable(32) %44)
+  %46 = load ptr, ptr %0, align 8
+  br i1 %45, label %47, label %.thread95
 
-48:                                               ; preds = %44
-  %49 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %47, i64 %.074115
-  %50 = load i64, ptr %49, align 8
-  %51 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %50)
-  %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %53 = load i64, ptr %52, align 8
-  %54 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %53)
-  %55 = add nuw nsw i64 %54, %51
-  %56 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %57 = load i64, ptr %56, align 8
-  %58 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %57)
-  %59 = add nuw nsw i64 %55, %58
-  %60 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %61 = load i64, ptr %60, align 8
-  %62 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %61)
-  %63 = add nuw nsw i64 %59, %62
-  br i1 %.062118, label %.thread, label %64
+47:                                               ; preds = %43
+  %48 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %46, i64 %.074115
+  %49 = load i64, ptr %48, align 8
+  %50 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %49)
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %52 = load i64, ptr %51, align 8
+  %53 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %52)
+  %54 = add nuw nsw i64 %53, %50
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %56 = load i64, ptr %55, align 8
+  %57 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %56)
+  %58 = add nuw nsw i64 %54, %57
+  %59 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %60 = load i64, ptr %59, align 8
+  %61 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %60)
+  %62 = add nuw nsw i64 %58, %61
+  br i1 %.062118, label %.thread, label %63
 
-.thread:                                          ; preds = %48
-  %.not86 = icmp ne i64 %63, 2
+.thread:                                          ; preds = %47
+  %.not86 = icmp ne i64 %62, 2
   %spec.select89 = zext i1 %.not86 to i8
-  br label %65
+  br label %64
 
-64:                                               ; preds = %48
-  %.not87 = icmp ne i64 %63, 1
+63:                                               ; preds = %47
+  %.not87 = icmp ne i64 %62, 1
   %spec.select90 = zext i1 %.not87 to i8
-  br label %65
+  br label %64
 
-65:                                               ; preds = %.thread, %64, %38
-  %.pre135.pre139 = phi ptr [ %.pre135.pre, %38 ], [ %47, %64 ], [ %47, %.thread ]
-  %.272 = phi i8 [ %.171, %38 ], [ %spec.select90, %64 ], [ %spec.select89, %.thread ]
-  %66 = trunc nuw i8 %.272 to i1
-  br i1 %66, label %67, label %.thread95
+64:                                               ; preds = %.thread, %63, %37
+  %.pre135.pre139 = phi ptr [ %.pre135.pre, %37 ], [ %46, %63 ], [ %46, %.thread ]
+  %.272 = phi i8 [ %.171, %37 ], [ %spec.select90, %63 ], [ %spec.select89, %.thread ]
+  %65 = trunc nuw i8 %.272 to i1
+  br i1 %65, label %66, label %.thread95
 
-67:                                               ; preds = %65
-  %68 = sub i64 %.074115, %.077113
-  %69 = icmp ugt i64 %68, %.079112
-  %.180 = tail call i64 @llvm.umax.i64(i64 %68, i64 %.079112)
-  %.167 = select i1 %69, i64 %.074115, i64 %.066116
-  %.165 = select i1 %69, i64 %.077113, i64 %.064117
-  %70 = add nuw i64 %.074115, 1
-  br label %92
+66:                                               ; preds = %64
+  %67 = sub i64 %.074115, %.077113
+  %68 = icmp ugt i64 %67, %.079112
+  %.180 = tail call i64 @llvm.umax.i64(i64 %67, i64 %.079112)
+  %.167 = select i1 %68, i64 %.074115, i64 %.066116
+  %.165 = select i1 %68, i64 %.077113, i64 %.064117
+  %69 = add nuw i64 %.074115, 1
+  br label %91
 
-.thread95:                                        ; preds = %44, %65
-  %71 = phi ptr [ %.pre135.pre139, %65 ], [ %47, %44 ]
-  %72 = add nuw i64 %.074115, 1
-  %73 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %71, i64 %.074115
-  %74 = tail call noundef zeroext i1 @_ZNK3ue29CharReach7isAlphaEv(ptr noundef nonnull align 8 dereferenceable(32) %73)
+.thread95:                                        ; preds = %43, %64
+  %70 = phi ptr [ %.pre135.pre139, %64 ], [ %46, %43 ]
+  %71 = add nuw i64 %.074115, 1
+  %72 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %70, i64 %.074115
+  %73 = tail call noundef zeroext i1 @_ZNK3ue29CharReach7isAlphaEv(ptr noundef nonnull align 8 dereferenceable(32) %72)
   %.pre133 = load ptr, ptr %0, align 8
-  br i1 %74, label %75, label %92
+  br i1 %73, label %74, label %91
 
-75:                                               ; preds = %.thread95
-  %76 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %.pre133, i64 %.074115
-  %77 = load i64, ptr %76, align 8
-  %78 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %77)
-  %79 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %80 = load i64, ptr %79, align 8
-  %81 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %80)
-  %82 = add nuw nsw i64 %81, %78
-  %83 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  %84 = load i64, ptr %83, align 8
-  %85 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %84)
-  %86 = add nuw nsw i64 %82, %85
-  %87 = getelementptr inbounds nuw i8, ptr %76, i64 24
-  %88 = load i64, ptr %87, align 8
-  %89 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %88)
-  %90 = add nuw nsw i64 %86, %89
-  %91 = icmp eq i64 %90, 2
-  br label %92
+74:                                               ; preds = %.thread95
+  %75 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %.pre133, i64 %.074115
+  %76 = load i64, ptr %75, align 8
+  %77 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %76)
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %79 = load i64, ptr %78, align 8
+  %80 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %79)
+  %81 = add nuw nsw i64 %80, %77
+  %82 = getelementptr inbounds nuw i8, ptr %75, i64 16
+  %83 = load i64, ptr %82, align 8
+  %84 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %83)
+  %85 = add nuw nsw i64 %81, %84
+  %86 = getelementptr inbounds nuw i8, ptr %75, i64 24
+  %87 = load i64, ptr %86, align 8
+  %88 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %87)
+  %89 = add nuw nsw i64 %85, %88
+  %90 = icmp eq i64 %89, 2
+  br label %91
 
-92:                                               ; preds = %.thread95, %75, %67
-  %.pre-phi = phi i64 [ %72, %.thread95 ], [ %72, %75 ], [ %70, %67 ]
-  %.pre135.pre138 = phi ptr [ %.pre133, %.thread95 ], [ %.pre133, %75 ], [ %.pre135.pre139, %67 ]
-  %.281 = phi i64 [ %.079112, %.thread95 ], [ %.079112, %75 ], [ %.180, %67 ]
-  %.178 = phi i64 [ %.077113, %.thread95 ], [ %.077113, %75 ], [ %70, %67 ]
-  %.268 = phi i64 [ %.066116, %.thread95 ], [ %.066116, %75 ], [ %.167, %67 ]
-  %.2 = phi i64 [ %.064117, %.thread95 ], [ %.064117, %75 ], [ %.165, %67 ]
-  %.163 = phi i1 [ %.062118, %.thread95 ], [ %91, %75 ], [ false, %67 ]
-  %.1 = phi i1 [ %.061120, %.thread95 ], [ true, %75 ], [ false, %67 ]
+91:                                               ; preds = %.thread95, %74, %66
+  %.pre-phi = phi i64 [ %71, %.thread95 ], [ %71, %74 ], [ %69, %66 ]
+  %.pre135.pre138 = phi ptr [ %.pre133, %.thread95 ], [ %.pre133, %74 ], [ %.pre135.pre139, %66 ]
+  %.281 = phi i64 [ %.079112, %.thread95 ], [ %.079112, %74 ], [ %.180, %66 ]
+  %.178 = phi i64 [ %.077113, %.thread95 ], [ %.077113, %74 ], [ %69, %66 ]
+  %.268 = phi i64 [ %.066116, %.thread95 ], [ %.066116, %74 ], [ %.167, %66 ]
+  %.2 = phi i64 [ %.064117, %.thread95 ], [ %.064117, %74 ], [ %.165, %66 ]
+  %.163 = phi i1 [ %.062118, %.thread95 ], [ %90, %74 ], [ false, %66 ]
+  %.1 = phi i1 [ %.061120, %.thread95 ], [ true, %74 ], [ false, %66 ]
   %.fr104 = freeze ptr %.pre135.pre138
-  %93 = load ptr, ptr %6, align 8
-  %.fr = freeze ptr %93
-  %94 = ptrtoint ptr %.fr to i64
-  %95 = ptrtoint ptr %.fr104 to i64
-  %96 = sub i64 %94, %95
-  %97 = ashr i64 %96, 5
-  %98 = icmp ult i64 %.pre-phi, %97
-  br i1 %98, label %20, label %.thread100, !llvm.loop !282
+  %92 = load ptr, ptr %6, align 8
+  %.fr = freeze ptr %92
+  %93 = ptrtoint ptr %.fr to i64
+  %94 = ptrtoint ptr %.fr104 to i64
+  %95 = sub i64 %93, %94
+  %96 = ashr i64 %95, 5
+  %97 = icmp ult i64 %.pre-phi, %96
+  br i1 %97, label %19, label %.thread100, !llvm.loop !282
 
 ._crit_edge:                                      ; preds = %_ZNK3ue29CharReach10find_firstEv.exit, %.thread100
-  %.not.i.i = icmp ult i64 %18, 4294967296
-  br i1 %.not.i.i, label %_ZN3ue210verify_u32ImEEjT_.exit, label %99
+  %.not.i.i = icmp ult i64 %17, 4294967296
+  br i1 %.not.i.i, label %_ZN3ue210verify_u32ImEEjT_.exit, label %98
 
-99:                                               ; preds = %._crit_edge
-  %100 = tail call ptr @__cxa_allocate_exception(i64 48) #23
-  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %100)
-          to label %101 unwind label %102
+98:                                               ; preds = %._crit_edge
+  %99 = tail call ptr @__cxa_allocate_exception(i64 48) #23
+  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %99)
+          to label %100 unwind label %101
 
-101:                                              ; preds = %99
-  tail call void @__cxa_throw(ptr nonnull %100, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #25
+100:                                              ; preds = %98
+  tail call void @__cxa_throw(ptr nonnull %99, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #25
   unreachable
 
-102:                                              ; preds = %99
-  %103 = landingpad { ptr, i32 }
+101:                                              ; preds = %98
+  %102 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %100) #23
-  resume { ptr, i32 } %103
+  tail call void @__cxa_free_exception(ptr nonnull %99) #23
+  resume { ptr, i32 } %102
 
 _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %._crit_edge
-  %104 = trunc nuw i64 %18 to i32
-  store i32 %104, ptr %3, align 4
+  %103 = trunc nuw i64 %17 to i32
+  store i32 %103, ptr %3, align 4
   ret void
 
 .lr.ph128:                                        ; preds = %.thread100, %_ZNK3ue29CharReach10find_firstEv.exit
-  %.0127 = phi i64 [ %133, %_ZNK3ue29CharReach10find_firstEv.exit ], [ %18, %.thread100 ]
-  %105 = load ptr, ptr %0, align 8
-  %106 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %105, i64 %.0127
-  br label %107
+  %.0127 = phi i64 [ %132, %_ZNK3ue29CharReach10find_firstEv.exit ], [ %17, %.thread100 ]
+  %104 = load ptr, ptr %0, align 8
+  %105 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %104, i64 %.0127
+  br label %106
 
-107:                                              ; preds = %110, %.lr.ph128
-  %.0712.i.i = phi i64 [ 0, %.lr.ph128 ], [ %111, %110 ]
-  %108 = getelementptr inbounds nuw i64, ptr %106, i64 %.0712.i.i
-  %109 = load i64, ptr %108, align 8
-  %.not.i.i93 = icmp eq i64 %109, 0
-  br i1 %.not.i.i93, label %110, label %112
+106:                                              ; preds = %109, %.lr.ph128
+  %.0712.i.i = phi i64 [ 0, %.lr.ph128 ], [ %110, %109 ]
+  %107 = getelementptr inbounds nuw i64, ptr %105, i64 %.0712.i.i
+  %108 = load i64, ptr %107, align 8
+  %.not.i.i93 = icmp eq i64 %108, 0
+  br i1 %.not.i.i93, label %109, label %111
 
-110:                                              ; preds = %107
-  %111 = add nuw nsw i64 %.0712.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %111, 4
-  br i1 %exitcond.not.i.i, label %_ZNK3ue29CharReach10find_firstEv.exit, label %107, !llvm.loop !191
+109:                                              ; preds = %106
+  %110 = add nuw nsw i64 %.0712.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %110, 4
+  br i1 %exitcond.not.i.i, label %_ZNK3ue29CharReach10find_firstEv.exit, label %106, !llvm.loop !191
 
-112:                                              ; preds = %107
-  %113 = shl nuw nsw i64 %.0712.i.i, 6
-  %114 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %109, i1 true)
-  %115 = or disjoint i64 %114, %113
-  %116 = trunc i64 %115 to i8
+111:                                              ; preds = %106
+  %112 = shl nuw nsw i64 %.0712.i.i, 6
+  %113 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %108, i1 true)
+  %114 = or disjoint i64 %113, %112
+  %115 = trunc i64 %114 to i8
   br label %_ZNK3ue29CharReach10find_firstEv.exit
 
-_ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %110, %112
-  %117 = phi i8 [ %116, %112 ], [ 0, %110 ]
-  %118 = load i64, ptr %106, align 8
-  %119 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %118)
-  %120 = getelementptr inbounds nuw i8, ptr %106, i64 8
-  %121 = load i64, ptr %120, align 8
-  %122 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %121)
-  %123 = add nuw nsw i64 %122, %119
-  %124 = getelementptr inbounds nuw i8, ptr %106, i64 16
-  %125 = load i64, ptr %124, align 8
-  %126 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %125)
-  %127 = add nuw nsw i64 %123, %126
-  %128 = getelementptr inbounds nuw i8, ptr %106, i64 24
-  %129 = load i64, ptr %128, align 8
-  %130 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %129)
-  %131 = add nuw nsw i64 %127, %130
-  %132 = icmp samesign ugt i64 %131, 1
-  tail call void @_ZN3ue211ue2_literal9push_backEcb(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 noundef signext %117, i1 noundef zeroext %132)
-  %133 = add nuw i64 %.0127, 1
-  %exitcond.not = icmp eq i64 %133, %17
+_ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %109, %111
+  %116 = phi i8 [ %115, %111 ], [ 0, %109 ]
+  %117 = load i64, ptr %105, align 8
+  %118 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %117)
+  %119 = getelementptr inbounds nuw i8, ptr %105, i64 8
+  %120 = load i64, ptr %119, align 8
+  %121 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %120)
+  %122 = add nuw nsw i64 %121, %118
+  %123 = getelementptr inbounds nuw i8, ptr %105, i64 16
+  %124 = load i64, ptr %123, align 8
+  %125 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %124)
+  %126 = add nuw nsw i64 %122, %125
+  %127 = getelementptr inbounds nuw i8, ptr %105, i64 24
+  %128 = load i64, ptr %127, align 8
+  %129 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %128)
+  %130 = add nuw nsw i64 %126, %129
+  %131 = icmp samesign ugt i64 %130, 1
+  tail call void @_ZN3ue211ue2_literal9push_backEcb(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 noundef signext %116, i1 noundef zeroext %131)
+  %132 = add nuw i64 %.0127, 1
+  %exitcond.not = icmp eq i64 %132, %16
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph128, !llvm.loop !283
 }
 

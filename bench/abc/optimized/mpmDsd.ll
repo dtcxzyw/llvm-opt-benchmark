@@ -1734,11 +1734,11 @@ define i64 @Mpm_CutTruthFromDsd(ptr noundef readonly captures(none) %0, ptr noun
   %9 = load i64, ptr %8, align 8, !tbaa !16
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 4
-  %.not12 = icmp ult i32 %11, 134217728
+  %12 = lshr i32 %11, 27
+  %.not12 = icmp eq i32 %12, 0
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %12 = lshr i32 %11, 27
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %wide.trip.count = zext nneg i32 %12 to i64
   br label %14
@@ -2175,11 +2175,11 @@ define range(i32 0, 2) i32 @Mpm_CutComputeDsd6(ptr noundef captures(none) %0, pt
   %192 = and i32 %190, -33554432
   %193 = or disjoint i32 %191, %192
   store i32 %193, ptr %189, align 4
-  %.not171 = icmp ult i32 %190, 134217728
+  %194 = lshr i32 %190, 27
+  %.not171 = icmp eq i32 %194, 0
   br i1 %.not171, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %187
-  %194 = lshr i32 %190, 27
   %195 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 6976
   %197 = lshr i32 %170, 6

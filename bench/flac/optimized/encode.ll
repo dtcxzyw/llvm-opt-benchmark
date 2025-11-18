@@ -1120,7 +1120,7 @@ read_uint16.exit:                                 ; preds = %read_uint16.exit414
   %417 = and i32 %.058.i.i, 1
   %spec.select.i.i = add i32 %417, %.09.i.i
   %418 = lshr i32 %.058.i.i, 1
-  %.not.i339.i = icmp ult i32 %.058.i.i, 2
+  %.not.i339.i = icmp eq i32 %418, 0
   br i1 %.not.i339.i, label %count_channel_mask_bits.exit.i, label %.lr.ph.i.i, !llvm.loop !59
 
 count_channel_mask_bits.exit.i:                   ; preds = %.lr.ph.i.i

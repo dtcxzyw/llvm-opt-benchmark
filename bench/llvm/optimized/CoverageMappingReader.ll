@@ -11049,12 +11049,12 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
   %15 = alloca %"class.llvm::Expected", align 8
   %16 = alloca %"class.llvm::Expected", align 8
   %17 = alloca %"class.llvm::Twine", align 8
-  %.fr = freeze i64 %4
   %.promoted = load ptr, ptr %0, align 8
   %18 = icmp ult ptr %2, %3
   br i1 %18, label %.lr.ph, label %_ZN4llvm5ErrorD2Ev.exit22
 
 .lr.ph:                                           ; preds = %8
+  %.fr = freeze i64 %4
   %.fr62 = freeze i8 %5
   %19 = trunc i8 %.fr62 to i1
   %.sroa.027.4.extract.shift = lshr i64 %.fr, 32
@@ -11071,7 +11071,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
   br i1 %19, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %26 = icmp ult i64 %.fr, 4294967296
+  %26 = icmp eq i64 %.sroa.027.4.extract.shift, 0
   br i1 %26, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.critedge19.us.us
@@ -12014,7 +12014,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
   %.promoted = load ptr, ptr %0, align 8
   %18 = trunc nuw i8 %5 to i1
   %.sroa.027.4.extract.shift = lshr i64 %4, 32
-  %19 = icmp ugt i64 %4, 4294967295
+  %19 = icmp ne i64 %.sroa.027.4.extract.shift, 0
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -13346,7 +13346,7 @@ define linkonce_odr void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPSt4p
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %51, i64 16, i1 false), !tbaa.struct !389
-  %.not12.i = icmp ult i64 %.0919.in.i.i.i, 2
+  %.not12.i = icmp eq i64 %.0919.i.i1011.i, 0
   br i1 %.not12.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImN4llvm9StringRefEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_10less_firstEEEEvT_SF_SF_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !1482
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImN4llvm9StringRefEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_10less_firstEEEEvT_SF_SF_RT0_.exit: ; preds = %.lr.ph.i.i.i, %49, %45
@@ -13946,7 +13946,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt
   %51 = load ptr, ptr %50, align 8, !tbaa !1485
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %51, ptr %52, align 8, !tbaa !1493
-  %.not10.i.us = icmp ult i64 %.0921.in.i.i.i.us, 2
+  %.not10.i.us = icmp eq i64 %.0921.i.i89.i.us, 0
   br i1 %.not10.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImPN4llvm8FunctionEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_10less_firstEEEEvT_SG_SG_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !1499
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImPN4llvm8FunctionEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_10less_firstEEEEvT_SG_SG_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %48, %42
@@ -14177,7 +14177,7 @@ define linkonce_odr void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPSt4p
   %55 = load ptr, ptr %54, align 8, !tbaa !1485
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr %55, ptr %56, align 8, !tbaa !1493
-  %.not10.i = icmp ult i64 %.0921.in.i.i.i, 2
+  %.not10.i = icmp eq i64 %.0921.i.i89.i, 0
   br i1 %.not10.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImPN4llvm8FunctionEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_10less_firstEEEEvT_SG_SG_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !1499
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImPN4llvm8FunctionEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_10less_firstEEEEvT_SG_SG_RT0_.exit: ; preds = %.lr.ph.i.i.i, %52, %48
@@ -14776,7 +14776,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt
   %51 = load i64, ptr %50, align 8, !tbaa !49
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i64 %51, ptr %52, align 8, !tbaa !1447
-  %.not10.i.us = icmp ult i64 %.0921.in.i.i.i.us, 2
+  %.not10.i.us = icmp eq i64 %.0921.i.i89.i.us, 0
   br i1 %.not10.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SE_SE_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !1512
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SE_SE_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %48, %42
@@ -15007,7 +15007,7 @@ define linkonce_odr void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPSt4p
   %55 = load i64, ptr %54, align 8, !tbaa !49
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 %55, ptr %56, align 8, !tbaa !1447
-  %.not10.i = icmp ult i64 %.0921.in.i.i.i, 2
+  %.not10.i = icmp eq i64 %.0921.i.i89.i, 0
   br i1 %.not10.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SE_SE_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !1512
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SE_SE_RT0_.exit: ; preds = %.lr.ph.i.i.i, %52, %48
@@ -15375,7 +15375,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
   %.promoted = load ptr, ptr %0, align 8
   %18 = trunc nuw i8 %5 to i1
   %.sroa.027.4.extract.shift = lshr i64 %4, 32
-  %19 = icmp ugt i64 %4, 4294967295
+  %19 = icmp ne i64 %.sroa.027.4.extract.shift, 0
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -16132,7 +16132,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIm13FilenameRangeNS_12DenseMapInfoImvEENS_6de
   %77 = load i64, ptr %76, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.sroa.035.4.extract.shift = lshr i64 %77, 32
-  %78 = icmp ult i64 %77, 4294967296
+  %78 = icmp eq i64 %.sroa.035.4.extract.shift, 0
   br i1 %78, label %.critedge19, label %79
 
 79:                                               ; preds = %75
@@ -17228,7 +17228,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIm13FilenameRangeNS_12DenseMapInfoImvEENS_6de
   %77 = load i64, ptr %76, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.sroa.035.4.extract.shift = lshr i64 %77, 32
-  %78 = icmp ult i64 %77, 4294967296
+  %78 = icmp eq i64 %.sroa.035.4.extract.shift, 0
   br i1 %78, label %.critedge19, label %79
 
 79:                                               ; preds = %75
@@ -17978,7 +17978,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIm13FilenameRangeNS_12DenseMapInfoImvEENS_6de
   %77 = load i64, ptr %76, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.sroa.035.4.extract.shift = lshr i64 %77, 32
-  %78 = icmp ult i64 %77, 4294967296
+  %78 = icmp eq i64 %.sroa.035.4.extract.shift, 0
   br i1 %78, label %.critedge19, label %79
 
 79:                                               ; preds = %75
@@ -18728,7 +18728,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIm13FilenameRangeNS_12DenseMapInfoImvEENS_6de
   %77 = load i64, ptr %76, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.sroa.035.4.extract.shift = lshr i64 %77, 32
-  %78 = icmp ult i64 %77, 4294967296
+  %78 = icmp eq i64 %.sroa.035.4.extract.shift, 0
   br i1 %78, label %.critedge19, label %79
 
 79:                                               ; preds = %75
@@ -19314,12 +19314,12 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
   %15 = alloca %"class.llvm::Expected", align 8
   %16 = alloca %"class.llvm::Expected", align 8
   %17 = alloca %"class.llvm::Twine", align 8
-  %.fr = freeze i64 %4
   %.promoted = load ptr, ptr %0, align 8
   %18 = icmp ult ptr %2, %3
   br i1 %18, label %.lr.ph, label %_ZN4llvm5ErrorD2Ev.exit22
 
 .lr.ph:                                           ; preds = %8
+  %.fr = freeze i64 %4
   %.fr62 = freeze i8 %5
   %19 = trunc i8 %.fr62 to i1
   %.sroa.027.4.extract.shift = lshr i64 %.fr, 32
@@ -19336,7 +19336,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
   br i1 %19, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %26 = icmp ult i64 %.fr, 4294967296
+  %26 = icmp eq i64 %.sroa.027.4.extract.shift, 0
   br i1 %26, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.critedge19.us.us
@@ -19961,7 +19961,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
   %.promoted = load ptr, ptr %0, align 8
   %18 = trunc nuw i8 %5 to i1
   %.sroa.027.4.extract.shift = lshr i64 %4, 32
-  %19 = icmp ugt i64 %4, 4294967295
+  %19 = icmp ne i64 %.sroa.027.4.extract.shift, 0
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -20563,7 +20563,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
   %.promoted = load ptr, ptr %0, align 8
   %18 = trunc nuw i8 %5 to i1
   %.sroa.027.4.extract.shift = lshr i64 %4, 32
-  %19 = icmp ugt i64 %4, 4294967295
+  %19 = icmp ne i64 %.sroa.027.4.extract.shift, 0
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -21327,7 +21327,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIm13FilenameRangeNS_12DenseMapInfoImvEENS_6de
   %79 = load i64, ptr %78, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.sroa.035.4.extract.shift = lshr i64 %79, 32
-  %80 = icmp ult i64 %79, 4294967296
+  %80 = icmp eq i64 %.sroa.035.4.extract.shift, 0
   br i1 %80, label %.critedge19, label %81
 
 81:                                               ; preds = %77
@@ -22083,7 +22083,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIm13FilenameRangeNS_12DenseMapInfoImvEENS_6de
   %79 = load i64, ptr %78, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.sroa.035.4.extract.shift = lshr i64 %79, 32
-  %80 = icmp ult i64 %79, 4294967296
+  %80 = icmp eq i64 %.sroa.035.4.extract.shift, 0
   br i1 %80, label %.critedge19, label %81
 
 81:                                               ; preds = %77
@@ -22839,7 +22839,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIm13FilenameRangeNS_12DenseMapInfoImvEENS_6de
   %79 = load i64, ptr %78, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.sroa.035.4.extract.shift = lshr i64 %79, 32
-  %80 = icmp ult i64 %79, 4294967296
+  %80 = icmp eq i64 %.sroa.035.4.extract.shift, 0
   br i1 %80, label %.critedge19, label %81
 
 81:                                               ; preds = %77
@@ -23595,7 +23595,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIm13FilenameRangeNS_12DenseMapInfoImvEENS_6de
   %79 = load i64, ptr %78, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.sroa.035.4.extract.shift = lshr i64 %79, 32
-  %80 = icmp ult i64 %79, 4294967296
+  %80 = icmp eq i64 %.sroa.035.4.extract.shift, 0
   br i1 %80, label %.critedge19, label %81
 
 81:                                               ; preds = %77
@@ -24180,12 +24180,12 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
   %15 = alloca %"class.llvm::Expected", align 8
   %16 = alloca %"class.llvm::Expected", align 8
   %17 = alloca %"class.llvm::Twine", align 8
-  %.fr = freeze i64 %4
   %.promoted = load ptr, ptr %0, align 8
   %18 = icmp ult ptr %2, %3
   br i1 %18, label %.lr.ph, label %_ZN4llvm5ErrorD2Ev.exit22
 
 .lr.ph:                                           ; preds = %8
+  %.fr = freeze i64 %4
   %.fr62 = freeze i8 %5
   %19 = trunc i8 %.fr62 to i1
   %.sroa.027.4.extract.shift = lshr i64 %.fr, 32
@@ -24202,7 +24202,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
   br i1 %19, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %26 = icmp ult i64 %.fr, 4294967296
+  %26 = icmp eq i64 %.sroa.027.4.extract.shift, 0
   br i1 %26, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.critedge19.us.us
@@ -24820,7 +24820,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
   %.promoted = load ptr, ptr %0, align 8
   %18 = trunc nuw i8 %5 to i1
   %.sroa.027.4.extract.shift = lshr i64 %4, 32
-  %19 = icmp ugt i64 %4, 4294967295
+  %19 = icmp ne i64 %.sroa.027.4.extract.shift, 0
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -25416,7 +25416,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
   %.promoted = load ptr, ptr %0, align 8
   %18 = trunc nuw i8 %5 to i1
   %.sroa.027.4.extract.shift = lshr i64 %4, 32
-  %19 = icmp ugt i64 %4, 4294967295
+  %19 = icmp ne i64 %.sroa.027.4.extract.shift, 0
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -26173,7 +26173,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIm13FilenameRangeNS_12DenseMapInfoImvEENS_6de
   %77 = load i64, ptr %76, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.sroa.035.4.extract.shift = lshr i64 %77, 32
-  %78 = icmp ult i64 %77, 4294967296
+  %78 = icmp eq i64 %.sroa.035.4.extract.shift, 0
   br i1 %78, label %.critedge19, label %79
 
 79:                                               ; preds = %75
@@ -26923,7 +26923,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIm13FilenameRangeNS_12DenseMapInfoImvEENS_6de
   %77 = load i64, ptr %76, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.sroa.035.4.extract.shift = lshr i64 %77, 32
-  %78 = icmp ult i64 %77, 4294967296
+  %78 = icmp eq i64 %.sroa.035.4.extract.shift, 0
   br i1 %78, label %.critedge19, label %79
 
 79:                                               ; preds = %75
@@ -27673,7 +27673,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIm13FilenameRangeNS_12DenseMapInfoImvEENS_6de
   %77 = load i64, ptr %76, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.sroa.035.4.extract.shift = lshr i64 %77, 32
-  %78 = icmp ult i64 %77, 4294967296
+  %78 = icmp eq i64 %.sroa.035.4.extract.shift, 0
   br i1 %78, label %.critedge19, label %79
 
 79:                                               ; preds = %75
@@ -28423,7 +28423,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIm13FilenameRangeNS_12DenseMapInfoImvEENS_6de
   %77 = load i64, ptr %76, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.sroa.035.4.extract.shift = lshr i64 %77, 32
-  %78 = icmp ult i64 %77, 4294967296
+  %78 = icmp eq i64 %.sroa.035.4.extract.shift, 0
   br i1 %78, label %.critedge19, label %79
 
 79:                                               ; preds = %75
@@ -29009,12 +29009,12 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
   %15 = alloca %"class.llvm::Expected", align 8
   %16 = alloca %"class.llvm::Expected", align 8
   %17 = alloca %"class.llvm::Twine", align 8
-  %.fr = freeze i64 %4
   %.promoted = load ptr, ptr %0, align 8
   %18 = icmp ult ptr %2, %3
   br i1 %18, label %.lr.ph, label %_ZN4llvm5ErrorD2Ev.exit22
 
 .lr.ph:                                           ; preds = %8
+  %.fr = freeze i64 %4
   %.fr62 = freeze i8 %5
   %19 = trunc i8 %.fr62 to i1
   %.sroa.027.4.extract.shift = lshr i64 %.fr, 32
@@ -29031,7 +29031,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
   br i1 %19, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %26 = icmp ult i64 %.fr, 4294967296
+  %26 = icmp eq i64 %.sroa.027.4.extract.shift, 0
   br i1 %26, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.critedge19.us.us
@@ -29658,7 +29658,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
   %.promoted = load ptr, ptr %0, align 8
   %18 = trunc nuw i8 %5 to i1
   %.sroa.027.4.extract.shift = lshr i64 %4, 32
-  %19 = icmp ugt i64 %4, 4294967295
+  %19 = icmp ne i64 %.sroa.027.4.extract.shift, 0
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -30260,7 +30260,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
   %.promoted = load ptr, ptr %0, align 8
   %18 = trunc nuw i8 %5 to i1
   %.sroa.027.4.extract.shift = lshr i64 %4, 32
-  %19 = icmp ugt i64 %4, 4294967295
+  %19 = icmp ne i64 %.sroa.027.4.extract.shift, 0
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -31024,7 +31024,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIm13FilenameRangeNS_12DenseMapInfoImvEENS_6de
   %79 = load i64, ptr %78, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.sroa.035.4.extract.shift = lshr i64 %79, 32
-  %80 = icmp ult i64 %79, 4294967296
+  %80 = icmp eq i64 %.sroa.035.4.extract.shift, 0
   br i1 %80, label %.critedge19, label %81
 
 81:                                               ; preds = %77
@@ -31780,7 +31780,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIm13FilenameRangeNS_12DenseMapInfoImvEENS_6de
   %79 = load i64, ptr %78, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.sroa.035.4.extract.shift = lshr i64 %79, 32
-  %80 = icmp ult i64 %79, 4294967296
+  %80 = icmp eq i64 %.sroa.035.4.extract.shift, 0
   br i1 %80, label %.critedge19, label %81
 
 81:                                               ; preds = %77
@@ -32536,7 +32536,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIm13FilenameRangeNS_12DenseMapInfoImvEENS_6de
   %79 = load i64, ptr %78, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.sroa.035.4.extract.shift = lshr i64 %79, 32
-  %80 = icmp ult i64 %79, 4294967296
+  %80 = icmp eq i64 %.sroa.035.4.extract.shift, 0
   br i1 %80, label %.critedge19, label %81
 
 81:                                               ; preds = %77
@@ -33292,7 +33292,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIm13FilenameRangeNS_12DenseMapInfoImvEENS_6de
   %79 = load i64, ptr %78, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.sroa.035.4.extract.shift = lshr i64 %79, 32
-  %80 = icmp ult i64 %79, 4294967296
+  %80 = icmp eq i64 %.sroa.035.4.extract.shift, 0
   br i1 %80, label %.critedge19, label %81
 
 81:                                               ; preds = %77

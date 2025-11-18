@@ -2874,7 +2874,7 @@ define void @_ZN5image6codecs4jpeg7decoder11cmyk_to_rgb17hf2ac327e65bba46aE(ptr 
   %5 = mul nuw i64 %4, 3
   %6 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h0685f8b8d660cb99E"(i64 noundef %5, i1 noundef zeroext true), !noalias !401
   %7 = extractvalue { i64, ptr } %6, 1
-  %.not = icmp ult i64 %2, 4
+  %.not = icmp eq i64 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3

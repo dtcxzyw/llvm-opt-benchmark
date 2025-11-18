@@ -1501,11 +1501,11 @@ dissect_ecat_coe.exit:                            ; preds = %227, %230, %CANopen
   br label %FoeFormatter.exit.i
 
 531:                                              ; preds = %514
-  %.not.i.i = icmp ult i32 %508, 65536
+  %.sroa.644.6.extract.shift.i.i = lshr i32 %508, 16
+  %.not.i.i = icmp eq i32 %.sroa.644.6.extract.shift.i.i, 0
   br i1 %.not.i.i, label %537, label %532
 
 532:                                              ; preds = %531
-  %.sroa.644.6.extract.shift.i.i = lshr i32 %508, 16
   %533 = and i32 %508, 65535
   %534 = mul nuw nsw i32 %533, 100
   %535 = udiv i32 %534, %.sroa.644.6.extract.shift.i.i

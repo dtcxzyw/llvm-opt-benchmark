@@ -23526,7 +23526,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110MasmParser20parseD
   %.sroa.0.0.i.i = phi ptr [ %61, %66 ], [ %79, %76 ]
   %.018.i.i = phi ptr [ %69, %66 ], [ %78, %76 ]
   %82 = lshr i64 %.sroa.5.0.i.i, 1
-  %.not23.not43.not.i.i = icmp ult i64 %.sroa.5.0.i.i, 2
+  %.not23.not43.not.i.i = icmp eq i64 %82, 0
   br i1 %.not23.not43.not.i.i, label %_ZN4llvm7fromHexB5cxx11ENS_9StringRefE.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %81, %96

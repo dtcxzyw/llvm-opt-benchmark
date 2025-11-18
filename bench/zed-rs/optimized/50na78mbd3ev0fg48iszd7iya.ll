@@ -4800,7 +4800,7 @@ define hidden void @_ZN4core5slice4sort6stable5drift4sort17h0939e6de6eef4ab3E(pt
   %.sroa.0.0 = phi i64 [ %.sroa.0.0.sroa.speculated.i, %16 ], [ %15, %14 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %.not3.i59 = icmp ult i64 %.sroa.0.0, 3
+  %.not3.i62 = icmp ult i64 %.sroa.0.0, 3
   br label %20
 
 20:                                               ; preds = %162, %19
@@ -4848,7 +4848,7 @@ define hidden void @_ZN4core5slice4sort6stable5drift4sort17h0939e6de6eef4ab3E(pt
   br i1 %.not24.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hb042ae45235a7b02E.exit.i", label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %27
-  %brmerge = or i1 %.not24.i, %.not3.i59
+  %brmerge = or i1 %.not24.i, %.not3.i62
   br i1 %brmerge, label %.lr.ph.preheader.i.i.i, label %24
 
 .lr.ph.i:                                         ; preds = %.preheader13.i, %45
@@ -5002,8 +5002,8 @@ _ZN4core5slice4sort6stable5drift10create_run17he75d4a3b7e4c7d6eE.exit: ; preds =
   %.val = load ptr, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1693)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1696)
-  %110 = icmp ult i64 %82, 2
-  %111 = icmp ult i64 %.sroa.017.142, 2
+  %110 = icmp eq i64 %83, 0
+  %111 = icmp eq i64 %84, 0
   %or.cond.i = or i1 %111, %110
   br i1 %or.cond.i, label %_ZN4core5slice4sort6stable5merge5merge17h42ce428b2aa5572cE.exit, label %112
 

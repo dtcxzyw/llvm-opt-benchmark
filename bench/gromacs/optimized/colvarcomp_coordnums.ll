@@ -703,7 +703,7 @@ define void @_ZN6colvar13groupcoordnum10calc_valueEv(ptr noundef nonnull align 8
   %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %47
   %48 = lshr i32 %.023.i.i, 1
   %49 = fmul double %.01522.i.i, %.01522.i.i
-  %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
+  %.not.i.i = icmp eq i32 %48, 0
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !121
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %43
@@ -729,7 +729,7 @@ define void @_ZN6colvar13groupcoordnum10calc_valueEv(ptr noundef nonnull align 8
   %.1.i29.i = select i1 %.not19.i28.i, double %.01621.i27.i, double %55
   %56 = lshr i32 %.023.i25.i, 1
   %57 = fmul double %.01522.i26.i, %.01522.i26.i
-  %.not.i30.i = icmp samesign ult i32 %.023.i25.i, 2
+  %.not.i30.i = icmp eq i32 %56, 0
   br i1 %.not.i30.i, label %._crit_edge.i31.i, label %.lr.ph.i24.i, !llvm.loop !121
 
 ._crit_edge.i31.i:                                ; preds = %.lr.ph.i24.i, %.loopexit.i
@@ -803,7 +803,7 @@ define void @_ZN6colvar13groupcoordnum10calc_valueEv(ptr noundef nonnull align 8
   %.1.i.i14 = select i1 %.not19.i.i13, double %.01621.i.i12, double %90
   %91 = lshr i32 %.023.i.i10, 1
   %92 = fmul double %.01522.i.i11, %.01522.i.i11
-  %.not.i.i15 = icmp samesign ult i32 %.023.i.i10, 2
+  %.not.i.i15 = icmp eq i32 %91, 0
   br i1 %.not.i.i15, label %.loopexit.i16, label %.lr.ph.i.i9, !llvm.loop !121
 
 .loopexit.i16:                                    ; preds = %.lr.ph.i.i9, %86
@@ -829,7 +829,7 @@ define void @_ZN6colvar13groupcoordnum10calc_valueEv(ptr noundef nonnull align 8
   %.1.i29.i26 = select i1 %.not19.i28.i25, double %.01621.i27.i24, double %98
   %99 = lshr i32 %.023.i25.i22, 1
   %100 = fmul double %.01522.i26.i23, %.01522.i26.i23
-  %.not.i30.i27 = icmp samesign ult i32 %.023.i25.i22, 2
+  %.not.i30.i27 = icmp eq i32 %99, 0
   br i1 %.not.i30.i27, label %._crit_edge.i31.i28, label %.lr.ph.i24.i21, !llvm.loop !121
 
 ._crit_edge.i31.i28:                              ; preds = %.lr.ph.i24.i21, %.loopexit.i16
@@ -1470,7 +1470,7 @@ define void @_ZN6colvar6h_bond10calc_valueEv(ptr noundef nonnull align 8 capture
   %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %34
   %35 = lshr i32 %.023.i.i, 1
   %36 = fmul double %.01522.i.i, %.01522.i.i
-  %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
+  %.not.i.i = icmp eq i32 %35, 0
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !121
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %30
@@ -1496,7 +1496,7 @@ define void @_ZN6colvar6h_bond10calc_valueEv(ptr noundef nonnull align 8 capture
   %.1.i29.i = select i1 %.not19.i28.i, double %.01621.i27.i, double %42
   %43 = lshr i32 %.023.i25.i, 1
   %44 = fmul double %.01522.i26.i, %.01522.i26.i
-  %.not.i30.i = icmp samesign ult i32 %.023.i25.i, 2
+  %.not.i30.i = icmp eq i32 %43, 0
   br i1 %.not.i30.i, label %._crit_edge.i31.i, label %.lr.ph.i24.i, !llvm.loop !121
 
 ._crit_edge.i31.i:                                ; preds = %.lr.ph.i24.i, %.loopexit.i
@@ -3399,7 +3399,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi1793EEEvPPb(ptr nounde
   %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %116
   %117 = lshr i32 %.023.i.i, 1
   %118 = fmul double %.01522.i.i, %.01522.i.i
-  %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
+  %.not.i.i = icmp eq i32 %117, 0
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !121
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %112
@@ -3425,7 +3425,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi1793EEEvPPb(ptr nounde
   %.1.i44.i = select i1 %.not19.i43.i, double %.01621.i42.i, double %124
   %125 = lshr i32 %.023.i40.i, 1
   %126 = fmul double %.01522.i41.i, %.01522.i41.i
-  %.not.i45.i = icmp samesign ult i32 %.023.i40.i, 2
+  %.not.i45.i = icmp eq i32 %125, 0
   br i1 %.not.i45.i, label %._crit_edge.i46.i, label %.lr.ph.i39.i, !llvm.loop !121
 
 ._crit_edge.i46.i:                                ; preds = %.lr.ph.i39.i, %.loopexit.i
@@ -3721,7 +3721,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi769EEEvPPb(ptr noundef
   %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %124
   %125 = lshr i32 %.023.i.i, 1
   %126 = fmul double %.01522.i.i, %.01522.i.i
-  %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
+  %.not.i.i = icmp eq i32 %125, 0
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !121
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %120
@@ -3747,7 +3747,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi769EEEvPPb(ptr noundef
   %.1.i44.i = select i1 %.not19.i43.i, double %.01621.i42.i, double %132
   %133 = lshr i32 %.023.i40.i, 1
   %134 = fmul double %.01522.i41.i, %.01522.i41.i
-  %.not.i45.i = icmp samesign ult i32 %.023.i40.i, 2
+  %.not.i45.i = icmp eq i32 %133, 0
   br i1 %.not.i45.i, label %._crit_edge.i46.i, label %.lr.ph.i39.i, !llvm.loop !121
 
 ._crit_edge.i46.i:                                ; preds = %.lr.ph.i39.i, %.loopexit.i
@@ -4030,7 +4030,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi257EEEvPPb(ptr noundef
   %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %116
   %117 = lshr i32 %.023.i.i, 1
   %118 = fmul double %.01522.i.i, %.01522.i.i
-  %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
+  %.not.i.i = icmp eq i32 %117, 0
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !121
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %112
@@ -4056,7 +4056,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi257EEEvPPb(ptr noundef
   %.1.i40.i = select i1 %.not19.i39.i, double %.01621.i38.i, double %124
   %125 = lshr i32 %.023.i36.i, 1
   %126 = fmul double %.01522.i37.i, %.01522.i37.i
-  %.not.i41.i = icmp samesign ult i32 %.023.i36.i, 2
+  %.not.i41.i = icmp eq i32 %125, 0
   br i1 %.not.i41.i, label %._crit_edge.i42.i, label %.lr.ph.i35.i, !llvm.loop !121
 
 ._crit_edge.i42.i:                                ; preds = %.lr.ph.i35.i, %.loopexit.i
@@ -4324,7 +4324,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi1537EEEvPPb(ptr nounde
   %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %106
   %107 = lshr i32 %.023.i.i, 1
   %108 = fmul double %.01522.i.i, %.01522.i.i
-  %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
+  %.not.i.i = icmp eq i32 %107, 0
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !121
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %102
@@ -4350,7 +4350,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi1537EEEvPPb(ptr nounde
   %.1.i50.i = select i1 %.not19.i49.i, double %.01621.i48.i, double %114
   %115 = lshr i32 %.023.i46.i, 1
   %116 = fmul double %.01522.i47.i, %.01522.i47.i
-  %.not.i51.i = icmp samesign ult i32 %.023.i46.i, 2
+  %.not.i51.i = icmp eq i32 %115, 0
   br i1 %.not.i51.i, label %._crit_edge.i52.i, label %.lr.ph.i45.i, !llvm.loop !121
 
 ._crit_edge.i52.i:                                ; preds = %.lr.ph.i45.i, %.loopexit.i
@@ -4635,7 +4635,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi513EEEvPPb(ptr noundef
   %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %114
   %115 = lshr i32 %.023.i.i, 1
   %116 = fmul double %.01522.i.i, %.01522.i.i
-  %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
+  %.not.i.i = icmp eq i32 %115, 0
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !121
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %110
@@ -4661,7 +4661,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi513EEEvPPb(ptr noundef
   %.1.i50.i = select i1 %.not19.i49.i, double %.01621.i48.i, double %122
   %123 = lshr i32 %.023.i46.i, 1
   %124 = fmul double %.01522.i47.i, %.01522.i47.i
-  %.not.i51.i = icmp samesign ult i32 %.023.i46.i, 2
+  %.not.i51.i = icmp eq i32 %123, 0
   br i1 %.not.i51.i, label %._crit_edge.i52.i, label %.lr.ph.i45.i, !llvm.loop !121
 
 ._crit_edge.i52.i:                                ; preds = %.lr.ph.i45.i, %.loopexit.i
@@ -4933,7 +4933,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi1EEEvPPb(ptr noundef n
   %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %106
   %107 = lshr i32 %.023.i.i, 1
   %108 = fmul double %.01522.i.i, %.01522.i.i
-  %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
+  %.not.i.i = icmp eq i32 %107, 0
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !121
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %102
@@ -4959,7 +4959,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi1EEEvPPb(ptr noundef n
   %.1.i46.i = select i1 %.not19.i45.i, double %.01621.i44.i, double %114
   %115 = lshr i32 %.023.i42.i, 1
   %116 = fmul double %.01522.i43.i, %.01522.i43.i
-  %.not.i47.i = icmp samesign ult i32 %.023.i42.i, 2
+  %.not.i47.i = icmp eq i32 %115, 0
   br i1 %.not.i47.i, label %._crit_edge.i48.i, label %.lr.ph.i41.i, !llvm.loop !121
 
 ._crit_edge.i48.i:                                ; preds = %.lr.ph.i41.i, %.loopexit.i
@@ -5095,7 +5095,7 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi17
   %.1.i = select i1 %.not19.i, double %.01621.i, double %41
   %42 = lshr i32 %.023.i, 1
   %43 = fmul double %.01522.i, %.01522.i
-  %.not.i = icmp samesign ult i32 %.023.i, 2
+  %.not.i = icmp eq i32 %42, 0
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !121
 
 .loopexit:                                        ; preds = %.lr.ph.i, %37
@@ -5121,7 +5121,7 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi17
   %.1.i44 = select i1 %.not19.i43, double %.01621.i42, double %49
   %50 = lshr i32 %.023.i40, 1
   %51 = fmul double %.01522.i41, %.01522.i41
-  %.not.i45 = icmp samesign ult i32 %.023.i40, 2
+  %.not.i45 = icmp eq i32 %50, 0
   br i1 %.not.i45, label %._crit_edge.i46, label %.lr.ph.i39, !llvm.loop !121
 
 ._crit_edge.i46:                                  ; preds = %.lr.ph.i39, %.loopexit
@@ -5273,7 +5273,7 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi76
   %.1.i = select i1 %.not19.i, double %.01621.i, double %46
   %47 = lshr i32 %.023.i, 1
   %48 = fmul double %.01522.i, %.01522.i
-  %.not.i = icmp samesign ult i32 %.023.i, 2
+  %.not.i = icmp eq i32 %47, 0
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !121
 
 .loopexit:                                        ; preds = %.lr.ph.i, %42
@@ -5299,7 +5299,7 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi76
   %.1.i44 = select i1 %.not19.i43, double %.01621.i42, double %54
   %55 = lshr i32 %.023.i40, 1
   %56 = fmul double %.01522.i41, %.01522.i41
-  %.not.i45 = icmp samesign ult i32 %.023.i40, 2
+  %.not.i45 = icmp eq i32 %55, 0
   br i1 %.not.i45, label %._crit_edge.i46, label %.lr.ph.i39, !llvm.loop !121
 
 ._crit_edge.i46:                                  ; preds = %.lr.ph.i39, %.loopexit
@@ -5430,7 +5430,7 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi25
   %.1.i = select i1 %.not19.i, double %.01621.i, double %41
   %42 = lshr i32 %.023.i, 1
   %43 = fmul double %.01522.i, %.01522.i
-  %.not.i = icmp samesign ult i32 %.023.i, 2
+  %.not.i = icmp eq i32 %42, 0
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !121
 
 .loopexit:                                        ; preds = %.lr.ph.i, %37
@@ -5456,7 +5456,7 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi25
   %.1.i40 = select i1 %.not19.i39, double %.01621.i38, double %49
   %50 = lshr i32 %.023.i36, 1
   %51 = fmul double %.01522.i37, %.01522.i37
-  %.not.i41 = icmp samesign ult i32 %.023.i36, 2
+  %.not.i41 = icmp eq i32 %50, 0
   br i1 %.not.i41, label %._crit_edge.i42, label %.lr.ph.i35, !llvm.loop !121
 
 ._crit_edge.i42:                                  ; preds = %.lr.ph.i35, %.loopexit
@@ -5573,7 +5573,7 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi15
   %.1.i = select i1 %.not19.i, double %.01621.i, double %31
   %32 = lshr i32 %.023.i, 1
   %33 = fmul double %.01522.i, %.01522.i
-  %.not.i = icmp samesign ult i32 %.023.i, 2
+  %.not.i = icmp eq i32 %32, 0
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !121
 
 .loopexit:                                        ; preds = %.lr.ph.i, %27
@@ -5599,7 +5599,7 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi15
   %.1.i50 = select i1 %.not19.i49, double %.01621.i48, double %39
   %40 = lshr i32 %.023.i46, 1
   %41 = fmul double %.01522.i47, %.01522.i47
-  %.not.i51 = icmp samesign ult i32 %.023.i46, 2
+  %.not.i51 = icmp eq i32 %40, 0
   br i1 %.not.i51, label %._crit_edge.i52, label %.lr.ph.i45, !llvm.loop !121
 
 ._crit_edge.i52:                                  ; preds = %.lr.ph.i45, %.loopexit
@@ -5730,7 +5730,7 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi51
   %.1.i = select i1 %.not19.i, double %.01621.i, double %36
   %37 = lshr i32 %.023.i, 1
   %38 = fmul double %.01522.i, %.01522.i
-  %.not.i = icmp samesign ult i32 %.023.i, 2
+  %.not.i = icmp eq i32 %37, 0
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !121
 
 .loopexit:                                        ; preds = %.lr.ph.i, %32
@@ -5756,7 +5756,7 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi51
   %.1.i50 = select i1 %.not19.i49, double %.01621.i48, double %44
   %45 = lshr i32 %.023.i46, 1
   %46 = fmul double %.01522.i47, %.01522.i47
-  %.not.i51 = icmp samesign ult i32 %.023.i46, 2
+  %.not.i51 = icmp eq i32 %45, 0
   br i1 %.not.i51, label %._crit_edge.i52, label %.lr.ph.i45, !llvm.loop !121
 
 ._crit_edge.i52:                                  ; preds = %.lr.ph.i45, %.loopexit
@@ -5876,7 +5876,7 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi1E
   %.1.i = select i1 %.not19.i, double %.01621.i, double %31
   %32 = lshr i32 %.023.i, 1
   %33 = fmul double %.01522.i, %.01522.i
-  %.not.i = icmp samesign ult i32 %.023.i, 2
+  %.not.i = icmp eq i32 %32, 0
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !121
 
 .loopexit:                                        ; preds = %.lr.ph.i, %27
@@ -5902,7 +5902,7 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi1E
   %.1.i46 = select i1 %.not19.i45, double %.01621.i44, double %39
   %40 = lshr i32 %.023.i42, 1
   %41 = fmul double %.01522.i43, %.01522.i43
-  %.not.i47 = icmp samesign ult i32 %.023.i42, 2
+  %.not.i47 = icmp eq i32 %40, 0
   br i1 %.not.i47, label %._crit_edge.i48, label %.lr.ph.i41, !llvm.loop !121
 
 ._crit_edge.i48:                                  ; preds = %.lr.ph.i41, %.loopexit
@@ -6162,7 +6162,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi1792EEEvPPb(ptr nounde
   %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %107
   %108 = lshr i32 %.023.i.i, 1
   %109 = fmul double %.01522.i.i, %.01522.i.i
-  %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
+  %.not.i.i = icmp eq i32 %108, 0
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !121
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %103
@@ -6188,7 +6188,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi1792EEEvPPb(ptr nounde
   %.1.i33.i = select i1 %.not19.i32.i, double %.01621.i31.i, double %115
   %116 = lshr i32 %.023.i29.i, 1
   %117 = fmul double %.01522.i30.i, %.01522.i30.i
-  %.not.i34.i = icmp samesign ult i32 %.023.i29.i, 2
+  %.not.i34.i = icmp eq i32 %116, 0
   br i1 %.not.i34.i, label %._crit_edge.i35.i, label %.lr.ph.i28.i, !llvm.loop !121
 
 ._crit_edge.i35.i:                                ; preds = %.lr.ph.i28.i, %.loopexit.i
@@ -6429,7 +6429,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi768EEEvPPb(ptr noundef
   %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %115
   %116 = lshr i32 %.023.i.i, 1
   %117 = fmul double %.01522.i.i, %.01522.i.i
-  %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
+  %.not.i.i = icmp eq i32 %116, 0
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !121
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %111
@@ -6455,7 +6455,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi768EEEvPPb(ptr noundef
   %.1.i33.i = select i1 %.not19.i32.i, double %.01621.i31.i, double %123
   %124 = lshr i32 %.023.i29.i, 1
   %125 = fmul double %.01522.i30.i, %.01522.i30.i
-  %.not.i34.i = icmp samesign ult i32 %.023.i29.i, 2
+  %.not.i34.i = icmp eq i32 %124, 0
   br i1 %.not.i34.i, label %._crit_edge.i35.i, label %.lr.ph.i28.i, !llvm.loop !121
 
 ._crit_edge.i35.i:                                ; preds = %.lr.ph.i28.i, %.loopexit.i
@@ -6683,7 +6683,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi256EEEvPPb(ptr noundef
   %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %107
   %108 = lshr i32 %.023.i.i, 1
   %109 = fmul double %.01522.i.i, %.01522.i.i
-  %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
+  %.not.i.i = icmp eq i32 %108, 0
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !121
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %103
@@ -6709,7 +6709,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi256EEEvPPb(ptr noundef
   %.1.i29.i = select i1 %.not19.i28.i, double %.01621.i27.i, double %115
   %116 = lshr i32 %.023.i25.i, 1
   %117 = fmul double %.01522.i26.i, %.01522.i26.i
-  %.not.i30.i = icmp samesign ult i32 %.023.i25.i, 2
+  %.not.i30.i = icmp eq i32 %116, 0
   br i1 %.not.i30.i, label %._crit_edge.i31.i, label %.lr.ph.i24.i, !llvm.loop !121
 
 ._crit_edge.i31.i:                                ; preds = %.lr.ph.i24.i, %.loopexit.i
@@ -6928,7 +6928,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi1536EEEvPPb(ptr nounde
   %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %103
   %104 = lshr i32 %.023.i.i, 1
   %105 = fmul double %.01522.i.i, %.01522.i.i
-  %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
+  %.not.i.i = icmp eq i32 %104, 0
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !121
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %99
@@ -6954,7 +6954,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi1536EEEvPPb(ptr nounde
   %.1.i33.i = select i1 %.not19.i32.i, double %.01621.i31.i, double %111
   %112 = lshr i32 %.023.i29.i, 1
   %113 = fmul double %.01522.i30.i, %.01522.i30.i
-  %.not.i34.i = icmp samesign ult i32 %.023.i29.i, 2
+  %.not.i34.i = icmp eq i32 %112, 0
   br i1 %.not.i34.i, label %._crit_edge.i35.i, label %.lr.ph.i28.i, !llvm.loop !121
 
 ._crit_edge.i35.i:                                ; preds = %.lr.ph.i28.i, %.loopexit.i
@@ -7191,7 +7191,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi512EEEvPPb(ptr noundef
   %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %111
   %112 = lshr i32 %.023.i.i, 1
   %113 = fmul double %.01522.i.i, %.01522.i.i
-  %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
+  %.not.i.i = icmp eq i32 %112, 0
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !121
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %107
@@ -7217,7 +7217,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi512EEEvPPb(ptr noundef
   %.1.i33.i = select i1 %.not19.i32.i, double %.01621.i31.i, double %119
   %120 = lshr i32 %.023.i29.i, 1
   %121 = fmul double %.01522.i30.i, %.01522.i30.i
-  %.not.i34.i = icmp samesign ult i32 %.023.i29.i, 2
+  %.not.i34.i = icmp eq i32 %120, 0
   br i1 %.not.i34.i, label %._crit_edge.i35.i, label %.lr.ph.i28.i, !llvm.loop !121
 
 ._crit_edge.i35.i:                                ; preds = %.lr.ph.i28.i, %.loopexit.i
@@ -7345,7 +7345,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi0EEEvPPb(ptr noundef n
   %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %51
   %52 = lshr i32 %.023.i.i, 1
   %53 = fmul double %.01522.i.i, %.01522.i.i
-  %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
+  %.not.i.i = icmp eq i32 %52, 0
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !121
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %47
@@ -7371,7 +7371,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi0EEEvPPb(ptr noundef n
   %.1.i29.i = select i1 %.not19.i28.i, double %.01621.i27.i, double %59
   %60 = lshr i32 %.023.i25.i, 1
   %61 = fmul double %.01522.i26.i, %.01522.i26.i
-  %.not.i30.i = icmp samesign ult i32 %.023.i25.i, 2
+  %.not.i30.i = icmp eq i32 %60, 0
   br i1 %.not.i30.i, label %._crit_edge.i31.i, label %.lr.ph.i24.i, !llvm.loop !121
 
 ._crit_edge.i31.i:                                ; preds = %.lr.ph.i24.i, %.loopexit.i
@@ -7527,7 +7527,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi0EEEvPPb(ptr noundef n
   %.1.i.i16 = select i1 %.not19.i.i15, double %.01621.i.i14, double %142
   %143 = lshr i32 %.023.i.i12, 1
   %144 = fmul double %.01522.i.i13, %.01522.i.i13
-  %.not.i.i17 = icmp samesign ult i32 %.023.i.i12, 2
+  %.not.i.i17 = icmp eq i32 %143, 0
   br i1 %.not.i.i17, label %.loopexit.i18, label %.lr.ph.i.i11, !llvm.loop !121
 
 .loopexit.i18:                                    ; preds = %.lr.ph.i.i11, %138
@@ -7553,7 +7553,7 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi0EEEvPPb(ptr noundef n
   %.1.i29.i28 = select i1 %.not19.i28.i27, double %.01621.i27.i26, double %150
   %151 = lshr i32 %.023.i25.i24, 1
   %152 = fmul double %.01522.i26.i25, %.01522.i26.i25
-  %.not.i30.i29 = icmp samesign ult i32 %.023.i25.i24, 2
+  %.not.i30.i29 = icmp eq i32 %151, 0
   br i1 %.not.i30.i29, label %._crit_edge.i31.i30, label %.lr.ph.i24.i23, !llvm.loop !121
 
 ._crit_edge.i31.i30:                              ; preds = %.lr.ph.i24.i23, %.loopexit.i18
@@ -7636,7 +7636,7 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi17
   %.1.i = select i1 %.not19.i, double %.01621.i, double %35
   %36 = lshr i32 %.023.i, 1
   %37 = fmul double %.01522.i, %.01522.i
-  %.not.i = icmp samesign ult i32 %.023.i, 2
+  %.not.i = icmp eq i32 %36, 0
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !121
 
 .loopexit:                                        ; preds = %.lr.ph.i, %31
@@ -7662,7 +7662,7 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi17
   %.1.i33 = select i1 %.not19.i32, double %.01621.i31, double %43
   %44 = lshr i32 %.023.i29, 1
   %45 = fmul double %.01522.i30, %.01522.i30
-  %.not.i34 = icmp samesign ult i32 %.023.i29, 2
+  %.not.i34 = icmp eq i32 %44, 0
   br i1 %.not.i34, label %._crit_edge.i35, label %.lr.ph.i28, !llvm.loop !121
 
 ._crit_edge.i35:                                  ; preds = %.lr.ph.i28, %.loopexit
@@ -7749,7 +7749,7 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi76
   %.1.i = select i1 %.not19.i, double %.01621.i, double %40
   %41 = lshr i32 %.023.i, 1
   %42 = fmul double %.01522.i, %.01522.i
-  %.not.i = icmp samesign ult i32 %.023.i, 2
+  %.not.i = icmp eq i32 %41, 0
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !121
 
 .loopexit:                                        ; preds = %.lr.ph.i, %36
@@ -7775,7 +7775,7 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi76
   %.1.i33 = select i1 %.not19.i32, double %.01621.i31, double %48
   %49 = lshr i32 %.023.i29, 1
   %50 = fmul double %.01522.i30, %.01522.i30
-  %.not.i34 = icmp samesign ult i32 %.023.i29, 2
+  %.not.i34 = icmp eq i32 %49, 0
   br i1 %.not.i34, label %._crit_edge.i35, label %.lr.ph.i28, !llvm.loop !121
 
 ._crit_edge.i35:                                  ; preds = %.lr.ph.i28, %.loopexit
@@ -7851,7 +7851,7 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi25
   %.1.i = select i1 %.not19.i, double %.01621.i, double %35
   %36 = lshr i32 %.023.i, 1
   %37 = fmul double %.01522.i, %.01522.i
-  %.not.i = icmp samesign ult i32 %.023.i, 2
+  %.not.i = icmp eq i32 %36, 0
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !121
 
 .loopexit:                                        ; preds = %.lr.ph.i, %31
@@ -7877,7 +7877,7 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi25
   %.1.i29 = select i1 %.not19.i28, double %.01621.i27, double %43
   %44 = lshr i32 %.023.i25, 1
   %45 = fmul double %.01522.i26, %.01522.i26
-  %.not.i30 = icmp samesign ult i32 %.023.i25, 2
+  %.not.i30 = icmp eq i32 %44, 0
   br i1 %.not.i30, label %._crit_edge.i31, label %.lr.ph.i24, !llvm.loop !121
 
 ._crit_edge.i31:                                  ; preds = %.lr.ph.i24, %.loopexit
@@ -7945,7 +7945,7 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi15
   %.1.i = select i1 %.not19.i, double %.01621.i, double %31
   %32 = lshr i32 %.023.i, 1
   %33 = fmul double %.01522.i, %.01522.i
-  %.not.i = icmp samesign ult i32 %.023.i, 2
+  %.not.i = icmp eq i32 %32, 0
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !121
 
 .loopexit:                                        ; preds = %.lr.ph.i, %27
@@ -7971,7 +7971,7 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi15
   %.1.i33 = select i1 %.not19.i32, double %.01621.i31, double %39
   %40 = lshr i32 %.023.i29, 1
   %41 = fmul double %.01522.i30, %.01522.i30
-  %.not.i34 = icmp samesign ult i32 %.023.i29, 2
+  %.not.i34 = icmp eq i32 %40, 0
   br i1 %.not.i34, label %._crit_edge.i35, label %.lr.ph.i28, !llvm.loop !121
 
 ._crit_edge.i35:                                  ; preds = %.lr.ph.i28, %.loopexit
@@ -8054,7 +8054,7 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi51
   %.1.i = select i1 %.not19.i, double %.01621.i, double %36
   %37 = lshr i32 %.023.i, 1
   %38 = fmul double %.01522.i, %.01522.i
-  %.not.i = icmp samesign ult i32 %.023.i, 2
+  %.not.i = icmp eq i32 %37, 0
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !121
 
 .loopexit:                                        ; preds = %.lr.ph.i, %32
@@ -8080,7 +8080,7 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi51
   %.1.i33 = select i1 %.not19.i32, double %.01621.i31, double %44
   %45 = lshr i32 %.023.i29, 1
   %46 = fmul double %.01522.i30, %.01522.i30
-  %.not.i34 = icmp samesign ult i32 %.023.i29, 2
+  %.not.i34 = icmp eq i32 %45, 0
   br i1 %.not.i34, label %._crit_edge.i35, label %.lr.ph.i28, !llvm.loop !121
 
 ._crit_edge.i35:                                  ; preds = %.lr.ph.i28, %.loopexit
@@ -8530,7 +8530,7 @@ define linkonce_odr noundef i32 @_ZN6colvar12selfcoordnum20compute_selfcoordnumI
   %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %90
   %91 = lshr i32 %.023.i.i, 1
   %92 = fmul double %.01522.i.i, %.01522.i.i
-  %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
+  %.not.i.i = icmp eq i32 %91, 0
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !121
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %86
@@ -8556,7 +8556,7 @@ define linkonce_odr noundef i32 @_ZN6colvar12selfcoordnum20compute_selfcoordnumI
   %.1.i50.i = select i1 %.not19.i49.i, double %.01621.i48.i, double %98
   %99 = lshr i32 %.023.i46.i, 1
   %100 = fmul double %.01522.i47.i, %.01522.i47.i
-  %.not.i51.i = icmp samesign ult i32 %.023.i46.i, 2
+  %.not.i51.i = icmp eq i32 %99, 0
   br i1 %.not.i51.i, label %._crit_edge.i52.i, label %.lr.ph.i45.i, !llvm.loop !121
 
 ._crit_edge.i52.i:                                ; preds = %.lr.ph.i45.i, %.loopexit.i
@@ -8711,7 +8711,7 @@ _ZN6colvar8coordnum18switching_functionILi1537EEEdRKdRKN12colvarmodule7rvectorEi
   %.1.i.i41 = select i1 %.not19.i.i40, double %.01621.i.i39, double %188
   %189 = lshr i32 %.023.i.i37, 1
   %190 = fmul double %.01522.i.i38, %.01522.i.i38
-  %.not.i.i42 = icmp samesign ult i32 %.023.i.i37, 2
+  %.not.i.i42 = icmp eq i32 %189, 0
   br i1 %.not.i.i42, label %.loopexit.i43, label %.lr.ph.i.i36, !llvm.loop !121
 
 .loopexit.i43:                                    ; preds = %.lr.ph.i.i36, %184
@@ -8737,7 +8737,7 @@ _ZN6colvar8coordnum18switching_functionILi1537EEEdRKdRKN12colvarmodule7rvectorEi
   %.1.i50.i53 = select i1 %.not19.i49.i52, double %.01621.i48.i51, double %196
   %197 = lshr i32 %.023.i46.i49, 1
   %198 = fmul double %.01522.i47.i50, %.01522.i47.i50
-  %.not.i51.i54 = icmp samesign ult i32 %.023.i46.i49, 2
+  %.not.i51.i54 = icmp eq i32 %197, 0
   br i1 %.not.i51.i54, label %._crit_edge.i52.i55, label %.lr.ph.i45.i48, !llvm.loop !121
 
 ._crit_edge.i52.i55:                              ; preds = %.lr.ph.i45.i48, %.loopexit.i43
@@ -8876,7 +8876,7 @@ _ZN6colvar8coordnum18switching_functionILi513EEEdRKdRKN12colvarmodule7rvectorEii
   %.1.i.i68 = select i1 %.not19.i.i67, double %.01621.i.i66, double %279
   %280 = lshr i32 %.023.i.i64, 1
   %281 = fmul double %.01522.i.i65, %.01522.i.i65
-  %.not.i.i69 = icmp samesign ult i32 %.023.i.i64, 2
+  %.not.i.i69 = icmp eq i32 %280, 0
   br i1 %.not.i.i69, label %.loopexit.i70, label %.lr.ph.i.i63, !llvm.loop !121
 
 .loopexit.i70:                                    ; preds = %.lr.ph.i.i63, %275
@@ -8902,7 +8902,7 @@ _ZN6colvar8coordnum18switching_functionILi513EEEdRKdRKN12colvarmodule7rvectorEii
   %.1.i46.i = select i1 %.not19.i45.i, double %.01621.i44.i, double %287
   %288 = lshr i32 %.023.i42.i, 1
   %289 = fmul double %.01522.i43.i, %.01522.i43.i
-  %.not.i47.i = icmp samesign ult i32 %.023.i42.i, 2
+  %.not.i47.i = icmp eq i32 %288, 0
   br i1 %.not.i47.i, label %._crit_edge.i48.i, label %.lr.ph.i41.i, !llvm.loop !121
 
 ._crit_edge.i48.i:                                ; preds = %.lr.ph.i41.i, %.loopexit.i70
@@ -9128,7 +9128,7 @@ define linkonce_odr noundef i32 @_ZN6colvar12selfcoordnum20compute_selfcoordnumI
   %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %90
   %91 = lshr i32 %.023.i.i, 1
   %92 = fmul double %.01522.i.i, %.01522.i.i
-  %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
+  %.not.i.i = icmp eq i32 %91, 0
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !121
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %86
@@ -9154,7 +9154,7 @@ define linkonce_odr noundef i32 @_ZN6colvar12selfcoordnum20compute_selfcoordnumI
   %.1.i33.i = select i1 %.not19.i32.i, double %.01621.i31.i, double %98
   %99 = lshr i32 %.023.i29.i, 1
   %100 = fmul double %.01522.i30.i, %.01522.i30.i
-  %.not.i34.i = icmp samesign ult i32 %.023.i29.i, 2
+  %.not.i34.i = icmp eq i32 %99, 0
   br i1 %.not.i34.i, label %._crit_edge.i35.i, label %.lr.ph.i28.i, !llvm.loop !121
 
 ._crit_edge.i35.i:                                ; preds = %.lr.ph.i28.i, %.loopexit.i
@@ -9261,7 +9261,7 @@ _ZN6colvar8coordnum18switching_functionILi1536EEEdRKdRKN12colvarmodule7rvectorEi
   %.1.i.i41 = select i1 %.not19.i.i40, double %.01621.i.i39, double %151
   %152 = lshr i32 %.023.i.i37, 1
   %153 = fmul double %.01522.i.i38, %.01522.i.i38
-  %.not.i.i42 = icmp samesign ult i32 %.023.i.i37, 2
+  %.not.i.i42 = icmp eq i32 %152, 0
   br i1 %.not.i.i42, label %.loopexit.i43, label %.lr.ph.i.i36, !llvm.loop !121
 
 .loopexit.i43:                                    ; preds = %.lr.ph.i.i36, %147
@@ -9287,7 +9287,7 @@ _ZN6colvar8coordnum18switching_functionILi1536EEEdRKdRKN12colvarmodule7rvectorEi
   %.1.i33.i53 = select i1 %.not19.i32.i52, double %.01621.i31.i51, double %159
   %160 = lshr i32 %.023.i29.i49, 1
   %161 = fmul double %.01522.i30.i50, %.01522.i30.i50
-  %.not.i34.i54 = icmp samesign ult i32 %.023.i29.i49, 2
+  %.not.i34.i54 = icmp eq i32 %160, 0
   br i1 %.not.i34.i54, label %._crit_edge.i35.i55, label %.lr.ph.i28.i48, !llvm.loop !121
 
 ._crit_edge.i35.i55:                              ; preds = %.lr.ph.i28.i48, %.loopexit.i43
@@ -9378,7 +9378,7 @@ _ZN6colvar8coordnum18switching_functionILi512EEEdRKdRKN12colvarmodule7rvectorEii
   %.1.i.i68 = select i1 %.not19.i.i67, double %.01621.i.i66, double %204
   %205 = lshr i32 %.023.i.i64, 1
   %206 = fmul double %.01522.i.i65, %.01522.i.i65
-  %.not.i.i69 = icmp samesign ult i32 %.023.i.i64, 2
+  %.not.i.i69 = icmp eq i32 %205, 0
   br i1 %.not.i.i69, label %.loopexit.i70, label %.lr.ph.i.i63, !llvm.loop !121
 
 .loopexit.i70:                                    ; preds = %.lr.ph.i.i63, %200
@@ -9404,7 +9404,7 @@ _ZN6colvar8coordnum18switching_functionILi512EEEdRKdRKN12colvarmodule7rvectorEii
   %.1.i29.i = select i1 %.not19.i28.i, double %.01621.i27.i, double %212
   %213 = lshr i32 %.023.i25.i, 1
   %214 = fmul double %.01522.i26.i, %.01522.i26.i
-  %.not.i30.i = icmp samesign ult i32 %.023.i25.i, 2
+  %.not.i30.i = icmp eq i32 %213, 0
   br i1 %.not.i30.i, label %._crit_edge.i31.i, label %.lr.ph.i24.i, !llvm.loop !121
 
 ._crit_edge.i31.i:                                ; preds = %.lr.ph.i24.i, %.loopexit.i70

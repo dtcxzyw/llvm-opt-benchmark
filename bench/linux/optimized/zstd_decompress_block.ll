@@ -1433,7 +1433,7 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   store i64 %121, ptr %10, align 8
   %122 = lshr i64 %121, 56
   %123 = trunc nuw nsw i64 %122 to i32
-  %124 = icmp ugt i64 %121, 72057594037927935
+  %124 = icmp ne i64 %122, 0
   %125 = tail call i32 @llvm.ctlz.i32(i32 %123, i1 true), !range !15
   %126 = xor i32 %125, 31
   %127 = sub nuw nsw i32 8, %126
@@ -4041,7 +4041,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   store i64 %53, ptr %11, align 8
   %54 = lshr i64 %53, 56
   %55 = trunc nuw nsw i64 %54 to i32
-  %56 = icmp ugt i64 %53, 72057594037927935
+  %56 = icmp ne i64 %54, 0
   %57 = tail call i32 @llvm.ctlz.i32(i32 %55, i1 true), !range !15
   %58 = xor i32 %57, 31
   %59 = sub nuw nsw i32 8, %58
@@ -6113,7 +6113,7 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr noundef captures(none) 
   store i64 %61, ptr %9, align 8
   %62 = lshr i64 %61, 56
   %63 = trunc nuw nsw i64 %62 to i32
-  %64 = icmp ugt i64 %61, 72057594037927935
+  %64 = icmp ne i64 %62, 0
   %65 = tail call i32 @llvm.ctlz.i32(i32 %63, i1 true), !range !15
   %66 = xor i32 %65, 31
   %67 = sub nuw nsw i32 8, %66
@@ -7144,7 +7144,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   store i64 %58, ptr %9, align 8
   %59 = lshr i64 %58, 56
   %60 = trunc nuw nsw i64 %59 to i32
-  %61 = icmp ugt i64 %58, 72057594037927935
+  %61 = icmp ne i64 %59, 0
   %62 = tail call i32 @llvm.ctlz.i32(i32 %60, i1 true), !range !15
   %63 = xor i32 %62, 31
   %64 = sub nuw nsw i32 8, %63
@@ -10270,7 +10270,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   store i64 %47, ptr %11, align 8
   %48 = lshr i64 %47, 56
   %49 = trunc nuw nsw i64 %48 to i32
-  %50 = icmp ugt i64 %47, 72057594037927935
+  %50 = icmp ne i64 %48, 0
   %51 = tail call i32 @llvm.ctlz.i32(i32 %49, i1 true), !range !15
   %52 = xor i32 %51, 31
   %53 = sub nuw nsw i32 8, %52
@@ -12338,7 +12338,7 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr noundef captures(n
   store i64 %55, ptr %9, align 8
   %56 = lshr i64 %55, 56
   %57 = trunc nuw nsw i64 %56 to i32
-  %58 = icmp ugt i64 %55, 72057594037927935
+  %58 = icmp ne i64 %56, 0
   %59 = tail call i32 @llvm.ctlz.i32(i32 %57, i1 true), !range !15
   %60 = xor i32 %59, 31
   %61 = sub nuw nsw i32 8, %60

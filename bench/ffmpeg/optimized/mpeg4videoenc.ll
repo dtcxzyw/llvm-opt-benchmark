@@ -8452,7 +8452,7 @@ define internal fastcc void @init_uni_dc_tab() unnamed_addr #7 {
   %.04552 = phi i32 [ %6, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %5 = lshr i32 %.04453, 1
   %6 = add nuw nsw i32 %.04552, 1
-  %.not = icmp samesign ult i32 %.04453, 2
+  %.not = icmp eq i32 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !217
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1

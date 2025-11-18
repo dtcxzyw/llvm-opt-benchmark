@@ -6297,7 +6297,7 @@ _ZNSt5dequeImSaImEE9pop_frontEv.exit6:            ; preds = %41, %43
 96:                                               ; preds = %.lr.ph.i.i.i.i.i
   %97 = getelementptr inbounds i64, ptr %53, i64 %.019.i.i.i.i.i
   store i64 %94, ptr %97, align 8, !tbaa !35
-  %.not8.i.i.i = icmp ult i64 %.0920.in.i.i.i.i.i, 2
+  %.not8.i.i.i = icmp eq i64 %.0920.i.i67.i.i.i, 0
   br i1 %.not8.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterISt7greaterImEEEEvT_SC_SC_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !423
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterISt7greaterImEEEEvT_SC_SC_RT0_.exit.i.i: ; preds = %96, %.lr.ph.i.i.i.i.i, %92
@@ -6400,7 +6400,7 @@ _ZNSt14priority_queueImSt6vectorImSaImEESt7greaterImEE3popEv.exit: ; preds = %50
 147:                                              ; preds = %.lr.ph.i.i.i.i.i12
   %148 = getelementptr inbounds i64, ptr %102, i64 %.019.i.i.i.i.i13
   store i64 %145, ptr %148, align 8, !tbaa !35
-  %.not8.i.i.i18 = icmp ult i64 %.0920.in.i.i.i.i.i14, 2
+  %.not8.i.i.i18 = icmp eq i64 %.0920.i.i67.i.i.i15, 0
   br i1 %.not8.i.i.i18, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterISt7greaterImEEEEvT_SC_SC_RT0_.exit.i.i16, label %.lr.ph.i.i.i.i.i12, !llvm.loop !423
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterISt7greaterImEEEEvT_SC_SC_RT0_.exit.i.i16: ; preds = %147, %.lr.ph.i.i.i.i.i12, %143
@@ -14602,7 +14602,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %7, %_ZNSt6vectorImS
 44:                                               ; preds = %.lr.ph.i.i
   %45 = getelementptr inbounds i64, ptr %32, i64 %.019.i.i
   store i64 %42, ptr %45, align 8, !tbaa !35
-  %.not.i3 = icmp ult i64 %.0920.in.i.i, 2
+  %.not.i3 = icmp eq i64 %.0920.i56.i, 0
   br i1 %.not.i3, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEESt7greaterImEEvT_S9_T0_.exit, label %.lr.ph.i.i, !llvm.loop !423
 
 _ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEESt7greaterImEEvT_S9_T0_.exit: ; preds = %.lr.ph.i.i, %44, %_ZNSt6vectorImSaImEE9push_backERKm.exit

@@ -490,18 +490,18 @@ Dch_ObjCheckSuppRed.exit.thread:                  ; preds = %32, %Dch_ObjCheckSu
   %66 = phi i64 [ %65, %63 ], [ %57, %47 ]
   %.3 = phi i32 [ %.4, %63 ], [ %.2, %47 ]
   %67 = trunc i64 %66 to i32
-  %.not55 = icmp ult i32 %67, 64
-  br i1 %.not55, label %72, label %68
+  %68 = lshr i32 %67, 6
+  %.not55 = icmp eq i32 %68, 0
+  br i1 %.not55, label %72, label %69
 
-68:                                               ; preds = %._crit_edge
-  %69 = lshr i32 %67, 6
+69:                                               ; preds = %._crit_edge
   %70 = load i32, ptr %51, align 4, !tbaa !30
-  %71 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %70, i32 noundef %69)
+  %71 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %70, i32 noundef %68)
   br label %72
 
-72:                                               ; preds = %._crit_edge, %68, %20
-  %.042 = phi ptr [ %50, %68 ], [ %50, %._crit_edge ], [ %13, %20 ]
-  %.1 = phi i32 [ %.3, %68 ], [ %.3, %._crit_edge ], [ %.066, %20 ]
+72:                                               ; preds = %._crit_edge, %69, %20
+  %.042 = phi ptr [ %50, %69 ], [ %50, %._crit_edge ], [ %13, %20 ]
+  %.1 = phi i32 [ %.3, %69 ], [ %.3, %._crit_edge ], [ %.066, %20 ]
   %73 = load ptr, ptr %8, align 8, !tbaa !29
   %.not56 = icmp eq ptr %73, null
   br i1 %.not56, label %88, label %74
@@ -516,20 +516,20 @@ Dch_ObjCheckSuppRed.exit.thread:                  ; preds = %32, %Dch_ObjCheckSu
   %78 = getelementptr inbounds nuw i8, ptr %.042, i64 24
   %79 = load i64, ptr %78, align 8
   %80 = trunc i64 %79 to i32
-  %.not58 = icmp ult i32 %80, 64
-  br i1 %.not58, label %88, label %81
+  %81 = lshr i32 %80, 6
+  %.not58 = icmp eq i32 %81, 0
+  br i1 %.not58, label %88, label %82
 
-81:                                               ; preds = %77
-  %82 = lshr i32 %80, 6
+82:                                               ; preds = %77
   %83 = getelementptr inbounds nuw i8, ptr %.042, i64 36
   %84 = load i32, ptr %83, align 4, !tbaa !30
   %85 = getelementptr inbounds nuw i8, ptr %76, i64 36
   %86 = load i32, ptr %85, align 4, !tbaa !30
-  %87 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %84, i32 noundef %86, i32 noundef %82)
+  %87 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %84, i32 noundef %86, i32 noundef %81)
   br label %88
 
-88:                                               ; preds = %15, %9, %77, %81, %74, %72
-  %.5 = phi i32 [ %.066, %9 ], [ 1, %81 ], [ %.1, %77 ], [ %.1, %74 ], [ %.1, %72 ], [ %.066, %15 ]
+88:                                               ; preds = %15, %9, %77, %82, %74, %72
+  %.5 = phi i32 [ %.066, %9 ], [ 1, %82 ], [ %.1, %77 ], [ %.1, %74 ], [ %.1, %72 ], [ %.066, %15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %89 = load ptr, ptr %3, align 8, !tbaa !24
   %90 = getelementptr i8, ptr %89, i64 4

@@ -295,7 +295,7 @@ define void @ASN1_put_object(ptr noundef captures(none) %0, i32 noundef %1, i32 
   %.02335 = phi i32 [ 0, %16 ], [ %22, %20 ]
   %21 = lshr i32 %.036, 7
   %22 = add nuw nsw i32 %.02335, 1
-  %.not39 = icmp ult i32 %.036, 128
+  %.not39 = icmp eq i32 %21, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %.not39, label %.preheader, label %20, !llvm.loop !17
 
@@ -347,7 +347,7 @@ define void @ASN1_put_object(ptr noundef captures(none) %0, i32 noundef %1, i32 
   %.01924.i = phi i32 [ %43, %.preheader.i ], [ 0, %37 ]
   %42 = lshr i32 %.025.i, 8
   %43 = add nuw nsw i32 %.01924.i, 1
-  %.not.i = icmp samesign ult i32 %.025.i, 256
+  %.not.i = icmp eq i32 %42, 0
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br i1 %.not.i, label %44, label %.preheader.i, !llvm.loop !19
 
@@ -405,7 +405,7 @@ define range(i32 -2147483646, -2147483648) i32 @ASN1_object_size(i32 noundef %0,
   %.1 = phi i32 [ %8, %.preheader25 ], [ 1, %5 ]
   %7 = lshr i32 %.021, 7
   %8 = add nuw nsw i32 %.1, 1
-  %.old1.not = icmp samesign ult i32 %.021, 128
+  %.old1.not = icmp eq i32 %7, 0
   br i1 %.old1.not, label %.loopexit26, label %.preheader25
 
 .loopexit26:                                      ; preds = %.preheader25, %5
@@ -427,7 +427,7 @@ define range(i32 -2147483646, -2147483648) i32 @ASN1_object_size(i32 noundef %0,
   %.327 = phi i32 [ %16, %.preheader ], [ %13, %12 ]
   %15 = lshr i32 %.028, 8
   %16 = add nuw nsw i32 %.327, 1
-  %.not29 = icmp ult i32 %.028, 256
+  %.not29 = icmp eq i32 %15, 0
   br i1 %.not29, label %.loopexit, label %.preheader, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.preheader, %12, %10

@@ -4297,7 +4297,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit.i106: ; preds = %_ZNSt16_Sp_cou
   %.sroa.140.0.extract.trunc.i = trunc nuw i64 %.sroa.242.0.extract.shift.i to i32
   store i32 %.sroa.140.0.extract.trunc.i, ptr %30, align 4
   store i32 0, ptr %31, align 4
-  %1537 = icmp ult i64 %.sroa.0.0.copyload.i.i, 4294967296
+  %1537 = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
   br i1 %1537, label %1543, label %1538
 
 1538:                                             ; preds = %1536
@@ -4353,7 +4353,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit.i106: ; preds = %_ZNSt16_Sp_cou
   %.sroa.136.0.extract.trunc.i = trunc nuw i64 %.sroa.238.0.extract.shift.i to i32
   store i32 %.sroa.136.0.extract.trunc.i, ptr %38, align 4
   store i32 0, ptr %39, align 4
-  %1552 = icmp ult i64 %.sroa.0.0.copyload.i23.i, 4294967296
+  %1552 = icmp eq i64 %.sroa.238.0.extract.shift.i, 0
   br i1 %1552, label %1558, label %1553
 
 1553:                                             ; preds = %1551

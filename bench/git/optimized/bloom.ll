@@ -1130,7 +1130,7 @@ hashmap_get_size.exit118:                         ; preds = %97, %hashmap_get_si
   %147 = load i32, ptr %3, align 4, !tbaa !30
   %148 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store i32 %147, ptr %148, align 8, !tbaa !32
-  %.not104 = icmp ult i32 %143, 8
+  %.not104 = icmp eq i32 %144, 0
   br i1 %.not104, label %149, label %154
 
 149:                                              ; preds = %hashmap_get_size.exit118

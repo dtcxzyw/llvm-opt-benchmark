@@ -1726,18 +1726,18 @@ define hidden range(i32 0, 2) i32 @av1_find_projection(i32 noundef %0, ptr nound
 105:                                              ; preds = %._crit_edge.i
   %106 = sub nsw i64 %102, %103
   %107 = tail call i64 @llvm.abs.i64(i64 %106, i1 true)
-  %.not.i.i = icmp samesign ult i64 %107, 4294967296
+  %108 = lshr i64 %107, 32
+  %.not.i.i = icmp eq i64 %108, 0
   br i1 %.not.i.i, label %115, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %105
-  %108 = lshr i64 %107, 32
   %109 = trunc nuw nsw i64 %108 to i32
   %110 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %109, i1 true)
   %111 = xor i32 %110, 63
   %112 = trunc nuw nsw i32 %111 to i16
   %113 = zext nneg i32 %111 to i64
-  %.neg18.i.i = shl nsw i64 -1, %113
-  %114 = add nsw i64 %.neg18.i.i, %107
+  %.neg17.i.i = shl nsw i64 -1, %113
+  %114 = add nsw i64 %.neg17.i.i, %107
   br label %123
 
 115:                                              ; preds = %105
@@ -1766,7 +1766,7 @@ define hidden range(i32 0, 2) i32 @av1_find_projection(i32 noundef %0, ptr nound
 133:                                              ; preds = %115
   %134 = sub nuw nsw i32 8, %118
   %135 = zext nneg i32 %134 to i64
-  %136 = shl nsw i64 %121, %135
+  %136 = shl i64 %121, %135
   br label %resolve_divisor_64.exit.i
 
 resolve_divisor_64.exit.i:                        ; preds = %133, %123

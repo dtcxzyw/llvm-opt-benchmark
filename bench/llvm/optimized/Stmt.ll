@@ -1392,11 +1392,11 @@ define dso_local noundef range(i32 -1, 2) i32 @_ZN5clang4Stmt13getLikelihoodEPKS
 _ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i: ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %0, align 8
-  %8 = lshr i32 %7, 6
-  %9 = and i32 %8, 67108856
+  %8 = lshr i32 %7, 9
+  %9 = shl nuw nsw i32 %8, 3
   %.idx.i.i = zext nneg i32 %9 to i64
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i
-  %.not23.i.i = icmp ult i32 %7, 512
+  %.not23.i.i = icmp eq i32 %8, 0
   br i1 %.not23.i.i, label %_ZL13getLikelihoodPKN5clang4StmtE.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i, %14
@@ -1436,11 +1436,11 @@ define dso_local noundef ptr @_ZN5clang4Stmt17getLikelihoodAttrEPKS0_(ptr nounde
 _ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i: ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %0, align 8
-  %8 = lshr i32 %7, 6
-  %9 = and i32 %8, 67108856
+  %8 = lshr i32 %7, 9
+  %9 = shl nuw nsw i32 %8, 3
   %.idx.i.i = zext nneg i32 %9 to i64
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i
-  %.not23.i.i = icmp ult i32 %7, 512
+  %.not23.i.i = icmp eq i32 %8, 0
   br i1 %.not23.i.i, label %_ZL13getLikelihoodPKN5clang4StmtE.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i, %14
@@ -1477,11 +1477,11 @@ define dso_local noundef range(i32 -1, 2) i32 @_ZN5clang4Stmt13getLikelihoodEPKS
 _ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i: ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %0, align 8
-  %9 = lshr i32 %8, 6
-  %10 = and i32 %9, 67108856
+  %9 = lshr i32 %8, 9
+  %10 = shl nuw nsw i32 %9, 3
   %.idx.i.i = zext nneg i32 %10 to i64
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i.i
-  %.not23.i.i = icmp ult i32 %8, 512
+  %.not23.i.i = icmp eq i32 %9, 0
   br i1 %.not23.i.i, label %_ZL13getLikelihoodPKN5clang4StmtE.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i, %15
@@ -1517,11 +1517,11 @@ _ZL13getLikelihoodPKN5clang4StmtE.exit:           ; preds = %15, %.lr.ph.i.i, %_
 _ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i20: ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i32, ptr %1, align 8
-  %23 = lshr i32 %22, 6
-  %24 = and i32 %23, 67108856
+  %23 = lshr i32 %22, 9
+  %24 = shl nuw nsw i32 %23, 3
   %.idx.i.i21 = zext nneg i32 %24 to i64
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i.i21
-  %.not23.i.i22 = icmp ult i32 %22, 512
+  %.not23.i.i22 = icmp eq i32 %23, 0
   br i1 %.not23.i.i22, label %_ZL13getLikelihoodPKN5clang4StmtE.exit27.thread, label %.lr.ph.i.i23
 
 .lr.ph.i.i23:                                     ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i20, %29
@@ -1571,11 +1571,11 @@ define dso_local void @_ZN5clang4Stmt27determineLikelihoodConflictEPKS0_S2_(ptr 
 _ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i: ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %1, align 8
-  %10 = lshr i32 %9, 6
-  %11 = and i32 %10, 67108856
+  %10 = lshr i32 %9, 9
+  %11 = shl nuw nsw i32 %10, 3
   %.idx.i.i = zext nneg i32 %11 to i64
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i.i
-  %.not23.i.i = icmp ult i32 %9, 512
+  %.not23.i.i = icmp eq i32 %10, 0
   br i1 %.not23.i.i, label %_ZL13getLikelihoodPKN5clang4StmtE.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i, %16
@@ -1612,11 +1612,11 @@ _ZL13getLikelihoodPKN5clang4StmtE.exit:           ; preds = %16, %.lr.ph.i.i, %_
 _ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i8: ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %23 = load i32, ptr %2, align 8
-  %24 = lshr i32 %23, 6
-  %25 = and i32 %24, 67108856
+  %24 = lshr i32 %23, 9
+  %25 = shl nuw nsw i32 %24, 3
   %.idx.i.i9 = zext nneg i32 %25 to i64
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i.i9
-  %.not23.i.i10 = icmp ult i32 %23, 512
+  %.not23.i.i10 = icmp eq i32 %24, 0
   br i1 %.not23.i.i10, label %_ZL13getLikelihoodPKN5clang4StmtE.exit15, label %.lr.ph.i.i11
 
 .lr.ph.i.i11:                                     ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i8, %30

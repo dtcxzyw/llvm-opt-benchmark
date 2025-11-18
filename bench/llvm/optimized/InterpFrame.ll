@@ -2057,8 +2057,8 @@ define dso_local i64 @_ZNK5clang6interp11InterpFrame12getCallRangeEv(ptr noundef
   %.sroa.5.0.extract.shift = lshr i64 %10, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
   %11 = icmp ne i32 %.sroa.02.0.extract.trunc, 0
-  %12 = icmp ugt i64 %10, 4294967295
-  %13 = and i1 %12, %11
+  %12 = icmp ne i64 %.sroa.5.0.extract.shift, 0
+  %13 = and i1 %11, %12
   br i1 %13, label %22, label %14
 
 14:                                               ; preds = %9

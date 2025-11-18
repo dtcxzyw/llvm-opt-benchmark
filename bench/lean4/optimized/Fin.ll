@@ -475,13 +475,13 @@ define internal fastcc ptr @lean_nat_div(ptr noundef %0, ptr noundef %1) unnamed
   br i1 %.not10, label %.critedge, label %8, !prof !4
 
 8:                                                ; preds = %5
-  %9 = icmp ult ptr %1, inttoptr (i64 2 to ptr)
-  br i1 %9, label %18, label %10
+  %9 = lshr i64 %6, 1
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %18, label %11
 
-10:                                               ; preds = %8
-  %11 = lshr i64 %6, 1
+11:                                               ; preds = %8
   %12 = lshr i64 %3, 1
-  %13 = udiv i64 %12, %11
+  %13 = udiv i64 %12, %9
   %14 = shl nuw i64 %13, 1
   %15 = or disjoint i64 %14, 1
   %16 = inttoptr i64 %15 to ptr
@@ -491,8 +491,8 @@ define internal fastcc ptr @lean_nat_div(ptr noundef %0, ptr noundef %1) unnamed
   %17 = tail call ptr @lean_nat_big_div(ptr noundef %0, ptr noundef %1) #4
   br label %18
 
-18:                                               ; preds = %8, %10, %.critedge
-  %.1 = phi ptr [ %17, %.critedge ], [ %16, %10 ], [ inttoptr (i64 1 to ptr), %8 ]
+18:                                               ; preds = %8, %11, %.critedge
+  %.1 = phi ptr [ %17, %.critedge ], [ %16, %11 ], [ inttoptr (i64 1 to ptr), %8 ]
   ret ptr %.1
 }
 
@@ -510,13 +510,13 @@ define internal fastcc ptr @lean_nat_mod(ptr noundef %0, ptr noundef %1) unnamed
   br i1 %.not11, label %.critedge, label %8, !prof !4
 
 8:                                                ; preds = %5
-  %9 = icmp ult ptr %1, inttoptr (i64 2 to ptr)
-  br i1 %9, label %18, label %10
+  %9 = lshr i64 %6, 1
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %18, label %11
 
-10:                                               ; preds = %8
-  %11 = lshr i64 %3, 1
-  %12 = lshr i64 %6, 1
-  %13 = urem i64 %11, %12
+11:                                               ; preds = %8
+  %12 = lshr i64 %3, 1
+  %13 = urem i64 %12, %9
   %14 = shl nuw i64 %13, 1
   %15 = or disjoint i64 %14, 1
   %16 = inttoptr i64 %15 to ptr
@@ -526,8 +526,8 @@ define internal fastcc ptr @lean_nat_mod(ptr noundef %0, ptr noundef %1) unnamed
   %17 = tail call ptr @lean_nat_big_mod(ptr noundef %0, ptr noundef %1) #4
   br label %18
 
-18:                                               ; preds = %8, %10, %.critedge
-  %.1 = phi ptr [ %17, %.critedge ], [ %16, %10 ], [ %0, %8 ]
+18:                                               ; preds = %8, %11, %.critedge
+  %.1 = phi ptr [ %17, %.critedge ], [ %16, %11 ], [ %0, %8 ]
   ret ptr %.1
 }
 

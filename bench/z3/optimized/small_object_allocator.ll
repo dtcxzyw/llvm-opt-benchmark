@@ -1726,7 +1726,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPPN22small_object_alloca
 51:                                               ; preds = %.lr.ph.i.i.i.i.i
   %52 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i.i.i.i.i
   store ptr %49, ptr %52, align 8, !tbaa !3
-  %.not10.i.i.i = icmp ult i64 %.018.in.i.i.i.i.i, 2
+  %.not10.i.i.i = icmp eq i64 %.018.i.i89.i.i.i, 0
   br i1 %.not10.i.i.i, label %_ZSt10__pop_heapIPPN22small_object_allocator5chunkEN9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIS1_EEEEvT_SA_SA_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !79
 
 _ZSt10__pop_heapIPPN22small_object_allocator5chunkEN9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIS1_EEEEvT_SA_SA_RT0_.exit.i.i: ; preds = %51, %.lr.ph.i.i.i.i.i, %47
@@ -2095,7 +2095,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPPclN9__gnu_cxx5__ops15_
 51:                                               ; preds = %.lr.ph.i.i.i.i.i
   %52 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i.i.i.i.i
   store ptr %49, ptr %52, align 8, !tbaa !67
-  %.not10.i.i.i = icmp ult i64 %.018.in.i.i.i.i.i, 2
+  %.not10.i.i.i = icmp eq i64 %.018.i.i89.i.i.i, 0
   br i1 %.not10.i.i.i, label %_ZSt10__pop_heapIPPcN9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIcEEEEvT_S8_S8_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !87
 
 _ZSt10__pop_heapIPPcN9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIcEEEEvT_S8_S8_RT0_.exit.i.i: ; preds = %51, %.lr.ph.i.i.i.i.i, %47

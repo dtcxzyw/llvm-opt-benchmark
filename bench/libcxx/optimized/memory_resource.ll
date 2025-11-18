@@ -86,7 +86,7 @@ $_ZTSNSt3__13pmr26__null_memory_resource_impE = comdat any
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define dso_local void @_ZNSt3__13pmr15memory_resourceD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
-  tail call void @llvm.trap() #19
+  tail call void @llvm.trap() #20
   unreachable
 }
 
@@ -243,23 +243,18 @@ define dso_local noundef i32 @_ZNKSt3__13pmr28unsynchronized_pool_resource12__po
 8:                                                ; preds = %3
   %9 = tail call i64 @llvm.umax.i64(i64 %1, i64 %2)
   %10 = add i64 %9, -1
-  %.not17 = icmp ult i64 %10, 8
+  %11 = lshr i64 %10, 3
+  %.not17 = icmp eq i64 %11, 0
   br i1 %.not17, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %8
-  %11 = lshr i64 %10, 3
-  br label %.lr.ph
+  %12 = tail call range(i64 3, 65) i64 @llvm.ctlz.i64(i64 %11, i1 true)
+  %13 = trunc nuw nsw i64 %12 to i32
+  %14 = sub nuw nsw i32 64, %13
+  br label %.loopexit
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.019 = phi i32 [ %13, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.01418 = phi i64 [ %12, %.lr.ph ], [ %11, %.lr.ph.preheader ]
-  %12 = lshr i64 %.01418, 1
-  %13 = add nuw nsw i32 %.019, 1
-  %.not = icmp samesign ult i64 %.01418, 2
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !28
-
-.loopexit:                                        ; preds = %.lr.ph, %3, %8
-  %.013 = phi i32 [ 0, %8 ], [ %.pre, %3 ], [ %13, %.lr.ph ]
+.loopexit:                                        ; preds = %3, %.lr.ph.preheader, %8
+  %.013 = phi i32 [ 0, %8 ], [ %14, %.lr.ph.preheader ], [ %.pre, %3 ]
   ret i32 %.013
 }
 
@@ -267,11 +262,11 @@ define dso_local noundef i32 @_ZNKSt3__13pmr28unsynchronized_pool_resource12__po
 define dso_local void @_ZNSt3__13pmr28unsynchronized_pool_resourceC2ERKNS0_12pool_optionsEPNS0_15memory_resourceE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 32), (36, 40)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef %2) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVNSt3__13pmr28unsynchronized_pool_resourceE, i64 16), ptr %0, align 8, !tbaa !16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %2, ptr %4, align 8, !tbaa !29
+  store ptr %2, ptr %4, align 8, !tbaa !28
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %7 = load i64, ptr %6, align 8, !tbaa !30
+  %7 = load i64, ptr %6, align 8, !tbaa !29
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %12, label %9
 
@@ -285,7 +280,7 @@ define dso_local void @_ZNSt3__13pmr28unsynchronized_pool_resourceC2ERKNS0_12poo
 
 12:                                               ; preds = %11, %9, %3
   %.012 = phi i64 [ 1048576, %3 ], [ 8, %9 ], [ %., %11 ]
-  %13 = load i64, ptr %1, align 8, !tbaa !32
+  %13 = load i64, ptr %1, align 8, !tbaa !31
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %18, label %15
 
@@ -301,7 +296,7 @@ define dso_local void @_ZNSt3__13pmr28unsynchronized_pool_resourceC2ERKNS0_12poo
 18:                                               ; preds = %17, %15, %12
   %.sink = phi i32 [ 1048576, %12 ], [ 16, %15 ], [ %spec.select, %17 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %.sink, ptr %19, align 4, !tbaa !33
+  store i32 %.sink, ptr %19, align 4, !tbaa !32
   %20 = icmp samesign ugt i64 %.012, 8
   br i1 %20, label %.lr.ph, label %._crit_edge
 
@@ -311,7 +306,7 @@ define dso_local void @_ZNSt3__13pmr28unsynchronized_pool_resourceC2ERKNS0_12poo
   %21 = shl nuw nsw i64 %.016, 1
   %22 = add nuw nsw i32 %storemerge15, 1
   %23 = icmp samesign ult i64 %21, %.012
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !34
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18
   %storemerge.lcssa = phi i32 [ 1, %18 ], [ %22, %.lr.ph ]
@@ -325,7 +320,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { i64, i64 } @_ZNKSt3__13pmr28unsynchronized_pool_resource7optionsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %3 = load i32, ptr %2, align 4, !tbaa !33
+  %3 = load i32, ptr %2, align 4, !tbaa !32
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8, !tbaa !22
@@ -341,7 +336,7 @@ define dso_local { i64, i64 } @_ZNKSt3__13pmr28unsynchronized_pool_resource7opti
 define dso_local void @_ZNSt3__13pmr28unsynchronized_pool_resource7releaseEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !29
+  %4 = load ptr, ptr %3, align 8, !tbaa !28
   %.pr.i = load ptr, ptr %2, align 8, !tbaa !4
   %.not3.i = icmp eq ptr %.pr.i, null
   br i1 %.not3.i, label %_ZNSt3__13pmr28unsynchronized_pool_resource12__adhoc_pool13__release_ptrEPNS0_15memory_resourceE.exit, label %.lr.ph.i
@@ -367,7 +362,7 @@ define dso_local void @_ZNSt3__13pmr28unsynchronized_pool_resource7releaseEv(ptr
 
 _ZNSt3__13pmr28unsynchronized_pool_resource12__adhoc_pool13__release_ptrEPNS0_15memory_resourceE.exit: ; preds = %.lr.ph.i, %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !35
+  %19 = load ptr, ptr %18, align 8, !tbaa !34
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %49, label %20
 
@@ -382,57 +377,57 @@ _ZNSt3__13pmr28unsynchronized_pool_resource12__adhoc_pool13__release_ptrEPNS0_15
   br label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool13__release_ptrEPNS0_15memory_resourceE.exit
-  %.pre = load ptr, ptr %18, align 8, !tbaa !35
+  %.pre = load ptr, ptr %18, align 8, !tbaa !34
   %.pre11 = load i32, ptr %21, align 8, !tbaa !22
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %20
   %24 = phi i32 [ %.pre11, %._crit_edge.loopexit ], [ %22, %20 ]
   %25 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %19, %20 ]
-  %26 = load ptr, ptr %3, align 8, !tbaa !29
+  %26 = load ptr, ptr %3, align 8, !tbaa !28
   %27 = sext i32 %24 to i64
   %28 = shl nsw i64 %27, 4
   %29 = load ptr, ptr %26, align 8, !tbaa !16
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load ptr, ptr %30, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull %25, i64 noundef %28, i64 noundef 8)
-  store ptr null, ptr %18, align 8, !tbaa !35
+  store ptr null, ptr %18, align 8, !tbaa !34
   br label %49
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool13__release_ptrEPNS0_15memory_resourceE.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool13__release_ptrEPNS0_15memory_resourceE.exit ]
-  %32 = load ptr, ptr %18, align 8, !tbaa !35
+  %32 = load ptr, ptr %18, align 8, !tbaa !34
   %33 = getelementptr inbounds nuw %"class.std::__1::pmr::unsynchronized_pool_resource::__fixed_pool", ptr %32, i64 %indvars.iv
-  %34 = load ptr, ptr %3, align 8, !tbaa !29
+  %34 = load ptr, ptr %3, align 8, !tbaa !28
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store ptr null, ptr %35, align 8, !tbaa !36
-  %.pr.i4 = load ptr, ptr %33, align 8, !tbaa !40
+  store ptr null, ptr %35, align 8, !tbaa !35
+  %.pr.i4 = load ptr, ptr %33, align 8, !tbaa !39
   %.not3.i5 = icmp eq ptr %.pr.i4, null
   br i1 %.not3.i5, label %_ZNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool13__release_ptrEPNS0_15memory_resourceE.exit, label %.lr.ph.i6
 
 .lr.ph.i6:                                        ; preds = %.lr.ph, %.lr.ph.i6
   %36 = phi ptr [ %37, %.lr.ph.i6 ], [ %.pr.i4, %.lr.ph ]
-  %37 = load ptr, ptr %36, align 8, !tbaa !41
+  %37 = load ptr, ptr %36, align 8, !tbaa !40
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !43
+  %39 = load ptr, ptr %38, align 8, !tbaa !42
   %40 = ptrtoint ptr %36 to i64
   %41 = ptrtoint ptr %39 to i64
   %42 = add i64 %40, 24
   %43 = sub i64 %42, %41
   %44 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %45 = load i64, ptr %44, align 8, !tbaa !44
+  %45 = load i64, ptr %44, align 8, !tbaa !43
   %46 = load ptr, ptr %34, align 8, !tbaa !16
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = load ptr, ptr %47, align 8
   tail call void %48(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull %39, i64 noundef %43, i64 noundef %45)
-  store ptr %37, ptr %33, align 8, !tbaa !40
+  store ptr %37, ptr %33, align 8, !tbaa !39
   %.not.i7 = icmp eq ptr %37, null
-  br i1 %.not.i7, label %_ZNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool13__release_ptrEPNS0_15memory_resourceE.exit, label %.lr.ph.i6, !llvm.loop !45
+  br i1 %.not.i7, label %_ZNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool13__release_ptrEPNS0_15memory_resourceE.exit, label %.lr.ph.i6, !llvm.loop !44
 
 _ZNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool13__release_ptrEPNS0_15memory_resourceE.exit: ; preds = %.lr.ph.i6, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !46
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !45
 
 49:                                               ; preds = %._crit_edge, %_ZNSt3__13pmr28unsynchronized_pool_resource12__adhoc_pool13__release_ptrEPNS0_15memory_resourceE.exit
   ret void
@@ -447,35 +442,24 @@ define dso_local noundef nonnull ptr @_ZNSt3__13pmr28unsynchronized_pool_resourc
   %6 = shl nuw i64 1, %5
   %7 = icmp ugt i64 %1, %6
   %or.cond.i = select i1 %4, i1 true, i1 %7
-  br i1 %or.cond.i, label %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit.thread, label %8
+  br i1 %or.cond.i, label %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit.thread, label %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit
 
-8:                                                ; preds = %3
-  %9 = tail call i64 @llvm.umax.i64(i64 %1, i64 %2)
-  %10 = add i64 %9, -1
-  %.not17.i = icmp ult i64 %10, 8
-  br i1 %.not17.i, label %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %8
-  %11 = lshr i64 %10, 3
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.019.i = phi i32 [ %13, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %.01418.i = phi i64 [ %12, %.lr.ph.i ], [ %11, %.lr.ph.preheader.i ]
-  %12 = lshr i64 %.01418.i, 1
-  %13 = add nuw nsw i32 %.019.i, 1
-  %.not.i = icmp samesign ult i64 %.01418.i, 2
-  br i1 %.not.i, label %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit, label %.lr.ph.i, !llvm.loop !28
-
-_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit: ; preds = %.lr.ph.i, %8
-  %.013.i = phi i32 [ 0, %8 ], [ %13, %.lr.ph.i ]
+_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit: ; preds = %3
+  %8 = tail call i64 @llvm.umax.i64(i64 %1, i64 %2)
+  %9 = add i64 %8, -1
+  %10 = lshr i64 %9, 3
+  %.not17.i = icmp eq i64 %10, 0
+  %11 = tail call range(i64 3, 65) i64 @llvm.ctlz.i64(i64 %10, i1 true)
+  %12 = trunc nuw nsw i64 %11 to i32
+  %13 = sub nuw nsw i32 64, %12
+  %.013.i = select i1 %.not17.i, i32 0, i32 %13
   %14 = icmp eq i32 %.013.i, %.pre.i
   br i1 %14, label %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit.thread, label %29
 
 _ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit.thread: ; preds = %3, %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !29
+  %17 = load ptr, ptr %16, align 8, !tbaa !28
   %spec.store.select.i = tail call i64 @llvm.umax.i64(i64 %2, i64 8)
   %18 = add i64 %1, 7
   %19 = and i64 %18, -8
@@ -497,53 +481,53 @@ _ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit.thread: ; pre
 
 29:                                               ; preds = %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %31 = load ptr, ptr %30, align 8, !tbaa !35
+  %31 = load ptr, ptr %30, align 8, !tbaa !34
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %.loopexit
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !29
+  %35 = load ptr, ptr %34, align 8, !tbaa !28
   %36 = sext i32 %.pre.i to i64
   %37 = shl nsw i64 %36, 4
   %38 = load ptr, ptr %35, align 8, !tbaa !16
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = tail call noundef nonnull align 8 ptr %40(ptr noundef nonnull align 8 dereferenceable(8) %35, i64 noundef %37, i64 noundef 8)
-  store ptr %41, ptr %30, align 8, !tbaa !35
+  store ptr %41, ptr %30, align 8, !tbaa !34
   %42 = load i32, ptr %.phi.trans.insert.i, align 8, !tbaa !22
-  %.not46 = icmp eq i32 %42, 0
-  br i1 %.not46, label %.loopexit, label %.lr.ph.preheader
+  %.not44 = icmp eq i32 %42, 0
+  br i1 %.not44, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %33
   %43 = sext i32 %42 to i64
   %.idx = shl nsw i64 %43, 4
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %41, i8 0, i64 %.idx, i1 false)
-  %.pre = load ptr, ptr %30, align 8, !tbaa !35
+  %.pre = load ptr, ptr %30, align 8, !tbaa !34
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.preheader, %33, %29
   %44 = phi ptr [ %.pre, %.lr.ph.preheader ], [ %41, %33 ], [ %31, %29 ]
-  %45 = sext i32 %.013.i to i64
-  %46 = getelementptr inbounds %"class.std::__1::pmr::unsynchronized_pool_resource::__fixed_pool", ptr %44, i64 %45
+  %45 = zext nneg i32 %.013.i to i64
+  %46 = getelementptr inbounds nuw %"class.std::__1::pmr::unsynchronized_pool_resource::__fixed_pool", ptr %44, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !36
-  %.not.i40 = icmp eq ptr %48, null
-  br i1 %.not.i40, label %50, label %_ZNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool29__try_allocate_from_vacanciesEv.exit
+  %48 = load ptr, ptr %47, align 8, !tbaa !35
+  %.not.i = icmp eq ptr %48, null
+  br i1 %.not.i, label %50, label %_ZNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool29__try_allocate_from_vacanciesEv.exit
 
 _ZNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool29__try_allocate_from_vacanciesEv.exit: ; preds = %.loopexit
-  %49 = load ptr, ptr %48, align 8, !tbaa !47
-  store ptr %49, ptr %47, align 8, !tbaa !36
+  %49 = load ptr, ptr %48, align 8, !tbaa !46
+  store ptr %49, ptr %47, align 8, !tbaa !35
   br label %_ZNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool23__allocate_in_new_chunkEPNS0_15memory_resourceEmm.exit
 
 50:                                               ; preds = %.loopexit
-  %51 = load ptr, ptr %46, align 8, !tbaa !40
-  %.not.i41 = icmp eq ptr %51, null
-  br i1 %.not.i41, label %_ZNKSt3__13pmr28unsynchronized_pool_resource12__fixed_pool30__previous_chunk_size_in_bytesEv.exit, label %52
+  %51 = load ptr, ptr %46, align 8, !tbaa !39
+  %.not.i40 = icmp eq ptr %51, null
+  br i1 %.not.i40, label %_ZNKSt3__13pmr28unsynchronized_pool_resource12__fixed_pool30__previous_chunk_size_in_bytesEv.exit, label %52
 
 52:                                               ; preds = %50
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !43
+  %54 = load ptr, ptr %53, align 8, !tbaa !42
   %55 = ptrtoint ptr %51 to i64
   %56 = ptrtoint ptr %54 to i64
   %57 = add i64 %55, 24
@@ -552,7 +536,7 @@ _ZNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool29__try_allocate_from_v
 
 _ZNKSt3__13pmr28unsynchronized_pool_resource12__fixed_pool30__previous_chunk_size_in_bytesEv.exit: ; preds = %50, %52
   %59 = phi i64 [ %58, %52 ], [ 0, %50 ]
-  %60 = add nsw i32 %.013.i, 3
+  %60 = add nuw nsw i32 %.013.i, 3
   %61 = zext nneg i32 %60 to i64
   %62 = lshr i64 %59, %61
   %63 = icmp eq i64 %62, 0
@@ -565,14 +549,14 @@ _ZNKSt3__13pmr28unsynchronized_pool_resource12__fixed_pool30__previous_chunk_siz
 
 67:                                               ; preds = %_ZNKSt3__13pmr28unsynchronized_pool_resource12__fixed_pool30__previous_chunk_size_in_bytesEv.exit
   %68 = lshr i64 %62, 2
-  %69 = add i64 %68, %62
+  %69 = add nuw nsw i64 %68, %62
   br label %70
 
 70:                                               ; preds = %67, %64
   %.034 = phi i64 [ %66, %64 ], [ %69, %67 ]
   %71 = lshr i64 1073741824, %61
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %73 = load i32, ptr %72, align 4, !tbaa !33
+  %73 = load i32, ptr %72, align 4, !tbaa !32
   %74 = tail call i32 @llvm.umin.i32(i32 %73, i32 1048576)
   %75 = zext nneg i32 %74 to i64
   %76 = tail call noundef range(i64 0, 1073741825) i64 @llvm.umin.i64(i64 range(i64 0, 1073741825) %71, i64 range(i64 0, 4294967296) %75)
@@ -580,7 +564,7 @@ _ZNKSt3__13pmr28unsynchronized_pool_resource12__fixed_pool30__previous_chunk_siz
   %77 = shl nuw i64 1, %61
   %78 = shl i64 %spec.select, %61
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %80 = load ptr, ptr %79, align 8, !tbaa !29
+  %80 = load ptr, ptr %79, align 8, !tbaa !28
   %81 = add i64 %78, 7
   %82 = and i64 %81, -8
   %83 = add i64 %82, 24
@@ -589,32 +573,32 @@ _ZNKSt3__13pmr28unsynchronized_pool_resource12__fixed_pool30__previous_chunk_siz
   %86 = load ptr, ptr %85, align 8
   %87 = tail call noundef nonnull align 16 ptr %86(ptr noundef nonnull align 8 dereferenceable(8) %80, i64 noundef %83, i64 noundef 16)
   %88 = getelementptr inbounds i8, ptr %87, i64 %82
-  %89 = load ptr, ptr %46, align 8, !tbaa !40
-  store ptr %89, ptr %88, align 8, !tbaa !41
+  %89 = load ptr, ptr %46, align 8, !tbaa !39
+  store ptr %89, ptr %88, align 8, !tbaa !40
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  store ptr %87, ptr %90, align 8, !tbaa !43
+  store ptr %87, ptr %90, align 8, !tbaa !42
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 16
-  store i64 16, ptr %91, align 8, !tbaa !44
-  store ptr %88, ptr %46, align 8, !tbaa !40
+  store i64 16, ptr %91, align 8, !tbaa !43
+  store ptr %88, ptr %46, align 8, !tbaa !39
   %92 = icmp ugt i64 %78, %77
   br i1 %92, label %93, label %_ZNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool23__allocate_in_new_chunkEPNS0_15memory_resourceEmm.exit
 
 93:                                               ; preds = %70
-  %94 = load ptr, ptr %47, align 8, !tbaa !36
+  %94 = load ptr, ptr %47, align 8, !tbaa !35
   br label %96
 
 95:                                               ; preds = %96
-  store ptr %97, ptr %47, align 8, !tbaa !36
+  store ptr %97, ptr %47, align 8, !tbaa !35
   br label %_ZNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool23__allocate_in_new_chunkEPNS0_15memory_resourceEmm.exit
 
 96:                                               ; preds = %96, %93
   %.028.i = phi ptr [ %94, %93 ], [ %97, %96 ]
   %.02427.i = phi i64 [ %77, %93 ], [ %98, %96 ]
   %97 = getelementptr inbounds nuw i8, ptr %87, i64 %.02427.i
-  store ptr %.028.i, ptr %97, align 8, !tbaa !47
+  store ptr %.028.i, ptr %97, align 8, !tbaa !46
   %98 = add i64 %.02427.i, %77
-  %.not.i42 = icmp eq i64 %98, %78
-  br i1 %.not.i42, label %95, label %96, !llvm.loop !49
+  %.not.i41 = icmp eq i64 %98, %78
+  br i1 %.not.i41, label %95, label %96, !llvm.loop !48
 
 _ZNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool23__allocate_in_new_chunkEPNS0_15memory_resourceEmm.exit: ; preds = %95, %70, %_ZNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool29__try_allocate_from_vacanciesEv.exit, %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit.thread
   %.0 = phi ptr [ %24, %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit.thread ], [ %48, %_ZNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool29__try_allocate_from_vacanciesEv.exit ], [ %87, %70 ], [ %87, %95 ]
@@ -630,35 +614,24 @@ define dso_local void @_ZNSt3__13pmr28unsynchronized_pool_resource13do_deallocat
   %7 = shl nuw i64 1, %6
   %8 = icmp ugt i64 %2, %7
   %or.cond.i = select i1 %5, i1 true, i1 %8
-  br i1 %or.cond.i, label %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit.thread, label %9
+  br i1 %or.cond.i, label %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit.thread, label %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit
 
-9:                                                ; preds = %4
-  %10 = tail call i64 @llvm.umax.i64(i64 %2, i64 %3)
-  %11 = add i64 %10, -1
-  %.not17.i = icmp ult i64 %11, 8
-  br i1 %.not17.i, label %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %9
-  %12 = lshr i64 %11, 3
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.019.i = phi i32 [ %14, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %.01418.i = phi i64 [ %13, %.lr.ph.i ], [ %12, %.lr.ph.preheader.i ]
-  %13 = lshr i64 %.01418.i, 1
-  %14 = add nuw nsw i32 %.019.i, 1
-  %.not.i = icmp samesign ult i64 %.01418.i, 2
-  br i1 %.not.i, label %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit, label %.lr.ph.i, !llvm.loop !28
-
-_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit: ; preds = %.lr.ph.i, %9
-  %.013.i = phi i32 [ 0, %9 ], [ %14, %.lr.ph.i ]
+_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit: ; preds = %4
+  %9 = tail call i64 @llvm.umax.i64(i64 %2, i64 %3)
+  %10 = add i64 %9, -1
+  %11 = lshr i64 %10, 3
+  %.not17.i = icmp eq i64 %11, 0
+  %12 = tail call range(i64 3, 65) i64 @llvm.ctlz.i64(i64 %11, i1 true)
+  %13 = trunc nuw nsw i64 %12 to i32
+  %14 = sub nuw nsw i32 64, %13
+  %.013.i = select i1 %.not17.i, i32 0, i32 %14
   %15 = icmp eq i32 %.013.i, %.pre.i
   br i1 %15, label %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit.thread, label %37
 
 _ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit.thread: ; preds = %4, %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !29
+  %18 = load ptr, ptr %17, align 8, !tbaa !28
   %19 = load ptr, ptr %16, align 8, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !14
@@ -668,8 +641,8 @@ _ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit.thread: ; pre
 .preheader.i:                                     ; preds = %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit.thread, %24
   %.0.i = phi ptr [ %23, %24 ], [ %19, %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit.thread ]
   %23 = load ptr, ptr %.0.i, align 8, !tbaa !10
-  %.not.i8 = icmp eq ptr %23, null
-  br i1 %.not.i8, label %_ZNSt3__13pmr28unsynchronized_pool_resource12__adhoc_pool15__do_deallocateEPNS0_15memory_resourceEPvmm.exit, label %24
+  %.not.i = icmp eq ptr %23, null
+  br i1 %.not.i, label %_ZNSt3__13pmr28unsynchronized_pool_resource12__adhoc_pool15__do_deallocateEPNS0_15memory_resourceEPvmm.exit, label %24
 
 24:                                               ; preds = %.preheader.i
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -696,13 +669,13 @@ _ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit.thread: ; pre
 
 37:                                               ; preds = %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %39 = load ptr, ptr %38, align 8, !tbaa !35
-  %40 = sext i32 %.013.i to i64
-  %41 = getelementptr inbounds %"class.std::__1::pmr::unsynchronized_pool_resource::__fixed_pool", ptr %39, i64 %40
+  %39 = load ptr, ptr %38, align 8, !tbaa !34
+  %40 = zext nneg i32 %.013.i to i64
+  %41 = getelementptr inbounds nuw %"class.std::__1::pmr::unsynchronized_pool_resource::__fixed_pool", ptr %39, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !36
-  store ptr %43, ptr %1, align 8, !tbaa !47
-  store ptr %1, ptr %42, align 8, !tbaa !36
+  %43 = load ptr, ptr %42, align 8, !tbaa !35
+  store ptr %43, ptr %1, align 8, !tbaa !46
+  store ptr %1, ptr %42, align 8, !tbaa !35
   br label %_ZNSt3__13pmr28unsynchronized_pool_resource12__adhoc_pool15__do_deallocateEPNS0_15memory_resourceEPvmm.exit
 
 _ZNSt3__13pmr28unsynchronized_pool_resource12__adhoc_pool15__do_deallocateEPNS0_15memory_resourceEPvmm.exit: ; preds = %.preheader.i, %.loopexit.sink.split.i, %37
@@ -719,12 +692,12 @@ define dso_local noundef zeroext i1 @_ZNKSt3__13pmr26synchronized_pool_resource1
 define dso_local noundef ptr @_ZNSt3__13pmr25monotonic_buffer_resource11do_allocateEmm(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !50
+  %6 = load ptr, ptr %5, align 8, !tbaa !49
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %_ZNSt3__13pmr25__try_allocate_from_chunkILb1ENS0_25monotonic_buffer_resource20__initial_descriptorEEEPvRT0_mm.exit.thread, label %7
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr %4, align 8, !tbaa !52
+  %8 = load ptr, ptr %4, align 8, !tbaa !51
   %9 = ptrtoint ptr %6 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
@@ -744,21 +717,21 @@ define dso_local noundef ptr @_ZNSt3__13pmr25monotonic_buffer_resource11do_alloc
   br i1 %22, label %_ZNSt3__13pmr25__try_allocate_from_chunkILb1ENS0_25monotonic_buffer_resource20__initial_descriptorEEEPvRT0_mm.exit.thread, label %_ZNSt3__13pmr25__try_allocate_from_chunkILb1ENS0_25monotonic_buffer_resource20__initial_descriptorEEEPvRT0_mm.exit
 
 _ZNSt3__13pmr25__try_allocate_from_chunkILb1ENS0_25monotonic_buffer_resource20__initial_descriptorEEEPvRT0_mm.exit: ; preds = %13
-  store ptr %19, ptr %5, align 8, !tbaa !50
+  store ptr %19, ptr %5, align 8, !tbaa !49
   %.not = icmp eq i64 %18, 0
   br i1 %.not, label %_ZNSt3__13pmr25__try_allocate_from_chunkILb1ENS0_25monotonic_buffer_resource20__initial_descriptorEEEPvRT0_mm.exit.thread, label %_ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__chunk_footerEEEPvRT0_mm.exit48
 
 _ZNSt3__13pmr25__try_allocate_from_chunkILb1ENS0_25monotonic_buffer_resource20__initial_descriptorEEEPvRT0_mm.exit.thread: ; preds = %13, %7, %3, %_ZNSt3__13pmr25__try_allocate_from_chunkILb1ENS0_25monotonic_buffer_resource20__initial_descriptorEEEPvRT0_mm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %24 = load ptr, ptr %23, align 8, !tbaa !53
+  %24 = load ptr, ptr %23, align 8, !tbaa !52
   %.not39 = icmp eq ptr %24, null
   br i1 %.not39, label %47, label %25
 
 25:                                               ; preds = %_ZNSt3__13pmr25__try_allocate_from_chunkILb1ENS0_25monotonic_buffer_resource20__initial_descriptorEEEPvRT0_mm.exit.thread
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !56
+  %27 = load ptr, ptr %26, align 8, !tbaa !55
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !58
+  %29 = load ptr, ptr %28, align 8, !tbaa !57
   %30 = ptrtoint ptr %27 to i64
   %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %30, %31
@@ -780,7 +753,7 @@ _ZNSt3__13pmr25__try_allocate_from_chunkILb1ENS0_25monotonic_buffer_resource20__
   br i1 %or.cond.i, label %_ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__chunk_footerEEEPvRT0_mm.exit.thread, label %_ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__chunk_footerEEEPvRT0_mm.exit
 
 _ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__chunk_footerEEEPvRT0_mm.exit: ; preds = %34
-  store ptr %40, ptr %26, align 8, !tbaa !56
+  store ptr %40, ptr %26, align 8, !tbaa !55
   br label %_ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__chunk_footerEEEPvRT0_mm.exit48
 
 _ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__chunk_footerEEEPvRT0_mm.exit.thread: ; preds = %34, %25
@@ -792,7 +765,7 @@ _ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__
 
 47:                                               ; preds = %_ZNSt3__13pmr25__try_allocate_from_chunkILb1ENS0_25monotonic_buffer_resource20__initial_descriptorEEEPvRT0_mm.exit.thread
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %2, i64 8)
-  %48 = load ptr, ptr %4, align 8, !tbaa !59
+  %48 = load ptr, ptr %4, align 8, !tbaa !58
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %50 = load ptr, ptr %49, align 8
   %51 = ptrtoint ptr %50 to i64
@@ -816,7 +789,7 @@ _ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__
   %61 = add i64 %60, 32
   %.035 = select i1 %.not41, i64 %57, i64 %61
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %63 = load ptr, ptr %62, align 8, !tbaa !60
+  %63 = load ptr, ptr %62, align 8, !tbaa !59
   %64 = load ptr, ptr %63, align 8, !tbaa !16
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load ptr, ptr %65, align 8
@@ -824,15 +797,15 @@ _ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__
   call void @llvm.assume(i1 true) [ "align"(ptr %67, i64 %spec.store.select56) ]
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 %.035
   %69 = getelementptr inbounds i8, ptr %68, i64 -32
-  %70 = load ptr, ptr %23, align 8, !tbaa !53
-  store ptr %70, ptr %69, align 8, !tbaa !61
+  %70 = load ptr, ptr %23, align 8, !tbaa !52
+  store ptr %70, ptr %69, align 8, !tbaa !60
   %71 = getelementptr inbounds i8, ptr %68, i64 -24
-  store ptr %67, ptr %71, align 8, !tbaa !58
+  store ptr %67, ptr %71, align 8, !tbaa !57
   %72 = getelementptr inbounds i8, ptr %68, i64 -16
-  store ptr %69, ptr %72, align 8, !tbaa !56
+  store ptr %69, ptr %72, align 8, !tbaa !55
   %73 = getelementptr inbounds i8, ptr %68, i64 -8
-  store i64 %spec.store.select56, ptr %73, align 8, !tbaa !62
-  store ptr %69, ptr %23, align 8, !tbaa !53
+  store i64 %spec.store.select56, ptr %73, align 8, !tbaa !61
+  store ptr %69, ptr %23, align 8, !tbaa !52
   %74 = add nsw i64 %.035, -32
   %75 = icmp ugt i64 %1, %74
   br i1 %75, label %_ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__chunk_footerEEEPvRT0_mm.exit48, label %76
@@ -850,7 +823,7 @@ _ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__
   br i1 %85, label %_ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__chunk_footerEEEPvRT0_mm.exit48, label %86
 
 86:                                               ; preds = %76
-  store ptr %82, ptr %72, align 8, !tbaa !56
+  store ptr %82, ptr %72, align 8, !tbaa !55
   br label %_ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__chunk_footerEEEPvRT0_mm.exit48
 
 _ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__chunk_footerEEEPvRT0_mm.exit48: ; preds = %_ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__chunk_footerEEEPvRT0_mm.exit, %86, %76, %"_ZZNSt3__13pmr25monotonic_buffer_resource11do_allocateEmmENK3$_0clEv.exit", %_ZNSt3__13pmr25__try_allocate_from_chunkILb1ENS0_25monotonic_buffer_resource20__initial_descriptorEEEPvRT0_mm.exit
@@ -862,20 +835,20 @@ _ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__
 define linkonce_odr hidden void @_ZNSt3__13pmr25monotonic_buffer_resourceD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVNSt3__13pmr25monotonic_buffer_resourceE, i64 16), ptr %0, align 8, !tbaa !16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !59
+  %3 = load ptr, ptr %2, align 8, !tbaa !58
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %8, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !63
+  %6 = load ptr, ptr %5, align 8, !tbaa !62
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %6, ptr %7, align 8, !tbaa !64
+  store ptr %6, ptr %7, align 8, !tbaa !63
   br label %8
 
 8:                                                ; preds = %4, %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load ptr, ptr %9, align 8, !tbaa !53
+  %10 = load ptr, ptr %9, align 8, !tbaa !52
   %.not23.i = icmp eq ptr %10, null
   br i1 %.not23.i, label %_ZNSt3__13pmr25monotonic_buffer_resource7releaseB8ne210000Ev.exit, label %.lr.ph.i
 
@@ -885,16 +858,16 @@ define linkonce_odr hidden void @_ZNSt3__13pmr25monotonic_buffer_resourceD2Ev(pt
 
 12:                                               ; preds = %.noexc, %.lr.ph.i
   %13 = phi ptr [ %10, %.lr.ph.i ], [ %14, %.noexc ]
-  %14 = load ptr, ptr %13, align 8, !tbaa !61
-  %15 = load ptr, ptr %11, align 8, !tbaa !60
+  %14 = load ptr, ptr %13, align 8, !tbaa !60
+  %15 = load ptr, ptr %11, align 8, !tbaa !59
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !58
+  %17 = load ptr, ptr %16, align 8, !tbaa !57
   %18 = ptrtoint ptr %13 to i64
   %19 = ptrtoint ptr %17 to i64
   %20 = add i64 %18, 32
   %21 = sub i64 %20, %19
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %23 = load i64, ptr %22, align 8, !tbaa !62
+  %23 = load i64, ptr %22, align 8, !tbaa !61
   %24 = load ptr, ptr %15, align 8, !tbaa !16
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load ptr, ptr %25, align 8
@@ -902,9 +875,9 @@ define linkonce_odr hidden void @_ZNSt3__13pmr25monotonic_buffer_resourceD2Ev(pt
           to label %.noexc unwind label %27
 
 .noexc:                                           ; preds = %12
-  store ptr %14, ptr %9, align 8, !tbaa !53
+  store ptr %14, ptr %9, align 8, !tbaa !52
   %.not2.i = icmp eq ptr %14, null
-  br i1 %.not2.i, label %_ZNSt3__13pmr25monotonic_buffer_resource7releaseB8ne210000Ev.exit, label %12, !llvm.loop !65
+  br i1 %.not2.i, label %_ZNSt3__13pmr25monotonic_buffer_resource7releaseB8ne210000Ev.exit, label %12, !llvm.loop !64
 
 _ZNSt3__13pmr25monotonic_buffer_resource7releaseB8ne210000Ev.exit: ; preds = %.noexc, %8
   ret void
@@ -913,7 +886,7 @@ _ZNSt3__13pmr25monotonic_buffer_resource7releaseB8ne210000Ev.exit: ; preds = %.n
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  tail call void @__clang_call_terminate(ptr %29) #19
+  tail call void @__clang_call_terminate(ptr %29) #20
   unreachable
 }
 
@@ -921,20 +894,20 @@ _ZNSt3__13pmr25monotonic_buffer_resource7releaseB8ne210000Ev.exit: ; preds = %.n
 define linkonce_odr hidden void @_ZNSt3__13pmr25monotonic_buffer_resourceD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVNSt3__13pmr25monotonic_buffer_resourceE, i64 16), ptr %0, align 8, !tbaa !16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !59
+  %3 = load ptr, ptr %2, align 8, !tbaa !58
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %8, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !63
+  %6 = load ptr, ptr %5, align 8, !tbaa !62
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %6, ptr %7, align 8, !tbaa !64
+  store ptr %6, ptr %7, align 8, !tbaa !63
   br label %8
 
 8:                                                ; preds = %4, %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load ptr, ptr %9, align 8, !tbaa !53
+  %10 = load ptr, ptr %9, align 8, !tbaa !52
   %.not23.i.i = icmp eq ptr %10, null
   br i1 %.not23.i.i, label %_ZNSt3__13pmr25monotonic_buffer_resourceD2Ev.exit, label %.lr.ph.i.i
 
@@ -944,16 +917,16 @@ define linkonce_odr hidden void @_ZNSt3__13pmr25monotonic_buffer_resourceD0Ev(pt
 
 12:                                               ; preds = %.noexc.i, %.lr.ph.i.i
   %13 = phi ptr [ %10, %.lr.ph.i.i ], [ %14, %.noexc.i ]
-  %14 = load ptr, ptr %13, align 8, !tbaa !61
-  %15 = load ptr, ptr %11, align 8, !tbaa !60
+  %14 = load ptr, ptr %13, align 8, !tbaa !60
+  %15 = load ptr, ptr %11, align 8, !tbaa !59
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !58
+  %17 = load ptr, ptr %16, align 8, !tbaa !57
   %18 = ptrtoint ptr %13 to i64
   %19 = ptrtoint ptr %17 to i64
   %20 = add i64 %18, 32
   %21 = sub i64 %20, %19
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %23 = load i64, ptr %22, align 8, !tbaa !62
+  %23 = load i64, ptr %22, align 8, !tbaa !61
   %24 = load ptr, ptr %15, align 8, !tbaa !16
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load ptr, ptr %25, align 8
@@ -961,19 +934,19 @@ define linkonce_odr hidden void @_ZNSt3__13pmr25monotonic_buffer_resourceD0Ev(pt
           to label %.noexc.i unwind label %27
 
 .noexc.i:                                         ; preds = %12
-  store ptr %14, ptr %9, align 8, !tbaa !53
+  store ptr %14, ptr %9, align 8, !tbaa !52
   %.not2.i.i = icmp eq ptr %14, null
-  br i1 %.not2.i.i, label %_ZNSt3__13pmr25monotonic_buffer_resourceD2Ev.exit, label %12, !llvm.loop !65
+  br i1 %.not2.i.i, label %_ZNSt3__13pmr25monotonic_buffer_resourceD2Ev.exit, label %12, !llvm.loop !64
 
 27:                                               ; preds = %12
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  tail call void @__clang_call_terminate(ptr %29) #19
+  tail call void @__clang_call_terminate(ptr %29) #20
   unreachable
 
 _ZNSt3__13pmr25monotonic_buffer_resourceD2Ev.exit: ; preds = %.noexc.i, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #21
   ret void
 }
 
@@ -1003,7 +976,7 @@ define linkonce_odr hidden void @_ZNSt3__13pmr28unsynchronized_pool_resourceD2Ev
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #19
+  tail call void @__clang_call_terminate(ptr %5) #20
   unreachable
 }
 
@@ -1017,11 +990,11 @@ define linkonce_odr hidden void @_ZNSt3__13pmr28unsynchronized_pool_resourceD0Ev
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #19
+  tail call void @__clang_call_terminate(ptr %4) #20
   unreachable
 
 _ZNSt3__13pmr28unsynchronized_pool_resourceD2Ev.exit: ; preds = %1
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #21
   ret void
 }
 
@@ -1043,7 +1016,7 @@ define linkonce_odr hidden void @_ZNSt3__13pmr26synchronized_pool_resourceD2Ev(p
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #19
+  tail call void @__clang_call_terminate(ptr %5) #20
   unreachable
 
 _ZNSt3__13pmr28unsynchronized_pool_resourceD2Ev.exit: ; preds = %1
@@ -1062,11 +1035,11 @@ define linkonce_odr hidden void @_ZNSt3__13pmr26synchronized_pool_resourceD0Ev(p
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #19
+  tail call void @__clang_call_terminate(ptr %5) #20
   unreachable
 
 _ZNSt3__13pmr26synchronized_pool_resourceD2Ev.exit: ; preds = %1
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #21
   ret void
 }
 
@@ -1083,13 +1056,13 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__13pmr26synchronized_pool_resourc
 
 _ZNSt3__111unique_lockINS_5mutexEED2B8ne210000Ev.exit: ; preds = %3
   call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 %2) ]
-  tail call void @_ZNSt3__15mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(40) %4) #21
+  tail call void @_ZNSt3__15mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(40) %4) #22
   ret ptr %9
 
 _ZNSt3__111unique_lockINS_5mutexEED2B8ne210000Ev.exit4: ; preds = %3
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt3__15mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(40) %4) #21
+  tail call void @_ZNSt3__15mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(40) %4) #22
   resume { ptr, i32 } %10
 }
 
@@ -1105,19 +1078,19 @@ define linkonce_odr hidden void @_ZNSt3__13pmr26synchronized_pool_resource13do_d
           to label %_ZNSt3__111unique_lockINS_5mutexEED2B8ne210000Ev.exit unwind label %_ZNSt3__111unique_lockINS_5mutexEED2B8ne210000Ev.exit5
 
 _ZNSt3__111unique_lockINS_5mutexEED2B8ne210000Ev.exit: ; preds = %4
-  tail call void @_ZNSt3__15mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #21
+  tail call void @_ZNSt3__15mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #22
   ret void
 
 _ZNSt3__111unique_lockINS_5mutexEED2B8ne210000Ev.exit5: ; preds = %4
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt3__15mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #21
+  tail call void @_ZNSt3__15mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #22
   resume { ptr, i32 } %10
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt3__13pmr32__new_delete_memory_resource_impD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #9 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #21
   ret void
 }
 
@@ -1127,12 +1100,12 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__13pmr32__new_delete_memory_resou
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = tail call noalias noundef nonnull ptr @_ZnwmSt11align_val_t(i64 noundef %1, i64 noundef %2) #22
+  %6 = tail call noalias noundef nonnull ptr @_ZnwmSt11align_val_t(i64 noundef %1, i64 noundef %2) #23
   call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 %2) ]
   br label %_ZNSt3__117__libcpp_allocateB8ne210000ISt4byteEEPT_NS_15__element_countEm.exit
 
 7:                                                ; preds = %3
-  %8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %1) #22
+  %8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %1) #23
   br label %_ZNSt3__117__libcpp_allocateB8ne210000ISt4byteEEPT_NS_15__element_countEm.exit
 
 _ZNSt3__117__libcpp_allocateB8ne210000ISt4byteEEPT_NS_15__element_countEm.exit: ; preds = %5, %7
@@ -1146,11 +1119,11 @@ define linkonce_odr hidden void @_ZNSt3__13pmr32__new_delete_memory_resource_imp
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %4
-  tail call void @_ZdlPvmSt11align_val_t(ptr noundef %1, i64 noundef %2, i64 noundef %3) #20
+  tail call void @_ZdlPvmSt11align_val_t(ptr noundef %1, i64 noundef %2, i64 noundef %3) #21
   br label %_ZNSt3__119__libcpp_deallocateB8ne210000ISt4byteEEvPNS_15__type_identityIT_E4typeENS_15__element_countEm.exit
 
 7:                                                ; preds = %4
-  tail call void @_ZdlPvm(ptr noundef %1, i64 noundef %2) #20
+  tail call void @_ZdlPvm(ptr noundef %1, i64 noundef %2) #21
   br label %_ZNSt3__119__libcpp_deallocateB8ne210000ISt4byteEEvPNS_15__type_identityIT_E4typeENS_15__element_countEm.exit
 
 _ZNSt3__119__libcpp_deallocateB8ne210000ISt4byteEEvPNS_15__type_identityIT_E4typeENS_15__element_countEm.exit: ; preds = %6, %7
@@ -1170,13 +1143,13 @@ define dso_local void @_ZNSt3__13pmr15memory_resourceD2Ev(ptr nonnull readnone a
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt3__13pmr26__null_memory_resource_impD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #9 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #21
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt3__13pmr26__null_memory_resource_imp11do_allocateEmm(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZSt17__throw_bad_allocv() #23
+  tail call void @_ZSt17__throw_bad_allocv() #24
   unreachable
 }
 
@@ -1193,8 +1166,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNKSt3__13pmr26__null_memory_res
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #21
-  tail call void @_ZSt9terminatev() #19
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #22
+  tail call void @_ZSt9terminatev() #20
   unreachable
 }
 
@@ -1229,8 +1202,11 @@ declare i64 @llvm.umax.i64(i64, i64) #17
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #17
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #18
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #17
@@ -1253,12 +1229,13 @@ attributes #14 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-si
 attributes #15 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #19 = { noreturn nounwind }
-attributes #20 = { builtin nounwind }
-attributes #21 = { nounwind }
-attributes #22 = { builtin allocsize(0) }
-attributes #23 = { noreturn }
+attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #20 = { noreturn nounwind }
+attributes #21 = { builtin nounwind }
+attributes #22 = { nounwind }
+attributes #23 = { builtin allocsize(0) }
+attributes #24 = { noreturn }
 
 !llvm.linker.options = !{}
 !llvm.module.flags = !{!0, !1, !2, !3}
@@ -1291,41 +1268,40 @@ attributes #23 = { noreturn }
 !25 = !{!"p1 _ZTSNSt3__13pmr15memory_resourceE", !7, i64 0}
 !26 = !{!"p1 _ZTSNSt3__13pmr28unsynchronized_pool_resource12__fixed_poolE", !7, i64 0}
 !27 = !{!"int", !8, i64 0}
-!28 = distinct !{!28, !19}
-!29 = !{!23, !25, i64 8}
-!30 = !{!31, !13, i64 8}
-!31 = !{!"_ZTSNSt3__13pmr12pool_optionsE", !13, i64 0, !13, i64 8}
-!32 = !{!31, !13, i64 0}
-!33 = !{!23, !27, i64 36}
-!34 = distinct !{!34, !19}
-!35 = !{!23, !26, i64 24}
-!36 = !{!37, !39, i64 8}
-!37 = !{!"_ZTSNSt3__13pmr28unsynchronized_pool_resource12__fixed_poolE", !38, i64 0, !39, i64 8}
-!38 = !{!"p1 _ZTSNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool14__chunk_footerE", !7, i64 0}
-!39 = !{!"p1 _ZTSNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool16__vacancy_headerE", !7, i64 0}
-!40 = !{!37, !38, i64 0}
-!41 = !{!42, !38, i64 0}
-!42 = !{!"_ZTSNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool14__chunk_footerE", !38, i64 0, !12, i64 8, !13, i64 16}
-!43 = !{!42, !12, i64 8}
-!44 = !{!42, !13, i64 16}
+!28 = !{!23, !25, i64 8}
+!29 = !{!30, !13, i64 8}
+!30 = !{!"_ZTSNSt3__13pmr12pool_optionsE", !13, i64 0, !13, i64 8}
+!31 = !{!30, !13, i64 0}
+!32 = !{!23, !27, i64 36}
+!33 = distinct !{!33, !19}
+!34 = !{!23, !26, i64 24}
+!35 = !{!36, !38, i64 8}
+!36 = !{!"_ZTSNSt3__13pmr28unsynchronized_pool_resource12__fixed_poolE", !37, i64 0, !38, i64 8}
+!37 = !{!"p1 _ZTSNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool14__chunk_footerE", !7, i64 0}
+!38 = !{!"p1 _ZTSNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool16__vacancy_headerE", !7, i64 0}
+!39 = !{!36, !37, i64 0}
+!40 = !{!41, !37, i64 0}
+!41 = !{!"_ZTSNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool14__chunk_footerE", !37, i64 0, !12, i64 8, !13, i64 16}
+!42 = !{!41, !12, i64 8}
+!43 = !{!41, !13, i64 16}
+!44 = distinct !{!44, !19}
 !45 = distinct !{!45, !19}
-!46 = distinct !{!46, !19}
-!47 = !{!48, !39, i64 0}
-!48 = !{!"_ZTSNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool16__vacancy_headerE", !39, i64 0}
-!49 = distinct !{!49, !19}
-!50 = !{!51, !12, i64 8}
-!51 = !{!"_ZTSNSt3__13pmr25monotonic_buffer_resource20__initial_descriptorE", !12, i64 0, !12, i64 8, !8, i64 16}
-!52 = !{!51, !12, i64 0}
-!53 = !{!54, !55, i64 32}
-!54 = !{!"_ZTSNSt3__13pmr25monotonic_buffer_resourceE", !24, i64 0, !51, i64 8, !55, i64 32, !25, i64 40}
-!55 = !{!"p1 _ZTSNSt3__13pmr25monotonic_buffer_resource14__chunk_footerE", !7, i64 0}
-!56 = !{!57, !12, i64 16}
-!57 = !{!"_ZTSNSt3__13pmr25monotonic_buffer_resource14__chunk_footerE", !55, i64 0, !12, i64 8, !12, i64 16, !13, i64 24}
-!58 = !{!57, !12, i64 8}
-!59 = !{!54, !12, i64 8}
-!60 = !{!54, !25, i64 40}
-!61 = !{!57, !55, i64 0}
-!62 = !{!57, !13, i64 24}
-!63 = !{!8, !8, i64 0}
-!64 = !{!54, !12, i64 16}
-!65 = distinct !{!65, !19}
+!46 = !{!47, !38, i64 0}
+!47 = !{!"_ZTSNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool16__vacancy_headerE", !38, i64 0}
+!48 = distinct !{!48, !19}
+!49 = !{!50, !12, i64 8}
+!50 = !{!"_ZTSNSt3__13pmr25monotonic_buffer_resource20__initial_descriptorE", !12, i64 0, !12, i64 8, !8, i64 16}
+!51 = !{!50, !12, i64 0}
+!52 = !{!53, !54, i64 32}
+!53 = !{!"_ZTSNSt3__13pmr25monotonic_buffer_resourceE", !24, i64 0, !50, i64 8, !54, i64 32, !25, i64 40}
+!54 = !{!"p1 _ZTSNSt3__13pmr25monotonic_buffer_resource14__chunk_footerE", !7, i64 0}
+!55 = !{!56, !12, i64 16}
+!56 = !{!"_ZTSNSt3__13pmr25monotonic_buffer_resource14__chunk_footerE", !54, i64 0, !12, i64 8, !12, i64 16, !13, i64 24}
+!57 = !{!56, !12, i64 8}
+!58 = !{!53, !12, i64 8}
+!59 = !{!53, !25, i64 40}
+!60 = !{!56, !54, i64 0}
+!61 = !{!56, !13, i64 24}
+!62 = !{!8, !8, i64 0}
+!63 = !{!53, !12, i64 16}
+!64 = distinct !{!64, !19}

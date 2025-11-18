@@ -664,7 +664,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i.i.i.i.i: ; preds
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIhSaIhEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %43, align 8, !noalias !10
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false), !noalias !10
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %41, 4
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %42, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %57, label %.noexc3.i.i.i.i.i.i.i.i.i
 
 .noexc3.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i.i.i.i.i
@@ -812,8 +812,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %90, %88
 
 107:                                              ; preds = %94
   %108 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.not157 = icmp eq i64 %104, 0
-  br i1 %.not157, label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE11_M_allocateEm.exit.i
+  %.not158 = icmp eq i64 %104, 0
+  br i1 %.not158, label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE11_M_allocateEm.exit.i: ; preds = %107
   %109 = shl nuw nsw i64 %104, 4
@@ -1606,7 +1606,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i.i.i.i.i: ; preds
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIhSaIhEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %43, align 8, !noalias !24
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false), !noalias !24
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %41, 4
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %42, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %57, label %.noexc3.i.i.i.i.i.i.i.i.i
 
 .noexc3.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i.i.i.i.i
@@ -1754,8 +1754,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %90, %88
 
 107:                                              ; preds = %94
   %108 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.not157 = icmp eq i64 %104, 0
-  br i1 %.not157, label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE11_M_allocateEm.exit.i
+  %.not158 = icmp eq i64 %104, 0
+  br i1 %.not158, label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE11_M_allocateEm.exit.i: ; preds = %107
   %109 = shl nuw nsw i64 %104, 4
@@ -2991,7 +2991,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i.i.i.i.i: ; preds
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIhSaIhEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %42, align 8, !noalias !48
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, i8 0, i64 24, i1 false), !noalias !48
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %40, 4
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %41, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %56, label %.noexc3.i.i.i.i.i.i.i.i.i
 
 .noexc3.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i.i.i.i.i
@@ -3157,9 +3157,9 @@ _ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_
   %104 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i72 = icmp eq i8 %104, 0
   %105 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  br i1 %.not.i.i.i.i.i.i72, label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i, label %.thread293
+  br i1 %.not.i.i.i.i.i.i72, label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i, label %.thread295
 
-.thread293:                                       ; preds = %102
+.thread295:                                       ; preds = %102
   %106 = load i32, ptr %103, align 4
   %107 = add nsw i32 %106, 1
   store i32 %107, ptr %103, align 4
@@ -3187,8 +3187,8 @@ _ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_
   %112 = getelementptr inbounds nuw i8, ptr %.pr.pre.i, i64 8
   br i1 %111, label %117, label %113
 
-113:                                              ; preds = %.thread293, %110
-  %114 = phi ptr [ %108, %.thread293 ], [ %112, %110 ]
+113:                                              ; preds = %.thread295, %110
+  %114 = phi ptr [ %108, %.thread295 ], [ %112, %110 ]
   %115 = load i32, ptr %114, align 4
   %116 = add nsw i32 %115, 1
   store i32 %116, ptr %114, align 4
@@ -4217,7 +4217,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i.i.i.i.i91: ; pre
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIhSaIhEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %571, align 8, !noalias !72
   %574 = getelementptr inbounds nuw i8, ptr %571, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %574, i8 0, i64 24, i1 false), !noalias !72
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i92 = icmp ult i64 %569, 4
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i92 = icmp eq i64 %570, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i92, label %585, label %.noexc3.i.i.i.i.i.i.i.i.i93
 
 .noexc3.i.i.i.i.i.i.i.i.i93:                      ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i.i.i.i.i91
@@ -4272,9 +4272,9 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceISt6vectorIhSaIhEESaIvELN9_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i96, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 16, i1 false), !noalias !75
   %593 = load i8, ptr @__libc_single_threaded, align 1, !noalias !75
   %.not.i.i.i.i.i.i98 = icmp eq i8 %593, 0
-  br i1 %.not.i.i.i.i.i.i98, label %596, label %.thread296
+  br i1 %.not.i.i.i.i.i.i98, label %596, label %.thread298
 
-.thread296:                                       ; preds = %585
+.thread298:                                       ; preds = %585
   store i32 2, ptr %572, align 4, !noalias !75
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
   %594 = getelementptr inbounds nuw i8, ptr %27, i64 16
@@ -4294,9 +4294,9 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceISt6vectorIhSaIhEESaIvELN9_
   store ptr %571, ptr %600, align 8, !alias.scope !75
   br i1 %598, label %606, label %601
 
-601:                                              ; preds = %.thread296, %596
-  %602 = phi ptr [ %595, %.thread296 ], [ %600, %596 ]
-  %603 = phi ptr [ %594, %.thread296 ], [ %599, %596 ]
+601:                                              ; preds = %.thread298, %596
+  %602 = phi ptr [ %595, %.thread298 ], [ %600, %596 ]
+  %603 = phi ptr [ %594, %.thread298 ], [ %599, %596 ]
   %604 = load i32, ptr %572, align 4, !noalias !75
   %605 = add nsw i32 %604, 1
   store i32 %605, ptr %572, align 4, !noalias !75
@@ -4387,9 +4387,9 @@ _ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_
   %641 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i105 = icmp eq i8 %641, 0
   %642 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  br i1 %.not.i.i.i.i.i.i105, label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i129, label %.thread298
+  br i1 %.not.i.i.i.i.i.i105, label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i129, label %.thread300
 
-.thread298:                                       ; preds = %639
+.thread300:                                       ; preds = %639
   %643 = load i32, ptr %640, align 4
   %644 = add nsw i32 %643, 1
   store i32 %644, ptr %640, align 4
@@ -4431,19 +4431,19 @@ _ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_
   %656 = getelementptr inbounds nuw i8, ptr %14, i64 16
   br i1 %654, label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i.i, label %.thread.i107
 
-.thread.i107:                                     ; preds = %.thread298, %653
-  %657 = phi ptr [ %647, %.thread298 ], [ %656, %653 ]
-  %658 = phi ptr [ %646, %.thread298 ], [ %655, %653 ]
-  %659 = phi ptr [ %633, %.thread298 ], [ %.pre.i131, %653 ]
-  %.pr94.i301 = phi ptr [ %635, %.thread298 ], [ %.pr.pre.i130, %653 ]
-  %660 = phi ptr [ %645, %.thread298 ], [ %649, %653 ]
+.thread.i107:                                     ; preds = %.thread300, %653
+  %657 = phi ptr [ %647, %.thread300 ], [ %656, %653 ]
+  %658 = phi ptr [ %646, %.thread300 ], [ %655, %653 ]
+  %659 = phi ptr [ %633, %.thread300 ], [ %.pre.i131, %653 ]
+  %.pr94.i303 = phi ptr [ %635, %.thread300 ], [ %.pr.pre.i130, %653 ]
+  %660 = phi ptr [ %645, %.thread300 ], [ %649, %653 ]
   %661 = load i32, ptr %658, align 4
   %662 = add nsw i32 %661, 1
   store i32 %662, ptr %658, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull readonly align 8 dereferenceable(32) %15, i64 16, i1 false)
   store ptr %659, ptr %657, align 8
-  store ptr %.pr94.i301, ptr %660, align 8
+  store ptr %.pr94.i303, ptr %660, align 8
   br label %667
 
 _ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i.i: ; preds = %653
@@ -12288,7 +12288,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i.i.i.i.i: ; preds
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIhSaIhEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %44, align 8, !noalias !365
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false), !noalias !365
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %42, 4
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %43, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %58, label %.noexc3.i.i.i.i.i.i.i.i.i
 
 .noexc3.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i.i.i.i.i
@@ -12454,9 +12454,9 @@ _ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_
   %106 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i70 = icmp eq i8 %106, 0
   %107 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  br i1 %.not.i.i.i.i.i.i70, label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i, label %.thread293
+  br i1 %.not.i.i.i.i.i.i70, label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i, label %.thread295
 
-.thread293:                                       ; preds = %104
+.thread295:                                       ; preds = %104
   %108 = load i32, ptr %105, align 4
   %109 = add nsw i32 %108, 1
   store i32 %109, ptr %105, align 4
@@ -12484,8 +12484,8 @@ _ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_
   %114 = getelementptr inbounds nuw i8, ptr %.pr.pre.i, i64 8
   br i1 %113, label %119, label %115
 
-115:                                              ; preds = %.thread293, %112
-  %116 = phi ptr [ %110, %.thread293 ], [ %114, %112 ]
+115:                                              ; preds = %.thread295, %112
+  %116 = phi ptr [ %110, %.thread295 ], [ %114, %112 ]
   %117 = load i32, ptr %116, align 4
   %118 = add nsw i32 %117, 1
   store i32 %118, ptr %116, align 4
@@ -13516,7 +13516,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i.i.i.i.i89: ; pre
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIhSaIhEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %573, align 8, !noalias !393
   %576 = getelementptr inbounds nuw i8, ptr %573, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %576, i8 0, i64 24, i1 false), !noalias !393
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i90 = icmp ult i64 %571, 4
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i90 = icmp eq i64 %572, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i90, label %587, label %.noexc3.i.i.i.i.i.i.i.i.i91
 
 .noexc3.i.i.i.i.i.i.i.i.i91:                      ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i.i.i.i.i89
@@ -13571,9 +13571,9 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceISt6vectorIhSaIhEESaIvELN9_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i94, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 16, i1 false), !noalias !396
   %595 = load i8, ptr @__libc_single_threaded, align 1, !noalias !396
   %.not.i.i.i.i.i.i96 = icmp eq i8 %595, 0
-  br i1 %.not.i.i.i.i.i.i96, label %598, label %.thread296
+  br i1 %.not.i.i.i.i.i.i96, label %598, label %.thread298
 
-.thread296:                                       ; preds = %587
+.thread298:                                       ; preds = %587
   store i32 2, ptr %574, align 4, !noalias !396
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
   %596 = getelementptr inbounds nuw i8, ptr %27, i64 16
@@ -13593,9 +13593,9 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceISt6vectorIhSaIhEESaIvELN9_
   store ptr %573, ptr %602, align 8, !alias.scope !396
   br i1 %600, label %608, label %603
 
-603:                                              ; preds = %.thread296, %598
-  %604 = phi ptr [ %597, %.thread296 ], [ %602, %598 ]
-  %605 = phi ptr [ %596, %.thread296 ], [ %601, %598 ]
+603:                                              ; preds = %.thread298, %598
+  %604 = phi ptr [ %597, %.thread298 ], [ %602, %598 ]
+  %605 = phi ptr [ %596, %.thread298 ], [ %601, %598 ]
   %606 = load i32, ptr %574, align 4, !noalias !396
   %607 = add nsw i32 %606, 1
   store i32 %607, ptr %574, align 4, !noalias !396
@@ -13686,9 +13686,9 @@ _ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_
   %643 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i103 = icmp eq i8 %643, 0
   %644 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  br i1 %.not.i.i.i.i.i.i103, label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i128, label %.thread298
+  br i1 %.not.i.i.i.i.i.i103, label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i128, label %.thread300
 
-.thread298:                                       ; preds = %641
+.thread300:                                       ; preds = %641
   %645 = load i32, ptr %642, align 4
   %646 = add nsw i32 %645, 1
   store i32 %646, ptr %642, align 4
@@ -13730,19 +13730,19 @@ _ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_
   %658 = getelementptr inbounds nuw i8, ptr %14, i64 16
   br i1 %656, label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i.i, label %.thread.i105
 
-.thread.i105:                                     ; preds = %.thread298, %655
-  %659 = phi ptr [ %649, %.thread298 ], [ %658, %655 ]
-  %660 = phi ptr [ %648, %.thread298 ], [ %657, %655 ]
-  %661 = phi ptr [ %635, %.thread298 ], [ %.pre.i130, %655 ]
-  %.pr94.i301 = phi ptr [ %637, %.thread298 ], [ %.pr.pre.i129, %655 ]
-  %662 = phi ptr [ %647, %.thread298 ], [ %651, %655 ]
+.thread.i105:                                     ; preds = %.thread300, %655
+  %659 = phi ptr [ %649, %.thread300 ], [ %658, %655 ]
+  %660 = phi ptr [ %648, %.thread300 ], [ %657, %655 ]
+  %661 = phi ptr [ %635, %.thread300 ], [ %.pre.i130, %655 ]
+  %.pr94.i303 = phi ptr [ %637, %.thread300 ], [ %.pr.pre.i129, %655 ]
+  %662 = phi ptr [ %647, %.thread300 ], [ %651, %655 ]
   %663 = load i32, ptr %660, align 4
   %664 = add nsw i32 %663, 1
   store i32 %664, ptr %660, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull readonly align 8 dereferenceable(32) %15, i64 16, i1 false)
   store ptr %661, ptr %659, align 8
-  store ptr %.pr94.i301, ptr %662, align 8
+  store ptr %.pr94.i303, ptr %662, align 8
   br label %669
 
 _ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i.i: ; preds = %655

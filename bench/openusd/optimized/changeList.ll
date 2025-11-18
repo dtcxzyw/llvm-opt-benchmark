@@ -1508,11 +1508,11 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathEmNS1_4HashESt8e
   br label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathEmNS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_mEEE4findERS6_.exit.thread
 
 64:                                               ; preds = %16
-  %.not28 = icmp ult i32 %8, 4
+  %65 = lshr i64 %9, 2
+  %.not28 = icmp eq i64 %65, 0
   br i1 %.not28, label %._crit_edge.i.i.i, label %.lr.ph.i.preheader.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %64
-  %65 = lshr i64 %9, 2
   %66 = mul nsw i64 %65, -832
   %scevgep.i.i = getelementptr i8, ptr %10, i64 %66
   br label %.lr.ph.i.i.i

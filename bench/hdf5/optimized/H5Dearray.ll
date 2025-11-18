@@ -228,16 +228,16 @@ define internal range(i32 -1, 1) i32 @H5D__earray_idx_create(ptr noundef readonl
   %19 = load i32, ptr %18, align 4, !tbaa !29
   %20 = zext i32 %19 to i64
   %21 = lshr i64 %20, 16
-  %.not.i = icmp ult i32 %19, 65536
+  %.not.i = icmp eq i64 %21, 0
   br i1 %.not.i, label %34, label %22
 
 22:                                               ; preds = %15
-  %.not24.i = icmp ult i32 %19, 16777216
-  br i1 %.not24.i, label %29, label %23
+  %23 = lshr i64 %20, 24
+  %.not24.i = icmp eq i64 %23, 0
+  br i1 %.not24.i, label %29, label %24
 
-23:                                               ; preds = %22
-  %24 = lshr i64 %20, 24
-  %25 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %24
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %23
   %26 = load i8, ptr %25, align 1, !tbaa !21
   %27 = zext i8 %26 to i32
   %28 = add nuw nsw i32 %27, 24
@@ -251,12 +251,12 @@ define internal range(i32 -1, 1) i32 @H5D__earray_idx_create(ptr noundef readonl
   br label %H5VM_log2_gen.exit
 
 34:                                               ; preds = %15
-  %.not23.i = icmp samesign ult i32 %19, 256
-  br i1 %.not23.i, label %41, label %35
+  %35 = lshr i64 %20, 8
+  %.not23.i = icmp eq i64 %35, 0
+  br i1 %.not23.i, label %41, label %36
 
-35:                                               ; preds = %34
-  %36 = lshr i64 %20, 8
-  %37 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %36
+36:                                               ; preds = %34
+  %37 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %35
   %38 = load i8, ptr %37, align 1, !tbaa !21
   %39 = zext i8 %38 to i32
   %40 = add nuw nsw i32 %39, 8
@@ -268,8 +268,8 @@ define internal range(i32 -1, 1) i32 @H5D__earray_idx_create(ptr noundef readonl
   %44 = zext i8 %43 to i32
   br label %H5VM_log2_gen.exit
 
-H5VM_log2_gen.exit:                               ; preds = %23, %29, %35, %41
-  %.0.i = phi i32 [ %28, %23 ], [ %33, %29 ], [ %40, %35 ], [ %44, %41 ]
+H5VM_log2_gen.exit:                               ; preds = %24, %29, %36, %41
+  %.0.i = phi i32 [ %28, %24 ], [ %33, %29 ], [ %40, %36 ], [ %44, %41 ]
   %45 = add nuw nsw i32 %.0.i, 8
   %46 = lshr i32 %45, 3
   %47 = tail call i32 @llvm.umin.i32(i32 %46, i32 7)
@@ -1717,16 +1717,16 @@ define internal noalias ptr @H5D__earray_crt_context(ptr noundef readonly captur
   %20 = load i32, ptr %19, align 8, !tbaa !43
   %21 = zext i32 %20 to i64
   %22 = lshr i64 %21, 16
-  %.not.i = icmp ult i32 %20, 65536
+  %.not.i = icmp eq i64 %22, 0
   br i1 %.not.i, label %35, label %23
 
 23:                                               ; preds = %15
-  %.not24.i = icmp ult i32 %20, 16777216
-  br i1 %.not24.i, label %30, label %24
+  %24 = lshr i64 %21, 24
+  %.not24.i = icmp eq i64 %24, 0
+  br i1 %.not24.i, label %30, label %25
 
-24:                                               ; preds = %23
-  %25 = lshr i64 %21, 24
-  %26 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %25
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %24
   %27 = load i8, ptr %26, align 1, !tbaa !21
   %28 = zext i8 %27 to i32
   %29 = add nuw nsw i32 %28, 24
@@ -1740,12 +1740,12 @@ define internal noalias ptr @H5D__earray_crt_context(ptr noundef readonly captur
   br label %H5VM_log2_gen.exit
 
 35:                                               ; preds = %15
-  %.not23.i = icmp samesign ult i32 %20, 256
-  br i1 %.not23.i, label %42, label %36
+  %36 = lshr i64 %21, 8
+  %.not23.i = icmp eq i64 %36, 0
+  br i1 %.not23.i, label %42, label %37
 
-36:                                               ; preds = %35
-  %37 = lshr i64 %21, 8
-  %38 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %37
+37:                                               ; preds = %35
+  %38 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %36
   %39 = load i8, ptr %38, align 1, !tbaa !21
   %40 = zext i8 %39 to i32
   %41 = add nuw nsw i32 %40, 8
@@ -1757,8 +1757,8 @@ define internal noalias ptr @H5D__earray_crt_context(ptr noundef readonly captur
   %45 = zext i8 %44 to i32
   br label %H5VM_log2_gen.exit
 
-H5VM_log2_gen.exit:                               ; preds = %24, %30, %36, %42
-  %.0.i = phi i32 [ %29, %24 ], [ %34, %30 ], [ %41, %36 ], [ %45, %42 ]
+H5VM_log2_gen.exit:                               ; preds = %25, %30, %37, %42
+  %.0.i = phi i32 [ %29, %25 ], [ %34, %30 ], [ %41, %37 ], [ %45, %42 ]
   %46 = add nuw nsw i32 %.0.i, 8
   %47 = lshr i32 %46, 3
   %48 = add nuw nsw i32 %47, 1

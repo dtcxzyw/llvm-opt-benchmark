@@ -485,12 +485,8 @@ define i32 @ff_rtmp_packet_read_internal(ptr noundef %0, ptr noundef %1, i32 nou
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %19
 
-thread-pre-split:                                 ; preds = %154
-  %.pr = load i8, ptr %8, align 1, !tbaa !9
-  br label %19
-
-19:                                               ; preds = %thread-pre-split, %6
-  %20 = phi i8 [ %.pr, %thread-pre-split ], [ %5, %6 ]
+19:                                               ; preds = %154, %6
+  %20 = load i8, ptr %8, align 1, !tbaa !9
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %21 = and i8 %20, 63
   %22 = zext nneg i8 %21 to i32
@@ -601,7 +597,7 @@ thread-pre-split:                                 ; preds = %154
   %90 = add nuw nsw i32 %.0139.i, 7
   %91 = load i8, ptr %7, align 16, !tbaa !9
   %92 = zext i8 %91 to i32
-  %93 = icmp ult i8 %20, 64
+  %93 = icmp eq i8 %56, 0
   br i1 %93, label %94, label %99
 
 94:                                               ; preds = %89
@@ -635,7 +631,7 @@ thread-pre-split:                                 ; preds = %154
 
 106:                                              ; preds = %103, %99
   %.0138.i = phi i32 [ %105, %103 ], [ %.0143.i, %99 ]
-  %.not159.i = icmp ult i8 %20, 64
+  %.not159.i = icmp eq i8 %56, 0
   br i1 %.not159.i, label %111, label %107
 
 107:                                              ; preds = %106
@@ -769,7 +765,7 @@ rtmp_packet_read_one_chunk.exit:                  ; preds = %144
 154:                                              ; preds = %rtmp_packet_read_one_chunk.exit.thread15, %rtmp_packet_read_one_chunk.exit
   %155 = call i32 @ffurl_read2(ptr noundef %0, ptr noundef nonnull %8, i32 noundef 1) #16
   %.not12 = icmp eq i32 %155, 1
-  br i1 %.not12, label %thread-pre-split, label %.loopexit
+  br i1 %.not12, label %19, label %.loopexit
 
 .loopexit:                                        ; preds = %rtmp_packet_read_one_chunk.exit, %154, %rtmp_packet_read_one_chunk.exit.thread
   %.1.ph = phi i32 [ %.0.i.ph, %rtmp_packet_read_one_chunk.exit.thread ], [ %153, %rtmp_packet_read_one_chunk.exit ], [ -5, %154 ]

@@ -2993,7 +2993,7 @@ define internal fastcc ptr @cuddBddLICBuildResult(ptr noundef %0, ptr noundef %1
   %58 = load i32, ptr %57, align 4, !tbaa !31
   %59 = add i32 %58, 1
   store i32 %59, ptr %57, align 4, !tbaa !31
-  %60 = icmp ult i32 %29, 4
+  %60 = icmp eq i32 %30, 0
   %61 = icmp ne i32 %31, 0
   %or.cond = and i1 %60, %61
   br i1 %or.cond, label %62, label %63
@@ -3003,7 +3003,7 @@ define internal fastcc ptr @cuddBddLICBuildResult(ptr noundef %0, ptr noundef %1
   br label %89
 
 63:                                               ; preds = %53
-  %64 = icmp ugt i32 %29, 3
+  %64 = icmp ne i32 %30, 0
   %65 = icmp eq i32 %31, 0
   %or.cond3 = and i1 %64, %65
   br i1 %or.cond3, label %66, label %67

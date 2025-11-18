@@ -1332,11 +1332,11 @@ define dso_local noundef zeroext i1 @_ZN5clang25isOpenMPTaskLoopDirectiveEN4llvm
   %6 = extractvalue { ptr, i64 } %4, 1
   %.idx4.i = shl nuw nsw i64 %6, 2
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx4.i
-  %.not.i = icmp ult i64 %6, 4
+  %8 = lshr i64 %6, 2
+  %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %3
-  %8 = lshr i64 %6, 2
   %9 = and i64 %.idx4.i, 9223372036854775792
   %scevgep.i.i.i.i = getelementptr i8, ptr %5, i64 %9
   br label %10
@@ -1379,11 +1379,10 @@ define dso_local noundef zeroext i1 @_ZN5clang25isOpenMPTaskLoopDirectiveEN4llvm
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %3
   %.pre-phi56.i.i.i.i = phi i64 [ %29, %._crit_edge.loopexit.i.i.i.i ], [ %6, %3 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %5, %3 ]
-  switch i64 %.pre-phi56.i.i.i.i, label %default.unreachable [
+  switch i64 %.pre-phi56.i.i.i.i, label %41 [
     i64 3, label %30
     i64 2, label %._crit_edge._crit_edge.i.i.i.i
     i64 1, label %._crit_edge._crit_edge52.i.i.i.i
-    i64 0, label %41
   ]
 
 30:                                               ; preds = %._crit_edge.i.i.i.i
@@ -1410,9 +1409,6 @@ define dso_local noundef zeroext i1 @_ZN5clang25isOpenMPTaskLoopDirectiveEN4llvm
   %39 = load i32, ptr %.2.i.i.i.i, align 4, !tbaa !3
   %40 = icmp eq i32 %39, 89
   br i1 %40, label %_ZN4llvm12is_containedINS_8ArrayRefINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit, label %41
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
-  unreachable
 
 41:                                               ; preds = %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge.i.i.i.i
   br label %_ZN4llvm12is_containedINS_8ArrayRefINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit
@@ -1454,11 +1450,11 @@ define dso_local noundef zeroext i1 @_ZN5clang25isOpenMPParallelDirectiveEN4llvm
   %5 = extractvalue { ptr, i64 } %3, 1
   %.idx4.i = shl nuw nsw i64 %5, 2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx4.i
-  %.not.i = icmp ult i64 %5, 4
+  %7 = lshr i64 %5, 2
+  %.not.i = icmp eq i64 %7, 0
   br i1 %.not.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %2
-  %7 = lshr i64 %5, 2
   %8 = and i64 %.idx4.i, 9223372036854775792
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %8
   br label %9
@@ -1501,11 +1497,10 @@ define dso_local noundef zeroext i1 @_ZN5clang25isOpenMPParallelDirectiveEN4llvm
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %2
   %.pre-phi56.i.i.i.i = phi i64 [ %28, %._crit_edge.loopexit.i.i.i.i ], [ %5, %2 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %4, %2 ]
-  switch i64 %.pre-phi56.i.i.i.i, label %default.unreachable [
+  switch i64 %.pre-phi56.i.i.i.i, label %40 [
     i64 3, label %29
     i64 2, label %._crit_edge._crit_edge.i.i.i.i
     i64 1, label %._crit_edge._crit_edge52.i.i.i.i
-    i64 0, label %40
   ]
 
 29:                                               ; preds = %._crit_edge.i.i.i.i
@@ -1532,9 +1527,6 @@ define dso_local noundef zeroext i1 @_ZN5clang25isOpenMPParallelDirectiveEN4llvm
   %38 = load i32, ptr %.2.i.i.i.i, align 4, !tbaa !3
   %39 = icmp eq i32 %38, 48
   br i1 %39, label %_ZN4llvm12is_containedINS_8ArrayRefINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit, label %40
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
-  unreachable
 
 40:                                               ; preds = %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge.i.i.i.i
   br label %_ZN4llvm12is_containedINS_8ArrayRefINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit
@@ -1572,11 +1564,11 @@ define dso_local noundef zeroext i1 @_ZN5clang32isOpenMPTargetExecutionDirective
   %6 = extractvalue { ptr, i64 } %4, 1
   %.idx4.i = shl nuw nsw i64 %6, 2
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx4.i
-  %.not.i = icmp ult i64 %6, 4
+  %8 = lshr i64 %6, 2
+  %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %3
-  %8 = lshr i64 %6, 2
   %9 = and i64 %.idx4.i, 9223372036854775792
   %scevgep.i.i.i.i = getelementptr i8, ptr %5, i64 %9
   br label %10
@@ -1619,11 +1611,10 @@ define dso_local noundef zeroext i1 @_ZN5clang32isOpenMPTargetExecutionDirective
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %3
   %.pre-phi56.i.i.i.i = phi i64 [ %29, %._crit_edge.loopexit.i.i.i.i ], [ %6, %3 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %5, %3 ]
-  switch i64 %.pre-phi56.i.i.i.i, label %default.unreachable [
+  switch i64 %.pre-phi56.i.i.i.i, label %41 [
     i64 3, label %30
     i64 2, label %._crit_edge._crit_edge.i.i.i.i
     i64 1, label %._crit_edge._crit_edge52.i.i.i.i
-    i64 0, label %41
   ]
 
 30:                                               ; preds = %._crit_edge.i.i.i.i
@@ -1650,9 +1641,6 @@ define dso_local noundef zeroext i1 @_ZN5clang32isOpenMPTargetExecutionDirective
   %39 = load i32, ptr %.2.i.i.i.i, align 4, !tbaa !3
   %40 = icmp eq i32 %39, 69
   br i1 %40, label %_ZN4llvm12is_containedINS_8ArrayRefINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit, label %41
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
-  unreachable
 
 41:                                               ; preds = %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge.i.i.i.i
   br label %_ZN4llvm12is_containedINS_8ArrayRefINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit
@@ -1721,11 +1709,11 @@ define dso_local noundef zeroext i1 @_ZN5clang22isOpenMPTeamsDirectiveEN4llvm3om
   %6 = extractvalue { ptr, i64 } %4, 1
   %.idx4.i = shl nuw nsw i64 %6, 2
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx4.i
-  %.not.i = icmp ult i64 %6, 4
+  %8 = lshr i64 %6, 2
+  %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %3
-  %8 = lshr i64 %6, 2
   %9 = and i64 %.idx4.i, 9223372036854775792
   %scevgep.i.i.i.i = getelementptr i8, ptr %5, i64 %9
   br label %10
@@ -1768,11 +1756,10 @@ define dso_local noundef zeroext i1 @_ZN5clang22isOpenMPTeamsDirectiveEN4llvm3om
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %3
   %.pre-phi56.i.i.i.i = phi i64 [ %29, %._crit_edge.loopexit.i.i.i.i ], [ %6, %3 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %5, %3 ]
-  switch i64 %.pre-phi56.i.i.i.i, label %default.unreachable [
+  switch i64 %.pre-phi56.i.i.i.i, label %41 [
     i64 3, label %30
     i64 2, label %._crit_edge._crit_edge.i.i.i.i
     i64 1, label %._crit_edge._crit_edge52.i.i.i.i
-    i64 0, label %41
   ]
 
 30:                                               ; preds = %._crit_edge.i.i.i.i
@@ -1799,9 +1786,6 @@ define dso_local noundef zeroext i1 @_ZN5clang22isOpenMPTeamsDirectiveEN4llvm3om
   %39 = load i32, ptr %.2.i.i.i.i, align 4, !tbaa !3
   %40 = icmp eq i32 %39, 93
   br i1 %40, label %_ZN4llvm12is_containedINS_8ArrayRefINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit, label %41
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
-  unreachable
 
 41:                                               ; preds = %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge.i.i.i.i
   br label %_ZN4llvm12is_containedINS_8ArrayRefINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit
@@ -1844,11 +1828,11 @@ define dso_local noundef zeroext i1 @_ZN5clang21isOpenMPSimdDirectiveEN4llvm3omp
   %8 = extractvalue { ptr, i64 } %6, 1
   %.idx4.i = shl nuw nsw i64 %8, 2
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx4.i
-  %.not.i = icmp ult i64 %8, 4
+  %10 = lshr i64 %8, 2
+  %.not.i = icmp eq i64 %10, 0
   br i1 %.not.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %5
-  %10 = lshr i64 %8, 2
   %11 = and i64 %.idx4.i, 9223372036854775792
   %scevgep.i.i.i.i = getelementptr i8, ptr %7, i64 %11
   br label %12
@@ -1891,11 +1875,10 @@ define dso_local noundef zeroext i1 @_ZN5clang21isOpenMPSimdDirectiveEN4llvm3omp
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %5
   %.pre-phi56.i.i.i.i = phi i64 [ %31, %._crit_edge.loopexit.i.i.i.i ], [ %8, %5 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %7, %5 ]
-  switch i64 %.pre-phi56.i.i.i.i, label %default.unreachable [
+  switch i64 %.pre-phi56.i.i.i.i, label %43 [
     i64 3, label %32
     i64 2, label %._crit_edge._crit_edge.i.i.i.i
     i64 1, label %._crit_edge._crit_edge52.i.i.i.i
-    i64 0, label %43
   ]
 
 32:                                               ; preds = %._crit_edge.i.i.i.i
@@ -1922,9 +1905,6 @@ define dso_local noundef zeroext i1 @_ZN5clang21isOpenMPSimdDirectiveEN4llvm3omp
   %41 = load i32, ptr %.2.i.i.i.i, align 4, !tbaa !3
   %42 = icmp eq i32 %41, 67
   br i1 %42, label %_ZN4llvm12is_containedINS_8ArrayRefINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit, label %43
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
-  unreachable
 
 43:                                               ; preds = %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge.i.i.i.i
   br label %_ZN4llvm12is_containedINS_8ArrayRefINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit
@@ -1984,11 +1964,11 @@ define dso_local noundef zeroext i1 @_ZN5clang27isOpenMPDistributeDirectiveEN4ll
   %6 = extractvalue { ptr, i64 } %4, 1
   %.idx4.i = shl nuw nsw i64 %6, 2
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx4.i
-  %.not.i = icmp ult i64 %6, 4
+  %8 = lshr i64 %6, 2
+  %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %3
-  %8 = lshr i64 %6, 2
   %9 = and i64 %.idx4.i, 9223372036854775792
   %scevgep.i.i.i.i = getelementptr i8, ptr %5, i64 %9
   br label %10
@@ -2031,11 +2011,10 @@ define dso_local noundef zeroext i1 @_ZN5clang27isOpenMPDistributeDirectiveEN4ll
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %3
   %.pre-phi56.i.i.i.i = phi i64 [ %29, %._crit_edge.loopexit.i.i.i.i ], [ %6, %3 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %5, %3 ]
-  switch i64 %.pre-phi56.i.i.i.i, label %default.unreachable [
+  switch i64 %.pre-phi56.i.i.i.i, label %41 [
     i64 3, label %30
     i64 2, label %._crit_edge._crit_edge.i.i.i.i
     i64 1, label %._crit_edge._crit_edge52.i.i.i.i
-    i64 0, label %41
   ]
 
 30:                                               ; preds = %._crit_edge.i.i.i.i
@@ -2062,9 +2041,6 @@ define dso_local noundef zeroext i1 @_ZN5clang27isOpenMPDistributeDirectiveEN4ll
   %39 = load i32, ptr %.2.i.i.i.i, align 4, !tbaa !3
   %40 = icmp eq i32 %39, 18
   br i1 %40, label %_ZN4llvm12is_containedINS_8ArrayRefINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit, label %41
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
-  unreachable
 
 41:                                               ; preds = %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge.i.i.i.i
   br label %_ZN4llvm12is_containedINS_8ArrayRefINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit
@@ -2148,11 +2124,11 @@ define dso_local noundef zeroext i1 @_ZN5clang24isOpenMPTaskingDirectiveEN4llvm3
   %5 = extractvalue { ptr, i64 } %3, 1
   %.idx4.i.i = shl nuw nsw i64 %5, 2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx4.i.i
-  %.not.i.i = icmp ult i64 %5, 4
+  %7 = lshr i64 %5, 2
+  %.not.i.i = icmp eq i64 %7, 0
   br i1 %.not.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %2
-  %7 = lshr i64 %5, 2
   %8 = and i64 %.idx4.i.i, 9223372036854775792
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %4, i64 %8
   br label %9
@@ -2195,11 +2171,10 @@ define dso_local noundef zeroext i1 @_ZN5clang24isOpenMPTaskingDirectiveEN4llvm3
 ._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %2
   %.pre-phi56.i.i.i.i.i = phi i64 [ %28, %._crit_edge.loopexit.i.i.i.i.i ], [ %5, %2 ]
   %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %4, %2 ]
-  switch i64 %.pre-phi56.i.i.i.i.i, label %default.unreachable [
+  switch i64 %.pre-phi56.i.i.i.i.i, label %40 [
     i64 3, label %29
     i64 2, label %._crit_edge._crit_edge.i.i.i.i.i
     i64 1, label %._crit_edge._crit_edge52.i.i.i.i.i
-    i64 0, label %40
   ]
 
 29:                                               ; preds = %._crit_edge.i.i.i.i.i
@@ -2226,9 +2201,6 @@ define dso_local noundef zeroext i1 @_ZN5clang24isOpenMPTaskingDirectiveEN4llvm3
   %38 = load i32, ptr %.2.i.i.i.i.i, align 4, !tbaa !3
   %39 = icmp eq i32 %38, 89
   br i1 %39, label %_ZN4llvm12is_containedINS_8ArrayRefINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.i, label %40
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i
-  unreachable
 
 40:                                               ; preds = %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge.i.i.i.i.i
   br label %_ZN4llvm12is_containedINS_8ArrayRefINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.i
@@ -2403,8 +2375,8 @@ define dso_local void @_ZN5clang23getOpenMPCaptureRegionsERN4llvm15SmallVectorIm
   %5 = extractvalue { ptr, i64 } %3, 1
   %.idx = shl nuw nsw i64 %5, 2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
-  %.not31 = icmp eq i64 %5, 0
-  br i1 %.not31, label %._crit_edge.thread, label %.lr.ph
+  %.not29 = icmp eq i64 %5, 0
+  br i1 %.not29, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2420,9 +2392,9 @@ define dso_local void @_ZN5clang23getOpenMPCaptureRegionsERN4llvm15SmallVectorIm
   br i1 %or.cond, label %167, label %._crit_edge.thread
 
 12:                                               ; preds = %.lr.ph, %"_ZZN5clang23getOpenMPCaptureRegionsERN4llvm15SmallVectorImplINS0_3omp9DirectiveEEES3_ENK3$_0clES3_.exit"
-  %.033 = phi i1 [ false, %.lr.ph ], [ %165, %"_ZZN5clang23getOpenMPCaptureRegionsERN4llvm15SmallVectorImplINS0_3omp9DirectiveEEES3_ENK3$_0clES3_.exit" ]
-  %.01332 = phi ptr [ %4, %.lr.ph ], [ %166, %"_ZZN5clang23getOpenMPCaptureRegionsERN4llvm15SmallVectorImplINS0_3omp9DirectiveEEES3_ENK3$_0clES3_.exit" ]
-  %13 = load i32, ptr %.01332, align 4, !tbaa !3
+  %.031 = phi i1 [ false, %.lr.ph ], [ %165, %"_ZZN5clang23getOpenMPCaptureRegionsERN4llvm15SmallVectorImplINS0_3omp9DirectiveEEES3_ENK3$_0clES3_.exit" ]
+  %.01330 = phi ptr [ %4, %.lr.ph ], [ %166, %"_ZZN5clang23getOpenMPCaptureRegionsERN4llvm15SmallVectorImplINS0_3omp9DirectiveEEES3_ENK3$_0clES3_.exit" ]
+  %13 = load i32, ptr %.01330, align 4, !tbaa !3
   switch i32 %13, label %158 [
     i32 45, label %14
     i32 46, label %26
@@ -2647,11 +2619,11 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit23.i
   %112 = zext i32 %109 to i64
   %.idx4.i.i = shl nuw nsw i64 %112, 2
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 %.idx4.i.i
-  %.not.i24.i = icmp ult i32 %109, 4
+  %114 = lshr i64 %112, 2
+  %.not.i24.i = icmp eq i64 %114, 0
   br i1 %.not.i24.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %110
-  %114 = lshr i64 %112, 2
   %115 = and i64 %.idx4.i.i, 17179869168
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %111, i64 %115
   br label %116
@@ -2673,13 +2645,13 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit23.i
   %124 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
   %125 = load i32, ptr %124, align 4, !tbaa !3
   %126 = icmp eq i32 %125, 48
-  br i1 %126, label %_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit64, label %127
+  br i1 %126, label %_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit61, label %127
 
 127:                                              ; preds = %123
   %128 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 12
   %129 = load i32, ptr %128, align 4, !tbaa !3
   %130 = icmp eq i32 %129, 48
-  br i1 %130, label %_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit66, label %131
+  br i1 %130, label %_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit63, label %131
 
 131:                                              ; preds = %127
   %132 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
@@ -2694,11 +2666,10 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit23.i
 ._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %110
   %.pre-phi56.i.i.i.i.i = phi i32 [ %135, %._crit_edge.loopexit.i.i.i.i.i ], [ %109, %110 ]
   %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %111, %110 ]
-  switch i32 %.pre-phi56.i.i.i.i.i, label %default.unreachable [
+  switch i32 %.pre-phi56.i.i.i.i.i, label %_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.thread.i [
     i32 3, label %136
     i32 2, label %._crit_edge._crit_edge.i.i.i.i.i
     i32 1, label %._crit_edge._crit_edge52.i.i.i.i.i
-    i32 0, label %_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.thread.i
   ]
 
 136:                                              ; preds = %._crit_edge.i.i.i.i.i
@@ -2726,23 +2697,20 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit23.i
   %146 = icmp eq i32 %145, 48
   br i1 %146, label %_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.i, label %_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.thread.i
 
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i
-  unreachable
-
 _ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit: ; preds = %119
   %147 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 4
   br label %_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.i
 
-_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit64: ; preds = %123
+_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit61: ; preds = %123
   %148 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
   br label %_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.i
 
-_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit66: ; preds = %127
+_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit63: ; preds = %127
   %149 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 12
   br label %_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.i
 
-_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.i: ; preds = %116, %_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit64, %_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit66, %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %136
-  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %136 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %147, %_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit ], [ %148, %_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit64 ], [ %149, %_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit66 ], [ %.02946.i.i.i.i.i, %116 ]
+_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.i: ; preds = %116, %_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit61, %_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit63, %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %136
+  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %136 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %147, %_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit ], [ %148, %_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit61 ], [ %149, %_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit63 ], [ %.02946.i.i.i.i.i, %116 ]
   %.not.i14 = icmp eq ptr %.028.i.i.i.i.i, %113
   br i1 %.not.i14, label %_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.thread.i, label %"_ZZN5clang23getOpenMPCaptureRegionsERN4llvm15SmallVectorImplINS0_3omp9DirectiveEEES3_ENK3$_0clES3_.exit"
 
@@ -2756,11 +2724,11 @@ _ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %9, i64 noundef %152, i64 noundef 4) #6
   %.pre.i16 = load i32, ptr %7, align 8, !tbaa !9
   %.pre = load ptr, ptr %0, align 8, !tbaa !15
-  %.pre41 = zext i32 %.pre.i16 to i64
+  %.pre38 = zext i32 %.pre.i16 to i64
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit17
 
 _ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit17: ; preds = %_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.thread.i, %151
-  %.pre-phi = phi i64 [ %112, %_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.thread.i ], [ %.pre41, %151 ]
+  %.pre-phi = phi i64 [ %112, %_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.thread.i ], [ %.pre38, %151 ]
   %153 = phi ptr [ %111, %_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.thread.i ], [ %.pre, %151 ]
   %154 = getelementptr inbounds nuw i32, ptr %153, i64 %.pre-phi
   store i32 48, ptr %154, align 1
@@ -2783,8 +2751,8 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit17: 
 
 "_ZZN5clang23getOpenMPCaptureRegionsERN4llvm15SmallVectorImplINS0_3omp9DirectiveEEES3_ENK3$_0clES3_.exit": ; preds = %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit.i, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit5.i, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit8.i, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit14.i, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit17.i, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit20.i, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit23.i, %108, %_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.i, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit17, %157
   %.0.i = phi i1 [ false, %157 ], [ true, %_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.i ], [ true, %108 ], [ true, %12 ], [ true, %12 ], [ true, %12 ], [ true, %12 ], [ true, %12 ], [ true, %12 ], [ true, %12 ], [ true, %12 ], [ true, %12 ], [ true, %12 ], [ false, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit17 ], [ false, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit23.i ], [ false, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit20.i ], [ false, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit17.i ], [ false, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit14.i ], [ false, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit8.i ], [ false, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit5.i ], [ false, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit.i ]
-  %165 = or i1 %.033, %.0.i
-  %166 = getelementptr inbounds nuw i8, ptr %.01332, i64 4
+  %165 = or i1 %.031, %.0.i
+  %166 = getelementptr inbounds nuw i8, ptr %.01330, i64 4
   %.not = icmp eq ptr %166, %6
   br i1 %.not, label %._crit_edge, label %12
 

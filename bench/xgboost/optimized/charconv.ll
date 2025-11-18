@@ -46,7 +46,7 @@ define noundef i32 @_ZN7xgboost6detail16ToCharsFloatImplEfPc(float noundef %0, p
   %11 = or i32 %9, %7
   %12 = icmp eq i32 %11, 0
   %or.cond = or i1 %10, %12
-  br i1 %or.cond, label %13, label %25
+  br i1 %or.cond, label %13, label %26
 
 13:                                               ; preds = %2
   %14 = icmp slt i32 %6, 0
@@ -65,44 +65,44 @@ define noundef i32 @_ZN7xgboost6detail16ToCharsFloatImplEfPc(float noundef %0, p
   br label %18
 
 18:                                               ; preds = %17, %16
-  %.not9.i = icmp eq i32 %9, 0
+  %19 = icmp eq i32 %9, 0
   %.lobit = lshr i32 %6, 31
-  %19 = zext nneg i32 %.lobit to i64
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %19
-  br i1 %.not9.i, label %23, label %21
+  %20 = zext nneg i32 %.lobit to i64
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 %20
+  br i1 %19, label %24, label %22
 
-21:                                               ; preds = %18
-  store i64 8751735898823355977, ptr %20, align 1
-  %22 = select i1 %14, i32 9, i32 8
+22:                                               ; preds = %18
+  store i64 8751735898823355977, ptr %21, align 1
+  %23 = select i1 %14, i32 9, i32 8
   br label %_ZN7xgboost6detail10RyuPrinter17PrintSpecialFloatEbNS0_18UnsignedFloatBase2EPc.exit
 
-23:                                               ; preds = %18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %20, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
-  %24 = select i1 %14, i32 4, i32 3
+24:                                               ; preds = %18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %21, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
+  %25 = select i1 %14, i32 4, i32 3
   br label %_ZN7xgboost6detail10RyuPrinter17PrintSpecialFloatEbNS0_18UnsignedFloatBase2EPc.exit
 
-25:                                               ; preds = %2
-  %26 = icmp eq i32 %9, 0
-  %27 = add nsw i32 %9, -152
-  %28 = or disjoint i32 %7, 8388608
-  %.0.i7 = select i1 %26, i32 %7, i32 %28
-  %narrow = select i1 %26, i32 -151, i32 %27
+26:                                               ; preds = %2
+  %27 = icmp eq i32 %9, 0
+  %28 = add nsw i32 %9, -152
+  %29 = or disjoint i32 %7, 8388608
+  %.0.i7 = select i1 %27, i32 %7, i32 %29
+  %narrow = select i1 %27, i32 -151, i32 %28
   %.sroa.012.0.i = zext i32 %narrow to i64
-  %29 = and i32 %.0.i7, 1
-  %30 = icmp eq i32 %29, 0
-  %31 = shl nuw nsw i32 %.0.i7, 2
-  %.sroa.6.8.insert.ext.i = zext nneg i32 %31 to i64
-  %32 = or disjoint i32 %31, 2
-  %.sroa.6.12.insert.ext.i = zext nneg i32 %32 to i64
+  %30 = and i32 %.0.i7, 1
+  %31 = icmp eq i32 %30, 0
+  %32 = shl nuw nsw i32 %.0.i7, 2
+  %.sroa.6.8.insert.ext.i = zext nneg i32 %32 to i64
+  %33 = or disjoint i32 %32, 2
+  %.sroa.6.12.insert.ext.i = zext nneg i32 %33 to i64
   %.sroa.6.12.insert.shift.i = shl nuw nsw i64 %.sroa.6.12.insert.ext.i, 32
   %.sroa.6.12.insert.insert.i = or disjoint i64 %.sroa.6.12.insert.shift.i, %.sroa.6.8.insert.ext.i
-  %33 = icmp ne i32 %7, 0
-  %34 = icmp samesign ult i32 %9, 2
-  %35 = or i1 %33, %34
-  %36 = zext i1 %35 to i32
-  %37 = xor i32 %36, -1
-  %38 = add nsw i32 %31, %37
-  %.sroa.012.4.insert.ext.i = zext i32 %38 to i64
+  %34 = icmp ne i32 %7, 0
+  %35 = icmp samesign ult i32 %9, 2
+  %36 = or i1 %34, %35
+  %37 = zext i1 %36 to i32
+  %38 = xor i32 %37, -1
+  %39 = add nsw i32 %32, %38
+  %.sroa.012.4.insert.ext.i = zext i32 %39 to i64
   %.sroa.012.4.insert.shift.i = shl nuw i64 %.sroa.012.4.insert.ext.i, 32
   %.sroa.012.4.insert.insert.i = or disjoint i64 %.sroa.012.4.insert.shift.i, %.sroa.012.0.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -110,24 +110,24 @@ define noundef i32 @_ZN7xgboost6detail16ToCharsFloatImplEfPc(float noundef %0, p
   store i8 0, ptr %4, align 1, !tbaa !6
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1, !tbaa !6
-  %39 = call noundef zeroext i8 @_ZN7xgboost6detail17PowerBaseComputer13ToDecimalBaseEbjNS0_15MantissaIntevalEPS2_PbS4_(i1 noundef zeroext %30, i32 noundef %36, i64 %.sroa.012.4.insert.insert.i, i64 %.sroa.6.12.insert.insert.i, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
-  %40 = load i8, ptr %4, align 1, !tbaa !6, !range !8, !noundef !9
-  %41 = trunc nuw i8 %40 to i1
-  %42 = load i8, ptr %5, align 1, !tbaa !6, !range !8, !noundef !9
-  %43 = trunc nuw i8 %42 to i1
+  %40 = call noundef zeroext i8 @_ZN7xgboost6detail17PowerBaseComputer13ToDecimalBaseEbjNS0_15MantissaIntevalEPS2_PbS4_(i1 noundef zeroext %31, i32 noundef %37, i64 %.sroa.012.4.insert.insert.i, i64 %.sroa.6.12.insert.insert.i, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
+  %41 = load i8, ptr %4, align 1, !tbaa !6, !range !8, !noundef !9
+  %42 = trunc nuw i8 %41 to i1
+  %43 = load i8, ptr %5, align 1, !tbaa !6, !range !8, !noundef !9
+  %44 = trunc nuw i8 %43 to i1
   %.sroa.0.0.copyload.i = load i64, ptr %3, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %44 = call i64 @_ZN7xgboost6detail17PowerBaseComputer22ShortestRepresentationEbbhbNS0_15MantissaIntevalE(i1 noundef zeroext %41, i1 noundef zeroext %43, i8 noundef zeroext %39, i1 noundef zeroext %30, i64 %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i) #11
+  %45 = call i64 @_ZN7xgboost6detail17PowerBaseComputer22ShortestRepresentationEbbhbNS0_15MantissaIntevalE(i1 noundef zeroext %42, i1 noundef zeroext %44, i8 noundef zeroext %40, i1 noundef zeroext %31, i64 %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %45 = icmp slt i32 %6, 0
-  %46 = call noundef i32 @_ZN7xgboost6detail10RyuPrinter16PrintBase10FloatENS0_19UnsignedFloatBase10EbPc(i64 %44, i1 noundef zeroext %45, ptr noundef %1) #11
+  %46 = icmp slt i32 %6, 0
+  %47 = call noundef i32 @_ZN7xgboost6detail10RyuPrinter16PrintBase10FloatENS0_19UnsignedFloatBase10EbPc(i64 %45, i1 noundef zeroext %46, ptr noundef %1) #11
   br label %_ZN7xgboost6detail10RyuPrinter17PrintSpecialFloatEbNS0_18UnsignedFloatBase2EPc.exit
 
-_ZN7xgboost6detail10RyuPrinter17PrintSpecialFloatEbNS0_18UnsignedFloatBase2EPc.exit: ; preds = %23, %21, %15, %25
-  %.0 = phi i32 [ %46, %25 ], [ 3, %15 ], [ %22, %21 ], [ %24, %23 ]
+_ZN7xgboost6detail10RyuPrinter17PrintSpecialFloatEbNS0_18UnsignedFloatBase2EPc.exit: ; preds = %24, %22, %15, %26
+  %.0 = phi i32 [ %47, %26 ], [ 3, %15 ], [ %23, %22 ], [ %25, %24 ]
   ret i32 %.0
 }
 
@@ -904,7 +904,7 @@ define linkonce_odr noundef zeroext i8 @_ZN7xgboost6detail17PowerBaseComputer13T
   %45 = trunc i64 %44 to i32
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %45, ptr %46, align 4, !tbaa !25
-  %.not81 = icmp ult i64 %11, 562949953421312
+  %.not81 = icmp eq i64 %12, 0
   br i1 %.not81, label %.thread, label %47
 
 47:                                               ; preds = %9
@@ -1054,7 +1054,7 @@ _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit96: ; preds = %.lr
   %135 = trunc i64 %134 to i32
   %136 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %135, ptr %136, align 4, !tbaa !23
-  %.not = icmp ult i64 %99, 281474976710656
+  %.not = icmp eq i64 %100, 0
   br i1 %.not, label %.thread99, label %137
 
 137:                                              ; preds = %96
@@ -1089,7 +1089,7 @@ _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit96: ; preds = %.lr
 
 161:                                              ; preds = %141, %137
   %.2 = phi i8 [ %160, %141 ], [ 0, %137 ]
-  %162 = icmp ult i64 %99, 562949953421312
+  %162 = icmp eq i64 %100, 1
   br i1 %162, label %.thread99, label %168
 
 .thread99:                                        ; preds = %96, %161

@@ -1523,13 +1523,13 @@ define dso_local void @_ZN5clang6interp7InitMapC2Ej(ptr noundef nonnull writeonl
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext i32 %1 to i64
   %5 = add nuw nsw i64 %4, 63
+  %6 = lshr i64 %5, 6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !114)
-  %6 = lshr i64 %5, 3
-  %7 = and i64 %6, 1073741816
+  %7 = shl nuw nsw i64 %6, 3
   %8 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #23, !noalias !114
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %8, i8 0, i64 %7, i1 false), !noalias !114
   store ptr %8, ptr %3, align 8, !tbaa !117, !alias.scope !114
-  %9 = icmp eq i32 %1, 0
+  %9 = icmp eq i64 %6, 0
   br i1 %9, label %_ZSt6fill_nIPmmiET_S1_T0_RKT1_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %2

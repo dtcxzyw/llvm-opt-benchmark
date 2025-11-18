@@ -400,7 +400,7 @@ update_sample_stats.exit.loopexit.us:             ; preds = %.lr.ph.i.i.us
   br label %update_sample_stats.exit.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %.not21.i.i = icmp samesign ult i32 %58, 2
+  %.not21.i.i = icmp eq i32 %66, 0
   br i1 %.not21.i.i, label %update_sample_stats.exit.us330, label %.lr.ph.split.split
 
 update_sample_stats.exit.us330:                   ; preds = %.lr.ph.split, %update_sample_stats.exit.us330

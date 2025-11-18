@@ -1677,7 +1677,7 @@ Cba_NtkPrintDistribSortOne.exit:                  ; preds = %912, %Vec_WrdRevers
   %931 = trunc nuw nsw i64 %indvars.iv613 to i32
   %932 = urem i32 %931, 6
   %933 = icmp eq i32 %932, 5
-  %934 = icmp ugt i64 %924, 4398046511103
+  %934 = icmp ne i64 %925, 0
   %or.cond4 = select i1 %933, i1 %934, i1 false
   br i1 %or.cond4, label %938, label %935
 
@@ -1715,7 +1715,7 @@ Cba_NtkPrintDistribSortOne.exit:                  ; preds = %912, %Vec_WrdRevers
   br label %955
 
 955:                                              ; preds = %950, %940
-  %.not343 = icmp ult i64 %924, 4398046511104
+  %.not343 = icmp eq i64 %925, 0
   br i1 %.not343, label %961, label %956
 
 956:                                              ; preds = %955
@@ -1951,26 +1951,26 @@ Cba_FonRange.exit.i:                              ; preds = %._crit_edge.i.i.i.i
   %46 = sext i32 %6 to i64
   %47 = getelementptr inbounds i32, ptr %.val.i.i.i.i, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !33
-  %.not.i.i = icmp ult i32 %48, 2
-  br i1 %.not.i.i, label %Cba_FonLeft.exit, label %49
+  %49 = ashr i32 %48, 1
+  %.not.i.i = icmp eq i32 %49, 0
+  br i1 %.not.i.i, label %Cba_FonLeft.exit, label %50
 
-49:                                               ; preds = %Cba_FonRange.exit.i
-  %50 = load ptr, ptr %0, align 8, !tbaa !36
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 40
-  %52 = load ptr, ptr %51, align 8, !tbaa !48
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !52
-  %55 = shl nsw i32 %48, 1
-  %56 = and i32 %55, -4
-  %57 = getelementptr i8, ptr %54, i64 8
+50:                                               ; preds = %Cba_FonRange.exit.i
+  %51 = load ptr, ptr %0, align 8, !tbaa !36
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 40
+  %53 = load ptr, ptr %52, align 8, !tbaa !48
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %55 = load ptr, ptr %54, align 8, !tbaa !52
+  %56 = shl nsw i32 %49, 2
+  %57 = getelementptr i8, ptr %55, i64 8
   %.val.i.i.i2.i = load ptr, ptr %57, align 8, !tbaa !30
   %58 = sext i32 %56 to i64
   %59 = getelementptr inbounds i32, ptr %.val.i.i.i2.i, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !55
   br label %Cba_FonLeft.exit
 
-Cba_FonLeft.exit:                                 ; preds = %2, %Cba_FonRange.exit.i, %49
-  %61 = phi i32 [ %60, %49 ], [ 0, %Cba_FonRange.exit.i ], [ 0, %2 ]
+Cba_FonLeft.exit:                                 ; preds = %2, %Cba_FonRange.exit.i, %50
+  %61 = phi i32 [ %60, %50 ], [ 0, %Cba_FonRange.exit.i ], [ 0, %2 ]
   ret i32 %61
 }
 
@@ -2077,18 +2077,18 @@ Cba_FonRange.exit.i:                              ; preds = %._crit_edge.i.i.i.i
   %46 = sext i32 %6 to i64
   %47 = getelementptr inbounds i32, ptr %.val.i.i.i.i, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !33
-  %.not.i.i = icmp ult i32 %48, 2
-  br i1 %.not.i.i, label %Cba_FonRight.exit, label %49
+  %49 = ashr i32 %48, 1
+  %.not.i.i = icmp eq i32 %49, 0
+  br i1 %.not.i.i, label %Cba_FonRight.exit, label %50
 
-49:                                               ; preds = %Cba_FonRange.exit.i
-  %50 = load ptr, ptr %0, align 8, !tbaa !36
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 40
-  %52 = load ptr, ptr %51, align 8, !tbaa !48
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !52
-  %55 = shl nsw i32 %48, 1
-  %56 = and i32 %55, -4
-  %57 = getelementptr i8, ptr %54, i64 8
+50:                                               ; preds = %Cba_FonRange.exit.i
+  %51 = load ptr, ptr %0, align 8, !tbaa !36
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 40
+  %53 = load ptr, ptr %52, align 8, !tbaa !48
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %55 = load ptr, ptr %54, align 8, !tbaa !52
+  %56 = shl nsw i32 %49, 2
+  %57 = getelementptr i8, ptr %55, i64 8
   %.val.i.i.i2.i = load ptr, ptr %57, align 8, !tbaa !30
   %58 = sext i32 %56 to i64
   %59 = getelementptr inbounds i32, ptr %.val.i.i.i2.i, i64 %58
@@ -2096,8 +2096,8 @@ Cba_FonRange.exit.i:                              ; preds = %._crit_edge.i.i.i.i
   %61 = load i32, ptr %60, align 4, !tbaa !57
   br label %Cba_FonRight.exit
 
-Cba_FonRight.exit:                                ; preds = %2, %Cba_FonRange.exit.i, %49
-  %62 = phi i32 [ %61, %49 ], [ 0, %Cba_FonRange.exit.i ], [ 0, %2 ]
+Cba_FonRight.exit:                                ; preds = %2, %Cba_FonRange.exit.i, %50
+  %62 = phi i32 [ %61, %50 ], [ 0, %Cba_FonRange.exit.i ], [ 0, %2 ]
   ret i32 %62
 }
 
@@ -17138,18 +17138,18 @@ Cba_FonRange.exit:                                ; preds = %12, %._crit_edge.i.
   %49 = zext nneg i32 %1 to i64
   %50 = getelementptr inbounds nuw i32, ptr %.val.i.i.i, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !33
-  %.not.i.i = icmp ult i32 %51, 2
-  br i1 %.not.i.i, label %Cba_NtkRangeSize.exit, label %52
+  %52 = ashr i32 %51, 1
+  %.not.i.i = icmp eq i32 %52, 0
+  br i1 %.not.i.i, label %Cba_NtkRangeSize.exit, label %53
 
-52:                                               ; preds = %Cba_FonRange.exit
-  %53 = load ptr, ptr %0, align 8, !tbaa !36
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 40
-  %55 = load ptr, ptr %54, align 8, !tbaa !48
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %57 = load ptr, ptr %56, align 8, !tbaa !52
-  %58 = shl nsw i32 %51, 1
-  %59 = and i32 %58, -4
-  %60 = getelementptr i8, ptr %57, i64 8
+53:                                               ; preds = %Cba_FonRange.exit
+  %54 = load ptr, ptr %0, align 8, !tbaa !36
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 40
+  %56 = load ptr, ptr %55, align 8, !tbaa !48
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %58 = load ptr, ptr %57, align 8, !tbaa !52
+  %59 = shl nsw i32 %52, 2
+  %60 = getelementptr i8, ptr %58, i64 8
   %.val.i.i.i.i = load ptr, ptr %60, align 8, !tbaa !30
   %61 = sext i32 %59 to i64
   %62 = getelementptr inbounds i32, ptr %.val.i.i.i.i, i64 %61
@@ -17161,8 +17161,8 @@ Cba_FonRange.exit:                                ; preds = %12, %._crit_edge.i.
   %68 = add nuw nsw i32 %67, 1
   br label %Cba_NtkRangeSize.exit
 
-Cba_NtkRangeSize.exit:                            ; preds = %9, %52, %Cba_FonRange.exit, %3
-  %69 = phi i32 [ %8, %3 ], [ %68, %52 ], [ 1, %Cba_FonRange.exit ], [ 1, %9 ]
+Cba_NtkRangeSize.exit:                            ; preds = %9, %53, %Cba_FonRange.exit, %3
+  %69 = phi i32 [ %8, %3 ], [ %68, %53 ], [ 1, %Cba_FonRange.exit ], [ 1, %9 ]
   ret i32 %69
 }
 

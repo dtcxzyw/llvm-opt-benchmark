@@ -134816,7 +134816,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
 59:                                               ; preds = %54
   %60 = getelementptr inbounds %"struct.boost::geometry::detail::overlay::turn_with_point", ptr %0, i64 %.019.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false), !tbaa.struct !2414
-  %.not12.i.i.i = icmp ult i64 %.0920.in.i.i.i.i.i, 2
+  %.not12.i.i.i = icmp eq i64 %.0920.i.i1011.i.i.i, 0
   br i1 %.not12.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointINS3_5model5pointIfLm2ENS3_2cs9cartesianEEEEESt6vectorISC_SaISC_EEEENS0_5__ops15_Iter_comp_iterIZNS5_12get_clustersISE_INS5_9turn_infoISB_NS3_13segment_ratioIfEENS5_14turn_operationISB_SN_EESt5arrayISP_Lm2EEEESaISS_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlSW_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKS15_RKS17_E_EEEvS15_S15_S15_S18_.exit.i.i, label %54, !llvm.loop !2416
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointINS3_5model5pointIfLm2ENS3_2cs9cartesianEEEEESt6vectorISC_SaISC_EEEENS0_5__ops15_Iter_comp_iterIZNS5_12get_clustersISE_INS5_9turn_infoISB_NS3_13segment_ratioIfEENS5_14turn_operationISB_SN_EESt5arrayISP_Lm2EEEESaISS_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlSW_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKS15_RKS17_E_EEEvS15_S15_S15_S18_.exit.i.i: ; preds = %59, %54, %53
@@ -135302,7 +135302,7 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overla
 84:                                               ; preds = %79
   %85 = getelementptr inbounds %"struct.boost::geometry::detail::overlay::turn_with_point", ptr %.fr47, i64 %.019.i.i.i17.us
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull align 8 dereferenceable(16) %80, i64 16, i1 false), !tbaa.struct !2414
-  %.not12.i.us = icmp ult i64 %.0920.in.i.i.i18.us, 2
+  %.not12.i.us = icmp eq i64 %.0920.i.i1011.i.us, 0
   br i1 %.not12.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointINS3_5model5pointIfLm2ENS3_2cs9cartesianEEEEESt6vectorISC_SaISC_EEEENS0_5__ops15_Iter_comp_iterIZNS5_12get_clustersISE_INS5_9turn_infoISB_NS3_13segment_ratioIfEENS5_14turn_operationISB_SN_EESt5arrayISP_Lm2EEEESaISS_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlSW_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKS15_RKS17_E_EEEvS15_S15_S15_S18_.exit.us, label %79, !llvm.loop !2416
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointINS3_5model5pointIfLm2ENS3_2cs9cartesianEEEEESt6vectorISC_SaISC_EEEENS0_5__ops15_Iter_comp_iterIZNS5_12get_clustersISE_INS5_9turn_infoISB_NS3_13segment_ratioIfEENS5_14turn_operationISB_SN_EESt5arrayISP_Lm2EEEESaISS_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlSW_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKS15_RKS17_E_EEEvS15_S15_S15_S18_.exit.us: ; preds = %79, %84, %78
@@ -138073,7 +138073,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7over
 96:                                               ; preds = %.lr.ph.i.i.i.i.i
   %97 = getelementptr inbounds %"struct.boost::geometry::detail::overlay::turn_with_point.1118", ptr %0, i64 %.018.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %97, ptr noundef nonnull align 8 dereferenceable(24) %92, i64 24, i1 false), !tbaa.struct !2551
-  %.not12.i.i.i = icmp ult i64 %.0919.in.i.i.i.i.i, 2
+  %.not12.i.i.i = icmp eq i64 %.0919.i.i1011.i.i.i, 0
   br i1 %.not12.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointINS3_5model5pointIdLm2ENS3_2cs9cartesianEEEEESt6vectorISC_SaISC_EEEENS0_5__ops15_Iter_comp_iterIZNS5_12get_clustersISE_INS5_9turn_infoISB_NS3_13segment_ratioIdEENS5_14turn_operationISB_SN_EESt5arrayISP_Lm2EEEESaISS_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlSW_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKS15_RKS17_E_EEEvS15_S15_S15_S18_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !2553
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointINS3_5model5pointIdLm2ENS3_2cs9cartesianEEEEESt6vectorISC_SaISC_EEEENS0_5__ops15_Iter_comp_iterIZNS5_12get_clustersISE_INS5_9turn_infoISB_NS3_13segment_ratioIdEENS5_14turn_operationISB_SN_EESt5arrayISP_Lm2EEEESaISS_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlSW_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKS15_RKS17_E_EEEvS15_S15_S15_S18_.exit.i.i: ; preds = %96, %.lr.ph.i.i.i.i.i, %91
@@ -140371,7 +140371,7 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iterato
 43:                                               ; preds = %.lr.ph.i.i.i
   %44 = getelementptr inbounds %"struct.boost::geometry::detail::overlay::turn_with_point.1156", ptr %0, i64 %.018.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %44, ptr noundef nonnull align 16 dereferenceable(48) %39, i64 48, i1 false), !tbaa.struct !2646
-  %.not13.i = icmp ult i64 %.0919.in.i.i.i, 2
+  %.not13.i = icmp eq i64 %.0919.i.i1112.i, 0
   br i1 %.not13.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointINS3_5model5pointIeLm2ENS3_2cs9cartesianEEEEESt6vectorISC_SaISC_EEEENS0_5__ops15_Iter_comp_iterIZNS5_12get_clustersISE_INS5_9turn_infoISB_NS3_13segment_ratioIeEENS5_14turn_operationISB_SN_EESt5arrayISP_Lm2EEEESaISS_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlSW_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKS15_RKS17_E_EEEvS15_S15_S15_S18_.exit, label %.lr.ph.i.i.i, !llvm.loop !2656
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointINS3_5model5pointIeLm2ENS3_2cs9cartesianEEEEESt6vectorISC_SaISC_EEEENS0_5__ops15_Iter_comp_iterIZNS5_12get_clustersISE_INS5_9turn_infoISB_NS3_13segment_ratioIeEENS5_14turn_operationISB_SN_EESt5arrayISP_Lm2EEEESaISS_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlSW_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKS15_RKS17_E_EEEvS15_S15_S15_S18_.exit: ; preds = %.lr.ph.i.i.i, %43, %38

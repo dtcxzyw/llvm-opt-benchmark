@@ -25901,11 +25901,11 @@ define hidden noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_da
   %75 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.val.i, i1 true)
   %76 = trunc nuw nsw i64 %75 to i32
   %77 = lshr i32 %76, 3
-  %.not88 = icmp ugt i64 %.val.i, 72057594037927935
+  %.not88 = icmp eq i32 %77, 0
   br i1 %.not88, label %92, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a58d1a8701d08d8E.exit107.preheader"
 
 78:                                               ; preds = %67
-  %.not87 = icmp samesign ult i64 %68, 8
+  %.not87 = icmp eq i32 %70, 0
   br i1 %.not87, label %74, label %79
 
 79:                                               ; preds = %78

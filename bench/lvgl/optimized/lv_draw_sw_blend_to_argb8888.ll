@@ -2565,7 +2565,7 @@ lv_color_8_32_mix.exit167.us.i:                   ; preds = %.sink.split.i165.us
   %888 = mul nuw i16 %887, %769
   %889 = lshr i16 %888, 8
   %890 = zext nneg i16 %889 to i32
-  %891 = icmp ult i16 %888, 256
+  %891 = icmp eq i16 %889, 0
   br i1 %891, label %lv_color_8_32_mix.exit170.us.i, label %892
 
 892:                                              ; preds = %881
@@ -3021,7 +3021,7 @@ lv_color_8_32_mix.exit.us.i:                      ; preds = %.sink.split.i.us.i1
   %1122 = zext i8 %1121 to i32
   %1123 = mul nuw nsw i32 %1122, %1062
   %1124 = lshr i32 %1123, 8
-  %1125 = icmp samesign ult i32 %1123, 256
+  %1125 = icmp eq i32 %1124, 0
   br i1 %1125, label %lv_color_8_32_mix.exit168.us.i, label %1126
 
 1126:                                             ; preds = %1116
@@ -3123,7 +3123,7 @@ lv_color_8_32_mix.exit168.us.i:                   ; preds = %.sink.split.i166.us
   %1176 = mul nuw i16 %1175, %1172
   %1177 = lshr i16 %1176, 8
   %1178 = zext nneg i16 %1177 to i32
-  %1179 = icmp ult i16 %1176, 256
+  %1179 = icmp eq i16 %1177, 0
   br i1 %1179, label %lv_color_8_32_mix.exit171.us.i, label %1180
 
 1180:                                             ; preds = %1166
@@ -3224,7 +3224,7 @@ lv_color_8_32_mix.exit171.us.i:                   ; preds = %.sink.split.i169.us
   %1231 = mul nuw nsw i32 %1227, %1062
   %1232 = mul nuw nsw i32 %1231, %1230
   %1233 = lshr i32 %1232, 16
-  %1234 = icmp samesign ult i32 %1232, 65536
+  %1234 = icmp eq i32 %1233, 0
   br i1 %1234, label %lv_color_8_32_mix.exit174.us.i, label %1235
 
 1235:                                             ; preds = %1221
@@ -3837,7 +3837,7 @@ lv_color_8_32_mix.exit169.us.i:                   ; preds = %.sink.split.i167.us
   %1553 = mul nuw i16 %1552, %1410
   %1554 = lshr i16 %1553, 8
   %1555 = zext nneg i16 %1554 to i32
-  %1556 = icmp ult i16 %1553, 256
+  %1556 = icmp eq i16 %1554, 0
   br i1 %1556, label %lv_color_8_32_mix.exit172.us.i, label %1557
 
 1557:                                             ; preds = %1539

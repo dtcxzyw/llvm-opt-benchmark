@@ -1377,8 +1377,8 @@ define hidden void @"_ZN100_$LT$arrow_array..types..GenericBinaryType$LT$O$GT$$u
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !7
-  %.not = icmp ult i64 %9, 4
   %10 = lshr i64 %9, 2
+  %.not = icmp eq i64 %10, 0
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i32, ptr %12, i64 %10
@@ -117711,6 +117711,7 @@ define void @"_ZN14deltalake_core6kernel11expressions7scalars71_$LT$impl$u20$del
   br label %125
 
 156:                                              ; preds = %117
+  %.sroa.6.0.extract.shift.i = lshr i64 %118, 32
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26820)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26823)
@@ -117731,11 +117732,10 @@ define void @"_ZN14deltalake_core6kernel11expressions7scalars71_$LT$impl$u20$del
   %.sroa.4.0..sroa_idx.i375 = getelementptr inbounds nuw i8, ptr %22, i64 33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4.0..sroa_idx.i375, ptr noundef nonnull readonly align 1 dereferenceable(3) %1, i64 3, i1 false), !alias.scope !26827, !noalias !26829
   store i64 33, ptr %22, align 8, !alias.scope !26820, !noalias !26828
-  %.not = icmp ult i64 %118, 4294967296
+  %.not = icmp eq i64 %.sroa.6.0.extract.shift.i, 0
   br i1 %.not, label %174, label %163
 
 163:                                              ; preds = %156
-  %.sroa.6.0.extract.shift.i = lshr i64 %118, 32
   %.sroa.6.0.extract.trunc.i = trunc nuw i64 %.sroa.6.0.extract.shift.i to i32
   call fastcc void @"_ZN4core3ptr57drop_in_place$LT$deltalake_core..kernel..error..Error$GT$17he099e7a03c202f52E"(ptr noalias noundef align 8 dereferenceable(80) %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)

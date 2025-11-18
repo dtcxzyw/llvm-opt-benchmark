@@ -446,7 +446,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %incdec.ptr = getelementptr inbounds i8, ptr %CurPtr.027, i64 -1
   store i8 %conv3.i, ptr %incdec.ptr, align 1
   %div2710 = lshr i64 %N.addr.028, 4
-  %tobool20.not = icmp ult i64 %N.addr.028, 16
+  %tobool20.not = icmp eq i64 %div2710, 0
   br i1 %tobool20.not, label %while.end, label %while.body, !llvm.loop !10
 
 while.end:                                        ; preds = %while.body, %if.end

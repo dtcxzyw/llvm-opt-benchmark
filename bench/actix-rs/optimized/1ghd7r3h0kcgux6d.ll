@@ -1265,7 +1265,7 @@ define hidden void @"_ZN6brotli3enc10prior_eval22PriorEval$LT$Alloc$GT$16update_
   %57 = getelementptr inbounds { [16 x i16] }, ptr %.val2400, i64 %54
   %58 = getelementptr inbounds nuw i16, ptr %57, i64 %49
   %59 = load i16, ptr %58, align 2, !noalias !280, !noundef !12
-  %60 = icmp ult i8 %5, 16
+  %60 = icmp eq i8 %47, 0
   br i1 %60, label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit, label %61
 
 61:                                               ; preds = %56
@@ -5212,7 +5212,7 @@ define hidden void @"_ZN6brotli3enc10prior_eval22PriorEval$LT$Alloc$GT$3new17h66
   br i1 %61, label %62, label %.critedge39
 
 62:                                               ; preds = %.critedge35
-  %63 = icmp ult i64 %49, 281474976710656
+  %63 = icmp eq i64 %.sroa.18.0.extract.shift, 0
   br i1 %63, label %.critedge37, label %.critedge39
 
 .critedge37:                                      ; preds = %62
@@ -5259,7 +5259,7 @@ define hidden void @"_ZN6brotli3enc10prior_eval22PriorEval$LT$Alloc$GT$3new17h66
   br i1 %80, label %81, label %.critedge47
 
 81:                                               ; preds = %.critedge43
-  %82 = icmp ult i64 %50, 281474976710656
+  %82 = icmp eq i64 %.sroa.18166.0.extract.shift, 0
   br i1 %82, label %.critedge45, label %.critedge47
 
 .critedge45:                                      ; preds = %81

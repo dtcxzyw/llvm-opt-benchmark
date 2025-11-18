@@ -202,7 +202,7 @@ define hidden void @FLAC__precompute_partition_info_sums_intrin_avx2(ptr noundef
   %.097178 = phi i32 [ %94, %.loopexit ], [ %10, %.loopexit126 ]
   %.093181 = add nsw i32 %.093181.in, -1
   %94 = lshr i32 %.097178, 1
-  %.not = icmp ult i32 %.097178, 2
+  %.not = icmp eq i32 %94, 0
   br i1 %.not, label %.loopexit, label %.lr.ph173
 
 .lr.ph173:                                        ; preds = %.lr.ph183, %.lr.ph173

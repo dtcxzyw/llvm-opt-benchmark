@@ -95,14 +95,14 @@ define void @_ZN17grpc_event_engine12experimental22HandleToStringInternalB5cxx11
   br i1 %exitcond.not.i.i.i.i, label %_ZN4absl12lts_2024072216numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i, label %13, !llvm.loop !12
 
 _ZN4absl12lts_2024072216numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i: ; preds = %13
-  %.not.i.i.i.not = icmp ugt i64 %1, 1152921504606846975
-  br i1 %.not.i.i.i.not, label %_ZN4absl12lts_2024072216strings_internal22ExtractStringificationINS0_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS1_13StringifySinkERKT_.exit.i, label %23
-
-23:                                               ; preds = %_ZN4absl12lts_2024072216numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i
-  %24 = or i64 %1, 1
-  %25 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %24, i1 true)
-  %.neg8.lhs.trunc.i.i.i.i = trunc nuw nsw i64 %25 to i32
+  %23 = or i64 %1, 1
+  %24 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %23, i1 true)
+  %.neg8.lhs.trunc.i.i.i.i = trunc nuw nsw i64 %24 to i32
   %.neg8910.i.i.i.i = lshr i32 %.neg8.lhs.trunc.i.i.i.i, 2
+  %.not.i.i.i.not = icmp eq i32 %.neg8910.i.i.i.i, 0
+  br i1 %.not.i.i.i.not, label %_ZN4absl12lts_2024072216strings_internal22ExtractStringificationINS0_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS1_13StringifySinkERKT_.exit.i, label %25
+
+25:                                               ; preds = %_ZN4absl12lts_2024072216numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i
   %narrow.i.i.i.i = sub nuw nsw i32 16, %.neg8910.i.i.i.i
   %26 = zext nneg i32 %narrow.i.i.i.i to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 48, i64 16, i1 false)
@@ -112,7 +112,7 @@ _ZN4absl12lts_2024072216numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %29, i8 48, i64 16, i1 false)
   br label %_ZN4absl12lts_2024072216strings_internal22ExtractStringificationINS0_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS1_13StringifySinkERKT_.exit.i
 
-_ZN4absl12lts_2024072216strings_internal22ExtractStringificationINS0_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS1_13StringifySinkERKT_.exit.i: ; preds = %23, %_ZN4absl12lts_2024072216numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i
+_ZN4absl12lts_2024072216strings_internal22ExtractStringificationINS0_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS1_13StringifySinkERKT_.exit.i: ; preds = %25, %_ZN4absl12lts_2024072216numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i
   invoke void @_ZN4absl12lts_2024072216strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, ptr nonnull %12)
           to label %30 unwind label %75
 
@@ -148,14 +148,14 @@ _ZN4absl12lts_2024072216strings_internal22ExtractStringificationINS0_3HexEEESt17
   br i1 %exitcond.not.i.i.i.i16, label %_ZN4absl12lts_2024072216numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i17, label %37, !llvm.loop !12
 
 _ZN4absl12lts_2024072216numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i17: ; preds = %37
-  %.not.i.i.i21.not = icmp ugt i64 %2, 1152921504606846975
-  br i1 %.not.i.i.i21.not, label %_ZN4absl12lts_2024072216strings_internal22ExtractStringificationINS0_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS1_13StringifySinkERKT_.exit.i22, label %47
-
-47:                                               ; preds = %_ZN4absl12lts_2024072216numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i17
-  %48 = or i64 %2, 1
-  %49 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %48, i1 true)
-  %.neg8.lhs.trunc.i.i.i.i18 = trunc nuw nsw i64 %49 to i32
+  %47 = or i64 %2, 1
+  %48 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %47, i1 true)
+  %.neg8.lhs.trunc.i.i.i.i18 = trunc nuw nsw i64 %48 to i32
   %.neg8910.i.i.i.i19 = lshr i32 %.neg8.lhs.trunc.i.i.i.i18, 2
+  %.not.i.i.i21.not = icmp eq i32 %.neg8910.i.i.i.i19, 0
+  br i1 %.not.i.i.i21.not, label %_ZN4absl12lts_2024072216strings_internal22ExtractStringificationINS0_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS1_13StringifySinkERKT_.exit.i22, label %49
+
+49:                                               ; preds = %_ZN4absl12lts_2024072216numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i17
   %narrow.i.i.i.i20 = sub nuw nsw i32 16, %.neg8910.i.i.i.i19
   %50 = zext nneg i32 %narrow.i.i.i.i20 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 48, i64 16, i1 false)
@@ -165,7 +165,7 @@ _ZN4absl12lts_2024072216numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %53, i8 48, i64 16, i1 false)
   br label %_ZN4absl12lts_2024072216strings_internal22ExtractStringificationINS0_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS1_13StringifySinkERKT_.exit.i22
 
-_ZN4absl12lts_2024072216strings_internal22ExtractStringificationINS0_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS1_13StringifySinkERKT_.exit.i22: ; preds = %47, %_ZN4absl12lts_2024072216numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i17
+_ZN4absl12lts_2024072216strings_internal22ExtractStringificationINS0_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS1_13StringifySinkERKT_.exit.i22: ; preds = %49, %_ZN4absl12lts_2024072216numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i17
   invoke void @_ZN4absl12lts_2024072216strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, ptr nonnull %36)
           to label %54 unwind label %77
 

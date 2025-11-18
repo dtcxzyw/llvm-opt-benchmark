@@ -522,7 +522,7 @@ _ZN4llvm9BitVectorC2Ejb.exit.loopexit:            ; preds = %3
   br label %_ZN4llvm9BitVectorC2Ejb.exit.sink.split
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i:        ; preds = %3
-  %.not.i.i = icmp samesign ult i32 %12, 64
+  %.not.i.i = icmp eq i32 %13, 0
   br i1 %.not.i.i, label %_ZN4llvm9BitVectorC2Ejb.exit, label %_ZN4llvm9BitVectorC2Ejb.exit.sink.split
 
 _ZN4llvm9BitVectorC2Ejb.exit.sink.split:          ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit
@@ -550,10 +550,10 @@ _ZN4llvm9BitVectorC2Ejb.exit:                     ; preds = %_ZN4llvm9BitVectorC
 .lr.ph:                                           ; preds = %24
   %28 = load ptr, ptr %0, align 8
   %29 = load i16, ptr %27, align 2, !tbaa !210
-  %.not1749 = icmp eq i16 %29, 0
-  br i1 %.not1749, label %.critedge, label %.lr.ph51
+  %.not1748 = icmp eq i16 %29, 0
+  br i1 %.not1748, label %.critedge, label %.lr.ph50
 
-.critedge:                                        ; preds = %.lr.ph51, %.lr.ph, %24
+.critedge:                                        ; preds = %.lr.ph50, %.lr.ph, %24
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %31 = load ptr, ptr %30, align 8, !tbaa !212
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -570,9 +570,9 @@ _ZN4llvm9BitVectorC2Ejb.exit:                     ; preds = %_ZN4llvm9BitVectorC
   %.not3237 = icmp eq ptr %35, null
   br label %51
 
-.lr.ph51:                                         ; preds = %.lr.ph, %.lr.ph51
-  %39 = phi i16 [ %50, %.lr.ph51 ], [ %29, %.lr.ph ]
-  %.0163550 = phi ptr [ %49, %.lr.ph51 ], [ %27, %.lr.ph ]
+.lr.ph50:                                         ; preds = %.lr.ph, %.lr.ph50
+  %39 = phi i16 [ %50, %.lr.ph50 ], [ %29, %.lr.ph ]
+  %.0163549 = phi ptr [ %49, %.lr.ph50 ], [ %27, %.lr.ph ]
   %40 = zext i16 %39 to i32
   %41 = and i32 %40, 63
   %42 = zext nneg i32 %41 to i64
@@ -583,10 +583,10 @@ _ZN4llvm9BitVectorC2Ejb.exit:                     ; preds = %_ZN4llvm9BitVectorC
   %47 = load i64, ptr %46, align 8, !tbaa !34
   %48 = or i64 %47, %43
   store i64 %48, ptr %46, align 8, !tbaa !34
-  %49 = getelementptr inbounds nuw i8, ptr %.0163550, i64 2
+  %49 = getelementptr inbounds nuw i8, ptr %.0163549, i64 2
   %50 = load i16, ptr %49, align 2, !tbaa !210
   %.not17 = icmp eq i16 %50, 0
-  br i1 %.not17, label %.critedge, label %.lr.ph51
+  br i1 %.not17, label %.critedge, label %.lr.ph50
 
 51:                                               ; preds = %.lr.ph42, %._crit_edge
   %.sroa.028.041 = phi ptr [ %31, %.lr.ph42 ], [ %58, %._crit_edge ]

@@ -1165,7 +1165,7 @@ define internal fastcc range(i32 -12, 1) i32 @nprobe(ptr noundef %0, ptr noundef
 
 46:                                               ; preds = %44
   %47 = tail call i32 @av_des_init(ptr noundef nonnull %45, ptr noundef nonnull %3, i32 noundef 192, i32 noundef 1) #10
-  %.not5154 = icmp ult i32 %36, 16
+  %.not5154 = icmp eq i32 %37, 0
   br i1 %.not5154, label %.sink.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %46

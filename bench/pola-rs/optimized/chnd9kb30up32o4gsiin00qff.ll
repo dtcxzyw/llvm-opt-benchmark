@@ -10191,7 +10191,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u2
   %.sroa.01.0.extract.trunc.i.i.i.i.i = trunc i64 %.val.i to i32
   %.sroa.4.0.extract.shift.i.i.i.i.i = lshr i64 %.val.i, 32
   %.sroa.4.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %.sroa.4.0.extract.shift.i.i.i.i.i to i32
-  %27 = icmp ult i64 %.val.i, 4294967296
+  %27 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i.i, 0
   br i1 %27, label %63, label %28
 
 28:                                               ; preds = %23
@@ -11002,14 +11002,14 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u2
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !2927
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !2927
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false), !noalias !2919
-  %27 = icmp ult i64 %.val.i, 4294967296
+  %.sroa.4.0.extract.shift.i.i.i.i.i = lshr i64 %.val.i, 32
+  %27 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i.i, 0
   br i1 %27, label %"_ZN4core3ops8function5impls71_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$F$GT$8call_mut17hfbea74d345a1156cE.exit.i.i.i", label %28
 
 28:                                               ; preds = %24
   %29 = load ptr, ptr %17, align 8, !alias.scope !2932, !noalias !2933, !nonnull !8, !align !165, !noundef !8
   %.val.i.i.i = load ptr, ptr %29, align 8, !noalias !2934, !nonnull !8, !align !165, !noundef !8
   %.val.i.i.i.i = load ptr, ptr %.val.i.i.i, align 8, !noalias !2934, !nonnull !8, !noundef !8
-  %.sroa.4.0.extract.shift.i.i.i.i.i = lshr i64 %.val.i, 32
   %.sroa.4.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %.sroa.4.0.extract.shift.i.i.i.i.i to i32
   %.sroa.01.0.extract.trunc.i.i.i.i.i = trunc i64 %.val.i to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !2927
@@ -21486,7 +21486,7 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils14chunk_iterator18BitChunks$L
 9:                                                ; preds = %5
   %10 = lshr i64 %3, 3
   %11 = icmp ugt i64 %10, %2
-  br i1 %11, label %31, label %12, !prof !5000
+  br i1 %11, label %32, label %12, !prof !5000
 
 12:                                               ; preds = %9
   %13 = sub nuw i64 %2, %10
@@ -21525,62 +21525,63 @@ define hidden void @"_ZN12polars_arrow6bitmap5utils14chunk_iterator18BitChunks$L
 
 _ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hf5905b7ab789e49bE.exit: ; preds = %25
   %29 = sub nuw nsw i64 %.sroa.0.0, %23
-  %30 = icmp ult i64 %4, 64
-  %.sroa.07.0.idx = select i1 %30, i64 0, i64 %23
+  %30 = lshr i64 %4, 6
+  %31 = icmp eq i64 %30, 0
+  %.sroa.07.0.idx = select i1 %31, i64 0, i64 %23
   %.sroa.07.0 = getelementptr inbounds nuw i8, ptr %14, i64 %.sroa.07.0.idx
-  %.sroa.611.0 = select i1 %30, i64 %13, i64 %29
+  %.sroa.611.0 = select i1 %31, i64 %13, i64 %29
   %.not21 = icmp eq i64 %.sroa.611.0, 0
-  br i1 %.not21, label %33, label %32
+  br i1 %.not21, label %34, label %33
 
-31:                                               ; preds = %9
+32:                                               ; preds = %9
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17hedf750467f84874aE(i64 noundef %10, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.39d456154ba4f1b97cc153c88f9c70ba.54) #32
   unreachable
 
-32:                                               ; preds = %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hf5905b7ab789e49bE.exit
+33:                                               ; preds = %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hf5905b7ab789e49bE.exit
   %.sroa.07.0.val = load i8, ptr %.sroa.07.0, align 1, !noundef !8
   %.sroa.0.0.insert.ext.i = zext i8 %.sroa.07.0.val to i64
-  br label %33
+  br label %34
 
-33:                                               ; preds = %32, %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hf5905b7ab789e49bE.exit
-  %.sroa.015.0 = phi i64 [ %.sroa.0.0.insert.ext.i, %32 ], [ 0, %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hf5905b7ab789e49bE.exit ]
-  br i1 %30, label %36, label %"_ZN12polars_arrow6bitmap5utils14chunk_iterator18BitChunks$LT$T$GT$3new28_$u7b$$u7b$closure$u7d$$u7d$17h8d3adcc6b90aea69E.exit"
+34:                                               ; preds = %33, %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hf5905b7ab789e49bE.exit
+  %.sroa.015.0 = phi i64 [ %.sroa.0.0.insert.ext.i, %33 ], [ 0, %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hf5905b7ab789e49bE.exit ]
+  %35 = icmp ult i64 %4, 64
+  br i1 %35, label %38, label %"_ZN12polars_arrow6bitmap5utils14chunk_iterator18BitChunks$LT$T$GT$3new28_$u7b$$u7b$closure$u7d$$u7d$17h8d3adcc6b90aea69E.exit"
 
-"_ZN12polars_arrow6bitmap5utils14chunk_iterator18BitChunks$LT$T$GT$3new28_$u7b$$u7b$closure$u7d$$u7d$17h8d3adcc6b90aea69E.exit": ; preds = %33
-  %34 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %35 = add nsw i64 %23, -8
+"_ZN12polars_arrow6bitmap5utils14chunk_iterator18BitChunks$LT$T$GT$3new28_$u7b$$u7b$closure$u7d$$u7d$17h8d3adcc6b90aea69E.exit": ; preds = %34
+  %36 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %37 = add nsw i64 %23, -8
   %.sroa.02.0.copyload.i.i = load i64, ptr %14, align 1, !alias.scope !5512, !noalias !5517
-  br label %36
+  br label %38
 
-36:                                               ; preds = %33, %"_ZN12polars_arrow6bitmap5utils14chunk_iterator18BitChunks$LT$T$GT$3new28_$u7b$$u7b$closure$u7d$$u7d$17h8d3adcc6b90aea69E.exit"
-  %.sroa.0.03037 = phi ptr [ %34, %"_ZN12polars_arrow6bitmap5utils14chunk_iterator18BitChunks$LT$T$GT$3new28_$u7b$$u7b$closure$u7d$$u7d$17h8d3adcc6b90aea69E.exit" ], [ %14, %33 ]
-  %.sroa.6.035 = phi i64 [ %35, %"_ZN12polars_arrow6bitmap5utils14chunk_iterator18BitChunks$LT$T$GT$3new28_$u7b$$u7b$closure$u7d$$u7d$17h8d3adcc6b90aea69E.exit" ], [ %23, %33 ]
-  %.sroa.016.0 = phi i64 [ %.sroa.02.0.copyload.i.i, %"_ZN12polars_arrow6bitmap5utils14chunk_iterator18BitChunks$LT$T$GT$3new28_$u7b$$u7b$closure$u7d$$u7d$17h8d3adcc6b90aea69E.exit" ], [ 0, %33 ]
-  %37 = lshr i64 %4, 6
-  %38 = and i64 %16, 7
-  %39 = getelementptr inbounds nuw i8, ptr %14, i64 %23
+38:                                               ; preds = %34, %"_ZN12polars_arrow6bitmap5utils14chunk_iterator18BitChunks$LT$T$GT$3new28_$u7b$$u7b$closure$u7d$$u7d$17h8d3adcc6b90aea69E.exit"
+  %.sroa.0.03037 = phi ptr [ %36, %"_ZN12polars_arrow6bitmap5utils14chunk_iterator18BitChunks$LT$T$GT$3new28_$u7b$$u7b$closure$u7d$$u7d$17h8d3adcc6b90aea69E.exit" ], [ %14, %34 ]
+  %.sroa.6.035 = phi i64 [ %37, %"_ZN12polars_arrow6bitmap5utils14chunk_iterator18BitChunks$LT$T$GT$3new28_$u7b$$u7b$closure$u7d$$u7d$17h8d3adcc6b90aea69E.exit" ], [ %23, %34 ]
+  %.sroa.016.0 = phi i64 [ %.sroa.02.0.copyload.i.i, %"_ZN12polars_arrow6bitmap5utils14chunk_iterator18BitChunks$LT$T$GT$3new28_$u7b$$u7b$closure$u7d$$u7d$17h8d3adcc6b90aea69E.exit" ], [ 0, %34 ]
+  %39 = and i64 %16, 7
+  %40 = getelementptr inbounds nuw i8, ptr %14, i64 %23
   store ptr %.sroa.0.03037, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.6.035, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %39, ptr %.sroa.5.0..sroa_idx, align 8
+  store ptr %40, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.629.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %38, ptr %.sroa.629.0..sroa_idx, align 8
+  store i64 %39, ptr %.sroa.629.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 8, ptr %.sroa.7.0..sroa_idx, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %.sroa.016.0, ptr %40, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %.sroa.07.0, ptr %41, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %.sroa.611.0, ptr %42, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 %.sroa.015.0, ptr %43, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %37, ptr %44, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i64 %15, ptr %45, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 %4, ptr %46, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %.sroa.016.0, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %.sroa.07.0, ptr %42, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %.sroa.611.0, ptr %43, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i64 %.sroa.015.0, ptr %44, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 %30, ptr %45, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i64 %15, ptr %46, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i64 %4, ptr %47, align 8
   ret void
 }
 

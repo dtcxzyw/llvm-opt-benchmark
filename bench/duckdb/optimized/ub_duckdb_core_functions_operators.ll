@@ -2506,7 +2506,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds
 137:                                              ; preds = %129
   %138 = add i64 %45, 63
   %139 = lshr i64 %138, 6
-  %.not107.i.i.i.i = icmp ult i64 %138, 64
+  %.not107.i.i.i.i = icmp eq i64 %139, 0
   br i1 %.not107.i.i.i.i, label %"_ZN6duckdb14BinaryExecutor7ExecuteINS_8string_tES2_S2_ZNS_L19BitwiseANDOperationERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0EEvS8_S8_S8_mT2_.exit", label %.lr.ph104.i.i.i.i
 
 .lr.ph104.i.i.i.i:                                ; preds = %137
@@ -2818,7 +2818,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i54.i.i: ; pre
 249:                                              ; preds = %240
   %250 = add i64 %45, 63
   %251 = lshr i64 %250, 6
-  %.not107.i.i57.i.i = icmp ult i64 %250, 64
+  %.not107.i.i57.i.i = icmp eq i64 %251, 0
   br i1 %.not107.i.i57.i.i, label %"_ZN6duckdb14BinaryExecutor7ExecuteINS_8string_tES2_S2_ZNS_L19BitwiseANDOperationERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0EEvS8_S8_S8_mT2_.exit", label %.lr.ph104.i.i58.i.i
 
 .lr.ph104.i.i58.i.i:                              ; preds = %249
@@ -3111,7 +3111,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i111.i.i: ; pr
 356:                                              ; preds = %347
   %357 = add i64 %45, 63
   %358 = lshr i64 %357, 6
-  %.not116.i.i.i.i = icmp ult i64 %357, 64
+  %.not116.i.i.i.i = icmp eq i64 %358, 0
   br i1 %.not116.i.i.i.i, label %"_ZN6duckdb14BinaryExecutor7ExecuteINS_8string_tES2_S2_ZNS_L19BitwiseANDOperationERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0EEvS8_S8_S8_mT2_.exit", label %.lr.ph113.i.i.i.i
 
 .lr.ph113.i.i.i.i:                                ; preds = %356
@@ -5136,7 +5136,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds
 137:                                              ; preds = %129
   %138 = add i64 %45, 63
   %139 = lshr i64 %138, 6
-  %.not107.i.i.i.i = icmp ult i64 %138, 64
+  %.not107.i.i.i.i = icmp eq i64 %139, 0
   br i1 %.not107.i.i.i.i, label %"_ZN6duckdb14BinaryExecutor7ExecuteINS_8string_tES2_S2_ZNS_L18BitwiseOROperationERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0EEvS8_S8_S8_mT2_.exit", label %.lr.ph104.i.i.i.i
 
 .lr.ph104.i.i.i.i:                                ; preds = %137
@@ -5448,7 +5448,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i54.i.i: ; pre
 249:                                              ; preds = %240
   %250 = add i64 %45, 63
   %251 = lshr i64 %250, 6
-  %.not107.i.i57.i.i = icmp ult i64 %250, 64
+  %.not107.i.i57.i.i = icmp eq i64 %251, 0
   br i1 %.not107.i.i57.i.i, label %"_ZN6duckdb14BinaryExecutor7ExecuteINS_8string_tES2_S2_ZNS_L18BitwiseOROperationERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0EEvS8_S8_S8_mT2_.exit", label %.lr.ph104.i.i58.i.i
 
 .lr.ph104.i.i58.i.i:                              ; preds = %249
@@ -5741,7 +5741,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i111.i.i: ; pr
 356:                                              ; preds = %347
   %357 = add i64 %45, 63
   %358 = lshr i64 %357, 6
-  %.not116.i.i.i.i = icmp ult i64 %357, 64
+  %.not116.i.i.i.i = icmp eq i64 %358, 0
   br i1 %.not116.i.i.i.i, label %"_ZN6duckdb14BinaryExecutor7ExecuteINS_8string_tES2_S2_ZNS_L18BitwiseOROperationERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0EEvS8_S8_S8_mT2_.exit", label %.lr.ph113.i.i.i.i
 
 .lr.ph113.i.i.i.i:                                ; preds = %356
@@ -7718,7 +7718,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds
 137:                                              ; preds = %129
   %138 = add i64 %45, 63
   %139 = lshr i64 %138, 6
-  %.not107.i.i.i.i = icmp ult i64 %138, 64
+  %.not107.i.i.i.i = icmp eq i64 %139, 0
   br i1 %.not107.i.i.i.i, label %"_ZN6duckdb14BinaryExecutor7ExecuteINS_8string_tES2_S2_ZNS_L19BitwiseXOROperationERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0EEvS8_S8_S8_mT2_.exit", label %.lr.ph104.i.i.i.i
 
 .lr.ph104.i.i.i.i:                                ; preds = %137
@@ -8030,7 +8030,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i54.i.i: ; pre
 249:                                              ; preds = %240
   %250 = add i64 %45, 63
   %251 = lshr i64 %250, 6
-  %.not107.i.i57.i.i = icmp ult i64 %250, 64
+  %.not107.i.i57.i.i = icmp eq i64 %251, 0
   br i1 %.not107.i.i57.i.i, label %"_ZN6duckdb14BinaryExecutor7ExecuteINS_8string_tES2_S2_ZNS_L19BitwiseXOROperationERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0EEvS8_S8_S8_mT2_.exit", label %.lr.ph104.i.i58.i.i
 
 .lr.ph104.i.i58.i.i:                              ; preds = %249
@@ -8323,7 +8323,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i111.i.i: ; pr
 356:                                              ; preds = %347
   %357 = add i64 %45, 63
   %358 = lshr i64 %357, 6
-  %.not116.i.i.i.i = icmp ult i64 %357, 64
+  %.not116.i.i.i.i = icmp eq i64 %358, 0
   br i1 %.not116.i.i.i.i, label %"_ZN6duckdb14BinaryExecutor7ExecuteINS_8string_tES2_S2_ZNS_L19BitwiseXOROperationERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0EEvS8_S8_S8_mT2_.exit", label %.lr.ph113.i.i.i.i
 
 .lr.ph113.i.i.i.i:                                ; preds = %356
@@ -10121,7 +10121,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit.i.i.i: ; preds = %86
   store i64 %88, ptr %89, align 8, !tbaa !105, !noalias !334
   %90 = add i64 %19, 63
   %91 = lshr i64 %90, 6
-  %.not93.i.i.i = icmp ult i64 %90, 64
+  %.not93.i.i.i = icmp eq i64 %91, 0
   br i1 %.not93.i.i.i, label %"_ZN6duckdb13UnaryExecutor7ExecuteINS_8string_tES2_ZNS_L19BitwiseNOTOperationERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0EEvS8_S8_mT1_NS_14FunctionErrorsE.exit", label %.lr.ph90.i.i.i
 
 .lr.ph90.i.i.i:                                   ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit.i.i.i
@@ -11762,7 +11762,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds
 96:                                               ; preds = %90
   %97 = add i64 %9, 63
   %98 = lshr i64 %97, 6
-  %.not90.i.i.i.i = icmp ult i64 %97, 64
+  %.not90.i.i.i.i = icmp eq i64 %98, 0
   br i1 %.not90.i.i.i.i, label %"_ZN6duckdb14BinaryExecutor7ExecuteINS_8string_tEiS2_ZNS_L25BitwiseShiftLeftOperationERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0EEvS8_S8_S8_mT2_.exit", label %.lr.ph87.i.i.i.i
 
 .lr.ph87.i.i.i.i:                                 ; preds = %96, %.loopexit77.i.i.i.i
@@ -12010,7 +12010,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i54.i.i: ; pre
 196:                                              ; preds = %191
   %197 = add i64 %9, 63
   %198 = lshr i64 %197, 6
-  %.not90.i.i57.i.i = icmp ult i64 %197, 64
+  %.not90.i.i57.i.i = icmp eq i64 %198, 0
   br i1 %.not90.i.i57.i.i, label %"_ZN6duckdb14BinaryExecutor7ExecuteINS_8string_tEiS2_ZNS_L25BitwiseShiftLeftOperationERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0EEvS8_S8_S8_mT2_.exit", label %.lr.ph87.i.i58.i.i
 
 .lr.ph87.i.i58.i.i:                               ; preds = %196
@@ -12238,7 +12238,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i97.i.i: ; pre
 295:                                              ; preds = %289
   %296 = add i64 %9, 63
   %297 = lshr i64 %296, 6
-  %.not99.i.i.i.i = icmp ult i64 %296, 64
+  %.not99.i.i.i.i = icmp eq i64 %297, 0
   br i1 %.not99.i.i.i.i, label %"_ZN6duckdb14BinaryExecutor7ExecuteINS_8string_tEiS2_ZNS_L25BitwiseShiftLeftOperationERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0EEvS8_S8_S8_mT2_.exit", label %.lr.ph96.i.i.i.i
 
 .lr.ph96.i.i.i.i:                                 ; preds = %295, %.loopexit86.i.i.i.i
@@ -14149,7 +14149,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds
 149:                                              ; preds = %126
   %150 = add i64 %33, 63
   %151 = lshr i64 %150, 6
-  %.not116.i.i.i.i = icmp ult i64 %150, 64
+  %.not116.i.i.i.i = icmp eq i64 %151, 0
   br i1 %.not116.i.i.i.i, label %"_ZN6duckdb14BinaryExecutor7ExecuteINS_8string_tEiS2_ZNS_L26BitwiseShiftRightOperationERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0EEvS8_S8_S8_mT2_.exit", label %.lr.ph103.i.i.i.i
 
 .lr.ph103.i.i.i.i:                                ; preds = %149
@@ -14522,7 +14522,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i55.i.i: ; pre
 282:                                              ; preds = %274
   %283 = add i64 %33, 63
   %284 = lshr i64 %283, 6
-  %.not106.i.i.i.i = icmp ult i64 %283, 64
+  %.not106.i.i.i.i = icmp eq i64 %284, 0
   br i1 %.not106.i.i.i.i, label %"_ZN6duckdb14BinaryExecutor7ExecuteINS_8string_tEiS2_ZNS_L26BitwiseShiftRightOperationERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0EEvS8_S8_S8_mT2_.exit", label %.lr.ph103.i.i58.i.i
 
 .lr.ph103.i.i58.i.i:                              ; preds = %282
@@ -14866,7 +14866,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i107.i.i: ; pr
 416:                                              ; preds = %408
   %417 = add i64 %33, 63
   %418 = lshr i64 %417, 6
-  %.not115.i.i.i.i = icmp ult i64 %417, 64
+  %.not115.i.i.i.i = icmp eq i64 %418, 0
   br i1 %.not115.i.i.i.i, label %"_ZN6duckdb14BinaryExecutor7ExecuteINS_8string_tEiS2_ZNS_L26BitwiseShiftRightOperationERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0EEvS8_S8_S8_mT2_.exit", label %.lr.ph112.i.i.i.i
 
 .lr.ph112.i.i.i.i:                                ; preds = %416
@@ -16070,7 +16070,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %27, %2
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i: ; preds = %31
   store ptr %39, ptr %35, align 8, !tbaa !502, !noalias !495
-  %.not.i.i.i.i.i.i.i.i.i = icmp ult i64 %36, 64
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %37, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit12.i.i.i.i.i.i.i.i.i: ; preds = %31
@@ -16678,14 +16678,14 @@ define linkonce_odr void @_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEE
   %7 = load i64, ptr %1, align 8, !tbaa !102, !noalias !510
   store ptr null, ptr %6, align 8, !tbaa !500, !noalias !510
   %8 = add i64 %7, 63
-  %9 = lshr i64 %8, 3
-  %10 = and i64 %9, 2305843009213693944
+  %9 = lshr i64 %8, 6
+  %10 = shl nuw nsw i64 %9, 3
   %11 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %10) #23
           to label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i unwind label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit10.i.i.i.i.i.i.i.i.i, !noalias !510
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i: ; preds = %2
   store ptr %11, ptr %6, align 8, !tbaa !502, !noalias !510
-  %.not.i.i.i.i.i.i.i.i.i = icmp ult i64 %8, 64
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %9, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %13, label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i
@@ -19045,7 +19045,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIaaaNS_29BinaryStandardOperatorWrapperENS_18BitwiseANDOperatorEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -19262,7 +19262,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIaaaNS_29BinaryStandardOperatorWrapperENS_18BitwiseANDOperatorEbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -19461,7 +19461,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %49
 59:                                               ; preds = %53
   %60 = add i64 %3, 63
   %61 = lshr i64 %60, 6
-  %.not85.i = icmp ult i64 %60, 64
+  %.not85.i = icmp eq i64 %61, 0
   br i1 %.not85.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIaaaNS_29BinaryStandardOperatorWrapperENS_18BitwiseANDOperatorEbLb0ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %59, %.loopexit73.i
@@ -20264,7 +20264,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIsssNS_29BinaryStandardOperatorWrapperENS_18BitwiseANDOperatorEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -20481,7 +20481,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIsssNS_29BinaryStandardOperatorWrapperENS_18BitwiseANDOperatorEbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -20680,7 +20680,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %49
 59:                                               ; preds = %53
   %60 = add i64 %3, 63
   %61 = lshr i64 %60, 6
-  %.not85.i = icmp ult i64 %60, 64
+  %.not85.i = icmp eq i64 %61, 0
   br i1 %.not85.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIsssNS_29BinaryStandardOperatorWrapperENS_18BitwiseANDOperatorEbLb0ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %59, %.loopexit73.i
@@ -21452,7 +21452,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIiiiNS_29BinaryStandardOperatorWrapperENS_18BitwiseANDOperatorEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -21669,7 +21669,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIiiiNS_29BinaryStandardOperatorWrapperENS_18BitwiseANDOperatorEbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -21868,7 +21868,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %49
 59:                                               ; preds = %53
   %60 = add i64 %3, 63
   %61 = lshr i64 %60, 6
-  %.not85.i = icmp ult i64 %60, 64
+  %.not85.i = icmp eq i64 %61, 0
   br i1 %.not85.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIiiiNS_29BinaryStandardOperatorWrapperENS_18BitwiseANDOperatorEbLb0ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %59, %.loopexit73.i
@@ -22640,7 +22640,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIlllNS_29BinaryStandardOperatorWrapperENS_18BitwiseANDOperatorEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -22857,7 +22857,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIlllNS_29BinaryStandardOperatorWrapperENS_18BitwiseANDOperatorEbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -23056,7 +23056,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %49
 59:                                               ; preds = %53
   %60 = add i64 %3, 63
   %61 = lshr i64 %60, 6
-  %.not85.i = icmp ult i64 %60, 64
+  %.not85.i = icmp eq i64 %61, 0
   br i1 %.not85.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIlllNS_29BinaryStandardOperatorWrapperENS_18BitwiseANDOperatorEbLb0ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %59, %.loopexit73.i
@@ -23828,7 +23828,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIhhhNS_29BinaryStandardOperatorWrapperENS_18BitwiseANDOperatorEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -24045,7 +24045,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIhhhNS_29BinaryStandardOperatorWrapperENS_18BitwiseANDOperatorEbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -24244,7 +24244,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %49
 59:                                               ; preds = %53
   %60 = add i64 %3, 63
   %61 = lshr i64 %60, 6
-  %.not85.i = icmp ult i64 %60, 64
+  %.not85.i = icmp eq i64 %61, 0
   br i1 %.not85.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIhhhNS_29BinaryStandardOperatorWrapperENS_18BitwiseANDOperatorEbLb0ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %59, %.loopexit73.i
@@ -25016,7 +25016,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopItttNS_29BinaryStandardOperatorWrapperENS_18BitwiseANDOperatorEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -25233,7 +25233,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopItttNS_29BinaryStandardOperatorWrapperENS_18BitwiseANDOperatorEbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -25432,7 +25432,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %49
 59:                                               ; preds = %53
   %60 = add i64 %3, 63
   %61 = lshr i64 %60, 6
-  %.not85.i = icmp ult i64 %60, 64
+  %.not85.i = icmp eq i64 %61, 0
   br i1 %.not85.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopItttNS_29BinaryStandardOperatorWrapperENS_18BitwiseANDOperatorEbLb0ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %59, %.loopexit73.i
@@ -26204,7 +26204,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIjjjNS_29BinaryStandardOperatorWrapperENS_18BitwiseANDOperatorEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -26421,7 +26421,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIjjjNS_29BinaryStandardOperatorWrapperENS_18BitwiseANDOperatorEbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -26620,7 +26620,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %49
 59:                                               ; preds = %53
   %60 = add i64 %3, 63
   %61 = lshr i64 %60, 6
-  %.not85.i = icmp ult i64 %60, 64
+  %.not85.i = icmp eq i64 %61, 0
   br i1 %.not85.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIjjjNS_29BinaryStandardOperatorWrapperENS_18BitwiseANDOperatorEbLb0ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %59, %.loopexit73.i
@@ -27392,7 +27392,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopImmmNS_29BinaryStandardOperatorWrapperENS_18BitwiseANDOperatorEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -27609,7 +27609,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopImmmNS_29BinaryStandardOperatorWrapperENS_18BitwiseANDOperatorEbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -27808,7 +27808,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %49
 59:                                               ; preds = %53
   %60 = add i64 %3, 63
   %61 = lshr i64 %60, 6
-  %.not85.i = icmp ult i64 %60, 64
+  %.not85.i = icmp eq i64 %61, 0
   br i1 %.not85.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopImmmNS_29BinaryStandardOperatorWrapperENS_18BitwiseANDOperatorEbLb0ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %59, %.loopexit73.i
@@ -29125,7 +29125,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_9hugein
 16:                                               ; preds = %6
   %17 = add i64 %3, 63
   %18 = lshr i64 %17, 6
-  %.not98 = icmp ult i64 %17, 64
+  %.not98 = icmp eq i64 %18, 0
   br i1 %.not98, label %.loopexit, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %16
@@ -29296,7 +29296,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_9hugein
 16:                                               ; preds = %6
   %17 = add i64 %3, 63
   %18 = lshr i64 %17, 6
-  %.not98 = icmp ult i64 %17, 64
+  %.not98 = icmp eq i64 %18, 0
   br i1 %.not98, label %.loopexit, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %16
@@ -29464,7 +29464,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_9hugein
 16:                                               ; preds = %6
   %17 = add i64 %3, 63
   %18 = lshr i64 %17, 6
-  %.not107 = icmp ult i64 %17, 64
+  %.not107 = icmp eq i64 %18, 0
   br i1 %.not107, label %.loopexit, label %.lr.ph104
 
 .lr.ph104:                                        ; preds = %16
@@ -30661,7 +30661,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_10uhuge
 16:                                               ; preds = %6
   %17 = add i64 %3, 63
   %18 = lshr i64 %17, 6
-  %.not98 = icmp ult i64 %17, 64
+  %.not98 = icmp eq i64 %18, 0
   br i1 %.not98, label %.loopexit, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %16
@@ -30832,7 +30832,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_10uhuge
 16:                                               ; preds = %6
   %17 = add i64 %3, 63
   %18 = lshr i64 %17, 6
-  %.not98 = icmp ult i64 %17, 64
+  %.not98 = icmp eq i64 %18, 0
   br i1 %.not98, label %.loopexit, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %16
@@ -31000,7 +31000,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_10uhuge
 16:                                               ; preds = %6
   %17 = add i64 %3, 63
   %18 = lshr i64 %17, 6
-  %.not107 = icmp ult i64 %17, 64
+  %.not107 = icmp eq i64 %18, 0
   br i1 %.not107, label %.loopexit, label %.lr.ph104
 
 .lr.ph104:                                        ; preds = %16
@@ -31752,7 +31752,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIaaaNS_29BinaryStandardOperatorWrapperENS_17BitwiseOROperatorEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -31969,7 +31969,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIaaaNS_29BinaryStandardOperatorWrapperENS_17BitwiseOROperatorEbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -32168,7 +32168,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %49
 59:                                               ; preds = %53
   %60 = add i64 %3, 63
   %61 = lshr i64 %60, 6
-  %.not85.i = icmp ult i64 %60, 64
+  %.not85.i = icmp eq i64 %61, 0
   br i1 %.not85.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIaaaNS_29BinaryStandardOperatorWrapperENS_17BitwiseOROperatorEbLb0ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %59, %.loopexit73.i
@@ -32940,7 +32940,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIsssNS_29BinaryStandardOperatorWrapperENS_17BitwiseOROperatorEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -33157,7 +33157,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIsssNS_29BinaryStandardOperatorWrapperENS_17BitwiseOROperatorEbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -33356,7 +33356,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %49
 59:                                               ; preds = %53
   %60 = add i64 %3, 63
   %61 = lshr i64 %60, 6
-  %.not85.i = icmp ult i64 %60, 64
+  %.not85.i = icmp eq i64 %61, 0
   br i1 %.not85.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIsssNS_29BinaryStandardOperatorWrapperENS_17BitwiseOROperatorEbLb0ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %59, %.loopexit73.i
@@ -34128,7 +34128,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIiiiNS_29BinaryStandardOperatorWrapperENS_17BitwiseOROperatorEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -34345,7 +34345,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIiiiNS_29BinaryStandardOperatorWrapperENS_17BitwiseOROperatorEbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -34544,7 +34544,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %49
 59:                                               ; preds = %53
   %60 = add i64 %3, 63
   %61 = lshr i64 %60, 6
-  %.not85.i = icmp ult i64 %60, 64
+  %.not85.i = icmp eq i64 %61, 0
   br i1 %.not85.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIiiiNS_29BinaryStandardOperatorWrapperENS_17BitwiseOROperatorEbLb0ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %59, %.loopexit73.i
@@ -35316,7 +35316,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIlllNS_29BinaryStandardOperatorWrapperENS_17BitwiseOROperatorEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -35533,7 +35533,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIlllNS_29BinaryStandardOperatorWrapperENS_17BitwiseOROperatorEbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -35732,7 +35732,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %49
 59:                                               ; preds = %53
   %60 = add i64 %3, 63
   %61 = lshr i64 %60, 6
-  %.not85.i = icmp ult i64 %60, 64
+  %.not85.i = icmp eq i64 %61, 0
   br i1 %.not85.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIlllNS_29BinaryStandardOperatorWrapperENS_17BitwiseOROperatorEbLb0ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %59, %.loopexit73.i
@@ -36504,7 +36504,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIhhhNS_29BinaryStandardOperatorWrapperENS_17BitwiseOROperatorEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -36721,7 +36721,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIhhhNS_29BinaryStandardOperatorWrapperENS_17BitwiseOROperatorEbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -36920,7 +36920,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %49
 59:                                               ; preds = %53
   %60 = add i64 %3, 63
   %61 = lshr i64 %60, 6
-  %.not85.i = icmp ult i64 %60, 64
+  %.not85.i = icmp eq i64 %61, 0
   br i1 %.not85.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIhhhNS_29BinaryStandardOperatorWrapperENS_17BitwiseOROperatorEbLb0ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %59, %.loopexit73.i
@@ -37692,7 +37692,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopItttNS_29BinaryStandardOperatorWrapperENS_17BitwiseOROperatorEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -37909,7 +37909,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopItttNS_29BinaryStandardOperatorWrapperENS_17BitwiseOROperatorEbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -38108,7 +38108,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %49
 59:                                               ; preds = %53
   %60 = add i64 %3, 63
   %61 = lshr i64 %60, 6
-  %.not85.i = icmp ult i64 %60, 64
+  %.not85.i = icmp eq i64 %61, 0
   br i1 %.not85.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopItttNS_29BinaryStandardOperatorWrapperENS_17BitwiseOROperatorEbLb0ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %59, %.loopexit73.i
@@ -38880,7 +38880,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIjjjNS_29BinaryStandardOperatorWrapperENS_17BitwiseOROperatorEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -39097,7 +39097,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIjjjNS_29BinaryStandardOperatorWrapperENS_17BitwiseOROperatorEbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -39296,7 +39296,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %49
 59:                                               ; preds = %53
   %60 = add i64 %3, 63
   %61 = lshr i64 %60, 6
-  %.not85.i = icmp ult i64 %60, 64
+  %.not85.i = icmp eq i64 %61, 0
   br i1 %.not85.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIjjjNS_29BinaryStandardOperatorWrapperENS_17BitwiseOROperatorEbLb0ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %59, %.loopexit73.i
@@ -40068,7 +40068,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopImmmNS_29BinaryStandardOperatorWrapperENS_17BitwiseOROperatorEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -40285,7 +40285,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopImmmNS_29BinaryStandardOperatorWrapperENS_17BitwiseOROperatorEbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -40484,7 +40484,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %49
 59:                                               ; preds = %53
   %60 = add i64 %3, 63
   %61 = lshr i64 %60, 6
-  %.not85.i = icmp ult i64 %60, 64
+  %.not85.i = icmp eq i64 %61, 0
   br i1 %.not85.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopImmmNS_29BinaryStandardOperatorWrapperENS_17BitwiseOROperatorEbLb0ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %59, %.loopexit73.i
@@ -41801,7 +41801,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_9hugein
 16:                                               ; preds = %6
   %17 = add i64 %3, 63
   %18 = lshr i64 %17, 6
-  %.not98 = icmp ult i64 %17, 64
+  %.not98 = icmp eq i64 %18, 0
   br i1 %.not98, label %.loopexit, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %16
@@ -41972,7 +41972,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_9hugein
 16:                                               ; preds = %6
   %17 = add i64 %3, 63
   %18 = lshr i64 %17, 6
-  %.not98 = icmp ult i64 %17, 64
+  %.not98 = icmp eq i64 %18, 0
   br i1 %.not98, label %.loopexit, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %16
@@ -42140,7 +42140,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_9hugein
 16:                                               ; preds = %6
   %17 = add i64 %3, 63
   %18 = lshr i64 %17, 6
-  %.not107 = icmp ult i64 %17, 64
+  %.not107 = icmp eq i64 %18, 0
   br i1 %.not107, label %.loopexit, label %.lr.ph104
 
 .lr.ph104:                                        ; preds = %16
@@ -43337,7 +43337,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_10uhuge
 16:                                               ; preds = %6
   %17 = add i64 %3, 63
   %18 = lshr i64 %17, 6
-  %.not98 = icmp ult i64 %17, 64
+  %.not98 = icmp eq i64 %18, 0
   br i1 %.not98, label %.loopexit, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %16
@@ -43508,7 +43508,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_10uhuge
 16:                                               ; preds = %6
   %17 = add i64 %3, 63
   %18 = lshr i64 %17, 6
-  %.not98 = icmp ult i64 %17, 64
+  %.not98 = icmp eq i64 %18, 0
   br i1 %.not98, label %.loopexit, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %16
@@ -43676,7 +43676,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_10uhuge
 16:                                               ; preds = %6
   %17 = add i64 %3, 63
   %18 = lshr i64 %17, 6
-  %.not107 = icmp ult i64 %17, 64
+  %.not107 = icmp eq i64 %18, 0
   br i1 %.not107, label %.loopexit, label %.lr.ph104
 
 .lr.ph104:                                        ; preds = %16
@@ -44428,7 +44428,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIaaaNS_29BinaryStandardOperatorWrapperENS_18BitwiseXOROperatorEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -44645,7 +44645,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIaaaNS_29BinaryStandardOperatorWrapperENS_18BitwiseXOROperatorEbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -44844,7 +44844,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %49
 59:                                               ; preds = %53
   %60 = add i64 %3, 63
   %61 = lshr i64 %60, 6
-  %.not85.i = icmp ult i64 %60, 64
+  %.not85.i = icmp eq i64 %61, 0
   br i1 %.not85.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIaaaNS_29BinaryStandardOperatorWrapperENS_18BitwiseXOROperatorEbLb0ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %59, %.loopexit73.i
@@ -45616,7 +45616,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIsssNS_29BinaryStandardOperatorWrapperENS_18BitwiseXOROperatorEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -45833,7 +45833,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIsssNS_29BinaryStandardOperatorWrapperENS_18BitwiseXOROperatorEbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -46032,7 +46032,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %49
 59:                                               ; preds = %53
   %60 = add i64 %3, 63
   %61 = lshr i64 %60, 6
-  %.not85.i = icmp ult i64 %60, 64
+  %.not85.i = icmp eq i64 %61, 0
   br i1 %.not85.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIsssNS_29BinaryStandardOperatorWrapperENS_18BitwiseXOROperatorEbLb0ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %59, %.loopexit73.i
@@ -46804,7 +46804,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIiiiNS_29BinaryStandardOperatorWrapperENS_18BitwiseXOROperatorEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -47021,7 +47021,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIiiiNS_29BinaryStandardOperatorWrapperENS_18BitwiseXOROperatorEbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -47220,7 +47220,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %49
 59:                                               ; preds = %53
   %60 = add i64 %3, 63
   %61 = lshr i64 %60, 6
-  %.not85.i = icmp ult i64 %60, 64
+  %.not85.i = icmp eq i64 %61, 0
   br i1 %.not85.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIiiiNS_29BinaryStandardOperatorWrapperENS_18BitwiseXOROperatorEbLb0ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %59, %.loopexit73.i
@@ -47992,7 +47992,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIlllNS_29BinaryStandardOperatorWrapperENS_18BitwiseXOROperatorEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -48209,7 +48209,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIlllNS_29BinaryStandardOperatorWrapperENS_18BitwiseXOROperatorEbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -48408,7 +48408,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %49
 59:                                               ; preds = %53
   %60 = add i64 %3, 63
   %61 = lshr i64 %60, 6
-  %.not85.i = icmp ult i64 %60, 64
+  %.not85.i = icmp eq i64 %61, 0
   br i1 %.not85.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIlllNS_29BinaryStandardOperatorWrapperENS_18BitwiseXOROperatorEbLb0ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %59, %.loopexit73.i
@@ -49180,7 +49180,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIhhhNS_29BinaryStandardOperatorWrapperENS_18BitwiseXOROperatorEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -49397,7 +49397,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIhhhNS_29BinaryStandardOperatorWrapperENS_18BitwiseXOROperatorEbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -49596,7 +49596,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %49
 59:                                               ; preds = %53
   %60 = add i64 %3, 63
   %61 = lshr i64 %60, 6
-  %.not85.i = icmp ult i64 %60, 64
+  %.not85.i = icmp eq i64 %61, 0
   br i1 %.not85.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIhhhNS_29BinaryStandardOperatorWrapperENS_18BitwiseXOROperatorEbLb0ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %59, %.loopexit73.i
@@ -50368,7 +50368,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopItttNS_29BinaryStandardOperatorWrapperENS_18BitwiseXOROperatorEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -50585,7 +50585,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopItttNS_29BinaryStandardOperatorWrapperENS_18BitwiseXOROperatorEbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -50784,7 +50784,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %49
 59:                                               ; preds = %53
   %60 = add i64 %3, 63
   %61 = lshr i64 %60, 6
-  %.not85.i = icmp ult i64 %60, 64
+  %.not85.i = icmp eq i64 %61, 0
   br i1 %.not85.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopItttNS_29BinaryStandardOperatorWrapperENS_18BitwiseXOROperatorEbLb0ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %59, %.loopexit73.i
@@ -51556,7 +51556,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIjjjNS_29BinaryStandardOperatorWrapperENS_18BitwiseXOROperatorEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -51773,7 +51773,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIjjjNS_29BinaryStandardOperatorWrapperENS_18BitwiseXOROperatorEbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -51972,7 +51972,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %49
 59:                                               ; preds = %53
   %60 = add i64 %3, 63
   %61 = lshr i64 %60, 6
-  %.not85.i = icmp ult i64 %60, 64
+  %.not85.i = icmp eq i64 %61, 0
   br i1 %.not85.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIjjjNS_29BinaryStandardOperatorWrapperENS_18BitwiseXOROperatorEbLb0ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %59, %.loopexit73.i
@@ -52744,7 +52744,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopImmmNS_29BinaryStandardOperatorWrapperENS_18BitwiseXOROperatorEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -52961,7 +52961,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopImmmNS_29BinaryStandardOperatorWrapperENS_18BitwiseXOROperatorEbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -53160,7 +53160,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %49
 59:                                               ; preds = %53
   %60 = add i64 %3, 63
   %61 = lshr i64 %60, 6
-  %.not85.i = icmp ult i64 %60, 64
+  %.not85.i = icmp eq i64 %61, 0
   br i1 %.not85.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopImmmNS_29BinaryStandardOperatorWrapperENS_18BitwiseXOROperatorEbLb0ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %59, %.loopexit73.i
@@ -54477,7 +54477,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_9hugein
 16:                                               ; preds = %6
   %17 = add i64 %3, 63
   %18 = lshr i64 %17, 6
-  %.not98 = icmp ult i64 %17, 64
+  %.not98 = icmp eq i64 %18, 0
   br i1 %.not98, label %.loopexit, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %16
@@ -54648,7 +54648,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_9hugein
 16:                                               ; preds = %6
   %17 = add i64 %3, 63
   %18 = lshr i64 %17, 6
-  %.not98 = icmp ult i64 %17, 64
+  %.not98 = icmp eq i64 %18, 0
   br i1 %.not98, label %.loopexit, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %16
@@ -54816,7 +54816,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_9hugein
 16:                                               ; preds = %6
   %17 = add i64 %3, 63
   %18 = lshr i64 %17, 6
-  %.not107 = icmp ult i64 %17, 64
+  %.not107 = icmp eq i64 %18, 0
   br i1 %.not107, label %.loopexit, label %.lr.ph104
 
 .lr.ph104:                                        ; preds = %16
@@ -56013,7 +56013,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_10uhuge
 16:                                               ; preds = %6
   %17 = add i64 %3, 63
   %18 = lshr i64 %17, 6
-  %.not98 = icmp ult i64 %17, 64
+  %.not98 = icmp eq i64 %18, 0
   br i1 %.not98, label %.loopexit, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %16
@@ -56184,7 +56184,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_10uhuge
 16:                                               ; preds = %6
   %17 = add i64 %3, 63
   %18 = lshr i64 %17, 6
-  %.not98 = icmp ult i64 %17, 64
+  %.not98 = icmp eq i64 %18, 0
   br i1 %.not98, label %.loopexit, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %16
@@ -56352,7 +56352,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_10uhuge
 16:                                               ; preds = %6
   %17 = add i64 %3, 63
   %18 = lshr i64 %17, 6
-  %.not107 = icmp ult i64 %17, 64
+  %.not107 = icmp eq i64 %18, 0
   br i1 %.not107, label %.loopexit, label %.lr.ph104
 
 .lr.ph104:                                        ; preds = %16
@@ -57235,7 +57235,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53
@@ -57870,7 +57870,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53
@@ -58505,7 +58505,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53
@@ -59140,7 +59140,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53
@@ -59775,7 +59775,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53
@@ -60410,7 +60410,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53
@@ -61045,7 +61045,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53
@@ -61680,7 +61680,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53
@@ -62334,7 +62334,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %14, %_ZN
 57:                                               ; preds = %56, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %58 = add i64 %2, 63
   %59 = lshr i64 %58, 6
-  %.not83 = icmp ult i64 %58, 64
+  %.not83 = icmp eq i64 %59, 0
   br i1 %.not83, label %.loopexit, label %.lr.ph80
 
 .lr.ph80:                                         ; preds = %57
@@ -63050,7 +63050,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %14, %_ZN
 57:                                               ; preds = %56, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %58 = add i64 %2, 63
   %59 = lshr i64 %58, 6
-  %.not83 = icmp ult i64 %58, 64
+  %.not83 = icmp eq i64 %59, 0
   br i1 %.not83, label %.loopexit, label %.lr.ph80
 
 .lr.ph80:                                         ; preds = %57
@@ -65190,7 +65190,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIaaaNS_29Bi
 9:                                                ; preds = %6
   %10 = add i64 %3, 63
   %11 = lshr i64 %10, 6
-  %.not77 = icmp ult i64 %10, 64
+  %.not77 = icmp eq i64 %11, 0
   br i1 %.not77, label %.loopexit, label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %9, %.loopexit64
@@ -65299,7 +65299,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIaaaNS_29Bi
 9:                                                ; preds = %6
   %10 = add i64 %3, 63
   %11 = lshr i64 %10, 6
-  %.not77 = icmp ult i64 %10, 64
+  %.not77 = icmp eq i64 %11, 0
   br i1 %.not77, label %.loopexit, label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %9, %.loopexit64
@@ -65404,7 +65404,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIaaaNS_29Bi
 8:                                                ; preds = %6
   %9 = add i64 %3, 63
   %10 = lshr i64 %9, 6
-  %.not86 = icmp ult i64 %9, 64
+  %.not86 = icmp eq i64 %10, 0
   br i1 %.not86, label %.loopexit, label %.lr.ph83
 
 .lr.ph83:                                         ; preds = %8, %.loopexit73
@@ -66811,7 +66811,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIsssNS_29Bi
 9:                                                ; preds = %6
   %10 = add i64 %3, 63
   %11 = lshr i64 %10, 6
-  %.not77 = icmp ult i64 %10, 64
+  %.not77 = icmp eq i64 %11, 0
   br i1 %.not77, label %.loopexit, label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %9, %.loopexit64
@@ -66920,7 +66920,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIsssNS_29Bi
 9:                                                ; preds = %6
   %10 = add i64 %3, 63
   %11 = lshr i64 %10, 6
-  %.not77 = icmp ult i64 %10, 64
+  %.not77 = icmp eq i64 %11, 0
   br i1 %.not77, label %.loopexit, label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %9, %.loopexit64
@@ -67025,7 +67025,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIsssNS_29Bi
 8:                                                ; preds = %6
   %9 = add i64 %3, 63
   %10 = lshr i64 %9, 6
-  %.not86 = icmp ult i64 %9, 64
+  %.not86 = icmp eq i64 %10, 0
   br i1 %.not86, label %.loopexit, label %.lr.ph83
 
 .lr.ph83:                                         ; preds = %8, %.loopexit73
@@ -68331,7 +68331,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIiiiNS_29Bi
 9:                                                ; preds = %6
   %10 = add i64 %3, 63
   %11 = lshr i64 %10, 6
-  %.not77 = icmp ult i64 %10, 64
+  %.not77 = icmp eq i64 %11, 0
   br i1 %.not77, label %.loopexit, label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %9, %.loopexit64
@@ -68440,7 +68440,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIiiiNS_29Bi
 9:                                                ; preds = %6
   %10 = add i64 %3, 63
   %11 = lshr i64 %10, 6
-  %.not77 = icmp ult i64 %10, 64
+  %.not77 = icmp eq i64 %11, 0
   br i1 %.not77, label %.loopexit, label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %9, %.loopexit64
@@ -68545,7 +68545,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIiiiNS_29Bi
 8:                                                ; preds = %6
   %9 = add i64 %3, 63
   %10 = lshr i64 %9, 6
-  %.not86 = icmp ult i64 %9, 64
+  %.not86 = icmp eq i64 %10, 0
   br i1 %.not86, label %.loopexit, label %.lr.ph83
 
 .lr.ph83:                                         ; preds = %8, %.loopexit73
@@ -70041,7 +70041,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIlllNS_29Bi
 9:                                                ; preds = %6
   %10 = add i64 %3, 63
   %11 = lshr i64 %10, 6
-  %.not77 = icmp ult i64 %10, 64
+  %.not77 = icmp eq i64 %11, 0
   br i1 %.not77, label %.loopexit, label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %9, %.loopexit64
@@ -70150,7 +70150,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIlllNS_29Bi
 9:                                                ; preds = %6
   %10 = add i64 %3, 63
   %11 = lshr i64 %10, 6
-  %.not77 = icmp ult i64 %10, 64
+  %.not77 = icmp eq i64 %11, 0
   br i1 %.not77, label %.loopexit, label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %9, %.loopexit64
@@ -70255,7 +70255,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIlllNS_29Bi
 8:                                                ; preds = %6
   %9 = add i64 %3, 63
   %10 = lshr i64 %9, 6
-  %.not86 = icmp ult i64 %9, 64
+  %.not86 = icmp eq i64 %10, 0
   br i1 %.not86, label %.loopexit, label %.lr.ph83
 
 .lr.ph83:                                         ; preds = %8, %.loopexit73
@@ -71517,7 +71517,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIhhhNS_29Bi
 9:                                                ; preds = %6
   %10 = add i64 %3, 63
   %11 = lshr i64 %10, 6
-  %.not77 = icmp ult i64 %10, 64
+  %.not77 = icmp eq i64 %11, 0
   br i1 %.not77, label %.loopexit, label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %9, %.loopexit64
@@ -71626,7 +71626,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIhhhNS_29Bi
 9:                                                ; preds = %6
   %10 = add i64 %3, 63
   %11 = lshr i64 %10, 6
-  %.not77 = icmp ult i64 %10, 64
+  %.not77 = icmp eq i64 %11, 0
   br i1 %.not77, label %.loopexit, label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %9, %.loopexit64
@@ -71731,7 +71731,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIhhhNS_29Bi
 8:                                                ; preds = %6
   %9 = add i64 %3, 63
   %10 = lshr i64 %9, 6
-  %.not86 = icmp ult i64 %9, 64
+  %.not86 = icmp eq i64 %10, 0
   br i1 %.not86, label %.loopexit, label %.lr.ph83
 
 .lr.ph83:                                         ; preds = %8, %.loopexit73
@@ -73015,7 +73015,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopItttNS_29Bi
 9:                                                ; preds = %6
   %10 = add i64 %3, 63
   %11 = lshr i64 %10, 6
-  %.not77 = icmp ult i64 %10, 64
+  %.not77 = icmp eq i64 %11, 0
   br i1 %.not77, label %.loopexit, label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %9, %.loopexit64
@@ -73124,7 +73124,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopItttNS_29Bi
 9:                                                ; preds = %6
   %10 = add i64 %3, 63
   %11 = lshr i64 %10, 6
-  %.not77 = icmp ult i64 %10, 64
+  %.not77 = icmp eq i64 %11, 0
   br i1 %.not77, label %.loopexit, label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %9, %.loopexit64
@@ -73229,7 +73229,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopItttNS_29Bi
 8:                                                ; preds = %6
   %9 = add i64 %3, 63
   %10 = lshr i64 %9, 6
-  %.not86 = icmp ult i64 %9, 64
+  %.not86 = icmp eq i64 %10, 0
   br i1 %.not86, label %.loopexit, label %.lr.ph83
 
 .lr.ph83:                                         ; preds = %8, %.loopexit73
@@ -74530,7 +74530,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIjjjNS_29Bi
 9:                                                ; preds = %6
   %10 = add i64 %3, 63
   %11 = lshr i64 %10, 6
-  %.not77 = icmp ult i64 %10, 64
+  %.not77 = icmp eq i64 %11, 0
   br i1 %.not77, label %.loopexit, label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %9, %.loopexit64
@@ -74639,7 +74639,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIjjjNS_29Bi
 9:                                                ; preds = %6
   %10 = add i64 %3, 63
   %11 = lshr i64 %10, 6
-  %.not77 = icmp ult i64 %10, 64
+  %.not77 = icmp eq i64 %11, 0
   br i1 %.not77, label %.loopexit, label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %9, %.loopexit64
@@ -74744,7 +74744,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIjjjNS_29Bi
 8:                                                ; preds = %6
   %9 = add i64 %3, 63
   %10 = lshr i64 %9, 6
-  %.not86 = icmp ult i64 %9, 64
+  %.not86 = icmp eq i64 %10, 0
   br i1 %.not86, label %.loopexit, label %.lr.ph83
 
 .lr.ph83:                                         ; preds = %8, %.loopexit73
@@ -76081,7 +76081,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopImmmNS_29Bi
 9:                                                ; preds = %6
   %10 = add i64 %3, 63
   %11 = lshr i64 %10, 6
-  %.not77 = icmp ult i64 %10, 64
+  %.not77 = icmp eq i64 %11, 0
   br i1 %.not77, label %.loopexit, label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %9, %.loopexit64
@@ -76190,7 +76190,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopImmmNS_29Bi
 9:                                                ; preds = %6
   %10 = add i64 %3, 63
   %11 = lshr i64 %10, 6
-  %.not77 = icmp ult i64 %10, 64
+  %.not77 = icmp eq i64 %11, 0
   br i1 %.not77, label %.loopexit, label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %9, %.loopexit64
@@ -76295,7 +76295,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopImmmNS_29Bi
 8:                                                ; preds = %6
   %9 = add i64 %3, 63
   %10 = lshr i64 %9, 6
-  %.not86 = icmp ult i64 %9, 64
+  %.not86 = icmp eq i64 %10, 0
   br i1 %.not86, label %.loopexit, label %.lr.ph83
 
 .lr.ph83:                                         ; preds = %8, %.loopexit73
@@ -77836,7 +77836,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_9hugein
 8:                                                ; preds = %6
   %9 = add i64 %3, 63
   %10 = lshr i64 %9, 6
-  %.not98 = icmp ult i64 %9, 64
+  %.not98 = icmp eq i64 %10, 0
   br i1 %.not98, label %.loopexit, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %8
@@ -77971,7 +77971,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_9hugein
 8:                                                ; preds = %6
   %9 = add i64 %3, 63
   %10 = lshr i64 %9, 6
-  %.not98 = icmp ult i64 %9, 64
+  %.not98 = icmp eq i64 %10, 0
   br i1 %.not98, label %.loopexit, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %8
@@ -78100,7 +78100,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_9hugein
 8:                                                ; preds = %6
   %9 = add i64 %3, 63
   %10 = lshr i64 %9, 6
-  %.not107 = icmp ult i64 %9, 64
+  %.not107 = icmp eq i64 %10, 0
   br i1 %.not107, label %.loopexit, label %.lr.ph104
 
 .lr.ph104:                                        ; preds = %8, %.loopexit94
@@ -79705,7 +79705,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_10uhuge
 8:                                                ; preds = %6
   %9 = add i64 %3, 63
   %10 = lshr i64 %9, 6
-  %.not98 = icmp ult i64 %9, 64
+  %.not98 = icmp eq i64 %10, 0
   br i1 %.not98, label %.loopexit, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %8
@@ -79840,7 +79840,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_10uhuge
 8:                                                ; preds = %6
   %9 = add i64 %3, 63
   %10 = lshr i64 %9, 6
-  %.not98 = icmp ult i64 %9, 64
+  %.not98 = icmp eq i64 %10, 0
   br i1 %.not98, label %.loopexit, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %8
@@ -79969,7 +79969,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_10uhuge
 8:                                                ; preds = %6
   %9 = add i64 %3, 63
   %10 = lshr i64 %9, 6
-  %.not107 = icmp ult i64 %9, 64
+  %.not107 = icmp eq i64 %10, 0
   br i1 %.not107, label %.loopexit, label %.lr.ph104
 
 .lr.ph104:                                        ; preds = %8, %.loopexit94
@@ -80667,7 +80667,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 74:                                               ; preds = %59
   %75 = add i64 %3, 63
   %76 = lshr i64 %75, 6
-  %.not77.i = icmp ult i64 %75, 64
+  %.not77.i = icmp eq i64 %76, 0
   br i1 %.not77.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIaaaNS_29BinaryStandardOperatorWrapperENS_25BitwiseShiftRightOperatorEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %74, %.loopexit64.i
@@ -80890,7 +80890,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 66:                                               ; preds = %59
   %67 = add i64 %3, 63
   %68 = lshr i64 %67, 6
-  %.not76.i = icmp ult i64 %67, 64
+  %.not76.i = icmp eq i64 %68, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIaaaNS_29BinaryStandardOperatorWrapperENS_25BitwiseShiftRightOperatorEbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %66, %.loopexit64.i
@@ -81103,7 +81103,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %49
 59:                                               ; preds = %53
   %60 = add i64 %3, 63
   %61 = lshr i64 %60, 6
-  %.not85.i = icmp ult i64 %60, 64
+  %.not85.i = icmp eq i64 %61, 0
   br i1 %.not85.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIaaaNS_29BinaryStandardOperatorWrapperENS_25BitwiseShiftRightOperatorEbLb0ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %59, %.loopexit73.i
@@ -82046,7 +82046,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 66:                                               ; preds = %59
   %67 = add i64 %3, 63
   %68 = lshr i64 %67, 6
-  %.not76.i = icmp ult i64 %67, 64
+  %.not76.i = icmp eq i64 %68, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIsssNS_29BinaryStandardOperatorWrapperENS_25BitwiseShiftRightOperatorEbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %66, %.loopexit64.i
@@ -82259,7 +82259,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %49
 59:                                               ; preds = %53
   %60 = add i64 %3, 63
   %61 = lshr i64 %60, 6
-  %.not85.i = icmp ult i64 %60, 64
+  %.not85.i = icmp eq i64 %61, 0
   br i1 %.not85.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIsssNS_29BinaryStandardOperatorWrapperENS_25BitwiseShiftRightOperatorEbLb0ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %59, %.loopexit73.i
@@ -82668,7 +82668,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIsssNS_29Bi
 19:                                               ; preds = %6
   %20 = add i64 %3, 63
   %21 = lshr i64 %20, 6
-  %.not77 = icmp ult i64 %20, 64
+  %.not77 = icmp eq i64 %21, 0
   br i1 %.not77, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %19, %.loopexit64
@@ -83324,7 +83324,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIiiiNS_29BinaryStandardOperatorWrapperENS_25BitwiseShiftRightOperatorEbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -83529,7 +83529,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %49
 59:                                               ; preds = %53
   %60 = add i64 %3, 63
   %61 = lshr i64 %60, 6
-  %.not85.i = icmp ult i64 %60, 64
+  %.not85.i = icmp eq i64 %61, 0
   br i1 %.not85.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIiiiNS_29BinaryStandardOperatorWrapperENS_25BitwiseShiftRightOperatorEbLb0ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %59, %.loopexit73.i
@@ -83926,7 +83926,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIiiiNS_29Bi
 16:                                               ; preds = %6
   %17 = add i64 %3, 63
   %18 = lshr i64 %17, 6
-  %.not77 = icmp ult i64 %17, 64
+  %.not77 = icmp eq i64 %18, 0
   br i1 %.not77, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %16, %.loopexit64
@@ -84561,7 +84561,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIlllNS_29BinaryStandardOperatorWrapperENS_25BitwiseShiftRightOperatorEbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -84766,7 +84766,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %49
 59:                                               ; preds = %53
   %60 = add i64 %3, 63
   %61 = lshr i64 %60, 6
-  %.not85.i = icmp ult i64 %60, 64
+  %.not85.i = icmp eq i64 %61, 0
   br i1 %.not85.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIlllNS_29BinaryStandardOperatorWrapperENS_25BitwiseShiftRightOperatorEbLb0ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %59, %.loopexit73.i
@@ -85163,7 +85163,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIlllNS_29Bi
 16:                                               ; preds = %6
   %17 = add i64 %3, 63
   %18 = lshr i64 %17, 6
-  %.not77 = icmp ult i64 %17, 64
+  %.not77 = icmp eq i64 %18, 0
   br i1 %.not77, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %16, %.loopexit64
@@ -85693,7 +85693,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 71:                                               ; preds = %59
   %72 = add i64 %3, 63
   %73 = lshr i64 %72, 6
-  %.not77.i = icmp ult i64 %72, 64
+  %.not77.i = icmp eq i64 %73, 0
   br i1 %.not77.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIhhhNS_29BinaryStandardOperatorWrapperENS_25BitwiseShiftRightOperatorEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %71, %.loopexit64.i
@@ -85913,7 +85913,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 66:                                               ; preds = %59
   %67 = add i64 %3, 63
   %68 = lshr i64 %67, 6
-  %.not76.i = icmp ult i64 %67, 64
+  %.not76.i = icmp eq i64 %68, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIhhhNS_29BinaryStandardOperatorWrapperENS_25BitwiseShiftRightOperatorEbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %66, %.loopexit64.i
@@ -86126,7 +86126,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %49
 59:                                               ; preds = %53
   %60 = add i64 %3, 63
   %61 = lshr i64 %60, 6
-  %.not85.i = icmp ult i64 %60, 64
+  %.not85.i = icmp eq i64 %61, 0
   br i1 %.not85.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIhhhNS_29BinaryStandardOperatorWrapperENS_25BitwiseShiftRightOperatorEbLb0ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %59, %.loopexit73.i
@@ -87069,7 +87069,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 66:                                               ; preds = %59
   %67 = add i64 %3, 63
   %68 = lshr i64 %67, 6
-  %.not76.i = icmp ult i64 %67, 64
+  %.not76.i = icmp eq i64 %68, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopItttNS_29BinaryStandardOperatorWrapperENS_25BitwiseShiftRightOperatorEbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %66, %.loopexit64.i
@@ -87282,7 +87282,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %49
 59:                                               ; preds = %53
   %60 = add i64 %3, 63
   %61 = lshr i64 %60, 6
-  %.not85.i = icmp ult i64 %60, 64
+  %.not85.i = icmp eq i64 %61, 0
   br i1 %.not85.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopItttNS_29BinaryStandardOperatorWrapperENS_25BitwiseShiftRightOperatorEbLb0ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %59, %.loopexit73.i
@@ -87688,7 +87688,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopItttNS_29Bi
 16:                                               ; preds = %6
   %17 = add i64 %3, 63
   %18 = lshr i64 %17, 6
-  %.not77 = icmp ult i64 %17, 64
+  %.not77 = icmp eq i64 %18, 0
   br i1 %.not77, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %16, %.loopexit64
@@ -88341,7 +88341,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIjjjNS_29BinaryStandardOperatorWrapperENS_25BitwiseShiftRightOperatorEbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -88546,7 +88546,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %49
 59:                                               ; preds = %53
   %60 = add i64 %3, 63
   %61 = lshr i64 %60, 6
-  %.not85.i = icmp ult i64 %60, 64
+  %.not85.i = icmp eq i64 %61, 0
   br i1 %.not85.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIjjjNS_29BinaryStandardOperatorWrapperENS_25BitwiseShiftRightOperatorEbLb0ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %59, %.loopexit73.i
@@ -88943,7 +88943,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIjjjNS_29Bi
 16:                                               ; preds = %6
   %17 = add i64 %3, 63
   %18 = lshr i64 %17, 6
-  %.not77 = icmp ult i64 %17, 64
+  %.not77 = icmp eq i64 %18, 0
   br i1 %.not77, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %16, %.loopexit64
@@ -89578,7 +89578,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopImmmNS_29BinaryStandardOperatorWrapperENS_25BitwiseShiftRightOperatorEbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -89783,7 +89783,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %49
 59:                                               ; preds = %53
   %60 = add i64 %3, 63
   %61 = lshr i64 %60, 6
-  %.not85.i = icmp ult i64 %60, 64
+  %.not85.i = icmp eq i64 %61, 0
   br i1 %.not85.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopImmmNS_29BinaryStandardOperatorWrapperENS_25BitwiseShiftRightOperatorEbLb0ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %59, %.loopexit73.i
@@ -90180,7 +90180,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopImmmNS_29Bi
 16:                                               ; preds = %6
   %17 = add i64 %3, 63
   %18 = lshr i64 %17, 6
-  %.not77 = icmp ult i64 %17, 64
+  %.not77 = icmp eq i64 %18, 0
   br i1 %.not77, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %16, %.loopexit64
@@ -91300,7 +91300,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_9hugein
 29:                                               ; preds = %6
   %30 = add i64 %3, 63
   %31 = lshr i64 %30, 6
-  %.not112 = icmp ult i64 %30, 64
+  %.not112 = icmp eq i64 %31, 0
   br i1 %.not112, label %.loopexit, label %.lr.ph109
 
 .lr.ph109:                                        ; preds = %29
@@ -91603,7 +91603,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_9hugein
 29:                                               ; preds = %6
   %30 = add i64 %3, 63
   %31 = lshr i64 %30, 6
-  %.not112 = icmp ult i64 %30, 64
+  %.not112 = icmp eq i64 %31, 0
   br i1 %.not112, label %.loopexit, label %.lr.ph109
 
 .lr.ph109:                                        ; preds = %29
@@ -91903,7 +91903,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_9hugein
 29:                                               ; preds = %6
   %30 = add i64 %3, 63
   %31 = lshr i64 %30, 6
-  %.not121 = icmp ult i64 %30, 64
+  %.not121 = icmp eq i64 %31, 0
   br i1 %.not121, label %.loopexit, label %.lr.ph118
 
 .lr.ph118:                                        ; preds = %29
@@ -93288,7 +93288,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_10uhuge
 29:                                               ; preds = %6
   %30 = add i64 %3, 63
   %31 = lshr i64 %30, 6
-  %.not112 = icmp ult i64 %30, 64
+  %.not112 = icmp eq i64 %31, 0
   br i1 %.not112, label %.loopexit, label %.lr.ph109
 
 .lr.ph109:                                        ; preds = %29
@@ -93591,7 +93591,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_10uhuge
 29:                                               ; preds = %6
   %30 = add i64 %3, 63
   %31 = lshr i64 %30, 6
-  %.not112 = icmp ult i64 %30, 64
+  %.not112 = icmp eq i64 %31, 0
   br i1 %.not112, label %.loopexit, label %.lr.ph109
 
 .lr.ph109:                                        ; preds = %29
@@ -93891,7 +93891,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_10uhuge
 29:                                               ; preds = %6
   %30 = add i64 %3, 63
   %31 = lshr i64 %30, 6
-  %.not121 = icmp ult i64 %30, 64
+  %.not121 = icmp eq i64 %31, 0
   br i1 %.not121, label %.loopexit, label %.lr.ph118
 
 .lr.ph118:                                        ; preds = %29

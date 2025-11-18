@@ -2296,7 +2296,7 @@ _ZN4llvm9BitVectorC2Ejb.exit.loopexit:            ; preds = %148
   br label %.lr.ph.sink.split
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i:        ; preds = %148
-  %.not.i.i = icmp samesign ult i32 %161, 64
+  %.not.i.i = icmp eq i32 %162, 0
   br i1 %.not.i.i, label %.lr.ph, label %.lr.ph.sink.split
 
 .lr.ph.sink.split:                                ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit
@@ -2341,7 +2341,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i:        ; preds = %148
   %185 = load ptr, ptr %9, align 8, !tbaa !22
   %.idx.i = shl nuw nsw i64 %163, 3
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 %.idx.i
-  %.not10.i = icmp ult i32 %161, 64
+  %.not10.i = icmp eq i32 %162, 0
   br i1 %.not10.i, label %_ZNK4llvm9BitVector5countEv.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge, %.lr.ph.i
@@ -2455,13 +2455,13 @@ _ZN4llvm9BitVectorD2Ev.exit91:                    ; preds = %.critedge77, %216
   %236 = phi i64 [ %224, %._crit_edge.thread ], [ %231, %._crit_edge ]
   %237 = phi ptr [ %220, %._crit_edge.thread ], [ %227, %._crit_edge ]
   %238 = phi ptr [ %219, %._crit_edge.thread ], [ %226, %._crit_edge ]
-  %.069.lcssa137 = phi i64 [ 0, %._crit_edge.thread ], [ %225, %._crit_edge ]
+  %.069.lcssa136 = phi i64 [ 0, %._crit_edge.thread ], [ %225, %._crit_edge ]
   %239 = phi ptr [ %.ph, %._crit_edge.thread ], [ %80, %._crit_edge ]
-  %240 = icmp ugt i64 %236, %.069.lcssa137
+  %240 = icmp ugt i64 %236, %.069.lcssa136
   br i1 %240, label %241, label %_ZNSt6vectorIN4llvm8SwitchCG11CaseClusterESaIS2_EE6resizeEm.exit
 
 241:                                              ; preds = %235
-  %242 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %237, i64 %.069.lcssa137
+  %242 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %237, i64 %.069.lcssa136
   %.not.i.i92 = icmp eq ptr %238, %242
   br i1 %.not.i.i92, label %_ZNSt6vectorIN4llvm8SwitchCG11CaseClusterESaIS2_EE6resizeEm.exit, label %243
 
@@ -2683,7 +2683,7 @@ _ZN4llvm9BitVectorC2Ejb.exit.loopexit:            ; preds = %32
   br label %_ZN4llvm9BitVectorC2Ejb.exit.sink.split
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i:        ; preds = %32
-  %.not.i.i = icmp samesign ult i32 %46, 64
+  %.not.i.i = icmp eq i32 %47, 0
   br i1 %.not.i.i, label %_ZN4llvm9BitVectorC2Ejb.exit, label %_ZN4llvm9BitVectorC2Ejb.exit.sink.split
 
 _ZN4llvm9BitVectorC2Ejb.exit.sink.split:          ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit
@@ -2710,7 +2710,7 @@ _ZN4llvm9BitVectorC2Ejb.exit:                     ; preds = %_ZN4llvm9BitVectorC
   %.078.lcssa = phi i32 [ 0, %_ZN4llvm9BitVectorC2Ejb.exit ], [ %123, %103 ]
   %.idx.i = shl nuw nsw i64 %48, 3
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx.i
-  %.not10.i = icmp ult i32 %46, 64
+  %.not10.i = icmp eq i32 %47, 0
   br i1 %.not10.i, label %_ZNK4llvm9BitVector5countEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
@@ -3137,9 +3137,9 @@ _ZN4llvm5APIntD2Ev.exit100.thread:                ; preds = %_ZN4llvm5APIntC2ERK
 262:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit98
   %263 = load ptr, ptr %13, align 8, !tbaa !18
   %264 = icmp eq ptr %263, null
-  br i1 %264, label %_ZN4llvm5APIntD2Ev.exit100.thread293, label %_ZN4llvm5APIntD2Ev.exit100
+  br i1 %264, label %_ZN4llvm5APIntD2Ev.exit100.thread292, label %_ZN4llvm5APIntD2Ev.exit100
 
-_ZN4llvm5APIntD2Ev.exit100.thread293:             ; preds = %262
+_ZN4llvm5APIntD2Ev.exit100.thread292:             ; preds = %262
   store i64 %259, ptr %13, align 8
   store i32 %258, ptr %126, align 8, !tbaa !16
   br label %_ZN4llvm5APIntD2Ev.exit101
@@ -3161,7 +3161,7 @@ _ZN4llvm5APIntD2Ev.exit100:                       ; preds = %262
   call void @_ZdaPv(ptr noundef nonnull %267) #23
   br label %_ZN4llvm5APIntD2Ev.exit101
 
-_ZN4llvm5APIntD2Ev.exit101:                       ; preds = %_ZN4llvm5APIntD2Ev.exit100.thread293, %269, %266, %_ZN4llvm5APIntD2Ev.exit100, %_ZN4llvm5APIntD2Ev.exit100.thread, %_ZN4llvm5APIntaSERKS0_.exit
+_ZN4llvm5APIntD2Ev.exit101:                       ; preds = %_ZN4llvm5APIntD2Ev.exit100.thread292, %269, %266, %_ZN4llvm5APIntD2Ev.exit100, %_ZN4llvm5APIntD2Ev.exit100.thread, %_ZN4llvm5APIntaSERKS0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 0, ptr %20, align 4
   br i1 %.not204, label %._crit_edge226.thread, label %.preheader.lr.ph
@@ -3535,13 +3535,13 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG8CaseBitsESt6
   br i1 %.not.i.i103, label %400, label %396
 
 .thread:                                          ; preds = %.preheader
-  %.not.i.i103323 = icmp eq ptr %.sroa.12.0223, %.sroa.20.0222
-  br i1 %.not.i.i103323, label %_ZNKSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i, label %396
+  %.not.i.i103322 = icmp eq ptr %.sroa.12.0223, %.sroa.20.0222
+  br i1 %.not.i.i103322, label %_ZNKSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i, label %396
 
 396:                                              ; preds = %.thread, %392
   %397 = phi ptr [ %282, %.thread ], [ %395, %392 ]
   %398 = phi i64 [ %279, %.thread ], [ %391, %392 ]
-  %.lcssa197321325 = phi i64 [ 0, %.thread ], [ %.lcssa197, %392 ]
+  %.lcssa197320324 = phi i64 [ 0, %.thread ], [ %.lcssa197, %392 ]
   store i64 0, ptr %.sroa.12.0223, align 8, !tbaa !362
   %.sroa.5147.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.12.0223, i64 8
   store ptr %397, ptr %.sroa.5147.0..sroa_idx, align 8, !tbaa !212
@@ -3561,7 +3561,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG8CaseBitsESt6
   unreachable
 
 _ZNKSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %.thread, %400
-  %.lcssa197321324328 = phi i64 [ %.lcssa197, %400 ], [ 0, %.thread ]
+  %.lcssa197320323327 = phi i64 [ %.lcssa197, %400 ], [ 0, %.thread ]
   %403 = phi i64 [ %391, %400 ], [ %279, %.thread ]
   %404 = phi ptr [ %395, %400 ], [ %282, %.thread ]
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %278, i64 1)
@@ -3604,13 +3604,13 @@ _ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gn
   br label %_ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE9push_backEOS2_.exit
 
 _ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE9push_backEOS2_.exit: ; preds = %._crit_edge213, %_ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %396
-  %.lcssa197320 = phi i64 [ %.lcssa197321324328, %_ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.lcssa197321325, %396 ], [ %.lcssa197, %._crit_edge213 ]
+  %.lcssa197319 = phi i64 [ %.lcssa197320323327, %_ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.lcssa197320324, %396 ], [ %.lcssa197, %._crit_edge213 ]
   %.pre-phi = phi i64 [ %403, %_ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %398, %396 ], [ %391, %._crit_edge213 ]
   %414 = phi ptr [ %.pre241, %_ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.pre242.pre, %396 ], [ %.pre242.pre, %._crit_edge213 ]
   %.sroa.20.1 = phi ptr [ %413, %_ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.20.0222, %396 ], [ %.sroa.20.0222, %._crit_edge213 ]
   %.sroa.12.1 = phi ptr [ %411, %_ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %399, %396 ], [ %.sroa.12.0223, %._crit_edge213 ]
   %.sroa.0156.1 = phi ptr [ %407, %_ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.0156.0224, %396 ], [ %.sroa.0156.0224, %._crit_edge213 ]
-  %415 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseBits", ptr %.sroa.0156.1, i64 %.lcssa197320
+  %415 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseBits", ptr %.sroa.0156.1, i64 %.lcssa197319
   %416 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %414, i64 %.pre-phi
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 8
   %418 = load ptr, ptr %417, align 8, !tbaa !9
@@ -3744,8 +3744,8 @@ _ZN4llvm5APIntD2Ev.exit115:                       ; preds = %_ZN4llvm5APIntC2ERK
   br i1 %.not88, label %._crit_edge226, label %.preheader, !llvm.loop !444
 
 ._crit_edge233:                                   ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8SwitchCG11BitTestCaseELb1EE9push_backERKS2_.exit, %._crit_edge226, %._crit_edge226.thread
-  %.sroa.20.0.lcssa299310 = phi i64 [ %283, %._crit_edge226 ], [ 0, %._crit_edge226.thread ], [ %283, %_ZN4llvm23SmallVectorTemplateBaseINS_8SwitchCG11BitTestCaseELb1EE9push_backERKS2_.exit ]
-  %.sroa.0156.0.lcssa301309 = phi ptr [ %.sroa.0156.1, %._crit_edge226 ], [ null, %._crit_edge226.thread ], [ %.sroa.0156.1, %_ZN4llvm23SmallVectorTemplateBaseINS_8SwitchCG11BitTestCaseELb1EE9push_backERKS2_.exit ]
+  %.sroa.20.0.lcssa298309 = phi i64 [ %283, %._crit_edge226 ], [ 0, %._crit_edge226.thread ], [ %283, %_ZN4llvm23SmallVectorTemplateBaseINS_8SwitchCG11BitTestCaseELb1EE9push_backERKS2_.exit ]
+  %.sroa.0156.0.lcssa300308 = phi ptr [ %.sroa.0156.1, %._crit_edge226 ], [ null, %._crit_edge226.thread ], [ %.sroa.0156.1, %_ZN4llvm23SmallVectorTemplateBaseINS_8SwitchCG11BitTestCaseELb1EE9push_backERKS2_.exit ]
   %485 = phi ptr [ %284, %._crit_edge226 ], [ %270, %._crit_edge226.thread ], [ %284, %_ZN4llvm23SmallVectorTemplateBaseINS_8SwitchCG11BitTestCaseELb1EE9push_backERKS2_.exit ]
   %486 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
@@ -3825,13 +3825,13 @@ _ZNSt6vectorIN4llvm8SwitchCG12BitTestBlockESaIS2_EE12emplace_backIJNS0_5APIntES6
 _ZN4llvm11SmallVectorINS_8SwitchCG11BitTestCaseELj3EED2Ev.exit: ; preds = %_ZNSt6vectorIN4llvm8SwitchCG12BitTestBlockESaIS2_EE12emplace_backIJNS0_5APIntES6_PNS0_5ValueENS0_8RegisterENS0_3MVT15SimpleValueTypeEbRbDnDnNS0_11SmallVectorINS1_11BitTestCaseELj3EEERNS0_17BranchProbabilityEEEERS2_DpOT_.exit, %515
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  %.not.i.i.i118 = icmp eq ptr %.sroa.0156.0.lcssa301309, null
+  %.not.i.i.i118 = icmp eq ptr %.sroa.0156.0.lcssa300308, null
   br i1 %.not.i.i.i118, label %_ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EED2Ev.exit, label %516
 
 516:                                              ; preds = %_ZN4llvm11SmallVectorINS_8SwitchCG11BitTestCaseELj3EED2Ev.exit
-  %517 = ptrtoint ptr %.sroa.0156.0.lcssa301309 to i64
-  %518 = sub i64 %.sroa.20.0.lcssa299310, %517
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0156.0.lcssa301309, i64 noundef %518) #23
+  %517 = ptrtoint ptr %.sroa.0156.0.lcssa300308 to i64
+  %518 = sub i64 %.sroa.20.0.lcssa298309, %517
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0156.0.lcssa300308, i64 noundef %518) #23
   br label %_ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EED2Ev.exit: ; preds = %_ZN4llvm11SmallVectorINS_8SwitchCG11BitTestCaseELj3EED2Ev.exit, %516
@@ -6576,7 +6576,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 104:                                              ; preds = %98
   %105 = getelementptr inbounds %"struct.llvm::SwitchCG::CaseCluster", ptr %0, i64 %.010.i.i.i.i18.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %105, ptr noundef nonnull align 8 dereferenceable(36) %99, i64 36, i1 false), !tbaa.struct !82
-  %.not16.i.i26.i = icmp ult i64 %.0911.in.i.i.i.i19.i, 2
+  %.not16.i.i26.i = icmp eq i64 %.0911.i.i1415.i.i20.i, 0
   br i1 %.not16.i.i26.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_15sortAndRangeifyERS8_E3$_0EEEvT_SF_SF_RT0_.exit.i22.i", label %98, !llvm.loop !503
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_15sortAndRangeifyERS8_E3$_0EEEvT_SF_SF_RT0_.exit.i22.i": ; preds = %104, %98, %96

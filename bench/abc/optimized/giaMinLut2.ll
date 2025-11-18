@@ -3146,7 +3146,7 @@ Abc_TtIntersect.exit183:                          ; preds = %.lr.ph.i
   br i1 %65, label %.preheader.us.i, label %.loopexit305, !llvm.loop !68
 
 .loopexit305:                                     ; preds = %._crit_edge.us.i, %Abc_TtIntersect.exit183
-  %66 = icmp ult i32 %15, 2
+  %66 = icmp eq i32 %50, 0
   br i1 %66, label %Abc_TtCopy.exit, label %67
 
 67:                                               ; preds = %.loopexit305
@@ -3497,8 +3497,8 @@ Abc_TtIntersect.exit273:                          ; preds = %.lr.ph.i268
   br label %212
 
 212:                                              ; preds = %201, %Abc_TtIntersect.exit273, %188
-  %.sink361 = phi i32 [ %207, %201 ], [ %211, %Abc_TtIntersect.exit273 ], [ %193, %188 ]
-  store i32 %.sink361, ptr %7, align 4, !tbaa !4
+  %.sink360 = phi i32 [ %207, %201 ], [ %211, %Abc_TtIntersect.exit273 ], [ %193, %188 ]
+  store i32 %.sink360, ptr %7, align 4, !tbaa !4
   br i1 %.not167, label %Abc_TtClear.exit, label %213
 
 213:                                              ; preds = %212
@@ -3513,7 +3513,7 @@ Abc_TtIntersect.exit273:                          ; preds = %.lr.ph.i268
   %220 = sub i64 %218, %219
   %221 = lshr exact i64 %220, 3
   %222 = trunc i64 %221 to i32
-  tail call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %216, i32 noundef %222, i32 noundef %.sink361)
+  tail call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %216, i32 noundef %222, i32 noundef %.sink360)
   br label %Abc_TtClear.exit
 
 Abc_TtClear.exit:                                 ; preds = %.lr.ph.i216, %.lr.ph18.i237, %.lr.ph18.i201, %33, %136, %.thread297, %Abc_TtCopy.exit, %.lr.ph.preheader.i184, %.lr.ph.preheader.i, %212, %213, %29

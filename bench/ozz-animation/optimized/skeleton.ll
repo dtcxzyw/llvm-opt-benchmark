@@ -169,7 +169,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #7
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN3ozz9animation8Skeleton8AllocateEmm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = icmp eq i64 %2, 0
-  br i1 %4, label %26, label %_ZN3ozz9fill_spanIsEENS_4spanIT_EERNS1_IhEEm.exit
+  br i1 %4, label %27, label %_ZN3ozz9fill_spanIsEENS_4spanIT_EERNS1_IhEEm.exit
 
 _ZN3ozz9fill_spanIsEENS_4spanIT_EERNS1_IhEEm.exit: ; preds = %3
   %5 = add i64 %2, 3
@@ -186,28 +186,27 @@ _ZN3ozz9fill_spanIsEENS_4spanIT_EERNS1_IhEEm.exit: ; preds = %3
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef %12, i64 noundef 16)
   store ptr %17, ptr %0, align 8, !tbaa !26
-  %.not.i = icmp ult i64 %5, 4
-  %.sroa.033.0.idx = select i1 %.not.i, i64 0, i64 %7
-  %.sroa.033.0 = getelementptr inbounds nuw i8, ptr %17, i64 %.sroa.033.0.idx
+  %.not.i = icmp eq i64 %6, 0
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %7
   %.sroa.04.0.i = select i1 %.not.i, ptr null, ptr %17
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.04.0.i, ptr %18, align 8, !tbaa !10
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %6, ptr %19, align 8, !tbaa !13
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.033.0, i64 %8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %.sroa.033.0, ptr %21, align 8, !tbaa !23
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %2, ptr %22, align 8, !tbaa !25
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %9
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %20, ptr %24, align 8, !tbaa !17
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %2, ptr %25, align 8, !tbaa !19
-  br label %26
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.04.0.i, ptr %19, align 8, !tbaa !10
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %6, ptr %20, align 8, !tbaa !13
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 %8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %18, ptr %22, align 8, !tbaa !23
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %2, ptr %23, align 8, !tbaa !25
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 %9
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %21, ptr %25, align 8, !tbaa !17
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %2, ptr %26, align 8, !tbaa !19
+  br label %27
 
-26:                                               ; preds = %3, %_ZN3ozz9fill_spanIsEENS_4spanIT_EERNS1_IhEEm.exit
-  %.0 = phi ptr [ %23, %_ZN3ozz9fill_spanIsEENS_4spanIT_EERNS1_IhEEm.exit ], [ null, %3 ]
+27:                                               ; preds = %3, %_ZN3ozz9fill_spanIsEENS_4spanIT_EERNS1_IhEEm.exit
+  %.0 = phi ptr [ %24, %_ZN3ozz9fill_spanIsEENS_4spanIT_EERNS1_IhEEm.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -448,7 +447,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i: ; preds = %.noexc27, %27
 _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc29
   call void @_ZN3ozz3log6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %6) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %108
+  br label %109
 
 37:                                               ; preds = %.noexc29, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i, %.noexc27, %30, %24, %_ZNSolsEj.exit, %_ZN3ozz3log6LoggerlsIA30_cEERSoRKT_.exit, %12
   %38 = landingpad { ptr, i32 }
@@ -472,7 +471,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc29
   %49 = select i1 %47, i32 %.sroa.0.0.insert.insert.i, i32 %48
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not20 = icmp eq i32 %49, 0
-  br i1 %.not20, label %108, label %_ZN3ozz9animation8Skeleton8AllocateEmm.exit
+  br i1 %.not20, label %109, label %_ZN3ozz9animation8Skeleton8AllocateEmm.exit
 
 _ZN3ozz9animation8Skeleton8AllocateEmm.exit:      ; preds = %39
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -503,83 +502,82 @@ _ZN3ozz9animation8Skeleton8AllocateEmm.exit:      ; preds = %39
   %72 = load ptr, ptr %71, align 8
   %73 = call noundef ptr %72(ptr noundef nonnull align 8 dereferenceable(8) %69, i64 noundef %68, i64 noundef 16)
   store ptr %73, ptr %0, align 8, !tbaa !26
-  %.not.i.i = icmp ult i64 %61, 4
-  %.sroa.033.0.idx.i = select i1 %.not.i.i, i64 0, i64 %63
-  %.sroa.033.0.i = getelementptr inbounds nuw i8, ptr %73, i64 %.sroa.033.0.idx.i
+  %.not.i.i = icmp eq i64 %62, 0
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 %63
   %.sroa.04.0.i.i = select i1 %.not.i.i, ptr null, ptr %73
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.04.0.i.i, ptr %74, align 8, !tbaa !10
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %62, ptr %75, align 8, !tbaa !13
-  %76 = getelementptr inbounds nuw i8, ptr %.sroa.033.0.i, i64 %64
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %.sroa.033.0.i, ptr %77, align 8, !tbaa !23
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %60, ptr %78, align 8, !tbaa !25
-  %79 = getelementptr inbounds nuw i8, ptr %76, i64 %65
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %76, ptr %80, align 8, !tbaa !17
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %60, ptr %81, align 8, !tbaa !19
-  %82 = load ptr, ptr %1, align 8, !tbaa !70
-  %83 = load ptr, ptr %82, align 8, !tbaa !28
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %85 = load ptr, ptr %84, align 8
-  %86 = call noundef i64 %85(ptr noundef nonnull align 8 dereferenceable(8) %82, ptr noundef nonnull %79, i64 noundef %59)
-  %87 = icmp sgt i32 %49, 0
-  br i1 %87, label %.lr.ph, label %._crit_edge
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.04.0.i.i, ptr %75, align 8, !tbaa !10
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %62, ptr %76, align 8, !tbaa !13
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 %64
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %74, ptr %78, align 8, !tbaa !23
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %60, ptr %79, align 8, !tbaa !25
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 %65
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %77, ptr %81, align 8, !tbaa !17
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %60, ptr %82, align 8, !tbaa !19
+  %83 = load ptr, ptr %1, align 8, !tbaa !70
+  %84 = load ptr, ptr %83, align 8, !tbaa !28
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %86 = load ptr, ptr %85, align 8
+  %87 = call noundef i64 %86(ptr noundef nonnull align 8 dereferenceable(8) %83, ptr noundef nonnull %80, i64 noundef %59)
+  %88 = icmp sgt i32 %49, 0
+  br i1 %88, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN3ozz9animation8Skeleton8AllocateEmm.exit
-  %88 = load ptr, ptr %77, align 8, !tbaa !23
+  %89 = load ptr, ptr %78, align 8, !tbaa !23
   %wide.trip.count = zext nneg i32 %49 to i64
-  br label %103
+  br label %104
 
-._crit_edge:                                      ; preds = %103, %_ZN3ozz9animation8Skeleton8AllocateEmm.exit
-  %.sroa.01.0.copyload = load ptr, ptr %80, align 8, !tbaa !14
-  %.sroa.22.0.copyload = load i64, ptr %81, align 8, !tbaa !16
-  %89 = shl i64 %.sroa.22.0.copyload, 1
-  %90 = load ptr, ptr %1, align 8, !tbaa !70
-  %91 = load ptr, ptr %90, align 8, !tbaa !28
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %93 = load ptr, ptr %92, align 8
-  %94 = call noundef i64 %93(ptr noundef nonnull align 8 dereferenceable(8) %90, ptr noundef %.sroa.01.0.copyload, i64 noundef %89)
-  %95 = load i8, ptr %45, align 8, !tbaa !72, !range !34, !noundef !35
-  %96 = trunc nuw i8 %95 to i1
-  %.not9.i.i = icmp ne i64 %89, 0
-  %or.cond.not = and i1 %.not9.i.i, %96
+._crit_edge:                                      ; preds = %104, %_ZN3ozz9animation8Skeleton8AllocateEmm.exit
+  %.sroa.01.0.copyload = load ptr, ptr %81, align 8, !tbaa !14
+  %.sroa.22.0.copyload = load i64, ptr %82, align 8, !tbaa !16
+  %90 = shl i64 %.sroa.22.0.copyload, 1
+  %91 = load ptr, ptr %1, align 8, !tbaa !70
+  %92 = load ptr, ptr %91, align 8, !tbaa !28
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  %94 = load ptr, ptr %93, align 8
+  %95 = call noundef i64 %94(ptr noundef nonnull align 8 dereferenceable(8) %91, ptr noundef %.sroa.01.0.copyload, i64 noundef %90)
+  %96 = load i8, ptr %45, align 8, !tbaa !72, !range !34, !noundef !35
+  %97 = trunc nuw i8 %96 to i1
+  %.not9.i.i = icmp ne i64 %90, 0
+  %or.cond.not = and i1 %.not9.i.i, %97
   br i1 %or.cond.not, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIsEEEEvRT_.exit
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge, %.lr.ph.i.i
-  %.0.i6.i.i = phi i64 [ %101, %.lr.ph.i.i ], [ 0, %._crit_edge ]
-  %97 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload, i64 %.0.i6.i.i
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 1
-  %99 = load i8, ptr %97, align 1, !tbaa !41
+  %.0.i6.i.i = phi i64 [ %102, %.lr.ph.i.i ], [ 0, %._crit_edge ]
+  %98 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload, i64 %.0.i6.i.i
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 1
   %100 = load i8, ptr %98, align 1, !tbaa !41
-  store i8 %99, ptr %98, align 1, !tbaa !41
-  store i8 %100, ptr %97, align 1, !tbaa !41
-  %101 = add nuw i64 %.0.i6.i.i, 2
-  %102 = icmp ult i64 %101, %89
-  br i1 %102, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIsEEEEvRT_.exit, !llvm.loop !73
+  %101 = load i8, ptr %99, align 1, !tbaa !41
+  store i8 %100, ptr %99, align 1, !tbaa !41
+  store i8 %101, ptr %98, align 1, !tbaa !41
+  %102 = add nuw i64 %.0.i6.i.i, 2
+  %103 = icmp ult i64 %102, %90
+  br i1 %103, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIsEEEEvRT_.exit, !llvm.loop !73
 
 _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIsEEEEvRT_.exit: ; preds = %.lr.ph.i.i, %._crit_edge
-  %.sroa.0.0.copyload = load ptr, ptr %74, align 8, !tbaa !8
-  %.sroa.2.0.copyload = load i64, ptr %75, align 8, !tbaa !16
+  %.sroa.0.0.copyload = load ptr, ptr %75, align 8, !tbaa !8
+  %.sroa.2.0.copyload = load i64, ptr %76, align 8, !tbaa !16
   call void @_ZN3ozz2io6ExternINS_4math12SoaTransformEE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef %.sroa.0.0.copyload, i64 noundef %.sroa.2.0.copyload, i32 noundef 0)
-  br label %108
+  br label %109
 
-103:                                              ; preds = %.lr.ph, %103
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %103 ]
-  %.046 = phi ptr [ %79, %.lr.ph ], [ %107, %103 ]
-  %104 = getelementptr inbounds nuw ptr, ptr %88, i64 %indvars.iv
-  store ptr %.046, ptr %104, align 8, !tbaa !39
-  %105 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.046) #16
-  %106 = getelementptr i8, ptr %.046, i64 %105
-  %107 = getelementptr i8, ptr %106, i64 1
+104:                                              ; preds = %.lr.ph, %104
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %104 ]
+  %.046 = phi ptr [ %80, %.lr.ph ], [ %108, %104 ]
+  %105 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv
+  store ptr %.046, ptr %105, align 8, !tbaa !39
+  %106 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.046) #16
+  %107 = getelementptr i8, ptr %.046, i64 %106
+  %108 = getelementptr i8, ptr %107, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %103, !llvm.loop !74
+  br i1 %exitcond.not, label %._crit_edge, label %104, !llvm.loop !74
 
-108:                                              ; preds = %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIsEEEEvRT_.exit, %39, %_ZNSolsEPFRSoS_E.exit
+109:                                              ; preds = %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIsEEEEvRT_.exit, %39, %_ZNSolsEPFRSoS_E.exit
   ret void
 }
 

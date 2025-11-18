@@ -394,8 +394,8 @@ define hidden void @_ZN8rawspeed16ColorFilterArray6setCFAENS_8iPoint2DEz(ptr nou
 
 11:                                               ; preds = %2
   %12 = icmp eq i32 %.sroa.0.0.extract.trunc, 0
-  %13 = icmp ult i64 %1, 4294967296
-  %14 = and i1 %13, %12
+  %13 = icmp eq i64 %.sroa.4.0.extract.shift, 0
+  %14 = and i1 %12, %13
   br i1 %14, label %_ZN8rawspeed16ColorFilterArray7setSizeERKNS_8iPoint2DE.exit, label %15
 
 15:                                               ; preds = %11

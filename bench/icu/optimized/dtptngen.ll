@@ -8529,7 +8529,7 @@ define void @_ZN6icu_7724DateTimePatternGenerator16getBestAppendingEiiR10UErrorC
   %.0711.i = phi i32 [ %94, %.preheader.i ], [ %92, %86 ]
   %94 = ashr i32 %.0711.i, 1
   %95 = add nuw nsw i32 %.012.i, 1
-  %.not.i = icmp ult i32 %.0711.i, 2
+  %.not.i = icmp eq i32 %94, 0
   br i1 %.not.i, label %96, label %.preheader.i, !llvm.loop !152
 
 96:                                               ; preds = %.preheader.i
@@ -10087,7 +10087,7 @@ define noundef range(i32 0, 16) i32 @_ZNK6icu_7724DateTimePatternGenerator15getT
   %.0711 = phi i32 [ %4, %.preheader ], [ %1, %2 ]
   %4 = ashr i32 %.0711, 1
   %5 = add nuw nsw i32 %.012, 1
-  %.not = icmp ult i32 %.0711, 2
+  %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %.preheader, !llvm.loop !152
 
 6:                                                ; preds = %.preheader

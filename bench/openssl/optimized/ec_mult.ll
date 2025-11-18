@@ -1362,12 +1362,11 @@ define range(i32 0, 2) i32 @ossl_ec_wNAF_precompute_mult(ptr noundef %0, ptr nou
   br i1 %.not146, label %.thread167, label %.preheader213
 
 .preheader213:                                    ; preds = %50
-  %.not234 = icmp ult i64 %28, 8
+  %.not234 = icmp eq i64 %29, 0
   br i1 %.not234, label %._crit_edge228, label %.lr.ph227
 
 .lr.ph227:                                        ; preds = %.preheader213
   %52 = add nsw i64 %29, -1
-  %umax = tail call i64 @llvm.umax.i64(i64 %29, i64 1)
   br label %53
 
 53:                                               ; preds = %.lr.ph227, %.loopexit
@@ -1426,7 +1425,7 @@ define range(i32 0, 2) i32 @ossl_ec_wNAF_precompute_mult(ptr noundef %0, ptr nou
 
 .loopexit:                                        ; preds = %67, %._crit_edge223
   %70 = add nuw nsw i64 %.1130225, 1
-  %exitcond240.not = icmp eq i64 %70, %umax
+  %exitcond240.not = icmp eq i64 %70, %29
   br i1 %exitcond240.not, label %._crit_edge228, label %53, !llvm.loop !64
 
 ._crit_edge228:                                   ; preds = %.loopexit, %.preheader213

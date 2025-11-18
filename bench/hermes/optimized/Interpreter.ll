@@ -1450,7 +1450,7 @@ if.else13.i.i.i.i:                                ; preds = %if.else.i.i.i.i
 
 _ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i.i: ; preds = %if.else13.i.i.i.i, %if.then10.i.i.i.i, %if.then5.i.i.i.i, %if.then.i.i.i266.i, %if.then.i259.i
   %retval.0.i.sink.i.i.i = phi ptr [ %7, %if.then.i259.i ], [ %call.i.i.i.i.i, %if.then.i.i.i266.i ], [ %add.ptr.i.i.i.i.i.i265.i, %if.then5.i.i.i.i ], [ %add.ptr.i.i.i4.i.i.i.i, %if.then10.i.i.i.i ], [ %call.i.i.i.i.i.i, %if.else13.i.i.i.i ]
-  %cmp.i.i262.i = icmp ult i64 %8, 4294967296
+  %cmp.i.i262.i = icmp eq i64 %propName.sroa.6.8.extract.shift.i, 0
   br i1 %cmp.i.i262.i, label %38, label %if.else.i.i263.i
 
 if.else.i.i263.i:                                 ; preds = %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i.i
@@ -1536,7 +1536,7 @@ _ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i.i: ; preds = %if.else13.i.i
 
 39:                                               ; preds = %36, %38
   %40 = phi i32 [ 3, %38 ], [ 2, %36 ]
-  %add.i.i.i54.i97101 = phi i64 [ 24, %38 ], [ %37, %36 ]
+  %add.i.i.i54.i96100 = phi i64 [ 24, %38 ], [ %37, %36 ]
   %41 = phi ptr [ @.str.6, %38 ], [ %ref.tmp69.i, %36 ]
   store ptr %41, ptr %ref.tmp68.i, align 8, !alias.scope !17
   %leftKind_.i22.i.i68.i = getelementptr inbounds nuw i8, ptr %ref.tmp68.i, i64 8
@@ -1546,11 +1546,11 @@ _ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i.i: ; preds = %if.else13.i.i
   %rightKind_.i23.i.i70.i = getelementptr inbounds nuw i8, ptr %ref.tmp68.i, i64 24
   store i32 3, ptr %rightKind_.i23.i.i70.i, align 8, !alias.scope !17
   %leftSize_.i24.i.i71.i = getelementptr inbounds nuw i8, ptr %ref.tmp68.i, i64 32
-  store i64 %add.i.i.i54.i97101, ptr %leftSize_.i24.i.i71.i, align 8, !alias.scope !17
+  store i64 %add.i.i.i54.i96100, ptr %leftSize_.i24.i.i71.i, align 8, !alias.scope !17
   %rightSize_.i25.i.i72.i = getelementptr inbounds nuw i8, ptr %ref.tmp68.i, i64 40
   store i64 5, ptr %rightSize_.i25.i.i72.i, align 8, !alias.scope !17
   %call.i.i = call { ptr, i64 } @_ZNK6hermes2vm10StringView11getUTF16RefERN4llvh15SmallVectorImplIDsEEb(ptr noundef nonnull align 8 dereferenceable(16) %baseTypeAsString.i, ptr noundef nonnull align 8 dereferenceable(16) %tmp1.i, i1 noundef zeroext false) #9
-  %add.i.i.i92.i = add nuw nsw i64 %add.i.i.i54.i97101, 5
+  %add.i.i.i92.i = add nuw nsw i64 %add.i.i.i54.i96100, 5
   %42 = extractvalue { ptr, i64 } %call.i.i, 0
   %43 = extractvalue { ptr, i64 } %call.i.i, 1
   store ptr %ref.tmp68.i, ptr %ref.tmp67.i, align 8, !alias.scope !22

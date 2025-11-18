@@ -6398,8 +6398,8 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i305: ; preds = %_ZN9QtPrivate8RefCo
 
 _ZN7QStringD2Ev.exit310:                          ; preds = %143, %_ZN9QtPrivate8RefCount5derefEv.exit.i306, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i305
   %148 = call noundef i32 @_ZNSt6thread20hardware_concurrencyEv() #29
-  %149 = call i32 @llvm.umax.i32(i32 %148, i32 2)
-  %spec.store.select = lshr i32 %149, 1
+  %149 = lshr i32 %148, 1
+  %spec.store.select = call i32 @llvm.umax.i32(i32 %149, i32 1)
   %150 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.59, i32 noundef 6)
           to label %161 unwind label %95
 

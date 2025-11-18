@@ -33406,7 +33406,7 @@ _ZN5eastl9DequeBaseI10TestObjectNS_9allocatorELj8EEC2EmRKS2_.exit: ; preds = %wh
   %6 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %inc4.i = add nsw i64 %6, 1
   store i64 %inc4.i, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %cmp19.i.not = icmp ult i64 %n, 8
+  %cmp19.i.not = icmp eq i64 %div8.i.i, 0
   br i1 %cmp19.i.not, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN5eastl9DequeBaseI10TestObjectNS_9allocatorELj8EEC2EmRKS2_.exit, %_ZN5eastl18uninitialized_fillIP10TestObjectS1_EEvT_S3_RKT0_.exit.i

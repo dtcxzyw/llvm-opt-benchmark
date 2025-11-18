@@ -446,11 +446,11 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %12, %2
   %40 = zext i32 %37 to i64
   %.idx156 = shl nuw nsw i64 %40, 2
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx156
-  %.not155 = icmp ult i32 %37, 4
+  %42 = lshr i64 %40, 2
+  %.not155 = icmp eq i64 %42, 0
   br i1 %.not155, label %._crit_edge.i.i.i.i, label %.lr.ph.preheader.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %36
-  %42 = lshr i64 %40, 2
   %43 = and i64 %.idx156, 17179869168
   %scevgep.i.i.i.i = getelementptr i8, ptr %39, i64 %43
   br label %.lr.ph.i.i.i.i
@@ -466,13 +466,13 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %12, %2
   %45 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i, i64 4
   %.val31.i.i.i.i = load i32, ptr %45, align 4
   %.not49.i.i.i.i = icmp ult i32 %.val31.i.i.i.i, %33
-  br i1 %.not49.i.i.i.i, label %46, label %.loopexit.loopexit.split.loop.exit242
+  br i1 %.not49.i.i.i.i, label %46, label %.loopexit.loopexit.split.loop.exit243
 
 46:                                               ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i, i64 8
   %.val33.i.i.i.i = load i32, ptr %47, align 4
   %.not50.i.i.i.i = icmp ult i32 %.val33.i.i.i.i, %33
-  br i1 %.not50.i.i.i.i, label %48, label %.loopexit.loopexit.split.loop.exit240
+  br i1 %.not50.i.i.i.i, label %48, label %.loopexit.loopexit.split.loop.exit241
 
 48:                                               ; preds = %46
   %49 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i, i64 12
@@ -493,11 +493,10 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %12, %2
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %36
   %.pre-phi69.i.i.i.i = phi i32 [ %54, %._crit_edge.loopexit.i.i.i.i ], [ %37, %36 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %39, %36 ]
-  switch i32 %.pre-phi69.i.i.i.i, label %._crit_edge.i.i.i.i.unreachabledefault [
+  switch i32 %.pre-phi69.i.i.i.i, label %.thread [
     i32 3, label %55
     i32 2, label %58
     i32 1, label %61
-    i32 0, label %.thread
   ]
 
 55:                                               ; preds = %._crit_edge.i.i.i.i
@@ -509,7 +508,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %12, %2
   %57 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i, i64 4
   br label %58
 
-58:                                               ; preds = %._crit_edge.i.i.i.i, %56
+58:                                               ; preds = %56, %._crit_edge.i.i.i.i
   %.1.i.i.i.i = phi ptr [ %57, %56 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.1.val.i.i.i.i = load i32, ptr %.1.i.i.i.i, align 4
   %.not46.i.i.i.i = icmp ult i32 %.1.val.i.i.i.i, %33
@@ -519,7 +518,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %12, %2
   %60 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 4
   br label %61
 
-61:                                               ; preds = %._crit_edge.i.i.i.i, %59
+61:                                               ; preds = %59, %._crit_edge.i.i.i.i
   %.2.i.i.i.i = phi ptr [ %60, %59 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.2.val.i.i.i.i = load i32, ptr %.2.i.i.i.i, align 4
   %.not47.i.i.i.i = icmp ult i32 %.2.val.i.i.i.i, %33
@@ -529,16 +528,16 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %12, %2
   %62 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i, i64 12
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit240:            ; preds = %46
+.loopexit.loopexit.split.loop.exit241:            ; preds = %46
   %63 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i, i64 8
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit242:            ; preds = %44
+.loopexit.loopexit.split.loop.exit243:            ; preds = %44
   %64 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i, i64 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit240, %.loopexit.loopexit.split.loop.exit242, %61, %58, %55
-  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %55 ], [ %.1.i.i.i.i, %58 ], [ %.2.i.i.i.i, %61 ], [ %62, %.loopexit.loopexit.split.loop.exit ], [ %63, %.loopexit.loopexit.split.loop.exit240 ], [ %64, %.loopexit.loopexit.split.loop.exit242 ], [ %.02962.i.i.i.i, %.lr.ph.i.i.i.i ]
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit241, %.loopexit.loopexit.split.loop.exit243, %61, %58, %55
+  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %55 ], [ %.1.i.i.i.i, %58 ], [ %.2.i.i.i.i, %61 ], [ %62, %.loopexit.loopexit.split.loop.exit ], [ %63, %.loopexit.loopexit.split.loop.exit241 ], [ %64, %.loopexit.loopexit.split.loop.exit243 ], [ %.02962.i.i.i.i, %.lr.ph.i.i.i.i ]
   %65 = icmp eq ptr %41, %.028.i.i.i.i
   br i1 %65, label %.thread, label %.loopexit..thread148_crit_edge
 
@@ -546,10 +545,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %12, %2
   %.pre215 = add nuw nsw i64 %indvars.iv200, 1
   br label %.thread148
 
-._crit_edge.i.i.i.i.unreachabledefault:           ; preds = %._crit_edge.i.i.i.i
-  unreachable
-
-.thread:                                          ; preds = %._crit_edge.i.i.i.i, %61, %.loopexit
+.thread:                                          ; preds = %61, %._crit_edge.i.i.i.i, %.loopexit
   %66 = icmp ugt i32 %37, 4
   %67 = trunc nuw i64 %indvars.iv200 to i32
   %68 = add i32 %67, 2
@@ -680,8 +676,8 @@ _ZNK10aiVector3tIfEeqERKS0_.exit.thread:          ; preds = %72, %88, %_ZNK10aiV
   %129 = load i8, ptr %23, align 1, !range !7, !noundef !8
   %130 = trunc nuw i8 %129 to i1
   %131 = icmp eq i32 %.pre210, 3
-  %or.cond248 = select i1 %130, i1 %131, i1 false
-  br i1 %or.cond248, label %132, label %.thread148
+  %or.cond249 = select i1 %130, i1 %131, i1 false
+  br i1 %or.cond249, label %132, label %.thread148
 
 132:                                              ; preds = %.thread144
   %133 = invoke noundef float @_ZN6Assimp13GeometryUtils23calculateAreaOfTriangleERK6aiFaceP6aiMesh(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull %1)

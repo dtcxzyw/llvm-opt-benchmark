@@ -5086,7 +5086,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @xhci_setup_port_arrays(ptr
   %90 = add i32 %88, 1
   %91 = and i32 %89, -17
   %92 = icmp eq i32 %91, 0
-  br i1 %92, label %93, label %.preheader161
+  br i1 %92, label %93, label %.preheader162
 
 93:                                               ; preds = %.preheader54
   %94 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %63) #18, !srcloc !80
@@ -5097,14 +5097,14 @@ define internal fastcc noundef range(i32 -19, 1) i32 @xhci_setup_port_arrays(ptr
   %97 = lshr i32 %94, 14
   %98 = and i32 %97, 262140
   %99 = icmp eq i32 %98, 0
-  br i1 %99, label %.thread40, label %.preheader161
+  br i1 %99, label %.thread40, label %.preheader162
 
-.preheader161:                                    ; preds = %96, %.preheader54
-  %.ph162 = phi i32 [ %98, %96 ], [ %89, %.preheader54 ]
+.preheader162:                                    ; preds = %96, %.preheader54
+  %.ph163 = phi i32 [ %98, %96 ], [ %89, %.preheader54 ]
   br label %100
 
-100:                                              ; preds = %.preheader161, %111
-  %101 = phi i32 [ %115, %111 ], [ %.ph162, %.preheader161 ]
+100:                                              ; preds = %.preheader162, %111
+  %101 = phi i32 [ %115, %111 ], [ %.ph163, %.preheader162 ]
   %102 = zext i32 %101 to i64
   %103 = getelementptr i8, ptr %62, i64 %102
   %104 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %103) #18, !srcloc !80
@@ -5243,7 +5243,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @xhci_setup_port_arrays(ptr
   %197 = trunc nuw nsw i32 %196 to i8
   %198 = getelementptr inbounds nuw i8, ptr %193, i64 8
   store i8 %197, ptr %198, align 8
-  %199 = icmp ult i32 %179, 268435456
+  %199 = icmp eq i32 %196, 0
   br i1 %199, label %.loopexit51, label %200
 
 200:                                              ; preds = %195
@@ -5452,7 +5452,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @xhci_setup_port_arrays(ptr
 326:                                              ; preds = %.loopexit50
   %327 = and i32 %145, -17
   %328 = icmp eq i32 %327, 0
-  br i1 %328, label %329, label %.preheader151
+  br i1 %328, label %329, label %.preheader152
 
 329:                                              ; preds = %326
   %330 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %63) #18, !srcloc !80
@@ -5463,14 +5463,14 @@ define internal fastcc noundef range(i32 -19, 1) i32 @xhci_setup_port_arrays(ptr
   %333 = lshr i32 %330, 14
   %334 = and i32 %333, 262140
   %335 = icmp eq i32 %334, 0
-  br i1 %335, label %thread-pre-split45, label %.preheader151
+  br i1 %335, label %thread-pre-split45, label %.preheader152
 
-.preheader151:                                    ; preds = %332, %326
+.preheader152:                                    ; preds = %332, %326
   %.ph = phi i32 [ %334, %332 ], [ %145, %326 ]
   br label %336
 
-336:                                              ; preds = %.preheader151, %347
-  %337 = phi i32 [ %351, %347 ], [ %.ph, %.preheader151 ]
+336:                                              ; preds = %.preheader152, %347
+  %337 = phi i32 [ %351, %347 ], [ %.ph, %.preheader152 ]
   %338 = zext i32 %337 to i64
   %339 = getelementptr i8, ptr %62, i64 %338
   %340 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %339) #18, !srcloc !80

@@ -387,11 +387,11 @@ av_cmp_q.exit.thread.i:                           ; preds = %112, %94
   %124 = fcmp nsz ule double %122, %123
   %.not194.i = icmp eq i32 %.sroa.011.0.extract.trunc.i.i, 0
   %or.cond377.i = or i1 %.not194.i, %124
-  %.not195.i = icmp ult i64 %97, 4294967296
+  %.not195.i = icmp eq i64 %105, 0
   %or.cond378.i = or i1 %.not195.i, %or.cond377.i
   %.not196.i = icmp eq i32 %.sroa.0.0.extract.trunc.i.i, 0
   %or.cond379.i = or i1 %.not196.i, %or.cond378.i
-  %.not197.i = icmp ult i64 %98, 4294967296
+  %.not197.i = icmp eq i64 %107, 0
   %or.cond380.i = or i1 %.not197.i, %or.cond379.i
   br i1 %or.cond380.i, label %av_cmp_q.exit.thread257.i, label %125
 

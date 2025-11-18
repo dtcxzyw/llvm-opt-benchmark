@@ -380,7 +380,7 @@ _ZN4llvm9BitVectorC2Ejb.exit.loopexit.i:          ; preds = %2
   br label %_ZN4llvm9BitVectorC2Ejb.exit.sink.split.i
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.i:      ; preds = %2
-  %.not.i.i.i = icmp samesign ult i32 %14, 64
+  %.not.i.i.i = icmp eq i32 %15, 0
   br i1 %.not.i.i.i, label %_ZN5clang16PostOrderCFGView11CFGBlockSetC2EPKNS_3CFGE.exit, label %_ZN4llvm9BitVectorC2Ejb.exit.sink.split.i
 
 _ZN4llvm9BitVectorC2Ejb.exit.sink.split.i:        ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.i, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit.i
@@ -8455,11 +8455,11 @@ _ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit: ; preds = %86, %
   %96 = load i64, ptr %95, align 8, !tbaa !210
   %.idx3.i.i = shl nuw nsw i64 %96, 3
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 %.idx3.i.i
-  %.not.i.i = icmp ult i64 %96, 4
+  %98 = lshr i64 %96, 2
+  %.not.i.i = icmp eq i64 %98, 0
   br i1 %.not.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.split
-  %98 = lshr i64 %96, 2
   %99 = and i64 %.idx3.i.i, 9223372036854775776
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %94, i64 %99
   br label %100
@@ -8502,11 +8502,10 @@ _ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit: ; preds = %86, %
 ._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %.split
   %.pre-phi56.i.i.i.i.i = phi i64 [ %119, %._crit_edge.loopexit.i.i.i.i.i ], [ %96, %.split ]
   %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %94, %.split ]
-  switch i64 %.pre-phi56.i.i.i.i.i, label %default.unreachable [
+  switch i64 %.pre-phi56.i.i.i.i.i, label %131 [
     i64 3, label %120
     i64 2, label %._crit_edge._crit_edge.i.i.i.i.i
     i64 1, label %._crit_edge._crit_edge52.i.i.i.i.i
-    i64 0, label %131
   ]
 
 120:                                              ; preds = %._crit_edge.i.i.i.i.i
@@ -8533,9 +8532,6 @@ _ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit: ; preds = %86, %
   %129 = load ptr, ptr %.2.i.i.i.i.i, align 8, !tbaa !198
   %130 = icmp eq ptr %129, %92
   br i1 %130, label %_ZNK5clang12threadSafety3til10BasicBlock20findPredecessorIndexEPKS2_.exit, label %131
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i
-  unreachable
 
 131:                                              ; preds = %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge.i.i.i.i.i
   br label %_ZNK5clang12threadSafety3til10BasicBlock20findPredecessorIndexEPKS2_.exit

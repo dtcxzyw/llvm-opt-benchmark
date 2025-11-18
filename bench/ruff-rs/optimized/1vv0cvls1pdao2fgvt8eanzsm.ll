@@ -54441,7 +54441,7 @@ _ZN11ruff_linter5rules15flake8_simplify5rules19split_static_string18get_maxsplit
   %79 = lshr i64 %78, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5303)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5306)
-  %.not15.i.i.i = icmp ult i64 %78, 2
+  %.not15.i.i.i = icmp eq i64 %79, 0
   br i1 %.not15.i.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h183cdc571f63b07fE.exit.i", label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %74
@@ -54526,7 +54526,7 @@ common.resume:                                    ; preds = %129, %126, %118
   %105 = lshr i64 %104, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5341)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5344)
-  %.not15.i.i28.i = icmp ult i64 %104, 2
+  %.not15.i.i28.i = icmp eq i64 %105, 0
   br i1 %.not15.i.i28.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h183cdc571f63b07fE.exit32.i", label %.lr.ph.preheader.i.i29.i
 
 .lr.ph.preheader.i.i29.i:                         ; preds = %99

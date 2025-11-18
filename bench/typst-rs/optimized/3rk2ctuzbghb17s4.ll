@@ -2124,7 +2124,7 @@ common.resume:                                    ; preds = %.body, %160, %213, 
   %447 = lshr i64 %.sroa.5454.0.copyload.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !178)
   call void @llvm.experimental.noalias.scope.decl(metadata !181)
-  %.not.i.i.i = icmp ult i64 %.sroa.5454.0.copyload.i, 2
+  %.not.i.i.i = icmp eq i64 %447, 0
   br i1 %.not.i.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h10af151d768dd7a5E.exit.i", label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %446
@@ -2325,7 +2325,7 @@ common.resume:                                    ; preds = %.body, %160, %213, 
   br label %"_ZN5plist6stream13binary_reader21BinaryReader$LT$R$GT$9read_next17h26a5e38026c63645E.exit.thread33"
 
 514:                                              ; preds = %510, %491
-  %.sink713.i = phi ptr [ %495, %491 ], [ %509, %510 ]
+  %.sink714.i = phi ptr [ %495, %491 ], [ %509, %510 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !110
   br label %529
 
@@ -2373,7 +2373,7 @@ common.resume:                                    ; preds = %.body, %160, %213, 
           to label %483 unwind label %427
 
 529:                                              ; preds = %514, %490
-  %.sroa.41.0.in = phi ptr [ %482, %490 ], [ %.sink713.i, %514 ]
+  %.sroa.41.0.in = phi ptr [ %482, %490 ], [ %.sink714.i, %514 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17h170ae95bbee8deaeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
           to label %530 unwind label %471
 
@@ -3483,7 +3483,7 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   %23 = lshr i64 %22, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !369)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !372)
-  %.not.i.i.i = icmp ult i64 %22, 2
+  %.not.i.i.i = icmp eq i64 %23, 0
   br i1 %.not.i.i.i, label %"_ZN5typst9visualize8gradient8Gradient6repeat28_$u7b$$u7b$closure$u7d$$u7d$17h01357f0b518abe41E.llvm.11057974413330164255.exit", label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %18
@@ -156190,7 +156190,7 @@ define hidden void @"_ZN5typst9visualize8gradient8Gradient6repeat28_$u7b$$u7b$cl
   %28 = lshr i64 %27, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41035)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41038)
-  %.not.i.i = icmp ult i64 %27, 2
+  %.not.i.i = icmp eq i64 %28, 0
   br i1 %.not.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hf2b98bc37fdbf8b5E.exit", label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %23

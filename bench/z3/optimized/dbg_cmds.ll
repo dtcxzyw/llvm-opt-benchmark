@@ -10078,7 +10078,7 @@ _ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE
   %54 = zext nneg i32 %53 to i64
   %55 = shl nuw nsw i64 %54, 3
   %56 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %55)
-  %.not6.i.i.i.i.i.i = icmp ult i32 %52, 2
+  %.not6.i.i.i.i.i.i = icmp eq i32 %53, 0
   br i1 %.not6.i.i.i.i.i.i, label %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE11alloc_tableEj.exit.i, label %.lr.ph.preheader.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12delete_tableEv.exit.i

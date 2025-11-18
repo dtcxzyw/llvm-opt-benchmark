@@ -4715,7 +4715,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaIjELb0EE8AllocateERS2_m.exit.
   %16 = getelementptr inbounds nuw i32, ptr %15, i64 %.sink1.i
   %17 = load i32, ptr %1, align 4, !tbaa !48
   store i32 %17, ptr %16, align 4, !tbaa !48
-  %.not.i15 = icmp ult i64 %3, 2
+  %.not.i15 = icmp eq i64 %.sink1.i, 0
   br i1 %.not.i15, label %_ZN4absl23inlined_vector_internal17ConstructElementsISaIjENS0_20IteratorValueAdapterIS2_St13move_iteratorIPjEEEEEvRNS_8internal13type_identityIT_E4typeENSt16allocator_traitsISA_E7pointerERT0_NSF_9size_typeE.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %_ZN4absl23inlined_vector_internal13MallocAdapterISaIjELb0EE8AllocateERS2_m.exit.i
@@ -12978,11 +12978,11 @@ define linkonce_odr dso_local void @_ZN4absl15random_internal13SaltedSeedSeqISt8
   %34 = and i64 %33, 1
   %.not.i.i10 = icmp eq i64 %34, 0
   %35 = load ptr, ptr %25, align 8
-  %.not = icmp ult i64 %33, 2
+  %36 = lshr i64 %33, 1
+  %.not = icmp eq i64 %36, 0
   br i1 %.not, label %_ZSt4copyIPjPmET0_T_S3_S2_.exit, label %.lr.ph.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %32
-  %36 = lshr i64 %33, 1
   %37 = select i1 %.not.i.i10, ptr %25, ptr %35
   br label %.lr.ph.i.i.i.i.i
 
@@ -16084,11 +16084,11 @@ define linkonce_odr dso_local void @_ZN4absl15random_internal13SaltedSeedSeqISt8
   %34 = and i64 %33, 1
   %.not.i.i10 = icmp eq i64 %34, 0
   %35 = load ptr, ptr %25, align 8
-  %.not = icmp ult i64 %33, 2
+  %36 = lshr i64 %33, 1
+  %.not = icmp eq i64 %36, 0
   br i1 %.not, label %_ZSt4copyIPjPlET0_T_S3_S2_.exit, label %.lr.ph.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %32
-  %36 = lshr i64 %33, 1
   %37 = select i1 %.not.i.i10, ptr %25, ptr %35
   br label %.lr.ph.i.i.i.i.i
 

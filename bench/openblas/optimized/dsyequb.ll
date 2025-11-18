@@ -60,7 +60,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
   %29 = sub nsw i32 0, %28
   store i32 %29, ptr %10, align 4, !tbaa !3
   %30 = call i32 @xerbla_(ptr noundef nonnull @.str.2, ptr noundef nonnull %10, i32 noundef 7) #8
-  br label %378
+  br label %380
 
 31:                                               ; preds = %27
   %32 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str) #8
@@ -71,7 +71,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
 
 35:                                               ; preds = %31
   store double 1.000000e+00, ptr %5, align 8, !tbaa !7
-  br label %378
+  br label %380
 
 36:                                               ; preds = %31
   %.not504536 = icmp slt i32 %33, 1
@@ -86,9 +86,9 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
   %38 = shl nuw nsw i64 %37, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 %38, i1 false), !tbaa !7
   store double 0.000000e+00, ptr %6, align 8, !tbaa !7
-  %.not505737 = icmp eq i32 %32, 0
+  %.not505738 = icmp eq i32 %32, 0
   %39 = sext i32 %13 to i64
-  br i1 %.not505737, label %.lr.ph551.preheader, label %.preheader533.lr.ph
+  br i1 %.not505738, label %.lr.ph551.preheader, label %.preheader533.lr.ph
 
 .preheader533.lr.ph:                              ; preds = %._crit_edge.thread
   %40 = add i32 %13, 1
@@ -208,15 +208,15 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
 .lr.ph547.preheader:                              ; preds = %.lr.ph551
   %107 = mul nsw i64 %indvars.iv644, %39
   %108 = sext i32 %indvars.iv638 to i64
-  %invariant.gep761 = getelementptr double, ptr %15, i64 %107
+  %invariant.gep762 = getelementptr double, ptr %15, i64 %107
   br label %.lr.ph547
 
 .lr.ph547:                                        ; preds = %.lr.ph547.preheader, %.lr.ph547
   %indvars.iv640 = phi i64 [ %108, %.lr.ph547.preheader ], [ %indvars.iv.next641, %.lr.ph547 ]
   %109 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv640
   %110 = load double, ptr %109, align 8, !tbaa !7
-  %gep762 = getelementptr double, ptr %invariant.gep761, i64 %indvars.iv640
-  %111 = load double, ptr %gep762, align 8, !tbaa !7
+  %gep763 = getelementptr double, ptr %invariant.gep762, i64 %indvars.iv640
+  %111 = load double, ptr %gep763, align 8, !tbaa !7
   %112 = fcmp oge double %111, 0.000000e+00
   %113 = fneg double %111
   %114 = select i1 %112, double %111, double %113
@@ -224,7 +224,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
   %116 = select i1 %115, double %110, double %114
   store double %116, ptr %109, align 8, !tbaa !7
   %117 = load double, ptr %88, align 8, !tbaa !7
-  %118 = load double, ptr %gep762, align 8, !tbaa !7
+  %118 = load double, ptr %gep763, align 8, !tbaa !7
   %119 = fcmp oge double %118, 0.000000e+00
   %120 = fneg double %118
   %121 = select i1 %119, double %118, double %120
@@ -232,7 +232,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
   %123 = select i1 %122, double %117, double %121
   store double %123, ptr %88, align 8, !tbaa !7
   %124 = load double, ptr %6, align 8, !tbaa !7
-  %125 = load double, ptr %gep762, align 8, !tbaa !7
+  %125 = load double, ptr %gep763, align 8, !tbaa !7
   %126 = fcmp oge double %125, 0.000000e+00
   %127 = fneg double %125
   %128 = select i1 %126, double %125, double %127
@@ -245,7 +245,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
   br i1 %exitcond643.not, label %.loopexit531, label %.lr.ph547, !llvm.loop !13
 
 .loopexit532:                                     ; preds = %._crit_edge541, %.loopexit531, %._crit_edge
-  %.not505738 = phi i1 [ %.not505, %._crit_edge ], [ true, %.loopexit531 ], [ false, %._crit_edge541 ]
+  %.not505739 = phi i1 [ %.not505, %._crit_edge ], [ true, %.loopexit531 ], [ false, %._crit_edge541 ]
   br i1 %.not504536, label %._crit_edge556, label %.lr.ph555.preheader
 
 .lr.ph555.preheader:                              ; preds = %.loopexit532
@@ -286,7 +286,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
   %144 = shl nuw nsw i64 %143, 3
   call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 %144, i1 false), !tbaa !7
   %145 = add nuw i32 %142, 1
-  br i1 %.not505738, label %.lr.ph575.preheader, label %.preheader528.preheader
+  br i1 %.not505739, label %.lr.ph575.preheader, label %.preheader528.preheader
 
 .preheader528.preheader:                          ; preds = %._crit_edge561.thread
   %wide.trip.count664 = zext i32 %145 to i64
@@ -306,13 +306,13 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
   %146 = mul nsw i64 %indvars.iv661, %140
   %147 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv661
   %148 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv661
-  %invariant.gep763 = getelementptr double, ptr %15, i64 %146
+  %invariant.gep764 = getelementptr double, ptr %15, i64 %146
   br label %149
 
 149:                                              ; preds = %.lr.ph564, %149
   %indvars.iv656 = phi i64 [ 1, %.lr.ph564 ], [ %indvars.iv.next657, %149 ]
-  %gep764 = getelementptr double, ptr %invariant.gep763, i64 %indvars.iv656
-  %150 = load double, ptr %gep764, align 8, !tbaa !7
+  %gep765 = getelementptr double, ptr %invariant.gep764, i64 %indvars.iv656
+  %150 = load double, ptr %gep765, align 8, !tbaa !7
   %151 = fcmp oge double %150, 0.000000e+00
   %152 = fneg double %150
   %153 = select i1 %151, double %150, double %152
@@ -321,7 +321,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
   %156 = load double, ptr %155, align 8, !tbaa !7
   %157 = call double @llvm.fmuladd.f64(double %153, double %154, double %156)
   store double %157, ptr %155, align 8, !tbaa !7
-  %158 = load double, ptr %gep764, align 8, !tbaa !7
+  %158 = load double, ptr %gep765, align 8, !tbaa !7
   %159 = fcmp oge double %158, 0.000000e+00
   %160 = fneg double %158
   %161 = select i1 %159, double %158, double %160
@@ -388,13 +388,13 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
 .lr.ph571.preheader:                              ; preds = %.lr.ph575
   %193 = mul nsw i64 %indvars.iv673, %140
   %194 = sext i32 %indvars.iv666 to i64
-  %invariant.gep765 = getelementptr double, ptr %15, i64 %193
+  %invariant.gep766 = getelementptr double, ptr %15, i64 %193
   br label %.lr.ph571
 
 .lr.ph571:                                        ; preds = %.lr.ph571.preheader, %.lr.ph571
   %indvars.iv668 = phi i64 [ %194, %.lr.ph571.preheader ], [ %indvars.iv.next669, %.lr.ph571 ]
-  %gep766 = getelementptr double, ptr %invariant.gep765, i64 %indvars.iv668
-  %195 = load double, ptr %gep766, align 8, !tbaa !7
+  %gep767 = getelementptr double, ptr %invariant.gep766, i64 %indvars.iv668
+  %195 = load double, ptr %gep767, align 8, !tbaa !7
   %196 = fcmp oge double %195, 0.000000e+00
   %197 = fneg double %195
   %198 = select i1 %196, double %195, double %197
@@ -403,7 +403,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
   %201 = load double, ptr %200, align 8, !tbaa !7
   %202 = call double @llvm.fmuladd.f64(double %198, double %199, double %201)
   store double %202, ptr %200, align 8, !tbaa !7
-  %203 = load double, ptr %gep766, align 8, !tbaa !7
+  %203 = load double, ptr %gep767, align 8, !tbaa !7
   %204 = fcmp oge double %203, 0.000000e+00
   %205 = fneg double %203
   %206 = select i1 %204, double %203, double %205
@@ -536,7 +536,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
 
 279:                                              ; preds = %.lr.ph608
   store i32 -1, ptr %8, align 4, !tbaa !3
-  br label %378
+  br label %380
 
 280:                                              ; preds = %.lr.ph608
   %281 = fmul double %272, -2.000000e+00
@@ -544,21 +544,21 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
   %283 = fadd double %264, %282
   %284 = fdiv double %281, %283
   %285 = fsub double %284, %255
-  br i1 %.not505738, label %.preheader.preheader, label %.preheader526.preheader
+  br i1 %.not505739, label %.preheader.preheader, label %.preheader526.preheader
 
 .preheader526.preheader:                          ; preds = %280
-  %invariant.gep767 = getelementptr double, ptr %15, i64 %245
+  %invariant.gep768 = getelementptr double, ptr %15, i64 %245
   br label %.preheader526
 
 .preheader.preheader:                             ; preds = %280
-  %invariant.gep771 = getelementptr double, ptr %15, i64 %indvars.iv695
+  %invariant.gep772 = getelementptr double, ptr %15, i64 %indvars.iv695
   br label %.preheader
 
 .preheader526:                                    ; preds = %.preheader526.preheader, %.preheader526
   %indvars.iv688 = phi i64 [ 1, %.preheader526.preheader ], [ %indvars.iv.next689, %.preheader526 ]
   %.0477588 = phi double [ 0.000000e+00, %.preheader526.preheader ], [ %292, %.preheader526 ]
-  %gep768 = getelementptr double, ptr %invariant.gep767, i64 %indvars.iv688
-  %286 = load double, ptr %gep768, align 8, !tbaa !7
+  %gep769 = getelementptr double, ptr %invariant.gep768, i64 %indvars.iv688
+  %286 = load double, ptr %gep769, align 8, !tbaa !7
   %287 = fcmp oge double %286, 0.000000e+00
   %288 = fneg double %286
   %289 = select i1 %287, double %286, double %288
@@ -581,7 +581,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
 
 .lr.ph593.preheader:                              ; preds = %296
   %wide.trip.count700 = zext i32 %297 to i64
-  %invariant.gep769 = getelementptr double, ptr %15, i64 %indvars.iv695
+  %invariant.gep770 = getelementptr double, ptr %15, i64 %indvars.iv695
   br label %.lr.ph593
 
 .lr.ph593:                                        ; preds = %.lr.ph593.preheader, %.lr.ph593
@@ -589,8 +589,8 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
   %.1478591 = phi double [ %292, %.lr.ph593.preheader ], [ %306, %.lr.ph593 ]
   %indvars.iv.next698 = add nuw nsw i64 %indvars.iv697, 1
   %299 = mul nsw i64 %indvars.iv.next698, %140
-  %gep770 = getelementptr double, ptr %invariant.gep769, i64 %299
-  %300 = load double, ptr %gep770, align 8, !tbaa !7
+  %gep771 = getelementptr double, ptr %invariant.gep770, i64 %299
+  %300 = load double, ptr %gep771, align 8, !tbaa !7
   %301 = fcmp oge double %300, 0.000000e+00
   %302 = fneg double %300
   %303 = select i1 %301, double %300, double %302
@@ -608,8 +608,8 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
   %indvars.iv702 = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next703, %.preheader ]
   %.3480596 = phi double [ 0.000000e+00, %.preheader.preheader ], [ %317, %.preheader ]
   %310 = mul nsw i64 %indvars.iv702, %140
-  %gep772 = getelementptr double, ptr %invariant.gep771, i64 %310
-  %311 = load double, ptr %gep772, align 8, !tbaa !7
+  %gep773 = getelementptr double, ptr %invariant.gep772, i64 %310
+  %311 = load double, ptr %gep773, align 8, !tbaa !7
   %312 = fcmp oge double %311, 0.000000e+00
   %313 = fneg double %311
   %314 = select i1 %312, double %311, double %313
@@ -632,15 +632,15 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
 
 .lr.ph601.preheader:                              ; preds = %321
   %wide.trip.count710 = zext i32 %322 to i64
-  %invariant.gep773 = getelementptr double, ptr %15, i64 %245
+  %invariant.gep774 = getelementptr double, ptr %15, i64 %245
   br label %.lr.ph601
 
 .lr.ph601:                                        ; preds = %.lr.ph601.preheader, %.lr.ph601
   %indvars.iv707 = phi i64 [ %indvars.iv695, %.lr.ph601.preheader ], [ %indvars.iv.next708, %.lr.ph601 ]
   %.4599 = phi double [ %317, %.lr.ph601.preheader ], [ %330, %.lr.ph601 ]
   %indvars.iv.next708 = add nuw nsw i64 %indvars.iv707, 1
-  %gep774 = getelementptr double, ptr %invariant.gep773, i64 %indvars.iv.next708
-  %324 = load double, ptr %gep774, align 8, !tbaa !7
+  %gep775 = getelementptr double, ptr %invariant.gep774, i64 %indvars.iv.next708
+  %324 = load double, ptr %gep775, align 8, !tbaa !7
   %325 = fcmp oge double %324, 0.000000e+00
   %326 = fneg double %324
   %327 = select i1 %325, double %324, double %326
@@ -697,8 +697,8 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
 
 354:                                              ; preds = %.lr.ph617, %dpow_ui.exit
   %indvars.iv720 = phi i64 [ 1, %.lr.ph617 ], [ %indvars.iv.next721, %dpow_ui.exit ]
-  %.0495614 = phi double [ 0.000000e+00, %.lr.ph617 ], [ %372, %dpow_ui.exit ]
-  %.0496613 = phi double [ %345, %.lr.ph617 ], [ %370, %dpow_ui.exit ]
+  %.0495614 = phi double [ 0.000000e+00, %.lr.ph617 ], [ %374, %dpow_ui.exit ]
+  %.0496613 = phi double [ %345, %.lr.ph617 ], [ %372, %dpow_ui.exit ]
   %355 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv720
   %356 = load double, ptr %355, align 8, !tbaa !7
   %357 = fmul double %347, %356
@@ -716,45 +716,46 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
   %364 = and i64 %363, 1
   %.not1719.i = icmp eq i64 %364, 0
   %spec.select20.i = select i1 %.not1719.i, double 1.000000e+00, double %.013.i
-  %.not1821.i = icmp samesign ult i32 %.012.i, 2
+  %365 = lshr i64 %363, 1
+  %.not1821.i = icmp eq i64 %365, 0
   br i1 %.not1821.i, label %dpow_ui.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %361, %.lr.ph.i
-  %spec.select24.i = phi double [ %spec.select.i, %.lr.ph.i ], [ %spec.select20.i, %361 ]
-  %.023.i = phi i64 [ %365, %.lr.ph.i ], [ %363, %361 ]
-  %.11422.i = phi double [ %366, %.lr.ph.i ], [ %.013.i, %361 ]
-  %365 = lshr i64 %.023.i, 1
-  %366 = fmul double %.11422.i, %.11422.i
-  %367 = and i64 %.023.i, 2
-  %.not17.i = icmp eq i64 %367, 0
-  %368 = fmul double %spec.select24.i, %366
-  %spec.select.i = select i1 %.not17.i, double %spec.select24.i, double %368
-  %.not18.i = icmp samesign ult i64 %.023.i, 4
+  %366 = phi i64 [ %370, %.lr.ph.i ], [ %365, %361 ]
+  %spec.select23.i = phi double [ %spec.select.i, %.lr.ph.i ], [ %spec.select20.i, %361 ]
+  %.11422.i = phi double [ %367, %.lr.ph.i ], [ %.013.i, %361 ]
+  %367 = fmul double %.11422.i, %.11422.i
+  %368 = and i64 %366, 1
+  %.not17.i = icmp eq i64 %368, 0
+  %369 = fmul double %spec.select23.i, %367
+  %spec.select.i = select i1 %.not17.i, double %spec.select23.i, double %369
+  %370 = lshr i64 %366, 1
+  %.not18.i = icmp eq i64 %370, 0
   br i1 %.not18.i, label %dpow_ui.exit, label %.lr.ph.i
 
 dpow_ui.exit:                                     ; preds = %.lr.ph.i, %354, %361
   %.011.i = phi double [ 1.000000e+00, %354 ], [ %spec.select20.i, %361 ], [ %spec.select.i, %.lr.ph.i ]
   store double %.011.i, ptr %355, align 8, !tbaa !7
-  %369 = fcmp ole double %.0496613, %.011.i
-  %370 = select i1 %369, double %.0496613, double %.011.i
-  %371 = fcmp oge double %.0495614, %.011.i
-  %372 = select i1 %371, double %.0495614, double %.011.i
+  %371 = fcmp ole double %.0496613, %.011.i
+  %372 = select i1 %371, double %.0496613, double %.011.i
+  %373 = fcmp oge double %.0495614, %.011.i
+  %374 = select i1 %373, double %.0495614, double %.011.i
   %indvars.iv.next721 = add nuw nsw i64 %indvars.iv720, 1
   %exitcond724.not = icmp eq i64 %indvars.iv.next721, %wide.trip.count723
   br i1 %exitcond724.not, label %._crit_edge618, label %354, !llvm.loop !27
 
 ._crit_edge618:                                   ; preds = %dpow_ui.exit, %343
-  %.0496.lcssa = phi double [ %345, %343 ], [ %370, %dpow_ui.exit ]
-  %.0495.lcssa = phi double [ 0.000000e+00, %343 ], [ %372, %dpow_ui.exit ]
-  %373 = fcmp oge double %.0496.lcssa, %344
-  %374 = select i1 %373, double %.0496.lcssa, double %344
-  %375 = fcmp ole double %.0495.lcssa, %345
-  %376 = select i1 %375, double %.0495.lcssa, double %345
-  %377 = fdiv double %374, %376
-  store double %377, ptr %5, align 8, !tbaa !7
-  br label %378
+  %.0496.lcssa = phi double [ %345, %343 ], [ %372, %dpow_ui.exit ]
+  %.0495.lcssa = phi double [ 0.000000e+00, %343 ], [ %374, %dpow_ui.exit ]
+  %375 = fcmp oge double %.0496.lcssa, %344
+  %376 = select i1 %375, double %.0496.lcssa, double %344
+  %377 = fcmp ole double %.0495.lcssa, %345
+  %378 = select i1 %377, double %.0495.lcssa, double %345
+  %379 = fdiv double %376, %378
+  store double %379, ptr %5, align 8, !tbaa !7
+  br label %380
 
-378:                                              ; preds = %._crit_edge618, %279, %35, %.thread
+380:                                              ; preds = %._crit_edge618, %279, %35, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

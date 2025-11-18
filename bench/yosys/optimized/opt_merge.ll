@@ -51823,7 +51823,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i: ; 
   %1332 = getelementptr inbounds nuw i8, ptr %1331, i64 %1319
   store i8 0, ptr %1332, align 1, !tbaa !21
   %1333 = lshr i32 %.072.i, 4
-  %.not.i459 = icmp ult i32 %.072.i, 16
+  %.not.i459 = icmp eq i32 %1333, 0
   br i1 %.not.i459, label %_ZN12_GLOBAL__N_114OptMergeWorker18int_to_hash_stringB5cxx11Ej.exit.loopexit, label %1314, !llvm.loop !599
 
 1334:                                             ; preds = %1327
@@ -52061,7 +52061,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i481:
   %1421 = getelementptr inbounds nuw i8, ptr %1420, i64 %1408
   store i8 0, ptr %1421, align 1, !tbaa !21
   %1422 = lshr i32 %.072.i480, 4
-  %.not.i482 = icmp ult i32 %.072.i480, 16
+  %.not.i482 = icmp eq i32 %1422, 0
   br i1 %.not.i482, label %_ZN12_GLOBAL__N_114OptMergeWorker18int_to_hash_stringB5cxx11Ej.exit491.loopexit, label %1403, !llvm.loop !599
 
 1423:                                             ; preds = %1416
@@ -52516,11 +52516,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit557: ; preds = %_Z
   br i1 %1556, label %.body464, label %.body464.sink.split
 
 .body464.sink.split:                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit557, %1334
-  %.sink2151 = phi ptr [ %1336, %1334 ], [ %1555, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit557 ]
+  %.sink2153 = phi ptr [ %1336, %1334 ], [ %1555, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit557 ]
   %.pn159.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %1335, %1334 ], [ %.pn159.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit557 ]
   %1557 = load i64, ptr %968, align 8, !tbaa !21
   %1558 = add i64 %1557, 1
-  call void @_ZdlPvm(ptr noundef %.sink2151, i64 noundef %1558) #27
+  call void @_ZdlPvm(ptr noundef %.sink2153, i64 noundef %1558) #27
   br label %.body464
 
 .body464:                                         ; preds = %.body464.sink.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit557, %1334
@@ -52920,8 +52920,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit611: ; preds = %16
   %1694 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %1695 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %1696 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %sext1889 = shl i64 %1681, 32
-  %1697 = ashr exact i64 %sext1889, 32
+  %sext1891 = shl i64 %1681, 32
+  %1697 = ashr exact i64 %sext1891, 32
   br label %1714
 
 ._crit_edge1434:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit684, %._crit_edge1428

@@ -737,11 +737,11 @@ mi_outc.exit53.i:                                 ; preds = %225, %.split56.us.i
   %228 = ptrtoint ptr %227 to i64
   %229 = ptrtoint ptr %.5306 to i64
   %230 = sub i64 %228, %229
-  %.not58.i = icmp ult i64 %230, 2
+  %231 = lshr i64 %230, 1
+  %.not58.i = icmp eq i64 %231, 0
   br i1 %.not58.i, label %mi_outs.exit, label %.lr.ph.i259
 
 .lr.ph.i259:                                      ; preds = %mi_outc.exit53.i
-  %231 = lshr i64 %230, 1
   %232 = getelementptr i8, ptr %.5306, i64 %230
   br label %233
 
@@ -955,11 +955,11 @@ mi_outc.exit53.i265:                              ; preds = %323, %.split56.us.i
   %326 = ptrtoint ptr %325 to i64
   %327 = ptrtoint ptr %.0302342 to i64
   %328 = sub i64 %326, %327
-  %.not58.i266 = icmp ult i64 %328, 2
+  %329 = lshr i64 %328, 1
+  %.not58.i266 = icmp eq i64 %329, 0
   br i1 %.not58.i266, label %mi_outs.exit, label %.lr.ph.i267
 
 .lr.ph.i267:                                      ; preds = %mi_outc.exit53.i265
-  %329 = lshr i64 %328, 1
   %330 = getelementptr i8, ptr %.0302342, i64 %328
   br label %331
 

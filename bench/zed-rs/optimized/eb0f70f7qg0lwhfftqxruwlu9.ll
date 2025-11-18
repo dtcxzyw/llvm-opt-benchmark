@@ -8140,21 +8140,21 @@ define hidden void @_ZN14async_executor5steal17h0d1f89d704800a04E(ptr noundef no
   %5 = tail call noundef i64 @"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$3len17hf5d7c455c019a57cE"(ptr noundef nonnull align 128 %0)
   %6 = add i64 %5, 1
   %7 = lshr i64 %6, 1
-  %.not = icmp ult i64 %6, 2
+  %.not = icmp eq i64 %7, 0
   br i1 %.not, label %.loopexit, label %8
 
 8:                                                ; preds = %2
   %9 = load i64, ptr %1, align 128, !range !394, !noundef !4
-  switch i64 %9, label %default.unreachable10 [
+  switch i64 %9, label %default.unreachable11 [
     i64 0, label %13
     i64 1, label %10
-    i64 2, label %16
+    i64 2, label %.lr.ph
   ]
 
-.loopexit:                                        ; preds = %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$concurrent_queue..PushError$LT$async_task..runnable..Runnable$GT$$GT$$GT$17hc368603516791874E.llvm.495310588694779438.exit", %16, %"_ZN4core3ptr108drop_in_place$LT$core..result..Result$LT$async_task..runnable..Runnable$C$concurrent_queue..PopError$GT$$GT$17h4ec1be77fc796db3E.llvm.495310588694779438.exit", %2
+.loopexit:                                        ; preds = %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$concurrent_queue..PushError$LT$async_task..runnable..Runnable$GT$$GT$$GT$17hc368603516791874E.llvm.495310588694779438.exit", %13, %"_ZN4core3ptr108drop_in_place$LT$core..result..Result$LT$async_task..runnable..Runnable$C$concurrent_queue..PopError$GT$$GT$17h4ec1be77fc796db3E.llvm.495310588694779438.exit", %2
   ret void
 
-default.unreachable10:                            ; preds = %54, %26, %8
+default.unreachable11:                            ; preds = %53, %25, %8
   unreachable
 
 10:                                               ; preds = %8
@@ -8162,158 +8162,155 @@ default.unreachable10:                            ; preds = %54, %26, %8
   %12 = load i64, ptr %11, align 8, !noundef !4
   br label %13
 
-13:                                               ; preds = %8, %10
+13:                                               ; preds = %10, %8
   %.sroa.4.0 = phi i64 [ %12, %10 ], [ 1, %8 ]
   %14 = tail call noundef i64 @"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$3len17hf5d7c455c019a57cE"(ptr noundef nonnull align 128 %1)
   %15 = sub i64 %.sroa.4.0, %14
   %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %7, i64 %15)
-  br label %16
-
-16:                                               ; preds = %8, %13
-  %.sroa.03.0 = phi i64 [ %.sroa.0.0.sroa.speculated.i, %13 ], [ %7, %8 ]
-  %.not8 = icmp eq i64 %.sroa.03.0, 0
+  %.not8 = icmp eq i64 %.sroa.4.0, %14
   br i1 %.not8, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %16
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br label %26
+.lr.ph:                                           ; preds = %8, %13
+  %.sroa.03.014 = phi i64 [ %.sroa.0.0.sroa.speculated.i, %13 ], [ %7, %8 ]
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br label %25
 
-26:                                               ; preds = %.lr.ph, %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$concurrent_queue..PushError$LT$async_task..runnable..Runnable$GT$$GT$$GT$17hc368603516791874E.llvm.495310588694779438.exit"
-  %.sroa.01.07 = phi i64 [ 0, %.lr.ph ], [ %27, %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$concurrent_queue..PushError$LT$async_task..runnable..Runnable$GT$$GT$$GT$17hc368603516791874E.llvm.495310588694779438.exit" ]
-  %27 = add nuw nsw i64 %.sroa.01.07, 1
+25:                                               ; preds = %.lr.ph, %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$concurrent_queue..PushError$LT$async_task..runnable..Runnable$GT$$GT$$GT$17hc368603516791874E.llvm.495310588694779438.exit"
+  %.sroa.01.07 = phi i64 [ 0, %.lr.ph ], [ %26, %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$concurrent_queue..PushError$LT$async_task..runnable..Runnable$GT$$GT$$GT$17hc368603516791874E.llvm.495310588694779438.exit" ]
+  %26 = add nuw nsw i64 %.sroa.01.07, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1268)
-  %28 = load i64, ptr %0, align 128, !range !394, !noalias !1268, !noundef !4
-  switch i64 %28, label %default.unreachable10 [
-    i64 0, label %29
-    i64 1, label %51
-    i64 2, label %52
+  %27 = load i64, ptr %0, align 128, !range !394, !noalias !1268, !noundef !4
+  switch i64 %27, label %default.unreachable11 [
+    i64 0, label %28
+    i64 1, label %50
+    i64 2, label %51
   ]
 
-29:                                               ; preds = %26
+28:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1271)
-  %30 = cmpxchg ptr %18, i64 2, i64 1 seq_cst seq_cst, align 8, !noalias !1274
-  %31 = extractvalue { i64, i1 } %30, 1
-  br i1 %31, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %29 = cmpxchg ptr %17, i64 2, i64 1 seq_cst seq_cst, align 8, !noalias !1274
+  %30 = extractvalue { i64, i1 } %29, 1
+  br i1 %30, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %29, %46
-  %.pn.i.i = phi { i64, i1 } [ %49, %46 ], [ %30, %29 ]
+.lr.ph.i.i:                                       ; preds = %28, %45
+  %.pn.i.i = phi { i64, i1 } [ %48, %45 ], [ %29, %28 ]
   %.sroa.08.0.i14.i.i = extractvalue { i64, i1 } %.pn.i.i, 0
-  %32 = and i64 %.sroa.08.0.i14.i.i, 2
-  %33 = icmp eq i64 %32, 0
-  br i1 %33, label %36, label %39
+  %31 = and i64 %.sroa.08.0.i14.i.i, 2
+  %32 = icmp eq i64 %31, 0
+  br i1 %32, label %35, label %38
 
-._crit_edge.i.i:                                  ; preds = %46, %29
-  %34 = load ptr, ptr %20, align 16, !noalias !1274
-  %35 = atomicrmw and ptr %18, i64 -2 release, align 8, !noalias !1274
-  store ptr %34, ptr %21, align 8, !alias.scope !1274
+._crit_edge.i.i:                                  ; preds = %45, %28
+  %33 = load ptr, ptr %19, align 16, !noalias !1274
+  %34 = atomicrmw and ptr %17, i64 -2 release, align 8, !noalias !1274
+  store ptr %33, ptr %20, align 8, !alias.scope !1274
   br label %"_ZN16concurrent_queue6single15Single$LT$T$GT$3pop17h034f57358e3fd35fE.exit.i"
 
-36:                                               ; preds = %.lr.ph.i.i
-  %37 = and i64 %.sroa.08.0.i14.i.i, 4
-  %38 = icmp eq i64 %37, 0
-  br i1 %38, label %42, label %43
+35:                                               ; preds = %.lr.ph.i.i
+  %36 = and i64 %.sroa.08.0.i14.i.i, 4
+  %37 = icmp eq i64 %36, 0
+  br i1 %37, label %41, label %42
 
-39:                                               ; preds = %.lr.ph.i.i
-  %40 = and i64 %.sroa.08.0.i14.i.i, 1
-  %41 = icmp eq i64 %40, 0
-  br i1 %41, label %46, label %44
+38:                                               ; preds = %.lr.ph.i.i
+  %39 = and i64 %.sroa.08.0.i14.i.i, 1
+  %40 = icmp eq i64 %39, 0
+  br i1 %40, label %45, label %43
 
-42:                                               ; preds = %36
-  store i8 0, ptr %19, align 1, !alias.scope !1274
+41:                                               ; preds = %35
+  store i8 0, ptr %18, align 1, !alias.scope !1274
   br label %"_ZN16concurrent_queue6single15Single$LT$T$GT$3pop17h034f57358e3fd35fE.exit.i"
 
-43:                                               ; preds = %36
-  store i8 1, ptr %19, align 1, !alias.scope !1274
+42:                                               ; preds = %35
+  store i8 1, ptr %18, align 1, !alias.scope !1274
   br label %"_ZN16concurrent_queue6single15Single$LT$T$GT$3pop17h034f57358e3fd35fE.exit.i"
 
-44:                                               ; preds = %39
+43:                                               ; preds = %38
   tail call void @_ZN3std6thread9yield_now17h17a04a6f48076bfbE(), !noalias !1274
-  %45 = and i64 %.sroa.08.0.i14.i.i, -2
-  br label %46
+  %44 = and i64 %.sroa.08.0.i14.i.i, -2
+  br label %45
 
-46:                                               ; preds = %44, %39
-  %.sroa.02.1.i.i = phi i64 [ %45, %44 ], [ %.sroa.08.0.i14.i.i, %39 ]
-  %47 = and i64 %.sroa.02.1.i.i, -4
-  %48 = or disjoint i64 %47, 1
-  %49 = cmpxchg ptr %18, i64 %.sroa.02.1.i.i, i64 %48 seq_cst seq_cst, align 8, !noalias !1274
-  %50 = extractvalue { i64, i1 } %49, 1
-  br i1 %50, label %._crit_edge.i.i, label %.lr.ph.i.i
+45:                                               ; preds = %43, %38
+  %.sroa.02.1.i.i = phi i64 [ %44, %43 ], [ %.sroa.08.0.i14.i.i, %38 ]
+  %46 = and i64 %.sroa.02.1.i.i, -4
+  %47 = or disjoint i64 %46, 1
+  %48 = cmpxchg ptr %17, i64 %.sroa.02.1.i.i, i64 %47 seq_cst seq_cst, align 8, !noalias !1274
+  %49 = extractvalue { i64, i1 } %48, 1
+  br i1 %49, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-"_ZN16concurrent_queue6single15Single$LT$T$GT$3pop17h034f57358e3fd35fE.exit.i": ; preds = %43, %42, %._crit_edge.i.i
-  %.sink.i.i = phi i8 [ 1, %42 ], [ 1, %43 ], [ 0, %._crit_edge.i.i ]
+"_ZN16concurrent_queue6single15Single$LT$T$GT$3pop17h034f57358e3fd35fE.exit.i": ; preds = %42, %41, %._crit_edge.i.i
+  %.sink.i.i = phi i8 [ 1, %41 ], [ 1, %42 ], [ 0, %._crit_edge.i.i ]
   store i8 %.sink.i.i, ptr %4, align 8, !alias.scope !1274
   br label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$3pop17h57bdadc78ed9d343E.exit"
 
-51:                                               ; preds = %26
-  call void @"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3pop17hca5181b9bec25e27E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull align 128 %17)
+50:                                               ; preds = %25
+  call void @"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3pop17hca5181b9bec25e27E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull align 128 %16)
   br label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$3pop17h57bdadc78ed9d343E.exit"
 
-52:                                               ; preds = %26
-  call void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h970ce5ccf3fc0c75E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull align 128 %17)
+51:                                               ; preds = %25
+  call void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h970ce5ccf3fc0c75E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull align 128 %16)
   br label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$3pop17h57bdadc78ed9d343E.exit"
 
-"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$3pop17h57bdadc78ed9d343E.exit": ; preds = %"_ZN16concurrent_queue6single15Single$LT$T$GT$3pop17h034f57358e3fd35fE.exit.i", %51, %52
-  %53 = load i8, ptr %4, align 8, !range !1275, !noundef !4
-  %trunc = trunc nuw i8 %53 to i1
-  br i1 %trunc, label %"_ZN4core3ptr108drop_in_place$LT$core..result..Result$LT$async_task..runnable..Runnable$C$concurrent_queue..PopError$GT$$GT$17h4ec1be77fc796db3E.llvm.495310588694779438.exit", label %54
+"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$3pop17h57bdadc78ed9d343E.exit": ; preds = %"_ZN16concurrent_queue6single15Single$LT$T$GT$3pop17h034f57358e3fd35fE.exit.i", %50, %51
+  %52 = load i8, ptr %4, align 8, !range !1275, !noundef !4
+  %trunc = trunc nuw i8 %52 to i1
+  br i1 %trunc, label %"_ZN4core3ptr108drop_in_place$LT$core..result..Result$LT$async_task..runnable..Runnable$C$concurrent_queue..PopError$GT$$GT$17h4ec1be77fc796db3E.llvm.495310588694779438.exit", label %53
 
-54:                                               ; preds = %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$3pop17h57bdadc78ed9d343E.exit"
-  %55 = load ptr, ptr %21, align 8, !nonnull !4, !noundef !4
+53:                                               ; preds = %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$3pop17h57bdadc78ed9d343E.exit"
+  %54 = load ptr, ptr %20, align 8, !nonnull !4, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %56 = load i64, ptr %1, align 128, !range !394, !noundef !4
-  switch i64 %56, label %default.unreachable10 [
-    i64 0, label %57
-    i64 1, label %66
-    i64 2, label %68
+  %55 = load i64, ptr %1, align 128, !range !394, !noundef !4
+  switch i64 %55, label %default.unreachable11 [
+    i64 0, label %56
+    i64 1, label %65
+    i64 2, label %67
   ]
 
-57:                                               ; preds = %54
-  %58 = cmpxchg ptr %23, i64 0, i64 3 seq_cst seq_cst, align 8
-  %59 = extractvalue { i64, i1 } %58, 1
-  br i1 %59, label %60, label %62
+56:                                               ; preds = %53
+  %57 = cmpxchg ptr %22, i64 0, i64 3 seq_cst seq_cst, align 8
+  %58 = extractvalue { i64, i1 } %57, 1
+  br i1 %58, label %59, label %61
 
-60:                                               ; preds = %57
-  store ptr %55, ptr %24, align 16
-  %61 = atomicrmw and ptr %23, i64 -2 release, align 8
+59:                                               ; preds = %56
+  store ptr %54, ptr %23, align 16
+  %60 = atomicrmw and ptr %22, i64 -2 release, align 8
   br label %"_ZN16concurrent_queue6single15Single$LT$T$GT$4push17hd213f9e0f630af38E.exit.i"
 
-62:                                               ; preds = %57
-  %.sroa.08.0.i.i.i = extractvalue { i64, i1 } %58, 0
-  %63 = lshr i64 %.sroa.08.0.i.i.i, 2
-  %.lobit.i.i = and i64 %63, 1
+61:                                               ; preds = %56
+  %.sroa.08.0.i.i.i = extractvalue { i64, i1 } %57, 0
+  %62 = lshr i64 %.sroa.08.0.i.i.i, 2
+  %.lobit.i.i = and i64 %62, 1
   br label %"_ZN16concurrent_queue6single15Single$LT$T$GT$4push17hd213f9e0f630af38E.exit.i"
 
-"_ZN16concurrent_queue6single15Single$LT$T$GT$4push17hd213f9e0f630af38E.exit.i": ; preds = %62, %60
-  %.sroa.0.0.i.i = phi i64 [ 2, %60 ], [ %.lobit.i.i, %62 ]
-  %64 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i.i, 0
-  %65 = insertvalue { i64, ptr } %64, ptr %55, 1
+"_ZN16concurrent_queue6single15Single$LT$T$GT$4push17hd213f9e0f630af38E.exit.i": ; preds = %61, %59
+  %.sroa.0.0.i.i = phi i64 [ 2, %59 ], [ %.lobit.i.i, %61 ]
+  %63 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i.i, 0
+  %64 = insertvalue { i64, ptr } %63, ptr %54, 1
   br label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$4push17hcb84288e2215ed38E.exit"
 
-66:                                               ; preds = %54
-  %67 = tail call { i64, ptr } @"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$12push_or_else17h4ec1c6a8fbfc7678E"(ptr noundef nonnull align 128 %22, ptr noundef nonnull %55, ptr noundef nonnull align 128 %22)
+65:                                               ; preds = %53
+  %66 = tail call { i64, ptr } @"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$12push_or_else17h4ec1c6a8fbfc7678E"(ptr noundef nonnull align 128 %21, ptr noundef nonnull %54, ptr noundef nonnull align 128 %21)
   br label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$4push17hcb84288e2215ed38E.exit"
 
-68:                                               ; preds = %54
-  %69 = tail call { i64, ptr } @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17hdf87b7b12253f50fE"(ptr noundef nonnull align 128 %22, ptr noundef nonnull %55)
+67:                                               ; preds = %53
+  %68 = tail call { i64, ptr } @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17hdf87b7b12253f50fE"(ptr noundef nonnull align 128 %21, ptr noundef nonnull %54)
   br label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$4push17hcb84288e2215ed38E.exit"
 
-"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$4push17hcb84288e2215ed38E.exit": ; preds = %"_ZN16concurrent_queue6single15Single$LT$T$GT$4push17hd213f9e0f630af38E.exit.i", %66, %68
-  %.pn.i = phi { i64, ptr } [ %65, %"_ZN16concurrent_queue6single15Single$LT$T$GT$4push17hd213f9e0f630af38E.exit.i" ], [ %67, %66 ], [ %69, %68 ]
-  %70 = extractvalue { i64, ptr } %.pn.i, 0
-  %71 = extractvalue { i64, ptr } %.pn.i, 1
-  store i64 %70, ptr %3, align 8
-  store ptr %71, ptr %25, align 8
-  %72 = icmp eq i64 %70, 2
-  br i1 %72, label %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$concurrent_queue..PushError$LT$async_task..runnable..Runnable$GT$$GT$$GT$17hc368603516791874E.llvm.495310588694779438.exit", label %73
+"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$4push17hcb84288e2215ed38E.exit": ; preds = %"_ZN16concurrent_queue6single15Single$LT$T$GT$4push17hd213f9e0f630af38E.exit.i", %65, %67
+  %.pn.i = phi { i64, ptr } [ %64, %"_ZN16concurrent_queue6single15Single$LT$T$GT$4push17hd213f9e0f630af38E.exit.i" ], [ %66, %65 ], [ %68, %67 ]
+  %69 = extractvalue { i64, ptr } %.pn.i, 0
+  %70 = extractvalue { i64, ptr } %.pn.i, 1
+  store i64 %69, ptr %3, align 8
+  store ptr %70, ptr %24, align 8
+  %71 = icmp eq i64 %69, 2
+  br i1 %71, label %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$concurrent_queue..PushError$LT$async_task..runnable..Runnable$GT$$GT$$GT$17hc368603516791874E.llvm.495310588694779438.exit", label %72
 
 "_ZN4core3ptr108drop_in_place$LT$core..result..Result$LT$async_task..runnable..Runnable$C$concurrent_queue..PopError$GT$$GT$17h4ec1be77fc796db3E.llvm.495310588694779438.exit": ; preds = %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$3pop17h57bdadc78ed9d343E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -8322,10 +8319,10 @@ default.unreachable10:                            ; preds = %54, %26, %8
 "_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$concurrent_queue..PushError$LT$async_task..runnable..Runnable$GT$$GT$$GT$17hc368603516791874E.llvm.495310588694779438.exit": ; preds = %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$4push17hcb84288e2215ed38E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %exitcond.not = icmp eq i64 %27, %.sroa.03.0
-  br i1 %exitcond.not, label %.loopexit, label %26
+  %exitcond.not = icmp eq i64 %26, %.sroa.03.014
+  br i1 %exitcond.not, label %.loopexit, label %25
 
-73:                                               ; preds = %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$4push17hcb84288e2215ed38E.exit"
+72:                                               ; preds = %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$4push17hcb84288e2215ed38E.exit"
   call void @"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$concurrent_queue..PushError$LT$async_task..runnable..Runnable$GT$$GT$$GT$17hc368603516791874E.llvm.495310588694779438"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.4687e20d734e48ad2818d82418c4edf5.10.llvm.495310588694779438, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4687e20d734e48ad2818d82418c4edf5.11.llvm.495310588694779438) #37

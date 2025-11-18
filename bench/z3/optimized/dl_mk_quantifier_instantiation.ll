@@ -2126,11 +2126,11 @@ define hidden void @_ZN7datalog27mk_quantifier_instantiation13yield_bindingEP10q
 _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i:           ; preds = %3
   %8 = getelementptr inbounds i8, ptr %6, i64 -4
   %9 = load i32, ptr %8, align 4, !tbaa !235
-  %.not.i = icmp ult i32 %9, 2
+  %10 = lshr i32 %9, 1
+  %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %_ZN6vectorIP4exprLb0EjE7reverseEv.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i
-  %10 = lshr i32 %9, 1
   %wide.trip.count.i = zext nneg i32 %10 to i64
   br label %.lr.ph.i
 
@@ -2162,11 +2162,11 @@ _ZN6vectorIP4exprLb0EjE7reverseEv.exit:           ; preds = %.lr.ph.i, %3, %_ZNK
 _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i4:          ; preds = %_ZN6vectorIP4exprLb0EjE7reverseEv.exit
   %23 = getelementptr inbounds i8, ptr %21, i64 -4
   %24 = load i32, ptr %23, align 4, !tbaa !235
-  %.not.i5 = icmp ult i32 %24, 2
+  %25 = lshr i32 %24, 1
+  %.not.i5 = icmp eq i32 %25, 0
   br i1 %.not.i5, label %_ZN6vectorIP4exprLb0EjE7reverseEv.exit12, label %.lr.ph.preheader.i6
 
 .lr.ph.preheader.i6:                              ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i4
-  %25 = lshr i32 %24, 1
   %wide.trip.count.i7 = zext nneg i32 %25 to i64
   br label %.lr.ph.i8
 
@@ -4460,7 +4460,7 @@ _ZN14core_hashtableIN7obj_mapI9func_declP10ptr_vectorI4exprEE13obj_map_entryE8ob
           to label %.noexc83 unwind label %77
 
 .noexc83:                                         ; preds = %_ZN14core_hashtableIN7obj_mapI9func_declP10ptr_vectorI4exprEE13obj_map_entryE8obj_hashINS6_8key_dataEE10default_eqIS9_EE12delete_tableEv.exit.i.i
-  %.not6.i.i.i.i.i.i.i = icmp ult i32 %187, 2
+  %.not6.i.i.i.i.i.i.i = icmp eq i32 %188, 0
   br i1 %.not6.i.i.i.i.i.i.i, label %_ZN14core_hashtableIN7obj_mapI9func_declP10ptr_vectorI4exprEE13obj_map_entryE8obj_hashINS6_8key_dataEE10default_eqIS9_EE11alloc_tableEj.exit.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %.noexc83
@@ -10755,7 +10755,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %45, %51
   br i1 %71, label %72, label %100
 
 72:                                               ; preds = %68
-  %73 = icmp ult i32 %69, 64
+  %73 = icmp eq i32 %70, 0
   br i1 %73, label %_ZNK10quantifier9get_childEj.exit, label %74
 
 74:                                               ; preds = %72
@@ -14017,7 +14017,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %43, %49
   br i1 %69, label %70, label %98
 
 70:                                               ; preds = %66
-  %71 = icmp ult i32 %67, 64
+  %71 = icmp eq i32 %68, 0
   br i1 %71, label %_ZNK10quantifier9get_childEj.exit, label %72
 
 72:                                               ; preds = %70

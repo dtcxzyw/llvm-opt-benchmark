@@ -247,7 +247,7 @@ define i32 @wc_PBKDF2_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   %39 = and i64 %38, 7
   %40 = icmp ne i64 %39, 0
   %41 = lshr i32 %36, 3
-  %.not.i.i.us = icmp ult i32 %36, 8
+  %.not.i.i.us = icmp eq i32 %41, 0
   %42 = and i32 %36, 7
   %brmerge = or i1 %40, %.not.i.i.us
   %.mux = select i1 %40, i32 %36, i32 %42

@@ -18609,7 +18609,7 @@ define void @_ZN5ezSAT15vec_shift_rightERKSt6vectorIiSaIiEES4_bii(ptr dead_on_un
   %.056.i = phi i32 [ %52, %.lr.ph.i ], [ %51, %.lr.ph.preheader.i ]
   %52 = lshr i32 %.056.i, 1
   %53 = add nuw nsw i32 %.07.i, 1
-  %.not.i = icmp ult i32 %.056.i, 2
+  %.not.i = icmp eq i32 %52, 0
   br i1 %.not.i, label %_ZL8my_clog2i.exit, label %.lr.ph.i, !llvm.loop !157
 
 _ZL8my_clog2i.exit:                               ; preds = %.lr.ph.i, %7
@@ -20134,7 +20134,7 @@ define void @_ZN5ezSAT14vec_shift_leftERKSt6vectorIiSaIiEES4_bii(ptr dead_on_unw
   %.056.i = phi i32 [ %24, %.lr.ph.i ], [ %23, %.lr.ph.preheader.i ]
   %24 = lshr i32 %.056.i, 1
   %25 = add nuw nsw i32 %.07.i, 1
-  %.not.i = icmp ult i32 %.056.i, 2
+  %.not.i = icmp eq i32 %24, 0
   br i1 %.not.i, label %_ZL8my_clog2i.exit, label %.lr.ph.i, !llvm.loop !157
 
 _ZL8my_clog2i.exit:                               ; preds = %.lr.ph.i, %7
@@ -27986,7 +27986,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 50:                                               ; preds = %.lr.ph.i.i.i.i.i
   %51 = getelementptr inbounds i32, ptr %0, i64 %.019.i.i.i.i.i
   store i32 %48, ptr %51, align 4, !tbaa !78
-  %.not7.i.i.i = icmp ult i64 %.0920.in.i.i.i.i.i, 2
+  %.not7.i.i.i = icmp eq i64 %.0920.i.i56.i.i.i, 0
   br i1 %.not7.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !241
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.i.i: ; preds = %50, %.lr.ph.i.i.i.i.i, %46
@@ -28184,7 +28184,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPiS
 40:                                               ; preds = %.lr.ph.i.i.i.us
   %41 = getelementptr inbounds i32, ptr %.fr27, i64 %.019.i.i.i.us
   store i32 %38, ptr %41, align 4, !tbaa !78
-  %.not7.i.us = icmp ult i64 %.0920.in.i.i.i.us, 2
+  %.not7.i.us = icmp eq i64 %.0920.i.i56.i.us, 0
   br i1 %.not7.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !241
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %40, %35

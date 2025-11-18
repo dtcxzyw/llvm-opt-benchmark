@@ -3656,7 +3656,7 @@ define internal fastcc void @adpcm_compress_trellis(ptr noundef readonly capture
   %169 = load ptr, ptr %168, align 8, !tbaa !124
   store ptr %164, ptr %168, align 8, !tbaa !124
   store ptr %169, ptr %163, align 8, !tbaa !124
-  %.not615 = icmp ult i32 %160, 2
+  %.not615 = icmp eq i32 %161, 0
   br i1 %.not615, label %.thread520.us, label %.lr.ph556.us
 
 .thread520.us:                                    ; preds = %.lr.ph556.us, %166, %140, %125, %116, %.lr.ph563.us
@@ -3847,7 +3847,7 @@ define internal fastcc void @adpcm_compress_trellis(ptr noundef readonly capture
   %264 = load ptr, ptr %263, align 8, !tbaa !124
   store ptr %259, ptr %263, align 8, !tbaa !124
   store ptr %264, ptr %258, align 8, !tbaa !124
-  %.not613 = icmp ult i32 %255, 2
+  %.not613 = icmp eq i32 %256, 0
   br i1 %.not613, label %.thread523.us, label %.lr.ph.us
 
 .thread523.us:                                    ; preds = %.lr.ph.us, %261, %235, %220, %211, %.lr.ph540.us
@@ -4024,7 +4024,7 @@ define internal fastcc void @adpcm_compress_trellis(ptr noundef readonly capture
   %356 = load ptr, ptr %355, align 8, !tbaa !124
   store ptr %351, ptr %355, align 8, !tbaa !124
   store ptr %356, ptr %350, align 8, !tbaa !124
-  %.not614 = icmp ult i32 %347, 2
+  %.not614 = icmp eq i32 %348, 0
   br i1 %.not614, label %.thread526, label %.lr.ph544
 
 .thread526:                                       ; preds = %353, %.lr.ph544, %326, %311, %302, %.lr.ph551

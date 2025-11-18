@@ -631,21 +631,21 @@ define range(i32 -1, 1) i32 @H5B2__split_root(ptr noundef %0) local_unnamed_addr
   %65 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i64 %64, ptr %65, align 8, !tbaa !66
   %66 = lshr i64 %64, 32
-  %.not.i.i = icmp ult i64 %64, 4294967296
+  %.not.i.i = icmp eq i64 %66, 0
   br i1 %.not.i.i, label %93, label %67
 
 67:                                               ; preds = %24
   %68 = lshr i64 %64, 48
-  %.not26.i.i = icmp ult i64 %64, 281474976710656
+  %.not26.i.i = icmp eq i64 %68, 0
   br i1 %.not26.i.i, label %81, label %69
 
 69:                                               ; preds = %67
-  %.not28.i.i = icmp ult i64 %64, 72057594037927936
-  br i1 %.not28.i.i, label %76, label %70
+  %70 = lshr i64 %64, 56
+  %.not28.i.i = icmp eq i64 %70, 0
+  br i1 %.not28.i.i, label %76, label %71
 
-70:                                               ; preds = %69
-  %71 = lshr i64 %64, 56
-  %72 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %71
+71:                                               ; preds = %69
+  %72 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %70
   %73 = load i8, ptr %72, align 1, !tbaa !67
   %74 = zext i8 %73 to i16
   %75 = add nuw nsw i16 %74, 56
@@ -659,12 +659,12 @@ define range(i32 -1, 1) i32 @H5B2__split_root(ptr noundef %0) local_unnamed_addr
   br label %H5VM_limit_enc_size.exit
 
 81:                                               ; preds = %67
-  %.not27.i.i = icmp samesign ult i64 %64, 1099511627776
-  br i1 %.not27.i.i, label %88, label %82
+  %82 = lshr i64 %64, 40
+  %.not27.i.i = icmp eq i64 %82, 0
+  br i1 %.not27.i.i, label %88, label %83
 
-82:                                               ; preds = %81
-  %83 = lshr i64 %64, 40
-  %84 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %83
+83:                                               ; preds = %81
+  %84 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %82
   %85 = load i8, ptr %84, align 1, !tbaa !67
   %86 = zext i8 %85 to i16
   %87 = add nuw nsw i16 %86, 40
@@ -679,16 +679,16 @@ define range(i32 -1, 1) i32 @H5B2__split_root(ptr noundef %0) local_unnamed_addr
 
 93:                                               ; preds = %24
   %94 = lshr i64 %64, 16
-  %.not23.i.i = icmp samesign ult i64 %64, 65536
+  %.not23.i.i = icmp eq i64 %94, 0
   br i1 %.not23.i.i, label %107, label %95
 
 95:                                               ; preds = %93
-  %.not25.i.i = icmp samesign ult i64 %64, 16777216
-  br i1 %.not25.i.i, label %102, label %96
+  %96 = lshr i64 %64, 24
+  %.not25.i.i = icmp eq i64 %96, 0
+  br i1 %.not25.i.i, label %102, label %97
 
-96:                                               ; preds = %95
-  %97 = lshr i64 %64, 24
-  %98 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %97
+97:                                               ; preds = %95
+  %98 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %96
   %99 = load i8, ptr %98, align 1, !tbaa !67
   %100 = zext i8 %99 to i16
   %101 = add nuw nsw i16 %100, 24
@@ -702,12 +702,12 @@ define range(i32 -1, 1) i32 @H5B2__split_root(ptr noundef %0) local_unnamed_addr
   br label %H5VM_limit_enc_size.exit
 
 107:                                              ; preds = %93
-  %.not24.i.i = icmp samesign ult i64 %64, 256
-  br i1 %.not24.i.i, label %114, label %108
+  %108 = lshr i64 %64, 8
+  %.not24.i.i = icmp eq i64 %108, 0
+  br i1 %.not24.i.i, label %114, label %109
 
-108:                                              ; preds = %107
-  %109 = lshr i64 %64, 8
-  %110 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %109
+109:                                              ; preds = %107
+  %110 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %108
   %111 = load i8, ptr %110, align 1, !tbaa !67
   %112 = zext i8 %111 to i16
   %113 = add nuw nsw i16 %112, 8
@@ -719,8 +719,8 @@ define range(i32 -1, 1) i32 @H5B2__split_root(ptr noundef %0) local_unnamed_addr
   %117 = zext i8 %116 to i16
   br label %H5VM_limit_enc_size.exit
 
-H5VM_limit_enc_size.exit:                         ; preds = %70, %76, %82, %88, %96, %102, %108, %114
-  %.0.i.i = phi i16 [ %75, %70 ], [ %80, %76 ], [ %87, %82 ], [ %92, %88 ], [ %101, %96 ], [ %106, %102 ], [ %113, %108 ], [ %117, %114 ]
+H5VM_limit_enc_size.exit:                         ; preds = %71, %76, %83, %88, %97, %102, %109, %114
+  %.0.i.i = phi i16 [ %75, %71 ], [ %80, %76 ], [ %87, %83 ], [ %92, %88 ], [ %101, %97 ], [ %106, %102 ], [ %113, %109 ], [ %117, %114 ]
   %118 = lshr i16 %.0.i.i, 3
   %119 = trunc nuw nsw i16 %118 to i8
   %120 = add nuw nsw i8 %119, 1

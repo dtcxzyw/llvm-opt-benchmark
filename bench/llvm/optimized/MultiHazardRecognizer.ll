@@ -274,16 +274,13 @@ define dso_local noundef zeroext i1 @_ZN4llvm21MultiHazardRecognizer19ShouldPref
   %5 = zext i32 %.val3 to i64
   %6 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %.val, i64 %5
   %7 = ptrtoint ptr %6 to i64
-  %.not.i = icmp ult i32 %.val3, 4
-  br i1 %.not.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.preheader.i
-
-.lr.ph.i.i.i.i.i.preheader.i:                     ; preds = %2
   %8 = lshr i64 %5, 2
-  br label %.lr.ph.i.i.i.i.i.i
+  %.not.i = icmp eq i64 %8, 0
+  br i1 %.not.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %31, %.lr.ph.i.i.i.i.i.preheader.i
-  %.051.i.i.i.i.i.i = phi i64 [ %33, %31 ], [ %8, %.lr.ph.i.i.i.i.i.preheader.i ]
-  %.02950.i.i.i.i.i.i = phi ptr [ %32, %31 ], [ %.val, %.lr.ph.i.i.i.i.i.preheader.i ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %2, %31
+  %.051.i.i.i.i.i.i = phi i64 [ %33, %31 ], [ %8, %2 ]
+  %.02950.i.i.i.i.i.i = phi ptr [ %32, %31 ], [ %.val, %2 ]
   %.029.val.i.i.i.i.i.i = load ptr, ptr %.02950.i.i.i.i.i.i, align 8, !tbaa !3
   %9 = load ptr, ptr %.029.val.i.i.i.i.i.i, align 8, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 72

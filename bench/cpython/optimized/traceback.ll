@@ -2893,7 +2893,7 @@ define hidden void @_Py_DumpHexadecimal(i32 noundef %0, i64 noundef %1, i64 noun
   %14 = ptrtoint ptr %9 to i64
   %15 = sub i64 %7, %14
   %16 = icmp slt i64 %15, %spec.store.select
-  %17 = icmp ugt i64 %.0, 15
+  %17 = icmp ne i64 %13, 0
   %18 = or i1 %17, %16
   br i1 %18, label %8, label %19, !llvm.loop !70
 
@@ -3068,7 +3068,7 @@ PyUnicode_READ.exit:                              ; preds = %48, %52, %56
   %75 = ptrtoint ptr %70 to i64
   %76 = sub i64 %46, %75
   %77 = icmp slt i64 %76, 2
-  %78 = icmp samesign ugt i64 %.0.i66, 15
+  %78 = icmp ne i64 %74, 0
   %79 = or i1 %78, %77
   br i1 %79, label %69, label %_Py_DumpHexadecimal.exit, !llvm.loop !70
 
@@ -3100,7 +3100,7 @@ _Py_DumpHexadecimal.exit:                         ; preds = %69
   %92 = ptrtoint ptr %87 to i64
   %93 = sub i64 %44, %92
   %94 = icmp slt i64 %93, 4
-  %95 = icmp samesign ugt i64 %.0.i68, 15
+  %95 = icmp ne i64 %91, 0
   %96 = or i1 %95, %94
   br i1 %96, label %86, label %_Py_DumpHexadecimal.exit69, !llvm.loop !70
 
@@ -3128,7 +3128,7 @@ _Py_DumpHexadecimal.exit69:                       ; preds = %86
   %107 = ptrtoint ptr %102 to i64
   %108 = sub i64 %42, %107
   %109 = icmp slt i64 %108, 8
-  %110 = icmp samesign ugt i64 %.0.i71, 15
+  %110 = icmp ne i64 %106, 0
   %111 = or i1 %110, %109
   br i1 %111, label %101, label %_Py_DumpHexadecimal.exit72, !llvm.loop !70
 
@@ -3446,7 +3446,7 @@ define hidden noundef ptr @_Py_DumpTracebackThreads(i32 noundef %0, ptr noundef 
   %48 = ptrtoint ptr %43 to i64
   %49 = sub i64 %27, %48
   %50 = icmp slt i64 %49, 16
-  %51 = icmp ugt i64 %.0.i.i, 15
+  %51 = icmp ne i64 %47, 0
   %52 = or i1 %51, %50
   br i1 %52, label %42, label %write_thread_id.exit, !llvm.loop !70
 

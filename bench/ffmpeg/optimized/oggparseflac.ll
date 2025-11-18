@@ -105,12 +105,12 @@ bytestream2_get_byte.exit:                        ; preds = %bytestream2_init.ex
   %59 = load i8, ptr %58, align 1, !tbaa !35
   %60 = zext i8 %59 to i32
   %61 = or disjoint i32 %57, %60
-  %.not35 = icmp samesign ult i32 %61, 16
-  br i1 %.not35, label %bytestream2_get_byte.exit.thread, label %62
+  %62 = lshr i32 %61, 4
+  %.not35 = icmp eq i32 %62, 0
+  br i1 %.not35, label %bytestream2_get_byte.exit.thread, label %63
 
-62:                                               ; preds = %42
-  %63 = lshr i32 %61, 4
-  tail call void @avpriv_set_pts_info(ptr noundef nonnull %11, i32 noundef 64, i32 noundef 1, i32 noundef %63) #7
+63:                                               ; preds = %42
+  tail call void @avpriv_set_pts_info(ptr noundef nonnull %11, i32 noundef 64, i32 noundef 1, i32 noundef %62) #7
   br label %bytestream2_get_byte.exit.thread
 
 64:                                               ; preds = %bytestream2_get_byte.exit
@@ -119,8 +119,8 @@ bytestream2_get_byte.exit:                        ; preds = %bytestream2_init.ex
   %67 = tail call i32 @ff_vorbis_stream_comment(ptr noundef nonnull %0, ptr noundef %11, ptr noundef nonnull %65, i32 noundef %66) #7
   br label %bytestream2_get_byte.exit.thread
 
-bytestream2_get_byte.exit.thread:                 ; preds = %42, %35, %31, %28, %26, %bytestream2_init.exit, %64, %bytestream2_get_byte.exit, %62, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %62 ], [ 1, %bytestream2_get_byte.exit ], [ 1, %64 ], [ 1, %bytestream2_init.exit ], [ -1094995529, %42 ], [ %40, %35 ], [ -1, %31 ], [ -1, %28 ], [ -1094995529, %26 ]
+bytestream2_get_byte.exit.thread:                 ; preds = %42, %35, %31, %28, %26, %bytestream2_init.exit, %64, %bytestream2_get_byte.exit, %63, %2
+  %.0 = phi i32 [ 0, %2 ], [ 1, %63 ], [ 1, %bytestream2_get_byte.exit ], [ 1, %64 ], [ 1, %bytestream2_init.exit ], [ -1094995529, %42 ], [ %40, %35 ], [ -1, %31 ], [ -1, %28 ], [ -1094995529, %26 ]
   ret i32 %.0
 }
 

@@ -25,7 +25,7 @@ define dso_local void @diffcore_break(ptr noundef %0, i32 noundef %1) local_unna
   %8 = and i32 %1, 65535
   %.not = icmp eq i32 %8, 0
   %spec.store.select = select i1 %.not, i32 30000, i32 %8
-  %.not39 = icmp ult i32 %1, 65536
+  %.not39 = icmp eq i32 %7, 0
   %spec.store.select1 = select i1 %.not39, i32 36000, i32 %7
   %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !4
   %10 = icmp sgt i32 %9, 0

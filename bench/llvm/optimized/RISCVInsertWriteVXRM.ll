@@ -862,7 +862,7 @@ _ZNK12_GLOBAL__N_18VXRMInfo9intersectERKS0_.exit.i: ; preds = %_ZNK12_GLOBAL__N_
   br i1 %.not.i37, label %._crit_edge.i, label %.lr.ph.i35
 
 ._crit_edge.i:                                    ; preds = %_ZNK12_GLOBAL__N_18VXRMInfo9intersectERKS0_.exit.i
-  %.not83.i = icmp ult i16 %.sroa.0.0.i.i, 256
+  %.not83.i = icmp eq i16 %.sroa.12.0.extract.shift.i, 0
   br i1 %.not83.i, label %_ZN12_GLOBAL__N_120RISCVInsertWriteVXRM16computeAvailableERKN4llvm17MachineBasicBlockE.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %._crit_edge.i, %_ZNSt5queueIPKN4llvm17MachineBasicBlockESt5dequeIS3_SaIS3_EEE3popEv.exit

@@ -9184,8 +9184,8 @@ define { i64, ptr } @"_ZN45_$LT$rope..Bytes$u20$as$u20$std..io..Read$GT$4read17h
   %15 = load i64, ptr %0, align 8, !noundef !7
   %16 = add i64 %15, %.sroa.0.0.sroa.speculated.i
   store i64 %16, ptr %0, align 8
-  %.not6 = icmp ugt i64 %6, %2
-  br i1 %.not6, label %27, label %.thread7
+  %.not7 = icmp ugt i64 %6, %2
+  br i1 %.not7, label %27, label %.thread8
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2912167ab3c4a9e4E.exit5": ; preds = %8
   %17 = sub i64 %6, %.sroa.0.0.sroa.speculated.i
@@ -9194,7 +9194,7 @@ define { i64, ptr } @"_ZN45_$LT$rope..Bytes$u20$as$u20$std..io..Read$GT$4read17h
   %19 = lshr i64 %.sroa.0.0.sroa.speculated.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1883)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1886)
-  %.not.i.i = icmp ult i64 %.sroa.0.0.sroa.speculated.i, 2
+  %.not.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i, label %.loopexit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2912167ab3c4a9e4E.exit5"
@@ -9214,11 +9214,11 @@ define { i64, ptr } @"_ZN45_$LT$rope..Bytes$u20$as$u20$std..io..Read$GT$4read17h
   %exitcond.not.i.i = icmp eq i64 %26, %19
   br i1 %exitcond.not.i.i, label %.loopexit, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h2077d98262536259E.exit7.i.i"
 
-27:                                               ; preds = %.thread, %.thread7, %30, %.loopexit
+27:                                               ; preds = %.thread, %.thread8, %30, %.loopexit
   %28 = inttoptr i64 %.sroa.0.0.sroa.speculated.i to ptr
   br label %32
 
-.thread7:                                         ; preds = %.thread
+.thread8:                                         ; preds = %.thread
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17hcd665ffd16eea398E"(ptr noalias noundef nonnull align 8 dereferenceable(416) %29, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5150c66fcde2fb7b571b90378eb2eb01.162)
   br label %27

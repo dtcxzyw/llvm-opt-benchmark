@@ -2505,8 +2505,8 @@ define hidden void @_ZN3sat4ddfw16save_best_valuesEv(ptr noundef nonnull align 8
   %54 = icmp ugt i32 %42, 16
   %55 = mul i32 %42, 3
   %56 = icmp ugt i32 %53, %55
-  %or.cond18.i.i = select i1 %54, i1 %56, i1 false
-  br i1 %or.cond18.i.i, label %57, label %._crit_edge.thread.i.i
+  %or.cond19.i.i = select i1 %54, i1 %56, i1 false
+  br i1 %or.cond19.i.i, label %57, label %._crit_edge.thread.i.i
 
 57:                                               ; preds = %._crit_edge.i.i
   %58 = icmp eq ptr %40, null
@@ -2531,7 +2531,7 @@ _ZN14core_hashtableI17default_map_entryIjjEN9table2mapIS1_6u_hash4u_eqE15entry_h
           to label %.noexc17 unwind label %26
 
 .noexc17:                                         ; preds = %_ZN14core_hashtableI17default_map_entryIjjEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE12delete_tableEv.exit.i.i
-  %.not6.i.i.i.i.i.i.i = icmp ult i32 %60, 2
+  %.not6.i.i.i.i.i.i.i = icmp eq i32 %61, 0
   br i1 %.not6.i.i.i.i.i.i.i, label %_ZN14core_hashtableI17default_map_entryIjjEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE11alloc_tableEj.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.noexc17, %.lr.ph.i.i.i.i.i.i.i

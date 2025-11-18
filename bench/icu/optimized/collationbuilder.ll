@@ -1056,7 +1056,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %_ZNK6icu_779UVector
   %22 = load i64, ptr %21, align 8, !tbaa !99
   %23 = lshr i64 %22, 32
   %24 = trunc nuw i64 %23 to i32
-  %25 = icmp ult i64 %22, 4294967296
+  %25 = icmp eq i64 %23, 0
   %26 = select i1 %25, i32 0, i32 1280
   br i1 %25, label %29, label %27
 
@@ -2001,7 +2001,7 @@ _ZNK6icu_779UVector6410elementAtiEi.exit129:      ; preds = %77, %82
 97:                                               ; preds = %95
   %98 = lshr i64 %.0111.lcssa, 32
   %99 = trunc nuw i64 %98 to i32
-  %100 = icmp ult i64 %.0111.lcssa, 4294967296
+  %100 = icmp eq i64 %98, 0
   br i1 %100, label %101, label %102
 
 101:                                              ; preds = %97

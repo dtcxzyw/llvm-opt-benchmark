@@ -179,7 +179,7 @@ stbds_log2.exit:                                  ; preds = %.lr.ph.i, %2
   %.sink = phi i64 [ %34, %33 ], [ %32, %29 ]
   %38 = getelementptr inbounds nuw i8, ptr %malloc, i64 56
   store i64 %.sink, ptr %38, align 8, !tbaa !28
-  %.not141 = icmp ult i64 %0, 8
+  %.not141 = icmp eq i64 %3, 0
   br i1 %.not141, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %37, %.lr.ph

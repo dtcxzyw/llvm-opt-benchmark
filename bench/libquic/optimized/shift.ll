@@ -362,16 +362,16 @@ define hidden range(i32 0, 2) i32 @BN_rshift1(ptr noundef %0, ptr noundef %1) lo
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds i64, ptr %8, i64 %26
   %28 = load i64, ptr %27, align 8, !tbaa !15
-  %.not38 = icmp ult i64 %28, 2
-  br i1 %.not38, label %32, label %29
+  %29 = lshr i64 %28, 1
+  %.not38 = icmp eq i64 %29, 0
+  br i1 %.not38, label %32, label %30
 
-29:                                               ; preds = %23
-  %30 = lshr i64 %28, 1
+30:                                               ; preds = %23
   %31 = getelementptr inbounds i64, ptr %24, i64 %26
-  store i64 %30, ptr %31, align 8, !tbaa !15
+  store i64 %29, ptr %31, align 8, !tbaa !15
   br label %32
 
-32:                                               ; preds = %29, %23
+32:                                               ; preds = %30, %23
   %33 = icmp sgt i32 %7, 1
   br i1 %33, label %.lr.ph.preheader, label %._crit_edge
 

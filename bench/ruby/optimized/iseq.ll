@@ -865,32 +865,31 @@ define hidden void @rb_iseq_mark_and_move(ptr noundef %0, i1 noundef zeroext %1)
   %72 = zext i32 %19 to i64
   %73 = add nuw nsw i64 %72, 63
   %74 = lshr i64 %73, 6
-  %75 = icmp eq i64 %74, 1
-  br i1 %75, label %.lr.ph.i.i, label %.preheader.i
+  switch i64 %74, label %.lr.ph16.i [
+    i64 1, label %.lr.ph.i.i
+    i64 0, label %rb_iseq_mark_and_move_each_value.exit
+  ]
 
-.preheader.i:                                     ; preds = %71
-  %.not20.i = icmp eq i32 %19, 0
-  br i1 %.not20.i, label %rb_iseq_mark_and_move_each_value.exit, label %.lr.ph16.i
-
-.lr.ph16.i:                                       ; preds = %.preheader.i
+.lr.ph16.i:                                       ; preds = %71
   %.not22.i60.i = icmp eq ptr %17, null
   br i1 %.not22.i60.i, label %.lr.ph16.split.us.i, label %.lr.ph16.split.i
 
 .lr.ph16.split.us.i:                              ; preds = %.lr.ph16.i, %iseq_scan_bits.exit68.us.i
   %indvars.iv26.i = phi i64 [ %indvars.iv.next27.i, %iseq_scan_bits.exit68.us.i ], [ 0, %.lr.ph16.i ]
-  %76 = load ptr, ptr %68, align 8, !tbaa !84
-  %77 = getelementptr i64, ptr %76, i64 %indvars.iv26.i
-  %78 = load i64, ptr %77, align 8, !tbaa !42
-  %.not24.i58.us.i = icmp eq i64 %78, 0
+  %75 = load ptr, ptr %68, align 8, !tbaa !84
+  %76 = getelementptr i64, ptr %75, i64 %indvars.iv26.i
+  %77 = load i64, ptr %76, align 8, !tbaa !42
+  %.not24.i58.us.i = icmp eq i64 %77, 0
   br i1 %.not24.i58.us.i, label %iseq_scan_bits.exit68.us.i, label %.lr.ph.split.us.i65.us.preheader.i
 
 .lr.ph.split.us.i65.us.preheader.i:               ; preds = %.lr.ph16.split.us.i
-  %.idx = shl i64 %indvars.iv26.i, 9
-  %79 = getelementptr i8, ptr %21, i64 %.idx
+  %78 = shl i64 %indvars.iv26.i, 6
+  %.masked52.i = and i64 %78, 4294967232
+  %79 = getelementptr i64, ptr %21, i64 %.masked52.i
   br label %.lr.ph.split.us.i65.us.i
 
 .lr.ph.split.us.i65.us.i:                         ; preds = %.lr.ph.split.us.i65.us.i, %.lr.ph.split.us.i65.us.preheader.i
-  %.025.us.i66.us.i = phi i64 [ %83, %.lr.ph.split.us.i65.us.i ], [ %78, %.lr.ph.split.us.i65.us.preheader.i ]
+  %.025.us.i66.us.i = phi i64 [ %83, %.lr.ph.split.us.i65.us.i ], [ %77, %.lr.ph.split.us.i65.us.preheader.i ]
   %80 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.025.us.i66.us.i, i1 true)
   %81 = getelementptr i64, ptr %79, i64 %80
   call void @rb_gc_mark_and_move(ptr noundef nonnull %81) #21
@@ -949,12 +948,13 @@ iseq_scan_bits.exit68.us.i:                       ; preds = %.lr.ph.split.us.i65
 
 .lr.ph.split.i61.preheader.i:                     ; preds = %.lr.ph16.split.i
   %100 = shl i64 %indvars.iv.i, 6
+  %.masked.i = and i64 %100, 4294967232
   br label %.lr.ph.split.i61.i
 
 .lr.ph.split.i61.i:                               ; preds = %108, %.lr.ph.split.i61.preheader.i
   %.025.i62.i = phi i64 [ %110, %108 ], [ %99, %.lr.ph.split.i61.preheader.i ]
   %101 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.025.i62.i, i1 true)
-  %102 = or disjoint i64 %101, %100
+  %102 = or disjoint i64 %101, %.masked.i
   %103 = getelementptr i64, ptr %21, i64 %102
   %104 = load i64, ptr %103, align 8, !tbaa !42
   call void @rb_gc_mark_and_move(ptr noundef nonnull %103) #21
@@ -978,7 +978,7 @@ iseq_scan_bits.exit68.i:                          ; preds = %108, %.lr.ph16.spli
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %74
   br i1 %exitcond.not.i, label %rb_iseq_mark_and_move_each_value.exit, label %.lr.ph16.split.i, !llvm.loop !116
 
-rb_iseq_mark_and_move_each_value.exit:            ; preds = %iseq_scan_bits.exit68.i, %iseq_scan_bits.exit68.us.i, %94, %.lr.ph.split.us.i.i, %.loopexit.i, %.preheader.i
+rb_iseq_mark_and_move_each_value.exit:            ; preds = %94, %.lr.ph.split.us.i.i, %iseq_scan_bits.exit68.i, %iseq_scan_bits.exit68.us.i, %.loopexit.i, %71
   %111 = getelementptr inbounds nuw i8, ptr %12, i64 208
   call void @rb_gc_mark_and_move(ptr noundef nonnull %111) #21
   %112 = getelementptr inbounds nuw i8, ptr %12, i64 216
@@ -2041,9 +2041,9 @@ define dso_local void @rb_iseq_trace_set(ptr noundef captures(none) %0, i32 noun
   %51 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %52 = zext nneg i32 %50 to i64
   %53 = getelementptr %struct.succ_dict_block, ptr %51, i64 %52
-  %54 = and i32 %49, 511
-  %55 = lshr i32 %54, 6
-  %56 = icmp samesign ult i32 %54, 64
+  %54 = lshr i32 %49, 6
+  %55 = and i32 %54, 7
+  %56 = icmp eq i32 %55, 0
   br i1 %56, label %66, label %57
 
 57:                                               ; preds = %48
@@ -2182,20 +2182,21 @@ define dso_local ptr @rb_iseq_new_with_opt(i64 noundef %0, i64 noundef %1, i64 n
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %27 = load i8, ptr %26, align 4
   %28 = shl i8 %27, 4
-  %29 = icmp slt i8 %28, 0
-  %30 = trunc i64 %25 to i16
-  br i1 %29, label %36, label %31
+  %29 = ashr i8 %28, 6
+  %30 = icmp slt i8 %29, 0
+  %31 = trunc i64 %25 to i16
+  br i1 %30, label %36, label %32
 
-31:                                               ; preds = %24
-  %32 = icmp samesign ugt i8 %28, 63
-  %33 = select i1 %32, i16 512, i16 0
-  %34 = and i16 %30, -513
+32:                                               ; preds = %24
+  %.not.i = icmp eq i8 %29, 0
+  %33 = select i1 %.not.i, i16 0, i16 512
+  %34 = and i16 %31, -513
   %35 = or disjoint i16 %34, %33
   store i16 %35, ptr %12, align 8
   br label %36
 
-36:                                               ; preds = %31, %24
-  %37 = phi i16 [ %35, %31 ], [ %30, %24 ]
+36:                                               ; preds = %32, %24
+  %37 = phi i16 [ %35, %32 ], [ %31, %24 ]
   %38 = shl i8 %27, 6
   %39 = ashr exact i8 %38, 6
   %40 = icmp sgt i8 %39, -1
@@ -4363,9 +4364,9 @@ define dso_local i32 @rb_iseq_line_no(ptr noundef readonly captures(none) %0, i6
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %28 = zext nneg i32 %26 to i64
   %29 = getelementptr %struct.succ_dict_block, ptr %27, i64 %28
-  %30 = and i32 %25, 511
-  %31 = lshr i32 %30, 6
-  %32 = icmp samesign ult i32 %30, 64
+  %30 = lshr i32 %25, 6
+  %31 = and i32 %30, 7
+  %32 = icmp eq i32 %31, 0
   br i1 %32, label %42, label %33
 
 33:                                               ; preds = %24
@@ -4456,9 +4457,9 @@ define dso_local i32 @rb_iseq_node_id(ptr noundef readonly captures(none) %0, i6
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %28 = zext nneg i32 %26 to i64
   %29 = getelementptr %struct.succ_dict_block, ptr %27, i64 %28
-  %30 = and i32 %25, 511
-  %31 = lshr i32 %30, 6
-  %32 = icmp samesign ult i32 %30, 64
+  %30 = lshr i32 %25, 6
+  %31 = and i32 %30, 7
+  %32 = icmp eq i32 %31, 0
   br i1 %32, label %42, label %33
 
 33:                                               ; preds = %24
@@ -4550,9 +4551,9 @@ define hidden i32 @rb_iseq_event_flags(ptr noundef readonly captures(none) %0, i
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %28 = zext nneg i32 %26 to i64
   %29 = getelementptr %struct.succ_dict_block, ptr %27, i64 %28
-  %30 = and i32 %25, 511
-  %31 = lshr i32 %30, 6
-  %32 = icmp samesign ult i32 %30, 64
+  %30 = lshr i32 %25, 6
+  %31 = and i32 %30, 7
+  %32 = icmp eq i32 %31, 0
   br i1 %32, label %42, label %33
 
 33:                                               ; preds = %24
@@ -4645,9 +4646,9 @@ define hidden void @rb_iseq_clear_event_flags(ptr noundef readonly captures(none
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %30 = zext nneg i32 %28 to i64
   %31 = getelementptr %struct.succ_dict_block, ptr %29, i64 %30
-  %32 = and i32 %27, 511
-  %33 = lshr i32 %32, 6
-  %34 = icmp samesign ult i32 %32, 64
+  %32 = lshr i32 %27, 6
+  %33 = and i32 %32, 7
+  %34 = icmp eq i32 %33, 0
   br i1 %34, label %44, label %35
 
 35:                                               ; preds = %26
@@ -5771,9 +5772,9 @@ define dso_local range(i32 0, 256) i32 @rb_iseq_disasm_insn(i64 noundef %0, ptr 
   %59 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %60 = zext nneg i32 %58 to i64
   %61 = getelementptr %struct.succ_dict_block, ptr %59, i64 %60
-  %62 = and i32 %57, 511
-  %63 = lshr i32 %62, 6
-  %64 = icmp samesign ult i32 %62, 64
+  %62 = lshr i32 %57, 6
+  %63 = and i32 %62, 7
+  %64 = icmp eq i32 %63, 0
   br i1 %64, label %74, label %65
 
 65:                                               ; preds = %56
@@ -5858,9 +5859,9 @@ rb_iseq_line_no.exit:                             ; preds = %._crit_edge, %get_i
   %116 = getelementptr inbounds nuw i8, ptr %98, i64 48
   %117 = zext nneg i32 %115 to i64
   %118 = getelementptr %struct.succ_dict_block, ptr %116, i64 %117
-  %119 = and i32 %114, 511
-  %120 = lshr i32 %119, 6
-  %121 = icmp samesign ult i32 %119, 64
+  %119 = lshr i32 %114, 6
+  %120 = and i32 %119, 7
+  %121 = icmp eq i32 %120, 0
   br i1 %121, label %131, label %122
 
 122:                                              ; preds = %113
@@ -5966,9 +5967,9 @@ rb_iseq_line_no.exit94:                           ; preds = %149, %get_insn_info
   %183 = getelementptr inbounds nuw i8, ptr %166, i64 48
   %184 = zext nneg i32 %182 to i64
   %185 = getelementptr %struct.succ_dict_block, ptr %183, i64 %184
-  %186 = and i32 %181, 511
-  %187 = lshr i32 %186, 6
-  %188 = icmp samesign ult i32 %186, 64
+  %186 = lshr i32 %181, 6
+  %187 = and i32 %186, 7
+  %188 = icmp eq i32 %187, 0
   br i1 %188, label %198, label %189
 
 189:                                              ; preds = %180
@@ -7705,9 +7706,9 @@ define internal void @iseq_add_local_tracepoint_i(ptr noundef %0, ptr noundef %1
   %42 = getelementptr inbounds nuw i8, ptr %26, i64 48
   %43 = zext nneg i32 %41 to i64
   %44 = getelementptr %struct.succ_dict_block, ptr %42, i64 %43
-  %45 = and i32 %40, 511
-  %46 = lshr i32 %45, 6
-  %47 = icmp samesign ult i32 %45, 64
+  %45 = lshr i32 %40, 6
+  %46 = and i32 %45, 7
+  %47 = icmp eq i32 %46, 0
   br i1 %47, label %57, label %48
 
 48:                                               ; preds = %39
@@ -7826,10 +7827,10 @@ encoded_iseq_trace_instrument.exit.i:             ; preds = %80
   br label %iseq_add_local_tracepoint.exit
 
 iseq_add_local_tracepoint.exit:                   ; preds = %2, %._crit_edge.i, %114
-  %.031.lcssa44.i = phi i32 [ %spec.select33.i, %114 ], [ %spec.select33.i, %._crit_edge.i ], [ 0, %2 ]
+  %.031.lcssa45.i = phi i32 [ %spec.select33.i, %114 ], [ %spec.select33.i, %._crit_edge.i ], [ 0, %2 ]
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %118 = load i32, ptr %117, align 4, !tbaa !338
-  %119 = add i32 %118, %.031.lcssa44.i
+  %119 = add i32 %118, %.031.lcssa45.i
   store i32 %119, ptr %117, align 4, !tbaa !338
   call fastcc void @iseq_iterate_children(ptr noundef nonnull %0, ptr noundef nonnull @iseq_add_local_tracepoint_i, ptr noundef nonnull %1)
   ret void
@@ -7929,9 +7930,9 @@ define internal void @iseq_remove_local_tracepoint_i(ptr noundef %0, ptr noundef
   %46 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %47 = zext nneg i32 %45 to i64
   %48 = getelementptr %struct.succ_dict_block, ptr %46, i64 %47
-  %49 = and i32 %44, 511
-  %50 = lshr i32 %49, 6
-  %51 = icmp samesign ult i32 %49, 64
+  %49 = lshr i32 %44, 6
+  %50 = and i32 %49, 7
+  %51 = icmp eq i32 %50, 0
   br i1 %51, label %61, label %52
 
 52:                                               ; preds = %43
@@ -9778,13 +9779,14 @@ rbimpl_intern_const.exit87.i:                     ; preds = %.lr.ph.i85.i, %rbim
 
 make_compile_option_value.exit:                   ; preds = %.lr.ph.i91.i, %rbimpl_intern_const.exit87.i
   %.lcssa.i90.i = phi i64 [ %.pr.i88.i, %rbimpl_intern_const.exit87.i ], [ %59, %.lr.ph.i91.i ]
-  %60 = and i16 %58, 192
-  %61 = icmp eq i16 %60, 192
-  %.not39.i = icmp eq i16 %60, 0
-  %62 = select i1 %.not39.i, i64 0, i64 20
-  %63 = select i1 %61, i64 4, i64 %62
-  %64 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i90.i) #21
-  %65 = tail call i64 @rb_hash_aset(i64 noundef %2, i64 noundef %64, i64 noundef %63) #21
+  %60 = shl i16 %58, 8
+  %61 = ashr i16 %60, 14
+  %62 = icmp eq i16 %61, -1
+  %.not39.i = icmp eq i16 %61, 0
+  %63 = select i1 %.not39.i, i64 0, i64 20
+  %64 = select i1 %62, i64 4, i64 %63
+  %65 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i90.i) #21
+  %66 = tail call i64 @rb_hash_aset(i64 noundef %2, i64 noundef %65, i64 noundef %64) #21
   ret i64 %2
 }
 
@@ -10861,15 +10863,15 @@ rbimpl_intern_const.exit402:                      ; preds = %.lr.ph.i400, %80
 92:                                               ; preds = %89
   %.pr.i403 = load i64, ptr @iseq_data_to_ary.rbimpl_id.209, align 8, !tbaa !42
   %.not4.i404 = icmp eq i64 %.pr.i403, 0
-  br i1 %.not4.i404, label %.lr.ph.i406, label %.loopexit899
+  br i1 %.not4.i404, label %.lr.ph.i406, label %.loopexit900
 
 .lr.ph.i406:                                      ; preds = %92, %.lr.ph.i406
   %93 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.210, i64 noundef 8) #21
   store i64 %93, ptr @iseq_data_to_ary.rbimpl_id.209, align 8, !tbaa !42
   %.not.i407 = icmp eq i64 %93, 0
-  br i1 %.not.i407, label %.lr.ph.i406, label %.loopexit899, !llvm.loop !241
+  br i1 %.not.i407, label %.lr.ph.i406, label %.loopexit900, !llvm.loop !241
 
-.loopexit899:                                     ; preds = %.lr.ph.i406, %92
+.loopexit900:                                     ; preds = %.lr.ph.i406, %92
   %.lcssa.i405 = phi i64 [ %.pr.i403, %92 ], [ %93, %.lr.ph.i406 ]
   %94 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i405) #21
   %95 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -10883,7 +10885,7 @@ rbimpl_intern_const.exit402:                      ; preds = %.lr.ph.i400, %80
   %101 = icmp eq i16 %.pre838, 0
   br i1 %101, label %.thread, label %102
 
-102:                                              ; preds = %.loopexit899
+102:                                              ; preds = %.loopexit900
   %.pr.i409 = load i64, ptr @iseq_data_to_ary.rbimpl_id.211, align 8, !tbaa !42
   %.not4.i410 = icmp eq i64 %.pr.i409, 0
   br i1 %.not4.i410, label %.lr.ph.i412, label %rbimpl_intern_const.exit414
@@ -10906,8 +10908,8 @@ rbimpl_intern_const.exit414:                      ; preds = %.lr.ph.i412, %102
   %.pre831 = load i16, ptr %53, align 8
   br label %.thread
 
-.thread:                                          ; preds = %89, %rbimpl_intern_const.exit414, %.loopexit899
-  %111 = phi i16 [ %.pre831, %rbimpl_intern_const.exit414 ], [ %.pre830, %.loopexit899 ], [ %90, %89 ]
+.thread:                                          ; preds = %89, %rbimpl_intern_const.exit414, %.loopexit900
+  %111 = phi i16 [ %.pre831, %rbimpl_intern_const.exit414 ], [ %.pre830, %.loopexit900 ], [ %90, %89 ]
   %112 = and i16 %111, 4
   %.not366 = icmp eq i16 %112, 0
   br i1 %.not366, label %122, label %113
@@ -11664,8 +11666,8 @@ insn_op_type.exit.thread:                         ; preds = %insn_op_type.exit
   unreachable
 
 obj_resurrect.exit:                               ; preds = %rb_array_len.exit, %.lr.ph731, %419, %416, %283, %278, %276, %274, %272, %268, %264, %258, %280, %rbimpl_intern_const.exit524, %384, %rbimpl_intern_const.exit494, %ISEQ_IS_ENTRY_START.exit, %254, %248
-  %.sink948 = phi i64 [ %282, %280 ], [ %422, %rbimpl_intern_const.exit524 ], [ %386, %384 ], [ %322, %rbimpl_intern_const.exit494 ], [ %317, %ISEQ_IS_ENTRY_START.exit ], [ %257, %254 ], [ %252, %248 ], [ %259, %258 ], [ %259, %264 ], [ %259, %268 ], [ %273, %272 ], [ %275, %274 ], [ %277, %276 ], [ 4, %278 ], [ %284, %283 ], [ %418, %416 ], [ %420, %419 ], [ %284, %.lr.ph731 ], [ %389, %rb_array_len.exit ]
-  %465 = tail call i64 @rb_ary_push(i64 noundef %228, i64 noundef %.sink948) #21
+  %.sink949 = phi i64 [ %282, %280 ], [ %422, %rbimpl_intern_const.exit524 ], [ %386, %384 ], [ %322, %rbimpl_intern_const.exit494 ], [ %317, %ISEQ_IS_ENTRY_START.exit ], [ %257, %254 ], [ %252, %248 ], [ %259, %258 ], [ %259, %264 ], [ %259, %268 ], [ %273, %272 ], [ %275, %274 ], [ %277, %276 ], [ 4, %278 ], [ %284, %283 ], [ %418, %416 ], [ %420, %419 ], [ %284, %.lr.ph731 ], [ %389, %rb_array_len.exit ]
+  %465 = tail call i64 @rb_ary_push(i64 noundef %228, i64 noundef %.sink949) #21
   %indvars.iv.next822 = add nuw nsw i64 %indvars.iv821, 1
   %466 = getelementptr i8, ptr %.1345737, i64 8
   %exitcond825.not = icmp eq i64 %indvars.iv.next822, %wide.trip.count824
@@ -11792,8 +11794,8 @@ exception_type2symbol.exit:                       ; preds = %.lr.ph.i30.i, %.lr.
   br label %499
 
 499:                                              ; preds = %exception_type2symbol.exit, %497
-  %.sink949 = phi i64 [ %498, %497 ], [ 4, %exception_type2symbol.exit ]
-  %500 = tail call i64 @rb_ary_push(i64 noundef %475, i64 noundef %.sink949) #21
+  %.sink950 = phi i64 [ %498, %497 ], [ 4, %exception_type2symbol.exit ]
+  %500 = tail call i64 @rb_ary_push(i64 noundef %475, i64 noundef %.sink950) #21
   %501 = getelementptr inbounds nuw i8, ptr %478, i64 16
   %502 = load i32, ptr %501, align 8, !tbaa !291
   %503 = zext i32 %502 to i64
@@ -11921,9 +11923,9 @@ RARRAY_AREF.exit:                                 ; preds = %.thread656, %547
   %581 = getelementptr inbounds nuw i8, ptr %565, i64 48
   %582 = zext nneg i32 %580 to i64
   %583 = getelementptr %struct.succ_dict_block, ptr %581, i64 %582
-  %584 = and i32 %579, 511
-  %585 = lshr i32 %584, 6
-  %586 = icmp samesign ult i32 %584, 64
+  %584 = lshr i32 %579, 6
+  %585 = and i32 %584, 7
+  %586 = icmp eq i32 %585, 0
   br i1 %586, label %596, label %587
 
 587:                                              ; preds = %578

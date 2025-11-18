@@ -24,94 +24,96 @@ define hidden range(i32 -1, 2) i32 @ber_open(ptr noundef %0, ptr noundef %1, ptr
   %8 = load i32, ptr %1, align 4
   %.not = icmp ne i32 %8, -12
   %. = sext i1 %.not to i32
-  br label %49
+  br label %50
 
 9:                                                ; preds = %3
   %10 = load i8, ptr %4, align 1
   %11 = and i8 %10, 32
   %.not58 = icmp eq i8 %11, 0
-  br i1 %.not58, label %49, label %12
+  br i1 %.not58, label %50, label %12
 
 12:                                               ; preds = %9
-  %13 = lshr i8 %10, 6
-  %14 = and i8 %10, -34
-  %or.cond63 = icmp eq i8 %14, 16
-  %15 = add nsw i8 %13, -1
-  %or.cond5 = icmp ult i8 %15, 2
+  %13 = and i8 %10, 30
+  %14 = lshr i8 %10, 6
+  %15 = icmp eq i8 %14, 0
+  %or.cond = icmp eq i8 %13, 16
+  %or.cond63 = and i1 %15, %or.cond
+  %16 = add nsw i8 %14, -1
+  %or.cond5 = icmp ult i8 %16, 2
   %or.cond64 = select i1 %or.cond63, i1 true, i1 %or.cond5
-  br i1 %or.cond64, label %16, label %49
+  br i1 %or.cond64, label %17, label %50
 
-16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %18 = load i8, ptr %17, align 1
-  %.not59 = icmp eq i8 %18, -128
-  br i1 %.not59, label %37, label %19
+17:                                               ; preds = %12
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %19 = load i8, ptr %18, align 1
+  %.not59 = icmp eq i8 %19, -128
+  br i1 %.not59, label %38, label %20
 
-19:                                               ; preds = %16
-  %20 = zext nneg i8 %18 to i32
-  %.not60 = icmp sgt i8 %18, -1
-  br i1 %.not60, label %.loopexit, label %21
+20:                                               ; preds = %17
+  %21 = zext nneg i8 %19 to i32
+  %.not60 = icmp sgt i8 %19, -1
+  br i1 %.not60, label %.loopexit, label %22
 
-21:                                               ; preds = %19
-  %22 = and i8 %18, 127
-  %23 = add nsw i8 %22, -7
-  %or.cond11 = icmp ult i8 %23, -6
+22:                                               ; preds = %20
+  %23 = and i8 %19, 127
+  %24 = add nsw i8 %23, -7
+  %or.cond11 = icmp ult i8 %24, -6
   br i1 %or.cond11, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %21
-  %24 = zext nneg i8 %22 to i32
+.lr.ph.preheader:                                 ; preds = %22
+  %25 = zext nneg i8 %23 to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.068 = phi i32 [ %25, %.lr.ph ], [ %24, %.lr.ph.preheader ]
-  %.05267 = phi i32 [ %26, %.lr.ph ], [ 2, %.lr.ph.preheader ]
-  %.166 = phi i32 [ %32, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %25 = add i32 %.068, -1
-  %26 = add i32 %.05267, 1
-  %27 = sext i32 %.05267 to i64
-  %28 = getelementptr i8, ptr %4, i64 %27
-  %29 = load i8, ptr %28, align 1
-  %30 = shl i32 %.166, 8
-  %31 = zext i8 %29 to i32
-  %32 = or disjoint i32 %30, %31
-  %.not61 = icmp eq i32 %25, 0
+  %.068 = phi i32 [ %26, %.lr.ph ], [ %25, %.lr.ph.preheader ]
+  %.05267 = phi i32 [ %27, %.lr.ph ], [ 2, %.lr.ph.preheader ]
+  %.166 = phi i32 [ %33, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %26 = add i32 %.068, -1
+  %27 = add i32 %.05267, 1
+  %28 = sext i32 %.05267 to i64
+  %29 = getelementptr i8, ptr %4, i64 %28
+  %30 = load i8, ptr %29, align 1
+  %31 = shl i32 %.166, 8
+  %32 = zext i8 %30 to i32
+  %33 = or disjoint i32 %31, %32
+  %.not61 = icmp eq i32 %26, 0
   br i1 %.not61, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
-.loopexit:                                        ; preds = %.lr.ph, %19, %21
-  %.055 = phi i8 [ %22, %21 ], [ 0, %19 ], [ %22, %.lr.ph ]
-  %.054 = phi i32 [ 0, %21 ], [ %20, %19 ], [ %32, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %20, %22
+  %.055 = phi i8 [ %23, %22 ], [ 0, %20 ], [ %23, %.lr.ph ]
+  %.054 = phi i32 [ 0, %22 ], [ %21, %20 ], [ %33, %.lr.ph ]
   %narrow = add nuw i8 %.055, 2
-  %33 = zext i8 %narrow to i32
-  %34 = add i32 %.054, %33
-  %35 = call i64 @wtap_file_size(ptr noundef %0, ptr noundef %1)
-  %36 = sext i32 %34 to i64
-  %.not62 = icmp eq i64 %35, %36
-  br i1 %.not62, label %37, label %49
+  %34 = zext i8 %narrow to i32
+  %35 = add i32 %.054, %34
+  %36 = call i64 @wtap_file_size(ptr noundef %0, ptr noundef %1)
+  %37 = sext i32 %35 to i64
+  %.not62 = icmp eq i64 %36, %37
+  br i1 %.not62, label %38, label %50
 
-37:                                               ; preds = %16, %.loopexit
-  %38 = load ptr, ptr %0, align 8
-  %39 = call i64 @file_seek(ptr noundef %38, i64 noundef 0, i32 noundef 0, ptr noundef %1)
-  %40 = icmp eq i64 %39, -1
-  br i1 %40, label %49, label %41
+38:                                               ; preds = %17, %.loopexit
+  %39 = load ptr, ptr %0, align 8
+  %40 = call i64 @file_seek(ptr noundef %39, i64 noundef 0, i32 noundef 0, ptr noundef %1)
+  %41 = icmp eq i64 %40, -1
+  br i1 %41, label %50, label %42
 
-41:                                               ; preds = %37
-  %42 = load i32, ptr @ber_file_type_subtype, align 4
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %42, ptr %43, align 4
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i32 90, ptr %44, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %45, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @ber_full_file_read, ptr %46, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr @ber_full_file_seek_read, ptr %47, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store i32 0, ptr %48, align 4
-  br label %49
+42:                                               ; preds = %38
+  %43 = load i32, ptr @ber_file_type_subtype, align 4
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %43, ptr %44, align 4
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store i32 90, ptr %45, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 0, ptr %46, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store ptr @ber_full_file_read, ptr %47, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store ptr @ber_full_file_seek_read, ptr %48, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  store i32 0, ptr %49, align 4
+  br label %50
 
-49:                                               ; preds = %37, %.loopexit, %9, %12, %7, %41
-  %.053 = phi i32 [ 1, %41 ], [ %., %7 ], [ 0, %12 ], [ 0, %9 ], [ 0, %.loopexit ], [ -1, %37 ]
+50:                                               ; preds = %38, %.loopexit, %9, %12, %7, %42
+  %.053 = phi i32 [ 1, %42 ], [ %., %7 ], [ 0, %12 ], [ 0, %9 ], [ 0, %.loopexit ], [ -1, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.053
 }

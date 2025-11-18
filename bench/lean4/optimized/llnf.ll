@@ -762,8 +762,8 @@ _ZNK4lean4name9is_atomicEv.exit37:                ; preds = %69, %72
 _ZNK4lean4name10is_numeralEv.exit41:              ; preds = %76
   %77 = getelementptr i8, ptr %54, i64 4
   %.val.i.i.i.i.i40 = load i32, ptr %77, align 4
-  %.mask72 = and i32 %.val.i.i.i.i.i40, -16777216
-  %78 = icmp eq i32 %.mask72, 33554432
+  %.mask73 = and i32 %.val.i.i.i.i.i40, -16777216
+  %78 = icmp eq i32 %.mask73, 33554432
   br i1 %78, label %87, label %_ZNK4lean4name9is_atomicEv.exit.thread
 
 _ZNK4lean4name10is_numeralEv.exit41.thread:       ; preds = %76
@@ -807,8 +807,8 @@ _ZNK4lean4name10get_prefixEv.exit47:              ; preds = %81, %87
 _ZNK4lean4name10is_numeralEv.exit51:              ; preds = %96
   %100 = getelementptr i8, ptr %97, i64 4
   %.val.i.i.i.i.i50 = load i32, ptr %100, align 4
-  %.mask73 = and i32 %.val.i.i.i.i.i50, -16777216
-  %101 = icmp eq i32 %.mask73, 33554432
+  %.mask75 = and i32 %.val.i.i.i.i.i50, -16777216
+  %101 = icmp eq i32 %.mask75, 33554432
   br i1 %101, label %_ZNK4lean4name10get_prefixEv.exit57, label %_ZNK4lean4name9is_atomicEv.exit.thread
 
 _ZNK4lean4name10is_numeralEv.exit51.thread:       ; preds = %96
@@ -1399,8 +1399,8 @@ _ZNK4lean4name9is_atomicEv.exit39.i:              ; preds = %60, %57
 _ZNK4lean4name10is_numeralEv.exit43.i:            ; preds = %64
   %65 = getelementptr i8, ptr %42, i64 4
   %.val.i.i.i.i.i42.i = load i32, ptr %65, align 4
-  %.mask8.i = and i32 %.val.i.i.i.i.i42.i, -16777216
-  %66 = icmp eq i32 %.mask8.i, 33554432
+  %.mask9.i = and i32 %.val.i.i.i.i.i42.i, -16777216
+  %66 = icmp eq i32 %.mask9.i, 33554432
   br i1 %66, label %75, label %_ZN4leanL28is_llnf_quaternary_primitiveERKNS_4exprERKNS_4nameERjS6_S6_S6_.exit
 
 _ZNK4lean4name10is_numeralEv.exit43.thread.i:     ; preds = %64
@@ -1444,8 +1444,8 @@ _ZNK4lean4name10get_prefixEv.exit49.i:            ; preds = %75, %69
 _ZNK4lean4name10is_numeralEv.exit53.i:            ; preds = %84
   %88 = getelementptr i8, ptr %85, i64 4
   %.val.i.i.i.i.i52.i = load i32, ptr %88, align 4
-  %.mask9.i = and i32 %.val.i.i.i.i.i52.i, -16777216
-  %89 = icmp eq i32 %.mask9.i, 33554432
+  %.mask11.i = and i32 %.val.i.i.i.i.i52.i, -16777216
+  %89 = icmp eq i32 %.mask11.i, 33554432
   br i1 %89, label %_ZNK4lean4name10get_prefixEv.exit59.i, label %_ZN4leanL28is_llnf_quaternary_primitiveERKNS_4exprERKNS_4nameERjS6_S6_S6_.exit
 
 _ZNK4lean4name10is_numeralEv.exit53.thread.i:     ; preds = %84
@@ -1492,8 +1492,8 @@ _ZNK4lean4name10get_prefixEv.exit59.i:            ; preds = %_ZNK4lean4name10is_
 _ZNK4lean4name10is_numeralEv.exit63.i:            ; preds = %108
   %112 = getelementptr i8, ptr %109, i64 4
   %.val.i.i.i.i.i62.i = load i32, ptr %112, align 4
-  %.mask10.i = and i32 %.val.i.i.i.i.i62.i, -16777216
-  %113 = icmp eq i32 %.mask10.i, 33554432
+  %.mask13.i = and i32 %.val.i.i.i.i.i62.i, -16777216
+  %113 = icmp eq i32 %.mask13.i, 33554432
   br i1 %113, label %_ZNK4lean4name10get_prefixEv.exit69.thread.i, label %_ZN4leanL28is_llnf_quaternary_primitiveERKNS_4exprERKNS_4nameERjS6_S6_S6_.exit
 
 _ZNK4lean4name10is_numeralEv.exit63.thread.i:     ; preds = %108
@@ -2066,8 +2066,8 @@ _ZNK4lean4name9is_atomicEv.exit33:                ; preds = %67, %70
 _ZNK4lean4name10is_numeralEv.exit37:              ; preds = %74
   %75 = getelementptr i8, ptr %52, i64 4
   %.val.i.i.i.i.i36 = load i32, ptr %75, align 4
-  %.mask6 = and i32 %.val.i.i.i.i.i36, -16777216
-  %76 = icmp eq i32 %.mask6, 33554432
+  %.mask7 = and i32 %.val.i.i.i.i.i36, -16777216
+  %76 = icmp eq i32 %.mask7, 33554432
   br i1 %76, label %85, label %_ZNK4lean4name9is_atomicEv.exit.thread
 
 _ZNK4lean4name10is_numeralEv.exit37.thread:       ; preds = %74
@@ -2111,8 +2111,8 @@ _ZNK4lean4name10get_prefixEv.exit43:              ; preds = %79, %85
 _ZNK4lean4name10is_numeralEv.exit47:              ; preds = %94
   %98 = getelementptr i8, ptr %95, i64 4
   %.val.i.i.i.i.i46 = load i32, ptr %98, align 4
-  %.mask7 = and i32 %.val.i.i.i.i.i46, -16777216
-  %99 = icmp eq i32 %.mask7, 33554432
+  %.mask9 = and i32 %.val.i.i.i.i.i46, -16777216
+  %99 = icmp eq i32 %.mask9, 33554432
   br i1 %99, label %_ZNK4lean4name10get_prefixEv.exit53.thread, label %_ZNK4lean4name9is_atomicEv.exit.thread
 
 _ZNK4lean4name10is_numeralEv.exit47.thread:       ; preds = %94
@@ -2439,8 +2439,8 @@ _ZNK4lean4name9is_atomicEv.exit27:                ; preds = %63, %66
 _ZNK4lean4name10is_numeralEv.exit31:              ; preds = %70
   %71 = getelementptr i8, ptr %48, i64 4
   %.val.i.i.i.i.i30 = load i32, ptr %71, align 4
-  %.mask6 = and i32 %.val.i.i.i.i.i30, -16777216
-  %72 = icmp eq i32 %.mask6, 33554432
+  %.mask7 = and i32 %.val.i.i.i.i.i30, -16777216
+  %72 = icmp eq i32 %.mask7, 33554432
   br i1 %72, label %_ZNK4lean4name10get_prefixEv.exit37, label %_ZNK4lean4name9is_atomicEv.exit.thread
 
 _ZNK4lean4name10is_numeralEv.exit31.thread:       ; preds = %70

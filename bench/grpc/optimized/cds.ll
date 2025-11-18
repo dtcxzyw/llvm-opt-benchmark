@@ -5176,17 +5176,14 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
 17:                                               ; preds = %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i64, ptr %18, align 8, !tbaa !218
-  %.not.i21 = icmp ult i64 %19, 2
-  br i1 %.not.i21, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager8DnsStateEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS9_SC_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SC_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSD_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.lr.ph26.preheader
-
-.lr.ph26.preheader:                               ; preds = %17
   %20 = lshr i64 %19, 1
-  br label %.lr.ph26
+  %.not.i21 = icmp eq i64 %20, 0
+  br i1 %.not.i21, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager8DnsStateEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS9_SC_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SC_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSD_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.lr.ph26
 
-.lr.ph26:                                         ; preds = %.lr.ph26.preheader, %._crit_edge
-  %.0.i24 = phi ptr [ %25, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %.lr.ph26.preheader ]
-  %.025.i23 = phi ptr [ %24, %._crit_edge ], [ %5, %.lr.ph26.preheader ]
-  %.026.i22 = phi i64 [ %.1.i.lcssa, %._crit_edge ], [ %20, %.lr.ph26.preheader ]
+.lr.ph26:                                         ; preds = %17, %._crit_edge
+  %.0.i24 = phi ptr [ %25, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %17 ]
+  %.025.i23 = phi ptr [ %24, %._crit_edge ], [ %5, %17 ]
+  %.026.i22 = phi i64 [ %.1.i.lcssa, %._crit_edge ], [ %20, %17 ]
   %21 = load <16 x i8>, ptr %.025.i23, align 1, !tbaa !24
   %22 = icmp sgt <16 x i8> %21, splat (i8 -1)
   %23 = bitcast <16 x i1> %22 to i16
@@ -5622,17 +5619,14 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
 51:                                               ; preds = %1
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %53 = load i64, ptr %52, align 8, !tbaa !218
-  %.not.i31 = icmp ult i64 %53, 2
-  br i1 %.not.i31, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager20EndpointWatcherStateEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS9_SC_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SC_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSD_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.lr.ph36.preheader
-
-.lr.ph36.preheader:                               ; preds = %51
   %54 = lshr i64 %53, 1
-  br label %.lr.ph36
+  %.not.i31 = icmp eq i64 %54, 0
+  br i1 %.not.i31, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager20EndpointWatcherStateEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS9_SC_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SC_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSD_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.lr.ph36
 
-.lr.ph36:                                         ; preds = %.lr.ph36.preheader, %._crit_edge
-  %.0.i34 = phi ptr [ %59, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %.lr.ph36.preheader ]
-  %.025.i33 = phi ptr [ %58, %._crit_edge ], [ %5, %.lr.ph36.preheader ]
-  %.026.i32 = phi i64 [ %.1.i.lcssa, %._crit_edge ], [ %54, %.lr.ph36.preheader ]
+.lr.ph36:                                         ; preds = %51, %._crit_edge
+  %.0.i34 = phi ptr [ %59, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %51 ]
+  %.025.i33 = phi ptr [ %58, %._crit_edge ], [ %5, %51 ]
+  %.026.i32 = phi i64 [ %.1.i.lcssa, %._crit_edge ], [ %54, %51 ]
   %55 = load <16 x i8>, ptr %.025.i33, align 1, !tbaa !24
   %56 = icmp sgt <16 x i8> %55, splat (i8 -1)
   %57 = bitcast <16 x i1> %56 to i16
@@ -5788,17 +5782,14 @@ _ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionE
 23:                                               ; preds = %1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !218
-  %.not.i24 = icmp ult i64 %25, 2
-  br i1 %.not.i24, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeISt17basic_string_viewIcSt11char_traitsIcEEN9grpc_core17WeakRefCountedPtrINS8_20XdsDependencyManager19ClusterSubscriptionEEEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS7_SC_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SC_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSD_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.lr.ph29.preheader
-
-.lr.ph29.preheader:                               ; preds = %23
   %26 = lshr i64 %25, 1
-  br label %.lr.ph29
+  %.not.i24 = icmp eq i64 %26, 0
+  br i1 %.not.i24, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeISt17basic_string_viewIcSt11char_traitsIcEEN9grpc_core17WeakRefCountedPtrINS8_20XdsDependencyManager19ClusterSubscriptionEEEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS7_SC_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SC_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSD_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.lr.ph29
 
-.lr.ph29:                                         ; preds = %.lr.ph29.preheader, %._crit_edge
-  %.0.i27 = phi ptr [ %31, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %.lr.ph29.preheader ]
-  %.025.i26 = phi ptr [ %30, %._crit_edge ], [ %5, %.lr.ph29.preheader ]
-  %.026.i25 = phi i64 [ %.1.i.lcssa, %._crit_edge ], [ %26, %.lr.ph29.preheader ]
+.lr.ph29:                                         ; preds = %23, %._crit_edge
+  %.0.i27 = phi ptr [ %31, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %23 ]
+  %.025.i26 = phi ptr [ %30, %._crit_edge ], [ %5, %23 ]
+  %.026.i25 = phi i64 [ %.1.i.lcssa, %._crit_edge ], [ %26, %23 ]
   %27 = load <16 x i8>, ptr %.025.i26, align 1, !tbaa !24
   %28 = icmp sgt <16 x i8> %27, splat (i8 -1)
   %29 = bitcast <16 x i1> %28 to i16
@@ -5910,17 +5901,14 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
 17:                                               ; preds = %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i64, ptr %18, align 8, !tbaa !218
-  %.not.i21 = icmp ult i64 %19, 2
-  br i1 %.not.i21, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager19ClusterWatcherStateEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS9_SC_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SC_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSD_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.lr.ph26.preheader
-
-.lr.ph26.preheader:                               ; preds = %17
   %20 = lshr i64 %19, 1
-  br label %.lr.ph26
+  %.not.i21 = icmp eq i64 %20, 0
+  br i1 %.not.i21, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager19ClusterWatcherStateEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS9_SC_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SC_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSD_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.lr.ph26
 
-.lr.ph26:                                         ; preds = %.lr.ph26.preheader, %._crit_edge
-  %.0.i24 = phi ptr [ %25, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %.lr.ph26.preheader ]
-  %.025.i23 = phi ptr [ %24, %._crit_edge ], [ %5, %.lr.ph26.preheader ]
-  %.026.i22 = phi i64 [ %.1.i.lcssa, %._crit_edge ], [ %20, %.lr.ph26.preheader ]
+.lr.ph26:                                         ; preds = %17, %._crit_edge
+  %.0.i24 = phi ptr [ %25, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %17 ]
+  %.025.i23 = phi ptr [ %24, %._crit_edge ], [ %5, %17 ]
+  %.026.i22 = phi i64 [ %.1.i.lcssa, %._crit_edge ], [ %20, %17 ]
   %21 = load <16 x i8>, ptr %.025.i23, align 1, !tbaa !24
   %22 = icmp sgt <16 x i8> %21, splat (i8 -1)
   %23 = bitcast <16 x i1> %22 to i16

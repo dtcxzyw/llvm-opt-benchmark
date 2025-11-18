@@ -296,7 +296,7 @@ define zeroext i16 @ff_aac_ac_decode(ptr noundef captures(none) %0, ptr noundef 
   %43 = icmp sgt i32 %42, %17
   %spec.select109 = select i1 %43, ptr %39, ptr %.2115
   %44 = lshr i32 %.0116, 1
-  %.not106 = icmp samesign ult i32 %.0116, 2
+  %.not106 = icmp eq i32 %44, 0
   br i1 %.not106, label %.loopexit, label %.preheader, !llvm.loop !27
 
 45:                                               ; preds = %4

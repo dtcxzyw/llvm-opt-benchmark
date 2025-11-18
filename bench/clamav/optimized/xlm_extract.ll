@@ -1744,92 +1744,94 @@ define i32 @cli_extract_images_from_drawing_group(ptr noundef %0, i64 noundef %1
   %18 = zext i16 %13 to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1221, i32 noundef %18) #11
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1222, i32 noundef %15) #11
-  %or.cond5 = icmp eq i16 %9, 15
-  %19 = icmp eq i16 %13, -4096
-  %or.cond9 = select i1 %or.cond5, i1 %19, i1 false
-  br i1 %or.cond9, label %20, label %.loopexit.sink.split
+  %19 = icmp eq i16 %10, 15
+  %20 = icmp eq i16 %11, 0
+  %or.cond5 = and i1 %19, %20
+  %21 = icmp eq i16 %13, -4096
+  %or.cond9 = select i1 %or.cond5, i1 %21, i1 false
+  br i1 %or.cond9, label %22, label %.loopexit.sink.split
 
-20:                                               ; preds = %8
-  %21 = zext i32 %15 to i64
-  %22 = icmp ult i64 %1, %21
-  br i1 %22, label %23, label %24
+22:                                               ; preds = %8
+  %23 = zext i32 %15 to i64
+  %24 = icmp ult i64 %1, %23
+  br i1 %24, label %25, label %26
 
-23:                                               ; preds = %20
+25:                                               ; preds = %22
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1159) #11
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1160, i32 noundef %15, i64 noundef %1) #11
-  br label %24
+  br label %26
 
-24:                                               ; preds = %23, %20
+26:                                               ; preds = %25, %22
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1161, i32 noundef %15) #11
-  %25 = add i64 %1, -8
-  %.not55102 = icmp eq i64 %25, 0
+  %27 = add i64 %1, -8
+  %.not55102 = icmp eq i64 %27, 0
   br i1 %.not55102, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %24
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+.lr.ph.preheader:                                 ; preds = %26
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %select.unfold88
-  %.1105 = phi i64 [ %spec.select100, %select.unfold88 ], [ %25, %.lr.ph.preheader ]
-  %.145104 = phi ptr [ %spec.select, %select.unfold88 ], [ %26, %.lr.ph.preheader ]
+  %.1105 = phi i64 [ %spec.select100, %select.unfold88 ], [ %27, %.lr.ph.preheader ]
+  %.145104 = phi ptr [ %spec.select, %select.unfold88 ], [ %28, %.lr.ph.preheader ]
   %.148103 = phi i32 [ %.249, %select.unfold88 ], [ 3, %.lr.ph.preheader ]
-  %27 = icmp ult i64 %.1105, 8
-  br i1 %27, label %.loopexit.sink.split, label %28
+  %29 = icmp ult i64 %.1105, 8
+  br i1 %29, label %.loopexit.sink.split, label %30
 
-28:                                               ; preds = %.lr.ph
-  %29 = load i16, ptr %.145104, align 1, !tbaa !51
-  %30 = and i16 %29, 15
-  %31 = lshr i16 %29, 4
-  %32 = getelementptr inbounds nuw i8, ptr %.145104, i64 2
-  %33 = load i16, ptr %32, align 1, !tbaa !53
-  %34 = getelementptr inbounds nuw i8, ptr %.145104, i64 4
-  %35 = load i32, ptr %34, align 1, !tbaa !54
+30:                                               ; preds = %.lr.ph
+  %31 = load i16, ptr %.145104, align 1, !tbaa !51
+  %32 = and i16 %31, 15
+  %33 = lshr i16 %31, 4
+  %34 = getelementptr inbounds nuw i8, ptr %.145104, i64 2
+  %35 = load i16, ptr %34, align 1, !tbaa !53
+  %36 = getelementptr inbounds nuw i8, ptr %.145104, i64 4
+  %37 = load i32, ptr %36, align 1, !tbaa !54
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1218) #11
-  %36 = zext nneg i16 %30 to i32
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1219, i32 noundef %36) #11
-  %37 = zext nneg i16 %31 to i32
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1220, i32 noundef %37) #11
-  %38 = zext i16 %33 to i32
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1221, i32 noundef %38) #11
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1222, i32 noundef %35) #11
-  %39 = icmp eq i16 %30, 15
-  %40 = icmp eq i16 %33, -4095
-  %or.cond13 = select i1 %39, i1 %40, i1 false
-  br i1 %or.cond13, label %41, label %.select.unfold88_crit_edge
+  %38 = zext nneg i16 %32 to i32
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1219, i32 noundef %38) #11
+  %39 = zext nneg i16 %33 to i32
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1220, i32 noundef %39) #11
+  %40 = zext i16 %35 to i32
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1221, i32 noundef %40) #11
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1222, i32 noundef %37) #11
+  %41 = icmp eq i16 %32, 15
+  %42 = icmp eq i16 %35, -4095
+  %or.cond13 = select i1 %41, i1 %42, i1 false
+  br i1 %or.cond13, label %43, label %.select.unfold88_crit_edge
 
-.select.unfold88_crit_edge:                       ; preds = %28
-  %.pre = zext i32 %35 to i64
+.select.unfold88_crit_edge:                       ; preds = %30
+  %.pre = zext i32 %37 to i64
   br label %select.unfold88
 
-41:                                               ; preds = %28
-  %42 = getelementptr inbounds nuw i8, ptr %.145104, i64 8
-  %43 = add i64 %.1105, -8
+43:                                               ; preds = %30
+  %44 = getelementptr inbounds nuw i8, ptr %.145104, i64 8
+  %45 = add i64 %.1105, -8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1164) #11
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1165, i32 noundef %35, i32 noundef %37) #11
-  %44 = zext i32 %35 to i64
-  %45 = icmp ult i64 %43, %44
-  br i1 %45, label %46, label %47
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1165, i32 noundef %37, i32 noundef %39) #11
+  %46 = zext i32 %37 to i64
+  %47 = icmp ult i64 %45, %46
+  br i1 %47, label %48, label %49
 
-46:                                               ; preds = %41
+48:                                               ; preds = %43
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1166) #11
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1167, i32 noundef %35, i64 noundef %43) #11
-  br label %47
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1167, i32 noundef %37, i64 noundef %45) #11
+  br label %49
 
-47:                                               ; preds = %41, %46
-  %.041 = phi i64 [ %43, %46 ], [ %44, %41 ]
-  %48 = tail call i32 @process_blip_store_container(ptr noundef nonnull %42, i64 noundef %.041, ptr noundef %2)
-  %.not57 = icmp eq i32 %48, 0
+49:                                               ; preds = %43, %48
+  %.041 = phi i64 [ %45, %48 ], [ %46, %43 ]
+  %50 = tail call i32 @process_blip_store_container(ptr noundef nonnull %44, i64 noundef %.041, ptr noundef %2)
+  %.not57 = icmp eq i32 %50, 0
   br i1 %.not57, label %select.unfold88, label %.loopexit
 
-select.unfold88:                                  ; preds = %.select.unfold88_crit_edge, %47
-  %.pre-phi = phi i64 [ %.pre, %.select.unfold88_crit_edge ], [ %44, %47 ]
-  %.249 = phi i32 [ %.148103, %.select.unfold88_crit_edge ], [ 0, %47 ]
-  %49 = add nuw nsw i64 %.pre-phi, 8
-  %50 = icmp ult i64 %.1105, %49
-  %spec.select.idx = select i1 %50, i64 0, i64 %49
+select.unfold88:                                  ; preds = %.select.unfold88_crit_edge, %49
+  %.pre-phi = phi i64 [ %.pre, %.select.unfold88_crit_edge ], [ %46, %49 ]
+  %.249 = phi i32 [ %.148103, %.select.unfold88_crit_edge ], [ 0, %49 ]
+  %51 = add nuw nsw i64 %.pre-phi, 8
+  %52 = icmp ult i64 %.1105, %51
+  %spec.select.idx = select i1 %52, i64 0, i64 %51
   %spec.select = getelementptr inbounds nuw i8, ptr %.145104, i64 %spec.select.idx
-  %spec.select100 = tail call i64 @llvm.usub.sat.i64(i64 %.1105, i64 %49)
-  %.not55.not = icmp ugt i64 %.1105, %49
+  %spec.select100 = tail call i64 @llvm.usub.sat.i64(i64 %.1105, i64 %51)
+  %.not55.not = icmp ugt i64 %.1105, %51
   br i1 %.not55.not, label %.lr.ph, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %.lr.ph, %8, %6, %3
@@ -1838,8 +1840,8 @@ select.unfold88:                                  ; preds = %.select.unfold88_cr
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.1156.sink) #11
   br label %.loopexit
 
-.loopexit:                                        ; preds = %select.unfold88, %47, %.loopexit.sink.split, %24
-  %.042 = phi i32 [ 0, %24 ], [ %.042.ph, %.loopexit.sink.split ], [ 0, %select.unfold88 ], [ %48, %47 ]
+.loopexit:                                        ; preds = %select.unfold88, %49, %.loopexit.sink.split, %26
+  %.042 = phi i32 [ 0, %26 ], [ %.042.ph, %.loopexit.sink.split ], [ 0, %select.unfold88 ], [ %50, %49 ]
   ret i32 %.042
 }
 

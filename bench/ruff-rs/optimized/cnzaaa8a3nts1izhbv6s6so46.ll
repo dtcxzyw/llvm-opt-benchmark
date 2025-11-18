@@ -607,11 +607,11 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %51 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 %1, ptr %51, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !18)
-  %52 = getelementptr { i32, { i32, i32 }, { i32, i32 } }, ptr %2, i64 %23
-  %53 = getelementptr i8, ptr %52, i64 -20
-  %54 = add i64 %1, -1
-  %55 = getelementptr inbounds nuw { i32, { i32, i32 }, { i32, i32 } }, ptr %2, i64 %54
-  %56 = getelementptr inbounds nuw { i32, { i32, i32 }, { i32, i32 } }, ptr %0, i64 %54
+  %52 = add i64 %1, -1
+  %53 = getelementptr inbounds nuw { i32, { i32, i32 }, { i32, i32 } }, ptr %2, i64 %52
+  %54 = getelementptr { i32, { i32, i32 }, { i32, i32 } }, ptr %2, i64 %23
+  %55 = getelementptr i8, ptr %54, i64 -20
+  %56 = getelementptr inbounds nuw { i32, { i32, i32 }, { i32, i32 } }, ptr %0, i64 %52
   %57 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %58 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %59 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -627,10 +627,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 
 65:                                               ; preds = %.noexc19, %49
   %.sroa.0.010.i = phi ptr [ %2, %49 ], [ %78, %.noexc19 ]
-  %.sroa.06.09.i = phi ptr [ %52, %49 ], [ %80, %.noexc19 ]
+  %.sroa.06.09.i = phi ptr [ %54, %49 ], [ %80, %.noexc19 ]
   %.sroa.010.08.i = phi ptr [ %0, %49 ], [ %75, %.noexc19 ]
-  %.sroa.013.07.i = phi ptr [ %53, %49 ], [ %85, %.noexc19 ]
-  %.sroa.015.06.i = phi ptr [ %55, %49 ], [ %84, %.noexc19 ]
+  %.sroa.013.07.i = phi ptr [ %55, %49 ], [ %85, %.noexc19 ]
+  %.sroa.015.06.i = phi ptr [ %53, %49 ], [ %84, %.noexc19 ]
   %.sroa.017.05.i = phi ptr [ %56, %49 ], [ %86, %.noexc19 ]
   %.sroa.018.04.i = phi i64 [ 0, %49 ], [ %66, %.noexc19 ]
   %66 = add nuw nsw i64 %.sroa.018.04.i, 1

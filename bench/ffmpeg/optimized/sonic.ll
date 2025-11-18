@@ -187,7 +187,7 @@ define internal range(i32 -1094995529, 1) i32 @sonic_decode_init(ptr noundef %0)
   %106 = lshr i32 %105, 30
   %107 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 %106, ptr %107, align 4, !tbaa !42
-  %.not127 = icmp ult i32 %105, 1073741824
+  %.not127 = icmp eq i32 %106, 0
   br i1 %.not127, label %108, label %109
 
 108:                                              ; preds = %96

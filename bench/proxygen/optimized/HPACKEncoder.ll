@@ -2143,7 +2143,7 @@ land.rhs:                                         ; preds = %if.else
   br i1 %tobool9.not, label %land.end17, label %lor.rhs
 
 lor.rhs:                                          ; preds = %land.rhs
-  %cmp12.not = icmp ult i64 %call, 4294967296
+  %cmp12.not = icmp eq i64 %ref.tmp.sroa.2.0.extract.shift, 0
   br i1 %cmp12.not, label %land.end, label %land.rhs13
 
 land.rhs13:                                       ; preds = %lor.rhs

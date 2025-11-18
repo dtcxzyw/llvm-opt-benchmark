@@ -3832,32 +3832,31 @@ if.end.thread.i.i:                                ; preds = %if.then
   %8 = load i32, ptr %Size.i.i.i, align 8
   %conv.i812.i.i = zext i32 %8 to i64
   %add.ptr.i13.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %conv.i812.i.i
-  br label %_ZN4llvh11SmallStringILj128EE6appendEmc.exit
+  br label %if.then.i.i.i.i.i.i.i.i
 
 if.end.i.i:                                       ; preds = %if.then
   %9 = load ptr, ptr %Token, align 8
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 %conv.i4.i.i
-  %cmp.i.i.i.i.i.i = icmp eq i32 %BackslashCount.0, 0
-  br i1 %cmp.i.i.i.i.i.i, label %_ZN4llvh11SmallStringILj128EE6appendEmc.exit.thread, label %_ZN4llvh11SmallStringILj128EE6appendEmc.exit
+  %cmp.i.i.i.i.i.i = icmp eq i32 %div14, 0
+  br i1 %cmp.i.i.i.i.i.i, label %_ZN4llvh11SmallStringILj128EE6appendEmc.exit, label %if.then.i.i.i.i.i.i.i.i
 
-_ZN4llvh11SmallStringILj128EE6appendEmc.exit.thread: ; preds = %if.end.i.i
-  store i32 %6, ptr %Size.i.i.i, align 8
-  br label %if.end
-
-_ZN4llvh11SmallStringILj128EE6appendEmc.exit:     ; preds = %if.end.thread.i.i, %if.end.i.i
+if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i, %if.end.thread.i.i
   %add.ptr.i15.i.i = phi ptr [ %add.ptr.i13.i.i, %if.end.thread.i.i ], [ %add.ptr.i.i.i, %if.end.i.i ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i15.i.i, i8 92, i64 %conv10, i1 false)
   %.pre.i.i = load i32, ptr %Size.i.i.i, align 8
-  %conv.i11.i.i = add i32 %.pre.i.i, %div14
+  br label %_ZN4llvh11SmallStringILj128EE6appendEmc.exit
+
+_ZN4llvh11SmallStringILj128EE6appendEmc.exit:     ; preds = %if.end.i.i, %if.then.i.i.i.i.i.i.i.i
+  %10 = phi i32 [ %6, %if.end.i.i ], [ %.pre.i.i, %if.then.i.i.i.i.i.i.i.i ]
+  %conv.i11.i.i = add i32 %10, %div14
   store i32 %conv.i11.i.i, ptr %Size.i.i.i, align 8
-  %10 = and i32 %BackslashCount.0, 1
-  %cmp11.not = icmp eq i32 %10, 0
+  %11 = and i32 %BackslashCount.0, 1
+  %cmp11.not = icmp eq i32 %11, 0
   br i1 %cmp11.not, label %if.end, label %return
 
-if.end:                                           ; preds = %_ZN4llvh11SmallStringILj128EE6appendEmc.exit.thread, %_ZN4llvh11SmallStringILj128EE6appendEmc.exit
-  %conv.i11.i.i46 = phi i32 [ %6, %_ZN4llvh11SmallStringILj128EE6appendEmc.exit.thread ], [ %conv.i11.i.i, %_ZN4llvh11SmallStringILj128EE6appendEmc.exit ]
-  %11 = load i32, ptr %Capacity.i.i.i, align 4
-  %cmp.not.i = icmp ult i32 %conv.i11.i.i46, %11
+if.end:                                           ; preds = %_ZN4llvh11SmallStringILj128EE6appendEmc.exit
+  %12 = load i32, ptr %Capacity.i.i.i, align 4
+  %cmp.not.i = icmp ult i32 %conv.i11.i.i, %12
   br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
@@ -3867,13 +3866,13 @@ if.then.i:                                        ; preds = %if.end
   br label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit
 
 _ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit: ; preds = %if.end, %if.then.i
-  %12 = phi i32 [ %.pre.i, %if.then.i ], [ %conv.i11.i.i46, %if.end ]
-  %13 = load ptr, ptr %Token, align 8
-  %conv.i3.i = zext i32 %12 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %13, i64 %conv.i3.i
+  %13 = phi i32 [ %.pre.i, %if.then.i ], [ %conv.i11.i.i, %if.end ]
+  %14 = load ptr, ptr %Token, align 8
+  %conv.i3.i = zext i32 %13 to i64
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %14, i64 %conv.i3.i
   store i8 34, ptr %add.ptr.i.i, align 1
-  %14 = load i32, ptr %Size.i.i.i, align 8
-  %add.i = add i32 %14, 1
+  %15 = load i32, ptr %Size.i.i.i, align 8
+  %add.i = add i32 %15, 1
   store i32 %add.i, ptr %Size.i.i.i, align 8
   br label %return
 
@@ -3882,11 +3881,11 @@ if.end13:                                         ; preds = %land.rhs, %do.body
   %inc1.lcssa = phi i32 [ %inc1, %land.rhs ], [ %3, %do.body ]
   %conv14 = zext nneg i32 %inc1.lcssa to i64
   %Capacity.i.i.i16 = getelementptr inbounds nuw i8, ptr %Token, i64 12
-  %15 = load i32, ptr %Capacity.i.i.i16, align 4
-  %conv.i.i.i17 = zext i32 %15 to i64
+  %16 = load i32, ptr %Capacity.i.i.i16, align 4
+  %conv.i.i.i17 = zext i32 %16 to i64
   %Size.i.i.i18 = getelementptr inbounds nuw i8, ptr %Token, i64 8
-  %16 = load i32, ptr %Size.i.i.i18, align 8
-  %conv.i4.i.i19 = zext i32 %16 to i64
+  %17 = load i32, ptr %Size.i.i.i18, align 8
+  %conv.i4.i.i19 = zext i32 %17 to i64
   %sub.i.i20 = sub nsw i64 %conv.i.i.i17, %conv.i4.i.i19
   %cmp.i.i21 = icmp ult i64 %sub.i.i20, %conv14
   br i1 %cmp.i.i21, label %if.end.thread.i.i29, label %if.end.i.i22
@@ -3895,15 +3894,15 @@ if.end.thread.i.i29:                              ; preds = %if.end13
   %add.i.i30 = add nuw nsw i64 %conv.i4.i.i19, %conv14
   %add.ptr.i.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %Token, i64 16
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %Token, ptr noundef nonnull %add.ptr.i.i.i.i.i31, i64 noundef %add.i.i30, i64 noundef 1) #28
-  %17 = load ptr, ptr %Token, align 8
-  %18 = load i32, ptr %Size.i.i.i18, align 8
-  %conv.i812.i.i32 = zext i32 %18 to i64
-  %add.ptr.i13.i.i33 = getelementptr inbounds nuw i8, ptr %17, i64 %conv.i812.i.i32
+  %18 = load ptr, ptr %Token, align 8
+  %19 = load i32, ptr %Size.i.i.i18, align 8
+  %conv.i812.i.i32 = zext i32 %19 to i64
+  %add.ptr.i13.i.i33 = getelementptr inbounds nuw i8, ptr %18, i64 %conv.i812.i.i32
   br label %_ZN4llvh11SmallStringILj128EE6appendEmc.exit34
 
 if.end.i.i22:                                     ; preds = %if.end13
-  %19 = load ptr, ptr %Token, align 8
-  %add.ptr.i.i.i23 = getelementptr inbounds nuw i8, ptr %19, i64 %conv.i4.i.i19
+  %20 = load ptr, ptr %Token, align 8
+  %add.ptr.i.i.i23 = getelementptr inbounds nuw i8, ptr %20, i64 %conv.i4.i.i19
   br label %_ZN4llvh11SmallStringILj128EE6appendEmc.exit34
 
 _ZN4llvh11SmallStringILj128EE6appendEmc.exit34:   ; preds = %if.end.thread.i.i29, %if.end.i.i22

@@ -43,11 +43,11 @@ define void @Lpk_CreateVarOrder(ptr noundef readonly captures(none) %0, ptr noun
 
 .preheader47:                                     ; preds = %9
   %14 = load i32, ptr %13, align 4
-  %.not62 = icmp ult i32 %14, 67108864
+  %15 = lshr i32 %14, 26
+  %.not62 = icmp eq i32 %15, 0
   br i1 %.not62, label %.critedge2.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader47
-  %15 = lshr i32 %14, 26
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %.val = load i16, ptr %0, align 8, !tbaa !14
   %17 = zext i16 %.val to i32

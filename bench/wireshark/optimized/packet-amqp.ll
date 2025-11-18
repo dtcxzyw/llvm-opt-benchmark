@@ -12046,37 +12046,36 @@ define internal fastcc void @format_amqp_0_10_sequence_set(ptr noundef %0, i32 n
   %8 = lshr i32 %2, 2
   %9 = and i32 %2, 4
   %.not23 = icmp eq i32 %9, 0
-  br i1 %.not23, label %10, label %.thread
-
-.thread:                                          ; preds = %7
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1524, i32 noundef %8)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1525)
-  br label %.lr.ph
+  br i1 %.not23, label %11, label %10
 
 10:                                               ; preds = %7
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1524, i32 noundef %8)
+  br label %11
+
+11:                                               ; preds = %10, %7
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1525)
-  %.not26 = icmp ult i32 %2, 4
+  %.not26 = icmp eq i32 %8, 0
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.thread, %10
-  %11 = add nsw i32 %8, -2
-  br label %12
+.lr.ph:                                           ; preds = %11
+  %12 = add nsw i32 %8, -2
+  br label %13
 
-12:                                               ; preds = %.lr.ph, %12
-  %.025 = phi i32 [ %1, %.lr.ph ], [ %18, %12 ]
-  %.02024 = phi i32 [ 0, %.lr.ph ], [ %19, %12 ]
-  %13 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.025)
-  %14 = add i32 %.025, 4
-  %15 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %14)
-  %16 = icmp ult i32 %.02024, %11
-  %17 = select i1 %16, ptr @.str.1527, ptr @.str.1427
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1526, i32 noundef %13, i32 noundef %15, ptr noundef nonnull %17)
-  %18 = add i32 %.025, 8
-  %19 = add nuw nsw i32 %.02024, 2
-  %20 = icmp samesign ult i32 %19, %8
-  br i1 %20, label %12, label %._crit_edge, !llvm.loop !18
+13:                                               ; preds = %.lr.ph, %13
+  %.025 = phi i32 [ %1, %.lr.ph ], [ %19, %13 ]
+  %.02024 = phi i32 [ 0, %.lr.ph ], [ %20, %13 ]
+  %14 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.025)
+  %15 = add i32 %.025, 4
+  %16 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %15)
+  %17 = icmp ult i32 %.02024, %12
+  %18 = select i1 %17, ptr @.str.1527, ptr @.str.1427
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1526, i32 noundef %14, i32 noundef %16, ptr noundef nonnull %18)
+  %19 = add i32 %.025, 8
+  %20 = add nuw nsw i32 %.02024, 2
+  %21 = icmp samesign ult i32 %20, %8
+  br i1 %21, label %13, label %._crit_edge, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %12, %10
+._crit_edge:                                      ; preds = %13, %11
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1528)
   ret void
 }

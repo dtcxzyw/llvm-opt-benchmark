@@ -9114,7 +9114,7 @@ _ZN9SampleICC5Read8ERSiPvi.exit.i93:              ; preds = %.noexc91
 160:                                              ; preds = %.lr.ph.i.i94.preheader
   %161 = lshr i32 %155, 1
   %162 = zext nneg i32 %161 to i64
-  %.not.i.i.i.i = icmp ugt i32 %155, 1
+  %.not.i.i.i.i = icmp ne i32 %161, 0
   call void @llvm.assume(i1 %.not.i.i.i.i)
   %163 = shl nuw nsw i64 %162, 1
   %164 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %163) #33

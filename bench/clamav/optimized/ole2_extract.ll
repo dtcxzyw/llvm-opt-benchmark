@@ -1364,7 +1364,7 @@ ole2_list_pop.exit:                               ; preds = %45
 
 63:                                               ; preds = %60
   %64 = lshr i32 %54, 2
-  %.not491 = icmp samesign ult i32 %54, 4
+  %.not491 = icmp eq i32 %64, 0
   br i1 %.not491, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %63, %.lr.ph
@@ -1745,8 +1745,8 @@ ole2_list_pop.exit.i320:                          ; preds = %209, %ole2_list_pop
   %.not254 = icmp ult i64 %215, %217
   %.pre575 = load i64, ptr %7, align 8, !tbaa !63
   %.not255 = icmp ult i64 %.pre575, %217
-  %or.cond701 = select i1 %.not254, i1 %.not255, i1 false
-  br i1 %or.cond701, label %228, label %218
+  %or.cond702 = select i1 %.not254, i1 %.not255, i1 false
+  br i1 %or.cond702, label %228, label %218
 
 218:                                              ; preds = %._crit_edge573, %216
   %.pre-phi = phi i64 [ %.pre576, %._crit_edge573 ], [ %217, %216 ]
@@ -2111,7 +2111,7 @@ define internal range(i32 0, 21) i32 @handler_enum(ptr noundef captures(none) %0
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %47 = load i8, ptr %46, align 8, !tbaa !75, !range !81, !noundef !82
   %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %.thread188, label %.thread121
+  br i1 %48, label %.thread189, label %.thread121
 
 .thread121:                                       ; preds = %.thread
   %49 = load i16, ptr %8, align 1, !tbaa !108
@@ -2153,11 +2153,11 @@ define internal range(i32 0, 21) i32 @handler_enum(ptr noundef captures(none) %0
   %.not110 = icmp eq ptr %63, null
   br i1 %.not110, label %.thread133, label %125
 
-.thread188:                                       ; preds = %.thread
+.thread189:                                       ; preds = %.thread
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %65 = load ptr, ptr %64, align 8, !tbaa !22
-  %.not110190 = icmp eq ptr %65, null
-  br i1 %.not110190, label %.thread130, label %125
+  %.not110191 = icmp eq ptr %65, null
+  br i1 %.not110191, label %.thread130, label %125
 
 .thread126:                                       ; preds = %.thread121
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 560
@@ -2165,8 +2165,8 @@ define internal range(i32 0, 21) i32 @handler_enum(ptr noundef captures(none) %0
   %.not110128 = icmp eq ptr %67, null
   br i1 %.not110128, label %.thread130, label %125
 
-.thread130:                                       ; preds = %.thread188, %.thread126
-  %68 = phi ptr [ %66, %.thread126 ], [ %64, %.thread188 ]
+.thread130:                                       ; preds = %.thread189, %.thread126
+  %68 = phi ptr [ %66, %.thread126 ], [ %64, %.thread189 ]
   %69 = load i16, ptr %8, align 1, !tbaa !108
   %70 = zext i16 %69 to i32
   %71 = tail call ptr @cli_ole2_get_property_name2(ptr noundef nonnull %1, i32 noundef %70)
@@ -2259,9 +2259,9 @@ define internal range(i32 0, 21) i32 @handler_enum(ptr noundef captures(none) %0
   store ptr %123, ptr %72, align 8, !tbaa !22
   br label %125
 
-125:                                              ; preds = %.thread188, %.thread137, %.thread126, %.thread130, %82, %86, %96, %98, %110, %116, %.thread133, %61
-  %.2 = phi ptr [ %.087, %61 ], [ %.3136, %.thread133 ], [ %.3136, %82 ], [ %.3136, %86 ], [ %.3136, %98 ], [ %.3136, %116 ], [ %.3136, %96 ], [ %.3136, %110 ], [ null, %.thread130 ], [ null, %.thread126 ], [ %.3136, %.thread137 ], [ null, %.thread188 ]
-  %.086 = phi ptr [ null, %61 ], [ null, %.thread133 ], [ %80, %82 ], [ %80, %86 ], [ %80, %98 ], [ %80, %116 ], [ %80, %96 ], [ %80, %110 ], [ null, %.thread130 ], [ null, %.thread126 ], [ %80, %.thread137 ], [ null, %.thread188 ]
+125:                                              ; preds = %.thread189, %.thread137, %.thread126, %.thread130, %82, %86, %96, %98, %110, %116, %.thread133, %61
+  %.2 = phi ptr [ %.087, %61 ], [ %.3136, %.thread133 ], [ %.3136, %82 ], [ %.3136, %86 ], [ %.3136, %98 ], [ %.3136, %116 ], [ %.3136, %96 ], [ %.3136, %110 ], [ null, %.thread130 ], [ null, %.thread126 ], [ %.3136, %.thread137 ], [ null, %.thread189 ]
+  %.086 = phi ptr [ null, %61 ], [ null, %.thread133 ], [ %80, %82 ], [ %80, %86 ], [ %80, %98 ], [ %80, %116 ], [ %80, %96 ], [ %80, %110 ], [ null, %.thread130 ], [ null, %.thread126 ], [ %80, %.thread137 ], [ null, %.thread189 ]
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 553
   %127 = load i8, ptr %126, align 1, !tbaa !76, !range !81, !noundef !82
   %128 = trunc nuw i8 %127 to i1
@@ -2407,16 +2407,13 @@ define internal range(i32 0, 21) i32 @handler_enum(ptr noundef captures(none) %0
   %206 = tail call i64 @llvm.umin.i64(i64 %.064130.i, i64 %205)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %207 = load i32, ptr %174, align 4, !tbaa !101
-  %.not.i.i = icmp samesign ult i32 %.065129.i, 128
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.preheader.i.i
-
-.lr.ph.preheader.i.i:                             ; preds = %191
   %208 = lshr i32 %.065129.i, 7
-  br label %.lr.ph.i.i
+  %.not.i.i = icmp eq i32 %208, 0
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %.015.i.i = phi i32 [ %209, %.lr.ph.i.i ], [ %207, %.lr.ph.preheader.i.i ]
-  %.01014.i.i = phi i32 [ %210, %.lr.ph.i.i ], [ %208, %.lr.ph.preheader.i.i ]
+.lr.ph.i.i:                                       ; preds = %191, %.lr.ph.i.i
+  %.015.i.i = phi i32 [ %209, %.lr.ph.i.i ], [ %207, %191 ]
+  %.01014.i.i = phi i32 [ %210, %.lr.ph.i.i ], [ %208, %191 ]
   %209 = tail call fastcc i32 @ole2_get_next_block_number(ptr noundef nonnull readonly %0, i32 noundef %.015.i.i)
   %210 = add nsw i32 %.01014.i.i, -1
   %211 = icmp samesign ugt i32 %.01014.i.i, 1
@@ -2795,16 +2792,13 @@ define internal range(i32 0, 23) i32 @handler_writefile(ptr noundef readonly cap
 104:                                              ; preds = %86
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %105 = load i32, ptr %67, align 4, !tbaa !101
-  %.not.i = icmp samesign ult i32 %.088171, 128
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %104
   %106 = lshr i32 %.088171, 7
-  br label %.lr.ph.i
+  %.not.i = icmp eq i32 %106, 0
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.015.i = phi i32 [ %107, %.lr.ph.i ], [ %105, %.lr.ph.preheader.i ]
-  %.01014.i = phi i32 [ %108, %.lr.ph.i ], [ %106, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %104, %.lr.ph.i
+  %.015.i = phi i32 [ %107, %.lr.ph.i ], [ %105, %104 ]
+  %.01014.i = phi i32 [ %108, %.lr.ph.i ], [ %106, %104 ]
   %107 = call fastcc i32 @ole2_get_next_block_number(ptr noundef nonnull readonly %0, i32 noundef %.015.i)
   %108 = add nsw i32 %.01014.i, -1
   %109 = icmp samesign ugt i32 %.01014.i, 1
@@ -3194,16 +3188,13 @@ define internal range(i32 0, 23) i32 @handler_otf_encrypted(ptr noundef readonly
 
 104:                                              ; preds = %101
   %105 = load i32, ptr %63, align 4, !tbaa !101
-  %.not.i = icmp samesign ult i32 %.0193388, 128
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %104
   %106 = lshr i32 %.0193388, 7
-  br label %.lr.ph.i
+  %.not.i = icmp eq i32 %106, 0
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.015.i = phi i32 [ %107, %.lr.ph.i ], [ %105, %.lr.ph.preheader.i ]
-  %.01014.i = phi i32 [ %108, %.lr.ph.i ], [ %106, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %104, %.lr.ph.i
+  %.015.i = phi i32 [ %107, %.lr.ph.i ], [ %105, %104 ]
+  %.01014.i = phi i32 [ %108, %.lr.ph.i ], [ %106, %104 ]
   %107 = tail call fastcc i32 @ole2_get_next_block_number(ptr noundef nonnull readonly %0, i32 noundef %.015.i)
   %108 = add nsw i32 %.01014.i, -1
   %109 = icmp samesign ugt i32 %.01014.i, 1
@@ -3338,9 +3329,9 @@ ole2_get_next_sbat_block.exit:                    ; preds = %101, %._crit_edge.i
   %177 = icmp eq i32 %.0183390, 0
   %178 = add nuw i32 %.0173393, %145
   %179 = add i32 %178, -16
-  br i1 %177, label %181, label %.thread430
+  br i1 %177, label %181, label %.thread431
 
-.thread430:                                       ; preds = %176
+.thread431:                                       ; preds = %176
   %180 = add i32 %.0183390, %47
   br label %.lr.ph.preheader
 
@@ -3349,15 +3340,15 @@ ole2_get_next_sbat_block.exit:                    ; preds = %101, %._crit_edge.i
   %.not225383 = icmp ult i32 %179, 8
   br i1 %.not225383, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.thread430, %181
-  %182 = phi i32 [ %180, %.thread430 ], [ %47, %181 ]
-  %.0165436 = phi i32 [ 0, %.thread430 ], [ 8, %181 ]
-  %.3182434 = phi i64 [ %.0179391, %.thread430 ], [ %.0.copyload, %181 ]
+.lr.ph.preheader:                                 ; preds = %.thread431, %181
+  %182 = phi i32 [ %180, %.thread431 ], [ %47, %181 ]
+  %.0165437 = phi i32 [ 0, %.thread431 ], [ 8, %181 ]
+  %.3182435 = phi i64 [ %.0179391, %.thread431 ], [ %.0.copyload, %181 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.0164385 = phi i32 [ %188, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.1166384 = phi i32 [ %187, %.lr.ph ], [ %.0165436, %.lr.ph.preheader ]
+  %.1166384 = phi i32 [ %187, %.lr.ph ], [ %.0165437, %.lr.ph.preheader ]
   %183 = zext i32 %.1166384 to i64
   %184 = getelementptr inbounds nuw i8, ptr %50, i64 %183
   %185 = zext i32 %.0164385 to i64
@@ -3370,7 +3361,7 @@ ole2_get_next_sbat_block.exit:                    ; preds = %101, %._crit_edge.i
 
 ._crit_edge:                                      ; preds = %.lr.ph, %181
   %189 = phi i32 [ %47, %181 ], [ %182, %.lr.ph ]
-  %.3182435 = phi i64 [ %.0.copyload, %181 ], [ %.3182434, %.lr.ph ]
+  %.3182436 = phi i64 [ %.0.copyload, %181 ], [ %.3182435, %.lr.ph ]
   %.1166.lcssa = phi i32 [ 8, %181 ], [ %187, %.lr.ph ]
   %.0164.lcssa = phi i32 [ 0, %181 ], [ %188, %.lr.ph ]
   %190 = sub i32 %178, %.1166.lcssa
@@ -3380,8 +3371,8 @@ ole2_get_next_sbat_block.exit:                    ; preds = %101, %._crit_edge.i
 192:                                              ; preds = %._crit_edge
   %193 = zext i32 %.0164.lcssa to i64
   %194 = add i64 %.0176392, %193
-  %195 = icmp ugt i64 %194, %.3182435
-  %196 = sub i64 %.3182435, %.0176392
+  %195 = icmp ugt i64 %194, %.3182436
+  %196 = sub i64 %.3182436, %.0176392
   %197 = trunc i64 %196 to i32
   %.1 = select i1 %195, i32 %197, i32 %.0164.lcssa
   %198 = zext i32 %.1 to i64
@@ -3413,7 +3404,7 @@ ole2_get_next_sbat_block.exit:                    ; preds = %101, %._crit_edge.i
   %.1194 = phi i32 [ %.011.i, %ole2_get_next_sbat_block.exit ], [ %207, %.thread257 ]
   %.1192 = phi i64 [ %102, %ole2_get_next_sbat_block.exit ], [ %.0191389, %.thread257 ]
   %.1184 = phi i32 [ %.0183390, %ole2_get_next_sbat_block.exit ], [ %189, %.thread257 ]
-  %.1180 = phi i64 [ %.0179391, %ole2_get_next_sbat_block.exit ], [ %.3182435, %.thread257 ]
+  %.1180 = phi i64 [ %.0179391, %ole2_get_next_sbat_block.exit ], [ %.3182436, %.thread257 ]
   %.1177 = phi i64 [ %.0176392, %ole2_get_next_sbat_block.exit ], [ %202, %.thread257 ]
   %.1174 = phi i32 [ %.0173393, %ole2_get_next_sbat_block.exit ], [ %190, %.thread257 ]
   %.1171 = phi i32 [ %.0170394, %ole2_get_next_sbat_block.exit ], [ %190, %.thread257 ]
@@ -3748,16 +3739,13 @@ define internal range(i32 0, 23) i32 @handler_otf(ptr noundef readonly captures(
 83:                                               ; preds = %66
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %84 = load i32, ptr %47, align 4, !tbaa !101
-  %.not.i = icmp samesign ult i32 %.0117242, 128
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %83
   %85 = lshr i32 %.0117242, 7
-  br label %.lr.ph.i
+  %.not.i = icmp eq i32 %85, 0
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.015.i = phi i32 [ %86, %.lr.ph.i ], [ %84, %.lr.ph.preheader.i ]
-  %.01014.i = phi i32 [ %87, %.lr.ph.i ], [ %85, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %83, %.lr.ph.i
+  %.015.i = phi i32 [ %86, %.lr.ph.i ], [ %84, %83 ]
+  %.01014.i = phi i32 [ %87, %.lr.ph.i ], [ %85, %83 ]
   %86 = tail call fastcc i32 @ole2_get_next_block_number(ptr noundef nonnull readonly %0, i32 noundef %.015.i)
   %87 = add nsw i32 %.01014.i, -1
   %88 = icmp samesign ugt i32 %.01014.i, 1
@@ -4993,29 +4981,29 @@ define internal fastcc void @print_ole2_property(ptr noundef readonly captures(n
   br label %61
 
 8:                                                ; preds = %1
-  %9 = icmp samesign ult i16 %4, 2
-  br i1 %9, label %get_property_name.exit, label %10
+  %9 = lshr i32 %5, 1
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %get_property_name.exit, label %11
 
-10:                                               ; preds = %8
-  %11 = zext nneg i16 %4 to i64
-  %12 = tail call ptr @cli_max_malloc(i64 noundef %11) #22
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %16, label %.preheader.i
+11:                                               ; preds = %8
+  %12 = zext nneg i16 %4 to i64
+  %13 = tail call ptr @cli_max_malloc(i64 noundef %12) #22
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %16, label %.preheader.i
 
-.preheader.i:                                     ; preds = %10
-  %14 = lshr i32 %5, 1
-  %15 = add nsw i32 %14, -1
+.preheader.i:                                     ; preds = %11
+  %15 = add nsw i32 %9, -1
   %.not50.i = icmp eq i32 %15, 0
   br i1 %.not50.i, label %._crit_edge.i, label %.lr.ph.i
 
-16:                                               ; preds = %10
+16:                                               ; preds = %11
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.109, i32 noundef range(i32 0, 65) %5) #22
   br label %get_property_name.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %32
   %17 = phi i32 [ %38, %32 ], [ %15, %.preheader.i ]
   %.03352.i = phi ptr [ %20, %32 ], [ %0, %.preheader.i ]
-  %.03451.i = phi ptr [ %37, %32 ], [ %12, %.preheader.i ]
+  %.03451.i = phi ptr [ %37, %32 ], [ %13, %.preheader.i ]
   %18 = load i16, ptr %.03352.i, align 1, !tbaa !14
   %19 = add i16 %18, -14336
   %20 = getelementptr inbounds nuw i8, ptr %.03352.i, i64 2
@@ -5023,7 +5011,7 @@ define internal fastcc void @print_ole2_property(ptr noundef readonly captures(n
   br i1 %21, label %23, label %.thread.i
 
 .thread.i:                                        ; preds = %.lr.ph.i
-  tail call void @free(ptr noundef nonnull %12) #22
+  tail call void @free(ptr noundef nonnull %13) #22
   %22 = tail call ptr @cli_ole2_get_property_name2(ptr noundef readonly %0, i32 noundef range(i32 0, 65) %5)
   br label %get_property_name.exit
 
@@ -5052,12 +5040,12 @@ define internal fastcc void @print_ole2_property(ptr noundef readonly captures(n
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %32, %23, %.preheader.i
-  %.034.lcssa.i = phi ptr [ %12, %.preheader.i ], [ %37, %32 ], [ %29, %23 ]
+  %.034.lcssa.i = phi ptr [ %13, %.preheader.i ], [ %37, %32 ], [ %29, %23 ]
   store i8 0, ptr %.034.lcssa.i, align 1, !tbaa !14
   br label %get_property_name.exit
 
 get_property_name.exit:                           ; preds = %8, %16, %.thread.i, %._crit_edge.i
-  %.0.i = phi ptr [ null, %8 ], [ null, %16 ], [ %12, %._crit_edge.i ], [ %22, %.thread.i ]
+  %.0.i = phi ptr [ null, %8 ], [ null, %16 ], [ %13, %._crit_edge.i ], [ %22, %.thread.i ]
   %.not = icmp eq ptr %.0.i, null
   %39 = select i1 %.not, ptr @.str.99, ptr %.0.i
   %40 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 128, ptr noundef nonnull @.str.98, ptr noundef nonnull %39) #22
@@ -5092,11 +5080,11 @@ switch.lookup:                                    ; preds = %43
   %53 = load i8, ptr %52, align 1, !tbaa !125
   %switch.selectcmp = icmp eq i8 %53, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.105, ptr @.str.106
-  %switch.selectcmp18 = icmp eq i8 %53, 0
-  %switch.select19 = select i1 %switch.selectcmp18, ptr @.str.104, ptr %switch.select
+  %switch.selectcmp19 = icmp eq i8 %53, 0
+  %switch.select20 = select i1 %switch.selectcmp19, ptr @.str.104, ptr %switch.select
   %54 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #24
   %55 = sub i64 127, %54
-  %56 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull %switch.select19, i64 noundef %55) #22
+  %56 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull %switch.select20, i64 noundef %55) #22
   store i8 0, ptr %41, align 1, !tbaa !14
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %58 = load i32, ptr %57, align 1, !tbaa !110

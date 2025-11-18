@@ -104,7 +104,7 @@ _ZN4llvm9BitVector15set_unused_bitsEb.exit.i:
   %14 = add i32 %10, 63
   %15 = lshr i32 %14, 6
   %16 = zext nneg i32 %15 to i64
-  %17 = icmp ult i32 %14, 64
+  %17 = icmp eq i32 %15, 0
   br i1 %17, label %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i, label %18
 
 18:                                               ; preds = %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i
@@ -2454,7 +2454,7 @@ _ZN4llvm9BitVectorC2Ejb.exit.loopexit:            ; preds = %4
   br label %_ZN4llvm9BitVectorC2Ejb.exit.sink.split
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i:        ; preds = %4
-  %.not.i.i = icmp samesign ult i32 %21, 64
+  %.not.i.i = icmp eq i32 %22, 0
   br i1 %.not.i.i, label %_ZN4llvm9BitVectorC2Ejb.exit, label %_ZN4llvm9BitVectorC2Ejb.exit.sink.split
 
 _ZN4llvm9BitVectorC2Ejb.exit.sink.split:          ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit

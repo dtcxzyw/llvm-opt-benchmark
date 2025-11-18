@@ -219,19 +219,19 @@ define internal range(i32 -2147483648, 1) i32 @parse_fmtp(ptr noundef %0, ptr no
   %26 = tail call i32 @llvm.bswap.i32(i32 %22)
   %27 = and i32 %25, 4
   %28 = shl i32 %26, %27
-  %29 = icmp slt i32 %18, 0
-  %30 = icmp eq i32 %20, 0
-  %or.cond.i = or i1 %29, %30
-  %31 = icmp ne i32 %24, 0
-  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %31
-  %32 = icmp ugt i32 %28, 536870911
-  %or.cond5.i = select i1 %or.cond3.i, i1 true, i1 %32
-  br i1 %or.cond5.i, label %33, label %36
+  %29 = lshr i32 %28, 29
+  %30 = icmp slt i32 %18, 0
+  %31 = icmp eq i32 %20, 0
+  %or.cond.i = or i1 %30, %31
+  %32 = icmp ne i32 %24, 0
+  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %32
+  %33 = icmp ne i32 %29, 0
+  %or.cond5.i = select i1 %or.cond3.i, i1 true, i1 %33
+  br i1 %or.cond5.i, label %34, label %36
 
-33:                                               ; preds = %16
-  %34 = lshr i32 %28, 29
+34:                                               ; preds = %16
   %35 = lshr i32 %18, 31
-  tail call void (ptr, ptr, ...) @avpriv_report_missing_feature(ptr noundef null, ptr noundef nonnull @.str.5, i32 noundef %35, i32 noundef %20, i32 noundef %24, i32 noundef %34) #7
+  tail call void (ptr, ptr, ...) @avpriv_report_missing_feature(ptr noundef null, ptr noundef nonnull @.str.5, i32 noundef %35, i32 noundef %20, i32 noundef %24, i32 noundef %29) #7
   br label %parse_fmtp_config.exit.thread14
 
 36:                                               ; preds = %16
@@ -280,8 +280,8 @@ define internal range(i32 -2147483648, 1) i32 @parse_fmtp(ptr noundef %0, ptr no
   %69 = icmp slt i64 %indvars.iv.next.i, %68
   br i1 %69, label %.lr.ph.i, label %parse_fmtp_config.exit, !llvm.loop !49
 
-parse_fmtp_config.exit.thread14:                  ; preds = %33, %36
-  %.032.i.ph = phi i32 [ %44, %36 ], [ -1163346256, %33 ]
+parse_fmtp_config.exit.thread14:                  ; preds = %34, %36
+  %.032.i.ph = phi i32 [ %44, %36 ], [ -1163346256, %34 ]
   tail call void @av_free(ptr noundef nonnull %11) #7
   br label %parse_fmtp_config.exit.thread
 

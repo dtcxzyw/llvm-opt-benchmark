@@ -171837,7 +171837,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPiS
 63:                                               ; preds = %.lr.ph.i.i.i.us
   %64 = getelementptr inbounds i32, ptr %.fr26, i64 %.019.i.i.i.us
   store i32 %57, ptr %64, align 4, !tbaa !145
-  %.not10.i.us = icmp ult i64 %.0920.in.i.i.i.us, 2
+  %.not10.i.us = icmp eq i64 %.0920.i.i89.i.us, 0
   br i1 %.not10.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5faiss7CodeCmpEEEEvT_SC_SC_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !4339
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5faiss7CodeCmpEEEEvT_SC_SC_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %63, %54
@@ -172060,7 +172060,7 @@ define linkonce_odr void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPiSt6
 60:                                               ; preds = %52
   %61 = getelementptr inbounds i32, ptr %0, i64 %.019.i.i.i
   store i32 %54, ptr %61, align 4, !tbaa !145
-  %.not10.i = icmp ult i64 %.0920.in.i.i.i, 2
+  %.not10.i = icmp eq i64 %.0920.i.i89.i, 0
   br i1 %.not10.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5faiss7CodeCmpEEEEvT_SC_SC_RT0_.exit, label %52, !llvm.loop !4339
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5faiss7CodeCmpEEEEvT_SC_SC_RT0_.exit: ; preds = %52, %60, %48

@@ -5538,7 +5538,7 @@ define linkonce_odr void @_ZSt15__inplace_mergeIN9__gnu_cxx17__normal_iteratorIP
   %4 = icmp eq ptr %0, %1
   %5 = icmp eq ptr %1, %2
   %or.cond = select i1 %4, i1 true, i1 %5
-  br i1 %or.cond, label %30, label %6
+  br i1 %or.cond, label %31, label %6
 
 6:                                                ; preds = %3
   %7 = ptrtoint ptr %1 to i64
@@ -5553,69 +5553,69 @@ define linkonce_odr void @_ZSt15__inplace_mergeIN9__gnu_cxx17__normal_iteratorIP
   br i1 %14, label %.lr.ph.i.i, label %.loopexit39
 
 .lr.ph.i.i:                                       ; preds = %6, %select.unfold.i.i
-  %storemerge26.i.i = phi i64 [ %18, %select.unfold.i.i ], [ %.sroa.speculated, %6 ]
+  %storemerge26.i.i = phi i64 [ %19, %select.unfold.i.i ], [ %.sroa.speculated, %6 ]
   %15 = shl nuw nsw i64 %storemerge26.i.i, 4
   %16 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %15, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
   %.not.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i, label %select.unfold.i.i, label %19
+  br i1 %.not.i.i, label %select.unfold.i.i, label %20
 
 select.unfold.i.i:                                ; preds = %.lr.ph.i.i
-  %17 = add nuw nsw i64 %storemerge26.i.i, 1
-  %18 = lshr i64 %17, 1
-  %.not10.i.i = icmp samesign ult i64 %storemerge26.i.i, 2
-  br i1 %.not10.i.i, label %.loopexit39, label %.lr.ph.i.i, !llvm.loop !81
+  %17 = icmp eq i64 %storemerge26.i.i, 1
+  %18 = add nuw nsw i64 %storemerge26.i.i, 1
+  %19 = lshr i64 %18, 1
+  br i1 %17, label %.loopexit39, label %.lr.ph.i.i, !llvm.loop !81
 
-19:                                               ; preds = %.lr.ph.i.i
-  %20 = getelementptr inbounds nuw i8, ptr %16, i64 %15
+20:                                               ; preds = %.lr.ph.i.i
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 %15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   %.not18.i.i.i = icmp eq i64 %storemerge26.i.i, 1
   br i1 %.not18.i.i.i, label %.loopexit, label %.lr.ph.i.i.preheader.i
 
-.lr.ph.i.i.preheader.i:                           ; preds = %19
+.lr.ph.i.i.preheader.i:                           ; preds = %20
   %.01317.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 16
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i
   %.01320.i.i.i = phi ptr [ %.013.i.i.i, %.lr.ph.i.i.i ], [ %.01317.i.i.i, %.lr.ph.i.i.preheader.i ]
-  %.019.i.i.i = phi ptr [ %21, %.lr.ph.i.i.i ], [ %16, %.lr.ph.i.i.preheader.i ]
+  %.019.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i ], [ %16, %.lr.ph.i.i.preheader.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.01320.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.019.i.i.i, i64 16, i1 false)
-  %21 = getelementptr inbounds nuw i8, ptr %.019.i.i.i, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.019.i.i.i, i64 16
   %.013.i.i.i = getelementptr inbounds nuw i8, ptr %.01320.i.i.i, i64 16
-  %.not.i.i.i = icmp eq ptr %.013.i.i.i, %20
+  %.not.i.i.i = icmp eq ptr %.013.i.i.i, %21
   br i1 %.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !82
 
 .loopexit39:                                      ; preds = %select.unfold.i.i, %6
   invoke void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImdESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_less_iterEEvT_SB_SB_T0_SC_T1_(ptr %0, ptr %1, ptr %2, i64 noundef %10, i64 noundef %13)
-          to label %.loopexit39._crit_edge unwind label %22
+          to label %.loopexit39._crit_edge unwind label %23
 
-22:                                               ; preds = %.loopexit, %.loopexit39
+23:                                               ; preds = %.loopexit, %.loopexit39
   %.sroa.1.038 = phi i64 [ %storemerge26.i.i, %.loopexit ], [ 0, %.loopexit39 ]
   %.sroa.6.035 = phi ptr [ %16, %.loopexit ], [ null, %.loopexit39 ]
-  %23 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = shl nuw nsw i64 %.sroa.1.038, 4
-  tail call void @_ZdlPvm(ptr noundef %.sroa.6.035, i64 noundef %24) #16
-  resume { ptr, i32 } %23
+  %25 = shl nuw nsw i64 %.sroa.1.038, 4
+  tail call void @_ZdlPvm(ptr noundef %.sroa.6.035, i64 noundef %25) #16
+  resume { ptr, i32 } %24
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i, %19
-  %.0.lcssa.i.i.i = phi ptr [ %16, %19 ], [ %21, %.lr.ph.i.i.i ]
-  %25 = load i64, ptr %.0.lcssa.i.i.i, align 8
-  store i64 %25, ptr %0, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 8
-  %27 = load double, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %27, ptr %28, align 8
+.loopexit:                                        ; preds = %.lr.ph.i.i.i, %20
+  %.0.lcssa.i.i.i = phi ptr [ %16, %20 ], [ %22, %.lr.ph.i.i.i ]
+  %26 = load i64, ptr %.0.lcssa.i.i.i, align 8
+  store i64 %26, ptr %0, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 8
+  %28 = load double, ptr %27, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %28, ptr %29, align 8
   invoke void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairImdESt6vectorIS3_SaIS3_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_SB_SB_T0_SC_T1_SC_T2_(ptr nonnull %0, ptr %1, ptr %2, i64 noundef %10, i64 noundef %13, ptr noundef nonnull %16, i64 noundef %storemerge26.i.i)
-          to label %.loopexit39._crit_edge unwind label %22
+          to label %.loopexit39._crit_edge unwind label %23
 
 .loopexit39._crit_edge:                           ; preds = %.loopexit39, %.loopexit
   %.sroa.1.036 = phi i64 [ %storemerge26.i.i, %.loopexit ], [ 0, %.loopexit39 ]
   %.sroa.6.033 = phi ptr [ %16, %.loopexit ], [ null, %.loopexit39 ]
-  %29 = shl nuw nsw i64 %.sroa.1.036, 4
-  tail call void @_ZdlPvm(ptr noundef %.sroa.6.033, i64 noundef %29) #16
-  br label %30
+  %30 = shl nuw nsw i64 %.sroa.1.036, 4
+  tail call void @_ZdlPvm(ptr noundef %.sroa.6.033, i64 noundef %30) #16
+  br label %31
 
-30:                                               ; preds = %3, %.loopexit39._crit_edge
+31:                                               ; preds = %3, %.loopexit39._crit_edge
   ret void
 }
 
@@ -7561,7 +7561,7 @@ define linkonce_odr void @_ZSt15__inplace_mergeIN9__gnu_cxx17__normal_iteratorIP
   %5 = icmp eq ptr %0, %1
   %6 = icmp eq ptr %1, %2
   %or.cond = select i1 %5, i1 true, i1 %6
-  br i1 %or.cond, label %41, label %7
+  br i1 %or.cond, label %42, label %7
 
 7:                                                ; preds = %3
   %8 = ptrtoint ptr %1 to i64
@@ -7580,87 +7580,87 @@ define linkonce_odr void @_ZSt15__inplace_mergeIN9__gnu_cxx17__normal_iteratorIP
   br i1 %17, label %.lr.ph.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImN32pxrInternal_v0_24__pxrReserved__13TraceThreadIdEESt6vectorIS5_SaIS5_EEEES5_EC2ESA_l.exit
 
 .lr.ph.i.i:                                       ; preds = %7, %select.unfold.i.i
-  %storemerge26.i.i = phi i64 [ %21, %select.unfold.i.i ], [ %.sroa.speculated, %7 ]
+  %storemerge26.i.i = phi i64 [ %22, %select.unfold.i.i ], [ %.sroa.speculated, %7 ]
   %18 = mul nuw nsw i64 %storemerge26.i.i, 40
   %19 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %18, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
   %.not.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i, label %select.unfold.i.i, label %22
+  br i1 %.not.i.i, label %select.unfold.i.i, label %23
 
 select.unfold.i.i:                                ; preds = %.lr.ph.i.i
-  %20 = add nuw nsw i64 %storemerge26.i.i, 1
-  %21 = lshr i64 %20, 1
-  %.not10.i.i = icmp samesign ult i64 %storemerge26.i.i, 2
-  br i1 %.not10.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImN32pxrInternal_v0_24__pxrReserved__13TraceThreadIdEESt6vectorIS5_SaIS5_EEEES5_EC2ESA_l.exit, label %.lr.ph.i.i, !llvm.loop !99
+  %20 = icmp eq i64 %storemerge26.i.i, 1
+  %21 = add nuw nsw i64 %storemerge26.i.i, 1
+  %22 = lshr i64 %21, 1
+  br i1 %20, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImN32pxrInternal_v0_24__pxrReserved__13TraceThreadIdEESt6vectorIS5_SaIS5_EEEES5_EC2ESA_l.exit, label %.lr.ph.i.i, !llvm.loop !99
 
-22:                                               ; preds = %.lr.ph.i.i
-  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %18
-  %24 = load i64, ptr %0, align 8
-  store i64 %24, ptr %19, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %26) #16
+23:                                               ; preds = %.lr.ph.i.i
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 %18
+  %25 = load i64, ptr %0, align 8
+  store i64 %25, ptr %19, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %27) #16
   %.not18.i.i.i = icmp eq i64 %storemerge26.i.i, 1
   br i1 %.not18.i.i.i, label %.loopexit, label %.lr.ph.i.i.preheader.i
 
-.lr.ph.i.i.preheader.i:                           ; preds = %22
+.lr.ph.i.i.preheader.i:                           ; preds = %23
   %.01317.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 40
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i
   %.01321.i.i.i = phi ptr [ %.013.i.i.i, %.lr.ph.i.i.i ], [ %.01317.i.i.i, %.lr.ph.i.i.preheader.i ]
-  %.020.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i ], [ %19, %.lr.ph.i.i.preheader.i ]
-  %27 = load i64, ptr %.020.i.i.i, align 8
-  store i64 %27, ptr %.01321.i.i.i, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %.020.i.i.i, i64 48
-  %29 = getelementptr inbounds nuw i8, ptr %.020.i.i.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %29) #16
-  %30 = getelementptr inbounds nuw i8, ptr %.020.i.i.i, i64 40
+  %.020.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i ], [ %19, %.lr.ph.i.i.preheader.i ]
+  %28 = load i64, ptr %.020.i.i.i, align 8
+  store i64 %28, ptr %.01321.i.i.i, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %.020.i.i.i, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %.020.i.i.i, i64 8
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %30) #16
+  %31 = getelementptr inbounds nuw i8, ptr %.020.i.i.i, i64 40
   %.013.i.i.i = getelementptr inbounds nuw i8, ptr %.01321.i.i.i, i64 40
-  %.not.i.i.i = icmp eq ptr %.013.i.i.i, %23
+  %.not.i.i.i = icmp eq ptr %.013.i.i.i, %24
   br i1 %.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !100
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImN32pxrInternal_v0_24__pxrReserved__13TraceThreadIdEESt6vectorIS5_SaIS5_EEEES5_EC2ESA_l.exit: ; preds = %select.unfold.i.i, %7
   invoke void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImN32pxrInternal_v0_24__pxrReserved__13TraceThreadIdEESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_less_iterEEvT_SD_SD_T0_SE_T1_(ptr %0, ptr %1, ptr %2, i64 noundef %11, i64 noundef %14)
-          to label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImN32pxrInternal_v0_24__pxrReserved__13TraceThreadIdEESt6vectorIS5_SaIS5_EEEES5_ED2Ev.exit unwind label %31
+          to label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImN32pxrInternal_v0_24__pxrReserved__13TraceThreadIdEESt6vectorIS5_SaIS5_EEEES5_ED2Ev.exit unwind label %32
 
-31:                                               ; preds = %.loopexit, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImN32pxrInternal_v0_24__pxrReserved__13TraceThreadIdEESt6vectorIS5_SaIS5_EEEES5_EC2ESA_l.exit
-  %32 = landingpad { ptr, i32 }
+32:                                               ; preds = %.loopexit, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImN32pxrInternal_v0_24__pxrReserved__13TraceThreadIdEESt6vectorIS5_SaIS5_EEEES5_EC2ESA_l.exit
+  %33 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImN32pxrInternal_v0_24__pxrReserved__13TraceThreadIdEESt6vectorIS5_SaIS5_EEEES5_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #16
-  resume { ptr, i32 } %32
+  resume { ptr, i32 } %33
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i, %22
-  %.0.lcssa.i.i.i = phi ptr [ %19, %22 ], [ %30, %.lr.ph.i.i.i ]
-  %33 = load i64, ptr %.0.lcssa.i.i.i, align 8
-  store i64 %33, ptr %0, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 8
-  %35 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %34) #16
+.loopexit:                                        ; preds = %.lr.ph.i.i.i, %23
+  %.0.lcssa.i.i.i = phi ptr [ %19, %23 ], [ %31, %.lr.ph.i.i.i ]
+  %34 = load i64, ptr %.0.lcssa.i.i.i, align 8
+  store i64 %34, ptr %0, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 8
+  %36 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %35) #16
   store ptr %19, ptr %16, align 8
   store i64 %storemerge26.i.i, ptr %15, align 8
   invoke void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairImN32pxrInternal_v0_24__pxrReserved__13TraceThreadIdEESt6vectorIS5_SaIS5_EEEElS6_NS0_5__ops15_Iter_less_iterEEvT_SD_SD_T0_SE_T1_SE_T2_(ptr nonnull %0, ptr %1, ptr %2, i64 noundef %11, i64 noundef %14, ptr noundef nonnull %19, i64 noundef %storemerge26.i.i)
-          to label %36 unwind label %31
+          to label %37 unwind label %32
 
-36:                                               ; preds = %.loopexit
+37:                                               ; preds = %.loopexit
   %.idx.i = mul nuw nsw i64 %storemerge26.i.i, 40
-  %37 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i
+  %38 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i
   %.not4.i.i.i = icmp eq i64 %storemerge26.i.i, 0
   br i1 %.not4.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImN32pxrInternal_v0_24__pxrReserved__13TraceThreadIdEESt6vectorIS5_SaIS5_EEEES5_ED2Ev.exit, label %.lr.ph.i.i.i11
 
-.lr.ph.i.i.i11:                                   ; preds = %36, %.lr.ph.i.i.i11
-  %.05.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i11 ], [ %19, %36 ]
-  %38 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #16
-  %39 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 40
-  %.not.i.i.i12 = icmp eq ptr %39, %37
+.lr.ph.i.i.i11:                                   ; preds = %37, %.lr.ph.i.i.i11
+  %.05.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i11 ], [ %19, %37 ]
+  %39 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #16
+  %40 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 40
+  %.not.i.i.i12 = icmp eq ptr %40, %38
   br i1 %.not.i.i.i12, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImN32pxrInternal_v0_24__pxrReserved__13TraceThreadIdEESt6vectorIS5_SaIS5_EEEES5_ED2Ev.exit, label %.lr.ph.i.i.i11, !llvm.loop !50
 
-_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImN32pxrInternal_v0_24__pxrReserved__13TraceThreadIdEESt6vectorIS5_SaIS5_EEEES5_ED2Ev.exit: ; preds = %.lr.ph.i.i.i11, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImN32pxrInternal_v0_24__pxrReserved__13TraceThreadIdEESt6vectorIS5_SaIS5_EEEES5_EC2ESA_l.exit, %36
-  %.pre.i42 = phi ptr [ %19, %36 ], [ null, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImN32pxrInternal_v0_24__pxrReserved__13TraceThreadIdEESt6vectorIS5_SaIS5_EEEES5_EC2ESA_l.exit ], [ %19, %.lr.ph.i.i.i11 ]
-  %40 = phi i64 [ 0, %36 ], [ 0, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImN32pxrInternal_v0_24__pxrReserved__13TraceThreadIdEESt6vectorIS5_SaIS5_EEEES5_EC2ESA_l.exit ], [ %.idx.i, %.lr.ph.i.i.i11 ]
-  tail call void @_ZdlPvm(ptr noundef %.pre.i42, i64 noundef %40) #16
-  br label %41
+_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImN32pxrInternal_v0_24__pxrReserved__13TraceThreadIdEESt6vectorIS5_SaIS5_EEEES5_ED2Ev.exit: ; preds = %.lr.ph.i.i.i11, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImN32pxrInternal_v0_24__pxrReserved__13TraceThreadIdEESt6vectorIS5_SaIS5_EEEES5_EC2ESA_l.exit, %37
+  %.pre.i42 = phi ptr [ %19, %37 ], [ null, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImN32pxrInternal_v0_24__pxrReserved__13TraceThreadIdEESt6vectorIS5_SaIS5_EEEES5_EC2ESA_l.exit ], [ %19, %.lr.ph.i.i.i11 ]
+  %41 = phi i64 [ 0, %37 ], [ 0, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImN32pxrInternal_v0_24__pxrReserved__13TraceThreadIdEESt6vectorIS5_SaIS5_EEEES5_EC2ESA_l.exit ], [ %.idx.i, %.lr.ph.i.i.i11 ]
+  tail call void @_ZdlPvm(ptr noundef %.pre.i42, i64 noundef %41) #16
+  br label %42
 
-41:                                               ; preds = %3, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImN32pxrInternal_v0_24__pxrReserved__13TraceThreadIdEESt6vectorIS5_SaIS5_EEEES5_ED2Ev.exit
+42:                                               ; preds = %3, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImN32pxrInternal_v0_24__pxrReserved__13TraceThreadIdEESt6vectorIS5_SaIS5_EEEES5_ED2Ev.exit
   ret void
 }
 

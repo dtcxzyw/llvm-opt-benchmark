@@ -3280,17 +3280,14 @@ define noundef i32 @_ZN7rocksdb6crc32c13Crc32cCombineEjjm(i32 noundef %0, i32 no
 
 10:                                               ; preds = %6, %3
   %.0 = phi i32 [ %9, %6 ], [ %0, %3 ]
-  %.not1.i = icmp ult i64 %2, 4
-  br i1 %.not1.i, label %_ZN7rocksdb6crc32cL17Crc32AppendZeroesEjmjRKSt5arrayIjLm62EE.exit, label %.lr.ph.i.preheader
-
-.lr.ph.i.preheader:                               ; preds = %10
   %11 = lshr i64 %2, 2
-  br label %.lr.ph.i
+  %.not1.i = icmp eq i64 %11, 0
+  br i1 %.not1.i, label %_ZN7rocksdb6crc32cL17Crc32AppendZeroesEjmjRKSt5arrayIjLm62EE.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZN7rocksdb6crc32cL14gf_multiply_swEjjj.exit.i
-  %.04.i = phi i32 [ %17, %_ZN7rocksdb6crc32cL14gf_multiply_swEjjj.exit.i ], [ %.0, %.lr.ph.i.preheader ]
-  %.0133.i = phi i64 [ %26, %_ZN7rocksdb6crc32cL14gf_multiply_swEjjj.exit.i ], [ %11, %.lr.ph.i.preheader ]
-  %.0142.i = phi ptr [ %27, %_ZN7rocksdb6crc32cL14gf_multiply_swEjjj.exit.i ], [ @_ZN7rocksdb6crc32cL13crc32c_powersE, %.lr.ph.i.preheader ]
+.lr.ph.i:                                         ; preds = %10, %_ZN7rocksdb6crc32cL14gf_multiply_swEjjj.exit.i
+  %.04.i = phi i32 [ %17, %_ZN7rocksdb6crc32cL14gf_multiply_swEjjj.exit.i ], [ %.0, %10 ]
+  %.0133.i = phi i64 [ %26, %_ZN7rocksdb6crc32cL14gf_multiply_swEjjj.exit.i ], [ %11, %10 ]
+  %.0142.i = phi ptr [ %27, %_ZN7rocksdb6crc32cL14gf_multiply_swEjjj.exit.i ], [ @_ZN7rocksdb6crc32cL13crc32c_powersE, %10 ]
   %12 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0133.i, i1 true)
   %13 = getelementptr inbounds nuw i32, ptr %.0142.i, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !15
@@ -3318,7 +3315,7 @@ _ZN7rocksdb6crc32cL14gf_multiply_swEjjj.exit.i:   ; preds = %tailrecurse.i.i.i
   %25 = lshr exact i64 %.0133.i, %12
   %26 = lshr i64 %25, 1
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %.not.i = icmp samesign ult i64 %25, 2
+  %.not.i = icmp eq i64 %26, 0
   br i1 %.not.i, label %_ZN7rocksdb6crc32cL17Crc32AppendZeroesEjmjRKSt5arrayIjLm62EE.exit, label %.lr.ph.i, !llvm.loop !23
 
 _ZN7rocksdb6crc32cL17Crc32AppendZeroesEjmjRKSt5arrayIjLm62EE.exit: ; preds = %_ZN7rocksdb6crc32cL14gf_multiply_swEjjj.exit.i, %10

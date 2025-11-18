@@ -503,7 +503,7 @@ define hidden i64 @lexbor_conv_dec_to_hex(i32 noundef %0, ptr noundef writeonly 
   %.01524 = phi i64 [ %4, %.preheader23 ], [ 0, %3 ]
   %4 = add nuw nsw i64 %.01524, 1
   %5 = lshr i32 %.025, 4
-  %.not21 = icmp ult i32 %.025, 16
+  %.not21 = icmp eq i32 %5, 0
   br i1 %.not21, label %.preheader, label %.preheader23
 
 6:                                                ; preds = %3
@@ -525,7 +525,7 @@ define hidden i64 @lexbor_conv_dec_to_hex(i32 noundef %0, ptr noundef writeonly 
   %12 = load i8, ptr %11, align 1, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 %.017
   store i8 %12, ptr %13, align 1, !tbaa !4
-  %.not22 = icmp ult i32 %.01826, 16
+  %.not22 = icmp eq i32 %10, 0
   br i1 %.not22, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %6, %7

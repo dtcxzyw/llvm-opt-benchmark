@@ -1258,7 +1258,7 @@ define hidden void @_ZN8rawspeed12RawImageData9clearAreaENS_12iRectangle2DE(ptr 
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load i32, ptr %24, align 8, !tbaa !9, !noalias !145
   %26 = ashr i32 %25, 1
-  %27 = icmp ugt i32 %25, 1
+  %27 = icmp ne i32 %26, 0
   tail call void @llvm.assume(i1 %27)
   %28 = icmp sgt i32 %26, -1
   tail call void @llvm.assume(i1 %28)

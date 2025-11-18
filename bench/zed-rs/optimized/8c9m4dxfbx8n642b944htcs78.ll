@@ -11096,21 +11096,21 @@ define hidden void @"_ZN95_$LT$alloc..string..String$u20$as$u20$core..iter..trai
   tail call void @llvm.assume(i1 %5)
   %6 = ptrtoint ptr %2 to i64
   %7 = ptrtoint ptr %1 to i64
-  %reass.sub.i = sub i64 %6, %7
-  %8 = add i64 %reass.sub.i, 3
-  %.not = icmp ult i64 %8, 4
-  br i1 %.not, label %.noexc3, label %9
+  %reass.sub = sub i64 %6, %7
+  %8 = add i64 %reass.sub, 3
+  %9 = lshr i64 %8, 2
+  %.not = icmp eq i64 %9, 0
+  br i1 %.not, label %.noexc3, label %10
 
-.noexc3:                                          ; preds = %9, %3
+.noexc3:                                          ; preds = %10, %3
   invoke void @_ZN4core4iter6traits8iterator8Iterator4fold17h07f64e720b9dfda3E.llvm.13602880533186600580(ptr noundef nonnull readonly %1, ptr noundef nonnull readnone %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..Extend$LT$char$GT$$GT$6extend17haa9addc09da00cffE.llvm.13602880533186600580.exit" unwind label %11
 
-9:                                                ; preds = %3
-  %10 = lshr i64 %8, 2
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h182576336e603f0eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 0, i64 noundef %10)
+10:                                               ; preds = %3
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h182576336e603f0eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 0, i64 noundef %9)
           to label %.noexc3 unwind label %11
 
-11:                                               ; preds = %9, %.noexc3
+11:                                               ; preds = %10, %.noexc3
   %12 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbc883d05c5e4baedE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #39

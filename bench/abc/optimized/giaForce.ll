@@ -3504,21 +3504,21 @@ Abc_Clock.exit:                                   ; preds = %3, %11
   br i1 %32, label %.lr.ph144.preheader, label %.critedge4
 
 .lr.ph144.preheader:                              ; preds = %.preheader
-  %.val116203 = load ptr, ptr %24, align 8, !tbaa !45
-  %.not109204 = icmp eq ptr %.val116203, null
-  br i1 %.not109204, label %.critedge, label %.lr.ph207
+  %.val116204 = load ptr, ptr %24, align 8, !tbaa !45
+  %.not109205 = icmp eq ptr %.val116204, null
+  br i1 %.not109205, label %.critedge, label %.lr.ph208
 
 .lr.ph144:                                        ; preds = %.critedge2
   %.val116 = load ptr, ptr %24, align 8, !tbaa !45
   %33 = sext i32 %61 to i64
   %34 = getelementptr inbounds i32, ptr %.val116, i64 %33
   %.not109 = icmp eq ptr %.val116, null
-  br i1 %.not109, label %.critedge, label %.lr.ph207, !llvm.loop !91
+  br i1 %.not109, label %.critedge, label %.lr.ph208, !llvm.loop !91
 
-.lr.ph207:                                        ; preds = %.lr.ph144.preheader, %.lr.ph144
-  %35 = phi ptr [ %34, %.lr.ph144 ], [ %.val116203, %.lr.ph144.preheader ]
-  %.098142206 = phi i32 [ %61, %.lr.ph144 ], [ 0, %.lr.ph144.preheader ]
-  %.093143205 = phi double [ %59, %.lr.ph144 ], [ 0.000000e+00, %.lr.ph144.preheader ]
+.lr.ph208:                                        ; preds = %.lr.ph144.preheader, %.lr.ph144
+  %35 = phi ptr [ %34, %.lr.ph144 ], [ %.val116204, %.lr.ph144.preheader ]
+  %.098142207 = phi i32 [ %61, %.lr.ph144 ], [ 0, %.lr.ph144.preheader ]
+  %.093143206 = phi double [ %59, %.lr.ph144 ], [ 0.000000e+00, %.lr.ph144.preheader ]
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load i32, ptr %36, align 4, !tbaa !82
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 4
@@ -3527,11 +3527,11 @@ Abc_Clock.exit:                                   ; preds = %3, %11
   %.val119.pre = load i32, ptr %35, align 4
   br i1 %40, label %.lr.ph, label %..critedge2_crit_edge
 
-..critedge2_crit_edge:                            ; preds = %.lr.ph207
+..critedge2_crit_edge:                            ; preds = %.lr.ph208
   %.pre181 = lshr i32 %.val119.pre, 4
   br label %.critedge2
 
-.lr.ph:                                           ; preds = %.lr.ph207
+.lr.ph:                                           ; preds = %.lr.ph208
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %42 = lshr i32 %.val119.pre, 4
   %43 = zext nneg i32 %42 to i64
@@ -3567,8 +3567,8 @@ Abc_Clock.exit:                                   ; preds = %3, %11
   store float %55, ptr %56, align 4, !tbaa !8
   %57 = sub nsw i32 %.095.lcssa, %.096.lcssa
   %58 = sitofp i32 %57 to double
-  %59 = fadd double %.093143205, %58
-  %narrow.i = add i32 %.098142206, 6
+  %59 = fadd double %.093143206, %58
+  %narrow.i = add i32 %.098142207, 6
   %60 = add i32 %narrow.i, %39
   %61 = add i32 %60, %.pre-phi182
   %62 = load i32, ptr %25, align 8, !tbaa !44
@@ -3598,7 +3598,7 @@ Abc_Clock.exit:                                   ; preds = %3, %11
   %68 = load float, ptr %67, align 4, !tbaa !8
   %69 = load i32, ptr %66, align 4
   %70 = lshr i32 %69, 4
-  %.not164 = icmp ult i32 %69, 16
+  %.not164 = icmp eq i32 %70, 0
   br i1 %.not164, label %.critedge6, label %.lr.ph152
 
 .lr.ph152:                                        ; preds = %.lr.ph157.split
@@ -3642,7 +3642,7 @@ Abc_Clock.exit:                                   ; preds = %3, %11
   br i1 %90, label %.lr.ph157.split, label %.critedge4, !llvm.loop !95
 
 .critedge4:                                       ; preds = %.critedge6, %.preheader, %.lr.ph157, %.critedge
-  %.093.lcssa198 = phi double [ %.093.lcssa, %.lr.ph157 ], [ %.093.lcssa, %.critedge ], [ 0.000000e+00, %.preheader ], [ %.093.lcssa, %.critedge6 ]
+  %.093.lcssa199 = phi double [ %.093.lcssa, %.lr.ph157 ], [ %.093.lcssa, %.critedge ], [ 0.000000e+00, %.preheader ], [ %.093.lcssa, %.critedge6 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %91 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #20
   %92 = icmp slt i32 %91, 0
@@ -3780,7 +3780,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %.not111, label %._crit_edge._crit_edge, label %153
 
 153:                                              ; preds = %._crit_edge
-  %154 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.pre180, double noundef %.093.lcssa198)
+  %154 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.pre180, double noundef %.093.lcssa199)
   %155 = sub nsw i32 %16, %152
   %156 = sitofp i32 %155 to double
   %157 = fmul double %156, 1.000000e+02

@@ -346,27 +346,26 @@ define dso_local i64 @LZ4IO_setBlockSizeID(ptr noundef writeonly captures(none) 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define dso_local range(i64 32, 4194305) i64 @LZ4IO_setBlockSize(ptr noundef writeonly captures(none) initializes((16, 24)) %0, i64 noundef %1) local_unnamed_addr #8 {
-.lr.ph.preheader:
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %1, i64 32)
   %spec.store.select2 = tail call i64 @llvm.umin.i64(i64 %spec.store.select, i64 4194304)
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %spec.store.select2, ptr %2, align 8, !tbaa !18
-  %3 = add nsw i64 %spec.store.select2, -1
-  br label %.lr.ph
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %spec.store.select2, ptr %3, align 8, !tbaa !18
+  %4 = add nsw i64 %spec.store.select2, -1
+  br label %5
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.016 = phi i32 [ %5, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.01215 = phi i64 [ %4, %.lr.ph ], [ %3, %.lr.ph.preheader ]
-  %4 = lshr i64 %.01215, 2
-  %5 = add nuw nsw i32 %.016, 1
-  %.not = icmp ult i64 %.01215, 16
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+5:                                                ; preds = %5, %2
+  %.012 = phi i64 [ %4, %2 ], [ %6, %5 ]
+  %.0 = phi i32 [ 0, %2 ], [ %7, %5 ]
+  %6 = lshr i64 %.012, 2
+  %.not = icmp eq i64 %6, 0
+  %7 = add nuw nsw i32 %.0, 1
+  br i1 %.not, label %8, label %5, !llvm.loop !30
 
-._crit_edge:                                      ; preds = %.lr.ph
-  %spec.store.select1 = tail call i32 @llvm.umax.i32(i32 %5, i32 7)
-  %6 = add nsw i32 %spec.store.select1, -3
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %6, ptr %7, align 4, !tbaa !17
+8:                                                ; preds = %5
+  %spec.store.select1 = tail call i32 @llvm.umax.i32(i32 %.0, i32 7)
+  %9 = add nsw i32 %spec.store.select1, -3
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %9, ptr %10, align 4, !tbaa !17
   ret i64 %spec.store.select2
 }
 

@@ -14601,7 +14601,7 @@ define linkonce_odr hidden void @_ZN3AAT21RearrangementSubtableINS_13ExtendedTyp
 24:                                               ; preds = %17, %15
   %25 = and i8 %10, 15
   %.not52 = icmp eq i8 %25, 0
-  br i1 %.not52, label %117, label %26
+  br i1 %.not52, label %113, label %26
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -14609,7 +14609,7 @@ define linkonce_odr hidden void @_ZN3AAT21RearrangementSubtableINS_13ExtendedTyp
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i32, ptr %29, align 4
   %31 = icmp ult i32 %28, %30
-  br i1 %31, label %32, label %117
+  br i1 %31, label %32, label %113
 
 32:                                               ; preds = %26
   %33 = zext nneg i8 %25 to i64
@@ -14627,7 +14627,7 @@ define linkonce_odr hidden void @_ZN3AAT21RearrangementSubtableINS_13ExtendedTyp
   %.not53 = icmp uge i32 %41, %42
   %43 = icmp ult i32 %41, 65
   %or.cond = and i1 %43, %.not53
-  br i1 %or.cond, label %44, label %117
+  br i1 %or.cond, label %44, label %113
 
 44:                                               ; preds = %32
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 84
@@ -14667,108 +14667,103 @@ _ZN11hb_buffer_t14merge_clustersEjj.exit58:       ; preds = %_ZN11hb_buffer_t14m
   %61 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %59, i64 %60
   %62 = zext nneg i32 %.sroa.speculated75 to i64
   %63 = mul nuw nsw i64 %62, 20
-  %64 = shl nuw nsw i64 1, %33
-  %65 = and i64 %64, 196
-  %.not.i59.not = icmp eq i64 %65, 0
-  br i1 %.not.i59.not, label %66, label %_ZL9hb_memcpyPvPKvm.exit
+  %.not.i59 = icmp eq i32 %37, 0
+  br i1 %.not.i59, label %_ZL9hb_memcpyPvPKvm.exit, label %64
 
-66:                                               ; preds = %_ZN11hb_buffer_t14merge_clustersEjj.exit58
+64:                                               ; preds = %_ZN11hb_buffer_t14merge_clustersEjj.exit58
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr readonly align 1 %61, i64 range(i64 0, 85899345901) %63, i1 false), !alias.scope !87
   br label %_ZL9hb_memcpyPvPKvm.exit
 
-_ZL9hb_memcpyPvPKvm.exit:                         ; preds = %_ZN11hb_buffer_t14merge_clustersEjj.exit58, %66
-  %67 = load i32, ptr %29, align 4
-  %68 = zext nneg i32 %.sroa.speculated69 to i64
-  %69 = mul nuw nsw i64 %68, 20
+_ZL9hb_memcpyPvPKvm.exit:                         ; preds = %_ZN11hb_buffer_t14merge_clustersEjj.exit58, %64
+  %65 = load i32, ptr %29, align 4
+  %66 = zext nneg i32 %.sroa.speculated69 to i64
+  %67 = mul nuw nsw i64 %66, 20
   %.not.i60 = icmp eq i32 %38, 0
-  br i1 %.not.i60, label %_ZL9hb_memcpyPvPKvm.exit61, label %70
+  br i1 %.not.i60, label %_ZL9hb_memcpyPvPKvm.exit61, label %68
 
-70:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit
-  %71 = zext i32 %67 to i64
-  %72 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %59, i64 %71
-  %73 = sub nsw i64 0, %68
-  %74 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %72, i64 %73
+68:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit
+  %69 = zext i32 %65 to i64
+  %70 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %59, i64 %69
+  %71 = sub nsw i64 0, %66
+  %72 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %70, i64 %71
   %.40..40..40..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.40..40..40..sroa_idx, ptr nonnull readonly align 1 %74, i64 range(i64 0, 85899345901) %69, i1 false), !alias.scope !91
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.40..40..40..sroa_idx, ptr nonnull readonly align 1 %72, i64 range(i64 0, 85899345901) %67, i1 false), !alias.scope !91
   br label %_ZL9hb_memcpyPvPKvm.exit61
 
-_ZL9hb_memcpyPvPKvm.exit61:                       ; preds = %_ZL9hb_memcpyPvPKvm.exit, %70
+_ZL9hb_memcpyPvPKvm.exit61:                       ; preds = %_ZL9hb_memcpyPvPKvm.exit, %68
   %.not54 = icmp eq i32 %.sroa.speculated75, %.sroa.speculated69
-  br i1 %.not54, label %82, label %75
+  br i1 %.not54, label %80, label %73
 
-75:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit61
-  %76 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %61, i64 %68
-  %77 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %61, i64 %62
-  %78 = add i32 %42, %57
-  %79 = sub i32 %67, %78
-  %80 = zext i32 %79 to i64
-  %81 = mul nuw nsw i64 %80, 20
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %76, ptr align 4 %77, i64 %81, i1 false)
-  br label %82
+73:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit61
+  %74 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %61, i64 %66
+  %75 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %61, i64 %62
+  %76 = add i32 %42, %57
+  %77 = sub i32 %65, %76
+  %78 = zext i32 %77 to i64
+  %79 = mul nuw nsw i64 %78, 20
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %74, ptr align 4 %75, i64 %79, i1 false)
+  br label %80
 
-82:                                               ; preds = %75, %_ZL9hb_memcpyPvPKvm.exit61
-  br i1 %.not.i60, label %_ZL9hb_memcpyPvPKvm.exit63, label %83
+80:                                               ; preds = %73, %_ZL9hb_memcpyPvPKvm.exit61
+  br i1 %.not.i60, label %_ZL9hb_memcpyPvPKvm.exit63, label %81
 
-83:                                               ; preds = %82
-  %84 = load i32, ptr %27, align 4
-  %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %59, i64 %85
+81:                                               ; preds = %80
+  %82 = load i32, ptr %27, align 4
+  %83 = zext i32 %82 to i64
+  %84 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %59, i64 %83
   %.40..40..40..sroa_idx94 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %86, ptr nonnull readonly align 8 %.40..40..40..sroa_idx94, i64 range(i64 0, 85899345901) %69, i1 false), !alias.scope !95
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %84, ptr nonnull readonly align 8 %.40..40..40..sroa_idx94, i64 range(i64 0, 85899345901) %67, i1 false), !alias.scope !95
   br label %_ZL9hb_memcpyPvPKvm.exit63
 
-_ZL9hb_memcpyPvPKvm.exit63:                       ; preds = %82, %83
-  br i1 %.not.i59.not, label %87, label %_ZL9hb_memcpyPvPKvm.exit65
+_ZL9hb_memcpyPvPKvm.exit63:                       ; preds = %80, %81
+  br i1 %.not.i59, label %_ZL9hb_memcpyPvPKvm.exit65.thread, label %_ZL9hb_memcpyPvPKvm.exit65
 
-87:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit63
-  %88 = load i32, ptr %29, align 4
-  %89 = zext i32 %88 to i64
-  %90 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %59, i64 %89
-  %91 = sub nsw i64 0, %62
-  %92 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %90, i64 %91
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %92, ptr nonnull readonly align 16 %4, i64 range(i64 0, 85899345901) %63, i1 false), !alias.scope !99
-  br label %_ZL9hb_memcpyPvPKvm.exit65
+_ZL9hb_memcpyPvPKvm.exit65:                       ; preds = %_ZL9hb_memcpyPvPKvm.exit63
+  %85 = load i32, ptr %29, align 4
+  %86 = zext i32 %85 to i64
+  %87 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %59, i64 %86
+  %88 = sub nsw i64 0, %62
+  %89 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %87, i64 %88
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %89, ptr nonnull readonly align 16 %4, i64 range(i64 0, 85899345901) %63, i1 false), !alias.scope !99
+  br i1 %39, label %90, label %_ZL9hb_memcpyPvPKvm.exit65.thread
 
-_ZL9hb_memcpyPvPKvm.exit65:                       ; preds = %_ZL9hb_memcpyPvPKvm.exit63, %87
-  br i1 %39, label %93, label %105
-
-93:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit65
-  %94 = load i32, ptr %29, align 4
-  %95 = add i32 %94, -1
+90:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit65
+  %91 = load i32, ptr %29, align 4
+  %92 = add i32 %91, -1
+  %93 = zext i32 %92 to i64
+  %94 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %59, i64 %93
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %94, i64 20, i1 false)
+  %95 = add i32 %91, -2
   %96 = zext i32 %95 to i64
   %97 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %59, i64 %96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %97, i64 20, i1 false)
-  %98 = add i32 %94, -2
-  %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %59, i64 %99
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %97, ptr noundef nonnull align 4 dereferenceable(20) %100, i64 20, i1 false)
-  %101 = load i32, ptr %29, align 4
-  %102 = add i32 %101, -2
-  %103 = zext i32 %102 to i64
-  %104 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %59, i64 %103
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %104, ptr noundef nonnull align 16 dereferenceable(20) %4, i64 20, i1 false)
-  br label %105
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %94, ptr noundef nonnull align 4 dereferenceable(20) %97, i64 20, i1 false)
+  %98 = load i32, ptr %29, align 4
+  %99 = add i32 %98, -2
+  %100 = zext i32 %99 to i64
+  %101 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %59, i64 %100
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %101, ptr noundef nonnull align 16 dereferenceable(20) %4, i64 20, i1 false)
+  br label %_ZL9hb_memcpyPvPKvm.exit65.thread
 
-105:                                              ; preds = %93, %_ZL9hb_memcpyPvPKvm.exit65
-  br i1 %40, label %106, label %117
+_ZL9hb_memcpyPvPKvm.exit65.thread:                ; preds = %_ZL9hb_memcpyPvPKvm.exit63, %90, %_ZL9hb_memcpyPvPKvm.exit65
+  br i1 %40, label %102, label %113
 
-106:                                              ; preds = %105
-  %107 = load i32, ptr %27, align 4
-  %108 = zext i32 %107 to i64
-  %109 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %59, i64 %108
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %109, i64 20, i1 false)
-  %110 = add i32 %107, 1
+102:                                              ; preds = %_ZL9hb_memcpyPvPKvm.exit65.thread
+  %103 = load i32, ptr %27, align 4
+  %104 = zext i32 %103 to i64
+  %105 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %59, i64 %104
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %105, i64 20, i1 false)
+  %106 = add i32 %103, 1
+  %107 = zext i32 %106 to i64
+  %108 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %59, i64 %107
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %105, ptr noundef nonnull align 4 dereferenceable(20) %108, i64 20, i1 false)
+  %109 = load i32, ptr %27, align 4
+  %110 = add i32 %109, 1
   %111 = zext i32 %110 to i64
   %112 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %59, i64 %111
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %109, ptr noundef nonnull align 4 dereferenceable(20) %112, i64 20, i1 false)
-  %113 = load i32, ptr %27, align 4
-  %114 = add i32 %113, 1
-  %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %59, i64 %115
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %116, ptr noundef nonnull align 16 dereferenceable(20) %4, i64 20, i1 false)
-  br label %117
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %112, ptr noundef nonnull align 16 dereferenceable(20) %4, i64 20, i1 false)
+  br label %113
 
-117:                                              ; preds = %32, %106, %105, %26, %24
+113:                                              ; preds = %32, %102, %_ZL9hb_memcpyPvPKvm.exit65.thread, %26, %24
   ret void
 }
 
@@ -20769,7 +20764,7 @@ define linkonce_odr hidden void @_ZN3AAT21RearrangementSubtableINS_13ObsoleteTyp
 24:                                               ; preds = %17, %15
   %25 = and i8 %10, 15
   %.not52 = icmp eq i8 %25, 0
-  br i1 %.not52, label %117, label %26
+  br i1 %.not52, label %113, label %26
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -20777,7 +20772,7 @@ define linkonce_odr hidden void @_ZN3AAT21RearrangementSubtableINS_13ObsoleteTyp
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i32, ptr %29, align 4
   %31 = icmp ult i32 %28, %30
-  br i1 %31, label %32, label %117
+  br i1 %31, label %32, label %113
 
 32:                                               ; preds = %26
   %33 = zext nneg i8 %25 to i64
@@ -20795,7 +20790,7 @@ define linkonce_odr hidden void @_ZN3AAT21RearrangementSubtableINS_13ObsoleteTyp
   %.not53 = icmp uge i32 %41, %42
   %43 = icmp ult i32 %41, 65
   %or.cond = and i1 %43, %.not53
-  br i1 %or.cond, label %44, label %117
+  br i1 %or.cond, label %44, label %113
 
 44:                                               ; preds = %32
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 84
@@ -20835,108 +20830,103 @@ _ZN11hb_buffer_t14merge_clustersEjj.exit58:       ; preds = %_ZN11hb_buffer_t14m
   %61 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %59, i64 %60
   %62 = zext nneg i32 %.sroa.speculated75 to i64
   %63 = mul nuw nsw i64 %62, 20
-  %64 = shl nuw nsw i64 1, %33
-  %65 = and i64 %64, 196
-  %.not.i59.not = icmp eq i64 %65, 0
-  br i1 %.not.i59.not, label %66, label %_ZL9hb_memcpyPvPKvm.exit
+  %.not.i59 = icmp eq i32 %37, 0
+  br i1 %.not.i59, label %_ZL9hb_memcpyPvPKvm.exit, label %64
 
-66:                                               ; preds = %_ZN11hb_buffer_t14merge_clustersEjj.exit58
+64:                                               ; preds = %_ZN11hb_buffer_t14merge_clustersEjj.exit58
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr readonly align 1 %61, i64 range(i64 0, 85899345901) %63, i1 false), !alias.scope !127
   br label %_ZL9hb_memcpyPvPKvm.exit
 
-_ZL9hb_memcpyPvPKvm.exit:                         ; preds = %_ZN11hb_buffer_t14merge_clustersEjj.exit58, %66
-  %67 = load i32, ptr %29, align 4
-  %68 = zext nneg i32 %.sroa.speculated69 to i64
-  %69 = mul nuw nsw i64 %68, 20
+_ZL9hb_memcpyPvPKvm.exit:                         ; preds = %_ZN11hb_buffer_t14merge_clustersEjj.exit58, %64
+  %65 = load i32, ptr %29, align 4
+  %66 = zext nneg i32 %.sroa.speculated69 to i64
+  %67 = mul nuw nsw i64 %66, 20
   %.not.i60 = icmp eq i32 %38, 0
-  br i1 %.not.i60, label %_ZL9hb_memcpyPvPKvm.exit61, label %70
+  br i1 %.not.i60, label %_ZL9hb_memcpyPvPKvm.exit61, label %68
 
-70:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit
-  %71 = zext i32 %67 to i64
-  %72 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %59, i64 %71
-  %73 = sub nsw i64 0, %68
-  %74 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %72, i64 %73
+68:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit
+  %69 = zext i32 %65 to i64
+  %70 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %59, i64 %69
+  %71 = sub nsw i64 0, %66
+  %72 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %70, i64 %71
   %.40..40..40..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.40..40..40..sroa_idx, ptr nonnull readonly align 1 %74, i64 range(i64 0, 85899345901) %69, i1 false), !alias.scope !131
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.40..40..40..sroa_idx, ptr nonnull readonly align 1 %72, i64 range(i64 0, 85899345901) %67, i1 false), !alias.scope !131
   br label %_ZL9hb_memcpyPvPKvm.exit61
 
-_ZL9hb_memcpyPvPKvm.exit61:                       ; preds = %_ZL9hb_memcpyPvPKvm.exit, %70
+_ZL9hb_memcpyPvPKvm.exit61:                       ; preds = %_ZL9hb_memcpyPvPKvm.exit, %68
   %.not54 = icmp eq i32 %.sroa.speculated75, %.sroa.speculated69
-  br i1 %.not54, label %82, label %75
+  br i1 %.not54, label %80, label %73
 
-75:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit61
-  %76 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %61, i64 %68
-  %77 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %61, i64 %62
-  %78 = add i32 %42, %57
-  %79 = sub i32 %67, %78
-  %80 = zext i32 %79 to i64
-  %81 = mul nuw nsw i64 %80, 20
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %76, ptr align 4 %77, i64 %81, i1 false)
-  br label %82
+73:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit61
+  %74 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %61, i64 %66
+  %75 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %61, i64 %62
+  %76 = add i32 %42, %57
+  %77 = sub i32 %65, %76
+  %78 = zext i32 %77 to i64
+  %79 = mul nuw nsw i64 %78, 20
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %74, ptr align 4 %75, i64 %79, i1 false)
+  br label %80
 
-82:                                               ; preds = %75, %_ZL9hb_memcpyPvPKvm.exit61
-  br i1 %.not.i60, label %_ZL9hb_memcpyPvPKvm.exit63, label %83
+80:                                               ; preds = %73, %_ZL9hb_memcpyPvPKvm.exit61
+  br i1 %.not.i60, label %_ZL9hb_memcpyPvPKvm.exit63, label %81
 
-83:                                               ; preds = %82
-  %84 = load i32, ptr %27, align 4
-  %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %59, i64 %85
+81:                                               ; preds = %80
+  %82 = load i32, ptr %27, align 4
+  %83 = zext i32 %82 to i64
+  %84 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %59, i64 %83
   %.40..40..40..sroa_idx94 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %86, ptr nonnull readonly align 8 %.40..40..40..sroa_idx94, i64 range(i64 0, 85899345901) %69, i1 false), !alias.scope !135
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %84, ptr nonnull readonly align 8 %.40..40..40..sroa_idx94, i64 range(i64 0, 85899345901) %67, i1 false), !alias.scope !135
   br label %_ZL9hb_memcpyPvPKvm.exit63
 
-_ZL9hb_memcpyPvPKvm.exit63:                       ; preds = %82, %83
-  br i1 %.not.i59.not, label %87, label %_ZL9hb_memcpyPvPKvm.exit65
+_ZL9hb_memcpyPvPKvm.exit63:                       ; preds = %80, %81
+  br i1 %.not.i59, label %_ZL9hb_memcpyPvPKvm.exit65.thread, label %_ZL9hb_memcpyPvPKvm.exit65
 
-87:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit63
-  %88 = load i32, ptr %29, align 4
-  %89 = zext i32 %88 to i64
-  %90 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %59, i64 %89
-  %91 = sub nsw i64 0, %62
-  %92 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %90, i64 %91
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %92, ptr nonnull readonly align 16 %4, i64 range(i64 0, 85899345901) %63, i1 false), !alias.scope !139
-  br label %_ZL9hb_memcpyPvPKvm.exit65
+_ZL9hb_memcpyPvPKvm.exit65:                       ; preds = %_ZL9hb_memcpyPvPKvm.exit63
+  %85 = load i32, ptr %29, align 4
+  %86 = zext i32 %85 to i64
+  %87 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %59, i64 %86
+  %88 = sub nsw i64 0, %62
+  %89 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %87, i64 %88
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %89, ptr nonnull readonly align 16 %4, i64 range(i64 0, 85899345901) %63, i1 false), !alias.scope !139
+  br i1 %39, label %90, label %_ZL9hb_memcpyPvPKvm.exit65.thread
 
-_ZL9hb_memcpyPvPKvm.exit65:                       ; preds = %_ZL9hb_memcpyPvPKvm.exit63, %87
-  br i1 %39, label %93, label %105
-
-93:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit65
-  %94 = load i32, ptr %29, align 4
-  %95 = add i32 %94, -1
+90:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit65
+  %91 = load i32, ptr %29, align 4
+  %92 = add i32 %91, -1
+  %93 = zext i32 %92 to i64
+  %94 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %59, i64 %93
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %94, i64 20, i1 false)
+  %95 = add i32 %91, -2
   %96 = zext i32 %95 to i64
   %97 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %59, i64 %96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %97, i64 20, i1 false)
-  %98 = add i32 %94, -2
-  %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %59, i64 %99
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %97, ptr noundef nonnull align 4 dereferenceable(20) %100, i64 20, i1 false)
-  %101 = load i32, ptr %29, align 4
-  %102 = add i32 %101, -2
-  %103 = zext i32 %102 to i64
-  %104 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %59, i64 %103
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %104, ptr noundef nonnull align 16 dereferenceable(20) %4, i64 20, i1 false)
-  br label %105
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %94, ptr noundef nonnull align 4 dereferenceable(20) %97, i64 20, i1 false)
+  %98 = load i32, ptr %29, align 4
+  %99 = add i32 %98, -2
+  %100 = zext i32 %99 to i64
+  %101 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %59, i64 %100
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %101, ptr noundef nonnull align 16 dereferenceable(20) %4, i64 20, i1 false)
+  br label %_ZL9hb_memcpyPvPKvm.exit65.thread
 
-105:                                              ; preds = %93, %_ZL9hb_memcpyPvPKvm.exit65
-  br i1 %40, label %106, label %117
+_ZL9hb_memcpyPvPKvm.exit65.thread:                ; preds = %_ZL9hb_memcpyPvPKvm.exit63, %90, %_ZL9hb_memcpyPvPKvm.exit65
+  br i1 %40, label %102, label %113
 
-106:                                              ; preds = %105
-  %107 = load i32, ptr %27, align 4
-  %108 = zext i32 %107 to i64
-  %109 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %59, i64 %108
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %109, i64 20, i1 false)
-  %110 = add i32 %107, 1
+102:                                              ; preds = %_ZL9hb_memcpyPvPKvm.exit65.thread
+  %103 = load i32, ptr %27, align 4
+  %104 = zext i32 %103 to i64
+  %105 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %59, i64 %104
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %105, i64 20, i1 false)
+  %106 = add i32 %103, 1
+  %107 = zext i32 %106 to i64
+  %108 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %59, i64 %107
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %105, ptr noundef nonnull align 4 dereferenceable(20) %108, i64 20, i1 false)
+  %109 = load i32, ptr %27, align 4
+  %110 = add i32 %109, 1
   %111 = zext i32 %110 to i64
   %112 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %59, i64 %111
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %109, ptr noundef nonnull align 4 dereferenceable(20) %112, i64 20, i1 false)
-  %113 = load i32, ptr %27, align 4
-  %114 = add i32 %113, 1
-  %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %59, i64 %115
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %116, ptr noundef nonnull align 16 dereferenceable(20) %4, i64 20, i1 false)
-  br label %117
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %112, ptr noundef nonnull align 16 dereferenceable(20) %4, i64 20, i1 false)
+  br label %113
 
-117:                                              ; preds = %32, %106, %105, %26, %24
+113:                                              ; preds = %32, %102, %_ZL9hb_memcpyPvPKvm.exit65.thread, %26, %24
   ret void
 }
 

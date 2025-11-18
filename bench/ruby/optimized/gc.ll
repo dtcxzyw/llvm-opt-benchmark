@@ -18961,7 +18961,7 @@ define internal fastcc void @gc_marks_finish(ptr noundef %0) unnamed_addr #0 {
 38:                                               ; preds = %34, %.preheader.i.i
   %39 = add i64 %.06.i.i, 40
   %40 = lshr i64 %.0.i.i, 1
-  %.not10.i.i = icmp ult i64 %.0.i.i, 2
+  %.not10.i.i = icmp eq i64 %40, 0
   br i1 %.not10.i.i, label %gc_marks_wb_unprotected_objects_plane.exit.i, label %.preheader.i.i, !llvm.loop !565
 
 gc_marks_wb_unprotected_objects_plane.exit.i:     ; preds = %38, %.lr.ph.i
@@ -19001,7 +19001,7 @@ gc_marks_wb_unprotected_objects_plane.exit.i:     ; preds = %38, %.lr.ph.i
 55:                                               ; preds = %51, %.preheader.i29.i
   %56 = add i64 %.06.i30.i, 40
   %57 = lshr i64 %.0.i31.i, 1
-  %.not10.i35.i = icmp ult i64 %.0.i31.i, 2
+  %.not10.i35.i = icmp eq i64 %57, 0
   br i1 %.not10.i35.i, label %gc_marks_wb_unprotected_objects_plane.exit36.i, label %.preheader.i29.i, !llvm.loop !565
 
 gc_marks_wb_unprotected_objects_plane.exit36.i:   ; preds = %55, %44
@@ -21265,7 +21265,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rb_gc_impl_location
 73:                                               ; preds = %6, %51, %.preheader
   %74 = add i64 %.0, 40
   %75 = lshr i64 %.029, 1
-  %.not34 = icmp ult i64 %.029, 2
+  %.not34 = icmp eq i64 %75, 0
   br i1 %.not34, label %.loopexit, label %.preheader, !llvm.loop !605
 
 .loopexit:                                        ; preds = %73, %4
@@ -23521,7 +23521,7 @@ heap_move_pooled_pages_to_free_pages.exit.i.i:    ; preds = %328, %rgengc_mark_a
 379:                                              ; preds = %375, %.preheader.i.i.i.i
   %380 = add i64 %.0.i.i.i.i, 40
   %381 = lshr i64 %.07.i.i.i.i, 1
-  %.not11.i.i.i.i = icmp ult i64 %.07.i.i.i.i, 2
+  %.not11.i.i.i.i = icmp eq i64 %381, 0
   br i1 %.not11.i.i.i.i, label %rgengc_rememberset_mark_plane.exit.i.i.i, label %.preheader.i.i.i.i, !llvm.loop !631
 
 rgengc_rememberset_mark_plane.exit.i.i.i:         ; preds = %379, %367
@@ -23558,7 +23558,7 @@ rgengc_rememberset_mark_plane.exit.i.i.i:         ; preds = %379, %367
 393:                                              ; preds = %389, %.preheader.i39.i.i.i
   %394 = add i64 %.0.i41.i.i.i, 40
   %395 = lshr i64 %.07.i40.i.i.i, 1
-  %.not11.i45.i.i.i = icmp ult i64 %.07.i40.i.i.i, 2
+  %.not11.i45.i.i.i = icmp eq i64 %395, 0
   br i1 %.not11.i45.i.i.i, label %rgengc_rememberset_mark_plane.exit46.i.i.i, label %.preheader.i39.i.i.i, !llvm.loop !631
 
 rgengc_rememberset_mark_plane.exit46.i.i.i:       ; preds = %393, %385

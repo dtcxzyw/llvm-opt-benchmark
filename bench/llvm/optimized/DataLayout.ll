@@ -5003,7 +5003,7 @@ define dso_local noundef i32 @_ZNK4llvm10DataLayout24getPointerTypeSizeInBitsEPN
 _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %2, %7
   %11 = phi i32 [ %.pre, %7 ], [ %4, %2 ]
   %12 = lshr i32 %11, 8
-  %.not.i.i = icmp ult i32 %11, 256
+  %.not.i.i = icmp eq i32 %12, 0
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 272
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !85
   br i1 %.not.i.i, label %_ZNK4llvm10DataLayout20getPointerSizeInBitsEj.exit, label %13
@@ -5130,7 +5130,7 @@ define dso_local noundef i32 @_ZNK4llvm10DataLayout22getIndexTypeSizeInBitsEPNS_
 _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %2, %7
   %11 = phi i32 [ %.pre, %7 ], [ %4, %2 ]
   %12 = lshr i32 %11, 8
-  %.not.i.i = icmp ult i32 %11, 256
+  %.not.i.i = icmp eq i32 %12, 0
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 272
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !85
   br i1 %.not.i.i, label %_ZNK4llvm10DataLayout18getIndexSizeInBitsEj.exit, label %13
@@ -5226,7 +5226,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 12:                                               ; preds = %tailrecurse
   %13 = lshr i32 %6, 8
-  %.not.i.i = icmp ult i32 %6, 256
+  %.not.i.i = icmp eq i32 %13, 0
   %.phi.trans.insert.i.i52 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %.pre.i.i53 = load ptr, ptr %.phi.trans.insert.i.i52, align 8, !tbaa !85
   br i1 %2, label %14, label %30
@@ -5544,12 +5544,12 @@ _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout13PrimitiveSpecELj10EEER
   %137 = tail call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef nonnull %.tr130)
   %.fca.0.extract.i96 = extractvalue { i64, i8 } %137, 0
   %138 = add i64 %.fca.0.extract.i96, 7
-  %or.cond.i93 = icmp ult i64 %138, 8
-  br i1 %or.cond.i93, label %_ZN4llvm12PowerOf2CeilEm.exit, label %139
+  %139 = lshr i64 %138, 3
+  %or.cond.i93 = icmp eq i64 %139, 0
+  br i1 %or.cond.i93, label %_ZN4llvm12PowerOf2CeilEm.exit, label %140
 
-139:                                              ; preds = %136
-  %140 = lshr i64 %138, 3
-  %141 = add nsw i64 %140, -1
+140:                                              ; preds = %136
+  %141 = add nsw i64 %139, -1
   %142 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %141, i1 false)
   %143 = trunc nuw nsw i64 %142 to i8
   %144 = sub nuw nsw i8 64, %143
@@ -5562,8 +5562,8 @@ _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout13PrimitiveSpecELj10EEER
 147:                                              ; preds = %tailrecurse
   unreachable
 
-_ZN4llvm12PowerOf2CeilEm.exit:                    ; preds = %tailrecurse, %139, %136, %111, %108, %133, %105, %49, %_ZNK4llvm10DataLayout22getPointerABIAlignmentEj.exit, %_ZNK4llvm10DataLayout23getPointerPrefAlignmentEj.exit, %8, %10, %_ZNK4llvm10DataLayout19getIntegerAlignmentEjb.exit, %_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE.exit
-  %.sroa.0118.0 = phi i8 [ %.sroa.0.0.copyload.i, %8 ], [ %.sroa.0.0.copyload.i51, %10 ], [ %.sroa.speculated, %_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE.exit ], [ %.sroa.0.0.copyload.i79, %_ZNK4llvm10DataLayout19getIntegerAlignmentEjb.exit ], [ %.sroa.0.0.copyload.i75, %_ZNK4llvm10DataLayout23getPointerPrefAlignmentEj.exit ], [ %.sroa.0.0.copyload.i54, %_ZNK4llvm10DataLayout22getPointerABIAlignmentEj.exit ], [ 0, %49 ], [ %107, %105 ], [ %135, %133 ], [ %115, %111 ], [ -1, %108 ], [ %144, %139 ], [ -1, %136 ], [ 6, %tailrecurse ]
+_ZN4llvm12PowerOf2CeilEm.exit:                    ; preds = %tailrecurse, %140, %136, %111, %108, %133, %105, %49, %_ZNK4llvm10DataLayout22getPointerABIAlignmentEj.exit, %_ZNK4llvm10DataLayout23getPointerPrefAlignmentEj.exit, %8, %10, %_ZNK4llvm10DataLayout19getIntegerAlignmentEjb.exit, %_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE.exit
+  %.sroa.0118.0 = phi i8 [ %.sroa.0.0.copyload.i, %8 ], [ %.sroa.0.0.copyload.i51, %10 ], [ %.sroa.speculated, %_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE.exit ], [ %.sroa.0.0.copyload.i79, %_ZNK4llvm10DataLayout19getIntegerAlignmentEjb.exit ], [ %.sroa.0.0.copyload.i75, %_ZNK4llvm10DataLayout23getPointerPrefAlignmentEj.exit ], [ %.sroa.0.0.copyload.i54, %_ZNK4llvm10DataLayout22getPointerABIAlignmentEj.exit ], [ 0, %49 ], [ %107, %105 ], [ %135, %133 ], [ %115, %111 ], [ -1, %108 ], [ %144, %140 ], [ -1, %136 ], [ 6, %tailrecurse ]
   ret i8 %.sroa.0118.0
 }
 
@@ -5602,7 +5602,7 @@ define linkonce_odr hidden { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBits
 
 _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
   %10 = lshr i32 %5, 8
-  %.not.i.i = icmp ult i32 %5, 256
+  %.not.i.i = icmp eq i32 %10, 0
   %.phi.trans.insert.i.i65 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %.pre.i.i66 = load ptr, ptr %.phi.trans.insert.i.i65, align 8, !tbaa !85
   br i1 %.not.i.i, label %_ZNK4llvm10DataLayout20getPointerSizeInBitsEj.exit, label %11
@@ -5858,7 +5858,7 @@ define dso_local noundef ptr @_ZNK4llvm10DataLayout13getIntPtrTypeEPNS_4TypeE(pt
 _ZNK4llvm4Type13getScalarTypeEv.exit.i:           ; preds = %7, %2
   %11 = phi i32 [ %.pre.i, %7 ], [ %4, %2 ]
   %12 = lshr i32 %11, 8
-  %.not.i.i.i = icmp ult i32 %11, 256
+  %.not.i.i.i = icmp eq i32 %12, 0
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 272
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !85
   br i1 %.not.i.i.i, label %_ZNK4llvm10DataLayout24getPointerTypeSizeInBitsEPNS_4TypeE.exit, label %13
@@ -6076,7 +6076,7 @@ define dso_local noundef ptr @_ZNK4llvm10DataLayout12getIndexTypeEPNS_4TypeE(ptr
 _ZNK4llvm4Type13getScalarTypeEv.exit.i:           ; preds = %7, %2
   %11 = phi i32 [ %.pre.i, %7 ], [ %4, %2 ]
   %12 = lshr i32 %11, 8
-  %.not.i.i.i = icmp ult i32 %11, 256
+  %.not.i.i.i = icmp eq i32 %12, 0
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 272
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !85
   br i1 %.not.i.i.i, label %_ZNK4llvm10DataLayout22getIndexTypeSizeInBitsEPNS_4TypeE.exit, label %13

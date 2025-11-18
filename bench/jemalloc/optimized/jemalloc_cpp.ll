@@ -1129,7 +1129,7 @@ define dso_local void @_ZdlPvmSt11align_val_t(ptr noundef %0, i64 noundef %1, i6
   %9 = lshr i64 %2, 32
   %10 = trunc nuw i64 %9 to i32
   %cttz.i = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %10, i1 true)
-  %.not.i = icmp ult i64 %2, 4294967296
+  %.not.i = icmp eq i64 %9, 0
   %11 = or disjoint i32 %cttz.i, 32
   %12 = select i1 %.not.i, i32 31, i32 %11
   br label %.thread
@@ -1213,7 +1213,7 @@ define dso_local void @_ZdaPvmSt11align_val_t(ptr noundef %0, i64 noundef %1, i6
   %9 = lshr i64 %2, 32
   %10 = trunc nuw i64 %9 to i32
   %cttz.i = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %10, i1 true)
-  %.not.i = icmp ult i64 %2, 4294967296
+  %.not.i = icmp eq i64 %9, 0
   %11 = or disjoint i32 %cttz.i, 32
   %12 = select i1 %.not.i, i32 31, i32 %11
   br label %.thread

@@ -2793,7 +2793,7 @@ Py_DECREF.exit:                                   ; preds = %34, %.lr.ph, %43, %
 65:                                               ; preds = %57, %60, %63, %55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %66 = lshr i32 %.02238, 1
-  %.not28 = icmp samesign ult i32 %.02238, 2
+  %.not28 = icmp eq i32 %66, 0
   br i1 %.not28, label %.loopexit, label %55, !llvm.loop !218
 
 .loopexit:                                        ; preds = %65, %45

@@ -2020,9 +2020,9 @@ define noundef range(i32 -1073741825, 1073741824) i32 @_ZNK6icu_777Package8findI
   br i1 %7, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %18
-  %.02539.us = phi i32 [ %.1.us, %18 ], [ %5, %.lr.ph ]
-  %.02638.us = phi i32 [ %.127.us, %18 ], [ 0, %.lr.ph ]
-  %11 = add nuw nsw i32 %.02539.us, %.02638.us
+  %.02538.us = phi i32 [ %.1.us, %18 ], [ %5, %.lr.ph ]
+  %.02637.us = phi i32 [ %.127.us, %18 ], [ 0, %.lr.ph ]
+  %11 = add nuw nsw i32 %.02538.us, %.02637.us
   %12 = lshr i32 %11, 1
   %13 = zext nneg i32 %12 to i64
   %14 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %9, i64 %13
@@ -2034,15 +2034,15 @@ define noundef range(i32 -1073741825, 1073741824) i32 @_ZNK6icu_777Package8findI
 18:                                               ; preds = %.lr.ph.split.us
   %19 = icmp slt i32 %16, 0
   %20 = add nuw nsw i32 %12, 1
-  %.127.us = select i1 %19, i32 %.02638.us, i32 %20
-  %.1.us = select i1 %19, i32 %12, i32 %.02539.us
+  %.127.us = select i1 %19, i32 %.02637.us, i32 %20
+  %.1.us = select i1 %19, i32 %12, i32 %.02538.us
   %21 = icmp slt i32 %.127.us, %.1.us
   br i1 %21, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !68
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %38
-  %.02539 = phi i32 [ %.1, %38 ], [ %5, %.lr.ph ]
-  %.02638 = phi i32 [ %.127, %38 ], [ 0, %.lr.ph ]
-  %22 = add nuw nsw i32 %.02539, %.02638
+  %.02538 = phi i32 [ %.1, %38 ], [ %5, %.lr.ph ]
+  %.02637 = phi i32 [ %.127, %38 ], [ 0, %.lr.ph ]
+  %22 = add nuw nsw i32 %.02538, %.02637
   %23 = lshr i32 %22, 1
   %24 = zext nneg i32 %23 to i64
   %25 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %9, i64 %24
@@ -2052,14 +2052,13 @@ define noundef range(i32 -1073741825, 1073741824) i32 @_ZNK6icu_777Package8findI
   br i1 %28, label %.split.us, label %38
 
 .split.us:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
-  %.us-phi = phi i32 [ %11, %.lr.ph.split.us ], [ %22, %.lr.ph.split ]
-  %.us-phi40 = phi i32 [ %12, %.lr.ph.split.us ], [ %23, %.lr.ph.split ]
-  %29 = icmp ugt i32 %.us-phi, 1
+  %.us-phi = phi i32 [ %12, %.lr.ph.split.us ], [ %23, %.lr.ph.split ]
+  %29 = icmp ne i32 %.us-phi, 0
   %or.cond = and i1 %7, %29
   br i1 %or.cond, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %.split.us
-  %30 = zext nneg i32 %.us-phi40 to i64
+  %30 = zext nneg i32 %.us-phi to i64
   br label %31
 
 31:                                               ; preds = %.preheader, %37
@@ -2079,8 +2078,8 @@ define noundef range(i32 -1073741825, 1073741824) i32 @_ZNK6icu_777Package8findI
 38:                                               ; preds = %.lr.ph.split
   %39 = icmp slt i32 %27, 0
   %40 = add nuw nsw i32 %23, 1
-  %.127 = select i1 %39, i32 %.02638, i32 %40
-  %.1 = select i1 %39, i32 %23, i32 %.02539
+  %.127 = select i1 %39, i32 %.02637, i32 %40
+  %.1 = select i1 %39, i32 %23, i32 %.02538
   %41 = icmp slt i32 %.127, %.1
   br i1 %41, label %.lr.ph.split, label %._crit_edge, !llvm.loop !68
 
@@ -2094,7 +2093,7 @@ define noundef range(i32 -1073741825, 1073741824) i32 @_ZNK6icu_777Package8findI
   br label %.critedge
 
 .critedge:                                        ; preds = %37, %.critedge.loopexit.split.loop.exit, %.split.us, %._crit_edge
-  %.030 = phi i32 [ %42, %._crit_edge ], [ %.us-phi40, %.split.us ], [ %43, %.critedge.loopexit.split.loop.exit ], [ 0, %37 ]
+  %.030 = phi i32 [ %42, %._crit_edge ], [ %.us-phi, %.split.us ], [ %43, %.critedge.loopexit.split.loop.exit ], [ 0, %37 ]
   ret i32 %.030
 }
 
@@ -2466,9 +2465,9 @@ define void @_ZN6icu_777Package7addItemEPKcPhiac(ptr noundef nonnull align 8 der
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %19, %.lr.ph.i
-  %.02539.i = phi i32 [ %.1.i, %19 ], [ %8, %.lr.ph.i ]
-  %.02638.i = phi i32 [ %.127.i, %19 ], [ 0, %.lr.ph.i ]
-  %12 = add nuw nsw i32 %.02638.i, %.02539.i
+  %.02538.i = phi i32 [ %.1.i, %19 ], [ %8, %.lr.ph.i ]
+  %.02637.i = phi i32 [ %.127.i, %19 ], [ 0, %.lr.ph.i ]
+  %12 = add nuw nsw i32 %.02637.i, %.02538.i
   %13 = lshr i32 %12, 1
   %14 = zext nneg i32 %13 to i64
   %15 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %11, i64 %14
@@ -2480,8 +2479,8 @@ define void @_ZN6icu_777Package7addItemEPKcPhiac(ptr noundef nonnull align 8 der
 19:                                               ; preds = %.lr.ph.split.i
   %20 = icmp slt i32 %17, 0
   %21 = add nuw nsw i32 %13, 1
-  %.127.i = select i1 %20, i32 %.02638.i, i32 %21
-  %.1.i = select i1 %20, i32 %13, i32 %.02539.i
+  %.127.i = select i1 %20, i32 %.02637.i, i32 %21
+  %.1.i = select i1 %20, i32 %13, i32 %.02538.i
   %22 = icmp slt i32 %.127.i, %.1.i
   br i1 %22, label %.lr.ph.split.i, label %_ZNK6icu_777Package8findItemEPKci.exit.thread27, !llvm.loop !68
 
@@ -3218,9 +3217,9 @@ define void @_ZN6icu_777Package15checkDependencyEPvPKcS3_(ptr noundef captures(n
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %16, %.lr.ph.i
-  %.02539.i = phi i32 [ %.1.i, %16 ], [ %5, %.lr.ph.i ]
-  %.02638.i = phi i32 [ %.127.i, %16 ], [ 0, %.lr.ph.i ]
-  %9 = add nuw nsw i32 %.02638.i, %.02539.i
+  %.02538.i = phi i32 [ %.1.i, %16 ], [ %5, %.lr.ph.i ]
+  %.02637.i = phi i32 [ %.127.i, %16 ], [ 0, %.lr.ph.i ]
+  %9 = add nuw nsw i32 %.02637.i, %.02538.i
   %10 = lshr i32 %9, 1
   %11 = zext nneg i32 %10 to i64
   %12 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %8, i64 %11
@@ -3232,8 +3231,8 @@ define void @_ZN6icu_777Package15checkDependencyEPvPKcS3_(ptr noundef captures(n
 16:                                               ; preds = %.lr.ph.split.i
   %17 = icmp slt i32 %14, 0
   %18 = add nuw nsw i32 %10, 1
-  %.127.i = select i1 %17, i32 %.02638.i, i32 %18
-  %.1.i = select i1 %17, i32 %10, i32 %.02539.i
+  %.127.i = select i1 %17, i32 %.02637.i, i32 %18
+  %.1.i = select i1 %17, i32 %10, i32 %.02538.i
   %19 = icmp slt i32 %.127.i, %.1.i
   br i1 %19, label %.lr.ph.split.i, label %_ZNK6icu_777Package8findItemEPKci.exit.thread7, !llvm.loop !68
 

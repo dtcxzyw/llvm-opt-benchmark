@@ -520,7 +520,7 @@ _ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit: ; preds = %_ZN
   %64 = uitofp nneg i32 %63 to float
   %.not38.i = icmp eq i64 %10, 0
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  br i1 %.not38.i, label %._crit_edge88.thread156, label %.lr.ph.us.i
+  br i1 %.not38.i, label %._crit_edge88.thread157, label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %.lr.ph36.i, %._crit_edge.us.i
   %.02734.us.i = phi i64 [ %85, %._crit_edge.us.i ], [ 0, %.lr.ph36.i ]
@@ -560,8 +560,8 @@ _ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit: ; preds = %_ZN
 
 .lr.ph87:                                         ; preds = %._crit_edge.us.i
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.not160 = icmp eq i64 %10, 1
-  br i1 %.not160, label %._crit_edge88.thread, label %.lr.ph.i.us
+  %.not161 = icmp eq i64 %10, 1
+  br i1 %.not161, label %._crit_edge88.thread, label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph87, %_ZN5o3dgc9TransformEPlm.exit.loopexit.us
   %.05986.us = phi i64 [ %152, %_ZN5o3dgc9TransformEPlm.exit.loopexit.us ], [ 0, %.lr.ph87 ]
@@ -831,7 +831,7 @@ _ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit74: ; preds = %
   %214 = icmp eq i32 %213, 1
   br i1 %214, label %.preheader83, label %288
 
-._crit_edge88.thread156:                          ; preds = %.lr.ph36.i
+._crit_edge88.thread157:                          ; preds = %.lr.ph36.i
   %215 = load i32, ptr %11, align 8
   %216 = icmp eq i32 %215, 1
   br i1 %216, label %.loopexit.thread, label %288
@@ -964,7 +964,7 @@ _ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.us:       ; preds = %258, %._crit_edge.i
   %265 = shl i8 %.0.tr.i.us, 1
   %266 = and i8 %265, 126
   %267 = lshr i64 %.0.i.us, 6
-  %268 = icmp ugt i64 %.0.i.us, 63
+  %268 = icmp ne i64 %267, 0
   %269 = zext i1 %268 to i8
   %270 = or disjoint i8 %266, %269
   %271 = load i64, ptr %6, align 8
@@ -1019,43 +1019,43 @@ _ZN5o3dgc12BinaryStream14WriteUIntASCIIEm.exit.us: ; preds = %_ZN5o3dgc6VectorIh
   %exitcond109.not = icmp eq i64 %287, %10
   br i1 %exitcond109.not, label %.loopexit, label %.preheader.us, !llvm.loop !17
 
-288:                                              ; preds = %._crit_edge88.thread156, %._crit_edge88.thread, %._crit_edge88
+288:                                              ; preds = %._crit_edge88.thread157, %._crit_edge88.thread, %._crit_edge88
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
   %289 = call noundef i32 @_ZN5o3dgc20DynamicVectorEncoder8EncodeACEmmmRm(ptr noundef nonnull align 8 dereferenceable(60) %0, i64 noundef %10, i64 noundef %9, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %5)
   %290 = load i64, ptr %5, align 8
   %291 = icmp ugt i64 %290, 4294967295
-  br i1 %291, label %._crit_edge165, label %.lr.ph164
+  br i1 %291, label %._crit_edge166, label %.lr.ph165
 
-.lr.ph164:                                        ; preds = %288, %294
+.lr.ph165:                                        ; preds = %288, %294
   %292 = phi i64 [ %297, %294 ], [ %290, %288 ]
-  %.05590162 = phi i64 [ %295, %294 ], [ 1, %288 ]
-  %293 = icmp samesign ult i64 %.05590162, 512
-  br i1 %293, label %294, label %._crit_edge166, !llvm.loop !18
+  %.05590163 = phi i64 [ %295, %294 ], [ 1, %288 ]
+  %293 = icmp samesign ult i64 %.05590163, 512
+  br i1 %293, label %294, label %._crit_edge167, !llvm.loop !18
 
-294:                                              ; preds = %.lr.ph164
-  %295 = shl nuw nsw i64 %.05590162, 1
+294:                                              ; preds = %.lr.ph165
+  %295 = shl nuw nsw i64 %.05590163, 1
   %296 = call noundef i32 @_ZN5o3dgc20DynamicVectorEncoder8EncodeACEmmmRm(ptr noundef nonnull align 8 dereferenceable(60) %0, i64 noundef %10, i64 noundef %9, i64 noundef %295, ptr noundef nonnull align 8 dereferenceable(8) %5)
   %297 = load i64, ptr %5, align 8
   %298 = icmp ugt i64 %297, %292
-  br i1 %298, label %._crit_edge165, label %.lr.ph164, !llvm.loop !18
+  br i1 %298, label %._crit_edge166, label %.lr.ph165, !llvm.loop !18
 
-._crit_edge166:                                   ; preds = %.lr.ph164
-  br label %._crit_edge165, !llvm.loop !18
+._crit_edge167:                                   ; preds = %.lr.ph165
+  br label %._crit_edge166, !llvm.loop !18
 
-._crit_edge165:                                   ; preds = %294, %._crit_edge166, %288
-  %.054.lcssa = phi i64 [ %.05590162, %._crit_edge166 ], [ 1, %288 ], [ %.05590162, %294 ]
+._crit_edge166:                                   ; preds = %294, %._crit_edge167, %288
+  %.054.lcssa = phi i64 [ %.05590163, %._crit_edge167 ], [ 1, %288 ], [ %.05590163, %294 ]
   %299 = call noundef i32 @_ZN5o3dgc20DynamicVectorEncoder8EncodeACEmmmRm(ptr noundef nonnull align 8 dereferenceable(60) %0, i64 noundef %10, i64 noundef %9, i64 noundef %.054.lcssa, ptr noundef nonnull align 8 dereferenceable(8) %5)
   %300 = load i64, ptr %5, align 8
   %.not101 = icmp eq i64 %300, 0
   br i1 %.not101, label %._crit_edge95, label %.lr.ph94
 
-.lr.ph94:                                         ; preds = %._crit_edge165
+.lr.ph94:                                         ; preds = %._crit_edge166
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %302 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %303
 
-._crit_edge95:                                    ; preds = %_ZN5o3dgc12BinaryStream14WriteUChar8BinEh.exit, %._crit_edge165
+._crit_edge95:                                    ; preds = %_ZN5o3dgc12BinaryStream14WriteUChar8BinEh.exit, %._crit_edge166
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
@@ -1108,7 +1108,7 @@ _ZN5o3dgc12BinaryStream14WriteUChar8BinEh.exit:   ; preds = %._crit_edge.i.i75, 
   %exitcond107.not = icmp eq i64 %322, %300
   br i1 %exitcond107.not, label %._crit_edge95, label %303, !llvm.loop !19
 
-.loopexit.thread:                                 ; preds = %.preheader83, %._crit_edge88.thread156
+.loopexit.thread:                                 ; preds = %.preheader83, %._crit_edge88.thread157
   %323 = load i64, ptr %6, align 8
   %324 = sub i64 %323, %7
   br label %.preheader.i.preheader

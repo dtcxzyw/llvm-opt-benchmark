@@ -105,7 +105,7 @@ common.resume:                                    ; preds = %.thread55, %14
   %36 = lshr i64 %35, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
-  %.not.i.i = icmp ult i64 %35, 2
+  %.not.i.i = icmp eq i64 %36, 0
   br i1 %.not.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17he5995102f50757f1E.exit35", label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %28
@@ -173,7 +173,7 @@ common.resume:                                    ; preds = %.thread55, %14
   %62 = lshr i64 %60, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !66)
   call void @llvm.experimental.noalias.scope.decl(metadata !69)
-  %.not.i.i36 = icmp ugt i64 %59, -3
+  %.not.i.i36 = icmp eq i64 %62, 0
   br i1 %.not.i.i36, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17he5995102f50757f1E.exit41", label %.lr.ph.preheader.i.i37
 
 .lr.ph.preheader.i.i37:                           ; preds = %54

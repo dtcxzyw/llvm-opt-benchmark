@@ -279,11 +279,11 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19X86SelectionDAGInfo25isBaseRegCo
   %24 = load i32, ptr %23, align 4, !tbaa !275
   %.idx4.i = shl nuw nsw i64 %3, 1
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx4.i
-  %.not.i = icmp ult i64 %3, 4
+  %26 = lshr i64 %3, 2
+  %.not.i = icmp eq i64 %26, 0
   br i1 %.not.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %16
-  %26 = lshr i64 %3, 2
   %27 = and i64 %.idx4.i, 9223372036854775800
   %scevgep.i.i.i.i = getelementptr i8, ptr %2, i64 %27
   br label %28
@@ -330,11 +330,10 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19X86SelectionDAGInfo25isBaseRegCo
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %16
   %.pre-phi56.i.i.i.i = phi i64 [ %51, %._crit_edge.loopexit.i.i.i.i ], [ %3, %16 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %2, %16 ]
-  switch i64 %.pre-phi56.i.i.i.i, label %default.unreachable [
+  switch i64 %.pre-phi56.i.i.i.i, label %66 [
     i64 3, label %52
     i64 2, label %._crit_edge._crit_edge.i.i.i.i
     i64 1, label %._crit_edge._crit_edge52.i.i.i.i
-    i64 0, label %66
   ]
 
 52:                                               ; preds = %._crit_edge.i.i.i.i
@@ -364,9 +363,6 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19X86SelectionDAGInfo25isBaseRegCo
   %64 = zext i16 %63 to i32
   %65 = icmp eq i32 %24, %64
   br i1 %65, label %_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit, label %66
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
-  unreachable
 
 66:                                               ; preds = %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge.i.i.i.i
   br label %_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit

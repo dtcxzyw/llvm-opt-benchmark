@@ -16519,7 +16519,7 @@ _ZN2cv15EstimatedCircleC2EOS0_.exit.i.i:          ; preds = %31, %._crit_edge.i.
 41:                                               ; preds = %.lr.ph.i.i.i
   %42 = getelementptr inbounds %"struct.cv::EstimatedCircle", ptr %0, i64 %.018.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %42, ptr noundef nonnull align 4 dereferenceable(16) %39, i64 16, i1 false)
-  %.not12.i = icmp ult i64 %.0919.in.i.i.i, 2
+  %.not12.i = icmp eq i64 %.0919.i.i1011.i, 0
   br i1 %.not12.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv15EstimatedCircleESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !416
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv15EstimatedCircleESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit: ; preds = %.lr.ph.i.i.i, %41, %_ZN2cv15EstimatedCircleC2EOS0_.exit.i.i
@@ -17229,7 +17229,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv12hough_cmp_gtEEclINS_17__normal_iterato
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv12hough_cmp_gtEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEEbT_RT0_.exit.thread.i.i.i19.us: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv12hough_cmp_gtEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEEbT_RT0_.exit.i.i.i18.us, %.lr.ph.i.i.i15.us
   %127 = getelementptr inbounds nuw i32, ptr %.fr52, i64 %.019.i.i.i16.us
   store i32 %118, ptr %127, align 4, !tbaa !49
-  %.not.i20.us = icmp ult i64 %.0920.in.i.i.i17.us, 2
+  %.not.i20.us = icmp eq i64 %.0920.i.i67.i.us, 0
   br i1 %.not.i20.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN2cv12hough_cmp_gtEEEEvT_SC_SC_RT0_.exit.us, label %.lr.ph.i.i.i15.us, !llvm.loop !427
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN2cv12hough_cmp_gtEEEEvT_SC_SC_RT0_.exit.us: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv12hough_cmp_gtEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEEbT_RT0_.exit.i.i.i18.us, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv12hough_cmp_gtEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEEbT_RT0_.exit.thread.i.i.i19.us, %115
@@ -17467,7 +17467,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv12hough_cmp_gtEEclINS_17__normal_iterato
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv12hough_cmp_gtEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEEbT_RT0_.exit.thread.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv12hough_cmp_gtEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEEbT_RT0_.exit.i.i.i, %56
   %67 = getelementptr inbounds nuw i32, ptr %0, i64 %.019.i.i.i
   store i32 %58, ptr %67, align 4, !tbaa !49
-  %.not.i = icmp ult i64 %.0920.in.i.i.i, 2
+  %.not.i = icmp eq i64 %.0920.i.i67.i, 0
   br i1 %.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN2cv12hough_cmp_gtEEEEvT_SC_SC_RT0_.exit, label %56, !llvm.loop !427
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN2cv12hough_cmp_gtEEEEvT_SC_SC_RT0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv12hough_cmp_gtEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEEbT_RT0_.exit.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv12hough_cmp_gtEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEEbT_RT0_.exit.thread.i.i.i, %52

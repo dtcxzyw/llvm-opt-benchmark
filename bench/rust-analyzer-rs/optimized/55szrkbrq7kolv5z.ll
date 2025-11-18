@@ -46198,7 +46198,7 @@ define void @_ZN7hir_def10item_scope9ItemScope20fully_resolve_import17h04a7565ed
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.sroa.0187.4.extract.shift = lshr i64 %65, 32
-  %66 = icmp ult i64 %65, 4294967296
+  %66 = icmp eq i64 %.sroa.0187.4.extract.shift, 0
   %.sink5.i = select i1 %66, i64 928, i64 936
   %.sink.i.v = select i1 %66, i64 %65, i64 %.sroa.0187.4.extract.shift
   %.sink.i = trunc i64 %.sink.i.v to i32
@@ -46467,7 +46467,7 @@ _ZN7hir_def8ModuleId7def_map17h12ba535c1628be3bE.exit: ; preds = %"_ZN53_$LT$hir
   %.sroa.234.0.copyload = load i32, ptr %.sroa.234.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.sroa.0189.4.extract.shift = lshr i64 %167, 32
-  %168 = icmp ult i64 %167, 4294967296
+  %168 = icmp eq i64 %.sroa.0189.4.extract.shift, 0
   %.sink5.i132 = select i1 %168, i64 928, i64 936
   %.sink.i133.v = select i1 %168, i64 %167, i64 %.sroa.0189.4.extract.shift
   %.sink.i133 = trunc i64 %.sink.i133.v to i32
@@ -46634,7 +46634,7 @@ _ZN7hir_def8ModuleId7def_map17h12ba535c1628be3bE.exit135: ; preds = %"_ZN53_$LT$
   %.sroa.270.0.copyload = load i32, ptr %.sroa.270.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.0191.4.extract.shift = lshr i64 %237, 32
-  %238 = icmp ult i64 %237, 4294967296
+  %238 = icmp eq i64 %.sroa.0191.4.extract.shift, 0
   %.sink5.i162 = select i1 %238, i64 928, i64 936
   %.sink.i163.v = select i1 %238, i64 %237, i64 %.sroa.0191.4.extract.shift
   %.sink.i163 = trunc i64 %.sink.i163.v to i32

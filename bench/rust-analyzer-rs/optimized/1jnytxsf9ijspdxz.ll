@@ -2109,7 +2109,7 @@ default.unreachable:                              ; preds = %3
           cleanup
   br label %.loopexit.split-lp.i
 
-.loopexit.split-lp.loopexit.split-lp.i:           ; preds = %.invoke.i, %.invoke124.i, %36
+.loopexit.split-lp.loopexit.split-lp.i:           ; preds = %.invoke.i, %.invoke125.i, %36
   %lpad.loopexit.split-lp28.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i
@@ -2175,15 +2175,12 @@ default.unreachable:                              ; preds = %3
 "_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h3d35c29f1b710082E.exit.i": ; preds = %36
   %41 = load ptr, ptr %39, align 8, !noalias !362, !nonnull !4, !noundef !4
   %42 = load i64, ptr %40, align 8, !noalias !362, !noundef !4
-  %.not42.i.i = icmp ult i64 %42, 2
-  br i1 %.not42.i.i, label %_ZN9itertools11kmerge_impl9kmerge_by17hece85c68fe830346E.exit, label %.lr.ph.preheader.i.i
-
-.lr.ph.preheader.i.i:                             ; preds = %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h3d35c29f1b710082E.exit.i"
   %43 = lshr i64 %42, 1
-  br label %.lr.ph.i.i
+  %.not42.i.i = icmp eq i64 %43, 0
+  br i1 %.not42.i.i, label %_ZN9itertools11kmerge_impl9kmerge_by17hece85c68fe830346E.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %_ZN9itertools11kmerge_impl9sift_down17h7151daf871180a6fE.exit.i.i, %.lr.ph.preheader.i.i
-  %.sroa.4.043.i.i = phi i64 [ %44, %_ZN9itertools11kmerge_impl9sift_down17h7151daf871180a6fE.exit.i.i ], [ %43, %.lr.ph.preheader.i.i ]
+.lr.ph.i.i:                                       ; preds = %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h3d35c29f1b710082E.exit.i", %_ZN9itertools11kmerge_impl9sift_down17h7151daf871180a6fE.exit.i.i
+  %.sroa.4.043.i.i = phi i64 [ %44, %_ZN9itertools11kmerge_impl9sift_down17h7151daf871180a6fE.exit.i.i ], [ %43, %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h3d35c29f1b710082E.exit.i" ]
   %44 = add nsw i64 %.sroa.4.043.i.i, -1
   %.031.in57.i.i.i = shl nuw i64 %44, 1
   %.03158.i.i.i = or disjoint i64 %.031.in57.i.i.i, 1
@@ -2264,7 +2261,7 @@ default.unreachable:                              ; preds = %3
 .noexc9.i:                                        ; preds = %.noexc8.i
   %72 = xor i32 %.0.i.i.i.i5.i.i, -1
   %.not.i.i.i.i8.i.i = icmp ugt i32 %71, %72
-  br i1 %.not.i.i.i.i8.i.i, label %.invoke124.i, label %"_ZN5rowan3api19SyntaxNode$LT$L$GT$10text_range17hea5d18bcec1fadcdE.exit.i.i9.i.i"
+  br i1 %.not.i.i.i.i8.i.i, label %.invoke125.i, label %"_ZN5rowan3api19SyntaxNode$LT$L$GT$10text_range17hea5d18bcec1fadcdE.exit.i.i9.i.i"
 
 "_ZN5rowan3api19SyntaxNode$LT$L$GT$10text_range17hea5d18bcec1fadcdE.exit.i.i9.i.i": ; preds = %.noexc9.i
   call void @llvm.experimental.noalias.scope.decl(metadata !409), !noalias !400
@@ -2294,7 +2291,7 @@ default.unreachable:                              ; preds = %3
 .noexc12.i:                                       ; preds = %.noexc11.i
   %84 = xor i32 %.0.i.i6.i.i10.i.i, -1
   %.not.i.i9.i.i13.i.i = icmp ugt i32 %83, %84
-  br i1 %.not.i.i9.i.i13.i.i, label %.invoke124.i, label %"_ZN70_$LT$F$u20$as$u20$itertools..kmerge_impl..KMergePredicate$LT$T$GT$$GT$11kmerge_pred17h9218f4af340a7214E.exit14.i.i"
+  br i1 %.not.i.i9.i.i13.i.i, label %.invoke125.i, label %"_ZN70_$LT$F$u20$as$u20$itertools..kmerge_impl..KMergePredicate$LT$T$GT$$GT$11kmerge_pred17h9218f4af340a7214E.exit14.i.i"
 
 "_ZN70_$LT$F$u20$as$u20$itertools..kmerge_impl..KMergePredicate$LT$T$GT$$GT$11kmerge_pred17h9218f4af340a7214E.exit14.i.i": ; preds = %.noexc12.i
   %85 = icmp ult i32 %71, %83
@@ -2341,7 +2338,7 @@ default.unreachable:                              ; preds = %3
 .noexc17.i:                                       ; preds = %.noexc16.i
   %105 = xor i32 %.0.i.i.i.i.i.i, -1
   %.not.i.i.i.i.i.i = icmp ugt i32 %104, %105
-  br i1 %.not.i.i.i.i.i.i, label %.invoke124.i, label %"_ZN5rowan3api19SyntaxNode$LT$L$GT$10text_range17hea5d18bcec1fadcdE.exit.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i, label %.invoke125.i, label %"_ZN5rowan3api19SyntaxNode$LT$L$GT$10text_range17hea5d18bcec1fadcdE.exit.i.i.i.i"
 
 "_ZN5rowan3api19SyntaxNode$LT$L$GT$10text_range17hea5d18bcec1fadcdE.exit.i.i.i.i": ; preds = %.noexc17.i
   call void @llvm.experimental.noalias.scope.decl(metadata !431), !noalias !400
@@ -2371,13 +2368,13 @@ default.unreachable:                              ; preds = %3
 .noexc20.i:                                       ; preds = %.noexc19.i
   %117 = xor i32 %.0.i.i6.i.i.i.i, -1
   %.not.i.i9.i.i.i.i = icmp ugt i32 %116, %117
-  br i1 %.not.i.i9.i.i.i.i, label %.invoke124.i, label %"_ZN70_$LT$F$u20$as$u20$itertools..kmerge_impl..KMergePredicate$LT$T$GT$$GT$11kmerge_pred17h9218f4af340a7214E.exit.i.i"
+  br i1 %.not.i.i9.i.i.i.i, label %.invoke125.i, label %"_ZN70_$LT$F$u20$as$u20$itertools..kmerge_impl..KMergePredicate$LT$T$GT$$GT$11kmerge_pred17h9218f4af340a7214E.exit.i.i"
 
-.invoke124.i:                                     ; preds = %.noexc20.i, %.noexc17.i, %.noexc12.i, %.noexc9.i
+.invoke125.i:                                     ; preds = %.noexc20.i, %.noexc17.i, %.noexc12.i, %.noexc9.i
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.319a3d6604440c4eab68519ce8ac11de.18.llvm.3712155024907033177, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.319a3d6604440c4eab68519ce8ac11de.20.llvm.3712155024907033177) #26
-          to label %.cont125.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !362
+          to label %.cont126.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !362
 
-.cont125.i:                                       ; preds = %.invoke124.i
+.cont126.i:                                       ; preds = %.invoke125.i
   unreachable
 
 "_ZN70_$LT$F$u20$as$u20$itertools..kmerge_impl..KMergePredicate$LT$T$GT$$GT$11kmerge_pred17h9218f4af340a7214E.exit.i.i": ; preds = %.noexc20.i

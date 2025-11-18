@@ -435,7 +435,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73: ; preds = %121
   br i1 %135, label %_ZNK4i18n12phonenumbers11AreaCodeMap12BinarySearchEiil.exit, label %_ZNK4i18n12phonenumbers11AreaCodeMap12BinarySearchEiil.exit.thread
 
 _ZNK4i18n12phonenumbers11AreaCodeMap12BinarySearchEiil.exit: ; preds = %..thread_crit_edge36.i
-  %138 = icmp ult i32 %129, 2
+  %138 = icmp eq i32 %130, 0
   br i1 %138, label %151, label %_ZNK4i18n12phonenumbers11AreaCodeMap12BinarySearchEiil.exit.thread
 
 139:                                              ; preds = %.lr.ph.i

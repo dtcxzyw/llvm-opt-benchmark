@@ -678,7 +678,7 @@ _ZN6icu_77L14getCharCatNameEi.exit:               ; preds = %_ZN6icu_77L10getCha
   %.04870 = phi i32 [ %42, %.lr.ph73 ], [ %0, %40 ]
   %41 = add nuw nsw i32 %.04771, 1
   %42 = ashr i32 %.04870, 4
-  %.not60 = icmp ult i32 %.04870, 16
+  %.not60 = icmp eq i32 %42, 0
   br i1 %.not60, label %._crit_edge74.loopexit, label %.lr.ph73, !llvm.loop !40
 
 ._crit_edge74.loopexit:                           ; preds = %.lr.ph73
@@ -709,7 +709,7 @@ _ZN6icu_77L14getCharCatNameEi.exit:               ; preds = %_ZN6icu_77L10getCha
   store i8 %50, ptr %51, align 1, !tbaa !26
   %52 = ashr i32 %.14979, 4
   %53 = add i16 %.478, -1
-  %54 = icmp ugt i32 %.14979, 15
+  %54 = icmp ne i32 %52, 0
   %55 = icmp sgt i64 %indvars.iv, 1
   %or.cond = or i1 %54, %55
   %56 = icmp ne i16 %53, 0

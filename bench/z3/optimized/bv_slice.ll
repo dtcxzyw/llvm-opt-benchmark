@@ -2368,11 +2368,11 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.
   store ptr %852, ptr %871, align 8, !tbaa !41
   %872 = add i32 %867, 1
   store i32 %872, ptr %869, align 4, !tbaa !54
-  %.not.i210 = icmp ult i32 %872, 2
+  %873 = lshr i32 %872, 1
+  %.not.i210 = icmp eq i32 %873, 0
   br i1 %.not.i210, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i211, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i
-  %873 = lshr i32 %872, 1
   %wide.trip.count.i = zext nneg i32 %873 to i64
   br label %.lr.ph.i
 

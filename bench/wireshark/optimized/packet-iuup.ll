@@ -3015,7 +3015,7 @@ define internal i32 @dissect_iuup(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %56 = tail call zeroext i16 @crc6_compute_tvb(ptr noundef %.039, i32 noundef 2)
   %57 = zext i16 %56 to i32
   %58 = tail call ptr @proto_tree_add_checksum(ptr noundef %.041, ptr noundef %.039, i32 noundef 2, i32 noundef %55, i32 noundef -1, ptr noundef nonnull @ei_iuup_hdr_crc_bad, ptr noundef %1, i32 noundef %57, i32 noundef 0, i32 noundef 1)
-  %59 = icmp ult i8 %25, 16
+  %59 = icmp eq i8 %26, 0
   br i1 %59, label %60, label %61
 
 60:                                               ; preds = %52

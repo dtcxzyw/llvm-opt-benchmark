@@ -488,8 +488,8 @@ _ZNSt6vectorIN8rawspeed10RawDecoder8RawSliceESaIS2_EE9push_backERKS2_.exit: ; pr
   br i1 %90, label %49, label %._crit_edge, !llvm.loop !143
 
 ._crit_edge.thread:                               ; preds = %43, %._crit_edge
-  %.sroa.0122.0.lcssa215 = phi ptr [ %.sroa.0122.3, %._crit_edge ], [ null, %43 ]
-  %.sroa.20.0.lcssa213 = phi ptr [ %.sroa.20.3, %._crit_edge ], [ null, %43 ]
+  %.sroa.0122.0.lcssa216 = phi ptr [ %.sroa.0122.3, %._crit_edge ], [ null, %43 ]
+  %.sroa.20.0.lcssa214 = phi ptr [ %.sroa.20.3, %._crit_edge ], [ null, %43 ]
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.6, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed10RawDecoder18decodeUncompressedEPKNS_7TiffIFDENS_8BitOrderE) #22
           to label %91 unwind label %92
 
@@ -497,8 +497,8 @@ _ZNSt6vectorIN8rawspeed10RawDecoder8RawSliceESaIS2_EE9push_backERKS2_.exit: ; pr
   unreachable
 
 92:                                               ; preds = %94, %._crit_edge.thread
-  %.sroa.0122.0.lcssa214 = phi ptr [ %.sroa.0122.3, %94 ], [ %.sroa.0122.0.lcssa215, %._crit_edge.thread ]
-  %.sroa.20.0.lcssa212 = phi ptr [ %.sroa.20.3, %94 ], [ %.sroa.20.0.lcssa213, %._crit_edge.thread ]
+  %.sroa.0122.0.lcssa215 = phi ptr [ %.sroa.0122.3, %94 ], [ %.sroa.0122.0.lcssa216, %._crit_edge.thread ]
+  %.sroa.20.0.lcssa213 = phi ptr [ %.sroa.20.3, %94 ], [ %.sroa.20.0.lcssa214, %._crit_edge.thread ]
   %93 = landingpad { ptr, i32 }
           cleanup
   br label %210
@@ -554,7 +554,7 @@ _ZNSt6vectorIN8rawspeed10RawDecoder8RawSliceESaIS2_EED2Ev.exit: ; preds = %._cri
   %120 = trunc i64 %119 to i32
   %121 = mul i32 %13, %120
   %122 = lshr i32 %121, 3
-  %.not87 = icmp ult i32 %121, 8
+  %.not87 = icmp eq i32 %122, 0
   br i1 %.not87, label %123, label %127
 
 123:                                              ; preds = %111
@@ -773,8 +773,8 @@ _ZN8rawspeed24UncompressedDecompressorD2Ev.exit:  ; preds = %176, %185, %_ZN9__g
   br label %210
 
 210:                                              ; preds = %.loopexit, %.loopexit.split-lp, %125, %209, %92
-  %.sroa.20.0163 = phi ptr [ %.sroa.20.0.lcssa212, %92 ], [ %.sroa.20.3, %209 ], [ %.sroa.20.3, %125 ], [ %.sroa.20.0166.lcssa, %.loopexit ], [ %.sroa.20.0166183, %.loopexit.split-lp ]
-  %.sroa.0122.0152 = phi ptr [ %.sroa.0122.0.lcssa214, %92 ], [ %.sroa.0122.3, %209 ], [ %.sroa.0122.3, %125 ], [ %.sroa.0122.0168, %.loopexit ], [ %.sroa.0122.0168, %.loopexit.split-lp ]
+  %.sroa.20.0163 = phi ptr [ %.sroa.20.0.lcssa213, %92 ], [ %.sroa.20.3, %209 ], [ %.sroa.20.3, %125 ], [ %.sroa.20.0166.lcssa, %.loopexit ], [ %.sroa.20.0166183, %.loopexit.split-lp ]
+  %.sroa.0122.0152 = phi ptr [ %.sroa.0122.0.lcssa215, %92 ], [ %.sroa.0122.3, %209 ], [ %.sroa.0122.3, %125 ], [ %.sroa.0122.0168, %.loopexit ], [ %.sroa.0122.0168, %.loopexit.split-lp ]
   %.pn90.pn = phi { ptr, i32 } [ %93, %92 ], [ %.pn, %209 ], [ %126, %125 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i106 = icmp eq ptr %.sroa.0122.0152, null
   br i1 %.not.i.i.i106, label %_ZNSt6vectorIN8rawspeed10RawDecoder8RawSliceESaIS2_EED2Ev.exit107, label %211

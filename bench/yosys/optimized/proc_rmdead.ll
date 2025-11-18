@@ -1434,7 +1434,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt
   br i1 %326, label %.loopexit392.thread, label %327
 
 327:                                              ; preds = %323
-  %.not.i.i.i.i.i.i = icmp ult i64 %223, 4294967296
+  %.not.i.i.i.i.i.i = icmp eq i64 %229, 0
   br i1 %.not.i.i.i.i.i.i, label %328, label %_ZNK5Yosys7hashlib4poolINS_5RTLIL7SigSpecENS0_8hash_opsIS3_EEE5countERKS3_.exit.i
 
 328:                                              ; preds = %327

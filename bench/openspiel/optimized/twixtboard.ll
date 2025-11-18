@@ -2330,7 +2330,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Pos
   br i1 %or.cond11, label %13, label %16
 
 13:                                               ; preds = %9
-  %14 = icmp samesign ult i64 %1, 4294967296
+  %14 = icmp eq i64 %.sroa.5.0.extract.shift, 0
   %15 = icmp eq i32 %11, %.sroa.5.0.extract.trunc
   %spec.select = select i1 %14, i1 true, i1 %15
   br label %16
@@ -2509,7 +2509,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5twixt5Board18PositionIsOnBorderEi8Po
   br i1 %4, label %5, label %16
 
 5:                                                ; preds = %3
-  %6 = icmp ult i64 %2, 4294967296
+  %6 = icmp eq i64 %.sroa.6.0.extract.shift, 0
   br i1 %6, label %13, label %7
 
 7:                                                ; preds = %5
@@ -4165,7 +4165,7 @@ define void @_ZNK10open_spiel5twixt5Board14AppendLinkCharERNSt7__cxx1112basic_st
   br i1 %or.cond11.i, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread32
 
 _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit: ; preds = %18
-  %22 = icmp samesign ult i64 %2, 4294967296
+  %22 = icmp eq i64 %.sroa.5.0.extract.shift.i, 0
   %23 = icmp eq i32 %20, %.sroa.5.0.extract.trunc.i
   %spec.select.i = select i1 %22, i1 true, i1 %23
   br i1 %spec.select.i, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread32
@@ -4516,7 +4516,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit64: ; 
   br i1 %or.cond11.i, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit, label %.thread
 
 _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit: ; preds = %63
-  %67 = icmp samesign ult i64 %2, 4294967296
+  %67 = icmp eq i64 %.sroa.6.0.extract.shift, 0
   %68 = icmp eq i32 %65, %.sroa.6.0.extract.trunc
   %spec.select.i = select i1 %67, i1 true, i1 %68
   br i1 %spec.select.i, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread, label %70
@@ -4601,7 +4601,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit74: ; 
   br label %.body
 
 .thread:                                          ; preds = %63, %70
-  %85 = icmp samesign ult i64 %2, 4294967296
+  %85 = icmp eq i64 %.sroa.6.0.extract.shift, 0
   %86 = icmp eq i32 %65, %.sroa.6.0.extract.trunc
   %or.cond = select i1 %85, i1 true, i1 %86
   br i1 %or.cond, label %87, label %101

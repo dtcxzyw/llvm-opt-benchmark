@@ -6844,7 +6844,7 @@ _ZNK5clang6interp7Pointer12getFieldDescEv.exit.i426: ; preds = %2719, %..thread4
   %2746 = load ptr, ptr %2730, align 8, !tbaa !614
   %2747 = load i64, ptr %40, align 8, !tbaa !646
   %2748 = lshr i64 %2747, 4
-  %.not7.i.i = icmp ult i64 %2747, 16
+  %.not7.i.i = icmp eq i64 %2748, 0
   br i1 %.not7.i.i, label %_ZN5clang6interpL9swapBytesEPSt4bytem.exit.i, label %.lr.ph.i.i431
 
 .lr.ph.i.i431:                                    ; preds = %2745
@@ -6943,7 +6943,7 @@ _ZNK5clang6interp7Pointer12getFieldDescEv.exit300.i: ; preds = %2771, %..thread4
 2796:                                             ; preds = %_ZNK5clang6interp7Pointer12getFieldDescEv.exit300.i
   %2797 = load ptr, ptr %2782, align 8, !tbaa !614
   %2798 = lshr i64 %.pre116.i, 4
-  %.not7.i301.i = icmp ult i64 %.pre116.i, 16
+  %.not7.i301.i = icmp eq i64 %2798, 0
   br i1 %.not7.i301.i, label %_ZN5clang6interpL9swapBytesEPSt4bytem.exit305.i, label %.lr.ph.i302.i
 
 .lr.ph.i302.i:                                    ; preds = %2796

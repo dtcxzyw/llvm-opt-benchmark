@@ -1745,7 +1745,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i364, %fo
   %n.addr.04.i.i.i = phi i64 [ %shr.i.i.i383, %for.body.i.i.i ], [ %add12.i.i.i382, %if.then.i.i364 ]
   %shr.i.i.i383 = ashr i64 %n.addr.04.i.i.i, 1
   %inc.i.i.i = add nuw nsw i32 %i.05.i.i.i, 1
-  %tobool.not.i.i.i = icmp ult i64 %n.addr.04.i.i.i, 2
+  %tobool.not.i.i.i = icmp eq i64 %shr.i.i.i383, 0
   br i1 %tobool.not.i.i.i, label %for.end.loopexit.i.i.i, label %for.body.i.i.i, !llvm.loop !68
 
 for.end.loopexit.i.i.i:                           ; preds = %for.body.i.i.i
@@ -2251,7 +2251,7 @@ for.body.i.i.i450:                                ; preds = %if.then.i.i433, %fo
   %n.addr.04.i.i.i452 = phi i64 [ %shr.i.i.i453, %for.body.i.i.i450 ], [ %add11.i.i.i448, %if.then.i.i433 ]
   %shr.i.i.i453 = ashr i64 %n.addr.04.i.i.i452, 1
   %inc.i.i.i454 = add nuw nsw i32 %i.05.i.i.i451, 1
-  %tobool.not.i.i.i455 = icmp ult i64 %n.addr.04.i.i.i452, 2
+  %tobool.not.i.i.i455 = icmp eq i64 %shr.i.i.i453, 0
   br i1 %tobool.not.i.i.i455, label %for.end.loopexit.i.i.i456, label %for.body.i.i.i450, !llvm.loop !68
 
 for.end.loopexit.i.i.i456:                        ; preds = %for.body.i.i.i450
@@ -6319,7 +6319,7 @@ _ZStplRKSt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS1_PS1_El.exit.i.i: ; pre
   store ptr %4, ptr %_M_last.i10.i.i, align 8
   store ptr %3, ptr %_M_node.i11.i.i, align 8
   call fastcc void @_ZN5eastl11adjust_heapISt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS3_PS3_ElS3_NS2_9VPCompareEEEvT_T0_S9_S9_OT1_T2_(ptr noundef %agg.tmp.i.i, i64 noundef %shr.i.i, i64 noundef %add12.i, i64 noundef %shr.i.i, ptr noundef nonnull align 4 dereferenceable(8) %temp.i.i)
-  %cmp5.not.i5.i = icmp samesign ult i64 %sub.i.i, 2
+  %cmp5.not.i5.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp5.not.i5.i, label %for.body.i.i.preheader, label %do.body.split.i.lr.ph.i, !llvm.loop !304
 
 do.body.split.i.lr.ph.i:                          ; preds = %_ZStplRKSt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS1_PS1_El.exit.i.i
@@ -7290,7 +7290,7 @@ _ZNK5eastl13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS2_RS2_Lj128EEplEl.exit.i.i
   store ptr %.lcssa165, ptr %mpEnd.i10.i.i, align 8
   store ptr %.lcssa166, ptr %mpCurrentArrayPtr.i11.i.i, align 8
   call fastcc void @_ZN5eastl11adjust_heapINS_13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS3_RS3_Lj128EEElS3_NS2_9VPCompareEEEvT_T0_S9_S9_OT1_T2_(ptr noundef %agg.tmp.i.i, i64 noundef %shr.i.i, i64 noundef %add11.i.i.i, i64 noundef %shr.i.i, ptr noundef nonnull align 4 dereferenceable(8) %temp.i.i)
-  %cmp5.not.i5.i = icmp samesign ult i64 %sub.i.i116, 2
+  %cmp5.not.i5.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp5.not.i5.i, label %for.body.i.i.preheader, label %do.body.split.i.lr.ph.i, !llvm.loop !362
 
 do.body.split.i.lr.ph.i:                          ; preds = %_ZNK5eastl13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS2_RS2_Lj128EEplEl.exit.i.i

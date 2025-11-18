@@ -3069,7 +3069,7 @@ read_sbr_channel_pair_element.exit.i:             ; preds = %.lr.ph127.i.i, %.lr
 
 1448:                                             ; preds = %1424
   %1449 = shl nuw nsw i32 %1432, 3
-  %.not77.i = icmp ult i32 %1431, 268435456
+  %.not77.i = icmp eq i32 %1432, 0
   br i1 %.not77.i, label %read_sbr_data.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1448, %.thread84.i
@@ -8946,7 +8946,7 @@ define internal fastcc range(i32 -1, 1) i32 @read_sbr_grid(ptr noundef readonly 
   %42 = add i32 %33, 2
   %43 = tail call i32 @llvm.umin.i32(i32 %22, i32 %42)
   store i32 %43, ptr %19, align 8, !tbaa !35
-  switch i32 %31, label %default.unreachable305 [
+  switch i32 %31, label %default.unreachable308 [
     i32 0, label %44
     i32 1, label %84
     i32 2, label %161
@@ -8970,7 +8970,7 @@ define internal fastcc range(i32 -1, 1) i32 @read_sbr_grid(ptr noundef readonly 
 
 53:                                               ; preds = %44
   store i32 %45, ptr %5, align 8, !tbaa !119
-  %54 = icmp ult i32 %40, 1073741824
+  %54 = icmp eq i32 %41, 0
   br i1 %54, label %.thread, label %.lr.ph241.preheader
 
 .thread:                                          ; preds = %53
@@ -8986,7 +8986,7 @@ define internal fastcc range(i32 -1, 1) i32 @read_sbr_grid(ptr noundef readonly 
   %57 = zext nneg i32 %45 to i64
   %58 = getelementptr inbounds nuw i8, ptr %14, i64 %57
   store i8 16, ptr %58, align 1, !tbaa !9
-  %59 = lshr i32 %45, 1
+  %59 = lshr exact i32 %45, 1
   %60 = trunc nuw nsw i32 %59 to i8
   %.lhs.trunc = or disjoint i8 %60, 16
   %61 = trunc nuw nsw i32 %41 to i8
@@ -9055,7 +9055,7 @@ define internal fastcc range(i32 -1, 1) i32 @read_sbr_grid(ptr noundef readonly 
   %98 = zext nneg i32 %95 to i64
   %99 = getelementptr inbounds nuw i8, ptr %14, i64 %98
   store i8 %97, ptr %99, align 1, !tbaa !9
-  %.not253 = icmp ult i32 %91, 1073741824
+  %.not253 = icmp eq i32 %92, 0
   br i1 %.not253, label %._crit_edge235, label %.lr.ph234
 
 .lr.ph234:                                        ; preds = %84, %.lr.ph234
@@ -9097,7 +9097,7 @@ define internal fastcc range(i32 -1, 1) i32 @read_sbr_grid(ptr noundef readonly 
   br label %._crit_edge235
 
 ._crit_edge235:                                   ; preds = %._crit_edge235.loopexit, %84
-  %125 = phi i32 [ %.pre296, %._crit_edge235.loopexit ], [ %95, %84 ]
+  %125 = phi i32 [ %.pre296, %._crit_edge235.loopexit ], [ 1, %84 ]
   %126 = sext i32 %125 to i64
   %127 = getelementptr inbounds i8, ptr @ceil_log2, i64 %126
   %128 = load i8, ptr %127, align 1, !tbaa !9
@@ -9171,7 +9171,7 @@ define internal fastcc range(i32 -1, 1) i32 @read_sbr_grid(ptr noundef readonly 
   %177 = zext nneg i32 %176 to i64
   %178 = getelementptr inbounds nuw i8, ptr %14, i64 %177
   store i8 16, ptr %178, align 1, !tbaa !9
-  %.not252 = icmp ult i32 %172, 1073741824
+  %.not252 = icmp eq i32 %173, 0
   br i1 %.not252, label %._crit_edge230, label %.lr.ph229.preheader
 
 .lr.ph229.preheader:                              ; preds = %161
@@ -9304,7 +9304,7 @@ define internal fastcc range(i32 -1, 1) i32 @read_sbr_grid(ptr noundef readonly 
   %269 = zext nneg i32 %257 to i64
   %270 = getelementptr inbounds nuw i8, ptr %14, i64 %269
   store i8 %268, ptr %270, align 1, !tbaa !9
-  %.not250 = icmp ult i32 %242, 1073741824
+  %.not250 = icmp eq i32 %243, 0
   br i1 %.not250, label %.preheader220, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %262
@@ -9313,7 +9313,7 @@ define internal fastcc range(i32 -1, 1) i32 @read_sbr_grid(ptr noundef readonly 
   br label %.lr.ph
 
 .preheader220:                                    ; preds = %.lr.ph, %262
-  %.not251 = icmp ult i32 %252, 1073741824
+  %.not251 = icmp eq i32 %253, 0
   br i1 %.not251, label %._crit_edge, label %.lr.ph223
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -9434,7 +9434,7 @@ define internal fastcc range(i32 -1, 1) i32 @read_sbr_grid(ptr noundef readonly 
   %exitcond264.not = icmp eq i64 %indvars.iv.next261, %wide.trip.count263
   br i1 %exitcond264.not, label %get_bits1_vector.exit, label %.lr.ph226, !llvm.loop !117
 
-default.unreachable305:                           ; preds = %4
+default.unreachable308:                           ; preds = %4
   unreachable
 
 get_bits1_vector.exit.thread:                     ; preds = %.lr.ph245.preheader, %._crit_edge242
@@ -9519,7 +9519,7 @@ get_bits1_vector.exit:                            ; preds = %.lr.ph226, %.lr.ph2
   br i1 %372, label %382, label %401
 
 382:                                              ; preds = %._crit_edge249
-  %383 = icmp ult i32 %30, 1073741824
+  %383 = icmp eq i32 %31, 0
   br i1 %383, label %384, label %386
 
 384:                                              ; preds = %382

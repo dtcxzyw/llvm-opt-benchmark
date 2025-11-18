@@ -16065,7 +16065,7 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit26.i.i: ; preds = %49, %42, %3
   br label %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit.i.i.i
 
 _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit.i.i.i: ; preds = %61, %58
-  %.not.i = icmp ult i64 %.0921.in.i.i.i, 2
+  %.not.i = icmp eq i64 %.0921.i.i78.i, 0
   br i1 %.not.i, label %.critedge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !614
 
 .critedge.i.i.i:                                  ; preds = %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit.i.i.i, %.lr.ph.i.i.i, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit26.i.i

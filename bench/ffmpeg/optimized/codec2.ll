@@ -84,60 +84,59 @@ define internal range(i32 0, 52) i32 @codec2_probe(ptr noundef readonly captures
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @codec2_read_header(ptr noundef %0) #1 {
-  %2 = tail call ptr @avformat_new_stream(ptr noundef %0, ptr noundef null) #4
+  %2 = tail call ptr @avformat_new_stream(ptr noundef %0, ptr noundef null) #3
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %31, label %3
+  br i1 %.not, label %30, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !12
-  %6 = tail call i32 @avio_rb24(ptr noundef %5) #4
+  %6 = tail call i32 @avio_rb24(ptr noundef %5) #3
   %.not22 = icmp eq i32 %6, 12639938
   br i1 %.not22, label %8, label %7
 
 7:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.11) #4
-  br label %31
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.11) #3
+  br label %30
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !27
-  %11 = tail call i32 @ff_alloc_extradata(ptr noundef %10, i32 noundef 4) #4
+  %11 = tail call i32 @ff_alloc_extradata(ptr noundef %10, i32 noundef 4) #3
   %.not23 = icmp eq i32 %11, 0
-  br i1 %.not23, label %12, label %31
+  br i1 %.not23, label %12, label %30
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %4, align 8, !tbaa !12
   %14 = load ptr, ptr %9, align 8, !tbaa !27
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !34
-  %17 = tail call i32 @ffio_read_size(ptr noundef %13, ptr noundef %16, i32 noundef 4) #4
+  %17 = tail call i32 @ffio_read_size(ptr noundef %13, ptr noundef %16, i32 noundef 4) #3
   %18 = icmp slt i32 %17, 0
-  br i1 %18, label %31, label %19
+  br i1 %18, label %30, label %19
 
 19:                                               ; preds = %12
   %20 = load ptr, ptr %9, align 8, !tbaa !27
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !34
   %23 = load i16, ptr %22, align 1, !tbaa !11
-  %24 = tail call i16 @llvm.bswap.i16(i16 %23)
-  %.not24 = icmp ult i16 %24, 256
-  br i1 %.not24, label %28, label %25
+  %24 = and i16 %23, 255
+  %.not24 = icmp eq i16 %24, 0
+  br i1 %.not24, label %27, label %25
 
 25:                                               ; preds = %19
-  %26 = lshr i16 %24, 8
-  %27 = zext nneg i16 %26 to i32
-  tail call void (ptr, ptr, ...) @avpriv_report_missing_feature(ptr noundef nonnull %0, ptr noundef nonnull @.str.12, i32 noundef %27) #4
-  br label %31
+  %26 = zext nneg i16 %24 to i32
+  tail call void (ptr, ptr, ...) @avpriv_report_missing_feature(ptr noundef nonnull %0, ptr noundef nonnull @.str.12, i32 noundef %26) #3
+  br label %30
 
-28:                                               ; preds = %19
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  store i64 7, ptr %29, align 8, !tbaa !37
-  %30 = tail call fastcc i32 @codec2_read_header_common(ptr noundef nonnull %0, ptr noundef %2)
-  br label %31
+27:                                               ; preds = %19
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  store i64 7, ptr %28, align 8, !tbaa !37
+  %29 = tail call fastcc i32 @codec2_read_header_common(ptr noundef nonnull %0, ptr noundef %2)
+  br label %30
 
-31:                                               ; preds = %12, %8, %1, %28, %25, %7
-  %.0 = phi i32 [ -1094995529, %7 ], [ -1163346256, %25 ], [ %30, %28 ], [ -12, %1 ], [ %11, %8 ], [ %17, %12 ]
+30:                                               ; preds = %12, %8, %1, %27, %25, %7
+  %.0 = phi i32 [ -1094995529, %7 ], [ -1163346256, %25 ], [ %29, %27 ], [ -12, %1 ], [ %11, %8 ], [ %17, %12 ]
   ret i32 %.0
 }
 
@@ -169,7 +168,7 @@ define internal i32 @codec2_read_packet(ptr noundef readonly captures(none) %0, 
   %21 = mul nuw nsw i32 %18, %9
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !12
-  %24 = tail call i32 @av_get_packet(ptr noundef %23, ptr noundef %1, i32 noundef %21) #4
+  %24 = tail call i32 @av_get_packet(ptr noundef %23, ptr noundef %1, i32 noundef %21) #3
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %31, label %26
 
@@ -201,18 +200,18 @@ define internal range(i32 -22, 1) i32 @codec2_write_header(ptr noundef %0) #1 {
   br i1 %.not, label %10, label %9
 
 9:                                                ; preds = %1
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.15, i32 noundef 4, i32 noundef %8) #4
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.15, i32 noundef 4, i32 noundef %8) #3
   br label %17
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !12
-  tail call void @avio_wb24(ptr noundef %12, i32 noundef 12639938) #4
+  tail call void @avio_wb24(ptr noundef %12, i32 noundef 12639938) #3
   %13 = load ptr, ptr %11, align 8, !tbaa !12
   %14 = load ptr, ptr %5, align 8, !tbaa !27
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !34
-  tail call void @avio_write(ptr noundef %13, ptr noundef %16, i32 noundef 4) #4
+  tail call void @avio_write(ptr noundef %13, ptr noundef %16, i32 noundef 4) #3
   br label %17
 
 17:                                               ; preds = %10, %9
@@ -232,18 +231,18 @@ define internal i32 @codec2raw_read_header(ptr noundef %0) #1 {
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %1
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.31) #4
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.31) #3
   br label %24
 
 8:                                                ; preds = %1
-  %9 = tail call ptr @avformat_new_stream(ptr noundef nonnull %0, ptr noundef null) #4
+  %9 = tail call ptr @avformat_new_stream(ptr noundef nonnull %0, ptr noundef null) #3
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %24, label %10
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !27
-  %13 = tail call i32 @ff_alloc_extradata(ptr noundef %12, i32 noundef 4) #4
+  %13 = tail call i32 @ff_alloc_extradata(ptr noundef %12, i32 noundef 4) #3
   %.not14 = icmp eq i32 %13, 0
   br i1 %.not14, label %14, label %24
 
@@ -310,16 +309,16 @@ define internal fastcc range(i32 -1094995529, 1) i32 @codec2_read_header_common(
 
 13:                                               ; preds = %2
   %14 = zext i8 %.val to i32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.13, i32 noundef range(i32 0, 256) %14) #4
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.14, i32 noundef range(i32 0, 256) %14) #4
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.13, i32 noundef range(i32 0, 256) %14) #3
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.14, i32 noundef range(i32 0, 256) %14) #3
   %15 = load ptr, ptr %3, align 8, !tbaa !27
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store i64 0, ptr %16, align 8, !tbaa !59
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.13, i32 noundef range(i32 0, 256) %14) #4
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.13, i32 noundef range(i32 0, 256) %14) #3
   %17 = load ptr, ptr %3, align 8, !tbaa !27
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 160
   store i32 0, ptr %18, align 8, !tbaa !46
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.14, i32 noundef range(i32 0, 256) %14) #4
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.14, i32 noundef range(i32 0, 256) %14) #3
   %.pre = load ptr, ptr %3, align 8, !tbaa !27
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 48
   %.pre24 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !59
@@ -361,7 +360,7 @@ codec2_mode_block_align.exit:                     ; preds = %13, %19
 40:                                               ; preds = %35
   %41 = getelementptr inbounds nuw i8, ptr %32, i64 152
   %42 = load i32, ptr %41, align 8, !tbaa !55
-  tail call void @avpriv_set_pts_info(ptr noundef nonnull %1, i32 noundef 64, i32 noundef 1, i32 noundef %42) #4
+  tail call void @avpriv_set_pts_info(ptr noundef nonnull %1, i32 noundef 64, i32 noundef 1, i32 noundef %42) #3
   br label %43
 
 43:                                               ; preds = %codec2_mode_block_align.exit, %35, %40
@@ -377,14 +376,10 @@ declare void @avio_wb24(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare void @avio_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #3
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
+attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

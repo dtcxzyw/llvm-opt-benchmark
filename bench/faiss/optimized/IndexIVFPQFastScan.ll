@@ -1760,7 +1760,7 @@ define internal void @_ZN5faiss18IndexIVFPQFastScanC2ERKNS_10IndexIVFPQEi.omp_ou
   %36 = load i64, ptr %20, align 8, !tbaa !84
   %37 = mul i64 %35, %36
   %38 = lshr i64 %37, 1
-  %39 = icmp ult i64 %37, 2
+  %39 = icmp eq i64 %38, 0
   br i1 %39, label %_ZN5faiss12AlignedTableIhLi32EEC2Em.exit, label %40
 
 40:                                               ; preds = %29
@@ -1996,7 +1996,7 @@ define void @_ZN5faiss14fvec_madd_simdEmPKffS1_Pf(i64 noundef %0, ptr noundef re
 
 _ZN5faiss12simd8float32C2Ef.exit:                 ; preds = %10
   %12 = lshr i64 %0, 3
-  %.not = icmp ult i64 %0, 8
+  %.not = icmp eq i64 %12, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN5faiss5fmaddERKNS_12simd8float32ES2_S2_.exit, %_ZN5faiss12simd8float32C2Ef.exit
@@ -2081,8 +2081,8 @@ define internal void @_ZNK5faiss18IndexIVFPQFastScan11compute_LUTEmPKfRKNS_16Ind
   %25 = call i64 @llvm.umin.i64(i64 %24, i64 %22)
   store i64 %25, ptr %15, align 8, !tbaa !47
   %26 = load i64, ptr %14, align 8, !tbaa !47
-  %.not32 = icmp ugt i64 %26, %25
-  br i1 %.not32, label %._crit_edge, label %.lr.ph
+  %.not33 = icmp ugt i64 %26, %25
+  br i1 %.not33, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -2119,7 +2119,7 @@ define internal void @_ZNK5faiss18IndexIVFPQFastScan11compute_LUTEmPKfRKNS_16Ind
 
 _ZN5faiss12simd8float32C2Ef.exit.i:               ; preds = %43
   %45 = lshr i64 %32, 3
-  %.not.i = icmp ult i64 %32, 8
+  %.not.i = icmp eq i64 %45, 0
   br i1 %.not.i, label %_ZN5faiss14fvec_madd_simdEmPKffS1_Pf.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %_ZN5faiss12simd8float32C2Ef.exit.i

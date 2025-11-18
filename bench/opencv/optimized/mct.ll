@@ -139,7 +139,7 @@ define hidden double @opj_mct_getnorm(i32 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @opj_mct_encode_real(ptr noalias noundef captures(none) %0, ptr noalias noundef captures(none) %1, ptr noalias noundef captures(none) %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = lshr i64 %3, 3
-  %.not = icmp ult i64 %3, 8
+  %.not = icmp eq i64 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
@@ -241,7 +241,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #2
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @opj_mct_decode_real(ptr noalias noundef captures(none) %0, ptr noalias noundef captures(none) %1, ptr noalias noundef captures(none) %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = lshr i64 %3, 3
-  %.not = icmp ult i64 %3, 8
+  %.not = icmp eq i64 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %.lr.ph

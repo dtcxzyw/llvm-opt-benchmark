@@ -838,8 +838,8 @@ define internal fastcc void @unpack_alpha(ptr noundef captures(none) %0, ptr nou
   br label %71
 
 71:                                               ; preds = %63, %67, %58, %60
-  %.sink124 = phi i32 [ %66, %63 ], [ %70, %67 ], [ %59, %58 ], [ %61, %60 ]
-  %72 = trunc i32 %.sink124 to i16
+  %.sink125 = phi i32 [ %66, %63 ], [ %70, %67 ], [ %59, %58 ], [ %61, %60 ]
+  %72 = trunc i32 %.sink125 to i16
   store i16 %72, ptr %56, align 2, !tbaa !80
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %.not78 = icmp slt i64 %indvars.iv.next, %17
@@ -864,19 +864,19 @@ define internal fastcc void @unpack_alpha(ptr noundef captures(none) %0, ptr nou
   %84 = lshr exact i32 128, %83
   %85 = and i32 %84, %82
   %.not79 = icmp eq i32 %85, 0
-  br i1 %.not79, label %.critedge.split.loop.exit118, label %22, !llvm.loop !83
+  br i1 %.not79, label %.critedge.split.loop.exit119, label %22, !llvm.loop !83
 
 .critedge.split.loop.exit:                        ; preds = %73
   %86 = trunc nsw i64 %indvars.iv.next to i32
   br label %.critedge
 
-.critedge.split.loop.exit118:                     ; preds = %75
+.critedge.split.loop.exit119:                     ; preds = %75
   %87 = trunc nsw i64 %indvars.iv.next to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %71, %.critedge.split.loop.exit118, %.critedge.split.loop.exit
-  %.273.lcssa = phi i32 [ %86, %.critedge.split.loop.exit ], [ %87, %.critedge.split.loop.exit118 ], [ %smax, %71 ]
-  %88 = phi i32 [ %.sink, %.critedge.split.loop.exit ], [ %spec.select.i83, %.critedge.split.loop.exit118 ], [ %.sink, %71 ]
+.critedge:                                        ; preds = %71, %.critedge.split.loop.exit119, %.critedge.split.loop.exit
+  %.273.lcssa = phi i32 [ %86, %.critedge.split.loop.exit ], [ %87, %.critedge.split.loop.exit119 ], [ %smax, %71 ]
+  %88 = phi i32 [ %.sink, %.critedge.split.loop.exit ], [ %spec.select.i83, %.critedge.split.loop.exit119 ], [ %.sink, %71 ]
   %89 = lshr i32 %88, 3
   %90 = zext nneg i32 %89 to i64
   %91 = getelementptr inbounds nuw i8, ptr %8, i64 %90
@@ -888,7 +888,7 @@ define internal fastcc void @unpack_alpha(ptr noundef captures(none) %0, ptr nou
   %97 = add i32 %88, 4
   %98 = tail call i32 @llvm.umin.i32(i32 %10, i32 %97)
   store i32 %98, ptr %7, align 8, !tbaa !79
-  %.not80 = icmp ult i32 %95, 268435456
+  %.not80 = icmp eq i32 %96, 0
   br i1 %.not80, label %99, label %110
 
 99:                                               ; preds = %.critedge
@@ -1092,9 +1092,9 @@ define internal range(i32 -1094995529, 1) i32 @decode_slice_thread(ptr noundef %
   br label %505
 
 ._crit_edge.thread:                               ; preds = %43, %._crit_edge
-  %.0165188240 = phi i32 [ %50, %._crit_edge ], [ %45, %43 ]
+  %.0165188243 = phi i32 [ %50, %._crit_edge ], [ %45, %43 ]
   %57 = phi i32 [ %54, %._crit_edge ], [ 0, %43 ]
-  %.pre-phi205239 = phi i32 [ %52, %._crit_edge ], [ %40, %43 ]
+  %.pre-phi205242 = phi i32 [ %52, %._crit_edge ], [ %40, %43 ]
   %58 = getelementptr inbounds nuw i8, ptr %11, i64 124
   %59 = getelementptr inbounds nuw i8, ptr %11, i64 188
   br label %60
@@ -1358,7 +1358,7 @@ define internal range(i32 -1094995529, 1) i32 @decode_slice_thread(ptr noundef %
   br label %230
 
 221:                                              ; preds = %.lr.ph103.i
-  %.not158.i.i = icmp eq i32 %.2131.i99.i, 0
+  %.not158.i.i = icmp eq i32 %195, 0
   br i1 %.not158.i.i, label %228, label %222
 
 222:                                              ; preds = %221
@@ -1508,7 +1508,7 @@ decode_dc_coeffs.exit.i:                          ; preds = %230, %172
   br label %324
 
 315:                                              ; preds = %272
-  %.not197.i.i = icmp ult i32 %.0160.i107.i, 5
+  %.not197.i.i = icmp eq i32 %289, 0
   br i1 %.not197.i.i, label %322, label %316
 
 316:                                              ; preds = %315
@@ -1526,9 +1526,9 @@ decode_dc_coeffs.exit.i:                          ; preds = %230, %172
   br label %324
 
 324:                                              ; preds = %322, %316, %307
-  %.sink144.i = phi i32 [ %323, %322 ], [ %321, %316 ], [ %314, %307 ]
+  %.sink147.i = phi i32 [ %323, %322 ], [ %321, %316 ], [ %314, %307 ]
   %.1161.i.i = phi i32 [ %300, %322 ], [ %320, %316 ], [ %313, %307 ]
-  %.201.i.i = call i32 @llvm.umin.i32(i32 %147, i32 %.sink144.i)
+  %.201.i.i = call i32 @llvm.umin.i32(i32 %147, i32 %.sink147.i)
   %325 = add i32 %.0159.i108.i, 1
   %326 = add i32 %325, %.1161.i.i
   %.not198.i.i = icmp ult i32 %326, %250
@@ -1597,7 +1597,7 @@ decode_dc_coeffs.exit.i:                          ; preds = %230, %172
   br label %382
 
 373:                                              ; preds = %328
-  %.not199.i.i = icmp ult i32 %.0163.i106.i, 5
+  %.not199.i.i = icmp eq i32 %345, 0
   %374 = sub nsw i32 32, %355
   %375 = shl i32 %338, %374
   %376 = add nsw i32 %374, %.201.i.i
@@ -1687,7 +1687,7 @@ decode_slice_luma.exit.thread:                    ; preds = %208, %302, %358, %1
   %427 = load i32, ptr %426, align 8, !tbaa !94
   %428 = and i32 %427, 8192
   %.not175 = icmp eq i32 %428, 0
-  %429 = or i32 %.0165188240, %38
+  %429 = or i32 %.0165188243, %38
   %430 = icmp ne i32 %429, 0
   %or.cond = select i1 %.not175, i1 %430, i1 false
   br i1 %or.cond, label %431, label %441
@@ -1702,7 +1702,7 @@ decode_slice_luma.exit.thread:                    ; preds = %208, %302, %358, %1
 436:                                              ; preds = %431
   %437 = zext i16 %37 to i64
   %438 = getelementptr inbounds nuw i8, ptr %433, i64 %437
-  %439 = call fastcc i32 @decode_slice_chroma(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef %.0160, i32 noundef %.0167, ptr noundef nonnull %438, i32 noundef %.0165188240, ptr noundef %9, i32 noundef %.0164)
+  %439 = call fastcc i32 @decode_slice_chroma(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef %.0160, i32 noundef %.0167, ptr noundef nonnull %438, i32 noundef %.0165188243, ptr noundef %9, i32 noundef %.0164)
   %440 = icmp slt i32 %439, 0
   br i1 %440, label %505, label %.loopexit
 
@@ -1751,7 +1751,7 @@ decode_slice_luma.exit.thread:                    ; preds = %208, %302, %358, %1
   %461 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %462 = load ptr, ptr %461, align 8, !tbaa !88
   %463 = icmp ne ptr %462, null
-  %464 = icmp ne i32 %40, %.pre-phi205239
+  %464 = icmp ne i32 %40, %.pre-phi205242
   %or.cond5 = select i1 %463, i1 %464, i1 false
   br i1 %or.cond5, label %465, label %504
 
@@ -1762,7 +1762,7 @@ decode_slice_luma.exit.thread:                    ; preds = %208, %302, %358, %1
   %469 = getelementptr inbounds nuw i8, ptr %75, i64 %468
   %470 = zext i16 %37 to i64
   %471 = getelementptr inbounds nuw i8, ptr %469, i64 %470
-  %472 = zext nneg i32 %.0165188240 to i64
+  %472 = zext nneg i32 %.0165188243 to i64
   %473 = getelementptr inbounds nuw i8, ptr %471, i64 %472
   %474 = load i32, ptr %137, align 8, !tbaa !68
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2002,7 +2002,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_slice_chroma(ptr no
   br label %106
 
 97:                                               ; preds = %.lr.ph99
-  %.not158.i = icmp eq i32 %.2131.i95, 0
+  %.not158.i = icmp eq i32 %71, 0
   br i1 %.not158.i, label %104, label %98
 
 98:                                               ; preds = %97
@@ -2152,7 +2152,7 @@ decode_dc_coeffs.exit:                            ; preds = %106, %48
   br label %200
 
 191:                                              ; preds = %148
-  %.not197.i = icmp ult i32 %.0160.i103, 5
+  %.not197.i = icmp eq i32 %165, 0
   br i1 %.not197.i, label %198, label %192
 
 192:                                              ; preds = %191
@@ -2170,9 +2170,9 @@ decode_dc_coeffs.exit:                            ; preds = %106, %48
   br label %200
 
 200:                                              ; preds = %198, %192, %183
-  %.sink147 = phi i32 [ %199, %198 ], [ %197, %192 ], [ %190, %183 ]
+  %.sink150 = phi i32 [ %199, %198 ], [ %197, %192 ], [ %190, %183 ]
   %.1161.i = phi i32 [ %176, %198 ], [ %196, %192 ], [ %189, %183 ]
-  %.201.i = call i32 @llvm.umin.i32(i32 %23, i32 %.sink147)
+  %.201.i = call i32 @llvm.umin.i32(i32 %23, i32 %.sink150)
   %201 = add i32 %.0159.i104, 1
   %202 = add i32 %201, %.1161.i
   %.not198.i = icmp ult i32 %202, %126
@@ -2241,7 +2241,7 @@ decode_dc_coeffs.exit:                            ; preds = %106, %48
   br label %258
 
 249:                                              ; preds = %204
-  %.not199.i = icmp ult i32 %.0163.i102, 5
+  %.not199.i = icmp eq i32 %221, 0
   %250 = sub nsw i32 32, %231
   %251 = shl i32 %214, %250
   %252 = add i32 %250, %.201.i

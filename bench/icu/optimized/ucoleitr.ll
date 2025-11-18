@@ -570,7 +570,7 @@ define noundef range(i64 0, -280375465082880) i64 @_ZN6icu_7713UCollationPCE9pro
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %21 = load i32, ptr %20, align 8, !tbaa !45
   %22 = icmp ugt i32 %21, %1
-  %23 = icmp ugt i32 %1, 65535
+  %23 = icmp ne i32 %15, 0
   %or.cond = and i1 %23, %22
   br i1 %or.cond, label %29, label %24
 
@@ -578,7 +578,7 @@ define noundef range(i64 0, -280375465082880) i64 @_ZN6icu_7713UCollationPCE9pro
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 285
   %26 = load i8, ptr %25, align 1, !tbaa !44
   %27 = icmp ne i8 %26, 0
-  %28 = icmp ult i32 %1, 65536
+  %28 = icmp eq i32 %15, 0
   %or.cond3 = and i1 %28, %27
   br i1 %or.cond3, label %.thread, label %32
 
@@ -815,22 +815,21 @@ define noundef range(i64 1, -280375465082880) i64 @_ZN6icu_7713UCollationPCE13ne
 37:                                               ; preds = %33
   %38 = load i32, ptr %12, align 8, !tbaa !45
   %39 = icmp ugt i32 %38, %18
-  %40 = icmp ugt i32 %18, 65535
+  %40 = icmp ne i32 %34, 0
   %or.cond.i = and i1 %40, %39
   br i1 %or.cond.i, label %45, label %41
 
 41:                                               ; preds = %37, %33
   %42 = load i8, ptr %13, align 1, !tbaa !44
   %43 = icmp ne i8 %42, 0
-  %44 = icmp ult i32 %18, 65536
+  %44 = icmp eq i32 %34, 0
   %or.cond3.i = and i1 %44, %43
   br i1 %or.cond3.i, label %_ZN6icu_7713UCollationPCE9processCEEj.exit, label %47
 
 45:                                               ; preds = %37
   %46 = icmp sgt i32 %23, 2
   store i8 1, ptr %13, align 1, !tbaa !44
-  %spec.select = select i1 %46, i64 %35, i64 0
-  br label %_ZN6icu_7713UCollationPCE9processCEEj.exit
+  br i1 %46, label %_ZN6icu_7713UCollationPCE9processCEEj.exit.thread, label %_ZN6icu_7713UCollationPCE9processCEEj.exit
 
 47:                                               ; preds = %41
   %48 = icmp sgt i32 %23, 2
@@ -843,12 +842,12 @@ define noundef range(i64 1, -280375465082880) i64 @_ZN6icu_7713UCollationPCE13ne
   br label %_ZN6icu_7713UCollationPCE9processCEEj.exit
 
 _ZN6icu_7713UCollationPCE9processCEEj.exit:       ; preds = %45, %47, %41
-  %.015 = phi i64 [ %52, %47 ], [ 0, %41 ], [ %spec.select, %45 ]
+  %.015 = phi i64 [ 0, %45 ], [ %52, %47 ], [ 0, %41 ]
   %53 = icmp eq i64 %.015, 0
   br i1 %53, label %14, label %_ZN6icu_7713UCollationPCE9processCEEj.exit.thread, !llvm.loop !50
 
-_ZN6icu_7713UCollationPCE9processCEEj.exit.thread: ; preds = %14, %_ZN6icu_7713UCollationPCE9processCEEj.exit
-  %.01524 = phi i64 [ %.015, %_ZN6icu_7713UCollationPCE9processCEEj.exit ], [ 9223372036854775807, %14 ]
+_ZN6icu_7713UCollationPCE9processCEEj.exit.thread: ; preds = %45, %14, %_ZN6icu_7713UCollationPCE9processCEEj.exit
+  %.01524 = phi i64 [ %.015, %_ZN6icu_7713UCollationPCE9processCEEj.exit ], [ 9223372036854775807, %14 ], [ %35, %45 ]
   %.not19 = icmp eq ptr %1, null
   br i1 %.not19, label %55, label %54
 
@@ -893,15 +892,15 @@ define noundef i64 @_ZN6icu_7713UCollationPCE17previousProcessedEPiS1_P10UErrorC
   %5 = alloca %"struct.icu_77::RCEBuffer", align 8
   %6 = load i32, ptr %3, align 4, !tbaa !12
   %7 = icmp slt i32 %6, 1
-  br i1 %7, label %.preheader, label %166
+  br i1 %7, label %.preheader, label %164
 
 .preheader:                                       ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %9 = load i32, ptr %8, align 8, !tbaa !21
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %_ZN6icu_779PCEBuffer3getEv.exit, label %.lr.ph89
+  br i1 %10, label %_ZN6icu_779PCEBuffer3getEv.exit, label %.lr.ph93
 
-.lr.ph89:                                         ; preds = %.preheader
+.lr.ph93:                                         ; preds = %.preheader
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 200
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 204
@@ -914,7 +913,7 @@ define noundef i64 @_ZN6icu_7713UCollationPCE17previousProcessedEPiS1_P10UErrorC
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 256
   br label %21
 
-21:                                               ; preds = %.lr.ph89, %.critedge2
+21:                                               ; preds = %.lr.ph93, %.critedge2
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN6icu_779RCEBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %5)
   br label %22
@@ -946,7 +945,7 @@ define noundef i64 @_ZN6icu_7713UCollationPCE17previousProcessedEPiS1_P10UErrorC
 36:                                               ; preds = %55, %44, %28, %25, %22
   %37 = landingpad { ptr, i32 }
           cleanup
-  br label %145
+  br label %143
 
 38:                                               ; preds = %31
   %39 = load i32, ptr %3, align 4, !tbaa !12
@@ -1024,17 +1023,17 @@ _ZN6icu_779RCEBuffer3putEjiiR10UErrorCode.exit:   ; preds = %._crit_edge.i, %.th
   br i1 %70, label %22, label %.lr.ph.preheader, !llvm.loop !53
 
 .critedge:                                        ; preds = %33
-  %.pre93 = load i32, ptr %3, align 4, !tbaa !12
-  %71 = icmp sgt i32 %.pre93, 0
+  %.pre97 = load i32, ptr %3, align 4, !tbaa !12
+  %71 = icmp sgt i32 %.pre97, 0
   br i1 %71, label %.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %66, %.critedge
-  %.ph = phi i32 [ %.pre93, %.critedge ], [ %.pre, %66 ]
+  %.ph = phi i32 [ %.pre97, %.critedge ], [ %.pre, %66 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN6icu_779PCEBuffer3putEmiiR10UErrorCode.exit
-  %.pre9496 = phi i32 [ %.pre9497, %_ZN6icu_779PCEBuffer3putEmiiR10UErrorCode.exit ], [ %.ph, %.lr.ph.preheader ]
-  %72 = phi i32 [ %141, %_ZN6icu_779PCEBuffer3putEmiiR10UErrorCode.exit ], [ %.ph, %.lr.ph.preheader ]
+  %.pre98100 = phi i32 [ %.pre98101, %_ZN6icu_779PCEBuffer3putEmiiR10UErrorCode.exit ], [ %.ph, %.lr.ph.preheader ]
+  %72 = phi i32 [ %139, %_ZN6icu_779PCEBuffer3putEmiiR10UErrorCode.exit ], [ %.ph, %.lr.ph.preheader ]
   %73 = load i32, ptr %12, align 8, !tbaa !10
   %74 = icmp sgt i32 %73, 0
   br i1 %74, label %_ZN6icu_779RCEBuffer3getEv.exit, label %.critedge2
@@ -1078,113 +1077,110 @@ _ZN6icu_779RCEBuffer3getEv.exit:                  ; preds = %.lr.ph
 94:                                               ; preds = %90
   %95 = load i32, ptr %17, align 8, !tbaa !45
   %96 = icmp ugt i32 %95, %79
-  %97 = icmp ugt i32 %79, 65535
+  %97 = icmp ne i32 %91, 0
   %or.cond.i = and i1 %97, %96
   br i1 %or.cond.i, label %102, label %98
 
 98:                                               ; preds = %94, %90
   %99 = load i8, ptr %18, align 1, !tbaa !44
   %100 = icmp ne i8 %99, 0
-  %101 = icmp ult i32 %79, 65536
+  %101 = icmp eq i32 %91, 0
   %or.cond3.i = and i1 %101, %100
-  br i1 %or.cond3.i, label %_ZN6icu_779PCEBuffer3putEmiiR10UErrorCode.exit, label %104
+  br i1 %or.cond3.i, label %_ZN6icu_779PCEBuffer3putEmiiR10UErrorCode.exit, label %_ZN6icu_7713UCollationPCE9processCEEj.exit
 
 102:                                              ; preds = %94
   %103 = icmp sgt i32 %80, 2
   store i8 1, ptr %18, align 1, !tbaa !44
-  br i1 %103, label %_ZN6icu_7713UCollationPCE9processCEEj.exit, label %_ZN6icu_779PCEBuffer3putEmiiR10UErrorCode.exit
+  br i1 %103, label %_ZN6icu_7713UCollationPCE9processCEEj.exit.thread72, label %_ZN6icu_779PCEBuffer3putEmiiR10UErrorCode.exit
 
-104:                                              ; preds = %98
-  %105 = icmp sgt i32 %80, 2
-  %spec.select24.i = select i1 %105, i64 65535, i64 0
+_ZN6icu_7713UCollationPCE9processCEEj.exit:       ; preds = %98
+  %104 = icmp sgt i32 %80, 2
+  %spec.select24.i = select i1 %104, i64 65535, i64 0
   store i8 0, ptr %18, align 1, !tbaa !44
-  %106 = shl nuw i64 %92, 48
-  %107 = or disjoint i64 %spec.select24.i, %106
-  %108 = or i64 %.019.i, %107
-  %109 = or i64 %108, %.117.i
-  br label %_ZN6icu_7713UCollationPCE9processCEEj.exit
+  %105 = shl nuw i64 %92, 48
+  %106 = or disjoint i64 %spec.select24.i, %105
+  %107 = or i64 %.019.i, %106
+  %108 = or i64 %107, %.117.i
+  %.not50 = icmp eq i64 %108, 0
+  br i1 %.not50, label %_ZN6icu_779PCEBuffer3putEmiiR10UErrorCode.exit, label %_ZN6icu_7713UCollationPCE9processCEEj.exit.thread72
 
-_ZN6icu_7713UCollationPCE9processCEEj.exit:       ; preds = %102, %104
-  %.022.i = phi i64 [ %109, %104 ], [ %92, %102 ]
-  %.not50 = icmp eq i64 %.022.i, 0
-  br i1 %.not50, label %_ZN6icu_779PCEBuffer3putEmiiR10UErrorCode.exit, label %110
+_ZN6icu_7713UCollationPCE9processCEEj.exit.thread72: ; preds = %102, %_ZN6icu_7713UCollationPCE9processCEEj.exit
+  %.022.i75 = phi i64 [ %108, %_ZN6icu_7713UCollationPCE9processCEEj.exit ], [ %92, %102 ]
+  %109 = getelementptr inbounds nuw i8, ptr %78, i64 4
+  %110 = load i32, ptr %109, align 4, !tbaa !16
+  %111 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %112 = load i32, ptr %111, align 4, !tbaa !17
+  %113 = load i32, ptr %8, align 8, !tbaa !21
+  %114 = load i32, ptr %19, align 4, !tbaa !22
+  %.not12.i59 = icmp slt i32 %113, %114
+  br i1 %.not12.i59, label %._crit_edge.i64, label %115
 
-110:                                              ; preds = %_ZN6icu_7713UCollationPCE9processCEEj.exit
-  %111 = getelementptr inbounds nuw i8, ptr %78, i64 4
-  %112 = load i32, ptr %111, align 4, !tbaa !16
-  %113 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %114 = load i32, ptr %113, align 4, !tbaa !17
-  %115 = load i32, ptr %8, align 8, !tbaa !21
-  %116 = load i32, ptr %19, align 4, !tbaa !22
-  %.not12.i59 = icmp slt i32 %115, %116
-  br i1 %.not12.i59, label %._crit_edge.i64, label %117
-
-._crit_edge.i64:                                  ; preds = %110
+._crit_edge.i64:                                  ; preds = %_ZN6icu_7713UCollationPCE9processCEEj.exit.thread72
   %.pre14.i66 = load ptr, ptr %20, align 8, !tbaa !18
-  br label %131
+  br label %129
 
-117:                                              ; preds = %110
-  %118 = add nsw i32 %116, 8
-  %119 = sext i32 %118 to i64
-  %120 = shl nsw i64 %119, 4
-  %121 = invoke noalias ptr @uprv_malloc_77(i64 noundef %120) #15
-          to label %.noexc67 unwind label %139
+115:                                              ; preds = %_ZN6icu_7713UCollationPCE9processCEEj.exit.thread72
+  %116 = add nsw i32 %114, 8
+  %117 = sext i32 %116 to i64
+  %118 = shl nsw i64 %117, 4
+  %119 = invoke noalias ptr @uprv_malloc_77(i64 noundef %118) #15
+          to label %.noexc67 unwind label %137
 
-.noexc67:                                         ; preds = %117
-  %122 = icmp eq ptr %121, null
-  br i1 %122, label %.thread.sink.split, label %123
+.noexc67:                                         ; preds = %115
+  %120 = icmp eq ptr %119, null
+  br i1 %120, label %.thread.sink.split, label %121
 
-123:                                              ; preds = %.noexc67
-  %124 = load ptr, ptr %20, align 8, !tbaa !18
-  %125 = load i32, ptr %19, align 4, !tbaa !22
-  %126 = sext i32 %125 to i64
-  %127 = shl nsw i64 %126, 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %121, ptr align 1 %124, i64 %127, i1 false)
-  %.not13.i60 = icmp eq ptr %124, %0
-  br i1 %.not13.i60, label %.thread.i62, label %128
+121:                                              ; preds = %.noexc67
+  %122 = load ptr, ptr %20, align 8, !tbaa !18
+  %123 = load i32, ptr %19, align 4, !tbaa !22
+  %124 = sext i32 %123 to i64
+  %125 = shl nsw i64 %124, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %119, ptr align 1 %122, i64 %125, i1 false)
+  %.not13.i60 = icmp eq ptr %122, %0
+  br i1 %.not13.i60, label %.thread.i62, label %126
 
-128:                                              ; preds = %123
-  invoke void @uprv_free_77(ptr noundef %124)
-          to label %.noexc68 unwind label %139
+126:                                              ; preds = %121
+  invoke void @uprv_free_77(ptr noundef %122)
+          to label %.noexc68 unwind label %137
 
-.noexc68:                                         ; preds = %128
+.noexc68:                                         ; preds = %126
   %.pre.i61 = load i32, ptr %19, align 4, !tbaa !22
   br label %.thread.i62
 
-.thread.i62:                                      ; preds = %.noexc68, %123
-  %129 = phi i32 [ %125, %123 ], [ %.pre.i61, %.noexc68 ]
-  store ptr %121, ptr %20, align 8, !tbaa !18
-  %130 = add nsw i32 %129, 8
-  store i32 %130, ptr %19, align 4, !tbaa !22
+.thread.i62:                                      ; preds = %.noexc68, %121
+  %127 = phi i32 [ %123, %121 ], [ %.pre.i61, %.noexc68 ]
+  store ptr %119, ptr %20, align 8, !tbaa !18
+  %128 = add nsw i32 %127, 8
+  store i32 %128, ptr %19, align 4, !tbaa !22
   %.pre15.i63 = load i32, ptr %8, align 8, !tbaa !21
-  %.pre94.pre = load i32, ptr %3, align 4, !tbaa !12
-  br label %131
+  %.pre98.pre = load i32, ptr %3, align 4, !tbaa !12
+  br label %129
 
-131:                                              ; preds = %.thread.i62, %._crit_edge.i64
-  %.pre94 = phi i32 [ %.pre9496, %._crit_edge.i64 ], [ %.pre94.pre, %.thread.i62 ]
-  %132 = phi i32 [ %115, %._crit_edge.i64 ], [ %.pre15.i63, %.thread.i62 ]
-  %133 = phi ptr [ %.pre14.i66, %._crit_edge.i64 ], [ %121, %.thread.i62 ]
-  %134 = sext i32 %132 to i64
-  %135 = getelementptr inbounds %"struct.icu_77::PCEI", ptr %133, i64 %134
-  store i64 %.022.i, ptr %135, align 8, !tbaa !23
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  store i32 %112, ptr %136, align 8, !tbaa !26
-  %137 = getelementptr inbounds nuw i8, ptr %135, i64 12
-  store i32 %114, ptr %137, align 4, !tbaa !27
-  %138 = add nsw i32 %132, 1
-  store i32 %138, ptr %8, align 8, !tbaa !21
+129:                                              ; preds = %.thread.i62, %._crit_edge.i64
+  %.pre98 = phi i32 [ %.pre98100, %._crit_edge.i64 ], [ %.pre98.pre, %.thread.i62 ]
+  %130 = phi i32 [ %113, %._crit_edge.i64 ], [ %.pre15.i63, %.thread.i62 ]
+  %131 = phi ptr [ %.pre14.i66, %._crit_edge.i64 ], [ %119, %.thread.i62 ]
+  %132 = sext i32 %130 to i64
+  %133 = getelementptr inbounds %"struct.icu_77::PCEI", ptr %131, i64 %132
+  store i64 %.022.i75, ptr %133, align 8, !tbaa !23
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
+  store i32 %110, ptr %134, align 8, !tbaa !26
+  %135 = getelementptr inbounds nuw i8, ptr %133, i64 12
+  store i32 %112, ptr %135, align 4, !tbaa !27
+  %136 = add nsw i32 %130, 1
+  store i32 %136, ptr %8, align 8, !tbaa !21
   br label %_ZN6icu_779PCEBuffer3putEmiiR10UErrorCode.exit
 
-139:                                              ; preds = %128, %117
-  %140 = landingpad { ptr, i32 }
+137:                                              ; preds = %126, %115
+  %138 = landingpad { ptr, i32 }
           cleanup
-  br label %145
+  br label %143
 
-_ZN6icu_779PCEBuffer3putEmiiR10UErrorCode.exit:   ; preds = %98, %102, %131, %_ZN6icu_7713UCollationPCE9processCEEj.exit
-  %.pre9497 = phi i32 [ %.pre9496, %98 ], [ %.pre9496, %102 ], [ %.pre94, %131 ], [ %.pre9496, %_ZN6icu_7713UCollationPCE9processCEEj.exit ]
-  %141 = phi i32 [ %72, %98 ], [ %72, %102 ], [ %.pre94, %131 ], [ %72, %_ZN6icu_7713UCollationPCE9processCEEj.exit ]
-  %142 = icmp sgt i32 %141, 0
-  br i1 %142, label %.thread, label %.lr.ph, !llvm.loop !54
+_ZN6icu_779PCEBuffer3putEmiiR10UErrorCode.exit:   ; preds = %98, %102, %129, %_ZN6icu_7713UCollationPCE9processCEEj.exit
+  %.pre98101 = phi i32 [ %.pre98100, %98 ], [ %.pre98100, %102 ], [ %.pre98, %129 ], [ %.pre98100, %_ZN6icu_7713UCollationPCE9processCEEj.exit ]
+  %139 = phi i32 [ %72, %98 ], [ %72, %102 ], [ %.pre98, %129 ], [ %72, %_ZN6icu_7713UCollationPCE9processCEEj.exit ]
+  %140 = icmp sgt i32 %139, 0
+  br i1 %140, label %.thread, label %.lr.ph, !llvm.loop !54
 
 .thread.sink.split:                               ; preds = %.noexc, %.noexc67
   store i32 7, ptr %3, align 4, !tbaa !12
@@ -1193,17 +1189,17 @@ _ZN6icu_779PCEBuffer3putEmiiR10UErrorCode.exit:   ; preds = %98, %102, %131, %_Z
 .thread:                                          ; preds = %.critedge, %38, %_ZN6icu_779RCEBuffer3putEjiiR10UErrorCode.exit, %_ZN6icu_779PCEBuffer3putEmiiR10UErrorCode.exit, %.thread.sink.split
   call void @_ZN6icu_779RCEBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %5) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %166
+  br label %164
 
 .critedge2:                                       ; preds = %.lr.ph
   call void @_ZN6icu_779RCEBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %5) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %143 = load i32, ptr %8, align 8, !tbaa !21
-  %144 = icmp sgt i32 %143, 0
-  br i1 %144, label %_ZN6icu_779PCEBuffer3getEv.exit, label %21
+  %141 = load i32, ptr %8, align 8, !tbaa !21
+  %142 = icmp sgt i32 %141, 0
+  br i1 %142, label %_ZN6icu_779PCEBuffer3getEv.exit, label %21
 
-145:                                              ; preds = %139, %36
-  %.pn = phi { ptr, i32 } [ %140, %139 ], [ %37, %36 ]
+143:                                              ; preds = %137, %36
+  %.pn = phi { ptr, i32 } [ %138, %137 ], [ %37, %36 ]
   call void @_ZN6icu_779RCEBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %5) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn
@@ -1212,58 +1208,58 @@ _ZN6icu_779PCEBuffer3putEmiiR10UErrorCode.exit:   ; preds = %98, %102, %131, %_Z
   call void @_ZN6icu_779RCEBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %5) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pr = load i32, ptr %8, align 8, !tbaa !21
-  %146 = icmp sgt i32 %.pr, 0
-  br i1 %146, label %_ZN6icu_779PCEBuffer3getEv.exit, label %147
+  %144 = icmp sgt i32 %.pr, 0
+  br i1 %144, label %_ZN6icu_779PCEBuffer3getEv.exit, label %145
 
-147:                                              ; preds = %.loopexit
+145:                                              ; preds = %.loopexit
   %.not55 = icmp eq ptr %1, null
-  br i1 %.not55, label %149, label %148
+  br i1 %.not55, label %147, label %146
+
+146:                                              ; preds = %145
+  store i32 -1, ptr %1, align 4, !tbaa !52
+  br label %147
+
+147:                                              ; preds = %146, %145
+  %.not56 = icmp eq ptr %2, null
+  br i1 %.not56, label %164, label %148
 
 148:                                              ; preds = %147
-  store i32 -1, ptr %1, align 4, !tbaa !52
-  br label %149
-
-149:                                              ; preds = %148, %147
-  %.not56 = icmp eq ptr %2, null
-  br i1 %.not56, label %166, label %150
-
-150:                                              ; preds = %149
   store i32 -1, ptr %2, align 4, !tbaa !52
-  br label %166
-
-_ZN6icu_779PCEBuffer3getEv.exit:                  ; preds = %.critedge2, %.preheader, %.loopexit
-  %151 = phi i32 [ %.pr, %.loopexit ], [ %9, %.preheader ], [ %143, %.critedge2 ]
-  %152 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %153 = load ptr, ptr %152, align 8, !tbaa !18
-  %154 = add nsw i32 %151, -1
-  store i32 %154, ptr %8, align 8, !tbaa !21
-  %155 = zext nneg i32 %154 to i64
-  %156 = getelementptr inbounds nuw %"struct.icu_77::PCEI", ptr %153, i64 %155
-  %.not53 = icmp eq ptr %1, null
-  br i1 %.not53, label %160, label %157
-
-157:                                              ; preds = %_ZN6icu_779PCEBuffer3getEv.exit
-  %158 = getelementptr inbounds nuw i8, ptr %156, i64 8
-  %159 = load i32, ptr %158, align 8, !tbaa !26
-  store i32 %159, ptr %1, align 4, !tbaa !52
-  br label %160
-
-160:                                              ; preds = %157, %_ZN6icu_779PCEBuffer3getEv.exit
-  %.not54 = icmp eq ptr %2, null
-  br i1 %.not54, label %164, label %161
-
-161:                                              ; preds = %160
-  %162 = getelementptr inbounds nuw i8, ptr %156, i64 12
-  %163 = load i32, ptr %162, align 4, !tbaa !27
-  store i32 %163, ptr %2, align 4, !tbaa !52
   br label %164
 
-164:                                              ; preds = %161, %160
-  %165 = load i64, ptr %156, align 8, !tbaa !23
-  br label %166
+_ZN6icu_779PCEBuffer3getEv.exit:                  ; preds = %.critedge2, %.preheader, %.loopexit
+  %149 = phi i32 [ %.pr, %.loopexit ], [ %9, %.preheader ], [ %141, %.critedge2 ]
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %151 = load ptr, ptr %150, align 8, !tbaa !18
+  %152 = add nsw i32 %149, -1
+  store i32 %152, ptr %8, align 8, !tbaa !21
+  %153 = zext nneg i32 %152 to i64
+  %154 = getelementptr inbounds nuw %"struct.icu_77::PCEI", ptr %151, i64 %153
+  %.not53 = icmp eq ptr %1, null
+  br i1 %.not53, label %158, label %155
 
-166:                                              ; preds = %.thread, %149, %150, %4, %164
-  %.0 = phi i64 [ %165, %164 ], [ 9223372036854775807, %4 ], [ 9223372036854775807, %150 ], [ 9223372036854775807, %149 ], [ 9223372036854775807, %.thread ]
+155:                                              ; preds = %_ZN6icu_779PCEBuffer3getEv.exit
+  %156 = getelementptr inbounds nuw i8, ptr %154, i64 8
+  %157 = load i32, ptr %156, align 8, !tbaa !26
+  store i32 %157, ptr %1, align 4, !tbaa !52
+  br label %158
+
+158:                                              ; preds = %155, %_ZN6icu_779PCEBuffer3getEv.exit
+  %.not54 = icmp eq ptr %2, null
+  br i1 %.not54, label %162, label %159
+
+159:                                              ; preds = %158
+  %160 = getelementptr inbounds nuw i8, ptr %154, i64 12
+  %161 = load i32, ptr %160, align 4, !tbaa !27
+  store i32 %161, ptr %2, align 4, !tbaa !52
+  br label %162
+
+162:                                              ; preds = %159, %158
+  %163 = load i64, ptr %154, align 8, !tbaa !23
+  br label %164
+
+164:                                              ; preds = %.thread, %147, %148, %4, %162
+  %.0 = phi i64 [ %163, %162 ], [ 9223372036854775807, %4 ], [ 9223372036854775807, %148 ], [ 9223372036854775807, %147 ], [ 9223372036854775807, %.thread ]
   ret i64 %.0
 }
 

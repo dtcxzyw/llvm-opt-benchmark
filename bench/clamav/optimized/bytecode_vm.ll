@@ -19361,7 +19361,7 @@ jump.exit12507:                                   ; preds = %ptr_register_stack.
   %8912 = lshr i64 %.76615, 32
   %8913 = trunc nuw i64 %8912 to i32
   %8914 = trunc i64 %.76615 to i32
-  %.not.i12589 = icmp ult i64 %.76615, 4294967296
+  %.not.i12589 = icmp eq i64 %8912, 0
   br i1 %.not.i12589, label %allocate_stack.exit.thread, label %8915, !prof !102
 
 8915:                                             ; preds = %.thread16904
@@ -19730,7 +19730,7 @@ jump.exit12507:                                   ; preds = %ptr_register_stack.
   %9078 = lshr i64 %.66499, 32
   %9079 = trunc nuw i64 %9078 to i32
   %9080 = trunc i64 %.66499 to i32
-  %.not.i12591 = icmp ult i64 %.66499, 4294967296
+  %.not.i12591 = icmp eq i64 %9078, 0
   br i1 %.not.i12591, label %allocate_stack.exit.thread, label %9081, !prof !102
 
 9081:                                             ; preds = %.thread17025
@@ -19861,7 +19861,7 @@ jump.exit12507:                                   ; preds = %ptr_register_stack.
   %9141 = lshr i64 %.66467, 32
   %9142 = trunc nuw i64 %9141 to i32
   %9143 = trunc i64 %.66467 to i32
-  %.not.i12599 = icmp ult i64 %.66467, 4294967296
+  %.not.i12599 = icmp eq i64 %9141, 0
   br i1 %.not.i12599, label %allocate_stack.exit.thread, label %9144, !prof !102
 
 9144:                                             ; preds = %.thread17071
@@ -19991,7 +19991,7 @@ jump.exit12507:                                   ; preds = %ptr_register_stack.
   %9203 = lshr i64 %.66435, 32
   %9204 = trunc nuw i64 %9203 to i32
   %9205 = trunc i64 %.66435 to i32
-  %.not.i12607 = icmp ult i64 %.66435, 4294967296
+  %.not.i12607 = icmp eq i64 %9203, 0
   br i1 %.not.i12607, label %allocate_stack.exit.thread, label %9206, !prof !102
 
 9206:                                             ; preds = %.thread17117
@@ -20131,7 +20131,7 @@ jump.exit12507:                                   ; preds = %ptr_register_stack.
   %9269 = lshr i64 %.66403, 32
   %9270 = trunc nuw i64 %9269 to i32
   %9271 = trunc i64 %.66403 to i32
-  %.not.i12615 = icmp ult i64 %.66403, 4294967296
+  %.not.i12615 = icmp eq i64 %9269, 0
   br i1 %.not.i12615, label %allocate_stack.exit.thread, label %9272, !prof !102
 
 9272:                                             ; preds = %.thread17163
@@ -20271,7 +20271,7 @@ jump.exit12507:                                   ; preds = %ptr_register_stack.
   %9335 = lshr i64 %.66371, 32
   %9336 = trunc nuw i64 %9335 to i32
   %9337 = trunc i64 %.66371 to i32
-  %.not.i12624 = icmp ult i64 %.66371, 4294967296
+  %.not.i12624 = icmp eq i64 %9335, 0
   br i1 %.not.i12624, label %allocate_stack.exit.thread, label %9338, !prof !102
 
 9338:                                             ; preds = %.thread17209
@@ -20628,7 +20628,7 @@ jump.exit12507:                                   ; preds = %ptr_register_stack.
   %9507 = lshr i64 %.86278, 32
   %9508 = trunc nuw i64 %9507 to i32
   %9509 = trunc i64 %.86278 to i32
-  %.not.i12633 = icmp ult i64 %.86278, 4294967296
+  %.not.i12633 = icmp eq i64 %9507, 0
   br i1 %.not.i12633, label %allocate_stack.exit.thread, label %9510, !prof !102
 
 9510:                                             ; preds = %.thread17276
@@ -20866,7 +20866,7 @@ jump.exit12507:                                   ; preds = %ptr_register_stack.
   %9619 = lshr i64 %.86204, 32
   %9620 = trunc nuw i64 %9619 to i32
   %9621 = trunc i64 %.86204 to i32
-  %.not.i12642 = icmp ult i64 %.86204, 4294967296
+  %.not.i12642 = icmp eq i64 %9619, 0
   br i1 %.not.i12642, label %allocate_stack.exit.thread, label %9622, !prof !102
 
 9622:                                             ; preds = %.thread17337
@@ -21086,7 +21086,7 @@ jump.exit12507:                                   ; preds = %ptr_register_stack.
   %9723 = lshr i64 %.86130, 32
   %9724 = trunc nuw i64 %9723 to i32
   %9725 = trunc i64 %.86130 to i32
-  %.not.i12651 = icmp ult i64 %.86130, 4294967296
+  %.not.i12651 = icmp eq i64 %9723, 0
   br i1 %.not.i12651, label %allocate_stack.exit.thread, label %9726, !prof !102
 
 9726:                                             ; preds = %.thread17398
@@ -21308,7 +21308,7 @@ jump.exit12507:                                   ; preds = %ptr_register_stack.
   %9828 = lshr i64 %.76055, 32
   %9829 = trunc nuw i64 %9828 to i32
   %9830 = trunc i64 %.76055 to i32
-  %.not.i12660 = icmp ult i64 %.76055, 4294967296
+  %.not.i12660 = icmp eq i64 %9828, 0
   br i1 %.not.i12660, label %allocate_stack.exit.thread, label %9831, !prof !102
 
 9831:                                             ; preds = %.thread17459
@@ -22196,7 +22196,7 @@ define internal fastcc ptr @ptr_torealptr(ptr noundef nonnull readonly captures(
   %4 = lshr i64 %1, 32
   %5 = trunc nuw i64 %4 to i32
   %6 = trunc i64 %1 to i32
-  %.not = icmp ult i64 %1, 4294967296
+  %.not = icmp eq i64 %4, 0
   br i1 %.not, label %.critedge, label %7, !prof !111
 
 7:                                                ; preds = %3

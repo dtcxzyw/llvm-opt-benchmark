@@ -12852,8 +12852,8 @@ _ZN4core5slice4sort8unstable8heapsort9sift_down17hc48d9f32c85a6255E.exit: ; pred
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(184) %30, i64 184, i1 false), !alias.scope !3213
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %30, ptr noundef nonnull align 8 dereferenceable(184) %4, i64 184, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not1.i1129 = icmp ugt i64 %29, 1
-  br i1 %.not1.i1129, label %.lr.ph.i12.preheader, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17hc48d9f32c85a6255E.exit16.thread
+  %.not1.i1130 = icmp ugt i64 %29, 1
+  br i1 %.not1.i1130, label %.lr.ph.i12.preheader, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17hc48d9f32c85a6255E.exit16.thread
 
 _ZN4core5slice4sort8unstable8heapsort9sift_down17hc48d9f32c85a6255E.exit16.thread: ; preds = %_ZN4core5slice4sort8unstable8heapsort9sift_down17hc48d9f32c85a6255E.exit16, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9843798adbab3906E.exit.preheader"
   ret void
@@ -12983,8 +12983,8 @@ _ZN4core5slice4sort8unstable8heapsort9sift_down17hc18f60c8d4936639E.exit: ; pred
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %34, i64 40, i1 false), !alias.scope !3222
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not1.i1133 = icmp ugt i64 %33, 1
-  br i1 %.not1.i1133, label %.lr.ph.i12.preheader, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17hc18f60c8d4936639E.exit20.thread
+  %.not1.i1134 = icmp ugt i64 %33, 1
+  br i1 %.not1.i1134, label %.lr.ph.i12.preheader, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17hc18f60c8d4936639E.exit20.thread
 
 _ZN4core5slice4sort8unstable8heapsort9sift_down17hc18f60c8d4936639E.exit20.thread: ; preds = %_ZN4core5slice4sort8unstable8heapsort9sift_down17hc18f60c8d4936639E.exit20, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hdcbc3373862c4ec4E.exit.preheader"
   ret void

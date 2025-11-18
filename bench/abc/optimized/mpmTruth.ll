@@ -80,14 +80,14 @@ define range(i32 0, 2) i32 @Mpm_CutComputeTruth(ptr noundef captures(address) %0
   store i64 0, ptr %14, align 8, !tbaa !33
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %66 = load i32, ptr %65, align 4
-  %67 = icmp ugt i32 %66, 134217727
-  %68 = icmp ugt i32 %19, 134217727
-  %69 = and i1 %68, %67
-  br i1 %69, label %.lr.ph.i.i, label %Mpm_TruthStretch.exit.i
+  %67 = lshr i32 %19, 27
+  %68 = icmp ugt i32 %66, 134217727
+  %69 = icmp ne i32 %67, 0
+  %70 = and i1 %69, %68
+  br i1 %70, label %.lr.ph.i.i, label %Mpm_TruthStretch.exit.i
 
 .lr.ph.i.i:                                       ; preds = %50
-  %70 = lshr i32 %19, 27
-  %71 = add nsw i32 %70, -1
+  %71 = add nsw i32 %67, -1
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %74 = lshr i32 %66, 27
@@ -111,7 +111,7 @@ define range(i32 0, 2) i32 @Mpm_CutComputeTruth(ptr noundef captures(address) %0
   br i1 %84, label %85, label %87
 
 85:                                               ; preds = %83
-  %86 = trunc nsw i64 %indvars.iv.next.i.i to i32
+  %86 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
   call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %11, i32 noundef %16, i32 noundef %.017.i.i, i32 noundef %86)
   br label %87
 
@@ -127,13 +127,13 @@ define range(i32 0, 2) i32 @Mpm_CutComputeTruth(ptr noundef captures(address) %0
   br i1 %92, label %76, label %Mpm_TruthStretch.exit.i, !llvm.loop !35
 
 Mpm_TruthStretch.exit.i:                          ; preds = %89, %50
-  %93 = icmp ugt i32 %39, 134217727
-  %94 = and i1 %93, %67
-  br i1 %94, label %.lr.ph.i50.i, label %Mpm_TruthStretch.exit55.i
+  %93 = lshr i32 %39, 27
+  %94 = icmp ne i32 %93, 0
+  %95 = and i1 %94, %68
+  br i1 %95, label %.lr.ph.i50.i, label %Mpm_TruthStretch.exit55.i
 
 .lr.ph.i50.i:                                     ; preds = %Mpm_TruthStretch.exit.i
-  %95 = lshr i32 %39, 27
-  %96 = add nsw i32 %95, -1
+  %96 = add nsw i32 %93, -1
   %97 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %99 = lshr i32 %66, 27
@@ -157,7 +157,7 @@ Mpm_TruthStretch.exit.i:                          ; preds = %89, %50
   br i1 %109, label %110, label %112
 
 110:                                              ; preds = %108
-  %111 = trunc nsw i64 %indvars.iv.next.i53.i to i32
+  %111 = trunc nuw nsw i64 %indvars.iv.next.i53.i to i32
   call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %12, i32 noundef %16, i32 noundef %.017.i52.i, i32 noundef %111)
   br label %112
 
@@ -198,13 +198,13 @@ Mpm_TruthStretch.exit55.i:                        ; preds = %114, %Mpm_TruthStre
   %136 = sext i1 %.not45.i to i64
   %137 = xor i64 %135, %136
   store i64 %137, ptr %13, align 8, !tbaa !33
-  %138 = icmp ugt i32 %120, 134217727
-  %139 = and i1 %67, %138
-  br i1 %139, label %.lr.ph.i56.i, label %Mpm_TruthStretch.exit61.i
+  %138 = lshr i32 %120, 27
+  %139 = icmp ne i32 %138, 0
+  %140 = and i1 %68, %139
+  br i1 %140, label %.lr.ph.i56.i, label %Mpm_TruthStretch.exit61.i
 
 .lr.ph.i56.i:                                     ; preds = %118
-  %140 = lshr i32 %120, 27
-  %141 = add nsw i32 %140, -1
+  %141 = add nsw i32 %138, -1
   %142 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %144 = lshr i32 %66, 27
@@ -228,7 +228,7 @@ Mpm_TruthStretch.exit55.i:                        ; preds = %114, %Mpm_TruthStre
   br i1 %154, label %155, label %157
 
 155:                                              ; preds = %153
-  %156 = trunc nsw i64 %indvars.iv.next.i59.i to i32
+  %156 = trunc nuw nsw i64 %indvars.iv.next.i59.i to i32
   call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %13, i32 noundef %16, i32 noundef %.017.i58.i, i32 noundef %156)
   br label %157
 
@@ -333,7 +333,7 @@ Mpm_TruthStretch.exit61.i:                        ; preds = %159, %118, %Mpm_Tru
   %220 = load i64, ptr %219, align 8, !tbaa !33
   store i64 %220, ptr %10, align 8, !tbaa !33
   %221 = lshr i32 %197, 27
-  %.not.i.i.i = icmp ult i32 %197, 134217728
+  %.not.i.i.i = icmp eq i32 %221, 0
   br i1 %.not.i.i.i, label %Abc_Tt6SupportAndSize.exit.i.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %202
@@ -550,14 +550,14 @@ Abc_TtCopy.exit86.i:                              ; preds = %.lr.ph.i75.i, %.lr.
   %298 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %299 = load i32, ptr %298, align 4
   %300 = load i32, ptr %18, align 4
-  %301 = icmp ugt i32 %299, 134217727
-  %302 = icmp ugt i32 %300, 134217727
-  %303 = select i1 %301, i1 %302, i1 false
-  br i1 %303, label %.lr.ph.i87.i, label %Mpm_TruthStretch.exit.i21
+  %301 = lshr i32 %300, 27
+  %302 = icmp ugt i32 %299, 134217727
+  %303 = icmp ne i32 %301, 0
+  %304 = select i1 %302, i1 %303, i1 false
+  br i1 %304, label %.lr.ph.i87.i, label %Mpm_TruthStretch.exit.i21
 
 .lr.ph.i87.i:                                     ; preds = %Abc_TtCopy.exit86.i
-  %304 = lshr i32 %300, 27
-  %305 = add nsw i32 %304, -1
+  %305 = add nsw i32 %301, -1
   %306 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %307 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %308 = lshr i32 %299, 27
@@ -581,7 +581,7 @@ Abc_TtCopy.exit86.i:                              ; preds = %.lr.ph.i75.i, %.lr.
   br i1 %318, label %319, label %321
 
 319:                                              ; preds = %317
-  %320 = trunc nsw i64 %indvars.iv.next.i89.i to i32
+  %320 = trunc nuw nsw i64 %indvars.iv.next.i89.i to i32
   tail call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %270, i32 noundef %16, i32 noundef %.017.i.i36, i32 noundef %320)
   br label %321
 
@@ -605,14 +605,14 @@ Mpm_TruthStretch.exit.i21:                        ; preds = %Mpm_TruthStretch.ex
   %327 = phi i32 [ %.pre161.i, %Mpm_TruthStretch.exit.loopexit.i ], [ %299, %Abc_TtCopy.exit86.i ]
   %328 = phi i32 [ %.pre.i, %Mpm_TruthStretch.exit.loopexit.i ], [ %16, %Abc_TtCopy.exit86.i ]
   %329 = load i32, ptr %38, align 4
-  %330 = icmp ugt i32 %327, 134217727
-  %331 = icmp ugt i32 %329, 134217727
-  %332 = select i1 %330, i1 %331, i1 false
-  br i1 %332, label %.lr.ph.i90.i, label %Mpm_TruthStretch.exit95.i
+  %330 = lshr i32 %329, 27
+  %331 = icmp ugt i32 %327, 134217727
+  %332 = icmp ne i32 %330, 0
+  %333 = select i1 %331, i1 %332, i1 false
+  br i1 %333, label %.lr.ph.i90.i, label %Mpm_TruthStretch.exit95.i
 
 .lr.ph.i90.i:                                     ; preds = %Mpm_TruthStretch.exit.i21
-  %333 = lshr i32 %329, 27
-  %334 = add nsw i32 %333, -1
+  %334 = add nsw i32 %330, -1
   %335 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %336 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %337 = lshr i32 %327, 27
@@ -636,7 +636,7 @@ Mpm_TruthStretch.exit.i21:                        ; preds = %Mpm_TruthStretch.ex
   br i1 %347, label %348, label %350
 
 348:                                              ; preds = %346
-  %349 = trunc nsw i64 %indvars.iv.next.i93.i to i32
+  %349 = trunc nuw nsw i64 %indvars.iv.next.i93.i to i32
   tail call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %285, i32 noundef %328, i32 noundef %.017.i92.i, i32 noundef %349)
   br label %350
 
@@ -725,14 +725,14 @@ Abc_TtCopy.exit111.i:                             ; preds = %.lr.ph.i100.i, %.lr
   %390 = load i32, ptr %15, align 8, !tbaa !3
   %391 = load i32, ptr %298, align 4
   %392 = load i32, ptr %357, align 4
-  %393 = icmp ugt i32 %391, 134217727
-  %394 = icmp ugt i32 %392, 134217727
-  %395 = select i1 %393, i1 %394, i1 false
-  br i1 %395, label %.lr.ph.i112.i, label %Mpm_TruthStretch.exit117.i
+  %393 = lshr i32 %392, 27
+  %394 = icmp ugt i32 %391, 134217727
+  %395 = icmp ne i32 %393, 0
+  %396 = select i1 %394, i1 %395, i1 false
+  br i1 %396, label %.lr.ph.i112.i, label %Mpm_TruthStretch.exit117.i
 
 .lr.ph.i112.i:                                    ; preds = %Abc_TtCopy.exit111.i
-  %396 = lshr i32 %392, 27
-  %397 = add nsw i32 %396, -1
+  %397 = add nsw i32 %393, -1
   %398 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %399 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %400 = lshr i32 %391, 27
@@ -756,7 +756,7 @@ Abc_TtCopy.exit111.i:                             ; preds = %.lr.ph.i100.i, %.lr
   br i1 %410, label %411, label %413
 
 411:                                              ; preds = %409
-  %412 = trunc nsw i64 %indvars.iv.next.i115.i to i32
+  %412 = trunc nuw nsw i64 %indvars.iv.next.i115.i to i32
   tail call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %376, i32 noundef %390, i32 noundef %.017.i114.i, i32 noundef %412)
   br label %413
 
@@ -930,7 +930,7 @@ Abc_TtNot.exit.i:                                 ; preds = %.lr.ph.i138.i, %458
   %502 = sext i32 %501 to i64
   %503 = getelementptr inbounds i64, ptr %496, i64 %502
   %504 = lshr i32 %481, 27
-  %.not.i.i.i24 = icmp ult i32 %481, 134217728
+  %.not.i.i.i24 = icmp eq i32 %504, 0
   br i1 %.not.i.i.i24, label %Abc_TtSupportAndSize.exit.i.i, label %.lr.ph.i.i.i25
 
 .lr.ph.i.i.i25:                                   ; preds = %486

@@ -2801,11 +2801,11 @@ _ZN6bufferIcLb0ELj16EE6expandEv.exit.i100:        ; preds = %.noexc105, %._crit_
   br label %169
 
 169:                                              ; preds = %.sink.split, %160, %149
-  %.sink252 = phi i32 [ %151, %149 ], [ %162, %160 ], [ %.pre2.i117, %.sink.split ]
-  %.sink250 = phi ptr [ %145, %149 ], [ %145, %160 ], [ %.pre.i115, %.sink.split ]
+  %.sink253 = phi i32 [ %151, %149 ], [ %162, %160 ], [ %.pre2.i117, %.sink.split ]
+  %.sink251 = phi ptr [ %145, %149 ], [ %145, %160 ], [ %.pre.i115, %.sink.split ]
   %.sink = phi i8 [ %148, %149 ], [ %159, %160 ], [ %.sink.ph, %.sink.split ]
-  %170 = zext i32 %.sink252 to i64
-  %171 = getelementptr inbounds nuw i8, ptr %.sink250, i64 %170
+  %170 = zext i32 %.sink253 to i64
+  %171 = getelementptr inbounds nuw i8, ptr %.sink251, i64 %170
   store i8 %.sink, ptr %171, align 1, !tbaa !177
   %172 = load ptr, ptr %5, align 8, !tbaa !214
   %173 = getelementptr inbounds i8, ptr %172, i64 -4
@@ -2813,7 +2813,7 @@ _ZN6bufferIcLb0ELj16EE6expandEv.exit.i100:        ; preds = %.noexc105, %._crit_
   %175 = add i32 %174, 1
   store i32 %175, ptr %173, align 4, !tbaa !173
   %176 = lshr i32 %.048193, 4
-  %.not60 = icmp ult i32 %.048193, 16
+  %.not60 = icmp eq i32 %176, 0
   br i1 %.not60, label %_ZNK6vectorIcLb0EjE4sizeEv.exit, label %.lr.ph, !llvm.loop !219
 
 _ZNK6vectorIcLb0EjE4sizeEv.exit:                  ; preds = %169, %125
@@ -3032,12 +3032,12 @@ _ZN6bufferIcLb0ELj16EE6expandEv.exit.i169:        ; preds = %.noexc174, %._crit_
   br label %243
 
 237:                                              ; preds = %._crit_edge.i171, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i169, %._crit_edge.i134, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i132
-  %.sink257 = phi i32 [ %181, %._crit_edge.i134 ], [ %.pre2.i133, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i132 ], [ %37, %._crit_edge.i171 ], [ %.pre2.i170, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i169 ]
-  %.sink255 = phi ptr [ %.pre.i135, %._crit_edge.i134 ], [ %186, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i132 ], [ %.pre.i172, %._crit_edge.i171 ], [ %227, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i169 ]
-  %.sink253 = phi i8 [ 125, %._crit_edge.i134 ], [ 125, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i132 ], [ %222, %._crit_edge.i171 ], [ %222, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i169 ]
-  %238 = zext i32 %.sink257 to i64
-  %239 = getelementptr inbounds nuw i8, ptr %.sink255, i64 %238
-  store i8 %.sink253, ptr %239, align 1, !tbaa !177
+  %.sink258 = phi i32 [ %181, %._crit_edge.i134 ], [ %.pre2.i133, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i132 ], [ %37, %._crit_edge.i171 ], [ %.pre2.i170, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i169 ]
+  %.sink256 = phi ptr [ %.pre.i135, %._crit_edge.i134 ], [ %186, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i132 ], [ %.pre.i172, %._crit_edge.i171 ], [ %227, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i169 ]
+  %.sink254 = phi i8 [ 125, %._crit_edge.i134 ], [ 125, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i132 ], [ %222, %._crit_edge.i171 ], [ %222, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i169 ]
+  %238 = zext i32 %.sink258 to i64
+  %239 = getelementptr inbounds nuw i8, ptr %.sink256, i64 %238
+  store i8 %.sink254, ptr %239, align 1, !tbaa !177
   %storemerge.in = load i32, ptr %24, align 8, !tbaa !213
   %storemerge = add i32 %storemerge.in, 1
   store i32 %storemerge, ptr %24, align 8, !tbaa !213

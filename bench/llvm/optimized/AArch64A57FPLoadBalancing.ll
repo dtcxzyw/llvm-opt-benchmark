@@ -3560,7 +3560,7 @@ _ZN12_GLOBAL__N_125AArch64A57FPLoadBalancing15getAndEraseNextENS_5ColorERSt6vect
   %1089 = add i32 %1088, 63
   %1090 = lshr i32 %1089, 6
   %1091 = zext nneg i32 %1090 to i64
-  %1092 = icmp ult i32 %1089, 64
+  %1092 = icmp eq i32 %1090, 0
   br i1 %1092, label %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i.i.i.i.i.i.i, label %1093
 
 1093:                                             ; preds = %1085

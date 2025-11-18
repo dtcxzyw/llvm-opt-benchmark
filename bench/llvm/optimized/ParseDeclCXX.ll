@@ -10011,7 +10011,7 @@ _ZN5clang32EnterExpressionEvaluationContextD2Ev.exit: ; preds = %.sink.split.i, 
   store i64 %.sroa.01.0.copyload.i53, ptr %202, align 4
   %203 = lshr i64 %.sroa.01.0.copyload.i53, 32
   %204 = trunc nuw i64 %203 to i32
-  %205 = icmp ult i64 %.sroa.01.0.copyload.i53, 4294967296
+  %205 = icmp eq i64 %203, 0
   br i1 %205, label %206, label %208
 
 206:                                              ; preds = %200
@@ -22219,7 +22219,7 @@ define dso_local void @_ZN5clang6Parser55MaybeParseAndDiagnoseDeclSpecAfterCXX11
   br label %35
 
 35:                                               ; preds = %34, %3
-  %36 = icmp ult i64 %.sroa.0.0.copyload.i.i, 4294967296
+  %36 = icmp eq i64 %.sroa.4.0.extract.shift.i, 0
   br i1 %36, label %_ZN5clang10Declarator18ExtendWithDeclSpecERKNS_8DeclSpecE.exit, label %37
 
 37:                                               ; preds = %35

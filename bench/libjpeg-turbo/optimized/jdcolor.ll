@@ -2543,7 +2543,7 @@ define internal void @ycc_rgb565_convert(ptr noundef readonly captures(none) %0,
   %.0114.i = phi ptr [ %46, %40 ], [ %34, %26 ]
   %.1.i = phi i32 [ %84, %40 ], [ %.0112.i17, %26 ]
   %86 = lshr i32 %.1.i, 1
-  %.not = icmp ult i32 %.1.i, 2
+  %.not = icmp eq i32 %86, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %85, %.lr.ph
@@ -2753,7 +2753,7 @@ define internal void @gray_rgb565_convert(ptr noundef readonly captures(none) %0
   %.036.i = phi ptr [ %31, %20 ], [ %17, %10 ]
   %.1.i = phi i32 [ %32, %20 ], [ %.0.i15, %10 ]
   %34 = lshr i32 %.1.i, 1
-  %.not = icmp ult i32 %.1.i, 2
+  %.not = icmp eq i32 %34, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %33, %.lr.ph
@@ -2881,7 +2881,7 @@ define internal void @rgb_rgb565_convert(ptr noundef readonly captures(none) %0,
   %.049.i = phi ptr [ %35, %28 ], [ %22, %14 ]
   %.1.i = phi i32 [ %46, %28 ], [ %.0.i19, %14 ]
   %48 = lshr i32 %.1.i, 1
-  %.not = icmp ult i32 %.1.i, 2
+  %.not = icmp eq i32 %48, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %47, %.lr.ph
@@ -3078,7 +3078,7 @@ define internal void @ycc_rgb565D_convert(ptr noundef readonly captures(none) %0
   %.0133.i = phi ptr [ %52, %46 ], [ %40, %32 ]
   %.1131.i = phi i32 [ %94, %46 ], [ %.0130.i19, %32 ]
   %96 = lshr i32 %.1131.i, 1
-  %.not = icmp ult i32 %.1131.i, 2
+  %.not = icmp eq i32 %96, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %95, %.lr.ph
@@ -3323,7 +3323,7 @@ define internal void @gray_rgb565D_convert(ptr noundef readonly captures(none) %
   %.057.i = phi ptr [ %44, %28 ], [ %25, %18 ]
   %.154.i = phi i32 [ %45, %28 ], [ %.053.i17, %18 ]
   %47 = lshr i32 %.154.i, 1
-  %.not = icmp ult i32 %.154.i, 2
+  %.not = icmp eq i32 %47, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %46, %.lr.ph
@@ -3497,7 +3497,7 @@ define internal void @rgb_rgb565D_convert(ptr noundef readonly captures(none) %0
   %.082.i = phi ptr [ %53, %36 ], [ %30, %22 ]
   %.179.i = phi i32 [ %67, %36 ], [ %.078.i21, %22 ]
   %69 = lshr i32 %.179.i, 1
-  %.not = icmp ult i32 %.179.i, 2
+  %.not = icmp eq i32 %69, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %68, %.lr.ph

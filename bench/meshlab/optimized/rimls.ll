@@ -2005,7 +2005,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE5clearEv.exit: ; preds = %83, %78, %_ZNSt6v
 88:                                               ; preds = %86
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #23
-  %.not69 = icmp ult i64 %sext, 4294967296
+  %.not69 = icmp eq i64 %43, 0
   br i1 %.not69, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %88
@@ -2018,7 +2018,6 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE5clearEv.exit: ; preds = %83, %78, %_ZNSt6v
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %umax88 = call i64 @llvm.umax.i64(i64 %43, i64 1)
   br i1 %2, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit.us
@@ -2107,8 +2106,8 @@ _ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit.us: ; preds = %_ZNK7GaelMl
   %.sroa.26.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %163, i64 8
   store float %161, ptr %.sroa.26.0..sroa_idx.us, align 4
   %164 = add nuw i64 %.04263.us, 1
-  %exitcond89.not = icmp eq i64 %164, %umax88
-  br i1 %exitcond89.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !19
+  %exitcond88.not = icmp eq i64 %164, %43
+  br i1 %exitcond88.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !19
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit
   %.04263 = phi i64 [ %197, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit ], [ 0, %.lr.ph ]
@@ -2168,7 +2167,7 @@ _ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit: ; preds = %_ZNK7GaelMls12
   %196 = getelementptr inbounds float, ptr %195, i64 %.04263
   store float %194, ptr %196, align 4
   %197 = add nuw i64 %.04263, 1
-  %exitcond.not = icmp eq i64 %197, %umax88
+  %exitcond.not = icmp eq i64 %197, %43
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !19
 
 198:                                              ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE5clearEv.exit
@@ -2855,7 +2854,7 @@ define linkonce_odr void @_ZNK7GaelMls10MlsSurfaceI6CMeshOE24requestSecondDeriva
   resume { ptr, i32 } %.pn
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %36, %34, %32, %30, %8
-  %.not = icmp ult i64 %sext, 4294967296
+  %.not = icmp eq i64 %17, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
@@ -2863,7 +2862,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %36, %34, %32, %30, 
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %umax = call i64 @llvm.umax.i64(i64 %17, i64 1)
   br label %46
 
 46:                                               ; preds = %.lr.ph, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit
@@ -2926,7 +2924,7 @@ _ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit: ; preds = %_ZNK7GaelMls12
   %86 = getelementptr inbounds float, ptr %85, i64 %.01931
   store float %84, ptr %86, align 4
   %87 = add nuw i64 %.01931, 1
-  %exitcond.not = icmp eq i64 %87, %umax
+  %exitcond.not = icmp eq i64 %87, %17
   br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit, %_ZNSt6vectorIfSaIfEE6resizeEm.exit

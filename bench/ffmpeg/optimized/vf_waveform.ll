@@ -19059,7 +19059,7 @@ define internal void @draw_vtext(ptr noundef readonly captures(none) %0, i32 nou
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds i8, ptr %.045, i64 %52
   %54 = lshr i32 %.03844, 1
-  %.not42 = icmp samesign ult i32 %.03844, 2
+  %.not42 = icmp eq i32 %54, 0
   br i1 %.not42, label %55, label %33, !llvm.loop !241
 
 55:                                               ; preds = %50
@@ -19159,7 +19159,7 @@ define internal void @draw_vtext16(ptr noundef readonly captures(none) %0, i32 n
 50:                                               ; preds = %44, %34
   %51 = getelementptr inbounds i16, ptr %.046, i64 %20
   %52 = lshr i32 %.03945, 1
-  %.not43 = icmp samesign ult i32 %.03945, 2
+  %.not43 = icmp eq i32 %52, 0
   br i1 %.not43, label %53, label %34, !llvm.loop !245
 
 53:                                               ; preds = %50
@@ -19310,7 +19310,7 @@ define internal void @draw_htext(ptr noundef readonly captures(none) %0, i32 nou
 45:                                               ; preds = %40, %30
   %46 = getelementptr inbounds nuw i8, ptr %.144, i64 1
   %47 = lshr i32 %.03643, 1
-  %.not40 = icmp samesign ult i32 %.03643, 2
+  %.not40 = icmp eq i32 %47, 0
   br i1 %.not40, label %48, label %30, !llvm.loop !251
 
 48:                                               ; preds = %45
@@ -19411,7 +19411,7 @@ define internal void @draw_htext16(ptr noundef readonly captures(none) %0, i32 n
 45:                                               ; preds = %40, %30
   %46 = getelementptr inbounds nuw i8, ptr %.145, i64 2
   %47 = lshr i32 %.03744, 1
-  %.not41 = icmp samesign ult i32 %.03744, 2
+  %.not41 = icmp eq i32 %47, 0
   br i1 %.not41, label %48, label %30, !llvm.loop !255
 
 48:                                               ; preds = %45
@@ -19585,7 +19585,7 @@ define internal void @idraw_vtext(ptr noundef readonly captures(none) %0, i32 no
   %55 = sext i32 %54 to i64
   %56 = getelementptr inbounds i8, ptr %.047, i64 %55
   %57 = lshr i32 %.04046, 1
-  %.not44 = icmp samesign ult i32 %.04046, 2
+  %.not44 = icmp eq i32 %57, 0
   br i1 %.not44, label %58, label %32, !llvm.loop !261
 
 58:                                               ; preds = %53
@@ -19687,7 +19687,7 @@ define internal void @idraw_vtext16(ptr noundef readonly captures(none) %0, i32 
 52:                                               ; preds = %42, %32
   %53 = getelementptr inbounds i16, ptr %.048, i64 %20
   %54 = lshr i32 %.04147, 1
-  %.not45 = icmp samesign ult i32 %.04147, 2
+  %.not45 = icmp eq i32 %54, 0
   br i1 %.not45, label %55, label %32, !llvm.loop !265
 
 55:                                               ; preds = %52
@@ -19845,7 +19845,7 @@ define internal void @idraw_htext(ptr noundef readonly captures(none) %0, i32 no
 48:                                               ; preds = %39, %29
   %49 = getelementptr inbounds nuw i8, ptr %.145, i64 1
   %50 = lshr i32 %.03744, 1
-  %.not41 = icmp samesign ult i32 %.03744, 2
+  %.not41 = icmp eq i32 %50, 0
   br i1 %.not41, label %51, label %29, !llvm.loop !271
 
 51:                                               ; preds = %48
@@ -19948,7 +19948,7 @@ define internal void @idraw_htext16(ptr noundef readonly captures(none) %0, i32 
 47:                                               ; preds = %38, %28
   %48 = getelementptr inbounds nuw i8, ptr %.146, i64 2
   %49 = lshr i32 %.03845, 1
-  %.not42 = icmp samesign ult i32 %.03845, 2
+  %.not42 = icmp eq i32 %49, 0
   br i1 %.not42, label %50, label %28, !llvm.loop !275
 
 50:                                               ; preds = %47

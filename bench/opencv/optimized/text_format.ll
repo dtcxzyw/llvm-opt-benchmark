@@ -9610,8 +9610,8 @@ _ZNSt6vectorIPKN6google8protobuf7MessageESaIS4_EE9push_backERKS4_.exit: ; preds 
           cleanup
   br label %150
 
-common.resume:                                    ; preds = %166, %150
-  %common.resume.op = phi { ptr, i32 } [ %.pn38, %150 ], [ %167, %166 ]
+common.resume:                                    ; preds = %167, %150
+  %common.resume.op = phi { ptr, i32 } [ %.pn38, %150 ], [ %168, %167 ]
   resume { ptr, i32 } %common.resume.op
 
 150:                                              ; preds = %.loopexit51, %.loopexit.split-lp, %148, %109
@@ -9648,30 +9648,30 @@ common.resume:                                    ; preds = %166, %150
   br i1 %.not.i.i.i.i45, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES6_EC2ESB_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not14.i.i.i.i = icmp samesign ult i64 %.010.i.i.in.in.i.i, 3
-  br i1 %.not14.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !332
+  %166 = icmp eq i64 %.010.i.i.i.i, 1
+  br i1 %166, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !332
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %158
   invoke void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_25MapEntryMessageComparatorEEEEvT_SG_T0_(ptr %154, ptr %156, ptr %153)
-          to label %168 unwind label %166
+          to label %169 unwind label %167
 
-166:                                              ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES6_EC2ESB_l.exit.i.i, %.loopexit.i.i
+167:                                              ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES6_EC2ESB_l.exit.i.i, %.loopexit.i.i
   %.sroa.7.019.i.i = phi ptr [ %165, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES6_EC2ESB_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %167 = landingpad { ptr, i32 }
+  %168 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef %.sroa.7.019.i.i) #32
   br label %common.resume
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES6_EC2ESB_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   invoke void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_lNS0_5__ops15_Iter_comp_iterINS3_25MapEntryMessageComparatorEEEEvT_SG_T0_T1_T2_(ptr %154, ptr %156, ptr noundef nonnull %165, i64 noundef %.010.i.i.i.i, ptr %153)
-          to label %168 unwind label %166
+          to label %169 unwind label %167
 
-168:                                              ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES6_EC2ESB_l.exit.i.i, %.loopexit.i.i
+169:                                              ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES6_EC2ESB_l.exit.i.i, %.loopexit.i.i
   %.sroa.7.017.i.i = phi ptr [ %165, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES6_EC2ESB_l.exit.i.i ], [ null, %.loopexit.i.i ]
   call void @_ZdlPv(ptr noundef %.sroa.7.017.i.i) #32
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEENS3_25MapEntryMessageComparatorEEvT_SD_T0_.exit
 
-_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEENS3_25MapEntryMessageComparatorEEvT_SD_T0_.exit: ; preds = %.loopexit, %168
+_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEENS3_25MapEntryMessageComparatorEEvT_SD_T0_.exit: ; preds = %.loopexit, %169
   %.0 = xor i1 %8, true
   ret i1 %.0
 }

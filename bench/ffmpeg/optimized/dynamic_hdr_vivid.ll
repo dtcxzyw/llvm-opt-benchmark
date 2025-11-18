@@ -504,7 +504,7 @@ define range(i32 -1094995529, 1) i32 @ff_parse_itu_t_t35_to_dynamic_hdr_vivid(pt
   %353 = shl i32 %351, %352
   %354 = lshr i32 %353, 29
   store i32 %354, ptr %341, align 4, !tbaa !30
-  %.not352 = icmp ult i32 %353, 536870912
+  %.not352 = icmp eq i32 %354, 0
   br i1 %.not352, label %.thread321, label %.lr.ph348
 
 .lr.ph348:                                        ; preds = %346

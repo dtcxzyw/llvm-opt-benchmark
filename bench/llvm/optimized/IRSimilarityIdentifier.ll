@@ -20736,40 +20736,40 @@ define linkonce_odr void @_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iterato
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %select.unfold.i, %.lr.ph.preheader.i
-  %.010.i = phi i64 [ %11, %select.unfold.i ], [ %7, %.lr.ph.preheader.i ]
+  %.010.i = phi i64 [ %12, %select.unfold.i ], [ %7, %.lr.ph.preheader.i ]
   %8 = mul nuw nsw i64 %.010.i, 72
   %9 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %8, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #33
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %select.unfold.i, label %12
+  br i1 %.not.i, label %select.unfold.i, label %13
 
 select.unfold.i:                                  ; preds = %.lr.ph.i
-  %10 = add nuw nsw i64 %.010.i, 1
-  %11 = lshr i64 %10, 1
-  %.not14.i = icmp samesign ult i64 %.010.i, 2
-  br i1 %.not14.i, label %_ZSt20get_temporary_bufferIN4llvm10SuffixTree17RepeatedSubstringEESt4pairIPT_lEl.exit.thread, label %.lr.ph.i, !llvm.loop !799
+  %10 = icmp eq i64 %.010.i, 1
+  %11 = add nuw nsw i64 %.010.i, 1
+  %12 = lshr i64 %11, 1
+  br i1 %10, label %_ZSt20get_temporary_bufferIN4llvm10SuffixTree17RepeatedSubstringEESt4pairIPT_lEl.exit.thread, label %.lr.ph.i, !llvm.loop !799
 
-12:                                               ; preds = %.lr.ph.i
-  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %8
-  %14 = load i32, ptr %1, align 8, !tbaa !531
-  store i32 %14, ptr %9, align 8, !tbaa !531
-  %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %16 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr %16, ptr %15, align 8, !tbaa !25
-  %17 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 0, ptr %17, align 8, !tbaa !26
-  %18 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  store i32 12, ptr %18, align 4, !tbaa !27
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %20 = load i32, ptr %19, align 8, !tbaa !26
-  %.not.i.i.i.i.i.i = icmp eq i32 %20, 0
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt10_ConstructIN4llvm10SuffixTree17RepeatedSubstringEJS2_EEvPT_DpOT0_.exit.i.i, label %21
+13:                                               ; preds = %.lr.ph.i
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 %8
+  %15 = load i32, ptr %1, align 8, !tbaa !531
+  store i32 %15, ptr %9, align 8, !tbaa !531
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store ptr %17, ptr %16, align 8, !tbaa !25
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store i32 0, ptr %18, align 8, !tbaa !26
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 20
+  store i32 12, ptr %19, align 4, !tbaa !27
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %21 = load i32, ptr %20, align 8, !tbaa !26
+  %.not.i.i.i.i.i.i = icmp eq i32 %21, 0
+  br i1 %.not.i.i.i.i.i.i, label %_ZSt10_ConstructIN4llvm10SuffixTree17RepeatedSubstringEJS2_EEvPT_DpOT0_.exit.i.i, label %22
 
-21:                                               ; preds = %12
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %23 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIjEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %22)
+22:                                               ; preds = %13
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %24 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIjEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef nonnull align 8 dereferenceable(64) %23)
   br label %_ZSt10_ConstructIN4llvm10SuffixTree17RepeatedSubstringEJS2_EEvPT_DpOT0_.exit.i.i
 
-_ZSt10_ConstructIN4llvm10SuffixTree17RepeatedSubstringEJS2_EEvPT_DpOT0_.exit.i.i: ; preds = %21, %12
+_ZSt10_ConstructIN4llvm10SuffixTree17RepeatedSubstringEJS2_EEvPT_DpOT0_.exit.i.i: ; preds = %22, %13
   %.not20.i.i = icmp eq i64 %.010.i, 1
   br i1 %.not20.i.i, label %_ZSt29__uninitialized_construct_bufIPN4llvm10SuffixTree17RepeatedSubstringEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEEvT_SA_T0_.exit, label %.lr.ph.i.i.preheader
 
@@ -20779,39 +20779,39 @@ _ZSt10_ConstructIN4llvm10SuffixTree17RepeatedSubstringEJS2_EEvPT_DpOT0_.exit.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %_ZSt10_ConstructIN4llvm10SuffixTree17RepeatedSubstringEJS2_EEvPT_DpOT0_.exit17.i.i
   %.01323.i.i = phi ptr [ %.013.i.i, %_ZSt10_ConstructIN4llvm10SuffixTree17RepeatedSubstringEJS2_EEvPT_DpOT0_.exit17.i.i ], [ %.01319.i.i, %.lr.ph.i.i.preheader ]
-  %.022.i.i = phi ptr [ %34, %_ZSt10_ConstructIN4llvm10SuffixTree17RepeatedSubstringEJS2_EEvPT_DpOT0_.exit17.i.i ], [ %9, %.lr.ph.i.i.preheader ]
-  %24 = load i32, ptr %.022.i.i, align 8, !tbaa !531
-  store i32 %24, ptr %.01323.i.i, align 8, !tbaa !531
-  %25 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 80
-  %26 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 96
-  store ptr %26, ptr %25, align 8, !tbaa !25
-  %27 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 88
-  store i32 0, ptr %27, align 8, !tbaa !26
-  %28 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 92
-  store i32 12, ptr %28, align 4, !tbaa !27
-  %29 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 16
-  %30 = load i32, ptr %29, align 8, !tbaa !26
-  %.not.i.i.i.i16.i.i = icmp eq i32 %30, 0
-  br i1 %.not.i.i.i.i16.i.i, label %_ZSt10_ConstructIN4llvm10SuffixTree17RepeatedSubstringEJS2_EEvPT_DpOT0_.exit17.i.i, label %31
+  %.022.i.i = phi ptr [ %35, %_ZSt10_ConstructIN4llvm10SuffixTree17RepeatedSubstringEJS2_EEvPT_DpOT0_.exit17.i.i ], [ %9, %.lr.ph.i.i.preheader ]
+  %25 = load i32, ptr %.022.i.i, align 8, !tbaa !531
+  store i32 %25, ptr %.01323.i.i, align 8, !tbaa !531
+  %26 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 96
+  store ptr %27, ptr %26, align 8, !tbaa !25
+  %28 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 88
+  store i32 0, ptr %28, align 8, !tbaa !26
+  %29 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 92
+  store i32 12, ptr %29, align 4, !tbaa !27
+  %30 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 16
+  %31 = load i32, ptr %30, align 8, !tbaa !26
+  %.not.i.i.i.i16.i.i = icmp eq i32 %31, 0
+  br i1 %.not.i.i.i.i16.i.i, label %_ZSt10_ConstructIN4llvm10SuffixTree17RepeatedSubstringEJS2_EEvPT_DpOT0_.exit17.i.i, label %32
 
-31:                                               ; preds = %.lr.ph.i.i
-  %32 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 8
-  %33 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIjEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(64) %25, ptr noundef nonnull align 8 dereferenceable(64) %32)
+32:                                               ; preds = %.lr.ph.i.i
+  %33 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 8
+  %34 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIjEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(64) %26, ptr noundef nonnull align 8 dereferenceable(64) %33)
   br label %_ZSt10_ConstructIN4llvm10SuffixTree17RepeatedSubstringEJS2_EEvPT_DpOT0_.exit17.i.i
 
-_ZSt10_ConstructIN4llvm10SuffixTree17RepeatedSubstringEJS2_EEvPT_DpOT0_.exit17.i.i: ; preds = %31, %.lr.ph.i.i
-  %34 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 72
+_ZSt10_ConstructIN4llvm10SuffixTree17RepeatedSubstringEJS2_EEvPT_DpOT0_.exit17.i.i: ; preds = %32, %.lr.ph.i.i
+  %35 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 72
   %.013.i.i = getelementptr inbounds nuw i8, ptr %.01323.i.i, i64 72
-  %.not.i.i = icmp eq ptr %.013.i.i, %13
+  %.not.i.i = icmp eq ptr %.013.i.i, %14
   br i1 %.not.i.i, label %_ZSt29__uninitialized_construct_bufIPN4llvm10SuffixTree17RepeatedSubstringEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEEvT_SA_T0_.exit, label %.lr.ph.i.i, !llvm.loop !800
 
 _ZSt29__uninitialized_construct_bufIPN4llvm10SuffixTree17RepeatedSubstringEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEEvT_SA_T0_.exit: ; preds = %_ZSt10_ConstructIN4llvm10SuffixTree17RepeatedSubstringEJS2_EEvPT_DpOT0_.exit17.i.i, %_ZSt10_ConstructIN4llvm10SuffixTree17RepeatedSubstringEJS2_EEvPT_DpOT0_.exit.i.i
-  %.0.lcssa.i.i = phi ptr [ %9, %_ZSt10_ConstructIN4llvm10SuffixTree17RepeatedSubstringEJS2_EEvPT_DpOT0_.exit.i.i ], [ %34, %_ZSt10_ConstructIN4llvm10SuffixTree17RepeatedSubstringEJS2_EEvPT_DpOT0_.exit17.i.i ]
-  %35 = load i32, ptr %.0.lcssa.i.i, align 8, !tbaa !531
-  store i32 %35, ptr %1, align 8, !tbaa !531
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %37 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i, i64 8
-  %38 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIjEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(64) %36, ptr noundef nonnull align 8 dereferenceable(64) %37)
+  %.0.lcssa.i.i = phi ptr [ %9, %_ZSt10_ConstructIN4llvm10SuffixTree17RepeatedSubstringEJS2_EEvPT_DpOT0_.exit.i.i ], [ %35, %_ZSt10_ConstructIN4llvm10SuffixTree17RepeatedSubstringEJS2_EEvPT_DpOT0_.exit17.i.i ]
+  %36 = load i32, ptr %.0.lcssa.i.i, align 8, !tbaa !531
+  store i32 %36, ptr %1, align 8, !tbaa !531
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i, i64 8
+  %39 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIjEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(64) %37, ptr noundef nonnull align 8 dereferenceable(64) %38)
   store ptr %9, ptr %5, align 8, !tbaa !524
   store i64 %.010.i, ptr %4, align 8, !tbaa !526
   br label %_ZSt20get_temporary_bufferIN4llvm10SuffixTree17RepeatedSubstringEESt4pairIPT_lEl.exit.thread

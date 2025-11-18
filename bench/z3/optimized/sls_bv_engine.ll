@@ -6112,13 +6112,13 @@ _ZNK6vectorIP9func_declLb0EjE4sizeEv.exit:        ; preds = %5, %19
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %26 = load i32, ptr %25, align 8, !tbaa !105
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %._crit_edge321
+  br i1 %27, label %28, label %._crit_edge320
 
-._crit_edge321:                                   ; preds = %24
+._crit_edge320:                                   ; preds = %24
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 804
   %.promoted8.i.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !81
-  %.phi.trans.insert323 = getelementptr inbounds nuw i8, ptr %0, i64 800
-  %.promoted10.i.pre = load i32, ptr %.phi.trans.insert323, align 8
+  %.phi.trans.insert322 = getelementptr inbounds nuw i8, ptr %0, i64 800
+  %.promoted10.i.pre = load i32, ptr %.phi.trans.insert322, align 8
   br label %35
 
 28:                                               ; preds = %24
@@ -6131,10 +6131,10 @@ _ZNK6vectorIP9func_declLb0EjE4sizeEv.exit:        ; preds = %5, %19
   %34 = and i32 %33, 32767
   br label %35
 
-35:                                               ; preds = %._crit_edge321, %28
-  %.promoted10.i = phi i32 [ %32, %28 ], [ %.promoted10.i.pre, %._crit_edge321 ]
-  %.promoted8.i = phi i32 [ %34, %28 ], [ %.promoted8.i.pre, %._crit_edge321 ]
-  %.promoted.i = phi i32 [ 15, %28 ], [ %26, %._crit_edge321 ]
+35:                                               ; preds = %._crit_edge320, %28
+  %.promoted10.i = phi i32 [ %32, %28 ], [ %.promoted10.i.pre, %._crit_edge320 ]
+  %.promoted8.i = phi i32 [ %34, %28 ], [ %.promoted8.i.pre, %._crit_edge320 ]
+  %.promoted.i = phi i32 [ 15, %28 ], [ %26, %._crit_edge320 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 804
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 800
   br label %38
@@ -6576,8 +6576,8 @@ _ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit.i:  ; preds = %.lr.ph.i.i.i.i, %22
 
 _ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit.i._crit_edge: ; preds = %_ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit.i
   %.pre = load ptr, ptr %71, align 8, !tbaa !24
-  %.pre328 = add i32 %248, -1
-  %.pre329 = zext i32 %248 to i64
+  %.pre327 = add i32 %248, -1
+  %.pre328 = zext i32 %248 to i64
   %251 = add i32 %245, -1
   br label %291
 
@@ -6693,8 +6693,8 @@ _ZN14core_hashtableI17default_map_entryIjP3mpzEN9table2mapIS3_6u_hash4u_eqE15ent
   br label %291
 
 291:                                              ; preds = %_ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit.i._crit_edge, %_ZN14core_hashtableI17default_map_entryIjP3mpzEN9table2mapIS3_6u_hash4u_eqE15entry_hash_procENS7_13entry_eq_procEE12expand_tableEv.exit
-  %.pre-phi330 = phi i64 [ %.pre329, %_ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit.i._crit_edge ], [ %254, %_ZN14core_hashtableI17default_map_entryIjP3mpzEN9table2mapIS3_6u_hash4u_eqE15entry_hash_procENS7_13entry_eq_procEE12expand_tableEv.exit ]
-  %.pre-phi = phi i32 [ %.pre328, %_ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit.i._crit_edge ], [ %262, %_ZN14core_hashtableI17default_map_entryIjP3mpzEN9table2mapIS3_6u_hash4u_eqE15entry_hash_procENS7_13entry_eq_procEE12expand_tableEv.exit ]
+  %.pre-phi329 = phi i64 [ %.pre328, %_ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit.i._crit_edge ], [ %254, %_ZN14core_hashtableI17default_map_entryIjP3mpzEN9table2mapIS3_6u_hash4u_eqE15entry_hash_procENS7_13entry_eq_procEE12expand_tableEv.exit ]
+  %.pre-phi = phi i32 [ %.pre327, %_ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit.i._crit_edge ], [ %262, %_ZN14core_hashtableI17default_map_entryIjP3mpzEN9table2mapIS3_6u_hash4u_eqE15entry_hash_procENS7_13entry_eq_procEE12expand_tableEv.exit ]
   %292 = phi i32 [ %251, %_ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit.i._crit_edge ], [ -1, %_ZN14core_hashtableI17default_map_entryIjP3mpzEN9table2mapIS3_6u_hash4u_eqE15entry_hash_procENS7_13entry_eq_procEE12expand_tableEv.exit ]
   %293 = phi ptr [ %.pre, %_ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit.i._crit_edge ], [ %256, %_ZN14core_hashtableI17default_map_entryIjP3mpzEN9table2mapIS3_6u_hash4u_eqE15entry_hash_procENS7_13entry_eq_procEE12expand_tableEv.exit ]
   %294 = phi i32 [ %248, %_ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit.i._crit_edge ], [ %253, %_ZN14core_hashtableI17default_map_entryIjP3mpzEN9table2mapIS3_6u_hash4u_eqE15entry_hash_procENS7_13entry_eq_procEE12expand_tableEv.exit ]
@@ -6702,7 +6702,7 @@ _ZN14core_hashtableI17default_map_entryIjP3mpzEN9table2mapIS3_6u_hash4u_eqE15ent
   %296 = zext i32 %295 to i64
   %.idx.i = mul nuw nsw i64 %296, 24
   %297 = getelementptr inbounds nuw i8, ptr %293, i64 %.idx.i
-  %298 = getelementptr inbounds nuw %class.default_map_entry, ptr %293, i64 %.pre-phi330
+  %298 = getelementptr inbounds nuw %class.default_map_entry, ptr %293, i64 %.pre-phi329
   %.not63.i = icmp eq i32 %295, %294
   br i1 %.not63.i, label %.preheader.i, label %.lr.ph.i
 
@@ -6888,8 +6888,8 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit8.i:    ; preds = %345, %343
 
 _ZN10sls_engine7mk_flipEP4sortRK3mpzjRS2_.exit:   ; preds = %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit8.i, %359, %363, %364
   %365 = load i32, ptr %76, align 8, !tbaa !188
-  %.not271 = icmp eq i32 %365, 0
-  br i1 %.not271, label %._crit_edge, label %.lr.ph260
+  %.not381 = icmp eq i32 %365, 0
+  br i1 %.not381, label %._crit_edge, label %.lr.ph260
 
 ._crit_edge:                                      ; preds = %_ZN10sls_engine7what_ifEP9func_declRKjRK3mpzRdRjRS4_.exit, %_ZN10sls_engine7mk_flipEP4sortRK3mpzjRS2_.exit
   %.3.lcssa = phi double [ %.2262, %_ZN10sls_engine7mk_flipEP4sortRK3mpzjRS2_.exit ], [ %.4, %_ZN10sls_engine7what_ifEP9func_declRKjRK3mpzRdRjRS4_.exit ]
@@ -6907,7 +6907,7 @@ _ZN10sls_engine7mk_flipEP4sortRK3mpzjRS2_.exit:   ; preds = %_ZN11mpz_managerILb
 .lr.ph260._crit_edge:                             ; preds = %.lr.ph260
   %.promoted8.i45.pre = load i32, ptr %79, align 4, !tbaa !81
   %.promoted10.i46.pre = load i32, ptr %78, align 8
-  br label %.preheader496
+  br label %.preheader497
 
 369:                                              ; preds = %.lr.ph260
   %370 = load i32, ptr %78, align 8, !tbaa !79
@@ -6916,20 +6916,20 @@ _ZN10sls_engine7mk_flipEP4sortRK3mpzjRS2_.exit:   ; preds = %_ZN11mpz_managerILb
   store i32 %372, ptr %78, align 8, !tbaa !79
   %373 = lshr i32 %372, 16
   %374 = and i32 %373, 32767
-  br label %.preheader496
+  br label %.preheader497
 
-.preheader496:                                    ; preds = %.lr.ph260._crit_edge, %369
+.preheader497:                                    ; preds = %.lr.ph260._crit_edge, %369
   %.ph = phi i32 [ %.promoted10.i46.pre, %.lr.ph260._crit_edge ], [ %372, %369 ]
-  %.ph497 = phi i32 [ %.promoted8.i45.pre, %.lr.ph260._crit_edge ], [ %374, %369 ]
-  %.ph498 = phi i32 [ %367, %.lr.ph260._crit_edge ], [ 15, %369 ]
+  %.ph498 = phi i32 [ %.promoted8.i45.pre, %.lr.ph260._crit_edge ], [ %374, %369 ]
+  %.ph499 = phi i32 [ %367, %.lr.ph260._crit_edge ], [ 15, %369 ]
   br label %375
 
-375:                                              ; preds = %.preheader496, %390
-  %376 = phi i32 [ %.promoted, %390 ], [ %.ph, %.preheader496 ]
-  %377 = phi i32 [ %391, %390 ], [ %.ph497, %.preheader496 ]
-  %.in.i47 = phi i32 [ %379, %390 ], [ 16, %.preheader496 ]
-  %.07.i48 = phi i32 [ %381, %390 ], [ 0, %.preheader496 ]
-  %378 = phi i32 [ %392, %390 ], [ %.ph498, %.preheader496 ]
+375:                                              ; preds = %.preheader497, %390
+  %376 = phi i32 [ %.promoted, %390 ], [ %.ph, %.preheader497 ]
+  %377 = phi i32 [ %391, %390 ], [ %.ph498, %.preheader497 ]
+  %.in.i47 = phi i32 [ %379, %390 ], [ 16, %.preheader497 ]
+  %.07.i48 = phi i32 [ %381, %390 ], [ 0, %.preheader497 ]
+  %378 = phi i32 [ %392, %390 ], [ %.ph499, %.preheader497 ]
   %379 = add nsw i32 %.in.i47, -1
   %380 = and i32 %377, 1
   %spec.select.i49 = or disjoint i32 %.07.i48, %380
@@ -7147,9 +7147,9 @@ _ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit.i75: ; preds = %.lr.ph.i.i.i.i73, 
   br i1 %475, label %477, label %_ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit.i75._crit_edge
 
 _ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit.i75._crit_edge: ; preds = %_ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit.i75
-  %.pre327 = load ptr, ptr %71, align 8, !tbaa !24
-  %.pre331 = add i32 %473, -1
-  %.pre333 = zext i32 %473 to i64
+  %.pre326 = load ptr, ptr %71, align 8, !tbaa !24
+  %.pre330 = add i32 %473, -1
+  %.pre332 = zext i32 %473 to i64
   %476 = add i32 %470, -1
   br label %516
 
@@ -7265,16 +7265,16 @@ _ZN14core_hashtableI17default_map_entryIjP3mpzEN9table2mapIS3_6u_hash4u_eqE15ent
   br label %516
 
 516:                                              ; preds = %_ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit.i75._crit_edge, %_ZN14core_hashtableI17default_map_entryIjP3mpzEN9table2mapIS3_6u_hash4u_eqE15entry_hash_procENS7_13entry_eq_procEE12expand_tableEv.exit143
-  %.pre-phi334 = phi i64 [ %.pre333, %_ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit.i75._crit_edge ], [ %479, %_ZN14core_hashtableI17default_map_entryIjP3mpzEN9table2mapIS3_6u_hash4u_eqE15entry_hash_procENS7_13entry_eq_procEE12expand_tableEv.exit143 ]
-  %.pre-phi332 = phi i32 [ %.pre331, %_ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit.i75._crit_edge ], [ %487, %_ZN14core_hashtableI17default_map_entryIjP3mpzEN9table2mapIS3_6u_hash4u_eqE15entry_hash_procENS7_13entry_eq_procEE12expand_tableEv.exit143 ]
+  %.pre-phi333 = phi i64 [ %.pre332, %_ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit.i75._crit_edge ], [ %479, %_ZN14core_hashtableI17default_map_entryIjP3mpzEN9table2mapIS3_6u_hash4u_eqE15entry_hash_procENS7_13entry_eq_procEE12expand_tableEv.exit143 ]
+  %.pre-phi331 = phi i32 [ %.pre330, %_ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit.i75._crit_edge ], [ %487, %_ZN14core_hashtableI17default_map_entryIjP3mpzEN9table2mapIS3_6u_hash4u_eqE15entry_hash_procENS7_13entry_eq_procEE12expand_tableEv.exit143 ]
   %517 = phi i32 [ %476, %_ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit.i75._crit_edge ], [ -1, %_ZN14core_hashtableI17default_map_entryIjP3mpzEN9table2mapIS3_6u_hash4u_eqE15entry_hash_procENS7_13entry_eq_procEE12expand_tableEv.exit143 ]
-  %518 = phi ptr [ %.pre327, %_ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit.i75._crit_edge ], [ %481, %_ZN14core_hashtableI17default_map_entryIjP3mpzEN9table2mapIS3_6u_hash4u_eqE15entry_hash_procENS7_13entry_eq_procEE12expand_tableEv.exit143 ]
+  %518 = phi ptr [ %.pre326, %_ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit.i75._crit_edge ], [ %481, %_ZN14core_hashtableI17default_map_entryIjP3mpzEN9table2mapIS3_6u_hash4u_eqE15entry_hash_procENS7_13entry_eq_procEE12expand_tableEv.exit143 ]
   %519 = phi i32 [ %473, %_ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit.i75._crit_edge ], [ %478, %_ZN14core_hashtableI17default_map_entryIjP3mpzEN9table2mapIS3_6u_hash4u_eqE15entry_hash_procENS7_13entry_eq_procEE12expand_tableEv.exit143 ]
-  %520 = and i32 %.pre-phi332, %.0.lcssa
+  %520 = and i32 %.pre-phi331, %.0.lcssa
   %521 = zext i32 %520 to i64
   %.idx.i94 = mul nuw nsw i64 %521, 24
   %522 = getelementptr inbounds nuw i8, ptr %518, i64 %.idx.i94
-  %523 = getelementptr inbounds nuw %class.default_map_entry, ptr %518, i64 %.pre-phi334
+  %523 = getelementptr inbounds nuw %class.default_map_entry, ptr %518, i64 %.pre-phi333
   %.not63.i95 = icmp eq i32 %520, %519
   br i1 %.not63.i95, label %.preheader.i103, label %.lr.ph.i96
 
@@ -7521,8 +7521,8 @@ _ZN10sls_engine7what_ifEP9func_declRKjRK3mpzRdRjRS4_.exit: ; preds = %600, %606,
   %617 = add i32 %616, 1
   store i32 %617, ptr %83, align 8, !tbaa !243
   %618 = add nuw i32 %.039265, 1
-  %exitcond320.not = icmp eq i32 %618, %.0.i
-  br i1 %exitcond320.not, label %._crit_edge268, label %88, !llvm.loop !342
+  %exitcond319.not = icmp eq i32 %618, %.0.i
+  br i1 %exitcond319.not, label %._crit_edge268, label %88, !llvm.loop !342
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10016,7 +10016,7 @@ _ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12del
           to label %.noexc84 unwind label %81
 
 .noexc84:                                         ; preds = %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12delete_tableEv.exit.i
-  %.not6.i.i.i.i.i.i = icmp ult i32 %283, 2
+  %.not6.i.i.i.i.i.i = icmp eq i32 %284, 0
   br i1 %.not6.i.i.i.i.i.i, label %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE11alloc_tableEj.exit.i, label %.lr.ph.preheader.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %.noexc84

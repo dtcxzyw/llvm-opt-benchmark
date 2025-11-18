@@ -204,18 +204,18 @@ define internal fastcc i64 @f_gcd_normal(i64 noundef %0, i64 noundef %1) unnamed
   br i1 %.not64, label %40, label %6
 
 6:                                                ; preds = %4
-  %7 = ashr i64 %1, 1
-  %.036.i = tail call i64 @llvm.abs.i64(i64 range(i64 -4611686018427387904, 4611686018427387904) %7, i1 true)
-  %8 = icmp ult i64 %0, 2
-  br i1 %8, label %i_gcd.exit, label %9
+  %7 = ashr i64 %0, 1
+  %8 = ashr i64 %1, 1
+  %.036.i = tail call i64 @llvm.abs.i64(i64 range(i64 -4611686018427387904, 4611686018427387904) %8, i1 true)
+  %9 = icmp eq i64 %7, 0
+  br i1 %9, label %i_gcd.exit, label %10
 
-9:                                                ; preds = %6
-  %10 = ashr i64 %0, 1
-  %spec.select.i = tail call i64 @llvm.abs.i64(i64 range(i64 -4611686018427387904, 4611686018427387904) %10, i1 true)
-  %11 = icmp ult i64 %1, 2
+10:                                               ; preds = %6
+  %spec.select.i = tail call i64 @llvm.abs.i64(i64 range(i64 -4611686018427387904, 4611686018427387904) %7, i1 true)
+  %11 = icmp eq i64 %8, 0
   br i1 %11, label %i_gcd.exit, label %.preheader46.i
 
-.preheader46.i:                                   ; preds = %9
+.preheader46.i:                                   ; preds = %10
   %12 = or i64 %.036.i, %spec.select.i
   %13 = and i64 %12, 1
   %14 = icmp eq i64 %13, 0
@@ -273,8 +273,8 @@ define internal fastcc i64 @f_gcd_normal(i64 noundef %0, i64 noundef %1) unnamed
   %33 = shl i64 %spec.select43.i, %.0.lcssa.i
   br label %i_gcd.exit
 
-i_gcd.exit:                                       ; preds = %6, %9, %32
-  %.030.i = phi i64 [ %33, %32 ], [ %.036.i, %6 ], [ %spec.select.i, %9 ]
+i_gcd.exit:                                       ; preds = %6, %10, %32
+  %.030.i = phi i64 [ %33, %32 ], [ %.036.i, %6 ], [ %spec.select.i, %10 ]
   %34 = add i64 %.030.i, 4611686018427387904
   %or.cond.i = icmp sgt i64 %34, -1
   br i1 %or.cond.i, label %35, label %38
@@ -356,12 +356,12 @@ INT_NEGATIVE_P.exit36:                            ; preds = %47
 .preheader:                                       ; preds = %66, %64
   br label %68
 
-68:                                               ; preds = %.preheader, %106
-  %.129 = phi i64 [ %107, %106 ], [ %.028, %.preheader ]
-  %.1 = phi i64 [ %.129, %106 ], [ %.027, %.preheader ]
+68:                                               ; preds = %.preheader, %108
+  %.129 = phi i64 [ %109, %108 ], [ %.028, %.preheader ]
+  %.1 = phi i64 [ %.129, %108 ], [ %.027, %.preheader ]
   %69 = and i64 %.129, 1
   %.not67 = icmp eq i64 %69, 0
-  br i1 %.not67, label %106, label %70
+  br i1 %.not67, label %108, label %70
 
 70:                                               ; preds = %68
   %71 = icmp eq i64 %.129, 1
@@ -370,95 +370,99 @@ INT_NEGATIVE_P.exit36:                            ; preds = %47
 72:                                               ; preds = %70
   %73 = and i64 %.1, 1
   %.not68 = icmp eq i64 %73, 0
-  br i1 %.not68, label %106, label %74
+  br i1 %.not68, label %108, label %74
 
 74:                                               ; preds = %72
   %75 = ashr i64 %.129, 1
-  %spec.select.i38 = tail call i64 @llvm.abs.i64(i64 range(i64 -4611686018427387904, 4611686018427387904) %75, i1 true)
-  %76 = icmp ult i64 %.1, 2
-  br i1 %76, label %i_gcd.exit58, label %.preheader46.i39
+  %76 = ashr i64 %.1, 1
+  %.036.i37 = tail call i64 @llvm.abs.i64(i64 range(i64 -4611686018427387904, 4611686018427387904) %76, i1 true)
+  %77 = icmp eq i64 %75, 0
+  br i1 %77, label %i_gcd.exit58, label %78
 
-.preheader46.i39:                                 ; preds = %74
-  %77 = ashr i64 %.1, 1
-  %.036.i37 = tail call i64 @llvm.abs.i64(i64 range(i64 -4611686018427387904, 4611686018427387904) %77, i1 true)
-  %78 = or i64 %.036.i37, %spec.select.i38
-  %79 = and i64 %78, 1
-  %80 = icmp eq i64 %79, 0
-  br i1 %80, label %.lr.ph.i53, label %.preheader45.i40
+78:                                               ; preds = %74
+  %spec.select.i38 = tail call i64 @llvm.abs.i64(i64 range(i64 -4611686018427387904, 4611686018427387904) %75, i1 true)
+  %79 = icmp eq i64 %76, 0
+  br i1 %79, label %i_gcd.exit58, label %.preheader46.i39
+
+.preheader46.i39:                                 ; preds = %78
+  %80 = or i64 %.036.i37, %spec.select.i38
+  %81 = and i64 %80, 1
+  %82 = icmp eq i64 %81, 0
+  br i1 %82, label %.lr.ph.i53, label %.preheader45.i40
 
 .preheader45.loopexit.i57:                        ; preds = %.lr.ph.i53
-  %81 = zext nneg i32 %84 to i64
+  %83 = zext nneg i32 %86 to i64
   br label %.preheader45.i40
 
 .preheader45.i40:                                 ; preds = %.preheader45.loopexit.i57, %.preheader46.i39
-  %.032.lcssa.i41 = phi i64 [ %spec.select.i38, %.preheader46.i39 ], [ %82, %.preheader45.loopexit.i57 ]
-  %.031.lcssa.i42 = phi i64 [ %.036.i37, %.preheader46.i39 ], [ %83, %.preheader45.loopexit.i57 ]
-  %.0.lcssa.i43 = phi i64 [ 0, %.preheader46.i39 ], [ %81, %.preheader45.loopexit.i57 ]
-  br label %88
+  %.032.lcssa.i41 = phi i64 [ %spec.select.i38, %.preheader46.i39 ], [ %84, %.preheader45.loopexit.i57 ]
+  %.031.lcssa.i42 = phi i64 [ %.036.i37, %.preheader46.i39 ], [ %85, %.preheader45.loopexit.i57 ]
+  %.0.lcssa.i43 = phi i64 [ 0, %.preheader46.i39 ], [ %83, %.preheader45.loopexit.i57 ]
+  br label %90
 
 .lr.ph.i53:                                       ; preds = %.preheader46.i39, %.lr.ph.i53
-  %.049.i54 = phi i32 [ %84, %.lr.ph.i53 ], [ 0, %.preheader46.i39 ]
-  %.03148.i55 = phi i64 [ %83, %.lr.ph.i53 ], [ %.036.i37, %.preheader46.i39 ]
-  %.03247.i56 = phi i64 [ %82, %.lr.ph.i53 ], [ %spec.select.i38, %.preheader46.i39 ]
-  %82 = lshr i64 %.03247.i56, 1
-  %83 = lshr i64 %.03148.i55, 1
-  %84 = add i32 %.049.i54, 1
-  %85 = or i64 %82, %83
-  %86 = and i64 %85, 1
-  %87 = icmp eq i64 %86, 0
-  br i1 %87, label %.lr.ph.i53, label %.preheader45.loopexit.i57, !llvm.loop !13
+  %.049.i54 = phi i32 [ %86, %.lr.ph.i53 ], [ 0, %.preheader46.i39 ]
+  %.03148.i55 = phi i64 [ %85, %.lr.ph.i53 ], [ %.036.i37, %.preheader46.i39 ]
+  %.03247.i56 = phi i64 [ %84, %.lr.ph.i53 ], [ %spec.select.i38, %.preheader46.i39 ]
+  %84 = lshr i64 %.03247.i56, 1
+  %85 = lshr i64 %.03148.i55, 1
+  %86 = add i32 %.049.i54, 1
+  %87 = or i64 %84, %85
+  %88 = and i64 %87, 1
+  %89 = icmp eq i64 %88, 0
+  br i1 %89, label %.lr.ph.i53, label %.preheader45.loopexit.i57, !llvm.loop !13
 
-88:                                               ; preds = %88, %.preheader45.i40
-  %.133.i44 = phi i64 [ %91, %88 ], [ %.032.lcssa.i41, %.preheader45.i40 ]
-  %89 = and i64 %.133.i44, 1
-  %90 = icmp eq i64 %89, 0
-  %91 = lshr exact i64 %.133.i44, 1
-  br i1 %90, label %88, label %.preheader.i45, !llvm.loop !15
+90:                                               ; preds = %90, %.preheader45.i40
+  %.133.i44 = phi i64 [ %93, %90 ], [ %.032.lcssa.i41, %.preheader45.i40 ]
+  %91 = and i64 %.133.i44, 1
+  %92 = icmp eq i64 %91, 0
+  %93 = lshr exact i64 %.133.i44, 1
+  br i1 %92, label %90, label %.preheader.i45, !llvm.loop !15
 
-.preheader.i45:                                   ; preds = %88, %96
-  %.234.i46 = phi i64 [ %spec.select43.i49, %96 ], [ %.133.i44, %88 ]
-  %.1.i47 = phi i64 [ %97, %96 ], [ %.031.lcssa.i42, %88 ]
-  br label %92
+.preheader.i45:                                   ; preds = %90, %98
+  %.234.i46 = phi i64 [ %spec.select43.i49, %98 ], [ %.133.i44, %90 ]
+  %.1.i47 = phi i64 [ %99, %98 ], [ %.031.lcssa.i42, %90 ]
+  br label %94
 
-92:                                               ; preds = %92, %.preheader.i45
-  %.2.i48 = phi i64 [ %.1.i47, %.preheader.i45 ], [ %95, %92 ]
-  %93 = and i64 %.2.i48, 1
-  %94 = icmp eq i64 %93, 0
-  %95 = lshr exact i64 %.2.i48, 1
-  br i1 %94, label %92, label %96, !llvm.loop !16
+94:                                               ; preds = %94, %.preheader.i45
+  %.2.i48 = phi i64 [ %.1.i47, %.preheader.i45 ], [ %97, %94 ]
+  %95 = and i64 %.2.i48, 1
+  %96 = icmp eq i64 %95, 0
+  %97 = lshr exact i64 %.2.i48, 1
+  br i1 %96, label %94, label %98, !llvm.loop !16
 
-96:                                               ; preds = %92
+98:                                               ; preds = %94
   %spec.select43.i49 = tail call i64 @llvm.umin.i64(i64 %.234.i46, i64 %.2.i48)
   %spec.select44.i50 = tail call i64 @llvm.umax.i64(i64 %.234.i46, i64 %.2.i48)
-  %97 = sub i64 %spec.select44.i50, %spec.select43.i49
-  %.not.i51 = icmp eq i64 %97, 0
-  br i1 %.not.i51, label %98, label %.preheader.i45, !llvm.loop !17
+  %99 = sub i64 %spec.select44.i50, %spec.select43.i49
+  %.not.i51 = icmp eq i64 %99, 0
+  br i1 %.not.i51, label %100, label %.preheader.i45, !llvm.loop !17
 
-98:                                               ; preds = %96
-  %99 = shl i64 %spec.select43.i49, %.0.lcssa.i43
+100:                                              ; preds = %98
+  %101 = shl i64 %spec.select43.i49, %.0.lcssa.i43
   br label %i_gcd.exit58
 
-i_gcd.exit58:                                     ; preds = %74, %98
-  %.030.i52 = phi i64 [ %99, %98 ], [ %spec.select.i38, %74 ]
-  %100 = add i64 %.030.i52, 4611686018427387904
-  %or.cond.i59 = icmp sgt i64 %100, -1
-  br i1 %or.cond.i59, label %101, label %104
+i_gcd.exit58:                                     ; preds = %74, %78, %100
+  %.030.i52 = phi i64 [ %101, %100 ], [ %.036.i37, %74 ], [ %spec.select.i38, %78 ]
+  %102 = add i64 %.030.i52, 4611686018427387904
+  %or.cond.i59 = icmp sgt i64 %102, -1
+  br i1 %or.cond.i59, label %103, label %106
 
-101:                                              ; preds = %i_gcd.exit58
-  %102 = shl nsw i64 %.030.i52, 1
-  %103 = or disjoint i64 %102, 1
+103:                                              ; preds = %i_gcd.exit58
+  %104 = shl nsw i64 %.030.i52, 1
+  %105 = or disjoint i64 %104, 1
   br label %rb_long2num_inline.exit
 
-104:                                              ; preds = %i_gcd.exit58
-  %105 = tail call i64 @rb_int2big(i64 noundef %.030.i52) #19
+106:                                              ; preds = %i_gcd.exit58
+  %107 = tail call i64 @rb_int2big(i64 noundef %.030.i52) #19
   br label %rb_long2num_inline.exit
 
-106:                                              ; preds = %72, %68
-  %107 = tail call i64 @rb_int_modulo(i64 noundef %.1, i64 noundef %.129) #19
+108:                                              ; preds = %72, %68
+  %109 = tail call i64 @rb_int_modulo(i64 noundef %.1, i64 noundef %.129) #19
   br label %68
 
-rb_long2num_inline.exit:                          ; preds = %70, %104, %101, %38, %35, %64, %66, %58, %60
-  %.0 = phi i64 [ %.027, %60 ], [ %.027, %58 ], [ %.028, %66 ], [ %.028, %64 ], [ %37, %35 ], [ %39, %38 ], [ %103, %101 ], [ %105, %104 ], [ %.1, %70 ]
+rb_long2num_inline.exit:                          ; preds = %70, %106, %103, %38, %35, %64, %66, %58, %60
+  %.0 = phi i64 [ %.027, %60 ], [ %.027, %58 ], [ %.028, %66 ], [ %.028, %64 ], [ %37, %35 ], [ %39, %38 ], [ %105, %103 ], [ %107, %106 ], [ %.1, %70 ]
   ret i64 %.0
 }
 
@@ -802,12 +806,12 @@ define internal fastcc i64 @f_addsub(i64 noundef %0, i64 noundef %1, i64 noundef
   %15 = ashr i64 %3, 1
   %16 = ashr i64 %4, 1
   %.036.i = tail call i64 @llvm.abs.i64(i64 range(i64 -4611686018427387904, 4611686018427387904) %16, i1 true)
-  %17 = icmp ult i64 %2, 2
+  %17 = icmp eq i64 %14, 0
   br i1 %17, label %i_gcd.exit, label %18
 
 18:                                               ; preds = %12
   %spec.select.i = tail call i64 @llvm.abs.i64(i64 range(i64 -4611686018427387904, 4611686018427387904) %14, i1 true)
-  %19 = icmp ult i64 %4, 2
+  %19 = icmp eq i64 %16, 0
   br i1 %19, label %i_gcd.exit, label %.preheader46.i
 
 .preheader46.i:                                   ; preds = %18
@@ -886,7 +890,7 @@ i_gcd.exit:                                       ; preds = %12, %18, %40
 rb_long2num_inline.exit:                          ; preds = %43, %46
   %.0.i = phi i64 [ %45, %43 ], [ %47, %46 ]
   %48 = sdiv i64 %16, %.030.i
-  %49 = icmp ult i64 %1, 2
+  %49 = icmp eq i64 %13, 0
   %50 = icmp eq i64 %48, 0
   %or.cond.i76 = or i1 %49, %50
   br i1 %or.cond.i76, label %f_imul.exit, label %51
@@ -941,7 +945,7 @@ rb_long2num_inline.exit:                          ; preds = %43, %46
 f_imul.exit:                                      ; preds = %59, %rb_long2num_inline.exit, %54, %57, %64, %71, %74
   %.0.i77 = phi i64 [ 1, %rb_long2num_inline.exit ], [ %67, %64 ], [ %56, %54 ], [ %58, %57 ], [ %73, %71 ], [ %75, %74 ], [ %1, %59 ]
   %76 = sdiv i64 %14, %.030.i
-  %77 = icmp ult i64 %3, 2
+  %77 = icmp eq i64 %15, 0
   %78 = icmp eq i64 %76, 0
   %or.cond.i79 = or i1 %77, %78
   br i1 %or.cond.i79, label %f_imul.exit84, label %79
@@ -3304,8 +3308,8 @@ rb_class_of.exit:                                 ; preds = %27, %29, %30, %31, 
 64:                                               ; preds = %60
   %65 = ashr i64 %50, 1
   %66 = ashr i64 %62, 1
-  %67 = icmp ult i64 %50, 2
-  %68 = icmp ult i64 %62, 2
+  %67 = icmp eq i64 %65, 0
+  %68 = icmp eq i64 %66, 0
   %or.cond.i = or i1 %67, %68
   br i1 %or.cond.i, label %f_imul.exit, label %69
 
@@ -3349,8 +3353,8 @@ f_imul.exit:                                      ; preds = %71, %69, %64, %76, 
   %89 = ashr i64 %88, 1
   %90 = load i64, ptr %53, align 8, !tbaa !21
   %91 = ashr i64 %90, 1
-  %92 = icmp ult i64 %88, 2
-  %93 = icmp ult i64 %90, 2
+  %92 = icmp eq i64 %89, 0
+  %93 = icmp eq i64 %91, 0
   %or.cond.i38 = or i1 %92, %93
   br i1 %or.cond.i38, label %f_imul.exit42, label %94
 

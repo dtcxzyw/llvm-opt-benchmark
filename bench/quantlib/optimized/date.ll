@@ -12350,18 +12350,21 @@ if.end:                                           ; preds = %entry
   %sub.ptr.sub.i = sub i64 %sub.ptr.rhs.cast.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp.i = icmp ugt i64 %div9, %sub.ptr.div.i
-  br i1 %cmp.i, label %if.then.i, label %_ZNSt5dequeIcSaIcEE23_M_reserve_map_at_frontEm.exit
+  br i1 %cmp.i, label %_ZNSt5dequeIcSaIcEE23_M_reserve_map_at_frontEm.exit.thread, label %_ZNSt5dequeIcSaIcEE23_M_reserve_map_at_frontEm.exit
 
-if.then.i:                                        ; preds = %if.end
+_ZNSt5dequeIcSaIcEE23_M_reserve_map_at_frontEm.exit.thread: ; preds = %if.end
   tail call void @_ZNSt5dequeIcSaIcEE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %div9, i1 noundef zeroext true)
-  br label %_ZNSt5dequeIcSaIcEE23_M_reserve_map_at_frontEm.exit
+  br label %for.body.preheader
 
-_ZNSt5dequeIcSaIcEE23_M_reserve_map_at_frontEm.exit: ; preds = %if.end, %if.then.i
-  %cmp6.not11 = icmp ult i64 %sub4, 512
-  br i1 %cmp6.not11, label %try.cont, label %for.body
+_ZNSt5dequeIcSaIcEE23_M_reserve_map_at_frontEm.exit: ; preds = %if.end
+  %cmp6.not11 = icmp eq i64 %div9, 0
+  br i1 %cmp6.not11, label %try.cont, label %for.body.preheader
 
-for.body:                                         ; preds = %_ZNSt5dequeIcSaIcEE23_M_reserve_map_at_frontEm.exit, %invoke.cont
-  %__i.012 = phi i64 [ %inc, %invoke.cont ], [ 1, %_ZNSt5dequeIcSaIcEE23_M_reserve_map_at_frontEm.exit ]
+for.body.preheader:                               ; preds = %_ZNSt5dequeIcSaIcEE23_M_reserve_map_at_frontEm.exit.thread, %_ZNSt5dequeIcSaIcEE23_M_reserve_map_at_frontEm.exit
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.preheader, %invoke.cont
+  %__i.012 = phi i64 [ %inc, %invoke.cont ], [ 1, %for.body.preheader ]
   %call5.i.i.i8 = invoke noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #33
           to label %invoke.cont unwind label %lpad
 
@@ -12477,7 +12480,7 @@ if.then.i:                                        ; preds = %if.end
   br label %_ZNSt5dequeIcSaIcEE22_M_reserve_map_at_backEm.exit
 
 _ZNSt5dequeIcSaIcEE22_M_reserve_map_at_backEm.exit: ; preds = %if.end, %if.then.i
-  %cmp6.not11 = icmp ult i64 %sub4, 512
+  %cmp6.not11 = icmp eq i64 %div9, 0
   br i1 %cmp6.not11, label %try.cont, label %for.body
 
 for.body:                                         ; preds = %_ZNSt5dequeIcSaIcEE22_M_reserve_map_at_backEm.exit, %invoke.cont

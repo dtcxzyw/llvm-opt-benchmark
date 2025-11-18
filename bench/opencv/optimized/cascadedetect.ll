@@ -10997,7 +10997,7 @@ define hidden void @_ZN2cv21CascadeClassifierImpl26detectMultiScaleNoGroupingERK
   %.sroa.048.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   %.sroa.8.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 32
   %.sroa.8.0.extract.trunc = trunc nuw i64 %.sroa.8.0.extract.shift to i32
-  %28 = icmp ult i64 %7, 4294967296
+  %28 = icmp eq i64 %.sroa.4.0.extract.shift, 0
   %29 = icmp eq i32 %.sroa.075.0.extract.trunc, 0
   %or.cond = or i1 %28, %29
   %spec.select = select i1 %or.cond, i32 %.sroa.057.0.extract.trunc, i32 %.sroa.075.0.extract.trunc

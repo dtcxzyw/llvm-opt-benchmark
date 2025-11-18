@@ -20,18 +20,15 @@ define i32 @H5_checksum_fletcher32(ptr noundef readonly captures(none) %0, i64 n
   br i1 %8, label %.preheader, label %52, !prof !9
 
 .preheader:                                       ; preds = %2
-  %.not44 = icmp ult i64 %1, 2
-  br i1 %.not44, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
   %9 = lshr i64 %1, 1
-  br label %.lr.ph
+  %.not44 = icmp eq i64 %9, 0
+  br i1 %.not44, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %23
-  %.148 = phi i32 [ %31, %23 ], [ 0, %.lr.ph.preheader ]
-  %.13447 = phi i32 [ %28, %23 ], [ 0, %.lr.ph.preheader ]
-  %.03746 = phi i64 [ %24, %23 ], [ %9, %.lr.ph.preheader ]
-  %.03845 = phi ptr [ %scevgep, %23 ], [ %0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %23
+  %.148 = phi i32 [ %31, %23 ], [ 0, %.preheader ]
+  %.13447 = phi i32 [ %28, %23 ], [ 0, %.preheader ]
+  %.03746 = phi i64 [ %24, %23 ], [ %9, %.preheader ]
+  %.03845 = phi ptr [ %scevgep, %23 ], [ %0, %.preheader ]
   %10 = tail call i64 @llvm.umin.i64(i64 %.03746, i64 360)
   br label %11
 

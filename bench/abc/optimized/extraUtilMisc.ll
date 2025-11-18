@@ -5266,7 +5266,7 @@ define void @Extra_Transpose32(ptr noundef captures(none) %0) local_unnamed_addr
   %27 = zext nneg i32 %26 to i64
   %28 = shl i64 %.02326, %27
   %29 = xor i64 %28, %.02326
-  %.not = icmp samesign ult i32 %.027, 2
+  %.not = icmp eq i32 %26, 0
   br i1 %.not, label %30, label %.preheader, !llvm.loop !112
 
 30:                                               ; preds = %25
@@ -5311,7 +5311,7 @@ define void @Extra_Transpose64(ptr noundef captures(none) %0) local_unnamed_addr
   %23 = zext nneg i32 %22 to i64
   %24 = shl i64 %.032, %23
   %25 = xor i64 %24, %.032
-  %.not = icmp samesign ult i32 %.02831, 2
+  %.not = icmp eq i32 %22, 0
   br i1 %.not, label %26, label %.preheader, !llvm.loop !114
 
 26:                                               ; preds = %21
@@ -5359,7 +5359,7 @@ define void @Extra_Transpose64p(ptr noundef readonly captures(none) %0) local_un
   %26 = zext nneg i32 %25 to i64
   %27 = shl i64 %.032, %26
   %28 = xor i64 %27, %.032
-  %.not = icmp samesign ult i32 %.02831, 2
+  %.not = icmp eq i32 %25, 0
   br i1 %.not, label %29, label %.preheader, !llvm.loop !118
 
 29:                                               ; preds = %24
@@ -5430,7 +5430,7 @@ define void @Extra_BitMatrixTransposeP(ptr noundef readonly captures(none) %0, i
   %38 = zext nneg i32 %37 to i64
   %39 = shl i64 %.032.i.us, %38
   %40 = xor i64 %39, %.032.i.us
-  %.not.i.us = icmp samesign ult i32 %.02831.i.us, 2
+  %.not.i.us = icmp eq i32 %37, 0
   br i1 %.not.i.us, label %Extra_Transpose64p.exit.us, label %.preheader.i.us, !llvm.loop !118
 
 Extra_Transpose64p.exit.us:                       ; preds = %36
@@ -5448,8 +5448,8 @@ Extra_Transpose64p.exit.us:                       ; preds = %36
   store ptr %gep, ptr %44, align 8, !tbaa !115
   %45 = add nsw i64 %13, %indvars.iv
   %46 = mul nsw i64 %45, %11
-  %gep48 = getelementptr i64, ptr %invariant.gep47, i64 %46
-  %47 = load i64, ptr %gep48, align 8, !tbaa !93
+  %gep49 = getelementptr i64, ptr %invariant.gep48, i64 %46
+  %47 = load i64, ptr %gep49, align 8, !tbaa !93
   store i64 %47, ptr %gep, align 8, !tbaa !93
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -5460,7 +5460,7 @@ Extra_Transpose64p.exit.us:                       ; preds = %36
   %indvars.iv37 = phi i64 [ 0, %.preheader24.us ], [ %indvars.iv.next38, %Extra_Transpose64p.exit.us ]
   %48 = shl nsw i64 %indvars.iv37, 6
   %49 = or disjoint i64 %48, 63
-  %invariant.gep47 = getelementptr i64, ptr %.val23.us, i64 %indvars.iv37
+  %invariant.gep48 = getelementptr i64, ptr %.val23.us, i64 %indvars.iv37
   br label %41
 
 ._crit_edge.us:                                   ; preds = %Extra_Transpose64p.exit.us
@@ -5537,7 +5537,7 @@ define void @Extra_BitMatrixTransposePP(ptr noundef readonly captures(none) %0, 
   %37 = zext nneg i32 %36 to i64
   %38 = shl i64 %.032.i.us, %37
   %39 = xor i64 %38, %.032.i.us
-  %.not.i.us = icmp samesign ult i32 %.02831.i.us, 2
+  %.not.i.us = icmp eq i32 %36, 0
   br i1 %.not.i.us, label %Extra_Transpose64p.exit.us, label %.preheader.i.us, !llvm.loop !118
 
 Extra_Transpose64p.exit.us:                       ; preds = %35
@@ -5774,7 +5774,7 @@ Vec_WrdStartRandom.exit:                          ; preds = %10
   %39 = zext nneg i32 %38 to i64
   %40 = shl i64 %.032.i.us.i, %39
   %41 = xor i64 %40, %.032.i.us.i
-  %.not.i.us.i = icmp samesign ult i32 %.02831.i.us.i, 2
+  %.not.i.us.i = icmp eq i32 %38, 0
   br i1 %.not.i.us.i, label %Extra_Transpose64p.exit.us.i, label %.preheader.i.us.i, !llvm.loop !118
 
 Extra_Transpose64p.exit.us.i:                     ; preds = %37
@@ -5791,9 +5791,9 @@ Extra_Transpose64p.exit.us.i:                     ; preds = %37
   %44 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv31.i
   store ptr %gep.i, ptr %44, align 8, !tbaa !115
   %45 = add nsw i64 %14, %indvars.iv.i23
-  %gep48.i.idx = mul nuw nsw i64 %45, 800
-  %gep48.i = getelementptr i8, ptr %invariant.gep47.i, i64 %gep48.i.idx
-  %46 = load i64, ptr %gep48.i, align 8, !tbaa !93
+  %gep49.i.idx = mul nuw nsw i64 %45, 800
+  %gep49.i = getelementptr i8, ptr %invariant.gep48.i, i64 %gep49.i.idx
+  %46 = load i64, ptr %gep49.i, align 8, !tbaa !93
   store i64 %46, ptr %gep.i, align 8, !tbaa !93
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %indvars.iv.next.i24 = add nsw i64 %indvars.iv.i23, -1
@@ -5804,7 +5804,7 @@ Extra_Transpose64p.exit.us.i:                     ; preds = %37
   %indvars.iv37.i = phi i64 [ 0, %.preheader24.us.i ], [ %indvars.iv.next38.i, %Extra_Transpose64p.exit.us.i ]
   %47 = shl nsw i64 %indvars.iv37.i, 6
   %48 = or disjoint i64 %47, 63
-  %invariant.gep47.i = getelementptr i64, ptr %calloc.i.i, i64 %indvars.iv37.i
+  %invariant.gep48.i = getelementptr i64, ptr %calloc.i.i, i64 %indvars.iv37.i
   br label %42
 
 ._crit_edge.us.i:                                 ; preds = %Extra_Transpose64p.exit.us.i

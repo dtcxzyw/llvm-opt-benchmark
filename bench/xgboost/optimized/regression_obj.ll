@@ -16783,505 +16783,507 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit26: ; preds = %_ZN4d
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { i64, ptr } @_ZSt9__find_ifIN7xgboost6common18IndexTransformIterIZNS0_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx5__ops12_Iter_negateIZZNS0_3obj10RegLossObjINSG_15SquaredLogErrorEE13ValidateLabelERKNS0_8MetaInfoEENKUlvE_clEvEUlfE_EEES7_S7_S7_T0_St26random_access_iterator_tag(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %5 = sub i64 %2, %0
-  %.not = icmp ult i64 %5, 4
+  %6 = lshr i64 %5, 2
+  %.not = icmp eq i64 %6, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %6 = lshr i64 %5, 2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %1, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !14
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %12 = load ptr, ptr %11, align 8, !tbaa !368
-  br label %13
+  %13 = and i64 %5, -4
+  %14 = add i64 %0, %13
+  br label %15
 
-13:                                               ; preds = %.lr.ph, %127
-  %.0149 = phi i64 [ %6, %.lr.ph ], [ %129, %127 ]
-  %.sroa.0124.0148 = phi i64 [ %0, %.lr.ph ], [ %128, %127 ]
-  %14 = icmp ugt i64 %.sroa.0124.0148, 4294967295
-  br i1 %14, label %15, label %24
+15:                                               ; preds = %.lr.ph, %129
+  %.0149 = phi i64 [ %6, %.lr.ph ], [ %131, %129 ]
+  %.sroa.0124.0148 = phi i64 [ %0, %.lr.ph ], [ %130, %129 ]
+  %16 = icmp ugt i64 %.sroa.0124.0148, 4294967295
+  br i1 %16, label %17, label %26
 
-15:                                               ; preds = %13
-  %16 = load i64, ptr %7, align 8, !tbaa !14, !noalias !448
-  %17 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %16)
-  %.not.i.i.i.i.i = icmp samesign ult i64 %17, 2
+17:                                               ; preds = %15
+  %18 = load i64, ptr %7, align 8, !tbaa !14, !noalias !448
+  %19 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %18)
+  %.not.i.i.i.i.i = icmp samesign ult i64 %19, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
-.split.us.i.i.i.i.i:                              ; preds = %15
-  %18 = add i64 %16, -1
-  %19 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %18)
-  %20 = lshr i64 %.sroa.0124.0148, %19
-  %21 = and i64 %18, %.sroa.0124.0148
+.split.us.i.i.i.i.i:                              ; preds = %17
+  %20 = add i64 %18, -1
+  %21 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %20)
+  %22 = lshr i64 %.sroa.0124.0148, %21
+  %23 = and i64 %20, %.sroa.0124.0148
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit
 
-.split.i.i.i.i.i:                                 ; preds = %15
-  %22 = udiv i64 %.sroa.0124.0148, %16
-  %23 = mul i64 %22, %16
-  %.recomposed = urem i64 %.sroa.0124.0148, %16
+.split.i.i.i.i.i:                                 ; preds = %17
+  %24 = udiv i64 %.sroa.0124.0148, %18
+  %25 = mul i64 %24, %18
+  %.recomposed = urem i64 %.sroa.0124.0148, %18
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit
 
-24:                                               ; preds = %13
-  %25 = trunc nuw i64 %.sroa.0124.0148 to i32
-  %26 = load i64, ptr %7, align 8, !tbaa !14, !noalias !453
-  %27 = trunc i64 %26 to i32
-  %28 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %27)
-  %.not.i7.i.i.i.i = icmp samesign ult i32 %28, 2
+26:                                               ; preds = %15
+  %27 = trunc nuw i64 %.sroa.0124.0148 to i32
+  %28 = load i64, ptr %7, align 8, !tbaa !14, !noalias !453
+  %29 = trunc i64 %28 to i32
+  %30 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %29)
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %30, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
-.split.us.i11.i.i.i.i:                            ; preds = %24
-  %29 = add i32 %27, -1
-  %30 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %29)
-  %31 = lshr i32 %25, %30
-  %32 = and i32 %29, %25
+.split.us.i11.i.i.i.i:                            ; preds = %26
+  %31 = add i32 %29, -1
+  %32 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %31)
+  %33 = lshr i32 %27, %32
+  %34 = and i32 %31, %27
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i
 
-.split.i8.i.i.i.i:                                ; preds = %24
-  %33 = udiv i32 %25, %27
-  %34 = mul i32 %33, %27
-  %.recomposed155 = urem i32 %25, %27
+.split.i8.i.i.i.i:                                ; preds = %26
+  %35 = udiv i32 %27, %29
+  %36 = mul i32 %35, %29
+  %.recomposed155 = urem i32 %27, %29
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i: ; preds = %.split.i8.i.i.i.i, %.split.us.i11.i.i.i.i
-  %.us-phi.i9.i.i.i.i = phi i32 [ %.recomposed155, %.split.i8.i.i.i.i ], [ %32, %.split.us.i11.i.i.i.i ]
-  %.us-phi23.i10.i.i.i.i = phi i32 [ %33, %.split.i8.i.i.i.i ], [ %31, %.split.us.i11.i.i.i.i ]
+  %.us-phi.i9.i.i.i.i = phi i32 [ %.recomposed155, %.split.i8.i.i.i.i ], [ %34, %.split.us.i11.i.i.i.i ]
+  %.us-phi23.i10.i.i.i.i = phi i32 [ %35, %.split.i8.i.i.i.i ], [ %33, %.split.us.i11.i.i.i.i ]
   %.sroa.5.1.le.i.i.i.i.i = zext i32 %.us-phi.i9.i.i.i.i to i64
-  %35 = zext i32 %.us-phi23.i10.i.i.i.i to i64
+  %37 = zext i32 %.us-phi23.i10.i.i.i.i to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit: ; preds = %.split.us.i.i.i.i.i, %.split.i.i.i.i.i, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i
-  %36 = phi i64 [ %26, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i ], [ %16, %.split.i.i.i.i.i ], [ %16, %.split.us.i.i.i.i.i ]
-  %.sroa.5.1.le.i.sink.i.i.i.i = phi i64 [ %.sroa.5.1.le.i.i.i.i.i, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i ], [ %.recomposed, %.split.i.i.i.i.i ], [ %21, %.split.us.i.i.i.i.i ]
-  %.sink.i.i.i.i = phi i64 [ %35, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i ], [ %22, %.split.i.i.i.i.i ], [ %20, %.split.us.i.i.i.i.i ]
-  %37 = mul i64 %8, %.sink.i.i.i.i
-  %38 = mul i64 %10, %.sroa.5.1.le.i.sink.i.i.i.i
-  %39 = getelementptr float, ptr %12, i64 %37
-  %40 = getelementptr float, ptr %39, i64 %38
-  %41 = load float, ptr %40, align 4, !tbaa !77
-  %42 = fcmp ule float %41, -1.000000e+00
-  br i1 %42, label %.loopexit, label %43
+  %38 = phi i64 [ %28, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i ], [ %18, %.split.i.i.i.i.i ], [ %18, %.split.us.i.i.i.i.i ]
+  %.sroa.5.1.le.i.sink.i.i.i.i = phi i64 [ %.sroa.5.1.le.i.i.i.i.i, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i ], [ %.recomposed, %.split.i.i.i.i.i ], [ %23, %.split.us.i.i.i.i.i ]
+  %.sink.i.i.i.i = phi i64 [ %37, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i ], [ %24, %.split.i.i.i.i.i ], [ %22, %.split.us.i.i.i.i.i ]
+  %39 = mul i64 %8, %.sink.i.i.i.i
+  %40 = mul i64 %10, %.sroa.5.1.le.i.sink.i.i.i.i
+  %41 = getelementptr float, ptr %12, i64 %39
+  %42 = getelementptr float, ptr %41, i64 %40
+  %43 = load float, ptr %42, align 4, !tbaa !77
+  %44 = fcmp ule float %43, -1.000000e+00
+  br i1 %44, label %.loopexit, label %45
 
-43:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit
-  %44 = add i64 %.sroa.0124.0148, 1
-  %45 = icmp ugt i64 %44, 4294967295
-  br i1 %45, label %46, label %54
+45:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit
+  %46 = add i64 %.sroa.0124.0148, 1
+  %47 = icmp ugt i64 %46, 4294967295
+  br i1 %47, label %48, label %56
 
-46:                                               ; preds = %43
-  %47 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %36)
-  %.not.i.i.i.i.i45 = icmp samesign ult i64 %47, 2
+48:                                               ; preds = %45
+  %49 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %38)
+  %.not.i.i.i.i.i45 = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i45, label %.split.us.i.i.i.i.i47, label %.split.i.i.i.i.i46
 
-.split.us.i.i.i.i.i47:                            ; preds = %46
-  %48 = add i64 %36, -1
-  %49 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %48)
-  %50 = lshr i64 %44, %49
-  %51 = and i64 %48, %44
+.split.us.i.i.i.i.i47:                            ; preds = %48
+  %50 = add i64 %38, -1
+  %51 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %50)
+  %52 = lshr i64 %46, %51
+  %53 = and i64 %50, %46
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit48
 
-.split.i.i.i.i.i46:                               ; preds = %46
-  %52 = udiv i64 %44, %36
-  %53 = mul i64 %52, %36
-  %.recomposed156 = urem i64 %44, %36
+.split.i.i.i.i.i46:                               ; preds = %48
+  %54 = udiv i64 %46, %38
+  %55 = mul i64 %54, %38
+  %.recomposed156 = urem i64 %46, %38
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit48
 
-54:                                               ; preds = %43
-  %55 = trunc nuw i64 %44 to i32
-  %56 = trunc i64 %36 to i32
-  %57 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %56)
-  %.not.i7.i.i.i.i36 = icmp samesign ult i32 %57, 2
+56:                                               ; preds = %45
+  %57 = trunc nuw i64 %46 to i32
+  %58 = trunc i64 %38 to i32
+  %59 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
+  %.not.i7.i.i.i.i36 = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i36, label %.split.us.i11.i.i.i.i44, label %.split.i8.i.i.i.i37
 
-.split.us.i11.i.i.i.i44:                          ; preds = %54
-  %58 = add i32 %56, -1
-  %59 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %60 = lshr i32 %55, %59
-  %61 = and i32 %58, %55
+.split.us.i11.i.i.i.i44:                          ; preds = %56
+  %60 = add i32 %58, -1
+  %61 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %60)
+  %62 = lshr i32 %57, %61
+  %63 = and i32 %60, %57
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38
 
-.split.i8.i.i.i.i37:                              ; preds = %54
-  %62 = udiv i32 %55, %56
-  %63 = mul i32 %62, %56
-  %.recomposed157 = urem i32 %55, %56
+.split.i8.i.i.i.i37:                              ; preds = %56
+  %64 = udiv i32 %57, %58
+  %65 = mul i32 %64, %58
+  %.recomposed157 = urem i32 %57, %58
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38: ; preds = %.split.i8.i.i.i.i37, %.split.us.i11.i.i.i.i44
-  %.us-phi.i9.i.i.i.i39 = phi i32 [ %.recomposed157, %.split.i8.i.i.i.i37 ], [ %61, %.split.us.i11.i.i.i.i44 ]
-  %.us-phi23.i10.i.i.i.i40 = phi i32 [ %62, %.split.i8.i.i.i.i37 ], [ %60, %.split.us.i11.i.i.i.i44 ]
+  %.us-phi.i9.i.i.i.i39 = phi i32 [ %.recomposed157, %.split.i8.i.i.i.i37 ], [ %63, %.split.us.i11.i.i.i.i44 ]
+  %.us-phi23.i10.i.i.i.i40 = phi i32 [ %64, %.split.i8.i.i.i.i37 ], [ %62, %.split.us.i11.i.i.i.i44 ]
   %.sroa.5.1.le.i.i.i.i.i41 = zext i32 %.us-phi.i9.i.i.i.i39 to i64
-  %64 = zext i32 %.us-phi23.i10.i.i.i.i40 to i64
+  %66 = zext i32 %.us-phi23.i10.i.i.i.i40 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit48
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit48: ; preds = %.split.us.i.i.i.i.i47, %.split.i.i.i.i.i46, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38
-  %.sroa.5.1.le.i.sink.i.i.i.i42 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i41, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38 ], [ %.recomposed156, %.split.i.i.i.i.i46 ], [ %51, %.split.us.i.i.i.i.i47 ]
-  %.sink.i.i.i.i43 = phi i64 [ %64, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38 ], [ %52, %.split.i.i.i.i.i46 ], [ %50, %.split.us.i.i.i.i.i47 ]
-  %65 = mul i64 %.sink.i.i.i.i43, %8
-  %66 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i42, %10
-  %67 = getelementptr float, ptr %12, i64 %65
-  %68 = getelementptr float, ptr %67, i64 %66
-  %69 = load float, ptr %68, align 4, !tbaa !77
-  %70 = fcmp ule float %69, -1.000000e+00
-  br i1 %70, label %.loopexit, label %71
+  %.sroa.5.1.le.i.sink.i.i.i.i42 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i41, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38 ], [ %.recomposed156, %.split.i.i.i.i.i46 ], [ %53, %.split.us.i.i.i.i.i47 ]
+  %.sink.i.i.i.i43 = phi i64 [ %66, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38 ], [ %54, %.split.i.i.i.i.i46 ], [ %52, %.split.us.i.i.i.i.i47 ]
+  %67 = mul i64 %.sink.i.i.i.i43, %8
+  %68 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i42, %10
+  %69 = getelementptr float, ptr %12, i64 %67
+  %70 = getelementptr float, ptr %69, i64 %68
+  %71 = load float, ptr %70, align 4, !tbaa !77
+  %72 = fcmp ule float %71, -1.000000e+00
+  br i1 %72, label %.loopexit, label %73
 
-71:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit48
-  %72 = add i64 %.sroa.0124.0148, 2
-  %73 = icmp ugt i64 %72, 4294967295
-  br i1 %73, label %74, label %82
+73:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit48
+  %74 = add i64 %.sroa.0124.0148, 2
+  %75 = icmp ugt i64 %74, 4294967295
+  br i1 %75, label %76, label %84
 
-74:                                               ; preds = %71
-  %75 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %36)
-  %.not.i.i.i.i.i58 = icmp samesign ult i64 %75, 2
+76:                                               ; preds = %73
+  %77 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %38)
+  %.not.i.i.i.i.i58 = icmp samesign ult i64 %77, 2
   br i1 %.not.i.i.i.i.i58, label %.split.us.i.i.i.i.i60, label %.split.i.i.i.i.i59
 
-.split.us.i.i.i.i.i60:                            ; preds = %74
-  %76 = add i64 %36, -1
-  %77 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %76)
-  %78 = lshr i64 %72, %77
-  %79 = and i64 %76, %72
+.split.us.i.i.i.i.i60:                            ; preds = %76
+  %78 = add i64 %38, -1
+  %79 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %78)
+  %80 = lshr i64 %74, %79
+  %81 = and i64 %78, %74
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit61
 
-.split.i.i.i.i.i59:                               ; preds = %74
-  %80 = udiv i64 %72, %36
-  %81 = mul i64 %80, %36
-  %.recomposed158 = urem i64 %72, %36
+.split.i.i.i.i.i59:                               ; preds = %76
+  %82 = udiv i64 %74, %38
+  %83 = mul i64 %82, %38
+  %.recomposed158 = urem i64 %74, %38
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit61
 
-82:                                               ; preds = %71
-  %83 = trunc nuw i64 %72 to i32
-  %84 = trunc i64 %36 to i32
-  %85 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %84)
-  %.not.i7.i.i.i.i49 = icmp samesign ult i32 %85, 2
+84:                                               ; preds = %73
+  %85 = trunc nuw i64 %74 to i32
+  %86 = trunc i64 %38 to i32
+  %87 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %86)
+  %.not.i7.i.i.i.i49 = icmp samesign ult i32 %87, 2
   br i1 %.not.i7.i.i.i.i49, label %.split.us.i11.i.i.i.i57, label %.split.i8.i.i.i.i50
 
-.split.us.i11.i.i.i.i57:                          ; preds = %82
-  %86 = add i32 %84, -1
-  %87 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %86)
-  %88 = lshr i32 %83, %87
-  %89 = and i32 %86, %83
+.split.us.i11.i.i.i.i57:                          ; preds = %84
+  %88 = add i32 %86, -1
+  %89 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %88)
+  %90 = lshr i32 %85, %89
+  %91 = and i32 %88, %85
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i51
 
-.split.i8.i.i.i.i50:                              ; preds = %82
-  %90 = udiv i32 %83, %84
-  %91 = mul i32 %90, %84
-  %.recomposed159 = urem i32 %83, %84
+.split.i8.i.i.i.i50:                              ; preds = %84
+  %92 = udiv i32 %85, %86
+  %93 = mul i32 %92, %86
+  %.recomposed159 = urem i32 %85, %86
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i51
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i51: ; preds = %.split.i8.i.i.i.i50, %.split.us.i11.i.i.i.i57
-  %.us-phi.i9.i.i.i.i52 = phi i32 [ %.recomposed159, %.split.i8.i.i.i.i50 ], [ %89, %.split.us.i11.i.i.i.i57 ]
-  %.us-phi23.i10.i.i.i.i53 = phi i32 [ %90, %.split.i8.i.i.i.i50 ], [ %88, %.split.us.i11.i.i.i.i57 ]
+  %.us-phi.i9.i.i.i.i52 = phi i32 [ %.recomposed159, %.split.i8.i.i.i.i50 ], [ %91, %.split.us.i11.i.i.i.i57 ]
+  %.us-phi23.i10.i.i.i.i53 = phi i32 [ %92, %.split.i8.i.i.i.i50 ], [ %90, %.split.us.i11.i.i.i.i57 ]
   %.sroa.5.1.le.i.i.i.i.i54 = zext i32 %.us-phi.i9.i.i.i.i52 to i64
-  %92 = zext i32 %.us-phi23.i10.i.i.i.i53 to i64
+  %94 = zext i32 %.us-phi23.i10.i.i.i.i53 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit61
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit61: ; preds = %.split.us.i.i.i.i.i60, %.split.i.i.i.i.i59, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i51
-  %.sroa.5.1.le.i.sink.i.i.i.i55 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i54, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i51 ], [ %.recomposed158, %.split.i.i.i.i.i59 ], [ %79, %.split.us.i.i.i.i.i60 ]
-  %.sink.i.i.i.i56 = phi i64 [ %92, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i51 ], [ %80, %.split.i.i.i.i.i59 ], [ %78, %.split.us.i.i.i.i.i60 ]
-  %93 = mul i64 %.sink.i.i.i.i56, %8
-  %94 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i55, %10
-  %95 = getelementptr float, ptr %12, i64 %93
-  %96 = getelementptr float, ptr %95, i64 %94
-  %97 = load float, ptr %96, align 4, !tbaa !77
-  %98 = fcmp ule float %97, -1.000000e+00
-  br i1 %98, label %.loopexit, label %99
+  %.sroa.5.1.le.i.sink.i.i.i.i55 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i54, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i51 ], [ %.recomposed158, %.split.i.i.i.i.i59 ], [ %81, %.split.us.i.i.i.i.i60 ]
+  %.sink.i.i.i.i56 = phi i64 [ %94, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i51 ], [ %82, %.split.i.i.i.i.i59 ], [ %80, %.split.us.i.i.i.i.i60 ]
+  %95 = mul i64 %.sink.i.i.i.i56, %8
+  %96 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i55, %10
+  %97 = getelementptr float, ptr %12, i64 %95
+  %98 = getelementptr float, ptr %97, i64 %96
+  %99 = load float, ptr %98, align 4, !tbaa !77
+  %100 = fcmp ule float %99, -1.000000e+00
+  br i1 %100, label %.loopexit, label %101
 
-99:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit61
-  %100 = add i64 %.sroa.0124.0148, 3
-  %101 = icmp ugt i64 %100, 4294967295
-  br i1 %101, label %102, label %110
+101:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit61
+  %102 = add i64 %.sroa.0124.0148, 3
+  %103 = icmp ugt i64 %102, 4294967295
+  br i1 %103, label %104, label %112
 
-102:                                              ; preds = %99
-  %103 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %36)
-  %.not.i.i.i.i.i71 = icmp samesign ult i64 %103, 2
+104:                                              ; preds = %101
+  %105 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %38)
+  %.not.i.i.i.i.i71 = icmp samesign ult i64 %105, 2
   br i1 %.not.i.i.i.i.i71, label %.split.us.i.i.i.i.i73, label %.split.i.i.i.i.i72
 
-.split.us.i.i.i.i.i73:                            ; preds = %102
-  %104 = add i64 %36, -1
-  %105 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %104)
-  %106 = lshr i64 %100, %105
-  %107 = and i64 %104, %100
+.split.us.i.i.i.i.i73:                            ; preds = %104
+  %106 = add i64 %38, -1
+  %107 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %106)
+  %108 = lshr i64 %102, %107
+  %109 = and i64 %106, %102
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit74
 
-.split.i.i.i.i.i72:                               ; preds = %102
-  %108 = udiv i64 %100, %36
-  %109 = mul i64 %108, %36
-  %.recomposed160 = urem i64 %100, %36
+.split.i.i.i.i.i72:                               ; preds = %104
+  %110 = udiv i64 %102, %38
+  %111 = mul i64 %110, %38
+  %.recomposed160 = urem i64 %102, %38
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit74
 
-110:                                              ; preds = %99
-  %111 = trunc nuw i64 %100 to i32
-  %112 = trunc i64 %36 to i32
-  %113 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %112)
-  %.not.i7.i.i.i.i62 = icmp samesign ult i32 %113, 2
+112:                                              ; preds = %101
+  %113 = trunc nuw i64 %102 to i32
+  %114 = trunc i64 %38 to i32
+  %115 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %114)
+  %.not.i7.i.i.i.i62 = icmp samesign ult i32 %115, 2
   br i1 %.not.i7.i.i.i.i62, label %.split.us.i11.i.i.i.i70, label %.split.i8.i.i.i.i63
 
-.split.us.i11.i.i.i.i70:                          ; preds = %110
-  %114 = add i32 %112, -1
-  %115 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %114)
-  %116 = lshr i32 %111, %115
-  %117 = and i32 %114, %111
+.split.us.i11.i.i.i.i70:                          ; preds = %112
+  %116 = add i32 %114, -1
+  %117 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %116)
+  %118 = lshr i32 %113, %117
+  %119 = and i32 %116, %113
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i64
 
-.split.i8.i.i.i.i63:                              ; preds = %110
-  %118 = udiv i32 %111, %112
-  %119 = mul i32 %118, %112
-  %.recomposed161 = urem i32 %111, %112
+.split.i8.i.i.i.i63:                              ; preds = %112
+  %120 = udiv i32 %113, %114
+  %121 = mul i32 %120, %114
+  %.recomposed161 = urem i32 %113, %114
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i64
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i64: ; preds = %.split.i8.i.i.i.i63, %.split.us.i11.i.i.i.i70
-  %.us-phi.i9.i.i.i.i65 = phi i32 [ %.recomposed161, %.split.i8.i.i.i.i63 ], [ %117, %.split.us.i11.i.i.i.i70 ]
-  %.us-phi23.i10.i.i.i.i66 = phi i32 [ %118, %.split.i8.i.i.i.i63 ], [ %116, %.split.us.i11.i.i.i.i70 ]
+  %.us-phi.i9.i.i.i.i65 = phi i32 [ %.recomposed161, %.split.i8.i.i.i.i63 ], [ %119, %.split.us.i11.i.i.i.i70 ]
+  %.us-phi23.i10.i.i.i.i66 = phi i32 [ %120, %.split.i8.i.i.i.i63 ], [ %118, %.split.us.i11.i.i.i.i70 ]
   %.sroa.5.1.le.i.i.i.i.i67 = zext i32 %.us-phi.i9.i.i.i.i65 to i64
-  %120 = zext i32 %.us-phi23.i10.i.i.i.i66 to i64
+  %122 = zext i32 %.us-phi23.i10.i.i.i.i66 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit74
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit74: ; preds = %.split.us.i.i.i.i.i73, %.split.i.i.i.i.i72, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i64
-  %.sroa.5.1.le.i.sink.i.i.i.i68 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i67, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i64 ], [ %.recomposed160, %.split.i.i.i.i.i72 ], [ %107, %.split.us.i.i.i.i.i73 ]
-  %.sink.i.i.i.i69 = phi i64 [ %120, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i64 ], [ %108, %.split.i.i.i.i.i72 ], [ %106, %.split.us.i.i.i.i.i73 ]
-  %121 = mul i64 %.sink.i.i.i.i69, %8
-  %122 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i68, %10
-  %123 = getelementptr float, ptr %12, i64 %121
-  %124 = getelementptr float, ptr %123, i64 %122
-  %125 = load float, ptr %124, align 4, !tbaa !77
-  %126 = fcmp ule float %125, -1.000000e+00
-  br i1 %126, label %.loopexit, label %127
+  %.sroa.5.1.le.i.sink.i.i.i.i68 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i67, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i64 ], [ %.recomposed160, %.split.i.i.i.i.i72 ], [ %109, %.split.us.i.i.i.i.i73 ]
+  %.sink.i.i.i.i69 = phi i64 [ %122, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i64 ], [ %110, %.split.i.i.i.i.i72 ], [ %108, %.split.us.i.i.i.i.i73 ]
+  %123 = mul i64 %.sink.i.i.i.i69, %8
+  %124 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i68, %10
+  %125 = getelementptr float, ptr %12, i64 %123
+  %126 = getelementptr float, ptr %125, i64 %124
+  %127 = load float, ptr %126, align 4, !tbaa !77
+  %128 = fcmp ule float %127, -1.000000e+00
+  br i1 %128, label %.loopexit, label %129
 
-127:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit74
-  %128 = add i64 %.sroa.0124.0148, 4
-  %129 = add nsw i64 %.0149, -1
-  %130 = icmp sgt i64 %.0149, 1
-  br i1 %130, label %13, label %._crit_edge, !llvm.loop !456
+129:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit74
+  %130 = add i64 %.sroa.0124.0148, 4
+  %131 = add nsw i64 %.0149, -1
+  %132 = icmp sgt i64 %.0149, 1
+  br i1 %132, label %15, label %._crit_edge, !llvm.loop !456
 
-._crit_edge:                                      ; preds = %127, %4
-  %.sroa.0124.0.lcssa = phi i64 [ %0, %4 ], [ %128, %127 ]
-  %131 = sub i64 %2, %.sroa.0124.0.lcssa
-  switch i64 %131, label %244 [
-    i64 3, label %132
-    i64 2, label %170
-    i64 1, label %208
+._crit_edge:                                      ; preds = %129, %4
+  %.sroa.0124.0.lcssa = phi i64 [ %0, %4 ], [ %14, %129 ]
+  %133 = sub i64 %2, %.sroa.0124.0.lcssa
+  switch i64 %133, label %246 [
+    i64 3, label %134
+    i64 2, label %172
+    i64 1, label %210
   ]
 
-132:                                              ; preds = %._crit_edge
-  %133 = icmp ugt i64 %.sroa.0124.0.lcssa, 4294967295
-  br i1 %133, label %134, label %144
+134:                                              ; preds = %._crit_edge
+  %135 = icmp ugt i64 %.sroa.0124.0.lcssa, 4294967295
+  br i1 %135, label %136, label %146
 
-134:                                              ; preds = %132
-  %135 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %136 = load i64, ptr %135, align 8, !tbaa !14, !noalias !457
-  %137 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %136)
-  %.not.i.i.i.i.i84 = icmp samesign ult i64 %137, 2
+136:                                              ; preds = %134
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %138 = load i64, ptr %137, align 8, !tbaa !14, !noalias !457
+  %139 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %138)
+  %.not.i.i.i.i.i84 = icmp samesign ult i64 %139, 2
   br i1 %.not.i.i.i.i.i84, label %.split.us.i.i.i.i.i86, label %.split.i.i.i.i.i85
 
-.split.us.i.i.i.i.i86:                            ; preds = %134
-  %138 = add i64 %136, -1
-  %139 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %138)
-  %140 = lshr i64 %.sroa.0124.0.lcssa, %139
-  %141 = and i64 %138, %.sroa.0124.0.lcssa
+.split.us.i.i.i.i.i86:                            ; preds = %136
+  %140 = add i64 %138, -1
+  %141 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %140)
+  %142 = lshr i64 %.sroa.0124.0.lcssa, %141
+  %143 = and i64 %140, %.sroa.0124.0.lcssa
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit87
 
-.split.i.i.i.i.i85:                               ; preds = %134
-  %142 = udiv i64 %.sroa.0124.0.lcssa, %136
-  %143 = mul i64 %142, %136
-  %.recomposed162 = urem i64 %.sroa.0124.0.lcssa, %136
+.split.i.i.i.i.i85:                               ; preds = %136
+  %144 = udiv i64 %.sroa.0124.0.lcssa, %138
+  %145 = mul i64 %144, %138
+  %.recomposed162 = urem i64 %.sroa.0124.0.lcssa, %138
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit87
 
-144:                                              ; preds = %132
-  %145 = trunc nuw i64 %.sroa.0124.0.lcssa to i32
-  %146 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %147 = load i64, ptr %146, align 8, !tbaa !14, !noalias !462
-  %148 = trunc i64 %147 to i32
-  %149 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %148)
-  %.not.i7.i.i.i.i75 = icmp samesign ult i32 %149, 2
+146:                                              ; preds = %134
+  %147 = trunc nuw i64 %.sroa.0124.0.lcssa to i32
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %149 = load i64, ptr %148, align 8, !tbaa !14, !noalias !462
+  %150 = trunc i64 %149 to i32
+  %151 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
+  %.not.i7.i.i.i.i75 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i75, label %.split.us.i11.i.i.i.i83, label %.split.i8.i.i.i.i76
 
-.split.us.i11.i.i.i.i83:                          ; preds = %144
-  %150 = add i32 %148, -1
-  %151 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %152 = lshr i32 %145, %151
-  %153 = and i32 %150, %145
+.split.us.i11.i.i.i.i83:                          ; preds = %146
+  %152 = add i32 %150, -1
+  %153 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %152)
+  %154 = lshr i32 %147, %153
+  %155 = and i32 %152, %147
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i77
 
-.split.i8.i.i.i.i76:                              ; preds = %144
-  %154 = udiv i32 %145, %148
-  %155 = mul i32 %154, %148
-  %.recomposed163 = urem i32 %145, %148
+.split.i8.i.i.i.i76:                              ; preds = %146
+  %156 = udiv i32 %147, %150
+  %157 = mul i32 %156, %150
+  %.recomposed163 = urem i32 %147, %150
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i77
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i77: ; preds = %.split.i8.i.i.i.i76, %.split.us.i11.i.i.i.i83
-  %.us-phi.i9.i.i.i.i78 = phi i32 [ %.recomposed163, %.split.i8.i.i.i.i76 ], [ %153, %.split.us.i11.i.i.i.i83 ]
-  %.us-phi23.i10.i.i.i.i79 = phi i32 [ %154, %.split.i8.i.i.i.i76 ], [ %152, %.split.us.i11.i.i.i.i83 ]
+  %.us-phi.i9.i.i.i.i78 = phi i32 [ %.recomposed163, %.split.i8.i.i.i.i76 ], [ %155, %.split.us.i11.i.i.i.i83 ]
+  %.us-phi23.i10.i.i.i.i79 = phi i32 [ %156, %.split.i8.i.i.i.i76 ], [ %154, %.split.us.i11.i.i.i.i83 ]
   %.sroa.5.1.le.i.i.i.i.i80 = zext i32 %.us-phi.i9.i.i.i.i78 to i64
-  %156 = zext i32 %.us-phi23.i10.i.i.i.i79 to i64
+  %158 = zext i32 %.us-phi23.i10.i.i.i.i79 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit87
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit87: ; preds = %.split.us.i.i.i.i.i86, %.split.i.i.i.i.i85, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i77
-  %.sroa.5.1.le.i.sink.i.i.i.i81 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i80, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i77 ], [ %.recomposed162, %.split.i.i.i.i.i85 ], [ %141, %.split.us.i.i.i.i.i86 ]
-  %.sink.i.i.i.i82 = phi i64 [ %156, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i77 ], [ %142, %.split.i.i.i.i.i85 ], [ %140, %.split.us.i.i.i.i.i86 ]
-  %157 = load i64, ptr %1, align 8, !tbaa !14
-  %158 = mul i64 %157, %.sink.i.i.i.i82
-  %159 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %160 = load i64, ptr %159, align 8, !tbaa !14
-  %161 = mul i64 %160, %.sroa.5.1.le.i.sink.i.i.i.i81
-  %162 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %163 = load ptr, ptr %162, align 8, !tbaa !368
-  %164 = getelementptr float, ptr %163, i64 %158
-  %165 = getelementptr float, ptr %164, i64 %161
-  %166 = load float, ptr %165, align 4, !tbaa !77
-  %167 = fcmp ule float %166, -1.000000e+00
-  br i1 %167, label %.loopexit, label %168
+  %.sroa.5.1.le.i.sink.i.i.i.i81 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i80, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i77 ], [ %.recomposed162, %.split.i.i.i.i.i85 ], [ %143, %.split.us.i.i.i.i.i86 ]
+  %.sink.i.i.i.i82 = phi i64 [ %158, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i77 ], [ %144, %.split.i.i.i.i.i85 ], [ %142, %.split.us.i.i.i.i.i86 ]
+  %159 = load i64, ptr %1, align 8, !tbaa !14
+  %160 = mul i64 %159, %.sink.i.i.i.i82
+  %161 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %162 = load i64, ptr %161, align 8, !tbaa !14
+  %163 = mul i64 %162, %.sroa.5.1.le.i.sink.i.i.i.i81
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %165 = load ptr, ptr %164, align 8, !tbaa !368
+  %166 = getelementptr float, ptr %165, i64 %160
+  %167 = getelementptr float, ptr %166, i64 %163
+  %168 = load float, ptr %167, align 4, !tbaa !77
+  %169 = fcmp ule float %168, -1.000000e+00
+  br i1 %169, label %.loopexit, label %170
 
-168:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit87
-  %169 = add i64 %.sroa.0124.0.lcssa, 1
-  br label %170
+170:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit87
+  %171 = add i64 %.sroa.0124.0.lcssa, 1
+  br label %172
 
-170:                                              ; preds = %168, %._crit_edge
-  %.sroa.0124.1 = phi i64 [ %169, %168 ], [ %.sroa.0124.0.lcssa, %._crit_edge ]
-  %171 = icmp ugt i64 %.sroa.0124.1, 4294967295
-  br i1 %171, label %172, label %182
+172:                                              ; preds = %170, %._crit_edge
+  %.sroa.0124.1 = phi i64 [ %171, %170 ], [ %.sroa.0124.0.lcssa, %._crit_edge ]
+  %173 = icmp ugt i64 %.sroa.0124.1, 4294967295
+  br i1 %173, label %174, label %184
 
-172:                                              ; preds = %170
-  %173 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %174 = load i64, ptr %173, align 8, !tbaa !14, !noalias !465
-  %175 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %174)
-  %.not.i.i.i.i.i97 = icmp samesign ult i64 %175, 2
+174:                                              ; preds = %172
+  %175 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %176 = load i64, ptr %175, align 8, !tbaa !14, !noalias !465
+  %177 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %176)
+  %.not.i.i.i.i.i97 = icmp samesign ult i64 %177, 2
   br i1 %.not.i.i.i.i.i97, label %.split.us.i.i.i.i.i99, label %.split.i.i.i.i.i98
 
-.split.us.i.i.i.i.i99:                            ; preds = %172
-  %176 = add i64 %174, -1
-  %177 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %176)
-  %178 = lshr i64 %.sroa.0124.1, %177
-  %179 = and i64 %176, %.sroa.0124.1
+.split.us.i.i.i.i.i99:                            ; preds = %174
+  %178 = add i64 %176, -1
+  %179 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %178)
+  %180 = lshr i64 %.sroa.0124.1, %179
+  %181 = and i64 %178, %.sroa.0124.1
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit100
 
-.split.i.i.i.i.i98:                               ; preds = %172
-  %180 = udiv i64 %.sroa.0124.1, %174
-  %181 = mul i64 %180, %174
-  %.recomposed164 = urem i64 %.sroa.0124.1, %174
+.split.i.i.i.i.i98:                               ; preds = %174
+  %182 = udiv i64 %.sroa.0124.1, %176
+  %183 = mul i64 %182, %176
+  %.recomposed164 = urem i64 %.sroa.0124.1, %176
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit100
 
-182:                                              ; preds = %170
-  %183 = trunc nuw i64 %.sroa.0124.1 to i32
-  %184 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %185 = load i64, ptr %184, align 8, !tbaa !14, !noalias !470
-  %186 = trunc i64 %185 to i32
-  %187 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %186)
-  %.not.i7.i.i.i.i88 = icmp samesign ult i32 %187, 2
+184:                                              ; preds = %172
+  %185 = trunc nuw i64 %.sroa.0124.1 to i32
+  %186 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %187 = load i64, ptr %186, align 8, !tbaa !14, !noalias !470
+  %188 = trunc i64 %187 to i32
+  %189 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %188)
+  %.not.i7.i.i.i.i88 = icmp samesign ult i32 %189, 2
   br i1 %.not.i7.i.i.i.i88, label %.split.us.i11.i.i.i.i96, label %.split.i8.i.i.i.i89
 
-.split.us.i11.i.i.i.i96:                          ; preds = %182
-  %188 = add i32 %186, -1
-  %189 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %188)
-  %190 = lshr i32 %183, %189
-  %191 = and i32 %188, %183
+.split.us.i11.i.i.i.i96:                          ; preds = %184
+  %190 = add i32 %188, -1
+  %191 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %190)
+  %192 = lshr i32 %185, %191
+  %193 = and i32 %190, %185
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i90
 
-.split.i8.i.i.i.i89:                              ; preds = %182
-  %192 = udiv i32 %183, %186
-  %193 = mul i32 %192, %186
-  %.recomposed165 = urem i32 %183, %186
+.split.i8.i.i.i.i89:                              ; preds = %184
+  %194 = udiv i32 %185, %188
+  %195 = mul i32 %194, %188
+  %.recomposed165 = urem i32 %185, %188
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i90
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i90: ; preds = %.split.i8.i.i.i.i89, %.split.us.i11.i.i.i.i96
-  %.us-phi.i9.i.i.i.i91 = phi i32 [ %.recomposed165, %.split.i8.i.i.i.i89 ], [ %191, %.split.us.i11.i.i.i.i96 ]
-  %.us-phi23.i10.i.i.i.i92 = phi i32 [ %192, %.split.i8.i.i.i.i89 ], [ %190, %.split.us.i11.i.i.i.i96 ]
+  %.us-phi.i9.i.i.i.i91 = phi i32 [ %.recomposed165, %.split.i8.i.i.i.i89 ], [ %193, %.split.us.i11.i.i.i.i96 ]
+  %.us-phi23.i10.i.i.i.i92 = phi i32 [ %194, %.split.i8.i.i.i.i89 ], [ %192, %.split.us.i11.i.i.i.i96 ]
   %.sroa.5.1.le.i.i.i.i.i93 = zext i32 %.us-phi.i9.i.i.i.i91 to i64
-  %194 = zext i32 %.us-phi23.i10.i.i.i.i92 to i64
+  %196 = zext i32 %.us-phi23.i10.i.i.i.i92 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit100
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit100: ; preds = %.split.us.i.i.i.i.i99, %.split.i.i.i.i.i98, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i90
-  %.sroa.5.1.le.i.sink.i.i.i.i94 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i93, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i90 ], [ %.recomposed164, %.split.i.i.i.i.i98 ], [ %179, %.split.us.i.i.i.i.i99 ]
-  %.sink.i.i.i.i95 = phi i64 [ %194, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i90 ], [ %180, %.split.i.i.i.i.i98 ], [ %178, %.split.us.i.i.i.i.i99 ]
-  %195 = load i64, ptr %1, align 8, !tbaa !14
-  %196 = mul i64 %195, %.sink.i.i.i.i95
-  %197 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %198 = load i64, ptr %197, align 8, !tbaa !14
-  %199 = mul i64 %198, %.sroa.5.1.le.i.sink.i.i.i.i94
-  %200 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %201 = load ptr, ptr %200, align 8, !tbaa !368
-  %202 = getelementptr float, ptr %201, i64 %196
-  %203 = getelementptr float, ptr %202, i64 %199
-  %204 = load float, ptr %203, align 4, !tbaa !77
-  %205 = fcmp ule float %204, -1.000000e+00
-  br i1 %205, label %.loopexit, label %206
+  %.sroa.5.1.le.i.sink.i.i.i.i94 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i93, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i90 ], [ %.recomposed164, %.split.i.i.i.i.i98 ], [ %181, %.split.us.i.i.i.i.i99 ]
+  %.sink.i.i.i.i95 = phi i64 [ %196, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i90 ], [ %182, %.split.i.i.i.i.i98 ], [ %180, %.split.us.i.i.i.i.i99 ]
+  %197 = load i64, ptr %1, align 8, !tbaa !14
+  %198 = mul i64 %197, %.sink.i.i.i.i95
+  %199 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %200 = load i64, ptr %199, align 8, !tbaa !14
+  %201 = mul i64 %200, %.sroa.5.1.le.i.sink.i.i.i.i94
+  %202 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %203 = load ptr, ptr %202, align 8, !tbaa !368
+  %204 = getelementptr float, ptr %203, i64 %198
+  %205 = getelementptr float, ptr %204, i64 %201
+  %206 = load float, ptr %205, align 4, !tbaa !77
+  %207 = fcmp ule float %206, -1.000000e+00
+  br i1 %207, label %.loopexit, label %208
 
-206:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit100
-  %207 = add i64 %.sroa.0124.1, 1
-  br label %208
+208:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit100
+  %209 = add i64 %.sroa.0124.1, 1
+  br label %210
 
-208:                                              ; preds = %206, %._crit_edge
-  %.sroa.0124.2 = phi i64 [ %207, %206 ], [ %.sroa.0124.0.lcssa, %._crit_edge ]
-  %209 = icmp ugt i64 %.sroa.0124.2, 4294967295
-  br i1 %209, label %210, label %220
+210:                                              ; preds = %208, %._crit_edge
+  %.sroa.0124.2 = phi i64 [ %209, %208 ], [ %.sroa.0124.0.lcssa, %._crit_edge ]
+  %211 = icmp ugt i64 %.sroa.0124.2, 4294967295
+  br i1 %211, label %212, label %222
 
-210:                                              ; preds = %208
-  %211 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %212 = load i64, ptr %211, align 8, !tbaa !14, !noalias !473
-  %213 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %212)
-  %.not.i.i.i.i.i110 = icmp samesign ult i64 %213, 2
+212:                                              ; preds = %210
+  %213 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %214 = load i64, ptr %213, align 8, !tbaa !14, !noalias !473
+  %215 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %214)
+  %.not.i.i.i.i.i110 = icmp samesign ult i64 %215, 2
   br i1 %.not.i.i.i.i.i110, label %.split.us.i.i.i.i.i112, label %.split.i.i.i.i.i111
 
-.split.us.i.i.i.i.i112:                           ; preds = %210
-  %214 = add i64 %212, -1
-  %215 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %214)
-  %216 = lshr i64 %.sroa.0124.2, %215
-  %217 = and i64 %214, %.sroa.0124.2
+.split.us.i.i.i.i.i112:                           ; preds = %212
+  %216 = add i64 %214, -1
+  %217 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %216)
+  %218 = lshr i64 %.sroa.0124.2, %217
+  %219 = and i64 %216, %.sroa.0124.2
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit113
 
-.split.i.i.i.i.i111:                              ; preds = %210
-  %218 = udiv i64 %.sroa.0124.2, %212
-  %219 = mul i64 %218, %212
-  %.recomposed166 = urem i64 %.sroa.0124.2, %212
+.split.i.i.i.i.i111:                              ; preds = %212
+  %220 = udiv i64 %.sroa.0124.2, %214
+  %221 = mul i64 %220, %214
+  %.recomposed166 = urem i64 %.sroa.0124.2, %214
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit113
 
-220:                                              ; preds = %208
-  %221 = trunc nuw i64 %.sroa.0124.2 to i32
-  %222 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %223 = load i64, ptr %222, align 8, !tbaa !14, !noalias !478
-  %224 = trunc i64 %223 to i32
-  %225 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %224)
-  %.not.i7.i.i.i.i101 = icmp samesign ult i32 %225, 2
+222:                                              ; preds = %210
+  %223 = trunc nuw i64 %.sroa.0124.2 to i32
+  %224 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %225 = load i64, ptr %224, align 8, !tbaa !14, !noalias !478
+  %226 = trunc i64 %225 to i32
+  %227 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %226)
+  %.not.i7.i.i.i.i101 = icmp samesign ult i32 %227, 2
   br i1 %.not.i7.i.i.i.i101, label %.split.us.i11.i.i.i.i109, label %.split.i8.i.i.i.i102
 
-.split.us.i11.i.i.i.i109:                         ; preds = %220
-  %226 = add i32 %224, -1
-  %227 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %226)
-  %228 = lshr i32 %221, %227
-  %229 = and i32 %226, %221
+.split.us.i11.i.i.i.i109:                         ; preds = %222
+  %228 = add i32 %226, -1
+  %229 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %228)
+  %230 = lshr i32 %223, %229
+  %231 = and i32 %228, %223
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i103
 
-.split.i8.i.i.i.i102:                             ; preds = %220
-  %230 = udiv i32 %221, %224
-  %231 = mul i32 %230, %224
-  %.recomposed167 = urem i32 %221, %224
+.split.i8.i.i.i.i102:                             ; preds = %222
+  %232 = udiv i32 %223, %226
+  %233 = mul i32 %232, %226
+  %.recomposed167 = urem i32 %223, %226
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i103
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i103: ; preds = %.split.i8.i.i.i.i102, %.split.us.i11.i.i.i.i109
-  %.us-phi.i9.i.i.i.i104 = phi i32 [ %.recomposed167, %.split.i8.i.i.i.i102 ], [ %229, %.split.us.i11.i.i.i.i109 ]
-  %.us-phi23.i10.i.i.i.i105 = phi i32 [ %230, %.split.i8.i.i.i.i102 ], [ %228, %.split.us.i11.i.i.i.i109 ]
+  %.us-phi.i9.i.i.i.i104 = phi i32 [ %.recomposed167, %.split.i8.i.i.i.i102 ], [ %231, %.split.us.i11.i.i.i.i109 ]
+  %.us-phi23.i10.i.i.i.i105 = phi i32 [ %232, %.split.i8.i.i.i.i102 ], [ %230, %.split.us.i11.i.i.i.i109 ]
   %.sroa.5.1.le.i.i.i.i.i106 = zext i32 %.us-phi.i9.i.i.i.i104 to i64
-  %232 = zext i32 %.us-phi23.i10.i.i.i.i105 to i64
+  %234 = zext i32 %.us-phi23.i10.i.i.i.i105 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit113
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit113: ; preds = %.split.us.i.i.i.i.i112, %.split.i.i.i.i.i111, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i103
-  %.sroa.5.1.le.i.sink.i.i.i.i107 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i106, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i103 ], [ %.recomposed166, %.split.i.i.i.i.i111 ], [ %217, %.split.us.i.i.i.i.i112 ]
-  %.sink.i.i.i.i108 = phi i64 [ %232, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i103 ], [ %218, %.split.i.i.i.i.i111 ], [ %216, %.split.us.i.i.i.i.i112 ]
-  %233 = load i64, ptr %1, align 8, !tbaa !14
-  %234 = mul i64 %233, %.sink.i.i.i.i108
-  %235 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %236 = load i64, ptr %235, align 8, !tbaa !14
-  %237 = mul i64 %236, %.sroa.5.1.le.i.sink.i.i.i.i107
-  %238 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %239 = load ptr, ptr %238, align 8, !tbaa !368
-  %240 = getelementptr float, ptr %239, i64 %234
-  %241 = getelementptr float, ptr %240, i64 %237
-  %242 = load float, ptr %241, align 4, !tbaa !77
-  %243 = fcmp ule float %242, -1.000000e+00
-  br i1 %243, label %.loopexit, label %244
+  %.sroa.5.1.le.i.sink.i.i.i.i107 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i106, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i103 ], [ %.recomposed166, %.split.i.i.i.i.i111 ], [ %219, %.split.us.i.i.i.i.i112 ]
+  %.sink.i.i.i.i108 = phi i64 [ %234, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i103 ], [ %220, %.split.i.i.i.i.i111 ], [ %218, %.split.us.i.i.i.i.i112 ]
+  %235 = load i64, ptr %1, align 8, !tbaa !14
+  %236 = mul i64 %235, %.sink.i.i.i.i108
+  %237 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %238 = load i64, ptr %237, align 8, !tbaa !14
+  %239 = mul i64 %238, %.sroa.5.1.le.i.sink.i.i.i.i107
+  %240 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %241 = load ptr, ptr %240, align 8, !tbaa !368
+  %242 = getelementptr float, ptr %241, i64 %236
+  %243 = getelementptr float, ptr %242, i64 %239
+  %244 = load float, ptr %243, align 4, !tbaa !77
+  %245 = fcmp ule float %244, -1.000000e+00
+  br i1 %245, label %.loopexit, label %246
 
-244:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit113, %._crit_edge
+246:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit113, %._crit_edge
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit74, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit61, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit48, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit113, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit100, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit87, %244
-  %.sroa.014.0.in.sroa.speculated = phi i64 [ %2, %244 ], [ %.sroa.0124.0.lcssa, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit87 ], [ %.sroa.0124.1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit100 ], [ %.sroa.0124.2, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit113 ], [ %100, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit74 ], [ %72, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit61 ], [ %44, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit48 ], [ %.sroa.0124.0148, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit ]
-  %.sroa.9.0 = phi ptr [ %3, %244 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit87 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit100 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit113 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit48 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit61 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit74 ]
+.loopexit:                                        ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit74, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit61, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit48, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit113, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit100, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit87, %246
+  %.sroa.014.0.in.sroa.speculated = phi i64 [ %2, %246 ], [ %.sroa.0124.0.lcssa, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit87 ], [ %.sroa.0124.1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit100 ], [ %.sroa.0124.2, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit113 ], [ %102, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit74 ], [ %74, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit61 ], [ %46, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit48 ], [ %.sroa.0124.0148, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit ]
+  %.sroa.9.0 = phi ptr [ %3, %246 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit87 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit100 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit113 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit48 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit61 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit74 ]
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.014.0.in.sroa.speculated, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.9.0, 1
   ret { i64, ptr } %.fca.1.insert
@@ -19828,519 +19830,521 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit26: ; preds = %_ZN4d
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { i64, ptr } @_ZSt9__find_ifIN7xgboost6common18IndexTransformIterIZNS0_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx5__ops12_Iter_negateIZZNS0_3obj10RegLossObjINSG_18LogisticRegressionEE13ValidateLabelERKNS0_8MetaInfoEENKUlvE_clEvEUlfE_EEES7_S7_S7_T0_St26random_access_iterator_tag(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %5 = sub i64 %2, %0
-  %.not = icmp ult i64 %5, 4
+  %6 = lshr i64 %5, 2
+  %.not = icmp eq i64 %6, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %6 = lshr i64 %5, 2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %1, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !14
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %12 = load ptr, ptr %11, align 8, !tbaa !368
-  br label %13
+  %13 = and i64 %5, -4
+  %14 = add i64 %0, %13
+  br label %15
 
-13:                                               ; preds = %.lr.ph, %131
-  %.0155 = phi i64 [ %6, %.lr.ph ], [ %133, %131 ]
-  %.sroa.0130.0154 = phi i64 [ %0, %.lr.ph ], [ %132, %131 ]
-  %14 = icmp ugt i64 %.sroa.0130.0154, 4294967295
-  br i1 %14, label %15, label %24
+15:                                               ; preds = %.lr.ph, %133
+  %.0155 = phi i64 [ %6, %.lr.ph ], [ %135, %133 ]
+  %.sroa.0130.0154 = phi i64 [ %0, %.lr.ph ], [ %134, %133 ]
+  %16 = icmp ugt i64 %.sroa.0130.0154, 4294967295
+  br i1 %16, label %17, label %26
 
-15:                                               ; preds = %13
-  %16 = load i64, ptr %7, align 8, !tbaa !14, !noalias !545
-  %17 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %16)
-  %.not.i.i.i.i.i = icmp samesign ult i64 %17, 2
+17:                                               ; preds = %15
+  %18 = load i64, ptr %7, align 8, !tbaa !14, !noalias !545
+  %19 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %18)
+  %.not.i.i.i.i.i = icmp samesign ult i64 %19, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
-.split.us.i.i.i.i.i:                              ; preds = %15
-  %18 = add i64 %16, -1
-  %19 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %18)
-  %20 = lshr i64 %.sroa.0130.0154, %19
-  %21 = and i64 %18, %.sroa.0130.0154
+.split.us.i.i.i.i.i:                              ; preds = %17
+  %20 = add i64 %18, -1
+  %21 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %20)
+  %22 = lshr i64 %.sroa.0130.0154, %21
+  %23 = and i64 %20, %.sroa.0130.0154
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit
 
-.split.i.i.i.i.i:                                 ; preds = %15
-  %22 = udiv i64 %.sroa.0130.0154, %16
-  %23 = mul i64 %22, %16
-  %.recomposed = urem i64 %.sroa.0130.0154, %16
+.split.i.i.i.i.i:                                 ; preds = %17
+  %24 = udiv i64 %.sroa.0130.0154, %18
+  %25 = mul i64 %24, %18
+  %.recomposed = urem i64 %.sroa.0130.0154, %18
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit
 
-24:                                               ; preds = %13
-  %25 = trunc nuw i64 %.sroa.0130.0154 to i32
-  %26 = load i64, ptr %7, align 8, !tbaa !14, !noalias !550
-  %27 = trunc i64 %26 to i32
-  %28 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %27)
-  %.not.i7.i.i.i.i = icmp samesign ult i32 %28, 2
+26:                                               ; preds = %15
+  %27 = trunc nuw i64 %.sroa.0130.0154 to i32
+  %28 = load i64, ptr %7, align 8, !tbaa !14, !noalias !550
+  %29 = trunc i64 %28 to i32
+  %30 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %29)
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %30, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
-.split.us.i11.i.i.i.i:                            ; preds = %24
-  %29 = add i32 %27, -1
-  %30 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %29)
-  %31 = lshr i32 %25, %30
-  %32 = and i32 %29, %25
+.split.us.i11.i.i.i.i:                            ; preds = %26
+  %31 = add i32 %29, -1
+  %32 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %31)
+  %33 = lshr i32 %27, %32
+  %34 = and i32 %31, %27
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i
 
-.split.i8.i.i.i.i:                                ; preds = %24
-  %33 = udiv i32 %25, %27
-  %34 = mul i32 %33, %27
-  %.recomposed161 = urem i32 %25, %27
+.split.i8.i.i.i.i:                                ; preds = %26
+  %35 = udiv i32 %27, %29
+  %36 = mul i32 %35, %29
+  %.recomposed161 = urem i32 %27, %29
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i: ; preds = %.split.i8.i.i.i.i, %.split.us.i11.i.i.i.i
-  %.us-phi.i9.i.i.i.i = phi i32 [ %.recomposed161, %.split.i8.i.i.i.i ], [ %32, %.split.us.i11.i.i.i.i ]
-  %.us-phi23.i10.i.i.i.i = phi i32 [ %33, %.split.i8.i.i.i.i ], [ %31, %.split.us.i11.i.i.i.i ]
+  %.us-phi.i9.i.i.i.i = phi i32 [ %.recomposed161, %.split.i8.i.i.i.i ], [ %34, %.split.us.i11.i.i.i.i ]
+  %.us-phi23.i10.i.i.i.i = phi i32 [ %35, %.split.i8.i.i.i.i ], [ %33, %.split.us.i11.i.i.i.i ]
   %.sroa.5.1.le.i.i.i.i.i = zext i32 %.us-phi.i9.i.i.i.i to i64
-  %35 = zext i32 %.us-phi23.i10.i.i.i.i to i64
+  %37 = zext i32 %.us-phi23.i10.i.i.i.i to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit: ; preds = %.split.us.i.i.i.i.i, %.split.i.i.i.i.i, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i
-  %36 = phi i64 [ %26, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i ], [ %16, %.split.i.i.i.i.i ], [ %16, %.split.us.i.i.i.i.i ]
-  %.sroa.5.1.le.i.sink.i.i.i.i = phi i64 [ %.sroa.5.1.le.i.i.i.i.i, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i ], [ %.recomposed, %.split.i.i.i.i.i ], [ %21, %.split.us.i.i.i.i.i ]
-  %.sink.i.i.i.i = phi i64 [ %35, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i ], [ %22, %.split.i.i.i.i.i ], [ %20, %.split.us.i.i.i.i.i ]
-  %37 = mul i64 %8, %.sink.i.i.i.i
-  %38 = mul i64 %10, %.sroa.5.1.le.i.sink.i.i.i.i
-  %39 = getelementptr float, ptr %12, i64 %37
-  %40 = getelementptr float, ptr %39, i64 %38
-  %41 = load float, ptr %40, align 4, !tbaa !77
-  %42 = fcmp ult float %41, 0.000000e+00
-  %43 = fcmp ugt float %41, 1.000000e+00
-  %.not2.i = or i1 %42, %43
-  br i1 %.not2.i, label %.loopexit, label %44
+  %38 = phi i64 [ %28, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i ], [ %18, %.split.i.i.i.i.i ], [ %18, %.split.us.i.i.i.i.i ]
+  %.sroa.5.1.le.i.sink.i.i.i.i = phi i64 [ %.sroa.5.1.le.i.i.i.i.i, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i ], [ %.recomposed, %.split.i.i.i.i.i ], [ %23, %.split.us.i.i.i.i.i ]
+  %.sink.i.i.i.i = phi i64 [ %37, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i ], [ %24, %.split.i.i.i.i.i ], [ %22, %.split.us.i.i.i.i.i ]
+  %39 = mul i64 %8, %.sink.i.i.i.i
+  %40 = mul i64 %10, %.sroa.5.1.le.i.sink.i.i.i.i
+  %41 = getelementptr float, ptr %12, i64 %39
+  %42 = getelementptr float, ptr %41, i64 %40
+  %43 = load float, ptr %42, align 4, !tbaa !77
+  %44 = fcmp ult float %43, 0.000000e+00
+  %45 = fcmp ugt float %43, 1.000000e+00
+  %.not2.i = or i1 %44, %45
+  br i1 %.not2.i, label %.loopexit, label %46
 
-44:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit
-  %45 = add i64 %.sroa.0130.0154, 1
-  %46 = icmp ugt i64 %45, 4294967295
-  br i1 %46, label %47, label %55
+46:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit
+  %47 = add i64 %.sroa.0130.0154, 1
+  %48 = icmp ugt i64 %47, 4294967295
+  br i1 %48, label %49, label %57
 
-47:                                               ; preds = %44
-  %48 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %36)
-  %.not.i.i.i.i.i46 = icmp samesign ult i64 %48, 2
+49:                                               ; preds = %46
+  %50 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %38)
+  %.not.i.i.i.i.i46 = icmp samesign ult i64 %50, 2
   br i1 %.not.i.i.i.i.i46, label %.split.us.i.i.i.i.i48, label %.split.i.i.i.i.i47
 
-.split.us.i.i.i.i.i48:                            ; preds = %47
-  %49 = add i64 %36, -1
-  %50 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %49)
-  %51 = lshr i64 %45, %50
-  %52 = and i64 %49, %45
+.split.us.i.i.i.i.i48:                            ; preds = %49
+  %51 = add i64 %38, -1
+  %52 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %51)
+  %53 = lshr i64 %47, %52
+  %54 = and i64 %51, %47
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49
 
-.split.i.i.i.i.i47:                               ; preds = %47
-  %53 = udiv i64 %45, %36
-  %54 = mul i64 %53, %36
-  %.recomposed162 = urem i64 %45, %36
+.split.i.i.i.i.i47:                               ; preds = %49
+  %55 = udiv i64 %47, %38
+  %56 = mul i64 %55, %38
+  %.recomposed162 = urem i64 %47, %38
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49
 
-55:                                               ; preds = %44
-  %56 = trunc nuw i64 %45 to i32
-  %57 = trunc i64 %36 to i32
-  %58 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %57)
-  %.not.i7.i.i.i.i36 = icmp samesign ult i32 %58, 2
+57:                                               ; preds = %46
+  %58 = trunc nuw i64 %47 to i32
+  %59 = trunc i64 %38 to i32
+  %60 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %59)
+  %.not.i7.i.i.i.i36 = icmp samesign ult i32 %60, 2
   br i1 %.not.i7.i.i.i.i36, label %.split.us.i11.i.i.i.i45, label %.split.i8.i.i.i.i37
 
-.split.us.i11.i.i.i.i45:                          ; preds = %55
-  %59 = add i32 %57, -1
-  %60 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %59)
-  %61 = lshr i32 %56, %60
-  %62 = and i32 %59, %56
+.split.us.i11.i.i.i.i45:                          ; preds = %57
+  %61 = add i32 %59, -1
+  %62 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %61)
+  %63 = lshr i32 %58, %62
+  %64 = and i32 %61, %58
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38
 
-.split.i8.i.i.i.i37:                              ; preds = %55
-  %63 = udiv i32 %56, %57
-  %64 = mul i32 %63, %57
-  %.recomposed163 = urem i32 %56, %57
+.split.i8.i.i.i.i37:                              ; preds = %57
+  %65 = udiv i32 %58, %59
+  %66 = mul i32 %65, %59
+  %.recomposed163 = urem i32 %58, %59
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38: ; preds = %.split.i8.i.i.i.i37, %.split.us.i11.i.i.i.i45
-  %.us-phi.i9.i.i.i.i39 = phi i32 [ %.recomposed163, %.split.i8.i.i.i.i37 ], [ %62, %.split.us.i11.i.i.i.i45 ]
-  %.us-phi23.i10.i.i.i.i40 = phi i32 [ %63, %.split.i8.i.i.i.i37 ], [ %61, %.split.us.i11.i.i.i.i45 ]
+  %.us-phi.i9.i.i.i.i39 = phi i32 [ %.recomposed163, %.split.i8.i.i.i.i37 ], [ %64, %.split.us.i11.i.i.i.i45 ]
+  %.us-phi23.i10.i.i.i.i40 = phi i32 [ %65, %.split.i8.i.i.i.i37 ], [ %63, %.split.us.i11.i.i.i.i45 ]
   %.sroa.5.1.le.i.i.i.i.i41 = zext i32 %.us-phi.i9.i.i.i.i39 to i64
-  %65 = zext i32 %.us-phi23.i10.i.i.i.i40 to i64
+  %67 = zext i32 %.us-phi23.i10.i.i.i.i40 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49: ; preds = %.split.us.i.i.i.i.i48, %.split.i.i.i.i.i47, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38
-  %.sroa.5.1.le.i.sink.i.i.i.i42 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i41, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38 ], [ %.recomposed162, %.split.i.i.i.i.i47 ], [ %52, %.split.us.i.i.i.i.i48 ]
-  %.sink.i.i.i.i43 = phi i64 [ %65, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38 ], [ %53, %.split.i.i.i.i.i47 ], [ %51, %.split.us.i.i.i.i.i48 ]
-  %66 = mul i64 %.sink.i.i.i.i43, %8
-  %67 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i42, %10
-  %68 = getelementptr float, ptr %12, i64 %66
-  %69 = getelementptr float, ptr %68, i64 %67
-  %70 = load float, ptr %69, align 4, !tbaa !77
-  %71 = fcmp ult float %70, 0.000000e+00
-  %72 = fcmp ugt float %70, 1.000000e+00
-  %.not2.i44 = or i1 %71, %72
-  br i1 %.not2.i44, label %.loopexit, label %73
+  %.sroa.5.1.le.i.sink.i.i.i.i42 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i41, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38 ], [ %.recomposed162, %.split.i.i.i.i.i47 ], [ %54, %.split.us.i.i.i.i.i48 ]
+  %.sink.i.i.i.i43 = phi i64 [ %67, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38 ], [ %55, %.split.i.i.i.i.i47 ], [ %53, %.split.us.i.i.i.i.i48 ]
+  %68 = mul i64 %.sink.i.i.i.i43, %8
+  %69 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i42, %10
+  %70 = getelementptr float, ptr %12, i64 %68
+  %71 = getelementptr float, ptr %70, i64 %69
+  %72 = load float, ptr %71, align 4, !tbaa !77
+  %73 = fcmp ult float %72, 0.000000e+00
+  %74 = fcmp ugt float %72, 1.000000e+00
+  %.not2.i44 = or i1 %73, %74
+  br i1 %.not2.i44, label %.loopexit, label %75
 
-73:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49
-  %74 = add i64 %.sroa.0130.0154, 2
-  %75 = icmp ugt i64 %74, 4294967295
-  br i1 %75, label %76, label %84
+75:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49
+  %76 = add i64 %.sroa.0130.0154, 2
+  %77 = icmp ugt i64 %76, 4294967295
+  br i1 %77, label %78, label %86
 
-76:                                               ; preds = %73
-  %77 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %36)
-  %.not.i.i.i.i.i60 = icmp samesign ult i64 %77, 2
+78:                                               ; preds = %75
+  %79 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %38)
+  %.not.i.i.i.i.i60 = icmp samesign ult i64 %79, 2
   br i1 %.not.i.i.i.i.i60, label %.split.us.i.i.i.i.i62, label %.split.i.i.i.i.i61
 
-.split.us.i.i.i.i.i62:                            ; preds = %76
-  %78 = add i64 %36, -1
-  %79 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %78)
-  %80 = lshr i64 %74, %79
-  %81 = and i64 %78, %74
+.split.us.i.i.i.i.i62:                            ; preds = %78
+  %80 = add i64 %38, -1
+  %81 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %80)
+  %82 = lshr i64 %76, %81
+  %83 = and i64 %80, %76
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63
 
-.split.i.i.i.i.i61:                               ; preds = %76
-  %82 = udiv i64 %74, %36
-  %83 = mul i64 %82, %36
-  %.recomposed164 = urem i64 %74, %36
+.split.i.i.i.i.i61:                               ; preds = %78
+  %84 = udiv i64 %76, %38
+  %85 = mul i64 %84, %38
+  %.recomposed164 = urem i64 %76, %38
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63
 
-84:                                               ; preds = %73
-  %85 = trunc nuw i64 %74 to i32
-  %86 = trunc i64 %36 to i32
-  %87 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %86)
-  %.not.i7.i.i.i.i50 = icmp samesign ult i32 %87, 2
+86:                                               ; preds = %75
+  %87 = trunc nuw i64 %76 to i32
+  %88 = trunc i64 %38 to i32
+  %89 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %88)
+  %.not.i7.i.i.i.i50 = icmp samesign ult i32 %89, 2
   br i1 %.not.i7.i.i.i.i50, label %.split.us.i11.i.i.i.i59, label %.split.i8.i.i.i.i51
 
-.split.us.i11.i.i.i.i59:                          ; preds = %84
-  %88 = add i32 %86, -1
-  %89 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %88)
-  %90 = lshr i32 %85, %89
-  %91 = and i32 %88, %85
+.split.us.i11.i.i.i.i59:                          ; preds = %86
+  %90 = add i32 %88, -1
+  %91 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %90)
+  %92 = lshr i32 %87, %91
+  %93 = and i32 %90, %87
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52
 
-.split.i8.i.i.i.i51:                              ; preds = %84
-  %92 = udiv i32 %85, %86
-  %93 = mul i32 %92, %86
-  %.recomposed165 = urem i32 %85, %86
+.split.i8.i.i.i.i51:                              ; preds = %86
+  %94 = udiv i32 %87, %88
+  %95 = mul i32 %94, %88
+  %.recomposed165 = urem i32 %87, %88
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52: ; preds = %.split.i8.i.i.i.i51, %.split.us.i11.i.i.i.i59
-  %.us-phi.i9.i.i.i.i53 = phi i32 [ %.recomposed165, %.split.i8.i.i.i.i51 ], [ %91, %.split.us.i11.i.i.i.i59 ]
-  %.us-phi23.i10.i.i.i.i54 = phi i32 [ %92, %.split.i8.i.i.i.i51 ], [ %90, %.split.us.i11.i.i.i.i59 ]
+  %.us-phi.i9.i.i.i.i53 = phi i32 [ %.recomposed165, %.split.i8.i.i.i.i51 ], [ %93, %.split.us.i11.i.i.i.i59 ]
+  %.us-phi23.i10.i.i.i.i54 = phi i32 [ %94, %.split.i8.i.i.i.i51 ], [ %92, %.split.us.i11.i.i.i.i59 ]
   %.sroa.5.1.le.i.i.i.i.i55 = zext i32 %.us-phi.i9.i.i.i.i53 to i64
-  %94 = zext i32 %.us-phi23.i10.i.i.i.i54 to i64
+  %96 = zext i32 %.us-phi23.i10.i.i.i.i54 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63: ; preds = %.split.us.i.i.i.i.i62, %.split.i.i.i.i.i61, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52
-  %.sroa.5.1.le.i.sink.i.i.i.i56 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i55, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52 ], [ %.recomposed164, %.split.i.i.i.i.i61 ], [ %81, %.split.us.i.i.i.i.i62 ]
-  %.sink.i.i.i.i57 = phi i64 [ %94, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52 ], [ %82, %.split.i.i.i.i.i61 ], [ %80, %.split.us.i.i.i.i.i62 ]
-  %95 = mul i64 %.sink.i.i.i.i57, %8
-  %96 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i56, %10
-  %97 = getelementptr float, ptr %12, i64 %95
-  %98 = getelementptr float, ptr %97, i64 %96
-  %99 = load float, ptr %98, align 4, !tbaa !77
-  %100 = fcmp ult float %99, 0.000000e+00
-  %101 = fcmp ugt float %99, 1.000000e+00
-  %.not2.i58 = or i1 %100, %101
-  br i1 %.not2.i58, label %.loopexit, label %102
+  %.sroa.5.1.le.i.sink.i.i.i.i56 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i55, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52 ], [ %.recomposed164, %.split.i.i.i.i.i61 ], [ %83, %.split.us.i.i.i.i.i62 ]
+  %.sink.i.i.i.i57 = phi i64 [ %96, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52 ], [ %84, %.split.i.i.i.i.i61 ], [ %82, %.split.us.i.i.i.i.i62 ]
+  %97 = mul i64 %.sink.i.i.i.i57, %8
+  %98 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i56, %10
+  %99 = getelementptr float, ptr %12, i64 %97
+  %100 = getelementptr float, ptr %99, i64 %98
+  %101 = load float, ptr %100, align 4, !tbaa !77
+  %102 = fcmp ult float %101, 0.000000e+00
+  %103 = fcmp ugt float %101, 1.000000e+00
+  %.not2.i58 = or i1 %102, %103
+  br i1 %.not2.i58, label %.loopexit, label %104
 
-102:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63
-  %103 = add i64 %.sroa.0130.0154, 3
-  %104 = icmp ugt i64 %103, 4294967295
-  br i1 %104, label %105, label %113
+104:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63
+  %105 = add i64 %.sroa.0130.0154, 3
+  %106 = icmp ugt i64 %105, 4294967295
+  br i1 %106, label %107, label %115
 
-105:                                              ; preds = %102
-  %106 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %36)
-  %.not.i.i.i.i.i74 = icmp samesign ult i64 %106, 2
+107:                                              ; preds = %104
+  %108 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %38)
+  %.not.i.i.i.i.i74 = icmp samesign ult i64 %108, 2
   br i1 %.not.i.i.i.i.i74, label %.split.us.i.i.i.i.i76, label %.split.i.i.i.i.i75
 
-.split.us.i.i.i.i.i76:                            ; preds = %105
-  %107 = add i64 %36, -1
-  %108 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %107)
-  %109 = lshr i64 %103, %108
-  %110 = and i64 %107, %103
+.split.us.i.i.i.i.i76:                            ; preds = %107
+  %109 = add i64 %38, -1
+  %110 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %109)
+  %111 = lshr i64 %105, %110
+  %112 = and i64 %109, %105
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77
 
-.split.i.i.i.i.i75:                               ; preds = %105
-  %111 = udiv i64 %103, %36
-  %112 = mul i64 %111, %36
-  %.recomposed166 = urem i64 %103, %36
+.split.i.i.i.i.i75:                               ; preds = %107
+  %113 = udiv i64 %105, %38
+  %114 = mul i64 %113, %38
+  %.recomposed166 = urem i64 %105, %38
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77
 
-113:                                              ; preds = %102
-  %114 = trunc nuw i64 %103 to i32
-  %115 = trunc i64 %36 to i32
-  %116 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %115)
-  %.not.i7.i.i.i.i64 = icmp samesign ult i32 %116, 2
+115:                                              ; preds = %104
+  %116 = trunc nuw i64 %105 to i32
+  %117 = trunc i64 %38 to i32
+  %118 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %117)
+  %.not.i7.i.i.i.i64 = icmp samesign ult i32 %118, 2
   br i1 %.not.i7.i.i.i.i64, label %.split.us.i11.i.i.i.i73, label %.split.i8.i.i.i.i65
 
-.split.us.i11.i.i.i.i73:                          ; preds = %113
-  %117 = add i32 %115, -1
-  %118 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %117)
-  %119 = lshr i32 %114, %118
-  %120 = and i32 %117, %114
+.split.us.i11.i.i.i.i73:                          ; preds = %115
+  %119 = add i32 %117, -1
+  %120 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %119)
+  %121 = lshr i32 %116, %120
+  %122 = and i32 %119, %116
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66
 
-.split.i8.i.i.i.i65:                              ; preds = %113
-  %121 = udiv i32 %114, %115
-  %122 = mul i32 %121, %115
-  %.recomposed167 = urem i32 %114, %115
+.split.i8.i.i.i.i65:                              ; preds = %115
+  %123 = udiv i32 %116, %117
+  %124 = mul i32 %123, %117
+  %.recomposed167 = urem i32 %116, %117
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66: ; preds = %.split.i8.i.i.i.i65, %.split.us.i11.i.i.i.i73
-  %.us-phi.i9.i.i.i.i67 = phi i32 [ %.recomposed167, %.split.i8.i.i.i.i65 ], [ %120, %.split.us.i11.i.i.i.i73 ]
-  %.us-phi23.i10.i.i.i.i68 = phi i32 [ %121, %.split.i8.i.i.i.i65 ], [ %119, %.split.us.i11.i.i.i.i73 ]
+  %.us-phi.i9.i.i.i.i67 = phi i32 [ %.recomposed167, %.split.i8.i.i.i.i65 ], [ %122, %.split.us.i11.i.i.i.i73 ]
+  %.us-phi23.i10.i.i.i.i68 = phi i32 [ %123, %.split.i8.i.i.i.i65 ], [ %121, %.split.us.i11.i.i.i.i73 ]
   %.sroa.5.1.le.i.i.i.i.i69 = zext i32 %.us-phi.i9.i.i.i.i67 to i64
-  %123 = zext i32 %.us-phi23.i10.i.i.i.i68 to i64
+  %125 = zext i32 %.us-phi23.i10.i.i.i.i68 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77: ; preds = %.split.us.i.i.i.i.i76, %.split.i.i.i.i.i75, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66
-  %.sroa.5.1.le.i.sink.i.i.i.i70 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i69, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66 ], [ %.recomposed166, %.split.i.i.i.i.i75 ], [ %110, %.split.us.i.i.i.i.i76 ]
-  %.sink.i.i.i.i71 = phi i64 [ %123, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66 ], [ %111, %.split.i.i.i.i.i75 ], [ %109, %.split.us.i.i.i.i.i76 ]
-  %124 = mul i64 %.sink.i.i.i.i71, %8
-  %125 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i70, %10
-  %126 = getelementptr float, ptr %12, i64 %124
-  %127 = getelementptr float, ptr %126, i64 %125
-  %128 = load float, ptr %127, align 4, !tbaa !77
-  %129 = fcmp ult float %128, 0.000000e+00
-  %130 = fcmp ugt float %128, 1.000000e+00
-  %.not2.i72 = or i1 %129, %130
-  br i1 %.not2.i72, label %.loopexit, label %131
+  %.sroa.5.1.le.i.sink.i.i.i.i70 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i69, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66 ], [ %.recomposed166, %.split.i.i.i.i.i75 ], [ %112, %.split.us.i.i.i.i.i76 ]
+  %.sink.i.i.i.i71 = phi i64 [ %125, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66 ], [ %113, %.split.i.i.i.i.i75 ], [ %111, %.split.us.i.i.i.i.i76 ]
+  %126 = mul i64 %.sink.i.i.i.i71, %8
+  %127 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i70, %10
+  %128 = getelementptr float, ptr %12, i64 %126
+  %129 = getelementptr float, ptr %128, i64 %127
+  %130 = load float, ptr %129, align 4, !tbaa !77
+  %131 = fcmp ult float %130, 0.000000e+00
+  %132 = fcmp ugt float %130, 1.000000e+00
+  %.not2.i72 = or i1 %131, %132
+  br i1 %.not2.i72, label %.loopexit, label %133
 
-131:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77
-  %132 = add i64 %.sroa.0130.0154, 4
-  %133 = add nsw i64 %.0155, -1
-  %134 = icmp sgt i64 %.0155, 1
-  br i1 %134, label %13, label %._crit_edge, !llvm.loop !553
+133:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77
+  %134 = add i64 %.sroa.0130.0154, 4
+  %135 = add nsw i64 %.0155, -1
+  %136 = icmp sgt i64 %.0155, 1
+  br i1 %136, label %15, label %._crit_edge, !llvm.loop !553
 
-._crit_edge:                                      ; preds = %131, %4
-  %.sroa.0130.0.lcssa = phi i64 [ %0, %4 ], [ %132, %131 ]
-  %135 = sub i64 %2, %.sroa.0130.0.lcssa
-  switch i64 %135, label %251 [
-    i64 3, label %136
-    i64 2, label %175
-    i64 1, label %214
+._crit_edge:                                      ; preds = %133, %4
+  %.sroa.0130.0.lcssa = phi i64 [ %0, %4 ], [ %14, %133 ]
+  %137 = sub i64 %2, %.sroa.0130.0.lcssa
+  switch i64 %137, label %253 [
+    i64 3, label %138
+    i64 2, label %177
+    i64 1, label %216
   ]
 
-136:                                              ; preds = %._crit_edge
-  %137 = icmp ugt i64 %.sroa.0130.0.lcssa, 4294967295
-  br i1 %137, label %138, label %148
+138:                                              ; preds = %._crit_edge
+  %139 = icmp ugt i64 %.sroa.0130.0.lcssa, 4294967295
+  br i1 %139, label %140, label %150
 
-138:                                              ; preds = %136
-  %139 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %140 = load i64, ptr %139, align 8, !tbaa !14, !noalias !554
-  %141 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %140)
-  %.not.i.i.i.i.i88 = icmp samesign ult i64 %141, 2
+140:                                              ; preds = %138
+  %141 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %142 = load i64, ptr %141, align 8, !tbaa !14, !noalias !554
+  %143 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %142)
+  %.not.i.i.i.i.i88 = icmp samesign ult i64 %143, 2
   br i1 %.not.i.i.i.i.i88, label %.split.us.i.i.i.i.i90, label %.split.i.i.i.i.i89
 
-.split.us.i.i.i.i.i90:                            ; preds = %138
-  %142 = add i64 %140, -1
-  %143 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %142)
-  %144 = lshr i64 %.sroa.0130.0.lcssa, %143
-  %145 = and i64 %142, %.sroa.0130.0.lcssa
+.split.us.i.i.i.i.i90:                            ; preds = %140
+  %144 = add i64 %142, -1
+  %145 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %144)
+  %146 = lshr i64 %.sroa.0130.0.lcssa, %145
+  %147 = and i64 %144, %.sroa.0130.0.lcssa
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91
 
-.split.i.i.i.i.i89:                               ; preds = %138
-  %146 = udiv i64 %.sroa.0130.0.lcssa, %140
-  %147 = mul i64 %146, %140
-  %.recomposed168 = urem i64 %.sroa.0130.0.lcssa, %140
+.split.i.i.i.i.i89:                               ; preds = %140
+  %148 = udiv i64 %.sroa.0130.0.lcssa, %142
+  %149 = mul i64 %148, %142
+  %.recomposed168 = urem i64 %.sroa.0130.0.lcssa, %142
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91
 
-148:                                              ; preds = %136
-  %149 = trunc nuw i64 %.sroa.0130.0.lcssa to i32
-  %150 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %151 = load i64, ptr %150, align 8, !tbaa !14, !noalias !559
-  %152 = trunc i64 %151 to i32
-  %153 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %152)
-  %.not.i7.i.i.i.i78 = icmp samesign ult i32 %153, 2
+150:                                              ; preds = %138
+  %151 = trunc nuw i64 %.sroa.0130.0.lcssa to i32
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %153 = load i64, ptr %152, align 8, !tbaa !14, !noalias !559
+  %154 = trunc i64 %153 to i32
+  %155 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %154)
+  %.not.i7.i.i.i.i78 = icmp samesign ult i32 %155, 2
   br i1 %.not.i7.i.i.i.i78, label %.split.us.i11.i.i.i.i87, label %.split.i8.i.i.i.i79
 
-.split.us.i11.i.i.i.i87:                          ; preds = %148
-  %154 = add i32 %152, -1
-  %155 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %154)
-  %156 = lshr i32 %149, %155
-  %157 = and i32 %154, %149
+.split.us.i11.i.i.i.i87:                          ; preds = %150
+  %156 = add i32 %154, -1
+  %157 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %156)
+  %158 = lshr i32 %151, %157
+  %159 = and i32 %156, %151
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80
 
-.split.i8.i.i.i.i79:                              ; preds = %148
-  %158 = udiv i32 %149, %152
-  %159 = mul i32 %158, %152
-  %.recomposed169 = urem i32 %149, %152
+.split.i8.i.i.i.i79:                              ; preds = %150
+  %160 = udiv i32 %151, %154
+  %161 = mul i32 %160, %154
+  %.recomposed169 = urem i32 %151, %154
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80: ; preds = %.split.i8.i.i.i.i79, %.split.us.i11.i.i.i.i87
-  %.us-phi.i9.i.i.i.i81 = phi i32 [ %.recomposed169, %.split.i8.i.i.i.i79 ], [ %157, %.split.us.i11.i.i.i.i87 ]
-  %.us-phi23.i10.i.i.i.i82 = phi i32 [ %158, %.split.i8.i.i.i.i79 ], [ %156, %.split.us.i11.i.i.i.i87 ]
+  %.us-phi.i9.i.i.i.i81 = phi i32 [ %.recomposed169, %.split.i8.i.i.i.i79 ], [ %159, %.split.us.i11.i.i.i.i87 ]
+  %.us-phi23.i10.i.i.i.i82 = phi i32 [ %160, %.split.i8.i.i.i.i79 ], [ %158, %.split.us.i11.i.i.i.i87 ]
   %.sroa.5.1.le.i.i.i.i.i83 = zext i32 %.us-phi.i9.i.i.i.i81 to i64
-  %160 = zext i32 %.us-phi23.i10.i.i.i.i82 to i64
+  %162 = zext i32 %.us-phi23.i10.i.i.i.i82 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91: ; preds = %.split.us.i.i.i.i.i90, %.split.i.i.i.i.i89, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80
-  %.sroa.5.1.le.i.sink.i.i.i.i84 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i83, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80 ], [ %.recomposed168, %.split.i.i.i.i.i89 ], [ %145, %.split.us.i.i.i.i.i90 ]
-  %.sink.i.i.i.i85 = phi i64 [ %160, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80 ], [ %146, %.split.i.i.i.i.i89 ], [ %144, %.split.us.i.i.i.i.i90 ]
-  %161 = load i64, ptr %1, align 8, !tbaa !14
-  %162 = mul i64 %161, %.sink.i.i.i.i85
-  %163 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %164 = load i64, ptr %163, align 8, !tbaa !14
-  %165 = mul i64 %164, %.sroa.5.1.le.i.sink.i.i.i.i84
-  %166 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %167 = load ptr, ptr %166, align 8, !tbaa !368
-  %168 = getelementptr float, ptr %167, i64 %162
-  %169 = getelementptr float, ptr %168, i64 %165
-  %170 = load float, ptr %169, align 4, !tbaa !77
-  %171 = fcmp ult float %170, 0.000000e+00
-  %172 = fcmp ugt float %170, 1.000000e+00
-  %.not2.i86 = or i1 %171, %172
-  br i1 %.not2.i86, label %.loopexit, label %173
+  %.sroa.5.1.le.i.sink.i.i.i.i84 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i83, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80 ], [ %.recomposed168, %.split.i.i.i.i.i89 ], [ %147, %.split.us.i.i.i.i.i90 ]
+  %.sink.i.i.i.i85 = phi i64 [ %162, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80 ], [ %148, %.split.i.i.i.i.i89 ], [ %146, %.split.us.i.i.i.i.i90 ]
+  %163 = load i64, ptr %1, align 8, !tbaa !14
+  %164 = mul i64 %163, %.sink.i.i.i.i85
+  %165 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %166 = load i64, ptr %165, align 8, !tbaa !14
+  %167 = mul i64 %166, %.sroa.5.1.le.i.sink.i.i.i.i84
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %169 = load ptr, ptr %168, align 8, !tbaa !368
+  %170 = getelementptr float, ptr %169, i64 %164
+  %171 = getelementptr float, ptr %170, i64 %167
+  %172 = load float, ptr %171, align 4, !tbaa !77
+  %173 = fcmp ult float %172, 0.000000e+00
+  %174 = fcmp ugt float %172, 1.000000e+00
+  %.not2.i86 = or i1 %173, %174
+  br i1 %.not2.i86, label %.loopexit, label %175
 
-173:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91
-  %174 = add i64 %.sroa.0130.0.lcssa, 1
-  br label %175
+175:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91
+  %176 = add i64 %.sroa.0130.0.lcssa, 1
+  br label %177
 
-175:                                              ; preds = %173, %._crit_edge
-  %.sroa.0130.1 = phi i64 [ %174, %173 ], [ %.sroa.0130.0.lcssa, %._crit_edge ]
-  %176 = icmp ugt i64 %.sroa.0130.1, 4294967295
-  br i1 %176, label %177, label %187
+177:                                              ; preds = %175, %._crit_edge
+  %.sroa.0130.1 = phi i64 [ %176, %175 ], [ %.sroa.0130.0.lcssa, %._crit_edge ]
+  %178 = icmp ugt i64 %.sroa.0130.1, 4294967295
+  br i1 %178, label %179, label %189
 
-177:                                              ; preds = %175
-  %178 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %179 = load i64, ptr %178, align 8, !tbaa !14, !noalias !562
-  %180 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %179)
-  %.not.i.i.i.i.i102 = icmp samesign ult i64 %180, 2
+179:                                              ; preds = %177
+  %180 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %181 = load i64, ptr %180, align 8, !tbaa !14, !noalias !562
+  %182 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %181)
+  %.not.i.i.i.i.i102 = icmp samesign ult i64 %182, 2
   br i1 %.not.i.i.i.i.i102, label %.split.us.i.i.i.i.i104, label %.split.i.i.i.i.i103
 
-.split.us.i.i.i.i.i104:                           ; preds = %177
-  %181 = add i64 %179, -1
-  %182 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %181)
-  %183 = lshr i64 %.sroa.0130.1, %182
-  %184 = and i64 %181, %.sroa.0130.1
+.split.us.i.i.i.i.i104:                           ; preds = %179
+  %183 = add i64 %181, -1
+  %184 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %183)
+  %185 = lshr i64 %.sroa.0130.1, %184
+  %186 = and i64 %183, %.sroa.0130.1
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105
 
-.split.i.i.i.i.i103:                              ; preds = %177
-  %185 = udiv i64 %.sroa.0130.1, %179
-  %186 = mul i64 %185, %179
-  %.recomposed170 = urem i64 %.sroa.0130.1, %179
+.split.i.i.i.i.i103:                              ; preds = %179
+  %187 = udiv i64 %.sroa.0130.1, %181
+  %188 = mul i64 %187, %181
+  %.recomposed170 = urem i64 %.sroa.0130.1, %181
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105
 
-187:                                              ; preds = %175
-  %188 = trunc nuw i64 %.sroa.0130.1 to i32
-  %189 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %190 = load i64, ptr %189, align 8, !tbaa !14, !noalias !567
-  %191 = trunc i64 %190 to i32
-  %192 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %191)
-  %.not.i7.i.i.i.i92 = icmp samesign ult i32 %192, 2
+189:                                              ; preds = %177
+  %190 = trunc nuw i64 %.sroa.0130.1 to i32
+  %191 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %192 = load i64, ptr %191, align 8, !tbaa !14, !noalias !567
+  %193 = trunc i64 %192 to i32
+  %194 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %193)
+  %.not.i7.i.i.i.i92 = icmp samesign ult i32 %194, 2
   br i1 %.not.i7.i.i.i.i92, label %.split.us.i11.i.i.i.i101, label %.split.i8.i.i.i.i93
 
-.split.us.i11.i.i.i.i101:                         ; preds = %187
-  %193 = add i32 %191, -1
-  %194 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %193)
-  %195 = lshr i32 %188, %194
-  %196 = and i32 %193, %188
+.split.us.i11.i.i.i.i101:                         ; preds = %189
+  %195 = add i32 %193, -1
+  %196 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %195)
+  %197 = lshr i32 %190, %196
+  %198 = and i32 %195, %190
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94
 
-.split.i8.i.i.i.i93:                              ; preds = %187
-  %197 = udiv i32 %188, %191
-  %198 = mul i32 %197, %191
-  %.recomposed171 = urem i32 %188, %191
+.split.i8.i.i.i.i93:                              ; preds = %189
+  %199 = udiv i32 %190, %193
+  %200 = mul i32 %199, %193
+  %.recomposed171 = urem i32 %190, %193
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94: ; preds = %.split.i8.i.i.i.i93, %.split.us.i11.i.i.i.i101
-  %.us-phi.i9.i.i.i.i95 = phi i32 [ %.recomposed171, %.split.i8.i.i.i.i93 ], [ %196, %.split.us.i11.i.i.i.i101 ]
-  %.us-phi23.i10.i.i.i.i96 = phi i32 [ %197, %.split.i8.i.i.i.i93 ], [ %195, %.split.us.i11.i.i.i.i101 ]
+  %.us-phi.i9.i.i.i.i95 = phi i32 [ %.recomposed171, %.split.i8.i.i.i.i93 ], [ %198, %.split.us.i11.i.i.i.i101 ]
+  %.us-phi23.i10.i.i.i.i96 = phi i32 [ %199, %.split.i8.i.i.i.i93 ], [ %197, %.split.us.i11.i.i.i.i101 ]
   %.sroa.5.1.le.i.i.i.i.i97 = zext i32 %.us-phi.i9.i.i.i.i95 to i64
-  %199 = zext i32 %.us-phi23.i10.i.i.i.i96 to i64
+  %201 = zext i32 %.us-phi23.i10.i.i.i.i96 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105: ; preds = %.split.us.i.i.i.i.i104, %.split.i.i.i.i.i103, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94
-  %.sroa.5.1.le.i.sink.i.i.i.i98 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i97, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94 ], [ %.recomposed170, %.split.i.i.i.i.i103 ], [ %184, %.split.us.i.i.i.i.i104 ]
-  %.sink.i.i.i.i99 = phi i64 [ %199, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94 ], [ %185, %.split.i.i.i.i.i103 ], [ %183, %.split.us.i.i.i.i.i104 ]
-  %200 = load i64, ptr %1, align 8, !tbaa !14
-  %201 = mul i64 %200, %.sink.i.i.i.i99
-  %202 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %203 = load i64, ptr %202, align 8, !tbaa !14
-  %204 = mul i64 %203, %.sroa.5.1.le.i.sink.i.i.i.i98
-  %205 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %206 = load ptr, ptr %205, align 8, !tbaa !368
-  %207 = getelementptr float, ptr %206, i64 %201
-  %208 = getelementptr float, ptr %207, i64 %204
-  %209 = load float, ptr %208, align 4, !tbaa !77
-  %210 = fcmp ult float %209, 0.000000e+00
-  %211 = fcmp ugt float %209, 1.000000e+00
-  %.not2.i100 = or i1 %210, %211
-  br i1 %.not2.i100, label %.loopexit, label %212
+  %.sroa.5.1.le.i.sink.i.i.i.i98 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i97, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94 ], [ %.recomposed170, %.split.i.i.i.i.i103 ], [ %186, %.split.us.i.i.i.i.i104 ]
+  %.sink.i.i.i.i99 = phi i64 [ %201, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94 ], [ %187, %.split.i.i.i.i.i103 ], [ %185, %.split.us.i.i.i.i.i104 ]
+  %202 = load i64, ptr %1, align 8, !tbaa !14
+  %203 = mul i64 %202, %.sink.i.i.i.i99
+  %204 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %205 = load i64, ptr %204, align 8, !tbaa !14
+  %206 = mul i64 %205, %.sroa.5.1.le.i.sink.i.i.i.i98
+  %207 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %208 = load ptr, ptr %207, align 8, !tbaa !368
+  %209 = getelementptr float, ptr %208, i64 %203
+  %210 = getelementptr float, ptr %209, i64 %206
+  %211 = load float, ptr %210, align 4, !tbaa !77
+  %212 = fcmp ult float %211, 0.000000e+00
+  %213 = fcmp ugt float %211, 1.000000e+00
+  %.not2.i100 = or i1 %212, %213
+  br i1 %.not2.i100, label %.loopexit, label %214
 
-212:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105
-  %213 = add i64 %.sroa.0130.1, 1
-  br label %214
+214:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105
+  %215 = add i64 %.sroa.0130.1, 1
+  br label %216
 
-214:                                              ; preds = %212, %._crit_edge
-  %.sroa.0130.2 = phi i64 [ %213, %212 ], [ %.sroa.0130.0.lcssa, %._crit_edge ]
-  %215 = icmp ugt i64 %.sroa.0130.2, 4294967295
-  br i1 %215, label %216, label %226
+216:                                              ; preds = %214, %._crit_edge
+  %.sroa.0130.2 = phi i64 [ %215, %214 ], [ %.sroa.0130.0.lcssa, %._crit_edge ]
+  %217 = icmp ugt i64 %.sroa.0130.2, 4294967295
+  br i1 %217, label %218, label %228
 
-216:                                              ; preds = %214
-  %217 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %218 = load i64, ptr %217, align 8, !tbaa !14, !noalias !570
-  %219 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %218)
-  %.not.i.i.i.i.i116 = icmp samesign ult i64 %219, 2
+218:                                              ; preds = %216
+  %219 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %220 = load i64, ptr %219, align 8, !tbaa !14, !noalias !570
+  %221 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %220)
+  %.not.i.i.i.i.i116 = icmp samesign ult i64 %221, 2
   br i1 %.not.i.i.i.i.i116, label %.split.us.i.i.i.i.i118, label %.split.i.i.i.i.i117
 
-.split.us.i.i.i.i.i118:                           ; preds = %216
-  %220 = add i64 %218, -1
-  %221 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %220)
-  %222 = lshr i64 %.sroa.0130.2, %221
-  %223 = and i64 %220, %.sroa.0130.2
+.split.us.i.i.i.i.i118:                           ; preds = %218
+  %222 = add i64 %220, -1
+  %223 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %222)
+  %224 = lshr i64 %.sroa.0130.2, %223
+  %225 = and i64 %222, %.sroa.0130.2
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119
 
-.split.i.i.i.i.i117:                              ; preds = %216
-  %224 = udiv i64 %.sroa.0130.2, %218
-  %225 = mul i64 %224, %218
-  %.recomposed172 = urem i64 %.sroa.0130.2, %218
+.split.i.i.i.i.i117:                              ; preds = %218
+  %226 = udiv i64 %.sroa.0130.2, %220
+  %227 = mul i64 %226, %220
+  %.recomposed172 = urem i64 %.sroa.0130.2, %220
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119
 
-226:                                              ; preds = %214
-  %227 = trunc nuw i64 %.sroa.0130.2 to i32
-  %228 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %229 = load i64, ptr %228, align 8, !tbaa !14, !noalias !575
-  %230 = trunc i64 %229 to i32
-  %231 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %230)
-  %.not.i7.i.i.i.i106 = icmp samesign ult i32 %231, 2
+228:                                              ; preds = %216
+  %229 = trunc nuw i64 %.sroa.0130.2 to i32
+  %230 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %231 = load i64, ptr %230, align 8, !tbaa !14, !noalias !575
+  %232 = trunc i64 %231 to i32
+  %233 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %232)
+  %.not.i7.i.i.i.i106 = icmp samesign ult i32 %233, 2
   br i1 %.not.i7.i.i.i.i106, label %.split.us.i11.i.i.i.i115, label %.split.i8.i.i.i.i107
 
-.split.us.i11.i.i.i.i115:                         ; preds = %226
-  %232 = add i32 %230, -1
-  %233 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %232)
-  %234 = lshr i32 %227, %233
-  %235 = and i32 %232, %227
+.split.us.i11.i.i.i.i115:                         ; preds = %228
+  %234 = add i32 %232, -1
+  %235 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %234)
+  %236 = lshr i32 %229, %235
+  %237 = and i32 %234, %229
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108
 
-.split.i8.i.i.i.i107:                             ; preds = %226
-  %236 = udiv i32 %227, %230
-  %237 = mul i32 %236, %230
-  %.recomposed173 = urem i32 %227, %230
+.split.i8.i.i.i.i107:                             ; preds = %228
+  %238 = udiv i32 %229, %232
+  %239 = mul i32 %238, %232
+  %.recomposed173 = urem i32 %229, %232
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108: ; preds = %.split.i8.i.i.i.i107, %.split.us.i11.i.i.i.i115
-  %.us-phi.i9.i.i.i.i109 = phi i32 [ %.recomposed173, %.split.i8.i.i.i.i107 ], [ %235, %.split.us.i11.i.i.i.i115 ]
-  %.us-phi23.i10.i.i.i.i110 = phi i32 [ %236, %.split.i8.i.i.i.i107 ], [ %234, %.split.us.i11.i.i.i.i115 ]
+  %.us-phi.i9.i.i.i.i109 = phi i32 [ %.recomposed173, %.split.i8.i.i.i.i107 ], [ %237, %.split.us.i11.i.i.i.i115 ]
+  %.us-phi23.i10.i.i.i.i110 = phi i32 [ %238, %.split.i8.i.i.i.i107 ], [ %236, %.split.us.i11.i.i.i.i115 ]
   %.sroa.5.1.le.i.i.i.i.i111 = zext i32 %.us-phi.i9.i.i.i.i109 to i64
-  %238 = zext i32 %.us-phi23.i10.i.i.i.i110 to i64
+  %240 = zext i32 %.us-phi23.i10.i.i.i.i110 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119: ; preds = %.split.us.i.i.i.i.i118, %.split.i.i.i.i.i117, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108
-  %.sroa.5.1.le.i.sink.i.i.i.i112 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i111, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108 ], [ %.recomposed172, %.split.i.i.i.i.i117 ], [ %223, %.split.us.i.i.i.i.i118 ]
-  %.sink.i.i.i.i113 = phi i64 [ %238, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108 ], [ %224, %.split.i.i.i.i.i117 ], [ %222, %.split.us.i.i.i.i.i118 ]
-  %239 = load i64, ptr %1, align 8, !tbaa !14
-  %240 = mul i64 %239, %.sink.i.i.i.i113
-  %241 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %242 = load i64, ptr %241, align 8, !tbaa !14
-  %243 = mul i64 %242, %.sroa.5.1.le.i.sink.i.i.i.i112
-  %244 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %245 = load ptr, ptr %244, align 8, !tbaa !368
-  %246 = getelementptr float, ptr %245, i64 %240
-  %247 = getelementptr float, ptr %246, i64 %243
-  %248 = load float, ptr %247, align 4, !tbaa !77
-  %249 = fcmp ult float %248, 0.000000e+00
-  %250 = fcmp ugt float %248, 1.000000e+00
-  %.not2.i114 = or i1 %249, %250
-  br i1 %.not2.i114, label %.loopexit, label %251
+  %.sroa.5.1.le.i.sink.i.i.i.i112 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i111, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108 ], [ %.recomposed172, %.split.i.i.i.i.i117 ], [ %225, %.split.us.i.i.i.i.i118 ]
+  %.sink.i.i.i.i113 = phi i64 [ %240, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108 ], [ %226, %.split.i.i.i.i.i117 ], [ %224, %.split.us.i.i.i.i.i118 ]
+  %241 = load i64, ptr %1, align 8, !tbaa !14
+  %242 = mul i64 %241, %.sink.i.i.i.i113
+  %243 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %244 = load i64, ptr %243, align 8, !tbaa !14
+  %245 = mul i64 %244, %.sroa.5.1.le.i.sink.i.i.i.i112
+  %246 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %247 = load ptr, ptr %246, align 8, !tbaa !368
+  %248 = getelementptr float, ptr %247, i64 %242
+  %249 = getelementptr float, ptr %248, i64 %245
+  %250 = load float, ptr %249, align 4, !tbaa !77
+  %251 = fcmp ult float %250, 0.000000e+00
+  %252 = fcmp ugt float %250, 1.000000e+00
+  %.not2.i114 = or i1 %251, %252
+  br i1 %.not2.i114, label %.loopexit, label %253
 
-251:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119, %._crit_edge
+253:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119, %._crit_edge
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91, %251
-  %.sroa.014.0.in.sroa.speculated = phi i64 [ %2, %251 ], [ %.sroa.0130.0.lcssa, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91 ], [ %.sroa.0130.1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105 ], [ %.sroa.0130.2, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119 ], [ %103, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77 ], [ %74, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63 ], [ %45, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49 ], [ %.sroa.0130.0154, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit ]
-  %.sroa.9.0 = phi ptr [ %3, %251 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77 ]
+.loopexit:                                        ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91, %253
+  %.sroa.014.0.in.sroa.speculated = phi i64 [ %2, %253 ], [ %.sroa.0130.0.lcssa, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91 ], [ %.sroa.0130.1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105 ], [ %.sroa.0130.2, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119 ], [ %105, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77 ], [ %76, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63 ], [ %47, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49 ], [ %.sroa.0130.0154, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit ]
+  %.sroa.9.0 = phi ptr [ %3, %253 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77 ]
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.014.0.in.sroa.speculated, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.9.0, 1
   ret { i64, ptr } %.fca.1.insert
@@ -22941,519 +22945,521 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit26: ; preds = %_ZN4d
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { i64, ptr } @_ZSt9__find_ifIN7xgboost6common18IndexTransformIterIZNS0_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx5__ops12_Iter_negateIZZNS0_3obj10RegLossObjINSG_22LogisticClassificationEE13ValidateLabelERKNS0_8MetaInfoEENKUlvE_clEvEUlfE_EEES7_S7_S7_T0_St26random_access_iterator_tag(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %5 = sub i64 %2, %0
-  %.not = icmp ult i64 %5, 4
+  %6 = lshr i64 %5, 2
+  %.not = icmp eq i64 %6, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %6 = lshr i64 %5, 2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %1, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !14
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %12 = load ptr, ptr %11, align 8, !tbaa !368
-  br label %13
+  %13 = and i64 %5, -4
+  %14 = add i64 %0, %13
+  br label %15
 
-13:                                               ; preds = %.lr.ph, %131
-  %.0155 = phi i64 [ %6, %.lr.ph ], [ %133, %131 ]
-  %.sroa.0130.0154 = phi i64 [ %0, %.lr.ph ], [ %132, %131 ]
-  %14 = icmp ugt i64 %.sroa.0130.0154, 4294967295
-  br i1 %14, label %15, label %24
+15:                                               ; preds = %.lr.ph, %133
+  %.0155 = phi i64 [ %6, %.lr.ph ], [ %135, %133 ]
+  %.sroa.0130.0154 = phi i64 [ %0, %.lr.ph ], [ %134, %133 ]
+  %16 = icmp ugt i64 %.sroa.0130.0154, 4294967295
+  br i1 %16, label %17, label %26
 
-15:                                               ; preds = %13
-  %16 = load i64, ptr %7, align 8, !tbaa !14, !noalias !641
-  %17 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %16)
-  %.not.i.i.i.i.i = icmp samesign ult i64 %17, 2
+17:                                               ; preds = %15
+  %18 = load i64, ptr %7, align 8, !tbaa !14, !noalias !641
+  %19 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %18)
+  %.not.i.i.i.i.i = icmp samesign ult i64 %19, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
-.split.us.i.i.i.i.i:                              ; preds = %15
-  %18 = add i64 %16, -1
-  %19 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %18)
-  %20 = lshr i64 %.sroa.0130.0154, %19
-  %21 = and i64 %18, %.sroa.0130.0154
+.split.us.i.i.i.i.i:                              ; preds = %17
+  %20 = add i64 %18, -1
+  %21 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %20)
+  %22 = lshr i64 %.sroa.0130.0154, %21
+  %23 = and i64 %20, %.sroa.0130.0154
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit
 
-.split.i.i.i.i.i:                                 ; preds = %15
-  %22 = udiv i64 %.sroa.0130.0154, %16
-  %23 = mul i64 %22, %16
-  %.recomposed = urem i64 %.sroa.0130.0154, %16
+.split.i.i.i.i.i:                                 ; preds = %17
+  %24 = udiv i64 %.sroa.0130.0154, %18
+  %25 = mul i64 %24, %18
+  %.recomposed = urem i64 %.sroa.0130.0154, %18
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit
 
-24:                                               ; preds = %13
-  %25 = trunc nuw i64 %.sroa.0130.0154 to i32
-  %26 = load i64, ptr %7, align 8, !tbaa !14, !noalias !646
-  %27 = trunc i64 %26 to i32
-  %28 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %27)
-  %.not.i7.i.i.i.i = icmp samesign ult i32 %28, 2
+26:                                               ; preds = %15
+  %27 = trunc nuw i64 %.sroa.0130.0154 to i32
+  %28 = load i64, ptr %7, align 8, !tbaa !14, !noalias !646
+  %29 = trunc i64 %28 to i32
+  %30 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %29)
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %30, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
-.split.us.i11.i.i.i.i:                            ; preds = %24
-  %29 = add i32 %27, -1
-  %30 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %29)
-  %31 = lshr i32 %25, %30
-  %32 = and i32 %29, %25
+.split.us.i11.i.i.i.i:                            ; preds = %26
+  %31 = add i32 %29, -1
+  %32 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %31)
+  %33 = lshr i32 %27, %32
+  %34 = and i32 %31, %27
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i
 
-.split.i8.i.i.i.i:                                ; preds = %24
-  %33 = udiv i32 %25, %27
-  %34 = mul i32 %33, %27
-  %.recomposed161 = urem i32 %25, %27
+.split.i8.i.i.i.i:                                ; preds = %26
+  %35 = udiv i32 %27, %29
+  %36 = mul i32 %35, %29
+  %.recomposed161 = urem i32 %27, %29
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i: ; preds = %.split.i8.i.i.i.i, %.split.us.i11.i.i.i.i
-  %.us-phi.i9.i.i.i.i = phi i32 [ %.recomposed161, %.split.i8.i.i.i.i ], [ %32, %.split.us.i11.i.i.i.i ]
-  %.us-phi23.i10.i.i.i.i = phi i32 [ %33, %.split.i8.i.i.i.i ], [ %31, %.split.us.i11.i.i.i.i ]
+  %.us-phi.i9.i.i.i.i = phi i32 [ %.recomposed161, %.split.i8.i.i.i.i ], [ %34, %.split.us.i11.i.i.i.i ]
+  %.us-phi23.i10.i.i.i.i = phi i32 [ %35, %.split.i8.i.i.i.i ], [ %33, %.split.us.i11.i.i.i.i ]
   %.sroa.5.1.le.i.i.i.i.i = zext i32 %.us-phi.i9.i.i.i.i to i64
-  %35 = zext i32 %.us-phi23.i10.i.i.i.i to i64
+  %37 = zext i32 %.us-phi23.i10.i.i.i.i to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit: ; preds = %.split.us.i.i.i.i.i, %.split.i.i.i.i.i, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i
-  %36 = phi i64 [ %26, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i ], [ %16, %.split.i.i.i.i.i ], [ %16, %.split.us.i.i.i.i.i ]
-  %.sroa.5.1.le.i.sink.i.i.i.i = phi i64 [ %.sroa.5.1.le.i.i.i.i.i, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i ], [ %.recomposed, %.split.i.i.i.i.i ], [ %21, %.split.us.i.i.i.i.i ]
-  %.sink.i.i.i.i = phi i64 [ %35, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i ], [ %22, %.split.i.i.i.i.i ], [ %20, %.split.us.i.i.i.i.i ]
-  %37 = mul i64 %8, %.sink.i.i.i.i
-  %38 = mul i64 %10, %.sroa.5.1.le.i.sink.i.i.i.i
-  %39 = getelementptr float, ptr %12, i64 %37
-  %40 = getelementptr float, ptr %39, i64 %38
-  %41 = load float, ptr %40, align 4, !tbaa !77
-  %42 = fcmp ult float %41, 0.000000e+00
-  %43 = fcmp ugt float %41, 1.000000e+00
-  %.not2.i = or i1 %42, %43
-  br i1 %.not2.i, label %.loopexit, label %44
+  %38 = phi i64 [ %28, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i ], [ %18, %.split.i.i.i.i.i ], [ %18, %.split.us.i.i.i.i.i ]
+  %.sroa.5.1.le.i.sink.i.i.i.i = phi i64 [ %.sroa.5.1.le.i.i.i.i.i, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i ], [ %.recomposed, %.split.i.i.i.i.i ], [ %23, %.split.us.i.i.i.i.i ]
+  %.sink.i.i.i.i = phi i64 [ %37, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i ], [ %24, %.split.i.i.i.i.i ], [ %22, %.split.us.i.i.i.i.i ]
+  %39 = mul i64 %8, %.sink.i.i.i.i
+  %40 = mul i64 %10, %.sroa.5.1.le.i.sink.i.i.i.i
+  %41 = getelementptr float, ptr %12, i64 %39
+  %42 = getelementptr float, ptr %41, i64 %40
+  %43 = load float, ptr %42, align 4, !tbaa !77
+  %44 = fcmp ult float %43, 0.000000e+00
+  %45 = fcmp ugt float %43, 1.000000e+00
+  %.not2.i = or i1 %44, %45
+  br i1 %.not2.i, label %.loopexit, label %46
 
-44:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit
-  %45 = add i64 %.sroa.0130.0154, 1
-  %46 = icmp ugt i64 %45, 4294967295
-  br i1 %46, label %47, label %55
+46:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit
+  %47 = add i64 %.sroa.0130.0154, 1
+  %48 = icmp ugt i64 %47, 4294967295
+  br i1 %48, label %49, label %57
 
-47:                                               ; preds = %44
-  %48 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %36)
-  %.not.i.i.i.i.i46 = icmp samesign ult i64 %48, 2
+49:                                               ; preds = %46
+  %50 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %38)
+  %.not.i.i.i.i.i46 = icmp samesign ult i64 %50, 2
   br i1 %.not.i.i.i.i.i46, label %.split.us.i.i.i.i.i48, label %.split.i.i.i.i.i47
 
-.split.us.i.i.i.i.i48:                            ; preds = %47
-  %49 = add i64 %36, -1
-  %50 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %49)
-  %51 = lshr i64 %45, %50
-  %52 = and i64 %49, %45
+.split.us.i.i.i.i.i48:                            ; preds = %49
+  %51 = add i64 %38, -1
+  %52 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %51)
+  %53 = lshr i64 %47, %52
+  %54 = and i64 %51, %47
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49
 
-.split.i.i.i.i.i47:                               ; preds = %47
-  %53 = udiv i64 %45, %36
-  %54 = mul i64 %53, %36
-  %.recomposed162 = urem i64 %45, %36
+.split.i.i.i.i.i47:                               ; preds = %49
+  %55 = udiv i64 %47, %38
+  %56 = mul i64 %55, %38
+  %.recomposed162 = urem i64 %47, %38
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49
 
-55:                                               ; preds = %44
-  %56 = trunc nuw i64 %45 to i32
-  %57 = trunc i64 %36 to i32
-  %58 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %57)
-  %.not.i7.i.i.i.i36 = icmp samesign ult i32 %58, 2
+57:                                               ; preds = %46
+  %58 = trunc nuw i64 %47 to i32
+  %59 = trunc i64 %38 to i32
+  %60 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %59)
+  %.not.i7.i.i.i.i36 = icmp samesign ult i32 %60, 2
   br i1 %.not.i7.i.i.i.i36, label %.split.us.i11.i.i.i.i45, label %.split.i8.i.i.i.i37
 
-.split.us.i11.i.i.i.i45:                          ; preds = %55
-  %59 = add i32 %57, -1
-  %60 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %59)
-  %61 = lshr i32 %56, %60
-  %62 = and i32 %59, %56
+.split.us.i11.i.i.i.i45:                          ; preds = %57
+  %61 = add i32 %59, -1
+  %62 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %61)
+  %63 = lshr i32 %58, %62
+  %64 = and i32 %61, %58
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38
 
-.split.i8.i.i.i.i37:                              ; preds = %55
-  %63 = udiv i32 %56, %57
-  %64 = mul i32 %63, %57
-  %.recomposed163 = urem i32 %56, %57
+.split.i8.i.i.i.i37:                              ; preds = %57
+  %65 = udiv i32 %58, %59
+  %66 = mul i32 %65, %59
+  %.recomposed163 = urem i32 %58, %59
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38: ; preds = %.split.i8.i.i.i.i37, %.split.us.i11.i.i.i.i45
-  %.us-phi.i9.i.i.i.i39 = phi i32 [ %.recomposed163, %.split.i8.i.i.i.i37 ], [ %62, %.split.us.i11.i.i.i.i45 ]
-  %.us-phi23.i10.i.i.i.i40 = phi i32 [ %63, %.split.i8.i.i.i.i37 ], [ %61, %.split.us.i11.i.i.i.i45 ]
+  %.us-phi.i9.i.i.i.i39 = phi i32 [ %.recomposed163, %.split.i8.i.i.i.i37 ], [ %64, %.split.us.i11.i.i.i.i45 ]
+  %.us-phi23.i10.i.i.i.i40 = phi i32 [ %65, %.split.i8.i.i.i.i37 ], [ %63, %.split.us.i11.i.i.i.i45 ]
   %.sroa.5.1.le.i.i.i.i.i41 = zext i32 %.us-phi.i9.i.i.i.i39 to i64
-  %65 = zext i32 %.us-phi23.i10.i.i.i.i40 to i64
+  %67 = zext i32 %.us-phi23.i10.i.i.i.i40 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49: ; preds = %.split.us.i.i.i.i.i48, %.split.i.i.i.i.i47, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38
-  %.sroa.5.1.le.i.sink.i.i.i.i42 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i41, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38 ], [ %.recomposed162, %.split.i.i.i.i.i47 ], [ %52, %.split.us.i.i.i.i.i48 ]
-  %.sink.i.i.i.i43 = phi i64 [ %65, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38 ], [ %53, %.split.i.i.i.i.i47 ], [ %51, %.split.us.i.i.i.i.i48 ]
-  %66 = mul i64 %.sink.i.i.i.i43, %8
-  %67 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i42, %10
-  %68 = getelementptr float, ptr %12, i64 %66
-  %69 = getelementptr float, ptr %68, i64 %67
-  %70 = load float, ptr %69, align 4, !tbaa !77
-  %71 = fcmp ult float %70, 0.000000e+00
-  %72 = fcmp ugt float %70, 1.000000e+00
-  %.not2.i44 = or i1 %71, %72
-  br i1 %.not2.i44, label %.loopexit, label %73
+  %.sroa.5.1.le.i.sink.i.i.i.i42 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i41, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38 ], [ %.recomposed162, %.split.i.i.i.i.i47 ], [ %54, %.split.us.i.i.i.i.i48 ]
+  %.sink.i.i.i.i43 = phi i64 [ %67, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38 ], [ %55, %.split.i.i.i.i.i47 ], [ %53, %.split.us.i.i.i.i.i48 ]
+  %68 = mul i64 %.sink.i.i.i.i43, %8
+  %69 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i42, %10
+  %70 = getelementptr float, ptr %12, i64 %68
+  %71 = getelementptr float, ptr %70, i64 %69
+  %72 = load float, ptr %71, align 4, !tbaa !77
+  %73 = fcmp ult float %72, 0.000000e+00
+  %74 = fcmp ugt float %72, 1.000000e+00
+  %.not2.i44 = or i1 %73, %74
+  br i1 %.not2.i44, label %.loopexit, label %75
 
-73:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49
-  %74 = add i64 %.sroa.0130.0154, 2
-  %75 = icmp ugt i64 %74, 4294967295
-  br i1 %75, label %76, label %84
+75:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49
+  %76 = add i64 %.sroa.0130.0154, 2
+  %77 = icmp ugt i64 %76, 4294967295
+  br i1 %77, label %78, label %86
 
-76:                                               ; preds = %73
-  %77 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %36)
-  %.not.i.i.i.i.i60 = icmp samesign ult i64 %77, 2
+78:                                               ; preds = %75
+  %79 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %38)
+  %.not.i.i.i.i.i60 = icmp samesign ult i64 %79, 2
   br i1 %.not.i.i.i.i.i60, label %.split.us.i.i.i.i.i62, label %.split.i.i.i.i.i61
 
-.split.us.i.i.i.i.i62:                            ; preds = %76
-  %78 = add i64 %36, -1
-  %79 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %78)
-  %80 = lshr i64 %74, %79
-  %81 = and i64 %78, %74
+.split.us.i.i.i.i.i62:                            ; preds = %78
+  %80 = add i64 %38, -1
+  %81 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %80)
+  %82 = lshr i64 %76, %81
+  %83 = and i64 %80, %76
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63
 
-.split.i.i.i.i.i61:                               ; preds = %76
-  %82 = udiv i64 %74, %36
-  %83 = mul i64 %82, %36
-  %.recomposed164 = urem i64 %74, %36
+.split.i.i.i.i.i61:                               ; preds = %78
+  %84 = udiv i64 %76, %38
+  %85 = mul i64 %84, %38
+  %.recomposed164 = urem i64 %76, %38
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63
 
-84:                                               ; preds = %73
-  %85 = trunc nuw i64 %74 to i32
-  %86 = trunc i64 %36 to i32
-  %87 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %86)
-  %.not.i7.i.i.i.i50 = icmp samesign ult i32 %87, 2
+86:                                               ; preds = %75
+  %87 = trunc nuw i64 %76 to i32
+  %88 = trunc i64 %38 to i32
+  %89 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %88)
+  %.not.i7.i.i.i.i50 = icmp samesign ult i32 %89, 2
   br i1 %.not.i7.i.i.i.i50, label %.split.us.i11.i.i.i.i59, label %.split.i8.i.i.i.i51
 
-.split.us.i11.i.i.i.i59:                          ; preds = %84
-  %88 = add i32 %86, -1
-  %89 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %88)
-  %90 = lshr i32 %85, %89
-  %91 = and i32 %88, %85
+.split.us.i11.i.i.i.i59:                          ; preds = %86
+  %90 = add i32 %88, -1
+  %91 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %90)
+  %92 = lshr i32 %87, %91
+  %93 = and i32 %90, %87
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52
 
-.split.i8.i.i.i.i51:                              ; preds = %84
-  %92 = udiv i32 %85, %86
-  %93 = mul i32 %92, %86
-  %.recomposed165 = urem i32 %85, %86
+.split.i8.i.i.i.i51:                              ; preds = %86
+  %94 = udiv i32 %87, %88
+  %95 = mul i32 %94, %88
+  %.recomposed165 = urem i32 %87, %88
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52: ; preds = %.split.i8.i.i.i.i51, %.split.us.i11.i.i.i.i59
-  %.us-phi.i9.i.i.i.i53 = phi i32 [ %.recomposed165, %.split.i8.i.i.i.i51 ], [ %91, %.split.us.i11.i.i.i.i59 ]
-  %.us-phi23.i10.i.i.i.i54 = phi i32 [ %92, %.split.i8.i.i.i.i51 ], [ %90, %.split.us.i11.i.i.i.i59 ]
+  %.us-phi.i9.i.i.i.i53 = phi i32 [ %.recomposed165, %.split.i8.i.i.i.i51 ], [ %93, %.split.us.i11.i.i.i.i59 ]
+  %.us-phi23.i10.i.i.i.i54 = phi i32 [ %94, %.split.i8.i.i.i.i51 ], [ %92, %.split.us.i11.i.i.i.i59 ]
   %.sroa.5.1.le.i.i.i.i.i55 = zext i32 %.us-phi.i9.i.i.i.i53 to i64
-  %94 = zext i32 %.us-phi23.i10.i.i.i.i54 to i64
+  %96 = zext i32 %.us-phi23.i10.i.i.i.i54 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63: ; preds = %.split.us.i.i.i.i.i62, %.split.i.i.i.i.i61, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52
-  %.sroa.5.1.le.i.sink.i.i.i.i56 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i55, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52 ], [ %.recomposed164, %.split.i.i.i.i.i61 ], [ %81, %.split.us.i.i.i.i.i62 ]
-  %.sink.i.i.i.i57 = phi i64 [ %94, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52 ], [ %82, %.split.i.i.i.i.i61 ], [ %80, %.split.us.i.i.i.i.i62 ]
-  %95 = mul i64 %.sink.i.i.i.i57, %8
-  %96 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i56, %10
-  %97 = getelementptr float, ptr %12, i64 %95
-  %98 = getelementptr float, ptr %97, i64 %96
-  %99 = load float, ptr %98, align 4, !tbaa !77
-  %100 = fcmp ult float %99, 0.000000e+00
-  %101 = fcmp ugt float %99, 1.000000e+00
-  %.not2.i58 = or i1 %100, %101
-  br i1 %.not2.i58, label %.loopexit, label %102
+  %.sroa.5.1.le.i.sink.i.i.i.i56 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i55, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52 ], [ %.recomposed164, %.split.i.i.i.i.i61 ], [ %83, %.split.us.i.i.i.i.i62 ]
+  %.sink.i.i.i.i57 = phi i64 [ %96, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52 ], [ %84, %.split.i.i.i.i.i61 ], [ %82, %.split.us.i.i.i.i.i62 ]
+  %97 = mul i64 %.sink.i.i.i.i57, %8
+  %98 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i56, %10
+  %99 = getelementptr float, ptr %12, i64 %97
+  %100 = getelementptr float, ptr %99, i64 %98
+  %101 = load float, ptr %100, align 4, !tbaa !77
+  %102 = fcmp ult float %101, 0.000000e+00
+  %103 = fcmp ugt float %101, 1.000000e+00
+  %.not2.i58 = or i1 %102, %103
+  br i1 %.not2.i58, label %.loopexit, label %104
 
-102:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63
-  %103 = add i64 %.sroa.0130.0154, 3
-  %104 = icmp ugt i64 %103, 4294967295
-  br i1 %104, label %105, label %113
+104:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63
+  %105 = add i64 %.sroa.0130.0154, 3
+  %106 = icmp ugt i64 %105, 4294967295
+  br i1 %106, label %107, label %115
 
-105:                                              ; preds = %102
-  %106 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %36)
-  %.not.i.i.i.i.i74 = icmp samesign ult i64 %106, 2
+107:                                              ; preds = %104
+  %108 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %38)
+  %.not.i.i.i.i.i74 = icmp samesign ult i64 %108, 2
   br i1 %.not.i.i.i.i.i74, label %.split.us.i.i.i.i.i76, label %.split.i.i.i.i.i75
 
-.split.us.i.i.i.i.i76:                            ; preds = %105
-  %107 = add i64 %36, -1
-  %108 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %107)
-  %109 = lshr i64 %103, %108
-  %110 = and i64 %107, %103
+.split.us.i.i.i.i.i76:                            ; preds = %107
+  %109 = add i64 %38, -1
+  %110 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %109)
+  %111 = lshr i64 %105, %110
+  %112 = and i64 %109, %105
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77
 
-.split.i.i.i.i.i75:                               ; preds = %105
-  %111 = udiv i64 %103, %36
-  %112 = mul i64 %111, %36
-  %.recomposed166 = urem i64 %103, %36
+.split.i.i.i.i.i75:                               ; preds = %107
+  %113 = udiv i64 %105, %38
+  %114 = mul i64 %113, %38
+  %.recomposed166 = urem i64 %105, %38
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77
 
-113:                                              ; preds = %102
-  %114 = trunc nuw i64 %103 to i32
-  %115 = trunc i64 %36 to i32
-  %116 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %115)
-  %.not.i7.i.i.i.i64 = icmp samesign ult i32 %116, 2
+115:                                              ; preds = %104
+  %116 = trunc nuw i64 %105 to i32
+  %117 = trunc i64 %38 to i32
+  %118 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %117)
+  %.not.i7.i.i.i.i64 = icmp samesign ult i32 %118, 2
   br i1 %.not.i7.i.i.i.i64, label %.split.us.i11.i.i.i.i73, label %.split.i8.i.i.i.i65
 
-.split.us.i11.i.i.i.i73:                          ; preds = %113
-  %117 = add i32 %115, -1
-  %118 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %117)
-  %119 = lshr i32 %114, %118
-  %120 = and i32 %117, %114
+.split.us.i11.i.i.i.i73:                          ; preds = %115
+  %119 = add i32 %117, -1
+  %120 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %119)
+  %121 = lshr i32 %116, %120
+  %122 = and i32 %119, %116
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66
 
-.split.i8.i.i.i.i65:                              ; preds = %113
-  %121 = udiv i32 %114, %115
-  %122 = mul i32 %121, %115
-  %.recomposed167 = urem i32 %114, %115
+.split.i8.i.i.i.i65:                              ; preds = %115
+  %123 = udiv i32 %116, %117
+  %124 = mul i32 %123, %117
+  %.recomposed167 = urem i32 %116, %117
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66: ; preds = %.split.i8.i.i.i.i65, %.split.us.i11.i.i.i.i73
-  %.us-phi.i9.i.i.i.i67 = phi i32 [ %.recomposed167, %.split.i8.i.i.i.i65 ], [ %120, %.split.us.i11.i.i.i.i73 ]
-  %.us-phi23.i10.i.i.i.i68 = phi i32 [ %121, %.split.i8.i.i.i.i65 ], [ %119, %.split.us.i11.i.i.i.i73 ]
+  %.us-phi.i9.i.i.i.i67 = phi i32 [ %.recomposed167, %.split.i8.i.i.i.i65 ], [ %122, %.split.us.i11.i.i.i.i73 ]
+  %.us-phi23.i10.i.i.i.i68 = phi i32 [ %123, %.split.i8.i.i.i.i65 ], [ %121, %.split.us.i11.i.i.i.i73 ]
   %.sroa.5.1.le.i.i.i.i.i69 = zext i32 %.us-phi.i9.i.i.i.i67 to i64
-  %123 = zext i32 %.us-phi23.i10.i.i.i.i68 to i64
+  %125 = zext i32 %.us-phi23.i10.i.i.i.i68 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77: ; preds = %.split.us.i.i.i.i.i76, %.split.i.i.i.i.i75, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66
-  %.sroa.5.1.le.i.sink.i.i.i.i70 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i69, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66 ], [ %.recomposed166, %.split.i.i.i.i.i75 ], [ %110, %.split.us.i.i.i.i.i76 ]
-  %.sink.i.i.i.i71 = phi i64 [ %123, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66 ], [ %111, %.split.i.i.i.i.i75 ], [ %109, %.split.us.i.i.i.i.i76 ]
-  %124 = mul i64 %.sink.i.i.i.i71, %8
-  %125 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i70, %10
-  %126 = getelementptr float, ptr %12, i64 %124
-  %127 = getelementptr float, ptr %126, i64 %125
-  %128 = load float, ptr %127, align 4, !tbaa !77
-  %129 = fcmp ult float %128, 0.000000e+00
-  %130 = fcmp ugt float %128, 1.000000e+00
-  %.not2.i72 = or i1 %129, %130
-  br i1 %.not2.i72, label %.loopexit, label %131
+  %.sroa.5.1.le.i.sink.i.i.i.i70 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i69, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66 ], [ %.recomposed166, %.split.i.i.i.i.i75 ], [ %112, %.split.us.i.i.i.i.i76 ]
+  %.sink.i.i.i.i71 = phi i64 [ %125, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66 ], [ %113, %.split.i.i.i.i.i75 ], [ %111, %.split.us.i.i.i.i.i76 ]
+  %126 = mul i64 %.sink.i.i.i.i71, %8
+  %127 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i70, %10
+  %128 = getelementptr float, ptr %12, i64 %126
+  %129 = getelementptr float, ptr %128, i64 %127
+  %130 = load float, ptr %129, align 4, !tbaa !77
+  %131 = fcmp ult float %130, 0.000000e+00
+  %132 = fcmp ugt float %130, 1.000000e+00
+  %.not2.i72 = or i1 %131, %132
+  br i1 %.not2.i72, label %.loopexit, label %133
 
-131:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77
-  %132 = add i64 %.sroa.0130.0154, 4
-  %133 = add nsw i64 %.0155, -1
-  %134 = icmp sgt i64 %.0155, 1
-  br i1 %134, label %13, label %._crit_edge, !llvm.loop !649
+133:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77
+  %134 = add i64 %.sroa.0130.0154, 4
+  %135 = add nsw i64 %.0155, -1
+  %136 = icmp sgt i64 %.0155, 1
+  br i1 %136, label %15, label %._crit_edge, !llvm.loop !649
 
-._crit_edge:                                      ; preds = %131, %4
-  %.sroa.0130.0.lcssa = phi i64 [ %0, %4 ], [ %132, %131 ]
-  %135 = sub i64 %2, %.sroa.0130.0.lcssa
-  switch i64 %135, label %251 [
-    i64 3, label %136
-    i64 2, label %175
-    i64 1, label %214
+._crit_edge:                                      ; preds = %133, %4
+  %.sroa.0130.0.lcssa = phi i64 [ %0, %4 ], [ %14, %133 ]
+  %137 = sub i64 %2, %.sroa.0130.0.lcssa
+  switch i64 %137, label %253 [
+    i64 3, label %138
+    i64 2, label %177
+    i64 1, label %216
   ]
 
-136:                                              ; preds = %._crit_edge
-  %137 = icmp ugt i64 %.sroa.0130.0.lcssa, 4294967295
-  br i1 %137, label %138, label %148
+138:                                              ; preds = %._crit_edge
+  %139 = icmp ugt i64 %.sroa.0130.0.lcssa, 4294967295
+  br i1 %139, label %140, label %150
 
-138:                                              ; preds = %136
-  %139 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %140 = load i64, ptr %139, align 8, !tbaa !14, !noalias !650
-  %141 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %140)
-  %.not.i.i.i.i.i88 = icmp samesign ult i64 %141, 2
+140:                                              ; preds = %138
+  %141 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %142 = load i64, ptr %141, align 8, !tbaa !14, !noalias !650
+  %143 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %142)
+  %.not.i.i.i.i.i88 = icmp samesign ult i64 %143, 2
   br i1 %.not.i.i.i.i.i88, label %.split.us.i.i.i.i.i90, label %.split.i.i.i.i.i89
 
-.split.us.i.i.i.i.i90:                            ; preds = %138
-  %142 = add i64 %140, -1
-  %143 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %142)
-  %144 = lshr i64 %.sroa.0130.0.lcssa, %143
-  %145 = and i64 %142, %.sroa.0130.0.lcssa
+.split.us.i.i.i.i.i90:                            ; preds = %140
+  %144 = add i64 %142, -1
+  %145 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %144)
+  %146 = lshr i64 %.sroa.0130.0.lcssa, %145
+  %147 = and i64 %144, %.sroa.0130.0.lcssa
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91
 
-.split.i.i.i.i.i89:                               ; preds = %138
-  %146 = udiv i64 %.sroa.0130.0.lcssa, %140
-  %147 = mul i64 %146, %140
-  %.recomposed168 = urem i64 %.sroa.0130.0.lcssa, %140
+.split.i.i.i.i.i89:                               ; preds = %140
+  %148 = udiv i64 %.sroa.0130.0.lcssa, %142
+  %149 = mul i64 %148, %142
+  %.recomposed168 = urem i64 %.sroa.0130.0.lcssa, %142
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91
 
-148:                                              ; preds = %136
-  %149 = trunc nuw i64 %.sroa.0130.0.lcssa to i32
-  %150 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %151 = load i64, ptr %150, align 8, !tbaa !14, !noalias !655
-  %152 = trunc i64 %151 to i32
-  %153 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %152)
-  %.not.i7.i.i.i.i78 = icmp samesign ult i32 %153, 2
+150:                                              ; preds = %138
+  %151 = trunc nuw i64 %.sroa.0130.0.lcssa to i32
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %153 = load i64, ptr %152, align 8, !tbaa !14, !noalias !655
+  %154 = trunc i64 %153 to i32
+  %155 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %154)
+  %.not.i7.i.i.i.i78 = icmp samesign ult i32 %155, 2
   br i1 %.not.i7.i.i.i.i78, label %.split.us.i11.i.i.i.i87, label %.split.i8.i.i.i.i79
 
-.split.us.i11.i.i.i.i87:                          ; preds = %148
-  %154 = add i32 %152, -1
-  %155 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %154)
-  %156 = lshr i32 %149, %155
-  %157 = and i32 %154, %149
+.split.us.i11.i.i.i.i87:                          ; preds = %150
+  %156 = add i32 %154, -1
+  %157 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %156)
+  %158 = lshr i32 %151, %157
+  %159 = and i32 %156, %151
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80
 
-.split.i8.i.i.i.i79:                              ; preds = %148
-  %158 = udiv i32 %149, %152
-  %159 = mul i32 %158, %152
-  %.recomposed169 = urem i32 %149, %152
+.split.i8.i.i.i.i79:                              ; preds = %150
+  %160 = udiv i32 %151, %154
+  %161 = mul i32 %160, %154
+  %.recomposed169 = urem i32 %151, %154
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80: ; preds = %.split.i8.i.i.i.i79, %.split.us.i11.i.i.i.i87
-  %.us-phi.i9.i.i.i.i81 = phi i32 [ %.recomposed169, %.split.i8.i.i.i.i79 ], [ %157, %.split.us.i11.i.i.i.i87 ]
-  %.us-phi23.i10.i.i.i.i82 = phi i32 [ %158, %.split.i8.i.i.i.i79 ], [ %156, %.split.us.i11.i.i.i.i87 ]
+  %.us-phi.i9.i.i.i.i81 = phi i32 [ %.recomposed169, %.split.i8.i.i.i.i79 ], [ %159, %.split.us.i11.i.i.i.i87 ]
+  %.us-phi23.i10.i.i.i.i82 = phi i32 [ %160, %.split.i8.i.i.i.i79 ], [ %158, %.split.us.i11.i.i.i.i87 ]
   %.sroa.5.1.le.i.i.i.i.i83 = zext i32 %.us-phi.i9.i.i.i.i81 to i64
-  %160 = zext i32 %.us-phi23.i10.i.i.i.i82 to i64
+  %162 = zext i32 %.us-phi23.i10.i.i.i.i82 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91: ; preds = %.split.us.i.i.i.i.i90, %.split.i.i.i.i.i89, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80
-  %.sroa.5.1.le.i.sink.i.i.i.i84 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i83, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80 ], [ %.recomposed168, %.split.i.i.i.i.i89 ], [ %145, %.split.us.i.i.i.i.i90 ]
-  %.sink.i.i.i.i85 = phi i64 [ %160, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80 ], [ %146, %.split.i.i.i.i.i89 ], [ %144, %.split.us.i.i.i.i.i90 ]
-  %161 = load i64, ptr %1, align 8, !tbaa !14
-  %162 = mul i64 %161, %.sink.i.i.i.i85
-  %163 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %164 = load i64, ptr %163, align 8, !tbaa !14
-  %165 = mul i64 %164, %.sroa.5.1.le.i.sink.i.i.i.i84
-  %166 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %167 = load ptr, ptr %166, align 8, !tbaa !368
-  %168 = getelementptr float, ptr %167, i64 %162
-  %169 = getelementptr float, ptr %168, i64 %165
-  %170 = load float, ptr %169, align 4, !tbaa !77
-  %171 = fcmp ult float %170, 0.000000e+00
-  %172 = fcmp ugt float %170, 1.000000e+00
-  %.not2.i86 = or i1 %171, %172
-  br i1 %.not2.i86, label %.loopexit, label %173
+  %.sroa.5.1.le.i.sink.i.i.i.i84 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i83, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80 ], [ %.recomposed168, %.split.i.i.i.i.i89 ], [ %147, %.split.us.i.i.i.i.i90 ]
+  %.sink.i.i.i.i85 = phi i64 [ %162, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80 ], [ %148, %.split.i.i.i.i.i89 ], [ %146, %.split.us.i.i.i.i.i90 ]
+  %163 = load i64, ptr %1, align 8, !tbaa !14
+  %164 = mul i64 %163, %.sink.i.i.i.i85
+  %165 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %166 = load i64, ptr %165, align 8, !tbaa !14
+  %167 = mul i64 %166, %.sroa.5.1.le.i.sink.i.i.i.i84
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %169 = load ptr, ptr %168, align 8, !tbaa !368
+  %170 = getelementptr float, ptr %169, i64 %164
+  %171 = getelementptr float, ptr %170, i64 %167
+  %172 = load float, ptr %171, align 4, !tbaa !77
+  %173 = fcmp ult float %172, 0.000000e+00
+  %174 = fcmp ugt float %172, 1.000000e+00
+  %.not2.i86 = or i1 %173, %174
+  br i1 %.not2.i86, label %.loopexit, label %175
 
-173:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91
-  %174 = add i64 %.sroa.0130.0.lcssa, 1
-  br label %175
+175:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91
+  %176 = add i64 %.sroa.0130.0.lcssa, 1
+  br label %177
 
-175:                                              ; preds = %173, %._crit_edge
-  %.sroa.0130.1 = phi i64 [ %174, %173 ], [ %.sroa.0130.0.lcssa, %._crit_edge ]
-  %176 = icmp ugt i64 %.sroa.0130.1, 4294967295
-  br i1 %176, label %177, label %187
+177:                                              ; preds = %175, %._crit_edge
+  %.sroa.0130.1 = phi i64 [ %176, %175 ], [ %.sroa.0130.0.lcssa, %._crit_edge ]
+  %178 = icmp ugt i64 %.sroa.0130.1, 4294967295
+  br i1 %178, label %179, label %189
 
-177:                                              ; preds = %175
-  %178 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %179 = load i64, ptr %178, align 8, !tbaa !14, !noalias !658
-  %180 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %179)
-  %.not.i.i.i.i.i102 = icmp samesign ult i64 %180, 2
+179:                                              ; preds = %177
+  %180 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %181 = load i64, ptr %180, align 8, !tbaa !14, !noalias !658
+  %182 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %181)
+  %.not.i.i.i.i.i102 = icmp samesign ult i64 %182, 2
   br i1 %.not.i.i.i.i.i102, label %.split.us.i.i.i.i.i104, label %.split.i.i.i.i.i103
 
-.split.us.i.i.i.i.i104:                           ; preds = %177
-  %181 = add i64 %179, -1
-  %182 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %181)
-  %183 = lshr i64 %.sroa.0130.1, %182
-  %184 = and i64 %181, %.sroa.0130.1
+.split.us.i.i.i.i.i104:                           ; preds = %179
+  %183 = add i64 %181, -1
+  %184 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %183)
+  %185 = lshr i64 %.sroa.0130.1, %184
+  %186 = and i64 %183, %.sroa.0130.1
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105
 
-.split.i.i.i.i.i103:                              ; preds = %177
-  %185 = udiv i64 %.sroa.0130.1, %179
-  %186 = mul i64 %185, %179
-  %.recomposed170 = urem i64 %.sroa.0130.1, %179
+.split.i.i.i.i.i103:                              ; preds = %179
+  %187 = udiv i64 %.sroa.0130.1, %181
+  %188 = mul i64 %187, %181
+  %.recomposed170 = urem i64 %.sroa.0130.1, %181
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105
 
-187:                                              ; preds = %175
-  %188 = trunc nuw i64 %.sroa.0130.1 to i32
-  %189 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %190 = load i64, ptr %189, align 8, !tbaa !14, !noalias !663
-  %191 = trunc i64 %190 to i32
-  %192 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %191)
-  %.not.i7.i.i.i.i92 = icmp samesign ult i32 %192, 2
+189:                                              ; preds = %177
+  %190 = trunc nuw i64 %.sroa.0130.1 to i32
+  %191 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %192 = load i64, ptr %191, align 8, !tbaa !14, !noalias !663
+  %193 = trunc i64 %192 to i32
+  %194 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %193)
+  %.not.i7.i.i.i.i92 = icmp samesign ult i32 %194, 2
   br i1 %.not.i7.i.i.i.i92, label %.split.us.i11.i.i.i.i101, label %.split.i8.i.i.i.i93
 
-.split.us.i11.i.i.i.i101:                         ; preds = %187
-  %193 = add i32 %191, -1
-  %194 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %193)
-  %195 = lshr i32 %188, %194
-  %196 = and i32 %193, %188
+.split.us.i11.i.i.i.i101:                         ; preds = %189
+  %195 = add i32 %193, -1
+  %196 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %195)
+  %197 = lshr i32 %190, %196
+  %198 = and i32 %195, %190
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94
 
-.split.i8.i.i.i.i93:                              ; preds = %187
-  %197 = udiv i32 %188, %191
-  %198 = mul i32 %197, %191
-  %.recomposed171 = urem i32 %188, %191
+.split.i8.i.i.i.i93:                              ; preds = %189
+  %199 = udiv i32 %190, %193
+  %200 = mul i32 %199, %193
+  %.recomposed171 = urem i32 %190, %193
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94: ; preds = %.split.i8.i.i.i.i93, %.split.us.i11.i.i.i.i101
-  %.us-phi.i9.i.i.i.i95 = phi i32 [ %.recomposed171, %.split.i8.i.i.i.i93 ], [ %196, %.split.us.i11.i.i.i.i101 ]
-  %.us-phi23.i10.i.i.i.i96 = phi i32 [ %197, %.split.i8.i.i.i.i93 ], [ %195, %.split.us.i11.i.i.i.i101 ]
+  %.us-phi.i9.i.i.i.i95 = phi i32 [ %.recomposed171, %.split.i8.i.i.i.i93 ], [ %198, %.split.us.i11.i.i.i.i101 ]
+  %.us-phi23.i10.i.i.i.i96 = phi i32 [ %199, %.split.i8.i.i.i.i93 ], [ %197, %.split.us.i11.i.i.i.i101 ]
   %.sroa.5.1.le.i.i.i.i.i97 = zext i32 %.us-phi.i9.i.i.i.i95 to i64
-  %199 = zext i32 %.us-phi23.i10.i.i.i.i96 to i64
+  %201 = zext i32 %.us-phi23.i10.i.i.i.i96 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105: ; preds = %.split.us.i.i.i.i.i104, %.split.i.i.i.i.i103, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94
-  %.sroa.5.1.le.i.sink.i.i.i.i98 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i97, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94 ], [ %.recomposed170, %.split.i.i.i.i.i103 ], [ %184, %.split.us.i.i.i.i.i104 ]
-  %.sink.i.i.i.i99 = phi i64 [ %199, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94 ], [ %185, %.split.i.i.i.i.i103 ], [ %183, %.split.us.i.i.i.i.i104 ]
-  %200 = load i64, ptr %1, align 8, !tbaa !14
-  %201 = mul i64 %200, %.sink.i.i.i.i99
-  %202 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %203 = load i64, ptr %202, align 8, !tbaa !14
-  %204 = mul i64 %203, %.sroa.5.1.le.i.sink.i.i.i.i98
-  %205 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %206 = load ptr, ptr %205, align 8, !tbaa !368
-  %207 = getelementptr float, ptr %206, i64 %201
-  %208 = getelementptr float, ptr %207, i64 %204
-  %209 = load float, ptr %208, align 4, !tbaa !77
-  %210 = fcmp ult float %209, 0.000000e+00
-  %211 = fcmp ugt float %209, 1.000000e+00
-  %.not2.i100 = or i1 %210, %211
-  br i1 %.not2.i100, label %.loopexit, label %212
+  %.sroa.5.1.le.i.sink.i.i.i.i98 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i97, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94 ], [ %.recomposed170, %.split.i.i.i.i.i103 ], [ %186, %.split.us.i.i.i.i.i104 ]
+  %.sink.i.i.i.i99 = phi i64 [ %201, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94 ], [ %187, %.split.i.i.i.i.i103 ], [ %185, %.split.us.i.i.i.i.i104 ]
+  %202 = load i64, ptr %1, align 8, !tbaa !14
+  %203 = mul i64 %202, %.sink.i.i.i.i99
+  %204 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %205 = load i64, ptr %204, align 8, !tbaa !14
+  %206 = mul i64 %205, %.sroa.5.1.le.i.sink.i.i.i.i98
+  %207 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %208 = load ptr, ptr %207, align 8, !tbaa !368
+  %209 = getelementptr float, ptr %208, i64 %203
+  %210 = getelementptr float, ptr %209, i64 %206
+  %211 = load float, ptr %210, align 4, !tbaa !77
+  %212 = fcmp ult float %211, 0.000000e+00
+  %213 = fcmp ugt float %211, 1.000000e+00
+  %.not2.i100 = or i1 %212, %213
+  br i1 %.not2.i100, label %.loopexit, label %214
 
-212:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105
-  %213 = add i64 %.sroa.0130.1, 1
-  br label %214
+214:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105
+  %215 = add i64 %.sroa.0130.1, 1
+  br label %216
 
-214:                                              ; preds = %212, %._crit_edge
-  %.sroa.0130.2 = phi i64 [ %213, %212 ], [ %.sroa.0130.0.lcssa, %._crit_edge ]
-  %215 = icmp ugt i64 %.sroa.0130.2, 4294967295
-  br i1 %215, label %216, label %226
+216:                                              ; preds = %214, %._crit_edge
+  %.sroa.0130.2 = phi i64 [ %215, %214 ], [ %.sroa.0130.0.lcssa, %._crit_edge ]
+  %217 = icmp ugt i64 %.sroa.0130.2, 4294967295
+  br i1 %217, label %218, label %228
 
-216:                                              ; preds = %214
-  %217 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %218 = load i64, ptr %217, align 8, !tbaa !14, !noalias !666
-  %219 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %218)
-  %.not.i.i.i.i.i116 = icmp samesign ult i64 %219, 2
+218:                                              ; preds = %216
+  %219 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %220 = load i64, ptr %219, align 8, !tbaa !14, !noalias !666
+  %221 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %220)
+  %.not.i.i.i.i.i116 = icmp samesign ult i64 %221, 2
   br i1 %.not.i.i.i.i.i116, label %.split.us.i.i.i.i.i118, label %.split.i.i.i.i.i117
 
-.split.us.i.i.i.i.i118:                           ; preds = %216
-  %220 = add i64 %218, -1
-  %221 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %220)
-  %222 = lshr i64 %.sroa.0130.2, %221
-  %223 = and i64 %220, %.sroa.0130.2
+.split.us.i.i.i.i.i118:                           ; preds = %218
+  %222 = add i64 %220, -1
+  %223 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %222)
+  %224 = lshr i64 %.sroa.0130.2, %223
+  %225 = and i64 %222, %.sroa.0130.2
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119
 
-.split.i.i.i.i.i117:                              ; preds = %216
-  %224 = udiv i64 %.sroa.0130.2, %218
-  %225 = mul i64 %224, %218
-  %.recomposed172 = urem i64 %.sroa.0130.2, %218
+.split.i.i.i.i.i117:                              ; preds = %218
+  %226 = udiv i64 %.sroa.0130.2, %220
+  %227 = mul i64 %226, %220
+  %.recomposed172 = urem i64 %.sroa.0130.2, %220
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119
 
-226:                                              ; preds = %214
-  %227 = trunc nuw i64 %.sroa.0130.2 to i32
-  %228 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %229 = load i64, ptr %228, align 8, !tbaa !14, !noalias !671
-  %230 = trunc i64 %229 to i32
-  %231 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %230)
-  %.not.i7.i.i.i.i106 = icmp samesign ult i32 %231, 2
+228:                                              ; preds = %216
+  %229 = trunc nuw i64 %.sroa.0130.2 to i32
+  %230 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %231 = load i64, ptr %230, align 8, !tbaa !14, !noalias !671
+  %232 = trunc i64 %231 to i32
+  %233 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %232)
+  %.not.i7.i.i.i.i106 = icmp samesign ult i32 %233, 2
   br i1 %.not.i7.i.i.i.i106, label %.split.us.i11.i.i.i.i115, label %.split.i8.i.i.i.i107
 
-.split.us.i11.i.i.i.i115:                         ; preds = %226
-  %232 = add i32 %230, -1
-  %233 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %232)
-  %234 = lshr i32 %227, %233
-  %235 = and i32 %232, %227
+.split.us.i11.i.i.i.i115:                         ; preds = %228
+  %234 = add i32 %232, -1
+  %235 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %234)
+  %236 = lshr i32 %229, %235
+  %237 = and i32 %234, %229
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108
 
-.split.i8.i.i.i.i107:                             ; preds = %226
-  %236 = udiv i32 %227, %230
-  %237 = mul i32 %236, %230
-  %.recomposed173 = urem i32 %227, %230
+.split.i8.i.i.i.i107:                             ; preds = %228
+  %238 = udiv i32 %229, %232
+  %239 = mul i32 %238, %232
+  %.recomposed173 = urem i32 %229, %232
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108: ; preds = %.split.i8.i.i.i.i107, %.split.us.i11.i.i.i.i115
-  %.us-phi.i9.i.i.i.i109 = phi i32 [ %.recomposed173, %.split.i8.i.i.i.i107 ], [ %235, %.split.us.i11.i.i.i.i115 ]
-  %.us-phi23.i10.i.i.i.i110 = phi i32 [ %236, %.split.i8.i.i.i.i107 ], [ %234, %.split.us.i11.i.i.i.i115 ]
+  %.us-phi.i9.i.i.i.i109 = phi i32 [ %.recomposed173, %.split.i8.i.i.i.i107 ], [ %237, %.split.us.i11.i.i.i.i115 ]
+  %.us-phi23.i10.i.i.i.i110 = phi i32 [ %238, %.split.i8.i.i.i.i107 ], [ %236, %.split.us.i11.i.i.i.i115 ]
   %.sroa.5.1.le.i.i.i.i.i111 = zext i32 %.us-phi.i9.i.i.i.i109 to i64
-  %238 = zext i32 %.us-phi23.i10.i.i.i.i110 to i64
+  %240 = zext i32 %.us-phi23.i10.i.i.i.i110 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119: ; preds = %.split.us.i.i.i.i.i118, %.split.i.i.i.i.i117, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108
-  %.sroa.5.1.le.i.sink.i.i.i.i112 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i111, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108 ], [ %.recomposed172, %.split.i.i.i.i.i117 ], [ %223, %.split.us.i.i.i.i.i118 ]
-  %.sink.i.i.i.i113 = phi i64 [ %238, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108 ], [ %224, %.split.i.i.i.i.i117 ], [ %222, %.split.us.i.i.i.i.i118 ]
-  %239 = load i64, ptr %1, align 8, !tbaa !14
-  %240 = mul i64 %239, %.sink.i.i.i.i113
-  %241 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %242 = load i64, ptr %241, align 8, !tbaa !14
-  %243 = mul i64 %242, %.sroa.5.1.le.i.sink.i.i.i.i112
-  %244 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %245 = load ptr, ptr %244, align 8, !tbaa !368
-  %246 = getelementptr float, ptr %245, i64 %240
-  %247 = getelementptr float, ptr %246, i64 %243
-  %248 = load float, ptr %247, align 4, !tbaa !77
-  %249 = fcmp ult float %248, 0.000000e+00
-  %250 = fcmp ugt float %248, 1.000000e+00
-  %.not2.i114 = or i1 %249, %250
-  br i1 %.not2.i114, label %.loopexit, label %251
+  %.sroa.5.1.le.i.sink.i.i.i.i112 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i111, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108 ], [ %.recomposed172, %.split.i.i.i.i.i117 ], [ %225, %.split.us.i.i.i.i.i118 ]
+  %.sink.i.i.i.i113 = phi i64 [ %240, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108 ], [ %226, %.split.i.i.i.i.i117 ], [ %224, %.split.us.i.i.i.i.i118 ]
+  %241 = load i64, ptr %1, align 8, !tbaa !14
+  %242 = mul i64 %241, %.sink.i.i.i.i113
+  %243 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %244 = load i64, ptr %243, align 8, !tbaa !14
+  %245 = mul i64 %244, %.sroa.5.1.le.i.sink.i.i.i.i112
+  %246 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %247 = load ptr, ptr %246, align 8, !tbaa !368
+  %248 = getelementptr float, ptr %247, i64 %242
+  %249 = getelementptr float, ptr %248, i64 %245
+  %250 = load float, ptr %249, align 4, !tbaa !77
+  %251 = fcmp ult float %250, 0.000000e+00
+  %252 = fcmp ugt float %250, 1.000000e+00
+  %.not2.i114 = or i1 %251, %252
+  br i1 %.not2.i114, label %.loopexit, label %253
 
-251:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119, %._crit_edge
+253:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119, %._crit_edge
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91, %251
-  %.sroa.014.0.in.sroa.speculated = phi i64 [ %2, %251 ], [ %.sroa.0130.0.lcssa, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91 ], [ %.sroa.0130.1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105 ], [ %.sroa.0130.2, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119 ], [ %103, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77 ], [ %74, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63 ], [ %45, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49 ], [ %.sroa.0130.0154, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit ]
-  %.sroa.9.0 = phi ptr [ %3, %251 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77 ]
+.loopexit:                                        ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91, %253
+  %.sroa.014.0.in.sroa.speculated = phi i64 [ %2, %253 ], [ %.sroa.0130.0.lcssa, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91 ], [ %.sroa.0130.1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105 ], [ %.sroa.0130.2, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119 ], [ %105, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77 ], [ %76, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63 ], [ %47, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49 ], [ %.sroa.0130.0154, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit ]
+  %.sroa.9.0 = phi ptr [ %3, %253 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77 ]
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.014.0.in.sroa.speculated, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.9.0, 1
   ret { i64, ptr } %.fca.1.insert
@@ -25985,519 +25991,521 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit26: ; preds = %_ZN4d
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { i64, ptr } @_ZSt9__find_ifIN7xgboost6common18IndexTransformIterIZNS0_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx5__ops12_Iter_negateIZZNS0_3obj10RegLossObjINSG_11LogisticRawEE13ValidateLabelERKNS0_8MetaInfoEENKUlvE_clEvEUlfE_EEES7_S7_S7_T0_St26random_access_iterator_tag(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %5 = sub i64 %2, %0
-  %.not = icmp ult i64 %5, 4
+  %6 = lshr i64 %5, 2
+  %.not = icmp eq i64 %6, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %6 = lshr i64 %5, 2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %1, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !14
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %12 = load ptr, ptr %11, align 8, !tbaa !368
-  br label %13
+  %13 = and i64 %5, -4
+  %14 = add i64 %0, %13
+  br label %15
 
-13:                                               ; preds = %.lr.ph, %131
-  %.0155 = phi i64 [ %6, %.lr.ph ], [ %133, %131 ]
-  %.sroa.0130.0154 = phi i64 [ %0, %.lr.ph ], [ %132, %131 ]
-  %14 = icmp ugt i64 %.sroa.0130.0154, 4294967295
-  br i1 %14, label %15, label %24
+15:                                               ; preds = %.lr.ph, %133
+  %.0155 = phi i64 [ %6, %.lr.ph ], [ %135, %133 ]
+  %.sroa.0130.0154 = phi i64 [ %0, %.lr.ph ], [ %134, %133 ]
+  %16 = icmp ugt i64 %.sroa.0130.0154, 4294967295
+  br i1 %16, label %17, label %26
 
-15:                                               ; preds = %13
-  %16 = load i64, ptr %7, align 8, !tbaa !14, !noalias !737
-  %17 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %16)
-  %.not.i.i.i.i.i = icmp samesign ult i64 %17, 2
+17:                                               ; preds = %15
+  %18 = load i64, ptr %7, align 8, !tbaa !14, !noalias !737
+  %19 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %18)
+  %.not.i.i.i.i.i = icmp samesign ult i64 %19, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
-.split.us.i.i.i.i.i:                              ; preds = %15
-  %18 = add i64 %16, -1
-  %19 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %18)
-  %20 = lshr i64 %.sroa.0130.0154, %19
-  %21 = and i64 %18, %.sroa.0130.0154
+.split.us.i.i.i.i.i:                              ; preds = %17
+  %20 = add i64 %18, -1
+  %21 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %20)
+  %22 = lshr i64 %.sroa.0130.0154, %21
+  %23 = and i64 %20, %.sroa.0130.0154
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit
 
-.split.i.i.i.i.i:                                 ; preds = %15
-  %22 = udiv i64 %.sroa.0130.0154, %16
-  %23 = mul i64 %22, %16
-  %.recomposed = urem i64 %.sroa.0130.0154, %16
+.split.i.i.i.i.i:                                 ; preds = %17
+  %24 = udiv i64 %.sroa.0130.0154, %18
+  %25 = mul i64 %24, %18
+  %.recomposed = urem i64 %.sroa.0130.0154, %18
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit
 
-24:                                               ; preds = %13
-  %25 = trunc nuw i64 %.sroa.0130.0154 to i32
-  %26 = load i64, ptr %7, align 8, !tbaa !14, !noalias !742
-  %27 = trunc i64 %26 to i32
-  %28 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %27)
-  %.not.i7.i.i.i.i = icmp samesign ult i32 %28, 2
+26:                                               ; preds = %15
+  %27 = trunc nuw i64 %.sroa.0130.0154 to i32
+  %28 = load i64, ptr %7, align 8, !tbaa !14, !noalias !742
+  %29 = trunc i64 %28 to i32
+  %30 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %29)
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %30, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
-.split.us.i11.i.i.i.i:                            ; preds = %24
-  %29 = add i32 %27, -1
-  %30 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %29)
-  %31 = lshr i32 %25, %30
-  %32 = and i32 %29, %25
+.split.us.i11.i.i.i.i:                            ; preds = %26
+  %31 = add i32 %29, -1
+  %32 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %31)
+  %33 = lshr i32 %27, %32
+  %34 = and i32 %31, %27
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i
 
-.split.i8.i.i.i.i:                                ; preds = %24
-  %33 = udiv i32 %25, %27
-  %34 = mul i32 %33, %27
-  %.recomposed161 = urem i32 %25, %27
+.split.i8.i.i.i.i:                                ; preds = %26
+  %35 = udiv i32 %27, %29
+  %36 = mul i32 %35, %29
+  %.recomposed161 = urem i32 %27, %29
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i: ; preds = %.split.i8.i.i.i.i, %.split.us.i11.i.i.i.i
-  %.us-phi.i9.i.i.i.i = phi i32 [ %.recomposed161, %.split.i8.i.i.i.i ], [ %32, %.split.us.i11.i.i.i.i ]
-  %.us-phi23.i10.i.i.i.i = phi i32 [ %33, %.split.i8.i.i.i.i ], [ %31, %.split.us.i11.i.i.i.i ]
+  %.us-phi.i9.i.i.i.i = phi i32 [ %.recomposed161, %.split.i8.i.i.i.i ], [ %34, %.split.us.i11.i.i.i.i ]
+  %.us-phi23.i10.i.i.i.i = phi i32 [ %35, %.split.i8.i.i.i.i ], [ %33, %.split.us.i11.i.i.i.i ]
   %.sroa.5.1.le.i.i.i.i.i = zext i32 %.us-phi.i9.i.i.i.i to i64
-  %35 = zext i32 %.us-phi23.i10.i.i.i.i to i64
+  %37 = zext i32 %.us-phi23.i10.i.i.i.i to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit: ; preds = %.split.us.i.i.i.i.i, %.split.i.i.i.i.i, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i
-  %36 = phi i64 [ %26, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i ], [ %16, %.split.i.i.i.i.i ], [ %16, %.split.us.i.i.i.i.i ]
-  %.sroa.5.1.le.i.sink.i.i.i.i = phi i64 [ %.sroa.5.1.le.i.i.i.i.i, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i ], [ %.recomposed, %.split.i.i.i.i.i ], [ %21, %.split.us.i.i.i.i.i ]
-  %.sink.i.i.i.i = phi i64 [ %35, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i ], [ %22, %.split.i.i.i.i.i ], [ %20, %.split.us.i.i.i.i.i ]
-  %37 = mul i64 %8, %.sink.i.i.i.i
-  %38 = mul i64 %10, %.sroa.5.1.le.i.sink.i.i.i.i
-  %39 = getelementptr float, ptr %12, i64 %37
-  %40 = getelementptr float, ptr %39, i64 %38
-  %41 = load float, ptr %40, align 4, !tbaa !77
-  %42 = fcmp ult float %41, 0.000000e+00
-  %43 = fcmp ugt float %41, 1.000000e+00
-  %.not2.i = or i1 %42, %43
-  br i1 %.not2.i, label %.loopexit, label %44
+  %38 = phi i64 [ %28, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i ], [ %18, %.split.i.i.i.i.i ], [ %18, %.split.us.i.i.i.i.i ]
+  %.sroa.5.1.le.i.sink.i.i.i.i = phi i64 [ %.sroa.5.1.le.i.i.i.i.i, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i ], [ %.recomposed, %.split.i.i.i.i.i ], [ %23, %.split.us.i.i.i.i.i ]
+  %.sink.i.i.i.i = phi i64 [ %37, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i ], [ %24, %.split.i.i.i.i.i ], [ %22, %.split.us.i.i.i.i.i ]
+  %39 = mul i64 %8, %.sink.i.i.i.i
+  %40 = mul i64 %10, %.sroa.5.1.le.i.sink.i.i.i.i
+  %41 = getelementptr float, ptr %12, i64 %39
+  %42 = getelementptr float, ptr %41, i64 %40
+  %43 = load float, ptr %42, align 4, !tbaa !77
+  %44 = fcmp ult float %43, 0.000000e+00
+  %45 = fcmp ugt float %43, 1.000000e+00
+  %.not2.i = or i1 %44, %45
+  br i1 %.not2.i, label %.loopexit, label %46
 
-44:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit
-  %45 = add i64 %.sroa.0130.0154, 1
-  %46 = icmp ugt i64 %45, 4294967295
-  br i1 %46, label %47, label %55
+46:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit
+  %47 = add i64 %.sroa.0130.0154, 1
+  %48 = icmp ugt i64 %47, 4294967295
+  br i1 %48, label %49, label %57
 
-47:                                               ; preds = %44
-  %48 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %36)
-  %.not.i.i.i.i.i46 = icmp samesign ult i64 %48, 2
+49:                                               ; preds = %46
+  %50 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %38)
+  %.not.i.i.i.i.i46 = icmp samesign ult i64 %50, 2
   br i1 %.not.i.i.i.i.i46, label %.split.us.i.i.i.i.i48, label %.split.i.i.i.i.i47
 
-.split.us.i.i.i.i.i48:                            ; preds = %47
-  %49 = add i64 %36, -1
-  %50 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %49)
-  %51 = lshr i64 %45, %50
-  %52 = and i64 %49, %45
+.split.us.i.i.i.i.i48:                            ; preds = %49
+  %51 = add i64 %38, -1
+  %52 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %51)
+  %53 = lshr i64 %47, %52
+  %54 = and i64 %51, %47
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49
 
-.split.i.i.i.i.i47:                               ; preds = %47
-  %53 = udiv i64 %45, %36
-  %54 = mul i64 %53, %36
-  %.recomposed162 = urem i64 %45, %36
+.split.i.i.i.i.i47:                               ; preds = %49
+  %55 = udiv i64 %47, %38
+  %56 = mul i64 %55, %38
+  %.recomposed162 = urem i64 %47, %38
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49
 
-55:                                               ; preds = %44
-  %56 = trunc nuw i64 %45 to i32
-  %57 = trunc i64 %36 to i32
-  %58 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %57)
-  %.not.i7.i.i.i.i36 = icmp samesign ult i32 %58, 2
+57:                                               ; preds = %46
+  %58 = trunc nuw i64 %47 to i32
+  %59 = trunc i64 %38 to i32
+  %60 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %59)
+  %.not.i7.i.i.i.i36 = icmp samesign ult i32 %60, 2
   br i1 %.not.i7.i.i.i.i36, label %.split.us.i11.i.i.i.i45, label %.split.i8.i.i.i.i37
 
-.split.us.i11.i.i.i.i45:                          ; preds = %55
-  %59 = add i32 %57, -1
-  %60 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %59)
-  %61 = lshr i32 %56, %60
-  %62 = and i32 %59, %56
+.split.us.i11.i.i.i.i45:                          ; preds = %57
+  %61 = add i32 %59, -1
+  %62 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %61)
+  %63 = lshr i32 %58, %62
+  %64 = and i32 %61, %58
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38
 
-.split.i8.i.i.i.i37:                              ; preds = %55
-  %63 = udiv i32 %56, %57
-  %64 = mul i32 %63, %57
-  %.recomposed163 = urem i32 %56, %57
+.split.i8.i.i.i.i37:                              ; preds = %57
+  %65 = udiv i32 %58, %59
+  %66 = mul i32 %65, %59
+  %.recomposed163 = urem i32 %58, %59
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38: ; preds = %.split.i8.i.i.i.i37, %.split.us.i11.i.i.i.i45
-  %.us-phi.i9.i.i.i.i39 = phi i32 [ %.recomposed163, %.split.i8.i.i.i.i37 ], [ %62, %.split.us.i11.i.i.i.i45 ]
-  %.us-phi23.i10.i.i.i.i40 = phi i32 [ %63, %.split.i8.i.i.i.i37 ], [ %61, %.split.us.i11.i.i.i.i45 ]
+  %.us-phi.i9.i.i.i.i39 = phi i32 [ %.recomposed163, %.split.i8.i.i.i.i37 ], [ %64, %.split.us.i11.i.i.i.i45 ]
+  %.us-phi23.i10.i.i.i.i40 = phi i32 [ %65, %.split.i8.i.i.i.i37 ], [ %63, %.split.us.i11.i.i.i.i45 ]
   %.sroa.5.1.le.i.i.i.i.i41 = zext i32 %.us-phi.i9.i.i.i.i39 to i64
-  %65 = zext i32 %.us-phi23.i10.i.i.i.i40 to i64
+  %67 = zext i32 %.us-phi23.i10.i.i.i.i40 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49: ; preds = %.split.us.i.i.i.i.i48, %.split.i.i.i.i.i47, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38
-  %.sroa.5.1.le.i.sink.i.i.i.i42 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i41, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38 ], [ %.recomposed162, %.split.i.i.i.i.i47 ], [ %52, %.split.us.i.i.i.i.i48 ]
-  %.sink.i.i.i.i43 = phi i64 [ %65, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38 ], [ %53, %.split.i.i.i.i.i47 ], [ %51, %.split.us.i.i.i.i.i48 ]
-  %66 = mul i64 %.sink.i.i.i.i43, %8
-  %67 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i42, %10
-  %68 = getelementptr float, ptr %12, i64 %66
-  %69 = getelementptr float, ptr %68, i64 %67
-  %70 = load float, ptr %69, align 4, !tbaa !77
-  %71 = fcmp ult float %70, 0.000000e+00
-  %72 = fcmp ugt float %70, 1.000000e+00
-  %.not2.i44 = or i1 %71, %72
-  br i1 %.not2.i44, label %.loopexit, label %73
+  %.sroa.5.1.le.i.sink.i.i.i.i42 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i41, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38 ], [ %.recomposed162, %.split.i.i.i.i.i47 ], [ %54, %.split.us.i.i.i.i.i48 ]
+  %.sink.i.i.i.i43 = phi i64 [ %67, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38 ], [ %55, %.split.i.i.i.i.i47 ], [ %53, %.split.us.i.i.i.i.i48 ]
+  %68 = mul i64 %.sink.i.i.i.i43, %8
+  %69 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i42, %10
+  %70 = getelementptr float, ptr %12, i64 %68
+  %71 = getelementptr float, ptr %70, i64 %69
+  %72 = load float, ptr %71, align 4, !tbaa !77
+  %73 = fcmp ult float %72, 0.000000e+00
+  %74 = fcmp ugt float %72, 1.000000e+00
+  %.not2.i44 = or i1 %73, %74
+  br i1 %.not2.i44, label %.loopexit, label %75
 
-73:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49
-  %74 = add i64 %.sroa.0130.0154, 2
-  %75 = icmp ugt i64 %74, 4294967295
-  br i1 %75, label %76, label %84
+75:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49
+  %76 = add i64 %.sroa.0130.0154, 2
+  %77 = icmp ugt i64 %76, 4294967295
+  br i1 %77, label %78, label %86
 
-76:                                               ; preds = %73
-  %77 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %36)
-  %.not.i.i.i.i.i60 = icmp samesign ult i64 %77, 2
+78:                                               ; preds = %75
+  %79 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %38)
+  %.not.i.i.i.i.i60 = icmp samesign ult i64 %79, 2
   br i1 %.not.i.i.i.i.i60, label %.split.us.i.i.i.i.i62, label %.split.i.i.i.i.i61
 
-.split.us.i.i.i.i.i62:                            ; preds = %76
-  %78 = add i64 %36, -1
-  %79 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %78)
-  %80 = lshr i64 %74, %79
-  %81 = and i64 %78, %74
+.split.us.i.i.i.i.i62:                            ; preds = %78
+  %80 = add i64 %38, -1
+  %81 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %80)
+  %82 = lshr i64 %76, %81
+  %83 = and i64 %80, %76
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63
 
-.split.i.i.i.i.i61:                               ; preds = %76
-  %82 = udiv i64 %74, %36
-  %83 = mul i64 %82, %36
-  %.recomposed164 = urem i64 %74, %36
+.split.i.i.i.i.i61:                               ; preds = %78
+  %84 = udiv i64 %76, %38
+  %85 = mul i64 %84, %38
+  %.recomposed164 = urem i64 %76, %38
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63
 
-84:                                               ; preds = %73
-  %85 = trunc nuw i64 %74 to i32
-  %86 = trunc i64 %36 to i32
-  %87 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %86)
-  %.not.i7.i.i.i.i50 = icmp samesign ult i32 %87, 2
+86:                                               ; preds = %75
+  %87 = trunc nuw i64 %76 to i32
+  %88 = trunc i64 %38 to i32
+  %89 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %88)
+  %.not.i7.i.i.i.i50 = icmp samesign ult i32 %89, 2
   br i1 %.not.i7.i.i.i.i50, label %.split.us.i11.i.i.i.i59, label %.split.i8.i.i.i.i51
 
-.split.us.i11.i.i.i.i59:                          ; preds = %84
-  %88 = add i32 %86, -1
-  %89 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %88)
-  %90 = lshr i32 %85, %89
-  %91 = and i32 %88, %85
+.split.us.i11.i.i.i.i59:                          ; preds = %86
+  %90 = add i32 %88, -1
+  %91 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %90)
+  %92 = lshr i32 %87, %91
+  %93 = and i32 %90, %87
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52
 
-.split.i8.i.i.i.i51:                              ; preds = %84
-  %92 = udiv i32 %85, %86
-  %93 = mul i32 %92, %86
-  %.recomposed165 = urem i32 %85, %86
+.split.i8.i.i.i.i51:                              ; preds = %86
+  %94 = udiv i32 %87, %88
+  %95 = mul i32 %94, %88
+  %.recomposed165 = urem i32 %87, %88
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52: ; preds = %.split.i8.i.i.i.i51, %.split.us.i11.i.i.i.i59
-  %.us-phi.i9.i.i.i.i53 = phi i32 [ %.recomposed165, %.split.i8.i.i.i.i51 ], [ %91, %.split.us.i11.i.i.i.i59 ]
-  %.us-phi23.i10.i.i.i.i54 = phi i32 [ %92, %.split.i8.i.i.i.i51 ], [ %90, %.split.us.i11.i.i.i.i59 ]
+  %.us-phi.i9.i.i.i.i53 = phi i32 [ %.recomposed165, %.split.i8.i.i.i.i51 ], [ %93, %.split.us.i11.i.i.i.i59 ]
+  %.us-phi23.i10.i.i.i.i54 = phi i32 [ %94, %.split.i8.i.i.i.i51 ], [ %92, %.split.us.i11.i.i.i.i59 ]
   %.sroa.5.1.le.i.i.i.i.i55 = zext i32 %.us-phi.i9.i.i.i.i53 to i64
-  %94 = zext i32 %.us-phi23.i10.i.i.i.i54 to i64
+  %96 = zext i32 %.us-phi23.i10.i.i.i.i54 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63: ; preds = %.split.us.i.i.i.i.i62, %.split.i.i.i.i.i61, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52
-  %.sroa.5.1.le.i.sink.i.i.i.i56 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i55, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52 ], [ %.recomposed164, %.split.i.i.i.i.i61 ], [ %81, %.split.us.i.i.i.i.i62 ]
-  %.sink.i.i.i.i57 = phi i64 [ %94, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52 ], [ %82, %.split.i.i.i.i.i61 ], [ %80, %.split.us.i.i.i.i.i62 ]
-  %95 = mul i64 %.sink.i.i.i.i57, %8
-  %96 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i56, %10
-  %97 = getelementptr float, ptr %12, i64 %95
-  %98 = getelementptr float, ptr %97, i64 %96
-  %99 = load float, ptr %98, align 4, !tbaa !77
-  %100 = fcmp ult float %99, 0.000000e+00
-  %101 = fcmp ugt float %99, 1.000000e+00
-  %.not2.i58 = or i1 %100, %101
-  br i1 %.not2.i58, label %.loopexit, label %102
+  %.sroa.5.1.le.i.sink.i.i.i.i56 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i55, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52 ], [ %.recomposed164, %.split.i.i.i.i.i61 ], [ %83, %.split.us.i.i.i.i.i62 ]
+  %.sink.i.i.i.i57 = phi i64 [ %96, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52 ], [ %84, %.split.i.i.i.i.i61 ], [ %82, %.split.us.i.i.i.i.i62 ]
+  %97 = mul i64 %.sink.i.i.i.i57, %8
+  %98 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i56, %10
+  %99 = getelementptr float, ptr %12, i64 %97
+  %100 = getelementptr float, ptr %99, i64 %98
+  %101 = load float, ptr %100, align 4, !tbaa !77
+  %102 = fcmp ult float %101, 0.000000e+00
+  %103 = fcmp ugt float %101, 1.000000e+00
+  %.not2.i58 = or i1 %102, %103
+  br i1 %.not2.i58, label %.loopexit, label %104
 
-102:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63
-  %103 = add i64 %.sroa.0130.0154, 3
-  %104 = icmp ugt i64 %103, 4294967295
-  br i1 %104, label %105, label %113
+104:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63
+  %105 = add i64 %.sroa.0130.0154, 3
+  %106 = icmp ugt i64 %105, 4294967295
+  br i1 %106, label %107, label %115
 
-105:                                              ; preds = %102
-  %106 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %36)
-  %.not.i.i.i.i.i74 = icmp samesign ult i64 %106, 2
+107:                                              ; preds = %104
+  %108 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %38)
+  %.not.i.i.i.i.i74 = icmp samesign ult i64 %108, 2
   br i1 %.not.i.i.i.i.i74, label %.split.us.i.i.i.i.i76, label %.split.i.i.i.i.i75
 
-.split.us.i.i.i.i.i76:                            ; preds = %105
-  %107 = add i64 %36, -1
-  %108 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %107)
-  %109 = lshr i64 %103, %108
-  %110 = and i64 %107, %103
+.split.us.i.i.i.i.i76:                            ; preds = %107
+  %109 = add i64 %38, -1
+  %110 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %109)
+  %111 = lshr i64 %105, %110
+  %112 = and i64 %109, %105
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77
 
-.split.i.i.i.i.i75:                               ; preds = %105
-  %111 = udiv i64 %103, %36
-  %112 = mul i64 %111, %36
-  %.recomposed166 = urem i64 %103, %36
+.split.i.i.i.i.i75:                               ; preds = %107
+  %113 = udiv i64 %105, %38
+  %114 = mul i64 %113, %38
+  %.recomposed166 = urem i64 %105, %38
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77
 
-113:                                              ; preds = %102
-  %114 = trunc nuw i64 %103 to i32
-  %115 = trunc i64 %36 to i32
-  %116 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %115)
-  %.not.i7.i.i.i.i64 = icmp samesign ult i32 %116, 2
+115:                                              ; preds = %104
+  %116 = trunc nuw i64 %105 to i32
+  %117 = trunc i64 %38 to i32
+  %118 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %117)
+  %.not.i7.i.i.i.i64 = icmp samesign ult i32 %118, 2
   br i1 %.not.i7.i.i.i.i64, label %.split.us.i11.i.i.i.i73, label %.split.i8.i.i.i.i65
 
-.split.us.i11.i.i.i.i73:                          ; preds = %113
-  %117 = add i32 %115, -1
-  %118 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %117)
-  %119 = lshr i32 %114, %118
-  %120 = and i32 %117, %114
+.split.us.i11.i.i.i.i73:                          ; preds = %115
+  %119 = add i32 %117, -1
+  %120 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %119)
+  %121 = lshr i32 %116, %120
+  %122 = and i32 %119, %116
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66
 
-.split.i8.i.i.i.i65:                              ; preds = %113
-  %121 = udiv i32 %114, %115
-  %122 = mul i32 %121, %115
-  %.recomposed167 = urem i32 %114, %115
+.split.i8.i.i.i.i65:                              ; preds = %115
+  %123 = udiv i32 %116, %117
+  %124 = mul i32 %123, %117
+  %.recomposed167 = urem i32 %116, %117
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66: ; preds = %.split.i8.i.i.i.i65, %.split.us.i11.i.i.i.i73
-  %.us-phi.i9.i.i.i.i67 = phi i32 [ %.recomposed167, %.split.i8.i.i.i.i65 ], [ %120, %.split.us.i11.i.i.i.i73 ]
-  %.us-phi23.i10.i.i.i.i68 = phi i32 [ %121, %.split.i8.i.i.i.i65 ], [ %119, %.split.us.i11.i.i.i.i73 ]
+  %.us-phi.i9.i.i.i.i67 = phi i32 [ %.recomposed167, %.split.i8.i.i.i.i65 ], [ %122, %.split.us.i11.i.i.i.i73 ]
+  %.us-phi23.i10.i.i.i.i68 = phi i32 [ %123, %.split.i8.i.i.i.i65 ], [ %121, %.split.us.i11.i.i.i.i73 ]
   %.sroa.5.1.le.i.i.i.i.i69 = zext i32 %.us-phi.i9.i.i.i.i67 to i64
-  %123 = zext i32 %.us-phi23.i10.i.i.i.i68 to i64
+  %125 = zext i32 %.us-phi23.i10.i.i.i.i68 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77: ; preds = %.split.us.i.i.i.i.i76, %.split.i.i.i.i.i75, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66
-  %.sroa.5.1.le.i.sink.i.i.i.i70 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i69, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66 ], [ %.recomposed166, %.split.i.i.i.i.i75 ], [ %110, %.split.us.i.i.i.i.i76 ]
-  %.sink.i.i.i.i71 = phi i64 [ %123, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66 ], [ %111, %.split.i.i.i.i.i75 ], [ %109, %.split.us.i.i.i.i.i76 ]
-  %124 = mul i64 %.sink.i.i.i.i71, %8
-  %125 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i70, %10
-  %126 = getelementptr float, ptr %12, i64 %124
-  %127 = getelementptr float, ptr %126, i64 %125
-  %128 = load float, ptr %127, align 4, !tbaa !77
-  %129 = fcmp ult float %128, 0.000000e+00
-  %130 = fcmp ugt float %128, 1.000000e+00
-  %.not2.i72 = or i1 %129, %130
-  br i1 %.not2.i72, label %.loopexit, label %131
+  %.sroa.5.1.le.i.sink.i.i.i.i70 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i69, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66 ], [ %.recomposed166, %.split.i.i.i.i.i75 ], [ %112, %.split.us.i.i.i.i.i76 ]
+  %.sink.i.i.i.i71 = phi i64 [ %125, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66 ], [ %113, %.split.i.i.i.i.i75 ], [ %111, %.split.us.i.i.i.i.i76 ]
+  %126 = mul i64 %.sink.i.i.i.i71, %8
+  %127 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i70, %10
+  %128 = getelementptr float, ptr %12, i64 %126
+  %129 = getelementptr float, ptr %128, i64 %127
+  %130 = load float, ptr %129, align 4, !tbaa !77
+  %131 = fcmp ult float %130, 0.000000e+00
+  %132 = fcmp ugt float %130, 1.000000e+00
+  %.not2.i72 = or i1 %131, %132
+  br i1 %.not2.i72, label %.loopexit, label %133
 
-131:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77
-  %132 = add i64 %.sroa.0130.0154, 4
-  %133 = add nsw i64 %.0155, -1
-  %134 = icmp sgt i64 %.0155, 1
-  br i1 %134, label %13, label %._crit_edge, !llvm.loop !745
+133:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77
+  %134 = add i64 %.sroa.0130.0154, 4
+  %135 = add nsw i64 %.0155, -1
+  %136 = icmp sgt i64 %.0155, 1
+  br i1 %136, label %15, label %._crit_edge, !llvm.loop !745
 
-._crit_edge:                                      ; preds = %131, %4
-  %.sroa.0130.0.lcssa = phi i64 [ %0, %4 ], [ %132, %131 ]
-  %135 = sub i64 %2, %.sroa.0130.0.lcssa
-  switch i64 %135, label %251 [
-    i64 3, label %136
-    i64 2, label %175
-    i64 1, label %214
+._crit_edge:                                      ; preds = %133, %4
+  %.sroa.0130.0.lcssa = phi i64 [ %0, %4 ], [ %14, %133 ]
+  %137 = sub i64 %2, %.sroa.0130.0.lcssa
+  switch i64 %137, label %253 [
+    i64 3, label %138
+    i64 2, label %177
+    i64 1, label %216
   ]
 
-136:                                              ; preds = %._crit_edge
-  %137 = icmp ugt i64 %.sroa.0130.0.lcssa, 4294967295
-  br i1 %137, label %138, label %148
+138:                                              ; preds = %._crit_edge
+  %139 = icmp ugt i64 %.sroa.0130.0.lcssa, 4294967295
+  br i1 %139, label %140, label %150
 
-138:                                              ; preds = %136
-  %139 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %140 = load i64, ptr %139, align 8, !tbaa !14, !noalias !746
-  %141 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %140)
-  %.not.i.i.i.i.i88 = icmp samesign ult i64 %141, 2
+140:                                              ; preds = %138
+  %141 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %142 = load i64, ptr %141, align 8, !tbaa !14, !noalias !746
+  %143 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %142)
+  %.not.i.i.i.i.i88 = icmp samesign ult i64 %143, 2
   br i1 %.not.i.i.i.i.i88, label %.split.us.i.i.i.i.i90, label %.split.i.i.i.i.i89
 
-.split.us.i.i.i.i.i90:                            ; preds = %138
-  %142 = add i64 %140, -1
-  %143 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %142)
-  %144 = lshr i64 %.sroa.0130.0.lcssa, %143
-  %145 = and i64 %142, %.sroa.0130.0.lcssa
+.split.us.i.i.i.i.i90:                            ; preds = %140
+  %144 = add i64 %142, -1
+  %145 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %144)
+  %146 = lshr i64 %.sroa.0130.0.lcssa, %145
+  %147 = and i64 %144, %.sroa.0130.0.lcssa
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91
 
-.split.i.i.i.i.i89:                               ; preds = %138
-  %146 = udiv i64 %.sroa.0130.0.lcssa, %140
-  %147 = mul i64 %146, %140
-  %.recomposed168 = urem i64 %.sroa.0130.0.lcssa, %140
+.split.i.i.i.i.i89:                               ; preds = %140
+  %148 = udiv i64 %.sroa.0130.0.lcssa, %142
+  %149 = mul i64 %148, %142
+  %.recomposed168 = urem i64 %.sroa.0130.0.lcssa, %142
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91
 
-148:                                              ; preds = %136
-  %149 = trunc nuw i64 %.sroa.0130.0.lcssa to i32
-  %150 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %151 = load i64, ptr %150, align 8, !tbaa !14, !noalias !751
-  %152 = trunc i64 %151 to i32
-  %153 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %152)
-  %.not.i7.i.i.i.i78 = icmp samesign ult i32 %153, 2
+150:                                              ; preds = %138
+  %151 = trunc nuw i64 %.sroa.0130.0.lcssa to i32
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %153 = load i64, ptr %152, align 8, !tbaa !14, !noalias !751
+  %154 = trunc i64 %153 to i32
+  %155 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %154)
+  %.not.i7.i.i.i.i78 = icmp samesign ult i32 %155, 2
   br i1 %.not.i7.i.i.i.i78, label %.split.us.i11.i.i.i.i87, label %.split.i8.i.i.i.i79
 
-.split.us.i11.i.i.i.i87:                          ; preds = %148
-  %154 = add i32 %152, -1
-  %155 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %154)
-  %156 = lshr i32 %149, %155
-  %157 = and i32 %154, %149
+.split.us.i11.i.i.i.i87:                          ; preds = %150
+  %156 = add i32 %154, -1
+  %157 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %156)
+  %158 = lshr i32 %151, %157
+  %159 = and i32 %156, %151
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80
 
-.split.i8.i.i.i.i79:                              ; preds = %148
-  %158 = udiv i32 %149, %152
-  %159 = mul i32 %158, %152
-  %.recomposed169 = urem i32 %149, %152
+.split.i8.i.i.i.i79:                              ; preds = %150
+  %160 = udiv i32 %151, %154
+  %161 = mul i32 %160, %154
+  %.recomposed169 = urem i32 %151, %154
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80: ; preds = %.split.i8.i.i.i.i79, %.split.us.i11.i.i.i.i87
-  %.us-phi.i9.i.i.i.i81 = phi i32 [ %.recomposed169, %.split.i8.i.i.i.i79 ], [ %157, %.split.us.i11.i.i.i.i87 ]
-  %.us-phi23.i10.i.i.i.i82 = phi i32 [ %158, %.split.i8.i.i.i.i79 ], [ %156, %.split.us.i11.i.i.i.i87 ]
+  %.us-phi.i9.i.i.i.i81 = phi i32 [ %.recomposed169, %.split.i8.i.i.i.i79 ], [ %159, %.split.us.i11.i.i.i.i87 ]
+  %.us-phi23.i10.i.i.i.i82 = phi i32 [ %160, %.split.i8.i.i.i.i79 ], [ %158, %.split.us.i11.i.i.i.i87 ]
   %.sroa.5.1.le.i.i.i.i.i83 = zext i32 %.us-phi.i9.i.i.i.i81 to i64
-  %160 = zext i32 %.us-phi23.i10.i.i.i.i82 to i64
+  %162 = zext i32 %.us-phi23.i10.i.i.i.i82 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91: ; preds = %.split.us.i.i.i.i.i90, %.split.i.i.i.i.i89, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80
-  %.sroa.5.1.le.i.sink.i.i.i.i84 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i83, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80 ], [ %.recomposed168, %.split.i.i.i.i.i89 ], [ %145, %.split.us.i.i.i.i.i90 ]
-  %.sink.i.i.i.i85 = phi i64 [ %160, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80 ], [ %146, %.split.i.i.i.i.i89 ], [ %144, %.split.us.i.i.i.i.i90 ]
-  %161 = load i64, ptr %1, align 8, !tbaa !14
-  %162 = mul i64 %161, %.sink.i.i.i.i85
-  %163 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %164 = load i64, ptr %163, align 8, !tbaa !14
-  %165 = mul i64 %164, %.sroa.5.1.le.i.sink.i.i.i.i84
-  %166 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %167 = load ptr, ptr %166, align 8, !tbaa !368
-  %168 = getelementptr float, ptr %167, i64 %162
-  %169 = getelementptr float, ptr %168, i64 %165
-  %170 = load float, ptr %169, align 4, !tbaa !77
-  %171 = fcmp ult float %170, 0.000000e+00
-  %172 = fcmp ugt float %170, 1.000000e+00
-  %.not2.i86 = or i1 %171, %172
-  br i1 %.not2.i86, label %.loopexit, label %173
+  %.sroa.5.1.le.i.sink.i.i.i.i84 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i83, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80 ], [ %.recomposed168, %.split.i.i.i.i.i89 ], [ %147, %.split.us.i.i.i.i.i90 ]
+  %.sink.i.i.i.i85 = phi i64 [ %162, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80 ], [ %148, %.split.i.i.i.i.i89 ], [ %146, %.split.us.i.i.i.i.i90 ]
+  %163 = load i64, ptr %1, align 8, !tbaa !14
+  %164 = mul i64 %163, %.sink.i.i.i.i85
+  %165 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %166 = load i64, ptr %165, align 8, !tbaa !14
+  %167 = mul i64 %166, %.sroa.5.1.le.i.sink.i.i.i.i84
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %169 = load ptr, ptr %168, align 8, !tbaa !368
+  %170 = getelementptr float, ptr %169, i64 %164
+  %171 = getelementptr float, ptr %170, i64 %167
+  %172 = load float, ptr %171, align 4, !tbaa !77
+  %173 = fcmp ult float %172, 0.000000e+00
+  %174 = fcmp ugt float %172, 1.000000e+00
+  %.not2.i86 = or i1 %173, %174
+  br i1 %.not2.i86, label %.loopexit, label %175
 
-173:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91
-  %174 = add i64 %.sroa.0130.0.lcssa, 1
-  br label %175
+175:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91
+  %176 = add i64 %.sroa.0130.0.lcssa, 1
+  br label %177
 
-175:                                              ; preds = %173, %._crit_edge
-  %.sroa.0130.1 = phi i64 [ %174, %173 ], [ %.sroa.0130.0.lcssa, %._crit_edge ]
-  %176 = icmp ugt i64 %.sroa.0130.1, 4294967295
-  br i1 %176, label %177, label %187
+177:                                              ; preds = %175, %._crit_edge
+  %.sroa.0130.1 = phi i64 [ %176, %175 ], [ %.sroa.0130.0.lcssa, %._crit_edge ]
+  %178 = icmp ugt i64 %.sroa.0130.1, 4294967295
+  br i1 %178, label %179, label %189
 
-177:                                              ; preds = %175
-  %178 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %179 = load i64, ptr %178, align 8, !tbaa !14, !noalias !754
-  %180 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %179)
-  %.not.i.i.i.i.i102 = icmp samesign ult i64 %180, 2
+179:                                              ; preds = %177
+  %180 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %181 = load i64, ptr %180, align 8, !tbaa !14, !noalias !754
+  %182 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %181)
+  %.not.i.i.i.i.i102 = icmp samesign ult i64 %182, 2
   br i1 %.not.i.i.i.i.i102, label %.split.us.i.i.i.i.i104, label %.split.i.i.i.i.i103
 
-.split.us.i.i.i.i.i104:                           ; preds = %177
-  %181 = add i64 %179, -1
-  %182 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %181)
-  %183 = lshr i64 %.sroa.0130.1, %182
-  %184 = and i64 %181, %.sroa.0130.1
+.split.us.i.i.i.i.i104:                           ; preds = %179
+  %183 = add i64 %181, -1
+  %184 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %183)
+  %185 = lshr i64 %.sroa.0130.1, %184
+  %186 = and i64 %183, %.sroa.0130.1
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105
 
-.split.i.i.i.i.i103:                              ; preds = %177
-  %185 = udiv i64 %.sroa.0130.1, %179
-  %186 = mul i64 %185, %179
-  %.recomposed170 = urem i64 %.sroa.0130.1, %179
+.split.i.i.i.i.i103:                              ; preds = %179
+  %187 = udiv i64 %.sroa.0130.1, %181
+  %188 = mul i64 %187, %181
+  %.recomposed170 = urem i64 %.sroa.0130.1, %181
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105
 
-187:                                              ; preds = %175
-  %188 = trunc nuw i64 %.sroa.0130.1 to i32
-  %189 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %190 = load i64, ptr %189, align 8, !tbaa !14, !noalias !759
-  %191 = trunc i64 %190 to i32
-  %192 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %191)
-  %.not.i7.i.i.i.i92 = icmp samesign ult i32 %192, 2
+189:                                              ; preds = %177
+  %190 = trunc nuw i64 %.sroa.0130.1 to i32
+  %191 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %192 = load i64, ptr %191, align 8, !tbaa !14, !noalias !759
+  %193 = trunc i64 %192 to i32
+  %194 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %193)
+  %.not.i7.i.i.i.i92 = icmp samesign ult i32 %194, 2
   br i1 %.not.i7.i.i.i.i92, label %.split.us.i11.i.i.i.i101, label %.split.i8.i.i.i.i93
 
-.split.us.i11.i.i.i.i101:                         ; preds = %187
-  %193 = add i32 %191, -1
-  %194 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %193)
-  %195 = lshr i32 %188, %194
-  %196 = and i32 %193, %188
+.split.us.i11.i.i.i.i101:                         ; preds = %189
+  %195 = add i32 %193, -1
+  %196 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %195)
+  %197 = lshr i32 %190, %196
+  %198 = and i32 %195, %190
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94
 
-.split.i8.i.i.i.i93:                              ; preds = %187
-  %197 = udiv i32 %188, %191
-  %198 = mul i32 %197, %191
-  %.recomposed171 = urem i32 %188, %191
+.split.i8.i.i.i.i93:                              ; preds = %189
+  %199 = udiv i32 %190, %193
+  %200 = mul i32 %199, %193
+  %.recomposed171 = urem i32 %190, %193
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94: ; preds = %.split.i8.i.i.i.i93, %.split.us.i11.i.i.i.i101
-  %.us-phi.i9.i.i.i.i95 = phi i32 [ %.recomposed171, %.split.i8.i.i.i.i93 ], [ %196, %.split.us.i11.i.i.i.i101 ]
-  %.us-phi23.i10.i.i.i.i96 = phi i32 [ %197, %.split.i8.i.i.i.i93 ], [ %195, %.split.us.i11.i.i.i.i101 ]
+  %.us-phi.i9.i.i.i.i95 = phi i32 [ %.recomposed171, %.split.i8.i.i.i.i93 ], [ %198, %.split.us.i11.i.i.i.i101 ]
+  %.us-phi23.i10.i.i.i.i96 = phi i32 [ %199, %.split.i8.i.i.i.i93 ], [ %197, %.split.us.i11.i.i.i.i101 ]
   %.sroa.5.1.le.i.i.i.i.i97 = zext i32 %.us-phi.i9.i.i.i.i95 to i64
-  %199 = zext i32 %.us-phi23.i10.i.i.i.i96 to i64
+  %201 = zext i32 %.us-phi23.i10.i.i.i.i96 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105: ; preds = %.split.us.i.i.i.i.i104, %.split.i.i.i.i.i103, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94
-  %.sroa.5.1.le.i.sink.i.i.i.i98 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i97, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94 ], [ %.recomposed170, %.split.i.i.i.i.i103 ], [ %184, %.split.us.i.i.i.i.i104 ]
-  %.sink.i.i.i.i99 = phi i64 [ %199, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94 ], [ %185, %.split.i.i.i.i.i103 ], [ %183, %.split.us.i.i.i.i.i104 ]
-  %200 = load i64, ptr %1, align 8, !tbaa !14
-  %201 = mul i64 %200, %.sink.i.i.i.i99
-  %202 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %203 = load i64, ptr %202, align 8, !tbaa !14
-  %204 = mul i64 %203, %.sroa.5.1.le.i.sink.i.i.i.i98
-  %205 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %206 = load ptr, ptr %205, align 8, !tbaa !368
-  %207 = getelementptr float, ptr %206, i64 %201
-  %208 = getelementptr float, ptr %207, i64 %204
-  %209 = load float, ptr %208, align 4, !tbaa !77
-  %210 = fcmp ult float %209, 0.000000e+00
-  %211 = fcmp ugt float %209, 1.000000e+00
-  %.not2.i100 = or i1 %210, %211
-  br i1 %.not2.i100, label %.loopexit, label %212
+  %.sroa.5.1.le.i.sink.i.i.i.i98 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i97, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94 ], [ %.recomposed170, %.split.i.i.i.i.i103 ], [ %186, %.split.us.i.i.i.i.i104 ]
+  %.sink.i.i.i.i99 = phi i64 [ %201, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94 ], [ %187, %.split.i.i.i.i.i103 ], [ %185, %.split.us.i.i.i.i.i104 ]
+  %202 = load i64, ptr %1, align 8, !tbaa !14
+  %203 = mul i64 %202, %.sink.i.i.i.i99
+  %204 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %205 = load i64, ptr %204, align 8, !tbaa !14
+  %206 = mul i64 %205, %.sroa.5.1.le.i.sink.i.i.i.i98
+  %207 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %208 = load ptr, ptr %207, align 8, !tbaa !368
+  %209 = getelementptr float, ptr %208, i64 %203
+  %210 = getelementptr float, ptr %209, i64 %206
+  %211 = load float, ptr %210, align 4, !tbaa !77
+  %212 = fcmp ult float %211, 0.000000e+00
+  %213 = fcmp ugt float %211, 1.000000e+00
+  %.not2.i100 = or i1 %212, %213
+  br i1 %.not2.i100, label %.loopexit, label %214
 
-212:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105
-  %213 = add i64 %.sroa.0130.1, 1
-  br label %214
+214:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105
+  %215 = add i64 %.sroa.0130.1, 1
+  br label %216
 
-214:                                              ; preds = %212, %._crit_edge
-  %.sroa.0130.2 = phi i64 [ %213, %212 ], [ %.sroa.0130.0.lcssa, %._crit_edge ]
-  %215 = icmp ugt i64 %.sroa.0130.2, 4294967295
-  br i1 %215, label %216, label %226
+216:                                              ; preds = %214, %._crit_edge
+  %.sroa.0130.2 = phi i64 [ %215, %214 ], [ %.sroa.0130.0.lcssa, %._crit_edge ]
+  %217 = icmp ugt i64 %.sroa.0130.2, 4294967295
+  br i1 %217, label %218, label %228
 
-216:                                              ; preds = %214
-  %217 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %218 = load i64, ptr %217, align 8, !tbaa !14, !noalias !762
-  %219 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %218)
-  %.not.i.i.i.i.i116 = icmp samesign ult i64 %219, 2
+218:                                              ; preds = %216
+  %219 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %220 = load i64, ptr %219, align 8, !tbaa !14, !noalias !762
+  %221 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %220)
+  %.not.i.i.i.i.i116 = icmp samesign ult i64 %221, 2
   br i1 %.not.i.i.i.i.i116, label %.split.us.i.i.i.i.i118, label %.split.i.i.i.i.i117
 
-.split.us.i.i.i.i.i118:                           ; preds = %216
-  %220 = add i64 %218, -1
-  %221 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %220)
-  %222 = lshr i64 %.sroa.0130.2, %221
-  %223 = and i64 %220, %.sroa.0130.2
+.split.us.i.i.i.i.i118:                           ; preds = %218
+  %222 = add i64 %220, -1
+  %223 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %222)
+  %224 = lshr i64 %.sroa.0130.2, %223
+  %225 = and i64 %222, %.sroa.0130.2
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119
 
-.split.i.i.i.i.i117:                              ; preds = %216
-  %224 = udiv i64 %.sroa.0130.2, %218
-  %225 = mul i64 %224, %218
-  %.recomposed172 = urem i64 %.sroa.0130.2, %218
+.split.i.i.i.i.i117:                              ; preds = %218
+  %226 = udiv i64 %.sroa.0130.2, %220
+  %227 = mul i64 %226, %220
+  %.recomposed172 = urem i64 %.sroa.0130.2, %220
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119
 
-226:                                              ; preds = %214
-  %227 = trunc nuw i64 %.sroa.0130.2 to i32
-  %228 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %229 = load i64, ptr %228, align 8, !tbaa !14, !noalias !767
-  %230 = trunc i64 %229 to i32
-  %231 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %230)
-  %.not.i7.i.i.i.i106 = icmp samesign ult i32 %231, 2
+228:                                              ; preds = %216
+  %229 = trunc nuw i64 %.sroa.0130.2 to i32
+  %230 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %231 = load i64, ptr %230, align 8, !tbaa !14, !noalias !767
+  %232 = trunc i64 %231 to i32
+  %233 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %232)
+  %.not.i7.i.i.i.i106 = icmp samesign ult i32 %233, 2
   br i1 %.not.i7.i.i.i.i106, label %.split.us.i11.i.i.i.i115, label %.split.i8.i.i.i.i107
 
-.split.us.i11.i.i.i.i115:                         ; preds = %226
-  %232 = add i32 %230, -1
-  %233 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %232)
-  %234 = lshr i32 %227, %233
-  %235 = and i32 %232, %227
+.split.us.i11.i.i.i.i115:                         ; preds = %228
+  %234 = add i32 %232, -1
+  %235 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %234)
+  %236 = lshr i32 %229, %235
+  %237 = and i32 %234, %229
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108
 
-.split.i8.i.i.i.i107:                             ; preds = %226
-  %236 = udiv i32 %227, %230
-  %237 = mul i32 %236, %230
-  %.recomposed173 = urem i32 %227, %230
+.split.i8.i.i.i.i107:                             ; preds = %228
+  %238 = udiv i32 %229, %232
+  %239 = mul i32 %238, %232
+  %.recomposed173 = urem i32 %229, %232
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108: ; preds = %.split.i8.i.i.i.i107, %.split.us.i11.i.i.i.i115
-  %.us-phi.i9.i.i.i.i109 = phi i32 [ %.recomposed173, %.split.i8.i.i.i.i107 ], [ %235, %.split.us.i11.i.i.i.i115 ]
-  %.us-phi23.i10.i.i.i.i110 = phi i32 [ %236, %.split.i8.i.i.i.i107 ], [ %234, %.split.us.i11.i.i.i.i115 ]
+  %.us-phi.i9.i.i.i.i109 = phi i32 [ %.recomposed173, %.split.i8.i.i.i.i107 ], [ %237, %.split.us.i11.i.i.i.i115 ]
+  %.us-phi23.i10.i.i.i.i110 = phi i32 [ %238, %.split.i8.i.i.i.i107 ], [ %236, %.split.us.i11.i.i.i.i115 ]
   %.sroa.5.1.le.i.i.i.i.i111 = zext i32 %.us-phi.i9.i.i.i.i109 to i64
-  %238 = zext i32 %.us-phi23.i10.i.i.i.i110 to i64
+  %240 = zext i32 %.us-phi23.i10.i.i.i.i110 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119: ; preds = %.split.us.i.i.i.i.i118, %.split.i.i.i.i.i117, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108
-  %.sroa.5.1.le.i.sink.i.i.i.i112 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i111, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108 ], [ %.recomposed172, %.split.i.i.i.i.i117 ], [ %223, %.split.us.i.i.i.i.i118 ]
-  %.sink.i.i.i.i113 = phi i64 [ %238, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108 ], [ %224, %.split.i.i.i.i.i117 ], [ %222, %.split.us.i.i.i.i.i118 ]
-  %239 = load i64, ptr %1, align 8, !tbaa !14
-  %240 = mul i64 %239, %.sink.i.i.i.i113
-  %241 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %242 = load i64, ptr %241, align 8, !tbaa !14
-  %243 = mul i64 %242, %.sroa.5.1.le.i.sink.i.i.i.i112
-  %244 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %245 = load ptr, ptr %244, align 8, !tbaa !368
-  %246 = getelementptr float, ptr %245, i64 %240
-  %247 = getelementptr float, ptr %246, i64 %243
-  %248 = load float, ptr %247, align 4, !tbaa !77
-  %249 = fcmp ult float %248, 0.000000e+00
-  %250 = fcmp ugt float %248, 1.000000e+00
-  %.not2.i114 = or i1 %249, %250
-  br i1 %.not2.i114, label %.loopexit, label %251
+  %.sroa.5.1.le.i.sink.i.i.i.i112 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i111, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108 ], [ %.recomposed172, %.split.i.i.i.i.i117 ], [ %225, %.split.us.i.i.i.i.i118 ]
+  %.sink.i.i.i.i113 = phi i64 [ %240, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108 ], [ %226, %.split.i.i.i.i.i117 ], [ %224, %.split.us.i.i.i.i.i118 ]
+  %241 = load i64, ptr %1, align 8, !tbaa !14
+  %242 = mul i64 %241, %.sink.i.i.i.i113
+  %243 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %244 = load i64, ptr %243, align 8, !tbaa !14
+  %245 = mul i64 %244, %.sroa.5.1.le.i.sink.i.i.i.i112
+  %246 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %247 = load ptr, ptr %246, align 8, !tbaa !368
+  %248 = getelementptr float, ptr %247, i64 %242
+  %249 = getelementptr float, ptr %248, i64 %245
+  %250 = load float, ptr %249, align 4, !tbaa !77
+  %251 = fcmp ult float %250, 0.000000e+00
+  %252 = fcmp ugt float %250, 1.000000e+00
+  %.not2.i114 = or i1 %251, %252
+  br i1 %.not2.i114, label %.loopexit, label %253
 
-251:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119, %._crit_edge
+253:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119, %._crit_edge
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91, %251
-  %.sroa.014.0.in.sroa.speculated = phi i64 [ %2, %251 ], [ %.sroa.0130.0.lcssa, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91 ], [ %.sroa.0130.1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105 ], [ %.sroa.0130.2, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119 ], [ %103, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77 ], [ %74, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63 ], [ %45, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49 ], [ %.sroa.0130.0154, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit ]
-  %.sroa.9.0 = phi ptr [ %3, %251 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77 ]
+.loopexit:                                        ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91, %253
+  %.sroa.014.0.in.sroa.speculated = phi i64 [ %2, %253 ], [ %.sroa.0130.0.lcssa, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91 ], [ %.sroa.0130.1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105 ], [ %.sroa.0130.2, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119 ], [ %105, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77 ], [ %76, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63 ], [ %47, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49 ], [ %.sroa.0130.0154, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit ]
+  %.sroa.9.0 = phi ptr [ %3, %253 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77 ]
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.014.0.in.sroa.speculated, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.9.0, 1
   ret { i64, ptr } %.fca.1.insert
@@ -29003,505 +29011,507 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit26: ; preds = %_ZN4d
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { i64, ptr } @_ZSt9__find_ifIN7xgboost6common18IndexTransformIterIZNS0_6linalg6cbeginIKfLi2EEEDaRKNS3_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx5__ops12_Iter_negateIZZNS0_3obj10RegLossObjINSG_13GammaDevianceEE13ValidateLabelERKNS0_8MetaInfoEENKUlvE_clEvEUlfE_EEES7_S7_S7_T0_St26random_access_iterator_tag(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %5 = sub i64 %2, %0
-  %.not = icmp ult i64 %5, 4
+  %6 = lshr i64 %5, 2
+  %.not = icmp eq i64 %6, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %6 = lshr i64 %5, 2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %1, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !14
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %12 = load ptr, ptr %11, align 8, !tbaa !368
-  br label %13
+  %13 = and i64 %5, -4
+  %14 = add i64 %0, %13
+  br label %15
 
-13:                                               ; preds = %.lr.ph, %127
-  %.0149 = phi i64 [ %6, %.lr.ph ], [ %129, %127 ]
-  %.sroa.0124.0148 = phi i64 [ %0, %.lr.ph ], [ %128, %127 ]
-  %14 = icmp ugt i64 %.sroa.0124.0148, 4294967295
-  br i1 %14, label %15, label %24
+15:                                               ; preds = %.lr.ph, %129
+  %.0149 = phi i64 [ %6, %.lr.ph ], [ %131, %129 ]
+  %.sroa.0124.0148 = phi i64 [ %0, %.lr.ph ], [ %130, %129 ]
+  %16 = icmp ugt i64 %.sroa.0124.0148, 4294967295
+  br i1 %16, label %17, label %26
 
-15:                                               ; preds = %13
-  %16 = load i64, ptr %7, align 8, !tbaa !14, !noalias !833
-  %17 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %16)
-  %.not.i.i.i.i.i = icmp samesign ult i64 %17, 2
+17:                                               ; preds = %15
+  %18 = load i64, ptr %7, align 8, !tbaa !14, !noalias !833
+  %19 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %18)
+  %.not.i.i.i.i.i = icmp samesign ult i64 %19, 2
   br i1 %.not.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
-.split.us.i.i.i.i.i:                              ; preds = %15
-  %18 = add i64 %16, -1
-  %19 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %18)
-  %20 = lshr i64 %.sroa.0124.0148, %19
-  %21 = and i64 %18, %.sroa.0124.0148
+.split.us.i.i.i.i.i:                              ; preds = %17
+  %20 = add i64 %18, -1
+  %21 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %20)
+  %22 = lshr i64 %.sroa.0124.0148, %21
+  %23 = and i64 %20, %.sroa.0124.0148
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit
 
-.split.i.i.i.i.i:                                 ; preds = %15
-  %22 = udiv i64 %.sroa.0124.0148, %16
-  %23 = mul i64 %22, %16
-  %.recomposed = urem i64 %.sroa.0124.0148, %16
+.split.i.i.i.i.i:                                 ; preds = %17
+  %24 = udiv i64 %.sroa.0124.0148, %18
+  %25 = mul i64 %24, %18
+  %.recomposed = urem i64 %.sroa.0124.0148, %18
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit
 
-24:                                               ; preds = %13
-  %25 = trunc nuw i64 %.sroa.0124.0148 to i32
-  %26 = load i64, ptr %7, align 8, !tbaa !14, !noalias !838
-  %27 = trunc i64 %26 to i32
-  %28 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %27)
-  %.not.i7.i.i.i.i = icmp samesign ult i32 %28, 2
+26:                                               ; preds = %15
+  %27 = trunc nuw i64 %.sroa.0124.0148 to i32
+  %28 = load i64, ptr %7, align 8, !tbaa !14, !noalias !838
+  %29 = trunc i64 %28 to i32
+  %30 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %29)
+  %.not.i7.i.i.i.i = icmp samesign ult i32 %30, 2
   br i1 %.not.i7.i.i.i.i, label %.split.us.i11.i.i.i.i, label %.split.i8.i.i.i.i
 
-.split.us.i11.i.i.i.i:                            ; preds = %24
-  %29 = add i32 %27, -1
-  %30 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %29)
-  %31 = lshr i32 %25, %30
-  %32 = and i32 %29, %25
+.split.us.i11.i.i.i.i:                            ; preds = %26
+  %31 = add i32 %29, -1
+  %32 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %31)
+  %33 = lshr i32 %27, %32
+  %34 = and i32 %31, %27
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i
 
-.split.i8.i.i.i.i:                                ; preds = %24
-  %33 = udiv i32 %25, %27
-  %34 = mul i32 %33, %27
-  %.recomposed155 = urem i32 %25, %27
+.split.i8.i.i.i.i:                                ; preds = %26
+  %35 = udiv i32 %27, %29
+  %36 = mul i32 %35, %29
+  %.recomposed155 = urem i32 %27, %29
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i: ; preds = %.split.i8.i.i.i.i, %.split.us.i11.i.i.i.i
-  %.us-phi.i9.i.i.i.i = phi i32 [ %.recomposed155, %.split.i8.i.i.i.i ], [ %32, %.split.us.i11.i.i.i.i ]
-  %.us-phi23.i10.i.i.i.i = phi i32 [ %33, %.split.i8.i.i.i.i ], [ %31, %.split.us.i11.i.i.i.i ]
+  %.us-phi.i9.i.i.i.i = phi i32 [ %.recomposed155, %.split.i8.i.i.i.i ], [ %34, %.split.us.i11.i.i.i.i ]
+  %.us-phi23.i10.i.i.i.i = phi i32 [ %35, %.split.i8.i.i.i.i ], [ %33, %.split.us.i11.i.i.i.i ]
   %.sroa.5.1.le.i.i.i.i.i = zext i32 %.us-phi.i9.i.i.i.i to i64
-  %35 = zext i32 %.us-phi23.i10.i.i.i.i to i64
+  %37 = zext i32 %.us-phi23.i10.i.i.i.i to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit: ; preds = %.split.us.i.i.i.i.i, %.split.i.i.i.i.i, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i
-  %36 = phi i64 [ %26, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i ], [ %16, %.split.i.i.i.i.i ], [ %16, %.split.us.i.i.i.i.i ]
-  %.sroa.5.1.le.i.sink.i.i.i.i = phi i64 [ %.sroa.5.1.le.i.i.i.i.i, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i ], [ %.recomposed, %.split.i.i.i.i.i ], [ %21, %.split.us.i.i.i.i.i ]
-  %.sink.i.i.i.i = phi i64 [ %35, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i ], [ %22, %.split.i.i.i.i.i ], [ %20, %.split.us.i.i.i.i.i ]
-  %37 = mul i64 %8, %.sink.i.i.i.i
-  %38 = mul i64 %10, %.sroa.5.1.le.i.sink.i.i.i.i
-  %39 = getelementptr float, ptr %12, i64 %37
-  %40 = getelementptr float, ptr %39, i64 %38
-  %41 = load float, ptr %40, align 4, !tbaa !77
-  %42 = fcmp ule float %41, 0.000000e+00
-  br i1 %42, label %.loopexit, label %43
+  %38 = phi i64 [ %28, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i ], [ %18, %.split.i.i.i.i.i ], [ %18, %.split.us.i.i.i.i.i ]
+  %.sroa.5.1.le.i.sink.i.i.i.i = phi i64 [ %.sroa.5.1.le.i.i.i.i.i, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i ], [ %.recomposed, %.split.i.i.i.i.i ], [ %23, %.split.us.i.i.i.i.i ]
+  %.sink.i.i.i.i = phi i64 [ %37, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i ], [ %24, %.split.i.i.i.i.i ], [ %22, %.split.us.i.i.i.i.i ]
+  %39 = mul i64 %8, %.sink.i.i.i.i
+  %40 = mul i64 %10, %.sroa.5.1.le.i.sink.i.i.i.i
+  %41 = getelementptr float, ptr %12, i64 %39
+  %42 = getelementptr float, ptr %41, i64 %40
+  %43 = load float, ptr %42, align 4, !tbaa !77
+  %44 = fcmp ule float %43, 0.000000e+00
+  br i1 %44, label %.loopexit, label %45
 
-43:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit
-  %44 = add i64 %.sroa.0124.0148, 1
-  %45 = icmp ugt i64 %44, 4294967295
-  br i1 %45, label %46, label %54
+45:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit
+  %46 = add i64 %.sroa.0124.0148, 1
+  %47 = icmp ugt i64 %46, 4294967295
+  br i1 %47, label %48, label %56
 
-46:                                               ; preds = %43
-  %47 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %36)
-  %.not.i.i.i.i.i45 = icmp samesign ult i64 %47, 2
+48:                                               ; preds = %45
+  %49 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %38)
+  %.not.i.i.i.i.i45 = icmp samesign ult i64 %49, 2
   br i1 %.not.i.i.i.i.i45, label %.split.us.i.i.i.i.i47, label %.split.i.i.i.i.i46
 
-.split.us.i.i.i.i.i47:                            ; preds = %46
-  %48 = add i64 %36, -1
-  %49 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %48)
-  %50 = lshr i64 %44, %49
-  %51 = and i64 %48, %44
+.split.us.i.i.i.i.i47:                            ; preds = %48
+  %50 = add i64 %38, -1
+  %51 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %50)
+  %52 = lshr i64 %46, %51
+  %53 = and i64 %50, %46
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit48
 
-.split.i.i.i.i.i46:                               ; preds = %46
-  %52 = udiv i64 %44, %36
-  %53 = mul i64 %52, %36
-  %.recomposed156 = urem i64 %44, %36
+.split.i.i.i.i.i46:                               ; preds = %48
+  %54 = udiv i64 %46, %38
+  %55 = mul i64 %54, %38
+  %.recomposed156 = urem i64 %46, %38
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit48
 
-54:                                               ; preds = %43
-  %55 = trunc nuw i64 %44 to i32
-  %56 = trunc i64 %36 to i32
-  %57 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %56)
-  %.not.i7.i.i.i.i36 = icmp samesign ult i32 %57, 2
+56:                                               ; preds = %45
+  %57 = trunc nuw i64 %46 to i32
+  %58 = trunc i64 %38 to i32
+  %59 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
+  %.not.i7.i.i.i.i36 = icmp samesign ult i32 %59, 2
   br i1 %.not.i7.i.i.i.i36, label %.split.us.i11.i.i.i.i44, label %.split.i8.i.i.i.i37
 
-.split.us.i11.i.i.i.i44:                          ; preds = %54
-  %58 = add i32 %56, -1
-  %59 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
-  %60 = lshr i32 %55, %59
-  %61 = and i32 %58, %55
+.split.us.i11.i.i.i.i44:                          ; preds = %56
+  %60 = add i32 %58, -1
+  %61 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %60)
+  %62 = lshr i32 %57, %61
+  %63 = and i32 %60, %57
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38
 
-.split.i8.i.i.i.i37:                              ; preds = %54
-  %62 = udiv i32 %55, %56
-  %63 = mul i32 %62, %56
-  %.recomposed157 = urem i32 %55, %56
+.split.i8.i.i.i.i37:                              ; preds = %56
+  %64 = udiv i32 %57, %58
+  %65 = mul i32 %64, %58
+  %.recomposed157 = urem i32 %57, %58
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38: ; preds = %.split.i8.i.i.i.i37, %.split.us.i11.i.i.i.i44
-  %.us-phi.i9.i.i.i.i39 = phi i32 [ %.recomposed157, %.split.i8.i.i.i.i37 ], [ %61, %.split.us.i11.i.i.i.i44 ]
-  %.us-phi23.i10.i.i.i.i40 = phi i32 [ %62, %.split.i8.i.i.i.i37 ], [ %60, %.split.us.i11.i.i.i.i44 ]
+  %.us-phi.i9.i.i.i.i39 = phi i32 [ %.recomposed157, %.split.i8.i.i.i.i37 ], [ %63, %.split.us.i11.i.i.i.i44 ]
+  %.us-phi23.i10.i.i.i.i40 = phi i32 [ %64, %.split.i8.i.i.i.i37 ], [ %62, %.split.us.i11.i.i.i.i44 ]
   %.sroa.5.1.le.i.i.i.i.i41 = zext i32 %.us-phi.i9.i.i.i.i39 to i64
-  %64 = zext i32 %.us-phi23.i10.i.i.i.i40 to i64
+  %66 = zext i32 %.us-phi23.i10.i.i.i.i40 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit48
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit48: ; preds = %.split.us.i.i.i.i.i47, %.split.i.i.i.i.i46, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38
-  %.sroa.5.1.le.i.sink.i.i.i.i42 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i41, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38 ], [ %.recomposed156, %.split.i.i.i.i.i46 ], [ %51, %.split.us.i.i.i.i.i47 ]
-  %.sink.i.i.i.i43 = phi i64 [ %64, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38 ], [ %52, %.split.i.i.i.i.i46 ], [ %50, %.split.us.i.i.i.i.i47 ]
-  %65 = mul i64 %.sink.i.i.i.i43, %8
-  %66 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i42, %10
-  %67 = getelementptr float, ptr %12, i64 %65
-  %68 = getelementptr float, ptr %67, i64 %66
-  %69 = load float, ptr %68, align 4, !tbaa !77
-  %70 = fcmp ule float %69, 0.000000e+00
-  br i1 %70, label %.loopexit, label %71
+  %.sroa.5.1.le.i.sink.i.i.i.i42 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i41, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38 ], [ %.recomposed156, %.split.i.i.i.i.i46 ], [ %53, %.split.us.i.i.i.i.i47 ]
+  %.sink.i.i.i.i43 = phi i64 [ %66, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38 ], [ %54, %.split.i.i.i.i.i46 ], [ %52, %.split.us.i.i.i.i.i47 ]
+  %67 = mul i64 %.sink.i.i.i.i43, %8
+  %68 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i42, %10
+  %69 = getelementptr float, ptr %12, i64 %67
+  %70 = getelementptr float, ptr %69, i64 %68
+  %71 = load float, ptr %70, align 4, !tbaa !77
+  %72 = fcmp ule float %71, 0.000000e+00
+  br i1 %72, label %.loopexit, label %73
 
-71:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit48
-  %72 = add i64 %.sroa.0124.0148, 2
-  %73 = icmp ugt i64 %72, 4294967295
-  br i1 %73, label %74, label %82
+73:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit48
+  %74 = add i64 %.sroa.0124.0148, 2
+  %75 = icmp ugt i64 %74, 4294967295
+  br i1 %75, label %76, label %84
 
-74:                                               ; preds = %71
-  %75 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %36)
-  %.not.i.i.i.i.i58 = icmp samesign ult i64 %75, 2
+76:                                               ; preds = %73
+  %77 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %38)
+  %.not.i.i.i.i.i58 = icmp samesign ult i64 %77, 2
   br i1 %.not.i.i.i.i.i58, label %.split.us.i.i.i.i.i60, label %.split.i.i.i.i.i59
 
-.split.us.i.i.i.i.i60:                            ; preds = %74
-  %76 = add i64 %36, -1
-  %77 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %76)
-  %78 = lshr i64 %72, %77
-  %79 = and i64 %76, %72
+.split.us.i.i.i.i.i60:                            ; preds = %76
+  %78 = add i64 %38, -1
+  %79 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %78)
+  %80 = lshr i64 %74, %79
+  %81 = and i64 %78, %74
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit61
 
-.split.i.i.i.i.i59:                               ; preds = %74
-  %80 = udiv i64 %72, %36
-  %81 = mul i64 %80, %36
-  %.recomposed158 = urem i64 %72, %36
+.split.i.i.i.i.i59:                               ; preds = %76
+  %82 = udiv i64 %74, %38
+  %83 = mul i64 %82, %38
+  %.recomposed158 = urem i64 %74, %38
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit61
 
-82:                                               ; preds = %71
-  %83 = trunc nuw i64 %72 to i32
-  %84 = trunc i64 %36 to i32
-  %85 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %84)
-  %.not.i7.i.i.i.i49 = icmp samesign ult i32 %85, 2
+84:                                               ; preds = %73
+  %85 = trunc nuw i64 %74 to i32
+  %86 = trunc i64 %38 to i32
+  %87 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %86)
+  %.not.i7.i.i.i.i49 = icmp samesign ult i32 %87, 2
   br i1 %.not.i7.i.i.i.i49, label %.split.us.i11.i.i.i.i57, label %.split.i8.i.i.i.i50
 
-.split.us.i11.i.i.i.i57:                          ; preds = %82
-  %86 = add i32 %84, -1
-  %87 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %86)
-  %88 = lshr i32 %83, %87
-  %89 = and i32 %86, %83
+.split.us.i11.i.i.i.i57:                          ; preds = %84
+  %88 = add i32 %86, -1
+  %89 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %88)
+  %90 = lshr i32 %85, %89
+  %91 = and i32 %88, %85
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i51
 
-.split.i8.i.i.i.i50:                              ; preds = %82
-  %90 = udiv i32 %83, %84
-  %91 = mul i32 %90, %84
-  %.recomposed159 = urem i32 %83, %84
+.split.i8.i.i.i.i50:                              ; preds = %84
+  %92 = udiv i32 %85, %86
+  %93 = mul i32 %92, %86
+  %.recomposed159 = urem i32 %85, %86
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i51
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i51: ; preds = %.split.i8.i.i.i.i50, %.split.us.i11.i.i.i.i57
-  %.us-phi.i9.i.i.i.i52 = phi i32 [ %.recomposed159, %.split.i8.i.i.i.i50 ], [ %89, %.split.us.i11.i.i.i.i57 ]
-  %.us-phi23.i10.i.i.i.i53 = phi i32 [ %90, %.split.i8.i.i.i.i50 ], [ %88, %.split.us.i11.i.i.i.i57 ]
+  %.us-phi.i9.i.i.i.i52 = phi i32 [ %.recomposed159, %.split.i8.i.i.i.i50 ], [ %91, %.split.us.i11.i.i.i.i57 ]
+  %.us-phi23.i10.i.i.i.i53 = phi i32 [ %92, %.split.i8.i.i.i.i50 ], [ %90, %.split.us.i11.i.i.i.i57 ]
   %.sroa.5.1.le.i.i.i.i.i54 = zext i32 %.us-phi.i9.i.i.i.i52 to i64
-  %92 = zext i32 %.us-phi23.i10.i.i.i.i53 to i64
+  %94 = zext i32 %.us-phi23.i10.i.i.i.i53 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit61
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit61: ; preds = %.split.us.i.i.i.i.i60, %.split.i.i.i.i.i59, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i51
-  %.sroa.5.1.le.i.sink.i.i.i.i55 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i54, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i51 ], [ %.recomposed158, %.split.i.i.i.i.i59 ], [ %79, %.split.us.i.i.i.i.i60 ]
-  %.sink.i.i.i.i56 = phi i64 [ %92, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i51 ], [ %80, %.split.i.i.i.i.i59 ], [ %78, %.split.us.i.i.i.i.i60 ]
-  %93 = mul i64 %.sink.i.i.i.i56, %8
-  %94 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i55, %10
-  %95 = getelementptr float, ptr %12, i64 %93
-  %96 = getelementptr float, ptr %95, i64 %94
-  %97 = load float, ptr %96, align 4, !tbaa !77
-  %98 = fcmp ule float %97, 0.000000e+00
-  br i1 %98, label %.loopexit, label %99
+  %.sroa.5.1.le.i.sink.i.i.i.i55 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i54, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i51 ], [ %.recomposed158, %.split.i.i.i.i.i59 ], [ %81, %.split.us.i.i.i.i.i60 ]
+  %.sink.i.i.i.i56 = phi i64 [ %94, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i51 ], [ %82, %.split.i.i.i.i.i59 ], [ %80, %.split.us.i.i.i.i.i60 ]
+  %95 = mul i64 %.sink.i.i.i.i56, %8
+  %96 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i55, %10
+  %97 = getelementptr float, ptr %12, i64 %95
+  %98 = getelementptr float, ptr %97, i64 %96
+  %99 = load float, ptr %98, align 4, !tbaa !77
+  %100 = fcmp ule float %99, 0.000000e+00
+  br i1 %100, label %.loopexit, label %101
 
-99:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit61
-  %100 = add i64 %.sroa.0124.0148, 3
-  %101 = icmp ugt i64 %100, 4294967295
-  br i1 %101, label %102, label %110
+101:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit61
+  %102 = add i64 %.sroa.0124.0148, 3
+  %103 = icmp ugt i64 %102, 4294967295
+  br i1 %103, label %104, label %112
 
-102:                                              ; preds = %99
-  %103 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %36)
-  %.not.i.i.i.i.i71 = icmp samesign ult i64 %103, 2
+104:                                              ; preds = %101
+  %105 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %38)
+  %.not.i.i.i.i.i71 = icmp samesign ult i64 %105, 2
   br i1 %.not.i.i.i.i.i71, label %.split.us.i.i.i.i.i73, label %.split.i.i.i.i.i72
 
-.split.us.i.i.i.i.i73:                            ; preds = %102
-  %104 = add i64 %36, -1
-  %105 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %104)
-  %106 = lshr i64 %100, %105
-  %107 = and i64 %104, %100
+.split.us.i.i.i.i.i73:                            ; preds = %104
+  %106 = add i64 %38, -1
+  %107 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %106)
+  %108 = lshr i64 %102, %107
+  %109 = and i64 %106, %102
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit74
 
-.split.i.i.i.i.i72:                               ; preds = %102
-  %108 = udiv i64 %100, %36
-  %109 = mul i64 %108, %36
-  %.recomposed160 = urem i64 %100, %36
+.split.i.i.i.i.i72:                               ; preds = %104
+  %110 = udiv i64 %102, %38
+  %111 = mul i64 %110, %38
+  %.recomposed160 = urem i64 %102, %38
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit74
 
-110:                                              ; preds = %99
-  %111 = trunc nuw i64 %100 to i32
-  %112 = trunc i64 %36 to i32
-  %113 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %112)
-  %.not.i7.i.i.i.i62 = icmp samesign ult i32 %113, 2
+112:                                              ; preds = %101
+  %113 = trunc nuw i64 %102 to i32
+  %114 = trunc i64 %38 to i32
+  %115 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %114)
+  %.not.i7.i.i.i.i62 = icmp samesign ult i32 %115, 2
   br i1 %.not.i7.i.i.i.i62, label %.split.us.i11.i.i.i.i70, label %.split.i8.i.i.i.i63
 
-.split.us.i11.i.i.i.i70:                          ; preds = %110
-  %114 = add i32 %112, -1
-  %115 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %114)
-  %116 = lshr i32 %111, %115
-  %117 = and i32 %114, %111
+.split.us.i11.i.i.i.i70:                          ; preds = %112
+  %116 = add i32 %114, -1
+  %117 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %116)
+  %118 = lshr i32 %113, %117
+  %119 = and i32 %116, %113
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i64
 
-.split.i8.i.i.i.i63:                              ; preds = %110
-  %118 = udiv i32 %111, %112
-  %119 = mul i32 %118, %112
-  %.recomposed161 = urem i32 %111, %112
+.split.i8.i.i.i.i63:                              ; preds = %112
+  %120 = udiv i32 %113, %114
+  %121 = mul i32 %120, %114
+  %.recomposed161 = urem i32 %113, %114
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i64
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i64: ; preds = %.split.i8.i.i.i.i63, %.split.us.i11.i.i.i.i70
-  %.us-phi.i9.i.i.i.i65 = phi i32 [ %.recomposed161, %.split.i8.i.i.i.i63 ], [ %117, %.split.us.i11.i.i.i.i70 ]
-  %.us-phi23.i10.i.i.i.i66 = phi i32 [ %118, %.split.i8.i.i.i.i63 ], [ %116, %.split.us.i11.i.i.i.i70 ]
+  %.us-phi.i9.i.i.i.i65 = phi i32 [ %.recomposed161, %.split.i8.i.i.i.i63 ], [ %119, %.split.us.i11.i.i.i.i70 ]
+  %.us-phi23.i10.i.i.i.i66 = phi i32 [ %120, %.split.i8.i.i.i.i63 ], [ %118, %.split.us.i11.i.i.i.i70 ]
   %.sroa.5.1.le.i.i.i.i.i67 = zext i32 %.us-phi.i9.i.i.i.i65 to i64
-  %120 = zext i32 %.us-phi23.i10.i.i.i.i66 to i64
+  %122 = zext i32 %.us-phi23.i10.i.i.i.i66 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit74
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit74: ; preds = %.split.us.i.i.i.i.i73, %.split.i.i.i.i.i72, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i64
-  %.sroa.5.1.le.i.sink.i.i.i.i68 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i67, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i64 ], [ %.recomposed160, %.split.i.i.i.i.i72 ], [ %107, %.split.us.i.i.i.i.i73 ]
-  %.sink.i.i.i.i69 = phi i64 [ %120, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i64 ], [ %108, %.split.i.i.i.i.i72 ], [ %106, %.split.us.i.i.i.i.i73 ]
-  %121 = mul i64 %.sink.i.i.i.i69, %8
-  %122 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i68, %10
-  %123 = getelementptr float, ptr %12, i64 %121
-  %124 = getelementptr float, ptr %123, i64 %122
-  %125 = load float, ptr %124, align 4, !tbaa !77
-  %126 = fcmp ule float %125, 0.000000e+00
-  br i1 %126, label %.loopexit, label %127
+  %.sroa.5.1.le.i.sink.i.i.i.i68 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i67, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i64 ], [ %.recomposed160, %.split.i.i.i.i.i72 ], [ %109, %.split.us.i.i.i.i.i73 ]
+  %.sink.i.i.i.i69 = phi i64 [ %122, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i64 ], [ %110, %.split.i.i.i.i.i72 ], [ %108, %.split.us.i.i.i.i.i73 ]
+  %123 = mul i64 %.sink.i.i.i.i69, %8
+  %124 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i68, %10
+  %125 = getelementptr float, ptr %12, i64 %123
+  %126 = getelementptr float, ptr %125, i64 %124
+  %127 = load float, ptr %126, align 4, !tbaa !77
+  %128 = fcmp ule float %127, 0.000000e+00
+  br i1 %128, label %.loopexit, label %129
 
-127:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit74
-  %128 = add i64 %.sroa.0124.0148, 4
-  %129 = add nsw i64 %.0149, -1
-  %130 = icmp sgt i64 %.0149, 1
-  br i1 %130, label %13, label %._crit_edge, !llvm.loop !841
+129:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit74
+  %130 = add i64 %.sroa.0124.0148, 4
+  %131 = add nsw i64 %.0149, -1
+  %132 = icmp sgt i64 %.0149, 1
+  br i1 %132, label %15, label %._crit_edge, !llvm.loop !841
 
-._crit_edge:                                      ; preds = %127, %4
-  %.sroa.0124.0.lcssa = phi i64 [ %0, %4 ], [ %128, %127 ]
-  %131 = sub i64 %2, %.sroa.0124.0.lcssa
-  switch i64 %131, label %244 [
-    i64 3, label %132
-    i64 2, label %170
-    i64 1, label %208
+._crit_edge:                                      ; preds = %129, %4
+  %.sroa.0124.0.lcssa = phi i64 [ %0, %4 ], [ %14, %129 ]
+  %133 = sub i64 %2, %.sroa.0124.0.lcssa
+  switch i64 %133, label %246 [
+    i64 3, label %134
+    i64 2, label %172
+    i64 1, label %210
   ]
 
-132:                                              ; preds = %._crit_edge
-  %133 = icmp ugt i64 %.sroa.0124.0.lcssa, 4294967295
-  br i1 %133, label %134, label %144
+134:                                              ; preds = %._crit_edge
+  %135 = icmp ugt i64 %.sroa.0124.0.lcssa, 4294967295
+  br i1 %135, label %136, label %146
 
-134:                                              ; preds = %132
-  %135 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %136 = load i64, ptr %135, align 8, !tbaa !14, !noalias !842
-  %137 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %136)
-  %.not.i.i.i.i.i84 = icmp samesign ult i64 %137, 2
+136:                                              ; preds = %134
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %138 = load i64, ptr %137, align 8, !tbaa !14, !noalias !842
+  %139 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %138)
+  %.not.i.i.i.i.i84 = icmp samesign ult i64 %139, 2
   br i1 %.not.i.i.i.i.i84, label %.split.us.i.i.i.i.i86, label %.split.i.i.i.i.i85
 
-.split.us.i.i.i.i.i86:                            ; preds = %134
-  %138 = add i64 %136, -1
-  %139 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %138)
-  %140 = lshr i64 %.sroa.0124.0.lcssa, %139
-  %141 = and i64 %138, %.sroa.0124.0.lcssa
+.split.us.i.i.i.i.i86:                            ; preds = %136
+  %140 = add i64 %138, -1
+  %141 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %140)
+  %142 = lshr i64 %.sroa.0124.0.lcssa, %141
+  %143 = and i64 %140, %.sroa.0124.0.lcssa
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit87
 
-.split.i.i.i.i.i85:                               ; preds = %134
-  %142 = udiv i64 %.sroa.0124.0.lcssa, %136
-  %143 = mul i64 %142, %136
-  %.recomposed162 = urem i64 %.sroa.0124.0.lcssa, %136
+.split.i.i.i.i.i85:                               ; preds = %136
+  %144 = udiv i64 %.sroa.0124.0.lcssa, %138
+  %145 = mul i64 %144, %138
+  %.recomposed162 = urem i64 %.sroa.0124.0.lcssa, %138
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit87
 
-144:                                              ; preds = %132
-  %145 = trunc nuw i64 %.sroa.0124.0.lcssa to i32
-  %146 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %147 = load i64, ptr %146, align 8, !tbaa !14, !noalias !847
-  %148 = trunc i64 %147 to i32
-  %149 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %148)
-  %.not.i7.i.i.i.i75 = icmp samesign ult i32 %149, 2
+146:                                              ; preds = %134
+  %147 = trunc nuw i64 %.sroa.0124.0.lcssa to i32
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %149 = load i64, ptr %148, align 8, !tbaa !14, !noalias !847
+  %150 = trunc i64 %149 to i32
+  %151 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
+  %.not.i7.i.i.i.i75 = icmp samesign ult i32 %151, 2
   br i1 %.not.i7.i.i.i.i75, label %.split.us.i11.i.i.i.i83, label %.split.i8.i.i.i.i76
 
-.split.us.i11.i.i.i.i83:                          ; preds = %144
-  %150 = add i32 %148, -1
-  %151 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %150)
-  %152 = lshr i32 %145, %151
-  %153 = and i32 %150, %145
+.split.us.i11.i.i.i.i83:                          ; preds = %146
+  %152 = add i32 %150, -1
+  %153 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %152)
+  %154 = lshr i32 %147, %153
+  %155 = and i32 %152, %147
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i77
 
-.split.i8.i.i.i.i76:                              ; preds = %144
-  %154 = udiv i32 %145, %148
-  %155 = mul i32 %154, %148
-  %.recomposed163 = urem i32 %145, %148
+.split.i8.i.i.i.i76:                              ; preds = %146
+  %156 = udiv i32 %147, %150
+  %157 = mul i32 %156, %150
+  %.recomposed163 = urem i32 %147, %150
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i77
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i77: ; preds = %.split.i8.i.i.i.i76, %.split.us.i11.i.i.i.i83
-  %.us-phi.i9.i.i.i.i78 = phi i32 [ %.recomposed163, %.split.i8.i.i.i.i76 ], [ %153, %.split.us.i11.i.i.i.i83 ]
-  %.us-phi23.i10.i.i.i.i79 = phi i32 [ %154, %.split.i8.i.i.i.i76 ], [ %152, %.split.us.i11.i.i.i.i83 ]
+  %.us-phi.i9.i.i.i.i78 = phi i32 [ %.recomposed163, %.split.i8.i.i.i.i76 ], [ %155, %.split.us.i11.i.i.i.i83 ]
+  %.us-phi23.i10.i.i.i.i79 = phi i32 [ %156, %.split.i8.i.i.i.i76 ], [ %154, %.split.us.i11.i.i.i.i83 ]
   %.sroa.5.1.le.i.i.i.i.i80 = zext i32 %.us-phi.i9.i.i.i.i78 to i64
-  %156 = zext i32 %.us-phi23.i10.i.i.i.i79 to i64
+  %158 = zext i32 %.us-phi23.i10.i.i.i.i79 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit87
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit87: ; preds = %.split.us.i.i.i.i.i86, %.split.i.i.i.i.i85, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i77
-  %.sroa.5.1.le.i.sink.i.i.i.i81 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i80, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i77 ], [ %.recomposed162, %.split.i.i.i.i.i85 ], [ %141, %.split.us.i.i.i.i.i86 ]
-  %.sink.i.i.i.i82 = phi i64 [ %156, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i77 ], [ %142, %.split.i.i.i.i.i85 ], [ %140, %.split.us.i.i.i.i.i86 ]
-  %157 = load i64, ptr %1, align 8, !tbaa !14
-  %158 = mul i64 %157, %.sink.i.i.i.i82
-  %159 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %160 = load i64, ptr %159, align 8, !tbaa !14
-  %161 = mul i64 %160, %.sroa.5.1.le.i.sink.i.i.i.i81
-  %162 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %163 = load ptr, ptr %162, align 8, !tbaa !368
-  %164 = getelementptr float, ptr %163, i64 %158
-  %165 = getelementptr float, ptr %164, i64 %161
-  %166 = load float, ptr %165, align 4, !tbaa !77
-  %167 = fcmp ule float %166, 0.000000e+00
-  br i1 %167, label %.loopexit, label %168
+  %.sroa.5.1.le.i.sink.i.i.i.i81 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i80, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i77 ], [ %.recomposed162, %.split.i.i.i.i.i85 ], [ %143, %.split.us.i.i.i.i.i86 ]
+  %.sink.i.i.i.i82 = phi i64 [ %158, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i77 ], [ %144, %.split.i.i.i.i.i85 ], [ %142, %.split.us.i.i.i.i.i86 ]
+  %159 = load i64, ptr %1, align 8, !tbaa !14
+  %160 = mul i64 %159, %.sink.i.i.i.i82
+  %161 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %162 = load i64, ptr %161, align 8, !tbaa !14
+  %163 = mul i64 %162, %.sroa.5.1.le.i.sink.i.i.i.i81
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %165 = load ptr, ptr %164, align 8, !tbaa !368
+  %166 = getelementptr float, ptr %165, i64 %160
+  %167 = getelementptr float, ptr %166, i64 %163
+  %168 = load float, ptr %167, align 4, !tbaa !77
+  %169 = fcmp ule float %168, 0.000000e+00
+  br i1 %169, label %.loopexit, label %170
 
-168:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit87
-  %169 = add i64 %.sroa.0124.0.lcssa, 1
-  br label %170
+170:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit87
+  %171 = add i64 %.sroa.0124.0.lcssa, 1
+  br label %172
 
-170:                                              ; preds = %168, %._crit_edge
-  %.sroa.0124.1 = phi i64 [ %169, %168 ], [ %.sroa.0124.0.lcssa, %._crit_edge ]
-  %171 = icmp ugt i64 %.sroa.0124.1, 4294967295
-  br i1 %171, label %172, label %182
+172:                                              ; preds = %170, %._crit_edge
+  %.sroa.0124.1 = phi i64 [ %171, %170 ], [ %.sroa.0124.0.lcssa, %._crit_edge ]
+  %173 = icmp ugt i64 %.sroa.0124.1, 4294967295
+  br i1 %173, label %174, label %184
 
-172:                                              ; preds = %170
-  %173 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %174 = load i64, ptr %173, align 8, !tbaa !14, !noalias !850
-  %175 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %174)
-  %.not.i.i.i.i.i97 = icmp samesign ult i64 %175, 2
+174:                                              ; preds = %172
+  %175 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %176 = load i64, ptr %175, align 8, !tbaa !14, !noalias !850
+  %177 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %176)
+  %.not.i.i.i.i.i97 = icmp samesign ult i64 %177, 2
   br i1 %.not.i.i.i.i.i97, label %.split.us.i.i.i.i.i99, label %.split.i.i.i.i.i98
 
-.split.us.i.i.i.i.i99:                            ; preds = %172
-  %176 = add i64 %174, -1
-  %177 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %176)
-  %178 = lshr i64 %.sroa.0124.1, %177
-  %179 = and i64 %176, %.sroa.0124.1
+.split.us.i.i.i.i.i99:                            ; preds = %174
+  %178 = add i64 %176, -1
+  %179 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %178)
+  %180 = lshr i64 %.sroa.0124.1, %179
+  %181 = and i64 %178, %.sroa.0124.1
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit100
 
-.split.i.i.i.i.i98:                               ; preds = %172
-  %180 = udiv i64 %.sroa.0124.1, %174
-  %181 = mul i64 %180, %174
-  %.recomposed164 = urem i64 %.sroa.0124.1, %174
+.split.i.i.i.i.i98:                               ; preds = %174
+  %182 = udiv i64 %.sroa.0124.1, %176
+  %183 = mul i64 %182, %176
+  %.recomposed164 = urem i64 %.sroa.0124.1, %176
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit100
 
-182:                                              ; preds = %170
-  %183 = trunc nuw i64 %.sroa.0124.1 to i32
-  %184 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %185 = load i64, ptr %184, align 8, !tbaa !14, !noalias !855
-  %186 = trunc i64 %185 to i32
-  %187 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %186)
-  %.not.i7.i.i.i.i88 = icmp samesign ult i32 %187, 2
+184:                                              ; preds = %172
+  %185 = trunc nuw i64 %.sroa.0124.1 to i32
+  %186 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %187 = load i64, ptr %186, align 8, !tbaa !14, !noalias !855
+  %188 = trunc i64 %187 to i32
+  %189 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %188)
+  %.not.i7.i.i.i.i88 = icmp samesign ult i32 %189, 2
   br i1 %.not.i7.i.i.i.i88, label %.split.us.i11.i.i.i.i96, label %.split.i8.i.i.i.i89
 
-.split.us.i11.i.i.i.i96:                          ; preds = %182
-  %188 = add i32 %186, -1
-  %189 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %188)
-  %190 = lshr i32 %183, %189
-  %191 = and i32 %188, %183
+.split.us.i11.i.i.i.i96:                          ; preds = %184
+  %190 = add i32 %188, -1
+  %191 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %190)
+  %192 = lshr i32 %185, %191
+  %193 = and i32 %190, %185
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i90
 
-.split.i8.i.i.i.i89:                              ; preds = %182
-  %192 = udiv i32 %183, %186
-  %193 = mul i32 %192, %186
-  %.recomposed165 = urem i32 %183, %186
+.split.i8.i.i.i.i89:                              ; preds = %184
+  %194 = udiv i32 %185, %188
+  %195 = mul i32 %194, %188
+  %.recomposed165 = urem i32 %185, %188
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i90
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i90: ; preds = %.split.i8.i.i.i.i89, %.split.us.i11.i.i.i.i96
-  %.us-phi.i9.i.i.i.i91 = phi i32 [ %.recomposed165, %.split.i8.i.i.i.i89 ], [ %191, %.split.us.i11.i.i.i.i96 ]
-  %.us-phi23.i10.i.i.i.i92 = phi i32 [ %192, %.split.i8.i.i.i.i89 ], [ %190, %.split.us.i11.i.i.i.i96 ]
+  %.us-phi.i9.i.i.i.i91 = phi i32 [ %.recomposed165, %.split.i8.i.i.i.i89 ], [ %193, %.split.us.i11.i.i.i.i96 ]
+  %.us-phi23.i10.i.i.i.i92 = phi i32 [ %194, %.split.i8.i.i.i.i89 ], [ %192, %.split.us.i11.i.i.i.i96 ]
   %.sroa.5.1.le.i.i.i.i.i93 = zext i32 %.us-phi.i9.i.i.i.i91 to i64
-  %194 = zext i32 %.us-phi23.i10.i.i.i.i92 to i64
+  %196 = zext i32 %.us-phi23.i10.i.i.i.i92 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit100
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit100: ; preds = %.split.us.i.i.i.i.i99, %.split.i.i.i.i.i98, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i90
-  %.sroa.5.1.le.i.sink.i.i.i.i94 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i93, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i90 ], [ %.recomposed164, %.split.i.i.i.i.i98 ], [ %179, %.split.us.i.i.i.i.i99 ]
-  %.sink.i.i.i.i95 = phi i64 [ %194, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i90 ], [ %180, %.split.i.i.i.i.i98 ], [ %178, %.split.us.i.i.i.i.i99 ]
-  %195 = load i64, ptr %1, align 8, !tbaa !14
-  %196 = mul i64 %195, %.sink.i.i.i.i95
-  %197 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %198 = load i64, ptr %197, align 8, !tbaa !14
-  %199 = mul i64 %198, %.sroa.5.1.le.i.sink.i.i.i.i94
-  %200 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %201 = load ptr, ptr %200, align 8, !tbaa !368
-  %202 = getelementptr float, ptr %201, i64 %196
-  %203 = getelementptr float, ptr %202, i64 %199
-  %204 = load float, ptr %203, align 4, !tbaa !77
-  %205 = fcmp ule float %204, 0.000000e+00
-  br i1 %205, label %.loopexit, label %206
+  %.sroa.5.1.le.i.sink.i.i.i.i94 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i93, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i90 ], [ %.recomposed164, %.split.i.i.i.i.i98 ], [ %181, %.split.us.i.i.i.i.i99 ]
+  %.sink.i.i.i.i95 = phi i64 [ %196, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i90 ], [ %182, %.split.i.i.i.i.i98 ], [ %180, %.split.us.i.i.i.i.i99 ]
+  %197 = load i64, ptr %1, align 8, !tbaa !14
+  %198 = mul i64 %197, %.sink.i.i.i.i95
+  %199 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %200 = load i64, ptr %199, align 8, !tbaa !14
+  %201 = mul i64 %200, %.sroa.5.1.le.i.sink.i.i.i.i94
+  %202 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %203 = load ptr, ptr %202, align 8, !tbaa !368
+  %204 = getelementptr float, ptr %203, i64 %198
+  %205 = getelementptr float, ptr %204, i64 %201
+  %206 = load float, ptr %205, align 4, !tbaa !77
+  %207 = fcmp ule float %206, 0.000000e+00
+  br i1 %207, label %.loopexit, label %208
 
-206:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit100
-  %207 = add i64 %.sroa.0124.1, 1
-  br label %208
+208:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit100
+  %209 = add i64 %.sroa.0124.1, 1
+  br label %210
 
-208:                                              ; preds = %206, %._crit_edge
-  %.sroa.0124.2 = phi i64 [ %207, %206 ], [ %.sroa.0124.0.lcssa, %._crit_edge ]
-  %209 = icmp ugt i64 %.sroa.0124.2, 4294967295
-  br i1 %209, label %210, label %220
+210:                                              ; preds = %208, %._crit_edge
+  %.sroa.0124.2 = phi i64 [ %209, %208 ], [ %.sroa.0124.0.lcssa, %._crit_edge ]
+  %211 = icmp ugt i64 %.sroa.0124.2, 4294967295
+  br i1 %211, label %212, label %222
 
-210:                                              ; preds = %208
-  %211 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %212 = load i64, ptr %211, align 8, !tbaa !14, !noalias !858
-  %213 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %212)
-  %.not.i.i.i.i.i110 = icmp samesign ult i64 %213, 2
+212:                                              ; preds = %210
+  %213 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %214 = load i64, ptr %213, align 8, !tbaa !14, !noalias !858
+  %215 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %214)
+  %.not.i.i.i.i.i110 = icmp samesign ult i64 %215, 2
   br i1 %.not.i.i.i.i.i110, label %.split.us.i.i.i.i.i112, label %.split.i.i.i.i.i111
 
-.split.us.i.i.i.i.i112:                           ; preds = %210
-  %214 = add i64 %212, -1
-  %215 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %214)
-  %216 = lshr i64 %.sroa.0124.2, %215
-  %217 = and i64 %214, %.sroa.0124.2
+.split.us.i.i.i.i.i112:                           ; preds = %212
+  %216 = add i64 %214, -1
+  %217 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %216)
+  %218 = lshr i64 %.sroa.0124.2, %217
+  %219 = and i64 %216, %.sroa.0124.2
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit113
 
-.split.i.i.i.i.i111:                              ; preds = %210
-  %218 = udiv i64 %.sroa.0124.2, %212
-  %219 = mul i64 %218, %212
-  %.recomposed166 = urem i64 %.sroa.0124.2, %212
+.split.i.i.i.i.i111:                              ; preds = %212
+  %220 = udiv i64 %.sroa.0124.2, %214
+  %221 = mul i64 %220, %214
+  %.recomposed166 = urem i64 %.sroa.0124.2, %214
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit113
 
-220:                                              ; preds = %208
-  %221 = trunc nuw i64 %.sroa.0124.2 to i32
-  %222 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %223 = load i64, ptr %222, align 8, !tbaa !14, !noalias !863
-  %224 = trunc i64 %223 to i32
-  %225 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %224)
-  %.not.i7.i.i.i.i101 = icmp samesign ult i32 %225, 2
+222:                                              ; preds = %210
+  %223 = trunc nuw i64 %.sroa.0124.2 to i32
+  %224 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %225 = load i64, ptr %224, align 8, !tbaa !14, !noalias !863
+  %226 = trunc i64 %225 to i32
+  %227 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %226)
+  %.not.i7.i.i.i.i101 = icmp samesign ult i32 %227, 2
   br i1 %.not.i7.i.i.i.i101, label %.split.us.i11.i.i.i.i109, label %.split.i8.i.i.i.i102
 
-.split.us.i11.i.i.i.i109:                         ; preds = %220
-  %226 = add i32 %224, -1
-  %227 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %226)
-  %228 = lshr i32 %221, %227
-  %229 = and i32 %226, %221
+.split.us.i11.i.i.i.i109:                         ; preds = %222
+  %228 = add i32 %226, -1
+  %229 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %228)
+  %230 = lshr i32 %223, %229
+  %231 = and i32 %228, %223
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i103
 
-.split.i8.i.i.i.i102:                             ; preds = %220
-  %230 = udiv i32 %221, %224
-  %231 = mul i32 %230, %224
-  %.recomposed167 = urem i32 %221, %224
+.split.i8.i.i.i.i102:                             ; preds = %222
+  %232 = udiv i32 %223, %226
+  %233 = mul i32 %232, %226
+  %.recomposed167 = urem i32 %223, %226
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i103
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i103: ; preds = %.split.i8.i.i.i.i102, %.split.us.i11.i.i.i.i109
-  %.us-phi.i9.i.i.i.i104 = phi i32 [ %.recomposed167, %.split.i8.i.i.i.i102 ], [ %229, %.split.us.i11.i.i.i.i109 ]
-  %.us-phi23.i10.i.i.i.i105 = phi i32 [ %230, %.split.i8.i.i.i.i102 ], [ %228, %.split.us.i11.i.i.i.i109 ]
+  %.us-phi.i9.i.i.i.i104 = phi i32 [ %.recomposed167, %.split.i8.i.i.i.i102 ], [ %231, %.split.us.i11.i.i.i.i109 ]
+  %.us-phi23.i10.i.i.i.i105 = phi i32 [ %232, %.split.i8.i.i.i.i102 ], [ %230, %.split.us.i11.i.i.i.i109 ]
   %.sroa.5.1.le.i.i.i.i.i106 = zext i32 %.us-phi.i9.i.i.i.i104 to i64
-  %232 = zext i32 %.us-phi23.i10.i.i.i.i105 to i64
+  %234 = zext i32 %.us-phi23.i10.i.i.i.i105 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit113
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit113: ; preds = %.split.us.i.i.i.i.i112, %.split.i.i.i.i.i111, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i103
-  %.sroa.5.1.le.i.sink.i.i.i.i107 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i106, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i103 ], [ %.recomposed166, %.split.i.i.i.i.i111 ], [ %217, %.split.us.i.i.i.i.i112 ]
-  %.sink.i.i.i.i108 = phi i64 [ %232, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i103 ], [ %218, %.split.i.i.i.i.i111 ], [ %216, %.split.us.i.i.i.i.i112 ]
-  %233 = load i64, ptr %1, align 8, !tbaa !14
-  %234 = mul i64 %233, %.sink.i.i.i.i108
-  %235 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %236 = load i64, ptr %235, align 8, !tbaa !14
-  %237 = mul i64 %236, %.sroa.5.1.le.i.sink.i.i.i.i107
-  %238 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %239 = load ptr, ptr %238, align 8, !tbaa !368
-  %240 = getelementptr float, ptr %239, i64 %234
-  %241 = getelementptr float, ptr %240, i64 %237
-  %242 = load float, ptr %241, align 4, !tbaa !77
-  %243 = fcmp ule float %242, 0.000000e+00
-  br i1 %243, label %.loopexit, label %244
+  %.sroa.5.1.le.i.sink.i.i.i.i107 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i106, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i103 ], [ %.recomposed166, %.split.i.i.i.i.i111 ], [ %219, %.split.us.i.i.i.i.i112 ]
+  %.sink.i.i.i.i108 = phi i64 [ %234, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i103 ], [ %220, %.split.i.i.i.i.i111 ], [ %218, %.split.us.i.i.i.i.i112 ]
+  %235 = load i64, ptr %1, align 8, !tbaa !14
+  %236 = mul i64 %235, %.sink.i.i.i.i108
+  %237 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %238 = load i64, ptr %237, align 8, !tbaa !14
+  %239 = mul i64 %238, %.sroa.5.1.le.i.sink.i.i.i.i107
+  %240 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %241 = load ptr, ptr %240, align 8, !tbaa !368
+  %242 = getelementptr float, ptr %241, i64 %236
+  %243 = getelementptr float, ptr %242, i64 %239
+  %244 = load float, ptr %243, align 4, !tbaa !77
+  %245 = fcmp ule float %244, 0.000000e+00
+  br i1 %245, label %.loopexit, label %246
 
-244:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit113, %._crit_edge
+246:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit113, %._crit_edge
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit74, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit61, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit48, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit113, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit100, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit87, %244
-  %.sroa.014.0.in.sroa.speculated = phi i64 [ %2, %244 ], [ %.sroa.0124.0.lcssa, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit87 ], [ %.sroa.0124.1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit100 ], [ %.sroa.0124.2, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit113 ], [ %100, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit74 ], [ %72, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit61 ], [ %44, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit48 ], [ %.sroa.0124.0148, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit ]
-  %.sroa.9.0 = phi ptr [ %3, %244 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit87 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit100 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit113 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit48 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit61 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit74 ]
+.loopexit:                                        ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit74, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit61, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit48, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit113, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit100, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit87, %246
+  %.sroa.014.0.in.sroa.speculated = phi i64 [ %2, %246 ], [ %.sroa.0124.0.lcssa, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit87 ], [ %.sroa.0124.1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit100 ], [ %.sroa.0124.2, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit113 ], [ %102, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit74 ], [ %74, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit61 ], [ %46, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit48 ], [ %.sroa.0124.0148, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit ]
+  %.sroa.9.0 = phi ptr [ %3, %246 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit87 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit100 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit113 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit48 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit61 ], [ %1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit74 ]
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.014.0.in.sroa.speculated, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.9.0, 1
   ret { i64, ptr } %.fca.1.insert

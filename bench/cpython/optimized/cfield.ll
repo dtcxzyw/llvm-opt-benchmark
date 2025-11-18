@@ -983,29 +983,27 @@ Py_DECREF.exit:                                   ; preds = %PyCField_clear.exit
 define internal ptr @PyCField_repr(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8, !tbaa !88
-  %4 = and i64 %3, 65535
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !87
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !86
-  %.not = icmp ult i64 %3, 65536
-  br i1 %.not, label %14, label %9
+  %4 = ashr i64 %3, 16
+  %5 = and i64 %3, 65535
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %7 = load ptr, ptr %6, align 8, !tbaa !87
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %9 = load ptr, ptr %8, align 8, !tbaa !86
+  %.not = icmp eq i64 %4, 0
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = load i64, ptr %10, align 8, !tbaa !89
+  br i1 %.not, label %14, label %12
 
-9:                                                ; preds = %1
-  %10 = ashr i64 %3, 16
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load i64, ptr %11, align 8, !tbaa !89
-  %13 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.21, ptr noundef %8, i64 noundef %12, i64 noundef %4, i64 noundef %10) #8
-  br label %18
+12:                                               ; preds = %1
+  %13 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.21, ptr noundef %9, i64 noundef %11, i64 noundef %5, i64 noundef %4) #8
+  br label %16
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load i64, ptr %15, align 8, !tbaa !89
-  %17 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.22, ptr noundef %8, i64 noundef %16, i64 noundef %4) #8
-  br label %18
+  %15 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.22, ptr noundef %9, i64 noundef %11, i64 noundef %5) #8
+  br label %16
 
-18:                                               ; preds = %14, %9
-  %.0 = phi ptr [ %13, %9 ], [ %17, %14 ]
+16:                                               ; preds = %14, %12
+  %.0 = phi ptr [ %13, %12 ], [ %15, %14 ]
   ret ptr %.0
 }
 
@@ -1296,14 +1294,14 @@ define internal noundef ptr @i8_set(ptr noundef captures(none) %0, ptr noundef %
   br i1 %20, label %21, label %45
 
 21:                                               ; preds = %18, %11
-  %.not16 = icmp ult i64 %2, 65536
-  br i1 %.not16, label %41, label %22
+  %22 = ashr i64 %2, 16
+  %.not16 = icmp eq i64 %22, 0
+  br i1 %.not16, label %41, label %23
 
-22:                                               ; preds = %21
-  %23 = lshr i64 %2, 16
+23:                                               ; preds = %21
   %.0.copyload = load i8, ptr %0, align 1
   %24 = zext i8 %.0.copyload to i32
-  %25 = trunc i64 %23 to i32
+  %25 = trunc i64 %22 to i32
   %26 = add i32 %25, -1
   %notmask = shl nsw i32 -1, %26
   %27 = xor i32 %notmask, -1
@@ -1326,8 +1324,8 @@ define internal noundef ptr @i8_set(ptr noundef captures(none) %0, ptr noundef %
   %42 = load i8, ptr %4, align 1, !tbaa !10
   br label %43
 
-43:                                               ; preds = %41, %22
-  %44 = phi i8 [ %40, %22 ], [ %42, %41 ]
+43:                                               ; preds = %41, %23
+  %44 = phi i8 [ %40, %23 ], [ %42, %41 ]
   store i8 %44, ptr %0, align 1
   br label %45
 
@@ -1340,27 +1338,27 @@ define internal noundef ptr @i8_set(ptr noundef captures(none) %0, ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal ptr @i8_get(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %.0.copyload = load i8, ptr %0, align 1
-  %.not = icmp ult i64 %1, 65536
-  br i1 %.not, label %16, label %3
+  %3 = ashr i64 %1, 16
+  %.not = icmp eq i64 %3, 0
+  br i1 %.not, label %16, label %4
 
-3:                                                ; preds = %2
-  %4 = ashr i64 %1, 16
+4:                                                ; preds = %2
   %5 = and i64 %1, 65535
-  %6 = add nsw i64 %5, %4
+  %6 = add nsw i64 %5, %3
   %7 = zext i8 %.0.copyload to i32
   %8 = trunc i64 %6 to i32
   %9 = sub i32 8, %8
   %10 = shl i32 %7, %9
   %sext = shl i32 %10, 24
   %11 = ashr exact i32 %sext, 24
-  %12 = trunc i64 %4 to i32
+  %12 = trunc i64 %3 to i32
   %13 = sub i32 8, %12
   %14 = ashr i32 %11, %13
   %15 = trunc nsw i32 %14 to i8
   br label %16
 
-16:                                               ; preds = %3, %2
-  %.0 = phi i8 [ %15, %3 ], [ %.0.copyload, %2 ]
+16:                                               ; preds = %4, %2
+  %.0 = phi i8 [ %15, %4 ], [ %.0.copyload, %2 ]
   %17 = sext i8 %.0 to i32
   %18 = tail call ptr @PyLong_FromInt32(i32 noundef %17) #8
   ret ptr %18
@@ -1404,14 +1402,14 @@ define internal noundef ptr @u8_set(ptr noundef captures(none) %0, ptr noundef %
   br i1 %20, label %21, label %45
 
 21:                                               ; preds = %18, %11
-  %.not16 = icmp ult i64 %2, 65536
-  br i1 %.not16, label %41, label %22
+  %22 = ashr i64 %2, 16
+  %.not16 = icmp eq i64 %22, 0
+  br i1 %.not16, label %41, label %23
 
-22:                                               ; preds = %21
-  %23 = lshr i64 %2, 16
+23:                                               ; preds = %21
   %.0.copyload = load i8, ptr %0, align 1
   %24 = zext i8 %.0.copyload to i32
-  %25 = trunc i64 %23 to i32
+  %25 = trunc i64 %22 to i32
   %26 = add i32 %25, -1
   %notmask = shl nsw i32 -1, %26
   %27 = xor i32 %notmask, -1
@@ -1434,8 +1432,8 @@ define internal noundef ptr @u8_set(ptr noundef captures(none) %0, ptr noundef %
   %42 = load i8, ptr %4, align 1, !tbaa !10
   br label %43
 
-43:                                               ; preds = %41, %22
-  %44 = phi i8 [ %40, %22 ], [ %42, %41 ]
+43:                                               ; preds = %41, %23
+  %44 = phi i8 [ %40, %23 ], [ %42, %41 ]
   store i8 %44, ptr %0, align 1
   br label %45
 
@@ -1448,26 +1446,26 @@ define internal noundef ptr @u8_set(ptr noundef captures(none) %0, ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal ptr @u8_get(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %.0.copyload = load i8, ptr %0, align 1
-  %.not = icmp ult i64 %1, 65536
-  br i1 %.not, label %16, label %3
+  %3 = ashr i64 %1, 16
+  %.not = icmp eq i64 %3, 0
+  br i1 %.not, label %16, label %4
 
-3:                                                ; preds = %2
-  %4 = ashr i64 %1, 16
+4:                                                ; preds = %2
   %5 = and i64 %1, 65535
-  %6 = add nsw i64 %5, %4
+  %6 = add nsw i64 %5, %3
   %7 = zext i8 %.0.copyload to i32
   %8 = trunc i64 %6 to i32
   %9 = sub i32 8, %8
   %10 = shl i32 %7, %9
   %11 = and i32 %10, 255
-  %12 = trunc i64 %4 to i32
+  %12 = trunc i64 %3 to i32
   %13 = sub i32 8, %12
   %14 = lshr i32 %11, %13
   %15 = trunc nuw i32 %14 to i8
   br label %16
 
-16:                                               ; preds = %3, %2
-  %.0 = phi i8 [ %15, %3 ], [ %.0.copyload, %2 ]
+16:                                               ; preds = %4, %2
+  %.0 = phi i8 [ %15, %4 ], [ %.0.copyload, %2 ]
   %17 = zext i8 %.0 to i32
   %18 = tail call ptr @PyLong_FromUInt32(i32 noundef %17) #8
   ret ptr %18
@@ -1508,14 +1506,14 @@ define internal noundef ptr @i16_set(ptr noundef captures(none) %0, ptr noundef 
   br i1 %20, label %21, label %45
 
 21:                                               ; preds = %18, %11
-  %.not16 = icmp ult i64 %2, 65536
-  br i1 %.not16, label %41, label %22
+  %22 = ashr i64 %2, 16
+  %.not16 = icmp eq i64 %22, 0
+  br i1 %.not16, label %41, label %23
 
-22:                                               ; preds = %21
-  %23 = lshr i64 %2, 16
+23:                                               ; preds = %21
   %.0.copyload = load i16, ptr %0, align 1
   %24 = zext i16 %.0.copyload to i32
-  %25 = trunc i64 %23 to i32
+  %25 = trunc i64 %22 to i32
   %26 = add i32 %25, -1
   %notmask = shl nsw i32 -1, %26
   %27 = xor i32 %notmask, -1
@@ -1538,8 +1536,8 @@ define internal noundef ptr @i16_set(ptr noundef captures(none) %0, ptr noundef 
   %42 = load i16, ptr %4, align 2, !tbaa !105
   br label %43
 
-43:                                               ; preds = %41, %22
-  %44 = phi i16 [ %40, %22 ], [ %42, %41 ]
+43:                                               ; preds = %41, %23
+  %44 = phi i16 [ %40, %23 ], [ %42, %41 ]
   store i16 %44, ptr %0, align 1
   br label %45
 
@@ -1552,27 +1550,27 @@ define internal noundef ptr @i16_set(ptr noundef captures(none) %0, ptr noundef 
 ; Function Attrs: nounwind uwtable
 define internal ptr @i16_get(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %.0.copyload = load i16, ptr %0, align 1
-  %.not = icmp ult i64 %1, 65536
-  br i1 %.not, label %16, label %3
+  %3 = ashr i64 %1, 16
+  %.not = icmp eq i64 %3, 0
+  br i1 %.not, label %16, label %4
 
-3:                                                ; preds = %2
-  %4 = ashr i64 %1, 16
+4:                                                ; preds = %2
   %5 = and i64 %1, 65535
-  %6 = add nsw i64 %5, %4
+  %6 = add nsw i64 %5, %3
   %7 = zext i16 %.0.copyload to i32
   %8 = trunc i64 %6 to i32
   %9 = sub i32 16, %8
   %10 = shl i32 %7, %9
   %sext = shl i32 %10, 16
   %11 = ashr exact i32 %sext, 16
-  %12 = trunc i64 %4 to i32
+  %12 = trunc i64 %3 to i32
   %13 = sub i32 16, %12
   %14 = ashr i32 %11, %13
   %15 = trunc nsw i32 %14 to i16
   br label %16
 
-16:                                               ; preds = %3, %2
-  %.0 = phi i16 [ %15, %3 ], [ %.0.copyload, %2 ]
+16:                                               ; preds = %4, %2
+  %.0 = phi i16 [ %15, %4 ], [ %.0.copyload, %2 ]
   %17 = sext i16 %.0 to i32
   %18 = tail call ptr @PyLong_FromInt32(i32 noundef %17) #8
   ret ptr %18
@@ -1637,15 +1635,15 @@ i16_set.exit.thread:                              ; preds = %18
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %21, %24, %27
-  %.not = icmp ult i64 %2, 65536
-  br i1 %.not, label %47, label %28
+  %28 = ashr i64 %2, 16
+  %.not = icmp eq i64 %28, 0
+  br i1 %.not, label %47, label %29
 
-28:                                               ; preds = %Py_DECREF.exit
-  %29 = lshr i64 %2, 16
+29:                                               ; preds = %Py_DECREF.exit
   %.0.copyload = load i16, ptr %0, align 1
   %30 = call noundef i16 @llvm.bswap.i16(i16 %.0.copyload)
   %31 = zext i16 %30 to i32
-  %32 = trunc i64 %29 to i32
+  %32 = trunc i64 %28 to i32
   %33 = add i32 %32, -1
   %notmask = shl nsw i32 -1, %33
   %34 = xor i32 %notmask, -1
@@ -1663,8 +1661,8 @@ Py_DECREF.exit:                                   ; preds = %21, %24, %27
   %46 = trunc i32 %45 to i16
   br label %47
 
-47:                                               ; preds = %Py_DECREF.exit, %28
-  %48 = phi i16 [ %46, %28 ], [ %22, %Py_DECREF.exit ]
+47:                                               ; preds = %Py_DECREF.exit, %29
+  %48 = phi i16 [ %46, %29 ], [ %22, %Py_DECREF.exit ]
   %49 = call noundef i16 @llvm.bswap.i16(i16 %48)
   store i16 %49, ptr %0, align 1
   br label %50
@@ -1678,27 +1676,27 @@ Py_DECREF.exit:                                   ; preds = %21, %24, %27
 define internal ptr @i16_get_sw(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %.0.copyload = load i16, ptr %0, align 1
   %3 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.copyload)
-  %.not = icmp ult i64 %1, 65536
-  br i1 %.not, label %17, label %4
+  %4 = ashr i64 %1, 16
+  %.not = icmp eq i64 %4, 0
+  br i1 %.not, label %17, label %5
 
-4:                                                ; preds = %2
-  %5 = ashr i64 %1, 16
+5:                                                ; preds = %2
   %6 = and i64 %1, 65535
-  %7 = add nsw i64 %6, %5
+  %7 = add nsw i64 %6, %4
   %8 = zext i16 %3 to i32
   %9 = trunc i64 %7 to i32
   %10 = sub i32 16, %9
   %11 = shl i32 %8, %10
   %sext = shl i32 %11, 16
   %12 = ashr exact i32 %sext, 16
-  %13 = trunc i64 %5 to i32
+  %13 = trunc i64 %4 to i32
   %14 = sub i32 16, %13
   %15 = ashr i32 %12, %14
   %16 = trunc nsw i32 %15 to i16
   br label %17
 
-17:                                               ; preds = %4, %2
-  %.0 = phi i16 [ %16, %4 ], [ %3, %2 ]
+17:                                               ; preds = %5, %2
+  %.0 = phi i16 [ %16, %5 ], [ %3, %2 ]
   %18 = sext i16 %.0 to i32
   %19 = tail call ptr @PyLong_FromInt32(i32 noundef %18) #8
   ret ptr %19
@@ -1739,14 +1737,14 @@ define internal noundef ptr @u16_set(ptr noundef captures(none) %0, ptr noundef 
   br i1 %20, label %21, label %45
 
 21:                                               ; preds = %18, %11
-  %.not16 = icmp ult i64 %2, 65536
-  br i1 %.not16, label %41, label %22
+  %22 = ashr i64 %2, 16
+  %.not16 = icmp eq i64 %22, 0
+  br i1 %.not16, label %41, label %23
 
-22:                                               ; preds = %21
-  %23 = lshr i64 %2, 16
+23:                                               ; preds = %21
   %.0.copyload = load i16, ptr %0, align 1
   %24 = zext i16 %.0.copyload to i32
-  %25 = trunc i64 %23 to i32
+  %25 = trunc i64 %22 to i32
   %26 = add i32 %25, -1
   %notmask = shl nsw i32 -1, %26
   %27 = xor i32 %notmask, -1
@@ -1769,8 +1767,8 @@ define internal noundef ptr @u16_set(ptr noundef captures(none) %0, ptr noundef 
   %42 = load i16, ptr %4, align 2, !tbaa !105
   br label %43
 
-43:                                               ; preds = %41, %22
-  %44 = phi i16 [ %40, %22 ], [ %42, %41 ]
+43:                                               ; preds = %41, %23
+  %44 = phi i16 [ %40, %23 ], [ %42, %41 ]
   store i16 %44, ptr %0, align 1
   br label %45
 
@@ -1783,26 +1781,26 @@ define internal noundef ptr @u16_set(ptr noundef captures(none) %0, ptr noundef 
 ; Function Attrs: nounwind uwtable
 define internal ptr @u16_get(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %.0.copyload = load i16, ptr %0, align 1
-  %.not = icmp ult i64 %1, 65536
-  br i1 %.not, label %16, label %3
+  %3 = ashr i64 %1, 16
+  %.not = icmp eq i64 %3, 0
+  br i1 %.not, label %16, label %4
 
-3:                                                ; preds = %2
-  %4 = ashr i64 %1, 16
+4:                                                ; preds = %2
   %5 = and i64 %1, 65535
-  %6 = add nsw i64 %5, %4
+  %6 = add nsw i64 %5, %3
   %7 = zext i16 %.0.copyload to i32
   %8 = trunc i64 %6 to i32
   %9 = sub i32 16, %8
   %10 = shl i32 %7, %9
   %11 = and i32 %10, 65535
-  %12 = trunc i64 %4 to i32
+  %12 = trunc i64 %3 to i32
   %13 = sub i32 16, %12
   %14 = lshr i32 %11, %13
   %15 = trunc nuw i32 %14 to i16
   br label %16
 
-16:                                               ; preds = %3, %2
-  %.0 = phi i16 [ %15, %3 ], [ %.0.copyload, %2 ]
+16:                                               ; preds = %4, %2
+  %.0 = phi i16 [ %15, %4 ], [ %.0.copyload, %2 ]
   %17 = zext i16 %.0 to i32
   %18 = tail call ptr @PyLong_FromUInt32(i32 noundef %17) #8
   ret ptr %18
@@ -1867,15 +1865,15 @@ u16_set.exit.thread:                              ; preds = %18
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %21, %24, %27
-  %.not = icmp ult i64 %2, 65536
-  br i1 %.not, label %47, label %28
+  %28 = ashr i64 %2, 16
+  %.not = icmp eq i64 %28, 0
+  br i1 %.not, label %47, label %29
 
-28:                                               ; preds = %Py_DECREF.exit
-  %29 = lshr i64 %2, 16
+29:                                               ; preds = %Py_DECREF.exit
   %.0.copyload = load i16, ptr %0, align 1
   %30 = call noundef i16 @llvm.bswap.i16(i16 %.0.copyload)
   %31 = zext i16 %30 to i32
-  %32 = trunc i64 %29 to i32
+  %32 = trunc i64 %28 to i32
   %33 = add i32 %32, -1
   %notmask = shl nsw i32 -1, %33
   %34 = xor i32 %notmask, -1
@@ -1893,8 +1891,8 @@ Py_DECREF.exit:                                   ; preds = %21, %24, %27
   %46 = trunc i32 %45 to i16
   br label %47
 
-47:                                               ; preds = %Py_DECREF.exit, %28
-  %48 = phi i16 [ %46, %28 ], [ %22, %Py_DECREF.exit ]
+47:                                               ; preds = %Py_DECREF.exit, %29
+  %48 = phi i16 [ %46, %29 ], [ %22, %Py_DECREF.exit ]
   %49 = call noundef i16 @llvm.bswap.i16(i16 %48)
   store i16 %49, ptr %0, align 1
   br label %50
@@ -1908,26 +1906,26 @@ Py_DECREF.exit:                                   ; preds = %21, %24, %27
 define internal ptr @u16_get_sw(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %.0.copyload = load i16, ptr %0, align 1
   %3 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.copyload)
-  %.not = icmp ult i64 %1, 65536
-  br i1 %.not, label %17, label %4
+  %4 = ashr i64 %1, 16
+  %.not = icmp eq i64 %4, 0
+  br i1 %.not, label %17, label %5
 
-4:                                                ; preds = %2
-  %5 = ashr i64 %1, 16
+5:                                                ; preds = %2
   %6 = and i64 %1, 65535
-  %7 = add nsw i64 %6, %5
+  %7 = add nsw i64 %6, %4
   %8 = zext i16 %3 to i32
   %9 = trunc i64 %7 to i32
   %10 = sub i32 16, %9
   %11 = shl i32 %8, %10
   %12 = and i32 %11, 65535
-  %13 = trunc i64 %5 to i32
+  %13 = trunc i64 %4 to i32
   %14 = sub i32 16, %13
   %15 = lshr i32 %12, %14
   %16 = trunc nuw i32 %15 to i16
   br label %17
 
-17:                                               ; preds = %4, %2
-  %.0 = phi i16 [ %16, %4 ], [ %3, %2 ]
+17:                                               ; preds = %5, %2
+  %.0 = phi i16 [ %16, %5 ], [ %3, %2 ]
   %18 = zext i16 %.0 to i32
   %19 = tail call ptr @PyLong_FromUInt32(i32 noundef %18) #8
   ret ptr %19
@@ -1967,13 +1965,13 @@ define internal noundef ptr @i32_set(ptr noundef captures(none) %0, ptr noundef 
   br i1 %19, label %20, label %41
 
 20:                                               ; preds = %17, %11
-  %.not16 = icmp ult i64 %2, 65536
-  br i1 %.not16, label %37, label %21
+  %21 = ashr i64 %2, 16
+  %.not16 = icmp eq i64 %21, 0
+  br i1 %.not16, label %37, label %22
 
-21:                                               ; preds = %20
-  %22 = lshr i64 %2, 16
+22:                                               ; preds = %20
   %.0.copyload = load i32, ptr %0, align 1
-  %23 = trunc i64 %22 to i32
+  %23 = trunc i64 %21 to i32
   %24 = add i32 %23, -1
   %notmask = shl nsw i32 -1, %24
   %25 = xor i32 %notmask, -1
@@ -1994,8 +1992,8 @@ define internal noundef ptr @i32_set(ptr noundef captures(none) %0, ptr noundef 
   %38 = load i32, ptr %4, align 4, !tbaa !104
   br label %39
 
-39:                                               ; preds = %37, %21
-  %40 = phi i32 [ %36, %21 ], [ %38, %37 ]
+39:                                               ; preds = %37, %22
+  %40 = phi i32 [ %36, %22 ], [ %38, %37 ]
   store i32 %40, ptr %0, align 1
   br label %41
 
@@ -2008,23 +2006,23 @@ define internal noundef ptr @i32_set(ptr noundef captures(none) %0, ptr noundef 
 ; Function Attrs: nounwind uwtable
 define internal ptr @i32_get(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %.0.copyload = load i32, ptr %0, align 1
-  %.not = icmp ult i64 %1, 65536
-  br i1 %.not, label %13, label %3
+  %3 = ashr i64 %1, 16
+  %.not = icmp eq i64 %3, 0
+  br i1 %.not, label %13, label %4
 
-3:                                                ; preds = %2
-  %4 = ashr i64 %1, 16
+4:                                                ; preds = %2
   %5 = and i64 %1, 65535
-  %6 = add nsw i64 %5, %4
+  %6 = add nsw i64 %5, %3
   %7 = trunc i64 %6 to i32
   %8 = sub i32 32, %7
   %9 = shl i32 %.0.copyload, %8
-  %10 = trunc i64 %4 to i32
+  %10 = trunc i64 %3 to i32
   %11 = sub i32 32, %10
   %12 = ashr i32 %9, %11
   br label %13
 
-13:                                               ; preds = %3, %2
-  %.0 = phi i32 [ %12, %3 ], [ %.0.copyload, %2 ]
+13:                                               ; preds = %4, %2
+  %.0 = phi i32 [ %12, %4 ], [ %.0.copyload, %2 ]
   %14 = tail call ptr @PyLong_FromInt32(i32 noundef %.0) #8
   ret ptr %14
 }
@@ -2087,14 +2085,14 @@ i32_set.exit.thread:                              ; preds = %17
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %20, %23, %26
-  %.not = icmp ult i64 %2, 65536
-  br i1 %.not, label %43, label %27
+  %27 = ashr i64 %2, 16
+  %.not = icmp eq i64 %27, 0
+  br i1 %.not, label %43, label %28
 
-27:                                               ; preds = %Py_DECREF.exit
-  %28 = lshr i64 %2, 16
+28:                                               ; preds = %Py_DECREF.exit
   %.0.copyload = load i32, ptr %0, align 1
   %29 = call noundef i32 @llvm.bswap.i32(i32 %.0.copyload)
-  %30 = trunc i64 %28 to i32
+  %30 = trunc i64 %27 to i32
   %31 = add i32 %30, -1
   %notmask = shl nsw i32 -1, %31
   %32 = xor i32 %notmask, -1
@@ -2110,8 +2108,8 @@ Py_DECREF.exit:                                   ; preds = %20, %23, %26
   %42 = or i32 %39, %41
   br label %43
 
-43:                                               ; preds = %Py_DECREF.exit, %27
-  %44 = phi i32 [ %42, %27 ], [ %21, %Py_DECREF.exit ]
+43:                                               ; preds = %Py_DECREF.exit, %28
+  %44 = phi i32 [ %42, %28 ], [ %21, %Py_DECREF.exit ]
   %45 = call noundef i32 @llvm.bswap.i32(i32 %44)
   store i32 %45, ptr %0, align 1
   br label %46
@@ -2125,23 +2123,23 @@ Py_DECREF.exit:                                   ; preds = %20, %23, %26
 define internal ptr @i32_get_sw(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %.0.copyload = load i32, ptr %0, align 1
   %3 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.copyload)
-  %.not = icmp ult i64 %1, 65536
-  br i1 %.not, label %14, label %4
+  %4 = ashr i64 %1, 16
+  %.not = icmp eq i64 %4, 0
+  br i1 %.not, label %14, label %5
 
-4:                                                ; preds = %2
-  %5 = ashr i64 %1, 16
+5:                                                ; preds = %2
   %6 = and i64 %1, 65535
-  %7 = add nsw i64 %6, %5
+  %7 = add nsw i64 %6, %4
   %8 = trunc i64 %7 to i32
   %9 = sub i32 32, %8
   %10 = shl i32 %3, %9
-  %11 = trunc i64 %5 to i32
+  %11 = trunc i64 %4 to i32
   %12 = sub i32 32, %11
   %13 = ashr i32 %10, %12
   br label %14
 
-14:                                               ; preds = %4, %2
-  %.0 = phi i32 [ %13, %4 ], [ %3, %2 ]
+14:                                               ; preds = %5, %2
+  %.0 = phi i32 [ %13, %5 ], [ %3, %2 ]
   %15 = tail call ptr @PyLong_FromInt32(i32 noundef %.0) #8
   ret ptr %15
 }
@@ -2180,13 +2178,13 @@ define internal noundef ptr @u32_set(ptr noundef captures(none) %0, ptr noundef 
   br i1 %19, label %20, label %41
 
 20:                                               ; preds = %17, %11
-  %.not16 = icmp ult i64 %2, 65536
-  br i1 %.not16, label %37, label %21
+  %21 = ashr i64 %2, 16
+  %.not16 = icmp eq i64 %21, 0
+  br i1 %.not16, label %37, label %22
 
-21:                                               ; preds = %20
-  %22 = lshr i64 %2, 16
+22:                                               ; preds = %20
   %.0.copyload = load i32, ptr %0, align 1
-  %23 = trunc i64 %22 to i32
+  %23 = trunc i64 %21 to i32
   %24 = add i32 %23, -1
   %notmask = shl nsw i32 -1, %24
   %25 = xor i32 %notmask, -1
@@ -2207,8 +2205,8 @@ define internal noundef ptr @u32_set(ptr noundef captures(none) %0, ptr noundef 
   %38 = load i32, ptr %4, align 4, !tbaa !104
   br label %39
 
-39:                                               ; preds = %37, %21
-  %40 = phi i32 [ %36, %21 ], [ %38, %37 ]
+39:                                               ; preds = %37, %22
+  %40 = phi i32 [ %36, %22 ], [ %38, %37 ]
   store i32 %40, ptr %0, align 1
   br label %41
 
@@ -2221,23 +2219,23 @@ define internal noundef ptr @u32_set(ptr noundef captures(none) %0, ptr noundef 
 ; Function Attrs: nounwind uwtable
 define internal ptr @u32_get(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %.0.copyload = load i32, ptr %0, align 1
-  %.not = icmp ult i64 %1, 65536
-  br i1 %.not, label %13, label %3
+  %3 = ashr i64 %1, 16
+  %.not = icmp eq i64 %3, 0
+  br i1 %.not, label %13, label %4
 
-3:                                                ; preds = %2
-  %4 = ashr i64 %1, 16
+4:                                                ; preds = %2
   %5 = and i64 %1, 65535
-  %6 = add nsw i64 %5, %4
+  %6 = add nsw i64 %5, %3
   %7 = trunc i64 %6 to i32
   %8 = sub i32 32, %7
   %9 = shl i32 %.0.copyload, %8
-  %10 = trunc i64 %4 to i32
+  %10 = trunc i64 %3 to i32
   %11 = sub i32 32, %10
   %12 = lshr i32 %9, %11
   br label %13
 
-13:                                               ; preds = %3, %2
-  %.0 = phi i32 [ %12, %3 ], [ %.0.copyload, %2 ]
+13:                                               ; preds = %4, %2
+  %.0 = phi i32 [ %12, %4 ], [ %.0.copyload, %2 ]
   %14 = tail call ptr @PyLong_FromUInt32(i32 noundef %.0) #8
   ret ptr %14
 }
@@ -2300,14 +2298,14 @@ u32_set.exit.thread:                              ; preds = %17
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %20, %23, %26
-  %.not = icmp ult i64 %2, 65536
-  br i1 %.not, label %43, label %27
+  %27 = ashr i64 %2, 16
+  %.not = icmp eq i64 %27, 0
+  br i1 %.not, label %43, label %28
 
-27:                                               ; preds = %Py_DECREF.exit
-  %28 = lshr i64 %2, 16
+28:                                               ; preds = %Py_DECREF.exit
   %.0.copyload = load i32, ptr %0, align 1
   %29 = call noundef i32 @llvm.bswap.i32(i32 %.0.copyload)
-  %30 = trunc i64 %28 to i32
+  %30 = trunc i64 %27 to i32
   %31 = add i32 %30, -1
   %notmask = shl nsw i32 -1, %31
   %32 = xor i32 %notmask, -1
@@ -2323,8 +2321,8 @@ Py_DECREF.exit:                                   ; preds = %20, %23, %26
   %42 = or i32 %39, %41
   br label %43
 
-43:                                               ; preds = %Py_DECREF.exit, %27
-  %44 = phi i32 [ %42, %27 ], [ %21, %Py_DECREF.exit ]
+43:                                               ; preds = %Py_DECREF.exit, %28
+  %44 = phi i32 [ %42, %28 ], [ %21, %Py_DECREF.exit ]
   %45 = call noundef i32 @llvm.bswap.i32(i32 %44)
   store i32 %45, ptr %0, align 1
   br label %46
@@ -2338,23 +2336,23 @@ Py_DECREF.exit:                                   ; preds = %20, %23, %26
 define internal ptr @u32_get_sw(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %.0.copyload = load i32, ptr %0, align 1
   %3 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.copyload)
-  %.not = icmp ult i64 %1, 65536
-  br i1 %.not, label %14, label %4
+  %4 = ashr i64 %1, 16
+  %.not = icmp eq i64 %4, 0
+  br i1 %.not, label %14, label %5
 
-4:                                                ; preds = %2
-  %5 = ashr i64 %1, 16
+5:                                                ; preds = %2
   %6 = and i64 %1, 65535
-  %7 = add nsw i64 %6, %5
+  %7 = add nsw i64 %6, %4
   %8 = trunc i64 %7 to i32
   %9 = sub i32 32, %8
   %10 = shl i32 %3, %9
-  %11 = trunc i64 %5 to i32
+  %11 = trunc i64 %4 to i32
   %12 = sub i32 32, %11
   %13 = lshr i32 %10, %12
   br label %14
 
-14:                                               ; preds = %4, %2
-  %.0 = phi i32 [ %13, %4 ], [ %3, %2 ]
+14:                                               ; preds = %5, %2
+  %.0 = phi i32 [ %13, %5 ], [ %3, %2 ]
   %15 = tail call ptr @PyLong_FromUInt32(i32 noundef %.0) #8
   ret ptr %15
 }
@@ -2393,13 +2391,13 @@ define internal noundef ptr @i64_set(ptr noundef captures(none) %0, ptr noundef 
   br i1 %19, label %20, label %39
 
 20:                                               ; preds = %17, %11
-  %.not16 = icmp ult i64 %2, 65536
-  br i1 %.not16, label %35, label %21
+  %21 = ashr i64 %2, 16
+  %.not16 = icmp eq i64 %21, 0
+  br i1 %.not16, label %35, label %22
 
-21:                                               ; preds = %20
-  %22 = ashr i64 %2, 16
+22:                                               ; preds = %20
   %.0.copyload = load i64, ptr %0, align 1
-  %23 = add nsw i64 %22, -1
+  %23 = add nsw i64 %21, -1
   %notmask = shl nsw i64 -1, %23
   %24 = xor i64 %notmask, -1
   %25 = shl nuw i64 %24, 1
@@ -2418,8 +2416,8 @@ define internal noundef ptr @i64_set(ptr noundef captures(none) %0, ptr noundef 
   %36 = load i64, ptr %4, align 8, !tbaa !106
   br label %37
 
-37:                                               ; preds = %35, %21
-  %38 = phi i64 [ %34, %21 ], [ %36, %35 ]
+37:                                               ; preds = %35, %22
+  %38 = phi i64 [ %34, %22 ], [ %36, %35 ]
   store i64 %38, ptr %0, align 1
   br label %39
 
@@ -2432,21 +2430,21 @@ define internal noundef ptr @i64_set(ptr noundef captures(none) %0, ptr noundef 
 ; Function Attrs: nounwind uwtable
 define internal ptr @i64_get(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %.0.copyload = load i64, ptr %0, align 1
-  %.not = icmp ult i64 %1, 65536
-  br i1 %.not, label %11, label %3
+  %3 = ashr i64 %1, 16
+  %.not = icmp eq i64 %3, 0
+  br i1 %.not, label %11, label %4
 
-3:                                                ; preds = %2
-  %4 = ashr i64 %1, 16
+4:                                                ; preds = %2
   %5 = and i64 %1, 65535
-  %6 = add nsw i64 %4, %5
+  %6 = add nsw i64 %3, %5
   %7 = sub nsw i64 64, %6
   %8 = shl i64 %.0.copyload, %7
-  %9 = sub nsw i64 64, %4
+  %9 = sub nsw i64 64, %3
   %10 = ashr i64 %8, %9
   br label %11
 
-11:                                               ; preds = %3, %2
-  %.0 = phi i64 [ %10, %3 ], [ %.0.copyload, %2 ]
+11:                                               ; preds = %4, %2
+  %.0 = phi i64 [ %10, %4 ], [ %.0.copyload, %2 ]
   %12 = tail call ptr @PyLong_FromInt64(i64 noundef %.0) #8
   ret ptr %12
 }
@@ -2509,14 +2507,14 @@ i64_set.exit.thread:                              ; preds = %17
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %20, %23, %26
-  %.not = icmp ult i64 %2, 65536
-  br i1 %.not, label %41, label %27
+  %27 = ashr i64 %2, 16
+  %.not = icmp eq i64 %27, 0
+  br i1 %.not, label %41, label %28
 
-27:                                               ; preds = %Py_DECREF.exit
-  %28 = ashr i64 %2, 16
+28:                                               ; preds = %Py_DECREF.exit
   %.0.copyload = load i64, ptr %0, align 1
   %29 = call noundef i64 @llvm.bswap.i64(i64 %.0.copyload)
-  %30 = add nsw i64 %28, -1
+  %30 = add nsw i64 %27, -1
   %notmask = shl nsw i64 -1, %30
   %31 = xor i64 %notmask, -1
   %32 = shl nuw i64 %31, 1
@@ -2530,8 +2528,8 @@ Py_DECREF.exit:                                   ; preds = %20, %23, %26
   %40 = or i64 %37, %39
   br label %41
 
-41:                                               ; preds = %Py_DECREF.exit, %27
-  %42 = phi i64 [ %40, %27 ], [ %21, %Py_DECREF.exit ]
+41:                                               ; preds = %Py_DECREF.exit, %28
+  %42 = phi i64 [ %40, %28 ], [ %21, %Py_DECREF.exit ]
   %43 = call noundef i64 @llvm.bswap.i64(i64 %42)
   store i64 %43, ptr %0, align 1
   br label %44
@@ -2545,21 +2543,21 @@ Py_DECREF.exit:                                   ; preds = %20, %23, %26
 define internal ptr @i64_get_sw(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %.0.copyload = load i64, ptr %0, align 1
   %3 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload)
-  %.not = icmp ult i64 %1, 65536
-  br i1 %.not, label %12, label %4
+  %4 = ashr i64 %1, 16
+  %.not = icmp eq i64 %4, 0
+  br i1 %.not, label %12, label %5
 
-4:                                                ; preds = %2
-  %5 = ashr i64 %1, 16
+5:                                                ; preds = %2
   %6 = and i64 %1, 65535
-  %7 = add nsw i64 %5, %6
+  %7 = add nsw i64 %4, %6
   %8 = sub nsw i64 64, %7
   %9 = shl i64 %3, %8
-  %10 = sub nsw i64 64, %5
+  %10 = sub nsw i64 64, %4
   %11 = ashr i64 %9, %10
   br label %12
 
-12:                                               ; preds = %4, %2
-  %.0 = phi i64 [ %11, %4 ], [ %3, %2 ]
+12:                                               ; preds = %5, %2
+  %.0 = phi i64 [ %11, %5 ], [ %3, %2 ]
   %13 = tail call ptr @PyLong_FromInt64(i64 noundef %.0) #8
   ret ptr %13
 }
@@ -2598,13 +2596,13 @@ define internal noundef ptr @u64_set(ptr noundef captures(none) %0, ptr noundef 
   br i1 %19, label %20, label %39
 
 20:                                               ; preds = %17, %11
-  %.not16 = icmp ult i64 %2, 65536
-  br i1 %.not16, label %35, label %21
+  %21 = ashr i64 %2, 16
+  %.not16 = icmp eq i64 %21, 0
+  br i1 %.not16, label %35, label %22
 
-21:                                               ; preds = %20
-  %22 = ashr i64 %2, 16
+22:                                               ; preds = %20
   %.0.copyload = load i64, ptr %0, align 1
-  %23 = add nsw i64 %22, -1
+  %23 = add nsw i64 %21, -1
   %notmask = shl nsw i64 -1, %23
   %24 = xor i64 %notmask, -1
   %25 = shl nuw i64 %24, 1
@@ -2623,8 +2621,8 @@ define internal noundef ptr @u64_set(ptr noundef captures(none) %0, ptr noundef 
   %36 = load i64, ptr %4, align 8, !tbaa !106
   br label %37
 
-37:                                               ; preds = %35, %21
-  %38 = phi i64 [ %34, %21 ], [ %36, %35 ]
+37:                                               ; preds = %35, %22
+  %38 = phi i64 [ %34, %22 ], [ %36, %35 ]
   store i64 %38, ptr %0, align 1
   br label %39
 
@@ -2637,21 +2635,21 @@ define internal noundef ptr @u64_set(ptr noundef captures(none) %0, ptr noundef 
 ; Function Attrs: nounwind uwtable
 define internal ptr @u64_get(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %.0.copyload = load i64, ptr %0, align 1
-  %.not = icmp ult i64 %1, 65536
-  br i1 %.not, label %11, label %3
+  %3 = ashr i64 %1, 16
+  %.not = icmp eq i64 %3, 0
+  br i1 %.not, label %11, label %4
 
-3:                                                ; preds = %2
-  %4 = ashr i64 %1, 16
+4:                                                ; preds = %2
   %5 = and i64 %1, 65535
-  %6 = add nsw i64 %4, %5
+  %6 = add nsw i64 %3, %5
   %7 = sub nsw i64 64, %6
   %8 = shl i64 %.0.copyload, %7
-  %9 = sub nsw i64 64, %4
+  %9 = sub nsw i64 64, %3
   %10 = lshr i64 %8, %9
   br label %11
 
-11:                                               ; preds = %3, %2
-  %.0 = phi i64 [ %10, %3 ], [ %.0.copyload, %2 ]
+11:                                               ; preds = %4, %2
+  %.0 = phi i64 [ %10, %4 ], [ %.0.copyload, %2 ]
   %12 = tail call ptr @PyLong_FromUInt64(i64 noundef %.0) #8
   ret ptr %12
 }
@@ -2714,14 +2712,14 @@ u64_set.exit.thread:                              ; preds = %17
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %20, %23, %26
-  %.not = icmp ult i64 %2, 65536
-  br i1 %.not, label %41, label %27
+  %27 = ashr i64 %2, 16
+  %.not = icmp eq i64 %27, 0
+  br i1 %.not, label %41, label %28
 
-27:                                               ; preds = %Py_DECREF.exit
-  %28 = ashr i64 %2, 16
+28:                                               ; preds = %Py_DECREF.exit
   %.0.copyload = load i64, ptr %0, align 1
   %29 = call noundef i64 @llvm.bswap.i64(i64 %.0.copyload)
-  %30 = add nsw i64 %28, -1
+  %30 = add nsw i64 %27, -1
   %notmask = shl nsw i64 -1, %30
   %31 = xor i64 %notmask, -1
   %32 = shl nuw i64 %31, 1
@@ -2735,8 +2733,8 @@ Py_DECREF.exit:                                   ; preds = %20, %23, %26
   %40 = or i64 %37, %39
   br label %41
 
-41:                                               ; preds = %Py_DECREF.exit, %27
-  %42 = phi i64 [ %40, %27 ], [ %21, %Py_DECREF.exit ]
+41:                                               ; preds = %Py_DECREF.exit, %28
+  %42 = phi i64 [ %40, %28 ], [ %21, %Py_DECREF.exit ]
   %43 = call noundef i64 @llvm.bswap.i64(i64 %42)
   store i64 %43, ptr %0, align 1
   br label %44
@@ -2750,21 +2748,21 @@ Py_DECREF.exit:                                   ; preds = %20, %23, %26
 define internal ptr @u64_get_sw(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %.0.copyload = load i64, ptr %0, align 1
   %3 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload)
-  %.not = icmp ult i64 %1, 65536
-  br i1 %.not, label %12, label %4
+  %4 = ashr i64 %1, 16
+  %.not = icmp eq i64 %4, 0
+  br i1 %.not, label %12, label %5
 
-4:                                                ; preds = %2
-  %5 = ashr i64 %1, 16
+5:                                                ; preds = %2
   %6 = and i64 %1, 65535
-  %7 = add nsw i64 %5, %6
+  %7 = add nsw i64 %4, %6
   %8 = sub nsw i64 64, %7
   %9 = shl i64 %3, %8
-  %10 = sub nsw i64 64, %5
+  %10 = sub nsw i64 64, %4
   %11 = lshr i64 %9, %10
   br label %12
 
-12:                                               ; preds = %4, %2
-  %.0 = phi i64 [ %11, %4 ], [ %3, %2 ]
+12:                                               ; preds = %5, %2
+  %.0 = phi i64 [ %11, %5 ], [ %3, %2 ]
   %13 = tail call ptr @PyLong_FromUInt64(i64 noundef %.0) #8
   ret ptr %13
 }
@@ -3365,7 +3363,7 @@ _Py_NewRef.exit:                                  ; preds = %28, %25, %19, %13, 
 ; Function Attrs: nounwind uwtable
 define internal ptr @U_get(ptr noundef %0, i64 noundef %1) #0 {
   %3 = lshr i64 %1, 2
-  %.not11 = icmp ult i64 %1, 4
+  %.not11 = icmp eq i64 %3, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %6

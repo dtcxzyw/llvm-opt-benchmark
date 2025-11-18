@@ -1843,7 +1843,7 @@ define internal fastcc ptr @string(ptr noundef %0, ptr noundef %1, ptr noundef r
   %18 = select i1 %15, i64 %17, i64 %3
   %19 = ashr i64 %18, 48
   %20 = trunc nsw i64 %19 to i32
-  %21 = icmp ult i64 %18, 281474976710656
+  %21 = icmp eq i64 %19, 0
   br i1 %21, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %32
@@ -1945,7 +1945,7 @@ define internal fastcc ptr @string(ptr noundef %0, ptr noundef %1, ptr noundef r
 
 widen_string.exit.thread:                         ; preds = %4
   %74 = trunc nsw i64 %12 to i32
-  %75 = icmp ult i64 %3, 281474976710656
+  %75 = icmp eq i64 %12, 0
   br i1 %75, label %.thread10, label %.lr.ph21
 
 .lr.ph21:                                         ; preds = %widen_string.exit.thread, %86
@@ -2152,7 +2152,7 @@ define internal fastcc ptr @pointer(ptr noundef readonly captures(none) %0, ptr 
 42:                                               ; preds = %40, %38, %36, %29, %26
   %43 = ashr i64 %4, 48
   %44 = trunc nsw i64 %43 to i32
-  %45 = icmp ult i64 %4, 281474976710656
+  %45 = icmp eq i64 %43, 0
   br i1 %45, label %.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %42, %56
@@ -2280,7 +2280,7 @@ symbol_string.exit:                               ; preds = %95, %.thread.i, %88
   %115 = select i1 %112, i64 %114, i64 %4
   %116 = ashr i64 %115, 48
   %117 = trunc nsw i64 %116 to i32
-  %118 = icmp ult i64 %115, 281474976710656
+  %118 = icmp eq i64 %116, 0
   br i1 %118, label %.thread.i12, label %.lr.ph.i10
 
 .lr.ph.i10:                                       ; preds = %109, %129
@@ -3055,7 +3055,7 @@ widen_string.exit44.i:                            ; preds = %499, %widen_string.
   store i8 0, ptr %534, align 1
   %535 = ashr i64 %4, 48
   %536 = trunc nsw i64 %535 to i32
-  %537 = icmp ult i64 %4, 281474976710656
+  %537 = icmp eq i64 %535, 0
   br i1 %537, label %.thread1.i, label %.lr.ph59.i
 
 .lr.ph59.i:                                       ; preds = %widen_string.exit44.i, %548
@@ -3164,7 +3164,7 @@ resource_string.exit:                             ; preds = %168, %587, %.thread
   %592 = shl i64 %4, 32
   %593 = ashr i64 %592, 40
   %594 = trunc nsw i64 %593 to i32
-  %595 = icmp ult i64 %592, 1099511627776
+  %595 = icmp eq i64 %593, 0
   br i1 %595, label %hex_string.exit, label %596
 
 596:                                              ; preds = %591
@@ -3186,7 +3186,7 @@ resource_string.exit:                             ; preds = %168, %587, %.thread
   %610 = select i1 %607, i64 %609, i64 %4
   %611 = ashr i64 %610, 48
   %612 = trunc nsw i64 %611 to i32
-  %613 = icmp ult i64 %610, 281474976710656
+  %613 = icmp eq i64 %611, 0
   br i1 %613, label %.thread.i19, label %.lr.ph.i17
 
 .lr.ph.i17:                                       ; preds = %604, %624
@@ -3442,7 +3442,7 @@ widen_string.exit.thread.i24:                     ; preds = %596
   %756 = select i1 %753, i64 %755, i64 %4
   %757 = ashr i64 %756, 48
   %758 = trunc nsw i64 %757 to i32
-  %759 = icmp ult i64 %756, 281474976710656
+  %759 = icmp eq i64 %757, 0
   br i1 %759, label %.thread.i28, label %.lr.ph.i26
 
 .lr.ph.i26:                                       ; preds = %750, %770
@@ -3633,7 +3633,7 @@ widen_string.exit.thread.i33:                     ; preds = %742
   store i8 0, ptr %.us-phi.i, align 1
   %866 = ashr i64 %4, 48
   %867 = trunc nsw i64 %866 to i32
-  %868 = icmp ult i64 %4, 281474976710656
+  %868 = icmp eq i64 %866, 0
   br i1 %868, label %.thread11.i, label %.lr.ph25.i
 
 .lr.ph25.i:                                       ; preds = %.split24.us.i, %879
@@ -3757,7 +3757,7 @@ mac_address_string.exit:                          ; preds = %809, %918, %.thread
   %936 = select i1 %933, i64 %935, i64 %4
   %937 = ashr i64 %936, 48
   %938 = trunc nsw i64 %937 to i32
-  %939 = icmp ult i64 %936, 281474976710656
+  %939 = icmp eq i64 %937, 0
   br i1 %939, label %.thread.i40, label %.lr.ph.i38
 
 .lr.ph.i38:                                       ; preds = %930, %950
@@ -3943,7 +3943,7 @@ ip6_string.exit.i.i:                              ; preds = %1038
 1042:                                             ; preds = %ip6_string.exit.i.i, %1000
   %1043 = ashr i64 %4, 48
   %1044 = trunc nsw i64 %1043 to i32
-  %1045 = icmp ult i64 %4, 281474976710656
+  %1045 = icmp eq i64 %1043, 0
   br i1 %1045, label %.thread.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1042, %1056
@@ -4056,7 +4056,7 @@ ip6_addr_string.exit.i:                           ; preds = %1095, %1088, %.thre
   %1101 = call fastcc ptr @ip4_string(ptr noundef nonnull %12, ptr noundef readonly %3, i8 %18, i8 %.val7.i)
   %1102 = ashr i64 %4, 48
   %1103 = trunc nsw i64 %1102 to i32
-  %1104 = icmp ult i64 %4, 281474976710656
+  %1104 = icmp eq i64 %1102, 0
   br i1 %1104, label %.thread.i10.i, label %.lr.ph.i8.i
 
 .lr.ph.i8.i:                                      ; preds = %1099, %1115
@@ -4240,7 +4240,7 @@ ip4_addr_string.exit.i:                           ; preds = %1154, %1147, %.thre
   store i8 0, ptr %1201, align 1
   %1202 = ashr i64 %4, 48
   %1203 = trunc nsw i64 %1202 to i32
-  %1204 = icmp ult i64 %4, 281474976710656
+  %1204 = icmp eq i64 %1202, 0
   br i1 %1204, label %.thread3.i.i, label %.lr.ph.i17.i
 
 .lr.ph.i17.i:                                     ; preds = %1200, %1215
@@ -4606,7 +4606,7 @@ ip6_string.exit.i34.i:                            ; preds = %.preheader.split.us
   store i8 0, ptr %1429, align 1
   %1430 = ashr i64 %4, 48
   %1431 = trunc nsw i64 %1430 to i32
-  %1432 = icmp ult i64 %4, 281474976710656
+  %1432 = icmp eq i64 %1430, 0
   br i1 %1432, label %.thread.i26.i, label %.lr.ph.i24.i
 
 .lr.ph.i24.i:                                     ; preds = %1428, %1443
@@ -4837,7 +4837,7 @@ ip6_addr_string_sa.exit.i:                        ; preds = %1482, %1475, %.thre
   %1563 = select i1 %1560, i64 %1562, i64 %4
   %1564 = ashr i64 %1563, 48
   %1565 = trunc nsw i64 %1564 to i32
-  %1566 = icmp ult i64 %1563, 281474976710656
+  %1566 = icmp eq i64 %1564, 0
   br i1 %1566, label %.thread45.i, label %.lr.ph72.preheader.i
 
 .lr.ph72.preheader.i:                             ; preds = %1557
@@ -4945,7 +4945,7 @@ ip6_addr_string_sa.exit.i:                        ; preds = %1482, %1475, %.thre
 1621:                                             ; preds = %5
   %1622 = shl i64 %4, 32
   %1623 = ashr i64 %1622, 40
-  %1624 = icmp ult i64 %1622, 1099511627776
+  %1624 = icmp eq i64 %1623, 0
   br i1 %1624, label %hex_string.exit, label %1625
 
 1625:                                             ; preds = %1621
@@ -4967,7 +4967,7 @@ ip6_addr_string_sa.exit.i:                        ; preds = %1482, %1475, %.thre
   %1639 = select i1 %1636, i64 %1638, i64 %4
   %1640 = ashr i64 %1639, 48
   %1641 = trunc nsw i64 %1640 to i32
-  %1642 = icmp ult i64 %1639, 281474976710656
+  %1642 = icmp eq i64 %1640, 0
   br i1 %1642, label %.thread.i49, label %.lr.ph.i47
 
 .lr.ph.i47:                                       ; preds = %1633, %1653
@@ -5143,7 +5143,7 @@ ip6_addr_string_sa.exit.i:                        ; preds = %1482, %1475, %.thre
   %1736 = select i1 %1733, i64 %1735, i64 %4
   %1737 = ashr i64 %1736, 48
   %1738 = trunc nsw i64 %1737 to i32
-  %1739 = icmp ult i64 %1736, 281474976710656
+  %1739 = icmp eq i64 %1737, 0
   br i1 %1739, label %.thread.i57, label %.lr.ph.i55
 
 .lr.ph.i55:                                       ; preds = %1730, %1750
@@ -5310,7 +5310,7 @@ widen_string.exit.thread.i64:                     ; preds = %1722
   store i8 0, ptr %1823, align 1
   %1827 = ashr i64 %4, 48
   %1828 = trunc nsw i64 %1827 to i32
-  %1829 = icmp ult i64 %4, 281474976710656
+  %1829 = icmp eq i64 %1827, 0
   br i1 %1829, label %.thread11.i65, label %.lr.ph23.i
 
 .lr.ph23.i:                                       ; preds = %1826, %1840
@@ -5436,7 +5436,7 @@ uuid_string.exit:                                 ; preds = %1789, %1879, %.thre
   %1897 = select i1 %1894, i64 %1896, i64 %4
   %1898 = ashr i64 %1897, 48
   %1899 = trunc nsw i64 %1898 to i32
-  %1900 = icmp ult i64 %1897, 281474976710656
+  %1900 = icmp eq i64 %1898, 0
   br i1 %1900, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1891, %1911
@@ -5693,7 +5693,7 @@ widen_string.exit.thread.i77:                     ; preds = %2033, %2027, %1929
   %2060 = select i1 %2057, i64 %2059, i64 %4
   %2061 = ashr i64 %2060, 48
   %2062 = trunc nsw i64 %2061 to i32
-  %2063 = icmp ult i64 %2060, 281474976710656
+  %2063 = icmp eq i64 %2061, 0
   br i1 %2063, label %.thread.i80, label %.lr.ph.i78
 
 .lr.ph.i78:                                       ; preds = %2054, %2074
@@ -6071,7 +6071,7 @@ widen_string.exit.thread.i86:                     ; preds = %2046
   %2286 = select i1 %2283, i64 %2285, i64 %4
   %2287 = ashr i64 %2286, 48
   %2288 = trunc nsw i64 %2287 to i32
-  %2289 = icmp ult i64 %2286, 281474976710656
+  %2289 = icmp eq i64 %2287, 0
   br i1 %2289, label %.thread.i94, label %.lr.ph.i92
 
 .lr.ph.i92:                                       ; preds = %2280, %2300
@@ -6248,7 +6248,7 @@ fourcc_string.exit:                               ; preds = %2269, %2339, %2231,
   %2393 = select i1 %2390, i64 %2392, i64 %4
   %2394 = ashr i64 %2393, 48
   %2395 = trunc nsw i64 %2394 to i32
-  %2396 = icmp ult i64 %2393, 281474976710656
+  %2396 = icmp eq i64 %2394, 0
   br i1 %2396, label %.thread.i97, label %.lr.ph.i95
 
 .lr.ph.i95:                                       ; preds = %2387, %2407
@@ -6668,7 +6668,7 @@ widen_string.exit.thread.i105:                    ; preds = %2379
   %2642 = select i1 %2639, i64 %2641, i64 %4
   %2643 = ashr i64 %2642, 48
   %2644 = trunc nsw i64 %2643 to i32
-  %2645 = icmp ult i64 %2642, 281474976710656
+  %2645 = icmp eq i64 %2643, 0
   br i1 %2645, label %.thread.i118, label %.lr.ph.i116
 
 .lr.ph.i116:                                      ; preds = %2636, %2656
@@ -6795,7 +6795,7 @@ widen_string.exit.thread.i126:                    ; preds = %2628
   %2716 = select i1 %2713, i64 %2715, i64 %4
   %2717 = ashr i64 %2716, 48
   %2718 = trunc nsw i64 %2717 to i32
-  %2719 = icmp ult i64 %2716, 281474976710656
+  %2719 = icmp eq i64 %2717, 0
   br i1 %2719, label %.thread.i130, label %.lr.ph.i128
 
 .lr.ph.i128:                                      ; preds = %2710, %2730
@@ -6954,7 +6954,7 @@ widen_string.exit.thread.i137:                    ; preds = %2702
   %2810 = select i1 %2807, i64 %2809, i64 %4
   %2811 = ashr i64 %2810, 48
   %2812 = trunc nsw i64 %2811 to i32
-  %2813 = icmp ult i64 %2810, 281474976710656
+  %2813 = icmp eq i64 %2811, 0
   br i1 %2813, label %.thread.i140, label %.lr.ph.i138
 
 .lr.ph.i138:                                      ; preds = %2804, %2824
@@ -7130,14 +7130,14 @@ widen_string.exit.thread.i145:                    ; preds = %2796
   br label %.thread35.i.preheader
 
 .thread35.i.preheader:                            ; preds = %2886, %._crit_edge73.i, %2874
-  %.ph1260 = phi i8 [ 0, %2874 ], [ 1, %._crit_edge73.i ], [ 1, %2886 ]
-  %.ph1261 = phi ptr [ %2875, %2874 ], [ %2903, %._crit_edge73.i ], [ %2887, %2886 ]
+  %.ph1261 = phi i8 [ 0, %2874 ], [ 1, %._crit_edge73.i ], [ 1, %2886 ]
+  %.ph1262 = phi ptr [ %2875, %2874 ], [ %2903, %._crit_edge73.i ], [ %2887, %2886 ]
   br label %.thread35.i
 
 .thread35.i:                                      ; preds = %.thread35.i.preheader, %2938
   %2904 = phi i64 [ %2941, %2938 ], [ 0, %.thread35.i.preheader ]
-  %2905 = phi i8 [ %2940, %2938 ], [ %.ph1260, %.thread35.i.preheader ]
-  %2906 = phi ptr [ %2939, %2938 ], [ %.ph1261, %.thread35.i.preheader ]
+  %2905 = phi i8 [ %2940, %2938 ], [ %.ph1261, %.thread35.i.preheader ]
+  %2906 = phi ptr [ %2939, %2938 ], [ %.ph1262, %.thread35.i.preheader ]
   %2907 = getelementptr %struct.page_flags_fields, ptr @pff, i64 %2904
   %2908 = add nsw i64 %2904, -3
   %2909 = icmp ult i64 %2908, -2
@@ -7837,7 +7837,7 @@ widen_string.exit.thread.i145:                    ; preds = %2796
   %3323 = select i1 %3320, i64 %3322, i64 %4
   %3324 = ashr i64 %3323, 48
   %3325 = trunc nsw i64 %3324 to i32
-  %3326 = icmp ult i64 %3323, 281474976710656
+  %3326 = icmp eq i64 %3324, 0
   br i1 %3326, label %.thread.i164, label %.lr.ph.i162
 
 .lr.ph.i162:                                      ; preds = %3317, %3337
@@ -10844,7 +10844,7 @@ define internal fastcc ptr @bitmap_list_string(ptr noundef %0, ptr noundef %1, p
   %22 = select i1 %19, i64 %21, i64 %3
   %23 = ashr i64 %22, 48
   %24 = trunc nsw i64 %23 to i32
-  %25 = icmp ult i64 %22, 281474976710656
+  %25 = icmp eq i64 %23, 0
   br i1 %25, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16, %36
@@ -11041,7 +11041,7 @@ define internal fastcc ptr @bitmap_string(ptr noundef %0, ptr noundef %1, ptr no
   %18 = select i1 %15, i64 %17, i64 %3
   %19 = ashr i64 %18, 48
   %20 = trunc nsw i64 %19 to i32
-  %21 = icmp ult i64 %18, 281474976710656
+  %21 = icmp eq i64 %19, 0
   br i1 %21, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12, %32
@@ -11246,7 +11246,7 @@ define internal fastcc ptr @dentry_name(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %31, label %widen_string.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %22
-  %32 = icmp ult i64 %18, 281474976710656
+  %32 = icmp eq i64 %19, 0
   br i1 %32, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %43
@@ -11383,7 +11383,7 @@ widen_string.exit.thread:                         ; preds = %22
 ._crit_edge:                                      ; preds = %4, %100, %95, %92
   %102 = phi i32 [ %101, %100 ], [ %93, %95 ], [ 0, %92 ], [ -1, %4 ]
   %103 = trunc nsw i64 %12 to i32
-  %104 = icmp ult i64 %3, 281474976710656
+  %104 = icmp eq i64 %12, 0
   br i1 %104, label %.critedge, label %105
 
 105:                                              ; preds = %._crit_edge
@@ -11719,7 +11719,7 @@ define internal fastcc ptr @err_ptr(ptr noundef %0, ptr noundef %1, ptr noundef 
 9:                                                ; preds = %4
   %10 = ashr i64 %3, 48
   %11 = trunc nsw i64 %10 to i32
-  %12 = icmp ult i64 %3, 281474976710656
+  %12 = icmp eq i64 %10, 0
   br i1 %12, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %23
@@ -12360,7 +12360,7 @@ define internal fastcc ptr @rtc_str(ptr noundef %0, ptr noundef %1, ptr noundef 
   %19 = select i1 %16, i64 %18, i64 %3
   %20 = ashr i64 %19, 48
   %21 = trunc nsw i64 %20 to i32
-  %22 = icmp ult i64 %19, 281474976710656
+  %22 = icmp eq i64 %20, 0
   br i1 %22, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %33

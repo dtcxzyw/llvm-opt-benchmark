@@ -474,7 +474,7 @@ define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1,
   %80 = icmp eq i64 %.pre92, 0
   %81 = add i64 %77, 255
   %82 = lshr i64 %81, 8
-  %83 = icmp ult i64 %81, 256
+  %83 = icmp eq i64 %82, 0
   %or.cond = select i1 %80, i1 true, i1 %83
   br i1 %or.cond, label %.thread, label %84
 

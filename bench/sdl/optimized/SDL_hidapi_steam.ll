@@ -963,7 +963,7 @@ UpdateSteamControllerState.exit:                  ; preds = %144
   %.not = xor i1 %420, true
   %or.cond = and i1 %.1.i, %.not
   %421 = icmp eq i8 %142, 1
-  %422 = icmp ult i16 %141, 256
+  %422 = icmp eq i16 %143, 0
   %or.cond163 = and i1 %421, %422
   br i1 %or.cond, label %425, label %433
 

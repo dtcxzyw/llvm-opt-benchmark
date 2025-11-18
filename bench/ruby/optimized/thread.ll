@@ -11569,17 +11569,17 @@ rb_thread_shield_waiting_inc.exit:                ; preds = %12
   %25 = tail call fastcc i64 @do_mutex_lock(i64 noundef %3, i32 noundef 1)
   %26 = load i64, ptr %13, align 8, !tbaa !42
   %27 = trunc i64 %26 to i32
-  %.not.i = icmp ult i32 %27, 4096
-  br i1 %.not.i, label %28, label %rb_thread_shield_waiting_dec.exit
+  %28 = lshr i32 %27, 12
+  %.not.i = icmp eq i32 %28, 0
+  br i1 %.not.i, label %29, label %rb_thread_shield_waiting_dec.exit
 
-28:                                               ; preds = %rb_thread_shield_waiting_inc.exit
-  %29 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !145
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %29, ptr noundef nonnull @.str.221) #38
+29:                                               ; preds = %rb_thread_shield_waiting_inc.exit
+  %30 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !145
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %30, ptr noundef nonnull @.str.221) #38
   unreachable
 
 rb_thread_shield_waiting_dec.exit:                ; preds = %rb_thread_shield_waiting_inc.exit
-  %30 = lshr i32 %27, 12
-  %31 = add nsw i32 %30, -1
+  %31 = add nsw i32 %28, -1
   %32 = and i64 %26, -4294963201
   %33 = zext nneg i32 %31 to i64
   %34 = shl nuw nsw i64 %33, 12

@@ -1611,7 +1611,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE5clearEv.exit: ; preds = %_ZNSt6vectorIN2cv6
 214:                                              ; preds = %.lr.ph.i.i.i.i.i.i103
   %215 = getelementptr inbounds %struct.Pix, ptr %173, i64 %.019.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %215, ptr noundef nonnull align 8 dereferenceable(16) %210, i64 16, i1 false), !tbaa.struct !82
-  %.not10.i.i.i.i = icmp ult i64 %.0920.in.i.i.i.i.i.i, 2
+  %.not10.i.i.i.i = icmp eq i64 %.0920.i.i89.i.i.i.i, 0
   br i1 %.not10.i.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP3PixSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterISt7greaterIS2_EEEEvT_SD_SD_RT0_.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i103, !llvm.loop !84
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP3PixSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterISt7greaterIS2_EEEEvT_SD_SD_RT0_.exit.i.i.i: ; preds = %214, %.lr.ph.i.i.i.i.i.i103, %209
@@ -2006,7 +2006,7 @@ _ZNSt6vectorI3PixSaIS0_EE9push_backERKS0_.exit.i.i: ; preds = %_ZNSt6vectorI3Pix
 441:                                              ; preds = %.lr.ph.i.i.i.i
   %442 = getelementptr inbounds %struct.Pix, ptr %429, i64 %.019.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %442, ptr noundef nonnull align 8 dereferenceable(16) %437, i64 16, i1 false), !tbaa.struct !82
-  %.not.i3.i.i = icmp ult i64 %.0920.in.i.i.i.i, 2
+  %.not.i3.i.i = icmp eq i64 %.0920.i78.i.i.i, 0
   br i1 %.not.i3.i.i, label %.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !84
 
 .loopexit.i:                                      ; preds = %441, %.lr.ph.i.i.i.i, %_ZNSt6vectorI3PixSaIS0_EE9push_backERKS0_.exit.i.i
@@ -2780,7 +2780,7 @@ _ZNSt6vectorI3PixSaIS0_EE9push_backERKS0_.exit:   ; preds = %7, %_ZNSt6vectorI3P
 43:                                               ; preds = %.lr.ph.i.i
   %44 = getelementptr inbounds %struct.Pix, ptr %31, i64 %.019.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false), !tbaa.struct !82
-  %.not.i3 = icmp ult i64 %.0920.in.i.i, 2
+  %.not.i3 = icmp eq i64 %.0920.i78.i, 0
   br i1 %.not.i3, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIP3PixSt6vectorIS2_SaIS2_EEEESt7greaterIS2_EEvT_SA_T0_.exit, label %.lr.ph.i.i, !llvm.loop !84
 
 _ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIP3PixSt6vectorIS2_SaIS2_EEEESt7greaterIS2_EEvT_SA_T0_.exit: ; preds = %.lr.ph.i.i, %43, %_ZNSt6vectorI3PixSaIS0_EE9push_backERKS0_.exit

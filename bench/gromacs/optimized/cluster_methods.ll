@@ -2847,7 +2847,7 @@ define linkonce_odr void @_ZSt11__sort_heapIP6t_distN9__gnu_cxx5__ops15_Iter_com
 40:                                               ; preds = %.lr.ph.i.i.i
   %41 = getelementptr inbounds %struct.t_dist, ptr %0, i64 %.01316.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %41, ptr noundef nonnull align 4 dereferenceable(12) %38, i64 12, i1 false), !tbaa.struct !81
-  %.not13.i = icmp ult i64 %.017.in.i.i.i, 2
+  %.not13.i = icmp eq i64 %.017.i.i1112.i, 0
   br i1 %.not13.i, label %_ZSt10__pop_heapIP6t_distN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EEEEvT_SA_SA_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !100
 
 _ZSt10__pop_heapIP6t_distN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EEEEvT_SA_SA_RT0_.exit: ; preds = %.lr.ph.i.i.i, %40, %37
@@ -2972,7 +2972,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIP9t_clustidlN9__gnu_cxx5__ops15
   %50 = getelementptr inbounds %struct.t_clustid, ptr %0, i64 %.01316.i.i.i.i.i
   %51 = load i64, ptr %47, align 4
   store i64 %51, ptr %50, align 4
-  %.not11.i.i.i = icmp ult i64 %.017.in.i.i.i.i.i, 2
+  %.not11.i.i.i = icmp eq i64 %.017.i.i910.i.i.i, 0
   br i1 %.not11.i.i.i, label %.critedge.loopexit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !109
 
 .critedge.loopexit.i.i.i.i.i:                     ; preds = %49, %.lr.ph.i.i.i.i.i
@@ -5028,7 +5028,7 @@ define linkonce_odr void @_ZSt11__sort_heapIP5t_nnbN9__gnu_cxx5__ops15_Iter_comp
 41:                                               ; preds = %.lr.ph.i.i.i
   %42 = getelementptr inbounds %struct.t_nnb, ptr %0, i64 %.01316.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false), !tbaa.struct !142
-  %.not12.i = icmp ult i64 %.017.in.i.i.i, 2
+  %.not12.i = icmp eq i64 %.017.i.i1011.i, 0
   br i1 %.not12.i, label %_ZSt10__pop_heapIP5t_nnbN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EEEEvT_SA_SA_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !155
 
 _ZSt10__pop_heapIP5t_nnbN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EEEEvT_SA_SA_RT0_.exit: ; preds = %.lr.ph.i.i.i, %41, %38

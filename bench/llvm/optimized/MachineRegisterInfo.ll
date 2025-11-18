@@ -3778,7 +3778,7 @@ _ZN4llvm23SmallVectorTemplateBaseItLb1EE9push_backEt.exit12: ; preds = %37, %42
   %.idx = shl nuw nsw i64 %53, 1
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx
   %.not1627 = icmp eq i64 %53, 0
-  br i1 %.not1627, label %._crit_edge31, label %.lr.ph30
+  br i1 %.not1627, label %59, label %.lr.ph30
 
 .lr.ph30:                                         ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -3786,146 +3786,145 @@ _ZN4llvm23SmallVectorTemplateBaseItLb1EE9push_backEt.exit12: ; preds = %37, %42
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %58 = ptrtoint ptr %56 to i64
   %.promoted = load i64, ptr %57, align 8, !tbaa !248
+  br label %60
+
+._crit_edge31:                                    ; preds = %_ZN4llvm5eraseINS_11SmallVectorItLj16EEENS_10MCRegisterEEEvRT_T0_.exit
+  store i64 %108, ptr %57, align 8, !tbaa !248
   br label %59
 
-._crit_edge31:                                    ; preds = %_ZN4llvm5eraseINS_11SmallVectorItLj16EEENS_10MCRegisterEEEvRT_T0_.exit, %50
+59:                                               ; preds = %._crit_edge31, %50
   ret void
 
-59:                                               ; preds = %.lr.ph30, %_ZN4llvm5eraseINS_11SmallVectorItLj16EEENS_10MCRegisterEEEvRT_T0_.exit
-  %60 = phi i64 [ %.promoted, %.lr.ph30 ], [ %107, %_ZN4llvm5eraseINS_11SmallVectorItLj16EEENS_10MCRegisterEEEvRT_T0_.exit ]
-  %.sroa.0.028 = phi ptr [ %52, %.lr.ph30 ], [ %108, %_ZN4llvm5eraseINS_11SmallVectorItLj16EEENS_10MCRegisterEEEvRT_T0_.exit ]
-  %61 = load i16, ptr %.sroa.0.028, align 2, !tbaa !390
-  %.idx7.i = shl nuw nsw i64 %60, 1
-  %62 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx7.i
-  %.not.i = icmp ult i64 %60, 4
+60:                                               ; preds = %.lr.ph30, %_ZN4llvm5eraseINS_11SmallVectorItLj16EEENS_10MCRegisterEEEvRT_T0_.exit
+  %61 = phi i64 [ %.promoted, %.lr.ph30 ], [ %108, %_ZN4llvm5eraseINS_11SmallVectorItLj16EEENS_10MCRegisterEEEvRT_T0_.exit ]
+  %.sroa.0.028 = phi ptr [ %52, %.lr.ph30 ], [ %109, %_ZN4llvm5eraseINS_11SmallVectorItLj16EEENS_10MCRegisterEEEvRT_T0_.exit ]
+  %62 = load i16, ptr %.sroa.0.028, align 2, !tbaa !390
+  %.idx7.i = shl nuw nsw i64 %61, 1
+  %63 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx7.i
+  %64 = lshr i64 %61, 2
+  %.not.i = icmp eq i64 %64, 0
   br i1 %.not.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %59
-  %63 = lshr i64 %60, 2
-  %64 = and i64 %.idx7.i, 9223372036854775800
-  %scevgep.i.i.i.i.i = getelementptr i8, ptr %56, i64 %64
-  br label %65
+.lr.ph.i.i.i.i.i:                                 ; preds = %60
+  %65 = and i64 %.idx7.i, 9223372036854775800
+  %scevgep.i.i.i.i.i = getelementptr i8, ptr %56, i64 %65
+  br label %66
 
-65:                                               ; preds = %80, %.lr.ph.i.i.i.i.i
-  %.047.i.i.i.i.i = phi i64 [ %63, %.lr.ph.i.i.i.i.i ], [ %82, %80 ]
-  %.02946.i.i.i.i.i = phi ptr [ %56, %.lr.ph.i.i.i.i.i ], [ %81, %80 ]
-  %66 = load i16, ptr %.02946.i.i.i.i.i, align 2, !tbaa !390
-  %67 = icmp eq i16 %61, %66
-  br i1 %67, label %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i, label %68
+66:                                               ; preds = %81, %.lr.ph.i.i.i.i.i
+  %.047.i.i.i.i.i = phi i64 [ %64, %.lr.ph.i.i.i.i.i ], [ %83, %81 ]
+  %.02946.i.i.i.i.i = phi ptr [ %56, %.lr.ph.i.i.i.i.i ], [ %82, %81 ]
+  %67 = load i16, ptr %.02946.i.i.i.i.i, align 2, !tbaa !390
+  %68 = icmp eq i16 %62, %67
+  br i1 %68, label %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i, label %69
 
-68:                                               ; preds = %65
-  %69 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 2
-  %70 = load i16, ptr %69, align 2, !tbaa !390
-  %71 = icmp eq i16 %61, %70
-  br i1 %71, label %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i.loopexit.split.loop.exit, label %72
+69:                                               ; preds = %66
+  %70 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 2
+  %71 = load i16, ptr %70, align 2, !tbaa !390
+  %72 = icmp eq i16 %62, %71
+  br i1 %72, label %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i.loopexit.split.loop.exit, label %73
 
-72:                                               ; preds = %68
-  %73 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 4
-  %74 = load i16, ptr %73, align 2, !tbaa !390
-  %75 = icmp eq i16 %61, %74
-  br i1 %75, label %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i.loopexit.split.loop.exit45, label %76
+73:                                               ; preds = %69
+  %74 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 4
+  %75 = load i16, ptr %74, align 2, !tbaa !390
+  %76 = icmp eq i16 %62, %75
+  br i1 %76, label %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i.loopexit.split.loop.exit46, label %77
 
-76:                                               ; preds = %72
-  %77 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 6
-  %78 = load i16, ptr %77, align 2, !tbaa !390
-  %79 = icmp eq i16 %61, %78
-  br i1 %79, label %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i.loopexit.split.loop.exit47, label %80
+77:                                               ; preds = %73
+  %78 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 6
+  %79 = load i16, ptr %78, align 2, !tbaa !390
+  %80 = icmp eq i16 %62, %79
+  br i1 %80, label %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i.loopexit.split.loop.exit48, label %81
 
-80:                                               ; preds = %76
-  %81 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
-  %82 = add nsw i64 %.047.i.i.i.i.i, -1
-  %83 = icmp sgt i64 %.047.i.i.i.i.i, 1
-  br i1 %83, label %65, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !416
+81:                                               ; preds = %77
+  %82 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
+  %83 = add nsw i64 %.047.i.i.i.i.i, -1
+  %84 = icmp sgt i64 %.047.i.i.i.i.i, 1
+  br i1 %84, label %66, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !416
 
-._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %80
-  %84 = and i64 %60, 3
+._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %81
+  %85 = and i64 %61, 3
   br label %._crit_edge.i.i.i.i.i
 
-._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %59
-  %.pre-phi56.i.i.i.i.i = phi i64 [ %84, %._crit_edge.loopexit.i.i.i.i.i ], [ %60, %59 ]
-  %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %56, %59 ]
-  switch i64 %.pre-phi56.i.i.i.i.i, label %default.unreachable [
-    i64 3, label %85
+._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %60
+  %.pre-phi56.i.i.i.i.i = phi i64 [ %85, %._crit_edge.loopexit.i.i.i.i.i ], [ %61, %60 ]
+  %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %56, %60 ]
+  switch i64 %.pre-phi56.i.i.i.i.i, label %_ZN4llvm5eraseINS_11SmallVectorItLj16EEENS_10MCRegisterEEEvRT_T0_.exit [
+    i64 3, label %86
     i64 2, label %._crit_edge._crit_edge.i.i.i.i.i
     i64 1, label %._crit_edge._crit_edge52.i.i.i.i.i
-    i64 0, label %_ZN4llvm5eraseINS_11SmallVectorItLj16EEENS_10MCRegisterEEEvRT_T0_.exit
   ]
 
-85:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %86 = load i16, ptr %.029.lcssa.i.i.i.i.i, align 2, !tbaa !390
-  %87 = icmp eq i16 %61, %86
-  br i1 %87, label %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i, label %88
+86:                                               ; preds = %._crit_edge.i.i.i.i.i
+  %87 = load i16, ptr %.029.lcssa.i.i.i.i.i, align 2, !tbaa !390
+  %88 = icmp eq i16 %62, %87
+  br i1 %88, label %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i, label %89
 
-88:                                               ; preds = %85
-  %89 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i, i64 2
+89:                                               ; preds = %86
+  %90 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i, i64 2
   br label %._crit_edge._crit_edge.i.i.i.i.i
 
-._crit_edge._crit_edge.i.i.i.i.i:                 ; preds = %88, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %89, %88 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
-  %90 = load i16, ptr %.1.i.i.i.i.i, align 2, !tbaa !390
-  %91 = icmp eq i16 %61, %90
-  br i1 %91, label %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i, label %92
+._crit_edge._crit_edge.i.i.i.i.i:                 ; preds = %89, %._crit_edge.i.i.i.i.i
+  %.1.i.i.i.i.i = phi ptr [ %90, %89 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
+  %91 = load i16, ptr %.1.i.i.i.i.i, align 2, !tbaa !390
+  %92 = icmp eq i16 %62, %91
+  br i1 %92, label %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i, label %93
 
-92:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i.i
-  %93 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 2
+93:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i.i
+  %94 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 2
   br label %._crit_edge._crit_edge52.i.i.i.i.i
 
-._crit_edge._crit_edge52.i.i.i.i.i:               ; preds = %92, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %93, %92 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
-  %94 = load i16, ptr %.2.i.i.i.i.i, align 2, !tbaa !390
-  %95 = icmp eq i16 %61, %94
-  br i1 %95, label %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i, label %_ZN4llvm5eraseINS_11SmallVectorItLj16EEENS_10MCRegisterEEEvRT_T0_.exit
+._crit_edge._crit_edge52.i.i.i.i.i:               ; preds = %93, %._crit_edge.i.i.i.i.i
+  %.2.i.i.i.i.i = phi ptr [ %94, %93 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
+  %95 = load i16, ptr %.2.i.i.i.i.i, align 2, !tbaa !390
+  %96 = icmp eq i16 %62, %95
+  br i1 %96, label %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i, label %_ZN4llvm5eraseINS_11SmallVectorItLj16EEENS_10MCRegisterEEEvRT_T0_.exit
 
-_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i.loopexit.split.loop.exit: ; preds = %68
-  %96 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 2
+_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i.loopexit.split.loop.exit: ; preds = %69
+  %97 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 2
   br label %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i
 
-_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i.loopexit.split.loop.exit45: ; preds = %72
-  %97 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 4
+_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i.loopexit.split.loop.exit46: ; preds = %73
+  %98 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 4
   br label %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i
 
-_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i.loopexit.split.loop.exit47: ; preds = %76
-  %98 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 6
+_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i.loopexit.split.loop.exit48: ; preds = %77
+  %99 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 6
   br label %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i
 
-_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i: ; preds = %65, %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i.loopexit.split.loop.exit45, %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i.loopexit.split.loop.exit47, %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %85
-  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %85 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %96, %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i.loopexit.split.loop.exit ], [ %97, %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i.loopexit.split.loop.exit45 ], [ %98, %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i.loopexit.split.loop.exit47 ], [ %.02946.i.i.i.i.i, %65 ]
-  %99 = icmp eq ptr %.028.i.i.i.i.i, %62
+_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i: ; preds = %66, %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i.loopexit.split.loop.exit46, %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i.loopexit.split.loop.exit48, %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %86
+  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %86 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %97, %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i.loopexit.split.loop.exit ], [ %98, %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i.loopexit.split.loop.exit46 ], [ %99, %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i.loopexit.split.loop.exit48 ], [ %.02946.i.i.i.i.i, %66 ]
+  %100 = icmp eq ptr %.028.i.i.i.i.i, %63
   %.01730.i.i.i = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i.i, i64 2
-  %.not31.i.i.i = icmp eq ptr %.01730.i.i.i, %62
-  %or.cond.i.i.i = select i1 %99, i1 true, i1 %.not31.i.i.i
+  %.not31.i.i.i = icmp eq ptr %.01730.i.i.i, %63
+  %or.cond.i.i.i = select i1 %100, i1 true, i1 %.not31.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN4llvm5eraseINS_11SmallVectorItLj16EEENS_10MCRegisterEEEvRT_T0_.exit, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i, %104
-  %.01733.i.i.i = phi ptr [ %.017.i.i.i, %104 ], [ %.01730.i.i.i, %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i ]
-  %.032.i.i.i = phi ptr [ %.1.i.i.i, %104 ], [ %.028.i.i.i.i.i, %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i ]
-  %100 = load i16, ptr %.01733.i.i.i, align 2, !tbaa !390
-  %101 = icmp eq i16 %61, %100
-  br i1 %101, label %104, label %102
+.lr.ph.i.i.i:                                     ; preds = %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i, %105
+  %.01733.i.i.i = phi ptr [ %.017.i.i.i, %105 ], [ %.01730.i.i.i, %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i ]
+  %.032.i.i.i = phi ptr [ %.1.i.i.i, %105 ], [ %.028.i.i.i.i.i, %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i ]
+  %101 = load i16, ptr %.01733.i.i.i, align 2, !tbaa !390
+  %102 = icmp eq i16 %62, %101
+  br i1 %102, label %105, label %103
 
-102:                                              ; preds = %.lr.ph.i.i.i
-  store i16 %100, ptr %.032.i.i.i, align 2, !tbaa !390
-  %103 = getelementptr inbounds nuw i8, ptr %.032.i.i.i, i64 2
-  br label %104
+103:                                              ; preds = %.lr.ph.i.i.i
+  store i16 %101, ptr %.032.i.i.i, align 2, !tbaa !390
+  %104 = getelementptr inbounds nuw i8, ptr %.032.i.i.i, i64 2
+  br label %105
 
-104:                                              ; preds = %102, %.lr.ph.i.i.i
-  %.1.i.i.i = phi ptr [ %.032.i.i.i, %.lr.ph.i.i.i ], [ %103, %102 ]
+105:                                              ; preds = %103, %.lr.ph.i.i.i
+  %.1.i.i.i = phi ptr [ %.032.i.i.i, %.lr.ph.i.i.i ], [ %104, %103 ]
   %.017.i.i.i = getelementptr inbounds nuw i8, ptr %.01733.i.i.i, i64 2
-  %.not.i.i.i13 = icmp eq ptr %.017.i.i.i, %62
+  %.not.i.i.i13 = icmp eq ptr %.017.i.i.i, %63
   br i1 %.not.i.i.i13, label %_ZN4llvm5eraseINS_11SmallVectorItLj16EEENS_10MCRegisterEEEvRT_T0_.exit, label %.lr.ph.i.i.i, !llvm.loop !417
 
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i
-  unreachable
-
-_ZN4llvm5eraseINS_11SmallVectorItLj16EEENS_10MCRegisterEEEvRT_T0_.exit: ; preds = %104, %._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i, %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i
-  %.016.i.i.i = phi ptr [ %.028.i.i.i.i.i, %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i ], [ %62, %._crit_edge.i.i.i.i.i ], [ %62, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %.1.i.i.i, %104 ]
-  %105 = ptrtoint ptr %.016.i.i.i to i64
-  %106 = sub i64 %105, %58
-  %107 = ashr exact i64 %106, 1
-  store i64 %107, ptr %57, align 8, !tbaa !248
-  %108 = getelementptr inbounds nuw i8, ptr %.sroa.0.028, i64 2
-  %.not16 = icmp eq ptr %108, %54
-  br i1 %.not16, label %._crit_edge31, label %59, !llvm.loop !418
+_ZN4llvm5eraseINS_11SmallVectorItLj16EEENS_10MCRegisterEEEvRT_T0_.exit: ; preds = %105, %._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i, %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i
+  %.016.i.i.i = phi ptr [ %.028.i.i.i.i.i, %_ZSt9__find_ifIPtN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm10MCRegisterEEEET_S8_S8_T0_.exit.i.i.i ], [ %63, %._crit_edge.i.i.i.i.i ], [ %63, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %.1.i.i.i, %105 ]
+  %106 = ptrtoint ptr %.016.i.i.i to i64
+  %107 = sub i64 %106, %58
+  %108 = ashr exact i64 %107, 1
+  %109 = getelementptr inbounds nuw i8, ptr %.sroa.0.028, i64 2
+  %.not16 = icmp eq ptr %109, %54
+  br i1 %.not16, label %._crit_edge31, label %60, !llvm.loop !418
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

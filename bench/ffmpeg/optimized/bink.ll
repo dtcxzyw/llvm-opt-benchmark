@@ -4442,7 +4442,7 @@ define internal fastcc void @read_residue(ptr noundef nonnull captures(none) %0,
   %.181.ph.lcssa132 = phi i32 [ %.080175, %.preheader ], [ %.181.ph165, %74 ], [ %.282, %.outer ]
   %.1.ph.lcssa130 = phi i32 [ %.0176, %.preheader ], [ %.1.ph167, %74 ], [ %.2, %.outer ]
   %167 = lshr i32 %.092173, 1
-  %.not = icmp samesign ult i32 %.092173, 2
+  %.not = icmp eq i32 %167, 0
   br i1 %.not, label %.loopexit115, label %.preheader118, !llvm.loop !145
 
 .loopexit115:                                     ; preds = %.outer._crit_edge, %46, %136, %103

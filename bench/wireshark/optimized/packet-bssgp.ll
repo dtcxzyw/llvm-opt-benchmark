@@ -2130,7 +2130,7 @@ define internal zeroext i16 @de_bssgp_ran_information_app_cont_unit(ptr noundef 
 
 .preheader:                                       ; preds = %13
   %26 = zext nneg i8 %18 to i32
-  %.not154 = icmp ult i8 %17, 2
+  %.not154 = icmp eq i8 %18, 0
   br i1 %.not154, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
@@ -2150,7 +2150,7 @@ define internal zeroext i16 @de_bssgp_ran_information_app_cont_unit(ptr noundef 
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %31 = zext nneg i8 %18 to i32
-  %.not155 = icmp ult i8 %17, 2
+  %.not155 = icmp eq i8 %18, 0
   br i1 %.not155, label %._crit_edge, label %.lr.ph152
 
 .lr.ph152:                                        ; preds = %30, %46
@@ -2539,7 +2539,7 @@ define internal noundef zeroext i16 @de_bssgp_mbms_ra_list(ptr noundef %0, ptr n
   %10 = load i32, ptr @hf_bssgp_mbms_num_ra_ids, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %10, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0)
   %12 = zext nneg i8 %9 to i32
-  %.not = icmp ult i8 %8, 16
+  %.not = icmp eq i8 %9, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %.lr.ph
@@ -2941,7 +2941,7 @@ define internal noundef zeroext i16 @de_bssgp_sipsi_container(ptr noundef %0, pt
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %13, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0)
   %15 = add i32 %3, 1
   %16 = icmp eq i8 %10, 0
-  %.not42 = icmp ult i8 %8, 2
+  %.not42 = icmp eq i8 %9, 0
   br i1 %16, label %.preheader, label %.preheader34
 
 .preheader34:                                     ; preds = %7

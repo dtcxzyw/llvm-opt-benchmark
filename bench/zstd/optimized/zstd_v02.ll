@@ -1927,12 +1927,12 @@ HUF_readDTableX2.exit.thread23:                   ; preds = %._crit_edge.i, %.pr
   store ptr %78, ptr %79, align 8, !tbaa !50
   %.val.i.i = load i64, ptr %78, align 1
   store i64 %.val.i.i, ptr %5, align 8, !tbaa !51
-  %80 = icmp ult i64 %.val.i.i, 72057594037927936
-  br i1 %80, label %BIT_initDStream.exit.thread.i, label %.thread.i.i
+  %80 = lshr i64 %.val.i.i, 56
+  %81 = icmp eq i64 %80, 0
+  br i1 %81, label %BIT_initDStream.exit.thread.i, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %77
-  %81 = lshr i64 %.val.i.i, 56
-  %82 = trunc nuw nsw i64 %81 to i32
+  %82 = trunc nuw nsw i64 %80 to i32
   %83 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %82, i1 true)
   %84 = xor i32 %83, 31
   %85 = sub nuw nsw i32 8, %84
@@ -2042,12 +2042,12 @@ HUF_readDTableX2.exit.thread23:                   ; preds = %._crit_edge.i, %.pr
   store ptr %148, ptr %149, align 8, !tbaa !50
   %.val.i152.i = load i64, ptr %148, align 1
   store i64 %.val.i152.i, ptr %6, align 8, !tbaa !51
-  %150 = icmp ult i64 %.val.i152.i, 72057594037927936
-  br i1 %150, label %BIT_initDStream.exit.thread.i, label %.thread.i153.i
+  %150 = lshr i64 %.val.i152.i, 56
+  %151 = icmp eq i64 %150, 0
+  br i1 %151, label %BIT_initDStream.exit.thread.i, label %.thread.i153.i
 
 .thread.i153.i:                                   ; preds = %147
-  %151 = lshr i64 %.val.i152.i, 56
-  %152 = trunc nuw nsw i64 %151 to i32
+  %152 = trunc nuw nsw i64 %150 to i32
   %153 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %152, i1 true)
   %154 = xor i32 %153, 31
   %155 = sub nuw nsw i32 8, %154
@@ -2157,12 +2157,12 @@ HUF_readDTableX2.exit.thread23:                   ; preds = %._crit_edge.i, %.pr
   store ptr %218, ptr %219, align 8, !tbaa !50
   %.val.i157.i = load i64, ptr %218, align 1
   store i64 %.val.i157.i, ptr %7, align 8, !tbaa !51
-  %220 = icmp ult i64 %.val.i157.i, 72057594037927936
-  br i1 %220, label %BIT_initDStream.exit.thread.i, label %.thread.i158.i
+  %220 = lshr i64 %.val.i157.i, 56
+  %221 = icmp eq i64 %220, 0
+  br i1 %221, label %BIT_initDStream.exit.thread.i, label %.thread.i158.i
 
 .thread.i158.i:                                   ; preds = %217
-  %221 = lshr i64 %.val.i157.i, 56
-  %222 = trunc nuw nsw i64 %221 to i32
+  %222 = trunc nuw nsw i64 %220 to i32
   %223 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %222, i1 true)
   %224 = xor i32 %223, 31
   %225 = sub nuw nsw i32 8, %224
@@ -3203,12 +3203,12 @@ HUF_readDTableX4.exit:                            ; preds = %.loopexit.i.i, %._c
   store ptr %161, ptr %162, align 8, !tbaa !50
   %.val.i.i = load i64, ptr %161, align 1
   store i64 %.val.i.i, ptr %5, align 8, !tbaa !51
-  %163 = icmp ult i64 %.val.i.i, 72057594037927936
-  br i1 %163, label %BIT_initDStream.exit.thread.i, label %.thread.i.i
+  %163 = lshr i64 %.val.i.i, 56
+  %164 = icmp eq i64 %163, 0
+  br i1 %164, label %BIT_initDStream.exit.thread.i, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %160
-  %164 = lshr i64 %.val.i.i, 56
-  %165 = trunc nuw nsw i64 %164 to i32
+  %165 = trunc nuw nsw i64 %163 to i32
   %166 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %165, i1 true)
   %167 = xor i32 %166, 31
   %168 = sub nuw nsw i32 8, %167
@@ -3318,12 +3318,12 @@ HUF_readDTableX4.exit:                            ; preds = %.loopexit.i.i, %._c
   store ptr %231, ptr %232, align 8, !tbaa !50
   %.val.i168.i = load i64, ptr %231, align 1
   store i64 %.val.i168.i, ptr %6, align 8, !tbaa !51
-  %233 = icmp ult i64 %.val.i168.i, 72057594037927936
-  br i1 %233, label %BIT_initDStream.exit.thread.i, label %.thread.i169.i
+  %233 = lshr i64 %.val.i168.i, 56
+  %234 = icmp eq i64 %233, 0
+  br i1 %234, label %BIT_initDStream.exit.thread.i, label %.thread.i169.i
 
 .thread.i169.i:                                   ; preds = %230
-  %234 = lshr i64 %.val.i168.i, 56
-  %235 = trunc nuw nsw i64 %234 to i32
+  %235 = trunc nuw nsw i64 %233 to i32
   %236 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %235, i1 true)
   %237 = xor i32 %236, 31
   %238 = sub nuw nsw i32 8, %237
@@ -3433,12 +3433,12 @@ HUF_readDTableX4.exit:                            ; preds = %.loopexit.i.i, %._c
   store ptr %301, ptr %302, align 8, !tbaa !50
   %.val.i173.i = load i64, ptr %301, align 1
   store i64 %.val.i173.i, ptr %7, align 8, !tbaa !51
-  %303 = icmp ult i64 %.val.i173.i, 72057594037927936
-  br i1 %303, label %BIT_initDStream.exit.thread.i, label %.thread.i174.i
+  %303 = lshr i64 %.val.i173.i, 56
+  %304 = icmp eq i64 %303, 0
+  br i1 %304, label %BIT_initDStream.exit.thread.i, label %.thread.i174.i
 
 .thread.i174.i:                                   ; preds = %300
-  %304 = lshr i64 %.val.i173.i, 56
-  %305 = trunc nuw nsw i64 %304 to i32
+  %305 = trunc nuw nsw i64 %303 to i32
   %306 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %305, i1 true)
   %307 = xor i32 %306, 31
   %308 = sub nuw nsw i32 8, %307
@@ -4379,12 +4379,12 @@ HUF_readDTableX6.exit:                            ; preds = %._crit_edge109.i, %
   store ptr %106, ptr %107, align 8, !tbaa !50
   %.val.i.i = load i64, ptr %106, align 1
   store i64 %.val.i.i, ptr %5, align 8, !tbaa !51
-  %108 = icmp ult i64 %.val.i.i, 72057594037927936
-  br i1 %108, label %BIT_initDStream.exit.thread.i, label %.thread.i.i
+  %108 = lshr i64 %.val.i.i, 56
+  %109 = icmp eq i64 %108, 0
+  br i1 %109, label %BIT_initDStream.exit.thread.i, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %105
-  %109 = lshr i64 %.val.i.i, 56
-  %110 = trunc nuw nsw i64 %109 to i32
+  %110 = trunc nuw nsw i64 %108 to i32
   %111 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %110, i1 true)
   %112 = xor i32 %111, 31
   %113 = sub nuw nsw i32 8, %112
@@ -4494,12 +4494,12 @@ HUF_readDTableX6.exit:                            ; preds = %._crit_edge109.i, %
   store ptr %176, ptr %177, align 8, !tbaa !50
   %.val.i193.i = load i64, ptr %176, align 1
   store i64 %.val.i193.i, ptr %6, align 8, !tbaa !51
-  %178 = icmp ult i64 %.val.i193.i, 72057594037927936
-  br i1 %178, label %BIT_initDStream.exit.thread.i, label %.thread.i194.i
+  %178 = lshr i64 %.val.i193.i, 56
+  %179 = icmp eq i64 %178, 0
+  br i1 %179, label %BIT_initDStream.exit.thread.i, label %.thread.i194.i
 
 .thread.i194.i:                                   ; preds = %175
-  %179 = lshr i64 %.val.i193.i, 56
-  %180 = trunc nuw nsw i64 %179 to i32
+  %180 = trunc nuw nsw i64 %178 to i32
   %181 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %180, i1 true)
   %182 = xor i32 %181, 31
   %183 = sub nuw nsw i32 8, %182
@@ -4609,12 +4609,12 @@ HUF_readDTableX6.exit:                            ; preds = %._crit_edge109.i, %
   store ptr %246, ptr %247, align 8, !tbaa !50
   %.val.i198.i = load i64, ptr %246, align 1
   store i64 %.val.i198.i, ptr %7, align 8, !tbaa !51
-  %248 = icmp ult i64 %.val.i198.i, 72057594037927936
-  br i1 %248, label %BIT_initDStream.exit.thread.i, label %.thread.i199.i
+  %248 = lshr i64 %.val.i198.i, 56
+  %249 = icmp eq i64 %248, 0
+  br i1 %249, label %BIT_initDStream.exit.thread.i, label %.thread.i199.i
 
 .thread.i199.i:                                   ; preds = %245
-  %249 = lshr i64 %.val.i198.i, 56
-  %250 = trunc nuw nsw i64 %249 to i32
+  %250 = trunc nuw nsw i64 %248 to i32
   %251 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %250, i1 true)
   %252 = xor i32 %251, 31
   %253 = sub nuw nsw i32 8, %252

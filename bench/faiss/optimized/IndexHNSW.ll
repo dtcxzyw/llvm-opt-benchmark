@@ -5796,7 +5796,7 @@ _ZNSt6vectorIN5faiss4HNSW15NodeDistFartherESaIS2_EE12emplace_backIJfRiEEERS2_DpO
   %103 = getelementptr inbounds %"struct.faiss::HNSW::NodeDistFarther", ptr %90, i64 %.020.i.i.i
   %104 = load i64, ptr %99, align 4
   store i64 %104, ptr %103, align 4
-  %.not.i4.i = icmp ult i64 %.0921.in.i.i.i, 2
+  %.not.i4.i = icmp eq i64 %.0921.i78.i.i, 0
   br i1 %.not.i4.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !222
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %102, %_ZNSt6vectorIN5faiss4HNSW15NodeDistFartherESaIS2_EE12emplace_backIJfRiEEERS2_DpOT_.exit.i
@@ -6773,7 +6773,7 @@ _ZNSt6vectorIN5faiss4HNSW15NodeDistFartherESaIS2_EE12emplace_backIJRKfRiEEERS2_D
   %131 = getelementptr inbounds %"struct.faiss::HNSW::NodeDistFarther", ptr %118, i64 %.020.i.i.i
   %132 = load i64, ptr %127, align 4
   store i64 %132, ptr %131, align 4
-  %.not.i4.i = icmp ult i64 %.0921.in.i.i.i, 2
+  %.not.i4.i = icmp eq i64 %.0921.i78.i.i, 0
   br i1 %.not.i4.i, label %_ZNSt14priority_queueIN5faiss4HNSW15NodeDistFartherESt6vectorIS2_SaIS2_EESt4lessIS2_EE7emplaceIJRKfRiEEEvDpOT_.exit, label %.lr.ph.i.i.i, !llvm.loop !222
 
 _ZNSt14priority_queueIN5faiss4HNSW15NodeDistFartherESt6vectorIS2_SaIS2_EESt4lessIS2_EE7emplaceIJRKfRiEEEvDpOT_.exit: ; preds = %.lr.ph.i.i.i, %130, %_ZNSt6vectorIN5faiss4HNSW15NodeDistFartherESaIS2_EE12emplace_backIJRKfRiEEERS2_DpOT_.exit.i

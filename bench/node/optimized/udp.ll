@@ -1196,7 +1196,7 @@ if.then3.i:                                       ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(ptr nonnull %chunk_buf.i.i)
   %div44.i.i = lshr i64 %4, 16
   %spec.store.select.i.i = call i64 @llvm.umin.i64(i64 %div44.i.i, i64 20)
-  %cmp152.not.i.i = icmp ult i64 %4, 65536
+  %cmp152.not.i.i = icmp eq i64 %div44.i.i, 0
   br i1 %cmp152.not.i.i, label %do.body.preheader.i.i, label %for.body.i.i
 
 do.body.preheader.i.i:                            ; preds = %for.body.i.i, %if.then3.i

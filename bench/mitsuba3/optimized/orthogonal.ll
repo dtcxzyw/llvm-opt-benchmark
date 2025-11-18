@@ -522,7 +522,7 @@ define weak_odr noundef float @_ZN7mitsuba17OrthogonalSamplerIfN5drjit6MatrixINS
   %spec.select.i = mul i32 %13, %.01116.i
   %14 = mul i32 %.01215.i, %.01215.i
   %15 = lshr i32 %.017.i, 1
-  %.not.i = icmp samesign ult i32 %.017.i, 2
+  %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %_ZN5drjit3powIjjEENS_6detail14replace_scalarINS1_7deepestIJT_T0_EE4typeENS1_4exprIJNS1_6scalarIS4_iE4typeENS9_IS5_iE4typeEEE4typeEiE4typeERKS4_RKS5_.exit, label %.lr.ph.i, !llvm.loop !7
 
 _ZN5drjit3powIjjEENS_6detail14replace_scalarINS1_7deepestIJT_T0_EE4typeENS1_4exprIJNS1_6scalarIS4_iE4typeENS9_IS5_iE4typeEEE4typeEiE4typeERKS4_RKS5_.exit: ; preds = %.lr.ph.i, %5

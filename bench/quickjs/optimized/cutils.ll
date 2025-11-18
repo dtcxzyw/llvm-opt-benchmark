@@ -1240,17 +1240,14 @@ define internal void @exchange_one_int128(ptr noundef captures(none) %0, ptr nou
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @exchange_int128s(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) unnamed_addr #0 {
-  %.not17 = icmp ult i64 %2, 16
-  br i1 %.not17, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %3
   %4 = lshr i64 %2, 4
-  br label %.lr.ph
+  %.not17 = icmp eq i64 %4, 0
+  br i1 %.not17, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.020 = phi i64 [ %5, %.lr.ph ], [ %4, %.lr.ph.preheader ]
-  %.01519 = phi ptr [ %12, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.01618 = phi ptr [ %13, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %3, %.lr.ph
+  %.020 = phi i64 [ %5, %.lr.ph ], [ %4, %3 ]
+  %.01519 = phi ptr [ %12, %.lr.ph ], [ %0, %3 ]
+  %.01618 = phi ptr [ %13, %.lr.ph ], [ %1, %3 ]
   %5 = add nsw i64 %.020, -1
   %6 = load i64, ptr %.01519, align 8, !tbaa !41
   %7 = getelementptr inbounds nuw i8, ptr %.01519, i64 8
@@ -1282,17 +1279,14 @@ define internal void @exchange_one_int64(ptr noundef captures(none) %0, ptr noun
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @exchange_int64s(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) unnamed_addr #0 {
-  %.not10 = icmp ult i64 %2, 8
-  br i1 %.not10, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %3
   %4 = lshr i64 %2, 3
-  br label %.lr.ph
+  %.not10 = icmp eq i64 %4, 0
+  br i1 %.not10, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.013 = phi i64 [ %5, %.lr.ph ], [ %4, %.lr.ph.preheader ]
-  %.0812 = phi ptr [ %9, %.lr.ph ], [ %1, %.lr.ph.preheader ]
-  %.0911 = phi ptr [ %8, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %3, %.lr.ph
+  %.013 = phi i64 [ %5, %.lr.ph ], [ %4, %3 ]
+  %.0812 = phi ptr [ %9, %.lr.ph ], [ %1, %3 ]
+  %.0911 = phi ptr [ %8, %.lr.ph ], [ %0, %3 ]
   %5 = add nsw i64 %.013, -1
   %6 = load i64, ptr %.0911, align 8, !tbaa !41
   %7 = load i64, ptr %.0812, align 8, !tbaa !41
@@ -1318,17 +1312,14 @@ define internal void @exchange_one_int32(ptr noundef captures(none) %0, ptr noun
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @exchange_int32s(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) unnamed_addr #0 {
-  %.not10 = icmp ult i64 %2, 4
-  br i1 %.not10, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %3
   %4 = lshr i64 %2, 2
-  br label %.lr.ph
+  %.not10 = icmp eq i64 %4, 0
+  br i1 %.not10, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.013 = phi i64 [ %5, %.lr.ph ], [ %4, %.lr.ph.preheader ]
-  %.0812 = phi ptr [ %9, %.lr.ph ], [ %1, %.lr.ph.preheader ]
-  %.0911 = phi ptr [ %8, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %3, %.lr.ph
+  %.013 = phi i64 [ %5, %.lr.ph ], [ %4, %3 ]
+  %.0812 = phi ptr [ %9, %.lr.ph ], [ %1, %3 ]
+  %.0911 = phi ptr [ %8, %.lr.ph ], [ %0, %3 ]
   %5 = add nsw i64 %.013, -1
   %6 = load i32, ptr %.0911, align 4, !tbaa !26
   %7 = load i32, ptr %.0812, align 4, !tbaa !26
@@ -1354,17 +1345,14 @@ define internal void @exchange_one_int16(ptr noundef captures(none) %0, ptr noun
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @exchange_int16s(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) unnamed_addr #0 {
-  %.not10 = icmp ult i64 %2, 2
-  br i1 %.not10, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %3
   %4 = lshr i64 %2, 1
-  br label %.lr.ph
+  %.not10 = icmp eq i64 %4, 0
+  br i1 %.not10, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.013 = phi i64 [ %5, %.lr.ph ], [ %4, %.lr.ph.preheader ]
-  %.0812 = phi ptr [ %9, %.lr.ph ], [ %1, %.lr.ph.preheader ]
-  %.0911 = phi ptr [ %8, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %3, %.lr.ph
+  %.013 = phi i64 [ %5, %.lr.ph ], [ %4, %3 ]
+  %.0812 = phi ptr [ %9, %.lr.ph ], [ %1, %3 ]
+  %.0911 = phi ptr [ %8, %.lr.ph ], [ %0, %3 ]
   %5 = add nsw i64 %.013, -1
   %6 = load i16, ptr %.0911, align 2, !tbaa !45
   %7 = load i16, ptr %.0812, align 2, !tbaa !45

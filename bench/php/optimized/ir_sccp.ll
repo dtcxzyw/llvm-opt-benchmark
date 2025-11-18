@@ -249,15 +249,15 @@ ir_sccp_identity.exit.i:                          ; preds = %.preheader166.i, %5
   %81 = getelementptr inbounds nuw %struct._ir_insn, ptr %1, i64 %42
   %82 = load i8, ptr %81, align 8, !tbaa !39
   %83 = icmp eq i8 %82, 0
-  br i1 %83, label %.lr.ph.preheader.i, label %.lr.ph187.i
+  br i1 %83, label %.preheader164.i, label %.lr.ph187.i
 
-.lr.ph.preheader.i:                               ; preds = %80
+.preheader164.i:                                  ; preds = %80
   %84 = lshr i32 %78, 2
   %wide.trip.count.i = zext nneg i32 %84 to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %.preheader164.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader164.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %gep.i = getelementptr inbounds nuw %struct._ir_insn, ptr %81, i64 %indvars.iv.i
   %85 = getelementptr inbounds nuw i8, ptr %gep.i, i64 16
   store i32 108, ptr %85, align 8, !tbaa !39
@@ -793,20 +793,20 @@ ir_sccp_add_identity.exit:                        ; preds = %.preheader.i415, %2
 .thread:                                          ; preds = %342
   %348 = and i32 %47, 3
   %349 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %.not535662 = icmp eq i32 %348, 0
-  br i1 %.not535662, label %._crit_edge.thread.thread, label %.lr.ph.preheader
+  %.not535664 = icmp eq i32 %348, 0
+  br i1 %.not535664, label %._crit_edge.thread.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.thread, %345
   %350 = phi ptr [ %349, %.thread ], [ %347, %345 ]
   %351 = phi i32 [ %348, %.thread ], [ %346, %345 ]
-  %.0308663 = phi i1 [ false, %.thread ], [ true, %345 ]
+  %.0308665 = phi i1 [ false, %.thread ], [ true, %345 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %ir_sccp_add_input.exit
   %.0293497 = phi i32 [ %376, %ir_sccp_add_input.exit ], [ %351, %.lr.ph.preheader ]
   %.0302496 = phi ptr [ %375, %ir_sccp_add_input.exit ], [ %350, %.lr.ph.preheader ]
   %.0306495 = phi i1 [ %.1307, %ir_sccp_add_input.exit ], [ false, %.lr.ph.preheader ]
-  %.1309494 = phi i1 [ %.2310, %ir_sccp_add_input.exit ], [ %.0308663, %.lr.ph.preheader ]
+  %.1309494 = phi i1 [ %.2310, %ir_sccp_add_input.exit ], [ %.0308665, %.lr.ph.preheader ]
   %352 = load i32, ptr %.0302496, align 4, !tbaa !40
   %353 = icmp sgt i32 %352, 0
   br i1 %353, label %354, label %ir_sccp_add_input.exit
@@ -1585,16 +1585,16 @@ ir_bitqueue_add.exit377:                          ; preds = %763, %753, %752
   %772 = getelementptr inbounds nuw %struct._ir_insn, ptr %1, i64 %42
   %773 = load i8, ptr %772, align 8, !tbaa !39
   %774 = icmp eq i8 %773, 0
-  br i1 %774, label %.lr.ph500.preheader, label %.lr.ph505.preheader
+  br i1 %774, label %.preheader455, label %.lr.ph505.preheader
 
-.lr.ph500.preheader:                              ; preds = %771
+.preheader455:                                    ; preds = %771
   %775 = lshr i32 %769, 2
   %wide.trip.count = zext nneg i32 %775 to i64
   %invariant.gep = getelementptr inbounds nuw %struct._ir_insn, ptr %1, i64 %42
   br label %.lr.ph500
 
-.lr.ph500:                                        ; preds = %.lr.ph500.preheader, %.lr.ph500
-  %indvars.iv = phi i64 [ 0, %.lr.ph500.preheader ], [ %indvars.iv.next, %.lr.ph500 ]
+.lr.ph500:                                        ; preds = %.preheader455, %.lr.ph500
+  %indvars.iv = phi i64 [ 0, %.preheader455 ], [ %indvars.iv.next, %.lr.ph500 ]
   %gep = getelementptr inbounds nuw %struct._ir_insn, ptr %invariant.gep, i64 %indvars.iv
   %776 = getelementptr inbounds nuw i8, ptr %gep, i64 16
   store i32 108, ptr %776, align 8, !tbaa !39
@@ -2028,18 +2028,18 @@ ir_is_dead_load_ex.exit.thread:                   ; preds = %979, %ir_is_dead_lo
   %1005 = load i16, ptr %1004, align 2, !tbaa !39
   %1006 = zext i16 %1005 to i32
   %1007 = icmp ugt i16 %1005, 3
-  br i1 %1007, label %.lr.ph516.preheader, label %1036
+  br i1 %1007, label %.preheader, label %1036
 
-.lr.ph516.preheader:                              ; preds = %1003
+.preheader:                                       ; preds = %1003
   %1008 = lshr i32 %1006, 2
   %wide.trip.count583 = zext nneg i32 %1008 to i64
-  %invariant.gep706 = getelementptr inbounds nuw %struct._ir_insn, ptr %1, i64 %42
+  %invariant.gep708 = getelementptr inbounds nuw %struct._ir_insn, ptr %1, i64 %42
   br label %.lr.ph516
 
-.lr.ph516:                                        ; preds = %.lr.ph516.preheader, %.lr.ph516
-  %indvars.iv580 = phi i64 [ 0, %.lr.ph516.preheader ], [ %indvars.iv.next581, %.lr.ph516 ]
-  %gep707 = getelementptr inbounds nuw %struct._ir_insn, ptr %invariant.gep706, i64 %indvars.iv580
-  %1009 = getelementptr inbounds nuw i8, ptr %gep707, i64 16
+.lr.ph516:                                        ; preds = %.preheader, %.lr.ph516
+  %indvars.iv580 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next581, %.lr.ph516 ]
+  %gep709 = getelementptr inbounds nuw %struct._ir_insn, ptr %invariant.gep708, i64 %indvars.iv580
+  %1009 = getelementptr inbounds nuw i8, ptr %gep709, i64 16
   store i32 108, ptr %1009, align 8, !tbaa !39
   %indvars.iv.next581 = add nuw nsw i64 %indvars.iv580, 1
   %exitcond584.not = icmp eq i64 %indvars.iv.next581, %wide.trip.count583

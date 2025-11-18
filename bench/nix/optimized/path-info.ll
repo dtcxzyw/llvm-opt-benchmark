@@ -27759,209 +27759,186 @@ define linkonce_odr noundef nonnull ptr @_ZN8nlohmann6detail8to_charsIdEEPcS2_PK
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %20 = bitcast double %.013 to i64
-  %21 = and i64 %20, 4503599627370495
-  %22 = icmp ult i64 %20, 4503599627370496
-  br i1 %22, label %.thread.i.i, label %25
-
-.thread.i.i:                                      ; preds = %19
-  %23 = shl nuw nsw i64 %20, 1
-  %24 = or disjoint i64 %23, 1
-  br label %38
-
-25:                                               ; preds = %19
-  %26 = lshr i64 %20, 52
-  %27 = or disjoint i64 %21, 4503599627370496
-  %28 = trunc nuw nsw i64 %26 to i32
-  %29 = add nsw i32 %28, -1075
-  %30 = icmp eq i64 %21, 0
-  %31 = icmp ugt i64 %20, 9007199254740991
-  %32 = and i1 %31, %30
-  %33 = shl nuw nsw i64 %27, 1
-  %34 = or disjoint i64 %33, 1
-  %35 = add nsw i32 %28, -1076
-  br i1 %32, label %36, label %38
-
-36:                                               ; preds = %25
-  %37 = add nsw i32 %28, -1077
-  br label %43
-
-38:                                               ; preds = %25, %.thread.i.i
-  %39 = phi i32 [ -1075, %.thread.i.i ], [ %35, %25 ]
-  %40 = phi i64 [ %24, %.thread.i.i ], [ %34, %25 ]
-  %41 = phi i64 [ %23, %.thread.i.i ], [ %33, %25 ]
-  %.sroa.6.040.i.i = phi i32 [ -1074, %.thread.i.i ], [ %29, %25 ]
-  %.sroa.028.038.i.i = phi i64 [ %21, %.thread.i.i ], [ %27, %25 ]
-  %42 = add nsw i64 %41, -1
-  br label %43
-
-43:                                               ; preds = %38, %36
-  %44 = phi i32 [ %35, %36 ], [ %39, %38 ]
-  %45 = phi i64 [ %34, %36 ], [ %40, %38 ]
-  %.sroa.6.039.i.i = phi i32 [ %29, %36 ], [ %.sroa.6.040.i.i, %38 ]
-  %.sroa.028.037.i.i = phi i64 [ 4503599627370496, %36 ], [ %.sroa.028.038.i.i, %38 ]
-  %.sroa.3.0.i.i = phi i32 [ %37, %36 ], [ %39, %38 ]
-  %.sroa.0.0.i.i = phi i64 [ 18014398509481983, %36 ], [ %42, %38 ]
+  %21 = lshr i64 %20, 52
+  %22 = and i64 %20, 4503599627370495
+  %23 = icmp eq i64 %21, 0
+  %24 = or disjoint i64 %22, 4503599627370496
+  %25 = trunc nuw nsw i64 %21 to i32
+  %26 = add nsw i32 %25, -1075
+  %.sroa.028.0.i.i = select i1 %23, i64 %22, i64 %24
+  %.sroa.6.0.i.i = select i1 %23, i32 -1074, i32 %26
+  %27 = shl nuw nsw i64 %.sroa.028.0.i.i, 1
+  %28 = or disjoint i64 %27, 1
+  %29 = add nsw i32 %.sroa.6.0.i.i, -1
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %43
-  %.sroa.0.04.i.i.i = phi i64 [ %46, %.lr.ph.i.i.i ], [ %45, %43 ]
-  %.sroa.5.03.i.i.i = phi i32 [ %47, %.lr.ph.i.i.i ], [ %44, %43 ]
-  %46 = shl nuw i64 %.sroa.0.04.i.i.i, 1
-  %47 = add nsw i32 %.sroa.5.03.i.i.i, -1
-  %48 = icmp sgt i64 %46, -1
-  br i1 %48, label %.lr.ph.i.i.i, label %.lr.ph.i23.i.i, !llvm.loop !211
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %19
+  %.sroa.0.04.i.i.i = phi i64 [ %30, %.lr.ph.i.i.i ], [ %28, %19 ]
+  %.sroa.5.03.i.i.i = phi i32 [ %31, %.lr.ph.i.i.i ], [ %29, %19 ]
+  %30 = shl nuw i64 %.sroa.0.04.i.i.i, 1
+  %31 = add nsw i32 %.sroa.5.03.i.i.i, -1
+  %32 = icmp sgt i64 %30, -1
+  br i1 %32, label %.lr.ph.i.i.i, label %.lr.ph.i23.i.i, !llvm.loop !211
 
 .lr.ph.i23.i.i:                                   ; preds = %.lr.ph.i.i.i, %.lr.ph.i23.i.i
-  %.sroa.0.04.i24.i.i = phi i64 [ %49, %.lr.ph.i23.i.i ], [ %.sroa.028.037.i.i, %.lr.ph.i.i.i ]
-  %.sroa.5.03.i25.i.i = phi i32 [ %50, %.lr.ph.i23.i.i ], [ %.sroa.6.039.i.i, %.lr.ph.i.i.i ]
-  %49 = shl nuw i64 %.sroa.0.04.i24.i.i, 1
-  %50 = add nsw i32 %.sroa.5.03.i25.i.i, -1
-  %51 = icmp sgt i64 %49, -1
-  br i1 %51, label %.lr.ph.i23.i.i, label %_ZN8nlohmann6detail9dtoa_impl6grisu2IdEEvPcRiS4_T_.exit, !llvm.loop !211
+  %.sroa.0.04.i24.i.i = phi i64 [ %33, %.lr.ph.i23.i.i ], [ %.sroa.028.0.i.i, %.lr.ph.i.i.i ]
+  %.sroa.5.03.i25.i.i = phi i32 [ %34, %.lr.ph.i23.i.i ], [ %.sroa.6.0.i.i, %.lr.ph.i.i.i ]
+  %33 = shl nuw i64 %.sroa.0.04.i24.i.i, 1
+  %34 = add nsw i32 %.sroa.5.03.i25.i.i, -1
+  %35 = icmp sgt i64 %33, -1
+  br i1 %35, label %.lr.ph.i23.i.i, label %_ZN8nlohmann6detail9dtoa_impl6grisu2IdEEvPcRiS4_T_.exit, !llvm.loop !211
 
 _ZN8nlohmann6detail9dtoa_impl6grisu2IdEEvPcRiS4_T_.exit: ; preds = %.lr.ph.i23.i.i
-  %52 = sub nsw i32 %.sroa.3.0.i.i, %47
-  %53 = zext nneg i32 %52 to i64
-  %54 = shl i64 %.sroa.0.0.i.i, %53
-  store i64 %49, ptr %4, align 8
+  %36 = icmp eq i64 %22, 0
+  %37 = icmp ugt i64 %20, 9007199254740991
+  %38 = and i1 %37, %36
+  %39 = shl nuw nsw i64 %.sroa.028.0.i.i, 2
+  %.sroa.0.0.v.i.i = select i1 %38, i64 %39, i64 %27
+  %.sroa.0.0.i.i = add nsw i64 %.sroa.0.0.v.i.i, -1
+  %40 = add nsw i32 %.sroa.6.0.i.i, -2
+  %.sroa.3.0.i.i = select i1 %38, i32 %40, i32 %29
+  %41 = sub nsw i32 %.sroa.3.0.i.i, %31
+  %42 = zext nneg i32 %41 to i64
+  %43 = shl i64 %.sroa.0.0.i.i, %42
+  store i64 %33, ptr %4, align 8
   %.sroa.2.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %50, ptr %.sroa.2.0..sroa_idx5.i, align 8
-  store i64 %46, ptr %5, align 8
+  store i32 %34, ptr %.sroa.2.0..sroa_idx5.i, align 8
+  store i64 %30, ptr %5, align 8
   %.sroa.9.32..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %47, ptr %.sroa.9.32..sroa_idx.i, align 8
-  call void @_ZN8nlohmann6detail9dtoa_impl6grisu2EPcRiS3_NS1_5diyfpES4_S4_(ptr noundef nonnull %.012, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, i64 %54, i32 %47, ptr noundef nonnull byval(%"struct.nlohmann::detail::dtoa_impl::diyfp") align 8 %4, ptr noundef nonnull byval(%"struct.nlohmann::detail::dtoa_impl::diyfp") align 8 %5)
+  store i32 %31, ptr %.sroa.9.32..sroa_idx.i, align 8
+  call void @_ZN8nlohmann6detail9dtoa_impl6grisu2EPcRiS3_NS1_5diyfpES4_S4_(ptr noundef nonnull %.012, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, i64 %43, i32 %31, ptr noundef nonnull byval(%"struct.nlohmann::detail::dtoa_impl::diyfp") align 8 %4, ptr noundef nonnull byval(%"struct.nlohmann::detail::dtoa_impl::diyfp") align 8 %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %55 = load i32, ptr %6, align 4
-  %56 = load i32, ptr %7, align 4
-  %57 = add nsw i32 %56, %55
-  %.not.i = icmp slt i32 %56, 0
-  %.not59.i = icmp sgt i32 %57, 15
+  %44 = load i32, ptr %6, align 4
+  %45 = load i32, ptr %7, align 4
+  %46 = add nsw i32 %45, %44
+  %.not.i = icmp slt i32 %45, 0
+  %.not59.i = icmp sgt i32 %46, 15
   %or.cond61.i = select i1 %.not.i, i1 true, i1 %.not59.i
-  br i1 %or.cond61.i, label %66, label %58
+  br i1 %or.cond61.i, label %55, label %47
 
-58:                                               ; preds = %_ZN8nlohmann6detail9dtoa_impl6grisu2IdEEvPcRiS4_T_.exit
-  %59 = sext i32 %55 to i64
-  %60 = getelementptr inbounds i8, ptr %.012, i64 %59
-  %61 = sext i32 %57 to i64
-  %62 = zext nneg i32 %56 to i64
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %60, i8 48, i64 %62, i1 false)
-  %63 = getelementptr inbounds i8, ptr %.012, i64 %61
-  store i8 46, ptr %63, align 1
-  %64 = getelementptr i8, ptr %63, i64 1
-  store i8 48, ptr %64, align 1
-  %65 = getelementptr i8, ptr %63, i64 2
+47:                                               ; preds = %_ZN8nlohmann6detail9dtoa_impl6grisu2IdEEvPcRiS4_T_.exit
+  %48 = sext i32 %44 to i64
+  %49 = getelementptr inbounds i8, ptr %.012, i64 %48
+  %50 = sext i32 %46 to i64
+  %51 = zext nneg i32 %45 to i64
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %49, i8 48, i64 %51, i1 false)
+  %52 = getelementptr inbounds i8, ptr %.012, i64 %50
+  store i8 46, ptr %52, align 1
+  %53 = getelementptr i8, ptr %52, i64 1
+  store i8 48, ptr %53, align 1
+  %54 = getelementptr i8, ptr %52, i64 2
   br label %_ZN8nlohmann6detail9dtoa_impl13format_bufferEPciiii.exit
 
-66:                                               ; preds = %_ZN8nlohmann6detail9dtoa_impl6grisu2IdEEvPcRiS4_T_.exit
-  %67 = icmp slt i32 %57, 1
-  %68 = add i32 %57, -16
-  %or.cond62.i = icmp ult i32 %68, -15
-  br i1 %or.cond62.i, label %77, label %69
+55:                                               ; preds = %_ZN8nlohmann6detail9dtoa_impl6grisu2IdEEvPcRiS4_T_.exit
+  %56 = icmp slt i32 %46, 1
+  %57 = add i32 %46, -16
+  %or.cond62.i = icmp ult i32 %57, -15
+  br i1 %or.cond62.i, label %66, label %58
 
-69:                                               ; preds = %66
-  %70 = zext nneg i32 %57 to i64
-  %71 = getelementptr inbounds nuw i8, ptr %.012, i64 %70
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 1
-  %73 = sext i32 %55 to i64
-  %74 = sub nsw i64 %73, %70
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %72, ptr nonnull align 1 %71, i64 %74, i1 false)
-  store i8 46, ptr %71, align 1
-  %75 = getelementptr i8, ptr %.012, i64 %73
-  %76 = getelementptr i8, ptr %75, i64 1
+58:                                               ; preds = %55
+  %59 = zext nneg i32 %46 to i64
+  %60 = getelementptr inbounds nuw i8, ptr %.012, i64 %59
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 1
+  %62 = sext i32 %44 to i64
+  %63 = sub nsw i64 %62, %59
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %61, ptr nonnull align 1 %60, i64 %63, i1 false)
+  store i8 46, ptr %60, align 1
+  %64 = getelementptr i8, ptr %.012, i64 %62
+  %65 = getelementptr i8, ptr %64, i64 1
+  br label %_ZN8nlohmann6detail9dtoa_impl13format_bufferEPciiii.exit
+
+66:                                               ; preds = %55
+  %67 = add i32 %46, 3
+  %or.cond.i = icmp ult i32 %67, 4
+  br i1 %or.cond.i, label %68, label %77
+
+68:                                               ; preds = %66
+  %69 = sub nsw i32 0, %46
+  %70 = zext nneg i32 %69 to i64
+  %71 = getelementptr i8, ptr %.012, i64 %70
+  %72 = getelementptr i8, ptr %71, i64 2
+  %73 = sext i32 %44 to i64
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %72, ptr nonnull align 1 %.012, i64 %73, i1 false)
+  store i8 48, ptr %.012, align 1
+  %74 = getelementptr inbounds nuw i8, ptr %.012, i64 1
+  store i8 46, ptr %74, align 1
+  %75 = getelementptr inbounds nuw i8, ptr %.012, i64 2
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %75, i8 48, i64 %70, i1 false)
+  %76 = getelementptr i8, ptr %72, i64 %73
   br label %_ZN8nlohmann6detail9dtoa_impl13format_bufferEPciiii.exit
 
 77:                                               ; preds = %66
-  %78 = add i32 %57, 3
-  %or.cond.i = icmp ult i32 %78, 4
-  br i1 %or.cond.i, label %79, label %88
+  %78 = icmp eq i32 %44, 1
+  br i1 %78, label %85, label %79
 
 79:                                               ; preds = %77
-  %80 = sub nsw i32 0, %57
-  %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr i8, ptr %.012, i64 %81
-  %83 = getelementptr i8, ptr %82, i64 2
-  %84 = sext i32 %55 to i64
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %83, ptr nonnull align 1 %.012, i64 %84, i1 false)
-  store i8 48, ptr %.012, align 1
-  %85 = getelementptr inbounds nuw i8, ptr %.012, i64 1
-  store i8 46, ptr %85, align 1
-  %86 = getelementptr inbounds nuw i8, ptr %.012, i64 2
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %86, i8 48, i64 %81, i1 false)
-  %87 = getelementptr i8, ptr %83, i64 %84
-  br label %_ZN8nlohmann6detail9dtoa_impl13format_bufferEPciiii.exit
+  %80 = getelementptr inbounds nuw i8, ptr %.012, i64 2
+  %81 = getelementptr inbounds nuw i8, ptr %.012, i64 1
+  %82 = sext i32 %44 to i64
+  %83 = add nsw i64 %82, -1
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %80, ptr nonnull align 1 %81, i64 %83, i1 false)
+  store i8 46, ptr %81, align 1
+  %84 = getelementptr i8, ptr %.012, i64 %82
+  br label %85
 
-88:                                               ; preds = %77
-  %89 = icmp eq i32 %55, 1
-  br i1 %89, label %96, label %90
-
-90:                                               ; preds = %88
-  %91 = getelementptr inbounds nuw i8, ptr %.012, i64 2
-  %92 = getelementptr inbounds nuw i8, ptr %.012, i64 1
-  %93 = sext i32 %55 to i64
-  %94 = add nsw i64 %93, -1
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %91, ptr nonnull align 1 %92, i64 %94, i1 false)
-  store i8 46, ptr %92, align 1
-  %95 = getelementptr i8, ptr %.012, i64 %93
-  br label %96
-
-96:                                               ; preds = %90, %88
-  %.pn.i = phi ptr [ %95, %90 ], [ %.012, %88 ]
+85:                                               ; preds = %79, %77
+  %.pn.i = phi ptr [ %84, %79 ], [ %.012, %77 ]
   %.056.i = getelementptr i8, ptr %.pn.i, i64 1
-  %97 = getelementptr i8, ptr %.pn.i, i64 2
+  %86 = getelementptr i8, ptr %.pn.i, i64 2
   store i8 101, ptr %.056.i, align 1
-  %98 = add nsw i32 %57, -1
-  %storemerge.i.i = select i1 %67, i8 45, i8 43
-  %.0.i.i = call i32 @llvm.abs.i32(i32 %98, i1 true)
+  %87 = add nsw i32 %46, -1
+  %storemerge.i.i = select i1 %56, i8 45, i8 43
+  %.0.i.i = call i32 @llvm.abs.i32(i32 %87, i1 true)
   %.023.i.i = getelementptr i8, ptr %.pn.i, i64 3
-  store i8 %storemerge.i.i, ptr %97, align 1
-  %99 = icmp samesign ult i32 %.0.i.i, 10
-  br i1 %99, label %100, label %105
+  store i8 %storemerge.i.i, ptr %86, align 1
+  %88 = icmp samesign ult i32 %.0.i.i, 10
+  br i1 %88, label %89, label %94
 
-100:                                              ; preds = %96
-  %101 = getelementptr i8, ptr %.pn.i, i64 4
+89:                                               ; preds = %85
+  %90 = getelementptr i8, ptr %.pn.i, i64 4
   store i8 48, ptr %.023.i.i, align 1
-  %102 = trunc nuw nsw i32 %.0.i.i to i8
-  %103 = or disjoint i8 %102, 48
-  %104 = getelementptr i8, ptr %.pn.i, i64 5
-  store i8 %103, ptr %101, align 1
+  %91 = trunc nuw nsw i32 %.0.i.i to i8
+  %92 = or disjoint i8 %91, 48
+  %93 = getelementptr i8, ptr %.pn.i, i64 5
+  store i8 %92, ptr %90, align 1
   br label %_ZN8nlohmann6detail9dtoa_impl13format_bufferEPciiii.exit
 
-105:                                              ; preds = %96
-  %106 = icmp samesign ult i32 %.0.i.i, 100
-  %107 = getelementptr i8, ptr %.pn.i, i64 4
-  br i1 %106, label %108, label %114
+94:                                               ; preds = %85
+  %95 = icmp samesign ult i32 %.0.i.i, 100
+  %96 = getelementptr i8, ptr %.pn.i, i64 4
+  br i1 %95, label %97, label %103
 
-108:                                              ; preds = %105
+97:                                               ; preds = %94
   %.lhs.trunc.i.i = trunc nuw nsw i32 %.0.i.i to i8
-  %109 = udiv i8 %.lhs.trunc.i.i, 10
-  %110 = or disjoint i8 %109, 48
-  store i8 %110, ptr %.023.i.i, align 1
-  %111 = urem i8 %.lhs.trunc.i.i, 10
+  %98 = udiv i8 %.lhs.trunc.i.i, 10
+  %99 = or disjoint i8 %98, 48
+  store i8 %99, ptr %.023.i.i, align 1
+  %100 = urem i8 %.lhs.trunc.i.i, 10
+  %101 = or disjoint i8 %100, 48
+  %102 = getelementptr i8, ptr %.pn.i, i64 5
+  store i8 %101, ptr %96, align 1
+  br label %_ZN8nlohmann6detail9dtoa_impl13format_bufferEPciiii.exit
+
+103:                                              ; preds = %94
+  %104 = udiv i32 %.0.i.i, 100
+  %105 = trunc i32 %104 to i8
+  %106 = add i8 %105, 48
+  store i8 %106, ptr %.023.i.i, align 1
+  %107 = urem i32 %.0.i.i, 100
+  %.lhs.trunc28.i.i = trunc nuw nsw i32 %107 to i8
+  %108 = udiv i8 %.lhs.trunc28.i.i, 10
+  %109 = or disjoint i8 %108, 48
+  %110 = getelementptr i8, ptr %.pn.i, i64 5
+  store i8 %109, ptr %96, align 1
+  %111 = urem i8 %.lhs.trunc28.i.i, 10
   %112 = or disjoint i8 %111, 48
-  %113 = getelementptr i8, ptr %.pn.i, i64 5
-  store i8 %112, ptr %107, align 1
+  %113 = getelementptr i8, ptr %.pn.i, i64 6
+  store i8 %112, ptr %110, align 1
   br label %_ZN8nlohmann6detail9dtoa_impl13format_bufferEPciiii.exit
 
-114:                                              ; preds = %105
-  %115 = udiv i32 %.0.i.i, 100
-  %116 = trunc i32 %115 to i8
-  %117 = add i8 %116, 48
-  store i8 %117, ptr %.023.i.i, align 1
-  %118 = urem i32 %.0.i.i, 100
-  %.lhs.trunc28.i.i = trunc nuw nsw i32 %118 to i8
-  %119 = udiv i8 %.lhs.trunc28.i.i, 10
-  %120 = or disjoint i8 %119, 48
-  %121 = getelementptr i8, ptr %.pn.i, i64 5
-  store i8 %120, ptr %107, align 1
-  %122 = urem i8 %.lhs.trunc28.i.i, 10
-  %123 = or disjoint i8 %122, 48
-  %124 = getelementptr i8, ptr %.pn.i, i64 6
-  store i8 %123, ptr %121, align 1
-  br label %_ZN8nlohmann6detail9dtoa_impl13format_bufferEPciiii.exit
-
-_ZN8nlohmann6detail9dtoa_impl13format_bufferEPciiii.exit: ; preds = %114, %108, %100, %79, %69, %58, %15
-  %.0 = phi ptr [ %18, %15 ], [ %65, %58 ], [ %76, %69 ], [ %87, %79 ], [ %104, %100 ], [ %113, %108 ], [ %124, %114 ]
+_ZN8nlohmann6detail9dtoa_impl13format_bufferEPciiii.exit: ; preds = %103, %97, %89, %68, %58, %47, %15
+  %.0 = phi ptr [ %18, %15 ], [ %54, %47 ], [ %65, %58 ], [ %76, %68 ], [ %93, %89 ], [ %102, %97 ], [ %113, %103 ]
   ret ptr %.0
 }
 

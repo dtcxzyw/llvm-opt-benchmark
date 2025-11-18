@@ -7052,7 +7052,7 @@ define internal fastcc range(i32 -1, 1) i32 @e1000_erase_flash_bank_ich8lan(ptr 
   %9 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %8) #9, !srcloc !15
   %10 = lshr i16 %9, 3
   %11 = and i16 %10, 3
-  switch i16 %11, label %default.unreachable15 [
+  switch i16 %11, label %default.unreachable16 [
     i16 0, label %14
     i16 1, label %.thread
     i16 2, label %12
@@ -7065,12 +7065,12 @@ define internal fastcc range(i32 -1, 1) i32 @e1000_erase_flash_bank_ich8lan(ptr 
 13:                                               ; preds = %2
   br label %.thread
 
-default.unreachable15:                            ; preds = %2
+default.unreachable16:                            ; preds = %2
   unreachable
 
 14:                                               ; preds = %2
   %15 = lshr i32 %5, 8
-  %16 = icmp ult i32 %5, 256
+  %16 = icmp eq i32 %15, 0
   br i1 %16, label %.critedge.thread, label %.thread
 
 .thread:                                          ; preds = %2, %12, %13, %14

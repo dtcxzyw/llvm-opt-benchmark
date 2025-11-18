@@ -3970,11 +3970,11 @@ define hidden void @_ZN10JavaThread17oops_do_no_framesEP10OopClosureP14NMethodCl
   %55 = load i32, ptr %54, align 8
   %56 = load i32, ptr @_ZN9LockStack22lock_stack_base_offsetE, align 4
   %57 = sub i32 %55, %56
-  %.not.i = icmp ult i32 %57, 8
+  %58 = lshr i32 %57, 3
+  %.not.i = icmp eq i32 %58, 0
   br i1 %.not.i, label %_ZN9LockStack7oops_doEP10OopClosure.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %53
-  %58 = lshr i32 %57, 3
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 1736
   %wide.trip.count.i = zext nneg i32 %58 to i64
   br label %60

@@ -5698,7 +5698,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 59:                                               ; preds = %53
   %60 = getelementptr inbounds ptr, ptr %0, i64 %.019.i.i.i.i.i
   store ptr %55, ptr %60, align 8, !tbaa !150
-  %.not11.i.i.i = icmp ult i64 %.0920.in.i.i.i.i.i, 2
+  %.not11.i.i.i = icmp eq i64 %.0920.i.i910.i.i.i, 0
   br i1 %.not11.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN3g2o16OptimizableGraph6VertexESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_15VertexIDCompareEEEEvT_SF_SF_RT0_.exit.i.i, label %53, !llvm.loop !271
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN3g2o16OptimizableGraph6VertexESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_15VertexIDCompareEEEEvT_SF_SF_RT0_.exit.i.i: ; preds = %59, %53, %50
@@ -6068,7 +6068,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPN
 50:                                               ; preds = %.lr.ph.i.i.i.us
   %51 = getelementptr inbounds ptr, ptr %.fr26, i64 %.019.i.i.i.us
   store ptr %46, ptr %51, align 8, !tbaa !150
-  %.not11.i.us = icmp ult i64 %.0920.in.i.i.i.us, 2
+  %.not11.i.us = icmp eq i64 %.0920.i.i910.i.us, 0
   br i1 %.not11.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN3g2o16OptimizableGraph6VertexESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_15VertexIDCompareEEEEvT_SF_SF_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !271
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN3g2o16OptimizableGraph6VertexESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_15VertexIDCompareEEEEvT_SF_SF_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %50, %43
@@ -6455,7 +6455,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 59:                                               ; preds = %53
   %60 = getelementptr inbounds ptr, ptr %0, i64 %.019.i.i.i.i.i
   store ptr %55, ptr %60, align 8, !tbaa !90
-  %.not11.i.i.i = icmp ult i64 %.0920.in.i.i.i.i.i, 2
+  %.not11.i.i.i = icmp eq i64 %.0920.i.i910.i.i.i, 0
   br i1 %.not11.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN3g2o16OptimizableGraph4EdgeESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_13EdgeIDCompareEEEEvT_SF_SF_RT0_.exit.i.i, label %53, !llvm.loop !283
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN3g2o16OptimizableGraph4EdgeESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_13EdgeIDCompareEEEEvT_SF_SF_RT0_.exit.i.i: ; preds = %59, %53, %50
@@ -6825,7 +6825,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPN
 50:                                               ; preds = %.lr.ph.i.i.i.us
   %51 = getelementptr inbounds ptr, ptr %.fr26, i64 %.019.i.i.i.us
   store ptr %46, ptr %51, align 8, !tbaa !90
-  %.not11.i.us = icmp ult i64 %.0920.in.i.i.i.us, 2
+  %.not11.i.us = icmp eq i64 %.0920.i.i910.i.us, 0
   br i1 %.not11.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN3g2o16OptimizableGraph4EdgeESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_13EdgeIDCompareEEEEvT_SF_SF_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !283
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN3g2o16OptimizableGraph4EdgeESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_13EdgeIDCompareEEEEvT_SF_SF_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %50, %43

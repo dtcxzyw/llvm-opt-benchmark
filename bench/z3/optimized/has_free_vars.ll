@@ -229,8 +229,8 @@ _ZN6vectorI15expr_delta_pairLb0EjE5resetEv.exit:  ; preds = %4, %11
   %34 = icmp ugt i32 %22, 16
   %35 = mul i32 %22, 3
   %36 = icmp ugt i32 %33, %35
-  %or.cond18.i = select i1 %34, i1 %36, i1 false
-  br i1 %or.cond18.i, label %37, label %._crit_edge.thread.i
+  %or.cond19.i = select i1 %34, i1 %36, i1 false
+  br i1 %or.cond19.i, label %37, label %._crit_edge.thread.i
 
 37:                                               ; preds = %._crit_edge.i
   %38 = icmp eq ptr %20, null
@@ -249,7 +249,7 @@ _ZN14core_hashtableI18default_hash_entryI15expr_delta_pairE8obj_hashIS1_E10defau
   %42 = zext nneg i32 %41 to i64
   %43 = mul nuw nsw i64 %42, 24
   %44 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %43)
-  %.not11.i.i.i.i.i.i = icmp ult i32 %40, 2
+  %.not11.i.i.i.i.i.i = icmp eq i32 %41, 0
   br i1 %.not11.i.i.i.i.i.i, label %_ZN14core_hashtableI18default_hash_entryI15expr_delta_pairE8obj_hashIS1_E10default_eqIS1_EE11alloc_tableEj.exit.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZN14core_hashtableI18default_hash_entryI15expr_delta_pairE8obj_hashIS1_E10default_eqIS1_EE12delete_tableEv.exit.i, %.lr.ph.i.i.i.i.i.i

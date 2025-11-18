@@ -14723,12 +14723,12 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.val16.i = load i64, ptr %18, align 8, !noalias !2919, !noundef !16
   %19 = tail call i64 @_ZN6chrono5naive4date9NaiveDate14parse_from_str17h9e261ad239ddf537E(ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val16.i, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %9), !noalias !2922
   %20 = trunc i64 %19 to i1
-  %.not5.i.i.i = icmp ult i64 %19, 4294967296
+  %.sroa.5.0.extract.shift.i.i.i = lshr i64 %19, 32
+  %.not5.i.i.i = icmp eq i64 %.sroa.5.0.extract.shift.i.i.i, 0
   %.not.i.i.i = or i1 %.not5.i.i.i, %20
   br i1 %.not.i.i.i, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h92c9ed8ccc8c8001E.exit.i", label %21
 
 21:                                               ; preds = %16
-  %.sroa.5.0.extract.shift.i.i.i = lshr i64 %19, 32
   %.sroa.5.0.extract.trunc.i.i.i = trunc nuw i64 %.sroa.5.0.extract.shift.i.i.i to i32
   %22 = tail call noundef i32 @_ZN11polars_time12chunkedarray4date18naive_date_to_date17ha2b3f4084cdd8827E(i32 noundef %.sroa.5.0.extract.trunc.i.i.i), !noalias !2922
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h92c9ed8ccc8c8001E.exit.i"

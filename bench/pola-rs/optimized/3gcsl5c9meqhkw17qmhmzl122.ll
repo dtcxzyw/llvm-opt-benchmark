@@ -8311,19 +8311,19 @@ define hidden void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$
   store i64 %1, ptr %9, align 8, !noalias !1273
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %12, align 8, !noalias !1273
-  %.not.i.i = icmp ult i64 %1, 2
+  %13 = lshr i64 %1, 1
+  %.not.i.i = icmp eq i64 %13, 0
   %.not.i.i.i = icmp eq i64 %spec.store.select.i.i, 0
   %or.cond.i = or i1 %.not.i.i, %.not.i.i.i
-  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %13
+  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %14
 
-13:                                               ; preds = %4
-  %14 = lshr i64 %1, 1
+14:                                               ; preds = %4
   %15 = lshr i64 %spec.store.select.i.i, 1
   store i64 %15, ptr %8, align 8, !alias.scope !1277, !noalias !1273
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1273
-  store i64 %14, ptr %7, align 8, !noalias !1273
+  store i64 %13, ptr %7, align 8, !noalias !1273
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1273
-  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %14), !noalias !1280
+  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %13), !noalias !1280
   %16 = load ptr, ptr %6, align 8, !noalias !1273, !nonnull !3, !align !1281, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load i64, ptr %17, align 8, !noalias !1273, !noundef !3
@@ -8363,7 +8363,7 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i: ; preds
   %24 = tail call noundef align 8 dereferenceable(40) ptr @_ZN5rayon4iter8plumbing8Producer9fold_with17hdfae09c83c655890E(ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
   br label %_ZN5rayon4iter8plumbing24bridge_producer_consumer17hb2caf807ac9b078dE.exit
 
-_ZN5rayon4iter8plumbing24bridge_producer_consumer17hb2caf807ac9b078dE.exit: ; preds = %13, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
+_ZN5rayon4iter8plumbing24bridge_producer_consumer17hb2caf807ac9b078dE.exit: ; preds = %14, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1269
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1269
   ret void
@@ -8401,19 +8401,19 @@ define hidden void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$
   store i64 %1, ptr %9, align 8, !noalias !1293
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %12, align 8, !noalias !1293
-  %.not.i.i = icmp ult i64 %1, 2
+  %13 = lshr i64 %1, 1
+  %.not.i.i = icmp eq i64 %13, 0
   %.not.i.i.i = icmp eq i64 %spec.store.select.i.i, 0
   %or.cond.i = or i1 %.not.i.i, %.not.i.i.i
-  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %13
+  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %14
 
-13:                                               ; preds = %4
-  %14 = lshr i64 %1, 1
+14:                                               ; preds = %4
   %15 = lshr i64 %spec.store.select.i.i, 1
   store i64 %15, ptr %8, align 8, !alias.scope !1297, !noalias !1293
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1293
-  store i64 %14, ptr %7, align 8, !noalias !1293
+  store i64 %13, ptr %7, align 8, !noalias !1293
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1293
-  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %14), !noalias !1300
+  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %13), !noalias !1300
   %16 = load ptr, ptr %6, align 8, !noalias !1293, !nonnull !3, !align !1281, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load i64, ptr %17, align 8, !noalias !1293, !noundef !3
@@ -8453,7 +8453,7 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i: ; preds
   %24 = tail call noundef align 8 dereferenceable(40) ptr @_ZN5rayon4iter8plumbing8Producer9fold_with17h0e1ed0a4272d3e93E(ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
   br label %_ZN5rayon4iter8plumbing24bridge_producer_consumer17h8a37e313e22f5c6bE.exit
 
-_ZN5rayon4iter8plumbing24bridge_producer_consumer17h8a37e313e22f5c6bE.exit: ; preds = %13, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
+_ZN5rayon4iter8plumbing24bridge_producer_consumer17h8a37e313e22f5c6bE.exit: ; preds = %14, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1289
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1289
   ret void
@@ -8475,19 +8475,19 @@ define hidden void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$
   store i64 %1, ptr %9, align 8, !noalias !1305
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %12, align 8, !noalias !1305
-  %.not.i.i = icmp ult i64 %1, 2
+  %13 = lshr i64 %1, 1
+  %.not.i.i = icmp eq i64 %13, 0
   %.not.i.i.i = icmp eq i64 %spec.store.select.i.i, 0
   %or.cond.i = or i1 %.not.i.i, %.not.i.i.i
-  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %13
+  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %14
 
-13:                                               ; preds = %4
-  %14 = lshr i64 %1, 1
+14:                                               ; preds = %4
   %15 = lshr i64 %spec.store.select.i.i, 1
   store i64 %15, ptr %8, align 8, !alias.scope !1309, !noalias !1305
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1305
-  store i64 %14, ptr %7, align 8, !noalias !1305
+  store i64 %13, ptr %7, align 8, !noalias !1305
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1305
-  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %14), !noalias !1312
+  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %13), !noalias !1312
   %16 = load ptr, ptr %6, align 8, !noalias !1305, !nonnull !3, !align !1281, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load i64, ptr %17, align 8, !noalias !1305, !noundef !3
@@ -8527,7 +8527,7 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i: ; preds
   %24 = tail call noundef align 8 dereferenceable(40) ptr @_ZN5rayon4iter8plumbing8Producer9fold_with17hb12ba608dd94a9a9E(ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
   br label %_ZN5rayon4iter8plumbing24bridge_producer_consumer17hd770dddf812cb8d0E.exit
 
-_ZN5rayon4iter8plumbing24bridge_producer_consumer17hd770dddf812cb8d0E.exit: ; preds = %13, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
+_ZN5rayon4iter8plumbing24bridge_producer_consumer17hd770dddf812cb8d0E.exit: ; preds = %14, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1301
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1301
   ret void
@@ -8565,19 +8565,19 @@ define hidden void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$
   store i64 %1, ptr %9, align 8, !noalias !1324
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %12, align 8, !noalias !1324
-  %.not.i.i = icmp ult i64 %1, 2
+  %13 = lshr i64 %1, 1
+  %.not.i.i = icmp eq i64 %13, 0
   %.not.i.i.i = icmp eq i64 %spec.store.select.i.i, 0
   %or.cond.i = or i1 %.not.i.i, %.not.i.i.i
-  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %13
+  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %14
 
-13:                                               ; preds = %4
-  %14 = lshr i64 %1, 1
+14:                                               ; preds = %4
   %15 = lshr i64 %spec.store.select.i.i, 1
   store i64 %15, ptr %8, align 8, !alias.scope !1328, !noalias !1324
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1324
-  store i64 %14, ptr %7, align 8, !noalias !1324
+  store i64 %13, ptr %7, align 8, !noalias !1324
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1324
-  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %14), !noalias !1331
+  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %13), !noalias !1331
   %16 = load ptr, ptr %6, align 8, !noalias !1324, !nonnull !3, !align !1281, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load i64, ptr %17, align 8, !noalias !1324, !noundef !3
@@ -8617,7 +8617,7 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i: ; preds
   %24 = tail call noundef align 8 dereferenceable(40) ptr @_ZN5rayon4iter8plumbing8Producer9fold_with17h13ce9794c86b3d9eE(ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
   br label %_ZN5rayon4iter8plumbing24bridge_producer_consumer17hdf50f6a6256679ceE.exit
 
-_ZN5rayon4iter8plumbing24bridge_producer_consumer17hdf50f6a6256679ceE.exit: ; preds = %13, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
+_ZN5rayon4iter8plumbing24bridge_producer_consumer17hdf50f6a6256679ceE.exit: ; preds = %14, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1320
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1320
   ret void
@@ -8738,19 +8738,19 @@ define hidden void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$
   store i64 %1, ptr %9, align 8, !noalias !1348
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %12, align 8, !noalias !1348
-  %.not.i.i = icmp ult i64 %1, 2
+  %13 = lshr i64 %1, 1
+  %.not.i.i = icmp eq i64 %13, 0
   %.not.i.i.i = icmp eq i64 %spec.store.select.i.i, 0
   %or.cond.i = or i1 %.not.i.i, %.not.i.i.i
-  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %13
+  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %14
 
-13:                                               ; preds = %4
-  %14 = lshr i64 %1, 1
+14:                                               ; preds = %4
   %15 = lshr i64 %spec.store.select.i.i, 1
   store i64 %15, ptr %8, align 8, !alias.scope !1352, !noalias !1348
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1348
-  store i64 %14, ptr %7, align 8, !noalias !1348
+  store i64 %13, ptr %7, align 8, !noalias !1348
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1348
-  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %14), !noalias !1355
+  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %13), !noalias !1355
   %16 = load ptr, ptr %6, align 8, !noalias !1348, !nonnull !3, !align !1281, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load i64, ptr %17, align 8, !noalias !1348, !noundef !3
@@ -8790,7 +8790,7 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i: ; preds
   %24 = tail call noundef align 8 dereferenceable(40) ptr @_ZN5rayon4iter8plumbing8Producer9fold_with17hc2dec4d29f01c04cE(ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
   br label %_ZN5rayon4iter8plumbing24bridge_producer_consumer17h532a9de4a27624b6E.exit
 
-_ZN5rayon4iter8plumbing24bridge_producer_consumer17h532a9de4a27624b6E.exit: ; preds = %13, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
+_ZN5rayon4iter8plumbing24bridge_producer_consumer17h532a9de4a27624b6E.exit: ; preds = %14, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1344
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1344
   ret void
@@ -8812,19 +8812,19 @@ define hidden void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$
   store i64 %1, ptr %9, align 8, !noalias !1360
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %12, align 8, !noalias !1360
-  %.not.i.i = icmp ult i64 %1, 2
+  %13 = lshr i64 %1, 1
+  %.not.i.i = icmp eq i64 %13, 0
   %.not.i.i.i = icmp eq i64 %spec.store.select.i.i, 0
   %or.cond.i = or i1 %.not.i.i, %.not.i.i.i
-  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %13
+  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %14
 
-13:                                               ; preds = %4
-  %14 = lshr i64 %1, 1
+14:                                               ; preds = %4
   %15 = lshr i64 %spec.store.select.i.i, 1
   store i64 %15, ptr %8, align 8, !alias.scope !1364, !noalias !1360
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1360
-  store i64 %14, ptr %7, align 8, !noalias !1360
+  store i64 %13, ptr %7, align 8, !noalias !1360
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1360
-  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %14), !noalias !1367
+  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %13), !noalias !1367
   %16 = load ptr, ptr %6, align 8, !noalias !1360, !nonnull !3, !align !1281, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load i64, ptr %17, align 8, !noalias !1360, !noundef !3
@@ -8864,7 +8864,7 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i: ; preds
   %24 = tail call noundef align 8 dereferenceable(40) ptr @_ZN5rayon4iter8plumbing8Producer9fold_with17hb7a19bca544343e4E(ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
   br label %_ZN5rayon4iter8plumbing24bridge_producer_consumer17h3a6e95c09cfacf91E.exit
 
-_ZN5rayon4iter8plumbing24bridge_producer_consumer17h3a6e95c09cfacf91E.exit: ; preds = %13, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
+_ZN5rayon4iter8plumbing24bridge_producer_consumer17h3a6e95c09cfacf91E.exit: ; preds = %14, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1356
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1356
   ret void
@@ -9096,19 +9096,19 @@ define hidden void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$
   store i64 %1, ptr %9, align 8, !noalias !1429
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %12, align 8, !noalias !1429
-  %.not.i.i = icmp ult i64 %1, 2
+  %13 = lshr i64 %1, 1
+  %.not.i.i = icmp eq i64 %13, 0
   %.not.i.i.i = icmp eq i64 %spec.store.select.i.i, 0
   %or.cond.i = or i1 %.not.i.i, %.not.i.i.i
-  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %13
+  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %14
 
-13:                                               ; preds = %4
-  %14 = lshr i64 %1, 1
+14:                                               ; preds = %4
   %15 = lshr i64 %spec.store.select.i.i, 1
   store i64 %15, ptr %8, align 8, !alias.scope !1433, !noalias !1429
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1429
-  store i64 %14, ptr %7, align 8, !noalias !1429
+  store i64 %13, ptr %7, align 8, !noalias !1429
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1429
-  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %14), !noalias !1436
+  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %13), !noalias !1436
   %16 = load ptr, ptr %6, align 8, !noalias !1429, !nonnull !3, !align !1281, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load i64, ptr %17, align 8, !noalias !1429, !noundef !3
@@ -9148,7 +9148,7 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i: ; preds
   %24 = tail call noundef align 8 dereferenceable(40) ptr @_ZN5rayon4iter8plumbing8Producer9fold_with17h841fe4523573a454E(ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
   br label %_ZN5rayon4iter8plumbing24bridge_producer_consumer17he6dfc0ac2b3e3773E.exit
 
-_ZN5rayon4iter8plumbing24bridge_producer_consumer17he6dfc0ac2b3e3773E.exit: ; preds = %13, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
+_ZN5rayon4iter8plumbing24bridge_producer_consumer17he6dfc0ac2b3e3773E.exit: ; preds = %14, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1425
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1425
   ret void
@@ -9269,19 +9269,19 @@ define hidden void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$
   store i64 %1, ptr %9, align 8, !noalias !1453
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %12, align 8, !noalias !1453
-  %.not.i.i = icmp ult i64 %1, 2
+  %13 = lshr i64 %1, 1
+  %.not.i.i = icmp eq i64 %13, 0
   %.not.i.i.i = icmp eq i64 %spec.store.select.i.i, 0
   %or.cond.i = or i1 %.not.i.i, %.not.i.i.i
-  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %13
+  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %14
 
-13:                                               ; preds = %4
-  %14 = lshr i64 %1, 1
+14:                                               ; preds = %4
   %15 = lshr i64 %spec.store.select.i.i, 1
   store i64 %15, ptr %8, align 8, !alias.scope !1457, !noalias !1453
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1453
-  store i64 %14, ptr %7, align 8, !noalias !1453
+  store i64 %13, ptr %7, align 8, !noalias !1453
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1453
-  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %14), !noalias !1460
+  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %13), !noalias !1460
   %16 = load ptr, ptr %6, align 8, !noalias !1453, !nonnull !3, !align !1281, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load i64, ptr %17, align 8, !noalias !1453, !noundef !3
@@ -9321,7 +9321,7 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i: ; preds
   %24 = tail call noundef align 8 dereferenceable(40) ptr @_ZN5rayon4iter8plumbing8Producer9fold_with17h41af6462a89681a4E(ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
   br label %_ZN5rayon4iter8plumbing24bridge_producer_consumer17hdaa320c259d793ceE.exit
 
-_ZN5rayon4iter8plumbing24bridge_producer_consumer17hdaa320c259d793ceE.exit: ; preds = %13, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
+_ZN5rayon4iter8plumbing24bridge_producer_consumer17hdaa320c259d793ceE.exit: ; preds = %14, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1449
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1449
   ret void
@@ -9605,19 +9605,19 @@ define hidden void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$
   store i64 %1, ptr %9, align 8, !noalias !1516
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %12, align 8, !noalias !1516
-  %.not.i.i = icmp ult i64 %1, 2
+  %13 = lshr i64 %1, 1
+  %.not.i.i = icmp eq i64 %13, 0
   %.not.i.i.i = icmp eq i64 %spec.store.select.i.i, 0
   %or.cond.i = or i1 %.not.i.i, %.not.i.i.i
-  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %13
+  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %14
 
-13:                                               ; preds = %4
-  %14 = lshr i64 %1, 1
+14:                                               ; preds = %4
   %15 = lshr i64 %spec.store.select.i.i, 1
   store i64 %15, ptr %8, align 8, !alias.scope !1520, !noalias !1516
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1516
-  store i64 %14, ptr %7, align 8, !noalias !1516
+  store i64 %13, ptr %7, align 8, !noalias !1516
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1516
-  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %14), !noalias !1523
+  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %13), !noalias !1523
   %16 = load ptr, ptr %6, align 8, !noalias !1516, !nonnull !3, !align !1281, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load i64, ptr %17, align 8, !noalias !1516, !noundef !3
@@ -9657,7 +9657,7 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i: ; preds
   %24 = tail call noundef align 8 dereferenceable(40) ptr @_ZN5rayon4iter8plumbing8Producer9fold_with17h077aadc7bd8ace2cE(ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
   br label %_ZN5rayon4iter8plumbing24bridge_producer_consumer17h66d446a4ab399a1fE.exit
 
-_ZN5rayon4iter8plumbing24bridge_producer_consumer17h66d446a4ab399a1fE.exit: ; preds = %13, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
+_ZN5rayon4iter8plumbing24bridge_producer_consumer17h66d446a4ab399a1fE.exit: ; preds = %14, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1512
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1512
   ret void
@@ -9695,19 +9695,19 @@ define hidden void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$
   store i64 %1, ptr %9, align 8, !noalias !1534
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %12, align 8, !noalias !1534
-  %.not.i.i = icmp ult i64 %1, 2
+  %13 = lshr i64 %1, 1
+  %.not.i.i = icmp eq i64 %13, 0
   %.not.i.i.i = icmp eq i64 %spec.store.select.i.i, 0
   %or.cond.i = or i1 %.not.i.i, %.not.i.i.i
-  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %13
+  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %14
 
-13:                                               ; preds = %4
-  %14 = lshr i64 %1, 1
+14:                                               ; preds = %4
   %15 = lshr i64 %spec.store.select.i.i, 1
   store i64 %15, ptr %8, align 8, !alias.scope !1538, !noalias !1534
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1534
-  store i64 %14, ptr %7, align 8, !noalias !1534
+  store i64 %13, ptr %7, align 8, !noalias !1534
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1534
-  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %14), !noalias !1541
+  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %13), !noalias !1541
   %16 = load ptr, ptr %6, align 8, !noalias !1534, !nonnull !3, !align !1281, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load i64, ptr %17, align 8, !noalias !1534, !noundef !3
@@ -9747,7 +9747,7 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i: ; preds
   %24 = tail call noundef align 8 dereferenceable(40) ptr @_ZN5rayon4iter8plumbing8Producer9fold_with17h14271f21da3d1b45E(ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
   br label %_ZN5rayon4iter8plumbing24bridge_producer_consumer17h0635ca8572b52995E.exit
 
-_ZN5rayon4iter8plumbing24bridge_producer_consumer17h0635ca8572b52995E.exit: ; preds = %13, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
+_ZN5rayon4iter8plumbing24bridge_producer_consumer17h0635ca8572b52995E.exit: ; preds = %14, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1530
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1530
   ret void
@@ -9884,19 +9884,19 @@ define hidden void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$
   store i64 %1, ptr %9, align 8, !noalias !1564
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %12, align 8, !noalias !1564
-  %.not.i.i = icmp ult i64 %1, 2
+  %13 = lshr i64 %1, 1
+  %.not.i.i = icmp eq i64 %13, 0
   %.not.i.i.i = icmp eq i64 %spec.store.select.i.i, 0
   %or.cond.i = or i1 %.not.i.i, %.not.i.i.i
-  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %13
+  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %14
 
-13:                                               ; preds = %4
-  %14 = lshr i64 %1, 1
+14:                                               ; preds = %4
   %15 = lshr i64 %spec.store.select.i.i, 1
   store i64 %15, ptr %8, align 8, !alias.scope !1568, !noalias !1564
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1564
-  store i64 %14, ptr %7, align 8, !noalias !1564
+  store i64 %13, ptr %7, align 8, !noalias !1564
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1564
-  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %14), !noalias !1571
+  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %13), !noalias !1571
   %16 = load ptr, ptr %6, align 8, !noalias !1564, !nonnull !3, !align !1281, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load i64, ptr %17, align 8, !noalias !1564, !noundef !3
@@ -9936,7 +9936,7 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i: ; preds
   %24 = tail call noundef align 8 dereferenceable(40) ptr @_ZN5rayon4iter8plumbing8Producer9fold_with17h354f09f7a35a2dd2E(ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
   br label %_ZN5rayon4iter8plumbing24bridge_producer_consumer17hf63a8e8811e4063cE.exit
 
-_ZN5rayon4iter8plumbing24bridge_producer_consumer17hf63a8e8811e4063cE.exit: ; preds = %13, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
+_ZN5rayon4iter8plumbing24bridge_producer_consumer17hf63a8e8811e4063cE.exit: ; preds = %14, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1560
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1560
   ret void
@@ -9958,19 +9958,19 @@ define hidden void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$
   store i64 %1, ptr %9, align 8, !noalias !1576
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %12, align 8, !noalias !1576
-  %.not.i.i = icmp ult i64 %1, 2
+  %13 = lshr i64 %1, 1
+  %.not.i.i = icmp eq i64 %13, 0
   %.not.i.i.i = icmp eq i64 %spec.store.select.i.i, 0
   %or.cond.i = or i1 %.not.i.i, %.not.i.i.i
-  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %13
+  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %14
 
-13:                                               ; preds = %4
-  %14 = lshr i64 %1, 1
+14:                                               ; preds = %4
   %15 = lshr i64 %spec.store.select.i.i, 1
   store i64 %15, ptr %8, align 8, !alias.scope !1580, !noalias !1576
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1576
-  store i64 %14, ptr %7, align 8, !noalias !1576
+  store i64 %13, ptr %7, align 8, !noalias !1576
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1576
-  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %14), !noalias !1583
+  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %13), !noalias !1583
   %16 = load ptr, ptr %6, align 8, !noalias !1576, !nonnull !3, !align !1281, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load i64, ptr %17, align 8, !noalias !1576, !noundef !3
@@ -10010,7 +10010,7 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i: ; preds
   %24 = tail call noundef align 8 dereferenceable(40) ptr @_ZN5rayon4iter8plumbing8Producer9fold_with17h78041df5862cbf85E(ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
   br label %_ZN5rayon4iter8plumbing24bridge_producer_consumer17h4976785ade5b47d8E.exit
 
-_ZN5rayon4iter8plumbing24bridge_producer_consumer17h4976785ade5b47d8E.exit: ; preds = %13, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
+_ZN5rayon4iter8plumbing24bridge_producer_consumer17h4976785ade5b47d8E.exit: ; preds = %14, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1572
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1572
   ret void
@@ -10032,19 +10032,19 @@ define hidden void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$
   store i64 %1, ptr %9, align 8, !noalias !1588
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %12, align 8, !noalias !1588
-  %.not.i.i = icmp ult i64 %1, 2
+  %13 = lshr i64 %1, 1
+  %.not.i.i = icmp eq i64 %13, 0
   %.not.i.i.i = icmp eq i64 %spec.store.select.i.i, 0
   %or.cond.i = or i1 %.not.i.i, %.not.i.i.i
-  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %13
+  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %14
 
-13:                                               ; preds = %4
-  %14 = lshr i64 %1, 1
+14:                                               ; preds = %4
   %15 = lshr i64 %spec.store.select.i.i, 1
   store i64 %15, ptr %8, align 8, !alias.scope !1592, !noalias !1588
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1588
-  store i64 %14, ptr %7, align 8, !noalias !1588
+  store i64 %13, ptr %7, align 8, !noalias !1588
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1588
-  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %14), !noalias !1595
+  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %13), !noalias !1595
   %16 = load ptr, ptr %6, align 8, !noalias !1588, !nonnull !3, !align !1281, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load i64, ptr %17, align 8, !noalias !1588, !noundef !3
@@ -10084,7 +10084,7 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i: ; preds
   %24 = tail call noundef align 8 dereferenceable(40) ptr @_ZN5rayon4iter8plumbing8Producer9fold_with17h653b1d91a63fff56E(ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
   br label %_ZN5rayon4iter8plumbing24bridge_producer_consumer17h77f3154b8e619dd6E.exit
 
-_ZN5rayon4iter8plumbing24bridge_producer_consumer17h77f3154b8e619dd6E.exit: ; preds = %13, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
+_ZN5rayon4iter8plumbing24bridge_producer_consumer17h77f3154b8e619dd6E.exit: ; preds = %14, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1584
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1584
   ret void
@@ -10122,19 +10122,19 @@ define hidden void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$
   store i64 %1, ptr %9, align 8, !noalias !1607
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %12, align 8, !noalias !1607
-  %.not.i.i = icmp ult i64 %1, 2
+  %13 = lshr i64 %1, 1
+  %.not.i.i = icmp eq i64 %13, 0
   %.not.i.i.i = icmp eq i64 %spec.store.select.i.i, 0
   %or.cond.i = or i1 %.not.i.i, %.not.i.i.i
-  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %13
+  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %14
 
-13:                                               ; preds = %4
-  %14 = lshr i64 %1, 1
+14:                                               ; preds = %4
   %15 = lshr i64 %spec.store.select.i.i, 1
   store i64 %15, ptr %8, align 8, !alias.scope !1611, !noalias !1607
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1607
-  store i64 %14, ptr %7, align 8, !noalias !1607
+  store i64 %13, ptr %7, align 8, !noalias !1607
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1607
-  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %14), !noalias !1614
+  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %13), !noalias !1614
   %16 = load ptr, ptr %6, align 8, !noalias !1607, !nonnull !3, !align !1281, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load i64, ptr %17, align 8, !noalias !1607, !noundef !3
@@ -10174,7 +10174,7 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i: ; preds
   %24 = tail call noundef align 8 dereferenceable(40) ptr @_ZN5rayon4iter8plumbing8Producer9fold_with17h74312b79adae3a81E(ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
   br label %_ZN5rayon4iter8plumbing24bridge_producer_consumer17h9b730163b3c9d813E.exit
 
-_ZN5rayon4iter8plumbing24bridge_producer_consumer17h9b730163b3c9d813E.exit: ; preds = %13, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
+_ZN5rayon4iter8plumbing24bridge_producer_consumer17h9b730163b3c9d813E.exit: ; preds = %14, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1603
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1603
   ret void
@@ -10228,19 +10228,19 @@ define hidden void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$
   store i64 %1, ptr %9, align 8, !noalias !1633
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %12, align 8, !noalias !1633
-  %.not.i.i = icmp ult i64 %1, 2
+  %13 = lshr i64 %1, 1
+  %.not.i.i = icmp eq i64 %13, 0
   %.not.i.i.i = icmp eq i64 %spec.store.select.i.i, 0
   %or.cond.i = or i1 %.not.i.i, %.not.i.i.i
-  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %13
+  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %14
 
-13:                                               ; preds = %4
-  %14 = lshr i64 %1, 1
+14:                                               ; preds = %4
   %15 = lshr i64 %spec.store.select.i.i, 1
   store i64 %15, ptr %8, align 8, !alias.scope !1637, !noalias !1633
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1633
-  store i64 %14, ptr %7, align 8, !noalias !1633
+  store i64 %13, ptr %7, align 8, !noalias !1633
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1633
-  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %14), !noalias !1640
+  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %13), !noalias !1640
   %16 = load ptr, ptr %6, align 8, !noalias !1633, !nonnull !3, !align !1281, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load i64, ptr %17, align 8, !noalias !1633, !noundef !3
@@ -10280,7 +10280,7 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i: ; preds
   %24 = tail call noundef align 8 dereferenceable(40) ptr @_ZN5rayon4iter8plumbing8Producer9fold_with17h744e2858efa32eacE(ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
   br label %_ZN5rayon4iter8plumbing24bridge_producer_consumer17h072a40370e6410c8E.exit
 
-_ZN5rayon4iter8plumbing24bridge_producer_consumer17h072a40370e6410c8E.exit: ; preds = %13, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
+_ZN5rayon4iter8plumbing24bridge_producer_consumer17h072a40370e6410c8E.exit: ; preds = %14, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1629
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1629
   ret void
@@ -10433,19 +10433,19 @@ define hidden void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$
   store i64 %1, ptr %9, align 8, !noalias !1671
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %12, align 8, !noalias !1671
-  %.not.i.i = icmp ult i64 %1, 2
+  %13 = lshr i64 %1, 1
+  %.not.i.i = icmp eq i64 %13, 0
   %.not.i.i.i = icmp eq i64 %spec.store.select.i.i, 0
   %or.cond.i = or i1 %.not.i.i, %.not.i.i.i
-  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %13
+  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %14
 
-13:                                               ; preds = %4
-  %14 = lshr i64 %1, 1
+14:                                               ; preds = %4
   %15 = lshr i64 %spec.store.select.i.i, 1
   store i64 %15, ptr %8, align 8, !alias.scope !1675, !noalias !1671
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1671
-  store i64 %14, ptr %7, align 8, !noalias !1671
+  store i64 %13, ptr %7, align 8, !noalias !1671
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1671
-  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %14), !noalias !1678
+  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %13), !noalias !1678
   %16 = load ptr, ptr %6, align 8, !noalias !1671, !nonnull !3, !align !1281, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load i64, ptr %17, align 8, !noalias !1671, !noundef !3
@@ -10485,7 +10485,7 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i: ; preds
   %24 = tail call noundef align 8 dereferenceable(40) ptr @_ZN5rayon4iter8plumbing8Producer9fold_with17hc9787dcc5b793aecE(ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
   br label %_ZN5rayon4iter8plumbing24bridge_producer_consumer17h51d734302328e36aE.exit
 
-_ZN5rayon4iter8plumbing24bridge_producer_consumer17h51d734302328e36aE.exit: ; preds = %13, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
+_ZN5rayon4iter8plumbing24bridge_producer_consumer17h51d734302328e36aE.exit: ; preds = %14, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1667
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1667
   ret void
@@ -10507,19 +10507,19 @@ define hidden void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$
   store i64 %1, ptr %9, align 8, !noalias !1683
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %12, align 8, !noalias !1683
-  %.not.i.i = icmp ult i64 %1, 2
+  %13 = lshr i64 %1, 1
+  %.not.i.i = icmp eq i64 %13, 0
   %.not.i.i.i = icmp eq i64 %spec.store.select.i.i, 0
   %or.cond.i = or i1 %.not.i.i, %.not.i.i.i
-  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %13
+  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %14
 
-13:                                               ; preds = %4
-  %14 = lshr i64 %1, 1
+14:                                               ; preds = %4
   %15 = lshr i64 %spec.store.select.i.i, 1
   store i64 %15, ptr %8, align 8, !alias.scope !1687, !noalias !1683
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1683
-  store i64 %14, ptr %7, align 8, !noalias !1683
+  store i64 %13, ptr %7, align 8, !noalias !1683
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1683
-  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %14), !noalias !1690
+  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %13), !noalias !1690
   %16 = load ptr, ptr %6, align 8, !noalias !1683, !nonnull !3, !align !1281, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load i64, ptr %17, align 8, !noalias !1683, !noundef !3
@@ -10559,7 +10559,7 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i: ; preds
   %24 = tail call noundef align 8 dereferenceable(40) ptr @_ZN5rayon4iter8plumbing8Producer9fold_with17h8eaa12819ca6dc5bE(ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
   br label %_ZN5rayon4iter8plumbing24bridge_producer_consumer17hf81c28854255831eE.exit
 
-_ZN5rayon4iter8plumbing24bridge_producer_consumer17hf81c28854255831eE.exit: ; preds = %13, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
+_ZN5rayon4iter8plumbing24bridge_producer_consumer17hf81c28854255831eE.exit: ; preds = %14, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1679
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1679
   ret void
@@ -10612,19 +10612,19 @@ define hidden void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$
   store i64 %1, ptr %9, align 8, !noalias !1707
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %12, align 8, !noalias !1707
-  %.not.i.i = icmp ult i64 %1, 2
+  %13 = lshr i64 %1, 1
+  %.not.i.i = icmp eq i64 %13, 0
   %.not.i.i.i = icmp eq i64 %spec.store.select.i.i, 0
   %or.cond.i = or i1 %.not.i.i, %.not.i.i.i
-  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %13
+  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %14
 
-13:                                               ; preds = %4
-  %14 = lshr i64 %1, 1
+14:                                               ; preds = %4
   %15 = lshr i64 %spec.store.select.i.i, 1
   store i64 %15, ptr %8, align 8, !alias.scope !1711, !noalias !1707
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1707
-  store i64 %14, ptr %7, align 8, !noalias !1707
+  store i64 %13, ptr %7, align 8, !noalias !1707
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1707
-  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %14), !noalias !1714
+  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %13), !noalias !1714
   %16 = load ptr, ptr %6, align 8, !noalias !1707, !nonnull !3, !align !1281, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load i64, ptr %17, align 8, !noalias !1707, !noundef !3
@@ -10664,7 +10664,7 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i: ; preds
   %24 = tail call noundef align 8 dereferenceable(40) ptr @_ZN5rayon4iter8plumbing8Producer9fold_with17ha0ba2dd4ddc01e2dE(ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
   br label %_ZN5rayon4iter8plumbing24bridge_producer_consumer17hbade61eedb6c2a2bE.exit
 
-_ZN5rayon4iter8plumbing24bridge_producer_consumer17hbade61eedb6c2a2bE.exit: ; preds = %13, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
+_ZN5rayon4iter8plumbing24bridge_producer_consumer17hbade61eedb6c2a2bE.exit: ; preds = %14, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1703
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1703
   ret void
@@ -10686,19 +10686,19 @@ define hidden void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$
   store i64 %1, ptr %9, align 8, !noalias !1719
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %12, align 8, !noalias !1719
-  %.not.i.i = icmp ult i64 %1, 2
+  %13 = lshr i64 %1, 1
+  %.not.i.i = icmp eq i64 %13, 0
   %.not.i.i.i = icmp eq i64 %spec.store.select.i.i, 0
   %or.cond.i = or i1 %.not.i.i, %.not.i.i.i
-  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %13
+  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %14
 
-13:                                               ; preds = %4
-  %14 = lshr i64 %1, 1
+14:                                               ; preds = %4
   %15 = lshr i64 %spec.store.select.i.i, 1
   store i64 %15, ptr %8, align 8, !alias.scope !1723, !noalias !1719
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1719
-  store i64 %14, ptr %7, align 8, !noalias !1719
+  store i64 %13, ptr %7, align 8, !noalias !1719
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1719
-  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %14), !noalias !1726
+  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %13), !noalias !1726
   %16 = load ptr, ptr %6, align 8, !noalias !1719, !nonnull !3, !align !1281, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load i64, ptr %17, align 8, !noalias !1719, !noundef !3
@@ -10738,7 +10738,7 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i: ; preds
   %24 = tail call noundef align 8 dereferenceable(40) ptr @_ZN5rayon4iter8plumbing8Producer9fold_with17h9573d770a028fe23E(ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
   br label %_ZN5rayon4iter8plumbing24bridge_producer_consumer17h3861892affa67bdcE.exit
 
-_ZN5rayon4iter8plumbing24bridge_producer_consumer17h3861892affa67bdcE.exit: ; preds = %13, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
+_ZN5rayon4iter8plumbing24bridge_producer_consumer17h3861892affa67bdcE.exit: ; preds = %14, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1715
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1715
   ret void
@@ -10859,19 +10859,19 @@ define hidden void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$
   store i64 %1, ptr %9, align 8, !noalias !1743
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %12, align 8, !noalias !1743
-  %.not.i.i = icmp ult i64 %1, 2
+  %13 = lshr i64 %1, 1
+  %.not.i.i = icmp eq i64 %13, 0
   %.not.i.i.i = icmp eq i64 %spec.store.select.i.i, 0
   %or.cond.i = or i1 %.not.i.i, %.not.i.i.i
-  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %13
+  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %14
 
-13:                                               ; preds = %4
-  %14 = lshr i64 %1, 1
+14:                                               ; preds = %4
   %15 = lshr i64 %spec.store.select.i.i, 1
   store i64 %15, ptr %8, align 8, !alias.scope !1747, !noalias !1743
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1743
-  store i64 %14, ptr %7, align 8, !noalias !1743
+  store i64 %13, ptr %7, align 8, !noalias !1743
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1743
-  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %14), !noalias !1750
+  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %13), !noalias !1750
   %16 = load ptr, ptr %6, align 8, !noalias !1743, !nonnull !3, !align !1281, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load i64, ptr %17, align 8, !noalias !1743, !noundef !3
@@ -10911,7 +10911,7 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i: ; preds
   %24 = tail call noundef align 8 dereferenceable(40) ptr @_ZN5rayon4iter8plumbing8Producer9fold_with17hd81b6e8f36967403E(ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
   br label %_ZN5rayon4iter8plumbing24bridge_producer_consumer17hfa10a70bbf2ebf44E.exit
 
-_ZN5rayon4iter8plumbing24bridge_producer_consumer17hfa10a70bbf2ebf44E.exit: ; preds = %13, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
+_ZN5rayon4iter8plumbing24bridge_producer_consumer17hfa10a70bbf2ebf44E.exit: ; preds = %14, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1739
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1739
   ret void
@@ -10933,19 +10933,19 @@ define hidden void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$
   store i64 %1, ptr %9, align 8, !noalias !1755
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %12, align 8, !noalias !1755
-  %.not.i.i = icmp ult i64 %1, 2
+  %13 = lshr i64 %1, 1
+  %.not.i.i = icmp eq i64 %13, 0
   %.not.i.i.i = icmp eq i64 %spec.store.select.i.i, 0
   %or.cond.i = or i1 %.not.i.i, %.not.i.i.i
-  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %13
+  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %14
 
-13:                                               ; preds = %4
-  %14 = lshr i64 %1, 1
+14:                                               ; preds = %4
   %15 = lshr i64 %spec.store.select.i.i, 1
   store i64 %15, ptr %8, align 8, !alias.scope !1759, !noalias !1755
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1755
-  store i64 %14, ptr %7, align 8, !noalias !1755
+  store i64 %13, ptr %7, align 8, !noalias !1755
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1755
-  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %14), !noalias !1762
+  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %13), !noalias !1762
   %16 = load ptr, ptr %6, align 8, !noalias !1755, !nonnull !3, !align !1281, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load i64, ptr %17, align 8, !noalias !1755, !noundef !3
@@ -10985,7 +10985,7 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i: ; preds
   %24 = tail call noundef align 8 dereferenceable(40) ptr @_ZN5rayon4iter8plumbing8Producer9fold_with17h43f3cceca9304bf2E(ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
   br label %_ZN5rayon4iter8plumbing24bridge_producer_consumer17h92ba9754e4db1324E.exit
 
-_ZN5rayon4iter8plumbing24bridge_producer_consumer17h92ba9754e4db1324E.exit: ; preds = %13, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
+_ZN5rayon4iter8plumbing24bridge_producer_consumer17h92ba9754e4db1324E.exit: ; preds = %14, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1751
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1751
   ret void
@@ -11055,19 +11055,19 @@ define hidden void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$
   store i64 %1, ptr %9, align 8, !noalias !1787
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %12, align 8, !noalias !1787
-  %.not.i.i = icmp ult i64 %1, 2
+  %13 = lshr i64 %1, 1
+  %.not.i.i = icmp eq i64 %13, 0
   %.not.i.i.i = icmp eq i64 %spec.store.select.i.i, 0
   %or.cond.i = or i1 %.not.i.i, %.not.i.i.i
-  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %13
+  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %14
 
-13:                                               ; preds = %4
-  %14 = lshr i64 %1, 1
+14:                                               ; preds = %4
   %15 = lshr i64 %spec.store.select.i.i, 1
   store i64 %15, ptr %8, align 8, !alias.scope !1791, !noalias !1787
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1787
-  store i64 %14, ptr %7, align 8, !noalias !1787
+  store i64 %13, ptr %7, align 8, !noalias !1787
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1787
-  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %14), !noalias !1794
+  call void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17h996fd41b222e19d5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %13), !noalias !1794
   %16 = load ptr, ptr %6, align 8, !noalias !1787, !nonnull !3, !align !1281, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load i64, ptr %17, align 8, !noalias !1787, !noundef !3
@@ -11107,7 +11107,7 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i: ; preds
   %24 = tail call noundef align 8 dereferenceable(40) ptr @_ZN5rayon4iter8plumbing8Producer9fold_with17h1b148ff34054876fE(ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
   br label %_ZN5rayon4iter8plumbing24bridge_producer_consumer17hcb75885810c550b9E.exit
 
-_ZN5rayon4iter8plumbing24bridge_producer_consumer17hcb75885810c550b9E.exit: ; preds = %13, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
+_ZN5rayon4iter8plumbing24bridge_producer_consumer17hcb75885810c550b9E.exit: ; preds = %14, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1783
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1783
   ret void

@@ -31769,7 +31769,7 @@ define linkonce_odr dso_local void @_ZSt13__heap_selectIPiN9__gnu_cxx5__ops15_It
 41:                                               ; preds = %.lr.ph.i.i.i.us
   %42 = getelementptr inbounds i32, ptr %0, i64 %.01317.i.i.i.us
   store i32 %39, ptr %42, align 4, !tbaa !51
-  %.not8.i.us = icmp ult i64 %.018.in.i.i.i.us, 2
+  %.not8.i.us = icmp eq i64 %.018.i.i67.i.us, 0
   br i1 %.not8.i.us, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !520
 
 _ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %41, %36

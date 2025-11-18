@@ -449,7 +449,7 @@ _ZN8rawspeed14BitStreamerMSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequen
   %92 = ashr i32 %91, 1
   %93 = icmp sgt i32 %87, -1
   tail call void @llvm.assume(i1 %93)
-  %94 = icmp ugt i32 %91, 1
+  %94 = icmp ne i32 %92, 0
   tail call void @llvm.assume(i1 %94)
   %95 = icmp sgt i32 %92, -1
   tail call void @llvm.assume(i1 %95)

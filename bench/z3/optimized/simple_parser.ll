@@ -340,8 +340,8 @@ define hidden void @_ZN13simple_parser5resetEv(ptr noundef nonnull align 8 captu
   %24 = icmp ugt i32 %12, 16
   %25 = mul i32 %12, 3
   %26 = icmp ugt i32 %23, %25
-  %or.cond18.i.i = select i1 %24, i1 %26, i1 false
-  br i1 %or.cond18.i.i, label %27, label %._crit_edge.thread.i.i
+  %or.cond19.i.i = select i1 %24, i1 %26, i1 false
+  br i1 %or.cond19.i.i, label %27, label %._crit_edge.thread.i.i
 
 27:                                               ; preds = %._crit_edge.i.i
   %28 = icmp eq ptr %10, null
@@ -360,7 +360,7 @@ _ZN14core_hashtableI17default_map_entryI6symbolN13simple_parser10builtin_opEEN9t
   %32 = zext nneg i32 %31 to i64
   %33 = mul nuw nsw i64 %32, 24
   %34 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %33)
-  %.not11.i.i.i.i.i.i.i = icmp ult i32 %30, 2
+  %.not11.i.i.i.i.i.i.i = icmp eq i32 %31, 0
   br i1 %.not11.i.i.i.i.i.i.i, label %_ZN14core_hashtableI17default_map_entryI6symbolN13simple_parser10builtin_opEEN9table2mapIS4_16symbol_hash_proc14symbol_eq_procE15entry_hash_procENS8_13entry_eq_procEE11alloc_tableEj.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN14core_hashtableI17default_map_entryI6symbolN13simple_parser10builtin_opEEN9table2mapIS4_16symbol_hash_proc14symbol_eq_procE15entry_hash_procENS8_13entry_eq_procEE12delete_tableEv.exit.i.i, %.lr.ph.i.i.i.i.i.i.i
@@ -433,8 +433,8 @@ _ZN9table2mapI17default_map_entryI6symbolN13simple_parser10builtin_opEE16symbol_
   %61 = icmp ugt i32 %49, 16
   %62 = mul i32 %49, 3
   %63 = icmp ugt i32 %60, %62
-  %or.cond18.i.i10 = select i1 %61, i1 %63, i1 false
-  br i1 %or.cond18.i.i10, label %64, label %._crit_edge.thread.i.i11
+  %or.cond19.i.i10 = select i1 %61, i1 %63, i1 false
+  br i1 %or.cond19.i.i10, label %64, label %._crit_edge.thread.i.i11
 
 64:                                               ; preds = %._crit_edge.i.i9
   %65 = icmp eq ptr %47, null
@@ -453,7 +453,7 @@ _ZN14core_hashtableI17default_map_entryI6symbolP3varEN9table2mapIS4_16symbol_has
   %69 = zext nneg i32 %68 to i64
   %70 = mul nuw nsw i64 %69, 24
   %71 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %70)
-  %.not6.i.i.i.i.i.i.i = icmp ult i32 %67, 2
+  %.not6.i.i.i.i.i.i.i = icmp eq i32 %68, 0
   br i1 %.not6.i.i.i.i.i.i.i, label %_ZN14core_hashtableI17default_map_entryI6symbolP3varEN9table2mapIS4_16symbol_hash_proc14symbol_eq_procE15entry_hash_procENS8_13entry_eq_procEE11alloc_tableEj.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i13
 
 .lr.ph.i.i.i.i.i.i.i13:                           ; preds = %_ZN14core_hashtableI17default_map_entryI6symbolP3varEN9table2mapIS4_16symbol_hash_proc14symbol_eq_procE15entry_hash_procENS8_13entry_eq_procEE12delete_tableEv.exit.i.i, %.lr.ph.i.i.i.i.i.i.i13
@@ -578,8 +578,8 @@ define hidden void @_ZN13simple_parser10reset_varsEv(ptr noundef nonnull align 8
   %24 = icmp ugt i32 %12, 16
   %25 = mul i32 %12, 3
   %26 = icmp ugt i32 %23, %25
-  %or.cond18.i.i = select i1 %24, i1 %26, i1 false
-  br i1 %or.cond18.i.i, label %27, label %._crit_edge.thread.i.i
+  %or.cond19.i.i = select i1 %24, i1 %26, i1 false
+  br i1 %or.cond19.i.i, label %27, label %._crit_edge.thread.i.i
 
 27:                                               ; preds = %._crit_edge.i.i
   %28 = icmp eq ptr %10, null
@@ -598,7 +598,7 @@ _ZN14core_hashtableI17default_map_entryI6symbolP3varEN9table2mapIS4_16symbol_has
   %32 = zext nneg i32 %31 to i64
   %33 = mul nuw nsw i64 %32, 24
   %34 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %33)
-  %.not6.i.i.i.i.i.i.i = icmp ult i32 %30, 2
+  %.not6.i.i.i.i.i.i.i = icmp eq i32 %31, 0
   br i1 %.not6.i.i.i.i.i.i.i, label %_ZN14core_hashtableI17default_map_entryI6symbolP3varEN9table2mapIS4_16symbol_hash_proc14symbol_eq_procE15entry_hash_procENS8_13entry_eq_procEE11alloc_tableEj.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN14core_hashtableI17default_map_entryI6symbolP3varEN9table2mapIS4_16symbol_hash_proc14symbol_eq_procE15entry_hash_procENS8_13entry_eq_procEE12delete_tableEv.exit.i.i, %.lr.ph.i.i.i.i.i.i.i

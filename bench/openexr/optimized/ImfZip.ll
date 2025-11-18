@@ -323,7 +323,7 @@ define internal void @_ZN7Imf_3_412_GLOBAL__N_115interleave_sse2EPKcmPc(ptr noun
   %5 = add i64 %1, 1
   %6 = lshr i64 %5, 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %6
-  %.not50 = icmp ult i64 %1, 32
+  %.not50 = icmp eq i64 %4, 0
   br i1 %.not50, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3

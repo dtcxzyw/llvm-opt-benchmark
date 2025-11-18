@@ -2190,7 +2190,7 @@ define internal fastcc void @fmtint(i64 noundef %0, i8 noundef signext %1, i32 n
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 %36
   store i8 %35, ptr %37, align 1
   %38 = lshr i64 %.2, 4
-  %.not55 = icmp ult i64 %.2, 16
+  %.not55 = icmp eq i64 %38, 0
   br i1 %.not55, label %.loopexit.loopexit77, label %.preheader71, !llvm.loop !11
 
 .preheader73:                                     ; preds = %32, %.preheader73
@@ -2204,7 +2204,7 @@ define internal fastcc void @fmtint(i64 noundef %0, i8 noundef signext %1, i32 n
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 %42
   store i8 %41, ptr %43, align 1
   %44 = lshr i64 %.3, 3
-  %.not54 = icmp ult i64 %.3, 8
+  %.not54 = icmp eq i64 %44, 0
   br i1 %.not54, label %.loopexit.loopexit78, label %.preheader73, !llvm.loop !12
 
 .loopexit.loopexit77:                             ; preds = %.preheader71

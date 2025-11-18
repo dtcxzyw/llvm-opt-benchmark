@@ -701,7 +701,7 @@ _ZNSt5arrayIiLm2EE4fillERKi.exit:
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %18 = load i32, ptr %17, align 8, !tbaa !165, !noalias !160
   %19 = ashr i32 %18, 1
-  %20 = icmp ugt i32 %18, 1
+  %20 = icmp ne i32 %19, 0
   tail call void @llvm.assume(i1 %20)
   %21 = icmp sgt i32 %19, -1
   tail call void @llvm.assume(i1 %21)

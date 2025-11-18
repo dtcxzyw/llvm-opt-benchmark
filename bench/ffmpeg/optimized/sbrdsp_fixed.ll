@@ -174,16 +174,16 @@ define internal i64 @sbr_sum_square_c(ptr noundef readonly captures(none) %0, i3
 
 ._crit_edge108:                                   ; preds = %57
   %58 = add i32 %.273, -15
-  %.not = icmp ult i64 %.2, 4294967296
-  br i1 %.not, label %.loopexit, label %59
+  %59 = lshr i64 %.2, 32
+  %.not = icmp eq i64 %59, 0
+  br i1 %.not, label %.loopexit, label %60
 
-59:                                               ; preds = %._crit_edge108
-  %60 = icmp sgt i64 %.2, -1
-  br i1 %60, label %.lr.ph114.preheader, label %.loopexit
+60:                                               ; preds = %._crit_edge108
+  %61 = icmp sgt i64 %.2, -1
+  br i1 %61, label %.lr.ph114.preheader, label %.loopexit
 
-.lr.ph114.preheader:                              ; preds = %59
-  %61 = lshr i64 %.2, 32
-  %62 = trunc nuw nsw i64 %61 to i32
+.lr.ph114.preheader:                              ; preds = %60
+  %62 = trunc nuw i64 %59 to i32
   br label %.lr.ph114
 
 .lr.ph114:                                        ; preds = %.lr.ph114.preheader, %.lr.ph114
@@ -194,14 +194,14 @@ define internal i64 @sbr_sum_square_c(ptr noundef readonly captures(none) %0, i3
   %65 = icmp sgt i32 %63, -1
   br i1 %65, label %.lr.ph114, label %.loopexit, !llvm.loop !25
 
-.loopexit:                                        ; preds = %.lr.ph114, %2, %59, %._crit_edge108
-  %.0.lcssa129 = phi i64 [ %.2, %._crit_edge108 ], [ %.2, %59 ], [ 0, %2 ], [ %.2, %.lr.ph114 ]
-  %.071.lcssa128 = phi i32 [ %58, %._crit_edge108 ], [ %58, %59 ], [ -15, %2 ], [ %58, %.lr.ph114 ]
-  %.4 = phi i32 [ 1, %._crit_edge108 ], [ 33, %59 ], [ 1, %2 ], [ %64, %.lr.ph114 ]
+.loopexit:                                        ; preds = %.lr.ph114, %2, %60, %._crit_edge108
+  %.0.lcssa130 = phi i64 [ %.2, %._crit_edge108 ], [ %.2, %60 ], [ 0, %2 ], [ %.2, %.lr.ph114 ]
+  %.071.lcssa129 = phi i32 [ %58, %._crit_edge108 ], [ %58, %60 ], [ -15, %2 ], [ %58, %.lr.ph114 ]
+  %.4 = phi i32 [ 1, %._crit_edge108 ], [ 33, %60 ], [ 1, %2 ], [ %64, %.lr.ph114 ]
   %66 = add nsw i32 %.4, -1
   %67 = zext nneg i32 %66 to i64
   %68 = shl nuw i64 1, %67
-  %69 = add i64 %68, %.0.lcssa129
+  %69 = add i64 %68, %.0.lcssa130
   %70 = zext nneg i32 %.4 to i64
   %71 = lshr i64 %69, %70
   %72 = trunc i64 %71 to i32
@@ -214,7 +214,7 @@ define internal i64 @sbr_sum_square_c(ptr noundef readonly captures(none) %0, i3
 .preheader.i.i:                                   ; preds = %.loopexit
   %74 = icmp slt i32 %72, 0
   %.sroa.8.0.extract.trunc.i.v.i = select i1 %74, i32 31, i32 30
-  %.neg = add i32 %.071.lcssa128, %.4
+  %.neg = add i32 %.071.lcssa129, %.4
   %.sroa.8.0.extract.trunc.i.i = add i32 %.neg, %.sroa.8.0.extract.trunc.i.v.i
   %75 = icmp samesign ult i32 %.sroa.0.0.i.i, 536870912
   br i1 %75, label %.lr.ph.i.i, label %._crit_edge.i.i
@@ -414,19 +414,19 @@ autocorrelate.exit:                               ; preds = %3
   %21 = mul nsw i64 %20, %20
   %22 = add i64 %17, %21
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %24 = icmp ult i64 %22, 4294967296
-  br i1 %24, label %autocorr_calc.exit61, label %25
+  %24 = lshr i64 %22, 32
+  %25 = icmp eq i64 %24, 0
+  br i1 %25, label %autocorr_calc.exit61, label %26
 
-25:                                               ; preds = %autocorrelate.exit
-  %26 = lshr i64 %22, 32
-  %27 = trunc nuw i64 %26 to i32
+26:                                               ; preds = %autocorrelate.exit
+  %27 = trunc nuw i64 %24 to i32
   %28 = tail call i32 @llvm.abs.i32(i32 %27, i1 true)
   %29 = icmp samesign ult i32 %28, 1073741824
   br i1 %29, label %.lr.ph, label %autocorr_calc.exit61
 
-.lr.ph:                                           ; preds = %25, %.lr.ph
-  %.0.i56197 = phi i32 [ %30, %.lr.ph ], [ %27, %25 ]
-  %.1.i55196 = phi i32 [ %31, %.lr.ph ], [ 0, %25 ]
+.lr.ph:                                           ; preds = %26, %.lr.ph
+  %.0.i56197 = phi i32 [ %30, %.lr.ph ], [ %27, %26 ]
+  %.1.i55196 = phi i32 [ %31, %.lr.ph ], [ 0, %26 ]
   %30 = shl nsw i32 %.0.i56197, 1
   %31 = add nuw nsw i32 %.1.i55196, 1
   %32 = tail call i32 @llvm.abs.i32(i32 %30, i1 true)
@@ -437,8 +437,8 @@ autocorrelate.exit:                               ; preds = %3
   %34 = sub nsw i32 31, %.1.i55196
   br label %autocorr_calc.exit61
 
-autocorr_calc.exit61:                             ; preds = %25, %._crit_edge.loopexit, %autocorrelate.exit
-  %.017.i57 = phi i32 [ 1, %autocorrelate.exit ], [ 32, %25 ], [ %34, %._crit_edge.loopexit ]
+autocorr_calc.exit61:                             ; preds = %26, %._crit_edge.loopexit, %autocorrelate.exit
+  %.017.i57 = phi i32 [ 1, %autocorrelate.exit ], [ 32, %26 ], [ %34, %._crit_edge.loopexit ]
   %35 = add nsw i32 %.017.i57, -1
   %36 = shl nuw i32 1, %35
   %37 = zext i32 %36 to i64
@@ -501,19 +501,19 @@ av_int2sf.exit:                                   ; preds = %autocorr_calc.exit6
   %66 = mul nsw i64 %65, %65
   %67 = add i64 %62, %66
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %69 = icmp ult i64 %67, 4294967296
-  br i1 %69, label %autocorr_calc.exit54, label %70
+  %69 = lshr i64 %67, 32
+  %70 = icmp eq i64 %69, 0
+  br i1 %70, label %autocorr_calc.exit54, label %71
 
-70:                                               ; preds = %av_int2sf.exit
-  %71 = lshr i64 %67, 32
-  %72 = trunc nuw i64 %71 to i32
+71:                                               ; preds = %av_int2sf.exit
+  %72 = trunc nuw i64 %69 to i32
   %73 = tail call i32 @llvm.abs.i32(i32 %72, i1 true)
   %74 = icmp samesign ult i32 %73, 1073741824
   br i1 %74, label %.lr.ph201, label %autocorr_calc.exit54
 
-.lr.ph201:                                        ; preds = %70, %.lr.ph201
-  %.0.i49199 = phi i32 [ %75, %.lr.ph201 ], [ %72, %70 ]
-  %.1.i48198 = phi i32 [ %76, %.lr.ph201 ], [ 0, %70 ]
+.lr.ph201:                                        ; preds = %71, %.lr.ph201
+  %.0.i49199 = phi i32 [ %75, %.lr.ph201 ], [ %72, %71 ]
+  %.1.i48198 = phi i32 [ %76, %.lr.ph201 ], [ 0, %71 ]
   %75 = shl nsw i32 %.0.i49199, 1
   %76 = add nuw nsw i32 %.1.i48198, 1
   %77 = tail call i32 @llvm.abs.i32(i32 %75, i1 true)
@@ -524,8 +524,8 @@ av_int2sf.exit:                                   ; preds = %autocorr_calc.exit6
   %79 = sub nsw i32 31, %.1.i48198
   br label %autocorr_calc.exit54
 
-autocorr_calc.exit54:                             ; preds = %70, %._crit_edge202.loopexit, %av_int2sf.exit
-  %.017.i50 = phi i32 [ 1, %av_int2sf.exit ], [ 32, %70 ], [ %79, %._crit_edge202.loopexit ]
+autocorr_calc.exit54:                             ; preds = %71, %._crit_edge202.loopexit, %av_int2sf.exit
+  %.017.i50 = phi i32 [ 1, %av_int2sf.exit ], [ 32, %71 ], [ %79, %._crit_edge202.loopexit ]
   %80 = add nsw i32 %.017.i50, -1
   %81 = shl nuw i32 1, %80
   %82 = zext i32 %81 to i64
@@ -625,19 +625,19 @@ autocorrelate.exit6:                              ; preds = %103
   %134 = sub i64 %121, %133
   %135 = add i64 %134, %132
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %137 = icmp ult i64 %131, 4294967296
-  br i1 %137, label %autocorr_calc.exit47, label %138
+  %137 = lshr i64 %131, 32
+  %138 = icmp eq i64 %137, 0
+  br i1 %138, label %autocorr_calc.exit47, label %139
 
-138:                                              ; preds = %autocorrelate.exit6
-  %139 = lshr i64 %131, 32
-  %140 = trunc nuw i64 %139 to i32
+139:                                              ; preds = %autocorrelate.exit6
+  %140 = trunc nuw i64 %137 to i32
   %141 = tail call i32 @llvm.abs.i32(i32 %140, i1 true)
   %142 = icmp samesign ult i32 %141, 1073741824
   br i1 %142, label %.lr.ph210, label %autocorr_calc.exit47
 
-.lr.ph210:                                        ; preds = %138, %.lr.ph210
-  %.0.i42208 = phi i32 [ %143, %.lr.ph210 ], [ %140, %138 ]
-  %.1.i41207 = phi i32 [ %144, %.lr.ph210 ], [ 0, %138 ]
+.lr.ph210:                                        ; preds = %139, %.lr.ph210
+  %.0.i42208 = phi i32 [ %143, %.lr.ph210 ], [ %140, %139 ]
+  %.1.i41207 = phi i32 [ %144, %.lr.ph210 ], [ 0, %139 ]
   %143 = shl nsw i32 %.0.i42208, 1
   %144 = add nuw nsw i32 %.1.i41207, 1
   %145 = tail call i32 @llvm.abs.i32(i32 %143, i1 true)
@@ -648,8 +648,8 @@ autocorrelate.exit6:                              ; preds = %103
   %147 = sub nsw i32 31, %.1.i41207
   br label %autocorr_calc.exit47
 
-autocorr_calc.exit47:                             ; preds = %138, %._crit_edge211.loopexit, %autocorrelate.exit6
-  %.017.i43 = phi i32 [ 1, %autocorrelate.exit6 ], [ 32, %138 ], [ %147, %._crit_edge211.loopexit ]
+autocorr_calc.exit47:                             ; preds = %139, %._crit_edge211.loopexit, %autocorrelate.exit6
+  %.017.i43 = phi i32 [ 1, %autocorrelate.exit6 ], [ 32, %139 ], [ %147, %._crit_edge211.loopexit ]
   %148 = add nsw i32 %.017.i43, -1
   %149 = shl nuw i32 1, %148
   %150 = zext i32 %149 to i64
@@ -702,19 +702,19 @@ av_int2sf.exit91:                                 ; preds = %autocorr_calc.exit4
   %.sroa.05.0.insert.insert.i.i87 = phi i64 [ %170, %._crit_edge.i.i82 ], [ -639950127104, %autocorr_calc.exit47 ]
   store i64 %.sroa.05.0.insert.insert.i.i87, ptr %136, align 4
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %172 = icmp ult i64 %135, 4294967296
-  br i1 %172, label %autocorr_calc.exit40, label %173
+  %172 = lshr i64 %135, 32
+  %173 = icmp eq i64 %172, 0
+  br i1 %173, label %autocorr_calc.exit40, label %174
 
-173:                                              ; preds = %av_int2sf.exit91
-  %174 = lshr i64 %135, 32
-  %175 = trunc nuw i64 %174 to i32
+174:                                              ; preds = %av_int2sf.exit91
+  %175 = trunc nuw i64 %172 to i32
   %176 = tail call i32 @llvm.abs.i32(i32 %175, i1 true)
   %177 = icmp samesign ult i32 %176, 1073741824
   br i1 %177, label %.lr.ph216, label %autocorr_calc.exit40
 
-.lr.ph216:                                        ; preds = %173, %.lr.ph216
-  %.0.i35214 = phi i32 [ %178, %.lr.ph216 ], [ %175, %173 ]
-  %.1.i34213 = phi i32 [ %179, %.lr.ph216 ], [ 0, %173 ]
+.lr.ph216:                                        ; preds = %174, %.lr.ph216
+  %.0.i35214 = phi i32 [ %178, %.lr.ph216 ], [ %175, %174 ]
+  %.1.i34213 = phi i32 [ %179, %.lr.ph216 ], [ 0, %174 ]
   %178 = shl nsw i32 %.0.i35214, 1
   %179 = add nuw nsw i32 %.1.i34213, 1
   %180 = tail call i32 @llvm.abs.i32(i32 %178, i1 true)
@@ -725,8 +725,8 @@ av_int2sf.exit91:                                 ; preds = %autocorr_calc.exit4
   %182 = sub nsw i32 31, %.1.i34213
   br label %autocorr_calc.exit40
 
-autocorr_calc.exit40:                             ; preds = %173, %._crit_edge217.loopexit, %av_int2sf.exit91
-  %.017.i36 = phi i32 [ 1, %av_int2sf.exit91 ], [ 32, %173 ], [ %182, %._crit_edge217.loopexit ]
+autocorr_calc.exit40:                             ; preds = %174, %._crit_edge217.loopexit, %av_int2sf.exit91
+  %.017.i36 = phi i32 [ 1, %av_int2sf.exit91 ], [ 32, %174 ], [ %182, %._crit_edge217.loopexit ]
   %183 = add nsw i32 %.017.i36, -1
   %184 = shl nuw i32 1, %183
   %185 = zext i32 %184 to i64
@@ -796,19 +796,19 @@ av_int2sf.exit106:                                ; preds = %autocorr_calc.exit4
   %221 = mul nsw i64 %214, %210
   %222 = sub i64 %121, %221
   %223 = add i64 %222, %220
-  %224 = icmp ult i64 %219, 4294967296
-  br i1 %224, label %autocorr_calc.exit33, label %225
+  %224 = lshr i64 %219, 32
+  %225 = icmp eq i64 %224, 0
+  br i1 %225, label %autocorr_calc.exit33, label %226
 
-225:                                              ; preds = %av_int2sf.exit106
-  %226 = lshr i64 %219, 32
-  %227 = trunc nuw i64 %226 to i32
+226:                                              ; preds = %av_int2sf.exit106
+  %227 = trunc nuw i64 %224 to i32
   %228 = tail call i32 @llvm.abs.i32(i32 %227, i1 true)
   %229 = icmp samesign ult i32 %228, 1073741824
   br i1 %229, label %.lr.ph222, label %autocorr_calc.exit33
 
-.lr.ph222:                                        ; preds = %225, %.lr.ph222
-  %.0.i28220 = phi i32 [ %230, %.lr.ph222 ], [ %227, %225 ]
-  %.1.i27219 = phi i32 [ %231, %.lr.ph222 ], [ 0, %225 ]
+.lr.ph222:                                        ; preds = %226, %.lr.ph222
+  %.0.i28220 = phi i32 [ %230, %.lr.ph222 ], [ %227, %226 ]
+  %.1.i27219 = phi i32 [ %231, %.lr.ph222 ], [ 0, %226 ]
   %230 = shl nsw i32 %.0.i28220, 1
   %231 = add nuw nsw i32 %.1.i27219, 1
   %232 = tail call i32 @llvm.abs.i32(i32 %230, i1 true)
@@ -819,8 +819,8 @@ av_int2sf.exit106:                                ; preds = %autocorr_calc.exit4
   %234 = sub nsw i32 31, %.1.i27219
   br label %autocorr_calc.exit33
 
-autocorr_calc.exit33:                             ; preds = %225, %._crit_edge223.loopexit, %av_int2sf.exit106
-  %.017.i29 = phi i32 [ 1, %av_int2sf.exit106 ], [ 32, %225 ], [ %234, %._crit_edge223.loopexit ]
+autocorr_calc.exit33:                             ; preds = %226, %._crit_edge223.loopexit, %av_int2sf.exit106
+  %.017.i29 = phi i32 [ 1, %av_int2sf.exit106 ], [ 32, %226 ], [ %234, %._crit_edge223.loopexit ]
   %235 = add nsw i32 %.017.i29, -1
   %236 = shl nuw i32 1, %235
   %237 = zext i32 %236 to i64
@@ -873,19 +873,19 @@ av_int2sf.exit121:                                ; preds = %autocorr_calc.exit3
   %.sroa.05.0.insert.insert.i.i117 = phi i64 [ %257, %._crit_edge.i.i112 ], [ -639950127104, %autocorr_calc.exit33 ]
   store i64 %.sroa.05.0.insert.insert.i.i117, ptr %1, align 4
   %258 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %259 = icmp ult i64 %223, 4294967296
-  br i1 %259, label %autocorr_calc.exit26, label %260
+  %259 = lshr i64 %223, 32
+  %260 = icmp eq i64 %259, 0
+  br i1 %260, label %autocorr_calc.exit26, label %261
 
-260:                                              ; preds = %av_int2sf.exit121
-  %261 = lshr i64 %223, 32
-  %262 = trunc nuw i64 %261 to i32
+261:                                              ; preds = %av_int2sf.exit121
+  %262 = trunc nuw i64 %259 to i32
   %263 = tail call i32 @llvm.abs.i32(i32 %262, i1 true)
   %264 = icmp samesign ult i32 %263, 1073741824
   br i1 %264, label %.lr.ph228, label %autocorr_calc.exit26
 
-.lr.ph228:                                        ; preds = %260, %.lr.ph228
-  %.0.i21226 = phi i32 [ %265, %.lr.ph228 ], [ %262, %260 ]
-  %.1.i20225 = phi i32 [ %266, %.lr.ph228 ], [ 0, %260 ]
+.lr.ph228:                                        ; preds = %261, %.lr.ph228
+  %.0.i21226 = phi i32 [ %265, %.lr.ph228 ], [ %262, %261 ]
+  %.1.i20225 = phi i32 [ %266, %.lr.ph228 ], [ 0, %261 ]
   %265 = shl nsw i32 %.0.i21226, 1
   %266 = add nuw nsw i32 %.1.i20225, 1
   %267 = tail call i32 @llvm.abs.i32(i32 %265, i1 true)
@@ -896,8 +896,8 @@ av_int2sf.exit121:                                ; preds = %autocorr_calc.exit3
   %269 = sub nsw i32 31, %.1.i20225
   br label %autocorr_calc.exit26
 
-autocorr_calc.exit26:                             ; preds = %260, %._crit_edge229.loopexit, %av_int2sf.exit121
-  %.017.i22 = phi i32 [ 1, %av_int2sf.exit121 ], [ 32, %260 ], [ %269, %._crit_edge229.loopexit ]
+autocorr_calc.exit26:                             ; preds = %261, %._crit_edge229.loopexit, %av_int2sf.exit121
+  %.017.i22 = phi i32 [ 1, %av_int2sf.exit121 ], [ 32, %261 ], [ %269, %._crit_edge229.loopexit ]
   %270 = add nsw i32 %.017.i22, -1
   %271 = shl nuw i32 1, %270
   %272 = zext i32 %271 to i64
@@ -999,19 +999,19 @@ autocorrelate.exit10:                             ; preds = %293
   %330 = sub i64 %313, %329
   %331 = add i64 %330, %328
   %332 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %333 = icmp ult i64 %327, 4294967296
-  br i1 %333, label %autocorr_calc.exit19, label %334
+  %333 = lshr i64 %327, 32
+  %334 = icmp eq i64 %333, 0
+  br i1 %334, label %autocorr_calc.exit19, label %335
 
-334:                                              ; preds = %autocorrelate.exit10
-  %335 = lshr i64 %327, 32
-  %336 = trunc nuw i64 %335 to i32
+335:                                              ; preds = %autocorrelate.exit10
+  %336 = trunc nuw i64 %333 to i32
   %337 = tail call i32 @llvm.abs.i32(i32 %336, i1 true)
   %338 = icmp samesign ult i32 %337, 1073741824
   br i1 %338, label %.lr.ph237, label %autocorr_calc.exit19
 
-.lr.ph237:                                        ; preds = %334, %.lr.ph237
-  %.0.i14235 = phi i32 [ %339, %.lr.ph237 ], [ %336, %334 ]
-  %.1.i13234 = phi i32 [ %340, %.lr.ph237 ], [ 0, %334 ]
+.lr.ph237:                                        ; preds = %335, %.lr.ph237
+  %.0.i14235 = phi i32 [ %339, %.lr.ph237 ], [ %336, %335 ]
+  %.1.i13234 = phi i32 [ %340, %.lr.ph237 ], [ 0, %335 ]
   %339 = shl nsw i32 %.0.i14235, 1
   %340 = add nuw nsw i32 %.1.i13234, 1
   %341 = tail call i32 @llvm.abs.i32(i32 %339, i1 true)
@@ -1022,8 +1022,8 @@ autocorrelate.exit10:                             ; preds = %293
   %343 = sub nsw i32 31, %.1.i13234
   br label %autocorr_calc.exit19
 
-autocorr_calc.exit19:                             ; preds = %334, %._crit_edge238.loopexit, %autocorrelate.exit10
-  %.017.i15 = phi i32 [ 1, %autocorrelate.exit10 ], [ 32, %334 ], [ %343, %._crit_edge238.loopexit ]
+autocorr_calc.exit19:                             ; preds = %335, %._crit_edge238.loopexit, %autocorrelate.exit10
+  %.017.i15 = phi i32 [ 1, %autocorrelate.exit10 ], [ 32, %335 ], [ %343, %._crit_edge238.loopexit ]
   %344 = add nsw i32 %.017.i15, -1
   %345 = shl nuw i32 1, %344
   %346 = zext i32 %345 to i64
@@ -1075,19 +1075,19 @@ autocorr_calc.exit19:                             ; preds = %334, %._crit_edge23
 av_int2sf.exit151:                                ; preds = %autocorr_calc.exit19, %._crit_edge.i.i142
   %.sroa.05.0.insert.insert.i.i147 = phi i64 [ %366, %._crit_edge.i.i142 ], [ -639950127104, %autocorr_calc.exit19 ]
   store i64 %.sroa.05.0.insert.insert.i.i147, ptr %332, align 4
-  %367 = icmp ult i64 %331, 4294967296
-  br i1 %367, label %autocorr_calc.exit, label %368
+  %367 = lshr i64 %331, 32
+  %368 = icmp eq i64 %367, 0
+  br i1 %368, label %autocorr_calc.exit, label %369
 
-368:                                              ; preds = %av_int2sf.exit151
-  %369 = lshr i64 %331, 32
-  %370 = trunc nuw i64 %369 to i32
+369:                                              ; preds = %av_int2sf.exit151
+  %370 = trunc nuw i64 %367 to i32
   %371 = tail call i32 @llvm.abs.i32(i32 %370, i1 true)
   %372 = icmp samesign ult i32 %371, 1073741824
   br i1 %372, label %.lr.ph243, label %autocorr_calc.exit
 
-.lr.ph243:                                        ; preds = %368, %.lr.ph243
-  %.0.i12241 = phi i32 [ %373, %.lr.ph243 ], [ %370, %368 ]
-  %.1.i11240 = phi i32 [ %374, %.lr.ph243 ], [ 0, %368 ]
+.lr.ph243:                                        ; preds = %369, %.lr.ph243
+  %.0.i12241 = phi i32 [ %373, %.lr.ph243 ], [ %370, %369 ]
+  %.1.i11240 = phi i32 [ %374, %.lr.ph243 ], [ 0, %369 ]
   %373 = shl nsw i32 %.0.i12241, 1
   %374 = add nuw nsw i32 %.1.i11240, 1
   %375 = tail call i32 @llvm.abs.i32(i32 %373, i1 true)
@@ -1098,8 +1098,8 @@ av_int2sf.exit151:                                ; preds = %autocorr_calc.exit1
   %377 = sub nsw i32 31, %.1.i11240
   br label %autocorr_calc.exit
 
-autocorr_calc.exit:                               ; preds = %368, %._crit_edge244.loopexit, %av_int2sf.exit151
-  %.017.i = phi i32 [ 1, %av_int2sf.exit151 ], [ 32, %368 ], [ %377, %._crit_edge244.loopexit ]
+autocorr_calc.exit:                               ; preds = %369, %._crit_edge244.loopexit, %av_int2sf.exit151
+  %.017.i = phi i32 [ 1, %av_int2sf.exit151 ], [ 32, %369 ], [ %377, %._crit_edge244.loopexit ]
   %378 = add nsw i32 %.017.i, -1
   %379 = shl nuw i32 1, %378
   %380 = zext i32 %379 to i64

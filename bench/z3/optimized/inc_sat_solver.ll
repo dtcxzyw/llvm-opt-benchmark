@@ -1570,8 +1570,8 @@ _ZN6vectorIdLb0EjE9push_backEOd.exit:             ; preds = %19, %25
   %54 = icmp ugt i32 %43, 16
   %55 = mul i32 %43, 3
   %56 = icmp ugt i32 %53, %55
-  %or.cond18.i.i = select i1 %54, i1 %56, i1 false
-  br i1 %or.cond18.i.i, label %57, label %._crit_edge.thread.i.i
+  %or.cond19.i.i = select i1 %54, i1 %56, i1 false
+  br i1 %or.cond19.i.i, label %57, label %._crit_edge.thread.i.i
 
 57:                                               ; preds = %._crit_edge.i.i
   %58 = icmp eq ptr %41, null
@@ -1590,7 +1590,7 @@ _ZN14core_hashtableIN7obj_mapI4exprN3sat7literalEE13obj_map_entryE8obj_hashINS4_
   %62 = zext nneg i32 %61 to i64
   %63 = shl nuw nsw i64 %62, 4
   %64 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %63)
-  %.not11.i.i.i.i.i.i.i = icmp ult i32 %60, 2
+  %.not11.i.i.i.i.i.i.i = icmp eq i32 %61, 0
   br i1 %.not11.i.i.i.i.i.i.i, label %_ZN14core_hashtableIN7obj_mapI4exprN3sat7literalEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE11alloc_tableEj.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN14core_hashtableIN7obj_mapI4exprN3sat7literalEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE12delete_tableEv.exit.i.i, %.lr.ph.i.i.i.i.i.i.i
@@ -7255,7 +7255,7 @@ _ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE
   %42 = zext nneg i32 %41 to i64
   %43 = shl nuw nsw i64 %42, 3
   %44 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %43)
-  %.not6.i.i.i.i.i.i = icmp ult i32 %40, 2
+  %.not6.i.i.i.i.i.i = icmp eq i32 %41, 0
   br i1 %.not6.i.i.i.i.i.i, label %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE11alloc_tableEj.exit.i, label %.lr.ph.preheader.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12delete_tableEv.exit.i
@@ -10382,8 +10382,8 @@ _ZN7obj_mapI4exprPS0_EC2Ev.exit:                  ; preds = %40
   %74 = icmp ugt i32 %63, 16
   %75 = mul i32 %63, 3
   %76 = icmp ugt i32 %73, %75
-  %or.cond18.i.i = select i1 %74, i1 %76, i1 false
-  br i1 %or.cond18.i.i, label %77, label %._crit_edge.thread.i.i
+  %or.cond19.i.i = select i1 %74, i1 %76, i1 false
+  br i1 %or.cond19.i.i, label %77, label %._crit_edge.thread.i.i
 
 77:                                               ; preds = %._crit_edge.i.i
   %78 = icmp eq ptr %61, null
@@ -10408,7 +10408,7 @@ _ZN14core_hashtableIN7obj_mapI4exprN3sat7literalEE13obj_map_entryE8obj_hashINS4_
           to label %.noexc72 unwind label %225
 
 .noexc72:                                         ; preds = %_ZN14core_hashtableIN7obj_mapI4exprN3sat7literalEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE12delete_tableEv.exit.i.i
-  %.not11.i.i.i.i.i.i.i = icmp ult i32 %80, 2
+  %.not11.i.i.i.i.i.i.i = icmp eq i32 %81, 0
   br i1 %.not11.i.i.i.i.i.i.i, label %_ZN14core_hashtableIN7obj_mapI4exprN3sat7literalEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE11alloc_tableEj.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.noexc72, %.lr.ph.i.i.i.i.i.i.i
@@ -11244,8 +11244,8 @@ define linkonce_odr hidden noundef i32 @_ZN14inc_sat_solver21get_consequences_co
   %35 = icmp ugt i32 %24, 16
   %36 = mul i32 %24, 3
   %37 = icmp ugt i32 %34, %36
-  %or.cond18.i.i = select i1 %35, i1 %37, i1 false
-  br i1 %or.cond18.i.i, label %38, label %._crit_edge.thread.i.i
+  %or.cond19.i.i = select i1 %35, i1 %37, i1 false
+  br i1 %or.cond19.i.i, label %38, label %._crit_edge.thread.i.i
 
 38:                                               ; preds = %._crit_edge.i.i
   %39 = icmp eq ptr %22, null
@@ -11270,7 +11270,7 @@ _ZN14core_hashtableIN7obj_mapI4exprN3sat7literalEE13obj_map_entryE8obj_hashINS4_
           to label %.noexc56 unwind label %58
 
 .noexc56:                                         ; preds = %_ZN14core_hashtableIN7obj_mapI4exprN3sat7literalEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE12delete_tableEv.exit.i.i
-  %.not11.i.i.i.i.i.i.i = icmp ult i32 %41, 2
+  %.not11.i.i.i.i.i.i.i = icmp eq i32 %42, 0
   br i1 %.not11.i.i.i.i.i.i.i, label %_ZN14core_hashtableIN7obj_mapI4exprN3sat7literalEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE11alloc_tableEj.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.noexc56, %.lr.ph.i.i.i.i.i.i.i
@@ -17461,7 +17461,7 @@ define linkonce_odr hidden void @_ZN14parray_managerIN11ast_manager17expr_array_
 .preheader.i.unreachabledefault:                  ; preds = %.preheader.i
   unreachable
 
-default.unreachable91:                            ; preds = %65
+default.unreachable92:                            ; preds = %65
   unreachable
 
 _ZNK14parray_managerIN11ast_manager17expr_array_configEE4sizeERKNS2_3refE.exit: ; preds = %16, %20, %24
@@ -17470,7 +17470,7 @@ _ZNK14parray_managerIN11ast_manager17expr_array_configEE4sizeERKNS2_3refE.exit: 
   %28 = load i32, ptr %3, align 8
   %29 = lshr i32 %28, 30
   %30 = icmp ne i32 %29, 3
-  %31 = icmp ugt i32 %.07.i, 1
+  %31 = icmp ne i32 %27, 0
   %32 = select i1 %30, i1 %31, i1 false
   br i1 %32, label %.lr.ph, label %._crit_edge
 
@@ -17556,7 +17556,7 @@ _ZNK6vectorIPN14parray_managerIN11ast_manager17expr_array_configEE4cellELb0EjE4s
   %73 = load ptr, ptr %72, align 8, !tbaa !237
   %74 = load i32, ptr %69, align 8
   %75 = lshr i32 %74, 30
-  switch i32 %75, label %default.unreachable91 [
+  switch i32 %75, label %default.unreachable92 [
     i32 0, label %76
     i32 1, label %90
     i32 2, label %124
@@ -18386,7 +18386,7 @@ define linkonce_odr hidden void @_ZN14parray_managerIN11ast_manager28expr_depend
 .preheader.i.unreachabledefault:                  ; preds = %.preheader.i
   unreachable
 
-default.unreachable91:                            ; preds = %65
+default.unreachable92:                            ; preds = %65
   unreachable
 
 _ZNK14parray_managerIN11ast_manager28expr_dependency_array_configEE4sizeERKNS2_3refE.exit: ; preds = %16, %20, %24
@@ -18395,7 +18395,7 @@ _ZNK14parray_managerIN11ast_manager28expr_dependency_array_configEE4sizeERKNS2_3
   %28 = load i32, ptr %3, align 8
   %29 = lshr i32 %28, 30
   %30 = icmp ne i32 %29, 3
-  %31 = icmp ugt i32 %.07.i, 1
+  %31 = icmp ne i32 %27, 0
   %32 = select i1 %30, i1 %31, i1 false
   br i1 %32, label %.lr.ph, label %._crit_edge
 
@@ -18481,7 +18481,7 @@ _ZNK6vectorIPN14parray_managerIN11ast_manager28expr_dependency_array_configEE4ce
   %73 = load ptr, ptr %72, align 8, !tbaa !237
   %74 = load i32, ptr %69, align 8
   %75 = lshr i32 %74, 30
-  switch i32 %75, label %default.unreachable91 [
+  switch i32 %75, label %default.unreachable92 [
     i32 0, label %76
     i32 1, label %90
     i32 2, label %124

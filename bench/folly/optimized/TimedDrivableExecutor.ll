@@ -2089,7 +2089,7 @@ define linkonce_odr void @_ZN5folly13hazptr_domainISt6atomicE14do_reclamationEi(
   %27 = lshr i64 %23, 22
   %28 = load i64, ptr %7, align 8, !tbaa !117, !noalias !118
   %29 = lshr i64 %28, 8
-  %.not.i12 = icmp ult i64 %28, 256
+  %.not.i12 = icmp eq i64 %29, 0
   %.pre.i = load ptr, ptr %6, align 8, !tbaa !111, !noalias !118
   br i1 %.not.i12, label %.thread65.i, label %30
 

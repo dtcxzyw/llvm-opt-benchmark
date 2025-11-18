@@ -463,11 +463,11 @@ define internal void @_ZN8LightGBM18MultiValBinWrapper8HistMoveILb1ELi16ELi8EEEv
   %31 = load ptr, ptr %25, align 8, !tbaa !38
   %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4, !tbaa !39
-  %34 = icmp ult i32 %33, 2
-  br i1 %34, label %_ZSt6copy_nIPKijPiET1_T_T0_S3_.exit, label %_ZSt8__copy_nIPKijPiET1_T_T0_S3_St26random_access_iterator_tag.exit.i
+  %34 = lshr i32 %33, 1
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %_ZSt6copy_nIPKijPiET1_T_T0_S3_.exit, label %_ZSt8__copy_nIPKijPiET1_T_T0_S3_St26random_access_iterator_tag.exit.i
 
 _ZSt8__copy_nIPKijPiET1_T_T0_S3_St26random_access_iterator_tag.exit.i: ; preds = %29
-  %35 = lshr i32 %33, 1
   %36 = load ptr, ptr %26, align 8, !tbaa !40
   %37 = load ptr, ptr %27, align 8, !tbaa !38
   %38 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv
@@ -482,7 +482,7 @@ _ZSt8__copy_nIPKijPiET1_T_T0_S3_St26random_access_iterator_tag.exit.i: ; preds =
   %47 = lshr i32 %46, 1
   %48 = zext nneg i32 %47 to i64
   %49 = getelementptr inbounds nuw i32, ptr %43, i64 %48
-  %50 = zext nneg i32 %35 to i64
+  %50 = zext nneg i32 %34 to i64
   %.idx.i.i = shl nuw nsw i64 %50, 2
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %42, ptr align 4 %49, i64 %.idx.i.i, i1 false)
   %.pre = load i32, ptr %6, align 4, !tbaa !39
@@ -653,11 +653,11 @@ define internal void @_ZN8LightGBM18MultiValBinWrapper8HistMoveILb1ELi16ELi16EEE
   %31 = load ptr, ptr %25, align 8, !tbaa !38
   %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4, !tbaa !39
-  %34 = icmp ult i32 %33, 2
-  br i1 %34, label %_ZSt6copy_nIPKijPiET1_T_T0_S3_.exit, label %_ZSt8__copy_nIPKijPiET1_T_T0_S3_St26random_access_iterator_tag.exit.i
+  %34 = lshr i32 %33, 1
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %_ZSt6copy_nIPKijPiET1_T_T0_S3_.exit, label %_ZSt8__copy_nIPKijPiET1_T_T0_S3_St26random_access_iterator_tag.exit.i
 
 _ZSt8__copy_nIPKijPiET1_T_T0_S3_St26random_access_iterator_tag.exit.i: ; preds = %29
-  %35 = lshr i32 %33, 1
   %36 = load ptr, ptr %26, align 8, !tbaa !40
   %37 = load ptr, ptr %27, align 8, !tbaa !38
   %38 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv
@@ -672,7 +672,7 @@ _ZSt8__copy_nIPKijPiET1_T_T0_S3_St26random_access_iterator_tag.exit.i: ; preds =
   %47 = lshr i32 %46, 1
   %48 = zext nneg i32 %47 to i64
   %49 = getelementptr inbounds nuw i32, ptr %43, i64 %48
-  %50 = zext nneg i32 %35 to i64
+  %50 = zext nneg i32 %34 to i64
   %.idx.i.i = shl nuw nsw i64 %50, 2
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %42, ptr align 4 %49, i64 %.idx.i.i, i1 false)
   %.pre = load i32, ptr %6, align 4, !tbaa !39
@@ -917,11 +917,11 @@ define internal void @_ZN8LightGBM18MultiValBinWrapper8HistMoveILb1ELi32ELi8EEEv
   %31 = load ptr, ptr %25, align 8, !tbaa !38
   %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4, !tbaa !39
-  %34 = icmp ult i32 %33, 2
-  br i1 %34, label %_ZSt6copy_nIPKljPlET1_T_T0_S3_.exit, label %_ZSt8__copy_nIPKljPlET1_T_T0_S3_St26random_access_iterator_tag.exit.i
+  %34 = lshr i32 %33, 1
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %_ZSt6copy_nIPKljPlET1_T_T0_S3_.exit, label %_ZSt8__copy_nIPKljPlET1_T_T0_S3_St26random_access_iterator_tag.exit.i
 
 _ZSt8__copy_nIPKljPlET1_T_T0_S3_St26random_access_iterator_tag.exit.i: ; preds = %29
-  %35 = lshr i32 %33, 1
   %36 = load ptr, ptr %26, align 8, !tbaa !40
   %37 = load ptr, ptr %27, align 8, !tbaa !38
   %38 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv
@@ -936,7 +936,7 @@ _ZSt8__copy_nIPKljPlET1_T_T0_S3_St26random_access_iterator_tag.exit.i: ; preds =
   %47 = lshr i32 %46, 1
   %48 = zext nneg i32 %47 to i64
   %49 = getelementptr inbounds nuw i64, ptr %43, i64 %48
-  %50 = zext nneg i32 %35 to i64
+  %50 = zext nneg i32 %34 to i64
   %.idx.i.i = shl nuw nsw i64 %50, 3
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %42, ptr align 8 %49, i64 %.idx.i.i, i1 false)
   %.pre = load i32, ptr %6, align 4, !tbaa !39
@@ -1047,11 +1047,11 @@ define internal void @_ZN8LightGBM18MultiValBinWrapper8HistMoveILb1ELi32ELi32EEE
   %31 = load ptr, ptr %25, align 8, !tbaa !38
   %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4, !tbaa !39
-  %34 = icmp ult i32 %33, 2
-  br i1 %34, label %_ZSt6copy_nIPKljPlET1_T_T0_S3_.exit, label %_ZSt8__copy_nIPKljPlET1_T_T0_S3_St26random_access_iterator_tag.exit.i
+  %34 = lshr i32 %33, 1
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %_ZSt6copy_nIPKljPlET1_T_T0_S3_.exit, label %_ZSt8__copy_nIPKljPlET1_T_T0_S3_St26random_access_iterator_tag.exit.i
 
 _ZSt8__copy_nIPKljPlET1_T_T0_S3_St26random_access_iterator_tag.exit.i: ; preds = %29
-  %35 = lshr i32 %33, 1
   %36 = load ptr, ptr %26, align 8, !tbaa !40
   %37 = load ptr, ptr %27, align 8, !tbaa !38
   %38 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv
@@ -1066,7 +1066,7 @@ _ZSt8__copy_nIPKljPlET1_T_T0_S3_St26random_access_iterator_tag.exit.i: ; preds =
   %47 = lshr i32 %46, 1
   %48 = zext nneg i32 %47 to i64
   %49 = getelementptr inbounds nuw i64, ptr %43, i64 %48
-  %50 = zext nneg i32 %35 to i64
+  %50 = zext nneg i32 %34 to i64
   %.idx.i.i = shl nuw nsw i64 %50, 3
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %42, ptr align 8 %49, i64 %.idx.i.i, i1 false)
   %.pre = load i32, ptr %6, align 4, !tbaa !39

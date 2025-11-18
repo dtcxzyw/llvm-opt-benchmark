@@ -647,7 +647,7 @@ define internal fastcc void @put_swf_rect(ptr noundef %0, i32 noundef %1, i32 no
   %.01012.i = phi i32 [ %8, %7 ], [ %11, %9 ]
   %10 = add nuw nsw i32 %.013.i, 1
   %11 = lshr i32 %.01012.i, 1
-  %.not.i = icmp samesign ult i32 %.01012.i, 2
+  %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %max_nbits.exit, label %9, !llvm.loop !80
 
 max_nbits.exit:                                   ; preds = %9, %3
@@ -664,7 +664,7 @@ max_nbits.exit:                                   ; preds = %9, %3
   %.01012.i14 = phi i32 [ %14, %13 ], [ %17, %15 ]
   %16 = add nuw nsw i32 %.013.i13, 1
   %17 = lshr i32 %.01012.i14, 1
-  %.not.i15 = icmp samesign ult i32 %.01012.i14, 2
+  %.not.i15 = icmp eq i32 %17, 0
   br i1 %.not.i15, label %18, label %15, !llvm.loop !80
 
 18:                                               ; preds = %15
@@ -872,7 +872,7 @@ put_bits.exit:
   %.01012.i = phi i32 [ %1, %put_bits.exit ], [ %6, %4 ]
   %5 = add nuw nsw i32 %.013.i, 1
   %6 = lshr i32 %.01012.i, 1
-  %.not.i = icmp samesign ult i32 %.01012.i, 2
+  %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %max_nbits.exit, label %4, !llvm.loop !80
 
 max_nbits.exit:                                   ; preds = %4, %max_nbits.exit
@@ -880,7 +880,7 @@ max_nbits.exit:                                   ; preds = %4, %max_nbits.exit
   %.01012.i14 = phi i32 [ %8, %max_nbits.exit ], [ %2, %4 ]
   %7 = add nuw nsw i32 %.013.i13, 1
   %8 = lshr i32 %.01012.i14, 1
-  %.not.i15 = icmp samesign ult i32 %.01012.i14, 2
+  %.not.i15 = icmp eq i32 %8, 0
   br i1 %.not.i15, label %put_bits.exit21, label %max_nbits.exit, !llvm.loop !80
 
 put_bits.exit21:                                  ; preds = %max_nbits.exit
@@ -1231,7 +1231,7 @@ put_bits.exit27:                                  ; preds = %43, %51, %31
   %.01012.i = phi i32 [ %55, %54 ], [ %58, %56 ]
   %57 = add nuw nsw i32 %.013.i, 1
   %58 = lshr i32 %.01012.i, 1
-  %.not.i = icmp samesign ult i32 %.01012.i, 2
+  %.not.i = icmp eq i32 %58, 0
   br i1 %.not.i, label %59, label %56, !llvm.loop !80
 
 59:                                               ; preds = %56
@@ -1252,7 +1252,7 @@ max_nbits.exit:                                   ; preds = %59, %put_bits.exit2
   %.01012.i29 = phi i32 [ %62, %61 ], [ %65, %63 ]
   %64 = add nuw nsw i32 %.013.i28, 1
   %65 = lshr i32 %.01012.i29, 1
-  %.not.i30 = icmp samesign ult i32 %.01012.i29, 2
+  %.not.i30 = icmp eq i32 %65, 0
   br i1 %.not.i30, label %66, label %63, !llvm.loop !80
 
 66:                                               ; preds = %63

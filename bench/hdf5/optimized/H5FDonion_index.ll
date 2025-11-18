@@ -200,7 +200,7 @@ define range(i32 -1, 1) i32 @H5FD__onion_ingest_revision_record(ptr noundef %0, 
   br label %99
 
 95:                                               ; preds = %87
-  %96 = icmp eq i64 %.0102149, 1
+  %96 = icmp eq i64 %50, 0
   %97 = add i64 %51, -1
   %98 = select i1 %96, i64 %.0103148, i64 %97
   br label %99
@@ -1784,7 +1784,7 @@ define range(i32 0, 2) i32 @H5FD__onion_archival_index_find(ptr noundef readonly
   br label %39
 
 35:                                               ; preds = %29
-  %36 = icmp eq i64 %.04055, 1
+  %36 = icmp eq i64 %24, 0
   %37 = add i64 %25, -1
   %38 = select i1 %36, i64 %.04353, i64 %37
   br label %39
@@ -2600,7 +2600,7 @@ H5FD__onion_archival_index_find.exit.us.us:       ; preds = %.lr.ph77.split.us, 
   br i1 %72, label %77, label %73
 
 73:                                               ; preds = %71
-  %74 = icmp eq i64 %.04055.i.us, 1
+  %74 = icmp eq i64 %66, 0
   %75 = add i64 %67, -1
   %76 = select i1 %74, i64 %.04353.i.us, i64 %75
   br label %81

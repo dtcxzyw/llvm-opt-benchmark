@@ -3459,7 +3459,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEElEvRT_T0_
   br i1 %38, label %67, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %32
-  %.not29 = icmp ult i64 %.02158.i.i, 2
+  %.not29 = icmp eq i64 %20, 0
   br i1 %.not29, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZN7rocksdb12_GLOBAL__N_19VectorRep8Iterator4SeekERKNSB_5SliceES3_E3$_0EEET_SK_SK_RKT0_T1_.exit.i.i", label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i: ; preds = %.critedge.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i
@@ -4464,7 +4464,7 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEENS0_
   %104 = load ptr, ptr %96, align 8, !tbaa !91
   %105 = getelementptr inbounds ptr, ptr %.fr40, i64 %.019.i.i.i14.us
   store ptr %104, ptr %105, align 8, !tbaa !91
-  %.not9.i.us = icmp ult i64 %.0920.in.i.i.i15.us, 2
+  %.not9.i.us = icmp eq i64 %.0920.i.i78.i.us, 0
   br i1 %.not9.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN7rocksdb12stl_wrappers7CompareEEEEvT_SF_SF_RT0_.exit.us, label %.lr.ph.i.i.i13.us, !llvm.loop !133
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN7rocksdb12stl_wrappers7CompareEEEEvT_SF_SF_RT0_.exit.us: ; preds = %.lr.ph.i.i.i13.us, %103, %94
@@ -4672,7 +4672,7 @@ define linkonce_odr void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPPKcS
   %53 = load ptr, ptr %45, align 8, !tbaa !91
   %54 = getelementptr inbounds ptr, ptr %0, i64 %.019.i.i.i
   store ptr %53, ptr %54, align 8, !tbaa !91
-  %.not9.i = icmp ult i64 %.0920.in.i.i.i, 2
+  %.not9.i = icmp eq i64 %.0920.i.i78.i, 0
   br i1 %.not9.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN7rocksdb12stl_wrappers7CompareEEEEvT_SF_SF_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !133
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN7rocksdb12stl_wrappers7CompareEEEEvT_SF_SF_RT0_.exit: ; preds = %.lr.ph.i.i.i, %52, %44

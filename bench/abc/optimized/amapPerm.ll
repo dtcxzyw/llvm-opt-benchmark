@@ -1430,7 +1430,7 @@ define void @Amap_LibVerifyPerm(ptr noundef %0, ptr noundef readonly captures(no
   %26 = mul nsw i64 %24, %25
   %27 = tail call noalias ptr @malloc(i64 noundef %26) #10
   %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
-  %.not.i.i = icmp ugt i32 %8, 16777215
+  %.not.i.i = icmp ne i32 %9, 0
   br i1 %.not.i.i, label %.lr.ph.i.i, label %Vec_PtrAllocSimInfo.exit.i
 
 .lr.ph.i.i:                                       ; preds = %5, %.lr.ph.i.i
@@ -1529,7 +1529,7 @@ Vec_PtrAlloc.exit:                                ; preds = %Vec_PtrAllocTruthTa
   %58 = phi ptr [ %57, %54 ], [ null, %Vec_PtrAllocTruthTables.exit ]
   %59 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr %58, ptr %59, align 8, !tbaa !44
-  %.not58 = icmp ult i32 %50, 16777216
+  %.not58 = icmp eq i32 %.pre-phi, 0
   br i1 %.not58, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %Vec_PtrAlloc.exit, %Vec_PtrPush.exit

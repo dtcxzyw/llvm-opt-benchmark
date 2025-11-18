@@ -175186,7 +175186,7 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
 
 237:                                              ; preds = %lean_array_uset.exit
   %238 = lshr i64 %235, 1
-  %239 = icmp ult ptr %.0.i219396, inttoptr (i64 2 to ptr)
+  %239 = icmp eq i64 %238, 0
   br i1 %239, label %lean_nat_mul.exit216, label %240
 
 240:                                              ; preds = %237
@@ -175256,8 +175256,8 @@ lean_dec.exit239:                                 ; preds = %263, %262, %260, %l
   br i1 %.not421, label %270, label %lean_dec.exit238.thread, !prof !17
 
 lean_dec.exit238.thread:                          ; preds = %lean_dec.exit239
-  %.not504 = icmp ugt ptr %.1.i323398, %267
-  br i1 %.not504, label %278, label %294
+  %.not506 = icmp ugt ptr %.1.i323398, %267
+  br i1 %.not506, label %278, label %294
 
 270:                                              ; preds = %lean_dec.exit239
   %271 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %.1.i323398, ptr noundef nonnull %267) #6
@@ -175665,7 +175665,7 @@ lean_array_uset.exit367:                          ; preds = %lean_ensure_exclusi
 
 435:                                              ; preds = %lean_array_uset.exit367
   %436 = lshr i64 %433, 1
-  %437 = icmp ult ptr %.0.i402, inttoptr (i64 2 to ptr)
+  %437 = icmp eq i64 %436, 0
   br i1 %437, label %lean_nat_mul.exit, label %438
 
 438:                                              ; preds = %435
@@ -175735,8 +175735,8 @@ lean_dec.exit233:                                 ; preds = %461, %460, %458, %l
   br i1 %.not418, label %468, label %lean_dec.exit232.thread, !prof !17
 
 lean_dec.exit232.thread:                          ; preds = %lean_dec.exit233
-  %.not503 = icmp ugt ptr %.1.i369404, %465
-  br i1 %.not503, label %476, label %498
+  %.not505 = icmp ugt ptr %.1.i369404, %465
+  br i1 %.not505, label %476, label %498
 
 468:                                              ; preds = %lean_dec.exit233
   %469 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %.1.i369404, ptr noundef nonnull %465) #6

@@ -2955,9 +2955,9 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %473
 
 473:                                              ; preds = %465, %464
-  %.sroa.56420.0 = phi i32 [ 0, %464 ], [ %471, %465 ]
-  %.sroa.36419.0 = phi i32 [ 0, %464 ], [ %469, %465 ]
-  %.sroa.06418.0 = phi i32 [ 0, %464 ], [ %467, %465 ]
+  %.sroa.56423.0 = phi i32 [ 0, %464 ], [ %471, %465 ]
+  %.sroa.36422.0 = phi i32 [ 0, %464 ], [ %469, %465 ]
+  %.sroa.06421.0 = phi i32 [ 0, %464 ], [ %467, %465 ]
   %.05089 = phi i64 [ 0, %464 ], [ %472, %465 ]
   %.not5156 = icmp eq i8 %385, 0
   br i1 %.not5156, label %491, label %474
@@ -2982,9 +2982,9 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %491
 
 491:                                              ; preds = %474, %473
-  %.sroa.56417.0 = phi i32 [ 0, %473 ], [ %487, %474 ]
-  %.sroa.36416.0 = phi i32 [ 0, %473 ], [ %479, %474 ]
-  %.sroa.06415.0 = phi i32 [ 0, %473 ], [ %477, %474 ]
+  %.sroa.56420.0 = phi i32 [ 0, %473 ], [ %487, %474 ]
+  %.sroa.36419.0 = phi i32 [ 0, %473 ], [ %479, %474 ]
+  %.sroa.06418.0 = phi i32 [ 0, %473 ], [ %477, %474 ]
   %.05088 = phi i64 [ 0, %473 ], [ %490, %474 ]
   %492 = getelementptr inbounds nuw i8, ptr %0, i64 14840
   %493 = getelementptr inbounds nuw i8, ptr %0, i64 244
@@ -3233,7 +3233,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i32 0, ptr %35, align 8
   store i32 0, ptr %33, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(176) %657, i8 0, i64 176, i1 false)
-  br label %.thread6464
+  br label %.thread6467
 
 659:                                              ; preds = %651, %653, %646, %648
   %660 = phi i8 [ %647, %646 ], [ %649, %648 ], [ %652, %651 ], [ %654, %653 ]
@@ -3324,7 +3324,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %729 = or i32 %727, %.not5188
   %730 = and i32 %729, 1
   %.not5189 = icmp eq i32 %730, 0
-  br i1 %.not5189, label %.thread6470, label %731
+  br i1 %.not5189, label %.thread6473, label %731
 
 731:                                              ; preds = %716
   %.not5190 = icmp eq i32 %725, 0
@@ -3339,7 +3339,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %735 = and i32 %725, 512
   %.not52135214 = icmp ne i32 %735, 0
   %.not5213 = or i1 %.not5212, %.not52135214
-  br i1 %.not5213, label %.thread6470, label %736
+  br i1 %.not5213, label %.thread6473, label %736
 
 736:                                              ; preds = %733
   %737 = and i32 %39, 8191
@@ -3347,7 +3347,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %739 = load i32, ptr %738, align 8
   %740 = and i32 %739, -8192
   %741 = or disjoint i32 %740, %737
-  br label %.thread6470
+  br label %.thread6473
 
 742:                                              ; preds = %731
   %743 = getelementptr inbounds nuw i8, ptr %0, i64 230
@@ -3361,7 +3361,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 748:                                              ; preds = %742
   %749 = and i32 %745, 128
   %.not5202.not = icmp eq i32 %749, 0
-  br i1 %.not5202.not, label %750, label %.thread6470
+  br i1 %.not5202.not, label %750, label %.thread6473
 
 750:                                              ; preds = %748
   %751 = and i32 %745, 64
@@ -3370,8 +3370,8 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 752:                                              ; preds = %750
   %753 = and i32 %745, 56
-  %or.cond6331 = icmp eq i32 %753, 16
-  br i1 %or.cond6331, label %754, label %.thread6470
+  %or.cond6334 = icmp eq i32 %753, 16
+  br i1 %or.cond6334, label %754, label %.thread6473
 
 754:                                              ; preds = %752
   %755 = and i32 %39, 7936
@@ -3379,7 +3379,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %757 = load i32, ptr %756, align 4
   %758 = and i32 %757, -7937
   %759 = or disjoint i32 %758, %755
-  br label %.thread6470
+  br label %.thread6473
 
 760:                                              ; preds = %750
   %761 = and i32 %745, 32
@@ -3388,14 +3388,14 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 762:                                              ; preds = %760
   %763 = and i32 %745, 24
-  %or.cond6332 = icmp eq i32 %763, 16
-  %spec.select6395 = select i1 %or.cond6332, i32 7, i32 %spec.select
-  br label %.thread6470
+  %or.cond6335 = icmp eq i32 %763, 16
+  %spec.select6398 = select i1 %or.cond6335, i32 7, i32 %spec.select
+  br label %.thread6473
 
 764:                                              ; preds = %760
   %765 = and i32 %745, 16
   %.not5205 = icmp eq i32 %765, 0
-  br i1 %.not5205, label %.thread6470, label %766
+  br i1 %.not5205, label %.thread6473, label %766
 
 766:                                              ; preds = %764
   %767 = and i32 %745, 8
@@ -3408,19 +3408,19 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 771:                                              ; preds = %766
   %772 = and i32 %36, -67108864
   %773 = or disjoint i32 %770, %772
-  br label %.thread6470
+  br label %.thread6473
 
 774:                                              ; preds = %766
   %775 = and i32 %34, -67108864
   %776 = or disjoint i32 %770, %775
-  br label %.thread6470
+  br label %.thread6473
 
 777:                                              ; preds = %742
   %778 = lshr i32 %745, 9
   %779 = and i32 %728, 1
   %780 = and i32 %779, %778
   %.not5194 = icmp eq i32 %780, 0
-  br i1 %.not5194, label %781, label %.thread6442
+  br i1 %.not5194, label %781, label %.thread6445
 
 781:                                              ; preds = %777
   %782 = lshr i32 %745, 8
@@ -3434,13 +3434,13 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %786 = or i32 %.not5196, %727
   %787 = and i32 %786, 1
   %.not5197 = icmp eq i32 %787, 0
-  br i1 %.not5197, label %.thread6470, label %788
+  br i1 %.not5197, label %.thread6473, label %788
 
 788:                                              ; preds = %784
   %789 = lshr i32 %745, 10
   %790 = and i32 %779, %789
   %.not5198 = icmp eq i32 %790, 0
-  br i1 %.not5198, label %.thread6470, label %791
+  br i1 %.not5198, label %.thread6473, label %791
 
 791:                                              ; preds = %788
   %792 = and i32 %34, -67108864
@@ -3490,9 +3490,9 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %836 = and i32 %824, 255
   %837 = or disjoint i32 %836, %833
   %838 = or disjoint i32 %837, %835
-  br label %.thread6470
+  br label %.thread6473
 
-.thread6442:                                      ; preds = %777
+.thread6445:                                      ; preds = %777
   %839 = shl i32 %36, 13
   %840 = and i32 %839, 16252928
   %841 = lshr i32 %39, 13
@@ -3562,7 +3562,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i32 %858, ptr %900, align 4
   %901 = getelementptr inbounds nuw i8, ptr %899, i64 8
   store i32 %894, ptr %901, align 4
-  br label %.thread6464
+  br label %.thread6467
 
 902:                                              ; preds = %781
   %903 = shl i32 %36, 13
@@ -3632,24 +3632,24 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i32 %922, ptr %962, align 4
   %963 = getelementptr inbounds nuw i8, ptr %961, i64 8
   store i32 %958, ptr %963, align 4
-  br label %.thread6464
+  br label %.thread6467
 
-.thread6470:                                      ; preds = %762, %716, %784, %788, %791, %748, %764, %774, %771, %752, %754, %733, %736
-  %.05066.ph.ph.ph = phi i32 [ %spec.select6395, %762 ], [ %spec.select, %716 ], [ %spec.select, %784 ], [ %spec.select, %788 ], [ %spec.select, %791 ], [ %spec.select, %748 ], [ %spec.select, %764 ], [ %spec.select, %774 ], [ %spec.select, %771 ], [ %spec.select, %752 ], [ %spec.select, %754 ], [ %spec.select, %733 ], [ %spec.select, %736 ]
+.thread6473:                                      ; preds = %762, %716, %784, %788, %791, %748, %764, %774, %771, %752, %754, %733, %736
+  %.05066.ph.ph.ph = phi i32 [ %spec.select6398, %762 ], [ %spec.select, %716 ], [ %spec.select, %784 ], [ %spec.select, %788 ], [ %spec.select, %791 ], [ %spec.select, %748 ], [ %spec.select, %764 ], [ %spec.select, %774 ], [ %spec.select, %771 ], [ %spec.select, %752 ], [ %spec.select, %754 ], [ %spec.select, %733 ], [ %spec.select, %736 ]
   %.05065.ph.ph.ph = phi i32 [ %39, %762 ], [ %39, %716 ], [ %39, %784 ], [ %39, %788 ], [ %838, %791 ], [ %39, %748 ], [ %39, %764 ], [ %39, %774 ], [ %39, %771 ], [ %39, %752 ], [ %759, %754 ], [ %39, %733 ], [ %741, %736 ]
   %.05064.ph.ph.ph = phi i32 [ %36, %762 ], [ %36, %716 ], [ %36, %784 ], [ %36, %788 ], [ %832, %791 ], [ %36, %748 ], [ %36, %764 ], [ %36, %774 ], [ %773, %771 ], [ %36, %752 ], [ %36, %754 ], [ %36, %733 ], [ %36, %736 ]
   %.05063.ph.ph.ph = phi i32 [ %34, %762 ], [ %34, %716 ], [ %34, %784 ], [ %34, %788 ], [ %817, %791 ], [ %34, %748 ], [ %34, %764 ], [ %776, %774 ], [ %34, %771 ], [ %34, %752 ], [ %34, %754 ], [ %34, %733 ], [ %34, %736 ]
   store i32 %.05064.ph.ph.ph, ptr %35, align 8
   store i32 %.05063.ph.ph.ph, ptr %33, align 4
-  br label %.thread6464
+  br label %.thread6467
 
-.thread6464:                                      ; preds = %902, %.thread6442, %.thread6470, %.critedge
-  %964 = phi i32 [ 0, %.critedge ], [ %.05065.ph.ph.ph, %.thread6470 ], [ %39, %.thread6442 ], [ %39, %902 ]
-  %965 = phi i32 [ 7, %.critedge ], [ %.05066.ph.ph.ph, %.thread6470 ], [ %spec.select, %.thread6442 ], [ %spec.select, %902 ]
+.thread6467:                                      ; preds = %902, %.thread6445, %.thread6473, %.critedge
+  %964 = phi i32 [ 0, %.critedge ], [ %.05065.ph.ph.ph, %.thread6473 ], [ %39, %.thread6445 ], [ %39, %902 ]
+  %965 = phi i32 [ 7, %.critedge ], [ %.05066.ph.ph.ph, %.thread6473 ], [ %spec.select, %.thread6445 ], [ %spec.select, %902 ]
   store i32 %964, ptr %38, align 8
   br i1 %.not, label %971, label %966
 
-966:                                              ; preds = %.thread6464
+966:                                              ; preds = %.thread6467
   %967 = getelementptr inbounds nuw i32, ptr %492, i64 %.04879
   %968 = load i32, ptr %967, align 4
   %969 = and i32 %968, -256
@@ -3657,7 +3657,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i32 %970, ptr %967, align 4
   br label %971
 
-971:                                              ; preds = %966, %.thread6464
+971:                                              ; preds = %966, %.thread6467
   br i1 %.not5109, label %977, label %972
 
 972:                                              ; preds = %971
@@ -4100,11 +4100,11 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %.not5271 = icmp eq i64 %1210, 0
   %1211 = shl i32 %8, 1
   %1212 = trunc i64 %1209 to i32
-  %.sink6719 = select i1 %.not5271, i32 %1212, i32 %10
+  %.sink6722 = select i1 %.not5271, i32 %1212, i32 %10
   %1213 = zext i1 %.not5271 to i32
   %1214 = or disjoint i32 %1211, %1213
-  %1215 = tail call i32 @llvm.fshl.i32(i32 %.sink6719, i32 %8, i32 1)
-  %1216 = lshr i32 %.sink6719, 31
+  %1215 = tail call i32 @llvm.fshl.i32(i32 %.sink6722, i32 %8, i32 1)
+  %1216 = lshr i32 %.sink6722, 31
   %1217 = add i8 %1206, 1
   %1218 = and i8 %1217, 63
   store i8 %1218, ptr %1205, align 8
@@ -4121,7 +4121,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %1227 = and i8 %1226, %1221
   %.not5269 = icmp eq i8 %1227, 0
   %1228 = sub i32 0, %8
-  %spec.select6720 = select i1 %.not5269, i32 %8, i32 %1228
+  %spec.select6723 = select i1 %.not5269, i32 %8, i32 %1228
   store i8 0, ptr %1205, align 8
   %1229 = zext i8 %1221 to i32
   %1230 = zext i8 %1223 to i32
@@ -4233,12 +4233,12 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %1294
 
 1294:                                             ; preds = %1240, %1244, %1219, %1233, %1207, %1192, %1203, %1272, %1248, %1275
-  %.sroa.06408.1 = phi i32 [ %8, %1275 ], [ %8, %1272 ], [ %8, %1244 ], [ %1267, %1248 ], [ %spec.select6720, %1219 ], [ %spec.select6720, %1233 ], [ %1214, %1207 ], [ %8, %1203 ], [ %8, %1192 ], [ 0, %1240 ]
+  %.sroa.06411.1 = phi i32 [ %8, %1275 ], [ %8, %1272 ], [ %8, %1244 ], [ %1267, %1248 ], [ %spec.select6723, %1219 ], [ %spec.select6723, %1233 ], [ %1214, %1207 ], [ %8, %1203 ], [ %8, %1192 ], [ 0, %1240 ]
   %.sroa.9.0 = phi i32 [ %10, %1275 ], [ %10, %1272 ], [ %10, %1244 ], [ %1268, %1248 ], [ %10, %1219 ], [ %1236, %1233 ], [ %1215, %1207 ], [ %10, %1203 ], [ %10, %1192 ], [ 0, %1240 ]
   %.sroa.18.0 = phi i32 [ %12, %1275 ], [ %12, %1272 ], [ %12, %1244 ], [ 0, %1248 ], [ %12, %1219 ], [ %1239, %1233 ], [ %1216, %1207 ], [ %12, %1203 ], [ %12, %1192 ], [ 0, %1240 ]
   %.05072 = phi i8 [ 0, %1275 ], [ %6, %1272 ], [ 1, %1244 ], [ 2, %1248 ], [ 3, %1219 ], [ 3, %1233 ], [ %6, %1207 ], [ 0, %1203 ], [ %6, %1192 ], [ 3, %1240 ]
   store i8 %.05072, ptr %5, align 1
-  store i32 %.sroa.06408.1, ptr %7, align 4
+  store i32 %.sroa.06411.1, ptr %7, align 4
   store i32 %.sroa.9.0, ptr %9, align 4
   store i32 %.sroa.18.0, ptr %11, align 4
   %1295 = getelementptr inbounds nuw i8, ptr %0, i64 148
@@ -4306,8 +4306,8 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i8 %1332, ptr %1333, align 1
   %1334 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %1335 = load i32, ptr %1334, align 8
-  %or.cond6497 = icmp ult i32 %1335, 268435456
-  br i1 %or.cond6497, label %1336, label %1355
+  %or.cond6500 = icmp ult i32 %1335, 268435456
+  br i1 %or.cond6500, label %1336, label %1355
 
 1336:                                             ; preds = %1315
   %.not5281 = icmp samesign ult i32 %1335, 134217728
@@ -4323,8 +4323,8 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 1340:                                             ; preds = %1339
   %1341 = and i32 %1335, 1835008
-  %or.cond6499 = icmp eq i32 %1341, 1048576
-  br i1 %or.cond6499, label %1342, label %1348
+  %or.cond6502 = icmp eq i32 %1341, 1048576
+  br i1 %or.cond6502, label %1342, label %1348
 
 1342:                                             ; preds = %1340
   %1343 = and i32 %1335, 131072
@@ -4443,9 +4443,9 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %.sink.split
 
 .sink.split:                                      ; preds = %1300, %1375
-  %.sink6721 = phi i32 [ %1436, %1375 ], [ 0, %1300 ]
+  %.sink6724 = phi i32 [ %1436, %1375 ], [ 0, %1300 ]
   %1437 = getelementptr inbounds nuw i8, ptr %0, i64 444
-  store i32 %.sink6721, ptr %1437, align 4
+  store i32 %.sink6724, ptr %1437, align 4
   br label %1438
 
 1438:                                             ; preds = %.sink.split, %1311
@@ -4499,7 +4499,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i32 %1466, ptr %1467, align 4
   %1468 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %1469 = load i32, ptr %1468, align 4
-  br label %.sink.split6723
+  br label %.sink.split6726
 
 1470:                                             ; preds = %1457
   %1471 = getelementptr inbounds nuw i8, ptr %0, i64 960
@@ -4514,7 +4514,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i32 %1477, ptr %1478, align 4
   %1479 = getelementptr inbounds nuw i8, ptr %1473, i64 8
   %1480 = load i32, ptr %1479, align 4
-  br label %.sink.split6723
+  br label %.sink.split6726
 
 1481:                                             ; preds = %1454
   %1482 = getelementptr inbounds nuw i8, ptr %0, i64 93
@@ -4541,7 +4541,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i32 %1495, ptr %1496, align 4
   %1497 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %1498 = load i32, ptr %1497, align 4
-  br label %.sink.split6723
+  br label %.sink.split6726
 
 1499:                                             ; preds = %1484
   %1500 = getelementptr inbounds nuw i8, ptr %0, i64 960
@@ -4556,14 +4556,14 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i32 %1506, ptr %1507, align 4
   %1508 = getelementptr inbounds nuw i8, ptr %1502, i64 8
   %1509 = load i32, ptr %1508, align 4
-  br label %.sink.split6723
+  br label %.sink.split6726
 
 1510:                                             ; preds = %1481
   %1511 = getelementptr inbounds nuw i8, ptr %0, i64 852
   store i32 0, ptr %1511, align 4
   %1512 = getelementptr inbounds nuw i8, ptr %0, i64 856
   store i32 0, ptr %1512, align 4
-  br label %.sink.split6723
+  br label %.sink.split6726
 
 1513:                                             ; preds = %1446
   %1514 = load i8, ptr %15, align 1
@@ -4577,7 +4577,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i32 0, ptr %1517, align 4
   %1518 = getelementptr inbounds nuw i8, ptr %0, i64 856
   store i32 0, ptr %1518, align 4
-  br label %.sink.split6723
+  br label %.sink.split6726
 
 1519:                                             ; preds = %1438
   %1520 = getelementptr inbounds nuw i8, ptr %0, i64 532
@@ -4586,26 +4586,26 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i32 0, ptr %1521, align 4
   %1522 = getelementptr inbounds nuw i8, ptr %0, i64 856
   store i32 0, ptr %1522, align 4
-  br label %.sink.split6723
+  br label %.sink.split6726
 
-.sink.split6723:                                  ; preds = %1519, %1516, %1470, %1461, %1490, %1499, %1510
-  %.sink6724 = phi i32 [ 0, %1510 ], [ %1509, %1499 ], [ %1498, %1490 ], [ %1469, %1461 ], [ %1480, %1470 ], [ 0, %1516 ], [ 0, %1519 ]
+.sink.split6726:                                  ; preds = %1519, %1516, %1470, %1461, %1490, %1499, %1510
+  %.sink6727 = phi i32 [ 0, %1510 ], [ %1509, %1499 ], [ %1498, %1490 ], [ %1469, %1461 ], [ %1480, %1470 ], [ 0, %1516 ], [ 0, %1519 ]
   %1523 = getelementptr inbounds nuw i8, ptr %0, i64 860
-  store i32 %.sink6724, ptr %1523, align 4
+  store i32 %.sink6727, ptr %1523, align 4
   br label %1524
 
-1524:                                             ; preds = %.sink.split6723, %1513
+1524:                                             ; preds = %.sink.split6726, %1513
   store i8 %.05086, ptr %13, align 1
   br i1 %.not5155, label %1530, label %1525
 
 1525:                                             ; preds = %1524
   %1526 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %1527 = getelementptr inbounds nuw %struct.VlWide, ptr %1526, i64 %.05089
-  store i32 %.sroa.06418.0, ptr %1527, align 4
+  store i32 %.sroa.06421.0, ptr %1527, align 4
   %1528 = getelementptr inbounds nuw i8, ptr %1527, i64 4
-  store i32 %.sroa.36419.0, ptr %1528, align 4
+  store i32 %.sroa.36422.0, ptr %1528, align 4
   %1529 = getelementptr inbounds nuw i8, ptr %1527, i64 8
-  store i32 %.sroa.56420.0, ptr %1529, align 4
+  store i32 %.sroa.56423.0, ptr %1529, align 4
   br label %1530
 
 1530:                                             ; preds = %1525, %1524
@@ -4614,11 +4614,11 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 1531:                                             ; preds = %1530
   %1532 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %1533 = getelementptr inbounds nuw %struct.VlWide, ptr %1532, i64 %.05088
-  store i32 %.sroa.06415.0, ptr %1533, align 4
+  store i32 %.sroa.06418.0, ptr %1533, align 4
   %1534 = getelementptr inbounds nuw i8, ptr %1533, i64 4
-  store i32 %.sroa.36416.0, ptr %1534, align 4
+  store i32 %.sroa.36419.0, ptr %1534, align 4
   %1535 = getelementptr inbounds nuw i8, ptr %1533, i64 8
-  store i32 %.sroa.56417.0, ptr %1535, align 4
+  store i32 %.sroa.56420.0, ptr %1535, align 4
   br label %1536
 
 1536:                                             ; preds = %1531, %1530
@@ -4645,7 +4645,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %1548 = getelementptr inbounds nuw i8, ptr %0, i64 165
   %1549 = load i8, ptr %1548, align 1
   %.not5300 = icmp eq i8 %1549, 0
-  br i1 %.not5300, label %1550, label %.sink.split6726
+  br i1 %.not5300, label %1550, label %.sink.split6729
 
 1550:                                             ; preds = %1547
   %1551 = getelementptr inbounds nuw i8, ptr %0, i64 364
@@ -4679,14 +4679,14 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %1569 = mul nuw i32 %1563, %1566
   %1570 = getelementptr inbounds nuw i8, ptr %0, i64 612
   store i32 %1569, ptr %1570, align 4
-  br label %.sink.split6726
+  br label %.sink.split6729
 
-.sink.split6726:                                  ; preds = %1547, %1554
-  %.sink6727 = phi i8 [ 1, %1554 ], [ 0, %1547 ]
-  store i8 %.sink6727, ptr %1548, align 1
+.sink.split6729:                                  ; preds = %1547, %1554
+  %.sink6730 = phi i8 [ 1, %1554 ], [ 0, %1547 ]
+  store i8 %.sink6730, ptr %1548, align 1
   br label %1571
 
-1571:                                             ; preds = %.sink.split6726, %1550
+1571:                                             ; preds = %.sink.split6729, %1550
   %1572 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %1573 = load i32, ptr %1572, align 8
   %1574 = lshr i32 %1573, 10
@@ -4718,8 +4718,8 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 1589:                                             ; preds = %1583
   %1590 = and i32 %1586, 224
-  %or.cond6334.not = icmp eq i32 %1590, 224
-  br i1 %or.cond6334.not, label %1591, label %1611
+  %or.cond6337.not = icmp eq i32 %1590, 224
+  br i1 %or.cond6337.not, label %1591, label %1611
 
 1591:                                             ; preds = %1589
   %1592 = and i32 %1586, 16
@@ -4752,8 +4752,8 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 1605:                                             ; preds = %1599, %1601, %1591
   %1606 = and i16 %1585, 24
-  %or.cond6335 = icmp eq i16 %1606, 16
-  br i1 %or.cond6335, label %1607, label %1611
+  %or.cond6338 = icmp eq i16 %1606, 16
+  br i1 %or.cond6338, label %1607, label %1611
 
 1607:                                             ; preds = %1605
   %1608 = getelementptr inbounds nuw i8, ptr %0, i64 420
@@ -4764,8 +4764,8 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 1611:                                             ; preds = %1605, %1607, %1589
   %1612 = and i16 %1585, 255
-  %or.cond6341 = icmp eq i16 %1612, 121
-  br i1 %or.cond6341, label %1613, label %1621
+  %or.cond6344 = icmp eq i16 %1612, 121
+  br i1 %or.cond6344, label %1613, label %1621
 
 1613:                                             ; preds = %1611
   %1614 = getelementptr inbounds nuw i8, ptr %0, i64 692
@@ -4813,8 +4813,8 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %.not5326 = icmp ne i32 %1639, 0
   %1640 = and i32 %1637, 248
   %1641 = icmp eq i32 %1640, 32
-  %or.cond6346 = and i1 %1641, %.not5326
-  br i1 %or.cond6346, label %1642, label %1650
+  %or.cond6349 = and i1 %1641, %.not5326
+  br i1 %or.cond6349, label %1642, label %1650
 
 1642:                                             ; preds = %1634
   %1643 = getelementptr inbounds nuw i8, ptr %0, i64 660
@@ -5025,8 +5025,8 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %.not5340 = icmp eq i32 %1760, 0
   %1761 = and i32 %1758, 192
   %1762 = icmp ne i32 %1761, 64
-  %or.cond6348 = or i1 %1762, %.not5340
-  br i1 %or.cond6348, label %1795, label %1763
+  %or.cond6351 = or i1 %1762, %.not5340
+  br i1 %or.cond6351, label %1795, label %1763
 
 1763:                                             ; preds = %1755
   %1764 = and i32 %1758, 32
@@ -5072,7 +5072,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 1785:                                             ; preds = %1784
   %1786 = or disjoint i32 %1668, %1654
-  %spec.select6349 = select i1 %.not5345, i32 %1670, i32 %1786
+  %spec.select6352 = select i1 %.not5345, i32 %1670, i32 %1786
   br label %1795
 
 1787:                                             ; preds = %1784
@@ -5089,7 +5089,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 1795:                                             ; preds = %1785, %1673, %1755, %1788, %1787, %1769, %1768, %1780, %1776, %1753
   %.05071.ph = phi i64 [ %1653, %1785 ], [ %1653, %1755 ], [ %1653, %1787 ], [ %1794, %1788 ], [ %1653, %1780 ], [ %1653, %1776 ], [ %1653, %1768 ], [ %1653, %1769 ], [ %1653, %1753 ], [ %1653, %1673 ]
-  %.25070.ph = phi i32 [ %spec.select6349, %1785 ], [ %1670, %1755 ], [ %1670, %1787 ], [ %1670, %1788 ], [ %1670, %1780 ], [ %1779, %1776 ], [ %1670, %1768 ], [ %1670, %1769 ], [ %.15069, %1753 ], [ %1670, %1673 ]
+  %.25070.ph = phi i32 [ %spec.select6352, %1785 ], [ %1670, %1755 ], [ %1670, %1787 ], [ %1670, %1788 ], [ %1670, %1780 ], [ %1779, %1776 ], [ %1670, %1768 ], [ %1670, %1769 ], [ %.15069, %1753 ], [ %1670, %1673 ]
   %.05067.ph = phi i32 [ %23, %1785 ], [ %23, %1755 ], [ %23, %1787 ], [ %23, %1788 ], [ %1783, %1780 ], [ %23, %1776 ], [ %23, %1768 ], [ %23, %1769 ], [ %1754, %1753 ], [ %1676, %1673 ]
   store i32 %.05067.ph, ptr %22, align 8
   %1796 = lshr i32 %964, 13
@@ -5112,14 +5112,14 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %1809 = getelementptr inbounds nuw i8, ptr %0, i64 115
   %1810 = load i8, ptr %1809, align 1
   %.not5370 = icmp eq i8 %1810, 0
-  br i1 %.not5370, label %1811, label %.sink.split6728
+  br i1 %.not5370, label %1811, label %.sink.split6731
 
 1811:                                             ; preds = %1808
   %1812 = getelementptr inbounds nuw i8, ptr %0, i64 93
   %1813 = load i8, ptr %1812, align 1
   %1814 = icmp ne i8 %1813, 0
   %1815 = zext i1 %1814 to i8
-  br label %.sink.split6728
+  br label %.sink.split6731
 
 1816:                                             ; preds = %1795
   %1817 = load i8, ptr %15, align 1
@@ -5127,15 +5127,15 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %.demorgan53675368 = or i8 %1818, %1817
   %1819 = and i8 %.demorgan53675368, 1
   %.not5369.not = icmp eq i8 %1819, 0
-  br i1 %.not5369.not, label %.sink.split6728, label %1821
+  br i1 %.not5369.not, label %.sink.split6731, label %1821
 
-.sink.split6728:                                  ; preds = %1816, %1808, %1811
-  %.sink6729 = phi i8 [ 1, %1808 ], [ %1815, %1811 ], [ 0, %1816 ]
+.sink.split6731:                                  ; preds = %1816, %1808, %1811
+  %.sink6732 = phi i8 [ 1, %1808 ], [ %1815, %1811 ], [ 0, %1816 ]
   %1820 = getelementptr inbounds nuw i8, ptr %0, i64 154
-  store i8 %.sink6729, ptr %1820, align 2
+  store i8 %.sink6732, ptr %1820, align 2
   br label %1821
 
-1821:                                             ; preds = %.sink.split6728, %1816
+1821:                                             ; preds = %.sink.split6731, %1816
   br i1 %.not5305, label %1874, label %1822
 
 1822:                                             ; preds = %1821
@@ -5156,13 +5156,13 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 1830:                                             ; preds = %1824
   %1831 = and i32 %1827, 192
-  %or.cond6350 = icmp eq i32 %1831, 0
-  br i1 %or.cond6350, label %1832, label %1874
+  %or.cond6353 = icmp eq i32 %1831, 0
+  br i1 %or.cond6353, label %1832, label %1874
 
 1832:                                             ; preds = %1830
   %1833 = and i32 %1827, 56
-  %or.cond6352 = icmp eq i32 %1833, 48
-  br i1 %or.cond6352, label %1834, label %1839
+  %or.cond6355 = icmp eq i32 %1833, 48
+  br i1 %or.cond6355, label %1834, label %1839
 
 1834:                                             ; preds = %1832
   %1835 = getelementptr inbounds nuw i8, ptr %0, i64 420
@@ -5174,8 +5174,8 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 1839:                                             ; preds = %1834, %1832
   %1840 = and i16 %1826, 56
-  %or.cond6354 = icmp eq i16 %1840, 0
-  br i1 %or.cond6354, label %1841, label %1874
+  %or.cond6357 = icmp eq i16 %1840, 0
+  br i1 %or.cond6357, label %1841, label %1874
 
 1841:                                             ; preds = %1839
   %1842 = getelementptr inbounds nuw i8, ptr %0, i64 644
@@ -5252,7 +5252,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %1884 = load i8, ptr %1883, align 1
   %1885 = and i8 %1884, %1882
   %.not5393 = icmp eq i8 %1885, 0
-  %spec.select6355 = select i1 %.not5393, i8 %54, i8 0
+  %spec.select6358 = select i1 %.not5393, i8 %54, i8 0
   %1886 = load i8, ptr %52, align 1
   %1887 = getelementptr inbounds nuw i8, ptr %0, i64 38
   %1888 = load i8, ptr %1887, align 2
@@ -5264,7 +5264,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %1891 = load i8, ptr %1890, align 1
   %.not5395 = icmp eq i8 %1891, 0
   %1892 = and i8 %66, 30
-  %spec.select6397 = select i1 %.not5395, i8 %66, i8 %1892
+  %spec.select6400 = select i1 %.not5395, i8 %66, i8 %1892
   br label %1923
 
 1893:                                             ; preds = %1877
@@ -5305,10 +5305,10 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %1923
 
 1923:                                             ; preds = %1881, %1893, %1874
-  %.04985 = phi i8 [ 1, %1893 ], [ %54, %1874 ], [ %spec.select6355, %1881 ]
+  %.04985 = phi i8 [ 1, %1893 ], [ %54, %1874 ], [ %spec.select6358, %1881 ]
   %.04977 = phi i8 [ 1, %1893 ], [ %53, %1874 ], [ %.14978, %1881 ]
   %.04973 = phi i8 [ 1, %1893 ], [ %51, %1874 ], [ %.14974, %1881 ]
-  %.04970 = phi i8 [ %1922, %1893 ], [ %66, %1874 ], [ %spec.select6397, %1881 ]
+  %.04970 = phi i8 [ %1922, %1893 ], [ %66, %1874 ], [ %spec.select6400, %1881 ]
   %1924 = load i32, ptr %67, align 4
   switch i32 %1924, label %2424 [
     i32 0, label %1925
@@ -5393,7 +5393,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %1973
 
 1973:                                             ; preds = %1963, %1937
-  %.sroa.06401.0 = phi i32 [ %1946, %1963 ], [ 0, %1937 ]
+  %.sroa.06404.0 = phi i32 [ %1946, %1963 ], [ 0, %1937 ]
   %.sroa.3.0 = phi i32 [ %1964, %1963 ], [ 0, %1937 ]
   %.sroa.5.0 = phi i32 [ %1965, %1963 ], [ 0, %1937 ]
   %.14971 = phi i8 [ %1972, %1963 ], [ %.04970, %1937 ]
@@ -5480,8 +5480,8 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br i1 %2019, label %2020, label %2424
 
 2020:                                             ; preds = %2017
-  %narrow6609 = add nuw nsw i8 %2000, 1
-  %2021 = zext nneg i8 %narrow6609 to i32
+  %narrow6612 = add nuw nsw i8 %2000, 1
+  %2021 = zext nneg i8 %narrow6612 to i32
   %2022 = and i32 %2005, 63
   %2023 = zext nneg i32 %2022 to i64
   br label %2424
@@ -5557,7 +5557,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 2069:                                             ; preds = %2053
   %2070 = and i8 %2061, 24
   %.not5435 = icmp eq i8 %2070, 0
-  %spec.select6501 = select i1 %.not5435, i64 0, i64 %2059
+  %spec.select6504 = select i1 %.not5435, i64 0, i64 %2059
   br label %2424
 
 2071:                                             ; preds = %1923
@@ -5603,20 +5603,20 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %2100
 
 2100:                                             ; preds = %2098, %2095
-  %.sink6745 = phi i32 [ %2099, %2098 ], [ %2097, %2095 ]
-  %.sink6739 = phi i32 [ 4, %2098 ], [ 3, %2095 ]
-  %.sink6731 = phi i32 [ 6, %2098 ], [ 5, %2095 ]
-  %2101 = shl i32 %.sink6745, 3
+  %.sink6748 = phi i32 [ %2099, %2098 ], [ %2097, %2095 ]
+  %.sink6742 = phi i32 [ 4, %2098 ], [ 3, %2095 ]
+  %.sink6734 = phi i32 [ 6, %2098 ], [ 5, %2095 ]
+  %2101 = shl i32 %.sink6748, 3
   %2102 = and i32 %2101, 8388600
   %2103 = zext nneg i32 %2102 to i64
   %2104 = or disjoint i64 %2091, %2103
-  %2105 = lshr i32 %2080, %.sink6739
+  %2105 = lshr i32 %2080, %.sink6742
   %2106 = shl nuw nsw i32 %2105, 2
   %2107 = and i32 %2106, 4
   %2108 = xor i32 %2107, 4
   %2109 = zext nneg i32 %2108 to i64
   %2110 = or disjoint i64 %2104, %2109
-  %2111 = lshr i32 %2080, %.sink6731
+  %2111 = lshr i32 %2080, %.sink6734
   %2112 = shl nuw nsw i32 %2111, 1
   %2113 = and i32 %2112, 2
   %2114 = or disjoint i32 %2113, 1
@@ -5641,7 +5641,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %2124 = load i8, ptr %2123, align 2
   %2125 = and i8 %2124, %2122
   %.not5424 = icmp eq i8 %2125, 0
-  %spec.select6356 = select i1 %.not5424, i8 %64, i8 0
+  %spec.select6359 = select i1 %.not5424, i8 %64, i8 0
   %2126 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %2127 = load i8, ptr %2126, align 4
   %.not5425 = icmp eq i8 %2127, 0
@@ -5718,8 +5718,8 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br i1 %2169, label %2177, label %2170
 
 2170:                                             ; preds = %2167
-  %narrow6608 = add nuw nsw i8 %2142, 1
-  %2171 = zext nneg i8 %narrow6608 to i32
+  %narrow6611 = add nuw nsw i8 %2142, 1
+  %2171 = zext nneg i8 %narrow6611 to i32
   %2172 = getelementptr inbounds nuw i8, ptr %0, i64 500
   %2173 = load i32, ptr %2172, align 4
   %2174 = lshr i32 %2173, 6
@@ -5744,7 +5744,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %2181 = load i8, ptr %2180, align 1
   %2182 = and i8 %2181, %2179
   %.not5420 = icmp eq i8 %2182, 0
-  %spec.select6357 = select i1 %.not5420, i8 %.24987, i8 0
+  %spec.select6360 = select i1 %.not5420, i8 %.24987, i8 0
   %2183 = load i8, ptr %52, align 1
   %2184 = getelementptr inbounds nuw i8, ptr %0, i64 38
   %2185 = load i8, ptr %2184, align 2
@@ -5775,7 +5775,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %2202 = trunc i32 %2201 to i8
   %2203 = and i8 %2202, 15
   %2204 = icmp eq i32 %2201, 15
-  %spec.select6358 = select i1 %2204, i8 1, i8 %.24975
+  %spec.select6361 = select i1 %2204, i8 1, i8 %.24975
   br label %2424
 
 2205:                                             ; preds = %2132
@@ -5860,7 +5860,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %2256 = load i8, ptr %2255, align 1
   %2257 = and i8 %2256, %2254
   %.not5404 = icmp eq i8 %2257, 0
-  %spec.select6359 = select i1 %.not5404, i8 %.54990, i8 0
+  %spec.select6362 = select i1 %.not5404, i8 %.54990, i8 0
   %2258 = load i8, ptr %52, align 1
   %2259 = getelementptr inbounds nuw i8, ptr %0, i64 38
   %2260 = load i8, ptr %2259, align 2
@@ -5892,12 +5892,12 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %2278 = trunc i32 %2277 to i8
   %2279 = and i8 %2278, 15
   %2280 = icmp eq i32 %2277, 15
-  %spec.select6360 = select i1 %2280, i8 1, i8 %.5
+  %spec.select6363 = select i1 %2280, i8 1, i8 %.5
   br label %2281
 
 2281:                                             ; preds = %2264, %2262, %2253
   %.64983 = phi i8 [ %.54982, %2253 ], [ 0, %2262 ], [ %.54982, %2264 ]
-  %.6 = phi i8 [ %.5, %2253 ], [ %.5, %2262 ], [ %spec.select6360, %2264 ]
+  %.6 = phi i8 [ %.5, %2253 ], [ %.5, %2262 ], [ %spec.select6363, %2264 ]
   %.24950 = phi i8 [ %49, %2253 ], [ %49, %2262 ], [ %2279, %2264 ]
   %2282 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %2283 = load i8, ptr %2282, align 1
@@ -5914,7 +5914,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %2289
 
 2289:                                             ; preds = %2281, %2284, %2216
-  %.44989 = phi i8 [ %spec.select6359, %2284 ], [ %spec.select6359, %2281 ], [ %.04985, %2216 ]
+  %.44989 = phi i8 [ %spec.select6362, %2284 ], [ %spec.select6362, %2281 ], [ %.04985, %2216 ]
   %.44981 = phi i8 [ %.64983, %2284 ], [ %.64983, %2281 ], [ %.04977, %2216 ]
   %.4 = phi i8 [ %.6, %2284 ], [ %.6, %2281 ], [ %.04973, %2216 ]
   %.14949 = phi i8 [ %.24950, %2284 ], [ %.24950, %2281 ], [ %49, %2216 ]
@@ -6165,15 +6165,15 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %2425 = phi ptr [ %2402, %2391 ], [ %1797, %1923 ], [ %1797, %2049 ], [ %1797, %2065 ], [ %1797, %2063 ], [ %1797, %2044 ], [ %1797, %2042 ], [ %1797, %2024 ], [ %1797, %2014 ], [ %1797, %2020 ], [ %1797, %2017 ], [ %1797, %1994 ], [ %1797, %1980 ], [ %1797, %1978 ], [ %1797, %1977 ], [ %1797, %1973 ], [ %1797, %2119 ], [ %1797, %2117 ], [ %1797, %2100 ], [ %1797, %2121 ], [ %1797, %2128 ], [ %1797, %2205 ], [ %1797, %2377 ], [ %1797, %._crit_edge ], [ %1797, %2365 ], [ %1797, %2211 ], [ %1797, %2387 ], [ %1797, %2383 ], [ %1797, %2069 ], [ %1797, %2189 ], [ %1797, %2187 ], [ %1797, %2178 ]
   %2426 = phi i32 [ 0, %2391 ], [ %.25070.ph, %1923 ], [ %.25070.ph, %2049 ], [ %.25070.ph, %2065 ], [ %.25070.ph, %2063 ], [ %.25070.ph, %2044 ], [ %.25070.ph, %2042 ], [ %.25070.ph, %2024 ], [ %.25070.ph, %2014 ], [ %.25070.ph, %2020 ], [ %.25070.ph, %2017 ], [ %.25070.ph, %1994 ], [ %.25070.ph, %1980 ], [ %.25070.ph, %1978 ], [ %.25070.ph, %1977 ], [ %.25070.ph, %1973 ], [ %.25070.ph, %2119 ], [ %.25070.ph, %2117 ], [ %.25070.ph, %2100 ], [ %.25070.ph, %2121 ], [ %.25070.ph, %2128 ], [ %.25070.ph, %2205 ], [ %.25070.ph, %2377 ], [ %.25070.ph, %._crit_edge ], [ %.25070.ph, %2365 ], [ %.25070.ph, %2211 ], [ %.25070.ph, %2387 ], [ %.25070.ph, %2383 ], [ %.25070.ph, %2069 ], [ %.25070.ph, %2189 ], [ %.25070.ph, %2187 ], [ %.25070.ph, %2178 ]
   %2427 = phi i64 [ 2, %2391 ], [ %.05071.ph, %1923 ], [ %.05071.ph, %2049 ], [ %.05071.ph, %2065 ], [ %.05071.ph, %2063 ], [ %.05071.ph, %2044 ], [ %.05071.ph, %2042 ], [ %.05071.ph, %2024 ], [ %.05071.ph, %2014 ], [ %.05071.ph, %2020 ], [ %.05071.ph, %2017 ], [ %.05071.ph, %1994 ], [ %.05071.ph, %1980 ], [ %.05071.ph, %1978 ], [ %.05071.ph, %1977 ], [ %.05071.ph, %1973 ], [ %.05071.ph, %2119 ], [ %.05071.ph, %2117 ], [ %.05071.ph, %2100 ], [ %.05071.ph, %2121 ], [ %.05071.ph, %2128 ], [ %.05071.ph, %2205 ], [ %.05071.ph, %2377 ], [ %.05071.ph, %._crit_edge ], [ %.05071.ph, %2365 ], [ %.05071.ph, %2211 ], [ %.05071.ph, %2387 ], [ %.05071.ph, %2383 ], [ %.05071.ph, %2069 ], [ %.05071.ph, %2189 ], [ %.05071.ph, %2187 ], [ %.05071.ph, %2178 ]
-  %.sroa.06401.1 = phi i32 [ 0, %2391 ], [ 0, %1923 ], [ 0, %2049 ], [ 0, %2065 ], [ 0, %2063 ], [ 0, %2044 ], [ 0, %2042 ], [ 0, %2024 ], [ 0, %2014 ], [ 0, %2020 ], [ 0, %2017 ], [ 0, %1994 ], [ 0, %1980 ], [ 0, %1978 ], [ %.sroa.06401.0, %1977 ], [ %.sroa.06401.0, %1973 ], [ 0, %2119 ], [ 0, %2117 ], [ 0, %2100 ], [ 0, %2121 ], [ 0, %2128 ], [ 0, %2205 ], [ 0, %2377 ], [ 0, %._crit_edge ], [ 0, %2365 ], [ 0, %2211 ], [ 0, %2387 ], [ 0, %2383 ], [ 0, %2069 ], [ 0, %2189 ], [ 0, %2187 ], [ 0, %2178 ]
+  %.sroa.06404.1 = phi i32 [ 0, %2391 ], [ 0, %1923 ], [ 0, %2049 ], [ 0, %2065 ], [ 0, %2063 ], [ 0, %2044 ], [ 0, %2042 ], [ 0, %2024 ], [ 0, %2014 ], [ 0, %2020 ], [ 0, %2017 ], [ 0, %1994 ], [ 0, %1980 ], [ 0, %1978 ], [ %.sroa.06404.0, %1977 ], [ %.sroa.06404.0, %1973 ], [ 0, %2119 ], [ 0, %2117 ], [ 0, %2100 ], [ 0, %2121 ], [ 0, %2128 ], [ 0, %2205 ], [ 0, %2377 ], [ 0, %._crit_edge ], [ 0, %2365 ], [ 0, %2211 ], [ 0, %2387 ], [ 0, %2383 ], [ 0, %2069 ], [ 0, %2189 ], [ 0, %2187 ], [ 0, %2178 ]
   %.sroa.3.1 = phi i32 [ 0, %2391 ], [ 0, %1923 ], [ 0, %2049 ], [ 0, %2065 ], [ 0, %2063 ], [ 0, %2044 ], [ 0, %2042 ], [ 0, %2024 ], [ 0, %2014 ], [ 0, %2020 ], [ 0, %2017 ], [ 0, %1994 ], [ 0, %1980 ], [ 0, %1978 ], [ %.sroa.3.0, %1977 ], [ %.sroa.3.0, %1973 ], [ 0, %2119 ], [ 0, %2117 ], [ 0, %2100 ], [ 0, %2121 ], [ 0, %2128 ], [ 0, %2205 ], [ 0, %2377 ], [ 0, %._crit_edge ], [ 0, %2365 ], [ 0, %2211 ], [ 0, %2387 ], [ 0, %2383 ], [ 0, %2069 ], [ 0, %2189 ], [ 0, %2187 ], [ 0, %2178 ]
   %.sroa.5.1 = phi i32 [ 0, %2391 ], [ 0, %1923 ], [ 0, %2049 ], [ 0, %2065 ], [ 0, %2063 ], [ 0, %2044 ], [ 0, %2042 ], [ 0, %2024 ], [ 0, %2014 ], [ 0, %2020 ], [ 0, %2017 ], [ 0, %1994 ], [ 0, %1980 ], [ 0, %1978 ], [ %.sroa.5.0, %1977 ], [ %.sroa.5.0, %1973 ], [ 0, %2119 ], [ 0, %2117 ], [ 0, %2100 ], [ 0, %2121 ], [ 0, %2128 ], [ 0, %2205 ], [ 0, %2377 ], [ 0, %._crit_edge ], [ 0, %2365 ], [ 0, %2211 ], [ 0, %2387 ], [ 0, %2383 ], [ 0, %2069 ], [ 0, %2189 ], [ 0, %2187 ], [ 0, %2178 ]
-  %.74992 = phi i8 [ 0, %2391 ], [ %.04985, %1923 ], [ %.04985, %2049 ], [ %.04985, %2065 ], [ %.04985, %2063 ], [ %.04985, %2044 ], [ %.04985, %2042 ], [ %.04985, %2024 ], [ %.04985, %2014 ], [ %.04985, %2020 ], [ %.04985, %2017 ], [ %.04985, %1994 ], [ %.04985, %1980 ], [ %.04985, %1978 ], [ %.04985, %1977 ], [ %.04985, %1973 ], [ %.04985, %2119 ], [ %.04985, %2117 ], [ %.04985, %2100 ], [ %.04985, %2121 ], [ %.04985, %2128 ], [ %.04985, %2205 ], [ %.04985, %2377 ], [ %.44989, %._crit_edge ], [ %.44989, %2365 ], [ %.04985, %2211 ], [ %.04985, %2387 ], [ %.04985, %2383 ], [ %.04985, %2069 ], [ %spec.select6357, %2189 ], [ %spec.select6357, %2187 ], [ %spec.select6357, %2178 ]
+  %.74992 = phi i8 [ 0, %2391 ], [ %.04985, %1923 ], [ %.04985, %2049 ], [ %.04985, %2065 ], [ %.04985, %2063 ], [ %.04985, %2044 ], [ %.04985, %2042 ], [ %.04985, %2024 ], [ %.04985, %2014 ], [ %.04985, %2020 ], [ %.04985, %2017 ], [ %.04985, %1994 ], [ %.04985, %1980 ], [ %.04985, %1978 ], [ %.04985, %1977 ], [ %.04985, %1973 ], [ %.04985, %2119 ], [ %.04985, %2117 ], [ %.04985, %2100 ], [ %.04985, %2121 ], [ %.04985, %2128 ], [ %.04985, %2205 ], [ %.04985, %2377 ], [ %.44989, %._crit_edge ], [ %.44989, %2365 ], [ %.04985, %2211 ], [ %.04985, %2387 ], [ %.04985, %2383 ], [ %.04985, %2069 ], [ %spec.select6360, %2189 ], [ %spec.select6360, %2187 ], [ %spec.select6360, %2178 ]
   %.74984 = phi i8 [ 0, %2391 ], [ %.04977, %1923 ], [ %.04977, %2049 ], [ %.04977, %2065 ], [ %.04977, %2063 ], [ %.04977, %2044 ], [ %.04977, %2042 ], [ %.04977, %2024 ], [ %.04977, %2014 ], [ %.04977, %2020 ], [ %.04977, %2017 ], [ %.04977, %1994 ], [ %.04977, %1980 ], [ %.04977, %1978 ], [ %.04977, %1977 ], [ %.04977, %1973 ], [ %.04977, %2119 ], [ %.04977, %2117 ], [ %.04977, %2100 ], [ %.04977, %2121 ], [ %.04977, %2128 ], [ %.04977, %2205 ], [ %.04977, %2377 ], [ %.44981, %._crit_edge ], [ %.44981, %2365 ], [ %.04977, %2211 ], [ %.04977, %2387 ], [ %.04977, %2383 ], [ %.04977, %2069 ], [ %.24979, %2189 ], [ 0, %2187 ], [ %.24979, %2178 ]
-  %.7 = phi i8 [ 0, %2391 ], [ %.04973, %1923 ], [ %.04973, %2049 ], [ %.04973, %2065 ], [ %.04973, %2063 ], [ %.04973, %2044 ], [ %.04973, %2042 ], [ %.04973, %2024 ], [ %.04973, %2014 ], [ %.04973, %2020 ], [ %.04973, %2017 ], [ %.04973, %1994 ], [ %.04973, %1980 ], [ %.04973, %1978 ], [ %.04973, %1977 ], [ %.04973, %1973 ], [ %.04973, %2119 ], [ %.04973, %2117 ], [ %.04973, %2100 ], [ %.04973, %2121 ], [ %.04973, %2128 ], [ %.04973, %2205 ], [ %.04973, %2377 ], [ %.4, %._crit_edge ], [ %.4, %2365 ], [ %.04973, %2211 ], [ %.04973, %2387 ], [ %.04973, %2383 ], [ %.04973, %2069 ], [ %spec.select6358, %2189 ], [ %.24975, %2187 ], [ %.24975, %2178 ]
+  %.7 = phi i8 [ 0, %2391 ], [ %.04973, %1923 ], [ %.04973, %2049 ], [ %.04973, %2065 ], [ %.04973, %2063 ], [ %.04973, %2044 ], [ %.04973, %2042 ], [ %.04973, %2024 ], [ %.04973, %2014 ], [ %.04973, %2020 ], [ %.04973, %2017 ], [ %.04973, %1994 ], [ %.04973, %1980 ], [ %.04973, %1978 ], [ %.04973, %1977 ], [ %.04973, %1973 ], [ %.04973, %2119 ], [ %.04973, %2117 ], [ %.04973, %2100 ], [ %.04973, %2121 ], [ %.04973, %2128 ], [ %.04973, %2205 ], [ %.04973, %2377 ], [ %.4, %._crit_edge ], [ %.4, %2365 ], [ %.04973, %2211 ], [ %.04973, %2387 ], [ %.04973, %2383 ], [ %.04973, %2069 ], [ %spec.select6361, %2189 ], [ %.24975, %2187 ], [ %.24975, %2178 ]
   %.24972 = phi i8 [ 0, %2391 ], [ %.04970, %1923 ], [ %.04970, %2049 ], [ %.04970, %2065 ], [ %.04970, %2063 ], [ %.04970, %2044 ], [ %.04970, %2042 ], [ %.04970, %2024 ], [ %.04970, %2014 ], [ %.04970, %2020 ], [ %.04970, %2017 ], [ %.04970, %1994 ], [ %.04970, %1980 ], [ %.04970, %1978 ], [ %.14971, %1977 ], [ %.14971, %1973 ], [ %.04970, %2119 ], [ %.04970, %2117 ], [ %.04970, %2100 ], [ %.04970, %2121 ], [ %.04970, %2128 ], [ %.04970, %2205 ], [ %.04970, %2377 ], [ %.04970, %._crit_edge ], [ %.04970, %2365 ], [ %.04970, %2211 ], [ %.04970, %2387 ], [ %.04970, %2383 ], [ %.04970, %2069 ], [ %.04970, %2189 ], [ %.04970, %2187 ], [ %.04970, %2178 ]
   %.14969 = phi i8 [ 0, %2391 ], [ 0, %1923 ], [ 0, %2049 ], [ 0, %2065 ], [ 0, %2063 ], [ 0, %2044 ], [ 0, %2042 ], [ 0, %2024 ], [ 0, %2014 ], [ 0, %2020 ], [ 0, %2017 ], [ 0, %1994 ], [ 0, %1980 ], [ 0, %1978 ], [ %.04968, %1977 ], [ %.04968, %1973 ], [ 0, %2119 ], [ 0, %2117 ], [ 0, %2100 ], [ 0, %2121 ], [ 0, %2128 ], [ 0, %2205 ], [ 0, %2377 ], [ 0, %._crit_edge ], [ 0, %2365 ], [ 0, %2211 ], [ 0, %2387 ], [ 0, %2383 ], [ 0, %2069 ], [ 0, %2189 ], [ 0, %2187 ], [ 0, %2178 ]
-  %.34967 = phi i8 [ 0, %2391 ], [ %64, %1923 ], [ %64, %2049 ], [ %64, %2065 ], [ %64, %2063 ], [ %64, %2044 ], [ %64, %2042 ], [ %64, %2024 ], [ %64, %2014 ], [ %64, %2020 ], [ %64, %2017 ], [ %64, %1994 ], [ 1, %1980 ], [ %64, %1978 ], [ %64, %1977 ], [ %64, %1973 ], [ %64, %2119 ], [ %64, %2117 ], [ %64, %2100 ], [ %spec.select6356, %2121 ], [ %spec.select6356, %2128 ], [ %64, %2205 ], [ %64, %2377 ], [ %.24966, %._crit_edge ], [ %.24966, %2365 ], [ %64, %2211 ], [ %64, %2387 ], [ %64, %2383 ], [ %64, %2069 ], [ %64, %2189 ], [ %64, %2187 ], [ %64, %2178 ]
+  %.34967 = phi i8 [ 0, %2391 ], [ %64, %1923 ], [ %64, %2049 ], [ %64, %2065 ], [ %64, %2063 ], [ %64, %2044 ], [ %64, %2042 ], [ %64, %2024 ], [ %64, %2014 ], [ %64, %2020 ], [ %64, %2017 ], [ %64, %1994 ], [ 1, %1980 ], [ %64, %1978 ], [ %64, %1977 ], [ %64, %1973 ], [ %64, %2119 ], [ %64, %2117 ], [ %64, %2100 ], [ %spec.select6359, %2121 ], [ %spec.select6359, %2128 ], [ %64, %2205 ], [ %64, %2377 ], [ %.24966, %._crit_edge ], [ %.24966, %2365 ], [ %64, %2211 ], [ %64, %2387 ], [ %64, %2383 ], [ %64, %2069 ], [ %64, %2189 ], [ %64, %2187 ], [ %64, %2178 ]
   %.34963 = phi i32 [ 0, %2391 ], [ %68, %1923 ], [ %68, %2049 ], [ 3, %2065 ], [ %68, %2063 ], [ 1, %2044 ], [ 5, %2042 ], [ 4, %2024 ], [ %.04960, %2014 ], [ %.04960, %2020 ], [ %.04960, %2017 ], [ %68, %1994 ], [ 2, %1980 ], [ %68, %1978 ], [ %68, %1977 ], [ %68, %1973 ], [ 5, %2119 ], [ 5, %2117 ], [ 0, %2100 ], [ %68, %2121 ], [ 5, %2128 ], [ %68, %2205 ], [ %68, %2377 ], [ %.24962, %._crit_edge ], [ %.24962, %2365 ], [ %68, %2211 ], [ 0, %2387 ], [ %68, %2383 ], [ 5, %2069 ], [ %.14961, %2189 ], [ %.14961, %2187 ], [ %.14961, %2178 ]
   %.24959 = phi i8 [ 0, %2391 ], [ %58, %1923 ], [ %58, %2049 ], [ %58, %2065 ], [ %58, %2063 ], [ %58, %2044 ], [ %58, %2042 ], [ %58, %2024 ], [ %58, %2014 ], [ %58, %2020 ], [ %58, %2017 ], [ %58, %1994 ], [ 1, %1980 ], [ %58, %1978 ], [ %58, %1977 ], [ %58, %1973 ], [ %58, %2119 ], [ %58, %2117 ], [ %58, %2100 ], [ %58, %2121 ], [ %58, %2128 ], [ %58, %2205 ], [ %58, %2377 ], [ %.14958, %._crit_edge ], [ %.14958, %2365 ], [ %58, %2211 ], [ %58, %2387 ], [ %58, %2383 ], [ %58, %2069 ], [ %58, %2189 ], [ %58, %2187 ], [ %58, %2178 ]
   %.04956 = phi i8 [ 0, %2391 ], [ 0, %1923 ], [ 0, %2049 ], [ 0, %2065 ], [ 0, %2063 ], [ 0, %2044 ], [ 0, %2042 ], [ 0, %2024 ], [ %2002, %2014 ], [ %2002, %2020 ], [ %2002, %2017 ], [ 0, %1994 ], [ 0, %1980 ], [ 0, %1978 ], [ 0, %1977 ], [ 0, %1973 ], [ 0, %2119 ], [ 0, %2117 ], [ 0, %2100 ], [ 0, %2121 ], [ 0, %2128 ], [ 0, %2205 ], [ 0, %2377 ], [ 0, %._crit_edge ], [ 0, %2365 ], [ 0, %2211 ], [ 0, %2387 ], [ 0, %2383 ], [ 0, %2069 ], [ 0, %2189 ], [ 0, %2187 ], [ 0, %2178 ]
@@ -6186,7 +6186,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %.14941 = phi i16 [ 0, %2391 ], [ %56, %1923 ], [ %56, %2049 ], [ %56, %2065 ], [ %56, %2063 ], [ %56, %2044 ], [ %56, %2042 ], [ %2029, %2024 ], [ %56, %2014 ], [ %56, %2020 ], [ %56, %2017 ], [ %56, %1994 ], [ %56, %1980 ], [ %56, %1978 ], [ %56, %1977 ], [ %56, %1973 ], [ %56, %2119 ], [ %56, %2117 ], [ %56, %2100 ], [ %56, %2121 ], [ %56, %2128 ], [ %56, %2205 ], [ %56, %2377 ], [ %.04940, %._crit_edge ], [ %.04940, %2365 ], [ %56, %2211 ], [ %56, %2387 ], [ %56, %2383 ], [ %56, %2069 ], [ %56, %2189 ], [ %56, %2187 ], [ %56, %2178 ]
   %.14939 = phi i8 [ 0, %2391 ], [ %62, %1923 ], [ %62, %2049 ], [ 1, %2065 ], [ %62, %2063 ], [ %62, %2044 ], [ %62, %2042 ], [ 1, %2024 ], [ %62, %2014 ], [ %62, %2020 ], [ %62, %2017 ], [ %62, %1994 ], [ %62, %1980 ], [ %62, %1978 ], [ %62, %1977 ], [ %62, %1973 ], [ %62, %2119 ], [ %62, %2117 ], [ %62, %2100 ], [ %62, %2121 ], [ %62, %2128 ], [ %62, %2205 ], [ %62, %2377 ], [ %62, %._crit_edge ], [ 0, %2365 ], [ %62, %2211 ], [ %62, %2387 ], [ %62, %2383 ], [ %62, %2069 ], [ %.04938, %2189 ], [ %.04938, %2187 ], [ %.04938, %2178 ]
   %.14937 = phi i8 [ 0, %2391 ], [ %45, %1923 ], [ %45, %2049 ], [ %45, %2065 ], [ %45, %2063 ], [ %45, %2044 ], [ %45, %2042 ], [ %2038, %2024 ], [ %45, %2014 ], [ %45, %2020 ], [ %45, %2017 ], [ %45, %1994 ], [ %45, %1980 ], [ %45, %1978 ], [ %45, %1977 ], [ %45, %1973 ], [ %45, %2119 ], [ %45, %2117 ], [ %45, %2100 ], [ %45, %2121 ], [ %45, %2128 ], [ %45, %2205 ], [ %45, %2377 ], [ %.04936, %._crit_edge ], [ %.04936, %2365 ], [ %45, %2211 ], [ %45, %2387 ], [ %45, %2383 ], [ %45, %2069 ], [ %45, %2189 ], [ %45, %2187 ], [ %45, %2178 ]
-  %.14935 = phi i64 [ 0, %2391 ], [ 0, %1923 ], [ 0, %2049 ], [ 0, %2065 ], [ 0, %2063 ], [ 0, %2044 ], [ 0, %2042 ], [ 0, %2024 ], [ 0, %2014 ], [ 0, %2020 ], [ 0, %2017 ], [ 0, %1994 ], [ 0, %1980 ], [ 0, %1978 ], [ 0, %1977 ], [ 0, %1973 ], [ 0, %2119 ], [ 0, %2117 ], [ 0, %2100 ], [ 0, %2121 ], [ 0, %2128 ], [ 0, %2205 ], [ 0, %2377 ], [ 0, %._crit_edge ], [ 0, %2365 ], [ 0, %2211 ], [ 0, %2387 ], [ 0, %2383 ], [ %spec.select6501, %2069 ], [ 0, %2189 ], [ 0, %2187 ], [ 0, %2178 ]
+  %.14935 = phi i64 [ 0, %2391 ], [ 0, %1923 ], [ 0, %2049 ], [ 0, %2065 ], [ 0, %2063 ], [ 0, %2044 ], [ 0, %2042 ], [ 0, %2024 ], [ 0, %2014 ], [ 0, %2020 ], [ 0, %2017 ], [ 0, %1994 ], [ 0, %1980 ], [ 0, %1978 ], [ 0, %1977 ], [ 0, %1973 ], [ 0, %2119 ], [ 0, %2117 ], [ 0, %2100 ], [ 0, %2121 ], [ 0, %2128 ], [ 0, %2205 ], [ 0, %2377 ], [ 0, %._crit_edge ], [ 0, %2365 ], [ 0, %2211 ], [ 0, %2387 ], [ 0, %2383 ], [ %spec.select6504, %2069 ], [ 0, %2189 ], [ 0, %2187 ], [ 0, %2178 ]
   %.04933 = phi i32 [ 0, %2391 ], [ 0, %1923 ], [ 0, %2049 ], [ 0, %2065 ], [ 0, %2063 ], [ 0, %2044 ], [ 0, %2042 ], [ 0, %2024 ], [ 0, %2014 ], [ 0, %2020 ], [ 0, %2017 ], [ 0, %1994 ], [ 0, %1980 ], [ 0, %1978 ], [ 0, %1977 ], [ 0, %1973 ], [ 0, %2119 ], [ 0, %2117 ], [ 0, %2100 ], [ 0, %2121 ], [ 0, %2128 ], [ 0, %2205 ], [ 0, %2377 ], [ 0, %._crit_edge ], [ 0, %2365 ], [ 0, %2211 ], [ 0, %2387 ], [ 0, %2383 ], [ 0, %2069 ], [ %2145, %2189 ], [ %2145, %2187 ], [ %2145, %2178 ]
   %.04932.shrunk = phi i16 [ 0, %2391 ], [ 0, %1923 ], [ 0, %2049 ], [ 0, %2065 ], [ 0, %2063 ], [ 0, %2044 ], [ 0, %2042 ], [ 0, %2024 ], [ 0, %2014 ], [ 0, %2020 ], [ 0, %2017 ], [ 0, %1994 ], [ 0, %1980 ], [ 0, %1978 ], [ 0, %1977 ], [ 0, %1973 ], [ 0, %2119 ], [ 0, %2117 ], [ 0, %2100 ], [ 0, %2121 ], [ 0, %2128 ], [ 0, %2205 ], [ 0, %2377 ], [ 0, %._crit_edge ], [ 0, %2365 ], [ 0, %2211 ], [ 0, %2387 ], [ 0, %2383 ], [ 0, %2069 ], [ %2147, %2189 ], [ %2147, %2187 ], [ %2147, %2178 ]
   %.3 = phi i8 [ 0, %2391 ], [ %43, %1923 ], [ %43, %2049 ], [ %43, %2065 ], [ %43, %2063 ], [ %43, %2044 ], [ %43, %2042 ], [ %43, %2024 ], [ %43, %2014 ], [ %43, %2020 ], [ %43, %2017 ], [ %43, %1994 ], [ %43, %1980 ], [ %43, %1978 ], [ %43, %1977 ], [ %43, %1973 ], [ %43, %2119 ], [ %43, %2117 ], [ %43, %2100 ], [ %43, %2121 ], [ %43, %2128 ], [ 0, %2205 ], [ 0, %2377 ], [ %.14930, %._crit_edge ], [ %.14930, %2365 ], [ %43, %2211 ], [ %43, %2387 ], [ %43, %2383 ], [ %43, %2069 ], [ %.04929, %2189 ], [ %.04929, %2187 ], [ %.04929, %2178 ]
@@ -6257,7 +6257,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i32 0, ptr %2450, align 4
   %2451 = getelementptr inbounds nuw i8, ptr %0, i64 500
   store i32 0, ptr %2451, align 4
-  br label %.sink.split6746
+  br label %.sink.split6749
 
 2452:                                             ; preds = %2436
   %2453 = getelementptr inbounds nuw i8, ptr %0, i64 150
@@ -6296,14 +6296,14 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i32 %2475, ptr %2476, align 4
   %2477 = getelementptr inbounds nuw i8, ptr %0, i64 364
   %2478 = load i32, ptr %2477, align 4
-  br label %.sink.split6746
+  br label %.sink.split6749
 
-.sink.split6746:                                  ; preds = %2444, %2456
-  %.sink6747 = phi i32 [ %2478, %2456 ], [ 0, %2444 ]
-  store i32 %.sink6747, ptr %2429, align 4
+.sink.split6749:                                  ; preds = %2444, %2456
+  %.sink6750 = phi i32 [ %2478, %2456 ], [ 0, %2444 ]
+  store i32 %.sink6750, ptr %2429, align 4
   br label %2479
 
-2479:                                             ; preds = %.sink.split6746, %2452
+2479:                                             ; preds = %.sink.split6749, %2452
   %.not5457.not.not.not.not = icmp eq i8 %2437, 0
   br i1 %.not5457.not.not.not.not, label %2729, label %2480
 
@@ -6506,13 +6506,13 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %2605
 
 2605:                                             ; preds = %2603, %2600
-  %.sink6752 = phi i32 [ %2604, %2603 ], [ %2602, %2600 ]
-  %.sink6748 = phi i32 [ 4, %2603 ], [ 3, %2600 ]
-  %2606 = shl i32 %.sink6752, 2
+  %.sink6755 = phi i32 [ %2604, %2603 ], [ %2602, %2600 ]
+  %.sink6751 = phi i32 [ 4, %2603 ], [ 3, %2600 ]
+  %2606 = shl i32 %.sink6755, 2
   %2607 = and i32 %2606, 4194300
   %2608 = zext nneg i32 %2607 to i64
   %2609 = or disjoint i64 %2596, %2608
-  %2610 = lshr i32 %2585, %.sink6748
+  %2610 = lshr i32 %2585, %.sink6751
   %2611 = shl nuw nsw i32 %2610, 1
   %2612 = and i32 %2611, 2
   %2613 = xor i32 %2612, 2
@@ -6549,8 +6549,8 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %2628 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %2629 = load i8, ptr %2628, align 4
   %.not5468 = icmp eq i8 %2629, 0
-  %spec.select6361 = select i1 %.not5468, i8 %30, i8 0
-  %spec.select6362 = select i1 %.not5468, i8 %26, i8 1
+  %spec.select6364 = select i1 %.not5468, i8 %30, i8 0
+  %spec.select6365 = select i1 %.not5468, i8 %26, i8 1
   br label %2696
 
 2630:                                             ; preds = %2625
@@ -6579,8 +6579,8 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %2643 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %2644 = load i8, ptr %2643, align 4
   %.not5465 = icmp eq i8 %2644, 0
-  %spec.select6363 = select i1 %.not5465, i8 %30, i8 0
-  %spec.select6364 = select i1 %.not5465, i8 %26, i8 1
+  %spec.select6366 = select i1 %.not5465, i8 %30, i8 0
+  %spec.select6367 = select i1 %.not5465, i8 %26, i8 1
   br label %2696
 
 2645:                                             ; preds = %2640
@@ -6638,7 +6638,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 2687:                                             ; preds = %2645
   %2688 = and i8 %2648, 1
   %.not5463.not = icmp eq i8 %2688, 0
-  %spec.select6365 = select i1 %.not5463.not, i32 0, i32 %32
+  %spec.select6368 = select i1 %.not5463.not, i32 0, i32 %32
   br label %2696
 
 2689:                                             ; preds = %2504
@@ -6658,8 +6658,8 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %2696
 
 2696:                                             ; preds = %2687, %2642, %2627, %2504, %2605, %2617, %2621, %2670, %2659, %2689, %2691, %2635, %2630, %2506, %2515, %2546, %2524, %2536, %2526, %2571
-  %.05057 = phi i8 [ 1, %2515 ], [ %30, %2536 ], [ %30, %2526 ], [ %30, %2524 ], [ 1, %2546 ], [ %30, %2571 ], [ %30, %2506 ], [ %30, %2605 ], [ %30, %2617 ], [ %30, %2621 ], [ %30, %2635 ], [ %30, %2630 ], [ %30, %2659 ], [ %30, %2670 ], [ %30, %2691 ], [ %30, %2689 ], [ %spec.select6361, %2627 ], [ %spec.select6363, %2642 ], [ %30, %2687 ], [ %30, %2504 ]
-  %.05055 = phi i32 [ 2, %2515 ], [ 4, %2536 ], [ %32, %2526 ], [ %32, %2524 ], [ 3, %2546 ], [ 1, %2571 ], [ %32, %2506 ], [ 0, %2605 ], [ 4, %2617 ], [ 4, %2621 ], [ 4, %2635 ], [ %32, %2630 ], [ %32, %2659 ], [ %32, %2670 ], [ 0, %2691 ], [ %32, %2689 ], [ %32, %2627 ], [ %32, %2642 ], [ %spec.select6365, %2687 ], [ %32, %2504 ]
+  %.05057 = phi i8 [ 1, %2515 ], [ %30, %2536 ], [ %30, %2526 ], [ %30, %2524 ], [ 1, %2546 ], [ %30, %2571 ], [ %30, %2506 ], [ %30, %2605 ], [ %30, %2617 ], [ %30, %2621 ], [ %30, %2635 ], [ %30, %2630 ], [ %30, %2659 ], [ %30, %2670 ], [ %30, %2691 ], [ %30, %2689 ], [ %spec.select6364, %2627 ], [ %spec.select6366, %2642 ], [ %30, %2687 ], [ %30, %2504 ]
+  %.05055 = phi i32 [ 2, %2515 ], [ 4, %2536 ], [ %32, %2526 ], [ %32, %2524 ], [ 3, %2546 ], [ 1, %2571 ], [ %32, %2506 ], [ 0, %2605 ], [ 4, %2617 ], [ 4, %2621 ], [ 4, %2635 ], [ %32, %2630 ], [ %32, %2659 ], [ %32, %2670 ], [ 0, %2691 ], [ %32, %2689 ], [ %32, %2627 ], [ %32, %2642 ], [ %spec.select6368, %2687 ], [ %32, %2504 ]
   %.05053 = phi i8 [ 0, %2515 ], [ %2530, %2536 ], [ %2530, %2526 ], [ 0, %2524 ], [ 0, %2546 ], [ 0, %2571 ], [ 0, %2506 ], [ 0, %2605 ], [ 0, %2617 ], [ 0, %2621 ], [ 0, %2635 ], [ 0, %2630 ], [ 0, %2659 ], [ 0, %2670 ], [ 0, %2691 ], [ 0, %2689 ], [ 0, %2627 ], [ 0, %2642 ], [ 0, %2687 ], [ 0, %2504 ]
   %.05051 = phi i8 [ 0, %2515 ], [ %2535, %2536 ], [ %2535, %2526 ], [ 0, %2524 ], [ 0, %2546 ], [ 0, %2571 ], [ 0, %2506 ], [ 0, %2605 ], [ 0, %2617 ], [ 0, %2621 ], [ 0, %2635 ], [ 0, %2630 ], [ 0, %2659 ], [ 0, %2670 ], [ 0, %2691 ], [ 0, %2689 ], [ 0, %2627 ], [ 0, %2642 ], [ 0, %2687 ], [ 0, %2504 ]
   %.05049 = phi i64 [ 0, %2515 ], [ 0, %2536 ], [ 0, %2526 ], [ 0, %2524 ], [ %2570, %2546 ], [ 0, %2571 ], [ 0, %2506 ], [ 0, %2605 ], [ 0, %2617 ], [ 0, %2621 ], [ 0, %2635 ], [ 0, %2630 ], [ 0, %2659 ], [ 0, %2670 ], [ 0, %2691 ], [ 0, %2689 ], [ 0, %2627 ], [ 0, %2642 ], [ 0, %2687 ], [ 0, %2504 ]
@@ -6667,7 +6667,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %.05043 = phi i32 [ 0, %2515 ], [ 0, %2536 ], [ 0, %2526 ], [ 0, %2524 ], [ 1, %2546 ], [ 0, %2571 ], [ 0, %2506 ], [ 0, %2605 ], [ 0, %2617 ], [ 0, %2621 ], [ 0, %2635 ], [ 0, %2630 ], [ 0, %2659 ], [ 0, %2670 ], [ 0, %2691 ], [ 0, %2689 ], [ 0, %2627 ], [ 0, %2642 ], [ 0, %2687 ], [ 0, %2504 ]
   %.05041 = phi i32 [ 0, %2515 ], [ 0, %2536 ], [ 0, %2526 ], [ 0, %2524 ], [ %2569, %2546 ], [ 0, %2571 ], [ 0, %2506 ], [ 0, %2605 ], [ 0, %2617 ], [ 0, %2621 ], [ 0, %2635 ], [ 0, %2630 ], [ 0, %2659 ], [ 0, %2670 ], [ 0, %2691 ], [ 0, %2689 ], [ 0, %2627 ], [ 0, %2642 ], [ 0, %2687 ], [ 0, %2504 ]
   %.05039 = phi i64 [ 0, %2515 ], [ 0, %2536 ], [ 0, %2526 ], [ 0, %2524 ], [ %2561, %2546 ], [ 0, %2571 ], [ 0, %2506 ], [ 0, %2605 ], [ 0, %2617 ], [ 0, %2621 ], [ 0, %2635 ], [ 0, %2630 ], [ 0, %2659 ], [ 0, %2670 ], [ 0, %2691 ], [ 0, %2689 ], [ 0, %2627 ], [ 0, %2642 ], [ 0, %2687 ], [ 0, %2504 ]
-  %.05037 = phi i8 [ %26, %2515 ], [ %26, %2536 ], [ %26, %2526 ], [ %26, %2524 ], [ %26, %2546 ], [ %26, %2571 ], [ %26, %2506 ], [ %26, %2605 ], [ %26, %2617 ], [ %26, %2621 ], [ 0, %2635 ], [ %26, %2630 ], [ 0, %2659 ], [ %26, %2670 ], [ %26, %2691 ], [ %26, %2689 ], [ %spec.select6362, %2627 ], [ %spec.select6364, %2642 ], [ %26, %2687 ], [ %26, %2504 ]
+  %.05037 = phi i8 [ %26, %2515 ], [ %26, %2536 ], [ %26, %2526 ], [ %26, %2524 ], [ %26, %2546 ], [ %26, %2571 ], [ %26, %2506 ], [ %26, %2605 ], [ %26, %2617 ], [ %26, %2621 ], [ 0, %2635 ], [ %26, %2630 ], [ 0, %2659 ], [ %26, %2670 ], [ %26, %2691 ], [ %26, %2689 ], [ %spec.select6365, %2627 ], [ %spec.select6367, %2642 ], [ %26, %2687 ], [ %26, %2504 ]
   %.05035 = phi i64 [ 0, %2515 ], [ 0, %2536 ], [ 0, %2526 ], [ 0, %2524 ], [ 0, %2546 ], [ 0, %2571 ], [ 0, %2506 ], [ 0, %2605 ], [ 0, %2617 ], [ 0, %2621 ], [ 0, %2635 ], [ 0, %2630 ], [ %2669, %2659 ], [ 0, %2670 ], [ 0, %2691 ], [ 0, %2689 ], [ 0, %2627 ], [ 0, %2642 ], [ 0, %2687 ], [ 0, %2504 ]
   %.05031 = phi i8 [ 0, %2515 ], [ 0, %2536 ], [ 0, %2526 ], [ 0, %2524 ], [ 0, %2546 ], [ 0, %2571 ], [ 0, %2506 ], [ 0, %2605 ], [ 0, %2617 ], [ 0, %2621 ], [ 0, %2635 ], [ 0, %2630 ], [ 0, %2659 ], [ %2686, %2670 ], [ 0, %2691 ], [ 0, %2689 ], [ 0, %2627 ], [ 0, %2642 ], [ 0, %2687 ], [ 0, %2504 ]
   %.05029 = phi i64 [ 0, %2515 ], [ 0, %2536 ], [ 0, %2526 ], [ 0, %2524 ], [ 0, %2546 ], [ 0, %2571 ], [ 0, %2506 ], [ 0, %2605 ], [ 0, %2617 ], [ 0, %2621 ], [ 0, %2635 ], [ 0, %2630 ], [ 0, %2659 ], [ %2683, %2670 ], [ 0, %2691 ], [ 0, %2689 ], [ 0, %2627 ], [ 0, %2642 ], [ 0, %2687 ], [ 0, %2504 ]
@@ -6704,8 +6704,8 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %.not5486 = icmp eq i32 %2717, 0
   %2718 = and i32 %2715, 248
   %2719 = icmp ne i32 %2718, 88
-  %or.cond6370 = or i1 %2719, %.not5486
-  br i1 %or.cond6370, label %2724, label %2720
+  %or.cond6373 = or i1 %2719, %.not5486
+  br i1 %or.cond6373, label %2724, label %2720
 
 2720:                                             ; preds = %2712
   %2721 = getelementptr inbounds nuw i8, ptr %0, i64 420
@@ -6800,7 +6800,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i8 0, ptr %2758, align 1
   %2759 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store i32 0, ptr %2759, align 8
-  br label %.sink.split6753
+  br label %.sink.split6756
 
 2760:                                             ; preds = %2745
   %2761 = load i8, ptr %372, align 1
@@ -7032,7 +7032,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 2931:                                             ; preds = %2913
   %2932 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %2933 = load i32, ptr %2932, align 8
-  br label %.sink.split6753
+  br label %.sink.split6756
 
 2934:                                             ; preds = %2913
   %2935 = getelementptr inbounds nuw i8, ptr %0, i64 124
@@ -7050,7 +7050,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 2944:                                             ; preds = %2934
   %2945 = getelementptr inbounds nuw i8, ptr %0, i64 484
   %2946 = load i32, ptr %2945, align 4
-  br label %.sink.split6753
+  br label %.sink.split6756
 
 2947:                                             ; preds = %2934
   %2948 = getelementptr inbounds nuw i8, ptr %0, i64 134
@@ -7068,7 +7068,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 2957:                                             ; preds = %2947
   %2958 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %2959 = load i32, ptr %2958, align 8
-  br label %.sink.split6753
+  br label %.sink.split6756
 
 2960:                                             ; preds = %2947
   %2961 = getelementptr inbounds nuw i8, ptr %0, i64 133
@@ -7086,12 +7086,12 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 2970:                                             ; preds = %2960
   %2971 = getelementptr inbounds nuw i8, ptr %0, i64 548
   %2972 = load i32, ptr %2971, align 4
-  br label %.sink.split6753
+  br label %.sink.split6756
 
 2973:                                             ; preds = %2960
   %2974 = and i32 %2814, 2031616
   %.not5506 = icmp eq i32 %2974, 0
-  br i1 %.not5506, label %.sink.split6753, label %2975
+  br i1 %.not5506, label %.sink.split6756, label %2975
 
 2975:                                             ; preds = %2973
   %2976 = load i8, ptr %411, align 2
@@ -7107,7 +7107,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 2983:                                             ; preds = %2975
   %2984 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %2985 = load i32, ptr %2984, align 8
-  br label %.sink.split6753
+  br label %.sink.split6756
 
 2986:                                             ; preds = %2975
   %2987 = load i8, ptr %409, align 1
@@ -7123,7 +7123,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 2994:                                             ; preds = %2986
   %2995 = getelementptr inbounds nuw i8, ptr %0, i64 540
   %2996 = load i32, ptr %2995, align 4
-  br label %.sink.split6753
+  br label %.sink.split6756
 
 2997:                                             ; preds = %2986
   %2998 = getelementptr inbounds nuw i8, ptr %0, i64 1152
@@ -7131,15 +7131,15 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %3000 = zext nneg i32 %2999 to i64
   %3001 = getelementptr inbounds nuw i32, ptr %2998, i64 %3000
   %3002 = load i32, ptr %3001, align 4
-  br label %.sink.split6753
+  br label %.sink.split6756
 
-.sink.split6753:                                  ; preds = %2931, %2957, %2994, %2997, %2983, %2973, %2970, %2944, %2751
-  %.sink6754 = phi i32 [ 0, %2751 ], [ %2933, %2931 ], [ %2946, %2944 ], [ %2959, %2957 ], [ %2972, %2970 ], [ %2985, %2983 ], [ %2996, %2994 ], [ %3002, %2997 ], [ 0, %2973 ]
+.sink.split6756:                                  ; preds = %2931, %2957, %2994, %2997, %2983, %2973, %2970, %2944, %2751
+  %.sink6757 = phi i32 [ 0, %2751 ], [ %2933, %2931 ], [ %2946, %2944 ], [ %2959, %2957 ], [ %2972, %2970 ], [ %2985, %2983 ], [ %2996, %2994 ], [ %3002, %2997 ], [ 0, %2973 ]
   %3003 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  store i32 %.sink6754, ptr %3003, align 8
+  store i32 %.sink6757, ptr %3003, align 8
   br label %3004
 
-3004:                                             ; preds = %.sink.split6753, %2760
+3004:                                             ; preds = %.sink.split6756, %2760
   %3005 = load i8, ptr %1295, align 4
   %3006 = zext i8 %3005 to i32
   %3007 = or i32 %3006, %2439
@@ -7158,7 +7158,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i8 0, ptr %3013, align 2
   %3014 = getelementptr inbounds nuw i8, ptr %0, i64 436
   store i32 0, ptr %3014, align 4
-  br label %.sink.split6757
+  br label %.sink.split6760
 
 3015:                                             ; preds = %3004
   %3016 = getelementptr inbounds nuw i8, ptr %0, i64 150
@@ -7220,12 +7220,12 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %3060 = load i8, ptr %3059, align 1
   %3061 = zext i1 %3058 to i8
   %.not5514.not = icmp ugt i8 %3060, %3061
-  %.6843 = select i1 %.not5514.not, i64 548, i64 392
+  %.6846 = select i1 %.not5514.not, i64 548, i64 392
   br label %3062
 
 3062:                                             ; preds = %3052, %3042, %3032, %3019
-  %.sink6756 = phi i64 [ 488, %3019 ], [ 484, %3032 ], [ 552, %3042 ], [ %.6843, %3052 ]
-  %3063 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink6756
+  %.sink6759 = phi i64 [ 488, %3019 ], [ 484, %3032 ], [ 552, %3042 ], [ %.6846, %3052 ]
+  %3063 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink6759
   %3064 = load i32, ptr %3063, align 4
   %3065 = getelementptr inbounds nuw i8, ptr %0, i64 412
   store i32 %3064, ptr %3065, align 4
@@ -7255,7 +7255,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 3082:                                             ; preds = %3062
   %3083 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %3084 = load i32, ptr %3083, align 8
-  br label %.sink.split6757
+  br label %.sink.split6760
 
 3085:                                             ; preds = %3062
   %3086 = getelementptr inbounds nuw i8, ptr %0, i64 124
@@ -7273,7 +7273,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 3095:                                             ; preds = %3085
   %3096 = getelementptr inbounds nuw i8, ptr %0, i64 484
   %3097 = load i32, ptr %3096, align 4
-  br label %.sink.split6757
+  br label %.sink.split6760
 
 3098:                                             ; preds = %3085
   %3099 = getelementptr inbounds nuw i8, ptr %0, i64 134
@@ -7291,7 +7291,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 3108:                                             ; preds = %3098
   %3109 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %3110 = load i32, ptr %3109, align 8
-  br label %.sink.split6757
+  br label %.sink.split6760
 
 3111:                                             ; preds = %3098
   %3112 = getelementptr inbounds nuw i8, ptr %0, i64 133
@@ -7309,12 +7309,12 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 3121:                                             ; preds = %3111
   %3122 = getelementptr inbounds nuw i8, ptr %0, i64 548
   %3123 = load i32, ptr %3122, align 4
-  br label %.sink.split6757
+  br label %.sink.split6760
 
 3124:                                             ; preds = %3111
   %3125 = and i32 %3024, 2031616
   %.not5520 = icmp eq i32 %3125, 0
-  br i1 %.not5520, label %.sink.split6757, label %3126
+  br i1 %.not5520, label %.sink.split6760, label %3126
 
 3126:                                             ; preds = %3124
   %3127 = load i8, ptr %411, align 2
@@ -7330,7 +7330,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 3134:                                             ; preds = %3126
   %3135 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %3136 = load i32, ptr %3135, align 8
-  br label %.sink.split6757
+  br label %.sink.split6760
 
 3137:                                             ; preds = %3126
   %3138 = load i8, ptr %409, align 1
@@ -7346,7 +7346,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 3145:                                             ; preds = %3137
   %3146 = getelementptr inbounds nuw i8, ptr %0, i64 540
   %3147 = load i32, ptr %3146, align 4
-  br label %.sink.split6757
+  br label %.sink.split6760
 
 3148:                                             ; preds = %3137
   %3149 = getelementptr inbounds nuw i8, ptr %0, i64 1152
@@ -7354,15 +7354,15 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %3151 = zext nneg i32 %3150 to i64
   %3152 = getelementptr inbounds nuw i32, ptr %3149, i64 %3151
   %3153 = load i32, ptr %3152, align 4
-  br label %.sink.split6757
+  br label %.sink.split6760
 
-.sink.split6757:                                  ; preds = %3082, %3108, %3145, %3148, %3134, %3124, %3121, %3095, %3009
-  %.sink6758 = phi i32 [ 0, %3009 ], [ %3084, %3082 ], [ %3097, %3095 ], [ %3110, %3108 ], [ %3123, %3121 ], [ %3136, %3134 ], [ %3147, %3145 ], [ %3153, %3148 ], [ 0, %3124 ]
+.sink.split6760:                                  ; preds = %3082, %3108, %3145, %3148, %3134, %3124, %3121, %3095, %3009
+  %.sink6761 = phi i32 [ 0, %3009 ], [ %3084, %3082 ], [ %3097, %3095 ], [ %3110, %3108 ], [ %3123, %3121 ], [ %3136, %3134 ], [ %3147, %3145 ], [ %3153, %3148 ], [ 0, %3124 ]
   %3154 = getelementptr inbounds nuw i8, ptr %0, i64 420
-  store i32 %.sink6758, ptr %3154, align 4
+  store i32 %.sink6761, ptr %3154, align 4
   br label %3155
 
-3155:                                             ; preds = %.sink.split6757, %3015
+3155:                                             ; preds = %.sink.split6760, %3015
   br i1 %.not5457.not.not.not.not, label %3170, label %3156
 
 3156:                                             ; preds = %3155
@@ -7385,7 +7385,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i8 %3167, ptr %411, align 2
   %3168 = getelementptr inbounds nuw i8, ptr %0, i64 133
   %3169 = load i8, ptr %3168, align 1
-  br label %.sink.split6760
+  br label %.sink.split6763
 
 3170:                                             ; preds = %3155
   %3171 = getelementptr inbounds nuw i8, ptr %0, i64 544
@@ -7393,14 +7393,14 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %3172 = getelementptr inbounds nuw i8, ptr %0, i64 540
   store i32 0, ptr %3172, align 4
   store i8 0, ptr %411, align 2
-  br label %.sink.split6760
+  br label %.sink.split6763
 
-.sink.split6760:                                  ; preds = %3170, %3159
-  %.sink6761 = phi i8 [ %3169, %3159 ], [ 0, %3170 ]
-  store i8 %.sink6761, ptr %409, align 1
+.sink.split6763:                                  ; preds = %3170, %3159
+  %.sink6764 = phi i8 [ %3169, %3159 ], [ 0, %3170 ]
+  store i8 %.sink6764, ptr %409, align 1
   br label %3173
 
-3173:                                             ; preds = %.sink.split6760, %3156
+3173:                                             ; preds = %.sink.split6763, %3156
   br i1 %.not5455, label %3178, label %3174
 
 3174:                                             ; preds = %3173
@@ -7410,7 +7410,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i8 0, ptr %3176, align 2
   %3177 = getelementptr inbounds nuw i8, ptr %0, i64 85
   store i8 0, ptr %3177, align 1
-  br label %.sink.split6762
+  br label %.sink.split6765
 
 3178:                                             ; preds = %3173
   %3179 = getelementptr inbounds nuw i8, ptr %0, i64 150
@@ -7434,21 +7434,21 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i8 %3190, ptr %3191, align 1
   %3192 = getelementptr inbounds nuw i8, ptr %0, i64 125
   %3193 = load i8, ptr %3192, align 1
-  br label %.sink.split6762
+  br label %.sink.split6765
 
-.sink.split6762:                                  ; preds = %3174, %3182
-  %.sink6763 = phi i8 [ %3193, %3182 ], [ 0, %3174 ]
+.sink.split6765:                                  ; preds = %3174, %3182
+  %.sink6766 = phi i8 [ %3193, %3182 ], [ 0, %3174 ]
   %3194 = getelementptr inbounds nuw i8, ptr %0, i64 134
-  store i8 %.sink6763, ptr %3194, align 2
+  store i8 %.sink6766, ptr %3194, align 2
   br label %3195
 
-3195:                                             ; preds = %.sink.split6762, %3178
+3195:                                             ; preds = %.sink.split6765, %3178
   br i1 %.not5492, label %3198, label %3196
 
 3196:                                             ; preds = %3195
   %3197 = getelementptr inbounds nuw i8, ptr %0, i64 440
   store i32 0, ptr %3197, align 8
-  br label %.sink.split6765
+  br label %.sink.split6768
 
 3198:                                             ; preds = %3195
   %3199 = load i8, ptr %372, align 1
@@ -7463,16 +7463,16 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i32 %3203, ptr %3204, align 8
   %3205 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3206 = load i8, ptr %3205, align 8
-  br label %.sink.split6765
+  br label %.sink.split6768
 
-.sink.split6765:                                  ; preds = %3196, %3201
-  %.sink6766 = phi i8 [ %3206, %3201 ], [ 0, %3196 ]
+.sink.split6768:                                  ; preds = %3196, %3201
+  %.sink6769 = phi i8 [ %3206, %3201 ], [ 0, %3196 ]
   %3207 = getelementptr inbounds nuw i8, ptr %0, i64 125
-  store i8 %.sink6766, ptr %3207, align 1
+  store i8 %.sink6769, ptr %3207, align 1
   br label %3208
 
-3208:                                             ; preds = %.sink.split6765, %3198
-  br i1 %.not5455, label %3209, label %.sink.split6768
+3208:                                             ; preds = %.sink.split6768, %3198
+  br i1 %.not5455, label %3209, label %.sink.split6771
 
 3209:                                             ; preds = %3208
   %3210 = getelementptr inbounds nuw i8, ptr %0, i64 150
@@ -7484,21 +7484,21 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 3213:                                             ; preds = %3209
   %3214 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %3215 = load i8, ptr %3214, align 4
-  br label %.sink.split6768
+  br label %.sink.split6771
 
-.sink.split6768:                                  ; preds = %3208, %3213
-  %.sink6769 = phi i8 [ %3215, %3213 ], [ 0, %3208 ]
+.sink.split6771:                                  ; preds = %3208, %3213
+  %.sink6772 = phi i8 [ %3215, %3213 ], [ 0, %3208 ]
   %3216 = getelementptr inbounds nuw i8, ptr %0, i64 133
-  store i8 %.sink6769, ptr %3216, align 1
+  store i8 %.sink6772, ptr %3216, align 1
   br label %3217
 
-3217:                                             ; preds = %.sink.split6768, %3209
+3217:                                             ; preds = %.sink.split6771, %3209
   br i1 %.not5509, label %3220, label %3218
 
 3218:                                             ; preds = %3217
   %3219 = getelementptr inbounds nuw i8, ptr %0, i64 364
   store i32 0, ptr %3219, align 4
-  br label %.sink.split6771
+  br label %.sink.split6774
 
 3220:                                             ; preds = %3217
   %3221 = getelementptr inbounds nuw i8, ptr %0, i64 150
@@ -7514,15 +7514,15 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i32 %3226, ptr %3227, align 4
   %3228 = getelementptr inbounds nuw i8, ptr %0, i64 111
   %3229 = load i8, ptr %3228, align 1
-  br label %.sink.split6771
+  br label %.sink.split6774
 
-.sink.split6771:                                  ; preds = %3218, %3224
-  %.sink6772 = phi i8 [ %3229, %3224 ], [ 0, %3218 ]
+.sink.split6774:                                  ; preds = %3218, %3224
+  %.sink6775 = phi i8 [ %3229, %3224 ], [ 0, %3218 ]
   %3230 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  store i8 %.sink6772, ptr %3230, align 4
+  store i8 %.sink6775, ptr %3230, align 4
   br label %3231
 
-3231:                                             ; preds = %.sink.split6771, %3220
+3231:                                             ; preds = %.sink.split6774, %3220
   %3232 = load i64, ptr %509, align 8
   %3233 = getelementptr inbounds nuw i8, ptr %0, i64 1544
   %3234 = getelementptr inbounds nuw i8, ptr %0, i64 1552
@@ -7569,16 +7569,16 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %3264
 
 3264:                                             ; preds = %3257, %3254
-  %.sink6774 = phi i64 [ 544, %3257 ], [ 540, %3254 ]
-  %.sink6641 = phi i32 [ %3263, %3257 ], [ %3256, %3254 ]
+  %.sink6777 = phi i64 [ 544, %3257 ], [ 540, %3254 ]
+  %.sink6644 = phi i32 [ %3263, %3257 ], [ %3256, %3254 ]
   %.sink.in = phi ptr [ %411, %3257 ], [ %409, %3254 ]
-  %3265 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink6774
+  %3265 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink6777
   %.sink = load i8, ptr %.sink.in, align 1
-  %.sink6640 = load i32, ptr %3265, align 4
+  %.sink6643 = load i32, ptr %3265, align 4
   %3266 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store i32 %.sink6641, ptr %3266, align 8
+  store i32 %.sink6644, ptr %3266, align 8
   %3267 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  store i32 %.sink6640, ptr %3267, align 4
+  store i32 %.sink6643, ptr %3267, align 4
   %3268 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i8 %.sink, ptr %3268, align 4
   %3269 = load i8, ptr %16, align 1
@@ -7684,7 +7684,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %3333 = getelementptr inbounds nuw i8, ptr %0, i64 10336
   %3334 = zext nneg i8 %.14969 to i64
   %3335 = getelementptr inbounds nuw %struct.VlWide, ptr %3333, i64 %3334
-  store i32 %.sroa.06401.1, ptr %3335, align 4
+  store i32 %.sroa.06404.1, ptr %3335, align 4
   %3336 = getelementptr inbounds nuw i8, ptr %3335, i64 4
   store i32 %.sroa.3.1, ptr %3336, align 4
   %3337 = getelementptr inbounds nuw i8, ptr %3335, i64 8
@@ -7732,25 +7732,25 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %3355
 
 3355:                                             ; preds = %3351, %3350
-  br i1 %.not5140, label %3356, label %.critedge6372
+  br i1 %.not5140, label %3356, label %.critedge6375
 
 3356:                                             ; preds = %3355
   %3357 = getelementptr inbounds nuw i8, ptr %0, i64 10444
   store i32 0, ptr %3357, align 4
   store i8 0, ptr %430, align 1
-  br label %.critedge6372
+  br label %.critedge6375
 
-.critedge6372:                                    ; preds = %3355, %3356
+.critedge6375:                                    ; preds = %3355, %3356
   br i1 %.not5537, label %3362, label %3358
 
-3358:                                             ; preds = %.critedge6372
+3358:                                             ; preds = %.critedge6375
   %3359 = getelementptr inbounds nuw i8, ptr %0, i64 10450
   %3360 = zext nneg i8 %.14904 to i64
   %3361 = getelementptr inbounds nuw i8, ptr %3359, i64 %3360
   store i8 15, ptr %3361, align 1
   br label %3362
 
-3362:                                             ; preds = %3358, %.critedge6372
+3362:                                             ; preds = %3358, %.critedge6375
   %.not5544 = icmp eq i8 %.14803, 0
   br i1 %.not5544, label %3367, label %3363
 
@@ -7762,7 +7762,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %3367
 
 3367:                                             ; preds = %3363, %3362
-  br i1 %.not5140, label %3368, label %.critedge6374
+  br i1 %.not5140, label %3368, label %.critedge6377
 
 3368:                                             ; preds = %3367
   %3369 = getelementptr inbounds nuw i8, ptr %0, i64 10451
@@ -7773,12 +7773,12 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i32 0, ptr %3371, align 4
   %3372 = getelementptr inbounds nuw i8, ptr %0, i64 10380
   store i32 0, ptr %3372, align 4
-  br label %.critedge6374
+  br label %.critedge6377
 
-.critedge6374:                                    ; preds = %3367, %3368
+.critedge6377:                                    ; preds = %3367, %3368
   br i1 %.not5546, label %3380, label %3373
 
-3373:                                             ; preds = %.critedge6374
+3373:                                             ; preds = %.critedge6377
   %3374 = getelementptr inbounds nuw i8, ptr %0, i64 10272
   %3375 = zext nneg i8 %.04955 to i64
   %3376 = getelementptr inbounds nuw i8, ptr %3374, i64 %3375
@@ -7788,7 +7788,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i8 %3379, ptr %3376, align 1
   br label %3380
 
-3380:                                             ; preds = %3373, %.critedge6374
+3380:                                             ; preds = %3373, %.critedge6377
   br i1 %.not5547, label %3392, label %3381
 
 3381:                                             ; preds = %3380
@@ -7864,9 +7864,9 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %3429
 
 3429:                                             ; preds = %3418, %3417
-  br i1 %.not5140, label %.critedge6376.loopexit, label %.critedge6376
+  br i1 %.not5140, label %.critedge6379.loopexit, label %.critedge6379
 
-.critedge6376.loopexit:                           ; preds = %3429
+.critedge6379.loopexit:                           ; preds = %3429
   %3430 = getelementptr i8, ptr %0, i64 10272
   store i8 0, ptr %429, align 1
   %3431 = getelementptr inbounds nuw i8, ptr %0, i64 10384
@@ -7874,9 +7874,9 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i8 0, ptr %3432, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(100) %3430, i8 0, i64 100, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %3431, i8 0, i64 60, i1 false)
-  br label %.critedge6376
+  br label %.critedge6379
 
-.critedge6376:                                    ; preds = %.critedge6376.loopexit, %3429
+.critedge6379:                                    ; preds = %.critedge6379.loopexit, %3429
   %3433 = getelementptr inbounds nuw i8, ptr %0, i64 55
   store i8 0, ptr %3433, align 1
   store i8 %.15038, ptr %25, align 2
@@ -7885,12 +7885,12 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i32 %.15056, ptr %31, align 4
   br i1 %.14851, label %3436, label %3434
 
-3434:                                             ; preds = %.critedge6376
+3434:                                             ; preds = %.critedge6379
   %3435 = getelementptr inbounds nuw i8, ptr %447, i64 %.15050
   store i8 1, ptr %3435, align 1
   br label %3436
 
-3436:                                             ; preds = %3434, %.critedge6376
+3436:                                             ; preds = %3434, %.critedge6379
   br i1 %.14849, label %3439, label %3437
 
 3437:                                             ; preds = %3436
@@ -7977,16 +7977,16 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %3477
 
 3477:                                             ; preds = %3466, %3465
-  br i1 %.not5457.not.not.not.not, label %.critedge6378, label %.critedge6379
+  br i1 %.not5457.not.not.not.not, label %.critedge6381, label %.critedge6382
 
-.critedge6378:                                    ; preds = %3477
+.critedge6381:                                    ; preds = %3477
   %3478 = getelementptr inbounds nuw i8, ptr %0, i64 1475
   store i8 0, ptr %447, align 1
   store i8 0, ptr %146, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %3478, i8 0, i64 64, i1 false)
-  br label %.critedge6379
+  br label %.critedge6382
 
-.critedge6379:                                    ; preds = %.critedge6378, %3477
+.critedge6382:                                    ; preds = %.critedge6381, %3477
   store i32 %965, ptr %37, align 8
   store i64 %2427, ptr %19, align 8
   store i32 %2426, ptr %20, align 4
@@ -8061,7 +8061,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %.not5566 = icmp eq i32 %3530, 0
   br i1 %.not5566, label %3625, label %3531
 
-3531:                                             ; preds = %.critedge6379
+3531:                                             ; preds = %.critedge6382
   %3532 = and i32 %3529, 16
   %.not5567 = icmp eq i32 %3532, 0
   %3533 = and i32 %3529, 8
@@ -8070,11 +8070,11 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 3534:                                             ; preds = %3531
   %3535 = and i32 %3529, 7
-  %or.cond6383 = icmp eq i32 %3535, 0
+  %or.cond6386 = icmp eq i32 %3535, 0
   br i1 %.not5568, label %3540, label %3536
 
 3536:                                             ; preds = %3534
-  br i1 %or.cond6383, label %3537, label %3625
+  br i1 %or.cond6386, label %3537, label %3625
 
 3537:                                             ; preds = %3536
   store i8 2, ptr %3322, align 2
@@ -8084,7 +8084,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %3625
 
 3540:                                             ; preds = %3534
-  br i1 %or.cond6383, label %3541, label %3625
+  br i1 %or.cond6386, label %3541, label %3625
 
 3541:                                             ; preds = %3540
   store i8 2, ptr %3322, align 2
@@ -8100,8 +8100,8 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 3545:                                             ; preds = %3544
   %3546 = and i32 %3529, 3
-  %or.cond6384 = icmp eq i32 %3546, 2
-  br i1 %or.cond6384, label %3547, label %3625
+  %or.cond6387 = icmp eq i32 %3546, 2
+  br i1 %or.cond6387, label %3547, label %3625
 
 3547:                                             ; preds = %3545
   store i8 2, ptr %3322, align 2
@@ -8224,11 +8224,11 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 3623:                                             ; preds = %3615
   %3624 = and i8 %3528, 1
-  %spec.select6385 = select i1 %.not5570, i8 %3624, i8 2
-  store i8 %spec.select6385, ptr %3322, align 2
+  %spec.select6388 = select i1 %.not5570, i8 %3624, i8 2
+  store i8 %spec.select6388, ptr %3322, align 2
   br label %3625
 
-3625:                                             ; preds = %3540, %3541, %3536, %3537, %3623, %3618, %3620, %3621, %3547, %3545, %3599, %3604, %3594, %.critedge6379
+3625:                                             ; preds = %3540, %3541, %3536, %3537, %3623, %3618, %3620, %3621, %3547, %3545, %3599, %3604, %3594, %.critedge6382
   %3626 = load i32, ptr %67, align 4
   %3627 = icmp eq i32 %3626, 4
   %3628 = getelementptr inbounds nuw i8, ptr %0, i64 316
@@ -8240,7 +8240,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %3632 = load i32, ptr %3631, align 8
   %3633 = getelementptr inbounds nuw i8, ptr %0, i64 1468
   store i32 %3632, ptr %3633, align 4
-  br i1 %.not5566, label %.sink.split6775, label %3634
+  br i1 %.not5566, label %.sink.split6778, label %3634
 
 3634:                                             ; preds = %3625
   %3635 = and i32 %3529, 16
@@ -8249,8 +8249,8 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 3636:                                             ; preds = %3634
   %3637 = and i32 %3529, 15
-  %or.cond6388 = icmp eq i32 %3637, 8
-  br i1 %or.cond6388, label %3638, label %.sink.split6775
+  %or.cond6391 = icmp eq i32 %3637, 8
+  br i1 %or.cond6391, label %3638, label %.sink.split6778
 
 3638:                                             ; preds = %3636
   %3639 = getelementptr inbounds nuw i8, ptr %0, i64 524
@@ -8258,7 +8258,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %3641 = and i32 %3640, 3
   %3642 = icmp eq i32 %3641, 0
   %3643 = select i1 %3642, i8 15, i8 0
-  br label %.sink.split6775
+  br label %.sink.split6778
 
 3644:                                             ; preds = %3634
   %3645 = and i32 %3529, 8
@@ -8272,8 +8272,8 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 3648:                                             ; preds = %3646
   %3649 = and i32 %3529, 3
-  %or.cond6389 = icmp eq i32 %3649, 2
-  br i1 %or.cond6389, label %3650, label %3685
+  %or.cond6392 = icmp eq i32 %3649, 2
+  br i1 %or.cond6392, label %3650, label %3685
 
 3650:                                             ; preds = %3648
   %3651 = getelementptr inbounds nuw i8, ptr %0, i64 524
@@ -8334,19 +8334,19 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %3686 = phi i32 [ %3654, %3650 ], [ 0, %3648 ], [ %.neg5615, %3662 ], [ %3666, %3664 ], [ %3673, %3668 ], [ %3684, %3674 ]
   %3687 = trunc nsw i32 %3686 to i8
   %3688 = and i8 %3687, 15
-  br label %.sink.split6775
+  br label %.sink.split6778
 
 3689:                                             ; preds = %3644
   %3690 = and i32 %3529, 3
-  %or.cond6889 = icmp eq i32 %3690, 2
-  br i1 %or.cond6889, label %3691, label %.sink.split6775
+  %or.cond6892 = icmp eq i32 %3690, 2
+  br i1 %or.cond6892, label %3691, label %.sink.split6778
 
-.sink.split6775:                                  ; preds = %3689, %3625, %3638, %3636, %3685
-  %.sink6776 = phi i8 [ %3688, %3685 ], [ %3643, %3638 ], [ 0, %3636 ], [ 0, %3625 ], [ 0, %3689 ]
-  store i8 %.sink6776, ptr %3433, align 1
+.sink.split6778:                                  ; preds = %3689, %3625, %3638, %3636, %3685
+  %.sink6779 = phi i8 [ %3688, %3685 ], [ %3643, %3638 ], [ 0, %3636 ], [ 0, %3625 ], [ 0, %3689 ]
+  store i8 %.sink6779, ptr %3433, align 1
   br label %3691
 
-3691:                                             ; preds = %3689, %.sink.split6775
+3691:                                             ; preds = %3689, %.sink.split6778
   %3692 = getelementptr inbounds nuw i8, ptr %0, i64 78
   %3693 = load i8, ptr %3692, align 2
   %3694 = load i8, ptr %3433, align 1
@@ -8498,8 +8498,8 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 3797:                                             ; preds = %3780
   %3798 = and i32 %3777, 56
-  %or.cond6391 = icmp eq i32 %3798, 0
-  br i1 %or.cond6391, label %3799, label %3857
+  %or.cond6394 = icmp eq i32 %3798, 0
+  br i1 %or.cond6394, label %3799, label %3857
 
 3799:                                             ; preds = %3797
   %3800 = and i32 %3777, 7
@@ -8669,28 +8669,28 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %3884 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i8 %3883, ptr %3884, align 4
   %.not5658 = icmp eq i8 %3728, 0
-  %.6844 = select i1 %.not5658, i64 304, i64 312
-  %.6845 = select i1 %.not5658, i64 57, i64 63
-  %.6846 = select i1 %.not5658, i64 58, i64 64
-  %.6847 = select i1 %.not5658, i8 0, i8 %3882
-  %.6848 = select i1 %.not5658, ptr %29, ptr %63
-  %3885 = getelementptr inbounds nuw i8, ptr %0, i64 %.6844
-  %3886 = getelementptr inbounds nuw i8, ptr %0, i64 %.6845
-  %3887 = getelementptr inbounds nuw i8, ptr %0, i64 %.6846
-  %.sink6642 = load i8, ptr %.6848, align 1
-  %.sink6643 = load i8, ptr %3887, align 2
-  %.sink6644 = load i8, ptr %3886, align 1
-  %.sink6645 = load i32, ptr %3885, align 8
+  %.6847 = select i1 %.not5658, i64 304, i64 312
+  %.6848 = select i1 %.not5658, i64 57, i64 63
+  %.6849 = select i1 %.not5658, i64 58, i64 64
+  %.6850 = select i1 %.not5658, i8 0, i8 %3882
+  %.6851 = select i1 %.not5658, ptr %29, ptr %63
+  %3885 = getelementptr inbounds nuw i8, ptr %0, i64 %.6847
+  %3886 = getelementptr inbounds nuw i8, ptr %0, i64 %.6848
+  %3887 = getelementptr inbounds nuw i8, ptr %0, i64 %.6849
+  %.sink6645 = load i8, ptr %.6851, align 1
+  %.sink6646 = load i8, ptr %3887, align 2
+  %.sink6647 = load i8, ptr %3886, align 1
+  %.sink6648 = load i32, ptr %3885, align 8
   %3888 = getelementptr inbounds nuw i8, ptr %0, i64 66
-  store i8 %.6847, ptr %3888, align 2
+  store i8 %.6850, ptr %3888, align 2
   %3889 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i32 %.sink6645, ptr %3889, align 8
+  store i32 %.sink6648, ptr %3889, align 8
   %3890 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 %.sink6644, ptr %3890, align 4
+  store i8 %.sink6647, ptr %3890, align 4
   %3891 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  store i8 %.sink6643, ptr %3891, align 1
+  store i8 %.sink6646, ptr %3891, align 1
   %3892 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i8 %.sink6642, ptr %3892, align 2
+  store i8 %.sink6645, ptr %3892, align 2
   %3893 = getelementptr inbounds nuw i8, ptr %0, i64 1456
   %3894 = getelementptr inbounds nuw i8, ptr %0, i64 1368
   %3895 = load i32, ptr %3894, align 8
@@ -8806,10 +8806,10 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %4002 = select i1 %4001, i32 64, i32 0
   %4003 = and i32 %3998, %4002
   %4004 = trunc nuw nsw i32 %4003 to i8
-  %.masked6945.masked.masked = or disjoint i8 %3940, %3956
-  %.masked6947.masked = or i8 %.masked6945.masked.masked, %3972
-  %.masked6949 = or i8 %.masked6947.masked, %3988
-  %4005 = or i8 %.masked6949, %4004
+  %.masked6948.masked.masked = or disjoint i8 %3940, %3956
+  %.masked6950.masked = or i8 %.masked6948.masked.masked, %3972
+  %.masked6952 = or i8 %.masked6950.masked, %3988
+  %4005 = or i8 %.masked6952, %4004
   %4006 = getelementptr inbounds nuw i8, ptr %0, i64 1444
   %4007 = getelementptr inbounds nuw i8, ptr %0, i64 1452
   %4008 = load i32, ptr %4007, align 4
@@ -8859,10 +8859,10 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %4050 = select i1 %4049, i32 64, i32 0
   %4051 = and i32 %4050, %3998
   %4052 = trunc nuw nsw i32 %4051 to i8
-  %.masked6616.masked.masked = or disjoint i8 %4036, %4040
-  %.masked6618.masked = or i8 %.masked6616.masked.masked, %4044
-  %.masked6620 = or i8 %.masked6618.masked, %4048
-  %4053 = or i8 %.masked6620, %4052
+  %.masked6619.masked.masked = or disjoint i8 %4036, %4040
+  %.masked6621.masked = or i8 %.masked6619.masked.masked, %4044
+  %.masked6623 = or i8 %.masked6621.masked, %4048
+  %4053 = or i8 %.masked6623, %4052
   %4054 = icmp eq i32 %4017, %4024
   %4055 = select i1 %4054, i32 128, i32 0
   %4056 = and i32 %4015, %4055
@@ -8900,10 +8900,10 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %4086 = select i1 %4085, i32 64, i32 0
   %4087 = and i32 %4086, %3998
   %4088 = trunc nuw nsw i32 %4087 to i8
-  %.masked6623.masked.masked = or disjoint i8 %4072, %4076
-  %.masked6625.masked = or i8 %.masked6623.masked.masked, %4080
-  %.masked6627 = or i8 %.masked6625.masked, %4084
-  %4089 = or i8 %.masked6627, %4088
+  %.masked6626.masked.masked = or disjoint i8 %4072, %4076
+  %.masked6628.masked = or i8 %.masked6626.masked.masked, %4080
+  %.masked6630 = or i8 %.masked6628.masked, %4084
+  %4089 = or i8 %.masked6630, %4088
   %4090 = icmp eq i32 %4017, %4060
   %4091 = select i1 %4090, i32 128, i32 0
   %4092 = and i32 %4091, %4015
@@ -9072,9 +9072,9 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %4200 = trunc nuw nsw i32 %4199 to i8
   %4201 = lshr i32 %4193, 12
   %4202 = and i32 %4201, 131071
-  %.phi.trans.insert6661 = getelementptr inbounds nuw i8, ptr %0, i64 952
-  %.pre6662 = load i64, ptr %.phi.trans.insert6661, align 8
-  %.pre6664 = trunc i64 %.pre6662 to i8
+  %.phi.trans.insert6664 = getelementptr inbounds nuw i8, ptr %0, i64 952
+  %.pre6665 = load i64, ptr %.phi.trans.insert6664, align 8
+  %.pre6667 = trunc i64 %.pre6665 to i8
   br label %4211
 
 4203:                                             ; preds = %4177
@@ -9085,24 +9085,24 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %4208 = trunc i64 %4205 to i32
   %4209 = lshr i32 %4208, 3
   %4210 = and i32 %4209, 1048575
-  %.pre6663 = lshr i32 %4193, 12
+  %.pre6666 = lshr i32 %4193, 12
   br label %4211
 
 4211:                                             ; preds = %4203, %4198
-  %.pre-phi6665 = phi i8 [ %4206, %4203 ], [ %.pre6664, %4198 ]
-  %.pre-phi = phi i32 [ %.pre6663, %4203 ], [ %4201, %4198 ]
-  %4212 = phi i64 [ %4205, %4203 ], [ %.pre6662, %4198 ]
-  %.sink6647.in = phi i8 [ %4207, %4203 ], [ %4200, %4198 ]
+  %.pre-phi6668 = phi i8 [ %4206, %4203 ], [ %.pre6667, %4198 ]
+  %.pre-phi = phi i32 [ %.pre6666, %4203 ], [ %4201, %4198 ]
+  %4212 = phi i64 [ %4205, %4203 ], [ %.pre6665, %4198 ]
+  %.sink6650.in = phi i8 [ %4207, %4203 ], [ %4200, %4198 ]
   %.05090 = phi i32 [ %4210, %4203 ], [ %4202, %4198 ]
-  %.sink6647 = and i8 %.sink6647.in, 1
+  %.sink6650 = and i8 %.sink6650.in, 1
   %4213 = getelementptr inbounds nuw i8, ptr %0, i64 187
-  store i8 %.sink6647, ptr %4213, align 1
+  store i8 %.sink6650, ptr %4213, align 1
   %4214 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %4215 = lshr i64 %4212, 23
   %4216 = trunc i64 %4215 to i32
   %4217 = and i32 %4216, 1048575
   %4218 = icmp eq i32 %4217, %.pre-phi
-  %4219 = and i8 %.pre-phi6665, 1
+  %4219 = and i8 %.pre-phi6668, 1
   %4220 = select i1 %4218, i8 %4219, i8 0
   %4221 = getelementptr inbounds nuw i8, ptr %0, i64 188
   store i8 %4220, ptr %4221, align 4
@@ -9204,13 +9204,13 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %4272
 
 4272:                                             ; preds = %4267, %4263
-  %.sink6649.in = phi i8 [ %4265, %4263 ], [ %4268, %4267 ]
-  %.sink6648 = phi i32 [ %4266, %4263 ], [ %4271, %4267 ]
-  %.sink6649 = and i8 %.sink6649.in, 1
+  %.sink6652.in = phi i8 [ %4265, %4263 ], [ %4268, %4267 ]
+  %.sink6651 = phi i32 [ %4266, %4263 ], [ %4271, %4267 ]
+  %.sink6652 = and i8 %.sink6652.in, 1
   %4273 = getelementptr inbounds nuw i8, ptr %0, i64 174
-  store i8 %.sink6649, ptr %4273, align 2
+  store i8 %.sink6652, ptr %4273, align 2
   %4274 = getelementptr inbounds nuw i8, ptr %0, i64 712
-  store i32 %.sink6648, ptr %4274, align 8
+  store i32 %.sink6651, ptr %4274, align 8
   %4275 = getelementptr inbounds nuw i8, ptr %0, i64 110
   store i8 0, ptr %4275, align 2
   %4276 = getelementptr inbounds nuw i8, ptr %0, i64 99
@@ -9228,94 +9228,94 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 4281:                                             ; preds = %4272
   %4282 = and i32 %4158, 1073741824
-  %.not5909 = icmp eq i32 %4282, 0
+  %.not5910 = icmp eq i32 %4282, 0
   %4283 = and i32 %4158, 536870912
-  %.not5910 = icmp eq i32 %4283, 0
+  %.not5911 = icmp eq i32 %4283, 0
   %4284 = and i32 %4158, 268435456
-  %.not5911 = icmp eq i32 %4284, 0
-  br i1 %.not5909, label %4308, label %4285
+  %.not5912 = icmp eq i32 %4284, 0
+  br i1 %.not5910, label %4308, label %4285
 
 4285:                                             ; preds = %4281
-  br i1 %.not5910, label %4295, label %4286
+  br i1 %.not5911, label %4295, label %4286
 
 4286:                                             ; preds = %4285
   %4287 = and i32 %4158, 469762048
-  %or.cond6933 = icmp eq i32 %4287, 0
-  br i1 %or.cond6933, label %4288, label %.sink.split6849
+  %or.cond6936 = icmp eq i32 %4287, 0
+  br i1 %or.cond6936, label %4288, label %.sink.split6852
 
-.sink.split6849:                                  ; preds = %4286
+.sink.split6852:                                  ; preds = %4286
   store i8 1, ptr %4278, align 1
   br label %4288
 
-4288:                                             ; preds = %4286, %.sink.split6849
-  %.sink6784 = phi i32 [ 11, %.sink.split6849 ], [ 16, %4286 ]
-  %4289 = lshr i32 %4158, %.sink6784
+4288:                                             ; preds = %4286, %.sink.split6852
+  %.sink6787 = phi i32 [ 11, %.sink.split6852 ], [ 16, %4286 ]
+  %4289 = lshr i32 %4158, %.sink6787
   %4290 = trunc i32 %4289 to i8
   %4291 = and i8 %4290, 31
   %4292 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i8 %4291, ptr %4292, align 8
   %4293 = and i32 %4158, 469762048
-  %or.cond6504 = icmp eq i32 %4293, 0
-  br i1 %or.cond6504, label %4294, label %4598
+  %or.cond6507 = icmp eq i32 %4293, 0
+  br i1 %or.cond6507, label %4294, label %4598
 
 4294:                                             ; preds = %4288
   store i32 130271232, ptr %2428, align 8
   br label %4598
 
 4295:                                             ; preds = %4285
-  br i1 %.not5911, label %4296, label %.sink.split6850
+  br i1 %.not5912, label %4296, label %.sink.split6853
 
 4296:                                             ; preds = %4295
   %4297 = and i32 %4158, 134217728
-  %.not5928 = icmp eq i32 %4297, 0
+  %.not5929 = icmp eq i32 %4297, 0
   %4298 = and i32 %4158, 67108864
-  %.not5929 = icmp eq i32 %4298, 0
-  br i1 %.not5928, label %4300, label %4299
+  %.not5930 = icmp eq i32 %4298, 0
+  br i1 %.not5929, label %4300, label %4299
 
 4299:                                             ; preds = %4296
-  br i1 %.not5929, label %.sink.split6850, label %4301
+  br i1 %.not5930, label %.sink.split6853, label %4301
 
 4300:                                             ; preds = %4296
-  br i1 %.not5929, label %4301, label %.sink.split6850
+  br i1 %.not5930, label %4301, label %.sink.split6853
 
-.sink.split6850:                                  ; preds = %4300, %4299, %4295
+.sink.split6853:                                  ; preds = %4300, %4299, %4295
   store i8 1, ptr %4278, align 1
   br label %4301
 
-4301:                                             ; preds = %.sink.split6850, %4300, %4299
-  %.sink6789 = phi i32 [ 11, %4299 ], [ 16, %4300 ], [ 11, %.sink.split6850 ]
-  %4302 = lshr i32 %4158, %.sink6789
+4301:                                             ; preds = %.sink.split6853, %4300, %4299
+  %.sink6792 = phi i32 [ 11, %4299 ], [ 16, %4300 ], [ 11, %.sink.split6853 ]
+  %4302 = lshr i32 %4158, %.sink6792
   %4303 = trunc i32 %4302 to i8
   %4304 = and i8 %4303, 31
   %4305 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i8 %4304, ptr %4305, align 8
   %4306 = and i32 %4158, 469762048
-  %or.cond6506 = icmp eq i32 %4306, 0
-  br i1 %or.cond6506, label %4307, label %4598
+  %or.cond6509 = icmp eq i32 %4306, 0
+  br i1 %or.cond6509, label %4307, label %4598
 
 4307:                                             ; preds = %4301
   store i32 192512, ptr %2428, align 8
   br label %4598
 
 4308:                                             ; preds = %4281
-  br i1 %.not5910, label %4330, label %4309
+  br i1 %.not5911, label %4330, label %4309
 
 4309:                                             ; preds = %4308
-  br i1 %.not5911, label %4324, label %4310
+  br i1 %.not5912, label %4324, label %4310
 
 4310:                                             ; preds = %4309
   %4311 = and i32 %4158, 134217728
-  %.not5923.not = icmp eq i32 %4311, 0
-  br i1 %.not5923.not, label %.thread6693, label %4312
+  %.not5924.not = icmp eq i32 %4311, 0
+  br i1 %.not5924.not, label %.thread6696, label %4312
 
-.thread6693:                                      ; preds = %4310
+.thread6696:                                      ; preds = %4310
   store i8 1, ptr %4278, align 1
   br label %4325
 
 4312:                                             ; preds = %4310
   %4313 = and i32 %4158, 67108864
-  %.not5925 = icmp eq i32 %4313, 0
-  br i1 %.not5925, label %4323, label %4314
+  %.not5926 = icmp eq i32 %4313, 0
+  br i1 %.not5926, label %4323, label %4314
 
 4314:                                             ; preds = %4312
   %4315 = lshr i32 %4158, 16
@@ -9337,7 +9337,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i32 215040, ptr %2428, align 8
   br label %4325
 
-4325:                                             ; preds = %.thread6693, %4324, %4323, %4314
+4325:                                             ; preds = %.thread6696, %4324, %4323, %4314
   %4326 = lshr i32 %4158, 11
   %4327 = trunc i32 %4326 to i8
   %4328 = and i8 %4327, 31
@@ -9347,32 +9347,32 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 4330:                                             ; preds = %4308
   %4331 = and i32 %4158, 134217728
-  %.not5912 = icmp eq i32 %4331, 0
-  br i1 %.not5911, label %4346, label %4332
+  %.not5913 = icmp eq i32 %4331, 0
+  br i1 %.not5912, label %4346, label %4332
 
 4332:                                             ; preds = %4330
-  br i1 %.not5912, label %4341, label %4333
+  br i1 %.not5913, label %4341, label %4333
 
 4333:                                             ; preds = %4332
   %4334 = and i32 %4158, 67108864
-  %.not5917 = icmp eq i32 %4334, 0
-  br i1 %.not5917, label %4338, label %4335
+  %.not5918 = icmp eq i32 %4334, 0
+  br i1 %.not5918, label %4338, label %4335
 
 4335:                                             ; preds = %4333
   store i8 1, ptr %4278, align 1
   %4336 = lshr i32 %4158, 11
-  %.sink6650.in = trunc i32 %4336 to i8
-  %.sink6650 = and i8 %.sink6650.in, 31
+  %.sink6653.in = trunc i32 %4336 to i8
+  %.sink6653 = and i8 %.sink6653.in, 31
   %4337 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i8 %.sink6650, ptr %4337, align 8
+  store i8 %.sink6653, ptr %4337, align 8
   br label %4598
 
 4338:                                             ; preds = %4333
   %4339 = lshr i32 %4158, 16
-  %.sink6650.in6696 = trunc i32 %4339 to i8
-  %.sink66506697 = and i8 %.sink6650.in6696, 31
+  %.sink6653.in6699 = trunc i32 %4339 to i8
+  %.sink66536700 = and i8 %.sink6653.in6699, 31
   %4340 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i8 %.sink66506697, ptr %4340, align 8
+  store i8 %.sink66536700, ptr %4340, align 8
   store i32 258048, ptr %2428, align 8
   br label %4598
 
@@ -9387,10 +9387,10 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 4346:                                             ; preds = %4330
   %4347 = and i32 %4158, 67108864
-  %.not5914 = icmp eq i32 %4347, 0
-  %.6851 = select i1 %.not5914, i32 258048, i32 192512
-  %.sink6790 = select i1 %.not5912, i32 192512, i32 %.6851
-  store i32 %.sink6790, ptr %2428, align 8
+  %.not5915 = icmp eq i32 %4347, 0
+  %.6854 = select i1 %.not5915, i32 258048, i32 192512
+  %.sink6793 = select i1 %.not5913, i32 192512, i32 %.6854
+  store i32 %.sink6793, ptr %2428, align 8
   %4348 = lshr i32 %4158, 16
   %4349 = trunc i32 %4348 to i8
   %4350 = and i8 %4349, 31
@@ -9399,58 +9399,58 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %4598
 
 4352:                                             ; preds = %4272
-  %.not5726 = icmp samesign ult i32 %4158, 1073741824
-  br i1 %.not5726, label %4460, label %4353
+  %.not5727 = icmp samesign ult i32 %4158, 1073741824
+  br i1 %.not5727, label %4460, label %4353
 
 4353:                                             ; preds = %4352
   %4354 = and i32 %4158, 536870912
-  %.not5833 = icmp eq i32 %4354, 0
+  %.not5834 = icmp eq i32 %4354, 0
   %4355 = and i32 %4158, 268435456
-  %.not5834 = icmp eq i32 %4355, 0
-  br i1 %.not5833, label %4406, label %4356
+  %.not5835 = icmp eq i32 %4355, 0
+  br i1 %.not5834, label %4406, label %4356
 
 4356:                                             ; preds = %4353
-  br i1 %.not5834, label %4400, label %4357
+  br i1 %.not5835, label %4400, label %4357
 
 4357:                                             ; preds = %4356
   %4358 = and i32 %4158, 134217728
-  %.not5880 = icmp eq i32 %4358, 0
-  br i1 %.not5880, label %4359, label %4373
+  %.not5881 = icmp eq i32 %4358, 0
+  br i1 %.not5881, label %4359, label %4373
 
 4359:                                             ; preds = %4357
   %4360 = and i32 %4158, 67108864
-  %.not5881 = icmp eq i32 %4360, 0
-  br i1 %.not5881, label %4361, label %4374
+  %.not5882 = icmp eq i32 %4360, 0
+  br i1 %.not5882, label %4361, label %4374
 
 4361:                                             ; preds = %4359
   %4362 = and i32 %4158, 32
-  %.not5882 = icmp eq i32 %4362, 0
-  br i1 %.not5882, label %4365, label %4363
+  %.not5883 = icmp eq i32 %4362, 0
+  br i1 %.not5883, label %4365, label %4363
 
 4363:                                             ; preds = %4361
   %4364 = and i32 %4158, 30
-  %or.cond6892 = icmp eq i32 %4364, 0
-  br i1 %or.cond6892, label %4375, label %.sink.split6791
+  %or.cond6895 = icmp eq i32 %4364, 0
+  br i1 %or.cond6895, label %4375, label %.sink.split6794
 
 4365:                                             ; preds = %4361
   %4366 = and i32 %4158, 24
-  %or.cond6893 = icmp eq i32 %4366, 0
-  br i1 %or.cond6893, label %4367, label %.sink.split6791
+  %or.cond6896 = icmp eq i32 %4366, 0
+  br i1 %or.cond6896, label %4367, label %.sink.split6794
 
 4367:                                             ; preds = %4365
   %4368 = and i32 %4158, 4
-  %.not5885 = icmp eq i32 %4368, 0
-  br i1 %.not5885, label %4371, label %4369
+  %.not5886 = icmp eq i32 %4368, 0
+  br i1 %.not5886, label %4371, label %4369
 
 4369:                                             ; preds = %4367
   %4370 = and i32 %4158, 2
-  %.not5888 = icmp eq i32 %4370, 0
-  br i1 %.not5888, label %4375, label %.sink.split6791
+  %.not5889 = icmp eq i32 %4370, 0
+  br i1 %.not5889, label %4375, label %.sink.split6794
 
 4371:                                             ; preds = %4367
   %4372 = and i32 %4158, 3
-  %or.cond6507.not = icmp eq i32 %4372, 3
-  br i1 %or.cond6507.not, label %.sink.split6791, label %4375
+  %or.cond6510.not = icmp eq i32 %4372, 3
+  br i1 %or.cond6510.not, label %.sink.split6794, label %4375
 
 4373:                                             ; preds = %4357
   store i8 1, ptr %4278, align 1
@@ -9460,24 +9460,24 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i8 1, ptr %4278, align 1
   br label %4401
 
-.sink.split6791:                                  ; preds = %4371, %4369, %4365, %4363
+.sink.split6794:                                  ; preds = %4371, %4369, %4365, %4363
   store i8 1, ptr %4278, align 1
   br label %4375
 
-4375:                                             ; preds = %4363, %.sink.split6791, %4369, %4371
+4375:                                             ; preds = %4363, %.sink.split6794, %4369, %4371
   %4376 = and i32 %4158, 32
-  %.not5895 = icmp eq i32 %4376, 0
-  br i1 %.not5895, label %4383, label %4377
+  %.not5896 = icmp eq i32 %4376, 0
+  br i1 %.not5896, label %4383, label %4377
 
 4377:                                             ; preds = %4375
   %4378 = and i32 %4158, 30
-  %or.cond6510 = icmp eq i32 %4378, 0
-  br i1 %or.cond6510, label %4379, label %4401
+  %or.cond6513 = icmp eq i32 %4378, 0
+  br i1 %or.cond6513, label %4379, label %4401
 
 4379:                                             ; preds = %4377
   %4380 = and i32 %4158, 1
-  %.not5908 = icmp eq i32 %4380, 0
-  br i1 %.not5908, label %4382, label %4381
+  %.not5909 = icmp eq i32 %4380, 0
+  br i1 %.not5909, label %4382, label %4381
 
 4381:                                             ; preds = %4379
   store i32 51019776, ptr %2428, align 8
@@ -9489,23 +9489,23 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 4383:                                             ; preds = %4375
   %4384 = and i32 %4158, 24
-  %or.cond6511 = icmp eq i32 %4384, 0
-  br i1 %or.cond6511, label %4385, label %4401
+  %or.cond6514 = icmp eq i32 %4384, 0
+  br i1 %or.cond6514, label %4385, label %4401
 
 4385:                                             ; preds = %4383
   %4386 = and i32 %4158, 4
-  %.not5898 = icmp eq i32 %4386, 0
+  %.not5899 = icmp eq i32 %4386, 0
   %4387 = and i32 %4158, 2
-  %.not5899 = icmp eq i32 %4387, 0
-  br i1 %.not5898, label %4393, label %4388
+  %.not5900 = icmp eq i32 %4387, 0
+  br i1 %.not5899, label %4393, label %4388
 
 4388:                                             ; preds = %4385
-  br i1 %.not5899, label %4389, label %4401
+  br i1 %.not5900, label %4389, label %4401
 
 4389:                                             ; preds = %4388
   %4390 = and i32 %4158, 1
-  %.not5903 = icmp eq i32 %4390, 0
-  br i1 %.not5903, label %4392, label %4391
+  %.not5904 = icmp eq i32 %4390, 0
+  br i1 %.not5904, label %4392, label %4391
 
 4391:                                             ; preds = %4389
   store i32 53150082, ptr %2428, align 8
@@ -9517,18 +9517,18 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 4393:                                             ; preds = %4385
   %4394 = and i32 %4158, 1
-  %.not5900 = icmp eq i32 %4394, 0
-  br i1 %.not5899, label %4397, label %4395
+  %.not5901 = icmp eq i32 %4394, 0
+  br i1 %.not5900, label %4397, label %4395
 
 4395:                                             ; preds = %4393
-  br i1 %.not5900, label %4396, label %4401
+  br i1 %.not5901, label %4396, label %4401
 
 4396:                                             ; preds = %4395
   store i32 12812290, ptr %2428, align 8
   br label %4401
 
 4397:                                             ; preds = %4393
-  br i1 %.not5900, label %4399, label %4398
+  br i1 %.not5901, label %4399, label %4398
 
 4398:                                             ; preds = %4397
   store i32 34275714, ptr %2428, align 8
@@ -9551,12 +9551,12 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %4598
 
 4406:                                             ; preds = %4353
-  br i1 %.not5834, label %4407, label %4436
+  br i1 %.not5835, label %4407, label %4436
 
 4407:                                             ; preds = %4406
   %4408 = and i32 %4158, 134217728
-  %.not5835 = icmp eq i32 %4408, 0
-  br i1 %.not5835, label %4410, label %4409
+  %.not5836 = icmp eq i32 %4408, 0
+  br i1 %.not5836, label %4410, label %4409
 
 4409:                                             ; preds = %4407
   store i8 1, ptr %4278, align 1
@@ -9564,8 +9564,8 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 4410:                                             ; preds = %4407
   %4411 = and i32 %4158, 67108864
-  %.not5836 = icmp eq i32 %4411, 0
-  br i1 %.not5836, label %4413, label %4412
+  %.not5837 = icmp eq i32 %4411, 0
+  br i1 %.not5837, label %4413, label %4412
 
 4412:                                             ; preds = %4410
   store i8 1, ptr %4278, align 1
@@ -9573,7 +9573,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 4413:                                             ; preds = %4410
   %4414 = and i32 %4158, 65011712
-  switch i32 %4414, label %.sink.split6792 [
+  switch i32 %4414, label %.sink.split6795 [
     i32 0, label %4441
     i32 8388608, label %4435
     i32 33554432, label %4415
@@ -9581,57 +9581,57 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 4415:                                             ; preds = %4413
   %4416 = and i32 %4158, 32
-  %.not5839 = icmp eq i32 %4416, 0
+  %.not5840 = icmp eq i32 %4416, 0
   %4417 = and i32 %4158, 8
-  %.not5841.not = icmp eq i32 %4417, 0
-  br i1 %.not5839, label %4420, label %4418
+  %.not5842.not = icmp eq i32 %4417, 0
+  br i1 %.not5840, label %4420, label %4418
 
 4418:                                             ; preds = %4415
   %4419 = and i32 %4158, 31
-  %or.cond6897 = icmp eq i32 %4419, 0
-  br i1 %or.cond6897, label %4435, label %.sink.split6792
+  %or.cond6900 = icmp eq i32 %4419, 0
+  br i1 %or.cond6900, label %4435, label %.sink.split6795
 
 4420:                                             ; preds = %4415
   %4421 = and i32 %4158, 16
-  %.not5840 = icmp eq i32 %4421, 0
-  br i1 %.not5840, label %4424, label %4422
+  %.not5841 = icmp eq i32 %4421, 0
+  br i1 %.not5841, label %4424, label %4422
 
 4422:                                             ; preds = %4420
   %4423 = and i32 %4158, 15
-  %or.cond6900 = icmp eq i32 %4423, 8
-  br i1 %or.cond6900, label %4435, label %.sink.split6792
+  %or.cond6903 = icmp eq i32 %4423, 8
+  br i1 %or.cond6903, label %4435, label %.sink.split6795
 
 4424:                                             ; preds = %4420
   %4425 = and i32 %4158, 2
-  %.not5843 = icmp eq i32 %4425, 0
-  br i1 %.not5841.not, label %4428, label %4426
+  %.not5844 = icmp eq i32 %4425, 0
+  br i1 %.not5842.not, label %4428, label %4426
 
 4426:                                             ; preds = %4424
   %4427 = and i32 %4158, 7
-  %or.cond6902 = icmp eq i32 %4427, 0
-  br i1 %or.cond6902, label %4435, label %.sink.split6792
+  %or.cond6905 = icmp eq i32 %4427, 0
+  br i1 %or.cond6905, label %4435, label %.sink.split6795
 
 4428:                                             ; preds = %4424
   %4429 = and i32 %4158, 4
-  %.not5842 = icmp eq i32 %4429, 0
-  br i1 %.not5842, label %4432, label %4430
+  %.not5843 = icmp eq i32 %4429, 0
+  br i1 %.not5843, label %4432, label %4430
 
 4430:                                             ; preds = %4428
   %4431 = and i32 %4158, 3
-  %or.cond6903.not.not = icmp eq i32 %4431, 2
-  br i1 %or.cond6903.not.not, label %4435, label %.sink.split6792
+  %or.cond6906.not.not = icmp eq i32 %4431, 2
+  br i1 %or.cond6906.not.not, label %4435, label %.sink.split6795
 
 4432:                                             ; preds = %4428
   %4433 = and i32 %4158, 1
-  %.not5844.not = icmp eq i32 %4433, 0
-  %4434 = xor i1 %.not5843, %.not5844.not
-  br i1 %4434, label %4435, label %.sink.split6792
+  %.not5845.not = icmp eq i32 %4433, 0
+  %4434 = xor i1 %.not5844, %.not5845.not
+  br i1 %4434, label %4435, label %.sink.split6795
 
-.sink.split6792:                                  ; preds = %4432, %4413, %4430, %4426, %4422, %4418
+.sink.split6795:                                  ; preds = %4432, %4413, %4430, %4426, %4422, %4418
   store i8 1, ptr %4278, align 1
   br label %4435
 
-4435:                                             ; preds = %4432, %4430, %4426, %4422, %4418, %.sink.split6792, %4413
+4435:                                             ; preds = %4432, %4430, %4426, %4422, %4418, %.sink.split6795, %4413
   br label %4441
 
 4436:                                             ; preds = %4406
@@ -9644,15 +9644,15 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %4598
 
 4441:                                             ; preds = %4435, %4413, %4409, %4412
-  %.sink6798 = phi i32 [ 11, %4409 ], [ 11, %4412 ], [ 11, %4435 ], [ 16, %4413 ]
-  %4442 = lshr i32 %4158, %.sink6798
+  %.sink6801 = phi i32 [ 11, %4409 ], [ 11, %4412 ], [ 11, %4435 ], [ 16, %4413 ]
+  %4442 = lshr i32 %4158, %.sink6801
   %4443 = trunc i32 %4442 to i8
   %4444 = and i8 %4443, 31
   %4445 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i8 %4444, ptr %4445, align 8
   %4446 = and i32 %4158, 201326592
-  %or.cond6512 = icmp eq i32 %4446, 0
-  br i1 %or.cond6512, label %4447, label %4598
+  %or.cond6515 = icmp eq i32 %4446, 0
+  br i1 %or.cond6515, label %4447, label %4598
 
 4447:                                             ; preds = %4441
   store i32 32, ptr %2428, align 8
@@ -9673,15 +9673,15 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 4451:                                             ; preds = %4447
   %4452 = and i32 %4158, 56
-  %or.cond6905 = icmp eq i32 %4452, 0
-  br i1 %or.cond6905, label %4453, label %4598
+  %or.cond6908 = icmp eq i32 %4452, 0
+  br i1 %or.cond6908, label %4453, label %4598
 
 4453:                                             ; preds = %4451
   %4454 = and i32 %4158, 4
-  %.not5866 = icmp eq i32 %4454, 0
+  %.not5867 = icmp eq i32 %4454, 0
   %4455 = and i32 %4158, 3
   %brmerge.not = icmp eq i32 %4455, 2
-  br i1 %.not5866, label %4458, label %4456
+  br i1 %.not5867, label %4458, label %4456
 
 4456:                                             ; preds = %4453
   br i1 %brmerge.not, label %4457, label %4598
@@ -9698,121 +9698,121 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %4598
 
 4460:                                             ; preds = %4352
-  %.not5727.not = icmp samesign ult i32 %4158, 536870912
-  br i1 %.not5727.not, label %4461, label %4490
+  %.not5728.not = icmp samesign ult i32 %4158, 536870912
+  br i1 %.not5728.not, label %4461, label %4490
 
 4461:                                             ; preds = %4460
-  %or.cond6519 = icmp samesign ult i32 %4158, 134217728
-  br i1 %or.cond6519, label %4462, label %4505
+  %or.cond6522 = icmp samesign ult i32 %4158, 134217728
+  br i1 %or.cond6522, label %4462, label %4505
 
 4462:                                             ; preds = %4461
-  %.not5730 = icmp samesign ult i32 %4158, 67108864
-  br i1 %.not5730, label %4473, label %4463
+  %.not5731 = icmp samesign ult i32 %4158, 67108864
+  br i1 %.not5731, label %4473, label %4463
 
 4463:                                             ; preds = %4462
   %4464 = and i32 %4158, 1048576
-  %.not5754 = icmp eq i32 %4464, 0
-  br i1 %.not5754, label %4467, label %4465
+  %.not5755 = icmp eq i32 %4464, 0
+  br i1 %.not5755, label %4467, label %4465
 
 4465:                                             ; preds = %4463
   %4466 = and i32 %4158, 917504
-  %or.cond6907 = icmp eq i32 %4466, 0
-  br i1 %or.cond6907, label %4520, label %.sink.split6800
+  %or.cond6910 = icmp eq i32 %4466, 0
+  br i1 %or.cond6910, label %4520, label %.sink.split6803
 
 4467:                                             ; preds = %4463
   %4468 = and i32 %4158, 524288
-  %.not5755 = icmp eq i32 %4468, 0
-  br i1 %.not5755, label %4471, label %4469
+  %.not5756 = icmp eq i32 %4468, 0
+  br i1 %.not5756, label %4471, label %4469
 
 4469:                                             ; preds = %4467
   %4470 = and i32 %4158, 327680
-  %or.cond6934.not = icmp eq i32 %4470, 327680
-  br i1 %or.cond6934.not, label %.sink.split6800, label %4520
+  %or.cond6937.not = icmp eq i32 %4470, 327680
+  br i1 %or.cond6937.not, label %.sink.split6803, label %4520
 
 4471:                                             ; preds = %4467
   %4472 = and i32 %4158, 393216
-  %or.cond6908 = icmp eq i32 %4472, 0
-  br i1 %or.cond6908, label %4520, label %.sink.split6800
+  %or.cond6911 = icmp eq i32 %4472, 0
+  br i1 %or.cond6911, label %4520, label %.sink.split6803
 
 4473:                                             ; preds = %4462
   %4474 = and i32 %4158, 32
-  %.not5731 = icmp eq i32 %4474, 0
+  %.not5732 = icmp eq i32 %4474, 0
   %4475 = and i32 %4158, 16
-  %.not5732 = icmp eq i32 %4475, 0
+  %.not5733 = icmp eq i32 %4475, 0
   %4476 = and i32 %4158, 8
-  %.not5733 = icmp eq i32 %4476, 0
-  br i1 %.not5731, label %4482, label %4477
+  %.not5734 = icmp eq i32 %4476, 0
+  br i1 %.not5732, label %4482, label %4477
 
 4477:                                             ; preds = %4473
-  br i1 %.not5732, label %4480, label %4478
+  br i1 %.not5733, label %4480, label %4478
 
 4478:                                             ; preds = %4477
   %4479 = and i32 %4158, 5
-  %or.cond6935.not = icmp ne i32 %4479, 5
-  %or.cond6951.not = and i1 %.not5733, %or.cond6935.not
-  br i1 %or.cond6951.not, label %4539, label %.sink.split6803
+  %or.cond6938.not = icmp ne i32 %4479, 5
+  %or.cond6954.not = and i1 %.not5734, %or.cond6938.not
+  br i1 %or.cond6954.not, label %4539, label %.sink.split6806
 
 4480:                                             ; preds = %4477
   %4481 = and i32 %4158, 6
-  %or.cond6909.not = icmp eq i32 %4481, 2
-  %or.cond6952 = or i1 %.not5733, %or.cond6909.not
-  br i1 %or.cond6952, label %4539, label %.sink.split6803
+  %or.cond6912.not = icmp eq i32 %4481, 2
+  %or.cond6955 = or i1 %.not5734, %or.cond6912.not
+  br i1 %or.cond6955, label %4539, label %.sink.split6806
 
 4482:                                             ; preds = %4473
-  br i1 %.not5732, label %4485, label %4483
+  br i1 %.not5733, label %4485, label %4483
 
 4483:                                             ; preds = %4482
   %4484 = and i32 %4158, 4
-  %.not5743 = icmp eq i32 %4484, 0
-  br i1 %.not5743, label %4539, label %.sink.split6803
+  %.not5744 = icmp eq i32 %4484, 0
+  br i1 %.not5744, label %4539, label %.sink.split6806
 
 4485:                                             ; preds = %4482
-  br i1 %.not5733, label %4488, label %4486
+  br i1 %.not5734, label %4488, label %4486
 
 4486:                                             ; preds = %4485
   %4487 = and i32 %4158, 7
-  %or.cond6521 = icmp eq i32 %4487, 6
-  br i1 %or.cond6521, label %.sink.split6803, label %4539
+  %or.cond6524 = icmp eq i32 %4487, 6
+  br i1 %or.cond6524, label %.sink.split6806, label %4539
 
 4488:                                             ; preds = %4485
   %4489 = and i32 %4158, 3
-  %or.cond6523.not = icmp eq i32 %4489, 1
-  br i1 %or.cond6523.not, label %.sink.split6803, label %4539
+  %or.cond6526.not = icmp eq i32 %4489, 1
+  br i1 %or.cond6526.not, label %.sink.split6806, label %4539
 
 4490:                                             ; preds = %4460
   %4491 = and i32 %4158, 268435456
-  %.not5826 = icmp eq i32 %4491, 0
+  %.not5827 = icmp eq i32 %4491, 0
   %4492 = and i32 %4158, 134217728
-  %.not5827 = icmp eq i32 %4492, 0
+  %.not5828 = icmp eq i32 %4492, 0
   %4493 = and i32 %4158, 67108864
-  %.not5828 = icmp eq i32 %4493, 0
-  br i1 %.not5826, label %4497, label %4494
+  %.not5829 = icmp eq i32 %4493, 0
+  br i1 %.not5827, label %4497, label %4494
 
 4494:                                             ; preds = %4490
-  br i1 %.not5827, label %4496, label %4495
+  br i1 %.not5828, label %4496, label %4495
 
 4495:                                             ; preds = %4494
-  %.6852 = select i1 %.not5828, i32 20086784, i32 48398336
+  %.6855 = select i1 %.not5829, i32 20086784, i32 48398336
   br label %4500
 
 4496:                                             ; preds = %4494
-  %.6853 = select i1 %.not5828, i32 19038208, i32 19562496
+  %.6856 = select i1 %.not5829, i32 19038208, i32 19562496
   br label %4500
 
 4497:                                             ; preds = %4490
-  br i1 %.not5827, label %4499, label %4498
+  br i1 %.not5828, label %4499, label %4498
 
 4498:                                             ; preds = %4497
-  %.6854 = select i1 %.not5828, i32 22183936, i32 22708224
+  %.6857 = select i1 %.not5829, i32 22183936, i32 22708224
   br label %4500
 
 4499:                                             ; preds = %4497
-  %.6855 = select i1 %.not5828, i32 16941056, i32 17465344
+  %.6858 = select i1 %.not5829, i32 16941056, i32 17465344
   br label %4500
 
 4500:                                             ; preds = %4499, %4498, %4496, %4495
-  %.sink6799 = phi i32 [ %.6852, %4495 ], [ %.6853, %4496 ], [ %.6854, %4498 ], [ %.6855, %4499 ]
-  store i32 %.sink6799, ptr %2428, align 8
+  %.sink6802 = phi i32 [ %.6855, %4495 ], [ %.6856, %4496 ], [ %.6857, %4498 ], [ %.6858, %4499 ]
+  store i32 %.sink6802, ptr %2428, align 8
   %4501 = lshr i32 %4158, 16
   %4502 = trunc i32 %4501 to i8
   %4503 = and i8 %4502, 31
@@ -9821,8 +9821,8 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %4598
 
 4505:                                             ; preds = %4461
-  %.not5766 = icmp samesign ult i32 %4158, 268435456
-  br i1 %.not5766, label %4511, label %4506
+  %.not5767 = icmp samesign ult i32 %4158, 268435456
+  br i1 %.not5767, label %4511, label %4506
 
 4506:                                             ; preds = %4505
   store i32 196672, ptr %2428, align 8
@@ -9835,8 +9835,8 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 4511:                                             ; preds = %4505
   %4512 = and i32 %4158, 67108864
-  %.not5825 = icmp eq i32 %4512, 0
-  br i1 %.not5825, label %4515, label %4513
+  %.not5826 = icmp eq i32 %4512, 0
+  br i1 %.not5826, label %4515, label %4513
 
 4513:                                             ; preds = %4511
   store i32 32832, ptr %2428, align 8
@@ -9853,42 +9853,42 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i8 %4518, ptr %4519, align 8
   br label %4598
 
-.sink.split6800:                                  ; preds = %4469, %4471, %4465
+.sink.split6803:                                  ; preds = %4469, %4471, %4465
   store i8 1, ptr %4278, align 1
   br label %4520
 
-4520:                                             ; preds = %4471, %4465, %.sink.split6800, %4469
+4520:                                             ; preds = %4471, %4465, %.sink.split6803, %4469
   store i32 64, ptr %2428, align 8
   %4521 = and i32 %4158, 1048576
-  %.not5814 = icmp eq i32 %4521, 0
-  br i1 %.not5814, label %4524, label %4522
+  %.not5815 = icmp eq i32 %4521, 0
+  br i1 %.not5815, label %4524, label %4522
 
 4522:                                             ; preds = %4520
   %4523 = and i32 %4158, 917504
-  %or.cond6525 = icmp eq i32 %4523, 0
-  br i1 %or.cond6525, label %.sink.split6801, label %4530
+  %or.cond6528 = icmp eq i32 %4523, 0
+  br i1 %or.cond6528, label %.sink.split6804, label %4530
 
 4524:                                             ; preds = %4520
   %4525 = and i32 %4158, 524288
-  %.not5815 = icmp eq i32 %4525, 0
-  br i1 %.not5815, label %4528, label %4526
+  %.not5816 = icmp eq i32 %4525, 0
+  br i1 %.not5816, label %4528, label %4526
 
 4526:                                             ; preds = %4524
   %4527 = and i32 %4158, 327680
-  %or.cond6936.not = icmp eq i32 %4527, 327680
-  br i1 %or.cond6936.not, label %4530, label %.sink.split6801
+  %or.cond6939.not = icmp eq i32 %4527, 327680
+  br i1 %or.cond6939.not, label %4530, label %.sink.split6804
 
 4528:                                             ; preds = %4524
   %4529 = and i32 %4158, 393216
-  %or.cond6526 = icmp eq i32 %4529, 0
-  br i1 %or.cond6526, label %.sink.split6801, label %4530
+  %or.cond6529 = icmp eq i32 %4529, 0
+  br i1 %or.cond6529, label %.sink.split6804, label %4530
 
-.sink.split6801:                                  ; preds = %4528, %4526, %4522
-  %.sink6802 = phi i32 [ 229440, %4522 ], [ 131136, %4526 ], [ 131136, %4528 ]
-  store i32 %.sink6802, ptr %2428, align 8
+.sink.split6804:                                  ; preds = %4528, %4526, %4522
+  %.sink6805 = phi i32 [ 229440, %4522 ], [ 131136, %4526 ], [ 131136, %4528 ]
+  store i32 %.sink6805, ptr %2428, align 8
   br label %4530
 
-4530:                                             ; preds = %4526, %.sink.split6801, %4528, %4522
+4530:                                             ; preds = %4526, %.sink.split6804, %4528, %4522
   %4531 = and i32 %4158, 2031616
   switch i32 %4531, label %4532 [
     i32 1114112, label %4536
@@ -9907,173 +9907,173 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i8 %4537, ptr %4538, align 8
   br label %4598
 
-.sink.split6803:                                  ; preds = %4480, %4488, %4483, %4486, %4478
+.sink.split6806:                                  ; preds = %4480, %4488, %4483, %4486, %4478
   store i8 1, ptr %4278, align 1
   br label %4539
 
-4539:                                             ; preds = %4478, %4488, %4483, %.sink.split6803, %4486, %4480
+4539:                                             ; preds = %4478, %4488, %4483, %.sink.split6806, %4486, %4480
   %4540 = and i32 %4158, 32
-  %.not5769 = icmp eq i32 %4540, 0
+  %.not5770 = icmp eq i32 %4540, 0
   %4541 = and i32 %4158, 16
-  %.not5770 = icmp eq i32 %4541, 0
+  %.not5771 = icmp eq i32 %4541, 0
   %4542 = and i32 %4158, 8
-  %.not5771 = icmp ne i32 %4542, 0
-  br i1 %.not5769, label %4561, label %4543
+  %.not5772 = icmp ne i32 %4542, 0
+  br i1 %.not5770, label %4561, label %4543
 
 4543:                                             ; preds = %4539
-  br i1 %.not5770, label %4546, label %4544
+  br i1 %.not5771, label %4546, label %4544
 
 4544:                                             ; preds = %4543
   %4545 = and i32 %4158, 5
-  %or.cond6937.not = icmp eq i32 %4545, 5
-  %or.cond6953 = or i1 %.not5771, %or.cond6937.not
-  br i1 %or.cond6953, label %4593, label %.sink.split6804
+  %or.cond6940.not = icmp eq i32 %4545, 5
+  %or.cond6956 = or i1 %.not5772, %or.cond6940.not
+  br i1 %or.cond6956, label %4593, label %.sink.split6807
 
 4546:                                             ; preds = %4543
-  br i1 %.not5771, label %4547, label %4551
+  br i1 %.not5772, label %4547, label %4551
 
 4547:                                             ; preds = %4546
   %4548 = and i32 %4158, 6
-  %or.cond6527.not = icmp eq i32 %4548, 2
-  br i1 %or.cond6527.not, label %4549, label %4593
+  %or.cond6530.not = icmp eq i32 %4548, 2
+  br i1 %or.cond6530.not, label %4549, label %4593
 
 4549:                                             ; preds = %4547
   %4550 = and i32 %4158, 1
-  %.not5805 = icmp eq i32 %4550, 0
-  %.6856 = select i1 %.not5805, i32 22249472, i32 22773760
-  br label %.sink.split6804
+  %.not5806 = icmp eq i32 %4550, 0
+  %.6859 = select i1 %.not5806, i32 22249472, i32 22773760
+  br label %.sink.split6807
 
 4551:                                             ; preds = %4546
   %4552 = and i32 %4158, 4
-  %.not5796 = icmp eq i32 %4552, 0
+  %.not5797 = icmp eq i32 %4552, 0
   %4553 = and i32 %4158, 2
-  %.not5797 = icmp eq i32 %4553, 0
+  %.not5798 = icmp eq i32 %4553, 0
   %4554 = and i32 %4158, 1
-  %.not5798 = icmp eq i32 %4554, 0
-  br i1 %.not5796, label %4558, label %4555
+  %.not5799 = icmp eq i32 %4554, 0
+  br i1 %.not5797, label %4558, label %4555
 
 4555:                                             ; preds = %4551
-  br i1 %.not5797, label %4557, label %4556
+  br i1 %.not5798, label %4557, label %4556
 
 4556:                                             ; preds = %4555
-  %.6857 = select i1 %.not5798, i32 20152320, i32 20676608
-  br label %.sink.split6804
+  %.6860 = select i1 %.not5799, i32 20152320, i32 20676608
+  br label %.sink.split6807
 
 4557:                                             ; preds = %4555
-  %.6858 = select i1 %.not5798, i32 19103744, i32 19628032
-  br label %.sink.split6804
+  %.6861 = select i1 %.not5799, i32 19103744, i32 19628032
+  br label %.sink.split6807
 
 4558:                                             ; preds = %4551
-  br i1 %.not5797, label %4560, label %4559
+  br i1 %.not5798, label %4560, label %4559
 
 4559:                                             ; preds = %4558
-  %.6859 = select i1 %.not5798, i32 18055168, i32 18579456
-  br label %.sink.split6804
+  %.6862 = select i1 %.not5799, i32 18055168, i32 18579456
+  br label %.sink.split6807
 
 4560:                                             ; preds = %4558
-  %.6860 = select i1 %.not5798, i32 17006592, i32 17530880
-  br label %.sink.split6804
+  %.6863 = select i1 %.not5799, i32 17006592, i32 17530880
+  br label %.sink.split6807
 
 4561:                                             ; preds = %4539
   %4562 = and i32 %4158, 4
-  %.not5772 = icmp eq i32 %4562, 0
-  br i1 %.not5770, label %4576, label %4563
+  %.not5773 = icmp eq i32 %4562, 0
+  br i1 %.not5771, label %4576, label %4563
 
 4563:                                             ; preds = %4561
-  br i1 %.not5771, label %4564, label %4570
+  br i1 %.not5772, label %4564, label %4570
 
 4564:                                             ; preds = %4563
-  br i1 %.not5772, label %4565, label %4593
+  br i1 %.not5773, label %4565, label %4593
 
 4565:                                             ; preds = %4564
   %4566 = and i32 %4158, 2
-  %.not5791 = icmp eq i32 %4566, 0
+  %.not5792 = icmp eq i32 %4566, 0
   %4567 = and i32 %4158, 1
-  %.not5792 = icmp eq i32 %4567, 0
-  br i1 %.not5791, label %4569, label %4568
+  %.not5793 = icmp eq i32 %4567, 0
+  br i1 %.not5792, label %4569, label %4568
 
 4568:                                             ; preds = %4565
-  %.6861 = select i1 %.not5792, i32 13828225, i32 14352513
-  br label %.sink.split6804
+  %.6864 = select i1 %.not5793, i32 13828225, i32 14352513
+  br label %.sink.split6807
 
 4569:                                             ; preds = %4565
-  %.6862 = select i1 %.not5792, i32 12779650, i32 13303938
-  br label %.sink.split6804
+  %.6865 = select i1 %.not5793, i32 12779650, i32 13303938
+  br label %.sink.split6807
 
 4570:                                             ; preds = %4563
-  br i1 %.not5772, label %4571, label %4593
+  br i1 %.not5773, label %4571, label %4593
 
 4571:                                             ; preds = %4570
   %4572 = and i32 %4158, 2
-  %.not5787 = icmp eq i32 %4572, 0
+  %.not5788 = icmp eq i32 %4572, 0
   %4573 = and i32 %4158, 1
-  %.not5788 = icmp eq i32 %4573, 0
-  br i1 %.not5787, label %4575, label %4574
+  %.not5789 = icmp eq i32 %4573, 0
+  br i1 %.not5788, label %4575, label %4574
 
 4574:                                             ; preds = %4571
-  %.6863 = select i1 %.not5788, i32 9470208, i32 10092672
-  br label %.sink.split6804
+  %.6866 = select i1 %.not5789, i32 9470208, i32 10092672
+  br label %.sink.split6807
 
 4575:                                             ; preds = %4571
-  %.6864 = select i1 %.not5788, i32 8421632, i32 9044096
-  br label %.sink.split6804
+  %.6867 = select i1 %.not5789, i32 8421632, i32 9044096
+  br label %.sink.split6807
 
 4576:                                             ; preds = %4561
   %4577 = and i32 %4158, 2
-  %.not5773 = icmp eq i32 %4577, 0
-  br i1 %.not5771, label %4578, label %4585
+  %.not5774 = icmp eq i32 %4577, 0
+  br i1 %.not5772, label %4578, label %4585
 
 4578:                                             ; preds = %4576
-  br i1 %.not5772, label %4582, label %4579
+  br i1 %.not5773, label %4582, label %4579
 
 4579:                                             ; preds = %4578
-  br i1 %.not5773, label %.sink.split6804, label %4580
+  br i1 %.not5774, label %.sink.split6807, label %4580
 
 4580:                                             ; preds = %4579
   %4581 = and i32 %4158, 1
-  %.not5784 = icmp eq i32 %4581, 0
-  br i1 %.not5784, label %4593, label %.sink.split6804
+  %.not5785 = icmp eq i32 %4581, 0
+  br i1 %.not5785, label %4593, label %.sink.split6807
 
 4582:                                             ; preds = %4578
-  br i1 %.not5773, label %4583, label %.sink.split6804
+  br i1 %.not5774, label %4583, label %.sink.split6807
 
 4583:                                             ; preds = %4582
   %4584 = and i32 %4158, 1
-  %.not5781 = icmp eq i32 %4584, 0
-  %.6865 = select i1 %.not5781, i32 131136, i32 163904
-  br label %.sink.split6804
+  %.not5782 = icmp eq i32 %4584, 0
+  %.6868 = select i1 %.not5782, i32 131136, i32 163904
+  br label %.sink.split6807
 
 4585:                                             ; preds = %4576
   %4586 = and i32 %4158, 1
-  %.not5774.not = icmp eq i32 %4586, 0
-  br i1 %.not5772, label %4590, label %4587
+  %.not5775.not = icmp eq i32 %4586, 0
+  br i1 %.not5773, label %4590, label %4587
 
 4587:                                             ; preds = %4585
-  br i1 %.not5773, label %4589, label %4588
+  br i1 %.not5774, label %4589, label %4588
 
 4588:                                             ; preds = %4587
-  %.6866 = select i1 %.not5774.not, i32 3375104, i32 3899392
-  br label %.sink.split6804
+  %.6869 = select i1 %.not5775.not, i32 3375104, i32 3899392
+  br label %.sink.split6807
 
 4589:                                             ; preds = %4587
-  br i1 %.not5774.not, label %.sink.split6804, label %4593
+  br i1 %.not5775.not, label %.sink.split6807, label %4593
 
 4590:                                             ; preds = %4585
-  br i1 %.not5773, label %4592, label %4591
+  br i1 %.not5774, label %4592, label %4591
 
 4591:                                             ; preds = %4590
-  %.6867 = select i1 %.not5774.not, i32 1146880, i32 1671168
-  br label %.sink.split6804
+  %.6870 = select i1 %.not5775.not, i32 1146880, i32 1671168
+  br label %.sink.split6807
 
 4592:                                             ; preds = %4590
-  br i1 %.not5774.not, label %.sink.split6804, label %4593
+  br i1 %.not5775.not, label %.sink.split6807, label %4593
 
-.sink.split6804:                                  ; preds = %4544, %4592, %4591, %4589, %4588, %4583, %4582, %4579, %4580, %4575, %4574, %4569, %4568, %4560, %4559, %4557, %4556, %4549
-  %.sink6805 = phi i32 [ %.6856, %4549 ], [ %.6857, %4556 ], [ %.6858, %4557 ], [ %.6859, %4559 ], [ %.6860, %4560 ], [ %.6861, %4568 ], [ %.6862, %4569 ], [ %.6863, %4574 ], [ %.6864, %4575 ], [ 64, %4580 ], [ 96, %4579 ], [ 5472256, %4582 ], [ %.6865, %4583 ], [ %.6866, %4588 ], [ 2326528, %4589 ], [ %.6867, %4591 ], [ 65110016, %4592 ], [ 196672, %4544 ]
-  store i32 %.sink6805, ptr %2428, align 8
+.sink.split6807:                                  ; preds = %4544, %4592, %4591, %4589, %4588, %4583, %4582, %4579, %4580, %4575, %4574, %4569, %4568, %4560, %4559, %4557, %4556, %4549
+  %.sink6808 = phi i32 [ %.6859, %4549 ], [ %.6860, %4556 ], [ %.6861, %4557 ], [ %.6862, %4559 ], [ %.6863, %4560 ], [ %.6864, %4568 ], [ %.6865, %4569 ], [ %.6866, %4574 ], [ %.6867, %4575 ], [ 64, %4580 ], [ 96, %4579 ], [ 5472256, %4582 ], [ %.6868, %4583 ], [ %.6869, %4588 ], [ 2326528, %4589 ], [ %.6870, %4591 ], [ 65110016, %4592 ], [ 196672, %4544 ]
+  store i32 %.sink6808, ptr %2428, align 8
   br label %4593
 
-4593:                                             ; preds = %.sink.split6804, %4570, %4564, %4589, %4592, %4580, %4544, %4547
+4593:                                             ; preds = %.sink.split6807, %4570, %4564, %4589, %4592, %4580, %4544, %4547
   %4594 = lshr i32 %4158, 11
   %4595 = trunc i32 %4594 to i8
   %4596 = and i8 %4595, 31
@@ -10116,12 +10116,12 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %4629 = zext i1 %4628 to i32
   %4630 = icmp eq i8 %4618, 3
   %4631 = lshr i32 %4620, 31
-  %.not5940 = icmp eq i32 %4620, 0
+  %.not5941 = icmp eq i32 %4620, 0
   %4632 = xor i32 %4631, 1
-  %4633 = select i1 %.not5940, i32 0, i32 %4632
+  %4633 = select i1 %.not5941, i32 0, i32 %4632
   %4634 = select i1 %4630, i32 %4633, i32 0
   %4635 = icmp eq i8 %4618, 4
-  %4636 = zext i1 %.not5940 to i32
+  %4636 = zext i1 %.not5941 to i32
   %4637 = or i32 %4631, %4636
   %4638 = select i1 %4635, i32 %4637, i32 0
   %4639 = icmp eq i8 %4618, 5
@@ -10164,115 +10164,115 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %4669 = add i32 %4668, %4664
   %4670 = getelementptr inbounds nuw i8, ptr %0, i64 388
   store i32 %4669, ptr %4670, align 4
-  %.mask5941 = and i32 %4157, -268435456
-  %4671 = icmp eq i32 %.mask5941, 268435456
+  %.mask5942 = and i32 %4157, -268435456
+  %4671 = icmp eq i32 %.mask5942, 268435456
   %4672 = and i32 %4157, -66191360
-  %.not5949 = icmp eq i32 %4672, 67108864
-  %.demorgan59435944.not = or i1 %4671, %.not5949
-  %4673 = zext i1 %.demorgan59435944.not to i8
+  %.not5950 = icmp eq i32 %4672, 67108864
+  %.demorgan59445945.not = or i1 %4671, %.not5950
+  %4673 = zext i1 %.demorgan59445945.not to i8
   %4674 = getelementptr inbounds nuw i8, ptr %0, i64 94
   store i8 %4673, ptr %4674, align 2
   %4675 = and i32 %4157, -67108802
-  %.demorgan59505951.not = icmp eq i32 %4675, 8
-  %4676 = zext i1 %.demorgan59505951.not to i8
+  %.demorgan59525953.not = icmp eq i32 %4675, 8
+  %4676 = zext i1 %.demorgan59525953.not to i8
   %4677 = getelementptr inbounds nuw i8, ptr %0, i64 159
   store i8 %4676, ptr %4677, align 1
   %4678 = getelementptr inbounds nuw i8, ptr %0, i64 356
   store i32 0, ptr %4678, align 4
-  %.not5954 = icmp sgt i32 %4157, -1
-  br i1 %.not5954, label %4753, label %4679
+  %.not5956 = icmp sgt i32 %4157, -1
+  br i1 %.not5956, label %4753, label %4679
 
 4679:                                             ; preds = %4598
   %4680 = load i32, ptr %4655, align 4
   %4681 = and i32 %4680, 1073741824
-  %.not6148 = icmp eq i32 %4681, 0
+  %.not6151 = icmp eq i32 %4681, 0
   %4682 = and i32 %4680, 536870912
-  %.not6149 = icmp eq i32 %4682, 0
+  %.not6152 = icmp eq i32 %4682, 0
   %4683 = and i32 %4680, 268435456
-  %.not6150 = icmp eq i32 %4683, 0
-  br i1 %.not6148, label %4707, label %4684
+  %.not6153 = icmp eq i32 %4683, 0
+  br i1 %.not6151, label %4707, label %4684
 
 4684:                                             ; preds = %4679
-  br i1 %.not6149, label %4694, label %4685
+  br i1 %.not6152, label %4694, label %4685
 
 4685:                                             ; preds = %4684
   %4686 = and i32 %4680, 469762048
-  %or.cond6939 = icmp eq i32 %4686, 0
-  br i1 %or.cond6939, label %4687, label %.sink.split6868
+  %or.cond6942 = icmp eq i32 %4686, 0
+  br i1 %or.cond6942, label %4687, label %.sink.split6871
 
-.sink.split6868:                                  ; preds = %4685
+.sink.split6871:                                  ; preds = %4685
   store i8 1, ptr %4653, align 2
   br label %4687
 
-4687:                                             ; preds = %4685, %.sink.split6868
-  %.sink6810 = phi i32 [ 11, %.sink.split6868 ], [ 16, %4685 ]
-  %4688 = lshr i32 %4680, %.sink6810
+4687:                                             ; preds = %4685, %.sink.split6871
+  %.sink6813 = phi i32 [ 11, %.sink.split6871 ], [ 16, %4685 ]
+  %4688 = lshr i32 %4680, %.sink6813
   %4689 = trunc i32 %4688 to i8
   %4690 = and i8 %4689, 31
   %4691 = getelementptr inbounds nuw i8, ptr %0, i64 111
   store i8 %4690, ptr %4691, align 1
   %4692 = and i32 %4680, 469762048
-  %or.cond6529 = icmp eq i32 %4692, 0
-  br i1 %or.cond6529, label %4693, label %4751
+  %or.cond6532 = icmp eq i32 %4692, 0
+  br i1 %or.cond6532, label %4693, label %4751
 
 4693:                                             ; preds = %4687
   store i32 130271232, ptr %4678, align 4
   br label %4751
 
 4694:                                             ; preds = %4684
-  br i1 %.not6150, label %4695, label %.sink.split6869
+  br i1 %.not6153, label %4695, label %.sink.split6872
 
 4695:                                             ; preds = %4694
   %4696 = and i32 %4680, 134217728
-  %.not6168 = icmp eq i32 %4696, 0
+  %.not6171 = icmp eq i32 %4696, 0
   %4697 = and i32 %4680, 67108864
-  %.not6169 = icmp eq i32 %4697, 0
-  br i1 %.not6168, label %4699, label %4698
+  %.not6172 = icmp eq i32 %4697, 0
+  br i1 %.not6171, label %4699, label %4698
 
 4698:                                             ; preds = %4695
-  br i1 %.not6169, label %.sink.split6869, label %4700
+  br i1 %.not6172, label %.sink.split6872, label %4700
 
 4699:                                             ; preds = %4695
-  br i1 %.not6169, label %4700, label %.sink.split6869
+  br i1 %.not6172, label %4700, label %.sink.split6872
 
-.sink.split6869:                                  ; preds = %4699, %4698, %4694
+.sink.split6872:                                  ; preds = %4699, %4698, %4694
   store i8 1, ptr %4653, align 2
   br label %4700
 
-4700:                                             ; preds = %.sink.split6869, %4699, %4698
-  %.sink6815 = phi i32 [ 11, %4698 ], [ 16, %4699 ], [ 11, %.sink.split6869 ]
-  %4701 = lshr i32 %4680, %.sink6815
+4700:                                             ; preds = %.sink.split6872, %4699, %4698
+  %.sink6818 = phi i32 [ 11, %4698 ], [ 16, %4699 ], [ 11, %.sink.split6872 ]
+  %4701 = lshr i32 %4680, %.sink6818
   %4702 = trunc i32 %4701 to i8
   %4703 = and i8 %4702, 31
   %4704 = getelementptr inbounds nuw i8, ptr %0, i64 111
   store i8 %4703, ptr %4704, align 1
   %4705 = and i32 %4680, 469762048
-  %or.cond6531 = icmp eq i32 %4705, 0
-  br i1 %or.cond6531, label %4706, label %4751
+  %or.cond6534 = icmp eq i32 %4705, 0
+  br i1 %or.cond6534, label %4706, label %4751
 
 4706:                                             ; preds = %4700
   store i32 192512, ptr %4678, align 4
   br label %4751
 
 4707:                                             ; preds = %4679
-  br i1 %.not6149, label %4729, label %4708
+  br i1 %.not6152, label %4729, label %4708
 
 4708:                                             ; preds = %4707
-  br i1 %.not6150, label %4723, label %4709
+  br i1 %.not6153, label %4723, label %4709
 
 4709:                                             ; preds = %4708
   %4710 = and i32 %4680, 134217728
-  %.not6163.not = icmp eq i32 %4710, 0
-  br i1 %.not6163.not, label %.thread6706, label %4711
+  %.not6166.not = icmp eq i32 %4710, 0
+  br i1 %.not6166.not, label %.thread6709, label %4711
 
-.thread6706:                                      ; preds = %4709
+.thread6709:                                      ; preds = %4709
   store i8 1, ptr %4653, align 2
   br label %4724
 
 4711:                                             ; preds = %4709
   %4712 = and i32 %4680, 67108864
-  %.not6165 = icmp eq i32 %4712, 0
-  br i1 %.not6165, label %4722, label %4713
+  %.not6168 = icmp eq i32 %4712, 0
+  br i1 %.not6168, label %4722, label %4713
 
 4713:                                             ; preds = %4711
   %4714 = lshr i32 %4680, 16
@@ -10294,7 +10294,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i32 215040, ptr %4678, align 4
   br label %4724
 
-4724:                                             ; preds = %.thread6706, %4723, %4722, %4713
+4724:                                             ; preds = %.thread6709, %4723, %4722, %4713
   %4725 = lshr i32 %4680, 11
   %4726 = trunc i32 %4725 to i8
   %4727 = and i8 %4726, 31
@@ -10304,32 +10304,32 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 4729:                                             ; preds = %4707
   %4730 = and i32 %4680, 134217728
-  %.not6151 = icmp eq i32 %4730, 0
-  br i1 %.not6150, label %4745, label %4731
+  %.not6154 = icmp eq i32 %4730, 0
+  br i1 %.not6153, label %4745, label %4731
 
 4731:                                             ; preds = %4729
-  br i1 %.not6151, label %4740, label %4732
+  br i1 %.not6154, label %4740, label %4732
 
 4732:                                             ; preds = %4731
   %4733 = and i32 %4680, 67108864
-  %.not6157 = icmp eq i32 %4733, 0
-  br i1 %.not6157, label %4737, label %4734
+  %.not6160 = icmp eq i32 %4733, 0
+  br i1 %.not6160, label %4737, label %4734
 
 4734:                                             ; preds = %4732
   store i8 1, ptr %4653, align 2
   %4735 = lshr i32 %4680, 11
-  %.sink6651.in = trunc i32 %4735 to i8
-  %.sink6651 = and i8 %.sink6651.in, 31
+  %.sink6654.in = trunc i32 %4735 to i8
+  %.sink6654 = and i8 %.sink6654.in, 31
   %4736 = getelementptr inbounds nuw i8, ptr %0, i64 111
-  store i8 %.sink6651, ptr %4736, align 1
+  store i8 %.sink6654, ptr %4736, align 1
   br label %4751
 
 4737:                                             ; preds = %4732
   %4738 = lshr i32 %4680, 16
-  %.sink6651.in6709 = trunc i32 %4738 to i8
-  %.sink66516710 = and i8 %.sink6651.in6709, 31
+  %.sink6654.in6712 = trunc i32 %4738 to i8
+  %.sink66546713 = and i8 %.sink6654.in6712, 31
   %4739 = getelementptr inbounds nuw i8, ptr %0, i64 111
-  store i8 %.sink66516710, ptr %4739, align 1
+  store i8 %.sink66546713, ptr %4739, align 1
   store i32 258048, ptr %4678, align 4
   br label %4751
 
@@ -10344,10 +10344,10 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 4745:                                             ; preds = %4729
   %4746 = and i32 %4680, 67108864
-  %.not6153 = icmp eq i32 %4746, 0
-  %.6870 = select i1 %.not6153, i32 258048, i32 192512
-  %.sink6816 = select i1 %.not6151, i32 192512, i32 %.6870
-  store i32 %.sink6816, ptr %4678, align 4
+  %.not6156 = icmp eq i32 %4746, 0
+  %.6873 = select i1 %.not6156, i32 258048, i32 192512
+  %.sink6819 = select i1 %.not6154, i32 192512, i32 %.6873
+  store i32 %.sink6819, ptr %4678, align 4
   %4747 = lshr i32 %4680, 16
   %4748 = trunc i32 %4747 to i8
   %4749 = and i8 %4748, 31
@@ -10361,78 +10361,78 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %5024
 
 4753:                                             ; preds = %4598
-  %.not5955 = icmp samesign ult i32 %4157, 1073741824
-  br i1 %.not5955, label %4859, label %4754
+  %.not5958 = icmp samesign ult i32 %4157, 1073741824
+  br i1 %.not5958, label %4859, label %4754
 
 4754:                                             ; preds = %4753
   %4755 = load i32, ptr %4655, align 4
   %4756 = and i32 %4755, 536870912
-  %.not6072 = icmp eq i32 %4756, 0
+  %.not6075 = icmp eq i32 %4756, 0
   %4757 = and i32 %4755, 268435456
-  %.not6073 = icmp eq i32 %4757, 0
-  br i1 %.not6072, label %4806, label %4758
+  %.not6076 = icmp eq i32 %4757, 0
+  br i1 %.not6075, label %4806, label %4758
 
 4758:                                             ; preds = %4754
-  br i1 %.not6073, label %4800, label %4759
+  br i1 %.not6076, label %4800, label %4759
 
 4759:                                             ; preds = %4758
   %4760 = and i32 %4755, 201326592
-  %or.cond6910 = icmp eq i32 %4760, 0
-  br i1 %or.cond6910, label %4761, label %.sink.split6817
+  %or.cond6913 = icmp eq i32 %4760, 0
+  br i1 %or.cond6913, label %4761, label %.sink.split6820
 
 4761:                                             ; preds = %4759
   %4762 = and i32 %4755, 32
-  %.not6121 = icmp eq i32 %4762, 0
-  br i1 %.not6121, label %4765, label %4763
+  %.not6124 = icmp eq i32 %4762, 0
+  br i1 %.not6124, label %4765, label %4763
 
 4763:                                             ; preds = %4761
   %4764 = and i32 %4755, 30
-  %or.cond6913 = icmp eq i32 %4764, 0
-  br i1 %or.cond6913, label %4773, label %.sink.split6817
+  %or.cond6916 = icmp eq i32 %4764, 0
+  br i1 %or.cond6916, label %4773, label %.sink.split6820
 
 4765:                                             ; preds = %4761
   %4766 = and i32 %4755, 24
-  %or.cond6914 = icmp eq i32 %4766, 0
-  br i1 %or.cond6914, label %4767, label %.sink.split6817
+  %or.cond6917 = icmp eq i32 %4766, 0
+  br i1 %or.cond6917, label %4767, label %.sink.split6820
 
 4767:                                             ; preds = %4765
   %4768 = and i32 %4755, 4
-  %.not6124 = icmp eq i32 %4768, 0
-  br i1 %.not6124, label %4771, label %4769
+  %.not6127 = icmp eq i32 %4768, 0
+  br i1 %.not6127, label %4771, label %4769
 
 4769:                                             ; preds = %4767
   %4770 = and i32 %4755, 2
-  %.not6127 = icmp eq i32 %4770, 0
-  br i1 %.not6127, label %4773, label %.sink.split6817
+  %.not6130 = icmp eq i32 %4770, 0
+  br i1 %.not6130, label %4773, label %.sink.split6820
 
 4771:                                             ; preds = %4767
   %4772 = and i32 %4755, 3
-  %or.cond6532.not = icmp eq i32 %4772, 3
-  br i1 %or.cond6532.not, label %.sink.split6817, label %4773
+  %or.cond6535.not = icmp eq i32 %4772, 3
+  br i1 %or.cond6535.not, label %.sink.split6820, label %4773
 
-.sink.split6817:                                  ; preds = %4771, %4769, %4765, %4763, %4759
+.sink.split6820:                                  ; preds = %4771, %4769, %4765, %4763, %4759
   store i8 1, ptr %4653, align 2
   br label %4773
 
-4773:                                             ; preds = %4763, %.sink.split6817, %4769, %4771
+4773:                                             ; preds = %4763, %.sink.split6820, %4769, %4771
   %4774 = and i32 %4755, 201326592
-  %or.cond6533 = icmp eq i32 %4774, 0
-  br i1 %or.cond6533, label %4775, label %4801
+  %or.cond6536 = icmp eq i32 %4774, 0
+  br i1 %or.cond6536, label %4775, label %4801
 
 4775:                                             ; preds = %4773
   %4776 = and i32 %4755, 32
-  %.not6134 = icmp eq i32 %4776, 0
-  br i1 %.not6134, label %4783, label %4777
+  %.not6137 = icmp eq i32 %4776, 0
+  br i1 %.not6137, label %4783, label %4777
 
 4777:                                             ; preds = %4775
   %4778 = and i32 %4755, 30
-  %or.cond6536 = icmp eq i32 %4778, 0
-  br i1 %or.cond6536, label %4779, label %4801
+  %or.cond6539 = icmp eq i32 %4778, 0
+  br i1 %or.cond6539, label %4779, label %4801
 
 4779:                                             ; preds = %4777
   %4780 = and i32 %4755, 1
-  %.not6147 = icmp eq i32 %4780, 0
-  br i1 %.not6147, label %4782, label %4781
+  %.not6150 = icmp eq i32 %4780, 0
+  br i1 %.not6150, label %4782, label %4781
 
 4781:                                             ; preds = %4779
   store i32 51019776, ptr %4678, align 4
@@ -10444,23 +10444,23 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 4783:                                             ; preds = %4775
   %4784 = and i32 %4755, 24
-  %or.cond6537 = icmp eq i32 %4784, 0
-  br i1 %or.cond6537, label %4785, label %4801
+  %or.cond6540 = icmp eq i32 %4784, 0
+  br i1 %or.cond6540, label %4785, label %4801
 
 4785:                                             ; preds = %4783
   %4786 = and i32 %4755, 4
-  %.not6137 = icmp eq i32 %4786, 0
+  %.not6140 = icmp eq i32 %4786, 0
   %4787 = and i32 %4755, 2
-  %.not6138 = icmp eq i32 %4787, 0
-  br i1 %.not6137, label %4793, label %4788
+  %.not6141 = icmp eq i32 %4787, 0
+  br i1 %.not6140, label %4793, label %4788
 
 4788:                                             ; preds = %4785
-  br i1 %.not6138, label %4789, label %4801
+  br i1 %.not6141, label %4789, label %4801
 
 4789:                                             ; preds = %4788
   %4790 = and i32 %4755, 1
-  %.not6142 = icmp eq i32 %4790, 0
-  br i1 %.not6142, label %4792, label %4791
+  %.not6145 = icmp eq i32 %4790, 0
+  br i1 %.not6145, label %4792, label %4791
 
 4791:                                             ; preds = %4789
   store i32 53150082, ptr %4678, align 4
@@ -10472,18 +10472,18 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 4793:                                             ; preds = %4785
   %4794 = and i32 %4755, 1
-  %.not6139 = icmp eq i32 %4794, 0
-  br i1 %.not6138, label %4797, label %4795
+  %.not6142 = icmp eq i32 %4794, 0
+  br i1 %.not6141, label %4797, label %4795
 
 4795:                                             ; preds = %4793
-  br i1 %.not6139, label %4796, label %4801
+  br i1 %.not6142, label %4796, label %4801
 
 4796:                                             ; preds = %4795
   store i32 12812290, ptr %4678, align 4
   br label %4801
 
 4797:                                             ; preds = %4793
-  br i1 %.not6139, label %4799, label %4798
+  br i1 %.not6142, label %4799, label %4798
 
 4798:                                             ; preds = %4797
   store i32 34275714, ptr %4678, align 4
@@ -10506,7 +10506,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %4857
 
 4806:                                             ; preds = %4754
-  br i1 %.not6073, label %4808, label %4807
+  br i1 %.not6076, label %4808, label %4807
 
 4807:                                             ; preds = %4806
   store i8 1, ptr %4653, align 2
@@ -10514,8 +10514,8 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 4808:                                             ; preds = %4806
   %4809 = and i32 %4755, 134217728
-  %.not6074 = icmp eq i32 %4809, 0
-  br i1 %.not6074, label %4811, label %4810
+  %.not6077 = icmp eq i32 %4809, 0
+  br i1 %.not6077, label %4811, label %4810
 
 4810:                                             ; preds = %4808
   store i8 1, ptr %4653, align 2
@@ -10523,8 +10523,8 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 4811:                                             ; preds = %4808
   %4812 = and i32 %4755, 67108864
-  %.not6075 = icmp eq i32 %4812, 0
-  br i1 %.not6075, label %4814, label %4813
+  %.not6078 = icmp eq i32 %4812, 0
+  br i1 %.not6078, label %4814, label %4813
 
 4813:                                             ; preds = %4811
   store i8 1, ptr %4653, align 2
@@ -10532,7 +10532,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 4814:                                             ; preds = %4811
   %4815 = and i32 %4755, 65011712
-  switch i32 %4815, label %.sink.split6818 [
+  switch i32 %4815, label %.sink.split6821 [
     i32 0, label %4836
     i32 8388608, label %4836
     i32 33554432, label %4816
@@ -10540,71 +10540,71 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 4816:                                             ; preds = %4814
   %4817 = and i32 %4755, 32
-  %.not6078 = icmp eq i32 %4817, 0
+  %.not6081 = icmp eq i32 %4817, 0
   %4818 = and i32 %4755, 8
-  %.not6080.not = icmp eq i32 %4818, 0
-  br i1 %.not6078, label %4821, label %4819
+  %.not6083.not = icmp eq i32 %4818, 0
+  br i1 %.not6081, label %4821, label %4819
 
 4819:                                             ; preds = %4816
   %4820 = and i32 %4755, 31
-  %or.cond6918 = icmp eq i32 %4820, 0
-  br i1 %or.cond6918, label %4836, label %.sink.split6818
+  %or.cond6921 = icmp eq i32 %4820, 0
+  br i1 %or.cond6921, label %4836, label %.sink.split6821
 
 4821:                                             ; preds = %4816
   %4822 = and i32 %4755, 16
-  %.not6079 = icmp eq i32 %4822, 0
-  br i1 %.not6079, label %4825, label %4823
+  %.not6082 = icmp eq i32 %4822, 0
+  br i1 %.not6082, label %4825, label %4823
 
 4823:                                             ; preds = %4821
   %4824 = and i32 %4755, 15
-  %or.cond6921 = icmp eq i32 %4824, 8
-  br i1 %or.cond6921, label %4836, label %.sink.split6818
+  %or.cond6924 = icmp eq i32 %4824, 8
+  br i1 %or.cond6924, label %4836, label %.sink.split6821
 
 4825:                                             ; preds = %4821
   %4826 = and i32 %4755, 2
-  %.not6082 = icmp eq i32 %4826, 0
-  br i1 %.not6080.not, label %4829, label %4827
+  %.not6085 = icmp eq i32 %4826, 0
+  br i1 %.not6083.not, label %4829, label %4827
 
 4827:                                             ; preds = %4825
   %4828 = and i32 %4755, 7
-  %or.cond6923 = icmp eq i32 %4828, 0
-  br i1 %or.cond6923, label %4836, label %.sink.split6818
+  %or.cond6926 = icmp eq i32 %4828, 0
+  br i1 %or.cond6926, label %4836, label %.sink.split6821
 
 4829:                                             ; preds = %4825
   %4830 = and i32 %4755, 4
-  %.not6081 = icmp eq i32 %4830, 0
-  br i1 %.not6081, label %4833, label %4831
+  %.not6084 = icmp eq i32 %4830, 0
+  br i1 %.not6084, label %4833, label %4831
 
 4831:                                             ; preds = %4829
   %4832 = and i32 %4755, 3
-  %or.cond6924.not.not = icmp eq i32 %4832, 2
-  br i1 %or.cond6924.not.not, label %4836, label %.sink.split6818
+  %or.cond6927.not.not = icmp eq i32 %4832, 2
+  br i1 %or.cond6927.not.not, label %4836, label %.sink.split6821
 
 4833:                                             ; preds = %4829
   %4834 = and i32 %4755, 1
-  %.not6083.not = icmp eq i32 %4834, 0
-  %4835 = xor i1 %.not6082, %.not6083.not
-  br i1 %4835, label %4836, label %.sink.split6818
+  %.not6086.not = icmp eq i32 %4834, 0
+  %4835 = xor i1 %.not6085, %.not6086.not
+  br i1 %4835, label %4836, label %.sink.split6821
 
-.sink.split6818:                                  ; preds = %4833, %4814, %4831, %4827, %4823, %4819
+.sink.split6821:                                  ; preds = %4833, %4814, %4831, %4827, %4823, %4819
   store i8 1, ptr %4653, align 2
   br label %4836
 
-4836:                                             ; preds = %4833, %4831, %4827, %4823, %4819, %.sink.split6818, %4814, %4814
+4836:                                             ; preds = %4833, %4831, %4827, %4823, %4819, %.sink.split6821, %4814, %4814
   %4837 = icmp eq i32 %4815, 0
-  %.v6630 = select i1 %4837, i32 16, i32 11
+  %.v6633 = select i1 %4837, i32 16, i32 11
   br label %4838
 
 4838:                                             ; preds = %4810, %4836, %4813, %4807
-  %.sink6823 = phi i32 [ 11, %4810 ], [ %.v6630, %4836 ], [ 11, %4813 ], [ 11, %4807 ]
-  %4839 = lshr i32 %4755, %.sink6823
+  %.sink6826 = phi i32 [ 11, %4810 ], [ %.v6633, %4836 ], [ 11, %4813 ], [ 11, %4807 ]
+  %4839 = lshr i32 %4755, %.sink6826
   %4840 = trunc i32 %4839 to i8
   %4841 = and i8 %4840, 31
   %4842 = getelementptr inbounds nuw i8, ptr %0, i64 111
   store i8 %4841, ptr %4842, align 1
   %4843 = and i32 %4755, 469762048
-  %or.cond6539 = icmp eq i32 %4843, 0
-  br i1 %or.cond6539, label %4844, label %4857
+  %or.cond6542 = icmp eq i32 %4843, 0
+  br i1 %or.cond6542, label %4844, label %4857
 
 4844:                                             ; preds = %4838
   store i32 32, ptr %4678, align 4
@@ -10625,25 +10625,25 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 4848:                                             ; preds = %4844
   %4849 = and i32 %4755, 56
-  %or.cond6926 = icmp eq i32 %4849, 0
-  br i1 %or.cond6926, label %4850, label %4857
+  %or.cond6929 = icmp eq i32 %4849, 0
+  br i1 %or.cond6929, label %4850, label %4857
 
 4850:                                             ; preds = %4848
   %4851 = and i32 %4755, 4
-  %.not6105 = icmp eq i32 %4851, 0
+  %.not6108 = icmp eq i32 %4851, 0
   %4852 = and i32 %4755, 3
-  %brmerge6927.not = icmp eq i32 %4852, 2
-  br i1 %.not6105, label %4855, label %4853
+  %brmerge6930.not = icmp eq i32 %4852, 2
+  br i1 %.not6108, label %4855, label %4853
 
 4853:                                             ; preds = %4850
-  br i1 %brmerge6927.not, label %4854, label %4857
+  br i1 %brmerge6930.not, label %4854, label %4857
 
 4854:                                             ; preds = %4853
   store i32 36, ptr %4678, align 4
   br label %4857
 
 4855:                                             ; preds = %4850
-  br i1 %brmerge6927.not, label %4856, label %4857
+  br i1 %brmerge6930.not, label %4856, label %4857
 
 4856:                                             ; preds = %4855
   store i32 36, ptr %4678, align 4
@@ -10655,129 +10655,129 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %5024
 
 4859:                                             ; preds = %4753
-  %or.cond6547 = icmp samesign ult i32 %4157, 134217728
-  br i1 %or.cond6547, label %4860, label %4888
+  %or.cond6550 = icmp samesign ult i32 %4157, 134217728
+  br i1 %or.cond6550, label %4860, label %4888
 
 4860:                                             ; preds = %4859
-  %.not5959 = icmp samesign ult i32 %4157, 67108864
-  br i1 %.not5959, label %4872, label %4861
+  %.not5962 = icmp samesign ult i32 %4157, 67108864
+  br i1 %.not5962, label %4872, label %4861
 
 4861:                                             ; preds = %4860
   %4862 = load i32, ptr %4655, align 4
   %4863 = and i32 %4862, 1048576
-  %.not5983 = icmp eq i32 %4863, 0
-  br i1 %.not5983, label %4866, label %4864
+  %.not5986 = icmp eq i32 %4863, 0
+  br i1 %.not5986, label %4866, label %4864
 
 4864:                                             ; preds = %4861
   %4865 = and i32 %4862, 917504
-  %or.cond6929 = icmp eq i32 %4865, 0
-  br i1 %or.cond6929, label %4888, label %.sink.split6824
+  %or.cond6932 = icmp eq i32 %4865, 0
+  br i1 %or.cond6932, label %4888, label %.sink.split6827
 
 4866:                                             ; preds = %4861
   %4867 = and i32 %4862, 524288
-  %.not5984 = icmp eq i32 %4867, 0
-  br i1 %.not5984, label %4870, label %4868
+  %.not5987 = icmp eq i32 %4867, 0
+  br i1 %.not5987, label %4870, label %4868
 
 4868:                                             ; preds = %4866
   %4869 = and i32 %4862, 327680
-  %or.cond6940.not = icmp eq i32 %4869, 327680
-  br i1 %or.cond6940.not, label %.sink.split6824, label %4888
+  %or.cond6943.not = icmp eq i32 %4869, 327680
+  br i1 %or.cond6943.not, label %.sink.split6827, label %4888
 
 4870:                                             ; preds = %4866
   %4871 = and i32 %4862, 393216
-  %or.cond6930 = icmp eq i32 %4871, 0
-  br i1 %or.cond6930, label %4888, label %.sink.split6824
+  %or.cond6933 = icmp eq i32 %4871, 0
+  br i1 %or.cond6933, label %4888, label %.sink.split6827
 
 4872:                                             ; preds = %4860
   %4873 = and i32 %4157, 32
-  %.not5960 = icmp eq i32 %4873, 0
+  %.not5963 = icmp eq i32 %4873, 0
   %4874 = and i32 %4157, 16
-  %.not5961 = icmp eq i32 %4874, 0
+  %.not5964 = icmp eq i32 %4874, 0
   %4875 = and i32 %4157, 8
-  %.not5962 = icmp eq i32 %4875, 0
-  br i1 %.not5960, label %4881, label %4876
+  %.not5965 = icmp eq i32 %4875, 0
+  br i1 %.not5963, label %4881, label %4876
 
 4876:                                             ; preds = %4872
-  br i1 %.not5961, label %4879, label %4877
+  br i1 %.not5964, label %4879, label %4877
 
 4877:                                             ; preds = %4876
   %4878 = and i32 %4157, 5
-  %or.cond6941.not = icmp ne i32 %4878, 5
-  %or.cond6954.not = and i1 %.not5962, %or.cond6941.not
-  br i1 %or.cond6954.not, label %4888, label %.sink.split6824
+  %or.cond6944.not = icmp ne i32 %4878, 5
+  %or.cond6957.not = and i1 %.not5965, %or.cond6944.not
+  br i1 %or.cond6957.not, label %4888, label %.sink.split6827
 
 4879:                                             ; preds = %4876
   %4880 = and i32 %4157, 6
-  %or.cond6931.not = icmp eq i32 %4880, 2
-  %or.cond6955 = or i1 %.not5962, %or.cond6931.not
-  br i1 %or.cond6955, label %4888, label %.sink.split6824
+  %or.cond6934.not = icmp eq i32 %4880, 2
+  %or.cond6958 = or i1 %.not5965, %or.cond6934.not
+  br i1 %or.cond6958, label %4888, label %.sink.split6827
 
 4881:                                             ; preds = %4872
-  br i1 %.not5961, label %4884, label %4882
+  br i1 %.not5964, label %4884, label %4882
 
 4882:                                             ; preds = %4881
   %4883 = and i32 %4157, 4
-  %.not5972 = icmp eq i32 %4883, 0
-  br i1 %.not5972, label %4888, label %.sink.split6824
+  %.not5975 = icmp eq i32 %4883, 0
+  br i1 %.not5975, label %4888, label %.sink.split6827
 
 4884:                                             ; preds = %4881
-  br i1 %.not5962, label %4886, label %4885
+  br i1 %.not5965, label %4886, label %4885
 
 4885:                                             ; preds = %4884
-  %or.cond6549 = icmp eq i32 %4658, 6
-  br i1 %or.cond6549, label %.sink.split6824, label %4888
+  %or.cond6552 = icmp eq i32 %4658, 6
+  br i1 %or.cond6552, label %.sink.split6827, label %4888
 
 4886:                                             ; preds = %4884
   %4887 = and i32 %4157, 3
-  %or.cond6551.not = icmp eq i32 %4887, 1
-  br i1 %or.cond6551.not, label %.sink.split6824, label %4888
+  %or.cond6554.not = icmp eq i32 %4887, 1
+  br i1 %or.cond6554.not, label %.sink.split6827, label %4888
 
-.sink.split6824:                                  ; preds = %4879, %4868, %4886, %4882, %4885, %4877, %4870, %4864
+.sink.split6827:                                  ; preds = %4879, %4868, %4886, %4882, %4885, %4877, %4870, %4864
   store i8 1, ptr %4653, align 2
   br label %4888
 
-4888:                                             ; preds = %4877, %4886, %4882, %4870, %4864, %.sink.split6824, %4868, %4885, %4879, %4859
+4888:                                             ; preds = %4877, %4886, %4882, %4870, %4864, %.sink.split6827, %4868, %4885, %4879, %4859
   %4889 = load i32, ptr %4655, align 4
   %4890 = and i32 %4889, 536870912
-  %.not5994 = icmp eq i32 %4890, 0
-  br i1 %.not5994, label %4907, label %4891
+  %.not5997 = icmp eq i32 %4890, 0
+  br i1 %.not5997, label %4907, label %4891
 
 4891:                                             ; preds = %4888
   %4892 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i8 0, ptr %4892, align 4
   %4893 = and i32 %4889, 268435456
-  %.not6065 = icmp eq i32 %4893, 0
+  %.not6068 = icmp eq i32 %4893, 0
   %4894 = and i32 %4889, 134217728
-  %.not6066 = icmp eq i32 %4894, 0
+  %.not6069 = icmp eq i32 %4894, 0
   %4895 = and i32 %4889, 67108864
-  %.not6067 = icmp eq i32 %4895, 0
-  br i1 %.not6065, label %4899, label %4896
+  %.not6070 = icmp eq i32 %4895, 0
+  br i1 %.not6068, label %4899, label %4896
 
 4896:                                             ; preds = %4891
-  br i1 %.not6066, label %4898, label %4897
+  br i1 %.not6069, label %4898, label %4897
 
 4897:                                             ; preds = %4896
-  %.6871 = select i1 %.not6067, i32 20086784, i32 48398336
+  %.6874 = select i1 %.not6070, i32 20086784, i32 48398336
   br label %4902
 
 4898:                                             ; preds = %4896
-  %.6872 = select i1 %.not6067, i32 19038208, i32 19562496
+  %.6875 = select i1 %.not6070, i32 19038208, i32 19562496
   br label %4902
 
 4899:                                             ; preds = %4891
-  br i1 %.not6066, label %4901, label %4900
+  br i1 %.not6069, label %4901, label %4900
 
 4900:                                             ; preds = %4899
-  %.6873 = select i1 %.not6067, i32 22183936, i32 22708224
+  %.6876 = select i1 %.not6070, i32 22183936, i32 22708224
   br label %4902
 
 4901:                                             ; preds = %4899
-  %.6874 = select i1 %.not6067, i32 16941056, i32 17465344
+  %.6877 = select i1 %.not6070, i32 16941056, i32 17465344
   br label %4902
 
 4902:                                             ; preds = %4901, %4900, %4898, %4897
-  %.sink6825 = phi i32 [ %.6871, %4897 ], [ %.6872, %4898 ], [ %.6873, %4900 ], [ %.6874, %4901 ]
-  store i32 %.sink6825, ptr %4678, align 4
+  %.sink6828 = phi i32 [ %.6874, %4897 ], [ %.6875, %4898 ], [ %.6876, %4900 ], [ %.6877, %4901 ]
+  store i32 %.sink6828, ptr %4678, align 4
   %4903 = lshr i32 %4889, 16
   %4904 = trunc i32 %4903 to i8
   %4905 = and i8 %4904, 31
@@ -10787,17 +10787,17 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 4907:                                             ; preds = %4888
   %4908 = and i32 %4889, 268435456
-  %.not5995 = icmp eq i32 %4908, 0
+  %.not5998 = icmp eq i32 %4908, 0
   %4909 = and i32 %4889, 134217728
-  %.not5996 = icmp eq i32 %4909, 0
-  br i1 %.not5995, label %4920, label %4910
+  %.not5999 = icmp eq i32 %4909, 0
+  br i1 %.not5998, label %4920, label %4910
 
 4910:                                             ; preds = %4907
   %4911 = and i32 %4889, 67108864
-  %.not6063 = icmp eq i32 %4911, 0
-  %4912 = select i1 %.not6063, i8 4, i8 3
-  %4913 = select i1 %.not6063, i8 1, i8 2
-  %4914 = select i1 %.not5996, i8 %4913, i8 %4912
+  %.not6066 = icmp eq i32 %4911, 0
+  %4912 = select i1 %.not6066, i8 4, i8 3
+  %4913 = select i1 %.not6066, i8 1, i8 2
+  %4914 = select i1 %.not5999, i8 %4913, i8 %4912
   %4915 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i8 %4914, ptr %4915, align 4
   store i32 196672, ptr %4678, align 4
@@ -10809,14 +10809,14 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %5024
 
 4920:                                             ; preds = %4907
-  br i1 %.not5996, label %4931, label %4921
+  br i1 %.not5999, label %4931, label %4921
 
 4921:                                             ; preds = %4920
   %4922 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i8 8, ptr %4922, align 4
   %4923 = and i32 %4889, 67108864
-  %.not6061 = icmp eq i32 %4923, 0
-  br i1 %.not6061, label %4926, label %4924
+  %.not6064 = icmp eq i32 %4923, 0
+  br i1 %.not6064, label %4926, label %4924
 
 4924:                                             ; preds = %4921
   store i32 32832, ptr %4678, align 4
@@ -10835,55 +10835,55 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 4931:                                             ; preds = %4920
   %4932 = and i32 %4889, 67108864
-  %.not5997 = icmp eq i32 %4932, 0
-  br i1 %.not5997, label %4961, label %4933
+  %.not6000 = icmp eq i32 %4932, 0
+  br i1 %.not6000, label %4961, label %4933
 
 4933:                                             ; preds = %4931
   store i32 64, ptr %4678, align 4
   %4934 = and i32 %4889, 1048576
-  %.not6043 = icmp eq i32 %4934, 0
-  br i1 %.not6043, label %4941, label %4935
+  %.not6046 = icmp eq i32 %4934, 0
+  br i1 %.not6046, label %4941, label %4935
 
 4935:                                             ; preds = %4933
   %4936 = and i32 %4889, 917504
-  %or.cond6553 = icmp eq i32 %4936, 0
+  %or.cond6556 = icmp eq i32 %4936, 0
   %4937 = and i32 %4889, 65536
-  %.not6057 = icmp eq i32 %4937, 0
-  %4938 = select i1 %.not6057, i8 6, i8 5
-  %4939 = select i1 %or.cond6553, i8 %4938, i8 0
+  %.not6060 = icmp eq i32 %4937, 0
+  %4938 = select i1 %.not6060, i8 6, i8 5
+  %4939 = select i1 %or.cond6556, i8 %4938, i8 0
   %4940 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i8 %4939, ptr %4940, align 4
-  br i1 %or.cond6553, label %.sink.split6826, label %4952
+  br i1 %or.cond6556, label %.sink.split6829, label %4952
 
 4941:                                             ; preds = %4933
   %4942 = and i32 %4889, 524288
-  %.not6044 = icmp eq i32 %4942, 0
-  br i1 %.not6044, label %4946, label %4943
+  %.not6047 = icmp eq i32 %4942, 0
+  br i1 %.not6047, label %4946, label %4943
 
 4943:                                             ; preds = %4941
   %4944 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i8 0, ptr %4944, align 4
   %4945 = and i32 %4889, 327680
-  %or.cond6942.not = icmp eq i32 %4945, 327680
-  br i1 %or.cond6942.not, label %4952, label %.sink.split6826
+  %or.cond6945.not = icmp eq i32 %4945, 327680
+  br i1 %or.cond6945.not, label %4952, label %.sink.split6829
 
 4946:                                             ; preds = %4941
   %4947 = and i32 %4889, 393216
-  %or.cond6556 = icmp eq i32 %4947, 0
+  %or.cond6559 = icmp eq i32 %4947, 0
   %4948 = and i32 %4889, 65536
-  %.not6047 = icmp eq i32 %4948, 0
-  %4949 = select i1 %.not6047, i8 6, i8 5
-  %4950 = select i1 %or.cond6556, i8 %4949, i8 0
+  %.not6050 = icmp eq i32 %4948, 0
+  %4949 = select i1 %.not6050, i8 6, i8 5
+  %4950 = select i1 %or.cond6559, i8 %4949, i8 0
   %4951 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i8 %4950, ptr %4951, align 4
-  br i1 %or.cond6556, label %.sink.split6826, label %4952
+  br i1 %or.cond6559, label %.sink.split6829, label %4952
 
-.sink.split6826:                                  ; preds = %4946, %4943, %4935
-  %.sink6827 = phi i32 [ 229440, %4935 ], [ 131136, %4943 ], [ 131136, %4946 ]
-  store i32 %.sink6827, ptr %4678, align 4
+.sink.split6829:                                  ; preds = %4946, %4943, %4935
+  %.sink6830 = phi i32 [ 229440, %4935 ], [ 131136, %4943 ], [ 131136, %4946 ]
+  store i32 %.sink6830, ptr %4678, align 4
   br label %4952
 
-4952:                                             ; preds = %4943, %.sink.split6826, %4946, %4935
+4952:                                             ; preds = %4943, %.sink.split6829, %4946, %4935
   %4953 = and i32 %4889, 2031616
   switch i32 %4953, label %4954 [
     i32 1114112, label %4958
@@ -10909,167 +10909,167 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %4965 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i8 %4964, ptr %4965, align 4
   %4966 = and i32 %4889, 32
-  %.not5998 = icmp eq i32 %4966, 0
+  %.not6001 = icmp eq i32 %4966, 0
   %4967 = and i32 %4889, 16
-  %.not5999 = icmp eq i32 %4967, 0
+  %.not6002 = icmp eq i32 %4967, 0
   %4968 = and i32 %4889, 8
-  %.not6000 = icmp ne i32 %4968, 0
-  br i1 %.not5998, label %4987, label %4969
+  %.not6003 = icmp ne i32 %4968, 0
+  br i1 %.not6001, label %4987, label %4969
 
 4969:                                             ; preds = %4961
-  br i1 %.not5999, label %4972, label %4970
+  br i1 %.not6002, label %4972, label %4970
 
 4970:                                             ; preds = %4969
   %4971 = and i32 %4889, 5
-  %or.cond6943.not = icmp eq i32 %4971, 5
-  %or.cond6956 = or i1 %.not6000, %or.cond6943.not
-  br i1 %or.cond6956, label %5019, label %.sink.split6828
+  %or.cond6946.not = icmp eq i32 %4971, 5
+  %or.cond6959 = or i1 %.not6003, %or.cond6946.not
+  br i1 %or.cond6959, label %5019, label %.sink.split6831
 
 4972:                                             ; preds = %4969
-  br i1 %.not6000, label %4973, label %4977
+  br i1 %.not6003, label %4973, label %4977
 
 4973:                                             ; preds = %4972
   %4974 = and i32 %4889, 6
-  %or.cond6558.not = icmp eq i32 %4974, 2
-  br i1 %or.cond6558.not, label %4975, label %5019
+  %or.cond6561.not = icmp eq i32 %4974, 2
+  br i1 %or.cond6561.not, label %4975, label %5019
 
 4975:                                             ; preds = %4973
   %4976 = and i32 %4889, 1
-  %.not6034 = icmp eq i32 %4976, 0
-  %.6875 = select i1 %.not6034, i32 22249472, i32 22773760
-  br label %.sink.split6828
+  %.not6037 = icmp eq i32 %4976, 0
+  %.6878 = select i1 %.not6037, i32 22249472, i32 22773760
+  br label %.sink.split6831
 
 4977:                                             ; preds = %4972
   %4978 = and i32 %4889, 4
-  %.not6025 = icmp eq i32 %4978, 0
+  %.not6028 = icmp eq i32 %4978, 0
   %4979 = and i32 %4889, 2
-  %.not6026 = icmp eq i32 %4979, 0
+  %.not6029 = icmp eq i32 %4979, 0
   %4980 = and i32 %4889, 1
-  %.not6027 = icmp eq i32 %4980, 0
-  br i1 %.not6025, label %4984, label %4981
+  %.not6030 = icmp eq i32 %4980, 0
+  br i1 %.not6028, label %4984, label %4981
 
 4981:                                             ; preds = %4977
-  br i1 %.not6026, label %4983, label %4982
+  br i1 %.not6029, label %4983, label %4982
 
 4982:                                             ; preds = %4981
-  %.6876 = select i1 %.not6027, i32 20152320, i32 20676608
-  br label %.sink.split6828
+  %.6879 = select i1 %.not6030, i32 20152320, i32 20676608
+  br label %.sink.split6831
 
 4983:                                             ; preds = %4981
-  %.6877 = select i1 %.not6027, i32 19103744, i32 19628032
-  br label %.sink.split6828
+  %.6880 = select i1 %.not6030, i32 19103744, i32 19628032
+  br label %.sink.split6831
 
 4984:                                             ; preds = %4977
-  br i1 %.not6026, label %4986, label %4985
+  br i1 %.not6029, label %4986, label %4985
 
 4985:                                             ; preds = %4984
-  %.6878 = select i1 %.not6027, i32 18055168, i32 18579456
-  br label %.sink.split6828
+  %.6881 = select i1 %.not6030, i32 18055168, i32 18579456
+  br label %.sink.split6831
 
 4986:                                             ; preds = %4984
-  %.6879 = select i1 %.not6027, i32 17006592, i32 17530880
-  br label %.sink.split6828
+  %.6882 = select i1 %.not6030, i32 17006592, i32 17530880
+  br label %.sink.split6831
 
 4987:                                             ; preds = %4961
   %4988 = and i32 %4889, 4
-  %.not6001 = icmp eq i32 %4988, 0
-  br i1 %.not5999, label %5002, label %4989
+  %.not6004 = icmp eq i32 %4988, 0
+  br i1 %.not6002, label %5002, label %4989
 
 4989:                                             ; preds = %4987
-  br i1 %.not6000, label %4990, label %4996
+  br i1 %.not6003, label %4990, label %4996
 
 4990:                                             ; preds = %4989
-  br i1 %.not6001, label %4991, label %5019
+  br i1 %.not6004, label %4991, label %5019
 
 4991:                                             ; preds = %4990
   %4992 = and i32 %4889, 2
-  %.not6020 = icmp eq i32 %4992, 0
+  %.not6023 = icmp eq i32 %4992, 0
   %4993 = and i32 %4889, 1
-  %.not6021 = icmp eq i32 %4993, 0
-  br i1 %.not6020, label %4995, label %4994
+  %.not6024 = icmp eq i32 %4993, 0
+  br i1 %.not6023, label %4995, label %4994
 
 4994:                                             ; preds = %4991
-  %.6880 = select i1 %.not6021, i32 13828225, i32 14352513
-  br label %.sink.split6828
+  %.6883 = select i1 %.not6024, i32 13828225, i32 14352513
+  br label %.sink.split6831
 
 4995:                                             ; preds = %4991
-  %.6881 = select i1 %.not6021, i32 12779650, i32 13303938
-  br label %.sink.split6828
+  %.6884 = select i1 %.not6024, i32 12779650, i32 13303938
+  br label %.sink.split6831
 
 4996:                                             ; preds = %4989
-  br i1 %.not6001, label %4997, label %5019
+  br i1 %.not6004, label %4997, label %5019
 
 4997:                                             ; preds = %4996
   %4998 = and i32 %4889, 2
-  %.not6016 = icmp eq i32 %4998, 0
+  %.not6019 = icmp eq i32 %4998, 0
   %4999 = and i32 %4889, 1
-  %.not6017 = icmp eq i32 %4999, 0
-  br i1 %.not6016, label %5001, label %5000
+  %.not6020 = icmp eq i32 %4999, 0
+  br i1 %.not6019, label %5001, label %5000
 
 5000:                                             ; preds = %4997
-  %.6882 = select i1 %.not6017, i32 9470208, i32 10092672
-  br label %.sink.split6828
+  %.6885 = select i1 %.not6020, i32 9470208, i32 10092672
+  br label %.sink.split6831
 
 5001:                                             ; preds = %4997
-  %.6883 = select i1 %.not6017, i32 8421632, i32 9044096
-  br label %.sink.split6828
+  %.6886 = select i1 %.not6020, i32 8421632, i32 9044096
+  br label %.sink.split6831
 
 5002:                                             ; preds = %4987
   %5003 = and i32 %4889, 2
-  %.not6002 = icmp eq i32 %5003, 0
-  br i1 %.not6000, label %5004, label %5011
+  %.not6005 = icmp eq i32 %5003, 0
+  br i1 %.not6003, label %5004, label %5011
 
 5004:                                             ; preds = %5002
-  br i1 %.not6001, label %5008, label %5005
+  br i1 %.not6004, label %5008, label %5005
 
 5005:                                             ; preds = %5004
-  br i1 %.not6002, label %.sink.split6828, label %5006
+  br i1 %.not6005, label %.sink.split6831, label %5006
 
 5006:                                             ; preds = %5005
   %5007 = and i32 %4889, 1
-  %.not6013 = icmp eq i32 %5007, 0
-  br i1 %.not6013, label %5019, label %.sink.split6828
+  %.not6016 = icmp eq i32 %5007, 0
+  br i1 %.not6016, label %5019, label %.sink.split6831
 
 5008:                                             ; preds = %5004
-  br i1 %.not6002, label %5009, label %.sink.split6828
+  br i1 %.not6005, label %5009, label %.sink.split6831
 
 5009:                                             ; preds = %5008
   %5010 = and i32 %4889, 1
-  %.not6010 = icmp eq i32 %5010, 0
-  %.6884 = select i1 %.not6010, i32 131136, i32 163904
-  br label %.sink.split6828
+  %.not6013 = icmp eq i32 %5010, 0
+  %.6887 = select i1 %.not6013, i32 131136, i32 163904
+  br label %.sink.split6831
 
 5011:                                             ; preds = %5002
   %5012 = and i32 %4889, 1
-  %.not6003.not = icmp eq i32 %5012, 0
-  br i1 %.not6001, label %5016, label %5013
+  %.not6006.not = icmp eq i32 %5012, 0
+  br i1 %.not6004, label %5016, label %5013
 
 5013:                                             ; preds = %5011
-  br i1 %.not6002, label %5015, label %5014
+  br i1 %.not6005, label %5015, label %5014
 
 5014:                                             ; preds = %5013
-  %.6885 = select i1 %.not6003.not, i32 3375104, i32 3899392
-  br label %.sink.split6828
+  %.6888 = select i1 %.not6006.not, i32 3375104, i32 3899392
+  br label %.sink.split6831
 
 5015:                                             ; preds = %5013
-  br i1 %.not6003.not, label %.sink.split6828, label %5019
+  br i1 %.not6006.not, label %.sink.split6831, label %5019
 
 5016:                                             ; preds = %5011
-  br i1 %.not6002, label %5018, label %5017
+  br i1 %.not6005, label %5018, label %5017
 
 5017:                                             ; preds = %5016
-  %.6886 = select i1 %.not6003.not, i32 1146880, i32 1671168
-  br label %.sink.split6828
+  %.6889 = select i1 %.not6006.not, i32 1146880, i32 1671168
+  br label %.sink.split6831
 
 5018:                                             ; preds = %5016
-  br i1 %.not6003.not, label %.sink.split6828, label %5019
+  br i1 %.not6006.not, label %.sink.split6831, label %5019
 
-.sink.split6828:                                  ; preds = %4970, %5018, %5017, %5015, %5014, %5009, %5008, %5005, %5006, %5001, %5000, %4995, %4994, %4986, %4985, %4983, %4982, %4975
-  %.sink6829 = phi i32 [ %.6875, %4975 ], [ %.6876, %4982 ], [ %.6877, %4983 ], [ %.6878, %4985 ], [ %.6879, %4986 ], [ %.6880, %4994 ], [ %.6881, %4995 ], [ %.6882, %5000 ], [ %.6883, %5001 ], [ 64, %5006 ], [ 96, %5005 ], [ 5472256, %5008 ], [ %.6884, %5009 ], [ %.6885, %5014 ], [ 2326528, %5015 ], [ %.6886, %5017 ], [ 65110016, %5018 ], [ 196672, %4970 ]
-  store i32 %.sink6829, ptr %4678, align 4
+.sink.split6831:                                  ; preds = %4970, %5018, %5017, %5015, %5014, %5009, %5008, %5005, %5006, %5001, %5000, %4995, %4994, %4986, %4985, %4983, %4982, %4975
+  %.sink6832 = phi i32 [ %.6878, %4975 ], [ %.6879, %4982 ], [ %.6880, %4983 ], [ %.6881, %4985 ], [ %.6882, %4986 ], [ %.6883, %4994 ], [ %.6884, %4995 ], [ %.6885, %5000 ], [ %.6886, %5001 ], [ 64, %5006 ], [ 96, %5005 ], [ 5472256, %5008 ], [ %.6887, %5009 ], [ %.6888, %5014 ], [ 2326528, %5015 ], [ %.6889, %5017 ], [ 65110016, %5018 ], [ 196672, %4970 ]
+  store i32 %.sink6832, ptr %4678, align 4
   br label %5019
 
-5019:                                             ; preds = %.sink.split6828, %4996, %4990, %5015, %5018, %5006, %4970, %4973
+5019:                                             ; preds = %.sink.split6831, %4996, %4990, %5015, %5018, %5006, %4970, %4973
   %5020 = lshr i32 %4889, 11
   %5021 = trunc i32 %5020 to i8
   %5022 = and i8 %5021, 31
@@ -11105,22 +11105,22 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %5045
 
 5045:                                             ; preds = %5042, %5025
-  %.sink6653 = phi i32 [ %5034, %5025 ], [ %5043, %5042 ]
-  %.sink6652 = phi i32 [ %5041, %5025 ], [ %5044, %5042 ]
+  %.sink6656 = phi i32 [ %5034, %5025 ], [ %5043, %5042 ]
+  %.sink6655 = phi i32 [ %5041, %5025 ], [ %5044, %5042 ]
   %5046 = getelementptr inbounds nuw i8, ptr %0, i64 10480
-  store i32 %.sink6653, ptr %5046, align 4
+  store i32 %.sink6656, ptr %5046, align 4
   %5047 = getelementptr inbounds nuw i8, ptr %0, i64 10484
-  store i32 %.sink6652, ptr %5047, align 4
+  store i32 %.sink6655, ptr %5047, align 4
   %5048 = load i8, ptr %3763, align 1
   %5049 = load i8, ptr %3433, align 1
-  %.not6180 = icmp eq i8 %5049, 0
+  %.not6183 = icmp eq i8 %5049, 0
   %5050 = load i8, ptr %4213, align 1
   %5051 = load i32, ptr %67, align 4
   %5052 = icmp eq i32 %5051, 0
   %5053 = and i8 %5050, 1
   %5054 = xor i8 %5053, 1
   %5055 = select i1 %5052, i8 %5054, i8 0
-  %5056 = select i1 %.not6180, i8 0, i8 %5055
+  %5056 = select i1 %.not6183, i8 0, i8 %5055
   %5057 = and i8 %5056, %5048
   %5058 = shl nuw i32 %.05090, 12
   %5059 = load i32, ptr %4192, align 4
@@ -11280,8 +11280,8 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i8 %5185, ptr %5186, align 4
   %5187 = load i8, ptr %4674, align 2
   %5188 = load i32, ptr %4655, align 4
-  %.mask6182 = and i32 %5188, -134217728
-  %5189 = icmp ne i32 %.mask6182, 134217728
+  %.mask6185 = and i32 %5188, -134217728
+  %5189 = icmp ne i32 %.mask6185, 134217728
   %5190 = zext i1 %5189 to i8
   %5191 = xor i8 %5190, -1
   %5192 = load i8, ptr %4677, align 1
@@ -11303,20 +11303,20 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %5207 = getelementptr inbounds nuw i8, ptr %0, i64 130
   store i8 %5206, ptr %5207, align 2
   %5208 = load i32, ptr %3308, align 4
-  %.mask6184 = and i32 %5202, 16384
-  %isneg6183.not = icmp eq i32 %.mask6184, 0
-  %5209 = select i1 %isneg6183.not, i32 0, i32 %5208
+  %.mask6187 = and i32 %5202, 16384
+  %isneg6186.not = icmp eq i32 %.mask6187, 0
+  %5209 = select i1 %isneg6186.not, i32 0, i32 %5208
   %5210 = load i32, ptr %3860, align 8
   %5211 = load i32, ptr %3314, align 8
-  %.mask6186 = and i32 %5210, 16384
-  %isneg6185.not = icmp eq i32 %.mask6186, 0
-  %5212 = select i1 %isneg6185.not, i32 0, i32 %5211
+  %.mask6189 = and i32 %5210, 16384
+  %isneg6188.not = icmp eq i32 %.mask6189, 0
+  %5212 = select i1 %isneg6188.not, i32 0, i32 %5211
   %5213 = or i32 %5212, %5209
   %5214 = getelementptr inbounds nuw i8, ptr %0, i64 300
   store i32 %5213, ptr %5214, align 4
   %5215 = load i8, ptr %61, align 1
-  %.not6187 = icmp eq i8 %5215, 0
-  br i1 %.not6187, label %5224, label %5216
+  %.not6190 = icmp eq i8 %5215, 0
+  br i1 %.not6190, label %5224, label %5216
 
 5216:                                             ; preds = %5182
   %5217 = load i16, ptr %55, align 8
@@ -11358,8 +11358,8 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %5239
 
 5239:                                             ; preds = %5230, %5233, %5216
-  %.sink6831 = phi i8 [ %5232, %5230 ], [ %5238, %5233 ], [ %5223, %5216 ]
-  %5240 = and i8 %.sink6831, 63
+  %.sink6834 = phi i8 [ %5232, %5230 ], [ %5238, %5233 ], [ %5223, %5216 ]
+  %5240 = and i8 %.sink6834, 63
   store i8 %5240, ptr %576, align 1
   %5241 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5242 = load i8, ptr %5241, align 8
@@ -11392,16 +11392,16 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %5258 = getelementptr inbounds nuw i8, ptr %0, i64 83
   store i8 %5257, ptr %5258, align 1
   %5259 = and i32 %5202, 131072
-  %.not6188 = icmp eq i32 %5259, 0
+  %.not6191 = icmp eq i32 %5259, 0
   %5260 = getelementptr inbounds nuw i8, ptr %0, i64 404
-  %.in6189 = select i1 %.not6188, ptr %5260, ptr %3305
-  %5261 = load i32, ptr %.in6189, align 4
+  %.in6192 = select i1 %.not6191, ptr %5260, ptr %3305
+  %5261 = load i32, ptr %.in6192, align 4
   %5262 = getelementptr inbounds nuw i8, ptr %0, i64 468
   store i32 %5261, ptr %5262, align 4
   %5263 = and i32 %5202, 65536
-  %.not6190 = icmp eq i32 %5263, 0
-  %.in6191 = select i1 %.not6190, ptr %3303, ptr %4621
-  %5264 = load i32, ptr %.in6191, align 4
+  %.not6193 = icmp eq i32 %5263, 0
+  %.in6194 = select i1 %.not6193, ptr %3303, ptr %4621
+  %5264 = load i32, ptr %.in6194, align 4
   %5265 = getelementptr inbounds nuw i8, ptr %0, i64 476
   store i32 %5264, ptr %5265, align 4
   %5266 = load i32, ptr %581, align 4
@@ -11440,7 +11440,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i8 %5295, ptr %5296, align 2
   %5297 = icmp eq i32 %5161, 0
   %5298 = icmp ne i32 %5140, 0
-  %.narrow6193 = or i1 %5297, %5298
+  %.narrow6196 = or i1 %5297, %5298
   %5299 = xor i8 %5165, -1
   %5300 = and i8 %5164, %5299
   %5301 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -11458,8 +11458,8 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %5311 = getelementptr inbounds nuw i8, ptr %0, i64 146
   store i8 %5310, ptr %5311, align 2
   %5312 = and i32 %5202, 1
-  %.not6194 = icmp eq i32 %5312, 0
-  br i1 %.not6194, label %5313, label %5316
+  %.not6197 = icmp eq i32 %5312, 0
+  br i1 %.not6197, label %5313, label %5316
 
 5313:                                             ; preds = %5254
   %5314 = load i32, ptr %3874, align 8
@@ -11467,15 +11467,15 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %5316
 
 5316:                                             ; preds = %5254, %5313
-  %.sink6655 = phi i32 [ %5314, %5313 ], [ %5261, %5254 ]
-  %.sink6654 = phi i32 [ %5315, %5313 ], [ %5264, %5254 ]
+  %.sink6658 = phi i32 [ %5314, %5313 ], [ %5261, %5254 ]
+  %.sink6657 = phi i32 [ %5315, %5313 ], [ %5264, %5254 ]
   %5317 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  store i32 %.sink6655, ptr %5317, align 8
+  store i32 %.sink6658, ptr %5317, align 8
   %5318 = getelementptr inbounds nuw i8, ptr %0, i64 580
-  store i32 %.sink6654, ptr %5318, align 4
+  store i32 %.sink6657, ptr %5318, align 4
   %5319 = and i32 %5202, 2
-  %.not6195 = icmp eq i32 %5319, 0
-  br i1 %.not6195, label %5320, label %5323
+  %.not6198 = icmp eq i32 %5319, 0
+  br i1 %.not6198, label %5320, label %5323
 
 5320:                                             ; preds = %5316
   %5321 = load i32, ptr %3874, align 8
@@ -11483,34 +11483,34 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %5323
 
 5323:                                             ; preds = %5316, %5320
-  %.sink6657 = phi i32 [ %5321, %5320 ], [ %5261, %5316 ]
-  %.sink6656 = phi i32 [ %5322, %5320 ], [ %5264, %5316 ]
+  %.sink6660 = phi i32 [ %5321, %5320 ], [ %5261, %5316 ]
+  %.sink6659 = phi i32 [ %5322, %5320 ], [ %5264, %5316 ]
   %5324 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  store i32 %.sink6657, ptr %5324, align 8
+  store i32 %.sink6660, ptr %5324, align 8
   %5325 = getelementptr inbounds nuw i8, ptr %0, i64 572
-  store i32 %.sink6656, ptr %5325, align 4
+  store i32 %.sink6659, ptr %5325, align 4
   %5326 = zext nneg i8 %5277 to i32
   %5327 = select i1 %5267, i32 %5326, i32 0
   %5328 = zext nneg i8 %5057 to i32
   %5329 = and i32 %5327, %5328
-  %.not6196 = icmp eq i32 %5329, 0
+  %.not6199 = icmp eq i32 %5329, 0
   %5330 = getelementptr inbounds nuw i8, ptr %0, i64 10450
-  %spec.select6559 = select i1 %.not6196, ptr %5330, ptr %3433
-  %.in6197 = load i8, ptr %spec.select6559, align 1
-  store i8 %.in6197, ptr %107, align 4
+  %spec.select6562 = select i1 %.not6199, ptr %5330, ptr %3433
+  %.in6200 = load i8, ptr %spec.select6562, align 1
+  store i8 %.in6200, ptr %107, align 4
   %5331 = and i8 %5282, %5057
-  %.not6198 = icmp eq i8 %5331, 0
+  %.not6201 = icmp eq i8 %5331, 0
   %5332 = getelementptr inbounds nuw i8, ptr %0, i64 10451
-  %.in6199.in = select i1 %.not6198, ptr %5332, ptr %3433
-  %.in6199 = load i8, ptr %.in6199.in, align 1
-  store i8 %.in6199, ptr %69, align 2
+  %.in6202.in = select i1 %.not6201, ptr %5332, ptr %3433
+  %.in6202 = load i8, ptr %.in6202.in, align 1
+  store i8 %.in6202, ptr %69, align 2
   %5333 = load i32, ptr %67, align 4
   %5334 = icmp eq i32 %5333, 5
   %5335 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %5336 = zext nneg i8 %5282 to i64
   %5337 = getelementptr inbounds nuw i32, ptr %5046, i64 %5336
-  %.in6200 = select i1 %5334, ptr %5335, ptr %5337
-  %5338 = load i32, ptr %.in6200, align 4
+  %.in6203 = select i1 %5334, ptr %5335, ptr %5337
+  %5338 = load i32, ptr %.in6203, align 4
   %5339 = trunc nuw nsw i32 %5327 to i8
   %5340 = or i8 %5282, %5339
   %5341 = getelementptr inbounds nuw i8, ptr %0, i64 202
@@ -11530,9 +11530,9 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %5351 = getelementptr inbounds nuw i8, ptr %0, i64 284
   store i32 %5288, ptr %5351, align 4
   %5352 = and i32 %5102, 4
-  %.not6201 = icmp eq i32 %5352, 0
+  %.not6204 = icmp eq i32 %5352, 0
   %5353 = trunc i64 %5286 to i32
-  %spec.select6832 = select i1 %.not6201, i32 %5353, i32 %5288
+  %spec.select6835 = select i1 %.not6204, i32 %5353, i32 %5288
   %5354 = xor i8 %5346, -1
   %5355 = load i8, ptr %3483, align 1
   %5356 = and i8 %5355, %5354
@@ -11550,63 +11550,63 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %5365
 
 5365:                                             ; preds = %5357, %5350
-  %.sink6833 = phi i8 [ %5364, %5357 ], [ %5356, %5350 ]
-  %.05092 = phi i32 [ %5362, %5357 ], [ %spec.select6832, %5350 ]
+  %.sink6836 = phi i8 [ %5364, %5357 ], [ %5356, %5350 ]
+  %.05092 = phi i32 [ %5362, %5357 ], [ %spec.select6835, %5350 ]
   %5366 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i8 %.sink6833, ptr %5366, align 8
+  store i8 %.sink6836, ptr %5366, align 8
   %5367 = getelementptr inbounds nuw i8, ptr %0, i64 135
-  %.sink6835 = select i1 %.narrow6193, i64 492, i64 496
-  %.sink6660.in = select i1 %.narrow6193, ptr %5367, ptr %4
-  %5368 = select i1 %.narrow6193, i32 %5140, i32 %5161
-  %5369 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink6835
-  %.sink6659 = load i32, ptr %5369, align 4
-  %.sink6660 = load i8, ptr %.sink6660.in, align 1
+  %.sink6838 = select i1 %.narrow6196, i64 492, i64 496
+  %.sink6663.in = select i1 %.narrow6196, ptr %5367, ptr %4
+  %5368 = select i1 %.narrow6196, i32 %5140, i32 %5161
+  %5369 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink6838
+  %.sink6662 = load i32, ptr %5369, align 4
+  %.sink6663 = load i8, ptr %.sink6663.in, align 1
   %5370 = getelementptr inbounds nuw i8, ptr %0, i64 173
-  store i8 %.sink6660, ptr %5370, align 1
+  store i8 %.sink6663, ptr %5370, align 1
   %5371 = getelementptr inbounds nuw i8, ptr %0, i64 636
-  store i32 %.sink6659, ptr %5371, align 4
+  store i32 %.sink6662, ptr %5371, align 4
   %5372 = getelementptr inbounds nuw i8, ptr %0, i64 632
   store i32 %5368, ptr %5372, align 8
   %5373 = getelementptr inbounds nuw i8, ptr %0, i64 10452
-  store i8 %.in6197, ptr %5373, align 4
+  store i8 %.in6200, ptr %5373, align 4
   %5374 = getelementptr inbounds nuw i8, ptr %0, i64 10453
-  store i8 %.in6199, ptr %5374, align 1
+  store i8 %.in6202, ptr %5374, align 1
   %5375 = load i8, ptr %3527, align 2
   %5376 = zext i8 %5375 to i32
   %5377 = and i32 %5376, 32
-  %.not6202 = icmp eq i32 %5377, 0
-  br i1 %.not6202, label %5526, label %5378
+  %.not6205 = icmp eq i32 %5377, 0
+  br i1 %.not6205, label %5526, label %5378
 
 5378:                                             ; preds = %5365
   %5379 = and i32 %5376, 16
-  %.not6203 = icmp eq i32 %5379, 0
-  br i1 %.not6203, label %5382, label %5380
+  %.not6206 = icmp eq i32 %5379, 0
+  br i1 %.not6206, label %5382, label %5380
 
 5380:                                             ; preds = %5378
   %5381 = and i32 %5376, 15
-  %or.cond6394 = icmp eq i32 %5381, 0
-  %spec.select6396 = select i1 %or.cond6394, i32 %5338, i32 0
+  %or.cond6397 = icmp eq i32 %5381, 0
+  %spec.select6399 = select i1 %or.cond6397, i32 %5338, i32 0
   br label %5526
 
 5382:                                             ; preds = %5378
   %5383 = and i32 %5376, 8
-  %.not6204.not = icmp eq i32 %5383, 0
-  br i1 %.not6204.not, label %5384, label %5526
+  %.not6207.not = icmp eq i32 %5383, 0
+  br i1 %.not6207.not, label %5384, label %5526
 
 5384:                                             ; preds = %5382
   %5385 = and i32 %5376, 4
-  %.not6205 = icmp eq i32 %5385, 0
+  %.not6208 = icmp eq i32 %5385, 0
   %5386 = and i32 %5376, 2
-  %.not6206 = icmp eq i32 %5386, 0
+  %.not6209 = icmp eq i32 %5386, 0
   %5387 = and i32 %5376, 1
-  %.not6207 = icmp eq i32 %5387, 0
-  br i1 %.not6205, label %5446, label %5388
+  %.not6210 = icmp eq i32 %5387, 0
+  br i1 %.not6208, label %5446, label %5388
 
 5388:                                             ; preds = %5384
-  br i1 %.not6206, label %5416, label %5389
+  br i1 %.not6209, label %5416, label %5389
 
 5389:                                             ; preds = %5388
-  br i1 %.not6207, label %5390, label %5526
+  br i1 %.not6210, label %5390, label %5526
 
 5390:                                             ; preds = %5389
   %5391 = getelementptr inbounds nuw i8, ptr %0, i64 524
@@ -11640,7 +11640,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %5417 = getelementptr inbounds nuw i8, ptr %0, i64 524
   %5418 = load i32, ptr %5417, align 4
   %5419 = and i32 %5418, 3
-  br i1 %.not6207, label %5428, label %5420
+  br i1 %.not6210, label %5428, label %5420
 
 5420:                                             ; preds = %5416
   %5421 = icmp eq i32 %5419, 2
@@ -11673,10 +11673,10 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %5526
 
 5446:                                             ; preds = %5384
-  br i1 %.not6206, label %5474, label %5447
+  br i1 %.not6209, label %5474, label %5447
 
 5447:                                             ; preds = %5446
-  br i1 %.not6207, label %5448, label %5526
+  br i1 %.not6210, label %5448, label %5526
 
 5448:                                             ; preds = %5447
   %5449 = getelementptr inbounds nuw i8, ptr %0, i64 524
@@ -11710,7 +11710,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %5475 = getelementptr inbounds nuw i8, ptr %0, i64 524
   %5476 = load i32, ptr %5475, align 4
   %5477 = and i32 %5476, 3
-  br i1 %.not6207, label %5493, label %5478
+  br i1 %.not6210, label %5493, label %5478
 
 5478:                                             ; preds = %5474
   %5479 = icmp eq i32 %5477, 2
@@ -11765,24 +11765,24 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %5526
 
 5526:                                             ; preds = %5380, %5448, %5493, %5478, %5447, %5420, %5428, %5389, %5390, %5382, %5365
-  %.05091 = phi i32 [ %5415, %5390 ], [ 0, %5389 ], [ 0, %5382 ], [ 0, %5365 ], [ %5427, %5420 ], [ %5445, %5428 ], [ %5473, %5448 ], [ %5492, %5478 ], [ %5525, %5493 ], [ %5338, %5447 ], [ %spec.select6396, %5380 ]
+  %.05091 = phi i32 [ %5415, %5390 ], [ 0, %5389 ], [ 0, %5382 ], [ 0, %5365 ], [ %5427, %5420 ], [ %5445, %5428 ], [ %5473, %5448 ], [ %5492, %5478 ], [ %5525, %5493 ], [ %5338, %5447 ], [ %spec.select6399, %5380 ]
   %5527 = icmp eq i32 %5333, 0
   br i1 %5527, label %5528, label %5543
 
 5528:                                             ; preds = %5526
   %5529 = load i8, ptr %3763, align 1
-  %.not6238 = icmp eq i8 %5529, 0
-  br i1 %.not6238, label %5541, label %5530
+  %.not6241 = icmp eq i8 %5529, 0
+  br i1 %.not6241, label %5541, label %5530
 
 5530:                                             ; preds = %5528
   %5531 = load i8, ptr %4213, align 1
   %5532 = zext i8 %5531 to i32
-  %.demorgan62396240 = or i8 %5340, %5531
+  %.demorgan62426243 = or i8 %5340, %5531
   %5533 = load i8, ptr %3526, align 1
   %5534 = zext i8 %5533 to i32
   %5535 = or i32 %5534, %5146
   %5536 = and i32 %5535, %5532
-  %5537 = and i8 %5275, %.demorgan62396240
+  %5537 = and i8 %5275, %.demorgan62426243
   %5538 = zext i8 %5537 to i32
   %5539 = xor i32 %5538, -1
   %5540 = or i32 %5536, %5539
@@ -11819,9 +11819,9 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i32 %5560, ptr %5561, align 8
   %5562 = load i8, ptr %3483, align 1
   %5563 = getelementptr inbounds nuw i8, ptr %0, i64 182
-  %.in6241.in = select i1 %5349, ptr %5347, ptr %5563
-  %.in6241 = load i8, ptr %.in6241.in, align 1
-  %5564 = and i8 %.in6241, %5562
+  %.in6244.in = select i1 %5349, ptr %5347, ptr %5563
+  %.in6244 = load i8, ptr %.in6244.in, align 1
+  %5564 = and i8 %.in6244, %5562
   store i8 %5564, ptr %388, align 1
   %5565 = lshr i32 %5102, 2
   %5566 = trunc i32 %5565 to i8
@@ -11830,10 +11830,10 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %5569 = getelementptr inbounds nuw i8, ptr %0, i64 180
   store i8 %5568, ptr %5569, align 4
   %5570 = and i32 %5368, 98304
-  %.not6242 = icmp eq i32 %5570, 0
-  %.in6243.v = select i1 %.not6242, i64 524, i64 636
-  %.in6243 = getelementptr inbounds nuw i8, ptr %0, i64 %.in6243.v
-  %5571 = load i32, ptr %.in6243, align 4
+  %.not6245 = icmp eq i32 %5570, 0
+  %.in6246.v = select i1 %.not6245, i64 524, i64 636
+  %.in6246 = getelementptr inbounds nuw i8, ptr %0, i64 %.in6246.v
+  %5571 = load i32, ptr %.in6246, align 4
   %5572 = getelementptr inbounds nuw i8, ptr %0, i64 640
   store i32 %5571, ptr %5572, align 8
   %5573 = lshr i32 %5368, 10
@@ -11847,8 +11847,8 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %5581 = and i32 %5575, %5580
   %5582 = lshr i32 %5574, 4
   %5583 = xor i32 %5582, -1
-  %.not6244 = icmp eq i32 %5368, 0
-  %5584 = select i1 %.not6244, i32 0, i32 %5580
+  %.not6247 = icmp eq i32 %5368, 0
+  %5584 = select i1 %.not6247, i32 0, i32 %5580
   %5585 = or i32 %5584, %5583
   %5586 = or i32 %5585, %5581
   %5587 = or i32 %5586, %5579
@@ -11859,8 +11859,8 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %5591 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store i32 0, ptr %5591, align 8
   %5592 = and i32 %5152, 8192
-  %.not6245 = icmp eq i32 %5592, 0
-  br i1 %.not6245, label %5598, label %5593
+  %.not6248 = icmp eq i32 %5592, 0
+  br i1 %.not6248, label %5598, label %5593
 
 5593:                                             ; preds = %5546
   %5594 = load i8, ptr %3752, align 4
@@ -11879,8 +11879,8 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %5603 = getelementptr inbounds nuw i8, ptr %0, i64 552
   store i32 %5602, ptr %5603, align 8
   %5604 = and i32 %5128, 8192
-  %.not6246 = icmp eq i32 %5604, 0
-  br i1 %.not6246, label %5610, label %5605
+  %.not6249 = icmp eq i32 %5604, 0
+  br i1 %.not6249, label %5610, label %5605
 
 5605:                                             ; preds = %5601
   %5606 = load i8, ptr %3749, align 1
@@ -11898,9 +11898,9 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %5614 = getelementptr inbounds nuw i8, ptr %0, i64 548
   store i32 %5613, ptr %5614, align 4
   %5615 = getelementptr inbounds nuw i8, ptr %0, i64 183
-  %.in6247.in = select i1 %5349, ptr %5569, ptr %5615
-  %.in6247 = load i8, ptr %.in6247.in, align 1
-  %5616 = and i8 %.in6247, %5562
+  %.in6250.in = select i1 %5349, ptr %5569, ptr %5615
+  %.in6250 = load i8, ptr %.in6250.in, align 1
+  %5616 = and i8 %.in6250, %5562
   store i8 %5616, ptr %384, align 2
   %5617 = lshr i32 %5574, 28
   %5618 = trunc nuw nsw i32 %5617 to i8
@@ -11919,29 +11919,29 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %5631 = and i32 %5624, %5630
   %5632 = or i32 %5626, %5631
   %5633 = trunc i32 %5632 to i8
-  %5634 = or i8 %.sink6833, %5633
+  %5634 = or i8 %.sink6836, %5633
   %5635 = or i8 %5634, %5548
   %5636 = and i8 %5635, 1
   %5637 = getelementptr inbounds nuw i8, ptr %0, i64 150
   store i8 %5636, ptr %5637, align 2
   %5638 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 0, ptr %5638, align 8
-  %isnotneg6248 = icmp sgt i32 %5188, -1
-  br i1 %isnotneg6248, label %5639, label %5676
+  %isnotneg6251 = icmp sgt i32 %5188, -1
+  br i1 %isnotneg6251, label %5639, label %5676
 
 5639:                                             ; preds = %5612
   %5640 = and i32 %5188, 2080374840
-  %or.cond6566.not = icmp eq i32 %5640, 8
-  br i1 %or.cond6566.not, label %5641, label %5650
+  %or.cond6569.not = icmp eq i32 %5640, 8
+  br i1 %or.cond6569.not, label %5641, label %5650
 
 5641:                                             ; preds = %5639
   %5642 = and i32 %5188, 6
   switch i32 %5642, label %5650 [
-    i32 2, label %.thread6711
+    i32 2, label %.thread6714
     i32 4, label %5646
   ]
 
-.thread6711:                                      ; preds = %5641
+.thread6714:                                      ; preds = %5641
   %5643 = trunc i32 %5188 to i8
   %5644 = and i8 %5643, 1
   %5645 = sub nuw nsw i8 2, %5644
@@ -11950,8 +11950,8 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 5646:                                             ; preds = %5641
   %5647 = and i32 %5188, 1
-  %.not6262 = icmp eq i32 %5647, 0
-  br i1 %.not6262, label %5649, label %5648
+  %.not6265 = icmp eq i32 %5647, 0
+  br i1 %.not6265, label %5649, label %5648
 
 5648:                                             ; preds = %5646
   store i8 1, ptr %4651, align 2
@@ -11961,73 +11961,73 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i8 1, ptr %4652, align 4
   br label %5650
 
-5650:                                             ; preds = %5641, %5648, %.thread6711, %5649, %5639
+5650:                                             ; preds = %5641, %5648, %.thread6714, %5649, %5639
   %5651 = and i32 %5188, 2080374784
-  %or.cond6572 = icmp eq i32 %5651, 1073741824
-  br i1 %or.cond6572, label %5652, label %5676
+  %or.cond6575 = icmp eq i32 %5651, 1073741824
+  br i1 %or.cond6575, label %5652, label %5676
 
 5652:                                             ; preds = %5650
   %5653 = and i32 %5188, 65011712
   switch i32 %5653, label %5673 [
-    i32 8388608, label %.sink.split6836
+    i32 8388608, label %.sink.split6839
     i32 33554432, label %5654
   ]
 
 5654:                                             ; preds = %5652
   %5655 = and i32 %5188, 63
-  %or.cond6577 = icmp eq i32 %5655, 24
-  br i1 %or.cond6577, label %5656, label %.thread6715
+  %or.cond6580 = icmp eq i32 %5655, 24
+  br i1 %or.cond6580, label %5656, label %.thread6718
 
 5656:                                             ; preds = %5654
   store i8 1, ptr %4654, align 2
-  br label %.thread6715
+  br label %.thread6718
 
-.thread6715:                                      ; preds = %5654, %5656
+.thread6718:                                      ; preds = %5654, %5656
   %5657 = and i32 %5188, 48
-  %or.cond6578 = icmp eq i32 %5657, 0
-  br i1 %or.cond6578, label %5658, label %5673
+  %or.cond6581 = icmp eq i32 %5657, 0
+  br i1 %or.cond6581, label %5658, label %5673
 
-5658:                                             ; preds = %.thread6715
+5658:                                             ; preds = %.thread6718
   %5659 = and i32 %5188, 8
-  %.not6279 = icmp eq i32 %5659, 0
-  br i1 %.not6279, label %5662, label %5660
+  %.not6282 = icmp eq i32 %5659, 0
+  br i1 %.not6282, label %5662, label %5660
 
 5660:                                             ; preds = %5658
   %5661 = and i32 %5188, 7
-  %or.cond6580 = icmp eq i32 %5661, 0
-  br i1 %or.cond6580, label %.sink.split6836, label %5673
+  %or.cond6583 = icmp eq i32 %5661, 0
+  br i1 %or.cond6583, label %.sink.split6839, label %5673
 
 5662:                                             ; preds = %5658
   %5663 = and i32 %5188, 4
-  %.not6280 = icmp eq i32 %5663, 0
-  br i1 %.not6280, label %5666, label %5664
+  %.not6283 = icmp eq i32 %5663, 0
+  br i1 %.not6283, label %5666, label %5664
 
 5664:                                             ; preds = %5662
   %5665 = and i32 %5188, 3
-  %or.cond6581 = icmp eq i32 %5665, 2
-  br i1 %or.cond6581, label %.sink.split6836, label %5673
+  %or.cond6584 = icmp eq i32 %5665, 2
+  br i1 %or.cond6584, label %.sink.split6839, label %5673
 
 5666:                                             ; preds = %5662
   %5667 = and i32 %5188, 2
-  %.not6281 = icmp eq i32 %5667, 0
+  %.not6284 = icmp eq i32 %5667, 0
   %5668 = and i32 %5188, 1
-  %.not6282 = icmp eq i32 %5668, 0
-  br i1 %.not6281, label %5670, label %5669
+  %.not6285 = icmp eq i32 %5668, 0
+  br i1 %.not6284, label %5670, label %5669
 
 5669:                                             ; preds = %5666
-  br i1 %.not6282, label %.sink.split6836, label %5673
+  br i1 %.not6285, label %.sink.split6839, label %5673
 
 5670:                                             ; preds = %5666
-  br i1 %.not6282, label %5673, label %.sink.split6836
+  br i1 %.not6285, label %5673, label %.sink.split6839
 
-.sink.split6836:                                  ; preds = %5670, %5669, %5664, %5660, %5652
-  %.sink6839 = phi i16 [ 4096, %5652 ], [ 2048, %5660 ], [ 256, %5664 ], [ 512, %5669 ], [ 1024, %5670 ]
+.sink.split6839:                                  ; preds = %5670, %5669, %5664, %5660, %5652
+  %.sink6842 = phi i16 [ 4096, %5652 ], [ 2048, %5660 ], [ 256, %5664 ], [ 512, %5669 ], [ 1024, %5670 ]
   %5671 = load i16, ptr %4661, align 2
-  %5672 = or i16 %5671, %.sink6839
+  %5672 = or i16 %5671, %.sink6842
   store i16 %5672, ptr %4661, align 2
   br label %5673
 
-5673:                                             ; preds = %.sink.split6836, %5652, %.thread6715, %5660, %5669, %5670, %5664
+5673:                                             ; preds = %.sink.split6839, %5652, %.thread6718, %5660, %5669, %5670, %5664
   %5674 = and i8 %5619, 1
   %5675 = xor i8 %5674, 1
   store i8 %5675, ptr %5638, align 8
@@ -12037,22 +12037,22 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %5677 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 0, ptr %5677, align 1
   %5678 = load i32, ptr %4280, align 4
-  %isnotneg6289 = icmp sgt i32 %5678, -1
-  br i1 %isnotneg6289, label %5679, label %5698
+  %isnotneg6292 = icmp sgt i32 %5678, -1
+  br i1 %isnotneg6292, label %5679, label %5698
 
 5679:                                             ; preds = %5676
   %5680 = and i32 %5678, 2080374840
-  %or.cond6588.not = icmp eq i32 %5680, 8
-  br i1 %or.cond6588.not, label %5681, label %5690
+  %or.cond6591.not = icmp eq i32 %5680, 8
+  br i1 %or.cond6591.not, label %5681, label %5690
 
 5681:                                             ; preds = %5679
   %5682 = and i32 %5678, 6
   switch i32 %5682, label %5690 [
-    i32 2, label %.thread6716
+    i32 2, label %.thread6719
     i32 4, label %5686
   ]
 
-.thread6716:                                      ; preds = %5681
+.thread6719:                                      ; preds = %5681
   %5683 = trunc i32 %5678 to i8
   %5684 = and i8 %5683, 1
   %5685 = sub nuw nsw i8 2, %5684
@@ -12061,8 +12061,8 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
 
 5686:                                             ; preds = %5681
   %5687 = and i32 %5678, 1
-  %.not6303 = icmp eq i32 %5687, 0
-  br i1 %.not6303, label %5689, label %5688
+  %.not6306 = icmp eq i32 %5687, 0
+  br i1 %.not6306, label %5689, label %5688
 
 5688:                                             ; preds = %5686
   store i8 1, ptr %4276, align 1
@@ -12072,10 +12072,10 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   store i8 1, ptr %4277, align 1
   br label %5690
 
-5690:                                             ; preds = %5681, %5688, %.thread6716, %5689, %5679
+5690:                                             ; preds = %5681, %5688, %.thread6719, %5689, %5679
   %5691 = and i32 %5678, 2080374784
-  %or.cond6594 = icmp eq i32 %5691, 1073741824
-  br i1 %or.cond6594, label %5692, label %5698
+  %or.cond6597 = icmp eq i32 %5691, 1073741824
+  br i1 %or.cond6597, label %5692, label %5698
 
 5692:                                             ; preds = %5690
   %5693 = and i32 %5678, 65011775
@@ -12119,28 +12119,28 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %5719 = getelementptr inbounds nuw i8, ptr %0, i64 89
   store i8 0, ptr %5719, align 1
   %5720 = and i32 %5368, 1024
-  %.not6318 = icmp eq i32 %5720, 0
-  br i1 %.not6318, label %5724, label %5721
+  %.not6321 = icmp eq i32 %5720, 0
+  br i1 %.not6321, label %5724, label %5721
 
 5721:                                             ; preds = %5698
   %5722 = and i32 %5574, 4
-  %.not6324 = icmp eq i32 %5722, 0
-  %.in6325.v = select i1 %.not6324, i64 688, i64 704
-  %.in6325 = getelementptr inbounds nuw i8, ptr %0, i64 %.in6325.v
-  %5723 = load i32, ptr %.in6325, align 8
-  br label %.sink.split6840
+  %.not6327 = icmp eq i32 %5722, 0
+  %.in6328.v = select i1 %.not6327, i64 688, i64 704
+  %.in6328 = getelementptr inbounds nuw i8, ptr %0, i64 %.in6328.v
+  %5723 = load i32, ptr %.in6328, align 8
+  br label %.sink.split6843
 
 5724:                                             ; preds = %5698
-  br i1 %.not6244, label %5757, label %5725
+  br i1 %.not6247, label %5757, label %5725
 
 5725:                                             ; preds = %5724
   %5726 = and i32 %5574, 2
-  %.not6320 = icmp eq i32 %5726, 0
-  br i1 %.not6320, label %5729, label %5727
+  %.not6323 = icmp eq i32 %5726, 0
+  br i1 %.not6323, label %5729, label %5727
 
 5727:                                             ; preds = %5725
   %5728 = add i32 %3321, 384
-  br label %.sink.split6840
+  br label %.sink.split6843
 
 5729:                                             ; preds = %5725
   %5730 = lshr i32 %5368, 9
@@ -12151,8 +12151,8 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %5735 = and i32 %5730, 1
   %5736 = and i32 %5732, %5734
   %5737 = and i32 %5736, %5735
-  %.not6321 = icmp eq i32 %5737, 0
-  br i1 %.not6321, label %5738, label %5753
+  %.not6324 = icmp eq i32 %5737, 0
+  br i1 %.not6324, label %5738, label %5753
 
 5738:                                             ; preds = %5729
   %5739 = and i32 %5368, 49152
@@ -12162,31 +12162,31 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %5743 = zext i1 %5742 to i32
   %5744 = xor i32 %5743, -1
   %5745 = and i32 %5368, 24
-  %.not6322 = icmp eq i32 %5745, 0
+  %.not6325 = icmp eq i32 %5745, 0
   %5746 = lshr i32 %5368, 1
-  %5747 = select i1 %.not6322, i32 0, i32 %5746
+  %5747 = select i1 %.not6325, i32 0, i32 %5746
   %5748 = and i32 %5747, %5744
   %5749 = or i32 %5748, %5741
   %5750 = xor i32 %5735, 1
   %5751 = and i32 %5750, %5749
-  %.not6323 = icmp eq i32 %5751, 0
-  %5752 = select i1 %.not6323, i32 384, i32 0
+  %.not6326 = icmp eq i32 %5751, 0
+  %5752 = select i1 %.not6326, i32 384, i32 0
   br label %5753
 
 5753:                                             ; preds = %5729, %5738
   %5754 = phi i32 [ %5752, %5738 ], [ 512, %5729 ]
   %5755 = add i32 %5754, %3321
-  br label %.sink.split6840
+  br label %.sink.split6843
 
-.sink.split6840:                                  ; preds = %5727, %5753, %5721
-  %.sink6842 = phi i32 [ %5723, %5721 ], [ %5728, %5727 ], [ %5755, %5753 ]
-  store i32 %.sink6842, ptr %5591, align 8
+.sink.split6843:                                  ; preds = %5727, %5753, %5721
+  %.sink6845 = phi i32 [ %5723, %5721 ], [ %5728, %5727 ], [ %5755, %5753 ]
+  store i32 %.sink6845, ptr %5591, align 8
   %5756 = xor i8 %5636, 1
   store i8 %5756, ptr %5719, align 1
   br label %5757
 
-5757:                                             ; preds = %.sink.split6840, %5724
-  %5758 = phi i8 [ 0, %5724 ], [ %5756, %.sink.split6840 ]
+5757:                                             ; preds = %.sink.split6843, %5724
+  %5758 = phi i8 [ 0, %5724 ], [ %5756, %.sink.split6843 ]
   %5759 = zext nneg i8 %5636 to i32
   %5760 = xor i32 %5759, -1
   %5761 = lshr i32 %5128, 18
@@ -12219,7 +12219,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %5787 = and i8 %5786, %5192
   %5788 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i8 %5787, ptr %5788, align 8
-  %.not6326 = icmp eq i8 %5708, 0
+  %.not6329 = icmp eq i8 %5708, 0
   %5789 = load i32, ptr %4678, align 4
   %5790 = lshr i32 %5789, 17
   %5791 = select i1 %5710, i32 %5790, i32 0
@@ -12230,15 +12230,15 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %5796 = select i1 %5795, i32 %5792, i32 0
   %5797 = or i32 %5796, %5791
   %5798 = and i32 %5797, 1
-  %5799 = select i1 %.not6326, i32 0, i32 %5798
+  %5799 = select i1 %.not6329, i32 0, i32 %5798
   %5800 = and i32 %5799, %5307
-  %.not6327 = icmp eq i8 %5702, 0
+  %.not6330 = icmp eq i8 %5702, 0
   %5801 = select i1 %5704, i32 %5790, i32 0
   %5802 = icmp eq i32 %5794, %5703
   %5803 = select i1 %5802, i32 %5792, i32 0
   %5804 = or i32 %5801, %5803
   %5805 = and i32 %5804, 1
-  %5806 = select i1 %.not6327, i32 0, i32 %5805
+  %5806 = select i1 %.not6330, i32 0, i32 %5805
   %5807 = and i32 %5806, %5302
   %5808 = or i32 %5800, %5807
   %5809 = or i32 %5808, %5759
@@ -12275,8 +12275,8 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %5838 = and i32 %5837, %5823
   %5839 = lshr i32 %5789, 7
   %5840 = and i32 %5813, 384
-  %.not6328 = icmp eq i32 %5840, 0
-  %5841 = select i1 %.not6328, i32 0, i32 %5839
+  %.not6331 = icmp eq i32 %5840, 0
+  %5841 = select i1 %.not6331, i32 0, i32 %5839
   %5842 = lshr i32 %5789, 9
   %5843 = lshr i32 %5813, 10
   %5844 = and i32 %5843, %5842

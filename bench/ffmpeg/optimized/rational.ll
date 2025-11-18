@@ -424,9 +424,9 @@ define i32 @av_q2intfloat(i64 %0) local_unnamed_addr #2 {
   %.sroa.0.1 = tail call i32 @llvm.abs.i32(i32 %.sroa.0.0.extract.trunc, i1 true)
   %.0 = and i32 %.sroa.0.0, -2147483648
   %5 = icmp eq i32 %.sroa.0.0.extract.trunc, 0
-  %6 = icmp ult i64 %0, 4294967296
+  %6 = icmp eq i64 %.sroa.14.0.extract.shift, 0
   %.mux = select i1 %6, i32 -4194304, i32 0
-  %brmerge41 = or i1 %6, %5
+  %brmerge41 = or i1 %5, %6
   %.mux.mux = select i1 %5, i32 %.mux, i32 2139095040
   br i1 %brmerge41, label %65, label %7
 

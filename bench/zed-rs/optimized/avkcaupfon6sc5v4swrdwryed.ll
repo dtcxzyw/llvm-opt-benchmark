@@ -3539,11 +3539,11 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 35:                                               ; preds = %.loopexit40
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.experimental.noalias.scope.decl(metadata !1171)
-  %36 = getelementptr { i64, [7 x i64] }, ptr %2, i64 %21
-  %37 = getelementptr i8, ptr %36, i64 -64
-  %38 = add i64 %1, -1
-  %39 = getelementptr inbounds { i64, [7 x i64] }, ptr %2, i64 %38
-  %40 = getelementptr inbounds { i64, [7 x i64] }, ptr %0, i64 %38
+  %36 = add i64 %1, -1
+  %37 = getelementptr inbounds { i64, [7 x i64] }, ptr %2, i64 %36
+  %38 = getelementptr { i64, [7 x i64] }, ptr %2, i64 %21
+  %39 = getelementptr i8, ptr %38, i64 -64
+  %40 = getelementptr inbounds { i64, [7 x i64] }, ptr %0, i64 %36
   %41 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -3559,10 +3559,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 
 49:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h343c4d14d7a62ffaE.exit29.i", %35
   %.sroa.0.010.i = phi ptr [ %2, %35 ], [ %70, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h343c4d14d7a62ffaE.exit29.i" ]
-  %.sroa.06.09.i = phi ptr [ %36, %35 ], [ %68, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h343c4d14d7a62ffaE.exit29.i" ]
+  %.sroa.06.09.i = phi ptr [ %38, %35 ], [ %68, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h343c4d14d7a62ffaE.exit29.i" ]
   %.sroa.010.08.i = phi ptr [ %0, %35 ], [ %71, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h343c4d14d7a62ffaE.exit29.i" ]
-  %.sroa.013.07.i = phi ptr [ %37, %35 ], [ %89, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h343c4d14d7a62ffaE.exit29.i" ]
-  %.sroa.015.06.i = phi ptr [ %39, %35 ], [ %88, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h343c4d14d7a62ffaE.exit29.i" ]
+  %.sroa.013.07.i = phi ptr [ %39, %35 ], [ %89, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h343c4d14d7a62ffaE.exit29.i" ]
+  %.sroa.015.06.i = phi ptr [ %37, %35 ], [ %88, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h343c4d14d7a62ffaE.exit29.i" ]
   %.sroa.017.05.i = phi ptr [ %40, %35 ], [ %90, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h343c4d14d7a62ffaE.exit29.i" ]
   %.sroa.018.04.i = phi i64 [ 0, %35 ], [ %50, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h343c4d14d7a62ffaE.exit29.i" ]
   %50 = add nuw nsw i64 %.sroa.018.04.i, 1
@@ -4314,11 +4314,11 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   br i1 %67, label %.noexc35, label %.loopexit38
 
 .critedge:                                        ; preds = %.loopexit38
-  %68 = getelementptr { { { { i64, ptr, {} }, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %2, i64 %12
-  %69 = getelementptr i8, ptr %68, i64 -40
-  %70 = add i64 %1, -1
-  %71 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %2, i64 %70
-  %72 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %0, i64 %70
+  %68 = add i64 %1, -1
+  %69 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %2, i64 %68
+  %70 = getelementptr { { { { i64, ptr, {} }, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %2, i64 %12
+  %71 = getelementptr i8, ptr %70, i64 -40
+  %72 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %0, i64 %68
   br label %77
 
 ._crit_edge.i:                                    ; preds = %.noexc33
@@ -4330,10 +4330,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 
 77:                                               ; preds = %.noexc33, %.critedge
   %.sroa.0.010.i = phi ptr [ %2, %.critedge ], [ %84, %.noexc33 ]
-  %.sroa.06.09.i = phi ptr [ %68, %.critedge ], [ %86, %.noexc33 ]
+  %.sroa.06.09.i = phi ptr [ %70, %.critedge ], [ %86, %.noexc33 ]
   %.sroa.010.08.i = phi ptr [ %0, %.critedge ], [ %81, %.noexc33 ]
-  %.sroa.013.07.i = phi ptr [ %69, %.critedge ], [ %89, %.noexc33 ]
-  %.sroa.015.06.i = phi ptr [ %71, %.critedge ], [ %88, %.noexc33 ]
+  %.sroa.013.07.i = phi ptr [ %71, %.critedge ], [ %89, %.noexc33 ]
+  %.sroa.015.06.i = phi ptr [ %69, %.critedge ], [ %88, %.noexc33 ]
   %.sroa.017.05.i = phi ptr [ %72, %.critedge ], [ %90, %.noexc33 ]
   %.sroa.018.04.i = phi i64 [ 0, %.critedge ], [ %78, %.noexc33 ]
   %78 = add nuw nsw i64 %.sroa.018.04.i, 1

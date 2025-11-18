@@ -107097,13 +107097,13 @@ define internal fastcc void @_ZN11polars_plan5plans9optimizer3cse8cse_expr22Comm
   %.sroa.09.013.i.sroa.gep290 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %46 = icmp eq i64 %3, 0
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sink.sroa.gep766 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sink.sroa.gep768 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %.sink.sroa.gep769 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %.sink.sroa.gep771 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sink.sroa.gep772 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %.sink.sroa.gep774 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.sink.sroa.gep775 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %.sink.sroa.gep767 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sink.sroa.gep769 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %.sink.sroa.gep770 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %.sink.sroa.gep772 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.sink.sroa.gep773 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %.sink.sroa.gep775 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.sink.sroa.gep776 = getelementptr inbounds nuw i8, ptr %11, i64 24
   br i1 %46, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
@@ -107746,7 +107746,7 @@ _ZN4core4iter6traits8iterator8Iterator3zip17hcc041286e59ae75aE.exit: ; preds = %
   store ptr %291, ptr %185, align 8
   br label %297
 
-thread-pre-split:                                 ; preds = %445, %414, %_ZN4core4iter6traits8iterator8Iterator3zip17hcd7e9bb6e1b38011E.exit189, %_ZN4core4iter6traits8iterator8Iterator3zip17hcd7e9bb6e1b38011E.exit, %297, %344, %.critedge, %.critedge695, %377, %381
+thread-pre-split:                                 ; preds = %445, %414, %_ZN4core4iter6traits8iterator8Iterator3zip17hcd7e9bb6e1b38011E.exit189, %_ZN4core4iter6traits8iterator8Iterator3zip17hcd7e9bb6e1b38011E.exit, %297, %344, %.critedge, %.critedge696, %377, %381
   %.pr = load i64, ptr %186, align 8
   %.not113 = icmp eq i64 %.pr, 0
   br i1 %.not113, label %465, label %297
@@ -107806,23 +107806,23 @@ thread-pre-split:                                 ; preds = %445, %414, %_ZN4cor
 
 319:                                              ; preds = %318
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !11977
-  br label %.invoke640
+  br label %.invoke641
 
-.invoke640:                                       ; preds = %363, %319
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %363 ], [ %.sink.sroa.gep766, %319 ]
-  %.sink.sroa.phi767 = phi ptr [ %.sink.sroa.gep768, %363 ], [ %.sink.sroa.gep769, %319 ]
-  %.sink.sroa.phi770 = phi ptr [ %.sink.sroa.gep771, %363 ], [ %.sink.sroa.gep772, %319 ]
-  %.sink.sroa.phi773 = phi ptr [ %.sink.sroa.gep774, %363 ], [ %.sink.sroa.gep775, %319 ]
+.invoke641:                                       ; preds = %363, %319
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %363 ], [ %.sink.sroa.gep767, %319 ]
+  %.sink.sroa.phi768 = phi ptr [ %.sink.sroa.gep769, %363 ], [ %.sink.sroa.gep770, %319 ]
+  %.sink.sroa.phi771 = phi ptr [ %.sink.sroa.gep772, %363 ], [ %.sink.sroa.gep773, %319 ]
+  %.sink.sroa.phi774 = phi ptr [ %.sink.sroa.gep775, %363 ], [ %.sink.sroa.gep776, %319 ]
   %.sink = phi ptr [ %10, %363 ], [ %11, %319 ]
   store ptr @anon.78196254c718d13546bbe37e5b53c7b5.114, ptr %.sink, align 8, !noalias !7
   store i64 1, ptr %.sink.sroa.phi, align 8, !noalias !7
-  store ptr null, ptr %.sink.sroa.phi767, align 8, !noalias !7
-  store ptr inttoptr (i64 8 to ptr), ptr %.sink.sroa.phi770, align 8, !noalias !7
-  store i64 0, ptr %.sink.sroa.phi773, align 8, !noalias !7
+  store ptr null, ptr %.sink.sroa.phi768, align 8, !noalias !7
+  store ptr inttoptr (i64 8 to ptr), ptr %.sink.sroa.phi771, align 8, !noalias !7
+  store i64 0, ptr %.sink.sroa.phi774, align 8, !noalias !7
   invoke void @_ZN4core9panicking9panic_fmt17hba2a7e099ecca125E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.78196254c718d13546bbe37e5b53c7b5.116) #42
-          to label %.cont641 unwind label %.loopexit.split-lp395.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.cont642 unwind label %.loopexit.split-lp395.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.cont641:                                         ; preds = %.invoke640
+.cont642:                                         ; preds = %.invoke641
   unreachable
 
 .critedge:                                        ; preds = %318
@@ -107888,7 +107888,7 @@ thread-pre-split:                                 ; preds = %445, %414, %_ZN4cor
           cleanup
   br label %.body185
 
-.loopexit.split-lp395.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %_ZN11polars_plan5plans7expr_ir10OutputName3get17h7a2f5cbbcffeb06cE.exit.i.i.invoke, %.invoke640, %.invoke
+.loopexit.split-lp395.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %_ZN11polars_plan5plans7expr_ir10OutputName3get17h7a2f5cbbcffeb06cE.exit.i.i.invoke, %.invoke641, %.invoke
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body185
@@ -107913,16 +107913,13 @@ thread-pre-split:                                 ; preds = %445, %414, %_ZN4cor
   br i1 %.not115, label %348, label %thread-pre-split
 
 348:                                              ; preds = %344
-  %.not512 = icmp samesign ult i64 %345, 2
-  br i1 %.not512, label %._crit_edge498, label %.lr.ph497.preheader
-
-.lr.ph497.preheader:                              ; preds = %348
   %349 = lshr i64 %345, 1
-  br label %.lr.ph497
+  %.not512 = icmp eq i64 %349, 0
+  br i1 %.not512, label %._crit_edge498, label %.lr.ph497
 
-.lr.ph497:                                        ; preds = %.lr.ph497.preheader, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4128eefeac8f4febE.exit"
-  %350 = phi i64 [ %464, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4128eefeac8f4febE.exit" ], [ 1, %.lr.ph497.preheader ]
-  %.sroa.0101.0495 = phi i64 [ %350, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4128eefeac8f4febE.exit" ], [ 0, %.lr.ph497.preheader ]
+.lr.ph497:                                        ; preds = %348, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4128eefeac8f4febE.exit"
+  %350 = phi i64 [ %464, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4128eefeac8f4febE.exit" ], [ 1, %348 ]
+  %.sroa.0101.0495 = phi i64 [ %350, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4128eefeac8f4febE.exit" ], [ 0, %348 ]
   %351 = load ptr, ptr %183, align 8, !nonnull !7, !noundef !7
   %352 = load i64, ptr %184, align 8, !noundef !7
   %353 = icmp ult i64 %.sroa.0101.0495, %352
@@ -107957,13 +107954,13 @@ thread-pre-split:                                 ; preds = %445, %414, %_ZN4cor
   br i1 %361, label %.loopexit.i173, label %.lr.ph.i170
 
 362:                                              ; preds = %.loopexit.i173
-  br i1 %.sroa.04.1.in.lcssa.i174, label %.critedge695, label %363, !prof !58
+  br i1 %.sroa.04.1.in.lcssa.i174, label %.critedge696, label %363, !prof !58
 
 363:                                              ; preds = %362
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !11983
-  br label %.invoke640
+  br label %.invoke641
 
-.critedge695:                                     ; preds = %362
+.critedge696:                                     ; preds = %362
   %364 = icmp ne ptr %.val129, null
   call void @llvm.assume(i1 %364)
   %365 = getelementptr inbounds nuw { i64, [23 x i64] }, ptr %.val129, i64 %305
@@ -107989,14 +107986,14 @@ thread-pre-split:                                 ; preds = %445, %414, %_ZN4cor
   %376 = icmp eq ptr %372, %360
   br i1 %376, label %.loopexit.i173, label %.lr.ph.i170
 
-377:                                              ; preds = %.critedge695
+377:                                              ; preds = %.critedge696
   %378 = load i64, ptr %366, align 16, !range !4851, !noundef !7
   %379 = icmp sgt i64 %378, -9223372036854775792
   %380 = icmp ne i64 %378, -9223372036854775796
   call void @llvm.assume(i1 %380)
   br i1 %379, label %385, label %thread-pre-split
 
-381:                                              ; preds = %.critedge695
+381:                                              ; preds = %.critedge696
   %382 = load i64, ptr %366, align 16, !range !4851, !noundef !7
   %383 = icmp ne i64 %382, -9223372036854775796
   call void @llvm.assume(i1 %383)

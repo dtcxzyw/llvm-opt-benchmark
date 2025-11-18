@@ -311,7 +311,7 @@ define void @BUF_reverse(ptr noundef captures(none) %0, ptr noundef readonly cap
 
 9:                                                ; preds = %3
   %10 = lshr i64 %2, 1
-  %.not32 = icmp ult i64 %2, 2
+  %.not32 = icmp eq i64 %10, 0
   br i1 %.not32, label %.loopexit, label %.lr.ph30.preheader
 
 .lr.ph30.preheader:                               ; preds = %9

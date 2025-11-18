@@ -4060,7 +4060,7 @@ lean_nat_eq.exit.thread:                          ; preds = %lean_dec.exit81
   br i1 %117, label %.thread139, label %.thread
 
 118:                                              ; preds = %lean_nat_eq.exit
-  %119 = icmp ult ptr %.1.i127133, inttoptr (i64 2 to ptr)
+  %119 = icmp eq i64 %40, 0
   br i1 %119, label %lean_dec.exit80, label %120
 
 120:                                              ; preds = %118

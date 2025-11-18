@@ -119,7 +119,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   %.0151194 = phi i32 [ %38, %.lr.ph ], [ %33, %6 ]
   %37 = fadd reassoc nsz arcp contract afn float %.0150195, 1.000000e+00
   %38 = ashr i32 %.0151194, 1
-  %.not = icmp ult i32 %.0151194, 2
+  %.not = icmp eq i32 %38, 0
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge201.loopexit:                          ; preds = %.lr.ph200
@@ -148,7 +148,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   %.0154197 = phi i32 [ %49, %.lr.ph200 ], [ %29, %._crit_edge ]
   %48 = add nuw nsw i32 %.0153198, 1
   %49 = ashr i32 %.0154197, 1
-  %.not163 = icmp ult i32 %.0154197, 2
+  %.not163 = icmp eq i32 %49, 0
   br i1 %.not163, label %._crit_edge201.loopexit, label %.lr.ph200
 
 .lr.ph207:                                        ; preds = %.lr.ph205
@@ -1629,7 +1629,7 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
   %.02836 = phi i32 [ %36, %.lr.ph ], [ 0, %13 ]
   %36 = add nuw nsw i32 %.02836, 1
   %37 = ashr i32 %.037, 1
-  %.not = icmp ult i32 %.037, 2
+  %.not = icmp eq i32 %37, 0
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 }
 
@@ -1725,7 +1725,7 @@ define void @init_pipe(ptr noundef readonly captures(none) %0, ptr noundef reado
   %.03038 = phi i32 [ %50, %.lr.ph ], [ 0, %9 ]
   %50 = add nuw nsw i32 %.03038, 1
   %51 = ashr i32 %.039, 1
-  %.not = icmp ult i32 %.039, 2
+  %.not = icmp eq i32 %51, 0
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 }
 

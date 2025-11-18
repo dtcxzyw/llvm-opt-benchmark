@@ -44443,7 +44443,7 @@ define internal fastcc range(i32 -95, 1) i32 @nl80211_crypto_settings(ptr nounde
   %84 = getelementptr i8, ptr %70, i64 4
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %85, ptr align 1 %84, i64 %75, i1 false)
-  %.not = icmp ult i16 %74, 4
+  %.not = icmp eq i64 %76, 0
   br i1 %.not, label %.thread15, label %86
 
 86:                                               ; preds = %83

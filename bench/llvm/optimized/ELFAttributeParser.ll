@@ -1135,7 +1135,7 @@ define dso_local void @_ZN4llvm18ELFAttributeParser5parseENS_8ArrayRefIhEENS_10e
   %55 = getelementptr inbounds i8, ptr %.117.i, i64 -1
   store i8 %54, ptr %55, align 1, !tbaa !7, !noalias !136
   %56 = lshr i64 %.019.i, 4
-  %57 = icmp samesign ult i64 %.019.i, 16
+  %57 = icmp eq i64 %56, 0
   br i1 %57, label %._crit_edge.i, label %.thread.i, !llvm.loop !140
 
 _ZN4llvm9utohexstrB5cxx11Embj.exit:               ; preds = %._crit_edge.i.i.i, %49, %51
@@ -1404,7 +1404,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit44:                ; preds = %136, %._ZN4llvmplER
   %172 = getelementptr inbounds i8, ptr %.117.i48, i64 -1
   store i8 %171, ptr %172, align 1, !tbaa !7, !noalias !169
   %173 = lshr i64 %.019.i46, 4
-  %174 = icmp ult i64 %.019.i46, 16
+  %174 = icmp eq i64 %173, 0
   br i1 %174, label %._crit_edge.i49, label %.thread.i45, !llvm.loop !140
 
 _ZN4llvmplERKNS_5TwineES2_.exit67:                ; preds = %._crit_edge.i.i.i51, %166, %168

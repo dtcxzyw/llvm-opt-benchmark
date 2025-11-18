@@ -1126,7 +1126,7 @@ _ZN4llvm15SmallVectorImplIN5clang14SourceLocationEE5eraseEPKS2_S5_.exit: ; preds
   %122 = zext nneg i32 %118 to i64
   %.neg = mul nsw i64 %122, -4
   %123 = getelementptr inbounds i8, ptr %121, i64 %.neg
-  %.not101 = icmp ult i32 %111, 2
+  %.not101 = icmp eq i32 %118, 0
   br i1 %.not101, label %._crit_edge105, label %.lr.ph104
 
 ._crit_edge105:                                   ; preds = %.lr.ph104, %117

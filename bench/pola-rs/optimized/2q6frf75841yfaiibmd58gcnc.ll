@@ -1019,19 +1019,19 @@ define hidden void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$
   store i64 %1, ptr %9, align 8, !noalias !34
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %12, align 8, !noalias !34
-  %.not.i.i = icmp ult i64 %1, 2
+  %13 = lshr i64 %1, 1
+  %.not.i.i = icmp eq i64 %13, 0
   %.not.i.i.i = icmp eq i64 %spec.store.select.i.i, 0
   %or.cond.i = or i1 %.not.i.i, %.not.i.i.i
-  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %13
+  br i1 %or.cond.i, label %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i, label %14
 
-13:                                               ; preds = %4
-  %14 = lshr i64 %1, 1
+14:                                               ; preds = %4
   %15 = lshr i64 %spec.store.select.i.i, 1
   store i64 %15, ptr %8, align 8, !alias.scope !37, !noalias !34
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !34
-  store i64 %14, ptr %7, align 8, !noalias !34
+  store i64 %13, ptr %7, align 8, !noalias !34
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !34
-  call void @"_ZN91_$LT$rayon..range..IterProducer$LT$usize$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17hb463f9b3f2832200E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, i64 noundef %2, i64 noundef %3, i64 noundef %14), !noalias !34
+  call void @"_ZN91_$LT$rayon..range..IterProducer$LT$usize$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$8split_at17hb463f9b3f2832200E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, i64 noundef %2, i64 noundef %3, i64 noundef %13), !noalias !34
   %16 = load i64, ptr %6, align 8, !noalias !34, !noundef !4
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load i64, ptr %17, align 8, !noalias !34, !noundef !4
@@ -1071,7 +1071,7 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i: ; preds
   %24 = tail call noundef align 8 dereferenceable(8) ptr @_ZN5rayon4iter8plumbing8Producer9fold_with17hc65b6b614a08c6f3E(i64 noundef %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   br label %_ZN5rayon4iter8plumbing24bridge_producer_consumer17hf40288dff15249e1E.exit
 
-_ZN5rayon4iter8plumbing24bridge_producer_consumer17hf40288dff15249e1E.exit: ; preds = %13, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
+_ZN5rayon4iter8plumbing24bridge_producer_consumer17hf40288dff15249e1E.exit: ; preds = %14, %_ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !31
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !31
   ret void
@@ -1227,13 +1227,13 @@ define hidden void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$
   store i64 %1, ptr %9, align 8, !noalias !73
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %15, align 8, !noalias !73
-  %.not.i.i = icmp ult i64 %1, 2
+  %16 = lshr i64 %1, 1
+  %.not.i.i = icmp eq i64 %16, 0
   %.not.i.i.i = icmp eq i64 %spec.store.select.i.i, 0
   %or.cond.i = or i1 %.not.i.i, %.not.i.i.i
   br i1 %or.cond.i, label %26, label %.noexc.i
 
 .noexc.i:                                         ; preds = %13
-  %16 = lshr i64 %1, 1
   %17 = lshr i64 %spec.store.select.i.i, 1
   store i64 %17, ptr %8, align 8, !alias.scope !77, !noalias !73
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !73

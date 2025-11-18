@@ -23893,7 +23893,7 @@ default.unreachable3:                             ; preds = %4
   %33 = lshr i64 %1, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !6797)
   call void @llvm.experimental.noalias.scope.decl(metadata !6800)
-  %.not.i.i = icmp ult i64 %1, 2
+  %.not.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h4216d0ebc1c1f92fE.exit", label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %32

@@ -2503,8 +2503,8 @@ define internal fastcc i32 @dissect_ospf_v2_lsa(ptr noundef %0, ptr noundef %1, 
 
 ospf_ls_type_to_filter.exit.thread:               ; preds = %41
   %43 = and i8 %34, 1
-  %.not240353 = icmp eq i8 %43, 0
-  %.str.576..str.777354 = select i1 %.not240353, ptr @.str.576, ptr @.str.777
+  %.not240354 = icmp eq i8 %43, 0
+  %.str.576..str.777355 = select i1 %.not240354, ptr @.str.576, ptr @.str.777
   br label %76
 
 44:                                               ; preds = %5
@@ -2565,14 +2565,14 @@ ospf_ls_type_to_filter.exit:                      ; preds = %54, %51, %ospf_ls_t
   br label %80
 
 76:                                               ; preds = %ospf_ls_type_to_filter.exit.thread, %ospf_ls_type_to_filter.exit
-  %.str.576..str.777356 = phi ptr [ %.str.576..str.777354, %ospf_ls_type_to_filter.exit.thread ], [ %.str.576..str.777, %ospf_ls_type_to_filter.exit ]
+  %.str.576..str.777357 = phi ptr [ %.str.576..str.777355, %ospf_ls_type_to_filter.exit.thread ], [ %.str.576..str.777, %ospf_ls_type_to_filter.exit ]
   %77 = load i32, ptr @hf_ospf_ls_id, align 4
   %78 = add i32 %2, 4
   %79 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %77, ptr noundef %0, i32 noundef %78, i32 noundef 4, i32 noundef 0)
   br label %80
 
 80:                                               ; preds = %67, %73, %76
-  %.str.576..str.777355 = phi ptr [ %.str.576..str.777, %67 ], [ %.str.576..str.777, %73 ], [ %.str.576..str.777356, %76 ]
+  %.str.576..str.777356 = phi ptr [ %.str.576..str.777, %67 ], [ %.str.576..str.777, %73 ], [ %.str.576..str.777357, %76 ]
   %.0231 = phi i8 [ 1, %67 ], [ %62, %73 ], [ 0, %76 ]
   %81 = load i32, ptr @hf_ospf_adv_router, align 4
   %82 = add i32 %2, 8
@@ -2682,7 +2682,7 @@ ospf_ls_type_to_filter.exit:                      ; preds = %54, %51, %ospf_ls_t
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %148, ptr noundef nonnull @.str.781, ptr noundef %149)
   %150 = load i32, ptr @hf_ospf_ls_router_nummetrics, align 4
   %151 = call ptr @proto_tree_add_item(ptr noundef %141, i32 noundef %150, ptr noundef %0, i32 noundef %125, i32 noundef 1, i32 noundef 0)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %151, ptr noundef nonnull @.str.781, ptr noundef nonnull %.str.576..str.777355)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %151, ptr noundef nonnull @.str.781, ptr noundef nonnull %.str.576..str.777356)
   %152 = load i32, ptr @hf_ospf_ls_router_metric0, align 4
   %153 = call ptr @proto_tree_add_item(ptr noundef %141, i32 noundef %152, ptr noundef %0, i32 noundef %138, i32 noundef 2, i32 noundef 0)
   %154 = add i32 %.0230278, 12
@@ -2701,7 +2701,7 @@ ospf_ls_type_to_filter.exit:                      ; preds = %54, %51, %ospf_ls_t
   %161 = zext i8 %160 to i32
   %162 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %157)
   %163 = zext i16 %162 to i32
-  %164 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %141, i32 noundef %156, ptr noundef %0, i32 noundef %.1274, i32 noundef 4, i32 noundef %159, ptr noundef nonnull @.str.784, ptr noundef nonnull %.str.576..str.777355, i32 noundef %161, i32 noundef %163)
+  %164 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %141, i32 noundef %156, ptr noundef %0, i32 noundef %.1274, i32 noundef 4, i32 noundef %159, ptr noundef nonnull @.str.784, ptr noundef nonnull %.str.576..str.777356, i32 noundef %161, i32 noundef %163)
   %165 = add i32 %.1274, 4
   %166 = add nuw nsw i16 %.0233273, 1
   %exitcond.not = icmp eq i16 %166, %155
@@ -3691,7 +3691,7 @@ dissect_ospf_lsa_ext_prefix.exit.i:               ; preds = %.loopexit.i.i, %380
 
 755:                                              ; preds = %.lr.ph126.i.i.i
   %756 = lshr i32 %681, 2
-  %.not.i.i.i.i = icmp ult i16 %678, 4
+  %.not.i.i.i.i = icmp eq i32 %756, 0
   br i1 %.not.i.i.i.i, label %dissect_ospf_subtlv_ext_admin_group.exit.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %755, %.lr.ph.i.i.i.i
@@ -5195,7 +5195,7 @@ proto_item_set_hidden.exit:                       ; preds = %5, %10, %13
   %474 = tail call ptr @proto_tree_add_item(ptr noundef %470, i32 noundef %473, ptr noundef %0, i32 noundef %48, i32 noundef 2, i32 noundef 0)
   %475 = add i32 %.09621026, 4
   %476 = lshr i32 %50, 2
-  %.not.i989 = icmp ult i16 %49, 4
+  %.not.i989 = icmp eq i32 %476, 0
   br i1 %.not.i989, label %dissect_ospf_subtlv_ext_admin_group.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %467, %.lr.ph.i
@@ -5826,7 +5826,7 @@ define internal fastcc void @dissect_ospf_lsa_opaque_ri(ptr noundef %0, ptr noun
 187:                                              ; preds = %.lr.ph287, %.lr.ph287, %.lr.ph287
   %188 = add i32 %.1286, 4
   %189 = lshr i32 %179, 2
-  %.not.i = icmp ult i16 %176, 4
+  %.not.i = icmp eq i32 %189, 0
   br i1 %.not.i, label %dissect_ospf_subtlv_ext_admin_group.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %187, %.lr.ph.i

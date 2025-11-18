@@ -1373,7 +1373,7 @@ _ZSt8distanceISt14_List_iteratorIN3gmx29RealFunctionvalueAtCoordinateEEENSt15ite
   %.04.i.i = phi i64 [ %.1.i.i, %30 ], [ %18, %_ZSt8distanceISt14_List_iteratorIN3gmx29RealFunctionvalueAtCoordinateEEENSt15iterator_traitsIT_E15difference_typeES5_S5_.exit.i.i ]
   %.sroa.01.03.i.i = phi ptr [ %.sroa.01.1.i.i, %30 ], [ %16, %_ZSt8distanceISt14_List_iteratorIN3gmx29RealFunctionvalueAtCoordinateEEENSt15iterator_traitsIT_E15difference_typeES5_S5_.exit.i.i ]
   %20 = lshr i64 %.04.i.i, 1
-  %.not.i.i = icmp eq i64 %.04.i.i, 1
+  %.not.i.i = icmp eq i64 %20, 0
   br i1 %.not.i.i, label %_ZSt7advanceISt14_List_iteratorIN3gmx29RealFunctionvalueAtCoordinateEElEvRT_T0_.exit.i.i, label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %.lr.ph.i.i, %.preheader.i.i.i.i

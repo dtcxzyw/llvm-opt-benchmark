@@ -2496,7 +2496,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPol
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !39
   %11 = lshr i64 %10, 8
-  %.not = icmp ult i64 %10, 256
+  %.not = icmp eq i64 %11, 0
   br i1 %.not, label %..thread68_crit_edge, label %12
 
 ..thread68_crit_edge:                             ; preds = %8
@@ -2736,10 +2736,10 @@ _ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit:  ; preds = %125
   br label %136
 
 136:                                              ; preds = %_ZNK5folly3f146detail21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjvvvSt17integral_constantIbLb1EEE14keyMatchesItemIS8_EEbRKT_RKj.exit.thread, %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit
-  %.sink135 = phi ptr [ %86, %_ZNK5folly3f146detail21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjvvvSt17integral_constantIbLb1EEE14keyMatchesItemIS8_EEbRKT_RKj.exit.thread ], [ %134, %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit ]
+  %.sink134 = phi ptr [ %86, %_ZNK5folly3f146detail21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjvvvSt17integral_constantIbLb1EEE14keyMatchesItemIS8_EEbRKT_RKj.exit.thread ], [ %134, %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit ]
   %.us-phi.sink = phi i64 [ %.us-phi, %_ZNK5folly3f146detail21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjvvvSt17integral_constantIbLb1EEE14keyMatchesItemIS8_EEbRKT_RKj.exit.thread ], [ %127, %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit ]
   %.sink = phi i8 [ 0, %_ZNK5folly3f146detail21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjvvvSt17integral_constantIbLb1EEE14keyMatchesItemIS8_EEbRKT_RKj.exit.thread ], [ 1, %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit ]
-  store ptr %.sink135, ptr %0, align 8, !tbaa !100
+  store ptr %.sink134, ptr %0, align 8, !tbaa !100
   %.sroa.543.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.us-phi.sink, ptr %.sroa.543.0..sroa_idx, align 8, !tbaa !101
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3819,13 +3819,13 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   %29 = getelementptr inbounds i8, ptr %28, i64 %.neg.i.i
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load i64, ptr %30, align 8, !tbaa !39
-  %.not.i.i.i = icmp ugt i64 %31, 255
-  %32 = load ptr, ptr %29, align 8
-  br i1 %.not.i.i.i, label %.lr.ph, label %.critedge20
+  %32 = lshr i64 %31, 8
+  %.not.i.i.i.not = icmp eq i64 %32, 0
+  %33 = load ptr, ptr %29, align 8
+  br i1 %.not.i.i.i.not, label %.critedge20, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27
-  %33 = lshr i64 %31, 8
-  %34 = getelementptr inbounds nuw %"struct.std::pair", ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw %"struct.std::pair", ptr %33, i64 %32
   %35 = load i32, ptr %1, align 4, !tbaa !48
   br label %.backedge
 
@@ -3880,7 +3880,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   br label %95
 
 .critedge:                                        ; preds = %.backedge
-  %52 = icmp eq ptr %32, %.sroa.026.031
+  %52 = icmp eq ptr %33, %.sroa.026.031
   br i1 %52, label %.critedge20, label %.backedge, !prof !63
 
 .critedge20:                                      ; preds = %.critedge, %27
@@ -5196,7 +5196,7 @@ define linkonce_odr void @_ZN5folly13hazptr_domainISt6atomicE14do_reclamationEi(
   %27 = lshr i64 %23, 22
   %28 = load i64, ptr %7, align 8, !tbaa !39, !noalias !214
   %29 = lshr i64 %28, 8
-  %.not.i12 = icmp ult i64 %28, 256
+  %.not.i12 = icmp eq i64 %29, 0
   %.pre.i = load ptr, ptr %6, align 8, !tbaa !209, !noalias !214
   br i1 %.not.i12, label %.thread65.i, label %30
 

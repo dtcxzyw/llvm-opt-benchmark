@@ -21435,10 +21435,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_general17h0
   store ptr %0, ptr %36, align 8, !noalias !2667
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %1, ptr %37, align 8, !noalias !2667
-  %38 = getelementptr i8, ptr %19, i64 -24
-  %39 = add i64 %1, -1
-  %40 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %10, i64 %39
-  %41 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %39
+  %38 = add i64 %1, -1
+  %39 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %10, i64 %38
+  %40 = getelementptr i8, ptr %19, i64 -24
+  %41 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %38
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -21456,8 +21456,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_general17h0
   %.sroa.0.010.i.i = phi ptr [ %10, %35 ], [ %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, %.noexc27.i ]
   %.sroa.06.09.i.i = phi ptr [ %19, %35 ], [ %.sroa.sel.idx.sroa.sel.idx.sroa.sel, %.noexc27.i ]
   %.sroa.010.08.i.i = phi ptr [ %0, %35 ], [ %63, %.noexc27.i ]
-  %.sroa.013.07.i.i = phi ptr [ %38, %35 ], [ %77, %.noexc27.i ]
-  %.sroa.015.06.i.i = phi ptr [ %40, %35 ], [ %76, %.noexc27.i ]
+  %.sroa.013.07.i.i = phi ptr [ %40, %35 ], [ %77, %.noexc27.i ]
+  %.sroa.015.06.i.i = phi ptr [ %39, %35 ], [ %76, %.noexc27.i ]
   %.sroa.017.05.i.i = phi ptr [ %41, %35 ], [ %78, %.noexc27.i ]
   %.sroa.018.04.i.i = phi i64 [ 0, %35 ], [ %51, %.noexc27.i ]
   %51 = add nuw nsw i64 %.sroa.018.04.i.i, 1
@@ -31205,11 +31205,11 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
 define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h25869330669c4289E(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef range(i64 2, 0) %1, ptr noundef writeonly captures(none) %2, ptr readonly captures(address_is_null) %.0.val) unnamed_addr #2 {
 .lr.ph:
   %3 = lshr i64 %1, 1
-  %4 = getelementptr { ptr, ptr }, ptr %0, i64 %3
-  %5 = getelementptr i8, ptr %4, i64 -16
-  %6 = add i64 %1, -1
-  %7 = getelementptr inbounds nuw { ptr, ptr }, ptr %0, i64 %6
-  %8 = getelementptr inbounds nuw { ptr, ptr }, ptr %2, i64 %6
+  %4 = add i64 %1, -1
+  %5 = getelementptr inbounds nuw { ptr, ptr }, ptr %0, i64 %4
+  %6 = getelementptr { ptr, ptr }, ptr %0, i64 %3
+  %7 = getelementptr i8, ptr %6, i64 -16
+  %8 = getelementptr inbounds nuw { ptr, ptr }, ptr %2, i64 %4
   %9 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %9)
   br label %14
@@ -31223,10 +31223,10 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
 
 14:                                               ; preds = %.lr.ph, %14
   %.sroa.0.010 = phi ptr [ %0, %.lr.ph ], [ %30, %14 ]
-  %.sroa.06.09 = phi ptr [ %4, %.lr.ph ], [ %28, %14 ]
+  %.sroa.06.09 = phi ptr [ %6, %.lr.ph ], [ %28, %14 ]
   %.sroa.010.08 = phi ptr [ %2, %.lr.ph ], [ %31, %14 ]
-  %.sroa.013.07 = phi ptr [ %5, %.lr.ph ], [ %44, %14 ]
-  %.sroa.015.06 = phi ptr [ %7, %.lr.ph ], [ %43, %14 ]
+  %.sroa.013.07 = phi ptr [ %7, %.lr.ph ], [ %44, %14 ]
+  %.sroa.015.06 = phi ptr [ %5, %.lr.ph ], [ %43, %14 ]
   %.sroa.017.05 = phi ptr [ %8, %.lr.ph ], [ %45, %14 ]
   %.sroa.018.04 = phi i64 [ 0, %.lr.ph ], [ %15, %14 ]
   %15 = add nuw nsw i64 %.sroa.018.04, 1
@@ -36367,11 +36367,11 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   store ptr %0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %1, ptr %38, align 8
-  %39 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
-  %40 = getelementptr i8, ptr %39, i64 -24
-  %41 = add i64 %1, -1
-  %42 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %41
-  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %41
+  %39 = add i64 %1, -1
+  %40 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %39
+  %41 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
+  %42 = getelementptr i8, ptr %41, i64 -24
+  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %39
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -36387,10 +36387,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 
 52:                                               ; preds = %.noexc27, %36
   %.sroa.0.010.i = phi ptr [ %2, %36 ], [ %69, %.noexc27 ]
-  %.sroa.06.09.i = phi ptr [ %39, %36 ], [ %67, %.noexc27 ]
+  %.sroa.06.09.i = phi ptr [ %41, %36 ], [ %67, %.noexc27 ]
   %.sroa.010.08.i = phi ptr [ %0, %36 ], [ %70, %.noexc27 ]
-  %.sroa.013.07.i = phi ptr [ %40, %36 ], [ %84, %.noexc27 ]
-  %.sroa.015.06.i = phi ptr [ %42, %36 ], [ %83, %.noexc27 ]
+  %.sroa.013.07.i = phi ptr [ %42, %36 ], [ %84, %.noexc27 ]
+  %.sroa.015.06.i = phi ptr [ %40, %36 ], [ %83, %.noexc27 ]
   %.sroa.017.05.i = phi ptr [ %43, %36 ], [ %85, %.noexc27 ]
   %.sroa.018.04.i = phi i64 [ 0, %36 ], [ %53, %.noexc27 ]
   %53 = add nuw nsw i64 %.sroa.018.04.i, 1
@@ -37011,11 +37011,11 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   store ptr %0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %1, ptr %38, align 8
-  %39 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
-  %40 = getelementptr i8, ptr %39, i64 -24
-  %41 = add i64 %1, -1
-  %42 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %41
-  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %41
+  %39 = add i64 %1, -1
+  %40 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %39
+  %41 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
+  %42 = getelementptr i8, ptr %41, i64 -24
+  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %39
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -37031,10 +37031,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 
 52:                                               ; preds = %.noexc27, %36
   %.sroa.0.010.i = phi ptr [ %2, %36 ], [ %69, %.noexc27 ]
-  %.sroa.06.09.i = phi ptr [ %39, %36 ], [ %67, %.noexc27 ]
+  %.sroa.06.09.i = phi ptr [ %41, %36 ], [ %67, %.noexc27 ]
   %.sroa.010.08.i = phi ptr [ %0, %36 ], [ %70, %.noexc27 ]
-  %.sroa.013.07.i = phi ptr [ %40, %36 ], [ %84, %.noexc27 ]
-  %.sroa.015.06.i = phi ptr [ %42, %36 ], [ %83, %.noexc27 ]
+  %.sroa.013.07.i = phi ptr [ %42, %36 ], [ %84, %.noexc27 ]
+  %.sroa.015.06.i = phi ptr [ %40, %36 ], [ %83, %.noexc27 ]
   %.sroa.017.05.i = phi ptr [ %43, %36 ], [ %85, %.noexc27 ]
   %.sroa.018.04.i = phi i64 [ 0, %36 ], [ %53, %.noexc27 ]
   %53 = add nuw nsw i64 %.sroa.018.04.i, 1
@@ -39065,11 +39065,11 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   store ptr %0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %1, ptr %38, align 8
-  %39 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
-  %40 = getelementptr i8, ptr %39, i64 -24
-  %41 = add i64 %1, -1
-  %42 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %41
-  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %41
+  %39 = add i64 %1, -1
+  %40 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %39
+  %41 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
+  %42 = getelementptr i8, ptr %41, i64 -24
+  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %39
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -39085,10 +39085,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 
 52:                                               ; preds = %.noexc27, %36
   %.sroa.0.010.i = phi ptr [ %2, %36 ], [ %69, %.noexc27 ]
-  %.sroa.06.09.i = phi ptr [ %39, %36 ], [ %67, %.noexc27 ]
+  %.sroa.06.09.i = phi ptr [ %41, %36 ], [ %67, %.noexc27 ]
   %.sroa.010.08.i = phi ptr [ %0, %36 ], [ %70, %.noexc27 ]
-  %.sroa.013.07.i = phi ptr [ %40, %36 ], [ %84, %.noexc27 ]
-  %.sroa.015.06.i = phi ptr [ %42, %36 ], [ %83, %.noexc27 ]
+  %.sroa.013.07.i = phi ptr [ %42, %36 ], [ %84, %.noexc27 ]
+  %.sroa.015.06.i = phi ptr [ %40, %36 ], [ %83, %.noexc27 ]
   %.sroa.017.05.i = phi ptr [ %43, %36 ], [ %85, %.noexc27 ]
   %.sroa.018.04.i = phi i64 [ 0, %36 ], [ %53, %.noexc27 ]
   %53 = add nuw nsw i64 %.sroa.018.04.i, 1
@@ -40256,11 +40256,11 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   store ptr %0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %1, ptr %38, align 8
-  %39 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
-  %40 = getelementptr i8, ptr %39, i64 -24
-  %41 = add i64 %1, -1
-  %42 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %41
-  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %41
+  %39 = add i64 %1, -1
+  %40 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %39
+  %41 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
+  %42 = getelementptr i8, ptr %41, i64 -24
+  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %39
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -40276,10 +40276,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 
 52:                                               ; preds = %.noexc27, %36
   %.sroa.0.010.i = phi ptr [ %2, %36 ], [ %69, %.noexc27 ]
-  %.sroa.06.09.i = phi ptr [ %39, %36 ], [ %67, %.noexc27 ]
+  %.sroa.06.09.i = phi ptr [ %41, %36 ], [ %67, %.noexc27 ]
   %.sroa.010.08.i = phi ptr [ %0, %36 ], [ %70, %.noexc27 ]
-  %.sroa.013.07.i = phi ptr [ %40, %36 ], [ %84, %.noexc27 ]
-  %.sroa.015.06.i = phi ptr [ %42, %36 ], [ %83, %.noexc27 ]
+  %.sroa.013.07.i = phi ptr [ %42, %36 ], [ %84, %.noexc27 ]
+  %.sroa.015.06.i = phi ptr [ %40, %36 ], [ %83, %.noexc27 ]
   %.sroa.017.05.i = phi ptr [ %43, %36 ], [ %85, %.noexc27 ]
   %.sroa.018.04.i = phi i64 [ 0, %36 ], [ %53, %.noexc27 ]
   %53 = add nuw nsw i64 %.sroa.018.04.i, 1
@@ -40992,11 +40992,11 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   store ptr %0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %1, ptr %38, align 8
-  %39 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
-  %40 = getelementptr i8, ptr %39, i64 -24
-  %41 = add i64 %1, -1
-  %42 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %41
-  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %41
+  %39 = add i64 %1, -1
+  %40 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %39
+  %41 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
+  %42 = getelementptr i8, ptr %41, i64 -24
+  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %39
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -41012,10 +41012,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 
 52:                                               ; preds = %.noexc27, %36
   %.sroa.0.010.i = phi ptr [ %2, %36 ], [ %69, %.noexc27 ]
-  %.sroa.06.09.i = phi ptr [ %39, %36 ], [ %67, %.noexc27 ]
+  %.sroa.06.09.i = phi ptr [ %41, %36 ], [ %67, %.noexc27 ]
   %.sroa.010.08.i = phi ptr [ %0, %36 ], [ %70, %.noexc27 ]
-  %.sroa.013.07.i = phi ptr [ %40, %36 ], [ %84, %.noexc27 ]
-  %.sroa.015.06.i = phi ptr [ %42, %36 ], [ %83, %.noexc27 ]
+  %.sroa.013.07.i = phi ptr [ %42, %36 ], [ %84, %.noexc27 ]
+  %.sroa.015.06.i = phi ptr [ %40, %36 ], [ %83, %.noexc27 ]
   %.sroa.017.05.i = phi ptr [ %43, %36 ], [ %85, %.noexc27 ]
   %.sroa.018.04.i = phi i64 [ 0, %36 ], [ %53, %.noexc27 ]
   %53 = add nuw nsw i64 %.sroa.018.04.i, 1
@@ -41979,11 +41979,11 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   store ptr %0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %1, ptr %38, align 8
-  %39 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
-  %40 = getelementptr i8, ptr %39, i64 -24
-  %41 = add i64 %1, -1
-  %42 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %41
-  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %41
+  %39 = add i64 %1, -1
+  %40 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %39
+  %41 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
+  %42 = getelementptr i8, ptr %41, i64 -24
+  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %39
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -41999,10 +41999,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 
 52:                                               ; preds = %.noexc27, %36
   %.sroa.0.010.i = phi ptr [ %2, %36 ], [ %69, %.noexc27 ]
-  %.sroa.06.09.i = phi ptr [ %39, %36 ], [ %67, %.noexc27 ]
+  %.sroa.06.09.i = phi ptr [ %41, %36 ], [ %67, %.noexc27 ]
   %.sroa.010.08.i = phi ptr [ %0, %36 ], [ %70, %.noexc27 ]
-  %.sroa.013.07.i = phi ptr [ %40, %36 ], [ %84, %.noexc27 ]
-  %.sroa.015.06.i = phi ptr [ %42, %36 ], [ %83, %.noexc27 ]
+  %.sroa.013.07.i = phi ptr [ %42, %36 ], [ %84, %.noexc27 ]
+  %.sroa.015.06.i = phi ptr [ %40, %36 ], [ %83, %.noexc27 ]
   %.sroa.017.05.i = phi ptr [ %43, %36 ], [ %85, %.noexc27 ]
   %.sroa.018.04.i = phi i64 [ 0, %36 ], [ %53, %.noexc27 ]
   %53 = add nuw nsw i64 %.sroa.018.04.i, 1
@@ -42260,11 +42260,11 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   store ptr %0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %1, ptr %38, align 8
-  %39 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
-  %40 = getelementptr i8, ptr %39, i64 -24
-  %41 = add i64 %1, -1
-  %42 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %41
-  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %41
+  %39 = add i64 %1, -1
+  %40 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %39
+  %41 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
+  %42 = getelementptr i8, ptr %41, i64 -24
+  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %39
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -42280,10 +42280,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 
 52:                                               ; preds = %.noexc27, %36
   %.sroa.0.010.i = phi ptr [ %2, %36 ], [ %69, %.noexc27 ]
-  %.sroa.06.09.i = phi ptr [ %39, %36 ], [ %67, %.noexc27 ]
+  %.sroa.06.09.i = phi ptr [ %41, %36 ], [ %67, %.noexc27 ]
   %.sroa.010.08.i = phi ptr [ %0, %36 ], [ %70, %.noexc27 ]
-  %.sroa.013.07.i = phi ptr [ %40, %36 ], [ %84, %.noexc27 ]
-  %.sroa.015.06.i = phi ptr [ %42, %36 ], [ %83, %.noexc27 ]
+  %.sroa.013.07.i = phi ptr [ %42, %36 ], [ %84, %.noexc27 ]
+  %.sroa.015.06.i = phi ptr [ %40, %36 ], [ %83, %.noexc27 ]
   %.sroa.017.05.i = phi ptr [ %43, %36 ], [ %85, %.noexc27 ]
   %.sroa.018.04.i = phi i64 [ 0, %36 ], [ %53, %.noexc27 ]
   %53 = add nuw nsw i64 %.sroa.018.04.i, 1
@@ -42848,11 +42848,11 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   store ptr %0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %1, ptr %38, align 8
-  %39 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
-  %40 = getelementptr i8, ptr %39, i64 -24
-  %41 = add i64 %1, -1
-  %42 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %41
-  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %41
+  %39 = add i64 %1, -1
+  %40 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %39
+  %41 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
+  %42 = getelementptr i8, ptr %41, i64 -24
+  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %39
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -42868,10 +42868,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 
 52:                                               ; preds = %.noexc27, %36
   %.sroa.0.010.i = phi ptr [ %2, %36 ], [ %69, %.noexc27 ]
-  %.sroa.06.09.i = phi ptr [ %39, %36 ], [ %67, %.noexc27 ]
+  %.sroa.06.09.i = phi ptr [ %41, %36 ], [ %67, %.noexc27 ]
   %.sroa.010.08.i = phi ptr [ %0, %36 ], [ %70, %.noexc27 ]
-  %.sroa.013.07.i = phi ptr [ %40, %36 ], [ %84, %.noexc27 ]
-  %.sroa.015.06.i = phi ptr [ %42, %36 ], [ %83, %.noexc27 ]
+  %.sroa.013.07.i = phi ptr [ %42, %36 ], [ %84, %.noexc27 ]
+  %.sroa.015.06.i = phi ptr [ %40, %36 ], [ %83, %.noexc27 ]
   %.sroa.017.05.i = phi ptr [ %43, %36 ], [ %85, %.noexc27 ]
   %.sroa.018.04.i = phi i64 [ 0, %36 ], [ %53, %.noexc27 ]
   %53 = add nuw nsw i64 %.sroa.018.04.i, 1
@@ -43873,11 +43873,11 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   store ptr %0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %1, ptr %38, align 8
-  %39 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
-  %40 = getelementptr i8, ptr %39, i64 -24
-  %41 = add i64 %1, -1
-  %42 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %41
-  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %41
+  %39 = add i64 %1, -1
+  %40 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %39
+  %41 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
+  %42 = getelementptr i8, ptr %41, i64 -24
+  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %39
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -43893,10 +43893,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 
 52:                                               ; preds = %.noexc27, %36
   %.sroa.0.010.i = phi ptr [ %2, %36 ], [ %69, %.noexc27 ]
-  %.sroa.06.09.i = phi ptr [ %39, %36 ], [ %67, %.noexc27 ]
+  %.sroa.06.09.i = phi ptr [ %41, %36 ], [ %67, %.noexc27 ]
   %.sroa.010.08.i = phi ptr [ %0, %36 ], [ %70, %.noexc27 ]
-  %.sroa.013.07.i = phi ptr [ %40, %36 ], [ %84, %.noexc27 ]
-  %.sroa.015.06.i = phi ptr [ %42, %36 ], [ %83, %.noexc27 ]
+  %.sroa.013.07.i = phi ptr [ %42, %36 ], [ %84, %.noexc27 ]
+  %.sroa.015.06.i = phi ptr [ %40, %36 ], [ %83, %.noexc27 ]
   %.sroa.017.05.i = phi ptr [ %43, %36 ], [ %85, %.noexc27 ]
   %.sroa.018.04.i = phi i64 [ 0, %36 ], [ %53, %.noexc27 ]
   %53 = add nuw nsw i64 %.sroa.018.04.i, 1
@@ -44154,11 +44154,11 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   store ptr %0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %1, ptr %38, align 8
-  %39 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
-  %40 = getelementptr i8, ptr %39, i64 -24
-  %41 = add i64 %1, -1
-  %42 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %41
-  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %41
+  %39 = add i64 %1, -1
+  %40 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %39
+  %41 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
+  %42 = getelementptr i8, ptr %41, i64 -24
+  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %39
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -44174,10 +44174,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 
 52:                                               ; preds = %.noexc27, %36
   %.sroa.0.010.i = phi ptr [ %2, %36 ], [ %69, %.noexc27 ]
-  %.sroa.06.09.i = phi ptr [ %39, %36 ], [ %67, %.noexc27 ]
+  %.sroa.06.09.i = phi ptr [ %41, %36 ], [ %67, %.noexc27 ]
   %.sroa.010.08.i = phi ptr [ %0, %36 ], [ %70, %.noexc27 ]
-  %.sroa.013.07.i = phi ptr [ %40, %36 ], [ %84, %.noexc27 ]
-  %.sroa.015.06.i = phi ptr [ %42, %36 ], [ %83, %.noexc27 ]
+  %.sroa.013.07.i = phi ptr [ %42, %36 ], [ %84, %.noexc27 ]
+  %.sroa.015.06.i = phi ptr [ %40, %36 ], [ %83, %.noexc27 ]
   %.sroa.017.05.i = phi ptr [ %43, %36 ], [ %85, %.noexc27 ]
   %.sroa.018.04.i = phi i64 [ 0, %36 ], [ %53, %.noexc27 ]
   %53 = add nuw nsw i64 %.sroa.018.04.i, 1
@@ -45528,11 +45528,11 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   store ptr %0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %1, ptr %38, align 8
-  %39 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
-  %40 = getelementptr i8, ptr %39, i64 -24
-  %41 = add i64 %1, -1
-  %42 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %41
-  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %41
+  %39 = add i64 %1, -1
+  %40 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %39
+  %41 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
+  %42 = getelementptr i8, ptr %41, i64 -24
+  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %39
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -45548,10 +45548,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 
 52:                                               ; preds = %.noexc27, %36
   %.sroa.0.010.i = phi ptr [ %2, %36 ], [ %69, %.noexc27 ]
-  %.sroa.06.09.i = phi ptr [ %39, %36 ], [ %67, %.noexc27 ]
+  %.sroa.06.09.i = phi ptr [ %41, %36 ], [ %67, %.noexc27 ]
   %.sroa.010.08.i = phi ptr [ %0, %36 ], [ %70, %.noexc27 ]
-  %.sroa.013.07.i = phi ptr [ %40, %36 ], [ %84, %.noexc27 ]
-  %.sroa.015.06.i = phi ptr [ %42, %36 ], [ %83, %.noexc27 ]
+  %.sroa.013.07.i = phi ptr [ %42, %36 ], [ %84, %.noexc27 ]
+  %.sroa.015.06.i = phi ptr [ %40, %36 ], [ %83, %.noexc27 ]
   %.sroa.017.05.i = phi ptr [ %43, %36 ], [ %85, %.noexc27 ]
   %.sroa.018.04.i = phi i64 [ 0, %36 ], [ %53, %.noexc27 ]
   %53 = add nuw nsw i64 %.sroa.018.04.i, 1
@@ -45809,11 +45809,11 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   store ptr %0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %1, ptr %38, align 8
-  %39 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
-  %40 = getelementptr i8, ptr %39, i64 -24
-  %41 = add i64 %1, -1
-  %42 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %41
-  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %41
+  %39 = add i64 %1, -1
+  %40 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %39
+  %41 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
+  %42 = getelementptr i8, ptr %41, i64 -24
+  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %39
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -45829,10 +45829,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 
 52:                                               ; preds = %.noexc27, %36
   %.sroa.0.010.i = phi ptr [ %2, %36 ], [ %69, %.noexc27 ]
-  %.sroa.06.09.i = phi ptr [ %39, %36 ], [ %67, %.noexc27 ]
+  %.sroa.06.09.i = phi ptr [ %41, %36 ], [ %67, %.noexc27 ]
   %.sroa.010.08.i = phi ptr [ %0, %36 ], [ %70, %.noexc27 ]
-  %.sroa.013.07.i = phi ptr [ %40, %36 ], [ %84, %.noexc27 ]
-  %.sroa.015.06.i = phi ptr [ %42, %36 ], [ %83, %.noexc27 ]
+  %.sroa.013.07.i = phi ptr [ %42, %36 ], [ %84, %.noexc27 ]
+  %.sroa.015.06.i = phi ptr [ %40, %36 ], [ %83, %.noexc27 ]
   %.sroa.017.05.i = phi ptr [ %43, %36 ], [ %85, %.noexc27 ]
   %.sroa.018.04.i = phi i64 [ 0, %36 ], [ %53, %.noexc27 ]
   %53 = add nuw nsw i64 %.sroa.018.04.i, 1
@@ -46090,11 +46090,11 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   store ptr %0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %1, ptr %38, align 8
-  %39 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
-  %40 = getelementptr i8, ptr %39, i64 -24
-  %41 = add i64 %1, -1
-  %42 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %41
-  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %41
+  %39 = add i64 %1, -1
+  %40 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %39
+  %41 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
+  %42 = getelementptr i8, ptr %41, i64 -24
+  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %39
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -46110,10 +46110,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 
 52:                                               ; preds = %.noexc27, %36
   %.sroa.0.010.i = phi ptr [ %2, %36 ], [ %69, %.noexc27 ]
-  %.sroa.06.09.i = phi ptr [ %39, %36 ], [ %67, %.noexc27 ]
+  %.sroa.06.09.i = phi ptr [ %41, %36 ], [ %67, %.noexc27 ]
   %.sroa.010.08.i = phi ptr [ %0, %36 ], [ %70, %.noexc27 ]
-  %.sroa.013.07.i = phi ptr [ %40, %36 ], [ %84, %.noexc27 ]
-  %.sroa.015.06.i = phi ptr [ %42, %36 ], [ %83, %.noexc27 ]
+  %.sroa.013.07.i = phi ptr [ %42, %36 ], [ %84, %.noexc27 ]
+  %.sroa.015.06.i = phi ptr [ %40, %36 ], [ %83, %.noexc27 ]
   %.sroa.017.05.i = phi ptr [ %43, %36 ], [ %85, %.noexc27 ]
   %.sroa.018.04.i = phi i64 [ 0, %36 ], [ %53, %.noexc27 ]
   %53 = add nuw nsw i64 %.sroa.018.04.i, 1
@@ -46371,11 +46371,11 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   store ptr %0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %1, ptr %38, align 8
-  %39 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
-  %40 = getelementptr i8, ptr %39, i64 -24
-  %41 = add i64 %1, -1
-  %42 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %41
-  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %41
+  %39 = add i64 %1, -1
+  %40 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %39
+  %41 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
+  %42 = getelementptr i8, ptr %41, i64 -24
+  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %39
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -46391,10 +46391,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 
 52:                                               ; preds = %.noexc27, %36
   %.sroa.0.010.i = phi ptr [ %2, %36 ], [ %69, %.noexc27 ]
-  %.sroa.06.09.i = phi ptr [ %39, %36 ], [ %67, %.noexc27 ]
+  %.sroa.06.09.i = phi ptr [ %41, %36 ], [ %67, %.noexc27 ]
   %.sroa.010.08.i = phi ptr [ %0, %36 ], [ %70, %.noexc27 ]
-  %.sroa.013.07.i = phi ptr [ %40, %36 ], [ %84, %.noexc27 ]
-  %.sroa.015.06.i = phi ptr [ %42, %36 ], [ %83, %.noexc27 ]
+  %.sroa.013.07.i = phi ptr [ %42, %36 ], [ %84, %.noexc27 ]
+  %.sroa.015.06.i = phi ptr [ %40, %36 ], [ %83, %.noexc27 ]
   %.sroa.017.05.i = phi ptr [ %43, %36 ], [ %85, %.noexc27 ]
   %.sroa.018.04.i = phi i64 [ 0, %36 ], [ %53, %.noexc27 ]
   %53 = add nuw nsw i64 %.sroa.018.04.i, 1
@@ -46665,11 +46665,11 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %1, ptr %42, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !5065)
-  %43 = getelementptr { { { { i64, ptr, {} }, {} }, i64 }, { ptr, i64 }, { i32, i32 }, { i32, i32 }, { i32, [2 x i32] }, [1 x i32] }, ptr %2, i64 %15
-  %44 = getelementptr i8, ptr %43, i64 -72
-  %45 = add i64 %1, -1
-  %46 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { ptr, i64 }, { i32, i32 }, { i32, i32 }, { i32, [2 x i32] }, [1 x i32] }, ptr %2, i64 %45
-  %47 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { ptr, i64 }, { i32, i32 }, { i32, i32 }, { i32, [2 x i32] }, [1 x i32] }, ptr %0, i64 %45
+  %43 = add i64 %1, -1
+  %44 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { ptr, i64 }, { i32, i32 }, { i32, i32 }, { i32, [2 x i32] }, [1 x i32] }, ptr %2, i64 %43
+  %45 = getelementptr { { { { i64, ptr, {} }, {} }, i64 }, { ptr, i64 }, { i32, i32 }, { i32, i32 }, { i32, [2 x i32] }, [1 x i32] }, ptr %2, i64 %15
+  %46 = getelementptr i8, ptr %45, i64 -72
+  %47 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { ptr, i64 }, { i32, i32 }, { i32, i32 }, { i32, [2 x i32] }, [1 x i32] }, ptr %0, i64 %43
   br label %52
 
 ._crit_edge.i:                                    ; preds = %.noexc22
@@ -46681,10 +46681,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 
 52:                                               ; preds = %.noexc22, %40
   %.sroa.0.010.i = phi ptr [ %2, %40 ], [ %72, %.noexc22 ]
-  %.sroa.06.09.i = phi ptr [ %43, %40 ], [ %74, %.noexc22 ]
+  %.sroa.06.09.i = phi ptr [ %45, %40 ], [ %74, %.noexc22 ]
   %.sroa.010.08.i = phi ptr [ %0, %40 ], [ %69, %.noexc22 ]
-  %.sroa.013.07.i = phi ptr [ %44, %40 ], [ %78, %.noexc22 ]
-  %.sroa.015.06.i = phi ptr [ %46, %40 ], [ %77, %.noexc22 ]
+  %.sroa.013.07.i = phi ptr [ %46, %40 ], [ %78, %.noexc22 ]
+  %.sroa.015.06.i = phi ptr [ %44, %40 ], [ %77, %.noexc22 ]
   %.sroa.017.05.i = phi ptr [ %47, %40 ], [ %79, %.noexc22 ]
   %.sroa.018.04.i = phi i64 [ 0, %40 ], [ %53, %.noexc22 ]
   %53 = add nuw nsw i64 %.sroa.018.04.i, 1
@@ -46975,11 +46975,11 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   store ptr %0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %1, ptr %38, align 8
-  %39 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
-  %40 = getelementptr i8, ptr %39, i64 -24
-  %41 = add i64 %1, -1
-  %42 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %41
-  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %41
+  %39 = add i64 %1, -1
+  %40 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %39
+  %41 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
+  %42 = getelementptr i8, ptr %41, i64 -24
+  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %39
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -46995,10 +46995,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 
 52:                                               ; preds = %.noexc27, %36
   %.sroa.0.010.i = phi ptr [ %2, %36 ], [ %69, %.noexc27 ]
-  %.sroa.06.09.i = phi ptr [ %39, %36 ], [ %67, %.noexc27 ]
+  %.sroa.06.09.i = phi ptr [ %41, %36 ], [ %67, %.noexc27 ]
   %.sroa.010.08.i = phi ptr [ %0, %36 ], [ %70, %.noexc27 ]
-  %.sroa.013.07.i = phi ptr [ %40, %36 ], [ %84, %.noexc27 ]
-  %.sroa.015.06.i = phi ptr [ %42, %36 ], [ %83, %.noexc27 ]
+  %.sroa.013.07.i = phi ptr [ %42, %36 ], [ %84, %.noexc27 ]
+  %.sroa.015.06.i = phi ptr [ %40, %36 ], [ %83, %.noexc27 ]
   %.sroa.017.05.i = phi ptr [ %43, %36 ], [ %85, %.noexc27 ]
   %.sroa.018.04.i = phi i64 [ 0, %36 ], [ %53, %.noexc27 ]
   %53 = add nuw nsw i64 %.sroa.018.04.i, 1
@@ -47714,11 +47714,11 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   store ptr %0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %1, ptr %38, align 8
-  %39 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
-  %40 = getelementptr i8, ptr %39, i64 -24
-  %41 = add i64 %1, -1
-  %42 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %41
-  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %41
+  %39 = add i64 %1, -1
+  %40 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %39
+  %41 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
+  %42 = getelementptr i8, ptr %41, i64 -24
+  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %39
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -47734,10 +47734,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 
 52:                                               ; preds = %.noexc27, %36
   %.sroa.0.010.i = phi ptr [ %2, %36 ], [ %69, %.noexc27 ]
-  %.sroa.06.09.i = phi ptr [ %39, %36 ], [ %67, %.noexc27 ]
+  %.sroa.06.09.i = phi ptr [ %41, %36 ], [ %67, %.noexc27 ]
   %.sroa.010.08.i = phi ptr [ %0, %36 ], [ %70, %.noexc27 ]
-  %.sroa.013.07.i = phi ptr [ %40, %36 ], [ %84, %.noexc27 ]
-  %.sroa.015.06.i = phi ptr [ %42, %36 ], [ %83, %.noexc27 ]
+  %.sroa.013.07.i = phi ptr [ %42, %36 ], [ %84, %.noexc27 ]
+  %.sroa.015.06.i = phi ptr [ %40, %36 ], [ %83, %.noexc27 ]
   %.sroa.017.05.i = phi ptr [ %43, %36 ], [ %85, %.noexc27 ]
   %.sroa.018.04.i = phi i64 [ 0, %36 ], [ %53, %.noexc27 ]
   %53 = add nuw nsw i64 %.sroa.018.04.i, 1
@@ -48221,11 +48221,11 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   store ptr %0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %1, ptr %38, align 8
-  %39 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
-  %40 = getelementptr i8, ptr %39, i64 -24
-  %41 = add i64 %1, -1
-  %42 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %41
-  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %41
+  %39 = add i64 %1, -1
+  %40 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %39
+  %41 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
+  %42 = getelementptr i8, ptr %41, i64 -24
+  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %39
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -48241,10 +48241,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 
 52:                                               ; preds = %.noexc27, %36
   %.sroa.0.010.i = phi ptr [ %2, %36 ], [ %69, %.noexc27 ]
-  %.sroa.06.09.i = phi ptr [ %39, %36 ], [ %67, %.noexc27 ]
+  %.sroa.06.09.i = phi ptr [ %41, %36 ], [ %67, %.noexc27 ]
   %.sroa.010.08.i = phi ptr [ %0, %36 ], [ %70, %.noexc27 ]
-  %.sroa.013.07.i = phi ptr [ %40, %36 ], [ %84, %.noexc27 ]
-  %.sroa.015.06.i = phi ptr [ %42, %36 ], [ %83, %.noexc27 ]
+  %.sroa.013.07.i = phi ptr [ %42, %36 ], [ %84, %.noexc27 ]
+  %.sroa.015.06.i = phi ptr [ %40, %36 ], [ %83, %.noexc27 ]
   %.sroa.017.05.i = phi ptr [ %43, %36 ], [ %85, %.noexc27 ]
   %.sroa.018.04.i = phi i64 [ 0, %36 ], [ %53, %.noexc27 ]
   %53 = add nuw nsw i64 %.sroa.018.04.i, 1
@@ -48502,11 +48502,11 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   store ptr %0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %1, ptr %38, align 8
-  %39 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
-  %40 = getelementptr i8, ptr %39, i64 -24
-  %41 = add i64 %1, -1
-  %42 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %41
-  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %41
+  %39 = add i64 %1, -1
+  %40 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %39
+  %41 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
+  %42 = getelementptr i8, ptr %41, i64 -24
+  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %39
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -48522,10 +48522,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 
 52:                                               ; preds = %.noexc27, %36
   %.sroa.0.010.i = phi ptr [ %2, %36 ], [ %69, %.noexc27 ]
-  %.sroa.06.09.i = phi ptr [ %39, %36 ], [ %67, %.noexc27 ]
+  %.sroa.06.09.i = phi ptr [ %41, %36 ], [ %67, %.noexc27 ]
   %.sroa.010.08.i = phi ptr [ %0, %36 ], [ %70, %.noexc27 ]
-  %.sroa.013.07.i = phi ptr [ %40, %36 ], [ %84, %.noexc27 ]
-  %.sroa.015.06.i = phi ptr [ %42, %36 ], [ %83, %.noexc27 ]
+  %.sroa.013.07.i = phi ptr [ %42, %36 ], [ %84, %.noexc27 ]
+  %.sroa.015.06.i = phi ptr [ %40, %36 ], [ %83, %.noexc27 ]
   %.sroa.017.05.i = phi ptr [ %43, %36 ], [ %85, %.noexc27 ]
   %.sroa.018.04.i = phi i64 [ 0, %36 ], [ %53, %.noexc27 ]
   %53 = add nuw nsw i64 %.sroa.018.04.i, 1
@@ -49467,11 +49467,11 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   store ptr %0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %1, ptr %38, align 8
-  %39 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
-  %40 = getelementptr i8, ptr %39, i64 -24
-  %41 = add i64 %1, -1
-  %42 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %41
-  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %41
+  %39 = add i64 %1, -1
+  %40 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %39
+  %41 = getelementptr { { ptr, [1 x i64] }, { i32, i32 } }, ptr %2, i64 %17
+  %42 = getelementptr i8, ptr %41, i64 -24
+  %43 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %0, i64 %39
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -49487,10 +49487,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 
 52:                                               ; preds = %.noexc27, %36
   %.sroa.0.010.i = phi ptr [ %2, %36 ], [ %69, %.noexc27 ]
-  %.sroa.06.09.i = phi ptr [ %39, %36 ], [ %67, %.noexc27 ]
+  %.sroa.06.09.i = phi ptr [ %41, %36 ], [ %67, %.noexc27 ]
   %.sroa.010.08.i = phi ptr [ %0, %36 ], [ %70, %.noexc27 ]
-  %.sroa.013.07.i = phi ptr [ %40, %36 ], [ %84, %.noexc27 ]
-  %.sroa.015.06.i = phi ptr [ %42, %36 ], [ %83, %.noexc27 ]
+  %.sroa.013.07.i = phi ptr [ %42, %36 ], [ %84, %.noexc27 ]
+  %.sroa.015.06.i = phi ptr [ %40, %36 ], [ %83, %.noexc27 ]
   %.sroa.017.05.i = phi ptr [ %43, %36 ], [ %85, %.noexc27 ]
   %.sroa.018.04.i = phi i64 [ 0, %36 ], [ %53, %.noexc27 ]
   %53 = add nuw nsw i64 %.sroa.018.04.i, 1
@@ -50124,9 +50124,10 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i: ; preds = %15
           to label %.preheader unwind label %27
 
 .preheader:                                       ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17ha41d4888e30cf81aE.exit"
-  %.not8 = icmp eq i64 %3, 1
-  %.pre10 = load i64, ptr %24, align 8
-  br i1 %.not8, label %._crit_edge, label %.lr.ph
+  %.sroa.01.08 = lshr i64 %3, 1
+  %.not9 = icmp eq i64 %.sroa.01.08, 0
+  %.pre11 = load i64, ptr %24, align 8
+  br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 26:                                               ; preds = %10
   tail call void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.b051c46de04d2cc9e5a94505cde81379.124, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b051c46de04d2cc9e5a94505cde81379.125) #48
@@ -50139,16 +50140,15 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i: ; preds = %15
           to label %45 unwind label %43
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %29 = phi i64 [ %.pre10, %.preheader ], [ %37, %.lr.ph ]
+  %29 = phi i64 [ %.pre11, %.preheader ], [ %37, %.lr.ph ]
   %30 = icmp sgt i64 %29, -1
   call void @llvm.assume(i1 %30)
   %.not7 = icmp eq i64 %12, %29
   br i1 %.not7, label %38, label %39
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %31 = phi i64 [ %37, %.lr.ph ], [ %.pre10, %.preheader ]
-  %.sroa.01.0.in9 = phi i64 [ %.sroa.01.0, %.lr.ph ], [ %3, %.preheader ]
-  %.sroa.01.0 = lshr i64 %.sroa.01.0.in9, 1
+  %31 = phi i64 [ %37, %.lr.ph ], [ %.pre11, %.preheader ]
+  %.sroa.01.010 = phi i64 [ %.sroa.01.0, %.lr.ph ], [ %.sroa.01.08, %.preheader ]
   %32 = load ptr, ptr %23, align 8, !nonnull !4, !noundef !4
   %33 = icmp sgt i64 %31, -1
   call void @llvm.assume(i1 %33)
@@ -50159,7 +50159,8 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i: ; preds = %15
   call void @llvm.assume(i1 %36)
   %37 = shl nuw i64 %35, 1
   store i64 %37, ptr %24, align 8
-  %.not = icmp ult i64 %.sroa.01.0.in9, 4
+  %.sroa.01.0 = lshr i64 %.sroa.01.010, 1
+  %.not = icmp eq i64 %.sroa.01.0, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 38:                                               ; preds = %39, %._crit_edge

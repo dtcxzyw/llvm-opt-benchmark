@@ -8,20 +8,17 @@ define hidden i32 @SDL_murmur3_32_REAL(ptr noundef %0, i64 noundef %1, i32 nound
   %4 = ptrtoint ptr %0 to i64
   %5 = and i64 %4, 3
   %6 = icmp eq i64 %5, 0
-  %.not5160 = icmp ult i64 %1, 4
-  br i1 %6, label %7, label %21
+  %7 = lshr i64 %1, 2
+  %.not5160 = icmp eq i64 %7, 0
+  br i1 %6, label %8, label %21
 
-7:                                                ; preds = %3
-  br i1 %.not5160, label %.loopexit, label %.lr.ph64.preheader
+8:                                                ; preds = %3
+  br i1 %.not5160, label %.loopexit, label %.lr.ph64
 
-.lr.ph64.preheader:                               ; preds = %7
-  %8 = lshr i64 %1, 2
-  br label %.lr.ph64
-
-.lr.ph64:                                         ; preds = %.lr.ph64.preheader, %.lr.ph64
-  %.04363 = phi ptr [ %11, %.lr.ph64 ], [ %0, %.lr.ph64.preheader ]
-  %.04562 = phi i64 [ %9, %.lr.ph64 ], [ %8, %.lr.ph64.preheader ]
-  %.04761 = phi i32 [ %20, %.lr.ph64 ], [ %2, %.lr.ph64.preheader ]
+.lr.ph64:                                         ; preds = %8, %.lr.ph64
+  %.04363 = phi ptr [ %11, %.lr.ph64 ], [ %0, %8 ]
+  %.04562 = phi i64 [ %9, %.lr.ph64 ], [ %7, %8 ]
+  %.04761 = phi i32 [ %20, %.lr.ph64 ], [ %2, %8 ]
   %9 = add nsw i64 %.04562, -1
   %10 = load i32, ptr %.04363, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.04363, i64 4
@@ -38,82 +35,78 @@ define hidden i32 @SDL_murmur3_32_REAL(ptr noundef %0, i64 noundef %1, i32 nound
   br i1 %.not51, label %.loopexit.loopexit, label %.lr.ph64, !llvm.loop !3
 
 21:                                               ; preds = %3
-  br i1 %.not5160, label %.loopexit, label %.lr.ph.preheader
+  br i1 %.not5160, label %.loopexit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %21
-  %22 = lshr i64 %1, 2
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.258 = phi ptr [ %24, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.04457 = phi i64 [ %23, %.lr.ph ], [ %22, %.lr.ph.preheader ]
-  %.24956 = phi i32 [ %33, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %23 = add nsw i64 %.04457, -1
+.lr.ph:                                           ; preds = %21, %.lr.ph
+  %.258 = phi ptr [ %23, %.lr.ph ], [ %0, %21 ]
+  %.04457 = phi i64 [ %22, %.lr.ph ], [ %7, %21 ]
+  %.24956 = phi i32 [ %32, %.lr.ph ], [ %2, %21 ]
+  %22 = add nsw i64 %.04457, -1
   %.0.copyload = load i32, ptr %.258, align 1
-  %24 = getelementptr inbounds nuw i8, ptr %.258, i64 4
-  %25 = mul i32 %.0.copyload, -862048943
-  %26 = mul i32 %.0.copyload, 380141568
-  %27 = lshr i32 %25, 17
-  %28 = or disjoint i32 %27, %26
-  %29 = mul i32 %28, 461845907
-  %30 = xor i32 %29, %.24956
-  %31 = tail call i32 @llvm.fshl.i32(i32 %30, i32 %30, i32 13)
-  %32 = mul i32 %31, 5
-  %33 = add i32 %32, -430675100
-  %.not = icmp eq i64 %23, 0
+  %23 = getelementptr inbounds nuw i8, ptr %.258, i64 4
+  %24 = mul i32 %.0.copyload, -862048943
+  %25 = mul i32 %.0.copyload, 380141568
+  %26 = lshr i32 %24, 17
+  %27 = or disjoint i32 %26, %25
+  %28 = mul i32 %27, 461845907
+  %29 = xor i32 %28, %.24956
+  %30 = tail call i32 @llvm.fshl.i32(i32 %29, i32 %29, i32 13)
+  %31 = mul i32 %30, 5
+  %32 = add i32 %31, -430675100
+  %.not = icmp eq i64 %22, 0
   br i1 %.not, label %.loopexit.loopexit69, label %.lr.ph, !llvm.loop !5
 
 .loopexit.loopexit:                               ; preds = %.lr.ph64
-  %34 = and i64 %1, -4
-  %scevgep74 = getelementptr i8, ptr %0, i64 %34
+  %33 = and i64 %1, -4
+  %scevgep74 = getelementptr i8, ptr %0, i64 %33
   br label %.loopexit
 
 .loopexit.loopexit69:                             ; preds = %.lr.ph
-  %35 = and i64 %1, -4
-  %scevgep = getelementptr i8, ptr %0, i64 %35
+  %34 = and i64 %1, -4
+  %scevgep = getelementptr i8, ptr %0, i64 %34
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit69, %.loopexit.loopexit, %21, %7
-  %.148 = phi i32 [ %2, %7 ], [ %2, %21 ], [ %20, %.loopexit.loopexit ], [ %33, %.loopexit.loopexit69 ]
-  %.1 = phi ptr [ %0, %7 ], [ %0, %21 ], [ %scevgep74, %.loopexit.loopexit ], [ %scevgep, %.loopexit.loopexit69 ]
-  %36 = and i64 %1, 3
-  %.not52 = icmp eq i64 %36, 0
-  br i1 %.not52, label %50, label %.preheader
+.loopexit:                                        ; preds = %.loopexit.loopexit69, %.loopexit.loopexit, %21, %8
+  %.148 = phi i32 [ %2, %8 ], [ %2, %21 ], [ %20, %.loopexit.loopexit ], [ %32, %.loopexit.loopexit69 ]
+  %.1 = phi ptr [ %0, %8 ], [ %0, %21 ], [ %scevgep74, %.loopexit.loopexit ], [ %scevgep, %.loopexit.loopexit69 ]
+  %35 = and i64 %1, 3
+  %.not52 = icmp eq i64 %35, 0
+  br i1 %.not52, label %49, label %.preheader
 
-37:                                               ; preds = %.preheader
-  %38 = mul i32 %49, -862048943
-  %39 = mul i32 %49, 380141568
-  %40 = lshr i32 %38, 17
-  %41 = or disjoint i32 %40, %39
-  %42 = mul i32 %41, 461845907
-  %43 = xor i32 %42, %.148
-  br label %50
+36:                                               ; preds = %.preheader
+  %37 = mul i32 %48, -862048943
+  %38 = mul i32 %48, 380141568
+  %39 = lshr i32 %37, 17
+  %40 = or disjoint i32 %39, %38
+  %41 = mul i32 %40, 461845907
+  %42 = xor i32 %41, %.148
+  br label %49
 
 .preheader:                                       ; preds = %.loopexit, %.preheader
-  %.068 = phi i64 [ %44, %.preheader ], [ %36, %.loopexit ]
-  %.04667 = phi i32 [ %49, %.preheader ], [ 0, %.loopexit ]
-  %44 = add nsw i64 %.068, -1
-  %45 = shl i32 %.04667, 8
-  %46 = getelementptr inbounds nuw i8, ptr %.1, i64 %44
-  %47 = load i8, ptr %46, align 1
-  %48 = zext i8 %47 to i32
-  %49 = or disjoint i32 %45, %48
-  %.not53 = icmp eq i64 %44, 0
-  br i1 %.not53, label %37, label %.preheader, !llvm.loop !6
+  %.068 = phi i64 [ %43, %.preheader ], [ %35, %.loopexit ]
+  %.04667 = phi i32 [ %48, %.preheader ], [ 0, %.loopexit ]
+  %43 = add nsw i64 %.068, -1
+  %44 = shl i32 %.04667, 8
+  %45 = getelementptr inbounds nuw i8, ptr %.1, i64 %43
+  %46 = load i8, ptr %45, align 1
+  %47 = zext i8 %46 to i32
+  %48 = or disjoint i32 %44, %47
+  %.not53 = icmp eq i64 %43, 0
+  br i1 %.not53, label %36, label %.preheader, !llvm.loop !6
 
-50:                                               ; preds = %37, %.loopexit
-  %.3 = phi i32 [ %43, %37 ], [ %.148, %.loopexit ]
-  %51 = trunc i64 %1 to i32
-  %52 = xor i32 %.3, %51
-  %53 = lshr i32 %52, 16
-  %54 = xor i32 %53, %52
-  %55 = mul i32 %54, -2048144789
-  %56 = lshr i32 %55, 13
-  %57 = xor i32 %56, %55
-  %58 = mul i32 %57, -1028477387
-  %59 = lshr i32 %58, 16
-  %60 = xor i32 %59, %58
-  ret i32 %60
+49:                                               ; preds = %36, %.loopexit
+  %.3 = phi i32 [ %42, %36 ], [ %.148, %.loopexit ]
+  %50 = trunc i64 %1 to i32
+  %51 = xor i32 %.3, %50
+  %52 = lshr i32 %51, 16
+  %53 = xor i32 %52, %51
+  %54 = mul i32 %53, -2048144789
+  %55 = lshr i32 %54, 13
+  %56 = xor i32 %55, %54
+  %57 = mul i32 %56, -1028477387
+  %58 = lshr i32 %57, 16
+  %59 = xor i32 %58, %57
+  ret i32 %59
 }
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)

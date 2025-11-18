@@ -6447,19 +6447,19 @@ define ptr @lean_nat_big_div(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %.not60, label %44, label %13
 
 13:                                               ; preds = %10
-  %.not = icmp ult ptr %1, inttoptr (i64 2 to ptr)
-  br i1 %.not, label %.critedge39, label %14
+  %14 = lshr i64 %11, 1
+  %.not = icmp eq i64 %14, 0
+  br i1 %.not, label %.critedge39, label %15
 
-14:                                               ; preds = %13
-  %15 = lshr i64 %11, 1
+15:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZN4lean3mpzC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  invoke void @_ZN4lean3mpzC1Em(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %15)
+  invoke void @_ZN4lean3mpzC1Em(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %14)
           to label %_ZN4lean3mpz9of_size_tEm.exit unwind label %36
 
-_ZN4lean3mpz9of_size_tEm.exit:                    ; preds = %14
+_ZN4lean3mpz9of_size_tEm.exit:                    ; preds = %15
   %17 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4lean3mpzdVERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %.noexc unwind label %38
 
@@ -6532,7 +6532,7 @@ _ZN4lean15mpz_to_nat_coreERKNS_3mpzE.exit.i:      ; preds = %.noexc44
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge39
 
-36:                                               ; preds = %14
+36:                                               ; preds = %15
   %37 = landingpad { ptr, i32 }
           cleanup
   br label %43
@@ -6871,37 +6871,37 @@ define ptr @lean_nat_big_mod(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %.not44, label %52, label %13
 
 13:                                               ; preds = %10
-  %14 = icmp ult ptr %1, inttoptr (i64 2 to ptr)
-  br i1 %14, label %15, label %22
+  %14 = lshr i64 %11, 1
+  %15 = icmp eq i64 %14, 0
+  br i1 %15, label %16, label %23
 
-15:                                               ; preds = %13
+16:                                               ; preds = %13
   %.val.i = load i32, ptr %0, align 4, !tbaa !23
-  %16 = icmp sgt i32 %.val.i, 0
-  br i1 %16, label %17, label %19, !prof !25
+  %17 = icmp sgt i32 %.val.i, 0
+  br i1 %17, label %18, label %20, !prof !25
 
-17:                                               ; preds = %15
-  %18 = add nuw nsw i32 %.val.i, 1
-  store i32 %18, ptr %0, align 4, !tbaa !23
+18:                                               ; preds = %16
+  %19 = add nuw nsw i32 %.val.i, 1
+  store i32 %19, ptr %0, align 4, !tbaa !23
   br label %_ZL8lean_incP11lean_object.exit
 
-19:                                               ; preds = %15
+20:                                               ; preds = %16
   %.not.i = icmp eq i32 %.val.i, 0
-  br i1 %.not.i, label %_ZL8lean_incP11lean_object.exit, label %20
+  br i1 %.not.i, label %_ZL8lean_incP11lean_object.exit, label %21
 
-20:                                               ; preds = %19
-  %21 = atomicrmw sub ptr %0, i32 1 monotonic, align 4
+21:                                               ; preds = %20
+  %22 = atomicrmw sub ptr %0, i32 1 monotonic, align 4
   br label %_ZL8lean_incP11lean_object.exit
 
-22:                                               ; preds = %13
-  %23 = lshr i64 %11, 1
+23:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZN4lean3mpzC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %24)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  invoke void @_ZN4lean3mpzC1Em(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %23)
+  invoke void @_ZN4lean3mpzC1Em(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %14)
           to label %_ZN4lean3mpz9of_size_tEm.exit unwind label %44
 
-_ZN4lean3mpz9of_size_tEm.exit:                    ; preds = %22
+_ZN4lean3mpz9of_size_tEm.exit:                    ; preds = %23
   %25 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4lean3mpzrMERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %.noexc unwind label %46
 
@@ -6974,7 +6974,7 @@ _ZN4leanL10mpz_to_natERKNS_3mpzE.exit:            ; preds = %.noexc31, %.noexc28
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZL8lean_incP11lean_object.exit
 
-44:                                               ; preds = %22
+44:                                               ; preds = %23
   %45 = landingpad { ptr, i32 }
           cleanup
   br label %51
@@ -7094,8 +7094,8 @@ _ZN4leanL10mpz_to_natERKNS_3mpzE.exit43:          ; preds = %.noexc42, %.noexc39
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %79
 
-_ZL8lean_incP11lean_object.exit:                  ; preds = %17, %19, %20, %_ZN4leanL10mpz_to_natERKNS_3mpzE.exit, %2, %_ZN4leanL10mpz_to_natERKNS_3mpzE.exit43
-  %.017 = phi ptr [ %.0.i36, %_ZN4leanL10mpz_to_natERKNS_3mpzE.exit43 ], [ %0, %2 ], [ %.0.i, %_ZN4leanL10mpz_to_natERKNS_3mpzE.exit ], [ %0, %20 ], [ %0, %19 ], [ %0, %17 ]
+_ZL8lean_incP11lean_object.exit:                  ; preds = %18, %20, %21, %_ZN4leanL10mpz_to_natERKNS_3mpzE.exit, %2, %_ZN4leanL10mpz_to_natERKNS_3mpzE.exit43
+  %.017 = phi ptr [ %.0.i36, %_ZN4leanL10mpz_to_natERKNS_3mpzE.exit43 ], [ %0, %2 ], [ %.0.i, %_ZN4leanL10mpz_to_natERKNS_3mpzE.exit ], [ %0, %21 ], [ %0, %20 ], [ %0, %18 ]
   ret ptr %.017
 
 79:                                               ; preds = %78, %51
@@ -13406,48 +13406,47 @@ define ptr @lean_string_utf8_prev(ptr noundef readonly captures(none) %0, ptr no
 
 _ZL12lean_nat_subP11lean_objectS0_.exit:          ; preds = %2
   %5 = tail call ptr @lean_nat_big_sub(ptr noundef %1, ptr noundef nonnull inttoptr (i64 3 to ptr))
-  br label %28
+  br label %27
 
 6:                                                ; preds = %2
   %7 = lshr i64 %3, 1
   %8 = getelementptr i8, ptr %0, i64 8
   %.val = load i64, ptr %8, align 8, !tbaa !30
-  %9 = icmp ult ptr %1, inttoptr (i64 2 to ptr)
-  %10 = add i64 %.val, -1
-  %11 = icmp ugt i64 %7, %10
-  %or.cond = or i1 %9, %11
-  br i1 %or.cond, label %28, label %12
+  %9 = add i64 %.val, -1
+  %10 = add nsw i64 %7, -1
+  %or.cond.not = icmp ult i64 %10, %9
+  br i1 %or.cond.not, label %11, label %27
 
-12:                                               ; preds = %6
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %14
+11:                                               ; preds = %6
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br label %13
 
-14:                                               ; preds = %14, %12
-  %.013.in = phi i64 [ %7, %12 ], [ %.013, %14 ]
+13:                                               ; preds = %13, %11
+  %.013.in = phi i64 [ %7, %11 ], [ %.013, %13 ]
   %.013 = add i64 %.013.in, -1
-  %15 = getelementptr inbounds nuw i8, ptr %13, i64 %.013
-  %16 = load i8, ptr %15, align 1, !tbaa !57
-  %17 = zext i8 %16 to i32
-  %18 = icmp sgt i8 %16, -1
-  %19 = and i32 %17, 224
-  %20 = icmp eq i32 %19, 192
-  %or.cond.i = or i1 %18, %20
-  %21 = and i32 %17, 240
-  %22 = icmp eq i32 %21, 224
-  %or.cond6.i = or i1 %22, %or.cond.i
-  %23 = and i32 %17, 248
-  %24 = icmp eq i32 %23, 240
-  %or.cond17 = or i1 %24, %or.cond6.i
-  br i1 %or.cond17, label %_ZN4leanL18is_utf8_first_byteEh.exit.thread, label %14, !llvm.loop !172
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %.013
+  %15 = load i8, ptr %14, align 1, !tbaa !57
+  %16 = zext i8 %15 to i32
+  %17 = icmp sgt i8 %15, -1
+  %18 = and i32 %16, 224
+  %19 = icmp eq i32 %18, 192
+  %or.cond.i = or i1 %17, %19
+  %20 = and i32 %16, 240
+  %21 = icmp eq i32 %20, 224
+  %or.cond6.i = or i1 %21, %or.cond.i
+  %22 = and i32 %16, 248
+  %23 = icmp eq i32 %22, 240
+  %or.cond17 = or i1 %23, %or.cond6.i
+  br i1 %or.cond17, label %_ZN4leanL18is_utf8_first_byteEh.exit.thread, label %13, !llvm.loop !172
 
-_ZN4leanL18is_utf8_first_byteEh.exit.thread:      ; preds = %14
-  %25 = shl i64 %.013, 1
-  %26 = or disjoint i64 %25, 1
-  %27 = inttoptr i64 %26 to ptr
-  br label %28
+_ZN4leanL18is_utf8_first_byteEh.exit.thread:      ; preds = %13
+  %24 = shl i64 %.013, 1
+  %25 = or disjoint i64 %24, 1
+  %26 = inttoptr i64 %25 to ptr
+  br label %27
 
-28:                                               ; preds = %6, %_ZN4leanL18is_utf8_first_byteEh.exit.thread, %_ZL12lean_nat_subP11lean_objectS0_.exit
-  %.0 = phi ptr [ %5, %_ZL12lean_nat_subP11lean_objectS0_.exit ], [ %27, %_ZN4leanL18is_utf8_first_byteEh.exit.thread ], [ inttoptr (i64 1 to ptr), %6 ]
+27:                                               ; preds = %6, %_ZN4leanL18is_utf8_first_byteEh.exit.thread, %_ZL12lean_nat_subP11lean_objectS0_.exit
+  %.0 = phi ptr [ %5, %_ZL12lean_nat_subP11lean_objectS0_.exit ], [ %26, %_ZN4leanL18is_utf8_first_byteEh.exit.thread ], [ inttoptr (i64 1 to ptr), %6 ]
   ret ptr %.0
 }
 

@@ -17752,11 +17752,11 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %33
   %47 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %35, %33 ]
-  %.not2848 = icmp ult i32 %47, 67108864
+  %48 = lshr i32 %47, 26
+  %.not2848 = icmp eq i32 %48, 0
   br i1 %.not2848, label %.loopexit, label %.lr.ph51
 
 .lr.ph51:                                         ; preds = %._crit_edge
-  %48 = lshr i32 %47, 26
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.2.sroa.1.0..sroa.2.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8

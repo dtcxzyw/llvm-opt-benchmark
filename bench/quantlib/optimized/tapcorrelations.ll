@@ -1279,7 +1279,7 @@ entry:
   %sub = add i64 %1, -1
   %mul = mul i64 %sub, %0
   %div7 = lshr i64 %mul, 1
-  %cmp.not.i = icmp ult i64 %mul, 2
+  %cmp.not.i = icmp eq i64 %div7, 0
   br i1 %cmp.not.i, label %_ZN8QuantLib5ArrayC2Em.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %entry

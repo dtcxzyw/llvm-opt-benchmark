@@ -31573,23 +31573,20 @@ define void @_ZN15ruff_python_ast10docstrings11clean_space17hfa4083e4a7479b92E(p
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !5034
   %6 = add i64 %2, 3
-  %.not.i.i = icmp ult i64 %6, 4
-  br i1 %.not.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h34463de599fabde0E.exit.i.i.i", label %7, !prof !246
+  %7 = lshr i64 %6, 2
+  %.not.i.i = icmp eq i64 %7, 0
+  br i1 %.not.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h34463de599fabde0E.exit.i.i.i", label %8, !prof !246
 
-7:                                                ; preds = %3
-  %8 = lshr i64 %6, 2
-  invoke fastcc void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17he7d4bb9b264941c1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 0, i64 noundef %8, i64 noundef 1, i64 noundef 1)
-          to label %.lr.ph.i.i.i.i.i.i.preheader unwind label %.loopexit.split-lp.i.i, !noalias !5034
+8:                                                ; preds = %3
+  invoke fastcc void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17he7d4bb9b264941c1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 0, i64 noundef %7, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h34463de599fabde0E.exit.i.i.i" unwind label %.loopexit.split-lp.i.i, !noalias !5034
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h34463de599fabde0E.exit.i.i.i": ; preds = %3
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h34463de599fabde0E.exit.i.i.i": ; preds = %8, %3
   %.not.i15.i.i.i.i.i.i = icmp samesign eq i64 %2, 0
-  br i1 %.not.i15.i.i.i.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator7collect17h1bc2bd1eb3b2afa9E.exit, label %.lr.ph.i.i.i.i.i.i.preheader
+  br i1 %.not.i15.i.i.i.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator7collect17h1bc2bd1eb3b2afa9E.exit, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.preheader:                     ; preds = %7, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h34463de599fabde0E.exit.i.i.i"
-  br label %.lr.ph.i.i.i.i.i.i
-
-.lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i.preheader, %.noexc3.i.i
-  %.sroa.0.016.i.i.i.i.i.i = phi ptr [ %.sroa.0.18.i.i.i.i.i.i, %.noexc3.i.i ], [ %1, %.lr.ph.i.i.i.i.i.i.preheader ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h34463de599fabde0E.exit.i.i.i", %.noexc3.i.i
+  %.sroa.0.016.i.i.i.i.i.i = phi ptr [ %.sroa.0.18.i.i.i.i.i.i, %.noexc3.i.i ], [ %1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h34463de599fabde0E.exit.i.i.i" ]
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.0.016.i.i.i.i.i.i, i64 1
   %10 = load i8, ptr %.sroa.0.016.i.i.i.i.i.i, align 1, !noalias !5039, !noundef !3
   %11 = icmp sgt i8 %10, -1
@@ -31712,7 +31709,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17hd79fa6c9b2e0f1c7E.exit.i.i.
           cleanup
   br label %66
 
-.loopexit.split-lp.i.i:                           ; preds = %7
+.loopexit.split-lp.i.i:                           ; preds = %8
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %66
@@ -49896,7 +49893,7 @@ define void @_ZN15ruff_python_ast4name15UnqualifiedName9from_expr17h1c4b48ad04b8
   %465 = lshr i64 %464, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7164)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7167)
-  %.not15.i.i = icmp ult i64 %464, 2
+  %.not15.i.i = icmp eq i64 %465, 0
   br i1 %.not15.i.i, label %.loopexit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %462

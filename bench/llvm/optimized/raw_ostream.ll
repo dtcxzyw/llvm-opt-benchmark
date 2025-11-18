@@ -5999,7 +5999,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i:                 ; preds = %73, %_ZN4llvm11raw_
 
 76:                                               ; preds = %38
   %77 = lshr i32 %40, 1
-  %.not.i19 = icmp ult i32 %40, 2
+  %.not.i19 = icmp eq i32 %77, 0
   br i1 %.not.i19, label %_ZN4llvm8FmtAlign4fillERNS_11raw_ostreamEj.exit37, label %.lr.ph.i20
 
 .lr.ph.i20:                                       ; preds = %76
@@ -6081,7 +6081,7 @@ _ZN4llvm11raw_ostream5writeEh.exit.i.i30:         ; preds = %.loopexit.i.i.i29, 
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i31
 
 _ZN4llvm11raw_ostreamlsEc.exit.i31:               ; preds = %106, %_ZN4llvm11raw_ostream5writeEh.exit.i.i30
-  %108 = add nuw i32 %.06.i21, 1
+  %108 = add nuw nsw i32 %.06.i21, 1
   %exitcond.not.i32 = icmp eq i32 %108, %77
   br i1 %exitcond.not.i32, label %_ZN4llvm8FmtAlign4fillERNS_11raw_ostreamEj.exit37.loopexit, label %83, !llvm.loop !198
 

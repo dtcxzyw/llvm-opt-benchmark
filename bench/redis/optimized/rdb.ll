@@ -1139,198 +1139,197 @@ rioRead.exit:                                     ; preds = %21, %23
   store i64 %25, ptr %15, align 8, !tbaa !58
   %26 = load i8, ptr %4, align 1, !tbaa !59
   %27 = lshr i8 %26, 6
-  %28 = icmp eq i8 %27, 3
-  br i1 %28, label %29, label %34
-
-29:                                               ; preds = %rioRead.exit
-  br i1 %.not, label %31, label %30
-
-30:                                               ; preds = %29
-  store i32 1, ptr %1, align 4, !tbaa !51
-  br label %31
-
-31:                                               ; preds = %30, %29
-  %32 = and i8 %26, 63
-  %33 = zext nneg i8 %32 to i64
-  store i64 %33, ptr %2, align 8, !tbaa !61
-  br label %rioRead.exit.thread
-
-34:                                               ; preds = %rioRead.exit
-  %35 = icmp ult i8 %26, 64
-  br i1 %35, label %36, label %38
-
-36:                                               ; preds = %34
-  %37 = zext nneg i8 %26 to i64
-  store i64 %37, ptr %2, align 8, !tbaa !61
-  br label %rioRead.exit.thread
-
-38:                                               ; preds = %34
-  %39 = icmp eq i8 %27, 1
-  br i1 %39, label %40, label %62
-
-40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %42 = load i64, ptr %9, align 8, !tbaa !53
-  %43 = and i64 %42, 5
-  %.not.i30 = icmp eq i64 %43, 0
-  br i1 %.not.i30, label %44, label %rioRead.exit.thread
-
-44:                                               ; preds = %40
-  %45 = load ptr, ptr %0, align 8, !tbaa !60
-  %46 = call i64 %45(ptr noundef nonnull %0, ptr noundef nonnull %41, i64 noundef 1) #23
-  %47 = icmp eq i64 %46, 0
-  br i1 %47, label %.thread.i38, label %50
-
-.thread.i38:                                      ; preds = %44
-  %48 = load i64, ptr %9, align 8, !tbaa !53
-  %49 = or i64 %48, 1
-  store i64 %49, ptr %9, align 8, !tbaa !53
-  br label %rioRead.exit.thread
-
-50:                                               ; preds = %44
-  %51 = load ptr, ptr %14, align 8, !tbaa !56
-  %.not33.i36 = icmp eq ptr %51, null
-  br i1 %.not33.i36, label %rioRead.exit39, label %52
-
-52:                                               ; preds = %50
-  call void %51(ptr noundef nonnull %0, ptr noundef nonnull %41, i64 noundef 1) #23
-  br label %rioRead.exit39
-
-rioRead.exit39:                                   ; preds = %50, %52
-  %53 = load i64, ptr %15, align 8, !tbaa !58
-  %54 = add i64 %53, 1
-  store i64 %54, ptr %15, align 8, !tbaa !58
-  %55 = load i8, ptr %4, align 1, !tbaa !59
-  %56 = and i8 %55, 63
-  %57 = zext nneg i8 %56 to i64
-  %58 = shl nuw nsw i64 %57, 8
-  %59 = load i8, ptr %41, align 1, !tbaa !59
-  %60 = zext i8 %59 to i64
-  %61 = or disjoint i64 %58, %60
-  store i64 %61, ptr %2, align 8, !tbaa !61
-  br label %rioRead.exit.thread
-
-62:                                               ; preds = %38
-  switch i8 %26, label %106 [
-    i8 -128, label %63
-    i8 -127, label %85
+  switch i8 %27, label %default.unreachable [
+    i8 3, label %28
+    i8 0, label %33
+    i8 1, label %35
+    i8 2, label %57
   ]
 
-63:                                               ; preds = %62
+28:                                               ; preds = %rioRead.exit
+  br i1 %.not, label %30, label %29
+
+29:                                               ; preds = %28
+  store i32 1, ptr %1, align 4, !tbaa !51
+  br label %30
+
+30:                                               ; preds = %29, %28
+  %31 = and i8 %26, 63
+  %32 = zext nneg i8 %31 to i64
+  store i64 %32, ptr %2, align 8, !tbaa !61
+  br label %rioRead.exit.thread
+
+33:                                               ; preds = %rioRead.exit
+  %34 = zext nneg i8 %26 to i64
+  store i64 %34, ptr %2, align 8, !tbaa !61
+  br label %rioRead.exit.thread
+
+35:                                               ; preds = %rioRead.exit
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %37 = load i64, ptr %9, align 8, !tbaa !53
+  %38 = and i64 %37, 5
+  %.not.i30 = icmp eq i64 %38, 0
+  br i1 %.not.i30, label %39, label %rioRead.exit.thread
+
+39:                                               ; preds = %35
+  %40 = load ptr, ptr %0, align 8, !tbaa !60
+  %41 = call i64 %40(ptr noundef nonnull %0, ptr noundef nonnull %36, i64 noundef 1) #23
+  %42 = icmp eq i64 %41, 0
+  br i1 %42, label %.thread.i38, label %45
+
+.thread.i38:                                      ; preds = %39
+  %43 = load i64, ptr %9, align 8, !tbaa !53
+  %44 = or i64 %43, 1
+  store i64 %44, ptr %9, align 8, !tbaa !53
+  br label %rioRead.exit.thread
+
+45:                                               ; preds = %39
+  %46 = load ptr, ptr %14, align 8, !tbaa !56
+  %.not33.i36 = icmp eq ptr %46, null
+  br i1 %.not33.i36, label %rioRead.exit39, label %47
+
+47:                                               ; preds = %45
+  call void %46(ptr noundef nonnull %0, ptr noundef nonnull %36, i64 noundef 1) #23
+  br label %rioRead.exit39
+
+rioRead.exit39:                                   ; preds = %45, %47
+  %48 = load i64, ptr %15, align 8, !tbaa !58
+  %49 = add i64 %48, 1
+  store i64 %49, ptr %15, align 8, !tbaa !58
+  %50 = load i8, ptr %4, align 1, !tbaa !59
+  %51 = and i8 %50, 63
+  %52 = zext nneg i8 %51 to i64
+  %53 = shl nuw nsw i64 %52, 8
+  %54 = load i8, ptr %36, align 1, !tbaa !59
+  %55 = zext i8 %54 to i64
+  %56 = or disjoint i64 %53, %55
+  store i64 %56, ptr %2, align 8, !tbaa !61
+  br label %rioRead.exit.thread
+
+default.unreachable:                              ; preds = %rioRead.exit
+  unreachable
+
+57:                                               ; preds = %rioRead.exit
+  switch i8 %26, label %101 [
+    i8 -128, label %58
+    i8 -127, label %80
+  ]
+
+58:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %64 = load i64, ptr %9, align 8, !tbaa !53
-  %65 = and i64 %64, 5
-  %.not.i40 = icmp eq i64 %65, 0
+  %59 = load i64, ptr %9, align 8, !tbaa !53
+  %60 = and i64 %59, 5
+  %.not.i40 = icmp eq i64 %60, 0
   br i1 %.not.i40, label %.preheader.i42, label %.critedge
 
-.preheader.i42:                                   ; preds = %63, %77
-  %.02538.i43 = phi i64 [ %79, %77 ], [ 4, %63 ]
-  %.02737.i44 = phi ptr [ %78, %77 ], [ %5, %63 ]
-  %66 = load i64, ptr %13, align 8, !tbaa !55
-  %.not32.not.i45 = icmp eq i64 %66, 0
-  %67 = call i64 @llvm.umin.i64(i64 %66, i64 %.02538.i43)
-  %68 = select i1 %.not32.not.i45, i64 %.02538.i43, i64 %67
-  %69 = load ptr, ptr %0, align 8, !tbaa !60
-  %70 = call i64 %69(ptr noundef nonnull %0, ptr noundef %.02737.i44, i64 noundef %68) #23
-  %71 = icmp eq i64 %70, 0
-  br i1 %71, label %.thread.i48, label %74
+.preheader.i42:                                   ; preds = %58, %72
+  %.02538.i43 = phi i64 [ %74, %72 ], [ 4, %58 ]
+  %.02737.i44 = phi ptr [ %73, %72 ], [ %5, %58 ]
+  %61 = load i64, ptr %13, align 8, !tbaa !55
+  %.not32.not.i45 = icmp eq i64 %61, 0
+  %62 = call i64 @llvm.umin.i64(i64 %61, i64 %.02538.i43)
+  %63 = select i1 %.not32.not.i45, i64 %.02538.i43, i64 %62
+  %64 = load ptr, ptr %0, align 8, !tbaa !60
+  %65 = call i64 %64(ptr noundef nonnull %0, ptr noundef %.02737.i44, i64 noundef %63) #23
+  %66 = icmp eq i64 %65, 0
+  br i1 %66, label %.thread.i48, label %69
 
 .thread.i48:                                      ; preds = %.preheader.i42
-  %72 = load i64, ptr %9, align 8, !tbaa !53
-  %73 = or i64 %72, 1
-  store i64 %73, ptr %9, align 8, !tbaa !53
+  %67 = load i64, ptr %9, align 8, !tbaa !53
+  %68 = or i64 %67, 1
+  store i64 %68, ptr %9, align 8, !tbaa !53
   br label %.critedge
 
-74:                                               ; preds = %.preheader.i42
-  %75 = load ptr, ptr %14, align 8, !tbaa !56
-  %.not33.i46 = icmp eq ptr %75, null
-  br i1 %.not33.i46, label %77, label %76
+69:                                               ; preds = %.preheader.i42
+  %70 = load ptr, ptr %14, align 8, !tbaa !56
+  %.not33.i46 = icmp eq ptr %70, null
+  br i1 %.not33.i46, label %72, label %71
 
-76:                                               ; preds = %74
-  call void %75(ptr noundef nonnull %0, ptr noundef %.02737.i44, i64 noundef %68) #23
-  br label %77
+71:                                               ; preds = %69
+  call void %70(ptr noundef nonnull %0, ptr noundef %.02737.i44, i64 noundef %63) #23
+  br label %72
 
-77:                                               ; preds = %76, %74
-  %78 = getelementptr inbounds nuw i8, ptr %.02737.i44, i64 %68
-  %79 = sub i64 %.02538.i43, %68
-  %80 = load i64, ptr %15, align 8, !tbaa !58
-  %81 = add i64 %80, %68
-  store i64 %81, ptr %15, align 8, !tbaa !58
-  %.not31.i47 = icmp eq i64 %79, 0
+72:                                               ; preds = %71, %69
+  %73 = getelementptr inbounds nuw i8, ptr %.02737.i44, i64 %63
+  %74 = sub i64 %.02538.i43, %63
+  %75 = load i64, ptr %15, align 8, !tbaa !58
+  %76 = add i64 %75, %63
+  store i64 %76, ptr %15, align 8, !tbaa !58
+  %.not31.i47 = icmp eq i64 %74, 0
   br i1 %.not31.i47, label %rioRead.exit49, label %.preheader.i42
 
-rioRead.exit49:                                   ; preds = %77
-  %82 = load i32, ptr %5, align 4, !tbaa !51
-  %83 = call noundef i32 @llvm.bswap.i32(i32 %82)
-  %84 = zext i32 %83 to i64
-  store i64 %84, ptr %2, align 8, !tbaa !61
+rioRead.exit49:                                   ; preds = %72
+  %77 = load i32, ptr %5, align 4, !tbaa !51
+  %78 = call noundef i32 @llvm.bswap.i32(i32 %77)
+  %79 = zext i32 %78 to i64
+  store i64 %79, ptr %2, align 8, !tbaa !61
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %rioRead.exit.thread
 
-85:                                               ; preds = %62
+80:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %86 = load i64, ptr %9, align 8, !tbaa !53
-  %87 = and i64 %86, 5
-  %.not.i50 = icmp eq i64 %87, 0
+  %81 = load i64, ptr %9, align 8, !tbaa !53
+  %82 = and i64 %81, 5
+  %.not.i50 = icmp eq i64 %82, 0
   br i1 %.not.i50, label %.preheader.i52, label %.critedge29
 
-.preheader.i52:                                   ; preds = %85, %99
-  %.02538.i53 = phi i64 [ %101, %99 ], [ 8, %85 ]
-  %.02737.i54 = phi ptr [ %100, %99 ], [ %6, %85 ]
-  %88 = load i64, ptr %13, align 8, !tbaa !55
-  %.not32.not.i55 = icmp eq i64 %88, 0
-  %89 = call i64 @llvm.umin.i64(i64 %88, i64 %.02538.i53)
-  %90 = select i1 %.not32.not.i55, i64 %.02538.i53, i64 %89
-  %91 = load ptr, ptr %0, align 8, !tbaa !60
-  %92 = call i64 %91(ptr noundef nonnull %0, ptr noundef %.02737.i54, i64 noundef %90) #23
-  %93 = icmp eq i64 %92, 0
-  br i1 %93, label %.thread.i58, label %96
+.preheader.i52:                                   ; preds = %80, %94
+  %.02538.i53 = phi i64 [ %96, %94 ], [ 8, %80 ]
+  %.02737.i54 = phi ptr [ %95, %94 ], [ %6, %80 ]
+  %83 = load i64, ptr %13, align 8, !tbaa !55
+  %.not32.not.i55 = icmp eq i64 %83, 0
+  %84 = call i64 @llvm.umin.i64(i64 %83, i64 %.02538.i53)
+  %85 = select i1 %.not32.not.i55, i64 %.02538.i53, i64 %84
+  %86 = load ptr, ptr %0, align 8, !tbaa !60
+  %87 = call i64 %86(ptr noundef nonnull %0, ptr noundef %.02737.i54, i64 noundef %85) #23
+  %88 = icmp eq i64 %87, 0
+  br i1 %88, label %.thread.i58, label %91
 
 .thread.i58:                                      ; preds = %.preheader.i52
-  %94 = load i64, ptr %9, align 8, !tbaa !53
-  %95 = or i64 %94, 1
-  store i64 %95, ptr %9, align 8, !tbaa !53
+  %89 = load i64, ptr %9, align 8, !tbaa !53
+  %90 = or i64 %89, 1
+  store i64 %90, ptr %9, align 8, !tbaa !53
   br label %.critedge29
 
-96:                                               ; preds = %.preheader.i52
-  %97 = load ptr, ptr %14, align 8, !tbaa !56
-  %.not33.i56 = icmp eq ptr %97, null
-  br i1 %.not33.i56, label %99, label %98
+91:                                               ; preds = %.preheader.i52
+  %92 = load ptr, ptr %14, align 8, !tbaa !56
+  %.not33.i56 = icmp eq ptr %92, null
+  br i1 %.not33.i56, label %94, label %93
 
-98:                                               ; preds = %96
-  call void %97(ptr noundef nonnull %0, ptr noundef %.02737.i54, i64 noundef %90) #23
-  br label %99
+93:                                               ; preds = %91
+  call void %92(ptr noundef nonnull %0, ptr noundef %.02737.i54, i64 noundef %85) #23
+  br label %94
 
-99:                                               ; preds = %98, %96
-  %100 = getelementptr inbounds nuw i8, ptr %.02737.i54, i64 %90
-  %101 = sub i64 %.02538.i53, %90
-  %102 = load i64, ptr %15, align 8, !tbaa !58
-  %103 = add i64 %102, %90
-  store i64 %103, ptr %15, align 8, !tbaa !58
-  %.not31.i57 = icmp eq i64 %101, 0
+94:                                               ; preds = %93, %91
+  %95 = getelementptr inbounds nuw i8, ptr %.02737.i54, i64 %85
+  %96 = sub i64 %.02538.i53, %85
+  %97 = load i64, ptr %15, align 8, !tbaa !58
+  %98 = add i64 %97, %85
+  store i64 %98, ptr %15, align 8, !tbaa !58
+  %.not31.i57 = icmp eq i64 %96, 0
   br i1 %.not31.i57, label %rioRead.exit59, label %.preheader.i52
 
-rioRead.exit59:                                   ; preds = %99
-  %104 = load i64, ptr %6, align 8, !tbaa !61
-  %105 = call i64 @intrev64(i64 noundef %104) #23
-  store i64 %105, ptr %2, align 8, !tbaa !61
+rioRead.exit59:                                   ; preds = %94
+  %99 = load i64, ptr %6, align 8, !tbaa !61
+  %100 = call i64 @intrev64(i64 noundef %99) #23
+  store i64 %100, ptr %2, align 8, !tbaa !61
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %rioRead.exit.thread
 
-106:                                              ; preds = %62
+101:                                              ; preds = %57
   call void (i32, i32, ptr, ...) @rdbReportError(i32 noundef 1, i32 noundef 229, ptr noundef nonnull @.str.7, i32 noundef 2)
   br label %rioRead.exit.thread
 
-.critedge:                                        ; preds = %63, %.thread.i48
+.critedge:                                        ; preds = %58, %.thread.i48
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %rioRead.exit.thread
 
-.critedge29:                                      ; preds = %85, %.thread.i58
+.critedge29:                                      ; preds = %80, %.thread.i58
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %rioRead.exit.thread
 
-rioRead.exit.thread:                              ; preds = %.thread.i38, %40, %.thread.i, %8, %31, %rioRead.exit39, %36, %rioRead.exit49, %rioRead.exit59, %.critedge29, %.critedge, %106
-  %.020 = phi i32 [ -1, %106 ], [ -1, %.critedge ], [ -1, %.critedge29 ], [ 0, %rioRead.exit59 ], [ 0, %rioRead.exit49 ], [ 0, %36 ], [ 0, %rioRead.exit39 ], [ 0, %31 ], [ -1, %8 ], [ -1, %.thread.i ], [ -1, %40 ], [ -1, %.thread.i38 ]
+rioRead.exit.thread:                              ; preds = %.thread.i38, %35, %.thread.i, %8, %30, %rioRead.exit39, %33, %rioRead.exit49, %rioRead.exit59, %.critedge29, %.critedge, %101
+  %.020 = phi i32 [ -1, %101 ], [ -1, %.critedge ], [ -1, %.critedge29 ], [ 0, %rioRead.exit59 ], [ 0, %rioRead.exit49 ], [ 0, %33 ], [ 0, %rioRead.exit39 ], [ 0, %30 ], [ -1, %8 ], [ -1, %.thread.i ], [ -1, %35 ], [ -1, %.thread.i38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.020
 }

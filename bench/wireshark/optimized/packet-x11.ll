@@ -56435,23 +56435,23 @@ listOfCard16.exit43.i:                            ; preds = %.lr.ph.i40.i, %list
   %467 = load i32, ptr @hf_x11_randr_SetCrtcTransform_filter_params, align 4
   %468 = load i32, ptr @hf_x11_randr_SetCrtcTransform_filter_params_item, align 4
   %469 = add i32 %466, -45
-  %470 = and i32 %469, -4
-  %471 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %467, ptr noundef %0, i32 noundef %465, i32 noundef %470, i32 noundef %4)
-  %472 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %473 = call ptr @proto_item_add_subtree(ptr noundef %471, i32 noundef %472)
-  %.not13.i.i295 = icmp ult i32 %469, 4
+  %470 = ashr i32 %469, 2
+  %471 = and i32 %469, -4
+  %472 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %467, ptr noundef %0, i32 noundef %465, i32 noundef %471, i32 noundef %4)
+  %473 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %474 = call ptr @proto_item_add_subtree(ptr noundef %472, i32 noundef %473)
+  %.not13.i.i295 = icmp eq i32 %470, 0
   br i1 %.not13.i.i295, label %randrConfigureOutputProperty.exit, label %.lr.ph.preheader.i.i296
 
 .lr.ph.preheader.i.i296:                          ; preds = %464
-  %474 = ashr i32 %469, 2
   %.pre.i.i297 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i298
 
 .lr.ph.i.i298:                                    ; preds = %.lr.ph.i.i298, %.lr.ph.preheader.i.i296
   %475 = phi i32 [ %479, %.lr.ph.i.i298 ], [ %.pre.i.i297, %.lr.ph.preheader.i.i296 ]
-  %.014.i.i299 = phi i32 [ %476, %.lr.ph.i.i298 ], [ %474, %.lr.ph.preheader.i.i296 ]
+  %.014.i.i299 = phi i32 [ %476, %.lr.ph.i.i298 ], [ %470, %.lr.ph.preheader.i.i296 ]
   %476 = add i32 %.014.i.i299, -1
-  %477 = call ptr @proto_tree_add_item(ptr noundef %473, i32 noundef %468, ptr noundef %0, i32 noundef %475, i32 noundef 4, i32 noundef %4)
+  %477 = call ptr @proto_tree_add_item(ptr noundef %474, i32 noundef %468, ptr noundef %0, i32 noundef %475, i32 noundef 4, i32 noundef %4)
   %478 = load i32, ptr %2, align 4
   %479 = add i32 %478, 4
   store i32 %479, ptr %2, align 4
@@ -61460,23 +61460,23 @@ renderAddGlyphs.exit:                             ; preds = %.lr.ph.i33.i, %540,
   %809 = load i32, ptr @hf_x11_render_SetPictureFilter_values, align 4
   %810 = load i32, ptr @hf_x11_render_SetPictureFilter_values_item, align 4
   %811 = add i32 %808, -9
-  %812 = and i32 %811, -4
-  %813 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %809, ptr noundef %0, i32 noundef %807, i32 noundef %812, i32 noundef %4)
-  %814 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %815 = call ptr @proto_item_add_subtree(ptr noundef %813, i32 noundef %814)
-  %.not13.i.i213 = icmp ult i32 %811, 4
+  %812 = ashr i32 %811, 2
+  %813 = and i32 %811, -4
+  %814 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %809, ptr noundef %0, i32 noundef %807, i32 noundef %813, i32 noundef %4)
+  %815 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %816 = call ptr @proto_item_add_subtree(ptr noundef %814, i32 noundef %815)
+  %.not13.i.i213 = icmp eq i32 %812, 0
   br i1 %.not13.i.i213, label %renderCreatePicture.exit, label %.lr.ph.preheader.i.i214
 
 .lr.ph.preheader.i.i214:                          ; preds = %806
-  %816 = ashr i32 %811, 2
   %.pre.i.i215 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i216
 
 .lr.ph.i.i216:                                    ; preds = %.lr.ph.i.i216, %.lr.ph.preheader.i.i214
   %817 = phi i32 [ %821, %.lr.ph.i.i216 ], [ %.pre.i.i215, %.lr.ph.preheader.i.i214 ]
-  %.014.i.i217 = phi i32 [ %818, %.lr.ph.i.i216 ], [ %816, %.lr.ph.preheader.i.i214 ]
+  %.014.i.i217 = phi i32 [ %818, %.lr.ph.i.i216 ], [ %812, %.lr.ph.preheader.i.i214 ]
   %818 = add i32 %.014.i.i217, -1
-  %819 = call ptr @proto_tree_add_item(ptr noundef %815, i32 noundef %810, ptr noundef %0, i32 noundef %817, i32 noundef 4, i32 noundef %4)
+  %819 = call ptr @proto_tree_add_item(ptr noundef %816, i32 noundef %810, ptr noundef %0, i32 noundef %817, i32 noundef 4, i32 noundef %4)
   %820 = load i32, ptr %2, align 4
   %821 = add i32 %820, 4
   store i32 %821, ptr %2, align 4
@@ -74010,7 +74010,7 @@ define internal fastcc void @struct_xinput_DeviceClass(ptr noundef %0, ptr nound
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %listOfCard32.exit
-  %.0174 = phi i32 [ %181, %listOfCard32.exit ], [ 0, %5 ]
+  %.0174 = phi i32 [ %172, %listOfCard32.exit ], [ 0, %5 ]
   %6 = load i32, ptr @hf_x11_struct_xinput_DeviceClass, align 4
   %7 = load i32, ptr %1, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 6, i32 noundef 0)
@@ -74035,8 +74035,8 @@ define internal fastcc void @struct_xinput_DeviceClass(ptr noundef %0, ptr nound
     i16 1, label %41
     i16 2, label %.lr.ph.i151
     i16 3, label %.lr.ph.i166
-    i16 8, label %160
-    i16 9, label %168
+    i16 8, label %157
+    i16 9, label %163
   ]
 
 22:                                               ; preds = %.lr.ph
@@ -74089,9 +74089,9 @@ define internal fastcc void @struct_xinput_DeviceClass(ptr noundef %0, ptr nound
   %54 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %49, ptr noundef %0, i32 noundef %48, i32 noundef %53, i32 noundef %3)
   %55 = load i32, ptr @ett_x11_list_of_card32, align 4
   %56 = tail call ptr @proto_item_add_subtree(ptr noundef %54, i32 noundef %55)
-  %.not13.i135 = icmp eq i16 %42, 0
+  %.not13.i135 = icmp eq i32 %52, 0
   %.pre = load i32, ptr %1, align 4
-  br i1 %.not13.i135, label %listOfCard32.exit.critedge, label %.lr.ph.i138
+  br i1 %.not13.i135, label %listOfCard32.exit141, label %.lr.ph.i138
 
 .lr.ph.i138:                                      ; preds = %41, %.lr.ph.i138
   %57 = phi i32 [ %61, %.lr.ph.i138 ], [ %.pre, %41 ]
@@ -74104,169 +74104,162 @@ define internal fastcc void @struct_xinput_DeviceClass(ptr noundef %0, ptr nound
   %.not.i140 = icmp eq i32 %58, 0
   br i1 %.not.i140, label %listOfCard32.exit141, label %.lr.ph.i138, !llvm.loop !43
 
-listOfCard32.exit141:                             ; preds = %.lr.ph.i138
-  %62 = load i32, ptr @hf_x11_struct_xinput_DeviceClass_Button_labels, align 4
-  %63 = load i32, ptr @hf_x11_struct_xinput_DeviceClass_Button_labels_item, align 4
-  %64 = shl nuw nsw i32 %43, 2
-  %65 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %62, ptr noundef %0, i32 noundef %61, i32 noundef %64, i32 noundef %3)
-  %66 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %67 = tail call ptr @proto_item_add_subtree(ptr noundef %65, i32 noundef %66)
+listOfCard32.exit141:                             ; preds = %.lr.ph.i138, %41
+  %62 = phi i32 [ %.pre, %41 ], [ %61, %.lr.ph.i138 ]
+  %63 = load i32, ptr @hf_x11_struct_xinput_DeviceClass_Button_labels, align 4
+  %64 = load i32, ptr @hf_x11_struct_xinput_DeviceClass_Button_labels_item, align 4
+  %65 = shl nuw nsw i32 %43, 2
+  %66 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %63, ptr noundef %0, i32 noundef %62, i32 noundef %65, i32 noundef %3)
+  %67 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %68 = tail call ptr @proto_item_add_subtree(ptr noundef %66, i32 noundef %67)
+  %.not13.i142 = icmp eq i16 %42, 0
+  br i1 %.not13.i142, label %listOfCard32.exit, label %.lr.ph.preheader.i143
+
+.lr.ph.preheader.i143:                            ; preds = %listOfCard32.exit141
   %.pre.i144 = load i32, ptr %1, align 4
   br label %.lr.ph.i145
 
-.lr.ph.i145:                                      ; preds = %.lr.ph.i145, %listOfCard32.exit141
-  %68 = phi i32 [ %72, %.lr.ph.i145 ], [ %.pre.i144, %listOfCard32.exit141 ]
-  %.014.i146 = phi i32 [ %69, %.lr.ph.i145 ], [ %43, %listOfCard32.exit141 ]
-  %69 = add nsw i32 %.014.i146, -1
-  %70 = tail call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %63, ptr noundef %0, i32 noundef %68, i32 noundef 4, i32 noundef %3)
-  %71 = load i32, ptr %1, align 4
-  %72 = add i32 %71, 4
-  store i32 %72, ptr %1, align 4
-  %.not.i147 = icmp eq i32 %69, 0
+.lr.ph.i145:                                      ; preds = %.lr.ph.i145, %.lr.ph.preheader.i143
+  %69 = phi i32 [ %73, %.lr.ph.i145 ], [ %.pre.i144, %.lr.ph.preheader.i143 ]
+  %.014.i146 = phi i32 [ %70, %.lr.ph.i145 ], [ %43, %.lr.ph.preheader.i143 ]
+  %70 = add nsw i32 %.014.i146, -1
+  %71 = tail call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %64, ptr noundef %0, i32 noundef %69, i32 noundef 4, i32 noundef %3)
+  %72 = load i32, ptr %1, align 4
+  %73 = add i32 %72, 4
+  store i32 %73, ptr %1, align 4
+  %.not.i147 = icmp eq i32 %70, 0
   br i1 %.not.i147, label %listOfCard32.exit, label %.lr.ph.i145, !llvm.loop !43
 
 .lr.ph.i151:                                      ; preds = %.lr.ph
-  %73 = load i32, ptr @hf_x11_struct_xinput_DeviceClass_Valuator_number, align 4
-  %74 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %73, ptr noundef %0, i32 noundef %21, i32 noundef 2, i32 noundef %3)
-  %75 = load i32, ptr %1, align 4
-  %76 = add i32 %75, 2
-  store i32 %76, ptr %1, align 4
-  %77 = load i32, ptr @hf_x11_struct_xinput_DeviceClass_Valuator_label, align 4
-  %78 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %77, ptr noundef %0, i32 noundef %76, i32 noundef 4, i32 noundef %3)
-  %79 = load i32, ptr %1, align 4
-  %80 = add i32 %79, 4
-  store i32 %80, ptr %1, align 4
-  %81 = load i32, ptr @hf_x11_struct_xinput_FP3232, align 4
-  %82 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %81, ptr noundef %0, i32 noundef %80, i32 noundef 8, i32 noundef 0)
-  %83 = load i32, ptr @ett_x11_rectangle, align 4
-  %84 = tail call ptr @proto_item_add_subtree(ptr noundef %82, i32 noundef %83)
-  %85 = load i32, ptr @hf_x11_struct_xinput_FP3232_integral, align 4
-  %86 = load i32, ptr %1, align 4
-  %87 = tail call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %85, ptr noundef %0, i32 noundef %86, i32 noundef 4, i32 noundef %3)
-  %88 = load i32, ptr %1, align 4
-  %89 = add i32 %88, 4
-  store i32 %89, ptr %1, align 4
-  %90 = load i32, ptr @hf_x11_struct_xinput_FP3232_frac, align 4
-  %91 = tail call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %90, ptr noundef %0, i32 noundef %89, i32 noundef 4, i32 noundef %3)
-  %92 = load i32, ptr %1, align 4
-  %93 = add i32 %92, 4
-  store i32 %93, ptr %1, align 4
-  %94 = load i32, ptr @hf_x11_struct_xinput_FP3232, align 4
-  %95 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %94, ptr noundef %0, i32 noundef %93, i32 noundef 8, i32 noundef 0)
-  %96 = load i32, ptr @ett_x11_rectangle, align 4
-  %97 = tail call ptr @proto_item_add_subtree(ptr noundef %95, i32 noundef %96)
-  %98 = load i32, ptr @hf_x11_struct_xinput_FP3232_integral, align 4
-  %99 = load i32, ptr %1, align 4
-  %100 = tail call ptr @proto_tree_add_item(ptr noundef %97, i32 noundef %98, ptr noundef %0, i32 noundef %99, i32 noundef 4, i32 noundef %3)
-  %101 = load i32, ptr %1, align 4
-  %102 = add i32 %101, 4
-  store i32 %102, ptr %1, align 4
-  %103 = load i32, ptr @hf_x11_struct_xinput_FP3232_frac, align 4
-  %104 = tail call ptr @proto_tree_add_item(ptr noundef %97, i32 noundef %103, ptr noundef %0, i32 noundef %102, i32 noundef 4, i32 noundef %3)
-  %105 = load i32, ptr %1, align 4
-  %106 = add i32 %105, 4
-  store i32 %106, ptr %1, align 4
-  %107 = load i32, ptr @hf_x11_struct_xinput_FP3232, align 4
-  %108 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %107, ptr noundef %0, i32 noundef %106, i32 noundef 8, i32 noundef 0)
-  %109 = load i32, ptr @ett_x11_rectangle, align 4
-  %110 = tail call ptr @proto_item_add_subtree(ptr noundef %108, i32 noundef %109)
-  %111 = load i32, ptr @hf_x11_struct_xinput_FP3232_integral, align 4
-  %112 = load i32, ptr %1, align 4
-  %113 = tail call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %111, ptr noundef %0, i32 noundef %112, i32 noundef 4, i32 noundef %3)
-  %114 = load i32, ptr %1, align 4
-  %115 = add i32 %114, 4
-  store i32 %115, ptr %1, align 4
-  %116 = load i32, ptr @hf_x11_struct_xinput_FP3232_frac, align 4
-  %117 = tail call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %116, ptr noundef %0, i32 noundef %115, i32 noundef 4, i32 noundef %3)
-  %118 = load i32, ptr %1, align 4
-  %119 = add i32 %118, 4
-  store i32 %119, ptr %1, align 4
-  %120 = load i32, ptr @hf_x11_struct_xinput_DeviceClass_Valuator_resolution, align 4
-  %121 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %120, ptr noundef %0, i32 noundef %119, i32 noundef 4, i32 noundef %3)
-  %122 = load i32, ptr %1, align 4
-  %123 = add i32 %122, 4
-  store i32 %123, ptr %1, align 4
-  %124 = load i32, ptr @hf_x11_struct_xinput_DeviceClass_Valuator_mode, align 4
-  %125 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %124, i32 noundef %3)
-  %126 = load i32, ptr @hf_x11_unused, align 4
-  %127 = load i32, ptr %1, align 4
-  %128 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %126, ptr noundef %0, i32 noundef %127, i32 noundef 3, i32 noundef 0)
-  %129 = load i32, ptr %1, align 4
-  %130 = add i32 %129, 3
-  store i32 %130, ptr %1, align 4
-  br label %listOfCard32.exit
+  %74 = load i32, ptr @hf_x11_struct_xinput_DeviceClass_Valuator_number, align 4
+  %75 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %74, ptr noundef %0, i32 noundef %21, i32 noundef 2, i32 noundef %3)
+  %76 = load i32, ptr %1, align 4
+  %77 = add i32 %76, 2
+  store i32 %77, ptr %1, align 4
+  %78 = load i32, ptr @hf_x11_struct_xinput_DeviceClass_Valuator_label, align 4
+  %79 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %78, ptr noundef %0, i32 noundef %77, i32 noundef 4, i32 noundef %3)
+  %80 = load i32, ptr %1, align 4
+  %81 = add i32 %80, 4
+  store i32 %81, ptr %1, align 4
+  %82 = load i32, ptr @hf_x11_struct_xinput_FP3232, align 4
+  %83 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %82, ptr noundef %0, i32 noundef %81, i32 noundef 8, i32 noundef 0)
+  %84 = load i32, ptr @ett_x11_rectangle, align 4
+  %85 = tail call ptr @proto_item_add_subtree(ptr noundef %83, i32 noundef %84)
+  %86 = load i32, ptr @hf_x11_struct_xinput_FP3232_integral, align 4
+  %87 = load i32, ptr %1, align 4
+  %88 = tail call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %86, ptr noundef %0, i32 noundef %87, i32 noundef 4, i32 noundef %3)
+  %89 = load i32, ptr %1, align 4
+  %90 = add i32 %89, 4
+  store i32 %90, ptr %1, align 4
+  %91 = load i32, ptr @hf_x11_struct_xinput_FP3232_frac, align 4
+  %92 = tail call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %91, ptr noundef %0, i32 noundef %90, i32 noundef 4, i32 noundef %3)
+  %93 = load i32, ptr %1, align 4
+  %94 = add i32 %93, 4
+  store i32 %94, ptr %1, align 4
+  %95 = load i32, ptr @hf_x11_struct_xinput_FP3232, align 4
+  %96 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %95, ptr noundef %0, i32 noundef %94, i32 noundef 8, i32 noundef 0)
+  %97 = load i32, ptr @ett_x11_rectangle, align 4
+  %98 = tail call ptr @proto_item_add_subtree(ptr noundef %96, i32 noundef %97)
+  %99 = load i32, ptr @hf_x11_struct_xinput_FP3232_integral, align 4
+  %100 = load i32, ptr %1, align 4
+  %101 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %99, ptr noundef %0, i32 noundef %100, i32 noundef 4, i32 noundef %3)
+  %102 = load i32, ptr %1, align 4
+  %103 = add i32 %102, 4
+  store i32 %103, ptr %1, align 4
+  %104 = load i32, ptr @hf_x11_struct_xinput_FP3232_frac, align 4
+  %105 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %104, ptr noundef %0, i32 noundef %103, i32 noundef 4, i32 noundef %3)
+  %106 = load i32, ptr %1, align 4
+  %107 = add i32 %106, 4
+  store i32 %107, ptr %1, align 4
+  %108 = load i32, ptr @hf_x11_struct_xinput_FP3232, align 4
+  %109 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %108, ptr noundef %0, i32 noundef %107, i32 noundef 8, i32 noundef 0)
+  %110 = load i32, ptr @ett_x11_rectangle, align 4
+  %111 = tail call ptr @proto_item_add_subtree(ptr noundef %109, i32 noundef %110)
+  %112 = load i32, ptr @hf_x11_struct_xinput_FP3232_integral, align 4
+  %113 = load i32, ptr %1, align 4
+  %114 = tail call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %112, ptr noundef %0, i32 noundef %113, i32 noundef 4, i32 noundef %3)
+  %115 = load i32, ptr %1, align 4
+  %116 = add i32 %115, 4
+  store i32 %116, ptr %1, align 4
+  %117 = load i32, ptr @hf_x11_struct_xinput_FP3232_frac, align 4
+  %118 = tail call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %117, ptr noundef %0, i32 noundef %116, i32 noundef 4, i32 noundef %3)
+  %119 = load i32, ptr %1, align 4
+  %120 = add i32 %119, 4
+  store i32 %120, ptr %1, align 4
+  %121 = load i32, ptr @hf_x11_struct_xinput_DeviceClass_Valuator_resolution, align 4
+  %122 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %121, ptr noundef %0, i32 noundef %120, i32 noundef 4, i32 noundef %3)
+  %123 = load i32, ptr %1, align 4
+  %124 = add i32 %123, 4
+  store i32 %124, ptr %1, align 4
+  %125 = load i32, ptr @hf_x11_struct_xinput_DeviceClass_Valuator_mode, align 4
+  %126 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %125, i32 noundef %3)
+  %127 = load i32, ptr @hf_x11_unused, align 4
+  %128 = load i32, ptr %1, align 4
+  %129 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %127, ptr noundef %0, i32 noundef %128, i32 noundef 3, i32 noundef 0)
+  br label %listOfCard32.exit.sink.split
 
 .lr.ph.i166:                                      ; preds = %.lr.ph
-  %131 = load i32, ptr @hf_x11_struct_xinput_DeviceClass_Scroll_number, align 4
-  %132 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %131, ptr noundef %0, i32 noundef %21, i32 noundef 2, i32 noundef %3)
-  %133 = load i32, ptr %1, align 4
-  %134 = add i32 %133, 2
-  store i32 %134, ptr %1, align 4
-  %135 = load i32, ptr @hf_x11_struct_xinput_DeviceClass_Scroll_scroll_type, align 4
-  %136 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %135, i32 noundef %3)
-  %137 = load i32, ptr @hf_x11_unused, align 4
-  %138 = load i32, ptr %1, align 4
-  %139 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %137, ptr noundef %0, i32 noundef %138, i32 noundef 2, i32 noundef 0)
-  %140 = load i32, ptr %1, align 4
-  %141 = add i32 %140, 2
-  store i32 %141, ptr %1, align 4
-  %142 = load i32, ptr @hf_x11_struct_xinput_DeviceClass_Scroll_flags, align 4
-  %143 = load i32, ptr @ett_x11_rectangle, align 4
-  %144 = tail call ptr @proto_tree_add_bitmask(ptr noundef %10, ptr noundef %0, i32 noundef %141, i32 noundef %142, i32 noundef %143, ptr noundef nonnull @struct_xinput_DeviceClass.flags_bits, i32 noundef %3)
-  %145 = load i32, ptr %1, align 4
-  %146 = add i32 %145, 4
-  store i32 %146, ptr %1, align 4
-  %147 = load i32, ptr @hf_x11_struct_xinput_FP3232, align 4
-  %148 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %147, ptr noundef %0, i32 noundef %146, i32 noundef 8, i32 noundef 0)
-  %149 = load i32, ptr @ett_x11_rectangle, align 4
-  %150 = tail call ptr @proto_item_add_subtree(ptr noundef %148, i32 noundef %149)
-  %151 = load i32, ptr @hf_x11_struct_xinput_FP3232_integral, align 4
-  %152 = load i32, ptr %1, align 4
-  %153 = tail call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %151, ptr noundef %0, i32 noundef %152, i32 noundef 4, i32 noundef %3)
-  %154 = load i32, ptr %1, align 4
-  %155 = add i32 %154, 4
-  store i32 %155, ptr %1, align 4
-  %156 = load i32, ptr @hf_x11_struct_xinput_FP3232_frac, align 4
-  %157 = tail call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %156, ptr noundef %0, i32 noundef %155, i32 noundef 4, i32 noundef %3)
-  %158 = load i32, ptr %1, align 4
-  %159 = add i32 %158, 4
-  store i32 %159, ptr %1, align 4
-  br label %listOfCard32.exit
+  %130 = load i32, ptr @hf_x11_struct_xinput_DeviceClass_Scroll_number, align 4
+  %131 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %130, ptr noundef %0, i32 noundef %21, i32 noundef 2, i32 noundef %3)
+  %132 = load i32, ptr %1, align 4
+  %133 = add i32 %132, 2
+  store i32 %133, ptr %1, align 4
+  %134 = load i32, ptr @hf_x11_struct_xinput_DeviceClass_Scroll_scroll_type, align 4
+  %135 = tail call fastcc i32 @field16(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %134, i32 noundef %3)
+  %136 = load i32, ptr @hf_x11_unused, align 4
+  %137 = load i32, ptr %1, align 4
+  %138 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %136, ptr noundef %0, i32 noundef %137, i32 noundef 2, i32 noundef 0)
+  %139 = load i32, ptr %1, align 4
+  %140 = add i32 %139, 2
+  store i32 %140, ptr %1, align 4
+  %141 = load i32, ptr @hf_x11_struct_xinput_DeviceClass_Scroll_flags, align 4
+  %142 = load i32, ptr @ett_x11_rectangle, align 4
+  %143 = tail call ptr @proto_tree_add_bitmask(ptr noundef %10, ptr noundef %0, i32 noundef %140, i32 noundef %141, i32 noundef %142, ptr noundef nonnull @struct_xinput_DeviceClass.flags_bits, i32 noundef %3)
+  %144 = load i32, ptr %1, align 4
+  %145 = add i32 %144, 4
+  store i32 %145, ptr %1, align 4
+  %146 = load i32, ptr @hf_x11_struct_xinput_FP3232, align 4
+  %147 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %146, ptr noundef %0, i32 noundef %145, i32 noundef 8, i32 noundef 0)
+  %148 = load i32, ptr @ett_x11_rectangle, align 4
+  %149 = tail call ptr @proto_item_add_subtree(ptr noundef %147, i32 noundef %148)
+  %150 = load i32, ptr @hf_x11_struct_xinput_FP3232_integral, align 4
+  %151 = load i32, ptr %1, align 4
+  %152 = tail call ptr @proto_tree_add_item(ptr noundef %149, i32 noundef %150, ptr noundef %0, i32 noundef %151, i32 noundef 4, i32 noundef %3)
+  %153 = load i32, ptr %1, align 4
+  %154 = add i32 %153, 4
+  store i32 %154, ptr %1, align 4
+  %155 = load i32, ptr @hf_x11_struct_xinput_FP3232_frac, align 4
+  %156 = tail call ptr @proto_tree_add_item(ptr noundef %149, i32 noundef %155, ptr noundef %0, i32 noundef %154, i32 noundef 4, i32 noundef %3)
+  br label %listOfCard32.exit.sink.split
 
-160:                                              ; preds = %.lr.ph
-  %161 = load i32, ptr @hf_x11_struct_xinput_DeviceClass_Touch_mode, align 4
-  %162 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %161, i32 noundef %3)
-  %163 = load i32, ptr @hf_x11_struct_xinput_DeviceClass_Touch_num_touches, align 4
-  %164 = load i32, ptr %1, align 4
-  %165 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %163, ptr noundef %0, i32 noundef %164, i32 noundef 1, i32 noundef %3)
+157:                                              ; preds = %.lr.ph
+  %158 = load i32, ptr @hf_x11_struct_xinput_DeviceClass_Touch_mode, align 4
+  %159 = tail call fastcc i32 @field8(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %158, i32 noundef %3)
+  %160 = load i32, ptr @hf_x11_struct_xinput_DeviceClass_Touch_num_touches, align 4
+  %161 = load i32, ptr %1, align 4
+  %162 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %160, ptr noundef %0, i32 noundef %161, i32 noundef 1, i32 noundef %3)
+  br label %listOfCard32.exit.sink.split
+
+163:                                              ; preds = %.lr.ph
+  %164 = load i32, ptr @hf_x11_struct_xinput_DeviceClass_Gesture_num_touches, align 4
+  %165 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %164, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef %3)
   %166 = load i32, ptr %1, align 4
   %167 = add i32 %166, 1
   store i32 %167, ptr %1, align 4
+  %168 = load i32, ptr @hf_x11_unused, align 4
+  %169 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %168, ptr noundef %0, i32 noundef %167, i32 noundef 1, i32 noundef 0)
+  br label %listOfCard32.exit.sink.split
+
+listOfCard32.exit.sink.split:                     ; preds = %163, %.lr.ph.i151, %157, %.lr.ph.i166
+  %.sink183 = phi i32 [ 4, %.lr.ph.i166 ], [ 1, %157 ], [ 3, %.lr.ph.i151 ], [ 1, %163 ]
+  %170 = load i32, ptr %1, align 4
+  %171 = add i32 %170, %.sink183
+  store i32 %171, ptr %1, align 4
   br label %listOfCard32.exit
 
-168:                                              ; preds = %.lr.ph
-  %169 = load i32, ptr @hf_x11_struct_xinput_DeviceClass_Gesture_num_touches, align 4
-  %170 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %169, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef %3)
-  %171 = load i32, ptr %1, align 4
-  %172 = add i32 %171, 1
-  store i32 %172, ptr %1, align 4
-  %173 = load i32, ptr @hf_x11_unused, align 4
-  %174 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %173, ptr noundef %0, i32 noundef %172, i32 noundef 1, i32 noundef 0)
-  %175 = load i32, ptr %1, align 4
-  %176 = add i32 %175, 1
-  store i32 %176, ptr %1, align 4
-  br label %listOfCard32.exit
-
-listOfCard32.exit.critedge:                       ; preds = %41
-  %177 = load i32, ptr @hf_x11_struct_xinput_DeviceClass_Button_labels, align 4
-  %178 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %177, ptr noundef %0, i32 noundef %.pre, i32 noundef 0, i32 noundef %3)
-  %179 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %180 = tail call ptr @proto_item_add_subtree(ptr noundef %178, i32 noundef %179)
-  br label %listOfCard32.exit
-
-listOfCard32.exit:                                ; preds = %.lr.ph.i145, %.lr.ph.i, %listOfCard32.exit.critedge, %.lr.ph.i166, %22, %160, %.lr.ph.i151, %.lr.ph, %168
-  %181 = add nuw nsw i32 %.0174, 1
-  %exitcond.not = icmp eq i32 %181, %4
+listOfCard32.exit:                                ; preds = %.lr.ph.i145, %.lr.ph.i, %listOfCard32.exit.sink.split, %listOfCard32.exit141, %22, %.lr.ph
+  %172 = add nuw nsw i32 %.0174, 1
+  %exitcond.not = icmp eq i32 %172, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !109
 
 ._crit_edge:                                      ; preds = %listOfCard32.exit, %5

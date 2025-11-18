@@ -3114,11 +3114,11 @@ _ZN4llvm15SmallVectorImplINS_9LiveRange7SegmentEE5eraseEPKS2_.exit: ; preds = %4
   %49 = zext i32 %47 to i64
   %.idx1.i.i = mul nuw nsw i64 %49, 24
   %50 = getelementptr inbounds nuw i8, ptr %.val.i27, i64 %.idx1.i.i
-  %.not.i.i28 = icmp ult i32 %47, 4
+  %51 = lshr i64 %49, 2
+  %.not.i.i28 = icmp eq i64 %51, 0
   br i1 %.not.i.i28, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %48
-  %51 = lshr i64 %49, 2
   %52 = mul nuw nsw i64 %51, 96
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %.val.i27, i64 %52
   br label %.lr.ph.i.i.i.i.i.i
@@ -3281,11 +3281,11 @@ define dso_local void @_ZN4llvm9LiveRange17removeValNoIfDeadEPNS_6VNInfoE(ptr no
   %4 = zext i32 %.val3 to i64
   %.idx1.i = mul nuw nsw i64 %4, 24
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx1.i
-  %.not.i = icmp ult i32 %.val3, 4
+  %6 = lshr i64 %4, 2
+  %.not.i = icmp eq i64 %6, 0
   br i1 %.not.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %2
-  %6 = lshr i64 %4, 2
   %7 = mul nuw nsw i64 %6, 96
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %.val, i64 %7
   br label %.lr.ph.i.i.i.i.i
@@ -3452,11 +3452,11 @@ _ZN4llvm15SmallVectorImplINS_9LiveRange7SegmentEE5eraseEPKS2_.exit: ; preds = %3
   %19 = zext i32 %17 to i64
   %.idx1.i.i = mul nuw nsw i64 %19, 24
   %20 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.idx1.i.i
-  %.not.i.i = icmp ult i32 %17, 4
+  %21 = lshr i64 %19, 2
+  %.not.i.i = icmp eq i64 %21, 0
   br i1 %.not.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %18
-  %21 = lshr i64 %19, 2
   %22 = mul nuw nsw i64 %21, 96
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %.val.i, i64 %22
   br label %.lr.ph.i.i.i.i.i.i
@@ -3603,11 +3603,11 @@ define dso_local void @_ZN4llvm9LiveRange11removeValNoEPNS_6VNInfoE(ptr noundef 
   %6 = zext i32 %4 to i64
   %.idx1.i.i = mul nuw nsw i64 %6, 24
   %7 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.idx1.i.i
-  %.not.i.i3 = icmp ult i32 %4, 4
+  %8 = lshr i64 %6, 2
+  %.not.i.i3 = icmp eq i64 %8, 0
   br i1 %.not.i.i3, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %5
-  %8 = lshr i64 %6, 2
   %9 = mul nuw nsw i64 %8, 96
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %.val.i, i64 %9
   br label %.lr.ph.i.i.i.i.i.i

@@ -117,7 +117,7 @@ define noundef ptr @DES_fcrypt(ptr noundef readonly captures(none) %0, ptr nound
   %49 = zext i1 %.not73 to i8
   %spec.select = or disjoint i8 %44, %49
   %50 = lshr i8 %.181, 1
-  %.not74 = icmp ult i8 %.181, 2
+  %.not74 = icmp eq i8 %50, 0
   %51 = zext i1 %.not74 to i32
   %.267 = add i32 %.16679, %51
   %.2 = select i1 %.not74, i8 -128, i8 %50

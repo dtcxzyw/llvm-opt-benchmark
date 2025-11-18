@@ -160,16 +160,16 @@ define internal range(i32 -1, 1) i32 @H5D__bt2_idx_create(ptr noundef readonly c
 26:                                               ; preds = %10
   %27 = zext i32 %.pre to i64
   %28 = lshr i64 %27, 16
-  %.not.i = icmp ult i32 %.pre, 65536
+  %.not.i = icmp eq i64 %28, 0
   br i1 %.not.i, label %41, label %29
 
 29:                                               ; preds = %26
-  %.not24.i = icmp ult i32 %.pre, 16777216
-  br i1 %.not24.i, label %36, label %30
+  %30 = lshr i64 %27, 24
+  %.not24.i = icmp eq i64 %30, 0
+  br i1 %.not24.i, label %36, label %31
 
-30:                                               ; preds = %29
-  %31 = lshr i64 %27, 24
-  %32 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %31
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %30
   %33 = load i8, ptr %32, align 1, !tbaa !17
   %34 = zext i8 %33 to i32
   %35 = add nuw nsw i32 %34, 24
@@ -183,12 +183,12 @@ define internal range(i32 -1, 1) i32 @H5D__bt2_idx_create(ptr noundef readonly c
   br label %H5VM_log2_gen.exit
 
 41:                                               ; preds = %26
-  %.not23.i = icmp samesign ult i32 %.pre, 256
-  br i1 %.not23.i, label %48, label %42
+  %42 = lshr i64 %27, 8
+  %.not23.i = icmp eq i64 %42, 0
+  br i1 %.not23.i, label %48, label %43
 
-42:                                               ; preds = %41
-  %43 = lshr i64 %27, 8
-  %44 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %43
+43:                                               ; preds = %41
+  %44 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %42
   %45 = load i8, ptr %44, align 1, !tbaa !17
   %46 = zext i8 %45 to i32
   %47 = add nuw nsw i32 %46, 8
@@ -200,8 +200,8 @@ define internal range(i32 -1, 1) i32 @H5D__bt2_idx_create(ptr noundef readonly c
   %51 = zext i8 %50 to i32
   br label %H5VM_log2_gen.exit
 
-H5VM_log2_gen.exit:                               ; preds = %30, %36, %42, %48
-  %.0.i = phi i32 [ %35, %30 ], [ %40, %36 ], [ %47, %42 ], [ %51, %48 ]
+H5VM_log2_gen.exit:                               ; preds = %31, %36, %43, %48
+  %.0.i = phi i32 [ %35, %31 ], [ %40, %36 ], [ %47, %43 ], [ %51, %48 ]
   %52 = add nuw nsw i32 %.0.i, 8
   %53 = lshr i32 %52, 3
   %54 = tail call i32 @llvm.umin.i32(i32 %53, i32 7)
@@ -1327,16 +1327,16 @@ define internal noalias ptr @H5D__bt2_crt_context(ptr noundef readonly captures(
   %35 = load i32, ptr %20, align 8, !tbaa !41
   %36 = zext i32 %35 to i64
   %37 = lshr i64 %36, 16
-  %.not.i = icmp ult i32 %35, 65536
+  %.not.i = icmp eq i64 %37, 0
   br i1 %.not.i, label %50, label %38
 
 38:                                               ; preds = %31
-  %.not24.i = icmp ult i32 %35, 16777216
-  br i1 %.not24.i, label %45, label %39
+  %39 = lshr i64 %36, 24
+  %.not24.i = icmp eq i64 %39, 0
+  br i1 %.not24.i, label %45, label %40
 
-39:                                               ; preds = %38
-  %40 = lshr i64 %36, 24
-  %41 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %40
+40:                                               ; preds = %38
+  %41 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %39
   %42 = load i8, ptr %41, align 1, !tbaa !17
   %43 = zext i8 %42 to i32
   %44 = add nuw nsw i32 %43, 24
@@ -1350,12 +1350,12 @@ define internal noalias ptr @H5D__bt2_crt_context(ptr noundef readonly captures(
   br label %H5VM_log2_gen.exit
 
 50:                                               ; preds = %31
-  %.not23.i = icmp samesign ult i32 %35, 256
-  br i1 %.not23.i, label %57, label %51
+  %51 = lshr i64 %36, 8
+  %.not23.i = icmp eq i64 %51, 0
+  br i1 %.not23.i, label %57, label %52
 
-51:                                               ; preds = %50
-  %52 = lshr i64 %36, 8
-  %53 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %52
+52:                                               ; preds = %50
+  %53 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %51
   %54 = load i8, ptr %53, align 1, !tbaa !17
   %55 = zext i8 %54 to i32
   %56 = add nuw nsw i32 %55, 8
@@ -1367,8 +1367,8 @@ define internal noalias ptr @H5D__bt2_crt_context(ptr noundef readonly captures(
   %60 = zext i8 %59 to i32
   br label %H5VM_log2_gen.exit
 
-H5VM_log2_gen.exit:                               ; preds = %39, %45, %51, %57
-  %.0.i = phi i32 [ %44, %39 ], [ %49, %45 ], [ %56, %51 ], [ %60, %57 ]
+H5VM_log2_gen.exit:                               ; preds = %40, %45, %52, %57
+  %.0.i = phi i32 [ %44, %40 ], [ %49, %45 ], [ %56, %52 ], [ %60, %57 ]
   %61 = add nuw nsw i32 %.0.i, 8
   %62 = lshr i32 %61, 3
   %63 = add nuw nsw i32 %62, 1

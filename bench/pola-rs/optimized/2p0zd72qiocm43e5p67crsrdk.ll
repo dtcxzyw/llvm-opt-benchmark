@@ -13842,15 +13842,12 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded8opt
   store i64 %186, ptr %.sroa.3113.0..sroa_idx, align 8
   %187 = sub nuw i64 %spec.select180, %.sroa.0.0.ph
   store i64 %187, ptr %.sroa.4114.0..sroa_idx, align 8
-  %.old1 = icmp ult i64 %.sroa.0193.1.ph, 32
-  br i1 %.old1, label %.loopexit252, label %.preheader248.preheader
-
-.preheader248.preheader:                          ; preds = %185
   %188 = lshr i64 %.sroa.0193.1.ph, 5
-  br label %.preheader248
+  %.old1 = icmp eq i64 %188, 0
+  br i1 %.old1, label %.loopexit252, label %.preheader248
 
-.preheader248:                                    ; preds = %.preheader248.preheader, %194
-  %.sroa.0119.0 = phi i64 [ %195, %194 ], [ %188, %.preheader248.preheader ]
+.preheader248:                                    ; preds = %185, %194
+  %.sroa.0119.0 = phi i64 [ %195, %194 ], [ %188, %185 ]
   %189 = invoke { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
           to label %194 unwind label %.loopexit.split-lp.loopexit
 
@@ -14024,8 +14021,8 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
   br label %.outer.backedge
 
 250:                                              ; preds = %253, %248
-  %storemerge375 = phi i64 [ %252, %253 ], [ %247, %248 ]
-  store i64 %storemerge375, ptr %0, align 8
+  %storemerge376 = phi i64 [ %252, %253 ], [ %247, %248 ]
+  store i64 %storemerge376, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %256
@@ -14632,15 +14629,12 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded8opt
   store i64 %193, ptr %.sroa.3103.0..sroa_idx, align 8
   %194 = sub nuw i64 %spec.select161, %.sroa.0.0182.ph
   store i64 %194, ptr %.sroa.4104.0..sroa_idx, align 8
-  %.old1 = icmp ult i64 %.sroa.0174.1.ph, 32
-  br i1 %.old1, label %.loopexit234, label %.preheader230.preheader
-
-.preheader230.preheader:                          ; preds = %192
   %195 = lshr i64 %.sroa.0174.1.ph, 5
-  br label %.preheader230
+  %.old1 = icmp eq i64 %195, 0
+  br i1 %.old1, label %.loopexit234, label %.preheader230
 
-.preheader230:                                    ; preds = %.preheader230.preheader, %201
-  %.sroa.0109.0 = phi i64 [ %202, %201 ], [ %195, %.preheader230.preheader ]
+.preheader230:                                    ; preds = %192, %201
+  %.sroa.0109.0 = phi i64 [ %202, %201 ], [ %195, %192 ]
   %196 = invoke { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23)
           to label %201 unwind label %.loopexit.split-lp.loopexit
 
@@ -14814,8 +14808,8 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
   br label %.outer.backedge
 
 257:                                              ; preds = %260, %255
-  %storemerge357 = phi i64 [ %259, %260 ], [ %254, %255 ]
-  store i64 %storemerge357, ptr %0, align 8
+  %storemerge358 = phi i64 [ %259, %260 ], [ %254, %255 ]
+  store i64 %storemerge358, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %263
@@ -15428,15 +15422,12 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded8opt
   store i64 %193, ptr %.sroa.3103.0..sroa_idx, align 8
   %194 = sub nuw i64 %spec.select161, %.sroa.0.0182.ph
   store i64 %194, ptr %.sroa.4104.0..sroa_idx, align 8
-  %.old1 = icmp ult i64 %.sroa.0174.1.ph, 32
-  br i1 %.old1, label %.loopexit234, label %.preheader230.preheader
-
-.preheader230.preheader:                          ; preds = %192
   %195 = lshr i64 %.sroa.0174.1.ph, 5
-  br label %.preheader230
+  %.old1 = icmp eq i64 %195, 0
+  br i1 %.old1, label %.loopexit234, label %.preheader230
 
-.preheader230:                                    ; preds = %.preheader230.preheader, %201
-  %.sroa.0109.0 = phi i64 [ %202, %201 ], [ %195, %.preheader230.preheader ]
+.preheader230:                                    ; preds = %192, %201
+  %.sroa.0109.0 = phi i64 [ %202, %201 ], [ %195, %192 ]
   %196 = invoke { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23)
           to label %201 unwind label %.loopexit.split-lp.loopexit
 
@@ -15610,8 +15601,8 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
   br label %.outer.backedge
 
 257:                                              ; preds = %260, %255
-  %storemerge357 = phi i64 [ %259, %260 ], [ %254, %255 ]
-  store i64 %storemerge357, ptr %0, align 8
+  %storemerge358 = phi i64 [ %259, %260 ], [ %254, %255 ]
+  store i64 %storemerge358, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %263
@@ -16214,15 +16205,12 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded8opt
   store i64 %188, ptr %.sroa.3111.0..sroa_idx, align 8
   %189 = sub nuw i64 %spec.select176, %.sroa.0.0.ph
   store i64 %189, ptr %.sroa.4112.0..sroa_idx, align 8
-  %.old1 = icmp ult i64 %.sroa.0189.1.ph, 32
-  br i1 %.old1, label %.loopexit248, label %.preheader244.preheader
-
-.preheader244.preheader:                          ; preds = %187
   %190 = lshr i64 %.sroa.0189.1.ph, 5
-  br label %.preheader244
+  %.old1 = icmp eq i64 %190, 0
+  br i1 %.old1, label %.loopexit248, label %.preheader244
 
-.preheader244:                                    ; preds = %.preheader244.preheader, %196
-  %.sroa.0117.0 = phi i64 [ %197, %196 ], [ %190, %.preheader244.preheader ]
+.preheader244:                                    ; preds = %187, %196
+  %.sroa.0117.0 = phi i64 [ %197, %196 ], [ %190, %187 ]
   %191 = invoke { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
           to label %196 unwind label %.loopexit.split-lp.loopexit
 
@@ -16396,8 +16384,8 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
   br label %.outer.backedge
 
 252:                                              ; preds = %255, %250
-  %storemerge371 = phi i64 [ %254, %255 ], [ %249, %250 ]
-  store i64 %storemerge371, ptr %0, align 8
+  %storemerge372 = phi i64 [ %254, %255 ], [ %249, %250 ]
+  store i64 %storemerge372, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %258
@@ -16989,15 +16977,12 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded8opt
   store i64 %186, ptr %.sroa.3113.0..sroa_idx, align 8
   %187 = sub nuw i64 %spec.select180, %.sroa.0.0.ph
   store i64 %187, ptr %.sroa.4114.0..sroa_idx, align 8
-  %.old1 = icmp ult i64 %.sroa.0193.1.ph, 32
-  br i1 %.old1, label %.loopexit252, label %.preheader248.preheader
-
-.preheader248.preheader:                          ; preds = %185
   %188 = lshr i64 %.sroa.0193.1.ph, 5
-  br label %.preheader248
+  %.old1 = icmp eq i64 %188, 0
+  br i1 %.old1, label %.loopexit252, label %.preheader248
 
-.preheader248:                                    ; preds = %.preheader248.preheader, %194
-  %.sroa.0119.0 = phi i64 [ %195, %194 ], [ %188, %.preheader248.preheader ]
+.preheader248:                                    ; preds = %185, %194
+  %.sroa.0119.0 = phi i64 [ %195, %194 ], [ %188, %185 ]
   %189 = invoke { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
           to label %194 unwind label %.loopexit.split-lp.loopexit
 
@@ -17171,8 +17156,8 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
   br label %.outer.backedge
 
 250:                                              ; preds = %253, %248
-  %storemerge375 = phi i64 [ %252, %253 ], [ %247, %248 ]
-  store i64 %storemerge375, ptr %0, align 8
+  %storemerge376 = phi i64 [ %252, %253 ], [ %247, %248 ]
+  store i64 %storemerge376, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %256
@@ -17779,15 +17764,12 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded8opt
   store i64 %193, ptr %.sroa.3103.0..sroa_idx, align 8
   %194 = sub nuw i64 %spec.select161, %.sroa.0.0182.ph
   store i64 %194, ptr %.sroa.4104.0..sroa_idx, align 8
-  %.old1 = icmp ult i64 %.sroa.0174.1.ph, 32
-  br i1 %.old1, label %.loopexit234, label %.preheader230.preheader
-
-.preheader230.preheader:                          ; preds = %192
   %195 = lshr i64 %.sroa.0174.1.ph, 5
-  br label %.preheader230
+  %.old1 = icmp eq i64 %195, 0
+  br i1 %.old1, label %.loopexit234, label %.preheader230
 
-.preheader230:                                    ; preds = %.preheader230.preheader, %201
-  %.sroa.0109.0 = phi i64 [ %202, %201 ], [ %195, %.preheader230.preheader ]
+.preheader230:                                    ; preds = %192, %201
+  %.sroa.0109.0 = phi i64 [ %202, %201 ], [ %195, %192 ]
   %196 = invoke { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23)
           to label %201 unwind label %.loopexit.split-lp.loopexit
 
@@ -17961,8 +17943,8 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
   br label %.outer.backedge
 
 257:                                              ; preds = %260, %255
-  %storemerge357 = phi i64 [ %259, %260 ], [ %254, %255 ]
-  store i64 %storemerge357, ptr %0, align 8
+  %storemerge358 = phi i64 [ %259, %260 ], [ %254, %255 ]
+  store i64 %storemerge358, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %263
@@ -18575,15 +18557,12 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded8opt
   store i64 %193, ptr %.sroa.3103.0..sroa_idx, align 8
   %194 = sub nuw i64 %spec.select161, %.sroa.0.0182.ph
   store i64 %194, ptr %.sroa.4104.0..sroa_idx, align 8
-  %.old1 = icmp ult i64 %.sroa.0174.1.ph, 32
-  br i1 %.old1, label %.loopexit234, label %.preheader230.preheader
-
-.preheader230.preheader:                          ; preds = %192
   %195 = lshr i64 %.sroa.0174.1.ph, 5
-  br label %.preheader230
+  %.old1 = icmp eq i64 %195, 0
+  br i1 %.old1, label %.loopexit234, label %.preheader230
 
-.preheader230:                                    ; preds = %.preheader230.preheader, %201
-  %.sroa.0109.0 = phi i64 [ %202, %201 ], [ %195, %.preheader230.preheader ]
+.preheader230:                                    ; preds = %192, %201
+  %.sroa.0109.0 = phi i64 [ %202, %201 ], [ %195, %192 ]
   %196 = invoke { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23)
           to label %201 unwind label %.loopexit.split-lp.loopexit
 
@@ -18757,8 +18736,8 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
   br label %.outer.backedge
 
 257:                                              ; preds = %260, %255
-  %storemerge357 = phi i64 [ %259, %260 ], [ %254, %255 ]
-  store i64 %storemerge357, ptr %0, align 8
+  %storemerge358 = phi i64 [ %259, %260 ], [ %254, %255 ]
+  store i64 %storemerge358, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %263
@@ -19356,15 +19335,12 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded8opt
   store i64 %186, ptr %.sroa.3113.0..sroa_idx, align 8
   %187 = sub nuw i64 %spec.select180, %.sroa.0.0.ph
   store i64 %187, ptr %.sroa.4114.0..sroa_idx, align 8
-  %.old1 = icmp ult i64 %.sroa.0193.1.ph, 32
-  br i1 %.old1, label %.loopexit252, label %.preheader248.preheader
-
-.preheader248.preheader:                          ; preds = %185
   %188 = lshr i64 %.sroa.0193.1.ph, 5
-  br label %.preheader248
+  %.old1 = icmp eq i64 %188, 0
+  br i1 %.old1, label %.loopexit252, label %.preheader248
 
-.preheader248:                                    ; preds = %.preheader248.preheader, %194
-  %.sroa.0119.0 = phi i64 [ %195, %194 ], [ %188, %.preheader248.preheader ]
+.preheader248:                                    ; preds = %185, %194
+  %.sroa.0119.0 = phi i64 [ %195, %194 ], [ %188, %185 ]
   %189 = invoke { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
           to label %194 unwind label %.loopexit.split-lp.loopexit
 
@@ -19538,8 +19514,8 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
   br label %.outer.backedge
 
 250:                                              ; preds = %253, %248
-  %storemerge375 = phi i64 [ %252, %253 ], [ %247, %248 ]
-  store i64 %storemerge375, ptr %0, align 8
+  %storemerge376 = phi i64 [ %252, %253 ], [ %247, %248 ]
+  store i64 %storemerge376, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %256
@@ -20128,15 +20104,12 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded8opt
   store i64 %183, ptr %.sroa.3113.0..sroa_idx, align 8
   %184 = sub nuw i64 %spec.select180, %.sroa.0.0.ph
   store i64 %184, ptr %.sroa.4114.0..sroa_idx, align 8
-  %.old1 = icmp ult i64 %.sroa.0193.1.ph, 32
-  br i1 %.old1, label %.loopexit252, label %.preheader248.preheader
-
-.preheader248.preheader:                          ; preds = %182
   %185 = lshr i64 %.sroa.0193.1.ph, 5
-  br label %.preheader248
+  %.old1 = icmp eq i64 %185, 0
+  br i1 %.old1, label %.loopexit252, label %.preheader248
 
-.preheader248:                                    ; preds = %.preheader248.preheader, %191
-  %.sroa.0119.0 = phi i64 [ %192, %191 ], [ %185, %.preheader248.preheader ]
+.preheader248:                                    ; preds = %182, %191
+  %.sroa.0119.0 = phi i64 [ %192, %191 ], [ %185, %182 ]
   %186 = invoke { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21)
           to label %191 unwind label %.loopexit.split-lp.loopexit
 
@@ -20310,8 +20283,8 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
   br label %.outer.backedge
 
 247:                                              ; preds = %250, %245
-  %storemerge375 = phi i64 [ %249, %250 ], [ %244, %245 ]
-  store i64 %storemerge375, ptr %0, align 8
+  %storemerge376 = phi i64 [ %249, %250 ], [ %244, %245 ]
+  store i64 %storemerge376, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %253
@@ -27789,21 +27762,18 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load ptr, ptr %26, align 8, !nonnull !6, !align !907, !noundef !6
   %28 = load ptr, ptr %27, align 8, !nonnull !6, !align !907, !noundef !6
-  %.old1 = icmp ult i64 %25, 32
-  br i1 %.old1, label %.loopexit, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %12
   %29 = lshr i64 %25, 5
-  br label %.preheader
+  %.old1 = icmp eq i64 %29, 0
+  br i1 %.old1, label %.loopexit, label %.preheader
 
 30:                                               ; preds = %126, %66, %7
   %.sroa.0.0.copyload.sink = phi i64 [ %.sroa.0.0.copyload, %126 ], [ -9223372036854775803, %66 ], [ -9223372036854775803, %7 ]
   store i64 %.sroa.0.0.copyload.sink, ptr %0, align 8
   ret void
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.sroa.028.0 = phi i64 [ %31, %.preheader ], [ %29, %.preheader.preheader ]
-  %31 = add i64 %.sroa.028.0, -1
+.preheader:                                       ; preds = %12, %.preheader
+  %.sroa.028.0 = phi i64 [ %31, %.preheader ], [ %29, %12 ]
+  %31 = add nsw i64 %.sroa.028.0, -1
   %32 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28)
   %33 = extractvalue { ptr, i64 } %32, 0
   %.not44 = icmp eq ptr %33, null
@@ -28041,21 +28011,18 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load ptr, ptr %26, align 8, !nonnull !6, !align !907, !noundef !6
   %28 = load ptr, ptr %27, align 8, !nonnull !6, !align !907, !noundef !6
-  %.old1 = icmp ult i64 %25, 32
-  br i1 %.old1, label %.loopexit, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %12
   %29 = lshr i64 %25, 5
-  br label %.preheader
+  %.old1 = icmp eq i64 %29, 0
+  br i1 %.old1, label %.loopexit, label %.preheader
 
 30:                                               ; preds = %126, %66, %7
   %.sroa.0.0.copyload.sink = phi i64 [ %.sroa.0.0.copyload, %126 ], [ -9223372036854775803, %66 ], [ -9223372036854775803, %7 ]
   store i64 %.sroa.0.0.copyload.sink, ptr %0, align 8
   ret void
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.sroa.028.0 = phi i64 [ %31, %.preheader ], [ %29, %.preheader.preheader ]
-  %31 = add i64 %.sroa.028.0, -1
+.preheader:                                       ; preds = %12, %.preheader
+  %.sroa.028.0 = phi i64 [ %31, %.preheader ], [ %29, %12 ]
+  %31 = add nsw i64 %.sroa.028.0, -1
   %32 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28)
   %33 = extractvalue { ptr, i64 } %32, 0
   %.not44 = icmp eq ptr %33, null
@@ -28293,21 +28260,18 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load ptr, ptr %26, align 8, !nonnull !6, !align !907, !noundef !6
   %28 = load ptr, ptr %27, align 8, !nonnull !6, !align !907, !noundef !6
-  %.old1 = icmp ult i64 %25, 32
-  br i1 %.old1, label %.loopexit, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %12
   %29 = lshr i64 %25, 5
-  br label %.preheader
+  %.old1 = icmp eq i64 %29, 0
+  br i1 %.old1, label %.loopexit, label %.preheader
 
 30:                                               ; preds = %126, %66, %7
   %.sroa.0.0.copyload.sink = phi i64 [ %.sroa.0.0.copyload, %126 ], [ -9223372036854775803, %66 ], [ -9223372036854775803, %7 ]
   store i64 %.sroa.0.0.copyload.sink, ptr %0, align 8
   ret void
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.sroa.030.0 = phi i64 [ %31, %.preheader ], [ %29, %.preheader.preheader ]
-  %31 = add i64 %.sroa.030.0, -1
+.preheader:                                       ; preds = %12, %.preheader
+  %.sroa.030.0 = phi i64 [ %31, %.preheader ], [ %29, %12 ]
+  %31 = add nsw i64 %.sroa.030.0, -1
   %32 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28)
   %33 = extractvalue { ptr, i64 } %32, 0
   %.not47 = icmp eq ptr %33, null
@@ -28547,21 +28511,18 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load ptr, ptr %26, align 8, !nonnull !6, !align !907, !noundef !6
   %28 = load ptr, ptr %27, align 8, !nonnull !6, !align !907, !noundef !6
-  %.old1 = icmp ult i64 %25, 32
-  br i1 %.old1, label %.loopexit, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %12
   %29 = lshr i64 %25, 5
-  br label %.preheader
+  %.old1 = icmp eq i64 %29, 0
+  br i1 %.old1, label %.loopexit, label %.preheader
 
 30:                                               ; preds = %126, %66, %7
   %.sroa.0.0.copyload.sink = phi i64 [ %.sroa.0.0.copyload, %126 ], [ -9223372036854775803, %66 ], [ -9223372036854775803, %7 ]
   store i64 %.sroa.0.0.copyload.sink, ptr %0, align 8
   ret void
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.sroa.030.0 = phi i64 [ %31, %.preheader ], [ %29, %.preheader.preheader ]
-  %31 = add i64 %.sroa.030.0, -1
+.preheader:                                       ; preds = %12, %.preheader
+  %.sroa.030.0 = phi i64 [ %31, %.preheader ], [ %29, %12 ]
+  %31 = add nsw i64 %.sroa.030.0, -1
   %32 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28)
   %33 = extractvalue { ptr, i64 } %32, 0
   %.not47 = icmp eq ptr %33, null
@@ -28801,21 +28762,18 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load ptr, ptr %26, align 8, !nonnull !6, !align !907, !noundef !6
   %28 = load ptr, ptr %27, align 8, !nonnull !6, !align !907, !noundef !6
-  %.old1 = icmp ult i64 %25, 32
-  br i1 %.old1, label %.loopexit, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %12
   %29 = lshr i64 %25, 5
-  br label %.preheader
+  %.old1 = icmp eq i64 %29, 0
+  br i1 %.old1, label %.loopexit, label %.preheader
 
 30:                                               ; preds = %126, %66, %7
   %.sroa.0.0.copyload.sink = phi i64 [ %.sroa.0.0.copyload, %126 ], [ -9223372036854775803, %66 ], [ -9223372036854775803, %7 ]
   store i64 %.sroa.0.0.copyload.sink, ptr %0, align 8
   ret void
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.sroa.028.0 = phi i64 [ %31, %.preheader ], [ %29, %.preheader.preheader ]
-  %31 = add i64 %.sroa.028.0, -1
+.preheader:                                       ; preds = %12, %.preheader
+  %.sroa.028.0 = phi i64 [ %31, %.preheader ], [ %29, %12 ]
+  %31 = add nsw i64 %.sroa.028.0, -1
   %32 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28)
   %33 = extractvalue { ptr, i64 } %32, 0
   %.not44 = icmp eq ptr %33, null
@@ -29053,21 +29011,18 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load ptr, ptr %26, align 8, !nonnull !6, !align !907, !noundef !6
   %28 = load ptr, ptr %27, align 8, !nonnull !6, !align !907, !noundef !6
-  %.old1 = icmp ult i64 %25, 32
-  br i1 %.old1, label %.loopexit, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %12
   %29 = lshr i64 %25, 5
-  br label %.preheader
+  %.old1 = icmp eq i64 %29, 0
+  br i1 %.old1, label %.loopexit, label %.preheader
 
 30:                                               ; preds = %126, %66, %7
   %.sroa.0.0.copyload.sink = phi i64 [ %.sroa.0.0.copyload, %126 ], [ -9223372036854775803, %66 ], [ -9223372036854775803, %7 ]
   store i64 %.sroa.0.0.copyload.sink, ptr %0, align 8
   ret void
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.sroa.030.0 = phi i64 [ %31, %.preheader ], [ %29, %.preheader.preheader ]
-  %31 = add i64 %.sroa.030.0, -1
+.preheader:                                       ; preds = %12, %.preheader
+  %.sroa.030.0 = phi i64 [ %31, %.preheader ], [ %29, %12 ]
+  %31 = add nsw i64 %.sroa.030.0, -1
   %32 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28)
   %33 = extractvalue { ptr, i64 } %32, 0
   %.not47 = icmp eq ptr %33, null
@@ -29307,21 +29262,18 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load ptr, ptr %26, align 8, !nonnull !6, !align !907, !noundef !6
   %28 = load ptr, ptr %27, align 8, !nonnull !6, !align !907, !noundef !6
-  %.old1 = icmp ult i64 %25, 32
-  br i1 %.old1, label %.loopexit, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %12
   %29 = lshr i64 %25, 5
-  br label %.preheader
+  %.old1 = icmp eq i64 %29, 0
+  br i1 %.old1, label %.loopexit, label %.preheader
 
 30:                                               ; preds = %126, %66, %7
   %.sroa.0.0.copyload.sink = phi i64 [ %.sroa.0.0.copyload, %126 ], [ -9223372036854775803, %66 ], [ -9223372036854775803, %7 ]
   store i64 %.sroa.0.0.copyload.sink, ptr %0, align 8
   ret void
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.sroa.028.0 = phi i64 [ %31, %.preheader ], [ %29, %.preheader.preheader ]
-  %31 = add i64 %.sroa.028.0, -1
+.preheader:                                       ; preds = %12, %.preheader
+  %.sroa.028.0 = phi i64 [ %31, %.preheader ], [ %29, %12 ]
+  %31 = add nsw i64 %.sroa.028.0, -1
   %32 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28)
   %33 = extractvalue { ptr, i64 } %32, 0
   %.not44 = icmp eq ptr %33, null
@@ -29559,21 +29511,18 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load ptr, ptr %26, align 8, !nonnull !6, !align !907, !noundef !6
   %28 = load ptr, ptr %27, align 8, !nonnull !6, !align !907, !noundef !6
-  %.old1 = icmp ult i64 %25, 32
-  br i1 %.old1, label %.loopexit, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %12
   %29 = lshr i64 %25, 5
-  br label %.preheader
+  %.old1 = icmp eq i64 %29, 0
+  br i1 %.old1, label %.loopexit, label %.preheader
 
 30:                                               ; preds = %126, %66, %7
   %.sroa.0.0.copyload.sink = phi i64 [ %.sroa.0.0.copyload, %126 ], [ -9223372036854775803, %66 ], [ -9223372036854775803, %7 ]
   store i64 %.sroa.0.0.copyload.sink, ptr %0, align 8
   ret void
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.sroa.030.0 = phi i64 [ %31, %.preheader ], [ %29, %.preheader.preheader ]
-  %31 = add i64 %.sroa.030.0, -1
+.preheader:                                       ; preds = %12, %.preheader
+  %.sroa.030.0 = phi i64 [ %31, %.preheader ], [ %29, %12 ]
+  %31 = add nsw i64 %.sroa.030.0, -1
   %32 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28)
   %33 = extractvalue { ptr, i64 } %32, 0
   %.not47 = icmp eq ptr %33, null
@@ -29813,21 +29762,18 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load ptr, ptr %26, align 8, !nonnull !6, !align !907, !noundef !6
   %28 = load ptr, ptr %27, align 8, !nonnull !6, !align !907, !noundef !6
-  %.old1 = icmp ult i64 %25, 32
-  br i1 %.old1, label %.loopexit, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %12
   %29 = lshr i64 %25, 5
-  br label %.preheader
+  %.old1 = icmp eq i64 %29, 0
+  br i1 %.old1, label %.loopexit, label %.preheader
 
 30:                                               ; preds = %118, %63, %7
   %.sroa.0.0.copyload.sink = phi i64 [ %.sroa.0.0.copyload, %118 ], [ -9223372036854775803, %63 ], [ -9223372036854775803, %7 ]
   store i64 %.sroa.0.0.copyload.sink, ptr %0, align 8
   ret void
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.sroa.030.0 = phi i64 [ %31, %.preheader ], [ %29, %.preheader.preheader ]
-  %31 = add i64 %.sroa.030.0, -1
+.preheader:                                       ; preds = %12, %.preheader
+  %.sroa.030.0 = phi i64 [ %31, %.preheader ], [ %29, %12 ]
+  %31 = add nsw i64 %.sroa.030.0, -1
   %32 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28)
   %33 = extractvalue { ptr, i64 } %32, 0
   %.not47 = icmp eq ptr %33, null
@@ -34730,21 +34676,18 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load ptr, ptr %23, align 8, !nonnull !6, !align !907, !noundef !6
   %25 = load ptr, ptr %24, align 8, !nonnull !6, !align !907, !noundef !6
-  %.old1 = icmp ult i64 %22, 32
-  br i1 %.old1, label %.loopexit, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %11
   %26 = lshr i64 %22, 5
-  br label %.preheader
+  %.old1 = icmp eq i64 %26, 0
+  br i1 %.old1, label %.loopexit, label %.preheader
 
 27:                                               ; preds = %110, %62, %9
   %.sroa.0.0.copyload.sink = phi i64 [ %.sroa.0.0.copyload, %110 ], [ -9223372036854775803, %62 ], [ -9223372036854775803, %9 ]
   store i64 %.sroa.0.0.copyload.sink, ptr %0, align 8
   ret void
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.sroa.019.0 = phi i64 [ %28, %.preheader ], [ %26, %.preheader.preheader ]
-  %28 = add i64 %.sroa.019.0, -1
+.preheader:                                       ; preds = %11, %.preheader
+  %.sroa.019.0 = phi i64 [ %28, %.preheader ], [ %26, %11 ]
+  %28 = add nsw i64 %.sroa.019.0, -1
   %29 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
   %30 = extractvalue { ptr, i64 } %29, 0
   %.not33 = icmp eq ptr %30, null
@@ -34965,21 +34908,18 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load ptr, ptr %23, align 8, !nonnull !6, !align !907, !noundef !6
   %25 = load ptr, ptr %24, align 8, !nonnull !6, !align !907, !noundef !6
-  %.old1 = icmp ult i64 %22, 32
-  br i1 %.old1, label %.loopexit, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %11
   %26 = lshr i64 %22, 5
-  br label %.preheader
+  %.old1 = icmp eq i64 %26, 0
+  br i1 %.old1, label %.loopexit, label %.preheader
 
 27:                                               ; preds = %110, %62, %9
   %.sroa.0.0.copyload.sink = phi i64 [ %.sroa.0.0.copyload, %110 ], [ -9223372036854775803, %62 ], [ -9223372036854775803, %9 ]
   store i64 %.sroa.0.0.copyload.sink, ptr %0, align 8
   ret void
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.sroa.017.0 = phi i64 [ %28, %.preheader ], [ %26, %.preheader.preheader ]
-  %28 = add i64 %.sroa.017.0, -1
+.preheader:                                       ; preds = %11, %.preheader
+  %.sroa.017.0 = phi i64 [ %28, %.preheader ], [ %26, %11 ]
+  %28 = add nsw i64 %.sroa.017.0, -1
   %29 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
   %30 = extractvalue { ptr, i64 } %29, 0
   %.not30 = icmp eq ptr %30, null
@@ -35198,21 +35138,18 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load ptr, ptr %23, align 8, !nonnull !6, !align !907, !noundef !6
   %25 = load ptr, ptr %24, align 8, !nonnull !6, !align !907, !noundef !6
-  %.old1 = icmp ult i64 %22, 32
-  br i1 %.old1, label %.loopexit, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %11
   %26 = lshr i64 %22, 5
-  br label %.preheader
+  %.old1 = icmp eq i64 %26, 0
+  br i1 %.old1, label %.loopexit, label %.preheader
 
 27:                                               ; preds = %110, %62, %9
   %.sroa.0.0.copyload.sink = phi i64 [ %.sroa.0.0.copyload, %110 ], [ -9223372036854775803, %62 ], [ -9223372036854775803, %9 ]
   store i64 %.sroa.0.0.copyload.sink, ptr %0, align 8
   ret void
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.sroa.017.0 = phi i64 [ %28, %.preheader ], [ %26, %.preheader.preheader ]
-  %28 = add i64 %.sroa.017.0, -1
+.preheader:                                       ; preds = %11, %.preheader
+  %.sroa.017.0 = phi i64 [ %28, %.preheader ], [ %26, %11 ]
+  %28 = add nsw i64 %.sroa.017.0, -1
   %29 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
   %30 = extractvalue { ptr, i64 } %29, 0
   %.not30 = icmp eq ptr %30, null
@@ -35431,21 +35368,18 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load ptr, ptr %23, align 8, !nonnull !6, !align !907, !noundef !6
   %25 = load ptr, ptr %24, align 8, !nonnull !6, !align !907, !noundef !6
-  %.old1 = icmp ult i64 %22, 32
-  br i1 %.old1, label %.loopexit, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %11
   %26 = lshr i64 %22, 5
-  br label %.preheader
+  %.old1 = icmp eq i64 %26, 0
+  br i1 %.old1, label %.loopexit, label %.preheader
 
 27:                                               ; preds = %102, %59, %9
   %.sroa.0.0.copyload.sink = phi i64 [ %.sroa.0.0.copyload, %102 ], [ -9223372036854775803, %59 ], [ -9223372036854775803, %9 ]
   store i64 %.sroa.0.0.copyload.sink, ptr %0, align 8
   ret void
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.sroa.019.0 = phi i64 [ %28, %.preheader ], [ %26, %.preheader.preheader ]
-  %28 = add i64 %.sroa.019.0, -1
+.preheader:                                       ; preds = %11, %.preheader
+  %.sroa.019.0 = phi i64 [ %28, %.preheader ], [ %26, %11 ]
+  %28 = add nsw i64 %.sroa.019.0, -1
   %29 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
   %30 = extractvalue { ptr, i64 } %29, 0
   %.not33 = icmp eq ptr %30, null
@@ -35653,21 +35587,18 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load ptr, ptr %23, align 8, !nonnull !6, !align !907, !noundef !6
   %25 = load ptr, ptr %24, align 8, !nonnull !6, !align !907, !noundef !6
-  %.old1 = icmp ult i64 %22, 32
-  br i1 %.old1, label %.loopexit, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %11
   %26 = lshr i64 %22, 5
-  br label %.preheader
+  %.old1 = icmp eq i64 %26, 0
+  br i1 %.old1, label %.loopexit, label %.preheader
 
 27:                                               ; preds = %110, %62, %9
   %.sroa.0.0.copyload.sink = phi i64 [ %.sroa.0.0.copyload, %110 ], [ -9223372036854775803, %62 ], [ -9223372036854775803, %9 ]
   store i64 %.sroa.0.0.copyload.sink, ptr %0, align 8
   ret void
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.sroa.017.0 = phi i64 [ %28, %.preheader ], [ %26, %.preheader.preheader ]
-  %28 = add i64 %.sroa.017.0, -1
+.preheader:                                       ; preds = %11, %.preheader
+  %.sroa.017.0 = phi i64 [ %28, %.preheader ], [ %26, %11 ]
+  %28 = add nsw i64 %.sroa.017.0, -1
   %29 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
   %30 = extractvalue { ptr, i64 } %29, 0
   %.not30 = icmp eq ptr %30, null
@@ -35886,21 +35817,18 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load ptr, ptr %23, align 8, !nonnull !6, !align !907, !noundef !6
   %25 = load ptr, ptr %24, align 8, !nonnull !6, !align !907, !noundef !6
-  %.old1 = icmp ult i64 %22, 32
-  br i1 %.old1, label %.loopexit, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %11
   %26 = lshr i64 %22, 5
-  br label %.preheader
+  %.old1 = icmp eq i64 %26, 0
+  br i1 %.old1, label %.loopexit, label %.preheader
 
 27:                                               ; preds = %110, %62, %9
   %.sroa.0.0.copyload.sink = phi i64 [ %.sroa.0.0.copyload, %110 ], [ -9223372036854775803, %62 ], [ -9223372036854775803, %9 ]
   store i64 %.sroa.0.0.copyload.sink, ptr %0, align 8
   ret void
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.sroa.017.0 = phi i64 [ %28, %.preheader ], [ %26, %.preheader.preheader ]
-  %28 = add i64 %.sroa.017.0, -1
+.preheader:                                       ; preds = %11, %.preheader
+  %.sroa.017.0 = phi i64 [ %28, %.preheader ], [ %26, %11 ]
+  %28 = add nsw i64 %.sroa.017.0, -1
   %29 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
   %30 = extractvalue { ptr, i64 } %29, 0
   %.not30 = icmp eq ptr %30, null
@@ -36119,21 +36047,18 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load ptr, ptr %23, align 8, !nonnull !6, !align !907, !noundef !6
   %25 = load ptr, ptr %24, align 8, !nonnull !6, !align !907, !noundef !6
-  %.old1 = icmp ult i64 %22, 32
-  br i1 %.old1, label %.loopexit, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %11
   %26 = lshr i64 %22, 5
-  br label %.preheader
+  %.old1 = icmp eq i64 %26, 0
+  br i1 %.old1, label %.loopexit, label %.preheader
 
 27:                                               ; preds = %110, %62, %9
   %.sroa.0.0.copyload.sink = phi i64 [ %.sroa.0.0.copyload, %110 ], [ -9223372036854775803, %62 ], [ -9223372036854775803, %9 ]
   store i64 %.sroa.0.0.copyload.sink, ptr %0, align 8
   ret void
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.sroa.019.0 = phi i64 [ %28, %.preheader ], [ %26, %.preheader.preheader ]
-  %28 = add i64 %.sroa.019.0, -1
+.preheader:                                       ; preds = %11, %.preheader
+  %.sroa.019.0 = phi i64 [ %28, %.preheader ], [ %26, %11 ]
+  %28 = add nsw i64 %.sroa.019.0, -1
   %29 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
   %30 = extractvalue { ptr, i64 } %29, 0
   %.not33 = icmp eq ptr %30, null
@@ -36354,21 +36279,18 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load ptr, ptr %23, align 8, !nonnull !6, !align !907, !noundef !6
   %25 = load ptr, ptr %24, align 8, !nonnull !6, !align !907, !noundef !6
-  %.old1 = icmp ult i64 %22, 32
-  br i1 %.old1, label %.loopexit, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %11
   %26 = lshr i64 %22, 5
-  br label %.preheader
+  %.old1 = icmp eq i64 %26, 0
+  br i1 %.old1, label %.loopexit, label %.preheader
 
 27:                                               ; preds = %110, %62, %9
   %.sroa.0.0.copyload.sink = phi i64 [ %.sroa.0.0.copyload, %110 ], [ -9223372036854775803, %62 ], [ -9223372036854775803, %9 ]
   store i64 %.sroa.0.0.copyload.sink, ptr %0, align 8
   ret void
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.sroa.019.0 = phi i64 [ %28, %.preheader ], [ %26, %.preheader.preheader ]
-  %28 = add i64 %.sroa.019.0, -1
+.preheader:                                       ; preds = %11, %.preheader
+  %.sroa.019.0 = phi i64 [ %28, %.preheader ], [ %26, %11 ]
+  %28 = add nsw i64 %.sroa.019.0, -1
   %29 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
   %30 = extractvalue { ptr, i64 } %29, 0
   %.not33 = icmp eq ptr %30, null
@@ -36589,21 +36511,18 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize18dicti
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load ptr, ptr %23, align 8, !nonnull !6, !align !907, !noundef !6
   %25 = load ptr, ptr %24, align 8, !nonnull !6, !align !907, !noundef !6
-  %.old1 = icmp ult i64 %22, 32
-  br i1 %.old1, label %.loopexit, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %11
   %26 = lshr i64 %22, 5
-  br label %.preheader
+  %.old1 = icmp eq i64 %26, 0
+  br i1 %.old1, label %.loopexit, label %.preheader
 
 27:                                               ; preds = %110, %62, %9
   %.sroa.0.0.copyload.sink = phi i64 [ %.sroa.0.0.copyload, %110 ], [ -9223372036854775803, %62 ], [ -9223372036854775803, %9 ]
   store i64 %.sroa.0.0.copyload.sink, ptr %0, align 8
   ret void
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.sroa.019.0 = phi i64 [ %28, %.preheader ], [ %26, %.preheader.preheader ]
-  %28 = add i64 %.sroa.019.0, -1
+.preheader:                                       ; preds = %11, %.preheader
+  %.sroa.019.0 = phi i64 [ %28, %.preheader ], [ %26, %11 ]
+  %28 = add nsw i64 %.sroa.019.0, -1
   %29 = tail call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
   %30 = extractvalue { ptr, i64 } %29, 0
   %.not33 = icmp eq ptr %30, null

@@ -7069,17 +7069,13 @@ for.body39:                                       ; preds = %for.body39.lr.ph, %
   %fneg = fneg double %24
   %cond = select i1 %inverse, double %24, double %fneg
   %div25 = lshr i64 %shl40, 1
-  %cmp4999.not = icmp eq i64 %s.0104, 0
-  br i1 %cmp4999.not, label %for.cond.cleanup50, label %for.cond52.preheader.preheader
+  %cmp4999.not = icmp eq i64 %div25, 0
+  br i1 %cmp4999.not, label %for.cond.cleanup50, label %for.cond52.preheader
 
-for.cond52.preheader.preheader:                   ; preds = %for.body39
-  %umax = tail call i64 @llvm.umax.i64(i64 %div25, i64 1)
-  br label %for.cond52.preheader
-
-for.cond52.preheader:                             ; preds = %for.cond52.preheader.preheader, %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit
-  %j.0102 = phi i64 [ %inc92, %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit ], [ 0, %for.cond52.preheader.preheader ]
-  %w.sroa.6.0101 = phi double [ %imag_mul_phi.i, %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit ], [ 0.000000e+00, %for.cond52.preheader.preheader ]
-  %w.sroa.0.0100 = phi double [ %real_mul_phi.i, %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit ], [ 1.000000e+00, %for.cond52.preheader.preheader ]
+for.cond52.preheader:                             ; preds = %for.body39, %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit
+  %j.0102 = phi i64 [ %inc92, %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit ], [ 0, %for.body39 ]
+  %w.sroa.6.0101 = phi double [ %imag_mul_phi.i, %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit ], [ 0.000000e+00, %for.body39 ]
+  %w.sroa.0.0100 = phi double [ %real_mul_phi.i, %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit ], [ 1.000000e+00, %for.body39 ]
   %cmp5397 = icmp ult i64 %j.0102, %shl
   br i1 %cmp5397, label %for.body55, label %for.cond.cleanup54
 
@@ -7112,7 +7108,7 @@ _ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit:          ; preds = %for.cond.cleanup54,
   %real_mul_phi.i = phi double [ %mul_r.i, %for.cond.cleanup54 ], [ %mul_r.i, %complex_mul_imag_nan.i ], [ %25, %complex_mul_libcall.i ]
   %imag_mul_phi.i = phi double [ %mul_i.i, %for.cond.cleanup54 ], [ %mul_i.i, %complex_mul_imag_nan.i ], [ %26, %complex_mul_libcall.i ]
   %inc92 = add nuw nsw i64 %j.0102, 1
-  %exitcond.not = icmp eq i64 %inc92, %umax
+  %exitcond.not = icmp eq i64 %inc92, %div25
   br i1 %exitcond.not, label %for.cond.cleanup50, label %for.cond52.preheader, !llvm.loop !125
 
 for.body55:                                       ; preds = %for.cond52.preheader, %_ZStmlIdESt7complexIT_ERKS2_S4_.exit
@@ -7392,17 +7388,13 @@ for.body35:                                       ; preds = %for.body35.lr.ph, %
   %fneg = fneg double %24
   %cond = select i1 %inverse, double %24, double %fneg
   %div27 = lshr i64 %shl36, 1
-  %cmp4599.not = icmp eq i64 %s.0104, 0
-  br i1 %cmp4599.not, label %for.cond.cleanup46, label %for.cond48.preheader.preheader
+  %cmp4599.not = icmp eq i64 %div27, 0
+  br i1 %cmp4599.not, label %for.cond.cleanup46, label %for.cond48.preheader
 
-for.cond48.preheader.preheader:                   ; preds = %for.body35
-  %umax = tail call i64 @llvm.umax.i64(i64 %div27, i64 1)
-  br label %for.cond48.preheader
-
-for.cond48.preheader:                             ; preds = %for.cond48.preheader.preheader, %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit
-  %j.0102 = phi i64 [ %inc88, %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit ], [ 0, %for.cond48.preheader.preheader ]
-  %w.sroa.6.0101 = phi double [ %imag_mul_phi.i, %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit ], [ 0.000000e+00, %for.cond48.preheader.preheader ]
-  %w.sroa.0.0100 = phi double [ %real_mul_phi.i, %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit ], [ 1.000000e+00, %for.cond48.preheader.preheader ]
+for.cond48.preheader:                             ; preds = %for.body35, %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit
+  %j.0102 = phi i64 [ %inc88, %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit ], [ 0, %for.body35 ]
+  %w.sroa.6.0101 = phi double [ %imag_mul_phi.i, %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit ], [ 0.000000e+00, %for.body35 ]
+  %w.sroa.0.0100 = phi double [ %real_mul_phi.i, %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit ], [ 1.000000e+00, %for.body35 ]
   %cmp4997 = icmp ult i64 %j.0102, %shl
   br i1 %cmp4997, label %for.body51, label %for.cond.cleanup50
 
@@ -7435,7 +7427,7 @@ _ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit:          ; preds = %for.cond.cleanup50,
   %real_mul_phi.i = phi double [ %mul_r.i, %for.cond.cleanup50 ], [ %mul_r.i, %complex_mul_imag_nan.i ], [ %25, %complex_mul_libcall.i ]
   %imag_mul_phi.i = phi double [ %mul_i.i, %for.cond.cleanup50 ], [ %mul_i.i, %complex_mul_imag_nan.i ], [ %26, %complex_mul_libcall.i ]
   %inc88 = add nuw nsw i64 %j.0102, 1
-  %exitcond.not = icmp eq i64 %inc88, %umax
+  %exitcond.not = icmp eq i64 %inc88, %div27
   br i1 %exitcond.not, label %for.cond.cleanup46, label %for.cond48.preheader, !llvm.loop !129
 
 for.body51:                                       ; preds = %for.cond48.preheader, %_ZStmlIdESt7complexIT_ERKS2_S4_.exit

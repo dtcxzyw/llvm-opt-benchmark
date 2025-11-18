@@ -66,7 +66,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm23isControlFlowEquivalentERKNS_10Ba
   %5 = alloca %"class.std::optional", align 8
   %6 = alloca %"class.std::optional", align 8
   %7 = icmp eq ptr %0, %1
-  br i1 %7, label %112, label %8
+  br i1 %7, label %109, label %8
 
 8:                                                ; preds = %4
   %9 = tail call noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE9dominatesEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(124) %2, ptr noundef nonnull %0, ptr noundef nonnull %1) #8
@@ -74,7 +74,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm23isControlFlowEquivalentERKNS_10Ba
 
 10:                                               ; preds = %8
   %11 = tail call noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb1EE9dominatesEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(148) %3, ptr noundef nonnull %1, ptr noundef nonnull %0) #8
-  br i1 %11, label %112, label %12
+  br i1 %11, label %109, label %12
 
 12:                                               ; preds = %10, %8
   %13 = tail call noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb1EE9dominatesEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(148) %3, ptr noundef nonnull %0, ptr noundef nonnull %1) #8
@@ -82,7 +82,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm23isControlFlowEquivalentERKNS_10Ba
 
 14:                                               ; preds = %12
   %15 = tail call noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE9dominatesEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(124) %2, ptr noundef nonnull %1, ptr noundef nonnull %0) #8
-  br i1 %15, label %112, label %16
+  br i1 %15, label %109, label %16
 
 16:                                               ; preds = %14, %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -168,161 +168,156 @@ _ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE26findNearestCommonDominatorEP
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %.val28 = load i8, ptr %59, align 8, !tbaa !50, !range !52, !noundef !53
   %60 = trunc nuw i8 %.val28 to i1
-  br i1 %60, label %61, label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread49
+  br i1 %60, label %61, label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread50
 
 61:                                               ; preds = %58
   %.val29 = load ptr, ptr %5, align 8
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.val30 = load i32, ptr %62, align 8, !tbaa !34
   %.not.i.i31 = icmp eq i32 %.val30, 0
-  br i1 %.not.i.i31, label %63, label %66
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %64 = load i32, ptr %63, align 8
+  %.not.i6.i = icmp eq i32 %64, 0
+  %or.cond.i = select i1 %.not.i.i31, i1 %.not.i6.i, i1 false
+  br i1 %or.cond.i, label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread, label %65
 
-63:                                               ; preds = %61
-  %64 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %65 = load i32, ptr %64, align 8, !tbaa !34
-  %.not.i6.i = icmp eq i32 %65, 0
-  br label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread
+65:                                               ; preds = %61
+  %.not.i = icmp eq i32 %.val30, %64
+  br i1 %.not.i, label %66, label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread
 
-66:                                               ; preds = %61
+66:                                               ; preds = %65
   %67 = zext i32 %.val30 to i64
-  %68 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %69 = load i32, ptr %68, align 8, !tbaa !34
-  %.not.i = icmp eq i32 %.val30, %69
-  br i1 %.not.i, label %70, label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread
-
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw %"class.llvm::PointerIntPair", ptr %.val29, i64 %67
-  %72 = ptrtoint ptr %71 to i64
-  %.not.i7.i = icmp ult i32 %.val30, 4
+  %68 = getelementptr inbounds nuw %"class.llvm::PointerIntPair", ptr %.val29, i64 %67
+  %69 = ptrtoint ptr %68 to i64
+  %70 = lshr i64 %67, 2
+  %.not.i7.i = icmp eq i64 %70, 0
   br i1 %.not.i7.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %70
-  %73 = lshr i64 %67, 2
-  br label %74
-
-74:                                               ; preds = %85, %.lr.ph.i.i.i.i.i.i
-  %.045.i.i.i.i.i.i = phi i64 [ %73, %.lr.ph.i.i.i.i.i.i ], [ %87, %85 ]
-  %.02944.i.i.i.i.i.i = phi ptr [ %.val29, %.lr.ph.i.i.i.i.i.i ], [ %86, %85 ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %66, %81
+  %.045.i.i.i.i.i.i = phi i64 [ %83, %81 ], [ %70, %66 ]
+  %.02944.i.i.i.i.i.i = phi ptr [ %82, %81 ], [ %.val29, %66 ]
   %.val.val.i.i.i.i.i.i = load ptr, ptr %6, align 8, !tbaa !36
-  %.val.val42.i.i.i.i.i.i = load i32, ptr %68, align 8, !tbaa !34
-  %75 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS3_E3$_0EclIPKN4llvm14PointerIntPairIPNS9_5ValueELj1EbNS9_21PointerLikeTypeTraitsISC_EENS9_18PointerIntPairInfoISC_Lj1ESE_EEEEEEbT_"(ptr %.val.val.i.i.i.i.i.i, i32 %.val.val42.i.i.i.i.i.i, ptr noundef %.02944.i.i.i.i.i.i)
-  br i1 %75, label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit, label %76
+  %.val.val42.i.i.i.i.i.i = load i32, ptr %63, align 8, !tbaa !34
+  %71 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS3_E3$_0EclIPKN4llvm14PointerIntPairIPNS9_5ValueELj1EbNS9_21PointerLikeTypeTraitsISC_EENS9_18PointerIntPairInfoISC_Lj1ESE_EEEEEEbT_"(ptr %.val.val.i.i.i.i.i.i, i32 %.val.val42.i.i.i.i.i.i, ptr noundef %.02944.i.i.i.i.i.i)
+  br i1 %71, label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit, label %72
 
-76:                                               ; preds = %74
-  %77 = getelementptr inbounds nuw i8, ptr %.02944.i.i.i.i.i.i, i64 8
+72:                                               ; preds = %.lr.ph.i.i.i.i.i.i
+  %73 = getelementptr inbounds nuw i8, ptr %.02944.i.i.i.i.i.i, i64 8
   %.val30.val.i.i.i.i.i.i = load ptr, ptr %6, align 8, !tbaa !36
-  %.val30.val41.i.i.i.i.i.i = load i32, ptr %68, align 8, !tbaa !34
-  %78 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS3_E3$_0EclIPKN4llvm14PointerIntPairIPNS9_5ValueELj1EbNS9_21PointerLikeTypeTraitsISC_EENS9_18PointerIntPairInfoISC_Lj1ESE_EEEEEEbT_"(ptr %.val30.val.i.i.i.i.i.i, i32 %.val30.val41.i.i.i.i.i.i, ptr noundef nonnull %77)
-  br i1 %78, label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit, label %79
+  %.val30.val41.i.i.i.i.i.i = load i32, ptr %63, align 8, !tbaa !34
+  %74 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS3_E3$_0EclIPKN4llvm14PointerIntPairIPNS9_5ValueELj1EbNS9_21PointerLikeTypeTraitsISC_EENS9_18PointerIntPairInfoISC_Lj1ESE_EEEEEEbT_"(ptr %.val30.val.i.i.i.i.i.i, i32 %.val30.val41.i.i.i.i.i.i, ptr noundef nonnull %73)
+  br i1 %74, label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit, label %75
 
-79:                                               ; preds = %76
-  %80 = getelementptr inbounds nuw i8, ptr %.02944.i.i.i.i.i.i, i64 16
+75:                                               ; preds = %72
+  %76 = getelementptr inbounds nuw i8, ptr %.02944.i.i.i.i.i.i, i64 16
   %.val31.val.i.i.i.i.i.i = load ptr, ptr %6, align 8, !tbaa !36
-  %.val31.val40.i.i.i.i.i.i = load i32, ptr %68, align 8, !tbaa !34
-  %81 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS3_E3$_0EclIPKN4llvm14PointerIntPairIPNS9_5ValueELj1EbNS9_21PointerLikeTypeTraitsISC_EENS9_18PointerIntPairInfoISC_Lj1ESE_EEEEEEbT_"(ptr %.val31.val.i.i.i.i.i.i, i32 %.val31.val40.i.i.i.i.i.i, ptr noundef nonnull %80)
-  br i1 %81, label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit, label %82
+  %.val31.val40.i.i.i.i.i.i = load i32, ptr %63, align 8, !tbaa !34
+  %77 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS3_E3$_0EclIPKN4llvm14PointerIntPairIPNS9_5ValueELj1EbNS9_21PointerLikeTypeTraitsISC_EENS9_18PointerIntPairInfoISC_Lj1ESE_EEEEEEbT_"(ptr %.val31.val.i.i.i.i.i.i, i32 %.val31.val40.i.i.i.i.i.i, ptr noundef nonnull %76)
+  br i1 %77, label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit, label %78
 
-82:                                               ; preds = %79
-  %83 = getelementptr inbounds nuw i8, ptr %.02944.i.i.i.i.i.i, i64 24
+78:                                               ; preds = %75
+  %79 = getelementptr inbounds nuw i8, ptr %.02944.i.i.i.i.i.i, i64 24
   %.val32.val.i.i.i.i.i.i = load ptr, ptr %6, align 8, !tbaa !36
-  %.val32.val39.i.i.i.i.i.i = load i32, ptr %68, align 8, !tbaa !34
-  %84 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS3_E3$_0EclIPKN4llvm14PointerIntPairIPNS9_5ValueELj1EbNS9_21PointerLikeTypeTraitsISC_EENS9_18PointerIntPairInfoISC_Lj1ESE_EEEEEEbT_"(ptr %.val32.val.i.i.i.i.i.i, i32 %.val32.val39.i.i.i.i.i.i, ptr noundef nonnull %83)
-  br i1 %84, label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit, label %85
+  %.val32.val39.i.i.i.i.i.i = load i32, ptr %63, align 8, !tbaa !34
+  %80 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS3_E3$_0EclIPKN4llvm14PointerIntPairIPNS9_5ValueELj1EbNS9_21PointerLikeTypeTraitsISC_EENS9_18PointerIntPairInfoISC_Lj1ESE_EEEEEEbT_"(ptr %.val32.val.i.i.i.i.i.i, i32 %.val32.val39.i.i.i.i.i.i, ptr noundef nonnull %79)
+  br i1 %80, label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit, label %81
 
-85:                                               ; preds = %82
-  %86 = getelementptr inbounds nuw i8, ptr %.02944.i.i.i.i.i.i, i64 32
-  %87 = add nsw i64 %.045.i.i.i.i.i.i, -1
-  %88 = icmp sgt i64 %.045.i.i.i.i.i.i, 1
-  br i1 %88, label %74, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !54
+81:                                               ; preds = %78
+  %82 = getelementptr inbounds nuw i8, ptr %.02944.i.i.i.i.i.i, i64 32
+  %83 = add nsw i64 %.045.i.i.i.i.i.i, -1
+  %84 = icmp sgt i64 %.045.i.i.i.i.i.i, 1
+  br i1 %84, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !54
 
-._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %85
-  %.pre.i.i.i.i.i.i = ptrtoint ptr %86 to i64
-  %.pre46.i.i.i.i.i.i = sub i64 %72, %.pre.i.i.i.i.i.i
-  %89 = ashr exact i64 %.pre46.i.i.i.i.i.i, 3
+._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %81
+  %.pre.i.i.i.i.i.i = ptrtoint ptr %82 to i64
+  %.pre46.i.i.i.i.i.i = sub i64 %69, %.pre.i.i.i.i.i.i
+  %85 = ashr exact i64 %.pre46.i.i.i.i.i.i, 3
   br label %._crit_edge.i.i.i.i.i.i
 
-._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %70
-  %.pre-phi47.i.i.i.i.i.i = phi i64 [ %89, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %67, %70 ]
-  %.029.lcssa.i.i.i.i.i.i = phi ptr [ %86, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.val29, %70 ]
-  switch i64 %.pre-phi47.i.i.i.i.i.i, label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit [
-    i64 3, label %90
-    i64 2, label %94
-    i64 1, label %98
+._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %66
+  %.pre-phi47.i.i.i.i.i.i = phi i64 [ %85, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %67, %66 ]
+  %.029.lcssa.i.i.i.i.i.i = phi ptr [ %82, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.val29, %66 ]
+  switch i64 %.pre-phi47.i.i.i.i.i.i, label %96 [
+    i64 3, label %86
+    i64 2, label %90
+    i64 1, label %94
   ]
 
-90:                                               ; preds = %._crit_edge.i.i.i.i.i.i
+86:                                               ; preds = %._crit_edge.i.i.i.i.i.i
   %.val33.val.i.i.i.i.i.i = load ptr, ptr %6, align 8, !tbaa !36
-  %.val33.val38.i.i.i.i.i.i = load i32, ptr %68, align 8, !tbaa !34
-  %91 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS3_E3$_0EclIPKN4llvm14PointerIntPairIPNS9_5ValueELj1EbNS9_21PointerLikeTypeTraitsISC_EENS9_18PointerIntPairInfoISC_Lj1ESE_EEEEEEbT_"(ptr %.val33.val.i.i.i.i.i.i, i32 %.val33.val38.i.i.i.i.i.i, ptr noundef %.029.lcssa.i.i.i.i.i.i)
+  %.val33.val38.i.i.i.i.i.i = load i32, ptr %63, align 8, !tbaa !34
+  %87 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS3_E3$_0EclIPKN4llvm14PointerIntPairIPNS9_5ValueELj1EbNS9_21PointerLikeTypeTraitsISC_EENS9_18PointerIntPairInfoISC_Lj1ESE_EEEEEEbT_"(ptr %.val33.val.i.i.i.i.i.i, i32 %.val33.val38.i.i.i.i.i.i, ptr noundef %.029.lcssa.i.i.i.i.i.i)
+  br i1 %87, label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit, label %88
+
+88:                                               ; preds = %86
+  %89 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 8
+  br label %90
+
+90:                                               ; preds = %88, %._crit_edge.i.i.i.i.i.i
+  %.1.i.i.i.i.i.i = phi ptr [ %89, %88 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
+  %.val34.val.i.i.i.i.i.i = load ptr, ptr %6, align 8, !tbaa !36
+  %.val34.val37.i.i.i.i.i.i = load i32, ptr %63, align 8, !tbaa !34
+  %91 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS3_E3$_0EclIPKN4llvm14PointerIntPairIPNS9_5ValueELj1EbNS9_21PointerLikeTypeTraitsISC_EENS9_18PointerIntPairInfoISC_Lj1ESE_EEEEEEbT_"(ptr %.val34.val.i.i.i.i.i.i, i32 %.val34.val37.i.i.i.i.i.i, ptr noundef %.1.i.i.i.i.i.i)
   br i1 %91, label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit, label %92
 
 92:                                               ; preds = %90
-  %93 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i, i64 8
   br label %94
 
 94:                                               ; preds = %92, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %93, %92 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
-  %.val34.val.i.i.i.i.i.i = load ptr, ptr %6, align 8, !tbaa !36
-  %.val34.val37.i.i.i.i.i.i = load i32, ptr %68, align 8, !tbaa !34
-  %95 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS3_E3$_0EclIPKN4llvm14PointerIntPairIPNS9_5ValueELj1EbNS9_21PointerLikeTypeTraitsISC_EENS9_18PointerIntPairInfoISC_Lj1ESE_EEEEEEbT_"(ptr %.val34.val.i.i.i.i.i.i, i32 %.val34.val37.i.i.i.i.i.i, ptr noundef %.1.i.i.i.i.i.i)
+  %.2.i.i.i.i.i.i = phi ptr [ %93, %92 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
+  %.val35.val.i.i.i.i.i.i = load ptr, ptr %6, align 8, !tbaa !36
+  %.val35.val36.i.i.i.i.i.i = load i32, ptr %63, align 8, !tbaa !34
+  %95 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS3_E3$_0EclIPKN4llvm14PointerIntPairIPNS9_5ValueELj1EbNS9_21PointerLikeTypeTraitsISC_EENS9_18PointerIntPairInfoISC_Lj1ESE_EEEEEEbT_"(ptr %.val35.val.i.i.i.i.i.i, i32 %.val35.val36.i.i.i.i.i.i, ptr noundef %.2.i.i.i.i.i.i)
   br i1 %95, label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit, label %96
 
-96:                                               ; preds = %94
-  %97 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i, i64 8
-  br label %98
-
-98:                                               ; preds = %96, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %97, %96 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
-  %.val35.val.i.i.i.i.i.i = load ptr, ptr %6, align 8, !tbaa !36
-  %.val35.val36.i.i.i.i.i.i = load i32, ptr %68, align 8, !tbaa !34
-  %99 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS3_E3$_0EclIPKN4llvm14PointerIntPairIPNS9_5ValueELj1EbNS9_21PointerLikeTypeTraitsISC_EENS9_18PointerIntPairInfoISC_Lj1ESE_EEEEEEbT_"(ptr %.val35.val.i.i.i.i.i.i, i32 %.val35.val36.i.i.i.i.i.i, ptr noundef %.2.i.i.i.i.i.i)
-  %spec.select.i = select i1 %99, ptr %.2.i.i.i.i.i.i, ptr %71
+96:                                               ; preds = %94, %._crit_edge.i.i.i.i.i.i
   br label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit
 
-_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit: ; preds = %74, %76, %79, %82, %._crit_edge.i.i.i.i.i.i, %90, %94, %98
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %90 ], [ %.1.i.i.i.i.i.i, %94 ], [ %71, %._crit_edge.i.i.i.i.i.i ], [ %spec.select.i, %98 ], [ %.02944.i.i.i.i.i.i, %74 ], [ %77, %76 ], [ %80, %79 ], [ %83, %82 ]
-  %100 = icmp eq ptr %71, %.028.i.i.i.i.i.i
+_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %72, %75, %78, %86, %90, %94, %96
+  %.028.i.i.i.i.i.i = phi ptr [ %68, %96 ], [ %.029.lcssa.i.i.i.i.i.i, %86 ], [ %.1.i.i.i.i.i.i, %90 ], [ %.2.i.i.i.i.i.i, %94 ], [ %79, %78 ], [ %76, %75 ], [ %73, %72 ], [ %.02944.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+  %97 = icmp eq ptr %68, %.028.i.i.i.i.i.i
   %.pre = load i8, ptr %59, align 8, !tbaa !50, !range !52
-  %101 = trunc nuw i8 %.pre to i1
-  br i1 %101, label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread, label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread49
+  %98 = trunc nuw i8 %.pre to i1
+  br i1 %98, label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread, label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread50
 
-_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread: ; preds = %63, %66, %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit
-  %.248 = phi i1 [ %100, %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit ], [ %.not.i6.i, %63 ], [ false, %66 ]
+_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread: ; preds = %61, %65, %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit
+  %.249 = phi i1 [ %97, %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit ], [ true, %61 ], [ false, %65 ]
   store i8 0, ptr %59, align 8, !tbaa !50
-  %102 = load ptr, ptr %6, align 8, !tbaa !36
-  %103 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %104 = icmp eq ptr %102, %103
-  br i1 %104, label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread49, label %105
+  %99 = load ptr, ptr %6, align 8, !tbaa !36
+  %100 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %101 = icmp eq ptr %99, %100
+  br i1 %101, label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread50, label %102
 
-105:                                              ; preds = %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread
-  call void @free(ptr noundef %102) #8
-  br label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread49
+102:                                              ; preds = %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread
+  call void @free(ptr noundef %99) #8
+  br label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread50
 
-_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread49: ; preds = %58, %105, %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread, %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit
-  %.247 = phi i1 [ %100, %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit ], [ %.248, %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread ], [ %.248, %105 ], [ false, %58 ]
+_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread50: ; preds = %58, %102, %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread, %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit
+  %.248 = phi i1 [ %97, %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit ], [ %.249, %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread ], [ %.249, %102 ], [ false, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre35 = load i8, ptr %56, align 8, !tbaa !50, !range !52
-  %106 = trunc nuw i8 %.pre35 to i1
-  br i1 %106, label %107, label %_ZNSt14_Optional_baseIN12_GLOBAL__N_117ControlConditionsELb0ELb0EED2Ev.exit32
+  %103 = trunc nuw i8 %.pre35 to i1
+  br i1 %103, label %104, label %_ZNSt14_Optional_baseIN12_GLOBAL__N_117ControlConditionsELb0ELb0EED2Ev.exit32
 
-107:                                              ; preds = %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread49
+104:                                              ; preds = %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread50
   store i8 0, ptr %56, align 8, !tbaa !50
-  %108 = load ptr, ptr %5, align 8, !tbaa !36
-  %109 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %110 = icmp eq ptr %108, %109
-  br i1 %110, label %_ZNSt14_Optional_baseIN12_GLOBAL__N_117ControlConditionsELb0ELb0EED2Ev.exit32, label %111
+  %105 = load ptr, ptr %5, align 8, !tbaa !36
+  %106 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %107 = icmp eq ptr %105, %106
+  br i1 %107, label %_ZNSt14_Optional_baseIN12_GLOBAL__N_117ControlConditionsELb0ELb0EED2Ev.exit32, label %108
 
-111:                                              ; preds = %107
-  call void @free(ptr noundef %108) #8
+108:                                              ; preds = %104
+  call void @free(ptr noundef %105) #8
   br label %_ZNSt14_Optional_baseIN12_GLOBAL__N_117ControlConditionsELb0ELb0EED2Ev.exit32
 
-_ZNSt14_Optional_baseIN12_GLOBAL__N_117ControlConditionsELb0ELb0EED2Ev.exit32: ; preds = %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE26findNearestCommonDominatorEPKS1_S4_.exit, %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread49, %107, %111
-  %.152 = phi i1 [ %.247, %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread49 ], [ %.247, %107 ], [ %.247, %111 ], [ false, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE26findNearestCommonDominatorEPKS1_S4_.exit ]
+_ZNSt14_Optional_baseIN12_GLOBAL__N_117ControlConditionsELb0ELb0EED2Ev.exit32: ; preds = %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE26findNearestCommonDominatorEPKS1_S4_.exit, %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread50, %104, %108
+  %.153 = phi i1 [ %.248, %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread50 ], [ %.248, %104 ], [ %.248, %108 ], [ false, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE26findNearestCommonDominatorEPKS1_S4_.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %112
+  br label %109
 
-112:                                              ; preds = %10, %14, %4, %_ZNSt14_Optional_baseIN12_GLOBAL__N_117ControlConditionsELb0ELb0EED2Ev.exit32
-  %.0 = phi i1 [ %.152, %_ZNSt14_Optional_baseIN12_GLOBAL__N_117ControlConditionsELb0ELb0EED2Ev.exit32 ], [ true, %4 ], [ true, %14 ], [ true, %10 ]
+109:                                              ; preds = %10, %14, %4, %_ZNSt14_Optional_baseIN12_GLOBAL__N_117ControlConditionsELb0ELb0EED2Ev.exit32
+  %.0 = phi i1 [ %.153, %_ZNSt14_Optional_baseIN12_GLOBAL__N_117ControlConditionsELb0ELb0EED2Ev.exit32 ], [ true, %4 ], [ true, %14 ], [ true, %10 ]
   ret i1 %.0
 }
 
@@ -1804,16 +1799,13 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ControlConditions1
   %4 = zext i32 %.val2 to i64
   %5 = getelementptr inbounds nuw %"class.llvm::PointerIntPair", ptr %.val, i64 %4
   %6 = ptrtoint ptr %5 to i64
-  %.not.i = icmp ult i32 %.val2, 4
-  br i1 %.not.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.preheader.i
-
-.lr.ph.i.i.i.i.preheader.i:                       ; preds = %2
   %7 = lshr i64 %4, 2
-  br label %.lr.ph.i.i.i.i.i
+  %.not.i = icmp eq i64 %7, 0
+  br i1 %.not.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %18, %.lr.ph.i.i.i.i.preheader.i
-  %.051.i.i.i.i.i = phi i64 [ %20, %18 ], [ %7, %.lr.ph.i.i.i.i.preheader.i ]
-  %.02950.i.i.i.i.i = phi ptr [ %19, %18 ], [ %.val, %.lr.ph.i.i.i.i.preheader.i ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %2, %18
+  %.051.i.i.i.i.i = phi i64 [ %20, %18 ], [ %7, %2 ]
+  %.02950.i.i.i.i.i = phi ptr [ %19, %18 ], [ %.val, %2 ]
   %.029.val.i.i.i.i.i = load i64, ptr %.02950.i.i.i.i.i, align 8
   %8 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ControlConditions12isEquivalentERKN4llvm14PointerIntPairIPNS1_5ValueELj1EbNS1_21PointerLikeTypeTraitsIS4_EENS1_18PointerIntPairInfoIS4_Lj1ES6_EEEESB_(i64 %1, i64 %.029.val.i.i.i.i.i)
   br i1 %8, label %"_ZN4llvm7none_ofIRNS_11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj6EEEZN12_GLOBAL__N_117ControlConditions19addControlConditionES9_E3$_0EEbOT_T0_.exit", label %9
@@ -1828,13 +1820,13 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ControlConditions1
   %13 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i, i64 16
   %.val33.i.i.i.i.i = load i64, ptr %13, align 8
   %14 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ControlConditions12isEquivalentERKN4llvm14PointerIntPairIPNS1_5ValueELj1EbNS1_21PointerLikeTypeTraitsIS4_EENS1_18PointerIntPairInfoIS4_Lj1ES6_EEEESB_(i64 %1, i64 %.val33.i.i.i.i.i)
-  br i1 %14, label %"_ZN4llvm7none_ofIRNS_11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj6EEEZN12_GLOBAL__N_117ControlConditions19addControlConditionES9_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit18", label %15
+  br i1 %14, label %"_ZN4llvm7none_ofIRNS_11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj6EEEZN12_GLOBAL__N_117ControlConditions19addControlConditionES9_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit19", label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i, i64 24
   %.val35.i.i.i.i.i = load i64, ptr %16, align 8
   %17 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ControlConditions12isEquivalentERKN4llvm14PointerIntPairIPNS1_5ValueELj1EbNS1_21PointerLikeTypeTraitsIS4_EENS1_18PointerIntPairInfoIS4_Lj1ES6_EEEESB_(i64 %1, i64 %.val35.i.i.i.i.i)
-  br i1 %17, label %"_ZN4llvm7none_ofIRNS_11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj6EEEZN12_GLOBAL__N_117ControlConditions19addControlConditionES9_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit20", label %18
+  br i1 %17, label %"_ZN4llvm7none_ofIRNS_11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj6EEEZN12_GLOBAL__N_117ControlConditions19addControlConditionES9_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit21", label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i, i64 32
@@ -1886,16 +1878,16 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ControlConditions1
   %33 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i, i64 8
   br label %"_ZN4llvm7none_ofIRNS_11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj6EEEZN12_GLOBAL__N_117ControlConditions19addControlConditionES9_E3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm7none_ofIRNS_11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj6EEEZN12_GLOBAL__N_117ControlConditions19addControlConditionES9_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit18": ; preds = %12
+"_ZN4llvm7none_ofIRNS_11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj6EEEZN12_GLOBAL__N_117ControlConditions19addControlConditionES9_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit19": ; preds = %12
   %34 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i, i64 16
   br label %"_ZN4llvm7none_ofIRNS_11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj6EEEZN12_GLOBAL__N_117ControlConditions19addControlConditionES9_E3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm7none_ofIRNS_11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj6EEEZN12_GLOBAL__N_117ControlConditions19addControlConditionES9_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit20": ; preds = %15
+"_ZN4llvm7none_ofIRNS_11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj6EEEZN12_GLOBAL__N_117ControlConditions19addControlConditionES9_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit21": ; preds = %15
   %35 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i, i64 24
   br label %"_ZN4llvm7none_ofIRNS_11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj6EEEZN12_GLOBAL__N_117ControlConditions19addControlConditionES9_E3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm7none_ofIRNS_11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj6EEEZN12_GLOBAL__N_117ControlConditions19addControlConditionES9_E3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZN4llvm7none_ofIRNS_11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj6EEEZN12_GLOBAL__N_117ControlConditions19addControlConditionES9_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm7none_ofIRNS_11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj6EEEZN12_GLOBAL__N_117ControlConditions19addControlConditionES9_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit18", %"_ZN4llvm7none_ofIRNS_11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj6EEEZN12_GLOBAL__N_117ControlConditions19addControlConditionES9_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit20", %23, %27, %31
-  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %23 ], [ %.1.i.i.i.i.i, %27 ], [ %.2.i.i.i.i.i, %31 ], [ %33, %"_ZN4llvm7none_ofIRNS_11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj6EEEZN12_GLOBAL__N_117ControlConditions19addControlConditionES9_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %34, %"_ZN4llvm7none_ofIRNS_11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj6EEEZN12_GLOBAL__N_117ControlConditions19addControlConditionES9_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit18" ], [ %35, %"_ZN4llvm7none_ofIRNS_11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj6EEEZN12_GLOBAL__N_117ControlConditions19addControlConditionES9_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit20" ], [ %.02950.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+"_ZN4llvm7none_ofIRNS_11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj6EEEZN12_GLOBAL__N_117ControlConditions19addControlConditionES9_E3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZN4llvm7none_ofIRNS_11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj6EEEZN12_GLOBAL__N_117ControlConditions19addControlConditionES9_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm7none_ofIRNS_11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj6EEEZN12_GLOBAL__N_117ControlConditions19addControlConditionES9_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit19", %"_ZN4llvm7none_ofIRNS_11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj6EEEZN12_GLOBAL__N_117ControlConditions19addControlConditionES9_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit21", %23, %27, %31
+  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %23 ], [ %.1.i.i.i.i.i, %27 ], [ %.2.i.i.i.i.i, %31 ], [ %33, %"_ZN4llvm7none_ofIRNS_11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj6EEEZN12_GLOBAL__N_117ControlConditions19addControlConditionES9_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %34, %"_ZN4llvm7none_ofIRNS_11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj6EEEZN12_GLOBAL__N_117ControlConditions19addControlConditionES9_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit19" ], [ %35, %"_ZN4llvm7none_ofIRNS_11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj6EEEZN12_GLOBAL__N_117ControlConditions19addControlConditionES9_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit21" ], [ %.02950.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %36 = icmp eq ptr %5, %.028.i.i.i.i.i
   br i1 %36, label %"_ZN4llvm7none_ofIRNS_11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj6EEEZN12_GLOBAL__N_117ControlConditions19addControlConditionES9_E3$_0EEbOT_T0_.exit.thread", label %50
 
@@ -2036,16 +2028,13 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN
   %2 = zext i32 %.0.val.8.val to i64
   %3 = getelementptr inbounds nuw %"class.llvm::PointerIntPair", ptr %.0.val.0.val, i64 %2
   %4 = ptrtoint ptr %3 to i64
-  %.not.i.i = icmp ult i32 %.0.val.8.val, 4
-  br i1 %.not.i.i, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.preheader.i.i
-
-.lr.ph.i.i.i.i.i.preheader.i.i:                   ; preds = %1
   %5 = lshr i64 %2, 2
-  br label %.lr.ph.i.i.i.i.i.i.i
+  %.not.i.i = icmp eq i64 %5, 0
+  br i1 %.not.i.i, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %16, %.lr.ph.i.i.i.i.i.preheader.i.i
-  %.051.i.i.i.i.i.i.i = phi i64 [ %18, %16 ], [ %5, %.lr.ph.i.i.i.i.i.preheader.i.i ]
-  %.02950.i.i.i.i.i.i.i = phi ptr [ %17, %16 ], [ %.0.val.0.val, %.lr.ph.i.i.i.i.i.preheader.i.i ]
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %1, %16
+  %.051.i.i.i.i.i.i.i = phi i64 [ %18, %16 ], [ %5, %1 ]
+  %.02950.i.i.i.i.i.i.i = phi ptr [ %17, %16 ], [ %.0.val.0.val, %1 ]
   %.029.val.i.i.i.i.i.i.i = load i64, ptr %.02950.i.i.i.i.i.i.i, align 8
   %.val.val.i.i.i.i.i.i.i = load i64, ptr %0, align 8
   %6 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ControlConditions12isEquivalentERKN4llvm14PointerIntPairIPNS1_5ValueELj1EbNS1_21PointerLikeTypeTraitsIS4_EENS1_18PointerIntPairInfoIS4_Lj1ES6_EEEESB_(i64 %.val.val.i.i.i.i.i.i.i, i64 %.029.val.i.i.i.i.i.i.i)

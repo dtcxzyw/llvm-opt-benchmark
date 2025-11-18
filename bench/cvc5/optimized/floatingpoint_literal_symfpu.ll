@@ -11504,7 +11504,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit124:          ; preds = %_ZN4cvc58internal9B
   %200 = load i32, ptr %4, align 4, !tbaa !27
   %201 = lshr i32 %200, 1
   store i32 %201, ptr %4, align 4, !tbaa !27
-  %.not = icmp ult i32 %200, 2
+  %.not = icmp eq i32 %201, 0
   br i1 %.not, label %._crit_edge, label %68, !llvm.loop !116
 
 202:                                              ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit122, %160, %158, %156

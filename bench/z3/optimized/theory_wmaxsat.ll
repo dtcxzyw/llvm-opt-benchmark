@@ -5231,8 +5231,8 @@ _ZN6vectorIiLb0EjE5resetEv.exit:                  ; preds = %_ZN22_scoped_numera
   %107 = icmp ugt i32 %95, 16
   %108 = mul i32 %95, 3
   %109 = icmp ugt i32 %106, %108
-  %or.cond18.i.i = select i1 %107, i1 %109, i1 false
-  br i1 %or.cond18.i.i, label %110, label %._crit_edge.thread.i.i
+  %or.cond19.i.i = select i1 %107, i1 %109, i1 false
+  br i1 %or.cond19.i.i, label %110, label %._crit_edge.thread.i.i
 
 110:                                              ; preds = %._crit_edge.i.i
   %111 = icmp eq ptr %93, null
@@ -5251,7 +5251,7 @@ _ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_h
   %115 = zext nneg i32 %114 to i64
   %116 = shl nuw nsw i64 %115, 4
   %117 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %116)
-  %.not6.i.i.i.i.i.i.i = icmp ult i32 %113, 2
+  %.not6.i.i.i.i.i.i.i = icmp eq i32 %114, 0
   br i1 %.not6.i.i.i.i.i.i.i, label %_ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE11alloc_tableEj.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE12delete_tableEv.exit.i.i, %.lr.ph.i.i.i.i.i.i.i
@@ -7302,7 +7302,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_I
 51:                                               ; preds = %.lr.ph.i.i.i.i.i
   %52 = getelementptr inbounds i32, ptr %0, i64 %.01317.i.i.i.i.i
   store i32 %49, ptr %52, align 4, !tbaa !89
-  %.not8.i.i.i = icmp ult i64 %.018.in.i.i.i.i.i, 2
+  %.not8.i.i.i = icmp eq i64 %.018.i.i67.i.i.i, 0
   br i1 %.not8.i.i.i, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !271
 
 _ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.i.i: ; preds = %51, %.lr.ph.i.i.i.i.i, %47

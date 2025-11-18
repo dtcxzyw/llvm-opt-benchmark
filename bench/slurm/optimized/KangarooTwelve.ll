@@ -241,7 +241,7 @@ define dso_local i32 @KangarooTwelve_Final(ptr noundef %0, ptr noundef %1, ptr n
   %.01718.i = phi i32 [ %13, %.lr.ph.i ], [ 0, %10 ]
   %13 = add nuw nsw i32 %.01718.i, 1
   %14 = lshr i64 %.019.i, 8
-  %15 = icmp ugt i64 %.019.i, 255
+  %15 = icmp ne i64 %14, 0
   %16 = icmp samesign ult i32 %.01718.i, 7
   %17 = select i1 %15, i1 %16, i1 false
   br i1 %17, label %.lr.ph.i, label %.lr.ph22.preheader.i, !llvm.loop !8
@@ -327,7 +327,7 @@ right_encode.exit:                                ; preds = %.lr.ph22.i
   %.01718.i52 = phi i32 [ %50, %.lr.ph.i50 ], [ 0, %46 ]
   %50 = add nuw nsw i32 %.01718.i52, 1
   %51 = lshr i64 %.019.i51, 8
-  %52 = icmp ugt i64 %.019.i51, 255
+  %52 = icmp ne i64 %51, 0
   %53 = icmp samesign ult i32 %.01718.i52, 7
   %54 = select i1 %52, i1 %53, i1 false
   br i1 %54, label %.lr.ph.i50, label %.lr.ph22.preheader.i53, !llvm.loop !8

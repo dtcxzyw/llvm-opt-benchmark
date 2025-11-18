@@ -6493,7 +6493,7 @@ aom_read_symbol_.exit:                            ; preds = %3, %._crit_edge.loo
   %41 = add nsw i32 %40, 1
   %42 = mul nsw i32 %41, 11
   %43 = ashr i32 %42, 5
-  %.not = icmp ult i32 %42, 32
+  %.not = icmp eq i32 %43, 0
   br i1 %.not, label %82, label %44
 
 44:                                               ; preds = %aom_read_symbol_.exit

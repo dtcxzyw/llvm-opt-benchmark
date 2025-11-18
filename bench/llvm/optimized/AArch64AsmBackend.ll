@@ -3949,7 +3949,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_117AArch64AsmBackend12write
   %6 = and i32 %5, 3
   %7 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream11write_zerosEj(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %6) #18
   %8 = lshr i64 %2, 2
-  %.not6 = icmp ult i64 %2, 4
+  %.not6 = icmp eq i64 %8, 0
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4

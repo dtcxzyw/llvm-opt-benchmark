@@ -4451,14 +4451,14 @@ define void @cuddShrinkSubtable(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %19 = shl i32 %10, 2
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %19, ptr %20, align 4, !tbaa !90
-  %.not102 = icmp ult i32 %9, 2
+  %.not102 = icmp eq i32 %10, 0
   br i1 %.not102, label %.preheader89, label %.lr.ph
 
-.preheader89:                                     ; preds = %15
+.preheader89:                                     ; preds = %.lr.ph, %15
   %.not103 = icmp eq i32 %9, 0
   br i1 %.not103, label %._crit_edge101, label %.lr.ph100.preheader
 
-.lr.ph100.preheader:                              ; preds = %.lr.ph, %.preheader89
+.lr.ph100.preheader:                              ; preds = %.preheader89
   %wide.trip.count108 = zext i32 %9 to i64
   br label %.lr.ph100
 
@@ -4468,7 +4468,7 @@ define void @cuddShrinkSubtable(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   store ptr %0, ptr %21, align 8, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %11
-  br i1 %exitcond.not, label %.lr.ph100.preheader, label %.lr.ph, !llvm.loop !200
+  br i1 %exitcond.not, label %.preheader89, label %.lr.ph, !llvm.loop !200
 
 .lr.ph100:                                        ; preds = %.lr.ph100.preheader, %._crit_edge
   %indvars.iv105 = phi i64 [ 0, %.lr.ph100.preheader ], [ %indvars.iv.next106, %._crit_edge ]
@@ -4528,29 +4528,29 @@ define void @cuddShrinkSubtable(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %60 = getelementptr inbounds nuw i8, ptr %.079, i64 24
   %61 = load ptr, ptr %60, align 8, !tbaa !161
   %62 = icmp ult ptr %39, %61
-  br i1 %62, label %.lr.ph120, label %.critedge
+  br i1 %62, label %.lr.ph119, label %.critedge
 
-.lr.ph93:                                         ; preds = %.lr.ph120
+.lr.ph93:                                         ; preds = %.lr.ph119
   %63 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %64 = load ptr, ptr %63, align 8, !tbaa !161
   %65 = icmp ult ptr %39, %64
-  br i1 %65, label %.lr.ph120, label %.critedge.loopexit, !llvm.loop !202
+  br i1 %65, label %.lr.ph119, label %.critedge.loopexit, !llvm.loop !202
 
-.lr.ph120:                                        ; preds = %.lr.ph93.preheader, %.lr.ph93
-  %.18091119 = phi ptr [ %67, %.lr.ph93 ], [ %.079, %.lr.ph93.preheader ]
-  %66 = getelementptr inbounds nuw i8, ptr %.18091119, i64 8
+.lr.ph119:                                        ; preds = %.lr.ph93.preheader, %.lr.ph93
+  %.18091118 = phi ptr [ %67, %.lr.ph93 ], [ %.079, %.lr.ph93.preheader ]
+  %66 = getelementptr inbounds nuw i8, ptr %.18091118, i64 8
   %67 = load ptr, ptr %66, align 8, !tbaa !38
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %69 = load ptr, ptr %68, align 8, !tbaa !161
   %70 = icmp eq ptr %27, %69
   br i1 %70, label %.lr.ph93, label %..critedge.loopexit_crit_edge, !llvm.loop !202
 
-..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph120
-  %71 = getelementptr inbounds nuw i8, ptr %.18091119, i64 8
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph119
+  %71 = getelementptr inbounds nuw i8, ptr %.18091118, i64 8
   br label %.critedge, !llvm.loop !202
 
 .critedge.loopexit:                               ; preds = %.lr.ph93
-  %72 = getelementptr inbounds nuw i8, ptr %.18091119, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.18091118, i64 8
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph93.preheader, %..critedge.loopexit_crit_edge, %.preheader

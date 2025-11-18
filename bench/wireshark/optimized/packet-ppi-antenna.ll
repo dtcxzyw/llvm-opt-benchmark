@@ -234,7 +234,7 @@ define internal i32 @dissect_ppi_antenna(ptr noundef %0, ptr noundef %1, ptr nou
 
 28:                                               ; preds = %26
   %29 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %22, ptr noundef nonnull @ei_ppi_antenna_length, ptr noundef nonnull @.str.106)
-  br label %201
+  br label %216
 
 30:                                               ; preds = %26
   %31 = icmp ugt i16 %9, 187
@@ -242,7 +242,7 @@ define internal i32 @dissect_ppi_antenna(ptr noundef %0, ptr noundef %1, ptr nou
 
 32:                                               ; preds = %30
   %33 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %22, ptr noundef nonnull @ei_ppi_antenna_length, ptr noundef nonnull @.str.107, i32 noundef %10, i32 noundef 187)
-  br label %201
+  br label %216
 
 34:                                               ; preds = %30
   %35 = load i32, ptr @hf_ppi_antenna_present, align 4
@@ -257,344 +257,358 @@ define internal i32 @dissect_ppi_antenna(ptr noundef %0, ptr noundef %1, ptr nou
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %40
 
-40:                                               ; preds = %.lr.ph, %199
-  %.0283 = phi i32 [ 8, %.lr.ph ], [ %.1, %199 ]
-  %.0223282 = phi i32 [ %38, %.lr.ph ], [ %.1224, %199 ]
-  %.0225281 = phi i32 [ %11, %.lr.ph ], [ %42, %199 ]
+40:                                               ; preds = %.lr.ph, %214
+  %.0283 = phi i32 [ 8, %.lr.ph ], [ %.1, %214 ]
+  %.0223282 = phi i32 [ %38, %.lr.ph ], [ %.1224, %214 ]
+  %.0225281 = phi i32 [ %11, %.lr.ph ], [ %42, %214 ]
   %41 = add i32 %.0225281, -1
   %42 = and i32 %41, %.0225281
   %43 = xor i32 %42, %.0225281
-  %.not244 = icmp ult i32 %43, 65536
-  br i1 %.not244, label %73, label %44
+  %44 = lshr i32 %43, 16
+  %.not244 = icmp eq i32 %44, 0
+  br i1 %.not244, label %81, label %45
 
-44:                                               ; preds = %40
-  %.not260 = icmp ult i32 %43, 16777216
-  br i1 %.not260, label %59, label %45
+45:                                               ; preds = %40
+  %46 = lshr i32 %43, 24
+  %.not260 = icmp eq i32 %46, 0
+  br i1 %.not260, label %64, label %47
 
-45:                                               ; preds = %44
-  %.not268 = icmp ult i32 %43, 268435456
-  br i1 %.not268, label %51, label %46
+47:                                               ; preds = %45
+  %48 = lshr i32 %43, 28
+  %.not268 = icmp eq i32 %48, 0
+  br i1 %.not268, label %55, label %49
 
-46:                                               ; preds = %45
-  %.not272 = icmp ult i32 %43, 1073741824
-  %.lobit = lshr i32 %43, 31
-  %47 = or disjoint i32 %.lobit, 2
-  %.not273 = icmp ugt i32 %43, 536870911
-  %48 = zext i1 %.not273 to i32
-  %49 = select i1 %.not272, i32 %48, i32 %47
-  %50 = or disjoint i32 %49, 4
-  br label %56
+49:                                               ; preds = %47
+  %50 = lshr i32 %43, 30
+  %.not272 = icmp eq i32 %50, 0
+  %.not274.not = icmp eq i32 %50, 1
+  %51 = select i1 %.not274.not, i32 2, i32 3
+  %.not273 = icmp ne i32 %48, 1
+  %52 = zext i1 %.not273 to i32
+  %53 = select i1 %.not272, i32 %52, i32 %51
+  %54 = or disjoint i32 %53, 4
+  br label %61
 
-51:                                               ; preds = %45
-  %.not269 = icmp samesign ult i32 %43, 67108864
-  br i1 %.not269, label %54, label %52
+55:                                               ; preds = %47
+  %56 = lshr i32 %43, 26
+  %.not269 = icmp eq i32 %56, 0
+  br i1 %.not269, label %59, label %57
 
-52:                                               ; preds = %51
-  %.not271 = icmp samesign ugt i32 %43, 134217727
-  %53 = select i1 %.not271, i32 3, i32 2
-  br label %56
+57:                                               ; preds = %55
+  %.not271.not = icmp eq i32 %56, 1
+  %58 = select i1 %.not271.not, i32 2, i32 3
+  br label %61
 
-54:                                               ; preds = %51
-  %.not270 = icmp samesign ugt i32 %43, 33554431
-  %55 = zext i1 %.not270 to i32
-  br label %56
+59:                                               ; preds = %55
+  %.not270 = icmp ne i32 %46, 1
+  %60 = zext i1 %.not270 to i32
+  br label %61
 
-56:                                               ; preds = %52, %54, %46
-  %57 = phi i32 [ %50, %46 ], [ %53, %52 ], [ %55, %54 ]
-  %58 = add nuw nsw i32 %57, 8
-  br label %70
+61:                                               ; preds = %57, %59, %49
+  %62 = phi i32 [ %54, %49 ], [ %58, %57 ], [ %60, %59 ]
+  %63 = add nuw nsw i32 %62, 8
+  br label %78
 
-59:                                               ; preds = %44
-  %.not261 = icmp samesign ult i32 %43, 1048576
-  br i1 %.not261, label %65, label %60
+64:                                               ; preds = %45
+  %65 = lshr i32 %43, 20
+  %.not261 = icmp eq i32 %65, 0
+  br i1 %.not261, label %72, label %66
 
-60:                                               ; preds = %59
-  %.not265 = icmp samesign ult i32 %43, 4194304
-  %.not267 = icmp samesign ugt i32 %43, 8388607
-  %61 = select i1 %.not267, i32 3, i32 2
-  %.not266 = icmp samesign ugt i32 %43, 2097151
-  %62 = zext i1 %.not266 to i32
-  %63 = select i1 %.not265, i32 %62, i32 %61
-  %64 = or disjoint i32 %63, 4
-  br label %70
+66:                                               ; preds = %64
+  %67 = lshr i32 %43, 22
+  %.not265 = icmp eq i32 %67, 0
+  %.not267.not = icmp eq i32 %67, 1
+  %68 = select i1 %.not267.not, i32 2, i32 3
+  %.not266 = icmp ne i32 %65, 1
+  %69 = zext i1 %.not266 to i32
+  %70 = select i1 %.not265, i32 %69, i32 %68
+  %71 = or disjoint i32 %70, 4
+  br label %78
 
-65:                                               ; preds = %59
-  %.not262 = icmp samesign ult i32 %43, 262144
-  br i1 %.not262, label %68, label %66
+72:                                               ; preds = %64
+  %73 = lshr i32 %43, 18
+  %.not262 = icmp eq i32 %73, 0
+  br i1 %.not262, label %76, label %74
 
-66:                                               ; preds = %65
-  %.not264 = icmp samesign ugt i32 %43, 524287
-  %67 = select i1 %.not264, i32 3, i32 2
-  br label %70
+74:                                               ; preds = %72
+  %.not264.not = icmp eq i32 %73, 1
+  %75 = select i1 %.not264.not, i32 2, i32 3
+  br label %78
 
-68:                                               ; preds = %65
-  %.not263 = icmp samesign ugt i32 %43, 131071
-  %69 = zext i1 %.not263 to i32
-  br label %70
+76:                                               ; preds = %72
+  %.not263 = icmp ne i32 %44, 1
+  %77 = zext i1 %.not263 to i32
+  br label %78
 
-70:                                               ; preds = %60, %68, %66, %56
-  %71 = phi i32 [ %58, %56 ], [ %64, %60 ], [ %67, %66 ], [ %69, %68 ]
-  %72 = add nuw nsw i32 %71, 16
-  br label %99
+78:                                               ; preds = %66, %76, %74, %61
+  %79 = phi i32 [ %63, %61 ], [ %71, %66 ], [ %75, %74 ], [ %77, %76 ]
+  %80 = add nuw nsw i32 %79, 16
+  br label %112
 
-73:                                               ; preds = %40
-  %.not245 = icmp samesign ult i32 %43, 256
-  br i1 %.not245, label %88, label %74
+81:                                               ; preds = %40
+  %82 = lshr i32 %43, 8
+  %.not245 = icmp eq i32 %82, 0
+  br i1 %.not245, label %100, label %83
 
-74:                                               ; preds = %73
-  %.not253 = icmp samesign ult i32 %43, 4096
-  br i1 %.not253, label %80, label %75
+83:                                               ; preds = %81
+  %84 = lshr i32 %43, 12
+  %.not253 = icmp eq i32 %84, 0
+  br i1 %.not253, label %91, label %85
 
-75:                                               ; preds = %74
-  %.not257 = icmp samesign ult i32 %43, 16384
-  %.not259 = icmp samesign ugt i32 %43, 32767
-  %76 = select i1 %.not259, i32 3, i32 2
-  %.not258 = icmp samesign ugt i32 %43, 8191
-  %77 = zext i1 %.not258 to i32
-  %78 = select i1 %.not257, i32 %77, i32 %76
-  %79 = or disjoint i32 %78, 4
-  br label %85
+85:                                               ; preds = %83
+  %86 = lshr i32 %43, 14
+  %.not257 = icmp eq i32 %86, 0
+  %.not259.not = icmp eq i32 %86, 1
+  %87 = select i1 %.not259.not, i32 2, i32 3
+  %.not258 = icmp ne i32 %84, 1
+  %88 = zext i1 %.not258 to i32
+  %89 = select i1 %.not257, i32 %88, i32 %87
+  %90 = or disjoint i32 %89, 4
+  br label %97
 
-80:                                               ; preds = %74
-  %.not254 = icmp samesign ult i32 %43, 1024
-  br i1 %.not254, label %83, label %81
+91:                                               ; preds = %83
+  %92 = lshr i32 %43, 10
+  %.not254 = icmp eq i32 %92, 0
+  br i1 %.not254, label %95, label %93
 
-81:                                               ; preds = %80
-  %.not256 = icmp samesign ugt i32 %43, 2047
-  %82 = select i1 %.not256, i32 3, i32 2
-  br label %85
+93:                                               ; preds = %91
+  %.not256.not = icmp eq i32 %92, 1
+  %94 = select i1 %.not256.not, i32 2, i32 3
+  br label %97
 
-83:                                               ; preds = %80
-  %.not255 = icmp samesign ugt i32 %43, 511
-  %84 = zext i1 %.not255 to i32
-  br label %85
+95:                                               ; preds = %91
+  %.not255 = icmp ne i32 %82, 1
+  %96 = zext i1 %.not255 to i32
+  br label %97
 
-85:                                               ; preds = %81, %83, %75
-  %86 = phi i32 [ %79, %75 ], [ %82, %81 ], [ %84, %83 ]
-  %87 = add nuw nsw i32 %86, 8
-  br label %99
+97:                                               ; preds = %93, %95, %85
+  %98 = phi i32 [ %90, %85 ], [ %94, %93 ], [ %96, %95 ]
+  %99 = add nuw nsw i32 %98, 8
+  br label %112
 
-88:                                               ; preds = %73
-  %.not246 = icmp samesign ult i32 %43, 16
-  br i1 %.not246, label %94, label %89
+100:                                              ; preds = %81
+  %101 = lshr i32 %43, 4
+  %.not246 = icmp eq i32 %101, 0
+  br i1 %.not246, label %108, label %102
 
-89:                                               ; preds = %88
-  %.not250 = icmp samesign ult i32 %43, 64
-  %.not252 = icmp samesign ugt i32 %43, 127
-  %90 = select i1 %.not252, i32 3, i32 2
-  %.not251 = icmp samesign ugt i32 %43, 31
-  %91 = zext i1 %.not251 to i32
-  %92 = select i1 %.not250, i32 %91, i32 %90
-  %93 = or disjoint i32 %92, 4
-  br label %99
+102:                                              ; preds = %100
+  %103 = lshr i32 %43, 6
+  %.not250 = icmp eq i32 %103, 0
+  %.not252.not = icmp eq i32 %103, 1
+  %104 = select i1 %.not252.not, i32 2, i32 3
+  %.not251 = icmp ne i32 %101, 1
+  %105 = zext i1 %.not251 to i32
+  %106 = select i1 %.not250, i32 %105, i32 %104
+  %107 = or disjoint i32 %106, 4
+  br label %112
 
-94:                                               ; preds = %88
-  %.not247 = icmp samesign ult i32 %43, 4
-  br i1 %.not247, label %97, label %95
-
-95:                                               ; preds = %94
-  %.not249 = icmp samesign ugt i32 %43, 7
-  %96 = icmp slt i32 %.0223282, 4
-  br i1 %.not249, label %.thread279, label %.thread
-
-97:                                               ; preds = %94
-  %.not248 = icmp samesign ugt i32 %43, 1
-  %98 = zext i1 %.not248 to i32
-  br label %99
-
-99:                                               ; preds = %85, %97, %89, %70
-  %100 = phi i32 [ %72, %70 ], [ %87, %85 ], [ %93, %89 ], [ %98, %97 ]
-  switch i32 %100, label %.thread286 [
-    i32 0, label %101
-    i32 1, label %109
-    i32 30, label %191
-    i32 29, label %183
-    i32 4, label %136
-    i32 5, label %145
-    i32 26, label %154
-    i32 27, label %161
-    i32 28, label %172
+108:                                              ; preds = %100
+  %109 = lshr i32 %43, 2
+  switch i32 %109, label %.thread279 [
+    i32 0, label %110
+    i32 1, label %.thread
   ]
 
-101:                                              ; preds = %99
-  %102 = icmp slt i32 %.0223282, 4
-  br i1 %102, label %199, label %103
+110:                                              ; preds = %108
+  %.not248 = icmp ugt i32 %43, 1
+  %111 = zext i1 %.not248 to i32
+  br label %112
 
-103:                                              ; preds = %101
-  %104 = load i32, ptr @hf_ppi_antenna_flags, align 4
-  %105 = load i32, ptr @ett_ppi_antennaflags, align 4
-  %106 = tail call ptr @proto_tree_add_bitmask(ptr noundef %16, ptr noundef %0, i32 noundef %.0283, i32 noundef %104, i32 noundef %105, ptr noundef nonnull @dissect_ppi_antenna.ppi_antenna_ant_flags, i32 noundef -2147483648)
-  %107 = add i32 %.0283, 4
-  %108 = add nsw i32 %.0223282, -4
-  br label %199
+112:                                              ; preds = %97, %110, %102, %78
+  %113 = phi i32 [ %80, %78 ], [ %99, %97 ], [ %107, %102 ], [ %111, %110 ]
+  switch i32 %113, label %.thread295 [
+    i32 0, label %114
+    i32 1, label %122
+    i32 30, label %206
+    i32 29, label %198
+    i32 4, label %151
+    i32 5, label %160
+    i32 26, label %169
+    i32 27, label %176
+    i32 28, label %187
+  ]
 
-109:                                              ; preds = %99
-  %110 = icmp slt i32 %.0223282, 1
-  br i1 %110, label %199, label %111
+114:                                              ; preds = %112
+  %115 = icmp slt i32 %.0223282, 4
+  br i1 %115, label %214, label %116
 
-111:                                              ; preds = %109
-  %112 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0283)
-  br i1 %.not277, label %117, label %113
+116:                                              ; preds = %114
+  %117 = load i32, ptr @hf_ppi_antenna_flags, align 4
+  %118 = load i32, ptr @ett_ppi_antennaflags, align 4
+  %119 = tail call ptr @proto_tree_add_bitmask(ptr noundef %16, ptr noundef %0, i32 noundef %.0283, i32 noundef %117, i32 noundef %118, ptr noundef nonnull @dissect_ppi_antenna.ppi_antenna_ant_flags, i32 noundef -2147483648)
+  %120 = add i32 %.0283, 4
+  %121 = add nsw i32 %.0223282, -4
+  br label %214
 
-113:                                              ; preds = %111
-  %114 = load i32, ptr @hf_ppi_antenna_gaindb, align 4
-  %115 = zext i8 %112 to i32
-  %116 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %114, ptr noundef %0, i32 noundef %.0283, i32 noundef 1, i32 noundef %115)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.108, i32 noundef %115)
-  br label %117
+122:                                              ; preds = %112
+  %123 = icmp slt i32 %.0223282, 1
+  br i1 %123, label %214, label %124
 
-117:                                              ; preds = %113, %111
-  %118 = add i32 %.0283, 1
-  %119 = add nsw i32 %.0223282, -1
-  br label %199
+124:                                              ; preds = %122
+  %125 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0283)
+  br i1 %.not277, label %130, label %126
 
-.thread:                                          ; preds = %95
-  br i1 %96, label %199, label %120
+126:                                              ; preds = %124
+  %127 = load i32, ptr @hf_ppi_antenna_gaindb, align 4
+  %128 = zext i8 %125 to i32
+  %129 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %127, ptr noundef %0, i32 noundef %.0283, i32 noundef 1, i32 noundef %128)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.108, i32 noundef %128)
+  br label %130
 
-120:                                              ; preds = %.thread
-  %121 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0283)
-  %122 = tail call double @ppi_fixed3_6_to_double(i32 noundef %121)
-  br i1 %.not277, label %126, label %123
+130:                                              ; preds = %126, %124
+  %131 = add i32 %.0283, 1
+  %132 = add nsw i32 %.0223282, -1
+  br label %214
 
-123:                                              ; preds = %120
-  %124 = load i32, ptr @hf_ppi_antenna_horizbw, align 4
-  %125 = tail call ptr @proto_tree_add_double(ptr noundef %16, i32 noundef %124, ptr noundef %0, i32 noundef %.0283, i32 noundef 4, double noundef %122)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.109, double noundef %122)
-  br label %126
+.thread:                                          ; preds = %108
+  %133 = icmp slt i32 %.0223282, 4
+  br i1 %133, label %214, label %134
 
-126:                                              ; preds = %123, %120
-  %127 = add i32 %.0283, 4
-  %128 = add nsw i32 %.0223282, -4
-  br label %199
+134:                                              ; preds = %.thread
+  %135 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0283)
+  %136 = tail call double @ppi_fixed3_6_to_double(i32 noundef %135)
+  br i1 %.not277, label %140, label %137
 
-.thread279:                                       ; preds = %95
-  br i1 %96, label %199, label %129
+137:                                              ; preds = %134
+  %138 = load i32, ptr @hf_ppi_antenna_horizbw, align 4
+  %139 = tail call ptr @proto_tree_add_double(ptr noundef %16, i32 noundef %138, ptr noundef %0, i32 noundef %.0283, i32 noundef 4, double noundef %136)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.109, double noundef %136)
+  br label %140
 
-129:                                              ; preds = %.thread279
-  %130 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0283)
-  %131 = tail call double @ppi_fixed3_6_to_double(i32 noundef %130)
-  %132 = load i32, ptr @hf_ppi_antenna_vertbw, align 4
-  %133 = tail call ptr @proto_tree_add_double(ptr noundef %16, i32 noundef %132, ptr noundef %0, i32 noundef %.0283, i32 noundef 4, double noundef %131)
-  %134 = add i32 %.0283, 4
-  %135 = add nsw i32 %.0223282, -4
-  br label %199
+140:                                              ; preds = %137, %134
+  %141 = add i32 %.0283, 4
+  %142 = add nsw i32 %.0223282, -4
+  br label %214
 
-136:                                              ; preds = %99
-  %137 = icmp slt i32 %.0223282, 4
-  br i1 %137, label %199, label %138
+.thread279:                                       ; preds = %108
+  %143 = icmp slt i32 %.0223282, 4
+  br i1 %143, label %214, label %144
 
-138:                                              ; preds = %136
-  %139 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0283)
-  %140 = tail call double @ppi_fixed3_6_to_double(i32 noundef %139)
-  %141 = load i32, ptr @hf_ppi_antenna_pgain, align 4
-  %142 = tail call ptr @proto_tree_add_double(ptr noundef %16, i32 noundef %141, ptr noundef %0, i32 noundef %.0283, i32 noundef 4, double noundef %140)
-  %143 = add i32 %.0283, 4
-  %144 = add nsw i32 %.0223282, -4
-  br label %199
+144:                                              ; preds = %.thread279
+  %145 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0283)
+  %146 = tail call double @ppi_fixed3_6_to_double(i32 noundef %145)
+  %147 = load i32, ptr @hf_ppi_antenna_vertbw, align 4
+  %148 = tail call ptr @proto_tree_add_double(ptr noundef %16, i32 noundef %147, ptr noundef %0, i32 noundef %.0283, i32 noundef 4, double noundef %146)
+  %149 = add i32 %.0283, 4
+  %150 = add nsw i32 %.0223282, -4
+  br label %214
 
-145:                                              ; preds = %99
-  %146 = icmp slt i32 %.0223282, 2
-  br i1 %146, label %199, label %147
+151:                                              ; preds = %112
+  %152 = icmp slt i32 %.0223282, 4
+  br i1 %152, label %214, label %153
 
-147:                                              ; preds = %145
-  %148 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.0283)
-  %149 = load i32, ptr @hf_ppi_antenna_beamid, align 4
-  %150 = zext i16 %148 to i32
-  %151 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %149, ptr noundef %0, i32 noundef %.0283, i32 noundef 2, i32 noundef %150)
-  %152 = add i32 %.0283, 2
-  %153 = add nsw i32 %.0223282, -2
-  br label %199
+153:                                              ; preds = %151
+  %154 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0283)
+  %155 = tail call double @ppi_fixed3_6_to_double(i32 noundef %154)
+  %156 = load i32, ptr @hf_ppi_antenna_pgain, align 4
+  %157 = tail call ptr @proto_tree_add_double(ptr noundef %16, i32 noundef %156, ptr noundef %0, i32 noundef %.0283, i32 noundef 4, double noundef %155)
+  %158 = add i32 %.0283, 4
+  %159 = add nsw i32 %.0223282, -4
+  br label %214
 
-154:                                              ; preds = %99
-  %155 = icmp slt i32 %.0223282, 32
-  br i1 %155, label %199, label %156
+160:                                              ; preds = %112
+  %161 = icmp slt i32 %.0223282, 2
+  br i1 %161, label %214, label %162
 
-156:                                              ; preds = %154
-  %157 = load i32, ptr @hf_ppi_antenna_serialnum, align 4
-  %158 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %157, ptr noundef %0, i32 noundef %.0283, i32 noundef 32, i32 noundef 0)
-  %159 = add i32 %.0283, 32
-  %160 = add nsw i32 %.0223282, -32
-  br label %199
+162:                                              ; preds = %160
+  %163 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.0283)
+  %164 = load i32, ptr @hf_ppi_antenna_beamid, align 4
+  %165 = zext i16 %163 to i32
+  %166 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %164, ptr noundef %0, i32 noundef %.0283, i32 noundef 2, i32 noundef %165)
+  %167 = add i32 %.0283, 2
+  %168 = add nsw i32 %.0223282, -2
+  br label %214
 
-161:                                              ; preds = %99
-  %162 = icmp slt i32 %.0223282, 32
-  br i1 %162, label %199, label %163
+169:                                              ; preds = %112
+  %170 = icmp slt i32 %.0223282, 32
+  br i1 %170, label %214, label %171
 
-163:                                              ; preds = %161
-  br i1 %.not277, label %169, label %164
+171:                                              ; preds = %169
+  %172 = load i32, ptr @hf_ppi_antenna_serialnum, align 4
+  %173 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %172, ptr noundef %0, i32 noundef %.0283, i32 noundef 32, i32 noundef 0)
+  %174 = add i32 %.0283, 32
+  %175 = add nsw i32 %.0223282, -32
+  br label %214
 
-164:                                              ; preds = %163
-  %165 = load ptr, ptr %39, align 8
-  %166 = tail call ptr @tvb_format_stringzpad(ptr noundef %165, ptr noundef %0, i32 noundef %.0283, i32 noundef 32)
-  %167 = load i32, ptr @hf_ppi_antenna_modelname, align 4
-  %168 = tail call ptr @proto_tree_add_string(ptr noundef %16, i32 noundef %167, ptr noundef %0, i32 noundef %.0283, i32 noundef 32, ptr noundef %166)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.110, ptr noundef %166)
-  br label %169
+176:                                              ; preds = %112
+  %177 = icmp slt i32 %.0223282, 32
+  br i1 %177, label %214, label %178
 
-169:                                              ; preds = %164, %163
-  %170 = add i32 %.0283, 32
-  %171 = add nsw i32 %.0223282, -32
-  br label %199
+178:                                              ; preds = %176
+  br i1 %.not277, label %184, label %179
 
-172:                                              ; preds = %99
-  %173 = icmp slt i32 %.0223282, 32
-  br i1 %173, label %199, label %174
+179:                                              ; preds = %178
+  %180 = load ptr, ptr %39, align 8
+  %181 = tail call ptr @tvb_format_stringzpad(ptr noundef %180, ptr noundef %0, i32 noundef %.0283, i32 noundef 32)
+  %182 = load i32, ptr @hf_ppi_antenna_modelname, align 4
+  %183 = tail call ptr @proto_tree_add_string(ptr noundef %16, i32 noundef %182, ptr noundef %0, i32 noundef %.0283, i32 noundef 32, ptr noundef %181)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.110, ptr noundef %181)
+  br label %184
 
-174:                                              ; preds = %172
-  br i1 %.not277, label %180, label %175
+184:                                              ; preds = %179, %178
+  %185 = add i32 %.0283, 32
+  %186 = add nsw i32 %.0223282, -32
+  br label %214
 
-175:                                              ; preds = %174
-  %176 = load ptr, ptr %39, align 8
-  %177 = tail call ptr @tvb_format_stringzpad(ptr noundef %176, ptr noundef %0, i32 noundef %.0283, i32 noundef 32)
-  %178 = load i32, ptr @hf_ppi_antenna_descstr, align 4
-  %179 = tail call ptr @proto_tree_add_string(ptr noundef %16, i32 noundef %178, ptr noundef %0, i32 noundef %.0283, i32 noundef 32, ptr noundef %177)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.110, ptr noundef %177)
-  br label %180
+187:                                              ; preds = %112
+  %188 = icmp slt i32 %.0223282, 32
+  br i1 %188, label %214, label %189
 
-180:                                              ; preds = %175, %174
-  %181 = add i32 %.0283, 32
-  %182 = add nsw i32 %.0223282, -32
-  br label %199
+189:                                              ; preds = %187
+  br i1 %.not277, label %195, label %190
 
-183:                                              ; preds = %99
-  %184 = icmp slt i32 %.0223282, 4
-  br i1 %184, label %199, label %185
+190:                                              ; preds = %189
+  %191 = load ptr, ptr %39, align 8
+  %192 = tail call ptr @tvb_format_stringzpad(ptr noundef %191, ptr noundef %0, i32 noundef %.0283, i32 noundef 32)
+  %193 = load i32, ptr @hf_ppi_antenna_descstr, align 4
+  %194 = tail call ptr @proto_tree_add_string(ptr noundef %16, i32 noundef %193, ptr noundef %0, i32 noundef %.0283, i32 noundef 32, ptr noundef %192)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.110, ptr noundef %192)
+  br label %195
 
-185:                                              ; preds = %183
-  %186 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0283)
-  %187 = load i32, ptr @hf_ppi_antenna_appspecific_num, align 4
-  %188 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %187, ptr noundef %0, i32 noundef %.0283, i32 noundef 4, i32 noundef %186)
-  %189 = add i32 %.0283, 4
-  %190 = add nsw i32 %.0223282, -4
-  br label %199
+195:                                              ; preds = %190, %189
+  %196 = add i32 %.0283, 32
+  %197 = add nsw i32 %.0223282, -32
+  br label %214
 
-191:                                              ; preds = %99
-  %192 = icmp slt i32 %.0223282, 60
-  br i1 %192, label %199, label %193
+198:                                              ; preds = %112
+  %199 = icmp slt i32 %.0223282, 4
+  br i1 %199, label %214, label %200
 
-193:                                              ; preds = %191
-  %194 = load i32, ptr @hf_ppi_antenna_appspecific_data, align 4
-  %195 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %194, ptr noundef %0, i32 noundef %.0283, i32 noundef 60, i32 noundef 0)
-  %196 = add i32 %.0283, 60
-  %197 = add nsw i32 %.0223282, -60
-  br label %199
+200:                                              ; preds = %198
+  %201 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0283)
+  %202 = load i32, ptr @hf_ppi_antenna_appspecific_num, align 4
+  %203 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %202, ptr noundef %0, i32 noundef %.0283, i32 noundef 4, i32 noundef %201)
+  %204 = add i32 %.0283, 4
+  %205 = add nsw i32 %.0223282, -4
+  br label %214
 
-.thread286:                                       ; preds = %99
-  %198 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %37, ptr noundef nonnull @ei_ppi_antenna_present_bit, ptr noundef nonnull @.str.111, i32 noundef %100)
+206:                                              ; preds = %112
+  %207 = icmp slt i32 %.0223282, 60
+  br i1 %207, label %214, label %208
+
+208:                                              ; preds = %206
+  %209 = load i32, ptr @hf_ppi_antenna_appspecific_data, align 4
+  %210 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %209, ptr noundef %0, i32 noundef %.0283, i32 noundef 60, i32 noundef 0)
+  %211 = add i32 %.0283, 60
+  %212 = add nsw i32 %.0223282, -60
+  br label %214
+
+.thread295:                                       ; preds = %112
+  %213 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %37, ptr noundef nonnull @ei_ppi_antenna_present_bit, ptr noundef nonnull @.str.111, i32 noundef %113)
   br label %._crit_edge
 
-199:                                              ; preds = %103, %117, %126, %129, %138, %147, %156, %169, %180, %185, %193, %101, %109, %.thread, %.thread279, %136, %145, %154, %161, %172, %183, %191
-  %.1224 = phi i32 [ %.0223282, %101 ], [ %108, %103 ], [ 0, %109 ], [ %119, %117 ], [ %.0223282, %.thread ], [ %128, %126 ], [ %.0223282, %.thread279 ], [ %135, %129 ], [ %.0223282, %136 ], [ %144, %138 ], [ %.0223282, %145 ], [ %153, %147 ], [ %.0223282, %154 ], [ %160, %156 ], [ %.0223282, %161 ], [ %171, %169 ], [ %.0223282, %172 ], [ %182, %180 ], [ %.0223282, %183 ], [ %190, %185 ], [ %.0223282, %191 ], [ %197, %193 ]
-  %.1 = phi i32 [ %.0283, %101 ], [ %107, %103 ], [ %.0283, %109 ], [ %118, %117 ], [ %.0283, %.thread ], [ %127, %126 ], [ %.0283, %.thread279 ], [ %134, %129 ], [ %.0283, %136 ], [ %143, %138 ], [ %.0283, %145 ], [ %152, %147 ], [ %.0283, %154 ], [ %159, %156 ], [ %.0283, %161 ], [ %170, %169 ], [ %.0283, %172 ], [ %181, %180 ], [ %.0283, %183 ], [ %189, %185 ], [ %.0283, %191 ], [ %196, %193 ]
+214:                                              ; preds = %116, %130, %140, %144, %153, %162, %171, %184, %195, %200, %208, %114, %122, %.thread, %.thread279, %151, %160, %169, %176, %187, %198, %206
+  %.1224 = phi i32 [ %.0223282, %114 ], [ %121, %116 ], [ 0, %122 ], [ %132, %130 ], [ %.0223282, %.thread ], [ %142, %140 ], [ %.0223282, %.thread279 ], [ %150, %144 ], [ %.0223282, %151 ], [ %159, %153 ], [ %.0223282, %160 ], [ %168, %162 ], [ %.0223282, %169 ], [ %175, %171 ], [ %.0223282, %176 ], [ %186, %184 ], [ %.0223282, %187 ], [ %197, %195 ], [ %.0223282, %198 ], [ %205, %200 ], [ %.0223282, %206 ], [ %212, %208 ]
+  %.1 = phi i32 [ %.0283, %114 ], [ %120, %116 ], [ %.0283, %122 ], [ %131, %130 ], [ %.0283, %.thread ], [ %141, %140 ], [ %.0283, %.thread279 ], [ %149, %144 ], [ %.0283, %151 ], [ %158, %153 ], [ %.0283, %160 ], [ %167, %162 ], [ %.0283, %169 ], [ %174, %171 ], [ %.0283, %176 ], [ %185, %184 ], [ %.0283, %187 ], [ %196, %195 ], [ %.0283, %198 ], [ %204, %200 ], [ %.0283, %206 ], [ %211, %208 ]
   %.not = icmp eq i32 %42, 0
   br i1 %.not, label %._crit_edge, label %40, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %199, %.thread286, %34
-  %200 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  br label %201
+._crit_edge:                                      ; preds = %214, %.thread295, %34
+  %215 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  br label %216
 
-201:                                              ; preds = %._crit_edge, %32, %28
-  %.0222 = phi i32 [ 2, %28 ], [ 2, %32 ], [ %200, %._crit_edge ]
+216:                                              ; preds = %._crit_edge, %32, %28
+  %.0222 = phi i32 [ 2, %28 ], [ 2, %32 ], [ %215, %._crit_edge ]
   ret i32 %.0222
 }
 

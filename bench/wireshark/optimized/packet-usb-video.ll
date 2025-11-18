@@ -1730,11 +1730,11 @@ define internal i32 @dissect_usb_vid_get_set(ptr noundef readonly captures(none)
   %27 = load ptr, ptr %25, align 8
   %28 = zext nneg i16 %10 to i32
   %29 = tail call ptr @wmem_tree_lookup32(ptr noundef %27, i32 noundef %28)
-  %30 = icmp ult i16 %9, 256
+  %30 = icmp eq i16 %10, 0
   br i1 %30, label %32, label %35
 
 .thread.i.i:                                      ; preds = %23
-  %31 = icmp ult i16 %9, 256
+  %31 = icmp eq i16 %10, 0
   br i1 %31, label %32, label %get_control_selector_name.exit.thread.thread
 
 32:                                               ; preds = %.thread.i.i, %26
@@ -1782,7 +1782,7 @@ get_control_selector_name.exit:                   ; preds = %32, %36, %39, %43, 
   br label %55
 
 get_control_selector_name.exit.thread:            ; preds = %7, %20, %get_control_selector_name.exit
-  %47 = icmp ult i16 %9, 256
+  %47 = icmp eq i16 %10, 0
   br i1 %47, label %get_control_selector_name.exit.thread.thread140, label %get_control_selector_name.exit.thread.thread
 
 get_control_selector_name.exit.thread.thread140:  ; preds = %32, %get_control_selector_name.exit.thread
@@ -1895,7 +1895,7 @@ proto_item_set_generated.exit122.thread:          ; preds = %proto_item_set_gene
   br i1 %.not116, label %208, label %108
 
 108:                                              ; preds = %proto_item_set_generated.exit122.thread
-  %109 = icmp ult i16 %9, 256
+  %109 = icmp eq i16 %10, 0
   br i1 %109, label %110, label %174
 
 110:                                              ; preds = %108

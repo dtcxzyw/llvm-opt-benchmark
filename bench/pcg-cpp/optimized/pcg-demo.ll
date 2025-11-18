@@ -415,7 +415,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %128,
   %148 = mul i64 %147, %.01922.i.i.i
   %149 = mul i64 %.01823.i.i.i, %.01823.i.i.i
   %150 = lshr i64 %.01724.i.i.i, 1
-  %.not.i.i.i = icmp ult i64 %.01724.i.i.i, 2
+  %.not.i.i.i = icmp eq i64 %150, 0
   br i1 %.not.i.i.i, label %_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEE8backstepEm.exit, label %.lr.ph.i.i.i, !llvm.loop !56
 
 _ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEE8backstepEm.exit: ; preds = %146
@@ -955,7 +955,7 @@ _ZSt4iotaIPciEvT_S1_T0_.exit113.preheader:        ; preds = %.lr.ph.i109
   br label %_ZSt4iotaIPciEvT_S1_T0_.exit113
 
 _ZSt4iotaIPciEvT_S1_T0_.exit113:                  ; preds = %_ZSt4iotaIPciEvT_S1_T0_.exit113.preheader, %_ZN10pcg_extras12bounded_randIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEEENT_11result_typeERSA_SB_.exit.i
-  %.promoted.i.i115278 = phi i64 [ %419, %_ZN10pcg_extras12bounded_randIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEEENT_11result_typeERSA_SB_.exit.i ], [ %.promoted, %_ZSt4iotaIPciEvT_S1_T0_.exit113.preheader ]
+  %.promoted.i.i115279 = phi i64 [ %419, %_ZN10pcg_extras12bounded_randIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEEENT_11result_typeERSA_SB_.exit.i ], [ %.promoted, %_ZSt4iotaIPciEvT_S1_T0_.exit113.preheader ]
   %.012.i = phi ptr [ %430, %_ZN10pcg_extras12bounded_randIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEEENT_11result_typeERSA_SB_.exit.i ], [ %88, %_ZSt4iotaIPciEvT_S1_T0_.exit113.preheader ]
   %.0911.i = phi i64 [ %429, %_ZN10pcg_extras12bounded_randIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEEENT_11result_typeERSA_SB_.exit.i ], [ 52, %_ZSt4iotaIPciEvT_S1_T0_.exit113.preheader ]
   %413 = trunc i64 %.0911.i to i32
@@ -964,7 +964,7 @@ _ZSt4iotaIPciEvT_S1_T0_.exit113:                  ; preds = %_ZSt4iotaIPciEvT_S1
   br label %416
 
 416:                                              ; preds = %416, %_ZSt4iotaIPciEvT_S1_T0_.exit113
-  %417 = phi i64 [ %419, %416 ], [ %.promoted.i.i115278, %_ZSt4iotaIPciEvT_S1_T0_.exit113 ]
+  %417 = phi i64 [ %419, %416 ], [ %.promoted.i.i115279, %_ZSt4iotaIPciEvT_S1_T0_.exit113 ]
   %418 = mul i64 %417, 6364136223846793005
   %419 = add i64 %418, %.sroa.0.0.copyload176
   %420 = lshr i64 %417, 59

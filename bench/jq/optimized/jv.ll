@@ -1996,29 +1996,29 @@ jv_copy.exit:                                     ; preds = %4, %8
 jv_copy.exit43:                                   ; preds = %jv_copy.exit, %14
   %17 = getelementptr i8, ptr %3, i64 8
   %.val.i44 = load i32, ptr %17, align 4, !tbaa !4
+  %18 = lshr i32 %.val.i44, 1
   tail call void @jv_free(i64 %2, ptr %3)
-  %18 = tail call ptr @jv_mem_alloc(i64 noundef 272) #23
-  store i32 1, ptr %18, align 8, !tbaa !9
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store i32 0, ptr %19, align 4, !tbaa !4
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i32 16, ptr %20, align 8, !tbaa !4
-  %.not = icmp ult i32 %.val.i44, 2
+  %19 = tail call ptr @jv_mem_alloc(i64 noundef 272) #23
+  store i32 1, ptr %19, align 8, !tbaa !9
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  store i32 0, ptr %20, align 4, !tbaa !4
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store i32 16, ptr %21, align 8, !tbaa !4
+  %.not = icmp eq i32 %18, 0
   br i1 %.not, label %.loopexit, label %.preheader46
 
 .preheader46:                                     ; preds = %jv_copy.exit43
-  %21 = lshr i32 %.val.i44, 1
   %22 = zext nneg i32 %12 to i64
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 %22
   %24 = ptrtoint ptr %23 to i64
-  %25 = zext nneg i32 %21 to i64
+  %25 = zext nneg i32 %18 to i64
   %26 = tail call ptr @_jq_memmem(ptr noundef nonnull %5, i64 noundef %22, ptr noundef nonnull %6, i64 noundef %25) #23
   %.not3950 = icmp eq ptr %26, null
   br i1 %.not3950, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.preheader46, %jv_array_append.exit
   %27 = phi ptr [ %48, %jv_array_append.exit ], [ %26, %.preheader46 ]
-  %.sroa.433.154 = phi ptr [ %44, %jv_array_append.exit ], [ %18, %.preheader46 ]
+  %.sroa.433.154 = phi ptr [ %44, %jv_array_append.exit ], [ %19, %.preheader46 ]
   %.sroa.031.153 = phi i64 [ %43, %jv_array_append.exit ], [ 134, %.preheader46 ]
   %.03452 = phi ptr [ %.1.lcssa, %jv_array_append.exit ], [ %5, %.preheader46 ]
   %.03551 = phi i32 [ %.136.lcssa, %jv_array_append.exit ], [ 0, %.preheader46 ]
@@ -2068,7 +2068,7 @@ jv_array_append.exit:                             ; preds = %._crit_edge, %39
 
 .loopexit:                                        ; preds = %jv_array_append.exit, %.preheader46, %jv_copy.exit43
   %.sroa.031.0 = phi i64 [ 134, %jv_copy.exit43 ], [ 134, %.preheader46 ], [ %43, %jv_array_append.exit ]
-  %.sroa.433.0 = phi ptr [ %18, %jv_copy.exit43 ], [ %18, %.preheader46 ], [ %44, %jv_array_append.exit ]
+  %.sroa.433.0 = phi ptr [ %19, %jv_copy.exit43 ], [ %19, %.preheader46 ], [ %44, %jv_array_append.exit ]
   tail call void @jv_free(i64 %0, ptr %1)
   tail call void @jv_free(i64 %2, ptr nonnull %3)
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.031.0, 0
@@ -2124,11 +2124,11 @@ jv_copy.exit65:                                   ; preds = %jv_copy.exit, %18
   store i32 0, ptr %24, align 4, !tbaa !4
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 16, ptr %25, align 8, !tbaa !4
-  %26 = icmp ult i32 %.val.i66, 2
+  %26 = icmp eq i32 %22, 0
   br i1 %26, label %29, label %.preheader
 
 .preheader:                                       ; preds = %jv_copy.exit65
-  %.not86 = icmp ult i32 %.val.i, 2
+  %.not86 = icmp eq i32 %13, 0
   br i1 %.not86, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
@@ -2646,15 +2646,15 @@ define dso_local range(i64 0, 4294967296) i64 @jv_string_hash(i64 %0, ptr %1) lo
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = lshr exact i32 %4, 1
-  %12 = and i32 %11, 2147483644
-  %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %13
-  %.not5152.i = icmp ult i32 %4, 8
+  %12 = lshr i32 %4, 3
+  %13 = and i32 %11, 2147483644
+  %14 = zext nneg i32 %13 to i64
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 %14
+  %.not5152.i = icmp eq i32 %12, 0
   br i1 %.not5152.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %9
-  %15 = lshr i32 %4, 3
-  %16 = sub nsw i32 0, %15
+  %16 = sub nsw i32 0, %12
   %17 = sext i32 %16 to i64
   br label %.lr.ph.i
 
@@ -2671,7 +2671,7 @@ define dso_local range(i64 0, 4294967296) i64 @jv_string_hash(i64 %0, ptr %1) lo
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %17, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.04953.i = phi i32 [ 1126864963, %.lr.ph.preheader.i ], [ %27, %.lr.ph.i ]
-  %19 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv.i
+  %19 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv.i
   %20 = load i32, ptr %19, align 4, !tbaa !4
   %21 = mul i32 %20, -862048943
   %22 = tail call i32 @llvm.fshl.i32(i32 %21, i32 %21, i32 15)
@@ -2685,7 +2685,7 @@ define dso_local range(i64 0, 4294967296) i64 @jv_string_hash(i64 %0, ptr %1) lo
   br i1 %28, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !55
 
 29:                                               ; preds = %._crit_edge.i
-  %30 = getelementptr inbounds nuw i8, ptr %14, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %31 = load i8, ptr %30, align 1, !tbaa !8
   %32 = zext i8 %31 to i32
   %33 = shl nuw nsw i32 %32, 16
@@ -2693,7 +2693,7 @@ define dso_local range(i64 0, 4294967296) i64 @jv_string_hash(i64 %0, ptr %1) lo
 
 34:                                               ; preds = %29, %._crit_edge.i
   %.0.i = phi i32 [ %33, %29 ], [ 0, %._crit_edge.i ]
-  %35 = getelementptr inbounds nuw i8, ptr %14, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %36 = load i8, ptr %35, align 1, !tbaa !8
   %37 = zext i8 %36 to i32
   %38 = shl nuw nsw i32 %37, 8
@@ -2702,7 +2702,7 @@ define dso_local range(i64 0, 4294967296) i64 @jv_string_hash(i64 %0, ptr %1) lo
 
 40:                                               ; preds = %34, %._crit_edge.i
   %.1.i = phi i32 [ %39, %34 ], [ 0, %._crit_edge.i ]
-  %41 = load i8, ptr %14, align 1, !tbaa !8
+  %41 = load i8, ptr %15, align 1, !tbaa !8
   %42 = zext i8 %41 to i32
   %43 = xor i32 %.1.i, %42
   %44 = mul i32 %43, -862048943
@@ -3467,15 +3467,15 @@ define dso_local { i64, ptr } @jv_object_delete(i64 %0, ptr %1, i64 %2, ptr %3) 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = lshr exact i32 %10, 1
-  %18 = and i32 %17, 2147483644
-  %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw i8, ptr %16, i64 %19
-  %.not5152.i.i = icmp ult i32 %10, 8
+  %18 = lshr i32 %10, 3
+  %19 = and i32 %17, 2147483644
+  %20 = zext nneg i32 %19 to i64
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 %20
+  %.not5152.i.i = icmp eq i32 %18, 0
   br i1 %.not5152.i.i, label %._crit_edge.i.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %15
-  %21 = lshr i32 %10, 3
-  %22 = sub nsw i32 0, %21
+  %22 = sub nsw i32 0, %18
   %23 = sext i32 %22 to i64
   br label %.lr.ph.i.i
 
@@ -3492,7 +3492,7 @@ define dso_local { i64, ptr } @jv_object_delete(i64 %0, ptr %1, i64 %2, ptr %3) 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %23, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.04953.i.i = phi i32 [ 1126864963, %.lr.ph.preheader.i.i ], [ %33, %.lr.ph.i.i ]
-  %25 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv.i.i
+  %25 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv.i.i
   %26 = load i32, ptr %25, align 4, !tbaa !4
   %27 = mul i32 %26, -862048943
   %28 = tail call i32 @llvm.fshl.i32(i32 %27, i32 %27, i32 15)
@@ -3506,7 +3506,7 @@ define dso_local { i64, ptr } @jv_object_delete(i64 %0, ptr %1, i64 %2, ptr %3) 
   br i1 %34, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !55
 
 35:                                               ; preds = %._crit_edge.i.i
-  %36 = getelementptr inbounds nuw i8, ptr %20, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %21, i64 2
   %37 = load i8, ptr %36, align 1, !tbaa !8
   %38 = zext i8 %37 to i32
   %39 = shl nuw nsw i32 %38, 16
@@ -3514,7 +3514,7 @@ define dso_local { i64, ptr } @jv_object_delete(i64 %0, ptr %1, i64 %2, ptr %3) 
 
 40:                                               ; preds = %35, %._crit_edge.i.i
   %.0.i.i = phi i32 [ %39, %35 ], [ 0, %._crit_edge.i.i ]
-  %41 = getelementptr inbounds nuw i8, ptr %20, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %21, i64 1
   %42 = load i8, ptr %41, align 1, !tbaa !8
   %43 = zext i8 %42 to i32
   %44 = shl nuw nsw i32 %43, 8
@@ -3523,7 +3523,7 @@ define dso_local { i64, ptr } @jv_object_delete(i64 %0, ptr %1, i64 %2, ptr %3) 
 
 46:                                               ; preds = %40, %._crit_edge.i.i
   %.1.i.i = phi i32 [ %45, %40 ], [ 0, %._crit_edge.i.i ]
-  %47 = load i8, ptr %20, align 1, !tbaa !8
+  %47 = load i8, ptr %21, align 1, !tbaa !8
   %48 = zext i8 %47 to i32
   %49 = xor i32 %.1.i.i, %48
   %50 = mul i32 %49, -862048943
@@ -3969,15 +3969,15 @@ jv_copy.exit66:                                   ; preds = %jv_copy.exit, %35
 44:                                               ; preds = %jv_copy.exit66
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 16
   %46 = lshr exact i32 %39, 1
-  %47 = and i32 %46, 2147483644
-  %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw i8, ptr %45, i64 %48
-  %.not5152.i.i78 = icmp ult i32 %39, 8
+  %47 = lshr i32 %39, 3
+  %48 = and i32 %46, 2147483644
+  %49 = zext nneg i32 %48 to i64
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 %49
+  %.not5152.i.i78 = icmp eq i32 %47, 0
   br i1 %.not5152.i.i78, label %._crit_edge.i.i84, label %.lr.ph.preheader.i.i79
 
 .lr.ph.preheader.i.i79:                           ; preds = %44
-  %50 = lshr i32 %39, 3
-  %51 = sub nsw i32 0, %50
+  %51 = sub nsw i32 0, %47
   %52 = sext i32 %51 to i64
   br label %.lr.ph.i.i80
 
@@ -3994,7 +3994,7 @@ jv_copy.exit66:                                   ; preds = %jv_copy.exit, %35
 .lr.ph.i.i80:                                     ; preds = %.lr.ph.i.i80, %.lr.ph.preheader.i.i79
   %indvars.iv.i.i81 = phi i64 [ %52, %.lr.ph.preheader.i.i79 ], [ %indvars.iv.next.i.i83, %.lr.ph.i.i80 ]
   %.04953.i.i82 = phi i32 [ 1126864963, %.lr.ph.preheader.i.i79 ], [ %62, %.lr.ph.i.i80 ]
-  %54 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv.i.i81
+  %54 = getelementptr inbounds i32, ptr %50, i64 %indvars.iv.i.i81
   %55 = load i32, ptr %54, align 4, !tbaa !4
   %56 = mul i32 %55, -862048943
   %57 = tail call i32 @llvm.fshl.i32(i32 %56, i32 %56, i32 15)
@@ -4008,7 +4008,7 @@ jv_copy.exit66:                                   ; preds = %jv_copy.exit, %35
   br i1 %63, label %._crit_edge.i.i84, label %.lr.ph.i.i80, !llvm.loop !55
 
 64:                                               ; preds = %._crit_edge.i.i84
-  %65 = getelementptr inbounds nuw i8, ptr %49, i64 2
+  %65 = getelementptr inbounds nuw i8, ptr %50, i64 2
   %66 = load i8, ptr %65, align 1, !tbaa !8
   %67 = zext i8 %66 to i32
   %68 = shl nuw nsw i32 %67, 16
@@ -4016,7 +4016,7 @@ jv_copy.exit66:                                   ; preds = %jv_copy.exit, %35
 
 69:                                               ; preds = %64, %._crit_edge.i.i84
   %.0.i.i88 = phi i32 [ %68, %64 ], [ 0, %._crit_edge.i.i84 ]
-  %70 = getelementptr inbounds nuw i8, ptr %49, i64 1
+  %70 = getelementptr inbounds nuw i8, ptr %50, i64 1
   %71 = load i8, ptr %70, align 1, !tbaa !8
   %72 = zext i8 %71 to i32
   %73 = shl nuw nsw i32 %72, 8
@@ -4025,7 +4025,7 @@ jv_copy.exit66:                                   ; preds = %jv_copy.exit, %35
 
 75:                                               ; preds = %69, %._crit_edge.i.i84
   %.1.i.i87 = phi i32 [ %74, %69 ], [ 0, %._crit_edge.i.i84 ]
-  %76 = load i8, ptr %49, align 1, !tbaa !8
+  %76 = load i8, ptr %50, align 1, !tbaa !8
   %77 = zext i8 %76 to i32
   %78 = xor i32 %.1.i.i87, %77
   %79 = mul i32 %78, -862048943
@@ -4314,15 +4314,15 @@ jv_copy.exit122:                                  ; preds = %41, %42
 51:                                               ; preds = %jv_copy.exit122
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 16
   %53 = lshr exact i32 %46, 1
-  %54 = and i32 %53, 2147483644
-  %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw i8, ptr %52, i64 %55
-  %.not5152.i.i168 = icmp ult i32 %46, 8
+  %54 = lshr i32 %46, 3
+  %55 = and i32 %53, 2147483644
+  %56 = zext nneg i32 %55 to i64
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 %56
+  %.not5152.i.i168 = icmp eq i32 %54, 0
   br i1 %.not5152.i.i168, label %._crit_edge.i.i174, label %.lr.ph.preheader.i.i169
 
 .lr.ph.preheader.i.i169:                          ; preds = %51
-  %57 = lshr i32 %46, 3
-  %58 = sub nsw i32 0, %57
+  %58 = sub nsw i32 0, %54
   %59 = sext i32 %58 to i64
   br label %.lr.ph.i.i170
 
@@ -4339,7 +4339,7 @@ jv_copy.exit122:                                  ; preds = %41, %42
 .lr.ph.i.i170:                                    ; preds = %.lr.ph.i.i170, %.lr.ph.preheader.i.i169
   %indvars.iv.i.i171 = phi i64 [ %59, %.lr.ph.preheader.i.i169 ], [ %indvars.iv.next.i.i173, %.lr.ph.i.i170 ]
   %.04953.i.i172 = phi i32 [ 1126864963, %.lr.ph.preheader.i.i169 ], [ %69, %.lr.ph.i.i170 ]
-  %61 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv.i.i171
+  %61 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv.i.i171
   %62 = load i32, ptr %61, align 4, !tbaa !4
   %63 = mul i32 %62, -862048943
   %64 = tail call i32 @llvm.fshl.i32(i32 %63, i32 %63, i32 15)
@@ -4353,7 +4353,7 @@ jv_copy.exit122:                                  ; preds = %41, %42
   br i1 %70, label %._crit_edge.i.i174, label %.lr.ph.i.i170, !llvm.loop !55
 
 71:                                               ; preds = %._crit_edge.i.i174
-  %72 = getelementptr inbounds nuw i8, ptr %56, i64 2
+  %72 = getelementptr inbounds nuw i8, ptr %57, i64 2
   %73 = load i8, ptr %72, align 1, !tbaa !8
   %74 = zext i8 %73 to i32
   %75 = shl nuw nsw i32 %74, 16
@@ -4361,7 +4361,7 @@ jv_copy.exit122:                                  ; preds = %41, %42
 
 76:                                               ; preds = %71, %._crit_edge.i.i174
   %.0.i.i178 = phi i32 [ %75, %71 ], [ 0, %._crit_edge.i.i174 ]
-  %77 = getelementptr inbounds nuw i8, ptr %56, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %57, i64 1
   %78 = load i8, ptr %77, align 1, !tbaa !8
   %79 = zext i8 %78 to i32
   %80 = shl nuw nsw i32 %79, 8
@@ -4370,7 +4370,7 @@ jv_copy.exit122:                                  ; preds = %41, %42
 
 82:                                               ; preds = %76, %._crit_edge.i.i174
   %.1.i.i177 = phi i32 [ %81, %76 ], [ 0, %._crit_edge.i.i174 ]
-  %83 = load i8, ptr %56, align 1, !tbaa !8
+  %83 = load i8, ptr %57, align 1, !tbaa !8
   %84 = zext i8 %83 to i32
   %85 = xor i32 %.1.i.i177, %84
   %86 = mul i32 %85, -862048943
@@ -4519,11 +4519,11 @@ jv_copy.exit160:                                  ; preds = %138, %140
 .lr.ph229.us.preheader:                           ; preds = %.preheader205.us
   %148 = zext nneg i32 %147 to i64
   %149 = zext nneg i32 %144 to i64
-  %invariant.gep330 = getelementptr inbounds nuw %struct.jv, ptr %143, i64 %149
+  %invariant.gep331 = getelementptr inbounds nuw %struct.jv, ptr %143, i64 %149
   %.not50.i214.us.us238.us = icmp sgt i32 %.sroa.1.0.extract.trunc.i.i, 0
-  %invariant.gep326 = getelementptr inbounds nuw %struct.jv, ptr %146, i64 %148
+  %invariant.gep327 = getelementptr inbounds nuw %struct.jv, ptr %146, i64 %148
   %.not50.i214.us.us.us.us = icmp sgt i32 %.sroa.1.0.extract.trunc.i.i, 0
-  %invariant.gep328 = getelementptr inbounds nuw %struct.jv, ptr %146, i64 %148
+  %invariant.gep329 = getelementptr inbounds nuw %struct.jv, ptr %146, i64 %148
   br label %.lr.ph229.us
 
 .lr.ph229.us:                                     ; preds = %.lr.ph229.us.preheader, %.loopexit
@@ -4537,10 +4537,10 @@ jv_copy.exit160:                                  ; preds = %138, %140
   br label %jv_copy.exit154.us.us
 
 jv_copy.exit154.us.us:                            ; preds = %.lr.ph229.us, %150
-  %gep331 = getelementptr inbounds nuw %struct.jv, ptr %invariant.gep330, i64 %indvars.iv287
-  %153 = load i64, ptr %gep331, align 8
+  %gep332 = getelementptr inbounds nuw %struct.jv, ptr %invariant.gep331, i64 %indvars.iv287
+  %153 = load i64, ptr %gep332, align 8
   %.sroa.07.0.i146.us.us.fr = freeze i64 %153
-  %154 = getelementptr inbounds nuw i8, ptr %gep331, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %gep332, i64 8
   %155 = load ptr, ptr %154, align 8
   %156 = and i64 %.sroa.07.0.i146.us.us.fr, 128
   %.not.i.i145.us.us = icmp eq i64 %156, 0
@@ -4567,9 +4567,9 @@ jv_copy.exit141.us.us:                            ; preds = %157, %jv_copy.exit1
 
 jv_copy.exit137.us.us.us.us.preheader:            ; preds = %jv_copy.exit141.split.us.split.us244.us, %171
   %indvars.iv277 = phi i64 [ %indvars.iv.next278, %171 ], [ 0, %jv_copy.exit141.split.us.split.us244.us ]
-  %gep327 = getelementptr inbounds nuw %struct.jv, ptr %invariant.gep326, i64 %indvars.iv277
-  %161 = load i64, ptr %gep327, align 8
-  %162 = getelementptr inbounds nuw i8, ptr %gep327, i64 8
+  %gep328 = getelementptr inbounds nuw %struct.jv, ptr %invariant.gep327, i64 %indvars.iv277
+  %161 = load i64, ptr %gep328, align 8
+  %162 = getelementptr inbounds nuw i8, ptr %gep328, i64 8
   %163 = load ptr, ptr %162, align 8
   %164 = and i64 %161, 128
   %.not.i.i131.us.us.us.us = icmp eq i64 %164, 0
@@ -4607,9 +4607,9 @@ jv_copy.exit141.split.us.split.us244.us:          ; preds = %jv_copy.exit141.us.
 
 jv_copy.exit137.us.us.us.us.us.us.preheader:      ; preds = %.preheader204.us.us.us.us, %180
   %indvars.iv282 = phi i64 [ %indvars.iv.next283, %180 ], [ 0, %.preheader204.us.us.us.us ]
-  %gep329 = getelementptr inbounds nuw %struct.jv, ptr %invariant.gep328, i64 %indvars.iv282
-  %172 = load i64, ptr %gep329, align 8
-  %173 = getelementptr inbounds nuw i8, ptr %gep329, i64 8
+  %gep330 = getelementptr inbounds nuw %struct.jv, ptr %invariant.gep329, i64 %indvars.iv282
+  %172 = load i64, ptr %gep330, align 8
+  %173 = getelementptr inbounds nuw i8, ptr %gep330, i64 8
   %174 = load ptr, ptr %173, align 8
   %175 = and i64 %172, 128
   %.not.i.i131.us.us.us.us.us.us = icmp eq i64 %175, 0
@@ -4638,7 +4638,7 @@ jv_copy.exit130.us.us.us.us.us.us:                ; preds = %176, %jv_copy.exit1
 .lr.ph229.preheader:                              ; preds = %.preheader205
   %181 = zext nneg i32 %147 to i64
   %182 = zext nneg i32 %144 to i64
-  %invariant.gep324 = getelementptr inbounds nuw %struct.jv, ptr %143, i64 %182
+  %invariant.gep325 = getelementptr inbounds nuw %struct.jv, ptr %143, i64 %182
   %.not50.i214 = icmp sgt i32 %.sroa.1.0.extract.trunc.i.i, 0
   %invariant.gep = getelementptr inbounds nuw %struct.jv, ptr %146, i64 %181
   br label %.lr.ph229
@@ -4654,9 +4654,9 @@ jv_copy.exit130.us.us.us.us.us.us:                ; preds = %176, %jv_copy.exit1
   br label %jv_copy.exit154
 
 jv_copy.exit154:                                  ; preds = %183, %.lr.ph229
-  %gep325 = getelementptr inbounds nuw %struct.jv, ptr %invariant.gep324, i64 %indvars.iv272
-  %186 = load i64, ptr %gep325, align 8
-  %187 = getelementptr inbounds nuw i8, ptr %gep325, i64 8
+  %gep326 = getelementptr inbounds nuw %struct.jv, ptr %invariant.gep325, i64 %indvars.iv272
+  %186 = load i64, ptr %gep326, align 8
+  %187 = getelementptr inbounds nuw i8, ptr %gep326, i64 8
   %188 = load ptr, ptr %187, align 8
   %189 = and i64 %186, 128
   %.not.i.i145 = icmp eq i64 %189, 0
@@ -4743,7 +4743,7 @@ jv_copy.exit:                                     ; preds = %212, %214
   %.val.i = load i32, ptr %217, align 4, !tbaa !4
   %218 = lshr i32 %.val.i, 1
   tail call void @jv_free(i64 %2, ptr %3)
-  %.not95 = icmp ult i32 %.val.i, 2
+  %.not95 = icmp eq i32 %218, 0
   br i1 %.not95, label %jvp_object_contains.exit, label %219
 
 219:                                              ; preds = %jv_copy.exit
@@ -4842,15 +4842,15 @@ define internal fastcc nonnull ptr @jvp_object_find_bucket(i64 %0, ptr readnone 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = lshr exact i32 %5, 1
-  %13 = and i32 %12, 2147483644
-  %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %14
-  %.not5152.i = icmp ult i32 %5, 8
+  %13 = lshr i32 %5, 3
+  %14 = and i32 %12, 2147483644
+  %15 = zext nneg i32 %14 to i64
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 %15
+  %.not5152.i = icmp eq i32 %13, 0
   br i1 %.not5152.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %10
-  %16 = lshr i32 %5, 3
-  %17 = sub nsw i32 0, %16
+  %17 = sub nsw i32 0, %13
   %18 = sext i32 %17 to i64
   br label %.lr.ph.i
 
@@ -4867,7 +4867,7 @@ define internal fastcc nonnull ptr @jvp_object_find_bucket(i64 %0, ptr readnone 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %18, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.04953.i = phi i32 [ 1126864963, %.lr.ph.preheader.i ], [ %28, %.lr.ph.i ]
-  %20 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv.i
+  %20 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv.i
   %21 = load i32, ptr %20, align 4, !tbaa !4
   %22 = mul i32 %21, -862048943
   %23 = tail call i32 @llvm.fshl.i32(i32 %22, i32 %22, i32 15)
@@ -4881,7 +4881,7 @@ define internal fastcc nonnull ptr @jvp_object_find_bucket(i64 %0, ptr readnone 
   br i1 %29, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !55
 
 30:                                               ; preds = %._crit_edge.i
-  %31 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %32 = load i8, ptr %31, align 1, !tbaa !8
   %33 = zext i8 %32 to i32
   %34 = shl nuw nsw i32 %33, 16
@@ -4889,7 +4889,7 @@ define internal fastcc nonnull ptr @jvp_object_find_bucket(i64 %0, ptr readnone 
 
 35:                                               ; preds = %30, %._crit_edge.i
   %.0.i = phi i32 [ %34, %30 ], [ 0, %._crit_edge.i ]
-  %36 = getelementptr inbounds nuw i8, ptr %15, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %37 = load i8, ptr %36, align 1, !tbaa !8
   %38 = zext i8 %37 to i32
   %39 = shl nuw nsw i32 %38, 8
@@ -4898,7 +4898,7 @@ define internal fastcc nonnull ptr @jvp_object_find_bucket(i64 %0, ptr readnone 
 
 41:                                               ; preds = %35, %._crit_edge.i
   %.1.i = phi i32 [ %40, %35 ], [ 0, %._crit_edge.i ]
-  %42 = load i8, ptr %15, align 1, !tbaa !8
+  %42 = load i8, ptr %16, align 1, !tbaa !8
   %43 = zext i8 %42 to i32
   %44 = xor i32 %.1.i, %43
   %45 = mul i32 %44, -862048943
@@ -4958,15 +4958,15 @@ define internal fastcc ptr @jvp_object_find_slot(ptr readonly captures(ret: addr
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = lshr exact i32 %5, 1
-  %13 = and i32 %12, 2147483644
-  %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %14
-  %.not5152.i = icmp ult i32 %5, 8
+  %13 = lshr i32 %5, 3
+  %14 = and i32 %12, 2147483644
+  %15 = zext nneg i32 %14 to i64
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 %15
+  %.not5152.i = icmp eq i32 %13, 0
   br i1 %.not5152.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %10
-  %16 = lshr i32 %5, 3
-  %17 = sub nsw i32 0, %16
+  %17 = sub nsw i32 0, %13
   %18 = sext i32 %17 to i64
   br label %.lr.ph.i
 
@@ -4983,7 +4983,7 @@ define internal fastcc ptr @jvp_object_find_slot(ptr readonly captures(ret: addr
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %18, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.04953.i = phi i32 [ 1126864963, %.lr.ph.preheader.i ], [ %28, %.lr.ph.i ]
-  %20 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv.i
+  %20 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv.i
   %21 = load i32, ptr %20, align 4, !tbaa !4
   %22 = mul i32 %21, -862048943
   %23 = tail call i32 @llvm.fshl.i32(i32 %22, i32 %22, i32 15)
@@ -4997,7 +4997,7 @@ define internal fastcc ptr @jvp_object_find_slot(ptr readonly captures(ret: addr
   br i1 %29, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !55
 
 30:                                               ; preds = %._crit_edge.i
-  %31 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %32 = load i8, ptr %31, align 1, !tbaa !8
   %33 = zext i8 %32 to i32
   %34 = shl nuw nsw i32 %33, 16
@@ -5005,7 +5005,7 @@ define internal fastcc ptr @jvp_object_find_slot(ptr readonly captures(ret: addr
 
 35:                                               ; preds = %30, %._crit_edge.i
   %.0.i = phi i32 [ %34, %30 ], [ 0, %._crit_edge.i ]
-  %36 = getelementptr inbounds nuw i8, ptr %15, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %37 = load i8, ptr %36, align 1, !tbaa !8
   %38 = zext i8 %37 to i32
   %39 = shl nuw nsw i32 %38, 8
@@ -5014,7 +5014,7 @@ define internal fastcc ptr @jvp_object_find_slot(ptr readonly captures(ret: addr
 
 41:                                               ; preds = %35, %._crit_edge.i
   %.1.i = phi i32 [ %40, %35 ], [ 0, %._crit_edge.i ]
-  %42 = load i8, ptr %15, align 1, !tbaa !8
+  %42 = load i8, ptr %16, align 1, !tbaa !8
   %43 = zext i8 %42 to i32
   %44 = xor i32 %.1.i, %43
   %45 = mul i32 %44, -862048943
@@ -5308,15 +5308,15 @@ define internal fastcc noundef ptr @jvp_object_add_slot(i64 %0, ptr captures(ret
 21:                                               ; preds = %9
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %23 = lshr exact i32 %16, 1
-  %24 = and i32 %23, 2147483644
-  %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw i8, ptr %22, i64 %25
-  %.not5152.i = icmp ult i32 %16, 8
+  %24 = lshr i32 %16, 3
+  %25 = and i32 %23, 2147483644
+  %26 = zext nneg i32 %25 to i64
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 %26
+  %.not5152.i = icmp eq i32 %24, 0
   br i1 %.not5152.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %21
-  %27 = lshr i32 %16, 3
-  %28 = sub nsw i32 0, %27
+  %28 = sub nsw i32 0, %24
   %29 = sext i32 %28 to i64
   br label %.lr.ph.i
 
@@ -5333,7 +5333,7 @@ define internal fastcc noundef ptr @jvp_object_add_slot(i64 %0, ptr captures(ret
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %29, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.04953.i = phi i32 [ 1126864963, %.lr.ph.preheader.i ], [ %39, %.lr.ph.i ]
-  %31 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv.i
+  %31 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv.i
   %32 = load i32, ptr %31, align 4, !tbaa !4
   %33 = mul i32 %32, -862048943
   %34 = tail call i32 @llvm.fshl.i32(i32 %33, i32 %33, i32 15)
@@ -5347,7 +5347,7 @@ define internal fastcc noundef ptr @jvp_object_add_slot(i64 %0, ptr captures(ret
   br i1 %40, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !55
 
 41:                                               ; preds = %._crit_edge.i
-  %42 = getelementptr inbounds nuw i8, ptr %26, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %27, i64 2
   %43 = load i8, ptr %42, align 1, !tbaa !8
   %44 = zext i8 %43 to i32
   %45 = shl nuw nsw i32 %44, 16
@@ -5355,7 +5355,7 @@ define internal fastcc noundef ptr @jvp_object_add_slot(i64 %0, ptr captures(ret
 
 46:                                               ; preds = %41, %._crit_edge.i
   %.0.i17 = phi i32 [ %45, %41 ], [ 0, %._crit_edge.i ]
-  %47 = getelementptr inbounds nuw i8, ptr %26, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %27, i64 1
   %48 = load i8, ptr %47, align 1, !tbaa !8
   %49 = zext i8 %48 to i32
   %50 = shl nuw nsw i32 %49, 8
@@ -5364,7 +5364,7 @@ define internal fastcc noundef ptr @jvp_object_add_slot(i64 %0, ptr captures(ret
 
 52:                                               ; preds = %46, %._crit_edge.i
   %.1.i = phi i32 [ %51, %46 ], [ 0, %._crit_edge.i ]
-  %53 = load i8, ptr %26, align 1, !tbaa !8
+  %53 = load i8, ptr %27, align 1, !tbaa !8
   %54 = zext i8 %53 to i32
   %55 = xor i32 %.1.i, %54
   %56 = mul i32 %55, -862048943

@@ -5697,42 +5697,40 @@ define hidden range(i32 0, 23) i32 @dlposix_memalign(ptr noundef writeonly captu
 
 5:                                                ; preds = %3
   %6 = tail call ptr @dlmalloc(i64 noundef %2)
-  br label %18
+  br label %17
 
 7:                                                ; preds = %3
-  %8 = and i64 %1, 7
-  %9 = icmp ne i64 %8, 0
-  %10 = icmp ult i64 %1, 8
-  %or.cond = or i1 %10, %9
-  br i1 %or.cond, label %.critedge, label %11
+  %8 = lshr i64 %1, 3
+  %9 = and i64 %1, 7
+  %10 = icmp eq i64 %9, 0
+  %11 = icmp ne i64 %8, 0
+  %or.cond.not29 = and i1 %10, %11
+  %12 = tail call range(i64 0, 62) i64 @llvm.ctpop.i64(i64 %8)
+  %.not = icmp samesign ult i64 %12, 2
+  %or.cond25 = select i1 %or.cond.not29, i1 %.not, i1 false
+  br i1 %or.cond25, label %13, label %.critedge
 
-11:                                               ; preds = %7
-  %12 = lshr exact i64 %1, 3
-  %13 = tail call range(i64 0, 62) i64 @llvm.ctpop.i64(i64 %12)
-  %.not = icmp samesign ult i64 %13, 2
-  br i1 %.not, label %14, label %.critedge
+13:                                               ; preds = %7
+  %14 = sub i64 -128, %1
+  %.not24 = icmp ugt i64 %2, %14
+  br i1 %.not24, label %.critedge, label %15
 
-14:                                               ; preds = %11
-  %15 = sub i64 -128, %1
-  %.not24 = icmp ugt i64 %2, %15
-  br i1 %.not24, label %.critedge, label %16
-
-16:                                               ; preds = %14
+15:                                               ; preds = %13
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %1, i64 32)
-  %17 = tail call fastcc ptr @internal_memalign(ptr noundef nonnull @_gm_, i64 noundef %spec.store.select, i64 noundef %2)
-  br label %18
+  %16 = tail call fastcc ptr @internal_memalign(ptr noundef nonnull @_gm_, i64 noundef %spec.store.select, i64 noundef %2)
+  br label %17
 
-18:                                               ; preds = %16, %5
-  %.019 = phi ptr [ %6, %5 ], [ %17, %16 ]
-  %19 = icmp eq ptr %.019, null
-  br i1 %19, label %.critedge, label %20
+17:                                               ; preds = %15, %5
+  %.019 = phi ptr [ %6, %5 ], [ %16, %15 ]
+  %18 = icmp eq ptr %.019, null
+  br i1 %18, label %.critedge, label %19
 
-20:                                               ; preds = %18
+19:                                               ; preds = %17
   store ptr %.019, ptr %0, align 8, !tbaa !37
   br label %.critedge
 
-.critedge:                                        ; preds = %14, %11, %7, %18, %20
-  %.1 = phi i32 [ 0, %20 ], [ 12, %18 ], [ 22, %7 ], [ 22, %11 ], [ 12, %14 ]
+.critedge:                                        ; preds = %13, %7, %17, %19
+  %.1 = phi i32 [ 0, %19 ], [ 12, %17 ], [ 22, %7 ], [ 12, %13 ]
   ret i32 %.1
 }
 

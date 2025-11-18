@@ -149302,7 +149302,7 @@ _ZNKSt4lessIN5Yosys5RTLIL6SigBitEEclERKS2_S5_.exit.i343: ; preds = %664
 
 _ZNKSt3mapIN5Yosys5RTLIL6SigBitESt4pairIiiESt4lessIS2_ESaIS3_IKS2_S4_EEE5countERS7_.exit320.thread: ; preds = %682, %680, %568, %_ZNKSt8_Rb_treeIN5Yosys5RTLIL6SigBitESt4pairIKS2_S3_IiiEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i304, %_ZNKSt4lessIN5Yosys5RTLIL6SigBitEEclERKS2_S5_.exit.i.i309, %611, %616, %607, %550
   %685 = trunc nuw nsw i64 %indvars.iv1514 to i32
-  %686 = icmp ult i64 %549, 4294967296
+  %686 = icmp eq i64 %.sroa.8.0.extract.shift, 0
   br i1 %686, label %687, label %757
 
 687:                                              ; preds = %_ZNKSt3mapIN5Yosys5RTLIL6SigBitESt4pairIiiESt4lessIS2_ESaIS3_IKS2_S4_EEE5countERS7_.exit320.thread

@@ -2649,10 +2649,10 @@ define internal fastcc void @dissect_xid(ptr noundef %0, ptr noundef %1, ptr nou
   %32 = load i32, ptr @hf_sna_xid_idnum, align 4
   %33 = tail call ptr @proto_tree_add_uint(ptr noundef %29, i32 noundef %32, ptr noundef %0, i32 noundef 2, i32 noundef 4, i32 noundef %9)
   switch i32 %10, label %89 [
-    i32 0, label %dissect_xid2.exit
+    i32 3, label %51
     i32 1, label %34
     i32 2, label %39
-    i32 3, label %51
+    i32 0, label %94
   ]
 
 34:                                               ; preds = %15
@@ -2660,7 +2660,7 @@ define internal fastcc void @dissect_xid(ptr noundef %0, ptr noundef %1, ptr nou
   %36 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef 6, i32 noundef %35, i32 noundef -1)
   %37 = load i32, ptr @hf_sna_reserved, align 4
   %38 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %37, ptr noundef %36, i32 noundef 0, i32 noundef 2, i32 noundef 0)
-  br label %dissect_xid2.exit
+  br label %dissect_xid2.exit.thread
 
 39:                                               ; preds = %15
   %40 = add nsw i32 %6, -6
@@ -2668,7 +2668,7 @@ define internal fastcc void @dissect_xid(ptr noundef %0, ptr noundef %1, ptr nou
   %42 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %41, i32 noundef 0)
   %43 = zext i8 %42 to i32
   %44 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %41, i32 noundef %43)
-  br i1 %44, label %.lr.ph.i, label %dissect_xid2.exit
+  br i1 %44, label %.lr.ph.i, label %dissect_xid2.exit.thread
 
 .lr.ph.i:                                         ; preds = %39, %.lr.ph.i
   %.013.i = phi i32 [ %49, %.lr.ph.i ], [ %43, %39 ]
@@ -2679,7 +2679,7 @@ define internal fastcc void @dissect_xid(ptr noundef %0, ptr noundef %1, ptr nou
   tail call fastcc void @dissect_sna_control(ptr noundef %41, i32 noundef %.013.i, i32 noundef %48, ptr noundef nonnull %2, i32 noundef 0, i32 noundef 1)
   %49 = add i32 %48, %.013.i
   %50 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %41, i32 noundef %49)
-  br i1 %50, label %.lr.ph.i, label %dissect_xid2.exit, !llvm.loop !15
+  br i1 %50, label %.lr.ph.i, label %dissect_xid2.exit.thread, !llvm.loop !15
 
 51:                                               ; preds = %15
   %52 = add nsw i32 %6, -6
@@ -2713,7 +2713,7 @@ define internal fastcc void @dissect_xid(ptr noundef %0, ptr noundef %1, ptr nou
   %80 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %2, i32 noundef %79, ptr noundef %53, i32 noundef 12, i32 noundef 1, i32 noundef %78)
   %81 = add nuw nsw i32 %78, 12
   %82 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %53, i32 noundef %81)
-  br i1 %82, label %.lr.ph.i50, label %dissect_xid2.exit
+  br i1 %82, label %.lr.ph.i50, label %dissect_xid2.exit.thread
 
 .lr.ph.i50:                                       ; preds = %51, %.lr.ph.i50
   %.034.i = phi i32 [ %87, %.lr.ph.i50 ], [ %81, %51 ]
@@ -2724,26 +2724,32 @@ define internal fastcc void @dissect_xid(ptr noundef %0, ptr noundef %1, ptr nou
   tail call fastcc void @dissect_sna_control(ptr noundef %53, i32 noundef %.034.i, i32 noundef %86, ptr noundef nonnull %2, i32 noundef 0, i32 noundef 1)
   %87 = add i32 %86, %.034.i
   %88 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %53, i32 noundef %87)
-  br i1 %88, label %.lr.ph.i50, label %dissect_xid2.exit, !llvm.loop !16
+  br i1 %88, label %.lr.ph.i50, label %dissect_xid2.exit.thread, !llvm.loop !16
 
 89:                                               ; preds = %15
   %90 = add nsw i32 %6, -6
   %91 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef 6, i32 noundef %90, i32 noundef -1)
   %92 = tail call i32 @call_data_dissector(ptr noundef %91, ptr noundef %1, ptr noundef nonnull %2)
-  br label %dissect_xid2.exit
+  br label %dissect_xid2.exit.thread
 
-dissect_xid2.exit:                                ; preds = %.lr.ph.i50, %.lr.ph.i, %51, %39, %15, %34, %89, %4
-  %93 = icmp ult i8 %7, 16
-  %spec.select = select i1 %93, i32 6, i32 %6
-  %94 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %spec.select)
-  br i1 %94, label %95, label %98
+dissect_xid2.exit:                                ; preds = %4
+  %93 = icmp eq i32 %10, 0
+  br i1 %93, label %94, label %dissect_xid2.exit.thread
 
-95:                                               ; preds = %dissect_xid2.exit
-  %96 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %spec.select)
-  %97 = tail call i32 @call_data_dissector(ptr noundef %96, ptr noundef %1, ptr noundef %3)
-  br label %98
+94:                                               ; preds = %15, %dissect_xid2.exit
+  br label %dissect_xid2.exit.thread
 
-98:                                               ; preds = %95, %dissect_xid2.exit
+dissect_xid2.exit.thread:                         ; preds = %.lr.ph.i, %.lr.ph.i50, %89, %34, %39, %51, %94, %dissect_xid2.exit
+  %.0 = phi i32 [ 6, %94 ], [ %6, %dissect_xid2.exit ], [ %6, %51 ], [ %6, %39 ], [ %6, %34 ], [ %6, %89 ], [ %6, %.lr.ph.i50 ], [ %6, %.lr.ph.i ]
+  %95 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %.0)
+  br i1 %95, label %96, label %99
+
+96:                                               ; preds = %dissect_xid2.exit.thread
+  %97 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0)
+  %98 = tail call i32 @call_data_dissector(ptr noundef %97, ptr noundef %1, ptr noundef %3)
+  br label %99
+
+99:                                               ; preds = %96, %dissect_xid2.exit.thread
   ret void
 }
 

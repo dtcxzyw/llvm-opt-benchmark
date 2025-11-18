@@ -379,7 +379,7 @@ bytestream2_get_byte.exit221:                     ; preds = %133
   %146 = and i8 %141, 63
   store i8 %146, ptr %6, align 1, !tbaa !47
   store i8 %146, ptr %43, align 1, !tbaa !47
-  %.not206 = icmp ult i8 %141, 64
+  %.not206 = icmp eq i8 %142, 0
   br i1 %.not206, label %149, label %147
 
 147:                                              ; preds = %bytestream2_get_byte.exit221

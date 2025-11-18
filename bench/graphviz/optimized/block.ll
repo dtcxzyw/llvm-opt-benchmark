@@ -980,7 +980,7 @@ _ZL2gtPK10ConstraintS1_.exit.us.i:                ; preds = %.thread.i
 150:                                              ; preds = %143, %_ZL2gtPK10ConstraintS1_.exit.us.i, %137
   %151 = getelementptr inbounds ptr, ptr %.pre.i86, i64 %.019.i.i.us.i
   store ptr %106, ptr %151, align 8, !tbaa !43
-  %.not.i4.us.i = icmp ult i64 %.0920.in.i.i.us.i, 2
+  %.not.i4.us.i = icmp eq i64 %.0920.i67.i.us.i, 0
   br i1 %.not.i4.us.i, label %.loopexit, label %.lr.ph.i.i.us.i, !llvm.loop !54
 
 .lr.ph.i.i.preheader.split.i:                     ; preds = %.lr.ph.i.i.preheader.i
@@ -1057,7 +1057,7 @@ _ZL2gtPK10ConstraintS1_.exit.us10.i:              ; preds = %.thread38.i
 200:                                              ; preds = %194, %_ZL2gtPK10ConstraintS1_.exit.us10.i, %188
   %201 = getelementptr inbounds ptr, ptr %.pre.i86, i64 %.019.i.i.us7.i
   store ptr %157, ptr %201, align 8, !tbaa !43
-  %.not.i4.us11.i = icmp ult i64 %.0920.in.i.i.us8.i, 2
+  %.not.i4.us11.i = icmp eq i64 %.0920.i67.i.us9.i, 0
   br i1 %.not.i4.us11.i, label %.loopexit, label %.lr.ph.i.i.us6.i, !llvm.loop !54
 
 .lr.ph.i.i.preheader.split.split.i:               ; preds = %.lr.ph.i.i.preheader.split.i
@@ -1145,7 +1145,7 @@ _ZL2gtPK10ConstraintS1_.exit.i:                   ; preds = %247
 260:                                              ; preds = %_ZL2gtPK10ConstraintS1_.exit.i, %257, %251
   %261 = getelementptr inbounds ptr, ptr %.pre.i86, i64 %.019.i.i.i
   store ptr %214, ptr %261, align 8, !tbaa !43
-  %.not.i4.i = icmp ult i64 %.0920.in.i.i.i, 2
+  %.not.i4.i = icmp eq i64 %.0920.i67.i.i, 0
   br i1 %.not.i4.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !54
 
 .loopexit:                                        ; preds = %260, %_ZL2gtPK10ConstraintS1_.exit.i, %257, %251, %200, %194, %_ZL2gtPK10ConstraintS1_.exit.us10.i, %188, %150, %143, %_ZL2gtPK10ConstraintS1_.exit.us.i, %137, %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit.i
@@ -1604,7 +1604,7 @@ _ZL2gtPK10ConstraintS1_.exit.us:                  ; preds = %.thread
 178:                                              ; preds = %171, %_ZL2gtPK10ConstraintS1_.exit.us, %165
   %179 = getelementptr inbounds ptr, ptr %2, i64 %.019.i.i.i.i.us
   store ptr %134, ptr %179, align 8, !tbaa !43
-  %.not9.i.i.us = icmp ult i64 %.0920.in.i.i.i.i.us, 2
+  %.not9.i.i.us = icmp eq i64 %.0920.i.i78.i.i.us, 0
   br i1 %.not9.i.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.i, label %.lr.ph.i.i.i.i.us, !llvm.loop !54
 
 .lr.ph.i.i.preheader.i.i.split:                   ; preds = %.lr.ph.i.i.preheader.i.i
@@ -1681,7 +1681,7 @@ _ZL2gtPK10ConstraintS1_.exit.us10:                ; preds = %.thread43
 228:                                              ; preds = %222, %_ZL2gtPK10ConstraintS1_.exit.us10, %216
   %229 = getelementptr inbounds ptr, ptr %2, i64 %.019.i.i.i.i.us7
   store ptr %185, ptr %229, align 8, !tbaa !43
-  %.not9.i.i.us11 = icmp ult i64 %.0920.in.i.i.i.i.us8, 2
+  %.not9.i.i.us11 = icmp eq i64 %.0920.i.i78.i.i.us9, 0
   br i1 %.not9.i.i.us11, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.i, label %.lr.ph.i.i.i.i.us6, !llvm.loop !54
 
 .lr.ph.i.i.preheader.i.i.split.split:             ; preds = %.lr.ph.i.i.preheader.i.i.split
@@ -1769,7 +1769,7 @@ _ZL2gtPK10ConstraintS1_.exit:                     ; preds = %275
 288:                                              ; preds = %279, %285, %_ZL2gtPK10ConstraintS1_.exit
   %289 = getelementptr inbounds ptr, ptr %2, i64 %.019.i.i.i.i
   store ptr %242, ptr %289, align 8, !tbaa !43
-  %.not9.i.i = icmp ult i64 %.0920.in.i.i.i.i, 2
+  %.not9.i.i = icmp eq i64 %.0920.i.i78.i.i, 0
   br i1 %.not9.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !54
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.i: ; preds = %279, %285, %288, %_ZL2gtPK10ConstraintS1_.exit, %216, %_ZL2gtPK10ConstraintS1_.exit.us10, %222, %228, %178, %171, %_ZL2gtPK10ConstraintS1_.exit.us, %165, %120

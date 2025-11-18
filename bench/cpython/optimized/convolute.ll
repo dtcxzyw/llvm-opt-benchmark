@@ -312,7 +312,7 @@ x64_mulmod.exit34:                                ; preds = %67, %79, %92
   %113 = select i1 %or.cond70.i25, i64 0, i64 %2
   %spec.select108.i26 = sub i64 %111, %113
   %114 = lshr i64 %.01136, 1
-  %.not = icmp ult i64 %.01136, 2
+  %.not = icmp eq i64 %114, 0
   br i1 %.not, label %._crit_edge, label %6, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %x64_mulmod.exit34, %3

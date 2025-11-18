@@ -544,13 +544,13 @@ If_ManImproveCutCost.exit70.i.i:                  ; preds = %If_ManImproveNodeFa
 .critedge.i.i.i:                                  ; preds = %231, %.critedge.i.i
   call void @If_CutOrder(ptr noundef nonnull %48) #14
   %.val.i.i.i.i = load i64, ptr %57, align 4
-  %237 = and i64 %.val.i.i.i.i, 4278190080
-  %.not.i.i.i.i = icmp eq i64 %237, 0
+  %237 = trunc i64 %.val.i.i.i.i to i32
+  %238 = lshr i32 %237, 24
+  %.not.i.i.i.i = icmp eq i32 %238, 0
   br i1 %.not.i.i.i.i, label %If_ManImproveNodeUpdate.exit.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.critedge.i.i.i
-  %238 = lshr i64 %.val.i.i.i.i, 24
-  %wide.trip.count.i.i.i.i = and i64 %238, 255
+  %wide.trip.count.i.i.i.i = zext nneg i32 %238 to i64
   br label %239
 
 239:                                              ; preds = %239, %.lr.ph.i.i.i.i
@@ -615,13 +615,13 @@ If_ManImproveNodeUpdate.exit.i.i:                 ; preds = %239, %.critedge.i.i
 .critedge.i77.i.i:                                ; preds = %265, %257
   call void @If_CutOrder(ptr noundef nonnull %48) #14
   %.val.i.i78.i.i = load i64, ptr %57, align 4
-  %271 = and i64 %.val.i.i78.i.i, 4278190080
-  %.not.i.i79.i.i = icmp eq i64 %271, 0
+  %271 = trunc i64 %.val.i.i78.i.i to i32
+  %272 = lshr i32 %271, 24
+  %.not.i.i79.i.i = icmp eq i32 %272, 0
   br i1 %.not.i.i79.i.i, label %If_ManImproveNodeUpdate.exit92.i.i, label %.lr.ph.i.i80.i.i
 
 .lr.ph.i.i80.i.i:                                 ; preds = %.critedge.i77.i.i
-  %272 = lshr i64 %.val.i.i78.i.i, 24
-  %wide.trip.count.i.i81.i.i = and i64 %272, 255
+  %wide.trip.count.i.i81.i.i = zext nneg i32 %272 to i64
   br label %273
 
 273:                                              ; preds = %273, %.lr.ph.i.i80.i.i

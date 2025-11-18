@@ -4040,7 +4040,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @"_ZN10ty_project1_37_$LT
 7:                                                ; preds = %1
   %8 = lshr i64 %5, 32
   %9 = trunc nuw i64 %8 to i32
-  %10 = icmp ugt i64 %5, 4294967295
+  %10 = icmp ne i64 %8, 0
   tail call void @llvm.assume(i1 %10)
   %11 = trunc i64 %5 to i32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2272
@@ -9255,7 +9255,7 @@ define hidden noundef nonnull align 8 ptr @_ZN10ty_project7Project5rules6rules_1
 13:                                               ; preds = %2
   %14 = lshr i64 %11, 32
   %15 = trunc nuw i64 %14 to i32
-  %16 = icmp ugt i64 %11, 4294967295
+  %16 = icmp ne i64 %14, 0
   tail call void @llvm.assume(i1 %16)
   %17 = trunc i64 %11 to i32
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 2272

@@ -761,7 +761,7 @@ define dso_local noundef zeroext i1 @php_random_hex2bin_le(ptr noundef readonly 
   %4 = load i64, ptr %3, align 8, !tbaa !83
   %5 = lshr i64 %4, 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.not3336 = icmp ult i64 %4, 2
+  %.not3336 = icmp eq i64 %5, 0
   br i1 %.not3336, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %34

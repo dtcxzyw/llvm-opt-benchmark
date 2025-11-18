@@ -9346,7 +9346,7 @@ _ZN9Node_ListC2Ej.exit:                           ; preds = %21, %23
   %33 = sub i32 %30, %32
   %34 = lshr i32 %33, 1
   %35 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %34, i32 noundef 8) #16
-  %.not108 = icmp ult i32 %33, 2
+  %.not108 = icmp eq i32 %34, 0
   br i1 %.not108, label %_ZN13GrowableArrayIP4NodeEC2Ei.exit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZN9Node_ListC2Ej.exit

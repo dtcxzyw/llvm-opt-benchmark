@@ -1379,10 +1379,10 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
 
 28:                                               ; preds = %.loopexit3.i
   call void @llvm.experimental.noalias.scope.decl(metadata !447)
-  %29 = getelementptr i8, ptr %18, i64 -64
-  %30 = add nsw i64 %1, -1
-  %31 = getelementptr inbounds nuw { i64, [7 x i64] }, ptr %12, i64 %30
-  %32 = getelementptr inbounds nuw { i64, [7 x i64] }, ptr %0, i64 %30
+  %29 = add nsw i64 %1, -1
+  %30 = getelementptr inbounds nuw { i64, [7 x i64] }, ptr %12, i64 %29
+  %31 = getelementptr i8, ptr %18, i64 -64
+  %32 = getelementptr inbounds nuw { i64, [7 x i64] }, ptr %0, i64 %29
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -1400,8 +1400,8 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
   %.sroa.0.010.i.i = phi ptr [ %12, %28 ], [ %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h58277614aa5bf1f3E.exit29.i.i" ]
   %.sroa.06.09.i.i = phi ptr [ %18, %28 ], [ %.sroa.sel.idx.sroa.sel.idx.sroa.sel, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h58277614aa5bf1f3E.exit29.i.i" ]
   %.sroa.010.08.i.i = phi ptr [ %0, %28 ], [ %57, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h58277614aa5bf1f3E.exit29.i.i" ]
-  %.sroa.013.07.i.i = phi ptr [ %29, %28 ], [ %75, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h58277614aa5bf1f3E.exit29.i.i" ]
-  %.sroa.015.06.i.i = phi ptr [ %31, %28 ], [ %74, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h58277614aa5bf1f3E.exit29.i.i" ]
+  %.sroa.013.07.i.i = phi ptr [ %31, %28 ], [ %75, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h58277614aa5bf1f3E.exit29.i.i" ]
+  %.sroa.015.06.i.i = phi ptr [ %30, %28 ], [ %74, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h58277614aa5bf1f3E.exit29.i.i" ]
   %.sroa.017.05.i.i = phi ptr [ %32, %28 ], [ %76, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h58277614aa5bf1f3E.exit29.i.i" ]
   %.sroa.018.04.i.i = phi i64 [ 0, %28 ], [ %42, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h58277614aa5bf1f3E.exit29.i.i" ]
   %42 = add nuw nsw i64 %.sroa.018.04.i.i, 1
@@ -2061,11 +2061,11 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h3d37d23dd56
 
 .critedge.i:                                      ; preds = %.loopexit.i
   call void @llvm.experimental.noalias.scope.decl(metadata !684)
-  %113 = getelementptr { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %2, i64 %20
-  %114 = getelementptr i8, ptr %113, i64 -64
-  %115 = add nsw i64 %.sroa.12.0.lcssa, -1
-  %116 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %2, i64 %115
-  %117 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %.sroa.0.0.ph.lcssa98, i64 %115
+  %113 = add nsw i64 %.sroa.12.0.lcssa, -1
+  %114 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %2, i64 %113
+  %115 = getelementptr { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %2, i64 %20
+  %116 = getelementptr i8, ptr %115, i64 -64
+  %117 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %.sroa.0.0.ph.lcssa98, i64 %113
   call void @llvm.assume(i1 %107)
   %.val3.i.i45.i = load ptr, ptr %.val30, align 8, !noalias !687, !nonnull !9, !align !36, !noundef !9
   br label %122
@@ -2079,10 +2079,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h3d37d23dd56
 
 122:                                              ; preds = %122, %.critedge.i
   %.sroa.0.010.i.i = phi ptr [ %2, %.critedge.i ], [ %134, %122 ]
-  %.sroa.06.09.i.i = phi ptr [ %113, %.critedge.i ], [ %132, %122 ]
+  %.sroa.06.09.i.i = phi ptr [ %115, %.critedge.i ], [ %132, %122 ]
   %.sroa.010.08.i.i = phi ptr [ %.sroa.0.0.ph.lcssa98, %.critedge.i ], [ %135, %122 ]
-  %.sroa.013.07.i.i = phi ptr [ %114, %.critedge.i ], [ %144, %122 ]
-  %.sroa.015.06.i.i = phi ptr [ %116, %.critedge.i ], [ %143, %122 ]
+  %.sroa.013.07.i.i = phi ptr [ %116, %.critedge.i ], [ %144, %122 ]
+  %.sroa.015.06.i.i = phi ptr [ %114, %.critedge.i ], [ %143, %122 ]
   %.sroa.017.05.i.i = phi ptr [ %117, %.critedge.i ], [ %145, %122 ]
   %.sroa.018.04.i.i = phi i64 [ 0, %.critedge.i ], [ %123, %122 ]
   %123 = add nuw nsw i64 %.sroa.018.04.i.i, 1

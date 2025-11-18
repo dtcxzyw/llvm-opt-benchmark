@@ -1772,7 +1772,7 @@ align_get_bits.exit.us:                           ; preds = %49
   %108 = lshr i32 %106, 25
   %109 = add nuw i32 %spec.select.i13.i, 7
   %110 = tail call i32 @llvm.umin.i32(i32 %17, i32 %109)
-  %111 = icmp ult i32 %106, 33554432
+  %111 = icmp eq i32 %108, 0
   %112 = add nuw nsw i32 %108, 9
   %spec.select.i = select i1 %111, i32 2147483647, i32 %112
   br label %decode_run_8bit.exit

@@ -405,7 +405,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end
   %v.addr.i.0 = phi i64 [ %conv, %if.end ], [ %shr.i, %do.body.i ]
   %inc.i = add nuw nsw i64 %ret.i.0, 1
   %shr.i = lshr i64 %v.addr.i.0, 7
-  %cmp.i.not = icmp samesign ult i64 %v.addr.i.0, 128
+  %cmp.i.not = icmp eq i64 %shr.i, 0
   br i1 %cmp.i.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit, label %do.body.i, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit: ; preds = %do.body.i
@@ -1081,7 +1081,7 @@ do.body.i17:                                      ; preds = %_ZNK9struct_pb13Unk
   %v.addr.i15.0 = phi i64 [ %shr.i19, %do.body.i17 ], [ %3, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit ]
   %inc.i18 = add nuw nsw i64 %ret.i16.0, 1
   %shr.i19 = lshr i64 %v.addr.i15.0, 7
-  %cmp.i20.not = icmp ult i64 %v.addr.i15.0, 128
+  %cmp.i20.not = icmp eq i64 %shr.i19, 0
   br i1 %cmp.i20.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit21, label %do.body.i17, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit21: ; preds = %do.body.i17
@@ -1106,7 +1106,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.then
   %ret.i.0 = phi i64 [ 0, %if.then9 ], [ %inc.i, %do.body.i ]
   %inc.i = add nuw nsw i64 %ret.i.0, 1
   %shr.i = lshr i64 %v.addr.i.0, 7
-  %cmp.i.not = icmp ult i64 %v.addr.i.0, 128
+  %cmp.i.not = icmp eq i64 %shr.i, 0
   br i1 %cmp.i.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit, label %do.body.i, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit: ; preds = %do.body.i
@@ -1867,9 +1867,9 @@ _ZNK9struct_pb13UnknownFields10total_sizeEv.exit: ; preds = %for.body.i, %entry
   %total.0.lcssa.i = phi i64 [ 0, %entry ], [ %add.i, %for.body.i ]
   %3 = load ptr, ptr %t, align 8
   %cmp.i.not196 = icmp eq ptr %3, null
-  br i1 %cmp.i.not196, label %if.end, label %_ZN9struct_pb13UnknownFieldsD2Ev.exit
+  br i1 %cmp.i.not196, label %if.end, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit173
 
-_ZN9struct_pb13UnknownFieldsD2Ev.exit:            ; preds = %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit
+_ZN9struct_pb8internal21calculate_varint_sizeEm.exit173: ; preds = %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit
   %4 = load float, ptr %3, align 4
   %cmp.i56 = fcmp une float %4, 0.000000e+00
   %total.0.i = select i1 %cmp.i56, i64 5, i64 0
@@ -1883,12 +1883,12 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit:            ; preds = %_ZNK9struct_pb13Unk
   %cmp5.i = fcmp une float %6, 0.000000e+00
   %add7.i = add nuw nsw i64 %total.1.i, 5
   %total.2.i = select i1 %cmp5.i, i64 %add7.i, i64 %total.1.i
-  %add6 = add i64 %total.0.lcssa.i, 2
-  %add7 = add i64 %add6, %total.2.i
+  %add = add i64 %total.0.lcssa.i, 2
+  %add6 = add i64 %add, %total.2.i
   br label %if.end
 
-if.end:                                           ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit
-  %total.0 = phi i64 [ %add7, %_ZN9struct_pb13UnknownFieldsD2Ev.exit ], [ %total.0.lcssa.i, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit ]
+if.end:                                           ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit173, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit
+  %total.0 = phi i64 [ %add6, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit173 ], [ %total.0.lcssa.i, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit ]
   %mana = getelementptr inbounds nuw i8, ptr %t, i64 8
   %7 = load i32, ptr %mana, align 8
   %cmp.not = icmp eq i32 %7, 0
@@ -1903,7 +1903,7 @@ do.body.i162:                                     ; preds = %do.body.i162, %if.t
   %v.addr.i160.0 = phi i64 [ %conv, %if.then8 ], [ %shr.i164, %do.body.i162 ]
   %inc.i163 = add nuw nsw i64 %ret.i161.0, 1
   %shr.i164 = lshr i64 %v.addr.i160.0, 7
-  %cmp.i165.not = icmp ult i64 %v.addr.i160.0, 128
+  %cmp.i165.not = icmp eq i64 %shr.i164, 0
   br i1 %cmp.i165.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit166, label %do.body.i162, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit166: ; preds = %do.body.i162
@@ -1927,7 +1927,7 @@ do.body.i155:                                     ; preds = %do.body.i155, %if.t
   %v.addr.i153.0 = phi i64 [ %conv17, %if.then15 ], [ %shr.i157, %do.body.i155 ]
   %inc.i156 = add nuw nsw i64 %ret.i154.0, 1
   %shr.i157 = lshr i64 %v.addr.i153.0, 7
-  %cmp.i158.not = icmp ult i64 %v.addr.i153.0, 128
+  %cmp.i158.not = icmp eq i64 %shr.i157, 0
   br i1 %cmp.i158.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit159, label %do.body.i155, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit159: ; preds = %do.body.i155
@@ -1947,7 +1947,7 @@ do.body.i148:                                     ; preds = %if.end21, %do.body.
   %v.addr.i146.0 = phi i64 [ %shr.i150, %do.body.i148 ], [ %9, %if.end21 ]
   %inc.i149 = add nuw nsw i64 %ret.i147.0, 1
   %shr.i150 = lshr i64 %v.addr.i146.0, 7
-  %cmp.i151.not = icmp ult i64 %v.addr.i146.0, 128
+  %cmp.i151.not = icmp eq i64 %shr.i150, 0
   br i1 %cmp.i151.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit152, label %do.body.i148, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit152: ; preds = %do.body.i148
@@ -1968,7 +1968,7 @@ do.body.i141:                                     ; preds = %if.end32, %do.body.
   %v.addr.i139.0 = phi i64 [ %shr.i143, %do.body.i141 ], [ %10, %if.end32 ]
   %inc.i142 = add nuw nsw i64 %ret.i140.0, 1
   %shr.i143 = lshr i64 %v.addr.i139.0, 7
-  %cmp.i144.not = icmp ult i64 %v.addr.i139.0, 128
+  %cmp.i144.not = icmp eq i64 %shr.i143, 0
   br i1 %cmp.i144.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit145, label %do.body.i141, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit145: ; preds = %do.body.i141
@@ -1993,7 +1993,7 @@ do.body.i134:                                     ; preds = %do.body.i134, %if.t
   %ret.i133.0 = phi i64 [ 0, %if.then45 ], [ %inc.i135, %do.body.i134 ]
   %inc.i135 = add nuw nsw i64 %ret.i133.0, 1
   %shr.i136 = lshr i64 %v.addr.i132.0, 7
-  %cmp.i137.not = icmp ult i64 %v.addr.i132.0, 128
+  %cmp.i137.not = icmp eq i64 %shr.i136, 0
   br i1 %cmp.i137.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit138, label %do.body.i134, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit138: ; preds = %do.body.i134
@@ -2023,7 +2023,7 @@ do.body.i17.i:                                    ; preds = %_ZNK9struct_pb13Unk
   %v.addr.i15.0.i = phi i64 [ %shr.i19.i, %do.body.i17.i ], [ %14, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i ]
   %inc.i18.i = add nuw nsw i64 %ret.i16.0.i, 1
   %shr.i19.i = lshr i64 %v.addr.i15.0.i, 7
-  %cmp.i20.not.i = icmp ult i64 %v.addr.i15.0.i, 128
+  %cmp.i20.not.i = icmp eq i64 %shr.i19.i, 0
   br i1 %cmp.i20.not.i, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit21.i, label %do.body.i17.i, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit21.i: ; preds = %do.body.i17.i
@@ -2047,7 +2047,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.th
   %ret.i.0.i = phi i64 [ 0, %if.then9.i ], [ %inc.i.i, %do.body.i.i ]
   %inc.i.i = add nuw nsw i64 %ret.i.0.i, 1
   %shr.i.i = lshr i64 %v.addr.i.0.i, 7
-  %cmp.i.not.i = icmp ult i64 %v.addr.i.0.i, 128
+  %cmp.i.not.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.i.not.i, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i, label %do.body.i.i, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i: ; preds = %do.body.i.i
@@ -2064,7 +2064,7 @@ do.body.i127:                                     ; preds = %do.body.i127, %_ZN9
   %ret.i126.0 = phi i64 [ 0, %_ZN9struct_pb13UnknownFieldsD2Ev.exit87 ], [ %inc.i128, %do.body.i127 ]
   %inc.i128 = add nuw nsw i64 %ret.i126.0, 1
   %shr.i129 = lshr i64 %v.addr.i125.0, 7
-  %cmp.i130.not = icmp ult i64 %v.addr.i125.0, 128
+  %cmp.i130.not = icmp eq i64 %shr.i129, 0
   br i1 %cmp.i130.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit131, label %do.body.i127, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit131: ; preds = %do.body.i127
@@ -2093,7 +2093,7 @@ do.body.i17.i105:                                 ; preds = %_ZNK9struct_pb13Unk
   %v.addr.i15.0.i107 = phi i64 [ %shr.i19.i109, %do.body.i17.i105 ], [ %17, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i101 ]
   %inc.i18.i108 = add nuw nsw i64 %ret.i16.0.i106, 1
   %shr.i19.i109 = lshr i64 %v.addr.i15.0.i107, 7
-  %cmp.i20.not.i110 = icmp ult i64 %v.addr.i15.0.i107, 128
+  %cmp.i20.not.i110 = icmp eq i64 %shr.i19.i109, 0
   br i1 %cmp.i20.not.i110, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit21.i111, label %do.body.i17.i105, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit21.i111: ; preds = %do.body.i17.i105
@@ -2117,7 +2117,7 @@ do.body.i.i121:                                   ; preds = %do.body.i.i121, %if
   %ret.i.0.i123 = phi i64 [ 0, %if.then9.i119 ], [ %inc.i.i124, %do.body.i.i121 ]
   %inc.i.i124 = add nuw nsw i64 %ret.i.0.i123, 1
   %shr.i.i125 = lshr i64 %v.addr.i.0.i122, 7
-  %cmp.i.not.i126 = icmp ult i64 %v.addr.i.0.i122, 128
+  %cmp.i.not.i126 = icmp eq i64 %shr.i.i125, 0
   br i1 %cmp.i.not.i126, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i127, label %do.body.i.i121, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i127: ; preds = %do.body.i.i121
@@ -2134,7 +2134,7 @@ do.body.i120:                                     ; preds = %do.body.i120, %_ZN9
   %ret.i119.0 = phi i64 [ 0, %_ZN9struct_pb13UnknownFieldsD2Ev.exit134 ], [ %inc.i121, %do.body.i120 ]
   %inc.i121 = add nuw nsw i64 %ret.i119.0, 1
   %shr.i122 = lshr i64 %v.addr.i118.0, 7
-  %cmp.i123.not = icmp ult i64 %v.addr.i118.0, 128
+  %cmp.i123.not = icmp eq i64 %shr.i122, 0
   br i1 %cmp.i123.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit124, label %do.body.i120, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit124: ; preds = %do.body.i120
@@ -2150,11 +2150,11 @@ if.end86:                                         ; preds = %_ZN9struct_pb8inter
   %_M_finish.i.i138 = getelementptr inbounds nuw i8, ptr %t, i64 128
   %20 = load ptr, ptr %_M_finish.i.i138, align 8
   %cmp.i.i139 = icmp eq ptr %19, %20
-  br i1 %cmp.i.i139, label %if.end116, label %_ZN9struct_pb13UnknownFieldsD2Ev.exit167
+  br i1 %cmp.i.i139, label %if.end116, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit
 
-_ZN9struct_pb13UnknownFieldsD2Ev.exit167:         ; preds = %if.end86, %_ZN9struct_pb13UnknownFieldsD2Ev.exit167
-  %total.10200 = phi i64 [ %add112, %_ZN9struct_pb13UnknownFieldsD2Ev.exit167 ], [ %total.8, %if.end86 ]
-  %__begin391.sroa.0.0199 = phi ptr [ %incdec.ptr.i168, %_ZN9struct_pb13UnknownFieldsD2Ev.exit167 ], [ %19, %if.end86 ]
+_ZN9struct_pb8internal21calculate_varint_sizeEm.exit: ; preds = %if.end86, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit
+  %total.10200 = phi i64 [ %add111, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit ], [ %total.8, %if.end86 ]
+  %__begin391.sroa.0.0199 = phi ptr [ %incdec.ptr.i168, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit ], [ %19, %if.end86 ]
   %21 = load float, ptr %__begin391.sroa.0.0199, align 4
   %cmp.i153 = fcmp une float %21, 0.000000e+00
   %total.0.i155 = select i1 %cmp.i153, i64 5, i64 0
@@ -2168,14 +2168,14 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit167:         ; preds = %if.end86, %_ZN9stru
   %cmp5.i161 = fcmp une float %23, 0.000000e+00
   %add7.i162 = add nuw nsw i64 %total.1.i159, 5
   %total.2.i163 = select i1 %cmp5.i161, i64 %add7.i162, i64 %total.1.i159
-  %add111 = add i64 %total.10200, 2
-  %add112 = add i64 %add111, %total.2.i163
+  %add110 = add i64 %total.10200, 2
+  %add111 = add i64 %add110, %total.2.i163
   %incdec.ptr.i168 = getelementptr inbounds nuw i8, ptr %__begin391.sroa.0.0199, i64 12
   %cmp.i141 = icmp eq ptr %incdec.ptr.i168, %20
-  br i1 %cmp.i141, label %if.end116, label %_ZN9struct_pb13UnknownFieldsD2Ev.exit167
+  br i1 %cmp.i141, label %if.end116, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit
 
-if.end116:                                        ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit167, %if.end86
-  %total.9 = phi i64 [ %total.8, %if.end86 ], [ %add112, %_ZN9struct_pb13UnknownFieldsD2Ev.exit167 ]
+if.end116:                                        ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit, %if.end86
+  %total.9 = phi i64 [ %total.8, %if.end86 ], [ %add111, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit ]
   ret i64 %total.9
 }
 
@@ -2479,7 +2479,7 @@ do.body.i17.i:                                    ; preds = %_ZNK9struct_pb13Unk
   %v.addr.i15.0.i = phi i64 [ %shr.i19.i, %do.body.i17.i ], [ %35, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i ]
   %inc.i18.i = add nuw nsw i64 %ret.i16.0.i, 1
   %shr.i19.i = lshr i64 %v.addr.i15.0.i, 7
-  %cmp.i20.not.i = icmp ult i64 %v.addr.i15.0.i, 128
+  %cmp.i20.not.i = icmp eq i64 %shr.i19.i, 0
   br i1 %cmp.i20.not.i, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit21.i, label %do.body.i17.i, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit21.i: ; preds = %do.body.i17.i
@@ -2503,7 +2503,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.th
   %ret.i.0.i = phi i64 [ 0, %if.then9.i ], [ %inc.i.i, %do.body.i.i ]
   %inc.i.i = add nuw nsw i64 %ret.i.0.i, 1
   %shr.i.i = lshr i64 %v.addr.i.0.i, 7
-  %cmp.i.not.i = icmp ult i64 %v.addr.i.0.i, 128
+  %cmp.i.not.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.i.not.i, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i, label %do.body.i.i, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i: ; preds = %do.body.i.i
@@ -2637,7 +2637,7 @@ do.body.i17.i268:                                 ; preds = %_ZNK9struct_pb13Unk
   %v.addr.i15.0.i270 = phi i64 [ %shr.i19.i272, %do.body.i17.i268 ], [ %49, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i264 ]
   %inc.i18.i271 = add nuw nsw i64 %ret.i16.0.i269, 1
   %shr.i19.i272 = lshr i64 %v.addr.i15.0.i270, 7
-  %cmp.i20.not.i273 = icmp ult i64 %v.addr.i15.0.i270, 128
+  %cmp.i20.not.i273 = icmp eq i64 %shr.i19.i272, 0
   br i1 %cmp.i20.not.i273, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit21.i274, label %do.body.i17.i268, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit21.i274: ; preds = %do.body.i17.i268
@@ -2661,7 +2661,7 @@ do.body.i.i284:                                   ; preds = %do.body.i.i284, %if
   %ret.i.0.i286 = phi i64 [ 0, %if.then9.i282 ], [ %inc.i.i287, %do.body.i.i284 ]
   %inc.i.i287 = add nuw nsw i64 %ret.i.0.i286, 1
   %shr.i.i288 = lshr i64 %v.addr.i.0.i285, 7
-  %cmp.i.not.i289 = icmp ult i64 %v.addr.i.0.i285, 128
+  %cmp.i.not.i289 = icmp eq i64 %shr.i.i288, 0
   br i1 %cmp.i.not.i289, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i290, label %do.body.i.i284, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i290: ; preds = %do.body.i.i284
@@ -5189,7 +5189,7 @@ do.body.i:                                        ; preds = %do.body.i, %for.bod
   %v.addr.i.0 = phi i64 [ %call8, %for.body ], [ %shr.i, %do.body.i ]
   %inc.i = add nuw nsw i64 %ret.i.0, 1
   %shr.i = lshr i64 %v.addr.i.0, 7
-  %cmp.i.not = icmp ult i64 %v.addr.i.0, 128
+  %cmp.i.not = icmp eq i64 %shr.i, 0
   br i1 %cmp.i.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit, label %do.body.i, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit: ; preds = %do.body.i
@@ -5803,7 +5803,7 @@ do.body.i44:                                      ; preds = %do.body.i44, %if.th
   %v.addr.i42.0 = phi i64 [ %conv, %if.then ], [ %shr.i46, %do.body.i44 ]
   %inc.i45 = add nuw nsw i64 %ret.i43.0, 1
   %shr.i46 = lshr i64 %v.addr.i42.0, 7
-  %cmp.i47.not = icmp ult i64 %v.addr.i42.0, 128
+  %cmp.i47.not = icmp eq i64 %shr.i46, 0
   br i1 %cmp.i47.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit48, label %do.body.i44, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit48: ; preds = %do.body.i44
@@ -5827,7 +5827,7 @@ do.body.i37:                                      ; preds = %do.body.i37, %if.th
   %ret.i36.0 = phi i64 [ 0, %if.then5 ], [ %inc.i38, %do.body.i37 ]
   %inc.i38 = add nuw nsw i64 %ret.i36.0, 1
   %shr.i39 = lshr i64 %v.addr.i35.0, 7
-  %cmp.i40.not = icmp ult i64 %v.addr.i35.0, 128
+  %cmp.i40.not = icmp eq i64 %shr.i39, 0
   br i1 %cmp.i40.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit41, label %do.body.i37, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit41: ; preds = %do.body.i37
@@ -5851,7 +5851,7 @@ do.body.i30:                                      ; preds = %do.body.i30, %if.th
   %ret.i29.0 = phi i64 [ 0, %if.then13 ], [ %inc.i31, %do.body.i30 ]
   %inc.i31 = add nuw nsw i64 %ret.i29.0, 1
   %shr.i32 = lshr i64 %v.addr.i28.0, 7
-  %cmp.i33.not = icmp ult i64 %v.addr.i28.0, 128
+  %cmp.i33.not = icmp eq i64 %shr.i32, 0
   br i1 %cmp.i33.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit34, label %do.body.i30, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit34: ; preds = %do.body.i30
@@ -5875,7 +5875,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.then
   %ret.i.0 = phi i64 [ 0, %if.then21 ], [ %inc.i, %do.body.i ]
   %inc.i = add nuw nsw i64 %ret.i.0, 1
   %shr.i = lshr i64 %v.addr.i.0, 7
-  %cmp.i.not = icmp ult i64 %v.addr.i.0, 128
+  %cmp.i.not = icmp eq i64 %shr.i, 0
   br i1 %cmp.i.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit, label %do.body.i, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit: ; preds = %do.body.i
@@ -6914,7 +6914,7 @@ do.body.i44.i:                                    ; preds = %do.body.i44.i, %if.
   %v.addr.i42.0.i = phi i64 [ %conv.i, %if.then.i ], [ %shr.i46.i, %do.body.i44.i ]
   %inc.i45.i = add nuw nsw i64 %ret.i43.0.i, 1
   %shr.i46.i = lshr i64 %v.addr.i42.0.i, 7
-  %cmp.i47.not.i = icmp ult i64 %v.addr.i42.0.i, 128
+  %cmp.i47.not.i = icmp eq i64 %shr.i46.i, 0
   br i1 %cmp.i47.not.i, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit48.i, label %do.body.i44.i, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit48.i: ; preds = %do.body.i44.i
@@ -6937,7 +6937,7 @@ do.body.i37.i:                                    ; preds = %do.body.i37.i, %if.
   %ret.i36.0.i = phi i64 [ 0, %if.then5.i ], [ %inc.i38.i, %do.body.i37.i ]
   %inc.i38.i = add nuw nsw i64 %ret.i36.0.i, 1
   %shr.i39.i = lshr i64 %v.addr.i35.0.i, 7
-  %cmp.i40.not.i = icmp ult i64 %v.addr.i35.0.i, 128
+  %cmp.i40.not.i = icmp eq i64 %shr.i39.i, 0
   br i1 %cmp.i40.not.i, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit41.i, label %do.body.i37.i, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit41.i: ; preds = %do.body.i37.i
@@ -6961,7 +6961,7 @@ do.body.i30.i:                                    ; preds = %do.body.i30.i, %if.
   %ret.i29.0.i = phi i64 [ 0, %if.then13.i ], [ %inc.i31.i, %do.body.i30.i ]
   %inc.i31.i = add nuw nsw i64 %ret.i29.0.i, 1
   %shr.i32.i = lshr i64 %v.addr.i28.0.i, 7
-  %cmp.i33.not.i = icmp ult i64 %v.addr.i28.0.i, 128
+  %cmp.i33.not.i = icmp eq i64 %shr.i32.i, 0
   br i1 %cmp.i33.not.i, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit34.i, label %do.body.i30.i, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit34.i: ; preds = %do.body.i30.i
@@ -6985,7 +6985,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.th
   %ret.i.0.i = phi i64 [ 0, %if.then21.i ], [ %inc.i.i, %do.body.i.i ]
   %inc.i.i = add nuw nsw i64 %ret.i.0.i, 1
   %shr.i.i = lshr i64 %v.addr.i.0.i, 7
-  %cmp.i.not.i = icmp ult i64 %v.addr.i.0.i, 128
+  %cmp.i.not.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.i.not.i, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i, label %do.body.i.i, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i: ; preds = %do.body.i.i
@@ -7002,7 +7002,7 @@ do.body.i:                                        ; preds = %do.body.i, %_ZN9str
   %v.addr.i.0 = phi i64 [ %total.3.i, %_ZN9struct_pb13UnknownFieldsD2Ev.exit ], [ %shr.i, %do.body.i ]
   %inc.i = add nuw nsw i64 %ret.i.0, 1
   %shr.i = lshr i64 %v.addr.i.0, 7
-  %cmp.i.not = icmp ult i64 %v.addr.i.0, 128
+  %cmp.i.not = icmp eq i64 %shr.i, 0
   br i1 %cmp.i.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit, label %do.body.i, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit: ; preds = %do.body.i
@@ -7046,7 +7046,7 @@ do.body.i44.i:                                    ; preds = %do.body.i44.i, %if.
   %v.addr.i42.0.i = phi i64 [ %conv.i23, %if.then.i ], [ %shr.i46.i, %do.body.i44.i ]
   %inc.i45.i = add nuw nsw i64 %ret.i43.0.i, 1
   %shr.i46.i = lshr i64 %v.addr.i42.0.i, 7
-  %cmp.i47.not.i = icmp ult i64 %v.addr.i42.0.i, 128
+  %cmp.i47.not.i = icmp eq i64 %shr.i46.i, 0
   br i1 %cmp.i47.not.i, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit48.i, label %do.body.i44.i, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit48.i: ; preds = %do.body.i44.i
@@ -7069,7 +7069,7 @@ do.body.i37.i:                                    ; preds = %do.body.i37.i, %if.
   %ret.i36.0.i = phi i64 [ 0, %if.then5.i ], [ %inc.i38.i, %do.body.i37.i ]
   %inc.i38.i = add nuw nsw i64 %ret.i36.0.i, 1
   %shr.i39.i = lshr i64 %v.addr.i35.0.i, 7
-  %cmp.i40.not.i = icmp ult i64 %v.addr.i35.0.i, 128
+  %cmp.i40.not.i = icmp eq i64 %shr.i39.i, 0
   br i1 %cmp.i40.not.i, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit41.i, label %do.body.i37.i, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit41.i: ; preds = %do.body.i37.i
@@ -7093,7 +7093,7 @@ do.body.i30.i:                                    ; preds = %do.body.i30.i, %if.
   %ret.i29.0.i = phi i64 [ 0, %if.then13.i ], [ %inc.i31.i, %do.body.i30.i ]
   %inc.i31.i = add nuw nsw i64 %ret.i29.0.i, 1
   %shr.i32.i = lshr i64 %v.addr.i28.0.i, 7
-  %cmp.i33.not.i = icmp ult i64 %v.addr.i28.0.i, 128
+  %cmp.i33.not.i = icmp eq i64 %shr.i32.i, 0
   br i1 %cmp.i33.not.i, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit34.i, label %do.body.i30.i, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit34.i: ; preds = %do.body.i30.i
@@ -7117,7 +7117,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.th
   %ret.i.0.i = phi i64 [ 0, %if.then21.i ], [ %inc.i.i, %do.body.i.i ]
   %inc.i.i = add nuw nsw i64 %ret.i.0.i, 1
   %shr.i.i = lshr i64 %v.addr.i.0.i, 7
-  %cmp.i.not.i = icmp ult i64 %v.addr.i.0.i, 128
+  %cmp.i.not.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.i.not.i, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i, label %do.body.i.i, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i: ; preds = %do.body.i.i
@@ -7721,7 +7721,7 @@ do.body.i36:                                      ; preds = %do.body.i36, %if.th
   %v.addr.i34.0 = phi i64 [ %conv, %if.then ], [ %shr.i38, %do.body.i36 ]
   %inc.i37 = add nuw nsw i64 %ret.i35.0, 1
   %shr.i38 = lshr i64 %v.addr.i34.0, 7
-  %cmp.i39.not = icmp ult i64 %v.addr.i34.0, 128
+  %cmp.i39.not = icmp eq i64 %shr.i38, 0
   br i1 %cmp.i39.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit40, label %do.body.i36, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit40: ; preds = %do.body.i36
@@ -7741,7 +7741,7 @@ do.body.i29:                                      ; preds = %if.end, %do.body.i2
   %ret.i28.0 = phi i64 [ %inc.i30, %do.body.i29 ], [ 0, %if.end ]
   %inc.i30 = add nuw nsw i64 %ret.i28.0, 1
   %shr.i31 = lshr i64 %v.addr.i27.0, 7
-  %cmp.i32.not = icmp ult i64 %v.addr.i27.0, 128
+  %cmp.i32.not = icmp eq i64 %shr.i31, 0
   br i1 %cmp.i32.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit33, label %do.body.i29, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit33: ; preds = %do.body.i29
@@ -7766,7 +7766,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.then
   %ret.i.0 = phi i64 [ 0, %if.then16 ], [ %inc.i, %do.body.i ]
   %inc.i = add nuw nsw i64 %ret.i.0, 1
   %shr.i = lshr i64 %v.addr.i.0, 7
-  %cmp.i.not = icmp ult i64 %v.addr.i.0, 128
+  %cmp.i.not = icmp eq i64 %shr.i, 0
   br i1 %cmp.i.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit, label %do.body.i, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit: ; preds = %do.body.i
@@ -8779,7 +8779,7 @@ do.body.i36.i:                                    ; preds = %do.body.i36.i, %if.
   %v.addr.i34.0.i = phi i64 [ %conv.i, %if.then.i ], [ %shr.i38.i, %do.body.i36.i ]
   %inc.i37.i = add nuw nsw i64 %ret.i35.0.i, 1
   %shr.i38.i = lshr i64 %v.addr.i34.0.i, 7
-  %cmp.i39.not.i = icmp ult i64 %v.addr.i34.0.i, 128
+  %cmp.i39.not.i = icmp eq i64 %shr.i38.i, 0
   br i1 %cmp.i39.not.i, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit40.i, label %do.body.i36.i, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit40.i: ; preds = %do.body.i36.i
@@ -8798,7 +8798,7 @@ do.body.i29.i:                                    ; preds = %if.end.i, %do.body.
   %ret.i28.0.i = phi i64 [ %inc.i30.i, %do.body.i29.i ], [ 0, %if.end.i ]
   %inc.i30.i = add nuw nsw i64 %ret.i28.0.i, 1
   %shr.i31.i = lshr i64 %v.addr.i27.0.i, 7
-  %cmp.i32.not.i = icmp ult i64 %v.addr.i27.0.i, 128
+  %cmp.i32.not.i = icmp eq i64 %shr.i31.i, 0
   br i1 %cmp.i32.not.i, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit33.i, label %do.body.i29.i, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit33.i: ; preds = %do.body.i29.i
@@ -8823,7 +8823,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.th
   %ret.i.0.i = phi i64 [ 0, %if.then16.i ], [ %inc.i.i, %do.body.i.i ]
   %inc.i.i = add nuw nsw i64 %ret.i.0.i, 1
   %shr.i.i = lshr i64 %v.addr.i.0.i, 7
-  %cmp.i.not.i = icmp ult i64 %v.addr.i.0.i, 128
+  %cmp.i.not.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.i.not.i, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i, label %do.body.i.i, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i: ; preds = %do.body.i.i
@@ -8845,7 +8845,7 @@ do.body.i:                                        ; preds = %do.body.i, %_ZN9str
   %v.addr.i.0 = phi i64 [ %total.3.i, %_ZN9struct_pb13UnknownFieldsD2Ev.exit ], [ %shr.i, %do.body.i ]
   %inc.i = add nuw nsw i64 %ret.i.0, 1
   %shr.i = lshr i64 %v.addr.i.0, 7
-  %cmp.i.not = icmp ult i64 %v.addr.i.0, 128
+  %cmp.i.not = icmp eq i64 %shr.i, 0
   br i1 %cmp.i.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit, label %do.body.i, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit: ; preds = %do.body.i
@@ -8889,7 +8889,7 @@ do.body.i36.i:                                    ; preds = %do.body.i36.i, %if.
   %v.addr.i34.0.i = phi i64 [ %conv.i23, %if.then.i ], [ %shr.i38.i, %do.body.i36.i ]
   %inc.i37.i = add nuw nsw i64 %ret.i35.0.i, 1
   %shr.i38.i = lshr i64 %v.addr.i34.0.i, 7
-  %cmp.i39.not.i = icmp ult i64 %v.addr.i34.0.i, 128
+  %cmp.i39.not.i = icmp eq i64 %shr.i38.i, 0
   br i1 %cmp.i39.not.i, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit40.i, label %do.body.i36.i, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit40.i: ; preds = %do.body.i36.i
@@ -8908,7 +8908,7 @@ do.body.i29.i:                                    ; preds = %if.end.i, %do.body.
   %ret.i28.0.i = phi i64 [ %inc.i30.i, %do.body.i29.i ], [ 0, %if.end.i ]
   %inc.i30.i = add nuw nsw i64 %ret.i28.0.i, 1
   %shr.i31.i = lshr i64 %v.addr.i27.0.i, 7
-  %cmp.i32.not.i = icmp ult i64 %v.addr.i27.0.i, 128
+  %cmp.i32.not.i = icmp eq i64 %shr.i31.i, 0
   br i1 %cmp.i32.not.i, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit33.i, label %do.body.i29.i, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit33.i: ; preds = %do.body.i29.i
@@ -8933,7 +8933,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.th
   %ret.i.0.i = phi i64 [ 0, %if.then16.i ], [ %inc.i.i, %do.body.i.i ]
   %inc.i.i = add nuw nsw i64 %ret.i.0.i, 1
   %shr.i.i = lshr i64 %v.addr.i.0.i, 7
-  %cmp.i.not.i = icmp ult i64 %v.addr.i.0.i, 128
+  %cmp.i.not.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.i.not.i, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i, label %do.body.i.i, !llvm.loop !8
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i: ; preds = %do.body.i.i

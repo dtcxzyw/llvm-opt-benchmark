@@ -2311,7 +2311,7 @@ define internal fastcc void @param_block_nam_mdn(ptr noundef %0, ptr noundef %1,
   %8 = lshr i32 %7, 4
   %9 = load i32, ptr @hf_ansi_683_n_digits, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0)
-  %.not5 = icmp ult i8 %6, 16
+  %.not5 = icmp eq i32 %8, 0
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %29

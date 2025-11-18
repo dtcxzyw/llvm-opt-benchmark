@@ -5845,9 +5845,9 @@ _ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_i.exit.i: ; preds = %._crit_edge132
   %929 = trunc i64 %.06.i.i to i8
   %930 = and i8 %929, 127
   %931 = lshr i64 %.06.i.i, 7
-  %.not.i.i459 = icmp ult i64 %.06.i.i, 128
+  %.not.i.i459 = icmp eq i64 %931, 0
   %masksel.i.i = select i1 %.not.i.i459, i8 0, i8 -128
-  %.0.i.i460 = or disjoint i8 %930, %masksel.i.i
+  %.0.i.i460 = or disjoint i8 %masksel.i.i, %930
   %932 = getelementptr inbounds nuw i8, ptr %.8, i64 1
   store i8 %.0.i.i460, ptr %.8, align 1, !tbaa !3
   br i1 %.not.i.i459, label %_ZN7Imf_3_412_GLOBAL__N_126writeVariableLengthIntegerERPcm.exit.i, label %928, !llvm.loop !154
@@ -6063,9 +6063,9 @@ _ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_i.exit.i492: ; preds = %.lr.ph.i.i.
   %995 = trunc i64 %.06.i.i498 to i8
   %996 = and i8 %995, 127
   %997 = lshr i64 %.06.i.i498, 7
-  %.not.i.i499 = icmp ult i64 %.06.i.i498, 128
+  %.not.i.i499 = icmp eq i64 %997, 0
   %masksel.i.i500 = select i1 %.not.i.i499, i8 0, i8 -128
-  %.0.i.i501 = or disjoint i8 %996, %masksel.i.i500
+  %.0.i.i501 = or disjoint i8 %masksel.i.i500, %996
   %998 = getelementptr inbounds nuw i8, ptr %.19, i64 1
   store i8 %.0.i.i501, ptr %.19, align 1, !tbaa !3
   br i1 %.not.i.i499, label %_ZN7Imf_3_412_GLOBAL__N_126writeVariableLengthIntegerERPcm.exit.i502, label %994, !llvm.loop !154
@@ -6161,9 +6161,9 @@ _ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_i.exit.i523: ; preds = %.lr.ph.i.i.
   %1026 = trunc i64 %.06.i.i529 to i8
   %1027 = and i8 %1026, 127
   %1028 = lshr i64 %.06.i.i529, 7
-  %.not.i.i530 = icmp ult i64 %.06.i.i529, 128
+  %.not.i.i530 = icmp eq i64 %1028, 0
   %masksel.i.i531 = select i1 %.not.i.i530, i8 0, i8 -128
-  %.0.i.i532 = or disjoint i8 %1027, %masksel.i.i531
+  %.0.i.i532 = or disjoint i8 %masksel.i.i531, %1027
   %1029 = getelementptr inbounds nuw i8, ptr %.27, i64 1
   store i8 %.0.i.i532, ptr %.27, align 1, !tbaa !3
   br i1 %.not.i.i530, label %_ZN7Imf_3_412_GLOBAL__N_126writeVariableLengthIntegerERPcm.exit.i533, label %1025, !llvm.loop !154
@@ -6409,9 +6409,9 @@ _ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_j.exit: ; preds = %.lr.ph.i.i.i586
   %1107 = trunc i64 %.06.i to i8
   %1108 = and i8 %1107, 127
   %1109 = lshr i64 %.06.i, 7
-  %.not.i590 = icmp ult i64 %.06.i, 128
+  %.not.i590 = icmp eq i64 %1109, 0
   %masksel.i = select i1 %.not.i590, i8 0, i8 -128
-  %.0.i591 = or disjoint i8 %1108, %masksel.i
+  %.0.i591 = or disjoint i8 %masksel.i, %1108
   %1110 = getelementptr inbounds nuw i8, ptr %.41, i64 1
   store i8 %.0.i591, ptr %.41, align 1, !tbaa !3
   br i1 %.not.i590, label %_ZN7Imf_3_412_GLOBAL__N_126writeVariableLengthIntegerERPcm.exit, label %.preheader, !llvm.loop !154
@@ -6629,9 +6629,9 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_i
   %1179 = trunc i64 %.06.i625 to i8
   %1180 = and i8 %1179, 127
   %1181 = lshr i64 %.06.i625, 7
-  %.not.i626 = icmp ult i64 %.06.i625, 128
+  %.not.i626 = icmp eq i64 %1181, 0
   %masksel.i627 = select i1 %.not.i626, i8 0, i8 -128
-  %.0.i628 = or disjoint i8 %1180, %masksel.i627
+  %.0.i628 = or disjoint i8 %masksel.i627, %1180
   %1182 = getelementptr inbounds nuw i8, ptr %.42, i64 1
   store i8 %.0.i628, ptr %.42, align 1, !tbaa !3
   br i1 %.not.i626, label %_ZN7Imf_3_412_GLOBAL__N_126writeVariableLengthIntegerERPcm.exit629, label %1178, !llvm.loop !154
@@ -13991,7 +13991,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairIiiESt6vec
   store i32 %61, ptr %69, align 4, !tbaa !130
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   store i32 %68, ptr %70, align 4, !tbaa !132
-  %.not.i = icmp ult i64 %.0923.in.i.i.i, 2
+  %.not.i = icmp eq i64 %.0923.i.i78.i, 0
   br i1 %.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !248
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit: ; preds = %63, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairIiiESt6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairIiiESt6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.thread.i.i.i, %58

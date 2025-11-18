@@ -52167,12 +52167,12 @@ define hidden { i32, i32 } @"_ZN12polars_utils5cache30LruCachedFunc$LT$T$C$R$C$F
   %14 = load i64, ptr %13, align 8, !noalias !4271, !noundef !6
   %15 = tail call i64 @_ZN6chrono5naive4date9NaiveDate14parse_from_str17h9e261ad239ddf537E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 %12, i64 noundef %14)
   %16 = trunc i64 %15 to i1
-  %.not1.i = icmp ult i64 %15, 4294967296
+  %.sroa.5.0.extract.shift.i = lshr i64 %15, 32
+  %.not1.i = icmp eq i64 %.sroa.5.0.extract.shift.i, 0
   %.not.i = or i1 %.not1.i, %16
   br i1 %.not.i, label %"_ZN11polars_time12chunkedarray6string13StringMethods7as_date28_$u7b$$u7b$closure$u7d$$u7d$17h696e57c78b0f7318E.exit", label %17
 
 17:                                               ; preds = %10
-  %.sroa.5.0.extract.shift.i = lshr i64 %15, 32
   %.sroa.5.0.extract.trunc.i = trunc nuw i64 %.sroa.5.0.extract.shift.i to i32
   %18 = tail call noundef i32 @_ZN11polars_time12chunkedarray4date18naive_date_to_date17ha2b3f4084cdd8827E(i32 noundef %.sroa.5.0.extract.trunc.i)
   br label %"_ZN11polars_time12chunkedarray6string13StringMethods7as_date28_$u7b$$u7b$closure$u7d$$u7d$17h696e57c78b0f7318E.exit"
@@ -52300,12 +52300,12 @@ define hidden { i32, i32 } @"_ZN12polars_utils5cache30LruCachedFunc$LT$T$C$R$C$F
   %83 = load i64, ptr %82, align 8, !noalias !4293, !noundef !6
   %84 = call i64 @_ZN6chrono5naive4date9NaiveDate14parse_from_str17h9e261ad239ddf537E(ptr noalias noundef nonnull readonly align 1 %.val2.i.i.i.i, i64 noundef %.val3.i.i.i.i, ptr noalias noundef nonnull readonly align 1 %81, i64 noundef %83)
   %85 = trunc i64 %84 to i1
-  %.not1.i.i.i.i = icmp ult i64 %84, 4294967296
+  %.sroa.5.0.extract.shift.i.i.i.i = lshr i64 %84, 32
+  %.not1.i.i.i.i = icmp eq i64 %.sroa.5.0.extract.shift.i.i.i.i, 0
   %.not.i.i.i34.i = or i1 %.not1.i.i.i.i, %85
   br i1 %.not.i.i.i34.i, label %"_ZN12polars_utils5cache25LruCache$LT$K$C$V$C$S$GT$18get_or_insert_with28_$u7b$$u7b$closure$u7d$$u7d$17h82df556f0fd77c20E.exit.i", label %86
 
 86:                                               ; preds = %78
-  %.sroa.5.0.extract.shift.i.i.i.i = lshr i64 %84, 32
   %.sroa.5.0.extract.trunc.i.i.i.i = trunc nuw i64 %.sroa.5.0.extract.shift.i.i.i.i to i32
   %87 = call noundef i32 @_ZN11polars_time12chunkedarray4date18naive_date_to_date17ha2b3f4084cdd8827E(i32 noundef %.sroa.5.0.extract.trunc.i.i.i.i)
   br label %"_ZN12polars_utils5cache25LruCache$LT$K$C$V$C$S$GT$18get_or_insert_with28_$u7b$$u7b$closure$u7d$$u7d$17h82df556f0fd77c20E.exit.i"
@@ -52570,7 +52570,7 @@ define hidden { i32, i32 } @"_ZN12polars_utils5cache30LruCachedFunc$LT$T$C$R$C$F
   %24 = trunc i64 %23 to i1
   %.sroa.5.0.extract.shift.i = lshr i64 %23, 32
   %.sroa.5.0.extract.trunc.i = trunc nuw i64 %.sroa.5.0.extract.shift.i to i32
-  %.not71.i = icmp ult i64 %23, 4294967296
+  %.not71.i = icmp eq i64 %.sroa.5.0.extract.shift.i, 0
   %.not7.i = or i1 %.not71.i, %24
   br i1 %.not7.i, label %"_ZN11polars_time12chunkedarray6string13StringMethods7as_date28_$u7b$$u7b$closure$u7d$$u7d$17h943bc7ca59ac152cE.exit", label %25
 
@@ -52722,7 +52722,7 @@ define hidden { i32, i32 } @"_ZN12polars_utils5cache30LruCachedFunc$LT$T$C$R$C$F
   %99 = trunc i64 %98 to i1
   %.sroa.5.0.extract.shift.i.i.i.i = lshr i64 %98, 32
   %.sroa.5.0.extract.trunc.i.i.i.i = trunc nuw i64 %.sroa.5.0.extract.shift.i.i.i.i to i32
-  %.not71.i.i.i.i = icmp ult i64 %98, 4294967296
+  %.not71.i.i.i.i = icmp eq i64 %.sroa.5.0.extract.shift.i.i.i.i, 0
   %.not7.i.i.i.i = or i1 %.not71.i.i.i.i, %99
   br i1 %.not7.i.i.i.i, label %"_ZN12polars_utils5cache25LruCache$LT$K$C$V$C$S$GT$18get_or_insert_with28_$u7b$$u7b$closure$u7d$$u7d$17h9a866d5b1cc518f5E.exit.i", label %100
 

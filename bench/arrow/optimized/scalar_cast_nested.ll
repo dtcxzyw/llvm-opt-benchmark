@@ -51905,7 +51905,7 @@ _ZNK5arrow7compute10ExecResult4typeEv.exit:       ; preds = %4, %_ZNK5arrow7comp
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNK5arrow7compute10ExecResult4typeEv.exit
-  %.not.i.i.i.i = icmp ult i64 %sext, 4294967296
+  %.not.i.i.i.i = icmp eq i64 %61, 0
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit, label %.noexc177
 
 .noexc177:                                        ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i

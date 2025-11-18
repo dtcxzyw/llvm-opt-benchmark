@@ -2541,30 +2541,30 @@ define hidden void @_ZN14MethodLiveness10BasicBlock22compute_gen_kill_rangeEP16c
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, 63
-  %.not.i = icmp ult i64 %5, 64
+  %6 = lshr i64 %5, 6
+  %.not.i = icmp eq i64 %6, 0
   br i1 %.not.i, label %_ZN6BitMap5clearEv.exit, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %7 = load ptr, ptr %6, align 8
-  %8 = lshr i64 %5, 3
-  %9 = and i64 %8, 2305843009213693944
-  tail call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 %9, i1 false)
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %8 = load ptr, ptr %7, align 8
+  %9 = shl nuw nsw i64 %6, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 %9, i1 false)
   br label %_ZN6BitMap5clearEv.exit
 
 _ZN6BitMap5clearEv.exit:                          ; preds = %2, %.lr.ph.preheader.i.i.i
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, 63
-  %.not.i3 = icmp ult i64 %12, 64
+  %13 = lshr i64 %12, 6
+  %.not.i3 = icmp eq i64 %13, 0
   br i1 %.not.i3, label %_ZN6BitMap5clearEv.exit5, label %.lr.ph.preheader.i.i.i4
 
 .lr.ph.preheader.i.i.i4:                          ; preds = %_ZN6BitMap5clearEv.exit
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %14 = load ptr, ptr %13, align 8
-  %15 = lshr i64 %12, 3
-  %16 = and i64 %15, 2305843009213693944
-  tail call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 %16, i1 false)
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %15 = load ptr, ptr %14, align 8
+  %16 = shl nuw nsw i64 %13, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %15, i8 0, i64 %16, i1 false)
   br label %_ZN6BitMap5clearEv.exit5
 
 _ZN6BitMap5clearEv.exit5:                         ; preds = %_ZN6BitMap5clearEv.exit, %.lr.ph.preheader.i.i.i4

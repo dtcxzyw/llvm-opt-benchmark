@@ -2386,7 +2386,7 @@ invoke.cont70:                                    ; preds = %_ZN8QuantLib5ArrayD
 
 if.then72:                                        ; preds = %invoke.cont70
   %div73221 = lshr i64 %mul, 1
-  %cmp.not.i302 = icmp ult i64 %mul, 2
+  %cmp.not.i302 = icmp eq i64 %div73221, 0
   br i1 %cmp.not.i302, label %_ZN8QuantLib5ArrayC2Em.exit, label %cond.true.i303
 
 cond.true.i303:                                   ; preds = %if.then72

@@ -966,7 +966,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 136:                                              ; preds = %126
   %137 = getelementptr inbounds %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr58.i.i, i64 %.011.i.i.i.i17.i
   store i64 %.sroa.01.0.copyload.i.i.i.i.i19.i, ptr %137, align 8
-  %.not9.i.i.i = icmp ult i64 %.0912.in.i.i.i.i18.i, 2
+  %.not9.i.i.i = icmp eq i64 %.0912.i.i78.i.i.i, 0
   br i1 %.not9.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_RT0_.exit.i.i", label %126, !llvm.loop !70
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_RT0_.exit.i.i": ; preds = %136, %126, %120

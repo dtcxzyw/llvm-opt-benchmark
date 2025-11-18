@@ -1649,7 +1649,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_115DropNullCounter9NextBlockEv.exit.i: ; 
   br label %.loopexit.i
 
 354:                                              ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_115DropNullCounter9NextBlockEv.exit.i
-  %355 = icmp ult i32 %.sroa.0.0.i.i, 65536
+  %355 = icmp eq i32 %.sroa.18.0.extract.shift.i, 0
   %356 = load i32, ptr %129, align 8
   %357 = icmp eq i32 %356, 0
   %or.cond81.i = select i1 %355, i1 %357, i1 false
@@ -2700,7 +2700,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_115DropNullCounter9NextBlockEv.exit.i78: 
   br label %.loopexit.i86
 
 993:                                              ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_115DropNullCounter9NextBlockEv.exit.i78
-  %994 = icmp ult i32 %.sroa.0.0.i.i79, 65536
+  %994 = icmp eq i32 %.sroa.18.0.extract.shift.i80, 0
   %995 = load i32, ptr %769, align 8
   %996 = icmp eq i32 %995, 0
   %or.cond81.i85 = select i1 %994, i1 %996, i1 false
@@ -3641,7 +3641,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_115DropNullCounter9NextBlockEv.exit.i138:
   br label %.loopexit.i151
 
 1528:                                             ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_115DropNullCounter9NextBlockEv.exit.i138
-  %1529 = icmp ult i32 %.sroa.0.0.i.i139, 65536
+  %1529 = icmp eq i32 %.sroa.18.0.extract.shift.i141, 0
   %1530 = load i32, ptr %1294, align 8
   %1531 = icmp eq i32 %1530, 0
   %or.cond81.i149 = select i1 %1529, i1 %1531, i1 false
@@ -4596,7 +4596,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_115DropNullCounter9NextBlockEv.exit.i237:
   br label %.loopexit.i250
 
 2077:                                             ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_115DropNullCounter9NextBlockEv.exit.i237
-  %2078 = icmp ult i32 %.sroa.0.0.i.i238, 65536
+  %2078 = icmp eq i32 %.sroa.18.0.extract.shift.i240, 0
   %2079 = load i32, ptr %1843, align 8
   %2080 = icmp eq i32 %2079, 0
   %or.cond81.i248 = select i1 %2078, i1 %2080, i1 false
@@ -5551,7 +5551,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_115DropNullCounter9NextBlockEv.exit.i336:
   br label %.loopexit.i349
 
 2626:                                             ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_115DropNullCounter9NextBlockEv.exit.i336
-  %2627 = icmp ult i32 %.sroa.0.0.i.i337, 65536
+  %2627 = icmp eq i32 %.sroa.18.0.extract.shift.i339, 0
   %2628 = load i32, ptr %2392, align 8
   %2629 = icmp eq i32 %2628, 0
   %or.cond81.i347 = select i1 %2627, i1 %2629, i1 false
@@ -6506,7 +6506,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_115DropNullCounter9NextBlockEv.exit.i435:
   br label %.loopexit.i448
 
 3175:                                             ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_115DropNullCounter9NextBlockEv.exit.i435
-  %3176 = icmp ult i32 %.sroa.0.0.i.i436, 65536
+  %3176 = icmp eq i32 %.sroa.18.0.extract.shift.i438, 0
   %3177 = load i32, ptr %2941, align 8
   %3178 = icmp eq i32 %3177, 0
   %or.cond81.i446 = select i1 %3176, i1 %3178, i1 false
@@ -7455,7 +7455,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_115DropNullCounter9NextBlockEv.exit.i534:
   br label %.loopexit.i547
 
 3718:                                             ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_115DropNullCounter9NextBlockEv.exit.i534
-  %3719 = icmp ult i32 %.sroa.0.0.i.i535, 65536
+  %3719 = icmp eq i32 %.sroa.18.0.extract.shift.i537, 0
   %3720 = load i32, ptr %3484, align 8
   %3721 = icmp eq i32 %3720, 0
   %or.cond81.i545 = select i1 %3719, i1 %3721, i1 false
@@ -8408,7 +8408,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_115DropNullCounter9NextBlockEv.exit.i631:
   br label %.loopexit.i639
 
 4261:                                             ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_115DropNullCounter9NextBlockEv.exit.i631
-  %4262 = icmp ult i32 %.sroa.0.0.i.i632, 65536
+  %4262 = icmp eq i32 %.sroa.18.0.extract.shift.i633, 0
   %4263 = load i32, ptr %4027, align 8
   %4264 = icmp eq i32 %4263, 0
   %or.cond81.i638 = select i1 %4262, i1 %4264, i1 false
@@ -13154,8 +13154,8 @@ _ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i: ; preds = %856, %831
   %.sroa.0.0.extract.trunc.i = trunc i32 %.sroa.0.0.insert.insert.i.i to i16
   %.sroa.17.0.extract.shift.i = lshr i32 %.sroa.0.0.insert.insert.i.i, 16
   %.sroa.17.0.extract.trunc.i = trunc nuw i32 %.sroa.17.0.extract.shift.i to i16
-  %860 = icmp ult i32 %.sroa.0.0.insert.insert.i.i, 65536
-  %or.cond.i = and i1 %124, %860
+  %860 = or i32 %.sroa.17.0.extract.shift.i, %98
+  %or.cond.i = icmp eq i32 %860, 0
   br i1 %or.cond.i, label %861, label %873
 
 861:                                              ; preds = %_ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i
@@ -14952,8 +14952,8 @@ _ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i253: ; preds = %1708, %1683
   %.sroa.0.0.extract.trunc.i255 = trunc i32 %.sroa.0.0.insert.insert.i.i254 to i16
   %.sroa.17.0.extract.shift.i256 = lshr i32 %.sroa.0.0.insert.insert.i.i254, 16
   %.sroa.17.0.extract.trunc.i257 = trunc nuw i32 %.sroa.17.0.extract.shift.i256 to i16
-  %1712 = icmp ult i32 %.sroa.0.0.insert.insert.i.i254, 65536
-  %or.cond.i258 = and i1 %124, %1712
+  %1712 = or i32 %.sroa.17.0.extract.shift.i256, %98
+  %or.cond.i258 = icmp eq i32 %1712, 0
   br i1 %or.cond.i258, label %1713, label %1725
 
 1713:                                             ; preds = %_ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i253

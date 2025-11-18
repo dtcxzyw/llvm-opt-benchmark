@@ -2143,7 +2143,7 @@ dissect_dvb_s2_gse.exit.i:                        ; preds = %504, %503, %305
 609:                                              ; preds = %606, %599
   %.1396.i = phi ptr [ %608, %606 ], [ %604, %599 ]
   %610 = call ptr @stream_get_frag_data(ptr noundef %.1396.i)
-  %.not442.i = icmp ult i16 %.0370.i, 8
+  %.not442.i = icmp eq i16 %600, 0
   br i1 %.not442.i, label %611, label %615
 
 611:                                              ; preds = %609

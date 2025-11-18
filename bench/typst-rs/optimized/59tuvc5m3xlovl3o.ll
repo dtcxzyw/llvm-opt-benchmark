@@ -2150,7 +2150,7 @@ define hidden noundef zeroext i1 @_ZN10ttf_parser6tables4cmap7format29Subtable21
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 2
   %.val.i.i.i46.i.i.i = load i16, ptr %32, align 1, !alias.scope !240, !noalias !235
   %33 = tail call i16 @llvm.bswap.i16(i16 %.val.i.i.i46.i.i.i)
-  %34 = icmp ult i16 %21, 8
+  %34 = icmp eq i16 %22, 0
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %29
@@ -17145,15 +17145,13 @@ define hidden void @_ZN5image8imageops6affine18rotate180_in_place17h546506cb145e
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %.val28 = load i32, ptr %3, align 4, !noundef !4
   %4 = lshr i32 %.val28, 1
-  %.not = icmp ult i32 %.val28, 2
-  br i1 %.not, label %._crit_edge, label %.lr.ph37
-
-.lr.ph37:                                         ; preds = %1
+  %.not = icmp eq i32 %4, 0
   %.not40 = icmp eq i32 %.val, 0
-  br i1 %.not40, label %.thread30, label %.lr.ph.us
+  %or.cond = or i1 %.not, %.not40
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph.us
 
-.lr.ph.us:                                        ; preds = %.lr.ph37, %..loopexit_crit_edge.us
-  %.sroa.01.036.us = phi i32 [ %13, %..loopexit_crit_edge.us ], [ 0, %.lr.ph37 ]
+.lr.ph.us:                                        ; preds = %1, %..loopexit_crit_edge.us
+  %.sroa.01.036.us = phi i32 [ %13, %..loopexit_crit_edge.us ], [ 0, %1 ]
   %5 = xor i32 %.sroa.01.036.us, -1
   %6 = add i32 %.val28, %5
   br label %7
@@ -17182,10 +17180,10 @@ define hidden void @_ZN5image8imageops6affine18rotate180_in_place17h546506cb145e
 
 16:                                               ; preds = %._crit_edge
   %17 = lshr i32 %.val, 1
-  %.not41 = icmp ult i32 %.val, 2
+  %.not41 = icmp eq i32 %17, 0
   br i1 %.not41, label %.thread30, label %.lr.ph
 
-.thread30:                                        ; preds = %.lr.ph, %.lr.ph37, %16, %._crit_edge
+.thread30:                                        ; preds = %.lr.ph, %16, %._crit_edge
   ret void
 
 .lr.ph:                                           ; preds = %16, %.lr.ph
@@ -17208,7 +17206,7 @@ define hidden void @_ZN5image8imageops6affine22flip_vertical_in_place17h21f0375c
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %.val16 = load i32, ptr %3, align 4, !noundef !4
   %4 = lshr i32 %.val16, 1
-  %.not = icmp ult i32 %.val16, 2
+  %.not = icmp eq i32 %4, 0
   %.not24 = icmp eq i32 %.val, 0
   %or.cond = or i1 %.not, %.not24
   br i1 %or.cond, label %._crit_edge, label %.lr.ph.us
@@ -17249,7 +17247,7 @@ define hidden void @_ZN5image8imageops6affine24flip_horizontal_in_place17hbcb856
 
 .lr.ph23:                                         ; preds = %1
   %4 = lshr i32 %.val, 1
-  %.not24 = icmp ult i32 %.val, 2
+  %.not24 = icmp eq i32 %4, 0
   br i1 %.not24, label %._crit_edge, label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph23, %..loopexit_crit_edge.us

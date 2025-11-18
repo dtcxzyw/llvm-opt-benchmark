@@ -112685,7 +112685,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   store i64 %112, ptr %111, align 8, !tbaa !283
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 8
   store i64 %.val.i.i.i.i.i19.i, ptr %113, align 8, !tbaa !285
-  %.not7.i.i.i = icmp ult i64 %.0912.in.i.i.i.i18.i, 2
+  %.not7.i.i.i = icmp eq i64 %.0912.i.i56.i.i.i, 0
   br i1 %.not7.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_tD1EvE3$_0EEEvT_SE_SE_RT0_.exit.i.i", label %.lr.ph.i.i.i.i16.i, !llvm.loop !388
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_tD1EvE3$_0EEEvT_SE_SE_RT0_.exit.i.i": ; preds = %110, %.lr.ph.i.i.i.i16.i, %106

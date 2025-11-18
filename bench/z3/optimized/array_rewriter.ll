@@ -10965,11 +10965,11 @@ _ZNK17array_recognizers8is_storeEP4expr.exit.thread: ; preds = %_ZNK17array_reco
 _ZNK6vectorIP3appLb0EjE4sizeEv.exit.i:            ; preds = %_ZNK17array_recognizers8is_storeEP4expr.exit.thread
   %79 = getelementptr inbounds i8, ptr %77, i64 -4
   %80 = load i32, ptr %79, align 4, !tbaa !102
-  %.not.i = icmp ult i32 %80, 2
+  %81 = lshr i32 %80, 1
+  %.not.i = icmp eq i32 %81, 0
   br i1 %.not.i, label %.loopexit180, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.i
-  %81 = lshr i32 %80, 1
   %wide.trip.count.i = zext nneg i32 %81 to i64
   br label %.lr.ph.i
 
@@ -11067,11 +11067,11 @@ _ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i:          ; preds = %202, %._crit_edge
   %116 = phi ptr [ %.pre, %._crit_edge ], [ %204, %202 ]
   %117 = getelementptr inbounds i8, ptr %116, i64 -4
   %118 = load i32, ptr %117, align 4, !tbaa !102
-  %.not.i63 = icmp ult i32 %118, 2
+  %119 = lshr i32 %118, 1
+  %.not.i63 = icmp eq i32 %119, 0
   br i1 %.not.i63, label %_ZN6vectorI6symbolLb0EjE7reverseEv.exit, label %.lr.ph.preheader.i64
 
 .lr.ph.preheader.i64:                             ; preds = %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i
-  %119 = lshr i32 %118, 1
   %wide.trip.count.i65 = zext nneg i32 %119 to i64
   br label %.lr.ph.i66
 
@@ -11292,11 +11292,11 @@ _ZN6vectorI6symbolLb0EjE7reverseEv.exit:          ; preds = %.lr.ph.i66, %_ZNK6v
 _ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i:           ; preds = %_ZN6vectorI6symbolLb0EjE7reverseEv.exit
   %213 = getelementptr inbounds i8, ptr %211, i64 -4
   %214 = load i32, ptr %213, align 4, !tbaa !102
-  %.not.i90 = icmp ult i32 %214, 2
+  %215 = lshr i32 %214, 1
+  %.not.i90 = icmp eq i32 %215, 0
   br i1 %.not.i90, label %_ZN6vectorIP4sortLb0EjE7reverseEv.exit, label %.lr.ph.preheader.i91
 
 .lr.ph.preheader.i91:                             ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i
-  %215 = lshr i32 %214, 1
   %wide.trip.count.i92 = zext nneg i32 %215 to i64
   br label %.lr.ph.i93
 
@@ -13607,7 +13607,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPP4exprlN9__gnu_cxx5__ops15
 107:                                              ; preds = %104
   %108 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i11.i
   store ptr %.val.i.i.i.i14.i, ptr %108, align 8, !tbaa !24
-  %.not3.i.i.i = icmp ult i64 %.04.in.i.i.i.i12.i, 2
+  %.not3.i.i.i = icmp eq i64 %.048.i.i.i.i13.i, 0
   br i1 %.not3.i.i.i, label %"_ZSt10__pop_heapIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIZN14array_rewriter11mk_map_coreEP9func_decljPKS1_R7obj_refIS0_11ast_managerEE3$_0EEEvT_SH_SH_RT0_.exit.i.i", label %104, !llvm.loop !268
 
 "_ZSt10__pop_heapIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIZN14array_rewriter11mk_map_coreEP9func_decljPKS1_R7obj_refIS0_11ast_managerEE3$_0EEEvT_SH_SH_RT0_.exit.i.i": ; preds = %107, %104, %103
@@ -13981,7 +13981,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPP4exprlN9__gnu_cxx5__ops15
 107:                                              ; preds = %104
   %108 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i11.i
   store ptr %.val.i.i.i.i14.i, ptr %108, align 8, !tbaa !24
-  %.not3.i.i.i = icmp ult i64 %.04.in.i.i.i.i12.i, 2
+  %.not3.i.i.i = icmp eq i64 %.048.i.i.i.i13.i, 0
   br i1 %.not3.i.i.i, label %"_ZSt10__pop_heapIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIZN14array_rewriter11mk_map_coreEP9func_decljPKS1_R7obj_refIS0_11ast_managerEE3$_1EEEvT_SH_SH_RT0_.exit.i.i", label %104, !llvm.loop !276
 
 "_ZSt10__pop_heapIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIZN14array_rewriter11mk_map_coreEP9func_decljPKS1_R7obj_refIS0_11ast_managerEE3$_1EEEvT_SH_SH_RT0_.exit.i.i": ; preds = %107, %104, %103

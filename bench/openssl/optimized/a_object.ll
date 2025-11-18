@@ -320,7 +320,7 @@ define i32 @a2d_ASN1_OBJECT(ptr noundef writeonly captures(address_is_null) %0, 
   %84 = getelementptr inbounds nuw i8, ptr %.1110263, i64 %indvars.iv309
   store i8 %83, ptr %84, align 1, !tbaa !12
   %85 = lshr i64 %.3101, 7
-  %86 = icmp ult i64 %.3101, 128
+  %86 = icmp eq i64 %85, 0
   br i1 %86, label %.loopexit.loopexit, label %.preheader187
 
 .loopexit.loopexit:                               ; preds = %.preheader187

@@ -2083,7 +2083,7 @@ define dso_local void @snd_hda_jack_unsol_event(ptr noundef %0, i32 noundef %1) 
   %11 = trunc nuw nsw i32 %3 to i8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %13 = load ptr, ptr %12, align 8
-  %14 = icmp ugt i32 %1, 67108863
+  %14 = icmp ne i32 %3, 0
   %15 = icmp ne ptr %13, null
   %16 = select i1 %14, i1 %15, i1 false
   br i1 %16, label %17, label %.thread
@@ -2118,7 +2118,7 @@ define dso_local void @snd_hda_jack_unsol_event(ptr noundef %0, i32 noundef %1) 
   %35 = trunc nuw nsw i32 %3 to i8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %37 = load ptr, ptr %36, align 8
-  %38 = icmp ugt i32 %1, 67108863
+  %38 = icmp ne i32 %3, 0
   %39 = icmp ne ptr %37, null
   %40 = select i1 %38, i1 %39, i1 false
   br i1 %40, label %41, label %.thread

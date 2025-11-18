@@ -6386,7 +6386,7 @@ _ZN6LibRaw10getbithuffEiPt.exit142:               ; preds = %285, %236, %234, %2
 
 298:                                              ; preds = %293
   %.neg79 = shl nsw i32 -1, %226
-  %.not78 = icmp samesign ult i16 %.016.i.shrunk, 16
+  %.not78 = icmp eq i32 %227, 0
   %.neg.neg = zext i1 %.not78 to i32
   %.neg80 = or disjoint i32 %.neg79, %.neg.neg
   %299 = add nsw i32 %.neg80, %292
@@ -6835,7 +6835,7 @@ define void @_ZN6LibRaw14nokia_load_rawEv(ptr noundef nonnull align 8 dereferenc
 .lr.ph71:                                         ; preds = %1
   %20 = zext nneg i32 %14 to i64
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 %20
-  %.not79 = icmp eq i16 %.fr78, 0
+  %.not79 = icmp eq i32 %14, 0
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 193648
   br i1 %.not79, label %.lr.ph71.split, label %.lr.ph71.split.us
 
@@ -6953,7 +6953,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.split.us:           ; preds = %31, %23, %.lr.ph71.
           to label %76 unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit.split
 
 76:                                               ; preds = %70
-  %77 = icmp slt i32 %75, %14
+  %77 = icmp slt i32 %75, 0
   br i1 %77, label %78, label %.preheader63
 
 78:                                               ; preds = %76
@@ -6984,7 +6984,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhE
   %indvars.iv97 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next98, %100 ]
   %.05167 = phi ptr [ %18, %.preheader.lr.ph ], [ %101, %100 ]
   %82 = getelementptr inbounds nuw i8, ptr %.05167, i64 4
-  %invariant.gep114 = getelementptr inbounds nuw i16, ptr %81, i64 %indvars.iv97
+  %invariant.gep115 = getelementptr inbounds nuw i16, ptr %81, i64 %indvars.iv97
   br label %83
 
 83:                                               ; preds = %.preheader, %83
@@ -7005,8 +7005,8 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhE
   %96 = zext i16 %95 to i32
   %97 = mul nuw nsw i32 %.05069, %96
   %98 = zext nneg i32 %97 to i64
-  %gep115 = getelementptr inbounds nuw i16, ptr %invariant.gep114, i64 %indvars.iv93
-  %99 = getelementptr inbounds nuw i16, ptr %gep115, i64 %98
+  %gep116 = getelementptr inbounds nuw i16, ptr %invariant.gep115, i64 %indvars.iv93
+  %99 = getelementptr inbounds nuw i16, ptr %gep116, i64 %98
   store i16 %94, ptr %99, align 2, !tbaa !86
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next94, 4
@@ -7058,21 +7058,21 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhE
   %127 = zext nneg i32 %124 to i64
   %128 = zext nneg i32 %126 to i64
   %wide.trip.count103 = and i64 %118, 4294967295
-  %invariant.gep116 = getelementptr inbounds nuw i16, ptr %122, i64 %127
-  %invariant.gep118 = getelementptr inbounds nuw i16, ptr %122, i64 %128
-  %invariant.gep120 = getelementptr inbounds nuw i16, ptr %122, i64 %128
-  %invariant.gep122 = getelementptr inbounds nuw i16, ptr %122, i64 %127
-  %.not133 = icmp eq i16 %115, 2
-  br i1 %.not133, label %.ph, label %.ph.lver.orig
+  %invariant.gep117 = getelementptr inbounds nuw i16, ptr %122, i64 %127
+  %invariant.gep119 = getelementptr inbounds nuw i16, ptr %122, i64 %128
+  %invariant.gep121 = getelementptr inbounds nuw i16, ptr %122, i64 %128
+  %invariant.gep123 = getelementptr inbounds nuw i16, ptr %122, i64 %127
+  %.not134 = icmp eq i16 %115, 2
+  br i1 %.not134, label %.ph, label %.ph.lver.orig
 
 .ph.lver.orig:                                    ; preds = %.lver.check, %.ph.lver.orig
   %indvars.iv100.lver.orig = phi i64 [ %indvars.iv.next101.lver.orig, %.ph.lver.orig ], [ 0, %.lver.check ]
-  %gep117.lver.orig = getelementptr inbounds nuw i16, ptr %invariant.gep116, i64 %indvars.iv100.lver.orig
-  %129 = load i16, ptr %gep117.lver.orig, align 2, !tbaa !86
+  %gep118.lver.orig = getelementptr inbounds nuw i16, ptr %invariant.gep117, i64 %indvars.iv100.lver.orig
+  %129 = load i16, ptr %gep118.lver.orig, align 2, !tbaa !86
   %130 = zext i16 %129 to i32
   %indvars.iv.next101.lver.orig = add nuw nsw i64 %indvars.iv100.lver.orig, 1
-  %gep119.lver.orig = getelementptr inbounds nuw i16, ptr %invariant.gep118, i64 %indvars.iv.next101.lver.orig
-  %131 = load i16, ptr %gep119.lver.orig, align 2, !tbaa !86
+  %gep120.lver.orig = getelementptr inbounds nuw i16, ptr %invariant.gep119, i64 %indvars.iv.next101.lver.orig
+  %131 = load i16, ptr %gep120.lver.orig, align 2, !tbaa !86
   %132 = zext i16 %131 to i32
   %133 = sub nsw i32 %130, %132
   %134 = mul nsw i32 %133, %133
@@ -7083,11 +7083,11 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhE
   %139 = load double, ptr %138, align 8, !tbaa !207
   %140 = fadd reassoc nsz arcp contract afn double %139, %135
   store double %140, ptr %138, align 8, !tbaa !207
-  %gep121.lver.orig = getelementptr inbounds nuw i16, ptr %invariant.gep120, i64 %indvars.iv100.lver.orig
-  %141 = load i16, ptr %gep121.lver.orig, align 2, !tbaa !86
+  %gep122.lver.orig = getelementptr inbounds nuw i16, ptr %invariant.gep121, i64 %indvars.iv100.lver.orig
+  %141 = load i16, ptr %gep122.lver.orig, align 2, !tbaa !86
   %142 = zext i16 %141 to i32
-  %gep123.lver.orig = getelementptr inbounds nuw i16, ptr %invariant.gep122, i64 %indvars.iv.next101.lver.orig
-  %143 = load i16, ptr %gep123.lver.orig, align 2, !tbaa !86
+  %gep124.lver.orig = getelementptr inbounds nuw i16, ptr %invariant.gep123, i64 %indvars.iv.next101.lver.orig
+  %143 = load i16, ptr %gep124.lver.orig, align 2, !tbaa !86
   %144 = zext i16 %143 to i32
   %145 = sub nsw i32 %142, %144
   %146 = mul nsw i32 %145, %145
@@ -7108,12 +7108,12 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhE
 152:                                              ; preds = %.ph, %152
   %store_forwarded = phi double [ %load_initial, %.ph ], [ %164, %152 ]
   %indvars.iv100 = phi i64 [ 0, %.ph ], [ %indvars.iv.next101, %152 ]
-  %gep117 = getelementptr inbounds nuw i16, ptr %invariant.gep116, i64 %indvars.iv100
-  %153 = load i16, ptr %gep117, align 2, !tbaa !86
+  %gep118 = getelementptr inbounds nuw i16, ptr %invariant.gep117, i64 %indvars.iv100
+  %153 = load i16, ptr %gep118, align 2, !tbaa !86
   %154 = zext i16 %153 to i32
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
-  %gep119 = getelementptr inbounds nuw i16, ptr %invariant.gep118, i64 %indvars.iv.next101
-  %155 = load i16, ptr %gep119, align 2, !tbaa !86
+  %gep120 = getelementptr inbounds nuw i16, ptr %invariant.gep119, i64 %indvars.iv.next101
+  %155 = load i16, ptr %gep120, align 2, !tbaa !86
   %156 = zext i16 %155 to i32
   %157 = sub nsw i32 %154, %156
   %158 = mul nsw i32 %157, %157
@@ -7124,11 +7124,11 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhE
   %163 = load double, ptr %162, align 8, !tbaa !207
   %164 = fadd reassoc nsz arcp contract afn double %163, %159
   store double %164, ptr %162, align 8, !tbaa !207
-  %gep121 = getelementptr inbounds nuw i16, ptr %invariant.gep120, i64 %indvars.iv100
-  %165 = load i16, ptr %gep121, align 2, !tbaa !86
+  %gep122 = getelementptr inbounds nuw i16, ptr %invariant.gep121, i64 %indvars.iv100
+  %165 = load i16, ptr %gep122, align 2, !tbaa !86
   %166 = zext i16 %165 to i32
-  %gep123 = getelementptr inbounds nuw i16, ptr %invariant.gep122, i64 %indvars.iv.next101
-  %167 = load i16, ptr %gep123, align 2, !tbaa !86
+  %gep124 = getelementptr inbounds nuw i16, ptr %invariant.gep123, i64 %indvars.iv.next101
+  %167 = load i16, ptr %gep124, align 2, !tbaa !86
   %168 = zext i16 %167 to i32
   %169 = sub nsw i32 %166, %168
   %170 = mul nsw i32 %169, %169

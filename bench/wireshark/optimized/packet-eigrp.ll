@@ -960,7 +960,7 @@ define internal i32 @dissect_eigrp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %194 = shl nuw nsw i32 %193, 1
   %195 = load i32, ptr @ett_eigrp_tidlist, align 4
   %196 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %65, ptr noundef %74, i32 noundef 4, i32 noundef %194, i32 noundef %195, ptr noundef null, ptr noundef nonnull @.str.414, i32 noundef %193)
-  %.not21.i.i = icmp ult i16 %189, 2
+  %.not21.i.i = icmp eq i16 %190, 0
   br i1 %.not21.i.i, label %dissect_eigrp_general_tlv.exit, label %.lr.ph.i27.i
 
 .lr.ph.i27.i:                                     ; preds = %186, %.lr.ph.i27.i

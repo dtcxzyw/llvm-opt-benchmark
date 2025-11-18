@@ -1083,7 +1083,7 @@ _ZN4llvm9SparseSetIjNS_8identityIjEEhE6insertERKj.exit: ; preds = %_ZN4llvm9Spar
   %64 = load ptr, ptr %63, align 8, !tbaa !78
   %65 = tail call i64 @_ZNK4llvm25MachineBlockFrequencyInfo12getEntryFreqEv(ptr noundef nonnull align 8 dereferenceable(8) %64) #18
   %66 = lshr i64 %65, 4
-  %67 = icmp ult i64 %65, 16
+  %67 = icmp eq i64 %66, 0
   %68 = zext i1 %67 to i64
   %69 = or i64 %66, %68
   %70 = load ptr, ptr %45, align 8, !tbaa !85
@@ -1907,7 +1907,7 @@ _ZN4llvm9BitVector15set_unused_bitsEb.exit.i:
   %11 = add i32 %10, 63
   %12 = lshr i32 %11, 6
   %13 = zext nneg i32 %12 to i64
-  %14 = icmp ult i32 %11, 64
+  %14 = icmp eq i32 %12, 0
   br i1 %14, label %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i, label %15
 
 15:                                               ; preds = %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i

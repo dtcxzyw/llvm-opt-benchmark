@@ -8920,7 +8920,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %17, %
   %45 = zext nneg i32 %44 to i64
   store ptr %35, ptr %6, align 8, !tbaa !23
   %46 = icmp eq ptr %41, null
-  %47 = icmp ugt i32 %43, 3
+  %47 = icmp ne i32 %44, 0
   %or.cond.i = and i1 %46, %47
   br i1 %or.cond.i, label %48, label %49
 

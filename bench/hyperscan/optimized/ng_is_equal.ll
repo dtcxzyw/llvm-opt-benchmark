@@ -2136,7 +2136,7 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_
 98:                                               ; preds = %94
   %99 = getelementptr inbounds %"class.ue2::graph_detail::vertex_descriptor", ptr %.fr57.i, i64 %.010.i.i.i.i18.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %99, ptr noundef nonnull align 8 dereferenceable(16) %95, i64 16, i1 false)
-  %.not12.i.i27.i = icmp ult i64 %.0911.in.i.i.i.i19.i, 2
+  %.not12.i.i27.i = icmp eq i64 %.0911.i.i1011.i.i20.i, 0
   br i1 %.not12.i.i27.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_119VertexIndexOrderingIS6_EEEEEvT_SM_SM_RT0_.exit.i24.i, label %94, !llvm.loop !92
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_119VertexIndexOrderingIS6_EEEEEvT_SM_SM_RT0_.exit.i24.i: ; preds = %98, %94, %92

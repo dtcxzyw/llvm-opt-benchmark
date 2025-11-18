@@ -24314,7 +24314,7 @@ mpd_qcopy.exit:                                   ; preds = %mpd_qcopy.exit.preh
   call fastcc void @_mpd_qmul_exact(ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef %5, ptr noundef %3)
   call void @mpd_qrem(ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef %3)
   %32 = lshr i64 %.021, 1
-  %.not = icmp samesign ult i64 %.021, 2
+  %.not = icmp eq i64 %32, 0
   br i1 %.not, label %33, label %mpd_qcopy.exit, !llvm.loop !71
 
 33:                                               ; preds = %31
@@ -32383,42 +32383,43 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   br label %47
 
 47:                                               ; preds = %mpd_qresize.exit.thread.i, %10
-  %.not.i29 = icmp ult i64 %2, 4294967296
   %48 = lshr i64 %2, 32
+  %.not.i29 = icmp eq i64 %48, 0
   %spec.select.i = select i1 %.not.i29, i64 %2, i64 %48
   %spec.select43.i = select i1 %.not.i29, i32 0, i32 32
-  %.not38.i = icmp samesign ult i64 %spec.select.i, 65536
   %49 = lshr i64 %spec.select.i, 16
+  %.not38.i = icmp eq i64 %49, 0
   %50 = or disjoint i32 %spec.select43.i, 16
   %.127.i = select i1 %.not38.i, i64 %spec.select.i, i64 %49
   %.1.i = select i1 %.not38.i, i32 %spec.select43.i, i32 %50
-  %.not39.i = icmp samesign ult i64 %.127.i, 256
   %51 = lshr i64 %.127.i, 8
+  %.not39.i = icmp eq i64 %51, 0
   %52 = or disjoint i32 %.1.i, 8
   %.228.i = select i1 %.not39.i, i64 %.127.i, i64 %51
   %.2.i = select i1 %.not39.i, i32 %.1.i, i32 %52
-  %.not40.i = icmp samesign ult i64 %.228.i, 16
   %53 = lshr i64 %.228.i, 4
+  %.not40.i = icmp eq i64 %53, 0
   %54 = or disjoint i32 %.2.i, 4
   %.329.i = select i1 %.not40.i, i64 %.228.i, i64 %53
   %.3.i = select i1 %.not40.i, i32 %.2.i, i32 %54
-  %.not41.i = icmp samesign ult i64 %.329.i, 4
   %55 = lshr i64 %.329.i, 2
+  %.not41.i = icmp eq i64 %55, 0
   %56 = add nuw nsw i32 %.3.i, 2
   %.430.i = select i1 %.not41.i, i64 %.329.i, i64 %55
   %.4.i = select i1 %.not41.i, i32 %.3.i, i32 %56
-  %.not42.i = icmp samesign ugt i64 %.430.i, 1
-  %57 = zext i1 %.not42.i to i64
-  %.531.i = lshr i64 %.430.i, %57
+  %57 = lshr i64 %.430.i, 1
+  %.not42.i = icmp ne i64 %57, 0
+  %.531.i = select i1 %.not42.i, i64 %57, i64 %.430.i
   %58 = zext i1 %.not42.i to i32
-  %59 = trunc nuw nsw i64 %.531.i to i32
+  %59 = trunc i64 %.531.i to i32
   %.5.i = add nsw i32 %.4.i, -1
   %60 = add nsw i32 %.5.i, %58
-  %61 = add nsw i32 %60, %59
+  %61 = add i32 %60, %59
   %62 = sext i32 %61 to i64
   %63 = getelementptr i64, ptr @mpd_bits, i64 %62
   %64 = load i64, ptr %63, align 8, !tbaa !3
-  %.not2432 = icmp ult i64 %64, 2
+  %65 = lshr i64 %64, 1
+  %.not2432 = icmp eq i64 %65, 0
   br i1 %.not2432, label %.._crit_edge_crit_edge, label %.lr.ph
 
 .._crit_edge_crit_edge:                           ; preds = %47
@@ -32426,67 +32427,69 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %47
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.lr.ph
-  %.in = phi i64 [ %64, %.lr.ph ], [ %67, %.backedge.backedge ]
-  %67 = lshr i64 %.in, 1
+  %68 = phi i64 [ %65, %.lr.ph ], [ %.be, %.backedge.backedge ]
   call fastcc void @_mpd_qmul(ptr noundef %0, ptr noundef readonly %0, ptr noundef readonly %0, ptr noundef nonnull readonly %4, ptr noundef nonnull %7)
   call void @mpd_qfinalize(ptr noundef %0, ptr noundef nonnull readonly %4, ptr noundef nonnull %7)
-  %68 = and i64 %67, %2
-  %.not25 = icmp eq i64 %68, 0
-  br i1 %.not25, label %70, label %69
+  %69 = and i64 %68, %2
+  %.not25 = icmp eq i64 %69, 0
+  br i1 %.not25, label %71, label %70
 
-69:                                               ; preds = %.backedge
+70:                                               ; preds = %.backedge
   call fastcc void @_mpd_qmul(ptr noundef %0, ptr noundef readonly %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %4, ptr noundef nonnull %7)
   call void @mpd_qfinalize(ptr noundef %0, ptr noundef nonnull readonly %4, ptr noundef nonnull %7)
-  br label %70
+  br label %71
 
-70:                                               ; preds = %69, %.backedge
-  %71 = load i8, ptr %0, align 8, !tbaa !19
-  %72 = and i8 %71, 14
-  %.not26 = icmp eq i8 %72, 0
-  br i1 %.not26, label %73, label %._crit_edge.loopexit
+71:                                               ; preds = %70, %.backedge
+  %72 = load i8, ptr %0, align 8, !tbaa !19
+  %73 = and i8 %72, 14
+  %.not26 = icmp eq i8 %73, 0
+  br i1 %.not26, label %74, label %._crit_edge.loopexit
 
-73:                                               ; preds = %70
-  %74 = load ptr, ptr %65, align 8, !tbaa !17
-  %75 = load i64, ptr %66, align 8, !tbaa !18
-  %76 = getelementptr i64, ptr %74, i64 %75
-  %77 = getelementptr i8, ptr %76, i64 -8
-  %78 = load i64, ptr %77, align 8, !tbaa !3
-  %.not = icmp eq i64 %78, 0
-  br i1 %.not, label %79, label %82
+74:                                               ; preds = %71
+  %75 = load ptr, ptr %66, align 8, !tbaa !17
+  %76 = load i64, ptr %67, align 8, !tbaa !18
+  %77 = getelementptr i64, ptr %75, i64 %76
+  %78 = getelementptr i8, ptr %77, i64 -8
+  %79 = load i64, ptr %78, align 8, !tbaa !3
+  %.not = icmp eq i64 %79, 0
+  br i1 %.not, label %80, label %84
 
-79:                                               ; preds = %73
-  %80 = load i32, ptr %7, align 4, !tbaa !23
-  %81 = and i32 %80, 1
-  %.not28 = icmp ne i32 %81, 0
-  %.not24 = icmp ult i64 %.in, 4
+80:                                               ; preds = %74
+  %81 = load i32, ptr %7, align 4, !tbaa !23
+  %82 = and i32 %81, 1
+  %.not28 = icmp ne i32 %82, 0
+  %83 = lshr i64 %68, 1
+  %.not24 = icmp eq i64 %83, 0
   %or.cond = select i1 %.not28, i1 true, i1 %.not24
   br i1 %or.cond, label %._crit_edge.loopexit, label %.backedge.backedge
 
-82:                                               ; preds = %73
-  %.not24.old = icmp ult i64 %.in, 4
+84:                                               ; preds = %74
+  %.old = lshr i64 %68, 1
+  %.not24.old = icmp eq i64 %.old, 0
   br i1 %.not24.old, label %._crit_edge.loopexit, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %82, %79
+.backedge.backedge:                               ; preds = %84, %80
+  %.be = phi i64 [ %.old, %84 ], [ %83, %80 ]
   br label %.backedge, !llvm.loop !96
 
-._crit_edge.loopexit:                             ; preds = %70, %79, %82
+._crit_edge.loopexit:                             ; preds = %71, %80, %84
   %.pre = load i32, ptr %7, align 4, !tbaa !23
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.._crit_edge_crit_edge, %._crit_edge.loopexit
-  %83 = phi i8 [ %71, %._crit_edge.loopexit ], [ %.pre35, %.._crit_edge_crit_edge ]
-  %84 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ 0, %.._crit_edge_crit_edge ]
-  %85 = load i32, ptr %5, align 4, !tbaa !23
-  %86 = or i32 %85, %84
-  store i32 %86, ptr %5, align 4, !tbaa !23
-  %87 = and i8 %83, -2
-  %88 = or disjoint i8 %87, %3
-  store i8 %88, ptr %0, align 8, !tbaa !19
+  %85 = phi i8 [ %72, %._crit_edge.loopexit ], [ %.pre35, %.._crit_edge_crit_edge ]
+  %86 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ 0, %.._crit_edge_crit_edge ]
+  %87 = load i32, ptr %5, align 4, !tbaa !23
+  %88 = or i32 %87, %86
+  store i32 %88, ptr %5, align 4, !tbaa !23
+  %89 = and i8 %85, -2
+  %90 = or disjoint i8 %89, %3
+  store i8 %90, ptr %0, align 8, !tbaa !19
   br label %mpd_qcopy.exit
 
 mpd_qcopy.exit:                                   ; preds = %mpd_qresize.exit.i, %._crit_edge, %9
@@ -32754,38 +32757,38 @@ define internal fastcc ptr @_mpd_fntmul(ptr noundef readonly captures(address) %
 add_size_t.exit:                                  ; preds = %5
   %15 = add i64 %3, %2
   store i64 %15, ptr %4, align 8, !tbaa !3
-  %.not.i.i = icmp ult i64 %15, 4294967296
   %16 = lshr i64 %15, 32
+  %.not.i.i = icmp eq i64 %16, 0
   %spec.select.i.i = select i1 %.not.i.i, i64 %15, i64 %16
   %spec.select43.i.i = select i1 %.not.i.i, i32 0, i32 32
-  %.not38.i.i = icmp samesign ult i64 %spec.select.i.i, 65536
   %17 = lshr i64 %spec.select.i.i, 16
+  %.not38.i.i = icmp eq i64 %17, 0
   %18 = or disjoint i32 %spec.select43.i.i, 16
   %.127.i.i = select i1 %.not38.i.i, i64 %spec.select.i.i, i64 %17
   %.1.i.i = select i1 %.not38.i.i, i32 %spec.select43.i.i, i32 %18
-  %.not39.i.i = icmp samesign ult i64 %.127.i.i, 256
   %19 = lshr i64 %.127.i.i, 8
+  %.not39.i.i = icmp eq i64 %19, 0
   %20 = or disjoint i32 %.1.i.i, 8
   %.228.i.i = select i1 %.not39.i.i, i64 %.127.i.i, i64 %19
   %.2.i.i = select i1 %.not39.i.i, i32 %.1.i.i, i32 %20
-  %.not40.i.i = icmp samesign ult i64 %.228.i.i, 16
   %21 = lshr i64 %.228.i.i, 4
+  %.not40.i.i = icmp eq i64 %21, 0
   %22 = or disjoint i32 %.2.i.i, 4
   %.329.i.i = select i1 %.not40.i.i, i64 %.228.i.i, i64 %21
   %.3.i.i = select i1 %.not40.i.i, i32 %.2.i.i, i32 %22
-  %.not41.i.i = icmp samesign ult i64 %.329.i.i, 4
   %23 = lshr i64 %.329.i.i, 2
+  %.not41.i.i = icmp eq i64 %23, 0
   %24 = add nuw nsw i32 %.3.i.i, 2
   %.430.i.i = select i1 %.not41.i.i, i64 %.329.i.i, i64 %23
   %.4.i.i = select i1 %.not41.i.i, i32 %.3.i.i, i32 %24
-  %.not42.i.i = icmp samesign ugt i64 %.430.i.i, 1
-  %25 = zext i1 %.not42.i.i to i64
-  %.531.i.i = lshr i64 %.430.i.i, %25
+  %25 = lshr i64 %.430.i.i, 1
+  %.not42.i.i = icmp ne i64 %25, 0
+  %.531.i.i = select i1 %.not42.i.i, i64 %25, i64 %.430.i.i
   %26 = zext i1 %.not42.i.i to i32
-  %27 = trunc nuw nsw i64 %.531.i.i to i32
+  %27 = trunc i64 %.531.i.i to i32
   %.5.i.i = add nsw i32 %.4.i.i, -1
   %28 = add nsw i32 %.5.i.i, %26
-  %29 = add nsw i32 %28, %27
+  %29 = add i32 %28, %27
   %30 = sext i32 %29 to i64
   %31 = icmp ult i64 %15, 1025
   br i1 %31, label %32, label %36

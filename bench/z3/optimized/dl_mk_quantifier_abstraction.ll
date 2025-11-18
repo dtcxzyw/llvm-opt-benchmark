@@ -6023,7 +6023,7 @@ _ZN14core_hashtableIN7obj_mapI9func_declPS1_E13obj_map_entryE8obj_hashINS3_8key_
   %80 = zext nneg i32 %79 to i64
   %81 = shl nuw nsw i64 %80, 4
   %82 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %81)
-  %.not6.i.i.i.i.i.i.i = icmp ult i32 %78, 2
+  %.not6.i.i.i.i.i.i.i = icmp eq i32 %79, 0
   br i1 %.not6.i.i.i.i.i.i.i, label %_ZN14core_hashtableIN7obj_mapI9func_declPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE11alloc_tableEj.exit.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %_ZN14core_hashtableIN7obj_mapI9func_declPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE12delete_tableEv.exit.i.i
@@ -6106,7 +6106,7 @@ _ZN14core_hashtableIN7obj_mapI9func_declPS1_E13obj_map_entryE8obj_hashINS3_8key_
   %112 = zext nneg i32 %111 to i64
   %113 = shl nuw nsw i64 %112, 4
   %114 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %113)
-  %.not6.i.i.i.i.i.i.i87 = icmp ult i32 %110, 2
+  %.not6.i.i.i.i.i.i.i87 = icmp eq i32 %111, 0
   br i1 %.not6.i.i.i.i.i.i.i87, label %_ZN14core_hashtableIN7obj_mapI9func_declPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE11alloc_tableEj.exit.i.i89, label %.lr.ph.preheader.i.i.i.i.i.i.i88
 
 .lr.ph.preheader.i.i.i.i.i.i.i88:                 ; preds = %_ZN14core_hashtableIN7obj_mapI9func_declPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE12delete_tableEv.exit.i.i86
@@ -10628,8 +10628,8 @@ define linkonce_odr hidden void @_ZN7datalog25mk_quantifier_abstraction18qa_mode
   %23 = icmp ugt i32 %12, 16
   %24 = mul i32 %12, 3
   %25 = icmp ugt i32 %22, %24
-  %or.cond18.i.i = select i1 %23, i1 %25, i1 false
-  br i1 %or.cond18.i.i, label %26, label %._crit_edge.thread.i.i
+  %or.cond19.i.i = select i1 %23, i1 %25, i1 false
+  br i1 %or.cond19.i.i, label %26, label %._crit_edge.thread.i.i
 
 26:                                               ; preds = %._crit_edge.i.i
   %27 = icmp eq ptr %10, null
@@ -10648,7 +10648,7 @@ _ZN14core_hashtableIN7obj_mapI4exprbE13obj_map_entryE8obj_hashINS2_8key_dataEE10
   %31 = zext nneg i32 %30 to i64
   %32 = shl nuw nsw i64 %31, 4
   %33 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %32)
-  %.not6.i.i.i.i.i.i.i = icmp ult i32 %29, 2
+  %.not6.i.i.i.i.i.i.i = icmp eq i32 %30, 0
   br i1 %.not6.i.i.i.i.i.i.i, label %_ZN14core_hashtableIN7obj_mapI4exprbE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE11alloc_tableEj.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN14core_hashtableIN7obj_mapI4exprbE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE12delete_tableEv.exit.i.i, %.lr.ph.i.i.i.i.i.i.i

@@ -389,11 +389,11 @@ define internal i32 @raw_decode(ptr noundef %0, ptr noundef %1, ptr noundef writ
   br label %102
 
 102:                                              ; preds = %67, %79, %95
-  %.sink668 = phi i32 [ %78, %67 ], [ %85, %79 ], [ %101, %95 ]
+  %.sink669 = phi i32 [ %78, %67 ], [ %85, %79 ], [ %101, %95 ]
   %103 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 %.sink668, ptr %103, align 8, !tbaa !53
+  store i32 %.sink669, ptr %103, align 8, !tbaa !53
   %104 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %105 = icmp slt i32 %.sink668, 0
+  %105 = icmp slt i32 %.sink669, 0
   br i1 %105, label %594, label %106
 
 106:                                              ; preds = %102
@@ -777,8 +777,8 @@ define internal i32 @raw_decode(ptr noundef %0, ptr noundef %1, ptr noundef writ
   %328 = icmp eq i32 %327, 5523778
   %329 = zext i1 %328 to i32
   %330 = lshr i32 %326, 24
-  %331 = icmp ugt i32 %326, 16777215
-  %or.cond = and i1 %331, %328
+  %331 = icmp ne i32 %330, 0
+  %or.cond = and i1 %328, %331
   br i1 %or.cond, label %332, label %348
 
 332:                                              ; preds = %322
@@ -1307,7 +1307,7 @@ thread-pre-split:                                 ; preds = %455, %433
   br label %594
 
 594:                                              ; preds = %394, %397, %332, %337, %146, %133, %118, %102, %593, %472, %385, %378, %37, %19, %14
-  %.0440 = phi i32 [ -1094995529, %14 ], [ -1094995529, %19 ], [ -1094995529, %37 ], [ %383, %385 ], [ %.0449, %593 ], [ -12, %472 ], [ -22, %378 ], [ %.sink668, %102 ], [ %120, %118 ], [ %136, %133 ], [ -12, %146 ], [ -12, %332 ], [ -1094995529, %337 ], [ %395, %397 ], [ -12, %394 ]
+  %.0440 = phi i32 [ -1094995529, %14 ], [ -1094995529, %19 ], [ -1094995529, %37 ], [ %383, %385 ], [ %.0449, %593 ], [ -12, %472 ], [ -22, %378 ], [ %.sink669, %102 ], [ %120, %118 ], [ %136, %133 ], [ -12, %146 ], [ -12, %332 ], [ -1094995529, %337 ], [ %395, %397 ], [ -12, %394 ]
   ret i32 %.0440
 }
 

@@ -1894,7 +1894,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit238.i:            ; preds = %795, %793
   unreachable
 
 _ZNSt6vectorIS_IPKN4llvm20CodeGenRegisterClassESaIS3_EESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i: ; preds = %819
-  %.not.i.i.i.i.i120 = icmp ult i64 %821, 32
+  %.not.i.i.i.i.i120 = icmp eq i64 %822, 0
   br i1 %.not.i.i.i.i.i120, label %_ZNSt6vectorIS_IPKN4llvm20CodeGenRegisterClassESaIS3_EESaIS5_EEC2EmRKS6_.exit.i, label %.lr.ph.preheader.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %_ZNSt6vectorIS_IPKN4llvm20CodeGenRegisterClassESaIS3_EESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i
@@ -5481,11 +5481,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.experimental.noalias.scope.decl(metadata !300)
   %114 = load i8, ptr %61, align 8, !tbaa !118, !noalias !303
   switch i8 %114, label %_ZN4llvmplERKNS_5TwineES2_.exit [
-    i8 0, label %_ZN4llvmplERKNS_5TwineES2_.exit.thread248
+    i8 0, label %_ZN4llvmplERKNS_5TwineES2_.exit.thread247
     i8 1, label %117
   ]
 
-_ZN4llvmplERKNS_5TwineES2_.exit.thread248:        ; preds = %112
+_ZN4llvmplERKNS_5TwineES2_.exit.thread247:        ; preds = %112
   store i8 0, ptr %62, align 8, !tbaa !118, !alias.scope !303
   store i8 1, ptr %63, align 1, !tbaa !114, !alias.scope !303
   store i8 0, ptr %66, align 8, !tbaa !118, !alias.scope !304
@@ -5513,13 +5513,13 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %112
   store ptr @.str.23, ptr %15, align 8
   store i8 3, ptr %62, align 8, !tbaa !241
   store i8 1, ptr %63, align 1, !tbaa !241
-  %.sroa.56.0.copyload.i.i31251 = load i64, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8, !noalias !304
+  %.sroa.56.0.copyload.i.i31250 = load i64, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8, !noalias !304
   br label %118
 
 118:                                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit, %117
   %119 = phi ptr [ @.str.23, %117 ], [ %15, %_ZN4llvmplERKNS_5TwineES2_.exit ]
   %120 = phi i8 [ 3, %117 ], [ 2, %_ZN4llvmplERKNS_5TwineES2_.exit ]
-  %121 = phi i64 [ %.sroa.56.0.copyload.i.i31251, %117 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit ]
+  %121 = phi i64 [ %.sroa.56.0.copyload.i.i31250, %117 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit ]
   %122 = getelementptr inbounds nuw i8, ptr %.sroa.0147.0167, i64 192
   store ptr %119, ptr %14, align 8, !alias.scope !304
   store i64 %121, ptr %.sroa.23.0..sroa_idx.i.i.i41, align 8, !tbaa !117, !alias.scope !304
@@ -5530,10 +5530,10 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %112
   store ptr @.str.24, ptr %71, align 8, !alias.scope !311
   br label %_ZN4llvmplERKNS_5TwineES2_.exit58
 
-_ZN4llvmplERKNS_5TwineES2_.exit58:                ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit.thread248, %118
-  %.sink286 = phi i8 [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit.thread248 ], [ 2, %118 ]
-  %.sink = phi i8 [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit.thread248 ], [ 3, %118 ]
-  store i8 %.sink286, ptr %69, align 8, !tbaa !118, !alias.scope !311
+_ZN4llvmplERKNS_5TwineES2_.exit58:                ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit.thread247, %118
+  %.sink285 = phi i8 [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit.thread247 ], [ 2, %118 ]
+  %.sink = phi i8 [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit.thread247 ], [ 3, %118 ]
+  store i8 %.sink285, ptr %69, align 8, !tbaa !118, !alias.scope !311
   store i8 %.sink, ptr %70, align 1, !tbaa !114, !alias.scope !311
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull align 8 dereferenceable(34) %13) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -5813,13 +5813,13 @@ _ZN4llvm9BitVectorC2Ejb.exit.loopexit:            ; preds = %.lr.ph
   br label %_ZN4llvm9BitVectorC2Ejb.exit.sink.split
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i:        ; preds = %.lr.ph
-  %.not.i.i76 = icmp samesign ult i32 %218, 64
+  %.not.i.i76 = icmp eq i32 %219, 0
   br i1 %.not.i.i76, label %_ZN4llvm9BitVectorC2Ejb.exit, label %_ZN4llvm9BitVectorC2Ejb.exit.sink.split
 
 _ZN4llvm9BitVectorC2Ejb.exit.sink.split:          ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit
-  %.sink287 = phi ptr [ %222, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit ], [ %91, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i ]
+  %.sink286 = phi ptr [ %222, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit ], [ %91, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i ]
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %220, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %.sink287, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !166
+  call void @llvm.memset.p0.i64(ptr align 8 %.sink286, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !166
   br label %_ZN4llvm9BitVectorC2Ejb.exit
 
 _ZN4llvm9BitVectorC2Ejb.exit:                     ; preds = %_ZN4llvm9BitVectorC2Ejb.exit.sink.split, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i

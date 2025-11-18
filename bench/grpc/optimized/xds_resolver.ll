@@ -4344,17 +4344,14 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
 17:                                               ; preds = %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i64, ptr %18, align 8, !tbaa !232
-  %.not.i21 = icmp ult i64 %19, 2
-  br i1 %.not.i21, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager8DnsStateEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS9_SC_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SC_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSD_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.lr.ph26.preheader
-
-.lr.ph26.preheader:                               ; preds = %17
   %20 = lshr i64 %19, 1
-  br label %.lr.ph26
+  %.not.i21 = icmp eq i64 %20, 0
+  br i1 %.not.i21, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager8DnsStateEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS9_SC_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SC_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSD_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.lr.ph26
 
-.lr.ph26:                                         ; preds = %.lr.ph26.preheader, %._crit_edge
-  %.0.i24 = phi ptr [ %25, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %.lr.ph26.preheader ]
-  %.025.i23 = phi ptr [ %24, %._crit_edge ], [ %5, %.lr.ph26.preheader ]
-  %.026.i22 = phi i64 [ %.1.i.lcssa, %._crit_edge ], [ %20, %.lr.ph26.preheader ]
+.lr.ph26:                                         ; preds = %17, %._crit_edge
+  %.0.i24 = phi ptr [ %25, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %17 ]
+  %.025.i23 = phi ptr [ %24, %._crit_edge ], [ %5, %17 ]
+  %.026.i22 = phi i64 [ %.1.i.lcssa, %._crit_edge ], [ %20, %17 ]
   %21 = load <16 x i8>, ptr %.025.i23, align 1, !tbaa !99
   %22 = icmp sgt <16 x i8> %21, splat (i8 -1)
   %23 = bitcast <16 x i1> %22 to i16
@@ -4735,17 +4732,14 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
 51:                                               ; preds = %1
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %53 = load i64, ptr %52, align 8, !tbaa !232
-  %.not.i31 = icmp ult i64 %53, 2
-  br i1 %.not.i31, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager20EndpointWatcherStateEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS9_SC_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SC_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSD_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.lr.ph36.preheader
-
-.lr.ph36.preheader:                               ; preds = %51
   %54 = lshr i64 %53, 1
-  br label %.lr.ph36
+  %.not.i31 = icmp eq i64 %54, 0
+  br i1 %.not.i31, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager20EndpointWatcherStateEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS9_SC_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SC_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSD_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.lr.ph36
 
-.lr.ph36:                                         ; preds = %.lr.ph36.preheader, %._crit_edge
-  %.0.i34 = phi ptr [ %59, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %.lr.ph36.preheader ]
-  %.025.i33 = phi ptr [ %58, %._crit_edge ], [ %5, %.lr.ph36.preheader ]
-  %.026.i32 = phi i64 [ %.1.i.lcssa, %._crit_edge ], [ %54, %.lr.ph36.preheader ]
+.lr.ph36:                                         ; preds = %51, %._crit_edge
+  %.0.i34 = phi ptr [ %59, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %51 ]
+  %.025.i33 = phi ptr [ %58, %._crit_edge ], [ %5, %51 ]
+  %.026.i32 = phi i64 [ %.1.i.lcssa, %._crit_edge ], [ %54, %51 ]
   %55 = load <16 x i8>, ptr %.025.i33, align 1, !tbaa !99
   %56 = icmp sgt <16 x i8> %55, splat (i8 -1)
   %57 = bitcast <16 x i1> %56 to i16
@@ -4901,17 +4895,14 @@ _ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionE
 23:                                               ; preds = %1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !232
-  %.not.i24 = icmp ult i64 %25, 2
-  br i1 %.not.i24, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeISt17basic_string_viewIcSt11char_traitsIcEEN9grpc_core17WeakRefCountedPtrINS8_20XdsDependencyManager19ClusterSubscriptionEEEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS7_SC_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SC_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSD_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.lr.ph29.preheader
-
-.lr.ph29.preheader:                               ; preds = %23
   %26 = lshr i64 %25, 1
-  br label %.lr.ph29
+  %.not.i24 = icmp eq i64 %26, 0
+  br i1 %.not.i24, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeISt17basic_string_viewIcSt11char_traitsIcEEN9grpc_core17WeakRefCountedPtrINS8_20XdsDependencyManager19ClusterSubscriptionEEEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS7_SC_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SC_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSD_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.lr.ph29
 
-.lr.ph29:                                         ; preds = %.lr.ph29.preheader, %._crit_edge
-  %.0.i27 = phi ptr [ %31, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %.lr.ph29.preheader ]
-  %.025.i26 = phi ptr [ %30, %._crit_edge ], [ %5, %.lr.ph29.preheader ]
-  %.026.i25 = phi i64 [ %.1.i.lcssa, %._crit_edge ], [ %26, %.lr.ph29.preheader ]
+.lr.ph29:                                         ; preds = %23, %._crit_edge
+  %.0.i27 = phi ptr [ %31, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %23 ]
+  %.025.i26 = phi ptr [ %30, %._crit_edge ], [ %5, %23 ]
+  %.026.i25 = phi i64 [ %.1.i.lcssa, %._crit_edge ], [ %26, %23 ]
   %27 = load <16 x i8>, ptr %.025.i26, align 1, !tbaa !99
   %28 = icmp sgt <16 x i8> %27, splat (i8 -1)
   %29 = bitcast <16 x i1> %28 to i16
@@ -5023,17 +5014,14 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
 17:                                               ; preds = %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i64, ptr %18, align 8, !tbaa !232
-  %.not.i21 = icmp ult i64 %19, 2
-  br i1 %.not.i21, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager19ClusterWatcherStateEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS9_SC_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SC_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSD_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.lr.ph26.preheader
-
-.lr.ph26.preheader:                               ; preds = %17
   %20 = lshr i64 %19, 1
-  br label %.lr.ph26
+  %.not.i21 = icmp eq i64 %20, 0
+  br i1 %.not.i21, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core20XdsDependencyManager19ClusterWatcherStateEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS9_SC_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SC_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSD_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.lr.ph26
 
-.lr.ph26:                                         ; preds = %.lr.ph26.preheader, %._crit_edge
-  %.0.i24 = phi ptr [ %25, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %.lr.ph26.preheader ]
-  %.025.i23 = phi ptr [ %24, %._crit_edge ], [ %5, %.lr.ph26.preheader ]
-  %.026.i22 = phi i64 [ %.1.i.lcssa, %._crit_edge ], [ %20, %.lr.ph26.preheader ]
+.lr.ph26:                                         ; preds = %17, %._crit_edge
+  %.0.i24 = phi ptr [ %25, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %17 ]
+  %.025.i23 = phi ptr [ %24, %._crit_edge ], [ %5, %17 ]
+  %.026.i22 = phi i64 [ %.1.i.lcssa, %._crit_edge ], [ %20, %17 ]
   %21 = load <16 x i8>, ptr %.025.i23, align 1, !tbaa !99
   %22 = icmp sgt <16 x i8> %21, splat (i8 -1)
   %23 = bitcast <16 x i1> %22 to i16
@@ -5882,15 +5870,12 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = select i1 %.not, ptr %4, ptr %5
-  %.not5.i = icmp ult i64 %2, 2
-  br i1 %.not5.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEELb0EE15DestroyElementsERS6_PS5_m.exit, label %.lr.ph.i.preheader
-
-.lr.ph.i.preheader:                               ; preds = %1
   %7 = lshr i64 %2, 1
-  br label %.lr.ph.i
+  %.not5.i = icmp eq i64 %7, 0
+  br i1 %.not5.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEELb0EE15DestroyElementsERS6_PS5_m.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i
-  %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %7, %.lr.ph.i.preheader ]
+.lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i
+  %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
   %9 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -5939,15 +5924,12 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = select i1 %.not, ptr %4, ptr %5
-  %.not5.i = icmp ult i64 %2, 2
-  br i1 %.not5.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0EE15DestroyElementsERS9_PS8_m.exit, label %.lr.ph.i.preheader
-
-.lr.ph.i.preheader:                               ; preds = %1
   %7 = lshr i64 %2, 1
-  br label %.lr.ph.i
+  %.not5.i = icmp eq i64 %7, 0
+  br i1 %.not5.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0EE15DestroyElementsERS9_PS8_m.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i
-  %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i ], [ %7, %.lr.ph.i.preheader ]
+.lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i
+  %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
   %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !61

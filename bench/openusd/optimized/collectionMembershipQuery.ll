@@ -5378,6 +5378,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit428: ; preds = %.
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  %.sroa.3748.0.extract.shift = lshr i64 %1801, 32
   %1803 = load i32, ptr %55, align 8
   %.not.i.i432 = icmp eq i32 %1803, 0
   br i1 %.not.i.i432, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit433, label %1804
@@ -5474,7 +5475,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iterator9_PtrProxyD2Ev.exit:
   br i1 %.not90, label %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit529.thread, label %1852
 
 1852:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iterator9_PtrProxyD2Ev.exit
-  %1853 = icmp ult i64 %1801, 4294967296
+  %1853 = icmp eq i64 %.sroa.3748.0.extract.shift, 0
   br i1 %1853, label %1854, label %2340
 
 1854:                                             ; preds = %1852
@@ -7229,7 +7230,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit.i562: ; preds = 
   br label %.body520
 
 2592:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit529, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit529.thread, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__11UsdPropertyES1_EvT_S3_RSaIT0_E.exit.i539, %2430
-  %2593 = icmp ult i64 %1801, 4294967296
+  %2593 = icmp eq i64 %.sroa.3748.0.extract.shift, 0
   br i1 %2593, label %2594, label %.thread829
 
 2594:                                             ; preds = %2592

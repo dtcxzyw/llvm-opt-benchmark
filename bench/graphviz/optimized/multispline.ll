@@ -3530,7 +3530,7 @@ define internal fastcc void @finishEdge(ptr noundef %0, ptr %1, i64 %2, i32 noun
 
 .preheader:                                       ; preds = %4
   %6 = lshr i64 %2, 1
-  %.not27 = icmp ult i64 %2, 2
+  %.not27 = icmp eq i64 %6, 0
   br i1 %.not27, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader

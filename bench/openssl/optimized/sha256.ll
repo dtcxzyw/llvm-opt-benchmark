@@ -133,26 +133,26 @@ define noundef i32 @SHA224_Update(ptr noundef %0, ptr noundef %1, i64 noundef %2
 34:                                               ; preds = %27, %._crit_edge.i
   %.054.i = phi i64 [ %30, %27 ], [ %2, %._crit_edge.i ]
   %.053.i = phi ptr [ %29, %27 ], [ %1, %._crit_edge.i ]
-  %.not58.i = icmp ult i64 %.054.i, 64
-  br i1 %.not58.i, label %40, label %35
+  %35 = lshr i64 %.054.i, 6
+  %.not58.i = icmp eq i64 %35, 0
+  br i1 %.not58.i, label %40, label %36
 
-35:                                               ; preds = %34
-  %36 = lshr i64 %.054.i, 6
-  tail call void @sha256_block_data_order(ptr noundef nonnull %0, ptr noundef %.053.i, i64 noundef %36) #5
+36:                                               ; preds = %34
+  tail call void @sha256_block_data_order(ptr noundef nonnull %0, ptr noundef %.053.i, i64 noundef %35) #5
   %37 = and i64 %.054.i, -64
   %38 = getelementptr inbounds nuw i8, ptr %.053.i, i64 %37
   %39 = and i64 %.054.i, 63
   br label %40
 
-40:                                               ; preds = %35, %34
-  %.155.i = phi i64 [ %39, %35 ], [ %.054.i, %34 ]
-  %.1.i = phi ptr [ %38, %35 ], [ %.053.i, %34 ]
+40:                                               ; preds = %36, %34
+  %.155.i = phi i64 [ %39, %36 ], [ %.054.i, %34 ]
+  %.1.i = phi ptr [ %38, %36 ], [ %.053.i, %34 ]
   %.not59.i = icmp eq i64 %.155.i, 0
   br i1 %.not59.i, label %SHA256_Update.exit, label %41
 
 41:                                               ; preds = %40
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %43 = trunc nuw nsw i64 %.155.i to i32
+  %43 = trunc i64 %.155.i to i32
   store i32 %43, ptr %18, align 4, !tbaa !11
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr align 1 %.1.i, i64 %.155.i, i1 false)
   br label %SHA256_Update.exit
@@ -217,26 +217,26 @@ define noundef i32 @SHA256_Update(ptr noundef %0, ptr noundef %1, i64 noundef %2
 35:                                               ; preds = %28, %._crit_edge
   %.054 = phi i64 [ %31, %28 ], [ %2, %._crit_edge ]
   %.053 = phi ptr [ %30, %28 ], [ %1, %._crit_edge ]
-  %.not58 = icmp ult i64 %.054, 64
-  br i1 %.not58, label %41, label %36
+  %36 = lshr i64 %.054, 6
+  %.not58 = icmp eq i64 %36, 0
+  br i1 %.not58, label %41, label %37
 
-36:                                               ; preds = %35
-  %37 = lshr i64 %.054, 6
-  tail call void @sha256_block_data_order(ptr noundef nonnull %0, ptr noundef %.053, i64 noundef %37) #5
+37:                                               ; preds = %35
+  tail call void @sha256_block_data_order(ptr noundef nonnull %0, ptr noundef %.053, i64 noundef %36) #5
   %38 = and i64 %.054, -64
   %39 = getelementptr inbounds nuw i8, ptr %.053, i64 %38
   %40 = and i64 %.054, 63
   br label %41
 
-41:                                               ; preds = %36, %35
-  %.155 = phi i64 [ %40, %36 ], [ %.054, %35 ]
-  %.1 = phi ptr [ %39, %36 ], [ %.053, %35 ]
+41:                                               ; preds = %37, %35
+  %.155 = phi i64 [ %40, %37 ], [ %.054, %35 ]
+  %.1 = phi ptr [ %39, %37 ], [ %.053, %35 ]
   %.not59 = icmp eq i64 %.155, 0
   br i1 %.not59, label %45, label %42
 
 42:                                               ; preds = %41
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %44 = trunc nuw nsw i64 %.155 to i32
+  %44 = trunc i64 %.155 to i32
   store i32 %44, ptr %19, align 4, !tbaa !11
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr align 1 %.1, i64 %.155, i1 false)
   br label %45

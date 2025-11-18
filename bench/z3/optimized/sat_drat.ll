@@ -894,7 +894,7 @@ _ZN3sat4drat13dump_activityEv.exit:               ; preds = %_ZNK3sat6solver8num
 
 86:                                               ; preds = %82, %77
   %.2 = phi i32 [ %83, %82 ], [ %.142, %77 ]
-  %.not39 = icmp ult i32 %79, 2
+  %.not39 = icmp eq i32 %80, 0
   br i1 %.not39, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %86, %.lr.ph
@@ -1043,7 +1043,7 @@ define hidden void @_ZN3sat4drat5bdumpEjPKNS_7literalENS_6statusE(ptr noundef no
   %.0 = phi i32 [ %18, %16 ], [ %21, %30 ]
   %20 = trunc i32 %.0 to i8
   %21 = lshr i32 %.0, 7
-  %.not = icmp ult i32 %.0, 128
+  %.not = icmp eq i32 %21, 0
   %22 = or i8 %20, -128
   %.121 = select i1 %.not, i8 %20, i8 %22
   %23 = add nsw i32 %.1, 1
@@ -5044,7 +5044,7 @@ _ZNK3sat4drat10get_statusEb.exit:                 ; preds = %3, %12
   %.0.i = phi i32 [ %1, %26 ], [ %29, %38 ]
   %28 = trunc i32 %.0.i to i8
   %29 = lshr i32 %.0.i, 7
-  %.not.i = icmp ult i32 %.0.i, 128
+  %.not.i = icmp eq i32 %29, 0
   %30 = or i8 %28, -128
   %.121.i = select i1 %.not.i, i8 %28, i8 %30
   %31 = add nsw i32 %.1.i, 1
@@ -5119,7 +5119,7 @@ define hidden void @_ZN3sat4drat3addENS_7literalES1_NS_6statusE(ptr noundef nonn
   %9 = alloca %"class.sat::status", align 8
   %10 = load i32, ptr %3, align 8, !tbaa !89
   %11 = icmp eq i32 %10, 3
-  %indvars.iv.i.sroa.gep7 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %indvars.iv.i.sroa.gep8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %4
@@ -5194,7 +5194,7 @@ define hidden void @_ZN3sat4drat3addENS_7literalES1_NS_6statusE(ptr noundef nonn
 
 43:                                               ; preds = %57, %36
   %exitcond.not.i = phi i1 [ false, %36 ], [ true, %57 ]
-  %indvars.iv.i.sroa.phi = phi ptr [ %6, %36 ], [ %indvars.iv.i.sroa.gep7, %57 ]
+  %indvars.iv.i.sroa.phi = phi ptr [ %6, %36 ], [ %indvars.iv.i.sroa.gep8, %57 ]
   %.01925.i = phi i32 [ 1, %36 ], [ %.2.i, %57 ]
   %44 = load i32, ptr %indvars.iv.i.sroa.phi, align 4, !tbaa !65
   br label %45
@@ -5204,7 +5204,7 @@ define hidden void @_ZN3sat4drat3addENS_7literalES1_NS_6statusE(ptr noundef nonn
   %.0.i = phi i32 [ %44, %43 ], [ %47, %56 ]
   %46 = trunc i32 %.0.i to i8
   %47 = lshr i32 %.0.i, 7
-  %.not.i = icmp ult i32 %.0.i, 128
+  %.not.i = icmp eq i32 %47, 0
   %48 = or i8 %46, -128
   %.121.i = select i1 %.not.i, i8 %46, i8 %48
   %49 = add nsw i32 %.1.i, 1
@@ -5377,7 +5377,7 @@ define hidden void @_ZN3sat4drat3addERNS_6clauseENS_6statusE(ptr noundef nonnull
   %.0.i = phi i32 [ %48, %46 ], [ %51, %60 ]
   %50 = trunc i32 %.0.i to i8
   %51 = lshr i32 %.0.i, 7
-  %.not.i = icmp ult i32 %.0.i, 128
+  %.not.i = icmp eq i32 %51, 0
   %52 = or i8 %50, -128
   %.121.i = select i1 %.not.i, i8 %50, i8 %52
   %53 = add nsw i32 %.1.i, 1
@@ -5764,7 +5764,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %15, %18
   %.0.i28 = phi i32 [ %34, %32 ], [ %37, %46 ]
   %36 = trunc i32 %.0.i28 to i8
   %37 = lshr i32 %.0.i28, 7
-  %.not.i = icmp ult i32 %.0.i28, 128
+  %.not.i = icmp eq i32 %37, 0
   %38 = or i8 %36, -128
   %.121.i = select i1 %.not.i, i8 %36, i8 %38
   %39 = add nsw i32 %.1.i, 1
@@ -6011,7 +6011,7 @@ define hidden void @_ZN3sat4drat3delENS_7literalE(ptr noundef nonnull align 8 de
   %.0.i = phi i32 [ %1, %19 ], [ %22, %31 ]
   %21 = trunc i32 %.0.i to i8
   %22 = lshr i32 %.0.i, 7
-  %.not.i = icmp ult i32 %.0.i, 128
+  %.not.i = icmp eq i32 %22, 0
   %23 = or i8 %21, -128
   %.121.i = select i1 %.not.i, i8 %21, i8 %23
   %24 = add nsw i32 %.1.i, 1
@@ -6095,7 +6095,7 @@ define hidden void @_ZN3sat4drat3delENS_7literalES1_(ptr noundef nonnull align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %14 = load ptr, ptr %13, align 8, !tbaa !30
   %.not = icmp eq ptr %14, null
-  %indvars.iv.i.sroa.gep7 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %indvars.iv.i.sroa.gep8 = getelementptr inbounds nuw i8, ptr %5, i64 4
   br i1 %.not, label %18, label %15
 
 15:                                               ; preds = %3
@@ -6120,7 +6120,7 @@ define hidden void @_ZN3sat4drat3delENS_7literalES1_(ptr noundef nonnull align 8
 
 22:                                               ; preds = %36, %21
   %exitcond.not.i = phi i1 [ false, %21 ], [ true, %36 ]
-  %indvars.iv.i.sroa.phi = phi ptr [ %5, %21 ], [ %indvars.iv.i.sroa.gep7, %36 ]
+  %indvars.iv.i.sroa.phi = phi ptr [ %5, %21 ], [ %indvars.iv.i.sroa.gep8, %36 ]
   %.01925.i = phi i32 [ 1, %21 ], [ %.2.i, %36 ]
   %23 = load i32, ptr %indvars.iv.i.sroa.phi, align 4, !tbaa !65
   br label %24
@@ -6130,7 +6130,7 @@ define hidden void @_ZN3sat4drat3delENS_7literalES1_(ptr noundef nonnull align 8
   %.0.i = phi i32 [ %23, %22 ], [ %26, %35 ]
   %25 = trunc i32 %.0.i to i8
   %26 = lshr i32 %.0.i, 7
-  %.not.i = icmp ult i32 %.0.i, 128
+  %.not.i = icmp eq i32 %26, 0
   %27 = or i8 %25, -128
   %.121.i = select i1 %.not.i, i8 %25, i8 %27
   %28 = add nsw i32 %.1.i, 1
@@ -6258,7 +6258,7 @@ define hidden void @_ZN3sat4drat3delERNS_6clauseE(ptr noundef nonnull align 8 de
   %.0.i = phi i32 [ %27, %25 ], [ %30, %39 ]
   %29 = trunc i32 %.0.i to i8
   %30 = lshr i32 %.0.i, 7
-  %.not.i = icmp ult i32 %.0.i, 128
+  %.not.i = icmp eq i32 %30, 0
   %31 = or i8 %29, -128
   %.121.i = select i1 %.not.i, i8 %29, i8 %31
   %32 = add nsw i32 %.1.i, 1
@@ -6423,7 +6423,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %12, %15
   %.0.i13 = phi i32 [ %31, %29 ], [ %34, %43 ]
   %33 = trunc i32 %.0.i13 to i8
   %34 = lshr i32 %.0.i13, 7
-  %.not.i = icmp ult i32 %.0.i13, 128
+  %.not.i = icmp eq i32 %34, 0
   %35 = or i8 %33, -128
   %.121.i = select i1 %.not.i, i8 %33, i8 %35
   %36 = add nsw i32 %.1.i, 1

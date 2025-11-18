@@ -593,7 +593,7 @@ hm_cmp.exit.i:                                    ; preds = %35
   br i1 %45, label %hm_cmp.exit.thread.i, label %47
 
 hm_cmp.exit.thread.i:                             ; preds = %hm_cmp.exit.i, %41
-  %.not41.i = icmp ult i64 %36, 2
+  %.not41.i = icmp eq i64 %37, 0
   %46 = add nsw i64 %37, -1
   br i1 %.not41.i, label %hm_scan.exit, label %55
 
@@ -679,7 +679,7 @@ hm_cmp.exit.i:                                    ; preds = %24
   br i1 %34, label %hm_cmp.exit.thread.i, label %36
 
 hm_cmp.exit.thread.i:                             ; preds = %hm_cmp.exit.i, %30
-  %.not41.i = icmp ult i64 %25, 2
+  %.not41.i = icmp eq i64 %26, 0
   %35 = add nsw i64 %26, -1
   br i1 %.not41.i, label %hm_scan.exit, label %44
 

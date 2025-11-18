@@ -1363,7 +1363,7 @@ proto_item_set_generated.exit261:                 ; preds = %88, %98, %101
   %136 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %135)
   %137 = and i8 %136, 15
   %138 = zext nneg i16 %134 to i32
-  %139 = icmp ult i16 %133, 16
+  %139 = icmp eq i16 %134, 0
   %140 = icmp eq i8 %137, 1
   %or.cond = select i1 %139, i1 %140, i1 false
   br i1 %or.cond, label %141, label %176

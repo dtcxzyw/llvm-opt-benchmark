@@ -5534,10 +5534,10 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h8f7d794ae4820d6aE.exit: ; pred
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17hb182588834642e76E.exit.lr.ph": ; preds = %392, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17h25cd6335b23299e3E.exit86"
   %419 = phi i64 [ %539, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17h25cd6335b23299e3E.exit86" ], [ %417, %392 ]
-  %.sroa.518.0.ph671 = phi i8 [ %.sroa.518.1, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17h25cd6335b23299e3E.exit86" ], [ undef, %392 ]
-  %.sroa.6136.0.ph670 = phi i8 [ %.sroa.6136.1, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17h25cd6335b23299e3E.exit86" ], [ undef, %392 ]
-  %.sroa.5135.0.ph669 = phi i8 [ %.sroa.5135.1, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17h25cd6335b23299e3E.exit86" ], [ undef, %392 ]
-  %.sroa.4134.0.ph668 = phi ptr [ %.sroa.4134.1, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17h25cd6335b23299e3E.exit86" ], [ undef, %392 ]
+  %.sroa.518.0.ph670 = phi i8 [ %.sroa.518.1, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17h25cd6335b23299e3E.exit86" ], [ undef, %392 ]
+  %.sroa.6136.0.ph669 = phi i8 [ %.sroa.6136.1, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17h25cd6335b23299e3E.exit86" ], [ undef, %392 ]
+  %.sroa.5135.0.ph668 = phi i8 [ %.sroa.5135.1, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17h25cd6335b23299e3E.exit86" ], [ undef, %392 ]
+  %.sroa.4134.0.ph667 = phi ptr [ %.sroa.4134.1, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17h25cd6335b23299e3E.exit86" ], [ undef, %392 ]
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17hb182588834642e76E.exit"
 
 .body61:                                          ; preds = %.loopexit.split-lp179, %.loopexit178.loopexit.split-lp, %.loopexit178.loopexit, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..group_name..GroupName$GT$$GT$17hfb218e08293ecc82E.exit", %454
@@ -5744,7 +5744,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h8f7d794ae4820d6aE.exit: ; pred
   %470 = lshr i64 %469, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1158)
   call void @llvm.experimental.noalias.scope.decl(metadata !1161)
-  %.not15.i.i = icmp ult i64 %469, 2
+  %.not15.i.i = icmp eq i64 %470, 0
   br i1 %.not15.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hd2771f8d34e078edE.exit", label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %467
@@ -5918,10 +5918,10 @@ common.resume:                                    ; preds = %.body, %754, %507
   br label %524
 
 524:                                              ; preds = %734, %520
-  %.sroa.4134.1 = phi ptr [ %.sroa.4134.0.ph668, %520 ], [ %.sroa.4134.2, %734 ]
-  %.sroa.5135.1 = phi i8 [ %.sroa.5135.0.ph669, %520 ], [ %.sroa.5135.2, %734 ]
-  %.sroa.6136.1 = phi i8 [ %.sroa.6136.0.ph670, %520 ], [ %.sroa.6136.2, %734 ]
-  %.sroa.518.1 = phi i8 [ %.sroa.518.0.ph671, %520 ], [ %.sroa.518.2, %734 ]
+  %.sroa.4134.1 = phi ptr [ %.sroa.4134.0.ph667, %520 ], [ %.sroa.4134.2, %734 ]
+  %.sroa.5135.1 = phi i8 [ %.sroa.5135.0.ph668, %520 ], [ %.sroa.5135.2, %734 ]
+  %.sroa.6136.1 = phi i8 [ %.sroa.6136.0.ph669, %520 ], [ %.sroa.6136.2, %734 ]
+  %.sroa.518.1 = phi i8 [ %.sroa.518.0.ph670, %520 ], [ %.sroa.518.2, %734 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   invoke void @"_ZN105_$LT$petgraph..graph_impl..Edges$LT$E$C$Ty$C$Ix$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h75e50434bc7acb10E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %26, ptr noalias noundef nonnull align 8 dereferenceable(40) %27)
           to label %525 unwind label %.thread144.loopexit
@@ -5998,7 +5998,7 @@ switch.lookup:                                    ; preds = %"_ZN67_$LT$alloc..v
   %552 = getelementptr inbounds nuw i8, ptr %551, i64 16
   %553 = load i64, ptr %552, align 8, !range !922, !alias.scope !1213, !noalias !1207, !noundef !12
   %554 = icmp eq i64 %553, -9223372036854775806
-  br i1 %554, label %switch.lookup672, label %555
+  br i1 %554, label %switch.lookup671, label %555
 
 555:                                              ; preds = %550
   %556 = xor i64 %553, -9223372036854775808
@@ -6037,15 +6037,15 @@ switch.lookup:                                    ; preds = %"_ZN67_$LT$alloc..v
   %571 = getelementptr inbounds nuw i8, ptr %551, i64 128
   br label %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit"
 
-switch.lookup672:                                 ; preds = %550
+switch.lookup671:                                 ; preds = %550
   %572 = getelementptr inbounds nuw i8, ptr %551, i64 24
   %573 = load i64, ptr %572, align 8, !range !134, !alias.scope !1223, !noalias !1207, !noundef !12
   %574 = add nsw i64 %573, -2
   %575 = icmp ult i64 %574, 5
   %576 = select i1 %575, i64 %574, i64 3
-  %switch.gep673 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.41", i64 %576
-  %switch.load674 = load i64, ptr %switch.gep673, align 8
-  %577 = getelementptr inbounds nuw i8, ptr %572, i64 %switch.load674
+  %switch.gep672 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.41", i64 %576
+  %switch.load673 = load i64, ptr %switch.gep672, align 8
+  %577 = getelementptr inbounds nuw i8, ptr %572, i64 %switch.load673
   br label %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit"
 
 578:                                              ; preds = %563
@@ -6053,8 +6053,8 @@ switch.lookup672:                                 ; preds = %550
           cleanup
   br label %753
 
-"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit": ; preds = %switch.lookup672, %570, %568, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i", %switch.lookup
-  %.sroa.0.0.i87 = phi ptr [ %549, %switch.lookup ], [ %577, %switch.lookup672 ], [ %567, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i" ], [ %569, %568 ], [ %571, %570 ]
+"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit": ; preds = %switch.lookup671, %570, %568, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i", %switch.lookup
+  %.sroa.0.0.i87 = phi ptr [ %549, %switch.lookup ], [ %577, %switch.lookup671 ], [ %567, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i" ], [ %569, %568 ], [ %571, %570 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1226)
   %580 = load ptr, ptr %.sroa.0.0.i87, align 8, !alias.scope !1226, !nonnull !12, !noundef !12
   %581 = load i64, ptr %580, align 8, !noalias !1226, !noundef !12
@@ -6144,18 +6144,18 @@ switch.lookup672:                                 ; preds = %550
   call void @llvm.experimental.noalias.scope.decl(metadata !1235)
   %623 = load i64, ptr %464, align 8, !range !223, !alias.scope !1235, !noundef !12
   %624 = icmp eq i64 %623, 2
-  br i1 %624, label %switch.lookup675, label %632
+  br i1 %624, label %switch.lookup674, label %632
 
-switch.lookup675:                                 ; preds = %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit95"
+switch.lookup674:                                 ; preds = %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit95"
   %625 = load ptr, ptr %523, align 8, !alias.scope !1235, !nonnull !12, !noundef !12
   %626 = getelementptr inbounds nuw i8, ptr %625, i64 16
   %627 = load i64, ptr %626, align 8, !range !224, !alias.scope !1238, !noalias !1235, !noundef !12
   %628 = add nsw i64 %627, -3
   %629 = icmp ult i64 %628, 5
   %630 = select i1 %629, i64 %628, i64 1
-  %switch.gep676 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN117_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h4f4b83f020204068E", i64 %630
-  %switch.load677 = load i64, ptr %switch.gep676, align 8
-  %631 = getelementptr inbounds nuw i8, ptr %626, i64 %switch.load677
+  %switch.gep675 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN117_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h4f4b83f020204068E", i64 %630
+  %switch.load676 = load i64, ptr %switch.gep675, align 8
+  %631 = getelementptr inbounds nuw i8, ptr %626, i64 %switch.load676
   br label %661
 
 632:                                              ; preds = %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit95"
@@ -6219,8 +6219,8 @@ _ZN21uv_distribution_types8resolved12ResolvedDist7version17hcc528f5378827195E.ex
   %660 = icmp eq ptr %spec.select.i, null
   br i1 %660, label %677, label %661
 
-661:                                              ; preds = %switch.lookup675, %_ZN21uv_distribution_types8resolved12ResolvedDist7version17hcc528f5378827195E.exit
-  %.sroa.0.0.i96170 = phi ptr [ %631, %switch.lookup675 ], [ %spec.select.i, %_ZN21uv_distribution_types8resolved12ResolvedDist7version17hcc528f5378827195E.exit ]
+661:                                              ; preds = %switch.lookup674, %_ZN21uv_distribution_types8resolved12ResolvedDist7version17hcc528f5378827195E.exit
+  %.sroa.0.0.i96170 = phi ptr [ %631, %switch.lookup674 ], [ %spec.select.i, %_ZN21uv_distribution_types8resolved12ResolvedDist7version17hcc528f5378827195E.exit ]
   %662 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i96170, i64 9
   %663 = load i8, ptr %662, align 1, !noundef !12
   %664 = icmp eq i8 %663, 0

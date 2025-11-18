@@ -232,7 +232,7 @@ define dso_local void @php_random_pcgoneseq128xslrr64_advance(ptr noundef captur
   %.sroa.25.0.extract.shift.i163 = lshr i128 %10, 64
   %.sroa.25.0.extract.trunc.i164 = trunc nuw i128 %.sroa.25.0.extract.shift.i163 to i64
   %11 = lshr i64 %.0196, 1
-  %.not = icmp ult i64 %.0196, 2
+  %.not = icmp eq i64 %11, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %8, %2
@@ -586,7 +586,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %8
   %.sroa.25.0.extract.shift.i163.i = lshr i128 %27, 64
   %.sroa.25.0.extract.trunc.i164.i = trunc nuw i128 %.sroa.25.0.extract.shift.i163.i to i64
   %28 = lshr i64 %.0196.i, 1
-  %.not.i = icmp ult i64 %.0196.i, 2
+  %.not.i = icmp eq i64 %28, 0
   br i1 %.not.i, label %php_random_pcgoneseq128xslrr64_advance.exit, label %.lr.ph.i
 
 php_random_pcgoneseq128xslrr64_advance.exit:      ; preds = %25, %19

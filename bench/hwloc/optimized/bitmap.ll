@@ -383,10 +383,10 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_snprintf(ptr noalias noundef
   br i1 %40, label %34, label %._crit_edge.thread, !llvm.loop !20
 
 .lr.ph145:                                        ; preds = %34, %27
-  %.076165 = phi i32 [ 1, %27 ], [ 0, %34 ]
-  %.079163 = phi i64 [ %22, %27 ], [ %1, %34 ]
-  %.094161 = phi i32 [ %9, %27 ], [ 0, %34 ]
-  %.0101159 = phi ptr [ %21, %27 ], [ %0, %34 ]
+  %.076166 = phi i32 [ 1, %27 ], [ 0, %34 ]
+  %.079164 = phi i64 [ %22, %27 ], [ %1, %34 ]
+  %.094162 = phi i32 [ %9, %27 ], [ 0, %34 ]
+  %.0101160 = phi ptr [ %21, %27 ], [ %0, %34 ]
   %.189 = phi i32 [ %.088131, %27 ], [ %.290128, %34 ]
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %42
@@ -394,13 +394,13 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_snprintf(ptr noalias noundef
 42:                                               ; preds = %.lr.ph145, %.thread
   %43 = phi i1 [ false, %.lr.ph145 ], [ %80, %.thread ]
   %.177144 = phi i1 [ %.not108, %.lr.ph145 ], [ false, %.thread ]
-  %.180143 = phi i64 [ %.079163, %.lr.ph145 ], [ %78, %.thread ]
+  %.180143 = phi i64 [ %.079164, %.lr.ph145 ], [ %78, %.thread ]
   %.082142 = phi i32 [ 0, %.lr.ph145 ], [ %70, %.thread ]
   %.085141 = phi i64 [ 0, %.lr.ph145 ], [ %69, %.thread ]
   %.3140 = phi i32 [ %.189, %.lr.ph145 ], [ %.4, %.thread ]
-  %.192139 = phi i32 [ %.076165, %.lr.ph145 ], [ %.293122, %.thread ]
-  %.195138 = phi i32 [ %.094161, %.lr.ph145 ], [ %68, %.thread ]
-  %.1102136 = phi ptr [ %.0101159, %.lr.ph145 ], [ %77, %.thread ]
+  %.192139 = phi i32 [ %.076166, %.lr.ph145 ], [ %.293122, %.thread ]
+  %.195138 = phi i32 [ %.094162, %.lr.ph145 ], [ %68, %.thread ]
+  %.1102136 = phi ptr [ %.0101160, %.lr.ph145 ], [ %77, %.thread ]
   br i1 %43, label %50, label %44
 
 44:                                               ; preds = %42
@@ -421,7 +421,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_snprintf(ptr noalias noundef
   br i1 %or.cond, label %.thread, label %53
 
 53:                                               ; preds = %50
-  %.not112 = icmp ult i64 %.186, 4294967296
+  %.not112 = icmp eq i64 %51, 0
   br i1 %.not112, label %57, label %54
 
 54:                                               ; preds = %53
@@ -484,9 +484,9 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_snprintf(ptr noalias noundef
   br i1 %.not111, label %._crit_edge.thread, label %.critedge118
 
 ._crit_edge.thread:                               ; preds = %39, %.preheader123, %._crit_edge
-  %.180.lcssa177 = phi i64 [ %.180.lcssa, %._crit_edge ], [ %1, %.preheader123 ], [ %1, %39 ]
-  %.1102.lcssa176 = phi ptr [ %.1102.lcssa, %._crit_edge ], [ %0, %.preheader123 ], [ %0, %39 ]
-  %82 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.1102.lcssa176, i64 noundef %.180.lcssa177, ptr noundef nonnull @.str.4) #19
+  %.180.lcssa178 = phi i64 [ %.180.lcssa, %._crit_edge ], [ %1, %.preheader123 ], [ %1, %39 ]
+  %.1102.lcssa177 = phi ptr [ %.1102.lcssa, %._crit_edge ], [ %0, %.preheader123 ], [ %0, %39 ]
+  %82 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.1102.lcssa177, i64 noundef %.180.lcssa178, ptr noundef nonnull @.str.4) #19
   %spec.select = tail call i32 @llvm.smax.i32(i32 %82, i32 -1)
   br label %.critedge118
 
@@ -2631,7 +2631,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_last(ptr noundef readonly ca
 define range(i32 -1, 1) i32 @hwloc_bitmap_only(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = lshr i32 %1, 6
   %4 = add nuw nsw i32 %3, 1
-  %.not.i.i.i = icmp ult i32 %1, 64
+  %.not.i.i.i = icmp eq i32 %3, 0
   br i1 %.not.i.i.i, label %hwloc_flsl_manual.exit.i.i, label %5
 
 5:                                                ; preds = %2
@@ -2711,7 +2711,7 @@ hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %24, %hwloc_bitmap__
 define range(i32 -1, 1) i32 @hwloc_bitmap_allbut(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = lshr i32 %1, 6
   %4 = add nuw nsw i32 %3, 1
-  %.not.i.i.i = icmp ult i32 %1, 64
+  %.not.i.i.i = icmp eq i32 %3, 0
   br i1 %.not.i.i.i, label %hwloc_flsl_manual.exit.i.i, label %5
 
 5:                                                ; preds = %2

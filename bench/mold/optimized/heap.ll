@@ -1188,7 +1188,7 @@ define hidden zeroext i1 @_mi_heap_area_visit_blocks(ptr noundef %0, ptr noundef
   br label %65
 
 .preheader123:                                    ; preds = %65, %52
-  %.not112133 = icmp eq i16 %26, 0
+  %.not112133 = icmp eq i64 %44, 0
   br i1 %.not112133, label %.critedge117, label %.lr.ph137
 
 .lr.ph137:                                        ; preds = %.preheader123

@@ -1358,7 +1358,7 @@ _Py_NewRef.exit43:                                ; preds = %_Py_XNewRef.exit42,
 125:                                              ; preds = %123, %118, %116
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %126 = lshr i8 %.017.i.i, 1
-  %.not.i.i45 = icmp ult i8 %.017.i.i, 2
+  %.not.i.i45 = icmp eq i8 %126, 0
   br i1 %.not.i.i45, label %Py_XDECREF.exit, label %116, !llvm.loop !123
 
 Py_XDECREF.exit:                                  ; preds = %125, %_Py_NewRef.exit43, %16, %13, %11, %9, %1
@@ -1568,7 +1568,7 @@ Py_INCREF.exit:                                   ; preds = %37, %40
 103:                                              ; preds = %101, %96, %94
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %104 = lshr i8 %.017.i.i, 1
-  %.not.i.i = icmp ult i8 %.017.i.i, 2
+  %.not.i.i = icmp eq i8 %104, 0
   br i1 %.not.i.i, label %handle_func_event.exit, label %94, !llvm.loop !123
 
 105:                                              ; preds = %47, %44, %Py_INCREF.exit
@@ -1972,7 +1972,7 @@ Py_INCREF.exit:                                   ; preds = %15, %12, %5
 36:                                               ; preds = %34, %29, %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %37 = lshr i8 %.017.i.i, 1
-  %.not.i.i = icmp ult i8 %.017.i.i, 2
+  %.not.i.i = icmp eq i8 %37, 0
   br i1 %.not.i.i, label %notify_func_watchers.exit.i, label %27, !llvm.loop !123
 
 notify_func_watchers.exit.i:                      ; preds = %36, %Py_INCREF.exit
@@ -2195,7 +2195,7 @@ Py_INCREF.exit:                                   ; preds = %15, %12, %5
 36:                                               ; preds = %34, %29, %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %37 = lshr i8 %.017.i.i, 1
-  %.not.i.i = icmp ult i8 %.017.i.i, 2
+  %.not.i.i = icmp eq i8 %37, 0
   br i1 %.not.i.i, label %notify_func_watchers.exit.i, label %27, !llvm.loop !123
 
 notify_func_watchers.exit.i:                      ; preds = %36, %Py_INCREF.exit
@@ -2758,7 +2758,7 @@ _PyObject_ResurrectStart.exit:                    ; preds = %1, %3
 21:                                               ; preds = %19, %14, %12
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %22 = lshr i8 %.017.i.i, 1
-  %.not.i.i20 = icmp ult i8 %.017.i.i, 2
+  %.not.i.i20 = icmp eq i8 %22, 0
   br i1 %.not.i.i20, label %handle_func_event.exit.loopexit, label %12, !llvm.loop !123
 
 handle_func_event.exit.loopexit:                  ; preds = %21
@@ -4455,7 +4455,7 @@ define internal range(i32 -1, 1) i32 @func_set_code(ptr noundef %0, ptr noundef 
 58:                                               ; preds = %56, %51, %49
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %59 = lshr i8 %.017.i.i, 1
-  %.not.i.i = icmp ult i8 %.017.i.i, 2
+  %.not.i.i = icmp eq i8 %59, 0
   br i1 %.not.i.i, label %notify_func_watchers.exit.i, label %49, !llvm.loop !123
 
 notify_func_watchers.exit.i:                      ; preds = %58, %40
@@ -4631,7 +4631,7 @@ define internal range(i32 -1, 1) i32 @func_set_defaults(ptr noundef %0, ptr noun
 31:                                               ; preds = %29, %24, %22
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %32 = lshr i8 %.017.i.i, 1
-  %.not.i.i = icmp ult i8 %.017.i.i, 2
+  %.not.i.i = icmp eq i8 %32, 0
   br i1 %.not.i.i, label %notify_func_watchers.exit.i, label %22, !llvm.loop !123
 
 notify_func_watchers.exit.i:                      ; preds = %31, %.split
@@ -4735,7 +4735,7 @@ func_clear_version.exit.i:                        ; preds = %54, %40
 81:                                               ; preds = %79, %74, %72
   %indvars.iv.next.i.i26 = add nuw nsw i64 %indvars.iv.i.i23, 1
   %82 = lshr i8 %.017.i.i24, 1
-  %.not.i.i27 = icmp ult i8 %.017.i.i24, 2
+  %.not.i.i27 = icmp eq i8 %82, 0
   br i1 %.not.i.i27, label %notify_func_watchers.exit.i28, label %72, !llvm.loop !123
 
 notify_func_watchers.exit.i28:                    ; preds = %81, %.split16
@@ -4908,7 +4908,7 @@ define internal range(i32 -1, 1) i32 @func_set_kwdefaults(ptr noundef %0, ptr no
 31:                                               ; preds = %29, %24, %22
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %32 = lshr i8 %.017.i.i, 1
-  %.not.i.i = icmp ult i8 %.017.i.i, 2
+  %.not.i.i = icmp eq i8 %32, 0
   br i1 %.not.i.i, label %notify_func_watchers.exit.i, label %22, !llvm.loop !123
 
 notify_func_watchers.exit.i:                      ; preds = %31, %.split
@@ -5012,7 +5012,7 @@ func_clear_version.exit.i:                        ; preds = %54, %40
 81:                                               ; preds = %79, %74, %72
   %indvars.iv.next.i.i26 = add nuw nsw i64 %indvars.iv.i.i23, 1
   %82 = lshr i8 %.017.i.i24, 1
-  %.not.i.i27 = icmp ult i8 %.017.i.i24, 2
+  %.not.i.i27 = icmp eq i8 %82, 0
   br i1 %.not.i.i27, label %notify_func_watchers.exit.i28, label %72, !llvm.loop !123
 
 notify_func_watchers.exit.i28:                    ; preds = %81, %.split16

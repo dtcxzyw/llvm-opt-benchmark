@@ -639,7 +639,7 @@ _ZN4llvm15SmallVectorImplINS_4dxbc23ProgramSignatureElementEE7reserveEm.exit: ; 
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %29 = ptrtoint ptr %5 to i64
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  br label %48
+  br label %49
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_4dxbc23ProgramSignatureElementELb1EE9push_backERKS2_.exit, %_ZN4llvm15SmallVectorImplINS_4dxbc23ProgramSignatureElementEE7reserveEm.exit
   call void @_ZN4llvm18StringTableBuilder15finalizeInOrderEv(ptr noundef nonnull align 8 dereferenceable(38) %4) #12
@@ -661,132 +661,132 @@ _ZN4llvm15SmallVectorImplINS_4dxbc23ProgramSignatureElementEE7reserveEm.exit: ; 
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN4llvm4dxbc23ProgramSignatureElementES2_EC2ES3_l.exit.i.i.i
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not14.i.i.i.i.i = icmp samesign ult i64 %.010.i.i.in.in.i.i.i, 3
-  br i1 %.not14.i.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !87
+  %36 = icmp eq i64 %.010.i.i.i.i.i, 1
+  br i1 %36, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !87
 
 .loopexit.i.i.i:                                  ; preds = %select.unfold.i.i.i.i.i
   call fastcc void @"_ZSt21__inplace_stable_sortIPN4llvm4dxbc23ProgramSignatureElementEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_SD_T0_"(ptr noundef %.val, ptr noundef nonnull %32)
-  br label %36
+  br label %37
 
 _ZNSt17_Temporary_bufferIPN4llvm4dxbc23ProgramSignatureElementES2_EC2ES3_l.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
   call fastcc void @"_ZSt22__stable_sort_adaptiveIPN4llvm4dxbc23ProgramSignatureElementES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEEvT_SD_T0_T1_T2_"(ptr noundef %.val, ptr noundef nonnull %32, ptr noundef nonnull %35, i64 noundef %.010.i.i.i.i.i)
-  br label %36
+  br label %37
 
-36:                                               ; preds = %_ZNSt17_Temporary_bufferIPN4llvm4dxbc23ProgramSignatureElementES2_EC2ES3_l.exit.i.i.i, %.loopexit.i.i.i
+37:                                               ; preds = %_ZNSt17_Temporary_bufferIPN4llvm4dxbc23ProgramSignatureElementES2_EC2ES3_l.exit.i.i.i, %.loopexit.i.i.i
   %.sroa.3.021.i.i.i = phi i64 [ %34, %_ZNSt17_Temporary_bufferIPN4llvm4dxbc23ProgramSignatureElementES2_EC2ES3_l.exit.i.i.i ], [ 0, %.loopexit.i.i.i ]
   call void @_ZdlPvm(ptr noundef %35, i64 noundef %.sroa.3.021.i.i.i) #12
   br label %"_ZN4llvm11stable_sortIRNS_11SmallVectorINS_4dxbc23ProgramSignatureElementELj1EEEZNS_6mcdxbc9Signature5writeERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit"
 
-"_ZN4llvm11stable_sortIRNS_11SmallVectorINS_4dxbc23ProgramSignatureElementELj1EEEZNS_6mcdxbc9Signature5writeERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit": ; preds = %._crit_edge, %36
+"_ZN4llvm11stable_sortIRNS_11SmallVectorINS_4dxbc23ProgramSignatureElementELj1EEEZNS_6mcdxbc9Signature5writeERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit": ; preds = %._crit_edge, %37
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %37 = load i32, ptr %10, align 8, !tbaa !7
-  store i32 %37, ptr %6, align 4, !tbaa !88
-  %38 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 8, ptr %38, align 4, !tbaa !90
-  %39 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %6, i64 noundef 8) #12
-  %40 = load ptr, ptr %3, align 8, !tbaa !10
-  %41 = load i32, ptr %8, align 8, !tbaa !7
-  %42 = zext i32 %41 to i64
-  %43 = shl nuw nsw i64 %42, 5
-  %44 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %40, i64 noundef %43) #12
+  %38 = load i32, ptr %10, align 8, !tbaa !7
+  store i32 %38, ptr %6, align 4, !tbaa !88
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store i32 8, ptr %39, align 4, !tbaa !90
+  %40 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %6, i64 noundef 8) #12
+  %41 = load ptr, ptr %3, align 8, !tbaa !10
+  %42 = load i32, ptr %8, align 8, !tbaa !7
+  %43 = zext i32 %42 to i64
+  %44 = shl nuw nsw i64 %43, 5
+  %45 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %41, i64 noundef %44) #12
   call void @_ZNK4llvm18StringTableBuilder5writeERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(38) %4, ptr noundef nonnull align 8 dereferenceable(48) %1) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN4llvm18StringTableBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(38) %4) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %45 = load ptr, ptr %3, align 8, !tbaa !10
-  %46 = icmp eq ptr %45, %7
-  br i1 %46, label %_ZN4llvm11SmallVectorINS_4dxbc23ProgramSignatureElementELj1EED2Ev.exit, label %47
+  %46 = load ptr, ptr %3, align 8, !tbaa !10
+  %47 = icmp eq ptr %46, %7
+  br i1 %47, label %_ZN4llvm11SmallVectorINS_4dxbc23ProgramSignatureElementELj1EED2Ev.exit, label %48
 
-47:                                               ; preds = %"_ZN4llvm11stable_sortIRNS_11SmallVectorINS_4dxbc23ProgramSignatureElementELj1EEEZNS_6mcdxbc9Signature5writeERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit"
-  call void @free(ptr noundef %45) #12
+48:                                               ; preds = %"_ZN4llvm11stable_sortIRNS_11SmallVectorINS_4dxbc23ProgramSignatureElementELj1EEEZNS_6mcdxbc9Signature5writeERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit"
+  call void @free(ptr noundef %46) #12
   br label %_ZN4llvm11SmallVectorINS_4dxbc23ProgramSignatureElementELj1EED2Ev.exit
 
-_ZN4llvm11SmallVectorINS_4dxbc23ProgramSignatureElementELj1EED2Ev.exit: ; preds = %"_ZN4llvm11stable_sortIRNS_11SmallVectorINS_4dxbc23ProgramSignatureElementELj1EEEZNS_6mcdxbc9Signature5writeERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit", %47
+_ZN4llvm11SmallVectorINS_4dxbc23ProgramSignatureElementELj1EED2Ev.exit: ; preds = %"_ZN4llvm11stable_sortIRNS_11SmallVectorINS_4dxbc23ProgramSignatureElementELj1EEEZNS_6mcdxbc9Signature5writeERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit", %48
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-48:                                               ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseINS_4dxbc23ProgramSignatureElementELb1EE9push_backERKS2_.exit
-  %.025 = phi ptr [ %19, %.lr.ph ], [ %88, %_ZN4llvm23SmallVectorTemplateBaseINS_4dxbc23ProgramSignatureElementELb1EE9push_backERKS2_.exit ]
+49:                                               ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseINS_4dxbc23ProgramSignatureElementELb1EE9push_backERKS2_.exit
+  %.025 = phi ptr [ %19, %.lr.ph ], [ %89, %_ZN4llvm23SmallVectorTemplateBaseINS_4dxbc23ProgramSignatureElementELb1EE9push_backERKS2_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %30, i8 0, i64 28, i1 false)
-  %49 = load i32, ptr %.025, align 8, !tbaa !91
-  store i32 %49, ptr %5, align 4, !tbaa !96
-  %50 = getelementptr inbounds nuw i8, ptr %.025, i64 8
-  %.sroa.0.0.copyload = load ptr, ptr %50, align 8, !tbaa !54
+  %50 = load i32, ptr %.025, align 8, !tbaa !91
+  store i32 %50, ptr %5, align 4, !tbaa !96
+  %51 = getelementptr inbounds nuw i8, ptr %.025, i64 8
+  %.sroa.0.0.copyload = load ptr, ptr %51, align 8, !tbaa !54
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.025, i64 16
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !55
-  %51 = call noundef i32 @_ZN4llvm12DenseMapInfoINS_9StringRefEvE12getHashValueES1_(ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload) #12
-  %.sroa.4.8.insert.ext.i = zext i32 %51 to i64
+  %52 = call noundef i32 @_ZN4llvm12DenseMapInfoINS_9StringRefEvE12getHashValueES1_(ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload) #12
+  %.sroa.4.8.insert.ext.i = zext i32 %52 to i64
   %.sroa.4.8.insert.shift.i = shl nuw i64 %.sroa.4.8.insert.ext.i, 32
   %.sroa.2.8.insert.ext.i = and i64 %.sroa.2.0.copyload, 4294967295
   %.sroa.2.8.insert.insert.i = or disjoint i64 %.sroa.4.8.insert.shift.i, %.sroa.2.8.insert.ext.i
-  %52 = call noundef i64 @_ZN4llvm18StringTableBuilder3addENS_19CachedHashStringRefE(ptr noundef nonnull align 8 dereferenceable(38) %4, ptr %.sroa.0.0.copyload, i64 %.sroa.2.8.insert.insert.i) #12
-  %53 = trunc i64 %52 to i32
-  %54 = add i32 %18, %53
-  store i32 %54, ptr %21, align 4, !tbaa !99
-  %55 = getelementptr inbounds nuw i8, ptr %.025, i64 24
-  %56 = load i32, ptr %55, align 8, !tbaa !100
-  store i32 %56, ptr %22, align 4, !tbaa !101
-  %57 = getelementptr inbounds nuw i8, ptr %.025, i64 28
-  %58 = load i32, ptr %57, align 4, !tbaa !102
-  store i32 %58, ptr %23, align 4, !tbaa !103
-  %59 = getelementptr inbounds nuw i8, ptr %.025, i64 32
-  %60 = load i32, ptr %59, align 8, !tbaa !104
-  store i32 %60, ptr %24, align 4, !tbaa !105
-  %61 = getelementptr inbounds nuw i8, ptr %.025, i64 36
-  %62 = load i32, ptr %61, align 4, !tbaa !106
-  store i32 %62, ptr %25, align 4, !tbaa !107
-  %63 = getelementptr inbounds nuw i8, ptr %.025, i64 40
-  %64 = load i8, ptr %63, align 8, !tbaa !108
-  store i8 %64, ptr %26, align 4, !tbaa !109
-  %65 = getelementptr inbounds nuw i8, ptr %.025, i64 41
-  %66 = load i8, ptr %65, align 1, !tbaa !110
-  store i8 %66, ptr %27, align 1, !tbaa !111
-  %67 = getelementptr inbounds nuw i8, ptr %.025, i64 44
-  %68 = load i32, ptr %67, align 4, !tbaa !112
-  store i32 %68, ptr %28, align 4, !tbaa !113
-  %69 = load i32, ptr %8, align 8, !tbaa !7
-  %70 = zext i32 %69 to i64
-  %71 = add nuw nsw i64 %70, 1
-  %72 = load i32, ptr %9, align 4, !tbaa !53
-  %.not.i.i.not.i = icmp ult i32 %69, %72
+  %53 = call noundef i64 @_ZN4llvm18StringTableBuilder3addENS_19CachedHashStringRefE(ptr noundef nonnull align 8 dereferenceable(38) %4, ptr %.sroa.0.0.copyload, i64 %.sroa.2.8.insert.insert.i) #12
+  %54 = trunc i64 %53 to i32
+  %55 = add i32 %18, %54
+  store i32 %55, ptr %21, align 4, !tbaa !99
+  %56 = getelementptr inbounds nuw i8, ptr %.025, i64 24
+  %57 = load i32, ptr %56, align 8, !tbaa !100
+  store i32 %57, ptr %22, align 4, !tbaa !101
+  %58 = getelementptr inbounds nuw i8, ptr %.025, i64 28
+  %59 = load i32, ptr %58, align 4, !tbaa !102
+  store i32 %59, ptr %23, align 4, !tbaa !103
+  %60 = getelementptr inbounds nuw i8, ptr %.025, i64 32
+  %61 = load i32, ptr %60, align 8, !tbaa !104
+  store i32 %61, ptr %24, align 4, !tbaa !105
+  %62 = getelementptr inbounds nuw i8, ptr %.025, i64 36
+  %63 = load i32, ptr %62, align 4, !tbaa !106
+  store i32 %63, ptr %25, align 4, !tbaa !107
+  %64 = getelementptr inbounds nuw i8, ptr %.025, i64 40
+  %65 = load i8, ptr %64, align 8, !tbaa !108
+  store i8 %65, ptr %26, align 4, !tbaa !109
+  %66 = getelementptr inbounds nuw i8, ptr %.025, i64 41
+  %67 = load i8, ptr %66, align 1, !tbaa !110
+  store i8 %67, ptr %27, align 1, !tbaa !111
+  %68 = getelementptr inbounds nuw i8, ptr %.025, i64 44
+  %69 = load i32, ptr %68, align 4, !tbaa !112
+  store i32 %69, ptr %28, align 4, !tbaa !113
+  %70 = load i32, ptr %8, align 8, !tbaa !7
+  %71 = zext i32 %70 to i64
+  %72 = add nuw nsw i64 %71, 1
+  %73 = load i32, ptr %9, align 4, !tbaa !53
+  %.not.i.i.not.i = icmp ult i32 %70, %73
   %.pre3.i = load ptr, ptr %3, align 8, !tbaa !10
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_4dxbc23ProgramSignatureElementELb1EE9push_backERKS2_.exit, label %73, !prof !72
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_4dxbc23ProgramSignatureElementELb1EE9push_backERKS2_.exit, label %74, !prof !72
 
-73:                                               ; preds = %48
-  %74 = getelementptr inbounds nuw %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.pre3.i, i64 %70
-  %75 = icmp uge ptr %5, %.pre3.i
-  %76 = icmp ult ptr %5, %74
-  %spec.select.i.i.i.i.i = and i1 %75, %76
-  br i1 %spec.select.i.i.i.i.i, label %77, label %.critedge.i.i.i, !prof !114
+74:                                               ; preds = %49
+  %75 = getelementptr inbounds nuw %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.pre3.i, i64 %71
+  %76 = icmp uge ptr %5, %.pre3.i
+  %77 = icmp ult ptr %5, %75
+  %spec.select.i.i.i.i.i = and i1 %76, %77
+  br i1 %spec.select.i.i.i.i.i, label %78, label %.critedge.i.i.i, !prof !114
 
-77:                                               ; preds = %73
-  %78 = ptrtoint ptr %.pre3.i to i64
-  %79 = sub i64 %29, %78
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %7, i64 noundef %71, i64 noundef 32) #12
-  %80 = load ptr, ptr %3, align 8, !tbaa !10
-  %81 = getelementptr inbounds i8, ptr %80, i64 %79
+78:                                               ; preds = %74
+  %79 = ptrtoint ptr %.pre3.i to i64
+  %80 = sub i64 %29, %79
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %7, i64 noundef %72, i64 noundef 32) #12
+  %81 = load ptr, ptr %3, align 8, !tbaa !10
+  %82 = getelementptr inbounds i8, ptr %81, i64 %80
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_4dxbc23ProgramSignatureElementELb1EE9push_backERKS2_.exit
 
-.critedge.i.i.i:                                  ; preds = %73
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %7, i64 noundef %71, i64 noundef 32) #12
+.critedge.i.i.i:                                  ; preds = %74
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %7, i64 noundef %72, i64 noundef 32) #12
   %.pre.i = load ptr, ptr %3, align 8, !tbaa !10
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_4dxbc23ProgramSignatureElementELb1EE9push_backERKS2_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseINS_4dxbc23ProgramSignatureElementELb1EE9push_backERKS2_.exit: ; preds = %48, %77, %.critedge.i.i.i
-  %82 = phi ptr [ %.pre3.i, %48 ], [ %80, %77 ], [ %.pre.i, %.critedge.i.i.i ]
-  %.016.i.i.i = phi ptr [ %5, %48 ], [ %81, %77 ], [ %5, %.critedge.i.i.i ]
-  %83 = load i32, ptr %8, align 8, !tbaa !7
-  %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds nuw %"struct.llvm::dxbc::ProgramSignatureElement", ptr %82, i64 %84
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %85, ptr noundef nonnull align 4 dereferenceable(32) %.016.i.i.i, i64 32, i1 false)
-  %86 = load i32, ptr %8, align 8, !tbaa !7
-  %87 = add i32 %86, 1
-  store i32 %87, ptr %8, align 8, !tbaa !7
+_ZN4llvm23SmallVectorTemplateBaseINS_4dxbc23ProgramSignatureElementELb1EE9push_backERKS2_.exit: ; preds = %49, %78, %.critedge.i.i.i
+  %83 = phi ptr [ %.pre3.i, %49 ], [ %81, %78 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %5, %49 ], [ %82, %78 ], [ %5, %.critedge.i.i.i ]
+  %84 = load i32, ptr %8, align 8, !tbaa !7
+  %85 = zext i32 %84 to i64
+  %86 = getelementptr inbounds nuw %"struct.llvm::dxbc::ProgramSignatureElement", ptr %83, i64 %85
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %86, ptr noundef nonnull align 4 dereferenceable(32) %.016.i.i.i, i64 32, i1 false)
+  %87 = load i32, ptr %8, align 8, !tbaa !7
+  %88 = add i32 %87, 1
+  store i32 %88, ptr %8, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %88 = getelementptr inbounds nuw i8, ptr %.025, i64 48
-  %.not = icmp eq ptr %88, %20
-  br i1 %.not, label %._crit_edge, label %48
+  %89 = getelementptr inbounds nuw i8, ptr %.025, i64 48
+  %.not = icmp eq ptr %89, %20
+  br i1 %.not, label %._crit_edge, label %49
 }
 
 declare void @_ZN4llvm18StringTableBuilderC1ENS0_4KindENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(38), i32 noundef, i8) unnamed_addr #1

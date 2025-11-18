@@ -1613,7 +1613,8 @@ define linkonce_odr noundef i32 @_ZN6duckdb21Chimp128DecompressionIjE15Decompres
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 17
   store i8 %51, ptr %52, align 1, !tbaa !90
   %53 = load i8, ptr %48, align 1, !tbaa !34
-  %.not.i.i = icmp ult i8 %53, 8
+  %54 = lshr i8 %53, 3
+  %.not.i.i = icmp eq i8 %54, 0
   br i1 %.not.i.i, label %.._crit_edge_crit_edge.i.i, label %.lr.ph.i.i
 
 .._crit_edge_crit_edge.i.i:                       ; preds = %41
@@ -1627,7 +1628,6 @@ define linkonce_odr noundef i32 @_ZN6duckdb21Chimp128DecompressionIjE15Decompres
   br label %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit
 
 .lr.ph.i.i:                                       ; preds = %41
-  %54 = lshr i8 %53, 3
   %55 = load ptr, ptr %5, align 8, !tbaa !86
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %57 = load i32, ptr %56, align 8, !tbaa !87
@@ -1722,7 +1722,8 @@ _ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit:     ; preds = %67, %.._crit_edge_c
   %128 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %129 = load i8, ptr %128, align 8, !tbaa !89
   %130 = sub i8 32, %129
-  %.not.i.i40 = icmp ult i8 %130, 8
+  %131 = lshr i8 %130, 3
+  %.not.i.i40 = icmp eq i8 %131, 0
   br i1 %.not.i.i40, label %.._crit_edge_crit_edge.i.i52, label %.lr.ph.i.i41
 
 .._crit_edge_crit_edge.i.i52:                     ; preds = %127
@@ -1736,7 +1737,6 @@ _ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit:     ; preds = %67, %.._crit_edge_c
   br label %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit60
 
 .lr.ph.i.i41:                                     ; preds = %127
-  %131 = lshr i8 %130, 3
   %132 = load ptr, ptr %5, align 8, !tbaa !86
   %133 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %134 = load i32, ptr %133, align 8, !tbaa !87
@@ -1829,7 +1829,8 @@ _ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit60:   ; preds = %144, %.._crit_edge_
   %201 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 %200, ptr %201, align 8, !tbaa !89
   %202 = sub i8 32, %200
-  %.not.i.i61 = icmp ult i8 %202, 8
+  %203 = lshr i8 %202, 3
+  %.not.i.i61 = icmp eq i8 %203, 0
   br i1 %.not.i.i61, label %.._crit_edge_crit_edge.i.i73, label %.lr.ph.i.i62
 
 .._crit_edge_crit_edge.i.i73:                     ; preds = %195
@@ -1843,7 +1844,6 @@ _ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit60:   ; preds = %144, %.._crit_edge_
   br label %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit81
 
 .lr.ph.i.i62:                                     ; preds = %195
-  %203 = lshr i8 %202, 3
   %204 = load ptr, ptr %5, align 8, !tbaa !86
   %205 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %206 = load i32, ptr %205, align 8, !tbaa !87
@@ -3572,7 +3572,8 @@ define linkonce_odr noundef i64 @_ZN6duckdb21Chimp128DecompressionImE15Decompres
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 17
   store i8 %50, ptr %51, align 1, !tbaa !189
   %52 = load i8, ptr %47, align 1, !tbaa !34
-  %.not.i.i = icmp ult i8 %52, 8
+  %53 = lshr i8 %52, 3
+  %.not.i.i = icmp eq i8 %53, 0
   br i1 %.not.i.i, label %.._crit_edge_crit_edge.i.i, label %.lr.ph.i.i
 
 .._crit_edge_crit_edge.i.i:                       ; preds = %40
@@ -3586,7 +3587,6 @@ define linkonce_odr noundef i64 @_ZN6duckdb21Chimp128DecompressionImE15Decompres
   br label %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit
 
 .lr.ph.i.i:                                       ; preds = %40
-  %53 = lshr i8 %52, 3
   %54 = load ptr, ptr %5, align 8, !tbaa !86
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %56 = load i32, ptr %55, align 8, !tbaa !87
@@ -3681,7 +3681,8 @@ _ZN6duckdb9BitReader9ReadValueImEET_RKh.exit:     ; preds = %66, %.._crit_edge_c
   %127 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %128 = load i8, ptr %127, align 8, !tbaa !188
   %129 = sub i8 64, %128
-  %.not.i.i40 = icmp ult i8 %129, 8
+  %130 = lshr i8 %129, 3
+  %.not.i.i40 = icmp eq i8 %130, 0
   br i1 %.not.i.i40, label %.._crit_edge_crit_edge.i.i52, label %.lr.ph.i.i41
 
 .._crit_edge_crit_edge.i.i52:                     ; preds = %126
@@ -3695,7 +3696,6 @@ _ZN6duckdb9BitReader9ReadValueImEET_RKh.exit:     ; preds = %66, %.._crit_edge_c
   br label %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit60
 
 .lr.ph.i.i41:                                     ; preds = %126
-  %130 = lshr i8 %129, 3
   %131 = load ptr, ptr %5, align 8, !tbaa !86
   %132 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %133 = load i32, ptr %132, align 8, !tbaa !87
@@ -3789,7 +3789,8 @@ _ZN6duckdb9BitReader9ReadValueImEET_RKh.exit60:   ; preds = %143, %.._crit_edge_
   %201 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 %200, ptr %201, align 8, !tbaa !188
   %202 = sub i8 64, %200
-  %.not.i.i61 = icmp ult i8 %202, 8
+  %203 = lshr i8 %202, 3
+  %.not.i.i61 = icmp eq i8 %203, 0
   br i1 %.not.i.i61, label %.._crit_edge_crit_edge.i.i73, label %.lr.ph.i.i62
 
 .._crit_edge_crit_edge.i.i73:                     ; preds = %195
@@ -3803,7 +3804,6 @@ _ZN6duckdb9BitReader9ReadValueImEET_RKh.exit60:   ; preds = %143, %.._crit_edge_
   br label %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit81
 
 .lr.ph.i.i62:                                     ; preds = %195
-  %203 = lshr i8 %202, 3
   %204 = load ptr, ptr %5, align 8, !tbaa !86
   %205 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %206 = load i32, ptr %205, align 8, !tbaa !87

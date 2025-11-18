@@ -533,10 +533,10 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapImNS_11SmallVectorISt10unique_ptrINS_17Stabl
 
 ._crit_edge27:                                    ; preds = %_ZN4llvm16DenseMapIteratorImNS_11SmallVectorISt10unique_ptrINS_17StableFunctionMap19StableFunctionEntryESt14default_deleteIS4_EELj6EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EELb1EEppEv.exit
   %.pre = load ptr, ptr %0, align 8, !tbaa !11
-  %20 = zext i32 %33 to i64
+  %20 = zext i32 %34 to i64
   %.idx = shl nuw nsw i64 %20, 3
   %21 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx
-  %22 = icmp eq i32 %33, 0
+  %22 = icmp eq i32 %34, 0
   br i1 %22, label %"_ZSt11stable_sortIPPKN4llvm17StableFunctionMap19StableFunctionEntryEZL24getStableFunctionEntriesRKS1_E3$_0EvT_S9_T0_.exit", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge27, %select.unfold.i.i.i.i
@@ -549,93 +549,93 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapImNS_11SmallVectorISt10unique_ptrINS_17Stabl
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIPPKN4llvm17StableFunctionMap19StableFunctionEntryES4_EC2ES5_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not14.i.i.i.i = icmp samesign ult i64 %.010.i.i.in.in.i.i, 3
-  br i1 %.not14.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !60
+  %25 = icmp eq i64 %.010.i.i.i.i, 1
+  br i1 %25, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !60
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i
   tail call fastcc void @"_ZSt21__inplace_stable_sortIPPKN4llvm17StableFunctionMap19StableFunctionEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZL24getStableFunctionEntriesRKS1_E3$_0EEEvT_SD_T0_"(ptr noundef %.pre, ptr noundef nonnull %21, ptr nonnull %1)
-  br label %25
+  br label %26
 
 _ZNSt17_Temporary_bufferIPPKN4llvm17StableFunctionMap19StableFunctionEntryES4_EC2ES5_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   tail call fastcc void @"_ZSt22__stable_sort_adaptiveIPPKN4llvm17StableFunctionMap19StableFunctionEntryES5_lN9__gnu_cxx5__ops15_Iter_comp_iterIZL24getStableFunctionEntriesRKS1_E3$_0EEEvT_SD_T0_T1_T2_"(ptr noundef %.pre, ptr noundef nonnull %21, ptr noundef nonnull %24, i64 noundef %.010.i.i.i.i, ptr nonnull %1)
-  br label %25
+  br label %26
 
-25:                                               ; preds = %_ZNSt17_Temporary_bufferIPPKN4llvm17StableFunctionMap19StableFunctionEntryES4_EC2ES5_l.exit.i.i, %.loopexit.i.i
+26:                                               ; preds = %_ZNSt17_Temporary_bufferIPPKN4llvm17StableFunctionMap19StableFunctionEntryES4_EC2ES5_l.exit.i.i, %.loopexit.i.i
   %.sroa.3.020.i.i = phi i64 [ %23, %_ZNSt17_Temporary_bufferIPPKN4llvm17StableFunctionMap19StableFunctionEntryES4_EC2ES5_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   tail call void @_ZdlPvm(ptr noundef %24, i64 noundef %.sroa.3.020.i.i) #18
   br label %"_ZSt11stable_sortIPPKN4llvm17StableFunctionMap19StableFunctionEntryEZL24getStableFunctionEntriesRKS1_E3$_0EvT_S9_T0_.exit"
 
-"_ZSt11stable_sortIPPKN4llvm17StableFunctionMap19StableFunctionEntryEZL24getStableFunctionEntriesRKS1_E3$_0EvT_S9_T0_.exit": ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapImNS_11SmallVectorISt10unique_ptrINS_17StableFunctionMap19StableFunctionEntryESt14default_deleteIS5_EELj6EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS9_EEEEmS9_SB_SE_E5beginEv.exit, %._crit_edge27, %25
+"_ZSt11stable_sortIPPKN4llvm17StableFunctionMap19StableFunctionEntryEZL24getStableFunctionEntriesRKS1_E3$_0EvT_S9_T0_.exit": ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapImNS_11SmallVectorISt10unique_ptrINS_17StableFunctionMap19StableFunctionEntryESt14default_deleteIS5_EELj6EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS9_EEEEmS9_SB_SE_E5beginEv.exit, %._crit_edge27, %26
   ret void
 
 .lr.ph26:                                         ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapImNS_11SmallVectorISt10unique_ptrINS_17StableFunctionMap19StableFunctionEntryESt14default_deleteIS5_EELj6EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS9_EEEEmS9_SB_SE_E5beginEv.exit, %_ZN4llvm16DenseMapIteratorImNS_11SmallVectorISt10unique_ptrINS_17StableFunctionMap19StableFunctionEntryESt14default_deleteIS4_EELj6EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EELb1EEppEv.exit
-  %26 = phi i32 [ %33, %_ZN4llvm16DenseMapIteratorImNS_11SmallVectorISt10unique_ptrINS_17StableFunctionMap19StableFunctionEntryESt14default_deleteIS4_EELj6EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EELb1EEppEv.exit ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapImNS_11SmallVectorISt10unique_ptrINS_17StableFunctionMap19StableFunctionEntryESt14default_deleteIS5_EELj6EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS9_EEEEmS9_SB_SE_E5beginEv.exit ]
+  %27 = phi i32 [ %34, %_ZN4llvm16DenseMapIteratorImNS_11SmallVectorISt10unique_ptrINS_17StableFunctionMap19StableFunctionEntryESt14default_deleteIS4_EELj6EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EELb1EEppEv.exit ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapImNS_11SmallVectorISt10unique_ptrINS_17StableFunctionMap19StableFunctionEntryESt14default_deleteIS5_EELj6EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS9_EEEEmS9_SB_SE_E5beginEv.exit ]
   %.sroa.014.025 = phi ptr [ %.sroa.014.2, %_ZN4llvm16DenseMapIteratorImNS_11SmallVectorISt10unique_ptrINS_17StableFunctionMap19StableFunctionEntryESt14default_deleteIS4_EELj6EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EELb1EEppEv.exit ], [ %.pn14.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapImNS_11SmallVectorISt10unique_ptrINS_17StableFunctionMap19StableFunctionEntryESt14default_deleteIS5_EELj6EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS9_EEEEmS9_SB_SE_E5beginEv.exit ]
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.014.025, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !11
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.014.025, i64 16
-  %30 = load i32, ptr %29, align 8, !tbaa !14
-  %31 = zext i32 %30 to i64
-  %.idx28 = shl nuw nsw i64 %31, 3
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx28
-  %.not22 = icmp eq i32 %30, 0
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.014.025, i64 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !11
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.014.025, i64 16
+  %31 = load i32, ptr %30, align 8, !tbaa !14
+  %32 = zext i32 %31 to i64
+  %.idx28 = shl nuw nsw i64 %32, 3
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx28
+  %.not22 = icmp eq i32 %31, 0
   br i1 %.not22, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4llvm15SmallVectorImplIPKNS_17StableFunctionMap19StableFunctionEntryEE12emplace_backIJPS2_EEERS4_DpOT_.exit, %.lr.ph26
-  %33 = phi i32 [ %26, %.lr.ph26 ], [ %storemerge, %_ZN4llvm15SmallVectorImplIPKNS_17StableFunctionMap19StableFunctionEntryEE12emplace_backIJPS2_EEERS4_DpOT_.exit ]
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.014.025, i64 72
-  %.not4.i3.i = icmp eq ptr %34, %.pn12.i
+  %34 = phi i32 [ %27, %.lr.ph26 ], [ %storemerge, %_ZN4llvm15SmallVectorImplIPKNS_17StableFunctionMap19StableFunctionEntryEE12emplace_backIJPS2_EEERS4_DpOT_.exit ]
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.014.025, i64 72
+  %.not4.i3.i = icmp eq ptr %35, %.pn12.i
   br i1 %.not4.i3.i, label %_ZN4llvm16DenseMapIteratorImNS_11SmallVectorISt10unique_ptrINS_17StableFunctionMap19StableFunctionEntryESt14default_deleteIS4_EELj6EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EELb1EEppEv.exit, label %.lr.ph.i4.i
 
 .lr.ph.i4.i:                                      ; preds = %._crit_edge, %.critedge2.i6.i
-  %.sroa.014.1 = phi ptr [ %36, %.critedge2.i6.i ], [ %34, %._crit_edge ]
-  %35 = load i64, ptr %.sroa.014.1, align 8, !tbaa !44
-  %switch.i5.i = icmp ugt i64 %35, -3
+  %.sroa.014.1 = phi ptr [ %37, %.critedge2.i6.i ], [ %35, %._crit_edge ]
+  %36 = load i64, ptr %.sroa.014.1, align 8, !tbaa !44
+  %switch.i5.i = icmp ugt i64 %36, -3
   br i1 %switch.i5.i, label %.critedge2.i6.i, label %_ZN4llvm16DenseMapIteratorImNS_11SmallVectorISt10unique_ptrINS_17StableFunctionMap19StableFunctionEntryESt14default_deleteIS4_EELj6EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EELb1EEppEv.exit
 
 .critedge2.i6.i:                                  ; preds = %.lr.ph.i4.i
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.014.1, i64 72
-  %.not.i7.i = icmp eq ptr %36, %.pn12.i
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.014.1, i64 72
+  %.not.i7.i = icmp eq ptr %37, %.pn12.i
   br i1 %.not.i7.i, label %_ZN4llvm16DenseMapIteratorImNS_11SmallVectorISt10unique_ptrINS_17StableFunctionMap19StableFunctionEntryESt14default_deleteIS4_EELj6EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EELb1EEppEv.exit, label %.lr.ph.i4.i, !llvm.loop !59
 
 _ZN4llvm16DenseMapIteratorImNS_11SmallVectorISt10unique_ptrINS_17StableFunctionMap19StableFunctionEntryESt14default_deleteIS4_EELj6EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EELb1EEppEv.exit: ; preds = %.lr.ph.i4.i, %.critedge2.i6.i, %._crit_edge
-  %.sroa.014.2 = phi ptr [ %34, %._crit_edge ], [ %.sroa.014.1, %.lr.ph.i4.i ], [ %36, %.critedge2.i6.i ]
+  %.sroa.014.2 = phi ptr [ %35, %._crit_edge ], [ %.sroa.014.1, %.lr.ph.i4.i ], [ %37, %.critedge2.i6.i ]
   %.not17 = icmp eq ptr %.sroa.014.2, %19
   br i1 %.not17, label %._crit_edge27, label %.lr.ph26
 
 .lr.ph:                                           ; preds = %.lr.ph26, %_ZN4llvm15SmallVectorImplIPKNS_17StableFunctionMap19StableFunctionEntryEE12emplace_backIJPS2_EEERS4_DpOT_.exit
-  %37 = phi i32 [ %storemerge, %_ZN4llvm15SmallVectorImplIPKNS_17StableFunctionMap19StableFunctionEntryEE12emplace_backIJPS2_EEERS4_DpOT_.exit ], [ %26, %.lr.ph26 ]
-  %.023 = phi ptr [ %50, %_ZN4llvm15SmallVectorImplIPKNS_17StableFunctionMap19StableFunctionEntryEE12emplace_backIJPS2_EEERS4_DpOT_.exit ], [ %28, %.lr.ph26 ]
-  %38 = load ptr, ptr %.023, align 8, !tbaa !33
-  %39 = load i32, ptr %5, align 4, !tbaa !15
-  %.not.i = icmp ult i32 %37, %39
-  %40 = zext i32 %37 to i64
-  br i1 %.not.i, label %47, label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_17StableFunctionMap19StableFunctionEntryELb1EE18growAndEmplaceBackIJPS2_EEERS4_DpOT_.exit, !prof !61
+  %38 = phi i32 [ %storemerge, %_ZN4llvm15SmallVectorImplIPKNS_17StableFunctionMap19StableFunctionEntryEE12emplace_backIJPS2_EEERS4_DpOT_.exit ], [ %27, %.lr.ph26 ]
+  %.023 = phi ptr [ %51, %_ZN4llvm15SmallVectorImplIPKNS_17StableFunctionMap19StableFunctionEntryEE12emplace_backIJPS2_EEERS4_DpOT_.exit ], [ %29, %.lr.ph26 ]
+  %39 = load ptr, ptr %.023, align 8, !tbaa !33
+  %40 = load i32, ptr %5, align 4, !tbaa !15
+  %.not.i = icmp ult i32 %38, %40
+  %41 = zext i32 %38 to i64
+  br i1 %.not.i, label %48, label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_17StableFunctionMap19StableFunctionEntryELb1EE18growAndEmplaceBackIJPS2_EEERS4_DpOT_.exit, !prof !61
 
 _ZN4llvm23SmallVectorTemplateBaseIPKNS_17StableFunctionMap19StableFunctionEntryELb1EE18growAndEmplaceBackIJPS2_EEERS4_DpOT_.exit: ; preds = %.lr.ph
-  %41 = add nuw nsw i64 %40, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %3, i64 noundef %41, i64 noundef 8) #18
+  %42 = add nuw nsw i64 %41, 1
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %3, i64 noundef %42, i64 noundef 8) #18
   %.pre.i.i = load i32, ptr %4, align 8, !tbaa !14
-  %42 = load ptr, ptr %0, align 8, !tbaa !11
-  %43 = zext i32 %.pre.i.i to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %42, i64 %43
-  %45 = ptrtoint ptr %38 to i64
-  store i64 %45, ptr %44, align 1
-  %46 = load i32, ptr %4, align 8, !tbaa !14
+  %43 = load ptr, ptr %0, align 8, !tbaa !11
+  %44 = zext i32 %.pre.i.i to i64
+  %45 = getelementptr inbounds nuw ptr, ptr %43, i64 %44
+  %46 = ptrtoint ptr %39 to i64
+  store i64 %46, ptr %45, align 1
+  %47 = load i32, ptr %4, align 8, !tbaa !14
   br label %_ZN4llvm15SmallVectorImplIPKNS_17StableFunctionMap19StableFunctionEntryEE12emplace_backIJPS2_EEERS4_DpOT_.exit
 
-47:                                               ; preds = %.lr.ph
-  %48 = load ptr, ptr %0, align 8, !tbaa !11
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %40
-  store ptr %38, ptr %49, align 8, !tbaa !33
+48:                                               ; preds = %.lr.ph
+  %49 = load ptr, ptr %0, align 8, !tbaa !11
+  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %41
+  store ptr %39, ptr %50, align 8, !tbaa !33
   br label %_ZN4llvm15SmallVectorImplIPKNS_17StableFunctionMap19StableFunctionEntryEE12emplace_backIJPS2_EEERS4_DpOT_.exit
 
-_ZN4llvm15SmallVectorImplIPKNS_17StableFunctionMap19StableFunctionEntryEE12emplace_backIJPS2_EEERS4_DpOT_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKNS_17StableFunctionMap19StableFunctionEntryELb1EE18growAndEmplaceBackIJPS2_EEERS4_DpOT_.exit, %47
-  %storemerge.in = phi i32 [ %46, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_17StableFunctionMap19StableFunctionEntryELb1EE18growAndEmplaceBackIJPS2_EEERS4_DpOT_.exit ], [ %37, %47 ]
+_ZN4llvm15SmallVectorImplIPKNS_17StableFunctionMap19StableFunctionEntryEE12emplace_backIJPS2_EEERS4_DpOT_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKNS_17StableFunctionMap19StableFunctionEntryELb1EE18growAndEmplaceBackIJPS2_EEERS4_DpOT_.exit, %48
+  %storemerge.in = phi i32 [ %47, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_17StableFunctionMap19StableFunctionEntryELb1EE18growAndEmplaceBackIJPS2_EEERS4_DpOT_.exit ], [ %38, %48 ]
   %storemerge = add i32 %storemerge.in, 1
   store i32 %storemerge, ptr %4, align 8, !tbaa !14
-  %50 = getelementptr inbounds nuw i8, ptr %.023, i64 8
-  %.not = icmp eq ptr %50, %32
+  %51 = getelementptr inbounds nuw i8, ptr %.023, i64 8
+  %.not = icmp eq ptr %51, %33
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 

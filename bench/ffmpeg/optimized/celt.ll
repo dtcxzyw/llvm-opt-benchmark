@@ -799,8 +799,8 @@ opus_rc_tell_frac.exit:                           ; preds = %210
   br label %233
 
 233:                                              ; preds = %232, %229, %226, %opus_rc_tell_frac.exit
-  %.neg876 = phi i32 [ -8, %232 ], [ 0, %229 ], [ 0, %226 ], [ 0, %opus_rc_tell_frac.exit ]
-  %234 = add i32 %.neg876, %222
+  %.neg877 = phi i32 [ -8, %232 ], [ 0, %229 ], [ 0, %226 ], [ 0, %opus_rc_tell_frac.exit ]
+  %234 = add i32 %.neg877, %222
   %.inv = icmp slt i32 %234, 8
   %spec.select = select i1 %.inv, i32 0, i32 8
   %235 = sub nsw i32 %234, %spec.select
@@ -863,7 +863,7 @@ opus_rc_tell_frac.exit:                           ; preds = %210
   %.pre-phi848 = phi i32 [ %.pre847, %..preheader711_crit_edge ], [ %259, %262 ]
   %.pre-phi = phi i32 [ %.pre846, %..preheader711_crit_edge ], [ %257, %262 ]
   %261 = icmp slt i32 %.4536, 0
-  br label %.backedge891
+  br label %.backedge892
 
 262:                                              ; preds = %.lr.ph732, %262
   %indvars.iv811 = phi i64 [ %260, %.lr.ph732 ], [ %indvars.iv.next812, %262 ]
@@ -893,14 +893,14 @@ opus_rc_tell_frac.exit:                           ; preds = %210
   %exitcond814.not = icmp eq i64 %indvars.iv.next812, %wide.trip.count
   br i1 %exitcond814.not, label %.preheader711, label %262, !llvm.loop !50
 
-.backedge891:                                     ; preds = %.backedge891.backedge, %.preheader711
-  %.0502744 = phi i32 [ 1, %.preheader711 ], [ %.0502744.be, %.backedge891.backedge ]
-  %.0506743 = phi i32 [ 10, %.preheader711 ], [ %.0506743.be, %.backedge891.backedge ]
+.backedge892:                                     ; preds = %.backedge892.backedge, %.preheader711
+  %.0502744 = phi i32 [ 1, %.preheader711 ], [ %.0502744.be, %.backedge892.backedge ]
+  %.0506743 = phi i32 [ 10, %.preheader711 ], [ %.0506743.be, %.backedge892.backedge ]
   %281 = add nsw i32 %.0502744, %.0506743
   %282 = ashr i32 %281, 1
   br i1 %250, label %.lr.ph740, label %._crit_edge741.thread
 
-.lr.ph740:                                        ; preds = %.backedge891
+.lr.ph740:                                        ; preds = %.backedge892
   %283 = sext i32 %282 to i64
   %284 = getelementptr inbounds [21 x i8], ptr @ff_celt_static_alloc, i64 %283
   %285 = load i32, ptr %38, align 4, !tbaa !20
@@ -920,19 +920,19 @@ opus_rc_tell_frac.exit:                           ; preds = %210
   %293 = mul nuw nsw i32 %292, %289
   %294 = shl i32 %293, %.pre-phi
   %295 = shl i32 %294, %285
-  %.not634 = icmp ult i32 %295, 4
-  br i1 %.not634, label %301, label %296
+  %296 = ashr i32 %295, 2
+  %.not634 = icmp eq i32 %296, 0
+  br i1 %.not634, label %301, label %297
 
-296:                                              ; preds = %286
-  %297 = ashr i32 %295, 2
+297:                                              ; preds = %286
   %298 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.next816
   %299 = load i32, ptr %298, align 4, !tbaa !33
-  %300 = add nsw i32 %299, %297
+  %300 = add nsw i32 %299, %296
   %spec.select640 = tail call i32 @llvm.smax.i32(i32 %300, i32 0)
   br label %301
 
-301:                                              ; preds = %296, %286
-  %.0526 = phi i32 [ %spec.select640, %296 ], [ 0, %286 ]
+301:                                              ; preds = %297, %286
+  %.0526 = phi i32 [ %spec.select640, %297 ], [ 0, %286 ]
   %302 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.next816
   %303 = load i32, ptr %302, align 4, !tbaa !33
   %304 = add nsw i32 %303, %.0526
@@ -968,20 +968,20 @@ opus_rc_tell_frac.exit:                           ; preds = %210
   %.1507 = select i1 %315, i32 %316, i32 %.0506743
   %.1503 = select i1 %315, i32 %.0502744, i32 %317
   %.not614 = icmp sgt i32 %.1503, %.1507
-  br i1 %.not614, label %.lr.ph748, label %.backedge891.backedge
+  br i1 %.not614, label %.lr.ph748, label %.backedge892.backedge
 
-.backedge891.backedge:                            ; preds = %._crit_edge741, %._crit_edge741.thread
-  %.0502744.be = phi i32 [ %.1503, %._crit_edge741 ], [ %.1503879, %._crit_edge741.thread ]
-  %.0506743.be = phi i32 [ %.1507, %._crit_edge741 ], [ %.1507878, %._crit_edge741.thread ]
-  br label %.backedge891, !llvm.loop !52
+.backedge892.backedge:                            ; preds = %._crit_edge741, %._crit_edge741.thread
+  %.0502744.be = phi i32 [ %.1503, %._crit_edge741 ], [ %.1503880, %._crit_edge741.thread ]
+  %.0506743.be = phi i32 [ %.1507, %._crit_edge741 ], [ %.1507879, %._crit_edge741.thread ]
+  br label %.backedge892, !llvm.loop !52
 
-._crit_edge741.thread:                            ; preds = %.backedge891
+._crit_edge741.thread:                            ; preds = %.backedge892
   %318 = add nsw i32 %282, -1
   %319 = add nsw i32 %282, 1
-  %.1507878 = select i1 %261, i32 %318, i32 %.0506743
-  %.1503879 = select i1 %261, i32 %.0502744, i32 %319
-  %.not614880 = icmp sgt i32 %.1503879, %.1507878
-  br i1 %.not614880, label %.preheader710, label %.backedge891.backedge
+  %.1507879 = select i1 %261, i32 %318, i32 %.0506743
+  %.1503880 = select i1 %261, i32 %.0502744, i32 %319
+  %.not614881 = icmp sgt i32 %.1503880, %.1507879
+  br i1 %.not614881, label %.preheader710, label %.backedge892.backedge
 
 .lr.ph748:                                        ; preds = %._crit_edge741
   %320 = add nsw i32 %.1503, -1
@@ -1034,7 +1034,7 @@ opus_rc_tell_frac.exit:                           ; preds = %210
 351:                                              ; preds = %343, %340
   %352 = phi i32 [ %342, %340 ], [ %350, %343 ]
   %353 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv818
-  %.not629 = icmp ult i32 %337, 4
+  %.not629 = icmp eq i32 %338, 0
   br i1 %.not629, label %358, label %354
 
 354:                                              ; preds = %351
@@ -1046,7 +1046,7 @@ opus_rc_tell_frac.exit:                           ; preds = %210
   br label %358
 
 358:                                              ; preds = %354, %351
-  %359 = phi i32 [ %spec.select643, %354 ], [ %338, %351 ]
+  %359 = phi i32 [ %spec.select643, %354 ], [ 0, %351 ]
   %.not630 = icmp eq i32 %352, 0
   br i1 %.not630, label %364, label %360
 
@@ -1140,16 +1140,16 @@ opus_rc_tell_frac.exit:                           ; preds = %210
 
 .backedge.backedge:                               ; preds = %._crit_edge757, %._crit_edge757.thread
   %.5761.be = phi i32 [ %394, %._crit_edge757 ], [ %395, %._crit_edge757.thread ]
-  %.2504760.be = phi i32 [ %.2504., %._crit_edge757 ], [ %.2504.885, %._crit_edge757.thread ]
-  %.2508759.be = phi i32 [ %..2508, %._crit_edge757 ], [ %..2508884, %._crit_edge757.thread ]
+  %.2504760.be = phi i32 [ %.2504., %._crit_edge757 ], [ %.2504.886, %._crit_edge757.thread ]
+  %.2508759.be = phi i32 [ %..2508, %._crit_edge757 ], [ %..2508885, %._crit_edge757.thread ]
   br label %.backedge, !llvm.loop !55
 
 ._crit_edge757.thread:                            ; preds = %.backedge
-  %..2508884 = select i1 %327, i32 %375, i32 %.2508759
-  %.2504.885 = select i1 %327, i32 %.2504760, i32 %375
+  %..2508885 = select i1 %327, i32 %375, i32 %.2508759
+  %.2504.886 = select i1 %327, i32 %.2504760, i32 %375
   %395 = add nuw nsw i32 %.5761, 1
-  %exitcond826.not886 = icmp eq i32 %395, 6
-  br i1 %exitcond826.not886, label %._crit_edge768, label %.backedge.backedge
+  %exitcond826.not887 = icmp eq i32 %395, 6
+  br i1 %exitcond826.not887, label %._crit_edge768, label %.backedge.backedge
 
 396:                                              ; preds = %.lr.ph767, %411
   %indvars.iv827 = phi i64 [ %.pre-phi850, %.lr.ph767 ], [ %indvars.iv.next828, %411 ]

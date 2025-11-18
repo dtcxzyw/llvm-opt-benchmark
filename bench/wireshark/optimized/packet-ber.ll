@@ -810,7 +810,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %17, 
   %33 = zext nneg i8 %32 to i64
   %34 = tail call ptr @proto_tree_add_boolean(ptr noundef %1, i32 noundef %31, ptr noundef %2, i32 noundef %3, i32 noundef 1, i64 noundef %33)
   %35 = icmp sgt i32 %.0.i, 31
-  %36 = icmp ult i8 %8, 64
+  %36 = icmp eq i8 %10, 0
   br i1 %35, label %37, label %45
 
 37:                                               ; preds = %26
@@ -1079,7 +1079,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %40, 
   br i1 %.not248.not, label %64, label %280
 
 64:                                               ; preds = %63
-  %cond = icmp ult i8 %31, 64
+  %cond = icmp eq i8 %33, 0
   br i1 %cond, label %65, label %195
 
 65:                                               ; preds = %64
@@ -1454,8 +1454,8 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %40, 
   %214 = call i32 @_setjmp(ptr noundef nonnull %213) #15
   %.not249 = icmp eq i32 %214, 0
   %215 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %.sink290 = select i1 %.not249, ptr null, ptr %215
-  store volatile ptr %.sink290, ptr %24, align 8
+  %.sink291 = select i1 %.not249, ptr null, ptr %215
+  store volatile ptr %.sink291, ptr %24, align 8
   %.0..0..0..0. = load volatile i32, ptr %25, align 4
   %216 = and i32 %.0..0..0..0., 1
   %.not250 = icmp eq i32 %216, 0
@@ -4622,7 +4622,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %22, 
   %29 = call fastcc noundef i32 @try_get_ber_length(ptr noundef %4, i32 noundef %.028.i, ptr noundef nonnull %11, ptr noundef null, i32 noundef 1)
   %30 = load i32, ptr %11, align 4
   %31 = add i32 %30, %29
-  %.not = icmp ult i8 %13, 64
+  %.not = icmp eq i8 %15, 0
   %.not34 = icmp eq i32 %.0.i, %1
   %or.cond = select i1 %.not, i1 %.not34, i1 false
   br i1 %or.cond, label %48, label %32
@@ -5223,7 +5223,7 @@ get_ber_identifier.exit247:                       ; preds = %.preheader.i243, %1
   unreachable
 
 152:                                              ; preds = %get_ber_identifier.exit247
-  %153 = icmp ult i8 %132, 64
+  %153 = icmp eq i8 %133, 0
   %154 = icmp eq i32 %.0.i242, 0
   %or.cond7 = select i1 %153, i1 %154, i1 false
   br i1 %or.cond7, label %155, label %158

@@ -7172,7 +7172,7 @@ get_vlc2.exit:                                    ; preds = %43, %87
   %113 = zext i8 %112 to i64
   %114 = getelementptr inbounds nuw i8, ptr %109, i64 %113
   store i8 %108, ptr %114, align 1, !tbaa !12
-  %115 = icmp ult i32 %.0284, 4
+  %115 = icmp eq i32 %107, 0
   br i1 %115, label %.thread353, label %116
 
 116:                                              ; preds = %106
@@ -7410,8 +7410,8 @@ get_vlc2.exit:                                    ; preds = %43, %87
 
 .lr.ph:                                           ; preds = %270
   %274 = and i32 %.0284, 3
-  %narrow476 = add nuw nsw i32 %274, 1
-  %275 = zext nneg i32 %narrow476 to i64
+  %narrow475 = add nuw nsw i32 %274, 1
+  %275 = zext nneg i32 %narrow475 to i64
   %wide.trip.count = zext nneg i32 %107 to i64
   br label %276
 
@@ -7596,12 +7596,12 @@ get_vlc2.exit:                                    ; preds = %43, %87
   br label %.sink.split
 
 .sink.split:                                      ; preds = %387, %389, %391
-  %.sink511 = phi i32 [ 29, %387 ], [ 27, %389 ], [ 23, %391 ]
-  %.sink497.in = phi ptr [ %388, %387 ], [ %390, %389 ], [ %393, %391 ]
-  %394 = lshr i32 %383, %.sink511
-  %.sink497 = load ptr, ptr %.sink497.in, align 8, !tbaa !4
+  %.sink510 = phi i32 [ 29, %387 ], [ 27, %389 ], [ 23, %391 ]
+  %.sink496.in = phi ptr [ %388, %387 ], [ %390, %389 ], [ %393, %391 ]
+  %394 = lshr i32 %383, %.sink510
+  %.sink496 = load ptr, ptr %.sink496.in, align 8, !tbaa !4
   %395 = zext nneg i32 %394 to i64
-  %396 = getelementptr inbounds nuw %struct.VLCElem, ptr %.sink497, i64 %395
+  %396 = getelementptr inbounds nuw %struct.VLCElem, ptr %.sink496, i64 %395
   %397 = load i16, ptr %396, align 2, !tbaa !12
   %398 = sext i16 %397 to i32
   %399 = getelementptr inbounds nuw i8, ptr %396, i64 2

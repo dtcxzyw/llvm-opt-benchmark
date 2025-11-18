@@ -1211,7 +1211,7 @@ decrease_ref_count.exit.i:                        ; preds = %157, %154, %150, %1
 164:                                              ; preds = %decrease_ref_count.exit.i, %145
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %165 = ashr i32 %.04771.i, 1
-  %.not50.i = icmp ult i32 %.04771.i, 2
+  %.not50.i = icmp eq i32 %165, 0
   br i1 %.not50.i, label %.loopexit69.i, label %145, !llvm.loop !12
 
 .loopexit69.i:                                    ; preds = %164, %138, %135

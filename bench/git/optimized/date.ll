@@ -566,6 +566,7 @@ define dso_local ptr @show_date(i64 noundef %0, i32 noundef %1, i64 %2, ptr %3) 
   %10 = alloca %struct.tm, align 8
   %11 = alloca %struct.timeval, align 8
   %.sroa.0.0.extract.trunc = trunc i64 %2 to i32
+  %.sroa.10.0.extract.shift = lshr i64 %2, 32
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, i8 0, i64 56, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -614,7 +615,7 @@ get_time.exit:                                    ; preds = %17, %20
 
 24:                                               ; preds = %4, %get_time.exit
   %.0 = phi i32 [ %23, %get_time.exit ], [ -1, %4 ]
-  %.not = icmp ult i64 %2, 4294967296
+  %.not = icmp eq i64 %.sroa.10.0.extract.shift, 0
   br i1 %.not, label %28, label %25
 
 25:                                               ; preds = %24
@@ -879,7 +880,7 @@ strbuf_addch.exit:                                ; preds = %109, %113
   br label %show_date_normal.exit
 
 147:                                              ; preds = %strbuf_setlen.exit69
-  %148 = icmp ugt i64 %2, 4294967295
+  %148 = icmp ne i64 %.sroa.10.0.extract.shift, 0
   %149 = icmp eq i32 %.157, %.0
   %150 = or i1 %148, %149
   %151 = select i1 %150, i8 32, i8 0

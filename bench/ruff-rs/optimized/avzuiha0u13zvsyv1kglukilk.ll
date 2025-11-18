@@ -10707,7 +10707,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @"_ZN7ruff_db5files1_38_$
 13:                                               ; preds = %1
   %14 = lshr i64 %11, 32
   %15 = trunc nuw i64 %14 to i32
-  %16 = icmp ugt i64 %11, 4294967295
+  %16 = icmp ne i64 %14, 0
   tail call void @llvm.assume(i1 %16)
   %17 = trunc i64 %11 to i32
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 2272

@@ -389,7 +389,7 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %_ZNSt6vectorItSaItE
   store i16 %154, ptr %163, align 2, !tbaa !75
   %164 = getelementptr inbounds nuw i16, ptr %156, i64 %162
   store i16 %154, ptr %164, align 2, !tbaa !75
-  %.not384 = icmp ult i16 %160, 2
+  %.not384 = icmp eq i16 %161, 0
   br i1 %.not384, label %.preheader306, label %.lr.ph362.preheader
 
 .lr.ph362.preheader:                              ; preds = %159
@@ -1894,7 +1894,7 @@ define void @_ZN6LibRaw18kodak_262_load_rawEv(ptr noundef nonnull align 8 derefe
   store i16 19789, ptr %24, align 8, !tbaa !155
   %wide.trip.count = zext nneg i32 %9 to i64
   %indvars.iv123.sroa.gep = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %indvars.iv120.sroa.gep131 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %indvars.iv120.sroa.gep132 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %.lr.ph
 
 .preheader98:                                     ; preds = %28
@@ -1978,7 +1978,7 @@ define void @_ZN6LibRaw18kodak_262_load_rawEv(ptr noundef nonnull align 8 derefe
 
 50:                                               ; preds = %47, %53
   %51 = phi i1 [ true, %47 ], [ false, %53 ]
-  %indvars.iv120.sroa.phi = phi ptr [ %1, %47 ], [ %indvars.iv120.sroa.gep131, %53 ]
+  %indvars.iv120.sroa.phi = phi ptr [ %1, %47 ], [ %indvars.iv120.sroa.gep132, %53 ]
   %52 = load ptr, ptr %indvars.iv120.sroa.phi, align 8, !tbaa !153
   invoke void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef %52)
           to label %53 unwind label %.loopexit

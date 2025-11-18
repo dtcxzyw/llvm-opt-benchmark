@@ -8863,7 +8863,7 @@ _ZN4pugi4impl12_GLOBAL__N_117make_parse_resultENS_16xml_parse_statusEl.exit: ; p
 40:                                               ; preds = %38
   %41 = icmp eq i32 %17, 2
   %42 = lshr i64 %4, 1
-  %.not36.i.i.i = icmp eq i64 %4, 1
+  %.not36.i.i.i = icmp eq i64 %42, 0
   br i1 %41, label %43, label %164
 
 43:                                               ; preds = %40
@@ -8940,8 +8940,8 @@ _ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_9opt_falseEE7processINS1_12utf8_c
           to label %.noexc40 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc40:                                         ; preds = %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_9opt_falseEE7processINS1_12utf8_counterEEENT_10value_typeEPKtmS8_S7_.exit.thread.i.i
-  %.not33.not.i.i = icmp eq ptr %76, null
-  br i1 %.not33.not.i.i, label %448, label %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_9opt_falseEE7processINS1_11utf8_writerEEENT_10value_typeEPKtmS8_S7_.exit.i.i
+  %.not34.not.i.i = icmp eq ptr %76, null
+  br i1 %.not34.not.i.i, label %448, label %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_9opt_falseEE7processINS1_11utf8_writerEEENT_10value_typeEPKtmS8_S7_.exit.i.i
 
 .lr.ph.i17.i.i:                                   ; preds = %.noexc39, %161
   %.039.i18.i.i = phi ptr [ %.1.i24.i.i, %161 ], [ %3, %.noexc39 ]
@@ -9081,7 +9081,7 @@ _ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit35.i.i.i: ; preds = %109
   br i1 %.not.i25.i.i, label %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_9opt_falseEE7processINS1_11utf8_writerEEENT_10value_typeEPKtmS8_S7_.exit.i.i, label %.lr.ph.i17.i.i, !llvm.loop !117
 
 _ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_9opt_falseEE7processINS1_11utf8_writerEEENT_10value_typeEPKtmS8_S7_.exit.i.i: ; preds = %161, %.noexc40
-  %.029.lcssa.i3440.i.i = phi i64 [ 1, %.noexc40 ], [ %72, %161 ]
+  %.029.lcssa.i3541.i.i = phi i64 [ 1, %.noexc40 ], [ %72, %161 ]
   %163 = phi ptr [ %76, %.noexc40 ], [ %74, %161 ]
   %.029.lcssa.i26.i.i = phi ptr [ %76, %.noexc40 ], [ %.130.i23.i.i, %161 ]
   store i8 0, ptr %.029.lcssa.i26.i.i, align 1, !tbaa !28
@@ -9162,8 +9162,8 @@ _ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_8opt_trueEE7processINS1_12utf8_co
           to label %.noexc42 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc42:                                         ; preds = %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_8opt_trueEE7processINS1_12utf8_counterEEENT_10value_typeEPKtmS8_S7_.exit.thread.i.i
-  %.not32.not.i.i = icmp eq ptr %197, null
-  br i1 %.not32.not.i.i, label %448, label %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_8opt_trueEE7processINS1_11utf8_writerEEENT_10value_typeEPKtmS8_S7_.exit.i.i
+  %.not33.not.i.i = icmp eq ptr %197, null
+  br i1 %.not33.not.i.i, label %448, label %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_8opt_trueEE7processINS1_11utf8_writerEEENT_10value_typeEPKtmS8_S7_.exit.i.i
 
 .lr.ph.i17.i48.i:                                 ; preds = %.noexc41, %282
   %.040.i18.i.i = phi ptr [ %.1.i25.i.i, %282 ], [ %3, %.noexc41 ]
@@ -9305,7 +9305,7 @@ _ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit35.i.i49.i: ; preds = %230
   br i1 %.not.i26.i.i, label %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_8opt_trueEE7processINS1_11utf8_writerEEENT_10value_typeEPKtmS8_S7_.exit.i.i, label %.lr.ph.i17.i48.i, !llvm.loop !119
 
 _ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_8opt_trueEE7processINS1_11utf8_writerEEENT_10value_typeEPKtmS8_S7_.exit.i.i: ; preds = %282, %.noexc42
-  %.029.lcssa.i3339.i.i = phi i64 [ 1, %.noexc42 ], [ %193, %282 ]
+  %.029.lcssa.i3440.i.i = phi i64 [ 1, %.noexc42 ], [ %193, %282 ]
   %284 = phi ptr [ %197, %.noexc42 ], [ %195, %282 ]
   %.029.lcssa.i27.i.i = phi ptr [ %197, %.noexc42 ], [ %.130.i24.i.i, %282 ]
   store i8 0, ptr %.029.lcssa.i27.i.i, align 1, !tbaa !28
@@ -9319,7 +9319,7 @@ _ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_8opt_trueEE7processINS1_11utf8_wr
 287:                                              ; preds = %285
   %288 = icmp eq i32 %17, 5
   %289 = lshr i64 %4, 2
-  %.not17.i.i.i = icmp ult i64 %4, 4
+  %.not17.i.i.i = icmp eq i64 %289, 0
   br i1 %288, label %290, label %349
 
 290:                                              ; preds = %287
@@ -9358,8 +9358,8 @@ _ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_9opt_falseEE7processINS1_12utf8_c
           to label %.noexc44 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc44:                                         ; preds = %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_9opt_falseEE7processINS1_12utf8_counterEEENT_10value_typeEPKjmS8_S7_.exit.thread.i.i
-  %.not27.not.i.i = icmp eq ptr %299, null
-  br i1 %.not27.not.i.i, label %448, label %.lr.ph.i17.i58.i
+  %.not28.not.i.i = icmp eq ptr %299, null
+  br i1 %.not28.not.i.i, label %448, label %.lr.ph.i17.i58.i
 
 .lr.ph.i17.i58.i:                                 ; preds = %.noexc44, %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i59.i
   %.020.i18.i.i = phi ptr [ %.1.i21.i.i, %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i59.i ], [ %3, %.noexc44 ]
@@ -9445,7 +9445,7 @@ _ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i59.i: ; preds = %329, %
   br i1 %.not.i23.i.i, label %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_9opt_falseEE7processINS1_11utf8_writerEEENT_10value_typeEPKjmS8_S7_.exit.i.i, label %.lr.ph.i17.i58.i, !llvm.loop !122
 
 _ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_9opt_falseEE7processINS1_11utf8_writerEEENT_10value_typeEPKjmS8_S7_.exit.i.i: ; preds = %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i59.i, %.noexc43
-  %.011.lcssa.i2836.i.i = phi i64 [ 1, %.noexc43 ], [ %297, %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i59.i ]
+  %.011.lcssa.i2937.i.i = phi i64 [ 1, %.noexc43 ], [ %297, %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i59.i ]
   %348 = phi ptr [ %296, %.noexc43 ], [ %299, %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i59.i ]
   %.011.lcssa.i24.i.i = phi ptr [ %296, %.noexc43 ], [ %347, %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i59.i ]
   store i8 0, ptr %.011.lcssa.i24.i.i, align 1, !tbaa !28
@@ -9488,8 +9488,8 @@ _ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_8opt_trueEE7processINS1_12utf8_co
           to label %.noexc46 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc46:                                         ; preds = %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_8opt_trueEE7processINS1_12utf8_counterEEENT_10value_typeEPKjmS8_S7_.exit.thread.i.i
-  %.not27.not.i74.i = icmp eq ptr %359, null
-  br i1 %.not27.not.i74.i, label %448, label %.lr.ph.i17.i75.i
+  %.not28.not.i74.i = icmp eq ptr %359, null
+  br i1 %.not28.not.i74.i, label %448, label %.lr.ph.i17.i75.i
 
 .lr.ph.i17.i75.i:                                 ; preds = %.noexc46, %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i79.i
   %.020.i18.i76.i = phi ptr [ %.1.i21.i81.i, %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i79.i ], [ %3, %.noexc46 ]
@@ -9576,7 +9576,7 @@ _ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i79.i: ; preds = %390, %
   br i1 %.not.i23.i83.i, label %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_8opt_trueEE7processINS1_11utf8_writerEEENT_10value_typeEPKjmS8_S7_.exit.i.i, label %.lr.ph.i17.i75.i, !llvm.loop !124
 
 _ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_8opt_trueEE7processINS1_11utf8_writerEEENT_10value_typeEPKjmS8_S7_.exit.i.i: ; preds = %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i79.i, %.noexc45
-  %.011.lcssa.i2836.i84.i = phi i64 [ 1, %.noexc45 ], [ %357, %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i79.i ]
+  %.011.lcssa.i2937.i84.i = phi i64 [ 1, %.noexc45 ], [ %357, %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i79.i ]
   %409 = phi ptr [ %356, %.noexc45 ], [ %359, %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i79.i ]
   %.011.lcssa.i24.i85.i = phi ptr [ %356, %.noexc45 ], [ %408, %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i79.i ]
   store i8 0, ptr %.011.lcssa.i24.i85.i, align 1, !tbaa !28
@@ -9694,7 +9694,7 @@ _ZN4pugi4impl12_GLOBAL__N_114latin1_decoder7processINS1_11utf8_writerEEENT_10val
 
 _ZN4pugi4impl12_GLOBAL__N_114convert_bufferERPcRmNS_12xml_encodingEPKvmb.exit: ; preds = %29, %36, %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_9opt_falseEE7processINS1_11utf8_writerEEENT_10value_typeEPKtmS8_S7_.exit.i.i, %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_8opt_trueEE7processINS1_11utf8_writerEEENT_10value_typeEPKtmS8_S7_.exit.i.i, %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_9opt_falseEE7processINS1_11utf8_writerEEENT_10value_typeEPKjmS8_S7_.exit.i.i, %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_8opt_trueEE7processINS1_11utf8_writerEEENT_10value_typeEPKjmS8_S7_.exit.i.i, %_ZN4pugi4impl12_GLOBAL__N_129get_latin1_7bit_prefix_lengthEPKhm.exit.thread.i.i, %424, %_ZN4pugi4impl12_GLOBAL__N_114latin1_decoder7processINS1_11utf8_writerEEENT_10value_typeEPKhmS6_S5_.exit.i.i
   %.077 = phi ptr [ %409, %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_8opt_trueEE7processINS1_11utf8_writerEEENT_10value_typeEPKjmS8_S7_.exit.i.i ], [ %348, %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_9opt_falseEE7processINS1_11utf8_writerEEENT_10value_typeEPKjmS8_S7_.exit.i.i ], [ %284, %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_8opt_trueEE7processINS1_11utf8_writerEEENT_10value_typeEPKtmS8_S7_.exit.i.i ], [ %163, %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_9opt_falseEE7processINS1_11utf8_writerEEENT_10value_typeEPKtmS8_S7_.exit.i.i ], [ %33, %36 ], [ %3, %29 ], [ %434, %_ZN4pugi4impl12_GLOBAL__N_114latin1_decoder7processINS1_11utf8_writerEEENT_10value_typeEPKhmS6_S5_.exit.i.i ], [ %423, %424 ], [ %3, %_ZN4pugi4impl12_GLOBAL__N_129get_latin1_7bit_prefix_lengthEPKhm.exit.thread.i.i ]
-  %.0 = phi i64 [ %.011.lcssa.i2836.i84.i, %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_8opt_trueEE7processINS1_11utf8_writerEEENT_10value_typeEPKjmS8_S7_.exit.i.i ], [ %.011.lcssa.i2836.i.i, %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_9opt_falseEE7processINS1_11utf8_writerEEENT_10value_typeEPKjmS8_S7_.exit.i.i ], [ %.029.lcssa.i3339.i.i, %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_8opt_trueEE7processINS1_11utf8_writerEEENT_10value_typeEPKtmS8_S7_.exit.i.i ], [ %.029.lcssa.i3440.i.i, %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_9opt_falseEE7processINS1_11utf8_writerEEENT_10value_typeEPKtmS8_S7_.exit.i.i ], [ %32, %36 ], [ %4, %29 ], [ %433, %_ZN4pugi4impl12_GLOBAL__N_114latin1_decoder7processINS1_11utf8_writerEEENT_10value_typeEPKhmS6_S5_.exit.i.i ], [ %422, %424 ], [ %4, %_ZN4pugi4impl12_GLOBAL__N_129get_latin1_7bit_prefix_lengthEPKhm.exit.thread.i.i ]
+  %.0 = phi i64 [ %.011.lcssa.i2937.i84.i, %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_8opt_trueEE7processINS1_11utf8_writerEEENT_10value_typeEPKjmS8_S7_.exit.i.i ], [ %.011.lcssa.i2937.i.i, %_ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_9opt_falseEE7processINS1_11utf8_writerEEENT_10value_typeEPKjmS8_S7_.exit.i.i ], [ %.029.lcssa.i3440.i.i, %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_8opt_trueEE7processINS1_11utf8_writerEEENT_10value_typeEPKtmS8_S7_.exit.i.i ], [ %.029.lcssa.i3541.i.i, %_ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_9opt_falseEE7processINS1_11utf8_writerEEENT_10value_typeEPKtmS8_S7_.exit.i.i ], [ %32, %36 ], [ %4, %29 ], [ %433, %_ZN4pugi4impl12_GLOBAL__N_114latin1_decoder7processINS1_11utf8_writerEEENT_10value_typeEPKhmS6_S5_.exit.i.i ], [ %422, %424 ], [ %4, %_ZN4pugi4impl12_GLOBAL__N_129get_latin1_7bit_prefix_lengthEPKhm.exit.thread.i.i ]
   br i1 %8, label %449, label %.critedge
 
 449:                                              ; preds = %_ZN4pugi4impl12_GLOBAL__N_114convert_bufferERPcRmNS_12xml_encodingEPKvmb.exit
@@ -9784,8 +9784,8 @@ _ZN4pugi4impl12_GLOBAL__N_110xml_parser14parse_skip_bomEPc.exit.i: ; preds = %48
   %491 = and i32 %490, 4
   %492 = or disjoint i32 %489, %491
   %493 = zext nneg i32 %492 to i64
-  %switch.gep1439 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.83, i64 %493
-  %switch.load1440 = load ptr, ptr %switch.gep1439, align 8
+  %switch.gep1443 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.83, i64 %493
+  %switch.load1444 = load ptr, ptr %switch.gep1443, align 8
   %494 = and i32 %5, 1032
   %.not243.i.i = icmp ne i32 %494, 0
   %495 = and i32 %5, 2048
@@ -9884,7 +9884,7 @@ thread-pre-split.i.i:                             ; preds = %.backedge.i.i, %.pr
   %532 = load i8, ptr %531, align 1, !tbaa !28, !noalias !129
   %533 = and i8 %532, 64
   %.not276.i.i = icmp eq i8 %533, 0
-  br i1 %.not276.i.i, label %select.unfold.i.i.split.loop.exit1004, label %534, !prof !52
+  br i1 %.not276.i.i, label %select.unfold.i.i.split.loop.exit1008, label %534, !prof !52
 
 534:                                              ; preds = %527
   %535 = getelementptr inbounds nuw i8, ptr %.3200.i.i, i64 2
@@ -9894,7 +9894,7 @@ thread-pre-split.i.i:                             ; preds = %.backedge.i.i, %.pr
   %539 = load i8, ptr %538, align 1, !tbaa !28, !noalias !129
   %540 = and i8 %539, 64
   %.not277.i.i = icmp eq i8 %540, 0
-  br i1 %.not277.i.i, label %select.unfold.i.i.split.loop.exit1000, label %541, !prof !52
+  br i1 %.not277.i.i, label %select.unfold.i.i.split.loop.exit1004, label %541, !prof !52
 
 541:                                              ; preds = %534
   %542 = getelementptr inbounds nuw i8, ptr %.3200.i.i, i64 3
@@ -9905,24 +9905,24 @@ thread-pre-split.i.i:                             ; preds = %.backedge.i.i, %.pr
   %547 = and i8 %546, 64
   %.not278.i.i = icmp eq i8 %547, 0
   %548 = getelementptr inbounds nuw i8, ptr %.3200.i.i, i64 4
-  br i1 %.not278.i.i, label %select.unfold.i.i.split.loop.exit1008, label %521, !prof !52
+  br i1 %.not278.i.i, label %select.unfold.i.i.split.loop.exit1012, label %521, !prof !52
 
-select.unfold.i.i.split.loop.exit1000:            ; preds = %534
+select.unfold.i.i.split.loop.exit1004:            ; preds = %534
   %549 = getelementptr inbounds nuw i8, ptr %.3200.i.i, i64 2
   br label %select.unfold.i.i
 
-select.unfold.i.i.split.loop.exit1004:            ; preds = %527
+select.unfold.i.i.split.loop.exit1008:            ; preds = %527
   %550 = getelementptr inbounds nuw i8, ptr %.3200.i.i, i64 1
   br label %select.unfold.i.i
 
-select.unfold.i.i.split.loop.exit1008:            ; preds = %541
+select.unfold.i.i.split.loop.exit1012:            ; preds = %541
   %551 = getelementptr inbounds nuw i8, ptr %.3200.i.i, i64 3
   br label %select.unfold.i.i
 
-select.unfold.i.i:                                ; preds = %521, %select.unfold.i.i.split.loop.exit1008, %select.unfold.i.i.split.loop.exit1004, %select.unfold.i.i.split.loop.exit1000
-  %552 = phi i8 [ %539, %select.unfold.i.i.split.loop.exit1000 ], [ %532, %select.unfold.i.i.split.loop.exit1004 ], [ %546, %select.unfold.i.i.split.loop.exit1008 ], [ %525, %521 ]
-  %553 = phi i8 [ %536, %select.unfold.i.i.split.loop.exit1000 ], [ %529, %select.unfold.i.i.split.loop.exit1004 ], [ %543, %select.unfold.i.i.split.loop.exit1008 ], [ %522, %521 ]
-  %.4201.ph.i.i = phi ptr [ %549, %select.unfold.i.i.split.loop.exit1000 ], [ %550, %select.unfold.i.i.split.loop.exit1004 ], [ %551, %select.unfold.i.i.split.loop.exit1008 ], [ %.3200.i.i, %521 ]
+select.unfold.i.i:                                ; preds = %521, %select.unfold.i.i.split.loop.exit1012, %select.unfold.i.i.split.loop.exit1008, %select.unfold.i.i.split.loop.exit1004
+  %552 = phi i8 [ %539, %select.unfold.i.i.split.loop.exit1004 ], [ %532, %select.unfold.i.i.split.loop.exit1008 ], [ %546, %select.unfold.i.i.split.loop.exit1012 ], [ %525, %521 ]
+  %553 = phi i8 [ %536, %select.unfold.i.i.split.loop.exit1004 ], [ %529, %select.unfold.i.i.split.loop.exit1008 ], [ %543, %select.unfold.i.i.split.loop.exit1012 ], [ %522, %521 ]
+  %.4201.ph.i.i = phi ptr [ %549, %select.unfold.i.i.split.loop.exit1004 ], [ %550, %select.unfold.i.i.split.loop.exit1008 ], [ %551, %select.unfold.i.i.split.loop.exit1012 ], [ %.3200.i.i, %521 ]
   store i8 0, ptr %.4201.ph.i.i, align 1, !tbaa !28, !noalias !129
   %554 = getelementptr inbounds nuw i8, ptr %.4201.ph.i.i, i64 1
   %555 = icmp eq i8 %553, 62
@@ -9985,7 +9985,7 @@ select.unfold.i.i:                                ; preds = %521, %select.unfold
   %581 = load i8, ptr %580, align 1, !tbaa !28, !noalias !129
   %582 = and i8 %581, 64
   %.not285.i.i = icmp eq i8 %582, 0
-  br i1 %.not285.i.i, label %select.unfold333.i.i.split.loop.exit1032, label %583, !prof !52
+  br i1 %.not285.i.i, label %select.unfold333.i.i.split.loop.exit1036, label %583, !prof !52
 
 583:                                              ; preds = %576
   %584 = getelementptr inbounds nuw i8, ptr %.9206.i.i, i64 2
@@ -9995,7 +9995,7 @@ select.unfold.i.i:                                ; preds = %521, %select.unfold
   %588 = load i8, ptr %587, align 1, !tbaa !28, !noalias !129
   %589 = and i8 %588, 64
   %.not286.i.i = icmp eq i8 %589, 0
-  br i1 %.not286.i.i, label %select.unfold333.i.i.split.loop.exit1028, label %590, !prof !52
+  br i1 %.not286.i.i, label %select.unfold333.i.i.split.loop.exit1032, label %590, !prof !52
 
 590:                                              ; preds = %583
   %591 = getelementptr inbounds nuw i8, ptr %.9206.i.i, i64 3
@@ -10006,24 +10006,24 @@ select.unfold.i.i:                                ; preds = %521, %select.unfold
   %596 = and i8 %595, 64
   %.not287.i.i = icmp eq i8 %596, 0
   %597 = getelementptr inbounds nuw i8, ptr %.9206.i.i, i64 4
-  br i1 %.not287.i.i, label %select.unfold333.i.i.split.loop.exit1036, label %570, !prof !52
+  br i1 %.not287.i.i, label %select.unfold333.i.i.split.loop.exit1040, label %570, !prof !52
 
-select.unfold333.i.i.split.loop.exit1028:         ; preds = %583
+select.unfold333.i.i.split.loop.exit1032:         ; preds = %583
   %598 = getelementptr inbounds nuw i8, ptr %.9206.i.i, i64 2
   br label %select.unfold333.i.i
 
-select.unfold333.i.i.split.loop.exit1032:         ; preds = %576
+select.unfold333.i.i.split.loop.exit1036:         ; preds = %576
   %599 = getelementptr inbounds nuw i8, ptr %.9206.i.i, i64 1
   br label %select.unfold333.i.i
 
-select.unfold333.i.i.split.loop.exit1036:         ; preds = %590
+select.unfold333.i.i.split.loop.exit1040:         ; preds = %590
   %600 = getelementptr inbounds nuw i8, ptr %.9206.i.i, i64 3
   br label %select.unfold333.i.i
 
-select.unfold333.i.i:                             ; preds = %570, %select.unfold333.i.i.split.loop.exit1036, %select.unfold333.i.i.split.loop.exit1032, %select.unfold333.i.i.split.loop.exit1028
-  %601 = phi i8 [ %588, %select.unfold333.i.i.split.loop.exit1028 ], [ %581, %select.unfold333.i.i.split.loop.exit1032 ], [ %595, %select.unfold333.i.i.split.loop.exit1036 ], [ %574, %570 ]
-  %602 = phi i8 [ %585, %select.unfold333.i.i.split.loop.exit1028 ], [ %578, %select.unfold333.i.i.split.loop.exit1032 ], [ %592, %select.unfold333.i.i.split.loop.exit1036 ], [ %571, %570 ]
-  %.10.ph.i.i = phi ptr [ %598, %select.unfold333.i.i.split.loop.exit1028 ], [ %599, %select.unfold333.i.i.split.loop.exit1032 ], [ %600, %select.unfold333.i.i.split.loop.exit1036 ], [ %.9206.i.i, %570 ]
+select.unfold333.i.i:                             ; preds = %570, %select.unfold333.i.i.split.loop.exit1040, %select.unfold333.i.i.split.loop.exit1036, %select.unfold333.i.i.split.loop.exit1032
+  %601 = phi i8 [ %588, %select.unfold333.i.i.split.loop.exit1032 ], [ %581, %select.unfold333.i.i.split.loop.exit1036 ], [ %595, %select.unfold333.i.i.split.loop.exit1040 ], [ %574, %570 ]
+  %602 = phi i8 [ %585, %select.unfold333.i.i.split.loop.exit1032 ], [ %578, %select.unfold333.i.i.split.loop.exit1036 ], [ %592, %select.unfold333.i.i.split.loop.exit1040 ], [ %571, %570 ]
+  %.10.ph.i.i = phi ptr [ %598, %select.unfold333.i.i.split.loop.exit1032 ], [ %599, %select.unfold333.i.i.split.loop.exit1036 ], [ %600, %select.unfold333.i.i.split.loop.exit1040 ], [ %.9206.i.i, %570 ]
   store i8 0, ptr %.10.ph.i.i, align 1, !tbaa !28, !noalias !129
   %603 = getelementptr inbounds nuw i8, ptr %.10.ph.i.i, i64 1
   %604 = and i8 %601, 8
@@ -10494,7 +10494,7 @@ _ZN4pugi4impl12_GLOBAL__N_110xml_parser14parse_questionEPcRPNS_15xml_node_struct
   %793 = getelementptr inbounds nuw i8, ptr %.2199.i.i, i64 2
   %794 = load i8, ptr %793, align 1, !tbaa !28, !noalias !129
   %795 = icmp eq i8 %794, 45
-  br i1 %795, label %796, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit815.split.loop.exit
+  br i1 %795, label %796, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit
 
 796:                                              ; preds = %792
   %797 = getelementptr inbounds nuw i8, ptr %.2199.i.i, i64 3
@@ -10570,7 +10570,7 @@ _ZN4pugi4impl12_GLOBAL__N_110xml_parser14parse_questionEPcRPNS_15xml_node_struct
   %828 = load i8, ptr %827, align 1, !tbaa !28, !noalias !129
   %829 = and i8 %828, 32
   %.not12.i.i.i.i = icmp eq i8 %829, 0
-  br i1 %.not12.i.i.i.i, label %830, label %.split.loop.exit.i.i.i.i.loopexit.split.loop.exit1014, !prof !146
+  br i1 %.not12.i.i.i.i, label %830, label %.split.loop.exit.i.i.i.i.loopexit.split.loop.exit1018, !prof !146
 
 830:                                              ; preds = %823
   %831 = getelementptr inbounds nuw i8, ptr %.144.i.i.i.i, i64 3
@@ -10580,7 +10580,7 @@ _ZN4pugi4impl12_GLOBAL__N_110xml_parser14parse_questionEPcRPNS_15xml_node_struct
   %835 = load i8, ptr %834, align 1, !tbaa !28, !noalias !129
   %836 = and i8 %835, 32
   %.not13.i.i.i.i = icmp eq i8 %836, 0
-  br i1 %.not13.i.i.i.i, label %837, label %.split.loop.exit.i.i.i.i.loopexit.split.loop.exit1017, !prof !146
+  br i1 %.not13.i.i.i.i, label %837, label %.split.loop.exit.i.i.i.i.loopexit.split.loop.exit1021, !prof !146
 
 837:                                              ; preds = %830
   %838 = getelementptr inbounds nuw i8, ptr %.144.i.i.i.i, i64 4
@@ -10596,17 +10596,17 @@ _ZN4pugi4impl12_GLOBAL__N_110xml_parser14parse_questionEPcRPNS_15xml_node_struct
   %844 = getelementptr inbounds nuw i8, ptr %.144.i.i.i.i, i64 1
   br label %.split.loop.exit.i.i.i.i
 
-.split.loop.exit.i.i.i.i.loopexit.split.loop.exit1014: ; preds = %823
+.split.loop.exit.i.i.i.i.loopexit.split.loop.exit1018: ; preds = %823
   %845 = getelementptr inbounds nuw i8, ptr %.144.i.i.i.i, i64 2
   br label %.split.loop.exit.i.i.i.i
 
-.split.loop.exit.i.i.i.i.loopexit.split.loop.exit1017: ; preds = %830
+.split.loop.exit.i.i.i.i.loopexit.split.loop.exit1021: ; preds = %830
   %846 = getelementptr inbounds nuw i8, ptr %.144.i.i.i.i, i64 3
   br label %.split.loop.exit.i.i.i.i
 
-.split.loop.exit.i.i.i.i:                         ; preds = %837, %.split.loop.exit.i.i.i.i.loopexit.split.loop.exit, %.split.loop.exit.i.i.i.i.loopexit.split.loop.exit1014, %.split.loop.exit.i.i.i.i.loopexit.split.loop.exit1017, %.preheader371.i.i
-  %847 = phi i8 [ %812, %.preheader371.i.i ], [ %818, %.split.loop.exit.i.i.i.i.loopexit.split.loop.exit ], [ %825, %.split.loop.exit.i.i.i.i.loopexit.split.loop.exit1014 ], [ %832, %.split.loop.exit.i.i.i.i.loopexit.split.loop.exit1017 ], [ %839, %837 ]
-  %.2.ph.i.i.i.i = phi ptr [ %.026.i.i.i.i, %.preheader371.i.i ], [ %844, %.split.loop.exit.i.i.i.i.loopexit.split.loop.exit ], [ %845, %.split.loop.exit.i.i.i.i.loopexit.split.loop.exit1014 ], [ %846, %.split.loop.exit.i.i.i.i.loopexit.split.loop.exit1017 ], [ %838, %837 ]
+.split.loop.exit.i.i.i.i:                         ; preds = %837, %.split.loop.exit.i.i.i.i.loopexit.split.loop.exit, %.split.loop.exit.i.i.i.i.loopexit.split.loop.exit1018, %.split.loop.exit.i.i.i.i.loopexit.split.loop.exit1021, %.preheader371.i.i
+  %847 = phi i8 [ %812, %.preheader371.i.i ], [ %818, %.split.loop.exit.i.i.i.i.loopexit.split.loop.exit ], [ %825, %.split.loop.exit.i.i.i.i.loopexit.split.loop.exit1018 ], [ %832, %.split.loop.exit.i.i.i.i.loopexit.split.loop.exit1021 ], [ %839, %837 ]
+  %.2.ph.i.i.i.i = phi ptr [ %.026.i.i.i.i, %.preheader371.i.i ], [ %844, %.split.loop.exit.i.i.i.i.loopexit.split.loop.exit ], [ %845, %.split.loop.exit.i.i.i.i.loopexit.split.loop.exit1018 ], [ %846, %.split.loop.exit.i.i.i.i.loopexit.split.loop.exit1021 ], [ %838, %837 ]
   switch i8 %847, label %.thread31.i.i.i.i [
     i8 13, label %848
     i8 45, label %861
@@ -10744,37 +10744,37 @@ _ZN4pugi4impl12_GLOBAL__N_115strconv_commentEPcc.exit.i.i.i: ; preds = %872, %87
   %903 = getelementptr inbounds nuw i8, ptr %.2199.i.i, i64 2
   %904 = load i8, ptr %903, align 1, !tbaa !28, !noalias !129
   %905 = icmp eq i8 %904, 67
-  br i1 %905, label %906, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit815.split.loop.exit1059
+  br i1 %905, label %906, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1063
 
 906:                                              ; preds = %902
   %907 = getelementptr inbounds nuw i8, ptr %.2199.i.i, i64 3
   %908 = load i8, ptr %907, align 1, !tbaa !28, !noalias !129
   %909 = icmp eq i8 %908, 68
-  br i1 %909, label %910, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit815.split.loop.exit1056
+  br i1 %909, label %910, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1060
 
 910:                                              ; preds = %906
   %911 = getelementptr inbounds nuw i8, ptr %.2199.i.i, i64 4
   %912 = load i8, ptr %911, align 1, !tbaa !28, !noalias !129
   %913 = icmp eq i8 %912, 65
-  br i1 %913, label %914, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit815.split.loop.exit1053
+  br i1 %913, label %914, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1057
 
 914:                                              ; preds = %910
   %915 = getelementptr inbounds nuw i8, ptr %.2199.i.i, i64 5
   %916 = load i8, ptr %915, align 1, !tbaa !28, !noalias !129
   %917 = icmp eq i8 %916, 84
-  br i1 %917, label %918, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit815.split.loop.exit1050
+  br i1 %917, label %918, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1054
 
 918:                                              ; preds = %914
   %919 = getelementptr inbounds nuw i8, ptr %.2199.i.i, i64 6
   %920 = load i8, ptr %919, align 1, !tbaa !28, !noalias !129
   %921 = icmp eq i8 %920, 65
-  br i1 %921, label %922, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit815.split.loop.exit1047
+  br i1 %921, label %922, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1051
 
 922:                                              ; preds = %918
   %923 = getelementptr inbounds nuw i8, ptr %.2199.i.i, i64 7
   %924 = load i8, ptr %923, align 1, !tbaa !28, !noalias !129
   %925 = icmp eq i8 %924, 91
-  br i1 %925, label %926, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit815.split.loop.exit1044
+  br i1 %925, label %926, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1048
 
 926:                                              ; preds = %922
   %927 = getelementptr inbounds nuw i8, ptr %.2199.i.i, i64 8
@@ -11285,7 +11285,7 @@ _ZN4pugi4impl12_GLOBAL__N_110xml_parser19parse_doctype_groupEPcc.exit.thread58.i
   br i1 %or.cond296.i.i, label %.preheader377.i.i, label %.noexc66
 
 .noexc66:                                         ; preds = %1120
-  %1123 = tail call noundef ptr %switch.load1440(ptr noundef nonnull %spec.select.i35.i)
+  %1123 = tail call noundef ptr %switch.load1444(ptr noundef nonnull %spec.select.i35.i)
   br i1 %.not255.i.i, label %1132, label %1124
 
 1124:                                             ; preds = %.noexc66
@@ -11372,37 +11372,37 @@ _ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.e
   %1155 = getelementptr inbounds i8, ptr %.2199.i.i, i64 -1
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
-_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit815.split.loop.exit: ; preds = %792
+_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit: ; preds = %792
   %1156 = getelementptr inbounds nuw i8, ptr %.2199.i.i, i64 2
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
-_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit815.split.loop.exit1044: ; preds = %922
+_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1048: ; preds = %922
   %1157 = getelementptr inbounds nuw i8, ptr %.2199.i.i, i64 7
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
-_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit815.split.loop.exit1047: ; preds = %918
+_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1051: ; preds = %918
   %1158 = getelementptr inbounds nuw i8, ptr %.2199.i.i, i64 6
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
-_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit815.split.loop.exit1050: ; preds = %914
+_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1054: ; preds = %914
   %1159 = getelementptr inbounds nuw i8, ptr %.2199.i.i, i64 5
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
-_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit815.split.loop.exit1053: ; preds = %910
+_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1057: ; preds = %910
   %1160 = getelementptr inbounds nuw i8, ptr %.2199.i.i, i64 4
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
-_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit815.split.loop.exit1056: ; preds = %906
+_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1060: ; preds = %906
   %1161 = getelementptr inbounds nuw i8, ptr %.2199.i.i, i64 3
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
-_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit815.split.loop.exit1059: ; preds = %902
+_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1063: ; preds = %902
   %1162 = getelementptr inbounds nuw i8, ptr %.2199.i.i, i64 2
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
-_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i: ; preds = %.noexc67, %.noexc65, %1087, %1002, %998, %994, %990, %986, %982, %.noexc64, %.noexc63, %745, %736, %.thread123.i.i.i, %.noexc61, %725, %701, %691, %690, %689, %656, %654, %645, %644, %642, %637, %.noexc58, %.thread46.thread.i.i, %.critedge.i.i39.i, %1014, %.preheader185.split.us.i.i.i, %.preheader185.split.i.i.i, %.preheader184.split.us.i.i.i, %.preheader184.split.i.i.i, %.preheader.split.us.i312.i.i, %.preheader.split.i313.i.i, %.preheader132.split.us.i.i.i, %.preheader132.split.i.i.i, %.preheader.split.us.i.i.i, %.preheader.split.i.i.i, %624, %618, %.loopexit1073.i.i, %.noexc59, %665, %1057, %1022, %1069, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit815.split.loop.exit, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit815.split.loop.exit1044, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit815.split.loop.exit1047, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit815.split.loop.exit1050, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit815.split.loop.exit1053, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit815.split.loop.exit1056, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit815.split.loop.exit1059, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.loopexit91.split.loop.exit372.i, %.loopexit.i.i, %1103, %.thread182.i.i.i, %1099, %953, %884, %678, %674, %621
-  %.sroa.11.2.i = phi ptr [ %657, %678 ], [ %623, %621 ], [ %886, %884 ], [ %955, %953 ], [ %.15.i.i, %674 ], [ %790, %1099 ], [ %790, %.thread182.i.i.i ], [ %.2199.i.i, %1103 ], [ %1155, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.loopexit91.split.loop.exit372.i ], [ %spec.select.i, %.loopexit.i.i ], [ %1156, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit815.split.loop.exit ], [ %1157, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit815.split.loop.exit1044 ], [ %1158, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit815.split.loop.exit1047 ], [ %1159, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit815.split.loop.exit1050 ], [ %1160, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit815.split.loop.exit1053 ], [ %1161, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit815.split.loop.exit1056 ], [ %1162, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit815.split.loop.exit1059 ], [ %.4.i.i43.i, %1069 ], [ %.017.i.i.i, %1022 ], [ %.3.i.i40.i, %1057 ], [ %657, %665 ], [ %.7204.i.i, %.noexc59 ], [ %620, %624 ], [ %.13.i.i, %618 ], [ %.11.i.i, %.loopexit1073.i.i ], [ %.6.i.i.i, %.preheader.split.i.i.i ], [ %.6.us.i.i.i, %.preheader.split.us.i.i.i ], [ %.284.i.i.i, %.preheader132.split.i.i.i ], [ %.284.us.i.i.i, %.preheader132.split.us.i.i.i ], [ %.0124.i.i.i, %.preheader.split.i313.i.i ], [ %.0124.us.i.i.i, %.preheader.split.us.i312.i.i ], [ %.5.i310.i.i, %.preheader184.split.i.i.i ], [ %.5.us.i.i.i, %.preheader184.split.us.i.i.i ], [ %.3.i.i.i, %.preheader185.split.i.i.i ], [ %.3.us.i.i.i, %.preheader185.split.us.i.i.i ], [ %.031.i.i, %.thread46.thread.i.i ], [ %.031.i.i, %1014 ], [ %.042.i.i.i, %.critedge.i.i39.i ], [ %1123, %.noexc67 ], [ %.7.i.i.i, %.noexc65 ], [ %.031.i.i, %1087 ], [ %790, %1002 ], [ %790, %998 ], [ %790, %994 ], [ %790, %990 ], [ %790, %986 ], [ %790, %982 ], [ %927, %.noexc64 ], [ %797, %.noexc63 ], [ %734, %745 ], [ %734, %736 ], [ %.082.ptr.i.i.i.le, %.thread123.i.i.i ], [ %.082.ptr.i.i.i.le, %.noexc61 ], [ %.082.ptr.i.i.i.le, %725 ], [ %.082.ptr.i.i.i.le, %701 ], [ %.ptr98.i.i.i, %691 ], [ %.16.i.i, %690 ], [ %.16.i.i, %689 ], [ %657, %656 ], [ %.4201.ph.i.i, %654 ], [ %554, %645 ], [ %554, %644 ], [ %.7204.i.i, %642 ], [ %565, %637 ], [ %.2199.i.i, %.noexc58 ]
-  %.sroa.57.2.i = phi i32 [ 14, %678 ], [ 12, %621 ], [ 7, %884 ], [ 8, %953 ], [ 13, %674 ], [ 7, %1099 ], [ %spec.select66.i, %.thread182.i.i.i ], [ %spec.select67.i, %1103 ], [ 9, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.loopexit91.split.loop.exit372.i ], [ %spec.select1070.i, %.loopexit.i.i ], [ 7, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit815.split.loop.exit ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit815.split.loop.exit1044 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit815.split.loop.exit1047 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit815.split.loop.exit1050 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit815.split.loop.exit1053 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit815.split.loop.exit1056 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit815.split.loop.exit1059 ], [ 9, %1069 ], [ 9, %1022 ], [ 9, %1057 ], [ 14, %665 ], [ 3, %.noexc59 ], [ 12, %624 ], [ 12, %618 ], [ 12, %.loopexit1073.i.i ], [ 6, %.preheader.split.i.i.i ], [ 6, %.preheader.split.us.i.i.i ], [ 6, %.preheader132.split.i.i.i ], [ 6, %.preheader132.split.us.i.i.i ], [ 7, %.preheader.split.i313.i.i ], [ 7, %.preheader.split.us.i312.i.i ], [ 8, %.preheader184.split.i.i.i ], [ 8, %.preheader184.split.us.i.i.i ], [ 8, %.preheader185.split.i.i.i ], [ 8, %.preheader185.split.us.i.i.i ], [ 9, %1014 ], [ 9, %.critedge.i.i39.i ], [ 9, %.thread46.thread.i.i ], [ 3, %.noexc67 ], [ 3, %.noexc65 ], [ 9, %1087 ], [ 5, %1002 ], [ 5, %998 ], [ 5, %994 ], [ 5, %990 ], [ 5, %986 ], [ 5, %982 ], [ 3, %.noexc64 ], [ 3, %.noexc63 ], [ 6, %745 ], [ 6, %736 ], [ 3, %.thread123.i.i.i ], [ 3, %.noexc61 ], [ 6, %725 ], [ 6, %701 ], [ 6, %691 ], [ 13, %690 ], [ 13, %689 ], [ 14, %656 ], [ 11, %654 ], [ 11, %645 ], [ 11, %644 ], [ 11, %642 ], [ 11, %637 ], [ 3, %.noexc58 ]
+_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i: ; preds = %.noexc67, %.noexc65, %1087, %1002, %998, %994, %990, %986, %982, %.noexc64, %.noexc63, %745, %736, %.thread123.i.i.i, %.noexc61, %725, %701, %691, %690, %689, %656, %654, %645, %644, %642, %637, %.noexc58, %.thread46.thread.i.i, %.critedge.i.i39.i, %1014, %.preheader185.split.us.i.i.i, %.preheader185.split.i.i.i, %.preheader184.split.us.i.i.i, %.preheader184.split.i.i.i, %.preheader.split.us.i312.i.i, %.preheader.split.i313.i.i, %.preheader132.split.us.i.i.i, %.preheader132.split.i.i.i, %.preheader.split.us.i.i.i, %.preheader.split.i.i.i, %624, %618, %.loopexit1073.i.i, %.noexc59, %665, %1057, %1022, %1069, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1048, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1051, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1054, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1057, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1060, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1063, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.loopexit91.split.loop.exit372.i, %.loopexit.i.i, %1103, %.thread182.i.i.i, %1099, %953, %884, %678, %674, %621
+  %.sroa.11.2.i = phi ptr [ %657, %678 ], [ %623, %621 ], [ %886, %884 ], [ %955, %953 ], [ %.15.i.i, %674 ], [ %790, %1099 ], [ %790, %.thread182.i.i.i ], [ %.2199.i.i, %1103 ], [ %1155, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.loopexit91.split.loop.exit372.i ], [ %spec.select.i, %.loopexit.i.i ], [ %1156, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit ], [ %1157, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1048 ], [ %1158, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1051 ], [ %1159, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1054 ], [ %1160, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1057 ], [ %1161, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1060 ], [ %1162, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1063 ], [ %.4.i.i43.i, %1069 ], [ %.017.i.i.i, %1022 ], [ %.3.i.i40.i, %1057 ], [ %657, %665 ], [ %.7204.i.i, %.noexc59 ], [ %620, %624 ], [ %.13.i.i, %618 ], [ %.11.i.i, %.loopexit1073.i.i ], [ %.6.i.i.i, %.preheader.split.i.i.i ], [ %.6.us.i.i.i, %.preheader.split.us.i.i.i ], [ %.284.i.i.i, %.preheader132.split.i.i.i ], [ %.284.us.i.i.i, %.preheader132.split.us.i.i.i ], [ %.0124.i.i.i, %.preheader.split.i313.i.i ], [ %.0124.us.i.i.i, %.preheader.split.us.i312.i.i ], [ %.5.i310.i.i, %.preheader184.split.i.i.i ], [ %.5.us.i.i.i, %.preheader184.split.us.i.i.i ], [ %.3.i.i.i, %.preheader185.split.i.i.i ], [ %.3.us.i.i.i, %.preheader185.split.us.i.i.i ], [ %.031.i.i, %.thread46.thread.i.i ], [ %.031.i.i, %1014 ], [ %.042.i.i.i, %.critedge.i.i39.i ], [ %1123, %.noexc67 ], [ %.7.i.i.i, %.noexc65 ], [ %.031.i.i, %1087 ], [ %790, %1002 ], [ %790, %998 ], [ %790, %994 ], [ %790, %990 ], [ %790, %986 ], [ %790, %982 ], [ %927, %.noexc64 ], [ %797, %.noexc63 ], [ %734, %745 ], [ %734, %736 ], [ %.082.ptr.i.i.i.le, %.thread123.i.i.i ], [ %.082.ptr.i.i.i.le, %.noexc61 ], [ %.082.ptr.i.i.i.le, %725 ], [ %.082.ptr.i.i.i.le, %701 ], [ %.ptr98.i.i.i, %691 ], [ %.16.i.i, %690 ], [ %.16.i.i, %689 ], [ %657, %656 ], [ %.4201.ph.i.i, %654 ], [ %554, %645 ], [ %554, %644 ], [ %.7204.i.i, %642 ], [ %565, %637 ], [ %.2199.i.i, %.noexc58 ]
+  %.sroa.57.2.i = phi i32 [ 14, %678 ], [ 12, %621 ], [ 7, %884 ], [ 8, %953 ], [ 13, %674 ], [ 7, %1099 ], [ %spec.select66.i, %.thread182.i.i.i ], [ %spec.select67.i, %1103 ], [ 9, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.loopexit91.split.loop.exit372.i ], [ %spec.select1070.i, %.loopexit.i.i ], [ 7, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1048 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1051 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1054 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1057 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1060 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit819.split.loop.exit1063 ], [ 9, %1069 ], [ 9, %1022 ], [ 9, %1057 ], [ 14, %665 ], [ 3, %.noexc59 ], [ 12, %624 ], [ 12, %618 ], [ 12, %.loopexit1073.i.i ], [ 6, %.preheader.split.i.i.i ], [ 6, %.preheader.split.us.i.i.i ], [ 6, %.preheader132.split.i.i.i ], [ 6, %.preheader132.split.us.i.i.i ], [ 7, %.preheader.split.i313.i.i ], [ 7, %.preheader.split.us.i312.i.i ], [ 8, %.preheader184.split.i.i.i ], [ 8, %.preheader184.split.us.i.i.i ], [ 8, %.preheader185.split.i.i.i ], [ 8, %.preheader185.split.us.i.i.i ], [ 9, %1014 ], [ 9, %.critedge.i.i39.i ], [ 9, %.thread46.thread.i.i ], [ 3, %.noexc67 ], [ 3, %.noexc65 ], [ 9, %1087 ], [ 5, %1002 ], [ 5, %998 ], [ 5, %994 ], [ 5, %990 ], [ 5, %986 ], [ 5, %982 ], [ 3, %.noexc64 ], [ 3, %.noexc63 ], [ 6, %745 ], [ 6, %736 ], [ 3, %.thread123.i.i.i ], [ 3, %.noexc61 ], [ 6, %725 ], [ 6, %701 ], [ 6, %691 ], [ 13, %690 ], [ 13, %689 ], [ 14, %656 ], [ 11, %654 ], [ 11, %645 ], [ 11, %644 ], [ 11, %642 ], [ 11, %637 ], [ 3, %.noexc58 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !129
   %.not31.i = icmp eq ptr %.sroa.11.2.i, null
   %1163 = ptrtoint ptr %.sroa.11.2.i to i64

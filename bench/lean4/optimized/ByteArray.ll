@@ -4514,8 +4514,8 @@ lean_dec.exit125:                                 ; preds = %45, %44, %42, %lean
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 %50
   %53 = load i8, ptr %52, align 1, !tbaa !15
-  %.b381 = load i1, ptr @l_Std_Internal_Parsec_ByteArray_digit___closed__1, align 1
-  %54 = select i1 %.b381, i8 48, i8 0
+  %.b383 = load i1, ptr @l_Std_Internal_Parsec_ByteArray_digit___closed__1, align 1
+  %54 = select i1 %.b383, i8 48, i8 0
   %.not206 = icmp ugt i8 %54, %53
   br i1 %.not206, label %lean_dec.exit124, label %76
 
@@ -4579,14 +4579,14 @@ lean_dec.exit123:                                 ; preds = %72, %71, %69, %lean
   unreachable
 
 76:                                               ; preds = %49
-  %.b383 = load i1, ptr @l_Std_Internal_Parsec_ByteArray_digit___closed__3, align 1
-  %77 = select i1 %.b383, i8 57, i8 0
+  %.b385 = load i1, ptr @l_Std_Internal_Parsec_ByteArray_digit___closed__3, align 1
+  %77 = select i1 %.b385, i8 57, i8 0
   %.not207 = icmp ugt i8 %53, %77
   br i1 %.not207, label %lean_dec.exit122, label %95
 
 .thread182:                                       ; preds = %.thread180
-  %.b382 = load i1, ptr @l_Std_Internal_Parsec_ByteArray_digit___closed__3, align 1
-  %78 = select i1 %.b382, i8 57, i8 0
+  %.b384 = load i1, ptr @l_Std_Internal_Parsec_ByteArray_digit___closed__3, align 1
+  %78 = select i1 %.b384, i8 57, i8 0
   %.not204 = icmp ugt i8 %58, %78
   br i1 %.not204, label %.thread183, label %95
 
@@ -4710,7 +4710,7 @@ lean_dec.exit119:                                 ; preds = %120, %119, %117, %l
 
 128:                                              ; preds = %lean_dec.exit119
   %129 = lshr i64 %126, 1
-  %130 = icmp ult ptr %.085, inttoptr (i64 2 to ptr)
+  %130 = icmp eq i64 %129, 0
   br i1 %130, label %lean_dec.exit118, label %131
 
 131:                                              ; preds = %128
@@ -4873,7 +4873,7 @@ lean_dec.exit114:                                 ; preds = %193, %192, %190, %1
 
 201:                                              ; preds = %lean_dec.exit114
   %202 = lshr i64 %199, 1
-  %203 = icmp ult ptr %.085, inttoptr (i64 2 to ptr)
+  %203 = icmp eq i64 %202, 0
   br i1 %203, label %lean_dec.exit113, label %204
 
 204:                                              ; preds = %201
@@ -5017,15 +5017,15 @@ lean_alloc_ctor.exit177:                          ; preds = %lean_dec.exit
   br label %.outer
 
 lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit121, %lean_dec.exit123, %lean_dec.exit125
-  %.sink380 = phi ptr [ %46, %lean_dec.exit125 ], [ %73, %lean_dec.exit123 ], [ %92, %lean_dec.exit121 ]
-  %264 = getelementptr inbounds nuw i8, ptr %.sink380, i64 4
-  store i32 1, ptr %.sink380, align 4, !tbaa !8
+  %.sink382 = phi ptr [ %46, %lean_dec.exit125 ], [ %73, %lean_dec.exit123 ], [ %92, %lean_dec.exit121 ]
+  %264 = getelementptr inbounds nuw i8, ptr %.sink382, i64 4
+  store i32 1, ptr %.sink382, align 4, !tbaa !8
   store i32 131096, ptr %264, align 4
-  %265 = getelementptr inbounds nuw i8, ptr %.sink380, i64 8
+  %265 = getelementptr inbounds nuw i8, ptr %.sink382, i64 8
   store ptr %.085, ptr %265, align 8, !tbaa !4
-  %266 = getelementptr inbounds nuw i8, ptr %.sink380, i64 16
+  %266 = getelementptr inbounds nuw i8, ptr %.sink382, i64 16
   store ptr %.081.ph, ptr %266, align 8, !tbaa !4
-  ret ptr %.sink380
+  ret ptr %.sink382
 }
 
 ; Function Attrs: nounwind uwtable

@@ -123,7 +123,7 @@ define range(i32 -2147483648, 32) i32 @ff_parse_a53_cc(ptr noundef %0, ptr nound
   %36 = and i32 %32, 7
   %37 = shl i32 %35, %36
   %38 = lshr i32 %37, 27
-  %.not39 = icmp ult i32 %37, 134217728
+  %.not39 = icmp eq i32 %38, 0
   br i1 %.not39, label %.loopexit, label %39
 
 39:                                               ; preds = %28
@@ -146,68 +146,68 @@ define range(i32 -2147483648, 32) i32 @ff_parse_a53_cc(ptr noundef %0, ptr nound
 51:                                               ; preds = %47
   %52 = tail call i32 @av_buffer_realloc(ptr noundef nonnull %0, i64 noundef %49) #4
   %53 = icmp slt i32 %52, 0
-  br i1 %53, label %.loopexit, label %.lr.ph
+  br i1 %53, label %.loopexit, label %54
 
-.lr.ph:                                           ; preds = %51
-  %54 = load ptr, ptr %0, align 8, !tbaa !18
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  br label %56
+54:                                               ; preds = %51
+  %55 = load ptr, ptr %0, align 8, !tbaa !18
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  br label %57
 
-56:                                               ; preds = %.lr.ph, %56
-  %.067 = phi i32 [ 0, %.lr.ph ], [ %99, %56 ]
-  %.02966 = phi i64 [ %9, %.lr.ph ], [ %96, %56 ]
-  %.sroa.10.065 = phi i32 [ %43, %.lr.ph ], [ %93, %56 ]
-  %57 = lshr i32 %.sroa.10.065, 3
-  %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 %58
-  %60 = load i32, ptr %59, align 1, !tbaa !16
-  %61 = tail call i32 @llvm.bswap.i32(i32 %60)
-  %62 = and i32 %.sroa.10.065, 7
-  %63 = shl i32 %61, %62
-  %64 = lshr i32 %63, 24
-  %65 = add i32 %.sroa.10.065, 8
-  %66 = tail call i32 @llvm.umin.i32(i32 %17, i32 %65)
-  %67 = trunc nuw i32 %64 to i8
-  %68 = load ptr, ptr %55, align 8, !tbaa !22
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 %.02966
-  store i8 %67, ptr %69, align 1, !tbaa !16
-  %70 = lshr i32 %66, 3
-  %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr inbounds nuw i8, ptr %1, i64 %71
-  %73 = load i32, ptr %72, align 1, !tbaa !16
-  %74 = tail call i32 @llvm.bswap.i32(i32 %73)
-  %75 = and i32 %66, 7
-  %76 = shl i32 %74, %75
-  %77 = lshr i32 %76, 24
-  %78 = add nuw nsw i32 %66, 8
-  %79 = tail call i32 @llvm.umin.i32(i32 %17, i32 %78)
-  %80 = trunc nuw i32 %77 to i8
-  %81 = load ptr, ptr %55, align 8, !tbaa !22
-  %82 = getelementptr i8, ptr %81, i64 %.02966
-  %83 = getelementptr i8, ptr %82, i64 1
-  store i8 %80, ptr %83, align 1, !tbaa !16
-  %84 = lshr i32 %79, 3
-  %85 = zext nneg i32 %84 to i64
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 %85
-  %87 = load i32, ptr %86, align 1, !tbaa !16
-  %88 = tail call i32 @llvm.bswap.i32(i32 %87)
-  %89 = and i32 %79, 7
-  %90 = shl i32 %88, %89
-  %91 = lshr i32 %90, 24
-  %92 = add nuw nsw i32 %79, 8
-  %93 = tail call i32 @llvm.umin.i32(i32 %17, i32 %92)
-  %94 = trunc nuw i32 %91 to i8
-  %95 = load ptr, ptr %55, align 8, !tbaa !22
-  %96 = add i64 %.02966, 3
-  %97 = getelementptr i8, ptr %95, i64 %.02966
-  %98 = getelementptr i8, ptr %97, i64 2
-  store i8 %94, ptr %98, align 1, !tbaa !16
-  %99 = add nuw nsw i32 %.067, 1
-  %exitcond.not = icmp eq i32 %99, %38
-  br i1 %exitcond.not, label %.loopexit, label %56, !llvm.loop !23
+57:                                               ; preds = %54, %57
+  %.067 = phi i32 [ 0, %54 ], [ %100, %57 ]
+  %.02966 = phi i64 [ %9, %54 ], [ %97, %57 ]
+  %.sroa.10.065 = phi i32 [ %43, %54 ], [ %94, %57 ]
+  %58 = lshr i32 %.sroa.10.065, 3
+  %59 = zext nneg i32 %58 to i64
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 %59
+  %61 = load i32, ptr %60, align 1, !tbaa !16
+  %62 = tail call i32 @llvm.bswap.i32(i32 %61)
+  %63 = and i32 %.sroa.10.065, 7
+  %64 = shl i32 %62, %63
+  %65 = lshr i32 %64, 24
+  %66 = add i32 %.sroa.10.065, 8
+  %67 = tail call i32 @llvm.umin.i32(i32 %17, i32 %66)
+  %68 = trunc nuw i32 %65 to i8
+  %69 = load ptr, ptr %56, align 8, !tbaa !22
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 %.02966
+  store i8 %68, ptr %70, align 1, !tbaa !16
+  %71 = lshr i32 %67, 3
+  %72 = zext nneg i32 %71 to i64
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 %72
+  %74 = load i32, ptr %73, align 1, !tbaa !16
+  %75 = tail call i32 @llvm.bswap.i32(i32 %74)
+  %76 = and i32 %67, 7
+  %77 = shl i32 %75, %76
+  %78 = lshr i32 %77, 24
+  %79 = add nuw nsw i32 %67, 8
+  %80 = tail call i32 @llvm.umin.i32(i32 %17, i32 %79)
+  %81 = trunc nuw i32 %78 to i8
+  %82 = load ptr, ptr %56, align 8, !tbaa !22
+  %83 = getelementptr i8, ptr %82, i64 %.02966
+  %84 = getelementptr i8, ptr %83, i64 1
+  store i8 %81, ptr %84, align 1, !tbaa !16
+  %85 = lshr i32 %80, 3
+  %86 = zext nneg i32 %85 to i64
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 %86
+  %88 = load i32, ptr %87, align 1, !tbaa !16
+  %89 = tail call i32 @llvm.bswap.i32(i32 %88)
+  %90 = and i32 %80, 7
+  %91 = shl i32 %89, %90
+  %92 = lshr i32 %91, 24
+  %93 = add nuw nsw i32 %80, 8
+  %94 = tail call i32 @llvm.umin.i32(i32 %17, i32 %93)
+  %95 = trunc nuw i32 %92 to i8
+  %96 = load ptr, ptr %56, align 8, !tbaa !22
+  %97 = add i64 %.02966, 3
+  %98 = getelementptr i8, ptr %96, i64 %.02966
+  %99 = getelementptr i8, ptr %98, i64 2
+  store i8 %95, ptr %99, align 1, !tbaa !16
+  %100 = add nuw nsw i32 %.067, 1
+  %exitcond.not = icmp eq i32 %100, %38
+  br i1 %exitcond.not, label %.loopexit, label %57, !llvm.loop !23
 
-.loopexit:                                        ; preds = %56, %51, %47, %39, %28, %21, %18, %11, %8
-  %.028 = phi i32 [ -1094995529, %8 ], [ -1094995529, %11 ], [ 0, %18 ], [ 0, %21 ], [ 0, %28 ], [ -1094995529, %39 ], [ -1094995529, %47 ], [ %52, %51 ], [ %38, %56 ]
+.loopexit:                                        ; preds = %57, %51, %47, %39, %28, %21, %18, %11, %8
+  %.028 = phi i32 [ -1094995529, %8 ], [ -1094995529, %11 ], [ 0, %18 ], [ 0, %21 ], [ 0, %28 ], [ -1094995529, %39 ], [ -1094995529, %47 ], [ %52, %51 ], [ %38, %57 ]
   ret i32 %.028
 }
 

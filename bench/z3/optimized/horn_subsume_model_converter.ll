@@ -911,11 +911,11 @@ _ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i:          ; preds = %125, %.critedge
   %103 = phi ptr [ %97, %.critedge ], [ %127, %125 ]
   %104 = getelementptr inbounds i8, ptr %103, i64 -4
   %105 = load i32, ptr %104, align 4, !tbaa !13
-  %.not.i68 = icmp ult i32 %105, 2
+  %106 = lshr i32 %105, 1
+  %.not.i68 = icmp eq i32 %106, 0
   br i1 %.not.i68, label %_ZN6vectorI6symbolLb0EjE7reverseEv.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i
-  %106 = lshr i32 %105, 1
   %wide.trip.count.i = zext nneg i32 %106 to i64
   br label %.lr.ph.i
 
@@ -986,11 +986,11 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i.i:         ; preds = %.critedge, %_ZN6vec
   %.lcssa167254266 = phi ptr [ %.lcssa167259, %_ZN6vectorI6symbolLb0EjE7reverseEv.exit ], [ %96, %.critedge ]
   %136 = getelementptr inbounds i8, ptr %.lcssa167254266, i64 -4
   %137 = load i32, ptr %136, align 4, !tbaa !13
-  %.not.i.i = icmp ult i32 %137, 2
+  %138 = lshr i32 %137, 1
+  %.not.i.i = icmp eq i32 %138, 0
   br i1 %.not.i.i, label %_ZN14expr_free_vars7reverseEv.exit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i.i
-  %138 = lshr i32 %137, 1
   %wide.trip.count.i.i = zext nneg i32 %138 to i64
   br label %.lr.ph.i.i
 
@@ -3947,8 +3947,8 @@ define linkonce_odr hidden void @_ZN28horn_subsume_model_converter9get_unitsER7o
   %23 = icmp ugt i32 %12, 16
   %24 = mul i32 %12, 3
   %25 = icmp ugt i32 %22, %24
-  %or.cond18.i.i = select i1 %23, i1 %25, i1 false
-  br i1 %or.cond18.i.i, label %26, label %._crit_edge.thread.i.i
+  %or.cond19.i.i = select i1 %23, i1 %25, i1 false
+  br i1 %or.cond19.i.i, label %26, label %._crit_edge.thread.i.i
 
 26:                                               ; preds = %._crit_edge.i.i
   %27 = icmp eq ptr %10, null
@@ -3967,7 +3967,7 @@ _ZN14core_hashtableIN7obj_mapI4exprbE13obj_map_entryE8obj_hashINS2_8key_dataEE10
   %31 = zext nneg i32 %30 to i64
   %32 = shl nuw nsw i64 %31, 4
   %33 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %32)
-  %.not6.i.i.i.i.i.i.i = icmp ult i32 %29, 2
+  %.not6.i.i.i.i.i.i.i = icmp eq i32 %30, 0
   br i1 %.not6.i.i.i.i.i.i.i, label %_ZN14core_hashtableIN7obj_mapI4exprbE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE11alloc_tableEj.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN14core_hashtableIN7obj_mapI4exprbE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE12delete_tableEv.exit.i.i, %.lr.ph.i.i.i.i.i.i.i

@@ -785,7 +785,7 @@ define void @_ZN9Scheduler10MakeGroupsERK6boards(ptr noundef nonnull align 8 cap
   %61 = load i32, ptr %60, align 4
   %62 = add i32 %.01920.i, 1
   %63 = add i32 %62, %61
-  %64 = icmp ult i32 %57, 4
+  %64 = icmp eq i32 %58, 0
   %65 = zext i1 %64 to i32
   %spec.select.i = add nuw nsw i32 %.01821.i, %65
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1816,7 +1816,7 @@ define noundef i32 @_ZNK9Scheduler6FanoutERK4deal(ptr noundef nonnull readnone a
   %11 = load i32, ptr %10, align 4
   %12 = add i32 %.01920, 1
   %13 = add i32 %12, %11
-  %14 = icmp ult i32 %7, 4
+  %14 = icmp eq i32 %8, 0
   %15 = zext i1 %14 to i32
   %spec.select = add nuw nsw i32 %.01821, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

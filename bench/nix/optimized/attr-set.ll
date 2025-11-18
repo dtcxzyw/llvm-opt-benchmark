@@ -2537,7 +2537,7 @@ define linkonce_odr noundef i32 @_ZN5boost2io18basic_altstringbufIcSt11char_trai
 
 30:                                               ; preds = %27
   %31 = lshr i64 %.04561, 1
-  %.not49 = icmp samesign ult i64 %.04561, 2
+  %.not49 = icmp eq i64 %31, 0
   br i1 %.not49, label %_ZNSt11char_traitsIcE4copyEPcPKcm.exit, label %27, !llvm.loop !11
 
 .critedge:                                        ; preds = %27
@@ -2555,15 +2555,15 @@ define linkonce_odr noundef i32 @_ZN5boost2io18basic_altstringbufIcSt11char_trai
   br i1 %.not50, label %36, label %_ZNSt11char_traitsIcE4copyEPcPKcm.exit
 
 _ZNSt11char_traitsIcE4copyEPcPKcm.exit:           ; preds = %30, %.critedge53
-  %.04471 = phi i64 [ %32, %.critedge53 ], [ %24, %30 ]
-  %.04669 = phi ptr [ %35, %.critedge53 ], [ null, %30 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04669, ptr align 1 %26, i64 %24, i1 false)
+  %.04472 = phi i64 [ %32, %.critedge53 ], [ %24, %30 ]
+  %.04670 = phi ptr [ %35, %.critedge53 ], [ null, %30 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04670, ptr align 1 %26, i64 %24, i1 false)
   br label %36
 
 36:                                               ; preds = %_ZNSt11char_traitsIcE4copyEPcPKcm.exit, %.critedge53
-  %.not5074 = phi i1 [ false, %_ZNSt11char_traitsIcE4copyEPcPKcm.exit ], [ true, %.critedge53 ]
-  %.04472 = phi i64 [ %.04471, %_ZNSt11char_traitsIcE4copyEPcPKcm.exit ], [ %32, %.critedge53 ]
-  %.04670 = phi ptr [ %.04669, %_ZNSt11char_traitsIcE4copyEPcPKcm.exit ], [ %35, %.critedge53 ]
+  %.not5075 = phi i1 [ false, %_ZNSt11char_traitsIcE4copyEPcPKcm.exit ], [ true, %.critedge53 ]
+  %.04473 = phi i64 [ %.04472, %_ZNSt11char_traitsIcE4copyEPcPKcm.exit ], [ %32, %.critedge53 ]
+  %.04671 = phi ptr [ %.04670, %_ZNSt11char_traitsIcE4copyEPcPKcm.exit ], [ %35, %.critedge53 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %38 = load i8, ptr %37, align 8
   %39 = trunc i8 %38 to i1
@@ -2576,24 +2576,24 @@ _ZNSt11char_traitsIcE4copyEPcPKcm.exit:           ; preds = %30, %.critedge53
 41:                                               ; preds = %40, %36
   store i8 1, ptr %37, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  br i1 %.not5074, label %43, label %50
+  br i1 %.not5075, label %43, label %50
 
 43:                                               ; preds = %41
-  store ptr %.04670, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %.04670, i64 %.04472
-  tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setpEPcS3_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %.04670, ptr noundef %44)
+  store ptr %.04671, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %.04671, i64 %.04473
+  tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setpEPcS3_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %.04671, ptr noundef %44)
   %45 = load i32, ptr %11, align 4
   %46 = and i32 %45, 8
   %.not52 = icmp eq i32 %46, 0
   br i1 %.not52, label %49, label %47
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds nuw i8, ptr %.04670, i64 1
-  tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %.04670, ptr noundef %.04670, ptr noundef nonnull %48)
+  %48 = getelementptr inbounds nuw i8, ptr %.04671, i64 1
+  tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %.04671, ptr noundef %.04671, ptr noundef nonnull %48)
   br label %.sink.split
 
 49:                                               ; preds = %43
-  tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %.04670, ptr noundef null, ptr noundef %.04670)
+  tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %.04671, ptr noundef null, ptr noundef %.04671)
   br label %.sink.split
 
 50:                                               ; preds = %41
@@ -2601,7 +2601,7 @@ _ZNSt11char_traitsIcE4copyEPcPKcm.exit:           ; preds = %30, %.critedge53
   %52 = ptrtoint ptr %51 to i64
   %53 = ptrtoint ptr %26 to i64
   %54 = sub i64 %52, %53
-  %55 = getelementptr inbounds i8, ptr %.04670, i64 %54
+  %55 = getelementptr inbounds i8, ptr %.04671, i64 %54
   store ptr %55, ptr %42, align 8
   %56 = tail call noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE4pptrEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
   %57 = tail call noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE5pbaseEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
@@ -2614,8 +2614,8 @@ _ZNSt11char_traitsIcE4copyEPcPKcm.exit:           ; preds = %30, %.critedge53
   %64 = tail call noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE5pbaseEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
   %65 = ptrtoint ptr %64 to i64
   %66 = sub i64 %65, %53
-  %67 = getelementptr inbounds i8, ptr %.04670, i64 %66
-  %68 = getelementptr inbounds i8, ptr %.04670, i64 %.04472
+  %67 = getelementptr inbounds i8, ptr %.04671, i64 %66
+  %68 = getelementptr inbounds i8, ptr %.04671, i64 %.04473
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setpEPcS3_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %67, ptr noundef %68)
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE5pbumpEi(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %61)
   %69 = load i32, ptr %11, align 4
@@ -2629,14 +2629,14 @@ _ZNSt11char_traitsIcE4copyEPcPKcm.exit:           ; preds = %30, %.critedge53
   %74 = sub i64 %72, %73
   %sext = shl i64 %74, 32
   %75 = ashr exact i64 %sext, 32
-  %76 = getelementptr inbounds i8, ptr %.04670, i64 %75
+  %76 = getelementptr inbounds i8, ptr %.04671, i64 %75
   %77 = tail call noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE4pptrEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 1
-  tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %.04670, ptr noundef %76, ptr noundef nonnull %78)
+  tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %.04671, ptr noundef %76, ptr noundef nonnull %78)
   br label %.sink.split
 
 79:                                               ; preds = %50
-  tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %.04670, ptr noundef null, ptr noundef %.04670)
+  tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %.04671, ptr noundef null, ptr noundef %.04671)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %49, %47, %79, %71, %6
@@ -11394,7 +11394,7 @@ define linkonce_odr void @_ZSt14__partial_sortIPN3nix4AttrEN9__gnu_cxx5__ops15_I
 40:                                               ; preds = %.lr.ph.i.i.i.i
   %41 = getelementptr inbounds %"struct.nix::Attr", ptr %0, i64 %.01316.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false)
-  %.not10.i.i = icmp ult i64 %.017.in.i.i.i.i, 2
+  %.not10.i.i = icmp eq i64 %.017.i.i89.i.i, 0
   br i1 %.not10.i.i, label %_ZSt10__pop_heapIPN3nix4AttrEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_RT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !77
 
 _ZSt10__pop_heapIPN3nix4AttrEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_RT0_.exit.i: ; preds = %40, %.lr.ph.i.i.i.i, %36
@@ -11494,7 +11494,7 @@ define linkonce_odr void @_ZSt13__heap_selectIPN3nix4AttrEN9__gnu_cxx5__ops15_It
 37:                                               ; preds = %.lr.ph.i.i.i.us
   %38 = getelementptr inbounds %"struct.nix::Attr", ptr %0, i64 %.01316.i.i.i.us
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %34, i64 16, i1 false)
-  %.not10.i.us = icmp ult i64 %.017.in.i.i.i.us, 2
+  %.not10.i.us = icmp eq i64 %.017.i.i89.i.us, 0
   br i1 %.not10.i.us, label %_ZSt10__pop_heapIPN3nix4AttrEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !77
 
 _ZSt10__pop_heapIPN3nix4AttrEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %37, %33
@@ -11671,10 +11671,10 @@ define linkonce_odr void @_ZSt11__make_heapIPN3nix4AttrEN9__gnu_cxx5__ops15_Iter
   br i1 %33, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPN3nix4AttrElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit
 
 .lr.ph.i.i:                                       ; preds = %32, %37
-  %.01316.i.i = phi i64 [ %.017.i.i49, %37 ], [ %.1.i, %32 ]
+  %.01316.i.i = phi i64 [ %.017.i.i48, %37 ], [ %.1.i, %32 ]
   %.017.in.i.i = add nsw i64 %.01316.i.i, -1
-  %.017.i.i49 = lshr i64 %.017.in.i.i, 1
-  %34 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %0, i64 %.017.i.i49
+  %.017.i.i48 = lshr i64 %.017.in.i.i, 1
+  %34 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %0, i64 %.017.i.i48
   %35 = load i32, ptr %34, align 4
   %36 = icmp ult i32 %35, %.sroa.0.sroa.0.0.extract.trunc.i.i
   br i1 %36, label %37, label %_ZSt13__adjust_heapIPN3nix4AttrElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit
@@ -11682,16 +11682,16 @@ define linkonce_odr void @_ZSt11__make_heapIPN3nix4AttrEN9__gnu_cxx5__ops15_Iter
 37:                                               ; preds = %.lr.ph.i.i
   %38 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %0, i64 %.01316.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %34, i64 16, i1 false)
-  %39 = icmp samesign ugt i64 %.017.i.i49, %10
+  %39 = icmp samesign ugt i64 %.017.i.i48, %10
   br i1 %39, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPN3nix4AttrElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit, !llvm.loop !77
 
 _ZSt13__adjust_heapIPN3nix4AttrElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit: ; preds = %.lr.ph.i.i, %37, %32
-  %.013.lcssa.i.i = phi i64 [ %.1.i, %32 ], [ %.017.i.i49, %37 ], [ %.01316.i.i, %.lr.ph.i.i ]
+  %.013.lcssa.i.i = phi i64 [ %.1.i, %32 ], [ %.017.i.i48, %37 ], [ %.01316.i.i, %.lr.ph.i.i ]
   %40 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %0, i64 %.013.lcssa.i.i
   store i64 %.sroa.01.0.copyload13, ptr %40, align 8
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %.sroa.22.0.copyload15, ptr %.sroa.3.0..sroa_idx.i.i, align 8
-  %41 = icmp ult i64 %9, 2
+  %41 = icmp eq i64 %10, 0
   br i1 %41, label %.loopexit, label %.split17.lr.ph
 
 .split17.lr.ph:                                   ; preds = %_ZSt13__adjust_heapIPN3nix4AttrElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit
@@ -11746,22 +11746,22 @@ _ZSt13__adjust_heapIPN3nix4AttrElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7
   br i1 %.not40, label %_ZSt13__adjust_heapIPN3nix4AttrElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit36, label %.lr.ph.i.i28
 
 .lr.ph.i.i28:                                     ; preds = %61, %65
-  %.01316.i.i29 = phi i64 [ %.017.i.i31, %65 ], [ %.1.i24, %61 ]
+  %.01316.i.i29 = phi i64 [ %.017.i.i3149, %65 ], [ %.1.i24, %61 ]
   %.017.in.i.i30 = add nsw i64 %.01316.i.i29, -1
-  %.017.i.i31 = sdiv i64 %.017.in.i.i30, 2
-  %62 = getelementptr inbounds %"struct.nix::Attr", ptr %0, i64 %.017.i.i31
+  %.017.i.i3149 = lshr i64 %.017.in.i.i30, 1
+  %62 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %0, i64 %.017.i.i3149
   %63 = load i32, ptr %62, align 4
   %64 = icmp ult i32 %63, %.sroa.0.sroa.0.0.extract.trunc.i.i25
   br i1 %64, label %65, label %_ZSt13__adjust_heapIPN3nix4AttrElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit36
 
 65:                                               ; preds = %.lr.ph.i.i28
-  %66 = getelementptr inbounds %"struct.nix::Attr", ptr %0, i64 %.01316.i.i29
+  %66 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %0, i64 %.01316.i.i29
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
-  %.not41 = icmp slt i64 %.017.i.i31, %.042
+  %.not41 = icmp slt i64 %.017.i.i3149, %.042
   br i1 %.not41, label %_ZSt13__adjust_heapIPN3nix4AttrElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit36, label %.lr.ph.i.i28, !llvm.loop !77
 
 _ZSt13__adjust_heapIPN3nix4AttrElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit36: ; preds = %.lr.ph.i.i28, %65, %61
-  %.013.lcssa.i.i26 = phi i64 [ %.1.i24, %61 ], [ %.017.i.i31, %65 ], [ %.01316.i.i29, %.lr.ph.i.i28 ]
+  %.013.lcssa.i.i26 = phi i64 [ %.1.i24, %61 ], [ %.017.i.i3149, %65 ], [ %.01316.i.i29, %.lr.ph.i.i28 ]
   %67 = getelementptr inbounds %"struct.nix::Attr", ptr %0, i64 %.013.lcssa.i.i26
   store i64 %.sroa.01.0.copyload18, ptr %67, align 8
   %.sroa.3.0..sroa_idx.i.i27 = getelementptr inbounds nuw i8, ptr %67, i64 8

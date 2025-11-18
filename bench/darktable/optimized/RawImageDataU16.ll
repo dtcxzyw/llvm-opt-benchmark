@@ -169,7 +169,7 @@ _ZN8rawspeed10Array2DRefItE6createISaItEEES1_RSt6vectorItT_Eii.exit:
   %12 = ashr i32 %11, 1
   %13 = icmp sgt i32 %9, -1
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ugt i32 %11, 1
+  %14 = icmp ne i32 %12, 0
   tail call void @llvm.assume(i1 %14)
   %15 = icmp sgt i32 %12, -1
   tail call void @llvm.assume(i1 %15)
@@ -533,7 +533,7 @@ define hidden void @_ZN8rawspeed15RawImageDataU1615scaleBlackWhiteEv(ptr noundef
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %34 = load i32, ptr %33, align 8, !tbaa !102, !noalias !118
   %35 = ashr i32 %34, 1
-  %36 = icmp ugt i32 %34, 1
+  %36 = icmp ne i32 %35, 0
   tail call void @llvm.assume(i1 %36)
   %37 = icmp sgt i32 %35, -1
   tail call void @llvm.assume(i1 %37)
@@ -829,7 +829,7 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit:
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %77 = load i32, ptr %76, align 8, !tbaa !102, !noalias !139
   %78 = ashr i32 %77, 1
-  %79 = icmp ugt i32 %77, 1
+  %79 = icmp ne i32 %78, 0
   tail call void @llvm.assume(i1 %79)
   %80 = icmp sgt i32 %78, -1
   tail call void @llvm.assume(i1 %80)
@@ -1004,7 +1004,7 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit:
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load i32, ptr %14, align 8, !tbaa !102, !noalias !145
   %16 = ashr i32 %15, 1
-  %17 = icmp ugt i32 %15, 1
+  %17 = icmp ne i32 %16, 0
   tail call void @llvm.assume(i1 %17)
   %18 = icmp sgt i32 %16, -1
   tail call void @llvm.assume(i1 %18)
@@ -1221,7 +1221,7 @@ define hidden void @_ZN8rawspeed15RawImageDataU1611fixBadPixelEjji(ptr noundef n
   %17 = ashr i32 %16, 1
   %18 = icmp sgt i32 %14, -1
   tail call void @llvm.assume(i1 %18)
-  %19 = icmp ugt i32 %16, 1
+  %19 = icmp ne i32 %17, 0
   tail call void @llvm.assume(i1 %19)
   %20 = icmp sgt i32 %17, -1
   tail call void @llvm.assume(i1 %20)
@@ -1618,7 +1618,7 @@ define hidden void @_ZN8rawspeed15RawImageDataU168doLookupEii(ptr noundef nonnul
   %15 = ashr i32 %14, 1
   %16 = icmp sgt i32 %10, -1
   tail call void @llvm.assume(i1 %16)
-  %17 = icmp ugt i32 %14, 1
+  %17 = icmp ne i32 %15, 0
   tail call void @llvm.assume(i1 %17)
   %18 = icmp sgt i32 %15, -1
   tail call void @llvm.assume(i1 %18)

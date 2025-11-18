@@ -5204,7 +5204,7 @@ get_logpage_name.exit:                            ; preds = %5, %13, %15, %17
   %76 = lshr i32 %75, 10
   %77 = zext nneg i32 %76 to i64
   store i64 %77, ptr %8, align 8
-  %78 = icmp ugt i32 %75, 1023
+  %78 = icmp ne i32 %76, 0
   br label %79
 
 79:                                               ; preds = %74, %69

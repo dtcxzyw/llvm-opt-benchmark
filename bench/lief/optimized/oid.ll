@@ -1362,7 +1362,7 @@ define internal fastcc range(i32 -11, 1) i32 @oid_subidentifier_encode_into(ptr 
   %.0.i = phi i64 [ %6, %4 ], [ 0, %3 ]
   %5 = lshr i32 %.04.i, 7
   %6 = add nuw nsw i64 %.0.i, 1
-  %.not.i = icmp ult i32 %.04.i, 128
+  %.not.i = icmp eq i32 %5, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %.not.i, label %oid_subidentifier_num_bytes.exit, label %4, !llvm.loop !54
 

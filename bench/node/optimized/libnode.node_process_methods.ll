@@ -4527,17 +4527,18 @@ if.end33:                                         ; preds = %_ZNK2v820FunctionCa
   br i1 %cmp35, label %land.lhs.true, label %if.end45
 
 land.lhs.true:                                    ; preds = %if.end33
-  %cmp36 = icmp ult i64 %call14, 4294967296
-  %cmp37 = icmp eq i64 %ref.tmp.sroa.318.0.extract.shift, 4294967295
-  %or.cond = or i1 %cmp36, %cmp37
+  %ref.tmp.sroa.318.0.extract.shift.off = add nsw i64 %ref.tmp.sroa.318.0.extract.shift, -1
+  %switch = icmp ult i64 %ref.tmp.sroa.318.0.extract.shift.off, 4294967294
+  br i1 %switch, label %lor.lhs.false38, label %land.lhs.true42
+
+lor.lhs.false38:                                  ; preds = %land.lhs.true
   %cmp39 = icmp eq i32 %call34, %ref.tmp.sroa.318.0.extract.trunc
-  %or.cond32 = select i1 %or.cond, i1 true, i1 %cmp39
   %sub = sub nsw i32 0, %call34
   %cmp41 = icmp eq i32 %ref.tmp.sroa.318.0.extract.trunc, %sub
-  %or.cond33 = select i1 %or.cond32, i1 true, i1 %cmp41
-  br i1 %or.cond33, label %land.lhs.true42, label %if.end45
+  %or.cond = select i1 %cmp39, i1 true, i1 %cmp41
+  br i1 %or.cond, label %land.lhs.true42, label %if.end45
 
-land.lhs.true42:                                  ; preds = %land.lhs.true
+land.lhs.true42:                                  ; preds = %land.lhs.true, %lor.lhs.false38
   %call43 = tail call noundef zeroext i1 @_ZN4node18HasSignalJSHandlerEi(i32 noundef %ref.tmp18.sroa.324.0.extract.trunc) #24
   br i1 %call43, label %if.end45, label %if.then44
 
@@ -4545,7 +4546,7 @@ if.then44:                                        ; preds = %land.lhs.true42
   tail call void @_ZN4node9RunAtExitEPNS_11EnvironmentE(ptr noundef nonnull %retval.0.i.i) #24
   br label %if.end45
 
-if.end45:                                         ; preds = %land.lhs.true, %if.then44, %land.lhs.true42, %if.end33
+if.end45:                                         ; preds = %lor.lhs.false38, %if.then44, %land.lhs.true42, %if.end33
   %call46 = tail call i32 @uv_kill(i32 noundef %ref.tmp.sroa.318.0.extract.trunc, i32 noundef %ref.tmp18.sroa.324.0.extract.trunc) #24
   %conv.i = sext i32 %call46 to i64
   %27 = load ptr, ptr %args, align 8

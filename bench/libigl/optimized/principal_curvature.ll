@@ -2585,7 +2585,7 @@ _ZNSt6vectorISt4pairIidESaIS1_EE9push_backEOS1_.exit.i: ; preds = %_ZNSt6vectorI
   store i32 %209, ptr %208, align 8, !tbaa !167
   %210 = getelementptr inbounds nuw i8, ptr %208, i64 8
   store double %205, ptr %210, align 8, !tbaa !165
-  %.not.i.i58 = icmp ult i64 %.0921.in.i.i.i, 2
+  %.not.i.i58 = icmp eq i64 %.0921.i89.i.i, 0
   br i1 %.not.i.i58, label %.loopexit235, label %.lr.ph.i.i.i, !llvm.loop !168
 
 .loopexit235:                                     ; preds = %207, %.lr.ph.i.i.i, %_ZNSt6vectorISt4pairIidESaIS1_EE9push_backEOS1_.exit.i
@@ -2888,7 +2888,7 @@ _ZNSt6vectorISt4pairIidESaIS1_EE9push_backEOS1_.exit.i86: ; preds = %_ZNSt6vecto
   store i32 %343, ptr %342, align 8, !tbaa !167
   %344 = getelementptr inbounds nuw i8, ptr %342, i64 8
   store double %339, ptr %344, align 8, !tbaa !165
-  %.not.i.i95 = icmp ult i64 %.0921.in.i.i.i93, 2
+  %.not.i.i95 = icmp eq i64 %.0921.i89.i.i94, 0
   br i1 %.not.i.i95, label %.loopexit, label %.lr.ph.i.i.i91, !llvm.loop !168
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i91, %341, %_ZNSt6vectorISt4pairIidESaIS1_EE9push_backEOS1_.exit.i86
@@ -3127,7 +3127,7 @@ define linkonce_odr dso_local void @_ZNSt14priority_queueISt4pairIidESt6vectorIS
   store i32 %58, ptr %57, align 8, !tbaa !167
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store double %54, ptr %59, align 8, !tbaa !165
-  %.not11.i.i = icmp ult i64 %.0921.in.i.i.i.i, 2
+  %.not11.i.i = icmp eq i64 %.0921.i.i910.i.i, 0
   br i1 %.not11.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterI8comparerEEEvT_SD_SD_RT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !168
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterI8comparerEEEvT_SD_SD_RT0_.exit.i: ; preds = %56, %.lr.ph.i.i.i.i, %51

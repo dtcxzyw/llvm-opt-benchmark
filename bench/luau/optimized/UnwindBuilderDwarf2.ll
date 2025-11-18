@@ -278,9 +278,9 @@ define dso_local void @_ZN4Luau7CodeGen19UnwindBuilderDwarf211prologueA64EjjSt16
   %13 = trunc i64 %.07.i.i to i8
   %14 = and i8 %13, 127
   %15 = lshr i64 %.07.i.i, 7
-  %.not.i.i = icmp samesign ult i64 %.07.i.i, 128
+  %.not.i.i = icmp eq i64 %15, 0
   %masksel.i.i = select i1 %.not.i.i, i8 0, i8 -128
-  %.0.i.i = or disjoint i8 %14, %masksel.i.i
+  %.0.i.i = or disjoint i8 %masksel.i.i, %14
   %16 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 1
   store i8 %.0.i.i, ptr %.08.i.i, align 1, !tbaa !18
   br i1 %.not.i.i, label %_ZL25defineCfaExpressionOffsetPhj.exit, label %12, !llvm.loop !19
@@ -321,9 +321,9 @@ _ZL25defineCfaExpressionOffsetPhj.exit:           ; preds = %12
   %32 = trunc i64 %.07.i10.i to i8
   %33 = and i8 %32, 127
   %34 = lshr i64 %.07.i10.i, 7
-  %.not.i11.i = icmp samesign ult i64 %.07.i10.i, 128
+  %.not.i11.i = icmp eq i64 %34, 0
   %masksel.i12.i = select i1 %.not.i11.i, i8 0, i8 -128
-  %.0.i13.i = or disjoint i8 %33, %masksel.i12.i
+  %.0.i13.i = or disjoint i8 %masksel.i12.i, %33
   %35 = getelementptr inbounds nuw i8, ptr %.08.i9.i, i64 1
   store i8 %.0.i13.i, ptr %.08.i9.i, align 1, !tbaa !18
   br i1 %.not.i11.i, label %_ZL27defineSavedRegisterLocationPhij.exit, label %31, !llvm.loop !19
@@ -388,9 +388,9 @@ _ZL25defineCfaExpressionOffsetPhj.exit:           ; preds = %7
   %27 = trunc i64 %.07.i.i25 to i8
   %28 = and i8 %27, 127
   %29 = lshr i64 %.07.i.i25, 7
-  %.not.i.i26 = icmp samesign ult i64 %.07.i.i25, 128
+  %.not.i.i26 = icmp eq i64 %29, 0
   %masksel.i.i27 = select i1 %.not.i.i26, i8 0, i8 -128
-  %.0.i.i28 = or disjoint i8 %28, %masksel.i.i27
+  %.0.i.i28 = or disjoint i8 %masksel.i.i27, %28
   %30 = getelementptr inbounds nuw i8, ptr %.08.i.i24, i64 1
   store i8 %.0.i.i28, ptr %.08.i.i24, align 1, !tbaa !18
   br i1 %.not.i.i26, label %_ZL25defineCfaExpressionOffsetPhj.exit29, label %26, !llvm.loop !19
@@ -421,9 +421,9 @@ _ZL25defineCfaExpressionOffsetPhj.exit29:         ; preds = %26
   %39 = trunc i64 %.07.i.i31 to i8
   %40 = and i8 %39, 127
   %41 = lshr i64 %.07.i.i31, 7
-  %.not.i.i32 = icmp samesign ult i64 %.07.i.i31, 128
+  %.not.i.i32 = icmp eq i64 %41, 0
   %masksel.i.i33 = select i1 %.not.i.i32, i8 0, i8 -128
-  %.0.i.i34 = or disjoint i8 %40, %masksel.i.i33
+  %.0.i.i34 = or disjoint i8 %masksel.i.i33, %40
   %42 = getelementptr inbounds nuw i8, ptr %.08.i.i30, i64 1
   store i8 %.0.i.i34, ptr %.08.i.i30, align 1, !tbaa !18
   br i1 %.not.i.i32, label %_ZL25defineCfaExpressionOffsetPhj.exit35, label %38, !llvm.loop !19
@@ -447,9 +447,9 @@ _ZL25defineCfaExpressionOffsetPhj.exit35:         ; preds = %38
   %53 = trunc i64 %.07.i10.i42 to i8
   %54 = and i8 %53, 127
   %55 = lshr i64 %.07.i10.i42, 7
-  %.not.i11.i43 = icmp samesign ult i64 %.07.i10.i42, 128
+  %.not.i11.i43 = icmp eq i64 %55, 0
   %masksel.i12.i44 = select i1 %.not.i11.i43, i8 0, i8 -128
-  %.0.i13.i45 = or disjoint i8 %54, %masksel.i12.i44
+  %.0.i13.i45 = or disjoint i8 %masksel.i12.i44, %54
   %56 = getelementptr inbounds nuw i8, ptr %.08.i9.i41, i64 1
   store i8 %.0.i13.i45, ptr %.08.i9.i41, align 1, !tbaa !18
   br i1 %.not.i11.i43, label %_ZL27defineSavedRegisterLocationPhij.exit46, label %52, !llvm.loop !19

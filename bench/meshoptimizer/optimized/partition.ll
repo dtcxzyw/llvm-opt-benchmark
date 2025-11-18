@@ -694,7 +694,7 @@ _ZN7meshoptL10countTotalEPKNS_12ClusterGroupEiPKjS4_Ph.exit: ; preds = %._crit_e
   %321 = load i64, ptr %315, align 4
   store i64 %321, ptr %320, align 4
   store i64 %.sroa.044.0.insert.insert, ptr %315, align 4
-  %.not.i167 = icmp ult i64 %313, 2
+  %.not.i167 = icmp eq i64 %314, 0
   br i1 %.not.i167, label %_ZN7meshoptL8heapPushEPNS_10GroupOrderEmS0_.exit, label %.lr.ph.i165, !llvm.loop !42
 
 _ZN7meshoptL8heapPushEPNS_10GroupOrderEmS0_.exit: ; preds = %.lr.ph.i165, %319, %_ZN7meshoptL10countTotalEPKNS_12ClusterGroupEiPKjS4_Ph.exit
@@ -1035,7 +1035,7 @@ _ZN7meshoptL11countSharedEPKNS_12ClusterGroupEiiRKNS_16ClusterAdjacencyE.exit: ;
   %490 = load i64, ptr %484, align 4
   store i64 %490, ptr %489, align 4
   store i64 %.sroa.029.0.insert.insert, ptr %484, align 4
-  %.not.i178 = icmp ult i64 %482, 2
+  %.not.i178 = icmp eq i64 %483, 0
   br i1 %.not.i178, label %_ZN7meshoptL8heapPushEPNS_10GroupOrderEmS0_.exit179, label %.lr.ph.i175, !llvm.loop !42
 
 .lr.ph220:                                        ; preds = %.lr.ph220.preheader, %.lr.ph220

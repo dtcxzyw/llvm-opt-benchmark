@@ -36966,7 +36966,7 @@ define internal fastcc void @_ZN7hir_def4data9trait_vis17he73477b82cf9986bE(ptr 
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7879)
   %.sroa.0.4.extract.shift = lshr i64 %11, 32
-  %12 = icmp ult i64 %11, 4294967296
+  %12 = icmp eq i64 %.sroa.0.4.extract.shift, 0
   %.sink5.i = select i1 %12, i64 912, i64 920
   %.sink.i.v = select i1 %12, i64 %11, i64 %.sroa.0.4.extract.shift
   %.sink.i = trunc i64 %.sink.i.v to i32

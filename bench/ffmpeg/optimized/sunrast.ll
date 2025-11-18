@@ -442,27 +442,34 @@ define internal i32 @sunrast_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not297, label %._crit_edge291, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %200
-  %.not298 = icmp eq i32 %18, 0
-  %202 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %203 = add nuw i32 %19, 15
-  %204 = lshr i32 %203, 3
-  %205 = mul nuw nsw i32 %204, %25
-  %206 = zext nneg i32 %205 to i64
+  %202 = add nuw nsw i32 %19, 7
+  %203 = lshr i32 %202, 3
+  %204 = mul i32 %203, %25
+  %.not298 = icmp eq i32 %203, 0
+  %205 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %206 = add nuw i32 %19, 15
+  %207 = lshr i32 %206, 3
+  %208 = mul nuw nsw i32 %207, %25
+  %209 = zext nneg i32 %208 to i64
   br i1 %.not298, label %._crit_edge291, label %.preheader.lr.ph.split.us
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
-  %207 = add nuw nsw i32 %19, 7
-  %208 = lshr i32 %207, 3
-  %209 = mul i32 %208, %25
   %210 = icmp eq i32 %24, 16777216
-  %umax316 = tail call i32 @llvm.umax.i32(i32 %209, i32 1)
-  %wide.trip.count317 = zext i32 %umax316 to i64
-  br i1 %210, label %.preheader.us.us, label %.preheader.us
+  br i1 %210, label %.preheader.us.us.preheader, label %.preheader.us.preheader
 
-.preheader.us.us:                                 ; preds = %.preheader.lr.ph.split.us, %._crit_edge285.split.us.us.us
-  %.1217289.us.us = phi ptr [ %263, %._crit_edge285.split.us.us.us ], [ %.0216, %.preheader.lr.ph.split.us ]
-  %.7287.us.us = phi ptr [ %262, %._crit_edge285.split.us.us.us ], [ %201, %.preheader.lr.ph.split.us ]
-  %.1226286.us.us = phi i32 [ %264, %._crit_edge285.split.us.us.us ], [ 0, %.preheader.lr.ph.split.us ]
+.preheader.us.preheader:                          ; preds = %.preheader.lr.ph.split.us
+  %umax308 = tail call i32 @llvm.umax.i32(i32 %204, i32 1)
+  %wide.trip.count309 = zext i32 %umax308 to i64
+  br label %.preheader.us
+
+.preheader.us.us.preheader:                       ; preds = %.preheader.lr.ph.split.us
+  %wide.trip.count317 = zext nneg i32 %204 to i64
+  br label %.preheader.us.us
+
+.preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge285.split.us.us.us
+  %.1217289.us.us = phi ptr [ %263, %._crit_edge285.split.us.us.us ], [ %.0216, %.preheader.us.us.preheader ]
+  %.7287.us.us = phi ptr [ %262, %._crit_edge285.split.us.us.us ], [ %201, %.preheader.us.us.preheader ]
+  %.1226286.us.us = phi i32 [ %264, %._crit_edge285.split.us.us.us ], [ 0, %.preheader.us.us.preheader ]
   br label %211
 
 211:                                              ; preds = %211, %.preheader.us.us
@@ -528,18 +535,18 @@ define internal i32 @sunrast_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %exitcond318.not, label %._crit_edge285.split.us.us.us, label %211, !llvm.loop !43
 
 ._crit_edge285.split.us.us.us:                    ; preds = %211
-  %260 = load i32, ptr %202, align 8, !tbaa !37
+  %260 = load i32, ptr %205, align 8, !tbaa !37
   %261 = sext i32 %260 to i64
   %262 = getelementptr inbounds i8, ptr %.7287.us.us, i64 %261
-  %263 = getelementptr inbounds nuw i8, ptr %.1217289.us.us, i64 %206
+  %263 = getelementptr inbounds nuw i8, ptr %.1217289.us.us, i64 %209
   %264 = add nuw nsw i32 %.1226286.us.us, 1
   %exitcond320.not = icmp eq i32 %264, %22
   br i1 %exitcond320.not, label %._crit_edge291, label %.preheader.us.us, !llvm.loop !44
 
-.preheader.us:                                    ; preds = %.preheader.lr.ph.split.us, %._crit_edge285.split.us293
-  %.1217289.us = phi ptr [ %278, %._crit_edge285.split.us293 ], [ %.0216, %.preheader.lr.ph.split.us ]
-  %.7287.us = phi ptr [ %277, %._crit_edge285.split.us293 ], [ %201, %.preheader.lr.ph.split.us ]
-  %.1226286.us = phi i32 [ %279, %._crit_edge285.split.us293 ], [ 0, %.preheader.lr.ph.split.us ]
+.preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge285.split.us293
+  %.1217289.us = phi ptr [ %278, %._crit_edge285.split.us293 ], [ %.0216, %.preheader.us.preheader ]
+  %.7287.us = phi ptr [ %277, %._crit_edge285.split.us293 ], [ %201, %.preheader.us.preheader ]
+  %.1226286.us = phi i32 [ %279, %._crit_edge285.split.us293 ], [ 0, %.preheader.us.preheader ]
   br label %265
 
 265:                                              ; preds = %.preheader.us, %265
@@ -556,14 +563,14 @@ define internal i32 @sunrast_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 1
   store i8 %272, ptr %274, align 1, !tbaa !16
   %indvars.iv.next306 = add nuw nsw i64 %indvars.iv305, 1
-  %exitcond310.not = icmp eq i64 %indvars.iv.next306, %wide.trip.count317
+  %exitcond310.not = icmp eq i64 %indvars.iv.next306, %wide.trip.count309
   br i1 %exitcond310.not, label %._crit_edge285.split.us293, label %265, !llvm.loop !43
 
 ._crit_edge285.split.us293:                       ; preds = %265
-  %275 = load i32, ptr %202, align 8, !tbaa !37
+  %275 = load i32, ptr %205, align 8, !tbaa !37
   %276 = sext i32 %275 to i64
   %277 = getelementptr inbounds i8, ptr %.7287.us, i64 %276
-  %278 = getelementptr inbounds nuw i8, ptr %.1217289.us, i64 %206
+  %278 = getelementptr inbounds nuw i8, ptr %.1217289.us, i64 %209
   %279 = add nuw nsw i32 %.1226286.us, 1
   %exitcond312.not = icmp eq i32 %279, %22
   br i1 %exitcond312.not, label %._crit_edge291, label %.preheader.us, !llvm.loop !44

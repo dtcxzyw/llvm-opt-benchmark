@@ -613,14 +613,14 @@ define hidden void @"_ZN95_$LT$alloc..string..String$u20$as$u20$core..iter..trai
   tail call void @llvm.assume(i1 %7)
   %8 = ptrtoint ptr %.sroa.5.0.copyload3.i to i64
   %9 = ptrtoint ptr %.sroa.0.0.copyload1.i to i64
-  %reass.sub.i = sub i64 %8, %9
-  %10 = add i64 %reass.sub.i, 3
-  %.not = icmp ult i64 %10, 4
-  br i1 %.not, label %.noexc, label %11
+  %reass.sub = sub i64 %8, %9
+  %10 = add i64 %reass.sub, 3
+  %11 = lshr i64 %10, 2
+  %.not = icmp eq i64 %11, 0
+  br i1 %.not, label %.noexc, label %12
 
-11:                                               ; preds = %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9ca32f626437a49bE.llvm.17029481809861510322.exit.i"
-  %12 = lshr i64 %10, 2
-  %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %12, i64 %.sroa.6.0.copyload5.i)
+12:                                               ; preds = %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9ca32f626437a49bE.llvm.17029481809861510322.exit.i"
+  %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %11, i64 %.sroa.6.0.copyload5.i)
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hb8a111f78576bc76E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 0, i64 noundef %.0.sroa.speculated.i.i.i)
           to label %.noexc unwind label %15
 
@@ -628,7 +628,7 @@ define hidden void @"_ZN95_$LT$alloc..string..String$u20$as$u20$core..iter..trai
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !177
   br label %17
 
-.noexc:                                           ; preds = %11, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9ca32f626437a49bE.llvm.17029481809861510322.exit.i"
+.noexc:                                           ; preds = %12, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9ca32f626437a49bE.llvm.17029481809861510322.exit.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !177
   store ptr %.sroa.0.0.copyload1.i, ptr %3, align 8, !noalias !177
   %.sroa.5.0..sroa_idx9.i = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -639,7 +639,7 @@ define hidden void @"_ZN95_$LT$alloc..string..String$u20$as$u20$core..iter..trai
   %14 = invoke { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hc9da8adc2730b25eE.llvm.17029481809861510322(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %13, ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %17 unwind label %15
 
-15:                                               ; preds = %.noexc, %11
+15:                                               ; preds = %.noexc, %12
   %16 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h34df205699c08452E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #19

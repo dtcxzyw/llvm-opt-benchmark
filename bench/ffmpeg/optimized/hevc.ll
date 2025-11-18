@@ -467,7 +467,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @write_configuration_record
   %250 = and i32 %242, 7
   %251 = shl i32 %249, %250
   %252 = lshr i32 %251, 24
-  %.not = icmp ult i32 %251, 16777216
+  %.not = icmp eq i32 %252, 0
   br i1 %.not, label %hvcc_parse_nal_unit.exit.thread.sink.split, label %.lr.ph204.preheader
 
 .lr.ph204.preheader:                              ; preds = %19
@@ -500,7 +500,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @write_configuration_record
   %274 = lshr i32 %273, 16
   %275 = add nuw i32 %266, 16
   %276 = call i32 @llvm.umin.i32(i32 %18, i32 %275)
-  %.not206 = icmp ult i32 %273, 65536
+  %.not206 = icmp eq i32 %274, 0
   br i1 %.not206, label %._crit_edge200, label %.lr.ph199
 
 .lr.ph199:                                        ; preds = %.lr.ph204, %.loopexit
@@ -1853,7 +1853,7 @@ align_get_bits.exit.i:                            ; preds = %411, %408
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %9, i8 0, i64 64, i1 false)
-  %416 = icmp ugt i32 %218, 67108863
+  %416 = icmp ne i32 %219, 0
   %417 = icmp slt i32 %215, 0
   %or.cond.i.i48 = and i1 %417, %416
   br i1 %or.cond.i.i48, label %418, label %421
@@ -1957,7 +1957,7 @@ align_get_bits.exit.i:                            ; preds = %411, %408
   %476 = call i32 @llvm.umin.i32(i32 %423, i32 %475)
   store i32 %476, ptr %30, align 8, !tbaa !63
   %477 = zext nneg i8 %415 to i32
-  %.not89.i.i = icmp ult i32 %218, 67108864
+  %.not89.i.i = icmp eq i32 %219, 0
   br i1 %.not89.i.i, label %._crit_edge94.i.i, label %.lr.ph93.i.i
 
 .lr.ph93.i.i:                                     ; preds = %._crit_edge.i.i

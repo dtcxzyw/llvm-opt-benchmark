@@ -1761,7 +1761,7 @@ define i32 @cli_ac_chklsig(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %183 = and i32 %182, 1
   %184 = add i32 %183, %.1181318
   %185 = lshr i64 %.1172319, 1
-  %.not223 = icmp ult i64 %.1172319, 2
+  %.not223 = icmp eq i64 %185, 0
   br i1 %.not223, label %._crit_edge321, label %.lr.ph320
 
 ._crit_edge321:                                   ; preds = %.lr.ph320
@@ -4495,7 +4495,7 @@ sub_0698:                                         ; preds = %.tail693.thread
   br i1 %307, label %312, label %.preheader710
 
 .preheader710:                                    ; preds = %299
-  %.not819 = icmp ult i16 %301, 2
+  %.not819 = icmp eq i16 %302, 0
   br i1 %.not819, label %._crit_edge, label %.lr.ph754
 
 .lr.ph754:                                        ; preds = %.preheader710
@@ -7473,7 +7473,7 @@ define internal fastcc range(i32 0, 21) i32 @ac_addspecial_add_alt_node(ptr noun
   store i8 1, ptr %19, align 2, !tbaa !195
   %20 = and i8 %1, 1
   %.not75 = icmp eq i8 %20, 0
-  %.not126 = icmp ult i16 %16, 2
+  %.not126 = icmp eq i16 %17, 0
   %or.cond = select i1 %.not75, i1 true, i1 %.not126
   br i1 %or.cond, label %.loopexit, label %.lr.ph
 

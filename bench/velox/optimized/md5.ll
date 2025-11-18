@@ -3142,7 +3142,7 @@ for.body.i105:                                    ; preds = %_ZNK5folly9FormatAr
   %46 = load i64, ptr %arrayidx.i.i.i109, align 1
   store i64 %46, ptr %add.ptr.i, align 1
   %shr.i110 = lshr i32 %v.addr.014.i, 8
-  %tobool.not.i = icmp ult i32 %v.addr.014.i, 256
+  %tobool.not.i = icmp eq i32 %shr.i110, 0
   br i1 %tobool.not.i, label %while.cond.i, label %for.body.i105, !llvm.loop !49
 
 while.cond.i:                                     ; preds = %for.body.i105, %while.cond.i

@@ -1922,7 +1922,7 @@ _ZL11compactTrieP6UTrie2P10UErrorCode.exit:       ; preds = %320, %311
   %422 = add nsw i32 %330, -65536
   %423 = lshr i32 %422, 11
   %424 = add nuw nsw i32 %423, 2112
-  %.not = icmp samesign ult i32 %422, 2048
+  %.not = icmp eq i32 %423, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %421

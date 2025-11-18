@@ -135538,7 +135538,7 @@ _ZN4gpui8platform5linux3x115event17bit_is_set_in_vec17hd0c94e939d5bebf1E.llvm.14
   %25 = and i32 %18, %24
   %26 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %25)
   %27 = select i1 %23, i32 0, i32 %26
-  %28 = icmp ult i16 %10, 32
+  %28 = icmp eq i16 %11, 0
   br i1 %28, label %35, label %29
 
 29:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h64f079d1f735550dE.llvm.1447634141393705755.exit.i.i"

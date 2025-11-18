@@ -3262,7 +3262,7 @@ define internal void @_event_dnd_received(ptr noundef %0, ptr noundef %1, i32 no
   store ptr null, ptr %12, align 8, !tbaa !113
   %51 = tail call i32 @gtk_selection_data_get_length(ptr noundef nonnull %4) #16
   %52 = ashr i32 %51, 2
-  %.not = icmp ult i32 %51, 4
+  %.not = icmp eq i32 %52, 0
   br i1 %.not, label %76, label %53
 
 53:                                               ; preds = %50

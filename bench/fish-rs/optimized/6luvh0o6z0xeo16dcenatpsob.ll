@@ -1425,7 +1425,7 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !99
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.012.i.i)
   %69 = lshr i64 %22, 1
-  %.not16.i.i.i = icmp ult i64 %22, 2
+  %.not16.i.i.i = icmp eq i64 %69, 0
   br i1 %.not16.i.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h34b07e3003009d81E.exit.i", label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17hf4b3473ccf4e5dceE.exit.i"

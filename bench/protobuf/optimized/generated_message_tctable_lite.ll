@@ -9077,7 +9077,7 @@ if.end20.i:                                       ; preds = %if.end.i43
   %26 = zext nneg i32 %div25.i110 to i64
   %27 = getelementptr inbounds nuw i32, ptr %aux.i.sroa.0.0.copyload, i64 %26
   %add.ptr.i45 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %cmp28.i170.not = icmp ult i32 %20, 65536
+  %cmp28.i170.not = icmp eq i32 %shr22.i, 0
   br i1 %cmp28.i170.not, label %if.then27.i, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end20.i, %if.end32.i46
@@ -9344,7 +9344,7 @@ if.end20.i:                                       ; preds = %if.end.i43
   %26 = zext nneg i32 %div25.i110 to i64
   %27 = getelementptr inbounds nuw i32, ptr %aux.i.sroa.0.0.copyload, i64 %26
   %add.ptr.i45 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %cmp28.i170.not = icmp ult i32 %20, 65536
+  %cmp28.i170.not = icmp eq i32 %shr22.i, 0
   br i1 %cmp28.i170.not, label %if.then27.i, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end20.i, %if.end32.i46
@@ -10127,7 +10127,7 @@ if.end20.i:                                       ; preds = %if.end.i61
   %27 = zext nneg i32 %div25.i120 to i64
   %28 = getelementptr inbounds nuw i32, ptr %aux.i.sroa.0.0.copyload, i64 %27
   %add.ptr.i63 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %cmp28.i196.not = icmp ult i32 %21, 65536
+  %cmp28.i196.not = icmp eq i32 %shr22.i, 0
   br i1 %cmp28.i196.not, label %if.then31.i, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end20.i, %if.end32.i
@@ -10425,7 +10425,7 @@ if.end20.i:                                       ; preds = %if.end.i61
   %26 = zext nneg i32 %div25.i120 to i64
   %27 = getelementptr inbounds nuw i32, ptr %aux.i.sroa.0.0.copyload, i64 %26
   %add.ptr.i63 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %cmp28.i198.not = icmp ult i32 %20, 65536
+  %cmp28.i198.not = icmp eq i32 %shr22.i, 0
   br i1 %cmp28.i198.not, label %if.then31.i, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end20.i, %if.end32.i
@@ -17990,7 +17990,7 @@ if.end20.i:                                       ; preds = %if.end.i177
   %45 = zext nneg i32 %div25.i152 to i64
   %46 = getelementptr inbounds nuw i32, ptr %37, i64 %45
   %add.ptr.i179 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %cmp28.i279.not = icmp ult i32 %39, 65536
+  %cmp28.i279.not = icmp eq i32 %shr22.i, 0
   br i1 %cmp28.i279.not, label %if.then42, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end20.i, %if.end32.i
@@ -20345,7 +20345,7 @@ if.end20.i:                                       ; preds = %if.end.i177
   %54 = zext nneg i32 %div25.i152 to i64
   %55 = getelementptr inbounds nuw i32, ptr %46, i64 %54
   %add.ptr.i179 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %cmp28.i287.not = icmp ult i32 %48, 65536
+  %cmp28.i287.not = icmp eq i32 %shr22.i, 0
   br i1 %cmp28.i287.not, label %if.then42, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end20.i, %if.end32.i
@@ -21776,7 +21776,7 @@ if.end20.i:                                       ; preds = %if.end.i52
   %28 = zext nneg i32 %div25.i97 to i64
   %29 = getelementptr inbounds nuw i32, ptr %6, i64 %28
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %cmp28.i182.not = icmp ult i32 %22, 65536
+  %cmp28.i182.not = icmp eq i32 %shr22.i, 0
   br i1 %cmp28.i182.not, label %if.then16, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end20.i, %if.end32.i
@@ -24230,7 +24230,7 @@ if.end20.i:                                       ; preds = %if.end.i8
   %7 = zext nneg i32 %div25.i26 to i64
   %8 = getelementptr inbounds nuw i32, ptr %agg.tmp.sroa.0.0.copyload, i64 %7
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %cmp28.i31.not = icmp ult i32 %1, 65536
+  %cmp28.i31.not = icmp eq i32 %shr22.i, 0
   br i1 %cmp28.i31.not, label %if.then, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end20.i, %if.end32.i
@@ -25299,7 +25299,7 @@ while.end:                                        ; preds = %if.end14, %if.end
   %ptr.addr.0.lcssa = phi ptr [ %ptr, %if.end ], [ %add.ptr17, %if.end14 ]
   %conv27 = ashr i32 %size.addr.0.lcssa, 3
   %mul30 = and i32 %size.addr.0.lcssa, -8
-  %cmp32 = icmp ult i32 %size.addr.0.lcssa, 8
+  %cmp32 = icmp eq i32 %conv27, 0
   br i1 %cmp32, label %if.then33, label %if.end35
 
 if.then33:                                        ; preds = %while.end
@@ -25458,7 +25458,7 @@ while.end:                                        ; preds = %if.end14, %if.end
   %ptr.addr.0.lcssa = phi ptr [ %ptr, %if.end ], [ %add.ptr17, %if.end14 ]
   %conv27 = ashr i32 %size.addr.0.lcssa, 2
   %mul30 = and i32 %size.addr.0.lcssa, -4
-  %cmp32 = icmp ult i32 %size.addr.0.lcssa, 4
+  %cmp32 = icmp eq i32 %conv27, 0
   br i1 %cmp32, label %if.then33, label %if.end35
 
 if.then33:                                        ; preds = %while.end
@@ -40639,7 +40639,7 @@ if.end20.i:                                       ; preds = %if.end.i8
   %7 = zext nneg i32 %div25.i26 to i64
   %8 = getelementptr inbounds nuw i32, ptr %agg.tmp.sroa.0.0.copyload, i64 %7
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %cmp28.i31.not = icmp ult i32 %1, 65536
+  %cmp28.i31.not = icmp eq i32 %shr22.i, 0
   br i1 %cmp28.i31.not, label %if.then, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end20.i, %if.end32.i
@@ -40981,7 +40981,7 @@ if.end20.i:                                       ; preds = %if.end.i8
   %7 = zext nneg i32 %div25.i26 to i64
   %8 = getelementptr inbounds nuw i32, ptr %agg.tmp.sroa.0.0.copyload, i64 %7
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %cmp28.i34.not = icmp ult i32 %1, 65536
+  %cmp28.i34.not = icmp eq i32 %shr22.i, 0
   br i1 %cmp28.i34.not, label %if.then, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end20.i, %if.end32.i

@@ -1493,7 +1493,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef %0) #1 {
   %.04.i518 = phi i32 [ %35, %.lr.ph ], [ %33, %23 ]
   %35 = lshr i32 %.04.i518, 1
   %36 = add nsw i32 %.0.i519, -1
-  %.not.i = icmp ult i32 %.04.i518, 2
+  %.not.i = icmp eq i32 %35, 0
   br i1 %.not.i, label %ff_clz_c.exit.loopexit, label %.lr.ph, !llvm.loop !129
 
 ff_clz_c.exit.loopexit:                           ; preds = %.lr.ph

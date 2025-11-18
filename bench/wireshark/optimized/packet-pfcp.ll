@@ -14885,124 +14885,124 @@ define internal i32 @dissect_pfcp_nokia_detailed_statistics(ptr noundef %0, ptr 
   %14 = load i32, ptr @ett_pfcp_nokia_detailed_stats_bitmap, align 4
   %15 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef 4, i32 noundef 8, i32 noundef %14, ptr noundef nonnull %6, ptr noundef nonnull @.str.2777)
   %16 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef 4)
-  %.not85100 = icmp eq i64 %16, 0
-  br i1 %.not85100, label %._crit_edge.thread, label %.lr.ph106
+  %.not8598 = icmp eq i64 %16, 0
+  br i1 %.not8598, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph106:                                        ; preds = %4
+.lr.ph:                                           ; preds = %4
   %17 = select i1 %.not, ptr @dissect_pfcp_nokia_detailed_statistics.ingress_queue_names, ptr @dissect_pfcp_nokia_detailed_statistics.egress_queue_names
   %18 = select i1 %.not84, ptr %17, ptr @dissect_pfcp_nokia_detailed_statistics.policer_names
   br label %20
 
 ._crit_edge:                                      ; preds = %.thread
   %19 = icmp eq i32 %.170, 0
-  br i1 %19, label %._crit_edge.thread, label %61
+  br i1 %19, label %._crit_edge.thread, label %62
 
-20:                                               ; preds = %.lr.ph106, %.thread
-  %.0105 = phi i32 [ 12, %.lr.ph106 ], [ %.1, %.thread ]
-  %.068104 = phi i64 [ %16, %.lr.ph106 ], [ %58, %.thread ]
-  %.069103 = phi i32 [ 0, %.lr.ph106 ], [ %.170, %.thread ]
-  %.076101 = phi i32 [ 0, %.lr.ph106 ], [ %59, %.thread ]
-  %21 = icmp ult i64 %.068104, 72057594037927936
-  br i1 %21, label %.thread, label %.lr.ph
+20:                                               ; preds = %.lr.ph, %.thread
+  %.0102 = phi i32 [ 12, %.lr.ph ], [ %.1, %.thread ]
+  %.068101 = phi i64 [ %16, %.lr.ph ], [ %59, %.thread ]
+  %.069100 = phi i32 [ 0, %.lr.ph ], [ %.170, %.thread ]
+  %.07699 = phi i32 [ 0, %.lr.ph ], [ %60, %.thread ]
+  %21 = lshr i64 %.068101, 56
+  %22 = icmp eq i64 %21, 0
+  br i1 %22, label %.thread, label %23
 
-.lr.ph:                                           ; preds = %20
-  %22 = lshr i64 %.068104, 56
-  %23 = trunc nuw nsw i64 %22 to i32
-  %24 = shl nuw i32 %.076101, 1
-  %25 = add nuw nsw i32 %24, 40
-  br label %26
+23:                                               ; preds = %20
+  %24 = trunc nuw nsw i64 %21 to i32
+  %25 = shl nuw i32 %.07699, 1
+  %26 = add nuw nsw i32 %25, 40
+  br label %27
 
-26:                                               ; preds = %.lr.ph, %55
-  %.298 = phi i32 [ %.0105, %.lr.ph ], [ %.4, %55 ]
-  %.27197 = phi i32 [ %.069103, %.lr.ph ], [ %.473, %55 ]
-  %.08096 = phi i32 [ %23, %.lr.ph ], [ %56, %55 ]
-  %.08195 = phi i32 [ 1, %.lr.ph ], [ %57, %55 ]
-  %27 = and i32 %.08096, 3
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %55, label %29
+27:                                               ; preds = %23, %56
+  %.297 = phi i32 [ %.0102, %23 ], [ %.4, %56 ]
+  %.27196 = phi i32 [ %.069100, %23 ], [ %.473, %56 ]
+  %.08095 = phi i32 [ %24, %23 ], [ %57, %56 ]
+  %.08194 = phi i32 [ 1, %23 ], [ %58, %56 ]
+  %28 = and i32 %.08095, 3
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %56, label %30
 
-29:                                               ; preds = %26
-  %30 = add nuw nsw i32 %.08195, %.076101
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef nonnull %18, ptr noundef nonnull @.str.2778)
-  %32 = shl nuw i32 %.08195, 1
-  %33 = sub nsw i32 %25, %32
-  %34 = load i32, ptr @hf_pfcp_nokia_detailed_stats_bitmap_item, align 4
-  %35 = call ptr @proto_tree_add_bits_item(ptr noundef %15, i32 noundef %34, ptr noundef %0, i32 noundef %33, i32 noundef 2, i32 noundef 0)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %35, ptr noundef nonnull @.str.2779, ptr noundef %31, i32 noundef %30)
-  %36 = icmp eq i32 %27, 3
-  br i1 %36, label %37, label %39
+30:                                               ; preds = %27
+  %31 = add nuw nsw i32 %.08194, %.07699
+  %32 = call ptr @val_to_str(i32 noundef %31, ptr noundef nonnull %18, ptr noundef nonnull @.str.2778)
+  %33 = shl nuw i32 %.08194, 1
+  %34 = sub nsw i32 %26, %33
+  %35 = load i32, ptr @hf_pfcp_nokia_detailed_stats_bitmap_item, align 4
+  %36 = call ptr @proto_tree_add_bits_item(ptr noundef %15, i32 noundef %35, ptr noundef %0, i32 noundef %34, i32 noundef 2, i32 noundef 0)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %36, ptr noundef nonnull @.str.2779, ptr noundef %32, i32 noundef %31)
+  %37 = icmp eq i32 %28, 3
+  br i1 %37, label %38, label %40
 
-37:                                               ; preds = %29
-  %38 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_pfcp_ie_encoding_error, ptr noundef %0, i32 noundef 4, i32 noundef 8)
+38:                                               ; preds = %30
+  %39 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_pfcp_ie_encoding_error, ptr noundef %0, i32 noundef 4, i32 noundef 8)
   br label %.thread
 
-39:                                               ; preds = %29
-  %40 = icmp eq i32 %27, 1
-  %41 = select i1 %40, i32 4, i32 8
-  %42 = icmp sgt i32 %.298, 0
-  %43 = add i32 %41, %.298
-  br i1 %42, label %44, label %._crit_edge114
+40:                                               ; preds = %30
+  %41 = icmp eq i32 %28, 1
+  %42 = select i1 %41, i32 4, i32 8
+  %43 = icmp sgt i32 %.297, 0
+  %44 = add i32 %42, %.297
+  br i1 %43, label %45, label %._crit_edge109
 
-44:                                               ; preds = %39
-  %45 = call i32 @tvb_reported_length(ptr noundef %0)
-  %46 = icmp ugt i32 %43, %45
-  br i1 %46, label %47, label %._crit_edge114
+45:                                               ; preds = %40
+  %46 = call i32 @tvb_reported_length(ptr noundef %0)
+  %47 = icmp ugt i32 %44, %46
+  br i1 %47, label %48, label %._crit_edge109
 
-47:                                               ; preds = %44
-  %48 = call i32 @tvb_reported_length(ptr noundef %0)
-  %49 = sub i32 %48, %.298
-  %50 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_pfcp_ie_encoding_error, ptr noundef %0, i32 noundef %.298, i32 noundef %49)
+48:                                               ; preds = %45
+  %49 = call i32 @tvb_reported_length(ptr noundef %0)
+  %50 = sub i32 %49, %.297
+  %51 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_pfcp_ie_encoding_error, ptr noundef %0, i32 noundef %.297, i32 noundef %50)
   br label %.thread
 
-._crit_edge114:                                   ; preds = %39, %44
+._crit_edge109:                                   ; preds = %40, %45
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %51 = load i32, ptr @hf_pfcp_nokia_detailed_stats_octets, align 4
-  %52 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %2, i32 noundef %51, ptr noundef %0, i32 noundef %.298, i32 noundef %41, i32 noundef 0, ptr noundef nonnull %7)
-  %53 = load i64, ptr %7, align 8
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %52, ptr noundef nonnull @.str.2780, ptr noundef %31, i64 noundef %53)
-  %54 = add i32 %.27197, 1
+  %52 = load i32, ptr @hf_pfcp_nokia_detailed_stats_octets, align 4
+  %53 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %2, i32 noundef %52, ptr noundef %0, i32 noundef %.297, i32 noundef %42, i32 noundef 0, ptr noundef nonnull %7)
+  %54 = load i64, ptr %7, align 8
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %53, ptr noundef nonnull @.str.2780, ptr noundef %32, i64 noundef %54)
+  %55 = add i32 %.27196, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %55
+  br label %56
 
-55:                                               ; preds = %26, %._crit_edge114
-  %.473 = phi i32 [ %.27197, %26 ], [ %54, %._crit_edge114 ]
-  %.4 = phi i32 [ %.298, %26 ], [ %43, %._crit_edge114 ]
-  %56 = lshr i32 %.08096, 2
-  %57 = add nuw nsw i32 %.08195, 1
-  %.not86 = icmp samesign ult i32 %.08096, 4
-  br i1 %.not86, label %.thread, label %26, !llvm.loop !29
+56:                                               ; preds = %27, %._crit_edge109
+  %.473 = phi i32 [ %.27196, %27 ], [ %55, %._crit_edge109 ]
+  %.4 = phi i32 [ %.297, %27 ], [ %44, %._crit_edge109 ]
+  %57 = lshr i32 %.08095, 2
+  %58 = add nuw nsw i32 %.08194, 1
+  %.not86 = icmp eq i32 %57, 0
+  br i1 %.not86, label %.thread, label %27, !llvm.loop !29
 
-.thread:                                          ; preds = %55, %47, %37, %20
-  %.170 = phi i32 [ %.069103, %20 ], [ %.27197, %37 ], [ %.27197, %47 ], [ %.473, %55 ]
-  %.1 = phi i32 [ %.0105, %20 ], [ %.298, %37 ], [ %.298, %47 ], [ %.4, %55 ]
-  %58 = shl i64 %.068104, 8
-  %59 = add nuw nsw i32 %.076101, 4
-  %.not85 = icmp eq i64 %58, 0
+.thread:                                          ; preds = %56, %48, %38, %20
+  %.170 = phi i32 [ %.069100, %20 ], [ %.27196, %38 ], [ %.27196, %48 ], [ %.473, %56 ]
+  %.1 = phi i32 [ %.0102, %20 ], [ %.297, %38 ], [ %.297, %48 ], [ %.4, %56 ]
+  %59 = shl i64 %.068101, 8
+  %60 = add nuw nsw i32 %.07699, 4
+  %.not85 = icmp eq i64 %59, 0
   br i1 %.not85, label %._crit_edge, label %20, !llvm.loop !30
 
 ._crit_edge.thread:                               ; preds = %4, %._crit_edge
-  %.0.lcssa123 = phi i32 [ %.1, %._crit_edge ], [ 12, %4 ]
-  %60 = load ptr, ptr %6, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %60, ptr noundef nonnull @.str.2781)
-  br label %61
+  %.0.lcssa120 = phi i32 [ %.1, %._crit_edge ], [ 12, %4 ]
+  %61 = load ptr, ptr %6, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.2781)
+  br label %62
 
-61:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.0.lcssa122 = phi i32 [ %.0.lcssa123, %._crit_edge.thread ], [ %.1, %._crit_edge ]
-  %.069.lcssa120 = phi i32 [ 0, %._crit_edge.thread ], [ %.170, %._crit_edge ]
-  %62 = call ptr @proto_tree_get_parent(ptr noundef %2)
-  %63 = select i1 %.not, ptr @.str.2784, ptr @.str.2783
-  %64 = select i1 %.not84, ptr @.str.2786, ptr @.str.2785
-  %65 = icmp eq i32 %.069.lcssa120, 1
-  %66 = select i1 %65, ptr @.str.2787, ptr @.str.2788
-  %67 = load i64, ptr %5, align 8
-  %68 = trunc i64 %67 to i32
-  %69 = lshr i32 %68, 16
-  %70 = and i32 %69, 63
-  %71 = and i32 %68, 31
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %62, ptr noundef nonnull @.str.2782, i32 noundef %.069.lcssa120, ptr noundef nonnull %63, ptr noundef nonnull %64, ptr noundef nonnull %66, i32 noundef %70, i32 noundef %71)
+62:                                               ; preds = %._crit_edge.thread, %._crit_edge
+  %.0.lcssa119 = phi i32 [ %.0.lcssa120, %._crit_edge.thread ], [ %.1, %._crit_edge ]
+  %.069.lcssa117 = phi i32 [ 0, %._crit_edge.thread ], [ %.170, %._crit_edge ]
+  %63 = call ptr @proto_tree_get_parent(ptr noundef %2)
+  %64 = select i1 %.not, ptr @.str.2784, ptr @.str.2783
+  %65 = select i1 %.not84, ptr @.str.2786, ptr @.str.2785
+  %66 = icmp eq i32 %.069.lcssa117, 1
+  %67 = select i1 %66, ptr @.str.2787, ptr @.str.2788
+  %68 = load i64, ptr %5, align 8
+  %69 = trunc i64 %68 to i32
+  %70 = lshr i32 %69, 16
+  %71 = and i32 %70, 63
+  %72 = and i32 %69, 31
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %63, ptr noundef nonnull @.str.2782, i32 noundef %.069.lcssa117, ptr noundef nonnull %64, ptr noundef nonnull %65, ptr noundef nonnull %67, i32 noundef %71, i32 noundef %72)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %.0.lcssa122
+  ret i32 %.0.lcssa119
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

@@ -2065,7 +2065,7 @@ define void @neato_enqueue(ptr noundef %0) local_unnamed_addr #9 {
   store ptr %18, ptr %26, align 8, !tbaa !57
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 168
   store i32 %.014.i, ptr %27, align 8, !tbaa !64
-  %.not.i = icmp ult i32 %14, 2
+  %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %heapup.exit, label %13, !llvm.loop !118
 
 heapup.exit:                                      ; preds = %24, %13, %1
@@ -2310,7 +2310,7 @@ define void @s1(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   store ptr %31, ptr %39, align 8, !tbaa !57
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 168
   store i32 %.014.i.i, ptr %40, align 8, !tbaa !64
-  %.not.i.i = icmp ult i32 %27, 2
+  %.not.i.i = icmp eq i32 %28, 0
   br i1 %.not.i.i, label %neato_enqueue.exit, label %.lr.ph.i.i, !llvm.loop !118
 
 neato_enqueue.exit:                               ; preds = %.lr.ph.i.i, %37, %._crit_edge
@@ -2337,7 +2337,7 @@ neato_enqueue.exit:                               ; preds = %.lr.ph.i.i, %37, %.
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 168
   store i32 0, ptr %53, align 8, !tbaa !64
   %54 = icmp sgt i32 %44, 2
-  br i1 %54, label %.lr.ph.i.i45, label %.loopexit79
+  br i1 %54, label %.lr.ph.i.i45, label %.loopexit82
 
 .lr.ph.i.i45:                                     ; preds = %.lr.ph60
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 184
@@ -2390,7 +2390,7 @@ neato_enqueue.exit:                               ; preds = %.lr.ph.i.i, %37, %.
   %.pre-phi.i.i = phi i64 [ %63, %62 ], [ %.pre.phi.trans.insert.i.i, %._crit_edge30.i.i ], [ %70, %78 ]
   %.019.i.i = phi i32 [ %60, %62 ], [ %58, %._crit_edge30.i.i ], [ %58, %78 ]
   %83 = fcmp ugt double %56, %80
-  br i1 %83, label %84, label %.loopexit79
+  br i1 %83, label %84, label %.loopexit82
 
 84:                                               ; preds = %79
   %85 = getelementptr inbounds ptr, ptr %45, i64 %.pre-phi.i.i
@@ -2404,9 +2404,9 @@ neato_enqueue.exit:                               ; preds = %.lr.ph.i.i, %37, %.
   %89 = shl nsw i32 %.019.i.i, 1
   %90 = or disjoint i32 %89, 1
   %91 = icmp slt i32 %90, %47
-  br i1 %91, label %57, label %.loopexit79, !llvm.loop !119
+  br i1 %91, label %57, label %.loopexit82, !llvm.loop !119
 
-.loopexit79:                                      ; preds = %84, %79, %.lr.ph60
+.loopexit82:                                      ; preds = %84, %79, %.lr.ph60
   %92 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %93 = load ptr, ptr %92, align 8, !tbaa !40
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 168
@@ -2415,7 +2415,7 @@ neato_enqueue.exit:                               ; preds = %.lr.ph.i.i, %37, %.
   %.not40 = icmp eq ptr %46, %95
   br i1 %.not40, label %111, label %96
 
-96:                                               ; preds = %.loopexit79
+96:                                               ; preds = %.loopexit82
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 184
   %98 = load double, ptr %97, align 8, !tbaa !117
   %.val = load ptr, ptr %3, align 8, !tbaa !40
@@ -2439,7 +2439,7 @@ neato_enqueue.exit:                               ; preds = %.lr.ph.i.i, %37, %.
   store double %98, ptr %110, align 8, !tbaa !10
   br label %111
 
-111:                                              ; preds = %96, %.loopexit79
+111:                                              ; preds = %96, %.loopexit82
   %112 = tail call ptr @agfstedge(ptr noundef %0, ptr noundef nonnull %46) #21
   %.not4156 = icmp eq ptr %112, null
   br i1 %.not4156, label %.loopexit, label %.lr.ph59
@@ -2518,7 +2518,7 @@ neato_enqueue.exit:                               ; preds = %.lr.ph.i.i, %37, %.
   store ptr %150, ptr %158, align 8, !tbaa !57
   %159 = getelementptr inbounds nuw i8, ptr %152, i64 168
   store i32 %.014.i, ptr %159, align 8, !tbaa !64
-  %.not.i = icmp ult i32 %146, 2
+  %.not.i = icmp eq i32 %147, 0
   br i1 %.not.i, label %heapup.exit, label %145, !llvm.loop !118
 
 160:                                              ; preds = %139
@@ -2560,7 +2560,7 @@ neato_enqueue.exit:                               ; preds = %.lr.ph.i.i, %37, %.
   store ptr %175, ptr %183, align 8, !tbaa !57
   %184 = getelementptr inbounds nuw i8, ptr %177, i64 168
   store i32 %.014.i.i47, ptr %184, align 8, !tbaa !64
-  %.not.i.i48 = icmp ult i32 %171, 2
+  %.not.i.i48 = icmp eq i32 %172, 0
   br i1 %.not.i.i48, label %heapup.exit, label %.lr.ph.i.i46, !llvm.loop !118
 
 heapup.exit:                                      ; preds = %181, %.lr.ph.i.i46, %156, %145, %160, %143, %125

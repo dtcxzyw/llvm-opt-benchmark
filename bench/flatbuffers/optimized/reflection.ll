@@ -2485,29 +2485,29 @@ define linkonce_odr dso_local void @_ZN11flatbuffers13ResizeContextC2ERKN10refle
   %17 = ptrtoint ptr %16 to i64
   %18 = ptrtoint ptr %9 to i64
   %19 = sub i64 %17, %18
+  %20 = lshr i64 %19, 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
-  %.not.i.i.i.i = icmp ult i64 %19, 4
+  %.not.i.i.i.i = icmp eq i64 %20, 0
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i, label %.noexc
 
 _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %6
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %26
 
 .noexc:                                           ; preds = %6
-  %21 = lshr i64 %19, 2
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #24
+  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #24
   store ptr %22, ptr %14, align 8, !tbaa !70
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %22, ptr %23, align 8, !tbaa !83
-  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %21
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %24, ptr %25, align 8, !tbaa !72
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %22, i8 0, i64 %21, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %22, i8 0, i64 %20, i1 false)
   br label %26
 
 26:                                               ; preds = %.noexc, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i
   %27 = phi ptr [ %22, %.noexc ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
-  %28 = phi ptr [ %23, %.noexc ], [ %20, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
+  %28 = phi ptr [ %23, %.noexc ], [ %21, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
   %.0.i.i.i.i.i.i.i = phi ptr [ %24, %.noexc ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
   store ptr %.0.i.i.i.i.i.i.i, ptr %28, align 8, !tbaa !83
   %29 = add nsw i32 %3, 7

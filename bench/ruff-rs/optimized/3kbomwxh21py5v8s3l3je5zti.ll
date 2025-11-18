@@ -1650,7 +1650,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN3std6thread5local17LocalKey$LT$T$GT
 20:                                               ; preds = %13
   %21 = lshr i64 %18, 32
   %22 = trunc nuw i64 %21 to i32
-  %23 = icmp ugt i64 %18, 4294967295
+  %23 = icmp ne i64 %21, 0
   tail call void @llvm.assume(i1 %23)
   %24 = trunc i64 %18 to i32
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 2272
@@ -39803,7 +39803,7 @@ define internal fastcc noundef nonnull align 128 ptr @"_ZN18ty_python_semantic14
 7:                                                ; preds = %1
   %8 = lshr i64 %5, 32
   %9 = trunc nuw i64 %8 to i32
-  %10 = icmp ugt i64 %5, 4294967295
+  %10 = icmp ne i64 %8, 0
   tail call void @llvm.assume(i1 %10)
   %11 = trunc i64 %5 to i32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2272
@@ -40550,7 +40550,7 @@ _ZN5salsa6attach8Attached6attach7DbGuard3new17hc2625a4250797772E.exit.i.i.i.i: ;
 37:                                               ; preds = %.noexc.i.i.i.i
   %38 = lshr i64 %35, 32
   %39 = trunc nuw i64 %38 to i32
-  %40 = icmp ugt i64 %35, 4294967295
+  %40 = icmp ne i64 %38, 0
   tail call void @llvm.assume(i1 %40)
   %41 = trunc i64 %35 to i32
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 2272
@@ -41340,7 +41340,7 @@ _ZN5salsa6attach8Attached6attach7DbGuard3new17hc2625a4250797772E.exit.i.i.i.i: ;
 36:                                               ; preds = %.noexc.i.i.i.i
   %37 = lshr i64 %34, 32
   %38 = trunc nuw i64 %37 to i32
-  %39 = icmp ugt i64 %34, 4294967295
+  %39 = icmp ne i64 %37, 0
   tail call void @llvm.assume(i1 %39)
   %40 = trunc i64 %34 to i32
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 2272
@@ -42186,7 +42186,7 @@ _ZN5salsa6attach8Attached6attach7DbGuard3new17hc2625a4250797772E.exit.i.i.i.i: ;
 37:                                               ; preds = %.noexc.i.i.i.i
   %38 = lshr i64 %35, 32
   %39 = trunc nuw i64 %38 to i32
-  %40 = icmp ugt i64 %35, 4294967295
+  %40 = icmp ne i64 %38, 0
   tail call void @llvm.assume(i1 %40)
   %41 = trunc i64 %35 to i32
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 2272
@@ -42804,7 +42804,7 @@ _ZN5salsa6attach8Attached6attach7DbGuard3new17hc2625a4250797772E.exit.i.i.i.i: ;
 36:                                               ; preds = %.noexc.i.i.i.i
   %37 = lshr i64 %34, 32
   %38 = trunc nuw i64 %37 to i32
-  %39 = icmp ugt i64 %34, 4294967295
+  %39 = icmp ne i64 %37, 0
   tail call void @llvm.assume(i1 %39)
   %40 = trunc i64 %34 to i32
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 2272
@@ -43800,7 +43800,7 @@ _ZN5salsa6attach8Attached6attach7DbGuard3new17hc2625a4250797772E.exit.i.i.i.i: ;
 37:                                               ; preds = %.noexc.i.i.i.i
   %38 = lshr i64 %35, 32
   %39 = trunc nuw i64 %38 to i32
-  %40 = icmp ugt i64 %35, 4294967295
+  %40 = icmp ne i64 %38, 0
   tail call void @llvm.assume(i1 %40)
   %41 = trunc i64 %35 to i32
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 2272
@@ -45150,7 +45150,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(40) ptr @"_ZN18ty
 8:                                                ; preds = %1
   %9 = lshr i64 %6, 32
   %10 = trunc nuw i64 %9 to i32
-  %11 = icmp ugt i64 %6, 4294967295
+  %11 = icmp ne i64 %9, 0
   tail call void @llvm.assume(i1 %11)
   %12 = trunc i64 %6 to i32
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 2272

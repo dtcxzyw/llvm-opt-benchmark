@@ -1097,7 +1097,7 @@ define i32 @ossl_x448_int(ptr noundef %0, ptr noundef %1, ptr noundef readonly c
   %24 = zext nneg i32 %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !16
-  %27 = icmp samesign ult i32 %.083, 8
+  %27 = icmp eq i32 %23, 0
   %28 = and i8 %26, -4
   %29 = icmp eq i32 %.083, 447
   %spec.select = select i1 %29, i8 -1, i8 %26

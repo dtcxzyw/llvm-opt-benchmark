@@ -9658,7 +9658,7 @@ define linkonce_odr hidden noundef float @_ZN5drjit3powIffEENS_6detail14replace_
   %spec.select = select i1 %.not18, float %.02326, float %11
   %12 = fmul contract float %.01527, %.01527
   %13 = lshr i32 %.028, 1
-  %.not = icmp samesign ult i32 %.028, 2
+  %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6

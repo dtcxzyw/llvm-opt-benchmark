@@ -2815,7 +2815,7 @@ entry:
   %dim.sroa.5.0.extract.trunc = trunc nuw i64 %dim.sroa.5.0.extract.shift to i32
   %0 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %dim.sroa.0.0.extract.trunc), !range !151
   %or.cond = icmp eq i32 %0, 1
-  %cmp.not.i38 = icmp ugt i64 %dim.coerce, 4294967295
+  %cmp.not.i38 = icmp ne i64 %dim.sroa.5.0.extract.shift, 0
   %or.cond64.not66 = and i1 %cmp.not.i38, %or.cond
   %1 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %dim.sroa.5.0.extract.trunc), !range !151
   %cmp1.i40 = icmp samesign ult i32 %1, 2
@@ -4733,7 +4733,7 @@ invoke.cont9:                                     ; preds = %invoke.cont7
           to label %invoke.cont11 unwind label %lpad6
 
 invoke.cont11:                                    ; preds = %invoke.cont9
-  %tobool.not = icmp ult i32 %n.coerce, 16777216
+  %tobool.not = icmp eq i32 %n.sroa.2228.0.extract.shift, 0
   br i1 %tobool.not, label %if.else, label %if.end43
 
 lpad4:                                            ; preds = %entry

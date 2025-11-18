@@ -1363,7 +1363,7 @@ get_lf_job_info.exit.i:                           ; preds = %.loopexit.i, %get_l
   br i1 %44, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.preheader67.i
-  %.not.i.i = icmp ult i32 %37, 32
+  %.not.i.i = icmp eq i32 %42, 0
   %45 = sext i32 %39 to i64
   %46 = getelementptr inbounds ptr, ptr %0, i64 %45
   %47 = add nsw i32 %42, -1

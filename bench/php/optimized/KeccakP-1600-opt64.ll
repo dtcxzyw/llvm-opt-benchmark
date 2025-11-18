@@ -430,7 +430,7 @@ define hidden void @KeccakP1600_OverwriteBytes(ptr noundef writeonly captures(no
 
 6:                                                ; preds = %4
   %7 = lshr i32 %3, 3
-  %.not.i = icmp ult i32 %3, 8
+  %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %KeccakP1600_OverwriteLanes.exit.thread, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %6
@@ -583,7 +583,7 @@ KeccakP1600_OverwriteBytesInLane.exit:            ; preds = %KeccakP1600_Overwri
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define hidden void @KeccakP1600_OverwriteWithZeroes(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = lshr i32 %1, 3
-  %.not49 = icmp ult i32 %1, 8
+  %.not49 = icmp eq i32 %3, 0
   br i1 %.not49, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
@@ -6667,182 +6667,184 @@ define hidden void @KeccakP1600_ExtractAndAddBytes(ptr noundef readonly captures
   %6 = alloca [1 x i64], align 8
   %7 = alloca [1 x i64], align 8
   %8 = icmp eq i32 %3, 0
-  br i1 %8, label %9, label %78
+  br i1 %8, label %9, label %76
 
 9:                                                ; preds = %5
   %10 = lshr i32 %4, 3
-  %.not28.i = icmp ult i32 %4, 8
-  %11 = zext nneg i32 %10 to i64
-  br i1 %.not28.i, label %KeccakP1600_ExtractAndAddLanes.exit.thread59, label %.lr.ph.i
+  %.not28.i = icmp eq i32 %10, 0
+  br i1 %.not28.i, label %KeccakP1600_ExtractAndAddLanes.exit.thread59, label %.lr.ph.preheader.i
 
 KeccakP1600_ExtractAndAddLanes.exit.thread59:     ; preds = %9
-  %12 = getelementptr inbounds nuw i64, ptr %0, i64 %11
-  %13 = load i64, ptr %12, align 8, !tbaa !4
-  br label %68
+  %11 = load i64, ptr %0, align 8, !tbaa !4
+  br label %66
 
-.lr.ph.i:                                         ; preds = %9, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %9 ]
-  %14 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i
+.lr.ph.preheader.i:                               ; preds = %9
+  %wide.trip.count.i = zext nneg i32 %10 to i64
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %12 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i
+  %13 = load i64, ptr %12, align 8, !tbaa !4
+  %14 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i
   %15 = load i64, ptr %14, align 8, !tbaa !4
-  %16 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i
-  %17 = load i64, ptr %16, align 8, !tbaa !4
-  %18 = xor i64 %17, %15
-  %19 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.i
-  store i64 %18, ptr %19, align 8, !tbaa !4
+  %16 = xor i64 %15, %13
+  %17 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.i
+  store i64 %16, ptr %17, align 8, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %11
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %.not30.i = icmp eq i32 %10, 1
-  br i1 %.not30.i, label %KeccakP1600_ExtractAndAddLanes.exit.thread, label %20
+  br i1 %.not30.i, label %KeccakP1600_ExtractAndAddLanes.exit.thread, label %18
 
-20:                                               ; preds = %._crit_edge.i
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %22 = load i64, ptr %21, align 8, !tbaa !4
-  %23 = xor i64 %22, -1
-  store i64 %23, ptr %21, align 8, !tbaa !4
+18:                                               ; preds = %._crit_edge.i
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %20 = load i64, ptr %19, align 8, !tbaa !4
+  %21 = xor i64 %20, -1
+  store i64 %21, ptr %19, align 8, !tbaa !4
   %.not.i = icmp eq i32 %10, 2
-  br i1 %.not.i, label %KeccakP1600_ExtractAndAddLanes.exit.thread, label %24
+  br i1 %.not.i, label %KeccakP1600_ExtractAndAddLanes.exit.thread, label %22
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %26 = load i64, ptr %25, align 8, !tbaa !4
-  %27 = xor i64 %26, -1
-  store i64 %27, ptr %25, align 8, !tbaa !4
-  %28 = icmp ugt i32 %4, 71
-  br i1 %28, label %29, label %KeccakP1600_ExtractAndAddLanes.exit
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %24 = load i64, ptr %23, align 8, !tbaa !4
+  %25 = xor i64 %24, -1
+  store i64 %25, ptr %23, align 8, !tbaa !4
+  %26 = icmp ugt i32 %4, 71
+  br i1 %26, label %27, label %KeccakP1600_ExtractAndAddLanes.exit
 
-29:                                               ; preds = %24
-  %30 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %31 = load i64, ptr %30, align 8, !tbaa !4
-  %32 = xor i64 %31, -1
-  store i64 %32, ptr %30, align 8, !tbaa !4
-  %33 = icmp ugt i32 %4, 103
-  br i1 %33, label %34, label %KeccakP1600_ExtractAndAddLanes.exit
+27:                                               ; preds = %22
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %29 = load i64, ptr %28, align 8, !tbaa !4
+  %30 = xor i64 %29, -1
+  store i64 %30, ptr %28, align 8, !tbaa !4
+  %31 = icmp ugt i32 %4, 103
+  br i1 %31, label %32, label %KeccakP1600_ExtractAndAddLanes.exit
 
-34:                                               ; preds = %29
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %36 = load i64, ptr %35, align 8, !tbaa !4
-  %37 = xor i64 %36, -1
-  store i64 %37, ptr %35, align 8, !tbaa !4
-  %38 = icmp ugt i32 %4, 143
-  br i1 %38, label %39, label %KeccakP1600_ExtractAndAddLanes.exit
+32:                                               ; preds = %27
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  %34 = load i64, ptr %33, align 8, !tbaa !4
+  %35 = xor i64 %34, -1
+  store i64 %35, ptr %33, align 8, !tbaa !4
+  %36 = icmp ugt i32 %4, 143
+  br i1 %36, label %37, label %KeccakP1600_ExtractAndAddLanes.exit
 
-39:                                               ; preds = %34
-  %40 = getelementptr inbounds nuw i8, ptr %2, i64 136
-  %41 = load i64, ptr %40, align 8, !tbaa !4
-  %42 = xor i64 %41, -1
-  store i64 %42, ptr %40, align 8, !tbaa !4
-  %43 = icmp ugt i32 %4, 167
-  br i1 %43, label %44, label %KeccakP1600_ExtractAndAddLanes.exit
+37:                                               ; preds = %32
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 136
+  %39 = load i64, ptr %38, align 8, !tbaa !4
+  %40 = xor i64 %39, -1
+  store i64 %40, ptr %38, align 8, !tbaa !4
+  %41 = icmp ugt i32 %4, 167
+  br i1 %41, label %42, label %KeccakP1600_ExtractAndAddLanes.exit
 
-44:                                               ; preds = %39
-  %45 = getelementptr inbounds nuw i8, ptr %2, i64 160
-  %46 = load i64, ptr %45, align 8, !tbaa !4
-  %47 = xor i64 %46, -1
-  store i64 %47, ptr %45, align 8, !tbaa !4
+42:                                               ; preds = %37
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 160
+  %44 = load i64, ptr %43, align 8, !tbaa !4
+  %45 = xor i64 %44, -1
+  store i64 %45, ptr %43, align 8, !tbaa !4
   br label %KeccakP1600_ExtractAndAddLanes.exit
 
-KeccakP1600_ExtractAndAddLanes.exit.thread:       ; preds = %._crit_edge.i, %20
-  %48 = and i32 %4, -8
-  %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 %49
-  %51 = getelementptr inbounds nuw i8, ptr %2, i64 %49
-  %52 = and i32 %4, 7
-  %53 = getelementptr inbounds nuw i64, ptr %0, i64 %11
-  %54 = load i64, ptr %53, align 8, !tbaa !4
-  br label %62
+KeccakP1600_ExtractAndAddLanes.exit.thread:       ; preds = %._crit_edge.i, %18
+  %46 = and i32 %4, -8
+  %47 = zext i32 %46 to i64
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 %47
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 %47
+  %50 = and i32 %4, 7
+  %51 = getelementptr inbounds nuw i64, ptr %0, i64 %wide.trip.count.i
+  %52 = load i64, ptr %51, align 8, !tbaa !4
+  br label %60
 
-KeccakP1600_ExtractAndAddLanes.exit:              ; preds = %24, %29, %34, %39, %44
-  %55 = and i32 %4, -8
-  %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 %56
-  %58 = getelementptr inbounds nuw i8, ptr %2, i64 %56
-  %59 = and i32 %4, 7
-  %60 = getelementptr inbounds nuw i64, ptr %0, i64 %11
-  %61 = load i64, ptr %60, align 8, !tbaa !4
-  switch i32 %10, label %68 [
-    i32 20, label %62
-    i32 17, label %62
-    i32 12, label %62
-    i32 8, label %62
+KeccakP1600_ExtractAndAddLanes.exit:              ; preds = %22, %27, %32, %37, %42
+  %53 = and i32 %4, -8
+  %54 = zext i32 %53 to i64
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 %54
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 %54
+  %57 = and i32 %4, 7
+  %58 = getelementptr inbounds nuw i64, ptr %0, i64 %wide.trip.count.i
+  %59 = load i64, ptr %58, align 8, !tbaa !4
+  switch i32 %10, label %66 [
+    i32 20, label %60
+    i32 17, label %60
+    i32 12, label %60
+    i32 8, label %60
   ]
 
-62:                                               ; preds = %KeccakP1600_ExtractAndAddLanes.exit.thread, %KeccakP1600_ExtractAndAddLanes.exit, %KeccakP1600_ExtractAndAddLanes.exit, %KeccakP1600_ExtractAndAddLanes.exit, %KeccakP1600_ExtractAndAddLanes.exit
-  %63 = phi i64 [ %54, %KeccakP1600_ExtractAndAddLanes.exit.thread ], [ %61, %KeccakP1600_ExtractAndAddLanes.exit ], [ %61, %KeccakP1600_ExtractAndAddLanes.exit ], [ %61, %KeccakP1600_ExtractAndAddLanes.exit ], [ %61, %KeccakP1600_ExtractAndAddLanes.exit ]
-  %64 = phi i32 [ %52, %KeccakP1600_ExtractAndAddLanes.exit.thread ], [ %59, %KeccakP1600_ExtractAndAddLanes.exit ], [ %59, %KeccakP1600_ExtractAndAddLanes.exit ], [ %59, %KeccakP1600_ExtractAndAddLanes.exit ], [ %59, %KeccakP1600_ExtractAndAddLanes.exit ]
-  %65 = phi ptr [ %51, %KeccakP1600_ExtractAndAddLanes.exit.thread ], [ %58, %KeccakP1600_ExtractAndAddLanes.exit ], [ %58, %KeccakP1600_ExtractAndAddLanes.exit ], [ %58, %KeccakP1600_ExtractAndAddLanes.exit ], [ %58, %KeccakP1600_ExtractAndAddLanes.exit ]
-  %66 = phi ptr [ %50, %KeccakP1600_ExtractAndAddLanes.exit.thread ], [ %57, %KeccakP1600_ExtractAndAddLanes.exit ], [ %57, %KeccakP1600_ExtractAndAddLanes.exit ], [ %57, %KeccakP1600_ExtractAndAddLanes.exit ], [ %57, %KeccakP1600_ExtractAndAddLanes.exit ]
-  %67 = xor i64 %63, -1
-  br label %68
+60:                                               ; preds = %KeccakP1600_ExtractAndAddLanes.exit.thread, %KeccakP1600_ExtractAndAddLanes.exit, %KeccakP1600_ExtractAndAddLanes.exit, %KeccakP1600_ExtractAndAddLanes.exit, %KeccakP1600_ExtractAndAddLanes.exit
+  %61 = phi i64 [ %52, %KeccakP1600_ExtractAndAddLanes.exit.thread ], [ %59, %KeccakP1600_ExtractAndAddLanes.exit ], [ %59, %KeccakP1600_ExtractAndAddLanes.exit ], [ %59, %KeccakP1600_ExtractAndAddLanes.exit ], [ %59, %KeccakP1600_ExtractAndAddLanes.exit ]
+  %62 = phi i32 [ %50, %KeccakP1600_ExtractAndAddLanes.exit.thread ], [ %57, %KeccakP1600_ExtractAndAddLanes.exit ], [ %57, %KeccakP1600_ExtractAndAddLanes.exit ], [ %57, %KeccakP1600_ExtractAndAddLanes.exit ], [ %57, %KeccakP1600_ExtractAndAddLanes.exit ]
+  %63 = phi ptr [ %49, %KeccakP1600_ExtractAndAddLanes.exit.thread ], [ %56, %KeccakP1600_ExtractAndAddLanes.exit ], [ %56, %KeccakP1600_ExtractAndAddLanes.exit ], [ %56, %KeccakP1600_ExtractAndAddLanes.exit ], [ %56, %KeccakP1600_ExtractAndAddLanes.exit ]
+  %64 = phi ptr [ %48, %KeccakP1600_ExtractAndAddLanes.exit.thread ], [ %55, %KeccakP1600_ExtractAndAddLanes.exit ], [ %55, %KeccakP1600_ExtractAndAddLanes.exit ], [ %55, %KeccakP1600_ExtractAndAddLanes.exit ], [ %55, %KeccakP1600_ExtractAndAddLanes.exit ]
+  %65 = xor i64 %61, -1
+  br label %66
 
-68:                                               ; preds = %KeccakP1600_ExtractAndAddLanes.exit.thread59, %62, %KeccakP1600_ExtractAndAddLanes.exit
-  %69 = phi i32 [ %64, %62 ], [ %59, %KeccakP1600_ExtractAndAddLanes.exit ], [ %4, %KeccakP1600_ExtractAndAddLanes.exit.thread59 ]
-  %70 = phi ptr [ %65, %62 ], [ %58, %KeccakP1600_ExtractAndAddLanes.exit ], [ %2, %KeccakP1600_ExtractAndAddLanes.exit.thread59 ]
-  %71 = phi ptr [ %66, %62 ], [ %57, %KeccakP1600_ExtractAndAddLanes.exit ], [ %1, %KeccakP1600_ExtractAndAddLanes.exit.thread59 ]
-  %.027.i = phi i64 [ %67, %62 ], [ %61, %KeccakP1600_ExtractAndAddLanes.exit ], [ %13, %KeccakP1600_ExtractAndAddLanes.exit.thread59 ]
+66:                                               ; preds = %KeccakP1600_ExtractAndAddLanes.exit.thread59, %60, %KeccakP1600_ExtractAndAddLanes.exit
+  %67 = phi i32 [ %62, %60 ], [ %57, %KeccakP1600_ExtractAndAddLanes.exit ], [ %4, %KeccakP1600_ExtractAndAddLanes.exit.thread59 ]
+  %68 = phi ptr [ %63, %60 ], [ %56, %KeccakP1600_ExtractAndAddLanes.exit ], [ %2, %KeccakP1600_ExtractAndAddLanes.exit.thread59 ]
+  %69 = phi ptr [ %64, %60 ], [ %55, %KeccakP1600_ExtractAndAddLanes.exit ], [ %1, %KeccakP1600_ExtractAndAddLanes.exit.thread59 ]
+  %.027.i = phi i64 [ %65, %60 ], [ %59, %KeccakP1600_ExtractAndAddLanes.exit ], [ %11, %KeccakP1600_ExtractAndAddLanes.exit.thread59 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %.027.i, ptr %7, align 8, !tbaa !4
-  %.not.i41 = icmp eq i32 %69, 0
+  %.not.i41 = icmp eq i32 %67, 0
   br i1 %.not.i41, label %KeccakP1600_ExtractAndAddBytesInLane.exit, label %.lr.ph.preheader.i42
 
-.lr.ph.preheader.i42:                             ; preds = %68
-  %wide.trip.count.i43 = zext nneg i32 %69 to i64
+.lr.ph.preheader.i42:                             ; preds = %66
+  %wide.trip.count.i43 = zext nneg i32 %67 to i64
   br label %.lr.ph.i44
 
 .lr.ph.i44:                                       ; preds = %.lr.ph.i44, %.lr.ph.preheader.i42
   %indvars.iv.i45 = phi i64 [ 0, %.lr.ph.preheader.i42 ], [ %indvars.iv.next.i46, %.lr.ph.i44 ]
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 %indvars.iv.i45
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 %indvars.iv.i45
+  %71 = load i8, ptr %70, align 1, !tbaa !8
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i45
   %73 = load i8, ptr %72, align 1, !tbaa !8
-  %74 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i45
-  %75 = load i8, ptr %74, align 1, !tbaa !8
-  %76 = xor i8 %75, %73
-  %77 = getelementptr inbounds nuw i8, ptr %70, i64 %indvars.iv.i45
-  store i8 %76, ptr %77, align 1, !tbaa !8
+  %74 = xor i8 %73, %71
+  %75 = getelementptr inbounds nuw i8, ptr %68, i64 %indvars.iv.i45
+  store i8 %74, ptr %75, align 1, !tbaa !8
   %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i45, 1
   %exitcond.not.i47 = icmp eq i64 %indvars.iv.next.i46, %wide.trip.count.i43
   br i1 %exitcond.not.i47, label %KeccakP1600_ExtractAndAddBytesInLane.exit, label %.lr.ph.i44
 
-KeccakP1600_ExtractAndAddBytesInLane.exit:        ; preds = %.lr.ph.i44, %68
+KeccakP1600_ExtractAndAddBytesInLane.exit:        ; preds = %.lr.ph.i44, %66
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
-78:                                               ; preds = %5
+76:                                               ; preds = %5
   %.not60 = icmp eq i32 %4, 0
   br i1 %.not60, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %78
-  %79 = and i32 %3, 7
-  %80 = lshr i32 %3, 3
+.lr.ph.preheader:                                 ; preds = %76
+  %77 = and i32 %3, 7
+  %78 = lshr i32 %3, 3
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %KeccakP1600_ExtractAndAddBytesInLane.exit58
-  %.03465 = phi ptr [ %99, %KeccakP1600_ExtractAndAddBytesInLane.exit58 ], [ %2, %.lr.ph.preheader ]
-  %.03564 = phi ptr [ %98, %KeccakP1600_ExtractAndAddBytesInLane.exit58 ], [ %1, %.lr.ph.preheader ]
-  %.03663 = phi i32 [ 0, %KeccakP1600_ExtractAndAddBytesInLane.exit58 ], [ %79, %.lr.ph.preheader ]
-  %.03762 = phi i32 [ %97, %KeccakP1600_ExtractAndAddBytesInLane.exit58 ], [ %80, %.lr.ph.preheader ]
-  %.03861 = phi i32 [ %96, %KeccakP1600_ExtractAndAddBytesInLane.exit58 ], [ %4, %.lr.ph.preheader ]
-  %81 = sub nuw nsw i32 8, %.03663
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %81, i32 %.03861)
-  %82 = zext i32 %.03762 to i64
-  %83 = getelementptr inbounds nuw i64, ptr %0, i64 %82
-  %84 = load i64, ptr %83, align 8, !tbaa !4
+  %.03465 = phi ptr [ %97, %KeccakP1600_ExtractAndAddBytesInLane.exit58 ], [ %2, %.lr.ph.preheader ]
+  %.03564 = phi ptr [ %96, %KeccakP1600_ExtractAndAddBytesInLane.exit58 ], [ %1, %.lr.ph.preheader ]
+  %.03663 = phi i32 [ 0, %KeccakP1600_ExtractAndAddBytesInLane.exit58 ], [ %77, %.lr.ph.preheader ]
+  %.03762 = phi i32 [ %95, %KeccakP1600_ExtractAndAddBytesInLane.exit58 ], [ %78, %.lr.ph.preheader ]
+  %.03861 = phi i32 [ %94, %KeccakP1600_ExtractAndAddBytesInLane.exit58 ], [ %4, %.lr.ph.preheader ]
+  %79 = sub nuw nsw i32 8, %.03663
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %79, i32 %.03861)
+  %80 = zext i32 %.03762 to i64
+  %81 = getelementptr inbounds nuw i64, ptr %0, i64 %80
+  %82 = load i64, ptr %81, align 8, !tbaa !4
   switch i32 %.03762, label %.lr.ph.preheader.i51 [
-    i32 20, label %85
-    i32 17, label %85
-    i32 12, label %85
-    i32 8, label %85
-    i32 2, label %85
-    i32 1, label %85
+    i32 20, label %83
+    i32 17, label %83
+    i32 12, label %83
+    i32 8, label %83
+    i32 2, label %83
+    i32 1, label %83
   ]
 
-85:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %86 = xor i64 %84, -1
+83:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
+  %84 = xor i64 %82, -1
   br label %.lr.ph.preheader.i51
 
-.lr.ph.preheader.i51:                             ; preds = %.lr.ph, %85
-  %.027.i49 = phi i64 [ %86, %85 ], [ %84, %.lr.ph ]
+.lr.ph.preheader.i51:                             ; preds = %.lr.ph, %83
+  %.027.i49 = phi i64 [ %84, %83 ], [ %82, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %.027.i49, ptr %6, align 8, !tbaa !4
   %wide.trip.count.i52 = zext nneg i32 %spec.select to i64
@@ -6850,30 +6852,30 @@ KeccakP1600_ExtractAndAddBytesInLane.exit:        ; preds = %.lr.ph.i44, %68
 
 .lr.ph.i53:                                       ; preds = %.lr.ph.i53, %.lr.ph.preheader.i51
   %indvars.iv.i54 = phi i64 [ 0, %.lr.ph.preheader.i51 ], [ %indvars.iv.next.i55, %.lr.ph.i53 ]
-  %87 = getelementptr inbounds nuw i8, ptr %.03564, i64 %indvars.iv.i54
-  %88 = load i8, ptr %87, align 1, !tbaa !8
-  %89 = trunc nuw i64 %indvars.iv.i54 to i32
-  %90 = add i32 %.03663, %89
-  %91 = zext i32 %90 to i64
-  %92 = getelementptr inbounds nuw i8, ptr %6, i64 %91
-  %93 = load i8, ptr %92, align 1, !tbaa !8
-  %94 = xor i8 %93, %88
-  %95 = getelementptr inbounds nuw i8, ptr %.03465, i64 %indvars.iv.i54
-  store i8 %94, ptr %95, align 1, !tbaa !8
+  %85 = getelementptr inbounds nuw i8, ptr %.03564, i64 %indvars.iv.i54
+  %86 = load i8, ptr %85, align 1, !tbaa !8
+  %87 = trunc nuw i64 %indvars.iv.i54 to i32
+  %88 = add i32 %.03663, %87
+  %89 = zext i32 %88 to i64
+  %90 = getelementptr inbounds nuw i8, ptr %6, i64 %89
+  %91 = load i8, ptr %90, align 1, !tbaa !8
+  %92 = xor i8 %91, %86
+  %93 = getelementptr inbounds nuw i8, ptr %.03465, i64 %indvars.iv.i54
+  store i8 %92, ptr %93, align 1, !tbaa !8
   %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i54, 1
   %exitcond.not.i56 = icmp eq i64 %indvars.iv.next.i55, %wide.trip.count.i52
   br i1 %exitcond.not.i56, label %KeccakP1600_ExtractAndAddBytesInLane.exit58, label %.lr.ph.i53
 
 KeccakP1600_ExtractAndAddBytesInLane.exit58:      ; preds = %.lr.ph.i53
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %96 = sub i32 %.03861, %spec.select
-  %97 = add i32 %.03762, 1
-  %98 = getelementptr inbounds nuw i8, ptr %.03564, i64 %wide.trip.count.i52
-  %99 = getelementptr inbounds nuw i8, ptr %.03465, i64 %wide.trip.count.i52
-  %.not = icmp eq i32 %96, 0
+  %94 = sub i32 %.03861, %spec.select
+  %95 = add i32 %.03762, 1
+  %96 = getelementptr inbounds nuw i8, ptr %.03564, i64 %wide.trip.count.i52
+  %97 = getelementptr inbounds nuw i8, ptr %.03465, i64 %wide.trip.count.i52
+  %.not = icmp eq i32 %94, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %KeccakP1600_ExtractAndAddBytesInLane.exit58, %78, %KeccakP1600_ExtractAndAddBytesInLane.exit
+.loopexit:                                        ; preds = %KeccakP1600_ExtractAndAddBytesInLane.exit58, %76, %KeccakP1600_ExtractAndAddBytesInLane.exit
   ret void
 }
 

@@ -2261,7 +2261,7 @@ define dso_local void @mallctl_int(ptr noundef %0, ptr noundef readonly captures
 18:                                               ; preds = %.split.us
   %19 = lshr i64 %.033.us, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.not28.us = icmp samesign ult i64 %.033.us, 2
+  %.not28.us = icmp eq i64 %19, 0
   br i1 %.not28.us, label %.split39.us, label %.split.us
 
 .split:                                           ; preds = %.split.preheader, %33
@@ -2298,7 +2298,7 @@ define dso_local void @mallctl_int(ptr noundef %0, ptr noundef readonly captures
 33:                                               ; preds = %31
   %34 = lshr i64 %.033, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.not28 = icmp samesign ult i64 %.033, 2
+  %.not28 = icmp eq i64 %34, 0
   br i1 %.not28, label %.split39.us, label %.split
 
 .split37.us:                                      ; preds = %.split.us, %31

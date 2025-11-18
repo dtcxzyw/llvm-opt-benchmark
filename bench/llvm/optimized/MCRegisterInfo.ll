@@ -84,7 +84,7 @@ _ZN4llvm17MCRegUnitIteratorppEv.exit.i:           ; preds = %._crit_edge28.i, %.
   br label %.lr.ph27.i
 
 .lr.ph27.i:                                       ; preds = %._crit_edge.i, %.lr.ph27.preheader.i
-  %.sroa.2337.1 = phi i32 [ %27, %.lr.ph27.preheader.i ], [ %.sroa.2337.40.insert.ext, %._crit_edge.i ]
+  %.sroa.2337.1 = phi i32 [ %27, %.lr.ph27.preheader.i ], [ 0, %._crit_edge.i ]
   %31 = phi i16 [ %28, %.lr.ph27.preheader.i ], [ %32, %._crit_edge.i ]
   %32 = phi i16 [ %30, %.lr.ph27.preheader.i ], [ 0, %._crit_edge.i ]
   %33 = zext i16 %31 to i32
@@ -113,7 +113,6 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i:          ; preds = %.lr.ph
   br i1 %.not21.i, label %.lr.ph, label %_ZN12_GLOBAL__N_122MCRegAliasIteratorImplC2EN4llvm10MCRegisterEPKNS1_14MCRegisterInfoE.exit.loopexit, !llvm.loop !33
 
 ._crit_edge.i:                                    ; preds = %.lr.ph
-  %.sroa.2337.40.insert.ext = zext i16 %32 to i32
   %.not19.i = icmp eq i16 %32, 0
   br i1 %.not19.i, label %._crit_edge28.i, label %.lr.ph27.i, !llvm.loop !35
 
@@ -490,11 +489,11 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i:        ; preds = %174
   br label %_ZN12_GLOBAL__N_122MCRegAliasIteratorImpl7advanceEv.exit.i
 
 183:                                              ; preds = %174
-  %.not13.i.i = icmp ult i32 %.sroa.2337.4, 65536
+  %.sroa.2337.42.extract.shift = lshr i32 %.sroa.2337.4, 16
+  %.not13.i.i = icmp eq i32 %.sroa.2337.42.extract.shift, 0
   br i1 %.not13.i.i, label %191, label %184
 
 184:                                              ; preds = %183
-  %.sroa.2337.42.extract.shift = lshr i32 %.sroa.2337.4, 16
   %185 = zext nneg i32 %.sroa.2337.42.extract.shift to i64
   %186 = getelementptr inbounds nuw %"struct.llvm::MCRegisterDesc", ptr %172, i64 %185
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 8
@@ -1468,7 +1467,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 50:                                               ; preds = %.lr.ph.i.i.i.i.i
   %51 = getelementptr inbounds i16, ptr %0, i64 %.019.i.i.i.i.i
   store i16 %48, ptr %51, align 2, !tbaa !32
-  %.not7.i.i.i = icmp ult i64 %.0920.in.i.i.i.i.i, 2
+  %.not7.i.i.i = icmp eq i64 %.0920.i.i56.i.i.i, 0
   br i1 %.not7.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !112
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.i.i: ; preds = %50, %.lr.ph.i.i.i.i.i, %46
@@ -1666,7 +1665,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPtS
 40:                                               ; preds = %.lr.ph.i.i.i.us
   %41 = getelementptr inbounds i16, ptr %.fr27, i64 %.019.i.i.i.us
   store i16 %38, ptr %41, align 2, !tbaa !32
-  %.not7.i.us = icmp ult i64 %.0920.in.i.i.i.us, 2
+  %.not7.i.us = icmp eq i64 %.0920.i.i56.i.us, 0
   br i1 %.not7.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !112
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %40, %35

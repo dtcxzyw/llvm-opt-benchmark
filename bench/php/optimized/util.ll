@@ -4876,226 +4876,227 @@ zend_string_alloc.exit73:                         ; preds = %27, %zend_string_al
   %.sink = phi i32 [ 6, %47 ], [ %46, %42 ]
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %.sink, ptr %51, align 8, !tbaa !19
-  %52 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %53 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %52 = lshr i32 %.sink, 8
+  %53 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %switch.selectcmp = icmp eq i32 %7, 17
   %switch.select = select i1 %switch.selectcmp, i64 7, i64 1
   %switch.selectcmp99 = icmp eq i32 %7, 18
   %switch.select100 = select i1 %switch.selectcmp99, i64 9, i64 %switch.select
-  store i64 %switch.select100, ptr %52, align 16, !tbaa !19
-  store i32 4, ptr %53, align 8, !tbaa !19
-  %54 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %55 = load i64, ptr %54, align 8, !tbaa !25
-  %.not69 = icmp eq i64 %2, %55
-  br i1 %.not69, label %77, label %56
+  store i64 %switch.select100, ptr %53, align 16, !tbaa !19
+  store i32 4, ptr %54, align 8, !tbaa !19
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %56 = load i64, ptr %55, align 8, !tbaa !25
+  %.not69 = icmp eq i64 %2, %56
+  br i1 %.not69, label %78, label %57
 
-56:                                               ; preds = %49
-  %.not.i74 = icmp samesign ult i32 %.sink, 256
-  br i1 %.not.i74, label %zval_ptr_dtor_str.exit, label %57
+57:                                               ; preds = %49
+  %.not.i74 = icmp eq i32 %52, 0
+  br i1 %.not.i74, label %zval_ptr_dtor_str.exit, label %58
 
-57:                                               ; preds = %56
-  %58 = load i32, ptr %50, align 4, !tbaa !21
-  %59 = icmp ne i32 %58, 0
-  tail call void @llvm.assume(i1 %59)
-  %60 = add i32 %58, -1
-  store i32 %60, ptr %50, align 4, !tbaa !21
-  %.not3.i = icmp eq i32 %60, 0
-  br i1 %.not3.i, label %61, label %zval_ptr_dtor_str.exit
+58:                                               ; preds = %57
+  %59 = load i32, ptr %50, align 4, !tbaa !21
+  %60 = icmp ne i32 %59, 0
+  tail call void @llvm.assume(i1 %60)
+  %61 = add i32 %59, -1
+  store i32 %61, ptr %50, align 4, !tbaa !21
+  %.not3.i = icmp eq i32 %61, 0
+  br i1 %.not3.i, label %62, label %zval_ptr_dtor_str.exit
 
-61:                                               ; preds = %57
+62:                                               ; preds = %58
   tail call void @_efree(ptr noundef nonnull %50) #16
   br label %zval_ptr_dtor_str.exit
 
-zval_ptr_dtor_str.exit:                           ; preds = %56, %57, %61
-  %62 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  br i1 %.not, label %63, label %zval_ptr_dtor_str.exit77
+zval_ptr_dtor_str.exit:                           ; preds = %57, %58, %62
+  %63 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  br i1 %.not, label %64, label %zval_ptr_dtor_str.exit77
 
-63:                                               ; preds = %zval_ptr_dtor_str.exit
-  %64 = load i32, ptr %.sink97, align 4, !tbaa !21
-  %65 = icmp ne i32 %64, 0
-  tail call void @llvm.assume(i1 %65)
-  %66 = add i32 %64, -1
-  store i32 %66, ptr %.sink97, align 4, !tbaa !21
-  %.not3.i76 = icmp eq i32 %66, 0
-  br i1 %.not3.i76, label %67, label %zval_ptr_dtor_str.exit77
+64:                                               ; preds = %zval_ptr_dtor_str.exit
+  %65 = load i32, ptr %.sink97, align 4, !tbaa !21
+  %66 = icmp ne i32 %65, 0
+  tail call void @llvm.assume(i1 %66)
+  %67 = add i32 %65, -1
+  store i32 %67, ptr %.sink97, align 4, !tbaa !21
+  %.not3.i76 = icmp eq i32 %67, 0
+  br i1 %.not3.i76, label %68, label %zval_ptr_dtor_str.exit77
 
-67:                                               ; preds = %63
-  %68 = load ptr, ptr %62, align 16, !tbaa !19
-  tail call void @_efree(ptr noundef %68) #16
+68:                                               ; preds = %64
+  %69 = load ptr, ptr %63, align 16, !tbaa !19
+  tail call void @_efree(ptr noundef %69) #16
   br label %zval_ptr_dtor_str.exit77
 
-zval_ptr_dtor_str.exit77:                         ; preds = %zval_ptr_dtor_str.exit, %63, %67
-  %69 = getelementptr inbounds nuw i8, ptr %10, i64 41
-  %70 = load i8, ptr %69, align 1, !tbaa !19
-  %.not.i78 = icmp eq i8 %70, 0
-  br i1 %.not.i78, label %zval_ptr_dtor_str.exit80, label %71
+zval_ptr_dtor_str.exit77:                         ; preds = %zval_ptr_dtor_str.exit, %64, %68
+  %70 = getelementptr inbounds nuw i8, ptr %10, i64 41
+  %71 = load i8, ptr %70, align 1, !tbaa !19
+  %.not.i78 = icmp eq i8 %71, 0
+  br i1 %.not.i78, label %zval_ptr_dtor_str.exit80, label %72
 
-71:                                               ; preds = %zval_ptr_dtor_str.exit77
-  %72 = load ptr, ptr %30, align 16, !tbaa !19
-  %73 = load i32, ptr %72, align 4, !tbaa !21
-  %74 = icmp ne i32 %73, 0
-  tail call void @llvm.assume(i1 %74)
-  %75 = add i32 %73, -1
-  store i32 %75, ptr %72, align 4, !tbaa !21
-  %.not3.i79 = icmp eq i32 %75, 0
-  br i1 %.not3.i79, label %76, label %zval_ptr_dtor_str.exit80
+72:                                               ; preds = %zval_ptr_dtor_str.exit77
+  %73 = load ptr, ptr %30, align 16, !tbaa !19
+  %74 = load i32, ptr %73, align 4, !tbaa !21
+  %75 = icmp ne i32 %74, 0
+  tail call void @llvm.assume(i1 %75)
+  %76 = add i32 %74, -1
+  store i32 %76, ptr %73, align 4, !tbaa !21
+  %.not3.i79 = icmp eq i32 %76, 0
+  br i1 %.not3.i79, label %77, label %zval_ptr_dtor_str.exit80
 
-76:                                               ; preds = %71
-  tail call void @_efree(ptr noundef nonnull %72) #16
+77:                                               ; preds = %72
+  tail call void @_efree(ptr noundef nonnull %73) #16
   br label %zval_ptr_dtor_str.exit80
 
-77:                                               ; preds = %49
-  %78 = getelementptr inbounds nuw i8, ptr %10, i64 9
-  %79 = icmp samesign ugt i32 %.sink, 255
-  tail call void @llvm.assume(i1 %79)
-  %80 = load i32, ptr %50, align 4, !tbaa !21
-  %81 = add i32 %80, 1
-  store i32 %81, ptr %50, align 4, !tbaa !21
-  br i1 %0, label %82, label %90
+78:                                               ; preds = %49
+  %79 = getelementptr inbounds nuw i8, ptr %10, i64 9
+  %80 = icmp ne i32 %52, 0
+  tail call void @llvm.assume(i1 %80)
+  %81 = load i32, ptr %50, align 4, !tbaa !21
+  %82 = add i32 %81, 1
+  store i32 %82, ptr %50, align 4, !tbaa !21
+  br i1 %0, label %83, label %91
 
-82:                                               ; preds = %77
-  %83 = tail call noalias ptr @_emalloc_32() #16
-  store i32 1, ptr %83, align 4, !tbaa !21
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
-  store i32 26, ptr %84, align 4, !tbaa !19
-  %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %86 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %87 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr %.sink97, ptr %85, align 8, !tbaa !19
-  %88 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  store i32 %.sink95, ptr %88, align 8, !tbaa !19
-  %89 = getelementptr inbounds nuw i8, ptr %83, i64 24
-  store ptr null, ptr %89, align 8, !tbaa !19
-  store ptr %83, ptr %86, align 16, !tbaa !19
-  store i32 778, ptr %87, align 8, !tbaa !19
-  br label %93
+83:                                               ; preds = %78
+  %84 = tail call noalias ptr @_emalloc_32() #16
+  store i32 1, ptr %84, align 4, !tbaa !21
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
+  store i32 26, ptr %85, align 4, !tbaa !19
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store ptr %.sink97, ptr %86, align 8, !tbaa !19
+  %89 = getelementptr inbounds nuw i8, ptr %84, i64 16
+  store i32 %.sink95, ptr %89, align 8, !tbaa !19
+  %90 = getelementptr inbounds nuw i8, ptr %84, i64 24
+  store ptr null, ptr %90, align 8, !tbaa !19
+  store ptr %84, ptr %87, align 16, !tbaa !19
+  store i32 778, ptr %88, align 8, !tbaa !19
+  br label %94
 
-90:                                               ; preds = %77
+91:                                               ; preds = %78
   tail call void @llvm.assume(i1 %.not)
-  %91 = load i32, ptr %.sink97, align 4, !tbaa !21
-  %92 = add i32 %91, 1
-  store i32 %92, ptr %.sink97, align 4, !tbaa !21
+  %92 = load i32, ptr %.sink97, align 4, !tbaa !21
+  %93 = add i32 %92, 1
+  store i32 %93, ptr %.sink97, align 4, !tbaa !21
   %.pre88 = load ptr, ptr %30, align 16, !tbaa !19
-  br label %93
+  br label %94
 
-93:                                               ; preds = %90, %82
-  %94 = phi ptr [ %.pre88, %90 ], [ %33, %82 ]
-  %95 = getelementptr inbounds nuw i8, ptr %10, i64 41
-  %96 = load i32, ptr %94, align 4, !tbaa !21
-  %97 = add i32 %96, 1
-  store i32 %97, ptr %94, align 4, !tbaa !21
+94:                                               ; preds = %91, %83
+  %95 = phi ptr [ %.pre88, %91 ], [ %33, %83 ]
+  %96 = getelementptr inbounds nuw i8, ptr %10, i64 41
+  %97 = load i32, ptr %95, align 4, !tbaa !21
+  %98 = add i32 %97, 1
+  store i32 %98, ptr %95, align 4, !tbaa !21
   call void @zend_call_known_function(ptr noundef nonnull %.063, ptr noundef null, ptr noundef null, ptr noundef nonnull %9, i32 noundef 4, ptr noundef nonnull %10, ptr noundef null) #16
-  %98 = load ptr, ptr %10, align 16, !tbaa !19
-  %99 = load i32, ptr %98, align 4, !tbaa !21
-  %100 = icmp ne i32 %99, 0
-  call void @llvm.assume(i1 %100)
-  %101 = add i32 %99, -1
-  store i32 %101, ptr %98, align 4, !tbaa !21
-  %102 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %103 = load ptr, ptr %102, align 16, !tbaa !19
-  br i1 %0, label %104, label %110
+  %99 = load ptr, ptr %10, align 16, !tbaa !19
+  %100 = load i32, ptr %99, align 4, !tbaa !21
+  %101 = icmp ne i32 %100, 0
+  call void @llvm.assume(i1 %101)
+  %102 = add i32 %100, -1
+  store i32 %102, ptr %99, align 4, !tbaa !21
+  %103 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %104 = load ptr, ptr %103, align 16, !tbaa !19
+  br i1 %0, label %105, label %111
 
-104:                                              ; preds = %93
-  %105 = getelementptr inbounds nuw i8, ptr %103, i64 8
-  %106 = load ptr, ptr %105, align 8, !tbaa !19
-  %107 = getelementptr inbounds nuw i8, ptr %103, i64 16
-  %108 = load i32, ptr %107, align 8, !tbaa !19
-  store ptr %106, ptr %102, align 16, !tbaa !19
-  %109 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i32 %108, ptr %109, align 8, !tbaa !19
-  call void @_efree_32(ptr noundef %103) #16
-  br label %114
+105:                                              ; preds = %94
+  %106 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  %107 = load ptr, ptr %106, align 8, !tbaa !19
+  %108 = getelementptr inbounds nuw i8, ptr %104, i64 16
+  %109 = load i32, ptr %108, align 8, !tbaa !19
+  store ptr %107, ptr %103, align 16, !tbaa !19
+  %110 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store i32 %109, ptr %110, align 8, !tbaa !19
+  call void @_efree_32(ptr noundef %104) #16
+  br label %115
 
-110:                                              ; preds = %93
-  %111 = load i32, ptr %103, align 4, !tbaa !21
-  %112 = icmp ne i32 %111, 0
-  call void @llvm.assume(i1 %112)
-  %113 = add i32 %111, -1
-  store i32 %113, ptr %103, align 4, !tbaa !21
-  br label %114
+111:                                              ; preds = %94
+  %112 = load i32, ptr %104, align 4, !tbaa !21
+  %113 = icmp ne i32 %112, 0
+  call void @llvm.assume(i1 %113)
+  %114 = add i32 %112, -1
+  store i32 %114, ptr %104, align 4, !tbaa !21
+  br label %115
 
-114:                                              ; preds = %110, %104
-  %115 = load ptr, ptr %30, align 16, !tbaa !19
-  %116 = load i32, ptr %115, align 4, !tbaa !21
-  %117 = icmp ne i32 %116, 0
-  call void @llvm.assume(i1 %117)
-  %118 = add i32 %116, -1
-  store i32 %118, ptr %115, align 4, !tbaa !21
-  %119 = load i8, ptr %78, align 1, !tbaa !19
-  %.not.i81 = icmp eq i8 %119, 0
-  br i1 %.not.i81, label %zval_ptr_dtor_str.exit83, label %120
+115:                                              ; preds = %111, %105
+  %116 = load ptr, ptr %30, align 16, !tbaa !19
+  %117 = load i32, ptr %116, align 4, !tbaa !21
+  %118 = icmp ne i32 %117, 0
+  call void @llvm.assume(i1 %118)
+  %119 = add i32 %117, -1
+  store i32 %119, ptr %116, align 4, !tbaa !21
+  %120 = load i8, ptr %79, align 1, !tbaa !19
+  %.not.i81 = icmp eq i8 %120, 0
+  br i1 %.not.i81, label %zval_ptr_dtor_str.exit83, label %121
 
-120:                                              ; preds = %114
-  %121 = load ptr, ptr %10, align 16, !tbaa !19
-  %122 = load i32, ptr %121, align 4, !tbaa !21
-  %123 = icmp ne i32 %122, 0
-  call void @llvm.assume(i1 %123)
-  %124 = add i32 %122, -1
-  store i32 %124, ptr %121, align 4, !tbaa !21
-  %.not3.i82 = icmp eq i32 %124, 0
-  br i1 %.not3.i82, label %125, label %zval_ptr_dtor_str.exit83
+121:                                              ; preds = %115
+  %122 = load ptr, ptr %10, align 16, !tbaa !19
+  %123 = load i32, ptr %122, align 4, !tbaa !21
+  %124 = icmp ne i32 %123, 0
+  call void @llvm.assume(i1 %124)
+  %125 = add i32 %123, -1
+  store i32 %125, ptr %122, align 4, !tbaa !21
+  %.not3.i82 = icmp eq i32 %125, 0
+  br i1 %.not3.i82, label %126, label %zval_ptr_dtor_str.exit83
 
-125:                                              ; preds = %120
-  %126 = load ptr, ptr %10, align 16, !tbaa !19
-  call void @_efree(ptr noundef %126) #16
+126:                                              ; preds = %121
+  %127 = load ptr, ptr %10, align 16, !tbaa !19
+  call void @_efree(ptr noundef %127) #16
   br label %zval_ptr_dtor_str.exit83
 
-zval_ptr_dtor_str.exit83:                         ; preds = %114, %120, %125
-  %127 = load i8, ptr %95, align 1, !tbaa !19
-  %.not.i84 = icmp eq i8 %127, 0
-  br i1 %.not.i84, label %zval_ptr_dtor_str.exit86, label %128
+zval_ptr_dtor_str.exit83:                         ; preds = %115, %121, %126
+  %128 = load i8, ptr %96, align 1, !tbaa !19
+  %.not.i84 = icmp eq i8 %128, 0
+  br i1 %.not.i84, label %zval_ptr_dtor_str.exit86, label %129
 
-128:                                              ; preds = %zval_ptr_dtor_str.exit83
-  %129 = load ptr, ptr %30, align 16, !tbaa !19
-  %130 = load i32, ptr %129, align 4, !tbaa !21
-  %131 = icmp ne i32 %130, 0
-  call void @llvm.assume(i1 %131)
-  %132 = add i32 %130, -1
-  store i32 %132, ptr %129, align 4, !tbaa !21
-  %.not3.i85 = icmp eq i32 %132, 0
-  br i1 %.not3.i85, label %133, label %zval_ptr_dtor_str.exit86
+129:                                              ; preds = %zval_ptr_dtor_str.exit83
+  %130 = load ptr, ptr %30, align 16, !tbaa !19
+  %131 = load i32, ptr %130, align 4, !tbaa !21
+  %132 = icmp ne i32 %131, 0
+  call void @llvm.assume(i1 %132)
+  %133 = add i32 %131, -1
+  store i32 %133, ptr %130, align 4, !tbaa !21
+  %.not3.i85 = icmp eq i32 %133, 0
+  br i1 %.not3.i85, label %134, label %zval_ptr_dtor_str.exit86
 
-133:                                              ; preds = %128
-  %134 = load ptr, ptr %30, align 16, !tbaa !19
-  call void @_efree(ptr noundef %134) #16
+134:                                              ; preds = %129
+  %135 = load ptr, ptr %30, align 16, !tbaa !19
+  call void @_efree(ptr noundef %135) #16
   br label %zval_ptr_dtor_str.exit86
 
-zval_ptr_dtor_str.exit86:                         ; preds = %zval_ptr_dtor_str.exit83, %128, %133
-  %135 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %136 = load i8, ptr %135, align 8, !tbaa !19
-  %137 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  switch i8 %136, label %150 [
-    i8 4, label %138
-    i8 3, label %141
+zval_ptr_dtor_str.exit86:                         ; preds = %zval_ptr_dtor_str.exit83, %129, %134
+  %136 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %137 = load i8, ptr %136, align 8, !tbaa !19
+  %138 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  switch i8 %137, label %151 [
+    i8 4, label %139
+    i8 3, label %142
   ]
 
-138:                                              ; preds = %zval_ptr_dtor_str.exit86
-  call void @zval_ptr_dtor(ptr noundef nonnull %137) #16
-  %139 = load i64, ptr %9, align 8, !tbaa !19
-  %140 = icmp ne i64 %139, 1
-  %. = sext i1 %140 to i32
+139:                                              ; preds = %zval_ptr_dtor_str.exit86
+  call void @zval_ptr_dtor(ptr noundef nonnull %138) #16
+  %140 = load i64, ptr %9, align 8, !tbaa !19
+  %141 = icmp ne i64 %140, 1
+  %. = sext i1 %141 to i32
   br label %zval_ptr_dtor_str.exit80
 
-141:                                              ; preds = %zval_ptr_dtor_str.exit86
-  %142 = load ptr, ptr %137, align 16, !tbaa !19
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 24
-  %144 = getelementptr inbounds nuw i8, ptr %142, i64 16
-  %145 = load i64, ptr %144, align 8, !tbaa !25
-  %146 = call noalias ptr @_estrndup(ptr noundef nonnull %143, i64 noundef %145) #16
-  store ptr %146, ptr %5, align 8, !tbaa !18
-  %147 = load ptr, ptr %137, align 16, !tbaa !19
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 16
-  %149 = load i64, ptr %148, align 8, !tbaa !25
-  store i64 %149, ptr %6, align 8, !tbaa !51
-  call void @zval_ptr_dtor(ptr noundef nonnull %137) #16
+142:                                              ; preds = %zval_ptr_dtor_str.exit86
+  %143 = load ptr, ptr %138, align 16, !tbaa !19
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 24
+  %145 = getelementptr inbounds nuw i8, ptr %143, i64 16
+  %146 = load i64, ptr %145, align 8, !tbaa !25
+  %147 = call noalias ptr @_estrndup(ptr noundef nonnull %144, i64 noundef %146) #16
+  store ptr %147, ptr %5, align 8, !tbaa !18
+  %148 = load ptr, ptr %138, align 16, !tbaa !19
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 16
+  %150 = load i64, ptr %149, align 8, !tbaa !25
+  store i64 %150, ptr %6, align 8, !tbaa !51
+  call void @zval_ptr_dtor(ptr noundef nonnull %138) #16
   br label %zval_ptr_dtor_str.exit80
 
-150:                                              ; preds = %zval_ptr_dtor_str.exit86
-  call void @zval_ptr_dtor(ptr noundef nonnull %137) #16
+151:                                              ; preds = %zval_ptr_dtor_str.exit86
+  call void @zval_ptr_dtor(ptr noundef nonnull %138) #16
   br label %zval_ptr_dtor_str.exit80
 
-zval_ptr_dtor_str.exit80:                         ; preds = %14, %12, %76, %71, %zval_ptr_dtor_str.exit77, %138, %150, %141
-  %.0 = phi i32 [ -1, %150 ], [ 0, %141 ], [ %., %138 ], [ -1, %zval_ptr_dtor_str.exit77 ], [ -1, %71 ], [ -1, %76 ], [ -1, %12 ], [ -1, %14 ]
+zval_ptr_dtor_str.exit80:                         ; preds = %14, %12, %77, %72, %zval_ptr_dtor_str.exit77, %139, %151, %142
+  %.0 = phi i32 [ -1, %151 ], [ 0, %142 ], [ %., %139 ], [ -1, %zval_ptr_dtor_str.exit77 ], [ -1, %72 ], [ -1, %77 ], [ -1, %12 ], [ -1, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0

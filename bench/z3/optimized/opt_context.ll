@@ -5646,8 +5646,8 @@ _ZNK9table2mapI17default_map_entryI6symbolPN3opt6maxsmtEE16symbol_hash_proc14sym
   %34 = icmp ugt i32 %22, 16
   %35 = mul i32 %22, 3
   %36 = icmp ugt i32 %33, %35
-  %or.cond18.i.i = select i1 %34, i1 %36, i1 false
-  br i1 %or.cond18.i.i, label %37, label %._crit_edge.thread.i.i
+  %or.cond19.i.i = select i1 %34, i1 %36, i1 false
+  br i1 %or.cond19.i.i, label %37, label %._crit_edge.thread.i.i
 
 37:                                               ; preds = %._crit_edge.i.i
   %38 = icmp eq ptr %21, null
@@ -5666,7 +5666,7 @@ _ZN14core_hashtableI17default_map_entryI6symbolPN3opt6maxsmtEEN9table2mapIS5_16s
   %42 = zext nneg i32 %41 to i64
   %43 = mul nuw nsw i64 %42, 24
   %44 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %43)
-  %.not6.i.i.i.i.i.i.i = icmp ult i32 %40, 2
+  %.not6.i.i.i.i.i.i.i = icmp eq i32 %41, 0
   br i1 %.not6.i.i.i.i.i.i.i, label %_ZN14core_hashtableI17default_map_entryI6symbolPN3opt6maxsmtEEN9table2mapIS5_16symbol_hash_proc14symbol_eq_procE15entry_hash_procENS9_13entry_eq_procEE11alloc_tableEj.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN14core_hashtableI17default_map_entryI6symbolPN3opt6maxsmtEEN9table2mapIS5_16symbol_hash_proc14symbol_eq_procE15entry_hash_procENS9_13entry_eq_procEE12delete_tableEv.exit.i.i, %.lr.ph.i.i.i.i.i.i.i
@@ -16066,8 +16066,8 @@ define hidden void @_ZN3opt7context7to_fmlsER10ref_vectorI4expr11ast_managerE(pt
   %26 = icmp ugt i32 %15, 16
   %27 = mul i32 %15, 3
   %28 = icmp ugt i32 %25, %27
-  %or.cond18.i.i = select i1 %26, i1 %28, i1 false
-  br i1 %or.cond18.i.i, label %29, label %._crit_edge.thread.i.i
+  %or.cond19.i.i = select i1 %26, i1 %28, i1 false
+  br i1 %or.cond19.i.i, label %29, label %._crit_edge.thread.i.i
 
 29:                                               ; preds = %._crit_edge.i.i
   %30 = icmp eq ptr %13, null
@@ -16086,7 +16086,7 @@ _ZN14core_hashtableIN7obj_mapI9func_decljE13obj_map_entryE8obj_hashINS2_8key_dat
   %34 = zext nneg i32 %33 to i64
   %35 = shl nuw nsw i64 %34, 4
   %36 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %35)
-  %.not6.i.i.i.i.i.i.i = icmp ult i32 %32, 2
+  %.not6.i.i.i.i.i.i.i = icmp eq i32 %33, 0
   br i1 %.not6.i.i.i.i.i.i.i, label %_ZN14core_hashtableIN7obj_mapI9func_decljE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE11alloc_tableEj.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN14core_hashtableIN7obj_mapI9func_decljE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE12delete_tableEv.exit.i.i, %.lr.ph.i.i.i.i.i.i.i
@@ -16316,14 +16316,14 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %134, %113, %96
-  %.sink55 = phi ptr [ %94, %96 ], [ %111, %113 ], [ %132, %134 ], [ %.pre.i.i24, %.sink.split.sink.split ]
-  %.sink54 = phi i32 [ %98, %96 ], [ %115, %113 ], [ %136, %134 ], [ %.pre2.i.i26, %.sink.split.sink.split ]
+  %.sink56 = phi ptr [ %94, %96 ], [ %111, %113 ], [ %132, %134 ], [ %.pre.i.i24, %.sink.split.sink.split ]
+  %.sink55 = phi i32 [ %98, %96 ], [ %115, %113 ], [ %136, %134 ], [ %.pre2.i.i26, %.sink.split.sink.split ]
   %.sink = phi ptr [ %89, %96 ], [ %106, %113 ], [ %127, %134 ], [ %.sink.ph, %.sink.split.sink.split ]
-  %140 = getelementptr inbounds i8, ptr %.sink55, i64 -4
-  %141 = zext i32 %.sink54 to i64
-  %142 = getelementptr inbounds nuw ptr, ptr %.sink55, i64 %141
+  %140 = getelementptr inbounds i8, ptr %.sink56, i64 -4
+  %141 = zext i32 %.sink55 to i64
+  %142 = getelementptr inbounds nuw ptr, ptr %.sink56, i64 %141
   store ptr %.sink, ptr %142, align 8, !tbaa !21
-  %143 = add i32 %.sink54, 1
+  %143 = add i32 %.sink55, 1
   store i32 %143, ptr %140, align 4, !tbaa !10
   br label %144
 
@@ -35742,7 +35742,7 @@ define linkonce_odr hidden void @_ZN14parray_managerIN11ast_manager17expr_array_
 .preheader.i.unreachabledefault:                  ; preds = %.preheader.i
   unreachable
 
-default.unreachable91:                            ; preds = %65
+default.unreachable92:                            ; preds = %65
   unreachable
 
 _ZNK14parray_managerIN11ast_manager17expr_array_configEE4sizeERKNS2_3refE.exit: ; preds = %16, %20, %24
@@ -35751,7 +35751,7 @@ _ZNK14parray_managerIN11ast_manager17expr_array_configEE4sizeERKNS2_3refE.exit: 
   %28 = load i32, ptr %3, align 8
   %29 = lshr i32 %28, 30
   %30 = icmp ne i32 %29, 3
-  %31 = icmp ugt i32 %.07.i, 1
+  %31 = icmp ne i32 %27, 0
   %32 = select i1 %30, i1 %31, i1 false
   br i1 %32, label %.lr.ph, label %._crit_edge
 
@@ -35837,7 +35837,7 @@ _ZNK6vectorIPN14parray_managerIN11ast_manager17expr_array_configEE4cellELb0EjE4s
   %73 = load ptr, ptr %72, align 8, !tbaa !83
   %74 = load i32, ptr %69, align 8
   %75 = lshr i32 %74, 30
-  switch i32 %75, label %default.unreachable91 [
+  switch i32 %75, label %default.unreachable92 [
     i32 0, label %76
     i32 1, label %90
     i32 2, label %124
@@ -36667,7 +36667,7 @@ define linkonce_odr hidden void @_ZN14parray_managerIN11ast_manager28expr_depend
 .preheader.i.unreachabledefault:                  ; preds = %.preheader.i
   unreachable
 
-default.unreachable91:                            ; preds = %65
+default.unreachable92:                            ; preds = %65
   unreachable
 
 _ZNK14parray_managerIN11ast_manager28expr_dependency_array_configEE4sizeERKNS2_3refE.exit: ; preds = %16, %20, %24
@@ -36676,7 +36676,7 @@ _ZNK14parray_managerIN11ast_manager28expr_dependency_array_configEE4sizeERKNS2_3
   %28 = load i32, ptr %3, align 8
   %29 = lshr i32 %28, 30
   %30 = icmp ne i32 %29, 3
-  %31 = icmp ugt i32 %.07.i, 1
+  %31 = icmp ne i32 %27, 0
   %32 = select i1 %30, i1 %31, i1 false
   br i1 %32, label %.lr.ph, label %._crit_edge
 
@@ -36762,7 +36762,7 @@ _ZNK6vectorIPN14parray_managerIN11ast_manager28expr_dependency_array_configEE4ce
   %73 = load ptr, ptr %72, align 8, !tbaa !83
   %74 = load i32, ptr %69, align 8
   %75 = lshr i32 %74, 30
-  switch i32 %75, label %default.unreachable91 [
+  switch i32 %75, label %default.unreachable92 [
     i32 0, label %76
     i32 1, label %90
     i32 2, label %124

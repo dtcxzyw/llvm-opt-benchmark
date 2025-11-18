@@ -1765,17 +1765,14 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
 40:                                               ; preds = %18
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load i64, ptr %41, align 8, !tbaa !54
-  %.not.i23.i = icmp ult i64 %42, 2
-  br i1 %.not.i23.i, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt10unique_ptrIN9grpc_core33ConnectivityStateWatcherInterfaceENS5_16OrphanableDeleteEEEENS1_6HashEqIPS6_vE4HashENSC_2EqESaIS8_EE13destroy_slotsEv.exit, label %.lr.ph28.preheader.i
-
-.lr.ph28.preheader.i:                             ; preds = %40
   %43 = lshr i64 %42, 1
-  br label %.lr.ph28.i
+  %.not.i23.i = icmp eq i64 %43, 0
+  br i1 %.not.i23.i, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt10unique_ptrIN9grpc_core33ConnectivityStateWatcherInterfaceENS5_16OrphanableDeleteEEEENS1_6HashEqIPS6_vE4HashENSC_2EqESaIS8_EE13destroy_slotsEv.exit, label %.lr.ph28.i
 
-.lr.ph28.i:                                       ; preds = %._crit_edge.i, %.lr.ph28.preheader.i
-  %.0.i26.i = phi ptr [ %48, %._crit_edge.i ], [ %.sroa.0.0.copyload.i.i.i.i, %.lr.ph28.preheader.i ]
-  %.025.i25.i = phi ptr [ %47, %._crit_edge.i ], [ %21, %.lr.ph28.preheader.i ]
-  %.026.i24.i = phi i64 [ %.1.i.lcssa.i, %._crit_edge.i ], [ %43, %.lr.ph28.preheader.i ]
+.lr.ph28.i:                                       ; preds = %40, %._crit_edge.i
+  %.0.i26.i = phi ptr [ %48, %._crit_edge.i ], [ %.sroa.0.0.copyload.i.i.i.i, %40 ]
+  %.025.i25.i = phi ptr [ %47, %._crit_edge.i ], [ %21, %40 ]
+  %.026.i24.i = phi i64 [ %.1.i.lcssa.i, %._crit_edge.i ], [ %43, %40 ]
   %44 = load <16 x i8>, ptr %.025.i25.i, align 1, !tbaa !34
   %45 = icmp sgt <16 x i8> %44, splat (i8 -1)
   %46 = bitcast <16 x i1> %45 to i16
@@ -2413,17 +2410,14 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
 39:                                               ; preds = %17
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load i64, ptr %40, align 8, !tbaa !54
-  %.not.i23.i = icmp ult i64 %41, 2
-  br i1 %.not.i23.i, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt10unique_ptrIN9grpc_core33ConnectivityStateWatcherInterfaceENS5_16OrphanableDeleteEEEENS1_6HashEqIPS6_vE4HashENSC_2EqESaIS8_EE13destroy_slotsEv.exit, label %.lr.ph28.preheader.i
-
-.lr.ph28.preheader.i:                             ; preds = %39
   %42 = lshr i64 %41, 1
-  br label %.lr.ph28.i
+  %.not.i23.i = icmp eq i64 %42, 0
+  br i1 %.not.i23.i, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt10unique_ptrIN9grpc_core33ConnectivityStateWatcherInterfaceENS5_16OrphanableDeleteEEEENS1_6HashEqIPS6_vE4HashENSC_2EqESaIS8_EE13destroy_slotsEv.exit, label %.lr.ph28.i
 
-.lr.ph28.i:                                       ; preds = %._crit_edge.i, %.lr.ph28.preheader.i
-  %.0.i26.i = phi ptr [ %47, %._crit_edge.i ], [ %.sroa.0.0.copyload.i.i.i.i, %.lr.ph28.preheader.i ]
-  %.025.i25.i = phi ptr [ %46, %._crit_edge.i ], [ %20, %.lr.ph28.preheader.i ]
-  %.026.i24.i = phi i64 [ %.1.i.lcssa.i, %._crit_edge.i ], [ %42, %.lr.ph28.preheader.i ]
+.lr.ph28.i:                                       ; preds = %39, %._crit_edge.i
+  %.0.i26.i = phi ptr [ %47, %._crit_edge.i ], [ %.sroa.0.0.copyload.i.i.i.i, %39 ]
+  %.025.i25.i = phi ptr [ %46, %._crit_edge.i ], [ %20, %39 ]
+  %.026.i24.i = phi i64 [ %.1.i.lcssa.i, %._crit_edge.i ], [ %42, %39 ]
   %43 = load <16 x i8>, ptr %.025.i25.i, align 1, !tbaa !34
   %44 = icmp sgt <16 x i8> %43, splat (i8 -1)
   %45 = bitcast <16 x i1> %44 to i16

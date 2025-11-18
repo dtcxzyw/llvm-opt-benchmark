@@ -7230,7 +7230,7 @@ define internal noundef zeroext i8 @elem_a2p_bearer_format(ptr noundef %0, ptr n
   %101 = lshr i8 %100, 4
   %102 = add i32 %.1218, 1
   %103 = zext nneg i8 %101 to i32
-  %.not235 = icmp ult i8 %100, 16
+  %.not235 = icmp eq i8 %101, 0
   br i1 %.not235, label %113, label %104
 
 104:                                              ; preds = %95

@@ -929,7 +929,7 @@ define internal fastcc void @tbm_union_page(ptr noundef %0, ptr noundef readonly
 18:                                               ; preds = %17, %15
   %19 = add i32 %.047, 1
   %20 = lshr i64 %.03046, 1
-  %.not33 = icmp ult i64 %.03046, 2
+  %.not33 = icmp eq i64 %20, 0
   br i1 %.not33, label %.loopexit, label %15, !llvm.loop !11
 
 .loopexit:                                        ; preds = %18, %8
@@ -1606,7 +1606,7 @@ tbm_page_is_lossy.exit:                           ; preds = %71, %pagetable_look
   %106 = add i32 %.04321, 1
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %107 = lshr i64 %.04619, 1
-  %.not57 = icmp ult i64 %.04619, 2
+  %.not57 = icmp eq i64 %107, 0
   br i1 %.not57, label %108, label %19, !llvm.loop !15
 
 108:                                              ; preds = %tbm_page_is_lossy.exit
@@ -2475,7 +2475,7 @@ tbm_advance_schunkbit.exit.thread:                ; preds = %19, %tbm_advance_sc
   %.3.i = phi i32 [ %90, %89 ], [ %.219.i, %87 ]
   %94 = add nuw nsw i16 %.021.i, 1
   %95 = lshr i64 %.01320.i, 1
-  %.not17.i = icmp ult i64 %.01320.i, 2
+  %.not17.i = icmp eq i64 %95, 0
   br i1 %.not17.i, label %.loopexit.i, label %87, !llvm.loop !21
 
 .loopexit.i:                                      ; preds = %93, %81
@@ -2676,7 +2676,7 @@ tbm_advance_schunkbit.exit.thread:                ; preds = %29, %tbm_advance_sc
   %.3.i = phi i32 [ %90, %89 ], [ %.219.i, %87 ]
   %94 = add nuw nsw i16 %.021.i, 1
   %95 = lshr i64 %.01320.i, 1
-  %.not17.i = icmp ult i64 %.01320.i, 2
+  %.not17.i = icmp eq i64 %95, 0
   br i1 %.not17.i, label %.loopexit.i, label %87, !llvm.loop !21
 
 .loopexit.i:                                      ; preds = %93, %81

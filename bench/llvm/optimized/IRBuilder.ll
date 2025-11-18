@@ -7003,11 +7003,11 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm14ConstantFolder7FoldGEPEPNS_4T
 12:                                               ; preds = %9
   %.idx2.i = shl nuw nsw i64 %4, 3
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx2.i
-  %.not.i = icmp ult i64 %4, 4
+  %14 = lshr i64 %4, 2
+  %.not.i = icmp eq i64 %14, 0
   br i1 %.not.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %12
-  %14 = lshr i64 %4, 2
   %15 = and i64 %.idx2.i, 9223372036854775776
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %3, i64 %15
   br label %.lr.ph.i.i.i.i.i.i
@@ -7054,11 +7054,10 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm14ConstantFolder7FoldGEPEPNS_4T
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %12
   %.pre-phi47.i.i.i.i.i.i = phi i64 [ %38, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %4, %12 ]
   %.029.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %3, %12 ]
-  switch i64 %.pre-phi47.i.i.i.i.i.i, label %default.unreachable [
+  switch i64 %.pre-phi47.i.i.i.i.i.i, label %_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_5ValueEEEZNKS_14ConstantFolder7FoldGEPEPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsEEUlS3_E_EEbOT_T0_.exit.thread [
     i64 3, label %39
     i64 2, label %45
     i64 1, label %51
-    i64 0, label %_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_5ValueEEEZNKS_14ConstantFolder7FoldGEPEPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsEEUlS3_E_EEbOT_T0_.exit.thread
   ]
 
 39:                                               ; preds = %._crit_edge.i.i.i.i.i.i
@@ -7088,9 +7087,6 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm14ConstantFolder7FoldGEPEPNS_4T
   %53 = load i8, ptr %52, align 8, !tbaa !94
   %54 = icmp ugt i8 %53, 21
   br i1 %54, label %_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_5ValueEEEZNKS_14ConstantFolder7FoldGEPEPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsEEUlS3_E_EEbOT_T0_.exit, label %_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_5ValueEEEZNKS_14ConstantFolder7FoldGEPEPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsEEUlS3_E_EEbOT_T0_.exit.thread
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i.i
-  unreachable
 
 _ZN4llvm6any_ofIRNS_8ArrayRefIPNS_5ValueEEEZNKS_14ConstantFolder7FoldGEPEPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsEEUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit: ; preds = %19
   %55 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i.i.i, i64 8

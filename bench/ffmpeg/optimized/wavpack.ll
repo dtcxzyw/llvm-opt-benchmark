@@ -2646,16 +2646,13 @@ bytestream2_get_byte.exit266:                     ; preds = %bytestream2_get_byt
   %44 = ashr i32 %43, 8
   %45 = add nsw i32 %44, %.02235.i
   %46 = add nsw i32 %45, 64
-  %.not2529.i = icmp ult i32 %46, 128
-  br i1 %.not2529.i, label %.loopexit.i, label %.lr.ph32.preheader.i
-
-.lr.ph32.preheader.i:                             ; preds = %41
   %47 = ashr i32 %46, 7
-  br label %.lr.ph32.i
+  %.not2529.i = icmp eq i32 %47, 0
+  br i1 %.not2529.i, label %.loopexit.i, label %.lr.ph32.i
 
-.lr.ph32.i:                                       ; preds = %.lr.ph32.i, %.lr.ph32.preheader.i
-  %.031.i = phi i32 [ %48, %.lr.ph32.i ], [ %47, %.lr.ph32.preheader.i ]
-  %.230.i = phi i32 [ %51, %.lr.ph32.i ], [ %.12434.i, %.lr.ph32.preheader.i ]
+.lr.ph32.i:                                       ; preds = %41, %.lr.ph32.i
+  %.031.i = phi i32 [ %48, %.lr.ph32.i ], [ %47, %41 ]
+  %.230.i = phi i32 [ %51, %.lr.ph32.i ], [ %.12434.i, %41 ]
   %48 = add nsw i32 %.031.i, -1
   %49 = sub nsw i32 65536, %.230.i
   %50 = ashr i32 %49, 8

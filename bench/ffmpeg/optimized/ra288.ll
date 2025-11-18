@@ -327,19 +327,18 @@ do_hybrid_window.exit:                            ; preds = %convolve.exit32.i
   br i1 %or.cond.i, label %compute_lpc_coefs.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %do_hybrid_window.exit, %._crit_edge82.i
-  %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge82.i ], [ 1, %do_hybrid_window.exit ]
-  %indvars.iv90.i = phi i64 [ %indvars.iv.next91.i, %._crit_edge82.i ], [ 0, %do_hybrid_window.exit ]
+  %indvars.iv94.i = phi i64 [ %indvars.iv.next95.i, %._crit_edge82.i ], [ 0, %do_hybrid_window.exit ]
+  %indvars.iv90.i = phi i32 [ %indvars.iv.next91.i, %._crit_edge82.i ], [ 1, %do_hybrid_window.exit ]
   %.173.i = phi nsz float [ %63, %._crit_edge82.i ], [ %47, %do_hybrid_window.exit ]
-  %54 = lshr i64 %indvars.iv, 1
-  %umax = call i64 @llvm.umax.i64(i64 %54, i64 1)
-  %exitcond94.not.i = icmp eq i64 %indvars.iv90.i, %19
-  br i1 %exitcond94.not.i, label %compute_lpc_coefs.exit.thread24, label %55
+  %54 = lshr i32 %indvars.iv90.i, 1
+  %exitcond98.not.i = icmp eq i64 %indvars.iv94.i, %19
+  br i1 %exitcond98.not.i, label %compute_lpc_coefs.exit.thread24, label %55
 
 55:                                               ; preds = %.preheader.i
-  %56 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv90.i
+  %56 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv94.i
   %57 = load float, ptr %56, align 4, !tbaa !46
   %58 = fneg nsz float %57
-  %.not84.i = icmp eq i64 %indvars.iv90.i, 0
+  %.not84.i = icmp eq i64 %indvars.iv94.i, 0
   br i1 %.not84.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %55
@@ -350,10 +349,14 @@ do_hybrid_window.exit:                            ; preds = %convolve.exit32.i
   %61 = fneg nsz float %.266.i
   %62 = call nsz float @llvm.fmuladd.f32(float %61, float %.266.i, float 1.000000e+00)
   %63 = fmul nsz float %.173.i, %62
-  %64 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv90.i
+  %64 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv94.i
   store float %.266.i, ptr %64, align 4, !tbaa !46
-  %indvars.iv.next91.i = add nuw nsw i64 %indvars.iv90.i, 1
-  br i1 %.not84.i, label %._crit_edge82.i, label %.lr.ph81.i
+  %indvars.iv.next95.i = add nuw nsw i64 %indvars.iv94.i, 1
+  br i1 %.not84.i, label %._crit_edge82.i, label %.lr.ph81.preheader.i
+
+.lr.ph81.preheader.i:                             ; preds = %._crit_edge.i
+  %wide.trip.count92.i = zext nneg i32 %54 to i64
+  br label %.lr.ph81.i
 
 .lr.ph.i:                                         ; preds = %55, %.lr.ph.i
   %indvars.iv.i17 = phi i64 [ %indvars.iv.next.i18, %.lr.ph.i ], [ 0, %55 ]
@@ -366,16 +369,16 @@ do_hybrid_window.exit:                            ; preds = %convolve.exit32.i
   %70 = fneg nsz float %66
   %71 = call nsz float @llvm.fmuladd.f32(float %70, float %69, float %.16577.i)
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i17, 1
-  %exitcond.not.i19 = icmp eq i64 %indvars.iv.next.i18, %indvars.iv90.i
+  %exitcond.not.i19 = icmp eq i64 %indvars.iv.next.i18, %indvars.iv94.i
   br i1 %exitcond.not.i19, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !55
 
 ._crit_edge82.i:                                  ; preds = %.lr.ph81.i, %._crit_edge.i
   %72 = fcmp nsz uge float %63, 0.000000e+00
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %indvars.iv.next91.i = add nuw nsw i32 %indvars.iv90.i, 1
   br i1 %72, label %.preheader.i, label %compute_lpc_coefs.exit, !llvm.loop !56
 
-.lr.ph81.i:                                       ; preds = %._crit_edge.i, %.lr.ph81.i
-  %indvars.iv87.i = phi i64 [ %indvars.iv.next88.i, %.lr.ph81.i ], [ 0, %._crit_edge.i ]
+.lr.ph81.i:                                       ; preds = %.lr.ph81.i, %.lr.ph81.preheader.i
+  %indvars.iv87.i = phi i64 [ 0, %.lr.ph81.preheader.i ], [ %indvars.iv.next88.i, %.lr.ph81.i ]
   %73 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv87.i
   %74 = load float, ptr %73, align 4, !tbaa !46
   %75 = xor i64 %indvars.iv87.i, -1
@@ -386,11 +389,11 @@ do_hybrid_window.exit:                            ; preds = %convolve.exit32.i
   %79 = call nsz float @llvm.fmuladd.f32(float %.266.i, float %74, float %77)
   store float %79, ptr %76, align 4, !tbaa !46
   %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next88.i, %umax
-  br i1 %exitcond.not, label %._crit_edge82.i, label %.lr.ph81.i, !llvm.loop !57
+  %exitcond93.not.i = icmp eq i64 %indvars.iv.next88.i, %wide.trip.count92.i
+  br i1 %exitcond93.not.i, label %._crit_edge82.i, label %.lr.ph81.i, !llvm.loop !57
 
 compute_lpc_coefs.exit:                           ; preds = %._crit_edge82.i
-  %.not.le.i.not = icmp samesign ult i64 %indvars.iv90.i, %19
+  %.not.le.i.not = icmp samesign ult i64 %indvars.iv94.i, %19
   br i1 %.not.le.i.not, label %compute_lpc_coefs.exit.thread, label %compute_lpc_coefs.exit.thread24
 
 compute_lpc_coefs.exit.thread24:                  ; preds = %.preheader.i, %compute_lpc_coefs.exit
@@ -435,9 +438,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #6
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #6
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

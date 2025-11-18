@@ -6689,11 +6689,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit.i.i: ; preds
 
 309:                                              ; preds = %307
   %310 = ptrtoint ptr %303 to i64
-  %.not87.i.i = icmp ult i32 %301, 4
+  %311 = lshr i64 %302, 2
+  %.not87.i.i = icmp eq i64 %311, 0
   br i1 %.not87.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.preheader.i.i.i.i
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %309
-  %311 = lshr i64 %302, 2
   %312 = and i64 %302, 4294967292
   %313 = sub i64 %310, %312
   %314 = mul nsw i64 %311, -4

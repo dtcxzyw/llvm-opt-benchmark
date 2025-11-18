@@ -42,7 +42,7 @@ _ZL7polyvaldPKdi.exit:                            ; preds = %.lr.ph.i
   %17 = zext nneg i32 %14 to i64
   %18 = getelementptr inbounds nuw double, ptr %16, i64 %17
   %19 = load double, ptr %18, align 8, !tbaa !3
-  %.not.i = icmp samesign ugt i64 %indvars.iv, 3
+  %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %_ZL7polyvaldPKdi.exit35.thread, label %.lr.ph.i31
 
 _ZL7polyvaldPKdi.exit35.thread:                   ; preds = %11

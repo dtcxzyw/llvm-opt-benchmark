@@ -5275,7 +5275,7 @@ get_std_framerate.exit:                           ; preds = %833, %839, %844, %8
   %878 = and i64 %877, 4294967295
   %879 = icmp ne i64 %878, 0
   %880 = icmp ugt i64 %877, 4294967295
-  %or.cond16 = and i1 %880, %879
+  %or.cond16 = and i1 %879, %880
   br i1 %or.cond16, label %881, label %._crit_edge1045
 
 ._crit_edge1045:                                  ; preds = %874

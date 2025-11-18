@@ -3316,7 +3316,7 @@ _ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit251: ; preds = %.noexc250, %167
 .preheader:                                       ; preds = %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit251
   %.not.i266 = icmp ult i64 %.0156.lcssa, 281474976710656
   %194 = lshr i64 %.0156.lcssa, 32
-  %195 = icmp ult i64 %.0156.lcssa, 4294967296
+  %195 = icmp eq i64 %194, 0
   %196 = icmp eq i64 %194, 5
   %197 = trunc i64 %.0156.lcssa to i32
   %198 = and i32 %197, -65536
@@ -3489,7 +3489,7 @@ _ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit265: ; preds = %_ZN6icu_7712_GLOBAL
   br i1 %.not50.i270, label %285, label %278
 
 278:                                              ; preds = %277
-  %279 = icmp samesign ult i64 %262, 4294967296
+  %279 = icmp eq i64 %276, 0
   br i1 %279, label %_ZL12compareCE64slls.exit275.thread, label %280
 
 280:                                              ; preds = %278

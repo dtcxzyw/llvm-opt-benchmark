@@ -5170,8 +5170,8 @@ define internal fastcc range(i32 80, 0) i32 @resp_config(ptr noundef %0, ptr nou
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
-  %.092100 = phi i32 [ %69, %.loopexit ], [ 1, %.lr.ph.preheader ]
-  %.09399 = phi i32 [ %68, %.loopexit ], [ 80, %.lr.ph.preheader ]
+  %.092100 = phi i32 [ %68, %.loopexit ], [ 1, %.lr.ph.preheader ]
+  %.09399 = phi i32 [ %67, %.loopexit ], [ 80, %.lr.ph.preheader ]
   %17 = load i32, ptr @ett_gryphon_cmd_config_device, align 4
   %18 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.09399, i32 noundef 80, i32 noundef %17, ptr noundef null, ptr noundef nonnull @.str.1101, i32 noundef %.092100)
   %19 = load i32, ptr @hf_gryphon_config_driver_name, align 4
@@ -5192,9 +5192,9 @@ define internal fastcc range(i32 80, 0) i32 @resp_config(ptr noundef %0, ptr nou
   %31 = tail call ptr @proto_tree_add_subtree(ptr noundef %18, ptr noundef %0, i32 noundef %27, i32 noundef 4, i32 noundef %30, ptr noundef null, ptr noundef nonnull @.str.1102)
   br label %32
 
-32:                                               ; preds = %41, %29
-  %.091 = phi i32 [ 0, %29 ], [ %43, %41 ]
-  %.0 = phi i32 [ %28, %29 ], [ %42, %41 ]
+32:                                               ; preds = %39, %29
+  %.091 = phi i32 [ 0, %29 ], [ %42, %39 ]
+  %.0 = phi i32 [ %28, %29 ], [ %40, %39 ]
   %33 = and i32 %.0, 1
   %.not97 = icmp eq i32 %33, 0
   br i1 %.not97, label %39, label %34
@@ -5207,46 +5207,43 @@ define internal fastcc range(i32 80, 0) i32 @resp_config(ptr noundef %0, ptr nou
   br label %39
 
 39:                                               ; preds = %34, %32
-  %40 = icmp ult i32 %.0, 2
-  br i1 %40, label %.loopexit, label %41
-
-41:                                               ; preds = %39
-  %42 = lshr i32 %.0, 1
-  %43 = add nuw nsw i32 %.091, 1
-  br label %32
+  %40 = lshr i32 %.0, 1
+  %41 = icmp eq i32 %40, 0
+  %42 = add nuw nsw i32 %.091, 1
+  br i1 %41, label %.loopexit, label %32
 
 .loopexit:                                        ; preds = %39, %.lr.ph
-  %44 = add nuw nsw i32 %.09399, 48
-  %45 = load i32, ptr @hf_gryphon_config_max_data_length, align 4
-  %46 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %45, ptr noundef %0, i32 noundef %44, i32 noundef 2, i32 noundef 0)
-  %47 = add nuw nsw i32 %.09399, 50
-  %48 = load i32, ptr @hf_gryphon_config_min_data_length, align 4
-  %49 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %48, ptr noundef %0, i32 noundef %47, i32 noundef 2, i32 noundef 0)
-  %50 = add nuw nsw i32 %.09399, 52
-  %51 = load i32, ptr @hf_gryphon_config_hardware_serial_number, align 4
-  %52 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %51, ptr noundef %0, i32 noundef %50, i32 noundef 20, i32 noundef 0)
-  %53 = add nuw nsw i32 %.09399, 72
-  %54 = load i32, ptr @hf_gryphon_config_protocol_type, align 4
-  %55 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %54, ptr noundef %0, i32 noundef %53, i32 noundef 2, i32 noundef 0)
-  %56 = add nuw nsw i32 %.09399, 74
-  %57 = load i32, ptr @hf_gryphon_config_channel_id, align 4
-  %58 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %57, ptr noundef %0, i32 noundef %56, i32 noundef 1, i32 noundef 0)
-  %59 = add nuw nsw i32 %.09399, 75
-  %60 = load i32, ptr @hf_gryphon_config_card_slot_number, align 4
-  %61 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %60, ptr noundef %0, i32 noundef %59, i32 noundef 1, i32 noundef 0)
-  %62 = add nuw nsw i32 %.09399, 76
-  %63 = load i32, ptr @hf_gryphon_config_max_extra_data, align 4
-  %64 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %63, ptr noundef %0, i32 noundef %62, i32 noundef 2, i32 noundef 0)
-  %65 = add nuw nsw i32 %.09399, 78
-  %66 = load i32, ptr @hf_gryphon_config_min_extra_data, align 4
-  %67 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %66, ptr noundef %0, i32 noundef %65, i32 noundef 2, i32 noundef 0)
-  %68 = add nuw nsw i32 %.09399, 80
-  %69 = add nuw nsw i32 %.092100, 1
+  %43 = add nuw nsw i32 %.09399, 48
+  %44 = load i32, ptr @hf_gryphon_config_max_data_length, align 4
+  %45 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %44, ptr noundef %0, i32 noundef %43, i32 noundef 2, i32 noundef 0)
+  %46 = add nuw nsw i32 %.09399, 50
+  %47 = load i32, ptr @hf_gryphon_config_min_data_length, align 4
+  %48 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %47, ptr noundef %0, i32 noundef %46, i32 noundef 2, i32 noundef 0)
+  %49 = add nuw nsw i32 %.09399, 52
+  %50 = load i32, ptr @hf_gryphon_config_hardware_serial_number, align 4
+  %51 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %50, ptr noundef %0, i32 noundef %49, i32 noundef 20, i32 noundef 0)
+  %52 = add nuw nsw i32 %.09399, 72
+  %53 = load i32, ptr @hf_gryphon_config_protocol_type, align 4
+  %54 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %53, ptr noundef %0, i32 noundef %52, i32 noundef 2, i32 noundef 0)
+  %55 = add nuw nsw i32 %.09399, 74
+  %56 = load i32, ptr @hf_gryphon_config_channel_id, align 4
+  %57 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %56, ptr noundef %0, i32 noundef %55, i32 noundef 1, i32 noundef 0)
+  %58 = add nuw nsw i32 %.09399, 75
+  %59 = load i32, ptr @hf_gryphon_config_card_slot_number, align 4
+  %60 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %59, ptr noundef %0, i32 noundef %58, i32 noundef 1, i32 noundef 0)
+  %61 = add nuw nsw i32 %.09399, 76
+  %62 = load i32, ptr @hf_gryphon_config_max_extra_data, align 4
+  %63 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %62, ptr noundef %0, i32 noundef %61, i32 noundef 2, i32 noundef 0)
+  %64 = add nuw nsw i32 %.09399, 78
+  %65 = load i32, ptr @hf_gryphon_config_min_extra_data, align 4
+  %66 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %65, ptr noundef %0, i32 noundef %64, i32 noundef 2, i32 noundef 0)
+  %67 = add nuw nsw i32 %.09399, 80
+  %68 = add nuw nsw i32 %.092100, 1
   %exitcond.not = icmp eq i32 %.092100, %16
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.loopexit, %2
-  %.093.lcssa = phi i32 [ 80, %2 ], [ %68, %.loopexit ]
+  %.093.lcssa = phi i32 [ 80, %2 ], [ %67, %.loopexit ]
   ret i32 %.093.lcssa
 }
 

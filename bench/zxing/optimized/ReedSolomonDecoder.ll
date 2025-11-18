@@ -1008,7 +1008,7 @@ _ZN5ZXingL18FindErrorLocationsERKNS_9GenericGFERKNS_13GenericGFPolyE.exit: ; pre
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %412
-  %.not.i.i.i.i.i69 = icmp ult i64 %sext.i68, 4294967296
+  %.not.i.i.i.i.i69 = icmp eq i64 %413, 0
   br i1 %.not.i.i.i.i.i69, label %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i.i, label %.noexc42.i
 
 .noexc42.i:                                       ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i

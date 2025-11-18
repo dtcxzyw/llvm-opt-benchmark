@@ -1414,7 +1414,7 @@ Vec_IntPush.exit.i:                               ; preds = %111, %Vec_IntGrow.e
   %142 = sext i32 %141 to i64
   %143 = getelementptr inbounds i32, ptr %.val9.i, i64 %142
   store i32 %.02341.i.i, ptr %143, align 4, !tbaa !30
-  %.not.i14.i = icmp ult i32 %.042.in.i.i, 2
+  %.not.i14.i = icmp eq i32 %.042.i.i, 0
   br i1 %.not.i14.i, label %.split24.i.i, label %130, !llvm.loop !75
 
 xSAT_HeapInsert.exit:                             ; preds = %.split24.i.i, %.split.i.i
@@ -3641,17 +3641,17 @@ xSAT_HeapInHeap.exit.i.i:                         ; preds = %273
 292:                                              ; preds = %302, %.lr.ph.i.i.i.i
   %.02341.i.i.i.i = phi i32 [ %280, %.lr.ph.i.i.i.i ], [ %.042.i.i.i.i, %302 ]
   %.042.in.i.i.i.i = add nsw i32 %.02341.i.i.i.i, -1
-  %.042.i.i.i.i = ashr i32 %.042.in.i.i.i.i, 1
-  %293 = sext i32 %.042.i.i.i.i to i64
-  %294 = getelementptr inbounds i32, ptr %.val28.i.i.i.i, i64 %293
+  %.042.i.i.i.i = lshr i32 %.042.in.i.i.i.i, 1
+  %293 = zext nneg i32 %.042.i.i.i.i to i64
+  %294 = getelementptr inbounds nuw i32, ptr %.val28.i.i.i.i, i64 %293
   %295 = load i32, ptr %294, align 4, !tbaa !30
   %296 = load i32, ptr %291, align 4, !tbaa !30
   %297 = sext i32 %295 to i64
   %298 = getelementptr inbounds i32, ptr %.val35.val.i.i.i.i, i64 %297
   %299 = load i32, ptr %298, align 4, !tbaa !30
   %.not36.i.i.i.i = icmp ugt i32 %296, %299
-  %300 = sext i32 %.02341.i.i.i.i to i64
-  %301 = getelementptr inbounds i32, ptr %.val28.i.i.i.i, i64 %300
+  %300 = zext nneg i32 %.02341.i.i.i.i to i64
+  %301 = getelementptr inbounds nuw i32, ptr %.val28.i.i.i.i, i64 %300
   br i1 %.not36.i.i.i.i, label %302, label %.split.i.i.i.i
 
 .split.i.i.i.i:                                   ; preds = %292
@@ -3664,7 +3664,7 @@ xSAT_HeapInHeap.exit.i.i:                         ; preds = %273
   %304 = sext i32 %303 to i64
   %305 = getelementptr inbounds i32, ptr %.val3.i.i.i, i64 %304
   store i32 %.02341.i.i.i.i, ptr %305, align 4, !tbaa !30
-  %.not.i.i.i.i = icmp ult i32 %.042.in.i.i.i.i, 2
+  %.not.i.i.i.i = icmp eq i32 %.042.i.i.i.i, 0
   br i1 %.not.i.i.i.i, label %.split24.i.i.i.i, label %292, !llvm.loop !75
 
 xSAT_HeapDecrease.exit.i.i:                       ; preds = %.split.i.i.i.i, %.split24.i.i.i.i
@@ -4851,17 +4851,17 @@ xSAT_HeapInHeap.exit.i228.i:                      ; preds = %847
 866:                                              ; preds = %876, %.lr.ph.i.i.i232.i
   %.02341.i.i.i235.i = phi i32 [ %854, %.lr.ph.i.i.i232.i ], [ %.042.i.i.i237.i, %876 ]
   %.042.in.i.i.i236.i = add nsw i32 %.02341.i.i.i235.i, -1
-  %.042.i.i.i237.i = ashr i32 %.042.in.i.i.i236.i, 1
-  %867 = sext i32 %.042.i.i.i237.i to i64
-  %868 = getelementptr inbounds i32, ptr %.val28.i.i.i230.i, i64 %867
+  %.042.i.i.i237.i = lshr i32 %.042.in.i.i.i236.i, 1
+  %867 = zext nneg i32 %.042.i.i.i237.i to i64
+  %868 = getelementptr inbounds nuw i32, ptr %.val28.i.i.i230.i, i64 %867
   %869 = load i32, ptr %868, align 4, !tbaa !30
   %870 = load i32, ptr %865, align 4, !tbaa !30
   %871 = sext i32 %869 to i64
   %872 = getelementptr inbounds i32, ptr %.val35.val.i.i.i234.i, i64 %871
   %873 = load i32, ptr %872, align 4, !tbaa !30
   %.not36.i.i.i238.i = icmp ugt i32 %870, %873
-  %874 = sext i32 %.02341.i.i.i235.i to i64
-  %875 = getelementptr inbounds i32, ptr %.val28.i.i.i230.i, i64 %874
+  %874 = zext nneg i32 %.02341.i.i.i235.i to i64
+  %875 = getelementptr inbounds nuw i32, ptr %.val28.i.i.i230.i, i64 %874
   br i1 %.not36.i.i.i238.i, label %876, label %.split.i.i.i239.i
 
 .split.i.i.i239.i:                                ; preds = %866
@@ -4874,7 +4874,7 @@ xSAT_HeapInHeap.exit.i228.i:                      ; preds = %847
   %878 = sext i32 %877 to i64
   %879 = getelementptr inbounds i32, ptr %.val3.i.i229.i, i64 %878
   store i32 %.02341.i.i.i235.i, ptr %879, align 4, !tbaa !30
-  %.not.i.i.i243.i = icmp ult i32 %.042.in.i.i.i236.i, 2
+  %.not.i.i.i243.i = icmp eq i32 %.042.i.i.i237.i, 0
   br i1 %.not.i.i.i243.i, label %.split24.i.i.i244.i, label %866, !llvm.loop !75
 
 xSAT_HeapDecrease.exit.i240.i:                    ; preds = %.split.i.i.i239.i, %.split24.i.i.i244.i

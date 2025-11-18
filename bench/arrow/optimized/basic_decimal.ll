@@ -3100,87 +3100,80 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2
 4:                                                ; preds = %2
   %5 = lshr i32 %1, 6
   %6 = icmp ugt i32 %1, 255
-  br i1 %6, label %7, label %.lr.ph
-
-7:                                                ; preds = %4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
-  br label %.loopexit
+  br i1 %6, label %.loopexit.sink.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %8 = and i32 %1, 63
-  %9 = zext nneg i32 %8 to i64
-  %.not30.not = icmp eq i32 %8, 0
-  %10 = sub nuw nsw i32 64, %8
-  %11 = zext nneg i32 %10 to i64
+  %7 = and i32 %1, 63
+  %8 = zext nneg i32 %7 to i64
+  %.not30.not = icmp eq i32 %7, 0
+  %9 = sub nuw nsw i32 64, %7
+  %10 = zext nneg i32 %9 to i64
   br i1 %.not30.not, label %.lr.ph.split.us.preheader, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
   %.neg = xor i32 %5, -1
-  %12 = zext nneg i32 %5 to i64
-  %13 = sext i32 %.neg to i64
-  %invariant.gep = getelementptr i64, ptr %0, i64 %13
-  %14 = sub nuw nsw i64 3, %12
-  %15 = getelementptr inbounds nuw i64, ptr %0, i64 %14
-  %16 = load i64, ptr %15, align 8, !tbaa !7
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %18 = shl i64 %16, %9
-  store i64 %18, ptr %17, align 8, !tbaa !7
+  %11 = zext nneg i32 %5 to i64
+  %12 = sext i32 %.neg to i64
+  %invariant.gep = getelementptr i64, ptr %0, i64 %12
+  %13 = sub nuw nsw i64 3, %11
+  %14 = getelementptr inbounds nuw i64, ptr %0, i64 %13
+  %15 = load i64, ptr %14, align 8, !tbaa !7
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %17 = shl i64 %15, %8
+  store i64 %17, ptr %16, align 8, !tbaa !7
   %.not31.not52 = icmp ult i32 %1, 192
   br i1 %.not31.not52, label %.lr.ph.split, label %.preheader
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  %19 = zext nneg i32 %5 to i64
+  %18 = zext nneg i32 %5 to i64
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
   %indvars.iv44 = phi i64 [ 3, %.lr.ph.split.us.preheader ], [ %indvars.iv.next45, %.lr.ph.split.us ]
-  %20 = sub nsw i64 %indvars.iv44, %19
-  %21 = getelementptr inbounds nuw i64, ptr %0, i64 %20
-  %22 = load i64, ptr %21, align 8, !tbaa !7
-  %23 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv44
-  store i64 %22, ptr %23, align 8, !tbaa !7
+  %19 = sub nsw i64 %indvars.iv44, %18
+  %20 = getelementptr inbounds nuw i64, ptr %0, i64 %19
+  %21 = load i64, ptr %20, align 8, !tbaa !7
+  %22 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv44
+  store i64 %21, ptr %22, align 8, !tbaa !7
   %indvars.iv.next45 = add nsw i64 %indvars.iv44, -1
-  %.not.us.not = icmp samesign ugt i64 %indvars.iv44, %19
+  %.not.us.not = icmp samesign ugt i64 %indvars.iv44, %18
   br i1 %.not.us.not, label %.lr.ph.split.us, label %.preheader, !llvm.loop !31
 
 .preheader:                                       ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph.split.preheader
-  %.not = icmp ult i32 %1, 64
+  %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.loopexit, label %.lr.ph41.preheader
 
 .lr.ph41.preheader:                               ; preds = %.preheader
-  %24 = add nsw i32 %5, -1
-  %25 = zext i32 %24 to i64
-  %smin = tail call i32 @llvm.smin.i32(i32 %5, i32 1)
-  %26 = sub nsw i32 %5, %smin
-  %27 = zext i32 %26 to i64
-  %28 = shl nuw nsw i64 %27, 3
-  %29 = sub nsw i64 %25, %27
-  %30 = shl nsw i64 %29, 3
-  %scevgep = getelementptr i8, ptr %0, i64 %30
-  %31 = add nuw nsw i64 %28, 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %31, i1 false), !tbaa !7
-  br label %.loopexit
+  %23 = lshr i32 %1, 3
+  %24 = and i32 %23, 24
+  %25 = zext nneg i32 %24 to i64
+  br label %.loopexit.sink.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
-  %32 = phi i64 [ %41, %.lr.ph.split ], [ %18, %.lr.ph.split.preheader ]
-  %33 = phi ptr [ %40, %.lr.ph.split ], [ %17, %.lr.ph.split.preheader ]
+  %26 = phi i64 [ %35, %.lr.ph.split ], [ %17, %.lr.ph.split.preheader ]
+  %27 = phi ptr [ %34, %.lr.ph.split ], [ %16, %.lr.ph.split.preheader ]
   %indvars.iv53 = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 3, %.lr.ph.split.preheader ]
   %gep = getelementptr i64, ptr %invariant.gep, i64 %indvars.iv53
-  %34 = load i64, ptr %gep, align 8, !tbaa !7
-  %35 = lshr i64 %34, %11
-  %36 = or i64 %35, %32
-  store i64 %36, ptr %33, align 8, !tbaa !7
+  %28 = load i64, ptr %gep, align 8, !tbaa !7
+  %29 = lshr i64 %28, %10
+  %30 = or i64 %29, %26
+  store i64 %30, ptr %27, align 8, !tbaa !7
   %indvars.iv.next = add nsw i64 %indvars.iv53, -1
-  %37 = sub nsw i64 %indvars.iv.next, %12
-  %38 = getelementptr inbounds nuw i64, ptr %0, i64 %37
-  %39 = load i64, ptr %38, align 8, !tbaa !7
-  %40 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.next
-  %41 = shl i64 %39, %9
-  store i64 %41, ptr %40, align 8, !tbaa !7
-  %.not31.not = icmp samesign ugt i64 %indvars.iv.next, %12
+  %31 = sub nsw i64 %indvars.iv.next, %11
+  %32 = getelementptr inbounds nuw i64, ptr %0, i64 %31
+  %33 = load i64, ptr %32, align 8, !tbaa !7
+  %34 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.next
+  %35 = shl i64 %33, %8
+  store i64 %35, ptr %34, align 8, !tbaa !7
+  %.not31.not = icmp samesign ugt i64 %indvars.iv.next, %11
   br i1 %.not31.not, label %.lr.ph.split, label %.preheader
 
-.loopexit:                                        ; preds = %.lr.ph41.preheader, %.preheader, %7, %2
+.loopexit.sink.split:                             ; preds = %4, %.lr.ph41.preheader
+  %.sink = phi i64 [ %25, %.lr.ph41.preheader ], [ 32, %4 ]
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %0, i8 0, i64 %.sink, i1 false)
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.loopexit.sink.split, %.preheader, %2
   ret ptr %0
 }
 
@@ -4640,9 +4633,6 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #14
 
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #15
-
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
@@ -4658,7 +4648,6 @@ attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

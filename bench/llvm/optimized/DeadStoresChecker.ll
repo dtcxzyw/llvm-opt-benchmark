@@ -2663,7 +2663,7 @@ _ZN4llvm9BitVectorC2Ejb.exit.loopexit.i:          ; preds = %35
   br label %_ZN12_GLOBAL__N_113ReachableCodeC2ERKN5clang3CFGE.exit
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.i:      ; preds = %35
-  %.not.i.i.i = icmp samesign ult i32 %42, 64
+  %.not.i.i.i = icmp eq i32 %43, 0
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_113ReachableCodeC2ERKN5clang3CFGE.exit.thread, label %_ZN12_GLOBAL__N_113ReachableCodeC2ERKN5clang3CFGE.exit
 
 _ZN12_GLOBAL__N_113ReachableCodeC2ERKN5clang3CFGE.exit.thread: ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.i
@@ -2905,7 +2905,7 @@ _ZN12_GLOBAL__N_112DeadStoreObs12isSuppressedEN5clang11SourceRangeE.exit.thread:
   store i32 0, ptr %150, align 8, !tbaa !348
   %151 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 1, ptr %151, align 4, !tbaa !399
-  switch i32 %2, label %default.unreachable87 [
+  switch i32 %2, label %default.unreachable86 [
     i32 3, label %152
     i32 2, label %230
     i32 0, label %231
@@ -3128,7 +3128,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit42:               ; preds = %240, %242
   %267 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %266, ptr noundef nonnull @.str.12)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit45
 
-default.unreachable87:                            ; preds = %_ZN12_GLOBAL__N_112DeadStoreObs12isSuppressedEN5clang11SourceRangeE.exit.thread
+default.unreachable86:                            ; preds = %_ZN12_GLOBAL__N_112DeadStoreObs12isSuppressedEN5clang11SourceRangeE.exit.thread
   unreachable
 
 _ZN4llvm11raw_ostreamlsEPKc.exit45:               ; preds = %255, %253, %185, %_ZN5clang9FixItHintD2Ev.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit37, %264
@@ -6192,11 +6192,11 @@ define internal fastcc noundef zeroext i1 @_ZN4llvm6all_ofINS_8ArrayRefIPN5clang
   %12 = load i64, ptr %11, align 8, !tbaa !877
   %13 = getelementptr inbounds nuw ptr, ptr %10, i64 %12
   %14 = ptrtoint ptr %13 to i64
-  %.not = icmp ult i64 %12, 4
+  %15 = lshr i64 %12, 2
+  %.not = icmp eq i64 %15, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %15 = lshr i64 %12, 2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 8

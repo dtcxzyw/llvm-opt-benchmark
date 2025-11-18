@@ -276,11 +276,11 @@ _ZNK6vectorI6symbolLb0EjE5emptyEv.exit:           ; preds = %16
 _ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i:           ; preds = %24
   %28 = getelementptr inbounds i8, ptr %26, i64 -4
   %29 = load i32, ptr %28, align 4, !tbaa !25
-  %.not.i = icmp ult i32 %29, 2
+  %30 = lshr i32 %29, 1
+  %.not.i = icmp eq i32 %30, 0
   br i1 %.not.i, label %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i
-  %30 = lshr i32 %29, 1
   %wide.trip.count.i = zext nneg i32 %30 to i64
   br label %.lr.ph.i
 
@@ -301,11 +301,11 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i:           ; preds = %24
   br i1 %exitcond.not.i, label %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i, label %.lr.ph.i, !llvm.loop !60
 
 _ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i:          ; preds = %.lr.ph.i, %24, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i
-  %.not.i10 = icmp eq i32 %22, 1
+  %39 = lshr i32 %22, 1
+  %.not.i10 = icmp eq i32 %39, 0
   br i1 %.not.i10, label %_ZN6vectorI6symbolLb0EjE7reverseEv.exit, label %.lr.ph.preheader.i11
 
 .lr.ph.preheader.i11:                             ; preds = %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i
-  %39 = lshr i32 %22, 1
   %wide.trip.count.i12 = zext nneg i32 %39 to i64
   br label %.lr.ph.i13
 
@@ -513,7 +513,7 @@ _ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataE
           to label %.noexc24 unwind label %.loopexit.split-lp
 
 .noexc24:                                         ; preds = %_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE12delete_tableEv.exit.i.i
-  %.not6.i.i.i.i.i.i.i = icmp ult i32 %115, 2
+  %.not6.i.i.i.i.i.i.i = icmp eq i32 %116, 0
   br i1 %.not6.i.i.i.i.i.i.i, label %_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE11alloc_tableEj.exit.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %.noexc24

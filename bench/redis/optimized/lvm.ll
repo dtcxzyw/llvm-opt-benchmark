@@ -2200,22 +2200,22 @@ lessequal.exit:                                   ; preds = %536, %539, %l_strcm
   br label %.critedge.backedge
 
 631:                                              ; preds = %91
-  %632 = lshr i32 %34, 14
-  %633 = and i32 %632, 511
-  %634 = add nsw i32 %633, -1
-  %.not773 = icmp ult i32 %34, 8388608
-  br i1 %.not773, label %639, label %635
+  %632 = lshr i32 %34, 23
+  %633 = lshr i32 %34, 14
+  %634 = and i32 %633, 511
+  %635 = add nsw i32 %634, -1
+  %.not773 = icmp eq i32 %632, 0
+  br i1 %.not773, label %639, label %636
 
-635:                                              ; preds = %631
-  %636 = lshr i32 %34, 23
-  %637 = zext nneg i32 %636 to i64
+636:                                              ; preds = %631
+  %637 = zext nneg i32 %632 to i64
   %638 = getelementptr inbounds nuw %struct.lua_TValue, ptr %95, i64 %637
   store ptr %638, ptr %16, align 8, !tbaa !33
   br label %639
 
-639:                                              ; preds = %635, %631
+639:                                              ; preds = %636, %631
   store ptr %33, ptr %8, align 8, !tbaa !41
-  %640 = call i32 @luaD_precall(ptr noundef nonnull %0, ptr noundef %95, i32 noundef %634) #9
+  %640 = call i32 @luaD_precall(ptr noundef nonnull %0, ptr noundef %95, i32 noundef %635) #9
   switch i32 %640, label %.critedge.thread [
     i32 0, label %641
     i32 1, label %643
@@ -2226,7 +2226,7 @@ lessequal.exit:                                   ; preds = %536, %539, %l_strcm
   br label %.loopexit.outer.backedge
 
 643:                                              ; preds = %639
-  %.not774 = icmp eq i32 %633, 0
+  %.not774 = icmp eq i32 %634, 0
   br i1 %.not774, label %648, label %644
 
 644:                                              ; preds = %643
@@ -2241,17 +2241,17 @@ lessequal.exit:                                   ; preds = %536, %539, %l_strcm
   br label %.critedge.backedge
 
 650:                                              ; preds = %91
-  %.not771 = icmp ult i32 %34, 8388608
-  br i1 %.not771, label %655, label %651
+  %651 = lshr i32 %34, 23
+  %.not771 = icmp eq i32 %651, 0
+  br i1 %.not771, label %655, label %652
 
-651:                                              ; preds = %650
-  %652 = lshr i32 %34, 23
-  %653 = zext nneg i32 %652 to i64
+652:                                              ; preds = %650
+  %653 = zext nneg i32 %651 to i64
   %654 = getelementptr inbounds nuw %struct.lua_TValue, ptr %95, i64 %653
   store ptr %654, ptr %16, align 8, !tbaa !33
   br label %655
 
-655:                                              ; preds = %651, %650
+655:                                              ; preds = %652, %650
   store ptr %33, ptr %8, align 8, !tbaa !41
   %656 = call i32 @luaD_precall(ptr noundef nonnull %0, ptr noundef %95, i32 noundef -1) #9
   switch i32 %656, label %.critedge.thread [
@@ -2328,18 +2328,18 @@ lessequal.exit:                                   ; preds = %536, %539, %l_strcm
   br label %.critedge.backedge
 
 696:                                              ; preds = %91
-  %.not768 = icmp ult i32 %34, 8388608
-  br i1 %.not768, label %702, label %697
+  %697 = lshr i32 %34, 23
+  %.not768 = icmp eq i32 %697, 0
+  br i1 %.not768, label %702, label %698
 
-697:                                              ; preds = %696
-  %698 = lshr i32 %34, 23
-  %699 = zext nneg i32 %698 to i64
+698:                                              ; preds = %696
+  %699 = zext nneg i32 %697 to i64
   %700 = getelementptr inbounds nuw %struct.lua_TValue, ptr %95, i64 %699
   %701 = getelementptr inbounds i8, ptr %700, i64 -16
   store ptr %701, ptr %16, align 8, !tbaa !33
   br label %702
 
-702:                                              ; preds = %697, %696
+702:                                              ; preds = %698, %696
   %703 = load ptr, ptr %18, align 8, !tbaa !75
   %.not769 = icmp eq ptr %703, null
   br i1 %.not769, label %705, label %704
@@ -2443,8 +2443,8 @@ luaV_tonumber.exit.thread:                        ; preds = %741
 
 751:                                              ; preds = %747
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %cond954 = icmp eq i32 %749, 4
-  br i1 %cond954, label %752, label %757
+  %cond955 = icmp eq i32 %749, 4
+  br i1 %cond955, label %752, label %757
 
 752:                                              ; preds = %751
   %753 = load ptr, ptr %735, align 8, !tbaa !9
@@ -2473,8 +2473,8 @@ luaV_tonumber.exit815.thread:                     ; preds = %752
 
 762:                                              ; preds = %758
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %cond955 = icmp eq i32 %760, 4
-  br i1 %cond955, label %763, label %768
+  %cond956 = icmp eq i32 %760, 4
+  br i1 %cond956, label %763, label %768
 
 763:                                              ; preds = %762
   %764 = load ptr, ptr %736, align 8, !tbaa !9
@@ -2571,7 +2571,7 @@ luaV_tonumber.exit818.thread:                     ; preds = %763
   %819 = lshr i32 %34, 23
   %820 = lshr i32 %34, 14
   %821 = and i32 %820, 511
-  %822 = icmp ult i32 %34, 8388608
+  %822 = icmp eq i32 %819, 0
   br i1 %822, label %823, label %834
 
 823:                                              ; preds = %818
@@ -2763,7 +2763,7 @@ luaV_tonumber.exit818.thread:                     ; preds = %763
   %930 = zext i8 %929 to i32
   %931 = xor i32 %930, -1
   %932 = add i32 %926, %931
-  %933 = icmp ult i32 %34, 8388608
+  %933 = icmp eq i32 %916, 0
   br i1 %933, label %934, label %948
 
 934:                                              ; preds = %915
@@ -2825,10 +2825,10 @@ luaV_tonumber.exit818.thread:                     ; preds = %763
   br label %962
 
 962:                                              ; preds = %952, %954
-  %.sink956 = phi i32 [ %961, %954 ], [ 0, %952 ]
+  %.sink957 = phi i32 [ %961, %954 ], [ 0, %952 ]
   %963 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.0729, i64 %indvars.iv
   %964 = getelementptr inbounds nuw i8, ptr %963, i64 8
-  store i32 %.sink956, ptr %964, align 8, !tbaa !4
+  store i32 %.sink957, ptr %964, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge.backedge, label %952, !llvm.loop !87

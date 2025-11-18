@@ -3413,6 +3413,7 @@ _ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE8containsES5_.exit.thread.i
   %195 = call noundef nonnull align 8 dereferenceable(23216) ptr %194(ptr noundef nonnull align 8 dereferenceable(264) %191) #21
   %196 = call fastcc i64 @_ZN12_GLOBAL__N_122StackAddrEscapeChecker7genNameERN4llvm11raw_ostreamEPKN5clang4ento9MemRegionERNS4_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef %163, ptr noundef nonnull align 8 dereferenceable(23216) %195)
   %.sroa.011.0.extract.trunc.i = trunc i64 %196 to i32
+  %.sroa.7.0.extract.shift.i = lshr i64 %196, 32
   %197 = getelementptr inbounds nuw i8, ptr %161, i64 16
   %198 = load i32, ptr %197, align 8, !tbaa !48
   %199 = add i32 %198, -17
@@ -3479,8 +3480,8 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i:    ; preds = %221, %219
   call void @_ZN5clang4ento22PathSensitiveBugReportC2ERKNS0_7BugTypeEN4llvm9StringRefES6_PKNS0_12ExplodedNodeENS0_22PathDiagnosticLocationEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(1000) %230, ptr noundef nonnull align 8 dereferenceable(97) %225, ptr %227, i64 %229, ptr %227, i64 %229, ptr noundef nonnull %86, ptr noundef nonnull byval(%"class.clang::ento::PathDiagnosticLocation") align 8 %11, ptr noundef null) #21, !noalias !778
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !778
   %231 = icmp ne i32 %.sroa.011.0.extract.trunc.i, 0
-  %232 = icmp ugt i64 %196, 4294967295
-  %233 = and i1 %232, %231
+  %232 = icmp ne i64 %.sroa.7.0.extract.shift.i, 0
+  %233 = and i1 %231, %232
   br i1 %233, label %234, label %250
 
 234:                                              ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i
@@ -3779,8 +3780,8 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit60.i:  ; preds = %364, %362
   call void @_ZN5clang4ento22PathSensitiveBugReportC2ERKNS0_7BugTypeEN4llvm9StringRefES6_PKNS0_12ExplodedNodeENS0_22PathDiagnosticLocationEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(1000) %372, ptr noundef nonnull align 8 dereferenceable(97) %367, ptr %369, i64 %371, ptr %369, i64 %371, ptr noundef nonnull %86, ptr noundef nonnull byval(%"class.clang::ento::PathDiagnosticLocation") align 8 %7, ptr noundef null) #21, !noalias !788
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !788
   %373 = icmp ne i32 %.sroa.011.0.extract.trunc.i, 0
-  %374 = icmp ugt i64 %196, 4294967295
-  %375 = and i1 %374, %373
+  %374 = icmp ne i64 %.sroa.7.0.extract.shift.i, 0
+  %375 = and i1 %373, %374
   br i1 %375, label %376, label %392
 
 376:                                              ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit60.i
@@ -3852,12 +3853,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit.i
 
 _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit.i: ; preds = %282, %.lr.ph.i51.i, %405, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i, %403, %_ZL13printReferrerB5cxx11PKN5clang4ento9MemRegionE.exit.i
-  %.379.i = phi i32 [ 0, %403 ], [ 0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i ], [ 3, %_ZL13printReferrerB5cxx11PKN5clang4ento9MemRegionE.exit.i ], [ 0, %405 ], [ 3, %.lr.ph.i51.i ], [ 3, %282 ]
+  %.377.i = phi i32 [ 0, %403 ], [ 0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i ], [ 3, %_ZL13printReferrerB5cxx11PKN5clang4ento9MemRegionE.exit.i ], [ 0, %405 ], [ 3, %.lr.ph.i51.i ], [ 3, %282 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %410
 
 410:                                              ; preds = %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit.i, %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit.i
-  %.2.i = phi i32 [ 1, %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit.i ], [ %.379.i, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit.i ]
+  %.2.i = phi i32 [ 1, %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit.i ], [ %.377.i, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit.i ]
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %15) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %411 = load ptr, ptr %14, align 8, !tbaa !496

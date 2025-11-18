@@ -18625,7 +18625,7 @@ _ZNSt6vectorIxSaIxEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
 
 92:                                               ; preds = %_ZNSt6vectorIxSaIxEE7reserveEm.exit
   %93 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.not = icmp samesign ult i64 %89, 2
+  %.not = icmp eq i64 %90, 0
   br i1 %.not, label %_ZNSt6vectorIxSaIxEE9push_backEOx.exit, label %_ZNSt12_Vector_baseIxSaIxEE11_M_allocateEm.exit.i64
 
 _ZNSt12_Vector_baseIxSaIxEE11_M_allocateEm.exit.i64: ; preds = %92
@@ -19202,7 +19202,7 @@ _ZNSt6vectorIxSaIxEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
 
 92:                                               ; preds = %_ZNSt6vectorIxSaIxEE7reserveEm.exit
   %93 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.not = icmp samesign ult i64 %89, 2
+  %.not = icmp eq i64 %90, 0
   br i1 %.not, label %_ZNSt6vectorIxSaIxEE9push_backEOx.exit, label %_ZNSt12_Vector_baseIxSaIxEE11_M_allocateEm.exit.i65
 
 _ZNSt12_Vector_baseIxSaIxEE11_M_allocateEm.exit.i65: ; preds = %92

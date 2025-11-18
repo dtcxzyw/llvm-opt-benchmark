@@ -675,7 +675,7 @@ getFrameControlData.exit:                         ; preds = %.thread, %173, %.th
   %.0.i174 = phi i32 [ 1, %203 ], [ 2, %209 ]
   %213 = add nuw nsw i32 %.0.i174, %193
   %214 = icmp ne i32 %.pre, 0
-  %215 = icmp ult i8 %140, 4
+  %215 = icmp eq i8 %141, 0
   %or.cond9 = select i1 %215, i1 %214, i1 false
   br i1 %or.cond9, label %216, label %342
 
@@ -752,7 +752,7 @@ getControlChannelLength.exit:                     ; preds = %.lr.ph.i177, %getCo
   %265 = call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %264, ptr noundef %0, i32 noundef %247, i32 noundef 1, i32 noundef 0)
   %266 = add i32 %.sroa.5180.1, %247
   call void @proto_item_set_len(ptr noundef %249, i32 noundef %.sroa.5180.1)
-  %.not = icmp ult i8 %260, 2
+  %.not = icmp eq i8 %261, 0
   br i1 %.not, label %.thread228, label %267
 
 267:                                              ; preds = %getControlChannelLength.exit
@@ -870,7 +870,7 @@ getControlChannelValues.exit:                     ; preds = %267, %279, %.thread
   br label %.thread228
 
 342:                                              ; preds = %212
-  %343 = icmp ugt i8 %140, 3
+  %343 = icmp ne i8 %141, 0
   %or.cond7 = select i1 %343, i1 %214, i1 false
   br i1 %or.cond7, label %344, label %.thread228
 

@@ -1087,15 +1087,12 @@ define hidden void @_ZN9itertools11kmerge_impl9kmerge_by17hc0d6ac46f6c4e8cbE(ptr
 "_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hc82452fc4e821e0cE.exit": ; preds = %2
   %17 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
   %18 = load i64, ptr %13, align 8, !noundef !4
-  %.not22.i = icmp ult i64 %18, 2
-  br i1 %.not22.i, label %_ZN9itertools11kmerge_impl7heapify17h38ced7cf37b1c964E.exit, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hc82452fc4e821e0cE.exit"
   %19 = lshr i64 %18, 1
-  br label %.lr.ph.i
+  %.not22.i = icmp eq i64 %19, 0
+  br i1 %.not22.i, label %_ZN9itertools11kmerge_impl7heapify17h38ced7cf37b1c964E.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZN9itertools11kmerge_impl9sift_down17hee2b94fda18d1b35E.exit.i, %.lr.ph.preheader.i
-  %.sroa.4.023.i = phi i64 [ %20, %_ZN9itertools11kmerge_impl9sift_down17hee2b94fda18d1b35E.exit.i ], [ %19, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hc82452fc4e821e0cE.exit", %_ZN9itertools11kmerge_impl9sift_down17hee2b94fda18d1b35E.exit.i
+  %.sroa.4.023.i = phi i64 [ %20, %_ZN9itertools11kmerge_impl9sift_down17hee2b94fda18d1b35E.exit.i ], [ %19, %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hc82452fc4e821e0cE.exit" ]
   %20 = add nsw i64 %.sroa.4.023.i, -1
   %.031.in69.i.i = shl nuw i64 %20, 1
   %.03170.i.i = or disjoint i64 %.031.in69.i.i, 1

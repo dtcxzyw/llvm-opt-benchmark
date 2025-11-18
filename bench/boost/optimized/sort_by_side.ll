@@ -165543,7 +165543,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7over
 96:                                               ; preds = %.lr.ph.i.i.i.i.i
   %97 = getelementptr inbounds %"struct.boost::geometry::detail::overlay::turn_with_point", ptr %0, i64 %.018.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %97, ptr noundef nonnull align 8 dereferenceable(24) %92, i64 24, i1 false), !tbaa.struct !2983
-  %.not12.i.i.i = icmp ult i64 %.0919.in.i.i.i.i.i, 2
+  %.not12.i.i.i = icmp eq i64 %.0919.i.i1011.i.i.i, 0
   br i1 %.not12.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointINS3_5model5pointIdLm2ENS3_2cs9cartesianEEEEESt6vectorISC_SaISC_EEEENS0_5__ops15_Iter_comp_iterIZNS5_12get_clustersISt5dequeINS5_19traversal_turn_infoISB_NS3_13segment_ratioIdEEEESaISP_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlST_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKS12_RKS14_E_EEEvS12_S12_S12_S15_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !2985
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointINS3_5model5pointIdLm2ENS3_2cs9cartesianEEEEESt6vectorISC_SaISC_EEEENS0_5__ops15_Iter_comp_iterIZNS5_12get_clustersISt5dequeINS5_19traversal_turn_infoISB_NS3_13segment_ratioIdEEEESaISP_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlST_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKS12_RKS14_E_EEEvS12_S12_S12_S15_.exit.i.i: ; preds = %96, %.lr.ph.i.i.i.i.i, %91
@@ -168370,7 +168370,7 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iterato
 41:                                               ; preds = %.lr.ph.i.i.i
   %42 = getelementptr inbounds %"struct.boost::geometry::detail::overlay::sort_by_side::ranked_point", ptr %0, i64 %.018.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %42, ptr noundef nonnull align 8 dereferenceable(112) %39, i64 112, i1 false), !tbaa.struct !3027
-  %.not8.i = icmp ult i64 %.0919.in.i.i.i, 2
+  %.not8.i = icmp eq i64 %.0919.i.i67.i, 0
   br i1 %.not8.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay12sort_by_side12ranked_pointINS3_5model5pointIdLm2ENS3_2cs9cartesianEEEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterINS6_12less_by_sideISC_SC_NS3_10strategies6relate9cartesianIvEENS6_13less_by_indexESt4lessIiEEEEEEvT_SV_SV_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !3070
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay12sort_by_side12ranked_pointINS3_5model5pointIdLm2ENS3_2cs9cartesianEEEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterINS6_12less_by_sideISC_SC_NS3_10strategies6relate9cartesianIvEENS6_13less_by_indexESt4lessIiEEEEEEvT_SV_SV_RT0_.exit: ; preds = %.lr.ph.i.i.i, %41, %38
@@ -171627,7 +171627,7 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iterato
 41:                                               ; preds = %.lr.ph.i.i.i
   %42 = getelementptr inbounds %"struct.boost::geometry::detail::overlay::indexed_turn_operation", ptr %0, i64 %.018.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %39, i64 40, i1 false), !tbaa.struct !3131
-  %.not8.i = icmp ult i64 %.0919.in.i.i.i, 2
+  %.not8.i = icmp eq i64 %.0919.i.i67.i, 0
   br i1 %.not8.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay22indexed_turn_operationINS5_24traversal_turn_operationINS3_5model5pointIdLm2ENS3_2cs9cartesianEEENS3_13segment_ratioIdEEEEEESt6vectorISG_SaISG_EEEENS0_5__ops15_Iter_comp_iterINS5_21less_by_segment_ratioISt5dequeINS5_19traversal_turn_infoISC_SE_EESaISR_EESG_NS8_13multi_polygonINS8_7polygonISC_Lb1ELb1ESI_SI_SaSaEESI_SaEESX_NS4_17no_rescale_policyENS3_10strategies6relate9cartesianIvEELb0ELb0EEEEEEvT_S15_S15_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !3149
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay22indexed_turn_operationINS5_24traversal_turn_operationINS3_5model5pointIdLm2ENS3_2cs9cartesianEEENS3_13segment_ratioIdEEEEEESt6vectorISG_SaISG_EEEENS0_5__ops15_Iter_comp_iterINS5_21less_by_segment_ratioISt5dequeINS5_19traversal_turn_infoISC_SE_EESaISR_EESG_NS8_13multi_polygonINS8_7polygonISC_Lb1ELb1ESI_SI_SaSaEESI_SaEESX_NS4_17no_rescale_policyENS3_10strategies6relate9cartesianIvEELb0ELb0EEEEEEvT_S15_S15_RT0_.exit: ; preds = %.lr.ph.i.i.i, %41, %38

@@ -27313,34 +27313,34 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
   br label %_ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19ThriftFileTransportEE14readFieldBeginERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_5TTypeERs.exit
 
 14:                                               ; preds = %4
-  %15 = icmp ult i8 %10, 16
-  br i1 %15, label %16, label %26
+  %15 = lshr i8 %10, 4
+  %16 = icmp eq i8 %15, 0
+  br i1 %16, label %17, label %27
 
-16:                                               ; preds = %14
+17:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %17 = call noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19ThriftFileTransportEE12readVarint64ERl(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %18 = load i64, ptr %5, align 8, !tbaa !13
-  %19 = trunc i64 %18 to i32
+  %18 = call noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19ThriftFileTransportEE12readVarint64ERl(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %19 = load i64, ptr %5, align 8, !tbaa !13
+  %20 = trunc i64 %19 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %20 = lshr i32 %19, 1
-  %21 = and i32 %19, 1
-  %22 = sub nsw i32 0, %21
-  %23 = xor i32 %20, %22
-  %24 = trunc i32 %23 to i16
-  %25 = add i32 %17, 1
+  %21 = lshr i32 %20, 1
+  %22 = and i32 %20, 1
+  %23 = sub nsw i32 0, %22
+  %24 = xor i32 %21, %23
+  %25 = trunc i32 %24 to i16
+  %26 = add i32 %18, 1
   br label %32
 
-26:                                               ; preds = %14
-  %27 = lshr i8 %10, 4
-  %28 = zext nneg i8 %27 to i16
+27:                                               ; preds = %14
+  %28 = zext nneg i8 %15 to i16
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %30 = load i16, ptr %29, align 8, !tbaa !968
   %31 = add i16 %30, %28
   br label %32
 
-32:                                               ; preds = %26, %16
-  %.sink.i = phi i16 [ %24, %16 ], [ %31, %26 ]
-  %.020.i = phi i32 [ %25, %16 ], [ 1, %26 ]
+32:                                               ; preds = %27, %17
+  %.sink.i = phi i16 [ %25, %17 ], [ %31, %27 ]
+  %.020.i = phi i32 [ %26, %17 ], [ 1, %27 ]
   store i16 %.sink.i, ptr %3, align 2, !tbaa !982
   %33 = call noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19ThriftFileTransportEE8getTTypeEa(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 noundef signext %11)
   store i32 %33, ptr %2, align 4, !tbaa !997
@@ -29293,36 +29293,36 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19ThriftFileTransp
   br label %.loopexit99
 
 110:                                              ; preds = %.noexc78
-  %111 = icmp ult i8 %106, 16
-  br i1 %111, label %112, label %122
+  %111 = lshr i8 %106, 4
+  %112 = icmp eq i8 %111, 0
+  br i1 %112, label %113, label %123
 
-112:                                              ; preds = %110
+113:                                              ; preds = %110
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %113 = invoke noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19ThriftFileTransportEE12readVarint64ERl(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %114 = invoke noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19ThriftFileTransportEE12readVarint64ERl(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %.noexc79 unwind label %.loopexit
 
-.noexc79:                                         ; preds = %112
-  %114 = load i64, ptr %3, align 8, !tbaa !13
-  %115 = trunc i64 %114 to i32
+.noexc79:                                         ; preds = %113
+  %115 = load i64, ptr %3, align 8, !tbaa !13
+  %116 = trunc i64 %115 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %116 = lshr i32 %115, 1
-  %117 = and i32 %115, 1
-  %118 = sub nsw i32 0, %117
-  %119 = xor i32 %116, %118
-  %120 = trunc i32 %119 to i16
-  %121 = add i32 %113, 1
+  %117 = lshr i32 %116, 1
+  %118 = and i32 %116, 1
+  %119 = sub nsw i32 0, %118
+  %120 = xor i32 %117, %119
+  %121 = trunc i32 %120 to i16
+  %122 = add i32 %114, 1
   br label %127
 
-122:                                              ; preds = %110
-  %123 = lshr i8 %106, 4
-  %124 = zext nneg i8 %123 to i16
+123:                                              ; preds = %110
+  %124 = zext nneg i8 %111 to i16
   %125 = load i16, ptr %89, align 8, !tbaa !968
   %126 = add i16 %125, %124
   br label %127
 
-127:                                              ; preds = %122, %.noexc79
-  %.sink.i = phi i16 [ %120, %.noexc79 ], [ %126, %122 ]
-  %.020.i = phi i32 [ %121, %.noexc79 ], [ 1, %122 ]
+127:                                              ; preds = %123, %.noexc79
+  %.sink.i = phi i16 [ %121, %.noexc79 ], [ %126, %123 ]
+  %.020.i = phi i32 [ %122, %.noexc79 ], [ 1, %123 ]
   %128 = invoke noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19ThriftFileTransportEE8getTTypeEa(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 noundef signext %107)
           to label %.noexc80 unwind label %.loopexit
 
@@ -29343,7 +29343,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19ThriftFileTransp
   %133 = icmp eq i32 %128, 0
   br i1 %133, label %.loopexit99, label %137
 
-.loopexit:                                        ; preds = %137, %103, %112, %127
+.loopexit:                                        ; preds = %137, %103, %113, %127
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %134

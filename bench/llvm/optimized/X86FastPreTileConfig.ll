@@ -554,7 +554,7 @@ _ZN4llvm9BitVector15set_unused_bitsEb.exit.i:     ; preds = %60, %.sink.split.i.
   %103 = add i32 %102, 63
   %104 = lshr i32 %103, 6
   %105 = zext nneg i32 %104 to i64
-  %106 = icmp ult i32 %103, 64
+  %106 = icmp eq i32 %104, 0
   br i1 %106, label %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i, label %107
 
 107:                                              ; preds = %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i
@@ -3050,7 +3050,7 @@ _ZN12_GLOBAL__N_120X86FastPreTileConfig30InitializeTileConfigStackSpaceEv.exit: 
   br label %._crit_edge129.thread
 
 ._crit_edge129.thread:                            ; preds = %._crit_edge, %_ZN12_GLOBAL__N_120X86FastPreTileConfig30InitializeTileConfigStackSpaceEv.exit, %._crit_edge129
-  %.019.lcssa250 = phi i1 [ true, %_ZN12_GLOBAL__N_120X86FastPreTileConfig30InitializeTileConfigStackSpaceEv.exit ], [ false, %._crit_edge129 ], [ false, %._crit_edge ]
+  %.019.lcssa251 = phi i1 [ true, %_ZN12_GLOBAL__N_120X86FastPreTileConfig30InitializeTileConfigStackSpaceEv.exit ], [ false, %._crit_edge129 ], [ false, %._crit_edge ]
   store i32 0, ptr %82, align 8, !tbaa !60
   %1175 = load ptr, ptr %54, align 8, !tbaa !59
   %1176 = icmp eq ptr %1175, %134
@@ -3065,7 +3065,7 @@ _ZN4llvm25ReversePostOrderTraversalIPNS_15MachineFunctionENS_11GraphTraitsIS2_EE
   br label %1178
 
 1178:                                             ; preds = %2, %_ZN4llvm25ReversePostOrderTraversalIPNS_15MachineFunctionENS_11GraphTraitsIS2_EEED2Ev.exit
-  %.0 = phi i1 [ %.019.lcssa250, %_ZN4llvm25ReversePostOrderTraversalIPNS_15MachineFunctionENS_11GraphTraitsIS2_EEED2Ev.exit ], [ false, %2 ]
+  %.0 = phi i1 [ %.019.lcssa251, %_ZN4llvm25ReversePostOrderTraversalIPNS_15MachineFunctionENS_11GraphTraitsIS2_EEED2Ev.exit ], [ false, %2 ]
   ret i1 %.0
 }
 

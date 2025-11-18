@@ -3964,7 +3964,7 @@ define internal fastcc void @dissect_pcep_tlvs_with_scope(ptr noundef %0, ptr no
 
 .preheader361:                                    ; preds = %10
   %24 = lshr i32 %15, 1
-  %.not379 = icmp ult i16 %14, 2
+  %.not379 = icmp eq i32 %24, 0
   br i1 %.not379, label %dissect_pcep_path_setup_capabilities_sub_tlvs.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader361
@@ -3973,7 +3973,7 @@ define internal fastcc void @dissect_pcep_tlvs_with_scope(ptr noundef %0, ptr no
 
 .preheader:                                       ; preds = %10
   %26 = lshr i32 %15, 1
-  %.not380 = icmp ult i16 %14, 2
+  %.not380 = icmp eq i32 %26, 0
   br i1 %.not380, label %dissect_pcep_path_setup_capabilities_sub_tlvs.exit, label %.lr.ph373
 
 .lr.ph373:                                        ; preds = %.preheader

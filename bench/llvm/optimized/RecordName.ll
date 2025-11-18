@@ -1921,7 +1921,7 @@ _ZN4llvm11SmallStringILj256EE6appendENS_9StringRefE.exit: ; preds = %_ZN4llvm15S
   %89 = getelementptr inbounds i8, ptr %.117.i, i64 -1
   store i8 %88, ptr %89, align 1, !tbaa !23, !noalias !139
   %90 = lshr i64 %.019.i, 4
-  %91 = icmp samesign ult i64 %.019.i, 16
+  %91 = icmp eq i64 %90, 0
   br i1 %91, label %._crit_edge.i, label %.thread.i, !llvm.loop !142
 
 _ZN4llvm9utohexstrB5cxx11Embj.exit:               ; preds = %._crit_edge.i.i.i, %83, %85

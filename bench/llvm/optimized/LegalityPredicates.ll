@@ -1073,11 +1073,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %11 = zext i32 %10 to i64
   %.idx4.i.i.i.i = shl nuw nsw i64 %11, 3
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx4.i.i.i.i
-  %.not.i.i.i.i = icmp ult i32 %10, 4
+  %13 = lshr i64 %11, 2
+  %.not.i.i.i.i = icmp eq i64 %13, 0
   br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %2
-  %13 = lshr i64 %11, 2
   %14 = load i64, ptr %7, align 8
   %15 = and i64 %.idx4.i.i.i.i, 34359738336
   %scevgep.i.i.i.i.i.i.i = getelementptr i8, ptr %8, i64 %15
@@ -1121,11 +1121,10 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %._crit_edge.loopexit.i.i.i.i.i.i.i, %2
   %.pre-phi62.i.i.i.i.i.i.i = phi i32 [ %31, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %10, %2 ]
   %.029.lcssa.i.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %8, %2 ]
-  switch i32 %.pre-phi62.i.i.i.i.i.i.i, label %default.unreachable [
+  switch i32 %.pre-phi62.i.i.i.i.i.i.i, label %45 [
     i32 3, label %32
     i32 2, label %._crit_edge._crit_edge.i.i.i.i.i.i.i
     i32 1, label %._crit_edge._crit_edge58.i.i.i.i.i.i.i
-    i32 0, label %45
   ]
 
 ._crit_edge._crit_edge58.i.i.i.i.i.i.i:           ; preds = %._crit_edge.i.i.i.i.i.i.i
@@ -1163,9 +1162,6 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %44 = load i64, ptr %.2.i.i.i.i.i.i.i, align 8
   %spec.select.i.i35.i.i.i.i.i.i.i = icmp eq i64 %44, %43
   br i1 %spec.select.i.i35.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %45
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i.i.i
-  unreachable
 
 45:                                               ; preds = %42, %._crit_edge.i.i.i.i.i.i.i
   br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
@@ -2448,16 +2444,13 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %.sroa.6.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %21, ptr %.sroa.6.0..sroa_idx.i.i.i, align 8
   %26 = ptrtoint ptr %25 to i64
-  %.not.i.i.i.i = icmp ult i32 %.val5.i.i.i, 4
-  br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.preheader.i.i.i.i
-
-.lr.ph.i.i.i.i.i.preheader.i.i.i.i:               ; preds = %2
   %27 = lshr i64 %24, 2
-  br label %.lr.ph.i.i.i.i.i.i.i.i.i
+  %.not.i.i.i.i = icmp eq i64 %27, 0
+  br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %38, %.lr.ph.i.i.i.i.i.preheader.i.i.i.i
-  %.032.i.i.i.i.i.i.i.i.i = phi i64 [ %40, %38 ], [ %27, %.lr.ph.i.i.i.i.i.preheader.i.i.i.i ]
-  %.02931.i.i.i.i.i.i.i.i.i = phi ptr [ %39, %38 ], [ %.val.i.i.i, %.lr.ph.i.i.i.i.i.preheader.i.i.i.i ]
+.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %2, %38
+  %.032.i.i.i.i.i.i.i.i.i = phi i64 [ %40, %38 ], [ %27, %2 ]
+  %.02931.i.i.i.i.i.i.i.i.i = phi ptr [ %39, %38 ], [ %.val.i.i.i, %2 ]
   %28 = call noundef zeroext i1 @_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.02931.i.i.i.i.i.i.i.i.i)
   br i1 %28, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %29
 
@@ -4005,19 +3998,19 @@ _ZNK4llvm3LLT11isByteSizedEv.exit.thread.i.i.i:   ; preds = %2
 
 _ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i:       ; preds = %.thread.i.i.i, %21
   %.sroa.06.0.i.i8.i.i.i = phi i64 [ %.0.in.i.i.i11.i.i.i, %21 ], [ %23, %.thread.i.i.i ]
-  %.not.i.i.i.i = icmp eq i64 %.sroa.06.0.i.i8.i.i.i, 0
-  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %24
+  %24 = add nuw nsw i64 %.sroa.06.0.i.i8.i.i.i, 7
+  %25 = lshr i64 %24, 3
+  %.not.i.i.i.i = icmp eq i64 %25, 0
+  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %26
 
-24:                                               ; preds = %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i
-  %25 = add nuw nsw i64 %.sroa.06.0.i.i8.i.i.i, 7
-  %26 = lshr i64 %25, 3
-  %27 = trunc nuw nsw i64 %26 to i32
+26:                                               ; preds = %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i
+  %27 = trunc nuw nsw i64 %25 to i32
   %28 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %27)
   %29 = icmp samesign ugt i32 %28, 1
   br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %_ZNK4llvm3LLT11isByteSizedEv.exit.i.i.i, %_ZNK4llvm3LLT11isByteSizedEv.exit.thread.i.i.i, %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i, %24
-  %30 = phi i1 [ true, %_ZNK4llvm3LLT11isByteSizedEv.exit.i.i.i ], [ true, %_ZNK4llvm3LLT11isByteSizedEv.exit.thread.i.i.i ], [ true, %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i ], [ %29, %24 ]
+"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %_ZNK4llvm3LLT11isByteSizedEv.exit.i.i.i, %_ZNK4llvm3LLT11isByteSizedEv.exit.thread.i.i.i, %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i, %26
+  %30 = phi i1 [ true, %_ZNK4llvm3LLT11isByteSizedEv.exit.i.i.i ], [ true, %_ZNK4llvm3LLT11isByteSizedEv.exit.thread.i.i.i ], [ true, %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i ], [ %29, %26 ]
   ret i1 %30
 }
 

@@ -178,7 +178,7 @@ define noalias nonnull ptr @l_Lean_mkPtrSet___rarg(ptr noundef %0) local_unnamed
 
 4:                                                ; preds = %1
   %5 = lshr i64 %2, 1
-  %6 = icmp ult ptr %0, inttoptr (i64 2 to ptr)
+  %6 = icmp eq i64 %5, 0
   br i1 %6, label %lean_nat_mul.exit, label %7
 
 7:                                                ; preds = %4
@@ -1799,7 +1799,7 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
 
 88:                                               ; preds = %lean_array_uset.exit
   %89 = lshr i64 %86, 1
-  %90 = icmp ult ptr %.0.i145252, inttoptr (i64 2 to ptr)
+  %90 = icmp eq i64 %89, 0
   br i1 %90, label %lean_nat_mul.exit142, label %91
 
 91:                                               ; preds = %88
@@ -1869,8 +1869,8 @@ lean_dec.exit158:                                 ; preds = %114, %113, %111, %l
   br i1 %.not272, label %121, label %lean_dec.exit157.thread, !prof !16
 
 lean_dec.exit157.thread:                          ; preds = %lean_dec.exit158
-  %.not313 = icmp ugt ptr %.1.i210254, %118
-  br i1 %.not313, label %129, label %145
+  %.not315 = icmp ugt ptr %.1.i210254, %118
+  br i1 %.not315, label %129, label %145
 
 121:                                              ; preds = %lean_dec.exit158
   %122 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %.1.i210254, ptr noundef nonnull %118) #5
@@ -2223,7 +2223,7 @@ lean_array_uset.exit238:                          ; preds = %lean_ensure_exclusi
 
 265:                                              ; preds = %lean_array_uset.exit238
   %266 = lshr i64 %263, 1
-  %267 = icmp ult ptr %.0.i258, inttoptr (i64 2 to ptr)
+  %267 = icmp eq i64 %266, 0
   br i1 %267, label %lean_nat_mul.exit, label %268
 
 268:                                              ; preds = %265
@@ -2293,8 +2293,8 @@ lean_dec.exit150:                                 ; preds = %291, %290, %288, %l
   br i1 %.not267, label %298, label %lean_dec.exit149.thread, !prof !16
 
 lean_dec.exit149.thread:                          ; preds = %lean_dec.exit150
-  %.not312 = icmp ugt ptr %.1.i240260, %295
-  br i1 %.not312, label %306, label %328
+  %.not314 = icmp ugt ptr %.1.i240260, %295
+  br i1 %.not314, label %306, label %328
 
 298:                                              ; preds = %lean_dec.exit150
   %299 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %.1.i240260, ptr noundef nonnull %295) #5
@@ -2824,7 +2824,7 @@ define noalias nonnull ptr @l_Lean_mkPtrMap___rarg(ptr noundef %0) local_unnamed
 
 4:                                                ; preds = %1
   %5 = lshr i64 %2, 1
-  %6 = icmp ult ptr %0, inttoptr (i64 2 to ptr)
+  %6 = icmp eq i64 %5, 0
   br i1 %6, label %lean_nat_mul.exit, label %7
 
 7:                                                ; preds = %4
@@ -4798,7 +4798,7 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
 
 89:                                               ; preds = %lean_array_uset.exit
   %90 = lshr i64 %87, 1
-  %91 = icmp ult ptr %.0.i161280, inttoptr (i64 2 to ptr)
+  %91 = icmp eq i64 %90, 0
   br i1 %91, label %lean_nat_mul.exit158, label %92
 
 92:                                               ; preds = %89
@@ -4868,8 +4868,8 @@ lean_dec.exit170:                                 ; preds = %115, %114, %112, %l
   br i1 %.not296, label %122, label %lean_dec.exit169.thread, !prof !16
 
 lean_dec.exit169.thread:                          ; preds = %lean_dec.exit170
-  %.not337 = icmp ugt ptr %.1.i214282, %119
-  br i1 %.not337, label %130, label %146
+  %.not339 = icmp ugt ptr %.1.i214282, %119
+  br i1 %.not339, label %130, label %146
 
 122:                                              ; preds = %lean_dec.exit170
   %123 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %.1.i214282, ptr noundef nonnull %119) #5
@@ -5259,7 +5259,7 @@ lean_array_uset.exit254:                          ; preds = %lean_ensure_exclusi
 
 282:                                              ; preds = %lean_array_uset.exit254
   %283 = lshr i64 %280, 1
-  %284 = icmp ult ptr %.0.i286, inttoptr (i64 2 to ptr)
+  %284 = icmp eq i64 %283, 0
   br i1 %284, label %lean_nat_mul.exit, label %285
 
 285:                                              ; preds = %282
@@ -5329,8 +5329,8 @@ lean_dec.exit164:                                 ; preds = %308, %307, %305, %l
   br i1 %.not293, label %315, label %lean_dec.exit163.thread, !prof !16
 
 lean_dec.exit163.thread:                          ; preds = %lean_dec.exit164
-  %.not336 = icmp ugt ptr %.1.i256288, %312
-  br i1 %.not336, label %323, label %345
+  %.not338 = icmp ugt ptr %.1.i256288, %312
+  br i1 %.not338, label %323, label %345
 
 315:                                              ; preds = %lean_dec.exit164
   %316 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %.1.i256288, ptr noundef nonnull %312) #5

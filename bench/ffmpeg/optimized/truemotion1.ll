@@ -4405,7 +4405,7 @@ define internal fastcc void @gen_vector_table24(ptr noundef captures(none) %0, p
   %13 = lshr i8 %12, 1
   %14 = zext nneg i8 %13 to i64
   %.145 = getelementptr inbounds nuw i8, ptr %.050, i64 1
-  %.not = icmp ult i8 %12, 2
+  %.not = icmp eq i8 %13, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %11
@@ -4517,7 +4517,7 @@ define internal fastcc void @gen_vector_table15(ptr noundef captures(none) %0, p
   %9 = lshr i8 %8, 1
   %10 = zext nneg i8 %9 to i64
   %.126 = getelementptr inbounds nuw i8, ptr %.031, i64 1
-  %.not = icmp ult i8 %8, 2
+  %.not = icmp eq i8 %9, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %7
@@ -4600,7 +4600,7 @@ define internal fastcc void @gen_vector_table16(ptr noundef captures(none) %0, p
   %9 = lshr i8 %8, 1
   %10 = zext nneg i8 %9 to i64
   %.126 = getelementptr inbounds nuw i8, ptr %.031, i64 1
-  %.not = icmp ult i8 %8, 2
+  %.not = icmp eq i8 %9, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %7

@@ -1281,11 +1281,11 @@ define noalias noundef ptr @Sat_ProofCollectCore(ptr noundef readonly captures(n
 
 .preheader75:                                     ; preds = %9
   %19 = load i32, ptr %18, align 4
-  %.not90 = icmp ult i32 %19, 8
+  %20 = lshr i32 %19, 3
+  %.not90 = icmp eq i32 %20, 0
   br i1 %.not90, label %.critedge2, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader75
-  %20 = lshr i32 %19, 3
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %wide.trip.count = zext nneg i32 %20 to i64
   br label %22
@@ -1450,14 +1450,14 @@ define noalias noundef ptr @Sat_ProofCollectCore(ptr noundef readonly captures(n
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %100, %102, %92, %94
-  %.sink117 = phi ptr [ %93, %92 ], [ %95, %94 ], [ %101, %100 ], [ %103, %102 ]
+  %.sink118 = phi ptr [ %93, %92 ], [ %95, %94 ], [ %101, %100 ], [ %103, %102 ]
   %.sink = phi i32 [ 16, %92 ], [ 16, %94 ], [ %97, %100 ], [ %97, %102 ]
-  store ptr %.sink117, ptr %46, align 8, !tbaa !17
+  store ptr %.sink118, ptr %46, align 8, !tbaa !17
   store i32 %.sink, ptr %43, align 8, !tbaa !23
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %84
-  %.pre.i108 = phi ptr [ %65, %84 ], [ %.sink117, %Vec_IntPush.exit.sink.split ]
+  %.pre.i108 = phi ptr [ %65, %84 ], [ %.sink118, %Vec_IntPush.exit.sink.split ]
   %104 = add nsw i32 %86, 1
   store i32 %104, ptr %44, align 4, !tbaa !14
   %105 = sext i32 %86 to i64

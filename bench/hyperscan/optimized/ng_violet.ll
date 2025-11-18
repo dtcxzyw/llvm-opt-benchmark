@@ -26633,9 +26633,9 @@ _ZN3ue28containsISt3setIjSt4lessIjESaIjEEEEbRKT_RKNS6_8key_typeE.exit239.thread.
   %1668 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %.val114 = load ptr, ptr %1668, align 8
   %1669 = icmp eq ptr %.val113, %.val114
-  br i1 %1669, label %.thread891, label %1672
+  br i1 %1669, label %.thread892, label %1672
 
-.thread891:                                       ; preds = %1667
+.thread892:                                       ; preds = %1667
   store ptr null, ptr %0, align 8
   br label %_ZSt8_DestroyIPSt10unique_ptrIN3ue212_GLOBAL__N_111VertLitInfoESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i
 
@@ -26783,7 +26783,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i.i.i.i.i: ; preds
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIhSaIhEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1716, align 8, !noalias !919
   %1719 = getelementptr inbounds nuw i8, ptr %1716, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1719, i8 0, i64 24, i1 false), !noalias !919
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %1714, 4
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %1715, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph561, label %.noexc3.i.i.i.i.i.i.i.i.i
 
 .noexc3.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i.i.i.i.i
@@ -26966,9 +26966,9 @@ _ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_
   %1791 = getelementptr inbounds nuw i8, ptr %1789, i64 8
   %1792 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i303 = icmp eq i8 %1792, 0
-  br i1 %.not.i.i.i.i.i.i303, label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i, label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i.thread888
+  br i1 %.not.i.i.i.i.i.i303, label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i, label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i.thread889
 
-_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i.thread888: ; preds = %1790
+_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i.thread889: ; preds = %1790
   %1793 = load i32, ptr %1791, align 4
   %1794 = add nsw i32 %1793, 1
   store i32 %1794, ptr %1791, align 4
@@ -26991,8 +26991,8 @@ _ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_
   %.not.i.i.i.i.i358 = icmp eq ptr %.pre711, null
   br i1 %.not.i.i.i.i.i358, label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i360, label %1796
 
-1796:                                             ; preds = %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i.thread888, %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i
-  %1797 = phi ptr [ %1789, %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i.thread888 ], [ %.pre711, %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i ]
+1796:                                             ; preds = %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i.thread889, %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i
+  %1797 = phi ptr [ %1789, %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i.thread889 ], [ %.pre711, %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i ]
   %1798 = getelementptr inbounds nuw i8, ptr %1797, i64 8
   %1799 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i359 = icmp eq i8 %1799, 0
@@ -27412,8 +27412,8 @@ _ZSt8_DestroyISt10unique_ptrIN3ue212_GLOBAL__N_111VertLitInfoESt14default_delete
   %.not.i.i.i.i333 = icmp eq ptr %1954, %.val116564.lcssa
   br i1 %.not.i.i.i.i333, label %_ZSt8_DestroyIPSt10unique_ptrIN3ue212_GLOBAL__N_111VertLitInfoESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i330, !llvm.loop !924
 
-_ZSt8_DestroyIPSt10unique_ptrIN3ue212_GLOBAL__N_111VertLitInfoESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN3ue212_GLOBAL__N_111VertLitInfoESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i, %.thread891, %1943
-  %1955 = phi ptr [ %.val113, %.thread891 ], [ %.pre719, %1943 ], [ %.pre719, %_ZSt8_DestroyISt10unique_ptrIN3ue212_GLOBAL__N_111VertLitInfoESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i ]
+_ZSt8_DestroyIPSt10unique_ptrIN3ue212_GLOBAL__N_111VertLitInfoESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN3ue212_GLOBAL__N_111VertLitInfoESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i, %.thread892, %1943
+  %1955 = phi ptr [ %.val113, %.thread892 ], [ %.pre719, %1943 ], [ %.pre719, %_ZSt8_DestroyISt10unique_ptrIN3ue212_GLOBAL__N_111VertLitInfoESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i ]
   %.not.i.i.i335 = icmp eq ptr %1955, null
   br i1 %.not.i.i.i335, label %_ZNSt6vectorISt10unique_ptrIN3ue212_GLOBAL__N_111VertLitInfoESt14default_deleteIS3_EESaIS6_EED2Ev.exit, label %1956
 

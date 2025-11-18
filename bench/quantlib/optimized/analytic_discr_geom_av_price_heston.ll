@@ -2159,47 +2159,47 @@ entry:
   %mul.il.i.i8 = fmul double %retval.sroa.4.0.copyload.i6, %conv2
   %add.r.i.i = fadd double %mul.rl.i.i, %mul.rl.i.i7
   %add.i.i.i = fadd double %mul.il.i.i, %mul.il.i.i8
-  %mul_ac.i.i17.i = fmul double %add.r.i.i, %add.r.i.i
-  %mul_bd.i.i18.i = fmul double %add.i.i.i, %add.i.i.i
-  %mul_ad.i.i19.i = fmul double %add.r.i.i, %add.i.i.i
-  %mul_r.i.i20.i = fsub double %mul_ac.i.i17.i, %mul_bd.i.i18.i
-  %mul_i.i.i21.i = fadd double %mul_ad.i.i19.i, %mul_ad.i.i19.i
-  %isnan_cmp.i.i22.i = fcmp uno double %mul_r.i.i20.i, 0.000000e+00
-  br i1 %isnan_cmp.i.i22.i, label %complex_mul_imag_nan.i.i47.i, label %if.then.i27.i, !prof !7
+  %mul_ac.i.i18.i = fmul double %add.r.i.i, %add.r.i.i
+  %mul_bd.i.i19.i = fmul double %add.i.i.i, %add.i.i.i
+  %mul_ad.i.i20.i = fmul double %add.r.i.i, %add.i.i.i
+  %mul_r.i.i21.i = fsub double %mul_ac.i.i18.i, %mul_bd.i.i19.i
+  %mul_i.i.i22.i = fadd double %mul_ad.i.i20.i, %mul_ad.i.i20.i
+  %isnan_cmp.i.i23.i = fcmp uno double %mul_r.i.i21.i, 0.000000e+00
+  br i1 %isnan_cmp.i.i23.i, label %complex_mul_imag_nan.i.i49.i, label %if.then.i28.i, !prof !7
 
-complex_mul_imag_nan.i.i47.i:                     ; preds = %entry
-  %isnan_cmp4.i.i48.i = fcmp uno double %mul_i.i.i21.i, 0.000000e+00
-  br i1 %isnan_cmp4.i.i48.i, label %complex_mul_libcall.i.i49.i, label %if.then.i27.i, !prof !7
+complex_mul_imag_nan.i.i49.i:                     ; preds = %entry
+  %isnan_cmp4.i.i50.i = fcmp uno double %mul_i.i.i22.i, 0.000000e+00
+  br i1 %isnan_cmp4.i.i50.i, label %complex_mul_libcall.i.i51.i, label %if.then.i28.i, !prof !7
 
-complex_mul_libcall.i.i49.i:                      ; preds = %complex_mul_imag_nan.i.i47.i
-  %call5.i.i50.i = tail call noundef { double, double } @__muldc3(double noundef %add.r.i.i, double noundef %add.i.i.i, double noundef %add.r.i.i, double noundef %add.i.i.i) #30
-  %3 = extractvalue { double, double } %call5.i.i50.i, 0
-  %4 = extractvalue { double, double } %call5.i.i50.i, 1
-  br label %if.then.i27.i
+complex_mul_libcall.i.i51.i:                      ; preds = %complex_mul_imag_nan.i.i49.i
+  %call5.i.i52.i = tail call noundef { double, double } @__muldc3(double noundef %add.r.i.i, double noundef %add.i.i.i, double noundef %add.r.i.i, double noundef %add.i.i.i) #30
+  %3 = extractvalue { double, double } %call5.i.i52.i, 0
+  %4 = extractvalue { double, double } %call5.i.i52.i, 1
+  br label %if.then.i28.i
 
-if.then.i27.i:                                    ; preds = %entry, %complex_mul_imag_nan.i.i47.i, %complex_mul_libcall.i.i49.i
-  %real_mul_phi.i.i24.i = phi double [ %mul_r.i.i20.i, %entry ], [ %mul_r.i.i20.i, %complex_mul_imag_nan.i.i47.i ], [ %3, %complex_mul_libcall.i.i49.i ]
-  %imag_mul_phi.i.i25.i = phi double [ %mul_i.i.i21.i, %entry ], [ %mul_i.i.i21.i, %complex_mul_imag_nan.i.i47.i ], [ %4, %complex_mul_libcall.i.i49.i ]
-  %mul_bd.i11.i29.i = fmul double %imag_mul_phi.i.i25.i, 0.000000e+00
-  %mul_bc.i13.i31.i = fmul double %real_mul_phi.i.i24.i, 0.000000e+00
-  %mul_r.i14.i32.i = fsub double %real_mul_phi.i.i24.i, %mul_bd.i11.i29.i
-  %mul_i.i15.i33.i = fadd double %mul_bc.i13.i31.i, %imag_mul_phi.i.i25.i
-  %isnan_cmp.i16.i34.i = fcmp uno double %mul_r.i14.i32.i, 0.000000e+00
-  br i1 %isnan_cmp.i16.i34.i, label %complex_mul_imag_nan.i19.i43.i, label %_ZSt3powIdESt7complexIT_ERKS2_i.exit, !prof !7
+if.then.i28.i:                                    ; preds = %entry, %complex_mul_imag_nan.i.i49.i, %complex_mul_libcall.i.i51.i
+  %real_mul_phi.i.i25.i = phi double [ %mul_r.i.i21.i, %entry ], [ %mul_r.i.i21.i, %complex_mul_imag_nan.i.i49.i ], [ %3, %complex_mul_libcall.i.i51.i ]
+  %imag_mul_phi.i.i26.i = phi double [ %mul_i.i.i22.i, %entry ], [ %mul_i.i.i22.i, %complex_mul_imag_nan.i.i49.i ], [ %4, %complex_mul_libcall.i.i51.i ]
+  %mul_bd.i11.i30.i = fmul double %imag_mul_phi.i.i26.i, 0.000000e+00
+  %mul_bc.i13.i32.i = fmul double %real_mul_phi.i.i25.i, 0.000000e+00
+  %mul_r.i14.i33.i = fsub double %real_mul_phi.i.i25.i, %mul_bd.i11.i30.i
+  %mul_i.i15.i34.i = fadd double %mul_bc.i13.i32.i, %imag_mul_phi.i.i26.i
+  %isnan_cmp.i16.i35.i = fcmp uno double %mul_r.i14.i33.i, 0.000000e+00
+  br i1 %isnan_cmp.i16.i35.i, label %complex_mul_imag_nan.i19.i45.i, label %_ZSt3powIdESt7complexIT_ERKS2_i.exit, !prof !7
 
-complex_mul_imag_nan.i19.i43.i:                   ; preds = %if.then.i27.i
-  %isnan_cmp4.i20.i44.i = fcmp uno double %mul_i.i15.i33.i, 0.000000e+00
-  br i1 %isnan_cmp4.i20.i44.i, label %complex_mul_libcall.i21.i45.i, label %_ZSt3powIdESt7complexIT_ERKS2_i.exit, !prof !7
+complex_mul_imag_nan.i19.i45.i:                   ; preds = %if.then.i28.i
+  %isnan_cmp4.i20.i46.i = fcmp uno double %mul_i.i15.i34.i, 0.000000e+00
+  br i1 %isnan_cmp4.i20.i46.i, label %complex_mul_libcall.i21.i47.i, label %_ZSt3powIdESt7complexIT_ERKS2_i.exit, !prof !7
 
-complex_mul_libcall.i21.i45.i:                    ; preds = %complex_mul_imag_nan.i19.i43.i
-  %call5.i22.i46.i = tail call noundef { double, double } @__muldc3(double noundef 1.000000e+00, double noundef 0.000000e+00, double noundef %real_mul_phi.i.i24.i, double noundef %imag_mul_phi.i.i25.i) #30
-  %5 = extractvalue { double, double } %call5.i22.i46.i, 0
-  %6 = extractvalue { double, double } %call5.i22.i46.i, 1
+complex_mul_libcall.i21.i47.i:                    ; preds = %complex_mul_imag_nan.i19.i45.i
+  %call5.i22.i48.i = tail call noundef { double, double } @__muldc3(double noundef 1.000000e+00, double noundef 0.000000e+00, double noundef %real_mul_phi.i.i25.i, double noundef %imag_mul_phi.i.i26.i) #30
+  %5 = extractvalue { double, double } %call5.i22.i48.i, 0
+  %6 = extractvalue { double, double } %call5.i22.i48.i, 1
   br label %_ZSt3powIdESt7complexIT_ERKS2_i.exit
 
-_ZSt3powIdESt7complexIT_ERKS2_i.exit:             ; preds = %if.then.i27.i, %complex_mul_imag_nan.i19.i43.i, %complex_mul_libcall.i21.i45.i
-  %retval.sroa.5.2.i36.i = phi double [ %mul_i.i15.i33.i, %if.then.i27.i ], [ %mul_i.i15.i33.i, %complex_mul_imag_nan.i19.i43.i ], [ %6, %complex_mul_libcall.i21.i45.i ]
-  %retval.sroa.0.2.i37.i = phi double [ %mul_r.i14.i32.i, %if.then.i27.i ], [ %mul_r.i14.i32.i, %complex_mul_imag_nan.i19.i43.i ], [ %5, %complex_mul_libcall.i21.i45.i ]
+_ZSt3powIdESt7complexIT_ERKS2_i.exit:             ; preds = %if.then.i28.i, %complex_mul_imag_nan.i19.i45.i, %complex_mul_libcall.i21.i47.i
+  %retval.sroa.5.2.i37.i = phi double [ %mul_i.i15.i34.i, %if.then.i28.i ], [ %mul_i.i15.i34.i, %complex_mul_imag_nan.i19.i45.i ], [ %6, %complex_mul_libcall.i21.i47.i ]
+  %retval.sroa.0.2.i38.i = phi double [ %mul_r.i14.i33.i, %if.then.i28.i ], [ %mul_r.i14.i33.i, %complex_mul_imag_nan.i19.i45.i ], [ %5, %complex_mul_libcall.i21.i47.i ]
   %neg26 = fneg double %0
   %7 = tail call double @llvm.fmuladd.f64(double %neg26, double %0, double 1.000000e+00)
   %mul = fmul double %0, 2.000000e+00
@@ -2211,8 +2211,8 @@ _ZSt3powIdESt7complexIT_ERKS2_i.exit:             ; preds = %if.then.i27.i, %com
   %9 = fdiv double %mul.il.i.i19, %mul18
   %mul.rl.i.i18 = fmul double %8, %add.r.i.i
   %10 = fdiv double %mul.rl.i.i18, %mul18
-  %mul.rl.i.i54 = fmul double %7, %retval.sroa.0.2.i37.i
-  %mul.il.i.i55 = fmul double %7, %retval.sroa.5.2.i36.i
+  %mul.rl.i.i54 = fmul double %7, %retval.sroa.0.2.i38.i
+  %mul.il.i.i55 = fmul double %7, %retval.sroa.5.2.i37.i
   %mul45 = fmul double %conv2, 2.000000e+00
   %mul46 = fmul double %mul45, %conv2
   %11 = fdiv double %mul.rl.i.i54, %mul46
@@ -10026,7 +10026,7 @@ land.rhs.i.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i.i.
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   %add.ptr.i8.i.i.i.i.i = getelementptr inbounds double, ptr %__first.coerce, i64 %__holeIndex.addr.017.i.i.i.i.i
   store double %7, ptr %add.ptr.i8.i.i.i.i.i, align 8, !tbaa !127
-  %cmp.i22.i.not.i.i.i = icmp ult i64 %__parent.018.in.i.i.i.i.i, 2
+  %cmp.i22.i.not.i.i.i = icmp eq i64 %__parent.018.i.i34.i.i.i, 0
   br i1 %cmp.i22.i.not.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.i.i, label %land.rhs.i.i.i.i.i, !llvm.loop !227
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.i.i: ; preds = %while.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %if.end33.i.i.i.i
@@ -10225,7 +10225,7 @@ land.rhs.i.i.i.us:                                ; preds = %land.rhs.i.i.i.us.p
 while.body.i.i.i.us:                              ; preds = %land.rhs.i.i.i.us
   %add.ptr.i8.i.i.i.us = getelementptr inbounds double, ptr %__first.coerce.fr, i64 %__holeIndex.addr.017.i.i.i.us
   store double %7, ptr %add.ptr.i8.i.i.i.us, align 8, !tbaa !127
-  %cmp.i22.i.not.i.us = icmp ult i64 %__parent.018.in.i.i.i.us, 2
+  %cmp.i22.i.not.i.us = icmp eq i64 %__parent.018.i.i34.i.us, 0
   br i1 %cmp.i22.i.not.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.us, label %land.rhs.i.i.i.us, !llvm.loop !227
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.us: ; preds = %land.rhs.i.i.i.us, %while.body.i.i.i.us, %if.end33.i.i.us

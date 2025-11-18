@@ -313,7 +313,7 @@ cipher_init.exit.i:                               ; preds = %47, %44
   br label %.lr.ph67.i.i
 
 .preheader.i.i:                                   ; preds = %.lr.ph67.i.i
-  %72 = icmp samesign ugt i32 %103, 255
+  %72 = icmp ne i32 %105, 0
   %.05569.i.i = add i32 %53, -1
   %73 = icmp sgt i32 %.05569.i.i, -1
   %74 = select i1 %73, i1 %72, i1 false

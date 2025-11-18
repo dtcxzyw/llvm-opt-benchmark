@@ -73,8 +73,8 @@ sub_1:                                            ; preds = %sub_0
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #9
   %35 = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %0, ptr noundef nonnull %8) #10
-  %.not234 = icmp eq i32 %35, 1
-  br i1 %.not234, label %42, label %36
+  %.not235 = icmp eq i32 %35, 1
+  br i1 %.not235, label %42, label %36
 
 36:                                               ; preds = %33
   %37 = getelementptr i8, ptr %0, i64 %34
@@ -93,15 +93,15 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not129182, label %.critedge138, label %.preheader178.lr.ph
 
 .preheader178.lr.ph:                              ; preds = %42
-  br i1 %.not234, label %.preheader178.preheader, label %.preheader178.us
+  br i1 %.not235, label %.preheader178.preheader, label %.preheader178.us
 
 .preheader178.preheader:                          ; preds = %.preheader178.lr.ph.thread, %.preheader178.lr.ph
   %43 = phi i8 [ %14, %.preheader178.lr.ph.thread ], [ %.pre, %.preheader178.lr.ph ]
-  %.199220224 = phi ptr [ %7, %.preheader178.lr.ph.thread ], [ %0, %.preheader178.lr.ph ]
+  %.199221225 = phi ptr [ %7, %.preheader178.lr.ph.thread ], [ %0, %.preheader178.lr.ph ]
   br label %.preheader178
 
 .preheader178.us:                                 ; preds = %.preheader178.lr.ph, %.preheader178.us.backedge
-  %44 = phi i8 [ %.be252, %.preheader178.us.backedge ], [ %.pre, %.preheader178.lr.ph ]
+  %44 = phi i8 [ %.be253, %.preheader178.us.backedge ], [ %.pre, %.preheader178.lr.ph ]
   %.1107.us = phi ptr [ %.1107.us.be, %.preheader178.us.backedge ], [ %1, %.preheader178.lr.ph ]
   switch i8 %44, label %.critedge.us [
     i8 9, label %.critedge3.us
@@ -114,7 +114,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.preheader178.us.backedge
 
 .preheader178.us.backedge:                        ; preds = %.preheader.us, %.critedge3.us
-  %.be252 = phi i8 [ %.pr.us, %.critedge3.us ], [ %.pr150.us, %.preheader.us ]
+  %.be253 = phi i8 [ %.pr.us, %.critedge3.us ], [ %.pr150.us, %.preheader.us ]
   %.1107.us.be = phi ptr [ %45, %.critedge3.us ], [ %73, %.preheader.us ]
   br label %.preheader178.us, !llvm.loop !6
 
@@ -226,7 +226,7 @@ sub_1:                                            ; preds = %sub_0
 
 .preheader178.backedge:                           ; preds = %.preheader, %.critedge3
   %.be = phi i8 [ %.pr, %.critedge3 ], [ %.pr150, %.preheader ]
-  %.1107.be = phi ptr [ %79, %.critedge3 ], [ %144, %.preheader ]
+  %.1107.be = phi ptr [ %79, %.critedge3 ], [ %143, %.preheader ]
   br label %.preheader178, !llvm.loop !6
 
 .critedge:                                        ; preds = %.preheader178, %81
@@ -269,7 +269,7 @@ sub_1:                                            ; preds = %sub_0
   %.fr = freeze i64 %91
   %92 = trunc i64 %.fr to i32
   store i8 0, ptr %88, align 1, !tbaa !3
-  br i1 %23, label %93, label %123
+  br i1 %23, label %93, label %122
 
 .thread:                                          ; preds = %86
   br i1 %23, label %.thread163, label %.thread147
@@ -284,7 +284,7 @@ sub_1:                                            ; preds = %sub_0
   store i32 0, ptr %3, align 4, !tbaa !10
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !10
-  br label %125
+  br label %124
 
 93:                                               ; preds = %89
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -306,138 +306,137 @@ sub_1:                                            ; preds = %sub_0
 
 .thread168:                                       ; preds = %93, %.thread163, %96
   %101 = phi i1 [ %100, %96 ], [ false, %.thread163 ], [ false, %93 ]
-  %102 = phi i32 [ %92, %96 ], [ 128, %.thread163 ], [ 128, %93 ]
-  %103 = phi i32 [ %98, %96 ], [ 16, %.thread163 ], [ 16, %93 ]
-  %104 = phi i32 [ %97, %96 ], [ 0, %.thread163 ], [ 0, %93 ]
-  %105 = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %.199220224, ptr noundef nonnull %5) #10
-  %.not17.i = icmp eq i32 %105, 1
-  br i1 %.not17.i, label %106, label %Curl_cidr6_match.exit.thread
+  %102 = phi i32 [ %98, %96 ], [ 16, %.thread163 ], [ 16, %93 ]
+  %103 = phi i32 [ %97, %96 ], [ 0, %.thread163 ], [ 0, %93 ]
+  %104 = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %.199221225, ptr noundef nonnull %5) #10
+  %.not17.i = icmp eq i32 %104, 1
+  br i1 %.not17.i, label %105, label %Curl_cidr6_match.exit.thread
 
-106:                                              ; preds = %.thread168
-  %107 = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %9, ptr noundef nonnull %6) #10
-  %.not18.i = icmp eq i32 %107, 1
-  br i1 %.not18.i, label %108, label %Curl_cidr6_match.exit.thread
+105:                                              ; preds = %.thread168
+  %106 = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %9, ptr noundef nonnull %6) #10
+  %.not18.i = icmp eq i32 %106, 1
+  br i1 %.not18.i, label %107, label %Curl_cidr6_match.exit.thread
 
-108:                                              ; preds = %106
-  %.not19.i = icmp samesign ult i32 %102, 8
-  br i1 %.not19.i, label %111, label %109
+107:                                              ; preds = %105
+  %.not19.i = icmp eq i32 %102, 0
+  br i1 %.not19.i, label %110, label %108
 
-109:                                              ; preds = %108
-  %110 = zext nneg i32 %103 to i64
-  %bcmp.i = call i32 @bcmp(ptr nonnull %5, ptr nonnull %6, i64 %110)
+108:                                              ; preds = %107
+  %109 = zext nneg i32 %102 to i64
+  %bcmp.i = call i32 @bcmp(ptr nonnull %5, ptr nonnull %6, i64 %109)
   %.not20.i = icmp eq i32 %bcmp.i, 0
-  br i1 %.not20.i, label %111, label %Curl_cidr6_match.exit.thread
+  br i1 %.not20.i, label %110, label %Curl_cidr6_match.exit.thread
 
-111:                                              ; preds = %109, %108
-  br i1 %101, label %112, label %Curl_cidr6_match.exit
+110:                                              ; preds = %108, %107
+  br i1 %101, label %111, label %Curl_cidr6_match.exit
 
-112:                                              ; preds = %111
-  %113 = zext nneg i32 %103 to i64
-  %114 = getelementptr inbounds nuw i8, ptr %5, i64 %113
-  %115 = load i8, ptr %114, align 1, !tbaa !3
-  %116 = getelementptr inbounds nuw i8, ptr %6, i64 %113
-  %117 = load i8, ptr %116, align 1, !tbaa !3
-  %118 = xor i8 %117, %115
-  %119 = zext i8 %118 to i32
-  %120 = sub nuw nsw i32 8, %104
-  %121 = shl nuw nsw i32 255, %120
-  %122 = and i32 %121, %119
-  %.not21.i = icmp eq i32 %122, 0
+111:                                              ; preds = %110
+  %112 = zext nneg i32 %102 to i64
+  %113 = getelementptr inbounds nuw i8, ptr %5, i64 %112
+  %114 = load i8, ptr %113, align 1, !tbaa !3
+  %115 = getelementptr inbounds nuw i8, ptr %6, i64 %112
+  %116 = load i8, ptr %115, align 1, !tbaa !3
+  %117 = xor i8 %116, %114
+  %118 = zext i8 %117 to i32
+  %119 = sub nuw nsw i32 8, %103
+  %120 = shl nuw nsw i32 255, %119
+  %121 = and i32 %120, %118
+  %.not21.i = icmp eq i32 %121, 0
   br i1 %.not21.i, label %Curl_cidr6_match.exit.thread, label %Curl_cidr6_match.exit
 
-Curl_cidr6_match.exit.thread:                     ; preds = %96, %94, %.thread168, %106, %109, %112
+Curl_cidr6_match.exit.thread:                     ; preds = %96, %94, %.thread168, %105, %108, %111
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge141.sink.split
 
-Curl_cidr6_match.exit:                            ; preds = %111, %112
+Curl_cidr6_match.exit:                            ; preds = %110, %111
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge138
 
-123:                                              ; preds = %89
+122:                                              ; preds = %89
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !10
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !10
-  %124 = icmp ugt i32 %92, 32
-  br i1 %124, label %.thread173, label %125
+  %123 = icmp ugt i32 %92, 32
+  br i1 %123, label %.thread173, label %124
 
-125:                                              ; preds = %.thread147, %123
-  %.0146149 = phi i32 [ 0, %.thread147 ], [ %92, %123 ]
-  %126 = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %.199220224, ptr noundef nonnull %3) #10
-  %.not.i142 = icmp eq i32 %126, 1
-  br i1 %.not.i142, label %127, label %.thread173
+124:                                              ; preds = %.thread147, %122
+  %.0146149 = phi i32 [ 0, %.thread147 ], [ %92, %122 ]
+  %125 = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %.199221225, ptr noundef nonnull %3) #10
+  %.not.i142 = icmp eq i32 %125, 1
+  br i1 %.not.i142, label %126, label %.thread173
 
-127:                                              ; preds = %125
-  %128 = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %9, ptr noundef nonnull %4) #10
-  %.not11.i = icmp eq i32 %128, 1
-  br i1 %.not11.i, label %129, label %.thread173
+126:                                              ; preds = %124
+  %127 = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %9, ptr noundef nonnull %4) #10
+  %.not11.i = icmp eq i32 %127, 1
+  br i1 %.not11.i, label %128, label %.thread173
 
-129:                                              ; preds = %127
-  %130 = and i32 %.0146149, 31
-  %or.cond.not.i = icmp eq i32 %130, 0
-  br i1 %or.cond.not.i, label %138, label %131
+128:                                              ; preds = %126
+  %129 = and i32 %.0146149, 31
+  %or.cond.not.i = icmp eq i32 %129, 0
+  br i1 %or.cond.not.i, label %137, label %130
 
-131:                                              ; preds = %129
-  %132 = sub nuw nsw i32 32, %.0146149
-  %133 = load i32, ptr %3, align 4, !tbaa !10
-  %134 = load i32, ptr %4, align 4, !tbaa !10
-  %135 = xor i32 %134, %133
-  %136 = call i32 @llvm.bswap.i32(i32 %135)
-  %137 = lshr i32 %136, %132
-  %.not12.i = icmp eq i32 %137, 0
+130:                                              ; preds = %128
+  %131 = sub nuw nsw i32 32, %.0146149
+  %132 = load i32, ptr %3, align 4, !tbaa !10
+  %133 = load i32, ptr %4, align 4, !tbaa !10
+  %134 = xor i32 %133, %132
+  %135 = call i32 @llvm.bswap.i32(i32 %134)
+  %136 = lshr i32 %135, %131
+  %.not12.i = icmp eq i32 %136, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.not12.i, label %.critedge138, label %.critedge141.preheader
 
-.thread173:                                       ; preds = %123, %125, %127
+.thread173:                                       ; preds = %122, %124, %126
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge141.sink.split
 
-138:                                              ; preds = %129
-  %139 = load i32, ptr %3, align 4, !tbaa !10
-  %140 = load i32, ptr %4, align 4, !tbaa !10
-  %141 = icmp eq i32 %139, %140
+137:                                              ; preds = %128
+  %138 = load i32, ptr %3, align 4, !tbaa !10
+  %139 = load i32, ptr %4, align 4, !tbaa !10
+  %140 = icmp eq i32 %138, %139
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %141, label %.critedge138, label %.critedge141.preheader
+  br i1 %140, label %.critedge138, label %.critedge141.preheader
 
 .critedge141.sink.split:                          ; preds = %84, %.thread173, %Curl_cidr6_match.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge141.preheader
 
-.critedge141.preheader:                           ; preds = %.critedge141.sink.split, %131, %138, %.critedge5
+.critedge141.preheader:                           ; preds = %.critedge141.sink.split, %130, %137, %.critedge5
   br label %.critedge141
 
 .critedge141:                                     ; preds = %.critedge141.preheader, %.critedge7
-  %.4110 = phi ptr [ %143, %.critedge7 ], [ %.2108, %.critedge141.preheader ]
-  %142 = load i8, ptr %.4110, align 1, !tbaa !3
-  switch i8 %142, label %.critedge138 [
+  %.4110 = phi ptr [ %142, %.critedge7 ], [ %.2108, %.critedge141.preheader ]
+  %141 = load i8, ptr %.4110, align 1, !tbaa !3
+  switch i8 %141, label %.critedge138 [
     i8 32, label %.critedge7
     i8 9, label %.critedge7
     i8 44, label %.preheader
   ]
 
 .critedge7:                                       ; preds = %.critedge141, %.critedge141
-  %143 = getelementptr inbounds nuw i8, ptr %.4110, i64 1
+  %142 = getelementptr inbounds nuw i8, ptr %.4110, i64 1
   br label %.critedge141, !llvm.loop !8
 
 .preheader:                                       ; preds = %.critedge141, %.preheader
-  %.5111181 = phi ptr [ %144, %.preheader ], [ %.4110, %.critedge141 ]
-  %144 = getelementptr inbounds nuw i8, ptr %.5111181, i64 1
-  %.pr150 = load i8, ptr %144, align 1, !tbaa !3
+  %.5111181 = phi ptr [ %143, %.preheader ], [ %.4110, %.critedge141 ]
+  %143 = getelementptr inbounds nuw i8, ptr %.5111181, i64 1
+  %.pr150 = load i8, ptr %143, align 1, !tbaa !3
   switch i8 %.pr150, label %.preheader178.backedge [
     i8 44, label %.preheader
     i8 0, label %.critedge138
   ]
 
-.critedge138:                                     ; preds = %68, %70, %.critedge141.us, %.preheader.us, %138, %131, %.critedge141, %.preheader, %42, %Curl_cidr6_match.exit, %24, %26, %.tail, %13, %2, %10
-  %.090 = phi i1 [ false, %10 ], [ false, %2 ], [ false, %13 ], [ false, %24 ], [ false, %26 ], [ true, %.tail ], [ true, %Curl_cidr6_match.exit ], [ false, %42 ], [ false, %.preheader ], [ false, %.critedge141 ], [ true, %131 ], [ true, %138 ], [ false, %.preheader.us ], [ false, %.critedge141.us ], [ true, %70 ], [ true, %68 ]
+.critedge138:                                     ; preds = %68, %70, %.critedge141.us, %.preheader.us, %137, %130, %.critedge141, %.preheader, %42, %Curl_cidr6_match.exit, %24, %26, %.tail, %13, %2, %10
+  %.090 = phi i1 [ false, %10 ], [ false, %2 ], [ false, %13 ], [ false, %24 ], [ false, %26 ], [ true, %.tail ], [ true, %Curl_cidr6_match.exit ], [ false, %42 ], [ false, %.preheader ], [ false, %.critedge141 ], [ true, %130 ], [ true, %137 ], [ false, %.preheader.us ], [ false, %.critedge141.us ], [ true, %70 ], [ true, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.090
 }

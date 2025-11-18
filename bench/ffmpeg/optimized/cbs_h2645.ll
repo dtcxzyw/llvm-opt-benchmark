@@ -59126,7 +59126,7 @@ cbs_h265_payload_extension_present.exit.i:        ; preds = %208
   %255 = load i64, ptr %246, align 8, !tbaa !647
   %256 = add i64 %255, 7
   %257 = lshr i64 %256, 3
-  %.not70.i = icmp ult i64 %256, 8
+  %.not70.i = icmp eq i64 %257, 0
   br i1 %.not70.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %252, %266
@@ -67683,7 +67683,7 @@ cbs_h266_write_vui_parameters.exit:               ; preds = %204, %186, %174, %1
   %224 = load i64, ptr %223, align 8, !tbaa !647
   %225 = add i64 %224, 7
   %226 = lshr i64 %225, 3
-  %.not.i47 = icmp ult i64 %225, 8
+  %.not.i47 = icmp eq i64 %226, 0
   br i1 %.not.i47, label %.loopexit, label %.lr.ph.i
 
 227:                                              ; preds = %.lr.ph.i

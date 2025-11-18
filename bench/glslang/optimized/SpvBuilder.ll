@@ -17721,7 +17721,7 @@ define linkonce_odr void @_ZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloat
 
 16:                                               ; preds = %.preheader
   %17 = lshr i32 %.03253, 1
-  %.not = icmp samesign ult i32 %.03253, 2
+  %.not = icmp eq i32 %17, 0
   br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !333
 
 .preheader:                                       ; preds = %9, %16

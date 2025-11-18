@@ -12984,7 +12984,7 @@ define internal range(i32 2, 536870914) i32 @dissect_cm_connection_entry_list(pt
   %12 = lshr i32 %11, 3
   %13 = load i32, ptr @hf_conn_mgr_num_conn_entries_bytes, align 4
   %14 = call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %13, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef %12)
-  %.not = icmp ult i32 %11, 8
+  %.not = icmp eq i32 %12, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6

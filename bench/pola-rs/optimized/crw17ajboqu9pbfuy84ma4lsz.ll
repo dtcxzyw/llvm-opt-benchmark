@@ -65,19 +65,19 @@ define internal fastcc noundef i128 @_ZN15strength_reduce19long_multiplication29
   ret i128 %30
 
 31:                                               ; preds = %_ZN15strength_reduce19long_multiplication25multiply_256_by_64_helper17hcb329a71ce14bb5aE.exit, %3
-  %.sroa.0.0.idx15 = phi i64 [ 0, %3 ], [ %.sroa.0.0.add, %_ZN15strength_reduce19long_multiplication25multiply_256_by_64_helper17hcb329a71ce14bb5aE.exit ]
-  %.sroa.7.014 = phi i64 [ 0, %3 ], [ %32, %_ZN15strength_reduce19long_multiplication25multiply_256_by_64_helper17hcb329a71ce14bb5aE.exit ]
-  %.sroa.0.0.add = add nuw nsw i64 %.sroa.0.0.idx15, 8
-  %32 = add nuw nsw i64 %.sroa.7.014, 1
-  %.sroa.0.0.ptr16 = getelementptr inbounds nuw i8, ptr %6, i64 %.sroa.0.0.idx15
-  %33 = load i64, ptr %.sroa.0.0.ptr16, align 8, !noundef !3
+  %.sroa.0.0.idx14 = phi i64 [ 0, %3 ], [ %.sroa.0.0.add, %_ZN15strength_reduce19long_multiplication25multiply_256_by_64_helper17hcb329a71ce14bb5aE.exit ]
+  %.sroa.7.013 = phi i64 [ 0, %3 ], [ %32, %_ZN15strength_reduce19long_multiplication25multiply_256_by_64_helper17hcb329a71ce14bb5aE.exit ]
+  %.sroa.0.0.add = add nuw nsw i64 %.sroa.0.0.idx14, 8
+  %32 = add nuw nsw i64 %.sroa.7.013, 1
+  %.sroa.0.0.ptr15 = getelementptr inbounds nuw i8, ptr %6, i64 %.sroa.0.0.idx14
+  %33 = load i64, ptr %.sroa.0.0.ptr15, align 8, !noundef !3
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %34 = icmp eq i64 %33, 0
   br i1 %34, label %_ZN15strength_reduce19long_multiplication25multiply_256_by_64_helper17hcb329a71ce14bb5aE.exit, label %35
 
 35:                                               ; preds = %31
-  %.idx = shl nuw nsw i64 %.sroa.7.014, 3
+  %.idx = shl nuw nsw i64 %.sroa.7.013, 3
   %.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %.add = or disjoint i64 %.idx, 32
   %.ptr8 = getelementptr inbounds nuw i8, ptr %5, i64 %.add
@@ -117,14 +117,14 @@ define internal fastcc noundef i128 @_ZN15strength_reduce19long_multiplication29
   br i1 %exitcond.not.i, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h12c909a29b89d5f6E.exit.thread.i", label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h12c909a29b89d5f6E.exit.i"
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h12c909a29b89d5f6E.exit.thread.i": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h12c909a29b89d5f6E.exit.i"
-  %52 = icmp ult i128 %49, 18446744073709551616
+  %52 = icmp eq i128 %51, 0
   br i1 %52, label %_ZN15strength_reduce19long_multiplication25multiply_256_by_64_helper17hcb329a71ce14bb5aE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h12c909a29b89d5f6E.exit.thread.i", %54
-  %.sroa.0.124.i = phi i128 [ %59, %54 ], [ %51, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h12c909a29b89d5f6E.exit.thread.i" ]
+  %.sroa.0.124.i = phi i128 [ 1, %54 ], [ %51, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h12c909a29b89d5f6E.exit.thread.i" ]
   %.sroa.011.023.i.idx = phi i64 [ %.sroa.011.023.i.add, %54 ], [ %.add, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h12c909a29b89d5f6E.exit.thread.i" ]
   %53 = icmp eq i64 %.sroa.011.023.i.idx, 48
-  br i1 %53, label %61, label %54, !prof !9
+  br i1 %53, label %60, label %54, !prof !9
 
 54:                                               ; preds = %.lr.ph.i
   %.sroa.011.023.i.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %.sroa.011.023.i.idx
@@ -134,18 +134,17 @@ define internal fastcc noundef i128 @_ZN15strength_reduce19long_multiplication29
   %57 = add nuw nsw i128 %.sroa.0.124.i, %56
   %58 = trunc i128 %57 to i64
   store i64 %58, ptr %.sroa.011.023.i.ptr, align 8, !alias.scope !4, !noalias !10
-  %59 = lshr i128 %57, 64
-  %60 = icmp samesign ult i128 %57, 18446744073709551616
-  br i1 %60, label %_ZN15strength_reduce19long_multiplication25multiply_256_by_64_helper17hcb329a71ce14bb5aE.exit, label %.lr.ph.i
+  %59 = icmp samesign ult i128 %57, 18446744073709551616
+  br i1 %59, label %_ZN15strength_reduce19long_multiplication25multiply_256_by_64_helper17hcb329a71ce14bb5aE.exit, label %.lr.ph.i
 
-61:                                               ; preds = %.lr.ph.i
+60:                                               ; preds = %.lr.ph.i
   call void @_ZN4core6option13expect_failed17hac9b20460123012bE(ptr noalias noundef nonnull readonly align 1 @anon.a918602ec11d51b1d1122357d31352d4.12, i64 noundef 37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a918602ec11d51b1d1122357d31352d4.13) #17
   unreachable
 
 _ZN15strength_reduce19long_multiplication25multiply_256_by_64_helper17hcb329a71ce14bb5aE.exit: ; preds = %54, %31, %35, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h12c909a29b89d5f6E.exit.thread.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %62 = icmp eq i64 %.sroa.0.0.add, 16
-  br i1 %62, label %22, label %31
+  %61 = icmp eq i64 %.sroa.0.0.add, 16
+  br i1 %61, label %22, label %31
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable

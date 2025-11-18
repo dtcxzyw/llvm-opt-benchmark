@@ -1692,7 +1692,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %111,
   call void @llvm.assume(i1 %135)
   %136 = icmp sgt i32 %130, -1
   call void @llvm.assume(i1 %136)
-  %137 = icmp ugt i32 %132, 1
+  %137 = icmp ne i32 %133, 0
   call void @llvm.assume(i1 %137)
   %138 = icmp sgt i32 %133, -1
   call void @llvm.assume(i1 %138)

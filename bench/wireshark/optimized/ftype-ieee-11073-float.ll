@@ -1191,7 +1191,7 @@ switch.lookup:                                    ; preds = %4
   %.070 = phi i32 [ 1, %22 ], [ 0, %21 ]
   %24 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %5, i64 noundef 8, i32 noundef 2, i64 noundef 8, ptr noundef nonnull @.str.10, i32 noundef %spec.select)
   %25 = ashr i32 %8, 24
-  %26 = icmp ult i32 %8, 16777216
+  %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %34
 
 27:                                               ; preds = %23
@@ -1268,8 +1268,8 @@ switch.lookup:                                    ; preds = %4
   %81 = getelementptr i8, ptr %57, i64 1
   store i8 46, ptr %81, align 1
   %82 = or disjoint i32 %.070, 2
-  %.not88 = icmp eq i32 %54, %53
-  br i1 %.not88, label %91, label %83
+  %.not87 = icmp eq i32 %54, %53
+  br i1 %.not87, label %91, label %83
 
 83:                                               ; preds = %80
   %84 = sub nuw nsw i32 %53, %54

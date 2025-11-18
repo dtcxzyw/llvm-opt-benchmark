@@ -31095,7 +31095,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Spectra14SortEigenvalueIdLNS2_8SortRuleE0
 76:                                               ; preds = %69
   %77 = getelementptr inbounds i64, ptr %0, i64 %.019.i.i
   store i64 %71, ptr %77, align 8, !tbaa !135
-  %.not25 = icmp ult i64 %.0920.in.i.i, 2
+  %.not25 = icmp eq i64 %.0920.i.i2324, 0
   br i1 %.not25, label %.loopexit.i, label %69, !llvm.loop !890
 
 .loopexit.i:                                      ; preds = %76, %69, %65
@@ -32838,7 +32838,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Spectra14SortEigenvalueIdLNS2_8SortRuleE3
 72:                                               ; preds = %66
   %73 = getelementptr inbounds i64, ptr %0, i64 %.019.i.i
   store i64 %68, ptr %73, align 8, !tbaa !135
-  %.not25 = icmp ult i64 %.0920.in.i.i, 2
+  %.not25 = icmp eq i64 %.0920.i.i2324, 0
   br i1 %.not25, label %.loopexit.i, label %66, !llvm.loop !903
 
 .loopexit.i:                                      ; preds = %72, %66, %63
@@ -34598,7 +34598,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Spectra14SortEigenvalueIdLNS2_8SortRuleE4
 76:                                               ; preds = %69
   %77 = getelementptr inbounds i64, ptr %0, i64 %.019.i.i
   store i64 %71, ptr %77, align 8, !tbaa !135
-  %.not25 = icmp ult i64 %.0920.in.i.i, 2
+  %.not25 = icmp eq i64 %.0920.i.i2324, 0
   br i1 %.not25, label %.loopexit.i, label %69, !llvm.loop !915
 
 .loopexit.i:                                      ; preds = %76, %69, %65
@@ -36335,7 +36335,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Spectra14SortEigenvalueIdLNS2_8SortRuleE7
 72:                                               ; preds = %66
   %73 = getelementptr inbounds i64, ptr %0, i64 %.019.i.i
   store i64 %68, ptr %73, align 8, !tbaa !135
-  %.not25 = icmp ult i64 %.0920.in.i.i, 2
+  %.not25 = icmp eq i64 %.0920.i.i2324, 0
   br i1 %.not25, label %.loopexit.i, label %66, !llvm.loop !927
 
 .loopexit.i:                                      ; preds = %72, %66, %63
@@ -43533,7 +43533,7 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIPdlN9__gnu_cxx5__ops1
 56:                                               ; preds = %51
   %57 = getelementptr inbounds double, ptr %0, i64 %.01317.i.i.i.i.i
   store double %53, ptr %57, align 8, !tbaa !4
-  %.not12.i.i.i = icmp ult i64 %.018.in.i.i.i.i.i, 2
+  %.not12.i.i.i = icmp eq i64 %.018.i.i1011.i.i.i, 0
   br i1 %.not12.i.i.i, label %_ZSt10__pop_heapIPdN9__gnu_cxx5__ops15_Iter_comp_iterIZN7Spectra11SymEigsBaseINS4_21SymGEigsShiftInvertOpIZN3igl7spectra4eigsIdN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENSB_IdLin1ELi1ELi0ELin1ELi1EEENSA_8SparseLUINSA_12SparseMatrixIdLi0EiEENSA_14COLAMDOrderingIiEEEEEEbRKNSF_IT_Li0EiEESN_iSK_RNSA_15PlainObjectBaseIT0_EERNSO_IT1_EEE11ShiftInvertZNS9_IdSC_SD_SJ_EEbSN_SN_iSK_SR_SU_E13SparseMatProdEESW_E7restartElNS4_8SortRuleEEUlRKdS11_E_EEEvSK_SK_SK_RSP_.exit.i.i, label %51, !llvm.loop !1145
 
 _ZSt10__pop_heapIPdN9__gnu_cxx5__ops15_Iter_comp_iterIZN7Spectra11SymEigsBaseINS4_21SymGEigsShiftInvertOpIZN3igl7spectra4eigsIdN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENSB_IdLin1ELi1ELi0ELin1ELi1EEENSA_8SparseLUINSA_12SparseMatrixIdLi0EiEENSA_14COLAMDOrderingIiEEEEEEbRKNSF_IT_Li0EiEESN_iSK_RNSA_15PlainObjectBaseIT0_EERNSO_IT1_EEE11ShiftInvertZNS9_IdSC_SD_SJ_EEbSN_SN_iSK_SR_SU_E13SparseMatProdEESW_E7restartElNS4_8SortRuleEEUlRKdS11_E_EEEvSK_SK_SK_RSP_.exit.i.i: ; preds = %56, %51, %49

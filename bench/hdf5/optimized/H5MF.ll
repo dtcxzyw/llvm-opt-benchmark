@@ -678,21 +678,21 @@ define range(i32 -1, 1) i32 @H5MF__start_fstype(ptr noundef %0, i32 noundef %1) 
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %30 = load i64, ptr %29, align 8, !tbaa !55
   %31 = lshr i64 %30, 32
-  %.not.i.i = icmp ult i64 %30, 4294967296
+  %.not.i.i = icmp eq i64 %31, 0
   br i1 %.not.i.i, label %58, label %32
 
 32:                                               ; preds = %26
   %33 = lshr i64 %30, 48
-  %.not26.i.i = icmp ult i64 %30, 281474976710656
+  %.not26.i.i = icmp eq i64 %33, 0
   br i1 %.not26.i.i, label %46, label %34
 
 34:                                               ; preds = %32
-  %.not28.i.i = icmp ult i64 %30, 72057594037927936
-  br i1 %.not28.i.i, label %41, label %35
+  %35 = lshr i64 %30, 56
+  %.not28.i.i = icmp eq i64 %35, 0
+  br i1 %.not28.i.i, label %41, label %36
 
-35:                                               ; preds = %34
-  %36 = lshr i64 %30, 56
-  %37 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %36
+36:                                               ; preds = %34
+  %37 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %35
   %38 = load i8, ptr %37, align 1, !tbaa !56
   %39 = zext i8 %38 to i32
   %40 = add nuw nsw i32 %39, 56
@@ -706,12 +706,12 @@ define range(i32 -1, 1) i32 @H5MF__start_fstype(ptr noundef %0, i32 noundef %1) 
   br label %H5VM_log2_gen.exit.i
 
 46:                                               ; preds = %32
-  %.not27.i.i = icmp samesign ult i64 %30, 1099511627776
-  br i1 %.not27.i.i, label %53, label %47
+  %47 = lshr i64 %30, 40
+  %.not27.i.i = icmp eq i64 %47, 0
+  br i1 %.not27.i.i, label %53, label %48
 
-47:                                               ; preds = %46
-  %48 = lshr i64 %30, 40
-  %49 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %48
+48:                                               ; preds = %46
+  %49 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %47
   %50 = load i8, ptr %49, align 1, !tbaa !56
   %51 = zext i8 %50 to i32
   %52 = add nuw nsw i32 %51, 40
@@ -726,16 +726,16 @@ define range(i32 -1, 1) i32 @H5MF__start_fstype(ptr noundef %0, i32 noundef %1) 
 
 58:                                               ; preds = %26
   %59 = lshr i64 %30, 16
-  %.not23.i.i = icmp samesign ult i64 %30, 65536
+  %.not23.i.i = icmp eq i64 %59, 0
   br i1 %.not23.i.i, label %72, label %60
 
 60:                                               ; preds = %58
-  %.not25.i.i = icmp samesign ult i64 %30, 16777216
-  br i1 %.not25.i.i, label %67, label %61
+  %61 = lshr i64 %30, 24
+  %.not25.i.i = icmp eq i64 %61, 0
+  br i1 %.not25.i.i, label %67, label %62
 
-61:                                               ; preds = %60
-  %62 = lshr i64 %30, 24
-  %63 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %62
+62:                                               ; preds = %60
+  %63 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %61
   %64 = load i8, ptr %63, align 1, !tbaa !56
   %65 = zext i8 %64 to i32
   %66 = add nuw nsw i32 %65, 24
@@ -749,12 +749,12 @@ define range(i32 -1, 1) i32 @H5MF__start_fstype(ptr noundef %0, i32 noundef %1) 
   br label %H5VM_log2_gen.exit.i
 
 72:                                               ; preds = %58
-  %.not24.i.i = icmp samesign ult i64 %30, 256
-  br i1 %.not24.i.i, label %79, label %73
+  %73 = lshr i64 %30, 8
+  %.not24.i.i = icmp eq i64 %73, 0
+  br i1 %.not24.i.i, label %79, label %74
 
-73:                                               ; preds = %72
-  %74 = lshr i64 %30, 8
-  %75 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %74
+74:                                               ; preds = %72
+  %75 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %73
   %76 = load i8, ptr %75, align 1, !tbaa !56
   %77 = zext i8 %76 to i32
   %78 = add nuw nsw i32 %77, 8
@@ -766,8 +766,8 @@ define range(i32 -1, 1) i32 @H5MF__start_fstype(ptr noundef %0, i32 noundef %1) 
   %82 = zext i8 %81 to i32
   br label %H5VM_log2_gen.exit.i
 
-H5VM_log2_gen.exit.i:                             ; preds = %79, %73, %67, %61, %53, %47, %41, %35
-  %.0.i.i = phi i32 [ %40, %35 ], [ %45, %41 ], [ %52, %47 ], [ %57, %53 ], [ %66, %61 ], [ %71, %67 ], [ %78, %73 ], [ %82, %79 ]
+H5VM_log2_gen.exit.i:                             ; preds = %79, %74, %67, %62, %53, %48, %41, %36
+  %.0.i.i = phi i32 [ %40, %36 ], [ %45, %41 ], [ %52, %48 ], [ %57, %53 ], [ %66, %62 ], [ %71, %67 ], [ %78, %74 ], [ %82, %79 ]
   %83 = add nuw nsw i32 %.0.i.i, 1
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %83, ptr %84, align 4, !tbaa !57

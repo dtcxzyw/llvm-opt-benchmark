@@ -8304,7 +8304,7 @@ define hidden void @"_ZN3vte15Parser$LT$_$GT$7advance17h51a0343f95f18857E.llvm.1
   br label %32
 
 32:                                               ; preds = %.sink.split.i, %31
-  %33 = icmp ult i8 %.sroa.01.0, 16
+  %33 = icmp eq i8 %28, 0
   br i1 %33, label %35, label %36
 
 34:                                               ; preds = %31

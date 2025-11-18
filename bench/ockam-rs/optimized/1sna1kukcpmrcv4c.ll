@@ -3659,14 +3659,14 @@ common.resume:                                    ; preds = %30, %42, %21
   store i8 0, ptr %.sroa.42.0..sroa_idx.i.i, align 8, !alias.scope !922, !noalias !918
   call void @llvm.experimental.noalias.scope.decl(metadata !939)
   call void @llvm.experimental.noalias.scope.decl(metadata !942)
-  %35 = and i64 %2, -64
-  %36 = and i64 %2, 63
-  %37 = getelementptr inbounds i8, ptr %1, i64 %35
-  %38 = lshr i64 %2, 6
-  store i64 %38, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !945, !noalias !951
-  call void @_ZN4sha26sha25611compress25617hbd384aa2f8354284E(ptr noalias noundef nonnull align 8 dereferenceable(112) %14, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef range(i64 1, 0) %38), !noalias !957
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(65) %34, ptr nonnull readonly align 1 %37, i64 %36, i1 false), !alias.scope !958, !noalias !963
-  %storemerge.i.i.i = trunc nuw nsw i64 %36 to i8
+  %35 = lshr i64 %2, 6
+  %36 = and i64 %2, -64
+  %37 = and i64 %2, 63
+  %38 = getelementptr inbounds i8, ptr %1, i64 %36
+  store i64 %35, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !945, !noalias !951
+  call void @_ZN4sha26sha25611compress25617hbd384aa2f8354284E(ptr noalias noundef nonnull align 8 dereferenceable(112) %14, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef range(i64 1, 0) %35), !noalias !957
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(65) %34, ptr nonnull readonly align 1 %38, i64 %37, i1 false), !alias.scope !958, !noalias !963
+  %storemerge.i.i.i = trunc nuw nsw i64 %37 to i8
   store i8 %storemerge.i.i.i, ptr %.sroa.42.0..sroa_idx.i.i, align 8, !alias.scope !965, !noalias !966
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %13, ptr noundef nonnull align 8 dereferenceable(112) %14, i64 112, i1 false), !noalias !918

@@ -7994,92 +7994,94 @@ _ZL13reverse_wordsPmS_i.exit36:                   ; preds = %.lr.ph.i32
   br i1 %37, label %.lr.ph157.i, label %.preheader.i
 
 .lr.ph134.i:                                      ; preds = %._crit_edge127.i, %.lr.ph134.preheader.i
-  %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge127.i ], [ 1, %.lr.ph134.preheader.i ]
-  %indvars.iv179.i = phi i64 [ %indvars.iv.next180.i, %._crit_edge127.i ], [ 0, %.lr.ph134.preheader.i ]
-  %.0132.i = phi i64 [ %80, %._crit_edge127.i ], [ 0, %.lr.ph134.preheader.i ]
-  %.0101131.i = phi i64 [ %81, %._crit_edge127.i ], [ 0, %.lr.ph134.preheader.i ]
-  %38 = lshr i64 %indvars.iv, 1
-  %39 = and i64 %38, 2147483647
-  %umax = call i64 @llvm.umax.i64(i64 %39, i64 1)
-  %indvars.iv.next180.i = add nuw nsw i64 %indvars.iv179.i, 1
-  %.not163.i = icmp eq i64 %indvars.iv179.i, 0
-  br i1 %.not163.i, label %._crit_edge.thread.i, label %.lr.ph.i38
+  %indvars.iv183.i = phi i64 [ 0, %.lr.ph134.preheader.i ], [ %indvars.iv.next184.i, %._crit_edge127.i ]
+  %indvars.iv176.i = phi i32 [ 1, %.lr.ph134.preheader.i ], [ %indvars.iv.next177.i, %._crit_edge127.i ]
+  %.0132.i = phi i64 [ 0, %.lr.ph134.preheader.i ], [ %80, %._crit_edge127.i ]
+  %.0101131.i = phi i64 [ 0, %.lr.ph134.preheader.i ], [ %81, %._crit_edge127.i ]
+  %indvars.iv.next184.i = add nuw nsw i64 %indvars.iv183.i, 1
+  %.not163.i = icmp eq i64 %indvars.iv183.i, 0
+  br i1 %.not163.i, label %._crit_edge.thread.i, label %.lr.ph.preheader.i37
 
-.lr.ph.i38:                                       ; preds = %.lr.ph134.i, %.lr.ph.i38
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i38 ], [ 0, %.lr.ph134.i ]
-  %.1119.i = phi i64 [ %55, %.lr.ph.i38 ], [ %.0132.i, %.lr.ph134.i ]
-  %.1102118.i = phi i64 [ %56, %.lr.ph.i38 ], [ %.0101131.i, %.lr.ph134.i ]
-  %40 = load i64, ptr %6, align 8
-  %41 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.i
-  %42 = load i64, ptr %41, align 8
-  %43 = sub nsw i64 %indvars.iv179.i, %indvars.iv.i
-  %44 = getelementptr inbounds i64, ptr %15, i64 %43
-  %45 = load i64, ptr %44, align 8
-  %46 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %42, i64 %45, i64 %.1119.i, i64 %.1102118.i, i64 %40) #14, !srcloc !51
-  %47 = extractvalue { i64, i64, i64, i64 } %46, 2
-  %48 = extractvalue { i64, i64, i64, i64 } %46, 3
-  %49 = load i64, ptr %6, align 8
-  %50 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv.i
-  %51 = load i64, ptr %50, align 8
-  %52 = getelementptr inbounds i64, ptr %16, i64 %43
-  %53 = load i64, ptr %52, align 8
-  %54 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %51, i64 %53, i64 %47, i64 %48, i64 %49) #14, !srcloc !52
-  %55 = extractvalue { i64, i64, i64, i64 } %54, 2
-  %56 = extractvalue { i64, i64, i64, i64 } %54, 3
+.lr.ph.preheader.i37:                             ; preds = %.lr.ph134.i
+  %38 = lshr i32 %indvars.iv176.i, 1
+  %wide.trip.count.i = zext nneg i32 %38 to i64
+  br label %.lr.ph.i38
+
+.lr.ph.i38:                                       ; preds = %.lr.ph.i38, %.lr.ph.preheader.i37
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i37 ], [ %indvars.iv.next.i, %.lr.ph.i38 ]
+  %.1119.i = phi i64 [ %.0132.i, %.lr.ph.preheader.i37 ], [ %54, %.lr.ph.i38 ]
+  %.1102118.i = phi i64 [ %.0101131.i, %.lr.ph.preheader.i37 ], [ %55, %.lr.ph.i38 ]
+  %39 = load i64, ptr %6, align 8
+  %40 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.i
+  %41 = load i64, ptr %40, align 8
+  %42 = sub nsw i64 %indvars.iv183.i, %indvars.iv.i
+  %43 = getelementptr inbounds i64, ptr %15, i64 %42
+  %44 = load i64, ptr %43, align 8
+  %45 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %41, i64 %44, i64 %.1119.i, i64 %.1102118.i, i64 %39) #14, !srcloc !51
+  %46 = extractvalue { i64, i64, i64, i64 } %45, 2
+  %47 = extractvalue { i64, i64, i64, i64 } %45, 3
+  %48 = load i64, ptr %6, align 8
+  %49 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv.i
+  %50 = load i64, ptr %49, align 8
+  %51 = getelementptr inbounds i64, ptr %16, i64 %42
+  %52 = load i64, ptr %51, align 8
+  %53 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %50, i64 %52, i64 %46, i64 %47, i64 %48) #14, !srcloc !52
+  %54 = extractvalue { i64, i64, i64, i64 } %53, 2
+  %55 = extractvalue { i64, i64, i64, i64 } %53, 3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %umax
-  br i1 %exitcond.not, label %._crit_edge.i, label %.lr.ph.i38, !llvm.loop !53
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i38, !llvm.loop !53
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i38
-  %57 = and i64 %indvars.iv179.i, 1
-  %58 = icmp eq i64 %57, 0
-  br i1 %58, label %._crit_edge.i.._crit_edge.thread.i_crit_edge, label %._crit_edge.i._crit_edge
+  %56 = and i64 %indvars.iv183.i, 1
+  %57 = icmp eq i64 %56, 0
+  br i1 %57, label %._crit_edge.i.._crit_edge.thread.i_crit_edge, label %64
 
 ._crit_edge.i.._crit_edge.thread.i_crit_edge:     ; preds = %._crit_edge.i
   %.pre = load i64, ptr %6, align 8
   br label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i.._crit_edge.thread.i_crit_edge, %.lr.ph134.i
-  %59 = phi i64 [ %.pre, %._crit_edge.i.._crit_edge.thread.i_crit_edge ], [ 0, %.lr.ph134.i ]
-  %.1.lcssa206.i = phi i64 [ %55, %._crit_edge.i.._crit_edge.thread.i_crit_edge ], [ %.0132.i, %.lr.ph134.i ]
-  %.1102.lcssa205.i = phi i64 [ %56, %._crit_edge.i.._crit_edge.thread.i_crit_edge ], [ %.0101131.i, %.lr.ph134.i ]
-  %.0111.lcssa203.i = phi i64 [ %umax, %._crit_edge.i.._crit_edge.thread.i_crit_edge ], [ 0, %.lr.ph134.i ]
-  %60 = getelementptr inbounds nuw i64, ptr %15, i64 %.0111.lcssa203.i
-  %61 = load i64, ptr %60, align 8
-  %62 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %61, i64 %61, i64 %.1.lcssa206.i, i64 %.1102.lcssa205.i, i64 %59) #14, !srcloc !54
-  %63 = extractvalue { i64, i64, i64, i64 } %62, 2
-  %64 = extractvalue { i64, i64, i64, i64 } %62, 3
-  br label %._crit_edge.i._crit_edge
+  %58 = phi i64 [ %.pre, %._crit_edge.i.._crit_edge.thread.i_crit_edge ], [ 0, %.lr.ph134.i ]
+  %.1.lcssa211.i = phi i64 [ %54, %._crit_edge.i.._crit_edge.thread.i_crit_edge ], [ %.0132.i, %.lr.ph134.i ]
+  %.1102.lcssa210.i = phi i64 [ %55, %._crit_edge.i.._crit_edge.thread.i_crit_edge ], [ %.0101131.i, %.lr.ph134.i ]
+  %.0111.lcssa209.i = phi i64 [ %wide.trip.count.i, %._crit_edge.i.._crit_edge.thread.i_crit_edge ], [ 0, %.lr.ph134.i ]
+  %59 = getelementptr inbounds nuw i64, ptr %15, i64 %.0111.lcssa209.i
+  %60 = load i64, ptr %59, align 8
+  %61 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %60, i64 %60, i64 %.1.lcssa211.i, i64 %.1102.lcssa210.i, i64 %58) #14, !srcloc !54
+  %62 = extractvalue { i64, i64, i64, i64 } %61, 2
+  %63 = extractvalue { i64, i64, i64, i64 } %61, 3
+  br label %64
 
-._crit_edge.i._crit_edge:                         ; preds = %._crit_edge.i, %._crit_edge.thread.i
-  %.pre-phi = phi i64 [ %.0111.lcssa203.i, %._crit_edge.thread.i ], [ %umax, %._crit_edge.i ]
-  %.2103.i = phi i64 [ %64, %._crit_edge.thread.i ], [ %56, %._crit_edge.i ]
-  %.2.i = phi i64 [ %63, %._crit_edge.thread.i ], [ %55, %._crit_edge.i ]
-  %65 = icmp samesign ugt i64 %indvars.iv179.i, %.pre-phi
+64:                                               ; preds = %._crit_edge.thread.i, %._crit_edge.i
+  %.0111.lcssa208.i = phi i64 [ %.0111.lcssa209.i, %._crit_edge.thread.i ], [ %wide.trip.count.i, %._crit_edge.i ]
+  %.2103.i = phi i64 [ %63, %._crit_edge.thread.i ], [ %55, %._crit_edge.i ]
+  %.2.i = phi i64 [ %62, %._crit_edge.thread.i ], [ %54, %._crit_edge.i ]
+  %65 = icmp samesign ult i64 %.0111.lcssa208.i, %indvars.iv183.i
   br i1 %65, label %.lr.ph126.i, label %._crit_edge127.i
 
-.lr.ph126.i:                                      ; preds = %._crit_edge.i._crit_edge, %.lr.ph126.i
-  %indvars.iv176.i = phi i64 [ %indvars.iv.next177.i, %.lr.ph126.i ], [ %.pre-phi, %._crit_edge.i._crit_edge ]
-  %.3124.i = phi i64 [ %73, %.lr.ph126.i ], [ %.2.i, %._crit_edge.i._crit_edge ]
-  %.3104123.i = phi i64 [ %74, %.lr.ph126.i ], [ %.2103.i, %._crit_edge.i._crit_edge ]
+.lr.ph126.i:                                      ; preds = %64, %.lr.ph126.i
+  %indvars.iv178.i = phi i64 [ %indvars.iv.next179.i, %.lr.ph126.i ], [ %.0111.lcssa208.i, %64 ]
+  %.3124.i = phi i64 [ %73, %.lr.ph126.i ], [ %.2.i, %64 ]
+  %.3104123.i = phi i64 [ %74, %.lr.ph126.i ], [ %.2103.i, %64 ]
   %66 = load i64, ptr %6, align 8
-  %67 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv176.i
+  %67 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv178.i
   %68 = load i64, ptr %67, align 8
-  %69 = sub nuw nsw i64 %indvars.iv179.i, %indvars.iv176.i
+  %69 = sub nuw nsw i64 %indvars.iv183.i, %indvars.iv178.i
   %70 = getelementptr inbounds nuw i64, ptr %16, i64 %69
   %71 = load i64, ptr %70, align 8
   %72 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %68, i64 %71, i64 %.3124.i, i64 %.3104123.i, i64 %66) #14, !srcloc !55
   %73 = extractvalue { i64, i64, i64, i64 } %72, 2
   %74 = extractvalue { i64, i64, i64, i64 } %72, 3
-  %indvars.iv.next177.i = add nuw nsw i64 %indvars.iv176.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next177.i, %indvars.iv179.i
-  br i1 %exitcond.not.i, label %._crit_edge127.i, label %.lr.ph126.i, !llvm.loop !56
+  %indvars.iv.next179.i = add nuw nsw i64 %indvars.iv178.i, 1
+  %exitcond182.not.i = icmp eq i64 %indvars.iv.next179.i, %indvars.iv183.i
+  br i1 %exitcond182.not.i, label %._crit_edge127.i, label %.lr.ph126.i, !llvm.loop !56
 
-._crit_edge127.i:                                 ; preds = %.lr.ph126.i, %._crit_edge.i._crit_edge
-  %.3104.lcssa.i = phi i64 [ %.2103.i, %._crit_edge.i._crit_edge ], [ %74, %.lr.ph126.i ]
-  %.3.lcssa.i = phi i64 [ %.2.i, %._crit_edge.i._crit_edge ], [ %73, %.lr.ph126.i ]
+._crit_edge127.i:                                 ; preds = %.lr.ph126.i, %64
+  %.3104.lcssa.i = phi i64 [ %.2103.i, %64 ], [ %74, %.lr.ph126.i ]
+  %.3.lcssa.i = phi i64 [ %.2.i, %64 ], [ %73, %.lr.ph126.i ]
   %75 = mul i64 %.3.lcssa.i, %3
-  %76 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv179.i
+  %76 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv183.i
   store i64 %75, ptr %76, align 8
   %77 = load i64, ptr %6, align 8
   %78 = load i64, ptr %16, align 8
@@ -8087,9 +8089,9 @@ _ZL13reverse_wordsPmS_i.exit36:                   ; preds = %.lr.ph.i32
   %80 = extractvalue { i64, i64, i64, i64 } %79, 3
   %81 = load i64, ptr %6, align 8
   store i64 0, ptr %6, align 8
-  %exitcond183.not.i = icmp eq i64 %indvars.iv.next180.i, %21
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  br i1 %exitcond183.not.i, label %.preheader116.i, label %.lr.ph134.i, !llvm.loop !58
+  %indvars.iv.next177.i = add nuw nsw i32 %indvars.iv176.i, 1
+  %exitcond187.not.i = icmp eq i64 %indvars.iv.next184.i, %21
+  br i1 %exitcond187.not.i, label %.preheader116.i, label %.lr.ph134.i, !llvm.loop !58
 
 .preheader.i:                                     ; preds = %._crit_edge151.i, %.preheader116.i
   %.4.lcssa.i = phi i64 [ %80, %.preheader116.i ], [ %.7108.lcssa.i, %._crit_edge151.i ]
@@ -8097,11 +8099,11 @@ _ZL13reverse_wordsPmS_i.exit36:                   ; preds = %.lr.ph.i32
   br i1 %.not159.i, label %_ZL17montgomery_squarePmS_S_mi.exit, label %.lr.ph161.i
 
 .lr.ph157.i:                                      ; preds = %.preheader116.i, %._crit_edge151.i
-  %indvars.iv193.i = phi i64 [ %indvars.iv.next194.i, %._crit_edge151.i ], [ %12, %.preheader116.i ]
-  %indvars.iv184.i = phi i64 [ %indvars.iv.next185.i, %._crit_edge151.i ], [ 1, %.preheader116.i ]
+  %indvars.iv197.i = phi i64 [ %indvars.iv.next198.i, %._crit_edge151.i ], [ %12, %.preheader116.i ]
+  %indvars.iv188.i = phi i64 [ %indvars.iv.next189.i, %._crit_edge151.i ], [ 1, %.preheader116.i ]
   %.4156.i = phi i64 [ %.7108.lcssa.i, %._crit_edge151.i ], [ %80, %.preheader116.i ]
   %.4105155.i = phi i64 [ %131, %._crit_edge151.i ], [ %81, %.preheader116.i ]
-  %82 = sub nuw nsw i64 %indvars.iv193.i, %12
+  %82 = sub nuw nsw i64 %indvars.iv197.i, %12
   %83 = add nuw nsw i64 %82, 1
   %84 = sub nsw i64 %12, %83
   %85 = trunc nsw i64 %84 to i32
@@ -8112,36 +8114,36 @@ _ZL13reverse_wordsPmS_i.exit36:                   ; preds = %.lr.ph.i32
   br i1 %89, label %.lr.ph141.i, label %._crit_edge142.i
 
 .lr.ph141.i:                                      ; preds = %.lr.ph157.i, %.lr.ph141.i
-  %indvars.iv186.i = phi i64 [ %indvars.iv.next187.i, %.lr.ph141.i ], [ %indvars.iv184.i, %.lr.ph157.i ]
+  %indvars.iv190.i = phi i64 [ %indvars.iv.next191.i, %.lr.ph141.i ], [ %indvars.iv188.i, %.lr.ph157.i ]
   %.5139.i = phi i64 [ %105, %.lr.ph141.i ], [ %.4156.i, %.lr.ph157.i ]
   %.5106138.i = phi i64 [ %106, %.lr.ph141.i ], [ %.4105155.i, %.lr.ph157.i ]
   %90 = load i64, ptr %6, align 8
-  %91 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv186.i
+  %91 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv190.i
   %92 = load i64, ptr %91, align 8
-  %93 = sub nsw i64 %indvars.iv193.i, %indvars.iv186.i
+  %93 = sub nsw i64 %indvars.iv197.i, %indvars.iv190.i
   %94 = getelementptr inbounds i64, ptr %15, i64 %93
   %95 = load i64, ptr %94, align 8
   %96 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %92, i64 %95, i64 %.5139.i, i64 %.5106138.i, i64 %90) #14, !srcloc !59
   %97 = extractvalue { i64, i64, i64, i64 } %96, 2
   %98 = extractvalue { i64, i64, i64, i64 } %96, 3
   %99 = load i64, ptr %6, align 8
-  %100 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv186.i
+  %100 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv190.i
   %101 = load i64, ptr %100, align 8
   %102 = getelementptr inbounds i64, ptr %16, i64 %93
   %103 = load i64, ptr %102, align 8
   %104 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %101, i64 %103, i64 %97, i64 %98, i64 %99) #14, !srcloc !60
   %105 = extractvalue { i64, i64, i64, i64 } %104, 2
   %106 = extractvalue { i64, i64, i64, i64 } %104, 3
-  %indvars.iv.next187.i = add nuw nsw i64 %indvars.iv186.i, 1
-  %107 = icmp slt i64 %indvars.iv.next187.i, %88
+  %indvars.iv.next191.i = add nuw nsw i64 %indvars.iv190.i, 1
+  %107 = icmp slt i64 %indvars.iv.next191.i, %88
   br i1 %107, label %.lr.ph141.i, label %._crit_edge142.i, !llvm.loop !61
 
 ._crit_edge142.i:                                 ; preds = %.lr.ph141.i, %.lr.ph157.i
-  %.0113.lcssa.in.i = phi i64 [ %83, %.lr.ph157.i ], [ %indvars.iv.next187.i, %.lr.ph141.i ]
+  %.0113.lcssa.in.i = phi i64 [ %83, %.lr.ph157.i ], [ %indvars.iv.next191.i, %.lr.ph141.i ]
   %.5106.lcssa.i = phi i64 [ %.4105155.i, %.lr.ph157.i ], [ %106, %.lr.ph141.i ]
   %.5.lcssa.i = phi i64 [ %.4156.i, %.lr.ph157.i ], [ %105, %.lr.ph141.i ]
   %.0113.lcssa.i = trunc i64 %.0113.lcssa.in.i to i32
-  %108 = and i64 %indvars.iv193.i, 1
+  %108 = and i64 %indvars.iv197.i, 1
   %109 = icmp eq i64 %108, 0
   br i1 %109, label %110, label %118
 
@@ -8163,27 +8165,27 @@ _ZL13reverse_wordsPmS_i.exit36:                   ; preds = %.lr.ph.i32
   br i1 %119, label %.lr.ph150.preheader.i, label %._crit_edge151.i
 
 .lr.ph150.preheader.i:                            ; preds = %118
-  %sext199.i = shl i64 %.0113.lcssa.in.i, 32
-  %120 = ashr exact i64 %sext199.i, 32
+  %sext204.i = shl i64 %.0113.lcssa.in.i, 32
+  %120 = ashr exact i64 %sext204.i, 32
   br label %.lr.ph150.i
 
 .lr.ph150.i:                                      ; preds = %.lr.ph150.i, %.lr.ph150.preheader.i
-  %indvars.iv189.i = phi i64 [ %120, %.lr.ph150.preheader.i ], [ %indvars.iv.next190.i, %.lr.ph150.i ]
+  %indvars.iv193.i = phi i64 [ %120, %.lr.ph150.preheader.i ], [ %indvars.iv.next194.i, %.lr.ph150.i ]
   %.7148.i = phi i64 [ %.6.i, %.lr.ph150.preheader.i ], [ %128, %.lr.ph150.i ]
   %.7108147.i = phi i64 [ %.6107.i, %.lr.ph150.preheader.i ], [ %129, %.lr.ph150.i ]
   %121 = load i64, ptr %6, align 8
-  %122 = getelementptr inbounds i64, ptr %19, i64 %indvars.iv189.i
+  %122 = getelementptr inbounds i64, ptr %19, i64 %indvars.iv193.i
   %123 = load i64, ptr %122, align 8
-  %124 = sub nsw i64 %indvars.iv193.i, %indvars.iv189.i
+  %124 = sub nsw i64 %indvars.iv197.i, %indvars.iv193.i
   %125 = getelementptr inbounds i64, ptr %16, i64 %124
   %126 = load i64, ptr %125, align 8
   %127 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %123, i64 %126, i64 %.7148.i, i64 %.7108147.i, i64 %121) #14, !srcloc !63
   %128 = extractvalue { i64, i64, i64, i64 } %127, 2
   %129 = extractvalue { i64, i64, i64, i64 } %127, 3
-  %indvars.iv.next190.i = add nsw i64 %indvars.iv189.i, 1
-  %lftr.wideiv.i = trunc i64 %indvars.iv.next190.i to i32
-  %exitcond192.not.i = icmp eq i32 %7, %lftr.wideiv.i
-  br i1 %exitcond192.not.i, label %._crit_edge151.i, label %.lr.ph150.i, !llvm.loop !64
+  %indvars.iv.next194.i = add nsw i64 %indvars.iv193.i, 1
+  %lftr.wideiv.i = trunc i64 %indvars.iv.next194.i to i32
+  %exitcond196.not.i = icmp eq i32 %7, %lftr.wideiv.i
+  br i1 %exitcond196.not.i, label %._crit_edge151.i, label %.lr.ph150.i, !llvm.loop !64
 
 ._crit_edge151.i:                                 ; preds = %.lr.ph150.i, %118
   %.7108.lcssa.i = phi i64 [ %.6107.i, %118 ], [ %129, %.lr.ph150.i ]
@@ -8192,10 +8194,10 @@ _ZL13reverse_wordsPmS_i.exit36:                   ; preds = %.lr.ph.i32
   store i64 %.7.lcssa.i, ptr %130, align 8
   %131 = load i64, ptr %6, align 8
   store i64 0, ptr %6, align 8
-  %indvars.iv.next194.i = add nuw nsw i64 %indvars.iv193.i, 1
-  %indvars.iv.next185.i = add nuw nsw i64 %indvars.iv184.i, 1
-  %exitcond196.not.i = icmp eq i64 %indvars.iv.next194.i, %18
-  br i1 %exitcond196.not.i, label %.preheader.i, label %.lr.ph157.i, !llvm.loop !65
+  %indvars.iv.next198.i = add nuw nsw i64 %indvars.iv197.i, 1
+  %indvars.iv.next189.i = add nuw nsw i64 %indvars.iv188.i, 1
+  %exitcond201.not.i = icmp eq i64 %indvars.iv.next198.i, %18
+  br i1 %exitcond201.not.i, label %.preheader.i, label %.lr.ph157.i, !llvm.loop !65
 
 .lr.ph161.i:                                      ; preds = %.preheader.i, %.lr.ph161.i
   %.8160.i = phi i64 [ %133, %.lr.ph161.i ], [ %.4.lcssa.i, %.preheader.i ]
@@ -9686,9 +9688,6 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

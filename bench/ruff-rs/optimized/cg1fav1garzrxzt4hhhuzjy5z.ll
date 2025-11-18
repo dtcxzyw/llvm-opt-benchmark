@@ -545,11 +545,11 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = lshr i64 %1, 1
-  %8 = getelementptr ptr, ptr %0, i64 %7
-  %9 = getelementptr i8, ptr %8, i64 -8
-  %10 = add nsw i64 %1, -1
-  %11 = getelementptr inbounds nuw ptr, ptr %0, i64 %10
-  %12 = getelementptr inbounds nuw ptr, ptr %2, i64 %10
+  %8 = add nsw i64 %1, -1
+  %9 = getelementptr inbounds nuw ptr, ptr %0, i64 %8
+  %10 = getelementptr ptr, ptr %0, i64 %7
+  %11 = getelementptr i8, ptr %10, i64 -8
+  %12 = getelementptr inbounds nuw ptr, ptr %2, i64 %8
   %13 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %13)
   br label %18
@@ -563,10 +563,10 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
 
 18:                                               ; preds = %.lr.ph, %18
   %.sroa.0.010 = phi ptr [ %0, %.lr.ph ], [ %27, %18 ]
-  %.sroa.06.09 = phi ptr [ %8, %.lr.ph ], [ %25, %18 ]
+  %.sroa.06.09 = phi ptr [ %10, %.lr.ph ], [ %25, %18 ]
   %.sroa.010.08 = phi ptr [ %2, %.lr.ph ], [ %28, %18 ]
-  %.sroa.013.07 = phi ptr [ %9, %.lr.ph ], [ %34, %18 ]
-  %.sroa.015.06 = phi ptr [ %11, %.lr.ph ], [ %33, %18 ]
+  %.sroa.013.07 = phi ptr [ %11, %.lr.ph ], [ %34, %18 ]
+  %.sroa.015.06 = phi ptr [ %9, %.lr.ph ], [ %33, %18 ]
   %.sroa.017.05 = phi ptr [ %12, %.lr.ph ], [ %35, %18 ]
   %.sroa.018.04 = phi i64 [ 0, %.lr.ph ], [ %19, %18 ]
   %19 = add nuw nsw i64 %.sroa.018.04, 1

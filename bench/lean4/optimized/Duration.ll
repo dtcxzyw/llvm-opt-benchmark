@@ -6003,14 +6003,14 @@ define noalias nonnull ptr @l_Std_Time_Duration_ofNanoseconds(ptr noundef %0) lo
 24:                                               ; preds = %22, %17, %8
   %.1.i16.ph = phi ptr [ inttoptr (i64 1 to ptr), %8 ], [ %21, %17 ], [ %23, %22 ]
   %25 = shl i64 %6, 31
-  %26 = icmp ult i64 %25, 4294967296
-  br i1 %26, label %lean_int_mod.exit, label %27
+  %26 = ashr i64 %25, 32
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %lean_int_mod.exit, label %28
 
-27:                                               ; preds = %24
-  %28 = ashr i64 %25, 32
+28:                                               ; preds = %24
   %29 = shl i64 %3, 31
   %30 = ashr i64 %29, 32
-  %31 = srem i64 %30, %28
+  %31 = srem i64 %30, %26
   %32 = shl nsw i64 %31, 1
   %33 = and i64 %32, 8589934590
   %34 = or disjoint i64 %33, 1
@@ -6022,9 +6022,9 @@ define noalias nonnull ptr @l_Std_Time_Duration_ofNanoseconds(ptr noundef %0) lo
   %37 = tail call ptr @lean_int_big_mod(ptr noundef %0, ptr noundef %2) #3
   br label %lean_int_mod.exit
 
-lean_int_mod.exit:                                ; preds = %24, %27, %.critedge.i12
-  %.1.i14 = phi ptr [ %36, %.critedge.i12 ], [ %.1.i16.ph, %24 ], [ %.1.i16.ph, %27 ]
-  %.1.i11 = phi ptr [ %37, %.critedge.i12 ], [ %0, %24 ], [ %35, %27 ]
+lean_int_mod.exit:                                ; preds = %24, %28, %.critedge.i12
+  %.1.i14 = phi ptr [ %36, %.critedge.i12 ], [ %.1.i16.ph, %24 ], [ %.1.i16.ph, %28 ]
+  %.1.i11 = phi ptr [ %37, %.critedge.i12 ], [ %0, %24 ], [ %35, %28 ]
   tail call void @lean_inc_heartbeat() #3
   %38 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #3
   %39 = icmp eq ptr %38, null

@@ -7752,17 +7752,17 @@ _ZNK3spv10spirvbin_t15typeSizeInWordsEj.exit.thread.i.i.i: ; preds = %36
   %50 = getelementptr inbounds nuw i32, ptr %39, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = add i32 %51, 31
-  %.not34.i.i.i = icmp ult i32 %52, 32
-  br i1 %.not34.i.i.i, label %.thread.i.i.i, label %53
+  %53 = lshr i32 %52, 5
+  %.not34.i.i.i = icmp eq i32 %53, 0
+  br i1 %.not34.i.i.i, label %.thread.i.i.i, label %54
 
-53:                                               ; preds = %47
-  %54 = lshr i32 %52, 5
+54:                                               ; preds = %47
   %55 = getelementptr inbounds nuw i8, ptr %12, i64 352
   %56 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjjESaIS3_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %55, ptr noundef nonnull align 4 dereferenceable(4) %6)
-  store i32 %54, ptr %56, align 4
+  store i32 %53, ptr %56, align 4
   br label %.thread.i.i.i
 
-.thread.i.i.i:                                    ; preds = %53, %47, %_ZNK3spv10spirvbin_t15typeSizeInWordsEj.exit.thread.i.i.i, %28, %26
+.thread.i.i.i:                                    ; preds = %54, %47, %_ZNK3spv10spirvbin_t15typeSizeInWordsEj.exit.thread.i.i.i, %28, %26
   switch i32 %.val3, label %150 [
     i32 5, label %57
     i32 57, label %80
@@ -12944,7 +12944,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairIjjESt6vec
   store i32 %57, ptr %65, align 4
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   store i32 %64, ptr %66, align 4
-  %.not = icmp ult i64 %.0923.in.i.i, 2
+  %.not = icmp eq i64 %.0923.i.i78, 0
   br i1 %.not, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIjjESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit, label %.lr.ph.i.i, !llvm.loop !143
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIjjESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit: ; preds = %59, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairIjjESt6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairIjjESt6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.thread.i.i, %54

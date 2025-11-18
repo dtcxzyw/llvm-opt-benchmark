@@ -293,7 +293,7 @@ define hidden i32 @a2d_ASN1_OBJECT(ptr noundef writeonly captures(address_is_nul
   %83 = getelementptr inbounds nuw i8, ptr %.1110263, i64 %indvars.iv305
   store i8 %82, ptr %83, align 1, !tbaa !15
   %84 = lshr i64 %.3101, 7
-  %85 = icmp ult i64 %.3101, 128
+  %85 = icmp eq i64 %84, 0
   br i1 %85, label %.thread172.loopexit, label %.preheader191
 
 .thread172.loopexit:                              ; preds = %.preheader191

@@ -3534,7 +3534,7 @@ define hidden void @_ZN6Assimp11LWOImporter12LoadLWO2FileEv(ptr noundef nonnull 
 63:                                               ; preds = %54
   %64 = getelementptr inbounds nuw i8, ptr %55, i64 %.055
   store ptr %64, ptr %4, align 8
-  %.not = icmp ult i64 %.sroa.8.0.in.in, 4294967296
+  %.not = icmp eq i64 %.sroa.8.0.in, 0
   br i1 %.not, label %226, label %65, !llvm.loop !29
 
 65:                                               ; preds = %63
@@ -8078,11 +8078,11 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %88, %91, %93, %95
   br label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm.exit21
 
 _ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm.exit21: ; preds = %105, %103, %101, %99, %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit
-  %.not23 = icmp ult i32 %1, 4
+  %106 = lshr i32 %1, 2
+  %.not23 = icmp eq i32 %106, 0
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm.exit21
-  %106 = lshr i32 %1, 2
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %wide.trip.count = zext nneg i32 %106 to i64
   br label %113
@@ -12135,7 +12135,7 @@ _ZNSt6vectorIN6Assimp3LWO4ClipESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit: ; pred
   ]
 
 42:                                               ; preds = %_ZNSt6vectorIN6Assimp3LWO4ClipESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
-  %43 = icmp ult i64 %.sroa.0.0.insert.insert.i32, 4294967296
+  %43 = icmp eq i64 %.sroa.5.0.extract.shift, 0
   br i1 %43, label %44, label %49
 
 44:                                               ; preds = %42

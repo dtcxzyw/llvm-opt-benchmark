@@ -1986,18 +1986,15 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   %29 = getelementptr i8, ptr %28, i64 -8
   %30 = load i32, ptr %29, align 4, !tbaa !12
   %.not.i = icmp sge i32 %1, %30
-  %31 = icmp eq i32 %23, 2
-  %or.cond.i = or i1 %31, %.not.i
-  br i1 %or.cond.i, label %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit, label %.lr.ph.preheader.i
+  %31 = lshr i32 %24, 1
+  %32 = icmp eq i32 %31, 0
+  %or.cond.i = select i1 %.not.i, i1 true, i1 %32
+  br i1 %or.cond.i, label %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %26
-  %32 = lshr i32 %24, 1
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %33 = phi i32 [ %39, %.lr.ph.i ], [ %32, %.lr.ph.preheader.i ]
-  %.01830.i = phi i32 [ %..018.i, %.lr.ph.i ], [ %24, %.lr.ph.preheader.i ]
-  %.02029.i = phi i32 [ %.020..i, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %26, %.lr.ph.i
+  %33 = phi i32 [ %39, %.lr.ph.i ], [ %31, %26 ]
+  %.01830.i = phi i32 [ %..018.i, %.lr.ph.i ], [ %24, %26 ]
+  %.02029.i = phi i32 [ %.020..i, %.lr.ph.i ], [ 0, %26 ]
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr inbounds nuw i32, ptr %18, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !12
@@ -2041,18 +2038,15 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK6icu_7710UnicodeSet13
   %15 = getelementptr i8, ptr %14, i64 -8
   %16 = load i32, ptr %15, align 4, !tbaa !12
   %.not = icmp sge i32 %1, %16
-  %17 = icmp eq i32 %9, 2
-  %or.cond = or i1 %.not, %17
-  br i1 %or.cond, label %.thread, label %.lr.ph.preheader
+  %17 = lshr i32 %10, 1
+  %18 = icmp eq i32 %17, 0
+  %or.cond = select i1 %.not, i1 true, i1 %18
+  br i1 %or.cond, label %.thread, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %12
-  %18 = lshr i32 %10, 1
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %19 = phi i32 [ %25, %.lr.ph ], [ %18, %.lr.ph.preheader ]
-  %.01830 = phi i32 [ %..018, %.lr.ph ], [ %10, %.lr.ph.preheader ]
-  %.02029 = phi i32 [ %.020., %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %12, %.lr.ph
+  %19 = phi i32 [ %25, %.lr.ph ], [ %17, %12 ]
+  %.01830 = phi i32 [ %..018, %.lr.ph ], [ %10, %12 ]
+  %.02029 = phi i32 [ %.020., %.lr.ph ], [ 0, %12 ]
   %20 = zext nneg i32 %19 to i64
   %21 = getelementptr inbounds nuw i32, ptr %4, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !12
@@ -2090,18 +2084,15 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7710UnicodeSet8containsEii(pt
   %16 = getelementptr i8, ptr %15, i64 -8
   %17 = load i32, ptr %16, align 4, !tbaa !12
   %.not.i = icmp sge i32 %1, %17
-  %18 = icmp eq i32 %10, 2
-  %or.cond.i = or i1 %18, %.not.i
-  br i1 %or.cond.i, label %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit, label %.lr.ph.preheader.i
+  %18 = lshr i32 %11, 1
+  %19 = icmp eq i32 %18, 0
+  %or.cond.i = select i1 %.not.i, i1 true, i1 %19
+  br i1 %or.cond.i, label %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %13
-  %19 = lshr i32 %11, 1
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %20 = phi i32 [ %26, %.lr.ph.i ], [ %19, %.lr.ph.preheader.i ]
-  %.01830.i = phi i32 [ %..018.i, %.lr.ph.i ], [ %11, %.lr.ph.preheader.i ]
-  %.02029.i = phi i32 [ %.020..i, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %13, %.lr.ph.i
+  %20 = phi i32 [ %26, %.lr.ph.i ], [ %18, %13 ]
+  %.01830.i = phi i32 [ %..018.i, %.lr.ph.i ], [ %11, %13 ]
+  %.02029.i = phi i32 [ %.020..i, %.lr.ph.i ], [ 0, %13 ]
   %21 = zext nneg i32 %20 to i64
   %22 = getelementptr inbounds nuw i32, ptr %5, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !12
@@ -2228,18 +2219,15 @@ tailrecurse._crit_edge.i:                         ; preds = %tailrecurse.i, %27
   %54 = getelementptr i8, ptr %53, i64 -8
   %55 = load i32, ptr %54, align 4, !tbaa !12
   %.not.i.i = icmp sge i32 %.0.i.ph, %55
-  %56 = icmp eq i32 %48, 2
-  %or.cond.i.i = or i1 %56, %.not.i.i
-  br i1 %or.cond.i.i, label %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i, label %.lr.ph.preheader.i.i
+  %56 = lshr i32 %49, 1
+  %57 = icmp eq i32 %56, 0
+  %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %57
+  br i1 %or.cond.i.i, label %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i, label %.lr.ph.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %51
-  %57 = lshr i32 %49, 1
-  br label %.lr.ph.i.i
-
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %58 = phi i32 [ %64, %.lr.ph.i.i ], [ %57, %.lr.ph.preheader.i.i ]
-  %.01830.i.i = phi i32 [ %..018.i.i, %.lr.ph.i.i ], [ %49, %.lr.ph.preheader.i.i ]
-  %.02029.i.i = phi i32 [ %.020..i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
+.lr.ph.i.i:                                       ; preds = %51, %.lr.ph.i.i
+  %58 = phi i32 [ %64, %.lr.ph.i.i ], [ %56, %51 ]
+  %.01830.i.i = phi i32 [ %..018.i.i, %.lr.ph.i.i ], [ %49, %51 ]
+  %.02029.i.i = phi i32 [ %.020..i.i, %.lr.ph.i.i ], [ 0, %51 ]
   %59 = zext nneg i32 %58 to i64
   %60 = getelementptr inbounds nuw i32, ptr %43, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !12
@@ -2339,8 +2327,8 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7710UnicodeSet11containsAllER
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us.split.preheader, %25
   %indvars.iv44 = phi i64 [ 0, %.lr.ph.split.us.split.preheader ], [ %indvars.iv.next45, %25 ]
-  %.idx52 = shl nuw nsw i64 %indvars.iv44, 3
-  %22 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx52
+  %.idx53 = shl nuw nsw i64 %indvars.iv44, 3
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx53
   %23 = load i32, ptr %22, align 4, !tbaa !12
   %24 = icmp slt i32 %23, %10
   br i1 %24, label %_ZNK6icu_7710UnicodeSet8containsEii.exit.thread, label %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i.us
@@ -2358,7 +2346,7 @@ _ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i.us: ; preds = %.lr.ph.split.us.s
   br i1 %.not22.us, label %_ZNK6icu_7710UnicodeSet8containsEii.exit.thread, label %25
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %29 = icmp eq i32 %.fr33, 2
+  %29 = icmp eq i32 %18, 0
   br i1 %29, label %.lr.ph.split.split.us.split.preheader, label %.lr.ph.split.split.preheader
 
 .lr.ph.split.split.preheader:                     ; preds = %.lr.ph.split
@@ -2373,8 +2361,8 @@ _ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i.us: ; preds = %.lr.ph.split.us.s
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us.split.preheader, %35
   %indvars.iv39 = phi i64 [ 0, %.lr.ph.split.split.us.split.preheader ], [ %indvars.iv.next40, %35 ]
-  %.idx51 = shl nuw nsw i64 %indvars.iv39, 3
-  %32 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx51
+  %.idx52 = shl nuw nsw i64 %indvars.iv39, 3
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx52
   %33 = load i32, ptr %32, align 4, !tbaa !12
   %34 = icmp slt i32 %33, %10
   br i1 %34, label %_ZNK6icu_7710UnicodeSet8containsEii.exit.thread, label %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i.us27
@@ -2686,18 +2674,15 @@ tailrecurse._crit_edge.i:                         ; preds = %tailrecurse.i, %64
   %90 = getelementptr i8, ptr %89, i64 -8
   %91 = load i32, ptr %90, align 4, !tbaa !12
   %.not.i.i = icmp sge i32 %.142, %91
-  %92 = icmp eq i32 %84, 2
-  %or.cond.i.i = or i1 %92, %.not.i.i
-  br i1 %or.cond.i.i, label %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i, label %.lr.ph.preheader.i.i
+  %92 = lshr i32 %85, 1
+  %93 = icmp eq i32 %92, 0
+  %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %93
+  br i1 %or.cond.i.i, label %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i, label %.lr.ph.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %87
-  %93 = lshr i32 %85, 1
-  br label %.lr.ph.i.i
-
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %94 = phi i32 [ %100, %.lr.ph.i.i ], [ %93, %.lr.ph.preheader.i.i ]
-  %.01830.i.i = phi i32 [ %..018.i.i, %.lr.ph.i.i ], [ %85, %.lr.ph.preheader.i.i ]
-  %.02029.i.i = phi i32 [ %.020..i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
+.lr.ph.i.i:                                       ; preds = %87, %.lr.ph.i.i
+  %94 = phi i32 [ %100, %.lr.ph.i.i ], [ %92, %87 ]
+  %.01830.i.i = phi i32 [ %..018.i.i, %.lr.ph.i.i ], [ %85, %87 ]
+  %.02029.i.i = phi i32 [ %.020..i.i, %.lr.ph.i.i ], [ 0, %87 ]
   %95 = zext nneg i32 %94 to i64
   %96 = getelementptr inbounds nuw i32, ptr %79, i64 %95
   %97 = load i32, ptr %96, align 4, !tbaa !12
@@ -2751,18 +2736,15 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7710UnicodeSet12containsNoneE
   %16 = getelementptr i8, ptr %15, i64 -8
   %17 = load i32, ptr %16, align 4, !tbaa !12
   %.not.i = icmp sge i32 %1, %17
-  %18 = icmp eq i32 %10, 2
-  %or.cond.i = or i1 %18, %.not.i
-  br i1 %or.cond.i, label %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit, label %.lr.ph.preheader.i
+  %18 = lshr i32 %11, 1
+  %19 = icmp eq i32 %18, 0
+  %or.cond.i = select i1 %.not.i, i1 true, i1 %19
+  br i1 %or.cond.i, label %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %13
-  %19 = lshr i32 %11, 1
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %20 = phi i32 [ %26, %.lr.ph.i ], [ %19, %.lr.ph.preheader.i ]
-  %.01830.i = phi i32 [ %..018.i, %.lr.ph.i ], [ %11, %.lr.ph.preheader.i ]
-  %.02029.i = phi i32 [ %.020..i, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %13, %.lr.ph.i
+  %20 = phi i32 [ %26, %.lr.ph.i ], [ %18, %13 ]
+  %.01830.i = phi i32 [ %..018.i, %.lr.ph.i ], [ %11, %13 ]
+  %.02029.i = phi i32 [ %.020..i, %.lr.ph.i ], [ 0, %13 ]
   %21 = zext nneg i32 %20 to i64
   %22 = getelementptr inbounds nuw i32, ptr %5, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !12
@@ -2827,13 +2809,13 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7710UnicodeSet12containsNoneE
   %20 = icmp eq i32 %19, 0
   %.phi.trans.insert.i.us = sext i32 %13 to i64
   %.phi.trans.insert6.i.us = getelementptr inbounds i32, ptr %9, i64 %.phi.trans.insert.i.us
-  %wide.trip.count58 = zext nneg i32 %5 to i64
+  %wide.trip.count63 = zext nneg i32 %5 to i64
   br i1 %20, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %26
-  %indvars.iv55 = phi i64 [ %indvars.iv.next56, %26 ], [ 0, %.lr.ph.split.us ]
-  %.idx66 = shl nuw nsw i64 %indvars.iv55, 3
-  %21 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx66
+  %indvars.iv60 = phi i64 [ %indvars.iv.next61, %26 ], [ 0, %.lr.ph.split.us ]
+  %.idx73 = shl nuw nsw i64 %indvars.iv60, 3
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx73
   %22 = load i32, ptr %21, align 4, !tbaa !12
   %23 = getelementptr i8, ptr %21, i64 4
   %24 = load i32, ptr %23, align 4, !tbaa !12
@@ -2841,9 +2823,9 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7710UnicodeSet12containsNoneE
   br i1 %25, label %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit.us.us, label %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i.us.us
 
 26:                                               ; preds = %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit.us.us
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %.critedge, label %.lr.ph.split.us.split.us, !llvm.loop !52
+  %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
+  %exitcond64.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count63
+  br i1 %exitcond64.not, label %.critedge, label %.lr.ph.split.us.split.us, !llvm.loop !52
 
 _ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i.us.us: ; preds = %.lr.ph.split.us.split.us
   %.pre.i.us.us = load i32, ptr %.phi.trans.insert6.i.us, align 4, !tbaa !12
@@ -2855,17 +2837,17 @@ _ZNK6icu_7710UnicodeSet12containsNoneEii.exit.us.us: ; preds = %_ZNK6icu_7710Uni
   br i1 %.not19.us.us, label %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit.thread, label %26
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %31
-  %indvars.iv50 = phi i64 [ %indvars.iv.next51, %31 ], [ 0, %.lr.ph.split.us ]
-  %.idx65 = shl nuw nsw i64 %indvars.iv50, 3
-  %28 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx65
+  %indvars.iv55 = phi i64 [ %indvars.iv.next56, %31 ], [ 0, %.lr.ph.split.us ]
+  %.idx72 = shl nuw nsw i64 %indvars.iv55, 3
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx72
   %29 = load i32, ptr %28, align 4, !tbaa !12
   %30 = icmp slt i32 %29, %10
   br i1 %30, label %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit.us, label %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit.thread
 
 31:                                               ; preds = %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit.us
-  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count58
-  br i1 %exitcond54.not, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !52
+  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
+  %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count63
+  br i1 %exitcond59.not, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !52
 
 _ZNK6icu_7710UnicodeSet12containsNoneEii.exit.us: ; preds = %.lr.ph.split.us.split
   %32 = getelementptr i8, ptr %28, i64 4
@@ -2874,14 +2856,14 @@ _ZNK6icu_7710UnicodeSet12containsNoneEii.exit.us: ; preds = %.lr.ph.split.us.spl
   br i1 %.not19.us, label %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit.thread, label %31
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %34 = icmp eq i32 %.fr35, 2
+  %34 = icmp eq i32 %18, 0
   %wide.trip.count48 = zext nneg i32 %5 to i64
   br i1 %34, label %.lr.ph.split.split.us.split, label %.lr.ph.split.split
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split, %38
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %38 ], [ 0, %.lr.ph.split ]
-  %.idx64 = shl nuw nsw i64 %indvars.iv45, 3
-  %35 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx64
+  %.idx70 = shl nuw nsw i64 %indvars.iv45, 3
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx70
   %36 = load i32, ptr %35, align 4, !tbaa !12
   %37 = icmp slt i32 %36, %10
   br i1 %37, label %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit.us30, label %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit.thread
@@ -3248,18 +3230,15 @@ tailrecurse._crit_edge.i:                         ; preds = %tailrecurse.i, %8
   %33 = getelementptr i8, ptr %32, i64 -8
   %34 = load i32, ptr %33, align 4, !tbaa !12
   %.not.i.i = icmp slt i32 %34, 65536
-  %35 = icmp eq i32 %27, 2
-  %or.cond.i.i = or i1 %35, %.not.i.i
-  br i1 %or.cond.i.i, label %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i, label %.lr.ph.preheader.i.i
+  %35 = lshr i32 %28, 1
+  %36 = icmp eq i32 %35, 0
+  %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %36
+  br i1 %or.cond.i.i, label %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i, label %.lr.ph.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %30
-  %36 = lshr i32 %28, 1
-  br label %.lr.ph.i.i
-
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %37 = phi i32 [ %43, %.lr.ph.i.i ], [ %36, %.lr.ph.preheader.i.i ]
-  %.01830.i.i = phi i32 [ %..018.i.i, %.lr.ph.i.i ], [ %28, %.lr.ph.preheader.i.i ]
-  %.02029.i.i = phi i32 [ %.020..i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
+.lr.ph.i.i:                                       ; preds = %30, %.lr.ph.i.i
+  %37 = phi i32 [ %43, %.lr.ph.i.i ], [ %35, %30 ]
+  %.01830.i.i = phi i32 [ %..018.i.i, %.lr.ph.i.i ], [ %28, %30 ]
+  %.02029.i.i = phi i32 [ %.020..i.i, %.lr.ph.i.i ], [ 0, %30 ]
   %38 = zext nneg i32 %37 to i64
   %39 = getelementptr inbounds nuw i32, ptr %22, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !12
@@ -4387,18 +4366,15 @@ _ZN6icu_77L12pinCodePointERi.exit:
   %15 = getelementptr i8, ptr %14, i64 -8
   %16 = load i32, ptr %15, align 4, !tbaa !12
   %.not.i = icmp sge i32 %.0, %16
-  %17 = icmp eq i32 %9, 2
-  %or.cond.i = or i1 %17, %.not.i
-  br i1 %or.cond.i, label %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit, label %.lr.ph.preheader.i
+  %17 = lshr i32 %10, 1
+  %18 = icmp eq i32 %17, 0
+  %or.cond.i = select i1 %.not.i, i1 true, i1 %18
+  br i1 %or.cond.i, label %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %12
-  %18 = lshr i32 %10, 1
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %19 = phi i32 [ %25, %.lr.ph.i ], [ %18, %.lr.ph.preheader.i ]
-  %.01830.i = phi i32 [ %..018.i, %.lr.ph.i ], [ %10, %.lr.ph.preheader.i ]
-  %.02029.i = phi i32 [ %.020..i, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %12, %.lr.ph.i
+  %19 = phi i32 [ %25, %.lr.ph.i ], [ %17, %12 ]
+  %.01830.i = phi i32 [ %..018.i, %.lr.ph.i ], [ %10, %12 ]
+  %.02029.i = phi i32 [ %.020..i, %.lr.ph.i ], [ 0, %12 ]
   %20 = zext nneg i32 %19 to i64
   %21 = getelementptr inbounds nuw i32, ptr %4, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !12
@@ -8075,18 +8051,15 @@ tailrecurse._crit_edge.i:                         ; preds = %tailrecurse.i, %66
   %92 = getelementptr i8, ptr %91, i64 -8
   %93 = load i32, ptr %92, align 4, !tbaa !12
   %.not.i.i = icmp sge i32 %.139, %93
-  %94 = icmp eq i32 %86, 2
-  %or.cond.i.i = or i1 %94, %.not.i.i
-  br i1 %or.cond.i.i, label %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i, label %.lr.ph.preheader.i.i
+  %94 = lshr i32 %87, 1
+  %95 = icmp eq i32 %94, 0
+  %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %95
+  br i1 %or.cond.i.i, label %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i, label %.lr.ph.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %89
-  %95 = lshr i32 %87, 1
-  br label %.lr.ph.i.i
-
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %96 = phi i32 [ %102, %.lr.ph.i.i ], [ %95, %.lr.ph.preheader.i.i ]
-  %.01830.i.i = phi i32 [ %..018.i.i, %.lr.ph.i.i ], [ %87, %.lr.ph.preheader.i.i ]
-  %.02029.i.i = phi i32 [ %.020..i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
+.lr.ph.i.i:                                       ; preds = %89, %.lr.ph.i.i
+  %96 = phi i32 [ %102, %.lr.ph.i.i ], [ %94, %89 ]
+  %.01830.i.i = phi i32 [ %..018.i.i, %.lr.ph.i.i ], [ %87, %89 ]
+  %.02029.i.i = phi i32 [ %.020..i.i, %.lr.ph.i.i ], [ 0, %89 ]
   %97 = zext nneg i32 %96 to i64
   %98 = getelementptr inbounds nuw i32, ptr %81, i64 %97
   %99 = load i32, ptr %98, align 4, !tbaa !12
@@ -8380,18 +8353,15 @@ tailrecurse._crit_edge.i:                         ; preds = %tailrecurse.i, %115
   %141 = getelementptr i8, ptr %140, i64 -8
   %142 = load i32, ptr %141, align 4, !tbaa !12
   %.not.i.i = icmp sge i32 %.365, %142
-  %143 = icmp eq i32 %135, 2
-  %or.cond.i.i = or i1 %143, %.not.i.i
-  br i1 %or.cond.i.i, label %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i, label %.lr.ph.preheader.i.i
+  %143 = lshr i32 %136, 1
+  %144 = icmp eq i32 %143, 0
+  %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %144
+  br i1 %or.cond.i.i, label %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i, label %.lr.ph.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %138
-  %144 = lshr i32 %136, 1
-  br label %.lr.ph.i.i
-
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %145 = phi i32 [ %151, %.lr.ph.i.i ], [ %144, %.lr.ph.preheader.i.i ]
-  %.01830.i.i = phi i32 [ %..018.i.i, %.lr.ph.i.i ], [ %136, %.lr.ph.preheader.i.i ]
-  %.02029.i.i = phi i32 [ %.020..i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
+.lr.ph.i.i:                                       ; preds = %138, %.lr.ph.i.i
+  %145 = phi i32 [ %151, %.lr.ph.i.i ], [ %143, %138 ]
+  %.01830.i.i = phi i32 [ %..018.i.i, %.lr.ph.i.i ], [ %136, %138 ]
+  %.02029.i.i = phi i32 [ %.020..i.i, %.lr.ph.i.i ], [ 0, %138 ]
   %146 = zext nneg i32 %145 to i64
   %147 = getelementptr inbounds nuw i32, ptr %130, i64 %146
   %148 = load i32, ptr %147, align 4, !tbaa !12
@@ -8585,18 +8555,15 @@ tailrecurse._crit_edge.i:                         ; preds = %tailrecurse.i, %49
   %75 = getelementptr i8, ptr %74, i64 -8
   %76 = load i32, ptr %75, align 4, !tbaa !12
   %.not.i.i = icmp sge i32 %.022, %76
-  %77 = icmp eq i32 %69, 2
-  %or.cond.i.i = or i1 %77, %.not.i.i
-  br i1 %or.cond.i.i, label %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i, label %.lr.ph.preheader.i.i
+  %77 = lshr i32 %70, 1
+  %78 = icmp eq i32 %77, 0
+  %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %78
+  br i1 %or.cond.i.i, label %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i, label %.lr.ph.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %72
-  %78 = lshr i32 %70, 1
-  br label %.lr.ph.i.i
-
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %79 = phi i32 [ %85, %.lr.ph.i.i ], [ %78, %.lr.ph.preheader.i.i ]
-  %.01830.i.i = phi i32 [ %..018.i.i, %.lr.ph.i.i ], [ %70, %.lr.ph.preheader.i.i ]
-  %.02029.i.i = phi i32 [ %.020..i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
+.lr.ph.i.i:                                       ; preds = %72, %.lr.ph.i.i
+  %79 = phi i32 [ %85, %.lr.ph.i.i ], [ %77, %72 ]
+  %.01830.i.i = phi i32 [ %..018.i.i, %.lr.ph.i.i ], [ %70, %72 ]
+  %.02029.i.i = phi i32 [ %.020..i.i, %.lr.ph.i.i ], [ 0, %72 ]
   %80 = zext nneg i32 %79 to i64
   %81 = getelementptr inbounds nuw i32, ptr %64, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !12

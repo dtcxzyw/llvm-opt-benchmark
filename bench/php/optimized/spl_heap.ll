@@ -307,11 +307,11 @@ define internal fastcc void @spl_ptr_heap_insert(ptr noundef captures(none) %0, 
   br label %spl_heap_elem_copy.exit
 
 spl_heap_elem_copy.exit:                          ; preds = %48, %49
-  %.not36 = icmp ult i32 %30, 2
+  %.not36 = icmp eq i32 %31, 0
   br i1 %.not36, label %.critedge.loopexit, label %28
 
 .critedge.loopexit:                               ; preds = %spl_heap_elem_copy.exit, %28
-  %.0.lcssa.ph = phi i32 [ %.033, %28 ], [ %31, %spl_heap_elem_copy.exit ]
+  %.0.lcssa.ph = phi i32 [ %.033, %28 ], [ 0, %spl_heap_elem_copy.exit ]
   %.pre37 = load i32, ptr %4, align 8, !tbaa !19
   %.pre38 = load i32, ptr %22, align 4, !tbaa !23
   br label %.critedge

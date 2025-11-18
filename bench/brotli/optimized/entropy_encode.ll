@@ -679,30 +679,30 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @BrotliWriteHuffmanTree(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %._crit_edge110, label %.lr.ph
+  br i1 %.not, label %._crit_edge108, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %6 = getelementptr i8, ptr %0, i64 %1
   br label %7
 
 7:                                                ; preds = %.lr.ph, %12
-  %.04496 = phi i64 [ %1, %.lr.ph ], [ %13, %12 ]
-  %.04595 = phi i64 [ 0, %.lr.ph ], [ %14, %12 ]
-  %8 = xor i64 %.04595, -1
+  %.04494 = phi i64 [ %1, %.lr.ph ], [ %13, %12 ]
+  %.04593 = phi i64 [ 0, %.lr.ph ], [ %14, %12 ]
+  %8 = xor i64 %.04593, -1
   %9 = getelementptr i8, ptr %6, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !11
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %12, label %._crit_edge
 
 12:                                               ; preds = %7
-  %13 = add i64 %.04496, -1
-  %14 = add nuw i64 %.04595, 1
+  %13 = add i64 %.04494, -1
+  %14 = add nuw i64 %.04593, 1
   %exitcond.not = icmp eq i64 %14, %1
-  br i1 %exitcond.not, label %._crit_edge110, label %7, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge108, label %7, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %7
   %15 = icmp ult i64 %1, 51
-  %.not.i = icmp eq i64 %.04496, 0
+  %.not.i = icmp eq i64 %.04494, 0
   %or.cond87 = select i1 %15, i1 true, i1 %.not.i
   br i1 %or.cond87, label %DecideOverRleUse.exit, label %.lr.ph54.i
 
@@ -715,11 +715,11 @@ define hidden void @BrotliWriteHuffmanTree(ptr noundef readonly captures(none) %
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 %.03652.i
   %17 = load i8, ptr %16, align 1, !tbaa !11
   %.044.i = add nuw i64 %.03652.i, 1
-  %18 = icmp ult i64 %.044.i, %.04496
+  %18 = icmp ult i64 %.044.i, %.04494
   br i1 %18, label %.lr.ph.preheader.i, label %.critedge.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph54.i
-  %19 = sub i64 %.04496, %.03652.i
+  %19 = sub i64 %.04494, %.03652.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %23, %.lr.ph.preheader.i
@@ -733,7 +733,7 @@ define hidden void @BrotliWriteHuffmanTree(ptr noundef readonly captures(none) %
 23:                                               ; preds = %.lr.ph.i
   %24 = add i64 %.03445.i, 1
   %.0.i = add i64 %.046.i, 1
-  %exitcond.not.i = icmp eq i64 %.0.i, %.04496
+  %exitcond.not.i = icmp eq i64 %.0.i, %.04494
   br i1 %exitcond.not.i, label %.critedge.loopexit.i, label %.lr.ph.i, !llvm.loop !32
 
 .critedge.loopexit.i:                             ; preds = %23, %.lr.ph.i
@@ -758,7 +758,7 @@ define hidden void @BrotliWriteHuffmanTree(ptr noundef readonly captures(none) %
   %.142.i = add i64 %31, %.04149.i
   %32 = zext i1 %or.cond5.i to i64
   %.138.i = add i64 %.03751.i, %32
-  %33 = icmp ult i64 %.pre-phi.i, %.04496
+  %33 = icmp ult i64 %.pre-phi.i, %.04494
   br i1 %33, label %.lr.ph54.i, label %._crit_edge.loopexit.i, !llvm.loop !33
 
 ._crit_edge.loopexit.i:                           ; preds = %.critedge.i
@@ -766,20 +766,20 @@ define hidden void @BrotliWriteHuffmanTree(ptr noundef readonly captures(none) %
   %35 = icmp ugt i64 %.142.i, %34
   %36 = shl i64 %.140.i, 1
   %37 = icmp ugt i64 %.1.i, %36
-  br i1 %.not.i, label %._crit_edge110, label %.lr.ph109.preheader
+  br i1 %.not.i, label %._crit_edge108, label %.lr.ph107.preheader
 
 DecideOverRleUse.exit:                            ; preds = %._crit_edge
-  br i1 %.not.i, label %._crit_edge110, label %.lr.ph109.preheader
+  br i1 %.not.i, label %._crit_edge108, label %.lr.ph107.preheader
 
-.lr.ph109.preheader:                              ; preds = %._crit_edge.loopexit.i, %DecideOverRleUse.exit
+.lr.ph107.preheader:                              ; preds = %._crit_edge.loopexit.i, %DecideOverRleUse.exit
   %.071137 = phi i1 [ %37, %._crit_edge.loopexit.i ], [ false, %DecideOverRleUse.exit ]
   %.072136 = phi i1 [ %35, %._crit_edge.loopexit.i ], [ false, %DecideOverRleUse.exit ]
-  br label %.lr.ph109
+  br label %.lr.ph107
 
-.lr.ph109:                                        ; preds = %.lr.ph109.preheader, %BrotliWriteHuffmanTreeRepetitionsZeros.exit
-  %.042108 = phi i8 [ %.143, %BrotliWriteHuffmanTreeRepetitionsZeros.exit ], [ 8, %.lr.ph109.preheader ]
-  %.146106 = phi i64 [ %168, %BrotliWriteHuffmanTreeRepetitionsZeros.exit ], [ 0, %.lr.ph109.preheader ]
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 %.146106
+.lr.ph107:                                        ; preds = %.lr.ph107.preheader, %BrotliWriteHuffmanTreeRepetitionsZeros.exit
+  %.042106 = phi i8 [ %.143, %BrotliWriteHuffmanTreeRepetitionsZeros.exit ], [ 8, %.lr.ph107.preheader ]
+  %.146104 = phi i64 [ %154, %BrotliWriteHuffmanTreeRepetitionsZeros.exit ], [ 0, %.lr.ph107.preheader ]
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 %.146104
   %39 = load i8, ptr %38, align 1, !tbaa !11
   %40 = icmp ne i8 %39, 0
   %or.cond = select i1 %40, i1 %.072136, i1 false
@@ -788,38 +788,38 @@ DecideOverRleUse.exit:                            ; preds = %._crit_edge
   %or.cond88 = select i1 %or.cond, i1 true, i1 %or.cond3
   br i1 %or.cond88, label %.preheader, label %.critedge.thread
 
-.preheader:                                       ; preds = %.lr.ph109
-  %.099 = add nuw i64 %.146106, 1
-  %42 = icmp ult i64 %.099, %.04496
-  br i1 %42, label %.lr.ph102.preheader, label %.critedge.thread138
+.preheader:                                       ; preds = %.lr.ph107
+  %.097 = add nuw i64 %.146104, 1
+  %42 = icmp ult i64 %.097, %.04494
+  br i1 %42, label %.lr.ph100.preheader, label %.critedge.thread138
 
-.lr.ph102.preheader:                              ; preds = %.preheader
-  %43 = sub i64 %.04496, %.146106
-  br label %.lr.ph102
+.lr.ph100.preheader:                              ; preds = %.preheader
+  %43 = sub i64 %.04494, %.146104
+  br label %.lr.ph100
 
-.lr.ph102:                                        ; preds = %.lr.ph102.preheader, %47
-  %.0101 = phi i64 [ %.0, %47 ], [ %.099, %.lr.ph102.preheader ]
-  %.1100 = phi i64 [ %48, %47 ], [ 1, %.lr.ph102.preheader ]
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 %.0101
+.lr.ph100:                                        ; preds = %.lr.ph100.preheader, %47
+  %.099 = phi i64 [ %.0, %47 ], [ %.097, %.lr.ph100.preheader ]
+  %.198 = phi i64 [ %48, %47 ], [ 1, %.lr.ph100.preheader ]
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 %.099
   %45 = load i8, ptr %44, align 1, !tbaa !11
   %46 = icmp eq i8 %45, %39
   br i1 %46, label %47, label %.critedge
 
-47:                                               ; preds = %.lr.ph102
-  %48 = add i64 %.1100, 1
-  %.0 = add nuw i64 %.0101, 1
-  %exitcond118.not = icmp eq i64 %.0, %.04496
-  br i1 %exitcond118.not, label %.critedge, label %.lr.ph102, !llvm.loop !34
+47:                                               ; preds = %.lr.ph100
+  %48 = add i64 %.198, 1
+  %.0 = add nuw i64 %.099, 1
+  %exitcond114.not = icmp eq i64 %.0, %.04494
+  br i1 %exitcond114.not, label %.critedge, label %.lr.ph100, !llvm.loop !34
 
-.critedge:                                        ; preds = %47, %.lr.ph102
-  %.1.lcssa = phi i64 [ %43, %47 ], [ %.1100, %.lr.ph102 ]
-  br i1 %41, label %49, label %104
+.critedge:                                        ; preds = %47, %.lr.ph100
+  %.1.lcssa = phi i64 [ %43, %47 ], [ %.198, %.lr.ph100 ]
+  br i1 %41, label %49, label %97
 
 .critedge.thread138:                              ; preds = %.preheader
-  br i1 %41, label %.lr.ph.preheader.i49, label %104
+  br i1 %41, label %.lr.ph.preheader.i50, label %97
 
-.critedge.thread:                                 ; preds = %.lr.ph109
-  br i1 %41, label %.lr.ph.preheader.i49, label %104
+.critedge.thread:                                 ; preds = %.lr.ph107
+  br i1 %41, label %.lr.ph.preheader.i50, label %97
 
 49:                                               ; preds = %.critedge
   %50 = icmp eq i64 %.1.lcssa, 11
@@ -839,25 +839,25 @@ DecideOverRleUse.exit:                            ; preds = %._crit_edge
 
 57:                                               ; preds = %49
   %58 = icmp ult i64 %.1.lcssa, 3
-  br i1 %58, label %.preheader.i, label %._crit_edge49.i
+  br i1 %58, label %.preheader.i, label %._crit_edge.i
 
-._crit_edge49.i:                                  ; preds = %57
-  %.pre50.i = load i64, ptr %2, align 8, !tbaa !18
+._crit_edge.i:                                    ; preds = %57
+  %.pre46.i = load i64, ptr %2, align 8, !tbaa !18
   %59 = add i64 %.1.lcssa, -3
   br label %67
 
 .preheader.i:                                     ; preds = %57
-  %.not.i48 = icmp eq i64 %.1.lcssa, 0
-  br i1 %.not.i48, label %BrotliWriteHuffmanTreeRepetitionsZeros.exit, label %.lr.ph.preheader.i49
+  %.not.i49 = icmp eq i64 %.1.lcssa, 0
+  br i1 %.not.i49, label %BrotliWriteHuffmanTreeRepetitionsZeros.exit, label %.lr.ph.preheader.i50
 
-.lr.ph.preheader.i49:                             ; preds = %.critedge.thread138, %.critedge.thread, %.preheader.i
+.lr.ph.preheader.i50:                             ; preds = %.critedge.thread138, %.critedge.thread, %.preheader.i
   %.04176808386 = phi i64 [ %.1.lcssa, %.preheader.i ], [ 1, %.critedge.thread ], [ 1, %.critedge.thread138 ]
-  %.pre.i50 = load i64, ptr %2, align 8, !tbaa !18
-  br label %.lr.ph.i51
+  %.pre.i51 = load i64, ptr %2, align 8, !tbaa !18
+  br label %.lr.ph.i52
 
-.lr.ph.i51:                                       ; preds = %.lr.ph.i51, %.lr.ph.preheader.i49
-  %60 = phi i64 [ %65, %.lr.ph.i51 ], [ %.pre.i50, %.lr.ph.preheader.i49 ]
-  %.03244.i = phi i64 [ %66, %.lr.ph.i51 ], [ 0, %.lr.ph.preheader.i49 ]
+.lr.ph.i52:                                       ; preds = %.lr.ph.i52, %.lr.ph.preheader.i50
+  %60 = phi i64 [ %65, %.lr.ph.i52 ], [ %.pre.i51, %.lr.ph.preheader.i50 ]
+  %.03244.i = phi i64 [ %66, %.lr.ph.i52 ], [ 0, %.lr.ph.preheader.i50 ]
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 %60
   store i8 0, ptr %61, align 1, !tbaa !11
   %62 = load i64, ptr %2, align 8, !tbaa !18
@@ -867,241 +867,215 @@ DecideOverRleUse.exit:                            ; preds = %._crit_edge
   %65 = add i64 %64, 1
   store i64 %65, ptr %2, align 8, !tbaa !18
   %66 = add nuw nsw i64 %.03244.i, 1
-  %exitcond.not.i52 = icmp eq i64 %66, %.04176808386
-  br i1 %exitcond.not.i52, label %BrotliWriteHuffmanTreeRepetitionsZeros.exit, label %.lr.ph.i51, !llvm.loop !35
+  %exitcond.not.i53 = icmp eq i64 %66, %.04176808386
+  br i1 %exitcond.not.i53, label %BrotliWriteHuffmanTreeRepetitionsZeros.exit, label %.lr.ph.i52, !llvm.loop !35
 
-67:                                               ; preds = %._crit_edge49.i, %.thread.i
-  %.0417679 = phi i64 [ 11, %.thread.i ], [ %.1.lcssa, %._crit_edge49.i ]
-  %68 = phi i64 [ %56, %.thread.i ], [ %.pre50.i, %._crit_edge49.i ]
-  %.042.i = phi i64 [ 7, %.thread.i ], [ %59, %._crit_edge49.i ]
-  %69 = getelementptr inbounds nuw i8, ptr %3, i64 %68
-  store i8 17, ptr %69, align 1, !tbaa !11
-  %70 = trunc i64 %.042.i to i8
-  %71 = and i8 %70, 7
-  %72 = load i64, ptr %2, align 8, !tbaa !18
-  %73 = getelementptr inbounds nuw i8, ptr %4, i64 %72
-  store i8 %71, ptr %73, align 1, !tbaa !11
+67:                                               ; preds = %._crit_edge.i, %.thread.i
+  %.0417679 = phi i64 [ 11, %.thread.i ], [ %.1.lcssa, %._crit_edge.i ]
+  %68 = phi i64 [ %56, %.thread.i ], [ %.pre46.i, %._crit_edge.i ]
+  %.042.i = phi i64 [ 7, %.thread.i ], [ %59, %._crit_edge.i ]
+  br label %69
+
+69:                                               ; preds = %69, %67
+  %70 = phi i64 [ %68, %67 ], [ %77, %69 ]
+  %.1.i48 = phi i64 [ %.042.i, %67 ], [ %80, %69 ]
+  %71 = getelementptr inbounds nuw i8, ptr %3, i64 %70
+  store i8 17, ptr %71, align 1, !tbaa !11
+  %72 = trunc i64 %.1.i48 to i8
+  %73 = and i8 %72, 7
   %74 = load i64, ptr %2, align 8, !tbaa !18
-  %75 = add i64 %74, 1
-  store i64 %75, ptr %2, align 8, !tbaa !18
-  %76 = icmp ult i64 %.042.i, 8
-  br i1 %76, label %._crit_edge.i, label %.lr.ph46.i
+  %75 = getelementptr inbounds nuw i8, ptr %4, i64 %74
+  store i8 %73, ptr %75, align 1, !tbaa !11
+  %76 = load i64, ptr %2, align 8, !tbaa !18
+  %77 = add i64 %76, 1
+  store i64 %77, ptr %2, align 8, !tbaa !18
+  %78 = lshr i64 %.1.i48, 3
+  %79 = icmp eq i64 %78, 0
+  %80 = add nsw i64 %78, -1
+  br i1 %79, label %81, label %69
 
-.lr.ph46.i:                                       ; preds = %67, %.lr.ph46.i
-  %77 = phi i64 [ %86, %.lr.ph46.i ], [ %75, %67 ]
-  %.145.i = phi i64 [ %79, %.lr.ph46.i ], [ %.042.i, %67 ]
-  %78 = lshr i64 %.145.i, 3
-  %79 = add nsw i64 %78, -1
-  %80 = getelementptr inbounds nuw i8, ptr %3, i64 %77
-  store i8 17, ptr %80, align 1, !tbaa !11
-  %81 = trunc i64 %79 to i8
-  %82 = and i8 %81, 7
-  %83 = load i64, ptr %2, align 8, !tbaa !18
-  %84 = getelementptr inbounds nuw i8, ptr %4, i64 %83
-  store i8 %82, ptr %84, align 1, !tbaa !11
-  %85 = load i64, ptr %2, align 8, !tbaa !18
-  %86 = add i64 %85, 1
-  store i64 %86, ptr %2, align 8, !tbaa !18
-  %87 = icmp samesign ult i64 %79, 8
-  br i1 %87, label %._crit_edge.i, label %.lr.ph46.i
+81:                                               ; preds = %69
+  %82 = icmp ult i64 %68, %76
+  br i1 %82, label %.lr.ph.i.i, label %Reverse.exit.i
 
-._crit_edge.i:                                    ; preds = %.lr.ph46.i, %67
-  %88 = phi i64 [ %75, %67 ], [ %86, %.lr.ph46.i ]
-  %.lcssa.i = phi i64 [ %74, %67 ], [ %85, %.lr.ph46.i ]
-  %89 = icmp ult i64 %68, %.lcssa.i
-  br i1 %89, label %.lr.ph.i.i, label %Reverse.exit.i
-
-.lr.ph.i.i:                                       ; preds = %._crit_edge.i, %.lr.ph.i.i
-  %.01316.i.i = phi i64 [ %.013.i.i, %.lr.ph.i.i ], [ %.lcssa.i, %._crit_edge.i ]
-  %.015.i.i = phi i64 [ %94, %.lr.ph.i.i ], [ %68, %._crit_edge.i ]
-  %90 = getelementptr inbounds nuw i8, ptr %3, i64 %.015.i.i
-  %91 = load i8, ptr %90, align 1, !tbaa !11
-  %92 = getelementptr inbounds nuw i8, ptr %3, i64 %.01316.i.i
-  %93 = load i8, ptr %92, align 1, !tbaa !11
-  store i8 %93, ptr %90, align 1, !tbaa !11
-  store i8 %91, ptr %92, align 1, !tbaa !11
-  %94 = add nuw i64 %.015.i.i, 1
+.lr.ph.i.i:                                       ; preds = %81, %.lr.ph.i.i
+  %.01316.i.i = phi i64 [ %.013.i.i, %.lr.ph.i.i ], [ %76, %81 ]
+  %.015.i.i = phi i64 [ %87, %.lr.ph.i.i ], [ %68, %81 ]
+  %83 = getelementptr inbounds nuw i8, ptr %3, i64 %.015.i.i
+  %84 = load i8, ptr %83, align 1, !tbaa !11
+  %85 = getelementptr inbounds nuw i8, ptr %3, i64 %.01316.i.i
+  %86 = load i8, ptr %85, align 1, !tbaa !11
+  store i8 %86, ptr %83, align 1, !tbaa !11
+  store i8 %84, ptr %85, align 1, !tbaa !11
+  %87 = add nuw i64 %.015.i.i, 1
   %.013.i.i = add i64 %.01316.i.i, -1
-  %95 = icmp ult i64 %94, %.013.i.i
-  br i1 %95, label %.lr.ph.i.i, label %Reverse.exit.loopexit.i, !llvm.loop !36
+  %88 = icmp ult i64 %87, %.013.i.i
+  br i1 %88, label %.lr.ph.i.i, label %Reverse.exit.loopexit.i, !llvm.loop !36
 
 Reverse.exit.loopexit.i:                          ; preds = %.lr.ph.i.i
-  %.pre51.i = load i64, ptr %2, align 8, !tbaa !18
+  %.pre47.i = load i64, ptr %2, align 8, !tbaa !18
+  %89 = add i64 %.pre47.i, -1
   br label %Reverse.exit.i
 
-Reverse.exit.i:                                   ; preds = %Reverse.exit.loopexit.i, %._crit_edge.i
-  %96 = phi i64 [ %.pre51.i, %Reverse.exit.loopexit.i ], [ %88, %._crit_edge.i ]
-  %.01314.i.i = add i64 %96, -1
-  %97 = icmp ult i64 %68, %.01314.i.i
-  br i1 %97, label %.lr.ph.i36.i, label %BrotliWriteHuffmanTreeRepetitionsZeros.exit
+Reverse.exit.i:                                   ; preds = %Reverse.exit.loopexit.i, %81
+  %.01314.i.i = phi i64 [ %89, %Reverse.exit.loopexit.i ], [ %76, %81 ]
+  %90 = icmp ult i64 %68, %.01314.i.i
+  br i1 %90, label %.lr.ph.i36.i, label %BrotliWriteHuffmanTreeRepetitionsZeros.exit
 
 .lr.ph.i36.i:                                     ; preds = %Reverse.exit.i, %.lr.ph.i36.i
   %.01316.i37.i = phi i64 [ %.013.i39.i, %.lr.ph.i36.i ], [ %.01314.i.i, %Reverse.exit.i ]
-  %.015.i38.i = phi i64 [ %102, %.lr.ph.i36.i ], [ %68, %Reverse.exit.i ]
-  %98 = getelementptr inbounds nuw i8, ptr %4, i64 %.015.i38.i
-  %99 = load i8, ptr %98, align 1, !tbaa !11
-  %100 = getelementptr inbounds nuw i8, ptr %4, i64 %.01316.i37.i
-  %101 = load i8, ptr %100, align 1, !tbaa !11
-  store i8 %101, ptr %98, align 1, !tbaa !11
-  store i8 %99, ptr %100, align 1, !tbaa !11
-  %102 = add nuw i64 %.015.i38.i, 1
+  %.015.i38.i = phi i64 [ %95, %.lr.ph.i36.i ], [ %68, %Reverse.exit.i ]
+  %91 = getelementptr inbounds nuw i8, ptr %4, i64 %.015.i38.i
+  %92 = load i8, ptr %91, align 1, !tbaa !11
+  %93 = getelementptr inbounds nuw i8, ptr %4, i64 %.01316.i37.i
+  %94 = load i8, ptr %93, align 1, !tbaa !11
+  store i8 %94, ptr %91, align 1, !tbaa !11
+  store i8 %92, ptr %93, align 1, !tbaa !11
+  %95 = add nuw i64 %.015.i38.i, 1
   %.013.i39.i = add i64 %.01316.i37.i, -1
-  %103 = icmp ult i64 %102, %.013.i39.i
-  br i1 %103, label %.lr.ph.i36.i, label %BrotliWriteHuffmanTreeRepetitionsZeros.exit, !llvm.loop !36
+  %96 = icmp ult i64 %95, %.013.i39.i
+  br i1 %96, label %.lr.ph.i36.i, label %BrotliWriteHuffmanTreeRepetitionsZeros.exit, !llvm.loop !36
 
-104:                                              ; preds = %.critedge.thread138, %.critedge.thread, %.critedge
+97:                                               ; preds = %.critedge.thread138, %.critedge.thread, %.critedge
   %.04175 = phi i64 [ 1, %.critedge.thread ], [ %.1.lcssa, %.critedge ], [ 1, %.critedge.thread138 ]
-  %.not.i53 = icmp eq i8 %.042108, %39
-  br i1 %.not.i53, label %113, label %105
+  %.not.i54 = icmp eq i8 %.042106, %39
+  br i1 %.not.i54, label %106, label %98
 
-105:                                              ; preds = %104
-  %106 = load i64, ptr %2, align 8, !tbaa !18
-  %107 = getelementptr inbounds nuw i8, ptr %3, i64 %106
-  store i8 %39, ptr %107, align 1, !tbaa !11
+98:                                               ; preds = %97
+  %99 = load i64, ptr %2, align 8, !tbaa !18
+  %100 = getelementptr inbounds nuw i8, ptr %3, i64 %99
+  store i8 %39, ptr %100, align 1, !tbaa !11
+  %101 = load i64, ptr %2, align 8, !tbaa !18
+  %102 = getelementptr inbounds nuw i8, ptr %4, i64 %101
+  store i8 0, ptr %102, align 1, !tbaa !11
+  %103 = load i64, ptr %2, align 8, !tbaa !18
+  %104 = add i64 %103, 1
+  store i64 %104, ptr %2, align 8, !tbaa !18
+  %105 = add i64 %.04175, -1
+  br label %106
+
+106:                                              ; preds = %98, %97
+  %.0.i55 = phi i64 [ %105, %98 ], [ %.04175, %97 ]
+  %107 = icmp eq i64 %.0.i55, 7
+  br i1 %107, label %.thread.i69, label %114
+
+.thread.i69:                                      ; preds = %106
   %108 = load i64, ptr %2, align 8, !tbaa !18
-  %109 = getelementptr inbounds nuw i8, ptr %4, i64 %108
-  store i8 0, ptr %109, align 1, !tbaa !11
+  %109 = getelementptr inbounds nuw i8, ptr %3, i64 %108
+  store i8 %39, ptr %109, align 1, !tbaa !11
   %110 = load i64, ptr %2, align 8, !tbaa !18
-  %111 = add i64 %110, 1
-  store i64 %111, ptr %2, align 8, !tbaa !18
-  %112 = add i64 %.04175, -1
-  br label %113
+  %111 = getelementptr inbounds nuw i8, ptr %4, i64 %110
+  store i8 0, ptr %111, align 1, !tbaa !11
+  %112 = load i64, ptr %2, align 8, !tbaa !18
+  %113 = add i64 %112, 1
+  store i64 %113, ptr %2, align 8, !tbaa !18
+  br label %124
 
-113:                                              ; preds = %105, %104
-  %.0.i54 = phi i64 [ %112, %105 ], [ %.04175, %104 ]
-  %114 = icmp eq i64 %.0.i54, 7
-  br i1 %114, label %.thread.i69, label %121
+114:                                              ; preds = %106
+  %115 = icmp ult i64 %.0.i55, 3
+  br i1 %115, label %.preheader.i64, label %._crit_edge.i56
 
-.thread.i69:                                      ; preds = %113
-  %115 = load i64, ptr %2, align 8, !tbaa !18
-  %116 = getelementptr inbounds nuw i8, ptr %3, i64 %115
-  store i8 %39, ptr %116, align 1, !tbaa !11
-  %117 = load i64, ptr %2, align 8, !tbaa !18
-  %118 = getelementptr inbounds nuw i8, ptr %4, i64 %117
-  store i8 0, ptr %118, align 1, !tbaa !11
-  %119 = load i64, ptr %2, align 8, !tbaa !18
-  %120 = add i64 %119, 1
-  store i64 %120, ptr %2, align 8, !tbaa !18
-  br label %131
+._crit_edge.i56:                                  ; preds = %114
+  %.pre56.i = load i64, ptr %2, align 8, !tbaa !18
+  %116 = add i64 %.0.i55, -3
+  br label %124
 
-121:                                              ; preds = %113
-  %122 = icmp ult i64 %.0.i54, 3
-  br i1 %122, label %.preheader.i64, label %._crit_edge59.i
-
-._crit_edge59.i:                                  ; preds = %121
-  %.pre60.i = load i64, ptr %2, align 8, !tbaa !18
-  %123 = add i64 %.0.i54, -3
-  br label %131
-
-.preheader.i64:                                   ; preds = %121
-  %.not56.i = icmp eq i64 %.0.i54, 0
-  br i1 %.not56.i, label %BrotliWriteHuffmanTreeRepetitionsZeros.exit, label %.lr.ph.preheader.i65
+.preheader.i64:                                   ; preds = %114
+  %.not54.i = icmp eq i64 %.0.i55, 0
+  br i1 %.not54.i, label %BrotliWriteHuffmanTreeRepetitionsZeros.exit, label %.lr.ph.preheader.i65
 
 .lr.ph.preheader.i65:                             ; preds = %.preheader.i64
   %.pre.i66 = load i64, ptr %2, align 8, !tbaa !18
   br label %.lr.ph.i67
 
 .lr.ph.i67:                                       ; preds = %.lr.ph.i67, %.lr.ph.preheader.i65
-  %124 = phi i64 [ %129, %.lr.ph.i67 ], [ %.pre.i66, %.lr.ph.preheader.i65 ]
-  %.04353.i = phi i64 [ %130, %.lr.ph.i67 ], [ 0, %.lr.ph.preheader.i65 ]
-  %125 = getelementptr inbounds nuw i8, ptr %3, i64 %124
-  store i8 %39, ptr %125, align 1, !tbaa !11
-  %126 = load i64, ptr %2, align 8, !tbaa !18
-  %127 = getelementptr inbounds nuw i8, ptr %4, i64 %126
-  store i8 0, ptr %127, align 1, !tbaa !11
-  %128 = load i64, ptr %2, align 8, !tbaa !18
-  %129 = add i64 %128, 1
-  store i64 %129, ptr %2, align 8, !tbaa !18
-  %130 = add nuw nsw i64 %.04353.i, 1
-  %exitcond.not.i68 = icmp eq i64 %130, %.0.i54
+  %117 = phi i64 [ %122, %.lr.ph.i67 ], [ %.pre.i66, %.lr.ph.preheader.i65 ]
+  %.04353.i = phi i64 [ %123, %.lr.ph.i67 ], [ 0, %.lr.ph.preheader.i65 ]
+  %118 = getelementptr inbounds nuw i8, ptr %3, i64 %117
+  store i8 %39, ptr %118, align 1, !tbaa !11
+  %119 = load i64, ptr %2, align 8, !tbaa !18
+  %120 = getelementptr inbounds nuw i8, ptr %4, i64 %119
+  store i8 0, ptr %120, align 1, !tbaa !11
+  %121 = load i64, ptr %2, align 8, !tbaa !18
+  %122 = add i64 %121, 1
+  store i64 %122, ptr %2, align 8, !tbaa !18
+  %123 = add nuw nsw i64 %.04353.i, 1
+  %exitcond.not.i68 = icmp eq i64 %123, %.0.i55
   br i1 %exitcond.not.i68, label %BrotliWriteHuffmanTreeRepetitionsZeros.exit, label %.lr.ph.i67, !llvm.loop !37
 
-131:                                              ; preds = %._crit_edge59.i, %.thread.i69
-  %132 = phi i64 [ %120, %.thread.i69 ], [ %.pre60.i, %._crit_edge59.i ]
-  %.151.i = phi i64 [ 3, %.thread.i69 ], [ %123, %._crit_edge59.i ]
-  %133 = getelementptr inbounds nuw i8, ptr %3, i64 %132
-  store i8 16, ptr %133, align 1, !tbaa !11
-  %134 = trunc i64 %.151.i to i8
-  %135 = and i8 %134, 3
-  %136 = load i64, ptr %2, align 8, !tbaa !18
-  %137 = getelementptr inbounds nuw i8, ptr %4, i64 %136
-  store i8 %135, ptr %137, align 1, !tbaa !11
-  %138 = load i64, ptr %2, align 8, !tbaa !18
-  %139 = add i64 %138, 1
-  store i64 %139, ptr %2, align 8, !tbaa !18
-  %140 = icmp ult i64 %.151.i, 4
-  br i1 %140, label %._crit_edge.i55, label %.lr.ph55.i
+124:                                              ; preds = %._crit_edge.i56, %.thread.i69
+  %125 = phi i64 [ %113, %.thread.i69 ], [ %.pre56.i, %._crit_edge.i56 ]
+  %.151.i = phi i64 [ 3, %.thread.i69 ], [ %116, %._crit_edge.i56 ]
+  br label %126
 
-.lr.ph55.i:                                       ; preds = %131, %.lr.ph55.i
-  %141 = phi i64 [ %150, %.lr.ph55.i ], [ %139, %131 ]
-  %.254.i = phi i64 [ %143, %.lr.ph55.i ], [ %.151.i, %131 ]
-  %142 = lshr i64 %.254.i, 2
-  %143 = add nsw i64 %142, -1
-  %144 = getelementptr inbounds nuw i8, ptr %3, i64 %141
-  store i8 16, ptr %144, align 1, !tbaa !11
-  %145 = trunc i64 %143 to i8
-  %146 = and i8 %145, 3
-  %147 = load i64, ptr %2, align 8, !tbaa !18
-  %148 = getelementptr inbounds nuw i8, ptr %4, i64 %147
-  store i8 %146, ptr %148, align 1, !tbaa !11
-  %149 = load i64, ptr %2, align 8, !tbaa !18
-  %150 = add i64 %149, 1
-  store i64 %150, ptr %2, align 8, !tbaa !18
-  %151 = icmp samesign ult i64 %143, 4
-  br i1 %151, label %._crit_edge.i55, label %.lr.ph55.i
+126:                                              ; preds = %126, %124
+  %127 = phi i64 [ %125, %124 ], [ %134, %126 ]
+  %.2.i = phi i64 [ %.151.i, %124 ], [ %137, %126 ]
+  %128 = getelementptr inbounds nuw i8, ptr %3, i64 %127
+  store i8 16, ptr %128, align 1, !tbaa !11
+  %129 = trunc i64 %.2.i to i8
+  %130 = and i8 %129, 3
+  %131 = load i64, ptr %2, align 8, !tbaa !18
+  %132 = getelementptr inbounds nuw i8, ptr %4, i64 %131
+  store i8 %130, ptr %132, align 1, !tbaa !11
+  %133 = load i64, ptr %2, align 8, !tbaa !18
+  %134 = add i64 %133, 1
+  store i64 %134, ptr %2, align 8, !tbaa !18
+  %135 = lshr i64 %.2.i, 2
+  %136 = icmp eq i64 %135, 0
+  %137 = add nsw i64 %135, -1
+  br i1 %136, label %138, label %126
 
-._crit_edge.i55:                                  ; preds = %.lr.ph55.i, %131
-  %152 = phi i64 [ %139, %131 ], [ %150, %.lr.ph55.i ]
-  %.lcssa.i56 = phi i64 [ %138, %131 ], [ %149, %.lr.ph55.i ]
-  %153 = icmp ult i64 %132, %.lcssa.i56
-  br i1 %153, label %.lr.ph.i.i59, label %Reverse.exit.i57
+138:                                              ; preds = %126
+  %139 = icmp ult i64 %125, %133
+  br i1 %139, label %.lr.ph.i.i59, label %Reverse.exit.i57
 
-.lr.ph.i.i59:                                     ; preds = %._crit_edge.i55, %.lr.ph.i.i59
-  %.01316.i.i60 = phi i64 [ %.013.i.i62, %.lr.ph.i.i59 ], [ %.lcssa.i56, %._crit_edge.i55 ]
-  %.015.i.i61 = phi i64 [ %158, %.lr.ph.i.i59 ], [ %132, %._crit_edge.i55 ]
-  %154 = getelementptr inbounds nuw i8, ptr %3, i64 %.015.i.i61
-  %155 = load i8, ptr %154, align 1, !tbaa !11
-  %156 = getelementptr inbounds nuw i8, ptr %3, i64 %.01316.i.i60
-  %157 = load i8, ptr %156, align 1, !tbaa !11
-  store i8 %157, ptr %154, align 1, !tbaa !11
-  store i8 %155, ptr %156, align 1, !tbaa !11
-  %158 = add nuw i64 %.015.i.i61, 1
+.lr.ph.i.i59:                                     ; preds = %138, %.lr.ph.i.i59
+  %.01316.i.i60 = phi i64 [ %.013.i.i62, %.lr.ph.i.i59 ], [ %133, %138 ]
+  %.015.i.i61 = phi i64 [ %144, %.lr.ph.i.i59 ], [ %125, %138 ]
+  %140 = getelementptr inbounds nuw i8, ptr %3, i64 %.015.i.i61
+  %141 = load i8, ptr %140, align 1, !tbaa !11
+  %142 = getelementptr inbounds nuw i8, ptr %3, i64 %.01316.i.i60
+  %143 = load i8, ptr %142, align 1, !tbaa !11
+  store i8 %143, ptr %140, align 1, !tbaa !11
+  store i8 %141, ptr %142, align 1, !tbaa !11
+  %144 = add nuw i64 %.015.i.i61, 1
   %.013.i.i62 = add i64 %.01316.i.i60, -1
-  %159 = icmp ult i64 %158, %.013.i.i62
-  br i1 %159, label %.lr.ph.i.i59, label %Reverse.exit.loopexit.i63, !llvm.loop !36
+  %145 = icmp ult i64 %144, %.013.i.i62
+  br i1 %145, label %.lr.ph.i.i59, label %Reverse.exit.loopexit.i63, !llvm.loop !36
 
 Reverse.exit.loopexit.i63:                        ; preds = %.lr.ph.i.i59
-  %.pre61.i = load i64, ptr %2, align 8, !tbaa !18
+  %.pre57.i = load i64, ptr %2, align 8, !tbaa !18
+  %146 = add i64 %.pre57.i, -1
   br label %Reverse.exit.i57
 
-Reverse.exit.i57:                                 ; preds = %Reverse.exit.loopexit.i63, %._crit_edge.i55
-  %160 = phi i64 [ %.pre61.i, %Reverse.exit.loopexit.i63 ], [ %152, %._crit_edge.i55 ]
-  %.01314.i.i58 = add i64 %160, -1
-  %161 = icmp ult i64 %132, %.01314.i.i58
-  br i1 %161, label %.lr.ph.i45.i, label %BrotliWriteHuffmanTreeRepetitionsZeros.exit
+Reverse.exit.i57:                                 ; preds = %Reverse.exit.loopexit.i63, %138
+  %.01314.i.i58 = phi i64 [ %146, %Reverse.exit.loopexit.i63 ], [ %133, %138 ]
+  %147 = icmp ult i64 %125, %.01314.i.i58
+  br i1 %147, label %.lr.ph.i45.i, label %BrotliWriteHuffmanTreeRepetitionsZeros.exit
 
 .lr.ph.i45.i:                                     ; preds = %Reverse.exit.i57, %.lr.ph.i45.i
   %.01316.i46.i = phi i64 [ %.013.i48.i, %.lr.ph.i45.i ], [ %.01314.i.i58, %Reverse.exit.i57 ]
-  %.015.i47.i = phi i64 [ %166, %.lr.ph.i45.i ], [ %132, %Reverse.exit.i57 ]
-  %162 = getelementptr inbounds nuw i8, ptr %4, i64 %.015.i47.i
-  %163 = load i8, ptr %162, align 1, !tbaa !11
-  %164 = getelementptr inbounds nuw i8, ptr %4, i64 %.01316.i46.i
-  %165 = load i8, ptr %164, align 1, !tbaa !11
-  store i8 %165, ptr %162, align 1, !tbaa !11
-  store i8 %163, ptr %164, align 1, !tbaa !11
-  %166 = add nuw i64 %.015.i47.i, 1
+  %.015.i47.i = phi i64 [ %152, %.lr.ph.i45.i ], [ %125, %Reverse.exit.i57 ]
+  %148 = getelementptr inbounds nuw i8, ptr %4, i64 %.015.i47.i
+  %149 = load i8, ptr %148, align 1, !tbaa !11
+  %150 = getelementptr inbounds nuw i8, ptr %4, i64 %.01316.i46.i
+  %151 = load i8, ptr %150, align 1, !tbaa !11
+  store i8 %151, ptr %148, align 1, !tbaa !11
+  store i8 %149, ptr %150, align 1, !tbaa !11
+  %152 = add nuw i64 %.015.i47.i, 1
   %.013.i48.i = add i64 %.01316.i46.i, -1
-  %167 = icmp ult i64 %166, %.013.i48.i
-  br i1 %167, label %.lr.ph.i45.i, label %BrotliWriteHuffmanTreeRepetitionsZeros.exit, !llvm.loop !36
+  %153 = icmp ult i64 %152, %.013.i48.i
+  br i1 %153, label %.lr.ph.i45.i, label %BrotliWriteHuffmanTreeRepetitionsZeros.exit, !llvm.loop !36
 
-BrotliWriteHuffmanTreeRepetitionsZeros.exit:      ; preds = %.lr.ph.i67, %.lr.ph.i45.i, %.lr.ph.i51, %.lr.ph.i36.i, %Reverse.exit.i57, %.preheader.i64, %Reverse.exit.i, %.preheader.i
-  %.04174 = phi i64 [ 0, %.preheader.i ], [ %.0417679, %Reverse.exit.i ], [ %.04175, %.preheader.i64 ], [ %.04175, %Reverse.exit.i57 ], [ %.0417679, %.lr.ph.i36.i ], [ %.04176808386, %.lr.ph.i51 ], [ %.04175, %.lr.ph.i45.i ], [ %.04175, %.lr.ph.i67 ]
-  %.143 = phi i8 [ %.042108, %.preheader.i ], [ %.042108, %Reverse.exit.i ], [ %39, %.preheader.i64 ], [ %39, %Reverse.exit.i57 ], [ %.042108, %.lr.ph.i36.i ], [ %.042108, %.lr.ph.i51 ], [ %39, %.lr.ph.i45.i ], [ %39, %.lr.ph.i67 ]
-  %168 = add i64 %.04174, %.146106
-  %169 = icmp ult i64 %168, %.04496
-  br i1 %169, label %.lr.ph109, label %._crit_edge110, !llvm.loop !38
+BrotliWriteHuffmanTreeRepetitionsZeros.exit:      ; preds = %.lr.ph.i67, %.lr.ph.i45.i, %.lr.ph.i52, %.lr.ph.i36.i, %Reverse.exit.i57, %.preheader.i64, %Reverse.exit.i, %.preheader.i
+  %.04174 = phi i64 [ 0, %.preheader.i ], [ %.0417679, %Reverse.exit.i ], [ %.04175, %.preheader.i64 ], [ %.04175, %Reverse.exit.i57 ], [ %.0417679, %.lr.ph.i36.i ], [ %.04176808386, %.lr.ph.i52 ], [ %.04175, %.lr.ph.i45.i ], [ %.04175, %.lr.ph.i67 ]
+  %.143 = phi i8 [ %.042106, %.preheader.i ], [ %.042106, %Reverse.exit.i ], [ %39, %.preheader.i64 ], [ %39, %Reverse.exit.i57 ], [ %.042106, %.lr.ph.i36.i ], [ %.042106, %.lr.ph.i52 ], [ %39, %.lr.ph.i45.i ], [ %39, %.lr.ph.i67 ]
+  %154 = add i64 %.04174, %.146104
+  %155 = icmp ult i64 %154, %.04494
+  br i1 %155, label %.lr.ph107, label %._crit_edge108, !llvm.loop !38
 
-._crit_edge110:                                   ; preds = %12, %BrotliWriteHuffmanTreeRepetitionsZeros.exit, %5, %._crit_edge.loopexit.i, %DecideOverRleUse.exit
+._crit_edge108:                                   ; preds = %12, %BrotliWriteHuffmanTreeRepetitionsZeros.exit, %5, %._crit_edge.loopexit.i, %DecideOverRleUse.exit
   ret void
 }
 

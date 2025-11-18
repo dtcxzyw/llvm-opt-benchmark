@@ -17,7 +17,7 @@ define hidden range(i32 1, 0) i32 @mbedtls_asn1_write_len(ptr noundef captures(n
   %.124 = phi i32 [ %7, %.preheader23 ], [ 1, %5 ]
   %7 = add nuw nsw i32 %.124, 1
   %8 = lshr i64 %.025, 8
-  %.not = icmp ult i64 %.025, 256
+  %.not = icmp eq i64 %8, 0
   br i1 %.not, label %.loopexit, label %.preheader23, !llvm.loop !3
 
 .loopexit:                                        ; preds = %.preheader23, %5
@@ -38,7 +38,7 @@ define hidden range(i32 1, 0) i32 @mbedtls_asn1_write_len(ptr noundef captures(n
   store ptr %17, ptr %0, align 8, !tbaa !5
   store i8 %15, ptr %17, align 1, !tbaa !10
   %18 = lshr i64 %.018, 8
-  %.not22 = icmp ult i64 %.018, 256
+  %.not22 = icmp eq i64 %18, 0
   br i1 %.not22, label %19, label %.preheader, !llvm.loop !11
 
 19:                                               ; preds = %.preheader
@@ -168,7 +168,7 @@ define hidden i32 @mbedtls_asn1_write_mpi(ptr noundef captures(none) %0, ptr nou
   %.124.i.i = phi i32 [ %34, %.preheader23.i.i ], [ 1, %32 ]
   %34 = add nuw nsw i32 %.124.i.i, 1
   %35 = lshr i64 %.025.i.i, 8
-  %.not.i.i = icmp ult i64 %.025.i.i, 256
+  %.not.i.i = icmp eq i64 %35, 0
   br i1 %.not.i.i, label %.loopexit.i.i, label %.preheader23.i.i, !llvm.loop !3
 
 .loopexit.i.i:                                    ; preds = %.preheader23.i.i, %32
@@ -188,7 +188,7 @@ define hidden i32 @mbedtls_asn1_write_mpi(ptr noundef captures(none) %0, ptr nou
   store ptr %43, ptr %0, align 8, !tbaa !5
   store i8 %41, ptr %43, align 1, !tbaa !10
   %44 = lshr i64 %.018.i.i, 8
-  %.not22.i.i = icmp ult i64 %.018.i.i, 256
+  %.not22.i.i = icmp eq i64 %44, 0
   br i1 %.not22.i.i, label %45, label %.preheader.i.i, !llvm.loop !11
 
 45:                                               ; preds = %.preheader.i.i
@@ -289,7 +289,7 @@ mbedtls_asn1_write_raw_buffer.exit:               ; preds = %4
   %.124.i.i = phi i32 [ %18, %.preheader23.i.i ], [ 1, %15 ]
   %18 = add nuw nsw i32 %.124.i.i, 1
   %19 = lshr i64 %.025.i.i, 8
-  %.not.i.i = icmp samesign ult i64 %.025.i.i, 256
+  %.not.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i, label %.loopexit.i.i, label %.preheader23.i.i, !llvm.loop !3
 
 .loopexit.i.i:                                    ; preds = %.preheader23.i.i, %15
@@ -309,7 +309,7 @@ mbedtls_asn1_write_raw_buffer.exit:               ; preds = %4
   store ptr %27, ptr %0, align 8, !tbaa !5
   store i8 %25, ptr %27, align 1, !tbaa !10
   %28 = lshr i64 %.018.i.i, 8
-  %.not22.i.i = icmp samesign ult i64 %.018.i.i, 256
+  %.not22.i.i = icmp eq i64 %28, 0
   br i1 %.not22.i.i, label %29, label %.preheader.i.i, !llvm.loop !11
 
 29:                                               ; preds = %.preheader.i.i
@@ -414,7 +414,7 @@ mbedtls_asn1_write_raw_buffer.exit.i:             ; preds = %22
   %.124.i.i.i = phi i32 [ %36, %.preheader23.i.i.i ], [ 1, %33 ]
   %36 = add nuw nsw i32 %.124.i.i.i, 1
   %37 = lshr i64 %.025.i.i.i, 8
-  %.not.i.i.i = icmp samesign ult i64 %.025.i.i.i, 256
+  %.not.i.i.i = icmp eq i64 %37, 0
   br i1 %.not.i.i.i, label %.loopexit.i.i.i, label %.preheader23.i.i.i, !llvm.loop !3
 
 .loopexit.i.i.i:                                  ; preds = %.preheader23.i.i.i, %33
@@ -434,7 +434,7 @@ mbedtls_asn1_write_raw_buffer.exit.i:             ; preds = %22
   store ptr %45, ptr %0, align 8, !tbaa !5
   store i8 %43, ptr %45, align 1, !tbaa !10
   %46 = lshr i64 %.018.i.i.i, 8
-  %.not22.i.i.i = icmp samesign ult i64 %.018.i.i.i, 256
+  %.not22.i.i.i = icmp eq i64 %46, 0
   br i1 %.not22.i.i.i, label %47, label %.preheader.i.i.i24, !llvm.loop !11
 
 47:                                               ; preds = %.preheader.i.i.i24
@@ -481,7 +481,7 @@ mbedtls_asn1_write_oid.exit:                      ; preds = %mbedtls_asn1_write_
   %.124.i.i = phi i32 [ %68, %.preheader23.i.i ], [ 1, %66 ]
   %68 = add nuw nsw i32 %.124.i.i, 1
   %69 = lshr i64 %.025.i.i, 8
-  %.not.i.i = icmp ult i64 %.025.i.i, 256
+  %.not.i.i = icmp eq i64 %69, 0
   br i1 %.not.i.i, label %.loopexit.i.i, label %.preheader23.i.i, !llvm.loop !3
 
 .loopexit.i.i:                                    ; preds = %.preheader23.i.i, %66
@@ -501,7 +501,7 @@ mbedtls_asn1_write_oid.exit:                      ; preds = %mbedtls_asn1_write_
   store ptr %77, ptr %0, align 8, !tbaa !5
   store i8 %75, ptr %77, align 1, !tbaa !10
   %78 = lshr i64 %.018.i.i, 8
-  %.not22.i.i = icmp ult i64 %.018.i.i, 256
+  %.not22.i.i = icmp eq i64 %78, 0
   br i1 %.not22.i.i, label %79, label %.preheader.i.i, !llvm.loop !11
 
 79:                                               ; preds = %.preheader.i.i
@@ -637,7 +637,7 @@ define hidden i32 @mbedtls_asn1_write_int(ptr noundef captures(none) %0, ptr nou
   %.124.i.i.i = phi i32 [ %30, %.preheader23.i.i.i ], [ 1, %28 ]
   %30 = add nuw nsw i32 %.124.i.i.i, 1
   %31 = lshr i64 %.025.i.i.i, 8
-  %.not.i.i.i = icmp ult i64 %.025.i.i.i, 256
+  %.not.i.i.i = icmp eq i64 %31, 0
   br i1 %.not.i.i.i, label %.loopexit.i.i.i, label %.preheader23.i.i.i, !llvm.loop !3
 
 .loopexit.i.i.i:                                  ; preds = %.preheader23.i.i.i, %28
@@ -657,7 +657,7 @@ define hidden i32 @mbedtls_asn1_write_int(ptr noundef captures(none) %0, ptr nou
   store ptr %39, ptr %0, align 8, !tbaa !5
   store i8 %37, ptr %39, align 1, !tbaa !10
   %40 = lshr i64 %.018.i.i.i, 8
-  %.not22.i.i.i = icmp ult i64 %.018.i.i.i, 256
+  %.not22.i.i.i = icmp eq i64 %40, 0
   br i1 %.not22.i.i.i, label %41, label %.preheader.i.i.i, !llvm.loop !11
 
 41:                                               ; preds = %.preheader.i.i.i
@@ -751,7 +751,7 @@ define hidden i32 @mbedtls_asn1_write_enum(ptr noundef captures(none) %0, ptr no
   %.124.i.i.i = phi i32 [ %30, %.preheader23.i.i.i ], [ 1, %28 ]
   %30 = add nuw nsw i32 %.124.i.i.i, 1
   %31 = lshr i64 %.025.i.i.i, 8
-  %.not.i.i.i = icmp ult i64 %.025.i.i.i, 256
+  %.not.i.i.i = icmp eq i64 %31, 0
   br i1 %.not.i.i.i, label %.loopexit.i.i.i, label %.preheader23.i.i.i, !llvm.loop !3
 
 .loopexit.i.i.i:                                  ; preds = %.preheader23.i.i.i, %28
@@ -771,7 +771,7 @@ define hidden i32 @mbedtls_asn1_write_enum(ptr noundef captures(none) %0, ptr no
   store ptr %39, ptr %0, align 8, !tbaa !5
   store i8 %37, ptr %39, align 1, !tbaa !10
   %40 = lshr i64 %.018.i.i.i, 8
-  %.not22.i.i.i = icmp ult i64 %.018.i.i.i, 256
+  %.not22.i.i.i = icmp eq i64 %40, 0
   br i1 %.not22.i.i.i, label %41, label %.preheader.i.i.i, !llvm.loop !11
 
 41:                                               ; preds = %.preheader.i.i.i
@@ -839,7 +839,7 @@ mbedtls_asn1_write_raw_buffer.exit:               ; preds = %5
   %.124.i.i = phi i32 [ %20, %.preheader23.i.i ], [ 1, %16 ]
   %20 = add nuw nsw i32 %.124.i.i, 1
   %21 = lshr i64 %.025.i.i, 8
-  %.not.i.i = icmp samesign ult i64 %.025.i.i, 256
+  %.not.i.i = icmp eq i64 %21, 0
   br i1 %.not.i.i, label %.loopexit.i.i, label %.preheader23.i.i, !llvm.loop !3
 
 .loopexit.i.i:                                    ; preds = %.preheader23.i.i, %16
@@ -859,7 +859,7 @@ mbedtls_asn1_write_raw_buffer.exit:               ; preds = %5
   store ptr %29, ptr %0, align 8, !tbaa !5
   store i8 %27, ptr %29, align 1, !tbaa !10
   %30 = lshr i64 %.018.i.i, 8
-  %.not22.i.i = icmp samesign ult i64 %.018.i.i, 256
+  %.not22.i.i = icmp eq i64 %30, 0
   br i1 %.not22.i.i, label %31, label %.preheader.i.i, !llvm.loop !11
 
 31:                                               ; preds = %.preheader.i.i
@@ -925,7 +925,7 @@ mbedtls_asn1_write_raw_buffer.exit.i:             ; preds = %4
   %.124.i.i.i = phi i32 [ %18, %.preheader23.i.i.i ], [ 1, %15 ]
   %18 = add nuw nsw i32 %.124.i.i.i, 1
   %19 = lshr i64 %.025.i.i.i, 8
-  %.not.i.i.i = icmp samesign ult i64 %.025.i.i.i, 256
+  %.not.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i, label %.loopexit.i.i.i, label %.preheader23.i.i.i, !llvm.loop !3
 
 .loopexit.i.i.i:                                  ; preds = %.preheader23.i.i.i, %15
@@ -945,7 +945,7 @@ mbedtls_asn1_write_raw_buffer.exit.i:             ; preds = %4
   store ptr %27, ptr %0, align 8, !tbaa !5
   store i8 %25, ptr %27, align 1, !tbaa !10
   %28 = lshr i64 %.018.i.i.i, 8
-  %.not22.i.i.i = icmp samesign ult i64 %.018.i.i.i, 256
+  %.not22.i.i.i = icmp eq i64 %28, 0
   br i1 %.not22.i.i.i, label %29, label %.preheader.i.i.i, !llvm.loop !11
 
 29:                                               ; preds = %.preheader.i.i.i
@@ -1011,7 +1011,7 @@ mbedtls_asn1_write_raw_buffer.exit.i:             ; preds = %4
   %.124.i.i.i = phi i32 [ %18, %.preheader23.i.i.i ], [ 1, %15 ]
   %18 = add nuw nsw i32 %.124.i.i.i, 1
   %19 = lshr i64 %.025.i.i.i, 8
-  %.not.i.i.i = icmp samesign ult i64 %.025.i.i.i, 256
+  %.not.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i, label %.loopexit.i.i.i, label %.preheader23.i.i.i, !llvm.loop !3
 
 .loopexit.i.i.i:                                  ; preds = %.preheader23.i.i.i, %15
@@ -1031,7 +1031,7 @@ mbedtls_asn1_write_raw_buffer.exit.i:             ; preds = %4
   store ptr %27, ptr %0, align 8, !tbaa !5
   store i8 %25, ptr %27, align 1, !tbaa !10
   %28 = lshr i64 %.018.i.i.i, 8
-  %.not22.i.i.i = icmp samesign ult i64 %.018.i.i.i, 256
+  %.not22.i.i.i = icmp eq i64 %28, 0
   br i1 %.not22.i.i.i, label %29, label %.preheader.i.i.i, !llvm.loop !11
 
 29:                                               ; preds = %.preheader.i.i.i
@@ -1097,7 +1097,7 @@ mbedtls_asn1_write_raw_buffer.exit.i:             ; preds = %4
   %.124.i.i.i = phi i32 [ %18, %.preheader23.i.i.i ], [ 1, %15 ]
   %18 = add nuw nsw i32 %.124.i.i.i, 1
   %19 = lshr i64 %.025.i.i.i, 8
-  %.not.i.i.i = icmp samesign ult i64 %.025.i.i.i, 256
+  %.not.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i, label %.loopexit.i.i.i, label %.preheader23.i.i.i, !llvm.loop !3
 
 .loopexit.i.i.i:                                  ; preds = %.preheader23.i.i.i, %15
@@ -1117,7 +1117,7 @@ mbedtls_asn1_write_raw_buffer.exit.i:             ; preds = %4
   store ptr %27, ptr %0, align 8, !tbaa !5
   store i8 %25, ptr %27, align 1, !tbaa !10
   %28 = lshr i64 %.018.i.i.i, 8
-  %.not22.i.i.i = icmp samesign ult i64 %.018.i.i.i, 256
+  %.not22.i.i.i = icmp eq i64 %28, 0
   br i1 %.not22.i.i.i, label %29, label %.preheader.i.i.i, !llvm.loop !11
 
 29:                                               ; preds = %.preheader.i.i.i
@@ -1225,10 +1225,10 @@ define hidden i32 @mbedtls_asn1_write_bitstring(ptr noundef captures(none) %0, p
   br i1 %.not, label %16, label %mbedtls_asn1_write_len_and_tag.exit
 
 16:                                               ; preds = %11
-  %.not29 = icmp ult i64 %5, 8
-  br i1 %.not29, label %.thread34, label %19
+  %.not29 = icmp eq i64 %6, 0
+  br i1 %.not29, label %.thread30, label %19
 
-.thread34:                                        ; preds = %16
+.thread30:                                        ; preds = %16
   %17 = trunc i64 %8 to i8
   %18 = getelementptr inbounds i8, ptr %9, i64 -1
   store ptr %18, ptr %0, align 8, !tbaa !5
@@ -1251,77 +1251,77 @@ define hidden i32 @mbedtls_asn1_write_bitstring(ptr noundef captures(none) %0, p
   %29 = getelementptr inbounds i8, ptr %27, i64 %28
   store ptr %29, ptr %0, align 8, !tbaa !5
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr align 1 %2, i64 %20, i1 false)
-  %.pre = load ptr, ptr %0, align 8, !tbaa !5
   %30 = trunc i64 %8 to i8
-  %31 = getelementptr inbounds i8, ptr %.pre, i64 -1
-  store ptr %31, ptr %0, align 8, !tbaa !5
-  store i8 %30, ptr %31, align 1, !tbaa !10
-  %32 = icmp ugt i64 %5, 34359738359
-  br i1 %32, label %mbedtls_asn1_write_len_and_tag.exit, label %33
+  %31 = load ptr, ptr %0, align 8, !tbaa !5
+  %32 = getelementptr inbounds i8, ptr %31, i64 -1
+  store ptr %32, ptr %0, align 8, !tbaa !5
+  store i8 %30, ptr %32, align 1, !tbaa !10
+  %33 = icmp ugt i64 %5, 34359738359
+  br i1 %33, label %mbedtls_asn1_write_len_and_tag.exit, label %34
 
-33:                                               ; preds = %19
-  %34 = icmp samesign ugt i64 %5, 1015
-  br i1 %34, label %.preheader23.i.i, label %.loopexit.i.i
+34:                                               ; preds = %19
+  %35 = icmp samesign ugt i64 %5, 1015
+  br i1 %35, label %.preheader23.i.i, label %.loopexit.i.i
 
-.preheader23.i.i:                                 ; preds = %33, %.preheader23.i.i
-  %.025.i.i = phi i64 [ %36, %.preheader23.i.i ], [ %15, %33 ]
-  %.124.i.i = phi i32 [ %35, %.preheader23.i.i ], [ 1, %33 ]
-  %35 = add nuw nsw i32 %.124.i.i, 1
-  %36 = lshr i64 %.025.i.i, 8
-  %.not.i.i = icmp samesign ult i64 %.025.i.i, 256
+.preheader23.i.i:                                 ; preds = %34, %.preheader23.i.i
+  %.025.i.i = phi i64 [ %37, %.preheader23.i.i ], [ %15, %34 ]
+  %.124.i.i = phi i32 [ %36, %.preheader23.i.i ], [ 1, %34 ]
+  %36 = add nuw nsw i32 %.124.i.i, 1
+  %37 = lshr i64 %.025.i.i, 8
+  %.not.i.i = icmp eq i64 %37, 0
   br i1 %.not.i.i, label %.loopexit.i.i, label %.preheader23.i.i, !llvm.loop !3
 
-.loopexit.i.i:                                    ; preds = %.preheader23.i.i, %.thread34, %33
-  %.017.i.i = phi i32 [ 1, %33 ], [ 1, %.thread34 ], [ %35, %.preheader23.i.i ]
-  %37 = zext nneg i32 %.017.i.i to i64
-  %38 = load ptr, ptr %0, align 8, !tbaa !5
-  %39 = ptrtoint ptr %38 to i64
-  %40 = sub i64 %39, %13
-  %41 = icmp slt i64 %40, %37
-  br i1 %41, label %mbedtls_asn1_write_len_and_tag.exit, label %.preheader.i.i
+.loopexit.i.i:                                    ; preds = %.preheader23.i.i, %.thread30, %34
+  %.017.i.i = phi i32 [ 1, %34 ], [ 1, %.thread30 ], [ %36, %.preheader23.i.i ]
+  %38 = zext nneg i32 %.017.i.i to i64
+  %39 = load ptr, ptr %0, align 8, !tbaa !5
+  %40 = ptrtoint ptr %39 to i64
+  %41 = sub i64 %40, %13
+  %42 = icmp slt i64 %41, %38
+  br i1 %42, label %mbedtls_asn1_write_len_and_tag.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.loopexit.i.i, %.preheader.i.i
-  %.018.i.i = phi i64 [ %45, %.preheader.i.i ], [ %15, %.loopexit.i.i ]
-  %42 = trunc i64 %.018.i.i to i8
-  %43 = load ptr, ptr %0, align 8, !tbaa !5
-  %44 = getelementptr inbounds i8, ptr %43, i64 -1
-  store ptr %44, ptr %0, align 8, !tbaa !5
-  store i8 %42, ptr %44, align 1, !tbaa !10
-  %45 = lshr i64 %.018.i.i, 8
-  %.not22.i.i = icmp samesign ult i64 %.018.i.i, 256
-  br i1 %.not22.i.i, label %46, label %.preheader.i.i, !llvm.loop !11
+  %.018.i.i = phi i64 [ %46, %.preheader.i.i ], [ %15, %.loopexit.i.i ]
+  %43 = trunc i64 %.018.i.i to i8
+  %44 = load ptr, ptr %0, align 8, !tbaa !5
+  %45 = getelementptr inbounds i8, ptr %44, i64 -1
+  store ptr %45, ptr %0, align 8, !tbaa !5
+  store i8 %43, ptr %45, align 1, !tbaa !10
+  %46 = lshr i64 %.018.i.i, 8
+  %.not22.i.i = icmp eq i64 %46, 0
+  br i1 %.not22.i.i, label %47, label %.preheader.i.i, !llvm.loop !11
 
-46:                                               ; preds = %.preheader.i.i
-  %47 = icmp samesign ugt i32 %.017.i.i, 1
-  br i1 %47, label %48, label %mbedtls_asn1_write_len.exit.i
+47:                                               ; preds = %.preheader.i.i
+  %48 = icmp samesign ugt i32 %.017.i.i, 1
+  br i1 %48, label %49, label %mbedtls_asn1_write_len.exit.i
 
-48:                                               ; preds = %46
-  %49 = trunc i32 %.017.i.i to i8
-  %50 = add i8 %49, 127
-  %51 = load ptr, ptr %0, align 8, !tbaa !5
-  %52 = getelementptr inbounds i8, ptr %51, i64 -1
-  store ptr %52, ptr %0, align 8, !tbaa !5
-  store i8 %50, ptr %52, align 1, !tbaa !10
+49:                                               ; preds = %47
+  %50 = trunc i32 %.017.i.i to i8
+  %51 = add i8 %50, 127
+  %52 = load ptr, ptr %0, align 8, !tbaa !5
+  %53 = getelementptr inbounds i8, ptr %52, i64 -1
+  store ptr %53, ptr %0, align 8, !tbaa !5
+  store i8 %51, ptr %53, align 1, !tbaa !10
   br label %mbedtls_asn1_write_len.exit.i
 
-mbedtls_asn1_write_len.exit.i:                    ; preds = %48, %46
-  %53 = load ptr, ptr %0, align 8, !tbaa !5
-  %54 = ptrtoint ptr %53 to i64
-  %55 = sub i64 %54, %13
-  %56 = icmp slt i64 %55, 1
-  br i1 %56, label %mbedtls_asn1_write_len_and_tag.exit, label %57
+mbedtls_asn1_write_len.exit.i:                    ; preds = %49, %47
+  %54 = load ptr, ptr %0, align 8, !tbaa !5
+  %55 = ptrtoint ptr %54 to i64
+  %56 = sub i64 %55, %13
+  %57 = icmp slt i64 %56, 1
+  br i1 %57, label %mbedtls_asn1_write_len_and_tag.exit, label %58
 
-57:                                               ; preds = %mbedtls_asn1_write_len.exit.i
-  %58 = getelementptr inbounds i8, ptr %53, i64 -1
-  store ptr %58, ptr %0, align 8, !tbaa !5
-  store i8 3, ptr %58, align 1, !tbaa !10
-  %59 = trunc nuw i64 %15 to i32
-  %60 = add i32 %59, 1
-  %61 = add i32 %60, %.017.i.i
+58:                                               ; preds = %mbedtls_asn1_write_len.exit.i
+  %59 = getelementptr inbounds i8, ptr %54, i64 -1
+  store ptr %59, ptr %0, align 8, !tbaa !5
+  store i8 3, ptr %59, align 1, !tbaa !10
+  %60 = trunc nuw i64 %15 to i32
+  %61 = add i32 %60, 1
+  %62 = add i32 %61, %.017.i.i
   br label %mbedtls_asn1_write_len_and_tag.exit
 
-mbedtls_asn1_write_len_and_tag.exit:              ; preds = %57, %mbedtls_asn1_write_len.exit.i, %.loopexit.i.i, %19, %4, %11
-  %.0 = phi i32 [ -108, %11 ], [ -108, %4 ], [ %61, %57 ], [ -108, %.loopexit.i.i ], [ -100, %19 ], [ -108, %mbedtls_asn1_write_len.exit.i ]
+mbedtls_asn1_write_len_and_tag.exit:              ; preds = %58, %mbedtls_asn1_write_len.exit.i, %.loopexit.i.i, %19, %4, %11
+  %.0 = phi i32 [ -108, %11 ], [ -108, %4 ], [ %62, %58 ], [ -108, %.loopexit.i.i ], [ -100, %19 ], [ -108, %mbedtls_asn1_write_len.exit.i ]
   ret i32 %.0
 }
 
@@ -1355,7 +1355,7 @@ mbedtls_asn1_write_raw_buffer.exit:               ; preds = %4
   %.124.i.i = phi i32 [ %18, %.preheader23.i.i ], [ 1, %15 ]
   %18 = add nuw nsw i32 %.124.i.i, 1
   %19 = lshr i64 %.025.i.i, 8
-  %.not.i.i = icmp samesign ult i64 %.025.i.i, 256
+  %.not.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i, label %.loopexit.i.i, label %.preheader23.i.i, !llvm.loop !3
 
 .loopexit.i.i:                                    ; preds = %.preheader23.i.i, %15
@@ -1375,7 +1375,7 @@ mbedtls_asn1_write_raw_buffer.exit:               ; preds = %4
   store ptr %27, ptr %0, align 8, !tbaa !5
   store i8 %25, ptr %27, align 1, !tbaa !10
   %28 = lshr i64 %.018.i.i, 8
-  %.not22.i.i = icmp samesign ult i64 %.018.i.i, 256
+  %.not22.i.i = icmp eq i64 %28, 0
   br i1 %.not22.i.i, label %29, label %.preheader.i.i, !llvm.loop !11
 
 29:                                               ; preds = %.preheader.i.i

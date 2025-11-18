@@ -62460,7 +62460,7 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_G
   %115 = load i32, ptr %114, align 8, !tbaa !729
   %116 = getelementptr inbounds nuw i8, ptr %111, i64 16
   store i32 %115, ptr %116, align 8, !tbaa !729
-  %.not14.i.i29.i = icmp ult i64 %.097.in.i.i.i.i23.i, 2
+  %.not14.i.i29.i = icmp eq i64 %.097.i.i1213.i.i24.i, 0
   br i1 %.not14.i.i29.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_RT0_.exit.i26.i, label %.lr.ph.i.i.i.i21.i, !llvm.loop !1349
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNSE_4sortISt7greaterIiEEEvT_EUlRKSF_SS_E_EEEvSQ_SQ_SQ_RT0_.exit.i26.i: ; preds = %110, %.lr.ph.i.i.i.i21.i, %107

@@ -1934,7 +1934,7 @@ define hidden void @"_ZN6brotli3enc11stride_eval23StrideEval$LT$Alloc$GT$3new17h
   br i1 %26, label %27, label %.critedge28
 
 27:                                               ; preds = %.critedge24
-  %28 = icmp ult i64 %16, 281474976710656
+  %28 = icmp eq i64 %.sroa.18.0.extract.shift, 0
   br i1 %28, label %.critedge26, label %.critedge28
 
 .critedge26:                                      ; preds = %27
@@ -2567,7 +2567,7 @@ define hidden noundef float @_ZN6brotli3enc8bit_cost20BrotliPopulationCost17h0a9
   %131 = add i32 %130, 1
   %132 = fadd float %.5120, 3.000000e+00
   %133 = lshr i32 %.374119, 3
-  %.not99 = icmp ult i32 %.374119, 8
+  %.not99 = icmp eq i32 %133, 0
   br i1 %.not99, label %.loopexit, label %.lr.ph121
 
 .loopexit:                                        ; preds = %.lr.ph121, %120, %127
@@ -2869,7 +2869,7 @@ define hidden noundef float @_ZN6brotli3enc8bit_cost20BrotliPopulationCost17hbdc
   %131 = add i32 %130, 1
   %132 = fadd float %.5120, 3.000000e+00
   %133 = lshr i32 %.374119, 3
-  %.not99 = icmp ult i32 %.374119, 8
+  %.not99 = icmp eq i32 %133, 0
   br i1 %.not99, label %.loopexit, label %.lr.ph121
 
 .loopexit:                                        ; preds = %.lr.ph121, %120, %127
@@ -3171,7 +3171,7 @@ define hidden noundef float @_ZN6brotli3enc8bit_cost20BrotliPopulationCost17hdf4
   %131 = add i32 %130, 1
   %132 = fadd float %.5120, 3.000000e+00
   %133 = lshr i32 %.374119, 3
-  %.not99 = icmp ult i32 %.374119, 8
+  %.not99 = icmp eq i32 %133, 0
   br i1 %.not99, label %.loopexit, label %.lr.ph121
 
 .loopexit:                                        ; preds = %.lr.ph121, %120, %127

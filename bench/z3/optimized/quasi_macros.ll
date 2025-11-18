@@ -3837,8 +3837,8 @@ define hidden noundef zeroext i1 @_ZN12quasi_macros11find_macrosEjPKP4expr(ptr n
   %28 = icmp ugt i32 %17, 16
   %29 = mul i32 %17, 3
   %30 = icmp ugt i32 %27, %29
-  %or.cond18.i.i = select i1 %28, i1 %30, i1 false
-  br i1 %or.cond18.i.i, label %31, label %._crit_edge.thread.i.i
+  %or.cond19.i.i = select i1 %28, i1 %30, i1 false
+  br i1 %or.cond19.i.i, label %31, label %._crit_edge.thread.i.i
 
 31:                                               ; preds = %._crit_edge.i.i
   %32 = icmp eq ptr %15, null
@@ -3857,7 +3857,7 @@ _ZN14core_hashtableIN7obj_mapI9func_decljE13obj_map_entryE8obj_hashINS2_8key_dat
   %36 = zext nneg i32 %35 to i64
   %37 = shl nuw nsw i64 %36, 4
   %38 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %37)
-  %.not6.i.i.i.i.i.i.i = icmp ult i32 %34, 2
+  %.not6.i.i.i.i.i.i.i = icmp eq i32 %35, 0
   br i1 %.not6.i.i.i.i.i.i.i, label %_ZN14core_hashtableIN7obj_mapI9func_decljE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE11alloc_tableEj.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN14core_hashtableIN7obj_mapI9func_decljE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE12delete_tableEv.exit.i.i, %.lr.ph.i.i.i.i.i.i.i
@@ -3906,12 +3906,12 @@ _ZN7obj_mapI9func_decljE5resetEv.exit:            ; preds = %3, %._crit_edge.thr
   br i1 %exitcond.not, label %.lr.ph39, label %.lr.ph, !llvm.loop !215
 
 ._crit_edge:                                      ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit, %_ZN7obj_mapI9func_decljE5resetEv.exit
-  %.0.lcssa = phi i1 [ false, %_ZN7obj_mapI9func_decljE5resetEv.exit ], [ %.160, %_ZN7obj_refI3app11ast_managerED2Ev.exit ]
+  %.0.lcssa = phi i1 [ false, %_ZN7obj_mapI9func_decljE5resetEv.exit ], [ %.161, %_ZN7obj_refI3app11ast_managerED2Ev.exit ]
   ret i1 %.0.lcssa
 
 48:                                               ; preds = %.lr.ph39, %_ZN7obj_refI3app11ast_managerED2Ev.exit
   %indvars.iv46 = phi i64 [ 0, %.lr.ph39 ], [ %indvars.iv.next47, %_ZN7obj_refI3app11ast_managerED2Ev.exit ]
-  %.038 = phi i1 [ false, %.lr.ph39 ], [ %.160, %_ZN7obj_refI3app11ast_managerED2Ev.exit ]
+  %.038 = phi i1 [ false, %.lr.ph39 ], [ %.161, %_ZN7obj_refI3app11ast_managerED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %49 = load ptr, ptr %0, align 8, !tbaa !106
   store ptr null, ptr %4, align 8, !tbaa !99
@@ -4006,7 +4006,7 @@ _ZN7obj_mapI9func_decljE5resetEv.exit:            ; preds = %3, %._crit_edge.thr
   unreachable
 
 _ZN7obj_refI10quantifier11ast_managerED2Ev.exit:  ; preds = %53, %79, %80, %86
-  %.160 = phi i1 [ %.1, %79 ], [ %.1, %80 ], [ %.1, %86 ], [ %.038, %53 ]
+  %.161 = phi i1 [ %.1, %79 ], [ %.1, %80 ], [ %.1, %86 ], [ %.038, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %90 = load ptr, ptr %5, align 8, !tbaa !103
   %.not.i.i28 = icmp eq ptr %90, null
@@ -4161,8 +4161,8 @@ define hidden noundef zeroext i1 @_ZN12quasi_macros11find_macrosEjPK14justified_
   %28 = icmp ugt i32 %17, 16
   %29 = mul i32 %17, 3
   %30 = icmp ugt i32 %27, %29
-  %or.cond18.i.i = select i1 %28, i1 %30, i1 false
-  br i1 %or.cond18.i.i, label %31, label %._crit_edge.thread.i.i
+  %or.cond19.i.i = select i1 %28, i1 %30, i1 false
+  br i1 %or.cond19.i.i, label %31, label %._crit_edge.thread.i.i
 
 31:                                               ; preds = %._crit_edge.i.i
   %32 = icmp eq ptr %15, null
@@ -4181,7 +4181,7 @@ _ZN14core_hashtableIN7obj_mapI9func_decljE13obj_map_entryE8obj_hashINS2_8key_dat
   %36 = zext nneg i32 %35 to i64
   %37 = shl nuw nsw i64 %36, 4
   %38 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %37)
-  %.not6.i.i.i.i.i.i.i = icmp ult i32 %34, 2
+  %.not6.i.i.i.i.i.i.i = icmp eq i32 %35, 0
   br i1 %.not6.i.i.i.i.i.i.i, label %_ZN14core_hashtableIN7obj_mapI9func_decljE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE11alloc_tableEj.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN14core_hashtableIN7obj_mapI9func_decljE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE12delete_tableEv.exit.i.i, %.lr.ph.i.i.i.i.i.i.i
@@ -4231,12 +4231,12 @@ _ZN7obj_mapI9func_decljE5resetEv.exit:            ; preds = %3, %._crit_edge.thr
   br i1 %exitcond.not, label %.lr.ph34, label %.lr.ph, !llvm.loop !221
 
 ._crit_edge:                                      ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit, %_ZN7obj_mapI9func_decljE5resetEv.exit
-  %.020.lcssa = phi i1 [ false, %_ZN7obj_mapI9func_decljE5resetEv.exit ], [ %.156, %_ZN7obj_refI3app11ast_managerED2Ev.exit ]
+  %.020.lcssa = phi i1 [ false, %_ZN7obj_mapI9func_decljE5resetEv.exit ], [ %.157, %_ZN7obj_refI3app11ast_managerED2Ev.exit ]
   ret i1 %.020.lcssa
 
 49:                                               ; preds = %.lr.ph34, %_ZN7obj_refI3app11ast_managerED2Ev.exit
   %indvars.iv41 = phi i64 [ 0, %.lr.ph34 ], [ %indvars.iv.next42, %_ZN7obj_refI3app11ast_managerED2Ev.exit ]
-  %.02032 = phi i1 [ false, %.lr.ph34 ], [ %.156, %_ZN7obj_refI3app11ast_managerED2Ev.exit ]
+  %.02032 = phi i1 [ false, %.lr.ph34 ], [ %.157, %_ZN7obj_refI3app11ast_managerED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %50 = load ptr, ptr %0, align 8, !tbaa !106
   store ptr null, ptr %4, align 8, !tbaa !99
@@ -4327,7 +4327,7 @@ _ZN7obj_mapI9func_decljE5resetEv.exit:            ; preds = %3, %._crit_edge.thr
   unreachable
 
 _ZN7obj_refI10quantifier11ast_managerED2Ev.exit:  ; preds = %55, %79, %80, %86
-  %.156 = phi i1 [ %.1, %79 ], [ %.1, %80 ], [ %.1, %86 ], [ %.02032, %55 ]
+  %.157 = phi i1 [ %.1, %79 ], [ %.1, %80 ], [ %.1, %86 ], [ %.02032, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %90 = load ptr, ptr %5, align 8, !tbaa !103
   %.not.i.i24 = icmp eq ptr %90, null

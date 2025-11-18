@@ -285,7 +285,8 @@ define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$l
   %.sroa.010.0.extract.trunc = trunc i64 %75 to i8
   %.sroa.211.0.extract.shift = lshr i64 %75, 8
   %.sroa.211.0.extract.trunc = trunc i64 %.sroa.211.0.extract.shift to i8
-  %77 = icmp ult i64 %75, 4294967296
+  %.sroa.4.0.extract.shift = lshr i64 %75, 32
+  %77 = icmp eq i64 %.sroa.4.0.extract.shift, 0
   br i1 %77, label %78, label %82
 
 78:                                               ; preds = %76
@@ -295,7 +296,6 @@ define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$l
           to label %83 unwind label %.body.thread40.loopexit.split-lp
 
 82:                                               ; preds = %76
-  %.sroa.4.0.extract.shift = lshr i64 %75, 32
   %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
   invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h10315a808007af11E"(ptr nonnull sret([32 x i8]) align 8 %45, ptr nonnull align 8 %64, i32 %.sroa.4.0.extract.trunc)
           to label %323 unwind label %.body.thread40.loopexit

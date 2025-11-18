@@ -18744,7 +18744,7 @@ define hidden void @"_ZN3vte15Parser$LT$_$GT$7advance17h0b335f80a3e540f3E.llvm.1
   br label %32
 
 32:                                               ; preds = %.sink.split.i, %31
-  %33 = icmp ult i8 %.sroa.01.0, 16
+  %33 = icmp eq i8 %28, 0
   br i1 %33, label %35, label %36
 
 34:                                               ; preds = %31
@@ -21333,10 +21333,10 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
 
 28:                                               ; preds = %.loopexit3.i
   call void @llvm.experimental.noalias.scope.decl(metadata !3469)
-  %29 = getelementptr i8, ptr %18, i64 -64
-  %30 = add nsw i64 %1, -1
-  %31 = getelementptr inbounds nuw { i64, [7 x i64] }, ptr %12, i64 %30
-  %32 = getelementptr inbounds nuw { i64, [7 x i64] }, ptr %0, i64 %30
+  %29 = add nsw i64 %1, -1
+  %30 = getelementptr inbounds nuw { i64, [7 x i64] }, ptr %12, i64 %29
+  %31 = getelementptr i8, ptr %18, i64 -64
+  %32 = getelementptr inbounds nuw { i64, [7 x i64] }, ptr %0, i64 %29
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -21354,8 +21354,8 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
   %.sroa.0.010.i.i = phi ptr [ %12, %28 ], [ %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h8bf35f8c9788040fE.exit29.i.i" ]
   %.sroa.06.09.i.i = phi ptr [ %18, %28 ], [ %.sroa.sel.idx.sroa.sel.idx.sroa.sel, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h8bf35f8c9788040fE.exit29.i.i" ]
   %.sroa.010.08.i.i = phi ptr [ %0, %28 ], [ %57, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h8bf35f8c9788040fE.exit29.i.i" ]
-  %.sroa.013.07.i.i = phi ptr [ %29, %28 ], [ %75, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h8bf35f8c9788040fE.exit29.i.i" ]
-  %.sroa.015.06.i.i = phi ptr [ %31, %28 ], [ %74, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h8bf35f8c9788040fE.exit29.i.i" ]
+  %.sroa.013.07.i.i = phi ptr [ %31, %28 ], [ %75, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h8bf35f8c9788040fE.exit29.i.i" ]
+  %.sroa.015.06.i.i = phi ptr [ %30, %28 ], [ %74, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h8bf35f8c9788040fE.exit29.i.i" ]
   %.sroa.017.05.i.i = phi ptr [ %32, %28 ], [ %76, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h8bf35f8c9788040fE.exit29.i.i" ]
   %.sroa.018.04.i.i = phi i64 [ 0, %28 ], [ %42, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h8bf35f8c9788040fE.exit29.i.i" ]
   %42 = add nuw nsw i64 %.sroa.018.04.i.i, 1
@@ -40804,20 +40804,20 @@ switch.lookup:
   %48 = load i8, ptr %47, align 2, !range !4936, !alias.scope !7162, !noalias !7170, !noundef !4
   %.off.i = add nsw i8 %48, -9
   %switch.i = icmp ult i8 %.off.i, 3
-  br i1 %switch.i, label %55, label %switch.lookup81
+  br i1 %switch.i, label %55, label %switch.lookup82
 
 49:                                               ; preds = %43
   unreachable
 
-switch.lookup81:                                  ; preds = %44
+switch.lookup82:                                  ; preds = %44
   %50 = mul i64 %.val4.i.i, %.val.i.i
   %51 = getelementptr inbounds nuw i8, ptr %21, i64 80
   %52 = load i64, ptr %51, align 8, !alias.scope !7162, !noalias !7170, !noundef !4
   %53 = mul i64 %50, %52
   %54 = zext nneg i8 %.val5.i.i to i64
-  %switch.gep82 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN95_$LT$image..codecs..tga..decoder..TgaDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$16read_image_boxed17h9781a739576d1348E.136", i64 %54
-  %switch.load83 = load i64, ptr %switch.gep82, align 8
-  %.not.i = icmp ugt i64 %52, %switch.load83
+  %switch.gep83 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN95_$LT$image..codecs..tga..decoder..TgaDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$16read_image_boxed17h9781a739576d1348E.136", i64 %54
+  %switch.load84 = load i64, ptr %switch.gep83, align 8
+  %.not.i = icmp ugt i64 %52, %switch.load84
   br i1 %.not.i, label %185, label %209
 
 55:                                               ; preds = %44
@@ -41102,7 +41102,7 @@ switch.lookup81:                                  ; preds = %44
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !7205
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !7205
   %155 = icmp eq i64 %.sroa.0.0.copyload.i.i, -9223372036854775808
-  br i1 %155, label %164, label %switch.lookup84
+  br i1 %155, label %164, label %switch.lookup85
 
 .body.i:                                          ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9404759115765858575.exit.i.i1.i21.i.i", %268, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9404759115765858575.exit.i.i1.i95.i", %178, %159, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9404759115765858575.exit.i.i1.i32.i.i.i", %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfed631b09689acf2E.exit26.i.i.i"
   %.pn71.i = phi { ptr, i32 } [ %.pn.i.i.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9404759115765858575.exit.i.i1.i32.i.i.i" ], [ %.pn.i.i.i, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfed631b09689acf2E.exit26.i.i.i" ], [ %160, %159 ], [ %179, %178 ], [ %179, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9404759115765858575.exit.i.i1.i95.i" ], [ %269, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9404759115765858575.exit.i.i1.i21.i.i" ], [ %269, %268 ]
@@ -41118,18 +41118,18 @@ switch.lookup81:                                  ; preds = %44
   call void @__rust_dealloc(ptr noundef nonnull %158, i64 noundef %156, i64 noundef 1) #37, !noalias !7331
   br label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfed631b09689acf2E.exit.i"
 
-159:                                              ; preds = %.split9.us.i.invoke.i, %.invoke.i, %228, %213, %.invoke283.i, %.thread.i, %186, %55
+159:                                              ; preds = %.split9.us.i.invoke.i, %.invoke.i, %228, %213, %.invoke284.i, %.thread.i, %186, %55
   %160 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
-switch.lookup84:                                  ; preds = %"_ZN5image6codecs3tga7decoder19TgaDecoder$LT$R$GT$17read_encoded_data17hd80714ecd8d3ed9eE.exit.i.i"
+switch.lookup85:                                  ; preds = %"_ZN5image6codecs3tga7decoder19TgaDecoder$LT$R$GT$17read_encoded_data17hd80714ecd8d3ed9eE.exit.i.i"
   %161 = load i64, ptr %57, align 8, !alias.scope !7162, !noalias !7170, !noundef !4
   %162 = load i8, ptr %25, align 1, !range !4860, !alias.scope !7162, !noalias !7170, !noundef !4
   %163 = zext nneg i8 %162 to i64
-  %switch.gep85 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN95_$LT$image..codecs..tga..decoder..TgaDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$16read_image_boxed17h9781a739576d1348E.136", i64 %163
-  %switch.load86 = load i64, ptr %switch.gep85, align 8
-  %.not.not.i = icmp ugt i64 %161, %switch.load86
+  %switch.gep86 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN95_$LT$image..codecs..tga..decoder..TgaDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$16read_image_boxed17h9781a739576d1348E.136", i64 %163
+  %switch.load87 = load i64, ptr %switch.gep86, align 8
+  %.not.not.i = icmp ugt i64 %161, %switch.load87
   br i1 %.not.not.i, label %167, label %171
 
 164:                                              ; preds = %"_ZN5image6codecs3tga7decoder19TgaDecoder$LT$R$GT$17read_encoded_data17hd80714ecd8d3ed9eE.exit.i.i", %"_ZN5image6codecs3tga7decoder19TgaDecoder$LT$R$GT$17read_encoded_data17hd80714ecd8d3ed9eE.exit.thread.i.i"
@@ -41142,7 +41142,7 @@ switch.lookup84:                                  ; preds = %"_ZN5image6codecs3t
   store i64 %166, ptr %.sroa.246.sroa.2.0..sroa.246.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !7159, !noalias !7332
   br label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfed631b09689acf2E.exit120.i"
 
-167:                                              ; preds = %switch.lookup84
+167:                                              ; preds = %switch.lookup85
   call void @llvm.experimental.noalias.scope.decl(metadata !7333)
   call void @llvm.experimental.noalias.scope.decl(metadata !7336)
   call void @llvm.experimental.noalias.scope.decl(metadata !7339)
@@ -41155,7 +41155,7 @@ switch.lookup84:                                  ; preds = %"_ZN5image6codecs3t
   call void @__rust_dealloc(ptr noundef nonnull %170, i64 noundef %168, i64 noundef 1) #37, !noalias !7347
   br label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfed631b09689acf2E.exit90.i"
 
-171:                                              ; preds = %switch.lookup84
+171:                                              ; preds = %switch.lookup85
   %172 = icmp ugt i64 %.sroa.13.0.copyload.i.i, %3
   br i1 %172, label %173, label %174
 
@@ -41217,7 +41217,7 @@ switch.lookup84:                                  ; preds = %"_ZN5image6codecs3t
   call void @__rust_dealloc(ptr noundef nonnull %184, i64 noundef %182, i64 noundef 1) #37, !noalias !7382
   br label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfed631b09689acf2E.exit98.i"
 
-185:                                              ; preds = %switch.lookup81
+185:                                              ; preds = %switch.lookup82
   %.not199.i = icmp eq i64 %53, 0
   br i1 %.not199.i, label %.thread.i, label %186
 
@@ -41228,7 +41228,7 @@ switch.lookup84:                                  ; preds = %"_ZN5image6codecs3t
 187:                                              ; preds = %186
   %.pre.i = load i64, ptr %46, align 8, !noalias !7166
   %188 = icmp ugt i64 %53, %.pre.i
-  br i1 %188, label %.invoke283.i, label %..thread.i_crit_edge
+  br i1 %188, label %.invoke284.i, label %..thread.i_crit_edge
 
 ..thread.i_crit_edge:                             ; preds = %187
   %.pre = load ptr, ptr %45, align 8, !noalias !7166
@@ -41264,7 +41264,7 @@ switch.lookup84:                                  ; preds = %"_ZN5image6codecs3t
 203:                                              ; preds = %200
   %204 = load i64, ptr %46, align 8, !noalias !7166, !noundef !4
   %205 = icmp ugt i64 %53, %204
-  br i1 %205, label %.invoke283.i, label %207
+  br i1 %205, label %.invoke284.i, label %207
 
 206:                                              ; preds = %200
   store i8 9, ptr %0, align 8, !alias.scope !7159, !noalias !7332
@@ -41276,17 +41276,17 @@ switch.lookup84:                                  ; preds = %"_ZN5image6codecs3t
   %208 = load ptr, ptr %45, align 8, !noalias !7166, !nonnull !4, !noundef !4
   br label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfed631b09689acf2E.exit94.i"
 
-209:                                              ; preds = %switch.lookup81
+209:                                              ; preds = %switch.lookup82
   %210 = icmp ugt i64 %53, %3
-  br i1 %210, label %.invoke283.i, label %213
+  br i1 %210, label %.invoke284.i, label %213
 
-.invoke283.i:                                     ; preds = %209, %203, %187
+.invoke284.i:                                     ; preds = %209, %203, %187
   %211 = phi i64 [ %.pre.i, %187 ], [ %204, %203 ], [ %3, %209 ]
   %212 = phi ptr [ @anon.06746a4451b6ea2a415cc45f0e9123e2.694, %187 ], [ @anon.06746a4451b6ea2a415cc45f0e9123e2.695, %203 ], [ @anon.06746a4451b6ea2a415cc45f0e9123e2.696, %209 ]
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h87b545b7962eada9E(i64 noundef %53, i64 noundef %211, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %212) #36
-          to label %.cont284.i unwind label %159, !noalias !7159
+          to label %.cont285.i unwind label %159, !noalias !7159
 
-.cont284.i:                                       ; preds = %.invoke283.i
+.cont285.i:                                       ; preds = %.invoke284.i
   unreachable
 
 213:                                              ; preds = %209
@@ -41570,17 +41570,14 @@ switch.lookup84:                                  ; preds = %"_ZN5image6codecs3t
 
 322:                                              ; preds = %"_ZN5image6codecs3tga7decoder19TgaDecoder$LT$R$GT$26reverse_encoding_in_output17hf9700ea162133facE.exit.i"
   %323 = udiv i64 %3, %.val84.i
-  %.not.i128.i = icmp ult i64 %.val84.i, 2
-  %.not11.i.i = icmp ugt i64 %.val84.i, %3
-  %or.cond28.i.i = or i1 %.not.i128.i, %.not11.i.i
-  br i1 %or.cond28.i.i, label %"_ZN5image6codecs3tga7decoder19TgaDecoder$LT$R$GT$15flip_vertically17h6c7f089874a76e81E.exit.i", label %.lr.ph.us.preheader.i.i
-
-.lr.ph.us.preheader.i.i:                          ; preds = %322
   %324 = lshr i64 %.val84.i, 1
-  br label %.lr.ph.us.i.i
+  %.not.i128.i = icmp eq i64 %324, 0
+  %.not11.i.i = icmp ugt i64 %.val84.i, %3
+  %or.cond29.i.i = or i1 %.not11.i.i, %.not.i128.i
+  br i1 %or.cond29.i.i, label %"_ZN5image6codecs3tga7decoder19TgaDecoder$LT$R$GT$15flip_vertically17h6c7f089874a76e81E.exit.i", label %.lr.ph.us.i.i
 
-.lr.ph.us.i.i:                                    ; preds = %..loopexit_crit_edge.us.i.i, %.lr.ph.us.preheader.i.i
-  %.sroa.05.06.us.i.i = phi i64 [ %325, %..loopexit_crit_edge.us.i.i ], [ 0, %.lr.ph.us.preheader.i.i ]
+.lr.ph.us.i.i:                                    ; preds = %322, %..loopexit_crit_edge.us.i.i
+  %.sroa.05.06.us.i.i = phi i64 [ %325, %..loopexit_crit_edge.us.i.i ], [ 0, %322 ]
   %325 = add nuw nsw i64 %.sroa.05.06.us.i.i, 1
   %326 = xor i64 %.sroa.05.06.us.i.i, -1
   %327 = add i64 %.val84.i, %326
@@ -41645,10 +41642,10 @@ switch.lookup84:                                  ; preds = %"_ZN5image6codecs3t
   br i1 %switch, label %"_ZN4core3ptr115drop_in_place$LT$image..codecs..tga..decoder..TgaDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h51c99441ea51bf6bE.exit134.sink.split.i", label %"_ZN95_$LT$image..codecs..tga..decoder..TgaDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h7a0abea4287e7607E.exit"
 
 "_ZN4core3ptr115drop_in_place$LT$image..codecs..tga..decoder..TgaDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h51c99441ea51bf6bE.exit134.sink.split.i": ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfed631b09689acf2E.exit98.i", %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfed631b09689acf2E.exit132.i"
-  %.sink285.i = phi i64 [ %347, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfed631b09689acf2E.exit132.i" ], [ %350, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfed631b09689acf2E.exit98.i" ]
+  %.sink286.i = phi i64 [ %347, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfed631b09689acf2E.exit132.i" ], [ %350, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfed631b09689acf2E.exit98.i" ]
   %348 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %349 = load ptr, ptr %348, align 8, !alias.scope !7162, !noalias !7170, !nonnull !4, !noundef !4
-  call void @__rust_dealloc(ptr noundef nonnull %349, i64 noundef %.sink285.i, i64 noundef 1) #37, !noalias !7159
+  call void @__rust_dealloc(ptr noundef nonnull %349, i64 noundef %.sink286.i, i64 noundef 1) #37, !noalias !7159
   br label %"_ZN95_$LT$image..codecs..tga..decoder..TgaDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h7a0abea4287e7607E.exit"
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfed631b09689acf2E.exit98.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9404759115765858575.exit.i.i1.i97.i", %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfed631b09689acf2E.exit120.i"

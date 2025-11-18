@@ -3920,69 +3920,69 @@ define internal fastcc noundef ptr @NormalizeSubWord(ptr noundef readonly captur
   %smax64.i = call i32 @llvm.smax.i32(i32 %.0208293, i32 %14)
   br label %.preheader.split.us.i
 
-.preheader.split.us.i:                            ; preds = %58, %.preheader.i
-  %indvars.iv61.i = phi i64 [ %indvars.iv.next62.i, %58 ], [ %40, %.preheader.i ]
-  %.1.us.i = phi ptr [ %60, %58 ], [ %.03376.i, %.preheader.i ]
+.preheader.split.us.i:                            ; preds = %59, %.preheader.i
+  %indvars.iv61.i = phi i64 [ %indvars.iv.next62.i, %59 ], [ %40, %.preheader.i ]
+  %.1.us.i = phi ptr [ %61, %59 ], [ %.03376.i, %.preheader.i ]
   %lftr.wideiv = trunc i64 %indvars.iv61.i to i32
   %exitcond = icmp eq i32 %smax64.i, %lftr.wideiv
   br i1 %exitcond, label %FindAffixes.exit.thread, label %41
 
 41:                                               ; preds = %.preheader.split.us.i
   %42 = load i32, ptr %.1.us.i, align 8
-  %.not52.i = icmp ult i32 %42, 2
+  %43 = lshr i32 %42, 1
+  %.not52.i = icmp eq i32 %43, 0
   br i1 %.not52.i, label %FindAffixes.exit.thread, label %.lr.ph.us.i
 
-43:                                               ; preds = %.lr.ph.us.i, %53
-  %.03448.us.i = phi ptr [ %64, %.lr.ph.us.i ], [ %.135.us.i, %53 ]
-  %.03647.us.i = phi ptr [ %63, %.lr.ph.us.i ], [ %.137.us.i, %53 ]
-  %44 = ptrtoint ptr %.03448.us.i to i64
-  %45 = ptrtoint ptr %.03647.us.i to i64
-  %46 = sub i64 %44, %45
-  %47 = sdiv exact i64 %46, 24
-  %48 = ashr i64 %47, 1
-  %49 = getelementptr inbounds %struct.AffixNodeData, ptr %.03647.us.i, i64 %48
-  %50 = load i32, ptr %49, align 8
-  %51 = and i32 %50, 255
-  %52 = icmp eq i32 %51, %67
-  br i1 %52, label %57, label %53
+44:                                               ; preds = %.lr.ph.us.i, %54
+  %.03448.us.i = phi ptr [ %64, %.lr.ph.us.i ], [ %.135.us.i, %54 ]
+  %.03647.us.i = phi ptr [ %63, %.lr.ph.us.i ], [ %.137.us.i, %54 ]
+  %45 = ptrtoint ptr %.03448.us.i to i64
+  %46 = ptrtoint ptr %.03647.us.i to i64
+  %47 = sub i64 %45, %46
+  %48 = sdiv exact i64 %47, 24
+  %49 = ashr i64 %48, 1
+  %50 = getelementptr inbounds %struct.AffixNodeData, ptr %.03647.us.i, i64 %49
+  %51 = load i32, ptr %50, align 8
+  %52 = and i32 %51, 255
+  %53 = icmp eq i32 %52, %67
+  br i1 %53, label %58, label %54
 
-53:                                               ; preds = %43
-  %54 = icmp samesign ult i32 %51, %67
-  %55 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %.137.us.i = select i1 %54, ptr %55, ptr %.03647.us.i
-  %.135.us.i = select i1 %54, ptr %.03448.us.i, ptr %49
-  %56 = icmp ult ptr %.137.us.i, %.135.us.i
-  br i1 %56, label %43, label %FindAffixes.exit.thread, !llvm.loop !42
+54:                                               ; preds = %44
+  %55 = icmp samesign ult i32 %52, %67
+  %56 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %.137.us.i = select i1 %55, ptr %56, ptr %.03647.us.i
+  %.135.us.i = select i1 %55, ptr %.03448.us.i, ptr %50
+  %57 = icmp ult ptr %.137.us.i, %.135.us.i
+  br i1 %57, label %44, label %FindAffixes.exit.thread, !llvm.loop !42
 
-57:                                               ; preds = %43
+58:                                               ; preds = %44
   %indvars.iv.next62.i = add nsw i64 %indvars.iv61.i, 1
-  %.not42.us.i = icmp ult i32 %50, 256
-  br i1 %.not42.us.i, label %58, label %FindAffixes.exit.loopexit
+  %.not42.us.i = icmp ult i32 %51, 256
+  br i1 %.not42.us.i, label %59, label %FindAffixes.exit.loopexit
 
-58:                                               ; preds = %57
-  %59 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %60 = load ptr, ptr %59, align 8
-  %.not45.us.i = icmp eq ptr %60, null
+59:                                               ; preds = %58
+  %60 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %61 = load ptr, ptr %60, align 8
+  %.not45.us.i = icmp eq ptr %61, null
   br i1 %.not45.us.i, label %FindAffixes.exit.thread, label %.preheader.split.us.i, !llvm.loop !43
 
 .lr.ph.us.i:                                      ; preds = %41
-  %61 = lshr i32 %42, 1
-  %62 = zext nneg i32 %61 to i64
+  %62 = zext nneg i32 %43 to i64
   %.idx51.i = mul nuw nsw i64 %62, 24
   %63 = getelementptr inbounds nuw i8, ptr %.1.us.i, i64 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 %.idx51.i
   %65 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv61.i
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i32
-  br label %43
+  br label %44
 
-FindAffixes.exit.loopexit:                        ; preds = %57
+FindAffixes.exit.loopexit:                        ; preds = %58
   %68 = trunc nsw i64 %indvars.iv.next62.i to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %34, %FindAffixes.exit.loopexit
   %.3211 = phi i32 [ %.0208293, %34 ], [ %68, %FindAffixes.exit.loopexit ]
-  %.0.i = phi ptr [ %35, %34 ], [ %49, %FindAffixes.exit.loopexit ]
+  %.0.i = phi ptr [ %35, %34 ], [ %50, %FindAffixes.exit.loopexit ]
   %69 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   br label %70
 
@@ -4154,8 +4154,8 @@ FindWord.exit.thread:                             ; preds = %.preheader.i115, %1
   %.not99 = icmp eq ptr %.087, null
   br i1 %.not99, label %FindAffixes.exit.thread, label %31, !llvm.loop !47
 
-FindAffixes.exit.thread:                          ; preds = %._crit_edge, %37, %58, %.preheader.split.us.i, %41, %53, %24
-  %.192288 = phi ptr [ %.091, %24 ], [ %.192294, %53 ], [ %.192294, %41 ], [ %.192294, %.preheader.split.us.i ], [ %.192294, %58 ], [ %.3, %._crit_edge ], [ %.192294, %37 ]
+FindAffixes.exit.thread:                          ; preds = %._crit_edge, %37, %59, %.preheader.split.us.i, %41, %54, %24
+  %.192288 = phi ptr [ %.091, %24 ], [ %.192294, %54 ], [ %.192294, %41 ], [ %.192294, %.preheader.split.us.i ], [ %.192294, %59 ], [ %.3, %._crit_edge ], [ %.192294, %37 ]
   %.not101322 = icmp eq ptr %16, null
   br i1 %.not101322, label %.loopexit246, label %.lr.ph326
 
@@ -4206,11 +4206,11 @@ FindAffixes.exit.thread:                          ; preds = %._crit_edge, %37, %
 
 164:                                              ; preds = %.preheader.split.i
   %165 = load i32, ptr %.1.i, align 8
-  %.not50.i = icmp ult i32 %165, 2
+  %166 = lshr i32 %165, 1
+  %.not50.i = icmp eq i32 %166, 0
   br i1 %.not50.i, label %.thread, label %.lr.ph.i128
 
 .lr.ph.i128:                                      ; preds = %164
-  %166 = lshr i32 %165, 1
   %167 = zext nneg i32 %166 to i64
   %.idx.i129 = mul nuw nsw i64 %167, 24
   %168 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
@@ -4464,69 +4464,69 @@ FindWord.exit154.thread:                          ; preds = %.preheader.i135, %2
   %smax64.i165 = call i32 @llvm.smax.i32(i32 %.1209309, i32 %271)
   br label %.preheader.split.us.i166
 
-.preheader.split.us.i166:                         ; preds = %300, %.preheader.i162
-  %indvars.iv61.i167 = phi i64 [ %indvars.iv.next62.i178, %300 ], [ %282, %.preheader.i162 ]
-  %.1.us.i168 = phi ptr [ %302, %300 ], [ %.03376.i163, %.preheader.i162 ]
+.preheader.split.us.i166:                         ; preds = %301, %.preheader.i162
+  %indvars.iv61.i167 = phi i64 [ %indvars.iv.next62.i178, %301 ], [ %282, %.preheader.i162 ]
+  %.1.us.i168 = phi ptr [ %303, %301 ], [ %.03376.i163, %.preheader.i162 ]
   %lftr.wideiv375 = trunc i64 %indvars.iv61.i167 to i32
   %exitcond376 = icmp eq i32 %smax64.i165, %lftr.wideiv375
   br i1 %exitcond376, label %FindAffixes.exit181.thread, label %283
 
 283:                                              ; preds = %.preheader.split.us.i166
   %284 = load i32, ptr %.1.us.i168, align 8
-  %.not52.i171 = icmp ult i32 %284, 2
+  %285 = lshr i32 %284, 1
+  %.not52.i171 = icmp eq i32 %285, 0
   br i1 %.not52.i171, label %FindAffixes.exit181.thread, label %.lr.ph.us.i172
 
-285:                                              ; preds = %.lr.ph.us.i172, %295
-  %.03448.us.i174 = phi ptr [ %306, %.lr.ph.us.i172 ], [ %.135.us.i177, %295 ]
-  %.03647.us.i175 = phi ptr [ %305, %.lr.ph.us.i172 ], [ %.137.us.i176, %295 ]
-  %286 = ptrtoint ptr %.03448.us.i174 to i64
-  %287 = ptrtoint ptr %.03647.us.i175 to i64
-  %288 = sub i64 %286, %287
-  %289 = sdiv exact i64 %288, 24
-  %290 = ashr i64 %289, 1
-  %291 = getelementptr inbounds %struct.AffixNodeData, ptr %.03647.us.i175, i64 %290
-  %292 = load i32, ptr %291, align 8
-  %293 = and i32 %292, 255
-  %294 = icmp eq i32 %293, %309
-  br i1 %294, label %299, label %295
+286:                                              ; preds = %.lr.ph.us.i172, %296
+  %.03448.us.i174 = phi ptr [ %306, %.lr.ph.us.i172 ], [ %.135.us.i177, %296 ]
+  %.03647.us.i175 = phi ptr [ %305, %.lr.ph.us.i172 ], [ %.137.us.i176, %296 ]
+  %287 = ptrtoint ptr %.03448.us.i174 to i64
+  %288 = ptrtoint ptr %.03647.us.i175 to i64
+  %289 = sub i64 %287, %288
+  %290 = sdiv exact i64 %289, 24
+  %291 = ashr i64 %290, 1
+  %292 = getelementptr inbounds %struct.AffixNodeData, ptr %.03647.us.i175, i64 %291
+  %293 = load i32, ptr %292, align 8
+  %294 = and i32 %293, 255
+  %295 = icmp eq i32 %294, %309
+  br i1 %295, label %300, label %296
 
-295:                                              ; preds = %285
-  %296 = icmp samesign ult i32 %293, %309
-  %297 = getelementptr inbounds nuw i8, ptr %291, i64 24
-  %.137.us.i176 = select i1 %296, ptr %297, ptr %.03647.us.i175
-  %.135.us.i177 = select i1 %296, ptr %.03448.us.i174, ptr %291
-  %298 = icmp ult ptr %.137.us.i176, %.135.us.i177
-  br i1 %298, label %285, label %FindAffixes.exit181.thread, !llvm.loop !42
+296:                                              ; preds = %286
+  %297 = icmp samesign ult i32 %294, %309
+  %298 = getelementptr inbounds nuw i8, ptr %292, i64 24
+  %.137.us.i176 = select i1 %297, ptr %298, ptr %.03647.us.i175
+  %.135.us.i177 = select i1 %297, ptr %.03448.us.i174, ptr %292
+  %299 = icmp ult ptr %.137.us.i176, %.135.us.i177
+  br i1 %299, label %286, label %FindAffixes.exit181.thread, !llvm.loop !42
 
-299:                                              ; preds = %285
+300:                                              ; preds = %286
   %indvars.iv.next62.i178 = add nsw i64 %indvars.iv61.i167, 1
-  %.not42.us.i179 = icmp ult i32 %292, 256
-  br i1 %.not42.us.i179, label %300, label %FindAffixes.exit181.loopexit
+  %.not42.us.i179 = icmp ult i32 %293, 256
+  br i1 %.not42.us.i179, label %301, label %FindAffixes.exit181.loopexit
 
-300:                                              ; preds = %299
-  %301 = getelementptr inbounds nuw i8, ptr %291, i64 16
-  %302 = load ptr, ptr %301, align 8
-  %.not45.us.i180 = icmp eq ptr %302, null
+301:                                              ; preds = %300
+  %302 = getelementptr inbounds nuw i8, ptr %292, i64 16
+  %303 = load ptr, ptr %302, align 8
+  %.not45.us.i180 = icmp eq ptr %303, null
   br i1 %.not45.us.i180, label %FindAffixes.exit181.thread, label %.preheader.split.us.i166, !llvm.loop !43
 
 .lr.ph.us.i172:                                   ; preds = %283
-  %303 = lshr i32 %284, 1
-  %304 = zext nneg i32 %303 to i64
+  %304 = zext nneg i32 %285 to i64
   %.idx51.i173 = mul nuw nsw i64 %304, 24
   %305 = getelementptr inbounds nuw i8, ptr %.1.us.i168, i64 8
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 %.idx51.i173
   %307 = getelementptr inbounds i8, ptr %10, i64 %indvars.iv61.i167
   %308 = load i8, ptr %307, align 1
   %309 = zext i8 %308 to i32
-  br label %285
+  br label %286
 
-FindAffixes.exit181.loopexit:                     ; preds = %299
+FindAffixes.exit181.loopexit:                     ; preds = %300
   %310 = trunc nsw i64 %indvars.iv.next62.i178 to i32
   br label %.lr.ph304
 
 .lr.ph304:                                        ; preds = %276, %FindAffixes.exit181.loopexit
   %.5213 = phi i32 [ %.1209309, %276 ], [ %310, %FindAffixes.exit181.loopexit ]
-  %.0.i160 = phi ptr [ %277, %276 ], [ %291, %FindAffixes.exit181.loopexit ]
+  %.0.i160 = phi ptr [ %277, %276 ], [ %292, %FindAffixes.exit181.loopexit ]
   %311 = getelementptr inbounds nuw i8, ptr %.0.i160, i64 8
   br label %312
 
@@ -4715,8 +4715,8 @@ FindWord.exit202.thread:                          ; preds = %.preheader.i183, %3
   %.not105 = icmp eq ptr %.188, null
   br i1 %.not105, label %FindAffixes.exit181.thread, label %273, !llvm.loop !49
 
-FindAffixes.exit181.thread:                       ; preds = %._crit_edge305, %279, %300, %.preheader.split.us.i166, %283, %295, %FindWord.exit154.thread, %196
-  %.13 = phi ptr [ %.7317, %196 ], [ %.8, %FindWord.exit154.thread ], [ %.9310, %295 ], [ %.9310, %283 ], [ %.9310, %.preheader.split.us.i166 ], [ %.9310, %300 ], [ %.12, %._crit_edge305 ], [ %.9310, %279 ]
+FindAffixes.exit181.thread:                       ; preds = %._crit_edge305, %279, %301, %.preheader.split.us.i166, %283, %296, %FindWord.exit154.thread, %196
+  %.13 = phi ptr [ %.7317, %196 ], [ %.8, %FindWord.exit154.thread ], [ %.9310, %296 ], [ %.9310, %283 ], [ %.9310, %.preheader.split.us.i166 ], [ %.9310, %301 ], [ %.12, %._crit_edge305 ], [ %.9310, %279 ]
   %indvars.iv.next381 = add nuw nsw i64 %indvars.iv380, 1
   %403 = load i32, ptr %.0.i122, align 8
   %404 = lshr i32 %403, 8

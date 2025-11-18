@@ -853,7 +853,7 @@ define dso_local ptr @drm_gem_get_pages(ptr noundef readonly captures(none) %0) 
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 112
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %22, i32 8, ptr nonnull elementtype(i8) %22) #11, !srcloc !38
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  %.not = icmp ult i64 %16, 4096
+  %.not = icmp eq i64 %17, 0
   br i1 %.not, label %.loopexit11, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %21

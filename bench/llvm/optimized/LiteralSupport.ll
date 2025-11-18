@@ -6192,7 +6192,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit91.i.i:      ; preds = %234, %231, %_ZNSt7_
   %293 = getelementptr inbounds i8, ptr %.117.i.i.i, i64 -1
   store i8 %292, ptr %293, align 1, !tbaa !3, !noalias !426
   %294 = lshr i64 %.019.i.i.i, 4
-  %295 = icmp samesign ult i64 %.019.i.i.i, 16
+  %295 = icmp eq i64 %294, 0
   br i1 %295, label %._crit_edge.i.i.i, label %.thread.i.i.i, !llvm.loop !429
 
 _ZN4llvm9utohexstrB5cxx11Embj.exit.i.i:           ; preds = %289, %287, %._crit_edge.i.i.i.i.i
@@ -12213,7 +12213,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPcvEET_S7_RKS3_.exit: ; 
   %34 = lshr i64 %.019, 4
   %35 = add i32 %.01218, 1
   %36 = icmp uge i32 %35, %3
-  %37 = icmp ult i64 %.019, 16
+  %37 = icmp eq i64 %34, 0
   %.not15 = select i1 %.not24, i1 %37, i1 %36
   br i1 %.not15, label %._crit_edge, label %28, !llvm.loop !429
 }

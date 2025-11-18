@@ -416,21 +416,21 @@ define range(i32 0, 312) i32 @H5EA__dblock_sblk_idx(ptr noundef readonly capture
   %17 = udiv i64 %13, %16
   %18 = add i64 %17, 1
   %19 = lshr i64 %18, 32
-  %.not.i = icmp ult i64 %18, 4294967296
+  %.not.i = icmp eq i64 %19, 0
   br i1 %.not.i, label %46, label %20
 
 20:                                               ; preds = %9
   %21 = lshr i64 %18, 48
-  %.not26.i = icmp ult i64 %18, 281474976710656
+  %.not26.i = icmp eq i64 %21, 0
   br i1 %.not26.i, label %34, label %22
 
 22:                                               ; preds = %20
-  %.not28.i = icmp ult i64 %18, 72057594037927936
-  br i1 %.not28.i, label %29, label %23
+  %23 = lshr i64 %18, 56
+  %.not28.i = icmp eq i64 %23, 0
+  br i1 %.not28.i, label %29, label %24
 
-23:                                               ; preds = %22
-  %24 = lshr i64 %18, 56
-  %25 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %24
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %23
   %26 = load i8, ptr %25, align 1, !tbaa !58
   %27 = zext i8 %26 to i32
   %28 = add nuw nsw i32 %27, 56
@@ -444,12 +444,12 @@ define range(i32 0, 312) i32 @H5EA__dblock_sblk_idx(ptr noundef readonly capture
   br label %H5VM_log2_gen.exit
 
 34:                                               ; preds = %20
-  %.not27.i = icmp samesign ult i64 %18, 1099511627776
-  br i1 %.not27.i, label %41, label %35
+  %35 = lshr i64 %18, 40
+  %.not27.i = icmp eq i64 %35, 0
+  br i1 %.not27.i, label %41, label %36
 
-35:                                               ; preds = %34
-  %36 = lshr i64 %18, 40
-  %37 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %36
+36:                                               ; preds = %34
+  %37 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %35
   %38 = load i8, ptr %37, align 1, !tbaa !58
   %39 = zext i8 %38 to i32
   %40 = add nuw nsw i32 %39, 40
@@ -464,16 +464,16 @@ define range(i32 0, 312) i32 @H5EA__dblock_sblk_idx(ptr noundef readonly capture
 
 46:                                               ; preds = %9
   %47 = lshr i64 %18, 16
-  %.not23.i = icmp samesign ult i64 %18, 65536
+  %.not23.i = icmp eq i64 %47, 0
   br i1 %.not23.i, label %60, label %48
 
 48:                                               ; preds = %46
-  %.not25.i = icmp samesign ult i64 %18, 16777216
-  br i1 %.not25.i, label %55, label %49
+  %49 = lshr i64 %18, 24
+  %.not25.i = icmp eq i64 %49, 0
+  br i1 %.not25.i, label %55, label %50
 
-49:                                               ; preds = %48
-  %50 = lshr i64 %18, 24
-  %51 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %50
+50:                                               ; preds = %48
+  %51 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %49
   %52 = load i8, ptr %51, align 1, !tbaa !58
   %53 = zext i8 %52 to i32
   %54 = add nuw nsw i32 %53, 24
@@ -487,12 +487,12 @@ define range(i32 0, 312) i32 @H5EA__dblock_sblk_idx(ptr noundef readonly capture
   br label %H5VM_log2_gen.exit
 
 60:                                               ; preds = %46
-  %.not24.i = icmp samesign ult i64 %18, 256
-  br i1 %.not24.i, label %67, label %61
+  %61 = lshr i64 %18, 8
+  %.not24.i = icmp eq i64 %61, 0
+  br i1 %.not24.i, label %67, label %62
 
-61:                                               ; preds = %60
-  %62 = lshr i64 %18, 8
-  %63 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %62
+62:                                               ; preds = %60
+  %63 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %61
   %64 = load i8, ptr %63, align 1, !tbaa !58
   %65 = zext i8 %64 to i32
   %66 = add nuw nsw i32 %65, 8
@@ -504,8 +504,8 @@ define range(i32 0, 312) i32 @H5EA__dblock_sblk_idx(ptr noundef readonly capture
   %70 = zext i8 %69 to i32
   br label %H5VM_log2_gen.exit
 
-H5VM_log2_gen.exit:                               ; preds = %67, %61, %55, %49, %41, %35, %29, %23, %2
-  %.0 = phi i32 [ 0, %2 ], [ %28, %23 ], [ %33, %29 ], [ %40, %35 ], [ %45, %41 ], [ %54, %49 ], [ %59, %55 ], [ %66, %61 ], [ %70, %67 ]
+H5VM_log2_gen.exit:                               ; preds = %67, %62, %55, %50, %41, %36, %29, %24, %2
+  %.0 = phi i32 [ 0, %2 ], [ %28, %24 ], [ %33, %29 ], [ %40, %36 ], [ %45, %41 ], [ %54, %50 ], [ %59, %55 ], [ %66, %62 ], [ %70, %67 ]
   ret i32 %.0
 }
 

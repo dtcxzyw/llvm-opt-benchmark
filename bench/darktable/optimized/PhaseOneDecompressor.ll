@@ -494,7 +494,7 @@ define hidden void @_ZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13
   %17 = ashr i32 %16, 1
   %18 = icmp sgt i32 %12, -1
   tail call void @llvm.assume(i1 %18)
-  %19 = icmp ugt i32 %16, 1
+  %19 = icmp ne i32 %17, 0
   tail call void @llvm.assume(i1 %19)
   %20 = icmp sgt i32 %17, -1
   tail call void @llvm.assume(i1 %20)
@@ -1267,7 +1267,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 88:                                               ; preds = %.lr.ph.i.i.i.i17.i
   %89 = getelementptr inbounds %"struct.rawspeed::PhaseOneStrip", ptr %.fr50.i, i64 %.010.i.i.i.i18.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %89, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 32, i1 false)
-  %.not11.i.i25.i = icmp ult i64 %.0911.in.i.i.i.i19.i, 2
+  %.not11.i.i25.i = icmp eq i64 %.0911.i.i910.i.i20.i, 0
   br i1 %.not11.i.i25.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8rawspeed13PhaseOneStripESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_20PhaseOneDecompressor13prepareStripsEvE3$_0EEEvT_SE_SE_RT0_.exit.i22.i", label %.lr.ph.i.i.i.i17.i, !llvm.loop !130
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8rawspeed13PhaseOneStripESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_20PhaseOneDecompressor13prepareStripsEvE3$_0EEEvT_SE_SE_RT0_.exit.i22.i": ; preds = %88, %.lr.ph.i.i.i.i17.i, %85

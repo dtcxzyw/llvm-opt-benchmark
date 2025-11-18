@@ -391,7 +391,7 @@ define internal fastcc void @uu_encode(ptr noundef %0, ptr noundef readonly capt
   %.04772 = phi ptr [ %32, %.lr.ph ], [ %1, %3 ]
   %10 = load i8, ptr %.04772, align 1, !tbaa !31
   %11 = lshr i8 %10, 2
-  %.not60 = icmp ult i8 %10, 4
+  %.not60 = icmp eq i8 %11, 0
   %narrow61 = add nuw nsw i8 %11, 32
   %narrow62 = select i1 %.not60, i8 96, i8 %narrow61
   %12 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %narrow62) #6
@@ -437,7 +437,7 @@ define internal fastcc void @uu_encode(ptr noundef %0, ptr noundef readonly capt
   %.047.lcssa80 = phi ptr [ %32, %._crit_edge ], [ %1, %3 ]
   %35 = load i8, ptr %.047.lcssa80, align 1, !tbaa !31
   %36 = lshr i8 %35, 2
-  %.not49 = icmp ult i8 %35, 4
+  %.not49 = icmp eq i8 %36, 0
   %narrow = add nuw nsw i8 %36, 32
   %narrow50 = select i1 %.not49, i8 96, i8 %narrow
   %37 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %narrow50) #6

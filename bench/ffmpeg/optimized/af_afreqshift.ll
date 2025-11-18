@@ -277,7 +277,7 @@ define internal fastcc void @compute_coefs(ptr noundef writeonly captures(none) 
   %.1.i.i.i = select nsz i1 %.not9.i.i.i, double %.013.i.i.i, double %35
   %36 = lshr i64 %.0712.i.i.i, 1
   %37 = fmul nsz double %.0811.i.i.i, %.0811.i.i.i
-  %.not.i.i.i = icmp samesign ult i64 %.0712.i.i.i, 2
+  %.not.i.i.i = icmp eq i64 %36, 0
   br i1 %.not.i.i.i, label %ipowp.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !59
 
 ipowp.exit.i.i:                                   ; preds = %.lr.ph.i.i.i, %31
@@ -319,7 +319,7 @@ compute_acc_num.exit.i:                           ; preds = %ipowp.exit.i.i
   %.1.i.i27.i = select nsz i1 %.not9.i.i26.i, double %.013.i.i23.i, double %56
   %57 = lshr i64 %.0712.i.i24.i, 1
   %58 = fmul nsz double %.0811.i.i25.i, %.0811.i.i25.i
-  %.not.i.i28.i = icmp samesign ult i64 %.0712.i.i24.i, 2
+  %.not.i.i28.i = icmp eq i64 %57, 0
   br i1 %.not.i.i28.i, label %ipowp.exit.i29.i, label %.lr.ph.i.i22.i, !llvm.loop !59
 
 ipowp.exit.i29.i:                                 ; preds = %.lr.ph.i.i22.i

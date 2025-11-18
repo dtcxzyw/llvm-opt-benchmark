@@ -28,10 +28,10 @@ define void @dt_dng_opcode_process_opcode_list_2(ptr noundef readonly captures(n
 _get_long.exit:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 1824
   %4 = load ptr, ptr %3, align 16, !tbaa !6
-  tail call void @g_list_free_full(ptr noundef %4, ptr noundef nonnull @g_free) #4
+  tail call void @g_list_free_full(ptr noundef %4, ptr noundef nonnull @g_free) #3
   store ptr null, ptr %3, align 16, !tbaa !6
   %.val = load i32, ptr %0, align 1
-  %5 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val) #5, !srcloc !25
+  %5 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val) #4, !srcloc !25
   %.not130 = icmp eq i32 %5, 0
   br i1 %.not130, label %.thread, label %.lr.ph133
 
@@ -41,17 +41,17 @@ _get_long.exit:
   %6 = zext i32 %.064131 to i64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %6
   %.val72 = load i32, ptr %7, align 1
-  %8 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val72) #5, !srcloc !25
+  %8 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val72) #4, !srcloc !25
   %9 = add i32 %.064131, 8
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %10
   %.val73 = load i32, ptr %11, align 1
-  %12 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val73) #5, !srcloc !25
+  %12 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val73) #4, !srcloc !25
   %13 = add i32 %.064131, 12
   %14 = zext i32 %13 to i64
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %14
   %.val74 = load i32, ptr %15, align 1
-  %16 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val74) #5, !srcloc !25
+  %16 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val74) #4, !srcloc !25
   %17 = add i32 %.064131, 16
   %18 = zext i32 %17 to i64
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 %18
@@ -66,7 +66,7 @@ _get_long.exit:
   br i1 %.not70, label %.thread, label %24
 
 24:                                               ; preds = %21
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str) #4
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str) #3
   br label %.thread
 
 25:                                               ; preds = %.lr.ph133
@@ -75,96 +75,95 @@ _get_long.exit:
 
 _get_long.exit98:                                 ; preds = %25
   %27 = add i32 %16, -76
-  %28 = and i32 %27, -4
-  %29 = zext i32 %28 to i64
-  %30 = add nuw nsw i64 %29, 80
-  %31 = tail call noalias ptr @g_malloc(i64 noundef %30) #6
+  %28 = lshr i32 %27, 2
+  %29 = and i32 %27, -4
+  %30 = zext i32 %29 to i64
+  %31 = add nuw nsw i64 %30, 80
+  %32 = tail call noalias ptr @g_malloc(i64 noundef %31) #5
   %.val75 = load i32, ptr %19, align 1
-  %32 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val75) #5, !srcloc !25
-  store i32 %32, ptr %31, align 8, !tbaa !60
-  %33 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %.val76 = load i32, ptr %33, align 1
-  %34 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val76) #5, !srcloc !25
-  %35 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  store i32 %34, ptr %35, align 4, !tbaa !60
-  %36 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %.val77 = load i32, ptr %36, align 1
-  %37 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val77) #5, !srcloc !25
-  %38 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i32 %37, ptr %38, align 8, !tbaa !60
-  %39 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  %.val78 = load i32, ptr %39, align 1
-  %40 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val78) #5, !srcloc !25
-  %41 = getelementptr inbounds nuw i8, ptr %31, i64 12
-  store i32 %40, ptr %41, align 4, !tbaa !60
-  %42 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %.val79 = load i32, ptr %42, align 1
-  %43 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val79) #5, !srcloc !25
-  %44 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store i32 %43, ptr %44, align 8, !tbaa !60
-  %45 = getelementptr inbounds nuw i8, ptr %19, i64 20
-  %.val80 = load i32, ptr %45, align 1
-  %46 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val80) #5, !srcloc !25
-  %47 = getelementptr inbounds nuw i8, ptr %31, i64 20
-  store i32 %46, ptr %47, align 4, !tbaa !60
-  %48 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %.val81 = load i32, ptr %48, align 1
-  %49 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val81) #5, !srcloc !25
-  %50 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store i32 %49, ptr %50, align 8, !tbaa !60
-  %51 = getelementptr inbounds nuw i8, ptr %19, i64 28
-  %.val82 = load i32, ptr %51, align 1
-  %52 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val82) #5, !srcloc !25
-  %53 = getelementptr inbounds nuw i8, ptr %31, i64 28
-  store i32 %52, ptr %53, align 4, !tbaa !60
-  %54 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %.val83 = load i32, ptr %54, align 1
-  %55 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val83) #5, !srcloc !25
-  %56 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  store i32 %55, ptr %56, align 8, !tbaa !60
-  %57 = getelementptr inbounds nuw i8, ptr %19, i64 36
-  %.val84 = load i32, ptr %57, align 1
-  %58 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val84) #5, !srcloc !25
-  %59 = getelementptr inbounds nuw i8, ptr %31, i64 36
-  store i32 %58, ptr %59, align 4, !tbaa !60
-  %60 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  %.val86 = load i64, ptr %60, align 1
-  %61 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val86) #5, !srcloc !61
-  %62 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  store i64 %61, ptr %62, align 8, !tbaa !62
-  %63 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  %.val87 = load i64, ptr %63, align 1
-  %64 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val87) #5, !srcloc !61
-  %65 = getelementptr inbounds nuw i8, ptr %31, i64 48
-  store i64 %64, ptr %65, align 8, !tbaa !62
-  %66 = getelementptr inbounds nuw i8, ptr %19, i64 56
-  %.val88 = load i64, ptr %66, align 1
-  %67 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val88) #5, !srcloc !61
-  %68 = getelementptr inbounds nuw i8, ptr %31, i64 56
-  store i64 %67, ptr %68, align 8, !tbaa !62
-  %69 = getelementptr inbounds nuw i8, ptr %19, i64 64
-  %.val89 = load i64, ptr %69, align 1
-  %70 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val89) #5, !srcloc !61
-  %71 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  store i64 %70, ptr %71, align 8, !tbaa !62
-  %72 = getelementptr inbounds nuw i8, ptr %19, i64 72
-  %.val85 = load i32, ptr %72, align 1
-  %73 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val85) #5, !srcloc !25
-  %74 = getelementptr inbounds nuw i8, ptr %31, i64 72
-  store i32 %73, ptr %74, align 8, !tbaa !60
-  %.not134 = icmp ult i32 %27, 4
+  %33 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val75) #4, !srcloc !25
+  store i32 %33, ptr %32, align 8, !tbaa !60
+  %34 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %.val76 = load i32, ptr %34, align 1
+  %35 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val76) #4, !srcloc !25
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 4
+  store i32 %35, ptr %36, align 4, !tbaa !60
+  %37 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %.val77 = load i32, ptr %37, align 1
+  %38 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val77) #4, !srcloc !25
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  store i32 %38, ptr %39, align 8, !tbaa !60
+  %40 = getelementptr inbounds nuw i8, ptr %19, i64 12
+  %.val78 = load i32, ptr %40, align 1
+  %41 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val78) #4, !srcloc !25
+  %42 = getelementptr inbounds nuw i8, ptr %32, i64 12
+  store i32 %41, ptr %42, align 4, !tbaa !60
+  %43 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %.val79 = load i32, ptr %43, align 1
+  %44 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val79) #4, !srcloc !25
+  %45 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  store i32 %44, ptr %45, align 8, !tbaa !60
+  %46 = getelementptr inbounds nuw i8, ptr %19, i64 20
+  %.val80 = load i32, ptr %46, align 1
+  %47 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val80) #4, !srcloc !25
+  %48 = getelementptr inbounds nuw i8, ptr %32, i64 20
+  store i32 %47, ptr %48, align 4, !tbaa !60
+  %49 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %.val81 = load i32, ptr %49, align 1
+  %50 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val81) #4, !srcloc !25
+  %51 = getelementptr inbounds nuw i8, ptr %32, i64 24
+  store i32 %50, ptr %51, align 8, !tbaa !60
+  %52 = getelementptr inbounds nuw i8, ptr %19, i64 28
+  %.val82 = load i32, ptr %52, align 1
+  %53 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val82) #4, !srcloc !25
+  %54 = getelementptr inbounds nuw i8, ptr %32, i64 28
+  store i32 %53, ptr %54, align 4, !tbaa !60
+  %55 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %.val83 = load i32, ptr %55, align 1
+  %56 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val83) #4, !srcloc !25
+  %57 = getelementptr inbounds nuw i8, ptr %32, i64 32
+  store i32 %56, ptr %57, align 8, !tbaa !60
+  %58 = getelementptr inbounds nuw i8, ptr %19, i64 36
+  %.val84 = load i32, ptr %58, align 1
+  %59 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val84) #4, !srcloc !25
+  %60 = getelementptr inbounds nuw i8, ptr %32, i64 36
+  store i32 %59, ptr %60, align 4, !tbaa !60
+  %61 = getelementptr inbounds nuw i8, ptr %19, i64 40
+  %.val86 = load i64, ptr %61, align 1
+  %62 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val86) #4, !srcloc !61
+  %63 = getelementptr inbounds nuw i8, ptr %32, i64 40
+  store i64 %62, ptr %63, align 8, !tbaa !62
+  %64 = getelementptr inbounds nuw i8, ptr %19, i64 48
+  %.val87 = load i64, ptr %64, align 1
+  %65 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val87) #4, !srcloc !61
+  %66 = getelementptr inbounds nuw i8, ptr %32, i64 48
+  store i64 %65, ptr %66, align 8, !tbaa !62
+  %67 = getelementptr inbounds nuw i8, ptr %19, i64 56
+  %.val88 = load i64, ptr %67, align 1
+  %68 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val88) #4, !srcloc !61
+  %69 = getelementptr inbounds nuw i8, ptr %32, i64 56
+  store i64 %68, ptr %69, align 8, !tbaa !62
+  %70 = getelementptr inbounds nuw i8, ptr %19, i64 64
+  %.val89 = load i64, ptr %70, align 1
+  %71 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val89) #4, !srcloc !61
+  %72 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  store i64 %71, ptr %72, align 8, !tbaa !62
+  %73 = getelementptr inbounds nuw i8, ptr %19, i64 72
+  %.val85 = load i32, ptr %73, align 1
+  %74 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val85) #4, !srcloc !25
+  %75 = getelementptr inbounds nuw i8, ptr %32, i64 72
+  store i32 %74, ptr %75, align 8, !tbaa !60
+  %.not134 = icmp eq i32 %28, 0
   br i1 %.not134, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_get_long.exit98
-  %75 = lshr i32 %27, 2
-  %76 = getelementptr inbounds nuw i8, ptr %31, i64 76
-  %umax = tail call i32 @llvm.umax.i32(i32 %75, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
+  %76 = getelementptr inbounds nuw i8, ptr %32, i64 76
+  %wide.trip.count = zext nneg i32 %28 to i64
   br label %_get_float.exit
 
 ._crit_edge:                                      ; preds = %_get_float.exit, %_get_long.exit98
   %77 = load ptr, ptr %3, align 16, !tbaa !6
-  %78 = tail call ptr @g_list_append(ptr noundef %77, ptr noundef nonnull %31) #4
+  %78 = tail call ptr @g_list_append(ptr noundef %77, ptr noundef nonnull %32) #3
   store ptr %78, ptr %3, align 16, !tbaa !6
   br label %90
 
@@ -174,7 +173,7 @@ _get_float.exit:                                  ; preds = %_get_float.exit, %.
   %80 = getelementptr inbounds nuw i8, ptr %19, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 76
   %.val90 = load i32, ptr %81, align 1
-  %82 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val90) #5, !srcloc !63
+  %82 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val90) #4, !srcloc !63
   %83 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv
   store i32 %82, ptr %83, align 4, !tbaa !64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -191,7 +190,7 @@ _get_float.exit:                                  ; preds = %_get_float.exit, %.
   %88 = and i32 %12, 1
   %.not69 = icmp eq i32 %88, 0
   %89 = select i1 %.not69, ptr @.str.3, ptr @.str.2
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.1, ptr noundef nonnull %89, i32 noundef %8) #4
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.1, ptr noundef nonnull %89, i32 noundef %8) #3
   br label %90
 
 90:                                               ; preds = %._crit_edge, %87, %84
@@ -223,7 +222,7 @@ _get_long.exit:
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 680
   store i32 0, ptr %5, align 4, !tbaa !65
   %.val84 = load i32, ptr %0, align 1
-  %6 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val84) #5, !srcloc !25
+  %6 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val84) #4, !srcloc !25
   %.not112 = icmp eq i32 %6, 0
   br i1 %.not112, label %.critedge, label %.lr.ph
 
@@ -243,17 +242,17 @@ _get_long.exit90:                                 ; preds = %86, %.lr.ph
   %14 = zext i32 %.073113 to i64
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %14
   %.val83 = load i32, ptr %15, align 1
-  %16 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val83) #5, !srcloc !25
+  %16 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val83) #4, !srcloc !25
   %17 = add i32 %.073113, 8
   %18 = zext i32 %17 to i64
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 %18
   %.val82 = load i32, ptr %19, align 1
-  %20 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val82) #5, !srcloc !25
+  %20 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val82) #4, !srcloc !25
   %21 = add i32 %.073113, 12
   %22 = zext i32 %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 %22
   %.val81 = load i32, ptr %23, align 1
-  %24 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val81) #5, !srcloc !25
+  %24 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val81) #4, !srcloc !25
   %25 = add i32 %.073113, 16
   %26 = zext i32 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 %26
@@ -268,7 +267,7 @@ _get_long.exit90:                                 ; preds = %86, %.lr.ph
   br i1 %.not80, label %.critedge, label %33
 
 33:                                               ; preds = %30
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.4) #4
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.4) #3
   br label %.critedge
 
 34:                                               ; preds = %_get_long.exit90
@@ -279,7 +278,7 @@ _get_long.exit90:                                 ; preds = %86, %.lr.ph
 
 _get_long.exit96:                                 ; preds = %34
   %.val = load i32, ptr %27, align 1
-  %35 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val) #5, !srcloc !25
+  %35 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val) #4, !srcloc !25
   %36 = and i32 %35, -3
   %or.cond.not = icmp eq i32 %36, 1
   br i1 %or.cond.not, label %.preheader.preheader, label %37
@@ -291,7 +290,7 @@ _get_long.exit96:                                 ; preds = %34
   br i1 %.not79, label %.critedge, label %40
 
 40:                                               ; preds = %37
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.5, i32 noundef %35) #4
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.5, i32 noundef %35) #3
   br label %.critedge
 
 .preheader.preheader:                             ; preds = %_get_long.exit96
@@ -306,7 +305,7 @@ _get_long.exit96:                                 ; preds = %34
   %44 = getelementptr inbounds nuw i8, ptr %27, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %.val87 = load i64, ptr %45, align 1
-  %46 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val87) #5, !srcloc !61
+  %46 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val87) #4, !srcloc !61
   %47 = bitcast i64 %46 to double
   %48 = fptrunc reassoc nsz arcp contract afn double %47 to float
   store float %48, ptr %11, align 4, !tbaa !65
@@ -314,7 +313,7 @@ _get_long.exit96:                                 ; preds = %34
   %50 = getelementptr inbounds nuw i8, ptr %27, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 12
   %.val87.c = load i64, ptr %51, align 1
-  %52 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val87.c) #5, !srcloc !61
+  %52 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val87.c) #4, !srcloc !61
   %53 = bitcast i64 %52 to double
   %54 = fptrunc reassoc nsz arcp contract afn double %53 to float
   store float %54, ptr %13, align 4, !tbaa !65
@@ -340,7 +339,7 @@ _get_double.exit:                                 ; preds = %_get_double.exit, %
   %60 = getelementptr inbounds nuw i8, ptr %27, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %.val88 = load i64, ptr %61, align 1
-  %62 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val88) #5, !srcloc !61
+  %62 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val88) #4, !srcloc !61
   %63 = bitcast i64 %62 to double
   %64 = fptrunc reassoc nsz arcp contract afn double %63 to float
   %65 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv119
@@ -354,7 +353,7 @@ _get_double.exit:                                 ; preds = %_get_double.exit, %
   %66 = shl nuw nsw i64 %indvars.iv, 3
   %67 = getelementptr inbounds nuw i8, ptr %27, i64 %66
   %.val86 = load i64, ptr %67, align 1
-  %68 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val86) #5, !srcloc !61
+  %68 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val86) #4, !srcloc !61
   %69 = bitcast i64 %68 to double
   %70 = fptrunc reassoc nsz arcp contract afn double %69 to float
   %71 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
@@ -366,13 +365,13 @@ _get_double.exit:                                 ; preds = %_get_double.exit, %
 .preheader105:                                    ; preds = %.preheader106
   %72 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %.val85 = load i64, ptr %72, align 1
-  %73 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val85) #5, !srcloc !61
+  %73 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val85) #4, !srcloc !61
   %74 = bitcast i64 %73 to double
   %75 = fptrunc reassoc nsz arcp contract afn double %74 to float
   store float %75, ptr %8, align 4, !tbaa !65
   %76 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %.val85.c = load i64, ptr %76, align 1
-  %77 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val85.c) #5, !srcloc !61
+  %77 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val85.c) #4, !srcloc !61
   %78 = bitcast i64 %77 to double
   %79 = fptrunc reassoc nsz arcp contract afn double %78 to float
   store float %79, ptr %12, align 4, !tbaa !65
@@ -390,7 +389,7 @@ _get_double.exit:                                 ; preds = %_get_double.exit, %
   %84 = and i32 %20, 1
   %.not78 = icmp eq i32 %84, 0
   %85 = select i1 %.not78, ptr @.str.3, ptr @.str.2
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.6, ptr noundef nonnull %85, i32 noundef %16) #4
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.6, ptr noundef nonnull %85, i32 noundef %16) #3
   br label %86
 
 86:                                               ; preds = %.preheader104, %.preheader105, %83, %80
@@ -402,16 +401,12 @@ _get_double.exit:                                 ; preds = %_get_double.exit, %
   ret void
 }
 
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #3
-
 attributes #0 = { nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #1 = { "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #2 = { allocsize(0) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #3 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
-attributes #5 = { nounwind memory(none) }
-attributes #6 = { nounwind allocsize(0) }
+attributes #3 = { nounwind }
+attributes #4 = { nounwind memory(none) }
+attributes #5 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

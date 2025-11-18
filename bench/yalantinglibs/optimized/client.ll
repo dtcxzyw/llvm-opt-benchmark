@@ -18589,7 +18589,7 @@ if.end.i:                                         ; preds = %while.body.i
   %heap_index_13.i.i = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 %div6.i, ptr %heap_index_13.i.i, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i.i)
-  %cmp.not.i = icmp ult i64 %sub.i, 2
+  %cmp.not.i = icmp eq i64 %div6.i, 0
   br i1 %cmp.not.i, label %if.end29, label %while.body.i, !llvm.loop !364
 
 if.else27:                                        ; preds = %land.lhs.true18, %if.else
@@ -32634,7 +32634,7 @@ if.end.i:                                         ; preds = %while.body.i
   %heap_index_13.i.i = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 %div6.i, ptr %heap_index_13.i.i, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i.i)
-  %cmp.not.i22 = icmp ult i64 %sub.i, 2
+  %cmp.not.i22 = icmp eq i64 %div6.i, 0
   br i1 %cmp.not.i22, label %if.end, label %while.body.i, !llvm.loop !364
 
 if.end:                                           ; preds = %if.end.i, %while.body.i, %_ZNSt6vectorIN4asio6detail11timer_queueINS1_18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS6_EEEEE10heap_entryESaISB_EE9push_backERKSB_.exit

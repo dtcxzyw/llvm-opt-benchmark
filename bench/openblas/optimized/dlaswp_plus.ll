@@ -49,11 +49,11 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph1175, !llvm.loop !9
 
 31:                                               ; preds = %18
-  %.not = icmp samesign ult i64 %0, 4
+  %32 = lshr i64 %0, 2
+  %.not = icmp eq i64 %32, 0
   br i1 %.not, label %.loopexit1076, label %.preheader
 
 .preheader:                                       ; preds = %31
-  %32 = lshr i64 %0, 2
   %33 = shl nsw i64 %5, 1
   %34 = mul nsw i64 %5, 3
   %35 = getelementptr inbounds i32, ptr %13, i64 %9

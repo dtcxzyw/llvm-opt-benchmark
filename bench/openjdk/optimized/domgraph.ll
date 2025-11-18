@@ -1880,7 +1880,7 @@ define hidden noundef i32 @_ZN7NTarjan3DFSEPS_R9VectorSetP14PhaseIdealLoopPj(ptr
   %11 = sub i32 %8, %10
   %12 = lshr i32 %11, 3
   %13 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %12, i32 noundef 8) #9
-  %.not = icmp ult i32 %11, 8
+  %.not = icmp eq i32 %12, 0
   br i1 %.not, label %.lr.ph19.preheader.i, label %_ZN13GrowableArrayIP4NodeEC2Ei.exit
 
 _ZN13GrowableArrayIP4NodeEC2Ei.exit:              ; preds = %4

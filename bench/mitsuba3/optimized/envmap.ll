@@ -2335,7 +2335,7 @@ _ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE3sr_ILi1EEES3_v.exit.critedge
   %257 = lshr i32 %255, 1
   store i32 %256, ptr %8, align 8
   store i32 %257, ptr %.026.i275.sroa.gep322, align 4
-  %.not475 = icmp ult i32 %255, 2
+  %.not475 = icmp eq i32 %257, 0
   br i1 %.not475, label %._crit_edge457, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.lr.ph461
@@ -2351,7 +2351,7 @@ _ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE3sr_ILi1EEES3_v.exit.critedge
   %266 = getelementptr inbounds nuw i8, ptr %247, i64 4
   %267 = zext i32 %259 to i64
   %invariant.gep454 = getelementptr inbounds nuw float, ptr %263, i64 %267
-  %.not476 = icmp ult i32 %253, 2
+  %.not476 = icmp eq i32 %256, 0
   br i1 %.not476, label %._crit_edge457, label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge452

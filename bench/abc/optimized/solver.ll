@@ -556,7 +556,7 @@ vec_uint_push_back.exit.i:                        ; preds = %vec_uint_reserve.ex
   %106 = zext i32 %105 to i64
   %107 = getelementptr inbounds nuw i32, ptr %.val25.i, i64 %106
   store i32 %.02341.i.i, ptr %107, align 4, !tbaa !35
-  %.not.i28.i = icmp ult i32 %.042.in.i.i, 2
+  %.not.i28.i = icmp eq i32 %.042.i.i, 0
   br i1 %.not.i28.i, label %.split24.i.i, label %95, !llvm.loop !68
 
 heap_insert.exit:                                 ; preds = %.split24.i.i, %.split.i.i
@@ -1739,7 +1739,7 @@ heap_in_heap.exit.i.i.i:                          ; preds = %292
   %323 = zext i32 %322 to i64
   %324 = getelementptr inbounds nuw i32, ptr %.val3.i.i.i.i, i64 %323
   store i32 %.02341.i.i.i.i.i, ptr %324, align 4, !tbaa !35
-  %.not.i.i17.i.i.i = icmp ult i32 %.042.in.i.i.i.i.i, 2
+  %.not.i.i17.i.i.i = icmp eq i32 %.042.i.i.i.i.i, 0
   br i1 %.not.i.i17.i.i.i, label %.split24.i.i.i.i.i, label %312, !llvm.loop !68
 
 heap_decrease.exit.i.i.i:                         ; preds = %.split.i.i.i.i.i, %.split24.i.i.i.i.i
@@ -2845,7 +2845,7 @@ heap_in_heap.exit.i217.i.i:                       ; preds = %811
   %842 = zext i32 %841 to i64
   %843 = getelementptr inbounds nuw i32, ptr %.val3.i.i218.i.i, i64 %842
   store i32 %.02341.i.i.i224.i.i, ptr %843, align 4, !tbaa !35
-  %.not.i.i17.i232.i.i = icmp ult i32 %.042.in.i.i.i225.i.i, 2
+  %.not.i.i17.i232.i.i = icmp eq i32 %.042.i.i.i226.i.i, 0
   br i1 %.not.i.i17.i232.i.i, label %.split24.i.i.i233.i.i, label %831, !llvm.loop !68
 
 heap_decrease.exit.i229.i.i:                      ; preds = %.split.i.i.i228.i.i, %.split24.i.i.i233.i.i

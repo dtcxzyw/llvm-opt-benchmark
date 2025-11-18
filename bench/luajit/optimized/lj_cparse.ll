@@ -3130,11 +3130,11 @@ define internal fastcc i32 @cp_decl_intern(ptr noundef %0, ptr noundef nonnull r
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 44
   br label %7
 
-7:                                                ; preds = %157, %2
-  %.0122 = phi i32 [ 0, %2 ], [ %.1123, %157 ]
-  %.0120 = phi i32 [ -1, %2 ], [ %.1121, %157 ]
-  %.0115 = phi i32 [ 0, %2 ], [ %.1116, %157 ]
-  %.0 = phi i32 [ 0, %2 ], [ %.1, %157 ]
+7:                                                ; preds = %154, %2
+  %.0122 = phi i32 [ 0, %2 ], [ %.1123, %154 ]
+  %.0120 = phi i32 [ -1, %2 ], [ %.1121, %154 ]
+  %.0115 = phi i32 [ 0, %2 ], [ %.1116, %154 ]
+  %.0 = phi i32 [ 0, %2 ], [ %.1, %154 ]
   %8 = zext nneg i32 %.0115 to i64
   %9 = getelementptr inbounds nuw %struct.CType, ptr %4, i64 %8
   %10 = load i32, ptr %9, align 8, !tbaa !71
@@ -3145,10 +3145,13 @@ define internal fastcc i32 @cp_decl_intern(ptr noundef %0, ptr noundef nonnull r
   %14 = load i16, ptr %13, align 2, !tbaa !89
   %15 = zext i16 %14 to i32
   %16 = lshr i32 %.fr, 28
-  switch i32 %16, label %68 [
+  switch i32 %16, label %.thread164 [
     i32 7, label %17
     i32 6, label %26
     i32 8, label %55
+    i32 0, label %68
+    i32 2, label %97
+    i32 3, label %121
   ]
 
 17:                                               ; preds = %7
@@ -3160,7 +3163,7 @@ define internal fastcc i32 @cp_decl_intern(ptr noundef %0, ptr noundef nonnull r
   %23 = load i32, ptr %22, align 8, !tbaa !71
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %25 = load i32, ptr %24, align 4, !tbaa !81
-  br label %157
+  br label %154
 
 26:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -3173,9 +3176,9 @@ define internal fastcc i32 @cp_decl_intern(ptr noundef %0, ptr noundef nonnull r
   br label %30
 
 30:                                               ; preds = %30, %27
-  %.pn.in = phi i32 [ %.0, %27 ], [ %33, %30 ]
-  %.pn = zext i32 %.pn.in to i64
-  %.0.i = getelementptr inbounds nuw %struct.CType, ptr %29, i64 %.pn
+  %.pn167.in = phi i32 [ %.0, %27 ], [ %33, %30 ]
+  %.pn167 = zext i32 %.pn167.in to i64
+  %.0.i = getelementptr inbounds nuw %struct.CType, ptr %29, i64 %.pn167
   %31 = load i32, ptr %.0.i, align 8, !tbaa !71
   %32 = icmp slt i32 %31, -1879048192
   %33 = and i32 %31, 65535
@@ -3194,26 +3197,26 @@ ctype_raw.exit:                                   ; preds = %30
   unreachable
 
 38:                                               ; preds = %ctype_raw.exit, %26
-  %.not154169 = icmp eq i16 %14, 0
-  br i1 %.not154169, label %.thread, label %.lr.ph
+  %.not154173 = icmp eq i16 %14, 0
+  br i1 %.not154173, label %.thread, label %.lr.ph175
 
-.lr.ph:                                           ; preds = %38, %43
-  %.2117170 = phi i32 [ %46, %43 ], [ %15, %38 ]
-  %39 = zext nneg i32 %.2117170 to i64
+.lr.ph175:                                        ; preds = %38, %43
+  %.2117174 = phi i32 [ %46, %43 ], [ %15, %38 ]
+  %39 = zext nneg i32 %.2117174 to i64
   %40 = getelementptr inbounds nuw %struct.CType, ptr %4, i64 %39
   %41 = load i32, ptr %40, align 8, !tbaa !71
   %42 = icmp slt i32 %41, -1879048192
   br i1 %42, label %43, label %.thread
 
-43:                                               ; preds = %.lr.ph
+43:                                               ; preds = %.lr.ph175
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 10
   %45 = load i16, ptr %44, align 2, !tbaa !89
   %46 = zext i16 %45 to i32
   %.not154 = icmp eq i16 %45, 0
-  br i1 %.not154, label %.thread, label %.lr.ph
+  br i1 %.not154, label %.thread, label %.lr.ph175
 
-.thread:                                          ; preds = %43, %.lr.ph, %38
-  %.2117.lcssa = phi i32 [ 0, %38 ], [ %.2117170, %.lr.ph ], [ 0, %43 ]
+.thread:                                          ; preds = %43, %.lr.ph175, %38
+  %.2117.lcssa = phi i32 [ 0, %38 ], [ %.2117174, %.lr.ph175 ], [ 0, %43 ]
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %48 = load i16, ptr %47, align 8, !tbaa !83
   %49 = load ptr, ptr %5, align 8, !tbaa !14
@@ -3226,7 +3229,7 @@ ctype_raw.exit:                                   ; preds = %30
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i16 %48, ptr %54, align 8, !tbaa !83
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %157
+  br label %154
 
 55:                                               ; preds = %7
   %56 = and i32 %.fr, -2130771968
@@ -3251,205 +3254,195 @@ ctype_raw.exit:                                   ; preds = %30
   %65 = load ptr, ptr %5, align 8, !tbaa !14
   %66 = add i32 %.fr, %.0
   %67 = call i32 @lj_ctype_intern(ptr noundef %65, i32 noundef %66, i32 noundef %12) #15
-  br label %157
+  br label %154
 
 68:                                               ; preds = %7
-  %69 = icmp ult i32 %.fr, 268435456
-  br i1 %69, label %70, label %99
+  %.not149 = icmp ult i32 %.fr, 134217728
+  br i1 %.not149, label %69, label %.thread164
 
-70:                                               ; preds = %68
-  %.not149 = icmp samesign ult i32 %.fr, 134217728
-  br i1 %.not149, label %71, label %.thread164
+69:                                               ; preds = %68
+  %70 = load i32, ptr %6, align 4, !tbaa !91
+  %71 = lshr i32 %70, 8
+  %72 = and i32 %71, 255
+  %73 = lshr i32 %70, 4
+  %74 = and i32 %73, 15
+  %.not150 = icmp eq i32 %72, 0
+  br i1 %.not150, label %83, label %75
 
-71:                                               ; preds = %70
-  %72 = load i32, ptr %6, align 4, !tbaa !91
-  %73 = lshr i32 %72, 8
-  %74 = and i32 %73, 255
-  %75 = lshr i32 %72, 4
-  %76 = and i32 %75, 15
-  %.not150 = icmp eq i32 %74, 0
-  br i1 %.not150, label %85, label %77
+75:                                               ; preds = %69
+  %76 = icmp samesign ult i32 %.fr, 67108864
+  br i1 %76, label %77, label %switch.early.test
 
-77:                                               ; preds = %71
-  %78 = icmp samesign ult i32 %.fr, 67108864
-  br i1 %78, label %79, label %switch.early.test
-
-switch.early.test:                                ; preds = %77
-  %trunc = trunc i32 %73 to i8
-  switch i8 %trunc, label %85 [
-    i8 8, label %79
-    i8 4, label %79
+switch.early.test:                                ; preds = %75
+  %trunc = trunc i32 %71 to i8
+  switch i8 %trunc, label %83 [
+    i8 8, label %77
+    i8 4, label %77
   ]
 
-79:                                               ; preds = %switch.early.test, %switch.early.test, %77
-  %80 = call range(i32 24, 33) i32 @llvm.ctlz.i32(i32 %74, i1 true)
-  %81 = xor i32 %80, 31
-  %spec.store.select = call i32 @llvm.umin.i32(i32 %81, i32 4)
-  %82 = and i32 %.fr, 133234687
-  %83 = shl nuw nsw i32 %spec.store.select, 16
-  %84 = or disjoint i32 %83, %82
-  br label %85
+77:                                               ; preds = %switch.early.test, %switch.early.test, %75
+  %78 = call range(i32 24, 33) i32 @llvm.ctlz.i32(i32 %72, i1 true)
+  %79 = xor i32 %78, 31
+  %spec.store.select = call i32 @llvm.umin.i32(i32 %79, i32 4)
+  %80 = and i32 %.fr, 133234687
+  %81 = shl nuw nsw i32 %spec.store.select, 16
+  %82 = or disjoint i32 %81, %80
+  br label %83
 
-85:                                               ; preds = %switch.early.test, %79, %71
-  %.0133 = phi i32 [ %74, %79 ], [ %12, %switch.early.test ], [ %12, %71 ]
-  %.0126 = phi i32 [ %84, %79 ], [ %.fr, %switch.early.test ], [ %.fr, %71 ]
-  %.not151 = icmp eq i32 %76, 0
-  br i1 %.not151, label %.thread164, label %86
+83:                                               ; preds = %switch.early.test, %77, %69
+  %.0133 = phi i32 [ %72, %77 ], [ %12, %switch.early.test ], [ %12, %69 ]
+  %.0126 = phi i32 [ %82, %77 ], [ %.fr, %switch.early.test ], [ %.fr, %69 ]
+  %.not151 = icmp eq i32 %74, 0
+  br i1 %.not151, label %.thread164, label %84
 
-86:                                               ; preds = %85
-  %87 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.0133, i1 true)
-  %88 = xor i32 %87, 31
-  %.not152 = icmp samesign ult i32 %76, %88
-  br i1 %.not152, label %.thread164, label %89
+84:                                               ; preds = %83
+  %85 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.0133, i1 true)
+  %86 = xor i32 %85, 31
+  %.not152 = icmp samesign ult i32 %74, %86
+  br i1 %.not152, label %.thread164, label %87
 
-89:                                               ; preds = %86
-  %90 = load ptr, ptr %5, align 8, !tbaa !14
-  %91 = call i32 @lj_ctype_intern(ptr noundef %90, i32 noundef %.0126, i32 noundef %.0133) #15
-  %92 = shl nuw nsw i32 1, %76
-  %spec.store.select4 = call i32 @llvm.umin.i32(i32 %76, i32 4)
-  %93 = lshr i32 %.0126, 16
-  %94 = and i32 %93, 15
-  %spec.select = call i32 @llvm.umax.i32(i32 %94, i32 %spec.store.select4)
-  %95 = and i32 %.0126, 50331648
-  %96 = shl nuw nsw i32 %spec.select, 16
-  %97 = or disjoint i32 %96, %95
-  %98 = or disjoint i32 %97, 939524096
+87:                                               ; preds = %84
+  %88 = load ptr, ptr %5, align 8, !tbaa !14
+  %89 = call i32 @lj_ctype_intern(ptr noundef %88, i32 noundef %.0126, i32 noundef %.0133) #15
+  %90 = shl nuw nsw i32 1, %74
+  %spec.store.select4 = call i32 @llvm.umin.i32(i32 %74, i32 4)
+  %91 = lshr i32 %.0126, 16
+  %92 = and i32 %91, 15
+  %spec.select = call i32 @llvm.umax.i32(i32 %92, i32 %spec.store.select4)
+  %93 = and i32 %.0126, 50331648
+  %94 = shl nuw nsw i32 %spec.select, 16
+  %95 = or disjoint i32 %94, %93
+  %96 = or disjoint i32 %95, 939524096
   br label %.thread164
 
-99:                                               ; preds = %68
-  switch i32 %16, label %.thread164 [
-    i32 2, label %100
-    i32 3, label %124
-  ]
-
-100:                                              ; preds = %99
+97:                                               ; preds = %7
   %.not147 = icmp eq i32 %.0, 0
-  br i1 %.not147, label %111, label %101
+  br i1 %.not147, label %108, label %98
 
-101:                                              ; preds = %100
-  %102 = load ptr, ptr %5, align 8, !tbaa !14
-  %103 = load ptr, ptr %102, align 8, !tbaa !74
-  br label %104
+98:                                               ; preds = %97
+  %99 = load ptr, ptr %5, align 8, !tbaa !14
+  %100 = load ptr, ptr %99, align 8, !tbaa !74
+  br label %101
 
-104:                                              ; preds = %104, %101
-  %.pn167.in = phi i32 [ %.0, %101 ], [ %107, %104 ]
-  %.pn167 = zext i32 %.pn167.in to i64
-  %.0.i160 = getelementptr inbounds nuw %struct.CType, ptr %103, i64 %.pn167
-  %105 = load i32, ptr %.0.i160, align 8, !tbaa !71
-  %106 = icmp slt i32 %105, -1879048192
-  %107 = and i32 %105, 65535
-  br i1 %106, label %104, label %ctype_raw.exit161, !llvm.loop !115
+101:                                              ; preds = %101, %98
+  %.pn.in = phi i32 [ %.0, %98 ], [ %104, %101 ]
+  %.pn = zext i32 %.pn.in to i64
+  %.0.i160 = getelementptr inbounds nuw %struct.CType, ptr %100, i64 %.pn
+  %102 = load i32, ptr %.0.i160, align 8, !tbaa !71
+  %103 = icmp slt i32 %102, -1879048192
+  %104 = and i32 %102, 65535
+  br i1 %103, label %101, label %ctype_raw.exit161, !llvm.loop !115
 
-ctype_raw.exit161:                                ; preds = %104
-  %108 = and i32 %105, -260046848
-  %109 = icmp eq i32 %108, 545259520
-  br i1 %109, label %110, label %111
+ctype_raw.exit161:                                ; preds = %101
+  %105 = and i32 %102, -260046848
+  %106 = icmp eq i32 %105, 545259520
+  br i1 %106, label %107, label %108
 
-110:                                              ; preds = %ctype_raw.exit161
+107:                                              ; preds = %ctype_raw.exit161
   call fastcc void @cp_err(ptr noundef nonnull %0, i32 noundef 3016) #16
   unreachable
 
-111:                                              ; preds = %ctype_raw.exit161, %100
-  %112 = and i32 %.fr, 545259520
-  %113 = icmp eq i32 %112, 545259520
-  br i1 %113, label %114, label %.thread164
+108:                                              ; preds = %ctype_raw.exit161, %97
+  %109 = and i32 %.fr, 545259520
+  %110 = icmp eq i32 %109, 545259520
+  br i1 %110, label %111, label %.thread164
 
-114:                                              ; preds = %111
-  %115 = and i32 %.fr, 788529151
-  %.not148173 = icmp eq i16 %14, 0
-  br i1 %.not148173, label %.thread164, label %.lr.ph175
+111:                                              ; preds = %108
+  %112 = and i32 %.fr, 788529151
+  %.not148169 = icmp eq i16 %14, 0
+  br i1 %.not148169, label %.thread164, label %.lr.ph
 
-.lr.ph175:                                        ; preds = %114, %120
-  %.6174 = phi i32 [ %123, %120 ], [ %15, %114 ]
-  %116 = zext nneg i32 %.6174 to i64
-  %117 = getelementptr inbounds nuw %struct.CType, ptr %4, i64 %116
-  %118 = load i32, ptr %117, align 8, !tbaa !71
-  %119 = icmp slt i32 %118, -1879048192
-  br i1 %119, label %120, label %.thread164
+.lr.ph:                                           ; preds = %111, %117
+  %.6170 = phi i32 [ %120, %117 ], [ %15, %111 ]
+  %113 = zext nneg i32 %.6170 to i64
+  %114 = getelementptr inbounds nuw %struct.CType, ptr %4, i64 %113
+  %115 = load i32, ptr %114, align 8, !tbaa !71
+  %116 = icmp slt i32 %115, -1879048192
+  br i1 %116, label %117, label %.thread164
 
-120:                                              ; preds = %.lr.ph175
-  %121 = getelementptr inbounds nuw i8, ptr %117, i64 10
-  %122 = load i16, ptr %121, align 2, !tbaa !89
-  %123 = zext i16 %122 to i32
-  %.not148 = icmp eq i16 %122, 0
-  br i1 %.not148, label %.thread164, label %.lr.ph175
+117:                                              ; preds = %.lr.ph
+  %118 = getelementptr inbounds nuw i8, ptr %114, i64 10
+  %119 = load i16, ptr %118, align 2, !tbaa !89
+  %120 = zext i16 %119 to i32
+  %.not148 = icmp eq i16 %119, 0
+  br i1 %.not148, label %.thread164, label %.lr.ph
 
-124:                                              ; preds = %99
-  %125 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %126 = load i16, ptr %125, align 8, !tbaa !83
-  %127 = icmp eq i16 %126, 0
-  br i1 %127, label %128, label %146
+121:                                              ; preds = %7
+  %122 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %123 = load i16, ptr %122, align 8, !tbaa !83
+  %124 = icmp eq i16 %123, 0
+  br i1 %124, label %125, label %143
 
-128:                                              ; preds = %124
-  %129 = and i32 %.0122, -260046848
-  %130 = icmp eq i32 %129, 545259520
-  br i1 %130, label %131, label %132
+125:                                              ; preds = %121
+  %126 = and i32 %.0122, -260046848
+  %127 = icmp eq i32 %126, 545259520
+  br i1 %127, label %128, label %129
 
-131:                                              ; preds = %128
+128:                                              ; preds = %125
   call fastcc void @cp_err(ptr noundef %0, i32 noundef 3016) #16
   unreachable
 
-132:                                              ; preds = %128
-  %133 = and i32 %.0122, -804257792
-  %134 = icmp eq i32 %133, 269484032
-  %135 = icmp eq i32 %.0120, -1
-  %or.cond6 = select i1 %134, i1 true, i1 %135
-  br i1 %or.cond6, label %136, label %137
+129:                                              ; preds = %125
+  %130 = and i32 %.0122, -804257792
+  %131 = icmp eq i32 %130, 269484032
+  %132 = icmp eq i32 %.0120, -1
+  %or.cond6 = select i1 %131, i1 true, i1 %132
+  br i1 %or.cond6, label %133, label %134
 
-136:                                              ; preds = %132
+133:                                              ; preds = %129
   call fastcc void @cp_err(ptr noundef %0, i32 noundef 3031) #16
   unreachable
 
-137:                                              ; preds = %132
+134:                                              ; preds = %129
   %.not = icmp eq i32 %12, -1
-  br i1 %.not, label %146, label %138
+  br i1 %.not, label %143, label %135
 
-138:                                              ; preds = %137
-  %139 = zext i32 %12 to i64
-  %140 = zext i32 %.0120 to i64
-  %141 = mul nuw i64 %139, %140
-  %142 = icmp ugt i64 %141, 2147483647
-  br i1 %142, label %143, label %144
+135:                                              ; preds = %134
+  %136 = zext i32 %12 to i64
+  %137 = zext i32 %.0120 to i64
+  %138 = mul nuw i64 %136, %137
+  %139 = icmp ugt i64 %138, 2147483647
+  br i1 %139, label %140, label %141
 
-143:                                              ; preds = %138
+140:                                              ; preds = %135
   call fastcc void @cp_err(ptr noundef %0, i32 noundef 3031) #16
   unreachable
 
-144:                                              ; preds = %138
-  %145 = trunc nuw nsw i64 %141 to i32
-  br label %146
+141:                                              ; preds = %135
+  %142 = trunc nuw nsw i64 %138 to i32
+  br label %143
 
-146:                                              ; preds = %137, %144, %124
-  %.4137 = phi i32 [ %145, %144 ], [ -1, %137 ], [ %12, %124 ]
-  %147 = and i32 %.0122, 983040
-  %148 = and i32 %.fr, 983040
-  %149 = icmp samesign ugt i32 %147, %148
-  %150 = and i32 %.fr, 1072758783
-  %151 = or disjoint i32 %150, %147
-  %.4130 = select i1 %149, i32 %151, i32 %.fr
-  %152 = and i32 %.0122, 50331648
-  %153 = or i32 %.4130, %152
+143:                                              ; preds = %134, %141, %121
+  %.4137 = phi i32 [ %142, %141 ], [ -1, %134 ], [ %12, %121 ]
+  %144 = and i32 %.0122, 983040
+  %145 = and i32 %.fr, 983040
+  %146 = icmp samesign ugt i32 %144, %145
+  %147 = and i32 %.fr, 1072758783
+  %148 = or disjoint i32 %147, %144
+  %.4130 = select i1 %146, i32 %148, i32 %.fr
+  %149 = and i32 %.0122, 50331648
+  %150 = or i32 %.4130, %149
   br label %.thread164
 
-.thread164:                                       ; preds = %120, %.lr.ph175, %114, %99, %85, %89, %86, %111, %146, %70
-  %.3136 = phi i32 [ %12, %70 ], [ %12, %111 ], [ %.4137, %146 ], [ %.0133, %85 ], [ %92, %89 ], [ %.0133, %86 ], [ %12, %99 ], [ %12, %114 ], [ %12, %.lr.ph175 ], [ %12, %120 ]
-  %.3129 = phi i32 [ %.fr, %70 ], [ %.fr, %111 ], [ %153, %146 ], [ %.0126, %85 ], [ %98, %89 ], [ %.0126, %86 ], [ %.fr, %99 ], [ %115, %114 ], [ %115, %.lr.ph175 ], [ %115, %120 ]
-  %.5 = phi i32 [ %15, %70 ], [ %15, %111 ], [ %15, %146 ], [ %15, %85 ], [ %15, %89 ], [ %15, %86 ], [ %15, %99 ], [ 0, %114 ], [ 0, %120 ], [ %.6174, %.lr.ph175 ]
-  %.4 = phi i32 [ %.0, %70 ], [ %.0, %111 ], [ %.0, %146 ], [ %.0, %85 ], [ %91, %89 ], [ %.0, %86 ], [ %.0, %99 ], [ %.0, %114 ], [ %.0, %.lr.ph175 ], [ %.0, %120 ]
-  %154 = add i32 %.4, %.3129
-  %155 = load ptr, ptr %5, align 8, !tbaa !14
-  %156 = call i32 @lj_ctype_intern(ptr noundef %155, i32 noundef %154, i32 noundef %.3136) #15
-  br label %157
+.thread164:                                       ; preds = %117, %.lr.ph, %111, %7, %83, %87, %84, %108, %143, %68
+  %.3136 = phi i32 [ %12, %68 ], [ %12, %108 ], [ %.4137, %143 ], [ %.0133, %83 ], [ %90, %87 ], [ %.0133, %84 ], [ %12, %7 ], [ %12, %111 ], [ %12, %.lr.ph ], [ %12, %117 ]
+  %.3129 = phi i32 [ %.fr, %68 ], [ %.fr, %108 ], [ %150, %143 ], [ %.0126, %83 ], [ %96, %87 ], [ %.0126, %84 ], [ %.fr, %7 ], [ %112, %111 ], [ %112, %.lr.ph ], [ %112, %117 ]
+  %.5 = phi i32 [ %15, %68 ], [ %15, %108 ], [ %15, %143 ], [ %15, %83 ], [ %15, %87 ], [ %15, %84 ], [ %15, %7 ], [ 0, %111 ], [ 0, %117 ], [ %.6170, %.lr.ph ]
+  %.4 = phi i32 [ %.0, %68 ], [ %.0, %108 ], [ %.0, %143 ], [ %.0, %83 ], [ %89, %87 ], [ %.0, %84 ], [ %.0, %7 ], [ %.0, %111 ], [ %.0, %.lr.ph ], [ %.0, %117 ]
+  %151 = add i32 %.4, %.3129
+  %152 = load ptr, ptr %5, align 8, !tbaa !14
+  %153 = call i32 @lj_ctype_intern(ptr noundef %152, i32 noundef %151, i32 noundef %.3136) #15
+  br label %154
 
-157:                                              ; preds = %.thread, %.thread164, %64, %17
-  %.1123 = phi i32 [ %23, %17 ], [ %51, %.thread ], [ %.2124, %64 ], [ %154, %.thread164 ]
+154:                                              ; preds = %.thread, %.thread164, %64, %17
+  %.1123 = phi i32 [ %23, %17 ], [ %51, %.thread ], [ %.2124, %64 ], [ %151, %.thread164 ]
   %.1121 = phi i32 [ %25, %17 ], [ -1, %.thread ], [ %.0120, %64 ], [ %.3136, %.thread164 ]
   %.1116 = phi i32 [ %15, %17 ], [ %.2117.lcssa, %.thread ], [ %15, %64 ], [ %.5, %.thread164 ]
-  %.1 = phi i32 [ %18, %17 ], [ %50, %.thread ], [ %67, %64 ], [ %156, %.thread164 ]
+  %.1 = phi i32 [ %18, %17 ], [ %50, %.thread ], [ %67, %64 ], [ %153, %.thread164 ]
   %.not156 = icmp eq i32 %.1116, 0
-  br i1 %.not156, label %158, label %7, !llvm.loop !119
+  br i1 %.not156, label %155, label %7, !llvm.loop !119
 
-158:                                              ; preds = %157
+155:                                              ; preds = %154
   ret i32 %.1
 }
 

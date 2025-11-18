@@ -6355,159 +6355,136 @@ define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_36detail9dtoa_i
   %5 = alloca %"struct.nlohmann::json_abi_v3_11_3::detail::dtoa_impl::diyfp", align 8
   %6 = alloca %"struct.nlohmann::json_abi_v3_11_3::detail::dtoa_impl::diyfp", align 8
   %7 = bitcast double %3 to i64
-  %8 = and i64 %7, 4503599627370495
-  %9 = icmp ult i64 %7, 4503599627370496
-  br i1 %9, label %.thread.i, label %12
-
-.thread.i:                                        ; preds = %4
-  %10 = shl nuw nsw i64 %7, 1
-  %11 = or disjoint i64 %10, 1
-  br label %25
-
-12:                                               ; preds = %4
-  %13 = lshr i64 %7, 52
-  %14 = or disjoint i64 %8, 4503599627370496
-  %15 = trunc nuw nsw i64 %13 to i32
-  %16 = add nsw i32 %15, -1075
-  %17 = icmp eq i64 %8, 0
-  %18 = icmp ugt i64 %7, 9007199254740991
-  %19 = and i1 %18, %17
-  %20 = shl nuw nsw i64 %14, 1
-  %21 = or disjoint i64 %20, 1
-  %22 = add nsw i32 %15, -1076
-  br i1 %19, label %23, label %25
-
-23:                                               ; preds = %12
-  %24 = add nsw i32 %15, -1077
-  br label %30
-
-25:                                               ; preds = %12, %.thread.i
-  %26 = phi i32 [ -1075, %.thread.i ], [ %22, %12 ]
-  %27 = phi i64 [ %11, %.thread.i ], [ %21, %12 ]
-  %28 = phi i64 [ %10, %.thread.i ], [ %20, %12 ]
-  %.sroa.841.050.i = phi i32 [ -1074, %.thread.i ], [ %16, %12 ]
-  %.sroa.037.048.i = phi i64 [ %8, %.thread.i ], [ %14, %12 ]
-  %29 = add nsw i64 %28, -1
-  br label %30
-
-30:                                               ; preds = %25, %23
-  %31 = phi i32 [ %22, %23 ], [ %26, %25 ]
-  %32 = phi i64 [ %21, %23 ], [ %27, %25 ]
-  %.sroa.841.049.i = phi i32 [ %16, %23 ], [ %.sroa.841.050.i, %25 ]
-  %.sroa.037.047.i = phi i64 [ 4503599627370496, %23 ], [ %.sroa.037.048.i, %25 ]
-  %.sroa.5.0.i = phi i32 [ %24, %23 ], [ %26, %25 ]
-  %.sroa.0.0.i = phi i64 [ 18014398509481983, %23 ], [ %29, %25 ]
+  %8 = lshr i64 %7, 52
+  %9 = and i64 %7, 4503599627370495
+  %10 = icmp eq i64 %8, 0
+  %11 = or disjoint i64 %9, 4503599627370496
+  %12 = trunc nuw nsw i64 %8 to i32
+  %13 = add nsw i32 %12, -1075
+  %.sroa.037.0.i = select i1 %10, i64 %9, i64 %11
+  %.sroa.841.0.i = select i1 %10, i32 -1074, i32 %13
+  %14 = shl nuw nsw i64 %.sroa.037.0.i, 1
+  %15 = or disjoint i64 %14, 1
+  %16 = add nsw i32 %.sroa.841.0.i, -1
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %30
-  %.sroa.0.04.i.i = phi i64 [ %33, %.lr.ph.i.i ], [ %32, %30 ]
-  %.sroa.5.03.i.i = phi i32 [ %34, %.lr.ph.i.i ], [ %31, %30 ]
-  %33 = shl nuw i64 %.sroa.0.04.i.i, 1
-  %34 = add nsw i32 %.sroa.5.03.i.i, -1
-  %35 = icmp sgt i64 %33, -1
-  br i1 %35, label %.lr.ph.i.i, label %.lr.ph.i32.i, !llvm.loop !154
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %4
+  %.sroa.0.04.i.i = phi i64 [ %17, %.lr.ph.i.i ], [ %15, %4 ]
+  %.sroa.5.03.i.i = phi i32 [ %18, %.lr.ph.i.i ], [ %16, %4 ]
+  %17 = shl nuw i64 %.sroa.0.04.i.i, 1
+  %18 = add nsw i32 %.sroa.5.03.i.i, -1
+  %19 = icmp sgt i64 %17, -1
+  br i1 %19, label %.lr.ph.i.i, label %.lr.ph.i32.i, !llvm.loop !154
 
 .lr.ph.i32.i:                                     ; preds = %.lr.ph.i.i, %.lr.ph.i32.i
-  %.sroa.0.04.i33.i = phi i64 [ %36, %.lr.ph.i32.i ], [ %.sroa.037.047.i, %.lr.ph.i.i ]
-  %.sroa.5.03.i34.i = phi i32 [ %37, %.lr.ph.i32.i ], [ %.sroa.841.049.i, %.lr.ph.i.i ]
-  %36 = shl nuw i64 %.sroa.0.04.i33.i, 1
-  %37 = add nsw i32 %.sroa.5.03.i34.i, -1
-  %38 = icmp sgt i64 %36, -1
-  br i1 %38, label %.lr.ph.i32.i, label %_ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl18compute_boundariesIdEENS2_10boundariesET_.exit, !llvm.loop !154
+  %.sroa.0.04.i33.i = phi i64 [ %20, %.lr.ph.i32.i ], [ %.sroa.037.0.i, %.lr.ph.i.i ]
+  %.sroa.5.03.i34.i = phi i32 [ %21, %.lr.ph.i32.i ], [ %.sroa.841.0.i, %.lr.ph.i.i ]
+  %20 = shl nuw i64 %.sroa.0.04.i33.i, 1
+  %21 = add nsw i32 %.sroa.5.03.i34.i, -1
+  %22 = icmp sgt i64 %20, -1
+  br i1 %22, label %.lr.ph.i32.i, label %_ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl18compute_boundariesIdEENS2_10boundariesET_.exit, !llvm.loop !154
 
 _ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl18compute_boundariesIdEENS2_10boundariesET_.exit: ; preds = %.lr.ph.i32.i
-  %39 = sub nsw i32 %.sroa.5.0.i, %34
-  %40 = zext nneg i32 %39 to i64
-  %41 = shl i64 %.sroa.0.0.i, %40
+  %23 = icmp eq i64 %9, 0
+  %24 = icmp ugt i64 %7, 9007199254740991
+  %25 = and i1 %24, %23
+  %26 = shl nuw nsw i64 %.sroa.037.0.i, 2
+  %.sroa.0.0.v.i = select i1 %25, i64 %26, i64 %14
+  %.sroa.0.0.i = add nsw i64 %.sroa.0.0.v.i, -1
+  %27 = add nsw i32 %.sroa.841.0.i, -2
+  %.sroa.5.0.i = select i1 %25, i32 %27, i32 %16
+  %28 = sub nsw i32 %.sroa.5.0.i, %18
+  %29 = zext nneg i32 %28 to i64
+  %30 = shl i64 %.sroa.0.0.i, %29
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %42 = sub i32 -60, %.sroa.5.03.i.i
-  %43 = mul nsw i32 %42, 78913
-  %44 = sdiv i32 %43, 262144
-  %45 = icmp sgt i32 %42, 0
-  %46 = zext i1 %45 to i32
-  %47 = add nsw i32 %44, %46
-  %48 = trunc nsw i32 %47 to i16
-  %.lhs.trunc.i.i = add nsw i16 %48, 307
-  %49 = sdiv i16 %.lhs.trunc.i.i, 8
-  %50 = sext i16 %49 to i64
-  %51 = getelementptr inbounds nuw %"struct.nlohmann::json_abi_v3_11_3::detail::dtoa_impl::cached_power", ptr @_ZZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl36get_cached_power_for_binary_exponentEiE13kCachedPowers, i64 %50
-  %.sroa.0.0.copyload.i.i = load i64, ptr %51, align 8, !tbaa !60
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %31 = sub i32 -60, %.sroa.5.03.i.i
+  %32 = mul nsw i32 %31, 78913
+  %33 = sdiv i32 %32, 262144
+  %34 = icmp sgt i32 %31, 0
+  %35 = zext i1 %34 to i32
+  %36 = add nsw i32 %33, %35
+  %37 = trunc nsw i32 %36 to i16
+  %.lhs.trunc.i.i = add nsw i16 %37, 307
+  %38 = sdiv i16 %.lhs.trunc.i.i, 8
+  %39 = sext i16 %38 to i64
+  %40 = getelementptr inbounds nuw %"struct.nlohmann::json_abi_v3_11_3::detail::dtoa_impl::cached_power", ptr @_ZZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl36get_cached_power_for_binary_exponentEiE13kCachedPowers, i64 %39
+  %.sroa.0.0.copyload.i.i = load i64, ptr %40, align 8, !tbaa !60
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %40, i64 8
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %.sroa.418.8.extract.trunc.i = trunc i64 %.sroa.2.0.copyload.i.i to i32
-  %52 = and i64 %36, 4294967294
-  %53 = lshr i64 %.sroa.0.04.i33.i, 31
-  %54 = and i64 %.sroa.0.0.copyload.i.i, 4294967295
-  %55 = lshr i64 %.sroa.0.0.copyload.i.i, 32
-  %56 = mul nuw i64 %54, %52
-  %57 = mul nuw i64 %55, %52
-  %58 = mul nuw i64 %54, %53
-  %59 = mul nuw i64 %55, %53
-  %60 = lshr i64 %56, 32
-  %61 = and i64 %57, 4294967294
-  %62 = lshr i64 %57, 32
-  %63 = and i64 %58, 4294967295
-  %64 = lshr i64 %58, 32
-  %65 = add nuw nsw i64 %61, 2147483648
-  %66 = add nuw nsw i64 %65, %60
-  %67 = add nuw nsw i64 %66, %63
-  %68 = add nuw i64 %64, %59
-  %69 = add nuw i64 %68, %62
-  %70 = lshr i64 %67, 32
-  %71 = add nuw i64 %69, %70
-  %72 = add i32 %.sroa.418.8.extract.trunc.i, 64
-  %73 = add i32 %72, %37
-  %74 = and i64 %41, 4294967295
-  %75 = lshr i64 %41, 32
-  %76 = mul nuw i64 %54, %74
-  %77 = mul nuw i64 %55, %74
-  %78 = mul nuw i64 %54, %75
-  %79 = mul nuw i64 %55, %75
-  %80 = lshr i64 %76, 32
-  %81 = and i64 %77, 4294967295
-  %82 = lshr i64 %77, 32
-  %83 = and i64 %78, 4294967295
-  %84 = lshr i64 %78, 32
-  %85 = add nuw nsw i64 %81, 2147483648
-  %86 = add nuw nsw i64 %85, %80
-  %87 = add nuw nsw i64 %86, %83
-  %88 = lshr i64 %87, 32
-  %89 = add i32 %72, %34
-  %90 = and i64 %33, 4294967294
-  %91 = lshr i64 %.sroa.0.04.i.i, 31
-  %92 = mul nuw i64 %54, %90
-  %93 = mul nuw i64 %55, %90
-  %94 = mul nuw i64 %54, %91
-  %95 = mul nuw i64 %55, %91
-  %96 = lshr i64 %92, 32
-  %97 = and i64 %93, 4294967294
-  %98 = lshr i64 %93, 32
-  %99 = and i64 %94, 4294967295
-  %100 = lshr i64 %94, 32
-  %101 = add nuw nsw i64 %97, 2147483648
-  %102 = add nuw nsw i64 %101, %96
-  %103 = add nuw nsw i64 %102, %99
-  %104 = lshr i64 %103, 32
-  %105 = add nuw i64 %79, 1
-  %106 = add nuw i64 %105, %84
-  %107 = add nuw i64 %106, %82
-  %108 = add i64 %107, %88
-  %109 = add i64 %95, -1
-  %110 = add i64 %109, %100
-  %111 = add i64 %110, %98
-  %112 = add i64 %111, %104
+  %41 = and i64 %20, 4294967294
+  %42 = lshr i64 %.sroa.0.04.i33.i, 31
+  %43 = and i64 %.sroa.0.0.copyload.i.i, 4294967295
+  %44 = lshr i64 %.sroa.0.0.copyload.i.i, 32
+  %45 = mul nuw i64 %43, %41
+  %46 = mul nuw i64 %44, %41
+  %47 = mul nuw i64 %43, %42
+  %48 = mul nuw i64 %44, %42
+  %49 = lshr i64 %45, 32
+  %50 = and i64 %46, 4294967294
+  %51 = lshr i64 %46, 32
+  %52 = and i64 %47, 4294967295
+  %53 = lshr i64 %47, 32
+  %54 = add nuw nsw i64 %50, 2147483648
+  %55 = add nuw nsw i64 %54, %49
+  %56 = add nuw nsw i64 %55, %52
+  %57 = add nuw i64 %53, %48
+  %58 = add nuw i64 %57, %51
+  %59 = lshr i64 %56, 32
+  %60 = add nuw i64 %58, %59
+  %61 = add i32 %.sroa.418.8.extract.trunc.i, 64
+  %62 = add i32 %61, %21
+  %63 = and i64 %30, 4294967295
+  %64 = lshr i64 %30, 32
+  %65 = mul nuw i64 %43, %63
+  %66 = mul nuw i64 %44, %63
+  %67 = mul nuw i64 %43, %64
+  %68 = mul nuw i64 %44, %64
+  %69 = lshr i64 %65, 32
+  %70 = and i64 %66, 4294967295
+  %71 = lshr i64 %66, 32
+  %72 = and i64 %67, 4294967295
+  %73 = lshr i64 %67, 32
+  %74 = add nuw nsw i64 %70, 2147483648
+  %75 = add nuw nsw i64 %74, %69
+  %76 = add nuw nsw i64 %75, %72
+  %77 = lshr i64 %76, 32
+  %78 = add i32 %61, %18
+  %79 = and i64 %17, 4294967294
+  %80 = lshr i64 %.sroa.0.04.i.i, 31
+  %81 = mul nuw i64 %43, %79
+  %82 = mul nuw i64 %44, %79
+  %83 = mul nuw i64 %43, %80
+  %84 = mul nuw i64 %44, %80
+  %85 = lshr i64 %81, 32
+  %86 = and i64 %82, 4294967294
+  %87 = lshr i64 %82, 32
+  %88 = and i64 %83, 4294967295
+  %89 = lshr i64 %83, 32
+  %90 = add nuw nsw i64 %86, 2147483648
+  %91 = add nuw nsw i64 %90, %85
+  %92 = add nuw nsw i64 %91, %88
+  %93 = lshr i64 %92, 32
+  %94 = add nuw i64 %68, 1
+  %95 = add nuw i64 %94, %73
+  %96 = add nuw i64 %95, %71
+  %97 = add i64 %96, %77
+  %98 = add i64 %84, -1
+  %99 = add i64 %98, %89
+  %100 = add i64 %99, %87
+  %101 = add i64 %100, %93
   %.sroa.418.12.extract.shift.i = lshr i64 %.sroa.2.0.copyload.i.i, 32
   %.sroa.418.12.extract.trunc.i = trunc nuw i64 %.sroa.418.12.extract.shift.i to i32
-  %113 = sub nsw i32 0, %.sroa.418.12.extract.trunc.i
-  store i32 %113, ptr %2, align 4, !tbaa !41
-  store i64 %71, ptr %5, align 8, !tbaa !60
+  %102 = sub nsw i32 0, %.sroa.418.12.extract.trunc.i
+  store i32 %102, ptr %2, align 4, !tbaa !41
+  store i64 %60, ptr %5, align 8, !tbaa !60
   %.sroa.416.0..sroa_idx.i4 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %73, ptr %.sroa.416.0..sroa_idx.i4, align 8, !tbaa !41
-  store i64 %112, ptr %6, align 8, !tbaa !60
+  store i32 %62, ptr %.sroa.416.0..sroa_idx.i4, align 8, !tbaa !41
+  store i64 %101, ptr %6, align 8, !tbaa !60
   %.sroa.4.0..sroa_idx.i5 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %89, ptr %.sroa.4.0..sroa_idx.i5, align 8, !tbaa !41
-  tail call void @_ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl16grisu2_digit_genEPcRiS4_NS2_5diyfpES5_S5_(ptr noundef nonnull %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, i64 %108, i32 %89, ptr noundef nonnull byval(%"struct.nlohmann::json_abi_v3_11_3::detail::dtoa_impl::diyfp") align 8 %5, ptr noundef nonnull byval(%"struct.nlohmann::json_abi_v3_11_3::detail::dtoa_impl::diyfp") align 8 %6)
+  store i32 %78, ptr %.sroa.4.0..sroa_idx.i5, align 8, !tbaa !41
+  tail call void @_ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl16grisu2_digit_genEPcRiS4_NS2_5diyfpES5_S5_(ptr noundef nonnull %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, i64 %97, i32 %78, ptr noundef nonnull byval(%"struct.nlohmann::json_abi_v3_11_3::detail::dtoa_impl::diyfp") align 8 %5, ptr noundef nonnull byval(%"struct.nlohmann::json_abi_v3_11_3::detail::dtoa_impl::diyfp") align 8 %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void

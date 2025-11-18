@@ -56,11 +56,11 @@ define range(i32 0, -2147483648) i32 @uprv_itou_77(ptr noundef captures(none) %0
   br label %24
 
 24:                                               ; preds = %21, %._crit_edge
-  %.not = icmp samesign ult i32 %.1.lcssa, 2
+  %25 = lshr i32 %.1.lcssa, 1
+  %.not = icmp eq i32 %25, 0
   br i1 %.not, label %._crit_edge44, label %.lr.ph43.preheader
 
 .lr.ph43.preheader:                               ; preds = %24
-  %25 = lshr i32 %.1.lcssa, 1
   %26 = zext nneg i32 %.1.lcssa to i64
   %wide.trip.count55 = zext nneg i32 %25 to i64
   %27 = getelementptr i16, ptr %0, i64 %26

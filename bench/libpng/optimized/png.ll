@@ -3656,7 +3656,7 @@ define void @png_ascii_from_fp(ptr noalias noundef %0, ptr noundef captures(none
   br label %.preheader.i.preheader
 
 31:                                               ; preds = %22
-  %.not24.i = icmp samesign ult i32 %25, 256
+  %.not24.i = icmp eq i32 %26, 0
   br i1 %.not24.i, label %png_pow10.exit, label %.preheader.i.preheader
 
 .preheader.i.preheader:                           ; preds = %31, %.thread.i
@@ -3673,7 +3673,7 @@ define void @png_ascii_from_fp(ptr noalias noundef %0, ptr noundef captures(none
   %.2.i = select i1 %.not.i, double %.1.i, double %33
   %34 = fmul double %.0.i, %.0.i
   %35 = lshr i32 %.117.i, 1
-  %.not22.i = icmp samesign ult i32 %.117.i, 2
+  %.not22.i = icmp eq i32 %35, 0
   br i1 %.not22.i, label %36, label %.preheader.i, !llvm.loop !140
 
 36:                                               ; preds = %.preheader.i
@@ -3725,7 +3725,7 @@ png_pow10.exit:                                   ; preds = %31, %36
   %.2.i171 = select i1 %.not.i170, double %.1.i168, double %49
   %50 = fmul double %.0.i169, %.0.i169
   %51 = lshr i32 %.117.i167, 1
-  %.not22.i172 = icmp samesign ult i32 %.117.i167, 2
+  %.not22.i172 = icmp eq i32 %51, 0
   br i1 %.not22.i172, label %png_pow10.exit176, label %.preheader.i166, !llvm.loop !140
 
 png_pow10.exit176:                                ; preds = %.preheader.i166

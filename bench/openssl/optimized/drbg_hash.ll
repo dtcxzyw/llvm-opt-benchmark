@@ -606,7 +606,7 @@ hash_gen.exit:                                    ; preds = %54, %51, %28
   br i1 %.not.i29, label %._crit_edge.i, label %.lr.ph.i27, !llvm.loop !34
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i27
-  %90 = icmp samesign ult i32 %86, 256
+  %90 = icmp eq i32 %87, 0
   %.pre64 = load i64, ptr %76, align 8, !tbaa !25
   %91 = sub i64 %.pre64, %77
   %.not2737.i = icmp eq i64 %91, 0
@@ -658,7 +658,7 @@ add_bytes.exit:                                   ; preds = %add_bytes.exit.loop
   br i1 %.not.i39, label %._crit_edge.i40, label %.lr.ph.i32, !llvm.loop !34
 
 ._crit_edge.i40:                                  ; preds = %.lr.ph.i32
-  %108 = icmp samesign ult i32 %104, 256
+  %108 = icmp eq i32 %105, 0
   br i1 %108, label %add_bytes.exit48, label %109
 
 109:                                              ; preds = %._crit_edge.i40
@@ -1024,7 +1024,7 @@ define internal fastcc range(i32 0, 2) i32 @add_hash_to_v(ptr noundef readonly c
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !34
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %41 = icmp samesign ult i32 %37, 256
+  %41 = icmp eq i32 %38, 0
   br i1 %41, label %add_bytes.exit, label %42
 
 42:                                               ; preds = %._crit_edge.i

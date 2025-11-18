@@ -4530,7 +4530,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i.i.i:      ; preds = %1051, %1045
   br i1 %1071, label %1072, label %1100
 
 1072:                                             ; preds = %1068
-  %1073 = icmp ult i32 %1069, 64
+  %1073 = icmp eq i32 %1070, 0
   br i1 %1073, label %_ZNK10quantifier9get_childEj.exit.i.i.i, label %1074
 
 1074:                                             ; preds = %1072
@@ -7792,7 +7792,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i.i.i77:    ; preds = %2489, %2483
   br i1 %2509, label %2510, label %2538
 
 2510:                                             ; preds = %2506
-  %2511 = icmp ult i32 %2507, 64
+  %2511 = icmp eq i32 %2508, 0
   br i1 %2511, label %_ZNK10quantifier9get_childEj.exit.i.i.i72, label %2512
 
 2512:                                             ; preds = %2510

@@ -4330,7 +4330,7 @@ zend_ast_is_decl.exit:                            ; preds = %33
   %54 = load i64, ptr %53, align 8, !tbaa !34
   %55 = add i64 %54, %51
   store i64 %55, ptr %53, align 8, !tbaa !34
-  %.not36 = icmp ult i16 %2, 256
+  %.not36 = icmp eq i16 %48, 0
   br i1 %.not36, label %zend_persist_op_array_calc.exit, label %.lr.ph34
 
 .lr.ph34:                                         ; preds = %zend_ast_is_decl.exit

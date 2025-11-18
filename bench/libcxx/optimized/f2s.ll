@@ -336,7 +336,7 @@ define linkonce_odr hidden i64 @_ZNSt3__15__f2dB8ne210000Ejj(i32 noundef %0, i32
   %73 = shl i32 %72, %42
   %74 = lshr i32 %69, %41
   %75 = or i32 %73, %74
-  %.not177 = icmp ult i32 %17, 262144
+  %.not177 = icmp eq i32 %18, 0
   br i1 %.not177, label %.thread, label %76
 
 76:                                               ; preds = %16
@@ -505,7 +505,7 @@ _ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit196: ; preds = %.lr.ph.i.i192, 
   %188 = shl i32 %187, %157
   %189 = lshr i32 %184, %156
   %190 = or i32 %188, %189
-  %.not = icmp ult i32 %132, 1048576
+  %.not = icmp eq i32 %133, 0
   br i1 %.not, label %.thread266, label %191
 
 191:                                              ; preds = %131
@@ -548,7 +548,7 @@ _ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit196: ; preds = %.lr.ph.i.i192, 
 
 222:                                              ; preds = %195, %191
   %.2163 = phi i8 [ %221, %195 ], [ 0, %191 ]
-  %223 = icmp ult i32 %132, 2097152
+  %223 = icmp eq i32 %133, 1
   br i1 %223, label %.thread266, label %225
 
 .thread266:                                       ; preds = %222, %131
@@ -925,7 +925,7 @@ _ZNSt3__116__decimalLength9B8ne210000Ej.exit:     ; preds = %6, %8, %10, %12, %1
   br label %121
 
 108:                                              ; preds = %104
-  %109 = icmp ult i64 %2, 4294967296
+  %109 = icmp eq i64 %.sroa.4.0.extract.shift, 0
   br i1 %109, label %121, label %110
 
 110:                                              ; preds = %108

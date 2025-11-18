@@ -1210,7 +1210,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.i:                     ; preds = %_ZN12_GLOBAL__N_110
   %337 = xor i32 %336, 63
   %338 = zext nneg i32 %337 to i64
   %339 = lshr i64 -1, %338
-  %340 = icmp samesign ult i32 %329, 256
+  %340 = icmp eq i32 %330, 0
   %spec.select.i.i.i.i = select i1 %340, i64 0, i64 %339, !prof !148
   store i64 %spec.select.i.i.i.i, ptr %9, align 8, !tbaa !135, !alias.scope !146
   br label %_ZN4llvm5APInt11getMaxValueEj.exit.i
@@ -1638,7 +1638,7 @@ _ZN4llvm5APInt17getSignedMinValueEj.exit.i:       ; preds = %_ZN4llvm5APIntC2ERK
   %509 = xor i32 %508, 63
   %510 = zext nneg i32 %509 to i64
   %511 = lshr i64 -1, %510
-  %512 = icmp ult i32 %329, 256
+  %512 = icmp eq i32 %330, 0
   %spec.select.i.i.i142.i = select i1 %512, i64 0, i64 %511, !prof !148
   %513 = zext nneg i32 %508 to i64
   %514 = shl nuw i64 1, %513
@@ -4942,7 +4942,7 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_19CaseRangeESt
 104:                                              ; preds = %99
   %105 = getelementptr inbounds %"struct.(anonymous namespace)::CaseRange", ptr %.fr55.i, i64 %.06.i.i.i.i20.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %105, ptr noundef nonnull align 8 dereferenceable(24) %100, i64 24, i1 false), !tbaa.struct !120
-  %.not12.i.i28.i = icmp ult i64 %.097.in.i.i.i.i21.i, 2
+  %.not12.i.i28.i = icmp eq i64 %.097.i.i1011.i.i22.i, 0
   br i1 %.not12.i.i28.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_19CaseRangeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_7CaseCmpEEEEvT_SD_SD_RT0_.exit.i24.i, label %99, !llvm.loop !297
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_19CaseRangeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_7CaseCmpEEEEvT_SD_SD_RT0_.exit.i24.i: ; preds = %104, %99, %97

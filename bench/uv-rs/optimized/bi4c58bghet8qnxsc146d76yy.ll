@@ -2499,7 +2499,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h7d5ec9932d7bb7e
   br i1 %29, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hefab466263f1fb49E.exit79.i.i.i.i.i.i.i", label %30
 
 30:                                               ; preds = %28
-  %.not.i.i.i.i.i.i.i = icmp samesign ult i64 %5, 2
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h191e2ffdf74bc4e8E.llvm.16679439562553428002.exit", label %31
 
 31:                                               ; preds = %30
@@ -2620,7 +2620,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17hf53f18d52c85c93
   br i1 %28, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hefab466263f1fb49E.exit79.i.i.i.i.i.i", label %29
 
 29:                                               ; preds = %27
-  %.not.i.i.i.i.i.i = icmp samesign ult i64 %4, 2
+  %.not.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h726d777d61eeb112E.llvm.16679439562553428002.exit", label %30
 
 30:                                               ; preds = %29
@@ -2759,7 +2759,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
   br i1 %30, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hefab466263f1fb49E.exit79.i.i.i.i.i.i", label %31
 
 31:                                               ; preds = %29
-  %.not.i.i.i.i.i.i = icmp samesign ult i64 %6, 2
+  %.not.i.i.i.i.i.i = icmp eq i64 %7, 0
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hef276cca5f9913dcE.llvm.16679439562553428002.exit", label %32
 
 32:                                               ; preds = %31
@@ -2877,7 +2877,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
   br i1 %29, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hefab466263f1fb49E.exit79.i.i.i.i.i", label %30
 
 30:                                               ; preds = %28
-  %.not.i.i.i.i.i = icmp samesign ult i64 %5, 2
+  %.not.i.i.i.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i.i.i.i, label %"_ZN76_$LT$uv_normalize..package_name..PackageName$u20$as$u20$core..hash..Hash$GT$4hash17he69837b60647d10dE.llvm.16679439562553428002.exit", label %31
 
 31:                                               ; preds = %30
@@ -3016,7 +3016,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
   br i1 %29, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hefab466263f1fb49E.exit79.i.i.i.i.i", label %30
 
 30:                                               ; preds = %28
-  %.not.i.i.i.i.i = icmp samesign ult i64 %5, 2
+  %.not.i.i.i.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i.i.i.i, label %"_ZN81_$LT$uv_distribution_types..index_name..IndexName$u20$as$u20$core..hash..Hash$GT$4hash17hef209eeb4513a655E.llvm.16679439562553428002.exit", label %31
 
 31:                                               ; preds = %30
@@ -3897,7 +3897,7 @@ define hidden void @"_ZN60_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..hash..Ha
   br i1 %28, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hefab466263f1fb49E.exit79.i.i.i", label %29
 
 29:                                               ; preds = %27
-  %.not.i.i.i = icmp samesign ult i64 %4, 2
+  %.not.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i, label %_ZN4core4hash6Hasher9write_str17hd0db8a507139327aE.llvm.16679439562553428002.exit, label %30
 
 30:                                               ; preds = %29
@@ -4100,7 +4100,7 @@ define hidden void @"_ZN76_$LT$uv_normalize..package_name..PackageName$u20$as$u2
   br i1 %28, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hefab466263f1fb49E.exit79.i.i.i.i", label %29
 
 29:                                               ; preds = %27
-  %.not.i.i.i.i = icmp samesign ult i64 %4, 2
+  %.not.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i, label %"_ZN60_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..hash..Hash$GT$4hash17h706a339da1bfee3eE.llvm.16679439562553428002.exit", label %30
 
 30:                                               ; preds = %29
@@ -5328,20 +5328,20 @@ define void @_ZN21uv_distribution_types5index5Index11credentials17h93efc2c17fa3e
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !954
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !954
-  %.not.i.i = icmp ult i64 %10, 2
-  br i1 %.not.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h3cb11ee712a69c14E.exit.i.i.i", label %14, !prof !957
+  %14 = add nuw i64 %11, 3
+  %15 = lshr i64 %14, 2
+  %.not.i.i = icmp eq i64 %15, 0
+  br i1 %.not.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h3cb11ee712a69c14E.exit.i.i.i", label %16, !prof !957
 
-14:                                               ; preds = %9
-  %15 = add nuw i64 %11, 3
-  %16 = lshr i64 %15, 2
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17h0fb0e28747f78d46E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i64 noundef 0, i64 noundef %16, i64 noundef 1, i64 noundef 1)
+16:                                               ; preds = %9
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17h0fb0e28747f78d46E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i64 noundef 0, i64 noundef %15, i64 noundef 1, i64 noundef 1)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h3cb11ee712a69c14E.exit.i.i.i" unwind label %17, !noalias !954
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h3cb11ee712a69c14E.exit.i.i.i": ; preds = %14, %9
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h3cb11ee712a69c14E.exit.i.i.i": ; preds = %16, %9
   invoke void @_ZN4core4iter6traits8iterator8Iterator4fold17ha7bb523f905e5f7cE.llvm.3194749597734985585(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN21uv_distribution_types10index_name9IndexName10to_env_var17h29ae42c976431c02E.exit unwind label %17, !noalias !954
 
-17:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h3cb11ee712a69c14E.exit.i.i.i", %14
+17:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h3cb11ee712a69c14E.exit.i.i.i", %16
   %18 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd8661ae3c3ba758bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #46
@@ -6146,20 +6146,20 @@ define void @_ZN21uv_distribution_types10index_name9IndexName10to_env_var17h29ae
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !1060
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !1060
-  %.not.i = icmp ult i64 %5, 2
-  br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h3cb11ee712a69c14E.exit.i.i", label %9, !prof !957
+  %9 = add nuw i64 %6, 3
+  %10 = lshr i64 %9, 2
+  %.not.i = icmp eq i64 %10, 0
+  br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h3cb11ee712a69c14E.exit.i.i", label %11, !prof !957
 
-9:                                                ; preds = %2
-  %10 = add nuw i64 %6, 3
-  %11 = lshr i64 %10, 2
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17h0fb0e28747f78d46E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i64 noundef 0, i64 noundef %11, i64 noundef 1, i64 noundef 1)
+11:                                               ; preds = %2
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17h0fb0e28747f78d46E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i64 noundef 0, i64 noundef %10, i64 noundef 1, i64 noundef 1)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h3cb11ee712a69c14E.exit.i.i" unwind label %12, !noalias !1060
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h3cb11ee712a69c14E.exit.i.i": ; preds = %9, %2
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h3cb11ee712a69c14E.exit.i.i": ; preds = %11, %2
   invoke void @_ZN4core4iter6traits8iterator8Iterator4fold17ha7bb523f905e5f7cE.llvm.3194749597734985585(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %"_ZN95_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..FromIterator$LT$char$GT$$GT$9from_iter17h20a892ad7eade5e8E.exit" unwind label %12, !noalias !1060
 
-12:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h3cb11ee712a69c14E.exit.i.i", %9
+12:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h3cb11ee712a69c14E.exit.i.i", %11
   %13 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd8661ae3c3ba758bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #46
@@ -13698,7 +13698,7 @@ define hidden void @"_ZN81_$LT$uv_distribution_types..index_name..IndexName$u20$
   br i1 %28, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hefab466263f1fb49E.exit79.i.i.i.i", label %29
 
 29:                                               ; preds = %27
-  %.not.i.i.i.i = icmp samesign ult i64 %4, 2
+  %.not.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i, label %"_ZN60_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..hash..Hash$GT$4hash17h706a339da1bfee3eE.llvm.16679439562553428002.exit", label %30
 
 30:                                               ; preds = %29

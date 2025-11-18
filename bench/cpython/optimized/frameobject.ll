@@ -4343,8 +4343,8 @@ first_line_not_before.exit.thread:                ; preds = %._crit_edge.i, %61
   ]
 
 98:                                               ; preds = %.lr.ph.i139
-  %.not42.i = icmp eq i32 %95, 4
-  br i1 %.not42.i, label %compatible_stack.exit.thread, label %compatible_kind.exit.thread29.i
+  %.not43.i = icmp eq i32 %95, 4
+  br i1 %.not43.i, label %compatible_stack.exit.thread, label %compatible_kind.exit.thread29.i
 
 compatible_kind.exit.i:                           ; preds = %.lr.ph.i139
   %99 = icmp eq i32 %95, %97
@@ -4353,7 +4353,7 @@ compatible_kind.exit.i:                           ; preds = %.lr.ph.i139
 compatible_kind.exit.thread29.i:                  ; preds = %compatible_kind.exit.i, %98, %.lr.ph.i139
   %100 = ashr i64 %.11841.i, 3
   %101 = ashr i64 %.02040.i, 3
-  %.not.i140 = icmp ult i64 %.11841.i, 8
+  %.not.i140 = icmp eq i64 %100, 0
   br i1 %.not.i140, label %compatible_stack.exit, label %.lr.ph.i139
 
 compatible_stack.exit:                            ; preds = %compatible_kind.exit.thread29.i, %.preheader.i
@@ -5305,7 +5305,7 @@ parse_varint.exit224:                             ; preds = %.lr.ph.i218, %parse
   br i1 %227, label %228, label %245
 
 228:                                              ; preds = %223
-  %229 = icmp ult i32 %.0.lcssa.i223, 2
+  %229 = icmp eq i32 %218, 0
   br i1 %229, label %pop_to_level.exit.thread, label %230
 
 230:                                              ; preds = %228
@@ -5329,10 +5329,10 @@ pop_to_level.exit:                                ; preds = %235
   br label %pop_to_level.exit.thread
 
 pop_to_level.exit.thread:                         ; preds = %228, %pop_to_level.exit
-  %.0.i225306 = phi i64 [ %.08.i, %pop_to_level.exit ], [ 0, %228 ]
+  %.0.i225307 = phi i64 [ %.08.i, %pop_to_level.exit ], [ 0, %228 ]
   %241 = phi i64 [ %spec.select, %pop_to_level.exit ], [ 5, %228 ]
-  %.not185307 = icmp eq i32 %219, 0
-  %.0 = select i1 %.not185307, i64 %.0.i225306, i64 %241
+  %.not185308 = icmp eq i32 %219, 0
+  %.0 = select i1 %.not185308, i64 %.0.i225307, i64 %241
   %242 = icmp ugt i64 %.0, 1152921504606846975
   %243 = shl nuw nsw i64 %.0, 3
   %244 = or disjoint i64 %243, 2

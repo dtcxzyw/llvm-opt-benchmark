@@ -39077,7 +39077,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit95: ; preds = %_ZN4l
   br label %._crit_edge426
 
 ._crit_edge426:                                   ; preds = %._crit_edge417.thread, %._crit_edge426.loopexit, %._crit_edge417
-  %.not75419608 = phi i1 [ true, %._crit_edge417 ], [ false, %._crit_edge426.loopexit ], [ true, %._crit_edge417.thread ]
+  %.not75419609 = phi i1 [ true, %._crit_edge417 ], [ false, %._crit_edge426.loopexit ], [ true, %._crit_edge417.thread ]
   %182 = phi ptr [ %97, %._crit_edge417 ], [ %97, %._crit_edge426.loopexit ], [ %81, %._crit_edge417.thread ]
   %183 = phi ptr [ %96, %._crit_edge417 ], [ %96, %._crit_edge426.loopexit ], [ %80, %._crit_edge417.thread ]
   %184 = phi i32 [ 0, %._crit_edge417 ], [ %.pre, %._crit_edge426.loopexit ], [ 0, %._crit_edge417.thread ]
@@ -39149,11 +39149,11 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit95: ; preds = %_ZN4l
   %230 = zext i32 %.val84 to i64
   %.idx1.i = mul nuw nsw i64 %230, 40
   %231 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx1.i
-  %.not.i96 = icmp ult i32 %.val84, 4
+  %232 = lshr i64 %230, 2
+  %.not.i96 = icmp eq i64 %232, 0
   br i1 %.not.i96, label %._crit_edge.i.i.i.i, label %.lr.ph.preheader.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %229
-  %232 = lshr i64 %230, 2
   %233 = mul nuw nsw i64 %232, 160
   %scevgep.i.i.i.i = getelementptr i8, ptr %.val, i64 %233
   br label %.lr.ph.i.i.i.i
@@ -40630,7 +40630,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit249: ; preds = %_Z
   call void @_ZN4llvm19makeIntrusiveRefCntINS_15TreePatternNodeEJPKNS_6RecordESt6vectorINS_18IntrusiveRefCntPtrIS1_EESaIS7_EEjEEENS6_IT_EEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %49, ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 4 dereferenceable(4) %51)
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
-  br i1 %.not75419608, label %._crit_edge438, label %.lr.ph437
+  br i1 %.not75419609, label %._crit_edge438, label %.lr.ph437
 
 .lr.ph437:                                        ; preds = %741
   %745 = getelementptr inbounds nuw i8, ptr %7, i64 8

@@ -73,7 +73,6 @@ define internal fastcc range(i32 0, 2) i32 @bnrand(i32 noundef range(i32 0, 3) %
 
 .lr.ph.preheader:                                 ; preds = %35
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %wide.trip.count = zext nneg i32 %22 to i64
   br label %.lr.ph
 
 .thread76:                                        ; preds = %55
@@ -120,7 +119,7 @@ define internal fastcc range(i32 0, 2) i32 @bnrand(i32 noundef range(i32 0, 3) %
 
 55:                                               ; preds = %43, %51, %53, %49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %25
   br i1 %exitcond.not, label %.thread76, label %.lr.ph, !llvm.loop !6
 
 56:                                               ; preds = %.lr.ph

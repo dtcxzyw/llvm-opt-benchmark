@@ -1680,9 +1680,9 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc, %68
   br i1 %144, label %.loopexit288, label %.lr.ph298
 
 .lr.ph298:                                        ; preds = %94, %143
-  %.1157352 = phi i32 [ %107, %143 ], [ %.0156313, %94 ]
-  %.0169351 = phi i32 [ %105, %143 ], [ 0, %94 ]
-  %.0173350 = phi float [ %106, %143 ], [ 0.000000e+00, %94 ]
+  %.1157353 = phi i32 [ %107, %143 ], [ %.0156313, %94 ]
+  %.0169352 = phi i32 [ %105, %143 ], [ 0, %94 ]
+  %.0173351 = phi float [ %106, %143 ], [ 0.000000e+00, %94 ]
   %145 = icmp eq i32 %.0312, %.sroa.speculated255
   %146 = sext i32 %.0312 to i64
   %147 = getelementptr float, ptr %79, i64 %146
@@ -1690,8 +1690,8 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc, %68
   br label %149
 
 149:                                              ; preds = %.lr.ph298, %228
-  %.3159297 = phi i32 [ %.1157352, %.lr.ph298 ], [ %.5161, %228 ]
-  %.1170296 = phi i32 [ %.0169351, %.lr.ph298 ], [ %.3172, %228 ]
+  %.3159297 = phi i32 [ %.1157353, %.lr.ph298 ], [ %.5161, %228 ]
+  %.1170296 = phi i32 [ %.0169352, %.lr.ph298 ], [ %.3172, %228 ]
   %150 = zext nneg i32 %.1170296 to i64
   %151 = getelementptr inbounds nuw %"struct.cv::ml::KDTree::Node", ptr %83, i64 %150
   %152 = load i32, ptr %151, align 4, !tbaa !72
@@ -1797,12 +1797,12 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc, %68
   br i1 %92, label %201, label %203
 
 201:                                              ; preds = %191
-  %202 = call float @llvm.fmuladd.f32(float %200, float %200, float %.0173350)
+  %202 = call float @llvm.fmuladd.f32(float %200, float %200, float %.0173351)
   br label %206
 
 203:                                              ; preds = %191
   %204 = call noundef float @llvm.fabs.f32(float %200)
-  %205 = fadd float %.0173350, %204
+  %205 = fadd float %.0173351, %204
   br label %206
 
 206:                                              ; preds = %203, %201
@@ -1840,7 +1840,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc, %68
   %224 = load i64, ptr %217, align 4
   store i64 %224, ptr %222, align 4
   store i64 %223, ptr %217, align 4
-  %.not315 = icmp ult i32 %214, 2
+  %.not315 = icmp eq i32 %215, 0
   br i1 %.not315, label %.thread271, label %.lr.ph294
 
 .thread271:                                       ; preds = %220, %.lr.ph294, %210
@@ -2059,8 +2059,8 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %278, %284
   %290 = load ptr, ptr %14, align 8, !tbaa !95
   %.not.i.i220 = icmp eq ptr %290, %72
   %291 = icmp eq ptr %290, null
-  %or.cond359 = or i1 %.not.i.i220, %291
-  br i1 %or.cond359, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit221, label %292
+  %or.cond360 = or i1 %.not.i.i220, %291
+  br i1 %or.cond360, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit221, label %292
 
 292:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %290) #16
@@ -2082,8 +2082,8 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit223:         ; preds = %293, %98
   %294 = load ptr, ptr %14, align 8, !tbaa !95
   %.not.i.i224 = icmp eq ptr %294, %72
   %295 = icmp eq ptr %294, null
-  %or.cond361 = or i1 %.not.i.i224, %295
-  br i1 %or.cond361, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit225, label %296
+  %or.cond362 = or i1 %.not.i.i224, %295
+  br i1 %or.cond362, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit225, label %296
 
 296:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit223
   call void @_ZdaPv(ptr noundef nonnull %294) #16

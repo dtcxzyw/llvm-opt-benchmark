@@ -52,7 +52,7 @@ define range(i32 -1094995529, 1) i32 @ff_opus_parse_packet(ptr noundef captures(
   br i1 %or.cond, label %.thread, label %21
 
 21:                                               ; preds = %8
-  switch i32 %12, label %default.unreachable451 [
+  switch i32 %12, label %default.unreachable452 [
     i32 0, label %22
     i32 1, label %59
     i32 2, label %103
@@ -372,7 +372,7 @@ xiph_lacing_full.exit:                            ; preds = %.lr.ph.i
 180:                                              ; preds = %xiph_lacing_full.exit, %167
   %.3303 = phi ptr [ %159, %167 ], [ %171, %xiph_lacing_full.exit ]
   %.1213 = phi i32 [ 0, %167 ], [ %174, %xiph_lacing_full.exit ]
-  %.not239 = icmp sgt i8 %160, -1
+  %.not239 = icmp eq i32 %164, 0
   br i1 %.not239, label %250, label %.preheader
 
 .preheader:                                       ; preds = %180
@@ -585,8 +585,8 @@ xiph_lacing_16bit.exit280:                        ; preds = %258, %252
   %288 = sdiv i32 %286, %162
   %.not241 = icmp ne i32 %287, 0
   %289 = icmp sgt i32 %288, 1275
-  %or.cond471 = or i1 %.not241, %289
-  br i1 %or.cond471, label %.thread, label %._crit_edge400
+  %or.cond472 = or i1 %.not241, %289
+  br i1 %or.cond472, label %.thread, label %._crit_edge400
 
 ._crit_edge400:                                   ; preds = %280
   %.pre418 = ptrtoint ptr %1 to i64
@@ -640,7 +640,7 @@ thread-pre-split:                                 ; preds = %.lr.ph383, %290, %5
   %310 = icmp samesign ugt i32 %309, 5760
   br i1 %310, label %.thread, label %311
 
-default.unreachable451:                           ; preds = %21
+default.unreachable452:                           ; preds = %21
   unreachable
 
 311:                                              ; preds = %thread-pre-split
@@ -673,7 +673,7 @@ default.unreachable451:                           ; preds = %21
   %325 = add nsw i32 %17, -16
   %326 = lshr i32 %325, 2
   store i32 %326, ptr %320, align 4, !tbaa !25
-  %.not247 = icmp samesign ult i32 %325, 4
+  %.not247 = icmp eq i32 %326, 0
   br i1 %.not247, label %329, label %327
 
 327:                                              ; preds = %324

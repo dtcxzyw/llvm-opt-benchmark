@@ -2162,7 +2162,7 @@ define internal fastcc zeroext i1 @decrypt_packet(ptr noundef %0, i32 noundef %1
   %58 = getelementptr i8, ptr %.01520.i.i, i64 -1
   store i8 %57, ptr %.01520.i.i, align 1
   %59 = lshr i32 %.01619.i.i, 8
-  %.not.i.i = icmp ult i32 %.01619.i.i, 256
+  %.not.i.i = icmp eq i32 %59, 0
   br i1 %.not.i.i, label %encode_ber_len.exit.i, label %.lr.ph.i.i, !llvm.loop !24
 
 encode_ber_len.exit.i:                            ; preds = %.lr.ph.i.i, %51, %48, %30

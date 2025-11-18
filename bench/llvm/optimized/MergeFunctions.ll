@@ -2358,53 +2358,53 @@ define linkonce_odr void @_ZN4llvm11stable_sortIRSt6vectorISt4pairImPNS_8Functio
   %12 = shl nuw nsw i64 %.010.i.i.i.i, 4
   %13 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %12, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #25
   %.not.i.i.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %14
+  br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %15
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not14.i.i.i.i = icmp samesign ult i64 %.010.i.i.in.in.i.i, 3
-  br i1 %.not14.i.i.i.i, label %.loopexit23.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !230
+  %14 = icmp eq i64 %.010.i.i.i.i, 1
+  br i1 %14, label %.loopexit23.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !230
 
-14:                                               ; preds = %.lr.ph.i.i.i.i
-  %15 = getelementptr inbounds nuw i8, ptr %13, i64 %12
+15:                                               ; preds = %.lr.ph.i.i.i.i
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %.not18.i.i.i.i.i = icmp eq i64 %.010.i.i.i.i, 1
   br i1 %.not18.i.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.preheader.i.i.i
 
-.lr.ph.i.i.preheader.i.i.i:                       ; preds = %14
+.lr.ph.i.i.preheader.i.i.i:                       ; preds = %15
   %.01317.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 16
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
   %.01320.i.i.i.i.i = phi ptr [ %.013.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.01317.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i ]
-  %.019.i.i.i.i.i = phi ptr [ %16, %.lr.ph.i.i.i.i.i ], [ %13, %.lr.ph.i.i.preheader.i.i.i ]
+  %.019.i.i.i.i.i = phi ptr [ %17, %.lr.ph.i.i.i.i.i ], [ %13, %.lr.ph.i.i.preheader.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.01320.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.019.i.i.i.i.i, i64 16, i1 false)
-  %16 = getelementptr inbounds nuw i8, ptr %.019.i.i.i.i.i, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.019.i.i.i.i.i, i64 16
   %.013.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.01320.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i = icmp eq ptr %.013.i.i.i.i.i, %15
+  %.not.i.i.i.i.i = icmp eq ptr %.013.i.i.i.i.i, %16
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !231
 
 .loopexit23.i.i:                                  ; preds = %select.unfold.i.i.i.i, %6
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImPN4llvm8FunctionEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_10less_firstEEEEvT_SG_T0_(ptr %2, ptr %4)
-  br label %21
+  br label %22
 
-.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %14
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %13, %14 ], [ %16, %.lr.ph.i.i.i.i.i ]
-  %17 = load i64, ptr %.0.lcssa.i.i.i.i.i, align 8, !tbaa !45
-  store i64 %17, ptr %2, align 8, !tbaa !135
-  %18 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !155
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %19, ptr %20, align 8, !tbaa !138
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %15
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %13, %15 ], [ %17, %.lr.ph.i.i.i.i.i ]
+  %18 = load i64, ptr %.0.lcssa.i.i.i.i.i, align 8, !tbaa !45
+  store i64 %18, ptr %2, align 8, !tbaa !135
+  %19 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !155
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %20, ptr %21, align 8, !tbaa !138
   tail call void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairImPN4llvm8FunctionEESt6vectorIS6_SaIS6_EEEES7_lNS0_5__ops15_Iter_comp_iterINS3_10less_firstEEEEvT_SG_T0_T1_T2_(ptr nonnull %2, ptr %4, ptr noundef nonnull %13, i64 noundef %.010.i.i.i.i)
-  br label %21
+  br label %22
 
-21:                                               ; preds = %.loopexit.i.i, %.loopexit23.i.i
+22:                                               ; preds = %.loopexit.i.i, %.loopexit23.i.i
   %.sroa.3.021.i.i = phi i64 [ %12, %.loopexit.i.i ], [ 0, %.loopexit23.i.i ]
   %.sroa.7.019.i.i = phi ptr [ %13, %.loopexit.i.i ], [ null, %.loopexit23.i.i ]
   tail call void @_ZdlPvm(ptr noundef %.sroa.7.019.i.i, i64 noundef %.sroa.3.021.i.i) #21
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImPN4llvm8FunctionEESt6vectorIS6_SaIS6_EEEENS3_10less_firstEEvT_SD_T0_.exit
 
-_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImPN4llvm8FunctionEESt6vectorIS6_SaIS6_EEEENS3_10less_firstEEvT_SD_T0_.exit: ; preds = %1, %21
+_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImPN4llvm8FunctionEESt6vectorIS6_SaIS6_EEEENS3_10less_firstEEvT_SD_T0_.exit: ; preds = %1, %22
   ret void
 }
 

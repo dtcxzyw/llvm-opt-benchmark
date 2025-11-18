@@ -2210,7 +2210,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 30:                                               ; preds = %31
   %.not131 = icmp eq i32 %41, 4096
-  br i1 %.not131, label %104, label %.noexc
+  br i1 %.not131, label %105, label %.noexc
 
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
@@ -2249,9 +2249,9 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
   %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
-  br label %61
+  br label %62
 
-48:                                               ; preds = %61
+48:                                               ; preds = %62
   %49 = icmp eq ptr %43, %.0.i.i.i.i.i
   br i1 %49, label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEvT_SB_T0_.exit, label %50
 
@@ -2273,8 +2273,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not14.i.i.i.i = icmp samesign ult i64 %.010.i.i.in.in.i.i, 3
-  br i1 %.not14.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
+  %58 = icmp eq i64 %.010.i.i.i.i, 1
+  br i1 %58, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %50
   invoke void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEEvT_SE_T0_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr nonnull %0)
@@ -2283,12 +2283,12 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i, %.loopexit.i.i
   %.sroa.4.026.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.023.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %58 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  resume { ptr, i32 } %58
+  resume { ptr, i32 } %59
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   invoke void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lNS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEEvT_SE_T0_T1_T2_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr noundef nonnull %57, i64 noundef %.010.i.i.i.i, ptr nonnull %0)
@@ -2297,163 +2297,163 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEvT_SB_T0_.exit
 
-61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
-  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %61 ]
-  %62 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
-  %63 = trunc nuw nsw i64 %indvars.iv215 to i32
-  store i32 %63, ptr %62, align 4, !tbaa !15
+62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
+  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
+  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %64 = trunc nuw nsw i64 %indvars.iv215 to i32
+  store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next216, %9
-  br i1 %exitcond219.not, label %48, label %61, !llvm.loop !86
+  br i1 %exitcond219.not, label %48, label %62, !llvm.loop !86
 
 _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEvT_SB_T0_.exit: ; preds = %.loopexit._crit_edge.i.i, %48
-  %64 = icmp slt i32 %41, 4096
-  br i1 %64, label %65, label %.lr.ph194
+  %65 = icmp slt i32 %41, 4096
+  br i1 %65, label %66, label %.lr.ph194
 
-65:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEvT_SB_T0_.exit
-  %66 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
-  %67 = load i32, ptr %66, align 4, !tbaa !15
-  %68 = sext i32 %67 to i64
-  %69 = load ptr, ptr %0, align 8, !tbaa !65
-  %70 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %69, i64 %68
-  %71 = load i32, ptr %70, align 4, !tbaa !66
-  %reass.sub199 = sub i32 %71, %41
-  %72 = add i32 %reass.sub199, 4096
-  store i32 %72, ptr %70, align 4, !tbaa !66
+66:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEvT_SB_T0_.exit
+  %67 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
+  %68 = load i32, ptr %67, align 4, !tbaa !15
+  %69 = sext i32 %68 to i64
+  %70 = load ptr, ptr %0, align 8, !tbaa !65
+  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %72 = load i32, ptr %71, align 4, !tbaa !66
+  %reass.sub199 = sub i32 %72, %41
+  %73 = add i32 %reass.sub199, 4096
+  store i32 %73, ptr %71, align 4, !tbaa !66
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit146
 
 .lr.ph194:                                        ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEvT_SB_T0_.exit
-  %73 = icmp sgt i32 %.0114.lcssa, 0
-  %74 = load ptr, ptr %0, align 8
-  tail call void @llvm.assume(i1 %73)
-  %75 = add nsw i32 %41, -4096
+  %74 = icmp sgt i32 %.0114.lcssa, 0
+  %75 = load ptr, ptr %0, align 8
+  tail call void @llvm.assume(i1 %74)
+  %76 = add nsw i32 %41, -4096
   br label %.lr.ph185.us
 
 .lr.ph185.us:                                     ; preds = %.lr.ph194, %.thread.us
-  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %75, %.lr.ph194 ]
+  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
-  %76 = sitofp i32 %.1122191.us to double
-  %77 = fdiv double 4.096000e+03, %76
-  br label %78
+  %77 = sitofp i32 %.1122191.us to double
+  %78 = fdiv double 4.096000e+03, %77
+  br label %79
 
-78:                                               ; preds = %.lr.ph185.us, %98
-  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %99, %98 ]
-  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %96, %98 ]
-  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %95, %98 ]
-  %79 = zext nneg i32 %.0113183.us to i64
-  %80 = getelementptr inbounds nuw i32, ptr %43, i64 %79
-  %81 = load i32, ptr %80, align 4, !tbaa !15
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %74, i64 %82
-  %84 = load i32, ptr %83, align 4, !tbaa !66
-  %85 = icmp ult i32 %84, 2
-  br i1 %85, label %101, label %86
+79:                                               ; preds = %.lr.ph185.us, %99
+  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %100, %99 ]
+  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
+  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
+  %80 = zext nneg i32 %.0113183.us to i64
+  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %82 = load i32, ptr %81, align 4, !tbaa !15
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %85 = load i32, ptr %84, align 4, !tbaa !66
+  %86 = icmp ult i32 %85, 2
+  br i1 %86, label %102, label %87
 
-86:                                               ; preds = %78
-  %87 = uitofp i32 %84 to double
-  %88 = fmul double %77, %87
-  %89 = tail call double @llvm.floor.f64(double %88)
-  %90 = fptosi double %89 to i32
-  %91 = sub i32 %84, %90
-  %92 = icmp eq i32 %84, %90
-  %spec.store.select.us = select i1 %92, i32 1, i32 %91
-  %.not134.us = icmp slt i32 %spec.store.select.us, %84
-  %93 = add i32 %84, -1
-  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %93
+87:                                               ; preds = %79
+  %88 = uitofp i32 %85 to double
+  %89 = fmul double %78, %88
+  %90 = tail call double @llvm.floor.f64(double %89)
+  %91 = fptosi double %90 to i32
+  %92 = sub i32 %85, %91
+  %93 = icmp eq i32 %85, %91
+  %spec.store.select.us = select i1 %93, i32 1, i32 %92
+  %.not134.us = icmp slt i32 %spec.store.select.us, %85
+  %94 = add i32 %85, -1
+  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %94
   %spec.select139.us = tail call i32 @llvm.smin.i32(i32 %spec.select166.us, i32 %.1118182.us)
-  %94 = sub i32 %84, %spec.select139.us
-  store i32 %94, ptr %83, align 4, !tbaa !66
-  %95 = sub nsw i32 %.2123181.us, %spec.select139.us
-  %96 = sub nsw i32 %.1118182.us, %spec.select139.us
-  %97 = icmp eq i32 %95, 4096
-  br i1 %97, label %.thread.us, label %98
+  %95 = sub i32 %85, %spec.select139.us
+  store i32 %95, ptr %84, align 4, !tbaa !66
+  %96 = sub nsw i32 %.2123181.us, %spec.select139.us
+  %97 = sub nsw i32 %.1118182.us, %spec.select139.us
+  %98 = icmp eq i32 %96, 4096
+  br i1 %98, label %.thread.us, label %99
 
-98:                                               ; preds = %86
-  %99 = add nsw i32 %.0113183.us, -1
-  %100 = icmp sgt i32 %.0113183.us, 1
-  br i1 %100, label %78, label %.thread.us, !llvm.loop !87
+99:                                               ; preds = %87
+  %100 = add nsw i32 %.0113183.us, -1
+  %101 = icmp sgt i32 %.0113183.us, 1
+  br i1 %101, label %79, label %.thread.us, !llvm.loop !87
 
-101:                                              ; preds = %78
-  %102 = icmp eq i32 %.0113183.us, %.0114.lcssa
-  br i1 %102, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
+102:                                              ; preds = %79
+  %103 = icmp eq i32 %.0113183.us, %.0114.lcssa
+  br i1 %103, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
 
-.thread.us:                                       ; preds = %86, %98, %101
-  %.3124.us = phi i32 [ %.2123181.us, %101 ], [ %95, %98 ], [ 4096, %86 ]
-  %.2119.us = phi i32 [ %.1118182.us, %101 ], [ %96, %98 ], [ %96, %86 ]
-  %103 = icmp sgt i32 %.2119.us, 0
-  br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !88
+.thread.us:                                       ; preds = %87, %99, %102
+  %.3124.us = phi i32 [ %.2123181.us, %102 ], [ %96, %99 ], [ 4096, %87 ]
+  %.2119.us = phi i32 [ %.1118182.us, %102 ], [ %97, %99 ], [ %97, %87 ]
+  %104 = icmp sgt i32 %.2119.us, 0
+  br i1 %104, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !88
 
-_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
+_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %102
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %132
+  br label %133
 
-_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
+_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %104
+  br label %105
 
-104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
-  %105 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %108
+105:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
+  %106 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %109
 
-106:                                              ; preds = %108
-  %.not136 = icmp eq i32 %112, 4096
-  br i1 %.not136, label %.preheader, label %132
+107:                                              ; preds = %109
+  %.not136 = icmp eq i32 %113, 4096
+  br i1 %.not136, label %.preheader, label %133
 
-.preheader:                                       ; preds = %106
-  %107 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %119
+.preheader:                                       ; preds = %107
+  %108 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %120
 
-108:                                              ; preds = %104, %108
-  %indvars.iv220 = phi i64 [ 0, %104 ], [ %indvars.iv.next221, %108 ]
-  %.0104195 = phi i32 [ 0, %104 ], [ %112, %108 ]
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %105, i64 %indvars.iv220
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
-  store i32 %.0104195, ptr %110, align 4, !tbaa !69
-  %111 = load i32, ptr %109, align 4, !tbaa !66
-  %112 = add i32 %111, %.0104195
+109:                                              ; preds = %105, %109
+  %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
+  %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
+  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
+  store i32 %.0104195, ptr %111, align 4, !tbaa !69
+  %112 = load i32, ptr %110, align 4, !tbaa !66
+  %113 = add i32 %112, %.0104195
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %exitcond224.not = icmp eq i64 %indvars.iv.next221, %9
-  br i1 %exitcond224.not, label %106, label %108, !llvm.loop !89
+  br i1 %exitcond224.not, label %107, label %109, !llvm.loop !89
 
-113:                                              ; preds = %131
-  %114 = fneg double %.1102
-  %115 = tail call double @llvm.ceil.f64(double %114)
-  %116 = fptoui double %115 to i64
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %116, ptr %117, align 8, !tbaa !50
-  %118 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi5EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+114:                                              ; preds = %132
+  %115 = fneg double %.1102
+  %116 = tail call double @llvm.ceil.f64(double %115)
+  %117 = fptoui double %116 to i64
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %117, ptr %118, align 8, !tbaa !50
+  %119 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi5EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+  br label %133
+
+120:                                              ; preds = %.preheader, %132
+  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
+  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
+  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %122 = load i32, ptr %121, align 4, !tbaa !66
+  %123 = icmp eq i32 %122, 0
+  br i1 %123, label %132, label %124
+
+124:                                              ; preds = %120
+  %125 = uitofp i32 %122 to double
+  %126 = fmul double %125, 0x3F30000000000000
+  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %128 = load i64, ptr %127, align 8, !tbaa !9
+  %129 = uitofp i64 %128 to double
+  %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
+  %131 = tail call double @llvm.fmuladd.f64(double %129, double %130, double %.0101197)
   br label %132
 
-119:                                              ; preds = %.preheader, %131
-  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %131 ]
-  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %131 ]
-  %120 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %107, i64 %indvars.iv225
-  %121 = load i32, ptr %120, align 4, !tbaa !66
-  %122 = icmp eq i32 %121, 0
-  br i1 %122, label %131, label %123
-
-123:                                              ; preds = %119
-  %124 = uitofp i32 %121 to double
-  %125 = fmul double %124, 0x3F30000000000000
-  %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
-  %127 = load i64, ptr %126, align 8, !tbaa !9
-  %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
-  %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
-  br label %131
-
-131:                                              ; preds = %119, %123
-  %.1102 = phi double [ %.0101197, %119 ], [ %130, %123 ]
+132:                                              ; preds = %120, %124
+  %.1102 = phi double [ %.0101197, %120 ], [ %131, %124 ]
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next226, %9
-  br i1 %exitcond229.not, label %113, label %119, !llvm.loop !90
+  br i1 %exitcond229.not, label %114, label %120, !llvm.loop !90
 
-132:                                              ; preds = %113, %106, %_ZNSt6vectorIiSaIiEED2Ev.exit144
-  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %118, %113 ], [ false, %106 ]
+133:                                              ; preds = %114, %107, %_ZNSt6vectorIiSaIiEED2Ev.exit144
+  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %119, %114 ], [ false, %107 ]
   ret i1 %.7
 }
 
@@ -8081,7 +8081,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 30:                                               ; preds = %31
   %.not131 = icmp eq i32 %41, 4096
-  br i1 %.not131, label %104, label %.noexc
+  br i1 %.not131, label %105, label %.noexc
 
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
@@ -8120,9 +8120,9 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
   %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
-  br label %61
+  br label %62
 
-48:                                               ; preds = %61
+48:                                               ; preds = %62
   %49 = icmp eq ptr %43, %.0.i.i.i.i.i
   br i1 %49, label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEvT_SB_T0_.exit, label %50
 
@@ -8144,8 +8144,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not14.i.i.i.i = icmp samesign ult i64 %.010.i.i.in.in.i.i, 3
-  br i1 %.not14.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
+  %58 = icmp eq i64 %.010.i.i.i.i, 1
+  br i1 %58, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %50
   invoke void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEEvT_SE_T0_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr nonnull %0)
@@ -8154,12 +8154,12 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i, %.loopexit.i.i
   %.sroa.4.026.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.023.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %58 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  resume { ptr, i32 } %58
+  resume { ptr, i32 } %59
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   invoke void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lNS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEEvT_SE_T0_T1_T2_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr noundef nonnull %57, i64 noundef %.010.i.i.i.i, ptr nonnull %0)
@@ -8168,163 +8168,163 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEvT_SB_T0_.exit
 
-61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
-  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %61 ]
-  %62 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
-  %63 = trunc nuw nsw i64 %indvars.iv215 to i32
-  store i32 %63, ptr %62, align 4, !tbaa !15
+62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
+  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
+  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %64 = trunc nuw nsw i64 %indvars.iv215 to i32
+  store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next216, %9
-  br i1 %exitcond219.not, label %48, label %61, !llvm.loop !223
+  br i1 %exitcond219.not, label %48, label %62, !llvm.loop !223
 
 _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEvT_SB_T0_.exit: ; preds = %.loopexit._crit_edge.i.i, %48
-  %64 = icmp slt i32 %41, 4096
-  br i1 %64, label %65, label %.lr.ph194
+  %65 = icmp slt i32 %41, 4096
+  br i1 %65, label %66, label %.lr.ph194
 
-65:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEvT_SB_T0_.exit
-  %66 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
-  %67 = load i32, ptr %66, align 4, !tbaa !15
-  %68 = sext i32 %67 to i64
-  %69 = load ptr, ptr %0, align 8, !tbaa !65
-  %70 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %69, i64 %68
-  %71 = load i32, ptr %70, align 4, !tbaa !66
-  %reass.sub199 = sub i32 %71, %41
-  %72 = add i32 %reass.sub199, 4096
-  store i32 %72, ptr %70, align 4, !tbaa !66
+66:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEvT_SB_T0_.exit
+  %67 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
+  %68 = load i32, ptr %67, align 4, !tbaa !15
+  %69 = sext i32 %68 to i64
+  %70 = load ptr, ptr %0, align 8, !tbaa !65
+  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %72 = load i32, ptr %71, align 4, !tbaa !66
+  %reass.sub199 = sub i32 %72, %41
+  %73 = add i32 %reass.sub199, 4096
+  store i32 %73, ptr %71, align 4, !tbaa !66
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit146
 
 .lr.ph194:                                        ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEvT_SB_T0_.exit
-  %73 = icmp sgt i32 %.0114.lcssa, 0
-  %74 = load ptr, ptr %0, align 8
-  tail call void @llvm.assume(i1 %73)
-  %75 = add nsw i32 %41, -4096
+  %74 = icmp sgt i32 %.0114.lcssa, 0
+  %75 = load ptr, ptr %0, align 8
+  tail call void @llvm.assume(i1 %74)
+  %76 = add nsw i32 %41, -4096
   br label %.lr.ph185.us
 
 .lr.ph185.us:                                     ; preds = %.lr.ph194, %.thread.us
-  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %75, %.lr.ph194 ]
+  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
-  %76 = sitofp i32 %.1122191.us to double
-  %77 = fdiv double 4.096000e+03, %76
-  br label %78
+  %77 = sitofp i32 %.1122191.us to double
+  %78 = fdiv double 4.096000e+03, %77
+  br label %79
 
-78:                                               ; preds = %.lr.ph185.us, %98
-  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %99, %98 ]
-  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %96, %98 ]
-  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %95, %98 ]
-  %79 = zext nneg i32 %.0113183.us to i64
-  %80 = getelementptr inbounds nuw i32, ptr %43, i64 %79
-  %81 = load i32, ptr %80, align 4, !tbaa !15
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %74, i64 %82
-  %84 = load i32, ptr %83, align 4, !tbaa !66
-  %85 = icmp ult i32 %84, 2
-  br i1 %85, label %101, label %86
+79:                                               ; preds = %.lr.ph185.us, %99
+  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %100, %99 ]
+  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
+  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
+  %80 = zext nneg i32 %.0113183.us to i64
+  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %82 = load i32, ptr %81, align 4, !tbaa !15
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %85 = load i32, ptr %84, align 4, !tbaa !66
+  %86 = icmp ult i32 %85, 2
+  br i1 %86, label %102, label %87
 
-86:                                               ; preds = %78
-  %87 = uitofp i32 %84 to double
-  %88 = fmul double %77, %87
-  %89 = tail call double @llvm.floor.f64(double %88)
-  %90 = fptosi double %89 to i32
-  %91 = sub i32 %84, %90
-  %92 = icmp eq i32 %84, %90
-  %spec.store.select.us = select i1 %92, i32 1, i32 %91
-  %.not134.us = icmp slt i32 %spec.store.select.us, %84
-  %93 = add i32 %84, -1
-  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %93
+87:                                               ; preds = %79
+  %88 = uitofp i32 %85 to double
+  %89 = fmul double %78, %88
+  %90 = tail call double @llvm.floor.f64(double %89)
+  %91 = fptosi double %90 to i32
+  %92 = sub i32 %85, %91
+  %93 = icmp eq i32 %85, %91
+  %spec.store.select.us = select i1 %93, i32 1, i32 %92
+  %.not134.us = icmp slt i32 %spec.store.select.us, %85
+  %94 = add i32 %85, -1
+  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %94
   %spec.select139.us = tail call i32 @llvm.smin.i32(i32 %spec.select166.us, i32 %.1118182.us)
-  %94 = sub i32 %84, %spec.select139.us
-  store i32 %94, ptr %83, align 4, !tbaa !66
-  %95 = sub nsw i32 %.2123181.us, %spec.select139.us
-  %96 = sub nsw i32 %.1118182.us, %spec.select139.us
-  %97 = icmp eq i32 %95, 4096
-  br i1 %97, label %.thread.us, label %98
+  %95 = sub i32 %85, %spec.select139.us
+  store i32 %95, ptr %84, align 4, !tbaa !66
+  %96 = sub nsw i32 %.2123181.us, %spec.select139.us
+  %97 = sub nsw i32 %.1118182.us, %spec.select139.us
+  %98 = icmp eq i32 %96, 4096
+  br i1 %98, label %.thread.us, label %99
 
-98:                                               ; preds = %86
-  %99 = add nsw i32 %.0113183.us, -1
-  %100 = icmp sgt i32 %.0113183.us, 1
-  br i1 %100, label %78, label %.thread.us, !llvm.loop !224
+99:                                               ; preds = %87
+  %100 = add nsw i32 %.0113183.us, -1
+  %101 = icmp sgt i32 %.0113183.us, 1
+  br i1 %101, label %79, label %.thread.us, !llvm.loop !224
 
-101:                                              ; preds = %78
-  %102 = icmp eq i32 %.0113183.us, %.0114.lcssa
-  br i1 %102, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
+102:                                              ; preds = %79
+  %103 = icmp eq i32 %.0113183.us, %.0114.lcssa
+  br i1 %103, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
 
-.thread.us:                                       ; preds = %86, %98, %101
-  %.3124.us = phi i32 [ %.2123181.us, %101 ], [ %95, %98 ], [ 4096, %86 ]
-  %.2119.us = phi i32 [ %.1118182.us, %101 ], [ %96, %98 ], [ %96, %86 ]
-  %103 = icmp sgt i32 %.2119.us, 0
-  br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !225
+.thread.us:                                       ; preds = %87, %99, %102
+  %.3124.us = phi i32 [ %.2123181.us, %102 ], [ %96, %99 ], [ 4096, %87 ]
+  %.2119.us = phi i32 [ %.1118182.us, %102 ], [ %97, %99 ], [ %97, %87 ]
+  %104 = icmp sgt i32 %.2119.us, 0
+  br i1 %104, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !225
 
-_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
+_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %102
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %132
+  br label %133
 
-_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
+_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %104
+  br label %105
 
-104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
-  %105 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %108
+105:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
+  %106 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %109
 
-106:                                              ; preds = %108
-  %.not136 = icmp eq i32 %112, 4096
-  br i1 %.not136, label %.preheader, label %132
+107:                                              ; preds = %109
+  %.not136 = icmp eq i32 %113, 4096
+  br i1 %.not136, label %.preheader, label %133
 
-.preheader:                                       ; preds = %106
-  %107 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %119
+.preheader:                                       ; preds = %107
+  %108 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %120
 
-108:                                              ; preds = %104, %108
-  %indvars.iv220 = phi i64 [ 0, %104 ], [ %indvars.iv.next221, %108 ]
-  %.0104195 = phi i32 [ 0, %104 ], [ %112, %108 ]
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %105, i64 %indvars.iv220
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
-  store i32 %.0104195, ptr %110, align 4, !tbaa !69
-  %111 = load i32, ptr %109, align 4, !tbaa !66
-  %112 = add i32 %111, %.0104195
+109:                                              ; preds = %105, %109
+  %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
+  %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
+  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
+  store i32 %.0104195, ptr %111, align 4, !tbaa !69
+  %112 = load i32, ptr %110, align 4, !tbaa !66
+  %113 = add i32 %112, %.0104195
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %exitcond224.not = icmp eq i64 %indvars.iv.next221, %9
-  br i1 %exitcond224.not, label %106, label %108, !llvm.loop !226
+  br i1 %exitcond224.not, label %107, label %109, !llvm.loop !226
 
-113:                                              ; preds = %131
-  %114 = fneg double %.1102
-  %115 = tail call double @llvm.ceil.f64(double %114)
-  %116 = fptoui double %115 to i64
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %116, ptr %117, align 8, !tbaa !111
-  %118 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi1EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+114:                                              ; preds = %132
+  %115 = fneg double %.1102
+  %116 = tail call double @llvm.ceil.f64(double %115)
+  %117 = fptoui double %116 to i64
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %117, ptr %118, align 8, !tbaa !111
+  %119 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi1EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+  br label %133
+
+120:                                              ; preds = %.preheader, %132
+  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
+  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
+  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %122 = load i32, ptr %121, align 4, !tbaa !66
+  %123 = icmp eq i32 %122, 0
+  br i1 %123, label %132, label %124
+
+124:                                              ; preds = %120
+  %125 = uitofp i32 %122 to double
+  %126 = fmul double %125, 0x3F30000000000000
+  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %128 = load i64, ptr %127, align 8, !tbaa !9
+  %129 = uitofp i64 %128 to double
+  %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
+  %131 = tail call double @llvm.fmuladd.f64(double %129, double %130, double %.0101197)
   br label %132
 
-119:                                              ; preds = %.preheader, %131
-  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %131 ]
-  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %131 ]
-  %120 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %107, i64 %indvars.iv225
-  %121 = load i32, ptr %120, align 4, !tbaa !66
-  %122 = icmp eq i32 %121, 0
-  br i1 %122, label %131, label %123
-
-123:                                              ; preds = %119
-  %124 = uitofp i32 %121 to double
-  %125 = fmul double %124, 0x3F30000000000000
-  %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
-  %127 = load i64, ptr %126, align 8, !tbaa !9
-  %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
-  %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
-  br label %131
-
-131:                                              ; preds = %119, %123
-  %.1102 = phi double [ %.0101197, %119 ], [ %130, %123 ]
+132:                                              ; preds = %120, %124
+  %.1102 = phi double [ %.0101197, %120 ], [ %131, %124 ]
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next226, %9
-  br i1 %exitcond229.not, label %113, label %119, !llvm.loop !227
+  br i1 %exitcond229.not, label %114, label %120, !llvm.loop !227
 
-132:                                              ; preds = %113, %106, %_ZNSt6vectorIiSaIiEED2Ev.exit144
-  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %118, %113 ], [ false, %106 ]
+133:                                              ; preds = %114, %107, %_ZNSt6vectorIiSaIiEED2Ev.exit144
+  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %119, %114 ], [ false, %107 ]
   ret i1 %.7
 }
 
@@ -10054,7 +10054,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 30:                                               ; preds = %31
   %.not131 = icmp eq i32 %41, 4096
-  br i1 %.not131, label %104, label %.noexc
+  br i1 %.not131, label %105, label %.noexc
 
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
@@ -10093,9 +10093,9 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
   %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
-  br label %61
+  br label %62
 
-48:                                               ; preds = %61
+48:                                               ; preds = %62
   %49 = icmp eq ptr %43, %.0.i.i.i.i.i
   br i1 %49, label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEvT_SB_T0_.exit, label %50
 
@@ -10117,8 +10117,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not14.i.i.i.i = icmp samesign ult i64 %.010.i.i.in.in.i.i, 3
-  br i1 %.not14.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
+  %58 = icmp eq i64 %.010.i.i.i.i, 1
+  br i1 %58, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %50
   invoke void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEEvT_SE_T0_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr nonnull %0)
@@ -10127,12 +10127,12 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i, %.loopexit.i.i
   %.sroa.4.026.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.023.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %58 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  resume { ptr, i32 } %58
+  resume { ptr, i32 } %59
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   invoke void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lNS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEEvT_SE_T0_T1_T2_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr noundef nonnull %57, i64 noundef %.010.i.i.i.i, ptr nonnull %0)
@@ -10141,163 +10141,163 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEvT_SB_T0_.exit
 
-61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
-  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %61 ]
-  %62 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
-  %63 = trunc nuw nsw i64 %indvars.iv215 to i32
-  store i32 %63, ptr %62, align 4, !tbaa !15
+62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
+  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
+  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %64 = trunc nuw nsw i64 %indvars.iv215 to i32
+  store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next216, %9
-  br i1 %exitcond219.not, label %48, label %61, !llvm.loop !245
+  br i1 %exitcond219.not, label %48, label %62, !llvm.loop !245
 
 _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEvT_SB_T0_.exit: ; preds = %.loopexit._crit_edge.i.i, %48
-  %64 = icmp slt i32 %41, 4096
-  br i1 %64, label %65, label %.lr.ph194
+  %65 = icmp slt i32 %41, 4096
+  br i1 %65, label %66, label %.lr.ph194
 
-65:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEvT_SB_T0_.exit
-  %66 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
-  %67 = load i32, ptr %66, align 4, !tbaa !15
-  %68 = sext i32 %67 to i64
-  %69 = load ptr, ptr %0, align 8, !tbaa !65
-  %70 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %69, i64 %68
-  %71 = load i32, ptr %70, align 4, !tbaa !66
-  %reass.sub199 = sub i32 %71, %41
-  %72 = add i32 %reass.sub199, 4096
-  store i32 %72, ptr %70, align 4, !tbaa !66
+66:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEvT_SB_T0_.exit
+  %67 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
+  %68 = load i32, ptr %67, align 4, !tbaa !15
+  %69 = sext i32 %68 to i64
+  %70 = load ptr, ptr %0, align 8, !tbaa !65
+  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %72 = load i32, ptr %71, align 4, !tbaa !66
+  %reass.sub199 = sub i32 %72, %41
+  %73 = add i32 %reass.sub199, 4096
+  store i32 %73, ptr %71, align 4, !tbaa !66
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit146
 
 .lr.ph194:                                        ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEvT_SB_T0_.exit
-  %73 = icmp sgt i32 %.0114.lcssa, 0
-  %74 = load ptr, ptr %0, align 8
-  tail call void @llvm.assume(i1 %73)
-  %75 = add nsw i32 %41, -4096
+  %74 = icmp sgt i32 %.0114.lcssa, 0
+  %75 = load ptr, ptr %0, align 8
+  tail call void @llvm.assume(i1 %74)
+  %76 = add nsw i32 %41, -4096
   br label %.lr.ph185.us
 
 .lr.ph185.us:                                     ; preds = %.lr.ph194, %.thread.us
-  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %75, %.lr.ph194 ]
+  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
-  %76 = sitofp i32 %.1122191.us to double
-  %77 = fdiv double 4.096000e+03, %76
-  br label %78
+  %77 = sitofp i32 %.1122191.us to double
+  %78 = fdiv double 4.096000e+03, %77
+  br label %79
 
-78:                                               ; preds = %.lr.ph185.us, %98
-  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %99, %98 ]
-  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %96, %98 ]
-  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %95, %98 ]
-  %79 = zext nneg i32 %.0113183.us to i64
-  %80 = getelementptr inbounds nuw i32, ptr %43, i64 %79
-  %81 = load i32, ptr %80, align 4, !tbaa !15
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %74, i64 %82
-  %84 = load i32, ptr %83, align 4, !tbaa !66
-  %85 = icmp ult i32 %84, 2
-  br i1 %85, label %101, label %86
+79:                                               ; preds = %.lr.ph185.us, %99
+  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %100, %99 ]
+  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
+  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
+  %80 = zext nneg i32 %.0113183.us to i64
+  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %82 = load i32, ptr %81, align 4, !tbaa !15
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %85 = load i32, ptr %84, align 4, !tbaa !66
+  %86 = icmp ult i32 %85, 2
+  br i1 %86, label %102, label %87
 
-86:                                               ; preds = %78
-  %87 = uitofp i32 %84 to double
-  %88 = fmul double %77, %87
-  %89 = tail call double @llvm.floor.f64(double %88)
-  %90 = fptosi double %89 to i32
-  %91 = sub i32 %84, %90
-  %92 = icmp eq i32 %84, %90
-  %spec.store.select.us = select i1 %92, i32 1, i32 %91
-  %.not134.us = icmp slt i32 %spec.store.select.us, %84
-  %93 = add i32 %84, -1
-  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %93
+87:                                               ; preds = %79
+  %88 = uitofp i32 %85 to double
+  %89 = fmul double %78, %88
+  %90 = tail call double @llvm.floor.f64(double %89)
+  %91 = fptosi double %90 to i32
+  %92 = sub i32 %85, %91
+  %93 = icmp eq i32 %85, %91
+  %spec.store.select.us = select i1 %93, i32 1, i32 %92
+  %.not134.us = icmp slt i32 %spec.store.select.us, %85
+  %94 = add i32 %85, -1
+  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %94
   %spec.select139.us = tail call i32 @llvm.smin.i32(i32 %spec.select166.us, i32 %.1118182.us)
-  %94 = sub i32 %84, %spec.select139.us
-  store i32 %94, ptr %83, align 4, !tbaa !66
-  %95 = sub nsw i32 %.2123181.us, %spec.select139.us
-  %96 = sub nsw i32 %.1118182.us, %spec.select139.us
-  %97 = icmp eq i32 %95, 4096
-  br i1 %97, label %.thread.us, label %98
+  %95 = sub i32 %85, %spec.select139.us
+  store i32 %95, ptr %84, align 4, !tbaa !66
+  %96 = sub nsw i32 %.2123181.us, %spec.select139.us
+  %97 = sub nsw i32 %.1118182.us, %spec.select139.us
+  %98 = icmp eq i32 %96, 4096
+  br i1 %98, label %.thread.us, label %99
 
-98:                                               ; preds = %86
-  %99 = add nsw i32 %.0113183.us, -1
-  %100 = icmp sgt i32 %.0113183.us, 1
-  br i1 %100, label %78, label %.thread.us, !llvm.loop !246
+99:                                               ; preds = %87
+  %100 = add nsw i32 %.0113183.us, -1
+  %101 = icmp sgt i32 %.0113183.us, 1
+  br i1 %101, label %79, label %.thread.us, !llvm.loop !246
 
-101:                                              ; preds = %78
-  %102 = icmp eq i32 %.0113183.us, %.0114.lcssa
-  br i1 %102, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
+102:                                              ; preds = %79
+  %103 = icmp eq i32 %.0113183.us, %.0114.lcssa
+  br i1 %103, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
 
-.thread.us:                                       ; preds = %86, %98, %101
-  %.3124.us = phi i32 [ %.2123181.us, %101 ], [ %95, %98 ], [ 4096, %86 ]
-  %.2119.us = phi i32 [ %.1118182.us, %101 ], [ %96, %98 ], [ %96, %86 ]
-  %103 = icmp sgt i32 %.2119.us, 0
-  br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !247
+.thread.us:                                       ; preds = %87, %99, %102
+  %.3124.us = phi i32 [ %.2123181.us, %102 ], [ %96, %99 ], [ 4096, %87 ]
+  %.2119.us = phi i32 [ %.1118182.us, %102 ], [ %97, %99 ], [ %97, %87 ]
+  %104 = icmp sgt i32 %.2119.us, 0
+  br i1 %104, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !247
 
-_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
+_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %102
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %132
+  br label %133
 
-_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
+_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %104
+  br label %105
 
-104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
-  %105 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %108
+105:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
+  %106 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %109
 
-106:                                              ; preds = %108
-  %.not136 = icmp eq i32 %112, 4096
-  br i1 %.not136, label %.preheader, label %132
+107:                                              ; preds = %109
+  %.not136 = icmp eq i32 %113, 4096
+  br i1 %.not136, label %.preheader, label %133
 
-.preheader:                                       ; preds = %106
-  %107 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %119
+.preheader:                                       ; preds = %107
+  %108 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %120
 
-108:                                              ; preds = %104, %108
-  %indvars.iv220 = phi i64 [ 0, %104 ], [ %indvars.iv.next221, %108 ]
-  %.0104195 = phi i32 [ 0, %104 ], [ %112, %108 ]
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %105, i64 %indvars.iv220
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
-  store i32 %.0104195, ptr %110, align 4, !tbaa !69
-  %111 = load i32, ptr %109, align 4, !tbaa !66
-  %112 = add i32 %111, %.0104195
+109:                                              ; preds = %105, %109
+  %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
+  %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
+  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
+  store i32 %.0104195, ptr %111, align 4, !tbaa !69
+  %112 = load i32, ptr %110, align 4, !tbaa !66
+  %113 = add i32 %112, %.0104195
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %exitcond224.not = icmp eq i64 %indvars.iv.next221, %9
-  br i1 %exitcond224.not, label %106, label %108, !llvm.loop !248
+  br i1 %exitcond224.not, label %107, label %109, !llvm.loop !248
 
-113:                                              ; preds = %131
-  %114 = fneg double %.1102
-  %115 = tail call double @llvm.ceil.f64(double %114)
-  %116 = fptoui double %115 to i64
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %116, ptr %117, align 8, !tbaa !116
-  %118 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi2EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+114:                                              ; preds = %132
+  %115 = fneg double %.1102
+  %116 = tail call double @llvm.ceil.f64(double %115)
+  %117 = fptoui double %116 to i64
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %117, ptr %118, align 8, !tbaa !116
+  %119 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi2EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+  br label %133
+
+120:                                              ; preds = %.preheader, %132
+  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
+  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
+  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %122 = load i32, ptr %121, align 4, !tbaa !66
+  %123 = icmp eq i32 %122, 0
+  br i1 %123, label %132, label %124
+
+124:                                              ; preds = %120
+  %125 = uitofp i32 %122 to double
+  %126 = fmul double %125, 0x3F30000000000000
+  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %128 = load i64, ptr %127, align 8, !tbaa !9
+  %129 = uitofp i64 %128 to double
+  %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
+  %131 = tail call double @llvm.fmuladd.f64(double %129, double %130, double %.0101197)
   br label %132
 
-119:                                              ; preds = %.preheader, %131
-  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %131 ]
-  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %131 ]
-  %120 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %107, i64 %indvars.iv225
-  %121 = load i32, ptr %120, align 4, !tbaa !66
-  %122 = icmp eq i32 %121, 0
-  br i1 %122, label %131, label %123
-
-123:                                              ; preds = %119
-  %124 = uitofp i32 %121 to double
-  %125 = fmul double %124, 0x3F30000000000000
-  %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
-  %127 = load i64, ptr %126, align 8, !tbaa !9
-  %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
-  %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
-  br label %131
-
-131:                                              ; preds = %119, %123
-  %.1102 = phi double [ %.0101197, %119 ], [ %130, %123 ]
+132:                                              ; preds = %120, %124
+  %.1102 = phi double [ %.0101197, %120 ], [ %131, %124 ]
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next226, %9
-  br i1 %exitcond229.not, label %113, label %119, !llvm.loop !249
+  br i1 %exitcond229.not, label %114, label %120, !llvm.loop !249
 
-132:                                              ; preds = %113, %106, %_ZNSt6vectorIiSaIiEED2Ev.exit144
-  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %118, %113 ], [ false, %106 ]
+133:                                              ; preds = %114, %107, %_ZNSt6vectorIiSaIiEED2Ev.exit144
+  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %119, %114 ], [ false, %107 ]
   ret i1 %.7
 }
 
@@ -12027,7 +12027,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 30:                                               ; preds = %31
   %.not131 = icmp eq i32 %41, 4096
-  br i1 %.not131, label %104, label %.noexc
+  br i1 %.not131, label %105, label %.noexc
 
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
@@ -12066,9 +12066,9 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
   %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
-  br label %61
+  br label %62
 
-48:                                               ; preds = %61
+48:                                               ; preds = %62
   %49 = icmp eq ptr %43, %.0.i.i.i.i.i
   br i1 %49, label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEvT_SB_T0_.exit, label %50
 
@@ -12090,8 +12090,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not14.i.i.i.i = icmp samesign ult i64 %.010.i.i.in.in.i.i, 3
-  br i1 %.not14.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
+  %58 = icmp eq i64 %.010.i.i.i.i, 1
+  br i1 %58, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %50
   invoke void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEEvT_SE_T0_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr nonnull %0)
@@ -12100,12 +12100,12 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i, %.loopexit.i.i
   %.sroa.4.026.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.023.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %58 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  resume { ptr, i32 } %58
+  resume { ptr, i32 } %59
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   invoke void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lNS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEEvT_SE_T0_T1_T2_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr noundef nonnull %57, i64 noundef %.010.i.i.i.i, ptr nonnull %0)
@@ -12114,163 +12114,163 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEvT_SB_T0_.exit
 
-61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
-  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %61 ]
-  %62 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
-  %63 = trunc nuw nsw i64 %indvars.iv215 to i32
-  store i32 %63, ptr %62, align 4, !tbaa !15
+62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
+  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
+  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %64 = trunc nuw nsw i64 %indvars.iv215 to i32
+  store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next216, %9
-  br i1 %exitcond219.not, label %48, label %61, !llvm.loop !267
+  br i1 %exitcond219.not, label %48, label %62, !llvm.loop !267
 
 _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEvT_SB_T0_.exit: ; preds = %.loopexit._crit_edge.i.i, %48
-  %64 = icmp slt i32 %41, 4096
-  br i1 %64, label %65, label %.lr.ph194
+  %65 = icmp slt i32 %41, 4096
+  br i1 %65, label %66, label %.lr.ph194
 
-65:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEvT_SB_T0_.exit
-  %66 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
-  %67 = load i32, ptr %66, align 4, !tbaa !15
-  %68 = sext i32 %67 to i64
-  %69 = load ptr, ptr %0, align 8, !tbaa !65
-  %70 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %69, i64 %68
-  %71 = load i32, ptr %70, align 4, !tbaa !66
-  %reass.sub199 = sub i32 %71, %41
-  %72 = add i32 %reass.sub199, 4096
-  store i32 %72, ptr %70, align 4, !tbaa !66
+66:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEvT_SB_T0_.exit
+  %67 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
+  %68 = load i32, ptr %67, align 4, !tbaa !15
+  %69 = sext i32 %68 to i64
+  %70 = load ptr, ptr %0, align 8, !tbaa !65
+  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %72 = load i32, ptr %71, align 4, !tbaa !66
+  %reass.sub199 = sub i32 %72, %41
+  %73 = add i32 %reass.sub199, 4096
+  store i32 %73, ptr %71, align 4, !tbaa !66
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit146
 
 .lr.ph194:                                        ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEvT_SB_T0_.exit
-  %73 = icmp sgt i32 %.0114.lcssa, 0
-  %74 = load ptr, ptr %0, align 8
-  tail call void @llvm.assume(i1 %73)
-  %75 = add nsw i32 %41, -4096
+  %74 = icmp sgt i32 %.0114.lcssa, 0
+  %75 = load ptr, ptr %0, align 8
+  tail call void @llvm.assume(i1 %74)
+  %76 = add nsw i32 %41, -4096
   br label %.lr.ph185.us
 
 .lr.ph185.us:                                     ; preds = %.lr.ph194, %.thread.us
-  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %75, %.lr.ph194 ]
+  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
-  %76 = sitofp i32 %.1122191.us to double
-  %77 = fdiv double 4.096000e+03, %76
-  br label %78
+  %77 = sitofp i32 %.1122191.us to double
+  %78 = fdiv double 4.096000e+03, %77
+  br label %79
 
-78:                                               ; preds = %.lr.ph185.us, %98
-  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %99, %98 ]
-  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %96, %98 ]
-  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %95, %98 ]
-  %79 = zext nneg i32 %.0113183.us to i64
-  %80 = getelementptr inbounds nuw i32, ptr %43, i64 %79
-  %81 = load i32, ptr %80, align 4, !tbaa !15
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %74, i64 %82
-  %84 = load i32, ptr %83, align 4, !tbaa !66
-  %85 = icmp ult i32 %84, 2
-  br i1 %85, label %101, label %86
+79:                                               ; preds = %.lr.ph185.us, %99
+  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %100, %99 ]
+  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
+  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
+  %80 = zext nneg i32 %.0113183.us to i64
+  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %82 = load i32, ptr %81, align 4, !tbaa !15
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %85 = load i32, ptr %84, align 4, !tbaa !66
+  %86 = icmp ult i32 %85, 2
+  br i1 %86, label %102, label %87
 
-86:                                               ; preds = %78
-  %87 = uitofp i32 %84 to double
-  %88 = fmul double %77, %87
-  %89 = tail call double @llvm.floor.f64(double %88)
-  %90 = fptosi double %89 to i32
-  %91 = sub i32 %84, %90
-  %92 = icmp eq i32 %84, %90
-  %spec.store.select.us = select i1 %92, i32 1, i32 %91
-  %.not134.us = icmp slt i32 %spec.store.select.us, %84
-  %93 = add i32 %84, -1
-  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %93
+87:                                               ; preds = %79
+  %88 = uitofp i32 %85 to double
+  %89 = fmul double %78, %88
+  %90 = tail call double @llvm.floor.f64(double %89)
+  %91 = fptosi double %90 to i32
+  %92 = sub i32 %85, %91
+  %93 = icmp eq i32 %85, %91
+  %spec.store.select.us = select i1 %93, i32 1, i32 %92
+  %.not134.us = icmp slt i32 %spec.store.select.us, %85
+  %94 = add i32 %85, -1
+  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %94
   %spec.select139.us = tail call i32 @llvm.smin.i32(i32 %spec.select166.us, i32 %.1118182.us)
-  %94 = sub i32 %84, %spec.select139.us
-  store i32 %94, ptr %83, align 4, !tbaa !66
-  %95 = sub nsw i32 %.2123181.us, %spec.select139.us
-  %96 = sub nsw i32 %.1118182.us, %spec.select139.us
-  %97 = icmp eq i32 %95, 4096
-  br i1 %97, label %.thread.us, label %98
+  %95 = sub i32 %85, %spec.select139.us
+  store i32 %95, ptr %84, align 4, !tbaa !66
+  %96 = sub nsw i32 %.2123181.us, %spec.select139.us
+  %97 = sub nsw i32 %.1118182.us, %spec.select139.us
+  %98 = icmp eq i32 %96, 4096
+  br i1 %98, label %.thread.us, label %99
 
-98:                                               ; preds = %86
-  %99 = add nsw i32 %.0113183.us, -1
-  %100 = icmp sgt i32 %.0113183.us, 1
-  br i1 %100, label %78, label %.thread.us, !llvm.loop !268
+99:                                               ; preds = %87
+  %100 = add nsw i32 %.0113183.us, -1
+  %101 = icmp sgt i32 %.0113183.us, 1
+  br i1 %101, label %79, label %.thread.us, !llvm.loop !268
 
-101:                                              ; preds = %78
-  %102 = icmp eq i32 %.0113183.us, %.0114.lcssa
-  br i1 %102, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
+102:                                              ; preds = %79
+  %103 = icmp eq i32 %.0113183.us, %.0114.lcssa
+  br i1 %103, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
 
-.thread.us:                                       ; preds = %86, %98, %101
-  %.3124.us = phi i32 [ %.2123181.us, %101 ], [ %95, %98 ], [ 4096, %86 ]
-  %.2119.us = phi i32 [ %.1118182.us, %101 ], [ %96, %98 ], [ %96, %86 ]
-  %103 = icmp sgt i32 %.2119.us, 0
-  br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !269
+.thread.us:                                       ; preds = %87, %99, %102
+  %.3124.us = phi i32 [ %.2123181.us, %102 ], [ %96, %99 ], [ 4096, %87 ]
+  %.2119.us = phi i32 [ %.1118182.us, %102 ], [ %97, %99 ], [ %97, %87 ]
+  %104 = icmp sgt i32 %.2119.us, 0
+  br i1 %104, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !269
 
-_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
+_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %102
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %132
+  br label %133
 
-_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
+_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %104
+  br label %105
 
-104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
-  %105 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %108
+105:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
+  %106 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %109
 
-106:                                              ; preds = %108
-  %.not136 = icmp eq i32 %112, 4096
-  br i1 %.not136, label %.preheader, label %132
+107:                                              ; preds = %109
+  %.not136 = icmp eq i32 %113, 4096
+  br i1 %.not136, label %.preheader, label %133
 
-.preheader:                                       ; preds = %106
-  %107 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %119
+.preheader:                                       ; preds = %107
+  %108 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %120
 
-108:                                              ; preds = %104, %108
-  %indvars.iv220 = phi i64 [ 0, %104 ], [ %indvars.iv.next221, %108 ]
-  %.0104195 = phi i32 [ 0, %104 ], [ %112, %108 ]
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %105, i64 %indvars.iv220
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
-  store i32 %.0104195, ptr %110, align 4, !tbaa !69
-  %111 = load i32, ptr %109, align 4, !tbaa !66
-  %112 = add i32 %111, %.0104195
+109:                                              ; preds = %105, %109
+  %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
+  %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
+  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
+  store i32 %.0104195, ptr %111, align 4, !tbaa !69
+  %112 = load i32, ptr %110, align 4, !tbaa !66
+  %113 = add i32 %112, %.0104195
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %exitcond224.not = icmp eq i64 %indvars.iv.next221, %9
-  br i1 %exitcond224.not, label %106, label %108, !llvm.loop !270
+  br i1 %exitcond224.not, label %107, label %109, !llvm.loop !270
 
-113:                                              ; preds = %131
-  %114 = fneg double %.1102
-  %115 = tail call double @llvm.ceil.f64(double %114)
-  %116 = fptoui double %115 to i64
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %116, ptr %117, align 8, !tbaa !121
-  %118 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi3EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+114:                                              ; preds = %132
+  %115 = fneg double %.1102
+  %116 = tail call double @llvm.ceil.f64(double %115)
+  %117 = fptoui double %116 to i64
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %117, ptr %118, align 8, !tbaa !121
+  %119 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi3EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+  br label %133
+
+120:                                              ; preds = %.preheader, %132
+  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
+  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
+  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %122 = load i32, ptr %121, align 4, !tbaa !66
+  %123 = icmp eq i32 %122, 0
+  br i1 %123, label %132, label %124
+
+124:                                              ; preds = %120
+  %125 = uitofp i32 %122 to double
+  %126 = fmul double %125, 0x3F30000000000000
+  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %128 = load i64, ptr %127, align 8, !tbaa !9
+  %129 = uitofp i64 %128 to double
+  %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
+  %131 = tail call double @llvm.fmuladd.f64(double %129, double %130, double %.0101197)
   br label %132
 
-119:                                              ; preds = %.preheader, %131
-  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %131 ]
-  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %131 ]
-  %120 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %107, i64 %indvars.iv225
-  %121 = load i32, ptr %120, align 4, !tbaa !66
-  %122 = icmp eq i32 %121, 0
-  br i1 %122, label %131, label %123
-
-123:                                              ; preds = %119
-  %124 = uitofp i32 %121 to double
-  %125 = fmul double %124, 0x3F30000000000000
-  %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
-  %127 = load i64, ptr %126, align 8, !tbaa !9
-  %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
-  %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
-  br label %131
-
-131:                                              ; preds = %119, %123
-  %.1102 = phi double [ %.0101197, %119 ], [ %130, %123 ]
+132:                                              ; preds = %120, %124
+  %.1102 = phi double [ %.0101197, %120 ], [ %131, %124 ]
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next226, %9
-  br i1 %exitcond229.not, label %113, label %119, !llvm.loop !271
+  br i1 %exitcond229.not, label %114, label %120, !llvm.loop !271
 
-132:                                              ; preds = %113, %106, %_ZNSt6vectorIiSaIiEED2Ev.exit144
-  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %118, %113 ], [ false, %106 ]
+133:                                              ; preds = %114, %107, %_ZNSt6vectorIiSaIiEED2Ev.exit144
+  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %119, %114 ], [ false, %107 ]
   ret i1 %.7
 }
 
@@ -14000,7 +14000,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 30:                                               ; preds = %31
   %.not131 = icmp eq i32 %41, 4096
-  br i1 %.not131, label %104, label %.noexc
+  br i1 %.not131, label %105, label %.noexc
 
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
@@ -14039,9 +14039,9 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
   %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
-  br label %61
+  br label %62
 
-48:                                               ; preds = %61
+48:                                               ; preds = %62
   %49 = icmp eq ptr %43, %.0.i.i.i.i.i
   br i1 %49, label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEvT_SB_T0_.exit, label %50
 
@@ -14063,8 +14063,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not14.i.i.i.i = icmp samesign ult i64 %.010.i.i.in.in.i.i, 3
-  br i1 %.not14.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
+  %58 = icmp eq i64 %.010.i.i.i.i, 1
+  br i1 %58, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %50
   invoke void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEEvT_SE_T0_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr nonnull %0)
@@ -14073,12 +14073,12 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i, %.loopexit.i.i
   %.sroa.4.026.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.023.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %58 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  resume { ptr, i32 } %58
+  resume { ptr, i32 } %59
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   invoke void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lNS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEEvT_SE_T0_T1_T2_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr noundef nonnull %57, i64 noundef %.010.i.i.i.i, ptr nonnull %0)
@@ -14087,163 +14087,163 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEvT_SB_T0_.exit
 
-61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
-  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %61 ]
-  %62 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
-  %63 = trunc nuw nsw i64 %indvars.iv215 to i32
-  store i32 %63, ptr %62, align 4, !tbaa !15
+62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
+  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
+  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %64 = trunc nuw nsw i64 %indvars.iv215 to i32
+  store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next216, %9
-  br i1 %exitcond219.not, label %48, label %61, !llvm.loop !289
+  br i1 %exitcond219.not, label %48, label %62, !llvm.loop !289
 
 _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEvT_SB_T0_.exit: ; preds = %.loopexit._crit_edge.i.i, %48
-  %64 = icmp slt i32 %41, 4096
-  br i1 %64, label %65, label %.lr.ph194
+  %65 = icmp slt i32 %41, 4096
+  br i1 %65, label %66, label %.lr.ph194
 
-65:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEvT_SB_T0_.exit
-  %66 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
-  %67 = load i32, ptr %66, align 4, !tbaa !15
-  %68 = sext i32 %67 to i64
-  %69 = load ptr, ptr %0, align 8, !tbaa !65
-  %70 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %69, i64 %68
-  %71 = load i32, ptr %70, align 4, !tbaa !66
-  %reass.sub199 = sub i32 %71, %41
-  %72 = add i32 %reass.sub199, 4096
-  store i32 %72, ptr %70, align 4, !tbaa !66
+66:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEvT_SB_T0_.exit
+  %67 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
+  %68 = load i32, ptr %67, align 4, !tbaa !15
+  %69 = sext i32 %68 to i64
+  %70 = load ptr, ptr %0, align 8, !tbaa !65
+  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %72 = load i32, ptr %71, align 4, !tbaa !66
+  %reass.sub199 = sub i32 %72, %41
+  %73 = add i32 %reass.sub199, 4096
+  store i32 %73, ptr %71, align 4, !tbaa !66
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit146
 
 .lr.ph194:                                        ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEvT_SB_T0_.exit
-  %73 = icmp sgt i32 %.0114.lcssa, 0
-  %74 = load ptr, ptr %0, align 8
-  tail call void @llvm.assume(i1 %73)
-  %75 = add nsw i32 %41, -4096
+  %74 = icmp sgt i32 %.0114.lcssa, 0
+  %75 = load ptr, ptr %0, align 8
+  tail call void @llvm.assume(i1 %74)
+  %76 = add nsw i32 %41, -4096
   br label %.lr.ph185.us
 
 .lr.ph185.us:                                     ; preds = %.lr.ph194, %.thread.us
-  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %75, %.lr.ph194 ]
+  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
-  %76 = sitofp i32 %.1122191.us to double
-  %77 = fdiv double 4.096000e+03, %76
-  br label %78
+  %77 = sitofp i32 %.1122191.us to double
+  %78 = fdiv double 4.096000e+03, %77
+  br label %79
 
-78:                                               ; preds = %.lr.ph185.us, %98
-  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %99, %98 ]
-  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %96, %98 ]
-  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %95, %98 ]
-  %79 = zext nneg i32 %.0113183.us to i64
-  %80 = getelementptr inbounds nuw i32, ptr %43, i64 %79
-  %81 = load i32, ptr %80, align 4, !tbaa !15
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %74, i64 %82
-  %84 = load i32, ptr %83, align 4, !tbaa !66
-  %85 = icmp ult i32 %84, 2
-  br i1 %85, label %101, label %86
+79:                                               ; preds = %.lr.ph185.us, %99
+  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %100, %99 ]
+  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
+  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
+  %80 = zext nneg i32 %.0113183.us to i64
+  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %82 = load i32, ptr %81, align 4, !tbaa !15
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %85 = load i32, ptr %84, align 4, !tbaa !66
+  %86 = icmp ult i32 %85, 2
+  br i1 %86, label %102, label %87
 
-86:                                               ; preds = %78
-  %87 = uitofp i32 %84 to double
-  %88 = fmul double %77, %87
-  %89 = tail call double @llvm.floor.f64(double %88)
-  %90 = fptosi double %89 to i32
-  %91 = sub i32 %84, %90
-  %92 = icmp eq i32 %84, %90
-  %spec.store.select.us = select i1 %92, i32 1, i32 %91
-  %.not134.us = icmp slt i32 %spec.store.select.us, %84
-  %93 = add i32 %84, -1
-  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %93
+87:                                               ; preds = %79
+  %88 = uitofp i32 %85 to double
+  %89 = fmul double %78, %88
+  %90 = tail call double @llvm.floor.f64(double %89)
+  %91 = fptosi double %90 to i32
+  %92 = sub i32 %85, %91
+  %93 = icmp eq i32 %85, %91
+  %spec.store.select.us = select i1 %93, i32 1, i32 %92
+  %.not134.us = icmp slt i32 %spec.store.select.us, %85
+  %94 = add i32 %85, -1
+  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %94
   %spec.select139.us = tail call i32 @llvm.smin.i32(i32 %spec.select166.us, i32 %.1118182.us)
-  %94 = sub i32 %84, %spec.select139.us
-  store i32 %94, ptr %83, align 4, !tbaa !66
-  %95 = sub nsw i32 %.2123181.us, %spec.select139.us
-  %96 = sub nsw i32 %.1118182.us, %spec.select139.us
-  %97 = icmp eq i32 %95, 4096
-  br i1 %97, label %.thread.us, label %98
+  %95 = sub i32 %85, %spec.select139.us
+  store i32 %95, ptr %84, align 4, !tbaa !66
+  %96 = sub nsw i32 %.2123181.us, %spec.select139.us
+  %97 = sub nsw i32 %.1118182.us, %spec.select139.us
+  %98 = icmp eq i32 %96, 4096
+  br i1 %98, label %.thread.us, label %99
 
-98:                                               ; preds = %86
-  %99 = add nsw i32 %.0113183.us, -1
-  %100 = icmp sgt i32 %.0113183.us, 1
-  br i1 %100, label %78, label %.thread.us, !llvm.loop !290
+99:                                               ; preds = %87
+  %100 = add nsw i32 %.0113183.us, -1
+  %101 = icmp sgt i32 %.0113183.us, 1
+  br i1 %101, label %79, label %.thread.us, !llvm.loop !290
 
-101:                                              ; preds = %78
-  %102 = icmp eq i32 %.0113183.us, %.0114.lcssa
-  br i1 %102, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
+102:                                              ; preds = %79
+  %103 = icmp eq i32 %.0113183.us, %.0114.lcssa
+  br i1 %103, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
 
-.thread.us:                                       ; preds = %86, %98, %101
-  %.3124.us = phi i32 [ %.2123181.us, %101 ], [ %95, %98 ], [ 4096, %86 ]
-  %.2119.us = phi i32 [ %.1118182.us, %101 ], [ %96, %98 ], [ %96, %86 ]
-  %103 = icmp sgt i32 %.2119.us, 0
-  br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !291
+.thread.us:                                       ; preds = %87, %99, %102
+  %.3124.us = phi i32 [ %.2123181.us, %102 ], [ %96, %99 ], [ 4096, %87 ]
+  %.2119.us = phi i32 [ %.1118182.us, %102 ], [ %97, %99 ], [ %97, %87 ]
+  %104 = icmp sgt i32 %.2119.us, 0
+  br i1 %104, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !291
 
-_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
+_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %102
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %132
+  br label %133
 
-_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
+_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %104
+  br label %105
 
-104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
-  %105 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %108
+105:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
+  %106 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %109
 
-106:                                              ; preds = %108
-  %.not136 = icmp eq i32 %112, 4096
-  br i1 %.not136, label %.preheader, label %132
+107:                                              ; preds = %109
+  %.not136 = icmp eq i32 %113, 4096
+  br i1 %.not136, label %.preheader, label %133
 
-.preheader:                                       ; preds = %106
-  %107 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %119
+.preheader:                                       ; preds = %107
+  %108 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %120
 
-108:                                              ; preds = %104, %108
-  %indvars.iv220 = phi i64 [ 0, %104 ], [ %indvars.iv.next221, %108 ]
-  %.0104195 = phi i32 [ 0, %104 ], [ %112, %108 ]
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %105, i64 %indvars.iv220
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
-  store i32 %.0104195, ptr %110, align 4, !tbaa !69
-  %111 = load i32, ptr %109, align 4, !tbaa !66
-  %112 = add i32 %111, %.0104195
+109:                                              ; preds = %105, %109
+  %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
+  %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
+  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
+  store i32 %.0104195, ptr %111, align 4, !tbaa !69
+  %112 = load i32, ptr %110, align 4, !tbaa !66
+  %113 = add i32 %112, %.0104195
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %exitcond224.not = icmp eq i64 %indvars.iv.next221, %9
-  br i1 %exitcond224.not, label %106, label %108, !llvm.loop !292
+  br i1 %exitcond224.not, label %107, label %109, !llvm.loop !292
 
-113:                                              ; preds = %131
-  %114 = fneg double %.1102
-  %115 = tail call double @llvm.ceil.f64(double %114)
-  %116 = fptoui double %115 to i64
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %116, ptr %117, align 8, !tbaa !126
-  %118 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi4EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+114:                                              ; preds = %132
+  %115 = fneg double %.1102
+  %116 = tail call double @llvm.ceil.f64(double %115)
+  %117 = fptoui double %116 to i64
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %117, ptr %118, align 8, !tbaa !126
+  %119 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi4EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+  br label %133
+
+120:                                              ; preds = %.preheader, %132
+  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
+  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
+  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %122 = load i32, ptr %121, align 4, !tbaa !66
+  %123 = icmp eq i32 %122, 0
+  br i1 %123, label %132, label %124
+
+124:                                              ; preds = %120
+  %125 = uitofp i32 %122 to double
+  %126 = fmul double %125, 0x3F30000000000000
+  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %128 = load i64, ptr %127, align 8, !tbaa !9
+  %129 = uitofp i64 %128 to double
+  %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
+  %131 = tail call double @llvm.fmuladd.f64(double %129, double %130, double %.0101197)
   br label %132
 
-119:                                              ; preds = %.preheader, %131
-  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %131 ]
-  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %131 ]
-  %120 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %107, i64 %indvars.iv225
-  %121 = load i32, ptr %120, align 4, !tbaa !66
-  %122 = icmp eq i32 %121, 0
-  br i1 %122, label %131, label %123
-
-123:                                              ; preds = %119
-  %124 = uitofp i32 %121 to double
-  %125 = fmul double %124, 0x3F30000000000000
-  %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
-  %127 = load i64, ptr %126, align 8, !tbaa !9
-  %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
-  %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
-  br label %131
-
-131:                                              ; preds = %119, %123
-  %.1102 = phi double [ %.0101197, %119 ], [ %130, %123 ]
+132:                                              ; preds = %120, %124
+  %.1102 = phi double [ %.0101197, %120 ], [ %131, %124 ]
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next226, %9
-  br i1 %exitcond229.not, label %113, label %119, !llvm.loop !293
+  br i1 %exitcond229.not, label %114, label %120, !llvm.loop !293
 
-132:                                              ; preds = %113, %106, %_ZNSt6vectorIiSaIiEED2Ev.exit144
-  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %118, %113 ], [ false, %106 ]
+133:                                              ; preds = %114, %107, %_ZNSt6vectorIiSaIiEED2Ev.exit144
+  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %119, %114 ], [ false, %107 ]
   ret i1 %.7
 }
 
@@ -15973,7 +15973,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 30:                                               ; preds = %31
   %.not131 = icmp eq i32 %41, 4096
-  br i1 %.not131, label %104, label %.noexc
+  br i1 %.not131, label %105, label %.noexc
 
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
@@ -16012,9 +16012,9 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
   %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
-  br label %61
+  br label %62
 
-48:                                               ; preds = %61
+48:                                               ; preds = %62
   %49 = icmp eq ptr %43, %.0.i.i.i.i.i
   br i1 %49, label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEvT_SB_T0_.exit, label %50
 
@@ -16036,8 +16036,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not14.i.i.i.i = icmp samesign ult i64 %.010.i.i.in.in.i.i, 3
-  br i1 %.not14.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
+  %58 = icmp eq i64 %.010.i.i.i.i, 1
+  br i1 %58, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %50
   invoke void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEEvT_SE_T0_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr nonnull %0)
@@ -16046,12 +16046,12 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i, %.loopexit.i.i
   %.sroa.4.026.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.023.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %58 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  resume { ptr, i32 } %58
+  resume { ptr, i32 } %59
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   invoke void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lNS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEEvT_SE_T0_T1_T2_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr noundef nonnull %57, i64 noundef %.010.i.i.i.i, ptr nonnull %0)
@@ -16060,163 +16060,163 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEvT_SB_T0_.exit
 
-61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
-  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %61 ]
-  %62 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
-  %63 = trunc nuw nsw i64 %indvars.iv215 to i32
-  store i32 %63, ptr %62, align 4, !tbaa !15
+62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
+  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
+  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %64 = trunc nuw nsw i64 %indvars.iv215 to i32
+  store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next216, %9
-  br i1 %exitcond219.not, label %48, label %61, !llvm.loop !311
+  br i1 %exitcond219.not, label %48, label %62, !llvm.loop !311
 
 _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEvT_SB_T0_.exit: ; preds = %.loopexit._crit_edge.i.i, %48
-  %64 = icmp slt i32 %41, 4096
-  br i1 %64, label %65, label %.lr.ph194
+  %65 = icmp slt i32 %41, 4096
+  br i1 %65, label %66, label %.lr.ph194
 
-65:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEvT_SB_T0_.exit
-  %66 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
-  %67 = load i32, ptr %66, align 4, !tbaa !15
-  %68 = sext i32 %67 to i64
-  %69 = load ptr, ptr %0, align 8, !tbaa !65
-  %70 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %69, i64 %68
-  %71 = load i32, ptr %70, align 4, !tbaa !66
-  %reass.sub199 = sub i32 %71, %41
-  %72 = add i32 %reass.sub199, 4096
-  store i32 %72, ptr %70, align 4, !tbaa !66
+66:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEvT_SB_T0_.exit
+  %67 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
+  %68 = load i32, ptr %67, align 4, !tbaa !15
+  %69 = sext i32 %68 to i64
+  %70 = load ptr, ptr %0, align 8, !tbaa !65
+  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %72 = load i32, ptr %71, align 4, !tbaa !66
+  %reass.sub199 = sub i32 %72, %41
+  %73 = add i32 %reass.sub199, 4096
+  store i32 %73, ptr %71, align 4, !tbaa !66
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit146
 
 .lr.ph194:                                        ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEvT_SB_T0_.exit
-  %73 = icmp sgt i32 %.0114.lcssa, 0
-  %74 = load ptr, ptr %0, align 8
-  tail call void @llvm.assume(i1 %73)
-  %75 = add nsw i32 %41, -4096
+  %74 = icmp sgt i32 %.0114.lcssa, 0
+  %75 = load ptr, ptr %0, align 8
+  tail call void @llvm.assume(i1 %74)
+  %76 = add nsw i32 %41, -4096
   br label %.lr.ph185.us
 
 .lr.ph185.us:                                     ; preds = %.lr.ph194, %.thread.us
-  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %75, %.lr.ph194 ]
+  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
-  %76 = sitofp i32 %.1122191.us to double
-  %77 = fdiv double 4.096000e+03, %76
-  br label %78
+  %77 = sitofp i32 %.1122191.us to double
+  %78 = fdiv double 4.096000e+03, %77
+  br label %79
 
-78:                                               ; preds = %.lr.ph185.us, %98
-  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %99, %98 ]
-  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %96, %98 ]
-  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %95, %98 ]
-  %79 = zext nneg i32 %.0113183.us to i64
-  %80 = getelementptr inbounds nuw i32, ptr %43, i64 %79
-  %81 = load i32, ptr %80, align 4, !tbaa !15
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %74, i64 %82
-  %84 = load i32, ptr %83, align 4, !tbaa !66
-  %85 = icmp ult i32 %84, 2
-  br i1 %85, label %101, label %86
+79:                                               ; preds = %.lr.ph185.us, %99
+  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %100, %99 ]
+  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
+  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
+  %80 = zext nneg i32 %.0113183.us to i64
+  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %82 = load i32, ptr %81, align 4, !tbaa !15
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %85 = load i32, ptr %84, align 4, !tbaa !66
+  %86 = icmp ult i32 %85, 2
+  br i1 %86, label %102, label %87
 
-86:                                               ; preds = %78
-  %87 = uitofp i32 %84 to double
-  %88 = fmul double %77, %87
-  %89 = tail call double @llvm.floor.f64(double %88)
-  %90 = fptosi double %89 to i32
-  %91 = sub i32 %84, %90
-  %92 = icmp eq i32 %84, %90
-  %spec.store.select.us = select i1 %92, i32 1, i32 %91
-  %.not134.us = icmp slt i32 %spec.store.select.us, %84
-  %93 = add i32 %84, -1
-  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %93
+87:                                               ; preds = %79
+  %88 = uitofp i32 %85 to double
+  %89 = fmul double %78, %88
+  %90 = tail call double @llvm.floor.f64(double %89)
+  %91 = fptosi double %90 to i32
+  %92 = sub i32 %85, %91
+  %93 = icmp eq i32 %85, %91
+  %spec.store.select.us = select i1 %93, i32 1, i32 %92
+  %.not134.us = icmp slt i32 %spec.store.select.us, %85
+  %94 = add i32 %85, -1
+  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %94
   %spec.select139.us = tail call i32 @llvm.smin.i32(i32 %spec.select166.us, i32 %.1118182.us)
-  %94 = sub i32 %84, %spec.select139.us
-  store i32 %94, ptr %83, align 4, !tbaa !66
-  %95 = sub nsw i32 %.2123181.us, %spec.select139.us
-  %96 = sub nsw i32 %.1118182.us, %spec.select139.us
-  %97 = icmp eq i32 %95, 4096
-  br i1 %97, label %.thread.us, label %98
+  %95 = sub i32 %85, %spec.select139.us
+  store i32 %95, ptr %84, align 4, !tbaa !66
+  %96 = sub nsw i32 %.2123181.us, %spec.select139.us
+  %97 = sub nsw i32 %.1118182.us, %spec.select139.us
+  %98 = icmp eq i32 %96, 4096
+  br i1 %98, label %.thread.us, label %99
 
-98:                                               ; preds = %86
-  %99 = add nsw i32 %.0113183.us, -1
-  %100 = icmp sgt i32 %.0113183.us, 1
-  br i1 %100, label %78, label %.thread.us, !llvm.loop !312
+99:                                               ; preds = %87
+  %100 = add nsw i32 %.0113183.us, -1
+  %101 = icmp sgt i32 %.0113183.us, 1
+  br i1 %101, label %79, label %.thread.us, !llvm.loop !312
 
-101:                                              ; preds = %78
-  %102 = icmp eq i32 %.0113183.us, %.0114.lcssa
-  br i1 %102, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
+102:                                              ; preds = %79
+  %103 = icmp eq i32 %.0113183.us, %.0114.lcssa
+  br i1 %103, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
 
-.thread.us:                                       ; preds = %86, %98, %101
-  %.3124.us = phi i32 [ %.2123181.us, %101 ], [ %95, %98 ], [ 4096, %86 ]
-  %.2119.us = phi i32 [ %.1118182.us, %101 ], [ %96, %98 ], [ %96, %86 ]
-  %103 = icmp sgt i32 %.2119.us, 0
-  br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !313
+.thread.us:                                       ; preds = %87, %99, %102
+  %.3124.us = phi i32 [ %.2123181.us, %102 ], [ %96, %99 ], [ 4096, %87 ]
+  %.2119.us = phi i32 [ %.1118182.us, %102 ], [ %97, %99 ], [ %97, %87 ]
+  %104 = icmp sgt i32 %.2119.us, 0
+  br i1 %104, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !313
 
-_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
+_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %102
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %132
+  br label %133
 
-_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
+_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %104
+  br label %105
 
-104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
-  %105 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %108
+105:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
+  %106 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %109
 
-106:                                              ; preds = %108
-  %.not136 = icmp eq i32 %112, 4096
-  br i1 %.not136, label %.preheader, label %132
+107:                                              ; preds = %109
+  %.not136 = icmp eq i32 %113, 4096
+  br i1 %.not136, label %.preheader, label %133
 
-.preheader:                                       ; preds = %106
-  %107 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %119
+.preheader:                                       ; preds = %107
+  %108 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %120
 
-108:                                              ; preds = %104, %108
-  %indvars.iv220 = phi i64 [ 0, %104 ], [ %indvars.iv.next221, %108 ]
-  %.0104195 = phi i32 [ 0, %104 ], [ %112, %108 ]
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %105, i64 %indvars.iv220
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
-  store i32 %.0104195, ptr %110, align 4, !tbaa !69
-  %111 = load i32, ptr %109, align 4, !tbaa !66
-  %112 = add i32 %111, %.0104195
+109:                                              ; preds = %105, %109
+  %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
+  %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
+  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
+  store i32 %.0104195, ptr %111, align 4, !tbaa !69
+  %112 = load i32, ptr %110, align 4, !tbaa !66
+  %113 = add i32 %112, %.0104195
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %exitcond224.not = icmp eq i64 %indvars.iv.next221, %9
-  br i1 %exitcond224.not, label %106, label %108, !llvm.loop !314
+  br i1 %exitcond224.not, label %107, label %109, !llvm.loop !314
 
-113:                                              ; preds = %131
-  %114 = fneg double %.1102
-  %115 = tail call double @llvm.ceil.f64(double %114)
-  %116 = fptoui double %115 to i64
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %116, ptr %117, align 8, !tbaa !132
-  %118 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi6EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+114:                                              ; preds = %132
+  %115 = fneg double %.1102
+  %116 = tail call double @llvm.ceil.f64(double %115)
+  %117 = fptoui double %116 to i64
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %117, ptr %118, align 8, !tbaa !132
+  %119 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi6EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+  br label %133
+
+120:                                              ; preds = %.preheader, %132
+  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
+  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
+  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %122 = load i32, ptr %121, align 4, !tbaa !66
+  %123 = icmp eq i32 %122, 0
+  br i1 %123, label %132, label %124
+
+124:                                              ; preds = %120
+  %125 = uitofp i32 %122 to double
+  %126 = fmul double %125, 0x3F30000000000000
+  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %128 = load i64, ptr %127, align 8, !tbaa !9
+  %129 = uitofp i64 %128 to double
+  %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
+  %131 = tail call double @llvm.fmuladd.f64(double %129, double %130, double %.0101197)
   br label %132
 
-119:                                              ; preds = %.preheader, %131
-  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %131 ]
-  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %131 ]
-  %120 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %107, i64 %indvars.iv225
-  %121 = load i32, ptr %120, align 4, !tbaa !66
-  %122 = icmp eq i32 %121, 0
-  br i1 %122, label %131, label %123
-
-123:                                              ; preds = %119
-  %124 = uitofp i32 %121 to double
-  %125 = fmul double %124, 0x3F30000000000000
-  %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
-  %127 = load i64, ptr %126, align 8, !tbaa !9
-  %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
-  %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
-  br label %131
-
-131:                                              ; preds = %119, %123
-  %.1102 = phi double [ %.0101197, %119 ], [ %130, %123 ]
+132:                                              ; preds = %120, %124
+  %.1102 = phi double [ %.0101197, %120 ], [ %131, %124 ]
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next226, %9
-  br i1 %exitcond229.not, label %113, label %119, !llvm.loop !315
+  br i1 %exitcond229.not, label %114, label %120, !llvm.loop !315
 
-132:                                              ; preds = %113, %106, %_ZNSt6vectorIiSaIiEED2Ev.exit144
-  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %118, %113 ], [ false, %106 ]
+133:                                              ; preds = %114, %107, %_ZNSt6vectorIiSaIiEED2Ev.exit144
+  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %119, %114 ], [ false, %107 ]
   ret i1 %.7
 }
 
@@ -17946,7 +17946,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 30:                                               ; preds = %31
   %.not131 = icmp eq i32 %41, 4096
-  br i1 %.not131, label %104, label %.noexc
+  br i1 %.not131, label %105, label %.noexc
 
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
@@ -17985,9 +17985,9 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
   %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
-  br label %61
+  br label %62
 
-48:                                               ; preds = %61
+48:                                               ; preds = %62
   %49 = icmp eq ptr %43, %.0.i.i.i.i.i
   br i1 %49, label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEvT_SB_T0_.exit, label %50
 
@@ -18009,8 +18009,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not14.i.i.i.i = icmp samesign ult i64 %.010.i.i.in.in.i.i, 3
-  br i1 %.not14.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
+  %58 = icmp eq i64 %.010.i.i.i.i, 1
+  br i1 %58, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %50
   invoke void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEEvT_SE_T0_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr nonnull %0)
@@ -18019,12 +18019,12 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i, %.loopexit.i.i
   %.sroa.4.026.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.023.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %58 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  resume { ptr, i32 } %58
+  resume { ptr, i32 } %59
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   invoke void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lNS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEEvT_SE_T0_T1_T2_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr noundef nonnull %57, i64 noundef %.010.i.i.i.i, ptr nonnull %0)
@@ -18033,163 +18033,163 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEvT_SB_T0_.exit
 
-61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
-  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %61 ]
-  %62 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
-  %63 = trunc nuw nsw i64 %indvars.iv215 to i32
-  store i32 %63, ptr %62, align 4, !tbaa !15
+62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
+  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
+  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %64 = trunc nuw nsw i64 %indvars.iv215 to i32
+  store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next216, %9
-  br i1 %exitcond219.not, label %48, label %61, !llvm.loop !333
+  br i1 %exitcond219.not, label %48, label %62, !llvm.loop !333
 
 _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEvT_SB_T0_.exit: ; preds = %.loopexit._crit_edge.i.i, %48
-  %64 = icmp slt i32 %41, 4096
-  br i1 %64, label %65, label %.lr.ph194
+  %65 = icmp slt i32 %41, 4096
+  br i1 %65, label %66, label %.lr.ph194
 
-65:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEvT_SB_T0_.exit
-  %66 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
-  %67 = load i32, ptr %66, align 4, !tbaa !15
-  %68 = sext i32 %67 to i64
-  %69 = load ptr, ptr %0, align 8, !tbaa !65
-  %70 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %69, i64 %68
-  %71 = load i32, ptr %70, align 4, !tbaa !66
-  %reass.sub199 = sub i32 %71, %41
-  %72 = add i32 %reass.sub199, 4096
-  store i32 %72, ptr %70, align 4, !tbaa !66
+66:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEvT_SB_T0_.exit
+  %67 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
+  %68 = load i32, ptr %67, align 4, !tbaa !15
+  %69 = sext i32 %68 to i64
+  %70 = load ptr, ptr %0, align 8, !tbaa !65
+  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %72 = load i32, ptr %71, align 4, !tbaa !66
+  %reass.sub199 = sub i32 %72, %41
+  %73 = add i32 %reass.sub199, 4096
+  store i32 %73, ptr %71, align 4, !tbaa !66
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit146
 
 .lr.ph194:                                        ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEvT_SB_T0_.exit
-  %73 = icmp sgt i32 %.0114.lcssa, 0
-  %74 = load ptr, ptr %0, align 8
-  tail call void @llvm.assume(i1 %73)
-  %75 = add nsw i32 %41, -4096
+  %74 = icmp sgt i32 %.0114.lcssa, 0
+  %75 = load ptr, ptr %0, align 8
+  tail call void @llvm.assume(i1 %74)
+  %76 = add nsw i32 %41, -4096
   br label %.lr.ph185.us
 
 .lr.ph185.us:                                     ; preds = %.lr.ph194, %.thread.us
-  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %75, %.lr.ph194 ]
+  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
-  %76 = sitofp i32 %.1122191.us to double
-  %77 = fdiv double 4.096000e+03, %76
-  br label %78
+  %77 = sitofp i32 %.1122191.us to double
+  %78 = fdiv double 4.096000e+03, %77
+  br label %79
 
-78:                                               ; preds = %.lr.ph185.us, %98
-  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %99, %98 ]
-  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %96, %98 ]
-  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %95, %98 ]
-  %79 = zext nneg i32 %.0113183.us to i64
-  %80 = getelementptr inbounds nuw i32, ptr %43, i64 %79
-  %81 = load i32, ptr %80, align 4, !tbaa !15
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %74, i64 %82
-  %84 = load i32, ptr %83, align 4, !tbaa !66
-  %85 = icmp ult i32 %84, 2
-  br i1 %85, label %101, label %86
+79:                                               ; preds = %.lr.ph185.us, %99
+  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %100, %99 ]
+  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
+  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
+  %80 = zext nneg i32 %.0113183.us to i64
+  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %82 = load i32, ptr %81, align 4, !tbaa !15
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %85 = load i32, ptr %84, align 4, !tbaa !66
+  %86 = icmp ult i32 %85, 2
+  br i1 %86, label %102, label %87
 
-86:                                               ; preds = %78
-  %87 = uitofp i32 %84 to double
-  %88 = fmul double %77, %87
-  %89 = tail call double @llvm.floor.f64(double %88)
-  %90 = fptosi double %89 to i32
-  %91 = sub i32 %84, %90
-  %92 = icmp eq i32 %84, %90
-  %spec.store.select.us = select i1 %92, i32 1, i32 %91
-  %.not134.us = icmp slt i32 %spec.store.select.us, %84
-  %93 = add i32 %84, -1
-  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %93
+87:                                               ; preds = %79
+  %88 = uitofp i32 %85 to double
+  %89 = fmul double %78, %88
+  %90 = tail call double @llvm.floor.f64(double %89)
+  %91 = fptosi double %90 to i32
+  %92 = sub i32 %85, %91
+  %93 = icmp eq i32 %85, %91
+  %spec.store.select.us = select i1 %93, i32 1, i32 %92
+  %.not134.us = icmp slt i32 %spec.store.select.us, %85
+  %94 = add i32 %85, -1
+  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %94
   %spec.select139.us = tail call i32 @llvm.smin.i32(i32 %spec.select166.us, i32 %.1118182.us)
-  %94 = sub i32 %84, %spec.select139.us
-  store i32 %94, ptr %83, align 4, !tbaa !66
-  %95 = sub nsw i32 %.2123181.us, %spec.select139.us
-  %96 = sub nsw i32 %.1118182.us, %spec.select139.us
-  %97 = icmp eq i32 %95, 4096
-  br i1 %97, label %.thread.us, label %98
+  %95 = sub i32 %85, %spec.select139.us
+  store i32 %95, ptr %84, align 4, !tbaa !66
+  %96 = sub nsw i32 %.2123181.us, %spec.select139.us
+  %97 = sub nsw i32 %.1118182.us, %spec.select139.us
+  %98 = icmp eq i32 %96, 4096
+  br i1 %98, label %.thread.us, label %99
 
-98:                                               ; preds = %86
-  %99 = add nsw i32 %.0113183.us, -1
-  %100 = icmp sgt i32 %.0113183.us, 1
-  br i1 %100, label %78, label %.thread.us, !llvm.loop !334
+99:                                               ; preds = %87
+  %100 = add nsw i32 %.0113183.us, -1
+  %101 = icmp sgt i32 %.0113183.us, 1
+  br i1 %101, label %79, label %.thread.us, !llvm.loop !334
 
-101:                                              ; preds = %78
-  %102 = icmp eq i32 %.0113183.us, %.0114.lcssa
-  br i1 %102, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
+102:                                              ; preds = %79
+  %103 = icmp eq i32 %.0113183.us, %.0114.lcssa
+  br i1 %103, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
 
-.thread.us:                                       ; preds = %86, %98, %101
-  %.3124.us = phi i32 [ %.2123181.us, %101 ], [ %95, %98 ], [ 4096, %86 ]
-  %.2119.us = phi i32 [ %.1118182.us, %101 ], [ %96, %98 ], [ %96, %86 ]
-  %103 = icmp sgt i32 %.2119.us, 0
-  br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !335
+.thread.us:                                       ; preds = %87, %99, %102
+  %.3124.us = phi i32 [ %.2123181.us, %102 ], [ %96, %99 ], [ 4096, %87 ]
+  %.2119.us = phi i32 [ %.1118182.us, %102 ], [ %97, %99 ], [ %97, %87 ]
+  %104 = icmp sgt i32 %.2119.us, 0
+  br i1 %104, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !335
 
-_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
+_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %102
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %132
+  br label %133
 
-_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
+_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %104
+  br label %105
 
-104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
-  %105 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %108
+105:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
+  %106 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %109
 
-106:                                              ; preds = %108
-  %.not136 = icmp eq i32 %112, 4096
-  br i1 %.not136, label %.preheader, label %132
+107:                                              ; preds = %109
+  %.not136 = icmp eq i32 %113, 4096
+  br i1 %.not136, label %.preheader, label %133
 
-.preheader:                                       ; preds = %106
-  %107 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %119
+.preheader:                                       ; preds = %107
+  %108 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %120
 
-108:                                              ; preds = %104, %108
-  %indvars.iv220 = phi i64 [ 0, %104 ], [ %indvars.iv.next221, %108 ]
-  %.0104195 = phi i32 [ 0, %104 ], [ %112, %108 ]
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %105, i64 %indvars.iv220
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
-  store i32 %.0104195, ptr %110, align 4, !tbaa !69
-  %111 = load i32, ptr %109, align 4, !tbaa !66
-  %112 = add i32 %111, %.0104195
+109:                                              ; preds = %105, %109
+  %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
+  %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
+  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
+  store i32 %.0104195, ptr %111, align 4, !tbaa !69
+  %112 = load i32, ptr %110, align 4, !tbaa !66
+  %113 = add i32 %112, %.0104195
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %exitcond224.not = icmp eq i64 %indvars.iv.next221, %9
-  br i1 %exitcond224.not, label %106, label %108, !llvm.loop !336
+  br i1 %exitcond224.not, label %107, label %109, !llvm.loop !336
 
-113:                                              ; preds = %131
-  %114 = fneg double %.1102
-  %115 = tail call double @llvm.ceil.f64(double %114)
-  %116 = fptoui double %115 to i64
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %116, ptr %117, align 8, !tbaa !137
-  %118 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi7EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+114:                                              ; preds = %132
+  %115 = fneg double %.1102
+  %116 = tail call double @llvm.ceil.f64(double %115)
+  %117 = fptoui double %116 to i64
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %117, ptr %118, align 8, !tbaa !137
+  %119 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi7EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+  br label %133
+
+120:                                              ; preds = %.preheader, %132
+  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
+  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
+  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %122 = load i32, ptr %121, align 4, !tbaa !66
+  %123 = icmp eq i32 %122, 0
+  br i1 %123, label %132, label %124
+
+124:                                              ; preds = %120
+  %125 = uitofp i32 %122 to double
+  %126 = fmul double %125, 0x3F30000000000000
+  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %128 = load i64, ptr %127, align 8, !tbaa !9
+  %129 = uitofp i64 %128 to double
+  %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
+  %131 = tail call double @llvm.fmuladd.f64(double %129, double %130, double %.0101197)
   br label %132
 
-119:                                              ; preds = %.preheader, %131
-  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %131 ]
-  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %131 ]
-  %120 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %107, i64 %indvars.iv225
-  %121 = load i32, ptr %120, align 4, !tbaa !66
-  %122 = icmp eq i32 %121, 0
-  br i1 %122, label %131, label %123
-
-123:                                              ; preds = %119
-  %124 = uitofp i32 %121 to double
-  %125 = fmul double %124, 0x3F30000000000000
-  %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
-  %127 = load i64, ptr %126, align 8, !tbaa !9
-  %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
-  %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
-  br label %131
-
-131:                                              ; preds = %119, %123
-  %.1102 = phi double [ %.0101197, %119 ], [ %130, %123 ]
+132:                                              ; preds = %120, %124
+  %.1102 = phi double [ %.0101197, %120 ], [ %131, %124 ]
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next226, %9
-  br i1 %exitcond229.not, label %113, label %119, !llvm.loop !337
+  br i1 %exitcond229.not, label %114, label %120, !llvm.loop !337
 
-132:                                              ; preds = %113, %106, %_ZNSt6vectorIiSaIiEED2Ev.exit144
-  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %118, %113 ], [ false, %106 ]
+133:                                              ; preds = %114, %107, %_ZNSt6vectorIiSaIiEED2Ev.exit144
+  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %119, %114 ], [ false, %107 ]
   ret i1 %.7
 }
 
@@ -19919,7 +19919,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 30:                                               ; preds = %31
   %.not131 = icmp eq i32 %41, 4096
-  br i1 %.not131, label %104, label %.noexc
+  br i1 %.not131, label %105, label %.noexc
 
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
@@ -19958,9 +19958,9 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
   %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
-  br label %61
+  br label %62
 
-48:                                               ; preds = %61
+48:                                               ; preds = %62
   %49 = icmp eq ptr %43, %.0.i.i.i.i.i
   br i1 %49, label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEvT_SB_T0_.exit, label %50
 
@@ -19982,8 +19982,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not14.i.i.i.i = icmp samesign ult i64 %.010.i.i.in.in.i.i, 3
-  br i1 %.not14.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
+  %58 = icmp eq i64 %.010.i.i.i.i, 1
+  br i1 %58, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %50
   invoke void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEEvT_SE_T0_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr nonnull %0)
@@ -19992,12 +19992,12 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i, %.loopexit.i.i
   %.sroa.4.026.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.023.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %58 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  resume { ptr, i32 } %58
+  resume { ptr, i32 } %59
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   invoke void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lNS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEEvT_SE_T0_T1_T2_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr noundef nonnull %57, i64 noundef %.010.i.i.i.i, ptr nonnull %0)
@@ -20006,163 +20006,163 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEvT_SB_T0_.exit
 
-61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
-  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %61 ]
-  %62 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
-  %63 = trunc nuw nsw i64 %indvars.iv215 to i32
-  store i32 %63, ptr %62, align 4, !tbaa !15
+62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
+  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
+  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %64 = trunc nuw nsw i64 %indvars.iv215 to i32
+  store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next216, %9
-  br i1 %exitcond219.not, label %48, label %61, !llvm.loop !355
+  br i1 %exitcond219.not, label %48, label %62, !llvm.loop !355
 
 _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEvT_SB_T0_.exit: ; preds = %.loopexit._crit_edge.i.i, %48
-  %64 = icmp slt i32 %41, 4096
-  br i1 %64, label %65, label %.lr.ph194
+  %65 = icmp slt i32 %41, 4096
+  br i1 %65, label %66, label %.lr.ph194
 
-65:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEvT_SB_T0_.exit
-  %66 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
-  %67 = load i32, ptr %66, align 4, !tbaa !15
-  %68 = sext i32 %67 to i64
-  %69 = load ptr, ptr %0, align 8, !tbaa !65
-  %70 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %69, i64 %68
-  %71 = load i32, ptr %70, align 4, !tbaa !66
-  %reass.sub199 = sub i32 %71, %41
-  %72 = add i32 %reass.sub199, 4096
-  store i32 %72, ptr %70, align 4, !tbaa !66
+66:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEvT_SB_T0_.exit
+  %67 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
+  %68 = load i32, ptr %67, align 4, !tbaa !15
+  %69 = sext i32 %68 to i64
+  %70 = load ptr, ptr %0, align 8, !tbaa !65
+  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %72 = load i32, ptr %71, align 4, !tbaa !66
+  %reass.sub199 = sub i32 %72, %41
+  %73 = add i32 %reass.sub199, 4096
+  store i32 %73, ptr %71, align 4, !tbaa !66
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit146
 
 .lr.ph194:                                        ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEvT_SB_T0_.exit
-  %73 = icmp sgt i32 %.0114.lcssa, 0
-  %74 = load ptr, ptr %0, align 8
-  tail call void @llvm.assume(i1 %73)
-  %75 = add nsw i32 %41, -4096
+  %74 = icmp sgt i32 %.0114.lcssa, 0
+  %75 = load ptr, ptr %0, align 8
+  tail call void @llvm.assume(i1 %74)
+  %76 = add nsw i32 %41, -4096
   br label %.lr.ph185.us
 
 .lr.ph185.us:                                     ; preds = %.lr.ph194, %.thread.us
-  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %75, %.lr.ph194 ]
+  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
-  %76 = sitofp i32 %.1122191.us to double
-  %77 = fdiv double 4.096000e+03, %76
-  br label %78
+  %77 = sitofp i32 %.1122191.us to double
+  %78 = fdiv double 4.096000e+03, %77
+  br label %79
 
-78:                                               ; preds = %.lr.ph185.us, %98
-  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %99, %98 ]
-  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %96, %98 ]
-  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %95, %98 ]
-  %79 = zext nneg i32 %.0113183.us to i64
-  %80 = getelementptr inbounds nuw i32, ptr %43, i64 %79
-  %81 = load i32, ptr %80, align 4, !tbaa !15
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %74, i64 %82
-  %84 = load i32, ptr %83, align 4, !tbaa !66
-  %85 = icmp ult i32 %84, 2
-  br i1 %85, label %101, label %86
+79:                                               ; preds = %.lr.ph185.us, %99
+  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %100, %99 ]
+  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
+  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
+  %80 = zext nneg i32 %.0113183.us to i64
+  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %82 = load i32, ptr %81, align 4, !tbaa !15
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %85 = load i32, ptr %84, align 4, !tbaa !66
+  %86 = icmp ult i32 %85, 2
+  br i1 %86, label %102, label %87
 
-86:                                               ; preds = %78
-  %87 = uitofp i32 %84 to double
-  %88 = fmul double %77, %87
-  %89 = tail call double @llvm.floor.f64(double %88)
-  %90 = fptosi double %89 to i32
-  %91 = sub i32 %84, %90
-  %92 = icmp eq i32 %84, %90
-  %spec.store.select.us = select i1 %92, i32 1, i32 %91
-  %.not134.us = icmp slt i32 %spec.store.select.us, %84
-  %93 = add i32 %84, -1
-  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %93
+87:                                               ; preds = %79
+  %88 = uitofp i32 %85 to double
+  %89 = fmul double %78, %88
+  %90 = tail call double @llvm.floor.f64(double %89)
+  %91 = fptosi double %90 to i32
+  %92 = sub i32 %85, %91
+  %93 = icmp eq i32 %85, %91
+  %spec.store.select.us = select i1 %93, i32 1, i32 %92
+  %.not134.us = icmp slt i32 %spec.store.select.us, %85
+  %94 = add i32 %85, -1
+  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %94
   %spec.select139.us = tail call i32 @llvm.smin.i32(i32 %spec.select166.us, i32 %.1118182.us)
-  %94 = sub i32 %84, %spec.select139.us
-  store i32 %94, ptr %83, align 4, !tbaa !66
-  %95 = sub nsw i32 %.2123181.us, %spec.select139.us
-  %96 = sub nsw i32 %.1118182.us, %spec.select139.us
-  %97 = icmp eq i32 %95, 4096
-  br i1 %97, label %.thread.us, label %98
+  %95 = sub i32 %85, %spec.select139.us
+  store i32 %95, ptr %84, align 4, !tbaa !66
+  %96 = sub nsw i32 %.2123181.us, %spec.select139.us
+  %97 = sub nsw i32 %.1118182.us, %spec.select139.us
+  %98 = icmp eq i32 %96, 4096
+  br i1 %98, label %.thread.us, label %99
 
-98:                                               ; preds = %86
-  %99 = add nsw i32 %.0113183.us, -1
-  %100 = icmp sgt i32 %.0113183.us, 1
-  br i1 %100, label %78, label %.thread.us, !llvm.loop !356
+99:                                               ; preds = %87
+  %100 = add nsw i32 %.0113183.us, -1
+  %101 = icmp sgt i32 %.0113183.us, 1
+  br i1 %101, label %79, label %.thread.us, !llvm.loop !356
 
-101:                                              ; preds = %78
-  %102 = icmp eq i32 %.0113183.us, %.0114.lcssa
-  br i1 %102, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
+102:                                              ; preds = %79
+  %103 = icmp eq i32 %.0113183.us, %.0114.lcssa
+  br i1 %103, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
 
-.thread.us:                                       ; preds = %86, %98, %101
-  %.3124.us = phi i32 [ %.2123181.us, %101 ], [ %95, %98 ], [ 4096, %86 ]
-  %.2119.us = phi i32 [ %.1118182.us, %101 ], [ %96, %98 ], [ %96, %86 ]
-  %103 = icmp sgt i32 %.2119.us, 0
-  br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !357
+.thread.us:                                       ; preds = %87, %99, %102
+  %.3124.us = phi i32 [ %.2123181.us, %102 ], [ %96, %99 ], [ 4096, %87 ]
+  %.2119.us = phi i32 [ %.1118182.us, %102 ], [ %97, %99 ], [ %97, %87 ]
+  %104 = icmp sgt i32 %.2119.us, 0
+  br i1 %104, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !357
 
-_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
+_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %102
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %132
+  br label %133
 
-_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
+_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %104
+  br label %105
 
-104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
-  %105 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %108
+105:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
+  %106 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %109
 
-106:                                              ; preds = %108
-  %.not136 = icmp eq i32 %112, 4096
-  br i1 %.not136, label %.preheader, label %132
+107:                                              ; preds = %109
+  %.not136 = icmp eq i32 %113, 4096
+  br i1 %.not136, label %.preheader, label %133
 
-.preheader:                                       ; preds = %106
-  %107 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %119
+.preheader:                                       ; preds = %107
+  %108 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %120
 
-108:                                              ; preds = %104, %108
-  %indvars.iv220 = phi i64 [ 0, %104 ], [ %indvars.iv.next221, %108 ]
-  %.0104195 = phi i32 [ 0, %104 ], [ %112, %108 ]
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %105, i64 %indvars.iv220
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
-  store i32 %.0104195, ptr %110, align 4, !tbaa !69
-  %111 = load i32, ptr %109, align 4, !tbaa !66
-  %112 = add i32 %111, %.0104195
+109:                                              ; preds = %105, %109
+  %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
+  %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
+  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
+  store i32 %.0104195, ptr %111, align 4, !tbaa !69
+  %112 = load i32, ptr %110, align 4, !tbaa !66
+  %113 = add i32 %112, %.0104195
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %exitcond224.not = icmp eq i64 %indvars.iv.next221, %9
-  br i1 %exitcond224.not, label %106, label %108, !llvm.loop !358
+  br i1 %exitcond224.not, label %107, label %109, !llvm.loop !358
 
-113:                                              ; preds = %131
-  %114 = fneg double %.1102
-  %115 = tail call double @llvm.ceil.f64(double %114)
-  %116 = fptoui double %115 to i64
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %116, ptr %117, align 8, !tbaa !142
-  %118 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi8EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+114:                                              ; preds = %132
+  %115 = fneg double %.1102
+  %116 = tail call double @llvm.ceil.f64(double %115)
+  %117 = fptoui double %116 to i64
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %117, ptr %118, align 8, !tbaa !142
+  %119 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi8EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+  br label %133
+
+120:                                              ; preds = %.preheader, %132
+  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
+  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
+  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %122 = load i32, ptr %121, align 4, !tbaa !66
+  %123 = icmp eq i32 %122, 0
+  br i1 %123, label %132, label %124
+
+124:                                              ; preds = %120
+  %125 = uitofp i32 %122 to double
+  %126 = fmul double %125, 0x3F30000000000000
+  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %128 = load i64, ptr %127, align 8, !tbaa !9
+  %129 = uitofp i64 %128 to double
+  %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
+  %131 = tail call double @llvm.fmuladd.f64(double %129, double %130, double %.0101197)
   br label %132
 
-119:                                              ; preds = %.preheader, %131
-  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %131 ]
-  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %131 ]
-  %120 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %107, i64 %indvars.iv225
-  %121 = load i32, ptr %120, align 4, !tbaa !66
-  %122 = icmp eq i32 %121, 0
-  br i1 %122, label %131, label %123
-
-123:                                              ; preds = %119
-  %124 = uitofp i32 %121 to double
-  %125 = fmul double %124, 0x3F30000000000000
-  %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
-  %127 = load i64, ptr %126, align 8, !tbaa !9
-  %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
-  %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
-  br label %131
-
-131:                                              ; preds = %119, %123
-  %.1102 = phi double [ %.0101197, %119 ], [ %130, %123 ]
+132:                                              ; preds = %120, %124
+  %.1102 = phi double [ %.0101197, %120 ], [ %131, %124 ]
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next226, %9
-  br i1 %exitcond229.not, label %113, label %119, !llvm.loop !359
+  br i1 %exitcond229.not, label %114, label %120, !llvm.loop !359
 
-132:                                              ; preds = %113, %106, %_ZNSt6vectorIiSaIiEED2Ev.exit144
-  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %118, %113 ], [ false, %106 ]
+133:                                              ; preds = %114, %107, %_ZNSt6vectorIiSaIiEED2Ev.exit144
+  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %119, %114 ], [ false, %107 ]
   ret i1 %.7
 }
 
@@ -21892,7 +21892,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 30:                                               ; preds = %31
   %.not131 = icmp eq i32 %41, 8192
-  br i1 %.not131, label %104, label %.noexc
+  br i1 %.not131, label %105, label %.noexc
 
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
@@ -21931,9 +21931,9 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
   %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
-  br label %61
+  br label %62
 
-48:                                               ; preds = %61
+48:                                               ; preds = %62
   %49 = icmp eq ptr %43, %.0.i.i.i.i.i
   br i1 %49, label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEvT_SB_T0_.exit, label %50
 
@@ -21955,8 +21955,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not14.i.i.i.i = icmp samesign ult i64 %.010.i.i.in.in.i.i, 3
-  br i1 %.not14.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
+  %58 = icmp eq i64 %.010.i.i.i.i, 1
+  br i1 %58, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %50
   invoke void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEEvT_SE_T0_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr nonnull %0)
@@ -21965,12 +21965,12 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i, %.loopexit.i.i
   %.sroa.4.026.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.023.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %58 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  resume { ptr, i32 } %58
+  resume { ptr, i32 } %59
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   invoke void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lNS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEEvT_SE_T0_T1_T2_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr noundef nonnull %57, i64 noundef %.010.i.i.i.i, ptr nonnull %0)
@@ -21979,163 +21979,163 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEvT_SB_T0_.exit
 
-61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
-  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %61 ]
-  %62 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
-  %63 = trunc nuw nsw i64 %indvars.iv215 to i32
-  store i32 %63, ptr %62, align 4, !tbaa !15
+62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
+  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
+  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %64 = trunc nuw nsw i64 %indvars.iv215 to i32
+  store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next216, %9
-  br i1 %exitcond219.not, label %48, label %61, !llvm.loop !377
+  br i1 %exitcond219.not, label %48, label %62, !llvm.loop !377
 
 _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEvT_SB_T0_.exit: ; preds = %.loopexit._crit_edge.i.i, %48
-  %64 = icmp slt i32 %41, 8192
-  br i1 %64, label %65, label %.lr.ph194
+  %65 = icmp slt i32 %41, 8192
+  br i1 %65, label %66, label %.lr.ph194
 
-65:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEvT_SB_T0_.exit
-  %66 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
-  %67 = load i32, ptr %66, align 4, !tbaa !15
-  %68 = sext i32 %67 to i64
-  %69 = load ptr, ptr %0, align 8, !tbaa !65
-  %70 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %69, i64 %68
-  %71 = load i32, ptr %70, align 4, !tbaa !66
-  %reass.sub199 = sub i32 %71, %41
-  %72 = add i32 %reass.sub199, 8192
-  store i32 %72, ptr %70, align 4, !tbaa !66
+66:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEvT_SB_T0_.exit
+  %67 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
+  %68 = load i32, ptr %67, align 4, !tbaa !15
+  %69 = sext i32 %68 to i64
+  %70 = load ptr, ptr %0, align 8, !tbaa !65
+  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %72 = load i32, ptr %71, align 4, !tbaa !66
+  %reass.sub199 = sub i32 %72, %41
+  %73 = add i32 %reass.sub199, 8192
+  store i32 %73, ptr %71, align 4, !tbaa !66
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit146
 
 .lr.ph194:                                        ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEvT_SB_T0_.exit
-  %73 = icmp sgt i32 %.0114.lcssa, 0
-  %74 = load ptr, ptr %0, align 8
-  tail call void @llvm.assume(i1 %73)
-  %75 = add nsw i32 %41, -8192
+  %74 = icmp sgt i32 %.0114.lcssa, 0
+  %75 = load ptr, ptr %0, align 8
+  tail call void @llvm.assume(i1 %74)
+  %76 = add nsw i32 %41, -8192
   br label %.lr.ph185.us
 
 .lr.ph185.us:                                     ; preds = %.lr.ph194, %.thread.us
-  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %75, %.lr.ph194 ]
+  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
-  %76 = sitofp i32 %.1122191.us to double
-  %77 = fdiv double 8.192000e+03, %76
-  br label %78
+  %77 = sitofp i32 %.1122191.us to double
+  %78 = fdiv double 8.192000e+03, %77
+  br label %79
 
-78:                                               ; preds = %.lr.ph185.us, %98
-  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %99, %98 ]
-  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %96, %98 ]
-  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %95, %98 ]
-  %79 = zext nneg i32 %.0113183.us to i64
-  %80 = getelementptr inbounds nuw i32, ptr %43, i64 %79
-  %81 = load i32, ptr %80, align 4, !tbaa !15
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %74, i64 %82
-  %84 = load i32, ptr %83, align 4, !tbaa !66
-  %85 = icmp ult i32 %84, 2
-  br i1 %85, label %101, label %86
+79:                                               ; preds = %.lr.ph185.us, %99
+  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %100, %99 ]
+  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
+  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
+  %80 = zext nneg i32 %.0113183.us to i64
+  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %82 = load i32, ptr %81, align 4, !tbaa !15
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %85 = load i32, ptr %84, align 4, !tbaa !66
+  %86 = icmp ult i32 %85, 2
+  br i1 %86, label %102, label %87
 
-86:                                               ; preds = %78
-  %87 = uitofp i32 %84 to double
-  %88 = fmul double %77, %87
-  %89 = tail call double @llvm.floor.f64(double %88)
-  %90 = fptosi double %89 to i32
-  %91 = sub i32 %84, %90
-  %92 = icmp eq i32 %84, %90
-  %spec.store.select.us = select i1 %92, i32 1, i32 %91
-  %.not134.us = icmp slt i32 %spec.store.select.us, %84
-  %93 = add i32 %84, -1
-  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %93
+87:                                               ; preds = %79
+  %88 = uitofp i32 %85 to double
+  %89 = fmul double %78, %88
+  %90 = tail call double @llvm.floor.f64(double %89)
+  %91 = fptosi double %90 to i32
+  %92 = sub i32 %85, %91
+  %93 = icmp eq i32 %85, %91
+  %spec.store.select.us = select i1 %93, i32 1, i32 %92
+  %.not134.us = icmp slt i32 %spec.store.select.us, %85
+  %94 = add i32 %85, -1
+  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %94
   %spec.select139.us = tail call i32 @llvm.smin.i32(i32 %spec.select166.us, i32 %.1118182.us)
-  %94 = sub i32 %84, %spec.select139.us
-  store i32 %94, ptr %83, align 4, !tbaa !66
-  %95 = sub nsw i32 %.2123181.us, %spec.select139.us
-  %96 = sub nsw i32 %.1118182.us, %spec.select139.us
-  %97 = icmp eq i32 %95, 8192
-  br i1 %97, label %.thread.us, label %98
+  %95 = sub i32 %85, %spec.select139.us
+  store i32 %95, ptr %84, align 4, !tbaa !66
+  %96 = sub nsw i32 %.2123181.us, %spec.select139.us
+  %97 = sub nsw i32 %.1118182.us, %spec.select139.us
+  %98 = icmp eq i32 %96, 8192
+  br i1 %98, label %.thread.us, label %99
 
-98:                                               ; preds = %86
-  %99 = add nsw i32 %.0113183.us, -1
-  %100 = icmp sgt i32 %.0113183.us, 1
-  br i1 %100, label %78, label %.thread.us, !llvm.loop !378
+99:                                               ; preds = %87
+  %100 = add nsw i32 %.0113183.us, -1
+  %101 = icmp sgt i32 %.0113183.us, 1
+  br i1 %101, label %79, label %.thread.us, !llvm.loop !378
 
-101:                                              ; preds = %78
-  %102 = icmp eq i32 %.0113183.us, %.0114.lcssa
-  br i1 %102, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
+102:                                              ; preds = %79
+  %103 = icmp eq i32 %.0113183.us, %.0114.lcssa
+  br i1 %103, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
 
-.thread.us:                                       ; preds = %86, %98, %101
-  %.3124.us = phi i32 [ %.2123181.us, %101 ], [ %95, %98 ], [ 8192, %86 ]
-  %.2119.us = phi i32 [ %.1118182.us, %101 ], [ %96, %98 ], [ %96, %86 ]
-  %103 = icmp sgt i32 %.2119.us, 0
-  br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !379
+.thread.us:                                       ; preds = %87, %99, %102
+  %.3124.us = phi i32 [ %.2123181.us, %102 ], [ %96, %99 ], [ 8192, %87 ]
+  %.2119.us = phi i32 [ %.1118182.us, %102 ], [ %97, %99 ], [ %97, %87 ]
+  %104 = icmp sgt i32 %.2119.us, 0
+  br i1 %104, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !379
 
-_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
+_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %102
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %132
+  br label %133
 
-_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
+_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %104
+  br label %105
 
-104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
-  %105 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %108
+105:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
+  %106 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %109
 
-106:                                              ; preds = %108
-  %.not136 = icmp eq i32 %112, 8192
-  br i1 %.not136, label %.preheader, label %132
+107:                                              ; preds = %109
+  %.not136 = icmp eq i32 %113, 8192
+  br i1 %.not136, label %.preheader, label %133
 
-.preheader:                                       ; preds = %106
-  %107 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %119
+.preheader:                                       ; preds = %107
+  %108 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %120
 
-108:                                              ; preds = %104, %108
-  %indvars.iv220 = phi i64 [ 0, %104 ], [ %indvars.iv.next221, %108 ]
-  %.0104195 = phi i32 [ 0, %104 ], [ %112, %108 ]
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %105, i64 %indvars.iv220
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
-  store i32 %.0104195, ptr %110, align 4, !tbaa !69
-  %111 = load i32, ptr %109, align 4, !tbaa !66
-  %112 = add i32 %111, %.0104195
+109:                                              ; preds = %105, %109
+  %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
+  %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
+  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
+  store i32 %.0104195, ptr %111, align 4, !tbaa !69
+  %112 = load i32, ptr %110, align 4, !tbaa !66
+  %113 = add i32 %112, %.0104195
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %exitcond224.not = icmp eq i64 %indvars.iv.next221, %9
-  br i1 %exitcond224.not, label %106, label %108, !llvm.loop !380
+  br i1 %exitcond224.not, label %107, label %109, !llvm.loop !380
 
-113:                                              ; preds = %131
-  %114 = fneg double %.1102
-  %115 = tail call double @llvm.ceil.f64(double %114)
-  %116 = fptoui double %115 to i64
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %116, ptr %117, align 8, !tbaa !147
-  %118 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi9EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+114:                                              ; preds = %132
+  %115 = fneg double %.1102
+  %116 = tail call double @llvm.ceil.f64(double %115)
+  %117 = fptoui double %116 to i64
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %117, ptr %118, align 8, !tbaa !147
+  %119 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi9EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+  br label %133
+
+120:                                              ; preds = %.preheader, %132
+  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
+  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
+  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %122 = load i32, ptr %121, align 4, !tbaa !66
+  %123 = icmp eq i32 %122, 0
+  br i1 %123, label %132, label %124
+
+124:                                              ; preds = %120
+  %125 = uitofp i32 %122 to double
+  %126 = fmul double %125, 0x3F20000000000000
+  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %128 = load i64, ptr %127, align 8, !tbaa !9
+  %129 = uitofp i64 %128 to double
+  %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
+  %131 = tail call double @llvm.fmuladd.f64(double %129, double %130, double %.0101197)
   br label %132
 
-119:                                              ; preds = %.preheader, %131
-  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %131 ]
-  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %131 ]
-  %120 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %107, i64 %indvars.iv225
-  %121 = load i32, ptr %120, align 4, !tbaa !66
-  %122 = icmp eq i32 %121, 0
-  br i1 %122, label %131, label %123
-
-123:                                              ; preds = %119
-  %124 = uitofp i32 %121 to double
-  %125 = fmul double %124, 0x3F20000000000000
-  %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
-  %127 = load i64, ptr %126, align 8, !tbaa !9
-  %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
-  %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
-  br label %131
-
-131:                                              ; preds = %119, %123
-  %.1102 = phi double [ %.0101197, %119 ], [ %130, %123 ]
+132:                                              ; preds = %120, %124
+  %.1102 = phi double [ %.0101197, %120 ], [ %131, %124 ]
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next226, %9
-  br i1 %exitcond229.not, label %113, label %119, !llvm.loop !381
+  br i1 %exitcond229.not, label %114, label %120, !llvm.loop !381
 
-132:                                              ; preds = %113, %106, %_ZNSt6vectorIiSaIiEED2Ev.exit144
-  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %118, %113 ], [ false, %106 ]
+133:                                              ; preds = %114, %107, %_ZNSt6vectorIiSaIiEED2Ev.exit144
+  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %119, %114 ], [ false, %107 ]
   ret i1 %.7
 }
 
@@ -23866,7 +23866,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 30:                                               ; preds = %31
   %.not131 = icmp eq i32 %41, 32768
-  br i1 %.not131, label %104, label %.noexc
+  br i1 %.not131, label %105, label %.noexc
 
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
@@ -23905,9 +23905,9 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
   %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
-  br label %61
+  br label %62
 
-48:                                               ; preds = %61
+48:                                               ; preds = %62
   %49 = icmp eq ptr %43, %.0.i.i.i.i.i
   br i1 %49, label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEvT_SB_T0_.exit, label %50
 
@@ -23929,8 +23929,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not14.i.i.i.i = icmp samesign ult i64 %.010.i.i.in.in.i.i, 3
-  br i1 %.not14.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
+  %58 = icmp eq i64 %.010.i.i.i.i, 1
+  br i1 %58, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %50
   invoke void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEEvT_SE_T0_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr nonnull %0)
@@ -23939,12 +23939,12 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i, %.loopexit.i.i
   %.sroa.4.026.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.023.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %58 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  resume { ptr, i32 } %58
+  resume { ptr, i32 } %59
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   invoke void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lNS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEEvT_SE_T0_T1_T2_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr noundef nonnull %57, i64 noundef %.010.i.i.i.i, ptr nonnull %0)
@@ -23953,163 +23953,163 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEvT_SB_T0_.exit
 
-61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
-  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %61 ]
-  %62 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
-  %63 = trunc nuw nsw i64 %indvars.iv215 to i32
-  store i32 %63, ptr %62, align 4, !tbaa !15
+62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
+  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
+  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %64 = trunc nuw nsw i64 %indvars.iv215 to i32
+  store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next216, %9
-  br i1 %exitcond219.not, label %48, label %61, !llvm.loop !399
+  br i1 %exitcond219.not, label %48, label %62, !llvm.loop !399
 
 _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEvT_SB_T0_.exit: ; preds = %.loopexit._crit_edge.i.i, %48
-  %64 = icmp slt i32 %41, 32768
-  br i1 %64, label %65, label %.lr.ph194
+  %65 = icmp slt i32 %41, 32768
+  br i1 %65, label %66, label %.lr.ph194
 
-65:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEvT_SB_T0_.exit
-  %66 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
-  %67 = load i32, ptr %66, align 4, !tbaa !15
-  %68 = sext i32 %67 to i64
-  %69 = load ptr, ptr %0, align 8, !tbaa !65
-  %70 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %69, i64 %68
-  %71 = load i32, ptr %70, align 4, !tbaa !66
-  %reass.sub199 = sub i32 %71, %41
-  %72 = add i32 %reass.sub199, 32768
-  store i32 %72, ptr %70, align 4, !tbaa !66
+66:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEvT_SB_T0_.exit
+  %67 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
+  %68 = load i32, ptr %67, align 4, !tbaa !15
+  %69 = sext i32 %68 to i64
+  %70 = load ptr, ptr %0, align 8, !tbaa !65
+  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %72 = load i32, ptr %71, align 4, !tbaa !66
+  %reass.sub199 = sub i32 %72, %41
+  %73 = add i32 %reass.sub199, 32768
+  store i32 %73, ptr %71, align 4, !tbaa !66
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit146
 
 .lr.ph194:                                        ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEvT_SB_T0_.exit
-  %73 = icmp sgt i32 %.0114.lcssa, 0
-  %74 = load ptr, ptr %0, align 8
-  tail call void @llvm.assume(i1 %73)
-  %75 = add nsw i32 %41, -32768
+  %74 = icmp sgt i32 %.0114.lcssa, 0
+  %75 = load ptr, ptr %0, align 8
+  tail call void @llvm.assume(i1 %74)
+  %76 = add nsw i32 %41, -32768
   br label %.lr.ph185.us
 
 .lr.ph185.us:                                     ; preds = %.lr.ph194, %.thread.us
-  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %75, %.lr.ph194 ]
+  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
-  %76 = sitofp i32 %.1122191.us to double
-  %77 = fdiv double 3.276800e+04, %76
-  br label %78
+  %77 = sitofp i32 %.1122191.us to double
+  %78 = fdiv double 3.276800e+04, %77
+  br label %79
 
-78:                                               ; preds = %.lr.ph185.us, %98
-  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %99, %98 ]
-  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %96, %98 ]
-  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %95, %98 ]
-  %79 = zext nneg i32 %.0113183.us to i64
-  %80 = getelementptr inbounds nuw i32, ptr %43, i64 %79
-  %81 = load i32, ptr %80, align 4, !tbaa !15
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %74, i64 %82
-  %84 = load i32, ptr %83, align 4, !tbaa !66
-  %85 = icmp ult i32 %84, 2
-  br i1 %85, label %101, label %86
+79:                                               ; preds = %.lr.ph185.us, %99
+  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %100, %99 ]
+  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
+  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
+  %80 = zext nneg i32 %.0113183.us to i64
+  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %82 = load i32, ptr %81, align 4, !tbaa !15
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %85 = load i32, ptr %84, align 4, !tbaa !66
+  %86 = icmp ult i32 %85, 2
+  br i1 %86, label %102, label %87
 
-86:                                               ; preds = %78
-  %87 = uitofp i32 %84 to double
-  %88 = fmul double %77, %87
-  %89 = tail call double @llvm.floor.f64(double %88)
-  %90 = fptosi double %89 to i32
-  %91 = sub i32 %84, %90
-  %92 = icmp eq i32 %84, %90
-  %spec.store.select.us = select i1 %92, i32 1, i32 %91
-  %.not134.us = icmp slt i32 %spec.store.select.us, %84
-  %93 = add i32 %84, -1
-  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %93
+87:                                               ; preds = %79
+  %88 = uitofp i32 %85 to double
+  %89 = fmul double %78, %88
+  %90 = tail call double @llvm.floor.f64(double %89)
+  %91 = fptosi double %90 to i32
+  %92 = sub i32 %85, %91
+  %93 = icmp eq i32 %85, %91
+  %spec.store.select.us = select i1 %93, i32 1, i32 %92
+  %.not134.us = icmp slt i32 %spec.store.select.us, %85
+  %94 = add i32 %85, -1
+  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %94
   %spec.select139.us = tail call i32 @llvm.smin.i32(i32 %spec.select166.us, i32 %.1118182.us)
-  %94 = sub i32 %84, %spec.select139.us
-  store i32 %94, ptr %83, align 4, !tbaa !66
-  %95 = sub nsw i32 %.2123181.us, %spec.select139.us
-  %96 = sub nsw i32 %.1118182.us, %spec.select139.us
-  %97 = icmp eq i32 %95, 32768
-  br i1 %97, label %.thread.us, label %98
+  %95 = sub i32 %85, %spec.select139.us
+  store i32 %95, ptr %84, align 4, !tbaa !66
+  %96 = sub nsw i32 %.2123181.us, %spec.select139.us
+  %97 = sub nsw i32 %.1118182.us, %spec.select139.us
+  %98 = icmp eq i32 %96, 32768
+  br i1 %98, label %.thread.us, label %99
 
-98:                                               ; preds = %86
-  %99 = add nsw i32 %.0113183.us, -1
-  %100 = icmp sgt i32 %.0113183.us, 1
-  br i1 %100, label %78, label %.thread.us, !llvm.loop !400
+99:                                               ; preds = %87
+  %100 = add nsw i32 %.0113183.us, -1
+  %101 = icmp sgt i32 %.0113183.us, 1
+  br i1 %101, label %79, label %.thread.us, !llvm.loop !400
 
-101:                                              ; preds = %78
-  %102 = icmp eq i32 %.0113183.us, %.0114.lcssa
-  br i1 %102, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
+102:                                              ; preds = %79
+  %103 = icmp eq i32 %.0113183.us, %.0114.lcssa
+  br i1 %103, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
 
-.thread.us:                                       ; preds = %86, %98, %101
-  %.3124.us = phi i32 [ %.2123181.us, %101 ], [ %95, %98 ], [ 32768, %86 ]
-  %.2119.us = phi i32 [ %.1118182.us, %101 ], [ %96, %98 ], [ %96, %86 ]
-  %103 = icmp sgt i32 %.2119.us, 0
-  br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !401
+.thread.us:                                       ; preds = %87, %99, %102
+  %.3124.us = phi i32 [ %.2123181.us, %102 ], [ %96, %99 ], [ 32768, %87 ]
+  %.2119.us = phi i32 [ %.1118182.us, %102 ], [ %97, %99 ], [ %97, %87 ]
+  %104 = icmp sgt i32 %.2119.us, 0
+  br i1 %104, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !401
 
-_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
+_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %102
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %132
+  br label %133
 
-_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
+_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %104
+  br label %105
 
-104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
-  %105 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %108
+105:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
+  %106 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %109
 
-106:                                              ; preds = %108
-  %.not136 = icmp eq i32 %112, 32768
-  br i1 %.not136, label %.preheader, label %132
+107:                                              ; preds = %109
+  %.not136 = icmp eq i32 %113, 32768
+  br i1 %.not136, label %.preheader, label %133
 
-.preheader:                                       ; preds = %106
-  %107 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %119
+.preheader:                                       ; preds = %107
+  %108 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %120
 
-108:                                              ; preds = %104, %108
-  %indvars.iv220 = phi i64 [ 0, %104 ], [ %indvars.iv.next221, %108 ]
-  %.0104195 = phi i32 [ 0, %104 ], [ %112, %108 ]
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %105, i64 %indvars.iv220
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
-  store i32 %.0104195, ptr %110, align 4, !tbaa !69
-  %111 = load i32, ptr %109, align 4, !tbaa !66
-  %112 = add i32 %111, %.0104195
+109:                                              ; preds = %105, %109
+  %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
+  %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
+  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
+  store i32 %.0104195, ptr %111, align 4, !tbaa !69
+  %112 = load i32, ptr %110, align 4, !tbaa !66
+  %113 = add i32 %112, %.0104195
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %exitcond224.not = icmp eq i64 %indvars.iv.next221, %9
-  br i1 %exitcond224.not, label %106, label %108, !llvm.loop !402
+  br i1 %exitcond224.not, label %107, label %109, !llvm.loop !402
 
-113:                                              ; preds = %131
-  %114 = fneg double %.1102
-  %115 = tail call double @llvm.ceil.f64(double %114)
-  %116 = fptoui double %115 to i64
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %116, ptr %117, align 8, !tbaa !156
-  %118 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi10EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+114:                                              ; preds = %132
+  %115 = fneg double %.1102
+  %116 = tail call double @llvm.ceil.f64(double %115)
+  %117 = fptoui double %116 to i64
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %117, ptr %118, align 8, !tbaa !156
+  %119 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi10EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+  br label %133
+
+120:                                              ; preds = %.preheader, %132
+  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
+  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
+  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %122 = load i32, ptr %121, align 4, !tbaa !66
+  %123 = icmp eq i32 %122, 0
+  br i1 %123, label %132, label %124
+
+124:                                              ; preds = %120
+  %125 = uitofp i32 %122 to double
+  %126 = fmul double %125, 0x3F00000000000000
+  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %128 = load i64, ptr %127, align 8, !tbaa !9
+  %129 = uitofp i64 %128 to double
+  %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
+  %131 = tail call double @llvm.fmuladd.f64(double %129, double %130, double %.0101197)
   br label %132
 
-119:                                              ; preds = %.preheader, %131
-  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %131 ]
-  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %131 ]
-  %120 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %107, i64 %indvars.iv225
-  %121 = load i32, ptr %120, align 4, !tbaa !66
-  %122 = icmp eq i32 %121, 0
-  br i1 %122, label %131, label %123
-
-123:                                              ; preds = %119
-  %124 = uitofp i32 %121 to double
-  %125 = fmul double %124, 0x3F00000000000000
-  %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
-  %127 = load i64, ptr %126, align 8, !tbaa !9
-  %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
-  %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
-  br label %131
-
-131:                                              ; preds = %119, %123
-  %.1102 = phi double [ %.0101197, %119 ], [ %130, %123 ]
+132:                                              ; preds = %120, %124
+  %.1102 = phi double [ %.0101197, %120 ], [ %131, %124 ]
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next226, %9
-  br i1 %exitcond229.not, label %113, label %119, !llvm.loop !403
+  br i1 %exitcond229.not, label %114, label %120, !llvm.loop !403
 
-132:                                              ; preds = %113, %106, %_ZNSt6vectorIiSaIiEED2Ev.exit144
-  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %118, %113 ], [ false, %106 ]
+133:                                              ; preds = %114, %107, %_ZNSt6vectorIiSaIiEED2Ev.exit144
+  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %119, %114 ], [ false, %107 ]
   ret i1 %.7
 }
 
@@ -25840,7 +25840,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 30:                                               ; preds = %31
   %.not131 = icmp eq i32 %41, 65536
-  br i1 %.not131, label %104, label %.noexc
+  br i1 %.not131, label %105, label %.noexc
 
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
@@ -25879,9 +25879,9 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
   %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
-  br label %61
+  br label %62
 
-48:                                               ; preds = %61
+48:                                               ; preds = %62
   %49 = icmp eq ptr %43, %.0.i.i.i.i.i
   br i1 %49, label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEvT_SB_T0_.exit, label %50
 
@@ -25903,8 +25903,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not14.i.i.i.i = icmp samesign ult i64 %.010.i.i.in.in.i.i, 3
-  br i1 %.not14.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
+  %58 = icmp eq i64 %.010.i.i.i.i, 1
+  br i1 %58, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %50
   invoke void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEEvT_SE_T0_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr nonnull %0)
@@ -25913,12 +25913,12 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i, %.loopexit.i.i
   %.sroa.4.026.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.023.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %58 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  resume { ptr, i32 } %58
+  resume { ptr, i32 } %59
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   invoke void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lNS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEEvT_SE_T0_T1_T2_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr noundef nonnull %57, i64 noundef %.010.i.i.i.i, ptr nonnull %0)
@@ -25927,163 +25927,163 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEvT_SB_T0_.exit
 
-61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
-  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %61 ]
-  %62 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
-  %63 = trunc nuw nsw i64 %indvars.iv215 to i32
-  store i32 %63, ptr %62, align 4, !tbaa !15
+62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
+  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
+  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %64 = trunc nuw nsw i64 %indvars.iv215 to i32
+  store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next216, %9
-  br i1 %exitcond219.not, label %48, label %61, !llvm.loop !421
+  br i1 %exitcond219.not, label %48, label %62, !llvm.loop !421
 
 _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEvT_SB_T0_.exit: ; preds = %.loopexit._crit_edge.i.i, %48
-  %64 = icmp slt i32 %41, 65536
-  br i1 %64, label %65, label %.lr.ph194
+  %65 = icmp slt i32 %41, 65536
+  br i1 %65, label %66, label %.lr.ph194
 
-65:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEvT_SB_T0_.exit
-  %66 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
-  %67 = load i32, ptr %66, align 4, !tbaa !15
-  %68 = sext i32 %67 to i64
-  %69 = load ptr, ptr %0, align 8, !tbaa !65
-  %70 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %69, i64 %68
-  %71 = load i32, ptr %70, align 4, !tbaa !66
-  %reass.sub199 = sub i32 %71, %41
-  %72 = add i32 %reass.sub199, 65536
-  store i32 %72, ptr %70, align 4, !tbaa !66
+66:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEvT_SB_T0_.exit
+  %67 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
+  %68 = load i32, ptr %67, align 4, !tbaa !15
+  %69 = sext i32 %68 to i64
+  %70 = load ptr, ptr %0, align 8, !tbaa !65
+  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %72 = load i32, ptr %71, align 4, !tbaa !66
+  %reass.sub199 = sub i32 %72, %41
+  %73 = add i32 %reass.sub199, 65536
+  store i32 %73, ptr %71, align 4, !tbaa !66
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit146
 
 .lr.ph194:                                        ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEvT_SB_T0_.exit
-  %73 = icmp sgt i32 %.0114.lcssa, 0
-  %74 = load ptr, ptr %0, align 8
-  tail call void @llvm.assume(i1 %73)
-  %75 = add nsw i32 %41, -65536
+  %74 = icmp sgt i32 %.0114.lcssa, 0
+  %75 = load ptr, ptr %0, align 8
+  tail call void @llvm.assume(i1 %74)
+  %76 = add nsw i32 %41, -65536
   br label %.lr.ph185.us
 
 .lr.ph185.us:                                     ; preds = %.lr.ph194, %.thread.us
-  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %75, %.lr.ph194 ]
+  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
-  %76 = sitofp i32 %.1122191.us to double
-  %77 = fdiv double 6.553600e+04, %76
-  br label %78
+  %77 = sitofp i32 %.1122191.us to double
+  %78 = fdiv double 6.553600e+04, %77
+  br label %79
 
-78:                                               ; preds = %.lr.ph185.us, %98
-  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %99, %98 ]
-  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %96, %98 ]
-  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %95, %98 ]
-  %79 = zext nneg i32 %.0113183.us to i64
-  %80 = getelementptr inbounds nuw i32, ptr %43, i64 %79
-  %81 = load i32, ptr %80, align 4, !tbaa !15
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %74, i64 %82
-  %84 = load i32, ptr %83, align 4, !tbaa !66
-  %85 = icmp ult i32 %84, 2
-  br i1 %85, label %101, label %86
+79:                                               ; preds = %.lr.ph185.us, %99
+  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %100, %99 ]
+  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
+  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
+  %80 = zext nneg i32 %.0113183.us to i64
+  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %82 = load i32, ptr %81, align 4, !tbaa !15
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %85 = load i32, ptr %84, align 4, !tbaa !66
+  %86 = icmp ult i32 %85, 2
+  br i1 %86, label %102, label %87
 
-86:                                               ; preds = %78
-  %87 = uitofp i32 %84 to double
-  %88 = fmul double %77, %87
-  %89 = tail call double @llvm.floor.f64(double %88)
-  %90 = fptosi double %89 to i32
-  %91 = sub i32 %84, %90
-  %92 = icmp eq i32 %84, %90
-  %spec.store.select.us = select i1 %92, i32 1, i32 %91
-  %.not134.us = icmp slt i32 %spec.store.select.us, %84
-  %93 = add i32 %84, -1
-  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %93
+87:                                               ; preds = %79
+  %88 = uitofp i32 %85 to double
+  %89 = fmul double %78, %88
+  %90 = tail call double @llvm.floor.f64(double %89)
+  %91 = fptosi double %90 to i32
+  %92 = sub i32 %85, %91
+  %93 = icmp eq i32 %85, %91
+  %spec.store.select.us = select i1 %93, i32 1, i32 %92
+  %.not134.us = icmp slt i32 %spec.store.select.us, %85
+  %94 = add i32 %85, -1
+  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %94
   %spec.select139.us = tail call i32 @llvm.smin.i32(i32 %spec.select166.us, i32 %.1118182.us)
-  %94 = sub i32 %84, %spec.select139.us
-  store i32 %94, ptr %83, align 4, !tbaa !66
-  %95 = sub nsw i32 %.2123181.us, %spec.select139.us
-  %96 = sub nsw i32 %.1118182.us, %spec.select139.us
-  %97 = icmp eq i32 %95, 65536
-  br i1 %97, label %.thread.us, label %98
+  %95 = sub i32 %85, %spec.select139.us
+  store i32 %95, ptr %84, align 4, !tbaa !66
+  %96 = sub nsw i32 %.2123181.us, %spec.select139.us
+  %97 = sub nsw i32 %.1118182.us, %spec.select139.us
+  %98 = icmp eq i32 %96, 65536
+  br i1 %98, label %.thread.us, label %99
 
-98:                                               ; preds = %86
-  %99 = add nsw i32 %.0113183.us, -1
-  %100 = icmp sgt i32 %.0113183.us, 1
-  br i1 %100, label %78, label %.thread.us, !llvm.loop !422
+99:                                               ; preds = %87
+  %100 = add nsw i32 %.0113183.us, -1
+  %101 = icmp sgt i32 %.0113183.us, 1
+  br i1 %101, label %79, label %.thread.us, !llvm.loop !422
 
-101:                                              ; preds = %78
-  %102 = icmp eq i32 %.0113183.us, %.0114.lcssa
-  br i1 %102, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
+102:                                              ; preds = %79
+  %103 = icmp eq i32 %.0113183.us, %.0114.lcssa
+  br i1 %103, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
 
-.thread.us:                                       ; preds = %86, %98, %101
-  %.3124.us = phi i32 [ %.2123181.us, %101 ], [ %95, %98 ], [ 65536, %86 ]
-  %.2119.us = phi i32 [ %.1118182.us, %101 ], [ %96, %98 ], [ %96, %86 ]
-  %103 = icmp sgt i32 %.2119.us, 0
-  br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !423
+.thread.us:                                       ; preds = %87, %99, %102
+  %.3124.us = phi i32 [ %.2123181.us, %102 ], [ %96, %99 ], [ 65536, %87 ]
+  %.2119.us = phi i32 [ %.1118182.us, %102 ], [ %97, %99 ], [ %97, %87 ]
+  %104 = icmp sgt i32 %.2119.us, 0
+  br i1 %104, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !423
 
-_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
+_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %102
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %132
+  br label %133
 
-_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
+_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %104
+  br label %105
 
-104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
-  %105 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %108
+105:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
+  %106 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %109
 
-106:                                              ; preds = %108
-  %.not136 = icmp eq i32 %112, 65536
-  br i1 %.not136, label %.preheader, label %132
+107:                                              ; preds = %109
+  %.not136 = icmp eq i32 %113, 65536
+  br i1 %.not136, label %.preheader, label %133
 
-.preheader:                                       ; preds = %106
-  %107 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %119
+.preheader:                                       ; preds = %107
+  %108 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %120
 
-108:                                              ; preds = %104, %108
-  %indvars.iv220 = phi i64 [ 0, %104 ], [ %indvars.iv.next221, %108 ]
-  %.0104195 = phi i32 [ 0, %104 ], [ %112, %108 ]
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %105, i64 %indvars.iv220
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
-  store i32 %.0104195, ptr %110, align 4, !tbaa !69
-  %111 = load i32, ptr %109, align 4, !tbaa !66
-  %112 = add i32 %111, %.0104195
+109:                                              ; preds = %105, %109
+  %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
+  %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
+  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
+  store i32 %.0104195, ptr %111, align 4, !tbaa !69
+  %112 = load i32, ptr %110, align 4, !tbaa !66
+  %113 = add i32 %112, %.0104195
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %exitcond224.not = icmp eq i64 %indvars.iv.next221, %9
-  br i1 %exitcond224.not, label %106, label %108, !llvm.loop !424
+  br i1 %exitcond224.not, label %107, label %109, !llvm.loop !424
 
-113:                                              ; preds = %131
-  %114 = fneg double %.1102
-  %115 = tail call double @llvm.ceil.f64(double %114)
-  %116 = fptoui double %115 to i64
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %116, ptr %117, align 8, !tbaa !165
-  %118 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi11EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+114:                                              ; preds = %132
+  %115 = fneg double %.1102
+  %116 = tail call double @llvm.ceil.f64(double %115)
+  %117 = fptoui double %116 to i64
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %117, ptr %118, align 8, !tbaa !165
+  %119 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi11EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+  br label %133
+
+120:                                              ; preds = %.preheader, %132
+  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
+  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
+  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %122 = load i32, ptr %121, align 4, !tbaa !66
+  %123 = icmp eq i32 %122, 0
+  br i1 %123, label %132, label %124
+
+124:                                              ; preds = %120
+  %125 = uitofp i32 %122 to double
+  %126 = fmul double %125, 0x3EF0000000000000
+  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %128 = load i64, ptr %127, align 8, !tbaa !9
+  %129 = uitofp i64 %128 to double
+  %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
+  %131 = tail call double @llvm.fmuladd.f64(double %129, double %130, double %.0101197)
   br label %132
 
-119:                                              ; preds = %.preheader, %131
-  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %131 ]
-  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %131 ]
-  %120 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %107, i64 %indvars.iv225
-  %121 = load i32, ptr %120, align 4, !tbaa !66
-  %122 = icmp eq i32 %121, 0
-  br i1 %122, label %131, label %123
-
-123:                                              ; preds = %119
-  %124 = uitofp i32 %121 to double
-  %125 = fmul double %124, 0x3EF0000000000000
-  %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
-  %127 = load i64, ptr %126, align 8, !tbaa !9
-  %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
-  %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
-  br label %131
-
-131:                                              ; preds = %119, %123
-  %.1102 = phi double [ %.0101197, %119 ], [ %130, %123 ]
+132:                                              ; preds = %120, %124
+  %.1102 = phi double [ %.0101197, %120 ], [ %131, %124 ]
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next226, %9
-  br i1 %exitcond229.not, label %113, label %119, !llvm.loop !425
+  br i1 %exitcond229.not, label %114, label %120, !llvm.loop !425
 
-132:                                              ; preds = %113, %106, %_ZNSt6vectorIiSaIiEED2Ev.exit144
-  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %118, %113 ], [ false, %106 ]
+133:                                              ; preds = %114, %107, %_ZNSt6vectorIiSaIiEED2Ev.exit144
+  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %119, %114 ], [ false, %107 ]
   ret i1 %.7
 }
 
@@ -27814,7 +27814,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 30:                                               ; preds = %31
   %.not131 = icmp eq i32 %41, 262144
-  br i1 %.not131, label %104, label %.noexc
+  br i1 %.not131, label %105, label %.noexc
 
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
@@ -27853,9 +27853,9 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
   %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
-  br label %61
+  br label %62
 
-48:                                               ; preds = %61
+48:                                               ; preds = %62
   %49 = icmp eq ptr %43, %.0.i.i.i.i.i
   br i1 %49, label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEvT_SB_T0_.exit, label %50
 
@@ -27877,8 +27877,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not14.i.i.i.i = icmp samesign ult i64 %.010.i.i.in.in.i.i, 3
-  br i1 %.not14.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
+  %58 = icmp eq i64 %.010.i.i.i.i, 1
+  br i1 %58, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %50
   invoke void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEEvT_SE_T0_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr nonnull %0)
@@ -27887,12 +27887,12 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i, %.loopexit.i.i
   %.sroa.4.026.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.023.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %58 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  resume { ptr, i32 } %58
+  resume { ptr, i32 } %59
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   invoke void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lNS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEEvT_SE_T0_T1_T2_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr noundef nonnull %57, i64 noundef %.010.i.i.i.i, ptr nonnull %0)
@@ -27901,163 +27901,163 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEvT_SB_T0_.exit
 
-61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
-  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %61 ]
-  %62 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
-  %63 = trunc nuw nsw i64 %indvars.iv215 to i32
-  store i32 %63, ptr %62, align 4, !tbaa !15
+62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
+  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
+  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %64 = trunc nuw nsw i64 %indvars.iv215 to i32
+  store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next216, %9
-  br i1 %exitcond219.not, label %48, label %61, !llvm.loop !443
+  br i1 %exitcond219.not, label %48, label %62, !llvm.loop !443
 
 _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEvT_SB_T0_.exit: ; preds = %.loopexit._crit_edge.i.i, %48
-  %64 = icmp slt i32 %41, 262144
-  br i1 %64, label %65, label %.lr.ph194
+  %65 = icmp slt i32 %41, 262144
+  br i1 %65, label %66, label %.lr.ph194
 
-65:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEvT_SB_T0_.exit
-  %66 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
-  %67 = load i32, ptr %66, align 4, !tbaa !15
-  %68 = sext i32 %67 to i64
-  %69 = load ptr, ptr %0, align 8, !tbaa !65
-  %70 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %69, i64 %68
-  %71 = load i32, ptr %70, align 4, !tbaa !66
-  %reass.sub199 = sub i32 %71, %41
-  %72 = add i32 %reass.sub199, 262144
-  store i32 %72, ptr %70, align 4, !tbaa !66
+66:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEvT_SB_T0_.exit
+  %67 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
+  %68 = load i32, ptr %67, align 4, !tbaa !15
+  %69 = sext i32 %68 to i64
+  %70 = load ptr, ptr %0, align 8, !tbaa !65
+  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %72 = load i32, ptr %71, align 4, !tbaa !66
+  %reass.sub199 = sub i32 %72, %41
+  %73 = add i32 %reass.sub199, 262144
+  store i32 %73, ptr %71, align 4, !tbaa !66
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit146
 
 .lr.ph194:                                        ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEvT_SB_T0_.exit
-  %73 = icmp sgt i32 %.0114.lcssa, 0
-  %74 = load ptr, ptr %0, align 8
-  tail call void @llvm.assume(i1 %73)
-  %75 = add nsw i32 %41, -262144
+  %74 = icmp sgt i32 %.0114.lcssa, 0
+  %75 = load ptr, ptr %0, align 8
+  tail call void @llvm.assume(i1 %74)
+  %76 = add nsw i32 %41, -262144
   br label %.lr.ph185.us
 
 .lr.ph185.us:                                     ; preds = %.lr.ph194, %.thread.us
-  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %75, %.lr.ph194 ]
+  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
-  %76 = sitofp i32 %.1122191.us to double
-  %77 = fdiv double 2.621440e+05, %76
-  br label %78
+  %77 = sitofp i32 %.1122191.us to double
+  %78 = fdiv double 2.621440e+05, %77
+  br label %79
 
-78:                                               ; preds = %.lr.ph185.us, %98
-  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %99, %98 ]
-  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %96, %98 ]
-  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %95, %98 ]
-  %79 = zext nneg i32 %.0113183.us to i64
-  %80 = getelementptr inbounds nuw i32, ptr %43, i64 %79
-  %81 = load i32, ptr %80, align 4, !tbaa !15
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %74, i64 %82
-  %84 = load i32, ptr %83, align 4, !tbaa !66
-  %85 = icmp ult i32 %84, 2
-  br i1 %85, label %101, label %86
+79:                                               ; preds = %.lr.ph185.us, %99
+  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %100, %99 ]
+  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
+  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
+  %80 = zext nneg i32 %.0113183.us to i64
+  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %82 = load i32, ptr %81, align 4, !tbaa !15
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %85 = load i32, ptr %84, align 4, !tbaa !66
+  %86 = icmp ult i32 %85, 2
+  br i1 %86, label %102, label %87
 
-86:                                               ; preds = %78
-  %87 = uitofp i32 %84 to double
-  %88 = fmul double %77, %87
-  %89 = tail call double @llvm.floor.f64(double %88)
-  %90 = fptosi double %89 to i32
-  %91 = sub i32 %84, %90
-  %92 = icmp eq i32 %84, %90
-  %spec.store.select.us = select i1 %92, i32 1, i32 %91
-  %.not134.us = icmp slt i32 %spec.store.select.us, %84
-  %93 = add i32 %84, -1
-  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %93
+87:                                               ; preds = %79
+  %88 = uitofp i32 %85 to double
+  %89 = fmul double %78, %88
+  %90 = tail call double @llvm.floor.f64(double %89)
+  %91 = fptosi double %90 to i32
+  %92 = sub i32 %85, %91
+  %93 = icmp eq i32 %85, %91
+  %spec.store.select.us = select i1 %93, i32 1, i32 %92
+  %.not134.us = icmp slt i32 %spec.store.select.us, %85
+  %94 = add i32 %85, -1
+  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %94
   %spec.select139.us = tail call i32 @llvm.smin.i32(i32 %spec.select166.us, i32 %.1118182.us)
-  %94 = sub i32 %84, %spec.select139.us
-  store i32 %94, ptr %83, align 4, !tbaa !66
-  %95 = sub nsw i32 %.2123181.us, %spec.select139.us
-  %96 = sub nsw i32 %.1118182.us, %spec.select139.us
-  %97 = icmp eq i32 %95, 262144
-  br i1 %97, label %.thread.us, label %98
+  %95 = sub i32 %85, %spec.select139.us
+  store i32 %95, ptr %84, align 4, !tbaa !66
+  %96 = sub nsw i32 %.2123181.us, %spec.select139.us
+  %97 = sub nsw i32 %.1118182.us, %spec.select139.us
+  %98 = icmp eq i32 %96, 262144
+  br i1 %98, label %.thread.us, label %99
 
-98:                                               ; preds = %86
-  %99 = add nsw i32 %.0113183.us, -1
-  %100 = icmp sgt i32 %.0113183.us, 1
-  br i1 %100, label %78, label %.thread.us, !llvm.loop !444
+99:                                               ; preds = %87
+  %100 = add nsw i32 %.0113183.us, -1
+  %101 = icmp sgt i32 %.0113183.us, 1
+  br i1 %101, label %79, label %.thread.us, !llvm.loop !444
 
-101:                                              ; preds = %78
-  %102 = icmp eq i32 %.0113183.us, %.0114.lcssa
-  br i1 %102, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
+102:                                              ; preds = %79
+  %103 = icmp eq i32 %.0113183.us, %.0114.lcssa
+  br i1 %103, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
 
-.thread.us:                                       ; preds = %86, %98, %101
-  %.3124.us = phi i32 [ %.2123181.us, %101 ], [ %95, %98 ], [ 262144, %86 ]
-  %.2119.us = phi i32 [ %.1118182.us, %101 ], [ %96, %98 ], [ %96, %86 ]
-  %103 = icmp sgt i32 %.2119.us, 0
-  br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !445
+.thread.us:                                       ; preds = %87, %99, %102
+  %.3124.us = phi i32 [ %.2123181.us, %102 ], [ %96, %99 ], [ 262144, %87 ]
+  %.2119.us = phi i32 [ %.1118182.us, %102 ], [ %97, %99 ], [ %97, %87 ]
+  %104 = icmp sgt i32 %.2119.us, 0
+  br i1 %104, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !445
 
-_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
+_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %102
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %132
+  br label %133
 
-_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
+_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %104
+  br label %105
 
-104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
-  %105 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %108
+105:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
+  %106 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %109
 
-106:                                              ; preds = %108
-  %.not136 = icmp eq i32 %112, 262144
-  br i1 %.not136, label %.preheader, label %132
+107:                                              ; preds = %109
+  %.not136 = icmp eq i32 %113, 262144
+  br i1 %.not136, label %.preheader, label %133
 
-.preheader:                                       ; preds = %106
-  %107 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %119
+.preheader:                                       ; preds = %107
+  %108 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %120
 
-108:                                              ; preds = %104, %108
-  %indvars.iv220 = phi i64 [ 0, %104 ], [ %indvars.iv.next221, %108 ]
-  %.0104195 = phi i32 [ 0, %104 ], [ %112, %108 ]
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %105, i64 %indvars.iv220
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
-  store i32 %.0104195, ptr %110, align 4, !tbaa !69
-  %111 = load i32, ptr %109, align 4, !tbaa !66
-  %112 = add i32 %111, %.0104195
+109:                                              ; preds = %105, %109
+  %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
+  %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
+  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
+  store i32 %.0104195, ptr %111, align 4, !tbaa !69
+  %112 = load i32, ptr %110, align 4, !tbaa !66
+  %113 = add i32 %112, %.0104195
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %exitcond224.not = icmp eq i64 %indvars.iv.next221, %9
-  br i1 %exitcond224.not, label %106, label %108, !llvm.loop !446
+  br i1 %exitcond224.not, label %107, label %109, !llvm.loop !446
 
-113:                                              ; preds = %131
-  %114 = fneg double %.1102
-  %115 = tail call double @llvm.ceil.f64(double %114)
-  %116 = fptoui double %115 to i64
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %116, ptr %117, align 8, !tbaa !174
-  %118 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi12EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+114:                                              ; preds = %132
+  %115 = fneg double %.1102
+  %116 = tail call double @llvm.ceil.f64(double %115)
+  %117 = fptoui double %116 to i64
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %117, ptr %118, align 8, !tbaa !174
+  %119 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi12EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+  br label %133
+
+120:                                              ; preds = %.preheader, %132
+  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
+  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
+  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %122 = load i32, ptr %121, align 4, !tbaa !66
+  %123 = icmp eq i32 %122, 0
+  br i1 %123, label %132, label %124
+
+124:                                              ; preds = %120
+  %125 = uitofp i32 %122 to double
+  %126 = fmul double %125, 0x3ED0000000000000
+  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %128 = load i64, ptr %127, align 8, !tbaa !9
+  %129 = uitofp i64 %128 to double
+  %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
+  %131 = tail call double @llvm.fmuladd.f64(double %129, double %130, double %.0101197)
   br label %132
 
-119:                                              ; preds = %.preheader, %131
-  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %131 ]
-  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %131 ]
-  %120 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %107, i64 %indvars.iv225
-  %121 = load i32, ptr %120, align 4, !tbaa !66
-  %122 = icmp eq i32 %121, 0
-  br i1 %122, label %131, label %123
-
-123:                                              ; preds = %119
-  %124 = uitofp i32 %121 to double
-  %125 = fmul double %124, 0x3ED0000000000000
-  %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
-  %127 = load i64, ptr %126, align 8, !tbaa !9
-  %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
-  %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
-  br label %131
-
-131:                                              ; preds = %119, %123
-  %.1102 = phi double [ %.0101197, %119 ], [ %130, %123 ]
+132:                                              ; preds = %120, %124
+  %.1102 = phi double [ %.0101197, %120 ], [ %131, %124 ]
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next226, %9
-  br i1 %exitcond229.not, label %113, label %119, !llvm.loop !447
+  br i1 %exitcond229.not, label %114, label %120, !llvm.loop !447
 
-132:                                              ; preds = %113, %106, %_ZNSt6vectorIiSaIiEED2Ev.exit144
-  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %118, %113 ], [ false, %106 ]
+133:                                              ; preds = %114, %107, %_ZNSt6vectorIiSaIiEED2Ev.exit144
+  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %119, %114 ], [ false, %107 ]
   ret i1 %.7
 }
 
@@ -29788,7 +29788,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 30:                                               ; preds = %31
   %.not131 = icmp eq i32 %41, 524288
-  br i1 %.not131, label %104, label %.noexc
+  br i1 %.not131, label %105, label %.noexc
 
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
@@ -29827,9 +29827,9 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
   %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
-  br label %61
+  br label %62
 
-48:                                               ; preds = %61
+48:                                               ; preds = %62
   %49 = icmp eq ptr %43, %.0.i.i.i.i.i
   br i1 %49, label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEvT_SB_T0_.exit, label %50
 
@@ -29851,8 +29851,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not14.i.i.i.i = icmp samesign ult i64 %.010.i.i.in.in.i.i, 3
-  br i1 %.not14.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
+  %58 = icmp eq i64 %.010.i.i.i.i, 1
+  br i1 %58, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %50
   invoke void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEEvT_SE_T0_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr nonnull %0)
@@ -29861,12 +29861,12 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i, %.loopexit.i.i
   %.sroa.4.026.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.023.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %58 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  resume { ptr, i32 } %58
+  resume { ptr, i32 } %59
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   invoke void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lNS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEEvT_SE_T0_T1_T2_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr noundef nonnull %57, i64 noundef %.010.i.i.i.i, ptr nonnull %0)
@@ -29875,163 +29875,163 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEvT_SB_T0_.exit
 
-61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
-  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %61 ]
-  %62 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
-  %63 = trunc nuw nsw i64 %indvars.iv215 to i32
-  store i32 %63, ptr %62, align 4, !tbaa !15
+62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
+  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
+  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %64 = trunc nuw nsw i64 %indvars.iv215 to i32
+  store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next216, %9
-  br i1 %exitcond219.not, label %48, label %61, !llvm.loop !465
+  br i1 %exitcond219.not, label %48, label %62, !llvm.loop !465
 
 _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEvT_SB_T0_.exit: ; preds = %.loopexit._crit_edge.i.i, %48
-  %64 = icmp slt i32 %41, 524288
-  br i1 %64, label %65, label %.lr.ph194
+  %65 = icmp slt i32 %41, 524288
+  br i1 %65, label %66, label %.lr.ph194
 
-65:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEvT_SB_T0_.exit
-  %66 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
-  %67 = load i32, ptr %66, align 4, !tbaa !15
-  %68 = sext i32 %67 to i64
-  %69 = load ptr, ptr %0, align 8, !tbaa !65
-  %70 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %69, i64 %68
-  %71 = load i32, ptr %70, align 4, !tbaa !66
-  %reass.sub199 = sub i32 %71, %41
-  %72 = add i32 %reass.sub199, 524288
-  store i32 %72, ptr %70, align 4, !tbaa !66
+66:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEvT_SB_T0_.exit
+  %67 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
+  %68 = load i32, ptr %67, align 4, !tbaa !15
+  %69 = sext i32 %68 to i64
+  %70 = load ptr, ptr %0, align 8, !tbaa !65
+  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %72 = load i32, ptr %71, align 4, !tbaa !66
+  %reass.sub199 = sub i32 %72, %41
+  %73 = add i32 %reass.sub199, 524288
+  store i32 %73, ptr %71, align 4, !tbaa !66
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit146
 
 .lr.ph194:                                        ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEvT_SB_T0_.exit
-  %73 = icmp sgt i32 %.0114.lcssa, 0
-  %74 = load ptr, ptr %0, align 8
-  tail call void @llvm.assume(i1 %73)
-  %75 = add nsw i32 %41, -524288
+  %74 = icmp sgt i32 %.0114.lcssa, 0
+  %75 = load ptr, ptr %0, align 8
+  tail call void @llvm.assume(i1 %74)
+  %76 = add nsw i32 %41, -524288
   br label %.lr.ph185.us
 
 .lr.ph185.us:                                     ; preds = %.lr.ph194, %.thread.us
-  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %75, %.lr.ph194 ]
+  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
-  %76 = sitofp i32 %.1122191.us to double
-  %77 = fdiv double 5.242880e+05, %76
-  br label %78
+  %77 = sitofp i32 %.1122191.us to double
+  %78 = fdiv double 5.242880e+05, %77
+  br label %79
 
-78:                                               ; preds = %.lr.ph185.us, %98
-  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %99, %98 ]
-  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %96, %98 ]
-  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %95, %98 ]
-  %79 = zext nneg i32 %.0113183.us to i64
-  %80 = getelementptr inbounds nuw i32, ptr %43, i64 %79
-  %81 = load i32, ptr %80, align 4, !tbaa !15
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %74, i64 %82
-  %84 = load i32, ptr %83, align 4, !tbaa !66
-  %85 = icmp ult i32 %84, 2
-  br i1 %85, label %101, label %86
+79:                                               ; preds = %.lr.ph185.us, %99
+  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %100, %99 ]
+  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
+  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
+  %80 = zext nneg i32 %.0113183.us to i64
+  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %82 = load i32, ptr %81, align 4, !tbaa !15
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %85 = load i32, ptr %84, align 4, !tbaa !66
+  %86 = icmp ult i32 %85, 2
+  br i1 %86, label %102, label %87
 
-86:                                               ; preds = %78
-  %87 = uitofp i32 %84 to double
-  %88 = fmul double %77, %87
-  %89 = tail call double @llvm.floor.f64(double %88)
-  %90 = fptosi double %89 to i32
-  %91 = sub i32 %84, %90
-  %92 = icmp eq i32 %84, %90
-  %spec.store.select.us = select i1 %92, i32 1, i32 %91
-  %.not134.us = icmp slt i32 %spec.store.select.us, %84
-  %93 = add i32 %84, -1
-  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %93
+87:                                               ; preds = %79
+  %88 = uitofp i32 %85 to double
+  %89 = fmul double %78, %88
+  %90 = tail call double @llvm.floor.f64(double %89)
+  %91 = fptosi double %90 to i32
+  %92 = sub i32 %85, %91
+  %93 = icmp eq i32 %85, %91
+  %spec.store.select.us = select i1 %93, i32 1, i32 %92
+  %.not134.us = icmp slt i32 %spec.store.select.us, %85
+  %94 = add i32 %85, -1
+  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %94
   %spec.select139.us = tail call i32 @llvm.smin.i32(i32 %spec.select166.us, i32 %.1118182.us)
-  %94 = sub i32 %84, %spec.select139.us
-  store i32 %94, ptr %83, align 4, !tbaa !66
-  %95 = sub nsw i32 %.2123181.us, %spec.select139.us
-  %96 = sub nsw i32 %.1118182.us, %spec.select139.us
-  %97 = icmp eq i32 %95, 524288
-  br i1 %97, label %.thread.us, label %98
+  %95 = sub i32 %85, %spec.select139.us
+  store i32 %95, ptr %84, align 4, !tbaa !66
+  %96 = sub nsw i32 %.2123181.us, %spec.select139.us
+  %97 = sub nsw i32 %.1118182.us, %spec.select139.us
+  %98 = icmp eq i32 %96, 524288
+  br i1 %98, label %.thread.us, label %99
 
-98:                                               ; preds = %86
-  %99 = add nsw i32 %.0113183.us, -1
-  %100 = icmp sgt i32 %.0113183.us, 1
-  br i1 %100, label %78, label %.thread.us, !llvm.loop !466
+99:                                               ; preds = %87
+  %100 = add nsw i32 %.0113183.us, -1
+  %101 = icmp sgt i32 %.0113183.us, 1
+  br i1 %101, label %79, label %.thread.us, !llvm.loop !466
 
-101:                                              ; preds = %78
-  %102 = icmp eq i32 %.0113183.us, %.0114.lcssa
-  br i1 %102, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
+102:                                              ; preds = %79
+  %103 = icmp eq i32 %.0113183.us, %.0114.lcssa
+  br i1 %103, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
 
-.thread.us:                                       ; preds = %86, %98, %101
-  %.3124.us = phi i32 [ %.2123181.us, %101 ], [ %95, %98 ], [ 524288, %86 ]
-  %.2119.us = phi i32 [ %.1118182.us, %101 ], [ %96, %98 ], [ %96, %86 ]
-  %103 = icmp sgt i32 %.2119.us, 0
-  br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !467
+.thread.us:                                       ; preds = %87, %99, %102
+  %.3124.us = phi i32 [ %.2123181.us, %102 ], [ %96, %99 ], [ 524288, %87 ]
+  %.2119.us = phi i32 [ %.1118182.us, %102 ], [ %97, %99 ], [ %97, %87 ]
+  %104 = icmp sgt i32 %.2119.us, 0
+  br i1 %104, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !467
 
-_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
+_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %102
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %132
+  br label %133
 
-_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
+_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %104
+  br label %105
 
-104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
-  %105 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %108
+105:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
+  %106 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %109
 
-106:                                              ; preds = %108
-  %.not136 = icmp eq i32 %112, 524288
-  br i1 %.not136, label %.preheader, label %132
+107:                                              ; preds = %109
+  %.not136 = icmp eq i32 %113, 524288
+  br i1 %.not136, label %.preheader, label %133
 
-.preheader:                                       ; preds = %106
-  %107 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %119
+.preheader:                                       ; preds = %107
+  %108 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %120
 
-108:                                              ; preds = %104, %108
-  %indvars.iv220 = phi i64 [ 0, %104 ], [ %indvars.iv.next221, %108 ]
-  %.0104195 = phi i32 [ 0, %104 ], [ %112, %108 ]
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %105, i64 %indvars.iv220
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
-  store i32 %.0104195, ptr %110, align 4, !tbaa !69
-  %111 = load i32, ptr %109, align 4, !tbaa !66
-  %112 = add i32 %111, %.0104195
+109:                                              ; preds = %105, %109
+  %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
+  %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
+  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
+  store i32 %.0104195, ptr %111, align 4, !tbaa !69
+  %112 = load i32, ptr %110, align 4, !tbaa !66
+  %113 = add i32 %112, %.0104195
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %exitcond224.not = icmp eq i64 %indvars.iv.next221, %9
-  br i1 %exitcond224.not, label %106, label %108, !llvm.loop !468
+  br i1 %exitcond224.not, label %107, label %109, !llvm.loop !468
 
-113:                                              ; preds = %131
-  %114 = fneg double %.1102
-  %115 = tail call double @llvm.ceil.f64(double %114)
-  %116 = fptoui double %115 to i64
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %116, ptr %117, align 8, !tbaa !183
-  %118 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi13EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+114:                                              ; preds = %132
+  %115 = fneg double %.1102
+  %116 = tail call double @llvm.ceil.f64(double %115)
+  %117 = fptoui double %116 to i64
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %117, ptr %118, align 8, !tbaa !183
+  %119 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi13EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+  br label %133
+
+120:                                              ; preds = %.preheader, %132
+  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
+  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
+  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %122 = load i32, ptr %121, align 4, !tbaa !66
+  %123 = icmp eq i32 %122, 0
+  br i1 %123, label %132, label %124
+
+124:                                              ; preds = %120
+  %125 = uitofp i32 %122 to double
+  %126 = fmul double %125, 0x3EC0000000000000
+  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %128 = load i64, ptr %127, align 8, !tbaa !9
+  %129 = uitofp i64 %128 to double
+  %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
+  %131 = tail call double @llvm.fmuladd.f64(double %129, double %130, double %.0101197)
   br label %132
 
-119:                                              ; preds = %.preheader, %131
-  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %131 ]
-  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %131 ]
-  %120 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %107, i64 %indvars.iv225
-  %121 = load i32, ptr %120, align 4, !tbaa !66
-  %122 = icmp eq i32 %121, 0
-  br i1 %122, label %131, label %123
-
-123:                                              ; preds = %119
-  %124 = uitofp i32 %121 to double
-  %125 = fmul double %124, 0x3EC0000000000000
-  %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
-  %127 = load i64, ptr %126, align 8, !tbaa !9
-  %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
-  %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
-  br label %131
-
-131:                                              ; preds = %119, %123
-  %.1102 = phi double [ %.0101197, %119 ], [ %130, %123 ]
+132:                                              ; preds = %120, %124
+  %.1102 = phi double [ %.0101197, %120 ], [ %131, %124 ]
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next226, %9
-  br i1 %exitcond229.not, label %113, label %119, !llvm.loop !469
+  br i1 %exitcond229.not, label %114, label %120, !llvm.loop !469
 
-132:                                              ; preds = %113, %106, %_ZNSt6vectorIiSaIiEED2Ev.exit144
-  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %118, %113 ], [ false, %106 ]
+133:                                              ; preds = %114, %107, %_ZNSt6vectorIiSaIiEED2Ev.exit144
+  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %119, %114 ], [ false, %107 ]
   ret i1 %.7
 }
 
@@ -31762,7 +31762,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 30:                                               ; preds = %31
   %.not131 = icmp eq i32 %41, 1048576
-  br i1 %.not131, label %104, label %.noexc
+  br i1 %.not131, label %105, label %.noexc
 
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
@@ -31801,9 +31801,9 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
   %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
-  br label %61
+  br label %62
 
-48:                                               ; preds = %61
+48:                                               ; preds = %62
   %49 = icmp eq ptr %43, %.0.i.i.i.i.i
   br i1 %49, label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEvT_SB_T0_.exit, label %50
 
@@ -31825,8 +31825,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not14.i.i.i.i = icmp samesign ult i64 %.010.i.i.in.in.i.i, 3
-  br i1 %.not14.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
+  %58 = icmp eq i64 %.010.i.i.i.i, 1
+  br i1 %58, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %50
   invoke void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEEvT_SE_T0_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr nonnull %0)
@@ -31835,12 +31835,12 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i, %.loopexit.i.i
   %.sroa.4.026.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.023.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %58 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  resume { ptr, i32 } %58
+  resume { ptr, i32 } %59
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   invoke void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lNS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEEvT_SE_T0_T1_T2_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr noundef nonnull %57, i64 noundef %.010.i.i.i.i, ptr nonnull %0)
@@ -31849,163 +31849,163 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEvT_SB_T0_.exit
 
-61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
-  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %61 ]
-  %62 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
-  %63 = trunc nuw nsw i64 %indvars.iv215 to i32
-  store i32 %63, ptr %62, align 4, !tbaa !15
+62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
+  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
+  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %64 = trunc nuw nsw i64 %indvars.iv215 to i32
+  store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next216, %9
-  br i1 %exitcond219.not, label %48, label %61, !llvm.loop !487
+  br i1 %exitcond219.not, label %48, label %62, !llvm.loop !487
 
 _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEvT_SB_T0_.exit: ; preds = %.loopexit._crit_edge.i.i, %48
-  %64 = icmp slt i32 %41, 1048576
-  br i1 %64, label %65, label %.lr.ph194
+  %65 = icmp slt i32 %41, 1048576
+  br i1 %65, label %66, label %.lr.ph194
 
-65:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEvT_SB_T0_.exit
-  %66 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
-  %67 = load i32, ptr %66, align 4, !tbaa !15
-  %68 = sext i32 %67 to i64
-  %69 = load ptr, ptr %0, align 8, !tbaa !65
-  %70 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %69, i64 %68
-  %71 = load i32, ptr %70, align 4, !tbaa !66
-  %reass.sub199 = sub i32 %71, %41
-  %72 = add i32 %reass.sub199, 1048576
-  store i32 %72, ptr %70, align 4, !tbaa !66
+66:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEvT_SB_T0_.exit
+  %67 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
+  %68 = load i32, ptr %67, align 4, !tbaa !15
+  %69 = sext i32 %68 to i64
+  %70 = load ptr, ptr %0, align 8, !tbaa !65
+  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %72 = load i32, ptr %71, align 4, !tbaa !66
+  %reass.sub199 = sub i32 %72, %41
+  %73 = add i32 %reass.sub199, 1048576
+  store i32 %73, ptr %71, align 4, !tbaa !66
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit146
 
 .lr.ph194:                                        ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEvT_SB_T0_.exit
-  %73 = icmp sgt i32 %.0114.lcssa, 0
-  %74 = load ptr, ptr %0, align 8
-  tail call void @llvm.assume(i1 %73)
-  %75 = add nsw i32 %41, -1048576
+  %74 = icmp sgt i32 %.0114.lcssa, 0
+  %75 = load ptr, ptr %0, align 8
+  tail call void @llvm.assume(i1 %74)
+  %76 = add nsw i32 %41, -1048576
   br label %.lr.ph185.us
 
 .lr.ph185.us:                                     ; preds = %.lr.ph194, %.thread.us
-  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %75, %.lr.ph194 ]
+  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
-  %76 = sitofp i32 %.1122191.us to double
-  %77 = fdiv double 0x4130000000000000, %76
-  br label %78
+  %77 = sitofp i32 %.1122191.us to double
+  %78 = fdiv double 0x4130000000000000, %77
+  br label %79
 
-78:                                               ; preds = %.lr.ph185.us, %98
-  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %99, %98 ]
-  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %96, %98 ]
-  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %95, %98 ]
-  %79 = zext nneg i32 %.0113183.us to i64
-  %80 = getelementptr inbounds nuw i32, ptr %43, i64 %79
-  %81 = load i32, ptr %80, align 4, !tbaa !15
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %74, i64 %82
-  %84 = load i32, ptr %83, align 4, !tbaa !66
-  %85 = icmp ult i32 %84, 2
-  br i1 %85, label %101, label %86
+79:                                               ; preds = %.lr.ph185.us, %99
+  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %100, %99 ]
+  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
+  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
+  %80 = zext nneg i32 %.0113183.us to i64
+  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %82 = load i32, ptr %81, align 4, !tbaa !15
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %85 = load i32, ptr %84, align 4, !tbaa !66
+  %86 = icmp ult i32 %85, 2
+  br i1 %86, label %102, label %87
 
-86:                                               ; preds = %78
-  %87 = uitofp i32 %84 to double
-  %88 = fmul double %77, %87
-  %89 = tail call double @llvm.floor.f64(double %88)
-  %90 = fptosi double %89 to i32
-  %91 = sub i32 %84, %90
-  %92 = icmp eq i32 %84, %90
-  %spec.store.select.us = select i1 %92, i32 1, i32 %91
-  %.not134.us = icmp slt i32 %spec.store.select.us, %84
-  %93 = add i32 %84, -1
-  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %93
+87:                                               ; preds = %79
+  %88 = uitofp i32 %85 to double
+  %89 = fmul double %78, %88
+  %90 = tail call double @llvm.floor.f64(double %89)
+  %91 = fptosi double %90 to i32
+  %92 = sub i32 %85, %91
+  %93 = icmp eq i32 %85, %91
+  %spec.store.select.us = select i1 %93, i32 1, i32 %92
+  %.not134.us = icmp slt i32 %spec.store.select.us, %85
+  %94 = add i32 %85, -1
+  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %94
   %spec.select139.us = tail call i32 @llvm.smin.i32(i32 %spec.select166.us, i32 %.1118182.us)
-  %94 = sub i32 %84, %spec.select139.us
-  store i32 %94, ptr %83, align 4, !tbaa !66
-  %95 = sub nsw i32 %.2123181.us, %spec.select139.us
-  %96 = sub nsw i32 %.1118182.us, %spec.select139.us
-  %97 = icmp eq i32 %95, 1048576
-  br i1 %97, label %.thread.us, label %98
+  %95 = sub i32 %85, %spec.select139.us
+  store i32 %95, ptr %84, align 4, !tbaa !66
+  %96 = sub nsw i32 %.2123181.us, %spec.select139.us
+  %97 = sub nsw i32 %.1118182.us, %spec.select139.us
+  %98 = icmp eq i32 %96, 1048576
+  br i1 %98, label %.thread.us, label %99
 
-98:                                               ; preds = %86
-  %99 = add nsw i32 %.0113183.us, -1
-  %100 = icmp sgt i32 %.0113183.us, 1
-  br i1 %100, label %78, label %.thread.us, !llvm.loop !488
+99:                                               ; preds = %87
+  %100 = add nsw i32 %.0113183.us, -1
+  %101 = icmp sgt i32 %.0113183.us, 1
+  br i1 %101, label %79, label %.thread.us, !llvm.loop !488
 
-101:                                              ; preds = %78
-  %102 = icmp eq i32 %.0113183.us, %.0114.lcssa
-  br i1 %102, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
+102:                                              ; preds = %79
+  %103 = icmp eq i32 %.0113183.us, %.0114.lcssa
+  br i1 %103, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
 
-.thread.us:                                       ; preds = %86, %98, %101
-  %.3124.us = phi i32 [ %.2123181.us, %101 ], [ %95, %98 ], [ 1048576, %86 ]
-  %.2119.us = phi i32 [ %.1118182.us, %101 ], [ %96, %98 ], [ %96, %86 ]
-  %103 = icmp sgt i32 %.2119.us, 0
-  br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !489
+.thread.us:                                       ; preds = %87, %99, %102
+  %.3124.us = phi i32 [ %.2123181.us, %102 ], [ %96, %99 ], [ 1048576, %87 ]
+  %.2119.us = phi i32 [ %.1118182.us, %102 ], [ %97, %99 ], [ %97, %87 ]
+  %104 = icmp sgt i32 %.2119.us, 0
+  br i1 %104, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !489
 
-_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
+_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %102
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %132
+  br label %133
 
-_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
+_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %104
+  br label %105
 
-104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
-  %105 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %108
+105:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
+  %106 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %109
 
-106:                                              ; preds = %108
-  %.not136 = icmp eq i32 %112, 1048576
-  br i1 %.not136, label %.preheader, label %132
+107:                                              ; preds = %109
+  %.not136 = icmp eq i32 %113, 1048576
+  br i1 %.not136, label %.preheader, label %133
 
-.preheader:                                       ; preds = %106
-  %107 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %119
+.preheader:                                       ; preds = %107
+  %108 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %120
 
-108:                                              ; preds = %104, %108
-  %indvars.iv220 = phi i64 [ 0, %104 ], [ %indvars.iv.next221, %108 ]
-  %.0104195 = phi i32 [ 0, %104 ], [ %112, %108 ]
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %105, i64 %indvars.iv220
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
-  store i32 %.0104195, ptr %110, align 4, !tbaa !69
-  %111 = load i32, ptr %109, align 4, !tbaa !66
-  %112 = add i32 %111, %.0104195
+109:                                              ; preds = %105, %109
+  %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
+  %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
+  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
+  store i32 %.0104195, ptr %111, align 4, !tbaa !69
+  %112 = load i32, ptr %110, align 4, !tbaa !66
+  %113 = add i32 %112, %.0104195
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %exitcond224.not = icmp eq i64 %indvars.iv.next221, %9
-  br i1 %exitcond224.not, label %106, label %108, !llvm.loop !490
+  br i1 %exitcond224.not, label %107, label %109, !llvm.loop !490
 
-113:                                              ; preds = %131
-  %114 = fneg double %.1102
-  %115 = tail call double @llvm.ceil.f64(double %114)
-  %116 = fptoui double %115 to i64
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %116, ptr %117, align 8, !tbaa !192
-  %118 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi14EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+114:                                              ; preds = %132
+  %115 = fneg double %.1102
+  %116 = tail call double @llvm.ceil.f64(double %115)
+  %117 = fptoui double %116 to i64
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %117, ptr %118, align 8, !tbaa !192
+  %119 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi14EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+  br label %133
+
+120:                                              ; preds = %.preheader, %132
+  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
+  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
+  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %122 = load i32, ptr %121, align 4, !tbaa !66
+  %123 = icmp eq i32 %122, 0
+  br i1 %123, label %132, label %124
+
+124:                                              ; preds = %120
+  %125 = uitofp i32 %122 to double
+  %126 = fmul double %125, 0x3EB0000000000000
+  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %128 = load i64, ptr %127, align 8, !tbaa !9
+  %129 = uitofp i64 %128 to double
+  %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
+  %131 = tail call double @llvm.fmuladd.f64(double %129, double %130, double %.0101197)
   br label %132
 
-119:                                              ; preds = %.preheader, %131
-  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %131 ]
-  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %131 ]
-  %120 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %107, i64 %indvars.iv225
-  %121 = load i32, ptr %120, align 4, !tbaa !66
-  %122 = icmp eq i32 %121, 0
-  br i1 %122, label %131, label %123
-
-123:                                              ; preds = %119
-  %124 = uitofp i32 %121 to double
-  %125 = fmul double %124, 0x3EB0000000000000
-  %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
-  %127 = load i64, ptr %126, align 8, !tbaa !9
-  %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
-  %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
-  br label %131
-
-131:                                              ; preds = %119, %123
-  %.1102 = phi double [ %.0101197, %119 ], [ %130, %123 ]
+132:                                              ; preds = %120, %124
+  %.1102 = phi double [ %.0101197, %120 ], [ %131, %124 ]
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next226, %9
-  br i1 %exitcond229.not, label %113, label %119, !llvm.loop !491
+  br i1 %exitcond229.not, label %114, label %120, !llvm.loop !491
 
-132:                                              ; preds = %113, %106, %_ZNSt6vectorIiSaIiEED2Ev.exit144
-  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %118, %113 ], [ false, %106 ]
+133:                                              ; preds = %114, %107, %_ZNSt6vectorIiSaIiEED2Ev.exit144
+  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %119, %114 ], [ false, %107 ]
   ret i1 %.7
 }
 
@@ -33736,7 +33736,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 30:                                               ; preds = %31
   %.not131 = icmp eq i32 %41, 1048576
-  br i1 %.not131, label %104, label %.noexc
+  br i1 %.not131, label %105, label %.noexc
 
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
@@ -33775,9 +33775,9 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
   %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
-  br label %61
+  br label %62
 
-48:                                               ; preds = %61
+48:                                               ; preds = %62
   %49 = icmp eq ptr %43, %.0.i.i.i.i.i
   br i1 %49, label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEvT_SB_T0_.exit, label %50
 
@@ -33799,8 +33799,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not14.i.i.i.i = icmp samesign ult i64 %.010.i.i.in.in.i.i, 3
-  br i1 %.not14.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
+  %58 = icmp eq i64 %.010.i.i.i.i, 1
+  br i1 %58, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %50
   invoke void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEEvT_SE_T0_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr nonnull %0)
@@ -33809,12 +33809,12 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i, %.loopexit.i.i
   %.sroa.4.026.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.023.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %58 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  resume { ptr, i32 } %58
+  resume { ptr, i32 } %59
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   invoke void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lNS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEEvT_SE_T0_T1_T2_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr noundef nonnull %57, i64 noundef %.010.i.i.i.i, ptr nonnull %0)
@@ -33823,163 +33823,163 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEvT_SB_T0_.exit
 
-61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
-  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %61 ]
-  %62 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
-  %63 = trunc nuw nsw i64 %indvars.iv215 to i32
-  store i32 %63, ptr %62, align 4, !tbaa !15
+62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
+  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
+  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %64 = trunc nuw nsw i64 %indvars.iv215 to i32
+  store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next216, %9
-  br i1 %exitcond219.not, label %48, label %61, !llvm.loop !509
+  br i1 %exitcond219.not, label %48, label %62, !llvm.loop !509
 
 _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEvT_SB_T0_.exit: ; preds = %.loopexit._crit_edge.i.i, %48
-  %64 = icmp slt i32 %41, 1048576
-  br i1 %64, label %65, label %.lr.ph194
+  %65 = icmp slt i32 %41, 1048576
+  br i1 %65, label %66, label %.lr.ph194
 
-65:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEvT_SB_T0_.exit
-  %66 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
-  %67 = load i32, ptr %66, align 4, !tbaa !15
-  %68 = sext i32 %67 to i64
-  %69 = load ptr, ptr %0, align 8, !tbaa !65
-  %70 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %69, i64 %68
-  %71 = load i32, ptr %70, align 4, !tbaa !66
-  %reass.sub199 = sub i32 %71, %41
-  %72 = add i32 %reass.sub199, 1048576
-  store i32 %72, ptr %70, align 4, !tbaa !66
+66:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEvT_SB_T0_.exit
+  %67 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
+  %68 = load i32, ptr %67, align 4, !tbaa !15
+  %69 = sext i32 %68 to i64
+  %70 = load ptr, ptr %0, align 8, !tbaa !65
+  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %72 = load i32, ptr %71, align 4, !tbaa !66
+  %reass.sub199 = sub i32 %72, %41
+  %73 = add i32 %reass.sub199, 1048576
+  store i32 %73, ptr %71, align 4, !tbaa !66
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit146
 
 .lr.ph194:                                        ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEvT_SB_T0_.exit
-  %73 = icmp sgt i32 %.0114.lcssa, 0
-  %74 = load ptr, ptr %0, align 8
-  tail call void @llvm.assume(i1 %73)
-  %75 = add nsw i32 %41, -1048576
+  %74 = icmp sgt i32 %.0114.lcssa, 0
+  %75 = load ptr, ptr %0, align 8
+  tail call void @llvm.assume(i1 %74)
+  %76 = add nsw i32 %41, -1048576
   br label %.lr.ph185.us
 
 .lr.ph185.us:                                     ; preds = %.lr.ph194, %.thread.us
-  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %75, %.lr.ph194 ]
+  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
-  %76 = sitofp i32 %.1122191.us to double
-  %77 = fdiv double 0x4130000000000000, %76
-  br label %78
+  %77 = sitofp i32 %.1122191.us to double
+  %78 = fdiv double 0x4130000000000000, %77
+  br label %79
 
-78:                                               ; preds = %.lr.ph185.us, %98
-  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %99, %98 ]
-  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %96, %98 ]
-  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %95, %98 ]
-  %79 = zext nneg i32 %.0113183.us to i64
-  %80 = getelementptr inbounds nuw i32, ptr %43, i64 %79
-  %81 = load i32, ptr %80, align 4, !tbaa !15
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %74, i64 %82
-  %84 = load i32, ptr %83, align 4, !tbaa !66
-  %85 = icmp ult i32 %84, 2
-  br i1 %85, label %101, label %86
+79:                                               ; preds = %.lr.ph185.us, %99
+  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %100, %99 ]
+  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
+  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
+  %80 = zext nneg i32 %.0113183.us to i64
+  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %82 = load i32, ptr %81, align 4, !tbaa !15
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %85 = load i32, ptr %84, align 4, !tbaa !66
+  %86 = icmp ult i32 %85, 2
+  br i1 %86, label %102, label %87
 
-86:                                               ; preds = %78
-  %87 = uitofp i32 %84 to double
-  %88 = fmul double %77, %87
-  %89 = tail call double @llvm.floor.f64(double %88)
-  %90 = fptosi double %89 to i32
-  %91 = sub i32 %84, %90
-  %92 = icmp eq i32 %84, %90
-  %spec.store.select.us = select i1 %92, i32 1, i32 %91
-  %.not134.us = icmp slt i32 %spec.store.select.us, %84
-  %93 = add i32 %84, -1
-  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %93
+87:                                               ; preds = %79
+  %88 = uitofp i32 %85 to double
+  %89 = fmul double %78, %88
+  %90 = tail call double @llvm.floor.f64(double %89)
+  %91 = fptosi double %90 to i32
+  %92 = sub i32 %85, %91
+  %93 = icmp eq i32 %85, %91
+  %spec.store.select.us = select i1 %93, i32 1, i32 %92
+  %.not134.us = icmp slt i32 %spec.store.select.us, %85
+  %94 = add i32 %85, -1
+  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %94
   %spec.select139.us = tail call i32 @llvm.smin.i32(i32 %spec.select166.us, i32 %.1118182.us)
-  %94 = sub i32 %84, %spec.select139.us
-  store i32 %94, ptr %83, align 4, !tbaa !66
-  %95 = sub nsw i32 %.2123181.us, %spec.select139.us
-  %96 = sub nsw i32 %.1118182.us, %spec.select139.us
-  %97 = icmp eq i32 %95, 1048576
-  br i1 %97, label %.thread.us, label %98
+  %95 = sub i32 %85, %spec.select139.us
+  store i32 %95, ptr %84, align 4, !tbaa !66
+  %96 = sub nsw i32 %.2123181.us, %spec.select139.us
+  %97 = sub nsw i32 %.1118182.us, %spec.select139.us
+  %98 = icmp eq i32 %96, 1048576
+  br i1 %98, label %.thread.us, label %99
 
-98:                                               ; preds = %86
-  %99 = add nsw i32 %.0113183.us, -1
-  %100 = icmp sgt i32 %.0113183.us, 1
-  br i1 %100, label %78, label %.thread.us, !llvm.loop !510
+99:                                               ; preds = %87
+  %100 = add nsw i32 %.0113183.us, -1
+  %101 = icmp sgt i32 %.0113183.us, 1
+  br i1 %101, label %79, label %.thread.us, !llvm.loop !510
 
-101:                                              ; preds = %78
-  %102 = icmp eq i32 %.0113183.us, %.0114.lcssa
-  br i1 %102, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
+102:                                              ; preds = %79
+  %103 = icmp eq i32 %.0113183.us, %.0114.lcssa
+  br i1 %103, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
 
-.thread.us:                                       ; preds = %86, %98, %101
-  %.3124.us = phi i32 [ %.2123181.us, %101 ], [ %95, %98 ], [ 1048576, %86 ]
-  %.2119.us = phi i32 [ %.1118182.us, %101 ], [ %96, %98 ], [ %96, %86 ]
-  %103 = icmp sgt i32 %.2119.us, 0
-  br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !511
+.thread.us:                                       ; preds = %87, %99, %102
+  %.3124.us = phi i32 [ %.2123181.us, %102 ], [ %96, %99 ], [ 1048576, %87 ]
+  %.2119.us = phi i32 [ %.1118182.us, %102 ], [ %97, %99 ], [ %97, %87 ]
+  %104 = icmp sgt i32 %.2119.us, 0
+  br i1 %104, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !511
 
-_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
+_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %102
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %132
+  br label %133
 
-_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
+_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %104
+  br label %105
 
-104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
-  %105 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %108
+105:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
+  %106 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %109
 
-106:                                              ; preds = %108
-  %.not136 = icmp eq i32 %112, 1048576
-  br i1 %.not136, label %.preheader, label %132
+107:                                              ; preds = %109
+  %.not136 = icmp eq i32 %113, 1048576
+  br i1 %.not136, label %.preheader, label %133
 
-.preheader:                                       ; preds = %106
-  %107 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %119
+.preheader:                                       ; preds = %107
+  %108 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %120
 
-108:                                              ; preds = %104, %108
-  %indvars.iv220 = phi i64 [ 0, %104 ], [ %indvars.iv.next221, %108 ]
-  %.0104195 = phi i32 [ 0, %104 ], [ %112, %108 ]
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %105, i64 %indvars.iv220
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
-  store i32 %.0104195, ptr %110, align 4, !tbaa !69
-  %111 = load i32, ptr %109, align 4, !tbaa !66
-  %112 = add i32 %111, %.0104195
+109:                                              ; preds = %105, %109
+  %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
+  %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
+  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
+  store i32 %.0104195, ptr %111, align 4, !tbaa !69
+  %112 = load i32, ptr %110, align 4, !tbaa !66
+  %113 = add i32 %112, %.0104195
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %exitcond224.not = icmp eq i64 %indvars.iv.next221, %9
-  br i1 %exitcond224.not, label %106, label %108, !llvm.loop !512
+  br i1 %exitcond224.not, label %107, label %109, !llvm.loop !512
 
-113:                                              ; preds = %131
-  %114 = fneg double %.1102
-  %115 = tail call double @llvm.ceil.f64(double %114)
-  %116 = fptoui double %115 to i64
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %116, ptr %117, align 8, !tbaa !201
-  %118 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi15EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+114:                                              ; preds = %132
+  %115 = fneg double %.1102
+  %116 = tail call double @llvm.ceil.f64(double %115)
+  %117 = fptoui double %116 to i64
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %117, ptr %118, align 8, !tbaa !201
+  %119 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi15EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+  br label %133
+
+120:                                              ; preds = %.preheader, %132
+  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
+  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
+  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %122 = load i32, ptr %121, align 4, !tbaa !66
+  %123 = icmp eq i32 %122, 0
+  br i1 %123, label %132, label %124
+
+124:                                              ; preds = %120
+  %125 = uitofp i32 %122 to double
+  %126 = fmul double %125, 0x3EB0000000000000
+  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %128 = load i64, ptr %127, align 8, !tbaa !9
+  %129 = uitofp i64 %128 to double
+  %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
+  %131 = tail call double @llvm.fmuladd.f64(double %129, double %130, double %.0101197)
   br label %132
 
-119:                                              ; preds = %.preheader, %131
-  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %131 ]
-  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %131 ]
-  %120 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %107, i64 %indvars.iv225
-  %121 = load i32, ptr %120, align 4, !tbaa !66
-  %122 = icmp eq i32 %121, 0
-  br i1 %122, label %131, label %123
-
-123:                                              ; preds = %119
-  %124 = uitofp i32 %121 to double
-  %125 = fmul double %124, 0x3EB0000000000000
-  %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
-  %127 = load i64, ptr %126, align 8, !tbaa !9
-  %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
-  %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
-  br label %131
-
-131:                                              ; preds = %119, %123
-  %.1102 = phi double [ %.0101197, %119 ], [ %130, %123 ]
+132:                                              ; preds = %120, %124
+  %.1102 = phi double [ %.0101197, %120 ], [ %131, %124 ]
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next226, %9
-  br i1 %exitcond229.not, label %113, label %119, !llvm.loop !513
+  br i1 %exitcond229.not, label %114, label %120, !llvm.loop !513
 
-132:                                              ; preds = %113, %106, %_ZNSt6vectorIiSaIiEED2Ev.exit144
-  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %118, %113 ], [ false, %106 ]
+133:                                              ; preds = %114, %107, %_ZNSt6vectorIiSaIiEED2Ev.exit144
+  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %119, %114 ], [ false, %107 ]
   ret i1 %.7
 }
 
@@ -35710,7 +35710,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 30:                                               ; preds = %31
   %.not131 = icmp eq i32 %41, 1048576
-  br i1 %.not131, label %104, label %.noexc
+  br i1 %.not131, label %105, label %.noexc
 
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
@@ -35749,9 +35749,9 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
   %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
-  br label %61
+  br label %62
 
-48:                                               ; preds = %61
+48:                                               ; preds = %62
   %49 = icmp eq ptr %43, %.0.i.i.i.i.i
   br i1 %49, label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEvT_SB_T0_.exit, label %50
 
@@ -35773,8 +35773,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not14.i.i.i.i = icmp samesign ult i64 %.010.i.i.in.in.i.i, 3
-  br i1 %.not14.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
+  %58 = icmp eq i64 %.010.i.i.i.i, 1
+  br i1 %58, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %50
   invoke void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEEvT_SE_T0_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr nonnull %0)
@@ -35783,12 +35783,12 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i, %.loopexit.i.i
   %.sroa.4.026.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.023.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %58 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  resume { ptr, i32 } %58
+  resume { ptr, i32 } %59
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   invoke void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lNS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEEvT_SE_T0_T1_T2_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr noundef nonnull %57, i64 noundef %.010.i.i.i.i, ptr nonnull %0)
@@ -35797,163 +35797,163 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEvT_SB_T0_.exit
 
-61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
-  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %61 ]
-  %62 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
-  %63 = trunc nuw nsw i64 %indvars.iv215 to i32
-  store i32 %63, ptr %62, align 4, !tbaa !15
+62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
+  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
+  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %64 = trunc nuw nsw i64 %indvars.iv215 to i32
+  store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next216, %9
-  br i1 %exitcond219.not, label %48, label %61, !llvm.loop !531
+  br i1 %exitcond219.not, label %48, label %62, !llvm.loop !531
 
 _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEvT_SB_T0_.exit: ; preds = %.loopexit._crit_edge.i.i, %48
-  %64 = icmp slt i32 %41, 1048576
-  br i1 %64, label %65, label %.lr.ph194
+  %65 = icmp slt i32 %41, 1048576
+  br i1 %65, label %66, label %.lr.ph194
 
-65:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEvT_SB_T0_.exit
-  %66 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
-  %67 = load i32, ptr %66, align 4, !tbaa !15
-  %68 = sext i32 %67 to i64
-  %69 = load ptr, ptr %0, align 8, !tbaa !65
-  %70 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %69, i64 %68
-  %71 = load i32, ptr %70, align 4, !tbaa !66
-  %reass.sub199 = sub i32 %71, %41
-  %72 = add i32 %reass.sub199, 1048576
-  store i32 %72, ptr %70, align 4, !tbaa !66
+66:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEvT_SB_T0_.exit
+  %67 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
+  %68 = load i32, ptr %67, align 4, !tbaa !15
+  %69 = sext i32 %68 to i64
+  %70 = load ptr, ptr %0, align 8, !tbaa !65
+  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %72 = load i32, ptr %71, align 4, !tbaa !66
+  %reass.sub199 = sub i32 %72, %41
+  %73 = add i32 %reass.sub199, 1048576
+  store i32 %73, ptr %71, align 4, !tbaa !66
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit146
 
 .lr.ph194:                                        ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEvT_SB_T0_.exit
-  %73 = icmp sgt i32 %.0114.lcssa, 0
-  %74 = load ptr, ptr %0, align 8
-  tail call void @llvm.assume(i1 %73)
-  %75 = add nsw i32 %41, -1048576
+  %74 = icmp sgt i32 %.0114.lcssa, 0
+  %75 = load ptr, ptr %0, align 8
+  tail call void @llvm.assume(i1 %74)
+  %76 = add nsw i32 %41, -1048576
   br label %.lr.ph185.us
 
 .lr.ph185.us:                                     ; preds = %.lr.ph194, %.thread.us
-  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %75, %.lr.ph194 ]
+  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
-  %76 = sitofp i32 %.1122191.us to double
-  %77 = fdiv double 0x4130000000000000, %76
-  br label %78
+  %77 = sitofp i32 %.1122191.us to double
+  %78 = fdiv double 0x4130000000000000, %77
+  br label %79
 
-78:                                               ; preds = %.lr.ph185.us, %98
-  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %99, %98 ]
-  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %96, %98 ]
-  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %95, %98 ]
-  %79 = zext nneg i32 %.0113183.us to i64
-  %80 = getelementptr inbounds nuw i32, ptr %43, i64 %79
-  %81 = load i32, ptr %80, align 4, !tbaa !15
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %74, i64 %82
-  %84 = load i32, ptr %83, align 4, !tbaa !66
-  %85 = icmp ult i32 %84, 2
-  br i1 %85, label %101, label %86
+79:                                               ; preds = %.lr.ph185.us, %99
+  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %100, %99 ]
+  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
+  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
+  %80 = zext nneg i32 %.0113183.us to i64
+  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %82 = load i32, ptr %81, align 4, !tbaa !15
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %85 = load i32, ptr %84, align 4, !tbaa !66
+  %86 = icmp ult i32 %85, 2
+  br i1 %86, label %102, label %87
 
-86:                                               ; preds = %78
-  %87 = uitofp i32 %84 to double
-  %88 = fmul double %77, %87
-  %89 = tail call double @llvm.floor.f64(double %88)
-  %90 = fptosi double %89 to i32
-  %91 = sub i32 %84, %90
-  %92 = icmp eq i32 %84, %90
-  %spec.store.select.us = select i1 %92, i32 1, i32 %91
-  %.not134.us = icmp slt i32 %spec.store.select.us, %84
-  %93 = add i32 %84, -1
-  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %93
+87:                                               ; preds = %79
+  %88 = uitofp i32 %85 to double
+  %89 = fmul double %78, %88
+  %90 = tail call double @llvm.floor.f64(double %89)
+  %91 = fptosi double %90 to i32
+  %92 = sub i32 %85, %91
+  %93 = icmp eq i32 %85, %91
+  %spec.store.select.us = select i1 %93, i32 1, i32 %92
+  %.not134.us = icmp slt i32 %spec.store.select.us, %85
+  %94 = add i32 %85, -1
+  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %94
   %spec.select139.us = tail call i32 @llvm.smin.i32(i32 %spec.select166.us, i32 %.1118182.us)
-  %94 = sub i32 %84, %spec.select139.us
-  store i32 %94, ptr %83, align 4, !tbaa !66
-  %95 = sub nsw i32 %.2123181.us, %spec.select139.us
-  %96 = sub nsw i32 %.1118182.us, %spec.select139.us
-  %97 = icmp eq i32 %95, 1048576
-  br i1 %97, label %.thread.us, label %98
+  %95 = sub i32 %85, %spec.select139.us
+  store i32 %95, ptr %84, align 4, !tbaa !66
+  %96 = sub nsw i32 %.2123181.us, %spec.select139.us
+  %97 = sub nsw i32 %.1118182.us, %spec.select139.us
+  %98 = icmp eq i32 %96, 1048576
+  br i1 %98, label %.thread.us, label %99
 
-98:                                               ; preds = %86
-  %99 = add nsw i32 %.0113183.us, -1
-  %100 = icmp sgt i32 %.0113183.us, 1
-  br i1 %100, label %78, label %.thread.us, !llvm.loop !532
+99:                                               ; preds = %87
+  %100 = add nsw i32 %.0113183.us, -1
+  %101 = icmp sgt i32 %.0113183.us, 1
+  br i1 %101, label %79, label %.thread.us, !llvm.loop !532
 
-101:                                              ; preds = %78
-  %102 = icmp eq i32 %.0113183.us, %.0114.lcssa
-  br i1 %102, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
+102:                                              ; preds = %79
+  %103 = icmp eq i32 %.0113183.us, %.0114.lcssa
+  br i1 %103, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
 
-.thread.us:                                       ; preds = %86, %98, %101
-  %.3124.us = phi i32 [ %.2123181.us, %101 ], [ %95, %98 ], [ 1048576, %86 ]
-  %.2119.us = phi i32 [ %.1118182.us, %101 ], [ %96, %98 ], [ %96, %86 ]
-  %103 = icmp sgt i32 %.2119.us, 0
-  br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !533
+.thread.us:                                       ; preds = %87, %99, %102
+  %.3124.us = phi i32 [ %.2123181.us, %102 ], [ %96, %99 ], [ 1048576, %87 ]
+  %.2119.us = phi i32 [ %.1118182.us, %102 ], [ %97, %99 ], [ %97, %87 ]
+  %104 = icmp sgt i32 %.2119.us, 0
+  br i1 %104, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !533
 
-_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
+_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %102
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %132
+  br label %133
 
-_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
+_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %104
+  br label %105
 
-104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
-  %105 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %108
+105:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
+  %106 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %109
 
-106:                                              ; preds = %108
-  %.not136 = icmp eq i32 %112, 1048576
-  br i1 %.not136, label %.preheader, label %132
+107:                                              ; preds = %109
+  %.not136 = icmp eq i32 %113, 1048576
+  br i1 %.not136, label %.preheader, label %133
 
-.preheader:                                       ; preds = %106
-  %107 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %119
+.preheader:                                       ; preds = %107
+  %108 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %120
 
-108:                                              ; preds = %104, %108
-  %indvars.iv220 = phi i64 [ 0, %104 ], [ %indvars.iv.next221, %108 ]
-  %.0104195 = phi i32 [ 0, %104 ], [ %112, %108 ]
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %105, i64 %indvars.iv220
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
-  store i32 %.0104195, ptr %110, align 4, !tbaa !69
-  %111 = load i32, ptr %109, align 4, !tbaa !66
-  %112 = add i32 %111, %.0104195
+109:                                              ; preds = %105, %109
+  %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
+  %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
+  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
+  store i32 %.0104195, ptr %111, align 4, !tbaa !69
+  %112 = load i32, ptr %110, align 4, !tbaa !66
+  %113 = add i32 %112, %.0104195
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %exitcond224.not = icmp eq i64 %indvars.iv.next221, %9
-  br i1 %exitcond224.not, label %106, label %108, !llvm.loop !534
+  br i1 %exitcond224.not, label %107, label %109, !llvm.loop !534
 
-113:                                              ; preds = %131
-  %114 = fneg double %.1102
-  %115 = tail call double @llvm.ceil.f64(double %114)
-  %116 = fptoui double %115 to i64
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %116, ptr %117, align 8, !tbaa !206
-  %118 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi16EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+114:                                              ; preds = %132
+  %115 = fneg double %.1102
+  %116 = tail call double @llvm.ceil.f64(double %115)
+  %117 = fptoui double %116 to i64
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %117, ptr %118, align 8, !tbaa !206
+  %119 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi16EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+  br label %133
+
+120:                                              ; preds = %.preheader, %132
+  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
+  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
+  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %122 = load i32, ptr %121, align 4, !tbaa !66
+  %123 = icmp eq i32 %122, 0
+  br i1 %123, label %132, label %124
+
+124:                                              ; preds = %120
+  %125 = uitofp i32 %122 to double
+  %126 = fmul double %125, 0x3EB0000000000000
+  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %128 = load i64, ptr %127, align 8, !tbaa !9
+  %129 = uitofp i64 %128 to double
+  %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
+  %131 = tail call double @llvm.fmuladd.f64(double %129, double %130, double %.0101197)
   br label %132
 
-119:                                              ; preds = %.preheader, %131
-  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %131 ]
-  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %131 ]
-  %120 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %107, i64 %indvars.iv225
-  %121 = load i32, ptr %120, align 4, !tbaa !66
-  %122 = icmp eq i32 %121, 0
-  br i1 %122, label %131, label %123
-
-123:                                              ; preds = %119
-  %124 = uitofp i32 %121 to double
-  %125 = fmul double %124, 0x3EB0000000000000
-  %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
-  %127 = load i64, ptr %126, align 8, !tbaa !9
-  %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
-  %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
-  br label %131
-
-131:                                              ; preds = %119, %123
-  %.1102 = phi double [ %.0101197, %119 ], [ %130, %123 ]
+132:                                              ; preds = %120, %124
+  %.1102 = phi double [ %.0101197, %120 ], [ %131, %124 ]
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next226, %9
-  br i1 %exitcond229.not, label %113, label %119, !llvm.loop !535
+  br i1 %exitcond229.not, label %114, label %120, !llvm.loop !535
 
-132:                                              ; preds = %113, %106, %_ZNSt6vectorIiSaIiEED2Ev.exit144
-  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %118, %113 ], [ false, %106 ]
+133:                                              ; preds = %114, %107, %_ZNSt6vectorIiSaIiEED2Ev.exit144
+  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %119, %114 ], [ false, %107 ]
   ret i1 %.7
 }
 
@@ -37684,7 +37684,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 30:                                               ; preds = %31
   %.not131 = icmp eq i32 %41, 1048576
-  br i1 %.not131, label %104, label %.noexc
+  br i1 %.not131, label %105, label %.noexc
 
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
@@ -37723,9 +37723,9 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
   %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
-  br label %61
+  br label %62
 
-48:                                               ; preds = %61
+48:                                               ; preds = %62
   %49 = icmp eq ptr %43, %.0.i.i.i.i.i
   br i1 %49, label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEvT_SB_T0_.exit, label %50
 
@@ -37747,8 +37747,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not14.i.i.i.i = icmp samesign ult i64 %.010.i.i.in.in.i.i, 3
-  br i1 %.not14.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
+  %58 = icmp eq i64 %.010.i.i.i.i, 1
+  br i1 %58, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %50
   invoke void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEEvT_SE_T0_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr nonnull %0)
@@ -37757,12 +37757,12 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i, %.loopexit.i.i
   %.sroa.4.026.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.023.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %58 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  resume { ptr, i32 } %58
+  resume { ptr, i32 } %59
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   invoke void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lNS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEEvT_SE_T0_T1_T2_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr noundef nonnull %57, i64 noundef %.010.i.i.i.i, ptr nonnull %0)
@@ -37771,163 +37771,163 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEvT_SB_T0_.exit
 
-61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
-  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %61 ]
-  %62 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
-  %63 = trunc nuw nsw i64 %indvars.iv215 to i32
-  store i32 %63, ptr %62, align 4, !tbaa !15
+62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
+  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
+  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %64 = trunc nuw nsw i64 %indvars.iv215 to i32
+  store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next216, %9
-  br i1 %exitcond219.not, label %48, label %61, !llvm.loop !553
+  br i1 %exitcond219.not, label %48, label %62, !llvm.loop !553
 
 _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEvT_SB_T0_.exit: ; preds = %.loopexit._crit_edge.i.i, %48
-  %64 = icmp slt i32 %41, 1048576
-  br i1 %64, label %65, label %.lr.ph194
+  %65 = icmp slt i32 %41, 1048576
+  br i1 %65, label %66, label %.lr.ph194
 
-65:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEvT_SB_T0_.exit
-  %66 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
-  %67 = load i32, ptr %66, align 4, !tbaa !15
-  %68 = sext i32 %67 to i64
-  %69 = load ptr, ptr %0, align 8, !tbaa !65
-  %70 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %69, i64 %68
-  %71 = load i32, ptr %70, align 4, !tbaa !66
-  %reass.sub199 = sub i32 %71, %41
-  %72 = add i32 %reass.sub199, 1048576
-  store i32 %72, ptr %70, align 4, !tbaa !66
+66:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEvT_SB_T0_.exit
+  %67 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
+  %68 = load i32, ptr %67, align 4, !tbaa !15
+  %69 = sext i32 %68 to i64
+  %70 = load ptr, ptr %0, align 8, !tbaa !65
+  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %72 = load i32, ptr %71, align 4, !tbaa !66
+  %reass.sub199 = sub i32 %72, %41
+  %73 = add i32 %reass.sub199, 1048576
+  store i32 %73, ptr %71, align 4, !tbaa !66
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit146
 
 .lr.ph194:                                        ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEvT_SB_T0_.exit
-  %73 = icmp sgt i32 %.0114.lcssa, 0
-  %74 = load ptr, ptr %0, align 8
-  tail call void @llvm.assume(i1 %73)
-  %75 = add nsw i32 %41, -1048576
+  %74 = icmp sgt i32 %.0114.lcssa, 0
+  %75 = load ptr, ptr %0, align 8
+  tail call void @llvm.assume(i1 %74)
+  %76 = add nsw i32 %41, -1048576
   br label %.lr.ph185.us
 
 .lr.ph185.us:                                     ; preds = %.lr.ph194, %.thread.us
-  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %75, %.lr.ph194 ]
+  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
-  %76 = sitofp i32 %.1122191.us to double
-  %77 = fdiv double 0x4130000000000000, %76
-  br label %78
+  %77 = sitofp i32 %.1122191.us to double
+  %78 = fdiv double 0x4130000000000000, %77
+  br label %79
 
-78:                                               ; preds = %.lr.ph185.us, %98
-  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %99, %98 ]
-  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %96, %98 ]
-  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %95, %98 ]
-  %79 = zext nneg i32 %.0113183.us to i64
-  %80 = getelementptr inbounds nuw i32, ptr %43, i64 %79
-  %81 = load i32, ptr %80, align 4, !tbaa !15
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %74, i64 %82
-  %84 = load i32, ptr %83, align 4, !tbaa !66
-  %85 = icmp ult i32 %84, 2
-  br i1 %85, label %101, label %86
+79:                                               ; preds = %.lr.ph185.us, %99
+  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %100, %99 ]
+  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
+  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
+  %80 = zext nneg i32 %.0113183.us to i64
+  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %82 = load i32, ptr %81, align 4, !tbaa !15
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %85 = load i32, ptr %84, align 4, !tbaa !66
+  %86 = icmp ult i32 %85, 2
+  br i1 %86, label %102, label %87
 
-86:                                               ; preds = %78
-  %87 = uitofp i32 %84 to double
-  %88 = fmul double %77, %87
-  %89 = tail call double @llvm.floor.f64(double %88)
-  %90 = fptosi double %89 to i32
-  %91 = sub i32 %84, %90
-  %92 = icmp eq i32 %84, %90
-  %spec.store.select.us = select i1 %92, i32 1, i32 %91
-  %.not134.us = icmp slt i32 %spec.store.select.us, %84
-  %93 = add i32 %84, -1
-  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %93
+87:                                               ; preds = %79
+  %88 = uitofp i32 %85 to double
+  %89 = fmul double %78, %88
+  %90 = tail call double @llvm.floor.f64(double %89)
+  %91 = fptosi double %90 to i32
+  %92 = sub i32 %85, %91
+  %93 = icmp eq i32 %85, %91
+  %spec.store.select.us = select i1 %93, i32 1, i32 %92
+  %.not134.us = icmp slt i32 %spec.store.select.us, %85
+  %94 = add i32 %85, -1
+  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %94
   %spec.select139.us = tail call i32 @llvm.smin.i32(i32 %spec.select166.us, i32 %.1118182.us)
-  %94 = sub i32 %84, %spec.select139.us
-  store i32 %94, ptr %83, align 4, !tbaa !66
-  %95 = sub nsw i32 %.2123181.us, %spec.select139.us
-  %96 = sub nsw i32 %.1118182.us, %spec.select139.us
-  %97 = icmp eq i32 %95, 1048576
-  br i1 %97, label %.thread.us, label %98
+  %95 = sub i32 %85, %spec.select139.us
+  store i32 %95, ptr %84, align 4, !tbaa !66
+  %96 = sub nsw i32 %.2123181.us, %spec.select139.us
+  %97 = sub nsw i32 %.1118182.us, %spec.select139.us
+  %98 = icmp eq i32 %96, 1048576
+  br i1 %98, label %.thread.us, label %99
 
-98:                                               ; preds = %86
-  %99 = add nsw i32 %.0113183.us, -1
-  %100 = icmp sgt i32 %.0113183.us, 1
-  br i1 %100, label %78, label %.thread.us, !llvm.loop !554
+99:                                               ; preds = %87
+  %100 = add nsw i32 %.0113183.us, -1
+  %101 = icmp sgt i32 %.0113183.us, 1
+  br i1 %101, label %79, label %.thread.us, !llvm.loop !554
 
-101:                                              ; preds = %78
-  %102 = icmp eq i32 %.0113183.us, %.0114.lcssa
-  br i1 %102, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
+102:                                              ; preds = %79
+  %103 = icmp eq i32 %.0113183.us, %.0114.lcssa
+  br i1 %103, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
 
-.thread.us:                                       ; preds = %86, %98, %101
-  %.3124.us = phi i32 [ %.2123181.us, %101 ], [ %95, %98 ], [ 1048576, %86 ]
-  %.2119.us = phi i32 [ %.1118182.us, %101 ], [ %96, %98 ], [ %96, %86 ]
-  %103 = icmp sgt i32 %.2119.us, 0
-  br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !555
+.thread.us:                                       ; preds = %87, %99, %102
+  %.3124.us = phi i32 [ %.2123181.us, %102 ], [ %96, %99 ], [ 1048576, %87 ]
+  %.2119.us = phi i32 [ %.1118182.us, %102 ], [ %97, %99 ], [ %97, %87 ]
+  %104 = icmp sgt i32 %.2119.us, 0
+  br i1 %104, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !555
 
-_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
+_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %102
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %132
+  br label %133
 
-_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
+_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %104
+  br label %105
 
-104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
-  %105 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %108
+105:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
+  %106 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %109
 
-106:                                              ; preds = %108
-  %.not136 = icmp eq i32 %112, 1048576
-  br i1 %.not136, label %.preheader, label %132
+107:                                              ; preds = %109
+  %.not136 = icmp eq i32 %113, 1048576
+  br i1 %.not136, label %.preheader, label %133
 
-.preheader:                                       ; preds = %106
-  %107 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %119
+.preheader:                                       ; preds = %107
+  %108 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %120
 
-108:                                              ; preds = %104, %108
-  %indvars.iv220 = phi i64 [ 0, %104 ], [ %indvars.iv.next221, %108 ]
-  %.0104195 = phi i32 [ 0, %104 ], [ %112, %108 ]
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %105, i64 %indvars.iv220
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
-  store i32 %.0104195, ptr %110, align 4, !tbaa !69
-  %111 = load i32, ptr %109, align 4, !tbaa !66
-  %112 = add i32 %111, %.0104195
+109:                                              ; preds = %105, %109
+  %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
+  %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
+  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
+  store i32 %.0104195, ptr %111, align 4, !tbaa !69
+  %112 = load i32, ptr %110, align 4, !tbaa !66
+  %113 = add i32 %112, %.0104195
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %exitcond224.not = icmp eq i64 %indvars.iv.next221, %9
-  br i1 %exitcond224.not, label %106, label %108, !llvm.loop !556
+  br i1 %exitcond224.not, label %107, label %109, !llvm.loop !556
 
-113:                                              ; preds = %131
-  %114 = fneg double %.1102
-  %115 = tail call double @llvm.ceil.f64(double %114)
-  %116 = fptoui double %115 to i64
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %116, ptr %117, align 8, !tbaa !211
-  %118 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi17EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+114:                                              ; preds = %132
+  %115 = fneg double %.1102
+  %116 = tail call double @llvm.ceil.f64(double %115)
+  %117 = fptoui double %116 to i64
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %117, ptr %118, align 8, !tbaa !211
+  %119 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi17EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+  br label %133
+
+120:                                              ; preds = %.preheader, %132
+  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
+  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
+  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %122 = load i32, ptr %121, align 4, !tbaa !66
+  %123 = icmp eq i32 %122, 0
+  br i1 %123, label %132, label %124
+
+124:                                              ; preds = %120
+  %125 = uitofp i32 %122 to double
+  %126 = fmul double %125, 0x3EB0000000000000
+  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %128 = load i64, ptr %127, align 8, !tbaa !9
+  %129 = uitofp i64 %128 to double
+  %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
+  %131 = tail call double @llvm.fmuladd.f64(double %129, double %130, double %.0101197)
   br label %132
 
-119:                                              ; preds = %.preheader, %131
-  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %131 ]
-  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %131 ]
-  %120 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %107, i64 %indvars.iv225
-  %121 = load i32, ptr %120, align 4, !tbaa !66
-  %122 = icmp eq i32 %121, 0
-  br i1 %122, label %131, label %123
-
-123:                                              ; preds = %119
-  %124 = uitofp i32 %121 to double
-  %125 = fmul double %124, 0x3EB0000000000000
-  %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
-  %127 = load i64, ptr %126, align 8, !tbaa !9
-  %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
-  %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
-  br label %131
-
-131:                                              ; preds = %119, %123
-  %.1102 = phi double [ %.0101197, %119 ], [ %130, %123 ]
+132:                                              ; preds = %120, %124
+  %.1102 = phi double [ %.0101197, %120 ], [ %131, %124 ]
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next226, %9
-  br i1 %exitcond229.not, label %113, label %119, !llvm.loop !557
+  br i1 %exitcond229.not, label %114, label %120, !llvm.loop !557
 
-132:                                              ; preds = %113, %106, %_ZNSt6vectorIiSaIiEED2Ev.exit144
-  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %118, %113 ], [ false, %106 ]
+133:                                              ; preds = %114, %107, %_ZNSt6vectorIiSaIiEED2Ev.exit144
+  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %119, %114 ], [ false, %107 ]
   ret i1 %.7
 }
 
@@ -39658,7 +39658,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit: ; preds = %18, %20, %22, %
 
 30:                                               ; preds = %31
   %.not131 = icmp eq i32 %41, 1048576
-  br i1 %.not131, label %104, label %.noexc
+  br i1 %.not131, label %105, label %.noexc
 
 31:                                               ; preds = %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit, %31
   %indvars.iv210 = phi i64 [ 0, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit ], [ %indvars.iv.next211, %31 ]
@@ -39697,9 +39697,9 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
   %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
-  br label %61
+  br label %62
 
-48:                                               ; preds = %61
+48:                                               ; preds = %62
   %49 = icmp eq ptr %43, %.0.i.i.i.i.i
   br i1 %49, label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEvT_SB_T0_.exit, label %50
 
@@ -39721,8 +39721,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not14.i.i.i.i = icmp samesign ult i64 %.010.i.i.in.in.i.i, 3
-  br i1 %.not14.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
+  %58 = icmp eq i64 %.010.i.i.i.i, 1
+  br i1 %58, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %50
   invoke void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEEvT_SE_T0_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr nonnull %0)
@@ -39731,12 +39731,12 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i, %.loopexit.i.i
   %.sroa.4.026.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.023.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %58 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %59 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %59) #22
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  resume { ptr, i32 } %58
+  resume { ptr, i32 } %59
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   invoke void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lNS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEEvT_SE_T0_T1_T2_(ptr nonnull %43, ptr %.0.i.i.i.i.i, ptr noundef nonnull %57, i64 noundef %.010.i.i.i.i, ptr nonnull %0)
@@ -39745,163 +39745,163 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %57, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %60 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %60) #22
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #22
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEvT_SB_T0_.exit
 
-61:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %61
-  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %61 ]
-  %62 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
-  %63 = trunc nuw nsw i64 %indvars.iv215 to i32
-  store i32 %63, ptr %62, align 4, !tbaa !15
+62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %62
+  %indvars.iv215 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %indvars.iv.next216, %62 ]
+  %63 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv215
+  %64 = trunc nuw nsw i64 %indvars.iv215 to i32
+  store i32 %64, ptr %63, align 4, !tbaa !15
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next216, %9
-  br i1 %exitcond219.not, label %48, label %61, !llvm.loop !575
+  br i1 %exitcond219.not, label %48, label %62, !llvm.loop !575
 
 _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEvT_SB_T0_.exit: ; preds = %.loopexit._crit_edge.i.i, %48
-  %64 = icmp slt i32 %41, 1048576
-  br i1 %64, label %65, label %.lr.ph194
+  %65 = icmp slt i32 %41, 1048576
+  br i1 %65, label %66, label %.lr.ph194
 
-65:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEvT_SB_T0_.exit
-  %66 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
-  %67 = load i32, ptr %66, align 4, !tbaa !15
-  %68 = sext i32 %67 to i64
-  %69 = load ptr, ptr %0, align 8, !tbaa !65
-  %70 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %69, i64 %68
-  %71 = load i32, ptr %70, align 4, !tbaa !66
-  %reass.sub199 = sub i32 %71, %41
-  %72 = add i32 %reass.sub199, 1048576
-  store i32 %72, ptr %70, align 4, !tbaa !66
+66:                                               ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEvT_SB_T0_.exit
+  %67 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 -4
+  %68 = load i32, ptr %67, align 4, !tbaa !15
+  %69 = sext i32 %68 to i64
+  %70 = load ptr, ptr %0, align 8, !tbaa !65
+  %71 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %70, i64 %69
+  %72 = load i32, ptr %71, align 4, !tbaa !66
+  %reass.sub199 = sub i32 %72, %41
+  %73 = add i32 %reass.sub199, 1048576
+  store i32 %73, ptr %71, align 4, !tbaa !66
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit146
 
 .lr.ph194:                                        ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEvT_SB_T0_.exit
-  %73 = icmp sgt i32 %.0114.lcssa, 0
-  %74 = load ptr, ptr %0, align 8
-  tail call void @llvm.assume(i1 %73)
-  %75 = add nsw i32 %41, -1048576
+  %74 = icmp sgt i32 %.0114.lcssa, 0
+  %75 = load ptr, ptr %0, align 8
+  tail call void @llvm.assume(i1 %74)
+  %76 = add nsw i32 %41, -1048576
   br label %.lr.ph185.us
 
 .lr.ph185.us:                                     ; preds = %.lr.ph194, %.thread.us
-  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %75, %.lr.ph194 ]
+  %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
-  %76 = sitofp i32 %.1122191.us to double
-  %77 = fdiv double 0x4130000000000000, %76
-  br label %78
+  %77 = sitofp i32 %.1122191.us to double
+  %78 = fdiv double 0x4130000000000000, %77
+  br label %79
 
-78:                                               ; preds = %.lr.ph185.us, %98
-  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %99, %98 ]
-  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %96, %98 ]
-  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %95, %98 ]
-  %79 = zext nneg i32 %.0113183.us to i64
-  %80 = getelementptr inbounds nuw i32, ptr %43, i64 %79
-  %81 = load i32, ptr %80, align 4, !tbaa !15
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %74, i64 %82
-  %84 = load i32, ptr %83, align 4, !tbaa !66
-  %85 = icmp ult i32 %84, 2
-  br i1 %85, label %101, label %86
+79:                                               ; preds = %.lr.ph185.us, %99
+  %.0113183.us = phi i32 [ %.0114.lcssa, %.lr.ph185.us ], [ %100, %99 ]
+  %.1118182.us = phi i32 [ %.0117192.us, %.lr.ph185.us ], [ %97, %99 ]
+  %.2123181.us = phi i32 [ %.1122191.us, %.lr.ph185.us ], [ %96, %99 ]
+  %80 = zext nneg i32 %.0113183.us to i64
+  %81 = getelementptr inbounds nuw i32, ptr %43, i64 %80
+  %82 = load i32, ptr %81, align 4, !tbaa !15
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %75, i64 %83
+  %85 = load i32, ptr %84, align 4, !tbaa !66
+  %86 = icmp ult i32 %85, 2
+  br i1 %86, label %102, label %87
 
-86:                                               ; preds = %78
-  %87 = uitofp i32 %84 to double
-  %88 = fmul double %77, %87
-  %89 = tail call double @llvm.floor.f64(double %88)
-  %90 = fptosi double %89 to i32
-  %91 = sub i32 %84, %90
-  %92 = icmp eq i32 %84, %90
-  %spec.store.select.us = select i1 %92, i32 1, i32 %91
-  %.not134.us = icmp slt i32 %spec.store.select.us, %84
-  %93 = add i32 %84, -1
-  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %93
+87:                                               ; preds = %79
+  %88 = uitofp i32 %85 to double
+  %89 = fmul double %78, %88
+  %90 = tail call double @llvm.floor.f64(double %89)
+  %91 = fptosi double %90 to i32
+  %92 = sub i32 %85, %91
+  %93 = icmp eq i32 %85, %91
+  %spec.store.select.us = select i1 %93, i32 1, i32 %92
+  %.not134.us = icmp slt i32 %spec.store.select.us, %85
+  %94 = add i32 %85, -1
+  %spec.select166.us = select i1 %.not134.us, i32 %spec.store.select.us, i32 %94
   %spec.select139.us = tail call i32 @llvm.smin.i32(i32 %spec.select166.us, i32 %.1118182.us)
-  %94 = sub i32 %84, %spec.select139.us
-  store i32 %94, ptr %83, align 4, !tbaa !66
-  %95 = sub nsw i32 %.2123181.us, %spec.select139.us
-  %96 = sub nsw i32 %.1118182.us, %spec.select139.us
-  %97 = icmp eq i32 %95, 1048576
-  br i1 %97, label %.thread.us, label %98
+  %95 = sub i32 %85, %spec.select139.us
+  store i32 %95, ptr %84, align 4, !tbaa !66
+  %96 = sub nsw i32 %.2123181.us, %spec.select139.us
+  %97 = sub nsw i32 %.1118182.us, %spec.select139.us
+  %98 = icmp eq i32 %96, 1048576
+  br i1 %98, label %.thread.us, label %99
 
-98:                                               ; preds = %86
-  %99 = add nsw i32 %.0113183.us, -1
-  %100 = icmp sgt i32 %.0113183.us, 1
-  br i1 %100, label %78, label %.thread.us, !llvm.loop !576
+99:                                               ; preds = %87
+  %100 = add nsw i32 %.0113183.us, -1
+  %101 = icmp sgt i32 %.0113183.us, 1
+  br i1 %101, label %79, label %.thread.us, !llvm.loop !576
 
-101:                                              ; preds = %78
-  %102 = icmp eq i32 %.0113183.us, %.0114.lcssa
-  br i1 %102, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
+102:                                              ; preds = %79
+  %103 = icmp eq i32 %.0113183.us, %.0114.lcssa
+  br i1 %103, label %_ZNSt6vectorIiSaIiEED2Ev.exit144, label %.thread.us
 
-.thread.us:                                       ; preds = %86, %98, %101
-  %.3124.us = phi i32 [ %.2123181.us, %101 ], [ %95, %98 ], [ 1048576, %86 ]
-  %.2119.us = phi i32 [ %.1118182.us, %101 ], [ %96, %98 ], [ %96, %86 ]
-  %103 = icmp sgt i32 %.2119.us, 0
-  br i1 %103, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !577
+.thread.us:                                       ; preds = %87, %99, %102
+  %.3124.us = phi i32 [ %.2123181.us, %102 ], [ %96, %99 ], [ 1048576, %87 ]
+  %.2119.us = phi i32 [ %.1118182.us, %102 ], [ %97, %99 ], [ %97, %87 ]
+  %104 = icmp sgt i32 %.2119.us, 0
+  br i1 %104, label %.lr.ph185.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit146, !llvm.loop !577
 
-_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %101
+_ZNSt6vectorIiSaIiEED2Ev.exit144:                 ; preds = %102
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %132
+  br label %133
 
-_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %65
+_ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #19
-  br label %104
+  br label %105
 
-104:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
-  %105 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %108
+105:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit146, %30
+  %106 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %109
 
-106:                                              ; preds = %108
-  %.not136 = icmp eq i32 %112, 1048576
-  br i1 %.not136, label %.preheader, label %132
+107:                                              ; preds = %109
+  %.not136 = icmp eq i32 %113, 1048576
+  br i1 %.not136, label %.preheader, label %133
 
-.preheader:                                       ; preds = %106
-  %107 = load ptr, ptr %0, align 8, !tbaa !65
-  br label %119
+.preheader:                                       ; preds = %107
+  %108 = load ptr, ptr %0, align 8, !tbaa !65
+  br label %120
 
-108:                                              ; preds = %104, %108
-  %indvars.iv220 = phi i64 [ 0, %104 ], [ %indvars.iv.next221, %108 ]
-  %.0104195 = phi i32 [ 0, %104 ], [ %112, %108 ]
-  %109 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %105, i64 %indvars.iv220
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
-  store i32 %.0104195, ptr %110, align 4, !tbaa !69
-  %111 = load i32, ptr %109, align 4, !tbaa !66
-  %112 = add i32 %111, %.0104195
+109:                                              ; preds = %105, %109
+  %indvars.iv220 = phi i64 [ 0, %105 ], [ %indvars.iv.next221, %109 ]
+  %.0104195 = phi i32 [ 0, %105 ], [ %113, %109 ]
+  %110 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %106, i64 %indvars.iv220
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
+  store i32 %.0104195, ptr %111, align 4, !tbaa !69
+  %112 = load i32, ptr %110, align 4, !tbaa !66
+  %113 = add i32 %112, %.0104195
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %exitcond224.not = icmp eq i64 %indvars.iv.next221, %9
-  br i1 %exitcond224.not, label %106, label %108, !llvm.loop !578
+  br i1 %exitcond224.not, label %107, label %109, !llvm.loop !578
 
-113:                                              ; preds = %131
-  %114 = fneg double %.1102
-  %115 = tail call double @llvm.ceil.f64(double %114)
-  %116 = fptoui double %115 to i64
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %116, ptr %117, align 8, !tbaa !216
-  %118 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi18EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+114:                                              ; preds = %132
+  %115 = fneg double %.1102
+  %116 = tail call double @llvm.ceil.f64(double %115)
+  %117 = fptoui double %116 to i64
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %117, ptr %118, align 8, !tbaa !216
+  %119 = tail call noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi18EE11EncodeTableEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3)
+  br label %133
+
+120:                                              ; preds = %.preheader, %132
+  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %132 ]
+  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %132 ]
+  %121 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %108, i64 %indvars.iv225
+  %122 = load i32, ptr %121, align 4, !tbaa !66
+  %123 = icmp eq i32 %122, 0
+  br i1 %123, label %132, label %124
+
+124:                                              ; preds = %120
+  %125 = uitofp i32 %122 to double
+  %126 = fmul double %125, 0x3EB0000000000000
+  %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
+  %128 = load i64, ptr %127, align 8, !tbaa !9
+  %129 = uitofp i64 %128 to double
+  %130 = tail call double @log2(double noundef %126) #22, !tbaa !15
+  %131 = tail call double @llvm.fmuladd.f64(double %129, double %130, double %.0101197)
   br label %132
 
-119:                                              ; preds = %.preheader, %131
-  %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %131 ]
-  %.0101197 = phi double [ 0.000000e+00, %.preheader ], [ %.1102, %131 ]
-  %120 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %107, i64 %indvars.iv225
-  %121 = load i32, ptr %120, align 4, !tbaa !66
-  %122 = icmp eq i32 %121, 0
-  br i1 %122, label %131, label %123
-
-123:                                              ; preds = %119
-  %124 = uitofp i32 %121 to double
-  %125 = fmul double %124, 0x3EB0000000000000
-  %126 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
-  %127 = load i64, ptr %126, align 8, !tbaa !9
-  %128 = uitofp i64 %127 to double
-  %129 = tail call double @log2(double noundef %125) #22, !tbaa !15
-  %130 = tail call double @llvm.fmuladd.f64(double %128, double %129, double %.0101197)
-  br label %131
-
-131:                                              ; preds = %119, %123
-  %.1102 = phi double [ %.0101197, %119 ], [ %130, %123 ]
+132:                                              ; preds = %120, %124
+  %.1102 = phi double [ %.0101197, %120 ], [ %131, %124 ]
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next226, %9
-  br i1 %exitcond229.not, label %113, label %119, !llvm.loop !579
+  br i1 %exitcond229.not, label %114, label %120, !llvm.loop !579
 
-132:                                              ; preds = %113, %106, %_ZNSt6vectorIiSaIiEED2Ev.exit144
-  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %118, %113 ], [ false, %106 ]
+133:                                              ; preds = %114, %107, %_ZNSt6vectorIiSaIiEED2Ev.exit144
+  %.7 = phi i1 [ false, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %119, %114 ], [ false, %107 ]
   ret i1 %.7
 }
 

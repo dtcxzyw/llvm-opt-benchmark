@@ -900,7 +900,7 @@ lv_color_8_8_mix.exit195.us.i:                    ; preds = %217, %215, %196
   %260 = zext i8 %259 to i16
   %261 = mul nuw i16 %260, %107
   %262 = lshr i16 %261, 8
-  %263 = icmp ult i16 %261, 256
+  %263 = icmp eq i16 %262, 0
   br i1 %263, label %lv_color_8_8_mix.exit198.us.i, label %264
 
 264:                                              ; preds = %243
@@ -1246,7 +1246,7 @@ lv_color_8_8_mix.exit.us.i:                       ; preds = %411, %409, %389
   %455 = mul nuw nsw i32 %454, %383
   %456 = lshr i32 %455, 8
   %457 = trunc nuw nsw i32 %456 to i16
-  %458 = icmp samesign ult i32 %455, 256
+  %458 = icmp eq i32 %456, 0
   br i1 %458, label %lv_color_8_8_mix.exit188.us.i, label %459
 
 459:                                              ; preds = %436
@@ -1338,7 +1338,7 @@ lv_color_8_8_mix.exit188.us.i:                    ; preds = %461, %459, %436
   %507 = zext i8 %506 to i16
   %508 = mul nuw i16 %507, %504
   %509 = lshr i16 %508, 8
-  %510 = icmp ult i16 %508, 256
+  %510 = icmp eq i16 %509, 0
   br i1 %510, label %lv_color_8_8_mix.exit191.us.i, label %511
 
 511:                                              ; preds = %486
@@ -1430,7 +1430,7 @@ lv_color_8_8_mix.exit191.us.i:                    ; preds = %513, %511, %486
   %561 = mul nuw nsw i32 %557, %560
   %562 = lshr i32 %561, 16
   %563 = trunc nuw nsw i32 %562 to i16
-  %564 = icmp samesign ult i32 %561, 65536
+  %564 = icmp eq i32 %562, 0
   br i1 %564, label %lv_color_8_8_mix.exit194.us.i, label %565
 
 565:                                              ; preds = %538
@@ -1927,7 +1927,7 @@ lv_color_8_8_mix.exit184.us.i:                    ; preds = %784, %782, %764
   %826 = zext i8 %825 to i16
   %827 = mul nuw i16 %826, %681
   %828 = lshr i16 %827, 8
-  %829 = icmp ult i16 %827, 256
+  %829 = icmp eq i16 %828, 0
   br i1 %829, label %lv_color_8_8_mix.exit187.us.i, label %830
 
 830:                                              ; preds = %810
@@ -2272,7 +2272,7 @@ lv_color_8_8_mix.exit.us.i117:                    ; preds = %977, %975, %957
   %1019 = mul nuw nsw i32 %1018, %951
   %1020 = lshr i32 %1019, 8
   %1021 = trunc nuw nsw i32 %1020 to i16
-  %1022 = icmp samesign ult i32 %1019, 256
+  %1022 = icmp eq i32 %1020, 0
   br i1 %1022, label %lv_color_8_8_mix.exit201.us.i, label %1023
 
 1023:                                             ; preds = %1002
@@ -2363,7 +2363,7 @@ lv_color_8_8_mix.exit201.us.i:                    ; preds = %1025, %1023, %1002
   %1069 = zext i8 %1068 to i16
   %1070 = mul nuw i16 %1069, %1066
   %1071 = lshr i16 %1070, 8
-  %1072 = icmp ult i16 %1070, 256
+  %1072 = icmp eq i16 %1071, 0
   br i1 %1072, label %lv_color_8_8_mix.exit204.us.i, label %1073
 
 1073:                                             ; preds = %1050
@@ -2454,7 +2454,7 @@ lv_color_8_8_mix.exit204.us.i:                    ; preds = %1075, %1073, %1050
   %1121 = mul nuw nsw i32 %1120, %1119
   %1122 = lshr i32 %1121, 16
   %1123 = trunc nuw nsw i32 %1122 to i16
-  %1124 = icmp samesign ult i32 %1121, 65536
+  %1124 = icmp eq i32 %1122, 0
   br i1 %1124, label %lv_color_8_8_mix.exit207.us.i, label %1125
 
 1125:                                             ; preds = %1100
@@ -3434,7 +3434,7 @@ blend_non_normal_pixel.exit.us:                   ; preds = %lv_color_8_8_mix.ex
   %258 = mul nuw nsw i32 %257, %28
   %259 = lshr i32 %258, 8
   %260 = trunc nuw nsw i32 %259 to i16
-  %261 = icmp samesign ult i32 %258, 256
+  %261 = icmp eq i32 %259, 0
   br i1 %261, label %lv_color_8_8_mix.exit200.us, label %262
 
 262:                                              ; preds = %241

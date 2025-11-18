@@ -18724,10 +18724,11 @@ define noundef range(i8 0, 5) i8 @_ZN4fish3env11environment8EnvStack3set17he0dae
           to label %.thread28 unwind label %109
 
 96:                                               ; preds = %86
+  %.sroa.014.2.extract.shift = lshr i24 %93, 16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @"_ZN4core3ptr112drop_in_place$LT$fish..env..environment_impl..EnvMutexGuard$LT$fish..env..environment_impl..EnvStackImpl$GT$$GT$17h38567b64678b673dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %97 = icmp ult i24 %93, 65536
+  %97 = icmp eq i24 %.sroa.014.2.extract.shift, 0
   br i1 %97, label %98, label %105
 
 98:                                               ; preds = %96
@@ -18750,7 +18751,6 @@ define noundef range(i8 0, 5) i8 @_ZN4fish3env11environment8EnvStack3set17he0dae
   br i1 %.not17, label %107, label %108
 
 107:                                              ; preds = %108, %105
-  %.sroa.014.2.extract.shift = lshr i24 %93, 16
   %.sroa.014.2.extract.trunc = trunc nuw i24 %.sroa.014.2.extract.shift to i8
   ret i8 %.sroa.014.2.extract.trunc
 
@@ -19209,9 +19209,10 @@ _ZN4fish3env11environment8EnvStack4lock17h5bc384e1f5bb6f7fE.exit: ; preds = %4
           to label %common.resume unwind label %43
 
 30:                                               ; preds = %_ZN4fish3env11environment8EnvStack4lock17h5bc384e1f5bb6f7fE.exit
+  %.sroa.08.2.extract.shift = lshr i24 %27, 16
   call void @"_ZN4core3ptr112drop_in_place$LT$fish..env..environment_impl..EnvMutexGuard$LT$fish..env..environment_impl..EnvStackImpl$GT$$GT$17h38567b64678b673dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %31 = icmp ult i24 %27, 65536
+  %31 = icmp eq i24 %.sroa.08.2.extract.shift, 0
   br i1 %31, label %32, label %39
 
 32:                                               ; preds = %30
@@ -19234,7 +19235,6 @@ _ZN4fish3env11environment8EnvStack4lock17h5bc384e1f5bb6f7fE.exit: ; preds = %4
   br i1 %.not, label %41, label %42
 
 41:                                               ; preds = %42, %39
-  %.sroa.08.2.extract.shift = lshr i24 %27, 16
   %.sroa.08.2.extract.trunc = trunc nuw i24 %.sroa.08.2.extract.shift to i8
   ret i8 %.sroa.08.2.extract.trunc
 

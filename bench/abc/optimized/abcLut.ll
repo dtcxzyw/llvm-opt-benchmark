@@ -286,11 +286,11 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %110, %114
   %125 = phi i32 [ %148, %147 ], [ %124, %118 ]
   %.02027.i = phi ptr [ %.020.i, %147 ], [ %.02025.i, %118 ]
   %126 = load i32, ptr %.02027.i, align 8
-  %.not29.i = icmp ult i32 %126, 268435456
+  %127 = lshr i32 %126, 28
+  %.not29.i = icmp eq i32 %127, 0
   br i1 %.not29.i, label %._crit_edge.i, label %.lr.ph.i136
 
 .lr.ph.i136:                                      ; preds = %.preheader.i135
-  %127 = lshr i32 %126, 28
   %128 = load ptr, ptr %107, align 8, !tbaa !64
   %129 = getelementptr inbounds nuw i8, ptr %.02027.i, i64 24
   %130 = getelementptr i8, ptr %128, i64 32

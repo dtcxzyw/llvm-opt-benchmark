@@ -3438,7 +3438,7 @@ define noundef i32 @_ZNK6icu_7722TransliteratorRegistry22countAvailableVariantsE
   %11 = and i32 %.01015, 1
   %spec.select = add nuw nsw i32 %.016, %11
   %12 = lshr i32 %.01015, 1
-  %.not = icmp ult i32 %.01015, 2
+  %.not = icmp eq i32 %12, 0
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !72
 
 .loopexit:                                        ; preds = %.lr.ph, %8, %3
@@ -3516,7 +3516,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7722Translitera
   %.124 = phi i32 [ %36, %35 ], [ %.02339, %.lr.ph ]
   %38 = lshr i32 %.02538, 1
   %39 = add nuw nsw i32 %.02240, 1
-  %.not = icmp ult i32 %.02538, 2
+  %.not = icmp eq i32 %38, 0
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !73
 
 .critedge:                                        ; preds = %37, %24, %30

@@ -1092,7 +1092,7 @@ _ZNSt6vectorIN12_GLOBAL__N_116CFIInstrInserter10MBBCFAInfoESaIS2_EE6resizeEm.exi
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val8.i.i = load i32, ptr %201, align 8
   %202 = lshr i32 %.val8.i.i, 1
-  %203 = icmp ult i32 %.val8.i.i, 2
+  %203 = icmp eq i32 %202, 0
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %.val10.i.i = load i32, ptr %204, align 4
   %205 = icmp eq i32 %.val10.i.i, 0
@@ -1325,11 +1325,11 @@ _ZN4llvm9BitVectorC2Ejb.exit56.loopexit.i.i.i:    ; preds = %278
   br label %_ZN4llvm9BitVectorC2Ejb.exit56.i.i.i
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.i.i.i:  ; preds = %278
-  %.not.i.i.i.i27.i = icmp samesign ult i32 %308, 64
+  %.not.i.i.i.i27.i = icmp eq i32 %309, 0
   br i1 %.not.i.i.i.i27.i, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i46.thread.i.i.i, label %_ZN4llvm9BitVectorC2Ejb.exit56.loopexit186.i.i.i
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i46.thread.i.i.i: ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.i.i.i
-  store i32 %309, ptr %269, align 8, !tbaa !26
+  store i32 0, ptr %269, align 8, !tbaa !26
   store i32 %307, ptr %271, align 8, !tbaa !101
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store ptr %272, ptr %34, align 8, !tbaa !25

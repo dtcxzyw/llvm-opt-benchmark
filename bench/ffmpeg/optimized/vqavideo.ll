@@ -1394,7 +1394,7 @@ bytestream2_get_le16.exit.i:                      ; preds = %610
   %.fr96.i = freeze i16 %613
   %614 = zext i16 %.fr96.i to i32
   %615 = lshr i32 %614, 13
-  %616 = icmp ult i16 %.fr96.i, 8192
+  %616 = icmp eq i32 %615, 0
   br i1 %616, label %bytestream2_get_le16.exit.thread.i, label %619
 
 bytestream2_get_le16.exit.thread.i:               ; preds = %bytestream2_get_le16.exit.i, %610

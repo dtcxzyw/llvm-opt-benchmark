@@ -273,7 +273,7 @@ _ZN25VisibleInputCharsIteratorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   %.sroa.23.2 = phi i64 [ 0, %91 ], [ %123, %120 ], [ 0, %109 ], [ 0, %tailrecurse.backedge.i.i.i ]
   %.sroa.31.2 = phi i64 [ 0, %91 ], [ %125, %120 ], [ 0, %109 ], [ 0, %tailrecurse.backedge.i.i.i ]
   %126 = icmp eq i64 %92, 0
-  %127 = icmp ult i64 %86, 2
+  %127 = icmp eq i64 %87, 0
   %or.cond190 = or i1 %126, %127
   br i1 %or.cond190, label %._crit_edge196, label %.lr.ph195
 

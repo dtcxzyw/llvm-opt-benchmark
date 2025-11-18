@@ -16736,11 +16736,11 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_general17h1
 define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h1392c00254238bbeE(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef range(i64 2, 0) %1, ptr noundef writeonly captures(none) %2, ptr readonly captures(address_is_null) %.0.val) unnamed_addr #3 personality ptr @rust_eh_personality {
 .lr.ph:
   %3 = lshr i64 %1, 1
-  %4 = getelementptr { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %3
-  %5 = getelementptr i8, ptr %4, i64 -16
-  %6 = add i64 %1, -1
-  %7 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %6
-  %8 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %2, i64 %6
+  %4 = add i64 %1, -1
+  %5 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %4
+  %6 = getelementptr { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %3
+  %7 = getelementptr i8, ptr %6, i64 -16
+  %8 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %2, i64 %4
   %9 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %9)
   %10 = getelementptr i8, ptr %.0.val, i64 8
@@ -16755,10 +16755,10 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
 
 15:                                               ; preds = %.lr.ph, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6441c96a3d819816E.exit44"
   %.sroa.0.010 = phi ptr [ %0, %.lr.ph ], [ %64, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6441c96a3d819816E.exit44" ]
-  %.sroa.06.09 = phi ptr [ %4, %.lr.ph ], [ %62, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6441c96a3d819816E.exit44" ]
+  %.sroa.06.09 = phi ptr [ %6, %.lr.ph ], [ %62, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6441c96a3d819816E.exit44" ]
   %.sroa.010.08 = phi ptr [ %2, %.lr.ph ], [ %65, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6441c96a3d819816E.exit44" ]
-  %.sroa.013.07 = phi ptr [ %5, %.lr.ph ], [ %111, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6441c96a3d819816E.exit44" ]
-  %.sroa.015.06 = phi ptr [ %7, %.lr.ph ], [ %110, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6441c96a3d819816E.exit44" ]
+  %.sroa.013.07 = phi ptr [ %7, %.lr.ph ], [ %111, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6441c96a3d819816E.exit44" ]
+  %.sroa.015.06 = phi ptr [ %5, %.lr.ph ], [ %110, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6441c96a3d819816E.exit44" ]
   %.sroa.017.05 = phi ptr [ %8, %.lr.ph ], [ %112, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6441c96a3d819816E.exit44" ]
   %.sroa.018.04 = phi i64 [ 0, %.lr.ph ], [ %16, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6441c96a3d819816E.exit44" ]
   %16 = add nuw nsw i64 %.sroa.018.04, 1
@@ -16980,11 +16980,11 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
 define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h1665849c915e8a31E(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef range(i64 2, 0) %1, ptr noundef writeonly captures(none) %2, ptr readonly captures(address_is_null) %.0.val) unnamed_addr #3 personality ptr @rust_eh_personality {
 .lr.ph:
   %3 = lshr i64 %1, 1
-  %4 = getelementptr { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %3
-  %5 = getelementptr i8, ptr %4, i64 -16
-  %6 = add i64 %1, -1
-  %7 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %6
-  %8 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %2, i64 %6
+  %4 = add i64 %1, -1
+  %5 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %4
+  %6 = getelementptr { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %3
+  %7 = getelementptr i8, ptr %6, i64 -16
+  %8 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %2, i64 %4
   %9 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %9)
   %10 = getelementptr i8, ptr %.0.val, i64 8
@@ -16999,10 +16999,10 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
 
 15:                                               ; preds = %.lr.ph, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h5f9ce4546c45d8e0E.exit44"
   %.sroa.0.010 = phi ptr [ %0, %.lr.ph ], [ %64, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h5f9ce4546c45d8e0E.exit44" ]
-  %.sroa.06.09 = phi ptr [ %4, %.lr.ph ], [ %62, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h5f9ce4546c45d8e0E.exit44" ]
+  %.sroa.06.09 = phi ptr [ %6, %.lr.ph ], [ %62, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h5f9ce4546c45d8e0E.exit44" ]
   %.sroa.010.08 = phi ptr [ %2, %.lr.ph ], [ %65, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h5f9ce4546c45d8e0E.exit44" ]
-  %.sroa.013.07 = phi ptr [ %5, %.lr.ph ], [ %111, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h5f9ce4546c45d8e0E.exit44" ]
-  %.sroa.015.06 = phi ptr [ %7, %.lr.ph ], [ %110, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h5f9ce4546c45d8e0E.exit44" ]
+  %.sroa.013.07 = phi ptr [ %7, %.lr.ph ], [ %111, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h5f9ce4546c45d8e0E.exit44" ]
+  %.sroa.015.06 = phi ptr [ %5, %.lr.ph ], [ %110, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h5f9ce4546c45d8e0E.exit44" ]
   %.sroa.017.05 = phi ptr [ %8, %.lr.ph ], [ %112, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h5f9ce4546c45d8e0E.exit44" ]
   %.sroa.018.04 = phi i64 [ 0, %.lr.ph ], [ %16, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h5f9ce4546c45d8e0E.exit44" ]
   %16 = add nuw nsw i64 %.sroa.018.04, 1
@@ -17224,11 +17224,11 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
 define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h1ea08a844ade8a51E(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef range(i64 2, 0) %1, ptr noundef writeonly captures(none) %2, ptr readonly captures(address_is_null) %.0.val) unnamed_addr #3 personality ptr @rust_eh_personality {
 .lr.ph:
   %3 = lshr i64 %1, 1
-  %4 = getelementptr { ptr, { i32, [1 x i32] } }, ptr %0, i64 %3
-  %5 = getelementptr i8, ptr %4, i64 -16
-  %6 = add i64 %1, -1
-  %7 = getelementptr inbounds { ptr, { i32, [1 x i32] } }, ptr %0, i64 %6
-  %8 = getelementptr inbounds { ptr, { i32, [1 x i32] } }, ptr %2, i64 %6
+  %4 = add i64 %1, -1
+  %5 = getelementptr inbounds { ptr, { i32, [1 x i32] } }, ptr %0, i64 %4
+  %6 = getelementptr { ptr, { i32, [1 x i32] } }, ptr %0, i64 %3
+  %7 = getelementptr i8, ptr %6, i64 -16
+  %8 = getelementptr inbounds { ptr, { i32, [1 x i32] } }, ptr %2, i64 %4
   %9 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %9)
   br label %14
@@ -17242,10 +17242,10 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
 
 14:                                               ; preds = %.lr.ph, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit49"
   %.sroa.0.014 = phi ptr [ %0, %.lr.ph ], [ %59, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit49" ]
-  %.sroa.06.013 = phi ptr [ %4, %.lr.ph ], [ %57, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit49" ]
+  %.sroa.06.013 = phi ptr [ %6, %.lr.ph ], [ %57, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit49" ]
   %.sroa.010.012 = phi ptr [ %2, %.lr.ph ], [ %60, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit49" ]
-  %.sroa.013.011 = phi ptr [ %5, %.lr.ph ], [ %102, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit49" ]
-  %.sroa.015.010 = phi ptr [ %7, %.lr.ph ], [ %101, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit49" ]
+  %.sroa.013.011 = phi ptr [ %7, %.lr.ph ], [ %102, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit49" ]
+  %.sroa.015.010 = phi ptr [ %5, %.lr.ph ], [ %101, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit49" ]
   %.sroa.017.09 = phi ptr [ %8, %.lr.ph ], [ %103, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit49" ]
   %.sroa.018.08 = phi i64 [ 0, %.lr.ph ], [ %15, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit49" ]
   %15 = add nuw nsw i64 %.sroa.018.08, 1
@@ -17475,11 +17475,11 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
 define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h3902b37421c9b4f5E(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef range(i64 2, 0) %1, ptr noundef writeonly captures(none) %2, ptr readonly captures(address_is_null) %.0.val) unnamed_addr #3 personality ptr @rust_eh_personality {
 .lr.ph:
   %3 = lshr i64 %1, 1
-  %4 = getelementptr { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %3
-  %5 = getelementptr i8, ptr %4, i64 -16
-  %6 = add i64 %1, -1
-  %7 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %6
-  %8 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %2, i64 %6
+  %4 = add i64 %1, -1
+  %5 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %4
+  %6 = getelementptr { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %3
+  %7 = getelementptr i8, ptr %6, i64 -16
+  %8 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %2, i64 %4
   %9 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %9)
   %10 = getelementptr i8, ptr %.0.val, i64 8
@@ -17494,10 +17494,10 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
 
 15:                                               ; preds = %.lr.ph, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h902ae2680e764fe0E.exit44"
   %.sroa.0.010 = phi ptr [ %0, %.lr.ph ], [ %64, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h902ae2680e764fe0E.exit44" ]
-  %.sroa.06.09 = phi ptr [ %4, %.lr.ph ], [ %62, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h902ae2680e764fe0E.exit44" ]
+  %.sroa.06.09 = phi ptr [ %6, %.lr.ph ], [ %62, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h902ae2680e764fe0E.exit44" ]
   %.sroa.010.08 = phi ptr [ %2, %.lr.ph ], [ %65, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h902ae2680e764fe0E.exit44" ]
-  %.sroa.013.07 = phi ptr [ %5, %.lr.ph ], [ %111, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h902ae2680e764fe0E.exit44" ]
-  %.sroa.015.06 = phi ptr [ %7, %.lr.ph ], [ %110, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h902ae2680e764fe0E.exit44" ]
+  %.sroa.013.07 = phi ptr [ %7, %.lr.ph ], [ %111, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h902ae2680e764fe0E.exit44" ]
+  %.sroa.015.06 = phi ptr [ %5, %.lr.ph ], [ %110, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h902ae2680e764fe0E.exit44" ]
   %.sroa.017.05 = phi ptr [ %8, %.lr.ph ], [ %112, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h902ae2680e764fe0E.exit44" ]
   %.sroa.018.04 = phi i64 [ 0, %.lr.ph ], [ %16, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h902ae2680e764fe0E.exit44" ]
   %16 = add nuw nsw i64 %.sroa.018.04, 1
@@ -17719,11 +17719,11 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
 define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h474a0cd397ed1e87E(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef range(i64 2, 0) %1, ptr noundef writeonly captures(none) %2, ptr readonly captures(address_is_null) %.0.val) unnamed_addr #3 personality ptr @rust_eh_personality {
 .lr.ph:
   %3 = lshr i64 %1, 1
-  %4 = getelementptr { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %3
-  %5 = getelementptr i8, ptr %4, i64 -16
-  %6 = add i64 %1, -1
-  %7 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %6
-  %8 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %2, i64 %6
+  %4 = add i64 %1, -1
+  %5 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %4
+  %6 = getelementptr { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %3
+  %7 = getelementptr i8, ptr %6, i64 -16
+  %8 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %2, i64 %4
   %9 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %9)
   %10 = getelementptr i8, ptr %.0.val, i64 8
@@ -17738,10 +17738,10 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
 
 15:                                               ; preds = %.lr.ph, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h74fd3f54da57fb67E.exit44"
   %.sroa.0.010 = phi ptr [ %0, %.lr.ph ], [ %64, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h74fd3f54da57fb67E.exit44" ]
-  %.sroa.06.09 = phi ptr [ %4, %.lr.ph ], [ %62, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h74fd3f54da57fb67E.exit44" ]
+  %.sroa.06.09 = phi ptr [ %6, %.lr.ph ], [ %62, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h74fd3f54da57fb67E.exit44" ]
   %.sroa.010.08 = phi ptr [ %2, %.lr.ph ], [ %65, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h74fd3f54da57fb67E.exit44" ]
-  %.sroa.013.07 = phi ptr [ %5, %.lr.ph ], [ %111, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h74fd3f54da57fb67E.exit44" ]
-  %.sroa.015.06 = phi ptr [ %7, %.lr.ph ], [ %110, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h74fd3f54da57fb67E.exit44" ]
+  %.sroa.013.07 = phi ptr [ %7, %.lr.ph ], [ %111, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h74fd3f54da57fb67E.exit44" ]
+  %.sroa.015.06 = phi ptr [ %5, %.lr.ph ], [ %110, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h74fd3f54da57fb67E.exit44" ]
   %.sroa.017.05 = phi ptr [ %8, %.lr.ph ], [ %112, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h74fd3f54da57fb67E.exit44" ]
   %.sroa.018.04 = phi i64 [ 0, %.lr.ph ], [ %16, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h74fd3f54da57fb67E.exit44" ]
   %16 = add nuw nsw i64 %.sroa.018.04, 1
@@ -17963,11 +17963,11 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
 define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hb1c0d00eccff44ecE(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef range(i64 2, 0) %1, ptr noundef writeonly captures(none) %2, ptr readonly captures(address_is_null) %.0.val) unnamed_addr #3 personality ptr @rust_eh_personality {
 .lr.ph:
   %3 = lshr i64 %1, 1
-  %4 = getelementptr { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %3
-  %5 = getelementptr i8, ptr %4, i64 -16
-  %6 = add i64 %1, -1
-  %7 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %6
-  %8 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %2, i64 %6
+  %4 = add i64 %1, -1
+  %5 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %4
+  %6 = getelementptr { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %3
+  %7 = getelementptr i8, ptr %6, i64 -16
+  %8 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %2, i64 %4
   %9 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %9)
   %10 = getelementptr i8, ptr %.0.val, i64 8
@@ -17982,10 +17982,10 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
 
 15:                                               ; preds = %.lr.ph, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3d95e9c7c567d5a5E.exit44"
   %.sroa.0.010 = phi ptr [ %0, %.lr.ph ], [ %64, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3d95e9c7c567d5a5E.exit44" ]
-  %.sroa.06.09 = phi ptr [ %4, %.lr.ph ], [ %62, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3d95e9c7c567d5a5E.exit44" ]
+  %.sroa.06.09 = phi ptr [ %6, %.lr.ph ], [ %62, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3d95e9c7c567d5a5E.exit44" ]
   %.sroa.010.08 = phi ptr [ %2, %.lr.ph ], [ %65, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3d95e9c7c567d5a5E.exit44" ]
-  %.sroa.013.07 = phi ptr [ %5, %.lr.ph ], [ %111, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3d95e9c7c567d5a5E.exit44" ]
-  %.sroa.015.06 = phi ptr [ %7, %.lr.ph ], [ %110, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3d95e9c7c567d5a5E.exit44" ]
+  %.sroa.013.07 = phi ptr [ %7, %.lr.ph ], [ %111, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3d95e9c7c567d5a5E.exit44" ]
+  %.sroa.015.06 = phi ptr [ %5, %.lr.ph ], [ %110, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3d95e9c7c567d5a5E.exit44" ]
   %.sroa.017.05 = phi ptr [ %8, %.lr.ph ], [ %112, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3d95e9c7c567d5a5E.exit44" ]
   %.sroa.018.04 = phi i64 [ 0, %.lr.ph ], [ %16, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3d95e9c7c567d5a5E.exit44" ]
   %16 = add nuw nsw i64 %.sroa.018.04, 1
@@ -18207,11 +18207,11 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
 define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hd82b0cfac6ea955fE(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef range(i64 2, 0) %1, ptr noundef writeonly captures(none) %2, ptr readonly captures(address_is_null) %.0.val) unnamed_addr #3 personality ptr @rust_eh_personality {
 .lr.ph:
   %3 = lshr i64 %1, 1
-  %4 = getelementptr { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %3
-  %5 = getelementptr i8, ptr %4, i64 -16
-  %6 = add i64 %1, -1
-  %7 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %6
-  %8 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %2, i64 %6
+  %4 = add i64 %1, -1
+  %5 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %4
+  %6 = getelementptr { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %3
+  %7 = getelementptr i8, ptr %6, i64 -16
+  %8 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %2, i64 %4
   %9 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %9)
   %10 = getelementptr i8, ptr %.0.val, i64 8
@@ -18226,10 +18226,10 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
 
 15:                                               ; preds = %.lr.ph, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59d09aafe1c7a26fE.exit44"
   %.sroa.0.010 = phi ptr [ %0, %.lr.ph ], [ %64, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59d09aafe1c7a26fE.exit44" ]
-  %.sroa.06.09 = phi ptr [ %4, %.lr.ph ], [ %62, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59d09aafe1c7a26fE.exit44" ]
+  %.sroa.06.09 = phi ptr [ %6, %.lr.ph ], [ %62, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59d09aafe1c7a26fE.exit44" ]
   %.sroa.010.08 = phi ptr [ %2, %.lr.ph ], [ %65, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59d09aafe1c7a26fE.exit44" ]
-  %.sroa.013.07 = phi ptr [ %5, %.lr.ph ], [ %111, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59d09aafe1c7a26fE.exit44" ]
-  %.sroa.015.06 = phi ptr [ %7, %.lr.ph ], [ %110, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59d09aafe1c7a26fE.exit44" ]
+  %.sroa.013.07 = phi ptr [ %7, %.lr.ph ], [ %111, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59d09aafe1c7a26fE.exit44" ]
+  %.sroa.015.06 = phi ptr [ %5, %.lr.ph ], [ %110, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59d09aafe1c7a26fE.exit44" ]
   %.sroa.017.05 = phi ptr [ %8, %.lr.ph ], [ %112, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59d09aafe1c7a26fE.exit44" ]
   %.sroa.018.04 = phi i64 [ 0, %.lr.ph ], [ %16, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h59d09aafe1c7a26fE.exit44" ]
   %16 = add nuw nsw i64 %.sroa.018.04, 1
@@ -18451,11 +18451,11 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
 define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hfb04b5d6c560c963E(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef range(i64 2, 0) %1, ptr noundef writeonly captures(none) %2, ptr readonly captures(address_is_null) %.0.val) unnamed_addr #3 personality ptr @rust_eh_personality {
 .lr.ph:
   %3 = lshr i64 %1, 1
-  %4 = getelementptr { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %3
-  %5 = getelementptr i8, ptr %4, i64 -16
-  %6 = add i64 %1, -1
-  %7 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %6
-  %8 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %2, i64 %6
+  %4 = add i64 %1, -1
+  %5 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %4
+  %6 = getelementptr { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %3
+  %7 = getelementptr i8, ptr %6, i64 -16
+  %8 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %2, i64 %4
   %9 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %9)
   %10 = getelementptr i8, ptr %.0.val, i64 8
@@ -18470,10 +18470,10 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
 
 15:                                               ; preds = %.lr.ph, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6f741e291f7fa35eE.exit44"
   %.sroa.0.010 = phi ptr [ %0, %.lr.ph ], [ %64, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6f741e291f7fa35eE.exit44" ]
-  %.sroa.06.09 = phi ptr [ %4, %.lr.ph ], [ %62, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6f741e291f7fa35eE.exit44" ]
+  %.sroa.06.09 = phi ptr [ %6, %.lr.ph ], [ %62, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6f741e291f7fa35eE.exit44" ]
   %.sroa.010.08 = phi ptr [ %2, %.lr.ph ], [ %65, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6f741e291f7fa35eE.exit44" ]
-  %.sroa.013.07 = phi ptr [ %5, %.lr.ph ], [ %111, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6f741e291f7fa35eE.exit44" ]
-  %.sroa.015.06 = phi ptr [ %7, %.lr.ph ], [ %110, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6f741e291f7fa35eE.exit44" ]
+  %.sroa.013.07 = phi ptr [ %7, %.lr.ph ], [ %111, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6f741e291f7fa35eE.exit44" ]
+  %.sroa.015.06 = phi ptr [ %5, %.lr.ph ], [ %110, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6f741e291f7fa35eE.exit44" ]
   %.sroa.017.05 = phi ptr [ %8, %.lr.ph ], [ %112, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6f741e291f7fa35eE.exit44" ]
   %.sroa.018.04 = phi i64 [ 0, %.lr.ph ], [ %16, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6f741e291f7fa35eE.exit44" ]
   %16 = add nuw nsw i64 %.sroa.018.04, 1
@@ -19226,11 +19226,11 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 
 39:                                               ; preds = %.loopexit75
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %40 = getelementptr { { { { i32, i32 } }, { { i64, i64 } } }, {} }, ptr %2, i64 %22
-  %41 = getelementptr i8, ptr %40, i64 -24
-  %42 = add i64 %1, -1
-  %43 = getelementptr inbounds { { { { i32, i32 } }, { { i64, i64 } } }, {} }, ptr %2, i64 %42
-  %44 = getelementptr inbounds { { { { i32, i32 } }, { { i64, i64 } } }, {} }, ptr %0, i64 %42
+  %40 = add i64 %1, -1
+  %41 = getelementptr inbounds { { { { i32, i32 } }, { { i64, i64 } } }, {} }, ptr %2, i64 %40
+  %42 = getelementptr { { { { i32, i32 } }, { { i64, i64 } } }, {} }, ptr %2, i64 %22
+  %43 = getelementptr i8, ptr %42, i64 -24
+  %44 = getelementptr inbounds { { { { i32, i32 } }, { { i64, i64 } } }, {} }, ptr %0, i64 %40
   br label %49
 
 ._crit_edge.i:                                    ; preds = %.noexc28
@@ -19242,10 +19242,10 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 
 49:                                               ; preds = %.noexc28, %39
   %.sroa.0.010.i = phi ptr [ %2, %39 ], [ %63, %.noexc28 ]
-  %.sroa.06.09.i = phi ptr [ %40, %39 ], [ %61, %.noexc28 ]
+  %.sroa.06.09.i = phi ptr [ %42, %39 ], [ %61, %.noexc28 ]
   %.sroa.010.08.i = phi ptr [ %0, %39 ], [ %64, %.noexc28 ]
-  %.sroa.013.07.i = phi ptr [ %41, %39 ], [ %75, %.noexc28 ]
-  %.sroa.015.06.i = phi ptr [ %43, %39 ], [ %74, %.noexc28 ]
+  %.sroa.013.07.i = phi ptr [ %43, %39 ], [ %75, %.noexc28 ]
+  %.sroa.015.06.i = phi ptr [ %41, %39 ], [ %74, %.noexc28 ]
   %.sroa.017.05.i = phi ptr [ %44, %39 ], [ %76, %.noexc28 ]
   %.sroa.018.04.i = phi i64 [ 0, %39 ], [ %50, %.noexc28 ]
   %50 = add nuw nsw i64 %.sroa.018.04.i, 1

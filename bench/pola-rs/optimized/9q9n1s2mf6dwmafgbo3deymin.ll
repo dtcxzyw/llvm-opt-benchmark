@@ -33940,7 +33940,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap8as_slice17h81250cb7ba2cc8daE.exit: ; p
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %19 = load ptr, ptr %18, align 8, !noalias !3429, !nonnull !3, !noundef !3
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %5
-  %21 = icmp ult i64 %10, 8
+  %21 = icmp samesign eq i64 %11, 0
   %.sroa.04.0 = select i1 %21, ptr @anon.26c8ba34914650c1c1cd302a1d6cb960.13, ptr %20
   %not. = xor i1 %21, true
   %.sroa.01.0.idx = zext i1 %not. to i64

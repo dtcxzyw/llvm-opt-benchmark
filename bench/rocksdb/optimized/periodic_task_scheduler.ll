@@ -2462,7 +2462,7 @@ define linkonce_odr void @_ZN7rocksdb5Timer3RunEv(ptr noundef nonnull align 8 de
 79:                                               ; preds = %73
   %80 = getelementptr inbounds ptr, ptr %16, i64 %.019.i.i.i.i.i
   store ptr %75, ptr %80, align 8, !tbaa !80
-  %.not11.i.i.i = icmp ult i64 %.0920.in.i.i.i.i.i, 2
+  %.not11.i.i.i = icmp eq i64 %.0920.i.i910.i.i.i, 0
   br i1 %.not11.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb5Timer12FunctionInfoESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12RunTimeOrderEEEEvT_SF_SF_RT0_.exit.i.i, label %73, !llvm.loop !175
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb5Timer12FunctionInfoESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12RunTimeOrderEEEEvT_SF_SF_RT0_.exit.i.i: ; preds = %79, %73, %70
@@ -2658,7 +2658,7 @@ _ZN7rocksdb19InstrumentedCondVar9SignalAllEv.exit: ; preds = %120
 173:                                              ; preds = %167
   %174 = getelementptr inbounds ptr, ptr %121, i64 %.019.i.i.i.i.i18
   store ptr %169, ptr %174, align 8, !tbaa !80
-  %.not11.i.i.i23 = icmp ult i64 %.0920.in.i.i.i.i.i19, 2
+  %.not11.i.i.i23 = icmp eq i64 %.0920.i.i910.i.i.i20, 0
   br i1 %.not11.i.i.i23, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb5Timer12FunctionInfoESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12RunTimeOrderEEEEvT_SF_SF_RT0_.exit.i.i21, label %167, !llvm.loop !175
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb5Timer12FunctionInfoESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12RunTimeOrderEEEEvT_SF_SF_RT0_.exit.i.i21: ; preds = %173, %167, %164
@@ -2943,7 +2943,7 @@ _ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE9push_backERKS3_.exit: ; pre
 49:                                               ; preds = %43
   %50 = getelementptr inbounds ptr, ptr %32, i64 %.019.i.i
   store ptr %45, ptr %50, align 8, !tbaa !80
-  %.not.i3 = icmp ult i64 %.0920.in.i.i, 2
+  %.not.i3 = icmp eq i64 %.0920.i56.i, 0
   br i1 %.not.i3, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb5Timer12FunctionInfoESt6vectorIS5_SaIS5_EEEENS3_12RunTimeOrderEEvT_SC_T0_.exit, label %43, !llvm.loop !175
 
 _ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb5Timer12FunctionInfoESt6vectorIS5_SaIS5_EEEENS3_12RunTimeOrderEEvT_SC_T0_.exit: ; preds = %43, %49, %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE9push_backERKS3_.exit
@@ -3410,7 +3410,7 @@ _ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE9push_backEOS3_.exit: ; pred
 49:                                               ; preds = %43
   %50 = getelementptr inbounds ptr, ptr %32, i64 %.019.i.i
   store ptr %45, ptr %50, align 8, !tbaa !80
-  %.not.i = icmp ult i64 %.0920.in.i.i, 2
+  %.not.i = icmp eq i64 %.0920.i56.i, 0
   br i1 %.not.i, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb5Timer12FunctionInfoESt6vectorIS5_SaIS5_EEEENS3_12RunTimeOrderEEvT_SC_T0_.exit, label %43, !llvm.loop !175
 
 _ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb5Timer12FunctionInfoESt6vectorIS5_SaIS5_EEEENS3_12RunTimeOrderEEvT_SC_T0_.exit: ; preds = %43, %49, %_ZNSt6vectorIPN7rocksdb5Timer12FunctionInfoESaIS3_EE9push_backEOS3_.exit
@@ -4011,7 +4011,7 @@ _ZN7rocksdb5Timer30WaitForTaskCompleteIfNecessaryEv.exit: ; preds = %19, %._crit
 81:                                               ; preds = %75
   %82 = getelementptr inbounds ptr, ptr %23, i64 %.019.i.i.i.i.i
   store ptr %77, ptr %82, align 8, !tbaa !80
-  %.not11.i.i.i = icmp ult i64 %.0920.in.i.i.i.i.i, 2
+  %.not11.i.i.i = icmp eq i64 %.0920.i.i910.i.i.i, 0
   br i1 %.not11.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb5Timer12FunctionInfoESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12RunTimeOrderEEEEvT_SF_SF_RT0_.exit.i.i, label %75, !llvm.loop !175
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb5Timer12FunctionInfoESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12RunTimeOrderEEEEvT_SF_SF_RT0_.exit.i.i: ; preds = %81, %75, %72

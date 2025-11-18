@@ -5476,35 +5476,35 @@ define internal fastcc void @_ZN5quinn8endpoint9RecvState11poll_socket17h17ff847
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %41 = load i64, ptr %40, align 8, !noundef !3
-  %42 = icmp ult i64 %41, 32
-  br i1 %42, label %43, label %48, !prof !5
+  %42 = lshr i64 %41, 5
+  %43 = icmp eq i64 %42, 0
+  br i1 %43, label %44, label %49, !prof !5
 
-43:                                               ; preds = %39
+44:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr @anon.b3035135bc522eda2a84d6f823929a8e.66, ptr %15, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i64 1, ptr %44, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  store ptr null, ptr %45, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store ptr inttoptr (i64 8 to ptr), ptr %46, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store i64 0, ptr %47, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store i64 1, ptr %45, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  store ptr null, ptr %46, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  store ptr inttoptr (i64 8 to ptr), ptr %47, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  store i64 0, ptr %48, align 8
   call void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b3035135bc522eda2a84d6f823929a8e.67) #22
   unreachable
 
-48:                                               ; preds = %39
-  %49 = lshr i64 %41, 5
+49:                                               ; preds = %39
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %51 = load ptr, ptr %50, align 8, !nonnull !3, !align !12, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !480
   tail call void @llvm.experimental.noalias.scope.decl(metadata !484)
   br label %52
 
-52:                                               ; preds = %56, %48
-  %.sroa.6.08.i.i = phi i64 [ 0, %48 ], [ %61, %56 ]
-  %53 = phi i64 [ %41, %48 ], [ %58, %56 ]
-  %54 = phi ptr [ %51, %48 ], [ %57, %56 ]
+52:                                               ; preds = %56, %49
+  %.sroa.6.08.i.i = phi i64 [ 0, %49 ], [ %61, %56 ]
+  %53 = phi i64 [ %41, %49 ], [ %58, %56 ]
+  %54 = phi ptr [ %51, %49 ], [ %57, %56 ]
   %55 = icmp eq i64 %53, 0
   br i1 %55, label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3bb2c7a4e60bfd28E.exit.thread.i.i.i.i", label %56
 
@@ -5513,7 +5513,7 @@ define internal fastcc void @_ZN5quinn8endpoint9RecvState11poll_socket17h17ff847
   unreachable
 
 56:                                               ; preds = %52
-  %.sroa.0.0.sroa.speculated.i.i.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %49, i64 %53)
+  %.sroa.0.0.sroa.speculated.i.i.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %42, i64 %53)
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i
   %58 = sub nuw i64 %53, %.sroa.0.0.sroa.speculated.i.i.i.i.i.i
   %59 = getelementptr inbounds nuw { [2 x i64] }, ptr %14, i64 %.sroa.6.08.i.i

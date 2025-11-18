@@ -951,7 +951,7 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_3msf17MappedBlockStreamESt14default_deleteIS
   %.0.copyload.i.i.i.i1.i = load i32, ptr %154, align 1
   %155 = sub i32 %.0.copyload.i.i.i.i.i, %.0.copyload.i.i.i.i1.i
   %156 = icmp ne i32 %152, %155
-  %157 = icmp ugt i32 %.0.copyload.i.i.i50, 3
+  %157 = icmp ne i32 %152, 0
   %or.cond = and i1 %157, %156
   br i1 %or.cond, label %158, label %159
 
@@ -5107,8 +5107,8 @@ define linkonce_odr hidden void @_ZN4llvm15SparseBitVectorILj128EE23SparseBitVec
   %36 = load i64, ptr %35, align 8
   %.fr.i = freeze i64 %36
   %.not22.i = icmp ne i64 %.fr.i, 0
-  %37 = icmp samesign ult i32 %19, 64
-  %or.cond.i = select i1 %.not22.i, i1 %37, i1 false
+  %37 = icmp eq i32 %20, 0
+  %or.cond.i = and i1 %37, %.not22.i
   br i1 %or.cond.i, label %38, label %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit, !llvm.loop !379
 
 38:                                               ; preds = %34

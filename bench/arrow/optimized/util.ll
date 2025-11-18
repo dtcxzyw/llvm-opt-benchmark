@@ -2274,7 +2274,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper8Swa
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 24
   %92 = load i64, ptr %91, align 8, !tbaa !130, !noalias !129
   %93 = lshr i64 %92, 1
-  %.not.i.i481 = icmp ult i64 %92, 2
+  %.not.i.i481 = icmp eq i64 %93, 0
   br i1 %.not.i.i481, label %._crit_edge.i.i485, label %.lr.ph.i.i482
 
 ._crit_edge.i.i485:                               ; preds = %.lr.ph.i.i482, %85
@@ -3247,7 +3247,7 @@ _ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper5VisitINS_9Int64TypeEEENSt9enable
   %522 = getelementptr inbounds nuw i8, ptr %521, i64 24
   %523 = load i64, ptr %522, align 8, !tbaa !130, !noalias !208
   %524 = lshr i64 %523, 3
-  %.not.i.i389 = icmp ult i64 %523, 8
+  %.not.i.i389 = icmp eq i64 %524, 0
   br i1 %.not.i.i389, label %._crit_edge.i.i393, label %.lr.ph.i.i390
 
 ._crit_edge.i.i393:                               ; preds = %.lr.ph.i.i390, %516
@@ -3712,7 +3712,7 @@ _ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper5VisitINS_13HalfFloatTypeEEENSt9e
   %726 = getelementptr inbounds nuw i8, ptr %725, i64 24
   %727 = load i64, ptr %726, align 8, !tbaa !130, !noalias !244
   %728 = lshr i64 %727, 2
-  %.not.i.i340 = icmp ult i64 %727, 4
+  %.not.i.i340 = icmp eq i64 %728, 0
   br i1 %.not.i.i340, label %._crit_edge.i.i344, label %.lr.ph.i.i341
 
 ._crit_edge.i.i344:                               ; preds = %.lr.ph.i.i341, %720
@@ -4009,7 +4009,7 @@ _ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper5VisitINS_9FloatTypeEEENSt9enable
   %854 = getelementptr inbounds nuw i8, ptr %853, i64 24
   %855 = load i64, ptr %854, align 8, !tbaa !130, !noalias !270
   %856 = lshr i64 %855, 3
-  %.not.i.i315 = icmp ult i64 %855, 8
+  %.not.i.i315 = icmp eq i64 %856, 0
   br i1 %.not.i.i315, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %848
@@ -5763,7 +5763,7 @@ _ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper5VisitINS_10Time64TypeEEENSt9enab
   %1660 = getelementptr inbounds nuw i8, ptr %1659, i64 24
   %1661 = load i64, ptr %1660, align 8, !tbaa !130, !noalias !384
   %1662 = lshr i64 %1661, 4
-  %.not.i159 = icmp ult i64 %1661, 16
+  %.not.i159 = icmp eq i64 %1662, 0
   br i1 %.not.i159, label %._crit_edge.i162, label %.lr.ph.i160
 
 ._crit_edge.i162:                                 ; preds = %.lr.ph.i160, %1641
@@ -12958,7 +12958,7 @@ _ZN5arrow6StatusD2Ev.exit19:                      ; preds = %_ZN5arrow6StatusD2E
 
 _ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i: ; preds = %167
   store i64 0, ptr %10, align 8
-  %.not.i.i.i.i = icmp ult i64 %sext, 4294967296
+  %.not.i.i.i.i = icmp eq i64 %178, 0
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EEC2EmRKS4_.exit.thread.i, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
@@ -17488,7 +17488,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper14By
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i64, ptr %20, align 8, !tbaa !130
   %22 = lshr i64 %21, 1
-  %.not = icmp ult i64 %21, 2
+  %.not = icmp eq i64 %22, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %14
@@ -17625,7 +17625,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper14By
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i64, ptr %20, align 8, !tbaa !130
   %22 = lshr i64 %21, 2
-  %.not = icmp ult i64 %21, 4
+  %.not = icmp eq i64 %22, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %14
@@ -17765,7 +17765,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper14By
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i64, ptr %20, align 8, !tbaa !130
   %22 = lshr i64 %21, 2
-  %.not = icmp ult i64 %21, 4
+  %.not = icmp eq i64 %22, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %14
@@ -17902,7 +17902,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper14By
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i64, ptr %20, align 8, !tbaa !130
   %22 = lshr i64 %21, 3
-  %.not = icmp ult i64 %21, 8
+  %.not = icmp eq i64 %22, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %14

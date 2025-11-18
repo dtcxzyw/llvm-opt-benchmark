@@ -1410,7 +1410,7 @@ broken_check_hec.exit:                            ; preds = %144
   br label %.thread1038
 
 269:                                              ; preds = %248
-  %270 = icmp ult i8 %49, 16
+  %270 = icmp eq i32 %52, 0
   br i1 %270, label %271, label %280
 
 271:                                              ; preds = %269
@@ -1573,7 +1573,7 @@ broken_check_hec.exit:                            ; preds = %144
   br label %401
 
 387:                                              ; preds = %366
-  %388 = icmp ult i8 %49, 16
+  %388 = icmp eq i32 %52, 0
   br i1 %388, label %389, label %398
 
 389:                                              ; preds = %387
@@ -2209,7 +2209,7 @@ broken_check_hec.exit:                            ; preds = %144
   br label %666
 
 661:                                              ; preds = %645
-  %662 = icmp ult i8 %49, 16
+  %662 = icmp eq i32 %52, 0
   br i1 %662, label %663, label %666
 
 663:                                              ; preds = %661

@@ -240,7 +240,7 @@ lv_color_8_8_mix.exit152.us:                      ; preds = %.sink.split.i150.us
   %105 = zext i8 %104 to i16
   %106 = mul nuw i16 %105, %15
   %107 = lshr i16 %106, 8
-  %108 = icmp ult i16 %106, 256
+  %108 = icmp eq i16 %107, 0
   br i1 %108, label %lv_color_8_8_mix.exit155.us, label %109
 
 109:                                              ; preds = %101
@@ -608,7 +608,7 @@ lv_color_8_8_mix.exit.us.us.us.i:                 ; preds = %lv_color_8_8_mix.ex
   %147 = zext i8 %146 to i16
   %148 = mul nuw i16 %147, %90
   %149 = lshr i16 %148, 8
-  %150 = icmp ult i16 %148, 256
+  %150 = icmp eq i16 %149, 0
   br i1 %150, label %lv_color_8_8_mix.exit153.us.i, label %151
 
 151:                                              ; preds = %140
@@ -814,7 +814,7 @@ lv_color_8_8_mix.exit150.us.i:                    ; preds = %.sink.split.i148.us
 251:                                              ; preds = %247, %243, %238
   %252 = phi i8 [ %248, %247 ], [ %244, %243 ], [ %239, %238 ]
   %.0.in.i.us188.i = phi i32 [ %spec.select16.i.us187.i, %247 ], [ %spec.select1415.i.us186.i, %243 ], [ %242, %238 ]
-  %253 = icmp samesign ult i32 %232, 65536
+  %253 = icmp eq i32 %233, 0
   br i1 %253, label %blend_non_normal_pixel.exit.us192.i, label %254
 
 254:                                              ; preds = %251
@@ -899,7 +899,7 @@ blend_non_normal_pixel.exit.us192.i:              ; preds = %.sink.split.i.i.us1
 290:                                              ; preds = %286, %282, %277
   %291 = phi i8 [ %287, %286 ], [ %283, %282 ], [ %278, %277 ]
   %.0.in.i.us.us.i = phi i32 [ %spec.select16.i.us.us.i, %286 ], [ %spec.select1415.i.us.us.i, %282 ], [ %281, %277 ]
-  %292 = icmp samesign ult i32 %271, 256
+  %292 = icmp eq i32 %272, 0
   br i1 %292, label %blend_non_normal_pixel.exit.us.us.i, label %293
 
 293:                                              ; preds = %290
@@ -1038,7 +1038,7 @@ lv_color_8_8_mix.exit.us.i:                       ; preds = %.sink.split.i.us.i2
   %351 = mul nuw nsw i32 %350, %306
   %352 = lshr i32 %351, 8
   %353 = trunc nuw nsw i32 %352 to i16
-  %354 = icmp samesign ult i32 %351, 256
+  %354 = icmp eq i32 %352, 0
   br i1 %354, label %lv_color_8_8_mix.exit151.us.i, label %355
 
 355:                                              ; preds = %343
@@ -1115,7 +1115,7 @@ lv_color_8_8_mix.exit151.us.i:                    ; preds = %.sink.split.i149.us
   %387 = zext i8 %386 to i16
   %388 = mul nuw i16 %387, %384
   %389 = lshr i16 %388, 8
-  %390 = icmp ult i16 %388, 256
+  %390 = icmp eq i16 %389, 0
   br i1 %390, label %lv_color_8_8_mix.exit154.us.i, label %391
 
 391:                                              ; preds = %377
@@ -1192,7 +1192,7 @@ lv_color_8_8_mix.exit154.us.i:                    ; preds = %.sink.split.i152.us
   %425 = mul nuw nsw i32 %421, %424
   %426 = lshr i32 %425, 16
   %427 = trunc nuw nsw i32 %426 to i16
-  %428 = icmp samesign ult i32 %425, 65536
+  %428 = icmp eq i32 %426, 0
   br i1 %428, label %lv_color_8_8_mix.exit157.us.i, label %429
 
 429:                                              ; preds = %413
@@ -1332,7 +1332,7 @@ lv_color_8_8_mix.exit157.us.i:                    ; preds = %.sink.split.i155.us
 501:                                              ; preds = %497, %493, %488
   %502 = phi i8 [ %498, %497 ], [ %494, %493 ], [ %489, %488 ]
   %.0.in.i.us184.i = phi i32 [ %spec.select16.i.us183.i, %497 ], [ %spec.select1415.i.us182.i, %493 ], [ %492, %488 ]
-  %503 = icmp ult i16 %481, 256
+  %503 = icmp eq i16 %482, 0
   br i1 %503, label %blend_non_normal_pixel.exit.us188.i, label %504
 
 504:                                              ; preds = %501
@@ -1629,7 +1629,7 @@ lv_color_8_8_mix.exit148.us.i:                    ; preds = %.sink.split.i146.us
   %631 = zext i8 %630 to i16
   %632 = mul nuw i16 %631, %553
   %633 = lshr i16 %632, 8
-  %634 = icmp ult i16 %632, 256
+  %634 = icmp eq i16 %633, 0
   br i1 %634, label %lv_color_8_8_mix.exit151.us.i57, label %635
 
 635:                                              ; preds = %625
@@ -1769,7 +1769,7 @@ lv_color_8_8_mix.exit151.us.i57:                  ; preds = %.sink.split.i149.us
 707:                                              ; preds = %703, %699, %694
   %708 = phi i8 [ %704, %703 ], [ %700, %699 ], [ %695, %694 ]
   %.0.in.i.us204.i = phi i32 [ %spec.select16.i.us203.i, %703 ], [ %spec.select1415.i.us202.i, %699 ], [ %698, %694 ]
-  %709 = icmp ult i16 %687, 256
+  %709 = icmp eq i16 %688, 0
   br i1 %709, label %blend_non_normal_pixel.exit.us208.i, label %710
 
 710:                                              ; preds = %707
@@ -1985,7 +1985,7 @@ lv_color_8_8_mix.exit.us.i99:                     ; preds = %.sink.split.i.us.i9
   %802 = mul nuw nsw i32 %801, %759
   %803 = lshr i32 %802, 8
   %804 = trunc nuw nsw i32 %803 to i16
-  %805 = icmp samesign ult i32 %802, 256
+  %805 = icmp eq i32 %803, 0
   br i1 %805, label %lv_color_8_8_mix.exit164.us.i, label %806
 
 806:                                              ; preds = %795
@@ -2061,7 +2061,7 @@ lv_color_8_8_mix.exit164.us.i:                    ; preds = %.sink.split.i162.us
   %837 = zext i8 %836 to i16
   %838 = mul nuw i16 %837, %834
   %839 = lshr i16 %838, 8
-  %840 = icmp ult i16 %838, 256
+  %840 = icmp eq i16 %839, 0
   br i1 %840, label %lv_color_8_8_mix.exit167.us.i, label %841
 
 841:                                              ; preds = %828
@@ -2137,7 +2137,7 @@ lv_color_8_8_mix.exit167.us.i:                    ; preds = %.sink.split.i165.us
   %874 = mul nuw nsw i32 %873, %872
   %875 = lshr i32 %874, 16
   %876 = trunc nuw nsw i32 %875 to i16
-  %877 = icmp samesign ult i32 %874, 65536
+  %877 = icmp eq i32 %875, 0
   br i1 %877, label %lv_color_8_8_mix.exit170.us.i, label %878
 
 878:                                              ; preds = %863
@@ -2564,7 +2564,7 @@ lv_color_8_8_mix.exit164.us.i136:                 ; preds = %.sink.split.i162.us
   %1086 = zext i8 %1085 to i16
   %1087 = mul nuw i16 %1086, %979
   %1088 = lshr i16 %1087, 8
-  %1089 = icmp ult i16 %1087, 256
+  %1089 = icmp eq i16 %1088, 0
   br i1 %1089, label %lv_color_8_8_mix.exit167.us.i128, label %1090
 
 1090:                                             ; preds = %1073
@@ -2719,7 +2719,7 @@ define internal fastcc void @rgb888_image_blend(ptr noundef readonly captures(no
 61:                                               ; preds = %57, %53, %48
   %62 = phi i8 [ %58, %57 ], [ %54, %53 ], [ %49, %48 ]
   %.0.in.i.us203 = phi i32 [ %spec.select16.i.us202, %57 ], [ %spec.select1415.i.us201, %53 ], [ %52, %48 ]
-  %63 = icmp ult i16 %42, 256
+  %63 = icmp eq i16 %43, 0
   br i1 %63, label %blend_non_normal_pixel.exit.us207, label %64
 
 64:                                               ; preds = %61
@@ -3081,7 +3081,7 @@ lv_color_8_8_mix.exit167.us:                      ; preds = %.sink.split.i165.us
   %203 = zext i8 %202 to i16
   %204 = mul nuw i16 %203, %114
   %205 = lshr i16 %204, 8
-  %206 = icmp ult i16 %204, 256
+  %206 = icmp eq i16 %205, 0
   br i1 %206, label %lv_color_8_8_mix.exit170.us, label %207
 
 207:                                              ; preds = %197

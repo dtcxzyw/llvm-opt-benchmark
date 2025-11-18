@@ -9774,12 +9774,11 @@ define internal fastcc void @_ZN12polars_arrow5array7boolean7mutable19MutableBoo
           to label %.noexc1.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i, !noalias !856
 
 .noexc1.i.i:                                      ; preds = %34
-  %.not38.i.i.i = icmp ult i64 %19, 64
+  %.not38.i.i.i = icmp eq i64 %24, 0
   br i1 %.not38.i.i.i, label %.preheader28.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc1.i.i
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %umax.i.i.i = call i64 @llvm.umax.i64(i64 %24, i64 1)
   br label %36
 
 .preheader28.i.i.i:                               ; preds = %.noexc3.i.i, %.noexc1.i.i
@@ -9829,7 +9828,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h4c10336765b0d4bbE.exit.i
 .noexc3.i.i:                                      ; preds = %_ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h4c10336765b0d4bbE.exit.i.i.i
   %47 = add nuw nsw i64 %.sroa.019.029.i.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !860
-  %exitcond.not.i.i.i = icmp eq i64 %47, %umax.i.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %47, %24
   br i1 %exitcond.not.i.i.i, label %.preheader28.i.i.i, label %36
 
 ._crit_edge.i.i.i:                                ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h67dbfd9dadf4df3eE.exit27.i.i.i", %.preheader28.i.i.i

@@ -3918,12 +3918,12 @@ _ZL23buildFixItInsertionLineB5cxx11N5clang6FileIDEjRKN12_GLOBAL__N_115SourceColu
   %696 = load ptr, ptr %34, align 8, !tbaa !32
   %697 = getelementptr inbounds nuw i8, ptr %696, i64 36
   %698 = load i64, ptr %697, align 4
-  %.not108 = icmp ult i64 %698, 4294967296
-  br i1 %.not108, label %_ZL29selectInterestingSourceRegionRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_S5_jRKN12_GLOBAL__N_115SourceColumnMapE.exit, label %699
+  %699 = lshr i64 %698, 32
+  %.not108 = icmp eq i64 %699, 0
+  br i1 %.not108, label %_ZL29selectInterestingSourceRegionRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_S5_jRKN12_GLOBAL__N_115SourceColumnMapE.exit, label %700
 
-699:                                              ; preds = %_ZL23buildFixItInsertionLineB5cxx11N5clang6FileIDEjRKN12_GLOBAL__N_115SourceColumnMapEN4llvm8ArrayRefINS_9FixItHintEEERKNS_13SourceManagerEPKNS_17DiagnosticOptionsE.exit
-  %700 = lshr i64 %698, 32
-  %701 = trunc nuw i64 %700 to i32
+700:                                              ; preds = %_ZL23buildFixItInsertionLineB5cxx11N5clang6FileIDEjRKN12_GLOBAL__N_115SourceColumnMapEN4llvm8ArrayRefINS_9FixItHintEEERKNS_13SourceManagerEPKNS_17DiagnosticOptionsE.exit
+  %701 = trunc nuw i64 %699 to i32
   %702 = load i64, ptr %379, align 8, !tbaa !198
   %703 = trunc i64 %702 to i32
   %704 = load ptr, ptr %29, align 8, !tbaa !201
@@ -3940,7 +3940,7 @@ _ZL23buildFixItInsertionLineB5cxx11N5clang6FileIDEjRKN12_GLOBAL__N_115SourceColu
   %.not.i157 = icmp ugt i32 %.sroa.speculated253.i, %701
   br i1 %.not.i157, label %711, label %_ZL29selectInterestingSourceRegionRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_S5_jRKN12_GLOBAL__N_115SourceColumnMapE.exit
 
-711:                                              ; preds = %699
+711:                                              ; preds = %700
   %712 = load i64, ptr %379, align 8, !tbaa !198
   %713 = trunc i64 %712 to i32
   %.not151280.i = icmp eq i32 %713, 0
@@ -4472,7 +4472,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit.i: ; pr
   %926 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %29, i64 noundef 0, i64 noundef %spec.select.i.i.i215.i, ptr noundef nonnull @.str.37, i64 noundef 5) #17
   br label %_ZL29selectInterestingSourceRegionRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_S5_jRKN12_GLOBAL__N_115SourceColumnMapE.exit
 
-_ZL29selectInterestingSourceRegionRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_S5_jRKN12_GLOBAL__N_115SourceColumnMapE.exit: ; preds = %925, %916, %914, %699, %_ZL23buildFixItInsertionLineB5cxx11N5clang6FileIDEjRKN12_GLOBAL__N_115SourceColumnMapEN4llvm8ArrayRefINS_9FixItHintEEERKNS_13SourceManagerEPKNS_17DiagnosticOptionsE.exit
+_ZL29selectInterestingSourceRegionRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_S5_jRKN12_GLOBAL__N_115SourceColumnMapE.exit: ; preds = %925, %916, %914, %700, %_ZL23buildFixItInsertionLineB5cxx11N5clang6FileIDEjRKN12_GLOBAL__N_115SourceColumnMapEN4llvm8ArrayRefINS_9FixItHintEEERKNS_13SourceManagerEPKNS_17DiagnosticOptionsE.exit
   %927 = load ptr, ptr %34, align 8, !tbaa !32
   %928 = getelementptr inbounds nuw i8, ptr %927, i64 4
   %929 = load i64, ptr %928, align 4
@@ -5987,13 +5987,13 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i.thread: ; preds = %81
   br label %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i.i
 
 _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i: ; preds = %81
-  %.not154 = icmp eq i32 %64, 0
-  br i1 %.not154, label %_ZN4llvm11SmallStringILj16EEC2IPKhEET_S5_.exit32, label %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i.i
+  %.not155 = icmp eq i32 %64, 0
+  br i1 %.not155, label %_ZN4llvm11SmallStringILj16EEC2IPKhEET_S5_.exit32, label %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.preheader.i.i.i:           ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i.thread, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i
   %86 = phi i64 [ %.pre.i.i.i31, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i.thread ], [ 0, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i ]
-  %.pre120.pre121157 = phi ptr [ %.pre120.pre121.pre, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i.thread ], [ %82, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i ]
-  %87 = getelementptr inbounds nuw i8, ptr %.pre120.pre121157, i64 %86
+  %.pre120.pre121158 = phi ptr [ %.pre120.pre121.pre, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i.thread ], [ %82, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i ]
+  %87 = getelementptr inbounds nuw i8, ptr %.pre120.pre121158, i64 %86
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i26
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i26:                   ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i26, %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i.i
@@ -6055,9 +6055,9 @@ _ZSt4moveIPcS0_ET0_T_S2_S1_.exit35.i91:           ; preds = %103
 
 _ZSt4moveIPcS0_ET0_T_S2_S1_.exit35.i91.thread:    ; preds = %103, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit35.i91
   %105 = phi i64 [ %.pre118, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit35.i91 ], [ %94, %103 ]
-  %.pre119.pre123160 = phi ptr [ %.pre119.pre123.pre, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit35.i91 ], [ %.pre120, %103 ]
+  %.pre119.pre123161 = phi ptr [ %.pre119.pre123.pre, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit35.i91 ], [ %.pre120, %103 ]
   %106 = load ptr, ptr %0, align 8, !tbaa !215
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %106, ptr align 1 %.pre119.pre123160, i64 %105, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %106, ptr align 1 %.pre119.pre123161, i64 %105, i1 false)
   %.pre119.pre = load ptr, ptr %10, align 8, !tbaa !215
   br label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_moveIPcS3_EEvT_S4_T0_.exit.i95
 
@@ -6183,7 +6183,7 @@ _ZN4llvm15SmallVectorImplIcE6insertEPcOc.exit:    ; preds = %_ZN4llvm23SmallVect
   %153 = load i32, ptr %8, align 4, !tbaa !152
   %154 = lshr i32 %153, 4
   store i32 %154, ptr %8, align 4, !tbaa !152
-  %.not22 = icmp ult i32 %153, 16
+  %.not22 = icmp eq i32 %154, 0
   %.pre116 = load i64, ptr %112, align 8, !tbaa !217
   br i1 %.not22, label %.preheader, label %.lr.ph, !llvm.loop !292
 

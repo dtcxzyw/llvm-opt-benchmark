@@ -1386,7 +1386,7 @@ count_frame_bits.exit.thread.i:                   ; preds = %.preheader192.i.i, 
   br i1 %.not140.i.i, label %.loopexit.i.i53, label %479
 
 479:                                              ; preds = %476
-  br i1 %.not.i.i44, label %.preheader.i.thread66.i, label %.preheader.i.thread.i
+  br i1 %.not.i.i44, label %.preheader.i.thread67.i, label %.preheader.i.thread.i
 
 480:                                              ; preds = %472
   %.phi.trans.insert248.i.i = getelementptr inbounds nuw i8, ptr %473, i64 576
@@ -1395,7 +1395,7 @@ count_frame_bits.exit.thread.i:                   ; preds = %.preheader192.i.i, 
   %brmerge.i = select i1 %.not145.i.i, i1 true, i1 %.not148206.i.i
   br i1 %brmerge.i, label %.loopexit.i.i53, label %.lr.ph204.i.i
 
-.preheader.i.thread66.i:                          ; preds = %479
+.preheader.i.thread67.i:                          ; preds = %479
   %481 = load i32, ptr %463, align 8, !tbaa !119
   %482 = add i32 %spec.select170180.reass.i.i, %spec.select168.i.i
   %483 = add i32 %482, %481
@@ -1409,22 +1409,22 @@ count_frame_bits.exit.thread.i:                   ; preds = %.preheader192.i.i, 
   br i1 %.not.i.i44, label %.lr.ph204.split.us.i.preheader.i, label %.lr.ph204.split.i.preheader.i
 
 .lr.ph204.split.i.preheader.i:                    ; preds = %.preheader.i.thread.i, %.lr.ph204.i.i
-  %.17262.i6365.i = phi i32 [ %.16211.i.i, %.lr.ph204.i.i ], [ %484, %.preheader.i.thread.i ]
+  %.17262.i6466.i = phi i32 [ %.16211.i.i, %.lr.ph204.i.i ], [ %484, %.preheader.i.thread.i ]
   %485 = phi i32 [ %.pre249.i.i, %.lr.ph204.i.i ], [ %478, %.preheader.i.thread.i ]
   %486 = getelementptr inbounds nuw i8, ptr %473, i64 580
   %487 = getelementptr inbounds nuw i8, ptr %473, i64 592
   br label %.lr.ph204.split.i.i
 
-.lr.ph204.split.us.i.preheader.i:                 ; preds = %.preheader.i.thread66.i, %.lr.ph204.i.i
-  %.17262.i6370.i = phi i32 [ %.16211.i.i, %.lr.ph204.i.i ], [ %483, %.preheader.i.thread66.i ]
-  %488 = phi i32 [ %.pre249.i.i, %.lr.ph204.i.i ], [ %478, %.preheader.i.thread66.i ]
+.lr.ph204.split.us.i.preheader.i:                 ; preds = %.preheader.i.thread67.i, %.lr.ph204.i.i
+  %.17262.i6471.i = phi i32 [ %.16211.i.i, %.lr.ph204.i.i ], [ %483, %.preheader.i.thread67.i ]
+  %488 = phi i32 [ %.pre249.i.i, %.lr.ph204.i.i ], [ %478, %.preheader.i.thread67.i ]
   %489 = getelementptr inbounds nuw i8, ptr %473, i64 580
   %490 = getelementptr inbounds nuw i8, ptr %473, i64 592
   br label %.lr.ph204.split.us.i.i
 
 .lr.ph204.split.us.i.i:                           ; preds = %502, %.lr.ph204.split.us.i.preheader.i
   %indvars.iv231.i.i = phi i64 [ %indvars.iv.next232.i.i, %502 ], [ 1, %.lr.ph204.split.us.i.preheader.i ]
-  %.23202.us.i.i = phi i32 [ %.25.us.i.i, %502 ], [ %.17262.i6370.i, %.lr.ph204.split.us.i.preheader.i ]
+  %.23202.us.i.i = phi i32 [ %.25.us.i.i, %502 ], [ %.17262.i6471.i, %.lr.ph204.split.us.i.preheader.i ]
   %491 = getelementptr inbounds nuw i8, ptr %489, i64 %indvars.iv231.i.i
   %492 = load i8, ptr %491, align 1, !tbaa !26
   %.not159.us.i.i = icmp eq i8 %492, 0
@@ -1452,7 +1452,7 @@ count_frame_bits.exit.thread.i:                   ; preds = %.preheader192.i.i, 
 
 .lr.ph204.split.i.i:                              ; preds = %514, %.lr.ph204.split.i.preheader.i
   %indvars.iv226.i.i = phi i64 [ %indvars.iv.next227.i.i, %514 ], [ 1, %.lr.ph204.split.i.preheader.i ]
-  %.23202.i.i = phi i32 [ %.25.i.i, %514 ], [ %.17262.i6365.i, %.lr.ph204.split.i.preheader.i ]
+  %.23202.i.i = phi i32 [ %.25.i.i, %514 ], [ %.17262.i6466.i, %.lr.ph204.split.i.preheader.i ]
   %503 = getelementptr inbounds nuw i8, ptr %486, i64 %indvars.iv226.i.i
   %504 = load i8, ptr %503, align 1, !tbaa !26
   %.not159.i.i = icmp eq i8 %504, 0
@@ -1480,10 +1480,10 @@ count_frame_bits.exit.thread.i:                   ; preds = %.preheader192.i.i, 
   %exitcond230.not.i.i = icmp eq i64 %indvars.iv.next227.i.i, %wide.trip.count229.i.i
   br i1 %exitcond230.not.i.i, label %.loopexit.i.i53, label %.lr.ph204.split.i.i, !llvm.loop !121
 
-.loopexit.i.i53:                                  ; preds = %514, %502, %.preheader.i.thread.i, %.preheader.i.thread66.i, %480, %476
-  %.not145264.i.i = phi i1 [ %.not145.i.i, %480 ], [ true, %476 ], [ false, %.preheader.i.thread.i ], [ false, %.preheader.i.thread66.i ], [ false, %502 ], [ false, %514 ]
-  %515 = phi i32 [ %.pre249.i.i, %480 ], [ 0, %476 ], [ %478, %.preheader.i.thread.i ], [ %478, %.preheader.i.thread66.i ], [ %488, %502 ], [ %485, %514 ]
-  %.22.i.i = phi i32 [ %.16211.i.i, %480 ], [ %spec.select168.i.i, %476 ], [ %484, %.preheader.i.thread.i ], [ %483, %.preheader.i.thread66.i ], [ %.25.us.i.i, %502 ], [ %.25.i.i, %514 ]
+.loopexit.i.i53:                                  ; preds = %514, %502, %.preheader.i.thread.i, %.preheader.i.thread67.i, %480, %476
+  %.not145264.i.i = phi i1 [ %.not145.i.i, %480 ], [ true, %476 ], [ false, %.preheader.i.thread.i ], [ false, %.preheader.i.thread67.i ], [ false, %502 ], [ false, %514 ]
+  %515 = phi i32 [ %.pre249.i.i, %480 ], [ 0, %476 ], [ %478, %.preheader.i.thread.i ], [ %478, %.preheader.i.thread67.i ], [ %488, %502 ], [ %485, %514 ]
+  %.22.i.i = phi i32 [ %.16211.i.i, %480 ], [ %spec.select168.i.i, %476 ], [ %484, %.preheader.i.thread.i ], [ %483, %.preheader.i.thread67.i ], [ %.25.us.i.i, %502 ], [ %.25.i.i, %514 ]
   br i1 %466, label %516, label %525
 
 516:                                              ; preds = %.loopexit.i.i53
@@ -1832,7 +1832,7 @@ bit_alloc_masking.exit.i:                         ; preds = %bit_alloc_masking.e
 .critedge2.i.i:                                   ; preds = %.lr.ph67.i.i, %..critedge2.i.loopexit_crit_edge.i, %.lr.ph67.i.preheader.i, %.preheader.i23.i
   %.2.lcssa.i.i = phi i32 [ %.171.i.i, %.preheader.i23.i ], [ %675, %..critedge2.i.loopexit_crit_edge.i ], [ %.171.i.i, %.lr.ph67.i.preheader.i ], [ %675, %.lr.ph67.i.i ]
   %680 = lshr i32 %.05470.i.i, 2
-  %.not57.i.i47 = icmp samesign ult i32 %.05470.i.i, 4
+  %.not57.i.i47 = icmp eq i32 %680, 0
   br i1 %.not57.i.i47, label %681, label %.preheader.i23.i, !llvm.loop !136
 
 681:                                              ; preds = %.critedge2.i.i
@@ -5128,7 +5128,7 @@ flush_put_bits.exit.i.i:                          ; preds = %flush_put_bits.exit
   %.not14.i.i.i = icmp eq i32 %2384, 0
   %2385 = xor i32 %2383, 98309
   %.112.i.i.i = select i1 %.not14.i.i.i, i32 %2383, i32 %2385
-  %.not.i.i.i93 = icmp samesign ult i32 %.01017.i.i.i, 2
+  %.not.i.i.i93 = icmp eq i32 %2382, 0
   br i1 %.not.i.i.i93, label %mul_poly.exit.loopexit.i.i, label %.lr.ph.i40.i.i, !llvm.loop !179
 
 mul_poly.exit.loopexit.i.i:                       ; preds = %.lr.ph.i40.i.i
@@ -6347,7 +6347,7 @@ define internal fastcc i32 @pow_poly(i32 noundef range(i32 -2147483648, 21474836
   %.not14.i = icmp eq i32 %8, 0
   %9 = xor i32 %7, 98309
   %.112.i = select i1 %.not14.i, i32 %7, i32 %9
-  %.not.i = icmp ult i32 %.01017.i, 2
+  %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %mul_poly.exit, label %.lr.ph.i, !llvm.loop !179
 
 mul_poly.exit:                                    ; preds = %.lr.ph.i, %3, %.lr.ph
@@ -6369,13 +6369,13 @@ mul_poly.exit:                                    ; preds = %.lr.ph.i, %3, %.lr.
   %.not14.i20 = icmp eq i32 %14, 0
   %15 = xor i32 %13, 98309
   %.112.i21 = select i1 %.not14.i20, i32 %13, i32 %15
-  %.not.i22 = icmp ult i32 %.01017.i16, 2
+  %.not.i22 = icmp eq i32 %12, 0
   br i1 %.not.i22, label %mul_poly.exit24, label %.lr.ph.i14, !llvm.loop !179
 
 mul_poly.exit24:                                  ; preds = %.lr.ph.i14, %mul_poly.exit
   %.0.lcssa.i23 = phi i32 [ 0, %mul_poly.exit ], [ %spec.select.i19, %.lr.ph.i14 ]
   %16 = lshr i32 %.01126, 1
-  %.not = icmp ult i32 %.01126, 2
+  %.not = icmp eq i32 %16, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !215
 
 ._crit_edge:                                      ; preds = %mul_poly.exit24, %1

@@ -2779,7 +2779,7 @@ _ZL5splitRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcRSt6vectorIS4_Sa
   %892 = sub i64 %.sroa.11.3.lcssa, %891
   %893 = ashr exact i64 %892, 2
   %894 = lshr i64 %893, 1
-  %.not1318 = icmp ult i64 %893, 2
+  %.not1318 = icmp eq i64 %894, 0
   br i1 %.not1318, label %._crit_edge, label %.lr.ph1296.preheader
 
 .lr.ph1296.preheader:                             ; preds = %.preheader

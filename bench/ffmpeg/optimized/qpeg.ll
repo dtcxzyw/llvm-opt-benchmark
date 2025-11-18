@@ -527,11 +527,11 @@ define internal void @decode_flush(ptr noundef readonly captures(none) %0) #1 {
   %12 = zext nneg i32 %spec.select to i64
   %13 = sub nsw i64 0, %12
   %14 = getelementptr inbounds i8, ptr %11, i64 %13
-  %.not = icmp ult i32 %7, 4
+  %15 = lshr i32 %spec.select, 2
+  %.not = icmp eq i32 %15, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %15 = lshr i32 %spec.select, 2
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %wide.trip.count = zext nneg i32 %15 to i64
   br label %17

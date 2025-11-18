@@ -294,7 +294,7 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
 
 123:                                              ; preds = %lean_array_uset.exit
   %124 = lshr i64 %121, 1
-  %125 = icmp ult ptr %.0.i5341030, inttoptr (i64 2 to ptr)
+  %125 = icmp eq i64 %124, 0
   br i1 %125, label %lean_nat_mul.exit531, label %126
 
 126:                                              ; preds = %123
@@ -364,8 +364,8 @@ lean_dec.exit580:                                 ; preds = %149, %148, %146, %l
   br i1 %.not1096, label %156, label %lean_dec.exit581.thread, !prof !14
 
 lean_dec.exit581.thread:                          ; preds = %lean_dec.exit580
-  %.not1314 = icmp ugt ptr %.1.i1032, %153
-  br i1 %.not1314, label %164, label %449
+  %.not1316 = icmp ugt ptr %.1.i1032, %153
+  br i1 %.not1316, label %164, label %449
 
 156:                                              ; preds = %lean_dec.exit580
   %157 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %.1.i1032, ptr noundef nonnull %153) #4
@@ -1999,7 +1999,7 @@ lean_array_uset.exit927:                          ; preds = %lean_ensure_exclusi
 
 784:                                              ; preds = %lean_array_uset.exit927
   %785 = lshr i64 %782, 1
-  %786 = icmp ult ptr %.0.i1035, inttoptr (i64 2 to ptr)
+  %786 = icmp eq i64 %785, 0
   br i1 %786, label %lean_nat_mul.exit, label %787
 
 787:                                              ; preds = %784
@@ -2069,8 +2069,8 @@ lean_dec.exit615:                                 ; preds = %810, %809, %807, %l
   br i1 %.not1048, label %817, label %lean_dec.exit616.thread, !prof !14
 
 lean_dec.exit616.thread:                          ; preds = %lean_dec.exit615
-  %.not1313 = icmp ugt ptr %.1.i9291037, %814
-  br i1 %.not1313, label %825, label %1136
+  %.not1315 = icmp ugt ptr %.1.i9291037, %814
+  br i1 %.not1315, label %825, label %1136
 
 817:                                              ; preds = %lean_dec.exit615
   %818 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %.1.i9291037, ptr noundef nonnull %814) #4

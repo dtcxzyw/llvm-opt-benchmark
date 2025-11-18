@@ -1331,7 +1331,7 @@ ap_php_conv_10.exit.i:                            ; preds = %362
   %478 = getelementptr inbounds i8, ptr %.013.i.i, i64 -1
   store i8 %477, ptr %478, align 1, !tbaa !8
   %479 = lshr i64 %.0.i402.i, 3
-  %.not.i403.i = icmp ult i64 %.0.i402.i, 8
+  %.not.i403.i = icmp eq i64 %479, 0
   br i1 %.not.i403.i, label %ap_php_conv_p2.exit.i, label %474
 
 ap_php_conv_p2.exit.i:                            ; preds = %474
@@ -1545,7 +1545,7 @@ ap_php_conv_p2.exit.i:                            ; preds = %474
   %589 = getelementptr inbounds i8, ptr %.013.i404.i, i64 -1
   store i8 %588, ptr %589, align 1, !tbaa !8
   %590 = lshr i64 %.0.i405.i, 4
-  %.not.i406.i = icmp ult i64 %.0.i405.i, 16
+  %.not.i406.i = icmp eq i64 %590, 0
   br i1 %.not.i406.i, label %ap_php_conv_p2.exit407.i, label %585
 
 ap_php_conv_p2.exit407.i:                         ; preds = %585
@@ -1943,7 +1943,7 @@ ap_php_conv_p2.exit407.i:                         ; preds = %585
   %783 = getelementptr inbounds i8, ptr %.013.i408.i, i64 -1
   store i8 %782, ptr %783, align 1, !tbaa !8
   %784 = lshr i64 %.0.i409.i, 4
-  %.not.i410.i = icmp ult i64 %.0.i409.i, 16
+  %.not.i410.i = icmp eq i64 %784, 0
   br i1 %.not.i410.i, label %ap_php_conv_p2.exit411.i, label %779
 
 ap_php_conv_p2.exit411.i:                         ; preds = %779

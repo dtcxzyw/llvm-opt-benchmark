@@ -3235,7 +3235,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %3, %9
   %21 = xor i32 %20, 63
   %22 = zext nneg i32 %21 to i64
   %23 = lshr i64 -1, %22
-  %24 = icmp samesign ult i32 %13, 256
+  %24 = icmp eq i32 %15, 0
   %spec.select.i.i11 = select i1 %24, i64 0, i64 %23, !prof !127
   %25 = and i64 %spec.select.i.i11, %1
   store i64 %25, ptr %4, align 8, !tbaa !60
@@ -4130,7 +4130,7 @@ define dso_local noundef ptr @_ZN4llvm8Constant15getAllOnesValueEPNS_4TypeE(ptr 
   %16 = xor i32 %15, 63
   %17 = zext nneg i32 %16 to i64
   %18 = lshr i64 -1, %17
-  %19 = icmp samesign ult i32 %5, 256
+  %19 = icmp eq i32 %10, 0
   %spec.select.i.i13 = select i1 %19, i64 0, i64 %18, !prof !127
   store i64 %spec.select.i.i13, ptr %2, align 8, !tbaa !60, !alias.scope !144
   br label %_ZN4llvm5APInt10getAllOnesEj.exit
@@ -4156,7 +4156,7 @@ _ZN4llvm5APInt10getAllOnesEj.exit:                ; preds = %13, %20
 
 28:                                               ; preds = %27, %24, %_ZN4llvm5APInt10getAllOnesEj.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %common.ret18
+  br label %common.ret17
 
 29:                                               ; preds = %1
   %trunc.i.i = trunc i32 %5 to i8
@@ -4194,11 +4194,11 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.thread:  ; preds = %29, %29, %29, %29, 
 
 _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %36, %37
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %common.ret18
+  br label %common.ret17
 
-common.ret18:                                     ; preds = %28, %_ZN4llvm7APFloatD2Ev.exit, %38
-  %common.ret18.op = phi ptr [ %45, %38 ], [ %33, %_ZN4llvm7APFloatD2Ev.exit ], [ %21, %28 ]
-  ret ptr %common.ret18.op
+common.ret17:                                     ; preds = %28, %_ZN4llvm7APFloatD2Ev.exit, %38
+  %common.ret17.op = phi ptr [ %45, %38 ], [ %33, %_ZN4llvm7APFloatD2Ev.exit ], [ %21, %28 ]
+  ret ptr %common.ret17.op
 
 38:                                               ; preds = %_ZNK4llvm4Type17isFloatingPointTyEv.exit
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4211,7 +4211,7 @@ common.ret18:                                     ; preds = %28, %_ZN4llvm7APFlo
   %43 = load ptr, ptr %42, align 8, !tbaa !70
   %44 = tail call noundef ptr @_ZN4llvm8Constant15getAllOnesValueEPNS_4TypeE(ptr noundef %43)
   %45 = tail call noundef ptr @_ZN4llvm14ConstantVector8getSplatENS_12ElementCountEPNS_8ConstantE(i64 %.sroa.0.0.insert.insert.i.i, ptr noundef %44)
-  br label %common.ret18
+  br label %common.ret17
 }
 
 declare void @_ZN4llvm7APFloat15getAllOnesValueERKNS_12fltSemanticsE(ptr dead_on_unwind writable sret(%"class.llvm::APFloat") align 8, ptr noundef nonnull align 1) local_unnamed_addr #3
@@ -7969,7 +7969,7 @@ define dso_local noundef ptr @_ZN4llvm11ConstantInt7getTrueERNS_11LLVMContextE(p
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %6
-  %15 = icmp samesign ugt i32 %10, 255
+  %15 = icmp ne i32 %11, 0
   %spec.select.i.i = zext i1 %15 to i64
   store i64 %spec.select.i.i, ptr %2, align 8, !tbaa !60
   br label %_ZN4llvm5APIntC2Ejmbb.exit.i
@@ -8022,7 +8022,7 @@ define dso_local noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr
   %14 = xor i32 %13, 63
   %15 = zext nneg i32 %14 to i64
   %16 = lshr i64 -1, %15
-  %17 = icmp samesign ult i32 %7, 256
+  %17 = icmp eq i32 %8, 0
   %spec.select.i = select i1 %17, i64 0, i64 %16, !prof !127
   %18 = and i64 %spec.select.i, %1
   store i64 %18, ptr %4, align 8, !tbaa !60
@@ -8134,7 +8134,7 @@ define dso_local noundef ptr @_ZN4llvm11ConstantInt7getBoolERNS_11LLVMContextEb(
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %9
-  %18 = icmp samesign ugt i32 %13, 255
+  %18 = icmp ne i32 %14, 0
   %spec.select.i.i.i = zext i1 %18 to i64
   store i64 %spec.select.i.i.i, ptr %4, align 8, !tbaa !60
   br label %_ZN4llvm5APIntC2Ejmbb.exit.i.i
@@ -8237,7 +8237,7 @@ define dso_local noundef ptr @_ZN4llvm11ConstantInt7getTrueEPNS_4TypeE(ptr nound
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %7
-  %16 = icmp samesign ugt i32 %11, 255
+  %16 = icmp ne i32 %12, 0
   %spec.select.i.i.i = zext i1 %16 to i64
   store i64 %spec.select.i.i.i, ptr %2, align 8, !tbaa !60
   br label %_ZN4llvm5APIntC2Ejmbb.exit.i.i
@@ -14358,7 +14358,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm11ConstantInt19isValueValidForTypeE
   br i1 %10, label %_ZN4llvm7isUIntNEjm.exit, label %11
 
 11:                                               ; preds = %9
-  %12 = icmp samesign ult i32 %4, 256
+  %12 = icmp eq i32 %5, 0
   %narrow.i = sub nuw nsw i32 64, %5
   %13 = zext nneg i32 %narrow.i to i64
   %14 = lshr i64 -1, %13
@@ -14392,7 +14392,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm11ConstantInt19isValueValidForTypeE
 
 11:                                               ; preds = %9
   %12 = zext nneg i32 %5 to i64
-  %13 = icmp samesign ult i32 %4, 256
+  %13 = icmp eq i32 %5, 0
   %14 = add nsw i64 %12, -1
   %.neg.i.i = shl nsw i64 -1, %14
   %.0.i.i = select i1 %13, i64 0, i64 %.neg.i.i
@@ -14860,11 +14860,11 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit:            ; preds = %2
 define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNKS_8Constant13getSplatValueEbE3$_0EEbOT_T0_"(ptr readonly captures(address) %.0.val, i64 %.8.val) unnamed_addr #11 {
   %.idx1 = shl nuw nsw i64 %.8.val, 2
   %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %.idx1
-  %.not = icmp ult i64 %.8.val, 4
+  %2 = lshr i64 %.8.val, 2
+  %.not = icmp eq i64 %2, 0
   br i1 %.not, label %._crit_edge.i.i.i.i, label %.lr.ph.preheader.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %0
-  %2 = lshr i64 %.8.val, 2
   %3 = and i64 %.idx1, 9223372036854775792
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.val, i64 %3
   br label %.lr.ph.i.i.i.i
@@ -14907,11 +14907,10 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNK
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %0
   %.pre-phi56.i.i.i.i = phi i64 [ %14, %._crit_edge.loopexit.i.i.i.i ], [ %.8.val, %0 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %.0.val, %0 ]
-  switch i64 %.pre-phi56.i.i.i.i, label %._crit_edge.i.i.i.i.unreachabledefault [
+  switch i64 %.pre-phi56.i.i.i.i, label %22 [
     i64 3, label %15
     i64 2, label %18
     i64 1, label %21
-    i64 0, label %22
   ]
 
 15:                                               ; preds = %._crit_edge.i.i.i.i
@@ -14923,7 +14922,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNK
   %17 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i, i64 4
   br label %18
 
-18:                                               ; preds = %._crit_edge.i.i.i.i, %16
+18:                                               ; preds = %16, %._crit_edge.i.i.i.i
   %.1.i.i.i.i = phi ptr [ %17, %16 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.1.val.i.i.i.i = load i32, ptr %.1.i.i.i.i, align 4, !tbaa !134
   %.not33.i.i.i.i = icmp eq i32 %.1.val.i.i.i.i, 0
@@ -14933,16 +14932,13 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNK
   %20 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 4
   br label %21
 
-21:                                               ; preds = %._crit_edge.i.i.i.i, %19
+21:                                               ; preds = %19, %._crit_edge.i.i.i.i
   %.2.i.i.i.i = phi ptr [ %20, %19 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.2.val.i.i.i.i = load i32, ptr %.2.i.i.i.i, align 4, !tbaa !134
   %.not34.i.i.i.i = icmp eq i32 %.2.val.i.i.i.i, 0
   br i1 %.not34.i.i.i.i, label %22, label %"_ZSt6all_ofIPKiZNK4llvm8Constant13getSplatValueEbE3$_0EbT_S5_T0_.exit"
 
-._crit_edge.i.i.i.i.unreachabledefault:           ; preds = %._crit_edge.i.i.i.i
-  unreachable
-
-22:                                               ; preds = %._crit_edge.i.i.i.i, %21
+22:                                               ; preds = %21, %._crit_edge.i.i.i.i
   br label %"_ZSt6all_ofIPKiZNK4llvm8Constant13getSplatValueEbE3$_0EbT_S5_T0_.exit"
 
 "_ZSt6all_ofIPKiZNK4llvm8Constant13getSplatValueEbE3$_0EbT_S5_T0_.exit.loopexit.split.loop.exit": ; preds = %4
@@ -19552,7 +19548,7 @@ define dso_local noundef ptr @_ZN4llvm12ConstantExpr9getSizeOfEPNS_4TypeE(ptr no
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %1
-  %13 = icmp samesign ugt i32 %8, 255
+  %13 = icmp ne i32 %9, 0
   %spec.select.i.i = zext i1 %13 to i64
   store i64 %spec.select.i.i, ptr %2, align 8, !tbaa !60
   br label %_ZN4llvm5APIntC2Ejmbb.exit.i
@@ -19794,7 +19790,7 @@ _ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb.exit: ; preds = %_ZN4llvm5APIntC2
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb.exit
-  %41 = icmp samesign ugt i32 %36, 255
+  %41 = icmp ne i32 %37, 0
   %spec.select.i.i12 = zext i1 %41 to i64
   store i64 %spec.select.i.i12, ptr %2, align 8, !tbaa !60
   br label %_ZN4llvm5APIntC2Ejmbb.exit.i11
@@ -21013,7 +21009,7 @@ _ZN4llvm5APInt10getAllOnesEj.exit.thread.i:       ; preds = %64
   %72 = xor i32 %71, 63
   %73 = zext nneg i32 %72 to i64
   %74 = lshr i64 -1, %73
-  %75 = icmp samesign ult i32 %66, 256
+  %75 = icmp eq i32 %67, 0
   %spec.select.i.i.i8 = select i1 %75, i64 0, i64 %74, !prof !127
   %76 = zext nneg i32 %71 to i64
   %77 = shl nuw i64 1, %76

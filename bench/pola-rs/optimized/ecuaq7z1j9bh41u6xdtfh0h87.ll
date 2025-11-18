@@ -21931,7 +21931,7 @@ define hidden void @"_ZN164_$LT$polars_parquet_format..thrift..protocol..compact
   %.sroa.014.022.i.i = phi i64 [ %13, %.lr.ph.i.i ], [ %8, %3 ]
   %12 = add nuw nsw i64 %.sroa.0.123.i.i, 1
   %13 = lshr i64 %.sroa.014.022.i.i, 7
-  %.not.i.i = icmp ult i64 %.sroa.014.022.i.i, 128
+  %.not.i.i = icmp eq i64 %13, 0
   br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.i.i
 
 14:                                               ; preds = %.loopexit.i.i
@@ -22043,7 +22043,7 @@ define hidden void @"_ZN164_$LT$polars_parquet_format..thrift..protocol..compact
   %.sroa.014.022.i.i = phi i64 [ %13, %.lr.ph.i.i ], [ %8, %3 ]
   %12 = add nuw nsw i64 %.sroa.0.123.i.i, 1
   %13 = lshr i64 %.sroa.014.022.i.i, 7
-  %.not.i.i = icmp ult i64 %.sroa.014.022.i.i, 128
+  %.not.i.i = icmp eq i64 %13, 0
   br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.i.i
 
 14:                                               ; preds = %.loopexit.i.i

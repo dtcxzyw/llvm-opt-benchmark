@@ -3434,7 +3434,7 @@ define internal i32 @dissect_routing6_rt0(ptr noundef %0, ptr noundef %1, ptr no
   br label %26
 
 26:                                               ; preds = %22, %15
-  %.not4044 = icmp ult i8 %16, 2
+  %.not4044 = icmp eq i8 %17, 0
   br i1 %.not4044, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %26
@@ -3633,12 +3633,12 @@ define internal i32 @dissect_routing6_rpl(ptr noundef %0, ptr noundef %1, ptr no
   %31 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %32 = lshr i8 %28, 4
   %33 = lshr i8 %31, 4
-  %34 = icmp ult i8 %28, 16
+  %34 = icmp eq i8 %32, 0
   %35 = zext i8 %29 to i32
   %36 = icmp eq i8 %30, 0
   %or.cond = select i1 %34, i1 %36, i1 false
   %37 = zext nneg i8 %33 to i32
-  %38 = icmp ugt i8 %31, 15
+  %38 = icmp ne i8 %33, 0
   %or.cond5 = select i1 %or.cond, i1 %38, i1 false
   br i1 %or.cond5, label %39, label %41
 
@@ -7529,7 +7529,7 @@ dissect_opt_lio.exit:                             ; preds = %683, %689
   %707 = load i32, ptr @hf_ipv6_opt_mpl_sequence, align 4
   %708 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %707, ptr noundef %0, i32 noundef %706, i32 noundef 1, i32 noundef 0)
   %709 = add nuw nsw i32 %.0294, 4
-  %.not.i265 = icmp ult i8 %701, 64
+  %.not.i265 = icmp eq i8 %702, 0
   br i1 %.not.i265, label %715, label %710
 
 710:                                              ; preds = %697

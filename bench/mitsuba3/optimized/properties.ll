@@ -7555,7 +7555,7 @@ define noundef zeroext i1 @_ZNK7mitsuba10PropertieseqERKS0_(ptr noundef nonnull 
   br i1 %.not.i.i.i, label %.preheader.i.i, label %_ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit
 
 .preheader.i.i:                                   ; preds = %21
-  %.not1924.i.i = icmp ult i8 %7, 2
+  %.not1924.i.i = icmp eq i8 %11, 0
   br i1 %.not1924.i.i, label %_ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit.thread38, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %28
@@ -7611,7 +7611,7 @@ _ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
   br i1 %.not.i.i.i11, label %.preheader.i.i16, label %_ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit25
 
 .preheader.i.i16:                                 ; preds = %49
-  %.not1924.i.i17 = icmp ult i8 %35, 2
+  %.not1924.i.i17 = icmp eq i8 %39, 0
   br i1 %.not1924.i.i17, label %_ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit25.thread42, label %.lr.ph.i.i18
 
 .lr.ph.i.i18:                                     ; preds = %.preheader.i.i16, %56
@@ -7869,7 +7869,7 @@ _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne1900
   br i1 %.not.i.i.i, label %.preheader.i.i, label %_ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit
 
 .preheader.i.i:                                   ; preds = %51
-  %.not1924.i.i = icmp ult i8 %44, 2
+  %.not1924.i.i = icmp eq i8 %48, 0
   br i1 %.not1924.i.i, label %_ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit.thread19, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %54
@@ -8392,7 +8392,7 @@ _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne1900
   br i1 %.not.i.i.i, label %.preheader.i.i, label %_ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit
 
 .preheader.i.i:                                   ; preds = %51
-  %.not1924.i.i = icmp ult i8 %44, 2
+  %.not1924.i.i = icmp eq i8 %48, 0
   br i1 %.not1924.i.i, label %_ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit.thread16, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %54
@@ -13309,7 +13309,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7mitsuba6detail14variant_helpe
   br i1 %.not.i.i.i, label %.preheader.i.i, label %39
 
 .preheader.i.i:                                   ; preds = %34
-  %.not1924.i.i = icmp ult i8 %20, 2
+  %.not1924.i.i = icmp eq i8 %24, 0
   br i1 %.not1924.i.i, label %_ZN7mitsuba6detail14variant_helperIJNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENS9_INSA_IdLm4EEEEENS2_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE6equalsEPKSt9type_infoSO_SO_.exit, label %.lr.ph.i.i
 
 39:                                               ; preds = %34
@@ -13599,7 +13599,7 @@ _ZNK7mitsuba9TransformINS_5PointIdLm4EEEEeqERKS3_.exit: ; preds = %_ZN5drjit10al
   br i1 %.not.i.i.i.i.i.i, label %.preheader.i.i.i.i.i, label %94
 
 .preheader.i.i.i.i.i:                             ; preds = %89
-  %.not1924.i.i.i.i.i = icmp ult i8 %75, 2
+  %.not1924.i.i.i.i.i = icmp eq i8 %79, 0
   br i1 %.not1924.i.i.i.i.i, label %_ZN7mitsuba6detail14variant_helperIJNSt3__110shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE6equalsEPKSt9type_infoSC_SC_.exit, label %.lr.ph.i.i.i.i.i
 
 94:                                               ; preds = %89

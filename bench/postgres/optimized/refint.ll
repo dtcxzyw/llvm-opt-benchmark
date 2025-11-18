@@ -178,7 +178,7 @@ define i64 @check_primary_key(ptr noundef readonly captures(none) %0) local_unna
 
 63:                                               ; preds = %60, %38
   %.074 = phi ptr [ %62, %60 ], [ null, %38 ]
-  %.not93 = icmp samesign ult i16 %31, 2
+  %.not93 = icmp eq i16 %39, 0
   br i1 %.not93, label %._crit_edge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %63
@@ -246,7 +246,7 @@ define i64 @check_primary_key(ptr noundef readonly captures(none) %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %92 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 8192, ptr noundef nonnull @.str.7, ptr noundef %43) #9
   %93 = add nsw i32 %40, -1
-  %94 = sext i32 %93 to i64
+  %94 = zext nneg i32 %93 to i64
   %wide.trip.count101 = zext nneg i16 %39 to i64
   %95 = zext nneg i16 %39 to i64
   %invariant.gep = getelementptr inbounds nuw ptr, ptr %33, i64 %95
@@ -261,7 +261,7 @@ define i64 @check_primary_key(ptr noundef readonly captures(none) %0) local_unna
   %100 = getelementptr inbounds nuw i8, ptr %gep, i64 8
   %101 = load ptr, ptr %100, align 8
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
-  %102 = icmp slt i64 %indvars.iv98, %94
+  %102 = icmp samesign ult i64 %indvars.iv98, %94
   %103 = select i1 %102, ptr @.str.9, ptr @.str.10
   %104 = trunc nuw nsw i64 %indvars.iv.next99 to i32
   %105 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %98, i64 noundef %99, ptr noundef nonnull @.str.8, ptr noundef %101, i32 noundef %104, ptr noundef nonnull %103) #9

@@ -4920,7 +4920,7 @@ _ZZN5arrow12_GLOBAL__N_118PutListViewOffsetsIiEENS_6ResultINS0_21OffsetBufferOpO
   br i1 %exitcond72.not.i.i.i, label %.loopexit.i.i.i, label %.lr.ph66.i.i.i, !llvm.loop !304
 
 1275:                                             ; preds = %.noexc84.i.i
-  %1276 = icmp ult i32 %.sroa.0.0.insert.insert.i.i.i.i, 65536
+  %1276 = icmp eq i32 %.sroa.4.0.extract.shift.i.i.i, 0
   br i1 %1276, label %1279, label %.preheader60.i.i.i
 
 .preheader60.i.i.i:                               ; preds = %1275
@@ -7443,7 +7443,7 @@ _ZZN5arrow12_GLOBAL__N_118PutListViewOffsetsIlEENS_6ResultINS0_21OffsetBufferOpO
   br i1 %exitcond72.not.i.i.i226, label %.loopexit.i.i.i221, label %.lr.ph66.i.i.i223, !llvm.loop !395
 
 2311:                                             ; preds = %.noexc84.i.i233
-  %2312 = icmp ult i32 %.sroa.0.0.insert.insert.i.i.i.i234, 65536
+  %2312 = icmp eq i32 %.sroa.4.0.extract.shift.i.i.i236, 0
   br i1 %2312, label %2314, label %.preheader60.i.i.i238
 
 .preheader60.i.i.i238:                            ; preds = %2311
@@ -16641,7 +16641,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE9push_backERKS3_.exit: ; pre
   br label %.loopexit.i
 
 245:                                              ; preds = %.noexc47
-  %246 = icmp ult i32 %240, 65536
+  %246 = icmp eq i32 %.sroa.8.0.extract.shift.i, 0
   %247 = sext i16 %.sroa.0.0.extract.trunc.i to i64
   %248 = icmp sgt i16 %.sroa.0.0.extract.trunc.i, 0
   br i1 %246, label %.preheader8.i, label %.preheader10.i
@@ -19794,7 +19794,7 @@ _ZN5arrow6StatusD2Ev.exit273:                     ; preds = %_ZN5arrow6StatusD2E
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZN5arrow6StatusD2Ev.exit273
-  %.not.i.i.i.i274 = icmp ult i64 %sext, 4294967296
+  %.not.i.i.i.i274 = icmp eq i64 %508, 0
   br i1 %.not.i.i.i.i274, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, label %511
 
 511:                                              ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i

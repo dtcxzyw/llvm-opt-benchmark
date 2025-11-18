@@ -7568,7 +7568,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111areDisjointERKSt3s
   %.015.i.i = phi i64 [ %.1.i.i, %38 ], [ %26, %.lr.ph.i.i.i.i ]
   %.sroa.012.014.i.i = phi ptr [ %.sroa.012.1.i.i, %38 ], [ %24, %.lr.ph.i.i.i.i ]
   %27 = lshr i64 %.015.i.i, 1
-  %.not.i.i = icmp eq i64 %.015.i.i, 1
+  %.not.i.i = icmp eq i64 %27, 0
   br i1 %.not.i.i, label %_ZSt7advanceISt23_Rb_tree_const_iteratorIPK6AstVarElEvRT_T0_.exit.i.i, label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %.lr.ph.i.i, %.preheader.i.i.i.i
@@ -7620,7 +7620,7 @@ _ZSt11lower_boundISt23_Rb_tree_const_iteratorIPK6AstVarES3_ET_S5_S5_RKT0_.exit: 
   %.015.i.i18 = phi i64 [ %.1.i.i27, %56 ], [ %44, %.lr.ph.i.i.i.i13 ]
   %.sroa.012.014.i.i19 = phi ptr [ %.sroa.012.1.i.i26, %56 ], [ %42, %.lr.ph.i.i.i.i13 ]
   %45 = lshr i64 %.015.i.i18, 1
-  %.not.i.i20 = icmp eq i64 %.015.i.i18, 1
+  %.not.i.i20 = icmp eq i64 %45, 0
   br i1 %.not.i.i20, label %_ZSt7advanceISt23_Rb_tree_const_iteratorIPK6AstVarElEvRT_T0_.exit.i.i24, label %.preheader.i.i.i.i21
 
 .preheader.i.i.i.i21:                             ; preds = %.lr.ph.i.i17, %.preheader.i.i.i.i21

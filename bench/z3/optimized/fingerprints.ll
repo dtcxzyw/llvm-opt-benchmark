@@ -931,8 +931,8 @@ define hidden void @_ZN3smt15fingerprint_set5resetEv(ptr noundef nonnull align 8
   %24 = icmp ugt i32 %12, 16
   %25 = mul i32 %12, 3
   %26 = icmp ugt i32 %23, %25
-  %or.cond18.i = select i1 %24, i1 %26, i1 false
-  br i1 %or.cond18.i, label %27, label %._crit_edge.thread.i
+  %or.cond19.i = select i1 %24, i1 %26, i1 false
+  br i1 %or.cond19.i, label %27, label %._crit_edge.thread.i
 
 27:                                               ; preds = %._crit_edge.i
   %28 = icmp eq ptr %10, null
@@ -951,7 +951,7 @@ _ZN14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21
   %32 = zext nneg i32 %31 to i64
   %33 = shl nuw nsw i64 %32, 4
   %34 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %33)
-  %.not6.i.i.i.i.i.i = icmp ult i32 %30, 2
+  %.not6.i.i.i.i.i.i = icmp eq i32 %31, 0
   br i1 %.not6.i.i.i.i.i.i, label %_ZN14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE11alloc_tableEj.exit.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZN14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE12delete_tableEv.exit.i, %.lr.ph.i.i.i.i.i.i
@@ -1173,8 +1173,8 @@ _ZNK6vectorIPN3smt11fingerprintELb0EjE4sizeEv.exit: ; preds = %_ZNK6vectorIjLb0E
   %46 = icmp ugt i32 %34, 16
   %47 = mul i32 %34, 3
   %48 = icmp ugt i32 %45, %47
-  %or.cond18.i = select i1 %46, i1 %48, i1 false
-  br i1 %or.cond18.i, label %49, label %._crit_edge.thread.i
+  %or.cond19.i = select i1 %46, i1 %48, i1 false
+  br i1 %or.cond19.i, label %49, label %._crit_edge.thread.i
 
 49:                                               ; preds = %._crit_edge.i
   %50 = icmp eq ptr %32, null
@@ -1193,7 +1193,7 @@ _ZN14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21
   %54 = zext nneg i32 %53 to i64
   %55 = shl nuw nsw i64 %54, 4
   %56 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %55)
-  %.not6.i.i.i.i.i.i = icmp ult i32 %52, 2
+  %.not6.i.i.i.i.i.i = icmp eq i32 %53, 0
   br i1 %.not6.i.i.i.i.i.i, label %_ZN14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE11alloc_tableEj.exit.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZN14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE12delete_tableEv.exit.i, %.lr.ph.i.i.i.i.i.i

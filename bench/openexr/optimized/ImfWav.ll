@@ -371,7 +371,7 @@ define void @_ZN7Imf_3_410wav2DecodeEPtiiiit(ptr noundef captures(address) %0, i
   store i16 %59, ptr %35, align 2, !tbaa !3
   %60 = getelementptr inbounds i16, ptr %.098132.us, i64 %28
   %.not102.us = icmp ugt ptr %60, %32
-  br i1 %.not102.us, label %._crit_edge.thread165, label %.lr.ph.split.us, !llvm.loop !13
+  br i1 %.not102.us, label %._crit_edge.thread166, label %.lr.ph.split.us, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.098132 = phi ptr [ %72, %.lr.ph.split ], [ %.097134, %.lr.ph ]
@@ -409,10 +409,10 @@ define void @_ZN7Imf_3_410wav2DecodeEPtiiiit(ptr noundef captures(address) %0, i
 ._crit_edge:                                      ; preds = %31
   br i1 %.not103, label %93, label %75
 
-._crit_edge.thread165:                            ; preds = %.lr.ph.split.us
-  br i1 %.not103, label %93, label %.thread167
+._crit_edge.thread166:                            ; preds = %.lr.ph.split.us
+  br i1 %.not103, label %93, label %.thread168
 
-.thread167:                                       ; preds = %._crit_edge.thread165
+.thread168:                                       ; preds = %._crit_edge.thread166
   %73 = getelementptr inbounds i16, ptr %60, i64 %27
   br label %77
 
@@ -427,10 +427,10 @@ define void @_ZN7Imf_3_410wav2DecodeEPtiiiit(ptr noundef captures(address) %0, i
   %76 = getelementptr inbounds i16, ptr %.097134, i64 %27
   br i1 %11, label %77, label %86
 
-77:                                               ; preds = %.thread167, %75
-  %78 = phi ptr [ %73, %.thread167 ], [ %76, %75 ]
-  %.098.lcssa161169 = phi ptr [ %60, %.thread167 ], [ %.097134, %75 ]
-  %79 = load i16, ptr %.098.lcssa161169, align 2, !tbaa !3
+77:                                               ; preds = %.thread168, %75
+  %78 = phi ptr [ %73, %.thread168 ], [ %76, %75 ]
+  %.098.lcssa162170 = phi ptr [ %60, %.thread168 ], [ %.097134, %75 ]
+  %79 = load i16, ptr %.098.lcssa162170, align 2, !tbaa !3
   %80 = load i16, ptr %78, align 2, !tbaa !3
   %81 = and i16 %80, 1
   %82 = add i16 %81, %79
@@ -441,8 +441,8 @@ define void @_ZN7Imf_3_410wav2DecodeEPtiiiit(ptr noundef captures(address) %0, i
 
 86:                                               ; preds = %.thread, %75
   %87 = phi ptr [ %74, %.thread ], [ %76, %75 ]
-  %.098.lcssa161164 = phi ptr [ %72, %.thread ], [ %.097134, %75 ]
-  %88 = load i16, ptr %.098.lcssa161164, align 2, !tbaa !3
+  %.098.lcssa162165 = phi ptr [ %72, %.thread ], [ %.097134, %75 ]
+  %88 = load i16, ptr %.098.lcssa162165, align 2, !tbaa !3
   %89 = load i16, ptr %87, align 2, !tbaa !3
   %.tr.i113 = lshr i16 %89, 1
   %.narrow.i114 = sub i16 %88, %.tr.i113
@@ -452,14 +452,14 @@ define void @_ZN7Imf_3_410wav2DecodeEPtiiiit(ptr noundef captures(address) %0, i
 
 91:                                               ; preds = %86, %77
   %92 = phi ptr [ %87, %86 ], [ %78, %77 ]
-  %.098.lcssa161163 = phi ptr [ %.098.lcssa161164, %86 ], [ %.098.lcssa161169, %77 ]
+  %.098.lcssa162164 = phi ptr [ %.098.lcssa162165, %86 ], [ %.098.lcssa162170, %77 ]
   %storemerge = phi i16 [ %.narrow.i114, %86 ], [ %85, %77 ]
   %.0128 = phi i16 [ %90, %86 ], [ %84, %77 ]
   store i16 %storemerge, ptr %92, align 2, !tbaa !3
-  store i16 %.0128, ptr %.098.lcssa161163, align 2, !tbaa !3
+  store i16 %.0128, ptr %.098.lcssa162164, align 2, !tbaa !3
   br label %93
 
-93:                                               ; preds = %._crit_edge.thread165, %._crit_edge.thread, %91, %._crit_edge
+93:                                               ; preds = %._crit_edge.thread166, %._crit_edge.thread, %91, %._crit_edge
   %94 = getelementptr inbounds i16, ptr %.097134, i64 %30
   %.not99 = icmp ugt ptr %94, %18
   br i1 %.not99, label %._crit_edge138, label %31, !llvm.loop !14
@@ -517,7 +517,7 @@ define void @_ZN7Imf_3_410wav2DecodeEPtiiiit(ptr noundef captures(address) %0, i
 
 .loopexit:                                        ; preds = %.lr.ph143.split, %.lr.ph143.split.us, %96, %._crit_edge138
   %117 = lshr i32 %.1145, 1
-  %.not151 = icmp samesign ult i32 %.1145, 2
+  %.not151 = icmp eq i32 %117, 0
   br i1 %.not151, label %._crit_edge148, label %.lr.ph147, !llvm.loop !16
 
 ._crit_edge148:                                   ; preds = %.loopexit, %10

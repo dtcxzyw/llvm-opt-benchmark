@@ -6079,12 +6079,12 @@ place_vnlabel.exit501:                            ; preds = %3012, %3025
   %3065 = getelementptr inbounds nuw i8, ptr %3063, i64 8
   %3066 = load i64, ptr %3065, align 8, !tbaa !240
   %3067 = lshr i64 %3066, 1
-  %.not.i.i506 = icmp ult i64 %3066, 2
-  br i1 %.not.i.i506, label %.preheader.i.i509, label %.lr.ph.i.i507
+  %.not.i.i506 = icmp eq i64 %3067, 0
+  br i1 %.not.i.i506, label %.preheader.i.i508, label %.lr.ph.i.i507
 
-.preheader.i.i509:                                ; preds = %3064
+.preheader.i.i508:                                ; preds = %.lr.ph.i.i507, %3064
   %.not22.i.i = icmp eq i64 %3066, 0
-  br i1 %.not22.i.i, label %swap_spline.exit.i, label %.lr.ph21.i.i.preheader
+  br i1 %.not22.i.i, label %swap_spline.exit.i, label %.lr.ph21.i.i
 
 .lr.ph.i.i507:                                    ; preds = %3064, %.lr.ph.i.i507
   %.01819.i.i = phi i64 [ %3075, %.lr.ph.i.i507 ], [ 0, %3064 ]
@@ -6102,19 +6102,16 @@ place_vnlabel.exit501:                            ; preds = %3012, %3025
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %3075 = add nuw nsw i64 %.01819.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %3075, %3067
-  br i1 %exitcond.not.i.i, label %.lr.ph21.i.i.preheader, label %.lr.ph.i.i507, !llvm.loop !242
+  br i1 %exitcond.not.i.i, label %.preheader.i.i508, label %.lr.ph.i.i507, !llvm.loop !242
 
-.lr.ph21.i.i.preheader:                           ; preds = %.lr.ph.i.i507, %.preheader.i.i509
-  br label %.lr.ph21.i.i
-
-.lr.ph21.i.i:                                     ; preds = %.lr.ph21.i.i.preheader, %swap_bezier.exit.i.i
-  %.020.i.i = phi i64 [ %3094, %swap_bezier.exit.i.i ], [ 0, %.lr.ph21.i.i.preheader ]
+.lr.ph21.i.i:                                     ; preds = %.preheader.i.i508, %swap_bezier.exit.i.i
+  %.020.i.i = phi i64 [ %3094, %swap_bezier.exit.i.i ], [ 0, %.preheader.i.i508 ]
   %3076 = load ptr, ptr %3063, align 8, !tbaa !174
   %3077 = getelementptr inbounds nuw %struct.bezier, ptr %3076, i64 %.020.i.i
   %3078 = getelementptr inbounds nuw i8, ptr %3077, i64 8
   %3079 = load i64, ptr %3078, align 8, !tbaa !177
   %3080 = lshr i64 %3079, 1
-  %.not.i.i.i = icmp ult i64 %3079, 2
+  %.not.i.i.i = icmp eq i64 %3080, 0
   br i1 %.not.i.i.i, label %swap_bezier.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph21.i.i, %.lr.ph.i.i.i
@@ -6137,11 +6134,11 @@ place_vnlabel.exit501:                            ; preds = %3012, %3025
 
 swap_bezier.exit.i.i:                             ; preds = %.lr.ph.i.i.i, %.lr.ph21.i.i
   %3089 = getelementptr inbounds nuw i8, ptr %3077, i64 16
-  %.sroa.0.0.copyload.i.i.i508 = load i32, ptr %3089, align 8
+  %.sroa.0.0.copyload.i.i.i509 = load i32, ptr %3089, align 8
   %3090 = getelementptr inbounds nuw i8, ptr %3077, i64 20
   %3091 = load i32, ptr %3090, align 4, !tbaa !180
   store i32 %3091, ptr %3089, align 8, !tbaa !179
-  store i32 %.sroa.0.0.copyload.i.i.i508, ptr %3090, align 4
+  store i32 %.sroa.0.0.copyload.i.i.i509, ptr %3090, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %3092 = getelementptr inbounds nuw i8, ptr %3077, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %3092, i64 16, i1 false)
@@ -6153,7 +6150,7 @@ swap_bezier.exit.i.i:                             ; preds = %.lr.ph.i.i.i, %.lr.
   %exitcond23.not.i.i = icmp eq i64 %3094, %3066
   br i1 %exitcond23.not.i.i, label %swap_spline.exit.i, label %.lr.ph21.i.i, !llvm.loop !244
 
-swap_spline.exit.i:                               ; preds = %swap_bezier.exit.i.i, %.preheader.i.i509, %3059, %.lr.ph.i503
+swap_spline.exit.i:                               ; preds = %swap_bezier.exit.i.i, %.preheader.i.i508, %3059, %.lr.ph.i503
   %3095 = call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.01217.i) #23
   %.not14.i = icmp eq ptr %3095, null
   br i1 %.not14.i, label %._crit_edge.i504, label %.lr.ph.i503, !llvm.loop !245

@@ -19028,7 +19028,7 @@ entry:
   %size.sroa.0.0.extract.trunc = trunc i64 %size.coerce to i32
   %size.sroa.2.0.extract.shift = lshr i64 %size.coerce, 32
   %size.sroa.2.0.extract.trunc = trunc nuw i64 %size.sroa.2.0.extract.shift to i32
-  %cmp33.not = icmp ult i64 %size.coerce, 4294967296
+  %cmp33.not = icmp eq i64 %size.sroa.2.0.extract.shift, 0
   %cmp231.not = icmp eq i32 %size.sroa.0.0.extract.trunc, 0
   %or.cond = or i1 %cmp33.not, %cmp231.not
   br i1 %or.cond, label %for.cond.cleanup, label %for.cond1.preheader.us
@@ -19075,7 +19075,7 @@ entry:
   %size.sroa.2.0.extract.shift = lshr i64 %size.coerce, 32
   %size.sroa.2.0.extract.trunc = trunc nuw i64 %size.sroa.2.0.extract.shift to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %dst_c)
-  %cmp53.not = icmp ult i64 %size.coerce, 4294967296
+  %cmp53.not = icmp eq i64 %size.sroa.2.0.extract.shift, 0
   br i1 %cmp53.not, label %for.cond.cleanup, label %for.cond3.preheader.lr.ph
 
 for.cond3.preheader.lr.ph:                        ; preds = %entry
@@ -19149,7 +19149,7 @@ entry:
   %size.sroa.2.0.extract.shift = lshr i64 %size.coerce, 32
   %size.sroa.2.0.extract.trunc = trunc nuw i64 %size.sroa.2.0.extract.shift to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %dst_c)
-  %cmp61.not = icmp ult i64 %size.coerce, 4294967296
+  %cmp61.not = icmp eq i64 %size.sroa.2.0.extract.shift, 0
   br i1 %cmp61.not, label %for.cond.cleanup, label %for.cond3.preheader.lr.ph
 
 for.cond3.preheader.lr.ph:                        ; preds = %entry
@@ -19243,7 +19243,7 @@ if.then:                                          ; preds = %entry
   br i1 %keep_alpha, label %if.then3, label %for.cond26.preheader
 
 for.cond26.preheader:                             ; preds = %if.then
-  %cmp30160.not = icmp ult i64 %size.coerce, 4294967296
+  %cmp30160.not = icmp eq i64 %size.sroa.4.0.extract.shift, 0
   %cmp39158.not = icmp eq i32 %size.sroa.0.0.extract.trunc, 0
   %or.cond1 = or i1 %cmp30160.not, %cmp39158.not
   br i1 %or.cond1, label %if.end104, label %for.cond35.preheader.us
@@ -19280,7 +19280,7 @@ for.cond35.for.cond.cleanup40_crit_edge.us:       ; preds = %for.inc53.us
 
 if.then3:                                         ; preds = %if.then
   store i32 %color.coerce, ptr %dst_c, align 4, !tbaa !37
-  %cmp6164.not = icmp ult i64 %size.coerce, 4294967296
+  %cmp6164.not = icmp eq i64 %size.sroa.4.0.extract.shift, 0
   %cmp11162.not = icmp eq i32 %size.sroa.0.0.extract.trunc, 0
   %or.cond2 = or i1 %cmp6164.not, %cmp11162.not
   br i1 %or.cond2, label %if.end104, label %for.cond7.preheader.us
@@ -19324,7 +19324,7 @@ for.cond7.for.cond.cleanup12_crit_edge.us:        ; preds = %if.end.us
   br i1 %exitcond175.not, label %if.end104, label %for.cond7.preheader.us, !llvm.loop !321
 
 if.else60:                                        ; preds = %entry
-  %cmp72156.not = icmp ult i64 %size.coerce, 4294967296
+  %cmp72156.not = icmp eq i64 %size.sroa.4.0.extract.shift, 0
   br i1 %cmp72156.not, label %if.end104, label %for.cond77.preheader.lr.ph
 
 for.cond77.preheader.lr.ph:                       ; preds = %if.else60
@@ -19507,7 +19507,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %hsl.sroa.9.0 = phi float [ %1, %if.then ], [ 0.000000e+00, %entry ]
-  %cmp144.not = icmp ult i64 %size.coerce, 4294967296
+  %cmp144.not = icmp eq i64 %size.sroa.2.0.extract.shift, 0
   br i1 %cmp144.not, label %for.cond.cleanup, label %for.cond14.preheader.lr.ph
 
 for.cond14.preheader.lr.ph:                       ; preds = %if.end
@@ -19817,7 +19817,7 @@ entry:
   %size.sroa.2.0.extract.trunc = trunc nuw i64 %size.sroa.2.0.extract.shift to i32
   %cond = select i1 %hardlight, ptr %dst, ptr %blend
   %cond5 = select i1 %hardlight, ptr %blend, ptr %dst
-  %cmp132.not = icmp ult i64 %size.coerce, 4294967296
+  %cmp132.not = icmp eq i64 %size.sroa.2.0.extract.shift, 0
   %cmp16130.not = icmp eq i32 %size.sroa.0.0.extract.trunc, 0
   %or.cond = or i1 %cmp132.not, %cmp16130.not
   br i1 %or.cond, label %for.cond.cleanup, label %for.cond15.preheader.us
@@ -19984,7 +19984,7 @@ cond.false18:                                     ; preds = %entry
 cond.end22:                                       ; preds = %cond.false18, %cond.true15
   %cond23 = phi nsz double [ %add17, %cond.true15 ], [ %2, %cond.false18 ]
   %add24 = fadd nsz double %cond23, 5.000000e-01
-  %cmp28100.not = icmp ult i64 %size.coerce, 4294967296
+  %cmp28100.not = icmp eq i64 %size.sroa.2.0.extract.shift, 0
   %cmp3398.not = icmp eq i32 %size.sroa.0.0.extract.trunc, 0
   %or.cond = or i1 %cmp28100.not, %cmp3398.not
   br i1 %or.cond, label %for.cond.cleanup, label %for.cond29.preheader.us

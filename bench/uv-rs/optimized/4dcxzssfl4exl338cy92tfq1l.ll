@@ -1062,7 +1062,7 @@ _ZN4core4hash6Hasher9write_str17hb6cfa8d47778bd25E.exit.i.i.i: ; preds = %"_ZN4c
   br i1 %99, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h85d734ad905f7313E.exit79.i.i.i.i.i.i.i", label %100
 
 100:                                              ; preds = %98
-  %.not.i.i.i.i.i.i.i = icmp samesign ult i64 %75, 2
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %76, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4core4hash6Hasher9write_str17hb6cfa8d47778bd25E.exit.i.i.i.i, label %101
 
 101:                                              ; preds = %100
@@ -1170,7 +1170,7 @@ _ZN4core4hash6Hasher9write_str17hb6cfa8d47778bd25E.exit.i.i.i.i: ; preds = %"_ZN
   br i1 %164, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h85d734ad905f7313E.exit79.i.i.i14.i.i.i.i", label %165
 
 165:                                              ; preds = %163
-  %.not.i.i.i13.i.i.i.i = icmp samesign ult i64 %140, 2
+  %.not.i.i.i13.i.i.i.i = icmp eq i64 %141, 0
   br i1 %.not.i.i.i13.i.i.i.i, label %_ZN4core4hash6Hasher9write_str17hb6cfa8d47778bd25E.exit20.i.i.i.i, label %166
 
 166:                                              ; preds = %165

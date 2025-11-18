@@ -659,7 +659,7 @@ switch.lookup:                                    ; preds = %16
 
 127:                                              ; preds = %.lr.ph414.i
   %128 = lshr i64 %.1348413.i, 1
-  %.not375.i = icmp ult i64 %.1348413.i, 2
+  %.not375.i = icmp eq i64 %128, 0
   br i1 %.not375.i, label %._crit_edge415.i, label %.lr.ph414.i, !llvm.loop !18
 
 .lr.ph414.i:                                      ; preds = %.preheader406.i, %127
@@ -2049,7 +2049,7 @@ define internal fastcc noundef ptr @md5crypt(ptr noundef %0, ptr noundef %1, ptr
 
 67:                                               ; preds = %.lr.ph147
   %68 = ashr i32 %.0100146, 1
-  %.not125 = icmp ult i32 %.0100146, 2
+  %.not125 = icmp eq i32 %68, 0
   br i1 %.not125, label %._crit_edge148, label %.lr.ph147, !llvm.loop !58
 
 .lr.ph147:                                        ; preds = %.preheader141, %67

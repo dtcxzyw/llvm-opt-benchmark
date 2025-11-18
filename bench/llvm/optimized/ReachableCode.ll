@@ -287,7 +287,7 @@ _ZN4llvm9BitVectorC2Ejb.exit.loopexit:            ; preds = %9
   br label %_ZN4llvm9BitVectorC2Ejb.exit.sink.split
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i:        ; preds = %9
-  %.not.i.i = icmp samesign ult i32 %12, 64
+  %.not.i.i = icmp eq i32 %13, 0
   br i1 %.not.i.i, label %_ZN4llvm9BitVectorC2Ejb.exit, label %_ZN4llvm9BitVectorC2Ejb.exit.sink.split
 
 _ZN4llvm9BitVectorC2Ejb.exit.sink.split:          ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit
@@ -420,7 +420,7 @@ _ZN4llvm9BitVectorC2Ejb.exit.loopexit.i:          ; preds = %84
   br label %_ZN4llvm9BitVectorC2Ejb.exit.sink.split.i
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.i:      ; preds = %84
-  %.not.i.i.i = icmp samesign ult i32 %88, 64
+  %.not.i.i.i = icmp eq i32 %89, 0
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_112DeadCodeScanC2ERN4llvm9BitVectorERN5clang12PreprocessorERNS4_10ASTContextE.exit, label %_ZN4llvm9BitVectorC2Ejb.exit.sink.split.i
 
 _ZN4llvm9BitVectorC2Ejb.exit.sink.split.i:        ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.i, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit.i
@@ -1848,11 +1848,11 @@ _ZL12isDeadReturnPKN5clang8CFGBlockEPKNS_4StmtE.exit.thread: ; preds = %92, %119
 133:                                              ; preds = %_ZL12isDeadReturnPKN5clang8CFGBlockEPKNS_4StmtE.exit.thread
   %134 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %135 = load i32, ptr %2, align 8
-  %136 = lshr i32 %135, 6
-  %137 = and i32 %136, 67108856
+  %136 = lshr i32 %135, 9
+  %137 = shl nuw nsw i32 %136, 3
   %.idx.i = zext nneg i32 %137 to i64
   %138 = getelementptr inbounds nuw i8, ptr %134, i64 %.idx.i
-  %.not.i61 = icmp ult i32 %135, 512
+  %.not.i61 = icmp eq i32 %136, 0
   %139 = trunc i32 %135 to i16
   br i1 %.not.i61, label %_ZN5clang15hasSpecificAttrINS_15FallThroughAttrEN4llvm8ArrayRefIPKNS_4AttrEEEEEbRKT0_.exit, label %.lr.ph.i.i.i.i
 

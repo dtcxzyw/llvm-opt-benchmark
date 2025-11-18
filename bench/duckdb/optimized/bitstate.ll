@@ -570,18 +570,18 @@ _ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit.thread112: ; preds = %108, %_ZN10duck
   br i1 %143, label %144, label %248
 
 144:                                              ; preds = %128
-  %.not103 = icmp ult i16 %130, 2
-  br i1 %.not103, label %.thread, label %145
+  %145 = lshr i16 %130, 1
+  %.not103 = icmp eq i16 %145, 0
+  br i1 %.not103, label %.thread, label %146
 
-145:                                              ; preds = %144
-  %146 = trunc nsw i64 %indvars.iv231 to i32
-  %147 = lshr i16 %130, 1
-  %148 = zext nneg i16 %147 to i32
-  %149 = add nsw i32 %146, %148
+146:                                              ; preds = %144
+  %147 = trunc nsw i64 %indvars.iv231 to i32
+  %148 = zext nneg i16 %145 to i32
+  %149 = add nsw i32 %147, %148
   tail call void @_ZN10duckdb_re28BitState4PushEiPKc(ptr noundef nonnull align 8 dereferenceable(116) %0, i32 noundef %149, ptr noundef %.190.ph)
   br label %.thread
 
-.thread:                                          ; preds = %144, %145
+.thread:                                          ; preds = %144, %146
   %150 = getelementptr inbounds nuw i8, ptr %.190.ph, i64 1
   br label %188
 

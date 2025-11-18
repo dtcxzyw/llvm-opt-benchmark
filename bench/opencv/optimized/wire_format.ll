@@ -273,7 +273,7 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf8internal10WireFormat9SkipF
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   %6 = lshr i32 %1, 3
-  %7 = icmp ult i32 %1, 8
+  %7 = icmp eq i32 %6, 0
   br i1 %7, label %_ZN6google8protobuf8internal10WireFormat11SkipMessageEPNS0_2io16CodedInputStreamEPNS0_15UnknownFieldSetE.exit, label %8
 
 8:                                                ; preds = %3
@@ -13269,7 +13269,7 @@ _ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i.i32: ; preds = 
 _ZN6google8protobuf8internal24RepeatedFieldRefIteratorINS0_7MessageEED2Ev.exit33: ; preds = %69, %_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i.i32
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %76 = invoke noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(72) %4)
-          to label %125 unwind label %140
+          to label %125 unwind label %141
 
 77:                                               ; preds = %.noexc25, %.noexc24, %.noexc23, %.noexc22, %.noexc21, %_ZNSt6vectorIPKN6google8protobuf7MessageESaIS4_EE7reserveEm.exit
   %78 = landingpad { ptr, i32 }
@@ -13440,16 +13440,16 @@ _ZN6google8protobuf8internal24RepeatedFieldRefIteratorINS0_7MessageEEppEv.exit: 
   br i1 %.not.i.i.i.i39, label %select.unfold.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES6_EC2ESB_l.exit.i.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not14.i.i.i.i = icmp samesign ult i64 %.010.i.i.in.in.i.i, 3
-  br i1 %.not14.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !247
+  %137 = icmp eq i64 %.010.i.i.i.i, 1
+  br i1 %137, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !247
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %129
   invoke void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEEvT_SH_T0_(ptr %47, ptr %45, ptr %127)
-          to label %139 unwind label %137
+          to label %140 unwind label %138
 
-137:                                              ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES6_EC2ESB_l.exit.i.i, %.loopexit.i.i
+138:                                              ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES6_EC2ESB_l.exit.i.i, %.loopexit.i.i
   %.sroa.7.019.i.i = phi ptr [ %136, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES6_EC2ESB_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %138 = landingpad { ptr, i32 }
+  %139 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef %.sroa.7.019.i.i) #24
   %.pre = load ptr, ptr %0, align 8, !tbaa !184
@@ -13457,32 +13457,32 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES6_EC2ESB_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   invoke void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_lNS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEEvT_SH_T0_T1_T2_(ptr %47, ptr %45, ptr noundef nonnull %136, i64 noundef %.010.i.i.i.i, ptr %127)
-          to label %139 unwind label %137
+          to label %140 unwind label %138
 
-139:                                              ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES6_EC2ESB_l.exit.i.i, %.loopexit.i.i
+140:                                              ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES6_EC2ESB_l.exit.i.i, %.loopexit.i.i
   %.sroa.7.017.i.i = phi ptr [ %136, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES6_EC2ESB_l.exit.i.i ], [ null, %.loopexit.i.i ]
   tail call void @_ZdlPv(ptr noundef %.sroa.7.017.i.i) #24
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEENS3_16DynamicMapSorter25MapEntryMessageComparatorEEvT_SE_T0_.exit
 
-_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEENS3_16DynamicMapSorter25MapEntryMessageComparatorEEvT_SE_T0_.exit: ; preds = %139, %125
+_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEENS3_16DynamicMapSorter25MapEntryMessageComparatorEEvT_SE_T0_.exit: ; preds = %140, %125
   ret void
 
-140:                                              ; preds = %_ZN6google8protobuf8internal24RepeatedFieldRefIteratorINS0_7MessageEED2Ev.exit33
-  %141 = landingpad { ptr, i32 }
+141:                                              ; preds = %_ZN6google8protobuf8internal24RepeatedFieldRefIteratorINS0_7MessageEED2Ev.exit33
+  %142 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %77, %123, %137, %140
-  %142 = phi ptr [ %124, %123 ], [ %.promoted53, %77 ], [ %47, %140 ], [ %.pre, %137 ]
-  %.pn15.pn.pn.pn = phi { ptr, i32 } [ %.pn15.pn, %123 ], [ %78, %77 ], [ %141, %140 ], [ %138, %137 ]
-  %.not.i.i.i = icmp eq ptr %142, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIPKN6google8protobuf7MessageESaIS4_EED2Ev.exit, label %143
+.body:                                            ; preds = %77, %123, %138, %141
+  %143 = phi ptr [ %124, %123 ], [ %.promoted53, %77 ], [ %47, %141 ], [ %.pre, %138 ]
+  %.pn15.pn.pn.pn = phi { ptr, i32 } [ %.pn15.pn, %123 ], [ %78, %77 ], [ %142, %141 ], [ %139, %138 ]
+  %.not.i.i.i = icmp eq ptr %143, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIPKN6google8protobuf7MessageESaIS4_EED2Ev.exit, label %144
 
-143:                                              ; preds = %.body
-  call void @_ZdlPv(ptr noundef nonnull %142) #25
+144:                                              ; preds = %.body
+  call void @_ZdlPv(ptr noundef nonnull %143) #25
   br label %_ZNSt6vectorIPKN6google8protobuf7MessageESaIS4_EED2Ev.exit
 
-_ZNSt6vectorIPKN6google8protobuf7MessageESaIS4_EED2Ev.exit: ; preds = %.body, %143
+_ZNSt6vectorIPKN6google8protobuf7MessageESaIS4_EED2Ev.exit: ; preds = %.body, %144
   resume { ptr, i32 } %.pn15.pn.pn.pn
 }
 

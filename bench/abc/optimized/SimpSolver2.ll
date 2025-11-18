@@ -931,7 +931,7 @@ _ZN6Gluco23vecIiE6growToEiRKi.exit:               ; preds = %2, %._crit_edge.i
 
 ._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge:       ; preds = %54
   %.pre = load i32, ptr %39, align 8, !tbaa !84
-  %.pre13 = load ptr, ptr %3, align 8, !tbaa !83
+  %.pre11 = load ptr, ptr %3, align 8, !tbaa !83
   br label %_ZN6Gluco23vecIiE4pushERKi.exit
 
 61:                                               ; preds = %54, %47
@@ -939,7 +939,7 @@ _ZN6Gluco23vecIiE6growToEiRKi.exit:               ; preds = %2, %._crit_edge.i
   unreachable
 
 _ZN6Gluco23vecIiE4pushERKi.exit:                  ; preds = %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i
-  %62 = phi ptr [ %41, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i ], [ %.pre13, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge ]
+  %62 = phi ptr [ %41, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i ], [ %.pre11, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge ]
   %63 = phi i32 [ %40, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i ], [ %.pre, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge ]
   %64 = phi ptr [ %.pre.i1, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i ], [ %59, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge ]
   %65 = add nsw i32 %63, 1
@@ -996,11 +996,11 @@ _ZN6Gluco23vecIiE4pushERKi.exit:                  ; preds = %._ZN6Gluco23vecIiE4
   %102 = sext i32 %101 to i64
   %103 = getelementptr inbounds i32, ptr %62, i64 %102
   store i32 %.01522.i, ptr %103, align 4, !tbaa !6
-  %.not.i4 = icmp ult i32 %.023.in.i, 2
+  %.not.i4 = icmp eq i32 %.023.i, 0
   br i1 %.not.i4, label %_ZN6Gluco24HeapINS_10SimpSolver6ElimLtEE11percolateUpEi.exit, label %79, !llvm.loop !93
 
 _ZN6Gluco24HeapINS_10SimpSolver6ElimLtEE11percolateUpEi.exit: ; preds = %100, %79, %_ZN6Gluco23vecIiE4pushERKi.exit
-  %.01518.i = phi i32 [ 0, %_ZN6Gluco23vecIiE4pushERKi.exit ], [ %.023.i, %100 ], [ %.01522.i, %79 ]
+  %.01518.i = phi i32 [ 0, %_ZN6Gluco23vecIiE4pushERKi.exit ], [ 0, %100 ], [ %.01522.i, %79 ]
   %phi.call.i = phi ptr [ %64, %_ZN6Gluco23vecIiE4pushERKi.exit ], [ %64, %100 ], [ %99, %79 ]
   store i32 %72, ptr %phi.call.i, align 4, !tbaa !6
   %104 = sext i32 %72 to i64
@@ -3956,16 +3956,12 @@ _ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit
   br i1 %.not.i84, label %.preheader38.i, label %.thread101
 
 .preheader38.i:                                   ; preds = %171
-  %.not3142.not.i = icmp ult i64 %151, 4294967296
-  br i1 %.not3142.not.i, label %_ZNK6Gluco26Clause8subsumesERKS0_.exit.thread98, label %.preheader.lr.ph.i
+  %.not3142.not.i = icmp eq i64 %169, 0
+  br i1 %.not3142.not.i, label %_ZNK6Gluco26Clause8subsumesERKS0_.exit.thread98, label %.preheader.i
 
-.preheader.lr.ph.i:                               ; preds = %.preheader38.i
-  %.not45.i = icmp ult i64 %160, 4294967296
-  br i1 %.not45.i, label %.thread101, label %.preheader.i
-
-.preheader.i:                                     ; preds = %.preheader.lr.ph.i, %.split.us.i
-  %indvars.iv55.i = phi i64 [ %indvars.iv.next56.i, %.split.us.i ], [ 0, %.preheader.lr.ph.i ]
-  %.sroa.0.043.i = phi i32 [ %.us-phi.i, %.split.us.i ], [ -2, %.preheader.lr.ph.i ]
+.preheader.i:                                     ; preds = %.preheader38.i, %.split.us.i
+  %indvars.iv55.i = phi i64 [ %indvars.iv.next56.i, %.split.us.i ], [ 0, %.preheader38.i ]
+  %.sroa.0.043.i = phi i32 [ %.us-phi.i, %.split.us.i ], [ -2, %.preheader38.i ]
   %.sroa.0.043.fr.i = freeze i32 %.sroa.0.043.i
   %179 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %96, i64 %indvars.iv55.i
   %180 = load i32, ptr %179, align 4, !tbaa !123
@@ -4031,10 +4027,10 @@ _ZNK6Gluco26Clause8subsumesERKS0_.exit.thread98:  ; preds = %_ZNK6Gluco26Clause8
   %spec.select = add nsw i32 %.070127, %199
   br label %.thread101
 
-.thread101:                                       ; preds = %184, %185, %_ZNK6Gluco26Clause8subsumesERKS0_.exit, %162, %171, %168, %.preheader.lr.ph.i, %_ZNK6Gluco26Clause8subsumesERKS0_.exit.thread98, %195, %153
-  %.373 = phi i32 [ %.070127, %153 ], [ %spec.select, %195 ], [ %.070127, %_ZNK6Gluco26Clause8subsumesERKS0_.exit.thread98 ], [ %.070127, %.preheader.lr.ph.i ], [ %.070127, %168 ], [ %.070127, %171 ], [ %.070127, %162 ], [ %.070127, %_ZNK6Gluco26Clause8subsumesERKS0_.exit ], [ %.070127, %185 ], [ %.070127, %184 ]
-  %.666 = phi i32 [ %.262128, %153 ], [ %196, %195 ], [ %.262128, %_ZNK6Gluco26Clause8subsumesERKS0_.exit.thread98 ], [ %.262128, %.preheader.lr.ph.i ], [ %.262128, %168 ], [ %.262128, %171 ], [ %.262128, %162 ], [ %.262128, %_ZNK6Gluco26Clause8subsumesERKS0_.exit ], [ %.262128, %185 ], [ %.262128, %184 ]
-  %.659 = phi i32 [ %.255129, %153 ], [ %.255129, %195 ], [ %191, %_ZNK6Gluco26Clause8subsumesERKS0_.exit.thread98 ], [ %.255129, %.preheader.lr.ph.i ], [ %.255129, %168 ], [ %.255129, %171 ], [ %.255129, %162 ], [ %.255129, %_ZNK6Gluco26Clause8subsumesERKS0_.exit ], [ %.255129, %185 ], [ %.255129, %184 ]
+.thread101:                                       ; preds = %184, %185, %_ZNK6Gluco26Clause8subsumesERKS0_.exit, %162, %171, %168, %_ZNK6Gluco26Clause8subsumesERKS0_.exit.thread98, %195, %153
+  %.373 = phi i32 [ %.070127, %153 ], [ %spec.select, %195 ], [ %.070127, %_ZNK6Gluco26Clause8subsumesERKS0_.exit.thread98 ], [ %.070127, %168 ], [ %.070127, %171 ], [ %.070127, %162 ], [ %.070127, %_ZNK6Gluco26Clause8subsumesERKS0_.exit ], [ %.070127, %185 ], [ %.070127, %184 ]
+  %.666 = phi i32 [ %.262128, %153 ], [ %196, %195 ], [ %.262128, %_ZNK6Gluco26Clause8subsumesERKS0_.exit.thread98 ], [ %.262128, %168 ], [ %.262128, %171 ], [ %.262128, %162 ], [ %.262128, %_ZNK6Gluco26Clause8subsumesERKS0_.exit ], [ %.262128, %185 ], [ %.262128, %184 ]
+  %.659 = phi i32 [ %.255129, %153 ], [ %.255129, %195 ], [ %191, %_ZNK6Gluco26Clause8subsumesERKS0_.exit.thread98 ], [ %.255129, %168 ], [ %.255129, %171 ], [ %.255129, %162 ], [ %.255129, %_ZNK6Gluco26Clause8subsumesERKS0_.exit ], [ %.255129, %185 ], [ %.255129, %184 ]
   %200 = add nsw i32 %.373, 1
   %201 = load i32, ptr %139, align 8, !tbaa !72
   %202 = icmp slt i32 %200, %201
@@ -7004,9 +7000,9 @@ _ZNK6Gluco24HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.thread: ; preds = %2, %_
 24:                                               ; preds = %45, %.lr.ph.i
   %.01522.i = phi i32 [ %10, %.lr.ph.i ], [ %.023.i, %45 ]
   %.023.in.i = add nsw i32 %.01522.i, -1
-  %.023.i = ashr i32 %.023.in.i, 1
-  %25 = sext i32 %.023.i to i64
-  %26 = getelementptr inbounds i32, ptr %14, i64 %25
+  %.023.i = lshr i32 %.023.in.i, 1
+  %25 = zext nneg i32 %.023.i to i64
+  %26 = getelementptr inbounds nuw i32, ptr %14, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !6
   %28 = load i32, ptr %22, align 4, !tbaa !6
   %29 = sext i32 %28 to i64
@@ -7023,8 +7019,8 @@ _ZNK6Gluco24HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.thread: ; preds = %2, %_
   %40 = sext i32 %39 to i64
   %41 = mul nsw i64 %40, %37
   %42 = icmp ult i64 %32, %41
-  %43 = sext i32 %.01522.i to i64
-  %44 = getelementptr inbounds i32, ptr %14, i64 %43
+  %43 = zext nneg i32 %.01522.i to i64
+  %44 = getelementptr inbounds nuw i32, ptr %14, i64 %43
   br i1 %42, label %45, label %_ZN6Gluco24HeapINS_10SimpSolver6ElimLtEE11percolateUpEi.exit
 
 45:                                               ; preds = %24
@@ -7033,11 +7029,11 @@ _ZNK6Gluco24HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.thread: ; preds = %2, %_
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds i32, ptr %7, i64 %47
   store i32 %.01522.i, ptr %48, align 4, !tbaa !6
-  %.not.i = icmp ult i32 %.023.in.i, 2
+  %.not.i = icmp eq i32 %.023.i, 0
   br i1 %.not.i, label %_ZN6Gluco24HeapINS_10SimpSolver6ElimLtEE11percolateUpEi.exit, label %24, !llvm.loop !93
 
 _ZN6Gluco24HeapINS_10SimpSolver6ElimLtEE11percolateUpEi.exit: ; preds = %45, %24, %12
-  %.01518.i = phi i32 [ 0, %12 ], [ %.023.i, %45 ], [ %.01522.i, %24 ]
+  %.01518.i = phi i32 [ 0, %12 ], [ 0, %45 ], [ %.01522.i, %24 ]
   %phi.call.i = phi ptr [ %14, %12 ], [ %14, %45 ], [ %44, %24 ]
   store i32 %17, ptr %phi.call.i, align 4, !tbaa !6
   %49 = sext i32 %17 to i64
@@ -7271,7 +7267,7 @@ _ZN6Gluco23vecIiE6growToEiRKi.exit:               ; preds = %2, %._crit_edge.i
 
 ._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge:       ; preds = %54
   %.pre = load i32, ptr %39, align 8, !tbaa !84
-  %.pre13 = load ptr, ptr %3, align 8, !tbaa !83
+  %.pre11 = load ptr, ptr %3, align 8, !tbaa !83
   br label %_ZN6Gluco23vecIiE4pushERKi.exit
 
 61:                                               ; preds = %54, %47
@@ -7279,7 +7275,7 @@ _ZN6Gluco23vecIiE6growToEiRKi.exit:               ; preds = %2, %._crit_edge.i
   unreachable
 
 _ZN6Gluco23vecIiE4pushERKi.exit:                  ; preds = %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i
-  %62 = phi ptr [ %41, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i ], [ %.pre13, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge ]
+  %62 = phi ptr [ %41, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i ], [ %.pre11, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge ]
   %63 = phi i32 [ %40, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i ], [ %.pre, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge ]
   %64 = phi ptr [ %.pre.i1, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i ], [ %59, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge ]
   %65 = add nsw i32 %63, 1
@@ -7324,11 +7320,11 @@ _ZN6Gluco23vecIiE4pushERKi.exit:                  ; preds = %._ZN6Gluco23vecIiE4
   %89 = sext i32 %88 to i64
   %90 = getelementptr inbounds i32, ptr %62, i64 %89
   store i32 %.01522.i, ptr %90, align 4, !tbaa !6
-  %.not.i4 = icmp ult i32 %.023.in.i, 2
+  %.not.i4 = icmp eq i32 %.023.i, 0
   br i1 %.not.i4, label %_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE11percolateUpEi.exit, label %77, !llvm.loop !220
 
 _ZN6Gluco24HeapINS_6Solver10VarOrderLtEE11percolateUpEi.exit: ; preds = %87, %77, %_ZN6Gluco23vecIiE4pushERKi.exit
-  %.01518.i = phi i32 [ 0, %_ZN6Gluco23vecIiE4pushERKi.exit ], [ %.023.i, %87 ], [ %.01522.i, %77 ]
+  %.01518.i = phi i32 [ 0, %_ZN6Gluco23vecIiE4pushERKi.exit ], [ 0, %87 ], [ %.01522.i, %77 ]
   %phi.call.i = phi ptr [ %64, %_ZN6Gluco23vecIiE4pushERKi.exit ], [ %64, %87 ], [ %86, %77 ]
   store i32 %72, ptr %phi.call.i, align 4, !tbaa !6
   %91 = getelementptr inbounds i32, ptr %62, i64 %.pre26.i

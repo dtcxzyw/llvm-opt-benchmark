@@ -565,21 +565,21 @@ define void @H5HF_iblock_print(ptr noundef readonly captures(none) %0, i1 nounde
   %118 = getelementptr inbounds nuw i64, ptr %117, i64 %.1139
   %119 = load i64, ptr %118, align 8, !tbaa !11
   %120 = lshr i64 %119, 32
-  %.not.i = icmp ult i64 %119, 4294967296
+  %.not.i = icmp eq i64 %120, 0
   br i1 %.not.i, label %147, label %121
 
 121:                                              ; preds = %116
   %122 = lshr i64 %119, 48
-  %.not26.i = icmp ult i64 %119, 281474976710656
+  %.not26.i = icmp eq i64 %122, 0
   br i1 %.not26.i, label %135, label %123
 
 123:                                              ; preds = %121
-  %.not28.i = icmp ult i64 %119, 72057594037927936
-  br i1 %.not28.i, label %130, label %124
+  %124 = lshr i64 %119, 56
+  %.not28.i = icmp eq i64 %124, 0
+  br i1 %.not28.i, label %130, label %125
 
-124:                                              ; preds = %123
-  %125 = lshr i64 %119, 56
-  %126 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %125
+125:                                              ; preds = %123
+  %126 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %124
   %127 = load i8, ptr %126, align 1, !tbaa !10
   %128 = zext i8 %127 to i32
   %129 = add nuw nsw i32 %128, 56
@@ -593,12 +593,12 @@ define void @H5HF_iblock_print(ptr noundef readonly captures(none) %0, i1 nounde
   br label %H5VM_log2_gen.exit
 
 135:                                              ; preds = %121
-  %.not27.i = icmp samesign ult i64 %119, 1099511627776
-  br i1 %.not27.i, label %142, label %136
+  %136 = lshr i64 %119, 40
+  %.not27.i = icmp eq i64 %136, 0
+  br i1 %.not27.i, label %142, label %137
 
-136:                                              ; preds = %135
-  %137 = lshr i64 %119, 40
-  %138 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %137
+137:                                              ; preds = %135
+  %138 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %136
   %139 = load i8, ptr %138, align 1, !tbaa !10
   %140 = zext i8 %139 to i32
   %141 = add nuw nsw i32 %140, 40
@@ -613,16 +613,16 @@ define void @H5HF_iblock_print(ptr noundef readonly captures(none) %0, i1 nounde
 
 147:                                              ; preds = %116
   %148 = lshr i64 %119, 16
-  %.not23.i = icmp samesign ult i64 %119, 65536
+  %.not23.i = icmp eq i64 %148, 0
   br i1 %.not23.i, label %161, label %149
 
 149:                                              ; preds = %147
-  %.not25.i = icmp samesign ult i64 %119, 16777216
-  br i1 %.not25.i, label %156, label %150
+  %150 = lshr i64 %119, 24
+  %.not25.i = icmp eq i64 %150, 0
+  br i1 %.not25.i, label %156, label %151
 
-150:                                              ; preds = %149
-  %151 = lshr i64 %119, 24
-  %152 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %151
+151:                                              ; preds = %149
+  %152 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %150
   %153 = load i8, ptr %152, align 1, !tbaa !10
   %154 = zext i8 %153 to i32
   %155 = add nuw nsw i32 %154, 24
@@ -636,12 +636,12 @@ define void @H5HF_iblock_print(ptr noundef readonly captures(none) %0, i1 nounde
   br label %H5VM_log2_gen.exit
 
 161:                                              ; preds = %147
-  %.not24.i = icmp samesign ult i64 %119, 256
-  br i1 %.not24.i, label %168, label %162
+  %162 = lshr i64 %119, 8
+  %.not24.i = icmp eq i64 %162, 0
+  br i1 %.not24.i, label %168, label %163
 
-162:                                              ; preds = %161
-  %163 = lshr i64 %119, 8
-  %164 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %163
+163:                                              ; preds = %161
+  %164 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %162
   %165 = load i8, ptr %164, align 1, !tbaa !10
   %166 = zext i8 %165 to i32
   %167 = add nuw nsw i32 %166, 8
@@ -653,8 +653,8 @@ define void @H5HF_iblock_print(ptr noundef readonly captures(none) %0, i1 nounde
   %171 = zext i8 %170 to i32
   br label %H5VM_log2_gen.exit
 
-H5VM_log2_gen.exit:                               ; preds = %124, %130, %136, %142, %150, %156, %162, %168
-  %.0.i = phi i32 [ %129, %124 ], [ %134, %130 ], [ %141, %136 ], [ %146, %142 ], [ %155, %150 ], [ %160, %156 ], [ %167, %162 ], [ %171, %168 ]
+H5VM_log2_gen.exit:                               ; preds = %125, %130, %137, %142, %151, %156, %163, %168
+  %.0.i = phi i32 [ %129, %125 ], [ %134, %130 ], [ %141, %137 ], [ %146, %142 ], [ %155, %151 ], [ %160, %156 ], [ %167, %163 ], [ %171, %168 ]
   %reass.sub = sub i32 %.0.i, %108
   %172 = add i32 %reass.sub, 1
   %173 = trunc nuw i64 %.1139 to i32

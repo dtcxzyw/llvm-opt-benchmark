@@ -3762,131 +3762,131 @@ define internal fastcc i32 @dissect_thrift_field_header(ptr noundef %0, ptr noun
   %42 = load i32, ptr %41, align 8
   %43 = and i32 %42, 4
   %.not192 = icmp eq i32 %43, 0
-  br i1 %.not192, label %79, label %44
+  br i1 %.not192, label %80, label %44
 
 44:                                               ; preds = %40
   %45 = and i32 %32, 15
   store i32 %45, ptr %5, align 8
-  %46 = icmp ult i8 %28, 16
-  br i1 %46, label %47, label %.thread211
+  %46 = lshr i32 %32, 4
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %48, label %.thread211
 
-47:                                               ; preds = %44
-  %48 = load i32, ptr %3, align 4
-  %49 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %48, ptr %49, align 8
-  %50 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %48)
-  %51 = icmp slt i32 %50, 1
-  br i1 %51, label %thrift_get_varint_enc.exit.thread, label %52
+48:                                               ; preds = %44
+  %49 = load i32, ptr %3, align 4
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i32 %49, ptr %50, align 8
+  %51 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %49)
+  %52 = icmp slt i32 %51, 1
+  br i1 %52, label %thrift_get_varint_enc.exit.thread, label %53
 
-52:                                               ; preds = %47
-  %53 = tail call i32 @llvm.umin.i32(i32 %50, i32 10)
-  %54 = call i32 @tvb_get_varint(ptr noundef %0, i32 noundef %48, i32 noundef %53, ptr noundef nonnull %8, i32 noundef 8)
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %thrift_get_varint_enc.exit
+53:                                               ; preds = %48
+  %54 = tail call i32 @llvm.umin.i32(i32 %51, i32 10)
+  %55 = call i32 @tvb_get_varint(ptr noundef %0, i32 noundef %49, i32 noundef %54, ptr noundef nonnull %8, i32 noundef 8)
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %57, label %thrift_get_varint_enc.exit
 
-56:                                               ; preds = %52
-  %57 = icmp samesign ult i32 %50, 3
-  br i1 %57, label %thrift_get_varint_enc.exit.thread, label %thrift_get_varint_enc.exit.thread207
+57:                                               ; preds = %53
+  %58 = icmp samesign ult i32 %51, 3
+  br i1 %58, label %thrift_get_varint_enc.exit.thread, label %thrift_get_varint_enc.exit.thread207
 
-thrift_get_varint_enc.exit.thread207:             ; preds = %56
-  %58 = call ptr @proto_tree_add_expert(ptr noundef null, ptr noundef %1, ptr noundef nonnull @ei_thrift_varint_too_large, ptr noundef %0, i32 noundef %48, i32 noundef 3)
-  %59 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store i32 0, ptr %59, align 4
-  br label %76
-
-thrift_get_varint_enc.exit.thread:                ; preds = %47, %56
+thrift_get_varint_enc.exit.thread207:             ; preds = %57
+  %59 = call ptr @proto_tree_add_expert(ptr noundef null, ptr noundef %1, ptr noundef nonnull @ei_thrift_varint_too_large, ptr noundef %0, i32 noundef %49, i32 noundef 3)
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store i32 -1, ptr %60, align 4
-  br label %62
+  store i32 0, ptr %60, align 4
+  br label %77
 
-thrift_get_varint_enc.exit:                       ; preds = %52
+thrift_get_varint_enc.exit.thread:                ; preds = %48, %57
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store i32 %54, ptr %61, align 4
-  %cond1 = icmp eq i32 %54, -1
-  br i1 %cond1, label %62, label %76
+  store i32 -1, ptr %61, align 4
+  br label %63
 
-62:                                               ; preds = %thrift_get_varint_enc.exit.thread, %thrift_get_varint_enc.exit
-  %63 = load i32, ptr %3, align 4
-  %64 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %63)
-  %65 = icmp slt i32 %64, 3
-  br i1 %65, label %66, label %.critedge
+thrift_get_varint_enc.exit:                       ; preds = %53
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  store i32 %55, ptr %62, align 4
+  %cond1 = icmp eq i32 %55, -1
+  br i1 %cond1, label %63, label %77
 
-66:                                               ; preds = %62
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 328
-  %68 = load i16, ptr %67, align 8
-  %69 = icmp eq i16 %68, 0
-  br i1 %69, label %70, label %72
+63:                                               ; preds = %thrift_get_varint_enc.exit.thread, %thrift_get_varint_enc.exit
+  %64 = load i32, ptr %3, align 4
+  %65 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %64)
+  %66 = icmp slt i32 %65, 3
+  br i1 %66, label %67, label %.critedge
 
-70:                                               ; preds = %66
-  %71 = call ptr @expert_add_info(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_thrift_not_enough_data)
-  br label %72
+67:                                               ; preds = %63
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 328
+  %69 = load i16, ptr %68, align 8
+  %70 = icmp eq i16 %69, 0
+  br i1 %70, label %71, label %73
 
-72:                                               ; preds = %70, %66
-  %73 = load i32, ptr %3, align 4
-  %74 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 %73, ptr %74, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %4, i64 44
-  store i32 3, ptr %75, align 4
+71:                                               ; preds = %67
+  %72 = call ptr @expert_add_info(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_thrift_not_enough_data)
+  br label %73
+
+73:                                               ; preds = %71, %67
+  %74 = load i32, ptr %3, align 4
+  %75 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store i32 %74, ptr %75, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 44
+  store i32 3, ptr %76, align 4
   store i32 -1, ptr %3, align 4
   br label %.critedge
 
-76:                                               ; preds = %thrift_get_varint_enc.exit.thread207, %thrift_get_varint_enc.exit
-  %77 = load i64, ptr %8, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %77, ptr %78, align 8
-  br label %100
+77:                                               ; preds = %thrift_get_varint_enc.exit.thread207, %thrift_get_varint_enc.exit
+  %78 = load i64, ptr %8, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %78, ptr %79, align 8
+  br label %101
 
-79:                                               ; preds = %40
-  %80 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %31)
-  %81 = icmp slt i32 %80, 2
-  br i1 %81, label %82, label %92
+80:                                               ; preds = %40
+  %81 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %31)
+  %82 = icmp slt i32 %81, 2
+  br i1 %82, label %83, label %93
 
-82:                                               ; preds = %79
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 328
-  %84 = load i16, ptr %83, align 8
-  %85 = icmp eq i16 %84, 0
-  br i1 %85, label %86, label %88
+83:                                               ; preds = %80
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 328
+  %85 = load i16, ptr %84, align 8
+  %86 = icmp eq i16 %85, 0
+  br i1 %86, label %87, label %89
 
-86:                                               ; preds = %82
-  %87 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_thrift_not_enough_data)
-  br label %88
+87:                                               ; preds = %83
+  %88 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_thrift_not_enough_data)
+  br label %89
 
-88:                                               ; preds = %86, %82
-  %89 = load i32, ptr %3, align 4
-  %90 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 %89, ptr %90, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %4, i64 44
-  store i32 2, ptr %91, align 4
+89:                                               ; preds = %87, %83
+  %90 = load i32, ptr %3, align 4
+  %91 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store i32 %90, ptr %91, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %4, i64 44
+  store i32 2, ptr %92, align 4
   store i32 -1, ptr %3, align 4
   br label %.critedge
 
-92:                                               ; preds = %79
+93:                                               ; preds = %80
   store i32 %32, ptr %5, align 8
-  %93 = load i32, ptr %3, align 4
-  %94 = tail call signext i16 @tvb_get_ntohis(ptr noundef %0, i32 noundef %93)
-  %95 = sext i16 %94 to i64
-  %96 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %95, ptr %96, align 8
-  %97 = load i32, ptr %3, align 4
-  %98 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %97, ptr %98, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store i32 2, ptr %99, align 4
-  br label %100
+  %94 = load i32, ptr %3, align 4
+  %95 = tail call signext i16 @tvb_get_ntohis(ptr noundef %0, i32 noundef %94)
+  %96 = sext i16 %95 to i64
+  %97 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %96, ptr %97, align 8
+  %98 = load i32, ptr %3, align 4
+  %99 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i32 %98, ptr %99, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  store i32 2, ptr %100, align 4
+  br label %101
 
-100:                                              ; preds = %76, %92
-  %.sink237 = phi i32 [ %54, %76 ], [ 2, %92 ]
-  %101 = load i32, ptr %3, align 4
-  %102 = add i32 %101, %.sink237
-  store i32 %102, ptr %3, align 4
+101:                                              ; preds = %77, %93
+  %.sink237 = phi i32 [ %55, %77 ], [ 2, %93 ]
+  %102 = load i32, ptr %3, align 4
+  %103 = add i32 %102, %.sink237
+  store i32 %103, ptr %3, align 4
   %.not193 = icmp eq ptr %2, null
   br i1 %.not193, label %223, label %112
 
 .thread211:                                       ; preds = %44
-  %103 = lshr i32 %32, 4
   %104 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %105 = load i64, ptr %104, align 8
-  %106 = zext nneg i32 %103 to i64
+  %106 = zext nneg i32 %46 to i64
   %107 = add i64 %105, %106
   %108 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %107, ptr %108, align 8
@@ -3898,8 +3898,8 @@ thrift_get_varint_enc.exit:                       ; preds = %52
   %.not193213 = icmp eq ptr %2, null
   br i1 %.not193213, label %239, label %112
 
-112:                                              ; preds = %.thread211, %100
-  %.0175214 = phi i1 [ false, %.thread211 ], [ true, %100 ]
+112:                                              ; preds = %.thread211, %101
+  %.0175214 = phi i1 [ false, %.thread211 ], [ true, %101 ]
   %113 = load i32, ptr @proto_thrift, align 4
   %114 = call i32 @p_get_proto_depth(ptr noundef %1, i32 noundef %113)
   %115 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -4085,7 +4085,7 @@ proto_item_set_generated.exit201:                 ; preds = %204, %201, %199, %1
   %222 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %221, ptr noundef nonnull @ei_thrift_unordered_field_id)
   br label %proto_item_set_generated.exit204
 
-223:                                              ; preds = %100
+223:                                              ; preds = %101
   %224 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %225 = load i32, ptr %224, align 4
   %226 = icmp sgt i32 %225, 0
@@ -4154,8 +4154,8 @@ proto_item_set_generated.exit204:                 ; preds = %258, %255, %253, %2
   %262 = load i32, ptr %3, align 4
   br label %.critedge
 
-.critedge:                                        ; preds = %117, %178, %62, %proto_item_set_generated.exit204, %235, %88, %72, %34
-  %.1 = phi i32 [ %39, %34 ], [ -1, %72 ], [ %262, %proto_item_set_generated.exit204 ], [ -1, %235 ], [ -1, %88 ], [ -1, %62 ], [ -1, %178 ], [ -1, %117 ]
+.critedge:                                        ; preds = %117, %178, %63, %proto_item_set_generated.exit204, %235, %89, %73, %34
+  %.1 = phi i32 [ %39, %34 ], [ -1, %73 ], [ %262, %proto_item_set_generated.exit204 ], [ -1, %235 ], [ -1, %89 ], [ -1, %63 ], [ -1, %178 ], [ -1, %117 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %263
 

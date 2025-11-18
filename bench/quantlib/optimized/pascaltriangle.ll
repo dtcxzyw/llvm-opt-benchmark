@@ -365,11 +365,11 @@ _ZNSt6vectorIS_ImSaImEESaIS1_EE12emplace_backIJmEEERS1_DpOT_.exit: ; preds = %_Z
   %add.ptr.i16 = getelementptr inbounds nuw i64, ptr %5, i64 %sub.ptr.div.i
   store i64 1, ptr %add.ptr.i16, align 8, !tbaa !18
   store i64 1, ptr %5, align 8, !tbaa !18
-  %cmp.not27 = icmp ult i64 %sub.ptr.div.i, 2
+  %div15 = lshr i64 %sub.ptr.div.i, 1
+  %cmp.not27 = icmp eq i64 %div15, 0
   br i1 %cmp.not27, label %for.cond.cleanup, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIS_ImSaImEESaIS1_EE12emplace_backIJmEEERS1_DpOT_.exit
-  %div15 = lshr i64 %sub.ptr.div.i, 1
   %add.ptr.i19 = getelementptr i8, ptr %add.ptr.i, i64 -24
   %6 = load ptr, ptr %add.ptr.i19, align 8, !tbaa !9
   br label %for.body

@@ -1765,7 +1765,7 @@ define internal i32 @dnxhd_10bit_dct_quantize(ptr noundef %0, ptr noundef %1, i3
   %35 = sub nsw i32 %34, %27
   %36 = trunc nsw i32 %35 to i16
   store i16 %36, ptr %24, align 2, !tbaa !156
-  %.not36 = icmp ult i32 %32, 262144
+  %.not36 = icmp eq i32 %33, 0
   %37 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select = select i1 %.not36, i32 %.038, i32 %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

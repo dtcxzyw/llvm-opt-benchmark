@@ -6734,38 +6734,40 @@ entry:
   %Size.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %1 to i64
-  %add.ptr.i = getelementptr inbounds nuw i32, ptr %0, i64 %conv.i
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %add.ptr.i to i64
-  %cmp54.i.i.i.i.not = icmp ult i32 %1, 4
+  %add.ptr.i.idx = shl nuw nsw i64 %conv.i, 2
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %add.ptr.i.idx
+  %shr.i.i.i.i = lshr i64 %conv.i, 2
+  %cmp54.i.i.i.i.not = icmp eq i64 %shr.i.i.i.i, 0
   br i1 %cmp54.i.i.i.i.not, label %for.end.i.i.i.i, label %for.body.i.i.i.i.preheader
 
 for.body.i.i.i.i.preheader:                       ; preds = %entry
-  %shr.i.i.i.i = lshr i64 %conv.i, 2
+  %2 = shl nuw nsw i64 %shr.i.i.i.i, 4
+  %scevgep = getelementptr i8, ptr %0, i64 %2
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.preheader, %if.end11.i.i.i.i
   %__trip_count.056.i.i.i.i = phi i64 [ %dec.i.i.i.i, %if.end11.i.i.i.i ], [ %shr.i.i.i.i, %for.body.i.i.i.i.preheader ]
   %__first.addr.055.i.i.i.i = phi ptr [ %incdec.ptr12.i.i.i.i, %if.end11.i.i.i.i ], [ %0, %for.body.i.i.i.i.preheader ]
-  %2 = load i32, ptr %__first.addr.055.i.i.i.i, align 4
-  %cmp.i8 = icmp ult i32 %2, 128
+  %3 = load i32, ptr %__first.addr.055.i.i.i.i, align 4
+  %cmp.i8 = icmp ult i32 %3, 128
   br i1 %cmp.i8, label %if.end.i.i.i.i, label %_ZSt6all_ofIPKjPFbjEEbT_S4_T0_.exit
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.055.i.i.i.i, i64 4
-  %3 = load i32, ptr %incdec.ptr.i.i.i.i, align 4
-  %cmp.i7 = icmp ult i32 %3, 128
+  %4 = load i32, ptr %incdec.ptr.i.i.i.i, align 4
+  %cmp.i7 = icmp ult i32 %4, 128
   br i1 %cmp.i7, label %if.end3.i.i.i.i, label %_ZSt6all_ofIPKjPFbjEEbT_S4_T0_.exit.loopexit.split.loop.exit
 
 if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
   %incdec.ptr4.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.055.i.i.i.i, i64 8
-  %4 = load i32, ptr %incdec.ptr4.i.i.i.i, align 4
-  %cmp.i6 = icmp ult i32 %4, 128
+  %5 = load i32, ptr %incdec.ptr4.i.i.i.i, align 4
+  %cmp.i6 = icmp ult i32 %5, 128
   br i1 %cmp.i6, label %if.end7.i.i.i.i, label %_ZSt6all_ofIPKjPFbjEEbT_S4_T0_.exit.loopexit.split.loop.exit21
 
 if.end7.i.i.i.i:                                  ; preds = %if.end3.i.i.i.i
   %incdec.ptr8.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.055.i.i.i.i, i64 12
-  %5 = load i32, ptr %incdec.ptr8.i.i.i.i, align 4
-  %cmp.i5 = icmp ult i32 %5, 128
+  %6 = load i32, ptr %incdec.ptr8.i.i.i.i, align 4
+  %cmp.i5 = icmp ult i32 %6, 128
   br i1 %cmp.i5, label %if.end11.i.i.i.i, label %_ZSt6all_ofIPKjPFbjEEbT_S4_T0_.exit.loopexit.split.loop.exit23
 
 if.end11.i.i.i.i:                                 ; preds = %if.end7.i.i.i.i
@@ -6775,14 +6777,13 @@ if.end11.i.i.i.i:                                 ; preds = %if.end7.i.i.i.i
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %for.end.loopexit.i.i.i.i, !llvm.loop !177
 
 for.end.loopexit.i.i.i.i:                         ; preds = %if.end11.i.i.i.i
-  %.pre.i.i.i.i = ptrtoint ptr %incdec.ptr12.i.i.i.i to i64
-  %.pre61.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %.pre.i.i.i.i
-  %6 = ashr exact i64 %.pre61.i.i.i.i, 2
+  %gepdiff = sub nsw i64 %add.ptr.i.idx, %2
+  %7 = ashr exact i64 %gepdiff, 2
   br label %for.end.i.i.i.i
 
 for.end.i.i.i.i:                                  ; preds = %for.end.loopexit.i.i.i.i, %entry
-  %sub.ptr.sub15.pre-phi.i.i.i.i = phi i64 [ %6, %for.end.loopexit.i.i.i.i ], [ %conv.i, %entry ]
-  %__first.addr.0.lcssa.i.i.i.i = phi ptr [ %incdec.ptr12.i.i.i.i, %for.end.loopexit.i.i.i.i ], [ %0, %entry ]
+  %sub.ptr.sub15.pre-phi.i.i.i.i = phi i64 [ %7, %for.end.loopexit.i.i.i.i ], [ %conv.i, %entry ]
+  %__first.addr.0.lcssa.i.i.i.i = phi ptr [ %scevgep, %for.end.loopexit.i.i.i.i ], [ %0, %entry ]
   switch i64 %sub.ptr.sub15.pre-phi.i.i.i.i, label %sw.default.i.i.i.i [
     i64 3, label %sw.bb.i.i.i.i
     i64 2, label %sw.bb21.i.i.i.i
@@ -6790,8 +6791,8 @@ for.end.i.i.i.i:                                  ; preds = %for.end.loopexit.i.
   ]
 
 sw.bb.i.i.i.i:                                    ; preds = %for.end.i.i.i.i
-  %7 = load i32, ptr %__first.addr.0.lcssa.i.i.i.i, align 4
-  %cmp.i4 = icmp ult i32 %7, 128
+  %8 = load i32, ptr %__first.addr.0.lcssa.i.i.i.i, align 4
+  %cmp.i4 = icmp ult i32 %8, 128
   br i1 %cmp.i4, label %if.end19.i.i.i.i, label %_ZSt6all_ofIPKjPFbjEEbT_S4_T0_.exit
 
 if.end19.i.i.i.i:                                 ; preds = %sw.bb.i.i.i.i
@@ -6800,8 +6801,8 @@ if.end19.i.i.i.i:                                 ; preds = %sw.bb.i.i.i.i
 
 sw.bb21.i.i.i.i:                                  ; preds = %if.end19.i.i.i.i, %for.end.i.i.i.i
   %__first.addr.1.i.i.i.i = phi ptr [ %incdec.ptr20.i.i.i.i, %if.end19.i.i.i.i ], [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ]
-  %8 = load i32, ptr %__first.addr.1.i.i.i.i, align 4
-  %cmp.i3 = icmp ult i32 %8, 128
+  %9 = load i32, ptr %__first.addr.1.i.i.i.i, align 4
+  %cmp.i3 = icmp ult i32 %9, 128
   br i1 %cmp.i3, label %if.end24.i.i.i.i, label %_ZSt6all_ofIPKjPFbjEEbT_S4_T0_.exit
 
 if.end24.i.i.i.i:                                 ; preds = %sw.bb21.i.i.i.i
@@ -6810,8 +6811,8 @@ if.end24.i.i.i.i:                                 ; preds = %sw.bb21.i.i.i.i
 
 sw.bb26.i.i.i.i:                                  ; preds = %if.end24.i.i.i.i, %for.end.i.i.i.i
   %__first.addr.2.i.i.i.i = phi ptr [ %incdec.ptr25.i.i.i.i, %if.end24.i.i.i.i ], [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ]
-  %9 = load i32, ptr %__first.addr.2.i.i.i.i, align 4
-  %cmp.i2 = icmp ult i32 %9, 128
+  %10 = load i32, ptr %__first.addr.2.i.i.i.i, align 4
+  %cmp.i2 = icmp ult i32 %10, 128
   br i1 %cmp.i2, label %sw.default.i.i.i.i, label %_ZSt6all_ofIPKjPFbjEEbT_S4_T0_.exit
 
 sw.default.i.i.i.i:                               ; preds = %sw.bb26.i.i.i.i, %for.end.i.i.i.i

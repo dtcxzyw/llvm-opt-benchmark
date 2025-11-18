@@ -14286,7 +14286,7 @@ _ZN4llvm9BitVectorC2Ejb.exit.loopexit:            ; preds = %._crit_edge167
   br label %_ZN4llvm9BitVectorC2Ejb.exit
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i:        ; preds = %._crit_edge167
-  %.not.i.i = icmp samesign ult i32 %38, 64
+  %.not.i.i = icmp eq i32 %39, 0
   br i1 %.not.i.i, label %_ZN4llvm9BitVectorC2Ejb.exit, label %_ZN4llvm9BitVectorC2Ejb.exit.loopexit189
 
 _ZN4llvm9BitVectorC2Ejb.exit.loopexit189:         ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i
@@ -14297,11 +14297,11 @@ _ZN4llvm9BitVectorC2Ejb.exit.loopexit189:         ; preds = %_ZSt6fill_nIPmmmET_
 _ZN4llvm9BitVectorC2Ejb.exit:                     ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.thread, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit189, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i
   %46 = phi ptr [ %42, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit189 ], [ %42, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit ], [ %42, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i ], [ %31, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.thread ]
   %47 = phi ptr [ %41, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit189 ], [ %41, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit ], [ %41, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i ], [ %30, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.thread ]
-  %48 = phi i32 [ %39, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit189 ], [ %39, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit ], [ %39, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i ], [ 0, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.thread ]
+  %48 = phi i32 [ %39, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit189 ], [ %39, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit ], [ 0, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i ], [ 0, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.thread ]
   %49 = phi i32 [ %37, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit189 ], [ %37, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit ], [ %37, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i ], [ 0, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.thread ]
-  %.sroa.0142.0264275 = phi ptr [ %34, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit189 ], [ %34, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit ], [ %34, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i ], [ null, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.thread ]
-  %.sink.i265273 = phi i64 [ %36, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit189 ], [ %36, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit ], [ %36, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i ], [ 0, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.thread ]
-  %.0.lcssa.i.i.i.i.i266271 = phi ptr [ %scevgep.i.i.i.i.i, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit189 ], [ %scevgep.i.i.i.i.i, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit ], [ %scevgep.i.i.i.i.i, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i ], [ null, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.thread ]
+  %.sroa.0142.0263274 = phi ptr [ %34, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit189 ], [ %34, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit ], [ %34, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i ], [ null, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.thread ]
+  %.sink.i264272 = phi i64 [ %36, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit189 ], [ %36, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit ], [ %36, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i ], [ 0, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.thread ]
+  %.0.lcssa.i.i.i.i.i265270 = phi ptr [ %scevgep.i.i.i.i.i, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit189 ], [ %scevgep.i.i.i.i.i, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit ], [ %scevgep.i.i.i.i.i, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i ], [ null, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.thread ]
   %50 = phi ptr [ %41, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit189 ], [ %45, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit ], [ %41, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i ], [ %30, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.thread ]
   %51 = phi ptr [ %73, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit189 ], [ %.pre198, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit ], [ %73, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i ], [ %22, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.thread ]
   %52 = phi ptr [ %74, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit189 ], [ %.pre197, %_ZN4llvm9BitVectorC2Ejb.exit.loopexit ], [ %74, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i ], [ %21, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.thread ]
@@ -14954,7 +14954,7 @@ _ZNSt5queueImSt5dequeImSaImEEE4pushERKm.exit83:   ; preds = %329, %332
   %341 = or i64 %340, %339
   store i64 %341, ptr %337, align 8, !tbaa !50
   %342 = load i64, ptr %11, align 8, !tbaa !50
-  %343 = getelementptr inbounds nuw %"class.std::vector.415", ptr %.sroa.0142.0264275, i64 %342
+  %343 = getelementptr inbounds nuw %"class.std::vector.415", ptr %.sroa.0142.0263274, i64 %342
   %344 = load ptr, ptr %343, align 8, !tbaa !682
   %345 = getelementptr inbounds nuw i8, ptr %343, i64 8
   %346 = load ptr, ptr %345, align 8, !tbaa !682
@@ -15071,11 +15071,11 @@ _ZNSt5queueImSt5dequeImSaImEEED2Ev.exit:          ; preds = %.critedge, %_ZNSt11
 
 _ZN4llvm9BitVectorD2Ev.exit:                      ; preds = %_ZNSt5queueImSt5dequeImSaImEEED2Ev.exit, %395
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.not4.i.i.i.i = icmp eq ptr %.sroa.0142.0264275, %.0.lcssa.i.i.i.i.i266271
+  %.not4.i.i.i.i = icmp eq ptr %.sroa.0142.0263274, %.0.lcssa.i.i.i.i.i265270
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i93
 
 .lr.ph.i.i.i.i93:                                 ; preds = %_ZN4llvm9BitVectorD2Ev.exit, %_ZSt8_DestroyISt6vectorImSaImEEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %403, %_ZSt8_DestroyISt6vectorImSaImEEEvPT_.exit.i.i.i.i ], [ %.sroa.0142.0264275, %_ZN4llvm9BitVectorD2Ev.exit ]
+  %.05.i.i.i.i = phi ptr [ %403, %_ZSt8_DestroyISt6vectorImSaImEEEvPT_.exit.i.i.i.i ], [ %.sroa.0142.0263274, %_ZN4llvm9BitVectorD2Ev.exit ]
   %396 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !692
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %396, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt6vectorImSaImEEEvPT_.exit.i.i.i.i, label %397
@@ -15091,17 +15091,17 @@ _ZN4llvm9BitVectorD2Ev.exit:                      ; preds = %_ZNSt5queueImSt5deq
 
 _ZSt8_DestroyISt6vectorImSaImEEEvPT_.exit.i.i.i.i: ; preds = %397, %.lr.ph.i.i.i.i93
   %403 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 24
-  %.not.i.i.i.i94 = icmp eq ptr %403, %.0.lcssa.i.i.i.i.i266271
+  %.not.i.i.i.i94 = icmp eq ptr %403, %.0.lcssa.i.i.i.i.i265270
   br i1 %.not.i.i.i.i94, label %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i93, !llvm.loop !702
 
 _ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyISt6vectorImSaImEEEvPT_.exit.i.i.i.i, %_ZN4llvm9BitVectorD2Ev.exit
-  %.not.i.i.i95 = icmp eq ptr %.sroa.0142.0264275, null
+  %.not.i.i.i95 = icmp eq ptr %.sroa.0142.0263274, null
   br i1 %.not.i.i.i95, label %_ZNSt6vectorIS_ImSaImEESaIS1_EED2Ev.exit, label %404
 
 404:                                              ; preds = %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i
-  %405 = ptrtoint ptr %.sroa.0142.0264275 to i64
-  %406 = sub i64 %.sink.i265273, %405
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0142.0264275, i64 noundef %406) #26
+  %405 = ptrtoint ptr %.sroa.0142.0263274 to i64
+  %406 = sub i64 %.sink.i264272, %405
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0142.0263274, i64 noundef %406) #26
   br label %_ZNSt6vectorIS_ImSaImEESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIS_ImSaImEESaIS1_EED2Ev.exit:         ; preds = %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i, %404

@@ -18173,7 +18173,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp11BitCastPrimILNS
   store i64 0, ptr %17, align 8, !tbaa !634
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 40, ptr %18, align 8, !tbaa !635
-  %19 = icmp ult i32 %3, 8
+  %19 = icmp eq i32 %14, 0
   br i1 %19, label %_ZN4llvm11SmallVectorISt4byteLj40EEC2Em.exit, label %20
 
 20:                                               ; preds = %13
@@ -18272,7 +18272,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp11BitCastPrimILNS
   store i64 0, ptr %17, align 8, !tbaa !634
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 40, ptr %18, align 8, !tbaa !635
-  %19 = icmp ult i32 %3, 8
+  %19 = icmp eq i32 %14, 0
   br i1 %19, label %_ZN4llvm11SmallVectorISt4byteLj40EEC2Em.exit, label %20
 
 20:                                               ; preds = %13
@@ -18371,7 +18371,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp11BitCastPrimILNS
   store i64 0, ptr %17, align 8, !tbaa !634
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 40, ptr %18, align 8, !tbaa !635
-  %19 = icmp ult i32 %3, 8
+  %19 = icmp eq i32 %14, 0
   br i1 %19, label %_ZN4llvm11SmallVectorISt4byteLj40EEC2Em.exit, label %20
 
 20:                                               ; preds = %13
@@ -18470,7 +18470,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp11BitCastPrimILNS
   store i64 0, ptr %17, align 8, !tbaa !634
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 40, ptr %18, align 8, !tbaa !635
-  %19 = icmp ult i32 %3, 8
+  %19 = icmp eq i32 %14, 0
   br i1 %19, label %_ZN4llvm11SmallVectorISt4byteLj40EEC2Em.exit, label %20
 
 20:                                               ; preds = %13
@@ -18569,7 +18569,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp11BitCastPrimILNS
   store i64 0, ptr %17, align 8, !tbaa !634
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 40, ptr %18, align 8, !tbaa !635
-  %19 = icmp ult i32 %3, 8
+  %19 = icmp eq i32 %14, 0
   br i1 %19, label %_ZN4llvm11SmallVectorISt4byteLj40EEC2Em.exit, label %20
 
 20:                                               ; preds = %13
@@ -18668,7 +18668,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp11BitCastPrimILNS
   store i64 0, ptr %17, align 8, !tbaa !634
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 40, ptr %18, align 8, !tbaa !635
-  %19 = icmp ult i32 %3, 8
+  %19 = icmp eq i32 %14, 0
   br i1 %19, label %_ZN4llvm11SmallVectorISt4byteLj40EEC2Em.exit, label %20
 
 20:                                               ; preds = %13
@@ -18767,7 +18767,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp11BitCastPrimILNS
   store i64 0, ptr %17, align 8, !tbaa !634
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 40, ptr %18, align 8, !tbaa !635
-  %19 = icmp ult i32 %3, 8
+  %19 = icmp eq i32 %14, 0
   br i1 %19, label %_ZN4llvm11SmallVectorISt4byteLj40EEC2Em.exit, label %20
 
 20:                                               ; preds = %13
@@ -18866,7 +18866,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp11BitCastPrimILNS
   store i64 0, ptr %17, align 8, !tbaa !634
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 40, ptr %18, align 8, !tbaa !635
-  %19 = icmp ult i32 %3, 8
+  %19 = icmp eq i32 %14, 0
   br i1 %19, label %_ZN4llvm11SmallVectorISt4byteLj40EEC2Em.exit, label %20
 
 20:                                               ; preds = %13
@@ -18966,7 +18966,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp11BitCastPrimILNS
   store i64 0, ptr %18, align 8, !tbaa !634
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 40, ptr %19, align 8, !tbaa !635
-  %20 = icmp ult i32 %3, 8
+  %20 = icmp eq i32 %15, 0
   br i1 %20, label %_ZN4llvm11SmallVectorISt4byteLj40EEC2Em.exit, label %21
 
 21:                                               ; preds = %14
@@ -19073,7 +19073,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp11BitCastPrimILNS
   store i64 0, ptr %18, align 8, !tbaa !634
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 40, ptr %19, align 8, !tbaa !635
-  %20 = icmp ult i32 %3, 8
+  %20 = icmp eq i32 %15, 0
   br i1 %20, label %_ZN4llvm11SmallVectorISt4byteLj40EEC2Em.exit, label %21
 
 21:                                               ; preds = %14
@@ -19179,7 +19179,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp11BitCastPrimILNS
   store i64 0, ptr %17, align 8, !tbaa !634
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 40, ptr %18, align 8, !tbaa !635
-  %19 = icmp ult i32 %3, 8
+  %19 = icmp eq i32 %14, 0
   br i1 %19, label %_ZN4llvm11SmallVectorISt4byteLj40EEC2Em.exit, label %20
 
 20:                                               ; preds = %13
@@ -19281,7 +19281,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp11BitCastPrimILNS
   store i64 0, ptr %18, align 8, !tbaa !634
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 40, ptr %19, align 8, !tbaa !635
-  %20 = icmp ult i32 %3, 8
+  %20 = icmp eq i32 %15, 0
   br i1 %20, label %_ZN4llvm11SmallVectorISt4byteLj40EEC2Em.exit, label %21
 
 21:                                               ; preds = %14
@@ -155829,7 +155829,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
   %29 = select i1 %.not18.i.i.i.i, i32 %26, i32 0
   %.1.i.i.i.i = or i32 %29, %.01220.i.i.i.i
   %30 = lshr i8 %.01121.i.i.i.i, 1
-  %.not17.i.i.i.i = icmp samesign ult i8 %.01121.i.i.i.i, 2
+  %.not17.i.i.i.i = icmp eq i8 %30, 0
   br i1 %.not17.i.i.i.i, label %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit.i, label %.preheader.i.i.i.i, !llvm.loop !3808
 
 _ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit.i: ; preds = %.preheader.i.i.i.i, %24
@@ -155937,7 +155937,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
   %29 = select i1 %.not18.i.i.i.i, i32 %26, i32 0
   %.1.i.i.i.i = or i32 %29, %.01220.i.i.i.i
   %30 = lshr i8 %.01121.i.i.i.i, 1
-  %.not17.i.i.i.i = icmp samesign ult i8 %.01121.i.i.i.i, 2
+  %.not17.i.i.i.i = icmp eq i8 %30, 0
   br i1 %.not17.i.i.i.i, label %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit.i, label %.preheader.i.i.i.i, !llvm.loop !3808
 
 _ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit.i: ; preds = %.preheader.i.i.i.i, %24
@@ -156045,7 +156045,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
   %29 = select i1 %.not18.i.i.i.i, i32 %26, i32 0
   %.1.i.i.i.i = or i32 %29, %.01220.i.i.i.i
   %30 = lshr i8 %.01121.i.i.i.i, 1
-  %.not17.i.i.i.i = icmp samesign ult i8 %.01121.i.i.i.i, 2
+  %.not17.i.i.i.i = icmp eq i8 %30, 0
   br i1 %.not17.i.i.i.i, label %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit.i, label %.preheader.i.i.i.i, !llvm.loop !3808
 
 _ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit.i: ; preds = %.preheader.i.i.i.i, %24
@@ -156150,7 +156150,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
   %29 = select i1 %.not18.i.i.i.i, i32 %26, i32 0
   %.1.i.i.i.i = or i32 %29, %.01220.i.i.i.i
   %30 = lshr i8 %.01121.i.i.i.i, 1
-  %.not17.i.i.i.i = icmp samesign ult i8 %.01121.i.i.i.i, 2
+  %.not17.i.i.i.i = icmp eq i8 %30, 0
   br i1 %.not17.i.i.i.i, label %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit.i, label %.preheader.i.i.i.i, !llvm.loop !3808
 
 _ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit.i: ; preds = %.preheader.i.i.i.i, %24
@@ -156254,7 +156254,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
   %27 = select i1 %.not18.i.i.i.i, i32 %24, i32 0
   %.1.i.i.i.i = or i32 %27, %.01220.i.i.i.i
   %28 = lshr i8 %.01121.i.i.i.i, 1
-  %.not17.i.i.i.i = icmp samesign ult i8 %.01121.i.i.i.i, 2
+  %.not17.i.i.i.i = icmp eq i8 %28, 0
   br i1 %.not17.i.i.i.i, label %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit.i, label %.preheader.i.i.i.i, !llvm.loop !3808
 
 _ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit.i: ; preds = %.preheader.i.i.i.i, %22
@@ -156341,7 +156341,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
   %27 = select i1 %.not18.i.i.i.i, i32 %24, i32 0
   %.1.i.i.i.i = or i32 %27, %.01220.i.i.i.i
   %28 = lshr i8 %.01121.i.i.i.i, 1
-  %.not17.i.i.i.i = icmp samesign ult i8 %.01121.i.i.i.i, 2
+  %.not17.i.i.i.i = icmp eq i8 %28, 0
   br i1 %.not17.i.i.i.i, label %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit.i, label %.preheader.i.i.i.i, !llvm.loop !3808
 
 _ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit.i: ; preds = %.preheader.i.i.i.i, %22
@@ -156426,7 +156426,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
   %27 = select i1 %.not18.i.i.i.i, i32 %24, i32 0
   %.1.i.i.i.i = or i32 %27, %.01220.i.i.i.i
   %28 = lshr i8 %.01121.i.i.i.i, 1
-  %.not17.i.i.i.i = icmp samesign ult i8 %.01121.i.i.i.i, 2
+  %.not17.i.i.i.i = icmp eq i8 %28, 0
   br i1 %.not17.i.i.i.i, label %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit.i, label %.preheader.i.i.i.i, !llvm.loop !3808
 
 _ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit.i: ; preds = %.preheader.i.i.i.i, %22
@@ -156506,7 +156506,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
   %27 = select i1 %.not18.i.i.i.i, i32 %24, i32 0
   %.1.i.i.i.i = or i32 %27, %.01220.i.i.i.i
   %28 = lshr i8 %.01121.i.i.i.i, 1
-  %.not17.i.i.i.i = icmp samesign ult i8 %.01121.i.i.i.i, 2
+  %.not17.i.i.i.i = icmp eq i8 %28, 0
   br i1 %.not17.i.i.i.i, label %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit.i, label %.preheader.i.i.i.i, !llvm.loop !3808
 
 _ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit.i: ; preds = %.preheader.i.i.i.i, %22
@@ -156595,7 +156595,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
   %29 = select i1 %.not18.i.i.i.i, i32 %26, i32 0
   %.1.i.i.i.i = or i32 %29, %.01220.i.i.i.i
   %30 = lshr i16 %.01121.i.i.i.i, 1
-  %.not17.i.i.i.i = icmp samesign ult i16 %.01121.i.i.i.i, 2
+  %.not17.i.i.i.i = icmp eq i16 %30, 0
   br i1 %.not17.i.i.i.i, label %_ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit.i, label %.preheader.i.i.i.i, !llvm.loop !3809
 
 _ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit.i: ; preds = %.preheader.i.i.i.i, %24
@@ -156704,7 +156704,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
   %29 = select i1 %.not18.i.i.i.i, i32 %26, i32 0
   %.1.i.i.i.i = or i32 %29, %.01220.i.i.i.i
   %30 = lshr i16 %.01121.i.i.i.i, 1
-  %.not17.i.i.i.i = icmp samesign ult i16 %.01121.i.i.i.i, 2
+  %.not17.i.i.i.i = icmp eq i16 %30, 0
   br i1 %.not17.i.i.i.i, label %_ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit.i, label %.preheader.i.i.i.i, !llvm.loop !3809
 
 _ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit.i: ; preds = %.preheader.i.i.i.i, %24
@@ -156812,7 +156812,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
   %29 = select i1 %.not18.i.i.i.i, i32 %26, i32 0
   %.1.i.i.i.i = or i32 %29, %.01220.i.i.i.i
   %30 = lshr i16 %.01121.i.i.i.i, 1
-  %.not17.i.i.i.i = icmp samesign ult i16 %.01121.i.i.i.i, 2
+  %.not17.i.i.i.i = icmp eq i16 %30, 0
   br i1 %.not17.i.i.i.i, label %_ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit.i, label %.preheader.i.i.i.i, !llvm.loop !3809
 
 _ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit.i: ; preds = %.preheader.i.i.i.i, %24
@@ -156917,7 +156917,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
   %29 = select i1 %.not18.i.i.i.i, i32 %26, i32 0
   %.1.i.i.i.i = or i32 %29, %.01220.i.i.i.i
   %30 = lshr i16 %.01121.i.i.i.i, 1
-  %.not17.i.i.i.i = icmp samesign ult i16 %.01121.i.i.i.i, 2
+  %.not17.i.i.i.i = icmp eq i16 %30, 0
   br i1 %.not17.i.i.i.i, label %_ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit.i, label %.preheader.i.i.i.i, !llvm.loop !3809
 
 _ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit.i: ; preds = %.preheader.i.i.i.i, %24
@@ -157021,7 +157021,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
   %27 = select i1 %.not18.i.i.i.i, i32 %24, i32 0
   %.1.i.i.i.i = or i32 %27, %.01220.i.i.i.i
   %28 = lshr i16 %.01121.i.i.i.i, 1
-  %.not17.i.i.i.i = icmp samesign ult i16 %.01121.i.i.i.i, 2
+  %.not17.i.i.i.i = icmp eq i16 %28, 0
   br i1 %.not17.i.i.i.i, label %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit.i, label %.preheader.i.i.i.i, !llvm.loop !3809
 
 _ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit.i: ; preds = %.preheader.i.i.i.i, %22
@@ -157109,7 +157109,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
   %27 = select i1 %.not18.i.i.i.i, i32 %24, i32 0
   %.1.i.i.i.i = or i32 %27, %.01220.i.i.i.i
   %28 = lshr i16 %.01121.i.i.i.i, 1
-  %.not17.i.i.i.i = icmp samesign ult i16 %.01121.i.i.i.i, 2
+  %.not17.i.i.i.i = icmp eq i16 %28, 0
   br i1 %.not17.i.i.i.i, label %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit.i, label %.preheader.i.i.i.i, !llvm.loop !3809
 
 _ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit.i: ; preds = %.preheader.i.i.i.i, %22
@@ -157196,7 +157196,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
   %27 = select i1 %.not18.i.i.i.i, i32 %24, i32 0
   %.1.i.i.i.i = or i32 %27, %.01220.i.i.i.i
   %28 = lshr i16 %.01121.i.i.i.i, 1
-  %.not17.i.i.i.i = icmp samesign ult i16 %.01121.i.i.i.i, 2
+  %.not17.i.i.i.i = icmp eq i16 %28, 0
   br i1 %.not17.i.i.i.i, label %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit.i, label %.preheader.i.i.i.i, !llvm.loop !3809
 
 _ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit.i: ; preds = %.preheader.i.i.i.i, %22
@@ -157276,7 +157276,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
   %27 = select i1 %.not18.i.i.i.i, i32 %24, i32 0
   %.1.i.i.i.i = or i32 %27, %.01220.i.i.i.i
   %28 = lshr i16 %.01121.i.i.i.i, 1
-  %.not17.i.i.i.i = icmp samesign ult i16 %.01121.i.i.i.i, 2
+  %.not17.i.i.i.i = icmp eq i16 %28, 0
   br i1 %.not17.i.i.i.i, label %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit.i, label %.preheader.i.i.i.i, !llvm.loop !3809
 
 _ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit.i: ; preds = %.preheader.i.i.i.i, %22
@@ -228208,7 +228208,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
   %62 = select i1 %.not18.i.i.i, i32 %59, i32 0
   %.1.i.i.i = or i32 %62, %.01220.i.i.i
   %63 = lshr i8 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i8 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i8 %63, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3808
 
 _ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %57
@@ -228630,7 +228630,7 @@ _ZN4llvm5APIntD2Ev.exit46:                        ; preds = %92, %_ZN5clang18Opt
   %123 = select i1 %.not18.i.i.i, i32 %120, i32 0
   %.1.i.i.i = or i32 %123, %.01220.i.i.i
   %124 = lshr i8 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i8 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i8 %124, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3808
 
 _ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %118
@@ -228998,7 +228998,7 @@ _ZN4llvm5APIntD2Ev.exit46:                        ; preds = %57, %_ZN5clang18Opt
   %88 = select i1 %.not18.i.i.i, i32 %85, i32 0
   %.1.i.i.i = or i32 %88, %.01220.i.i.i
   %89 = lshr i8 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i8 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i8 %89, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3808
 
 _ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %83
@@ -229244,7 +229244,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
   %62 = select i1 %.not18.i.i.i, i32 %59, i32 0
   %.1.i.i.i = or i32 %62, %.01220.i.i.i
   %63 = lshr i8 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i8 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i8 %63, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3808
 
 _ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %57
@@ -229669,7 +229669,7 @@ _ZN4llvm5APIntD2Ev.exit46:                        ; preds = %92, %_ZN5clang18Opt
   %123 = select i1 %.not18.i.i.i, i32 %120, i32 0
   %.1.i.i.i = or i32 %123, %.01220.i.i.i
   %124 = lshr i8 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i8 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i8 %124, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3808
 
 _ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %118
@@ -230037,7 +230037,7 @@ _ZN4llvm5APIntD2Ev.exit46:                        ; preds = %57, %_ZN5clang18Opt
   %88 = select i1 %.not18.i.i.i, i32 %85, i32 0
   %.1.i.i.i = or i32 %88, %.01220.i.i.i
   %89 = lshr i8 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i8 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i8 %89, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3808
 
 _ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %83
@@ -230283,7 +230283,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
   %62 = select i1 %.not18.i.i.i, i32 %59, i32 0
   %.1.i.i.i = or i32 %62, %.01220.i.i.i
   %63 = lshr i8 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i8 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i8 %63, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3808
 
 _ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %57
@@ -230703,7 +230703,7 @@ _ZN4llvm5APIntD2Ev.exit46:                        ; preds = %91, %_ZN5clang18Opt
   %122 = select i1 %.not18.i.i.i, i32 %119, i32 0
   %.1.i.i.i = or i32 %122, %.01220.i.i.i
   %123 = lshr i8 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i8 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i8 %123, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3808
 
 _ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %117
@@ -231068,7 +231068,7 @@ _ZN4llvm5APIntD2Ev.exit46:                        ; preds = %56, %_ZN5clang18Opt
   %87 = select i1 %.not18.i.i.i, i32 %84, i32 0
   %.1.i.i.i = or i32 %87, %.01220.i.i.i
   %88 = lshr i8 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i8 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i8 %88, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3808
 
 _ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %82
@@ -231311,7 +231311,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
   %61 = select i1 %.not18.i.i.i, i32 %58, i32 0
   %.1.i.i.i = or i32 %61, %.01220.i.i.i
   %62 = lshr i8 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i8 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i8 %62, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3808
 
 _ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %56
@@ -231730,7 +231730,7 @@ _ZN4llvm5APIntD2Ev.exit46:                        ; preds = %89, %_ZN5clang18Opt
   %120 = select i1 %.not18.i.i.i, i32 %117, i32 0
   %.1.i.i.i = or i32 %120, %.01220.i.i.i
   %121 = lshr i8 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i8 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i8 %121, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3808
 
 _ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %115
@@ -232093,7 +232093,7 @@ _ZN4llvm5APIntD2Ev.exit46:                        ; preds = %55, %_ZN5clang18Opt
   %86 = select i1 %.not18.i.i.i, i32 %83, i32 0
   %.1.i.i.i = or i32 %86, %.01220.i.i.i
   %87 = lshr i8 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i8 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i8 %87, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3808
 
 _ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %81
@@ -232329,7 +232329,7 @@ _ZN5clang6interp10IntegralAPILb0EED2Ev.exit61:    ; preds = %41, %49, %52
   %61 = select i1 %.not18.i.i.i, i32 %58, i32 0
   %.1.i.i.i = or i32 %61, %.01220.i.i.i
   %62 = lshr i8 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i8 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i8 %62, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3808
 
 _ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %56
@@ -232950,7 +232950,7 @@ _ZN4llvm5APIntD2Ev.exit48:                        ; preds = %71, %_ZN5clang18Opt
   %102 = select i1 %.not18.i.i.i, i32 %99, i32 0
   %.1.i.i.i = or i32 %102, %.01220.i.i.i
   %103 = lshr i8 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i8 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i8 %103, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3808
 
 _ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %97
@@ -233465,7 +233465,7 @@ _ZN5clang6interp10IntegralAPILb1EED2Ev.exit61:    ; preds = %104, %111, %114
   %123 = select i1 %.not18.i.i.i, i32 %120, i32 0
   %.1.i.i.i = or i32 %123, %.01220.i.i.i
   %124 = lshr i8 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i8 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i8 %124, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3808
 
 _ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %118
@@ -234309,7 +234309,7 @@ _ZN4llvm5APIntD2Ev.exit48:                        ; preds = %120, %_ZN5clang18Op
   %151 = select i1 %.not18.i.i.i, i32 %148, i32 0
   %.1.i.i.i = or i32 %151, %.01220.i.i.i
   %152 = lshr i8 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i8 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i8 %152, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3808
 
 _ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %146
@@ -234798,7 +234798,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
   %60 = select i1 %.not18.i.i.i, i32 %57, i32 0
   %.1.i.i.i = or i32 %60, %.01220.i.i.i
   %61 = lshr i8 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i8 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i8 %61, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3808
 
 _ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %55
@@ -235587,7 +235587,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
   %60 = select i1 %.not18.i.i.i, i32 %57, i32 0
   %.1.i.i.i = or i32 %60, %.01220.i.i.i
   %61 = lshr i8 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i8 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i8 %61, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3808
 
 _ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %55
@@ -236378,7 +236378,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
   %60 = select i1 %.not18.i.i.i, i32 %57, i32 0
   %.1.i.i.i = or i32 %60, %.01220.i.i.i
   %61 = lshr i8 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i8 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i8 %61, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3808
 
 _ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %55
@@ -237161,7 +237161,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
   %59 = select i1 %.not18.i.i.i, i32 %56, i32 0
   %.1.i.i.i = or i32 %59, %.01220.i.i.i
   %60 = lshr i8 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i8 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i8 %60, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3808
 
 _ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %54
@@ -237930,7 +237930,7 @@ _ZN5clang6interp10IntegralAPILb0EED2Ev.exit61:    ; preds = %40, %48, %51
   %58 = select i1 %.not18.i.i.i, i32 %55, i32 0
   %.1.i.i.i = or i32 %58, %.01220.i.i.i
   %59 = lshr i8 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i8 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i8 %59, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3808
 
 _ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %52
@@ -238642,7 +238642,7 @@ _ZN5clang6interp10IntegralAPILb1EED2Ev.exit61:    ; preds = %103, %110, %113
   %120 = select i1 %.not18.i.i.i, i32 %117, i32 0
   %.1.i.i.i = or i32 %120, %.01220.i.i.i
   %121 = lshr i8 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i8 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i8 %121, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3808
 
 _ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %114
@@ -239561,7 +239561,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
   %62 = select i1 %.not18.i.i.i, i32 %59, i32 0
   %.1.i.i.i = or i32 %62, %.01220.i.i.i
   %63 = lshr i16 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i16 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i16 %63, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3809
 
 _ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %57
@@ -239989,7 +239989,7 @@ _ZN4llvm5APIntD2Ev.exit46:                        ; preds = %92, %_ZN5clang18Opt
   %123 = select i1 %.not18.i.i.i, i32 %120, i32 0
   %.1.i.i.i = or i32 %123, %.01220.i.i.i
   %124 = lshr i16 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i16 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i16 %124, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3809
 
 _ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %118
@@ -240357,7 +240357,7 @@ _ZN4llvm5APIntD2Ev.exit46:                        ; preds = %57, %_ZN5clang18Opt
   %88 = select i1 %.not18.i.i.i, i32 %85, i32 0
   %.1.i.i.i = or i32 %88, %.01220.i.i.i
   %89 = lshr i16 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i16 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i16 %89, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3809
 
 _ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %83
@@ -240603,7 +240603,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
   %62 = select i1 %.not18.i.i.i, i32 %59, i32 0
   %.1.i.i.i = or i32 %62, %.01220.i.i.i
   %63 = lshr i16 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i16 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i16 %63, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3809
 
 _ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %57
@@ -241025,7 +241025,7 @@ _ZN4llvm5APIntD2Ev.exit46:                        ; preds = %92, %_ZN5clang18Opt
   %123 = select i1 %.not18.i.i.i, i32 %120, i32 0
   %.1.i.i.i = or i32 %123, %.01220.i.i.i
   %124 = lshr i16 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i16 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i16 %124, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3809
 
 _ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %118
@@ -241393,7 +241393,7 @@ _ZN4llvm5APIntD2Ev.exit46:                        ; preds = %57, %_ZN5clang18Opt
   %88 = select i1 %.not18.i.i.i, i32 %85, i32 0
   %.1.i.i.i = or i32 %88, %.01220.i.i.i
   %89 = lshr i16 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i16 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i16 %89, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3809
 
 _ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %83
@@ -241639,7 +241639,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
   %62 = select i1 %.not18.i.i.i, i32 %59, i32 0
   %.1.i.i.i = or i32 %62, %.01220.i.i.i
   %63 = lshr i16 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i16 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i16 %63, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3809
 
 _ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %57
@@ -242058,7 +242058,7 @@ _ZN4llvm5APIntD2Ev.exit46:                        ; preds = %91, %_ZN5clang18Opt
   %122 = select i1 %.not18.i.i.i, i32 %119, i32 0
   %.1.i.i.i = or i32 %122, %.01220.i.i.i
   %123 = lshr i16 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i16 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i16 %123, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3809
 
 _ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %117
@@ -242423,7 +242423,7 @@ _ZN4llvm5APIntD2Ev.exit46:                        ; preds = %56, %_ZN5clang18Opt
   %87 = select i1 %.not18.i.i.i, i32 %84, i32 0
   %.1.i.i.i = or i32 %87, %.01220.i.i.i
   %88 = lshr i16 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i16 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i16 %88, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3809
 
 _ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %82
@@ -242666,7 +242666,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
   %61 = select i1 %.not18.i.i.i, i32 %58, i32 0
   %.1.i.i.i = or i32 %61, %.01220.i.i.i
   %62 = lshr i16 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i16 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i16 %62, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3809
 
 _ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %56
@@ -243084,7 +243084,7 @@ _ZN4llvm5APIntD2Ev.exit46:                        ; preds = %89, %_ZN5clang18Opt
   %120 = select i1 %.not18.i.i.i, i32 %117, i32 0
   %.1.i.i.i = or i32 %120, %.01220.i.i.i
   %121 = lshr i16 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i16 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i16 %121, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3809
 
 _ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %115
@@ -243447,7 +243447,7 @@ _ZN4llvm5APIntD2Ev.exit46:                        ; preds = %55, %_ZN5clang18Opt
   %86 = select i1 %.not18.i.i.i, i32 %83, i32 0
   %.1.i.i.i = or i32 %86, %.01220.i.i.i
   %87 = lshr i16 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i16 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i16 %87, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3809
 
 _ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %81
@@ -243683,7 +243683,7 @@ _ZN5clang6interp10IntegralAPILb0EED2Ev.exit61:    ; preds = %41, %49, %52
   %61 = select i1 %.not18.i.i.i, i32 %58, i32 0
   %.1.i.i.i = or i32 %61, %.01220.i.i.i
   %62 = lshr i16 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i16 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i16 %62, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3809
 
 _ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %56
@@ -244216,7 +244216,7 @@ _ZN4llvm5APIntD2Ev.exit48:                        ; preds = %71, %_ZN5clang18Opt
   %102 = select i1 %.not18.i.i.i, i32 %99, i32 0
   %.1.i.i.i = or i32 %102, %.01220.i.i.i
   %103 = lshr i16 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i16 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i16 %103, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3809
 
 _ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %97
@@ -244731,7 +244731,7 @@ _ZN5clang6interp10IntegralAPILb1EED2Ev.exit61:    ; preds = %104, %111, %114
   %123 = select i1 %.not18.i.i.i, i32 %120, i32 0
   %.1.i.i.i = or i32 %123, %.01220.i.i.i
   %124 = lshr i16 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i16 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i16 %124, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3809
 
 _ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %118
@@ -245487,7 +245487,7 @@ _ZN4llvm5APIntD2Ev.exit48:                        ; preds = %120, %_ZN5clang18Op
   %151 = select i1 %.not18.i.i.i, i32 %148, i32 0
   %.1.i.i.i = or i32 %151, %.01220.i.i.i
   %152 = lshr i16 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i16 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i16 %152, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3809
 
 _ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %146
@@ -245976,7 +245976,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
   %60 = select i1 %.not18.i.i.i, i32 %57, i32 0
   %.1.i.i.i = or i32 %60, %.01220.i.i.i
   %61 = lshr i16 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i16 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i16 %61, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3809
 
 _ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %55
@@ -246768,7 +246768,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
   %60 = select i1 %.not18.i.i.i, i32 %57, i32 0
   %.1.i.i.i = or i32 %60, %.01220.i.i.i
   %61 = lshr i16 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i16 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i16 %61, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3809
 
 _ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %55
@@ -247557,7 +247557,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
   %60 = select i1 %.not18.i.i.i, i32 %57, i32 0
   %.1.i.i.i = or i32 %60, %.01220.i.i.i
   %61 = lshr i16 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i16 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i16 %61, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3809
 
 _ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %55
@@ -248339,7 +248339,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
   %59 = select i1 %.not18.i.i.i, i32 %56, i32 0
   %.1.i.i.i = or i32 %59, %.01220.i.i.i
   %60 = lshr i16 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i16 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i16 %60, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3809
 
 _ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %54
@@ -249107,7 +249107,7 @@ _ZN5clang6interp10IntegralAPILb0EED2Ev.exit61:    ; preds = %40, %48, %51
   %58 = select i1 %.not18.i.i.i, i32 %55, i32 0
   %.1.i.i.i = or i32 %58, %.01220.i.i.i
   %59 = lshr i16 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i16 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i16 %59, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3809
 
 _ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %52
@@ -249819,7 +249819,7 @@ _ZN5clang6interp10IntegralAPILb1EED2Ev.exit61:    ; preds = %103, %110, %113
   %120 = select i1 %.not18.i.i.i, i32 %117, i32 0
   %.1.i.i.i = or i32 %120, %.01220.i.i.i
   %121 = lshr i16 %.01121.i.i.i, 1
-  %.not17.i.i.i = icmp samesign ult i16 %.01121.i.i.i, 2
+  %.not17.i.i.i = icmp eq i16 %121, 0
   br i1 %.not17.i.i.i, label %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit, label %.preheader.i.i.i, !llvm.loop !3809
 
 _ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %114

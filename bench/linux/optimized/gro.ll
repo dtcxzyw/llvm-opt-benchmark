@@ -2009,33 +2009,33 @@ define dso_local zeroext i16 @__skb_gro_checksum_complete(ptr noundef %0) #0 ali
   %11 = shl i32 %10, 16
   %12 = and i32 %10, -65536
   %13 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %11, i32 %12) #16, !srcloc !56
-  %14 = icmp ugt i32 %13, -65537
-  br i1 %14, label %15, label %28, !prof !11
+  %14 = xor i32 %13, -1
+  %15 = lshr i32 %14, 16
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %17, label %30, !prof !11
 
-15:                                               ; preds = %1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %17 = load i8, ptr %16, align 8
-  %18 = and i8 %17, 96
-  %19 = icmp eq i8 %18, 64
-  br i1 %19, label %20, label %28, !prof !12
+17:                                               ; preds = %1
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %19 = load i8, ptr %18, align 8
+  %20 = and i8 %19, 96
+  %21 = icmp eq i8 %20, 64
+  br i1 %21, label %22, label %30, !prof !12
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 129
-  %22 = load i24, ptr %21, align 1
-  %23 = and i24 %22, 16
-  %24 = icmp eq i24 %23, 0
-  br i1 %24, label %25, label %28
+22:                                               ; preds = %17
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 129
+  %24 = load i24, ptr %23, align 1
+  %25 = and i24 %24, 16
+  %26 = icmp eq i24 %25, 0
+  br i1 %26, label %27, label %30
 
-25:                                               ; preds = %20
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load ptr, ptr %26, align 8
-  tail call void @netdev_rx_csum_fault(ptr noundef %27, ptr noundef %0) #13
-  br label %28
+27:                                               ; preds = %22
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %29 = load ptr, ptr %28, align 8
+  tail call void @netdev_rx_csum_fault(ptr noundef %29, ptr noundef %0) #13
+  br label %30
 
-28:                                               ; preds = %25, %20, %15, %1
-  %29 = xor i32 %13, -1
-  %30 = lshr i32 %29, 16
-  %31 = trunc nuw i32 %30 to i16
+30:                                               ; preds = %27, %22, %17, %1
+  %31 = trunc nuw i32 %15 to i16
   store i32 %7, ptr %8, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 70
   %33 = load i16, ptr %32, align 2

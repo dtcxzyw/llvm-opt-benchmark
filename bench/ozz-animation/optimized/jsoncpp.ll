@@ -17891,7 +17891,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt23_Rb_tree_const_iteratorISt4pairIKN
   %137 = zext nneg i32 %136 to i64
   store ptr %126, ptr %6, align 8, !tbaa !10
   %138 = icmp eq ptr %133, null
-  %139 = icmp ugt i32 %135, 3
+  %139 = icmp ne i32 %136, 0
   %or.cond.i = and i1 %138, %139
   br i1 %or.cond.i, label %140, label %141
 
@@ -41335,7 +41335,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN4Json6Reader9ErrorInfoESaIS2_EE
   br label %_ZNSt5dequeIN4Json6Reader9ErrorInfoESaIS2_EE22_M_reserve_map_at_backEm.exit
 
 _ZNSt5dequeIN4Json6Reader9ErrorInfoESaIS2_EE22_M_reserve_map_at_backEm.exit: ; preds = %35, %45
-  %.not23 = icmp ult i64 %36, 8
+  %.not23 = icmp eq i64 %37, 0
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt5dequeIN4Json6Reader9ErrorInfoESaIS2_EE22_M_reserve_map_at_backEm.exit
@@ -41731,7 +41731,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN4Json9OurReader9ErrorInfoESaIS2
   br label %_ZNSt5dequeIN4Json9OurReader9ErrorInfoESaIS2_EE22_M_reserve_map_at_backEm.exit
 
 _ZNSt5dequeIN4Json9OurReader9ErrorInfoESaIS2_EE22_M_reserve_map_at_backEm.exit: ; preds = %35, %45
-  %.not23 = icmp ult i64 %36, 8
+  %.not23 = icmp eq i64 %37, 0
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt5dequeIN4Json9OurReader9ErrorInfoESaIS2_EE22_M_reserve_map_at_backEm.exit
@@ -43011,7 +43011,7 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
   %50 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.31", ptr %0, i64 %.018.i.i.i.i.i
   %51 = load i64, ptr %47, align 8, !tbaa !407
   store i64 %51, ptr %50, align 8, !tbaa !407
-  %.not10.i.i.i = icmp ult i64 %.0919.in.i.i.i.i.i, 2
+  %.not10.i.i.i = icmp eq i64 %.0919.i.i89.i.i.i, 0
   br i1 %.not10.i.i.i, label %.critedge.loopexit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !696
 
 .critedge.loopexit.i.i.i.i.i:                     ; preds = %49, %.lr.ph.i.i.i.i.i
@@ -43225,7 +43225,7 @@ define linkonce_odr dso_local void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_it
   %41 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.31", ptr %.fr30, i64 %.018.i.i.i.us
   %42 = load i64, ptr %38, align 8, !tbaa !407
   store i64 %42, ptr %41, align 8, !tbaa !407
-  %.not10.i.us = icmp ult i64 %.0919.in.i.i.i.us, 2
+  %.not10.i.us = icmp eq i64 %.0919.i.i89.i.us, 0
   br i1 %.not10.i.us, label %.critedge.loopexit.i.i.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !696
 
 .critedge.loopexit.i.i.i.us:                      ; preds = %40, %.lr.ph.i.i.i.us

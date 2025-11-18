@@ -34063,7 +34063,7 @@ _ZN5arrow6StatusD2Ev.exit68.i:                    ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond40.not.i, label %.critedge56.i, label %_ZN5arrow6StatusD2Ev.exit.i, !llvm.loop !1288
 
 45:                                               ; preds = %37
-  %46 = icmp ult i32 %38, 65536
+  %46 = icmp eq i32 %.sroa.8.0.extract.shift.i, 0
   br i1 %46, label %.preheader11.i, label %.preheader13.i
 
 .preheader13.i:                                   ; preds = %45
@@ -34337,7 +34337,7 @@ _ZN5arrow6StatusD2Ev.exit68.i:                    ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond40.not.i, label %.critedge56.i, label %_ZN5arrow6StatusD2Ev.exit.i, !llvm.loop !1331
 
 45:                                               ; preds = %37
-  %46 = icmp ult i32 %38, 65536
+  %46 = icmp eq i32 %.sroa.8.0.extract.shift.i, 0
   br i1 %46, label %.preheader11.i, label %.preheader13.i
 
 .preheader13.i:                                   ; preds = %45
@@ -34611,7 +34611,7 @@ _ZN5arrow6StatusD2Ev.exit68.i:                    ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond40.not.i, label %.critedge56.i, label %_ZN5arrow6StatusD2Ev.exit.i, !llvm.loop !1378
 
 45:                                               ; preds = %37
-  %46 = icmp ult i32 %38, 65536
+  %46 = icmp eq i32 %.sroa.8.0.extract.shift.i, 0
   br i1 %46, label %.preheader11.i, label %.preheader13.i
 
 .preheader13.i:                                   ; preds = %45
@@ -34885,7 +34885,7 @@ _ZN5arrow6StatusD2Ev.exit68.i:                    ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond40.not.i, label %.critedge56.i, label %_ZN5arrow6StatusD2Ev.exit.i, !llvm.loop !1421
 
 45:                                               ; preds = %37
-  %46 = icmp ult i32 %38, 65536
+  %46 = icmp eq i32 %.sroa.8.0.extract.shift.i, 0
   br i1 %46, label %.preheader11.i, label %.preheader13.i
 
 .preheader13.i:                                   ; preds = %45
@@ -35159,7 +35159,7 @@ _ZN5arrow6StatusD2Ev.exit68.i:                    ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond40.not.i, label %.critedge56.i, label %_ZN5arrow6StatusD2Ev.exit.i, !llvm.loop !1467
 
 45:                                               ; preds = %37
-  %46 = icmp ult i32 %38, 65536
+  %46 = icmp eq i32 %.sroa.8.0.extract.shift.i, 0
   br i1 %46, label %.preheader11.i, label %.preheader13.i
 
 .preheader13.i:                                   ; preds = %45
@@ -35433,7 +35433,7 @@ _ZN5arrow6StatusD2Ev.exit68.i:                    ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond40.not.i, label %.critedge56.i, label %_ZN5arrow6StatusD2Ev.exit.i, !llvm.loop !1510
 
 45:                                               ; preds = %37
-  %46 = icmp ult i32 %38, 65536
+  %46 = icmp eq i32 %.sroa.8.0.extract.shift.i, 0
   br i1 %46, label %.preheader11.i, label %.preheader13.i
 
 .preheader13.i:                                   ; preds = %45
@@ -35707,7 +35707,7 @@ _ZN5arrow6StatusD2Ev.exit68.i:                    ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond40.not.i, label %.critedge56.i, label %_ZN5arrow6StatusD2Ev.exit.i, !llvm.loop !1557
 
 45:                                               ; preds = %37
-  %46 = icmp ult i32 %38, 65536
+  %46 = icmp eq i32 %.sroa.8.0.extract.shift.i, 0
   br i1 %46, label %.preheader11.i, label %.preheader13.i
 
 .preheader13.i:                                   ; preds = %45
@@ -35981,7 +35981,7 @@ _ZN5arrow6StatusD2Ev.exit68.i:                    ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond40.not.i, label %.critedge56.i, label %_ZN5arrow6StatusD2Ev.exit.i, !llvm.loop !1600
 
 45:                                               ; preds = %37
-  %46 = icmp ult i32 %38, 65536
+  %46 = icmp eq i32 %.sroa.8.0.extract.shift.i, 0
   br i1 %46, label %.preheader11.i, label %.preheader13.i
 
 .preheader13.i:                                   ; preds = %45

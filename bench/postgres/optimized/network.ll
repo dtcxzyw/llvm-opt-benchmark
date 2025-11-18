@@ -3620,12 +3620,12 @@ define internal fastcc noundef ptr @internal_inetpl(ptr noundef readonly capture
   %27 = lshr i32 %24, 8
   %28 = ashr i64 %.04352, 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not59 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not59, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  %.not58 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not58, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %29 = icmp ult i64 %.04352, 256
-  %30 = icmp samesign ult i32 %24, 256
+  %29 = icmp eq i64 %28, 0
+  %30 = icmp eq i32 %27, 0
   %or.cond = select i1 %29, i1 %30, i1 false
   br i1 %or.cond, label %38, label %31
 
@@ -3780,7 +3780,7 @@ define dso_local i64 @inetmi(ptr noundef readonly captures(none) %0) local_unnam
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %52
-  %54 = icmp samesign ult i32 %36, 256
+  %54 = icmp eq i32 %53, 0
   %or.cond = and i1 %54, %24
   %55 = shl nuw nsw i32 %25, 3
   %56 = add nuw nsw i32 %55, 8

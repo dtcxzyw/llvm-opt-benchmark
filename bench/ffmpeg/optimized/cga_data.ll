@@ -37,7 +37,7 @@ define void @ff_draw_pc_font(ptr noundef writeonly captures(none) %0, i32 nounde
   %18 = getelementptr inbounds nuw i8, ptr %.118, i64 1
   store i8 %17, ptr %.118, align 1, !tbaa !4
   %19 = lshr i32 %.019, 1
-  %.not = icmp samesign ult i32 %.019, 2
+  %.not = icmp eq i32 %19, 0
   br i1 %.not, label %20, label %12, !llvm.loop !7
 
 20:                                               ; preds = %12

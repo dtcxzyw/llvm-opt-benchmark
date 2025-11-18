@@ -716,20 +716,20 @@ define noundef i32 @_ZN7rocksdb24GetDefaultCacheShardBitsEmm(i64 noundef %0, i64
   %3 = udiv i64 %0, %1
   br label %4
 
-4:                                                ; preds = %5, %2
-  %.07 = phi i32 [ 0, %2 ], [ %7, %5 ]
-  %.0 = phi i64 [ %3, %2 ], [ %6, %5 ]
-  %.not = icmp ult i64 %.0, 2
-  br i1 %.not, label %8, label %5
+4:                                                ; preds = %6, %2
+  %.07 = phi i32 [ 0, %2 ], [ %7, %6 ]
+  %.0 = phi i64 [ %3, %2 ], [ %5, %6 ]
+  %5 = lshr i64 %.0, 1
+  %.not = icmp eq i64 %5, 0
+  br i1 %.not, label %8, label %6
 
-5:                                                ; preds = %4
-  %6 = lshr i64 %.0, 1
+6:                                                ; preds = %4
   %7 = add nuw nsw i32 %.07, 1
   %exitcond = icmp eq i32 %7, 6
   br i1 %exitcond, label %8, label %4, !llvm.loop !91
 
-8:                                                ; preds = %4, %5
-  %.08 = phi i32 [ 6, %5 ], [ %.07, %4 ]
+8:                                                ; preds = %4, %6
+  %.08 = phi i32 [ 6, %6 ], [ %.07, %4 ]
   ret i32 %.08
 }
 

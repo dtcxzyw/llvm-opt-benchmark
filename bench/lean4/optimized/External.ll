@@ -15177,7 +15177,7 @@ lean_dec.exit233:                                 ; preds = %187, %186, %184, %l
 
 190:                                              ; preds = %lean_dec.exit233
   %191 = lshr i64 %188, 1
-  %192 = icmp ult ptr %0, inttoptr (i64 2 to ptr)
+  %192 = icmp eq i64 %191, 0
   br i1 %192, label %lean_nat_mul.exit198, label %193
 
 193:                                              ; preds = %190
@@ -16030,7 +16030,7 @@ lean_dec.exit225:                                 ; preds = %518, %517, %515, %l
 
 521:                                              ; preds = %lean_dec.exit225
   %522 = lshr i64 %519, 1
-  %523 = icmp ult ptr %0, inttoptr (i64 2 to ptr)
+  %523 = icmp eq i64 %522, 0
   br i1 %523, label %lean_nat_mul.exit, label %524
 
 524:                                              ; preds = %521

@@ -193,68 +193,68 @@ define void @prte_odls_base_start_threads(ptr noundef readonly captures(none) %0
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 320), align 8, !tbaa !36
   %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 292), align 4, !tbaa !26
   %20 = icmp eq i32 %19, -1
-  br i1 %20, label %21, label %32
+  br i1 %20, label %21, label %33
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %23 = load i32, ptr %22, align 8, !tbaa !37
   %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 296), align 8, !tbaa !46
   %25 = icmp slt i32 %23, %24
-  br i1 %25, label %.thread, label %26
+  br i1 %25, label %.thread11, label %26
 
-.thread:                                          ; preds = %21
+.thread11:                                        ; preds = %21
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 292), align 4, !tbaa !26
-  br label %35
+  br label %36
 
 26:                                               ; preds = %21
   %27 = lshr i32 %23, 3
   store i32 %27, ptr getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 292), align 4, !tbaa !26
-  %28 = icmp ult i32 %23, 8
-  br i1 %28, label %.thread11, label %29
-
-.thread11:                                        ; preds = %26
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 292), align 4, !tbaa !26
-  br label %43
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %30
 
 29:                                               ; preds = %26
-  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 288), align 8, !tbaa !35
-  %31 = icmp slt i32 %30, %27
-  br i1 %31, label %.sink.split, label %32
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 292), align 4, !tbaa !26
+  br label %.thread
 
-.sink.split:                                      ; preds = %29, %16
-  %.sink = phi i32 [ %17, %16 ], [ %30, %29 ]
+30:                                               ; preds = %26
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 288), align 8, !tbaa !35
+  %32 = icmp slt i32 %31, %27
+  br i1 %32, label %.sink.split, label %.thread
+
+.sink.split:                                      ; preds = %30, %16
+  %.sink = phi i32 [ %17, %16 ], [ %31, %30 ]
   store i32 %.sink, ptr getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 292), align 4, !tbaa !26
-  br label %32
+  br label %33
 
-32:                                               ; preds = %.sink.split, %18, %29
-  %33 = phi i32 [ %19, %18 ], [ %27, %29 ], [ %.sink, %.sink.split ]
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %43
+33:                                               ; preds = %.sink.split, %18
+  %34 = phi i32 [ %19, %18 ], [ %.sink, %.sink.split ]
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %.thread
 
-35:                                               ; preds = %.thread, %32
-  %36 = load ptr, ptr @prte_event_base_ptr, align 8, !tbaa !47
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %38, label %41
+36:                                               ; preds = %.thread11, %33
+  %37 = load ptr, ptr @prte_event_base_ptr, align 8, !tbaa !47
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %39, label %42
 
-38:                                               ; preds = %35
-  %39 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #14
-  store ptr %39, ptr @prte_event_base_ptr, align 8, !tbaa !47
-  %40 = load ptr, ptr @prte_event_base, align 8, !tbaa !31
-  store ptr %40, ptr %39, align 8, !tbaa !31
-  br label %41
+39:                                               ; preds = %36
+  %40 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #14
+  store ptr %40, ptr @prte_event_base_ptr, align 8, !tbaa !47
+  %41 = load ptr, ptr @prte_event_base, align 8, !tbaa !31
+  store ptr %41, ptr %40, align 8, !tbaa !31
+  br label %42
 
-41:                                               ; preds = %38, %35
-  %42 = phi ptr [ %39, %38 ], [ %36, %35 ]
-  store ptr %42, ptr getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 304), align 8, !tbaa !30
+42:                                               ; preds = %39, %36
+  %43 = phi ptr [ %40, %39 ], [ %37, %36 ]
+  store ptr %43, ptr getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 304), align 8, !tbaa !30
   br label %.loopexit
 
-43:                                               ; preds = %.thread11, %32
-  %44 = phi i32 [ 1, %.thread11 ], [ %33, %32 ]
+.thread:                                          ; preds = %30, %29, %33
+  %44 = phi i32 [ %34, %33 ], [ %27, %30 ], [ 1, %29 ]
   %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_odls_base_framework, i64 76), align 4, !tbaa !48
   %or.cond = icmp ult i32 %45, 64
   br i1 %or.cond, label %46, label %53
 
-46:                                               ; preds = %43
+46:                                               ; preds = %.thread
   %47 = zext nneg i32 %45 to i64
   %48 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
@@ -267,8 +267,8 @@ define void @prte_odls_base_start_threads(ptr noundef readonly captures(none) %0
   %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 292), align 4, !tbaa !26
   br label %53
 
-53:                                               ; preds = %52, %46, %43
-  %54 = phi i32 [ %.pre, %52 ], [ %44, %46 ], [ %44, %43 ]
+53:                                               ; preds = %52, %46, %.thread
+  %54 = phi i32 [ %.pre, %52 ], [ %44, %46 ], [ %44, %.thread ]
   %55 = sext i32 %54 to i64
   %56 = shl nsw i64 %55, 3
   %57 = tail call noalias ptr @malloc(i64 noundef %56) #14
@@ -295,7 +295,7 @@ define void @prte_odls_base_start_threads(ptr noundef readonly captures(none) %0
   %70 = icmp slt i64 %indvars.iv.next, %69
   br i1 %70, label %.lr.ph14, label %.loopexit, !llvm.loop !53
 
-.loopexit:                                        ; preds = %.lr.ph14, %53, %41
+.loopexit:                                        ; preds = %.lr.ph14, %53, %42
   store volatile i8 0, ptr getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 544), align 8, !tbaa !3
   fence release
   %71 = call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 496)) #13

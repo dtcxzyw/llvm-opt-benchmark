@@ -1344,22 +1344,22 @@ TBufferNewPage.exit.i281:                         ; preds = %632
 
 AddConstantToken.exit285:                         ; preds = %TBufferNewPage.exit.thread.i280, %642
   %650 = lshr i32 %.1116304, 1
-  %.not137 = icmp samesign ult i32 %.1116304, 2
+  %.not137 = icmp eq i32 %650, 0
   br i1 %.not137, label %AddConstantToken.exit, label %623, !llvm.loop !36
 
 AddConstantToken.exit:                            ; preds = %AddConstantToken.exit285, %AddToken.exit178, %AddToken.exit170, %TBufferNewPage.exit.thread.i196, %327, %TBufferNewPage.exit.thread.i209, %369, %AddToken.exit154
-  %.sink366 = phi i32 [ 11, %AddToken.exit154 ], [ 22, %369 ], [ 22, %TBufferNewPage.exit.thread.i209 ], [ 22, %327 ], [ 22, %TBufferNewPage.exit.thread.i196 ], [ 22, %AddToken.exit170 ], [ 22, %AddToken.exit178 ], [ 22, %AddConstantToken.exit285 ]
-  %.sink361 = phi i64 [ 44, %AddToken.exit154 ], [ 88, %369 ], [ 88, %TBufferNewPage.exit.thread.i209 ], [ 88, %327 ], [ 88, %TBufferNewPage.exit.thread.i196 ], [ 88, %AddToken.exit170 ], [ 88, %AddToken.exit178 ], [ 88, %AddConstantToken.exit285 ]
+  %.sink367 = phi i32 [ 11, %AddToken.exit154 ], [ 22, %369 ], [ 22, %TBufferNewPage.exit.thread.i209 ], [ 22, %327 ], [ 22, %TBufferNewPage.exit.thread.i196 ], [ 22, %AddToken.exit170 ], [ 22, %AddToken.exit178 ], [ 22, %AddConstantToken.exit285 ]
+  %.sink362 = phi i64 [ 44, %AddToken.exit154 ], [ 88, %369 ], [ 88, %TBufferNewPage.exit.thread.i209 ], [ 88, %327 ], [ 88, %TBufferNewPage.exit.thread.i196 ], [ 88, %AddToken.exit170 ], [ 88, %AddToken.exit178 ], [ 88, %AddConstantToken.exit285 ]
   %651 = getelementptr inbounds i8, ptr @VP8EncBands, i64 %indvars.iv.next
   %652 = load i8, ptr %651, align 1, !tbaa !34
   %653 = zext i8 %652 to i32
   %654 = add nsw i32 %11, %653
   %655 = mul i32 %654, 33
-  %656 = add i32 %655, %.sink366
+  %656 = add i32 %655, %.sink367
   %657 = load ptr, ptr %16, align 8, !tbaa !29
   %658 = zext i8 %652 to i64
   %659 = getelementptr inbounds nuw [3 x [11 x i32]], ptr %657, i64 %658
-  %660 = getelementptr inbounds nuw i8, ptr %659, i64 %.sink361
+  %660 = getelementptr inbounds nuw i8, ptr %659, i64 %.sink362
   %661 = load i32, ptr %23, align 8, !tbaa !14
   %662 = icmp sgt i32 %661, 0
   br i1 %662, label %._crit_edge.i289, label %663

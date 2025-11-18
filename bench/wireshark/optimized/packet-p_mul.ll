@@ -733,8 +733,8 @@ proto_item_set_generated.exit623:                 ; preds = %150, %155, %158
   br i1 %.not5.i625, label %proto_item_set_generated.exit620, label %proto_item_set_generated.exit620.sink.split
 
 proto_item_set_generated.exit620.sink.split:      ; preds = %164, %147
-  %.sink920 = phi ptr [ %149, %147 ], [ %166, %164 ]
-  %167 = getelementptr inbounds nuw i8, ptr %.sink920, i64 28
+  %.sink921 = phi ptr [ %149, %147 ], [ %166, %164 ]
+  %167 = getelementptr inbounds nuw i8, ptr %.sink921, i64 28
   %168 = load i32, ptr %167, align 4
   %169 = or i32 %168, 2
   store i32 %169, ptr %167, align 4
@@ -1038,7 +1038,7 @@ proto_item_set_generated.exit620:                 ; preds = %proto_item_set_gene
 324:                                              ; preds = %320
   %325 = add nsw i32 %289, -10
   %326 = lshr i32 %325, 1
-  %.not790 = icmp samesign ult i32 %325, 2
+  %.not790 = icmp eq i32 %326, 0
   br i1 %.not790, label %.loopexit, label %.lr.ph768
 
 .lr.ph768:                                        ; preds = %324
@@ -1210,7 +1210,7 @@ proto_item_set_generated.exit629:                 ; preds = %392, %395, %398
   %407 = zext i16 %.1550 to i32
   %.11761 = add nuw nsw i32 %.2561, 4
   %.not788 = icmp eq i16 %.1550, 0
-  br i1 %.not788, label %.thread904, label %.lr.ph
+  br i1 %.not788, label %.thread905, label %.lr.ph
 
 .lr.ph:                                           ; preds = %404, %.lr.ph
   %.11763 = phi i32 [ %.11, %.lr.ph ], [ %.11761, %404 ]
@@ -1220,7 +1220,7 @@ proto_item_set_generated.exit629:                 ; preds = %392, %395, %398
   %410 = add nuw nsw i32 %.2577762, 1
   %.11 = add nuw nsw i32 %.11763, 4
   %exitcond.not = icmp eq i32 %410, %407
-  br i1 %exitcond.not, label %.thread904, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.thread905, label %.lr.ph, !llvm.loop !13
 
 .thread655:                                       ; preds = %227, %227, %227
   %411 = load i32, ptr @hf_mc_group, align 4
@@ -1228,7 +1228,7 @@ proto_item_set_generated.exit629:                 ; preds = %392, %395, %398
   %413 = add nuw nsw i32 %.2561, 4
   br label %594
 
-.thread904:                                       ; preds = %.lr.ph, %404
+.thread905:                                       ; preds = %.lr.ph, %404
   %.5.ph = phi i32 [ %.11761, %404 ], [ %.11, %.lr.ph ]
   %414 = load ptr, ptr %9, align 8
   %415 = tail call ptr @val_to_str_const(i32 noundef %16, ptr noundef nonnull @pdu_vals, ptr noundef nonnull @.str.248)
@@ -1683,11 +1683,11 @@ add_seq_analysis.exit:                            ; preds = %424, %.thread.i, %5
 613:                                              ; preds = %606, %603
   br i1 %596, label %614, label %616
 
-614:                                              ; preds = %.thread904, %.thread719, %.thread711, %.thread739, %604, %610, %613
-  %.1580648676686758 = phi i16 [ %.1580648677, %610 ], [ %.1580648677, %613 ], [ %.1580648677, %604 ], [ %.1580648677, %.thread739 ], [ %.1580648677, %.thread711 ], [ %.1580, %.thread719 ], [ %.0579, %.thread904 ]
-  %.5650672693755 = phi i32 [ %.5650673, %610 ], [ %.5650673, %613 ], [ %.5650673, %604 ], [ %.5650673, %.thread739 ], [ %.5650673, %.thread711 ], [ %.5, %.thread719 ], [ %.5.ph, %.thread904 ]
-  %.0553652668701751 = phi i32 [ %.0553652669, %610 ], [ %.0553652669, %613 ], [ %.0553652669, %604 ], [ %.0553652669, %.thread739 ], [ %.0553652669, %.thread711 ], [ %.0553, %.thread719 ], [ 0, %.thread904 ]
-  %.2654664707746 = phi i32 [ %.2654665, %610 ], [ %.2654665, %613 ], [ %.2654665, %604 ], [ %.2654665, %.thread739 ], [ %.2654665, %.thread711 ], [ %.2, %.thread719 ], [ %.0, %.thread904 ]
+614:                                              ; preds = %.thread905, %.thread719, %.thread711, %.thread739, %604, %610, %613
+  %.1580648676686758 = phi i16 [ %.1580648677, %610 ], [ %.1580648677, %613 ], [ %.1580648677, %604 ], [ %.1580648677, %.thread739 ], [ %.1580648677, %.thread711 ], [ %.1580, %.thread719 ], [ %.0579, %.thread905 ]
+  %.5650672693755 = phi i32 [ %.5650673, %610 ], [ %.5650673, %613 ], [ %.5650673, %604 ], [ %.5650673, %.thread739 ], [ %.5650673, %.thread711 ], [ %.5, %.thread719 ], [ %.5.ph, %.thread905 ]
+  %.0553652668701751 = phi i32 [ %.0553652669, %610 ], [ %.0553652669, %613 ], [ %.0553652669, %604 ], [ %.0553652669, %.thread739 ], [ %.0553652669, %.thread711 ], [ %.0553, %.thread719 ], [ 0, %.thread905 ]
+  %.2654664707746 = phi i32 [ %.2654665, %610 ], [ %.2654665, %613 ], [ %.2654665, %604 ], [ %.2654665, %.thread739 ], [ %.2654665, %.thread711 ], [ %.2, %.thread719 ], [ %.0, %.thread905 ]
   %615 = load ptr, ptr %9, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %615, i32 noundef 25, ptr noundef nonnull @.str.225, i32 noundef %.2654664707746)
   br label %622

@@ -1167,11 +1167,11 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_115AvailabilitySet14getForPl
   %3 = zext i32 %.16.val to i64
   %.idx1.i = mul nuw nsw i64 %3, 112
   %4 = getelementptr inbounds nuw i8, ptr %.8.val, i64 %.idx1.i
-  %.not.i = icmp ult i32 %.16.val, 4
+  %5 = lshr i64 %3, 2
+  %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %._crit_edge.i.i.i.i, label %.lr.ph.preheader.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %2
-  %5 = lshr i64 %3, 2
   %6 = mul nuw nsw i64 %5, 448
   %scevgep.i.i.i.i = getelementptr i8, ptr %.8.val, i64 %6
   br label %.lr.ph.i.i.i.i

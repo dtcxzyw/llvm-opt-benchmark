@@ -359,7 +359,7 @@ define noundef zeroext i1 @_ZNK3net9IPAddress10IsReservedEv(ptr noundef nonnull 
   %8 = getelementptr inbounds nuw i8, ptr %.011.ptr.i, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !14
   %10 = lshr i64 %9, 3
-  %.not241.not.i.i = icmp ult i64 %9, 8
+  %.not241.not.i.i = icmp eq i64 %10, 0
   br i1 %.not241.not.i.i, label %.critedge.i.i, label %.lr.ph.i.i
 
 11:                                               ; preds = %.lr.ph.i.i
@@ -406,7 +406,7 @@ define noundef zeroext i1 @_ZNK3net9IPAddress10IsReservedEv(ptr noundef nonnull 
   %29 = getelementptr inbounds nuw i8, ptr %.011.ptr.i3, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !19
   %31 = lshr i64 %30, 3
-  %.not241.not.i.i4 = icmp ult i64 %30, 8
+  %.not241.not.i.i4 = icmp eq i64 %31, 0
   br i1 %.not241.not.i.i4, label %.critedge.i.i12, label %.lr.ph.i.i5
 
 32:                                               ; preds = %.lr.ph.i.i5
@@ -1403,7 +1403,7 @@ define noundef zeroext i1 @_ZN3net22IPAddressMatchesPrefixERKNS_9IPAddressES2_m(
 
 31:                                               ; preds = %3
   %32 = lshr i64 %2, 3
-  %.not241.not.i = icmp ult i64 %2, 8
+  %.not241.not.i = icmp eq i64 %32, 0
   br i1 %.not241.not.i, label %.critedge.i, label %.lr.ph.i
 
 33:                                               ; preds = %.lr.ph.i

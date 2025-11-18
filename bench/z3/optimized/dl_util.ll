@@ -2840,8 +2840,8 @@ define hidden void @_ZN7datalog12rule_counter15count_rule_varsEPKNS_4ruleEi(ptr 
   %25 = icmp ugt i32 %13, 16
   %26 = mul i32 %13, 3
   %27 = icmp ugt i32 %24, %26
-  %or.cond18.i.i.i = select i1 %25, i1 %27, i1 false
-  br i1 %or.cond18.i.i.i, label %28, label %._crit_edge.thread.i.i.i
+  %or.cond19.i.i.i = select i1 %25, i1 %27, i1 false
+  br i1 %or.cond19.i.i.i, label %28, label %._crit_edge.thread.i.i.i
 
 28:                                               ; preds = %._crit_edge.i.i.i
   %29 = icmp eq ptr %11, null
@@ -2860,7 +2860,7 @@ _ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_h
   %33 = zext nneg i32 %32 to i64
   %34 = shl nuw nsw i64 %33, 4
   %35 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %34)
-  %.not6.i.i.i.i.i.i.i.i = icmp ult i32 %31, 2
+  %.not6.i.i.i.i.i.i.i.i = icmp eq i32 %32, 0
   br i1 %.not6.i.i.i.i.i.i.i.i, label %_ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE11alloc_tableEj.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %_ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE12delete_tableEv.exit.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i

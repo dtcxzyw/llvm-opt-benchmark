@@ -12239,7 +12239,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit.i.i.i: ; preds = %11
   store i64 %113, ptr %114, align 8, !tbaa !170, !noalias !167
   %115 = add i64 %42, 63
   %116 = lshr i64 %115, 6
-  %.not78.i.i.i = icmp ult i64 %115, 64
+  %.not78.i.i.i = icmp eq i64 %116, 0
   br i1 %.not78.i.i.i, label %_ZN6duckdb13UnaryExecutor7ExecuteIssZNS_L37DecimalRoundNegativePrecisionFunctionIsNS_13NumericHelperEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlsE_EEvS9_S9_mT1_NS_14FunctionErrorsE.exit, label %.lr.ph75.i.i.i
 
 .lr.ph75.i.i.i:                                   ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit.i.i.i
@@ -12875,7 +12875,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit.i.i.i: ; preds = %10
   store i64 %109, ptr %110, align 8, !tbaa !170, !noalias !204
   %111 = add i64 %42, 63
   %112 = lshr i64 %111, 6
-  %.not78.i.i.i = icmp ult i64 %111, 64
+  %.not78.i.i.i = icmp eq i64 %112, 0
   br i1 %.not78.i.i.i, label %_ZN6duckdb13UnaryExecutor7ExecuteIiiZNS_L37DecimalRoundNegativePrecisionFunctionIiNS_13NumericHelperEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUliE_EEvS9_S9_mT1_NS_14FunctionErrorsE.exit, label %.lr.ph75.i.i.i
 
 .lr.ph75.i.i.i:                                   ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit.i.i.i
@@ -13492,7 +13492,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit.i.i.i: ; preds = %10
   store i64 %107, ptr %108, align 8, !tbaa !170, !noalias !227
   %109 = add i64 %40, 63
   %110 = lshr i64 %109, 6
-  %.not78.i.i.i = icmp ult i64 %109, 64
+  %.not78.i.i.i = icmp eq i64 %110, 0
   br i1 %.not78.i.i.i, label %_ZN6duckdb13UnaryExecutor7ExecuteIllZNS_L37DecimalRoundNegativePrecisionFunctionIlNS_13NumericHelperEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUllE_EEvS9_S9_mT1_NS_14FunctionErrorsE.exit, label %.lr.ph75.i.i.i
 
 .lr.ph75.i.i.i:                                   ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit.i.i.i
@@ -14182,7 +14182,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit.i.i.i: ; preds = %13
   store i64 %141, ptr %142, align 8, !tbaa !170, !noalias !250
   %143 = add i64 %65, 63
   %144 = lshr i64 %143, 6
-  %.not85.i.i.i = icmp ult i64 %143, 64
+  %.not85.i.i.i = icmp eq i64 %144, 0
   br i1 %.not85.i.i.i, label %_ZN6duckdb13UnaryExecutor7ExecuteINS_9hugeint_tES2_ZNS_L37DecimalRoundNegativePrecisionFunctionIS2_NS_7HugeintEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlS2_E_EEvSA_SA_mT1_NS_14FunctionErrorsE.exit, label %.lr.ph82.i.i.i
 
 .lr.ph82.i.i.i:                                   ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit.i.i.i
@@ -14970,7 +14970,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit.i.i.i: ; preds = %94
   store i64 %96, ptr %97, align 8, !tbaa !170, !noalias !273
   %98 = add i64 %26, 63
   %99 = lshr i64 %98, 6
-  %.not83.i.i.i = icmp ult i64 %98, 64
+  %.not83.i.i.i = icmp eq i64 %99, 0
   br i1 %.not83.i.i.i, label %_ZN6duckdb13UnaryExecutor7ExecuteIssZNS_L37DecimalRoundPositivePrecisionFunctionIsNS_13NumericHelperEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlsE_EEvS9_S9_mT1_NS_14FunctionErrorsE.exit, label %.lr.ph80.i.i.i
 
 .lr.ph80.i.i.i:                                   ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit.i.i.i
@@ -15559,7 +15559,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit.i.i.i: ; preds = %90
   store i64 %92, ptr %93, align 8, !tbaa !170, !noalias !296
   %94 = add i64 %26, 63
   %95 = lshr i64 %94, 6
-  %.not83.i.i.i = icmp ult i64 %94, 64
+  %.not83.i.i.i = icmp eq i64 %95, 0
   br i1 %.not83.i.i.i, label %_ZN6duckdb13UnaryExecutor7ExecuteIiiZNS_L37DecimalRoundPositivePrecisionFunctionIiNS_13NumericHelperEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUliE_EEvS9_S9_mT1_NS_14FunctionErrorsE.exit, label %.lr.ph80.i.i.i
 
 .lr.ph80.i.i.i:                                   ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit.i.i.i
@@ -16169,7 +16169,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit.i.i.i: ; preds = %89
   store i64 %91, ptr %92, align 8, !tbaa !170, !noalias !319
   %93 = add i64 %25, 63
   %94 = lshr i64 %93, 6
-  %.not83.i.i.i = icmp ult i64 %93, 64
+  %.not83.i.i.i = icmp eq i64 %94, 0
   br i1 %.not83.i.i.i, label %_ZN6duckdb13UnaryExecutor7ExecuteIllZNS_L37DecimalRoundPositivePrecisionFunctionIlNS_13NumericHelperEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUllE_EEvS9_S9_mT1_NS_14FunctionErrorsE.exit, label %.lr.ph80.i.i.i
 
 .lr.ph80.i.i.i:                                   ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit.i.i.i
@@ -16831,7 +16831,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit.i.i.i: ; preds = %11
   store i64 %114, ptr %115, align 8, !tbaa !170, !noalias !342
   %116 = add i64 %43, 63
   %117 = lshr i64 %116, 6
-  %.not85.i.i.i = icmp ult i64 %116, 64
+  %.not85.i.i.i = icmp eq i64 %117, 0
   br i1 %.not85.i.i.i, label %_ZN6duckdb13UnaryExecutor7ExecuteINS_9hugeint_tES2_ZNS_L37DecimalRoundPositivePrecisionFunctionIS2_NS_7HugeintEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlS2_E_EEvSA_SA_mT1_NS_14FunctionErrorsE.exit, label %.lr.ph82.i.i.i
 
 .lr.ph82.i.i.i:                                   ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit.i.i.i
@@ -33814,7 +33814,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %27, %2
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i: ; preds = %31
   store ptr %39, ptr %35, align 8, !tbaa !448, !noalias !441
-  %.not.i.i.i.i.i.i.i.i.i = icmp ult i64 %36, 64
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %37, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit12.i.i.i.i.i.i.i.i.i: ; preds = %31
@@ -33970,7 +33970,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIdddNS_29Bi
 9:                                                ; preds = %6
   %10 = add i64 %3, 63
   %11 = lshr i64 %10, 6
-  %.not76 = icmp ult i64 %10, 64
+  %.not76 = icmp eq i64 %11, 0
   br i1 %.not76, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %9, %.loopexit64
@@ -34274,7 +34274,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIdddNS_29Bi
 9:                                                ; preds = %6
   %10 = add i64 %3, 63
   %11 = lshr i64 %10, 6
-  %.not76 = icmp ult i64 %10, 64
+  %.not76 = icmp eq i64 %11, 0
   br i1 %.not76, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %9, %.loopexit64
@@ -34370,7 +34370,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIdddNS_29Bi
 8:                                                ; preds = %6
   %9 = add i64 %3, 63
   %10 = lshr i64 %9, 6
-  %.not85 = icmp ult i64 %9, 64
+  %.not85 = icmp eq i64 %10, 0
   br i1 %.not85, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %8, %.loopexit73
@@ -34890,14 +34890,14 @@ define linkonce_odr void @_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEE
   %7 = load i64, ptr %1, align 8, !tbaa !144, !noalias !470
   store ptr null, ptr %6, align 8, !tbaa !446, !noalias !470
   %8 = add i64 %7, 63
-  %9 = lshr i64 %8, 3
-  %10 = and i64 %9, 2305843009213693944
+  %9 = lshr i64 %8, 6
+  %10 = shl nuw nsw i64 %9, 3
   %11 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %10) #24
           to label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i unwind label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit10.i.i.i.i.i.i.i.i.i, !noalias !470
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i: ; preds = %2
   store ptr %11, ptr %6, align 8, !tbaa !448, !noalias !470
-  %.not.i.i.i.i.i.i.i.i.i = icmp ult i64 %8, 64
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %9, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %13, label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i
@@ -35742,7 +35742,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIfffNS_29Bi
 9:                                                ; preds = %6
   %10 = add i64 %3, 63
   %11 = lshr i64 %10, 6
-  %.not76 = icmp ult i64 %10, 64
+  %.not76 = icmp eq i64 %11, 0
   br i1 %.not76, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %9, %.loopexit64
@@ -35840,7 +35840,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIfffNS_29Bi
 9:                                                ; preds = %6
   %10 = add i64 %3, 63
   %11 = lshr i64 %10, 6
-  %.not76 = icmp ult i64 %10, 64
+  %.not76 = icmp eq i64 %11, 0
   br i1 %.not76, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %9, %.loopexit64
@@ -35934,7 +35934,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIfffNS_29Bi
 8:                                                ; preds = %6
   %9 = add i64 %3, 63
   %10 = lshr i64 %9, 6
-  %.not85 = icmp ult i64 %9, 64
+  %.not85 = icmp eq i64 %10, 0
   br i1 %.not85, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %8, %.loopexit73
@@ -36681,7 +36681,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53
@@ -37516,7 +37516,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53
@@ -38151,7 +38151,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53
@@ -38786,7 +38786,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53
@@ -39424,7 +39424,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53
@@ -40033,7 +40033,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %11, %_ZN
 54:                                               ; preds = %53, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %55 = add i64 %2, 63
   %56 = lshr i64 %55, 6
-  %.not74 = icmp ult i64 %55, 64
+  %.not74 = icmp eq i64 %56, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %54
@@ -40647,7 +40647,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %11, %_ZN
 54:                                               ; preds = %53, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %55 = add i64 %2, 63
   %56 = lshr i64 %55, 6
-  %.not74 = icmp ult i64 %55, 64
+  %.not74 = icmp eq i64 %56, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %54
@@ -41261,7 +41261,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %11, %_ZN
 54:                                               ; preds = %53, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %55 = add i64 %2, 63
   %56 = lshr i64 %55, 6
-  %.not74 = icmp ult i64 %55, 64
+  %.not74 = icmp eq i64 %56, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %54
@@ -41912,7 +41912,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %17, %_ZN
 60:                                               ; preds = %59, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %61 = add i64 %2, 63
   %62 = lshr i64 %61, 6
-  %.not91 = icmp ult i64 %61, 64
+  %.not91 = icmp eq i64 %62, 0
   br i1 %.not91, label %.loopexit, label %.lr.ph88
 
 .lr.ph88:                                         ; preds = %60
@@ -42707,7 +42707,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %17, %_ZN
 60:                                               ; preds = %59, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %61 = add i64 %2, 63
   %62 = lshr i64 %61, 6
-  %.not91 = icmp ult i64 %61, 64
+  %.not91 = icmp eq i64 %62, 0
   br i1 %.not91, label %.loopexit, label %.lr.ph88
 
 .lr.ph88:                                         ; preds = %60
@@ -43461,7 +43461,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53
@@ -44099,7 +44099,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53
@@ -44911,7 +44911,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %16, %_ZN
 59:                                               ; preds = %58, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %60 = add i64 %2, 63
   %61 = lshr i64 %60, 6
-  %.not92 = icmp ult i64 %60, 64
+  %.not92 = icmp eq i64 %61, 0
   br i1 %.not92, label %.loopexit, label %.lr.ph87
 
 .lr.ph87:                                         ; preds = %59
@@ -46080,7 +46080,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %16, %_ZN
 59:                                               ; preds = %58, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %60 = add i64 %2, 63
   %61 = lshr i64 %60, 6
-  %.not92 = icmp ult i64 %60, 64
+  %.not92 = icmp eq i64 %61, 0
   br i1 %.not92, label %.loopexit, label %.lr.ph87
 
 .lr.ph87:                                         ; preds = %59
@@ -47247,7 +47247,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %16, %_ZN
 59:                                               ; preds = %58, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %60 = add i64 %2, 63
   %61 = lshr i64 %60, 6
-  %.not92 = icmp ult i64 %60, 64
+  %.not92 = icmp eq i64 %61, 0
   br i1 %.not92, label %.loopexit, label %.lr.ph87
 
 .lr.ph87:                                         ; preds = %59
@@ -48414,7 +48414,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %16, %_ZN
 59:                                               ; preds = %58, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %60 = add i64 %2, 63
   %61 = lshr i64 %60, 6
-  %.not92 = icmp ult i64 %60, 64
+  %.not92 = icmp eq i64 %61, 0
   br i1 %.not92, label %.loopexit, label %.lr.ph87
 
 .lr.ph87:                                         ; preds = %59
@@ -49517,7 +49517,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53
@@ -50126,7 +50126,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %11, %_ZN
 54:                                               ; preds = %53, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %55 = add i64 %2, 63
   %56 = lshr i64 %55, 6
-  %.not74 = icmp ult i64 %55, 64
+  %.not74 = icmp eq i64 %56, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %54
@@ -50740,7 +50740,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %11, %_ZN
 54:                                               ; preds = %53, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %55 = add i64 %2, 63
   %56 = lshr i64 %55, 6
-  %.not74 = icmp ult i64 %55, 64
+  %.not74 = icmp eq i64 %56, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %54
@@ -51354,7 +51354,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %11, %_ZN
 54:                                               ; preds = %53, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %55 = add i64 %2, 63
   %56 = lshr i64 %55, 6
-  %.not74 = icmp ult i64 %55, 64
+  %.not74 = icmp eq i64 %56, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %54
@@ -51970,7 +51970,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not83 = icmp ult i64 %54, 64
+  %.not83 = icmp eq i64 %55, 0
   br i1 %.not83, label %.loopexit, label %.lr.ph80
 
 .lr.ph80:                                         ; preds = %53, %.loopexit70
@@ -53206,7 +53206,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %17, %_ZN
 60:                                               ; preds = %59, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %61 = add i64 %2, 63
   %62 = lshr i64 %61, 6
-  %.not91 = icmp ult i64 %61, 64
+  %.not91 = icmp eq i64 %62, 0
   br i1 %.not91, label %.loopexit, label %.lr.ph88
 
 .lr.ph88:                                         ; preds = %60
@@ -53954,7 +53954,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53
@@ -54589,7 +54589,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53
@@ -55237,7 +55237,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not90 = icmp ult i64 %54, 64
+  %.not90 = icmp eq i64 %55, 0
   br i1 %.not90, label %.loopexit, label %.lr.ph87
 
 .lr.ph87:                                         ; preds = %53
@@ -55960,7 +55960,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not90 = icmp ult i64 %54, 64
+  %.not90 = icmp eq i64 %55, 0
   br i1 %.not90, label %.loopexit, label %.lr.ph87
 
 .lr.ph87:                                         ; preds = %53
@@ -56683,7 +56683,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not90 = icmp ult i64 %54, 64
+  %.not90 = icmp eq i64 %55, 0
   br i1 %.not90, label %.loopexit, label %.lr.ph87
 
 .lr.ph87:                                         ; preds = %53
@@ -57406,7 +57406,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not90 = icmp ult i64 %54, 64
+  %.not90 = icmp eq i64 %55, 0
   br i1 %.not90, label %.loopexit, label %.lr.ph87
 
 .lr.ph87:                                         ; preds = %53
@@ -58145,7 +58145,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not111 = icmp ult i64 %54, 64
+  %.not111 = icmp eq i64 %55, 0
   br i1 %.not111, label %.loopexit, label %.lr.ph108
 
 .lr.ph108:                                        ; preds = %53
@@ -58893,7 +58893,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not78 = icmp ult i64 %54, 64
+  %.not78 = icmp eq i64 %55, 0
   br i1 %.not78, label %.loopexit, label %.lr.ph75
 
 .lr.ph75:                                         ; preds = %53, %.loopexit65
@@ -59633,7 +59633,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not76 = icmp ult i64 %54, 64
+  %.not76 = icmp eq i64 %55, 0
   br i1 %.not76, label %.loopexit, label %.lr.ph73
 
 .lr.ph73:                                         ; preds = %53
@@ -60268,7 +60268,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not76 = icmp ult i64 %54, 64
+  %.not76 = icmp eq i64 %55, 0
   br i1 %.not76, label %.loopexit, label %.lr.ph73
 
 .lr.ph73:                                         ; preds = %53
@@ -60903,7 +60903,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not76 = icmp ult i64 %54, 64
+  %.not76 = icmp eq i64 %55, 0
   br i1 %.not76, label %.loopexit, label %.lr.ph73
 
 .lr.ph73:                                         ; preds = %53
@@ -61538,7 +61538,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not76 = icmp ult i64 %54, 64
+  %.not76 = icmp eq i64 %55, 0
   br i1 %.not76, label %.loopexit, label %.lr.ph73
 
 .lr.ph73:                                         ; preds = %53
@@ -62174,7 +62174,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not76 = icmp ult i64 %54, 64
+  %.not76 = icmp eq i64 %55, 0
   br i1 %.not76, label %.loopexit, label %.lr.ph73
 
 .lr.ph73:                                         ; preds = %53
@@ -62818,7 +62818,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not76 = icmp ult i64 %54, 64
+  %.not76 = icmp eq i64 %55, 0
   br i1 %.not76, label %.loopexit, label %.lr.ph73
 
 .lr.ph73:                                         ; preds = %53
@@ -63462,7 +63462,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not76 = icmp ult i64 %54, 64
+  %.not76 = icmp eq i64 %55, 0
   br i1 %.not76, label %.loopexit, label %.lr.ph73
 
 .lr.ph73:                                         ; preds = %53
@@ -64106,7 +64106,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not76 = icmp ult i64 %54, 64
+  %.not76 = icmp eq i64 %55, 0
   br i1 %.not76, label %.loopexit, label %.lr.ph73
 
 .lr.ph73:                                         ; preds = %53
@@ -64787,7 +64787,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %20, %_ZN
 63:                                               ; preds = %62, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %64 = add i64 %2, 63
   %65 = lshr i64 %64, 6
-  %.not84 = icmp ult i64 %64, 64
+  %.not84 = icmp eq i64 %65, 0
   br i1 %.not84, label %.loopexit, label %.lr.ph81
 
 .lr.ph81:                                         ; preds = %63
@@ -65535,7 +65535,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %20, %_ZN
 63:                                               ; preds = %62, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %64 = add i64 %2, 63
   %65 = lshr i64 %64, 6
-  %.not84 = icmp ult i64 %64, 64
+  %.not84 = icmp eq i64 %65, 0
   br i1 %.not84, label %.loopexit, label %.lr.ph81
 
 .lr.ph81:                                         ; preds = %63
@@ -66260,7 +66260,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not80 = icmp ult i64 %54, 64
+  %.not80 = icmp eq i64 %55, 0
   br i1 %.not80, label %.loopexit, label %.lr.ph77
 
 .lr.ph77:                                         ; preds = %53, %.loopexit67
@@ -66980,7 +66980,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not80 = icmp ult i64 %54, 64
+  %.not80 = icmp eq i64 %55, 0
   br i1 %.not80, label %.loopexit, label %.lr.ph77
 
 .lr.ph77:                                         ; preds = %53, %.loopexit67
@@ -67687,7 +67687,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53
@@ -68309,7 +68309,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53
@@ -69214,7 +69214,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %13, %_ZN
 56:                                               ; preds = %55, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %57 = add i64 %2, 63
   %58 = lshr i64 %57, 6
-  %.not80 = icmp ult i64 %57, 64
+  %.not80 = icmp eq i64 %58, 0
   br i1 %.not80, label %.loopexit, label %.lr.ph77
 
 .lr.ph77:                                         ; preds = %56
@@ -69915,7 +69915,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not78 = icmp ult i64 %54, 64
+  %.not78 = icmp eq i64 %55, 0
   br i1 %.not78, label %.loopexit, label %.lr.ph75
 
 .lr.ph75:                                         ; preds = %53
@@ -70613,7 +70613,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not78 = icmp ult i64 %54, 64
+  %.not78 = icmp eq i64 %55, 0
   br i1 %.not78, label %.loopexit, label %.lr.ph75
 
 .lr.ph75:                                         ; preds = %53
@@ -71311,7 +71311,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %22, %_ZN
 65:                                               ; preds = %64, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %66 = add i64 %2, 63
   %67 = lshr i64 %66, 6
-  %.not85 = icmp ult i64 %66, 64
+  %.not85 = icmp eq i64 %67, 0
   br i1 %.not85, label %.loopexit, label %.lr.ph82
 
 .lr.ph82:                                         ; preds = %65
@@ -72122,7 +72122,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53
@@ -72744,7 +72744,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53
@@ -73502,7 +73502,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not80 = icmp ult i64 %54, 64
+  %.not80 = icmp eq i64 %55, 0
   br i1 %.not80, label %.loopexit, label %.lr.ph77
 
 .lr.ph77:                                         ; preds = %53
@@ -74200,7 +74200,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not78 = icmp ult i64 %54, 64
+  %.not78 = icmp eq i64 %55, 0
   br i1 %.not78, label %.loopexit, label %.lr.ph75
 
 .lr.ph75:                                         ; preds = %53
@@ -74898,7 +74898,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not78 = icmp ult i64 %54, 64
+  %.not78 = icmp eq i64 %55, 0
   br i1 %.not78, label %.loopexit, label %.lr.ph75
 
 .lr.ph75:                                         ; preds = %53
@@ -75596,7 +75596,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %22, %_ZN
 65:                                               ; preds = %64, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %66 = add i64 %2, 63
   %67 = lshr i64 %66, 6
-  %.not85 = icmp ult i64 %66, 64
+  %.not85 = icmp eq i64 %67, 0
   br i1 %.not85, label %.loopexit, label %.lr.ph82
 
 .lr.ph82:                                         ; preds = %65
@@ -76399,7 +76399,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53
@@ -77021,7 +77021,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53
@@ -77772,7 +77772,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %13, %_ZN
 56:                                               ; preds = %55, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %57 = add i64 %2, 63
   %58 = lshr i64 %57, 6
-  %.not74 = icmp ult i64 %57, 64
+  %.not74 = icmp eq i64 %58, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %56
@@ -78454,7 +78454,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %12, %_ZN
 55:                                               ; preds = %54, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %56 = add i64 %2, 63
   %57 = lshr i64 %56, 6
-  %.not74 = icmp ult i64 %56, 64
+  %.not74 = icmp eq i64 %57, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %55
@@ -79114,7 +79114,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %12, %_ZN
 55:                                               ; preds = %54, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %56 = add i64 %2, 63
   %57 = lshr i64 %56, 6
-  %.not74 = icmp ult i64 %56, 64
+  %.not74 = icmp eq i64 %57, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %55
@@ -79787,7 +79787,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %14, %_ZN
 57:                                               ; preds = %56, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %58 = add i64 %2, 63
   %59 = lshr i64 %58, 6
-  %.not83 = icmp ult i64 %58, 64
+  %.not83 = icmp eq i64 %59, 0
   br i1 %.not83, label %.loopexit, label %.lr.ph80
 
 .lr.ph80:                                         ; preds = %57
@@ -81172,7 +81172,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not78 = icmp ult i64 %54, 64
+  %.not78 = icmp eq i64 %55, 0
   br i1 %.not78, label %.loopexit, label %.lr.ph75
 
 .lr.ph75:                                         ; preds = %53
@@ -82080,7 +82080,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIfifNS_29Bi
 26:                                               ; preds = %6
   %27 = add i64 %3, 63
   %28 = lshr i64 %27, 6
-  %.not88 = icmp ult i64 %27, 64
+  %.not88 = icmp eq i64 %28, 0
   br i1 %.not88, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %26, %.loopexit76
@@ -82254,7 +82254,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIfifNS_29Bi
 10:                                               ; preds = %6
   %11 = add i64 %3, 63
   %12 = lshr i64 %11, 6
-  %.not88 = icmp ult i64 %11, 64
+  %.not88 = icmp eq i64 %12, 0
   br i1 %.not88, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %10, %.loopexit76
@@ -82447,7 +82447,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIfifNS_29Bi
 8:                                                ; preds = %6
   %9 = add i64 %3, 63
   %10 = lshr i64 %9, 6
-  %.not97 = icmp ult i64 %9, 64
+  %.not97 = icmp eq i64 %10, 0
   br i1 %.not97, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %8, %.loopexit85
@@ -83352,7 +83352,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not78 = icmp ult i64 %54, 64
+  %.not78 = icmp eq i64 %55, 0
   br i1 %.not78, label %.loopexit, label %.lr.ph75
 
 .lr.ph75:                                         ; preds = %53
@@ -84236,7 +84236,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIdidNS_29Bi
 22:                                               ; preds = %6
   %23 = add i64 %3, 63
   %24 = lshr i64 %23, 6
-  %.not88 = icmp ult i64 %23, 64
+  %.not88 = icmp eq i64 %24, 0
   br i1 %.not88, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %22, %.loopexit76
@@ -84396,7 +84396,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIdidNS_29Bi
 9:                                                ; preds = %6
   %10 = add i64 %3, 63
   %11 = lshr i64 %10, 6
-  %.not88 = icmp ult i64 %10, 64
+  %.not88 = icmp eq i64 %11, 0
   br i1 %.not88, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %9, %.loopexit76
@@ -84577,7 +84577,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIdidNS_29Bi
 8:                                                ; preds = %6
   %9 = add i64 %3, 63
   %10 = lshr i64 %9, 6
-  %.not97 = icmp ult i64 %9, 64
+  %.not97 = icmp eq i64 %10, 0
   br i1 %.not97, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %8, %.loopexit85
@@ -85500,7 +85500,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %17, %_ZN
 60:                                               ; preds = %59, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %61 = add i64 %2, 63
   %62 = lshr i64 %61, 6
-  %.not78 = icmp ult i64 %61, 64
+  %.not78 = icmp eq i64 %62, 0
   br i1 %.not78, label %.loopexit, label %.lr.ph75
 
 .lr.ph75:                                         ; preds = %60
@@ -86150,7 +86150,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %16, %_ZN
 59:                                               ; preds = %58, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %60 = add i64 %2, 63
   %61 = lshr i64 %60, 6
-  %.not78 = icmp ult i64 %60, 64
+  %.not78 = icmp eq i64 %61, 0
   br i1 %.not78, label %.loopexit, label %.lr.ph75
 
 .lr.ph75:                                         ; preds = %59
@@ -86839,7 +86839,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %16, %_ZN
 59:                                               ; preds = %58, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %60 = add i64 %2, 63
   %61 = lshr i64 %60, 6
-  %.not78 = icmp ult i64 %60, 64
+  %.not78 = icmp eq i64 %61, 0
   br i1 %.not78, label %.loopexit, label %.lr.ph75
 
 .lr.ph75:                                         ; preds = %59
@@ -87552,7 +87552,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %18, %_ZN
 61:                                               ; preds = %60, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %62 = add i64 %2, 63
   %63 = lshr i64 %62, 6
-  %.not85 = icmp ult i64 %62, 64
+  %.not85 = icmp eq i64 %63, 0
   br i1 %.not85, label %.loopexit, label %.lr.ph82
 
 .lr.ph82:                                         ; preds = %61
@@ -88297,7 +88297,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53
@@ -88794,7 +88794,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIdddNS_29BinaryStandardOperatorWrapperENS_11PowOperatorEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -89011,7 +89011,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIdddNS_29BinaryStandardOperatorWrapperENS_11PowOperatorEbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -89210,7 +89210,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %49
 59:                                               ; preds = %53
   %60 = add i64 %3, 63
   %61 = lshr i64 %60, 6
-  %.not85.i = icmp ult i64 %60, 64
+  %.not85.i = icmp eq i64 %61, 0
   br i1 %.not85.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIdddNS_29BinaryStandardOperatorWrapperENS_11PowOperatorEbLb0ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %59, %.loopexit73.i
@@ -90189,7 +90189,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %16, %_ZN
 59:                                               ; preds = %58, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %60 = add i64 %2, 63
   %61 = lshr i64 %60, 6
-  %.not92 = icmp ult i64 %60, 64
+  %.not92 = icmp eq i64 %61, 0
   br i1 %.not92, label %.loopexit, label %.lr.ph87
 
 .lr.ph87:                                         ; preds = %59
@@ -91110,7 +91110,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53
@@ -91756,7 +91756,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %18, %_ZN
 61:                                               ; preds = %60, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %62 = add i64 %2, 63
   %63 = lshr i64 %62, 6
-  %.not92 = icmp ult i64 %62, 64
+  %.not92 = icmp eq i64 %63, 0
   br i1 %.not92, label %.loopexit, label %.lr.ph89
 
 .lr.ph89:                                         ; preds = %61
@@ -92698,7 +92698,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %18, %_ZN
 61:                                               ; preds = %60, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %62 = add i64 %2, 63
   %63 = lshr i64 %62, 6
-  %.not92 = icmp ult i64 %62, 64
+  %.not92 = icmp eq i64 %63, 0
   br i1 %.not92, label %.loopexit, label %.lr.ph89
 
 .lr.ph89:                                         ; preds = %61
@@ -94092,7 +94092,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIdddNS_29Bi
 29:                                               ; preds = %6
   %30 = add i64 %3, 63
   %31 = lshr i64 %30, 6
-  %.not169 = icmp ult i64 %30, 64
+  %.not169 = icmp eq i64 %31, 0
   br i1 %.not169, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %29, %.loopexit115
@@ -94730,7 +94730,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIdddNS_29Bi
 29:                                               ; preds = %6
   %30 = add i64 %3, 63
   %31 = lshr i64 %30, 6
-  %.not137 = icmp ult i64 %30, 64
+  %.not137 = icmp eq i64 %31, 0
   br i1 %.not137, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %29, %.loopexit115
@@ -95333,7 +95333,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIdddNS_29Bi
 28:                                               ; preds = %6
   %29 = add i64 %3, 63
   %30 = lshr i64 %29, 6
-  %.not146 = icmp ult i64 %29, 64
+  %.not146 = icmp eq i64 %30, 0
   br i1 %.not146, label %.loopexit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %28, %.loopexit124
@@ -96472,7 +96472,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %18, %_ZN
 61:                                               ; preds = %60, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %62 = add i64 %2, 63
   %63 = lshr i64 %62, 6
-  %.not92 = icmp ult i64 %62, 64
+  %.not92 = icmp eq i64 %63, 0
   br i1 %.not92, label %.loopexit, label %.lr.ph89
 
 .lr.ph89:                                         ; preds = %61
@@ -97413,7 +97413,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %12, %_ZN
 55:                                               ; preds = %54, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %56 = add i64 %2, 63
   %57 = lshr i64 %56, 6
-  %.not74 = icmp ult i64 %56, 64
+  %.not74 = icmp eq i64 %57, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %55
@@ -98061,7 +98061,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %12, %_ZN
 55:                                               ; preds = %54, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %56 = add i64 %2, 63
   %57 = lshr i64 %56, 6
-  %.not74 = icmp ult i64 %56, 64
+  %.not74 = icmp eq i64 %57, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %55
@@ -98703,7 +98703,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53, %.loopexit61
@@ -99327,7 +99327,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53, %.loopexit61
@@ -99951,7 +99951,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not76 = icmp ult i64 %54, 64
+  %.not76 = icmp eq i64 %55, 0
   br i1 %.not76, label %.loopexit, label %.lr.ph73
 
 .lr.ph73:                                         ; preds = %53
@@ -100595,7 +100595,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not76 = icmp ult i64 %54, 64
+  %.not76 = icmp eq i64 %55, 0
   br i1 %.not76, label %.loopexit, label %.lr.ph73
 
 .lr.ph73:                                         ; preds = %53
@@ -101248,7 +101248,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not76 = icmp ult i64 %54, 64
+  %.not76 = icmp eq i64 %55, 0
   br i1 %.not76, label %.loopexit, label %.lr.ph73
 
 .lr.ph73:                                         ; preds = %53, %.loopexit63
@@ -101946,7 +101946,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not76 = icmp ult i64 %54, 64
+  %.not76 = icmp eq i64 %55, 0
   br i1 %.not76, label %.loopexit, label %.lr.ph73
 
 .lr.ph73:                                         ; preds = %53, %.loopexit63
@@ -102636,7 +102636,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not76 = icmp ult i64 %54, 64
+  %.not76 = icmp eq i64 %55, 0
   br i1 %.not76, label %.loopexit, label %.lr.ph73
 
 .lr.ph73:                                         ; preds = %53, %.loopexit63
@@ -103268,7 +103268,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not76 = icmp ult i64 %54, 64
+  %.not76 = icmp eq i64 %55, 0
   br i1 %.not76, label %.loopexit, label %.lr.ph73
 
 .lr.ph73:                                         ; preds = %53, %.loopexit63
@@ -103899,7 +103899,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53, %.loopexit61
@@ -104523,7 +104523,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53, %.loopexit61
@@ -105147,7 +105147,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not76 = icmp ult i64 %54, 64
+  %.not76 = icmp eq i64 %55, 0
   br i1 %.not76, label %.loopexit, label %.lr.ph73
 
 .lr.ph73:                                         ; preds = %53, %.loopexit63
@@ -105771,7 +105771,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not76 = icmp ult i64 %54, 64
+  %.not76 = icmp eq i64 %55, 0
   br i1 %.not76, label %.loopexit, label %.lr.ph73
 
 .lr.ph73:                                         ; preds = %53, %.loopexit63
@@ -106398,7 +106398,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %14, %_ZN
 57:                                               ; preds = %56, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %58 = add i64 %2, 63
   %59 = lshr i64 %58, 6
-  %.not86 = icmp ult i64 %58, 64
+  %.not86 = icmp eq i64 %59, 0
   br i1 %.not86, label %.loopexit, label %.lr.ph83
 
 .lr.ph83:                                         ; preds = %57, %.loopexit70
@@ -107405,7 +107405,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %14, %_ZN
 57:                                               ; preds = %56, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %58 = add i64 %2, 63
   %59 = lshr i64 %58, 6
-  %.not86 = icmp ult i64 %58, 64
+  %.not86 = icmp eq i64 %59, 0
   br i1 %.not86, label %.loopexit, label %.lr.ph83
 
 .lr.ph83:                                         ; preds = %57, %.loopexit70
@@ -108226,7 +108226,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %14, %_ZN
 57:                                               ; preds = %56, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %58 = add i64 %2, 63
   %59 = lshr i64 %58, 6
-  %.not86 = icmp ult i64 %58, 64
+  %.not86 = icmp eq i64 %59, 0
   br i1 %.not86, label %.loopexit, label %.lr.ph83
 
 .lr.ph83:                                         ; preds = %57, %.loopexit70
@@ -109043,7 +109043,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53, %.loopexit61
@@ -109794,7 +109794,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53
@@ -110291,7 +110291,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIdddNS_29BinaryStandardOperatorWrapperENS_5ATan2EbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -110508,7 +110508,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %55
 65:                                               ; preds = %59
   %66 = add i64 %3, 63
   %67 = lshr i64 %66, 6
-  %.not76.i = icmp ult i64 %66, 64
+  %.not76.i = icmp eq i64 %67, 0
   br i1 %.not76.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIdddNS_29BinaryStandardOperatorWrapperENS_5ATan2EbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %65, %.loopexit64.i
@@ -110707,7 +110707,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %49
 59:                                               ; preds = %53
   %60 = add i64 %3, 63
   %61 = lshr i64 %60, 6
-  %.not85.i = icmp ult i64 %60, 64
+  %.not85.i = icmp eq i64 %61, 0
   br i1 %.not85.i, label %_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIdddNS_29BinaryStandardOperatorWrapperENS_5ATan2EbLb0ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_.exit, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i: ; preds = %59, %.loopexit73.i
@@ -111623,7 +111623,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53, %.loopexit61
@@ -112369,7 +112369,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53
@@ -113007,7 +113007,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53
@@ -113645,7 +113645,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53
@@ -114283,7 +114283,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53
@@ -114921,7 +114921,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53
@@ -115636,7 +115636,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %16, %_ZN
 59:                                               ; preds = %58, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %60 = add i64 %2, 63
   %61 = lshr i64 %60, 6
-  %.not96 = icmp ult i64 %60, 64
+  %.not96 = icmp eq i64 %61, 0
   br i1 %.not96, label %.loopexit, label %.lr.ph93
 
 .lr.ph93:                                         ; preds = %59
@@ -116612,7 +116612,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not74 = icmp ult i64 %54, 64
+  %.not74 = icmp eq i64 %55, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %53, %.loopexit61
@@ -117418,7 +117418,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %16, %_ZN
 59:                                               ; preds = %58, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %60 = add i64 %2, 63
   %61 = lshr i64 %60, 6
-  %.not92 = icmp ult i64 %60, 64
+  %.not92 = icmp eq i64 %61, 0
   br i1 %.not92, label %.loopexit, label %.lr.ph87
 
 .lr.ph87:                                         ; preds = %59
@@ -118403,7 +118403,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %16, %_ZN
 59:                                               ; preds = %58, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %60 = add i64 %2, 63
   %61 = lshr i64 %60, 6
-  %.not90 = icmp ult i64 %60, 64
+  %.not90 = icmp eq i64 %61, 0
   br i1 %.not90, label %.loopexit, label %.lr.ph87
 
 .lr.ph87:                                         ; preds = %59, %.loopexit75
@@ -119311,7 +119311,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %18, %_ZN
 61:                                               ; preds = %60, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %62 = add i64 %2, 63
   %63 = lshr i64 %62, 6
-  %.not102 = icmp ult i64 %62, 64
+  %.not102 = icmp eq i64 %63, 0
   br i1 %.not102, label %.loopexit, label %.lr.ph99
 
 .lr.ph99:                                         ; preds = %61
@@ -120245,7 +120245,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit: ; preds = %10, %_ZN
 53:                                               ; preds = %52, %_ZN6duckdb21TemplatedValidityMaskImE10InitializeERKS1_.exit
   %54 = add i64 %2, 63
   %55 = lshr i64 %54, 6
-  %.not82 = icmp ult i64 %54, 64
+  %.not82 = icmp eq i64 %55, 0
   br i1 %.not82, label %.loopexit, label %.lr.ph79
 
 .lr.ph79:                                         ; preds = %53
@@ -121490,7 +121490,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIlllNS_29Bi
 9:                                                ; preds = %6
   %10 = add i64 %3, 63
   %11 = lshr i64 %10, 6
-  %.not77 = icmp ult i64 %10, 64
+  %.not77 = icmp eq i64 %11, 0
   br i1 %.not77, label %.loopexit, label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %9, %.loopexit64
@@ -121599,7 +121599,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIlllNS_29Bi
 9:                                                ; preds = %6
   %10 = add i64 %3, 63
   %11 = lshr i64 %10, 6
-  %.not77 = icmp ult i64 %10, 64
+  %.not77 = icmp eq i64 %11, 0
   br i1 %.not77, label %.loopexit, label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %9, %.loopexit64
@@ -121704,7 +121704,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIlllNS_29Bi
 8:                                                ; preds = %6
   %9 = add i64 %3, 63
   %10 = lshr i64 %9, 6
-  %.not86 = icmp ult i64 %9, 64
+  %.not86 = icmp eq i64 %10, 0
   br i1 %.not86, label %.loopexit, label %.lr.ph83
 
 .lr.ph83:                                         ; preds = %8, %.loopexit73
@@ -122859,7 +122859,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_9hugein
 8:                                                ; preds = %6
   %9 = add i64 %3, 63
   %10 = lshr i64 %9, 6
-  %.not98 = icmp ult i64 %9, 64
+  %.not98 = icmp eq i64 %10, 0
   br i1 %.not98, label %.loopexit, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %8
@@ -122994,7 +122994,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_9hugein
 8:                                                ; preds = %6
   %9 = add i64 %3, 63
   %10 = lshr i64 %9, 6
-  %.not98 = icmp ult i64 %9, 64
+  %.not98 = icmp eq i64 %10, 0
   br i1 %.not98, label %.loopexit, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %8
@@ -123123,7 +123123,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_9hugein
 8:                                                ; preds = %6
   %9 = add i64 %3, 63
   %10 = lshr i64 %9, 6
-  %.not107 = icmp ult i64 %9, 64
+  %.not107 = icmp eq i64 %10, 0
   br i1 %.not107, label %.loopexit, label %.lr.ph104
 
 .lr.ph104:                                        ; preds = %8, %.loopexit94
@@ -124354,7 +124354,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIlllNS_29Bi
 9:                                                ; preds = %6
   %10 = add i64 %3, 63
   %11 = lshr i64 %10, 6
-  %.not77 = icmp ult i64 %10, 64
+  %.not77 = icmp eq i64 %11, 0
   br i1 %.not77, label %.loopexit, label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %9, %.loopexit64
@@ -124463,7 +124463,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIlllNS_29Bi
 9:                                                ; preds = %6
   %10 = add i64 %3, 63
   %11 = lshr i64 %10, 6
-  %.not77 = icmp ult i64 %10, 64
+  %.not77 = icmp eq i64 %11, 0
   br i1 %.not77, label %.loopexit, label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %9, %.loopexit64
@@ -124568,7 +124568,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIlllNS_29Bi
 8:                                                ; preds = %6
   %9 = add i64 %3, 63
   %10 = lshr i64 %9, 6
-  %.not86 = icmp ult i64 %9, 64
+  %.not86 = icmp eq i64 %10, 0
   br i1 %.not86, label %.loopexit, label %.lr.ph83
 
 .lr.ph83:                                         ; preds = %8, %.loopexit73
@@ -125732,7 +125732,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_9hugein
 8:                                                ; preds = %6
   %9 = add i64 %3, 63
   %10 = lshr i64 %9, 6
-  %.not98 = icmp ult i64 %9, 64
+  %.not98 = icmp eq i64 %10, 0
   br i1 %.not98, label %.loopexit, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %8
@@ -125867,7 +125867,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_9hugein
 8:                                                ; preds = %6
   %9 = add i64 %3, 63
   %10 = lshr i64 %9, 6
-  %.not98 = icmp ult i64 %9, 64
+  %.not98 = icmp eq i64 %10, 0
   br i1 %.not98, label %.loopexit, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %8
@@ -125996,7 +125996,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_9hugein
 8:                                                ; preds = %6
   %9 = add i64 %3, 63
   %10 = lshr i64 %9, 6
-  %.not107 = icmp ult i64 %9, 64
+  %.not107 = icmp eq i64 %10, 0
   br i1 %.not107, label %.loopexit, label %.lr.ph104
 
 .lr.ph104:                                        ; preds = %8, %.loopexit94

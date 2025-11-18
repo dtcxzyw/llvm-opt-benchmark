@@ -47074,7 +47074,7 @@ define void @"_ZN14polars_compute11comparisons4null109_$LT$impl$u20$polars_compu
   %12 = tail call i64 @llvm.uadd.sat.i64(i64 %6, i64 7)
   %13 = lshr i64 %12, 3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3751)
-  %14 = icmp ult i64 %12, 8
+  %14 = icmp eq i64 %13, 0
   br i1 %14, label %_ZN12polars_arrow6bitmap9immutable6Bitmap14new_with_value17hb2eb0ea8d4bf3851E.exit, label %15
 
 15:                                               ; preds = %11
@@ -47694,7 +47694,7 @@ define void @"_ZN14polars_compute11comparisons7struct_114_$LT$impl$u20$polars_co
   %24 = tail call i64 @llvm.uadd.sat.i64(i64 %23, i64 7)
   %25 = lshr i64 %24, 3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3797)
-  %26 = icmp ult i64 %24, 8
+  %26 = icmp eq i64 %25, 0
   br i1 %26, label %_ZN12polars_arrow6bitmap9immutable6Bitmap14new_with_value17hb2eb0ea8d4bf3851E.exit, label %27
 
 27:                                               ; preds = %21
@@ -47761,7 +47761,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap14new_with_value17hb2eb0ea8d4bf3851E.ex
   %60 = tail call i64 @llvm.uadd.sat.i64(i64 %59, i64 7)
   %61 = lshr i64 %60, 3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3812)
-  %62 = icmp ult i64 %60, 8
+  %62 = icmp eq i64 %61, 0
   br i1 %62, label %_ZN12polars_arrow6bitmap9immutable6Bitmap14new_with_value17hb2eb0ea8d4bf3851E.exit34, label %63
 
 63:                                               ; preds = %57
@@ -48042,16 +48042,16 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit36.thread.
   br i1 %174, label %.backedge.sink.split, label %.backedge
 
 .backedge.sink.split:                             ; preds = %167, %118
-  %.sink101 = phi i64 [ %119, %118 ], [ %172, %167 ]
+  %.sink103 = phi i64 [ %119, %118 ], [ %172, %167 ]
   %175 = load i64, ptr %54, align 8, !noundef !6
   %176 = icmp sgt i64 %175, -1
   call void @llvm.assume(i1 %176)
   %177 = load ptr, ptr %55, align 8, !nonnull !6, !noundef !6
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 %175
-  store i64 %.sink101, ptr %178, align 1, !noalias !6
+  store i64 %.sink103, ptr %178, align 1, !noalias !6
   %179 = add nuw i64 %175, 8
   store i64 %179, ptr %54, align 8
-  %180 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sink101)
+  %180 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sink103)
   %181 = load i64, ptr %56, align 8, !noundef !6
   %182 = add i64 %181, %180
   store i64 %182, ptr %56, align 8
@@ -48310,7 +48310,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap10new_zeroed17h7442c20f6c736165E.exit.i
   %67 = tail call i64 @llvm.uadd.sat.i64(i64 %28, i64 7)
   %68 = lshr i64 %67, 3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3846)
-  %69 = icmp ult i64 %67, 8
+  %69 = icmp eq i64 %68, 0
   br i1 %69, label %"_ZN63_$LT$u8$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h918c0b23a71568beE.exit.i", label %70
 
 70:                                               ; preds = %66

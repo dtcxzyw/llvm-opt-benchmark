@@ -2365,8 +2365,9 @@ _ZN4core5alloc6layout6Layout6repeat17h5a8b41c13a000041E.exit.i.i: ; preds = %15
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 %31
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !490
   %34 = add i64 %31, %2
-  %.not8 = icmp eq i64 %3, 1
-  br i1 %.not8, label %._crit_edge, label %.lr.ph
+  %.sroa.01.08 = lshr i64 %3, 1
+  %.not9 = icmp eq i64 %.sroa.01.08, 0
+  br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 35:                                               ; preds = %10
   tail call void @_ZN4core6option13expect_failed17h653f5dbca1fa5fc0E(ptr noalias noundef nonnull readonly align 1 @anon.ed3a8ce173f8828be48b5af06ad85298.23, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed3a8ce173f8828be48b5af06ad85298.24) #27
@@ -2387,13 +2388,13 @@ _ZN4core5alloc6layout6Layout6repeat17h5a8b41c13a000041E.exit.i.i: ; preds = %15
   br i1 %.not7, label %41, label %42
 
 .lr.ph:                                           ; preds = %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h6d72c8eef8a09a89E.exit", %.lr.ph
-  %.sroa.01.0.in10 = phi i64 [ %.sroa.01.0, %.lr.ph ], [ %3, %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h6d72c8eef8a09a89E.exit" ]
-  %storemerge9 = phi i64 [ %40, %.lr.ph ], [ %34, %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h6d72c8eef8a09a89E.exit" ]
-  %.sroa.01.0 = lshr i64 %.sroa.01.0.in10, 1
-  %39 = getelementptr inbounds nuw i8, ptr %30, i64 %storemerge9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr nonnull align 1 %30, i64 %storemerge9, i1 false)
-  %40 = shl nuw i64 %storemerge9, 1
-  %.not = icmp ult i64 %.sroa.01.0.in10, 4
+  %.sroa.01.011 = phi i64 [ %.sroa.01.0, %.lr.ph ], [ %.sroa.01.08, %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h6d72c8eef8a09a89E.exit" ]
+  %storemerge10 = phi i64 [ %40, %.lr.ph ], [ %34, %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h6d72c8eef8a09a89E.exit" ]
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 %storemerge10
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr nonnull align 1 %30, i64 %storemerge10, i1 false)
+  %40 = shl nuw i64 %storemerge10, 1
+  %.sroa.01.0 = lshr i64 %.sroa.01.011, 1
+  %.not = icmp eq i64 %.sroa.01.0, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 41:                                               ; preds = %42, %._crit_edge

@@ -244,8 +244,8 @@ split:                                            ; preds = %67
   %indvars.iv478 = phi i64 [ %indvars.iv.next479, %.lr.ph405 ], [ 0, %._crit_edge403 ]
   %106 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv478
   %107 = load i32, ptr %106, align 4, !tbaa !6
-  %108 = tail call i32 @llvm.umax.i32(i32 %107, i32 2)
-  %spec.select208 = lshr i32 %108, 1
+  %108 = lshr i32 %107, 1
+  %spec.select208 = tail call i32 @llvm.umax.i32(i32 %108, i32 1)
   store i32 %spec.select208, ptr %106, align 4, !tbaa !6
   %indvars.iv.next479 = add nuw nsw i64 %indvars.iv478, 1
   %exitcond482.not = icmp eq i64 %indvars.iv.next479, %18
@@ -962,23 +962,23 @@ readbits.exit:                                    ; preds = %34, %73
   %44 = lshr i32 128, %.0125150
   %45 = zext i8 %43 to i32
   %46 = and i32 %44, %45
-  %.not200 = icmp eq i32 %46, 0
+  %.not203 = icmp eq i32 %46, 0
   %47 = add nuw nsw i32 %.0125150, 1
   %.not20.i = icmp ugt i32 %.0125150, 6
   %spec.select.idx = zext i1 %.not20.i to i64
   %spec.select = getelementptr inbounds nuw i8, ptr %.0130149, i64 %spec.select.idx
-  %spec.select205 = select i1 %.not20.i, i32 0, i32 %47
-  br i1 %.not200, label %73, label %48
+  %spec.select208 = select i1 %.not20.i, i32 0, i32 %47
+  br i1 %.not203, label %73, label %48
 
 48:                                               ; preds = %readbits.exit
   %49 = load i8, ptr %spec.select, align 1, !tbaa !3
-  %50 = lshr i32 128, %spec.select205
+  %50 = lshr i32 128, %spec.select208
   br label %51
 
 51:                                               ; preds = %66, %48
   %.7137 = phi ptr [ %spec.select, %48 ], [ %.8138, %66 ]
   %52 = phi ptr [ %spec.select, %48 ], [ %67, %66 ]
-  %53 = phi i32 [ %spec.select205, %48 ], [ %.6, %66 ]
+  %53 = phi i32 [ %spec.select208, %48 ], [ %.6, %66 ]
   %.in.i89 = phi i32 [ 5, %48 ], [ %54, %66 ]
   %.024.i90 = phi i8 [ %49, %48 ], [ %.1.i95, %66 ]
   %.01523.i91 = phi i32 [ %50, %48 ], [ %.116.i94, %66 ]
@@ -992,7 +992,7 @@ readbits.exit:                                    ; preds = %34, %73
   %60 = or disjoint i32 %55, %59
   %61 = add nsw i32 %53, 1
   %62 = lshr i32 %.01523.i91, 1
-  %.not20.i93 = icmp ult i32 %.01523.i91, 2
+  %.not20.i93 = icmp eq i32 %62, 0
   br i1 %.not20.i93, label %63, label %66
 
 63:                                               ; preds = %51
@@ -1021,7 +1021,7 @@ readbits.exit97:                                  ; preds = %66
 
 73:                                               ; preds = %readbits.exit97, %readbits.exit
   %.1131 = phi ptr [ %spec.select, %readbits.exit ], [ %.8138, %readbits.exit97 ]
-  %.1126 = phi i32 [ %spec.select205, %readbits.exit ], [ %.6, %readbits.exit97 ]
+  %.1126 = phi i32 [ %spec.select208, %readbits.exit ], [ %.6, %readbits.exit97 ]
   %.376 = phi i32 [ %.275151, %readbits.exit ], [ %72, %readbits.exit97 ]
   %74 = add nuw nsw i32 %.1152, 1
   %exitcond176.not = icmp eq i32 %.1152, %42
@@ -1101,7 +1101,7 @@ readbits.exit97:                                  ; preds = %66
   %105 = or disjoint i32 %100, %104
   %106 = add nsw i32 %98, 1
   %107 = lshr i32 %.01523.i100, 1
-  %.not20.i102 = icmp ult i32 %.01523.i100, 2
+  %.not20.i102 = icmp eq i32 %107, 0
   br i1 %.not20.i102, label %108, label %111
 
 108:                                              ; preds = %96
@@ -1162,7 +1162,7 @@ readbits.exit106:                                 ; preds = %111, %92
   %129 = or disjoint i32 %124, %128
   %130 = add nsw i32 %122, 1
   %131 = lshr i32 %.01523.i111, 1
-  %.not20.i113 = icmp ult i32 %.01523.i111, 2
+  %.not20.i113 = icmp eq i32 %131, 0
   br i1 %.not20.i113, label %132, label %135
 
 132:                                              ; preds = %120

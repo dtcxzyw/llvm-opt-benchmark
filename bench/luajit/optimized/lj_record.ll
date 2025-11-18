@@ -908,7 +908,7 @@ define hidden void @lj_record_ret(ptr noundef %0, i32 noundef %1, i64 noundef %2
   %151 = getelementptr inbounds i8, ptr %150, i64 -4
   %152 = load i32, ptr %151, align 4, !tbaa !37
   %153 = lshr i32 %152, 24
-  %.not225 = icmp ult i32 %152, 16777216
+  %.not225 = icmp eq i32 %153, 0
   %154 = zext nneg i32 %153 to i64
   %155 = add nsw i64 %154, -1
   %156 = select i1 %.not225, i64 %.0201.lcssa, i64 %155

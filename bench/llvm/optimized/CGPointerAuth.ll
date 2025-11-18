@@ -2000,14 +2000,14 @@ define dso_local void @_ZN5clang7CodeGen13CodeGenModule24getVTablePointerAuthInf
   br i1 %.not21, label %48, label %12
 
 12:                                               ; preds = %5
-  %.not = icmp ult i32 %.sroa.013.0.extract.trunc, 65536
-  br i1 %.not, label %.thread, label %13
+  %13 = lshr i32 %.sroa.013.0.extract.trunc, 16
+  %.not = icmp eq i32 %13, 0
+  br i1 %.not, label %.thread, label %14
 
-13:                                               ; preds = %12
-  %14 = lshr i64 %10, 16
+14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %16 = load ptr, ptr %15, align 8, !tbaa !3
-  %17 = and i64 %14, 65535
+  %17 = zext nneg i32 %13 to i64
   %18 = tail call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %16, i64 noundef %17, i1 noundef zeroext false) #11
   %19 = and i32 %.sroa.013.0.extract.trunc, 2
   %.not22 = icmp eq i32 %19, 0
@@ -2018,7 +2018,7 @@ define dso_local void @_ZN5clang7CodeGen13CodeGenModule24getVTablePointerAuthInf
   %.not23 = icmp eq i32 %20, 0
   br i1 %.not23, label %43, label %.thread18
 
-21:                                               ; preds = %13
+21:                                               ; preds = %14
   %.not11 = icmp eq ptr %18, null
   br i1 %.not11, label %.thread18, label %22
 
@@ -2067,8 +2067,8 @@ _ZN5clang7CodeGen15CodeGenFunction33EmitPointerAuthBlendDiscriminatorEPN4llvm5Va
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %43
 
-43:                                               ; preds = %.thread, %_ZN5clang7CodeGen15CodeGenFunction33EmitPointerAuthBlendDiscriminatorEPN4llvm5ValueES4_.exit, %.thread18, %13
-  %.1 = phi ptr [ %37, %_ZN5clang7CodeGen15CodeGenFunction33EmitPointerAuthBlendDiscriminatorEPN4llvm5ValueES4_.exit ], [ %42, %.thread18 ], [ %18, %13 ], [ null, %.thread ]
+43:                                               ; preds = %.thread, %_ZN5clang7CodeGen15CodeGenFunction33EmitPointerAuthBlendDiscriminatorEPN4llvm5ValueES4_.exit, %.thread18, %14
+  %.1 = phi ptr [ %37, %_ZN5clang7CodeGen15CodeGenFunction33EmitPointerAuthBlendDiscriminatorEPN4llvm5ValueES4_.exit ], [ %42, %.thread18 ], [ %18, %14 ], [ null, %.thread ]
   %44 = trunc i64 %10 to i8
   %45 = lshr i8 %44, 2
   %46 = and i8 %45, 48

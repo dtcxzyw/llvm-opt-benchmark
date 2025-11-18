@@ -207,7 +207,7 @@ define range(i32 -22, 1) i32 @av_aes_init(ptr noundef captures(none) initializes
   br i1 %78, label %.preheader84.us, label %._crit_edge91, !llvm.loop !17
 
 ._crit_edge91:                                    ; preds = %._crit_edge.split.us.us, %._crit_edge.split.us96.us
-  br i1 %.not, label %.lr.ph101.preheader, label %.preheader78
+  br i1 %.not, label %.preheader, label %.preheader78
 
 .preheader78:                                     ; preds = %._crit_edge91
   %79 = icmp sgt i32 %6, -5
@@ -217,11 +217,14 @@ define range(i32 -22, 1) i32 @av_aes_init(ptr noundef captures(none) initializes
   %wide.trip.count161 = zext i32 %7 to i64
   br label %.lr.ph
 
-.lr.ph101.preheader:                              ; preds = %._crit_edge91
+.preheader:                                       ; preds = %._crit_edge91
   %80 = lshr i32 %14, 1
+  %.not102 = icmp eq i32 %80, 0
+  br i1 %.not102, label %.loopexit, label %.lr.ph101.preheader
+
+.lr.ph101.preheader:                              ; preds = %.preheader
   %81 = sext i32 %7 to i64
-  %umax = tail call i32 @llvm.umax.i32(i32 %80, i32 1)
-  %wide.trip.count166 = zext nneg i32 %umax to i64
+  %wide.trip.count166 = zext nneg i32 %80 to i64
   br label %.lr.ph101
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -388,8 +391,8 @@ define range(i32 -22, 1) i32 @av_aes_init(ptr noundef captures(none) initializes
   %exitcond167.not = icmp eq i64 %indvars.iv.next164, %wide.trip.count166
   br i1 %exitcond167.not, label %.loopexit, label %.lr.ph101, !llvm.loop !21
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph101, %.preheader78, %4
-  %.0 = phi i32 [ -22, %4 ], [ 0, %.preheader78 ], [ 0, %.lr.ph101 ], [ 0, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph101, %.preheader78, %.preheader, %4
+  %.0 = phi i32 [ -22, %4 ], [ 0, %.preheader ], [ 0, %.preheader78 ], [ 0, %.lr.ph101 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1052,9 +1055,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #8
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

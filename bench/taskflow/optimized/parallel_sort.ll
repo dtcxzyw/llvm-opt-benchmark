@@ -21479,57 +21479,57 @@ _ZN2tf15PreemptionGuardC2ERNS_7RuntimeE.exit:     ; preds = %31, %35
   store i8 1, ptr %32, align 8, !tbaa !451
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 144
   %41 = atomicrmw add ptr %40, i64 1 release, align 8
-  br label %.lr.ph.i
+  br label %42
 
-.lr.ph.i:                                         ; preds = %_ZN2tf15PreemptionGuardC2ERNS_7RuntimeE.exit, %.lr.ph.i
-  %.07.i = phi i32 [ %43, %.lr.ph.i ], [ 0, %_ZN2tf15PreemptionGuardC2ERNS_7RuntimeE.exit ]
-  %.036.i = phi i64 [ %42, %.lr.ph.i ], [ %20, %_ZN2tf15PreemptionGuardC2ERNS_7RuntimeE.exit ]
-  %42 = ashr i64 %.036.i, 1
-  %43 = add nuw nsw i32 %.07.i, 1
-  %.not.i = icmp ult i64 %42, 2
-  br i1 %.not.i, label %_ZN2tf4log2IlEEiT_.exit, label %.lr.ph.i, !llvm.loop !769
+42:                                               ; preds = %42, %_ZN2tf15PreemptionGuardC2ERNS_7RuntimeE.exit
+  %.03.i = phi i64 [ %20, %_ZN2tf15PreemptionGuardC2ERNS_7RuntimeE.exit ], [ %43, %42 ]
+  %.0.i = phi i32 [ 0, %_ZN2tf15PreemptionGuardC2ERNS_7RuntimeE.exit ], [ %44, %42 ]
+  %43 = ashr i64 %.03.i, 1
+  %.not.i = icmp eq i64 %43, 0
+  %44 = add nuw nsw i32 %.0.i, 1
+  br i1 %.not.i, label %_ZN2tf4log2IlEEiT_.exit, label %42, !llvm.loop !769
 
-_ZN2tf4log2IlEEiT_.exit:                          ; preds = %.lr.ph.i
-  invoke void @_ZN2tf6detail16parallel_pdqsortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEESt4lessIS9_ELb0EEEvRNS_7RuntimeET_SJ_T0_ib(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr %4, ptr %7, i32 noundef %43, i1 noundef zeroext true)
-          to label %44 unwind label %53
+_ZN2tf4log2IlEEiT_.exit:                          ; preds = %42
+  invoke void @_ZN2tf6detail16parallel_pdqsortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEESt4lessIS9_ELb0EEEvRNS_7RuntimeET_SJ_T0_ib(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr %4, ptr %7, i32 noundef %.0.i, i1 noundef zeroext true)
+          to label %45 unwind label %54
 
-44:                                               ; preds = %_ZN2tf4log2IlEEiT_.exit
-  %45 = load ptr, ptr %36, align 8, !tbaa !449
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 144
-  %47 = atomicrmw sub ptr %46, i64 1 acq_rel, align 8
-  %48 = icmp eq i64 %47, 1
-  br i1 %48, label %49, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt4lessIS7_EEvT_SF_T0_.exit
+45:                                               ; preds = %_ZN2tf4log2IlEEiT_.exit
+  %46 = load ptr, ptr %36, align 8, !tbaa !449
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 144
+  %48 = atomicrmw sub ptr %47, i64 1 acq_rel, align 8
+  %49 = icmp eq i64 %48, 1
+  br i1 %49, label %50, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt4lessIS7_EEvT_SF_T0_.exit
 
-49:                                               ; preds = %44
+50:                                               ; preds = %45
   store i8 0, ptr %32, align 8, !tbaa !451
-  %50 = load ptr, ptr %36, align 8, !tbaa !449
-  %51 = load i32, ptr %50, align 8, !tbaa !282
-  %52 = and i32 %51, -1073741825
-  store i32 %52, ptr %50, align 8, !tbaa !282
+  %51 = load ptr, ptr %36, align 8, !tbaa !449
+  %52 = load i32, ptr %51, align 8, !tbaa !282
+  %53 = and i32 %52, -1073741825
+  store i32 %53, ptr %51, align 8, !tbaa !282
   br label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt4lessIS7_EEvT_SF_T0_.exit
 
-_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt4lessIS7_EEvT_SF_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %49, %44, %30, %27, %2
+_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt4lessIS7_EEvT_SF_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %50, %45, %30, %27, %2
   ret void
 
-53:                                               ; preds = %_ZN2tf4log2IlEEiT_.exit
-  %54 = landingpad { ptr, i32 }
+54:                                               ; preds = %_ZN2tf4log2IlEEiT_.exit
+  %55 = landingpad { ptr, i32 }
           cleanup
-  %55 = load ptr, ptr %36, align 8, !tbaa !449
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 144
-  %57 = atomicrmw sub ptr %56, i64 1 acq_rel, align 8
-  %58 = icmp eq i64 %57, 1
-  br i1 %58, label %59, label %_ZN2tf15PreemptionGuardD2Ev.exit12
+  %56 = load ptr, ptr %36, align 8, !tbaa !449
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 144
+  %58 = atomicrmw sub ptr %57, i64 1 acq_rel, align 8
+  %59 = icmp eq i64 %58, 1
+  br i1 %59, label %60, label %_ZN2tf15PreemptionGuardD2Ev.exit12
 
-59:                                               ; preds = %53
+60:                                               ; preds = %54
   store i8 0, ptr %32, align 8, !tbaa !451
-  %60 = load ptr, ptr %36, align 8, !tbaa !449
-  %61 = load i32, ptr %60, align 8, !tbaa !282
-  %62 = and i32 %61, -1073741825
-  store i32 %62, ptr %60, align 8, !tbaa !282
+  %61 = load ptr, ptr %36, align 8, !tbaa !449
+  %62 = load i32, ptr %61, align 8, !tbaa !282
+  %63 = and i32 %62, -1073741825
+  store i32 %63, ptr %61, align 8, !tbaa !282
   br label %_ZN2tf15PreemptionGuardD2Ev.exit12
 
-_ZN2tf15PreemptionGuardD2Ev.exit12:               ; preds = %53, %59
-  resume { ptr, i32 } %54
+_ZN2tf15PreemptionGuardD2Ev.exit12:               ; preds = %54, %60
+  resume { ptr, i32 } %55
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -4953,19 +4953,19 @@ define internal fastcc i32 @input_print_bitmap(ptr noundef writeonly captures(no
   br i1 %25, label %48, label %26
 
 26:                                               ; preds = %13
-  %27 = icmp ult i64 %22, 4294967296
-  %28 = and i1 %12, %27
-  br i1 %28, label %34, label %29
+  %27 = lshr i64 %22, 32
+  %28 = icmp eq i64 %27, 0
+  %29 = and i1 %12, %28
+  br i1 %29, label %34, label %30
 
-29:                                               ; preds = %26
-  %30 = lshr i64 %22, 32
-  %31 = trunc nuw i64 %30 to i32
+30:                                               ; preds = %26
+  %31 = trunc nuw i64 %27 to i32
   %32 = zext nneg i32 %20 to i64
   %33 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %18, i64 noundef %32, ptr noundef nonnull @.str.29, i32 noundef %31) #19
   br label %34
 
-34:                                               ; preds = %29, %26
-  %35 = phi i32 [ %33, %29 ], [ 0, %26 ]
+34:                                               ; preds = %30, %26
+  %35 = phi i32 [ %33, %30 ], [ 0, %26 ]
   %36 = trunc i64 %22 to i32
   %37 = or i32 %35, %36
   %38 = icmp eq i32 %37, 0
@@ -5923,17 +5923,17 @@ define internal fastcc void @input_seq_print_bitmap(ptr noundef %0, ptr noundef 
   br i1 %43, label %63, label %44
 
 44:                                               ; preds = %.outer.split
-  %45 = icmp ult i64 %40, 4294967296
-  br i1 %45, label %50, label %46
+  %45 = lshr i64 %40, 32
+  %46 = icmp eq i64 %45, 0
+  br i1 %46, label %50, label %47
 
-46:                                               ; preds = %44
-  %47 = lshr i64 %40, 32
-  %48 = trunc nuw i64 %47 to i32
+47:                                               ; preds = %44
+  %48 = trunc nuw i64 %45 to i32
   %49 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 18, ptr noundef nonnull @.str.29, i32 noundef %48) #19
   br label %50
 
-50:                                               ; preds = %46, %44
-  %51 = phi i32 [ %49, %46 ], [ 0, %44 ]
+50:                                               ; preds = %47, %44
+  %51 = phi i32 [ %49, %47 ], [ 0, %44 ]
   %52 = trunc i64 %40 to i32
   %53 = or i32 %51, %52
   %54 = icmp eq i32 %53, 0

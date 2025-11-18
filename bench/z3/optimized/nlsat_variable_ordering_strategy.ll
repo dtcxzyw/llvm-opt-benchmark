@@ -5531,7 +5531,7 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIPjN9__gnu_cxx5__ops15_Iter_co
 65:                                               ; preds = %56
   %66 = getelementptr inbounds i32, ptr %0, i64 %.01317.i.i.i
   store i32 %58, ptr %66, align 4, !tbaa !25
-  %.not11.i = icmp ult i64 %.018.in.i.i.i, 2
+  %.not11.i = icmp eq i64 %.018.i.i910.i, 0
   br i1 %.not11.i, label %_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21univariate_reorder_ltEEEEvT_S9_S9_RT0_.exit, label %56, !llvm.loop !120
 
 _ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21univariate_reorder_ltEEEEvT_S9_S9_RT0_.exit: ; preds = %56, %65, %52
@@ -5867,7 +5867,7 @@ _ZNK5nlsat22vos_var_info_collector3imp18feature_reorder_ltclEjj.exit: ; preds = 
   %171 = load i32, ptr %109, align 4, !tbaa !25
   %172 = getelementptr inbounds i32, ptr %0, i64 %.01317.i.i.i
   store i32 %171, ptr %172, align 4, !tbaa !25
-  %.not9.i = icmp ult i64 %.018.in.i.i.i, 2
+  %.not9.i = icmp eq i64 %.018.i.i78.i, 0
   br i1 %.not9.i, label %_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp18feature_reorder_ltEEEEvT_S9_S9_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !133
 
 _ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp18feature_reorder_ltEEEEvT_S9_S9_RT0_.exit: ; preds = %162, %166, %125, %117, %_ZNK5nlsat22vos_var_info_collector3imp18feature_reorder_ltclEjj.exit, %170, %104

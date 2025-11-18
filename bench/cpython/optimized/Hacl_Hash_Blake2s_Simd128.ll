@@ -866,38 +866,38 @@ declare noalias noundef ptr @aligned_alloc(i64 allocalign noundef, i64 noundef) 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_Blake2s_Simd128_malloc_with_params_and_key(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #11 {
   %.sroa.02.0.copyload = load i16, ptr %0, align 8
+  %4 = lshr i16 %.sroa.02.0.copyload, 8
   %.sroa.01.0.insert.insert = tail call i16 @llvm.bswap.i16(i16 %.sroa.02.0.copyload)
-  %4 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 64, i64 noundef 1) #26
-  %5 = tail call noalias align 16 dereferenceable_or_null(64) ptr @aligned_alloc(i64 noundef 16, i64 noundef 64) #25
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %5, i8 0, i64 64, i1 false)
+  %5 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 64, i64 noundef 1) #26
   %6 = tail call noalias align 16 dereferenceable_or_null(64) ptr @aligned_alloc(i64 noundef 16, i64 noundef 64) #25
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, i8 0, i64 32, i1 false)
-  %7 = zext i1 %1 to i8
-  %.not.i = icmp ult i16 %.sroa.02.0.copyload, 256
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, i8 0, i64 64, i1 false)
+  %7 = tail call noalias align 16 dereferenceable_or_null(64) ptr @aligned_alloc(i64 noundef 16, i64 noundef 64) #25
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, i8 0, i64 32, i1 false)
+  %8 = zext i1 %1 to i8
+  %.not.i = icmp eq i16 %4, 0
   %..i = select i1 %.not.i, i64 0, i64 64
-  %8 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #27
-  store i16 %.sroa.01.0.insert.insert, ptr %8, align 8
-  %.sroa.092.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 2
-  store i8 %7, ptr %.sroa.092.sroa.5.0..sroa_idx.i, align 2, !tbaa !10
-  %.sroa.092.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 3
+  %9 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #27
+  store i16 %.sroa.01.0.insert.insert, ptr %9, align 8
+  %.sroa.092.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 2
+  store i8 %8, ptr %.sroa.092.sroa.5.0..sroa_idx.i, align 2, !tbaa !10
+  %.sroa.092.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.092.sroa.6.0..sroa_idx.i, i8 0, i64 5, i1 false)
-  %.sroa.092.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %5, ptr %.sroa.092.sroa.7.0..sroa_idx.i, align 8, !tbaa !12
-  %.sroa.092.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %6, ptr %.sroa.092.sroa.8.0..sroa_idx.i, align 8, !tbaa !12
-  %.sroa.493.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %4, ptr %.sroa.493.0..sroa_idx.i, align 8, !tbaa !14
-  %.sroa.594.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %.sroa.092.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr %6, ptr %.sroa.092.sroa.7.0..sroa_idx.i, align 8, !tbaa !12
+  %.sroa.092.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr %7, ptr %.sroa.092.sroa.8.0..sroa_idx.i, align 8, !tbaa !12
+  %.sroa.493.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store ptr %5, ptr %.sroa.493.0..sroa_idx.i, align 8, !tbaa !14
+  %.sroa.594.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i64 %..i, ptr %.sroa.594.0..sroa_idx.i, align 8, !tbaa !16
-  br i1 %.not.i, label %malloc_raw.exit, label %9
+  br i1 %.not.i, label %malloc_raw.exit, label %10
 
-9:                                                ; preds = %3
-  %10 = lshr i16 %.sroa.02.0.copyload, 8
-  %11 = zext nneg i16 %10 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr readonly align 1 %2, i64 %11, i1 false)
+10:                                               ; preds = %3
+  %11 = zext nneg i16 %4 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr readonly align 1 %2, i64 %11, i1 false)
   br label %malloc_raw.exit
 
-malloc_raw.exit:                                  ; preds = %3, %9
+malloc_raw.exit:                                  ; preds = %3, %10
   %12 = zext i16 %.sroa.02.0.copyload to i32
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 2
   %.sroa.5.0.copyload.i = load i16, ptr %.sroa.5.0..sroa_idx.i, align 2
@@ -915,9 +915,9 @@ malloc_raw.exit:                                  ; preds = %3, %9
   %.sroa.1268.0.copyload.i = load ptr, ptr %.sroa.1268.0..sroa_idx.i, align 8, !tbaa !14
   %.sroa.14.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.14.0.copyload.i = load ptr, ptr %.sroa.14.0..sroa_idx.i, align 8, !tbaa !14
-  %17 = getelementptr i8, ptr %6, i64 16
-  %18 = getelementptr i8, ptr %6, i64 32
-  %19 = getelementptr i8, ptr %6, i64 48
+  %17 = getelementptr i8, ptr %7, i64 16
+  %18 = getelementptr i8, ptr %7, i64 32
+  %19 = getelementptr i8, ptr %7, i64 48
   store <2 x i64> <i64 -4942790177982912921, i64 -6534734903820487822>, ptr %18, align 16, !tbaa !3
   store <2 x i64> <i64 -7276294671082564993, i64 6620516960021240235>, ptr %19, align 16, !tbaa !3
   %.sroa.1268.0.copyload.val.i = load i32, ptr %.sroa.1268.0.copyload.i, align 1
@@ -943,13 +943,13 @@ malloc_raw.exit:                                  ; preds = %3, %9
   %36 = insertelement <4 x i32> %35, i32 %27, i64 1
   %37 = insertelement <4 x i32> %36, i32 %28, i64 2
   %38 = insertelement <4 x i32> %37, i32 %30, i64 3
-  store <4 x i32> %38, ptr %6, align 16, !tbaa !3
+  store <4 x i32> %38, ptr %7, align 16, !tbaa !3
   %39 = insertelement <4 x i32> poison, i32 %31, i64 0
   %40 = insertelement <4 x i32> %39, i32 %32, i64 1
   %41 = insertelement <4 x i32> %40, i32 %33, i64 2
   %42 = insertelement <4 x i32> %41, i32 %34, i64 3
   store <4 x i32> %42, ptr %17, align 16, !tbaa !3
-  ret ptr %8
+  ret ptr %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
@@ -1206,7 +1206,7 @@ define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Hash_Blake2s_Simd12
   %4 = zext i32 %2 to i64
   %5 = xor i64 %.sroa.3145.0.copyload, -1
   %6 = icmp ugt i64 %4, %5
-  br i1 %6, label %67, label %7
+  br i1 %6, label %63, label %7
 
 7:                                                ; preds = %3
   %8 = and i64 %.sroa.3145.0.copyload, 63
@@ -1232,7 +1232,7 @@ define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Hash_Blake2s_Simd12
 
 16:                                               ; preds = %7
   %17 = icmp eq i32 %.0177, 0
-  br i1 %17, label %18, label %36
+  br i1 %17, label %18, label %34
 
 18:                                               ; preds = %16
   %.sroa.0117.0.copyload = load i64, ptr %0, align 8
@@ -1246,110 +1246,106 @@ define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Hash_Blake2s_Simd12
   %21 = trunc nuw nsw i64 %19 to i32
   %.0180 = select i1 %20, i32 64, i32 %21
   %22 = sub i32 %2, %.0180
-  %23 = and i32 %22, -64
-  %24 = sub i32 %2, %23
-  %25 = zext i32 %23 to i64
-  %26 = getelementptr i8, ptr %1, i64 %25
-  %.not.i = icmp ult i32 %22, 64
+  %23 = lshr i32 %22, 6
+  %24 = and i32 %22, -64
+  %25 = sub i32 %2, %24
+  %26 = zext i32 %24 to i64
+  %27 = getelementptr i8, ptr %1, i64 %26
+  %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %python_hashlib_Hacl_Hash_Blake2s_Simd128_update_multi.exit195, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %18
-  %27 = lshr i32 %22, 6
-  %wide.trip.count.i = zext nneg i32 %27 to i64
+  %wide.trip.count.i = zext nneg i32 %23 to i64
   br label %.lr.ph.i191
 
 .lr.ph.i191:                                      ; preds = %.lr.ph.i191, %.lr.ph.preheader.i
   %indvars.iv.i192 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i193, %.lr.ph.i191 ]
   %indvars.iv.next.i193 = add nuw nsw i64 %indvars.iv.i192, 1
   %28 = shl i64 %indvars.iv.next.i193, 6
-  %29 = and i64 %28, 4294967232
-  %30 = add i64 %29, %.sroa.3145.0.copyload
-  %31 = shl i64 %indvars.iv.i192, 6
-  %32 = and i64 %31, 4294967232
-  %33 = getelementptr i8, ptr %1, i64 %32
-  tail call fastcc void @update_block(ptr noundef %.sroa.4118.0.copyload, ptr noundef %.sroa.5119.0.copyload, i1 noundef zeroext false, i1 noundef zeroext false, i64 noundef %30, ptr noundef readonly %33)
+  %29 = add i64 %28, %.sroa.3145.0.copyload
+  %30 = shl i64 %indvars.iv.i192, 6
+  %31 = getelementptr i8, ptr %1, i64 %30
+  tail call fastcc void @update_block(ptr noundef %.sroa.4118.0.copyload, ptr noundef %.sroa.5119.0.copyload, i1 noundef zeroext false, i1 noundef zeroext false, i64 noundef %29, ptr noundef readonly %31)
   %exitcond.not.i194 = icmp eq i64 %indvars.iv.next.i193, %wide.trip.count.i
   br i1 %exitcond.not.i194, label %python_hashlib_Hacl_Hash_Blake2s_Simd128_update_multi.exit195, label %.lr.ph.i191, !llvm.loop !6
 
 python_hashlib_Hacl_Hash_Blake2s_Simd128_update_multi.exit195: ; preds = %.lr.ph.i191, %18
-  %34 = zext i32 %24 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.sroa.6120.0.copyload, ptr align 1 %26, i64 %34, i1 false)
-  %35 = add i64 %.sroa.3145.0.copyload, %4
+  %32 = zext i32 %25 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.sroa.6120.0.copyload, ptr align 1 %27, i64 %32, i1 false)
+  %33 = add i64 %.sroa.3145.0.copyload, %4
   store i64 %.sroa.0117.0.copyload, ptr %0, align 8
   store ptr %.sroa.4118.0.copyload, ptr %.sroa.4118.0..sroa_idx, align 8, !tbaa !12
   store ptr %.sroa.5119.0.copyload, ptr %.sroa.5119.0..sroa_idx, align 8, !tbaa !12
   br label %.sink.split
 
-36:                                               ; preds = %16
-  %37 = zext nneg i32 %12 to i64
-  %38 = getelementptr i8, ptr %1, i64 %37
+34:                                               ; preds = %16
+  %35 = zext nneg i32 %12 to i64
+  %36 = getelementptr i8, ptr %1, i64 %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.049, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   %.sroa.462.0.copyload = load ptr, ptr %.sroa.6120.0..sroa_idx, align 8, !tbaa !14
   %.189 = select i1 %or.cond, i64 64, i64 %8
-  %39 = getelementptr i8, ptr %.sroa.462.0.copyload, i64 %.189
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %39, ptr align 1 %1, i64 %37, i1 false)
-  %40 = add i64 %.sroa.3145.0.copyload, %37
+  %37 = getelementptr i8, ptr %.sroa.462.0.copyload, i64 %.189
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %37, ptr align 1 %1, i64 %35, i1 false)
+  %38 = add i64 %.sroa.3145.0.copyload, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.049, i64 24, i1 false), !tbaa.struct !20
   store ptr %.sroa.462.0.copyload, ptr %.sroa.6120.0..sroa_idx, align 8, !tbaa !14
-  store i64 %40, ptr %.sroa.3145.0..sroa_idx, align 8, !tbaa !16
+  store i64 %38, ptr %.sroa.3145.0..sroa_idx, align 8, !tbaa !16
   %.sroa.0.0.copyload = load i64, ptr %0, align 8
   %.sroa.447.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.447.0.copyload = load ptr, ptr %.sroa.447.0..sroa_idx, align 8, !tbaa !12
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !12
-  %41 = and i64 %40, 63
-  %42 = icmp eq i64 %41, 0
-  %43 = icmp ne i64 %40, 0
-  %or.cond12 = and i1 %43, %42
-  %44 = trunc nuw nsw i64 %41 to i32
-  %.0182 = select i1 %or.cond12, i32 64, i32 %44
-  %45 = icmp eq i32 %.0182, 0
-  br i1 %45, label %python_hashlib_Hacl_Hash_Blake2s_Simd128_update_multi.exit201, label %.lr.ph.i197
+  %39 = and i64 %38, 63
+  %40 = icmp eq i64 %39, 0
+  %41 = icmp ne i64 %38, 0
+  %or.cond12 = and i1 %41, %40
+  %42 = trunc nuw nsw i64 %39 to i32
+  %.0182 = select i1 %or.cond12, i32 64, i32 %42
+  %43 = icmp eq i32 %.0182, 0
+  br i1 %43, label %python_hashlib_Hacl_Hash_Blake2s_Simd128_update_multi.exit201, label %.lr.ph.i197
 
-.lr.ph.i197:                                      ; preds = %36
-  %46 = zext nneg i32 %.0182 to i64
-  %47 = sub i64 %40, %46
-  %48 = add i64 %47, 64
-  tail call fastcc void @update_block(ptr noundef %.sroa.447.0.copyload, ptr noundef %.sroa.5.0.copyload, i1 noundef zeroext false, i1 noundef zeroext false, i64 noundef %48, ptr noundef readonly %.sroa.462.0.copyload)
+.lr.ph.i197:                                      ; preds = %34
+  %44 = zext nneg i32 %.0182 to i64
+  %45 = sub i64 %38, %44
+  %46 = add i64 %45, 64
+  tail call fastcc void @update_block(ptr noundef %.sroa.447.0.copyload, ptr noundef %.sroa.5.0.copyload, i1 noundef zeroext false, i1 noundef zeroext false, i64 noundef %46, ptr noundef readonly %.sroa.462.0.copyload)
   br label %python_hashlib_Hacl_Hash_Blake2s_Simd128_update_multi.exit201
 
-python_hashlib_Hacl_Hash_Blake2s_Simd128_update_multi.exit201: ; preds = %.lr.ph.i197, %36
-  %49 = sub i32 %2, %12
-  %50 = zext i32 %49 to i64
-  %51 = and i64 %50, 63
-  %.not210 = icmp eq i64 %51, 0
-  %52 = trunc nuw nsw i64 %51 to i32
-  %.0183 = select i1 %.not210, i32 64, i32 %52
-  %53 = sub i32 %49, %.0183
-  %54 = and i32 %53, -64
-  %55 = sub i32 %49, %54
-  %56 = zext i32 %54 to i64
-  %57 = getelementptr i8, ptr %38, i64 %56
-  %.not.i202 = icmp ult i32 %53, 64
+python_hashlib_Hacl_Hash_Blake2s_Simd128_update_multi.exit201: ; preds = %.lr.ph.i197, %34
+  %47 = sub i32 %2, %12
+  %48 = zext i32 %47 to i64
+  %49 = and i64 %48, 63
+  %.not210 = icmp eq i64 %49, 0
+  %50 = trunc nuw nsw i64 %49 to i32
+  %.0183 = select i1 %.not210, i32 64, i32 %50
+  %51 = sub i32 %47, %.0183
+  %52 = lshr i32 %51, 6
+  %53 = and i32 %51, -64
+  %54 = sub i32 %47, %53
+  %55 = zext i32 %53 to i64
+  %56 = getelementptr i8, ptr %36, i64 %55
+  %.not.i202 = icmp eq i32 %52, 0
   br i1 %.not.i202, label %python_hashlib_Hacl_Hash_Blake2s_Simd128_update_multi.exit209, label %.lr.ph.preheader.i203
 
 .lr.ph.preheader.i203:                            ; preds = %python_hashlib_Hacl_Hash_Blake2s_Simd128_update_multi.exit201
-  %58 = lshr i32 %53, 6
-  %wide.trip.count.i204 = zext nneg i32 %58 to i64
+  %wide.trip.count.i204 = zext nneg i32 %52 to i64
   br label %.lr.ph.i205
 
 .lr.ph.i205:                                      ; preds = %.lr.ph.i205, %.lr.ph.preheader.i203
   %indvars.iv.i206 = phi i64 [ 0, %.lr.ph.preheader.i203 ], [ %indvars.iv.next.i207, %.lr.ph.i205 ]
   %indvars.iv.next.i207 = add nuw nsw i64 %indvars.iv.i206, 1
-  %59 = shl i64 %indvars.iv.next.i207, 6
-  %60 = and i64 %59, 4294967232
-  %61 = add i64 %60, %40
-  %62 = shl i64 %indvars.iv.i206, 6
-  %63 = and i64 %62, 4294967232
-  %64 = getelementptr i8, ptr %38, i64 %63
-  tail call fastcc void @update_block(ptr noundef %.sroa.447.0.copyload, ptr noundef %.sroa.5.0.copyload, i1 noundef zeroext false, i1 noundef zeroext false, i64 noundef %61, ptr noundef readonly %64)
+  %57 = shl i64 %indvars.iv.next.i207, 6
+  %58 = add i64 %57, %38
+  %59 = shl i64 %indvars.iv.i206, 6
+  %60 = getelementptr i8, ptr %36, i64 %59
+  tail call fastcc void @update_block(ptr noundef %.sroa.447.0.copyload, ptr noundef %.sroa.5.0.copyload, i1 noundef zeroext false, i1 noundef zeroext false, i64 noundef %58, ptr noundef readonly %60)
   %exitcond.not.i208 = icmp eq i64 %indvars.iv.next.i207, %wide.trip.count.i204
   br i1 %exitcond.not.i208, label %python_hashlib_Hacl_Hash_Blake2s_Simd128_update_multi.exit209, label %.lr.ph.i205, !llvm.loop !6
 
 python_hashlib_Hacl_Hash_Blake2s_Simd128_update_multi.exit209: ; preds = %.lr.ph.i205, %python_hashlib_Hacl_Hash_Blake2s_Simd128_update_multi.exit201
-  %65 = zext i32 %55 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.sroa.462.0.copyload, ptr align 1 %57, i64 %65, i1 false)
-  %66 = add i64 %40, %50
+  %61 = zext i32 %54 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.sroa.462.0.copyload, ptr align 1 %56, i64 %61, i1 false)
+  %62 = add i64 %38, %48
   store i64 %.sroa.0.0.copyload, ptr %0, align 8
   store ptr %.sroa.447.0.copyload, ptr %.sroa.447.0..sroa_idx, align 8, !tbaa !12
   store ptr %.sroa.5.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !12
@@ -1357,12 +1353,12 @@ python_hashlib_Hacl_Hash_Blake2s_Simd128_update_multi.exit209: ; preds = %.lr.ph
 
 .sink.split:                                      ; preds = %python_hashlib_Hacl_Hash_Blake2s_Simd128_update_multi.exit195, %python_hashlib_Hacl_Hash_Blake2s_Simd128_update_multi.exit209, %13
   %.sroa.4135.0.copyload.sink = phi ptr [ %.sroa.4135.0.copyload, %13 ], [ %.sroa.462.0.copyload, %python_hashlib_Hacl_Hash_Blake2s_Simd128_update_multi.exit209 ], [ %.sroa.6120.0.copyload, %python_hashlib_Hacl_Hash_Blake2s_Simd128_update_multi.exit195 ]
-  %.sink = phi i64 [ %15, %13 ], [ %66, %python_hashlib_Hacl_Hash_Blake2s_Simd128_update_multi.exit209 ], [ %35, %python_hashlib_Hacl_Hash_Blake2s_Simd128_update_multi.exit195 ]
+  %.sink = phi i64 [ %15, %13 ], [ %62, %python_hashlib_Hacl_Hash_Blake2s_Simd128_update_multi.exit209 ], [ %33, %python_hashlib_Hacl_Hash_Blake2s_Simd128_update_multi.exit195 ]
   store ptr %.sroa.4135.0.copyload.sink, ptr %.sroa.6120.0..sroa_idx, align 8, !tbaa !14
   store i64 %.sink, ptr %.sroa.3145.0..sroa_idx, align 8, !tbaa !16
-  br label %67
+  br label %63
 
-67:                                               ; preds = %.sink.split, %3
+63:                                               ; preds = %.sink.split, %3
   %.0 = phi i8 [ 3, %3 ], [ 0, %.sink.split ]
   ret i8 %.0
 }
@@ -1572,15 +1568,15 @@ define internal fastcc void @update(ptr noundef nonnull captures(none) initializ
   %18 = lshr i32 %4, 6
   %19 = and i32 %4, 63
   %20 = icmp eq i32 %19, 0
-  %21 = icmp ugt i32 %4, 63
-  %or.cond.i = and i1 %21, %20
+  %21 = icmp ne i32 %18, 0
+  %or.cond.i = and i1 %20, %21
   %22 = sext i1 %or.cond.i to i32
   %.023.i = add nsw i32 %18, %22
   %.not.i.i = icmp eq i32 %.023.i, 0
   br i1 %.not.i.i, label %update_blocks.exit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %17
-  %wide.trip.count.i.i = zext i32 %.023.i to i64
+  %wide.trip.count.i.i = zext nneg i32 %.023.i to i64
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
@@ -1616,15 +1612,15 @@ update_blocks.exit:                               ; preds = %.lr.ph.i.i, %17
   %37 = lshr i32 %4, 6
   %38 = and i32 %4, 63
   %39 = icmp eq i32 %38, 0
-  %40 = icmp ugt i32 %4, 63
-  %or.cond.i16 = and i1 %40, %39
+  %40 = icmp ne i32 %37, 0
+  %or.cond.i16 = and i1 %39, %40
   %41 = sext i1 %or.cond.i16 to i32
   %.023.i17 = add nsw i32 %37, %41
   %.not.i.i18 = icmp eq i32 %.023.i17, 0
   br i1 %.not.i.i18, label %update_blocks.exit25, label %.lr.ph.preheader.i.i19
 
 .lr.ph.preheader.i.i19:                           ; preds = %36
-  %wide.trip.count.i.i20 = zext i32 %.023.i17 to i64
+  %wide.trip.count.i.i20 = zext nneg i32 %.023.i17 to i64
   br label %.lr.ph.i.i21
 
 .lr.ph.i.i21:                                     ; preds = %.lr.ph.i.i21, %.lr.ph.preheader.i.i19

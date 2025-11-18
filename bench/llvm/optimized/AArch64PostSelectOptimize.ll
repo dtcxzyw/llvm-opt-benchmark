@@ -431,7 +431,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_125AArch64PostSelectOptimize
   %51 = add i32 %50, 63
   %52 = lshr i32 %51, 6
   %53 = zext nneg i32 %52 to i64
-  %54 = icmp ult i32 %51, 64
+  %54 = icmp eq i32 %52, 0
   br i1 %54, label %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i.i.i.i, label %55
 
 55:                                               ; preds = %23

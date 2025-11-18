@@ -4494,7 +4494,7 @@ _ZN4llvm9BitVector15set_unused_bitsEb.exit.i:     ; preds = %_ZN4llvm9BitVector1
   %53 = add i32 %52, 63
   %54 = lshr i32 %53, 6
   %55 = zext nneg i32 %54 to i64
-  %56 = icmp ult i32 %53, 64
+  %56 = icmp eq i32 %54, 0
   br i1 %56, label %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i, label %57
 
 57:                                               ; preds = %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i
@@ -5406,7 +5406,7 @@ _ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i.loopexit.i: ; preds = %12
   br label %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i.sink.split.i
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.i.i:    ; preds = %12
-  %.not.i.i.i.i = icmp samesign ult i32 %19, 64
+  %.not.i.i.i.i = icmp eq i32 %20, 0
   br i1 %.not.i.i.i.i, label %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i.i, label %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i.sink.split.i
 
 _ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i.sink.split.i: ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.i.i, %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i.loopexit.i
@@ -5516,7 +5516,7 @@ _ZN4llvm13StackLifetime9LiveRangeC2Ejb.exit.loopexit: ; preds = %57
   br label %_ZN4llvm13StackLifetime9LiveRangeC2Ejb.exit.sink.split
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.i:      ; preds = %57
-  %.not.i.i.i4 = icmp samesign ult i32 %64, 64
+  %.not.i.i.i4 = icmp eq i32 %65, 0
   br i1 %.not.i.i.i4, label %_ZN4llvm13StackLifetime9LiveRangeC2Ejb.exit, label %_ZN4llvm13StackLifetime9LiveRangeC2Ejb.exit.sink.split
 
 _ZN4llvm13StackLifetime9LiveRangeC2Ejb.exit.sink.split: ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.i, %_ZN4llvm13StackLifetime9LiveRangeC2Ejb.exit.loopexit
@@ -5609,13 +5609,13 @@ _ZN4llvm13StackLifetime9LiveRangeC2Ejb.exit24.loopexit: ; preds = %92
   br label %_ZN4llvm13StackLifetime9LiveRangeC2Ejb.exit24.sink.split
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.i14:    ; preds = %92
-  %.not.i.i.i15 = icmp samesign ult i32 %99, 64
+  %.not.i.i.i15 = icmp eq i32 %100, 0
   br i1 %.not.i.i.i15, label %_ZN4llvm13StackLifetime9LiveRangeC2Ejb.exit24, label %_ZN4llvm13StackLifetime9LiveRangeC2Ejb.exit24.sink.split
 
 _ZN4llvm13StackLifetime9LiveRangeC2Ejb.exit24.sink.split: ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.i14, %_ZN4llvm13StackLifetime9LiveRangeC2Ejb.exit24.loopexit
-  %.sink83 = phi ptr [ %106, %_ZN4llvm13StackLifetime9LiveRangeC2Ejb.exit24.loopexit ], [ %102, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.i14 ]
+  %.sink79 = phi ptr [ %106, %_ZN4llvm13StackLifetime9LiveRangeC2Ejb.exit24.loopexit ], [ %102, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.i14 ]
   %.idx.i.i.i.i.i.i.i.i16 = shl nuw nsw i64 %101, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %.sink83, i8 0, i64 %.idx.i.i.i.i.i.i.i.i16, i1 false), !tbaa !38
+  call void @llvm.memset.p0.i64(ptr align 8 %.sink79, i8 0, i64 %.idx.i.i.i.i.i.i.i.i16, i1 false), !tbaa !38
   br label %_ZN4llvm13StackLifetime9LiveRangeC2Ejb.exit24
 
 _ZN4llvm13StackLifetime9LiveRangeC2Ejb.exit24:    ; preds = %_ZN4llvm13StackLifetime9LiveRangeC2Ejb.exit24.sink.split, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.i14
@@ -5723,7 +5723,7 @@ _ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i.loopexit.i40: ; preds = %142
   br label %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i.sink.split.i35
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.i.i33:  ; preds = %142
-  %.not.i.i.i.i34 = icmp samesign ult i32 %144, 64
+  %.not.i.i.i.i34 = icmp eq i32 %145, 0
   br i1 %.not.i.i.i.i34, label %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i.i38, label %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i.sink.split.i35
 
 _ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i.sink.split.i35: ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.i.i33, %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i.loopexit.i40
@@ -5794,7 +5794,7 @@ _ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit.i: ; preds = %168, %164
   br i1 %.not.i, label %181, label %178
 
 178:                                              ; preds = %174
-  %.not33.i = icmp ult i32 %144, 64
+  %.not33.i = icmp eq i32 %145, 0
   br i1 %.not33.i, label %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit.i, label %179
 
 179:                                              ; preds = %178
@@ -8630,11 +8630,11 @@ _ZN4llvm9BitVectorC2Ejb.exit36.loopexit:          ; preds = %2
   br label %_ZN4llvm9BitVectorC2Ejb.exit36
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i:        ; preds = %2
-  %.not.i.i = icmp samesign ult i32 %3, 64
+  %.not.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i26.thread, label %_ZN4llvm9BitVectorC2Ejb.exit36.loopexit48
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i26.thread: ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i
-  store i32 %4, ptr %7, align 8, !tbaa !68
+  store i32 0, ptr %7, align 8, !tbaa !68
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %1, ptr %29, align 8, !tbaa !67
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -8643,7 +8643,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i26.thread: ; preds = %_ZSt6fill_nIPmmmE
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 6, ptr %33, align 4, !tbaa !69
-  store i32 %4, ptr %32, align 8, !tbaa !68
+  store i32 0, ptr %32, align 8, !tbaa !68
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %1, ptr %34, align 8, !tbaa !67
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -8652,7 +8652,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i26.thread: ; preds = %_ZSt6fill_nIPmmmE
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 6, ptr %38, align 4, !tbaa !69
-  store i32 %4, ptr %37, align 8, !tbaa !68
+  store i32 0, ptr %37, align 8, !tbaa !68
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i32 %1, ptr %39, align 8, !tbaa !67
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 216

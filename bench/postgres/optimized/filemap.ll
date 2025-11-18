@@ -628,22 +628,22 @@ define dso_local void @process_target_file(ptr noundef %0, i32 noundef %1, i64 n
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @process_target_wal_block_change(i32 noundef %0, i64 %1, i32 %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = and i32 %3, 131071
+  %5 = lshr i32 %3, 17
+  %6 = and i32 %3, 131071
   %.sroa.06.0.extract.trunc.i = trunc i64 %1 to i32
   %.sroa.27.0.extract.shift.i = lshr i64 %1, 32
   %.sroa.27.0.extract.trunc.i = trunc nuw i64 %.sroa.27.0.extract.shift.i to i32
-  %6 = tail call ptr @GetRelationPath(i32 noundef %.sroa.27.0.extract.trunc.i, i32 noundef %.sroa.06.0.extract.trunc.i, i32 noundef %2, i32 noundef -1, i32 noundef %0) #13
-  %.not.i = icmp ult i32 %3, 131072
-  br i1 %.not.i, label %datasegpath.exit, label %7
+  %7 = tail call ptr @GetRelationPath(i32 noundef %.sroa.27.0.extract.trunc.i, i32 noundef %.sroa.06.0.extract.trunc.i, i32 noundef %2, i32 noundef -1, i32 noundef %0) #13
+  %.not.i = icmp eq i32 %5, 0
+  br i1 %.not.i, label %datasegpath.exit, label %8
 
-7:                                                ; preds = %4
-  %8 = lshr i32 %3, 17
-  %9 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.17, ptr noundef %6, i32 noundef %8) #13
-  tail call void @pfree(ptr noundef %6) #13
+8:                                                ; preds = %4
+  %9 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.17, ptr noundef %7, i32 noundef %5) #13
+  tail call void @pfree(ptr noundef %7) #13
   br label %datasegpath.exit
 
-datasegpath.exit:                                 ; preds = %4, %7
-  %.0.i = phi ptr [ %9, %7 ], [ %6, %4 ]
+datasegpath.exit:                                 ; preds = %4, %8
+  %.0.i = phi ptr [ %9, %8 ], [ %7, %4 ]
   %10 = load ptr, ptr @filehash, align 8
   %11 = tail call fastcc i32 @hash_string(ptr noundef %.0.i)
   %12 = getelementptr i8, ptr %10, i64 12
@@ -706,7 +706,7 @@ lookup_filehash_entry.exit.thread:                ; preds = %19, %datasegpath.ex
   br i1 %43, label %44, label %55
 
 44:                                               ; preds = %40
-  %45 = shl nuw nsw i32 %5, 13
+  %45 = shl nuw nsw i32 %6, 13
   %46 = add nuw nsw i32 %45, 8192
   %47 = zext nneg i32 %46 to i64
   %48 = getelementptr inbounds nuw i8, ptr %25, i64 64
@@ -722,7 +722,7 @@ lookup_filehash_entry.exit.thread:                ; preds = %19, %datasegpath.ex
 
 53:                                               ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  tail call void @datapagemap_add(ptr noundef nonnull %54, i32 noundef %5) #13
+  tail call void @datapagemap_add(ptr noundef nonnull %54, i32 noundef %6) #13
   br label %55
 
 55:                                               ; preds = %lookup_filehash_entry.exit.thread, %44, %50, %53, %30, %40

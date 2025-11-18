@@ -4265,7 +4265,7 @@ define internal void @green_graticule(ptr noundef readonly captures(none) %0, pt
 1127:                                             ; preds = %1122, %1112
   %1128 = getelementptr inbounds nuw i8, ptr %.144.i, i64 1
   %1129 = lshr i32 %.03643.i, 1
-  %.not40.i = icmp samesign ult i32 %.03643.i, 2
+  %.not40.i = icmp eq i32 %1129, 0
   br i1 %.not40.i, label %1130, label %1112, !llvm.loop !154
 
 1130:                                             ; preds = %1127
@@ -5679,7 +5679,7 @@ define internal void @color_graticule(ptr noundef readonly captures(none) %0, pt
 1161:                                             ; preds = %1156, %1146
   %1162 = getelementptr inbounds nuw i8, ptr %.144.i, i64 1
   %1163 = lshr i32 %.03643.i, 1
-  %.not40.i = icmp samesign ult i32 %.03643.i, 2
+  %.not40.i = icmp eq i32 %1163, 0
   br i1 %.not40.i, label %1164, label %1146, !llvm.loop !154
 
 1164:                                             ; preds = %1161
@@ -5984,7 +5984,7 @@ define internal void @invert_graticule(ptr noundef readonly captures(none) %0, p
 189:                                              ; preds = %181, %171
   %190 = getelementptr inbounds nuw i8, ptr %.13.i, i64 1
   %191 = lshr i32 %.0332.i, 1
-  %.not38.i = icmp samesign ult i32 %.0332.i, 2
+  %.not38.i = icmp eq i32 %191, 0
   br i1 %.not38.i, label %192, label %171, !llvm.loop !162
 
 192:                                              ; preds = %189
@@ -7392,15 +7392,15 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
 1152:                                             ; preds = %1147, %1137
   %1153 = getelementptr inbounds nuw i8, ptr %.144.i, i64 2
   %1154 = lshr i32 %.03643.i, 1
-  %.not40.i = icmp samesign ult i32 %.03643.i, 2
+  %.not40.i = icmp eq i32 %1154, 0
   br i1 %.not40.i, label %1155, label %1137, !llvm.loop !168
 
 1155:                                             ; preds = %1152
   %1156 = getelementptr i16, ptr %1153, i64 %1131
   %1157 = getelementptr i8, ptr %1156, i64 -16
   %1158 = add nsw i32 %.03745.i, -1
-  %.not54.i = icmp eq i32 %.03745.i, 0
-  br i1 %.not54.i, label %1159, label %.preheader.i, !llvm.loop !169
+  %.not55.i = icmp eq i32 %.03745.i, 0
+  br i1 %.not55.i, label %1159, label %.preheader.i, !llvm.loop !169
 
 1159:                                             ; preds = %1155
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -8822,15 +8822,15 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
 1175:                                             ; preds = %1170, %1160
   %1176 = getelementptr inbounds nuw i8, ptr %.144.i, i64 2
   %1177 = lshr i32 %.03643.i, 1
-  %.not40.i = icmp samesign ult i32 %.03643.i, 2
+  %.not40.i = icmp eq i32 %1177, 0
   br i1 %.not40.i, label %1178, label %1160, !llvm.loop !168
 
 1178:                                             ; preds = %1175
   %1179 = getelementptr i16, ptr %1176, i64 %1154
   %1180 = getelementptr i8, ptr %1179, i64 -16
   %1181 = add nsw i32 %.03745.i, -1
-  %.not54.i = icmp eq i32 %.03745.i, 0
-  br i1 %.not54.i, label %1182, label %.preheader.i, !llvm.loop !169
+  %.not55.i = icmp eq i32 %.03745.i, 0
+  br i1 %.not55.i, label %1182, label %.preheader.i, !llvm.loop !169
 
 1182:                                             ; preds = %1178
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -9427,15 +9427,15 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
 450:                                              ; preds = %441, %431
   %451 = getelementptr inbounds nuw i8, ptr %.145.i, i64 2
   %452 = lshr i32 %.03744.i, 1
-  %.not41.i = icmp samesign ult i32 %.03744.i, 2
+  %.not41.i = icmp eq i32 %452, 0
   br i1 %.not41.i, label %453, label %431, !llvm.loop !176
 
 453:                                              ; preds = %450
   %454 = getelementptr i16, ptr %451, i64 %426
   %455 = getelementptr i8, ptr %454, i64 -16
   %456 = add nsw i32 %.03846.i, -1
-  %.not55.i = icmp eq i32 %.03846.i, 0
-  br i1 %.not55.i, label %457, label %.preheader.i, !llvm.loop !177
+  %.not56.i = icmp eq i32 %.03846.i, 0
+  br i1 %.not56.i, label %457, label %.preheader.i, !llvm.loop !177
 
 457:                                              ; preds = %453
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

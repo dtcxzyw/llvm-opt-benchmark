@@ -9028,7 +9028,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIcELb0EE8Alloca
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.sink1.i
   %14 = load i8, ptr %1, align 1, !tbaa !18
   store i8 %14, ptr %13, align 1, !tbaa !18
-  %.not.i14 = icmp ult i64 %3, 2
+  %.not.i14 = icmp eq i64 %.sink1.i, 0
   br i1 %.not.i14, label %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIcENS1_20IteratorValueAdapterIS3_St13move_iteratorIPcEEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISB_E7pointerERT0_NSG_9size_typeE.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIcELb0EE8AllocateERS3_m.exit.i
@@ -9259,7 +9259,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 88:                                               ; preds = %.lr.ph.i.i.i.i16.i
   %89 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %.fr51.i.i, i64 %.07.i.i.i.i17.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false), !tbaa.struct !199
-  %.not5.i.i.i = icmp ult i64 %.098.in.i.i.i.i18.i, 2
+  %.not5.i.i.i = icmp eq i64 %.098.i.i34.i.i.i, 0
   br i1 %.not5.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN9grpc_core12_GLOBAL__N_18RingHash4Ring9RingEntryESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS5_C1EPS4_PNS3_16RingHashLbConfigEE3$_0EEEvT_SJ_SJ_RT0_.exit.i.i", label %.lr.ph.i.i.i.i16.i, !llvm.loop !374
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN9grpc_core12_GLOBAL__N_18RingHash4Ring9RingEntryESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS5_C1EPS4_PNS3_16RingHashLbConfigEE3$_0EEEvT_SJ_SJ_RT0_.exit.i.i": ; preds = %88, %.lr.ph.i.i.i.i16.i, %85

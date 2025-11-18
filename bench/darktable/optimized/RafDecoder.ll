@@ -2602,7 +2602,7 @@ _ZN8rawspeed8RawImage6createERKNS_8iPoint2DENS_12RawImageTypeEj.exit: ; preds = 
   %154 = getelementptr inbounds nuw i8, ptr %144, i64 48
   %155 = load i32, ptr %154, align 8, !tbaa !173, !noalias !167
   %156 = ashr i32 %155, 1
-  %157 = icmp ugt i32 %155, 1
+  %157 = icmp ne i32 %156, 0
   call void @llvm.assume(i1 %157)
   %158 = icmp sgt i32 %156, -1
   call void @llvm.assume(i1 %158)
@@ -2620,7 +2620,7 @@ _ZN8rawspeed8RawImage6createERKNS_8iPoint2DENS_12RawImageTypeEj.exit: ; preds = 
   %169 = getelementptr inbounds nuw i8, ptr %109, i64 64
   %170 = load i32, ptr %169, align 8, !tbaa !173, !noalias !174
   %171 = ashr i32 %170, 1
-  %172 = icmp ugt i32 %170, 1
+  %172 = icmp ne i32 %171, 0
   call void @llvm.assume(i1 %172)
   %173 = icmp sgt i32 %171, -1
   call void @llvm.assume(i1 %173)

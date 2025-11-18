@@ -392,13 +392,15 @@ mulinv.exit108:                                   ; preds = %.lr.ph121
 
 .loopexit113:                                     ; preds = %._crit_edge125.us, %._crit_edge129.us
   %.not105.not = icmp eq i32 %2, 0
-  %.not173 = icmp eq i32 %3, 2
-  %or.cond = or i1 %.not105.not, %.not173
-  br i1 %or.cond, label %.loopexit, label %.lr.ph133.us.preheader
+  br i1 %.not105.not, label %.loopexit, label %.lr.ph136
 
-.lr.ph133.us.preheader:                           ; preds = %.loopexit113
+.lr.ph136:                                        ; preds = %.loopexit113
   %72 = add nsw i32 %3, -1
   %73 = lshr i32 %72, 1
+  %.not173 = icmp eq i32 %73, 0
+  br i1 %.not173, label %.loopexit, label %.lr.ph133.us.preheader
+
+.lr.ph133.us.preheader:                           ; preds = %.lr.ph136
   %74 = zext nneg i32 %3 to i64
   %smax162 = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
   %wide.trip.count163 = zext nneg i32 %smax162 to i64
@@ -431,7 +433,7 @@ mulinv.exit108:                                   ; preds = %.lr.ph121
   %exitcond164.not = icmp eq i64 %indvars.iv.next160, %wide.trip.count163
   br i1 %exitcond164.not, label %.loopexit, label %.lr.ph133.us, !llvm.loop !35
 
-.loopexit:                                        ; preds = %._crit_edge134.us, %.loopexit113
+.loopexit:                                        ; preds = %._crit_edge134.us, %.lr.ph136, %.loopexit113
   br i1 %.not104, label %87, label %85
 
 85:                                               ; preds = %.loopexit

@@ -65,8 +65,8 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 .lr.ph:                                           ; preds = %2, %16
   %5 = phi i32 [ %17, %16 ], [ %3, %2 ]
-  %.074180 = phi ptr [ %.1, %16 ], [ @.str, %2 ]
-  %.075179 = phi ptr [ %.176, %16 ], [ null, %2 ]
+  %.074182 = phi ptr [ %.1, %16 ], [ @.str, %2 ]
+  %.075181 = phi ptr [ %.176, %16 ], [ null, %2 ]
   switch i32 %5, label %.loopexit [
     i32 111, label %6
     i32 112, label %8
@@ -98,8 +98,8 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %597
 
 16:                                               ; preds = %12, %10, %8, %6
-  %.176 = phi ptr [ %7, %6 ], [ %.075179, %8 ], [ %.075179, %10 ], [ %.075179, %12 ]
-  %.1 = phi ptr [ %.074180, %6 ], [ %9, %8 ], [ %.074180, %10 ], [ %.074180, %12 ]
+  %.176 = phi ptr [ %7, %6 ], [ %.075181, %8 ], [ %.075181, %10 ], [ %.075181, %12 ]
+  %.1 = phi ptr [ %.074182, %6 ], [ %9, %8 ], [ %.074182, %10 ], [ %.074182, %12 ]
   %17 = tail call i32 @getopt(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.1) #11
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %._crit_edge, label %.lr.ph
@@ -500,8 +500,8 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   unreachable
 
 .preheader.i:                                     ; preds = %221, %.preheader175.i
-  %.0132.lcssa242247.i = phi i1 [ true, %.preheader175.i ], [ %195, %221 ]
-  %.0131.lcssa243246.i = phi i64 [ 0, %.preheader175.i ], [ %196, %221 ]
+  %.0132.lcssa243248.i = phi i1 [ true, %.preheader175.i ], [ %195, %221 ]
+  %.0131.lcssa244247.i = phi i64 [ 0, %.preheader175.i ], [ %196, %221 ]
   br i1 %.not203.i, label %._crit_edge198.i, label %.lr.ph197.i
 
 .lr.ph197.i:                                      ; preds = %.preheader.i
@@ -521,7 +521,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %exitcond224.not.i, label %.preheader.i, label %221, !llvm.loop !42
 
 ._crit_edge198.i:                                 ; preds = %226, %.preheader.i
-  br i1 %.0132.lcssa242247.i, label %270, label %229
+  br i1 %.0132.lcssa243248.i, label %270, label %229
 
 226:                                              ; preds = %226, %.lr.ph197.i
   %indvars.iv225.i = phi i64 [ 0, %.lr.ph197.i ], [ %indvars.iv.next226.i, %226 ]
@@ -533,7 +533,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %exitcond229.not.i, label %._crit_edge198.i, label %226, !llvm.loop !43
 
 229:                                              ; preds = %._crit_edge198.i
-  %230 = getelementptr inbounds nuw i8, ptr %35, i64 %.0131.lcssa243246.i
+  %230 = getelementptr inbounds nuw i8, ptr %35, i64 %.0131.lcssa244247.i
   %231 = getelementptr inbounds nuw i8, ptr %35, i64 18
   %232 = ptrtoint ptr %35 to i64
   br label %233
@@ -657,11 +657,11 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %273 = getelementptr inbounds nuw %struct.Elf32_Shdr, ptr %125, i64 %272
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 20
   %275 = load i32, ptr %274, align 4, !tbaa !45
-  %.not208.i = icmp ult i32 %275, 16
+  %276 = lshr i32 %275, 4
+  %.not208.i = icmp eq i32 %276, 0
   br i1 %.not208.i, label %._crit_edge202.i, label %.lr.ph201.i
 
 .lr.ph201.i:                                      ; preds = %271
-  %276 = lshr i32 %275, 4
   %277 = getelementptr inbounds nuw i8, ptr %273, i64 16
   %278 = load i32, ptr %277, align 4, !tbaa !46
   %279 = zext i32 %278 to i64
@@ -872,8 +872,8 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %.not161.i109, label %387, label %438
 
 387:                                              ; preds = %384
-  %.not162.i165 = icmp eq i32 %.0147180.i108, 0
-  br i1 %.not162.i165, label %392, label %388
+  %.not162.i167 = icmp eq i32 %.0147180.i108, 0
+  br i1 %.not162.i167, label %392, label %388
 
 388:                                              ; preds = %387
   %389 = load ptr, ptr @stderr, align 8, !tbaa !9
@@ -882,61 +882,61 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %392
 
 392:                                              ; preds = %388, %387
-  %.2146.i166 = phi i32 [ %391, %388 ], [ %.0144181.i107, %387 ]
+  %.2146.i168 = phi i32 [ %391, %388 ], [ %.0144181.i107, %387 ]
   %393 = getelementptr inbounds nuw i8, ptr %385, i64 8
   %394 = load i64, ptr %393, align 8, !tbaa !68
-  %.not163.i167 = icmp eq i64 %394, 0
-  br i1 %.not163.i167, label %399, label %395
+  %.not163.i169 = icmp eq i64 %394, 0
+  br i1 %.not163.i169, label %399, label %395
 
 395:                                              ; preds = %392
   %396 = load ptr, ptr @stderr, align 8, !tbaa !9
   %397 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 33, i64 1, ptr %396) #12
-  %398 = add nsw i32 %.2146.i166, 1
+  %398 = add nsw i32 %.2146.i168, 1
   br label %399
 
 399:                                              ; preds = %395, %392
-  %.3.i168 = phi i32 [ %398, %395 ], [ %.2146.i166, %392 ]
+  %.3.i170 = phi i32 [ %398, %395 ], [ %.2146.i168, %392 ]
   %400 = getelementptr inbounds nuw i8, ptr %385, i64 16
   %401 = load i64, ptr %400, align 8, !tbaa !69
-  %.not164.i169 = icmp eq i64 %401, 0
-  br i1 %.not164.i169, label %406, label %402
+  %.not164.i171 = icmp eq i64 %401, 0
+  br i1 %.not164.i171, label %406, label %402
 
 402:                                              ; preds = %399
   %403 = load ptr, ptr @stderr, align 8, !tbaa !9
   %404 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 37, i64 1, ptr %403) #12
-  %405 = add nsw i32 %.3.i168, 1
+  %405 = add nsw i32 %.3.i170, 1
   br label %406
 
 406:                                              ; preds = %402, %399
-  %.4.i170 = phi i32 [ %405, %402 ], [ %.3.i168, %399 ]
+  %.4.i172 = phi i32 [ %405, %402 ], [ %.3.i170, %399 ]
   %407 = getelementptr inbounds nuw i8, ptr %385, i64 32
   %408 = load i64, ptr %407, align 8, !tbaa !70
   %409 = getelementptr inbounds nuw i8, ptr %385, i64 40
   %410 = load i64, ptr %409, align 8, !tbaa !71
-  %.not165.i171 = icmp eq i64 %408, %410
-  br i1 %.not165.i171, label %415, label %411
+  %.not165.i173 = icmp eq i64 %408, %410
+  br i1 %.not165.i173, label %415, label %411
 
 411:                                              ; preds = %406
   %412 = load ptr, ptr @stderr, align 8, !tbaa !9
   %413 = tail call i64 @fwrite(ptr nonnull @.str.26, i64 39, i64 1, ptr %412) #12
-  %414 = add nsw i32 %.4.i170, 1
-  %.pre.i172 = load i64, ptr %407, align 8, !tbaa !70
+  %414 = add nsw i32 %.4.i172, 1
+  %.pre.i174 = load i64, ptr %407, align 8, !tbaa !70
   br label %415
 
 415:                                              ; preds = %411, %406
-  %416 = phi i64 [ %.pre.i172, %411 ], [ %408, %406 ]
-  %.5.i173 = phi i32 [ %414, %411 ], [ %.4.i170, %406 ]
+  %416 = phi i64 [ %.pre.i174, %411 ], [ %408, %406 ]
+  %.5.i175 = phi i32 [ %414, %411 ], [ %.4.i172, %406 ]
   %417 = icmp ugt i64 %416, %33
   br i1 %417, label %418, label %422
 
 418:                                              ; preds = %415
   %419 = load ptr, ptr @stderr, align 8, !tbaa !9
   %420 = tail call i64 @fwrite(ptr nonnull @.str.27, i64 43, i64 1, ptr %419) #12
-  %421 = add nsw i32 %.5.i173, 1
+  %421 = add nsw i32 %.5.i175, 1
   br label %422
 
 422:                                              ; preds = %418, %415
-  %.6.i174 = phi i32 [ %421, %418 ], [ %.5.i173, %415 ]
+  %.6.i176 = phi i32 [ %421, %418 ], [ %.5.i175, %415 ]
   store i64 %33, ptr %407, align 8, !tbaa !70
   store i64 %33, ptr %409, align 8, !tbaa !71
   %423 = load i64, ptr %363, align 8, !tbaa !54
@@ -947,26 +947,26 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 426:                                              ; preds = %422
   %427 = load ptr, ptr @stderr, align 8, !tbaa !9
   %428 = tail call i64 @fwrite(ptr nonnull @.str.28, i64 34, i64 1, ptr %427) #12
-  %429 = add nsw i32 %.6.i174, 1
+  %429 = add nsw i32 %.6.i176, 1
   br label %430
 
 430:                                              ; preds = %426, %422
-  %.7.i175 = phi i32 [ %429, %426 ], [ %.6.i174, %422 ]
+  %.7.i177 = phi i32 [ %429, %426 ], [ %.6.i176, %422 ]
   %431 = getelementptr inbounds nuw i8, ptr %385, i64 4
   %432 = load i32, ptr %431, align 4, !tbaa !72
   %433 = and i32 %432, 6
-  %.not166.i176 = icmp eq i32 %433, 6
-  br i1 %.not166.i176, label %438, label %434
+  %.not166.i178 = icmp eq i32 %433, 6
+  br i1 %.not166.i178, label %438, label %434
 
 434:                                              ; preds = %430
   %435 = load ptr, ptr @stderr, align 8, !tbaa !9
   %436 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 31, i64 1, ptr %435) #12
-  %437 = add nsw i32 %.7.i175, 1
+  %437 = add nsw i32 %.7.i177, 1
   br label %438
 
 438:                                              ; preds = %434, %430, %384
   %.1148.i110 = phi i32 [ %.0147180.i108, %384 ], [ %371, %434 ], [ %371, %430 ]
-  %.1145.i111 = phi i32 [ %.0144181.i107, %384 ], [ %437, %434 ], [ %.7.i175, %430 ]
+  %.1145.i111 = phi i32 [ %.0144181.i107, %384 ], [ %437, %434 ], [ %.7.i177, %430 ]
   %indvars.iv.next211.i112 = add nuw nsw i64 %indvars.iv210.i106, 1
   %exitcond214.not.i113 = icmp eq i64 %indvars.iv.next211.i112, %373
   br i1 %exitcond214.not.i113, label %.preheader174.i114, label %384, !llvm.loop !73
@@ -1038,13 +1038,13 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   unreachable
 
 .preheader.i137:                                  ; preds = %468, %.preheader175.i100
-  %.0132.lcssa243248.i = phi i1 [ true, %.preheader175.i100 ], [ %439, %468 ]
-  %.0131.lcssa244247.i = phi i64 [ 0, %.preheader175.i100 ], [ %440, %468 ]
-  br i1 %.not203.i89, label %._crit_edge198.i144, label %.lr.ph197.i138
+  %.0132.lcssa243248.i138 = phi i1 [ true, %.preheader175.i100 ], [ %439, %468 ]
+  %.0131.lcssa244247.i139 = phi i64 [ 0, %.preheader175.i100 ], [ %440, %468 ]
+  br i1 %.not203.i89, label %._crit_edge198.i146, label %.lr.ph197.i140
 
-.lr.ph197.i138:                                   ; preds = %.preheader.i137
+.lr.ph197.i140:                                   ; preds = %.preheader.i137
   %467 = add nuw nsw i64 %369, 16
-  %wide.trip.count228.i139 = zext i16 %367 to i64
+  %wide.trip.count228.i141 = zext i16 %367 to i64
   br label %473
 
 468:                                              ; preds = %468, %.preheader173.i131
@@ -1058,35 +1058,35 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %exitcond224.not.i136 = icmp eq i64 %indvars.iv.next221.i135, %373
   br i1 %exitcond224.not.i136, label %.preheader.i137, label %468, !llvm.loop !75
 
-._crit_edge198.i144:                              ; preds = %473, %.preheader.i137
-  br i1 %.0132.lcssa243248.i, label %514, label %476
+._crit_edge198.i146:                              ; preds = %473, %.preheader.i137
+  br i1 %.0132.lcssa243248.i138, label %514, label %476
 
-473:                                              ; preds = %473, %.lr.ph197.i138
-  %indvars.iv225.i140 = phi i64 [ 0, %.lr.ph197.i138 ], [ %indvars.iv.next226.i142, %473 ]
-  %.idx170.i141 = shl nuw nsw i64 %indvars.iv225.i140, 6
-  %474 = add nuw nsw i64 %467, %.idx170.i141
+473:                                              ; preds = %473, %.lr.ph197.i140
+  %indvars.iv225.i142 = phi i64 [ 0, %.lr.ph197.i140 ], [ %indvars.iv.next226.i144, %473 ]
+  %.idx170.i143 = shl nuw nsw i64 %indvars.iv225.i142, 6
+  %474 = add nuw nsw i64 %467, %.idx170.i143
   %475 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %29, ptr noundef nonnull @.str.38, i64 noundef %474) #11
-  %indvars.iv.next226.i142 = add nuw nsw i64 %indvars.iv225.i140, 1
-  %exitcond229.not.i143 = icmp eq i64 %indvars.iv.next226.i142, %wide.trip.count228.i139
-  br i1 %exitcond229.not.i143, label %._crit_edge198.i144, label %473, !llvm.loop !76
+  %indvars.iv.next226.i144 = add nuw nsw i64 %indvars.iv225.i142, 1
+  %exitcond229.not.i145 = icmp eq i64 %indvars.iv.next226.i144, %wide.trip.count228.i141
+  br i1 %exitcond229.not.i145, label %._crit_edge198.i146, label %473, !llvm.loop !76
 
-476:                                              ; preds = %._crit_edge198.i144
-  %477 = getelementptr inbounds nuw i8, ptr %35, i64 %.0131.lcssa244247.i
+476:                                              ; preds = %._crit_edge198.i146
+  %477 = getelementptr inbounds nuw i8, ptr %35, i64 %.0131.lcssa244247.i139
   %478 = getelementptr inbounds nuw i8, ptr %35, i64 18
   %479 = ptrtoint ptr %35 to i64
   br label %480
 
 480:                                              ; preds = %510, %476
-  %.11.i145 = phi i32 [ 0, %476 ], [ %.12.i149, %510 ]
-  %.0137.i146 = phi ptr [ %477, %476 ], [ %511, %510 ]
-  %.sroa.0.0.copyload.i = load i64, ptr %.0137.i146, align 8
-  %.sroa.6.0..0137.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0137.i146, i64 8
+  %.11.i147 = phi i32 [ 0, %476 ], [ %.12.i151, %510 ]
+  %.0137.i148 = phi ptr [ %477, %476 ], [ %511, %510 ]
+  %.sroa.0.0.copyload.i = load i64, ptr %.0137.i148, align 8
+  %.sroa.6.0..0137.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0137.i148, i64 8
   %.sroa.6.0.copyload.i = load i64, ptr %.sroa.6.0..0137.sroa_idx.i, align 8
   %481 = tail call i64 @llvm.bswap.i64(i64 %.sroa.0.0.copyload.i)
   %482 = tail call i64 @llvm.bswap.i64(i64 %.sroa.6.0.copyload.i)
-  %.sroa.6.0.i147 = select i1 %.073, i64 %482, i64 %.sroa.6.0.copyload.i
-  %.sroa.0.0.i148 = select i1 %.073, i64 %481, i64 %.sroa.0.0.copyload.i
-  switch i64 %.sroa.0.0.i148, label %487 [
+  %.sroa.6.0.i149 = select i1 %.073, i64 %482, i64 %.sroa.6.0.copyload.i
+  %.sroa.0.0.i150 = select i1 %.073, i64 %481, i64 %.sroa.0.0.copyload.i
+  switch i64 %.sroa.0.0.i150, label %487 [
     i64 4, label %483
     i64 6, label %483
     i64 5, label %483
@@ -1126,36 +1126,36 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %510
 
 487:                                              ; preds = %480
-  %488 = and i64 %.sroa.0.0.i148, -256
+  %488 = and i64 %.sroa.0.0.i150, -256
   switch i64 %488, label %506 [
     i64 1879047424, label %510
     i64 1879047680, label %483
   ]
 
 489:                                              ; preds = %480
-  %.not156.i164 = icmp eq i64 %.sroa.6.0.i147, 24
-  br i1 %.not156.i164, label %510, label %490
+  %.not156.i166 = icmp eq i64 %.sroa.6.0.i149, 24
+  br i1 %.not156.i166, label %510, label %490
 
 490:                                              ; preds = %489
   %491 = load ptr, ptr @stderr, align 8, !tbaa !9
   %492 = tail call i64 @fwrite(ptr nonnull @.str.34, i64 39, i64 1, ptr %491) #12
-  %493 = add nsw i32 %.11.i145, 1
+  %493 = add nsw i32 %.11.i147, 1
   br label %510
 
 494:                                              ; preds = %480, %480, %480, %480
-  %.not155.i163 = icmp eq i64 %.sroa.6.0.i147, 0
-  br i1 %.not155.i163, label %510, label %495
+  %.not155.i165 = icmp eq i64 %.sroa.6.0.i149, 0
+  br i1 %.not155.i165, label %510, label %495
 
 495:                                              ; preds = %494
   %496 = load ptr, ptr @stderr, align 8, !tbaa !9
   %497 = tail call i64 @fwrite(ptr nonnull @.str.35, i64 29, i64 1, ptr %496) #12
-  %498 = add nsw i32 %.11.i145, 1
+  %498 = add nsw i32 %.11.i147, 1
   br label %510
 
 499:                                              ; preds = %480, %480, %480, %480, %480, %480
   %500 = load ptr, ptr @stderr, align 8, !tbaa !9
   %501 = tail call i64 @fwrite(ptr nonnull @.str.36, i64 31, i64 1, ptr %500) #12
-  %502 = add nsw i32 %.11.i145, 1
+  %502 = add nsw i32 %.11.i147, 1
   br label %510
 
 503:                                              ; preds = %480
@@ -1165,27 +1165,27 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 506:                                              ; preds = %503, %487
   %507 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %508 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %507, ptr noundef nonnull @.str.37, i64 noundef %.sroa.0.0.i148) #15
-  %509 = add nsw i32 %.11.i145, 1
+  %508 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %507, ptr noundef nonnull @.str.37, i64 noundef %.sroa.0.0.i150) #15
+  %509 = add nsw i32 %.11.i147, 1
   br label %510
 
 510:                                              ; preds = %506, %503, %499, %495, %494, %490, %489, %487, %483, %480, %480, %480, %480, %480, %480, %480, %480, %480, %480, %480, %480
-  %.12.i149 = phi i32 [ %.11.i145, %487 ], [ %.11.i145, %483 ], [ %509, %506 ], [ %493, %490 ], [ %.11.i145, %489 ], [ %498, %495 ], [ %.11.i145, %494 ], [ %.11.i145, %480 ], [ %.11.i145, %480 ], [ %.11.i145, %480 ], [ %.11.i145, %480 ], [ %.11.i145, %480 ], [ %.11.i145, %480 ], [ %.11.i145, %480 ], [ %.11.i145, %480 ], [ %.11.i145, %480 ], [ %.11.i145, %480 ], [ %.11.i145, %480 ], [ %.11.i145, %480 ], [ %502, %499 ], [ %.11.i145, %503 ]
-  %511 = getelementptr inbounds nuw i8, ptr %.0137.i146, i64 16
-  %.not157.i150 = icmp eq i64 %.sroa.0.0.i148, 0
-  br i1 %.not157.i150, label %512, label %480, !llvm.loop !77
+  %.12.i151 = phi i32 [ %.11.i147, %487 ], [ %.11.i147, %483 ], [ %509, %506 ], [ %493, %490 ], [ %.11.i147, %489 ], [ %498, %495 ], [ %.11.i147, %494 ], [ %.11.i147, %480 ], [ %.11.i147, %480 ], [ %.11.i147, %480 ], [ %.11.i147, %480 ], [ %.11.i147, %480 ], [ %.11.i147, %480 ], [ %.11.i147, %480 ], [ %.11.i147, %480 ], [ %.11.i147, %480 ], [ %.11.i147, %480 ], [ %.11.i147, %480 ], [ %.11.i147, %480 ], [ %502, %499 ], [ %.11.i147, %503 ]
+  %511 = getelementptr inbounds nuw i8, ptr %.0137.i148, i64 16
+  %.not157.i152 = icmp eq i64 %.sroa.0.0.i150, 0
+  br i1 %.not157.i152, label %512, label %480, !llvm.loop !77
 
 512:                                              ; preds = %510
-  %.not158.i151 = icmp eq i32 %.12.i149, 0
-  br i1 %.not158.i151, label %514, label %513
+  %.not158.i153 = icmp eq i32 %.12.i151, 0
+  br i1 %.not158.i153, label %514, label %513
 
 513:                                              ; preds = %512
   tail call void @exit(i32 noundef 1) #16
   unreachable
 
-514:                                              ; preds = %512, %._crit_edge198.i144
-  %.not159.i152 = icmp eq i32 %.0149.lcssa.i101, 0
-  br i1 %.not159.i152, label %.critedge.i161, label %515
+514:                                              ; preds = %512, %._crit_edge198.i146
+  %.not159.i154 = icmp eq i32 %.0149.lcssa.i101, 0
+  br i1 %.not159.i154, label %.critedge.i163, label %515
 
 515:                                              ; preds = %514
   %516 = zext nneg i32 %.0149.lcssa.i101 to i64
@@ -1194,37 +1194,37 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %519 = load i64, ptr %518, align 8, !tbaa !78
   %520 = udiv i64 %519, 24
   %521 = and i64 %520, 4294967295
-  %.not208.i153 = icmp eq i64 %521, 0
-  br i1 %.not208.i153, label %._crit_edge202.i160, label %.lr.ph201.i154
+  %.not208.i155 = icmp eq i64 %521, 0
+  br i1 %.not208.i155, label %._crit_edge202.i162, label %.lr.ph201.i156
 
-.lr.ph201.i154:                                   ; preds = %515
+.lr.ph201.i156:                                   ; preds = %515
   %522 = getelementptr inbounds nuw i8, ptr %517, i64 24
   %523 = load i64, ptr %522, align 8, !tbaa !79
   %524 = add nuw nsw i64 %523, 8
   br label %525
 
-525:                                              ; preds = %525, %.lr.ph201.i154
-  %indvars.iv230.i156 = phi i64 [ 0, %.lr.ph201.i154 ], [ %indvars.iv.next231.i158, %525 ]
-  %.idx.i157 = mul nuw nsw i64 %indvars.iv230.i156, 24
-  %526 = add nuw nsw i64 %524, %.idx.i157
+525:                                              ; preds = %525, %.lr.ph201.i156
+  %indvars.iv230.i158 = phi i64 [ 0, %.lr.ph201.i156 ], [ %indvars.iv.next231.i160, %525 ]
+  %.idx.i159 = mul nuw nsw i64 %indvars.iv230.i158, 24
+  %526 = add nuw nsw i64 %524, %.idx.i159
   %527 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %29, ptr noundef nonnull @.str.38, i64 noundef %526) #11
-  %indvars.iv.next231.i158 = add nuw nsw i64 %indvars.iv230.i156, 1
-  %exitcond234.not.i159 = icmp eq i64 %indvars.iv.next231.i158, %521
-  br i1 %exitcond234.not.i159, label %._crit_edge202.i160, label %525, !llvm.loop !80
+  %indvars.iv.next231.i160 = add nuw nsw i64 %indvars.iv230.i158, 1
+  %exitcond234.not.i161 = icmp eq i64 %indvars.iv.next231.i160, %521
+  br i1 %exitcond234.not.i161, label %._crit_edge202.i162, label %525, !llvm.loop !80
 
-._crit_edge202.i160:                              ; preds = %525, %515
+._crit_edge202.i162:                              ; preds = %525, %515
   tail call fastcc void @elf64_search_symtab(ptr noundef %370, i32 noundef %.0149.lcssa.i101, ptr noundef nonnull %35, i1 noundef zeroext %.073)
-  br label %.critedge.i161
+  br label %.critedge.i163
 
-.critedge.i161:                                   ; preds = %._crit_edge202.i160, %514
-  %.not160.i162 = icmp eq i32 %.0135.lcssa.i102, 0
-  br i1 %.not160.i162, label %529, label %528
+.critedge.i163:                                   ; preds = %._crit_edge202.i162, %514
+  %.not160.i164 = icmp eq i32 %.0135.lcssa.i102, 0
+  br i1 %.not160.i164, label %529, label %528
 
-528:                                              ; preds = %.critedge.i161
+528:                                              ; preds = %.critedge.i163
   tail call fastcc void @elf64_search_symtab(ptr noundef %370, i32 noundef %.0135.lcssa.i102, ptr noundef nonnull %35, i1 noundef zeroext %.073)
   br label %529
 
-529:                                              ; preds = %528, %.critedge.i161
+529:                                              ; preds = %528, %.critedge.i163
   br i1 %.073, label %530, label %elf32_process.exit
 
 530:                                              ; preds = %529
@@ -1282,8 +1282,8 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %597
 
 elf32_process.exit.sink.split:                    ; preds = %286, %530
-  %.sink209 = phi i64 [ 62, %530 ], [ 50, %286 ]
-  %567 = getelementptr inbounds nuw i8, ptr %35, i64 %.sink209
+  %.sink211 = phi i64 [ 62, %530 ], [ 50, %286 ]
+  %567 = getelementptr inbounds nuw i8, ptr %35, i64 %.sink211
   %568 = load i16, ptr %567, align 2, !tbaa !81
   %569 = tail call i16 @llvm.bswap.i16(i16 %568)
   store i16 %569, ptr %567, align 2, !tbaa !81
@@ -1293,9 +1293,9 @@ elf32_process.exit:                               ; preds = %elf32_process.exit.
   %570 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 4, i64 1, ptr nonnull %29)
   %571 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %29, ptr noundef nonnull @.str.11, ptr noundef %.1) #11
   %572 = icmp sgt i64 %33, 0
-  br i1 %572, label %.lr.ph183, label %._crit_edge184
+  br i1 %572, label %.lr.ph185, label %._crit_edge186
 
-._crit_edge184:                                   ; preds = %589, %elf32_process.exit
+._crit_edge186:                                   ; preds = %589, %elf32_process.exit
   %573 = tail call i64 @fwrite(ptr nonnull @.str.14, i64 5, i64 1, ptr nonnull %29)
   %574 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %29, ptr noundef nonnull @.str.15, ptr noundef %.1) #11
   %575 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %29, ptr noundef nonnull @.str.16, ptr noundef %.1) #11
@@ -1311,35 +1311,35 @@ elf32_process.exit:                               ; preds = %elf32_process.exit.
   %.not87 = icmp eq i32 %584, 0
   br i1 %.not87, label %597, label %596
 
-.lr.ph183:                                        ; preds = %elf32_process.exit, %589
-  %.0182 = phi i64 [ %594, %589 ], [ 0, %elf32_process.exit ]
-  %585 = urem i64 %.0182, 12
+.lr.ph185:                                        ; preds = %elf32_process.exit, %589
+  %.0184 = phi i64 [ %594, %589 ], [ 0, %elf32_process.exit ]
+  %585 = urem i64 %.0184, 12
   %586 = icmp eq i64 %585, 0
   br i1 %586, label %587, label %589
 
-587:                                              ; preds = %.lr.ph183
+587:                                              ; preds = %.lr.ph185
   %588 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 4, i64 1, ptr nonnull %29)
   br label %589
 
-589:                                              ; preds = %587, %.lr.ph183
-  %590 = getelementptr inbounds nuw i8, ptr %35, i64 %.0182
+589:                                              ; preds = %587, %.lr.ph185
+  %590 = getelementptr inbounds nuw i8, ptr %35, i64 %.0184
   %591 = load i8, ptr %590, align 1, !tbaa !13
   %592 = zext i8 %591 to i32
   %593 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %29, ptr noundef nonnull @.str.13, i32 noundef %592) #11
-  %594 = add nuw nsw i64 %.0182, 1
+  %594 = add nuw nsw i64 %.0184, 1
   %exitcond.not = icmp eq i64 %594, %33
-  br i1 %exitcond.not, label %._crit_edge184, label %.lr.ph183, !llvm.loop !82
+  br i1 %exitcond.not, label %._crit_edge186, label %.lr.ph185, !llvm.loop !82
 
 595:                                              ; preds = %40, %31, %22
   tail call void @perror(ptr noundef %25) #12
   br label %597
 
-596:                                              ; preds = %._crit_edge184, %28
+596:                                              ; preds = %._crit_edge186, %28
   tail call void @perror(ptr noundef nonnull %.176) #12
   br label %597
 
-597:                                              ; preds = %._crit_edge184, %596, %595, %563, %64, %57, %42, %.loopexit
-  %.072 = phi i32 [ 1, %.loopexit ], [ 1, %595 ], [ 1, %596 ], [ 1, %42 ], [ 1, %57 ], [ 1, %64 ], [ 1, %563 ], [ 0, %._crit_edge184 ]
+597:                                              ; preds = %._crit_edge186, %596, %595, %563, %64, %57, %42, %.loopexit
+  %.072 = phi i32 [ 1, %.loopexit ], [ 1, %595 ], [ 1, %596 ], [ 1, %42 ], [ 1, %57 ], [ 1, %64 ], [ 1, %563 ], [ 0, %._crit_edge186 ]
   ret i32 %.072
 }
 
@@ -1512,7 +1512,7 @@ define internal fastcc void @elf32_search_symtab(ptr noundef nonnull readonly ca
   %19 = load i32, ptr %18, align 4, !tbaa !46
   %20 = zext i32 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 %20
-  %.not37 = icmp ult i32 %14, 16
+  %.not37 = icmp eq i32 %15, 0
   br i1 %.not37, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4

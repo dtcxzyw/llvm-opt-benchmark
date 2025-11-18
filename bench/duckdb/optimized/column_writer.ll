@@ -2610,9 +2610,9 @@ define linkonce_odr void @_ZN6duckdb10DbpEncoder10BeginWriteERNS_11WriteStreamER
   %9 = trunc i64 %.06.i to i8
   %10 = and i8 %9, 127
   %11 = lshr i64 %.06.i, 7
-  %.not.i = icmp samesign ult i64 %.06.i, 128
+  %.not.i = icmp eq i64 %11, 0
   %masksel.i = select i1 %.not.i, i8 0, i8 -128
-  %.0.i = or disjoint i8 %10, %masksel.i
+  %.0.i = or disjoint i8 %masksel.i, %10
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 %.0.i, ptr %7, align 1, !tbaa !3
   %12 = load ptr, ptr %1, align 8, !tbaa !19
@@ -2636,9 +2636,9 @@ _ZN6duckdb18ParquetDecodeUtils12VarintEncodeImEEvT_RNS_11WriteStreamE.exit: ; pr
   %18 = trunc i64 %.06.i12 to i8
   %19 = and i8 %18, 127
   %20 = lshr i64 %.06.i12, 7
-  %.not.i13 = icmp ult i64 %.06.i12, 128
+  %.not.i13 = icmp eq i64 %20, 0
   %masksel.i14 = select i1 %.not.i13, i8 0, i8 -128
-  %.0.i15 = or disjoint i8 %19, %masksel.i14
+  %.0.i15 = or disjoint i8 %masksel.i14, %19
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 %.0.i15, ptr %5, align 1, !tbaa !3
   %21 = load ptr, ptr %1, align 8, !tbaa !19
@@ -2659,9 +2659,9 @@ _ZN6duckdb18ParquetDecodeUtils12VarintEncodeImEEvT_RNS_11WriteStreamE.exit16: ; 
   %28 = trunc i64 %.06.i17 to i8
   %29 = and i8 %28, 127
   %30 = lshr i64 %.06.i17, 7
-  %.not.i18 = icmp ult i64 %.06.i17, 128
+  %.not.i18 = icmp eq i64 %30, 0
   %masksel.i19 = select i1 %.not.i18, i8 0, i8 -128
-  %.0.i20 = or disjoint i8 %29, %masksel.i19
+  %.0.i20 = or disjoint i8 %masksel.i19, %29
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %.0.i20, ptr %4, align 1, !tbaa !3
   %31 = load ptr, ptr %1, align 8, !tbaa !19
@@ -9670,7 +9670,7 @@ define linkonce_odr void @_ZN6duckdb10DbpEncoder10WriteBlockERNS_11WriteStreamE(
   %5 = load i64, ptr %4, align 8, !tbaa !28
   %6 = add i64 %5, 255
   %7 = lshr i64 %6, 8
-  %.not = icmp ult i64 %6, 256
+  %.not = icmp eq i64 %7, 0
   br i1 %.not, label %.preheader, label %.preheader40.lr.ph
 
 .preheader40.lr.ph:                               ; preds = %2
@@ -9727,9 +9727,9 @@ define linkonce_odr void @_ZN6duckdb10DbpEncoder10WriteBlockERNS_11WriteStreamE(
   %33 = trunc i64 %.06.i to i8
   %34 = and i8 %33, 127
   %35 = lshr i64 %.06.i, 7
-  %.not.i = icmp ult i64 %.06.i, 128
+  %.not.i = icmp eq i64 %35, 0
   %masksel.i = select i1 %.not.i, i8 0, i8 -128
-  %.0.i = or disjoint i8 %34, %masksel.i
+  %.0.i = or disjoint i8 %masksel.i, %34
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 %.0.i, ptr %3, align 1, !tbaa !3
   %36 = load ptr, ptr %1, align 8, !tbaa !19
@@ -16291,9 +16291,9 @@ define linkonce_odr void @_ZN6duckdb12RleBpEncoder20WriteCurrentBlockRLEERNS_11W
   %16 = trunc i64 %.06.i to i8
   %17 = and i8 %16, 127
   %18 = lshr i64 %.06.i, 7
-  %.not.i = icmp ult i64 %.06.i, 128
+  %.not.i = icmp eq i64 %18, 0
   %masksel.i = select i1 %.not.i, i8 0, i8 -128
-  %.0.i = or disjoint i8 %17, %masksel.i
+  %.0.i = or disjoint i8 %masksel.i, %17
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 %.0.i, ptr %9, align 1, !tbaa !3
   %19 = load ptr, ptr %1, align 8, !tbaa !19

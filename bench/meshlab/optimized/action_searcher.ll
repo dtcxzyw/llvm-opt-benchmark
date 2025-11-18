@@ -5214,7 +5214,7 @@ define linkonce_odr void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP7QAc
   %44 = load ptr, ptr %40, align 8
   %45 = getelementptr inbounds ptr, ptr %0, i64 %.019.i.i
   store ptr %44, ptr %45, align 8
-  %.not9 = icmp ult i64 %.0920.in.i.i, 2
+  %.not9 = icmp eq i64 %.0920.i.i78, 0
   br i1 %.not9, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP7QActionSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIN14ActionSearcher16ActionComparatorEEEEvT_T0_SF_T1_T2_.exit, label %.lr.ph.i.i, !llvm.loop !66
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP7QActionSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIN14ActionSearcher16ActionComparatorEEEEvT_T0_SF_T1_T2_.exit: ; preds = %.lr.ph.i.i, %43, %39

@@ -217,7 +217,7 @@ x64_mulmod.exit34:                                ; preds = %67, %79, %92
   %113 = select i1 %or.cond70.i25, i64 0, i64 %2
   %spec.select108.i26 = sub i64 %111, %113
   %114 = lshr i64 %.01136, 1
-  %.not = icmp ult i64 %.01136, 2
+  %.not = icmp eq i64 %114, 0
   br i1 %.not, label %._crit_edge, label %6, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %x64_mulmod.exit34, %3
@@ -249,7 +249,7 @@ define hidden ptr @_mpd_init_fnt_params(i64 noundef %0, i32 noundef %1, i32 noun
   store i64 %10, ptr %18, align 8, !tbaa !3
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %17, ptr %19, align 8, !tbaa !3
-  %.not = icmp ult i64 %0, 2
+  %.not = icmp eq i64 %4, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7

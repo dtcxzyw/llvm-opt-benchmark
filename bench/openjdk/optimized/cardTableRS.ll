@@ -371,11 +371,11 @@ define hidden void @_ZN11CardTableRS22scan_old_to_young_refsEP17TenuredGeneratio
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %2 to i64
   %10 = sub i64 %9, %8
-  %11 = icmp ult i64 %10, 8
-  br i1 %11, label %28, label %12
+  %11 = lshr i64 %10, 3
+  %12 = icmp eq i64 %11, 0
+  br i1 %12, label %28, label %13
 
-12:                                               ; preds = %3
-  %13 = lshr i64 %10, 3
+13:                                               ; preds = %3
   %14 = tail call noundef ptr @_ZN10SerialHeap4heapEv() #11
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 104
   %16 = load ptr, ptr %15, align 8
@@ -398,10 +398,10 @@ define hidden void @_ZN11CardTableRS22scan_old_to_young_refsEP17TenuredGeneratio
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 136
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %24, align 8
-  call void @_ZN11CardTableRS22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosure(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %1, ptr %7, i64 %13, ptr noundef nonnull %4)
+  call void @_ZN11CardTableRS22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosure(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %1, ptr %7, i64 %11, ptr noundef nonnull %4)
   br label %28
 
-28:                                               ; preds = %12, %3
+28:                                               ; preds = %13, %3
   ret void
 }
 

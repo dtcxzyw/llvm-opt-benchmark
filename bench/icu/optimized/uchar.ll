@@ -2094,7 +2094,7 @@ define double @u_getNumericValue_77(i32 noundef %0) local_unnamed_addr #0 {
   %35 = load i16, ptr %34, align 2, !tbaa !3
   %36 = lshr i16 %35, 6
   %37 = zext nneg i16 %36 to i32
-  %38 = icmp ult i16 %35, 64
+  %38 = icmp eq i16 %36, 0
   br i1 %38, label %114, label %39
 
 39:                                               ; preds = %32

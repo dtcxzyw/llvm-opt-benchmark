@@ -1520,7 +1520,7 @@ define hidden void @mi_collect_reduce(i64 noundef %0) local_unnamed_addr #1 {
   %2 = tail call ptr @mi_heap_get_default() #8
   %3 = load ptr, ptr %2, align 8, !tbaa !68
   %4 = lshr i64 %0, 22
-  %5 = icmp ult i64 %0, 4194304
+  %5 = icmp eq i64 %4, 0
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %1

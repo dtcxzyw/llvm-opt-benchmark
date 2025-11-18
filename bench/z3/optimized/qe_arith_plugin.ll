@@ -32123,7 +32123,7 @@ _ZNK2qe13arith_qe_util6mul_ltclEP4exprS3_.exit:   ; preds = %_ZNK17arith_recogni
 205:                                              ; preds = %_ZNK2qe13arith_qe_util6mul_ltclEP4exprS3_.exit
   %206 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i.i.i
   store ptr %128, ptr %206, align 8, !tbaa !142
-  %.not10.i = icmp ult i64 %.018.in.i.i.i, 2
+  %.not10.i = icmp eq i64 %.018.i.i89.i, 0
   br i1 %.not10.i, label %_ZSt10__pop_heapIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIN2qe13arith_qe_util6mul_ltEEEEvT_SA_SA_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !505
 
 _ZSt10__pop_heapIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIN2qe13arith_qe_util6mul_ltEEEEvT_SA_SA_RT0_.exit: ; preds = %_ZNK2qe13arith_qe_util6mul_ltclEP4exprS3_.exit, %205, %121

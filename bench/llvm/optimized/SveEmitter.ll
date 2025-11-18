@@ -13705,53 +13705,53 @@ _ZNK4llvm8ArrayRefIPKNS_6RecordEEcvSt6vectorIS3_SaIS3_EEEv.exit: ; preds = %_ZNS
   %25 = shl nuw nsw i64 %.012.i.i.i.i, 3
   %26 = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %25, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #28
   %.not.i.i.i.i18 = icmp eq ptr %26, null
-  br i1 %.not.i.i.i.i18, label %select.unfold.i.i.i.i, label %27
+  br i1 %.not.i.i.i.i18, label %select.unfold.i.i.i.i, label %28
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not16.i.i.i.i = icmp samesign ult i64 %.012.i.i.in.in.i.i, 3
-  br i1 %.not16.i.i.i.i, label %.thread.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !259
+  %27 = icmp eq i64 %.012.i.i.i.i, 1
+  br i1 %27, label %.thread.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !259
 
-27:                                               ; preds = %.lr.ph.i.i.i.i
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 %25
+28:                                               ; preds = %.lr.ph.i.i.i.i
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 %25
   %.val.i.i.i.i.i.i.i.i.i = load i64, ptr %.val, align 8, !tbaa !118
   store i64 %.val.i.i.i.i.i.i.i.i.i, ptr %26, align 8, !tbaa !118
   %.not20.i.i.i.i.i = icmp eq i64 %.012.i.i.i.i, 1
-  %29 = inttoptr i64 %.val.i.i.i.i.i.i.i.i.i to ptr
-  br i1 %.not20.i.i.i.i.i, label %31, label %.lr.ph.i.i.preheader.i.i.i
+  %30 = inttoptr i64 %.val.i.i.i.i.i.i.i.i.i to ptr
+  br i1 %.not20.i.i.i.i.i, label %.lr.ph.i.i.i17.i.preheader.i, label %.lr.ph.i.i.preheader.i.i.i
 
-.lr.ph.i.i.preheader.i.i.i:                       ; preds = %27
+.lr.ph.i.i.preheader.i.i.i:                       ; preds = %28
   %.01519.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %26, i64 8
   %load_initial = load i64, ptr %26, align 8
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
   %.01522.i.i.i.i.i = phi ptr [ %.015.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.01519.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i ]
-  %.021.i.i.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i.i.i ], [ %26, %.lr.ph.i.i.preheader.i.i.i ]
+  %.021.i.i.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i.i.i ], [ %26, %.lr.ph.i.i.preheader.i.i.i ]
   store i64 %load_initial, ptr %.01522.i.i.i.i.i, align 8, !tbaa !118
   store ptr null, ptr %.021.i.i.i.i.i, align 8, !tbaa !118
-  %30 = getelementptr inbounds nuw i8, ptr %.021.i.i.i.i.i, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.021.i.i.i.i.i, i64 8
   %.015.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.01522.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i = icmp eq ptr %.015.i.i.i.i.i, %28
+  %.not.i.i.i.i.i = icmp eq ptr %.015.i.i.i.i.i, %29
   br i1 %.not.i.i.i.i.i, label %._crit_edge.i.i.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !260
 
 ._crit_edge.i.i.loopexit.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i
-  %.pre.i.i.i = load ptr, ptr %30, align 8, !tbaa !118
-  br label %31
+  %.pre.i.i.i = load ptr, ptr %31, align 8, !tbaa !118
+  br label %.lr.ph.i.i.i17.i.preheader.i
 
 .thread.i.i:                                      ; preds = %select.unfold.i.i.i.i
   call fastcc void @"_ZSt21__inplace_stable_sortIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter26createCoreHeaderIntrinsicsERN4llvm11raw_ostreamERSA_8ACLEKindE3$_0EEEvT_SI_T0_"(ptr noundef %.val, ptr noundef nonnull %23)
   br label %"_ZSt11stable_sortIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEZNS1_10SVEEmitter26createCoreHeaderIntrinsicsERN4llvm11raw_ostreamERS7_8ACLEKindE3$_0EvT_SE_T0_.exit"
 
-31:                                               ; preds = %._crit_edge.i.i.loopexit.i.i.i, %27
-  %32 = phi ptr [ %29, %27 ], [ %.pre.i.i.i, %._crit_edge.i.i.loopexit.i.i.i ]
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %26, %27 ], [ %30, %._crit_edge.i.i.loopexit.i.i.i ]
+.lr.ph.i.i.i17.i.preheader.i:                     ; preds = %._crit_edge.i.i.loopexit.i.i.i, %28
+  %32 = phi ptr [ %30, %28 ], [ %.pre.i.i.i, %._crit_edge.i.i.loopexit.i.i.i ]
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %26, %28 ], [ %31, %._crit_edge.i.i.loopexit.i.i.i ]
   store ptr null, ptr %.0.lcssa.i.i.i.i.i, align 8, !tbaa !118
   store ptr %32, ptr %.val, align 8, !tbaa !118
   call fastcc void @"_ZSt22__stable_sort_adaptiveIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EES6_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter26createCoreHeaderIntrinsicsERN4llvm11raw_ostreamERSA_8ACLEKindE3$_0EEEvT_SI_T0_T1_T2_"(ptr noundef nonnull %.val, ptr noundef nonnull %23, ptr noundef nonnull %26, i64 noundef %.012.i.i.i.i)
   br label %.lr.ph.i.i.i17.i.i
 
-.lr.ph.i.i.i17.i.i:                               ; preds = %_ZSt8_DestroyISt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i, %31
-  %.05.i.i.i.i.i = phi ptr [ %35, %_ZSt8_DestroyISt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i ], [ %26, %31 ]
+.lr.ph.i.i.i17.i.i:                               ; preds = %_ZSt8_DestroyISt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i, %.lr.ph.i.i.i17.i.preheader.i
+  %.05.i.i.i.i.i = phi ptr [ %35, %_ZSt8_DestroyISt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i ], [ %26, %.lr.ph.i.i.i17.i.preheader.i ]
   %33 = load ptr, ptr %.05.i.i.i.i.i, align 8, !tbaa !118
   %.not.i.i.i.i.i.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i, label %34
@@ -13763,7 +13763,7 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
 _ZSt8_DestroyISt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i: ; preds = %34, %.lr.ph.i.i.i17.i.i
   store ptr null, ptr %.05.i.i.i.i.i, align 8, !tbaa !118
   %35 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
-  %.not.i.i.i18.i.i = icmp eq ptr %35, %28
+  %.not.i.i.i18.i.i = icmp eq ptr %35, %29
   br i1 %.not.i.i.i18.i.i, label %"_ZSt11stable_sortIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEZNS1_10SVEEmitter26createCoreHeaderIntrinsicsERN4llvm11raw_ostreamERS7_8ACLEKindE3$_0EvT_SE_T0_.exit", label %.lr.ph.i.i.i17.i.i, !llvm.loop !261
 
 "_ZSt11stable_sortIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEZNS1_10SVEEmitter26createCoreHeaderIntrinsicsERN4llvm11raw_ostreamERS7_8ACLEKindE3$_0EvT_SE_T0_.exit": ; preds = %_ZSt8_DestroyISt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i, %.thread.i.i

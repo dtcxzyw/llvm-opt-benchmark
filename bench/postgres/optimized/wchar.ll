@@ -325,22 +325,22 @@ define internal i32 @pg_wchar2euc_with_len(ptr noundef readonly captures(none) %
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %3, %45
-  %.046 = phi i32 [ %46, %45 ], [ 0, %3 ]
-  %.03245 = phi i32 [ %48, %45 ], [ %2, %3 ]
-  %.03344 = phi ptr [ %.134, %45 ], [ %1, %3 ]
-  %.03543 = phi ptr [ %47, %45 ], [ %0, %3 ]
+.lr.ph:                                           ; preds = %3, %44
+  %.046 = phi i32 [ %45, %44 ], [ 0, %3 ]
+  %.03245 = phi i32 [ %47, %44 ], [ %2, %3 ]
+  %.03344 = phi ptr [ %.134, %44 ], [ %1, %3 ]
+  %.03543 = phi ptr [ %46, %44 ], [ %0, %3 ]
   %5 = load i32, ptr %.03543, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.critedge, label %6
 
 6:                                                ; preds = %.lr.ph
-  %.not40 = icmp ult i32 %5, 16777216
-  br i1 %.not40, label %22, label %7
+  %7 = lshr i32 %5, 24
+  %.not40 = icmp eq i32 %7, 0
+  br i1 %.not40, label %22, label %8
 
-7:                                                ; preds = %6
-  %8 = lshr i32 %5, 24
-  %9 = trunc nuw i32 %8 to i8
+8:                                                ; preds = %6
+  %9 = trunc nuw i32 %7 to i8
   %10 = getelementptr inbounds nuw i8, ptr %.03344, i64 1
   store i8 %9, ptr %.03344, align 1
   %11 = load i32, ptr %.03543, align 4
@@ -357,15 +357,15 @@ define internal i32 @pg_wchar2euc_with_len(ptr noundef readonly captures(none) %
   %20 = trunc i32 %19 to i8
   %21 = getelementptr inbounds nuw i8, ptr %.03344, i64 4
   store i8 %20, ptr %18, align 1
-  br label %45
+  br label %44
 
 22:                                               ; preds = %6
-  %.not41 = icmp samesign ult i32 %5, 65536
-  br i1 %.not41, label %34, label %23
+  %23 = lshr i32 %5, 16
+  %.not41 = icmp eq i32 %23, 0
+  br i1 %.not41, label %34, label %24
 
-23:                                               ; preds = %22
-  %24 = lshr i32 %5, 16
-  %25 = trunc nuw i32 %24 to i8
+24:                                               ; preds = %22
+  %25 = trunc nuw i32 %23 to i8
   %26 = getelementptr inbounds nuw i8, ptr %.03344, i64 1
   store i8 %25, ptr %.03344, align 1
   %27 = load i32, ptr %.03543, align 4
@@ -377,41 +377,40 @@ define internal i32 @pg_wchar2euc_with_len(ptr noundef readonly captures(none) %
   %32 = trunc i32 %31 to i8
   %33 = getelementptr inbounds nuw i8, ptr %.03344, i64 3
   store i8 %32, ptr %30, align 1
-  br label %45
+  br label %44
 
 34:                                               ; preds = %22
-  %.not42 = icmp samesign ult i32 %5, 256
-  br i1 %.not42, label %42, label %35
+  %35 = lshr i32 %5, 8
+  %.not42 = icmp eq i32 %35, 0
+  %36 = getelementptr inbounds nuw i8, ptr %.03344, i64 1
+  br i1 %.not42, label %42, label %37
 
-35:                                               ; preds = %34
-  %36 = lshr i32 %5, 8
-  %37 = trunc nuw i32 %36 to i8
-  %38 = getelementptr inbounds nuw i8, ptr %.03344, i64 1
-  store i8 %37, ptr %.03344, align 1
+37:                                               ; preds = %34
+  %38 = trunc nuw i32 %35 to i8
+  store i8 %38, ptr %.03344, align 1
   %39 = load i32, ptr %.03543, align 4
   %40 = trunc i32 %39 to i8
   %41 = getelementptr inbounds nuw i8, ptr %.03344, i64 2
-  store i8 %40, ptr %38, align 1
-  br label %45
+  store i8 %40, ptr %36, align 1
+  br label %44
 
 42:                                               ; preds = %34
   %43 = trunc nuw i32 %5 to i8
-  %44 = getelementptr inbounds nuw i8, ptr %.03344, i64 1
   store i8 %43, ptr %.03344, align 1
-  br label %45
+  br label %44
 
-45:                                               ; preds = %23, %42, %35, %7
-  %.sink = phi i32 [ 3, %23 ], [ 1, %42 ], [ 2, %35 ], [ 4, %7 ]
-  %.134 = phi ptr [ %33, %23 ], [ %44, %42 ], [ %41, %35 ], [ %21, %7 ]
-  %46 = add i32 %.046, %.sink
-  %47 = getelementptr inbounds nuw i8, ptr %.03543, i64 4
-  %48 = add nsw i32 %.03245, -1
-  %49 = icmp sgt i32 %.03245, 1
-  br i1 %49, label %.lr.ph, label %.critedge, !llvm.loop !8
+44:                                               ; preds = %24, %42, %37, %8
+  %.sink = phi i32 [ 3, %24 ], [ 1, %42 ], [ 2, %37 ], [ 4, %8 ]
+  %.134 = phi ptr [ %33, %24 ], [ %36, %42 ], [ %41, %37 ], [ %21, %8 ]
+  %45 = add i32 %.046, %.sink
+  %46 = getelementptr inbounds nuw i8, ptr %.03543, i64 4
+  %47 = add nsw i32 %.03245, -1
+  %48 = icmp sgt i32 %.03245, 1
+  br i1 %48, label %.lr.ph, label %.critedge, !llvm.loop !8
 
-.critedge:                                        ; preds = %.lr.ph, %45, %3
-  %.033.lcssa = phi ptr [ %1, %3 ], [ %.134, %45 ], [ %.03344, %.lr.ph ]
-  %.0.lcssa = phi i32 [ 0, %3 ], [ %46, %45 ], [ %.046, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %44, %3
+  %.033.lcssa = phi ptr [ %1, %3 ], [ %.134, %44 ], [ %.03344, %.lr.ph ]
+  %.0.lcssa = phi i32 [ 0, %3 ], [ %45, %44 ], [ %.046, %.lr.ph ]
   store i8 0, ptr %.033.lcssa, align 1
   ret i32 %.0.lcssa
 }

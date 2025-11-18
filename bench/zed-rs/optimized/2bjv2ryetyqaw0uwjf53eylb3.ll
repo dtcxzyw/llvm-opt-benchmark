@@ -16811,8 +16811,8 @@ _ZN4core5slice4sort8unstable8heapsort9sift_down17h6f08f261fda21f87E.exit: ; pred
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %34, i64 40, i1 false), !alias.scope !4989
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not1.i1133 = icmp ugt i64 %33, 1
-  br i1 %.not1.i1133, label %.lr.ph.i12.preheader, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h6f08f261fda21f87E.exit20.thread
+  %.not1.i1134 = icmp ugt i64 %33, 1
+  br i1 %.not1.i1134, label %.lr.ph.i12.preheader, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h6f08f261fda21f87E.exit20.thread
 
 _ZN4core5slice4sort8unstable8heapsort9sift_down17h6f08f261fda21f87E.exit20.thread: ; preds = %_ZN4core5slice4sort8unstable8heapsort9sift_down17h6f08f261fda21f87E.exit20, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hf9c5ff5bbe7d619fE.exit.preheader"
   ret void
@@ -16968,12 +16968,12 @@ _ZN4core5slice4sort8unstable8heapsort9sift_down17h2a9163ebf8891d03E.exit: ; pred
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h82949da1acca1984E.exit.preheader": ; preds = %_ZN4core5slice4sort8unstable8heapsort9sift_down17h2a9163ebf8891d03E.exit
   %26 = add i64 %1, -1
   %27 = getelementptr inbounds i64, ptr %0, i64 %26
-  %.sroa.0.0.copyload.i.i33 = load i64, ptr %0, align 8, !alias.scope !5008
+  %.sroa.0.0.copyload.i.i34 = load i64, ptr %0, align 8, !alias.scope !5008
   %28 = load i64, ptr %27, align 8, !alias.scope !5008
   store i64 %28, ptr %0, align 8, !alias.scope !5008
-  store i64 %.sroa.0.0.copyload.i.i33, ptr %27, align 8, !alias.scope !5008
-  %.not1.i1134 = icmp ugt i64 %26, 1
-  br i1 %.not1.i1134, label %.lr.ph.i12.preheader, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h2a9163ebf8891d03E.exit20.thread
+  store i64 %.sroa.0.0.copyload.i.i34, ptr %27, align 8, !alias.scope !5008
+  %.not1.i1135 = icmp ugt i64 %26, 1
+  br i1 %.not1.i1135, label %.lr.ph.i12.preheader, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h2a9163ebf8891d03E.exit20.thread
 
 _ZN4core5slice4sort8unstable8heapsort9sift_down17h2a9163ebf8891d03E.exit20.thread: ; preds = %_ZN4core5slice4sort8unstable8heapsort9sift_down17h2a9163ebf8891d03E.exit20, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h82949da1acca1984E.exit.preheader"
   ret void

@@ -634,20 +634,20 @@ define internal void @BlendPixelRowNonPremult(ptr noundef captures(none) %0, ptr
 7:                                                ; preds = %.lr.ph
   %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !15
-  %10 = icmp ult i32 %6, 16777216
-  br i1 %10, label %BlendPixelNonPremult.exit, label %11
+  %10 = lshr i32 %6, 24
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %BlendPixelNonPremult.exit, label %12
 
-11:                                               ; preds = %7
-  %12 = lshr i32 %6, 24
+12:                                               ; preds = %7
   %13 = lshr i32 %9, 24
-  %14 = sub nuw nsw i32 256, %12
+  %14 = sub nuw nsw i32 256, %10
   %15 = mul nuw nsw i32 %13, %14
   %16 = lshr i32 %15, 8
-  %17 = add nuw nsw i32 %16, %12
+  %17 = add nuw nsw i32 %16, %10
   %.mask.i = and i32 %17, 255
   %18 = udiv i32 16777216, %.mask.i
   %19 = and i32 %6, 255
-  %20 = mul nuw nsw i32 %19, %12
+  %20 = mul nuw nsw i32 %19, %10
   %21 = and i32 %9, 255
   %22 = mul nuw nsw i32 %16, %21
   %23 = add nuw nsw i32 %22, %20
@@ -656,7 +656,7 @@ define internal void @BlendPixelRowNonPremult(ptr noundef captures(none) %0, ptr
   %26 = lshr i32 %6, 8
   %27 = lshr i32 %9, 8
   %28 = and i32 %26, 255
-  %29 = mul nuw nsw i32 %28, %12
+  %29 = mul nuw nsw i32 %28, %10
   %30 = and i32 %27, 255
   %31 = mul nuw nsw i32 %16, %30
   %32 = add nuw nsw i32 %31, %29
@@ -664,7 +664,7 @@ define internal void @BlendPixelRowNonPremult(ptr noundef captures(none) %0, ptr
   %34 = lshr i32 %6, 16
   %35 = lshr i32 %9, 16
   %36 = and i32 %34, 255
-  %37 = mul nuw nsw i32 %36, %12
+  %37 = mul nuw nsw i32 %36, %10
   %38 = and i32 %35, 255
   %39 = mul nuw nsw i32 %16, %38
   %40 = add nuw nsw i32 %39, %37
@@ -679,8 +679,8 @@ define internal void @BlendPixelRowNonPremult(ptr noundef captures(none) %0, ptr
   %49 = or disjoint i32 %48, %45
   br label %BlendPixelNonPremult.exit
 
-BlendPixelNonPremult.exit:                        ; preds = %7, %11
-  %.0.i = phi i32 [ %49, %11 ], [ %9, %7 ]
+BlendPixelNonPremult.exit:                        ; preds = %7, %12
+  %.0.i = phi i32 [ %49, %12 ], [ %9, %7 ]
   store i32 %.0.i, ptr %5, align 4, !tbaa !15
   br label %50
 

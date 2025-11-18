@@ -256,7 +256,7 @@ _blend.exit:                                      ; preds = %76, %54
   %79 = lshr i64 %19, 4
   %.016.i64 = add nsw i64 %60, -1
   %.not17.i65 = icmp ult i64 %.016.i64, %79
-  br i1 %.not17.i65, label %_blend.exit71, label %.lr.ph.i66
+  br i1 %.not17.i65, label %.lr.ph74.preheader, label %.lr.ph.i66
 
 .lr.ph.i66:                                       ; preds = %_blend.exit, %95
   %.018.i67 = phi i64 [ %.0.i69, %95 ], [ %.016.i64, %_blend.exit ]
@@ -289,14 +289,13 @@ _blend.exit:                                      ; preds = %76, %54
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.0..sroa_idx.i68, i8 0, i64 12, i1 false), !alias.scope !55, !noalias !52
   %.0.i69 = add i64 %.018.i67, -1
   %.not.i70 = icmp ult i64 %.0.i69, %79
-  br i1 %.not.i70, label %_blend.exit71, label %.lr.ph.i66
+  br i1 %.not.i70, label %.lr.ph74.preheader, label %.lr.ph.i66
 
-_blend.exit71:                                    ; preds = %95, %_blend.exit
-  %.not76 = icmp ult i64 %19, 16
-  br i1 %.not76, label %.loopexit, label %.lr.ph74
+.lr.ph74.preheader:                               ; preds = %95, %_blend.exit
+  br label %.lr.ph74
 
-.lr.ph74:                                         ; preds = %_blend.exit71, %.lr.ph74
-  %.058.in73 = phi i64 [ %.058, %.lr.ph74 ], [ %79, %_blend.exit71 ]
+.lr.ph74:                                         ; preds = %.lr.ph74.preheader, %.lr.ph74
+  %.058.in73 = phi i64 [ %.058, %.lr.ph74 ], [ %79, %.lr.ph74.preheader ]
   %.058 = add nsw i64 %.058.in73, -1
   %98 = getelementptr inbounds nuw float, ptr %3, i64 %.058
   %99 = load float, ptr %98, align 4, !tbaa !41
@@ -318,7 +317,7 @@ _blend.exit71:                                    ; preds = %95, %_blend.exit
   %112 = icmp sgt i64 %.058.in73, 1
   br i1 %112, label %.lr.ph74, label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph74, %_blend.exit71, %6
+.loopexit:                                        ; preds = %.lr.ph74, %6
   ret void
 }
 

@@ -170,7 +170,7 @@ dsa_minimum_size.exit:                            ; preds = %8
   %62 = getelementptr inbounds nuw i8, ptr %45, i64 48
   store ptr %61, ptr %62, align 8
   tail call void @FreePageManagerInitialize(ptr noundef nonnull %59, ptr noundef nonnull %0) #11
-  %.not78 = icmp ult i64 %29, 4096
+  %.not78 = icmp eq i64 %30, 0
   br i1 %.not78, label %contiguous_pages_to_segment_bin.exit.thread, label %63
 
 contiguous_pages_to_segment_bin.exit.thread:      ; preds = %56
@@ -186,8 +186,8 @@ contiguous_pages_to_segment_bin.exit.thread:      ; preds = %56
   %68 = xor i32 %67, 63
   %69 = tail call i32 @llvm.umin.i32(i32 %68, i32 14)
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw i64, ptr %42, i64 %70
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %71 = getelementptr inbounds nuw i64, ptr %0, i64 %70
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 4168
   store i64 0, ptr %72, align 8
   %73 = add nuw nsw i32 %69, 1
   %74 = zext nneg i32 %73 to i64

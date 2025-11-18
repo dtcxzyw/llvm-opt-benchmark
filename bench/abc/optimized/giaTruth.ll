@@ -1189,7 +1189,7 @@ define i64 @Gia_ObjComputeTruth6Cis(ptr noundef %0, i32 noundef %1, ptr noundef 
   %5 = ashr i32 %1, 1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %6, align 4, !tbaa !36
-  %.not = icmp ult i32 %1, 2
+  %.not = icmp eq i32 %5, 0
   br i1 %.not, label %7, label %9
 
 7:                                                ; preds = %4

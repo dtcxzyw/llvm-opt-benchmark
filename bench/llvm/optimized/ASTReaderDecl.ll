@@ -2864,18 +2864,18 @@ define dso_local void @_ZN5clang13ASTDeclReader22VisitPragmaCommentDeclEPNS_17Pr
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 856
   %19 = load i64, ptr %18, align 8, !tbaa !1117
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %22, label %21
+  br i1 %20, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %21
 
 21:                                               ; preds = %2
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %7, ptr noundef nonnull align 8 dereferenceable(3464) %9) #27
-  br label %22
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-22:                                               ; preds = %21, %2
-  %.not.i.i.i.i.i.i = icmp ult i64 %17, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %23
-
-23:                                               ; preds = %22
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %21, %2
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %17, 32
+  %22 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %22, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %23
+
+23:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 3320
   %25 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %26 = and i64 %25, 4294967295
@@ -2884,10 +2884,10 @@ define dso_local void @_ZN5clang13ASTDeclReader22VisitPragmaCommentDeclEPNS_17Pr
   %29 = load ptr, ptr %28, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %22, %23
-  %30 = phi ptr [ %29, %23 ], [ %9, %22 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %23
+  %30 = phi ptr [ %29, %23 ], [ %9, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %31 = trunc i64 %17 to i32
-  %32 = tail call noundef i32 @llvm.fshl.i32(i32 %31, i32 %31, i32 31)
+  %32 = tail call i32 @llvm.fshl.i32(i32 %31, i32 %31, i32 31)
   %33 = icmp eq i32 %31, 0
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 1648
   %35 = load i32, ptr %34, align 8
@@ -2961,18 +2961,18 @@ define dso_local void @_ZN5clang13ASTDeclReader29VisitPragmaDetectMismatchDeclEP
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 856
   %20 = load i64, ptr %19, align 8, !tbaa !1117
   %21 = icmp eq i64 %20, 0
-  br i1 %21, label %23, label %22
+  br i1 %21, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %22
 
 22:                                               ; preds = %2
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %8, ptr noundef nonnull align 8 dereferenceable(3464) %10) #27
-  br label %23
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-23:                                               ; preds = %22, %2
-  %.not.i.i.i.i.i.i = icmp ult i64 %18, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %24
-
-24:                                               ; preds = %23
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %22, %2
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %18, 32
+  %23 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %23, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %24
+
+24:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 3320
   %26 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %27 = and i64 %26, 4294967295
@@ -2981,10 +2981,10 @@ define dso_local void @_ZN5clang13ASTDeclReader29VisitPragmaDetectMismatchDeclEP
   %30 = load ptr, ptr %29, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %23, %24
-  %31 = phi ptr [ %30, %24 ], [ %10, %23 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %24
+  %31 = phi ptr [ %30, %24 ], [ %10, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %32 = trunc i64 %18 to i32
-  %33 = tail call noundef i32 @llvm.fshl.i32(i32 %32, i32 %32, i32 31)
+  %33 = tail call i32 @llvm.fshl.i32(i32 %32, i32 %32, i32 31)
   %34 = icmp eq i32 %32, 0
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 1648
   %36 = load i32, ptr %35, align 8
@@ -3362,18 +3362,18 @@ define dso_local void @_ZN5clang13ASTDeclReader13VisitTypeDeclEPNS_8TypeDeclE(pt
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 856
   %28 = load i64, ptr %27, align 8, !tbaa !1117
   %29 = icmp eq i64 %28, 0
-  br i1 %29, label %31, label %30
+  br i1 %29, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %30
 
 30:                                               ; preds = %2
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %19, ptr noundef nonnull align 8 dereferenceable(3464) %21) #27
-  br label %31
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-31:                                               ; preds = %30, %2
-  %.not.i.i.i.i.i.i = icmp ult i64 %26, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %32
-
-32:                                               ; preds = %31
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %30, %2
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %26, 32
+  %31 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %31, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %32
+
+32:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %33 = getelementptr inbounds nuw i8, ptr %21, i64 3320
   %34 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %35 = and i64 %34, 4294967295
@@ -3382,10 +3382,10 @@ define dso_local void @_ZN5clang13ASTDeclReader13VisitTypeDeclEPNS_8TypeDeclE(pt
   %38 = load ptr, ptr %37, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %31, %32
-  %39 = phi ptr [ %38, %32 ], [ %21, %31 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %32
+  %39 = phi ptr [ %38, %32 ], [ %21, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %40 = trunc i64 %26 to i32
-  %41 = tail call noundef i32 @llvm.fshl.i32(i32 %40, i32 %40, i32 31)
+  %41 = tail call i32 @llvm.fshl.i32(i32 %40, i32 %40, i32 31)
   %42 = icmp eq i32 %40, 0
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 1648
   %44 = load i32, ptr %43, align 8
@@ -4140,8 +4140,8 @@ _ZN12_GLOBAL__N_120MergedRedeclIteratorIN5clang8EnumDeclEEppEv.exit: ; preds = %
   %136 = icmp eq ptr %storemerge.i, %119
   %137 = icmp eq ptr %storemerge.i, %.sroa.441.1
   %or.cond.i = select i1 %136, i1 true, i1 %137
-  %.not86102 = icmp eq ptr %storemerge.i, null
-  %.not86 = or i1 %or.cond.i, %.not86102
+  %.not86101 = icmp eq ptr %storemerge.i, null
+  %.not86 = or i1 %or.cond.i, %.not86101
   br i1 %.not86, label %select.unfold._crit_edge, label %.lr.ph
 
 select.unfold._crit_edge:                         ; preds = %_ZN12_GLOBAL__N_120MergedRedeclIteratorIN5clang8EnumDeclEEppEv.exit, %115
@@ -4264,18 +4264,18 @@ _ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit.thread: ; preds = %165, %155, 
   %204 = getelementptr inbounds nuw i8, ptr %199, i64 856
   %205 = load i64, ptr %204, align 8, !tbaa !1117
   %206 = icmp eq i64 %205, 0
-  br i1 %206, label %208, label %207
+  br i1 %206, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %207
 
 207:                                              ; preds = %185
   call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %197, ptr noundef nonnull align 8 dereferenceable(3464) %199) #27
-  br label %208
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-208:                                              ; preds = %207, %185
-  %.not.i.i.i.i.i.i = icmp ult i64 %203, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %209
-
-209:                                              ; preds = %208
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %207, %185
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %203, 32
+  %208 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %208, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %209
+
+209:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %210 = getelementptr inbounds nuw i8, ptr %199, i64 3320
   %211 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %212 = and i64 %211, 4294967295
@@ -4284,10 +4284,10 @@ _ZN5clang21shouldSkipCheckingODREPKNS_4DeclE.exit.thread: ; preds = %165, %155, 
   %215 = load ptr, ptr %214, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %208, %209
-  %216 = phi ptr [ %215, %209 ], [ %199, %208 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %209
+  %216 = phi ptr [ %215, %209 ], [ %199, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %217 = trunc i64 %203 to i32
-  %218 = call noundef i32 @llvm.fshl.i32(i32 %217, i32 %217, i32 31)
+  %218 = call i32 @llvm.fshl.i32(i32 %217, i32 %217, i32 31)
   %219 = icmp eq i32 %217, 0
   %220 = getelementptr inbounds nuw i8, ptr %216, i64 1648
   %221 = load i32, ptr %220, align 8
@@ -5603,18 +5603,18 @@ define dso_local void @_ZN5clang13ASTDeclReader19VisitDeclaratorDeclEPNS_14Decla
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 856
   %18 = load i64, ptr %17, align 8, !tbaa !1117
   %19 = icmp eq i64 %18, 0
-  br i1 %19, label %21, label %20
+  br i1 %19, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %20
 
 20:                                               ; preds = %2
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %6, ptr noundef nonnull align 8 dereferenceable(3464) %8) #27
-  br label %21
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-21:                                               ; preds = %20, %2
-  %.not.i.i.i.i.i.i = icmp ult i64 %16, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %22
-
-22:                                               ; preds = %21
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %20, %2
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %16, 32
+  %21 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %21, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %22
+
+22:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 3320
   %24 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %25 = and i64 %24, 4294967295
@@ -5623,10 +5623,10 @@ define dso_local void @_ZN5clang13ASTDeclReader19VisitDeclaratorDeclEPNS_14Decla
   %28 = load ptr, ptr %27, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %21, %22
-  %29 = phi ptr [ %28, %22 ], [ %8, %21 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %22
+  %29 = phi ptr [ %28, %22 ], [ %8, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %30 = trunc i64 %16 to i32
-  %31 = tail call noundef i32 @llvm.fshl.i32(i32 %30, i32 %30, i32 31)
+  %31 = tail call i32 @llvm.fshl.i32(i32 %30, i32 %30, i32 31)
   %32 = icmp eq i32 %30, 0
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 1648
   %34 = load i32, ptr %33, align 8
@@ -6015,18 +6015,18 @@ _ZN5clang12TemplateDecl4initEPNS_9NamedDeclE.exit: ; preds = %128, %137
   %163 = getelementptr inbounds nuw i8, ptr %158, i64 856
   %164 = load i64, ptr %163, align 8, !tbaa !1117
   %165 = icmp eq i64 %164, 0
-  br i1 %165, label %167, label %166
+  br i1 %165, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %166
 
 166:                                              ; preds = %138
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %156, ptr noundef nonnull align 8 dereferenceable(3464) %158) #27
-  br label %167
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-167:                                              ; preds = %166, %138
-  %.not.i.i.i.i.i.i = icmp ult i64 %162, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %168
-
-168:                                              ; preds = %167
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %166, %138
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %162, 32
+  %167 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %167, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %168
+
+168:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %169 = getelementptr inbounds nuw i8, ptr %158, i64 3320
   %170 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %171 = and i64 %170, 4294967295
@@ -6035,10 +6035,10 @@ _ZN5clang12TemplateDecl4initEPNS_9NamedDeclE.exit: ; preds = %128, %137
   %174 = load ptr, ptr %173, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %167, %168
-  %175 = phi ptr [ %174, %168 ], [ %158, %167 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %168
+  %175 = phi ptr [ %174, %168 ], [ %158, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %176 = trunc i64 %162 to i32
-  %177 = tail call noundef i32 @llvm.fshl.i32(i32 %176, i32 %176, i32 31)
+  %177 = tail call i32 @llvm.fshl.i32(i32 %176, i32 %176, i32 31)
   %178 = icmp eq i32 %176, 0
   %179 = getelementptr inbounds nuw i8, ptr %175, i64 1648
   %180 = load i32, ptr %179, align 8
@@ -6126,18 +6126,18 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %167, %168
   %237 = getelementptr inbounds nuw i8, ptr %228, i64 856
   %238 = load i64, ptr %237, align 8, !tbaa !1117
   %239 = icmp eq i64 %238, 0
-  br i1 %239, label %241, label %240
+  br i1 %239, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i91, label %240
 
 240:                                              ; preds = %223
   call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %226, ptr noundef nonnull align 8 dereferenceable(3464) %228) #27
-  br label %241
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i91
 
-241:                                              ; preds = %240, %223
-  %.not.i.i.i.i.i.i91 = icmp ult i64 %236, 4294967296
-  br i1 %.not.i.i.i.i.i.i91, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit94, label %242
-
-242:                                              ; preds = %241
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i91: ; preds = %240, %223
   %.sroa.4.0.extract.shift.i.i.i.i92 = lshr i64 %236, 32
+  %241 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i92, 0
+  br i1 %241, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit94, label %242
+
+242:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i91
   %243 = getelementptr inbounds nuw i8, ptr %228, i64 3320
   %244 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i92, 4294967295
   %245 = and i64 %244, 4294967295
@@ -6146,10 +6146,10 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %167, %168
   %248 = load ptr, ptr %247, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit94
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit94: ; preds = %241, %242
-  %249 = phi ptr [ %248, %242 ], [ %228, %241 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit94: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i91, %242
+  %249 = phi ptr [ %248, %242 ], [ %228, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i91 ]
   %250 = trunc i64 %236 to i32
-  %251 = call noundef i32 @llvm.fshl.i32(i32 %250, i32 %250, i32 31)
+  %251 = call i32 @llvm.fshl.i32(i32 %250, i32 %250, i32 31)
   %252 = icmp eq i32 %250, 0
   %253 = getelementptr inbounds nuw i8, ptr %249, i64 1648
   %254 = load i32, ptr %253, align 8
@@ -6204,18 +6204,18 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit94: ; preds = %241, %242
   %297 = getelementptr inbounds nuw i8, ptr %292, i64 856
   %298 = load i64, ptr %297, align 8, !tbaa !1117
   %299 = icmp eq i64 %298, 0
-  br i1 %299, label %301, label %300
+  br i1 %299, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i95, label %300
 
 300:                                              ; preds = %273
   call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %290, ptr noundef nonnull align 8 dereferenceable(3464) %292) #27
-  br label %301
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i95
 
-301:                                              ; preds = %300, %273
-  %.not.i.i.i.i.i.i95 = icmp ult i64 %296, 4294967296
-  br i1 %.not.i.i.i.i.i.i95, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit98, label %302
-
-302:                                              ; preds = %301
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i95: ; preds = %300, %273
   %.sroa.4.0.extract.shift.i.i.i.i96 = lshr i64 %296, 32
+  %301 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i96, 0
+  br i1 %301, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit98, label %302
+
+302:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i95
   %303 = getelementptr inbounds nuw i8, ptr %292, i64 3320
   %304 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i96, 4294967295
   %305 = and i64 %304, 4294967295
@@ -6224,10 +6224,10 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit94: ; preds = %241, %242
   %308 = load ptr, ptr %307, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit98
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit98: ; preds = %301, %302
-  %309 = phi ptr [ %308, %302 ], [ %292, %301 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit98: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i95, %302
+  %309 = phi ptr [ %308, %302 ], [ %292, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i95 ]
   %310 = trunc i64 %296 to i32
-  %311 = call noundef i32 @llvm.fshl.i32(i32 %310, i32 %310, i32 31)
+  %311 = call i32 @llvm.fshl.i32(i32 %310, i32 %310, i32 31)
   %312 = icmp eq i32 %310, 0
   %313 = getelementptr inbounds nuw i8, ptr %309, i64 1648
   %314 = load i32, ptr %313, align 8
@@ -6772,18 +6772,18 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPN5clang12FunctionDeclEmELb1EE9push_ba
   %635 = getelementptr inbounds nuw i8, ptr %626, i64 856
   %636 = load i64, ptr %635, align 8, !tbaa !1117
   %637 = icmp eq i64 %636, 0
-  br i1 %637, label %639, label %638
+  br i1 %637, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i117, label %638
 
 638:                                              ; preds = %520
   call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %624, ptr noundef nonnull align 8 dereferenceable(3464) %626) #27
-  br label %639
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i117
 
-639:                                              ; preds = %638, %520
-  %.not.i.i.i.i.i.i117 = icmp ult i64 %634, 4294967296
-  br i1 %.not.i.i.i.i.i.i117, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit120, label %640
-
-640:                                              ; preds = %639
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i117: ; preds = %638, %520
   %.sroa.4.0.extract.shift.i.i.i.i118 = lshr i64 %634, 32
+  %639 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i118, 0
+  br i1 %639, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit120, label %640
+
+640:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i117
   %641 = getelementptr inbounds nuw i8, ptr %626, i64 3320
   %642 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i118, 4294967295
   %643 = and i64 %642, 4294967295
@@ -6792,10 +6792,10 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPN5clang12FunctionDeclEmELb1EE9push_ba
   %646 = load ptr, ptr %645, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit120
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit120: ; preds = %639, %640
-  %647 = phi ptr [ %646, %640 ], [ %626, %639 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit120: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i117, %640
+  %647 = phi ptr [ %646, %640 ], [ %626, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i117 ]
   %648 = trunc i64 %634 to i32
-  %649 = call noundef i32 @llvm.fshl.i32(i32 %648, i32 %648, i32 31)
+  %649 = call i32 @llvm.fshl.i32(i32 %648, i32 %648, i32 31)
   %650 = icmp eq i32 %648, 0
   %651 = getelementptr inbounds nuw i8, ptr %647, i64 1648
   %652 = load i32, ptr %651, align 8
@@ -6827,18 +6827,18 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit120: ; preds = %639, %640
   %672 = getelementptr inbounds nuw i8, ptr %663, i64 856
   %673 = load i64, ptr %672, align 8, !tbaa !1117
   %674 = icmp eq i64 %673, 0
-  br i1 %674, label %676, label %675
+  br i1 %674, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i121, label %675
 
 675:                                              ; preds = %658
   call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %661, ptr noundef nonnull align 8 dereferenceable(3464) %663) #27
-  br label %676
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i121
 
-676:                                              ; preds = %675, %658
-  %.not.i.i.i.i.i.i121 = icmp ult i64 %671, 4294967296
-  br i1 %.not.i.i.i.i.i.i121, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit124, label %677
-
-677:                                              ; preds = %676
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i121: ; preds = %675, %658
   %.sroa.4.0.extract.shift.i.i.i.i122 = lshr i64 %671, 32
+  %676 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i122, 0
+  br i1 %676, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit124, label %677
+
+677:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i121
   %678 = getelementptr inbounds nuw i8, ptr %663, i64 3320
   %679 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i122, 4294967295
   %680 = and i64 %679, 4294967295
@@ -6847,10 +6847,10 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit120: ; preds = %639, %640
   %683 = load ptr, ptr %682, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit124
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit124: ; preds = %676, %677
-  %684 = phi ptr [ %683, %677 ], [ %663, %676 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit124: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i121, %677
+  %684 = phi ptr [ %683, %677 ], [ %663, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i121 ]
   %685 = trunc i64 %671 to i32
-  %686 = call noundef i32 @llvm.fshl.i32(i32 %685, i32 %685, i32 31)
+  %686 = call i32 @llvm.fshl.i32(i32 %685, i32 %685, i32 31)
   %687 = icmp eq i32 %685, 0
   %688 = getelementptr inbounds nuw i8, ptr %684, i64 1648
   %689 = load i32, ptr %688, align 8
@@ -8117,18 +8117,18 @@ _ZN5clang15ASTRecordReader8readTypeEv.exit:       ; preds = %222, %270
   %299 = getelementptr inbounds nuw i8, ptr %290, i64 856
   %300 = load i64, ptr %299, align 8, !tbaa !1117
   %301 = icmp eq i64 %300, 0
-  br i1 %301, label %303, label %302
+  br i1 %301, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %302
 
 302:                                              ; preds = %_ZN5clang15ASTRecordReader8readTypeEv.exit
   call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %288, ptr noundef nonnull align 8 dereferenceable(3464) %290) #27
-  br label %303
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-303:                                              ; preds = %302, %_ZN5clang15ASTRecordReader8readTypeEv.exit
-  %.not.i.i.i.i.i.i = icmp ult i64 %298, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %304
-
-304:                                              ; preds = %303
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %302, %_ZN5clang15ASTRecordReader8readTypeEv.exit
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %298, 32
+  %303 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %303, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %304
+
+304:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %305 = getelementptr inbounds nuw i8, ptr %290, i64 3320
   %306 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %307 = and i64 %306, 4294967295
@@ -8137,10 +8137,10 @@ _ZN5clang15ASTRecordReader8readTypeEv.exit:       ; preds = %222, %270
   %310 = load ptr, ptr %309, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %303, %304
-  %311 = phi ptr [ %310, %304 ], [ %290, %303 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %304
+  %311 = phi ptr [ %310, %304 ], [ %290, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %312 = trunc i64 %298 to i32
-  %313 = call noundef i32 @llvm.fshl.i32(i32 %312, i32 %312, i32 31)
+  %313 = call i32 @llvm.fshl.i32(i32 %312, i32 %312, i32 31)
   %314 = icmp eq i32 %312, 0
   %315 = getelementptr inbounds nuw i8, ptr %311, i64 1648
   %316 = load i32, ptr %315, align 8
@@ -8320,18 +8320,18 @@ _ZN4llvm11SmallVectorIPN5clang11ParmVarDeclELj16EED2Ev.exit: ; preds = %_ZN4llvm
   %417 = getelementptr inbounds nuw i8, ptr %408, i64 856
   %418 = load i64, ptr %417, align 8, !tbaa !1117
   %419 = icmp eq i64 %418, 0
-  br i1 %419, label %421, label %420
+  br i1 %419, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i37, label %420
 
 420:                                              ; preds = %.lr.ph61
   call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %406, ptr noundef nonnull align 8 dereferenceable(3464) %408) #27
-  br label %421
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i37
 
-421:                                              ; preds = %420, %.lr.ph61
-  %.not.i.i.i.i.i.i37 = icmp ult i64 %416, 4294967296
-  br i1 %.not.i.i.i.i.i.i37, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit40, label %422
-
-422:                                              ; preds = %421
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i37: ; preds = %420, %.lr.ph61
   %.sroa.4.0.extract.shift.i.i.i.i38 = lshr i64 %416, 32
+  %421 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i38, 0
+  br i1 %421, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit40, label %422
+
+422:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i37
   %423 = getelementptr inbounds nuw i8, ptr %408, i64 3320
   %424 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i38, 4294967295
   %425 = and i64 %424, 4294967295
@@ -8340,10 +8340,10 @@ _ZN4llvm11SmallVectorIPN5clang11ParmVarDeclELj16EED2Ev.exit: ; preds = %_ZN4llvm
   %428 = load ptr, ptr %427, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit40
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit40: ; preds = %421, %422
-  %429 = phi ptr [ %428, %422 ], [ %408, %421 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit40: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i37, %422
+  %429 = phi ptr [ %428, %422 ], [ %408, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i37 ]
   %430 = trunc i64 %416 to i32
-  %431 = call noundef i32 @llvm.fshl.i32(i32 %430, i32 %430, i32 31)
+  %431 = call i32 @llvm.fshl.i32(i32 %430, i32 %430, i32 31)
   %432 = icmp eq i32 %430, 0
   %433 = getelementptr inbounds nuw i8, ptr %429, i64 1648
   %434 = load i32, ptr %433, align 8
@@ -8437,18 +8437,18 @@ define dso_local void @_ZN5clang13ASTDeclReader22VisitObjCTypeParamDeclEPNS_17Ob
   %47 = getelementptr inbounds nuw i8, ptr %38, i64 856
   %48 = load i64, ptr %47, align 8, !tbaa !1117
   %49 = icmp eq i64 %48, 0
-  br i1 %49, label %51, label %50
+  br i1 %49, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %50
 
 50:                                               ; preds = %2
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %36, ptr noundef nonnull align 8 dereferenceable(3464) %38) #27
-  br label %51
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-51:                                               ; preds = %50, %2
-  %.not.i.i.i.i.i.i = icmp ult i64 %46, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %52
-
-52:                                               ; preds = %51
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %50, %2
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %46, 32
+  %51 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %51, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %52
+
+52:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %53 = getelementptr inbounds nuw i8, ptr %38, i64 3320
   %54 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %55 = and i64 %54, 4294967295
@@ -8457,10 +8457,10 @@ define dso_local void @_ZN5clang13ASTDeclReader22VisitObjCTypeParamDeclEPNS_17Ob
   %58 = load ptr, ptr %57, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %51, %52
-  %59 = phi ptr [ %58, %52 ], [ %38, %51 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %52
+  %59 = phi ptr [ %58, %52 ], [ %38, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %60 = trunc i64 %46 to i32
-  %61 = tail call noundef i32 @llvm.fshl.i32(i32 %60, i32 %60, i32 31)
+  %61 = tail call i32 @llvm.fshl.i32(i32 %60, i32 %60, i32 31)
   %62 = icmp eq i32 %60, 0
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 1648
   %64 = load i32, ptr %63, align 8
@@ -8486,18 +8486,18 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %51, %52
   %81 = getelementptr inbounds nuw i8, ptr %72, i64 856
   %82 = load i64, ptr %81, align 8, !tbaa !1117
   %83 = icmp eq i64 %82, 0
-  br i1 %83, label %85, label %84
+  br i1 %83, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i7, label %84
 
 84:                                               ; preds = %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %70, ptr noundef nonnull align 8 dereferenceable(3464) %72) #27
-  br label %85
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i7
 
-85:                                               ; preds = %84, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
-  %.not.i.i.i.i.i.i7 = icmp ult i64 %80, 4294967296
-  br i1 %.not.i.i.i.i.i.i7, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit10, label %86
-
-86:                                               ; preds = %85
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i7: ; preds = %84, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
   %.sroa.4.0.extract.shift.i.i.i.i8 = lshr i64 %80, 32
+  %85 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i8, 0
+  br i1 %85, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit10, label %86
+
+86:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i7
   %87 = getelementptr inbounds nuw i8, ptr %72, i64 3320
   %88 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i8, 4294967295
   %89 = and i64 %88, 4294967295
@@ -8506,10 +8506,10 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %51, %52
   %92 = load ptr, ptr %91, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit10
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit10: ; preds = %85, %86
-  %93 = phi ptr [ %92, %86 ], [ %72, %85 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit10: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i7, %86
+  %93 = phi ptr [ %92, %86 ], [ %72, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i7 ]
   %94 = trunc i64 %80 to i32
-  %95 = tail call noundef i32 @llvm.fshl.i32(i32 %94, i32 %94, i32 31)
+  %95 = tail call i32 @llvm.fshl.i32(i32 %94, i32 %94, i32 31)
   %96 = icmp eq i32 %94, 0
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 1648
   %98 = load i32, ptr %97, align 8
@@ -8555,18 +8555,18 @@ define dso_local void @_ZN5clang13ASTDeclReader22VisitObjCContainerDeclEPNS_17Ob
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 856
   %28 = load i64, ptr %27, align 8, !tbaa !1117
   %29 = icmp eq i64 %28, 0
-  br i1 %29, label %31, label %30
+  br i1 %29, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %30
 
 30:                                               ; preds = %2
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %19, ptr noundef nonnull align 8 dereferenceable(3464) %21) #27
-  br label %31
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-31:                                               ; preds = %30, %2
-  %.not.i.i.i.i.i.i = icmp ult i64 %26, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %32
-
-32:                                               ; preds = %31
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %30, %2
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %26, 32
+  %31 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %31, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %32
+
+32:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %33 = getelementptr inbounds nuw i8, ptr %21, i64 3320
   %34 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %35 = and i64 %34, 4294967295
@@ -8575,10 +8575,10 @@ define dso_local void @_ZN5clang13ASTDeclReader22VisitObjCContainerDeclEPNS_17Ob
   %38 = load ptr, ptr %37, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %31, %32
-  %39 = phi ptr [ %38, %32 ], [ %21, %31 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %32
+  %39 = phi ptr [ %38, %32 ], [ %21, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %40 = trunc i64 %26 to i32
-  %41 = tail call noundef i32 @llvm.fshl.i32(i32 %40, i32 %40, i32 31)
+  %41 = tail call i32 @llvm.fshl.i32(i32 %40, i32 %40, i32 31)
   %42 = icmp eq i32 %40, 0
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 1648
   %44 = load i32, ptr %43, align 8
@@ -8696,18 +8696,18 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang17ObjCTypeParamDeclELb1EE9push_backES3
   %58 = getelementptr inbounds nuw i8, ptr %49, i64 856
   %59 = load i64, ptr %58, align 8, !tbaa !1117
   %60 = icmp eq i64 %59, 0
-  br i1 %60, label %62, label %61
+  br i1 %60, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %61
 
 61:                                               ; preds = %.critedge20
   call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %47, ptr noundef nonnull align 8 dereferenceable(3464) %49) #27
-  br label %62
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-62:                                               ; preds = %61, %.critedge20
-  %.not.i.i.i.i.i.i = icmp ult i64 %57, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %63
-
-63:                                               ; preds = %62
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %61, %.critedge20
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %57, 32
+  %62 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %62, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %63
+
+63:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %64 = getelementptr inbounds nuw i8, ptr %49, i64 3320
   %65 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %66 = and i64 %65, 4294967295
@@ -8716,10 +8716,10 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang17ObjCTypeParamDeclELb1EE9push_backES3
   %69 = load ptr, ptr %68, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %62, %63
-  %70 = phi ptr [ %69, %63 ], [ %49, %62 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %63
+  %70 = phi ptr [ %69, %63 ], [ %49, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %71 = trunc i64 %57 to i32
-  %72 = call noundef i32 @llvm.fshl.i32(i32 %71, i32 %71, i32 31)
+  %72 = call i32 @llvm.fshl.i32(i32 %71, i32 %71, i32 31)
   %73 = icmp eq i32 %71, 0
   %74 = getelementptr inbounds nuw i8, ptr %70, i64 1648
   %75 = load i32, ptr %74, align 8
@@ -8743,18 +8743,18 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %62, %63
   %91 = getelementptr inbounds nuw i8, ptr %82, i64 856
   %92 = load i64, ptr %91, align 8, !tbaa !1117
   %93 = icmp eq i64 %92, 0
-  br i1 %93, label %95, label %94
+  br i1 %93, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i21, label %94
 
 94:                                               ; preds = %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
   call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %80, ptr noundef nonnull align 8 dereferenceable(3464) %82) #27
-  br label %95
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i21
 
-95:                                               ; preds = %94, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
-  %.not.i.i.i.i.i.i21 = icmp ult i64 %90, 4294967296
-  br i1 %.not.i.i.i.i.i.i21, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit24, label %96
-
-96:                                               ; preds = %95
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i21: ; preds = %94, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
   %.sroa.4.0.extract.shift.i.i.i.i22 = lshr i64 %90, 32
+  %95 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i22, 0
+  br i1 %95, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit24, label %96
+
+96:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i21
   %97 = getelementptr inbounds nuw i8, ptr %82, i64 3320
   %98 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i22, 4294967295
   %99 = and i64 %98, 4294967295
@@ -8763,10 +8763,10 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %62, %63
   %102 = load ptr, ptr %101, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit24
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit24: ; preds = %95, %96
-  %103 = phi ptr [ %102, %96 ], [ %82, %95 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit24: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i21, %96
+  %103 = phi ptr [ %102, %96 ], [ %82, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i21 ]
   %104 = trunc i64 %90 to i32
-  %105 = call noundef i32 @llvm.fshl.i32(i32 %104, i32 %104, i32 31)
+  %105 = call i32 @llvm.fshl.i32(i32 %104, i32 %104, i32 31)
   %106 = icmp eq i32 %104, 0
   %107 = getelementptr inbounds nuw i8, ptr %103, i64 1648
   %108 = load i32, ptr %107, align 8
@@ -8829,18 +8829,18 @@ define dso_local void @_ZN5clang13ASTDeclReader22ReadObjCDefinitionDataERNS_17Ob
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 856
   %23 = load i64, ptr %22, align 8, !tbaa !1117
   %24 = icmp eq i64 %23, 0
-  br i1 %24, label %26, label %25
+  br i1 %24, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %25
 
 25:                                               ; preds = %2
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %11, ptr noundef nonnull align 8 dereferenceable(3464) %13) #27
-  br label %26
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-26:                                               ; preds = %25, %2
-  %.not.i.i.i.i.i.i = icmp ult i64 %21, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %27
-
-27:                                               ; preds = %26
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %25, %2
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %21, 32
+  %26 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %26, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %27
+
+27:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 3320
   %29 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %30 = and i64 %29, 4294967295
@@ -8849,10 +8849,10 @@ define dso_local void @_ZN5clang13ASTDeclReader22ReadObjCDefinitionDataERNS_17Ob
   %33 = load ptr, ptr %32, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %26, %27
-  %34 = phi ptr [ %33, %27 ], [ %13, %26 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %27
+  %34 = phi ptr [ %33, %27 ], [ %13, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %35 = trunc i64 %21 to i32
-  %36 = tail call noundef i32 @llvm.fshl.i32(i32 %35, i32 %35, i32 31)
+  %36 = tail call i32 @llvm.fshl.i32(i32 %35, i32 %35, i32 31)
   %37 = icmp eq i32 %35, 0
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 1648
   %39 = load i32, ptr %38, align 8
@@ -9032,18 +9032,18 @@ _ZN4llvm15SmallVectorImplIPN5clang16ObjCProtocolDeclEE7reserveEm.exit28: ; preds
   %148 = getelementptr inbounds nuw i8, ptr %139, i64 856
   %149 = load i64, ptr %148, align 8, !tbaa !1117
   %150 = icmp eq i64 %149, 0
-  br i1 %150, label %152, label %151
+  br i1 %150, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i29, label %151
 
 151:                                              ; preds = %.lr.ph42
   call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %137, ptr noundef nonnull align 8 dereferenceable(3464) %139) #27
-  br label %152
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i29
 
-152:                                              ; preds = %151, %.lr.ph42
-  %.not.i.i.i.i.i.i29 = icmp ult i64 %147, 4294967296
-  br i1 %.not.i.i.i.i.i.i29, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit32, label %153
-
-153:                                              ; preds = %152
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i29: ; preds = %151, %.lr.ph42
   %.sroa.4.0.extract.shift.i.i.i.i30 = lshr i64 %147, 32
+  %152 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i30, 0
+  br i1 %152, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit32, label %153
+
+153:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i29
   %154 = getelementptr inbounds nuw i8, ptr %139, i64 3320
   %155 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i30, 4294967295
   %156 = and i64 %155, 4294967295
@@ -9052,10 +9052,10 @@ _ZN4llvm15SmallVectorImplIPN5clang16ObjCProtocolDeclEE7reserveEm.exit28: ; preds
   %159 = load ptr, ptr %158, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit32
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit32: ; preds = %152, %153
-  %160 = phi ptr [ %159, %153 ], [ %139, %152 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit32: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i29, %153
+  %160 = phi ptr [ %159, %153 ], [ %139, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i29 ]
   %161 = trunc i64 %147 to i32
-  %162 = call noundef i32 @llvm.fshl.i32(i32 %161, i32 %161, i32 31)
+  %162 = call i32 @llvm.fshl.i32(i32 %161, i32 %161, i32 31)
   %163 = icmp eq i32 %161, 0
   %164 = getelementptr inbounds nuw i8, ptr %160, i64 1648
   %165 = load i32, ptr %164, align 8
@@ -10797,18 +10797,18 @@ _ZN4llvm11SmallVectorIPN5clang16ObjCProtocolDeclELj16EED2Ev.exit: ; preds = %_ZN
   %87 = getelementptr inbounds nuw i8, ptr %78, i64 856
   %88 = load i64, ptr %87, align 8, !tbaa !1117
   %89 = icmp eq i64 %88, 0
-  br i1 %89, label %91, label %90
+  br i1 %89, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %90
 
 90:                                               ; preds = %.lr.ph21
   call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %76, ptr noundef nonnull align 8 dereferenceable(3464) %78) #27
-  br label %91
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-91:                                               ; preds = %90, %.lr.ph21
-  %.not.i.i.i.i.i.i = icmp ult i64 %86, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %92
-
-92:                                               ; preds = %91
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %90, %.lr.ph21
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %86, 32
+  %91 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %91, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %92
+
+92:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %93 = getelementptr inbounds nuw i8, ptr %78, i64 3320
   %94 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %95 = and i64 %94, 4294967295
@@ -10817,10 +10817,10 @@ _ZN4llvm11SmallVectorIPN5clang16ObjCProtocolDeclELj16EED2Ev.exit: ; preds = %_ZN
   %98 = load ptr, ptr %97, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %91, %92
-  %99 = phi ptr [ %98, %92 ], [ %78, %91 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %92
+  %99 = phi ptr [ %98, %92 ], [ %78, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %100 = trunc i64 %86 to i32
-  %101 = call noundef i32 @llvm.fshl.i32(i32 %100, i32 %100, i32 31)
+  %101 = call i32 @llvm.fshl.i32(i32 %100, i32 %100, i32 31)
   %102 = icmp eq i32 %100, 0
   %103 = getelementptr inbounds nuw i8, ptr %99, i64 1648
   %104 = load i32, ptr %103, align 8
@@ -11534,18 +11534,18 @@ define dso_local void @_ZN5clang13ASTDeclReader21VisitObjCCategoryDeclEPNS_16Obj
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 856
   %20 = load i64, ptr %19, align 8, !tbaa !1117
   %21 = icmp eq i64 %20, 0
-  br i1 %21, label %23, label %22
+  br i1 %21, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %22
 
 22:                                               ; preds = %2
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %8, ptr noundef nonnull align 8 dereferenceable(3464) %10) #27
-  br label %23
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-23:                                               ; preds = %22, %2
-  %.not.i.i.i.i.i.i = icmp ult i64 %18, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %24
-
-24:                                               ; preds = %23
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %22, %2
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %18, 32
+  %23 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %23, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %24
+
+24:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 3320
   %26 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %27 = and i64 %26, 4294967295
@@ -11554,10 +11554,10 @@ define dso_local void @_ZN5clang13ASTDeclReader21VisitObjCCategoryDeclEPNS_16Obj
   %30 = load ptr, ptr %29, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %23, %24
-  %31 = phi ptr [ %30, %24 ], [ %10, %23 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %24
+  %31 = phi ptr [ %30, %24 ], [ %10, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %32 = trunc i64 %18 to i32
-  %33 = tail call noundef i32 @llvm.fshl.i32(i32 %32, i32 %32, i32 31)
+  %33 = tail call i32 @llvm.fshl.i32(i32 %32, i32 %32, i32 31)
   %34 = icmp eq i32 %32, 0
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 1648
   %36 = load i32, ptr %35, align 8
@@ -11583,18 +11583,18 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %23, %24
   %53 = getelementptr inbounds nuw i8, ptr %44, i64 856
   %54 = load i64, ptr %53, align 8, !tbaa !1117
   %55 = icmp eq i64 %54, 0
-  br i1 %55, label %57, label %56
+  br i1 %55, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i30, label %56
 
 56:                                               ; preds = %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %42, ptr noundef nonnull align 8 dereferenceable(3464) %44) #27
-  br label %57
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i30
 
-57:                                               ; preds = %56, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
-  %.not.i.i.i.i.i.i30 = icmp ult i64 %52, 4294967296
-  br i1 %.not.i.i.i.i.i.i30, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit33, label %58
-
-58:                                               ; preds = %57
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i30: ; preds = %56, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
   %.sroa.4.0.extract.shift.i.i.i.i31 = lshr i64 %52, 32
+  %57 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i31, 0
+  br i1 %57, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit33, label %58
+
+58:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i30
   %59 = getelementptr inbounds nuw i8, ptr %44, i64 3320
   %60 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i31, 4294967295
   %61 = and i64 %60, 4294967295
@@ -11603,10 +11603,10 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %23, %24
   %64 = load ptr, ptr %63, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit33
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit33: ; preds = %57, %58
-  %65 = phi ptr [ %64, %58 ], [ %44, %57 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit33: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i30, %58
+  %65 = phi ptr [ %64, %58 ], [ %44, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i30 ]
   %66 = trunc i64 %52 to i32
-  %67 = tail call noundef i32 @llvm.fshl.i32(i32 %66, i32 %66, i32 31)
+  %67 = tail call i32 @llvm.fshl.i32(i32 %66, i32 %66, i32 31)
   %68 = icmp eq i32 %66, 0
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 1648
   %70 = load i32, ptr %69, align 8
@@ -11632,18 +11632,18 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit33: ; preds = %57, %58
   %87 = getelementptr inbounds nuw i8, ptr %78, i64 856
   %88 = load i64, ptr %87, align 8, !tbaa !1117
   %89 = icmp eq i64 %88, 0
-  br i1 %89, label %91, label %90
+  br i1 %89, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i34, label %90
 
 90:                                               ; preds = %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit33
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %76, ptr noundef nonnull align 8 dereferenceable(3464) %78) #27
-  br label %91
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i34
 
-91:                                               ; preds = %90, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit33
-  %.not.i.i.i.i.i.i34 = icmp ult i64 %86, 4294967296
-  br i1 %.not.i.i.i.i.i.i34, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit37, label %92
-
-92:                                               ; preds = %91
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i34: ; preds = %90, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit33
   %.sroa.4.0.extract.shift.i.i.i.i35 = lshr i64 %86, 32
+  %91 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i35, 0
+  br i1 %91, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit37, label %92
+
+92:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i34
   %93 = getelementptr inbounds nuw i8, ptr %78, i64 3320
   %94 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i35, 4294967295
   %95 = and i64 %94, 4294967295
@@ -11652,10 +11652,10 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit33: ; preds = %57, %58
   %98 = load ptr, ptr %97, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit37
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit37: ; preds = %91, %92
-  %99 = phi ptr [ %98, %92 ], [ %78, %91 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit37: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i34, %92
+  %99 = phi ptr [ %98, %92 ], [ %78, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i34 ]
   %100 = trunc i64 %86 to i32
-  %101 = tail call noundef i32 @llvm.fshl.i32(i32 %100, i32 %100, i32 31)
+  %101 = tail call i32 @llvm.fshl.i32(i32 %100, i32 %100, i32 31)
   %102 = icmp eq i32 %100, 0
   %103 = getelementptr inbounds nuw i8, ptr %99, i64 1648
   %104 = load i32, ptr %103, align 8
@@ -11838,18 +11838,18 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang16ObjCProtocolDeclELb1EE9push_backES3_
   %201 = getelementptr inbounds nuw i8, ptr %192, i64 856
   %202 = load i64, ptr %201, align 8, !tbaa !1117
   %203 = icmp eq i64 %202, 0
-  br i1 %203, label %205, label %204
+  br i1 %203, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i40, label %204
 
 204:                                              ; preds = %.lr.ph51
   call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %190, ptr noundef nonnull align 8 dereferenceable(3464) %192) #27
-  br label %205
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i40
 
-205:                                              ; preds = %204, %.lr.ph51
-  %.not.i.i.i.i.i.i40 = icmp ult i64 %200, 4294967296
-  br i1 %.not.i.i.i.i.i.i40, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit43, label %206
-
-206:                                              ; preds = %205
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i40: ; preds = %204, %.lr.ph51
   %.sroa.4.0.extract.shift.i.i.i.i41 = lshr i64 %200, 32
+  %205 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i41, 0
+  br i1 %205, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit43, label %206
+
+206:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i40
   %207 = getelementptr inbounds nuw i8, ptr %192, i64 3320
   %208 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i41, 4294967295
   %209 = and i64 %208, 4294967295
@@ -11858,10 +11858,10 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang16ObjCProtocolDeclELb1EE9push_backES3_
   %212 = load ptr, ptr %211, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit43
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit43: ; preds = %205, %206
-  %213 = phi ptr [ %212, %206 ], [ %192, %205 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit43: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i40, %206
+  %213 = phi ptr [ %212, %206 ], [ %192, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i40 ]
   %214 = trunc i64 %200 to i32
-  %215 = call noundef i32 @llvm.fshl.i32(i32 %214, i32 %214, i32 31)
+  %215 = call i32 @llvm.fshl.i32(i32 %214, i32 %214, i32 31)
   %216 = icmp eq i32 %214, 0
   %217 = getelementptr inbounds nuw i8, ptr %213, i64 1648
   %218 = load i32, ptr %217, align 8
@@ -12012,18 +12012,18 @@ define dso_local void @_ZN5clang13ASTDeclReader21VisitObjCPropertyDeclEPNS_16Obj
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 856
   %28 = load i64, ptr %27, align 8, !tbaa !1117
   %29 = icmp eq i64 %28, 0
-  br i1 %29, label %31, label %30
+  br i1 %29, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %30
 
 30:                                               ; preds = %2
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %19, ptr noundef nonnull align 8 dereferenceable(3464) %21) #27
-  br label %31
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-31:                                               ; preds = %30, %2
-  %.not.i.i.i.i.i.i = icmp ult i64 %26, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %32
-
-32:                                               ; preds = %31
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %30, %2
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %26, 32
+  %31 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %31, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %32
+
+32:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %33 = getelementptr inbounds nuw i8, ptr %21, i64 3320
   %34 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %35 = and i64 %34, 4294967295
@@ -12032,10 +12032,10 @@ define dso_local void @_ZN5clang13ASTDeclReader21VisitObjCPropertyDeclEPNS_16Obj
   %38 = load ptr, ptr %37, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %31, %32
-  %39 = phi ptr [ %38, %32 ], [ %21, %31 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %32
+  %39 = phi ptr [ %38, %32 ], [ %21, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %40 = trunc i64 %26 to i32
-  %41 = tail call noundef i32 @llvm.fshl.i32(i32 %40, i32 %40, i32 31)
+  %41 = tail call i32 @llvm.fshl.i32(i32 %40, i32 %40, i32 31)
   %42 = icmp eq i32 %40, 0
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 1648
   %44 = load i32, ptr %43, align 8
@@ -12061,18 +12061,18 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %31, %32
   %61 = getelementptr inbounds nuw i8, ptr %52, i64 856
   %62 = load i64, ptr %61, align 8, !tbaa !1117
   %63 = icmp eq i64 %62, 0
-  br i1 %63, label %65, label %64
+  br i1 %63, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i23, label %64
 
 64:                                               ; preds = %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %50, ptr noundef nonnull align 8 dereferenceable(3464) %52) #27
-  br label %65
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i23
 
-65:                                               ; preds = %64, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
-  %.not.i.i.i.i.i.i23 = icmp ult i64 %60, 4294967296
-  br i1 %.not.i.i.i.i.i.i23, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit26, label %66
-
-66:                                               ; preds = %65
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i23: ; preds = %64, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
   %.sroa.4.0.extract.shift.i.i.i.i24 = lshr i64 %60, 32
+  %65 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i24, 0
+  br i1 %65, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit26, label %66
+
+66:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i23
   %67 = getelementptr inbounds nuw i8, ptr %52, i64 3320
   %68 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i24, 4294967295
   %69 = and i64 %68, 4294967295
@@ -12081,10 +12081,10 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %31, %32
   %72 = load ptr, ptr %71, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit26
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit26: ; preds = %65, %66
-  %73 = phi ptr [ %72, %66 ], [ %52, %65 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit26: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i23, %66
+  %73 = phi ptr [ %72, %66 ], [ %52, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i23 ]
   %74 = trunc i64 %60 to i32
-  %75 = tail call noundef i32 @llvm.fshl.i32(i32 %74, i32 %74, i32 31)
+  %75 = tail call i32 @llvm.fshl.i32(i32 %74, i32 %74, i32 31)
   %76 = icmp eq i32 %74, 0
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 1648
   %78 = load i32, ptr %77, align 8
@@ -12191,18 +12191,18 @@ _ZN5clang15ASTRecordReader8readTypeEv.exit:       ; preds = %_ZN5clang13ASTDeclR
   %159 = getelementptr inbounds nuw i8, ptr %150, i64 856
   %160 = load i64, ptr %159, align 8, !tbaa !1117
   %161 = icmp eq i64 %160, 0
-  br i1 %161, label %163, label %162
+  br i1 %161, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i27, label %162
 
 162:                                              ; preds = %_ZN5clang15ASTRecordReader8readTypeEv.exit
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %148, ptr noundef nonnull align 8 dereferenceable(3464) %150) #27
-  br label %163
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i27
 
-163:                                              ; preds = %162, %_ZN5clang15ASTRecordReader8readTypeEv.exit
-  %.not.i.i.i.i.i.i27 = icmp ult i64 %158, 4294967296
-  br i1 %.not.i.i.i.i.i.i27, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit30, label %164
-
-164:                                              ; preds = %163
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i27: ; preds = %162, %_ZN5clang15ASTRecordReader8readTypeEv.exit
   %.sroa.4.0.extract.shift.i.i.i.i28 = lshr i64 %158, 32
+  %163 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i28, 0
+  br i1 %163, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit30, label %164
+
+164:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i27
   %165 = getelementptr inbounds nuw i8, ptr %150, i64 3320
   %166 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i28, 4294967295
   %167 = and i64 %166, 4294967295
@@ -12211,10 +12211,10 @@ _ZN5clang15ASTRecordReader8readTypeEv.exit:       ; preds = %_ZN5clang13ASTDeclR
   %170 = load ptr, ptr %169, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit30
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit30: ; preds = %163, %164
-  %171 = phi ptr [ %170, %164 ], [ %150, %163 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit30: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i27, %164
+  %171 = phi ptr [ %170, %164 ], [ %150, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i27 ]
   %172 = trunc i64 %158 to i32
-  %173 = tail call noundef i32 @llvm.fshl.i32(i32 %172, i32 %172, i32 31)
+  %173 = tail call i32 @llvm.fshl.i32(i32 %172, i32 %172, i32 31)
   %174 = icmp eq i32 %172, 0
   %175 = getelementptr inbounds nuw i8, ptr %171, i64 1648
   %176 = load i32, ptr %175, align 8
@@ -12244,18 +12244,18 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit30: ; preds = %163, %164
   %196 = getelementptr inbounds nuw i8, ptr %187, i64 856
   %197 = load i64, ptr %196, align 8, !tbaa !1117
   %198 = icmp eq i64 %197, 0
-  br i1 %198, label %200, label %199
+  br i1 %198, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i31, label %199
 
 199:                                              ; preds = %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit30
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %185, ptr noundef nonnull align 8 dereferenceable(3464) %187) #27
-  br label %200
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i31
 
-200:                                              ; preds = %199, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit30
-  %.not.i.i.i.i.i.i31 = icmp ult i64 %195, 4294967296
-  br i1 %.not.i.i.i.i.i.i31, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit34, label %201
-
-201:                                              ; preds = %200
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i31: ; preds = %199, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit30
   %.sroa.4.0.extract.shift.i.i.i.i32 = lshr i64 %195, 32
+  %200 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i32, 0
+  br i1 %200, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit34, label %201
+
+201:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i31
   %202 = getelementptr inbounds nuw i8, ptr %187, i64 3320
   %203 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i32, 4294967295
   %204 = and i64 %203, 4294967295
@@ -12264,10 +12264,10 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit30: ; preds = %163, %164
   %207 = load ptr, ptr %206, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit34
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit34: ; preds = %200, %201
-  %208 = phi ptr [ %207, %201 ], [ %187, %200 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit34: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i31, %201
+  %208 = phi ptr [ %207, %201 ], [ %187, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i31 ]
   %209 = trunc i64 %195 to i32
-  %210 = tail call noundef i32 @llvm.fshl.i32(i32 %209, i32 %209, i32 31)
+  %210 = tail call i32 @llvm.fshl.i32(i32 %209, i32 %209, i32 31)
   %211 = icmp eq i32 %209, 0
   %212 = getelementptr inbounds nuw i8, ptr %208, i64 1648
   %213 = load i32, ptr %212, align 8
@@ -12364,18 +12364,18 @@ define dso_local void @_ZN5clang13ASTDeclReader25VisitObjCCategoryImplDeclEPNS_2
   %26 = getelementptr inbounds nuw i8, ptr %17, i64 856
   %27 = load i64, ptr %26, align 8, !tbaa !1117
   %28 = icmp eq i64 %27, 0
-  br i1 %28, label %30, label %29
+  br i1 %28, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %29
 
 29:                                               ; preds = %2
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %15, ptr noundef nonnull align 8 dereferenceable(3464) %17) #27
-  br label %30
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-30:                                               ; preds = %29, %2
-  %.not.i.i.i.i.i.i = icmp ult i64 %25, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %31
-
-31:                                               ; preds = %30
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %29, %2
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %25, 32
+  %30 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %30, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %31
+
+31:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %32 = getelementptr inbounds nuw i8, ptr %17, i64 3320
   %33 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %34 = and i64 %33, 4294967295
@@ -12384,10 +12384,10 @@ define dso_local void @_ZN5clang13ASTDeclReader25VisitObjCCategoryImplDeclEPNS_2
   %37 = load ptr, ptr %36, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %30, %31
-  %38 = phi ptr [ %37, %31 ], [ %17, %30 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %31
+  %38 = phi ptr [ %37, %31 ], [ %17, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %39 = trunc i64 %25 to i32
-  %40 = tail call noundef i32 @llvm.fshl.i32(i32 %39, i32 %39, i32 31)
+  %40 = tail call i32 @llvm.fshl.i32(i32 %39, i32 %39, i32 31)
   %41 = icmp eq i32 %39, 0
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 1648
   %43 = load i32, ptr %42, align 8
@@ -12441,18 +12441,18 @@ define dso_local void @_ZN5clang13ASTDeclReader27VisitObjCImplementationDeclEPNS
   %36 = getelementptr inbounds nuw i8, ptr %27, i64 856
   %37 = load i64, ptr %36, align 8, !tbaa !1117
   %38 = icmp eq i64 %37, 0
-  br i1 %38, label %40, label %39
+  br i1 %38, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %39
 
 39:                                               ; preds = %2
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %25, ptr noundef nonnull align 8 dereferenceable(3464) %27) #27
-  br label %40
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-40:                                               ; preds = %39, %2
-  %.not.i.i.i.i.i.i = icmp ult i64 %35, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %41
-
-41:                                               ; preds = %40
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %39, %2
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %35, 32
+  %40 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %40, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %41
+
+41:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %42 = getelementptr inbounds nuw i8, ptr %27, i64 3320
   %43 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %44 = and i64 %43, 4294967295
@@ -12461,10 +12461,10 @@ define dso_local void @_ZN5clang13ASTDeclReader27VisitObjCImplementationDeclEPNS
   %47 = load ptr, ptr %46, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %40, %41
-  %48 = phi ptr [ %47, %41 ], [ %27, %40 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %41
+  %48 = phi ptr [ %47, %41 ], [ %27, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %49 = trunc i64 %35 to i32
-  %50 = tail call noundef i32 @llvm.fshl.i32(i32 %49, i32 %49, i32 31)
+  %50 = tail call i32 @llvm.fshl.i32(i32 %49, i32 %49, i32 31)
   %51 = icmp eq i32 %49, 0
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 1648
   %53 = load i32, ptr %52, align 8
@@ -12490,18 +12490,18 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %40, %41
   %70 = getelementptr inbounds nuw i8, ptr %61, i64 856
   %71 = load i64, ptr %70, align 8, !tbaa !1117
   %72 = icmp eq i64 %71, 0
-  br i1 %72, label %74, label %73
+  br i1 %72, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i13, label %73
 
 73:                                               ; preds = %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %59, ptr noundef nonnull align 8 dereferenceable(3464) %61) #27
-  br label %74
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i13
 
-74:                                               ; preds = %73, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
-  %.not.i.i.i.i.i.i13 = icmp ult i64 %69, 4294967296
-  br i1 %.not.i.i.i.i.i.i13, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit16, label %75
-
-75:                                               ; preds = %74
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i13: ; preds = %73, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
   %.sroa.4.0.extract.shift.i.i.i.i14 = lshr i64 %69, 32
+  %74 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i14, 0
+  br i1 %74, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit16, label %75
+
+75:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i13
   %76 = getelementptr inbounds nuw i8, ptr %61, i64 3320
   %77 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i14, 4294967295
   %78 = and i64 %77, 4294967295
@@ -12510,10 +12510,10 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %40, %41
   %81 = load ptr, ptr %80, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit16
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit16: ; preds = %74, %75
-  %82 = phi ptr [ %81, %75 ], [ %61, %74 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit16: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i13, %75
+  %82 = phi ptr [ %81, %75 ], [ %61, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i13 ]
   %83 = trunc i64 %69 to i32
-  %84 = tail call noundef i32 @llvm.fshl.i32(i32 %83, i32 %83, i32 31)
+  %84 = tail call i32 @llvm.fshl.i32(i32 %83, i32 %83, i32 31)
   %85 = icmp eq i32 %83, 0
   %86 = getelementptr inbounds nuw i8, ptr %82, i64 1648
   %87 = load i32, ptr %86, align 8
@@ -12539,18 +12539,18 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit16: ; preds = %74, %75
   %104 = getelementptr inbounds nuw i8, ptr %95, i64 856
   %105 = load i64, ptr %104, align 8, !tbaa !1117
   %106 = icmp eq i64 %105, 0
-  br i1 %106, label %108, label %107
+  br i1 %106, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i17, label %107
 
 107:                                              ; preds = %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit16
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %93, ptr noundef nonnull align 8 dereferenceable(3464) %95) #27
-  br label %108
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i17
 
-108:                                              ; preds = %107, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit16
-  %.not.i.i.i.i.i.i17 = icmp ult i64 %103, 4294967296
-  br i1 %.not.i.i.i.i.i.i17, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit20, label %109
-
-109:                                              ; preds = %108
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i17: ; preds = %107, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit16
   %.sroa.4.0.extract.shift.i.i.i.i18 = lshr i64 %103, 32
+  %108 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i18, 0
+  br i1 %108, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit20, label %109
+
+109:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i17
   %110 = getelementptr inbounds nuw i8, ptr %95, i64 3320
   %111 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i18, 4294967295
   %112 = and i64 %111, 4294967295
@@ -12559,10 +12559,10 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit16: ; preds = %74, %75
   %115 = load ptr, ptr %114, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit20
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit20: ; preds = %108, %109
-  %116 = phi ptr [ %115, %109 ], [ %95, %108 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit20: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i17, %109
+  %116 = phi ptr [ %115, %109 ], [ %95, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i17 ]
   %117 = trunc i64 %103 to i32
-  %118 = tail call noundef i32 @llvm.fshl.i32(i32 %117, i32 %117, i32 31)
+  %118 = tail call i32 @llvm.fshl.i32(i32 %117, i32 %117, i32 31)
   %119 = icmp eq i32 %117, 0
   %120 = getelementptr inbounds nuw i8, ptr %116, i64 1648
   %121 = load i32, ptr %120, align 8
@@ -12680,18 +12680,18 @@ define dso_local void @_ZN5clang13ASTDeclReader25VisitObjCPropertyImplDeclEPNS_2
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 856
   %18 = load i64, ptr %17, align 8, !tbaa !1117
   %19 = icmp eq i64 %18, 0
-  br i1 %19, label %21, label %20
+  br i1 %19, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %20
 
 20:                                               ; preds = %2
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %6, ptr noundef nonnull align 8 dereferenceable(3464) %8) #27
-  br label %21
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-21:                                               ; preds = %20, %2
-  %.not.i.i.i.i.i.i = icmp ult i64 %16, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %22
-
-22:                                               ; preds = %21
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %20, %2
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %16, 32
+  %21 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %21, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %22
+
+22:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 3320
   %24 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %25 = and i64 %24, 4294967295
@@ -12700,10 +12700,10 @@ define dso_local void @_ZN5clang13ASTDeclReader25VisitObjCPropertyImplDeclEPNS_2
   %28 = load ptr, ptr %27, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %21, %22
-  %29 = phi ptr [ %28, %22 ], [ %8, %21 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %22
+  %29 = phi ptr [ %28, %22 ], [ %8, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %30 = trunc i64 %16 to i32
-  %31 = tail call noundef i32 @llvm.fshl.i32(i32 %30, i32 %30, i32 31)
+  %31 = tail call i32 @llvm.fshl.i32(i32 %30, i32 %30, i32 31)
   %32 = icmp eq i32 %30, 0
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 1648
   %34 = load i32, ptr %33, align 8
@@ -12751,18 +12751,18 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %21, %22
   %71 = getelementptr inbounds nuw i8, ptr %62, i64 856
   %72 = load i64, ptr %71, align 8, !tbaa !1117
   %73 = icmp eq i64 %72, 0
-  br i1 %73, label %75, label %74
+  br i1 %73, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i11, label %74
 
 74:                                               ; preds = %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %60, ptr noundef nonnull align 8 dereferenceable(3464) %62) #27
-  br label %75
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i11
 
-75:                                               ; preds = %74, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
-  %.not.i.i.i.i.i.i11 = icmp ult i64 %70, 4294967296
-  br i1 %.not.i.i.i.i.i.i11, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit14, label %76
-
-76:                                               ; preds = %75
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i11: ; preds = %74, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
   %.sroa.4.0.extract.shift.i.i.i.i12 = lshr i64 %70, 32
+  %75 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i12, 0
+  br i1 %75, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit14, label %76
+
+76:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i11
   %77 = getelementptr inbounds nuw i8, ptr %62, i64 3320
   %78 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i12, 4294967295
   %79 = and i64 %78, 4294967295
@@ -12771,10 +12771,10 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %21, %22
   %82 = load ptr, ptr %81, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit14
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit14: ; preds = %75, %76
-  %83 = phi ptr [ %82, %76 ], [ %62, %75 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit14: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i11, %76
+  %83 = phi ptr [ %82, %76 ], [ %62, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i11 ]
   %84 = trunc i64 %70 to i32
-  %85 = tail call noundef i32 @llvm.fshl.i32(i32 %84, i32 %84, i32 31)
+  %85 = tail call i32 @llvm.fshl.i32(i32 %84, i32 %84, i32 31)
   %86 = icmp eq i32 %84, 0
   %87 = getelementptr inbounds nuw i8, ptr %83, i64 1648
   %88 = load i32, ptr %87, align 8
@@ -14663,41 +14663,41 @@ _ZN5clang11ParmVarDecl12setScopeInfoEjj.exit:     ; preds = %43, %42, %_ZN5clang
   %80 = getelementptr inbounds nuw i8, ptr %71, i64 856
   %81 = load i64, ptr %80, align 8, !tbaa !1117
   %82 = icmp eq i64 %81, 0
-  br i1 %82, label %84, label %83
+  br i1 %82, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i, label %83
 
 83:                                               ; preds = %66
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %69, ptr noundef nonnull align 8 dereferenceable(3464) %71) #27
-  br label %84
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i
 
-84:                                               ; preds = %83, %66
-  %.not.i.i.i.i.i = icmp ult i64 %79, 4294967296
-  %85 = trunc i64 %79 to i32
-  %86 = tail call noundef i32 @llvm.fshl.i32(i32 %85, i32 %85, i32 31)
-  br i1 %.not.i.i.i.i.i, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.thread.i.i.i, label %87
-
-87:                                               ; preds = %84
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i: ; preds = %83, %66
+  %84 = trunc i64 %79 to i32
+  %85 = tail call i32 @llvm.fshl.i32(i32 %84, i32 %84, i32 31)
   %.sroa.4.0.extract.shift.i.i.i = lshr i64 %79, 32
+  %86 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i, 0
+  br i1 %86, label %_ZN5clang15ASTRecordReader18readSourceLocationEPNS_22SourceLocationSequenceE.exit, label %87
+
+87:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i
   %88 = getelementptr inbounds nuw i8, ptr %71, i64 3320
   %89 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i, 4294967295
   %90 = and i64 %89, 4294967295
   %91 = load ptr, ptr %88, align 8, !tbaa !111
   %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %90
   %93 = load ptr, ptr %92, align 8, !tbaa !1118
-  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.thread.i.i.i
+  br label %_ZN5clang15ASTRecordReader18readSourceLocationEPNS_22SourceLocationSequenceE.exit
 
-_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.thread.i.i.i: ; preds = %84, %87
-  %94 = phi ptr [ %93, %87 ], [ %71, %84 ]
-  %95 = icmp eq i32 %85, 0
+_ZN5clang15ASTRecordReader18readSourceLocationEPNS_22SourceLocationSequenceE.exit: ; preds = %87, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i
+  %94 = phi ptr [ %93, %87 ], [ %71, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i ]
+  %95 = icmp eq i32 %84, 0
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 1648
   %97 = load i32, ptr %96, align 8
-  %98 = add i32 %86, -2
+  %98 = add i32 %85, -2
   %99 = add i32 %98, %97
   %spec.select = select i1 %95, i32 0, i32 %99
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 100
   store i32 %spec.select, ptr %100, align 4, !tbaa !895
   br label %101
 
-101:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.thread.i.i.i, %64
+101:                                              ; preds = %_ZN5clang15ASTRecordReader18readSourceLocationEPNS_22SourceLocationSequenceE.exit, %64
   ret void
 }
 
@@ -14788,18 +14788,18 @@ define dso_local void @_ZN5clang13ASTDeclReader21VisitFileScopeAsmDeclEPNS_16Fil
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 856
   %25 = load i64, ptr %24, align 8, !tbaa !1117
   %26 = icmp eq i64 %25, 0
-  br i1 %26, label %28, label %27
+  br i1 %26, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %27
 
 27:                                               ; preds = %2
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %13, ptr noundef nonnull align 8 dereferenceable(3464) %15) #27
-  br label %28
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-28:                                               ; preds = %27, %2
-  %.not.i.i.i.i.i.i = icmp ult i64 %23, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %29
-
-29:                                               ; preds = %28
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %27, %2
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %23, 32
+  %28 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %28, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %29
+
+29:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 3320
   %31 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %32 = and i64 %31, 4294967295
@@ -14808,10 +14808,10 @@ define dso_local void @_ZN5clang13ASTDeclReader21VisitFileScopeAsmDeclEPNS_16Fil
   %35 = load ptr, ptr %34, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %28, %29
-  %36 = phi ptr [ %35, %29 ], [ %15, %28 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %29
+  %36 = phi ptr [ %35, %29 ], [ %15, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %37 = trunc i64 %23 to i32
-  %38 = tail call noundef i32 @llvm.fshl.i32(i32 %37, i32 %37, i32 31)
+  %38 = tail call i32 @llvm.fshl.i32(i32 %37, i32 %37, i32 31)
   %39 = icmp eq i32 %37, 0
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 1648
   %41 = load i32, ptr %40, align 8
@@ -15323,18 +15323,18 @@ define dso_local void @_ZN5clang13ASTDeclReader20VisitLinkageSpecDeclEPNS_15Link
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 856
   %33 = load i64, ptr %32, align 8, !tbaa !1117
   %34 = icmp eq i64 %33, 0
-  br i1 %34, label %36, label %35
+  br i1 %34, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %35
 
 35:                                               ; preds = %2
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %21, ptr noundef nonnull align 8 dereferenceable(3464) %23) #27
-  br label %36
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-36:                                               ; preds = %35, %2
-  %.not.i.i.i.i.i.i = icmp ult i64 %31, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %37
-
-37:                                               ; preds = %36
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %35, %2
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %31, 32
+  %36 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %36, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %37
+
+37:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %38 = getelementptr inbounds nuw i8, ptr %23, i64 3320
   %39 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %40 = and i64 %39, 4294967295
@@ -15343,10 +15343,10 @@ define dso_local void @_ZN5clang13ASTDeclReader20VisitLinkageSpecDeclEPNS_15Link
   %43 = load ptr, ptr %42, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %36, %37
-  %44 = phi ptr [ %43, %37 ], [ %23, %36 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %37
+  %44 = phi ptr [ %43, %37 ], [ %23, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %45 = trunc i64 %31 to i32
-  %46 = tail call noundef i32 @llvm.fshl.i32(i32 %45, i32 %45, i32 31)
+  %46 = tail call i32 @llvm.fshl.i32(i32 %45, i32 %45, i32 31)
   %47 = icmp eq i32 %45, 0
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 1648
   %49 = load i32, ptr %48, align 8
@@ -15372,18 +15372,18 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %36, %37
   %66 = getelementptr inbounds nuw i8, ptr %57, i64 856
   %67 = load i64, ptr %66, align 8, !tbaa !1117
   %68 = icmp eq i64 %67, 0
-  br i1 %68, label %70, label %69
+  br i1 %68, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i6, label %69
 
 69:                                               ; preds = %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %55, ptr noundef nonnull align 8 dereferenceable(3464) %57) #27
-  br label %70
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i6
 
-70:                                               ; preds = %69, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
-  %.not.i.i.i.i.i.i6 = icmp ult i64 %65, 4294967296
-  br i1 %.not.i.i.i.i.i.i6, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit9, label %71
-
-71:                                               ; preds = %70
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i6: ; preds = %69, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
   %.sroa.4.0.extract.shift.i.i.i.i7 = lshr i64 %65, 32
+  %70 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i7, 0
+  br i1 %70, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit9, label %71
+
+71:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i6
   %72 = getelementptr inbounds nuw i8, ptr %57, i64 3320
   %73 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i7, 4294967295
   %74 = and i64 %73, 4294967295
@@ -15392,10 +15392,10 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %36, %37
   %77 = load ptr, ptr %76, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit9
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit9: ; preds = %70, %71
-  %78 = phi ptr [ %77, %71 ], [ %57, %70 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit9: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i6, %71
+  %78 = phi ptr [ %77, %71 ], [ %57, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i6 ]
   %79 = trunc i64 %65 to i32
-  %80 = tail call noundef i32 @llvm.fshl.i32(i32 %79, i32 %79, i32 31)
+  %80 = tail call i32 @llvm.fshl.i32(i32 %79, i32 %79, i32 31)
   %81 = icmp eq i32 %79, 0
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 1648
   %83 = load i32, ptr %82, align 8
@@ -15435,18 +15435,18 @@ define dso_local void @_ZN5clang13ASTDeclReader15VisitExportDeclEPNS_10ExportDec
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 856
   %18 = load i64, ptr %17, align 8, !tbaa !1117
   %19 = icmp eq i64 %18, 0
-  br i1 %19, label %21, label %20
+  br i1 %19, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %20
 
 20:                                               ; preds = %2
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %6, ptr noundef nonnull align 8 dereferenceable(3464) %8) #27
-  br label %21
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-21:                                               ; preds = %20, %2
-  %.not.i.i.i.i.i.i = icmp ult i64 %16, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %22
-
-22:                                               ; preds = %21
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %20, %2
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %16, 32
+  %21 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %21, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %22
+
+22:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 3320
   %24 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %25 = and i64 %24, 4294967295
@@ -15455,10 +15455,10 @@ define dso_local void @_ZN5clang13ASTDeclReader15VisitExportDeclEPNS_10ExportDec
   %28 = load ptr, ptr %27, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %21, %22
-  %29 = phi ptr [ %28, %22 ], [ %8, %21 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %22
+  %29 = phi ptr [ %28, %22 ], [ %8, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %30 = trunc i64 %16 to i32
-  %31 = tail call noundef i32 @llvm.fshl.i32(i32 %30, i32 %30, i32 31)
+  %31 = tail call i32 @llvm.fshl.i32(i32 %30, i32 %30, i32 31)
   %32 = icmp eq i32 %30, 0
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 1648
   %34 = load i32, ptr %33, align 8
@@ -15504,18 +15504,18 @@ define dso_local void @_ZN5clang13ASTDeclReader14VisitLabelDeclEPNS_9LabelDeclE(
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 856
   %28 = load i64, ptr %27, align 8, !tbaa !1117
   %29 = icmp eq i64 %28, 0
-  br i1 %29, label %31, label %30
+  br i1 %29, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %30
 
 30:                                               ; preds = %2
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %19, ptr noundef nonnull align 8 dereferenceable(3464) %21) #27
-  br label %31
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-31:                                               ; preds = %30, %2
-  %.not.i.i.i.i.i.i = icmp ult i64 %26, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %32
-
-32:                                               ; preds = %31
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %30, %2
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %26, 32
+  %31 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %31, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %32
+
+32:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %33 = getelementptr inbounds nuw i8, ptr %21, i64 3320
   %34 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %35 = and i64 %34, 4294967295
@@ -15524,10 +15524,10 @@ define dso_local void @_ZN5clang13ASTDeclReader14VisitLabelDeclEPNS_9LabelDeclE(
   %38 = load ptr, ptr %37, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %31, %32
-  %39 = phi ptr [ %38, %32 ], [ %21, %31 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %32
+  %39 = phi ptr [ %38, %32 ], [ %21, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %40 = trunc i64 %26 to i32
-  %41 = tail call noundef i32 @llvm.fshl.i32(i32 %40, i32 %40, i32 31)
+  %41 = tail call i32 @llvm.fshl.i32(i32 %40, i32 %40, i32 31)
   %42 = icmp eq i32 %40, 0
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 1648
   %44 = load i32, ptr %43, align 8
@@ -15743,18 +15743,18 @@ _ZN5clang13ASTDeclReader17VisitRedeclarableINS_13NamespaceDeclEEEN12_GLOBAL__N_1
   %135 = getelementptr inbounds nuw i8, ptr %126, i64 856
   %136 = load i64, ptr %135, align 8, !tbaa !1117
   %137 = icmp eq i64 %136, 0
-  br i1 %137, label %139, label %138
+  br i1 %137, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %138
 
 138:                                              ; preds = %_ZN5clang13ASTDeclReader17VisitRedeclarableINS_13NamespaceDeclEEEN12_GLOBAL__N_118RedeclarableResultEPNS_12RedeclarableIT_EE.exit
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %124, ptr noundef nonnull align 8 dereferenceable(3464) %126) #27
-  br label %139
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-139:                                              ; preds = %138, %_ZN5clang13ASTDeclReader17VisitRedeclarableINS_13NamespaceDeclEEEN12_GLOBAL__N_118RedeclarableResultEPNS_12RedeclarableIT_EE.exit
-  %.not.i.i.i.i.i.i = icmp ult i64 %134, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %140
-
-140:                                              ; preds = %139
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %138, %_ZN5clang13ASTDeclReader17VisitRedeclarableINS_13NamespaceDeclEEEN12_GLOBAL__N_118RedeclarableResultEPNS_12RedeclarableIT_EE.exit
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %134, 32
+  %139 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %139, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %140
+
+140:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %141 = getelementptr inbounds nuw i8, ptr %126, i64 3320
   %142 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %143 = and i64 %142, 4294967295
@@ -15763,10 +15763,10 @@ _ZN5clang13ASTDeclReader17VisitRedeclarableINS_13NamespaceDeclEEEN12_GLOBAL__N_1
   %146 = load ptr, ptr %145, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %139, %140
-  %147 = phi ptr [ %146, %140 ], [ %126, %139 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %140
+  %147 = phi ptr [ %146, %140 ], [ %126, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %148 = trunc i64 %134 to i32
-  %149 = tail call noundef i32 @llvm.fshl.i32(i32 %148, i32 %148, i32 31)
+  %149 = tail call i32 @llvm.fshl.i32(i32 %148, i32 %148, i32 31)
   %150 = icmp eq i32 %148, 0
   %151 = getelementptr inbounds nuw i8, ptr %147, i64 1648
   %152 = load i32, ptr %151, align 8
@@ -15792,18 +15792,18 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %139, %140
   %169 = getelementptr inbounds nuw i8, ptr %160, i64 856
   %170 = load i64, ptr %169, align 8, !tbaa !1117
   %171 = icmp eq i64 %170, 0
-  br i1 %171, label %173, label %172
+  br i1 %171, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i15, label %172
 
 172:                                              ; preds = %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %158, ptr noundef nonnull align 8 dereferenceable(3464) %160) #27
-  br label %173
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i15
 
-173:                                              ; preds = %172, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
-  %.not.i.i.i.i.i.i15 = icmp ult i64 %168, 4294967296
-  br i1 %.not.i.i.i.i.i.i15, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit18, label %174
-
-174:                                              ; preds = %173
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i15: ; preds = %172, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
   %.sroa.4.0.extract.shift.i.i.i.i16 = lshr i64 %168, 32
+  %173 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i16, 0
+  br i1 %173, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit18, label %174
+
+174:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i15
   %175 = getelementptr inbounds nuw i8, ptr %160, i64 3320
   %176 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i16, 4294967295
   %177 = and i64 %176, 4294967295
@@ -15812,10 +15812,10 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %139, %140
   %180 = load ptr, ptr %179, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit18
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit18: ; preds = %173, %174
-  %181 = phi ptr [ %180, %174 ], [ %160, %173 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit18: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i15, %174
+  %181 = phi ptr [ %180, %174 ], [ %160, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i15 ]
   %182 = trunc i64 %168 to i32
-  %183 = tail call noundef i32 @llvm.fshl.i32(i32 %182, i32 %182, i32 31)
+  %183 = tail call i32 @llvm.fshl.i32(i32 %182, i32 %182, i32 31)
   %184 = icmp eq i32 %182, 0
   %185 = getelementptr inbounds nuw i8, ptr %181, i64 1648
   %186 = load i32, ptr %185, align 8
@@ -16083,18 +16083,18 @@ define dso_local void @_ZN5clang13ASTDeclReader19VisitHLSLBufferDeclEPNS_14HLSLB
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 856
   %34 = load i64, ptr %33, align 8, !tbaa !1117
   %35 = icmp eq i64 %34, 0
-  br i1 %35, label %37, label %36
+  br i1 %35, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %36
 
 36:                                               ; preds = %2
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %26, ptr noundef nonnull align 8 dereferenceable(3464) %28) #27
-  br label %37
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-37:                                               ; preds = %36, %2
-  %.not.i.i.i.i.i.i = icmp ult i64 %32, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %38
-
-38:                                               ; preds = %37
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %36, %2
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %32, 32
+  %37 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %37, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %38
+
+38:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %39 = getelementptr inbounds nuw i8, ptr %28, i64 3320
   %40 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %41 = and i64 %40, 4294967295
@@ -16103,10 +16103,10 @@ define dso_local void @_ZN5clang13ASTDeclReader19VisitHLSLBufferDeclEPNS_14HLSLB
   %44 = load ptr, ptr %43, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %37, %38
-  %45 = phi ptr [ %44, %38 ], [ %28, %37 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %38
+  %45 = phi ptr [ %44, %38 ], [ %28, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %46 = trunc i64 %32 to i32
-  %47 = tail call noundef i32 @llvm.fshl.i32(i32 %46, i32 %46, i32 31)
+  %47 = tail call i32 @llvm.fshl.i32(i32 %46, i32 %46, i32 31)
   %48 = icmp eq i32 %46, 0
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 1648
   %50 = load i32, ptr %49, align 8
@@ -16132,18 +16132,18 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %37, %38
   %67 = getelementptr inbounds nuw i8, ptr %58, i64 856
   %68 = load i64, ptr %67, align 8, !tbaa !1117
   %69 = icmp eq i64 %68, 0
-  br i1 %69, label %71, label %70
+  br i1 %69, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i9, label %70
 
 70:                                               ; preds = %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %56, ptr noundef nonnull align 8 dereferenceable(3464) %58) #27
-  br label %71
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i9
 
-71:                                               ; preds = %70, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
-  %.not.i.i.i.i.i.i9 = icmp ult i64 %66, 4294967296
-  br i1 %.not.i.i.i.i.i.i9, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit12, label %72
-
-72:                                               ; preds = %71
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i9: ; preds = %70, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
   %.sroa.4.0.extract.shift.i.i.i.i10 = lshr i64 %66, 32
+  %71 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i10, 0
+  br i1 %71, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit12, label %72
+
+72:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i9
   %73 = getelementptr inbounds nuw i8, ptr %58, i64 3320
   %74 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i10, 4294967295
   %75 = and i64 %74, 4294967295
@@ -16152,10 +16152,10 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %37, %38
   %78 = load ptr, ptr %77, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit12
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit12: ; preds = %71, %72
-  %79 = phi ptr [ %78, %72 ], [ %58, %71 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit12: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i9, %72
+  %79 = phi ptr [ %78, %72 ], [ %58, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i9 ]
   %80 = trunc i64 %66 to i32
-  %81 = tail call noundef i32 @llvm.fshl.i32(i32 %80, i32 %80, i32 31)
+  %81 = tail call i32 @llvm.fshl.i32(i32 %80, i32 %80, i32 31)
   %82 = icmp eq i32 %80, 0
   %83 = getelementptr inbounds nuw i8, ptr %79, i64 1648
   %84 = load i32, ptr %83, align 8
@@ -16181,18 +16181,18 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit12: ; preds = %71, %72
   %101 = getelementptr inbounds nuw i8, ptr %92, i64 856
   %102 = load i64, ptr %101, align 8, !tbaa !1117
   %103 = icmp eq i64 %102, 0
-  br i1 %103, label %105, label %104
+  br i1 %103, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i13, label %104
 
 104:                                              ; preds = %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit12
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %90, ptr noundef nonnull align 8 dereferenceable(3464) %92) #27
-  br label %105
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i13
 
-105:                                              ; preds = %104, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit12
-  %.not.i.i.i.i.i.i13 = icmp ult i64 %100, 4294967296
-  br i1 %.not.i.i.i.i.i.i13, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit16, label %106
-
-106:                                              ; preds = %105
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i13: ; preds = %104, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit12
   %.sroa.4.0.extract.shift.i.i.i.i14 = lshr i64 %100, 32
+  %105 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i14, 0
+  br i1 %105, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit16, label %106
+
+106:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i13
   %107 = getelementptr inbounds nuw i8, ptr %92, i64 3320
   %108 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i14, 4294967295
   %109 = and i64 %108, 4294967295
@@ -16201,10 +16201,10 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit12: ; preds = %71, %72
   %112 = load ptr, ptr %111, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit16
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit16: ; preds = %105, %106
-  %113 = phi ptr [ %112, %106 ], [ %92, %105 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit16: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i13, %106
+  %113 = phi ptr [ %112, %106 ], [ %92, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i13 ]
   %114 = trunc i64 %100 to i32
-  %115 = tail call noundef i32 @llvm.fshl.i32(i32 %114, i32 %114, i32 31)
+  %115 = tail call i32 @llvm.fshl.i32(i32 %114, i32 %114, i32 31)
   %116 = icmp eq i32 %114, 0
   %117 = getelementptr inbounds nuw i8, ptr %113, i64 1648
   %118 = load i32, ptr %117, align 8
@@ -16456,18 +16456,18 @@ _ZN5clang13ASTDeclReader17VisitRedeclarableINS_18NamespaceAliasDeclEEEN12_GLOBAL
   %120 = getelementptr inbounds nuw i8, ptr %114, i64 856
   %121 = load i64, ptr %120, align 8, !tbaa !1117
   %122 = icmp eq i64 %121, 0
-  br i1 %122, label %124, label %123
+  br i1 %122, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %123
 
 123:                                              ; preds = %_ZN5clang13ASTDeclReader17VisitRedeclarableINS_18NamespaceAliasDeclEEEN12_GLOBAL__N_118RedeclarableResultEPNS_12RedeclarableIT_EE.exit
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %112, ptr noundef nonnull align 8 dereferenceable(3464) %114) #27
-  br label %124
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-124:                                              ; preds = %123, %_ZN5clang13ASTDeclReader17VisitRedeclarableINS_18NamespaceAliasDeclEEEN12_GLOBAL__N_118RedeclarableResultEPNS_12RedeclarableIT_EE.exit
-  %.not.i.i.i.i.i.i = icmp ult i64 %119, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %125
-
-125:                                              ; preds = %124
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %123, %_ZN5clang13ASTDeclReader17VisitRedeclarableINS_18NamespaceAliasDeclEEEN12_GLOBAL__N_118RedeclarableResultEPNS_12RedeclarableIT_EE.exit
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %119, 32
+  %124 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %124, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %125
+
+125:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %126 = getelementptr inbounds nuw i8, ptr %114, i64 3320
   %127 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %128 = and i64 %127, 4294967295
@@ -16476,10 +16476,10 @@ _ZN5clang13ASTDeclReader17VisitRedeclarableINS_18NamespaceAliasDeclEEEN12_GLOBAL
   %131 = load ptr, ptr %130, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %124, %125
-  %132 = phi ptr [ %131, %125 ], [ %114, %124 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %125
+  %132 = phi ptr [ %131, %125 ], [ %114, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %133 = trunc i64 %119 to i32
-  %134 = tail call noundef i32 @llvm.fshl.i32(i32 %133, i32 %133, i32 31)
+  %134 = tail call i32 @llvm.fshl.i32(i32 %133, i32 %133, i32 31)
   %135 = icmp eq i32 %133, 0
   %136 = getelementptr inbounds nuw i8, ptr %132, i64 1648
   %137 = load i32, ptr %136, align 8
@@ -16505,18 +16505,18 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %124, %125
   %154 = getelementptr inbounds nuw i8, ptr %145, i64 856
   %155 = load i64, ptr %154, align 8, !tbaa !1117
   %156 = icmp eq i64 %155, 0
-  br i1 %156, label %158, label %157
+  br i1 %156, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i11, label %157
 
 157:                                              ; preds = %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %143, ptr noundef nonnull align 8 dereferenceable(3464) %145) #27
-  br label %158
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i11
 
-158:                                              ; preds = %157, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
-  %.not.i.i.i.i.i.i11 = icmp ult i64 %153, 4294967296
-  br i1 %.not.i.i.i.i.i.i11, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit14, label %159
-
-159:                                              ; preds = %158
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i11: ; preds = %157, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
   %.sroa.4.0.extract.shift.i.i.i.i12 = lshr i64 %153, 32
+  %158 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i12, 0
+  br i1 %158, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit14, label %159
+
+159:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i11
   %160 = getelementptr inbounds nuw i8, ptr %145, i64 3320
   %161 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i12, 4294967295
   %162 = and i64 %161, 4294967295
@@ -16525,10 +16525,10 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %124, %125
   %165 = load ptr, ptr %164, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit14
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit14: ; preds = %158, %159
-  %166 = phi ptr [ %165, %159 ], [ %145, %158 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit14: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i11, %159
+  %166 = phi ptr [ %165, %159 ], [ %145, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i11 ]
   %167 = trunc i64 %153 to i32
-  %168 = tail call noundef i32 @llvm.fshl.i32(i32 %167, i32 %167, i32 31)
+  %168 = tail call i32 @llvm.fshl.i32(i32 %167, i32 %167, i32 31)
   %169 = icmp eq i32 %167, 0
   %170 = getelementptr inbounds nuw i8, ptr %166, i64 1648
   %171 = load i32, ptr %170, align 8
@@ -16771,18 +16771,18 @@ define dso_local void @_ZN5clang13ASTDeclReader14VisitUsingDeclEPNS_9UsingDeclE(
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 856
   %30 = load i64, ptr %29, align 8, !tbaa !1117
   %31 = icmp eq i64 %30, 0
-  br i1 %31, label %33, label %32
+  br i1 %31, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %32
 
 32:                                               ; preds = %2
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %21, ptr noundef nonnull align 8 dereferenceable(3464) %23) #27
-  br label %33
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-33:                                               ; preds = %32, %2
-  %.not.i.i.i.i.i.i = icmp ult i64 %28, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %34
-
-34:                                               ; preds = %33
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %32, %2
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %28, 32
+  %33 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %33, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %34
+
+34:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %35 = getelementptr inbounds nuw i8, ptr %23, i64 3320
   %36 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %37 = and i64 %36, 4294967295
@@ -16791,10 +16791,10 @@ define dso_local void @_ZN5clang13ASTDeclReader14VisitUsingDeclEPNS_9UsingDeclE(
   %40 = load ptr, ptr %39, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %33, %34
-  %41 = phi ptr [ %40, %34 ], [ %23, %33 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %34
+  %41 = phi ptr [ %40, %34 ], [ %23, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %42 = trunc i64 %28 to i32
-  %43 = tail call noundef i32 @llvm.fshl.i32(i32 %42, i32 %42, i32 31)
+  %43 = tail call i32 @llvm.fshl.i32(i32 %42, i32 %42, i32 31)
   %44 = icmp eq i32 %42, 0
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 1648
   %46 = load i32, ptr %45, align 8
@@ -16974,18 +16974,18 @@ define dso_local void @_ZN5clang13ASTDeclReader18VisitUsingEnumDeclEPNS_13UsingE
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 856
   %30 = load i64, ptr %29, align 8, !tbaa !1117
   %31 = icmp eq i64 %30, 0
-  br i1 %31, label %33, label %32
+  br i1 %31, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %32
 
 32:                                               ; preds = %2
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %21, ptr noundef nonnull align 8 dereferenceable(3464) %23) #27
-  br label %33
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-33:                                               ; preds = %32, %2
-  %.not.i.i.i.i.i.i = icmp ult i64 %28, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %34
-
-34:                                               ; preds = %33
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %32, %2
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %28, 32
+  %33 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %33, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %34
+
+34:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %35 = getelementptr inbounds nuw i8, ptr %23, i64 3320
   %36 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %37 = and i64 %36, 4294967295
@@ -16994,10 +16994,10 @@ define dso_local void @_ZN5clang13ASTDeclReader18VisitUsingEnumDeclEPNS_13UsingE
   %40 = load ptr, ptr %39, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %33, %34
-  %41 = phi ptr [ %40, %34 ], [ %23, %33 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %34
+  %41 = phi ptr [ %40, %34 ], [ %23, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %42 = trunc i64 %28 to i32
-  %43 = tail call noundef i32 @llvm.fshl.i32(i32 %42, i32 %42, i32 31)
+  %43 = tail call i32 @llvm.fshl.i32(i32 %42, i32 %42, i32 31)
   %44 = icmp eq i32 %42, 0
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 1648
   %46 = load i32, ptr %45, align 8
@@ -17023,18 +17023,18 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %33, %34
   %63 = getelementptr inbounds nuw i8, ptr %54, i64 856
   %64 = load i64, ptr %63, align 8, !tbaa !1117
   %65 = icmp eq i64 %64, 0
-  br i1 %65, label %67, label %66
+  br i1 %65, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i11, label %66
 
 66:                                               ; preds = %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %52, ptr noundef nonnull align 8 dereferenceable(3464) %54) #27
-  br label %67
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i11
 
-67:                                               ; preds = %66, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
-  %.not.i.i.i.i.i.i11 = icmp ult i64 %62, 4294967296
-  br i1 %.not.i.i.i.i.i.i11, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit14, label %68
-
-68:                                               ; preds = %67
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i11: ; preds = %66, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
   %.sroa.4.0.extract.shift.i.i.i.i12 = lshr i64 %62, 32
+  %67 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i12, 0
+  br i1 %67, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit14, label %68
+
+68:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i11
   %69 = getelementptr inbounds nuw i8, ptr %54, i64 3320
   %70 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i12, 4294967295
   %71 = and i64 %70, 4294967295
@@ -17043,10 +17043,10 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %33, %34
   %74 = load ptr, ptr %73, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit14
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit14: ; preds = %67, %68
-  %75 = phi ptr [ %74, %68 ], [ %54, %67 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit14: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i11, %68
+  %75 = phi ptr [ %74, %68 ], [ %54, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i11 ]
   %76 = trunc i64 %62 to i32
-  %77 = tail call noundef i32 @llvm.fshl.i32(i32 %76, i32 %76, i32 31)
+  %77 = tail call i32 @llvm.fshl.i32(i32 %76, i32 %76, i32 31)
   %78 = icmp eq i32 %76, 0
   %79 = getelementptr inbounds nuw i8, ptr %75, i64 1648
   %80 = load i32, ptr %79, align 8
@@ -17799,18 +17799,18 @@ define dso_local void @_ZN5clang13ASTDeclReader23VisitUsingDirectiveDeclEPNS_18U
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 856
   %28 = load i64, ptr %27, align 8, !tbaa !1117
   %29 = icmp eq i64 %28, 0
-  br i1 %29, label %31, label %30
+  br i1 %29, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %30
 
 30:                                               ; preds = %2
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %19, ptr noundef nonnull align 8 dereferenceable(3464) %21) #27
-  br label %31
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-31:                                               ; preds = %30, %2
-  %.not.i.i.i.i.i.i = icmp ult i64 %26, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %32
-
-32:                                               ; preds = %31
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %30, %2
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %26, 32
+  %31 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %31, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %32
+
+32:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %33 = getelementptr inbounds nuw i8, ptr %21, i64 3320
   %34 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %35 = and i64 %34, 4294967295
@@ -17819,10 +17819,10 @@ define dso_local void @_ZN5clang13ASTDeclReader23VisitUsingDirectiveDeclEPNS_18U
   %38 = load ptr, ptr %37, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %31, %32
-  %39 = phi ptr [ %38, %32 ], [ %21, %31 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %32
+  %39 = phi ptr [ %38, %32 ], [ %21, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %40 = trunc i64 %26 to i32
-  %41 = tail call noundef i32 @llvm.fshl.i32(i32 %40, i32 %40, i32 31)
+  %41 = tail call i32 @llvm.fshl.i32(i32 %40, i32 %40, i32 31)
   %42 = icmp eq i32 %40, 0
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 1648
   %44 = load i32, ptr %43, align 8
@@ -17848,18 +17848,18 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %31, %32
   %61 = getelementptr inbounds nuw i8, ptr %52, i64 856
   %62 = load i64, ptr %61, align 8, !tbaa !1117
   %63 = icmp eq i64 %62, 0
-  br i1 %63, label %65, label %64
+  br i1 %63, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i9, label %64
 
 64:                                               ; preds = %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %50, ptr noundef nonnull align 8 dereferenceable(3464) %52) #27
-  br label %65
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i9
 
-65:                                               ; preds = %64, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
-  %.not.i.i.i.i.i.i9 = icmp ult i64 %60, 4294967296
-  br i1 %.not.i.i.i.i.i.i9, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit12, label %66
-
-66:                                               ; preds = %65
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i9: ; preds = %64, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
   %.sroa.4.0.extract.shift.i.i.i.i10 = lshr i64 %60, 32
+  %65 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i10, 0
+  br i1 %65, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit12, label %66
+
+66:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i9
   %67 = getelementptr inbounds nuw i8, ptr %52, i64 3320
   %68 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i10, 4294967295
   %69 = and i64 %68, 4294967295
@@ -17868,10 +17868,10 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %31, %32
   %72 = load ptr, ptr %71, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit12
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit12: ; preds = %65, %66
-  %73 = phi ptr [ %72, %66 ], [ %52, %65 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit12: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i9, %66
+  %73 = phi ptr [ %72, %66 ], [ %52, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i9 ]
   %74 = trunc i64 %60 to i32
-  %75 = tail call noundef i32 @llvm.fshl.i32(i32 %74, i32 %74, i32 31)
+  %75 = tail call i32 @llvm.fshl.i32(i32 %74, i32 %74, i32 31)
   %76 = icmp eq i32 %74, 0
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 1648
   %78 = load i32, ptr %77, align 8
@@ -17945,18 +17945,18 @@ define dso_local void @_ZN5clang13ASTDeclReader29VisitUnresolvedUsingValueDeclEP
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 856
   %20 = load i64, ptr %19, align 8, !tbaa !1117
   %21 = icmp eq i64 %20, 0
-  br i1 %21, label %23, label %22
+  br i1 %21, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %22
 
 22:                                               ; preds = %2
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %8, ptr noundef nonnull align 8 dereferenceable(3464) %10) #27
-  br label %23
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-23:                                               ; preds = %22, %2
-  %.not.i.i.i.i.i.i = icmp ult i64 %18, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %24
-
-24:                                               ; preds = %23
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %22, %2
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %18, 32
+  %23 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %23, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %24
+
+24:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 3320
   %26 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %27 = and i64 %26, 4294967295
@@ -17965,10 +17965,10 @@ define dso_local void @_ZN5clang13ASTDeclReader29VisitUnresolvedUsingValueDeclEP
   %30 = load ptr, ptr %29, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %23, %24
-  %31 = phi ptr [ %30, %24 ], [ %10, %23 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %24
+  %31 = phi ptr [ %30, %24 ], [ %10, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %32 = trunc i64 %18 to i32
-  %33 = tail call noundef i32 @llvm.fshl.i32(i32 %32, i32 %32, i32 31)
+  %33 = tail call i32 @llvm.fshl.i32(i32 %32, i32 %32, i32 31)
   %34 = icmp eq i32 %32, 0
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 1648
   %36 = load i32, ptr %35, align 8
@@ -18008,18 +18008,18 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %23, %24
   %62 = getelementptr inbounds nuw i8, ptr %53, i64 856
   %63 = load i64, ptr %62, align 8, !tbaa !1117
   %64 = icmp eq i64 %63, 0
-  br i1 %64, label %66, label %65
+  br i1 %64, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i12, label %65
 
 65:                                               ; preds = %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %51, ptr noundef nonnull align 8 dereferenceable(3464) %53) #27
-  br label %66
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i12
 
-66:                                               ; preds = %65, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
-  %.not.i.i.i.i.i.i12 = icmp ult i64 %61, 4294967296
-  br i1 %.not.i.i.i.i.i.i12, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit15, label %67
-
-67:                                               ; preds = %66
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i12: ; preds = %65, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
   %.sroa.4.0.extract.shift.i.i.i.i13 = lshr i64 %61, 32
+  %66 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i13, 0
+  br i1 %66, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit15, label %67
+
+67:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i12
   %68 = getelementptr inbounds nuw i8, ptr %53, i64 3320
   %69 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i13, 4294967295
   %70 = and i64 %69, 4294967295
@@ -18028,10 +18028,10 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %23, %24
   %73 = load ptr, ptr %72, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit15
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit15: ; preds = %66, %67
-  %74 = phi ptr [ %73, %67 ], [ %53, %66 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit15: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i12, %67
+  %74 = phi ptr [ %73, %67 ], [ %53, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i12 ]
   %75 = trunc i64 %61 to i32
-  %76 = tail call noundef i32 @llvm.fshl.i32(i32 %75, i32 %75, i32 31)
+  %76 = tail call i32 @llvm.fshl.i32(i32 %75, i32 %75, i32 31)
   %77 = icmp eq i32 %75, 0
   %78 = getelementptr inbounds nuw i8, ptr %74, i64 1648
   %79 = load i32, ptr %78, align 8
@@ -18132,18 +18132,18 @@ define dso_local void @_ZN5clang13ASTDeclReader32VisitUnresolvedUsingTypenameDec
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 856
   %20 = load i64, ptr %19, align 8, !tbaa !1117
   %21 = icmp eq i64 %20, 0
-  br i1 %21, label %23, label %22
+  br i1 %21, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %22
 
 22:                                               ; preds = %2
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %8, ptr noundef nonnull align 8 dereferenceable(3464) %10) #27
-  br label %23
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-23:                                               ; preds = %22, %2
-  %.not.i.i.i.i.i.i = icmp ult i64 %18, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %24
-
-24:                                               ; preds = %23
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %22, %2
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %18, 32
+  %23 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %23, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %24
+
+24:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 3320
   %26 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %27 = and i64 %26, 4294967295
@@ -18152,10 +18152,10 @@ define dso_local void @_ZN5clang13ASTDeclReader32VisitUnresolvedUsingTypenameDec
   %30 = load ptr, ptr %29, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %23, %24
-  %31 = phi ptr [ %30, %24 ], [ %10, %23 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %24
+  %31 = phi ptr [ %30, %24 ], [ %10, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %32 = trunc i64 %18 to i32
-  %33 = tail call noundef i32 @llvm.fshl.i32(i32 %32, i32 %32, i32 31)
+  %33 = tail call i32 @llvm.fshl.i32(i32 %32, i32 %32, i32 31)
   %34 = icmp eq i32 %32, 0
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 1648
   %36 = load i32, ptr %35, align 8
@@ -18189,18 +18189,18 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %23, %24
   %58 = getelementptr inbounds nuw i8, ptr %49, i64 856
   %59 = load i64, ptr %58, align 8, !tbaa !1117
   %60 = icmp eq i64 %59, 0
-  br i1 %60, label %62, label %61
+  br i1 %60, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i8, label %61
 
 61:                                               ; preds = %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %47, ptr noundef nonnull align 8 dereferenceable(3464) %49) #27
-  br label %62
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i8
 
-62:                                               ; preds = %61, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
-  %.not.i.i.i.i.i.i8 = icmp ult i64 %57, 4294967296
-  br i1 %.not.i.i.i.i.i.i8, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit11, label %63
-
-63:                                               ; preds = %62
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i8: ; preds = %61, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
   %.sroa.4.0.extract.shift.i.i.i.i9 = lshr i64 %57, 32
+  %62 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i9, 0
+  br i1 %62, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit11, label %63
+
+63:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i8
   %64 = getelementptr inbounds nuw i8, ptr %49, i64 3320
   %65 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i9, 4294967295
   %66 = and i64 %65, 4294967295
@@ -18209,10 +18209,10 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %23, %24
   %69 = load ptr, ptr %68, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit11
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit11: ; preds = %62, %63
-  %70 = phi ptr [ %69, %63 ], [ %49, %62 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit11: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i8, %63
+  %70 = phi ptr [ %69, %63 ], [ %49, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i8 ]
   %71 = trunc i64 %57 to i32
-  %72 = tail call noundef i32 @llvm.fshl.i32(i32 %71, i32 %71, i32 31)
+  %72 = tail call i32 @llvm.fshl.i32(i32 %71, i32 %71, i32 31)
   %73 = icmp eq i32 %71, 0
   %74 = getelementptr inbounds nuw i8, ptr %70, i64 1648
   %75 = load i32, ptr %74, align 8
@@ -18750,18 +18750,18 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %273, %276
   %300 = getelementptr inbounds nuw i8, ptr %291, i64 856
   %301 = load i64, ptr %300, align 8, !tbaa !1117
   %302 = icmp eq i64 %301, 0
-  br i1 %302, label %304, label %303
+  br i1 %302, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %303
 
 303:                                              ; preds = %.lr.ph
   call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %289, ptr noundef nonnull align 8 dereferenceable(3464) %291) #27
-  br label %304
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-304:                                              ; preds = %303, %.lr.ph
-  %.not.i.i.i.i.i.i = icmp ult i64 %299, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %305
-
-305:                                              ; preds = %304
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %303, %.lr.ph
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %299, 32
+  %304 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %304, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %305
+
+305:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %306 = getelementptr inbounds nuw i8, ptr %291, i64 3320
   %307 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %308 = and i64 %307, 4294967295
@@ -18770,10 +18770,10 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %273, %276
   %311 = load ptr, ptr %310, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %304, %305
-  %312 = phi ptr [ %311, %305 ], [ %291, %304 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %305
+  %312 = phi ptr [ %311, %305 ], [ %291, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %313 = trunc i64 %299 to i32
-  %314 = call noundef i32 @llvm.fshl.i32(i32 %313, i32 %313, i32 31)
+  %314 = call i32 @llvm.fshl.i32(i32 %313, i32 %313, i32 31)
   %315 = icmp eq i32 %313, 0
   %316 = getelementptr inbounds nuw i8, ptr %312, i64 1648
   %317 = load i32, ptr %316, align 8
@@ -18832,18 +18832,18 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %304, %305
   %356 = getelementptr inbounds nuw i8, ptr %347, i64 856
   %357 = load i64, ptr %356, align 8, !tbaa !1117
   %358 = icmp eq i64 %357, 0
-  br i1 %358, label %360, label %359
+  br i1 %358, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i122, label %359
 
 359:                                              ; preds = %336
   call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %345, ptr noundef nonnull align 8 dereferenceable(3464) %347) #27
-  br label %360
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i122
 
-360:                                              ; preds = %359, %336
-  %.not.i.i.i.i.i.i122 = icmp ult i64 %355, 4294967296
-  br i1 %.not.i.i.i.i.i.i122, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit125, label %361
-
-361:                                              ; preds = %360
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i122: ; preds = %359, %336
   %.sroa.4.0.extract.shift.i.i.i.i123 = lshr i64 %355, 32
+  %360 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i123, 0
+  br i1 %360, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit125, label %361
+
+361:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i122
   %362 = getelementptr inbounds nuw i8, ptr %347, i64 3320
   %363 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i123, 4294967295
   %364 = and i64 %363, 4294967295
@@ -18852,10 +18852,10 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %304, %305
   %367 = load ptr, ptr %366, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit125
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit125: ; preds = %360, %361
-  %368 = phi ptr [ %367, %361 ], [ %347, %360 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit125: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i122, %361
+  %368 = phi ptr [ %367, %361 ], [ %347, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i122 ]
   %369 = trunc i64 %355 to i32
-  %370 = call noundef i32 @llvm.fshl.i32(i32 %369, i32 %369, i32 31)
+  %370 = call i32 @llvm.fshl.i32(i32 %369, i32 %369, i32 31)
   %371 = icmp eq i32 %369, 0
   %372 = getelementptr inbounds nuw i8, ptr %368, i64 1648
   %373 = load i32, ptr %372, align 8
@@ -20867,21 +20867,21 @@ _ZN5clang13ASTDeclReader10readModuleEv.exit:      ; preds = %2, %10
   %57 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %58 = getelementptr inbounds nuw i8, ptr %52, i64 3320
   %59 = and i64 %49, 4294967295
-  br label %60
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i.us
 
-60:                                               ; preds = %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit.us, %.lr.ph.split.us
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i.us: ; preds = %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit.us, %.lr.ph.split.us
   %indvars.iv14 = phi i64 [ %indvars.iv.next15, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit.us ], [ 0, %.lr.ph.split.us ]
-  %61 = load i32, ptr %57, align 4, !tbaa !895
-  %62 = add i32 %61, 1
-  store i32 %62, ptr %57, align 4, !tbaa !895
-  %63 = zext i32 %61 to i64
-  %64 = getelementptr inbounds nuw i64, ptr %43, i64 %63
-  %65 = load i64, ptr %64, align 8, !tbaa !112
-  %.not.i.i.i.i.i.i.us = icmp ult i64 %65, 4294967296
-  br i1 %.not.i.i.i.i.i.i.us, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit.us, label %66
+  %60 = load i32, ptr %57, align 4, !tbaa !895
+  %61 = add i32 %60, 1
+  store i32 %61, ptr %57, align 4, !tbaa !895
+  %62 = zext i32 %60 to i64
+  %63 = getelementptr inbounds nuw i64, ptr %43, i64 %62
+  %64 = load i64, ptr %63, align 8, !tbaa !112
+  %.sroa.4.0.extract.shift.i.i.i.i.us = lshr i64 %64, 32
+  %65 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i.us, 0
+  br i1 %65, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit.us, label %66
 
-66:                                               ; preds = %60
-  %.sroa.4.0.extract.shift.i.i.i.i.us = lshr i64 %65, 32
+66:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i.us
   %67 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i.us, 4294967295
   %68 = and i64 %67, 4294967295
   %69 = load ptr, ptr %58, align 8, !tbaa !111
@@ -20889,10 +20889,10 @@ _ZN5clang13ASTDeclReader10readModuleEv.exit:      ; preds = %2, %10
   %71 = load ptr, ptr %70, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit.us
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit.us: ; preds = %66, %60
-  %72 = phi ptr [ %71, %66 ], [ %52, %60 ]
-  %73 = trunc i64 %65 to i32
-  %74 = tail call noundef i32 @llvm.fshl.i32(i32 %73, i32 %73, i32 31)
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit.us: ; preds = %66, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i.us
+  %72 = phi ptr [ %71, %66 ], [ %52, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i.us ]
+  %73 = trunc i64 %64 to i32
+  %74 = tail call i32 @llvm.fshl.i32(i32 %73, i32 %73, i32 31)
   %75 = icmp eq i32 %73, 0
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 1648
   %77 = load i32, ptr %76, align 8
@@ -20903,7 +20903,7 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit.us: ; preds = %66, %60
   store i32 %spec.select.i.us, ptr %80, align 4, !tbaa !895
   %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
   %.not.us = icmp eq i64 %indvars.iv.next15, %59
-  br i1 %.not.us, label %._crit_edge, label %60, !llvm.loop !1602
+  br i1 %.not.us, label %._crit_edge, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i.us, !llvm.loop !1602
 
 ._crit_edge.loopexit12:                           ; preds = %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
   %.pre = load ptr, ptr %3, align 8, !tbaa !103
@@ -20936,18 +20936,18 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit.us: ; preds = %66, %60
   %98 = getelementptr inbounds nuw i8, ptr %89, i64 856
   %99 = load i64, ptr %98, align 8, !tbaa !1117
   %100 = icmp eq i64 %99, 0
-  br i1 %100, label %102, label %101
+  br i1 %100, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %101
 
 101:                                              ; preds = %.lr.ph.split
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %87, ptr noundef nonnull align 8 dereferenceable(3464) %89) #27
-  br label %102
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-102:                                              ; preds = %101, %.lr.ph.split
-  %.not.i.i.i.i.i.i = icmp ult i64 %97, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %103
-
-103:                                              ; preds = %102
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %101, %.lr.ph.split
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %97, 32
+  %102 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %102, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %103
+
+103:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %104 = getelementptr inbounds nuw i8, ptr %89, i64 3320
   %105 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %106 = and i64 %105, 4294967295
@@ -20956,10 +20956,10 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit.us: ; preds = %66, %60
   %109 = load ptr, ptr %108, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %102, %103
-  %110 = phi ptr [ %109, %103 ], [ %89, %102 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %103
+  %110 = phi ptr [ %109, %103 ], [ %89, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %111 = trunc i64 %97 to i32
-  %112 = tail call noundef i32 @llvm.fshl.i32(i32 %111, i32 %111, i32 31)
+  %112 = tail call i32 @llvm.fshl.i32(i32 %111, i32 %111, i32 31)
   %113 = icmp eq i32 %111, 0
   %114 = getelementptr inbounds nuw i8, ptr %110, i64 1648
   %115 = load i32, ptr %114, align 8
@@ -20994,18 +20994,18 @@ define dso_local void @_ZN5clang13ASTDeclReader19VisitAccessSpecDeclEPNS_14Acces
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 856
   %18 = load i64, ptr %17, align 8, !tbaa !1117
   %19 = icmp eq i64 %18, 0
-  br i1 %19, label %21, label %20
+  br i1 %19, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %20
 
 20:                                               ; preds = %2
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %6, ptr noundef nonnull align 8 dereferenceable(3464) %8) #27
-  br label %21
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-21:                                               ; preds = %20, %2
-  %.not.i.i.i.i.i.i = icmp ult i64 %16, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %22
-
-22:                                               ; preds = %21
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %20, %2
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %16, 32
+  %21 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %21, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %22
+
+22:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 3320
   %24 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %25 = and i64 %24, 4294967295
@@ -21014,10 +21014,10 @@ define dso_local void @_ZN5clang13ASTDeclReader19VisitAccessSpecDeclEPNS_14Acces
   %28 = load ptr, ptr %27, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %21, %22
-  %29 = phi ptr [ %28, %22 ], [ %8, %21 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %22
+  %29 = phi ptr [ %28, %22 ], [ %8, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %30 = trunc i64 %16 to i32
-  %31 = tail call noundef i32 @llvm.fshl.i32(i32 %30, i32 %30, i32 31)
+  %31 = tail call i32 @llvm.fshl.i32(i32 %30, i32 %30, i32 31)
   %32 = icmp eq i32 %30, 0
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 1648
   %34 = load i32, ptr %33, align 8
@@ -21124,18 +21124,18 @@ define dso_local void @_ZN5clang13ASTDeclReader15VisitFriendDeclEPNS_10FriendDec
   %70 = getelementptr inbounds nuw i8, ptr %61, i64 856
   %71 = load i64, ptr %70, align 8, !tbaa !1117
   %72 = icmp eq i64 %71, 0
-  br i1 %72, label %74, label %73
+  br i1 %72, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %73
 
 73:                                               ; preds = %._crit_edge
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %59, ptr noundef nonnull align 8 dereferenceable(3464) %61) #27
-  br label %74
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-74:                                               ; preds = %73, %._crit_edge
-  %.not.i.i.i.i.i.i = icmp ult i64 %69, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %75
-
-75:                                               ; preds = %74
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %73, %._crit_edge
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %69, 32
+  %74 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %74, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %75
+
+75:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %76 = getelementptr inbounds nuw i8, ptr %61, i64 3320
   %77 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %78 = and i64 %77, 4294967295
@@ -21144,10 +21144,10 @@ define dso_local void @_ZN5clang13ASTDeclReader15VisitFriendDeclEPNS_10FriendDec
   %81 = load ptr, ptr %80, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %74, %75
-  %82 = phi ptr [ %81, %75 ], [ %61, %74 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %75
+  %82 = phi ptr [ %81, %75 ], [ %61, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %83 = trunc i64 %69 to i32
-  %84 = tail call noundef i32 @llvm.fshl.i32(i32 %83, i32 %83, i32 31)
+  %84 = tail call i32 @llvm.fshl.i32(i32 %83, i32 %83, i32 31)
   %85 = icmp eq i32 %83, 0
   %86 = getelementptr inbounds nuw i8, ptr %82, i64 1648
   %87 = load i32, ptr %86, align 8
@@ -21173,18 +21173,18 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %74, %75
   %104 = getelementptr inbounds nuw i8, ptr %95, i64 856
   %105 = load i64, ptr %104, align 8, !tbaa !1117
   %106 = icmp eq i64 %105, 0
-  br i1 %106, label %108, label %107
+  br i1 %106, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i14, label %107
 
 107:                                              ; preds = %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %93, ptr noundef nonnull align 8 dereferenceable(3464) %95) #27
-  br label %108
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i14
 
-108:                                              ; preds = %107, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
-  %.not.i.i.i.i.i.i14 = icmp ult i64 %103, 4294967296
-  br i1 %.not.i.i.i.i.i.i14, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit17, label %109
-
-109:                                              ; preds = %108
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i14: ; preds = %107, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
   %.sroa.4.0.extract.shift.i.i.i.i15 = lshr i64 %103, 32
+  %108 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i15, 0
+  br i1 %108, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit17, label %109
+
+109:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i14
   %110 = getelementptr inbounds nuw i8, ptr %95, i64 3320
   %111 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i15, 4294967295
   %112 = and i64 %111, 4294967295
@@ -21193,10 +21193,10 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %74, %75
   %115 = load ptr, ptr %114, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit17
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit17: ; preds = %108, %109
-  %116 = phi ptr [ %115, %109 ], [ %95, %108 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit17: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i14, %109
+  %116 = phi ptr [ %115, %109 ], [ %95, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i14 ]
   %117 = trunc i64 %103 to i32
-  %118 = tail call noundef i32 @llvm.fshl.i32(i32 %117, i32 %117, i32 31)
+  %118 = tail call i32 @llvm.fshl.i32(i32 %117, i32 %117, i32 31)
   %119 = icmp eq i32 %117, 0
   %120 = getelementptr inbounds nuw i8, ptr %116, i64 1648
   %121 = load i32, ptr %120, align 8
@@ -21347,18 +21347,18 @@ _ZnamRKN5clang10ASTContextEm.exit:                ; preds = %34, %37
   %82 = getelementptr inbounds nuw i8, ptr %73, i64 856
   %83 = load i64, ptr %82, align 8, !tbaa !1117
   %84 = icmp eq i64 %83, 0
-  br i1 %84, label %86, label %85
+  br i1 %84, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %85
 
 85:                                               ; preds = %67
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %71, ptr noundef nonnull align 8 dereferenceable(3464) %73) #27
-  br label %86
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-86:                                               ; preds = %85, %67
-  %.not.i.i.i.i.i.i = icmp ult i64 %81, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %87
-
-87:                                               ; preds = %86
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %85, %67
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %81, 32
+  %86 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %86, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %87
+
+87:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %88 = getelementptr inbounds nuw i8, ptr %73, i64 3320
   %89 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %90 = and i64 %89, 4294967295
@@ -21367,10 +21367,10 @@ _ZnamRKN5clang10ASTContextEm.exit:                ; preds = %34, %37
   %93 = load ptr, ptr %92, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %86, %87
-  %94 = phi ptr [ %93, %87 ], [ %73, %86 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %87
+  %94 = phi ptr [ %93, %87 ], [ %73, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %95 = trunc i64 %81 to i32
-  %96 = tail call noundef i32 @llvm.fshl.i32(i32 %95, i32 %95, i32 31)
+  %96 = tail call i32 @llvm.fshl.i32(i32 %95, i32 %95, i32 31)
   %97 = icmp eq i32 %95, 0
   %98 = getelementptr inbounds nuw i8, ptr %94, i64 1648
   %99 = load i32, ptr %98, align 8
@@ -22431,18 +22431,18 @@ _ZN4llvm11SmallVectorIN5clang16TemplateArgumentELj8EED2Ev.exit: ; preds = %_Znwm
   %86 = getelementptr inbounds nuw i8, ptr %77, i64 856
   %87 = load i64, ptr %86, align 8, !tbaa !1117
   %88 = icmp eq i64 %87, 0
-  br i1 %88, label %90, label %89
+  br i1 %88, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %89
 
 89:                                               ; preds = %63
   call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %75, ptr noundef nonnull align 8 dereferenceable(3464) %77) #27
-  br label %90
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-90:                                               ; preds = %89, %63
-  %.not.i.i.i.i.i.i = icmp ult i64 %85, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %91
-
-91:                                               ; preds = %90
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %89, %63
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %85, 32
+  %90 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %90, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %91
+
+91:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %92 = getelementptr inbounds nuw i8, ptr %77, i64 3320
   %93 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %94 = and i64 %93, 4294967295
@@ -22451,10 +22451,10 @@ _ZN4llvm11SmallVectorIN5clang16TemplateArgumentELj8EED2Ev.exit: ; preds = %_Znwm
   %97 = load ptr, ptr %96, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %90, %91
-  %98 = phi ptr [ %97, %91 ], [ %77, %90 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %91
+  %98 = phi ptr [ %97, %91 ], [ %77, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %99 = trunc i64 %85 to i32
-  %100 = call noundef i32 @llvm.fshl.i32(i32 %99, i32 %99, i32 31)
+  %100 = call i32 @llvm.fshl.i32(i32 %99, i32 %99, i32 31)
   %101 = icmp eq i32 %99, 0
   %102 = getelementptr inbounds nuw i8, ptr %98, i64 1648
   %103 = load i32, ptr %102, align 8
@@ -22757,18 +22757,18 @@ _ZnwmRKN5clang10ASTContextEm.exit67:              ; preds = %275, %278
   %293 = getelementptr inbounds nuw i8, ptr %284, i64 856
   %294 = load i64, ptr %293, align 8, !tbaa !1117
   %295 = icmp eq i64 %294, 0
-  br i1 %295, label %297, label %296
+  br i1 %295, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i68, label %296
 
 296:                                              ; preds = %_ZnwmRKN5clang10ASTContextEm.exit67
   call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %282, ptr noundef nonnull align 8 dereferenceable(3464) %284) #27
-  br label %297
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i68
 
-297:                                              ; preds = %296, %_ZnwmRKN5clang10ASTContextEm.exit67
-  %.not.i.i.i.i.i.i68 = icmp ult i64 %292, 4294967296
-  br i1 %.not.i.i.i.i.i.i68, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit71, label %298
-
-298:                                              ; preds = %297
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i68: ; preds = %296, %_ZnwmRKN5clang10ASTContextEm.exit67
   %.sroa.4.0.extract.shift.i.i.i.i69 = lshr i64 %292, 32
+  %297 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i69, 0
+  br i1 %297, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit71, label %298
+
+298:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i68
   %299 = getelementptr inbounds nuw i8, ptr %284, i64 3320
   %300 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i69, 4294967295
   %301 = and i64 %300, 4294967295
@@ -22777,10 +22777,10 @@ _ZnwmRKN5clang10ASTContextEm.exit67:              ; preds = %275, %278
   %304 = load ptr, ptr %303, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit71
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit71: ; preds = %297, %298
-  %305 = phi ptr [ %304, %298 ], [ %284, %297 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit71: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i68, %298
+  %305 = phi ptr [ %304, %298 ], [ %284, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i68 ]
   %306 = trunc i64 %292 to i32
-  %307 = call noundef i32 @llvm.fshl.i32(i32 %306, i32 %306, i32 31)
+  %307 = call i32 @llvm.fshl.i32(i32 %306, i32 %306, i32 31)
   %308 = icmp eq i32 %306, 0
   %309 = getelementptr inbounds nuw i8, ptr %305, i64 1648
   %310 = load i32, ptr %309, align 8
@@ -22806,18 +22806,18 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit71: ; preds = %297, %298
   %327 = getelementptr inbounds nuw i8, ptr %318, i64 856
   %328 = load i64, ptr %327, align 8, !tbaa !1117
   %329 = icmp eq i64 %328, 0
-  br i1 %329, label %331, label %330
+  br i1 %329, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i72, label %330
 
 330:                                              ; preds = %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit71
   call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %316, ptr noundef nonnull align 8 dereferenceable(3464) %318) #27
-  br label %331
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i72
 
-331:                                              ; preds = %330, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit71
-  %.not.i.i.i.i.i.i72 = icmp ult i64 %326, 4294967296
-  br i1 %.not.i.i.i.i.i.i72, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit75, label %332
-
-332:                                              ; preds = %331
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i72: ; preds = %330, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit71
   %.sroa.4.0.extract.shift.i.i.i.i73 = lshr i64 %326, 32
+  %331 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i73, 0
+  br i1 %331, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit75, label %332
+
+332:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i72
   %333 = getelementptr inbounds nuw i8, ptr %318, i64 3320
   %334 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i73, 4294967295
   %335 = and i64 %334, 4294967295
@@ -22826,10 +22826,10 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit71: ; preds = %297, %298
   %338 = load ptr, ptr %337, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit75
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit75: ; preds = %331, %332
-  %339 = phi ptr [ %338, %332 ], [ %318, %331 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit75: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i72, %332
+  %339 = phi ptr [ %338, %332 ], [ %318, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i72 ]
   %340 = trunc i64 %326 to i32
-  %341 = call noundef i32 @llvm.fshl.i32(i32 %340, i32 %340, i32 31)
+  %341 = call i32 @llvm.fshl.i32(i32 %340, i32 %340, i32 31)
   %342 = icmp eq i32 %340, 0
   %343 = getelementptr inbounds nuw i8, ptr %339, i64 1648
   %344 = load i32, ptr %343, align 8
@@ -23156,18 +23156,18 @@ _ZnwmRKN5clang10ASTContextEm.exit50:              ; preds = %88, %91
   %106 = getelementptr inbounds nuw i8, ptr %97, i64 856
   %107 = load i64, ptr %106, align 8, !tbaa !1117
   %108 = icmp eq i64 %107, 0
-  br i1 %108, label %110, label %109
+  br i1 %108, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %109
 
 109:                                              ; preds = %_ZnwmRKN5clang10ASTContextEm.exit50
   call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %95, ptr noundef nonnull align 8 dereferenceable(3464) %97) #27
-  br label %110
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-110:                                              ; preds = %109, %_ZnwmRKN5clang10ASTContextEm.exit50
-  %.not.i.i.i.i.i.i = icmp ult i64 %105, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %111
-
-111:                                              ; preds = %110
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %109, %_ZnwmRKN5clang10ASTContextEm.exit50
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %105, 32
+  %110 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %110, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %111
+
+111:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %112 = getelementptr inbounds nuw i8, ptr %97, i64 3320
   %113 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %114 = and i64 %113, 4294967295
@@ -23176,10 +23176,10 @@ _ZnwmRKN5clang10ASTContextEm.exit50:              ; preds = %88, %91
   %117 = load ptr, ptr %116, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %110, %111
-  %118 = phi ptr [ %117, %111 ], [ %97, %110 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %111
+  %118 = phi ptr [ %117, %111 ], [ %97, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %119 = trunc i64 %105 to i32
-  %120 = call noundef i32 @llvm.fshl.i32(i32 %119, i32 %119, i32 31)
+  %120 = call i32 @llvm.fshl.i32(i32 %119, i32 %119, i32 31)
   %121 = icmp eq i32 %119, 0
   %122 = getelementptr inbounds nuw i8, ptr %118, i64 1648
   %123 = load i32, ptr %122, align 8
@@ -23205,18 +23205,18 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %110, %111
   %140 = getelementptr inbounds nuw i8, ptr %131, i64 856
   %141 = load i64, ptr %140, align 8, !tbaa !1117
   %142 = icmp eq i64 %141, 0
-  br i1 %142, label %144, label %143
+  br i1 %142, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i51, label %143
 
 143:                                              ; preds = %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
   call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %129, ptr noundef nonnull align 8 dereferenceable(3464) %131) #27
-  br label %144
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i51
 
-144:                                              ; preds = %143, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
-  %.not.i.i.i.i.i.i51 = icmp ult i64 %139, 4294967296
-  br i1 %.not.i.i.i.i.i.i51, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit54, label %145
-
-145:                                              ; preds = %144
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i51: ; preds = %143, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
   %.sroa.4.0.extract.shift.i.i.i.i52 = lshr i64 %139, 32
+  %144 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i52, 0
+  br i1 %144, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit54, label %145
+
+145:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i51
   %146 = getelementptr inbounds nuw i8, ptr %131, i64 3320
   %147 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i52, 4294967295
   %148 = and i64 %147, 4294967295
@@ -23225,10 +23225,10 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %110, %111
   %151 = load ptr, ptr %150, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit54
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit54: ; preds = %144, %145
-  %152 = phi ptr [ %151, %145 ], [ %131, %144 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit54: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i51, %145
+  %152 = phi ptr [ %151, %145 ], [ %131, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i51 ]
   %153 = trunc i64 %139 to i32
-  %154 = call noundef i32 @llvm.fshl.i32(i32 %153, i32 %153, i32 31)
+  %154 = call i32 @llvm.fshl.i32(i32 %153, i32 %153, i32 31)
   %155 = icmp eq i32 %153, 0
   %156 = getelementptr inbounds nuw i8, ptr %152, i64 1648
   %157 = load i32, ptr %156, align 8
@@ -23316,18 +23316,18 @@ _ZN5clang29VarTemplateSpecializationDecl24setTemplateArgsAsWrittenEPKNS_27ASTTem
   %205 = getelementptr inbounds nuw i8, ptr %196, i64 856
   %206 = load i64, ptr %205, align 8, !tbaa !1117
   %207 = icmp eq i64 %206, 0
-  br i1 %207, label %209, label %208
+  br i1 %207, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i55, label %208
 
 208:                                              ; preds = %_ZN5clang29VarTemplateSpecializationDecl24setTemplateArgsAsWrittenEPKNS_27ASTTemplateArgumentListInfoE.exit
   call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %194, ptr noundef nonnull align 8 dereferenceable(3464) %196) #27
-  br label %209
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i55
 
-209:                                              ; preds = %208, %_ZN5clang29VarTemplateSpecializationDecl24setTemplateArgsAsWrittenEPKNS_27ASTTemplateArgumentListInfoE.exit
-  %.not.i.i.i.i.i.i55 = icmp ult i64 %204, 4294967296
-  br i1 %.not.i.i.i.i.i.i55, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit58, label %210
-
-210:                                              ; preds = %209
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i55: ; preds = %208, %_ZN5clang29VarTemplateSpecializationDecl24setTemplateArgsAsWrittenEPKNS_27ASTTemplateArgumentListInfoE.exit
   %.sroa.4.0.extract.shift.i.i.i.i56 = lshr i64 %204, 32
+  %209 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i56, 0
+  br i1 %209, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit58, label %210
+
+210:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i55
   %211 = getelementptr inbounds nuw i8, ptr %196, i64 3320
   %212 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i56, 4294967295
   %213 = and i64 %212, 4294967295
@@ -23336,10 +23336,10 @@ _ZN5clang29VarTemplateSpecializationDecl24setTemplateArgsAsWrittenEPKNS_27ASTTem
   %216 = load ptr, ptr %215, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit58
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit58: ; preds = %209, %210
-  %217 = phi ptr [ %216, %210 ], [ %196, %209 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit58: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i55, %210
+  %217 = phi ptr [ %216, %210 ], [ %196, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i55 ]
   %218 = trunc i64 %204 to i32
-  %219 = call noundef i32 @llvm.fshl.i32(i32 %218, i32 %218, i32 31)
+  %219 = call i32 @llvm.fshl.i32(i32 %218, i32 %218, i32 31)
   %220 = icmp eq i32 %218, 0
   %221 = getelementptr inbounds nuw i8, ptr %217, i64 1648
   %222 = load i32, ptr %221, align 8
@@ -24118,18 +24118,18 @@ define dso_local void @_ZN5clang13ASTDeclReader21VisitStaticAssertDeclEPNS_16Sta
   %46 = getelementptr inbounds nuw i8, ptr %37, i64 856
   %47 = load i64, ptr %46, align 8, !tbaa !1117
   %48 = icmp eq i64 %47, 0
-  br i1 %48, label %50, label %49
+  br i1 %48, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %49
 
 49:                                               ; preds = %2
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %35, ptr noundef nonnull align 8 dereferenceable(3464) %37) #27
-  br label %50
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-50:                                               ; preds = %49, %2
-  %.not.i.i.i.i.i.i = icmp ult i64 %45, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %51
-
-51:                                               ; preds = %50
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %49, %2
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %45, 32
+  %50 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %50, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %51
+
+51:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %37, i64 3320
   %53 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %54 = and i64 %53, 4294967295
@@ -24138,10 +24138,10 @@ define dso_local void @_ZN5clang13ASTDeclReader21VisitStaticAssertDeclEPNS_16Sta
   %57 = load ptr, ptr %56, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %50, %51
-  %58 = phi ptr [ %57, %51 ], [ %37, %50 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %51
+  %58 = phi ptr [ %57, %51 ], [ %37, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %59 = trunc i64 %45 to i32
-  %60 = tail call noundef i32 @llvm.fshl.i32(i32 %59, i32 %59, i32 31)
+  %60 = tail call i32 @llvm.fshl.i32(i32 %59, i32 %59, i32 31)
   %61 = icmp eq i32 %59, 0
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 1648
   %63 = load i32, ptr %62, align 8
@@ -24933,18 +24933,18 @@ define dso_local void @_ZN5clang13ASTDeclReader28VisitOMPDeclareReductionDeclEPN
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 856
   %18 = load i64, ptr %17, align 8, !tbaa !1117
   %19 = icmp eq i64 %18, 0
-  br i1 %19, label %21, label %20
+  br i1 %19, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %20
 
 20:                                               ; preds = %2
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %6, ptr noundef nonnull align 8 dereferenceable(3464) %8) #27
-  br label %21
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-21:                                               ; preds = %20, %2
-  %.not.i.i.i.i.i.i = icmp ult i64 %16, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %22
-
-22:                                               ; preds = %21
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %20, %2
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %16, 32
+  %21 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %21, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %22
+
+22:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 3320
   %24 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %25 = and i64 %24, 4294967295
@@ -24953,10 +24953,10 @@ define dso_local void @_ZN5clang13ASTDeclReader28VisitOMPDeclareReductionDeclEPN
   %28 = load ptr, ptr %27, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %21, %22
-  %29 = phi ptr [ %28, %22 ], [ %8, %21 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %22
+  %29 = phi ptr [ %28, %22 ], [ %8, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %30 = trunc i64 %16 to i32
-  %31 = tail call noundef i32 @llvm.fshl.i32(i32 %30, i32 %30, i32 31)
+  %31 = tail call i32 @llvm.fshl.i32(i32 %30, i32 %30, i32 31)
   %32 = icmp eq i32 %30, 0
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 1648
   %34 = load i32, ptr %33, align 8
@@ -25270,18 +25270,18 @@ define dso_local noundef ptr @_ZN5clang15ASTRecordReader8readAttrEv(ptr noundef 
   %174 = getelementptr inbounds nuw i8, ptr %167, i64 856
   %175 = load i64, ptr %174, align 8, !tbaa !1117
   %176 = icmp eq i64 %175, 0
-  br i1 %176, label %178, label %177
+  br i1 %176, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %177
 
 177:                                              ; preds = %139
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %166, ptr noundef nonnull align 8 dereferenceable(3464) %167) #27
-  br label %178
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-178:                                              ; preds = %177, %139
-  %.not.i.i.i.i.i.i = icmp ult i64 %173, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit, label %179
-
-179:                                              ; preds = %178
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %177, %139
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %173, 32
+  %178 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %178, label %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit, label %179
+
+179:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %180 = getelementptr inbounds nuw i8, ptr %167, i64 3320
   %181 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %182 = and i64 %181, 4294967295
@@ -25290,10 +25290,10 @@ define dso_local noundef ptr @_ZN5clang15ASTRecordReader8readAttrEv(ptr noundef 
   %185 = load ptr, ptr %184, align 8, !tbaa !1118
   br label %_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit
 
-_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit: ; preds = %178, %179
-  %186 = phi ptr [ %185, %179 ], [ %167, %178 ]
+_ZN12_GLOBAL__N_110AttrReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %179
+  %186 = phi ptr [ %185, %179 ], [ %167, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %187 = trunc i64 %173 to i32
-  %188 = tail call noundef i32 @llvm.fshl.i32(i32 %187, i32 %187, i32 31)
+  %188 = tail call i32 @llvm.fshl.i32(i32 %187, i32 %187, i32 31)
   %189 = icmp eq i32 %187, 0
   %190 = getelementptr inbounds nuw i8, ptr %186, i64 1648
   %191 = load i32, ptr %190, align 8
@@ -49203,30 +49203,30 @@ define dso_local { ptr, i64 } @_ZN5clang9ASTReader15DeclCursorForIDENS_12GlobalD
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 856
   %13 = load i64, ptr %12, align 8, !tbaa !1117
   %14 = icmp eq i64 %13, 0
-  br i1 %14, label %16, label %15
+  br i1 %14, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i, label %15
 
 15:                                               ; preds = %3
   call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %0, ptr noundef nonnull align 8 dereferenceable(3464) %5) #27
-  br label %16
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i
 
-16:                                               ; preds = %15, %3
-  %.not.i.i.i = icmp ult i64 %11, 4294967296
-  br i1 %.not.i.i.i, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.thread.i, label %17
-
-17:                                               ; preds = %16
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i: ; preds = %15, %3
   %.sroa.4.0.extract.shift.i = lshr i64 %11, 32
+  %16 = icmp eq i64 %.sroa.4.0.extract.shift.i, 0
+  br i1 %16, label %_ZNK5clang9ASTReader18ReadSourceLocationERNS_13serialization10ModuleFileEmPNS_22SourceLocationSequenceE.exit, label %17
+
+17:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 3320
   %19 = add nuw nsw i64 %.sroa.4.0.extract.shift.i, 4294967295
   %20 = and i64 %19, 4294967295
   %21 = load ptr, ptr %18, align 8, !tbaa !111
   %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %20
   %23 = load ptr, ptr %22, align 8, !tbaa !1118
-  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.thread.i
+  br label %_ZNK5clang9ASTReader18ReadSourceLocationERNS_13serialization10ModuleFileEmPNS_22SourceLocationSequenceE.exit
 
-_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.thread.i: ; preds = %16, %17
-  %24 = phi ptr [ %23, %17 ], [ %5, %16 ]
+_ZNK5clang9ASTReader18ReadSourceLocationERNS_13serialization10ModuleFileEmPNS_22SourceLocationSequenceE.exit: ; preds = %17, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i
+  %24 = phi ptr [ %23, %17 ], [ %5, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i ]
   %25 = trunc i64 %11 to i32
-  %26 = call noundef i32 @llvm.fshl.i32(i32 %25, i32 %25, i32 31)
+  %26 = call i32 @llvm.fshl.i32(i32 %25, i32 %25, i32 31)
   %27 = icmp eq i32 %25, 0
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 1648
   %29 = load i32, ptr %28, align 8
@@ -54049,18 +54049,18 @@ define dso_local noundef ptr @_ZN5clang9ASTReader14ReadDeclRecordENS_12GlobalDec
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 856
   %44 = load i64, ptr %43, align 8, !tbaa !1117
   %45 = icmp eq i64 %44, 0
-  br i1 %45, label %47, label %46
+  br i1 %45, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i, label %46
 
 46:                                               ; preds = %2
   call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %0, ptr noundef nonnull align 8 dereferenceable(3464) %36) #27
-  br label %47
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i
 
-47:                                               ; preds = %46, %2
-  %.not.i.i.i.i = icmp ult i64 %42, 4294967296
-  br i1 %.not.i.i.i.i, label %_ZN5clang9ASTReader15DeclCursorForIDENS_12GlobalDeclIDERNS_14SourceLocationE.exit, label %48
-
-48:                                               ; preds = %47
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i: ; preds = %46, %2
   %.sroa.4.0.extract.shift.i.i = lshr i64 %42, 32
+  %47 = icmp eq i64 %.sroa.4.0.extract.shift.i.i, 0
+  br i1 %47, label %_ZN5clang9ASTReader15DeclCursorForIDENS_12GlobalDeclIDERNS_14SourceLocationE.exit, label %48
+
+48:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i
   %49 = getelementptr inbounds nuw i8, ptr %36, i64 3320
   %50 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i, 4294967295
   %51 = and i64 %50, 4294967295
@@ -54069,10 +54069,10 @@ define dso_local noundef ptr @_ZN5clang9ASTReader14ReadDeclRecordENS_12GlobalDec
   %54 = load ptr, ptr %53, align 8, !tbaa !1118
   br label %_ZN5clang9ASTReader15DeclCursorForIDENS_12GlobalDeclIDERNS_14SourceLocationE.exit
 
-_ZN5clang9ASTReader15DeclCursorForIDENS_12GlobalDeclIDERNS_14SourceLocationE.exit: ; preds = %47, %48
-  %55 = phi ptr [ %54, %48 ], [ %36, %47 ]
+_ZN5clang9ASTReader15DeclCursorForIDENS_12GlobalDeclIDERNS_14SourceLocationE.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i, %48
+  %55 = phi ptr [ %54, %48 ], [ %36, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i ]
   %56 = trunc i64 %42 to i32
-  %57 = call noundef i32 @llvm.fshl.i32(i32 %56, i32 %56, i32 31)
+  %57 = call i32 @llvm.fshl.i32(i32 %56, i32 %56, i32 31)
   %58 = icmp eq i32 %56, 0
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 1648
   %60 = load i32, ptr %59, align 8
@@ -57554,34 +57554,34 @@ _ZNK5clang15ASTRecordReader8isModuleEv.exit:      ; preds = %104
   %158 = getelementptr inbounds nuw i8, ptr %153, i64 856
   %159 = load i64, ptr %158, align 8, !tbaa !1117
   %160 = icmp eq i64 %159, 0
-  br i1 %160, label %162, label %161
+  br i1 %160, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i, label %161
 
 161:                                              ; preds = %149
   call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %151, ptr noundef nonnull align 8 dereferenceable(3464) %153) #27
-  br label %162
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i
 
-162:                                              ; preds = %161, %149
-  %.not.i.i.i.i.i = icmp ult i64 %157, 4294967296
-  %163 = trunc i64 %157 to i32
-  %164 = call noundef i32 @llvm.fshl.i32(i32 %163, i32 %163, i32 31)
-  br i1 %.not.i.i.i.i.i, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.thread.i.i.i, label %165
-
-165:                                              ; preds = %162
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i: ; preds = %161, %149
+  %162 = trunc i64 %157 to i32
+  %163 = call i32 @llvm.fshl.i32(i32 %162, i32 %162, i32 31)
   %.sroa.4.0.extract.shift.i.i.i = lshr i64 %157, 32
+  %164 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i, 0
+  br i1 %164, label %_ZN5clang15ASTRecordReader18readSourceLocationEPNS_22SourceLocationSequenceE.exit, label %165
+
+165:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i
   %166 = getelementptr inbounds nuw i8, ptr %153, i64 3320
   %167 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i, 4294967295
   %168 = and i64 %167, 4294967295
   %169 = load ptr, ptr %166, align 8, !tbaa !111
   %170 = getelementptr inbounds nuw ptr, ptr %169, i64 %168
   %171 = load ptr, ptr %170, align 8, !tbaa !1118
-  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.thread.i.i.i
+  br label %_ZN5clang15ASTRecordReader18readSourceLocationEPNS_22SourceLocationSequenceE.exit
 
-_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.thread.i.i.i: ; preds = %162, %165
-  %172 = phi ptr [ %171, %165 ], [ %153, %162 ]
-  %173 = icmp eq i32 %163, 0
+_ZN5clang15ASTRecordReader18readSourceLocationEPNS_22SourceLocationSequenceE.exit: ; preds = %165, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i
+  %172 = phi ptr [ %171, %165 ], [ %153, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i ]
+  %173 = icmp eq i32 %162, 0
   %174 = getelementptr inbounds nuw i8, ptr %172, i64 1648
   %175 = load i32, ptr %174, align 8
-  %176 = add i32 %164, -2
+  %176 = add i32 %163, -2
   %177 = add i32 %176, %175
   %spec.select = select i1 %173, i32 0, i32 %177
   %178 = load i32, ptr %61, align 4
@@ -57591,11 +57591,11 @@ _ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequen
   %.not151 = or i1 %.not151229, %181
   br i1 %.not151, label %183, label %182
 
-182:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.thread.i.i.i
+182:                                              ; preds = %_ZN5clang15ASTRecordReader18readSourceLocationEPNS_22SourceLocationSequenceE.exit
   store i32 %spec.select, ptr %67, align 8, !tbaa !895
   br label %_ZN5clang9FieldDecl24removeInClassInitializerEv.exit
 
-183:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.thread.i.i.i
+183:                                              ; preds = %_ZN5clang15ASTRecordReader18readSourceLocationEPNS_22SourceLocationSequenceE.exit
   %184 = add nsw i32 %179, -45
   %185 = icmp ult i32 %184, -7
   %.not152 = or i1 %.not151229, %185
@@ -57832,18 +57832,18 @@ _ZN5clang12RedeclarableINS_12FunctionDeclEE15getPreviousDeclEv.exit19.i: ; preds
   %304 = getelementptr inbounds nuw i8, ptr %295, i64 856
   %305 = load i64, ptr %304, align 8, !tbaa !1117
   %306 = icmp eq i64 %305, 0
-  br i1 %306, label %308, label %307
+  br i1 %306, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %307
 
 307:                                              ; preds = %"_ZL18forAllLaterRedeclsIN5clang12FunctionDeclEZNS0_13ASTDeclReader10UpdateDeclEPNS0_4DeclEE3$_0EvPT_T0_.exit"
   call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %293, ptr noundef nonnull align 8 dereferenceable(3464) %295) #27
-  br label %308
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-308:                                              ; preds = %307, %"_ZL18forAllLaterRedeclsIN5clang12FunctionDeclEZNS0_13ASTDeclReader10UpdateDeclEPNS0_4DeclEE3$_0EvPT_T0_.exit"
-  %.not.i.i.i.i.i.i = icmp ult i64 %303, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %316, label %309
-
-309:                                              ; preds = %308
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %307, %"_ZL18forAllLaterRedeclsIN5clang12FunctionDeclEZNS0_13ASTDeclReader10UpdateDeclEPNS0_4DeclEE3$_0EvPT_T0_.exit"
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %303, 32
+  %308 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %308, label %316, label %309
+
+309:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %310 = getelementptr inbounds nuw i8, ptr %295, i64 3320
   %311 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %312 = and i64 %311, 4294967295
@@ -57852,10 +57852,10 @@ _ZN5clang12RedeclarableINS_12FunctionDeclEE15getPreviousDeclEv.exit19.i: ; preds
   %315 = load ptr, ptr %314, align 8, !tbaa !1118
   br label %316
 
-316:                                              ; preds = %309, %308
-  %317 = phi ptr [ %315, %309 ], [ %295, %308 ]
+316:                                              ; preds = %309, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
+  %317 = phi ptr [ %315, %309 ], [ %295, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %318 = trunc i64 %303 to i32
-  %319 = call noundef i32 @llvm.fshl.i32(i32 %318, i32 %318, i32 31)
+  %319 = call i32 @llvm.fshl.i32(i32 %318, i32 %318, i32 31)
   %320 = icmp eq i32 %318, 0
   %321 = getelementptr inbounds nuw i8, ptr %317, i64 1648
   %322 = load i32, ptr %321, align 8
@@ -58057,18 +58057,18 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPvN5clang9ASTReader25PendingFakeDefinitionKi
   %458 = getelementptr inbounds nuw i8, ptr %453, i64 856
   %459 = load i64, ptr %458, align 8, !tbaa !1117
   %460 = icmp eq i64 %459, 0
-  br i1 %460, label %462, label %461
+  br i1 %460, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i163, label %461
 
 461:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPvN5clang9ASTReader25PendingFakeDefinitionKindENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E5eraseERKS2_.exit
   call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %451, ptr noundef nonnull align 8 dereferenceable(3464) %453) #27
-  br label %462
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i163
 
-462:                                              ; preds = %461, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPvN5clang9ASTReader25PendingFakeDefinitionKindENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E5eraseERKS2_.exit
-  %.not.i.i.i.i.i.i163 = icmp ult i64 %457, 4294967296
-  br i1 %.not.i.i.i.i.i.i163, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit166, label %463
-
-463:                                              ; preds = %462
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i163: ; preds = %461, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPvN5clang9ASTReader25PendingFakeDefinitionKindENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E5eraseERKS2_.exit
   %.sroa.4.0.extract.shift.i.i.i.i164 = lshr i64 %457, 32
+  %462 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i164, 0
+  br i1 %462, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit166, label %463
+
+463:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i163
   %464 = getelementptr inbounds nuw i8, ptr %453, i64 3320
   %465 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i164, 4294967295
   %466 = and i64 %465, 4294967295
@@ -58077,10 +58077,10 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPvN5clang9ASTReader25PendingFakeDefinitionKi
   %469 = load ptr, ptr %468, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit166
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit166: ; preds = %462, %463
-  %470 = phi ptr [ %469, %463 ], [ %453, %462 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit166: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i163, %463
+  %470 = phi ptr [ %469, %463 ], [ %453, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i163 ]
   %471 = trunc i64 %457 to i32
-  %472 = call noundef i32 @llvm.fshl.i32(i32 %471, i32 %471, i32 31)
+  %472 = call i32 @llvm.fshl.i32(i32 %471, i32 %471, i32 31)
   %473 = icmp eq i32 %471, 0
   %474 = getelementptr inbounds nuw i8, ptr %470, i64 1648
   %475 = load i32, ptr %474, align 8
@@ -58233,18 +58233,18 @@ _ZN4llvm11SmallVectorIN5clang16TemplateArgumentELj8EED2Ev.exit: ; preds = %535, 
   %567 = getelementptr inbounds nuw i8, ptr %558, i64 856
   %568 = load i64, ptr %567, align 8, !tbaa !1117
   %569 = icmp eq i64 %568, 0
-  br i1 %569, label %571, label %570
+  br i1 %569, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i169, label %570
 
 570:                                              ; preds = %539
   call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %556, ptr noundef nonnull align 8 dereferenceable(3464) %558) #27
-  br label %571
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i169
 
-571:                                              ; preds = %570, %539
-  %.not.i.i.i.i.i.i169 = icmp ult i64 %566, 4294967296
-  br i1 %.not.i.i.i.i.i.i169, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit172, label %572
-
-572:                                              ; preds = %571
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i169: ; preds = %570, %539
   %.sroa.4.0.extract.shift.i.i.i.i170 = lshr i64 %566, 32
+  %571 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i170, 0
+  br i1 %571, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit172, label %572
+
+572:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i169
   %573 = getelementptr inbounds nuw i8, ptr %558, i64 3320
   %574 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i170, 4294967295
   %575 = and i64 %574, 4294967295
@@ -58253,10 +58253,10 @@ _ZN4llvm11SmallVectorIN5clang16TemplateArgumentELj8EED2Ev.exit: ; preds = %535, 
   %578 = load ptr, ptr %577, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit172
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit172: ; preds = %571, %572
-  %579 = phi ptr [ %578, %572 ], [ %558, %571 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit172: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i169, %572
+  %579 = phi ptr [ %578, %572 ], [ %558, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i169 ]
   %580 = trunc i64 %566 to i32
-  %581 = call noundef i32 @llvm.fshl.i32(i32 %580, i32 %580, i32 31)
+  %581 = call i32 @llvm.fshl.i32(i32 %580, i32 %580, i32 31)
   %582 = icmp eq i32 %580, 0
   %583 = getelementptr inbounds nuw i8, ptr %579, i64 1648
   %584 = load i32, ptr %583, align 8
@@ -58281,18 +58281,18 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit172: ; preds = %571, %572
   %600 = getelementptr inbounds nuw i8, ptr %591, i64 856
   %601 = load i64, ptr %600, align 8, !tbaa !1117
   %602 = icmp eq i64 %601, 0
-  br i1 %602, label %604, label %603
+  br i1 %602, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i173, label %603
 
 603:                                              ; preds = %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit172
   call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %589, ptr noundef nonnull align 8 dereferenceable(3464) %591) #27
-  br label %604
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i173
 
-604:                                              ; preds = %603, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit172
-  %.not.i.i.i.i.i.i173 = icmp ult i64 %599, 4294967296
-  br i1 %.not.i.i.i.i.i.i173, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit176, label %605
-
-605:                                              ; preds = %604
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i173: ; preds = %603, %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit172
   %.sroa.4.0.extract.shift.i.i.i.i174 = lshr i64 %599, 32
+  %604 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i174, 0
+  br i1 %604, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit176, label %605
+
+605:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i173
   %606 = getelementptr inbounds nuw i8, ptr %591, i64 3320
   %607 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i174, 4294967295
   %608 = and i64 %607, 4294967295
@@ -58301,10 +58301,10 @@ _ZN5clang13ASTDeclReader18readSourceLocationEv.exit172: ; preds = %571, %572
   %611 = load ptr, ptr %610, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit176
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit176: ; preds = %604, %605
-  %612 = phi ptr [ %611, %605 ], [ %591, %604 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit176: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i173, %605
+  %612 = phi ptr [ %611, %605 ], [ %591, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i173 ]
   %613 = trunc i64 %599 to i32
-  %614 = call noundef i32 @llvm.fshl.i32(i32 %613, i32 %613, i32 31)
+  %614 = call i32 @llvm.fshl.i32(i32 %613, i32 %613, i32 31)
   %615 = icmp eq i32 %613, 0
   %616 = getelementptr inbounds nuw i8, ptr %612, i64 1648
   %617 = load i32, ptr %616, align 8
@@ -59917,11 +59917,11 @@ _ZNK5clang17FunctionProtoType23getAArch64SMEAttributesEv.exit: ; preds = %_ZNK5c
 92:                                               ; preds = %_ZNK5clang17FunctionProtoType20hasArmTypeAttributesEv.exit.i, %86
   %.0.i5.ph = phi i16 [ %29, %_ZNK5clang17FunctionProtoType20hasArmTypeAttributesEv.exit.i ], [ %91, %86 ]
   store i16 %.0.i5.ph, ptr %3, align 2
-  %.not.i6 = icmp ugt i16 %84, 4095
-  br i1 %.not.i6, label %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i, label %_ZNK5clang17FunctionProtoType18getFunctionEffectsEv.exit
+  %93 = lshr i16 %84, 12
+  %.not.not.i = icmp eq i16 %93, 0
+  br i1 %.not.not.i, label %_ZNK5clang17FunctionProtoType18getFunctionEffectsEv.exit, label %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i
 
 _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i: ; preds = %92
-  %93 = lshr i16 %84, 12
   %94 = and i16 %84, 2048
   %.not10.i = icmp eq i16 %94, 0
   %95 = zext nneg i16 %93 to i64
@@ -59937,8 +59937,8 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %103 = trunc nuw nsw i64 %102 to i32
   %104 = and i32 %103, 15
   %105 = and i64 %102, 15
-  %switch.gep9 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %105
-  %switch.load10 = load i64, ptr %switch.gep9, align 8
+  %switch.gep8 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %105
+  %switch.load9 = load i64, ptr %switch.gep8, align 8
   %106 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %107 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %106, i64 %97
   %108 = getelementptr inbounds nuw %"struct.clang::FunctionType::ExceptionType", ptr %107, i64 %spec.select.i.i.i.i.i.i.i.i.i
@@ -59946,7 +59946,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %switch.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i, 3
   %109 = zext i1 %switch.i.i.i.i.i.i.i.i to i64
   %110 = getelementptr inbounds nuw ptr, ptr %108, i64 %109
-  %111 = getelementptr inbounds nuw ptr, ptr %110, i64 %switch.load10
+  %111 = getelementptr inbounds nuw ptr, ptr %110, i64 %switch.load9
   %112 = select i1 %.not.i3, i64 0, i64 %75
   %113 = getelementptr inbounds nuw %"class.clang::FunctionType::ExtParameterInfo", ptr %111, i64 %112
   %114 = ptrtoint ptr %113 to i64
@@ -59960,9 +59960,9 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
 
 switch.lookup:                                    ; preds = %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i
   %121 = and i64 %102, 15
-  %switch.gep11 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %121
-  %switch.load12 = load i64, ptr %switch.gep11, align 8
-  %122 = getelementptr inbounds nuw ptr, ptr %110, i64 %switch.load12
+  %switch.gep10 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %121
+  %switch.load11 = load i64, ptr %switch.gep10, align 8
+  %122 = getelementptr inbounds nuw ptr, ptr %110, i64 %switch.load11
   %123 = getelementptr inbounds nuw %"class.clang::FunctionType::ExtParameterInfo", ptr %122, i64 %112
   %124 = ptrtoint ptr %123 to i64
   %125 = add i64 %124, 7
@@ -61525,18 +61525,18 @@ _ZNK5clang4Decl7hasAttrINS_10BlocksAttrEEEbv.exit.thread92: ; preds = %243, %232
   %315 = getelementptr inbounds nuw i8, ptr %310, i64 856
   %316 = load i64, ptr %315, align 8, !tbaa !1117
   %317 = icmp eq i64 %316, 0
-  br i1 %317, label %319, label %318
+  br i1 %317, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %318
 
 318:                                              ; preds = %290
   call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %308, ptr noundef nonnull align 8 dereferenceable(3464) %310) #27
-  br label %319
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-319:                                              ; preds = %318, %290
-  %.not.i.i.i.i.i.i = icmp ult i64 %314, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %320
-
-320:                                              ; preds = %319
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %318, %290
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %314, 32
+  %319 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %319, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %320
+
+320:                                              ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %321 = getelementptr inbounds nuw i8, ptr %310, i64 3320
   %322 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %323 = and i64 %322, 4294967295
@@ -61545,10 +61545,10 @@ _ZNK5clang4Decl7hasAttrINS_10BlocksAttrEEEbv.exit.thread92: ; preds = %243, %232
   %326 = load ptr, ptr %325, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %319, %320
-  %327 = phi ptr [ %326, %320 ], [ %310, %319 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %320
+  %327 = phi ptr [ %326, %320 ], [ %310, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %328 = trunc i64 %314 to i32
-  %329 = call noundef i32 @llvm.fshl.i32(i32 %328, i32 %328, i32 31)
+  %329 = call i32 @llvm.fshl.i32(i32 %328, i32 %328, i32 31)
   %330 = icmp eq i32 %328, 0
   %331 = getelementptr inbounds nuw i8, ptr %327, i64 1648
   %332 = load i32, ptr %331, align 8
@@ -63045,18 +63045,18 @@ define internal fastcc void @_ZN5clang13ASTDeclReader22VisitCXXRecordDeclImplEPN
   %85 = getelementptr inbounds nuw i8, ptr %80, i64 856
   %86 = load i64, ptr %85, align 8, !tbaa !1117
   %87 = icmp eq i64 %86, 0
-  br i1 %87, label %89, label %88
+  br i1 %87, label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, label %88
 
 88:                                               ; preds = %61
   tail call void @_ZNK5clang9ASTReader19ReadModuleOffsetMapERNS_13serialization10ModuleFileE(ptr noundef nonnull align 8 dereferenceable(16272) %78, ptr noundef nonnull align 8 dereferenceable(3464) %80) #27
-  br label %89
+  br label %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
 
-89:                                               ; preds = %88, %61
-  %.not.i.i.i.i.i.i = icmp ult i64 %84, 4294967296
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %90
-
-90:                                               ; preds = %89
+_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i: ; preds = %88, %61
   %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %84, 32
+  %89 = icmp eq i64 %.sroa.4.0.extract.shift.i.i.i.i, 0
+  br i1 %89, label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit, label %90
+
+90:                                               ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i
   %91 = getelementptr inbounds nuw i8, ptr %80, i64 3320
   %92 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i, 4294967295
   %93 = and i64 %92, 4294967295
@@ -63065,10 +63065,10 @@ define internal fastcc void @_ZN5clang13ASTDeclReader22VisitCXXRecordDeclImplEPN
   %96 = load ptr, ptr %95, align 8, !tbaa !1118
   br label %_ZN5clang13ASTDeclReader18readSourceLocationEv.exit
 
-_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %89, %90
-  %97 = phi ptr [ %96, %90 ], [ %80, %89 ]
+_ZN5clang13ASTDeclReader18readSourceLocationEv.exit: ; preds = %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i, %90
+  %97 = phi ptr [ %96, %90 ], [ %80, %_ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequenceE.exit.i.i.i.i ]
   %98 = trunc i64 %84 to i32
-  %99 = tail call noundef i32 @llvm.fshl.i32(i32 %98, i32 %98, i32 31)
+  %99 = tail call i32 @llvm.fshl.i32(i32 %98, i32 %98, i32 31)
   %100 = icmp eq i32 %98, 0
   %101 = getelementptr inbounds nuw i8, ptr %97, i64 1648
   %102 = load i32, ptr %101, align 8
@@ -69812,7 +69812,7 @@ define linkonce_odr hidden void @_ZN5clang13serialization21DataStreamBasicReader
   store i32 0, ptr %18, align 8, !tbaa !896
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 4, ptr %19, align 4, !tbaa !897
-  %.not7 = icmp eq i64 %13, 0
+  %.not7 = icmp eq i64 %15, 0
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit

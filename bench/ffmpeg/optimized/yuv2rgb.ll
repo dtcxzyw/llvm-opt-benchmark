@@ -316,27 +316,24 @@ define internal noundef i32 @yuv422p_bgr48_c(ptr noundef readonly %0, ptr nounde
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds i8, ptr %41, i64 %44
   %46 = load i32, ptr %13, align 16, !tbaa !32
-  %47 = sext i32 %37 to i64
-  %48 = getelementptr inbounds i8, ptr %40, i64 %47
-  %49 = sext i32 %42 to i64
-  %50 = getelementptr inbounds i8, ptr %45, i64 %49
-  %.not569 = icmp ult i32 %46, 8
-  br i1 %.not569, label %._crit_edge, label %.lr.ph.preheader
+  %47 = ashr i32 %46, 3
+  %48 = sext i32 %37 to i64
+  %49 = getelementptr inbounds i8, ptr %40, i64 %48
+  %50 = sext i32 %42 to i64
+  %51 = getelementptr inbounds i8, ptr %45, i64 %50
+  %.not569 = icmp eq i32 %47, 0
+  br i1 %.not569, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %18
-  %51 = ashr i32 %46, 3
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0550578 = phi ptr [ %435, %.lr.ph ], [ %24, %.lr.ph.preheader ]
-  %.0551577 = phi ptr [ %436, %.lr.ph ], [ %28, %.lr.ph.preheader ]
-  %.0553576 = phi ptr [ %433, %.lr.ph ], [ %33, %.lr.ph.preheader ]
-  %.0555575 = phi ptr [ %434, %.lr.ph ], [ %35, %.lr.ph.preheader ]
-  %.0557574 = phi ptr [ %429, %.lr.ph ], [ %40, %.lr.ph.preheader ]
-  %.0559573 = phi i32 [ %52, %.lr.ph ], [ %51, %.lr.ph.preheader ]
-  %.0560572 = phi ptr [ %432, %.lr.ph ], [ %50, %.lr.ph.preheader ]
-  %.0562571 = phi ptr [ %431, %.lr.ph ], [ %48, %.lr.ph.preheader ]
-  %.0564570 = phi ptr [ %430, %.lr.ph ], [ %45, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %18, %.lr.ph
+  %.0550578 = phi ptr [ %435, %.lr.ph ], [ %24, %18 ]
+  %.0551577 = phi ptr [ %436, %.lr.ph ], [ %28, %18 ]
+  %.0553576 = phi ptr [ %433, %.lr.ph ], [ %33, %18 ]
+  %.0555575 = phi ptr [ %434, %.lr.ph ], [ %35, %18 ]
+  %.0557574 = phi ptr [ %429, %.lr.ph ], [ %40, %18 ]
+  %.0559573 = phi i32 [ %52, %.lr.ph ], [ %47, %18 ]
+  %.0560572 = phi ptr [ %432, %.lr.ph ], [ %51, %18 ]
+  %.0562571 = phi ptr [ %431, %.lr.ph ], [ %49, %18 ]
+  %.0564570 = phi ptr [ %430, %.lr.ph ], [ %45, %18 ]
   %52 = add i32 %.0559573, -1
   %53 = load i8, ptr %.0557574, align 1, !tbaa !33
   %54 = zext i8 %53 to i64
@@ -828,8 +825,8 @@ define internal noundef i32 @yuv422p_bgr48_c(ptr noundef readonly %0, ptr nounde
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %18
   %437 = phi i32 [ %46, %18 ], [ %.pre, %._crit_edge.loopexit ]
   %.0564.lcssa = phi ptr [ %45, %18 ], [ %430, %._crit_edge.loopexit ]
-  %.0562.lcssa = phi ptr [ %48, %18 ], [ %431, %._crit_edge.loopexit ]
-  %.0560.lcssa = phi ptr [ %50, %18 ], [ %432, %._crit_edge.loopexit ]
+  %.0562.lcssa = phi ptr [ %49, %18 ], [ %431, %._crit_edge.loopexit ]
+  %.0560.lcssa = phi ptr [ %51, %18 ], [ %432, %._crit_edge.loopexit ]
   %.0557.lcssa = phi ptr [ %40, %18 ], [ %429, %._crit_edge.loopexit ]
   %.0555.lcssa = phi ptr [ %35, %18 ], [ %434, %._crit_edge.loopexit ]
   %.0553.lcssa = phi ptr [ %33, %18 ], [ %433, %._crit_edge.loopexit ]
@@ -1268,27 +1265,24 @@ define internal noundef i32 @yuv422p_rgb48_c(ptr noundef readonly %0, ptr nounde
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds i8, ptr %41, i64 %44
   %46 = load i32, ptr %13, align 16, !tbaa !32
-  %47 = sext i32 %37 to i64
-  %48 = getelementptr inbounds i8, ptr %40, i64 %47
-  %49 = sext i32 %42 to i64
-  %50 = getelementptr inbounds i8, ptr %45, i64 %49
-  %.not569 = icmp ult i32 %46, 8
-  br i1 %.not569, label %._crit_edge, label %.lr.ph.preheader
+  %47 = ashr i32 %46, 3
+  %48 = sext i32 %37 to i64
+  %49 = getelementptr inbounds i8, ptr %40, i64 %48
+  %50 = sext i32 %42 to i64
+  %51 = getelementptr inbounds i8, ptr %45, i64 %50
+  %.not569 = icmp eq i32 %47, 0
+  br i1 %.not569, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %18
-  %51 = ashr i32 %46, 3
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0550578 = phi ptr [ %435, %.lr.ph ], [ %24, %.lr.ph.preheader ]
-  %.0551577 = phi ptr [ %436, %.lr.ph ], [ %28, %.lr.ph.preheader ]
-  %.0553576 = phi ptr [ %433, %.lr.ph ], [ %33, %.lr.ph.preheader ]
-  %.0555575 = phi ptr [ %434, %.lr.ph ], [ %35, %.lr.ph.preheader ]
-  %.0557574 = phi ptr [ %429, %.lr.ph ], [ %40, %.lr.ph.preheader ]
-  %.0559573 = phi i32 [ %52, %.lr.ph ], [ %51, %.lr.ph.preheader ]
-  %.0560572 = phi ptr [ %432, %.lr.ph ], [ %50, %.lr.ph.preheader ]
-  %.0562571 = phi ptr [ %431, %.lr.ph ], [ %48, %.lr.ph.preheader ]
-  %.0564570 = phi ptr [ %430, %.lr.ph ], [ %45, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %18, %.lr.ph
+  %.0550578 = phi ptr [ %435, %.lr.ph ], [ %24, %18 ]
+  %.0551577 = phi ptr [ %436, %.lr.ph ], [ %28, %18 ]
+  %.0553576 = phi ptr [ %433, %.lr.ph ], [ %33, %18 ]
+  %.0555575 = phi ptr [ %434, %.lr.ph ], [ %35, %18 ]
+  %.0557574 = phi ptr [ %429, %.lr.ph ], [ %40, %18 ]
+  %.0559573 = phi i32 [ %52, %.lr.ph ], [ %47, %18 ]
+  %.0560572 = phi ptr [ %432, %.lr.ph ], [ %51, %18 ]
+  %.0562571 = phi ptr [ %431, %.lr.ph ], [ %49, %18 ]
+  %.0564570 = phi ptr [ %430, %.lr.ph ], [ %45, %18 ]
   %52 = add i32 %.0559573, -1
   %53 = load i8, ptr %.0557574, align 1, !tbaa !33
   %54 = zext i8 %53 to i64
@@ -1780,8 +1774,8 @@ define internal noundef i32 @yuv422p_rgb48_c(ptr noundef readonly %0, ptr nounde
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %18
   %437 = phi i32 [ %46, %18 ], [ %.pre, %._crit_edge.loopexit ]
   %.0564.lcssa = phi ptr [ %45, %18 ], [ %430, %._crit_edge.loopexit ]
-  %.0562.lcssa = phi ptr [ %48, %18 ], [ %431, %._crit_edge.loopexit ]
-  %.0560.lcssa = phi ptr [ %50, %18 ], [ %432, %._crit_edge.loopexit ]
+  %.0562.lcssa = phi ptr [ %49, %18 ], [ %431, %._crit_edge.loopexit ]
+  %.0560.lcssa = phi ptr [ %51, %18 ], [ %432, %._crit_edge.loopexit ]
   %.0557.lcssa = phi ptr [ %40, %18 ], [ %429, %._crit_edge.loopexit ]
   %.0555.lcssa = phi ptr [ %35, %18 ], [ %434, %._crit_edge.loopexit ]
   %.0553.lcssa = phi ptr [ %33, %18 ], [ %433, %._crit_edge.loopexit ]
@@ -2223,35 +2217,32 @@ define internal noundef i32 @yuva422p_argb_c(ptr noundef readonly %0, ptr nounde
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds i8, ptr %15, i64 %47
   %49 = load i32, ptr %17, align 16, !tbaa !32
-  %50 = sext i32 %41 to i64
-  %51 = getelementptr inbounds i8, ptr %44, i64 %50
-  %52 = sext i32 %45 to i64
-  %53 = getelementptr inbounds i8, ptr %48, i64 %52
-  %54 = load i32, ptr %20, align 4, !tbaa !31
-  %55 = mul nsw i32 %54, %.0491
-  %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds i8, ptr %19, i64 %56
-  %58 = sext i32 %54 to i64
-  %59 = getelementptr inbounds i8, ptr %57, i64 %58
-  %.not470 = icmp ult i32 %49, 8
-  br i1 %.not470, label %._crit_edge, label %.lr.ph.preheader
+  %50 = ashr i32 %49, 3
+  %51 = sext i32 %41 to i64
+  %52 = getelementptr inbounds i8, ptr %44, i64 %51
+  %53 = sext i32 %45 to i64
+  %54 = getelementptr inbounds i8, ptr %48, i64 %53
+  %55 = load i32, ptr %20, align 4, !tbaa !31
+  %56 = mul nsw i32 %55, %.0491
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds i8, ptr %19, i64 %57
+  %59 = sext i32 %55 to i64
+  %60 = getelementptr inbounds i8, ptr %58, i64 %59
+  %.not470 = icmp eq i32 %50, 0
+  br i1 %.not470, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %25
-  %60 = ashr i32 %49, 3
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0447481 = phi ptr [ %460, %.lr.ph ], [ %30, %.lr.ph.preheader ]
-  %.0448480 = phi ptr [ %461, %.lr.ph ], [ %34, %.lr.ph.preheader ]
-  %.0450479 = phi ptr [ %456, %.lr.ph ], [ %38, %.lr.ph.preheader ]
-  %.0452478 = phi ptr [ %457, %.lr.ph ], [ %40, %.lr.ph.preheader ]
-  %.0454477 = phi ptr [ %452, %.lr.ph ], [ %44, %.lr.ph.preheader ]
-  %.0456476 = phi i32 [ %61, %.lr.ph ], [ %60, %.lr.ph.preheader ]
-  %.0457475 = phi ptr [ %459, %.lr.ph ], [ %59, %.lr.ph.preheader ]
-  %.0459474 = phi ptr [ %458, %.lr.ph ], [ %57, %.lr.ph.preheader ]
-  %.0461473 = phi ptr [ %455, %.lr.ph ], [ %53, %.lr.ph.preheader ]
-  %.0463472 = phi ptr [ %454, %.lr.ph ], [ %51, %.lr.ph.preheader ]
-  %.0465471 = phi ptr [ %453, %.lr.ph ], [ %48, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %25, %.lr.ph
+  %.0447481 = phi ptr [ %460, %.lr.ph ], [ %30, %25 ]
+  %.0448480 = phi ptr [ %461, %.lr.ph ], [ %34, %25 ]
+  %.0450479 = phi ptr [ %456, %.lr.ph ], [ %38, %25 ]
+  %.0452478 = phi ptr [ %457, %.lr.ph ], [ %40, %25 ]
+  %.0454477 = phi ptr [ %452, %.lr.ph ], [ %44, %25 ]
+  %.0456476 = phi i32 [ %61, %.lr.ph ], [ %50, %25 ]
+  %.0457475 = phi ptr [ %459, %.lr.ph ], [ %60, %25 ]
+  %.0459474 = phi ptr [ %458, %.lr.ph ], [ %58, %25 ]
+  %.0461473 = phi ptr [ %455, %.lr.ph ], [ %54, %25 ]
+  %.0463472 = phi ptr [ %454, %.lr.ph ], [ %52, %25 ]
+  %.0465471 = phi ptr [ %453, %.lr.ph ], [ %48, %25 ]
   %61 = add i32 %.0456476, -1
   %62 = load i8, ptr %.0454477, align 1, !tbaa !33
   %63 = zext i8 %62 to i64
@@ -2679,10 +2670,10 @@ define internal noundef i32 @yuva422p_argb_c(ptr noundef readonly %0, ptr nounde
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %25
   %462 = phi i32 [ %49, %25 ], [ %.pre, %._crit_edge.loopexit ]
   %.0465.lcssa = phi ptr [ %48, %25 ], [ %453, %._crit_edge.loopexit ]
-  %.0463.lcssa = phi ptr [ %51, %25 ], [ %454, %._crit_edge.loopexit ]
-  %.0461.lcssa = phi ptr [ %53, %25 ], [ %455, %._crit_edge.loopexit ]
-  %.0459.lcssa = phi ptr [ %57, %25 ], [ %458, %._crit_edge.loopexit ]
-  %.0457.lcssa = phi ptr [ %59, %25 ], [ %459, %._crit_edge.loopexit ]
+  %.0463.lcssa = phi ptr [ %52, %25 ], [ %454, %._crit_edge.loopexit ]
+  %.0461.lcssa = phi ptr [ %54, %25 ], [ %455, %._crit_edge.loopexit ]
+  %.0459.lcssa = phi ptr [ %58, %25 ], [ %458, %._crit_edge.loopexit ]
+  %.0457.lcssa = phi ptr [ %60, %25 ], [ %459, %._crit_edge.loopexit ]
   %.0454.lcssa = phi ptr [ %44, %25 ], [ %452, %._crit_edge.loopexit ]
   %.0452.lcssa = phi ptr [ %40, %25 ], [ %457, %._crit_edge.loopexit ]
   %.0450.lcssa = phi ptr [ %38, %25 ], [ %456, %._crit_edge.loopexit ]
@@ -3076,35 +3067,32 @@ define internal noundef i32 @yuva422p_rgba_c(ptr noundef readonly %0, ptr nounde
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds i8, ptr %15, i64 %47
   %49 = load i32, ptr %17, align 16, !tbaa !32
-  %50 = sext i32 %41 to i64
-  %51 = getelementptr inbounds i8, ptr %44, i64 %50
-  %52 = sext i32 %45 to i64
-  %53 = getelementptr inbounds i8, ptr %48, i64 %52
-  %54 = load i32, ptr %20, align 4, !tbaa !31
-  %55 = mul nsw i32 %54, %.0491
-  %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds i8, ptr %19, i64 %56
-  %58 = sext i32 %54 to i64
-  %59 = getelementptr inbounds i8, ptr %57, i64 %58
-  %.not470 = icmp ult i32 %49, 8
-  br i1 %.not470, label %._crit_edge, label %.lr.ph.preheader
+  %50 = ashr i32 %49, 3
+  %51 = sext i32 %41 to i64
+  %52 = getelementptr inbounds i8, ptr %44, i64 %51
+  %53 = sext i32 %45 to i64
+  %54 = getelementptr inbounds i8, ptr %48, i64 %53
+  %55 = load i32, ptr %20, align 4, !tbaa !31
+  %56 = mul nsw i32 %55, %.0491
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds i8, ptr %19, i64 %57
+  %59 = sext i32 %55 to i64
+  %60 = getelementptr inbounds i8, ptr %58, i64 %59
+  %.not470 = icmp eq i32 %50, 0
+  br i1 %.not470, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %25
-  %60 = ashr i32 %49, 3
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0447481 = phi ptr [ %476, %.lr.ph ], [ %30, %.lr.ph.preheader ]
-  %.0448480 = phi ptr [ %477, %.lr.ph ], [ %34, %.lr.ph.preheader ]
-  %.0450479 = phi ptr [ %472, %.lr.ph ], [ %38, %.lr.ph.preheader ]
-  %.0452478 = phi ptr [ %473, %.lr.ph ], [ %40, %.lr.ph.preheader ]
-  %.0454477 = phi ptr [ %468, %.lr.ph ], [ %44, %.lr.ph.preheader ]
-  %.0456476 = phi i32 [ %61, %.lr.ph ], [ %60, %.lr.ph.preheader ]
-  %.0457475 = phi ptr [ %475, %.lr.ph ], [ %59, %.lr.ph.preheader ]
-  %.0459474 = phi ptr [ %474, %.lr.ph ], [ %57, %.lr.ph.preheader ]
-  %.0461473 = phi ptr [ %471, %.lr.ph ], [ %53, %.lr.ph.preheader ]
-  %.0463472 = phi ptr [ %470, %.lr.ph ], [ %51, %.lr.ph.preheader ]
-  %.0465471 = phi ptr [ %469, %.lr.ph ], [ %48, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %25, %.lr.ph
+  %.0447481 = phi ptr [ %476, %.lr.ph ], [ %30, %25 ]
+  %.0448480 = phi ptr [ %477, %.lr.ph ], [ %34, %25 ]
+  %.0450479 = phi ptr [ %472, %.lr.ph ], [ %38, %25 ]
+  %.0452478 = phi ptr [ %473, %.lr.ph ], [ %40, %25 ]
+  %.0454477 = phi ptr [ %468, %.lr.ph ], [ %44, %25 ]
+  %.0456476 = phi i32 [ %61, %.lr.ph ], [ %50, %25 ]
+  %.0457475 = phi ptr [ %475, %.lr.ph ], [ %60, %25 ]
+  %.0459474 = phi ptr [ %474, %.lr.ph ], [ %58, %25 ]
+  %.0461473 = phi ptr [ %471, %.lr.ph ], [ %54, %25 ]
+  %.0463472 = phi ptr [ %470, %.lr.ph ], [ %52, %25 ]
+  %.0465471 = phi ptr [ %469, %.lr.ph ], [ %48, %25 ]
   %61 = add i32 %.0456476, -1
   %62 = load i8, ptr %.0454477, align 1, !tbaa !33
   %63 = zext i8 %62 to i64
@@ -3548,10 +3536,10 @@ define internal noundef i32 @yuva422p_rgba_c(ptr noundef readonly %0, ptr nounde
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %25
   %478 = phi i32 [ %49, %25 ], [ %.pre, %._crit_edge.loopexit ]
   %.0465.lcssa = phi ptr [ %48, %25 ], [ %469, %._crit_edge.loopexit ]
-  %.0463.lcssa = phi ptr [ %51, %25 ], [ %470, %._crit_edge.loopexit ]
-  %.0461.lcssa = phi ptr [ %53, %25 ], [ %471, %._crit_edge.loopexit ]
-  %.0459.lcssa = phi ptr [ %57, %25 ], [ %474, %._crit_edge.loopexit ]
-  %.0457.lcssa = phi ptr [ %59, %25 ], [ %475, %._crit_edge.loopexit ]
+  %.0463.lcssa = phi ptr [ %52, %25 ], [ %470, %._crit_edge.loopexit ]
+  %.0461.lcssa = phi ptr [ %54, %25 ], [ %471, %._crit_edge.loopexit ]
+  %.0459.lcssa = phi ptr [ %58, %25 ], [ %474, %._crit_edge.loopexit ]
+  %.0457.lcssa = phi ptr [ %60, %25 ], [ %475, %._crit_edge.loopexit ]
   %.0454.lcssa = phi ptr [ %44, %25 ], [ %468, %._crit_edge.loopexit ]
   %.0452.lcssa = phi ptr [ %40, %25 ], [ %473, %._crit_edge.loopexit ]
   %.0450.lcssa = phi ptr [ %38, %25 ], [ %472, %._crit_edge.loopexit ]
@@ -3954,27 +3942,24 @@ define internal noundef i32 @yuv422p_rgb32_c(ptr noundef readonly %0, ptr nounde
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds i8, ptr %15, i64 %44
   %46 = load i32, ptr %17, align 16, !tbaa !32
-  %47 = sext i32 %38 to i64
-  %48 = getelementptr inbounds i8, ptr %41, i64 %47
-  %49 = sext i32 %42 to i64
-  %50 = getelementptr inbounds i8, ptr %45, i64 %49
-  %.not429 = icmp ult i32 %46, 8
-  br i1 %.not429, label %._crit_edge, label %.lr.ph.preheader
+  %47 = ashr i32 %46, 3
+  %48 = sext i32 %38 to i64
+  %49 = getelementptr inbounds i8, ptr %41, i64 %48
+  %50 = sext i32 %42 to i64
+  %51 = getelementptr inbounds i8, ptr %45, i64 %50
+  %.not429 = icmp eq i32 %47, 0
+  br i1 %.not429, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %22
-  %51 = ashr i32 %46, 3
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0410438 = phi ptr [ %387, %.lr.ph ], [ %27, %.lr.ph.preheader ]
-  %.0411437 = phi ptr [ %388, %.lr.ph ], [ %31, %.lr.ph.preheader ]
-  %.0413436 = phi ptr [ %385, %.lr.ph ], [ %35, %.lr.ph.preheader ]
-  %.0415435 = phi ptr [ %386, %.lr.ph ], [ %37, %.lr.ph.preheader ]
-  %.0417434 = phi ptr [ %381, %.lr.ph ], [ %41, %.lr.ph.preheader ]
-  %.0419433 = phi i32 [ %52, %.lr.ph ], [ %51, %.lr.ph.preheader ]
-  %.0420432 = phi ptr [ %384, %.lr.ph ], [ %50, %.lr.ph.preheader ]
-  %.0422431 = phi ptr [ %383, %.lr.ph ], [ %48, %.lr.ph.preheader ]
-  %.0424430 = phi ptr [ %382, %.lr.ph ], [ %45, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %22, %.lr.ph
+  %.0410438 = phi ptr [ %387, %.lr.ph ], [ %27, %22 ]
+  %.0411437 = phi ptr [ %388, %.lr.ph ], [ %31, %22 ]
+  %.0413436 = phi ptr [ %385, %.lr.ph ], [ %35, %22 ]
+  %.0415435 = phi ptr [ %386, %.lr.ph ], [ %37, %22 ]
+  %.0417434 = phi ptr [ %381, %.lr.ph ], [ %41, %22 ]
+  %.0419433 = phi i32 [ %52, %.lr.ph ], [ %47, %22 ]
+  %.0420432 = phi ptr [ %384, %.lr.ph ], [ %51, %22 ]
+  %.0422431 = phi ptr [ %383, %.lr.ph ], [ %49, %22 ]
+  %.0424430 = phi ptr [ %382, %.lr.ph ], [ %45, %22 ]
   %52 = add i32 %.0419433, -1
   %53 = load i8, ptr %.0417434, align 1, !tbaa !33
   %54 = zext i8 %53 to i64
@@ -4338,8 +4323,8 @@ define internal noundef i32 @yuv422p_rgb32_c(ptr noundef readonly %0, ptr nounde
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %22
   %389 = phi i32 [ %46, %22 ], [ %.pre, %._crit_edge.loopexit ]
   %.0424.lcssa = phi ptr [ %45, %22 ], [ %382, %._crit_edge.loopexit ]
-  %.0422.lcssa = phi ptr [ %48, %22 ], [ %383, %._crit_edge.loopexit ]
-  %.0420.lcssa = phi ptr [ %50, %22 ], [ %384, %._crit_edge.loopexit ]
+  %.0422.lcssa = phi ptr [ %49, %22 ], [ %383, %._crit_edge.loopexit ]
+  %.0420.lcssa = phi ptr [ %51, %22 ], [ %384, %._crit_edge.loopexit ]
   %.0417.lcssa = phi ptr [ %41, %22 ], [ %381, %._crit_edge.loopexit ]
   %.0415.lcssa = phi ptr [ %37, %22 ], [ %386, %._crit_edge.loopexit ]
   %.0413.lcssa = phi ptr [ %35, %22 ], [ %385, %._crit_edge.loopexit ]
@@ -4682,27 +4667,24 @@ define internal noundef i32 @yuv422p_rgb24_c(ptr noundef readonly %0, ptr nounde
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds i8, ptr %41, i64 %44
   %46 = load i32, ptr %13, align 16, !tbaa !32
-  %47 = sext i32 %37 to i64
-  %48 = getelementptr inbounds i8, ptr %40, i64 %47
-  %49 = sext i32 %42 to i64
-  %50 = getelementptr inbounds i8, ptr %45, i64 %49
-  %.not485 = icmp ult i32 %46, 8
-  br i1 %.not485, label %._crit_edge, label %.lr.ph.preheader
+  %47 = ashr i32 %46, 3
+  %48 = sext i32 %37 to i64
+  %49 = getelementptr inbounds i8, ptr %40, i64 %48
+  %50 = sext i32 %42 to i64
+  %51 = getelementptr inbounds i8, ptr %45, i64 %50
+  %.not485 = icmp eq i32 %47, 0
+  br i1 %.not485, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %18
-  %51 = ashr i32 %46, 3
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0466494 = phi ptr [ %387, %.lr.ph ], [ %24, %.lr.ph.preheader ]
-  %.0467493 = phi ptr [ %388, %.lr.ph ], [ %28, %.lr.ph.preheader ]
-  %.0469492 = phi ptr [ %385, %.lr.ph ], [ %33, %.lr.ph.preheader ]
-  %.0471491 = phi ptr [ %386, %.lr.ph ], [ %35, %.lr.ph.preheader ]
-  %.0473490 = phi ptr [ %381, %.lr.ph ], [ %40, %.lr.ph.preheader ]
-  %.0475489 = phi i32 [ %52, %.lr.ph ], [ %51, %.lr.ph.preheader ]
-  %.0476488 = phi ptr [ %384, %.lr.ph ], [ %50, %.lr.ph.preheader ]
-  %.0478487 = phi ptr [ %383, %.lr.ph ], [ %48, %.lr.ph.preheader ]
-  %.0480486 = phi ptr [ %382, %.lr.ph ], [ %45, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %18, %.lr.ph
+  %.0466494 = phi ptr [ %387, %.lr.ph ], [ %24, %18 ]
+  %.0467493 = phi ptr [ %388, %.lr.ph ], [ %28, %18 ]
+  %.0469492 = phi ptr [ %385, %.lr.ph ], [ %33, %18 ]
+  %.0471491 = phi ptr [ %386, %.lr.ph ], [ %35, %18 ]
+  %.0473490 = phi ptr [ %381, %.lr.ph ], [ %40, %18 ]
+  %.0475489 = phi i32 [ %52, %.lr.ph ], [ %47, %18 ]
+  %.0476488 = phi ptr [ %384, %.lr.ph ], [ %51, %18 ]
+  %.0478487 = phi ptr [ %383, %.lr.ph ], [ %49, %18 ]
+  %.0480486 = phi ptr [ %382, %.lr.ph ], [ %45, %18 ]
   %52 = add i32 %.0475489, -1
   %53 = load i8, ptr %.0473490, align 1, !tbaa !33
   %54 = zext i8 %53 to i64
@@ -5098,8 +5080,8 @@ define internal noundef i32 @yuv422p_rgb24_c(ptr noundef readonly %0, ptr nounde
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %18
   %389 = phi i32 [ %46, %18 ], [ %.pre, %._crit_edge.loopexit ]
   %.0480.lcssa = phi ptr [ %45, %18 ], [ %382, %._crit_edge.loopexit ]
-  %.0478.lcssa = phi ptr [ %48, %18 ], [ %383, %._crit_edge.loopexit ]
-  %.0476.lcssa = phi ptr [ %50, %18 ], [ %384, %._crit_edge.loopexit ]
+  %.0478.lcssa = phi ptr [ %49, %18 ], [ %383, %._crit_edge.loopexit ]
+  %.0476.lcssa = phi ptr [ %51, %18 ], [ %384, %._crit_edge.loopexit ]
   %.0473.lcssa = phi ptr [ %40, %18 ], [ %381, %._crit_edge.loopexit ]
   %.0471.lcssa = phi ptr [ %35, %18 ], [ %386, %._crit_edge.loopexit ]
   %.0469.lcssa = phi ptr [ %33, %18 ], [ %385, %._crit_edge.loopexit ]
@@ -5466,27 +5448,24 @@ define internal noundef i32 @yuv422p_bgr24_c(ptr noundef readonly %0, ptr nounde
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds i8, ptr %41, i64 %44
   %46 = load i32, ptr %13, align 16, !tbaa !32
-  %47 = sext i32 %37 to i64
-  %48 = getelementptr inbounds i8, ptr %40, i64 %47
-  %49 = sext i32 %42 to i64
-  %50 = getelementptr inbounds i8, ptr %45, i64 %49
-  %.not485 = icmp ult i32 %46, 8
-  br i1 %.not485, label %._crit_edge, label %.lr.ph.preheader
+  %47 = ashr i32 %46, 3
+  %48 = sext i32 %37 to i64
+  %49 = getelementptr inbounds i8, ptr %40, i64 %48
+  %50 = sext i32 %42 to i64
+  %51 = getelementptr inbounds i8, ptr %45, i64 %50
+  %.not485 = icmp eq i32 %47, 0
+  br i1 %.not485, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %18
-  %51 = ashr i32 %46, 3
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0466494 = phi ptr [ %387, %.lr.ph ], [ %24, %.lr.ph.preheader ]
-  %.0467493 = phi ptr [ %388, %.lr.ph ], [ %28, %.lr.ph.preheader ]
-  %.0469492 = phi ptr [ %385, %.lr.ph ], [ %33, %.lr.ph.preheader ]
-  %.0471491 = phi ptr [ %386, %.lr.ph ], [ %35, %.lr.ph.preheader ]
-  %.0473490 = phi ptr [ %381, %.lr.ph ], [ %40, %.lr.ph.preheader ]
-  %.0475489 = phi i32 [ %52, %.lr.ph ], [ %51, %.lr.ph.preheader ]
-  %.0476488 = phi ptr [ %384, %.lr.ph ], [ %50, %.lr.ph.preheader ]
-  %.0478487 = phi ptr [ %383, %.lr.ph ], [ %48, %.lr.ph.preheader ]
-  %.0480486 = phi ptr [ %382, %.lr.ph ], [ %45, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %18, %.lr.ph
+  %.0466494 = phi ptr [ %387, %.lr.ph ], [ %24, %18 ]
+  %.0467493 = phi ptr [ %388, %.lr.ph ], [ %28, %18 ]
+  %.0469492 = phi ptr [ %385, %.lr.ph ], [ %33, %18 ]
+  %.0471491 = phi ptr [ %386, %.lr.ph ], [ %35, %18 ]
+  %.0473490 = phi ptr [ %381, %.lr.ph ], [ %40, %18 ]
+  %.0475489 = phi i32 [ %52, %.lr.ph ], [ %47, %18 ]
+  %.0476488 = phi ptr [ %384, %.lr.ph ], [ %51, %18 ]
+  %.0478487 = phi ptr [ %383, %.lr.ph ], [ %49, %18 ]
+  %.0480486 = phi ptr [ %382, %.lr.ph ], [ %45, %18 ]
   %52 = add i32 %.0475489, -1
   %53 = load i8, ptr %.0473490, align 1, !tbaa !33
   %54 = zext i8 %53 to i64
@@ -5882,8 +5861,8 @@ define internal noundef i32 @yuv422p_bgr24_c(ptr noundef readonly %0, ptr nounde
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %18
   %389 = phi i32 [ %46, %18 ], [ %.pre, %._crit_edge.loopexit ]
   %.0480.lcssa = phi ptr [ %45, %18 ], [ %382, %._crit_edge.loopexit ]
-  %.0478.lcssa = phi ptr [ %48, %18 ], [ %383, %._crit_edge.loopexit ]
-  %.0476.lcssa = phi ptr [ %50, %18 ], [ %384, %._crit_edge.loopexit ]
+  %.0478.lcssa = phi ptr [ %49, %18 ], [ %383, %._crit_edge.loopexit ]
+  %.0476.lcssa = phi ptr [ %51, %18 ], [ %384, %._crit_edge.loopexit ]
   %.0473.lcssa = phi ptr [ %40, %18 ], [ %381, %._crit_edge.loopexit ]
   %.0471.lcssa = phi ptr [ %35, %18 ], [ %386, %._crit_edge.loopexit ]
   %.0469.lcssa = phi ptr [ %33, %18 ], [ %385, %._crit_edge.loopexit ]
@@ -6227,7 +6206,7 @@ define internal noundef i32 @yuv422p_bgr16(ptr noundef readonly %0, ptr noundef 
   %24 = ashr i32 %23, 3
   %25 = sext i32 %17 to i64
   %26 = sext i32 %21 to i64
-  %.not522 = icmp ult i32 %23, 8
+  %.not522 = icmp eq i32 %24, 0
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8832
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 19072
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 3712
@@ -7191,7 +7170,7 @@ define internal noundef i32 @yuv422p_bgr15(ptr noundef readonly %0, ptr noundef 
   %24 = ashr i32 %23, 3
   %25 = sext i32 %17 to i64
   %26 = sext i32 %21 to i64
-  %.not519 = icmp ult i32 %23, 8
+  %.not519 = icmp eq i32 %24, 0
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8832
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 19072
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 3712
@@ -8123,7 +8102,7 @@ define internal noundef i32 @yuv422p_bgr12(ptr noundef readonly %0, ptr noundef 
   %24 = ashr i32 %23, 3
   %25 = sext i32 %17 to i64
   %26 = sext i32 %21 to i64
-  %.not516 = icmp ult i32 %23, 8
+  %.not516 = icmp eq i32 %24, 0
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8832
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 19072
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 3712
@@ -8980,15 +8959,15 @@ define internal noundef i32 @yuv422p_bgr8(ptr noundef readonly %0, ptr noundef r
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds i8, ptr %41, i64 %44
   %46 = load i32, ptr %13, align 16, !tbaa !32
-  %47 = sext i32 %37 to i64
-  %48 = getelementptr inbounds i8, ptr %40, i64 %47
-  %49 = sext i32 %42 to i64
-  %50 = getelementptr inbounds i8, ptr %45, i64 %49
-  %.not519 = icmp ult i32 %46, 8
+  %47 = ashr i32 %46, 3
+  %48 = sext i32 %37 to i64
+  %49 = getelementptr inbounds i8, ptr %40, i64 %48
+  %50 = sext i32 %42 to i64
+  %51 = getelementptr inbounds i8, ptr %45, i64 %50
+  %.not519 = icmp eq i32 %47, 0
   br i1 %.not519, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
-  %51 = ashr i32 %46, 3
   %52 = and i32 %19, 7
   %53 = zext nneg i32 %52 to i64
   %54 = getelementptr inbounds nuw [8 x i8], ptr @ff_dither_8x8_32, i64 %53
@@ -9096,9 +9075,9 @@ define internal noundef i32 @yuv422p_bgr8(ptr noundef readonly %0, ptr noundef r
   %.0505525 = phi ptr [ %35, %.lr.ph ], [ %549, %150 ]
   %.0507524 = phi ptr [ %40, %.lr.ph ], [ %544, %150 ]
   %.0509523 = phi ptr [ %45, %.lr.ph ], [ %545, %150 ]
-  %.0511522 = phi ptr [ %48, %.lr.ph ], [ %546, %150 ]
-  %.0513521 = phi ptr [ %50, %.lr.ph ], [ %547, %150 ]
-  %.0515520 = phi i32 [ %51, %.lr.ph ], [ %151, %150 ]
+  %.0511522 = phi ptr [ %49, %.lr.ph ], [ %546, %150 ]
+  %.0513521 = phi ptr [ %51, %.lr.ph ], [ %547, %150 ]
+  %.0515520 = phi i32 [ %47, %.lr.ph ], [ %151, %150 ]
   %151 = add i32 %.0515520, -1
   %152 = load i8, ptr %.0507524, align 1, !tbaa !33
   %153 = zext i8 %152 to i64
@@ -9525,8 +9504,8 @@ define internal noundef i32 @yuv422p_bgr8(ptr noundef readonly %0, ptr noundef r
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %18
   %552 = phi i32 [ %46, %18 ], [ %.pre, %._crit_edge.loopexit ]
-  %.0513.lcssa = phi ptr [ %50, %18 ], [ %547, %._crit_edge.loopexit ]
-  %.0511.lcssa = phi ptr [ %48, %18 ], [ %546, %._crit_edge.loopexit ]
+  %.0513.lcssa = phi ptr [ %51, %18 ], [ %547, %._crit_edge.loopexit ]
+  %.0511.lcssa = phi ptr [ %49, %18 ], [ %546, %._crit_edge.loopexit ]
   %.0509.lcssa = phi ptr [ %45, %18 ], [ %545, %._crit_edge.loopexit ]
   %.0507.lcssa = phi ptr [ %40, %18 ], [ %544, %._crit_edge.loopexit ]
   %.0505.lcssa = phi ptr [ %35, %18 ], [ %549, %._crit_edge.loopexit ]
@@ -9994,15 +9973,15 @@ define internal noundef i32 @yuv422p_bgr4(ptr noundef readonly %0, ptr noundef r
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds i8, ptr %41, i64 %44
   %46 = load i32, ptr %13, align 16, !tbaa !32
-  %47 = sext i32 %37 to i64
-  %48 = getelementptr inbounds i8, ptr %40, i64 %47
-  %49 = sext i32 %42 to i64
-  %50 = getelementptr inbounds i8, ptr %45, i64 %49
-  %.not533 = icmp ult i32 %46, 8
+  %47 = ashr i32 %46, 3
+  %48 = sext i32 %37 to i64
+  %49 = getelementptr inbounds i8, ptr %40, i64 %48
+  %50 = sext i32 %42 to i64
+  %51 = getelementptr inbounds i8, ptr %45, i64 %50
+  %.not533 = icmp eq i32 %47, 0
   br i1 %.not533, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
-  %51 = ashr i32 %46, 3
   %52 = and i32 %19, 7
   %53 = zext nneg i32 %52 to i64
   %54 = getelementptr inbounds nuw [8 x i8], ptr @ff_dither_8x8_73, i64 %53
@@ -10110,9 +10089,9 @@ define internal noundef i32 @yuv422p_bgr4(ptr noundef readonly %0, ptr noundef r
   %.0519539 = phi ptr [ %35, %.lr.ph ], [ %557, %150 ]
   %.0521538 = phi ptr [ %40, %.lr.ph ], [ %552, %150 ]
   %.0523537 = phi ptr [ %45, %.lr.ph ], [ %553, %150 ]
-  %.0525536 = phi ptr [ %48, %.lr.ph ], [ %554, %150 ]
-  %.0527535 = phi ptr [ %50, %.lr.ph ], [ %555, %150 ]
-  %.0529534 = phi i32 [ %51, %.lr.ph ], [ %151, %150 ]
+  %.0525536 = phi ptr [ %49, %.lr.ph ], [ %554, %150 ]
+  %.0527535 = phi ptr [ %51, %.lr.ph ], [ %555, %150 ]
+  %.0529534 = phi i32 [ %47, %.lr.ph ], [ %151, %150 ]
   %151 = add i32 %.0529534, -1
   %152 = load i8, ptr %.0521538, align 1, !tbaa !33
   %153 = zext i8 %152 to i64
@@ -10539,8 +10518,8 @@ define internal noundef i32 @yuv422p_bgr4(ptr noundef readonly %0, ptr noundef r
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %18
   %560 = phi i32 [ %46, %18 ], [ %.pre, %._crit_edge.loopexit ]
-  %.0527.lcssa = phi ptr [ %50, %18 ], [ %555, %._crit_edge.loopexit ]
-  %.0525.lcssa = phi ptr [ %48, %18 ], [ %554, %._crit_edge.loopexit ]
+  %.0527.lcssa = phi ptr [ %51, %18 ], [ %555, %._crit_edge.loopexit ]
+  %.0525.lcssa = phi ptr [ %49, %18 ], [ %554, %._crit_edge.loopexit ]
   %.0523.lcssa = phi ptr [ %45, %18 ], [ %553, %._crit_edge.loopexit ]
   %.0521.lcssa = phi ptr [ %40, %18 ], [ %552, %._crit_edge.loopexit ]
   %.0519.lcssa = phi ptr [ %35, %18 ], [ %557, %._crit_edge.loopexit ]
@@ -11008,15 +10987,15 @@ define internal noundef i32 @yuv422p_bgr4_byte(ptr noundef readonly %0, ptr noun
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds i8, ptr %41, i64 %44
   %46 = load i32, ptr %13, align 16, !tbaa !32
-  %47 = sext i32 %37 to i64
-  %48 = getelementptr inbounds i8, ptr %40, i64 %47
-  %49 = sext i32 %42 to i64
-  %50 = getelementptr inbounds i8, ptr %45, i64 %49
-  %.not519 = icmp ult i32 %46, 8
+  %47 = ashr i32 %46, 3
+  %48 = sext i32 %37 to i64
+  %49 = getelementptr inbounds i8, ptr %40, i64 %48
+  %50 = sext i32 %42 to i64
+  %51 = getelementptr inbounds i8, ptr %45, i64 %50
+  %.not519 = icmp eq i32 %47, 0
   br i1 %.not519, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
-  %51 = ashr i32 %46, 3
   %52 = and i32 %19, 7
   %53 = zext nneg i32 %52 to i64
   %54 = getelementptr inbounds nuw [8 x i8], ptr @ff_dither_8x8_73, i64 %53
@@ -11124,9 +11103,9 @@ define internal noundef i32 @yuv422p_bgr4_byte(ptr noundef readonly %0, ptr noun
   %.0505525 = phi ptr [ %35, %.lr.ph ], [ %549, %150 ]
   %.0507524 = phi ptr [ %40, %.lr.ph ], [ %544, %150 ]
   %.0509523 = phi ptr [ %45, %.lr.ph ], [ %545, %150 ]
-  %.0511522 = phi ptr [ %48, %.lr.ph ], [ %546, %150 ]
-  %.0513521 = phi ptr [ %50, %.lr.ph ], [ %547, %150 ]
-  %.0515520 = phi i32 [ %51, %.lr.ph ], [ %151, %150 ]
+  %.0511522 = phi ptr [ %49, %.lr.ph ], [ %546, %150 ]
+  %.0513521 = phi ptr [ %51, %.lr.ph ], [ %547, %150 ]
+  %.0515520 = phi i32 [ %47, %.lr.ph ], [ %151, %150 ]
   %151 = add i32 %.0515520, -1
   %152 = load i8, ptr %.0507524, align 1, !tbaa !33
   %153 = zext i8 %152 to i64
@@ -11553,8 +11532,8 @@ define internal noundef i32 @yuv422p_bgr4_byte(ptr noundef readonly %0, ptr noun
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %18
   %552 = phi i32 [ %46, %18 ], [ %.pre, %._crit_edge.loopexit ]
-  %.0513.lcssa = phi ptr [ %50, %18 ], [ %547, %._crit_edge.loopexit ]
-  %.0511.lcssa = phi ptr [ %48, %18 ], [ %546, %._crit_edge.loopexit ]
+  %.0513.lcssa = phi ptr [ %51, %18 ], [ %547, %._crit_edge.loopexit ]
+  %.0511.lcssa = phi ptr [ %49, %18 ], [ %546, %._crit_edge.loopexit ]
   %.0509.lcssa = phi ptr [ %45, %18 ], [ %545, %._crit_edge.loopexit ]
   %.0507.lcssa = phi ptr [ %40, %18 ], [ %544, %._crit_edge.loopexit ]
   %.0505.lcssa = phi ptr [ %35, %18 ], [ %549, %._crit_edge.loopexit ]
@@ -12006,11 +11985,11 @@ define internal noundef i32 @yuv2rgb_c_1_ordered_dither(ptr noundef readonly cap
   %28 = sext i32 %24 to i64
   %29 = getelementptr inbounds i8, ptr %27, i64 %28
   %30 = load i32, ptr %9, align 16, !tbaa !32
-  %.not341 = icmp ult i32 %30, 8
+  %31 = ashr i32 %30, 3
+  %.not341 = icmp eq i32 %31, 0
   br i1 %.not341, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
-  %31 = ashr i32 %30, 3
   %32 = and i32 %13, 7
   %33 = zext nneg i32 %32 to i64
   %34 = getelementptr inbounds nuw [8 x i8], ptr @ff_dither_8x8_220, i64 %33
@@ -12492,47 +12471,44 @@ define internal noundef i32 @yuv422p_gbrp_c(ptr noundef readonly %0, ptr noundef
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds i8, ptr %45, i64 %48
   %50 = load i32, ptr %13, align 16, !tbaa !32
-  %51 = load ptr, ptr %14, align 8, !tbaa !30
-  %52 = load i32, ptr %15, align 4, !tbaa !31
-  %53 = mul nsw i32 %52, %23
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds i8, ptr %51, i64 %54
-  %56 = mul nsw i32 %52, %29
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds i8, ptr %51, i64 %57
-  %59 = load ptr, ptr %16, align 8, !tbaa !30
-  %60 = load i32, ptr %17, align 4, !tbaa !31
-  %61 = mul nsw i32 %60, %23
-  %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds i8, ptr %59, i64 %62
-  %64 = mul nsw i32 %60, %29
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds i8, ptr %59, i64 %65
-  %67 = sext i32 %41 to i64
-  %68 = getelementptr inbounds i8, ptr %44, i64 %67
-  %69 = sext i32 %46 to i64
-  %70 = getelementptr inbounds i8, ptr %49, i64 %69
-  %.not513 = icmp ult i32 %50, 8
-  br i1 %.not513, label %._crit_edge, label %.lr.ph.preheader
+  %51 = ashr i32 %50, 3
+  %52 = load ptr, ptr %14, align 8, !tbaa !30
+  %53 = load i32, ptr %15, align 4, !tbaa !31
+  %54 = mul nsw i32 %53, %23
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr inbounds i8, ptr %52, i64 %55
+  %57 = mul nsw i32 %53, %29
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds i8, ptr %52, i64 %58
+  %60 = load ptr, ptr %16, align 8, !tbaa !30
+  %61 = load i32, ptr %17, align 4, !tbaa !31
+  %62 = mul nsw i32 %61, %23
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr inbounds i8, ptr %60, i64 %63
+  %65 = mul nsw i32 %61, %29
+  %66 = sext i32 %65 to i64
+  %67 = getelementptr inbounds i8, ptr %60, i64 %66
+  %68 = sext i32 %41 to i64
+  %69 = getelementptr inbounds i8, ptr %44, i64 %68
+  %70 = sext i32 %46 to i64
+  %71 = getelementptr inbounds i8, ptr %49, i64 %70
+  %.not513 = icmp eq i32 %51, 0
+  br i1 %.not513, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %22
-  %71 = ashr i32 %50, 3
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0486526 = phi ptr [ %403, %.lr.ph ], [ %28, %.lr.ph.preheader ]
-  %.0487525 = phi ptr [ %404, %.lr.ph ], [ %32, %.lr.ph.preheader ]
-  %.0489524 = phi ptr [ %405, %.lr.ph ], [ %55, %.lr.ph.preheader ]
-  %.0491523 = phi ptr [ %406, %.lr.ph ], [ %58, %.lr.ph.preheader ]
-  %.0493522 = phi ptr [ %407, %.lr.ph ], [ %63, %.lr.ph.preheader ]
-  %.0495521 = phi ptr [ %408, %.lr.ph ], [ %66, %.lr.ph.preheader ]
-  %.0497520 = phi i32 [ %72, %.lr.ph ], [ %71, %.lr.ph.preheader ]
-  %.0498519 = phi ptr [ %400, %.lr.ph ], [ %70, %.lr.ph.preheader ]
-  %.0500518 = phi ptr [ %399, %.lr.ph ], [ %68, %.lr.ph.preheader ]
-  %.0502517 = phi ptr [ %398, %.lr.ph ], [ %49, %.lr.ph.preheader ]
-  %.0504516 = phi ptr [ %397, %.lr.ph ], [ %44, %.lr.ph.preheader ]
-  %.0506515 = phi ptr [ %402, %.lr.ph ], [ %39, %.lr.ph.preheader ]
-  %.0508514 = phi ptr [ %401, %.lr.ph ], [ %37, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %22, %.lr.ph
+  %.0486526 = phi ptr [ %403, %.lr.ph ], [ %28, %22 ]
+  %.0487525 = phi ptr [ %404, %.lr.ph ], [ %32, %22 ]
+  %.0489524 = phi ptr [ %405, %.lr.ph ], [ %56, %22 ]
+  %.0491523 = phi ptr [ %406, %.lr.ph ], [ %59, %22 ]
+  %.0493522 = phi ptr [ %407, %.lr.ph ], [ %64, %22 ]
+  %.0495521 = phi ptr [ %408, %.lr.ph ], [ %67, %22 ]
+  %.0497520 = phi i32 [ %72, %.lr.ph ], [ %51, %22 ]
+  %.0498519 = phi ptr [ %400, %.lr.ph ], [ %71, %22 ]
+  %.0500518 = phi ptr [ %399, %.lr.ph ], [ %69, %22 ]
+  %.0502517 = phi ptr [ %398, %.lr.ph ], [ %49, %22 ]
+  %.0504516 = phi ptr [ %397, %.lr.ph ], [ %44, %22 ]
+  %.0506515 = phi ptr [ %402, %.lr.ph ], [ %39, %22 ]
+  %.0508514 = phi ptr [ %401, %.lr.ph ], [ %37, %22 ]
   %72 = add i32 %.0497520, -1
   %73 = load i8, ptr %.0504516, align 1, !tbaa !33
   %74 = zext i8 %73 to i64
@@ -12931,12 +12907,12 @@ define internal noundef i32 @yuv422p_gbrp_c(ptr noundef readonly %0, ptr noundef
   %.0506.lcssa = phi ptr [ %39, %22 ], [ %402, %._crit_edge.loopexit ]
   %.0504.lcssa = phi ptr [ %44, %22 ], [ %397, %._crit_edge.loopexit ]
   %.0502.lcssa = phi ptr [ %49, %22 ], [ %398, %._crit_edge.loopexit ]
-  %.0500.lcssa = phi ptr [ %68, %22 ], [ %399, %._crit_edge.loopexit ]
-  %.0498.lcssa = phi ptr [ %70, %22 ], [ %400, %._crit_edge.loopexit ]
-  %.0495.lcssa = phi ptr [ %66, %22 ], [ %408, %._crit_edge.loopexit ]
-  %.0493.lcssa = phi ptr [ %63, %22 ], [ %407, %._crit_edge.loopexit ]
-  %.0491.lcssa = phi ptr [ %58, %22 ], [ %406, %._crit_edge.loopexit ]
-  %.0489.lcssa = phi ptr [ %55, %22 ], [ %405, %._crit_edge.loopexit ]
+  %.0500.lcssa = phi ptr [ %69, %22 ], [ %399, %._crit_edge.loopexit ]
+  %.0498.lcssa = phi ptr [ %71, %22 ], [ %400, %._crit_edge.loopexit ]
+  %.0495.lcssa = phi ptr [ %67, %22 ], [ %408, %._crit_edge.loopexit ]
+  %.0493.lcssa = phi ptr [ %64, %22 ], [ %407, %._crit_edge.loopexit ]
+  %.0491.lcssa = phi ptr [ %59, %22 ], [ %406, %._crit_edge.loopexit ]
+  %.0489.lcssa = phi ptr [ %56, %22 ], [ %405, %._crit_edge.loopexit ]
   %.0487.lcssa = phi ptr [ %32, %22 ], [ %404, %._crit_edge.loopexit ]
   %.0486.lcssa = phi ptr [ %28, %22 ], [ %403, %._crit_edge.loopexit ]
   %410 = and i32 %409, 4
@@ -13301,21 +13277,18 @@ define internal noundef i32 @yuv2rgb_c_bgr48(ptr noundef readonly captures(none)
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds i8, ptr %42, i64 %45
   %47 = load i32, ptr %13, align 16, !tbaa !32
-  %.not487 = icmp ult i32 %47, 8
-  br i1 %.not487, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %18
   %48 = ashr i32 %47, 3
-  br label %.lr.ph
+  %.not487 = icmp eq i32 %48, 0
+  br i1 %.not487, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0472494 = phi ptr [ %360, %.lr.ph ], [ %24, %.lr.ph.preheader ]
-  %.0473493 = phi ptr [ %361, %.lr.ph ], [ %28, %.lr.ph.preheader ]
-  %.0475492 = phi ptr [ %358, %.lr.ph ], [ %33, %.lr.ph.preheader ]
-  %.0477491 = phi ptr [ %359, %.lr.ph ], [ %35, %.lr.ph.preheader ]
-  %.0479490 = phi ptr [ %356, %.lr.ph ], [ %41, %.lr.ph.preheader ]
-  %.0481489 = phi i32 [ %49, %.lr.ph ], [ %48, %.lr.ph.preheader ]
-  %.0482488 = phi ptr [ %357, %.lr.ph ], [ %46, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %18, %.lr.ph
+  %.0472494 = phi ptr [ %360, %.lr.ph ], [ %24, %18 ]
+  %.0473493 = phi ptr [ %361, %.lr.ph ], [ %28, %18 ]
+  %.0475492 = phi ptr [ %358, %.lr.ph ], [ %33, %18 ]
+  %.0477491 = phi ptr [ %359, %.lr.ph ], [ %35, %18 ]
+  %.0479490 = phi ptr [ %356, %.lr.ph ], [ %41, %18 ]
+  %.0481489 = phi i32 [ %49, %.lr.ph ], [ %48, %18 ]
+  %.0482488 = phi ptr [ %357, %.lr.ph ], [ %46, %18 ]
   %49 = add i32 %.0481489, -1
   %50 = load i8, ptr %.0479490, align 1, !tbaa !33
   %51 = zext i8 %50 to i64
@@ -14120,21 +14093,18 @@ define internal noundef i32 @yuv2rgb_c_48(ptr noundef readonly captures(none) %0
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds i8, ptr %42, i64 %45
   %47 = load i32, ptr %13, align 16, !tbaa !32
-  %.not487 = icmp ult i32 %47, 8
-  br i1 %.not487, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %18
   %48 = ashr i32 %47, 3
-  br label %.lr.ph
+  %.not487 = icmp eq i32 %48, 0
+  br i1 %.not487, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0472494 = phi ptr [ %360, %.lr.ph ], [ %24, %.lr.ph.preheader ]
-  %.0473493 = phi ptr [ %361, %.lr.ph ], [ %28, %.lr.ph.preheader ]
-  %.0475492 = phi ptr [ %358, %.lr.ph ], [ %33, %.lr.ph.preheader ]
-  %.0477491 = phi ptr [ %359, %.lr.ph ], [ %35, %.lr.ph.preheader ]
-  %.0479490 = phi ptr [ %356, %.lr.ph ], [ %41, %.lr.ph.preheader ]
-  %.0481489 = phi i32 [ %49, %.lr.ph ], [ %48, %.lr.ph.preheader ]
-  %.0482488 = phi ptr [ %357, %.lr.ph ], [ %46, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %18, %.lr.ph
+  %.0472494 = phi ptr [ %360, %.lr.ph ], [ %24, %18 ]
+  %.0473493 = phi ptr [ %361, %.lr.ph ], [ %28, %18 ]
+  %.0475492 = phi ptr [ %358, %.lr.ph ], [ %33, %18 ]
+  %.0477491 = phi ptr [ %359, %.lr.ph ], [ %35, %18 ]
+  %.0479490 = phi ptr [ %356, %.lr.ph ], [ %41, %18 ]
+  %.0481489 = phi i32 [ %49, %.lr.ph ], [ %48, %18 ]
+  %.0482488 = phi ptr [ %357, %.lr.ph ], [ %46, %18 ]
   %49 = add i32 %.0481489, -1
   %50 = load i8, ptr %.0479490, align 1, !tbaa !33
   %51 = zext i8 %50 to i64
@@ -14942,29 +14912,26 @@ define internal noundef i32 @yuva2argb_c(ptr noundef readonly captures(none) %0,
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds i8, ptr %15, i64 %48
   %50 = load i32, ptr %17, align 16, !tbaa !32
-  %51 = load i32, ptr %20, align 4, !tbaa !31
-  %52 = mul nsw i32 %51, %.0405
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds i8, ptr %19, i64 %53
-  %55 = sext i32 %51 to i64
-  %56 = getelementptr inbounds i8, ptr %54, i64 %55
-  %.not388 = icmp ult i32 %50, 8
-  br i1 %.not388, label %._crit_edge, label %.lr.ph.preheader
+  %51 = ashr i32 %50, 3
+  %52 = load i32, ptr %20, align 4, !tbaa !31
+  %53 = mul nsw i32 %52, %.0405
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds i8, ptr %19, i64 %54
+  %56 = sext i32 %52 to i64
+  %57 = getelementptr inbounds i8, ptr %55, i64 %56
+  %.not388 = icmp eq i32 %51, 0
+  br i1 %.not388, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %25
-  %57 = ashr i32 %50, 3
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0369397 = phi ptr [ %385, %.lr.ph ], [ %30, %.lr.ph.preheader ]
-  %.0370396 = phi ptr [ %386, %.lr.ph ], [ %34, %.lr.ph.preheader ]
-  %.0372395 = phi ptr [ %381, %.lr.ph ], [ %38, %.lr.ph.preheader ]
-  %.0374394 = phi ptr [ %382, %.lr.ph ], [ %40, %.lr.ph.preheader ]
-  %.0376393 = phi ptr [ %379, %.lr.ph ], [ %45, %.lr.ph.preheader ]
-  %.0378392 = phi i32 [ %58, %.lr.ph ], [ %57, %.lr.ph.preheader ]
-  %.0379391 = phi ptr [ %384, %.lr.ph ], [ %56, %.lr.ph.preheader ]
-  %.0381390 = phi ptr [ %383, %.lr.ph ], [ %54, %.lr.ph.preheader ]
-  %.0383389 = phi ptr [ %380, %.lr.ph ], [ %49, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %25, %.lr.ph
+  %.0369397 = phi ptr [ %385, %.lr.ph ], [ %30, %25 ]
+  %.0370396 = phi ptr [ %386, %.lr.ph ], [ %34, %25 ]
+  %.0372395 = phi ptr [ %381, %.lr.ph ], [ %38, %25 ]
+  %.0374394 = phi ptr [ %382, %.lr.ph ], [ %40, %25 ]
+  %.0376393 = phi ptr [ %379, %.lr.ph ], [ %45, %25 ]
+  %.0378392 = phi i32 [ %58, %.lr.ph ], [ %51, %25 ]
+  %.0379391 = phi ptr [ %384, %.lr.ph ], [ %57, %25 ]
+  %.0381390 = phi ptr [ %383, %.lr.ph ], [ %55, %25 ]
+  %.0383389 = phi ptr [ %380, %.lr.ph ], [ %49, %25 ]
   %58 = add i32 %.0378392, -1
   %59 = load i8, ptr %.0376393, align 1, !tbaa !33
   %60 = zext i8 %59 to i64
@@ -15320,8 +15287,8 @@ define internal noundef i32 @yuva2argb_c(ptr noundef readonly captures(none) %0,
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %25
   %387 = phi i32 [ %50, %25 ], [ %.pre, %._crit_edge.loopexit ]
   %.0383.lcssa = phi ptr [ %49, %25 ], [ %380, %._crit_edge.loopexit ]
-  %.0381.lcssa = phi ptr [ %54, %25 ], [ %383, %._crit_edge.loopexit ]
-  %.0379.lcssa = phi ptr [ %56, %25 ], [ %384, %._crit_edge.loopexit ]
+  %.0381.lcssa = phi ptr [ %55, %25 ], [ %383, %._crit_edge.loopexit ]
+  %.0379.lcssa = phi ptr [ %57, %25 ], [ %384, %._crit_edge.loopexit ]
   %.0376.lcssa = phi ptr [ %45, %25 ], [ %379, %._crit_edge.loopexit ]
   %.0374.lcssa = phi ptr [ %40, %25 ], [ %382, %._crit_edge.loopexit ]
   %.0372.lcssa = phi ptr [ %38, %25 ], [ %381, %._crit_edge.loopexit ]
@@ -15662,29 +15629,26 @@ define internal noundef i32 @yuva2rgba_c(ptr noundef readonly captures(none) %0,
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds i8, ptr %15, i64 %48
   %50 = load i32, ptr %17, align 16, !tbaa !32
-  %51 = load i32, ptr %20, align 4, !tbaa !31
-  %52 = mul nsw i32 %51, %.0405
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds i8, ptr %19, i64 %53
-  %55 = sext i32 %51 to i64
-  %56 = getelementptr inbounds i8, ptr %54, i64 %55
-  %.not388 = icmp ult i32 %50, 8
-  br i1 %.not388, label %._crit_edge, label %.lr.ph.preheader
+  %51 = ashr i32 %50, 3
+  %52 = load i32, ptr %20, align 4, !tbaa !31
+  %53 = mul nsw i32 %52, %.0405
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds i8, ptr %19, i64 %54
+  %56 = sext i32 %52 to i64
+  %57 = getelementptr inbounds i8, ptr %55, i64 %56
+  %.not388 = icmp eq i32 %51, 0
+  br i1 %.not388, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %25
-  %57 = ashr i32 %50, 3
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0369397 = phi ptr [ %401, %.lr.ph ], [ %30, %.lr.ph.preheader ]
-  %.0370396 = phi ptr [ %402, %.lr.ph ], [ %34, %.lr.ph.preheader ]
-  %.0372395 = phi ptr [ %397, %.lr.ph ], [ %38, %.lr.ph.preheader ]
-  %.0374394 = phi ptr [ %398, %.lr.ph ], [ %40, %.lr.ph.preheader ]
-  %.0376393 = phi ptr [ %395, %.lr.ph ], [ %45, %.lr.ph.preheader ]
-  %.0378392 = phi i32 [ %58, %.lr.ph ], [ %57, %.lr.ph.preheader ]
-  %.0379391 = phi ptr [ %400, %.lr.ph ], [ %56, %.lr.ph.preheader ]
-  %.0381390 = phi ptr [ %399, %.lr.ph ], [ %54, %.lr.ph.preheader ]
-  %.0383389 = phi ptr [ %396, %.lr.ph ], [ %49, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %25, %.lr.ph
+  %.0369397 = phi ptr [ %401, %.lr.ph ], [ %30, %25 ]
+  %.0370396 = phi ptr [ %402, %.lr.ph ], [ %34, %25 ]
+  %.0372395 = phi ptr [ %397, %.lr.ph ], [ %38, %25 ]
+  %.0374394 = phi ptr [ %398, %.lr.ph ], [ %40, %25 ]
+  %.0376393 = phi ptr [ %395, %.lr.ph ], [ %45, %25 ]
+  %.0378392 = phi i32 [ %58, %.lr.ph ], [ %51, %25 ]
+  %.0379391 = phi ptr [ %400, %.lr.ph ], [ %57, %25 ]
+  %.0381390 = phi ptr [ %399, %.lr.ph ], [ %55, %25 ]
+  %.0383389 = phi ptr [ %396, %.lr.ph ], [ %49, %25 ]
   %58 = add i32 %.0378392, -1
   %59 = load i8, ptr %.0376393, align 1, !tbaa !33
   %60 = zext i8 %59 to i64
@@ -16056,8 +16020,8 @@ define internal noundef i32 @yuva2rgba_c(ptr noundef readonly captures(none) %0,
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %25
   %403 = phi i32 [ %50, %25 ], [ %.pre, %._crit_edge.loopexit ]
   %.0383.lcssa = phi ptr [ %49, %25 ], [ %396, %._crit_edge.loopexit ]
-  %.0381.lcssa = phi ptr [ %54, %25 ], [ %399, %._crit_edge.loopexit ]
-  %.0379.lcssa = phi ptr [ %56, %25 ], [ %400, %._crit_edge.loopexit ]
+  %.0381.lcssa = phi ptr [ %55, %25 ], [ %399, %._crit_edge.loopexit ]
+  %.0379.lcssa = phi ptr [ %57, %25 ], [ %400, %._crit_edge.loopexit ]
   %.0376.lcssa = phi ptr [ %45, %25 ], [ %395, %._crit_edge.loopexit ]
   %.0374.lcssa = phi ptr [ %40, %25 ], [ %398, %._crit_edge.loopexit ]
   %.0372.lcssa = phi ptr [ %38, %25 ], [ %397, %._crit_edge.loopexit ]
@@ -16407,21 +16371,18 @@ define internal noundef i32 @yuv2rgb_c_32(ptr noundef readonly captures(none) %0
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds i8, ptr %15, i64 %45
   %47 = load i32, ptr %17, align 16, !tbaa !32
-  %.not347 = icmp ult i32 %47, 8
-  br i1 %.not347, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %22
   %48 = ashr i32 %47, 3
-  br label %.lr.ph
+  %.not347 = icmp eq i32 %48, 0
+  br i1 %.not347, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0332354 = phi ptr [ %312, %.lr.ph ], [ %27, %.lr.ph.preheader ]
-  %.0333353 = phi ptr [ %313, %.lr.ph ], [ %31, %.lr.ph.preheader ]
-  %.0335352 = phi ptr [ %310, %.lr.ph ], [ %35, %.lr.ph.preheader ]
-  %.0337351 = phi ptr [ %311, %.lr.ph ], [ %37, %.lr.ph.preheader ]
-  %.0339350 = phi ptr [ %308, %.lr.ph ], [ %42, %.lr.ph.preheader ]
-  %.0341349 = phi i32 [ %49, %.lr.ph ], [ %48, %.lr.ph.preheader ]
-  %.0342348 = phi ptr [ %309, %.lr.ph ], [ %46, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %22, %.lr.ph
+  %.0332354 = phi ptr [ %312, %.lr.ph ], [ %27, %22 ]
+  %.0333353 = phi ptr [ %313, %.lr.ph ], [ %31, %22 ]
+  %.0335352 = phi ptr [ %310, %.lr.ph ], [ %35, %22 ]
+  %.0337351 = phi ptr [ %311, %.lr.ph ], [ %37, %22 ]
+  %.0339350 = phi ptr [ %308, %.lr.ph ], [ %42, %22 ]
+  %.0341349 = phi i32 [ %49, %.lr.ph ], [ %48, %22 ]
+  %.0342348 = phi ptr [ %309, %.lr.ph ], [ %46, %22 ]
   %49 = add i32 %.0341349, -1
   %50 = load i8, ptr %.0339350, align 1, !tbaa !33
   %51 = zext i8 %50 to i64
@@ -17002,21 +16963,18 @@ define internal noundef i32 @yuv2rgb_c_24_rgb(ptr noundef readonly captures(none
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds i8, ptr %42, i64 %45
   %47 = load i32, ptr %13, align 16, !tbaa !32
-  %.not403 = icmp ult i32 %47, 8
-  br i1 %.not403, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %18
   %48 = ashr i32 %47, 3
-  br label %.lr.ph
+  %.not403 = icmp eq i32 %48, 0
+  br i1 %.not403, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0388410 = phi ptr [ %312, %.lr.ph ], [ %24, %.lr.ph.preheader ]
-  %.0389409 = phi ptr [ %313, %.lr.ph ], [ %28, %.lr.ph.preheader ]
-  %.0391408 = phi ptr [ %310, %.lr.ph ], [ %33, %.lr.ph.preheader ]
-  %.0393407 = phi ptr [ %311, %.lr.ph ], [ %35, %.lr.ph.preheader ]
-  %.0395406 = phi ptr [ %308, %.lr.ph ], [ %41, %.lr.ph.preheader ]
-  %.0397405 = phi i32 [ %49, %.lr.ph ], [ %48, %.lr.ph.preheader ]
-  %.0398404 = phi ptr [ %309, %.lr.ph ], [ %46, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %18, %.lr.ph
+  %.0388410 = phi ptr [ %312, %.lr.ph ], [ %24, %18 ]
+  %.0389409 = phi ptr [ %313, %.lr.ph ], [ %28, %18 ]
+  %.0391408 = phi ptr [ %310, %.lr.ph ], [ %33, %18 ]
+  %.0393407 = phi ptr [ %311, %.lr.ph ], [ %35, %18 ]
+  %.0395406 = phi ptr [ %308, %.lr.ph ], [ %41, %18 ]
+  %.0397405 = phi i32 [ %49, %.lr.ph ], [ %48, %18 ]
+  %.0398404 = phi ptr [ %309, %.lr.ph ], [ %46, %18 ]
   %49 = add i32 %.0397405, -1
   %50 = load i8, ptr %.0395406, align 1, !tbaa !33
   %51 = zext i8 %50 to i64
@@ -17653,21 +17611,18 @@ define internal noundef i32 @yuv2rgb_c_24_bgr(ptr noundef readonly captures(none
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds i8, ptr %42, i64 %45
   %47 = load i32, ptr %13, align 16, !tbaa !32
-  %.not403 = icmp ult i32 %47, 8
-  br i1 %.not403, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %18
   %48 = ashr i32 %47, 3
-  br label %.lr.ph
+  %.not403 = icmp eq i32 %48, 0
+  br i1 %.not403, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0388410 = phi ptr [ %312, %.lr.ph ], [ %24, %.lr.ph.preheader ]
-  %.0389409 = phi ptr [ %313, %.lr.ph ], [ %28, %.lr.ph.preheader ]
-  %.0391408 = phi ptr [ %310, %.lr.ph ], [ %33, %.lr.ph.preheader ]
-  %.0393407 = phi ptr [ %311, %.lr.ph ], [ %35, %.lr.ph.preheader ]
-  %.0395406 = phi ptr [ %308, %.lr.ph ], [ %41, %.lr.ph.preheader ]
-  %.0397405 = phi i32 [ %49, %.lr.ph ], [ %48, %.lr.ph.preheader ]
-  %.0398404 = phi ptr [ %309, %.lr.ph ], [ %46, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %18, %.lr.ph
+  %.0388410 = phi ptr [ %312, %.lr.ph ], [ %24, %18 ]
+  %.0389409 = phi ptr [ %313, %.lr.ph ], [ %28, %18 ]
+  %.0391408 = phi ptr [ %310, %.lr.ph ], [ %33, %18 ]
+  %.0393407 = phi ptr [ %311, %.lr.ph ], [ %35, %18 ]
+  %.0395406 = phi ptr [ %308, %.lr.ph ], [ %41, %18 ]
+  %.0397405 = phi i32 [ %49, %.lr.ph ], [ %48, %18 ]
+  %.0398404 = phi ptr [ %309, %.lr.ph ], [ %46, %18 ]
   %49 = add i32 %.0397405, -1
   %50 = load i8, ptr %.0395406, align 1, !tbaa !33
   %51 = zext i8 %50 to i64
@@ -18278,7 +18233,7 @@ define internal noundef i32 @yuv2rgb_c_16_ordered_dither(ptr noundef readonly ca
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %23 = load i32, ptr %22, align 16, !tbaa !32
   %24 = ashr i32 %23, 3
-  %.not440 = icmp ult i32 %23, 8
+  %.not440 = icmp eq i32 %24, 0
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8832
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 19072
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 3712
@@ -19111,7 +19066,7 @@ define internal noundef i32 @yuv2rgb_c_15_ordered_dither(ptr noundef readonly ca
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %23 = load i32, ptr %22, align 16, !tbaa !32
   %24 = ashr i32 %23, 3
-  %.not437 = icmp ult i32 %23, 8
+  %.not437 = icmp eq i32 %24, 0
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8832
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 19072
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 3712
@@ -19912,7 +19867,7 @@ define internal noundef i32 @yuv2rgb_c_12_ordered_dither(ptr noundef readonly ca
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %23 = load i32, ptr %22, align 16, !tbaa !32
   %24 = ashr i32 %23, 3
-  %.not434 = icmp ult i32 %23, 8
+  %.not434 = icmp eq i32 %24, 0
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8832
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 19072
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 3712
@@ -20641,11 +20596,11 @@ define internal noundef i32 @yuv2rgb_c_8_ordered_dither(ptr noundef readonly cap
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds i8, ptr %42, i64 %45
   %47 = load i32, ptr %13, align 16, !tbaa !32
-  %.not437 = icmp ult i32 %47, 8
+  %48 = ashr i32 %47, 3
+  %.not437 = icmp eq i32 %48, 0
   br i1 %.not437, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
-  %48 = ashr i32 %47, 3
   %49 = and i32 %19, 7
   %50 = zext nneg i32 %49 to i64
   %51 = getelementptr inbounds nuw [8 x i8], ptr @ff_dither_8x8_32, i64 %50
@@ -21522,11 +21477,11 @@ define internal noundef i32 @yuv2rgb_c_4_ordered_dither(ptr noundef readonly cap
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds i8, ptr %42, i64 %45
   %47 = load i32, ptr %13, align 16, !tbaa !32
-  %.not451 = icmp ult i32 %47, 8
+  %48 = ashr i32 %47, 3
+  %.not451 = icmp eq i32 %48, 0
   br i1 %.not451, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
-  %48 = ashr i32 %47, 3
   %49 = and i32 %19, 7
   %50 = zext nneg i32 %49 to i64
   %51 = getelementptr inbounds nuw [8 x i8], ptr @ff_dither_8x8_73, i64 %50
@@ -22403,11 +22358,11 @@ define internal noundef i32 @yuv2rgb_c_4b_ordered_dither(ptr noundef readonly ca
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds i8, ptr %42, i64 %45
   %47 = load i32, ptr %13, align 16, !tbaa !32
-  %.not437 = icmp ult i32 %47, 8
+  %48 = ashr i32 %47, 3
+  %.not437 = icmp eq i32 %48, 0
   br i1 %.not437, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
-  %48 = ashr i32 %47, 3
   %49 = and i32 %19, 7
   %50 = zext nneg i32 %49 to i64
   %51 = getelementptr inbounds nuw [8 x i8], ptr @ff_dither_8x8_73, i64 %50
@@ -23288,41 +23243,38 @@ define internal noundef i32 @yuv420p_gbrp_c(ptr noundef readonly captures(none) 
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds i8, ptr %46, i64 %49
   %51 = load i32, ptr %13, align 16, !tbaa !32
-  %52 = load ptr, ptr %14, align 8, !tbaa !30
-  %53 = load i32, ptr %15, align 4, !tbaa !31
-  %54 = mul nsw i32 %53, %23
-  %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds i8, ptr %52, i64 %55
-  %57 = mul nsw i32 %53, %29
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds i8, ptr %52, i64 %58
-  %60 = load ptr, ptr %16, align 8, !tbaa !30
-  %61 = load i32, ptr %17, align 4, !tbaa !31
-  %62 = mul nsw i32 %61, %23
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds i8, ptr %60, i64 %63
-  %65 = mul nsw i32 %61, %29
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds i8, ptr %60, i64 %66
-  %.not431 = icmp ult i32 %51, 8
-  br i1 %.not431, label %._crit_edge, label %.lr.ph.preheader
+  %52 = ashr i32 %51, 3
+  %53 = load ptr, ptr %14, align 8, !tbaa !30
+  %54 = load i32, ptr %15, align 4, !tbaa !31
+  %55 = mul nsw i32 %54, %23
+  %56 = sext i32 %55 to i64
+  %57 = getelementptr inbounds i8, ptr %53, i64 %56
+  %58 = mul nsw i32 %54, %29
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr inbounds i8, ptr %53, i64 %59
+  %61 = load ptr, ptr %16, align 8, !tbaa !30
+  %62 = load i32, ptr %17, align 4, !tbaa !31
+  %63 = mul nsw i32 %62, %23
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr inbounds i8, ptr %61, i64 %64
+  %66 = mul nsw i32 %62, %29
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr inbounds i8, ptr %61, i64 %67
+  %.not431 = icmp eq i32 %52, 0
+  br i1 %.not431, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %22
-  %68 = ashr i32 %51, 3
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0408442 = phi ptr [ %328, %.lr.ph ], [ %28, %.lr.ph.preheader ]
-  %.0409441 = phi ptr [ %329, %.lr.ph ], [ %32, %.lr.ph.preheader ]
-  %.0411440 = phi ptr [ %330, %.lr.ph ], [ %56, %.lr.ph.preheader ]
-  %.0413439 = phi ptr [ %331, %.lr.ph ], [ %59, %.lr.ph.preheader ]
-  %.0415438 = phi ptr [ %332, %.lr.ph ], [ %64, %.lr.ph.preheader ]
-  %.0417437 = phi ptr [ %333, %.lr.ph ], [ %67, %.lr.ph.preheader ]
-  %.0419436 = phi i32 [ %69, %.lr.ph ], [ %68, %.lr.ph.preheader ]
-  %.0420435 = phi ptr [ %325, %.lr.ph ], [ %50, %.lr.ph.preheader ]
-  %.0422434 = phi ptr [ %324, %.lr.ph ], [ %45, %.lr.ph.preheader ]
-  %.0424433 = phi ptr [ %327, %.lr.ph ], [ %39, %.lr.ph.preheader ]
-  %.0426432 = phi ptr [ %326, %.lr.ph ], [ %37, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %22, %.lr.ph
+  %.0408442 = phi ptr [ %328, %.lr.ph ], [ %28, %22 ]
+  %.0409441 = phi ptr [ %329, %.lr.ph ], [ %32, %22 ]
+  %.0411440 = phi ptr [ %330, %.lr.ph ], [ %57, %22 ]
+  %.0413439 = phi ptr [ %331, %.lr.ph ], [ %60, %22 ]
+  %.0415438 = phi ptr [ %332, %.lr.ph ], [ %65, %22 ]
+  %.0417437 = phi ptr [ %333, %.lr.ph ], [ %68, %22 ]
+  %.0419436 = phi i32 [ %69, %.lr.ph ], [ %52, %22 ]
+  %.0420435 = phi ptr [ %325, %.lr.ph ], [ %50, %22 ]
+  %.0422434 = phi ptr [ %324, %.lr.ph ], [ %45, %22 ]
+  %.0424433 = phi ptr [ %327, %.lr.ph ], [ %39, %22 ]
+  %.0426432 = phi ptr [ %326, %.lr.ph ], [ %37, %22 ]
   %69 = add i32 %.0419436, -1
   %70 = load i8, ptr %.0422434, align 1, !tbaa !33
   %71 = zext i8 %70 to i64
@@ -23649,10 +23601,10 @@ define internal noundef i32 @yuv420p_gbrp_c(ptr noundef readonly captures(none) 
   %.0424.lcssa = phi ptr [ %39, %22 ], [ %327, %._crit_edge.loopexit ]
   %.0422.lcssa = phi ptr [ %45, %22 ], [ %324, %._crit_edge.loopexit ]
   %.0420.lcssa = phi ptr [ %50, %22 ], [ %325, %._crit_edge.loopexit ]
-  %.0417.lcssa = phi ptr [ %67, %22 ], [ %333, %._crit_edge.loopexit ]
-  %.0415.lcssa = phi ptr [ %64, %22 ], [ %332, %._crit_edge.loopexit ]
-  %.0413.lcssa = phi ptr [ %59, %22 ], [ %331, %._crit_edge.loopexit ]
-  %.0411.lcssa = phi ptr [ %56, %22 ], [ %330, %._crit_edge.loopexit ]
+  %.0417.lcssa = phi ptr [ %68, %22 ], [ %333, %._crit_edge.loopexit ]
+  %.0415.lcssa = phi ptr [ %65, %22 ], [ %332, %._crit_edge.loopexit ]
+  %.0413.lcssa = phi ptr [ %60, %22 ], [ %331, %._crit_edge.loopexit ]
+  %.0411.lcssa = phi ptr [ %57, %22 ], [ %330, %._crit_edge.loopexit ]
   %.0409.lcssa = phi ptr [ %32, %22 ], [ %329, %._crit_edge.loopexit ]
   %.0408.lcssa = phi ptr [ %28, %22 ], [ %328, %._crit_edge.loopexit ]
   %335 = and i32 %334, 4

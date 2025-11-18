@@ -239,13 +239,13 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %112, %109
   %125 = getelementptr inbounds nuw %struct.rcCompactCell, ptr %124, i64 %indvars.iv921
   %126 = getelementptr inbounds nuw %struct.rcCompactCell, ptr %125, i64 %121
   %127 = load i32, ptr %126, align 4
-  %.not906 = icmp ult i32 %127, 16777216
+  %128 = lshr i32 %127, 24
+  %.not906 = icmp eq i32 %128, 0
   br i1 %.not906, label %._crit_edge.us, label %.lr.ph.us.preheader
 
 .lr.ph.us.preheader:                              ; preds = %123
-  %128 = and i32 %127, 16777215
-  %129 = lshr i32 %127, 24
-  %130 = add nuw nsw i32 %128, %129
+  %129 = and i32 %127, 16777215
+  %130 = add nuw nsw i32 %129, %128
   %131 = and i32 %127, 16777215
   %132 = zext nneg i32 %131 to i64
   %133 = zext nneg i32 %130 to i64
@@ -263,8 +263,8 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %112, %109
   %136 = getelementptr inbounds nuw %struct.rcCompactSpan, ptr %135, i64 %indvars.iv918
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 2
   %138 = load i16, ptr %137, align 2
-  %.fr1172 = freeze i16 %138
-  %or.cond342.us = icmp sgt i16 %.fr1172, 0
+  %.fr1170 = freeze i16 %138
+  %or.cond342.us = icmp sgt i16 %.fr1170, 0
   br i1 %or.cond342.us, label %.preheader813.us, label %141
 
 139:                                              ; preds = %.thread
@@ -307,8 +307,8 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %112, %109
   %164 = getelementptr inbounds nuw %struct.rcCompactSpan, ptr %135, i64 %163
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 2
   %166 = load i16, ptr %165, align 2
-  %.fr1171 = freeze i16 %166
-  %167 = icmp eq i16 %.fr1171, %.fr1172
+  %.fr1169 = freeze i16 %166
+  %167 = icmp eq i16 %.fr1169, %.fr1170
   %168 = trunc nuw nsw i64 %indvars.iv to i32
   %169 = shl nuw nsw i32 1, %168
   %170 = trunc nuw nsw i32 %169 to i8
@@ -408,13 +408,13 @@ _ZN10rcIntArrayC2Ei.exit349:                      ; preds = %182
   %205 = getelementptr inbounds nuw %struct.rcCompactCell, ptr %204, i64 %indvars.iv942
   %206 = getelementptr inbounds nuw %struct.rcCompactCell, ptr %205, i64 %201
   %207 = load i32, ptr %206, align 4
-  %.not907 = icmp ult i32 %207, 16777216
+  %208 = lshr i32 %207, 24
+  %.not907 = icmp eq i32 %208, 0
   br i1 %.not907, label %._crit_edge869.us, label %.lr.ph868.us.preheader
 
 .lr.ph868.us.preheader:                           ; preds = %203
-  %208 = and i32 %207, 16777215
-  %209 = lshr i32 %207, 24
-  %210 = add nuw nsw i32 %208, %209
+  %209 = and i32 %207, 16777215
+  %210 = add nuw nsw i32 %209, %208
   %211 = and i32 %207, 16777215
   %212 = zext nneg i32 %211 to i64
   %213 = zext nneg i32 %210 to i64
@@ -4039,8 +4039,8 @@ _ZL24removeDegenerateSegmentsR10rcIntArray.exit.us: ; preds = %_ZL6vequalPKiS0_.
 .lr.ph863.us:                                     ; preds = %.preheader784.us, %.lr.ph863.us
   %indvars.iv936 = phi i64 [ %indvars.iv.next937, %.lr.ph863.us ], [ 0, %.preheader784.us ]
   %1880 = load ptr, ptr %1864, align 8
-  %.idx1154 = shl nsw i64 %indvars.iv936, 4
-  %1881 = getelementptr inbounds nuw i8, ptr %1880, i64 %.idx1154
+  %.idx1152 = shl nsw i64 %indvars.iv936, 4
+  %1881 = getelementptr inbounds nuw i8, ptr %1880, i64 %.idx1152
   %1882 = load i32, ptr %1881, align 4
   %1883 = sub nsw i32 %1882, %32
   store i32 %1883, ptr %1881, align 4
@@ -4168,9 +4168,9 @@ _ZL24removeDegenerateSegmentsR10rcIntArray.exit.us: ; preds = %_ZL6vequalPKiS0_.
   br label %_ZN14rcScopedDeleteIaED2Ev.exit573
 
 .split.us.invoke:                                 ; preds = %1844, %1863
-  %.lcssa1169.sink = phi ptr [ %1859, %1863 ], [ %1840, %1844 ]
+  %.lcssa1167.sink = phi ptr [ %1859, %1863 ], [ %1840, %1844 ]
   %1908 = phi ptr [ @.str.5, %1863 ], [ @.str.4, %1844 ]
-  %1909 = load i32, ptr %.lcssa1169.sink, align 8
+  %1909 = load i32, ptr %.lcssa1167.sink, align 8
   invoke void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 3, ptr noundef nonnull %1908, i32 noundef %1909)
           to label %_ZN14rcScopedDeleteIaED2Ev.exit unwind label %.loopexit.split-lp773.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

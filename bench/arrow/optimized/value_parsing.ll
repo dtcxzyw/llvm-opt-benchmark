@@ -2234,7 +2234,7 @@ _ZN14arrow_vendored10fast_float10skip_zerosERPKcS2_.exit: ; preds = %.lr.ph312
   br label %68
 
 ._crit_edge.i.i:                                  ; preds = %68
-  %.not.i.i88 = icmp ugt i128 %74, 18446744073709551615
+  %.not.i.i88 = icmp ne i128 %75, 0
   %67 = icmp ult i16 %61, 62
   %or.cond262 = and i1 %67, %.not.i.i88
   br i1 %or.cond262, label %_ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i, label %_ZN14arrow_vendored10fast_float6bigint3mulEm.exit
@@ -2397,7 +2397,7 @@ _ZN14arrow_vendored10fast_float12is_truncatedENS0_4spanIKcEE.exit.thread: ; pred
   br i1 %.not19.i.i92, label %_ZN14arrow_vendored10fast_float6bigint3mulEm.exit101, label %.lr.ph.i.i93
 
 ._crit_edge.i.i97:                                ; preds = %.lr.ph.i.i93
-  %.not.i.i98 = icmp samesign ugt i128 %129, 18446744073709551615
+  %.not.i.i98 = icmp ne i128 %130, 0
   %123 = icmp ult i16 %.pr, 62
   %or.cond263 = and i1 %123, %.not.i.i98
   br i1 %or.cond263, label %_ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i100, label %_ZN14arrow_vendored10fast_float6bigint3mulEm.exit101
@@ -2467,7 +2467,7 @@ _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i108: ;
   br label %154
 
 ._crit_edge.i.i115:                               ; preds = %154
-  %.not.i.i116 = icmp ugt i128 %160, 18446744073709551615
+  %.not.i.i116 = icmp ne i128 %161, 0
   %153 = icmp ult i16 %61, 62
   %or.cond264 = and i1 %153, %.not.i.i116
   br i1 %or.cond264, label %_ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i118, label %_ZN14arrow_vendored10fast_float6bigint3mulEm.exit119
@@ -2692,7 +2692,7 @@ _ZN14arrow_vendored10fast_float10skip_zerosERPKcS2_.exit75: ; preds = %.lr.ph367
   br label %247
 
 ._crit_edge.i.i134:                               ; preds = %247
-  %.not.i.i135 = icmp ugt i128 %253, 18446744073709551615
+  %.not.i.i135 = icmp ne i128 %254, 0
   %246 = icmp ult i16 %240, 62
   %or.cond266 = and i1 %246, %.not.i.i135
   br i1 %or.cond266, label %_ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i137, label %_ZN14arrow_vendored10fast_float6bigint3mulEm.exit138
@@ -2799,7 +2799,7 @@ _ZN14arrow_vendored10fast_float6bigint3addEm.exit147: ; preds = %263, %_ZN14arro
   br i1 %.not19.i.i148, label %_ZN14arrow_vendored10fast_float6bigint3mulEm.exit157, label %.lr.ph.i.i149
 
 ._crit_edge.i.i153:                               ; preds = %.lr.ph.i.i149
-  %.not.i.i154 = icmp samesign ugt i128 %291, 18446744073709551615
+  %.not.i.i154 = icmp ne i128 %292, 0
   %285 = icmp ult i16 %.pr259, 62
   %or.cond267 = and i1 %285, %.not.i.i154
   br i1 %or.cond267, label %_ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i156, label %_ZN14arrow_vendored10fast_float6bigint3mulEm.exit157
@@ -2869,7 +2869,7 @@ _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i164: ;
   br label %316
 
 ._crit_edge.i.i171:                               ; preds = %316
-  %.not.i.i172 = icmp ugt i128 %322, 18446744073709551615
+  %.not.i.i172 = icmp ne i128 %323, 0
   %315 = icmp ult i16 %240, 62
   %or.cond268 = and i1 %315, %.not.i.i172
   br i1 %or.cond268, label %_ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i174, label %_ZN14arrow_vendored10fast_float6bigint3mulEm.exit175
@@ -2998,7 +2998,7 @@ define linkonce_odr { i64, i32 } @_ZN14arrow_vendored10fast_float19positive_digi
   br label %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i
 
 _ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i: ; preds = %22, %._crit_edge.i.i.i.i, %8, %4
-  %.not9.i.i.i = icmp ult i32 %1, 64
+  %.not9.i.i.i = icmp eq i64 %7, 0
   br i1 %.not9.i.i.i, label %_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit, label %25
 
 25:                                               ; preds = %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i
@@ -3009,9 +3009,9 @@ _ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i: ; preds = %
   %30 = icmp samesign ult i64 %29, 63
   %31 = icmp ne i16 %27, 0
   %or.cond.not.i.i.i.i = and i1 %31, %30
-  br i1 %or.cond.not.i.i.i.i, label %.lr.ph.i.i.i.preheader.i.i.i.i, label %_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit
+  br i1 %or.cond.not.i.i.i.i, label %_ZN14arrow_vendored10fast_float6bigint9shl_limbsEm.exit.thread.i.i.i, label %_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit
 
-.lr.ph.i.i.i.preheader.i.i.i.i:                   ; preds = %25
+_ZN14arrow_vendored10fast_float6bigint9shl_limbsEm.exit.thread.i.i.i: ; preds = %25
   %.idx.i.i.i.i = shl nuw nsw i64 %7, 3
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i.i.i.i
   %33 = shl nuw nsw i64 %28, 3
@@ -3023,7 +3023,7 @@ _ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i: ; preds = %
   store i16 %36, ptr %26, align 8, !tbaa !79
   br label %_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit
 
-_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit: ; preds = %25, %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i, %.lr.ph.i.i.i.preheader.i.i.i.i, %2, %20
+_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit: ; preds = %25, %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i, %_ZN14arrow_vendored10fast_float6bigint9shl_limbsEm.exit.thread.i.i.i, %2, %20
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %38 = load i16, ptr %37, align 8, !tbaa !79
   %39 = zext i16 %38 to i64
@@ -3233,7 +3233,7 @@ _ZN14arrow_vendored10fast_float11to_extendedIfEENS0_17adjusted_mantissaET_.exit:
   br label %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i
 
 _ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i: ; preds = %56, %._crit_edge.i.i.i, %43, %39
-  %.not9.i.i = icmp samesign ult i32 %33, 64
+  %.not9.i.i = icmp eq i64 %42, 0
   br i1 %.not9.i.i, label %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit, label %59
 
 59:                                               ; preds = %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i
@@ -3243,9 +3243,9 @@ _ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i: ; preds = %56
   %63 = icmp samesign ult i64 %62, 63
   %64 = icmp ne i16 %60, 0
   %or.cond.not.i.i.i = and i1 %64, %63
-  br i1 %or.cond.not.i.i.i, label %.lr.ph.i.i.i.preheader.i.i.i, label %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit
+  br i1 %or.cond.not.i.i.i, label %_ZN14arrow_vendored10fast_float6bigint9shl_limbsEm.exit.thread.i.i, label %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit
 
-.lr.ph.i.i.i.preheader.i.i.i:                     ; preds = %59
+_ZN14arrow_vendored10fast_float6bigint9shl_limbsEm.exit.thread.i.i: ; preds = %59
   %.idx.i.i.i = shl nuw nsw i64 %42, 3
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i.i.i
   %66 = shl nuw nsw i64 %61, 3
@@ -3307,7 +3307,7 @@ _ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i: ; preds = %56
   br label %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i42
 
 _ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i42: ; preds = %91, %._crit_edge.i.i.i39, %77, %72
-  %.not9.i.i43 = icmp samesign ult i32 %73, 64
+  %.not9.i.i43 = icmp eq i64 %76, 0
   br i1 %.not9.i.i43, label %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit, label %94
 
 94:                                               ; preds = %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i42
@@ -3318,9 +3318,9 @@ _ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i42: ; preds = %
   %99 = icmp samesign ult i64 %98, 63
   %100 = icmp ne i16 %96, 0
   %or.cond.not.i.i.i44 = and i1 %100, %99
-  br i1 %or.cond.not.i.i.i44, label %.lr.ph.i.i.i.preheader.i.i.i46, label %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit
+  br i1 %or.cond.not.i.i.i44, label %_ZN14arrow_vendored10fast_float6bigint9shl_limbsEm.exit.thread.i.i46, label %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit
 
-.lr.ph.i.i.i.preheader.i.i.i46:                   ; preds = %94
+_ZN14arrow_vendored10fast_float6bigint9shl_limbsEm.exit.thread.i.i46: ; preds = %94
   %.idx.i.i.i47 = shl nuw nsw i64 %76, 3
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i.i.i47
   %102 = shl nuw nsw i64 %97, 3
@@ -3332,7 +3332,7 @@ _ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i42: ; preds = %
   store i16 %105, ptr %95, align 8, !tbaa !79
   br label %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit
 
-_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit: ; preds = %94, %59, %89, %.lr.ph.i.i.i.preheader.i.i.i46, %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i42, %54, %.lr.ph.i.i.i.preheader.i.i.i, %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i, %70
+_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit: ; preds = %94, %59, %89, %_ZN14arrow_vendored10fast_float6bigint9shl_limbsEm.exit.thread.i.i46, %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i42, %54, %_ZN14arrow_vendored10fast_float6bigint9shl_limbsEm.exit.thread.i.i, %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i, %70
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %107 = load i16, ptr %106, align 8, !tbaa !79
   %108 = load i16, ptr %31, align 8, !tbaa !79
@@ -3453,7 +3453,7 @@ define linkonce_odr noundef zeroext i1 @_ZN14arrow_vendored10fast_float6bigint4p
   br i1 %.not19.i, label %27, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %.not.i = icmp samesign ult i128 %18, 18446744073709551616
+  %.not.i = icmp eq i128 %19, 0
   br i1 %.not.i, label %27, label %23
 
 .lr.ph.i:                                         ; preds = %10, %.lr.ph.i
@@ -3510,7 +3510,7 @@ _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i: ; pred
   br label %39
 
 ._crit_edge.i18:                                  ; preds = %39
-  %.not.i19 = icmp ult i128 %45, 18446744073709551616
+  %.not.i19 = icmp eq i128 %46, 0
   br i1 %.not.i19, label %_ZN14arrow_vendored10fast_float9large_mulILt62EEEbRNS0_8stackvecIXT_EEENS0_4spanImEE.exit, label %50
 
 39:                                               ; preds = %39, %.lr.ph.i14
@@ -3594,7 +3594,7 @@ _ZN14arrow_vendored10fast_float8stackvecILt62EEC2ENS0_4spanImEE.exit: ; preds = 
   br label %16
 
 ._crit_edge.i:                                    ; preds = %16
-  %.not.i = icmp ult i128 %22, 18446744073709551616
+  %.not.i = icmp eq i128 %23, 0
   br i1 %.not.i, label %_ZN14arrow_vendored10fast_float9small_mulILt62EEEbRNS0_8stackvecIXT_EEEm.exit, label %27
 
 16:                                               ; preds = %16, %.lr.ph.i
@@ -3688,7 +3688,7 @@ _ZSt8__copy_nIPKmmPmET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i.i.us: ; 
   br i1 %exitcond.not.i40.us, label %._crit_edge.i41.us, label %43, !llvm.loop !81
 
 ._crit_edge.i41.us:                               ; preds = %43
-  %.not.i42.us = icmp ult i128 %49, 18446744073709551616
+  %.not.i42.us = icmp eq i128 %50, 0
   br i1 %.not.i42.us, label %58, label %54
 
 54:                                               ; preds = %._crit_edge.i41.us
@@ -4056,7 +4056,7 @@ define linkonce_odr { i64, i32 } @_ZN14arrow_vendored10fast_float19positive_digi
   br label %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i
 
 _ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i: ; preds = %22, %._crit_edge.i.i.i.i, %8, %4
-  %.not9.i.i.i = icmp ult i32 %1, 64
+  %.not9.i.i.i = icmp eq i64 %7, 0
   br i1 %.not9.i.i.i, label %_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit, label %25
 
 25:                                               ; preds = %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i
@@ -4067,9 +4067,9 @@ _ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i: ; preds = %
   %30 = icmp samesign ult i64 %29, 63
   %31 = icmp ne i16 %27, 0
   %or.cond.not.i.i.i.i = and i1 %31, %30
-  br i1 %or.cond.not.i.i.i.i, label %.lr.ph.i.i.i.preheader.i.i.i.i, label %_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit
+  br i1 %or.cond.not.i.i.i.i, label %_ZN14arrow_vendored10fast_float6bigint9shl_limbsEm.exit.thread.i.i.i, label %_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit
 
-.lr.ph.i.i.i.preheader.i.i.i.i:                   ; preds = %25
+_ZN14arrow_vendored10fast_float6bigint9shl_limbsEm.exit.thread.i.i.i: ; preds = %25
   %.idx.i.i.i.i = shl nuw nsw i64 %7, 3
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i.i.i.i
   %33 = shl nuw nsw i64 %28, 3
@@ -4081,7 +4081,7 @@ _ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i: ; preds = %
   store i16 %36, ptr %26, align 8, !tbaa !79
   br label %_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit
 
-_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit: ; preds = %25, %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i, %.lr.ph.i.i.i.preheader.i.i.i.i, %2, %20
+_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit: ; preds = %25, %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i, %_ZN14arrow_vendored10fast_float6bigint9shl_limbsEm.exit.thread.i.i.i, %2, %20
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %38 = load i16, ptr %37, align 8, !tbaa !79
   %39 = zext i16 %38 to i64
@@ -4292,7 +4292,7 @@ _ZN14arrow_vendored10fast_float11to_extendedIdEENS0_17adjusted_mantissaET_.exit:
   br label %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i
 
 _ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i: ; preds = %57, %._crit_edge.i.i.i, %44, %40
-  %.not9.i.i = icmp samesign ult i32 %34, 64
+  %.not9.i.i = icmp eq i64 %43, 0
   br i1 %.not9.i.i, label %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit, label %60
 
 60:                                               ; preds = %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i
@@ -4302,9 +4302,9 @@ _ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i: ; preds = %57
   %64 = icmp samesign ult i64 %63, 63
   %65 = icmp ne i16 %61, 0
   %or.cond.not.i.i.i = and i1 %65, %64
-  br i1 %or.cond.not.i.i.i, label %.lr.ph.i.i.i.preheader.i.i.i, label %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit
+  br i1 %or.cond.not.i.i.i, label %_ZN14arrow_vendored10fast_float6bigint9shl_limbsEm.exit.thread.i.i, label %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit
 
-.lr.ph.i.i.i.preheader.i.i.i:                     ; preds = %60
+_ZN14arrow_vendored10fast_float6bigint9shl_limbsEm.exit.thread.i.i: ; preds = %60
   %.idx.i.i.i = shl nuw nsw i64 %43, 3
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i.i.i
   %67 = shl nuw nsw i64 %62, 3
@@ -4366,7 +4366,7 @@ _ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i: ; preds = %57
   br label %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i42
 
 _ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i42: ; preds = %92, %._crit_edge.i.i.i39, %78, %73
-  %.not9.i.i43 = icmp samesign ult i32 %74, 64
+  %.not9.i.i43 = icmp eq i64 %77, 0
   br i1 %.not9.i.i43, label %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit, label %95
 
 95:                                               ; preds = %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i42
@@ -4377,9 +4377,9 @@ _ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i42: ; preds = %
   %100 = icmp samesign ult i64 %99, 63
   %101 = icmp ne i16 %97, 0
   %or.cond.not.i.i.i44 = and i1 %101, %100
-  br i1 %or.cond.not.i.i.i44, label %.lr.ph.i.i.i.preheader.i.i.i46, label %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit
+  br i1 %or.cond.not.i.i.i44, label %_ZN14arrow_vendored10fast_float6bigint9shl_limbsEm.exit.thread.i.i46, label %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit
 
-.lr.ph.i.i.i.preheader.i.i.i46:                   ; preds = %95
+_ZN14arrow_vendored10fast_float6bigint9shl_limbsEm.exit.thread.i.i46: ; preds = %95
   %.idx.i.i.i47 = shl nuw nsw i64 %77, 3
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i.i.i47
   %103 = shl nuw nsw i64 %98, 3
@@ -4391,7 +4391,7 @@ _ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i42: ; preds = %
   store i16 %106, ptr %96, align 8, !tbaa !79
   br label %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit
 
-_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit: ; preds = %95, %60, %90, %.lr.ph.i.i.i.preheader.i.i.i46, %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i42, %55, %.lr.ph.i.i.i.preheader.i.i.i, %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i, %71
+_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit: ; preds = %95, %60, %90, %_ZN14arrow_vendored10fast_float6bigint9shl_limbsEm.exit.thread.i.i46, %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i42, %55, %_ZN14arrow_vendored10fast_float6bigint9shl_limbsEm.exit.thread.i.i, %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i, %71
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %108 = load i16, ptr %107, align 8, !tbaa !79
   %109 = load i16, ptr %32, align 8, !tbaa !79

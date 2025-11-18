@@ -25877,7 +25877,7 @@ define hidden noundef nonnull align 8 ptr @_ZN18ty_python_semantic10dunder_all16
 13:                                               ; preds = %2
   %14 = lshr i64 %11, 32
   %15 = trunc nuw i64 %14 to i32
-  %16 = icmp ugt i64 %11, 4294967295
+  %16 = icmp ne i64 %14, 0
   tail call void @llvm.assume(i1 %16)
   %17 = trunc i64 %11 to i32
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 2272
@@ -27096,7 +27096,7 @@ define hidden noundef nonnull align 8 ptr @_ZN18ty_python_semantic6symbol12symbo
 12:                                               ; preds = %2
   %13 = lshr i64 %10, 32
   %14 = trunc nuw i64 %13 to i32
-  %15 = icmp ugt i64 %10, 4294967295
+  %15 = icmp ne i64 %13, 0
   tail call void @llvm.assume(i1 %15)
   %16 = trunc i64 %10 to i32
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 2272
@@ -32877,7 +32877,7 @@ define hidden noundef nonnull align 8 ptr @_ZN18ty_python_semantic5types5class12
 13:                                               ; preds = %2
   %14 = lshr i64 %11, 32
   %15 = trunc nuw i64 %14 to i32
-  %16 = icmp ugt i64 %11, 4294967295
+  %16 = icmp ne i64 %14, 0
   tail call void @llvm.assume(i1 %16)
   %17 = trunc i64 %11 to i32
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 2272
@@ -33498,7 +33498,7 @@ define hidden noundef nonnull align 8 ptr @_ZN18ty_python_semantic5types5class12
 13:                                               ; preds = %2
   %14 = lshr i64 %11, 32
   %15 = trunc nuw i64 %14 to i32
-  %16 = icmp ugt i64 %11, 4294967295
+  %16 = icmp ne i64 %14, 0
   tail call void @llvm.assume(i1 %16)
   %17 = trunc i64 %11 to i32
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 2272
@@ -34120,7 +34120,7 @@ define hidden noundef nonnull align 8 ptr @_ZN18ty_python_semantic5types5class12
 13:                                               ; preds = %2
   %14 = lshr i64 %11, 32
   %15 = trunc nuw i64 %14 to i32
-  %16 = icmp ugt i64 %11, 4294967295
+  %16 = icmp ne i64 %14, 0
   tail call void @llvm.assume(i1 %16)
   %17 = trunc i64 %11 to i32
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 2272
@@ -34726,7 +34726,7 @@ define hidden noundef nonnull align 8 ptr @_ZN18ty_python_semantic5types5class12
 12:                                               ; preds = %2
   %13 = lshr i64 %10, 32
   %14 = trunc nuw i64 %13 to i32
-  %15 = icmp ugt i64 %10, 4294967295
+  %15 = icmp ne i64 %13, 0
   tail call void @llvm.assume(i1 %15)
   %16 = trunc i64 %10 to i32
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 2272
@@ -36076,7 +36076,7 @@ define hidden noundef nonnull align 8 ptr @_ZN18ty_python_semantic5types5class12
 13:                                               ; preds = %2
   %14 = lshr i64 %11, 32
   %15 = trunc nuw i64 %14 to i32
-  %16 = icmp ugt i64 %11, 4294967295
+  %16 = icmp ne i64 %14, 0
   tail call void @llvm.assume(i1 %16)
   %17 = trunc i64 %11 to i32
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 2272
@@ -36972,7 +36972,7 @@ define hidden noundef nonnull align 8 ptr @_ZN18ty_python_semantic5types5class12
 13:                                               ; preds = %2
   %14 = lshr i64 %11, 32
   %15 = trunc nuw i64 %14 to i32
-  %16 = icmp ugt i64 %11, 4294967295
+  %16 = icmp ne i64 %14, 0
   tail call void @llvm.assume(i1 %16)
   %17 = trunc i64 %11 to i32
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 2272
@@ -37688,7 +37688,7 @@ define hidden noundef nonnull align 8 ptr @_ZN18ty_python_semantic5types6narrow3
 13:                                               ; preds = %2
   %14 = lshr i64 %11, 32
   %15 = trunc nuw i64 %14 to i32
-  %16 = icmp ugt i64 %11, 4294967295
+  %16 = icmp ne i64 %14, 0
   tail call void @llvm.assume(i1 %16)
   %17 = trunc i64 %11 to i32
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 2272
@@ -38200,7 +38200,7 @@ define hidden noundef nonnull align 8 ptr @_ZN18ty_python_semantic5types6narrow4
 13:                                               ; preds = %2
   %14 = lshr i64 %11, 32
   %15 = trunc nuw i64 %14 to i32
-  %16 = icmp ugt i64 %11, 4294967295
+  %16 = icmp ne i64 %14, 0
   tail call void @llvm.assume(i1 %16)
   %17 = trunc i64 %11 to i32
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 2272
@@ -38690,7 +38690,7 @@ define hidden noundef nonnull align 8 ptr @_ZN18ty_python_semantic5types6narrow4
 13:                                               ; preds = %2
   %14 = lshr i64 %11, 32
   %15 = trunc nuw i64 %14 to i32
-  %16 = icmp ugt i64 %11, 4294967295
+  %16 = icmp ne i64 %14, 0
   tail call void @llvm.assume(i1 %16)
   %17 = trunc i64 %11 to i32
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 2272
@@ -39180,7 +39180,7 @@ define hidden noundef nonnull align 8 ptr @_ZN18ty_python_semantic5types6narrow4
 13:                                               ; preds = %2
   %14 = lshr i64 %11, 32
   %15 = trunc nuw i64 %14 to i32
-  %16 = icmp ugt i64 %11, 4294967295
+  %16 = icmp ne i64 %14, 0
   tail call void @llvm.assume(i1 %16)
   %17 = trunc i64 %11 to i32
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 2272
@@ -39914,7 +39914,7 @@ define hidden noundef nonnull align 8 ptr @_ZN18ty_python_semantic5types14protoc
 13:                                               ; preds = %2
   %14 = lshr i64 %11, 32
   %15 = trunc nuw i64 %14 to i32
-  %16 = icmp ugt i64 %11, 4294967295
+  %16 = icmp ne i64 %14, 0
   tail call void @llvm.assume(i1 %16)
   %17 = trunc i64 %11 to i32
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 2272
@@ -40973,7 +40973,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN18ty_python_se
 12:                                               ; preds = %2
   %13 = lshr i64 %10, 32
   %14 = trunc nuw i64 %13 to i32
-  %15 = icmp ugt i64 %10, 4294967295
+  %15 = icmp ne i64 %13, 0
   tail call void @llvm.assume(i1 %15)
   %16 = trunc i64 %10 to i32
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 2272
@@ -41140,7 +41140,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN18ty_python_se
 12:                                               ; preds = %2
   %13 = lshr i64 %10, 32
   %14 = trunc nuw i64 %13 to i32
-  %15 = icmp ugt i64 %10, 4294967295
+  %15 = icmp ne i64 %13, 0
   tail call void @llvm.assume(i1 %15)
   %16 = trunc i64 %10 to i32
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 2272

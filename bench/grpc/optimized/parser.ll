@@ -8242,17 +8242,14 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
 25:                                               ; preds = %1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i64, ptr %26, align 8, !tbaa !64
-  %.not.i25 = icmp ult i64 %27, 2
-  br i1 %.not.i25, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool7MessageESt14default_deleteISF_EEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS9_SI_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSJ_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.lr.ph30.preheader
-
-.lr.ph30.preheader:                               ; preds = %25
   %28 = lshr i64 %27, 1
-  br label %.lr.ph30
+  %.not.i25 = icmp eq i64 %28, 0
+  br i1 %.not.i25, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool7MessageESt14default_deleteISF_EEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS9_SI_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSJ_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.lr.ph30
 
-.lr.ph30:                                         ; preds = %.lr.ph30.preheader, %._crit_edge
-  %.0.i28 = phi ptr [ %33, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %.lr.ph30.preheader ]
-  %.025.i27 = phi ptr [ %32, %._crit_edge ], [ %5, %.lr.ph30.preheader ]
-  %.026.i26 = phi i64 [ %.1.i.lcssa, %._crit_edge ], [ %28, %.lr.ph30.preheader ]
+.lr.ph30:                                         ; preds = %25, %._crit_edge
+  %.0.i28 = phi ptr [ %33, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %25 ]
+  %.025.i27 = phi ptr [ %32, %._crit_edge ], [ %5, %25 ]
+  %.026.i26 = phi i64 [ %.1.i.lcssa, %._crit_edge ], [ %28, %25 ]
   %29 = load <16 x i8>, ptr %.025.i27, align 1, !tbaa !63
   %30 = icmp sgt <16 x i8> %29, splat (i8 -1)
   %31 = bitcast <16 x i1> %30 to i16
@@ -8530,17 +8527,14 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
 41:                                               ; preds = %1
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load i64, ptr %42, align 8, !tbaa !64
-  %.not.i27 = icmp ult i64 %43, 2
-  br i1 %.not.i27, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool4EnumESt14default_deleteISF_EEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS9_SI_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSJ_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.lr.ph32.preheader
-
-.lr.ph32.preheader:                               ; preds = %41
   %44 = lshr i64 %43, 1
-  br label %.lr.ph32
+  %.not.i27 = icmp eq i64 %44, 0
+  br i1 %.not.i27, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool4EnumESt14default_deleteISF_EEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS9_SI_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSJ_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.lr.ph32
 
-.lr.ph32:                                         ; preds = %.lr.ph32.preheader, %._crit_edge
-  %.0.i30 = phi ptr [ %49, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %.lr.ph32.preheader ]
-  %.025.i29 = phi ptr [ %48, %._crit_edge ], [ %5, %.lr.ph32.preheader ]
-  %.026.i28 = phi i64 [ %.1.i.lcssa, %._crit_edge ], [ %44, %.lr.ph32.preheader ]
+.lr.ph32:                                         ; preds = %41, %._crit_edge
+  %.0.i30 = phi ptr [ %49, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %41 ]
+  %.025.i29 = phi ptr [ %48, %._crit_edge ], [ %5, %41 ]
+  %.026.i28 = phi i64 [ %.1.i.lcssa, %._crit_edge ], [ %44, %41 ]
   %45 = load <16 x i8>, ptr %.025.i29, align 1, !tbaa !63
   %46 = icmp sgt <16 x i8> %45, splat (i8 -1)
   %47 = bitcast <16 x i1> %46 to i16
@@ -19573,17 +19567,14 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
 24:                                               ; preds = %4
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load i64, ptr %25, align 8, !tbaa !64
-  %.not.i23.i = icmp ult i64 %26, 2
-  br i1 %.not.i23.i, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_8StringEqESaIS9_EE13destroy_slotsEv.exit, label %.lr.ph28.preheader.i
-
-.lr.ph28.preheader.i:                             ; preds = %24
   %27 = lshr i64 %26, 1
-  br label %.lr.ph28.i
+  %.not.i23.i = icmp eq i64 %27, 0
+  br i1 %.not.i23.i, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_8StringEqESaIS9_EE13destroy_slotsEv.exit, label %.lr.ph28.i
 
-.lr.ph28.i:                                       ; preds = %._crit_edge.i, %.lr.ph28.preheader.i
-  %.0.i26.i = phi ptr [ %32, %._crit_edge.i ], [ %.sroa.0.0.copyload.i.i.i.i, %.lr.ph28.preheader.i ]
-  %.025.i25.i = phi ptr [ %31, %._crit_edge.i ], [ %7, %.lr.ph28.preheader.i ]
-  %.026.i24.i = phi i64 [ %.1.i.lcssa.i, %._crit_edge.i ], [ %27, %.lr.ph28.preheader.i ]
+.lr.ph28.i:                                       ; preds = %24, %._crit_edge.i
+  %.0.i26.i = phi ptr [ %32, %._crit_edge.i ], [ %.sroa.0.0.copyload.i.i.i.i, %24 ]
+  %.025.i25.i = phi ptr [ %31, %._crit_edge.i ], [ %7, %24 ]
+  %.026.i24.i = phi i64 [ %.1.i.lcssa.i, %._crit_edge.i ], [ %27, %24 ]
   %28 = load <16 x i8>, ptr %.025.i25.i, align 1, !tbaa !63
   %29 = icmp sgt <16 x i8> %28, splat (i8 -1)
   %30 = bitcast <16 x i1> %29 to i16

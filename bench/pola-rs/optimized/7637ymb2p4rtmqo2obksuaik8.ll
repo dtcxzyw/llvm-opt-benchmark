@@ -44975,12 +44975,9 @@ define void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder20extend_constant_sl
   store i64 %28, ptr %26, align 8
   %.neg = or i64 %12, -64
   %29 = add i64 %.neg, %1
-  %.not = icmp ult i64 %29, 64
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %11
   %30 = lshr i64 %29, 6
-  br label %.lr.ph
+  %.not = icmp eq i64 %30, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre9 = load i64, ptr %26, align 8
@@ -45002,9 +44999,9 @@ define void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder20extend_constant_sl
   store i64 %40, ptr %4, align 8
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %41 = phi i64 [ %46, %.lr.ph ], [ %24, %.lr.ph.preheader ]
-  %.sroa.05.08 = phi i64 [ %42, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %11, %.lr.ph
+  %41 = phi i64 [ %46, %.lr.ph ], [ %24, %11 ]
+  %.sroa.05.08 = phi i64 [ %42, %.lr.ph ], [ 0, %11 ]
   %42 = add nuw nsw i64 %.sroa.05.08, 1
   %43 = icmp sgt i64 %41, -1
   tail call void @llvm.assume(i1 %43)

@@ -865,17 +865,17 @@ interpolate.exit.i29.i.i:                         ; preds = %.lr.ph.i.i24.i.i
   %500 = load i8, ptr %449, align 8, !tbaa !55
   %.rhs.trunc.i.i.i = zext i8 %500 to i16
   %501 = udiv i16 %451, %.rhs.trunc.i.i.i
-  %.not.i.i.i = icmp ult i16 %501, 2
+  %502 = lshr i16 %501, 1
+  %.not.i.i.i = icmp eq i16 %502, 0
   br i1 %.not.i.i.i, label %dec_lpc_spectrum_inv.exit.i, label %.lr.ph.i.i144.i
 
 .lr.ph.i.i144.i:                                  ; preds = %499
-  %502 = lshr i16 %501, 1
   %503 = load ptr, ptr %73, align 8, !tbaa !91
   %504 = icmp ugt i8 %456, 1
   %505 = zext i8 %456 to i64
   %506 = zext i16 %501 to i64
   %507 = zext nneg i16 %502 to i64
-  %invariant.gep43.i.i.i = getelementptr float, ptr %448, i64 %506
+  %invariant.gep44.i.i.i = getelementptr float, ptr %448, i64 %506
   br i1 %504, label %.lr.ph.preheader.i.us.i.i.i, label %eval_lpc_spectrum.exit.i.i.i
 
 .lr.ph.preheader.i.us.i.i.i:                      ; preds = %.lr.ph.i.i144.i, %eval_lpc_spectrum.exit26.loopexit.us.i.i.i
@@ -945,8 +945,8 @@ eval_lpc_spectrum.exit26.loopexit.us.i.i.i:       ; preds = %.lr.ph.i21.us.i.i.i
   %553 = fadd nsz float %552, %549
   %554 = fdiv nsz float 5.000000e-01, %553
   %555 = xor i64 %indvars.iv36.i.i.i, -1
-  %gep44.i.i.i = getelementptr float, ptr %invariant.gep43.i.i.i, i64 %555
-  store float %554, ptr %gep44.i.i.i, align 4, !tbaa !63
+  %gep45.i.i.i = getelementptr float, ptr %invariant.gep44.i.i.i, i64 %555
+  store float %554, ptr %gep45.i.i.i, align 4, !tbaa !63
   %indvars.iv.next37.i.i.i = add nuw nsw i64 %indvars.iv36.i.i.i, 1
   %556 = icmp samesign ult i64 %indvars.iv.next37.i.i.i, %507
   br i1 %556, label %.lr.ph.preheader.i.us.i.i.i, label %dec_lpc_spectrum_inv.exit.i, !llvm.loop !93
@@ -990,7 +990,7 @@ eval_lpc_spectrum.exit.i.i.i:                     ; preds = %.lr.ph.i.i144.i, %e
   %586 = fadd nsz float %582, %585
   %587 = fdiv nsz float 5.000000e-01, %586
   %588 = xor i64 %indvars.iv.i.i145.i, -1
-  %gep.i.i.i = getelementptr float, ptr %invariant.gep43.i.i.i, i64 %588
+  %gep.i.i.i = getelementptr float, ptr %invariant.gep44.i.i.i, i64 %588
   store float %587, ptr %gep.i.i.i, align 4, !tbaa !63
   %indvars.iv.next.i.i146.i = add nuw nsw i64 %indvars.iv.i.i145.i, 1
   %589 = icmp samesign ult i64 %indvars.iv.next.i.i146.i, %507

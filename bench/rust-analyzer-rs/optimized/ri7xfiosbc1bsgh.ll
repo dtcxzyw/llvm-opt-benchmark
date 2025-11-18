@@ -35570,7 +35570,7 @@ define hidden noundef i64 @_ZN11ide_assists8handlers11auto_import25module_distan
   %22 = lshr i64 %21, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5330)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5333)
-  %.not.i.i = icmp ult i64 %21, 2
+  %.not.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h27164bd97092fa65E.exit", label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %17
@@ -35615,7 +35615,7 @@ _ZN4core3ptr19swap_nonoverlapping17hf60b8e011a24ad65E.exit.i.i: ; preds = %28
   %41 = lshr i64 %40, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5339)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5342)
-  %.not.i.i18 = icmp ult i64 %40, 2
+  %.not.i.i18 = icmp eq i64 %41, 0
   br i1 %.not.i.i18, label %.loopexit, label %.lr.ph.preheader.i.i19
 
 .lr.ph.preheader.i.i19:                           ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h27164bd97092fa65E.exit"

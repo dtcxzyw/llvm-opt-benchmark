@@ -9113,9 +9113,9 @@ define internal fastcc void @get_permutation(ptr noundef readonly captures(none)
   br i1 %159, label %162, label %160
 
 160:                                              ; preds = %158
-  %161 = icmp ult i32 %148, 16777216
+  %161 = icmp eq i32 %154, 0
   %spec.select = select i1 %161, i32 3, i32 0
-  %spec.select100 = select i1 %161, i32 1, i32 %154
+  %spec.select100 = tail call i32 @llvm.umax.i32(i32 %154, i32 1)
   br label %162
 
 162:                                              ; preds = %160, %158, %156, %141
@@ -9151,6 +9151,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #5
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

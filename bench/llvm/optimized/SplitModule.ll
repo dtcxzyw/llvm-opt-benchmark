@@ -1636,7 +1636,7 @@ _ZNSt6vectorISt4pairIjjESaIS1_EE9push_backERKS1_.exit: ; preds = %8, %_ZNSt6vect
   %54 = load i32, ptr %53, align 4, !tbaa !3
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 4
   store i32 %54, ptr %55, align 4, !tbaa !50
-  %.not.i3 = icmp ult i64 %.0919.in.i.i, 2
+  %.not.i3 = icmp eq i64 %.0919.i78.i, 0
   br i1 %.not.i3, label %.critedge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !146
 
 .critedge.loopexit.i.i:                           ; preds = %50, %.lr.ph.i.i
@@ -1771,7 +1771,7 @@ _ZNSt6vectorISt4pairIjjESaIS1_EE9push_backEOS1_.exit: ; preds = %8, %_ZNSt6vecto
   %54 = load i32, ptr %53, align 4, !tbaa !3
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 4
   store i32 %54, ptr %55, align 4, !tbaa !50
-  %.not.i = icmp ult i64 %.0919.in.i.i, 2
+  %.not.i = icmp eq i64 %.0919.i78.i, 0
   br i1 %.not.i, label %.critedge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !146
 
 .critedge.loopexit.i.i:                           ; preds = %50, %.lr.ph.i.i
@@ -1900,7 +1900,7 @@ define linkonce_odr hidden void @_ZNSt14priority_queueISt4pairIjjESt6vectorIS1_S
   %61 = load i32, ptr %60, align 4, !tbaa !3
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 4
   store i32 %61, ptr %62, align 4, !tbaa !50
-  %.not10.i.i = icmp ult i64 %.0919.in.i.i.i.i, 2
+  %.not10.i.i = icmp eq i64 %.0919.i.i89.i.i, 0
   br i1 %.not10.i.i, label %.critedge.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !146
 
 .critedge.loopexit.i.i.i.i:                       ; preds = %57, %.lr.ph.i.i.i.i

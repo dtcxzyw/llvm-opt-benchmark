@@ -4977,7 +4977,7 @@ define internal fastcc range(i32 -1, 1) i32 @re_emit_range(ptr noundef nonnull %
   br label %.loopexit
 
 14:                                               ; preds = %2
-  %15 = icmp samesign ult i32 %10, 2
+  %15 = icmp eq i32 %11, 0
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %14

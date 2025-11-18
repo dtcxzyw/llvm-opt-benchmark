@@ -3178,7 +3178,7 @@ avifFileTypeHasBrand.exit.i:                      ; preds = %189, %188, %.prehea
   br i1 %.not133.i, label %avifFileTypeHasBrand.exit108.thread.i, label %.preheader.i99.i
 
 .preheader.i99.i:                                 ; preds = %avifFileTypeHasBrand.exit.i, %184
-  %.0.i1231.i = phi i32 [ %.0.i.i, %avifFileTypeHasBrand.exit.i ], [ 1, %184 ]
+  %.0.i1233.i = phi i32 [ %.0.i.i, %avifFileTypeHasBrand.exit.i ], [ 1, %184 ]
   %192 = icmp sgt i32 %.pre, 0
   br i1 %192, label %.lr.ph.i101.i, label %avifFileTypeHasBrand.exit108.thread.i
 
@@ -3436,8 +3436,8 @@ avifDecoderDataCreateTrack.exit.i.i.i:            ; preds = %228
   %293 = load i32, ptr %59, align 4
   %294 = lshr i32 %293, 16
   store i32 %294, ptr %244, align 4
-  %295 = icmp ult i32 %291, 65536
-  %296 = icmp ult i32 %293, 65536
+  %295 = icmp eq i32 %292, 0
+  %296 = icmp eq i32 %294, 0
   %or.cond.i.i.i.i = select i1 %295, i1 true, i1 %296
   br i1 %or.cond.i.i.i.i, label %297, label %299
 
@@ -4559,7 +4559,7 @@ avifFileTypeHasBrand.exit108.i:                   ; preds = %640, %199, %173
 
 avifFileTypeHasBrand.exit108.thread.i:            ; preds = %195, %194, %avifFileTypeHasBrand.exit108.i, %.preheader.i99.i, %avifFileTypeHasBrand.exit.i
   %.1128.i = phi i32 [ %.054708.i, %avifFileTypeHasBrand.exit108.i ], [ 0, %.preheader.i99.i ], [ 1, %avifFileTypeHasBrand.exit.i ], [ 0, %194 ], [ 1, %195 ]
-  %.156126.i = phi i32 [ %.055707.i, %avifFileTypeHasBrand.exit108.i ], [ %.0.i1231.i, %.preheader.i99.i ], [ %.0.i.i, %avifFileTypeHasBrand.exit.i ], [ %.0.i1231.i, %194 ], [ %.0.i1231.i, %195 ]
+  %.156126.i = phi i32 [ %.055707.i, %avifFileTypeHasBrand.exit108.i ], [ %.0.i1233.i, %.preheader.i99.i ], [ %.0.i.i, %avifFileTypeHasBrand.exit.i ], [ %.0.i1233.i, %194 ], [ %.0.i1233.i, %195 ]
   %.158124.i = phi i32 [ %.158.i, %avifFileTypeHasBrand.exit108.i ], [ %.057706.i, %.preheader.i99.i ], [ %.057706.i, %avifFileTypeHasBrand.exit.i ], [ %.057706.i, %194 ], [ %.057706.i, %195 ]
   %.160122.i = phi i32 [ %.160.i, %avifFileTypeHasBrand.exit108.i ], [ %.059705.i, %.preheader.i99.i ], [ %.059705.i, %avifFileTypeHasBrand.exit.i ], [ %.059705.i, %194 ], [ %.059705.i, %195 ]
   %641 = icmp eq i32 %.156126.i, 0

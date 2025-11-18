@@ -231,11 +231,11 @@ _ZN6vectorIN3opt4softELb1EjE3endEv.exit:          ; preds = %_ZNK6vectorIN3opt4s
 _ZNK6vectorIN3opt4softELb1EjE4sizeEv.exit.i:      ; preds = %"_ZSt4sortIPN3opt4softEZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EvT_S8_T0_.exit"
   %39 = getelementptr inbounds i8, ptr %.pr, i64 -4
   %40 = load i32, ptr %39, align 4, !tbaa !9
-  %.not.i47 = icmp ult i32 %40, 2
+  %41 = lshr i32 %40, 1
+  %.not.i47 = icmp eq i32 %41, 0
   br i1 %.not.i47, label %_ZN6vectorIN3opt4softELb1EjE7reverseEv.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZNK6vectorIN3opt4softELb1EjE4sizeEv.exit.i
-  %41 = lshr i32 %40, 1
   %wide.trip.count.i = zext nneg i32 %41 to i64
   br label %.lr.ph.i
 

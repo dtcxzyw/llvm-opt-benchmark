@@ -29,10 +29,10 @@ define dso_local void @_ZNK4llvm14MCLOHDirective9emit_implERKNS_11MCAssemblerERN
 9:                                                ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i, %4
   %.019.i = phi i64 [ %6, %4 ], [ %10, %_ZN4llvm11raw_ostreamlsEc.exit.i ]
   %10 = lshr i64 %.019.i, 7
-  %.not.i = icmp samesign ugt i64 %.019.i, 127
+  %.not.i.not = icmp eq i64 %10, 0
   %11 = trunc i64 %.019.i to i8
   %12 = or i8 %11, -128
-  %.0.i = select i1 %.not.i, i8 %12, i8 %11
+  %.0.i = select i1 %.not.i.not, i8 %11, i8 %12
   %13 = load ptr, ptr %7, align 8, !tbaa !16
   %14 = load ptr, ptr %8, align 8, !tbaa !22
   %.not.i.i = icmp ult ptr %13, %14
@@ -49,7 +49,7 @@ define dso_local void @_ZNK4llvm14MCLOHDirective9emit_implERKNS_11MCAssemblerERN
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i
 
 _ZN4llvm11raw_ostreamlsEc.exit.i:                 ; preds = %17, %15
-  br i1 %.not.i, label %9, label %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit, !llvm.loop !24
+  br i1 %.not.i.not, label %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit, label %9, !llvm.loop !24
 
 _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -60,10 +60,10 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit: ; preds = %_ZN4llvm11raw_ostr
 22:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i18, %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit
   %.019.i13 = phi i64 [ %21, %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit ], [ %23, %_ZN4llvm11raw_ostreamlsEc.exit.i18 ]
   %23 = lshr i64 %.019.i13, 7
-  %.not.i15 = icmp samesign ugt i64 %.019.i13, 127
+  %.not.i15.not = icmp eq i64 %23, 0
   %24 = trunc i64 %.019.i13 to i8
   %25 = or i8 %24, -128
-  %.0.i16 = select i1 %.not.i15, i8 %25, i8 %24
+  %.0.i16 = select i1 %.not.i15.not, i8 %24, i8 %25
   %26 = load ptr, ptr %7, align 8, !tbaa !16
   %27 = load ptr, ptr %8, align 8, !tbaa !22
   %.not.i.i17 = icmp ult ptr %26, %27
@@ -80,7 +80,7 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit: ; preds = %_ZN4llvm11raw_ostr
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i18
 
 _ZN4llvm11raw_ostreamlsEc.exit.i18:               ; preds = %30, %28
-  br i1 %.not.i15, label %22, label %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit19, !llvm.loop !24
+  br i1 %.not.i15.not, label %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit19, label %22, !llvm.loop !24
 
 _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit19: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i18
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -104,10 +104,10 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit19: ; preds = %_ZN4llvm11raw_os
 39:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i25, %.lr.ph
   %.019.i20 = phi i64 [ %38, %.lr.ph ], [ %40, %_ZN4llvm11raw_ostreamlsEc.exit.i25 ]
   %40 = lshr i64 %.019.i20, 7
-  %.not.i22 = icmp ugt i64 %.019.i20, 127
+  %.not.i22.not = icmp eq i64 %40, 0
   %41 = trunc i64 %.019.i20 to i8
   %42 = or i8 %41, -128
-  %.0.i23 = select i1 %.not.i22, i8 %42, i8 %41
+  %.0.i23 = select i1 %.not.i22.not, i8 %41, i8 %42
   %43 = load ptr, ptr %7, align 8, !tbaa !16
   %44 = load ptr, ptr %8, align 8, !tbaa !22
   %.not.i.i24 = icmp ult ptr %43, %44
@@ -124,7 +124,7 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit19: ; preds = %_ZN4llvm11raw_os
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i25
 
 _ZN4llvm11raw_ostreamlsEc.exit.i25:               ; preds = %47, %45
-  br i1 %.not.i22, label %39, label %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit26, !llvm.loop !24
+  br i1 %.not.i22.not, label %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit26, label %39, !llvm.loop !24
 
 _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit26: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i25
   %49 = getelementptr inbounds nuw i8, ptr %.028, i64 8

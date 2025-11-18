@@ -1694,8 +1694,8 @@ define i32 @ucnv_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 13
   %16 = load i8, ptr %15, align 1, !tbaa !19
   %17 = icmp eq i8 %16, 110
-  %or.cond440 = select i1 %14, i1 %17, i1 false
-  br i1 %or.cond440, label %18, label %._crit_edge
+  %or.cond442 = select i1 %14, i1 %17, i1 false
+  br i1 %or.cond442, label %18, label %._crit_edge
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 14
@@ -1977,7 +1977,7 @@ switch.early.test:                                ; preds = %169
 
 177:                                              ; preds = %switch.early.test, %switch.early.test, %169, %172, %171
   %.0374 = phi i32 [ %176, %172 ], [ 0, %171 ], [ 0, %switch.early.test ], [ 0, %169 ], [ 0, %switch.early.test ]
-  %178 = icmp ult i32 %158, 256
+  %178 = icmp eq i32 %163, 0
   br i1 %178, label %179, label %182
 
 179:                                              ; preds = %177
@@ -2112,12 +2112,12 @@ switch.early.test:                                ; preds = %169
   br label %.sink.split
 
 .sink.split:                                      ; preds = %245, %245, %245, %262
-  %.sink442.in = phi ptr [ %201, %262 ], [ %231, %245 ], [ %231, %245 ], [ %231, %245 ]
-  %.sink442 = load ptr, ptr %.sink442.in, align 8, !tbaa !101
+  %.sink444.in = phi ptr [ %201, %262 ], [ %231, %245 ], [ %231, %245 ], [ %231, %245 ]
+  %.sink444 = load ptr, ptr %.sink444.in, align 8, !tbaa !101
   %263 = zext i32 %154 to i64
   %264 = getelementptr inbounds nuw i8, ptr %99, i64 %263
   %265 = getelementptr inbounds nuw i8, ptr %spec.select422, i64 %263
-  %266 = tail call noundef i32 %.sink442(ptr noundef nonnull %0, ptr noundef nonnull %264, i32 noundef %261, ptr noundef %265, ptr noundef nonnull %4)
+  %266 = tail call noundef i32 %.sink444(ptr noundef nonnull %0, ptr noundef nonnull %264, i32 noundef %261, ptr noundef %265, ptr noundef nonnull %4)
   br label %267
 
 267:                                              ; preds = %.sink.split, %245
@@ -2151,7 +2151,7 @@ switch.early.test:                                ; preds = %169
   %288 = getelementptr inbounds nuw i8, ptr %278, i64 %287
   %289 = shl nsw i32 %285, 2
   %290 = getelementptr inbounds nuw i8, ptr %279, i64 %287
-  %291 = tail call noundef i32 %286(ptr noundef nonnull %0, ptr noundef nonnull %288, i32 noundef %289, ptr noundef %290, ptr noundef nonnull %4)
+  %291 = tail call noundef i32 %286(ptr noundef nonnull %0, ptr noundef nonnull %288, i32 noundef %289, ptr noundef nonnull %290, ptr noundef nonnull %4)
   %292 = getelementptr inbounds nuw i8, ptr %.0373, i64 12
   %293 = load i32, ptr %292, align 4, !tbaa !77
   %294 = tail call i32 @udata_readInt32_77(ptr noundef nonnull %0, i32 noundef %293)
@@ -2164,7 +2164,7 @@ switch.early.test:                                ; preds = %169
   %301 = getelementptr inbounds nuw i8, ptr %278, i64 %300
   %302 = shl nsw i32 %297, 1
   %303 = getelementptr inbounds nuw i8, ptr %279, i64 %300
-  %304 = tail call noundef i32 %299(ptr noundef nonnull %0, ptr noundef nonnull %301, i32 noundef %302, ptr noundef %303, ptr noundef nonnull %4)
+  %304 = tail call noundef i32 %299(ptr noundef nonnull %0, ptr noundef nonnull %301, i32 noundef %302, ptr noundef nonnull %303, ptr noundef nonnull %4)
   %305 = getelementptr inbounds nuw i8, ptr %.0373, i64 20
   %306 = load i32, ptr %305, align 4, !tbaa !77
   %307 = tail call i32 @udata_readInt32_77(ptr noundef nonnull %0, i32 noundef %306)
@@ -2176,7 +2176,7 @@ switch.early.test:                                ; preds = %169
   %313 = getelementptr inbounds nuw i8, ptr %278, i64 %312
   %314 = shl nsw i32 %310, 1
   %315 = getelementptr inbounds nuw i8, ptr %279, i64 %312
-  %316 = tail call noundef i32 %311(ptr noundef nonnull %0, ptr noundef nonnull %313, i32 noundef %314, ptr noundef %315, ptr noundef nonnull %4)
+  %316 = tail call noundef i32 %311(ptr noundef nonnull %0, ptr noundef nonnull %313, i32 noundef %314, ptr noundef nonnull %315, ptr noundef nonnull %4)
   %317 = getelementptr inbounds nuw i8, ptr %.0373, i64 24
   %318 = load i32, ptr %317, align 4, !tbaa !77
   %319 = tail call i32 @udata_readInt32_77(ptr noundef nonnull %0, i32 noundef %318)
@@ -2185,7 +2185,7 @@ switch.early.test:                                ; preds = %169
   %322 = getelementptr inbounds nuw i8, ptr %278, i64 %321
   %323 = shl nsw i32 %310, 2
   %324 = getelementptr inbounds nuw i8, ptr %279, i64 %321
-  %325 = tail call noundef i32 %320(ptr noundef nonnull %0, ptr noundef nonnull %322, i32 noundef %323, ptr noundef %324, ptr noundef nonnull %4)
+  %325 = tail call noundef i32 %320(ptr noundef nonnull %0, ptr noundef nonnull %322, i32 noundef %323, ptr noundef nonnull %324, ptr noundef nonnull %4)
   %326 = getelementptr inbounds nuw i8, ptr %.0373, i64 40
   %327 = load i32, ptr %326, align 4, !tbaa !77
   %328 = tail call i32 @udata_readInt32_77(ptr noundef nonnull %0, i32 noundef %327)
@@ -2197,7 +2197,7 @@ switch.early.test:                                ; preds = %169
   %334 = getelementptr inbounds nuw i8, ptr %278, i64 %333
   %335 = shl nsw i32 %331, 1
   %336 = getelementptr inbounds nuw i8, ptr %279, i64 %333
-  %337 = tail call noundef i32 %332(ptr noundef nonnull %0, ptr noundef nonnull %334, i32 noundef %335, ptr noundef %336, ptr noundef nonnull %4)
+  %337 = tail call noundef i32 %332(ptr noundef nonnull %0, ptr noundef nonnull %334, i32 noundef %335, ptr noundef nonnull %336, ptr noundef nonnull %4)
   %338 = getelementptr inbounds nuw i8, ptr %.0373, i64 52
   %339 = load i32, ptr %338, align 4, !tbaa !77
   %340 = tail call i32 @udata_readInt32_77(ptr noundef nonnull %0, i32 noundef %339)
@@ -2209,7 +2209,7 @@ switch.early.test:                                ; preds = %169
   %346 = getelementptr inbounds nuw i8, ptr %278, i64 %345
   %347 = shl nsw i32 %343, 1
   %348 = getelementptr inbounds nuw i8, ptr %279, i64 %345
-  %349 = tail call noundef i32 %344(ptr noundef nonnull %0, ptr noundef nonnull %346, i32 noundef %347, ptr noundef %348, ptr noundef nonnull %4)
+  %349 = tail call noundef i32 %344(ptr noundef nonnull %0, ptr noundef nonnull %346, i32 noundef %347, ptr noundef nonnull %348, ptr noundef nonnull %4)
   %350 = getelementptr inbounds nuw i8, ptr %.0373, i64 60
   %351 = load i32, ptr %350, align 4, !tbaa !77
   %352 = tail call i32 @udata_readInt32_77(ptr noundef nonnull %0, i32 noundef %351)
@@ -2221,12 +2221,12 @@ switch.early.test:                                ; preds = %169
   %358 = getelementptr inbounds nuw i8, ptr %278, i64 %357
   %359 = shl nsw i32 %355, 2
   %360 = getelementptr inbounds nuw i8, ptr %279, i64 %357
-  %361 = tail call noundef i32 %356(ptr noundef nonnull %0, ptr noundef nonnull %358, i32 noundef %359, ptr noundef %360, ptr noundef nonnull %4)
+  %361 = tail call noundef i32 %356(ptr noundef nonnull %0, ptr noundef nonnull %358, i32 noundef %359, ptr noundef nonnull %360, ptr noundef nonnull %4)
   %362 = load i32, ptr %.0373, align 4, !tbaa !77
   %363 = tail call i32 @udata_readInt32_77(ptr noundef nonnull %0, i32 noundef %362)
   %364 = load ptr, ptr %201, align 8, !tbaa !88
   %365 = shl nsw i32 %363, 2
-  %366 = tail call noundef i32 %364(ptr noundef nonnull %0, ptr noundef nonnull %278, i32 noundef %365, ptr noundef %279, ptr noundef nonnull %4)
+  %366 = tail call noundef i32 %364(ptr noundef nonnull %0, ptr noundef nonnull %278, i32 noundef %365, ptr noundef nonnull %279, ptr noundef nonnull %4)
   br label %369
 
 367:                                              ; preds = %97

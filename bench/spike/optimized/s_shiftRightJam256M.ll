@@ -5,22 +5,22 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @softfloat_shiftRightJam256M(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
-  %.not = icmp ult i64 %1, 64
-  br i1 %.not, label %.thread.thread, label %4
+  %4 = lshr i64 %1, 6
+  %.not = icmp eq i64 %4, 0
+  br i1 %.not, label %.thread.thread, label %5
 
-4:                                                ; preds = %3
-  %5 = lshr i64 %1, 6
-  %spec.store.select = tail call i64 @llvm.umin.i64(i64 %5, i64 4)
+5:                                                ; preds = %3
+  %spec.store.select = tail call i64 @llvm.umin.i64(i64 %4, i64 4)
   %6 = trunc nuw nsw i64 %spec.store.select to i8
   br label %7
 
-7:                                                ; preds = %7, %4
-  %.137 = phi ptr [ %0, %4 ], [ %9, %7 ]
-  %.035 = phi i8 [ %6, %4 ], [ %10, %7 ]
+7:                                                ; preds = %7, %5
+  %.137 = phi ptr [ %0, %5 ], [ %9, %7 ]
+  %.035 = phi i8 [ %6, %5 ], [ %10, %7 ]
   %8 = load i64, ptr %.137, align 8, !tbaa !3
   %.not45 = icmp ne i64 %8, 0
   %9 = getelementptr inbounds nuw i8, ptr %.137, i64 8
-  %10 = add nsw i8 %.035, -1
+  %10 = add i8 %.035, -1
   %.not46 = icmp eq i8 %10, 0
   %or.cond = select i1 %.not45, i1 true, i1 %.not46
   br i1 %or.cond, label %11, label %7, !llvm.loop !7
@@ -63,7 +63,7 @@ softfloat_shortShiftRightJamM.exit.thread:        ; preds = %16
 
 .lr.ph.i:                                         ; preds = %16
   %25 = sub nsw i64 3, %.0385977
-  %26 = sub nsw i64 0, %1
+  %26 = sub i64 0, %1
   %27 = and i64 %26, 63
   %28 = and i64 %25, 4294967295
   br label %29

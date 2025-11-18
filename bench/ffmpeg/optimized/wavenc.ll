@@ -309,7 +309,7 @@ bwf_write_bext_string.exit50.i:                   ; preds = %107, %bwf_write_bex
   %134 = getelementptr inbounds nuw i8, ptr %129, i64 2
   %135 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %134) #12
   %136 = lshr i64 %135, 4
-  %.not52.i = icmp ult i64 %135, 16
+  %.not52.i = icmp eq i64 %136, 0
   br i1 %.not52.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %132, %.lr.ph.i

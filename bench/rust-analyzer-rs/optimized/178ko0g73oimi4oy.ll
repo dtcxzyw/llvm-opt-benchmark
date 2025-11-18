@@ -16058,7 +16058,7 @@ _ZN4core4hash11BuildHasher8hash_one17h2a4326378a2cff1dE.exit.i: ; preds = %30, %
   %53 = lshr i64 %.sroa.6.0.copyload, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !2955)
   call void @llvm.experimental.noalias.scope.decl(metadata !2958)
-  %.not.i.i = icmp ult i64 %.sroa.6.0.copyload, 2
+  %.not.i.i = icmp eq i64 %53, 0
   br i1 %.not.i.i, label %.loopexit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %52
@@ -16275,7 +16275,7 @@ _ZN4core3ptr19swap_nonoverlapping17h3dd71bfaf882fe1aE.exit.i.i: ; preds = %59
   %126 = lshr i64 %.sroa.6131.0.copyload, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !3038)
   call void @llvm.experimental.noalias.scope.decl(metadata !3041)
-  %.not.i.i59 = icmp ult i64 %.sroa.6131.0.copyload, 2
+  %.not.i.i59 = icmp eq i64 %126, 0
   br i1 %.not.i.i59, label %.loopexit119, label %.lr.ph.preheader.i.i60
 
 .lr.ph.preheader.i.i60:                           ; preds = %125
@@ -16572,7 +16572,7 @@ _ZN4core4hash11BuildHasher8hash_one17h2a4326378a2cff1dE.exit.i: ; preds = %30, %
   %53 = lshr i64 %.sroa.6.0.copyload, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !3143)
   call void @llvm.experimental.noalias.scope.decl(metadata !3146)
-  %.not.i.i = icmp ult i64 %.sroa.6.0.copyload, 2
+  %.not.i.i = icmp eq i64 %53, 0
   br i1 %.not.i.i, label %.loopexit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %52
@@ -16789,7 +16789,7 @@ _ZN4core3ptr19swap_nonoverlapping17h3dd71bfaf882fe1aE.exit.i.i: ; preds = %59
   %126 = lshr i64 %.sroa.6131.0.copyload, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !3226)
   call void @llvm.experimental.noalias.scope.decl(metadata !3229)
-  %.not.i.i59 = icmp ult i64 %.sroa.6131.0.copyload, 2
+  %.not.i.i59 = icmp eq i64 %126, 0
   br i1 %.not.i.i59, label %.loopexit119, label %.lr.ph.preheader.i.i60
 
 .lr.ph.preheader.i.i60:                           ; preds = %125
@@ -17086,7 +17086,7 @@ _ZN4core4hash11BuildHasher8hash_one17h2a4326378a2cff1dE.exit.i: ; preds = %30, %
   %53 = lshr i64 %.sroa.6.0.copyload, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !3331)
   call void @llvm.experimental.noalias.scope.decl(metadata !3334)
-  %.not.i.i = icmp ult i64 %.sroa.6.0.copyload, 2
+  %.not.i.i = icmp eq i64 %53, 0
   br i1 %.not.i.i, label %.loopexit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %52
@@ -17303,7 +17303,7 @@ _ZN4core3ptr19swap_nonoverlapping17h3dd71bfaf882fe1aE.exit.i.i: ; preds = %59
   %126 = lshr i64 %.sroa.6131.0.copyload, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !3414)
   call void @llvm.experimental.noalias.scope.decl(metadata !3417)
-  %.not.i.i59 = icmp ult i64 %.sroa.6131.0.copyload, 2
+  %.not.i.i59 = icmp eq i64 %126, 0
   br i1 %.not.i.i59, label %.loopexit119, label %.lr.ph.preheader.i.i60
 
 .lr.ph.preheader.i.i60:                           ; preds = %125
@@ -17600,7 +17600,7 @@ _ZN4core4hash11BuildHasher8hash_one17h2a4326378a2cff1dE.exit.i: ; preds = %30, %
   %53 = lshr i64 %.sroa.6.0.copyload, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !3519)
   call void @llvm.experimental.noalias.scope.decl(metadata !3522)
-  %.not.i.i = icmp ult i64 %.sroa.6.0.copyload, 2
+  %.not.i.i = icmp eq i64 %53, 0
   br i1 %.not.i.i, label %.loopexit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %52
@@ -17817,7 +17817,7 @@ _ZN4core3ptr19swap_nonoverlapping17h3dd71bfaf882fe1aE.exit.i.i: ; preds = %59
   %126 = lshr i64 %.sroa.6131.0.copyload, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !3602)
   call void @llvm.experimental.noalias.scope.decl(metadata !3605)
-  %.not.i.i59 = icmp ult i64 %.sroa.6131.0.copyload, 2
+  %.not.i.i59 = icmp eq i64 %126, 0
   br i1 %.not.i.i59, label %.loopexit119, label %.lr.ph.preheader.i.i60
 
 .lr.ph.preheader.i.i60:                           ; preds = %125

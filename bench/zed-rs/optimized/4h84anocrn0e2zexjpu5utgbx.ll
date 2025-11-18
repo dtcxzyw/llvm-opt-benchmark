@@ -10405,12 +10405,12 @@ _ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit: ; pred
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha99a00d83310a069E.exit.preheader": ; preds = %_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit
   %26 = add i64 %1, -1
   %27 = getelementptr inbounds i64, ptr %0, i64 %26
-  %.sroa.0.0.copyload.i.i33 = load i64, ptr %0, align 8, !alias.scope !1790
+  %.sroa.0.0.copyload.i.i34 = load i64, ptr %0, align 8, !alias.scope !1790
   %28 = load i64, ptr %27, align 8, !alias.scope !1790
   store i64 %28, ptr %0, align 8, !alias.scope !1790
-  store i64 %.sroa.0.0.copyload.i.i33, ptr %27, align 8, !alias.scope !1790
-  %.not1.i1134 = icmp ugt i64 %26, 1
-  br i1 %.not1.i1134, label %.lr.ph.i12.preheader, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit20.thread
+  store i64 %.sroa.0.0.copyload.i.i34, ptr %27, align 8, !alias.scope !1790
+  %.not1.i1135 = icmp ugt i64 %26, 1
+  br i1 %.not1.i1135, label %.lr.ph.i12.preheader, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit20.thread
 
 _ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit20.thread: ; preds = %_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit20, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha99a00d83310a069E.exit.preheader"
   ret void

@@ -7325,12 +7325,8 @@ _ZNK5Parse5Block17can_elide_SEL_phiEj.exit.thread.us: ; preds = %_ZNK5Parse5Bloc
   br i1 %exitcond23.not, label %.preheader, label %.lr.ph.split.us, !llvm.loop !30
 
 .preheader:                                       ; preds = %_ZNK5Parse5Block17can_elide_SEL_phiEj.exit.thread, %110, %_ZNK5Parse5Block11is_SEL_headEv.exit
-  %.not = icmp ult i32 %49, 2
-  br i1 %.not, label %._crit_edge, label %.lr.ph20.preheader
-
-.lr.ph20.preheader:                               ; preds = %.preheader
-  %umax = tail call i32 @llvm.umax.i32(i32 %50, i32 1)
-  br label %.lr.ph20
+  %.not = icmp eq i32 %50, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph20
 
 _ZNK5Parse5Block17can_elide_SEL_phiEj.exit.thread: ; preds = %.lr.ph, %_ZNK5Parse5Block17can_elide_SEL_phiEj.exit.thread
   %.01017 = phi i32 [ %113, %_ZNK5Parse5Block17can_elide_SEL_phiEj.exit.thread ], [ 5, %.lr.ph ]
@@ -7339,8 +7335,8 @@ _ZNK5Parse5Block17can_elide_SEL_phiEj.exit.thread: ; preds = %.lr.ph, %_ZNK5Pars
   %exitcond.not = icmp eq i32 %113, %39
   br i1 %exitcond.not, label %.preheader, label %_ZNK5Parse5Block17can_elide_SEL_phiEj.exit.thread, !llvm.loop !30
 
-.lr.ph20:                                         ; preds = %.lr.ph20.preheader, %.lr.ph20
-  %.019 = phi i32 [ %125, %.lr.ph20 ], [ 0, %.lr.ph20.preheader ]
+.lr.ph20:                                         ; preds = %.preheader, %.lr.ph20
+  %.019 = phi i32 [ %125, %.lr.ph20 ], [ 0, %.preheader ]
   %114 = load ptr, ptr %3, align 8
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 144
@@ -7353,7 +7349,7 @@ _ZNK5Parse5Block17can_elide_SEL_phiEj.exit.thread: ; preds = %.lr.ph, %_ZNK5Pars
   %123 = add i32 %122, %120
   %124 = tail call noundef ptr @_ZN5Parse10ensure_phiEib(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 noundef %123, i1 zeroext poison)
   %125 = add nuw i32 %.019, 1
-  %exitcond24.not = icmp eq i32 %125, %umax
+  %exitcond24.not = icmp eq i32 %125, %50
   br i1 %exitcond24.not, label %._crit_edge, label %.lr.ph20, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph20, %.preheader
@@ -12306,9 +12302,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.uadd.sat.i32(i32, i32) #11

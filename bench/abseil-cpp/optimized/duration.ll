@@ -325,9 +325,10 @@ _ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.exit.i: ; preds = %
   %.sroa.01.0.insert.ext.i.i.sink.i = phi i128 [ %.sroa.01.0.insert.ext.i.i.i, %15 ], [ %.sroa.01.0.insert.ext.i46.i.i, %18 ]
   %22 = mul i128 %.sroa.01.0.insert.ext.i.i.sink.i, %.sroa.03.0.insert.insert.i.i27.i.i
   %.sroa.0.0.extract.trunc.i.i.i = trunc i128 %22 to i64
+  %.sroa.2.0.extract.shift.i.i.i = lshr i128 %22, 64
   %.unshifted.i = xor i64 %.sroa.025.0.copyload, %1
   %23 = icmp slt i64 %.unshifted.i, 0
-  %24 = icmp ult i128 %22, 18446744073709551616
+  %24 = icmp eq i128 %.sroa.2.0.extract.shift.i.i.i, 0
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %_ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.exit.i
@@ -338,7 +339,6 @@ _ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.exit.i: ; preds = %
   br i1 %23, label %36, label %_ZN4absl12_GLOBAL__N_110ScaleFixedINS0_12SafeMultiplyEEENS_8DurationES3_l.exit
 
 27:                                               ; preds = %_ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.exit.i
-  %.sroa.2.0.extract.shift.i.i.i = lshr i128 %22, 64
   %.sroa.2.0.extract.trunc.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i to i64
   %28 = icmp ult i64 %.sroa.2.0.extract.trunc.i.i.i, 2000000000
   br i1 %28, label %34, label %29
@@ -517,7 +517,7 @@ define dso_local noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8Durat
   %.sroa.2.0.extract.shift.i.i.i = lshr i128 %10, 64
   %.unshifted.i = xor i64 %.sroa.026.0.copyload, %1
   %11 = icmp sgt i64 %.unshifted.i, -1
-  %12 = icmp samesign ult i128 %10, 18446744073709551616
+  %12 = icmp eq i128 %.sroa.2.0.extract.shift.i.i.i, 0
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %6
@@ -2257,8 +2257,8 @@ _ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit75.th
   ]
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit75.thread
-  %lhsc230 = load i8, ptr %.sroa.9.0151, align 1
-  %10 = icmp eq i8 %lhsc230, 48
+  %lhsc229 = load i8, ptr %.sroa.9.0151, align 1
+  %10 = icmp eq i8 %lhsc229, 48
   br i1 %10, label %.critedge.sink.split, label %.lr.ph.i.preheader.lr.ph
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i76: ; preds = %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit75.thread
@@ -2522,7 +2522,7 @@ _ZN4absl8DurationpLES0_.exit:                     ; preds = %.sink.split.i, %83,
   %.sroa.2.0.extract.shift.i.i.i.i.i = lshr i128 %95, 64
   %.unshifted.i.i.i = xor i64 %.sroa.03.0.copyload.i88, %.3171
   %96 = icmp sgt i64 %.unshifted.i.i.i, -1
-  %97 = icmp samesign ult i128 %95, 18446744073709551616
+  %97 = icmp eq i128 %.sroa.2.0.extract.shift.i.i.i.i.i, 0
   br i1 %97, label %98, label %100
 
 98:                                               ; preds = %91

@@ -743,7 +743,7 @@ format_prefix.exit:                               ; preds = %212, %.sink.split.i
   br i1 %259, label %network_prefix.exit.thread, label %260
 
 260:                                              ; preds = %258
-  %261 = icmp ne i8 %248, 0
+  %261 = icmp ne i32 %255, 0
   %262 = icmp ult i32 %253, %255
   %or.cond62.i = select i1 %261, i1 %262, i1 false
   br i1 %or.cond62.i, label %network_prefix.exit.thread, label %263
@@ -753,7 +753,7 @@ format_prefix.exit:                               ; preds = %212, %.sink.split.i
   br i1 %261, label %.sink.split.i291, label %.sink.split.i.i293
 
 264:                                              ; preds = %257
-  %265 = icmp ne i8 %248, 0
+  %265 = icmp ne i32 %255, 0
   %266 = icmp ult i32 %253, %255
   %or.cond64.i = select i1 %265, i1 %266, i1 false
   br i1 %or.cond64.i, label %network_prefix.exit.thread, label %267
@@ -850,7 +850,7 @@ format_prefix.exit300:                            ; preds = %network_prefix.exit
   br i1 %304, label %network_prefix.exit310, label %305
 
 305:                                              ; preds = %303
-  %306 = icmp ne i8 %293, 0
+  %306 = icmp ne i32 %300, 0
   %307 = icmp ult i32 %298, %300
   %or.cond62.i309 = select i1 %306, i1 %307, i1 false
   br i1 %or.cond62.i309, label %network_prefix.exit310, label %308
@@ -860,7 +860,7 @@ format_prefix.exit300:                            ; preds = %network_prefix.exit
   br i1 %306, label %.sink.split.i305, label %321
 
 309:                                              ; preds = %302
-  %310 = icmp ne i8 %293, 0
+  %310 = icmp ne i32 %300, 0
   %311 = icmp ult i32 %298, %300
   %or.cond64.i308 = select i1 %310, i1 %311, i1 false
   br i1 %or.cond64.i308, label %network_prefix.exit310, label %312

@@ -3251,7 +3251,7 @@ define internal fastcc range(i32 0, 3) i32 @phar_tar_writeheaders_int(ptr nounde
   br i1 %.not.i, label %75, label %68
 
 75:                                               ; preds = %68
-  %76 = icmp samesign ult i32 %.01316.i, 8
+  %76 = icmp eq i32 %74, 0
   br i1 %76, label %phar_tar_octal.exit, label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %75
@@ -3279,7 +3279,7 @@ phar_tar_octal.exit:                              ; preds = %75, %.preheader.pre
   br i1 %.not.i146, label %87, label %80
 
 87:                                               ; preds = %80
-  %88 = icmp ult i32 %.01316.i145, 8
+  %88 = icmp eq i32 %86, 0
   br i1 %88, label %phar_tar_octal.exit149, label %89
 
 89:                                               ; preds = %87
@@ -3318,7 +3318,7 @@ phar_tar_octal.exit149:                           ; preds = %87
   br i1 %.not.i153, label %108, label %101
 
 108:                                              ; preds = %101
-  %109 = icmp ult i32 %.01316.i152, 8
+  %109 = icmp eq i32 %107, 0
   br i1 %109, label %phar_tar_octal.exit156, label %110
 
 110:                                              ; preds = %108
@@ -3406,7 +3406,7 @@ phar_tar_checksum.exit:                           ; preds = %.lr.ph.i
   br i1 %.not.i161, label %152, label %145
 
 152:                                              ; preds = %145
-  %153 = icmp ult i32 %.01316.i160, 8
+  %153 = icmp eq i32 %151, 0
   br i1 %153, label %phar_tar_octal.exit164, label %154
 
 154:                                              ; preds = %152

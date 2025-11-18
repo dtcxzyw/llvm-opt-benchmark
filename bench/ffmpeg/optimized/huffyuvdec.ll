@@ -83,9 +83,9 @@ define internal range(i32 -2147483648, 1) i32 @decode_init(ptr noundef %0) #0 {
 
 30:                                               ; preds = %26
   %31 = icmp sgt i32 %25, 3
-  br i1 %31, label %37, label %.thread221
+  br i1 %31, label %37, label %.thread223
 
-.thread221:                                       ; preds = %30
+.thread223:                                       ; preds = %30
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 3, ptr %32, align 8, !tbaa !41
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 60
@@ -216,9 +216,9 @@ define internal range(i32 -2147483648, 1) i32 @decode_init(ptr noundef %0) #0 {
   br i1 %108, label %214, label %.thread
 
 109:                                              ; preds = %10, %26
-  %.sink225 = phi i32 [ 1, %26 ], [ 0, %10 ]
+  %.sink227 = phi i32 [ 1, %26 ], [ 0, %10 ]
   %110 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store i32 %.sink225, ptr %110, align 8, !tbaa !41
+  store i32 %.sink227, ptr %110, align 8, !tbaa !41
   %111 = getelementptr inbounds nuw i8, ptr %3, i64 60
   store i32 8, ptr %111, align 4, !tbaa !42
   %112 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -261,9 +261,9 @@ define internal range(i32 -2147483648, 1) i32 @decode_init(ptr noundef %0) #0 {
   br label %126
 
 126:                                              ; preds = %125, %124, %121, %120, %119
-  %.sink227 = phi i32 [ 0, %125 ], [ 0, %124 ], [ %123, %121 ], [ 1, %120 ], [ 0, %119 ]
+  %.sink229 = phi i32 [ 0, %125 ], [ 0, %124 ], [ %123, %121 ], [ 1, %120 ], [ 0, %119 ]
   %127 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i32 %.sink227, ptr %127, align 8, !tbaa !48
+  store i32 %.sink229, ptr %127, align 8, !tbaa !48
   %128 = and i32 %116, -8
   %129 = getelementptr inbounds nuw i8, ptr %3, i64 44
   store i32 %128, ptr %129, align 4, !tbaa !50
@@ -290,7 +290,7 @@ define internal range(i32 -2147483648, 1) i32 @decode_init(ptr noundef %0) #0 {
   %139 = load i8, ptr %.sroa.0.0.i, align 1, !tbaa !47
   %140 = lshr i8 %139, 5
   %141 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 1
-  %142 = icmp ult i8 %139, 32
+  %142 = icmp eq i8 %140, 0
   br i1 %142, label %143, label %151
 
 143:                                              ; preds = %138
@@ -351,7 +351,7 @@ read_len_table.exit.i:                            ; preds = %.loopexit.i.i, %157
   %166 = load i8, ptr %.sroa.0.2.i, align 1, !tbaa !47
   %167 = lshr i8 %166, 5
   %168 = getelementptr inbounds nuw i8, ptr %.sroa.0.2.i, i64 1
-  %169 = icmp ult i8 %166, 32
+  %169 = icmp eq i8 %167, 0
   br i1 %169, label %170, label %178
 
 170:                                              ; preds = %165
@@ -722,12 +722,12 @@ read_old_huffman_tables.exit:                     ; preds = %205
   ]
 
 .thread202.sink.split:                            ; preds = %240, %283
-  %.sink229 = phi i32 [ 0, %283 ], [ 4, %240 ]
-  store i32 %.sink229, ptr %16, align 8, !tbaa !36
+  %.sink231 = phi i32 [ 0, %283 ], [ 4, %240 ]
+  store i32 %.sink231, ptr %16, align 8, !tbaa !36
   br label %.thread202
 
 .thread202:                                       ; preds = %.thread202.sink.split, %302, %302
-  %307 = phi i32 [ %.pr, %302 ], [ %.pr, %302 ], [ %.sink229, %.thread202.sink.split ]
+  %307 = phi i32 [ %.pr, %302 ], [ %.pr, %302 ], [ %.sink231, %.thread202.sink.split ]
   %308 = load i32, ptr %4, align 8, !tbaa !27
   %309 = and i32 %308, 1
   %.not190 = icmp eq i32 %309, 0
@@ -757,8 +757,8 @@ read_old_huffman_tables.exit:                     ; preds = %205
   br label %.thread
 
 .thread199.thread.sink.split:                     ; preds = %240, %301, %300, %299, %298, %297, %296, %295, %294, %293, %292, %291, %290, %289, %288, %287, %286, %285, %284, %282, %281, %280, %279, %278, %277, %276, %275, %274, %273, %272, %271, %270, %269, %268, %267, %266, %265, %264, %263, %262
-  %.sink230 = phi i32 [ 30, %262 ], [ 71, %263 ], [ 73, %264 ], [ 75, %265 ], [ 135, %266 ], [ 137, %267 ], [ 77, %268 ], [ 111, %269 ], [ 5, %270 ], [ 66, %271 ], [ 68, %272 ], [ 131, %273 ], [ 133, %274 ], [ 49, %275 ], [ 70, %276 ], [ 64, %277 ], [ 127, %278 ], [ 129, %279 ], [ 47, %280 ], [ 7, %281 ], [ 31, %282 ], [ 60, %284 ], [ 62, %285 ], [ 123, %286 ], [ 125, %287 ], [ 45, %288 ], [ 6, %289 ], [ 79, %290 ], [ 85, %291 ], [ 91, %292 ], [ 97, %293 ], [ 78, %294 ], [ 83, %295 ], [ 89, %296 ], [ 95, %297 ], [ 33, %298 ], [ 81, %299 ], [ 87, %300 ], [ 93, %301 ], [ 8, %240 ]
-  store i32 %.sink230, ptr %16, align 8, !tbaa !36
+  %.sink232 = phi i32 [ 30, %262 ], [ 71, %263 ], [ 73, %264 ], [ 75, %265 ], [ 135, %266 ], [ 137, %267 ], [ 77, %268 ], [ 111, %269 ], [ 5, %270 ], [ 66, %271 ], [ 68, %272 ], [ 131, %273 ], [ 133, %274 ], [ 49, %275 ], [ 70, %276 ], [ 64, %277 ], [ 127, %278 ], [ 129, %279 ], [ 47, %280 ], [ 7, %281 ], [ 31, %282 ], [ 60, %284 ], [ 62, %285 ], [ 123, %286 ], [ 125, %287 ], [ 45, %288 ], [ 6, %289 ], [ 79, %290 ], [ 85, %291 ], [ 91, %292 ], [ 97, %293 ], [ 78, %294 ], [ 83, %295 ], [ 89, %296 ], [ 95, %297 ], [ 33, %298 ], [ 81, %299 ], [ 87, %300 ], [ 93, %301 ], [ 8, %240 ]
+  store i32 %.sink232, ptr %16, align 8, !tbaa !36
   br label %.thread199.thread
 
 .thread199.thread:                                ; preds = %.thread199.thread.sink.split, %316, %.thread199
@@ -782,8 +782,8 @@ read_old_huffman_tables.exit:                     ; preds = %205
   %.not192 = icmp eq ptr %327, null
   br i1 %.not192, label %.thread, label %321
 
-.thread:                                          ; preds = %206, %321, %322, %.thread221, %240, %220, %read_old_huffman_tables.exit, %1, %99, %319, %310
-  %.0172 = phi i32 [ -1094995529, %310 ], [ -1094995529, %319 ], [ %107, %99 ], [ %8, %1 ], [ %212, %read_old_huffman_tables.exit ], [ -1094995529, %220 ], [ -1094995529, %240 ], [ -1094995529, %.thread221 ], [ -12, %322 ], [ 0, %321 ], [ %210, %206 ]
+.thread:                                          ; preds = %206, %321, %322, %.thread223, %240, %220, %read_old_huffman_tables.exit, %1, %99, %319, %310
+  %.0172 = phi i32 [ -1094995529, %310 ], [ -1094995529, %319 ], [ %107, %99 ], [ %8, %1 ], [ %212, %read_old_huffman_tables.exit ], [ -1094995529, %220 ], [ -1094995529, %240 ], [ -1094995529, %.thread223 ], [ -12, %322 ], [ 0, %321 ], [ %210, %206 ]
   ret i32 %.0172
 }
 
@@ -2440,13 +2440,13 @@ bytestream2_init.exit:                            ; preds = %3
   br i1 %19, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %bytestream2_init.exit, %11
-  %.054 = phi i32 [ %18, %11 ], [ 3, %bytestream2_init.exit ]
+  %.055 = phi i32 [ %18, %11 ], [ 3, %bytestream2_init.exit ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %22 = ptrtoint ptr %7 to i64
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 65664
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 344192
-  %wide.trip.count = zext nneg i32 %.054 to i64
+  %wide.trip.count = zext nneg i32 %.055 to i64
   br label %26
 
 25:                                               ; preds = %58
@@ -2480,7 +2480,7 @@ bytestream2_init.exit:                            ; preds = %3
   %36 = load i8, ptr %.sroa.0.1, align 1, !tbaa !47
   %37 = lshr i8 %36, 5
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.0.1, i64 1
-  %39 = icmp ult i8 %36, 32
+  %39 = icmp eq i8 %37, 0
   br i1 %39, label %40, label %48
 
 40:                                               ; preds = %35

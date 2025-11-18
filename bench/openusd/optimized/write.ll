@@ -114,11 +114,11 @@ define hidden void @avifSetTileConfiguration(i32 noundef %0, i32 noundef %1, i32
 7:                                                ; preds = %5
   %8 = mul i32 %2, %1
   %9 = add i32 %8, 262143
-  %.not5.i = icmp ult i32 %9, 262144
+  %10 = lshr i32 %9, 18
+  %.not5.i = icmp eq i32 %10, 0
   br i1 %.not5.i, label %floorLog2.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %7
-  %10 = lshr i32 %9, 18
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %10, i32 %0)
   %spec.select = tail call i32 @llvm.umin.i32(i32 %spec.store.select, i32 32)
   %11 = lshr i32 %spec.select, 1

@@ -85195,7 +85195,7 @@ _ZN5o3dgc6VectorIhE8PushBackERKh.exit.i494:       ; preds = %548, %._crit_edge.i
   %555 = shl i8 %.0.tr.i496, 1
   %556 = and i8 %555, 126
   %557 = lshr i64 %.0.i495, 6
-  %558 = icmp ugt i64 %.0.i495, 63
+  %558 = icmp ne i64 %557, 0
   %559 = zext i1 %558 to i8
   %560 = or disjoint i8 %556, %559
   %561 = load i64, ptr %30, align 8
@@ -85465,7 +85465,7 @@ _ZN5o3dgc6VectorIhE8PushBackERKh.exit.i521:       ; preds = %642, %._crit_edge.i
   %649 = shl i8 %.0.tr.i523, 1
   %650 = and i8 %649, 126
   %651 = lshr i64 %.0.i522, 6
-  %652 = icmp ugt i64 %.0.i522, 63
+  %652 = icmp ne i64 %651, 0
   %653 = zext i1 %652 to i8
   %654 = or disjoint i8 %650, %653
   %655 = load i64, ptr %30, align 8
@@ -85705,7 +85705,7 @@ _ZN5o3dgc6VectorIhE8PushBackERKh.exit.i:          ; preds = %722, %._crit_edge.i
   %729 = shl i8 %.0.tr.i, 1
   %730 = and i8 %729, 126
   %731 = lshr i64 %.0.i436, 6
-  %732 = icmp ugt i64 %.0.i436, 63
+  %732 = icmp ne i64 %731, 0
   %733 = zext i1 %732 to i8
   %734 = or disjoint i8 %730, %733
   %735 = load i64, ptr %30, align 8
@@ -85892,7 +85892,7 @@ _ZN5o3dgc12BinaryStream14WriteUIntASCIIEm.exit:   ; preds = %.noexc456, %_ZN5o3d
 785:                                              ; preds = %783
   %786 = zext i32 %784 to i64
   %.not705 = icmp eq i32 %784, 0
-  br i1 %.not705, label %.loopexit884, label %.lr.ph690
+  br i1 %.not705, label %.loopexit887, label %.lr.ph690
 
 .lr.ph690:                                        ; preds = %785
   %787 = getelementptr inbounds nuw i8, ptr %0, i64 584
@@ -85954,22 +85954,22 @@ _ZN5o3dgc12BinaryStream14WriteUIntASCIIEm.exit:   ; preds = %.noexc456, %_ZN5o3d
   store i8 %794, ptr %810, align 1
   %811 = add nuw nsw i64 %.0257688, 1
   %exitcond751.not = icmp eq i64 %811, %786
-  br i1 %exitcond751.not, label %.loopexit884, label %791, !llvm.loop !923
+  br i1 %exitcond751.not, label %.loopexit887, label %791, !llvm.loop !923
 
 812:                                              ; preds = %798
   %813 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp619
 
-.loopexit884:                                     ; preds = %806, %785
+.loopexit887:                                     ; preds = %806, %785
   %.pr = load i32, ptr %36, align 8
   %814 = icmp eq i32 %.pr, 1
   %815 = load i64, ptr %30, align 8
   %816 = sub i64 %815, %31
   br i1 %814, label %.preheader.i.preheader, label %824
 
-.preheader.i.preheader:                           ; preds = %.thread, %.loopexit884
-  %.069.i.i.ph = phi i64 [ %816, %.loopexit884 ], [ %261, %.thread ]
+.preheader.i.preheader:                           ; preds = %.thread, %.loopexit887
+  %.069.i.i.ph = phi i64 [ %816, %.loopexit887 ], [ %261, %.thread ]
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
@@ -85987,7 +85987,7 @@ _ZN5o3dgc12BinaryStream14WriteUIntASCIIEm.exit:   ; preds = %.noexc456, %_ZN5o3d
   %exitcond.not.i.i465 = icmp eq i64 %823, 5
   br i1 %exitcond.not.i.i465, label %_ZN5o3dgc12BinaryStream11WriteUInt32EmmNS_15O3DGCStreamTypeE.exit, label %.preheader.i, !llvm.loop !49
 
-824:                                              ; preds = %.loopexit884
+824:                                              ; preds = %.loopexit887
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %816 to i8
   %.sroa.3.0.extract.shift.i.i = lshr i64 %816, 8
   %.sroa.3.0.extract.trunc.i.i = trunc i64 %.sroa.3.0.extract.shift.i.i to i8
@@ -87285,7 +87285,7 @@ _ZN5o3dgc6VectorIhE8PushBackERKh.exit.i309:       ; preds = %308, %._crit_edge.i
   %315 = shl i8 %.0.tr.i311, 1
   %316 = and i8 %315, 126
   %317 = lshr i64 %.0.i310, 6
-  %318 = icmp ugt i64 %.0.i310, 63
+  %318 = icmp ne i64 %317, 0
   %319 = zext i1 %318 to i8
   %320 = or disjoint i8 %316, %319
   %321 = load i64, ptr %22, align 8
@@ -87555,7 +87555,7 @@ _ZN5o3dgc6VectorIhE8PushBackERKh.exit.i336:       ; preds = %402, %._crit_edge.i
   %409 = shl i8 %.0.tr.i338, 1
   %410 = and i8 %409, 126
   %411 = lshr i64 %.0.i337, 6
-  %412 = icmp ugt i64 %.0.i337, 63
+  %412 = icmp ne i64 %411, 0
   %413 = zext i1 %412 to i8
   %414 = or disjoint i8 %410, %413
   %415 = load i64, ptr %22, align 8
@@ -87793,7 +87793,7 @@ _ZN5o3dgc6VectorIhE8PushBackERKh.exit.i:          ; preds = %480, %._crit_edge.i
   %487 = shl i8 %.0.tr.i, 1
   %488 = and i8 %487, 126
   %489 = lshr i64 %.0.i251, 6
-  %490 = icmp ugt i64 %.0.i251, 63
+  %490 = icmp ne i64 %489, 0
   %491 = zext i1 %490 to i8
   %492 = or disjoint i8 %488, %491
   %493 = load i64, ptr %22, align 8
@@ -87980,7 +87980,7 @@ _ZN5o3dgc12BinaryStream14WriteUIntASCIIEm.exit:   ; preds = %.noexc271, %_ZN5o3d
 543:                                              ; preds = %541
   %544 = zext i32 %542 to i64
   %.not470 = icmp eq i32 %542, 0
-  br i1 %.not470, label %.loopexit608, label %.lr.ph460
+  br i1 %.not470, label %.loopexit611, label %.lr.ph460
 
 .lr.ph460:                                        ; preds = %543
   %545 = getelementptr inbounds nuw i8, ptr %0, i64 584
@@ -88042,22 +88042,22 @@ _ZN5o3dgc12BinaryStream14WriteUIntASCIIEm.exit:   ; preds = %.noexc271, %_ZN5o3d
   store i8 %552, ptr %568, align 1
   %569 = add nuw nsw i64 %.0152458, 1
   %exitcond501.not = icmp eq i64 %569, %544
-  br i1 %exitcond501.not, label %.loopexit608, label %549, !llvm.loop !936
+  br i1 %exitcond501.not, label %.loopexit611, label %549, !llvm.loop !936
 
 570:                                              ; preds = %556
   %571 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp410
 
-.loopexit608:                                     ; preds = %564, %543
+.loopexit611:                                     ; preds = %564, %543
   %.pr = load i32, ptr %28, align 8
   %572 = icmp eq i32 %.pr, 1
   %573 = load i64, ptr %22, align 8
   %574 = sub i64 %573, %23
   br i1 %572, label %.preheader.i.preheader, label %582
 
-.preheader.i.preheader:                           ; preds = %.thread, %.loopexit608
-  %.069.i.i.ph = phi i64 [ %574, %.loopexit608 ], [ %125, %.thread ]
+.preheader.i.preheader:                           ; preds = %.thread, %.loopexit611
+  %.069.i.i.ph = phi i64 [ %574, %.loopexit611 ], [ %125, %.thread ]
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
@@ -88075,7 +88075,7 @@ _ZN5o3dgc12BinaryStream14WriteUIntASCIIEm.exit:   ; preds = %.noexc271, %_ZN5o3d
   %exitcond.not.i.i280 = icmp eq i64 %581, 5
   br i1 %exitcond.not.i.i280, label %_ZN5o3dgc12BinaryStream11WriteUInt32EmmNS_15O3DGCStreamTypeE.exit, label %.preheader.i, !llvm.loop !49
 
-582:                                              ; preds = %.loopexit608
+582:                                              ; preds = %.loopexit611
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %574 to i8
   %.sroa.3.0.extract.shift.i.i = lshr i64 %574, 8
   %.sroa.3.0.extract.trunc.i.i = trunc i64 %.sroa.3.0.extract.shift.i.i to i8
@@ -91440,7 +91440,7 @@ _ZN5o3dgc6VectorIhE8PushBackERKh.exit:            ; preds = %._crit_edge.i, %17
   %24 = shl i8 %.0.tr, 1
   %25 = and i8 %24, 126
   %26 = lshr i64 %.0, 6
-  %27 = icmp ugt i64 %.0, 63
+  %27 = icmp ne i64 %26, 0
   %28 = zext i1 %27 to i8
   %29 = or disjoint i8 %25, %28
   %30 = load i64, ptr %5, align 8

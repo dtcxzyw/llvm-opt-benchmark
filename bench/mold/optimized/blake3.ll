@@ -1317,7 +1317,7 @@ define dso_local void @blake3_hasher_finalize_seek(ptr noundef readonly captures
   %.043.i = phi i64 [ %41, %35 ], [ %3, %15 ]
   %.0.i = phi ptr [ %40, %35 ], [ %2, %15 ]
   %44 = lshr i64 %.043.i, 6
-  %.not49.i = icmp ult i64 %.043.i, 64
+  %.not49.i = icmp eq i64 %44, 0
   br i1 %.not49.i, label %49, label %45
 
 45:                                               ; preds = %43
@@ -1406,10 +1406,10 @@ output_root_bytes.exit:                           ; preds = %49, %51
   %90 = phi ptr [ %77, %.thread ], [ %89, %78 ]
   %91 = phi ptr [ %76, %.thread ], [ %88, %78 ]
   %92 = phi ptr [ %75, %.thread ], [ %87, %78 ]
-  %.068 = phi i64 [ %66, %.thread ], [ %80, %78 ]
-  %.sink67 = phi i8 [ %71, %.thread ], [ %86, %78 ]
-  %.sink5266 = phi i8 [ %62, %.thread ], [ 64, %78 ]
-  %.sink5365 = phi i64 [ %74, %.thread ], [ 0, %78 ]
+  %.070 = phi i64 [ %66, %.thread ], [ %80, %78 ]
+  %.sink69 = phi i8 [ %71, %.thread ], [ %86, %78 ]
+  %.sink5268 = phi i8 [ %62, %.thread ], [ 64, %78 ]
+  %.sink5367 = phi i64 [ %74, %.thread ], [ 0, %78 ]
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 145
   %94 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -1431,10 +1431,10 @@ output_root_bytes.exit:                           ; preds = %49, %51
   br label %103
 
 103:                                              ; preds = %.lr.ph, %103
-  %104 = phi i8 [ %.sink67, %.lr.ph ], [ %119, %103 ]
-  %105 = phi i64 [ %.sink5365, %.lr.ph ], [ 0, %103 ]
-  %106 = phi i8 [ %.sink5266, %.lr.ph ], [ 64, %103 ]
-  %.151 = phi i64 [ %.068, %.lr.ph ], [ %107, %103 ]
+  %104 = phi i8 [ %.sink69, %.lr.ph ], [ %119, %103 ]
+  %105 = phi i64 [ %.sink5367, %.lr.ph ], [ 0, %103 ]
+  %106 = phi i8 [ %.sink5268, %.lr.ph ], [ 64, %103 ]
+  %.151 = phi i64 [ %.070, %.lr.ph ], [ %107, %103 ]
   %107 = add i64 %.151, -1
   %108 = shl i64 %107, 5
   %109 = getelementptr inbounds nuw i8, ptr %93, i64 %108
@@ -1499,7 +1499,7 @@ output_root_bytes.exit:                           ; preds = %49, %51
   %.043.i26 = phi i64 [ %132, %125 ], [ %3, %._crit_edge ]
   %.0.i27 = phi ptr [ %131, %125 ], [ %2, %._crit_edge ]
   %135 = lshr i64 %.043.i26, 6
-  %.not49.i28 = icmp ult i64 %.043.i26, 64
+  %.not49.i28 = icmp eq i64 %135, 0
   br i1 %.not49.i28, label %141, label %136
 
 136:                                              ; preds = %134

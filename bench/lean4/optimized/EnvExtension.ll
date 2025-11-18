@@ -4025,7 +4025,7 @@ lean_nat_eq.exit.thread:                          ; preds = %89
   br i1 %90, label %.thread125, label %.thread
 
 91:                                               ; preds = %lean_nat_eq.exit
-  %92 = icmp ult ptr %.1.i114119, inttoptr (i64 2 to ptr)
+  %92 = icmp eq i64 %39, 0
   br i1 %92, label %lean_dec.exit72, label %93
 
 93:                                               ; preds = %91
@@ -6674,7 +6674,7 @@ lean_nat_eq.exit.thread:                          ; preds = %lean_dec.exit81
   br i1 %117, label %.thread139, label %.thread
 
 118:                                              ; preds = %lean_nat_eq.exit
-  %119 = icmp ult ptr %.1.i127133, inttoptr (i64 2 to ptr)
+  %119 = icmp eq i64 %40, 0
   br i1 %119, label %lean_dec.exit80, label %120
 
 120:                                              ; preds = %118
@@ -7919,7 +7919,7 @@ lean_nat_eq.exit.thread:                          ; preds = %106
   br i1 %107, label %.thread133, label %.thread
 
 108:                                              ; preds = %lean_nat_eq.exit
-  %109 = icmp ult ptr %.1.i121127, inttoptr (i64 2 to ptr)
+  %109 = icmp eq i64 %40, 0
   br i1 %109, label %lean_dec.exit76, label %110
 
 110:                                              ; preds = %108

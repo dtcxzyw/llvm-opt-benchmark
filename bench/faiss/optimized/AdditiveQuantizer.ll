@@ -2199,7 +2199,7 @@ define internal void @_ZNK5faiss17AdditiveQuantizer10pack_codesEmPKiPhlPKfS5_.om
   %66 = or i8 %64, %65
   store i8 %66, ptr %63, align 1, !tbaa !51
   %67 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp samesign ult i64 %.01318.i, 256
+  %.not16.i = icmp eq i64 %67, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !99
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %45, %53
@@ -2259,7 +2259,7 @@ _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %45, %53
   %100 = or i8 %98, %99
   store i8 %100, ptr %97, align 1, !tbaa !51
   %101 = lshr i64 %.01318.i30, 8
-  %.not16.i32 = icmp samesign ult i64 %.01318.i30, 256
+  %.not16.i32 = icmp eq i64 %101, 0
   br i1 %.not16.i32, label %_ZN5faiss15BitstringWriter5writeEmi.exit33, label %.lr.ph.i28, !llvm.loop !99
 
 _ZN5faiss15BitstringWriter5writeEmi.exit33:       ; preds = %.lr.ph.i28, %88, %81, %._crit_edge

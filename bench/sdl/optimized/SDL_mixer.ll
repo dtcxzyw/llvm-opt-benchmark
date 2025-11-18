@@ -77,17 +77,14 @@ define hidden zeroext i1 @SDL_MixAudio_REAL(ptr noundef captures(none) %0, ptr n
   br i1 %.not154, label %.loopexit, label %.lr.ph198, !llvm.loop !5
 
 37:                                               ; preds = %10
-  %.not152189 = icmp ult i32 %3, 2
-  br i1 %.not152189, label %.loopexit, label %.lr.ph193.preheader
-
-.lr.ph193.preheader:                              ; preds = %37
   %38 = lshr i32 %3, 1
-  br label %.lr.ph193
+  %.not152189 = icmp eq i32 %38, 0
+  br i1 %.not152189, label %.loopexit, label %.lr.ph193
 
-.lr.ph193:                                        ; preds = %.lr.ph193.preheader, %.lr.ph193
-  %.1192 = phi ptr [ %48, %.lr.ph193 ], [ %0, %.lr.ph193.preheader ]
-  %.1119191 = phi ptr [ %45, %.lr.ph193 ], [ %1, %.lr.ph193.preheader ]
-  %.2123190 = phi i32 [ %39, %.lr.ph193 ], [ %38, %.lr.ph193.preheader ]
+.lr.ph193:                                        ; preds = %37, %.lr.ph193
+  %.1192 = phi ptr [ %48, %.lr.ph193 ], [ %0, %37 ]
+  %.1119191 = phi ptr [ %45, %.lr.ph193 ], [ %1, %37 ]
+  %.2123190 = phi i32 [ %39, %.lr.ph193 ], [ %38, %37 ]
   %39 = add nsw i32 %.2123190, -1
   %40 = load i16, ptr %.1119191, align 2
   %41 = sext i16 %40 to i32
@@ -103,17 +100,14 @@ define hidden zeroext i1 @SDL_MixAudio_REAL(ptr noundef captures(none) %0, ptr n
   br i1 %.not152, label %.loopexit, label %.lr.ph193, !llvm.loop !6
 
 49:                                               ; preds = %10
-  %.not151185 = icmp ult i32 %3, 2
-  br i1 %.not151185, label %.loopexit, label %.lr.ph188.preheader
-
-.lr.ph188.preheader:                              ; preds = %49
   %50 = lshr i32 %3, 1
-  br label %.lr.ph188
+  %.not151185 = icmp eq i32 %50, 0
+  br i1 %.not151185, label %.loopexit, label %.lr.ph188
 
-.lr.ph188:                                        ; preds = %.lr.ph188.preheader, %67
-  %.in205 = phi i32 [ %51, %67 ], [ %50, %.lr.ph188.preheader ]
-  %.2187 = phi ptr [ %68, %67 ], [ %0, %.lr.ph188.preheader ]
-  %.2120186 = phi ptr [ %59, %67 ], [ %1, %.lr.ph188.preheader ]
+.lr.ph188:                                        ; preds = %49, %67
+  %.in205 = phi i32 [ %51, %67 ], [ %50, %49 ]
+  %.2187 = phi ptr [ %68, %67 ], [ %0, %49 ]
+  %.2120186 = phi ptr [ %59, %67 ], [ %1, %49 ]
   %51 = add nsw i32 %.in205, -1
   %52 = load i16, ptr %.2120186, align 2
   %53 = tail call i16 @llvm.bswap.i16(i16 %52)
@@ -144,11 +138,11 @@ define hidden zeroext i1 @SDL_MixAudio_REAL(ptr noundef captures(none) %0, ptr n
   br i1 %.not151, label %.loopexit, label %.lr.ph188, !llvm.loop !7
 
 69:                                               ; preds = %10
-  %.not150180 = icmp ult i32 %3, 4
+  %70 = lshr i32 %3, 2
+  %.not150180 = icmp eq i32 %70, 0
   br i1 %.not150180, label %.loopexit, label %.lr.ph184
 
 .lr.ph184:                                        ; preds = %69
-  %70 = lshr i32 %3, 2
   %71 = sext i32 %8 to i64
   br label %72
 
@@ -174,11 +168,11 @@ define hidden zeroext i1 @SDL_MixAudio_REAL(ptr noundef captures(none) %0, ptr n
   br i1 %.not150, label %.loopexit, label %72, !llvm.loop !8
 
 83:                                               ; preds = %10
-  %.not149175 = icmp ult i32 %3, 4
+  %84 = lshr i32 %3, 2
+  %.not149175 = icmp eq i32 %84, 0
   br i1 %.not149175, label %.loopexit, label %.lr.ph179
 
 .lr.ph179:                                        ; preds = %83
-  %84 = lshr i32 %3, 2
   %85 = sext i32 %8 to i64
   br label %86
 
@@ -208,17 +202,14 @@ define hidden zeroext i1 @SDL_MixAudio_REAL(ptr noundef captures(none) %0, ptr n
   br i1 %.not149, label %.loopexit, label %86, !llvm.loop !9
 
 102:                                              ; preds = %10
-  %.not148171 = icmp ult i32 %3, 4
-  br i1 %.not148171, label %.loopexit, label %.lr.ph174.preheader
-
-.lr.ph174.preheader:                              ; preds = %102
   %103 = lshr i32 %3, 2
-  br label %.lr.ph174
+  %.not148171 = icmp eq i32 %103, 0
+  br i1 %.not148171, label %.loopexit, label %.lr.ph174
 
-.lr.ph174:                                        ; preds = %.lr.ph174.preheader, %114
-  %.in204 = phi i32 [ %104, %114 ], [ %103, %.lr.ph174.preheader ]
-  %.0130173 = phi ptr [ %115, %114 ], [ %0, %.lr.ph174.preheader ]
-  %.0131172 = phi ptr [ %108, %114 ], [ %1, %.lr.ph174.preheader ]
+.lr.ph174:                                        ; preds = %102, %114
+  %.in204 = phi i32 [ %104, %114 ], [ %103, %102 ]
+  %.0130173 = phi ptr [ %115, %114 ], [ %0, %102 ]
+  %.0131172 = phi ptr [ %108, %114 ], [ %1, %102 ]
   %104 = add nsw i32 %.in204, -1
   %105 = load float, ptr %.0131172, align 4
   %106 = fmul float %4, %105
@@ -243,17 +234,14 @@ define hidden zeroext i1 @SDL_MixAudio_REAL(ptr noundef captures(none) %0, ptr n
   br i1 %.not148, label %.loopexit, label %.lr.ph174, !llvm.loop !10
 
 116:                                              ; preds = %10
-  %.not168 = icmp ult i32 %3, 4
-  br i1 %.not168, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %116
   %117 = lshr i32 %3, 2
-  br label %.lr.ph
+  %.not168 = icmp eq i32 %117, 0
+  br i1 %.not168, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %132
-  %.in = phi i32 [ %118, %132 ], [ %117, %.lr.ph.preheader ]
-  %.0124170 = phi ptr [ %135, %132 ], [ %0, %.lr.ph.preheader ]
-  %.0125169 = phi ptr [ %126, %132 ], [ %1, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %116, %132
+  %.in = phi i32 [ %118, %132 ], [ %117, %116 ]
+  %.0124170 = phi ptr [ %135, %132 ], [ %0, %116 ]
+  %.0125169 = phi ptr [ %126, %132 ], [ %1, %116 ]
   %118 = add nsw i32 %.in, -1
   %119 = load i32, ptr %.0125169, align 4
   %120 = tail call i32 @llvm.bswap.i32(i32 %119)

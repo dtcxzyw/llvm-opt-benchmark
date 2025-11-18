@@ -148,16 +148,16 @@ define internal range(i32 0, 2) i32 @aesni_cbc_hmac_sha256_cipher(ptr noundef %0
 
 41:                                               ; preds = %38
   %42 = sub nuw i64 %.0379, %39
-  %.not423 = icmp ult i64 %42, 64
-  br i1 %.not423, label %91, label %43
+  %43 = lshr i64 %42, 6
+  %.not423 = icmp eq i64 %43, 0
+  br i1 %.not423, label %91, label %44
 
-43:                                               ; preds = %41
-  %44 = lshr i64 %42, 6
+44:                                               ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 %.0381
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %52, label %46
 
-46:                                               ; preds = %43
+46:                                               ; preds = %44
   %47 = zext i32 %10 to i64
   %48 = sub nsw i64 64, %47
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %12, i64 %48)
@@ -166,9 +166,9 @@ define internal range(i32 0, 2) i32 @aesni_cbc_hmac_sha256_cipher(ptr noundef %0
   %51 = sub nsw i64 %12, %spec.select.i
   br label %52
 
-52:                                               ; preds = %46, %43
-  %.033.i = phi i64 [ %51, %46 ], [ %12, %43 ]
-  %.032.i = phi ptr [ %50, %46 ], [ %45, %43 ]
+52:                                               ; preds = %46, %44
+  %.033.i = phi i64 [ %51, %46 ], [ %12, %44 ]
+  %.032.i = phi ptr [ %50, %46 ], [ %45, %44 ]
   %53 = and i64 %.033.i, 63
   %54 = and i64 %.033.i, -64
   %.not39.i = icmp eq i64 %54, 0
@@ -211,7 +211,7 @@ sha256_update.exit:                               ; preds = %70, %71
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %75 = getelementptr inbounds nuw i8, ptr %45, i64 %12
-  %76 = tail call i32 @aesni_cbc_sha256_enc(ptr noundef %2, ptr noundef %1, i64 noundef %44, ptr noundef nonnull %73, ptr noundef nonnull %74, ptr noundef nonnull %8, ptr noundef %75) #8
+  %76 = tail call i32 @aesni_cbc_sha256_enc(ptr noundef %2, ptr noundef %1, i64 noundef %43, ptr noundef nonnull %73, ptr noundef nonnull %74, ptr noundef nonnull %8, ptr noundef %75) #8
   %77 = and i64 %42, -64
   %78 = add i64 %77, %12
   %79 = lshr i64 %42, 29
@@ -1313,7 +1313,7 @@ define internal range(i32 -1, 2) i32 @aesni_cbc_hmac_sha256_tls1_multiblock_aad(
   %14 = load i8, ptr %13, align 4
   %15 = and i8 %14, 2
   %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %82, label %16
+  br i1 %.not, label %83, label %16
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 9
@@ -1325,7 +1325,7 @@ define internal range(i32 -1, 2) i32 @aesni_cbc_hmac_sha256_tls1_multiblock_aad(
   %23 = zext i8 %22 to i32
   %24 = or disjoint i32 %20, %23
   %25 = icmp samesign ult i32 %24, 770
-  br i1 %25, label %82, label %26
+  br i1 %25, label %83, label %26
 
 26:                                               ; preds = %16
   %.not55 = icmp eq i32 %12, 0
@@ -1333,102 +1333,103 @@ define internal range(i32 -1, 2) i32 @aesni_cbc_hmac_sha256_tls1_multiblock_aad(
 
 27:                                               ; preds = %26
   %28 = icmp ult i8 %6, 16
-  br i1 %28, label %82, label %29
+  br i1 %28, label %83, label %29
 
 29:                                               ; preds = %27
   %30 = icmp ugt i8 %6, 31
-  br i1 %30, label %31, label %43
+  br i1 %30, label %31, label %44
 
 31:                                               ; preds = %29
   %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 8), align 4, !tbaa !3
   %33 = and i32 %32, 32
   %.not56 = icmp eq i32 %33, 0
   %spec.select = select i1 %.not56, i32 1, i32 2
-  br label %43
+  br label %44
 
 34:                                               ; preds = %26
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %36 = load i32, ptr %35, align 8, !tbaa !49
-  %37 = add i32 %36, -4
-  %or.cond = icmp ult i32 %37, 8
-  br i1 %or.cond, label %38, label %82
+  %37 = lshr i32 %36, 2
+  %38 = icmp ne i32 %37, 0
+  %39 = icmp ult i32 %36, 12
+  %or.cond = and i1 %39, %38
+  br i1 %or.cond, label %40, label %83
 
-38:                                               ; preds = %34
-  %39 = lshr i32 %36, 2
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %41 = load i64, ptr %40, align 8, !tbaa !50
-  %42 = trunc i64 %41 to i32
-  br label %43
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %42 = load i64, ptr %41, align 8, !tbaa !50
+  %43 = trunc i64 %42 to i32
+  br label %44
 
-43:                                               ; preds = %31, %29, %38
-  %.048 = phi i32 [ 1, %29 ], [ %39, %38 ], [ %spec.select, %31 ]
-  %.0 = phi i32 [ %12, %29 ], [ %42, %38 ], [ %12, %31 ]
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %44, ptr noundef nonnull align 8 dereferenceable(112) %45, i64 112, i1 false), !tbaa.struct !17
-  %46 = load ptr, ptr %3, align 8, !tbaa !47
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 832
-  %48 = load i32, ptr %47, align 4, !tbaa !29
-  %.not.i = icmp eq i32 %48, 0
-  br i1 %.not.i, label %.thread60, label %49
+44:                                               ; preds = %31, %29, %40
+  %.048 = phi i32 [ 1, %29 ], [ %37, %40 ], [ %spec.select, %31 ]
+  %.0 = phi i32 [ %12, %29 ], [ %43, %40 ], [ %12, %31 ]
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 504
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %45, ptr noundef nonnull align 8 dereferenceable(112) %46, i64 112, i1 false), !tbaa.struct !17
+  %47 = load ptr, ptr %3, align 8, !tbaa !47
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 832
+  %49 = load i32, ptr %48, align 4, !tbaa !29
+  %.not.i = icmp eq i32 %49, 0
+  br i1 %.not.i, label %.thread60, label %50
 
-49:                                               ; preds = %43
-  %50 = zext i32 %48 to i64
-  %51 = sub nsw i64 64, %50
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %51, i64 13)
-  %52 = tail call i32 @SHA256_Update(ptr noundef nonnull %44, ptr noundef %46, i64 noundef %spec.select.i) #8
-  %53 = getelementptr inbounds nuw i8, ptr %46, i64 %spec.select.i
-  %54 = sub nuw nsw i64 13, %spec.select.i
-  %.not40.i = icmp ugt i64 %51, 12
+50:                                               ; preds = %44
+  %51 = zext i32 %49 to i64
+  %52 = sub nsw i64 64, %51
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %52, i64 13)
+  %53 = tail call i32 @SHA256_Update(ptr noundef nonnull %45, ptr noundef %47, i64 noundef %spec.select.i) #8
+  %54 = getelementptr inbounds nuw i8, ptr %47, i64 %spec.select.i
+  %55 = sub nuw nsw i64 13, %spec.select.i
+  %.not40.i = icmp ugt i64 %52, 12
   br i1 %.not40.i, label %sha256_update.exit, label %.thread60
 
-.thread60:                                        ; preds = %43, %49
-  %.1.i63 = phi ptr [ %53, %49 ], [ %46, %43 ]
-  %55 = phi i64 [ %54, %49 ], [ 13, %43 ]
-  %56 = tail call i32 @SHA256_Update(ptr noundef nonnull %44, ptr noundef %.1.i63, i64 noundef %55) #8
+.thread60:                                        ; preds = %44, %50
+  %.1.i63 = phi ptr [ %54, %50 ], [ %47, %44 ]
+  %56 = phi i64 [ %55, %50 ], [ 13, %44 ]
+  %57 = tail call i32 @SHA256_Update(ptr noundef nonnull %45, ptr noundef %.1.i63, i64 noundef %56) #8
   br label %sha256_update.exit
 
-sha256_update.exit:                               ; preds = %49, %.thread60
-  %57 = shl nuw nsw i32 %.048, 2
-  %58 = add nuw nsw i32 %.048, 1
-  %59 = lshr i32 %.0, %58
-  %60 = add i32 %59, %.0
-  %61 = shl i32 %59, %58
-  %62 = sub i32 %60, %61
-  %63 = icmp ugt i32 %62, %59
-  br i1 %63, label %64, label %72
+sha256_update.exit:                               ; preds = %50, %.thread60
+  %58 = shl nuw nsw i32 %.048, 2
+  %59 = add nuw nsw i32 %.048, 1
+  %60 = lshr i32 %.0, %59
+  %61 = add i32 %60, %.0
+  %62 = shl i32 %60, %59
+  %63 = sub i32 %61, %62
+  %64 = icmp ugt i32 %63, %60
+  br i1 %64, label %65, label %73
 
-64:                                               ; preds = %sha256_update.exit
-  %65 = add i32 %62, 22
-  %66 = and i32 %65, 63
-  %67 = add nsw i32 %57, -1
-  %68 = icmp samesign ult i32 %66, %67
-  br i1 %68, label %69, label %72
+65:                                               ; preds = %sha256_update.exit
+  %66 = add i32 %63, 22
+  %67 = and i32 %66, 63
+  %68 = add nsw i32 %58, -1
+  %69 = icmp samesign ult i32 %67, %68
+  br i1 %69, label %70, label %73
 
-69:                                               ; preds = %64
-  %70 = add nuw nsw i32 %59, 1
-  %71 = sub i32 %62, %67
-  br label %72
+70:                                               ; preds = %65
+  %71 = add nuw nsw i32 %60, 1
+  %72 = sub i32 %63, %68
+  br label %73
 
-72:                                               ; preds = %69, %64, %sha256_update.exit
-  %.047 = phi i32 [ %70, %69 ], [ %59, %64 ], [ %59, %sha256_update.exit ]
-  %.046 = phi i32 [ %71, %69 ], [ %62, %64 ], [ %62, %sha256_update.exit ]
-  %73 = and i32 %.047, -16
-  %74 = add nuw nsw i32 %73, 69
-  %75 = shl i32 %74, %58
-  %76 = and i32 %.046, -16
-  %77 = sub i32 %76, %73
-  %78 = add i32 %77, %75
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 %57, ptr %79, align 8, !tbaa !49
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  store i32 %57, ptr %80, align 8, !tbaa !51
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 476
-  store i32 %78, ptr %81, align 4, !tbaa !52
-  br label %82
+73:                                               ; preds = %70, %65, %sha256_update.exit
+  %.047 = phi i32 [ %71, %70 ], [ %60, %65 ], [ %60, %sha256_update.exit ]
+  %.046 = phi i32 [ %72, %70 ], [ %63, %65 ], [ %63, %sha256_update.exit ]
+  %74 = and i32 %.047, -16
+  %75 = add nuw nsw i32 %74, 69
+  %76 = shl i32 %75, %59
+  %77 = and i32 %.046, -16
+  %78 = sub i32 %77, %74
+  %79 = add i32 %78, %76
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i32 %58, ptr %80, align 8, !tbaa !49
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  store i32 %58, ptr %81, align 8, !tbaa !51
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 476
+  store i32 %79, ptr %82, align 4, !tbaa !52
+  br label %83
 
-82:                                               ; preds = %2, %34, %27, %16, %72
-  %.045 = phi i32 [ 1, %72 ], [ -1, %16 ], [ 0, %27 ], [ -1, %34 ], [ -1, %2 ]
+83:                                               ; preds = %2, %34, %27, %16, %73
+  %.045 = phi i32 [ 1, %73 ], [ -1, %16 ], [ 0, %27 ], [ -1, %34 ], [ -1, %2 ]
   ret i32 %.045
 }
 
@@ -1500,7 +1501,7 @@ define internal i32 @aesni_cbc_hmac_sha256_tls1_multiblock_encrypt(ptr noundef %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %47, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false)
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false)
-  %.not407.i = icmp ult i32 %14, 4
+  %.not407.i = icmp eq i32 %15, 0
   br i1 %.not407.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 ._crit_edge.thread.i:                             ; preds = %44
@@ -1724,7 +1725,7 @@ define internal i32 @aesni_cbc_hmac_sha256_tls1_multiblock_encrypt(ptr noundef %
   br i1 %165, label %.preheader.split.i, label %.loopexit.thread.i, !llvm.loop !67
 
 .loopexit.thread.i:                               ; preds = %.preheader.split.i
-  call void @sha256_multi_block(ptr noundef nonnull %28, ptr noundef nonnull %3, i32 noundef range(i32 0, 1073741824) %15) #8
+  call void @sha256_multi_block(ptr noundef nonnull %28, ptr noundef nonnull %3, i32 noundef range(i32 0, 1073741824) 0) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %7, i8 0, i64 1024, i1 false)
   br label %._crit_edge394.thread.i
 

@@ -11228,7 +11228,7 @@ define noalias noundef align 8 ptr @_ZN12pingora_core10connectors2l46BindTo14set
 
 10:                                               ; preds = %8
   %11 = icmp eq i16 %.sroa.06.2.extract.trunc, 0
-  %12 = icmp ult i48 %1, 4294967296
+  %12 = icmp eq i48 %.sroa.06.4.extract.shift, 0
   %or.cond = and i1 %12, %11
   br i1 %or.cond, label %13, label %14
 

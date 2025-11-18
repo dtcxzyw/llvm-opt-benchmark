@@ -2248,9 +2248,9 @@ define hidden noundef zeroext i1 @_ZN6quiche8recovery10congestion7hystart7Hystar
   %52 = and i32 %51, 7
   %53 = mul nuw nsw i32 %52, 125000000
   %54 = add nuw nsw i32 %53, %50
-  %55 = icmp ult i64 %44, 8
+  %55 = icmp eq i64 %49, 0
   %56 = icmp samesign ugt i32 %54, 4000000
-  %57 = icmp ugt i64 %44, 7
+  %57 = icmp ne i64 %49, 0
   %.sroa.0.0.i.i.i24 = select i1 %55, i1 %56, i1 %57
   %.sroa.3.0.i25 = select i1 %.sroa.0.0.i.i.i24, i32 %54, i32 4000000
   %.sroa.0.0.sroa.speculated.i26 = select i1 %.sroa.0.0.i.i.i24, i64 %49, i64 0

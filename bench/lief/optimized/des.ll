@@ -1469,7 +1469,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_des_self_test(i32 noundef %0) local_u
   br i1 %.not76, label %28, label %20
 
 20:                                               ; preds = %.backedge170
-  %21 = icmp samesign ult i32 %.064135, 2
+  %21 = icmp eq i32 %18, 0
   %22 = select i1 %21, i32 32, i32 51
   %23 = mul nuw nsw i32 %18, 56
   %24 = add nuw nsw i32 %23, 56
@@ -1799,7 +1799,7 @@ mbedtls_des_setkey_dec.exit.split:                ; preds = %mbedtls_des_setkey_
 
 179:                                              ; preds = %.backedge
   %180 = and i32 %.165143, 1
-  %181 = icmp samesign ult i32 %.165143, 2
+  %181 = icmp eq i32 %178, 0
   %182 = select i1 %181, i32 32, i32 51
   %183 = mul nuw nsw i32 %178, 56
   %184 = add nuw nsw i32 %183, 56

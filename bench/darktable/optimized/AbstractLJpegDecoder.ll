@@ -1645,7 +1645,7 @@ _ZN8rawspeed10ByteStream7getByteEv.exit48:        ; preds = %_ZN8rawspeed10ByteS
   %77 = getelementptr inbounds nuw i8, ptr %57, i64 300
   %78 = load i32, ptr %77, align 4, !tbaa !210
   %.not37 = icmp eq i32 %76, %78
-  br i1 %.not37, label %103, label %108
+  br i1 %.not37, label %104, label %109
 
 79:                                               ; preds = %.lr.ph, %74
   %indvars.iv89 = phi i64 [ %72, %.lr.ph ], [ %indvars.iv.next90, %74 ]
@@ -1692,47 +1692,48 @@ _ZN8rawspeed10ByteStream7getByteEv.exit54:        ; preds = %_ZN8rawspeed10ByteS
   unreachable
 
 96:                                               ; preds = %_ZN8rawspeed10ByteStream7getByteEv.exit54
-  %97 = add i8 %.0.copyload.i.i.i.i.i.i53, -80
-  %or.cond60 = icmp ult i8 %97, -64
-  br i1 %or.cond60, label %98, label %99
+  %97 = icmp eq i32 %92, 0
+  %98 = icmp ugt i8 %.0.copyload.i.i.i.i.i.i53, 79
+  %or.cond60 = or i1 %98, %97
+  br i1 %or.cond60, label %99, label %100
 
-98:                                               ; preds = %96
+99:                                               ; preds = %96
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.18, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed20AbstractLJpegDecoder8parseSOFENS_10ByteStreamEPNS_7SOFInfoE) #15
   unreachable
 
-99:                                               ; preds = %96
+100:                                              ; preds = %96
   %.not.i.not.i.i.i.i.i55 = icmp samesign ult i64 %87, %19
-  br i1 %.not.i.not.i.i.i.i.i55, label %_ZN8rawspeed10ByteStream7getByteEv.exit57, label %100
+  br i1 %.not.i.not.i.i.i.i.i55, label %_ZN8rawspeed10ByteStream7getByteEv.exit57, label %101
 
-100:                                              ; preds = %99
+101:                                              ; preds = %100
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.35, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #15
   unreachable
 
-_ZN8rawspeed10ByteStream7getByteEv.exit57:        ; preds = %99
-  %101 = getelementptr inbounds nuw i8, ptr %10, i64 %87
-  %.0.copyload.i.i.i.i.i.i56 = load i8, ptr %101, align 1
+_ZN8rawspeed10ByteStream7getByteEv.exit57:        ; preds = %100
+  %102 = getelementptr inbounds nuw i8, ptr %10, i64 %87
+  %.0.copyload.i.i.i.i.i.i56 = load i8, ptr %102, align 1
   %.not39 = icmp eq i8 %.0.copyload.i.i.i.i.i.i56, 0
-  br i1 %.not39, label %74, label %102
+  br i1 %.not39, label %74, label %103
 
-102:                                              ; preds = %_ZN8rawspeed10ByteStream7getByteEv.exit57
+103:                                              ; preds = %_ZN8rawspeed10ByteStream7getByteEv.exit57
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.19, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed20AbstractLJpegDecoder8parseSOFENS_10ByteStreamEPNS_7SOFInfoE) #15
   unreachable
 
-103:                                              ; preds = %._crit_edge
-  %104 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %105 = load i32, ptr %104, align 4, !tbaa !212
-  %106 = getelementptr inbounds nuw i8, ptr %57, i64 304
-  %107 = load i32, ptr %106, align 4, !tbaa !213
-  %.not38 = icmp eq i32 %105, %107
-  br i1 %.not38, label %109, label %108
+104:                                              ; preds = %._crit_edge
+  %105 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %106 = load i32, ptr %105, align 4, !tbaa !212
+  %107 = getelementptr inbounds nuw i8, ptr %57, i64 304
+  %108 = load i32, ptr %107, align 4, !tbaa !213
+  %.not38 = icmp eq i32 %106, %108
+  br i1 %.not38, label %110, label %109
 
-108:                                              ; preds = %103, %._crit_edge
+109:                                              ; preds = %104, %._crit_edge
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.20, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed20AbstractLJpegDecoder8parseSOFENS_10ByteStreamEPNS_7SOFInfoE) #15
   unreachable
 
-109:                                              ; preds = %103
-  %110 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 1, ptr %110, align 4, !tbaa !214
+110:                                              ; preds = %104
+  %111 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i8 1, ptr %111, align 4, !tbaa !214
   ret void
 }
 

@@ -23990,7 +23990,7 @@ _ZN5arrow5ArrayD2Ev.exit:                         ; preds = %_ZN5arrow6StatusD2E
 
 185:                                              ; preds = %173
   %186 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.not = icmp ult i64 %sext, 4294967296
+  %.not = icmp eq i64 %182, 0
   br i1 %.not, label %_ZNSt6vectorIPKN5arrow5ArrayESaIS3_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIPKN5arrow5ArrayESaIS3_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIPKN5arrow5ArrayESaIS3_EE11_M_allocateEm.exit.i: ; preds = %185

@@ -750,57 +750,59 @@ define dso_local noundef zeroext i1 @_ZN5clang4edit6Commit14canRemoveRangeENS_15
   %.sroa.040.0.extract.trunc = trunc i64 %.fca.0.extract to i32
   %.sroa.7.0.extract.shift = lshr i64 %.fca.0.extract, 32
   %.sroa.7.0.extract.trunc = trunc nuw i64 %.sroa.7.0.extract.shift to i32
-  %10 = icmp slt i32 %.sroa.040.0.extract.trunc, 1
-  %11 = icmp slt i64 %.fca.0.extract, 4294967296
-  %or.cond44 = or i1 %11, %10
+  %10 = icmp eq i64 %.sroa.7.0.extract.shift, 0
+  %11 = icmp slt i32 %.sroa.040.0.extract.trunc, 1
+  %or.cond = or i1 %11, %10
+  %12 = icmp slt i64 %.fca.0.extract, 0
+  %or.cond44 = or i1 %12, %or.cond
   br i1 %or.cond44, label %.critedge, label %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit
 
 _ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit: ; preds = %5
-  %12 = tail call noundef i32 @_ZNK5clang13SourceManager21getFileCharacteristicENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %6, i32 %.sroa.040.0.extract.trunc) #10
-  switch i32 %12, label %.critedge [
+  %13 = tail call noundef i32 @_ZNK5clang13SourceManager21getFileCharacteristicENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %6, i32 %.sroa.040.0.extract.trunc) #10
+  switch i32 %13, label %.critedge [
     i32 3, label %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit29
     i32 0, label %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit29
   ]
 
 _ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit29: ; preds = %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit
-  %13 = tail call noundef i32 @_ZNK5clang13SourceManager21getFileCharacteristicENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %6, i32 %.sroa.7.0.extract.trunc) #10
-  switch i32 %13, label %.critedge [
-    i32 3, label %14
-    i32 0, label %14
+  %14 = tail call noundef i32 @_ZNK5clang13SourceManager21getFileCharacteristicENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %6, i32 %.sroa.7.0.extract.trunc) #10
+  switch i32 %14, label %.critedge [
+    i32 3, label %15
+    i32 0, label %15
   ]
 
-14:                                               ; preds = %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit29, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit29
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !61
-  %.not = icmp eq ptr %16, null
-  br i1 %.not, label %19, label %17
+15:                                               ; preds = %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit29, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit29
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = load ptr, ptr %16, align 8, !tbaa !61
+  %.not = icmp eq ptr %17, null
+  br i1 %.not, label %20, label %18
 
-17:                                               ; preds = %14
-  %18 = tail call noundef zeroext i1 @_ZNK5clang28PPConditionalDirectiveRecord35rangeIntersectsConditionalDirectiveENS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(80) %16, i64 %.fca.0.extract) #10
-  br i1 %18, label %.critedge, label %19
+18:                                               ; preds = %15
+  %19 = tail call noundef zeroext i1 @_ZNK5clang28PPConditionalDirectiveRecord35rangeIntersectsConditionalDirectiveENS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(80) %17, i64 %.fca.0.extract) #10
+  br i1 %19, label %.critedge, label %20
 
-19:                                               ; preds = %17, %14
-  %20 = tail call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %6, i32 %.sroa.040.0.extract.trunc)
-  %.sroa.035.0.extract.trunc = trunc i64 %20 to i32
-  %.sroa.5.0.extract.shift = lshr i64 %20, 32
-  %21 = tail call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %6, i32 %.sroa.7.0.extract.trunc)
-  %.sroa.032.0.extract.trunc = trunc i64 %21 to i32
-  %.sroa.433.0.extract.shift = lshr i64 %21, 32
-  %22 = icmp ne i32 %.sroa.035.0.extract.trunc, %.sroa.032.0.extract.trunc
-  %23 = icmp samesign ugt i64 %.sroa.5.0.extract.shift, %.sroa.433.0.extract.shift
-  %or.cond45 = select i1 %22, i1 true, i1 %23
-  br i1 %or.cond45, label %.critedge, label %24
+20:                                               ; preds = %18, %15
+  %21 = tail call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %6, i32 %.sroa.040.0.extract.trunc)
+  %.sroa.035.0.extract.trunc = trunc i64 %21 to i32
+  %.sroa.5.0.extract.shift = lshr i64 %21, 32
+  %22 = tail call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %6, i32 %.sroa.7.0.extract.trunc)
+  %.sroa.032.0.extract.trunc = trunc i64 %22 to i32
+  %.sroa.433.0.extract.shift = lshr i64 %22, 32
+  %23 = icmp ne i32 %.sroa.035.0.extract.trunc, %.sroa.032.0.extract.trunc
+  %24 = icmp samesign ugt i64 %.sroa.5.0.extract.shift, %.sroa.433.0.extract.shift
+  %or.cond45 = select i1 %23, i1 true, i1 %24
+  br i1 %or.cond45, label %.critedge, label %25
 
-24:                                               ; preds = %19
+25:                                               ; preds = %20
   %.sroa.433.0.extract.trunc = trunc nuw i64 %.sroa.433.0.extract.shift to i32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
-  store i64 %20, ptr %3, align 4
-  %25 = sub i32 %.sroa.433.0.extract.trunc, %.sroa.5.0.extract.trunc
-  store i32 %25, ptr %4, align 4, !tbaa !3
+  store i64 %21, ptr %3, align 4
+  %26 = sub i32 %.sroa.433.0.extract.trunc, %.sroa.5.0.extract.trunc
+  store i32 %26, ptr %4, align 4, !tbaa !3
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit29, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit, %24, %19, %17, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit29 ], [ false, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit ], [ false, %17 ], [ true, %24 ], [ false, %19 ]
+.critedge:                                        ; preds = %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit29, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit, %25, %20, %18, %5
+  %.0 = phi i1 [ false, %5 ], [ false, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit29 ], [ false, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit ], [ false, %18 ], [ true, %25 ], [ false, %20 ]
   ret i1 %.0
 }
 

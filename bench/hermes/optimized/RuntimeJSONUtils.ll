@@ -4462,7 +4462,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit: ; preds = %entry,
   %4 = load i32, ptr %Size.i.i, align 8
   %add.i = add i32 %4, 1
   store i32 %add.i, ptr %Size.i.i, align 8
-  %cmp242.not = icmp ult i64 %view.coerce1, 4294967296
+  %cmp242.not = icmp eq i64 %view.sroa.8.8.extract.shift, 0
   br i1 %cmp242.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit

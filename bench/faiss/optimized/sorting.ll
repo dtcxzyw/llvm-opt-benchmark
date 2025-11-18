@@ -530,7 +530,7 @@ _ZSt13__adjust_heapIPmlmN9__gnu_cxx5__ops15_Iter_comp_iterIN5faiss12_GLOBAL__N_1
 132:                                              ; preds = %127
   %133 = getelementptr inbounds nuw i64, ptr %0, i64 %.0134.i.i.i.i10.i
   store i64 %.val14.i.i.i.i13.i, ptr %133, align 8, !tbaa !4
-  %.not3.i.i.i = icmp ult i64 %.05.in.i.i.i.i11.i, 2
+  %.not3.i.i.i = icmp eq i64 %.059.i.i.i.i12.i, 0
   br i1 %.not3.i.i.i, label %_ZSt10__pop_heapIPmN9__gnu_cxx5__ops15_Iter_comp_iterIN5faiss12_GLOBAL__N_117ArgsortComparatorEEEEvT_S8_S8_RT0_.exit.i.i, label %127, !llvm.loop !16
 
 _ZSt10__pop_heapIPmN9__gnu_cxx5__ops15_Iter_comp_iterIN5faiss12_GLOBAL__N_117ArgsortComparatorEEEEvT_S8_S8_RT0_.exit.i.i: ; preds = %132, %127, %124

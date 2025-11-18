@@ -1100,7 +1100,7 @@ define internal fastcc ptr @tarOpen(ptr noundef %0, ptr noundef %1, i8 noundef s
   %60 = load i64, ptr %39, align 8
   %61 = add i64 %60, 511
   %62 = lshr i64 %61, 9
-  %.not57.i = icmp ult i64 %61, 512
+  %.not57.i = icmp eq i64 %62, 0
   br i1 %.not57.i, label %._crit_edge.i, label %.lr.ph56.i
 
 .lr.ph56.i:                                       ; preds = %59, %_tarReadRaw.exit.i

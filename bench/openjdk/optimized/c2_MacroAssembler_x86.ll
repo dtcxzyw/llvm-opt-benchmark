@@ -15859,7 +15859,7 @@ define hidden void @_ZN17C2_MacroAssembler22vector_long_to_maskvecE11XMMRegister
   tail call void @_ZN9Assembler5pdepqE8RegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %3, i32 %4, i32 %3) #12
   tail call void @_ZN9Assembler6pinsrqE11XMMRegister8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %5, i32 %3, i32 noundef %18) #12
   %22 = lshr i32 %17, 1
-  %.not = icmp eq i32 %.06569, 0
+  %.not = icmp eq i32 %22, 0
   br i1 %.not, label %26, label %23
 
 23:                                               ; preds = %21

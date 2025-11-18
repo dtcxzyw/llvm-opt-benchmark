@@ -10,7 +10,7 @@ define void @lv_draw_sw_i1_to_argb8888(ptr noundef readonly captures(none) %0, p
   br i1 %.not, label %._crit_edge34, label %.preheader26.lr.ph
 
 .preheader26.lr.ph:                               ; preds = %8
-  %.not35 = icmp ult i32 %2, 8
+  %.not35 = icmp eq i32 %9, 0
   %10 = zext i32 %4 to i64
   %11 = lshr i32 %5, 2
   %12 = zext nneg i32 %11 to i64
@@ -43,8 +43,8 @@ define void @lv_draw_sw_i1_to_argb8888(ptr noundef readonly captures(none) %0, p
   %20 = getelementptr inbounds nuw i8, ptr %.127.us, i64 4
   store i32 %19, ptr %.127.us, align 4, !tbaa !8
   %21 = add nsw i32 %.028.us, -1
-  %.not40 = icmp eq i32 %.028.us, 0
-  br i1 %.not40, label %13, label %14, !llvm.loop !10
+  %.not41 = icmp eq i32 %.028.us, 0
+  br i1 %.not41, label %13, label %14, !llvm.loop !10
 
 .preheader.us:                                    ; preds = %.preheader26.us, %13
   %indvars.iv = phi i64 [ 0, %.preheader26.us ], [ %indvars.iv.next, %13 ]
@@ -236,22 +236,22 @@ define void @lv_draw_sw_i1_invert(ptr noundef %0, i32 noundef %1) local_unnamed_
 25:                                               ; preds = %._crit_edge40, %._crit_edge
   %.128 = phi ptr [ %23, %._crit_edge40 ], [ %.027.lcssa, %._crit_edge ]
   %.1 = phi i32 [ %24, %._crit_edge40 ], [ %.0.lcssa, %._crit_edge ]
-  %.not = icmp eq i32 %.1, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph43.preheader
+  %.not44 = icmp eq i32 %.1, 0
+  br i1 %.not44, label %.loopexit, label %.lr.ph43.preheader
 
 .lr.ph43.preheader:                               ; preds = %25
-  %wide.trip.count49 = zext nneg i32 %.1 to i64
+  %wide.trip.count50 = zext nneg i32 %.1 to i64
   br label %.lr.ph43
 
 .lr.ph43:                                         ; preds = %.lr.ph43.preheader, %.lr.ph43
-  %indvars.iv46 = phi i64 [ 0, %.lr.ph43.preheader ], [ %indvars.iv.next47, %.lr.ph43 ]
-  %26 = getelementptr inbounds nuw i8, ptr %.128, i64 %indvars.iv46
+  %indvars.iv47 = phi i64 [ 0, %.lr.ph43.preheader ], [ %indvars.iv.next48, %.lr.ph43 ]
+  %26 = getelementptr inbounds nuw i8, ptr %.128, i64 %indvars.iv47
   %27 = load i8, ptr %26, align 1, !tbaa !5
   %28 = xor i8 %27, -1
   store i8 %28, ptr %26, align 1, !tbaa !5
-  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count49
-  br i1 %exitcond50.not, label %.loopexit, label %.lr.ph43, !llvm.loop !18
+  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
+  %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
+  br i1 %exitcond51.not, label %.loopexit, label %.lr.ph43, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.lr.ph43, %25, %2
   ret void

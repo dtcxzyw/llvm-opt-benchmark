@@ -3998,7 +3998,7 @@ define internal range(i32 0, 4) i32 @png_handle_hIST(ptr noalias noundef %0, ptr
   br i1 %or.cond, label %15, label %.preheader
 
 .preheader:                                       ; preds = %8
-  %.not22 = icmp samesign ult i32 %2, 2
+  %.not22 = icmp eq i32 %6, 0
   br i1 %.not22, label %._crit_edge, label %png_crc_read.exit.preheader
 
 png_crc_read.exit.preheader:                      ; preds = %.preheader
@@ -6826,7 +6826,7 @@ define internal void @png_read_filter_row_avg(ptr noundef readonly captures(none
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !79
   %11 = sub i64 %10, %8
-  %.not = icmp eq i8 %5, 0
+  %.not = icmp eq i64 %8, 0
   br i1 %.not, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %3
@@ -6939,7 +6939,7 @@ define internal void @png_read_filter_row_paeth_multibyte_pixel(ptr noundef read
   %7 = add nuw nsw i64 %6, 7
   %8 = lshr i64 %7, 3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 %8
-  %.not = icmp eq i8 %5, 0
+  %.not = icmp eq i64 %8, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph

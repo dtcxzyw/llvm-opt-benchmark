@@ -4020,7 +4020,7 @@ _ZN6brotli3enc14block_splitter13ClusterBlocks17h09a921fedbbff64fE.exit.i: ; pred
   %.not.i.i178.i.i = icmp ugt i64 %985, %357
   %.idx440.i.i = shl nuw nsw i64 %985, 5
   %986 = getelementptr inbounds nuw i8, ptr %355, i64 %.idx440.i.i
-  %987 = icmp ult i64 %.039520.i, 8
+  %987 = icmp eq i64 %985, 0
   %988 = and i64 %.039520.i, -8
   %989 = and i64 %.039520.i, 7
   %990 = and i64 %.039520.i, 4294967295
@@ -4029,7 +4029,7 @@ _ZN6brotli3enc14block_splitter13ClusterBlocks17h09a921fedbbff64fE.exit.i: ; pred
   %993 = icmp ugt i64 %992, %357
   %.idx441.i.i = shl nuw nsw i64 %992, 5
   %994 = getelementptr inbounds nuw i8, ptr %355, i64 %.idx441.i.i
-  %995 = icmp eq i64 %990, 0
+  %995 = icmp eq i64 %992, 0
   br i1 %.not.i.i178.i.i, label %.lr.ph422.split.us.i.i, label %.lr.ph422.split.preheader.i.i
 
 .lr.ph422.split.preheader.i.i:                    ; preds = %.lr.ph422.i.i
@@ -7267,7 +7267,7 @@ _ZN6brotli3enc14block_splitter13ClusterBlocks17h76534def3e3ec7c9E.exit.i: ; pred
   %.not.i.i178.i.i147 = icmp ugt i64 %2087, %1450
   %.idx441.i.i148 = shl nuw nsw i64 %2087, 5
   %2088 = getelementptr inbounds nuw i8, ptr %1448, i64 %.idx441.i.i148
-  %2089 = icmp ult i64 %.039552.i, 8
+  %2089 = icmp eq i64 %2087, 0
   %2090 = and i64 %.039552.i, -8
   %2091 = and i64 %.039552.i, 7
   %2092 = and i64 %.039552.i, 4294967295
@@ -7276,7 +7276,7 @@ _ZN6brotli3enc14block_splitter13ClusterBlocks17h76534def3e3ec7c9E.exit.i: ; pred
   %2095 = icmp ugt i64 %2094, %1450
   %.idx442.i.i149 = shl nuw nsw i64 %2094, 5
   %2096 = getelementptr inbounds nuw i8, ptr %1448, i64 %.idx442.i.i149
-  %2097 = icmp eq i64 %2092, 0
+  %2097 = icmp eq i64 %2094, 0
   br i1 %.not.i.i178.i.i147, label %.lr.ph422.split.us.i.i395, label %.lr.ph422.split.preheader.i.i150
 
 .lr.ph422.split.preheader.i.i150:                 ; preds = %.lr.ph422.i.i146
@@ -10528,7 +10528,7 @@ _ZN6brotli3enc14block_splitter13ClusterBlocks17hb9c8282d4a8a1d5fE.exit.i: ; pred
   %.not.i.i178.i.i565 = icmp ugt i64 %3192, %2555
   %.idx441.i.i566 = shl nuw nsw i64 %3192, 5
   %3193 = getelementptr inbounds nuw i8, ptr %2553, i64 %.idx441.i.i566
-  %3194 = icmp ult i64 %.039552.i528, 8
+  %3194 = icmp eq i64 %3192, 0
   %3195 = and i64 %.039552.i528, -8
   %3196 = and i64 %.039552.i528, 7
   %3197 = and i64 %.039552.i528, 4294967295
@@ -10537,7 +10537,7 @@ _ZN6brotli3enc14block_splitter13ClusterBlocks17hb9c8282d4a8a1d5fE.exit.i: ; pred
   %3200 = icmp ugt i64 %3199, %2555
   %.idx442.i.i567 = shl nuw nsw i64 %3199, 5
   %3201 = getelementptr inbounds nuw i8, ptr %2553, i64 %.idx442.i.i567
-  %3202 = icmp eq i64 %3197, 0
+  %3202 = icmp eq i64 %3199, 0
   br i1 %.not.i.i178.i.i565, label %.lr.ph422.split.us.i.i1018, label %.lr.ph422.split.preheader.i.i568
 
 .lr.ph422.split.preheader.i.i568:                 ; preds = %.lr.ph422.i.i564

@@ -3821,30 +3821,30 @@ define noalias nonnull ptr @l_Std_Time_PlainTime_ofNanoseconds(ptr noundef %0) l
 30:                                               ; preds = %28, %23, %8
   %.1.i76.ph = phi ptr [ inttoptr (i64 1 to ptr), %8 ], [ %27, %23 ], [ %29, %28 ]
   %31 = shl i64 %6, 31
-  %32 = icmp ult i64 %31, 4294967296
-  br i1 %32, label %lean_int_emod.exit, label %33
+  %32 = ashr i64 %31, 32
+  %33 = icmp eq i64 %32, 0
+  br i1 %33, label %lean_int_emod.exit, label %34
 
-33:                                               ; preds = %30
-  %34 = ashr i64 %31, 32
+34:                                               ; preds = %30
   %35 = shl i64 %3, 31
   %36 = ashr i64 %35, 32
-  %37 = srem i64 %36, %34
+  %37 = srem i64 %36, %32
   %38 = icmp slt i64 %37, 0
-  %.p.i = tail call i64 @llvm.abs.i64(i64 %34, i1 true)
+  %.p.i = tail call i64 @llvm.abs.i64(i64 %32, i1 true)
   %39 = select i1 %38, i64 %.p.i, i64 0
   %.0.i = add nsw i64 %39, %37
   %40 = add nsw i64 %.0.i, 2147483648
   %41 = icmp samesign ult i64 %40, 4294967296
   br i1 %41, label %42, label %47, !prof !14
 
-42:                                               ; preds = %33
+42:                                               ; preds = %34
   %43 = shl nsw i64 %.0.i, 1
   %44 = and i64 %43, 8589934590
   %45 = or disjoint i64 %44, 1
   %46 = inttoptr i64 %45 to ptr
   br label %lean_int_emod.exit
 
-47:                                               ; preds = %33
+47:                                               ; preds = %34
   %48 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i) #4
   br label %lean_int_emod.exit
 
@@ -3925,30 +3925,30 @@ lean_int_emod.exit50.thread80:                    ; preds = %83
 
 87:                                               ; preds = %83
   %88 = shl i64 %84, 31
-  %89 = icmp ult i64 %88, 4294967296
-  br i1 %89, label %lean_dec.exit27, label %90
+  %89 = ashr i64 %88, 32
+  %90 = icmp eq i64 %89, 0
+  br i1 %90, label %lean_dec.exit27, label %91
 
-90:                                               ; preds = %87
-  %91 = ashr i64 %88, 32
+91:                                               ; preds = %87
   %92 = shl i64 %81, 31
   %93 = ashr i64 %92, 32
-  %94 = srem i64 %93, %91
+  %94 = srem i64 %93, %89
   %95 = icmp slt i64 %94, 0
-  %.p.i46 = tail call i64 @llvm.abs.i64(i64 %91, i1 true)
+  %.p.i46 = tail call i64 @llvm.abs.i64(i64 %89, i1 true)
   %96 = select i1 %95, i64 %.p.i46, i64 0
   %.0.i47 = add nsw i64 %96, %94
   %97 = add nsw i64 %.0.i47, 2147483648
   %98 = icmp samesign ult i64 %97, 4294967296
   br i1 %98, label %99, label %104, !prof !14
 
-99:                                               ; preds = %90
+99:                                               ; preds = %91
   %100 = shl nsw i64 %.0.i47, 1
   %101 = and i64 %100, 8589934590
   %102 = or disjoint i64 %101, 1
   %103 = inttoptr i64 %102 to ptr
   br label %lean_dec.exit27
 
-104:                                              ; preds = %90
+104:                                              ; preds = %91
   %105 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i47) #4
   br label %lean_dec.exit27
 
@@ -3983,30 +3983,30 @@ lean_dec.exit27:                                  ; preds = %104, %99, %87, %113
 
 117:                                              ; preds = %114
   %118 = shl i64 %115, 31
-  %119 = icmp ult i64 %118, 4294967296
-  br i1 %119, label %lean_int_emod.exit57, label %120
+  %119 = ashr i64 %118, 32
+  %120 = icmp eq i64 %119, 0
+  br i1 %120, label %lean_int_emod.exit57, label %121
 
-120:                                              ; preds = %117
-  %121 = ashr i64 %118, 32
+121:                                              ; preds = %117
   %122 = shl i64 %52, 31
   %123 = ashr i64 %122, 32
-  %124 = srem i64 %123, %121
+  %124 = srem i64 %123, %119
   %125 = icmp slt i64 %124, 0
-  %.p.i53 = tail call i64 @llvm.abs.i64(i64 %121, i1 true)
+  %.p.i53 = tail call i64 @llvm.abs.i64(i64 %119, i1 true)
   %126 = select i1 %125, i64 %.p.i53, i64 0
   %.0.i54 = add nsw i64 %126, %124
   %127 = add nsw i64 %.0.i54, 2147483648
   %128 = icmp samesign ult i64 %127, 4294967296
   br i1 %128, label %129, label %134, !prof !14
 
-129:                                              ; preds = %120
+129:                                              ; preds = %121
   %130 = shl nsw i64 %.0.i54, 1
   %131 = and i64 %130, 8589934590
   %132 = or disjoint i64 %131, 1
   %133 = inttoptr i64 %132 to ptr
   br label %lean_int_emod.exit57
 
-134:                                              ; preds = %120
+134:                                              ; preds = %121
   %135 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i54) #4
   br label %lean_int_emod.exit57
 
@@ -4100,30 +4100,30 @@ lean_int_emod.exit72.thread86:                    ; preds = %174
 
 178:                                              ; preds = %174
   %179 = shl i64 %175, 31
-  %180 = icmp ult i64 %179, 4294967296
-  br i1 %180, label %lean_dec.exit, label %181
+  %180 = ashr i64 %179, 32
+  %181 = icmp eq i64 %180, 0
+  br i1 %181, label %lean_dec.exit, label %182
 
-181:                                              ; preds = %178
-  %182 = ashr i64 %179, 32
+182:                                              ; preds = %178
   %183 = shl i64 %52, 31
   %184 = ashr i64 %183, 32
-  %185 = srem i64 %184, %182
+  %185 = srem i64 %184, %180
   %186 = icmp slt i64 %185, 0
-  %.p.i68 = tail call i64 @llvm.abs.i64(i64 %182, i1 true)
+  %.p.i68 = tail call i64 @llvm.abs.i64(i64 %180, i1 true)
   %187 = select i1 %186, i64 %.p.i68, i64 0
   %.0.i69 = add nsw i64 %187, %185
   %188 = add nsw i64 %.0.i69, 2147483648
   %189 = icmp samesign ult i64 %188, 4294967296
   br i1 %189, label %190, label %195, !prof !14
 
-190:                                              ; preds = %181
+190:                                              ; preds = %182
   %191 = shl nsw i64 %.0.i69, 1
   %192 = and i64 %191, 8589934590
   %193 = or disjoint i64 %192, 1
   %194 = inttoptr i64 %193 to ptr
   br label %lean_dec.exit
 
-195:                                              ; preds = %181
+195:                                              ; preds = %182
   %196 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i69) #4
   br label %lean_dec.exit
 
@@ -7013,30 +7013,30 @@ lean_int_emod.exit.thread100:                     ; preds = %10
 
 14:                                               ; preds = %10
   %15 = shl i64 %11, 31
-  %16 = icmp ult i64 %15, 4294967296
-  br i1 %16, label %lean_dec.exit47, label %17
+  %16 = ashr i64 %15, 32
+  %17 = icmp eq i64 %16, 0
+  br i1 %17, label %lean_dec.exit47, label %18
 
-17:                                               ; preds = %14
-  %18 = ashr i64 %15, 32
+18:                                               ; preds = %14
   %19 = shl i64 %8, 31
   %20 = ashr i64 %19, 32
-  %21 = srem i64 %20, %18
+  %21 = srem i64 %20, %16
   %22 = icmp slt i64 %21, 0
-  %.p.i = tail call i64 @llvm.abs.i64(i64 %18, i1 true)
+  %.p.i = tail call i64 @llvm.abs.i64(i64 %16, i1 true)
   %23 = select i1 %22, i64 %.p.i, i64 0
   %.0.i = add nsw i64 %23, %21
   %24 = add nsw i64 %.0.i, 2147483648
   %25 = icmp samesign ult i64 %24, 4294967296
   br i1 %25, label %26, label %31, !prof !14
 
-26:                                               ; preds = %17
+26:                                               ; preds = %18
   %27 = shl nsw i64 %.0.i, 1
   %28 = and i64 %27, 8589934590
   %29 = or disjoint i64 %28, 1
   %30 = inttoptr i64 %29 to ptr
   br label %lean_dec.exit47
 
-31:                                               ; preds = %17
+31:                                               ; preds = %18
   %32 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i) #4
   br label %lean_dec.exit47
 
@@ -7330,30 +7330,30 @@ lean_int_emod.exit87.thread103:                   ; preds = %149
 
 153:                                              ; preds = %149
   %154 = shl i64 %150, 31
-  %155 = icmp ult i64 %154, 4294967296
-  br i1 %155, label %lean_dec.exit43, label %156
+  %155 = ashr i64 %154, 32
+  %156 = icmp eq i64 %155, 0
+  br i1 %156, label %lean_dec.exit43, label %157
 
-156:                                              ; preds = %153
-  %157 = ashr i64 %154, 32
+157:                                              ; preds = %153
   %158 = shl i64 %107, 31
   %159 = ashr i64 %158, 32
-  %160 = srem i64 %159, %157
+  %160 = srem i64 %159, %155
   %161 = icmp slt i64 %160, 0
-  %.p.i83 = tail call i64 @llvm.abs.i64(i64 %157, i1 true)
+  %.p.i83 = tail call i64 @llvm.abs.i64(i64 %155, i1 true)
   %162 = select i1 %161, i64 %.p.i83, i64 0
   %.0.i84 = add nsw i64 %162, %160
   %163 = add nsw i64 %.0.i84, 2147483648
   %164 = icmp samesign ult i64 %163, 4294967296
   br i1 %164, label %165, label %170, !prof !14
 
-165:                                              ; preds = %156
+165:                                              ; preds = %157
   %166 = shl nsw i64 %.0.i84, 1
   %167 = and i64 %166, 8589934590
   %168 = or disjoint i64 %167, 1
   %169 = inttoptr i64 %168 to ptr
   br label %lean_dec.exit43
 
-170:                                              ; preds = %156
+170:                                              ; preds = %157
   %171 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i84) #4
   br label %lean_dec.exit43
 
@@ -8413,30 +8413,30 @@ _init_l_Std_Time_instInhabitedPlainTime___closed__5.exit: ; preds = %124, %129, 
 
 139:                                              ; preds = %136
   %140 = shl i64 %137, 31
-  %141 = icmp ult i64 %140, 4294967296
-  br i1 %141, label %_init_l_Std_Time_instInhabitedPlainTime___closed__7.exit, label %142
+  %141 = ashr i64 %140, 32
+  %142 = icmp eq i64 %141, 0
+  br i1 %142, label %_init_l_Std_Time_instInhabitedPlainTime___closed__7.exit, label %143
 
-142:                                              ; preds = %139
-  %143 = ashr i64 %140, 32
+143:                                              ; preds = %139
   %144 = shl i64 %134, 31
   %145 = ashr i64 %144, 32
-  %146 = srem i64 %145, %143
+  %146 = srem i64 %145, %141
   %147 = icmp slt i64 %146, 0
-  %.p.i.i = tail call i64 @llvm.abs.i64(i64 %143, i1 true)
+  %.p.i.i = tail call i64 @llvm.abs.i64(i64 %141, i1 true)
   %148 = select i1 %147, i64 %.p.i.i, i64 0
   %.0.i.i17 = add nsw i64 %148, %146
   %149 = add nsw i64 %.0.i.i17, 2147483648
   %150 = icmp samesign ult i64 %149, 4294967296
   br i1 %150, label %151, label %156, !prof !14
 
-151:                                              ; preds = %142
+151:                                              ; preds = %143
   %152 = shl nsw i64 %.0.i.i17, 1
   %153 = and i64 %152, 8589934590
   %154 = or disjoint i64 %153, 1
   %155 = inttoptr i64 %154 to ptr
   br label %_init_l_Std_Time_instInhabitedPlainTime___closed__7.exit
 
-156:                                              ; preds = %142
+156:                                              ; preds = %143
   %157 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i17) #4
   br label %_init_l_Std_Time_instInhabitedPlainTime___closed__7.exit
 
@@ -8505,30 +8505,30 @@ _init_l_Std_Time_instInhabitedPlainTime___closed__8.exit: ; preds = %174, %179, 
 
 189:                                              ; preds = %186
   %190 = shl i64 %187, 31
-  %191 = icmp ult i64 %190, 4294967296
-  br i1 %191, label %_init_l_Std_Time_instInhabitedPlainTime___closed__9.exit, label %192
+  %191 = ashr i64 %190, 32
+  %192 = icmp eq i64 %191, 0
+  br i1 %192, label %_init_l_Std_Time_instInhabitedPlainTime___closed__9.exit, label %193
 
-192:                                              ; preds = %189
-  %193 = ashr i64 %190, 32
+193:                                              ; preds = %189
   %194 = shl i64 %184, 31
   %195 = ashr i64 %194, 32
-  %196 = srem i64 %195, %193
+  %196 = srem i64 %195, %191
   %197 = icmp slt i64 %196, 0
-  %.p.i.i26 = tail call i64 @llvm.abs.i64(i64 %193, i1 true)
+  %.p.i.i26 = tail call i64 @llvm.abs.i64(i64 %191, i1 true)
   %198 = select i1 %197, i64 %.p.i.i26, i64 0
   %.0.i.i27 = add nsw i64 %198, %196
   %199 = add nsw i64 %.0.i.i27, 2147483648
   %200 = icmp samesign ult i64 %199, 4294967296
   br i1 %200, label %201, label %206, !prof !14
 
-201:                                              ; preds = %192
+201:                                              ; preds = %193
   %202 = shl nsw i64 %.0.i.i27, 1
   %203 = and i64 %202, 8589934590
   %204 = or disjoint i64 %203, 1
   %205 = inttoptr i64 %204 to ptr
   br label %_init_l_Std_Time_instInhabitedPlainTime___closed__9.exit
 
-206:                                              ; preds = %192
+206:                                              ; preds = %193
   %207 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i27) #4
   br label %_init_l_Std_Time_instInhabitedPlainTime___closed__9.exit
 
@@ -8628,30 +8628,30 @@ _init_l_Std_Time_instInhabitedPlainTime___closed__14.exit: ; preds = %231, %236,
 
 246:                                              ; preds = %243
   %247 = shl i64 %244, 31
-  %248 = icmp ult i64 %247, 4294967296
-  br i1 %248, label %_init_l_Std_Time_instInhabitedPlainTime___closed__15.exit, label %249
+  %248 = ashr i64 %247, 32
+  %249 = icmp eq i64 %248, 0
+  br i1 %249, label %_init_l_Std_Time_instInhabitedPlainTime___closed__15.exit, label %250
 
-249:                                              ; preds = %246
-  %250 = ashr i64 %247, 32
+250:                                              ; preds = %246
   %251 = shl i64 %241, 31
   %252 = ashr i64 %251, 32
-  %253 = srem i64 %252, %250
+  %253 = srem i64 %252, %248
   %254 = icmp slt i64 %253, 0
-  %.p.i.i48 = tail call i64 @llvm.abs.i64(i64 %250, i1 true)
+  %.p.i.i48 = tail call i64 @llvm.abs.i64(i64 %248, i1 true)
   %255 = select i1 %254, i64 %.p.i.i48, i64 0
   %.0.i.i49 = add nsw i64 %255, %253
   %256 = add nsw i64 %.0.i.i49, 2147483648
   %257 = icmp samesign ult i64 %256, 4294967296
   br i1 %257, label %258, label %263, !prof !14
 
-258:                                              ; preds = %249
+258:                                              ; preds = %250
   %259 = shl nsw i64 %.0.i.i49, 1
   %260 = and i64 %259, 8589934590
   %261 = or disjoint i64 %260, 1
   %262 = inttoptr i64 %261 to ptr
   br label %_init_l_Std_Time_instInhabitedPlainTime___closed__15.exit
 
-263:                                              ; preds = %249
+263:                                              ; preds = %250
   %264 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i49) #4
   br label %_init_l_Std_Time_instInhabitedPlainTime___closed__15.exit
 
@@ -8720,30 +8720,30 @@ _init_l_Std_Time_instInhabitedPlainTime___closed__16.exit: ; preds = %281, %286,
 
 296:                                              ; preds = %293
   %297 = shl i64 %294, 31
-  %298 = icmp ult i64 %297, 4294967296
-  br i1 %298, label %_init_l_Std_Time_instInhabitedPlainTime___closed__17.exit, label %299
+  %298 = ashr i64 %297, 32
+  %299 = icmp eq i64 %298, 0
+  br i1 %299, label %_init_l_Std_Time_instInhabitedPlainTime___closed__17.exit, label %300
 
-299:                                              ; preds = %296
-  %300 = ashr i64 %297, 32
+300:                                              ; preds = %296
   %301 = shl i64 %291, 31
   %302 = ashr i64 %301, 32
-  %303 = srem i64 %302, %300
+  %303 = srem i64 %302, %298
   %304 = icmp slt i64 %303, 0
-  %.p.i.i58 = tail call i64 @llvm.abs.i64(i64 %300, i1 true)
+  %.p.i.i58 = tail call i64 @llvm.abs.i64(i64 %298, i1 true)
   %305 = select i1 %304, i64 %.p.i.i58, i64 0
   %.0.i.i59 = add nsw i64 %305, %303
   %306 = add nsw i64 %.0.i.i59, 2147483648
   %307 = icmp samesign ult i64 %306, 4294967296
   br i1 %307, label %308, label %313, !prof !14
 
-308:                                              ; preds = %299
+308:                                              ; preds = %300
   %309 = shl nsw i64 %.0.i.i59, 1
   %310 = and i64 %309, 8589934590
   %311 = or disjoint i64 %310, 1
   %312 = inttoptr i64 %311 to ptr
   br label %_init_l_Std_Time_instInhabitedPlainTime___closed__17.exit
 
-313:                                              ; preds = %299
+313:                                              ; preds = %300
   %314 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i59) #4
   br label %_init_l_Std_Time_instInhabitedPlainTime___closed__17.exit
 

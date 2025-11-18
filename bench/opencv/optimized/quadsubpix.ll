@@ -2202,7 +2202,7 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iterato
   %59 = load float, ptr %58, align 4, !tbaa !51
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 4
   store float %59, ptr %60, align 4, !tbaa !72
-  %.not10.i = icmp ult i64 %.0919.in.i.i.i, 2
+  %.not10.i = icmp eq i64 %.0919.i.i89.i, 0
   br i1 %.not10.i, label %.critedge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !125
 
 .critedge.loopexit.i.i.i:                         ; preds = %55, %.lr.ph.i.i.i

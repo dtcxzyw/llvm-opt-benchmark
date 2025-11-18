@@ -3126,7 +3126,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vc1_decode_sprites(ptr nou
   %14 = load i32, ptr %13, align 4, !tbaa !163
   %.not97.i = icmp slt i32 %14, 0
   %.sink125.i.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 100
-  %.sink125.i.sroa.gep31 = getelementptr inbounds nuw i8, ptr %10, i64 72
+  %.sink125.i.sroa.gep30 = getelementptr inbounds nuw i8, ptr %10, i64 72
   br i1 %.not97.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %32
@@ -3228,21 +3228,18 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vc1_decode_sprites(ptr nou
   store i32 %75, ptr %35, align 8, !tbaa !115
   %76 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store i32 %73, ptr %76, align 4, !tbaa !230
-  switch i32 %73, label %.preheader.i [
+  switch i32 %73, label %.lr.ph100.i [
     i32 7, label %.loopexit.sink.split.i
     i32 14, label %77
+    i32 0, label %.loopexit.i
   ]
 
-.preheader.i:                                     ; preds = %65
-  %.not.i = icmp ult i32 %72, 268435456
-  br i1 %.not.i, label %.loopexit.i, label %.lr.ph100.i
-
-.lr.ph100.i:                                      ; preds = %.preheader.i
+.lr.ph100.i:                                      ; preds = %65
   %wide.trip.count.i = zext nneg i32 %73 to i64
   br label %78
 
 77:                                               ; preds = %65
-  call fastcc void @vc1_sprite_parse_transform(ptr noundef nonnull %1, ptr noundef %.sink125.i.sroa.gep31)
+  call fastcc void @vc1_sprite_parse_transform(ptr noundef nonnull %1, ptr noundef %.sink125.i.sroa.gep30)
   br label %.loopexit.sink.split.i
 
 78:                                               ; preds = %78, %.lr.ph100.i
@@ -3274,25 +3271,25 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vc1_decode_sprites(ptr nou
   %101 = or disjoint i32 %98, %90
   %102 = shl nuw nsw i32 %101, 1
   %103 = add nsw i32 %102, -1073741824
-  %104 = getelementptr inbounds nuw i32, ptr %.sink125.i.sroa.gep31, i64 %indvars.iv112.i
+  %104 = getelementptr inbounds nuw i32, ptr %.sink125.i.sroa.gep30, i64 %indvars.iv112.i
   store i32 %103, ptr %104, align 4, !tbaa !105
   %indvars.iv.next113.i = add nuw nsw i64 %indvars.iv112.i, 1
   %exitcond115.not.i = icmp eq i64 %indvars.iv.next113.i, %wide.trip.count.i
   br i1 %exitcond115.not.i, label %.loopexit.i, label %78, !llvm.loop !231
 
 .loopexit.sink.split.i:                           ; preds = %77, %65
-  %.sink125.i.sroa.phi = phi ptr [ %.sink125.i.sroa.gep, %77 ], [ %.sink125.i.sroa.gep31, %65 ]
+  %.sink125.i.sroa.phi = phi ptr [ %.sink125.i.sroa.gep, %77 ], [ %.sink125.i.sroa.gep30, %65 ]
   call fastcc void @vc1_sprite_parse_transform(ptr noundef nonnull %1, ptr noundef %.sink125.i.sroa.phi)
   %.pre = load i32, ptr %64, align 4, !tbaa !228
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %78, %.loopexit.sink.split.i, %.preheader.i
-  %105 = phi i32 [ %.pre, %.loopexit.sink.split.i ], [ %63, %.preheader.i ], [ %63, %78 ]
+.loopexit.i:                                      ; preds = %78, %.loopexit.sink.split.i, %65
+  %105 = phi i32 [ %.pre, %.loopexit.sink.split.i ], [ %63, %65 ], [ %63, %78 ]
   %.not87.i = icmp eq i32 %105, 13
   br i1 %.not87.i, label %106, label %110
 
 106:                                              ; preds = %.loopexit.i
-  %107 = load i32, ptr %.sink125.i.sroa.gep31, align 4, !tbaa !105
+  %107 = load i32, ptr %.sink125.i.sroa.gep30, align 4, !tbaa !105
   %108 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %109 = load i32, ptr %108, align 4, !tbaa !105
   %.not88.i = icmp eq i32 %107, %109
@@ -3310,7 +3307,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vc1_decode_sprites(ptr nou
 
 .lr.ph103.i:                                      ; preds = %.lr.ph103.i.preheader, %.lr.ph103.i
   %indvars.iv116.i = phi i64 [ %indvars.iv.next117.i, %.lr.ph103.i ], [ 0, %.lr.ph103.i.preheader ]
-  %114 = getelementptr inbounds nuw i32, ptr %.sink125.i.sroa.gep31, i64 %indvars.iv116.i
+  %114 = getelementptr inbounds nuw i32, ptr %.sink125.i.sroa.gep30, i64 %indvars.iv116.i
   %115 = load i32, ptr %114, align 4, !tbaa !105
   %116 = sdiv i32 %115, 65536
   %117 = tail call i32 @llvm.abs.i32(i32 %115, i1 true)
@@ -3351,7 +3348,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vc1_decode_sprites(ptr nou
   br label %vc1_parse_sprites.exit.thread
 
 138:                                              ; preds = %121
-  %.not89.i = icmp samesign ult i32 %131, 65536
+  %.not89.i = icmp eq i32 %132, 0
   br i1 %.not89.i, label %175, label %.lr.ph106.i
 
 .lr.ph106.i:                                      ; preds = %138
@@ -3400,8 +3397,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vc1_decode_sprites(ptr nou
   %174 = lshr i32 %173, 16
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %12, i32 noundef 48, ptr noundef nonnull @.str.43, i32 noundef %170, i32 noundef %174) #13
   %indvars.iv.next120.i = add nuw nsw i64 %indvars.iv119.i, 1
-  %exitcond36.not = icmp eq i64 %indvars.iv.next120.i, %140
-  br i1 %exitcond36.not, label %._crit_edge107.i, label %141, !llvm.loop !234
+  %exitcond34.not = icmp eq i64 %indvars.iv.next120.i, %140
+  br i1 %exitcond34.not, label %._crit_edge107.i, label %141, !llvm.loop !234
 
 ._crit_edge107.i:                                 ; preds = %141
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %12, i32 noundef 48, ptr noundef nonnull @.str.41) #13
@@ -3614,10 +3611,10 @@ vc1_parse_sprites.exit:                           ; preds = %202, %199
   %281 = getelementptr inbounds nuw i8, ptr %0, i64 6336
   br label %282
 
-282:                                              ; preds = %.loopexit.i30, %._crit_edge.i28
-  %283 = phi i32 [ undef, %._crit_edge.i28 ], [ %432, %.loopexit.i30 ]
-  %284 = phi i32 [ %.pre223.i, %._crit_edge.i28 ], [ %433, %.loopexit.i30 ]
-  %indvars.iv219.i = phi i64 [ 0, %._crit_edge.i28 ], [ %indvars.iv.next220.i, %.loopexit.i30 ]
+282:                                              ; preds = %.loopexit.i29, %._crit_edge.i28
+  %283 = phi i32 [ undef, %._crit_edge.i28 ], [ %432, %.loopexit.i29 ]
+  %284 = phi i32 [ %.pre223.i, %._crit_edge.i28 ], [ %433, %.loopexit.i29 ]
+  %indvars.iv219.i = phi i64 [ 0, %._crit_edge.i28 ], [ %indvars.iv.next220.i, %.loopexit.i29 ]
   %285 = load i32, ptr %265, align 8, !tbaa !89
   %286 = icmp ne i64 %indvars.iv219.i, 0
   %287 = zext i1 %286 to i32
@@ -3797,18 +3794,18 @@ vc1_parse_sprites.exit:                           ; preds = %202, %199
 
 ._crit_edge200.i:                                 ; preds = %389
   %392 = icmp eq i32 %390, 0
-  %.pre37 = load i32, ptr %9, align 4, !tbaa !105
+  %.pre35 = load i32, ptr %9, align 4, !tbaa !105
   br i1 %392, label %393, label %._crit_edge200.thread.i
 
 393:                                              ; preds = %._crit_edge200.i
-  %.not176.i = icmp eq i32 %.pre37, 0
+  %.not176.i = icmp eq i32 %.pre35, 0
   br i1 %.not176.i, label %398, label %394
 
 394:                                              ; preds = %393
   %395 = load ptr, ptr %281, align 8, !tbaa !238
   %396 = load ptr, ptr %4, align 16, !tbaa !81
   %397 = load ptr, ptr %279, align 8, !tbaa !81
-  tail call void %395(ptr noundef %306, ptr noundef %396, ptr noundef %397, i32 noundef %.pre37, i32 noundef %288) #13
+  tail call void %395(ptr noundef %306, ptr noundef %396, ptr noundef %397, i32 noundef %.pre35, i32 noundef %288) #13
   br label %426
 
 398:                                              ; preds = %393
@@ -3817,7 +3814,7 @@ vc1_parse_sprites.exit:                           ; preds = %202, %199
   br label %426
 
 ._crit_edge200.thread.i:                          ; preds = %._crit_edge200.i, %296
-  %400 = phi i32 [ %.pre37, %._crit_edge200.i ], [ %297, %296 ]
+  %400 = phi i32 [ %.pre35, %._crit_edge200.i ], [ %297, %296 ]
   %401 = icmp ne i32 %400, 0
   %402 = load i32, ptr %273, align 4
   %403 = icmp ne i32 %402, 0
@@ -3863,7 +3860,7 @@ vc1_parse_sprites.exit:                           ; preds = %202, %199
   br label %426
 
 426:                                              ; preds = %422, %417, %411, %404, %398, %394
-  %427 = phi i32 [ 0, %422 ], [ 0, %417 ], [ %400, %411 ], [ %400, %404 ], [ 0, %398 ], [ %.pre37, %394 ]
+  %427 = phi i32 [ 0, %422 ], [ 0, %417 ], [ %400, %411 ], [ %400, %404 ], [ 0, %398 ], [ %.pre35, %394 ]
   %428 = add nuw nsw i32 %.0159201.i, 1
   %429 = load i32, ptr %266, align 4, !tbaa !107
   %430 = ashr i32 %429, %287
@@ -3873,14 +3870,14 @@ vc1_parse_sprites.exit:                           ; preds = %202, %199
 ._crit_edge204.i:                                 ; preds = %426, %282
   %432 = phi i32 [ %283, %282 ], [ %427, %426 ]
   %433 = phi i32 [ %284, %282 ], [ %429, %426 ]
-  br i1 %286, label %.loopexit.i30, label %.preheader.i29
+  br i1 %286, label %.loopexit.i29, label %.preheader.i
 
-.preheader.i29:                                   ; preds = %._crit_edge204.i
+.preheader.i:                                     ; preds = %._crit_edge204.i
   %434 = load i32, ptr %13, align 4, !tbaa !163
   %.not173205.i = icmp slt i32 %434, 0
-  br i1 %.not173205.i, label %.loopexit.i30, label %.lr.ph207.preheader.i
+  br i1 %.not173205.i, label %.loopexit.i29, label %.lr.ph207.preheader.i
 
-.lr.ph207.preheader.i:                            ; preds = %.preheader.i29
+.lr.ph207.preheader.i:                            ; preds = %.preheader.i
   %435 = add nuw i32 %434, 1
   %wide.trip.count217.i = zext i32 %435 to i64
   br label %.lr.ph207.i
@@ -3897,14 +3894,14 @@ vc1_parse_sprites.exit:                           ; preds = %202, %199
   store i32 %441, ptr %439, align 4, !tbaa !105
   %indvars.iv.next215.i = add nuw nsw i64 %indvars.iv214.i, 1
   %exitcond218.not.i = icmp eq i64 %indvars.iv.next215.i, %wide.trip.count217.i
-  br i1 %exitcond218.not.i, label %.loopexit.i30, label %.lr.ph207.i, !llvm.loop !243
+  br i1 %exitcond218.not.i, label %.loopexit.i29, label %.lr.ph207.i, !llvm.loop !243
 
-.loopexit.i30:                                    ; preds = %.lr.ph207.i, %.preheader.i29, %._crit_edge204.i
+.loopexit.i29:                                    ; preds = %.lr.ph207.i, %.preheader.i, %._crit_edge204.i
   %indvars.iv.next220.i = add nuw nsw i64 %indvars.iv219.i, 1
   %exitcond222.not.i = icmp eq i64 %indvars.iv.next220.i, 3
   br i1 %exitcond222.not.i, label %vc1_draw_sprites.exit, label %282, !llvm.loop !244
 
-vc1_draw_sprites.exit:                            ; preds = %.loopexit.i30
+vc1_draw_sprites.exit:                            ; preds = %.loopexit.i29
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

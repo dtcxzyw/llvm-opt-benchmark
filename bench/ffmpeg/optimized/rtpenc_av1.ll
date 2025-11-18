@@ -309,7 +309,7 @@ parse_leb.exit307:                                ; preds = %90
   %.0.i = phi i32 [ %125, %.preheader403 ], [ 0, %122 ]
   %125 = add nuw nsw i32 %.0.i, 1
   %126 = lshr i32 %.04.i, 7
-  %.not.i308 = icmp ult i32 %.04.i, 128
+  %.not.i308 = icmp eq i32 %126, 0
   br i1 %.not.i308, label %calc_leb_size.exit, label %.preheader403, !llvm.loop !35
 
 calc_leb_size.exit:                               ; preds = %.preheader403
@@ -453,7 +453,7 @@ calc_leb_size.exit:                               ; preds = %.preheader403
   %.0.i317 = phi i32 [ %192, %.preheader ], [ 0, %191 ]
   %192 = add nuw nsw i32 %.0.i317, 1
   %193 = lshr i32 %.04.i316, 7
-  %.not.i318 = icmp ult i32 %.04.i316, 128
+  %.not.i318 = icmp eq i32 %193, 0
   br i1 %.not.i318, label %calc_leb_size.exit319, label %.preheader, !llvm.loop !35
 
 calc_leb_size.exit319:                            ; preds = %.preheader
@@ -473,7 +473,7 @@ calc_leb_size.exit319:                            ; preds = %.preheader
   %.0.i321 = phi i32 [ 0, %.thread371 ], [ %199, %198 ]
   %199 = add nuw nsw i32 %.0.i321, 1
   %200 = lshr i32 %.04.i320, 7
-  %.not.i322 = icmp ult i32 %.04.i320, 128
+  %.not.i322 = icmp eq i32 %200, 0
   br i1 %.not.i322, label %calc_leb_size.exit323, label %198, !llvm.loop !35
 
 calc_leb_size.exit323:                            ; preds = %198

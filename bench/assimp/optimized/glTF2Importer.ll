@@ -6679,8 +6679,8 @@ _ZNK10glTFCommon3RefIN5glTF28AccessorEEcvbEv.exit608: ; preds = %620
 ._crit_edge2111:                                  ; preds = %655
   %661 = getelementptr inbounds nuw i8, ptr %475, i64 40
   store ptr %654, ptr %661, align 8
-  %.pre3099 = load ptr, ptr %12, align 8
-  %662 = icmp eq ptr %.pre3099, null
+  %.pre3100 = load ptr, ptr %12, align 8
+  %662 = icmp eq ptr %.pre3100, null
   br i1 %662, label %700, label %._crit_edge2111.thread
 
 663:                                              ; preds = %641, %.loopexit1130, %642
@@ -6735,8 +6735,8 @@ _ZNK10glTFCommon3RefIN5glTF28AccessorEEcvbEv.exit608: ; preds = %620
   br i1 %699, label %665, label %._crit_edge2111.thread, !llvm.loop !20
 
 ._crit_edge2111.thread:                           ; preds = %665, %._crit_edge2111
-  %.pre31003102 = phi ptr [ %.pre3099, %._crit_edge2111 ], [ %.pre, %665 ]
-  call void @_ZdaPv(ptr noundef nonnull %.pre31003102) #39
+  %.pre31013103 = phi ptr [ %.pre3100, %._crit_edge2111 ], [ %.pre, %665 ]
+  call void @_ZdaPv(ptr noundef nonnull %.pre31013103) #39
   br label %700
 
 700:                                              ; preds = %._crit_edge2111.thread, %._crit_edge2111
@@ -6884,7 +6884,7 @@ _ZNK10glTFCommon3RefIN5glTF28AccessorEEcvbEv.exit606.thread: ; preds = %620, %59
 
 769:                                              ; preds = %._crit_edge.thread.i, %._crit_edge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.sink.split3848
+  br label %.sink.split3849
 
 770:                                              ; preds = %729
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -6954,15 +6954,15 @@ _ZNK10glTFCommon3RefIN5glTF28AccessorEEcvbEv.exit606.thread: ; preds = %620, %59
 
 802:                                              ; preds = %._crit_edge.thread.i624, %._crit_edge.i626
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.sink.split3848
+  br label %.sink.split3849
 
-.sink.split3848:                                  ; preds = %769, %802
-  %.sink3849 = phi ptr [ %780, %802 ], [ %747, %769 ]
+.sink.split3849:                                  ; preds = %769, %802
+  %.sink3850 = phi ptr [ %780, %802 ], [ %747, %769 ]
   %803 = getelementptr inbounds nuw ptr, ptr %705, i64 %.04552112
-  store ptr %.sink3849, ptr %803, align 8
+  store ptr %.sink3850, ptr %803, align 8
   br label %804
 
-804:                                              ; preds = %.sink.split3848, %732, %729, %726
+804:                                              ; preds = %.sink.split3849, %732, %729, %726
   %805 = add nuw nsw i64 %.04552112, 1
   %806 = load ptr, ptr %702, align 8
   %807 = load ptr, ptr %701, align 8
@@ -7748,7 +7748,7 @@ _ZL18SetFaceAndAdvance1RP6aiFacejj.exit:          ; preds = %.noexc645, %.lr.ph2
 1251:                                             ; preds = %1245
   store i64 %1240, ptr %1250, align 16
   %1252 = getelementptr inbounds nuw i8, ptr %1250, i64 8
-  %1253 = icmp ult i64 %1206, 2
+  %1253 = icmp eq i64 %1240, 0
   br i1 %1253, label %.loopexit1109, label %1254
 
 1254:                                             ; preds = %1251
@@ -8061,7 +8061,7 @@ _ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit:        ; preds = %.noexc666, %.lr.ph2
 .thread:                                          ; preds = %1395
   %1398 = getelementptr inbounds nuw i8, ptr %475, i64 208
   store ptr %1396, ptr %1398, align 8
-  br label %.loopexit3121
+  br label %.loopexit3122
 
 1399:                                             ; preds = %1395
   %1400 = getelementptr inbounds %struct.aiFace, ptr %1396, i64 %1389
@@ -8143,14 +8143,14 @@ _ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit:        ; preds = %.noexc666, %.lr.ph2
   br label %_ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit673.sink.split
 
 _ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit673.sink.split: ; preds = %.noexc672, %.noexc679
-  %.sink4595.in = phi ptr [ %1422, %.noexc672 ], [ %1433, %.noexc679 ]
-  %.sink4593 = phi i32 [ %1419, %.noexc672 ], [ %1430, %.noexc679 ]
+  %.sink4596.in = phi ptr [ %1422, %.noexc672 ], [ %1433, %.noexc679 ]
+  %.sink4594 = phi i32 [ %1419, %.noexc672 ], [ %1430, %.noexc679 ]
   %.pre-phi.ph = phi i64 [ %1415, %.noexc672 ], [ %1428, %.noexc679 ]
-  %.sink4595 = load ptr, ptr %.sink4595.in, align 8
-  %1434 = getelementptr inbounds nuw i8, ptr %.sink4595, i64 4
-  store i32 %.sink4593, ptr %1434, align 4
-  %.sink3852 = load ptr, ptr %.sink4595.in, align 8
-  %1435 = getelementptr inbounds nuw i8, ptr %.sink3852, i64 8
+  %.sink4596 = load ptr, ptr %.sink4596.in, align 8
+  %1434 = getelementptr inbounds nuw i8, ptr %.sink4596, i64 4
+  store i32 %.sink4594, ptr %1434, align 4
+  %.sink3853 = load ptr, ptr %.sink4596.in, align 8
+  %1435 = getelementptr inbounds nuw i8, ptr %.sink3853, i64 8
   store i32 %1413, ptr %1435, align 4
   %1436 = getelementptr inbounds nuw i8, ptr %.42166, i64 16
   br label %_ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit673
@@ -8376,7 +8376,7 @@ _ZL18SetFaceAndAdvance1RP6aiFacejj.exit697:       ; preds = %.noexc696, %.lr.ph2
 1531:                                             ; preds = %1527
   store i64 %1519, ptr %1530, align 16
   %1532 = getelementptr inbounds nuw i8, ptr %1530, i64 8
-  %1533 = icmp ult i32 %1490, 2
+  %1533 = icmp eq i32 %1518, 0
   br i1 %1533, label %.loopexit1120, label %1534
 
 1534:                                             ; preds = %1531
@@ -8475,8 +8475,8 @@ _ZL18SetFaceAndAdvance2RP6aiFacejjj.exit707:      ; preds = %1570
   %1573 = getelementptr inbounds nuw i8, ptr %1571, i64 4
   store i32 1, ptr %1573, align 4
   %1574 = getelementptr inbounds nuw i8, ptr %1559, i64 24
-  %.not3861 = icmp eq i32 %1490, 2
-  br i1 %.not3861, label %._crit_edge2150, label %.lr.ph2149
+  %.not3862 = icmp eq i32 %1490, 2
+  br i1 %.not3862, label %._crit_edge2150, label %.lr.ph2149
 
 ._crit_edge2150:                                  ; preds = %_ZL18SetFaceAndAdvance2RP6aiFacejjj.exit712, %.loopexit1121, %_ZL18SetFaceAndAdvance2RP6aiFacejjj.exit707
   %.10.lcssa = phi ptr [ %1574, %_ZL18SetFaceAndAdvance2RP6aiFacejjj.exit707 ], [ %1561, %.loopexit1121 ], [ %.28, %_ZL18SetFaceAndAdvance2RP6aiFacejjj.exit712 ]
@@ -8701,13 +8701,13 @@ _ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit724:     ; preds = %.noexc723, %.lr.ph2
   br label %_ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit731.sink.split
 
 _ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit731.sink.split: ; preds = %.noexc730, %.noexc737
-  %.sink4597.in = phi ptr [ %1656, %.noexc730 ], [ %1662, %.noexc737 ]
+  %.sink4598.in = phi ptr [ %1656, %.noexc730 ], [ %1662, %.noexc737 ]
   %.04032138.sink = phi i32 [ %.04032138, %.noexc730 ], [ %1649, %.noexc737 ]
-  %.sink4597 = load ptr, ptr %.sink4597.in, align 8
-  %1663 = getelementptr inbounds nuw i8, ptr %.sink4597, i64 4
+  %.sink4598 = load ptr, ptr %.sink4598.in, align 8
+  %1663 = getelementptr inbounds nuw i8, ptr %.sink4598, i64 4
   store i32 %.04032138.sink, ptr %1663, align 4
-  %.sink3854 = load ptr, ptr %.sink4597.in, align 8
-  %1664 = getelementptr inbounds nuw i8, ptr %.sink3854, i64 8
+  %.sink3855 = load ptr, ptr %.sink4598.in, align 8
+  %1664 = getelementptr inbounds nuw i8, ptr %.sink3855, i64 8
   store i32 %1652, ptr %1664, align 4
   %1665 = getelementptr inbounds nuw i8, ptr %.122137, i64 16
   br label %_ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit731
@@ -8762,8 +8762,8 @@ _ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit745:     ; preds = %1682
   %1686 = getelementptr inbounds nuw i8, ptr %1683, i64 8
   store i32 2, ptr %1686, align 4
   %1687 = getelementptr inbounds nuw i8, ptr %1671, i64 24
-  %.not3860 = icmp eq i32 %1667, 1
-  br i1 %.not3860, label %.loopexit1106, label %.lr.ph2135.preheader
+  %.not3861 = icmp eq i32 %1667, 1
+  br i1 %.not3861, label %.loopexit1106, label %.lr.ph2135.preheader
 
 .lr.ph2135.preheader:                             ; preds = %.loopexit1127, %_ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit745
   %.142133.ph = phi ptr [ %1687, %_ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit745 ], [ %1673, %.loopexit1127 ]
@@ -8809,14 +8809,14 @@ _ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit752:     ; preds = %.lr.ph2135, %.noexc
   br label %1767
 
 .loopexit1106.sink.split:                         ; preds = %.noexc716, %.noexc662
-  %.sink3857.in = phi ptr [ %1340, %.noexc662 ], [ %1593, %.noexc716 ]
-  %.sink3855 = phi i32 [ %1337, %.noexc662 ], [ 0, %.noexc716 ]
+  %.sink3858.in = phi ptr [ %1340, %.noexc662 ], [ %1593, %.noexc716 ]
+  %.sink3856 = phi i32 [ %1337, %.noexc662 ], [ 0, %.noexc716 ]
   %.2.lcssa.sink = phi ptr [ %.2.lcssa, %.noexc662 ], [ %.10.lcssa, %.noexc716 ]
   %.1422.ph.ph = phi ptr [ %1289, %.noexc662 ], [ %1561, %.noexc716 ]
   %.1419.ph.ph = phi i64 [ %1282, %.noexc662 ], [ %1556, %.noexc716 ]
-  %.sink3857 = load ptr, ptr %.sink3857.in, align 8
-  %1701 = getelementptr inbounds nuw i8, ptr %.sink3857, i64 4
-  store i32 %.sink3855, ptr %1701, align 4
+  %.sink3858 = load ptr, ptr %.sink3858.in, align 8
+  %1701 = getelementptr inbounds nuw i8, ptr %.sink3858, i64 4
+  store i32 %.sink3856, ptr %1701, align 4
   %1702 = getelementptr inbounds nuw i8, ptr %.2.lcssa.sink, i64 16
   br label %.loopexit1106
 
@@ -8850,9 +8850,9 @@ _ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit752:     ; preds = %.lr.ph2135, %.noexc
 
 1716:                                             ; preds = %1713, %.loopexit1106
   %1717 = icmp eq i32 %1708, 0
-  br i1 %1717, label %.loopexit3121, label %1725
+  br i1 %1717, label %.loopexit3122, label %1725
 
-.loopexit3121:                                    ; preds = %1716, %.thread
+.loopexit3122:                                    ; preds = %1716, %.thread
   %1718 = call ptr @__cxa_allocate_exception(i64 16) #38
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %1719 = getelementptr inbounds nuw i8, ptr %475, i64 240
@@ -8860,7 +8860,7 @@ _ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit752:     ; preds = %.lr.ph2135, %.noexc
   invoke void @_ZN17DeadlyImportErrorC2IJRA7_KcPS1_RA15_S1_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %1718, ptr noundef nonnull align 1 dereferenceable(7) @.str.25, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 1 dereferenceable(15) @.str.26)
           to label %1720 unwind label %1723
 
-1720:                                             ; preds = %.loopexit3121
+1720:                                             ; preds = %.loopexit3122
   invoke void @__cxa_throw(ptr nonnull %1718, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #40
           to label %1779 unwind label %1721
 
@@ -8870,7 +8870,7 @@ _ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit752:     ; preds = %.lr.ph2135, %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %1767
 
-1723:                                             ; preds = %.loopexit3121
+1723:                                             ; preds = %.loopexit3122
   %1724 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -8909,9 +8909,9 @@ _ZNK10glTFCommon3RefIN5glTF28MaterialEEcvbEv.exit.thread: ; preds = %_ZL18SetFac
   br label %1743
 
 1743:                                             ; preds = %_ZNK10glTFCommon3RefIN5glTF28MaterialEEcvbEv.exit, %_ZNK10glTFCommon3RefIN5glTF28MaterialEEcvbEv.exit.thread
-  %.sink3858 = phi i32 [ %1742, %_ZNK10glTFCommon3RefIN5glTF28MaterialEEcvbEv.exit.thread ], [ %1729, %_ZNK10glTFCommon3RefIN5glTF28MaterialEEcvbEv.exit ]
+  %.sink3859 = phi i32 [ %1742, %_ZNK10glTFCommon3RefIN5glTF28MaterialEEcvbEv.exit.thread ], [ %1729, %_ZNK10glTFCommon3RefIN5glTF28MaterialEEcvbEv.exit ]
   %1744 = getelementptr inbounds nuw i8, ptr %475, i64 232
-  store i32 %.sink3858, ptr %1744, align 8
+  store i32 %.sink3859, ptr %1744, align 8
   %1745 = add i32 %.04452200, 1
   %1746 = zext i32 %1745 to i64
   %1747 = load ptr, ptr %198, align 8

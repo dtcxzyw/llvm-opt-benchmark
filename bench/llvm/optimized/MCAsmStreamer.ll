@@ -11093,13 +11093,13 @@ define internal void @_ZN12_GLOBAL__N_113MCAsmStreamer18emitCFIGnuArgsSizeElN4ll
   %.021.i = phi ptr [ %10, %6 ], [ %5, %3 ]
   %.020.i = phi i64 [ %7, %6 ], [ %1, %3 ]
   %7 = lshr i64 %.020.i, 7
-  %.not.i = icmp ugt i64 %.020.i, 127
+  %.not.i.not = icmp eq i64 %7, 0
   %8 = trunc i64 %.020.i to i8
   %9 = or i8 %8, -128
-  %.0.i = select i1 %.not.i, i8 %9, i8 %8
+  %.0.i = select i1 %.not.i.not, i8 %8, i8 %9
   %10 = getelementptr i8, ptr %.021.i, i64 1
   store i8 %.0.i, ptr %.021.i, align 1, !tbaa !301
-  br i1 %.not.i, label %6, label %_ZN4llvm13encodeULEB128EmPhj.exit, !llvm.loop !435
+  br i1 %.not.i.not, label %_ZN4llvm13encodeULEB128EmPhj.exit, label %6, !llvm.loop !435
 
 _ZN4llvm13encodeULEB128EmPhj.exit:                ; preds = %6
   %11 = ptrtoint ptr %10 to i64

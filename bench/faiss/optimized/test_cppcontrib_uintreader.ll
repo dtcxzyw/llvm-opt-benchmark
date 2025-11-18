@@ -48098,31 +48098,32 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl1ELl10EEvv() local_unna
   ret void
 
 8:                                                ; preds = %0, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
-  %.01130 = phi i64 [ 0, %0 ], [ %20, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
+  %.01130 = phi i64 [ 0, %0 ], [ %22, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
   %9 = call noalias noundef nonnull dereferenceable(2) ptr @_Znam(i64 noundef 2) #16
   store i16 0, ptr %9, align 1
   %10 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
-          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %18
+          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %20
 
 _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %8
   %11 = load i8, ptr %9, align 1, !tbaa !26
   %12 = trunc i64 %10 to i8
   %13 = or i8 %11, %12
   store i8 %13, ptr %9, align 1, !tbaa !26
-  %.not1617.i = icmp ult i64 %10, 256
+  %14 = lshr i64 %10, 8
+  %.not1617.i = icmp eq i64 %14, 0
   br i1 %.not1617.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit, %.lr.ph.i
   %.0.in19.i = phi i64 [ %.0.i, %.lr.ph.i ], [ 0, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i.in = phi i64 [ %.01318.i, %.lr.ph.i ], [ %10, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i = lshr i64 %.01318.i.in, 8
+  %.01318.i = phi i64 [ %19, %.lr.ph.i ], [ %14, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.0.i = add nuw nsw i64 %.0.in19.i, 1
-  %14 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
-  %15 = load i8, ptr %14, align 1, !tbaa !26
-  %16 = trunc i64 %.01318.i to i8
-  %17 = or i8 %15, %16
-  store i8 %17, ptr %14, align 1, !tbaa !26
-  %.not16.i = icmp ult i64 %.01318.i.in, 65536
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
+  %16 = load i8, ptr %15, align 1, !tbaa !26
+  %17 = trunc i64 %.01318.i to i8
+  %18 = or i8 %16, %17
+  store i8 %18, ptr %15, align 1, !tbaa !26
+  %19 = lshr i64 %.01318.i, 8
+  %.not16.i = icmp eq i64 %19, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
@@ -48131,28 +48132,28 @@ _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24u
   store i64 2, ptr %5, align 8, !tbaa !30
   store i64 0, ptr %6, align 8, !tbaa !31
   invoke void @_ZN8TestLoopILl1ELl10ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %21
+          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %23
 
-18:                                               ; preds = %8
-  %19 = landingpad { ptr, i32 }
+20:                                               ; preds = %8
+  %21 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZdaPv(ptr noundef nonnull %9) #15
-  %20 = add nuw nsw i64 %.01130, 1
-  %exitcond.not = icmp eq i64 %20, 10
+  %22 = add nuw nsw i64 %.01130, 1
+  %exitcond.not = icmp eq i64 %22, 10
   br i1 %exitcond.not, label %7, label %8, !llvm.loop !103
 
-21:                                               ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
-  %22 = landingpad { ptr, i32 }
+23:                                               ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
+  %24 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %21, %18
-  %.pn = phi { ptr, i32 } [ %19, %18 ], [ %22, %21 ]
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %23, %20
+  %.pn = phi { ptr, i32 } [ %21, %20 ], [ %24, %23 ]
   call void @_ZdaPv(ptr noundef nonnull %9) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -48224,7 +48225,7 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %27 = or i8 %25, %26
   store i8 %27, ptr %24, align 1, !tbaa !26
   %28 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp samesign ult i64 %.01318.i, 256
+  %.not16.i = icmp eq i64 %28, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
@@ -48321,7 +48322,7 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %26 = or i8 %24, %25
   store i8 %26, ptr %23, align 1, !tbaa !26
   %27 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp samesign ult i64 %.01318.i, 256
+  %.not16.i = icmp eq i64 %27, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
@@ -48420,7 +48421,7 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %26 = or i8 %24, %25
   store i8 %26, ptr %23, align 1, !tbaa !26
   %27 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp samesign ult i64 %.01318.i, 256
+  %.not16.i = icmp eq i64 %27, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
@@ -48519,7 +48520,7 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %26 = or i8 %24, %25
   store i8 %26, ptr %23, align 1, !tbaa !26
   %27 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp samesign ult i64 %.01318.i, 256
+  %.not16.i = icmp eq i64 %27, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
@@ -48618,7 +48619,7 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %26 = or i8 %24, %25
   store i8 %26, ptr %23, align 1, !tbaa !26
   %27 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp samesign ult i64 %.01318.i, 256
+  %.not16.i = icmp eq i64 %27, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
@@ -48717,7 +48718,7 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %26 = or i8 %24, %25
   store i8 %26, ptr %23, align 1, !tbaa !26
   %27 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp samesign ult i64 %.01318.i, 256
+  %.not16.i = icmp eq i64 %27, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
@@ -48816,7 +48817,7 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %26 = or i8 %24, %25
   store i8 %26, ptr %23, align 1, !tbaa !26
   %27 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp samesign ult i64 %.01318.i, 256
+  %.not16.i = icmp eq i64 %27, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
@@ -48915,7 +48916,7 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %26 = or i8 %24, %25
   store i8 %26, ptr %23, align 1, !tbaa !26
   %27 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp samesign ult i64 %.01318.i, 256
+  %.not16.i = icmp eq i64 %27, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
@@ -49014,7 +49015,7 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %26 = or i8 %24, %25
   store i8 %26, ptr %23, align 1, !tbaa !26
   %27 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp samesign ult i64 %.01318.i, 256
+  %.not16.i = icmp eq i64 %27, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
@@ -49113,7 +49114,7 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %26 = or i8 %24, %25
   store i8 %26, ptr %23, align 1, !tbaa !26
   %27 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp samesign ult i64 %.01318.i, 256
+  %.not16.i = icmp eq i64 %27, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
@@ -49212,7 +49213,7 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %26 = or i8 %24, %25
   store i8 %26, ptr %23, align 1, !tbaa !26
   %27 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp samesign ult i64 %.01318.i, 256
+  %.not16.i = icmp eq i64 %27, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
@@ -49311,7 +49312,7 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %26 = or i8 %24, %25
   store i8 %26, ptr %23, align 1, !tbaa !26
   %27 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp samesign ult i64 %.01318.i, 256
+  %.not16.i = icmp eq i64 %27, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
@@ -49410,7 +49411,7 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %26 = or i8 %24, %25
   store i8 %26, ptr %23, align 1, !tbaa !26
   %27 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp samesign ult i64 %.01318.i, 256
+  %.not16.i = icmp eq i64 %27, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
@@ -49509,7 +49510,7 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %26 = or i8 %24, %25
   store i8 %26, ptr %23, align 1, !tbaa !26
   %27 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp samesign ult i64 %.01318.i, 256
+  %.not16.i = icmp eq i64 %27, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
@@ -49608,7 +49609,7 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %26 = or i8 %24, %25
   store i8 %26, ptr %23, align 1, !tbaa !26
   %27 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp samesign ult i64 %.01318.i, 256
+  %.not16.i = icmp eq i64 %27, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
@@ -49707,7 +49708,7 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %26 = or i8 %24, %25
   store i8 %26, ptr %23, align 1, !tbaa !26
   %27 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp samesign ult i64 %.01318.i, 256
+  %.not16.i = icmp eq i64 %27, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
@@ -95345,31 +95346,32 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl1ELl12EEvv() local_unna
   ret void
 
 8:                                                ; preds = %0, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
-  %.01130 = phi i64 [ 0, %0 ], [ %20, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
+  %.01130 = phi i64 [ 0, %0 ], [ %22, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
   %9 = call noalias noundef nonnull dereferenceable(2) ptr @_Znam(i64 noundef 2) #16
   store i16 0, ptr %9, align 1
   %10 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
-          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %18
+          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %20
 
 _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %8
   %11 = load i8, ptr %9, align 1, !tbaa !26
   %12 = trunc i64 %10 to i8
   %13 = or i8 %11, %12
   store i8 %13, ptr %9, align 1, !tbaa !26
-  %.not1617.i = icmp ult i64 %10, 256
+  %14 = lshr i64 %10, 8
+  %.not1617.i = icmp eq i64 %14, 0
   br i1 %.not1617.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit, %.lr.ph.i
   %.0.in19.i = phi i64 [ %.0.i, %.lr.ph.i ], [ 0, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i.in = phi i64 [ %.01318.i, %.lr.ph.i ], [ %10, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i = lshr i64 %.01318.i.in, 8
+  %.01318.i = phi i64 [ %19, %.lr.ph.i ], [ %14, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.0.i = add nuw nsw i64 %.0.in19.i, 1
-  %14 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
-  %15 = load i8, ptr %14, align 1, !tbaa !26
-  %16 = trunc i64 %.01318.i to i8
-  %17 = or i8 %15, %16
-  store i8 %17, ptr %14, align 1, !tbaa !26
-  %.not16.i = icmp ult i64 %.01318.i.in, 65536
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
+  %16 = load i8, ptr %15, align 1, !tbaa !26
+  %17 = trunc i64 %.01318.i to i8
+  %18 = or i8 %16, %17
+  store i8 %18, ptr %15, align 1, !tbaa !26
+  %19 = lshr i64 %.01318.i, 8
+  %.not16.i = icmp eq i64 %19, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
@@ -95378,28 +95380,28 @@ _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24u
   store i64 2, ptr %5, align 8, !tbaa !30
   store i64 0, ptr %6, align 8, !tbaa !31
   invoke void @_ZN8TestLoopILl1ELl12ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %21
+          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %23
 
-18:                                               ; preds = %8
-  %19 = landingpad { ptr, i32 }
+20:                                               ; preds = %8
+  %21 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZdaPv(ptr noundef nonnull %9) #15
-  %20 = add nuw nsw i64 %.01130, 1
-  %exitcond.not = icmp eq i64 %20, 10
+  %22 = add nuw nsw i64 %.01130, 1
+  %exitcond.not = icmp eq i64 %22, 10
   br i1 %exitcond.not, label %7, label %8, !llvm.loop !138
 
-21:                                               ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
-  %22 = landingpad { ptr, i32 }
+23:                                               ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
+  %24 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %21, %18
-  %.pn = phi { ptr, i32 } [ %19, %18 ], [ %22, %21 ]
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %23, %20
+  %.pn = phi { ptr, i32 } [ %21, %20 ], [ %24, %23 ]
   call void @_ZdaPv(ptr noundef nonnull %9) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -95471,7 +95473,7 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %27 = or i8 %25, %26
   store i8 %27, ptr %24, align 1, !tbaa !26
   %28 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp samesign ult i64 %.01318.i, 256
+  %.not16.i = icmp eq i64 %28, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
@@ -95568,7 +95570,7 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %26 = or i8 %24, %25
   store i8 %26, ptr %23, align 1, !tbaa !26
   %27 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp samesign ult i64 %.01318.i, 256
+  %.not16.i = icmp eq i64 %27, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
@@ -95667,7 +95669,7 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %26 = or i8 %24, %25
   store i8 %26, ptr %23, align 1, !tbaa !26
   %27 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp samesign ult i64 %.01318.i, 256
+  %.not16.i = icmp eq i64 %27, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
@@ -95766,7 +95768,7 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %26 = or i8 %24, %25
   store i8 %26, ptr %23, align 1, !tbaa !26
   %27 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp samesign ult i64 %.01318.i, 256
+  %.not16.i = icmp eq i64 %27, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
@@ -95865,7 +95867,7 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %26 = or i8 %24, %25
   store i8 %26, ptr %23, align 1, !tbaa !26
   %27 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp samesign ult i64 %.01318.i, 256
+  %.not16.i = icmp eq i64 %27, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
@@ -95964,7 +95966,7 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %26 = or i8 %24, %25
   store i8 %26, ptr %23, align 1, !tbaa !26
   %27 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp samesign ult i64 %.01318.i, 256
+  %.not16.i = icmp eq i64 %27, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
@@ -96063,7 +96065,7 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %26 = or i8 %24, %25
   store i8 %26, ptr %23, align 1, !tbaa !26
   %27 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp samesign ult i64 %.01318.i, 256
+  %.not16.i = icmp eq i64 %27, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
@@ -96162,7 +96164,7 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %26 = or i8 %24, %25
   store i8 %26, ptr %23, align 1, !tbaa !26
   %27 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp samesign ult i64 %.01318.i, 256
+  %.not16.i = icmp eq i64 %27, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
@@ -96261,7 +96263,7 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %26 = or i8 %24, %25
   store i8 %26, ptr %23, align 1, !tbaa !26
   %27 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp samesign ult i64 %.01318.i, 256
+  %.not16.i = icmp eq i64 %27, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
@@ -96360,7 +96362,7 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %26 = or i8 %24, %25
   store i8 %26, ptr %23, align 1, !tbaa !26
   %27 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp samesign ult i64 %.01318.i, 256
+  %.not16.i = icmp eq i64 %27, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
@@ -96459,7 +96461,7 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %26 = or i8 %24, %25
   store i8 %26, ptr %23, align 1, !tbaa !26
   %27 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp samesign ult i64 %.01318.i, 256
+  %.not16.i = icmp eq i64 %27, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
@@ -96558,7 +96560,7 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %26 = or i8 %24, %25
   store i8 %26, ptr %23, align 1, !tbaa !26
   %27 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp samesign ult i64 %.01318.i, 256
+  %.not16.i = icmp eq i64 %27, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
@@ -96657,7 +96659,7 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %26 = or i8 %24, %25
   store i8 %26, ptr %23, align 1, !tbaa !26
   %27 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp samesign ult i64 %.01318.i, 256
+  %.not16.i = icmp eq i64 %27, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
@@ -96756,7 +96758,7 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %26 = or i8 %24, %25
   store i8 %26, ptr %23, align 1, !tbaa !26
   %27 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp samesign ult i64 %.01318.i, 256
+  %.not16.i = icmp eq i64 %27, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
@@ -96855,7 +96857,7 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %26 = or i8 %24, %25
   store i8 %26, ptr %23, align 1, !tbaa !26
   %27 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp samesign ult i64 %.01318.i, 256
+  %.not16.i = icmp eq i64 %27, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
@@ -96954,7 +96956,7 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %26 = or i8 %24, %25
   store i8 %26, ptr %23, align 1, !tbaa !26
   %27 = lshr i64 %.01318.i, 8
-  %.not16.i = icmp samesign ult i64 %.01318.i, 256
+  %.not16.i = icmp eq i64 %27, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
@@ -142910,31 +142912,32 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl1ELl16EEvv() local_unna
   ret void
 
 8:                                                ; preds = %0, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
-  %.01130 = phi i64 [ 0, %0 ], [ %20, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
+  %.01130 = phi i64 [ 0, %0 ], [ %22, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
   %9 = call noalias noundef nonnull dereferenceable(2) ptr @_Znam(i64 noundef 2) #16
   store i16 0, ptr %9, align 1
   %10 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
-          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %18
+          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %20
 
 _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %8
   %11 = load i8, ptr %9, align 1, !tbaa !26
   %12 = trunc i64 %10 to i8
   %13 = or i8 %11, %12
   store i8 %13, ptr %9, align 1, !tbaa !26
-  %.not1617.i = icmp ult i64 %10, 256
+  %14 = lshr i64 %10, 8
+  %.not1617.i = icmp eq i64 %14, 0
   br i1 %.not1617.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit, %.lr.ph.i
   %.0.in19.i = phi i64 [ %.0.i, %.lr.ph.i ], [ 0, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i.in = phi i64 [ %.01318.i, %.lr.ph.i ], [ %10, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i = lshr i64 %.01318.i.in, 8
+  %.01318.i = phi i64 [ %19, %.lr.ph.i ], [ %14, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.0.i = add nuw nsw i64 %.0.in19.i, 1
-  %14 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
-  %15 = load i8, ptr %14, align 1, !tbaa !26
-  %16 = trunc i64 %.01318.i to i8
-  %17 = or i8 %15, %16
-  store i8 %17, ptr %14, align 1, !tbaa !26
-  %.not16.i = icmp ult i64 %.01318.i.in, 65536
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
+  %16 = load i8, ptr %15, align 1, !tbaa !26
+  %17 = trunc i64 %.01318.i to i8
+  %18 = or i8 %16, %17
+  store i8 %18, ptr %15, align 1, !tbaa !26
+  %19 = lshr i64 %.01318.i, 8
+  %.not16.i = icmp eq i64 %19, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
@@ -142943,28 +142946,28 @@ _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24u
   store i64 2, ptr %5, align 8, !tbaa !30
   store i64 0, ptr %6, align 8, !tbaa !31
   invoke void @_ZN8TestLoopILl1ELl16ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %21
+          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %23
 
-18:                                               ; preds = %8
-  %19 = landingpad { ptr, i32 }
+20:                                               ; preds = %8
+  %21 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZdaPv(ptr noundef nonnull %9) #15
-  %20 = add nuw nsw i64 %.01130, 1
-  %exitcond.not = icmp eq i64 %20, 10
+  %22 = add nuw nsw i64 %.01130, 1
+  %exitcond.not = icmp eq i64 %22, 10
   br i1 %exitcond.not, label %7, label %8, !llvm.loop !171
 
-21:                                               ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
-  %22 = landingpad { ptr, i32 }
+23:                                               ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit
+  %24 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %21, %18
-  %.pn = phi { ptr, i32 } [ %19, %18 ], [ %22, %21 ]
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %23, %20
+  %.pn = phi { ptr, i32 } [ %21, %20 ], [ %24, %23 ]
   call void @_ZdaPv(ptr noundef nonnull %9) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -142992,7 +142995,7 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl2ELl16EEvv() local_unna
   ret void
 
 8:                                                ; preds = %0, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
-  %.01131 = phi i64 [ 0, %0 ], [ %26, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
+  %.01131 = phi i64 [ 0, %0 ], [ %28, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
   %9 = call noalias noundef nonnull dereferenceable(4) ptr @_Znam(i64 noundef 4) #16
   store i32 0, ptr %9, align 1
   br label %11
@@ -143003,13 +143006,13 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl2ELl16EEvv() local_unna
   store i64 4, ptr %5, align 8, !tbaa !30
   store i64 0, ptr %6, align 8, !tbaa !31
   invoke void @_ZN8TestLoopILl2ELl16ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %27
+          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %29
 
 11:                                               ; preds = %8, %_ZN5faiss15BitstringWriter5writeEmi.exit
   %12 = phi i1 [ true, %8 ], [ false, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %.sroa.8.029 = phi i64 [ 0, %8 ], [ %19, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %13 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
-          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %24
+          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %26
 
 _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %11
   %14 = lshr exact i64 %.sroa.8.029, 3
@@ -143019,45 +143022,46 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %18 = or i8 %16, %17
   store i8 %18, ptr %15, align 1, !tbaa !26
   %19 = add nuw nsw i64 %.sroa.8.029, 16
-  %.not1617.i = icmp ult i64 %13, 256
+  %20 = lshr i64 %13, 8
+  %.not1617.i = icmp eq i64 %20, 0
   br i1 %.not1617.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit, %.lr.ph.i
   %.0.in19.i = phi i64 [ %.0.i, %.lr.ph.i ], [ %14, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i.in = phi i64 [ %.01318.i, %.lr.ph.i ], [ %13, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i = lshr i64 %.01318.i.in, 8
+  %.01318.i = phi i64 [ %25, %.lr.ph.i ], [ %20, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.0.i = add nuw nsw i64 %.0.in19.i, 1
-  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
-  %21 = load i8, ptr %20, align 1, !tbaa !26
-  %22 = trunc i64 %.01318.i to i8
-  %23 = or i8 %21, %22
-  store i8 %23, ptr %20, align 1, !tbaa !26
-  %.not16.i = icmp ult i64 %.01318.i.in, 65536
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
+  %22 = load i8, ptr %21, align 1, !tbaa !26
+  %23 = trunc i64 %.01318.i to i8
+  %24 = or i8 %22, %23
+  store i8 %24, ptr %21, align 1, !tbaa !26
+  %25 = lshr i64 %.01318.i, 8
+  %.not16.i = icmp eq i64 %25, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
   br i1 %12, label %11, label %10, !llvm.loop !172
 
-24:                                               ; preds = %11
-  %25 = landingpad { ptr, i32 }
+26:                                               ; preds = %11
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZdaPv(ptr noundef nonnull %9) #15
-  %26 = add nuw nsw i64 %.01131, 1
-  %exitcond.not = icmp eq i64 %26, 10
+  %28 = add nuw nsw i64 %.01131, 1
+  %exitcond.not = icmp eq i64 %28, 10
   br i1 %exitcond.not, label %7, label %8, !llvm.loop !173
 
-27:                                               ; preds = %10
-  %28 = landingpad { ptr, i32 }
+29:                                               ; preds = %10
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %27, %24
-  %.pn = phi { ptr, i32 } [ %25, %24 ], [ %28, %27 ]
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %29, %26
+  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %30, %29 ]
   call void @_ZdaPv(ptr noundef nonnull %9) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -143085,7 +143089,7 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl3ELl16EEvv() local_unna
   ret void
 
 8:                                                ; preds = %0, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
-  %.01131 = phi i64 [ 0, %0 ], [ %26, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
+  %.01131 = phi i64 [ 0, %0 ], [ %28, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
   %9 = call noalias noundef nonnull dereferenceable(6) ptr @_Znam(i64 noundef 6) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %9, i8 0, i64 6, i1 false)
   br label %11
@@ -143096,13 +143100,13 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl3ELl16EEvv() local_unna
   store i64 6, ptr %5, align 8, !tbaa !30
   store i64 0, ptr %6, align 8, !tbaa !31
   invoke void @_ZN8TestLoopILl3ELl16ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %27
+          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %29
 
 11:                                               ; preds = %8, %_ZN5faiss15BitstringWriter5writeEmi.exit
-  %.030 = phi i64 [ 0, %8 ], [ %23, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
+  %.030 = phi i64 [ 0, %8 ], [ %25, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %.sroa.8.029 = phi i64 [ 0, %8 ], [ %18, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %12 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
-          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %24
+          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %26
 
 _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %11
   %13 = lshr exact i64 %.sroa.8.029, 3
@@ -143112,47 +143116,48 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %17 = or i8 %15, %16
   store i8 %17, ptr %14, align 1, !tbaa !26
   %18 = add nuw nsw i64 %.sroa.8.029, 16
-  %.not1617.i = icmp ult i64 %12, 256
+  %19 = lshr i64 %12, 8
+  %.not1617.i = icmp eq i64 %19, 0
   br i1 %.not1617.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit, %.lr.ph.i
   %.0.in19.i = phi i64 [ %.0.i, %.lr.ph.i ], [ %13, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i.in = phi i64 [ %.01318.i, %.lr.ph.i ], [ %12, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i = lshr i64 %.01318.i.in, 8
+  %.01318.i = phi i64 [ %24, %.lr.ph.i ], [ %19, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.0.i = add nuw nsw i64 %.0.in19.i, 1
-  %19 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
-  %20 = load i8, ptr %19, align 1, !tbaa !26
-  %21 = trunc i64 %.01318.i to i8
-  %22 = or i8 %20, %21
-  store i8 %22, ptr %19, align 1, !tbaa !26
-  %.not16.i = icmp ult i64 %.01318.i.in, 65536
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
+  %21 = load i8, ptr %20, align 1, !tbaa !26
+  %22 = trunc i64 %.01318.i to i8
+  %23 = or i8 %21, %22
+  store i8 %23, ptr %20, align 1, !tbaa !26
+  %24 = lshr i64 %.01318.i, 8
+  %.not16.i = icmp eq i64 %24, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
-  %23 = add nuw nsw i64 %.030, 1
-  %exitcond.not = icmp eq i64 %23, 3
+  %25 = add nuw nsw i64 %.030, 1
+  %exitcond.not = icmp eq i64 %25, 3
   br i1 %exitcond.not, label %10, label %11, !llvm.loop !174
 
-24:                                               ; preds = %11
-  %25 = landingpad { ptr, i32 }
+26:                                               ; preds = %11
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZdaPv(ptr noundef nonnull %9) #15
-  %26 = add nuw nsw i64 %.01131, 1
-  %exitcond34.not = icmp eq i64 %26, 10
+  %28 = add nuw nsw i64 %.01131, 1
+  %exitcond34.not = icmp eq i64 %28, 10
   br i1 %exitcond34.not, label %7, label %8, !llvm.loop !175
 
-27:                                               ; preds = %10
-  %28 = landingpad { ptr, i32 }
+29:                                               ; preds = %10
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %27, %24
-  %.pn = phi { ptr, i32 } [ %25, %24 ], [ %28, %27 ]
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %29, %26
+  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %30, %29 ]
   call void @_ZdaPv(ptr noundef nonnull %9) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -143180,7 +143185,7 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl4ELl16EEvv() local_unna
   ret void
 
 8:                                                ; preds = %0, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
-  %.01131 = phi i64 [ 0, %0 ], [ %26, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
+  %.01131 = phi i64 [ 0, %0 ], [ %28, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
   %9 = call noalias noundef nonnull dereferenceable(8) ptr @_Znam(i64 noundef 8) #16
   store i64 0, ptr %9, align 1
   br label %11
@@ -143191,13 +143196,13 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl4ELl16EEvv() local_unna
   store i64 8, ptr %5, align 8, !tbaa !30
   store i64 0, ptr %6, align 8, !tbaa !31
   invoke void @_ZN8TestLoopILl4ELl16ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %27
+          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %29
 
 11:                                               ; preds = %8, %_ZN5faiss15BitstringWriter5writeEmi.exit
-  %.030 = phi i64 [ 0, %8 ], [ %23, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
+  %.030 = phi i64 [ 0, %8 ], [ %25, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %.sroa.8.029 = phi i64 [ 0, %8 ], [ %18, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %12 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
-          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %24
+          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %26
 
 _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %11
   %13 = lshr exact i64 %.sroa.8.029, 3
@@ -143207,47 +143212,48 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %17 = or i8 %15, %16
   store i8 %17, ptr %14, align 1, !tbaa !26
   %18 = add nuw nsw i64 %.sroa.8.029, 16
-  %.not1617.i = icmp ult i64 %12, 256
+  %19 = lshr i64 %12, 8
+  %.not1617.i = icmp eq i64 %19, 0
   br i1 %.not1617.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit, %.lr.ph.i
   %.0.in19.i = phi i64 [ %.0.i, %.lr.ph.i ], [ %13, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i.in = phi i64 [ %.01318.i, %.lr.ph.i ], [ %12, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i = lshr i64 %.01318.i.in, 8
+  %.01318.i = phi i64 [ %24, %.lr.ph.i ], [ %19, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.0.i = add nuw nsw i64 %.0.in19.i, 1
-  %19 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
-  %20 = load i8, ptr %19, align 1, !tbaa !26
-  %21 = trunc i64 %.01318.i to i8
-  %22 = or i8 %20, %21
-  store i8 %22, ptr %19, align 1, !tbaa !26
-  %.not16.i = icmp ult i64 %.01318.i.in, 65536
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
+  %21 = load i8, ptr %20, align 1, !tbaa !26
+  %22 = trunc i64 %.01318.i to i8
+  %23 = or i8 %21, %22
+  store i8 %23, ptr %20, align 1, !tbaa !26
+  %24 = lshr i64 %.01318.i, 8
+  %.not16.i = icmp eq i64 %24, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
-  %23 = add nuw nsw i64 %.030, 1
-  %exitcond.not = icmp eq i64 %23, 4
+  %25 = add nuw nsw i64 %.030, 1
+  %exitcond.not = icmp eq i64 %25, 4
   br i1 %exitcond.not, label %10, label %11, !llvm.loop !176
 
-24:                                               ; preds = %11
-  %25 = landingpad { ptr, i32 }
+26:                                               ; preds = %11
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZdaPv(ptr noundef nonnull %9) #15
-  %26 = add nuw nsw i64 %.01131, 1
-  %exitcond34.not = icmp eq i64 %26, 10
+  %28 = add nuw nsw i64 %.01131, 1
+  %exitcond34.not = icmp eq i64 %28, 10
   br i1 %exitcond34.not, label %7, label %8, !llvm.loop !177
 
-27:                                               ; preds = %10
-  %28 = landingpad { ptr, i32 }
+29:                                               ; preds = %10
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %27, %24
-  %.pn = phi { ptr, i32 } [ %25, %24 ], [ %28, %27 ]
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %29, %26
+  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %30, %29 ]
   call void @_ZdaPv(ptr noundef nonnull %9) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -143275,7 +143281,7 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl5ELl16EEvv() local_unna
   ret void
 
 8:                                                ; preds = %0, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
-  %.01131 = phi i64 [ 0, %0 ], [ %26, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
+  %.01131 = phi i64 [ 0, %0 ], [ %28, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
   %9 = call noalias noundef nonnull dereferenceable(10) ptr @_Znam(i64 noundef 10) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %9, i8 0, i64 10, i1 false)
   br label %11
@@ -143286,13 +143292,13 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl5ELl16EEvv() local_unna
   store i64 10, ptr %5, align 8, !tbaa !30
   store i64 0, ptr %6, align 8, !tbaa !31
   invoke void @_ZN8TestLoopILl5ELl16ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %27
+          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %29
 
 11:                                               ; preds = %8, %_ZN5faiss15BitstringWriter5writeEmi.exit
-  %.030 = phi i64 [ 0, %8 ], [ %23, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
+  %.030 = phi i64 [ 0, %8 ], [ %25, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %.sroa.8.029 = phi i64 [ 0, %8 ], [ %18, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %12 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
-          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %24
+          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %26
 
 _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %11
   %13 = lshr exact i64 %.sroa.8.029, 3
@@ -143302,47 +143308,48 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %17 = or i8 %15, %16
   store i8 %17, ptr %14, align 1, !tbaa !26
   %18 = add nuw nsw i64 %.sroa.8.029, 16
-  %.not1617.i = icmp ult i64 %12, 256
+  %19 = lshr i64 %12, 8
+  %.not1617.i = icmp eq i64 %19, 0
   br i1 %.not1617.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit, %.lr.ph.i
   %.0.in19.i = phi i64 [ %.0.i, %.lr.ph.i ], [ %13, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i.in = phi i64 [ %.01318.i, %.lr.ph.i ], [ %12, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i = lshr i64 %.01318.i.in, 8
+  %.01318.i = phi i64 [ %24, %.lr.ph.i ], [ %19, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.0.i = add nuw nsw i64 %.0.in19.i, 1
-  %19 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
-  %20 = load i8, ptr %19, align 1, !tbaa !26
-  %21 = trunc i64 %.01318.i to i8
-  %22 = or i8 %20, %21
-  store i8 %22, ptr %19, align 1, !tbaa !26
-  %.not16.i = icmp ult i64 %.01318.i.in, 65536
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
+  %21 = load i8, ptr %20, align 1, !tbaa !26
+  %22 = trunc i64 %.01318.i to i8
+  %23 = or i8 %21, %22
+  store i8 %23, ptr %20, align 1, !tbaa !26
+  %24 = lshr i64 %.01318.i, 8
+  %.not16.i = icmp eq i64 %24, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
-  %23 = add nuw nsw i64 %.030, 1
-  %exitcond.not = icmp eq i64 %23, 5
+  %25 = add nuw nsw i64 %.030, 1
+  %exitcond.not = icmp eq i64 %25, 5
   br i1 %exitcond.not, label %10, label %11, !llvm.loop !178
 
-24:                                               ; preds = %11
-  %25 = landingpad { ptr, i32 }
+26:                                               ; preds = %11
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZdaPv(ptr noundef nonnull %9) #15
-  %26 = add nuw nsw i64 %.01131, 1
-  %exitcond34.not = icmp eq i64 %26, 10
+  %28 = add nuw nsw i64 %.01131, 1
+  %exitcond34.not = icmp eq i64 %28, 10
   br i1 %exitcond34.not, label %7, label %8, !llvm.loop !179
 
-27:                                               ; preds = %10
-  %28 = landingpad { ptr, i32 }
+29:                                               ; preds = %10
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %27, %24
-  %.pn = phi { ptr, i32 } [ %25, %24 ], [ %28, %27 ]
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %29, %26
+  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %30, %29 ]
   call void @_ZdaPv(ptr noundef nonnull %9) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -143370,7 +143377,7 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl6ELl16EEvv() local_unna
   ret void
 
 8:                                                ; preds = %0, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
-  %.01131 = phi i64 [ 0, %0 ], [ %26, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
+  %.01131 = phi i64 [ 0, %0 ], [ %28, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
   %9 = call noalias noundef nonnull dereferenceable(12) ptr @_Znam(i64 noundef 12) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %9, i8 0, i64 12, i1 false)
   br label %11
@@ -143381,13 +143388,13 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl6ELl16EEvv() local_unna
   store i64 12, ptr %5, align 8, !tbaa !30
   store i64 0, ptr %6, align 8, !tbaa !31
   invoke void @_ZN8TestLoopILl6ELl16ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %27
+          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %29
 
 11:                                               ; preds = %8, %_ZN5faiss15BitstringWriter5writeEmi.exit
-  %.030 = phi i64 [ 0, %8 ], [ %23, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
+  %.030 = phi i64 [ 0, %8 ], [ %25, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %.sroa.8.029 = phi i64 [ 0, %8 ], [ %18, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %12 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
-          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %24
+          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %26
 
 _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %11
   %13 = lshr exact i64 %.sroa.8.029, 3
@@ -143397,47 +143404,48 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %17 = or i8 %15, %16
   store i8 %17, ptr %14, align 1, !tbaa !26
   %18 = add nuw nsw i64 %.sroa.8.029, 16
-  %.not1617.i = icmp ult i64 %12, 256
+  %19 = lshr i64 %12, 8
+  %.not1617.i = icmp eq i64 %19, 0
   br i1 %.not1617.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit, %.lr.ph.i
   %.0.in19.i = phi i64 [ %.0.i, %.lr.ph.i ], [ %13, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i.in = phi i64 [ %.01318.i, %.lr.ph.i ], [ %12, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i = lshr i64 %.01318.i.in, 8
+  %.01318.i = phi i64 [ %24, %.lr.ph.i ], [ %19, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.0.i = add nuw nsw i64 %.0.in19.i, 1
-  %19 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
-  %20 = load i8, ptr %19, align 1, !tbaa !26
-  %21 = trunc i64 %.01318.i to i8
-  %22 = or i8 %20, %21
-  store i8 %22, ptr %19, align 1, !tbaa !26
-  %.not16.i = icmp ult i64 %.01318.i.in, 65536
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
+  %21 = load i8, ptr %20, align 1, !tbaa !26
+  %22 = trunc i64 %.01318.i to i8
+  %23 = or i8 %21, %22
+  store i8 %23, ptr %20, align 1, !tbaa !26
+  %24 = lshr i64 %.01318.i, 8
+  %.not16.i = icmp eq i64 %24, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
-  %23 = add nuw nsw i64 %.030, 1
-  %exitcond.not = icmp eq i64 %23, 6
+  %25 = add nuw nsw i64 %.030, 1
+  %exitcond.not = icmp eq i64 %25, 6
   br i1 %exitcond.not, label %10, label %11, !llvm.loop !180
 
-24:                                               ; preds = %11
-  %25 = landingpad { ptr, i32 }
+26:                                               ; preds = %11
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZdaPv(ptr noundef nonnull %9) #15
-  %26 = add nuw nsw i64 %.01131, 1
-  %exitcond34.not = icmp eq i64 %26, 10
+  %28 = add nuw nsw i64 %.01131, 1
+  %exitcond34.not = icmp eq i64 %28, 10
   br i1 %exitcond34.not, label %7, label %8, !llvm.loop !181
 
-27:                                               ; preds = %10
-  %28 = landingpad { ptr, i32 }
+29:                                               ; preds = %10
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %27, %24
-  %.pn = phi { ptr, i32 } [ %25, %24 ], [ %28, %27 ]
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %29, %26
+  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %30, %29 ]
   call void @_ZdaPv(ptr noundef nonnull %9) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -143465,7 +143473,7 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl7ELl16EEvv() local_unna
   ret void
 
 8:                                                ; preds = %0, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
-  %.01131 = phi i64 [ 0, %0 ], [ %26, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
+  %.01131 = phi i64 [ 0, %0 ], [ %28, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
   %9 = call noalias noundef nonnull dereferenceable(14) ptr @_Znam(i64 noundef 14) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %9, i8 0, i64 14, i1 false)
   br label %11
@@ -143476,13 +143484,13 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl7ELl16EEvv() local_unna
   store i64 14, ptr %5, align 8, !tbaa !30
   store i64 0, ptr %6, align 8, !tbaa !31
   invoke void @_ZN8TestLoopILl7ELl16ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %27
+          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %29
 
 11:                                               ; preds = %8, %_ZN5faiss15BitstringWriter5writeEmi.exit
-  %.030 = phi i64 [ 0, %8 ], [ %23, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
+  %.030 = phi i64 [ 0, %8 ], [ %25, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %.sroa.8.029 = phi i64 [ 0, %8 ], [ %18, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %12 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
-          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %24
+          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %26
 
 _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %11
   %13 = lshr exact i64 %.sroa.8.029, 3
@@ -143492,47 +143500,48 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %17 = or i8 %15, %16
   store i8 %17, ptr %14, align 1, !tbaa !26
   %18 = add nuw nsw i64 %.sroa.8.029, 16
-  %.not1617.i = icmp ult i64 %12, 256
+  %19 = lshr i64 %12, 8
+  %.not1617.i = icmp eq i64 %19, 0
   br i1 %.not1617.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit, %.lr.ph.i
   %.0.in19.i = phi i64 [ %.0.i, %.lr.ph.i ], [ %13, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i.in = phi i64 [ %.01318.i, %.lr.ph.i ], [ %12, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i = lshr i64 %.01318.i.in, 8
+  %.01318.i = phi i64 [ %24, %.lr.ph.i ], [ %19, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.0.i = add nuw nsw i64 %.0.in19.i, 1
-  %19 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
-  %20 = load i8, ptr %19, align 1, !tbaa !26
-  %21 = trunc i64 %.01318.i to i8
-  %22 = or i8 %20, %21
-  store i8 %22, ptr %19, align 1, !tbaa !26
-  %.not16.i = icmp ult i64 %.01318.i.in, 65536
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
+  %21 = load i8, ptr %20, align 1, !tbaa !26
+  %22 = trunc i64 %.01318.i to i8
+  %23 = or i8 %21, %22
+  store i8 %23, ptr %20, align 1, !tbaa !26
+  %24 = lshr i64 %.01318.i, 8
+  %.not16.i = icmp eq i64 %24, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
-  %23 = add nuw nsw i64 %.030, 1
-  %exitcond.not = icmp eq i64 %23, 7
+  %25 = add nuw nsw i64 %.030, 1
+  %exitcond.not = icmp eq i64 %25, 7
   br i1 %exitcond.not, label %10, label %11, !llvm.loop !182
 
-24:                                               ; preds = %11
-  %25 = landingpad { ptr, i32 }
+26:                                               ; preds = %11
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZdaPv(ptr noundef nonnull %9) #15
-  %26 = add nuw nsw i64 %.01131, 1
-  %exitcond34.not = icmp eq i64 %26, 10
+  %28 = add nuw nsw i64 %.01131, 1
+  %exitcond34.not = icmp eq i64 %28, 10
   br i1 %exitcond34.not, label %7, label %8, !llvm.loop !183
 
-27:                                               ; preds = %10
-  %28 = landingpad { ptr, i32 }
+29:                                               ; preds = %10
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %27, %24
-  %.pn = phi { ptr, i32 } [ %25, %24 ], [ %28, %27 ]
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %29, %26
+  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %30, %29 ]
   call void @_ZdaPv(ptr noundef nonnull %9) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -143560,7 +143569,7 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl8ELl16EEvv() local_unna
   ret void
 
 8:                                                ; preds = %0, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
-  %.01131 = phi i64 [ 0, %0 ], [ %26, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
+  %.01131 = phi i64 [ 0, %0 ], [ %28, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
   %9 = call noalias noundef nonnull dereferenceable(16) ptr @_Znam(i64 noundef 16) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   br label %11
@@ -143571,13 +143580,13 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl8ELl16EEvv() local_unna
   store i64 16, ptr %5, align 8, !tbaa !30
   store i64 0, ptr %6, align 8, !tbaa !31
   invoke void @_ZN8TestLoopILl8ELl16ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %27
+          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %29
 
 11:                                               ; preds = %8, %_ZN5faiss15BitstringWriter5writeEmi.exit
-  %.030 = phi i64 [ 0, %8 ], [ %23, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
+  %.030 = phi i64 [ 0, %8 ], [ %25, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %.sroa.8.029 = phi i64 [ 0, %8 ], [ %18, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %12 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
-          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %24
+          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %26
 
 _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %11
   %13 = lshr exact i64 %.sroa.8.029, 3
@@ -143587,47 +143596,48 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %17 = or i8 %15, %16
   store i8 %17, ptr %14, align 1, !tbaa !26
   %18 = add nuw nsw i64 %.sroa.8.029, 16
-  %.not1617.i = icmp ult i64 %12, 256
+  %19 = lshr i64 %12, 8
+  %.not1617.i = icmp eq i64 %19, 0
   br i1 %.not1617.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit, %.lr.ph.i
   %.0.in19.i = phi i64 [ %.0.i, %.lr.ph.i ], [ %13, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i.in = phi i64 [ %.01318.i, %.lr.ph.i ], [ %12, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i = lshr i64 %.01318.i.in, 8
+  %.01318.i = phi i64 [ %24, %.lr.ph.i ], [ %19, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.0.i = add nuw nsw i64 %.0.in19.i, 1
-  %19 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
-  %20 = load i8, ptr %19, align 1, !tbaa !26
-  %21 = trunc i64 %.01318.i to i8
-  %22 = or i8 %20, %21
-  store i8 %22, ptr %19, align 1, !tbaa !26
-  %.not16.i = icmp ult i64 %.01318.i.in, 65536
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
+  %21 = load i8, ptr %20, align 1, !tbaa !26
+  %22 = trunc i64 %.01318.i to i8
+  %23 = or i8 %21, %22
+  store i8 %23, ptr %20, align 1, !tbaa !26
+  %24 = lshr i64 %.01318.i, 8
+  %.not16.i = icmp eq i64 %24, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
-  %23 = add nuw nsw i64 %.030, 1
-  %exitcond.not = icmp eq i64 %23, 8
+  %25 = add nuw nsw i64 %.030, 1
+  %exitcond.not = icmp eq i64 %25, 8
   br i1 %exitcond.not, label %10, label %11, !llvm.loop !184
 
-24:                                               ; preds = %11
-  %25 = landingpad { ptr, i32 }
+26:                                               ; preds = %11
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZdaPv(ptr noundef nonnull %9) #15
-  %26 = add nuw nsw i64 %.01131, 1
-  %exitcond34.not = icmp eq i64 %26, 10
+  %28 = add nuw nsw i64 %.01131, 1
+  %exitcond34.not = icmp eq i64 %28, 10
   br i1 %exitcond34.not, label %7, label %8, !llvm.loop !185
 
-27:                                               ; preds = %10
-  %28 = landingpad { ptr, i32 }
+29:                                               ; preds = %10
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %27, %24
-  %.pn = phi { ptr, i32 } [ %25, %24 ], [ %28, %27 ]
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %29, %26
+  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %30, %29 ]
   call void @_ZdaPv(ptr noundef nonnull %9) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -143655,7 +143665,7 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl9ELl16EEvv() local_unna
   ret void
 
 8:                                                ; preds = %0, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
-  %.01131 = phi i64 [ 0, %0 ], [ %26, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
+  %.01131 = phi i64 [ 0, %0 ], [ %28, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
   %9 = call noalias noundef nonnull dereferenceable(18) ptr @_Znam(i64 noundef 18) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %9, i8 0, i64 18, i1 false)
   br label %11
@@ -143666,13 +143676,13 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl9ELl16EEvv() local_unna
   store i64 18, ptr %5, align 8, !tbaa !30
   store i64 0, ptr %6, align 8, !tbaa !31
   invoke void @_ZN8TestLoopILl9ELl16ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %27
+          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %29
 
 11:                                               ; preds = %8, %_ZN5faiss15BitstringWriter5writeEmi.exit
-  %.030 = phi i64 [ 0, %8 ], [ %23, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
+  %.030 = phi i64 [ 0, %8 ], [ %25, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %.sroa.8.029 = phi i64 [ 0, %8 ], [ %18, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %12 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
-          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %24
+          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %26
 
 _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %11
   %13 = lshr exact i64 %.sroa.8.029, 3
@@ -143682,47 +143692,48 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %17 = or i8 %15, %16
   store i8 %17, ptr %14, align 1, !tbaa !26
   %18 = add nuw nsw i64 %.sroa.8.029, 16
-  %.not1617.i = icmp ult i64 %12, 256
+  %19 = lshr i64 %12, 8
+  %.not1617.i = icmp eq i64 %19, 0
   br i1 %.not1617.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit, %.lr.ph.i
   %.0.in19.i = phi i64 [ %.0.i, %.lr.ph.i ], [ %13, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i.in = phi i64 [ %.01318.i, %.lr.ph.i ], [ %12, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i = lshr i64 %.01318.i.in, 8
+  %.01318.i = phi i64 [ %24, %.lr.ph.i ], [ %19, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.0.i = add nuw nsw i64 %.0.in19.i, 1
-  %19 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
-  %20 = load i8, ptr %19, align 1, !tbaa !26
-  %21 = trunc i64 %.01318.i to i8
-  %22 = or i8 %20, %21
-  store i8 %22, ptr %19, align 1, !tbaa !26
-  %.not16.i = icmp ult i64 %.01318.i.in, 65536
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
+  %21 = load i8, ptr %20, align 1, !tbaa !26
+  %22 = trunc i64 %.01318.i to i8
+  %23 = or i8 %21, %22
+  store i8 %23, ptr %20, align 1, !tbaa !26
+  %24 = lshr i64 %.01318.i, 8
+  %.not16.i = icmp eq i64 %24, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
-  %23 = add nuw nsw i64 %.030, 1
-  %exitcond.not = icmp eq i64 %23, 9
+  %25 = add nuw nsw i64 %.030, 1
+  %exitcond.not = icmp eq i64 %25, 9
   br i1 %exitcond.not, label %10, label %11, !llvm.loop !186
 
-24:                                               ; preds = %11
-  %25 = landingpad { ptr, i32 }
+26:                                               ; preds = %11
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZdaPv(ptr noundef nonnull %9) #15
-  %26 = add nuw nsw i64 %.01131, 1
-  %exitcond34.not = icmp eq i64 %26, 10
+  %28 = add nuw nsw i64 %.01131, 1
+  %exitcond34.not = icmp eq i64 %28, 10
   br i1 %exitcond34.not, label %7, label %8, !llvm.loop !187
 
-27:                                               ; preds = %10
-  %28 = landingpad { ptr, i32 }
+29:                                               ; preds = %10
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %27, %24
-  %.pn = phi { ptr, i32 } [ %25, %24 ], [ %28, %27 ]
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %29, %26
+  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %30, %29 ]
   call void @_ZdaPv(ptr noundef nonnull %9) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -143750,7 +143761,7 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl10ELl16EEvv() local_unn
   ret void
 
 8:                                                ; preds = %0, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
-  %.01131 = phi i64 [ 0, %0 ], [ %26, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
+  %.01131 = phi i64 [ 0, %0 ], [ %28, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
   %9 = call noalias noundef nonnull dereferenceable(20) ptr @_Znam(i64 noundef 20) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %9, i8 0, i64 20, i1 false)
   br label %11
@@ -143761,13 +143772,13 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl10ELl16EEvv() local_unn
   store i64 20, ptr %5, align 8, !tbaa !30
   store i64 0, ptr %6, align 8, !tbaa !31
   invoke void @_ZN8TestLoopILl10ELl16ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %27
+          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %29
 
 11:                                               ; preds = %8, %_ZN5faiss15BitstringWriter5writeEmi.exit
-  %.030 = phi i64 [ 0, %8 ], [ %23, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
+  %.030 = phi i64 [ 0, %8 ], [ %25, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %.sroa.8.029 = phi i64 [ 0, %8 ], [ %18, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %12 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
-          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %24
+          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %26
 
 _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %11
   %13 = lshr exact i64 %.sroa.8.029, 3
@@ -143777,47 +143788,48 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %17 = or i8 %15, %16
   store i8 %17, ptr %14, align 1, !tbaa !26
   %18 = add nuw nsw i64 %.sroa.8.029, 16
-  %.not1617.i = icmp ult i64 %12, 256
+  %19 = lshr i64 %12, 8
+  %.not1617.i = icmp eq i64 %19, 0
   br i1 %.not1617.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit, %.lr.ph.i
   %.0.in19.i = phi i64 [ %.0.i, %.lr.ph.i ], [ %13, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i.in = phi i64 [ %.01318.i, %.lr.ph.i ], [ %12, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i = lshr i64 %.01318.i.in, 8
+  %.01318.i = phi i64 [ %24, %.lr.ph.i ], [ %19, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.0.i = add nuw nsw i64 %.0.in19.i, 1
-  %19 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
-  %20 = load i8, ptr %19, align 1, !tbaa !26
-  %21 = trunc i64 %.01318.i to i8
-  %22 = or i8 %20, %21
-  store i8 %22, ptr %19, align 1, !tbaa !26
-  %.not16.i = icmp ult i64 %.01318.i.in, 65536
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
+  %21 = load i8, ptr %20, align 1, !tbaa !26
+  %22 = trunc i64 %.01318.i to i8
+  %23 = or i8 %21, %22
+  store i8 %23, ptr %20, align 1, !tbaa !26
+  %24 = lshr i64 %.01318.i, 8
+  %.not16.i = icmp eq i64 %24, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
-  %23 = add nuw nsw i64 %.030, 1
-  %exitcond.not = icmp eq i64 %23, 10
+  %25 = add nuw nsw i64 %.030, 1
+  %exitcond.not = icmp eq i64 %25, 10
   br i1 %exitcond.not, label %10, label %11, !llvm.loop !188
 
-24:                                               ; preds = %11
-  %25 = landingpad { ptr, i32 }
+26:                                               ; preds = %11
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZdaPv(ptr noundef nonnull %9) #15
-  %26 = add nuw nsw i64 %.01131, 1
-  %exitcond34.not = icmp eq i64 %26, 10
+  %28 = add nuw nsw i64 %.01131, 1
+  %exitcond34.not = icmp eq i64 %28, 10
   br i1 %exitcond34.not, label %7, label %8, !llvm.loop !189
 
-27:                                               ; preds = %10
-  %28 = landingpad { ptr, i32 }
+29:                                               ; preds = %10
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %27, %24
-  %.pn = phi { ptr, i32 } [ %25, %24 ], [ %28, %27 ]
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %29, %26
+  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %30, %29 ]
   call void @_ZdaPv(ptr noundef nonnull %9) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -143845,7 +143857,7 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl11ELl16EEvv() local_unn
   ret void
 
 8:                                                ; preds = %0, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
-  %.01131 = phi i64 [ 0, %0 ], [ %26, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
+  %.01131 = phi i64 [ 0, %0 ], [ %28, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
   %9 = call noalias noundef nonnull dereferenceable(22) ptr @_Znam(i64 noundef 22) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %9, i8 0, i64 22, i1 false)
   br label %11
@@ -143856,13 +143868,13 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl11ELl16EEvv() local_unn
   store i64 22, ptr %5, align 8, !tbaa !30
   store i64 0, ptr %6, align 8, !tbaa !31
   invoke void @_ZN8TestLoopILl11ELl16ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %27
+          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %29
 
 11:                                               ; preds = %8, %_ZN5faiss15BitstringWriter5writeEmi.exit
-  %.030 = phi i64 [ 0, %8 ], [ %23, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
+  %.030 = phi i64 [ 0, %8 ], [ %25, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %.sroa.8.029 = phi i64 [ 0, %8 ], [ %18, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %12 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
-          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %24
+          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %26
 
 _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %11
   %13 = lshr exact i64 %.sroa.8.029, 3
@@ -143872,47 +143884,48 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %17 = or i8 %15, %16
   store i8 %17, ptr %14, align 1, !tbaa !26
   %18 = add nuw nsw i64 %.sroa.8.029, 16
-  %.not1617.i = icmp ult i64 %12, 256
+  %19 = lshr i64 %12, 8
+  %.not1617.i = icmp eq i64 %19, 0
   br i1 %.not1617.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit, %.lr.ph.i
   %.0.in19.i = phi i64 [ %.0.i, %.lr.ph.i ], [ %13, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i.in = phi i64 [ %.01318.i, %.lr.ph.i ], [ %12, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i = lshr i64 %.01318.i.in, 8
+  %.01318.i = phi i64 [ %24, %.lr.ph.i ], [ %19, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.0.i = add nuw nsw i64 %.0.in19.i, 1
-  %19 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
-  %20 = load i8, ptr %19, align 1, !tbaa !26
-  %21 = trunc i64 %.01318.i to i8
-  %22 = or i8 %20, %21
-  store i8 %22, ptr %19, align 1, !tbaa !26
-  %.not16.i = icmp ult i64 %.01318.i.in, 65536
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
+  %21 = load i8, ptr %20, align 1, !tbaa !26
+  %22 = trunc i64 %.01318.i to i8
+  %23 = or i8 %21, %22
+  store i8 %23, ptr %20, align 1, !tbaa !26
+  %24 = lshr i64 %.01318.i, 8
+  %.not16.i = icmp eq i64 %24, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
-  %23 = add nuw nsw i64 %.030, 1
-  %exitcond.not = icmp eq i64 %23, 11
+  %25 = add nuw nsw i64 %.030, 1
+  %exitcond.not = icmp eq i64 %25, 11
   br i1 %exitcond.not, label %10, label %11, !llvm.loop !190
 
-24:                                               ; preds = %11
-  %25 = landingpad { ptr, i32 }
+26:                                               ; preds = %11
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZdaPv(ptr noundef nonnull %9) #15
-  %26 = add nuw nsw i64 %.01131, 1
-  %exitcond34.not = icmp eq i64 %26, 10
+  %28 = add nuw nsw i64 %.01131, 1
+  %exitcond34.not = icmp eq i64 %28, 10
   br i1 %exitcond34.not, label %7, label %8, !llvm.loop !191
 
-27:                                               ; preds = %10
-  %28 = landingpad { ptr, i32 }
+29:                                               ; preds = %10
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %27, %24
-  %.pn = phi { ptr, i32 } [ %25, %24 ], [ %28, %27 ]
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %29, %26
+  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %30, %29 ]
   call void @_ZdaPv(ptr noundef nonnull %9) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -143940,7 +143953,7 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl12ELl16EEvv() local_unn
   ret void
 
 8:                                                ; preds = %0, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
-  %.01131 = phi i64 [ 0, %0 ], [ %26, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
+  %.01131 = phi i64 [ 0, %0 ], [ %28, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
   %9 = call noalias noundef nonnull dereferenceable(24) ptr @_Znam(i64 noundef 24) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   br label %11
@@ -143951,13 +143964,13 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl12ELl16EEvv() local_unn
   store i64 24, ptr %5, align 8, !tbaa !30
   store i64 0, ptr %6, align 8, !tbaa !31
   invoke void @_ZN8TestLoopILl12ELl16ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %27
+          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %29
 
 11:                                               ; preds = %8, %_ZN5faiss15BitstringWriter5writeEmi.exit
-  %.030 = phi i64 [ 0, %8 ], [ %23, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
+  %.030 = phi i64 [ 0, %8 ], [ %25, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %.sroa.8.029 = phi i64 [ 0, %8 ], [ %18, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %12 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
-          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %24
+          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %26
 
 _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %11
   %13 = lshr exact i64 %.sroa.8.029, 3
@@ -143967,47 +143980,48 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %17 = or i8 %15, %16
   store i8 %17, ptr %14, align 1, !tbaa !26
   %18 = add nuw nsw i64 %.sroa.8.029, 16
-  %.not1617.i = icmp ult i64 %12, 256
+  %19 = lshr i64 %12, 8
+  %.not1617.i = icmp eq i64 %19, 0
   br i1 %.not1617.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit, %.lr.ph.i
   %.0.in19.i = phi i64 [ %.0.i, %.lr.ph.i ], [ %13, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i.in = phi i64 [ %.01318.i, %.lr.ph.i ], [ %12, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i = lshr i64 %.01318.i.in, 8
+  %.01318.i = phi i64 [ %24, %.lr.ph.i ], [ %19, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.0.i = add nuw nsw i64 %.0.in19.i, 1
-  %19 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
-  %20 = load i8, ptr %19, align 1, !tbaa !26
-  %21 = trunc i64 %.01318.i to i8
-  %22 = or i8 %20, %21
-  store i8 %22, ptr %19, align 1, !tbaa !26
-  %.not16.i = icmp ult i64 %.01318.i.in, 65536
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
+  %21 = load i8, ptr %20, align 1, !tbaa !26
+  %22 = trunc i64 %.01318.i to i8
+  %23 = or i8 %21, %22
+  store i8 %23, ptr %20, align 1, !tbaa !26
+  %24 = lshr i64 %.01318.i, 8
+  %.not16.i = icmp eq i64 %24, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
-  %23 = add nuw nsw i64 %.030, 1
-  %exitcond.not = icmp eq i64 %23, 12
+  %25 = add nuw nsw i64 %.030, 1
+  %exitcond.not = icmp eq i64 %25, 12
   br i1 %exitcond.not, label %10, label %11, !llvm.loop !192
 
-24:                                               ; preds = %11
-  %25 = landingpad { ptr, i32 }
+26:                                               ; preds = %11
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZdaPv(ptr noundef nonnull %9) #15
-  %26 = add nuw nsw i64 %.01131, 1
-  %exitcond34.not = icmp eq i64 %26, 10
+  %28 = add nuw nsw i64 %.01131, 1
+  %exitcond34.not = icmp eq i64 %28, 10
   br i1 %exitcond34.not, label %7, label %8, !llvm.loop !193
 
-27:                                               ; preds = %10
-  %28 = landingpad { ptr, i32 }
+29:                                               ; preds = %10
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %27, %24
-  %.pn = phi { ptr, i32 } [ %25, %24 ], [ %28, %27 ]
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %29, %26
+  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %30, %29 ]
   call void @_ZdaPv(ptr noundef nonnull %9) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -144035,7 +144049,7 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl13ELl16EEvv() local_unn
   ret void
 
 8:                                                ; preds = %0, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
-  %.01131 = phi i64 [ 0, %0 ], [ %26, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
+  %.01131 = phi i64 [ 0, %0 ], [ %28, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
   %9 = call noalias noundef nonnull dereferenceable(26) ptr @_Znam(i64 noundef 26) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %9, i8 0, i64 26, i1 false)
   br label %11
@@ -144046,13 +144060,13 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl13ELl16EEvv() local_unn
   store i64 26, ptr %5, align 8, !tbaa !30
   store i64 0, ptr %6, align 8, !tbaa !31
   invoke void @_ZN8TestLoopILl13ELl16ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %27
+          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %29
 
 11:                                               ; preds = %8, %_ZN5faiss15BitstringWriter5writeEmi.exit
-  %.030 = phi i64 [ 0, %8 ], [ %23, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
+  %.030 = phi i64 [ 0, %8 ], [ %25, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %.sroa.8.029 = phi i64 [ 0, %8 ], [ %18, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %12 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
-          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %24
+          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %26
 
 _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %11
   %13 = lshr exact i64 %.sroa.8.029, 3
@@ -144062,47 +144076,48 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %17 = or i8 %15, %16
   store i8 %17, ptr %14, align 1, !tbaa !26
   %18 = add nuw nsw i64 %.sroa.8.029, 16
-  %.not1617.i = icmp ult i64 %12, 256
+  %19 = lshr i64 %12, 8
+  %.not1617.i = icmp eq i64 %19, 0
   br i1 %.not1617.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit, %.lr.ph.i
   %.0.in19.i = phi i64 [ %.0.i, %.lr.ph.i ], [ %13, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i.in = phi i64 [ %.01318.i, %.lr.ph.i ], [ %12, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i = lshr i64 %.01318.i.in, 8
+  %.01318.i = phi i64 [ %24, %.lr.ph.i ], [ %19, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.0.i = add nuw nsw i64 %.0.in19.i, 1
-  %19 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
-  %20 = load i8, ptr %19, align 1, !tbaa !26
-  %21 = trunc i64 %.01318.i to i8
-  %22 = or i8 %20, %21
-  store i8 %22, ptr %19, align 1, !tbaa !26
-  %.not16.i = icmp ult i64 %.01318.i.in, 65536
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
+  %21 = load i8, ptr %20, align 1, !tbaa !26
+  %22 = trunc i64 %.01318.i to i8
+  %23 = or i8 %21, %22
+  store i8 %23, ptr %20, align 1, !tbaa !26
+  %24 = lshr i64 %.01318.i, 8
+  %.not16.i = icmp eq i64 %24, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
-  %23 = add nuw nsw i64 %.030, 1
-  %exitcond.not = icmp eq i64 %23, 13
+  %25 = add nuw nsw i64 %.030, 1
+  %exitcond.not = icmp eq i64 %25, 13
   br i1 %exitcond.not, label %10, label %11, !llvm.loop !194
 
-24:                                               ; preds = %11
-  %25 = landingpad { ptr, i32 }
+26:                                               ; preds = %11
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZdaPv(ptr noundef nonnull %9) #15
-  %26 = add nuw nsw i64 %.01131, 1
-  %exitcond34.not = icmp eq i64 %26, 10
+  %28 = add nuw nsw i64 %.01131, 1
+  %exitcond34.not = icmp eq i64 %28, 10
   br i1 %exitcond34.not, label %7, label %8, !llvm.loop !195
 
-27:                                               ; preds = %10
-  %28 = landingpad { ptr, i32 }
+29:                                               ; preds = %10
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %27, %24
-  %.pn = phi { ptr, i32 } [ %25, %24 ], [ %28, %27 ]
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %29, %26
+  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %30, %29 ]
   call void @_ZdaPv(ptr noundef nonnull %9) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -144130,7 +144145,7 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl14ELl16EEvv() local_unn
   ret void
 
 8:                                                ; preds = %0, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
-  %.01131 = phi i64 [ 0, %0 ], [ %26, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
+  %.01131 = phi i64 [ 0, %0 ], [ %28, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
   %9 = call noalias noundef nonnull dereferenceable(28) ptr @_Znam(i64 noundef 28) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %9, i8 0, i64 28, i1 false)
   br label %11
@@ -144141,13 +144156,13 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl14ELl16EEvv() local_unn
   store i64 28, ptr %5, align 8, !tbaa !30
   store i64 0, ptr %6, align 8, !tbaa !31
   invoke void @_ZN8TestLoopILl14ELl16ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %27
+          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %29
 
 11:                                               ; preds = %8, %_ZN5faiss15BitstringWriter5writeEmi.exit
-  %.030 = phi i64 [ 0, %8 ], [ %23, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
+  %.030 = phi i64 [ 0, %8 ], [ %25, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %.sroa.8.029 = phi i64 [ 0, %8 ], [ %18, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %12 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
-          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %24
+          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %26
 
 _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %11
   %13 = lshr exact i64 %.sroa.8.029, 3
@@ -144157,47 +144172,48 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %17 = or i8 %15, %16
   store i8 %17, ptr %14, align 1, !tbaa !26
   %18 = add nuw nsw i64 %.sroa.8.029, 16
-  %.not1617.i = icmp ult i64 %12, 256
+  %19 = lshr i64 %12, 8
+  %.not1617.i = icmp eq i64 %19, 0
   br i1 %.not1617.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit, %.lr.ph.i
   %.0.in19.i = phi i64 [ %.0.i, %.lr.ph.i ], [ %13, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i.in = phi i64 [ %.01318.i, %.lr.ph.i ], [ %12, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i = lshr i64 %.01318.i.in, 8
+  %.01318.i = phi i64 [ %24, %.lr.ph.i ], [ %19, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.0.i = add nuw nsw i64 %.0.in19.i, 1
-  %19 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
-  %20 = load i8, ptr %19, align 1, !tbaa !26
-  %21 = trunc i64 %.01318.i to i8
-  %22 = or i8 %20, %21
-  store i8 %22, ptr %19, align 1, !tbaa !26
-  %.not16.i = icmp ult i64 %.01318.i.in, 65536
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
+  %21 = load i8, ptr %20, align 1, !tbaa !26
+  %22 = trunc i64 %.01318.i to i8
+  %23 = or i8 %21, %22
+  store i8 %23, ptr %20, align 1, !tbaa !26
+  %24 = lshr i64 %.01318.i, 8
+  %.not16.i = icmp eq i64 %24, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
-  %23 = add nuw nsw i64 %.030, 1
-  %exitcond.not = icmp eq i64 %23, 14
+  %25 = add nuw nsw i64 %.030, 1
+  %exitcond.not = icmp eq i64 %25, 14
   br i1 %exitcond.not, label %10, label %11, !llvm.loop !196
 
-24:                                               ; preds = %11
-  %25 = landingpad { ptr, i32 }
+26:                                               ; preds = %11
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZdaPv(ptr noundef nonnull %9) #15
-  %26 = add nuw nsw i64 %.01131, 1
-  %exitcond34.not = icmp eq i64 %26, 10
+  %28 = add nuw nsw i64 %.01131, 1
+  %exitcond34.not = icmp eq i64 %28, 10
   br i1 %exitcond34.not, label %7, label %8, !llvm.loop !197
 
-27:                                               ; preds = %10
-  %28 = landingpad { ptr, i32 }
+29:                                               ; preds = %10
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %27, %24
-  %.pn = phi { ptr, i32 } [ %25, %24 ], [ %28, %27 ]
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %29, %26
+  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %30, %29 ]
   call void @_ZdaPv(ptr noundef nonnull %9) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -144225,7 +144241,7 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl15ELl16EEvv() local_unn
   ret void
 
 8:                                                ; preds = %0, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
-  %.01131 = phi i64 [ 0, %0 ], [ %26, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
+  %.01131 = phi i64 [ 0, %0 ], [ %28, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
   %9 = call noalias noundef nonnull dereferenceable(30) ptr @_Znam(i64 noundef 30) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(30) %9, i8 0, i64 30, i1 false)
   br label %11
@@ -144236,13 +144252,13 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl15ELl16EEvv() local_unn
   store i64 30, ptr %5, align 8, !tbaa !30
   store i64 0, ptr %6, align 8, !tbaa !31
   invoke void @_ZN8TestLoopILl15ELl16ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %27
+          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %29
 
 11:                                               ; preds = %8, %_ZN5faiss15BitstringWriter5writeEmi.exit
-  %.030 = phi i64 [ 0, %8 ], [ %23, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
+  %.030 = phi i64 [ 0, %8 ], [ %25, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %.sroa.8.029 = phi i64 [ 0, %8 ], [ %18, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %12 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
-          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %24
+          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %26
 
 _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %11
   %13 = lshr exact i64 %.sroa.8.029, 3
@@ -144252,47 +144268,48 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %17 = or i8 %15, %16
   store i8 %17, ptr %14, align 1, !tbaa !26
   %18 = add nuw nsw i64 %.sroa.8.029, 16
-  %.not1617.i = icmp ult i64 %12, 256
+  %19 = lshr i64 %12, 8
+  %.not1617.i = icmp eq i64 %19, 0
   br i1 %.not1617.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit, %.lr.ph.i
   %.0.in19.i = phi i64 [ %.0.i, %.lr.ph.i ], [ %13, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i.in = phi i64 [ %.01318.i, %.lr.ph.i ], [ %12, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i = lshr i64 %.01318.i.in, 8
+  %.01318.i = phi i64 [ %24, %.lr.ph.i ], [ %19, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.0.i = add nuw nsw i64 %.0.in19.i, 1
-  %19 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
-  %20 = load i8, ptr %19, align 1, !tbaa !26
-  %21 = trunc i64 %.01318.i to i8
-  %22 = or i8 %20, %21
-  store i8 %22, ptr %19, align 1, !tbaa !26
-  %.not16.i = icmp ult i64 %.01318.i.in, 65536
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
+  %21 = load i8, ptr %20, align 1, !tbaa !26
+  %22 = trunc i64 %.01318.i to i8
+  %23 = or i8 %21, %22
+  store i8 %23, ptr %20, align 1, !tbaa !26
+  %24 = lshr i64 %.01318.i, 8
+  %.not16.i = icmp eq i64 %24, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
-  %23 = add nuw nsw i64 %.030, 1
-  %exitcond.not = icmp eq i64 %23, 15
+  %25 = add nuw nsw i64 %.030, 1
+  %exitcond.not = icmp eq i64 %25, 15
   br i1 %exitcond.not, label %10, label %11, !llvm.loop !198
 
-24:                                               ; preds = %11
-  %25 = landingpad { ptr, i32 }
+26:                                               ; preds = %11
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZdaPv(ptr noundef nonnull %9) #15
-  %26 = add nuw nsw i64 %.01131, 1
-  %exitcond34.not = icmp eq i64 %26, 10
+  %28 = add nuw nsw i64 %.01131, 1
+  %exitcond34.not = icmp eq i64 %28, 10
   br i1 %exitcond34.not, label %7, label %8, !llvm.loop !199
 
-27:                                               ; preds = %10
-  %28 = landingpad { ptr, i32 }
+29:                                               ; preds = %10
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %27, %24
-  %.pn = phi { ptr, i32 } [ %25, %24 ], [ %28, %27 ]
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %29, %26
+  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %30, %29 ]
   call void @_ZdaPv(ptr noundef nonnull %9) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -144320,7 +144337,7 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl16ELl16EEvv() local_unn
   ret void
 
 8:                                                ; preds = %0, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
-  %.01131 = phi i64 [ 0, %0 ], [ %26, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
+  %.01131 = phi i64 [ 0, %0 ], [ %28, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
   %9 = call noalias noundef nonnull dereferenceable(32) ptr @_Znam(i64 noundef 32) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   br label %11
@@ -144331,13 +144348,13 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl16ELl16EEvv() local_unn
   store i64 32, ptr %5, align 8, !tbaa !30
   store i64 0, ptr %6, align 8, !tbaa !31
   invoke void @_ZN8TestLoopILl16ELl16ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %27
+          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %29
 
 11:                                               ; preds = %8, %_ZN5faiss15BitstringWriter5writeEmi.exit
-  %.030 = phi i64 [ 0, %8 ], [ %23, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
+  %.030 = phi i64 [ 0, %8 ], [ %25, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %.sroa.8.029 = phi i64 [ 0, %8 ], [ %18, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %12 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
-          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %24
+          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %26
 
 _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %11
   %13 = lshr exact i64 %.sroa.8.029, 3
@@ -144347,47 +144364,48 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %17 = or i8 %15, %16
   store i8 %17, ptr %14, align 1, !tbaa !26
   %18 = add nuw nsw i64 %.sroa.8.029, 16
-  %.not1617.i = icmp ult i64 %12, 256
+  %19 = lshr i64 %12, 8
+  %.not1617.i = icmp eq i64 %19, 0
   br i1 %.not1617.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit, %.lr.ph.i
   %.0.in19.i = phi i64 [ %.0.i, %.lr.ph.i ], [ %13, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i.in = phi i64 [ %.01318.i, %.lr.ph.i ], [ %12, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i = lshr i64 %.01318.i.in, 8
+  %.01318.i = phi i64 [ %24, %.lr.ph.i ], [ %19, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.0.i = add nuw nsw i64 %.0.in19.i, 1
-  %19 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
-  %20 = load i8, ptr %19, align 1, !tbaa !26
-  %21 = trunc i64 %.01318.i to i8
-  %22 = or i8 %20, %21
-  store i8 %22, ptr %19, align 1, !tbaa !26
-  %.not16.i = icmp ult i64 %.01318.i.in, 65536
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
+  %21 = load i8, ptr %20, align 1, !tbaa !26
+  %22 = trunc i64 %.01318.i to i8
+  %23 = or i8 %21, %22
+  store i8 %23, ptr %20, align 1, !tbaa !26
+  %24 = lshr i64 %.01318.i, 8
+  %.not16.i = icmp eq i64 %24, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
-  %23 = add nuw nsw i64 %.030, 1
-  %exitcond.not = icmp eq i64 %23, 16
+  %25 = add nuw nsw i64 %.030, 1
+  %exitcond.not = icmp eq i64 %25, 16
   br i1 %exitcond.not, label %10, label %11, !llvm.loop !200
 
-24:                                               ; preds = %11
-  %25 = landingpad { ptr, i32 }
+26:                                               ; preds = %11
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZdaPv(ptr noundef nonnull %9) #15
-  %26 = add nuw nsw i64 %.01131, 1
-  %exitcond34.not = icmp eq i64 %26, 10
+  %28 = add nuw nsw i64 %.01131, 1
+  %exitcond34.not = icmp eq i64 %28, 10
   br i1 %exitcond34.not, label %7, label %8, !llvm.loop !201
 
-27:                                               ; preds = %10
-  %28 = landingpad { ptr, i32 }
+29:                                               ; preds = %10
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %27, %24
-  %.pn = phi { ptr, i32 } [ %25, %24 ], [ %28, %27 ]
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %29, %26
+  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %30, %29 ]
   call void @_ZdaPv(ptr noundef nonnull %9) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -144415,7 +144433,7 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl17ELl16EEvv() local_unn
   ret void
 
 8:                                                ; preds = %0, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
-  %.01131 = phi i64 [ 0, %0 ], [ %26, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
+  %.01131 = phi i64 [ 0, %0 ], [ %28, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ]
   %9 = call noalias noundef nonnull dereferenceable(34) ptr @_Znam(i64 noundef 34) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %9, i8 0, i64 34, i1 false)
   br label %11
@@ -144426,13 +144444,13 @@ define linkonce_odr dso_local void @_Z14TestUintReaderILl17ELl16EEvv() local_unn
   store i64 34, ptr %5, align 8, !tbaa !30
   store i64 0, ptr %6, align 8, !tbaa !31
   invoke void @_ZN8TestLoopILl17ELl16ELl0EE4testEPKhRN5faiss15BitstringReaderE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %27
+          to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit unwind label %29
 
 11:                                               ; preds = %8, %_ZN5faiss15BitstringWriter5writeEmi.exit
-  %.030 = phi i64 [ 0, %8 ], [ %23, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
+  %.030 = phi i64 [ 0, %8 ], [ %25, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %.sroa.8.029 = phi i64 [ 0, %8 ], [ %18, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %12 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
-          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %24
+          to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit unwind label %26
 
 _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit: ; preds = %11
   %13 = lshr exact i64 %.sroa.8.029, 3
@@ -144442,47 +144460,48 @@ _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0
   %17 = or i8 %15, %16
   store i8 %17, ptr %14, align 1, !tbaa !26
   %18 = add nuw nsw i64 %.sroa.8.029, 16
-  %.not1617.i = icmp ult i64 %12, 256
+  %19 = lshr i64 %12, 8
+  %.not1617.i = icmp eq i64 %19, 0
   br i1 %.not1617.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit, %.lr.ph.i
   %.0.in19.i = phi i64 [ %.0.i, %.lr.ph.i ], [ %13, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i.in = phi i64 [ %.01318.i, %.lr.ph.i ], [ %12, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
-  %.01318.i = lshr i64 %.01318.i.in, 8
+  %.01318.i = phi i64 [ %24, %.lr.ph.i ], [ %19, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit ]
   %.0.i = add nuw nsw i64 %.0.in19.i, 1
-  %19 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
-  %20 = load i8, ptr %19, align 1, !tbaa !26
-  %21 = trunc i64 %.01318.i to i8
-  %22 = or i8 %20, %21
-  store i8 %22, ptr %19, align 1, !tbaa !26
-  %.not16.i = icmp ult i64 %.01318.i.in, 65536
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
+  %21 = load i8, ptr %20, align 1, !tbaa !26
+  %22 = trunc i64 %.01318.i to i8
+  %23 = or i8 %21, %22
+  store i8 %23, ptr %20, align 1, !tbaa !26
+  %24 = lshr i64 %.01318.i, 8
+  %.not16.i = icmp eq i64 %24, 0
   br i1 %.not16.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_.exit
-  %23 = add nuw nsw i64 %.030, 1
-  %exitcond.not = icmp eq i64 %23, 17
+  %25 = add nuw nsw i64 %.030, 1
+  %exitcond.not = icmp eq i64 %25, 17
   br i1 %exitcond.not, label %10, label %11, !llvm.loop !202
 
-24:                                               ; preds = %11
-  %25 = landingpad { ptr, i32 }
+26:                                               ; preds = %11
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZdaPv(ptr noundef nonnull %9) #15
-  %26 = add nuw nsw i64 %.01131, 1
-  %exitcond34.not = icmp eq i64 %26, 10
+  %28 = add nuw nsw i64 %.01131, 1
+  %exitcond34.not = icmp eq i64 %28, 10
   br i1 %exitcond34.not, label %7, label %8, !llvm.loop !203
 
-27:                                               ; preds = %10
-  %28 = landingpad { ptr, i32 }
+29:                                               ; preds = %10
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %27, %24
-  %.pn = phi { ptr, i32 } [ %25, %24 ], [ %28, %27 ]
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16: ; preds = %29, %26
+  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %30, %29 ]
   call void @_ZdaPv(ptr noundef nonnull %9) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)

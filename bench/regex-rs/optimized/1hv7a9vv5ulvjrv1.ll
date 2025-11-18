@@ -4312,7 +4312,7 @@ _ZN12regex_syntax3hir9translate8HirFrame23unwrap_alternation_pipe17h4ee215a17c04
   %945 = lshr i64 %944, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !893)
   call void @llvm.experimental.noalias.scope.decl(metadata !896)
-  %.not.i.i334 = icmp ult i64 %944, 2
+  %.not.i.i334 = icmp eq i64 %945, 0
   br i1 %.not.i.i334, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17he12265641e06393fE.exit", label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %.loopexit718
@@ -4651,7 +4651,7 @@ _ZN12regex_syntax3hir9translate11TranslatorI3pop17hf2cebff0c2c04b30E.llvm.178589
   %1025 = lshr i64 %1024, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !969)
   call void @llvm.experimental.noalias.scope.decl(metadata !972)
-  %.not.i.i368 = icmp ult i64 %1024, 2
+  %.not.i.i368 = icmp eq i64 %1025, 0
   br i1 %.not.i.i368, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17he12265641e06393fE.exit375", label %.lr.ph.preheader.i.i369
 
 .lr.ph.preheader.i.i369:                          ; preds = %.loopexit733

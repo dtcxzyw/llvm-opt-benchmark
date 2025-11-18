@@ -51561,7 +51561,7 @@ _ZN5alloc5alloc15exchange_malloc17he7dced161648df71E.exit104.i: ; preds = %55
   %205 = icmp ult i32 %204, 4
   %narrow2.i.i.i = select i1 %205, i32 %204, i32 1
   %tr.sh.diff.i.i = trunc nuw i64 %.sroa.5.0.extract.shift.i.i to i32
-  %206 = icmp ult i64 %187, 4294967296
+  %206 = icmp eq i64 %.sroa.5.0.extract.shift.i.i, 0
   br label %207
 
 207:                                              ; preds = %"_ZN89_$LT$ty_python_semantic..types..class_base..ClassBase$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9ed373e982402f3fE.exit.thread.i.i", %.lr.ph.i.i
@@ -52550,7 +52550,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN18ty_python_s
 11:                                               ; preds = %2
   %12 = lshr i64 %9, 32
   %13 = trunc nuw i64 %12 to i32
-  %14 = icmp ugt i64 %9, 4294967295
+  %14 = icmp ne i64 %12, 0
   tail call void @llvm.assume(i1 %14)
   %15 = trunc i64 %9 to i32
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 2272
@@ -52639,7 +52639,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(40) ptr @"_ZN18ty
 8:                                                ; preds = %1
   %9 = lshr i64 %6, 32
   %10 = trunc nuw i64 %9 to i32
-  %11 = icmp ugt i64 %6, 4294967295
+  %11 = icmp ne i64 %9, 0
   tail call void @llvm.assume(i1 %11)
   %12 = trunc i64 %6 to i32
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 2272
@@ -52899,7 +52899,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN18ty_python_s
 11:                                               ; preds = %2
   %12 = lshr i64 %9, 32
   %13 = trunc nuw i64 %12 to i32
-  %14 = icmp ugt i64 %9, 4294967295
+  %14 = icmp ne i64 %12, 0
   tail call void @llvm.assume(i1 %14)
   %15 = trunc i64 %9 to i32
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 2272
@@ -52988,7 +52988,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(40) ptr @"_ZN18ty
 8:                                                ; preds = %1
   %9 = lshr i64 %6, 32
   %10 = trunc nuw i64 %9 to i32
-  %11 = icmp ugt i64 %6, 4294967295
+  %11 = icmp ne i64 %9, 0
   tail call void @llvm.assume(i1 %11)
   %12 = trunc i64 %6 to i32
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 2272

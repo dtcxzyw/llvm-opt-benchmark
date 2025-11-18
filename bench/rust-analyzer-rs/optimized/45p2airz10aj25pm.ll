@@ -8051,7 +8051,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h257
   %3 = lshr i64 %1, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1221)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1224)
-  %.not.i = icmp ult i64 %1, 2
+  %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse7revswap17h81b29b3c249e55b6E.llvm.12643631695175265107.exit", label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %2
@@ -26850,7 +26850,7 @@ define void @"_ZN88_$LT$span..hygiene..SyntaxContextId$u20$as$u20$hir_expand..hy
   %13 = lshr i64 %12, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4857)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4860)
-  %.not.i.i = icmp ult i64 %12, 2
+  %.not.i.i = icmp eq i64 %13, 0
   br i1 %.not.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h257adf739c772f89E.llvm.12643631695175265107.exit", label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %4

@@ -172,7 +172,7 @@ define range(i32 -1, 1) i32 @H5FD_locate_signature(ptr noundef %0, ptr noundef w
   %.03443 = phi i64 [ %18, %.lr.ph ], [ %13, %10 ]
   %18 = lshr i64 %.03443, 1
   %19 = add nuw nsw i32 %.03244, 1
-  %.not = icmp ult i64 %.03443, 2
+  %.not = icmp eq i64 %18, 0
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph

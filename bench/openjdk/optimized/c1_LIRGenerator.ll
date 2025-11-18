@@ -2594,14 +2594,14 @@ _ZN12LIRGenerator4walkEP11Instruction.exit:       ; preds = %42, %48, %51
 80:                                               ; preds = %75, %70
   %81 = load i64, ptr %7, align 8
   %82 = add i64 %81, 63
-  %.not.i62 = icmp ult i64 %82, 64
+  %83 = lshr i64 %82, 6
+  %.not.i62 = icmp eq i64 %83, 0
   br i1 %.not.i62, label %_ZN6BitMap5clearEv.exit, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %80
-  %83 = load ptr, ptr %5, align 8
-  %84 = lshr i64 %82, 3
-  %85 = and i64 %84, 2305843009213693944
-  call void @llvm.memset.p0.i64(ptr align 8 %83, i8 0, i64 %85, i1 false)
+  %84 = load ptr, ptr %5, align 8
+  %85 = shl nuw nsw i64 %83, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %84, i8 0, i64 %85, i1 false)
   br label %_ZN6BitMap5clearEv.exit
 
 _ZN6BitMap5clearEv.exit:                          ; preds = %.lr.ph.preheader.i.i.i, %80, %75, %.critedge

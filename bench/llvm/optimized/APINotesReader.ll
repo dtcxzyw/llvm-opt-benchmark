@@ -14308,19 +14308,19 @@ _ZN5clang9api_notes12_GLOBAL__N_116ReadVersionTupleERPKh.exit.i.i: ; preds = %18
 
 213:                                              ; preds = %210, %_ZN5clang9api_notes12_GLOBAL__N_116ReadVersionTupleERPKh.exit.i.i
   %214 = phi i8 [ %212, %210 ], [ %206, %_ZN5clang9api_notes12_GLOBAL__N_116ReadVersionTupleERPKh.exit.i.i ]
-  %.not48.i.i.i = icmp ult i8 %208, 4
-  br i1 %.not48.i.i.i, label %220, label %215
+  %215 = lshr i8 %208, 2
+  %.not48.i.i.i = icmp eq i8 %215, 0
+  br i1 %.not48.i.i.i, label %220, label %216
 
-215:                                              ; preds = %213
-  %216 = lshr i8 %208, 2
-  %217 = and i8 %216, 3
+216:                                              ; preds = %213
+  %217 = and i8 %215, 3
   %218 = zext nneg i8 %217 to i64
   %219 = add nuw nsw i64 %218, 4294967295
   %.sroa.086.0.insert.insert.i.i.i = or i64 %219, 4294967296
   store i64 %.sroa.086.0.insert.insert.i.i.i, ptr %135, align 8, !alias.scope !918, !noalias !917
   br label %220
 
-220:                                              ; preds = %215, %213
+220:                                              ; preds = %216, %213
   %.0.copyload.i.i.i.i5.i.i = load i8, ptr %207, align 1
   %221 = getelementptr inbounds nuw i8, ptr %202, i64 2
   %222 = add i8 %.0.copyload.i.i.i.i5.i.i, -1

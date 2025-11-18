@@ -275,7 +275,8 @@ _ZN12_GLOBAL__N_114getCommentKindEN4llvm9StringRefEb.exit: ; preds = %42, %44, %
 67:                                               ; preds = %_ZN12_GLOBAL__N_114getCommentKindEN4llvm9StringRefEb.exit
   %.sroa.0.0.copyload.i19 = load i32, ptr %0, align 8, !tbaa !3
   %68 = call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %1, i32 %.sroa.0.0.copyload.i19)
-  %.not = icmp ult i64 %68, 4294967296
+  %.sroa.431.0.extract.shift = lshr i64 %68, 32
+  %.not = icmp eq i64 %.sroa.431.0.extract.shift, 0
   br i1 %.not, label %_ZN12_GLOBAL__N_114getCommentKindEN4llvm9StringRefEb.exit.thread, label %69
 
 69:                                               ; preds = %67
@@ -286,14 +287,10 @@ _ZN12_GLOBAL__N_114getCommentKindEN4llvm9StringRefEb.exit: ; preds = %42, %44, %
   %71 = extractvalue { ptr, i64 } %70, 0
   %72 = load i8, ptr %7, align 1, !tbaa !7, !range !9, !noundef !10
   %73 = trunc nuw i8 %72 to i1
-  br i1 %73, label %85, label %.preheader.preheader
+  br i1 %73, label %85, label %.preheader
 
-.preheader.preheader:                             ; preds = %69
-  %.sroa.431.0.extract.shift = lshr i64 %68, 32
-  br label %.preheader
-
-.preheader:                                       ; preds = %.preheader.preheader, %82
-  %indvars.iv.i = phi i64 [ %75, %82 ], [ %.sroa.431.0.extract.shift, %.preheader.preheader ]
+.preheader:                                       ; preds = %69, %82
+  %indvars.iv.i = phi i64 [ %75, %82 ], [ %.sroa.431.0.extract.shift, %69 ]
   %.not.i20 = icmp eq i64 %indvars.iv.i, 0
   br i1 %.not.i20, label %_ZL26onlyWhitespaceOnLineBeforePKcj.exit, label %74
 
@@ -328,17 +325,17 @@ _ZL26onlyWhitespaceOnLineBeforePKcj.exit:         ; preds = %.preheader, %74, %8
   br label %_ZN12_GLOBAL__N_114getCommentKindEN4llvm9StringRefEb.exit.thread
 
 _ZN12_GLOBAL__N_114getCommentKindEN4llvm9StringRefEb.exit.thread: ; preds = %39, %47, %51, %29, %37, %67, %85, %_ZN12_GLOBAL__N_114getCommentKindEN4llvm9StringRefEb.exit
-  %.sroa.0.0.in.i56 = phi i64 [ %.sroa.0.0.in.i, %67 ], [ %.sroa.0.0.in.i, %85 ], [ %.sroa.0.0.in.i, %_ZN12_GLOBAL__N_114getCommentKindEN4llvm9StringRefEb.exit ], [ 0, %37 ], [ 0, %29 ], [ 0, %51 ], [ 0, %47 ], [ 0, %39 ]
+  %.sroa.0.0.in.i55 = phi i64 [ %.sroa.0.0.in.i, %67 ], [ %.sroa.0.0.in.i, %85 ], [ %.sroa.0.0.in.i, %_ZN12_GLOBAL__N_114getCommentKindEN4llvm9StringRefEb.exit ], [ 0, %37 ], [ 0, %29 ], [ 0, %51 ], [ 0, %47 ], [ 0, %39 ]
   br i1 %4, label %107, label %89
 
 89:                                               ; preds = %_ZN12_GLOBAL__N_114getCommentKindEN4llvm9StringRefEb.exit.thread
-  %90 = trunc i64 %.sroa.0.0.in.i56 to i8
+  %90 = trunc i64 %.sroa.0.0.in.i55 to i8
   %91 = load i8, ptr %9, align 8
   %92 = shl i8 %90, 2
   %93 = and i8 %92, 28
   %94 = and i8 %91, -93
   %95 = or disjoint i8 %94, %93
-  %sh.diff = lshr i64 %.sroa.0.0.in.i56, 26
+  %sh.diff = lshr i64 %.sroa.0.0.in.i55, 26
   %tr.sh.diff = trunc nuw nsw i64 %sh.diff to i8
   %96 = or i8 %91, %tr.sh.diff
   %97 = and i8 %96, 64

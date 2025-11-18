@@ -28002,7 +28002,7 @@ _ZN9uv_python9discovery14VersionRequest15is_freethreaded17hba41bd624d637957E.exi
   %133 = lshr i64 %132, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !6704)
   call void @llvm.experimental.noalias.scope.decl(metadata !6707)
-  %.not15.i.i = icmp ult i64 %132, 2
+  %.not15.i.i = icmp eq i64 %133, 0
   br i1 %.not15.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h70efdb98b975b472E.exit", label %.lr.ph.preheader.i.i61
 
 .lr.ph.preheader.i.i61:                           ; preds = %.loopexit288

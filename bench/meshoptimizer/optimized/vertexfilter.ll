@@ -823,13 +823,13 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
   %8 = lshr i64 %2, 2
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = icmp ne i32 %5, 2
-  %.not = icmp ult i64 %2, 4
+  %.not = icmp eq i64 %8, 0
   %or.cond = or i1 %9, %.not
   br i1 %or.cond, label %.loopexit95, label %.lr.ph
 
 .preheader94.thread:                              ; preds = %.lr.ph
-  %.not115137 = icmp eq i64 %1, 0
-  br i1 %.not115137, label %._crit_edge114, label %.lr.ph99.us
+  %.not115139 = icmp eq i64 %1, 0
+  br i1 %.not115139, label %._crit_edge114, label %.lr.ph99.us
 
 .lr.ph99.us:                                      ; preds = %.preheader94.thread, %._crit_edge.us
   %.077100.us = phi i64 [ %24, %._crit_edge.us ], [ 0, %.preheader94.thread ]
@@ -874,7 +874,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
 
 .lr.ph113:                                        ; preds = %._crit_edge.us, %.loopexit95
   %27 = icmp eq i32 %5, 1
-  %.not118 = icmp ult i64 %2, 4
+  %.not118 = icmp eq i64 %8, 0
   br label %28
 
 ._crit_edge114:                                   ; preds = %._crit_edge, %.preheader94.thread, %.loopexit95
@@ -956,7 +956,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
   br i1 %.not118, label %._crit_edge, label %.lr.ph110.preheader
 
 .lr.ph110.preheader:                              ; preds = %.lr.ph103, %.lr.ph105, %.lr.ph108, %.loopexit
-  %.1145 = phi i32 [ -100, %.loopexit ], [ %40, %.lr.ph108 ], [ -100, %.lr.ph105 ], [ -100, %.lr.ph103 ]
+  %.1147 = phi i32 [ -100, %.loopexit ], [ %40, %.lr.ph108 ], [ -100, %.lr.ph105 ], [ -100, %.lr.ph103 ]
   br label %.lr.ph110
 
 ._crit_edge:                                      ; preds = %68, %.preheader, %.preheader90, %.preheader92, %.loopexit
@@ -974,7 +974,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
   br label %68
 
 68:                                               ; preds = %.lr.ph110, %65
-  %69 = phi i32 [ %67, %65 ], [ %.1145, %.lr.ph110 ]
+  %69 = phi i32 [ %67, %65 ], [ %.1147, %.lr.ph110 ]
   %reass.sub = sub i32 %69, %3
   %70 = add i32 %reass.sub, 1
   %71 = getelementptr inbounds nuw float, ptr %30, i64 %.078109

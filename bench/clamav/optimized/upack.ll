@@ -1707,44 +1707,44 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
   %or.cond354 = and i1 %273, %or.cond353
   br i1 %or.cond354, label %.preheader, label %.critedge
 
-.preheader:                                       ; preds = %269, %292
-  %274 = phi i32 [ %291, %292 ], [ %262, %269 ]
-  %.0 = phi i32 [ %293, %292 ], [ %263, %269 ]
+.preheader:                                       ; preds = %269, %293
+  %274 = phi i32 [ %290, %293 ], [ %262, %269 ]
+  %.0 = phi i32 [ %292, %293 ], [ %263, %269 ]
   %275 = and i32 %274, -65281
   %276 = load i8, ptr %268, align 1, !tbaa !3
   %277 = zext i8 %276 to i32
-  %278 = and i32 %.0, 255
-  %279 = and i32 %.0, %277
-  %.not308 = icmp eq i32 %279, 0
-  %280 = select i1 %.not308, i32 256, i32 512
-  %281 = or disjoint i32 %280, %275
-  store i32 %281, ptr %11, align 4, !tbaa !12
-  %282 = shl i32 %281, 2
-  %283 = zext i32 %282 to i64
-  %284 = getelementptr inbounds nuw i8, ptr %261, i64 %283
-  store ptr %284, ptr %15, align 8, !tbaa !19
-  %285 = call i32 @lzma_upack_esi_00(ptr noundef nonnull %10, ptr noundef nonnull %284, ptr noundef %0, i32 noundef %1) #4
-  %286 = load i32, ptr %11, align 4, !tbaa !12
-  %287 = shl i32 %286, 1
-  %288 = add i32 %287, %285
-  %289 = and i32 %288, 255
-  %290 = and i32 %286, -256
-  %291 = or disjoint i32 %289, %290
-  store i32 %291, ptr %11, align 4, !tbaa !12
-  %.not309 = icmp samesign ult i32 %278, 2
-  br i1 %.not309, label %.thread358, label %292
+  %278 = and i32 %.0, %277
+  %.not308 = icmp eq i32 %278, 0
+  %279 = select i1 %.not308, i32 256, i32 512
+  %280 = or disjoint i32 %279, %275
+  store i32 %280, ptr %11, align 4, !tbaa !12
+  %281 = shl i32 %280, 2
+  %282 = zext i32 %281 to i64
+  %283 = getelementptr inbounds nuw i8, ptr %261, i64 %282
+  store ptr %283, ptr %15, align 8, !tbaa !19
+  %284 = call i32 @lzma_upack_esi_00(ptr noundef nonnull %10, ptr noundef nonnull %283, ptr noundef %0, i32 noundef %1) #4
+  %285 = load i32, ptr %11, align 4, !tbaa !12
+  %286 = shl i32 %285, 1
+  %287 = add i32 %286, %284
+  %288 = and i32 %287, 255
+  %289 = and i32 %285, -256
+  %290 = or disjoint i32 %288, %289
+  store i32 %290, ptr %11, align 4, !tbaa !12
+  %291 = lshr i32 %.0, 1
+  %292 = and i32 %291, 127
+  %.not309 = icmp eq i32 %292, 0
+  br i1 %.not309, label %.thread358, label %293
 
-292:                                              ; preds = %.preheader
-  %293 = lshr i32 %278, 1
-  %294 = lshr i32 %286, 8
-  %295 = sub i32 %294, %285
+293:                                              ; preds = %.preheader
+  %294 = lshr i32 %285, 8
+  %295 = sub i32 %294, %284
   %296 = and i32 %295, 1
   %.not310 = icmp eq i32 %296, 0
   br i1 %.not310, label %297, label %.preheader
 
-297:                                              ; preds = %292
-  %298 = and i32 %286, -65536
-  %299 = or disjoint i32 %289, %298
+297:                                              ; preds = %293
+  %298 = and i32 %285, -65536
+  %299 = or disjoint i32 %288, %298
   store i32 %299, ptr %11, align 4, !tbaa !12
   %300 = call i32 @lzma_upack_esi_50(ptr noundef nonnull %10, i32 noundef %299, i32 noundef 256, ptr noundef nonnull %15, ptr noundef nonnull %261, ptr noundef nonnull %11, ptr noundef %0, i32 noundef %1) #4
   %301 = icmp eq i32 %300, -1

@@ -66851,7 +66851,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_EEEbDpT_.exit13235.thread: ; preds = %229
 23000:                                            ; preds = %22989
   %23001 = lshr i64 %22990, 32
   %23002 = trunc nuw i64 %23001 to i32
-  %.not.i.i.i.i.i13238 = icmp ult i64 %22990, 4294967296
+  %.not.i.i.i.i.i13238 = icmp eq i64 %23001, 0
   br i1 %.not.i.i.i.i.i13238, label %23003, label %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL7SigSpecEE4hashERKS3_.exit.i.i13239
 
 23003:                                            ; preds = %23000
@@ -67818,7 +67818,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit13385.thread: ; preds = %23356
 23375:                                            ; preds = %23364
   %23376 = lshr i64 %23365, 32
   %23377 = trunc nuw i64 %23376 to i32
-  %.not.i.i.i.i.i13388 = icmp ult i64 %23365, 4294967296
+  %.not.i.i.i.i.i13388 = icmp eq i64 %23376, 0
   br i1 %.not.i.i.i.i.i13388, label %23378, label %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL7SigSpecEE4hashERKS3_.exit.i.i13389
 
 23378:                                            ; preds = %23375
@@ -174571,7 +174571,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %5
   %34 = lshr i64 %12, 32
   %35 = trunc nuw i64 %34 to i32
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %.not.i.i.i.i.i16 = icmp ult i64 %12, 4294967296
+  %.not.i.i.i.i.i16 = icmp eq i64 %34, 0
   br i1 %.not.i.i.i.i.i16, label %37, label %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL7SigSpecEE4hashERKS3_.exit.i.i
 
 37:                                               ; preds = %33
@@ -175156,7 +175156,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %137
   %160 = lshr i64 %138, 32
   %161 = trunc nuw i64 %160 to i32
   %162 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %.not.i.i.i.i.i54 = icmp ult i64 %138, 4294967296
+  %.not.i.i.i.i.i54 = icmp eq i64 %160, 0
   br i1 %.not.i.i.i.i.i54, label %163, label %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL7SigSpecEE4hashERKS3_.exit.i.i
 
 163:                                              ; preds = %159

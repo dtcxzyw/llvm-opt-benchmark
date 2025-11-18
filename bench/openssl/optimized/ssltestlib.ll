@@ -657,7 +657,7 @@ define internal i32 @mempacket_test_read(ptr noundef %0, ptr noundef writeonly c
   store i8 %53, ptr %56, align 1, !tbaa !9
   %57 = lshr i32 %.064, 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not78 = icmp ult i32 %.064, 256
+  %.not78 = icmp eq i32 %57, 0
   br i1 %.not78, label %58, label %52, !llvm.loop !31
 
 58:                                               ; preds = %52

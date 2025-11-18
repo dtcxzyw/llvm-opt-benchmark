@@ -560,8 +560,9 @@ _ZN4absl12_GLOBAL__N_111EiselLemireIdEEbRKNS_16strings_internal11ParsedFloatEbPT
   %.sroa.03.0.insert.ext.i.i.i.i = zext i64 %194 to i128
   %.sroa.01.0.insert.ext.i.i.i107.i = zext i64 %270 to i128
   %271 = mul nuw i128 %.sroa.01.0.insert.ext.i.i.i107.i, %.sroa.03.0.insert.ext.i.i.i.i
+  %.sroa.2.0.extract.shift.i.i.i.i = lshr i128 %271, 64
   %272 = add nsw i32 %.pre5, -63
-  %273 = icmp ult i128 %271, 18446744073709551616
+  %273 = icmp eq i128 %.sroa.2.0.extract.shift.i.i.i.i, 0
   br i1 %273, label %274, label %276
 
 274:                                              ; preds = %266
@@ -570,7 +571,6 @@ _ZN4absl12_GLOBAL__N_111EiselLemireIdEEbRKNS_16strings_internal11ParsedFloatEbPT
   br label %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i
 
 276:                                              ; preds = %266
-  %.sroa.2.0.extract.shift.i.i.i.i = lshr i128 %271, 64
   %.sroa.2.0.extract.trunc.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i to i64
   %277 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.2.0.extract.trunc.i.i.i.i, i1 true)
   br label %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i
@@ -602,7 +602,7 @@ _ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i: ; preds = %2
   %.sroa.2.0.extract.trunc.i.i.i.i24 = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i23 to i64
   %289 = add nsw i32 %215, -63
   %290 = icmp ult i32 %.val70.i, 28
-  %291 = icmp ult i128 %288, 18446744073709551616
+  %291 = icmp eq i128 %.sroa.2.0.extract.shift.i.i.i.i23, 0
   br i1 %290, label %302, label %292
 
 292:                                              ; preds = %283
@@ -1343,8 +1343,9 @@ _ZN4absl12_GLOBAL__N_111EiselLemireIfEEbRKNS_16strings_internal11ParsedFloatEbPT
   %.sroa.03.0.insert.ext.i.i.i.i = zext i64 %194 to i128
   %.sroa.01.0.insert.ext.i.i.i107.i = zext i64 %273 to i128
   %274 = mul nuw i128 %.sroa.01.0.insert.ext.i.i.i107.i, %.sroa.03.0.insert.ext.i.i.i.i
+  %.sroa.2.0.extract.shift.i.i.i.i = lshr i128 %274, 64
   %275 = add nsw i32 %.pre5, -63
-  %276 = icmp ult i128 %274, 18446744073709551616
+  %276 = icmp eq i128 %.sroa.2.0.extract.shift.i.i.i.i, 0
   br i1 %276, label %277, label %279
 
 277:                                              ; preds = %269
@@ -1353,7 +1354,6 @@ _ZN4absl12_GLOBAL__N_111EiselLemireIfEEbRKNS_16strings_internal11ParsedFloatEbPT
   br label %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i
 
 279:                                              ; preds = %269
-  %.sroa.2.0.extract.shift.i.i.i.i = lshr i128 %274, 64
   %.sroa.2.0.extract.trunc.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i to i64
   %280 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.2.0.extract.trunc.i.i.i.i, i1 true)
   br label %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i
@@ -1385,7 +1385,7 @@ _ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i: ; preds = %2
   %.sroa.2.0.extract.trunc.i.i.i.i24 = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i23 to i64
   %292 = add nsw i32 %215, -63
   %293 = icmp ult i32 %.val70.i, 28
-  %294 = icmp ult i128 %291, 18446744073709551616
+  %294 = icmp eq i128 %.sroa.2.0.extract.shift.i.i.i.i23, 0
   br i1 %293, label %305, label %295
 
 295:                                              ; preds = %286
@@ -1716,7 +1716,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i: ; preds = %_Z
   br label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i
 
 _ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i:     ; preds = %65, %61, %._crit_edge.i, %35, %31
-  %67 = icmp samesign ult i32 %19, 32
+  %67 = icmp eq i32 %20, 0
   br i1 %67, label %_ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit, label %_ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i
 
 _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i:   ; preds = %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i
@@ -1822,7 +1822,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i52: ; preds = %
   br label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i41
 
 _ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i41:   ; preds = %114, %110, %._crit_edge.i39, %85, %82
-  %116 = icmp samesign ult i32 %71, 32
+  %116 = icmp eq i32 %74, 0
   br i1 %116, label %_ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit, label %_ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i42
 
 _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i42: ; preds = %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i41
@@ -1900,7 +1900,7 @@ _ZN4absl16strings_internal7CompareILi84ELi84EEEiRKNS0_11BigUnsignedIXT_EEERKNS2_
   br label %143
 
 ._crit_edge.i.i:                                  ; preds = %143
-  %.not.i.i = icmp ugt i64 %148, 4294967295
+  %.not.i.i = icmp ne i64 %150, 0
   %142 = icmp samesign ult i32 %137, 84
   %or.cond17.i.i = and i1 %142, %.not.i.i
   br i1 %or.cond17.i.i, label %151, label %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEm.exit
@@ -2048,7 +2048,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i74: ; preds = %
   br label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i63
 
 _ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i63:   ; preds = %206, %202, %._crit_edge.i61, %176, %172
-  %208 = icmp samesign ult i32 %160, 32
+  %208 = icmp eq i32 %161, 0
   br i1 %208, label %_ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit75, label %_ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i64
 
 _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i64: ; preds = %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i63
@@ -2162,7 +2162,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i93: ; preds = %
   br label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i82
 
 _ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i82:   ; preds = %260, %256, %._crit_edge.i80, %230, %226
-  %262 = icmp samesign ult i32 %212, 32
+  %262 = icmp eq i32 %215, 0
   br i1 %262, label %_ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit75, label %_ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i83
 
 _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i83: ; preds = %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i82

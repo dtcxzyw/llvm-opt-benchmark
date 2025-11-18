@@ -218,21 +218,22 @@ define internal fastcc signext i16 @decode(ptr noundef captures(none) initialize
   %7 = load i32, ptr %0, align 8, !tbaa !51
   %8 = lshr i32 %7, 2
   %9 = add nuw nsw i32 %8, %6
-  %10 = and i32 %9, 4095
-  %11 = icmp samesign ult i32 %10, 2048
-  br i1 %11, label %12, label %19
+  %.mask = and i32 %9, 2048
+  %10 = icmp eq i32 %.mask, 0
+  br i1 %10, label %11, label %19
 
-12:                                               ; preds = %2
-  %13 = shl i32 %9, 7
-  %14 = and i32 %13, 16256
-  %15 = or disjoint i32 %14, 16384
-  %16 = lshr i32 %10, 7
+11:                                               ; preds = %2
+  %12 = shl i32 %9, 7
+  %13 = and i32 %12, 16256
+  %14 = or disjoint i32 %13, 16384
+  %15 = lshr i32 %9, 7
+  %16 = and i32 %15, 15
   %17 = sub nsw i32 14, %16
-  %18 = lshr i32 %15, %17
+  %18 = lshr i32 %14, %17
   br label %19
 
-19:                                               ; preds = %12, %2
-  %.0 = phi i32 [ %18, %12 ], [ 0, %2 ]
+19:                                               ; preds = %11, %2
+  %.0 = phi i32 [ %18, %11 ], [ 0, %2 ]
   %.not = icmp samesign ult i32 %1, 8
   %20 = sub nsw i32 0, %.0
   %21 = select i1 %.not, i32 %.0, i32 %20
@@ -322,8 +323,8 @@ prediction.exit:                                  ; preds = %44
   %73 = icmp sgt i32 %71, -1
   %74 = select i1 %73, i16 32767, i16 -32768
   %75 = trunc i64 %70 to i16
-  %.0.i23 = select i1 %.not.i, i16 %75, i16 %74
-  ret i16 %.0.i23
+  %.0.i24 = select i1 %.not.i, i16 %75, i16 %74
+  ret i16 %.0.i24
 }
 
 declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2

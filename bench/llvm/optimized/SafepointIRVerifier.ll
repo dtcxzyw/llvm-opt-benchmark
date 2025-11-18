@@ -8429,18 +8429,20 @@ tailrecurse:                                      ; preds = %_ZL15isGCPointerTyp
   %24 = getelementptr inbounds nuw i8, ptr %.tr45, i64 12
   %25 = load i32, ptr %24, align 4, !tbaa !435
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %23, i64 %26
-  %28 = ptrtoint ptr %27 to i64
-  %.not.i = icmp ult i32 %25, 4
-  br i1 %.not.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.preheader.i
+  %.idx = shl nuw nsw i64 %26, 3
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx
+  %28 = lshr i64 %26, 2
+  %.not.i = icmp eq i64 %28, 0
+  br i1 %.not.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i.i.preheader.i:                     ; preds = %21
-  %29 = lshr i64 %26, 2
+.lr.ph.i.i.i.i.i.i.preheader:                     ; preds = %21
+  %29 = shl nuw nsw i64 %28, 5
+  %scevgep = getelementptr i8, ptr %23, i64 %29
   br label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %44, %.lr.ph.i.i.i.i.i.preheader.i
-  %.047.i.i.i.i.i.i = phi i64 [ %46, %44 ], [ %29, %.lr.ph.i.i.i.i.i.preheader.i ]
-  %.02946.i.i.i.i.i.i = phi ptr [ %45, %44 ], [ %23, %.lr.ph.i.i.i.i.i.preheader.i ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i.preheader, %44
+  %.047.i.i.i.i.i.i = phi i64 [ %46, %44 ], [ %28, %.lr.ph.i.i.i.i.i.i.preheader ]
+  %.02946.i.i.i.i.i.i = phi ptr [ %45, %44 ], [ %23, %.lr.ph.i.i.i.i.i.i.preheader ]
   %30 = load ptr, ptr %.02946.i.i.i.i.i.i, align 8, !tbaa !432
   %31 = tail call fastcc noundef zeroext i1 @_ZL17containsGCPtrTypePN4llvm4TypeE(ptr noundef %30) #24
   br i1 %31, label %_ZN4llvm6any_ofINS_8ArrayRefIPNS_4TypeEEEPFbS3_EEEbOT_T0_.exit, label %32
@@ -8470,14 +8472,13 @@ tailrecurse:                                      ; preds = %_ZL15isGCPointerTyp
   br i1 %47, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !436
 
 ._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %44
-  %.pre.i.i.i.i.i.i = ptrtoint ptr %45 to i64
-  %.pre52.i.i.i.i.i.i = sub i64 %28, %.pre.i.i.i.i.i.i
-  %48 = ashr exact i64 %.pre52.i.i.i.i.i.i, 3
+  %gepdiff = sub nsw i64 %.idx, %29
+  %48 = ashr exact i64 %gepdiff, 3
   br label %._crit_edge.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %21
   %.pre-phi53.i.i.i.i.i.i = phi i64 [ %48, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %26, %21 ]
-  %.029.lcssa.i.i.i.i.i.i = phi ptr [ %45, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %23, %21 ]
+  %.029.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %23, %21 ]
   switch i64 %.pre-phi53.i.i.i.i.i.i, label %62 [
     i64 3, label %49
     i64 2, label %54

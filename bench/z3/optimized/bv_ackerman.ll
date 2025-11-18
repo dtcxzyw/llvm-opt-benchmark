@@ -364,8 +364,8 @@ _ZN2bv8ackerman6removeEPNS0_2vvE.exit:            ; preds = %_ZN8dll_baseIN2bv8a
   %46 = icmp ugt i32 %34, 16
   %47 = mul i32 %34, 3
   %48 = icmp ugt i32 %45, %47
-  %or.cond18.i = select i1 %46, i1 %48, i1 false
-  br i1 %or.cond18.i, label %49, label %._crit_edge.thread.i
+  %or.cond19.i = select i1 %46, i1 %48, i1 false
+  br i1 %or.cond19.i, label %49, label %._crit_edge.thread.i
 
 49:                                               ; preds = %._crit_edge.i
   %50 = icmp eq ptr %32, null
@@ -384,7 +384,7 @@ _ZN14core_hashtableI18default_hash_entryIPN2bv8ackerman2vvEENS2_7vv_hashENS2_5vv
   %54 = zext nneg i32 %53 to i64
   %55 = shl nuw nsw i64 %54, 4
   %56 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %55)
-  %.not6.i.i.i.i.i.i = icmp ult i32 %52, 2
+  %.not6.i.i.i.i.i.i = icmp eq i32 %53, 0
   br i1 %.not6.i.i.i.i.i.i, label %_ZN14core_hashtableI18default_hash_entryIPN2bv8ackerman2vvEENS2_7vv_hashENS2_5vv_eqEE11alloc_tableEj.exit.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZN14core_hashtableI18default_hash_entryIPN2bv8ackerman2vvEENS2_7vv_hashENS2_5vv_eqEE12delete_tableEv.exit.i, %.lr.ph.i.i.i.i.i.i

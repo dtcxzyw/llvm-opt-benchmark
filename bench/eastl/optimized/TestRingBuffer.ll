@@ -55451,11 +55451,11 @@ invoke.cont1806:                                  ; preds = %invoke.cont1671
   %conv.i5373 = and i64 %shr.i.i5371, 4294967295
   %conv2.i5374 = and i64 %add1805, 4294967295
   %mul.i5375 = mul nuw i64 %conv2.i5374, %conv.i5373
-  %cmp1.i.i.i.i.not = icmp ult i64 %mul.i5375, 4294967296
+  %shr.i5376 = lshr i64 %mul.i5375, 32
+  %cmp1.i.i.i.i.not = icmp eq i64 %shr.i5376, 0
   br i1 %cmp1.i.i.i.i.not, label %invoke.cont1809, label %while.body.i.i.i.i.preheader
 
 while.body.i.i.i.i.preheader:                     ; preds = %invoke.cont1806
-  %shr.i5376 = lshr i64 %mul.i5375, 32
   %1531 = load ptr, ptr %rbListString, align 8
   br label %while.body.i.i.i.i
 
@@ -55615,11 +55615,11 @@ invoke.cont1858:                                  ; preds = %invoke.cont1671
   %conv.i5476 = select i1 %cmp.i.i5469, i64 1099170962, i64 %1558
   %conv2.i5477 = and i64 %add1857, 4294967295
   %mul.i5478 = mul nuw i64 %conv2.i5477, %conv.i5476
-  %cmp1.i.i.i.i5481.not = icmp ult i64 %mul.i5478, 4294967296
+  %shr.i5479 = lshr i64 %mul.i5478, 32
+  %cmp1.i.i.i.i5481.not = icmp eq i64 %shr.i5479, 0
   br i1 %cmp1.i.i.i.i5481.not, label %invoke.cont1861, label %while.body.i.i.i.i5485.preheader
 
 while.body.i.i.i.i5485.preheader:                 ; preds = %invoke.cont1858
-  %shr.i5479 = lshr i64 %mul.i5478, 32
   %1559 = load ptr, ptr %rbListString, align 8
   br label %while.body.i.i.i.i5485
 
@@ -55735,7 +55735,7 @@ invoke.cont1892:                                  ; preds = %if.else.i.i.i.i5554
   store i8 0, ptr %cond.i.i.i.i5563, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i)
-  %tobool.not1.i = icmp samesign ult i64 %conv.i5545, 429496730
+  %tobool.not1.i = icmp eq i64 %shr.i5547, 0
   br i1 %tobool.not1.i, label %invoke.cont1894, label %while.body.i5575
 
 while.body.i5575:                                 ; preds = %invoke.cont1892, %.noexc5578
@@ -55813,11 +55813,11 @@ invoke.cont1931:                                  ; preds = %invoke.cont1913
   %conv.i5607 = select i1 %cmp.i.i5600, i64 1099170962, i64 %1589
   %conv2.i5608 = and i64 %add1930, 4294967295
   %mul.i5609 = mul nuw i64 %conv2.i5608, %conv.i5607
-  %cmp1.i.i.i.i5612.not = icmp ult i64 %mul.i5609, 4294967296
+  %shr.i5610 = lshr i64 %mul.i5609, 32
+  %cmp1.i.i.i.i5612.not = icmp eq i64 %shr.i5610, 0
   br i1 %cmp1.i.i.i.i5612.not, label %invoke.cont1934, label %while.body.i.i.i.i5616.preheader
 
 while.body.i.i.i.i5616.preheader:                 ; preds = %invoke.cont1931
-  %shr.i5610 = lshr i64 %mul.i5609, 32
   %1590 = load ptr, ptr %rbListString, align 8
   br label %while.body.i.i.i.i5616
 
@@ -55912,7 +55912,7 @@ invoke.cont1956:                                  ; preds = %invoke.cont1941.inv
   %add.ptr1963 = getelementptr inbounds nuw i8, ptr %stringArray1907, i64 %add.ptr1963.idx
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i5688)
   call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i5689)
-  %cmp.not4.i = icmp samesign ult i64 %conv.i5682, 429496730
+  %cmp.not4.i = icmp eq i64 %shr.i5684, 0
   br i1 %cmp.not4.i, label %invoke.cont1964, label %for.body.i5694
 
 for.body.i5694:                                   ; preds = %invoke.cont1956, %.noexc5700
@@ -56002,17 +56002,14 @@ invoke.cont1996:                                  ; preds = %if.then1988
   %conv.i5731 = and i64 %shr.i.i5729, 4294967295
   %conv2.i5732 = and i64 %1430, 4294967295
   %mul.i5733 = mul nuw i64 %conv2.i5732, %conv.i5731
-  %cmp1.i.i.i.i5736.not = icmp ult i64 %mul.i5733, 4294967296
-  %.pre8536 = load ptr, ptr %rbListString, align 8
-  br i1 %cmp1.i.i.i.i5736.not, label %for.body.lr.ph.i5755, label %while.body.i.i.i.i5740.preheader
-
-while.body.i.i.i.i5740.preheader:                 ; preds = %invoke.cont1996
   %shr.i5734 = lshr i64 %mul.i5733, 32
-  br label %while.body.i.i.i.i5740
+  %cmp1.i.i.i.i5736.not = icmp eq i64 %shr.i5734, 0
+  %.pre8536 = load ptr, ptr %rbListString, align 8
+  br i1 %cmp1.i.i.i.i5736.not, label %for.body.lr.ph.i5755, label %while.body.i.i.i.i5740
 
-while.body.i.i.i.i5740:                           ; preds = %while.body.i.i.i.i5740.preheader, %while.body.i.i.i.i5740
-  %1618 = phi ptr [ %spec.select8247, %while.body.i.i.i.i5740 ], [ %1613, %while.body.i.i.i.i5740.preheader ]
-  %n.addr.02.i.i.i.i5741 = phi i64 [ %dec.i.i.i.i5742, %while.body.i.i.i.i5740 ], [ %shr.i5734, %while.body.i.i.i.i5740.preheader ]
+while.body.i.i.i.i5740:                           ; preds = %invoke.cont1996, %while.body.i.i.i.i5740
+  %1618 = phi ptr [ %spec.select8247, %while.body.i.i.i.i5740 ], [ %1613, %invoke.cont1996 ]
+  %n.addr.02.i.i.i.i5741 = phi i64 [ %dec.i.i.i.i5742, %while.body.i.i.i.i5740 ], [ %shr.i5734, %invoke.cont1996 ]
   %dec.i.i.i.i5742 = add nsw i64 %n.addr.02.i.i.i.i5741, -1
   %1619 = load ptr, ptr %1618, align 8
   %cmp.i.i.i.i.i.i5743 = icmp eq ptr %1619, %rbListString
@@ -56123,7 +56120,7 @@ invoke.cont2026:                                  ; preds = %if.then2019
   %conv2.i5811 = and i64 %div2025163, 1073741823
   %mul.i5812 = mul nuw nsw i64 %conv2.i5811, %conv.i5810
   %shr.i5813 = lshr i64 %mul.i5812, 32
-  %cmp1.i.i.i.i5815.not = icmp samesign ult i64 %mul.i5812, 4294967296
+  %cmp1.i.i.i.i5815.not = icmp eq i64 %shr.i5813, 0
   %.pre8534 = load ptr, ptr %rbListString, align 8
   br i1 %cmp1.i.i.i.i5815.not, label %for.body.lr.ph.i5834, label %while.body.i.i.i.i5819
 
@@ -56167,7 +56164,7 @@ invoke.cont2042:                                  ; preds = %invoke.cont2032
   %conv.i5856 = and i64 %shr.i.i5854, 4294967295
   %mul.i5858 = mul nuw nsw i64 %conv2.i5811, %conv.i5856
   %shr.i5859 = lshr i64 %mul.i5858, 32
-  %cmp1.i.i.i.i5861.not = icmp samesign ult i64 %mul.i5858, 4294967296
+  %cmp1.i.i.i.i5861.not = icmp eq i64 %shr.i5859, 0
   br i1 %cmp1.i.i.i.i5861.not, label %invoke.cont2045, label %while.body.i.i.i.i5865.preheader
 
 while.body.i.i.i.i5865.preheader:                 ; preds = %invoke.cont2042
@@ -65338,23 +65335,19 @@ if.then13:                                        ; preds = %if.then5
   br label %if.end
 
 if.end:                                           ; preds = %if.then13, %if.then5
-  %cmp22.not48 = icmp ult i64 %sub6, 64
-  br i1 %cmp22.not48, label %if.end26, label %for.body.preheader
+  %cmp22.not48 = icmp eq i64 %div17, 0
+  br i1 %cmp22.not48, label %if.end26, label %for.body
 
-for.body.preheader:                               ; preds = %if.end
-  %umax50 = tail call i64 @llvm.umax.i64(i64 %div17, i64 1)
-  br label %for.body
-
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %i.049 = phi i64 [ %inc, %for.body ], [ 1, %for.body.preheader ]
+for.body:                                         ; preds = %if.end, %for.body
+  %i.049 = phi i64 [ %inc, %for.body ], [ 1, %if.end ]
   %call.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 256, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %4 = load ptr, ptr %mpCurrentArrayPtr, align 8
   %sub25 = sub nsw i64 0, %i.049
   %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %sub25
   store ptr %call.i.i.i, ptr %arrayidx, align 8
   %inc = add nuw nsw i64 %i.049, 1
-  %exitcond51.not = icmp eq i64 %i.049, %umax50
-  br i1 %exitcond51.not, label %if.end26, label %for.body, !llvm.loop !4339
+  %exitcond50.not = icmp eq i64 %i.049, %div17
+  br i1 %exitcond50.not, label %if.end26, label %for.body, !llvm.loop !4339
 
 if.end26:                                         ; preds = %for.body, %if.end, %if.then
   %5 = load ptr, ptr %mItBegin, align 8, !noalias !4340
@@ -65425,21 +65418,17 @@ if.then55:                                        ; preds = %if.then38
   br label %if.end67
 
 if.end67:                                         ; preds = %if.then55, %if.then38
-  %cmp69.not46 = icmp ult i64 %sub42, 64
-  br i1 %cmp69.not46, label %if.end78, label %for.body70.preheader
+  %cmp69.not46 = icmp eq i64 %div4316, 0
+  br i1 %cmp69.not46, label %if.end78, label %for.body70
 
-for.body70.preheader:                             ; preds = %if.end67
-  %umax = tail call i64 @llvm.umax.i64(i64 %div4316, i64 1)
-  br label %for.body70
-
-for.body70:                                       ; preds = %for.body70.preheader, %for.body70
-  %i44.047 = phi i64 [ %inc76, %for.body70 ], [ 1, %for.body70.preheader ]
+for.body70:                                       ; preds = %if.end67, %for.body70
+  %i44.047 = phi i64 [ %inc76, %for.body70 ], [ 1, %if.end67 ]
   %call.i.i.i18 = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 256, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %15 = load ptr, ptr %mpCurrentArrayPtr48, align 8
   %arrayidx74 = getelementptr inbounds nuw ptr, ptr %15, i64 %i44.047
   store ptr %call.i.i.i18, ptr %arrayidx74, align 8
   %inc76 = add nuw nsw i64 %i44.047, 1
-  %exitcond.not = icmp eq i64 %i44.047, %umax
+  %exitcond.not = icmp eq i64 %i44.047, %div4316
   br i1 %exitcond.not, label %if.end78, label %for.body70, !llvm.loop !4343
 
 if.end78:                                         ; preds = %for.body70, %if.end67, %if.else
@@ -69053,23 +69042,19 @@ if.then13:                                        ; preds = %if.then5
   br label %if.end
 
 if.end:                                           ; preds = %if.then13, %if.then5
-  %cmp22.not48 = icmp ult i64 %sub6, 4
-  br i1 %cmp22.not48, label %if.end26, label %for.body.preheader
+  %cmp22.not48 = icmp eq i64 %div17, 0
+  br i1 %cmp22.not48, label %if.end26, label %for.body
 
-for.body.preheader:                               ; preds = %if.end
-  %umax50 = tail call i64 @llvm.umax.i64(i64 %div17, i64 1)
-  br label %for.body
-
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %i.049 = phi i64 [ %inc, %for.body ], [ 1, %for.body.preheader ]
+for.body:                                         ; preds = %if.end, %for.body
+  %i.049 = phi i64 [ %inc, %for.body ], [ 1, %if.end ]
   %call.i6.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 256, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %4 = load ptr, ptr %mpCurrentArrayPtr, align 8
   %sub25 = sub nsw i64 0, %i.049
   %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %sub25
   store ptr %call.i6.i.i, ptr %arrayidx, align 8
   %inc = add nuw nsw i64 %i.049, 1
-  %exitcond51.not = icmp eq i64 %i.049, %umax50
-  br i1 %exitcond51.not, label %if.end26, label %for.body, !llvm.loop !4627
+  %exitcond50.not = icmp eq i64 %i.049, %div17
+  br i1 %exitcond50.not, label %if.end26, label %for.body, !llvm.loop !4627
 
 if.end26:                                         ; preds = %for.body, %if.end, %if.then
   %5 = load ptr, ptr %mItBegin, align 8, !noalias !4628
@@ -69140,21 +69125,17 @@ if.then55:                                        ; preds = %if.then38
   br label %if.end67
 
 if.end67:                                         ; preds = %if.then55, %if.then38
-  %cmp69.not46 = icmp ult i64 %sub42, 4
-  br i1 %cmp69.not46, label %if.end78, label %for.body70.preheader
+  %cmp69.not46 = icmp eq i64 %div4316, 0
+  br i1 %cmp69.not46, label %if.end78, label %for.body70
 
-for.body70.preheader:                             ; preds = %if.end67
-  %umax = tail call i64 @llvm.umax.i64(i64 %div4316, i64 1)
-  br label %for.body70
-
-for.body70:                                       ; preds = %for.body70.preheader, %for.body70
-  %i44.047 = phi i64 [ %inc76, %for.body70 ], [ 1, %for.body70.preheader ]
+for.body70:                                       ; preds = %if.end67, %for.body70
+  %i44.047 = phi i64 [ %inc76, %for.body70 ], [ 1, %if.end67 ]
   %call.i6.i.i18 = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 256, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %15 = load ptr, ptr %mpCurrentArrayPtr48, align 8
   %arrayidx74 = getelementptr inbounds nuw ptr, ptr %15, i64 %i44.047
   store ptr %call.i6.i.i18, ptr %arrayidx74, align 8
   %inc76 = add nuw nsw i64 %i44.047, 1
-  %exitcond.not = icmp eq i64 %i44.047, %umax
+  %exitcond.not = icmp eq i64 %i44.047, %div4316
   br i1 %exitcond.not, label %if.end78, label %for.body70, !llvm.loop !4631
 
 if.end78:                                         ; preds = %for.body70, %if.end67, %if.else
@@ -73132,23 +73113,19 @@ if.then13:                                        ; preds = %if.then5
   br label %if.end
 
 if.end:                                           ; preds = %if.then13, %if.then5
-  %cmp22.not48 = icmp ult i64 %sub6, 8
-  br i1 %cmp22.not48, label %if.end26, label %for.body.preheader
+  %cmp22.not48 = icmp eq i64 %div17, 0
+  br i1 %cmp22.not48, label %if.end26, label %for.body
 
-for.body.preheader:                               ; preds = %if.end
-  %umax50 = tail call i64 @llvm.umax.i64(i64 %div17, i64 1)
-  br label %for.body
-
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %i.049 = phi i64 [ %inc, %for.body ], [ 1, %for.body.preheader ]
+for.body:                                         ; preds = %if.end, %for.body
+  %i.049 = phi i64 [ %inc, %for.body ], [ 1, %if.end ]
   %call.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 192, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %4 = load ptr, ptr %mpCurrentArrayPtr, align 8
   %sub25 = sub nsw i64 0, %i.049
   %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %sub25
   store ptr %call.i.i.i, ptr %arrayidx, align 8
   %inc = add nuw nsw i64 %i.049, 1
-  %exitcond51.not = icmp eq i64 %i.049, %umax50
-  br i1 %exitcond51.not, label %if.end26, label %for.body, !llvm.loop !4915
+  %exitcond50.not = icmp eq i64 %i.049, %div17
+  br i1 %exitcond50.not, label %if.end26, label %for.body, !llvm.loop !4915
 
 if.end26:                                         ; preds = %for.body, %if.end, %if.then
   %5 = load ptr, ptr %mItBegin, align 8, !noalias !4916
@@ -73219,21 +73196,17 @@ if.then55:                                        ; preds = %if.then38
   br label %if.end67
 
 if.end67:                                         ; preds = %if.then55, %if.then38
-  %cmp69.not46 = icmp ult i64 %sub42, 8
-  br i1 %cmp69.not46, label %if.end78, label %for.body70.preheader
+  %cmp69.not46 = icmp eq i64 %div4316, 0
+  br i1 %cmp69.not46, label %if.end78, label %for.body70
 
-for.body70.preheader:                             ; preds = %if.end67
-  %umax = tail call i64 @llvm.umax.i64(i64 %div4316, i64 1)
-  br label %for.body70
-
-for.body70:                                       ; preds = %for.body70.preheader, %for.body70
-  %i44.047 = phi i64 [ %inc76, %for.body70 ], [ 1, %for.body70.preheader ]
+for.body70:                                       ; preds = %if.end67, %for.body70
+  %i44.047 = phi i64 [ %inc76, %for.body70 ], [ 1, %if.end67 ]
   %call.i.i.i18 = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 192, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %15 = load ptr, ptr %mpCurrentArrayPtr48, align 8
   %arrayidx74 = getelementptr inbounds nuw ptr, ptr %15, i64 %i44.047
   store ptr %call.i.i.i18, ptr %arrayidx74, align 8
   %inc76 = add nuw nsw i64 %i44.047, 1
-  %exitcond.not = icmp eq i64 %i44.047, %umax
+  %exitcond.not = icmp eq i64 %i44.047, %div4316
   br i1 %exitcond.not, label %if.end78, label %for.body70, !llvm.loop !4919
 
 if.end78:                                         ; preds = %for.body70, %if.end67, %if.else

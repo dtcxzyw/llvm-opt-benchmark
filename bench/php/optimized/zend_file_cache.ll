@@ -7746,11 +7746,11 @@ define internal fastcc void @zend_file_cache_serialize_ast(ptr noundef captures(
   br label %.loopexit
 
 zend_ast_is_decl.exit:                            ; preds = %41
-  %.not120 = icmp ult i16 %5, 256
+  %53 = lshr i16 %5, 8
+  %.not120 = icmp eq i16 %53, 0
   br i1 %.not120, label %.loopexit, label %.lr.ph118
 
 .lr.ph118:                                        ; preds = %zend_ast_is_decl.exit
-  %53 = lshr i16 %5, 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 440
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 432
@@ -12644,11 +12644,11 @@ define internal fastcc void @zend_file_cache_unserialize_ast(ptr noundef capture
   br label %.loopexit
 
 zend_ast_is_decl.exit:                            ; preds = %42
-  %.not100 = icmp ult i16 %4, 256
+  %50 = lshr i16 %4, 8
+  %.not100 = icmp eq i16 %50, 0
   br i1 %.not100, label %.loopexit, label %.lr.ph98
 
 .lr.ph98:                                         ; preds = %zend_ast_is_decl.exit
-  %50 = lshr i16 %4, 8
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 432
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 440

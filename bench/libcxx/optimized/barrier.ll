@@ -31,7 +31,7 @@ define dso_local noundef nonnull ptr @_ZNSt3__134__construct_barrier_algorithm_b
           to label %11 unwind label %_ZNSt3__110unique_ptrIA_NS_24__barrier_algorithm_base9__state_tENS_14default_deleteIS3_EEED2B8ne210000Ev.exit9.i
 
 11:                                               ; preds = %1
-  %12 = icmp ult i64 %5, 2
+  %12 = icmp eq i64 %6, 0
   br i1 %12, label %14, label %_ZNSt3__110unique_ptrIA_NS_24__barrier_algorithm_base9__state_tENS_14default_deleteIS3_EEED2B8ne210000Ev.exit.loopexit.i
 
 _ZNSt3__110unique_ptrIA_NS_24__barrier_algorithm_base9__state_tENS_14default_deleteIS3_EEED2B8ne210000Ev.exit.loopexit.i: ; preds = %11

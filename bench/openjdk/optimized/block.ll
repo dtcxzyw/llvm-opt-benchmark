@@ -122,9 +122,9 @@ define hidden void @_ZN10Block_List6removeEj(ptr noundef nonnull align 8 capture
   %5 = xor i32 %1, -1
   %6 = add i32 %4, %5
   %.not8.i = icmp eq i32 %6, 0
-  br i1 %.not8.i, label %_ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit, label %.lr.ph.preheader.i
+  br i1 %.not8.i, label %_ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit, label %.lr.ph.i.preheader
 
-.lr.ph.preheader.i:                               ; preds = %2
+.lr.ph.i.preheader:                               ; preds = %2
   %7 = zext i32 %6 to i64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
@@ -135,10 +135,10 @@ define hidden void @_ZN10Block_List6removeEj(ptr noundef nonnull align 8 capture
   %14 = getelementptr inbounds nuw ptr, ptr %9, i64 %13
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.011.i = phi i64 [ %15, %.lr.ph.i ], [ %7, %.lr.ph.preheader.i ]
-  %.0610.i = phi ptr [ %16, %.lr.ph.i ], [ %14, %.lr.ph.preheader.i ]
-  %.079.i = phi ptr [ %18, %.lr.ph.i ], [ %11, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+  %.011.i = phi i64 [ %15, %.lr.ph.i ], [ %7, %.lr.ph.i.preheader ]
+  %.0610.i = phi ptr [ %16, %.lr.ph.i ], [ %14, %.lr.ph.i.preheader ]
+  %.079.i = phi ptr [ %18, %.lr.ph.i ], [ %11, %.lr.ph.i.preheader ]
   %15 = add nsw i64 %.011.i, -1
   %16 = getelementptr inbounds nuw i8, ptr %.0610.i, i64 8
   %17 = load ptr, ptr %.0610.i, align 8
@@ -3987,9 +3987,9 @@ define hidden noundef zeroext i1 @_ZN8PhaseCFG12move_to_nextEP5Blockj(ptr nounde
   %60 = xor i32 %.024.lcssa, -1
   %61 = add i32 %59, %60
   %.not8.i.i = icmp eq i32 %61, 0
-  br i1 %.not8.i.i, label %_ZN10Block_List6removeEj.exit, label %.lr.ph.preheader.i.i
+  br i1 %.not8.i.i, label %_ZN10Block_List6removeEj.exit, label %.lr.ph.i.preheader.i
 
-.lr.ph.preheader.i.i:                             ; preds = %._crit_edge
+.lr.ph.i.preheader.i:                             ; preds = %._crit_edge
   %62 = zext i32 %61 to i64
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %64 = load ptr, ptr %63, align 8
@@ -4000,10 +4000,10 @@ define hidden noundef zeroext i1 @_ZN8PhaseCFG12move_to_nextEP5Blockj(ptr nounde
   %69 = getelementptr inbounds nuw ptr, ptr %64, i64 %68
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %.011.i.i = phi i64 [ %70, %.lr.ph.i.i ], [ %62, %.lr.ph.preheader.i.i ]
-  %.0610.i.i = phi ptr [ %71, %.lr.ph.i.i ], [ %69, %.lr.ph.preheader.i.i ]
-  %.079.i.i = phi ptr [ %73, %.lr.ph.i.i ], [ %66, %.lr.ph.preheader.i.i ]
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
+  %.011.i.i = phi i64 [ %70, %.lr.ph.i.i ], [ %62, %.lr.ph.i.preheader.i ]
+  %.0610.i.i = phi ptr [ %71, %.lr.ph.i.i ], [ %69, %.lr.ph.i.preheader.i ]
+  %.079.i.i = phi ptr [ %73, %.lr.ph.i.i ], [ %66, %.lr.ph.i.preheader.i ]
   %70 = add nsw i64 %.011.i.i, -1
   %71 = getelementptr inbounds nuw i8, ptr %.0610.i.i, i64 8
   %72 = load ptr, ptr %.0610.i.i, align 8
@@ -4127,9 +4127,9 @@ _ZNK5Block8is_EmptyEv.exit.thread:                ; preds = %_ZNK5Block8get_node
   %52 = xor i32 %2, -1
   %53 = add i32 %51, %52
   %.not8.i.i = icmp eq i32 %53, 0
-  br i1 %.not8.i.i, label %_ZN10Block_List6removeEj.exit, label %.lr.ph.preheader.i.i
+  br i1 %.not8.i.i, label %_ZN10Block_List6removeEj.exit, label %.lr.ph.i.preheader.i
 
-.lr.ph.preheader.i.i:                             ; preds = %_ZNK5Block8is_EmptyEv.exit.thread
+.lr.ph.i.preheader.i:                             ; preds = %_ZNK5Block8is_EmptyEv.exit.thread
   %54 = zext i32 %53 to i64
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %56 = load ptr, ptr %55, align 8
@@ -4140,10 +4140,10 @@ _ZNK5Block8is_EmptyEv.exit.thread:                ; preds = %_ZNK5Block8get_node
   %61 = getelementptr inbounds nuw ptr, ptr %56, i64 %60
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %.011.i.i = phi i64 [ %62, %.lr.ph.i.i ], [ %54, %.lr.ph.preheader.i.i ]
-  %.0610.i.i = phi ptr [ %63, %.lr.ph.i.i ], [ %61, %.lr.ph.preheader.i.i ]
-  %.079.i.i = phi ptr [ %65, %.lr.ph.i.i ], [ %58, %.lr.ph.preheader.i.i ]
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
+  %.011.i.i = phi i64 [ %62, %.lr.ph.i.i ], [ %54, %.lr.ph.i.preheader.i ]
+  %.0610.i.i = phi ptr [ %63, %.lr.ph.i.i ], [ %61, %.lr.ph.i.preheader.i ]
+  %.079.i.i = phi ptr [ %65, %.lr.ph.i.i ], [ %58, %.lr.ph.i.preheader.i ]
   %62 = add nsw i64 %.011.i.i, -1
   %63 = getelementptr inbounds nuw i8, ptr %.0610.i.i, i64 8
   %64 = load ptr, ptr %.0610.i.i, align 8
@@ -5772,9 +5772,9 @@ _ZNK5Block24is_trivially_unreachableEv.exit.thread: ; preds = %27, %_ZNK5Block4h
   %98 = xor i32 %96, -1
   %99 = add i32 %97, %98
   %.not8.i.i = icmp eq i32 %99, 0
-  br i1 %.not8.i.i, label %_ZN10Block_List6removeEj.exit, label %.lr.ph.preheader.i.i
+  br i1 %.not8.i.i, label %_ZN10Block_List6removeEj.exit, label %.lr.ph.i.preheader.i
 
-.lr.ph.preheader.i.i:                             ; preds = %._crit_edge
+.lr.ph.i.preheader.i:                             ; preds = %._crit_edge
   %100 = zext i32 %99 to i64
   %101 = load ptr, ptr %24, align 8
   %102 = zext i32 %96 to i64
@@ -5784,10 +5784,10 @@ _ZNK5Block24is_trivially_unreachableEv.exit.thread: ; preds = %27, %_ZNK5Block4h
   %106 = getelementptr inbounds nuw ptr, ptr %101, i64 %105
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %.011.i.i = phi i64 [ %107, %.lr.ph.i.i ], [ %100, %.lr.ph.preheader.i.i ]
-  %.0610.i.i = phi ptr [ %108, %.lr.ph.i.i ], [ %106, %.lr.ph.preheader.i.i ]
-  %.079.i.i = phi ptr [ %110, %.lr.ph.i.i ], [ %103, %.lr.ph.preheader.i.i ]
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
+  %.011.i.i = phi i64 [ %107, %.lr.ph.i.i ], [ %100, %.lr.ph.i.preheader.i ]
+  %.0610.i.i = phi ptr [ %108, %.lr.ph.i.i ], [ %106, %.lr.ph.i.preheader.i ]
+  %.079.i.i = phi ptr [ %110, %.lr.ph.i.i ], [ %103, %.lr.ph.i.preheader.i ]
   %107 = add nsw i64 %.011.i.i, -1
   %108 = getelementptr inbounds nuw i8, ptr %.0610.i.i, i64 8
   %109 = load ptr, ptr %.0610.i.i, align 8

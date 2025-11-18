@@ -14056,15 +14056,12 @@ _ZNK11mpz_managerILb1EE10get_uint64ERK3mpz.exit:  ; preds = %69, %66, %57
 
 .preheader:                                       ; preds = %74
   %80 = sub nuw i32 %3, %79
-  %.not65 = icmp ult i32 %80, 4
-  br i1 %.not65, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
   %81 = lshr i32 %80, 2
-  br label %.lr.ph
+  %.not65 = icmp eq i32 %81, 0
+  br i1 %.not65, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
-  %.03962 = phi i32 [ %83, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
+  %.03962 = phi i32 [ %83, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ 0, %.preheader ]
   %82 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.6, i64 noundef 1)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %84
 
@@ -14520,7 +14517,7 @@ _ZN11mpz_managerILb1EE10deallocateER3mpz.exit.i:  ; preds = %_ZN11mpz_managerILb
 _ZN11mpz_managerILb1EE18allocate_if_neededER3mpzj.exit: ; preds = %_ZN11mpz_managerILb1EE10deallocateER3mpz.exit.i, %48
   %50 = phi ptr [ %46, %_ZN11mpz_managerILb1EE10deallocateER3mpz.exit.i ], [ %26, %48 ]
   store i32 %21, ptr %50, align 4, !tbaa !25
-  %.not58 = icmp eq i32 %2, 31
+  %.not58 = icmp eq i32 %20, 0
   br i1 %.not58, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN11mpz_managerILb1EE18allocate_if_neededER3mpzj.exit
@@ -14528,7 +14525,7 @@ _ZN11mpz_managerILb1EE18allocate_if_neededER3mpzj.exit: ; preds = %_ZN11mpz_mana
   %52 = lshr i32 %2, 3
   %53 = and i32 %52, 536870908
   %54 = zext nneg i32 %53 to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %51, i8 0, i64 %54, i1 false), !tbaa !26
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %51, i8 0, i64 %54, i1 false), !tbaa !26
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN11mpz_managerILb1EE18allocate_if_neededER3mpzj.exit
@@ -14982,7 +14979,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE13machine_div2kER3mpzj(ptr no
   %narrow = sub nuw nsw i32 32, %30
   %31 = sub nuw i32 %26, %23
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %.not81 = icmp ult i32 %2, 32
+  %.not81 = icmp eq i32 %23, 0
   br i1 %.not81, label %.preheader, label %34
 
 .preheader:                                       ; preds = %29
@@ -15275,7 +15272,8 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE5mul2kER3mpzj(ptr noundef non
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %47
   store i32 %50, ptr %52, align 4, !tbaa !25
-  br i1 %13, label %.loopexit70, label %64
+  %.not = icmp eq i32 %41, 0
+  br i1 %.not, label %.loopexit70, label %64
 
 64:                                               ; preds = %._crit_edge
   %65 = add i32 %53, %41
@@ -30824,15 +30822,12 @@ _ZNK11mpz_managerILb0EE10get_uint64ERK3mpz.exit:  ; preds = %69, %66, %57
 
 .preheader:                                       ; preds = %74
   %80 = sub nuw i32 %3, %79
-  %.not65 = icmp ult i32 %80, 4
-  br i1 %.not65, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
   %81 = lshr i32 %80, 2
-  br label %.lr.ph
+  %.not65 = icmp eq i32 %81, 0
+  br i1 %.not65, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
-  %.03962 = phi i32 [ %83, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
+  %.03962 = phi i32 [ %83, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ 0, %.preheader ]
   %82 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.6, i64 noundef 1)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %84
 
@@ -31281,7 +31276,7 @@ _ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i:  ; preds = %_ZN11mpz_managerILb
 _ZN11mpz_managerILb0EE18allocate_if_neededER3mpzj.exit: ; preds = %_ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i, %51
   %53 = phi ptr [ %49, %_ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i ], [ %26, %51 ]
   store i32 %21, ptr %53, align 4, !tbaa !25
-  %.not58 = icmp eq i32 %2, 31
+  %.not58 = icmp eq i32 %20, 0
   br i1 %.not58, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN11mpz_managerILb0EE18allocate_if_neededER3mpzj.exit
@@ -31289,7 +31284,7 @@ _ZN11mpz_managerILb0EE18allocate_if_neededER3mpzj.exit: ; preds = %_ZN11mpz_mana
   %55 = lshr i32 %2, 3
   %56 = and i32 %55, 536870908
   %57 = zext nneg i32 %56 to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %54, i8 0, i64 %57, i1 false), !tbaa !26
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %54, i8 0, i64 %57, i1 false), !tbaa !26
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN11mpz_managerILb0EE18allocate_if_neededER3mpzj.exit
@@ -31746,7 +31741,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE13machine_div2kER3mpzj(ptr no
   %narrow = sub nuw nsw i32 32, %30
   %31 = sub nuw i32 %26, %23
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %.not81 = icmp ult i32 %2, 32
+  %.not81 = icmp eq i32 %23, 0
   br i1 %.not81, label %.preheader, label %34
 
 .preheader:                                       ; preds = %29
@@ -32039,7 +32034,8 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE5mul2kER3mpzj(ptr noundef non
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %47
   store i32 %50, ptr %52, align 4, !tbaa !25
-  br i1 %13, label %.loopexit70, label %64
+  %.not = icmp eq i32 %41, 0
+  br i1 %.not, label %.loopexit70, label %64
 
 64:                                               ; preds = %._crit_edge
   %65 = add i32 %53, %41

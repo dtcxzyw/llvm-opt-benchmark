@@ -2810,7 +2810,7 @@ _ZNSt16allocator_traitsISaISt6atomicImEEE8allocateERS2_m.exit.i.i.i: ; preds = %
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 264
   store ptr %.0.i.i.i, ptr %35, align 8, !tbaa !120
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %.idx.pre-phi
-  %.not206 = icmp ult i64 %26, 4294967296
+  %.not206 = icmp eq i64 %27, 0
   br i1 %.not206, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %34

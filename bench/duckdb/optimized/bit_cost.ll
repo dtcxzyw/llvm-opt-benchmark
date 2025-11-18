@@ -257,7 +257,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit112:           ; preds = %95, %99
   %128 = add i32 %127, 1
   %129 = fadd double %.5130, 3.000000e+00
   %130 = lshr i32 %.1131, 3
-  %.not110 = icmp ult i32 %.1131, 8
+  %.not110 = icmp eq i32 %130, 0
   br i1 %.not110, label %.thread, label %.lr.ph132, !llvm.loop !19
 
 .thread:                                          ; preds = %.lr.ph132, %123, %_ZN13duckdb_brotliL8FastLog2Em.exit112
@@ -639,7 +639,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %98, %102
   %132 = add i32 %131, 1
   %133 = fadd double %.5130, 3.000000e+00
   %134 = lshr i32 %.1131, 3
-  %.not110 = icmp ult i32 %.1131, 8
+  %.not110 = icmp eq i32 %134, 0
   br i1 %.not110, label %.thread, label %.lr.ph132, !llvm.loop !29
 
 .thread:                                          ; preds = %.lr.ph132, %.thread170, %_ZN13duckdb_brotliL8FastLog2Em.exit
@@ -1015,7 +1015,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %98, %102
   %132 = add i32 %131, 1
   %133 = fadd double %.5130, 3.000000e+00
   %134 = lshr i32 %.1131, 3
-  %.not110 = icmp ult i32 %.1131, 8
+  %.not110 = icmp eq i32 %134, 0
   br i1 %.not110, label %.thread, label %.lr.ph132, !llvm.loop !38
 
 .thread:                                          ; preds = %.lr.ph132, %.thread170, %_ZN13duckdb_brotliL8FastLog2Em.exit

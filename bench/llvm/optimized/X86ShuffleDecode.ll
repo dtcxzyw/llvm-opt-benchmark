@@ -293,7 +293,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit17: ; preds = %24, %27
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm17DecodeMOVLHPSMaskEjRNS_15SmallVectorImplIiEE(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 {
   %3 = lshr i32 %0, 1
-  %.not16 = icmp ult i32 %0, 2
+  %.not16 = icmp eq i32 %3, 0
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
@@ -372,7 +372,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit15: ; preds = %23, %27
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm18DecodeMOVSLDUPMaskEjRNS_15SmallVectorImplIiEE(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 {
   %3 = lshr i32 %0, 1
-  %.not = icmp ult i32 %0, 2
+  %.not = icmp eq i32 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
@@ -437,7 +437,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit9: ; preds = %_ZN4llvm2
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm18DecodeMOVSHDUPMaskEjRNS_15SmallVectorImplIiEE(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 {
   %3 = lshr i32 %0, 1
-  %.not = icmp ult i32 %0, 2
+  %.not = icmp eq i32 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
@@ -773,14 +773,14 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %9, %13
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm15DecodePSHUFMaskEjjjRNS_15SmallVectorImplIiEE(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3) local_unnamed_addr #0 {
   %5 = mul i32 %1, %0
-  %6 = tail call i32 @llvm.umax.i32(i32 %5, i32 128)
-  %spec.store.select = lshr i32 %6, 7
+  %6 = lshr i32 %5, 7
+  %spec.store.select = tail call i32 @llvm.umax.i32(i32 %6, i32 1)
   %7 = udiv i32 %0, %spec.store.select
   %.not27 = icmp eq i32 %0, 0
   br i1 %.not27, label %._crit_edge30, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %4
-  %.not2324 = icmp ugt i32 %spec.store.select, %0
+  %.not2324 = icmp ugt i32 %6, %0
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1015,7 +1015,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit23: ; preds = %.prehead
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm15DecodePSWAPMaskEjRNS_15SmallVectorImplIiEE(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 {
   %3 = lshr i32 %0, 1
-  %.not17 = icmp ult i32 %0, 2
+  %.not17 = icmp eq i32 %3, 0
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
@@ -1104,7 +1104,7 @@ define dso_local void @_ZN4llvm15DecodeSHUFPMaskEjjjRNS_15SmallVectorImplIiEE(i3
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.not2628 = icmp ugt i32 %1, 64
+  %.not2628 = icmp eq i32 %7, 0
   %or.cond = or i1 %.not2531, %.not2628
   br i1 %or.cond, label %._crit_edge40, label %.preheader27.lr.ph.split.split
 
@@ -1227,8 +1227,8 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %34, %40
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm16DecodeUNPCKHMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 {
   %4 = mul i32 %1, %0
-  %5 = tail call i32 @llvm.umax.i32(i32 %4, i32 128)
-  %spec.store.select = lshr i32 %5, 7
+  %5 = lshr i32 %4, 7
+  %spec.store.select = tail call i32 @llvm.umax.i32(i32 %5, i32 1)
   %6 = udiv i32 %0, %spec.store.select
   %.not29 = icmp eq i32 %0, 0
   br i1 %.not29, label %._crit_edge, label %.lr.ph31
@@ -1238,7 +1238,7 @@ define dso_local void @_ZN4llvm16DecodeUNPCKHMaskEjjRNS_15SmallVectorImplIiEE(i3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.not2327 = icmp ugt i32 %spec.store.select, %0
+  %.not2327 = icmp ugt i32 %5, %0
   br label %11
 
 .loopexit:                                        ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit26, %11
@@ -1310,8 +1310,8 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit26: ; preds = %_ZN4llvm
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm16DecodeUNPCKLMaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 {
   %4 = mul i32 %1, %0
-  %5 = tail call i32 @llvm.umax.i32(i32 %4, i32 128)
-  %spec.store.select = lshr i32 %5, 7
+  %5 = lshr i32 %4, 7
+  %spec.store.select = tail call i32 @llvm.umax.i32(i32 %5, i32 1)
   %6 = udiv i32 %0, %spec.store.select
   %.not27 = icmp eq i32 %0, 0
   br i1 %.not27, label %._crit_edge31, label %.lr.ph30
@@ -1321,7 +1321,7 @@ define dso_local void @_ZN4llvm16DecodeUNPCKLMaskEjjRNS_15SmallVectorImplIiEE(i3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.not2125 = icmp ult i32 %6, 2
+  %.not2125 = icmp eq i32 %7, 0
   br label %11
 
 ._crit_edge31:                                    ; preds = %._crit_edge, %3
@@ -1554,7 +1554,7 @@ define dso_local void @_ZN4llvm20DecodeVPERM2X128MaskEjjRNS_15SmallVectorImplIiE
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.not1618 = icmp ult i32 %0, 2
+  %.not1618 = icmp eq i32 %4, 0
   br label %9
 
 8:                                                ; preds = %._crit_edge

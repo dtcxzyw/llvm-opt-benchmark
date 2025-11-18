@@ -149,7 +149,7 @@ gcm_set_acceleration.exit.i:                      ; preds = %19
   %59 = xor i8 %57, %58
   store i8 %59, ptr %37, align 1, !tbaa !14
   %60 = lshr i32 %.04049.i, 1
-  %.not42.i = icmp samesign ult i32 %.04049.i, 2
+  %.not42.i = icmp eq i32 %60, 0
   br i1 %.not42.i, label %.preheader48.i, label %35, !llvm.loop !15
 
 .preheader48.i:                                   ; preds = %35, %.preheader48.i
@@ -164,7 +164,7 @@ gcm_set_acceleration.exit.i:                      ; preds = %19
   %67 = call i64 @llvm.bswap.i64(i64 %66)
   store i64 %67, ptr %65, align 8
   %68 = lshr i32 %.150.i, 1
-  %.not43.i = icmp samesign ult i32 %.150.i, 2
+  %.not43.i = icmp eq i32 %68, 0
   br i1 %.not43.i, label %.lr.ph54.i, label %.preheader48.i, !llvm.loop !17
 
 .lr.ph54.i:                                       ; preds = %.preheader48.i, %._crit_edge.i

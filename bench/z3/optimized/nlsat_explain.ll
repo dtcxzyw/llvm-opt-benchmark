@@ -2920,22 +2920,22 @@ define linkonce_odr hidden i32 @_ZN5nlsat7explain3imp9normalizeEN3sat7literalEj(
   %12 = alloca %class.ref_buffer, align 8
   %13 = alloca %class.sbuffer, align 8
   %14 = alloca %class.obj_ref.12, align 8
-  %15 = icmp ult i32 %1, 2
-  br i1 %15, label %217, label %16
+  %15 = lshr i32 %1, 1
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %217, label %17
 
-16:                                               ; preds = %3
-  %17 = lshr i32 %1, 1
+17:                                               ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !102
   %20 = load ptr, ptr %19, align 8, !tbaa !103
-  %21 = zext nneg i32 %17 to i64
+  %21 = zext nneg i32 %15 to i64
   %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !106
   %24 = load i32, ptr %23, align 4, !tbaa !133
   %25 = icmp slt i32 %24, 3
   br i1 %25, label %26, label %217
 
-26:                                               ; preds = %16
+26:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %28 = load ptr, ptr %27, align 8, !tbaa !78
@@ -3498,8 +3498,8 @@ _ZN15ref_buffer_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7man
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %.pn66
 
-217:                                              ; preds = %16, %3, %_ZN15ref_buffer_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEELj16EED2Ev.exit
-  %.sroa.0117.0 = phi i32 [ %.sroa.0117.5, %_ZN15ref_buffer_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEELj16EED2Ev.exit ], [ %1, %3 ], [ %1, %16 ]
+217:                                              ; preds = %17, %3, %_ZN15ref_buffer_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEELj16EED2Ev.exit
+  %.sroa.0117.0 = phi i32 [ %.sroa.0117.5, %_ZN15ref_buffer_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEELj16EED2Ev.exit ], [ %1, %3 ], [ %1, %17 ]
   ret i32 %.sroa.0117.0
 }
 

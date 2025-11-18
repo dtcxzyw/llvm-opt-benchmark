@@ -19440,7 +19440,7 @@ _ZL14store_constantPlilil.exit:                   ; preds = %.split.i, %103, %99
   br i1 %or.cond5, label %225, label %222
 
 222:                                              ; preds = %218
-  %223 = icmp ult i64 %209, 4294967296
+  %223 = icmp eq i64 %.sroa.4.0.extract.shift, 0
   %224 = icmp ugt i64 %213, -4294967297
   %or.cond7 = select i1 %223, i1 %224, i1 false
   br label %225
@@ -19618,7 +19618,7 @@ _ZN9StoreNode4makeER8PhaseGVNP4NodeS3_S3_PK7TypePtrS3_9BasicTypeN7MemNode6MemOrd
 316:                                              ; preds = %_ZN9StoreNode4makeER8PhaseGVNP4NodeS3_S3_PK7TypePtrS3_9BasicTypeN7MemNode6MemOrdEb.exit239, %289
   %.3 = phi i32 [ %291, %_ZN9StoreNode4makeER8PhaseGVNP4NodeS3_S3_PK7TypePtrS3_9BasicTypeN7MemNode6MemOrdEb.exit239 ], [ %.0195301, %289 ]
   %.1 = phi i32 [ 1, %_ZN9StoreNode4makeER8PhaseGVNP4NodeS3_S3_PK7TypePtrS3_9BasicTypeN7MemNode6MemOrdEb.exit239 ], [ 0, %289 ]
-  %.not215 = icmp ult i64 %209, 4294967296
+  %.not215 = icmp eq i64 %.sroa.4.0.extract.shift, 0
   br i1 %.not215, label %380, label %317
 
 317:                                              ; preds = %316

@@ -177,43 +177,43 @@ define internal range(i32 -27, 1) i32 @flex128_encode_int(i16 noundef zeroext %0
 20:                                               ; preds = %4
   %21 = tail call ptr @PMIx_Error_string(i32 noundef -27) #7
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %21, ptr noundef nonnull @.str.4, i32 noundef 262) #7
-  br label %34
+  br label %33
 
 22:                                               ; preds = %.preheader, %26
-  %.016.i = phi i64 [ %27, %26 ], [ %.016.i.ph, %.preheader ]
-  %.015.i = phi i64 [ %29, %26 ], [ 0, %.preheader ]
+  %.016.i = phi i64 [ %24, %26 ], [ %.016.i.ph, %.preheader ]
+  %.015.i = phi i64 [ %28, %26 ], [ 0, %.preheader ]
   %23 = trunc i64 %.016.i to i8
-  %24 = icmp ugt i64 %.016.i, 127
-  br i1 %24, label %26, label %.thread22.i, !prof !36
+  %24 = lshr i64 %.016.i, 7
+  %.not.i = icmp eq i64 %24, 0
+  br i1 %.not.i, label %.thread22.i, label %26, !prof !36
 
 .thread22.i:                                      ; preds = %22
   %25 = add nuw nsw i64 %.015.i, 1
   br label %flex_pack_integer.exit
 
 26:                                               ; preds = %22
-  %27 = lshr i64 %.016.i, 7
-  %28 = or i8 %23, -128
-  %29 = add nuw nsw i64 %.015.i, 1
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 %.015.i
-  store i8 %28, ptr %30, align 1, !tbaa !37
-  %exitcond.not.i = icmp eq i64 %29, 8
-  br i1 %exitcond.not.i, label %31, label %22, !llvm.loop !38
+  %27 = or i8 %23, -128
+  %28 = add nuw nsw i64 %.015.i, 1
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 %.015.i
+  store i8 %27, ptr %29, align 1, !tbaa !37
+  %exitcond.not.i = icmp eq i64 %28, 8
+  br i1 %exitcond.not.i, label %30, label %22, !llvm.loop !38
 
-31:                                               ; preds = %26
-  %32 = trunc i64 %27 to i8
+30:                                               ; preds = %26
+  %31 = trunc i64 %24 to i8
   br label %flex_pack_integer.exit
 
-flex_pack_integer.exit:                           ; preds = %.thread22.i, %31
-  %.015.lcssa.sink.i = phi i64 [ %.015.i, %.thread22.i ], [ 8, %31 ]
-  %.lcssa.sink.i = phi i8 [ %23, %.thread22.i ], [ %32, %31 ]
-  %.1.i = phi i64 [ %25, %.thread22.i ], [ 9, %31 ]
-  %33 = getelementptr inbounds nuw i8, ptr %5, i64 %.015.lcssa.sink.i
-  store i8 %.lcssa.sink.i, ptr %33, align 1, !tbaa !37
+flex_pack_integer.exit:                           ; preds = %.thread22.i, %30
+  %.015.lcssa.sink.i = phi i64 [ %.015.i, %.thread22.i ], [ 8, %30 ]
+  %.lcssa33.sink.i = phi i8 [ %23, %.thread22.i ], [ %31, %30 ]
+  %.1.i = phi i64 [ %25, %.thread22.i ], [ 9, %30 ]
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 %.015.lcssa.sink.i
+  store i8 %.lcssa33.sink.i, ptr %32, align 1, !tbaa !37
   store i64 %.1.i, ptr %3, align 8, !tbaa !35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %5, i64 %.1.i, i1 false)
-  br label %34
+  br label %33
 
-34:                                               ; preds = %flex_pack_integer.exit, %20
+33:                                               ; preds = %flex_pack_integer.exit, %20
   %.04560 = phi i32 [ 0, %flex_pack_integer.exit ], [ -27, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.04560
@@ -256,12 +256,12 @@ switch.lookup:                                    ; preds = %5
   %20 = icmp slt i8 %14, 0
   %21 = icmp ult i64 %12, %10
   %22 = select i1 %20, i1 %21, i1 false
-  br i1 %22, label %11, label %23, !prof !36, !llvm.loop !40
+  br i1 %22, label %11, label %23, !prof !40, !llvm.loop !41
 
 23:                                               ; preds = %11
   %24 = icmp eq i64 %10, %12
   %25 = and i1 %24, %20
-  br i1 %25, label %26, label %33, !prof !36
+  br i1 %25, label %26, label %33, !prof !40
 
 26:                                               ; preds = %23
   %27 = add nsw i64 %.034.i, 2
@@ -439,8 +439,9 @@ attributes #7 = { nounwind }
 !33 = !{!34, !5, i64 4}
 !34 = !{!"", !23, i64 0, !23, i64 1, !5, i64 4, !23, i64 8, !5, i64 12, !13, i64 16, !13, i64 24, !5, i64 32, !13, i64 40, !5, i64 48, !23, i64 52, !23, i64 53, !23, i64 54, !23, i64 55, !13, i64 56, !5, i64 64, !5, i64 68}
 !35 = !{!19, !19, i64 0}
-!36 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!36 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !37 = !{!6, !6, i64 0}
 !38 = distinct !{!38, !39}
 !39 = !{!"llvm.loop.mustprogress"}
-!40 = distinct !{!40, !39}
+!40 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!41 = distinct !{!41, !39}

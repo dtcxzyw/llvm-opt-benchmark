@@ -163,7 +163,7 @@ define dso_local noundef i64 @bit_in(ptr noundef readonly captures(none) %0) loc
 
 54:                                               ; preds = %.preheader, %45
   %55 = lshr i8 %.076, 1
-  %56 = icmp ult i8 %.076, 2
+  %56 = icmp eq i8 %55, 0
   %spec.select = select i1 %56, i8 -128, i8 %55
   %spec.select99.idx = zext i1 %56 to i64
   %spec.select99 = getelementptr inbounds nuw i8, ptr %.073, i64 %spec.select99.idx
@@ -827,7 +827,7 @@ define dso_local noundef i64 @varbit_in(ptr noundef readonly captures(none) %0) 
 
 56:                                               ; preds = %.preheader, %47
   %57 = lshr i8 %.078, 1
-  %58 = icmp ult i8 %.078, 2
+  %58 = icmp eq i8 %57, 0
   %spec.select = select i1 %58, i8 -128, i8 %57
   %spec.select100.idx = zext i1 %58 to i64
   %spec.select100 = getelementptr inbounds nuw i8, ptr %.075, i64 %spec.select100.idx
@@ -2428,7 +2428,7 @@ define dso_local i64 @bitshiftleft(ptr noundef readonly captures(none) %0) #0 {
   br i1 %or.cond7, label %73, label %84
 
 73:                                               ; preds = %69
-  %.not103 = icmp samesign ult i32 %8, 8
+  %.not103 = icmp eq i32 %51, 0
   br i1 %.not103, label %.loopexit93, label %.lr.ph101.preheader
 
 .lr.ph101.preheader:                              ; preds = %73
@@ -2609,7 +2609,7 @@ define dso_local i64 @bitshiftright(ptr noundef readonly captures(none) %0) #0 {
   br i1 %or.cond7, label %62, label %70
 
 62:                                               ; preds = %58
-  %.not110 = icmp samesign ult i32 %8, 8
+  %.not110 = icmp eq i32 %51, 0
   br i1 %.not110, label %.loopexit101, label %.lr.ph105.preheader
 
 .lr.ph105.preheader:                              ; preds = %62

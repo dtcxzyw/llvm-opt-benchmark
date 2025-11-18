@@ -1220,9 +1220,8 @@ cdf_count_chain.exit:                             ; preds = %.lr.ph.split.i, %.p
 .lr.ph104:                                        ; preds = %.preheader95
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not107 = icmp ult i16 %6, 7
-  %umax = tail call i64 @llvm.umax.i64(i64 %28, i64 1)
-  %38 = add nuw nsw i64 %umax, 1
+  %.not107 = icmp eq i64 %28, 0
+  %38 = add nuw nsw i64 %28, 1
   br label %41
 
 39:                                               ; preds = %33
@@ -1353,7 +1352,7 @@ cdf_read_sector.exit:                             ; preds = %61
   %111 = load i32, ptr %110, align 1
   store i32 %111, ptr %109, align 8
   %112 = add nuw nsw i64 %.184100, 1
-  %exitcond.not = icmp eq i64 %112, %umax
+  %exitcond.not = icmp eq i64 %112, %28
   br i1 %exitcond.not, label %._crit_edge, label %68
 
 ._crit_edge:                                      ; preds = %68, %.preheader94

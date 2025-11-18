@@ -1940,15 +1940,11 @@ XXH3_accumulate_512_sse2.exit.i31.i.i:            ; preds = %80
   %99 = shl i64 %22, 3
   %100 = getelementptr inbounds nuw i8, ptr %9, i64 %99
   tail call void @llvm.experimental.noalias.scope.decl(metadata !256)
-  %.not61.i = icmp eq i32 %15, 64
-  br i1 %.not61.i, label %XXH3_consumeStripes.exit.i.i, label %.lr.ph57.preheader.i
+  %.not61.i = icmp eq i32 %19, 0
+  br i1 %.not61.i, label %XXH3_consumeStripes.exit.i.i, label %.lr.ph57.i
 
-.lr.ph57.preheader.i:                             ; preds = %98
-  %umax69.i = tail call i64 @llvm.umax.i64(i64 %20, i64 1)
-  br label %.lr.ph57.i
-
-.lr.ph57.i:                                       ; preds = %XXH3_accumulate_512_sse2.exit.i.i.i, %.lr.ph57.preheader.i
-  %.0.i27.i56.i = phi i64 [ %123, %XXH3_accumulate_512_sse2.exit.i.i.i ], [ 0, %.lr.ph57.preheader.i ]
+.lr.ph57.i:                                       ; preds = %98, %XXH3_accumulate_512_sse2.exit.i.i.i
+  %.0.i27.i56.i = phi i64 [ %123, %XXH3_accumulate_512_sse2.exit.i.i.i ], [ 0, %98 ]
   %101 = shl i64 %.0.i27.i56.i, 6
   %102 = getelementptr inbounds nuw i8, ptr %25, i64 %101
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 320
@@ -1983,8 +1979,8 @@ XXH3_accumulate_512_sse2.exit.i31.i.i:            ; preds = %80
 
 XXH3_accumulate_512_sse2.exit.i.i.i:              ; preds = %106
   %123 = add nuw nsw i64 %.0.i27.i56.i, 1
-  %exitcond70.not.i = icmp eq i64 %123, %umax69.i
-  br i1 %exitcond70.not.i, label %XXH3_consumeStripes.exit.i.i, label %.lr.ph57.i
+  %exitcond69.not.i = icmp eq i64 %123, %20
+  br i1 %exitcond69.not.i, label %XXH3_consumeStripes.exit.i.i, label %.lr.ph57.i
 
 XXH3_consumeStripes.exit.i.i:                     ; preds = %XXH3_accumulate_512_sse2.exit.i31.i.i, %XXH3_accumulate_512_sse2.exit.i.i.i, %98, %XXH3_scrambleAcc_sse2.exit.i.i.i
   %124 = zext i32 %15 to i64
@@ -2015,8 +2011,8 @@ XXH3_consumeStripes.exit.i.i:                     ; preds = %XXH3_accumulate_512
   %144 = add <2 x i64> %143, %139
   store <2 x i64> %144, ptr %141, align 16, !tbaa !4, !alias.scope !270, !noalias !273
   %145 = add nuw nsw i64 %.0.i25.i58.i, 1
-  %exitcond71.not.i = icmp eq i64 %145, 4
-  br i1 %exitcond71.not.i, label %XXH3_digest_long.exit.i, label %129
+  %exitcond70.not.i = icmp eq i64 %145, 4
+  br i1 %exitcond70.not.i, label %XXH3_digest_long.exit.i, label %129
 
 146:                                              ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -3887,15 +3883,11 @@ XXH3_accumulate_512_sse2.exit.i31.i.i:            ; preds = %80
   %99 = shl i64 %22, 3
   %100 = getelementptr inbounds nuw i8, ptr %9, i64 %99
   tail call void @llvm.experimental.noalias.scope.decl(metadata !550)
-  %.not72.i = icmp eq i32 %15, 64
-  br i1 %.not72.i, label %XXH3_consumeStripes.exit.i.i, label %.lr.ph68.preheader.i
+  %.not72.i = icmp eq i32 %19, 0
+  br i1 %.not72.i, label %XXH3_consumeStripes.exit.i.i, label %.lr.ph68.i
 
-.lr.ph68.preheader.i:                             ; preds = %98
-  %umax81.i = tail call i64 @llvm.umax.i64(i64 %20, i64 1)
-  br label %.lr.ph68.i
-
-.lr.ph68.i:                                       ; preds = %XXH3_accumulate_512_sse2.exit.i.i.i, %.lr.ph68.preheader.i
-  %.0.i27.i67.i = phi i64 [ %123, %XXH3_accumulate_512_sse2.exit.i.i.i ], [ 0, %.lr.ph68.preheader.i ]
+.lr.ph68.i:                                       ; preds = %98, %XXH3_accumulate_512_sse2.exit.i.i.i
+  %.0.i27.i67.i = phi i64 [ %123, %XXH3_accumulate_512_sse2.exit.i.i.i ], [ 0, %98 ]
   %101 = shl i64 %.0.i27.i67.i, 6
   %102 = getelementptr inbounds nuw i8, ptr %25, i64 %101
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 320
@@ -3930,8 +3922,8 @@ XXH3_accumulate_512_sse2.exit.i31.i.i:            ; preds = %80
 
 XXH3_accumulate_512_sse2.exit.i.i.i:              ; preds = %106
   %123 = add nuw nsw i64 %.0.i27.i67.i, 1
-  %exitcond82.not.i = icmp eq i64 %123, %umax81.i
-  br i1 %exitcond82.not.i, label %XXH3_consumeStripes.exit.i.i, label %.lr.ph68.i
+  %exitcond81.not.i = icmp eq i64 %123, %20
+  br i1 %exitcond81.not.i, label %XXH3_consumeStripes.exit.i.i, label %.lr.ph68.i
 
 XXH3_consumeStripes.exit.i.i:                     ; preds = %XXH3_accumulate_512_sse2.exit.i31.i.i, %XXH3_accumulate_512_sse2.exit.i.i.i, %98, %XXH3_scrambleAcc_sse2.exit.i.i.i
   %124 = zext i32 %15 to i64
@@ -3962,8 +3954,8 @@ XXH3_consumeStripes.exit.i.i:                     ; preds = %XXH3_accumulate_512
   %144 = add <2 x i64> %143, %139
   store <2 x i64> %144, ptr %141, align 16, !tbaa !4, !alias.scope !564, !noalias !567
   %145 = add nuw nsw i64 %.0.i25.i69.i, 1
-  %exitcond83.not.i = icmp eq i64 %145, 4
-  br i1 %exitcond83.not.i, label %XXH3_digest_long.exit.i, label %129
+  %exitcond82.not.i = icmp eq i64 %145, 4
+  br i1 %exitcond82.not.i, label %XXH3_digest_long.exit.i, label %129
 
 146:                                              ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -5230,9 +5222,6 @@ declare i64 @llvm.bswap.i64(i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #14
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

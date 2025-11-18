@@ -610,7 +610,7 @@ declare i32 @u_getUnicodeProperties_77(i32 noundef, i32 noundef) local_unnamed_a
 define range(i32 0, 7) i32 @u_getIDTypes_77(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %3, align 4, !tbaa !18
   %6 = icmp slt i32 %5, 1
-  br i1 %6, label %7, label %68
+  br i1 %6, label %7, label %69
 
 7:                                                ; preds = %4
   %8 = icmp slt i32 %2, 0
@@ -624,207 +624,208 @@ define range(i32 0, 7) i32 @u_getIDTypes_77(i32 noundef %0, ptr noundef writeonl
 
 12:                                               ; preds = %9, %7
   store i32 1, ptr %3, align 4, !tbaa !18
-  br label %68
+  br label %69
 
 13:                                               ; preds = %9
   %14 = tail call i32 @u_getUnicodeProperties_77(i32 noundef %0, i32 noundef 2)
   %15 = lshr i32 %14, 26
-  %16 = add i32 %14, 1073741824
-  %or.cond3 = icmp ult i32 %16, 1140850688
-  br i1 %or.cond3, label %17, label %26
+  %16 = icmp ugt i32 %14, -1073741825
+  %17 = icmp eq i32 %15, 0
+  %or.cond3 = or i1 %16, %17
+  br i1 %or.cond3, label %18, label %27
 
-17:                                               ; preds = %13
-  br i1 %10, label %18, label %25
-
-18:                                               ; preds = %17
-  switch i32 %15, label %.critedge [
-    i32 0, label %24
-    i32 48, label %19
-    i32 49, label %20
-    i32 50, label %21
-    i32 62, label %22
-    i32 63, label %23
-  ]
+18:                                               ; preds = %13
+  br i1 %10, label %19, label %26
 
 19:                                               ; preds = %18
-  br label %24
+  switch i32 %15, label %.critedge [
+    i32 0, label %25
+    i32 48, label %20
+    i32 49, label %21
+    i32 50, label %22
+    i32 62, label %23
+    i32 63, label %24
+  ]
 
-20:                                               ; preds = %18
-  br label %24
+20:                                               ; preds = %19
+  br label %25
 
-21:                                               ; preds = %18
-  br label %24
+21:                                               ; preds = %19
+  br label %25
 
-22:                                               ; preds = %18
-  br label %24
+22:                                               ; preds = %19
+  br label %25
 
-23:                                               ; preds = %18
-  br label %24
+23:                                               ; preds = %19
+  br label %25
 
-.critedge:                                        ; preds = %18
+24:                                               ; preds = %19
+  br label %25
+
+.critedge:                                        ; preds = %19
   store i32 3, ptr %3, align 4, !tbaa !18
-  br label %68
+  br label %69
 
-24:                                               ; preds = %18, %23, %22, %21, %20, %19
-  %.038 = phi i32 [ 1, %19 ], [ 2, %20 ], [ 3, %21 ], [ 10, %22 ], [ 11, %23 ], [ %15, %18 ]
+25:                                               ; preds = %19, %24, %23, %22, %21, %20
+  %.038 = phi i32 [ 1, %20 ], [ 2, %21 ], [ 3, %22 ], [ 10, %23 ], [ 11, %24 ], [ %15, %19 ]
   store i32 %.038, ptr %1, align 4, !tbaa !36
-  br label %68
+  br label %69
 
-25:                                               ; preds = %17
+26:                                               ; preds = %18
   store i32 15, ptr %3, align 4, !tbaa !18
-  br label %68
+  br label %69
 
-26:                                               ; preds = %13
-  %27 = and i32 %14, 67108864
-  %.not.i = icmp eq i32 %27, 0
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit, label %28
+27:                                               ; preds = %13
+  %28 = and i32 %14, 67108864
+  %.not.i = icmp eq i32 %28, 0
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit, label %29
 
-28:                                               ; preds = %26
+29:                                               ; preds = %27
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit.thread, label %29
+  br i1 %.not, label %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit.thread, label %30
 
-29:                                               ; preds = %28
+30:                                               ; preds = %29
   store i32 4, ptr %1, align 4, !tbaa !36
   br label %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit
 
-_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit: ; preds = %29, %26
-  %.0 = phi i32 [ 0, %26 ], [ 1, %29 ]
+_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit: ; preds = %30, %27
+  %.0 = phi i32 [ 0, %27 ], [ 1, %30 ]
   %.not.i43 = icmp sgt i32 %14, -1
-  br i1 %.not.i43, label %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit44, label %30
+  br i1 %.not.i43, label %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit44, label %31
 
-_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit.thread: ; preds = %28
+_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit.thread: ; preds = %29
   %.not.i4361 = icmp sgt i32 %14, -1
   br i1 %.not.i4361, label %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit44.thread, label %.thread
 
-30:                                               ; preds = %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit
-  %31 = icmp samesign ult i32 %.0, %2
-  br i1 %31, label %32, label %.thread
+31:                                               ; preds = %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit
+  %32 = icmp samesign ult i32 %.0, %2
+  br i1 %32, label %33, label %.thread
 
-32:                                               ; preds = %30
-  %33 = zext nneg i32 %.0 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %1, i64 %33
-  store i32 5, ptr %34, align 4, !tbaa !36
+33:                                               ; preds = %31
+  %34 = zext nneg i32 %.0 to i64
+  %35 = getelementptr inbounds nuw i32, ptr %1, i64 %34
+  store i32 5, ptr %35, align 4, !tbaa !36
   br label %.thread
 
-.thread:                                          ; preds = %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit.thread, %32, %30
-  %.06264 = phi i32 [ %.0, %32 ], [ %.0, %30 ], [ 1, %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit.thread ]
-  %35 = add nuw nsw i32 %.06264, 1
+.thread:                                          ; preds = %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit.thread, %33, %31
+  %.06264 = phi i32 [ %.0, %33 ], [ %.0, %31 ], [ 1, %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit.thread ]
+  %36 = add nuw nsw i32 %.06264, 1
   br label %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit44
 
 _ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit44: ; preds = %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit, %.thread
-  %.1 = phi i32 [ %.0, %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit ], [ %35, %.thread ]
-  %36 = and i32 %14, 134217728
-  %.not.i45 = icmp eq i32 %36, 0
-  br i1 %.not.i45, label %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit46, label %38
+  %.1 = phi i32 [ %.0, %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit ], [ %36, %.thread ]
+  %37 = and i32 %14, 134217728
+  %.not.i45 = icmp eq i32 %37, 0
+  br i1 %.not.i45, label %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit46, label %39
 
 _ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit44.thread: ; preds = %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit.thread
-  %37 = and i32 %14, 134217728
-  %.not.i4566 = icmp eq i32 %37, 0
+  %38 = and i32 %14, 134217728
+  %.not.i4566 = icmp eq i32 %38, 0
   br i1 %.not.i4566, label %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit46.thread, label %.thread68
 
-38:                                               ; preds = %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit44
-  %39 = icmp samesign ult i32 %.1, %2
-  br i1 %39, label %40, label %.thread68
+39:                                               ; preds = %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit44
+  %40 = icmp samesign ult i32 %.1, %2
+  br i1 %40, label %41, label %.thread68
 
-40:                                               ; preds = %38
-  %41 = zext nneg i32 %.1 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %1, i64 %41
-  store i32 6, ptr %42, align 4, !tbaa !36
+41:                                               ; preds = %39
+  %42 = zext nneg i32 %.1 to i64
+  %43 = getelementptr inbounds nuw i32, ptr %1, i64 %42
+  store i32 6, ptr %43, align 4, !tbaa !36
   br label %.thread68
 
-.thread68:                                        ; preds = %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit44.thread, %40, %38
-  %.16770 = phi i32 [ %.1, %40 ], [ %.1, %38 ], [ 1, %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit44.thread ]
-  %43 = add nuw nsw i32 %.16770, 1
+.thread68:                                        ; preds = %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit44.thread, %41, %39
+  %.16770 = phi i32 [ %.1, %41 ], [ %.1, %39 ], [ 1, %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit44.thread ]
+  %44 = add nuw nsw i32 %.16770, 1
   br label %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit46
 
 _ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit46: ; preds = %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit44, %.thread68
-  %.2 = phi i32 [ %.1, %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit44 ], [ %43, %.thread68 ]
-  %44 = and i32 %14, 268435456
-  %.not.i47 = icmp eq i32 %44, 0
-  br i1 %.not.i47, label %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit48, label %46
+  %.2 = phi i32 [ %.1, %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit44 ], [ %44, %.thread68 ]
+  %45 = and i32 %14, 268435456
+  %.not.i47 = icmp eq i32 %45, 0
+  br i1 %.not.i47, label %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit48, label %47
 
 _ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit46.thread: ; preds = %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit44.thread
-  %45 = and i32 %14, 268435456
-  %.not.i4772 = icmp eq i32 %45, 0
+  %46 = and i32 %14, 268435456
+  %.not.i4772 = icmp eq i32 %46, 0
   br i1 %.not.i4772, label %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit48.thread, label %.thread74
 
-46:                                               ; preds = %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit46
-  %47 = icmp samesign ult i32 %.2, %2
-  br i1 %47, label %48, label %.thread74
+47:                                               ; preds = %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit46
+  %48 = icmp samesign ult i32 %.2, %2
+  br i1 %48, label %49, label %.thread74
 
-48:                                               ; preds = %46
-  %49 = zext nneg i32 %.2 to i64
-  %50 = getelementptr inbounds nuw i32, ptr %1, i64 %49
-  store i32 7, ptr %50, align 4, !tbaa !36
+49:                                               ; preds = %47
+  %50 = zext nneg i32 %.2 to i64
+  %51 = getelementptr inbounds nuw i32, ptr %1, i64 %50
+  store i32 7, ptr %51, align 4, !tbaa !36
   br label %.thread74
 
-.thread74:                                        ; preds = %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit46.thread, %48, %46
-  %.27376 = phi i32 [ %.2, %48 ], [ %.2, %46 ], [ 1, %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit46.thread ]
-  %51 = add nuw nsw i32 %.27376, 1
+.thread74:                                        ; preds = %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit46.thread, %49, %47
+  %.27376 = phi i32 [ %.2, %49 ], [ %.2, %47 ], [ 1, %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit46.thread ]
+  %52 = add nuw nsw i32 %.27376, 1
   br label %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit48
 
 _ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit48: ; preds = %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit46, %.thread74
-  %.3 = phi i32 [ %.2, %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit46 ], [ %51, %.thread74 ]
-  %52 = and i32 %14, 536870912
-  %.not.i49 = icmp eq i32 %52, 0
-  br i1 %.not.i49, label %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit50, label %54
+  %.3 = phi i32 [ %.2, %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit46 ], [ %52, %.thread74 ]
+  %53 = and i32 %14, 536870912
+  %.not.i49 = icmp eq i32 %53, 0
+  br i1 %.not.i49, label %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit50, label %55
 
 _ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit48.thread: ; preds = %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit46.thread
-  %53 = and i32 %14, 536870912
-  %.not.i4978 = icmp eq i32 %53, 0
+  %54 = and i32 %14, 536870912
+  %.not.i4978 = icmp eq i32 %54, 0
   br i1 %.not.i4978, label %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit50.thread, label %.thread80
 
-54:                                               ; preds = %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit48
-  %55 = icmp samesign ult i32 %.3, %2
-  br i1 %55, label %56, label %.thread80
+55:                                               ; preds = %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit48
+  %56 = icmp samesign ult i32 %.3, %2
+  br i1 %56, label %57, label %.thread80
 
-56:                                               ; preds = %54
-  %57 = zext nneg i32 %.3 to i64
-  %58 = getelementptr inbounds nuw i32, ptr %1, i64 %57
-  store i32 8, ptr %58, align 4, !tbaa !36
+57:                                               ; preds = %55
+  %58 = zext nneg i32 %.3 to i64
+  %59 = getelementptr inbounds nuw i32, ptr %1, i64 %58
+  store i32 8, ptr %59, align 4, !tbaa !36
   br label %.thread80
 
-.thread80:                                        ; preds = %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit48.thread, %56, %54
-  %.37982 = phi i32 [ %.3, %56 ], [ %.3, %54 ], [ 1, %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit48.thread ]
-  %59 = add nuw nsw i32 %.37982, 1
+.thread80:                                        ; preds = %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit48.thread, %57, %55
+  %.37982 = phi i32 [ %.3, %57 ], [ %.3, %55 ], [ 1, %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit48.thread ]
+  %60 = add nuw nsw i32 %.37982, 1
   br label %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit50
 
 _ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit50: ; preds = %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit48, %.thread80
-  %.4 = phi i32 [ %.3, %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit48 ], [ %59, %.thread80 ]
-  %60 = and i32 %14, 1073741824
-  %.not.i51 = icmp eq i32 %60, 0
-  br i1 %.not.i51, label %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit52, label %61
+  %.4 = phi i32 [ %.3, %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit48 ], [ %60, %.thread80 ]
+  %61 = and i32 %14, 1073741824
+  %.not.i51 = icmp eq i32 %61, 0
+  br i1 %.not.i51, label %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit52, label %62
 
 _ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit50.thread: ; preds = %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit48.thread
   %.not.i5184 = icmp samesign ult i32 %14, 1073741824
   br i1 %.not.i5184, label %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit52, label %.thread86
 
-61:                                               ; preds = %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit50
-  %62 = icmp samesign ult i32 %.4, %2
-  br i1 %62, label %63, label %.thread86
+62:                                               ; preds = %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit50
+  %63 = icmp samesign ult i32 %.4, %2
+  br i1 %63, label %64, label %.thread86
 
-63:                                               ; preds = %61
-  %64 = zext nneg i32 %.4 to i64
-  %65 = getelementptr inbounds nuw i32, ptr %1, i64 %64
-  store i32 9, ptr %65, align 4, !tbaa !36
+64:                                               ; preds = %62
+  %65 = zext nneg i32 %.4 to i64
+  %66 = getelementptr inbounds nuw i32, ptr %1, i64 %65
+  store i32 9, ptr %66, align 4, !tbaa !36
   br label %.thread86
 
-.thread86:                                        ; preds = %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit50.thread, %63, %61
-  %.48588 = phi i32 [ %.4, %63 ], [ %.4, %61 ], [ 1, %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit50.thread ]
-  %66 = add nuw nsw i32 %.48588, 1
+.thread86:                                        ; preds = %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit50.thread, %64, %62
+  %.48588 = phi i32 [ %.4, %64 ], [ %.4, %62 ], [ 1, %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit50.thread ]
+  %67 = add nuw nsw i32 %.48588, 1
   br label %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit52
 
 _ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit52: ; preds = %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit50.thread, %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit50, %.thread86
-  %.5 = phi i32 [ %.4, %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit50 ], [ %66, %.thread86 ], [ 1, %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit50.thread ]
+  %.5 = phi i32 [ %.4, %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit50 ], [ %67, %.thread86 ], [ 1, %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit50.thread ]
   %.not42 = icmp samesign ult i32 %.5, %2
-  br i1 %.not42, label %68, label %67
+  br i1 %.not42, label %69, label %68
 
-67:                                               ; preds = %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit52
+68:                                               ; preds = %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit52
   store i32 15, ptr %3, align 4, !tbaa !18
-  br label %68
+  br label %69
 
-68:                                               ; preds = %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit52, %67, %.critedge, %24, %25, %4, %12
-  %.039 = phi i32 [ 0, %12 ], [ 0, %4 ], [ 0, %.critedge ], [ 1, %24 ], [ 1, %25 ], [ %.5, %67 ], [ %.5, %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit52 ]
+69:                                               ; preds = %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit52, %68, %.critedge, %25, %26, %4, %12
+  %.039 = phi i32 [ 0, %12 ], [ 0, %4 ], [ 0, %.critedge ], [ 1, %25 ], [ 1, %26 ], [ %.5, %68 ], [ %.5, %_ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit52 ]
   ret i32 %.039
 }
 

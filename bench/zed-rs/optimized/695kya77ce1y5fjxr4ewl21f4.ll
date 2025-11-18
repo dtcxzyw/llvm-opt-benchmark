@@ -66190,7 +66190,7 @@ define hidden void @_ZN9zune_jpeg7headers13parse_huffman17h071568ad749b3dbbE(ptr
   br label %129
 
 105:                                              ; preds = %"_ZN9zune_core10bytestream6reader20ZByteReader$LT$T$GT$10read_exact17h064596ddc3b80376E.exit168"
-  %106 = icmp samesign ult i8 %59, 16
+  %106 = icmp eq i8 %60, 0
   br i1 %106, label %109, label %113
 
 107:                                              ; preds = %"_ZN9zune_core10bytestream6reader20ZByteReader$LT$T$GT$10read_exact17h064596ddc3b80376E.exit168"
@@ -66662,7 +66662,7 @@ define hidden void @_ZN9zune_jpeg7headers13parse_huffman17h6bb6c359489e5ebaE(ptr
   br label %144
 
 120:                                              ; preds = %"_ZN9zune_core10bytestream6reader20ZByteReader$LT$T$GT$10read_exact17h4dde04d981e0bb17E.exit164"
-  %121 = icmp samesign ult i8 %66, 16
+  %121 = icmp eq i8 %67, 0
   br i1 %121, label %124, label %128
 
 122:                                              ; preds = %"_ZN9zune_core10bytestream6reader20ZByteReader$LT$T$GT$10read_exact17h4dde04d981e0bb17E.exit164"

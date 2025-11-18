@@ -1436,7 +1436,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm18ExecutionDomainFix10visitInstrEPN
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %2
-  %.not7 = icmp ult i32 %8, 65536
+  %.not7 = icmp eq i32 %.sroa.6.0.extract.shift, 0
   br i1 %.not7, label %12, label %11
 
 11:                                               ; preds = %10
@@ -3157,7 +3157,7 @@ define dso_local void @_ZN4llvm18ExecutionDomainFix17processBasicBlockERKNS_13Lo
   br i1 %.not.i, label %_ZN4llvm18ExecutionDomainFix10visitInstrEPNS_12MachineInstrE.exit, label %21
 
 21:                                               ; preds = %14
-  %.not7.i = icmp ult i32 %19, 65536
+  %.not7.i = icmp eq i32 %.sroa.6.0.extract.shift.i, 0
   br i1 %.not7.i, label %23, label %22
 
 22:                                               ; preds = %21

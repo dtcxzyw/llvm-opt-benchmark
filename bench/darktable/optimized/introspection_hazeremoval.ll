@@ -83,7 +83,7 @@ define noundef i32 @default_colorspace(ptr noundef readnone captures(none) %0, p
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
 define void @init_pipe(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef writeonly captures(none) initializes((16, 24)) %2) local_unnamed_addr #4 {
-  %4 = tail call noalias dereferenceable_or_null(12) ptr @calloc(i64 noundef 1, i64 noundef 12) #24
+  %4 = tail call noalias dereferenceable_or_null(12) ptr @calloc(i64 noundef 1, i64 noundef 12) #23
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %4, ptr %5, align 16, !tbaa !6
   ret void
@@ -110,7 +110,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %6
-  %9 = tail call noalias dereferenceable_or_null(12) ptr @malloc(i64 noundef 12) #25
+  %9 = tail call noalias dereferenceable_or_null(12) ptr @malloc(i64 noundef 12) #24
   %10 = load i64, ptr %1, align 4
   store i64 %10, ptr %9, align 4
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -133,7 +133,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
 define void @init_global(ptr noundef writeonly captures(none) initializes((520, 528)) %0) local_unnamed_addr #11 {
-  %2 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #25
+  %2 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 520
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %2, i8 -1, i64 24, i1 false)
   store ptr %2, ptr %3, align 8, !tbaa !30
@@ -530,7 +530,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br label %67
 
 67:                                               ; preds = %56, %35, %13
-  %.sroa.0115.0 = phi nsz float [ 0x7FF8000000000000, %35 ], [ %59, %56 ], [ 0x7FF8000000000000, %13 ]
+  %.sroa.0114.0 = phi nsz float [ 0x7FF8000000000000, %35 ], [ %59, %56 ], [ 0x7FF8000000000000, %13 ]
   %.sroa.8.0 = phi nsz float [ 0x7FF8000000000000, %35 ], [ %61, %56 ], [ 0x7FF8000000000000, %13 ]
   %.sroa.13.0 = phi nsz float [ 0x7FF8000000000000, %35 ], [ %63, %56 ], [ 0x7FF8000000000000, %13 ]
   %.087 = phi nsz float [ 0x7FF8000000000000, %35 ], [ %65, %56 ], [ 0x7FF8000000000000, %13 ]
@@ -595,20 +595,16 @@ _dark_channel.exit.i:                             ; preds = %.lr.ph.i.i, %77
   tail call void @_quick_select(ptr noundef %92, ptr noundef %98, ptr noundef %99, i32 noundef %29)
   %100 = load float, ptr %98, align 4, !tbaa !49
   %101 = lshr i64 %24, 1
-  %.not158.i = icmp ult i64 %24, 2
-  br i1 %.not158.i, label %.preheader140.i, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %_dark_channel.exit.i
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %101, i64 1)
-  br label %.lr.ph.i
+  %.not158.i = icmp eq i64 %101, 0
+  br i1 %.not158.i, label %.preheader140.i, label %.lr.ph.i
 
 .preheader140.i:                                  ; preds = %116, %_dark_channel.exit.i
-  %.0110.lcssa.i = phi i64 [ %101, %_dark_channel.exit.i ], [ %.1.i, %116 ]
+  %.0110.lcssa.i = phi i64 [ 0, %_dark_channel.exit.i ], [ %.1.i, %116 ]
   br i1 %.not.i.i, label %._crit_edge.i, label %.lr.ph145.i
 
-.lr.ph.i:                                         ; preds = %116, %.lr.ph.preheader.i
-  %.0110142.i = phi i64 [ %.1.i, %116 ], [ %101, %.lr.ph.preheader.i ]
-  %.0115141.i = phi i64 [ %117, %116 ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %_dark_channel.exit.i, %116
+  %.0110142.i = phi i64 [ %.1.i, %116 ], [ %101, %_dark_channel.exit.i ]
+  %.0115141.i = phi i64 [ %117, %116 ], [ 0, %_dark_channel.exit.i ]
   %102 = getelementptr inbounds nuw float, ptr %80, i64 %.0115141.i
   %103 = load float, ptr %102, align 4, !tbaa !49
   %104 = fcmp reassoc nsz arcp contract afn ult float %103, %100
@@ -632,7 +628,7 @@ _dark_channel.exit.i:                             ; preds = %.lr.ph.i.i, %77
 116:                                              ; preds = %105, %.lr.ph.i
   %.1.i = phi i64 [ %114, %105 ], [ %.0110142.i, %.lr.ph.i ]
   %117 = add nuw nsw i64 %.0115141.i, 1
-  %exitcond.not.i = icmp eq i64 %117, %umax.i
+  %exitcond.not.i = icmp eq i64 %117, %101
   br i1 %exitcond.not.i, label %.preheader140.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %132, %.preheader140.i
@@ -789,7 +785,7 @@ _ambient_light.exit:                              ; preds = %.loopexit.i, %189
   br label %193
 
 193:                                              ; preds = %_ambient_light.exit, %75
-  %.sroa.0115.1 = phi nsz float [ %.sroa.0115.0, %75 ], [ %183, %_ambient_light.exit ]
+  %.sroa.0114.1 = phi nsz float [ %.sroa.0114.0, %75 ], [ %183, %_ambient_light.exit ]
   %.sroa.8.1 = phi nsz float [ %.sroa.8.0, %75 ], [ %185, %_ambient_light.exit ]
   %.sroa.13.1 = phi nsz float [ %.sroa.13.0, %75 ], [ %187, %_ambient_light.exit ]
   %.1 = phi nsz float [ %.087, %75 ], [ %192, %_ambient_light.exit ]
@@ -815,7 +811,7 @@ _ambient_light.exit:                              ; preds = %.loopexit.i, %189
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %208 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %207) #21
   %209 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store float %.sroa.0115.1, ptr %209, align 16, !tbaa !49
+  store float %.sroa.0114.1, ptr %209, align 16, !tbaa !49
   %210 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store float %.sroa.8.1, ptr %210, align 4, !tbaa !49
   %211 = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -833,18 +829,18 @@ _ambient_light.exit:                              ; preds = %.loopexit.i, %189
   %218 = tail call ptr @dt_alloc_aligned(i64 noundef %217) #21
   call void @llvm.assume(i1 true) [ "align"(ptr %218, i64 64) ]
   %.not.i100 = icmp eq i64 %24, 0
-  br i1 %.not.i100, label %_transition_map.exit, label %.lr.ph.i102.preheader
+  br i1 %.not.i100, label %_transition_map.exit, label %.lr.ph.i101.preheader
 
-.lr.ph.i102.preheader:                            ; preds = %215
-  %219 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %.sroa.0115.1
+.lr.ph.i101.preheader:                            ; preds = %215
+  %219 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %.sroa.0114.1
   %220 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %.sroa.8.1
   %221 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %.sroa.13.1
-  br label %.lr.ph.i102
+  br label %.lr.ph.i101
 
-.lr.ph.i102:                                      ; preds = %.lr.ph.i102.preheader, %.lr.ph.i102
-  %.037.i = phi i64 [ %237, %.lr.ph.i102 ], [ 0, %.lr.ph.i102.preheader ]
-  %.idx.i103 = shl i64 %.037.i, 4
-  %222 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i103
+.lr.ph.i101:                                      ; preds = %.lr.ph.i101.preheader, %.lr.ph.i101
+  %.037.i = phi i64 [ %237, %.lr.ph.i101 ], [ 0, %.lr.ph.i101.preheader ]
+  %.idx.i102 = shl i64 %.037.i, 4
+  %222 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i102
   %223 = load float, ptr %222, align 4, !tbaa !49
   %224 = fmul reassoc nsz arcp contract afn float %223, %219
   %225 = getelementptr inbounds nuw i8, ptr %222, i64 4
@@ -862,10 +858,10 @@ _ambient_light.exit:                              ; preds = %.loopexit.i, %189
   %236 = getelementptr inbounds nuw float, ptr %218, i64 %.037.i
   store float %235, ptr %236, align 4, !tbaa !49
   %237 = add nuw i64 %.037.i, 1
-  %exitcond.not.i104 = icmp eq i64 %237, %24
-  br i1 %exitcond.not.i104, label %_transition_map.exit, label %.lr.ph.i102
+  %exitcond.not.i103 = icmp eq i64 %237, %24
+  br i1 %exitcond.not.i103, label %_transition_map.exit, label %.lr.ph.i101
 
-_transition_map.exit:                             ; preds = %.lr.ph.i102, %215
+_transition_map.exit:                             ; preds = %.lr.ph.i101, %215
   tail call void @dt_box_max(ptr noundef %218, i64 noundef %23, i64 noundef %22, i32 noundef 1, i64 noundef 6) #21
   tail call void @dt_box_min(ptr noundef %218, i64 noundef %23, i64 noundef %22, i32 noundef 1, i64 noundef 6) #21
   %238 = tail call ptr @dt_alloc_aligned(i64 noundef %217) #21
@@ -877,7 +873,7 @@ _transition_map.exit:                             ; preds = %.lr.ph.i102, %215
   %242 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %241, float 0x3F50000000000000)
   %243 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %242, float 1.000000e+00)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store float %.sroa.0115.1, ptr %8, align 16, !tbaa !49
+  store float %.sroa.0114.1, ptr %8, align 16, !tbaa !49
   %244 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store float %.sroa.8.1, ptr %244, align 4, !tbaa !49
   %245 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -894,13 +890,13 @@ _transition_map.exit:                             ; preds = %.lr.ph.i102, %215
   br label %265
 
 .lr.ph:                                           ; preds = %_transition_map.exit, %252
-  %.088144 = phi i64 [ %254, %252 ], [ 0, %_transition_map.exit ]
-  %247 = getelementptr inbounds nuw float, ptr %238, i64 %.088144
+  %.088143 = phi i64 [ %254, %252 ], [ 0, %_transition_map.exit ]
+  %247 = getelementptr inbounds nuw float, ptr %238, i64 %.088143
   %248 = load float, ptr %247, align 4, !tbaa !49
   %249 = fcmp reassoc nsz arcp contract afn ogt float %248, %243
   %. = select reassoc nsz arcp contract afn i1 %249, float %248, float %243
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %.idx99 = shl i64 %.088144, 4
+  %.idx99 = shl i64 %.088143, 4
   %250 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx99
   %251 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %.
   br label %255
@@ -910,22 +906,22 @@ _transition_map.exit:                             ; preds = %.lr.ph.i102, %215
   %.val = load <4 x float>, ptr %9, align 16, !tbaa !94
   store <4 x float> %.val, ptr %253, align 16, !tbaa !94, !alias.scope !95, !nontemporal !98
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %254 = add nuw i64 %.088144, 1
-  %exitcond146.not = icmp eq i64 %254, %24
-  br i1 %exitcond146.not, label %._crit_edge, label %.lr.ph
+  %254 = add nuw i64 %.088143, 1
+  %exitcond145.not = icmp eq i64 %254, %24
+  br i1 %exitcond145.not, label %._crit_edge, label %.lr.ph
 
 255:                                              ; preds = %.lr.ph, %255
-  %.0143 = phi i64 [ 0, %.lr.ph ], [ %264, %255 ]
-  %256 = getelementptr inbounds nuw float, ptr %250, i64 %.0143
+  %.0142 = phi i64 [ 0, %.lr.ph ], [ %264, %255 ]
+  %256 = getelementptr inbounds nuw float, ptr %250, i64 %.0142
   %257 = load float, ptr %256, align 4, !tbaa !49
-  %258 = getelementptr inbounds nuw float, ptr %8, i64 %.0143
+  %258 = getelementptr inbounds nuw float, ptr %8, i64 %.0142
   %259 = load float, ptr %258, align 4, !tbaa !49
   %260 = fsub reassoc nsz arcp contract afn float %257, %259
   %261 = fmul reassoc nsz arcp contract afn float %260, %251
   %262 = fadd reassoc nsz arcp contract afn float %261, %259
-  %263 = getelementptr inbounds nuw float, ptr %9, i64 %.0143
+  %263 = getelementptr inbounds nuw float, ptr %9, i64 %.0142
   store float %262, ptr %263, align 4, !tbaa !49
-  %264 = add nuw nsw i64 %.0143, 1
+  %264 = add nuw nsw i64 %.0142, 1
   %exitcond.not = icmp eq i64 %264, 4
   br i1 %exitcond.not, label %252, label %255
 
@@ -995,12 +991,12 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #18 {
-  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.12) #26
+  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.12) #25
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %11, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.14) #26
+  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.14) #25
   %.not8 = icmp eq i32 %5, 0
   br i1 %.not8, label %6, label %8
 
@@ -1009,7 +1005,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %11
 
 8:                                                ; preds = %4
-  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(19) @.str.17) #26
+  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(19) @.str.17) #25
   %.not9 = icmp eq i32 %9, 0
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %spec.select = select i1 %.not9, ptr %10, ptr null
@@ -1072,9 +1068,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #22
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
 
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #23
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #1 = { nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #2 = { nounwind "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
@@ -1098,10 +1091,9 @@ attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #21 = { nounwind }
 attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #23 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #24 = { nounwind allocsize(0,1) }
-attributes #25 = { nounwind allocsize(0) }
-attributes #26 = { nounwind willreturn memory(read) }
+attributes #23 = { nounwind allocsize(0,1) }
+attributes #24 = { nounwind allocsize(0) }
+attributes #25 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

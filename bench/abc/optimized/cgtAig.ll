@@ -336,10 +336,10 @@ define void @Cgt_ManDetectFanout(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %wide.trip.count = zext nneg i32 %.val42 to i64
   br label %11
 
-11:                                               ; preds = %.lr.ph56, %45
-  %indvars.iv = phi i64 [ 0, %.lr.ph56 ], [ %indvars.iv.next, %45 ]
-  %.055 = phi i32 [ -1, %.lr.ph56 ], [ %.2, %45 ]
-  %.03354 = phi i32 [ 0, %.lr.ph56 ], [ %.134, %45 ]
+11:                                               ; preds = %.lr.ph56, %.critedge2.thread
+  %indvars.iv = phi i64 [ 0, %.lr.ph56 ], [ %indvars.iv.next, %.critedge2.thread ]
+  %.055 = phi i32 [ -1, %.lr.ph56 ], [ %.264, %.critedge2.thread ]
+  %.03354 = phi i32 [ 0, %.lr.ph56 ], [ %.134, %.critedge2.thread ]
   %.val40 = load ptr, ptr %7, align 8, !tbaa !31
   %12 = getelementptr inbounds nuw ptr, ptr %.val40, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !32
@@ -347,8 +347,8 @@ define void @Cgt_ManDetectFanout(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
   %17 = lshr i32 %16, 6
-  %.not58 = icmp ult i32 %16, 64
-  br i1 %.not58, label %.critedge2, label %.lr.ph
+  %.not58 = icmp eq i32 %17, 0
+  br i1 %.not58, label %.critedge2.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 36
@@ -356,7 +356,6 @@ define void @Cgt_ManDetectFanout(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %19 = getelementptr i8, ptr %.val41, i64 8
   %.val.i = load ptr, ptr %19, align 8, !tbaa !31
   %.val = load i32, ptr %10, align 8, !tbaa !3
-  %umax = tail call i32 @llvm.umax.i32(i32 %17, i32 1)
   %.val39.sink = load ptr, ptr %8, align 8, !tbaa !33
   br label %20
 
@@ -380,8 +379,8 @@ define void @Cgt_ManDetectFanout(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br label %Aig_ManObj.exit
 
 Aig_ManObj.exit:                                  ; preds = %27, %21
-  %.sink62 = phi i32 [ %29, %27 ], [ %26, %21 ]
-  %30 = sext i32 %.sink62 to i64
+  %.sink70 = phi i32 [ %29, %27 ], [ %26, %21 ]
+  %30 = sext i32 %.sink70 to i64
   %31 = getelementptr inbounds i32, ptr %.val39.sink, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !27
   %33 = ashr i32 %32, 1
@@ -395,41 +394,40 @@ Aig_ManObj.exit:                                  ; preds = %27, %21
 
 38:                                               ; preds = %Aig_ManObj.exit
   %39 = add nuw nsw i32 %.03246, 1
-  %exitcond.not = icmp eq i32 %39, %umax
-  br i1 %exitcond.not, label %.critedge2, label %20, !llvm.loop !38
+  %exitcond.not = icmp eq i32 %39, %17
+  br i1 %exitcond.not, label %.critedge2.thread, label %20, !llvm.loop !38
 
-.critedge2:                                       ; preds = %Aig_ManObj.exit, %38, %11
-  %.032.lcssa = phi i32 [ 0, %11 ], [ %umax, %38 ], [ %.03246, %Aig_ManObj.exit ]
-  %.2 = phi i32 [ %.055, %11 ], [ %32, %38 ], [ %32, %Aig_ManObj.exit ]
-  %40 = icmp eq i32 %.032.lcssa, %17
-  br i1 %40, label %45, label %41
+.critedge2:                                       ; preds = %Aig_ManObj.exit
+  %40 = icmp eq i32 %.03246, %17
+  br i1 %40, label %.critedge2.thread, label %41
 
 41:                                               ; preds = %.critedge2
   %42 = add nsw i32 %.03354, 1
   %43 = sext i32 %.03354 to i64
   %44 = getelementptr inbounds ptr, ptr %.val40, i64 %43
   store ptr %13, ptr %44, align 8, !tbaa !32
-  br label %45
+  br label %.critedge2.thread
 
-45:                                               ; preds = %.critedge2, %41
-  %.134 = phi i32 [ %.03354, %.critedge2 ], [ %42, %41 ]
+.critedge2.thread:                                ; preds = %38, %11, %.critedge2, %41
+  %.264 = phi i32 [ %32, %.critedge2 ], [ %32, %41 ], [ %.055, %11 ], [ %32, %38 ]
+  %.134 = phi i32 [ %.03354, %.critedge2 ], [ %42, %41 ], [ %.03354, %11 ], [ %.03354, %38 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond60.not, label %.critedge, label %11, !llvm.loop !39
 
-.critedge:                                        ; preds = %45
+.critedge:                                        ; preds = %.critedge2.thread
   store i32 %.134, ptr %5, align 4, !tbaa !28
-  %46 = icmp slt i32 %.134, 2
-  br i1 %46, label %Vec_PtrSort.exit, label %47
+  %45 = icmp slt i32 %.134, 2
+  br i1 %45, label %Vec_PtrSort.exit, label %46
 
-47:                                               ; preds = %.critedge
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %49 = load ptr, ptr %48, align 8, !tbaa !31
-  %50 = zext nneg i32 %.134 to i64
-  tail call void @qsort(ptr noundef %49, i64 noundef %50, i64 noundef 8, ptr noundef nonnull @Aig_ObjCompareIdIncrease) #13
+46:                                               ; preds = %.critedge
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %48 = load ptr, ptr %47, align 8, !tbaa !31
+  %49 = zext nneg i32 %.134 to i64
+  tail call void @qsort(ptr noundef %48, i64 noundef %49, i64 noundef 8, ptr noundef nonnull @Aig_ObjCompareIdIncrease) #13
   br label %Vec_PtrSort.exit
 
-Vec_PtrSort.exit:                                 ; preds = %.critedge.thread, %.critedge, %47
+Vec_PtrSort.exit:                                 ; preds = %.critedge.thread, %.critedge, %46
   ret void
 }
 
@@ -2908,14 +2906,11 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #9
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #9
+declare i32 @llvm.smax.i32(i32, i32) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2926,8 +2921,8 @@ attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind allocsize(1) }
 attributes #12 = { nounwind allocsize(0) }
 attributes #13 = { nounwind }

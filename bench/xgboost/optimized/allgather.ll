@@ -2722,29 +2722,29 @@ _ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i74: ; preds = %_ZNSt6vectorIlS
   %72 = ptrtoint ptr %70 to i64
   %73 = ptrtoint ptr %71 to i64
   %74 = sub i64 %72, %73
-  %75 = icmp ne ptr %71, null
-  %76 = icmp ult i64 %74, 8
-  %77 = or i1 %75, %76
-  br i1 %77, label %79, label %78, !prof !58
+  %75 = lshr i64 %74, 3
+  %76 = icmp ne ptr %71, null
+  %77 = icmp eq i64 %75, 0
+  %78 = or i1 %76, %77
+  br i1 %78, label %80, label %79, !prof !58
 
-78:                                               ; preds = %68
+79:                                               ; preds = %68
   call void @_ZSt9terminatev() #30
   unreachable
 
-79:                                               ; preds = %68
-  %80 = lshr i64 %74, 3
-  %81 = add nuw nsw i64 %80, 1
+80:                                               ; preds = %68
+  %81 = add nuw nsw i64 %75, 1
   %82 = icmp ugt i64 %74, 9223372036854775799
   br i1 %82, label %83, label %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i78
 
-83:                                               ; preds = %79
+83:                                               ; preds = %80
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.21) #33
           to label %.noexc84 unwind label %106
 
 .noexc84:                                         ; preds = %83
   unreachable
 
-_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i78: ; preds = %79
+_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i78: ; preds = %80
   %84 = shl nuw nsw i64 %81, 3
   %85 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #31
           to label %.noexc85 unwind label %106
@@ -2752,7 +2752,7 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i78: ; preds = %79
 .noexc85:                                         ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i78
   store i64 0, ptr %85, align 8, !tbaa !59
   %86 = getelementptr i8, ptr %85, i64 8
-  br i1 %76, label %_ZNSt6vectorIlSaIlEEC2EmRKS0_.exit86, label %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i80
+  br i1 %77, label %_ZNSt6vectorIlSaIlEEC2EmRKS0_.exit86, label %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i80
 
 _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i80: ; preds = %.noexc85
   %.idx.i.i.i.i.i.i.i81 = and i64 %74, 9223372036854775800

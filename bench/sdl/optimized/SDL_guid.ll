@@ -20,13 +20,13 @@ define hidden void @SDL_GUIDToString_REAL(i64 %0, i64 %1, ptr noundef writeonly 
 
 .preheader:                                       ; preds = %4
   %9 = add nsw i32 %3, -1
-  %or.cond1617.not = icmp samesign ult i32 %9, 2
+  %10 = lshr i32 %9, 1
+  %or.cond1617.not = icmp eq i32 %10, 0
   br i1 %or.cond1617.not, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %10 = lshr i32 %9, 1
-  %umax = tail call i32 @llvm.umin.i32(i32 %10, i32 16)
-  %wide.trip.count = zext nneg i32 %umax to i64
+  %invariant.umin = tail call i32 @llvm.umin.i32(i32 %10, i32 16)
+  %wide.trip.count = zext nneg i32 %invariant.umin to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

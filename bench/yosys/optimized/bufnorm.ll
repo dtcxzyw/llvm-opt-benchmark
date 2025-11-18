@@ -5239,7 +5239,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit789:              ; preds = %.loopexit2875, %_ZN
 2078:                                             ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit789
   %2079 = lshr i64 %2076, 32
   %2080 = trunc nuw i64 %2079 to i32
-  %.not.i.i.i.i.i790 = icmp ult i64 %2076, 4294967296
+  %.not.i.i.i.i.i790 = icmp eq i64 %2079, 0
   br i1 %.not.i.i.i.i.i790, label %2081, label %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL7SigSpecEE4hashERKS3_.exit.i.i
 
 2081:                                             ; preds = %2078
@@ -23046,7 +23046,7 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolIPNS2_5R
 91:                                               ; preds = %.lr.ph.i.i.i.i17.i
   %92 = getelementptr inbounds %"struct.Yosys::hashlib::pool<Yosys::RTLIL::Wire *>::entry_t", ptr %.fr51.i, i64 %.019.i.i.i.i18.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %92, ptr noundef nonnull align 8 dereferenceable(12) %89, i64 12, i1 false), !tbaa.struct !241
-  %.not10.i.i25.i = icmp ult i64 %.0920.in.i.i.i.i19.i, 2
+  %.not10.i.i25.i = icmp eq i64 %.0920.i.i89.i.i20.i, 0
   br i1 %.not10.i.i25.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolIPNS2_5RTLIL4WireENS3_8hash_opsIS7_EEE7entry_tESt6vectorISB_SaISB_EEEENS0_5__ops15_Iter_comp_iterIZNSA_4sortIZN12_GLOBAL__N_111BufnormPass7executeESD_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISR_EEPNS5_6DesignEEUlS7_S7_E_EEvT_EUlRKSB_SZ_E_EEEvSX_SX_SX_RT0_.exit.i22.i, label %.lr.ph.i.i.i.i17.i, !llvm.loop !391
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolIPNS2_5RTLIL4WireENS3_8hash_opsIS7_EEE7entry_tESt6vectorISB_SaISB_EEEENS0_5__ops15_Iter_comp_iterIZNSA_4sortIZN12_GLOBAL__N_111BufnormPass7executeESD_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISR_EEPNS5_6DesignEEUlS7_S7_E_EEvT_EUlRKSB_SZ_E_EEEvSX_SX_SX_RT0_.exit.i22.i: ; preds = %91, %.lr.ph.i.i.i.i17.i, %88

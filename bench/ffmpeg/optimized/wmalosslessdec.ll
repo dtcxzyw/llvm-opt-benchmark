@@ -1389,7 +1389,7 @@ decode_subframe_length.exit.i:                    ; preds = %135, %128
   br i1 %exitcond543.not.i, label %._crit_edge449.i, label %363, !llvm.loop !114
 
 ._crit_edge449.i:                                 ; preds = %388, %._crit_edge.thread.i
-  %.0204.lcssa638.i = phi i32 [ %343, %._crit_edge.thread.i ], [ %.1205.i, %388 ]
+  %.0204.lcssa639.i = phi i32 [ %343, %._crit_edge.thread.i ], [ %.1205.i, %388 ]
   %.0206.lcssa.i = phi i32 [ %346, %._crit_edge.thread.i ], [ %.1207.i, %388 ]
   %.not.i105 = icmp eq i32 %.0206.lcssa.i, 0
   br i1 %.not.i105, label %390, label %391
@@ -1556,7 +1556,7 @@ clear_codec_buffers.exit.i:                       ; preds = %._crit_edge.i.i, %4
   store i32 %487, ptr %58, align 8, !tbaa !81
   %488 = trunc nuw nsw i32 %485 to i8
   store i8 %488, ptr %309, align 2, !tbaa !123
-  %.not.i.i.i107 = icmp ult i32 %484, 268435456
+  %.not.i.i.i107 = icmp eq i32 %485, 0
   %489 = sub nuw nsw i32 32, %485
   %wide.trip.count18.i.i = zext nneg i8 %477 to i64
   br i1 %.not.i.i.i107, label %get_bitsz.exit.us.i.i, label %get_bitsz.exit.i.i
@@ -1753,8 +1753,8 @@ decode_mclms.exit.thread.i:                       ; preds = %.preheader36.i.i, %
   %.ph.i = phi i32 [ %577, %.preheader36.i.i ], [ %.promoted.i.i, %get_bitsz.exit.i250.i ]
   %594 = icmp slt i32 %.ph.i, %397
   %595 = zext i1 %594 to i32
-  %spec.select.i119.i640.i = add i32 %.ph.i, %595
-  store i32 %spec.select.i119.i640.i, ptr %58, align 8, !tbaa !81
+  %spec.select.i119.i641.i = add i32 %.ph.i, %595
+  store i32 %spec.select.i119.i641.i, ptr %58, align 8, !tbaa !81
   br label %.loopexit420.i
 
 decode_mclms.exit.i:                              ; preds = %._crit_edge.i253.i, %506, %decode_ac_filter.exit.i
@@ -2070,7 +2070,7 @@ decode_cdlms.exit.i:                              ; preds = %627
   %773 = phi i8 [ %767, %.loopexit420.loopexit.i ], [ %344, %decode_mclms.exit.i ], [ %344, %decode_mclms.exit.thread.i ]
   %774 = phi ptr [ %.pre603.i, %.loopexit420.loopexit.i ], [ %392, %decode_mclms.exit.i ], [ %392, %decode_mclms.exit.thread.i ]
   %775 = phi i32 [ %.pre602.i, %.loopexit420.loopexit.i ], [ %397, %decode_mclms.exit.i ], [ %397, %decode_mclms.exit.thread.i ]
-  %776 = phi i32 [ %.pre.i, %.loopexit420.loopexit.i ], [ %spec.select.i119.i.i, %decode_mclms.exit.i ], [ %spec.select.i119.i640.i, %decode_mclms.exit.thread.i ]
+  %776 = phi i32 [ %.pre.i, %.loopexit420.loopexit.i ], [ %spec.select.i119.i.i, %decode_mclms.exit.i ], [ %spec.select.i119.i641.i, %decode_mclms.exit.thread.i ]
   %777 = lshr i32 %776, 3
   %778 = zext nneg i32 %777 to i64
   %779 = getelementptr inbounds nuw i8, ptr %774, i64 %778
@@ -2162,7 +2162,7 @@ reset_codec.exit.i:                               ; preds = %._crit_edge.i274.i,
   %831 = lshr exact i32 128, %830
   %832 = and i32 %831, %829
   %.not228.i = icmp eq i32 %832, 0
-  br i1 %.not228.i, label %833, label %.thread641.i
+  br i1 %.not228.i, label %833, label %.thread642.i
 
 833:                                              ; preds = %reset_codec.exit.i
   %834 = load i32, ptr %313, align 16, !tbaa !91
@@ -2180,11 +2180,11 @@ reset_codec.exit.i:                               ; preds = %._crit_edge.i274.i,
   %839 = icmp sgt i8 %819, 0
   br i1 %839, label %.lr.ph453.i, label %._crit_edge459.i
 
-.thread641.i:                                     ; preds = %reset_codec.exit.i
+.thread642.i:                                     ; preds = %reset_codec.exit.i
   %840 = icmp sgt i8 %819, 0
   br i1 %840, label %.lr.ph453.i, label %._crit_edge454.thread.thread.i
 
-.lr.ph453.i:                                      ; preds = %.thread641.i, %838
+.lr.ph453.i:                                      ; preds = %.thread642.i, %838
   %wide.trip.count547.i = zext nneg i8 %819 to i64
   br label %841
 
@@ -2344,8 +2344,8 @@ decode_lpc.exit.i:                                ; preds = %._crit_edge.i285.i,
   store i8 0, ptr %322, align 4, !tbaa !148
   br label %._crit_edge454.thread.thread.i
 
-._crit_edge454.thread.thread.i:                   ; preds = %927, %decode_lpc.exit.i, %858, %._crit_edge454.i, %.thread641.i
-  %.val240.i = phi i32 [ %856, %927 ], [ %.val240.pre.i, %decode_lpc.exit.i ], [ %spec.select.i281.i, %858 ], [ %spec.select.i279.i, %._crit_edge454.i ], [ %spec.select.i279.i, %.thread641.i ]
+._crit_edge454.thread.thread.i:                   ; preds = %927, %decode_lpc.exit.i, %858, %._crit_edge454.i, %.thread642.i
+  %.val240.i = phi i32 [ %856, %927 ], [ %.val240.pre.i, %decode_lpc.exit.i ], [ %spec.select.i281.i, %858 ], [ %spec.select.i279.i, %._crit_edge454.i ], [ %spec.select.i279.i, %.thread642.i ]
   %.val241.i = load i32, ptr %326, align 4, !tbaa !85
   %.not405.i = icmp sgt i32 %.val241.i, %.val240.i
   br i1 %.not405.i, label %928, label %.loopexit
@@ -2401,7 +2401,7 @@ decode_lpc.exit.i:                                ; preds = %._crit_edge.i285.i,
   br i1 %959, label %.preheader416.lr.ph.i, label %.loopexit408.i
 
 .preheader416.lr.ph.i:                            ; preds = %.preheader417.i
-  %.not503.i = icmp eq i32 %.0204.lcssa638.i, 0
+  %.not503.i = icmp eq i32 %.0204.lcssa639.i, 0
   %960 = icmp samesign ult i32 %956, 26
   %961 = add nsw i32 %956, -16
   %962 = sub nsw i32 48, %956
@@ -2409,7 +2409,7 @@ decode_lpc.exit.i:                                ; preds = %._crit_edge.i285.i,
   br i1 %.not503.i, label %.loopexit408.i, label %.preheader416.lr.ph.split.us.i
 
 .preheader416.lr.ph.split.us.i:                   ; preds = %.preheader416.lr.ph.i
-  %wide.trip.count557.i = zext nneg i32 %.0204.lcssa638.i to i64
+  %wide.trip.count557.i = zext nneg i32 %.0204.lcssa639.i to i64
   %963 = shl nsw i32 -1, %.pre.i.i
   br label %.preheader416.us.i
 
@@ -2496,15 +2496,15 @@ get_sbits_long.exit.us.us.i:                      ; preds = %.preheader416.us.i,
   br i1 %1008, label %.lr.ph483.i, label %._crit_edge484.i
 
 .lr.ph483.i:                                      ; preds = %.preheader415.i
-  %.not11.i.i294.i = icmp samesign ult i32 %.0204.lcssa638.i, 256
-  %1009 = lshr i32 %.0204.lcssa638.i, 8
-  %.110.i.i295.i = select i1 %.not11.i.i294.i, i32 %.0204.lcssa638.i, i32 %1009
+  %.not11.i.i294.i = icmp samesign ult i32 %.0204.lcssa639.i, 256
+  %1009 = lshr i32 %.0204.lcssa639.i, 8
+  %.110.i.i295.i = select i1 %.not11.i.i294.i, i32 %.0204.lcssa639.i, i32 %1009
   %.1.i.i296.i = select i1 %.not11.i.i294.i, i32 0, i32 8
   %1010 = zext nneg i32 %.110.i.i295.i to i64
   %1011 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %1010
-  %wide.trip.count.i299.i = zext nneg i32 %.0204.lcssa638.i to i64
-  %.not.i356.i = icmp eq i32 %.0204.lcssa638.i, 0
-  %1012 = shl nuw nsw i32 %.0204.lcssa638.i, 2
+  %wide.trip.count.i299.i = zext nneg i32 %.0204.lcssa639.i to i64
+  %.not.i356.i = icmp eq i32 %.0204.lcssa639.i, 0
+  %1012 = shl nuw nsw i32 %.0204.lcssa639.i, 2
   %1013 = zext nneg i32 %1012 to i64
   br label %1014
 
@@ -2724,7 +2724,7 @@ get_bits_long.exit.i.i.i:                         ; preds = %1133, %1129
 .thread.i.i:                                      ; preds = %.thread.sink.split.i.i, %1062
   %.promoted475.i = phi i32 [ %1063, %1062 ], [ %.promoted475607.i, %.thread.sink.split.i.i ]
   %.084.i.i = phi i32 [ 0, %1062 ], [ 1, %.thread.sink.split.i.i ]
-  %1154 = icmp samesign ult i32 %.084.i.i, %.0204.lcssa638.i
+  %1154 = icmp samesign ult i32 %.084.i.i, %.0204.lcssa639.i
   br i1 %1154, label %.preheader.lr.ph.i298.i, label %decode_channel_residues.exit.i
 
 .preheader.lr.ph.i298.i:                          ; preds = %.thread.i.i
@@ -3339,11 +3339,11 @@ revert_cdlms32.exit.i:                            ; preds = %..loopexit_crit_edg
 1488:                                             ; preds = %._crit_edge484.i
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false)
-  %.not.i378.i = icmp eq i32 %.0204.lcssa638.i, 0
+  %.not.i378.i = icmp eq i32 %.0204.lcssa639.i, 0
   br i1 %.not.i378.i, label %revert_mclms.exit.i, label %.lr.ph.i379.i
 
 .lr.ph.i379.i:                                    ; preds = %1488
-  %wide.trip.count.i380.i = zext nneg i32 %.0204.lcssa638.i to i64
+  %wide.trip.count.i380.i = zext nneg i32 %.0204.lcssa639.i to i64
   br label %1489
 
 1489:                                             ; preds = %mclms_update.exit.i.i, %.lr.ph.i379.i
@@ -3715,16 +3715,16 @@ revert_mclms.exit.i:                              ; preds = %mclms_update.exit.i
 1631:                                             ; preds = %1629
   %1632 = load i32, ptr %332, align 4, !tbaa !41
   %.not14.i.i = icmp ne i32 %1632, 0
-  %1633 = icmp ne i32 %.0204.lcssa638.i, 0
+  %1633 = icmp ne i32 %.0204.lcssa639.i, 0
   %or.cond.i.i109 = and i1 %1633, %.not14.i.i
   br i1 %or.cond.i.i109, label %.lr.ph.i390.i, label %revert_inter_ch_decorr.exit.i
 
 1634:                                             ; preds = %1629
-  %.old.not.i.i = icmp eq i32 %.0204.lcssa638.i, 0
+  %.old.not.i.i = icmp eq i32 %.0204.lcssa639.i, 0
   br i1 %.old.not.i.i, label %revert_inter_ch_decorr.exit.i, label %.lr.ph.i390.i
 
 .lr.ph.i390.i:                                    ; preds = %1634, %1631
-  %wide.trip.count.i391.i = zext nneg i32 %.0204.lcssa638.i to i64
+  %wide.trip.count.i391.i = zext nneg i32 %.0204.lcssa639.i to i64
   br label %1635
 
 1635:                                             ; preds = %1635, %.lr.ph.i390.i
@@ -3759,9 +3759,9 @@ revert_inter_ch_decorr.exit.i:                    ; preds = %1635, %1634, %1631,
   %1650 = sext i8 %1649 to i32
   %wide.trip.count120.i.i = zext nneg i8 %1647 to i64
   %1651 = icmp sgt i8 %1649, 0
-  %1652 = icmp sgt i32 %.0204.lcssa638.i, %1650
+  %1652 = icmp sgt i32 %.0204.lcssa639.i, %1650
   %1653 = sext i8 %1649 to i64
-  %1654 = zext nneg i32 %.0204.lcssa638.i to i64
+  %1654 = zext nneg i32 %.0204.lcssa639.i to i64
   %wide.trip.count102.i.i = zext nneg i32 %1650 to i64
   br label %1655
 
@@ -3885,12 +3885,12 @@ revert_acfilter.exit.i:                           ; preds = %._crit_edge.i395.i,
   %1700 = load i8, ptr %15, align 2, !tbaa !43
   %wide.trip.count580.i = sext i8 %1700 to i64
   %1701 = icmp slt i8 %1700, 1
-  %.not504.i = icmp eq i32 %.0204.lcssa638.i, 0
+  %.not504.i = icmp eq i32 %.0204.lcssa639.i, 0
   %or.cond = select i1 %1701, i1 true, i1 %.not504.i
   br i1 %or.cond, label %.loopexit408.i, label %.preheader406.us.preheader.i
 
 .preheader406.us.preheader.i:                     ; preds = %.preheader407.i
-  %wide.trip.count575.i = zext nneg i32 %.0204.lcssa638.i to i64
+  %wide.trip.count575.i = zext nneg i32 %.0204.lcssa639.i to i64
   br label %.preheader406.us.i
 
 .preheader406.us.i:                               ; preds = %._crit_edge487.us.i, %.preheader406.us.preheader.i

@@ -398,7 +398,7 @@ define { ptr, ptr } @_ZN5folly10symbolizer16AddressFormatter6formatEm(ptr nounde
   %8 = getelementptr inbounds i8, ptr %.010, i64 -1
   store i8 %7, ptr %.010, align 1, !tbaa !10
   %9 = lshr i64 %.079, 4
-  %.not = icmp ult i64 %.079, 16
+  %.not = icmp eq i64 %9, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -479,7 +479,7 @@ define void @_ZN5folly10symbolizer16SymbolizePrinter5printERKNS0_15SymbolizedFra
   %41 = getelementptr inbounds i8, ptr %.01320.i, i64 -1
   store i8 %40, ptr %.01320.i, align 1, !tbaa !10
   %42 = lshr i64 %.021.i, 4
-  %.not16.i = icmp ult i64 %.021.i, 16
+  %.not16.i = icmp eq i64 %42, 0
   br i1 %.not16.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !57
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %33
@@ -542,7 +542,7 @@ _ZN5folly10symbolizer16SymbolizePrinter5colorENS1_5ColorE.exit: ; preds = %51, %
   %69 = getelementptr inbounds i8, ptr %.010.i, i64 -1
   store i8 %68, ptr %.010.i, align 1, !tbaa !10
   %70 = lshr i64 %.079.i, 4
-  %.not.i42 = icmp ult i64 %.079.i, 16
+  %.not.i42 = icmp eq i64 %70, 0
   br i1 %.not.i42, label %.loopexit, label %.lr.ph.i41, !llvm.loop !40
 
 .loopexit:                                        ; preds = %.lr.ph.i41, %61
@@ -1021,7 +1021,7 @@ define void @_ZN5folly10symbolizer16SymbolizePrinter10printTerseERKNS0_15Symboli
   %31 = getelementptr inbounds i8, ptr %.01320, i64 -1
   store i8 %30, ptr %.01320, align 1, !tbaa !10
   %32 = lshr i64 %.021, 4
-  %.not16 = icmp ult i64 %.021, 16
+  %.not16 = icmp eq i64 %32, 0
   br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %.lr.ph, %23

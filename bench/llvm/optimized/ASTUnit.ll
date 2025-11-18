@@ -6855,18 +6855,20 @@ define internal fastcc void @_ZL28checkAndRemoveNonDriverDiagsRN4llvm15SmallVect
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !160
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw %"class.clang::StoredDiagnostic", ptr %2, i64 %5
-  %7 = ptrtoint ptr %6 to i64
-  %.not.i.i = icmp ult i32 %4, 4
-  br i1 %.not.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.preheader.i.i
+  %.idx = mul nuw nsw i64 %5, 104
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
+  %7 = lshr i64 %5, 2
+  %.not.i.i = icmp eq i64 %7, 0
+  br i1 %.not.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %1
-  %8 = lshr i64 %5, 2
+.lr.ph.i.i.i.i.i.i.preheader:                     ; preds = %1
+  %8 = mul nuw nsw i64 %7, 416
+  %scevgep = getelementptr i8, ptr %2, i64 %8
   br label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %20, %.lr.ph.i.i.i.i.preheader.i.i
-  %.038.i.i.i.i.i.i = phi i64 [ %22, %20 ], [ %8, %.lr.ph.i.i.i.i.preheader.i.i ]
-  %.02937.i.i.i.i.i.i = phi ptr [ %21, %20 ], [ %2, %.lr.ph.i.i.i.i.preheader.i.i ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i.preheader, %20
+  %.038.i.i.i.i.i.i = phi i64 [ %22, %20 ], [ %7, %.lr.ph.i.i.i.i.i.i.preheader ]
+  %.02937.i.i.i.i.i.i = phi ptr [ %21, %20 ], [ %2, %.lr.ph.i.i.i.i.i.i.preheader ]
   %9 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i.i.i.i, i64 8
   %10 = load i32, ptr %9, align 4, !tbaa !1836
   %.not = icmp eq i32 %10, 0
@@ -6897,14 +6899,13 @@ define internal fastcc void @_ZL28checkAndRemoveNonDriverDiagsRN4llvm15SmallVect
   br i1 %23, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !1845
 
 ._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %20
-  %.pre.i.i.i.i.i.i = ptrtoint ptr %21 to i64
-  %.pre39.i.i.i.i.i.i = sub i64 %7, %.pre.i.i.i.i.i.i
-  %24 = sdiv exact i64 %.pre39.i.i.i.i.i.i, 104
+  %gepdiff = sub nsw i64 %.idx, %8
+  %24 = sdiv exact i64 %gepdiff, 104
   br label %._crit_edge.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %1
   %.pre-phi40.i.i.i.i.i.i = phi i64 [ %24, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %5, %1 ]
-  %.029.lcssa.i.i.i.i.i.i = phi ptr [ %21, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %2, %1 ]
+  %.029.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %2, %1 ]
   switch i64 %.pre-phi40.i.i.i.i.i.i, label %_ZN4llvm8erase_ifINS_15SmallVectorImplIN5clang16StoredDiagnosticEEEPFbRKS3_EEEvRT_T0_.exit [
     i64 3, label %25
     i64 2, label %30

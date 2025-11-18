@@ -2829,7 +2829,7 @@ define internal noundef ptr @deque_item(ptr noundef readonly captures(none) %0, 
 19:                                               ; preds = %11
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.13139.i = load ptr, ptr %20, align 8, !tbaa !41
-  %.not42.i = icmp ult i64 %14, 64
+  %.not42.i = icmp eq i64 %15, 0
   br i1 %.not42.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.i
@@ -2857,11 +2857,11 @@ define internal noundef ptr @deque_item(ptr noundef readonly captures(none) %0, 
   br i1 %30, label %29, label %.loopexit.i, !llvm.loop !72
 
 .loopexit.sink.split.i:                           ; preds = %8, %6
-  %.sink49.i = phi i64 [ 40, %6 ], [ 48, %8 ]
-  %.sink48.i = phi i64 [ 24, %6 ], [ 32, %8 ]
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink49.i
+  %.sink50.i = phi i64 [ 40, %6 ], [ 48, %8 ]
+  %.sink49.i = phi i64 [ 24, %6 ], [ 32, %8 ]
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink50.i
   %33 = load i64, ptr %32, align 8, !tbaa !73
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink48.i
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink49.i
   %35 = load ptr, ptr %34, align 8, !tbaa !41
   br label %.loopexit.i
 
@@ -2919,7 +2919,7 @@ define internal range(i32 -1, 1) i32 @deque_ass_item(ptr noundef captures(none) 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.02938.i = load ptr, ptr %20, align 8, !tbaa !41
-  %.not41.i = icmp ult i64 %16, 64
+  %.not41.i = icmp eq i64 %17, 0
   br i1 %.not41.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.i

@@ -12694,11 +12694,11 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToC
   br i1 %.not, label %11, label %63
 
 11:                                               ; preds = %3
-  %.not.i.i = icmp ult i32 %8, 4
+  %12 = lshr i64 %9, 2
+  %.not.i.i = icmp eq i64 %12, 0
   br i1 %.not.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %11
-  %12 = lshr i64 %9, 2
   %13 = and i64 %.idx3.i.i, 68719476672
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %6, i64 %13
   br label %.lr.ph.i.i.i.i.i.i
@@ -12741,11 +12741,10 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToC
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %11
   %.pre-phi53.i.i.i.i.i.i = phi i32 [ %32, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %8, %11 ]
   %.029.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %6, %11 ]
-  switch i32 %.pre-phi53.i.i.i.i.i.i, label %default.unreachable [
+  switch i32 %.pre-phi53.i.i.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit [
     i32 3, label %33
     i32 2, label %38
     i32 1, label %43
-    i32 0, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit
   ]
 
 33:                                               ; preds = %._crit_edge.i.i.i.i.i.i
@@ -12815,9 +12814,6 @@ _ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IR
   %.017.i.i.i.i = getelementptr inbounds nuw i8, ptr %.01734.i.i.i.i, i64 16
   %.not.i.i.i.i = icmp eq ptr %.017.i.i.i.i, %10
   br i1 %.not.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !660
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i.i
-  unreachable
 
 _ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit: ; preds = %57, %._crit_edge.i.i.i.i.i.i, %43, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i
   %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i ], [ %10, %._crit_edge.i.i.i.i.i.i ], [ %10, %43 ], [ %.1.i.i.i.i, %57 ]
@@ -15137,16 +15133,13 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_118PGOCounterPromoter
   %2 = zext i32 %.8.val to i64
   %3 = getelementptr inbounds nuw ptr, ptr %.0.val, i64 %2
   %4 = ptrtoint ptr %3 to i64
-  %.not.i = icmp ult i32 %.8.val, 4
-  br i1 %.not.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.preheader.i
-
-.lr.ph.i.i.i.i.i.preheader.i:                     ; preds = %1
   %5 = lshr i64 %2, 2
-  br label %.lr.ph.i.i.i.i.i.i
+  %.not.i = icmp eq i64 %5, 0
+  br i1 %.not.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %36, %.lr.ph.i.i.i.i.i.preheader.i
-  %.044.i.i.i.i.i.i = phi i64 [ %38, %36 ], [ %5, %.lr.ph.i.i.i.i.i.preheader.i ]
-  %.02943.i.i.i.i.i.i = phi ptr [ %37, %36 ], [ %.0.val, %.lr.ph.i.i.i.i.i.preheader.i ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %1, %36
+  %.044.i.i.i.i.i.i = phi i64 [ %38, %36 ], [ %5, %1 ]
+  %.02943.i.i.i.i.i.i = phi ptr [ %37, %36 ], [ %.0.val, %1 ]
   %.029.val.i.i.i.i.i.i = load ptr, ptr %.02943.i.i.i.i.i.i, align 8, !tbaa !502
   %6 = getelementptr inbounds nuw i8, ptr %.029.val.i.i.i.i.i.i, i64 48
   %7 = load ptr, ptr %6, align 8, !tbaa !567
@@ -15179,7 +15172,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_118PGOCounterPromoter
   %25 = getelementptr inbounds i8, ptr %23, i64 -24
   %26 = load i8, ptr %25, align 8, !tbaa !183
   %27 = icmp eq i8 %26, 39
-  br i1 %27, label %_ZN4llvm6any_ofIRKNS_15SmallVectorImplIPNS_10BasicBlockEEEZN12_GLOBAL__N_118PGOCounterPromoter19isPromotionPossibleEPNS_4LoopES6_EUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit15, label %28
+  br i1 %27, label %_ZN4llvm6any_ofIRKNS_15SmallVectorImplIPNS_10BasicBlockEEEZN12_GLOBAL__N_118PGOCounterPromoter19isPromotionPossibleEPNS_4LoopES6_EUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit16, label %28
 
 28:                                               ; preds = %20
   %29 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 24
@@ -15191,7 +15184,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_118PGOCounterPromoter
   %33 = getelementptr inbounds i8, ptr %31, i64 -24
   %34 = load i8, ptr %33, align 8, !tbaa !183
   %35 = icmp eq i8 %34, 39
-  br i1 %35, label %_ZN4llvm6any_ofIRKNS_15SmallVectorImplIPNS_10BasicBlockEEEZN12_GLOBAL__N_118PGOCounterPromoter19isPromotionPossibleEPNS_4LoopES6_EUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit17, label %36
+  br i1 %35, label %_ZN4llvm6any_ofIRKNS_15SmallVectorImplIPNS_10BasicBlockEEEZN12_GLOBAL__N_118PGOCounterPromoter19isPromotionPossibleEPNS_4LoopES6_EUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit18, label %36
 
 36:                                               ; preds = %28
   %37 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 32
@@ -15261,16 +15254,16 @@ _ZN4llvm6any_ofIRKNS_15SmallVectorImplIPNS_10BasicBlockEEEZN12_GLOBAL__N_118PGOC
   %66 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 8
   br label %_ZN4llvm6any_ofIRKNS_15SmallVectorImplIPNS_10BasicBlockEEEZN12_GLOBAL__N_118PGOCounterPromoter19isPromotionPossibleEPNS_4LoopES6_EUlS3_E_EEbOT_T0_.exit
 
-_ZN4llvm6any_ofIRKNS_15SmallVectorImplIPNS_10BasicBlockEEEZN12_GLOBAL__N_118PGOCounterPromoter19isPromotionPossibleEPNS_4LoopES6_EUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit15: ; preds = %20
+_ZN4llvm6any_ofIRKNS_15SmallVectorImplIPNS_10BasicBlockEEEZN12_GLOBAL__N_118PGOCounterPromoter19isPromotionPossibleEPNS_4LoopES6_EUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit16: ; preds = %20
   %67 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 16
   br label %_ZN4llvm6any_ofIRKNS_15SmallVectorImplIPNS_10BasicBlockEEEZN12_GLOBAL__N_118PGOCounterPromoter19isPromotionPossibleEPNS_4LoopES6_EUlS3_E_EEbOT_T0_.exit
 
-_ZN4llvm6any_ofIRKNS_15SmallVectorImplIPNS_10BasicBlockEEEZN12_GLOBAL__N_118PGOCounterPromoter19isPromotionPossibleEPNS_4LoopES6_EUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit17: ; preds = %28
+_ZN4llvm6any_ofIRKNS_15SmallVectorImplIPNS_10BasicBlockEEEZN12_GLOBAL__N_118PGOCounterPromoter19isPromotionPossibleEPNS_4LoopES6_EUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit18: ; preds = %28
   %68 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 24
   br label %_ZN4llvm6any_ofIRKNS_15SmallVectorImplIPNS_10BasicBlockEEEZN12_GLOBAL__N_118PGOCounterPromoter19isPromotionPossibleEPNS_4LoopES6_EUlS3_E_EEbOT_T0_.exit
 
-_ZN4llvm6any_ofIRKNS_15SmallVectorImplIPNS_10BasicBlockEEEZN12_GLOBAL__N_118PGOCounterPromoter19isPromotionPossibleEPNS_4LoopES6_EUlS3_E_EEbOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN4llvm6any_ofIRKNS_15SmallVectorImplIPNS_10BasicBlockEEEZN12_GLOBAL__N_118PGOCounterPromoter19isPromotionPossibleEPNS_4LoopES6_EUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit, %_ZN4llvm6any_ofIRKNS_15SmallVectorImplIPNS_10BasicBlockEEEZN12_GLOBAL__N_118PGOCounterPromoter19isPromotionPossibleEPNS_4LoopES6_EUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit15, %_ZN4llvm6any_ofIRKNS_15SmallVectorImplIPNS_10BasicBlockEEEZN12_GLOBAL__N_118PGOCounterPromoter19isPromotionPossibleEPNS_4LoopES6_EUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit17, %41, %50, %59
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %41 ], [ %.1.i.i.i.i.i.i, %50 ], [ %.2.i.i.i.i.i.i, %59 ], [ %66, %_ZN4llvm6any_ofIRKNS_15SmallVectorImplIPNS_10BasicBlockEEEZN12_GLOBAL__N_118PGOCounterPromoter19isPromotionPossibleEPNS_4LoopES6_EUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit ], [ %67, %_ZN4llvm6any_ofIRKNS_15SmallVectorImplIPNS_10BasicBlockEEEZN12_GLOBAL__N_118PGOCounterPromoter19isPromotionPossibleEPNS_4LoopES6_EUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit15 ], [ %68, %_ZN4llvm6any_ofIRKNS_15SmallVectorImplIPNS_10BasicBlockEEEZN12_GLOBAL__N_118PGOCounterPromoter19isPromotionPossibleEPNS_4LoopES6_EUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit17 ], [ %.02943.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+_ZN4llvm6any_ofIRKNS_15SmallVectorImplIPNS_10BasicBlockEEEZN12_GLOBAL__N_118PGOCounterPromoter19isPromotionPossibleEPNS_4LoopES6_EUlS3_E_EEbOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN4llvm6any_ofIRKNS_15SmallVectorImplIPNS_10BasicBlockEEEZN12_GLOBAL__N_118PGOCounterPromoter19isPromotionPossibleEPNS_4LoopES6_EUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit, %_ZN4llvm6any_ofIRKNS_15SmallVectorImplIPNS_10BasicBlockEEEZN12_GLOBAL__N_118PGOCounterPromoter19isPromotionPossibleEPNS_4LoopES6_EUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit16, %_ZN4llvm6any_ofIRKNS_15SmallVectorImplIPNS_10BasicBlockEEEZN12_GLOBAL__N_118PGOCounterPromoter19isPromotionPossibleEPNS_4LoopES6_EUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit18, %41, %50, %59
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %41 ], [ %.1.i.i.i.i.i.i, %50 ], [ %.2.i.i.i.i.i.i, %59 ], [ %66, %_ZN4llvm6any_ofIRKNS_15SmallVectorImplIPNS_10BasicBlockEEEZN12_GLOBAL__N_118PGOCounterPromoter19isPromotionPossibleEPNS_4LoopES6_EUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit ], [ %67, %_ZN4llvm6any_ofIRKNS_15SmallVectorImplIPNS_10BasicBlockEEEZN12_GLOBAL__N_118PGOCounterPromoter19isPromotionPossibleEPNS_4LoopES6_EUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit16 ], [ %68, %_ZN4llvm6any_ofIRKNS_15SmallVectorImplIPNS_10BasicBlockEEEZN12_GLOBAL__N_118PGOCounterPromoter19isPromotionPossibleEPNS_4LoopES6_EUlS3_E_EEbOT_T0_.exit.loopexit.split.loop.exit18 ], [ %.02943.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not2 = icmp eq ptr %3, %.028.i.i.i.i.i.i
   br i1 %.not2, label %_ZN4llvm6any_ofIRKNS_15SmallVectorImplIPNS_10BasicBlockEEEZN12_GLOBAL__N_118PGOCounterPromoter19isPromotionPossibleEPNS_4LoopES6_EUlS3_E_EEbOT_T0_.exit.thread, label %72
 

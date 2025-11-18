@@ -2881,7 +2881,7 @@ _ZN4llvm9BitVector15set_unused_bitsEb.exit.i:     ; preds = %2
   %21 = add i32 %20, 63
   %22 = lshr i32 %21, 6
   %23 = zext nneg i32 %22 to i64
-  %24 = icmp ult i32 %21, 64
+  %24 = icmp eq i32 %22, 0
   br i1 %24, label %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i, label %25
 
 25:                                               ; preds = %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i

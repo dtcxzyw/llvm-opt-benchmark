@@ -1786,17 +1786,17 @@ define noundef i32 @Fraig_ManPrintRefs(ptr noundef %0) local_unnamed_addr #0 {
   %15 = load ptr, ptr %14, align 8, !tbaa !25
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load i32, ptr %16, align 8
-  %18 = icmp ult i32 %17, 4096
-  br i1 %18, label %29, label %19
+  %18 = lshr i32 %17, 12
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %29, label %20
 
-19:                                               ; preds = %10
-  %20 = lshr i32 %17, 12
+20:                                               ; preds = %10
   %21 = load i32, ptr %9, align 8, !tbaa !59
   %22 = shl i32 %21, 5
-  %23 = icmp eq i32 %20, %22
+  %23 = icmp eq i32 %18, %22
   br i1 %23, label %29, label %24
 
-24:                                               ; preds = %19
+24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %26 = load i32, ptr %25, align 4, !tbaa !65
   %27 = icmp sgt i32 %26, 5
@@ -1807,8 +1807,8 @@ define noundef i32 @Fraig_ManPrintRefs(ptr noundef %0) local_unnamed_addr #0 {
   %.pre = load ptr, ptr %4, align 8, !tbaa !53
   br label %29
 
-29:                                               ; preds = %24, %28, %10, %19
-  %30 = phi ptr [ %11, %24 ], [ %.pre, %28 ], [ %11, %10 ], [ %11, %19 ]
+29:                                               ; preds = %24, %28, %10, %20
+  %30 = phi ptr [ %11, %24 ], [ %.pre, %28 ], [ %11, %10 ], [ %11, %20 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4, !tbaa !21

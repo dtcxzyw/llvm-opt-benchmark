@@ -5525,9 +5525,9 @@ _ZNK5Gluco4HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.thread: ; preds = %2, %_Z
 24:                                               ; preds = %45, %.lr.ph.i
   %.01522.i = phi i32 [ %10, %.lr.ph.i ], [ %.023.i, %45 ]
   %.023.in.i = add nsw i32 %.01522.i, -1
-  %.023.i = ashr i32 %.023.in.i, 1
-  %25 = sext i32 %.023.i to i64
-  %26 = getelementptr inbounds i32, ptr %14, i64 %25
+  %.023.i = lshr i32 %.023.in.i, 1
+  %25 = zext nneg i32 %.023.i to i64
+  %26 = getelementptr inbounds nuw i32, ptr %14, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !6
   %28 = load i32, ptr %22, align 4, !tbaa !6
   %29 = sext i32 %28 to i64
@@ -5544,8 +5544,8 @@ _ZNK5Gluco4HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.thread: ; preds = %2, %_Z
   %40 = sext i32 %39 to i64
   %41 = mul nsw i64 %40, %37
   %42 = icmp ult i64 %32, %41
-  %43 = sext i32 %.01522.i to i64
-  %44 = getelementptr inbounds i32, ptr %14, i64 %43
+  %43 = zext nneg i32 %.01522.i to i64
+  %44 = getelementptr inbounds nuw i32, ptr %14, i64 %43
   br i1 %42, label %45, label %_ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE11percolateUpEi.exit
 
 45:                                               ; preds = %24
@@ -5554,11 +5554,11 @@ _ZNK5Gluco4HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.thread: ; preds = %2, %_Z
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds i32, ptr %7, i64 %47
   store i32 %.01522.i, ptr %48, align 4, !tbaa !6
-  %.not.i = icmp ult i32 %.023.in.i, 2
+  %.not.i = icmp eq i32 %.023.i, 0
   br i1 %.not.i, label %_ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE11percolateUpEi.exit, label %24, !llvm.loop !192
 
 _ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE11percolateUpEi.exit: ; preds = %45, %24, %12
-  %.01518.i = phi i32 [ 0, %12 ], [ %.023.i, %45 ], [ %.01522.i, %24 ]
+  %.01518.i = phi i32 [ 0, %12 ], [ 0, %45 ], [ %.01522.i, %24 ]
   %phi.call.i = phi ptr [ %14, %12 ], [ %14, %45 ], [ %44, %24 ]
   store i32 %17, ptr %phi.call.i, align 4, !tbaa !6
   %49 = sext i32 %17 to i64
@@ -5792,7 +5792,7 @@ _ZN5Gluco3vecIiE6growToEiRKi.exit:                ; preds = %2, %._crit_edge.i
 
 ._ZN5Gluco3vecIiE4pushERKi.exit_crit_edge:        ; preds = %54
   %.pre = load i32, ptr %39, align 8, !tbaa !72
-  %.pre13 = load ptr, ptr %3, align 8, !tbaa !73
+  %.pre11 = load ptr, ptr %3, align 8, !tbaa !73
   br label %_ZN5Gluco3vecIiE4pushERKi.exit
 
 61:                                               ; preds = %54, %47
@@ -5800,7 +5800,7 @@ _ZN5Gluco3vecIiE6growToEiRKi.exit:                ; preds = %2, %._crit_edge.i
   unreachable
 
 _ZN5Gluco3vecIiE4pushERKi.exit:                   ; preds = %._ZN5Gluco3vecIiE4pushERKi.exit_crit_edge, %._ZN5Gluco3vecIiE8capacityEi.exit_crit_edge.i
-  %62 = phi ptr [ %41, %._ZN5Gluco3vecIiE8capacityEi.exit_crit_edge.i ], [ %.pre13, %._ZN5Gluco3vecIiE4pushERKi.exit_crit_edge ]
+  %62 = phi ptr [ %41, %._ZN5Gluco3vecIiE8capacityEi.exit_crit_edge.i ], [ %.pre11, %._ZN5Gluco3vecIiE4pushERKi.exit_crit_edge ]
   %63 = phi i32 [ %40, %._ZN5Gluco3vecIiE8capacityEi.exit_crit_edge.i ], [ %.pre, %._ZN5Gluco3vecIiE4pushERKi.exit_crit_edge ]
   %64 = phi ptr [ %.pre.i1, %._ZN5Gluco3vecIiE8capacityEi.exit_crit_edge.i ], [ %59, %._ZN5Gluco3vecIiE4pushERKi.exit_crit_edge ]
   %65 = add nsw i32 %63, 1
@@ -5857,11 +5857,11 @@ _ZN5Gluco3vecIiE4pushERKi.exit:                   ; preds = %._ZN5Gluco3vecIiE4p
   %102 = sext i32 %101 to i64
   %103 = getelementptr inbounds i32, ptr %62, i64 %102
   store i32 %.01522.i, ptr %103, align 4, !tbaa !6
-  %.not.i4 = icmp ult i32 %.023.in.i, 2
+  %.not.i4 = icmp eq i32 %.023.i, 0
   br i1 %.not.i4, label %_ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE11percolateUpEi.exit, label %79, !llvm.loop !192
 
 _ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE11percolateUpEi.exit: ; preds = %100, %79, %_ZN5Gluco3vecIiE4pushERKi.exit
-  %.01518.i = phi i32 [ 0, %_ZN5Gluco3vecIiE4pushERKi.exit ], [ %.023.i, %100 ], [ %.01522.i, %79 ]
+  %.01518.i = phi i32 [ 0, %_ZN5Gluco3vecIiE4pushERKi.exit ], [ 0, %100 ], [ %.01522.i, %79 ]
   %phi.call.i = phi ptr [ %64, %_ZN5Gluco3vecIiE4pushERKi.exit ], [ %64, %100 ], [ %99, %79 ]
   store i32 %72, ptr %phi.call.i, align 4, !tbaa !6
   %104 = sext i32 %72 to i64

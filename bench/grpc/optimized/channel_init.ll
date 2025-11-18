@@ -1459,7 +1459,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIN9grpc_core11ChannelInit17Dependency
 _ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIN9grpc_core11ChannelInit17DependencyTracker15ReadyDependencyEEEclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.thread.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIN9grpc_core11ChannelInit17DependencyTracker15ReadyDependencyEEEclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.i.i.i, %176
   %193 = getelementptr inbounds %"struct.grpc_core::ChannelInit::DependencyTracker::ReadyDependency", ptr %164, i64 %.020.i.i.i
   store i64 %184, ptr %193, align 8, !tbaa !164
-  %.not.i3.i = icmp ult i64 %.0921.in.i.i.i, 2
+  %.not.i3.i = icmp eq i64 %.0921.i78.i.i, 0
   br i1 %.not.i3.i, label %.noexc120, label %176, !llvm.loop !166
 
 .noexc120:                                        ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIN9grpc_core11ChannelInit17DependencyTracker15ReadyDependencyEEEclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.thread.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIN9grpc_core11ChannelInit17DependencyTracker15ReadyDependencyEEEclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.i.i.i, %185, %_ZNSt6vectorIN9grpc_core11ChannelInit17DependencyTracker15ReadyDependencyESaIS3_EE12emplace_backIJPNS2_4NodeEEEERS3_DpOT_.exit.i
@@ -5697,17 +5697,14 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
 33:                                               ; preds = %1
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load i64, ptr %34, align 8, !tbaa !146
-  %.not.i24 = icmp ult i64 %35, 2
-  br i1 %.not.i24, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeIN9grpc_core14UniqueTypeNameENS4_11ChannelInit17DependencyTracker4NodeEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS5_S8_EENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPS9_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.lr.ph29.preheader
-
-.lr.ph29.preheader:                               ; preds = %33
   %36 = lshr i64 %35, 1
-  br label %.lr.ph29
+  %.not.i24 = icmp eq i64 %36, 0
+  br i1 %.not.i24, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeIN9grpc_core14UniqueTypeNameENS4_11ChannelInit17DependencyTracker4NodeEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS5_S8_EENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPS9_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.lr.ph29
 
-.lr.ph29:                                         ; preds = %.lr.ph29.preheader, %._crit_edge
-  %.0.i27 = phi ptr [ %41, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %.lr.ph29.preheader ]
-  %.025.i26 = phi ptr [ %40, %._crit_edge ], [ %5, %.lr.ph29.preheader ]
-  %.026.i25 = phi i64 [ %.1.i.lcssa, %._crit_edge ], [ %36, %.lr.ph29.preheader ]
+.lr.ph29:                                         ; preds = %33, %._crit_edge
+  %.0.i27 = phi ptr [ %41, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %33 ]
+  %.025.i26 = phi ptr [ %40, %._crit_edge ], [ %5, %33 ]
+  %.026.i25 = phi i64 [ %.1.i.lcssa, %._crit_edge ], [ %36, %33 ]
   %37 = load <16 x i8>, ptr %.025.i26, align 1, !tbaa !33
   %38 = icmp sgt <16 x i8> %37, splat (i8 -1)
   %39 = bitcast <16 x i1> %38 to i16
@@ -6924,7 +6921,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIN9grpc_core11ChannelInit17Dependency
 _ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIN9grpc_core11ChannelInit17DependencyTracker15ReadyDependencyEEEclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIN9grpc_core11ChannelInit17DependencyTracker15ReadyDependencyEEEclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.i.i, %45
   %62 = getelementptr inbounds %"struct.grpc_core::ChannelInit::DependencyTracker::ReadyDependency", ptr %33, i64 %.020.i.i
   store i64 %53, ptr %62, align 8, !tbaa !164
-  %.not.i3 = icmp ult i64 %.0921.in.i.i, 2
+  %.not.i3 = icmp eq i64 %.0921.i78.i, 0
   br i1 %.not.i3, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN9grpc_core11ChannelInit17DependencyTracker15ReadyDependencyESt6vectorIS5_SaIS5_EEEESt4lessIS5_EEvT_SD_T0_.exit, label %45, !llvm.loop !166
 
 _ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN9grpc_core11ChannelInit17DependencyTracker15ReadyDependencyESt6vectorIS5_SaIS5_EEEESt4lessIS5_EEvT_SD_T0_.exit: ; preds = %54, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIN9grpc_core11ChannelInit17DependencyTracker15ReadyDependencyEEEclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIN9grpc_core11ChannelInit17DependencyTracker15ReadyDependencyEEEclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.thread.i.i, %_ZNSt6vectorIN9grpc_core11ChannelInit17DependencyTracker15ReadyDependencyESaIS3_EE12emplace_backIJRPNS2_4NodeEEEERS3_DpOT_.exit
@@ -7658,17 +7655,14 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
 25:                                               ; preds = %4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i64, ptr %26, align 8, !tbaa !146
-  %.not.i23.i = icmp ult i64 %27, 2
-  br i1 %.not.i23.i, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_SB_EEE13destroy_slotsEv.exit, label %.lr.ph28.preheader.i
-
-.lr.ph28.preheader.i:                             ; preds = %25
   %28 = lshr i64 %27, 1
-  br label %.lr.ph28.i
+  %.not.i23.i = icmp eq i64 %28, 0
+  br i1 %.not.i23.i, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_SB_EEE13destroy_slotsEv.exit, label %.lr.ph28.i
 
-.lr.ph28.i:                                       ; preds = %._crit_edge.i, %.lr.ph28.preheader.i
-  %.0.i26.i = phi ptr [ %33, %._crit_edge.i ], [ %.sroa.0.0.copyload.i.i.i.i, %.lr.ph28.preheader.i ]
-  %.025.i25.i = phi ptr [ %32, %._crit_edge.i ], [ %7, %.lr.ph28.preheader.i ]
-  %.026.i24.i = phi i64 [ %.1.i.lcssa.i, %._crit_edge.i ], [ %28, %.lr.ph28.preheader.i ]
+.lr.ph28.i:                                       ; preds = %25, %._crit_edge.i
+  %.0.i26.i = phi ptr [ %33, %._crit_edge.i ], [ %.sroa.0.0.copyload.i.i.i.i, %25 ]
+  %.025.i25.i = phi ptr [ %32, %._crit_edge.i ], [ %7, %25 ]
+  %.026.i24.i = phi i64 [ %.1.i.lcssa.i, %._crit_edge.i ], [ %28, %25 ]
   %29 = load <16 x i8>, ptr %.025.i25.i, align 1, !tbaa !33
   %30 = icmp sgt <16 x i8> %29, splat (i8 -1)
   %31 = bitcast <16 x i1> %30 to i16

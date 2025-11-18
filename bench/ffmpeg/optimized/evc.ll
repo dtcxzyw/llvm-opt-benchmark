@@ -23,7 +23,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [42 x i8] c"NAL_unit_type[%u]:                    %u\0A\00", align 1
 @.str.14 = private unnamed_addr constant [42 x i8] c"numNalus[%u]:                         %u\0A\00", align 1
 @.str.15 = private unnamed_addr constant [43 x i8] c"nalUnitLength[%u][%u]:                 %u\0A\00", align 1
-@switch.table.ff_isom_write_evcc = private unnamed_addr constant [5 x i64] [i64 0, i64 1, i64 2, i64 poison, i64 3], align 8
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483648, 1) i32 @ff_isom_write_evcc(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -88,23 +87,27 @@ evc_get_nalu_type.exit:                           ; preds = %34
   %36 = lshr i8 %35, 1
   %37 = zext nneg i8 %36 to i32
   %38 = add nsw i32 %37, -1
-  %39 = icmp samesign ult i8 %35, 2
-  br i1 %39, label %evcc_write.exit, label %40
+  switch i8 %36, label %.critedge [
+    i8 0, label %evcc_write.exit
+    i8 25, label %42
+    i8 26, label %39
+    i8 27, label %40
+    i8 29, label %41
+  ]
+
+39:                                               ; preds = %evc_get_nalu_type.exit
+  br label %42
 
 40:                                               ; preds = %evc_get_nalu_type.exit
-  %switch.tableidx = add nsw i8 %36, -25
-  %41 = icmp ult i8 %switch.tableidx, 5
-  %switch.shifted = lshr i8 23, %switch.tableidx
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond = select i1 %41, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %switch.lookup, label %.critedge
+  br label %42
 
-switch.lookup:                                    ; preds = %40
-  %42 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.ff_isom_write_evcc, i64 %42
-  %switch.load = load i64, ptr %switch.gep, align 8
+41:                                               ; preds = %evc_get_nalu_type.exit
+  br label %42
+
+42:                                               ; preds = %evc_get_nalu_type.exit, %39, %40, %41
+  %.046 = phi i64 [ 1, %39 ], [ 2, %40 ], [ 3, %41 ], [ 0, %evc_get_nalu_type.exit ]
   %43 = trunc nuw nsw i32 %38 to i8
-  %44 = getelementptr inbounds nuw %struct.EVCNALUnitArray, ptr %12, i64 %switch.load
+  %44 = getelementptr inbounds nuw %struct.EVCNALUnitArray, ptr %12, i64 %.046
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 2
   %46 = load i16, ptr %45, align 2, !tbaa !12
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -114,7 +117,7 @@ switch.lookup:                                    ; preds = %40
   %51 = icmp slt i32 %50, 0
   br i1 %51, label %evcc_write.exit, label %52
 
-52:                                               ; preds = %switch.lookup
+52:                                               ; preds = %42
   %53 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %54 = call i32 @av_reallocp_array(ptr noundef nonnull %53, i64 noundef %49, i64 noundef 2) #5
   %55 = icmp slt i32 %54, 0
@@ -133,7 +136,7 @@ switch.lookup:                                    ; preds = %40
   %63 = load i16, ptr %45, align 2, !tbaa !12
   %64 = add i16 %63, 1
   store i16 %64, ptr %45, align 2, !tbaa !12
-  %65 = and i8 %43, 30
+  %65 = and i8 %43, 62
   %or.cond.i = icmp eq i8 %65, 24
   %66 = icmp eq i32 %38, 26
   %or.cond5.i = or i1 %66, %or.cond.i
@@ -762,7 +765,7 @@ get_ue_golomb_long.exit106.i:                     ; preds = %505, %503
   %or.cond.i58 = select i1 %523, i1 true, i1 %525
   br i1 %or.cond.i58, label %evcc_write.exit, label %.critedge
 
-.critedge:                                        ; preds = %40, %get_ue_golomb_long.exit106.i, %72
+.critedge:                                        ; preds = %evc_get_nalu_type.exit, %get_ue_golomb_long.exit106.i, %72
   %526 = getelementptr inbounds nuw i8, ptr %29, i64 %26
   %527 = sub nsw i32 %30, %25
   %528 = icmp sgt i32 %527, 4
@@ -966,8 +969,8 @@ get_ue_golomb_long.exit106.i:                     ; preds = %505, %503
   %exitcond104.not.i = icmp eq i64 %indvars.iv.next102.i, 4
   br i1 %exitcond104.not.i, label %evcc_write.exit, label %618, !llvm.loop !40
 
-evcc_write.exit:                                  ; preds = %get_ue_golomb_long.exit106.i, %80, %get_ue_golomb_long.exit38.i, %get_ue_golomb_long.exit.i, %74, %52, %switch.lookup, %32, %34, %evc_get_nalu_type.exit, %.loopexit.i, %get_ue_golomb_long.exit106.i.thread, %get_ue_golomb_long.exit38.thread.i, %561
-  %.0 = phi i32 [ -1094995529, %561 ], [ -1094995529, %get_ue_golomb_long.exit38.thread.i ], [ -1094995529, %get_ue_golomb_long.exit106.i.thread ], [ 0, %.loopexit.i ], [ -1094995529, %get_ue_golomb_long.exit106.i ], [ -1094995529, %80 ], [ -1094995529, %get_ue_golomb_long.exit38.i ], [ -1094995529, %get_ue_golomb_long.exit.i ], [ -1094995529, %74 ], [ %50, %switch.lookup ], [ %54, %52 ], [ -1094995529, %32 ], [ -1094995529, %34 ], [ -1094995529, %evc_get_nalu_type.exit ]
+evcc_write.exit:                                  ; preds = %evc_get_nalu_type.exit, %get_ue_golomb_long.exit106.i, %80, %get_ue_golomb_long.exit38.i, %get_ue_golomb_long.exit.i, %74, %52, %42, %32, %34, %.loopexit.i, %get_ue_golomb_long.exit106.i.thread, %get_ue_golomb_long.exit38.thread.i, %561
+  %.0 = phi i32 [ -1094995529, %561 ], [ -1094995529, %get_ue_golomb_long.exit38.thread.i ], [ -1094995529, %get_ue_golomb_long.exit106.i.thread ], [ 0, %.loopexit.i ], [ -1094995529, %get_ue_golomb_long.exit106.i ], [ -1094995529, %80 ], [ -1094995529, %get_ue_golomb_long.exit38.i ], [ -1094995529, %get_ue_golomb_long.exit.i ], [ -1094995529, %74 ], [ %50, %42 ], [ %54, %52 ], [ -1094995529, %32 ], [ -1094995529, %34 ], [ -1094995529, %evc_get_nalu_type.exit ]
   %651 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %652
 

@@ -39096,7 +39096,7 @@ define hidden { i64, ptr } @"_ZN85_$LT$Inner$u20$as$u20$polars_parquet_format..t
   %.sroa.014.022.i = phi i64 [ %11, %.lr.ph.i ], [ %6, %2 ]
   %10 = add nuw nsw i64 %.sroa.0.123.i, 1
   %11 = lshr i64 %.sroa.014.022.i, 7
-  %.not.i = icmp ult i64 %.sroa.014.022.i, 128
+  %.not.i = icmp eq i64 %11, 0
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i
 
 12:                                               ; preds = %.loopexit.i
@@ -39181,7 +39181,7 @@ define hidden { i64, ptr } @"_ZN85_$LT$Inner$u20$as$u20$polars_parquet_format..t
   %.sroa.014.022.i = phi i64 [ %11, %.lr.ph.i ], [ %6, %2 ]
   %10 = add nuw nsw i64 %.sroa.0.123.i, 1
   %11 = lshr i64 %.sroa.014.022.i, 7
-  %.not.i = icmp ult i64 %.sroa.014.022.i, 128
+  %.not.i = icmp eq i64 %11, 0
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i
 
 12:                                               ; preds = %.loopexit.i

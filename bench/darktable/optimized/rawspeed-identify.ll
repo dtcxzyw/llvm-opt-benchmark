@@ -1124,38 +1124,38 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit: ; preds = %.lr.ph276, %234
   br i1 %298, label %.lr.ph284, label %._crit_edge285
 
 .lr.ph284:                                        ; preds = %265
-  %299 = load i8, ptr %277, align 1, !tbaa !156, !noalias !159
-  %300 = icmp eq i8 %299, 0
-  %301 = getelementptr inbounds nuw i8, ptr %172, i64 560
-  %302 = load ptr, ptr %301, align 8, !tbaa !162, !noalias !159, !nonnull !139, !noundef !139
-  %303 = load i32, ptr %272, align 8, !tbaa !155, !noalias !159
-  %304 = getelementptr inbounds nuw i8, ptr %172, i64 600
-  %305 = load i32, ptr %304, align 8, !tbaa !163, !noalias !159
-  %306 = mul nsw i32 %305, %303
-  %307 = getelementptr inbounds nuw i8, ptr %172, i64 48
-  %308 = load i32, ptr %307, align 8, !tbaa !164, !noalias !159
-  %309 = shl nuw nsw i32 %306, 2
-  %310 = and i32 %308, -4
-  %311 = shl nuw nsw i32 %306, 1
-  %312 = and i32 %308, -2
-  %313 = mul i32 %269, %.sroa.029.0.extract.trunc
-  %.not319 = icmp eq i32 %313, 0
-  br i1 %.not319, label %.lr.ph284.split, label %.lr.ph284.split.us
+  %299 = getelementptr inbounds nuw i8, ptr %172, i64 560
+  %300 = load ptr, ptr %299, align 8, !tbaa !159, !noalias !160, !nonnull !139, !noundef !139
+  %301 = load i32, ptr %272, align 8, !tbaa !155, !noalias !160
+  %302 = getelementptr inbounds nuw i8, ptr %172, i64 600
+  %303 = load i32, ptr %302, align 8, !tbaa !163, !noalias !160
+  %304 = mul nsw i32 %303, %301
+  %305 = getelementptr inbounds nuw i8, ptr %172, i64 48
+  %306 = load i32, ptr %305, align 8, !tbaa !164, !noalias !160
+  %307 = shl nuw nsw i32 %304, 2
+  %308 = and i32 %306, -4
+  %309 = shl nuw nsw i32 %304, 1
+  %310 = and i32 %306, -2
+  %311 = mul i32 %269, %.sroa.029.0.extract.trunc
+  %.not319 = icmp eq i32 %311, 0
+  br i1 %.not319, label %._crit_edge285, label %.lr.ph284.split.us
 
 .lr.ph284.split.us:                               ; preds = %.lr.ph284
-  %314 = getelementptr inbounds nuw i8, ptr %172, i64 604
-  %315 = load i32, ptr %314, align 4, !tbaa !165, !noalias !159
-  %316 = icmp sgt i32 %308, -1
-  %317 = zext nneg i32 %315 to i64
-  %wide.trip.count339 = zext i32 %313 to i64
-  br i1 %300, label %.lr.ph284.split.us.split.us, label %.lr.ph284.split.us.split
+  %312 = getelementptr inbounds nuw i8, ptr %172, i64 604
+  %313 = load i32, ptr %312, align 4, !tbaa !165, !noalias !160
+  %314 = load i8, ptr %277, align 1, !tbaa !156, !noalias !160
+  %315 = icmp eq i8 %314, 0
+  %316 = icmp sgt i32 %306, -1
+  %317 = zext nneg i32 %313 to i64
+  %wide.trip.count339 = zext i32 %311 to i64
+  br i1 %315, label %.lr.ph284.split.us.split.us, label %.lr.ph284.split.us.split
 
 .lr.ph284.split.us.split.us:                      ; preds = %.lr.ph284.split.us
-  %318 = icmp ne i32 %312, 0
+  %318 = icmp ne i32 %310, 0
   call void @llvm.assume(i1 %318)
   call void @llvm.assume(i1 %316)
-  %319 = zext nneg i32 %311 to i64
-  %320 = zext nneg i32 %312 to i64
+  %319 = zext nneg i32 %309 to i64
+  %320 = zext nneg i32 %310 to i64
   br label %_ZN8rawspeed12RawImageData32getByteDataAsUncroppedArray2DRefEv.exit.us.us
 
 _ZN8rawspeed12RawImageData32getByteDataAsUncroppedArray2DRefEv.exit.us.us: ; preds = %._crit_edge280.us.us, %.lr.ph284.split.us.split.us
@@ -1164,7 +1164,7 @@ _ZN8rawspeed12RawImageData32getByteDataAsUncroppedArray2DRefEv.exit.us.us: ; pre
   %321 = icmp samesign ult i64 %indvars.iv341, %317
   call void @llvm.assume(i1 %321)
   %322 = mul nuw nsw i64 %indvars.iv341, %320
-  %323 = getelementptr inbounds nuw i8, ptr %302, i64 %322
+  %323 = getelementptr inbounds nuw i8, ptr %300, i64 %322
   br label %324
 
 324:                                              ; preds = %324, %_ZN8rawspeed12RawImageData32getByteDataAsUncroppedArray2DRefEv.exit.us.us
@@ -1189,11 +1189,11 @@ _ZN8rawspeed12RawImageData32getByteDataAsUncroppedArray2DRefEv.exit.us.us: ; pre
   br i1 %exitcond345.not, label %._crit_edge285, label %_ZN8rawspeed12RawImageData32getByteDataAsUncroppedArray2DRefEv.exit.us.us, !llvm.loop !167
 
 .lr.ph284.split.us.split:                         ; preds = %.lr.ph284.split.us
-  %332 = icmp ne i32 %310, 0
+  %332 = icmp ne i32 %308, 0
   call void @llvm.assume(i1 %332)
   call void @llvm.assume(i1 %316)
-  %333 = zext nneg i32 %309 to i64
-  %334 = zext nneg i32 %310 to i64
+  %333 = zext nneg i32 %307 to i64
+  %334 = zext nneg i32 %308 to i64
   br label %_ZN8rawspeed12RawImageData32getByteDataAsUncroppedArray2DRefEv.exit.us
 
 _ZN8rawspeed12RawImageData32getByteDataAsUncroppedArray2DRefEv.exit.us: ; preds = %._crit_edge280.us, %.lr.ph284.split.us.split
@@ -1202,7 +1202,7 @@ _ZN8rawspeed12RawImageData32getByteDataAsUncroppedArray2DRefEv.exit.us: ; preds 
   %335 = icmp samesign ult i64 %indvars.iv331, %317
   call void @llvm.assume(i1 %335)
   %336 = mul nuw nsw i64 %indvars.iv331, %334
-  %337 = getelementptr inbounds nuw i8, ptr %302, i64 %336
+  %337 = getelementptr inbounds nuw i8, ptr %300, i64 %336
   br label %338
 
 338:                                              ; preds = %_ZN8rawspeed12RawImageData32getByteDataAsUncroppedArray2DRefEv.exit.us, %338
@@ -1226,14 +1226,8 @@ _ZN8rawspeed12RawImageData32getByteDataAsUncroppedArray2DRefEv.exit.us: ; preds 
   %exitcond335.not = icmp eq i64 %indvars.iv.next332, %.sroa.11.0.extract.shift
   br i1 %exitcond335.not, label %._crit_edge285, label %_ZN8rawspeed12RawImageData32getByteDataAsUncroppedArray2DRefEv.exit.us, !llvm.loop !167
 
-.lr.ph284.split:                                  ; preds = %.lr.ph284
-  %..v = select i1 %300, i32 1, i32 3
-  %. = icmp ugt i32 %308, %..v
-  call void @llvm.assume(i1 %.)
-  br label %._crit_edge285
-
-._crit_edge285:                                   ; preds = %._crit_edge280.us, %._crit_edge280.us.us, %.lr.ph284.split, %265
-  %.079.lcssa = phi double [ 0.000000e+00, %265 ], [ 0.000000e+00, %.lr.ph284.split ], [ %331, %._crit_edge280.us.us ], [ %345, %._crit_edge280.us ]
+._crit_edge285:                                   ; preds = %._crit_edge280.us, %._crit_edge280.us.us, %.lr.ph284, %265
+  %.079.lcssa = phi double [ 0.000000e+00, %265 ], [ 0.000000e+00, %.lr.ph284 ], [ %331, %._crit_edge280.us.us ], [ %345, %._crit_edge280.us ]
   %346 = load ptr, ptr @stdout, align 8, !tbaa !7
   %347 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %346, ptr noundef nonnull @.str.35, double noundef %.079.lcssa) #23
   %348 = load ptr, ptr @stdout, align 8, !tbaa !7
@@ -1253,7 +1247,7 @@ _ZN8rawspeed12RawImageData32getByteDataAsUncroppedArray2DRefEv.exit.us: ; preds 
 
 .lr.ph302:                                        ; preds = %.preheader271
   %355 = getelementptr inbounds nuw i8, ptr %172, i64 560
-  %356 = load ptr, ptr %355, align 8, !tbaa !162, !noalias !168, !nonnull !139, !noundef !139
+  %356 = load ptr, ptr %355, align 8, !tbaa !159, !noalias !168, !nonnull !139, !noundef !139
   %357 = load i32, ptr %272, align 8, !tbaa !155, !noalias !168
   %358 = getelementptr inbounds nuw i8, ptr %172, i64 600
   %359 = load i32, ptr %358, align 8, !tbaa !163, !noalias !168
@@ -1263,7 +1257,7 @@ _ZN8rawspeed12RawImageData32getByteDataAsUncroppedArray2DRefEv.exit.us: ; preds 
   %363 = getelementptr inbounds nuw i8, ptr %172, i64 48
   %364 = load i32, ptr %363, align 8, !tbaa !164, !noalias !168
   %365 = ashr i32 %364, 1
-  %366 = icmp ugt i32 %364, 1
+  %366 = icmp ne i32 %365, 0
   call void @llvm.assume(i1 %366)
   %367 = icmp sgt i32 %365, -1
   call void @llvm.assume(i1 %367)
@@ -1315,7 +1309,7 @@ _ZN8rawspeed12RawImageData32getByteDataAsUncroppedArray2DRefEv.exit.us: ; preds 
 
 .lr.ph314:                                        ; preds = %.preheader
   %384 = getelementptr inbounds nuw i8, ptr %172, i64 560
-  %385 = load ptr, ptr %384, align 8, !tbaa !162, !noalias !175, !nonnull !139, !noundef !139
+  %385 = load ptr, ptr %384, align 8, !tbaa !159, !noalias !175, !nonnull !139, !noundef !139
   %386 = load i32, ptr %272, align 8, !tbaa !155, !noalias !175
   %387 = getelementptr inbounds nuw i8, ptr %172, i64 600
   %388 = load i32, ptr %387, align 8, !tbaa !163, !noalias !175
@@ -1325,7 +1319,7 @@ _ZN8rawspeed12RawImageData32getByteDataAsUncroppedArray2DRefEv.exit.us: ; preds 
   %392 = getelementptr inbounds nuw i8, ptr %172, i64 48
   %393 = load i32, ptr %392, align 8, !tbaa !164, !noalias !175
   %394 = ashr i32 %393, 2
-  %395 = icmp ugt i32 %393, 3
+  %395 = icmp ne i32 %394, 0
   call void @llvm.assume(i1 %395)
   %396 = icmp sgt i32 %394, -1
   call void @llvm.assume(i1 %396)
@@ -1473,7 +1467,7 @@ _ZNSt10unique_ptrIN8rawspeed10RawDecoderESt14default_deleteIS1_EED2Ev.exit: ; pr
 
 452:                                              ; preds = %_ZNSt10unique_ptrIN8rawspeed10RawDecoderESt14default_deleteIS1_EED2Ev.exit
   %453 = getelementptr inbounds nuw i8, ptr %451, i64 8
-  %454 = load ptr, ptr %453, align 8, !tbaa !162
+  %454 = load ptr, ptr %453, align 8, !tbaa !159
   %.not.i.i.i.i.i.i = icmp eq ptr %454, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNKSt14default_deleteISt6vectorIhN8rawspeed27DefaultInitAllocatorAdaptorIhNS1_16AlignedAllocatorIhLi16EEEEEEEclEPS6_.exit.i.i, label %455
 
@@ -1714,7 +1708,7 @@ define linkonce_odr hidden void @_ZNSt4pairISt10unique_ptrISt6vectorIhN8rawspeed
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !162
+  %5 = load ptr, ptr %4, align 8, !tbaa !159
   %.not.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i.i.i, label %_ZNKSt14default_deleteISt6vectorIhN8rawspeed27DefaultInitAllocatorAdaptorIhNS1_16AlignedAllocatorIhLi16EEEEEEEclEPS6_.exit.i, label %6
 
@@ -2635,10 +2629,10 @@ attributes #30 = { noreturn nounwind }
 !156 = !{!78, !123, i64 545}
 !157 = !{!78, !39, i64 296}
 !158 = !{!78, !116, i64 248}
-!159 = !{!160}
-!160 = distinct !{!160, !161, !"_ZN8rawspeed12RawImageData32getByteDataAsUncroppedArray2DRefEv: argument 0"}
-!161 = distinct !{!161, !"_ZN8rawspeed12RawImageData32getByteDataAsUncroppedArray2DRefEv"}
-!162 = !{!129, !14, i64 0}
+!159 = !{!129, !14, i64 0}
+!160 = !{!161}
+!161 = distinct !{!161, !162, !"_ZN8rawspeed12RawImageData32getByteDataAsUncroppedArray2DRefEv: argument 0"}
+!162 = distinct !{!162, !"_ZN8rawspeed12RawImageData32getByteDataAsUncroppedArray2DRefEv"}
 !163 = !{!78, !39, i64 600}
 !164 = !{!78, !39, i64 48}
 !165 = !{!78, !39, i64 604}

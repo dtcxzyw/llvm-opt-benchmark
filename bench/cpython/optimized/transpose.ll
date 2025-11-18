@@ -342,7 +342,7 @@ define internal fastcc range(i32 0, 2) i32 @swap_halfrows_pow2(ptr noundef captu
 
 .lr.ph103:                                        ; preds = %.preheader85
   %13 = lshr i64 %2, 1
-  %.not110 = icmp ult i64 %2, 2
+  %.not110 = icmp eq i64 %13, 0
   %14 = zext i64 %1 to i128
   %15 = select i1 %7, i128 %14, i128 2
   %16 = zext i64 %8 to i128

@@ -396,7 +396,7 @@ _ZN4llvm9BitVectorD2Ev.exit107:                   ; preds = %_ZN4llvm9BitVectorD
   %120 = add i32 %119, 63
   %121 = lshr i32 %120, 6
   %122 = zext nneg i32 %121 to i64
-  %123 = icmp ult i32 %120, 64
+  %123 = icmp eq i32 %121, 0
   br i1 %123, label %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i.i.i, label %124
 
 124:                                              ; preds = %118

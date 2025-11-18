@@ -172,7 +172,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   %.pn = phi ptr [ %32, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %13, %18 ]
   %39 = getelementptr inbounds nuw i8, ptr %.pn, i64 4
   %40 = lshr i64 %.02375, 1
-  %.not = icmp samesign ult i64 %.02375, 2
+  %.not = icmp eq i64 %40, 0
   br i1 %.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit.loopexit, label %12, !llvm.loop !14
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
@@ -276,14 +276,14 @@ _ZNSt6vectorIiSaIiEED2Ev.exit43:                  ; preds = %.noexc37
   br i1 %.not.i.i.i44, label %_ZNSt6vectorIiSaIiEED2Ev.exit45, label %._crit_edge81.thread
 
 ._crit_edge81.thread:                             ; preds = %.lr.ph80, %._crit_edge81
-  %.021.lcssa110 = phi i8 [ 0, %._crit_edge81 ], [ %78, %.lr.ph80 ]
+  %.021.lcssa111 = phi i8 [ 0, %._crit_edge81 ], [ %78, %.lr.ph80 ]
   call void @_ZdlPv(ptr noundef nonnull %.pre97) #19
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit45
 
 _ZNSt6vectorIiSaIiEED2Ev.exit45:                  ; preds = %._crit_edge81, %._crit_edge81.thread
-  %.021.lcssa111 = phi i8 [ 0, %._crit_edge81 ], [ %.021.lcssa110, %._crit_edge81.thread ]
+  %.021.lcssa112 = phi i8 [ 0, %._crit_edge81 ], [ %.021.lcssa111, %._crit_edge81.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i8 %.021.lcssa111
+  ret i8 %.021.lcssa112
 
 .lr.ph80:                                         ; preds = %.lr.ph80.preheader, %.lr.ph80
   %indvars.iv95 = phi i64 [ %68, %.lr.ph80.preheader ], [ %indvars.iv.next96, %.lr.ph80 ]

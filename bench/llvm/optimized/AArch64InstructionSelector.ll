@@ -11896,23 +11896,23 @@ define internal void @_ZNK12_GLOBAL__N_126AArch64InstructionSelector17selectAddr
 define internal fastcc void @_ZNK12_GLOBAL__N_126AArch64InstructionSelector29select12BitValueWithLeftShiftEm(ptr dead_on_unwind noalias writable align 8 %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SmallVector.184", align 8
   %4 = alloca [2 x %"class.std::function"], align 8
-  %5 = icmp ult i64 %1, 4096
-  br i1 %5, label %.split9, label %6
+  %5 = lshr i64 %1, 12
+  %6 = icmp eq i64 %5, 0
+  br i1 %6, label %.split9, label %7
 
-6:                                                ; preds = %2
-  %7 = lshr i64 %1, 12
+7:                                                ; preds = %2
   %8 = and i64 %1, -16773121
   %or.cond = icmp eq i64 %8, 0
   br i1 %or.cond, label %.split9, label %9
 
-9:                                                ; preds = %6
+9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i8 0, ptr %10, align 8, !tbaa !571
   br label %62
 
-.split9:                                          ; preds = %6, %2
-  %phi.call = phi i32 [ 0, %2 ], [ 12, %6 ]
-  %.0 = phi i64 [ %1, %2 ], [ %7, %6 ]
+.split9:                                          ; preds = %7, %2
+  %phi.call = phi i32 [ 0, %2 ], [ 12, %7 ]
+  %.0 = phi i64 [ %1, %2 ], [ %5, %7 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16

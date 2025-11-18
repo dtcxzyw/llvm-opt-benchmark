@@ -38995,7 +38995,7 @@ define noundef nonnull align 8 ptr @"_ZN18ty_python_semantic7program1_54_$LT$imp
 7:                                                ; preds = %1
   %8 = lshr i64 %5, 32
   %9 = trunc nuw i64 %8 to i32
-  %10 = icmp ugt i64 %5, 4294967295
+  %10 = icmp ne i64 %8, 0
   tail call void @llvm.assume(i1 %10)
   %11 = trunc i64 %5 to i32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2272
@@ -39317,7 +39317,7 @@ define hidden noundef nonnull align 8 ptr @_ZN18ty_python_semantic14semantic_ind
 13:                                               ; preds = %2
   %14 = lshr i64 %11, 32
   %15 = trunc nuw i64 %14 to i32
-  %16 = icmp ugt i64 %11, 4294967295
+  %16 = icmp ne i64 %14, 0
   tail call void @llvm.assume(i1 %16)
   %17 = trunc i64 %11 to i32
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 2272
@@ -39881,7 +39881,7 @@ define hidden noundef nonnull align 8 ptr @_ZN18ty_python_semantic6symbol16impli
 12:                                               ; preds = %2
   %13 = lshr i64 %10, 32
   %14 = trunc nuw i64 %13 to i32
-  %15 = icmp ugt i64 %10, 4294967295
+  %15 = icmp ne i64 %13, 0
   tail call void @llvm.assume(i1 %15)
   %16 = trunc i64 %10 to i32
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 2272
@@ -40448,7 +40448,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN18ty_python_s
 11:                                               ; preds = %2
   %12 = lshr i64 %9, 32
   %13 = trunc nuw i64 %12 to i32
-  %14 = icmp ugt i64 %9, 4294967295
+  %14 = icmp ne i64 %12, 0
   tail call void @llvm.assume(i1 %14)
   %15 = trunc i64 %9 to i32
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 2272
@@ -40530,7 +40530,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(40) ptr @"_ZN18ty
 8:                                                ; preds = %1
   %9 = lshr i64 %6, 32
   %10 = trunc nuw i64 %9 to i32
-  %11 = icmp ugt i64 %6, 4294967295
+  %11 = icmp ne i64 %9, 0
   tail call void @llvm.assume(i1 %11)
   %12 = trunc i64 %6 to i32
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 2272
@@ -40670,7 +40670,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN18ty_python_s
 11:                                               ; preds = %2
   %12 = lshr i64 %9, 32
   %13 = trunc nuw i64 %12 to i32
-  %14 = icmp ugt i64 %9, 4294967295
+  %14 = icmp ne i64 %12, 0
   tail call void @llvm.assume(i1 %14)
   %15 = trunc i64 %9 to i32
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 2272
@@ -40752,7 +40752,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(40) ptr @"_ZN18ty
 8:                                                ; preds = %1
   %9 = lshr i64 %6, 32
   %10 = trunc nuw i64 %9 to i32
-  %11 = icmp ugt i64 %6, 4294967295
+  %11 = icmp ne i64 %9, 0
   tail call void @llvm.assume(i1 %11)
   %12 = trunc i64 %6 to i32
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 2272
@@ -41567,7 +41567,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN18ty_python_se
 12:                                               ; preds = %2
   %13 = lshr i64 %10, 32
   %14 = trunc nuw i64 %13 to i32
-  %15 = icmp ugt i64 %10, 4294967295
+  %15 = icmp ne i64 %13, 0
   tail call void @llvm.assume(i1 %15)
   %16 = trunc i64 %10 to i32
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 2272

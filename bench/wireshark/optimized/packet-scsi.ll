@@ -5615,7 +5615,7 @@ define hidden void @dissect_spc_persistentreservein(ptr noundef %0, ptr readnone
 
 42:                                               ; preds = %33
   %43 = lshr i32 %40, 3
-  %.not63 = icmp ult i32 %40, 8
+  %.not63 = icmp eq i32 %43, 0
   br i1 %.not63, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %42, %.lr.ph

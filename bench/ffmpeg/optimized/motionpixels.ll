@@ -244,7 +244,7 @@ define internal i32 @mp_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef
   %97 = tail call i32 @llvm.umin.i32(i32 %86, i32 %96)
   %98 = getelementptr inbounds nuw i8, ptr %11, i64 44
   store i32 %95, ptr %98, align 4, !tbaa !59
-  %99 = icmp ult i32 %94, 268435456
+  %99 = icmp eq i32 %95, 0
   br i1 %99, label %mp_read_codes_table.exit.thread, label %100
 
 100:                                              ; preds = %84

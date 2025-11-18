@@ -119,11 +119,11 @@ _ZN3smt10watch_list10end_clauseEv.exit:           ; preds = %2
   %6 = load i32, ptr %5, align 4, !tbaa !9
   %7 = zext i32 %6 to i64
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 %7
-  %.not18 = icmp ult i32 %6, 32
+  %9 = lshr i64 %7, 5
+  %.not18 = icmp eq i64 %9, 0
   br i1 %.not18, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN3smt10watch_list10end_clauseEv.exit
-  %9 = lshr i64 %7, 5
   %10 = and i64 %7, 4294967264
   %scevgep.i.i.i = getelementptr i8, ptr %3, i64 %10
   br label %11
@@ -167,11 +167,10 @@ _ZN3smt10watch_list10end_clauseEv.exit:           ; preds = %2
   %.pre-phi56.i.i.i = phi i64 [ %gepdiff, %._crit_edge.loopexit.i.i.i ], [ %7, %_ZN3smt10watch_list10end_clauseEv.exit ]
   %.029.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %3, %_ZN3smt10watch_list10end_clauseEv.exit ]
   %30 = lshr exact i64 %.pre-phi56.i.i.i, 3
-  switch i64 %30, label %default.unreachable [
+  switch i64 %30, label %_ZSt4findIPPN3smt6clauseES2_ET_S4_S4_RKT0_.exit.thread [
     i64 3, label %31
     i64 2, label %._crit_edge._crit_edge.i.i.i
     i64 1, label %._crit_edge._crit_edge52.i.i.i
-    i64 0, label %_ZSt4findIPPN3smt6clauseES2_ET_S4_S4_RKT0_.exit.thread
   ]
 
 31:                                               ; preds = %._crit_edge.i.i.i
@@ -238,10 +237,7 @@ _ZSt4findIPPN3smt6clauseES2_ET_S4_S4_RKT0_.exit:  ; preds = %11, %_ZSt4findIPPN3
   store i32 %53, ptr %51, align 4, !tbaa !9
   br label %_ZSt4findIPPN3smt6clauseES2_ET_S4_S4_RKT0_.exit.thread
 
-default.unreachable:                              ; preds = %._crit_edge.i.i.i
-  unreachable
-
-_ZSt4findIPPN3smt6clauseES2_ET_S4_S4_RKT0_.exit.thread: ; preds = %2, %._crit_edge.i.i.i, %._crit_edge._crit_edge52.i.i.i, %_ZSt4findIPPN3smt6clauseES2_ET_S4_S4_RKT0_.exit, %._crit_edge
+_ZSt4findIPPN3smt6clauseES2_ET_S4_S4_RKT0_.exit.thread: ; preds = %2, %._crit_edge._crit_edge52.i.i.i, %._crit_edge.i.i.i, %_ZSt4findIPPN3smt6clauseES2_ET_S4_S4_RKT0_.exit, %._crit_edge
   ret void
 }
 

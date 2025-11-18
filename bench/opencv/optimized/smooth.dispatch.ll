@@ -375,11 +375,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %25,
   %spec.select.i.i = select i1 %129, ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_114hlineSmooth1N1IhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKT_iPKT0_iPS8_ii, ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKT_iPKT0_iPS8_ii
   %130 = getelementptr inbounds nuw i8, ptr %11, i64 88
   store ptr %spec.select.i.i, ptr %130, align 8, !tbaa !43
-  %.not108.i.i = icmp samesign ult i32 %3, 2
+  %131 = lshr i32 %3, 1
+  %.not108.i.i = icmp eq i32 %131, 0
   br i1 %.not108.i.i, label %.loopexit104.i.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %123
-  %131 = lshr i32 %3, 1
   %132 = zext nneg i32 %3 to i64
   %wide.trip.count.i.i = zext nneg i32 %131 to i64
   %133 = getelementptr %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %2, i64 %132
@@ -504,11 +504,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %25,
 
 190:                                              ; preds = %186
   store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_120vlineSmoothONa_yzy_aIhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKPKT0_S7_iPT_i, ptr %189, align 8, !tbaa !49
-  %.not109.i.i = icmp samesign ult i32 %5, 2
+  %191 = lshr i32 %5, 1
+  %.not109.i.i = icmp eq i32 %191, 0
   br i1 %.not109.i.i, label %_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerIhNS_12_GLOBAL__N_113ufixedpoint16EEC2EPKhmPhmiiiPKS4_iSA_ii.exit.i, label %.lr.ph107.preheader.i.i
 
 .lr.ph107.preheader.i.i:                          ; preds = %190
-  %191 = lshr i32 %5, 1
   %192 = zext nneg i32 %5 to i64
   %wide.trip.count114.i.i = zext nneg i32 %191 to i64
   %193 = getelementptr %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %192
@@ -850,11 +850,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %25,
   %spec.select.i.i = select i1 %129, ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_114hlineSmooth1N1ItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKT_iPKT0_iPS8_ii, ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKT_iPKT0_iPS8_ii
   %130 = getelementptr inbounds nuw i8, ptr %11, i64 88
   store ptr %spec.select.i.i, ptr %130, align 8, !tbaa !74
-  %.not107.i.i = icmp samesign ult i32 %3, 2
+  %131 = lshr i32 %3, 1
+  %.not107.i.i = icmp eq i32 %131, 0
   br i1 %.not107.i.i, label %.loopexit103.i.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %123
-  %131 = lshr i32 %3, 1
   %132 = zext nneg i32 %3 to i64
   %wide.trip.count.i.i = zext nneg i32 %131 to i64
   %133 = getelementptr %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %2, i64 %132
@@ -979,11 +979,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %25,
 
 190:                                              ; preds = %186
   store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_120vlineSmoothONa_yzy_aItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i, ptr %189, align 8, !tbaa !79
-  %.not108.i.i = icmp samesign ult i32 %5, 2
+  %191 = lshr i32 %5, 1
+  %.not108.i.i = icmp eq i32 %191, 0
   br i1 %.not108.i.i, label %_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerItNS_12_GLOBAL__N_113ufixedpoint32EEC2EPKtmPtmiiiPKS4_iSA_ii.exit.i, label %.lr.ph106.preheader.i.i
 
 .lr.ph106.preheader.i.i:                          ; preds = %190
-  %191 = lshr i32 %5, 1
   %192 = zext nneg i32 %5 to i64
   %wide.trip.count113.i.i = zext nneg i32 %191 to i64
   %193 = getelementptr %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %192
@@ -1402,7 +1402,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %46, %
   %.pn = phi { ptr, i32 } [ %45, %44 ], [ %47, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %47, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %329
+  br label %330
 
 51:                                               ; preds = %4
   %52 = fcmp ugt double %3, 0.000000e+00
@@ -1436,7 +1436,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %46, %
 
 _ZNSt6vectorIN2cv10softdoubleESaIS1_EED2Ev.exit:  ; preds = %59, %.noexc
   store i64 4607182418800017408, ptr %0, align 8, !tbaa !85, !alias.scope !96
-  br label %328
+  br label %329
 
 60:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -1548,7 +1548,7 @@ _ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit24.i: ; preds = %_ZN2cv10softdou
 _ZNSt6vectorIN2cv10softdoubleESaIS1_EE13_M_assign_auxIPS1_EEvT_S6_St20forward_iterator_tag.exit: ; preds = %_ZNSt12_Vector_baseIN2cv10softdoubleESaIS1_EE13_M_deallocateEPS1_m.exit.i, %_ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit.i, %86, %_ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit24.i
   store i64 4607182418800017408, ptr %0, align 8, !tbaa !85, !alias.scope !111
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %328
+  br label %329
 
 98:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -1664,7 +1664,7 @@ _ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit24.i116: ; preds = %_ZN2cv10soft
 _ZNSt6vectorIN2cv10softdoubleESaIS1_EE13_M_assign_auxIPS1_EEvT_S6_St20forward_iterator_tag.exit132: ; preds = %_ZNSt12_Vector_baseIN2cv10softdoubleESaIS1_EE13_M_deallocateEPS1_m.exit.i131, %_ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit.i106, %126, %_ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit24.i116
   store i64 4607182418800017408, ptr %0, align 8, !tbaa !85, !alias.scope !131
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %328
+  br label %329
 
 138:                                              ; preds = %53
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -1784,7 +1784,7 @@ _ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit24.i144: ; preds = %_ZN2cv10soft
 _ZNSt6vectorIN2cv10softdoubleESaIS1_EE13_M_assign_auxIPS1_EEvT_S6_St20forward_iterator_tag.exit160: ; preds = %_ZNSt12_Vector_baseIN2cv10softdoubleESaIS1_EE13_M_deallocateEPS1_m.exit.i159, %_ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit.i134, %168, %_ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit24.i144
   store i64 4607182418800017408, ptr %0, align 8, !tbaa !85, !alias.scope !157
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %328
+  br label %329
 
 180:                                              ; preds = %53
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -1908,7 +1908,7 @@ _ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit24.i172: ; preds = %_ZN2cv10soft
 _ZNSt6vectorIN2cv10softdoubleESaIS1_EE13_M_assign_auxIPS1_EEvT_S6_St20forward_iterator_tag.exit188: ; preds = %_ZNSt12_Vector_baseIN2cv10softdoubleESaIS1_EE13_M_deallocateEPS1_m.exit.i187, %_ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit.i162, %212, %_ZSt4copyIPN2cv10softdoubleES2_ET0_T_S4_S3_.exit24.i172
   store i64 4607182418800017408, ptr %0, align 8, !tbaa !85, !alias.scope !189
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %328
+  br label %329
 
 224:                                              ; preds = %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
@@ -1949,381 +1949,351 @@ _ZNSt6vectorIN2cv10softdoubleESaIS1_EE13_M_assign_auxIPS1_EEvT_S6_St20forward_it
   %233 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.not.i.i = icmp samesign ugt i32 %229, 271
   store i64 %232, ptr %233, align 8, !tbaa !205
-  br i1 %.not.i.i, label %.thread, label %236
+  br i1 %.not.i.i, label %234, label %237
 
-.thread:                                          ; preds = %228
-  %234 = shl nuw nsw i64 %232, 3
-  %235 = call noalias noundef nonnull ptr @_Znam(i64 noundef %234) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %235, i8 0, i64 %234, i1 false), !tbaa !85
-  store ptr %235, ptr %26, align 8, !tbaa !203
+234:                                              ; preds = %228
+  %235 = shl nuw nsw i64 %232, 3
+  %236 = call noalias noundef nonnull ptr @_Znam(i64 noundef %235) #28
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %236, i8 0, i64 %235, i1 false), !tbaa !85
+  store ptr %236, ptr %26, align 8, !tbaa !203
+  br label %237
+
+237:                                              ; preds = %234, %228
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i64 0, ptr %27, align 8, !tbaa !85, !alias.scope !206
-  br label %.lr.ph.preheader
-
-236:                                              ; preds = %228
-  call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  store i64 0, ptr %27, align 8, !tbaa !85, !alias.scope !206
-  %.not212 = icmp samesign ult i32 %2, 3
+  %.not212 = icmp eq i32 %230, 0
   br i1 %.not212, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.thread, %236
-  %237 = sub nsw i32 1, %2
+.lr.ph.preheader:                                 ; preds = %237
+  %238 = sub nsw i32 1, %2
   %wide.trip.count = zext nneg i32 %230 to i64
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %246, %236
-  %.not212271 = phi i1 [ true, %236 ], [ false, %246 ]
+._crit_edge:                                      ; preds = %247, %237
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %31, i32 noundef 2)
-          to label %254 unwind label %264
+          to label %255 unwind label %265
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %246
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %246 ]
-  %.049207 = phi i32 [ %237, %.lr.ph.preheader ], [ %248, %246 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %247
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %247 ]
+  %.049207 = phi i32 [ %238, %.lr.ph.preheader ], [ %249, %247 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
-  %238 = mul nsw i32 %.049207, %.049207
-  invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %30, i32 noundef %238)
-          to label %239 unwind label %249
+  %239 = mul nsw i32 %.049207, %.049207
+  invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %30, i32 noundef %239)
+          to label %240 unwind label %250
 
-239:                                              ; preds = %.lr.ph
+240:                                              ; preds = %.lr.ph
   invoke void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %29, ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %24)
-          to label %240 unwind label %249
-
-240:                                              ; preds = %239
-  invoke void @_ZN2cv3expERKNS_10softdoubleE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %28, ptr noundef nonnull align 8 dereferenceable(8) %29)
-          to label %241 unwind label %249
+          to label %241 unwind label %250
 
 241:                                              ; preds = %240
+  invoke void @_ZN2cv3expERKNS_10softdoubleE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %28, ptr noundef nonnull align 8 dereferenceable(8) %29)
+          to label %242 unwind label %250
+
+242:                                              ; preds = %241
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
-  %242 = load ptr, ptr %26, align 8, !tbaa !203
-  %243 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %242, i64 %indvars.iv
-  %.not.i = icmp eq ptr %28, %243
-  br i1 %.not.i, label %_ZN2cv10softdoubleaSERKS0_.exit, label %244
+  %243 = load ptr, ptr %26, align 8, !tbaa !203
+  %244 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %243, i64 %indvars.iv
+  %.not.i = icmp eq ptr %28, %244
+  br i1 %.not.i, label %_ZN2cv10softdoubleaSERKS0_.exit, label %245
 
-244:                                              ; preds = %241
-  %245 = load i64, ptr %28, align 8, !tbaa !85
-  store i64 %245, ptr %243, align 8, !tbaa !85
+245:                                              ; preds = %242
+  %246 = load i64, ptr %28, align 8, !tbaa !85
+  store i64 %246, ptr %244, align 8, !tbaa !85
   br label %_ZN2cv10softdoubleaSERKS0_.exit
 
-_ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %241, %244
+_ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %242, %245
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   invoke void @_ZNK2cv10softdoubleplERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %28)
-          to label %246 unwind label %251
+          to label %247 unwind label %252
 
-246:                                              ; preds = %_ZN2cv10softdoubleaSERKS0_.exit
-  %247 = load i64, ptr %12, align 8, !tbaa !85
-  store i64 %247, ptr %27, align 8, !tbaa !85
+247:                                              ; preds = %_ZN2cv10softdoubleaSERKS0_.exit
+  %248 = load i64, ptr %12, align 8, !tbaa !85
+  store i64 %248, ptr %27, align 8, !tbaa !85
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %248 = add nsw i32 %.049207, 2
+  %249 = add nsw i32 %.049207, 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !211
 
-249:                                              ; preds = %240, %239, %.lr.ph
-  %250 = landingpad { ptr, i32 }
+250:                                              ; preds = %241, %240, %.lr.ph
+  %251 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
-  br label %253
+  br label %254
 
-251:                                              ; preds = %_ZN2cv10softdoubleaSERKS0_.exit
-  %252 = landingpad { ptr, i32 }
+252:                                              ; preds = %_ZN2cv10softdoubleaSERKS0_.exit
+  %253 = landingpad { ptr, i32 }
           cleanup
-  br label %253
+  br label %254
 
-253:                                              ; preds = %251, %249
-  %.pn63 = phi { ptr, i32 } [ %252, %251 ], [ %250, %249 ]
+254:                                              ; preds = %252, %250
+  %.pn63 = phi { ptr, i32 } [ %253, %252 ], [ %251, %250 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  br label %324
+  br label %325
 
-254:                                              ; preds = %._crit_edge
+255:                                              ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %31)
-          to label %255 unwind label %264
+          to label %256 unwind label %265
 
-255:                                              ; preds = %254
-  %256 = load i64, ptr %11, align 8, !tbaa !85
-  store i64 %256, ptr %27, align 8, !tbaa !85
+256:                                              ; preds = %255
+  %257 = load i64, ptr %11, align 8, !tbaa !85
+  store i64 %257, ptr %27, align 8, !tbaa !85
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i64 4607182418800017408, ptr %32, align 8, !tbaa !85, !alias.scope !212
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZNK2cv10softdoubleplERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %32)
-          to label %257 unwind label %266
+          to label %258 unwind label %267
 
-257:                                              ; preds = %255
-  %258 = load i64, ptr %10, align 8, !tbaa !85
-  store i64 %258, ptr %27, align 8, !tbaa !85
+258:                                              ; preds = %256
+  %259 = load i64, ptr %10, align 8, !tbaa !85
+  store i64 %259, ptr %27, align 8, !tbaa !85
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
-  %259 = and i32 %2, 1
-  %260 = icmp eq i32 %259, 0
-  br i1 %260, label %261, label %270
+  %260 = and i32 %2, 1
+  %261 = icmp eq i32 %260, 0
+  br i1 %261, label %262, label %271
 
-261:                                              ; preds = %257
+262:                                              ; preds = %258
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i64 4607182418800017408, ptr %33, align 8, !tbaa !85, !alias.scope !217
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZNK2cv10softdoubleplERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %33)
-          to label %262 unwind label %268
+          to label %263 unwind label %269
 
-262:                                              ; preds = %261
-  %263 = load i64, ptr %9, align 8, !tbaa !85
-  store i64 %263, ptr %27, align 8, !tbaa !85
+263:                                              ; preds = %262
+  %264 = load i64, ptr %9, align 8, !tbaa !85
+  store i64 %264, ptr %27, align 8, !tbaa !85
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
-  br label %270
+  br label %271
 
-264:                                              ; preds = %254, %._crit_edge
-  %265 = landingpad { ptr, i32 }
+265:                                              ; preds = %255, %._crit_edge
+  %266 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
-  br label %324
+  br label %325
 
-266:                                              ; preds = %255
-  %267 = landingpad { ptr, i32 }
+267:                                              ; preds = %256
+  %268 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
-  br label %324
+  br label %325
 
-268:                                              ; preds = %261
-  %269 = landingpad { ptr, i32 }
+269:                                              ; preds = %262
+  %270 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
-  br label %324
+  br label %325
 
-270:                                              ; preds = %257, %262
+271:                                              ; preds = %258, %263
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store i64 4607182418800017408, ptr %35, align 8, !tbaa !85, !alias.scope !222
   invoke void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %34, ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull align 8 dereferenceable(8) %27)
-          to label %271 unwind label %275
+          to label %272 unwind label %276
 
-271:                                              ; preds = %270
+272:                                              ; preds = %271
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
-  %272 = zext nneg i32 %2 to i64
-  invoke void @_ZNSt6vectorIN2cv10softdoubleESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %272)
-          to label %273 unwind label %277
+  %273 = zext nneg i32 %2 to i64
+  invoke void @_ZNSt6vectorIN2cv10softdoubleESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %273)
+          to label %274 unwind label %278
 
-273:                                              ; preds = %271
+274:                                              ; preds = %272
   store i64 0, ptr %0, align 8, !tbaa !85, !alias.scope !227
-  br i1 %.not212271, label %._crit_edge211, label %.lr.ph210
+  br i1 %.not212, label %._crit_edge211, label %.lr.ph210
 
-.lr.ph210:                                        ; preds = %273
+.lr.ph210:                                        ; preds = %274
   %.not.i.i82 = icmp eq ptr %8, %0
-  %274 = zext nneg i32 %229 to i64
+  %275 = zext nneg i32 %229 to i64
   %wide.trip.count233 = zext nneg i32 %230 to i64
-  br label %279
+  br label %280
 
-._crit_edge211:                                   ; preds = %293, %273
+._crit_edge211:                                   ; preds = %294, %274
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %37, i32 noundef 2)
-          to label %296 unwind label %315
+          to label %297 unwind label %316
 
-275:                                              ; preds = %270
-  %276 = landingpad { ptr, i32 }
+276:                                              ; preds = %271
+  %277 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
-  br label %323
+  br label %324
 
-277:                                              ; preds = %_ZN2cv10softdoubleaSERKS0_.exit94, %_ZN2cv10softdoubleaSERKS0_.exit89, %271
-  %278 = landingpad { ptr, i32 }
+278:                                              ; preds = %_ZN2cv10softdoubleaSERKS0_.exit94, %_ZN2cv10softdoubleaSERKS0_.exit89, %272
+  %279 = landingpad { ptr, i32 }
           cleanup
-  br label %323
+  br label %324
 
-279:                                              ; preds = %.lr.ph210, %293
-  %indvars.iv230 = phi i64 [ 0, %.lr.ph210 ], [ %indvars.iv.next231, %293 ]
+280:                                              ; preds = %.lr.ph210, %294
+  %indvars.iv230 = phi i64 [ 0, %.lr.ph210 ], [ %indvars.iv.next231, %294 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
-  %280 = load ptr, ptr %26, align 8, !tbaa !203
-  %281 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %280, i64 %indvars.iv230
-  invoke void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %36, ptr noundef nonnull align 8 dereferenceable(8) %281, ptr noundef nonnull align 8 dereferenceable(8) %34)
-          to label %282 unwind label %294
+  %281 = load ptr, ptr %26, align 8, !tbaa !203
+  %282 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %281, i64 %indvars.iv230
+  invoke void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %36, ptr noundef nonnull align 8 dereferenceable(8) %282, ptr noundef nonnull align 8 dereferenceable(8) %34)
+          to label %283 unwind label %295
 
-282:                                              ; preds = %279
-  %283 = load ptr, ptr %1, align 8, !tbaa !81
-  %284 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %283, i64 %indvars.iv230
-  %.not.i78 = icmp eq ptr %36, %284
-  br i1 %.not.i78, label %_ZN2cv10softdoubleaSERKS0_.exit79, label %285
+283:                                              ; preds = %280
+  %284 = load ptr, ptr %1, align 8, !tbaa !81
+  %285 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %284, i64 %indvars.iv230
+  %.not.i78 = icmp eq ptr %36, %285
+  br i1 %.not.i78, label %_ZN2cv10softdoubleaSERKS0_.exit79, label %286
 
-285:                                              ; preds = %282
-  %286 = load i64, ptr %36, align 8, !tbaa !85
-  store i64 %286, ptr %284, align 8, !tbaa !85
+286:                                              ; preds = %283
+  %287 = load i64, ptr %36, align 8, !tbaa !85
+  store i64 %287, ptr %285, align 8, !tbaa !85
   br label %_ZN2cv10softdoubleaSERKS0_.exit79
 
-_ZN2cv10softdoubleaSERKS0_.exit79:                ; preds = %282, %285
-  %287 = sub nsw i64 %274, %indvars.iv230
-  %288 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %283, i64 %287
-  %.not.i80 = icmp eq ptr %36, %288
-  br i1 %.not.i80, label %_ZN2cv10softdoubleaSERKS0_.exit81, label %289
+_ZN2cv10softdoubleaSERKS0_.exit79:                ; preds = %283, %286
+  %288 = sub nsw i64 %275, %indvars.iv230
+  %289 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %284, i64 %288
+  %.not.i80 = icmp eq ptr %36, %289
+  br i1 %.not.i80, label %_ZN2cv10softdoubleaSERKS0_.exit81, label %290
 
-289:                                              ; preds = %_ZN2cv10softdoubleaSERKS0_.exit79
-  %290 = load i64, ptr %36, align 8, !tbaa !85
-  store i64 %290, ptr %288, align 8, !tbaa !85
+290:                                              ; preds = %_ZN2cv10softdoubleaSERKS0_.exit79
+  %291 = load i64, ptr %36, align 8, !tbaa !85
+  store i64 %291, ptr %289, align 8, !tbaa !85
   br label %_ZN2cv10softdoubleaSERKS0_.exit81
 
-_ZN2cv10softdoubleaSERKS0_.exit81:                ; preds = %_ZN2cv10softdoubleaSERKS0_.exit79, %289
+_ZN2cv10softdoubleaSERKS0_.exit81:                ; preds = %_ZN2cv10softdoubleaSERKS0_.exit79, %290
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZNK2cv10softdoubleplERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %36)
-          to label %.noexc83 unwind label %294
+          to label %.noexc83 unwind label %295
 
 .noexc83:                                         ; preds = %_ZN2cv10softdoubleaSERKS0_.exit81
-  br i1 %.not.i.i82, label %293, label %291
+  br i1 %.not.i.i82, label %294, label %292
 
-291:                                              ; preds = %.noexc83
-  %292 = load i64, ptr %8, align 8, !tbaa !85
-  store i64 %292, ptr %0, align 8, !tbaa !85
-  br label %293
+292:                                              ; preds = %.noexc83
+  %293 = load i64, ptr %8, align 8, !tbaa !85
+  store i64 %293, ptr %0, align 8, !tbaa !85
+  br label %294
 
-293:                                              ; preds = %291, %.noexc83
+294:                                              ; preds = %292, %.noexc83
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
   %exitcond234.not = icmp eq i64 %indvars.iv.next231, %wide.trip.count233
-  br i1 %exitcond234.not, label %._crit_edge211, label %279, !llvm.loop !232
+  br i1 %exitcond234.not, label %._crit_edge211, label %280, !llvm.loop !232
 
-294:                                              ; preds = %_ZN2cv10softdoubleaSERKS0_.exit81, %279
-  %295 = landingpad { ptr, i32 }
+295:                                              ; preds = %_ZN2cv10softdoubleaSERKS0_.exit81, %280
+  %296 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
-  br label %323
+  br label %324
 
-296:                                              ; preds = %._crit_edge211
+297:                                              ; preds = %._crit_edge211
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %37)
-          to label %.noexc86 unwind label %315
+          to label %.noexc86 unwind label %316
 
-.noexc86:                                         ; preds = %296
+.noexc86:                                         ; preds = %297
   %.not.i.i85 = icmp eq ptr %7, %0
-  br i1 %.not.i.i85, label %299, label %297
+  br i1 %.not.i.i85, label %300, label %298
 
-297:                                              ; preds = %.noexc86
-  %298 = load i64, ptr %7, align 8, !tbaa !85
-  store i64 %298, ptr %0, align 8, !tbaa !85
-  br label %299
+298:                                              ; preds = %.noexc86
+  %299 = load i64, ptr %7, align 8, !tbaa !85
+  store i64 %299, ptr %0, align 8, !tbaa !85
+  br label %300
 
-299:                                              ; preds = %.noexc86, %297
+300:                                              ; preds = %.noexc86, %298
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store i64 4607182418800017408, ptr %39, align 8, !tbaa !85, !alias.scope !233
   invoke void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %38, ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull align 8 dereferenceable(8) %34)
-          to label %300 unwind label %317
+          to label %301 unwind label %318
 
-300:                                              ; preds = %299
-  %301 = zext nneg i32 %230 to i64
-  %302 = load ptr, ptr %1, align 8, !tbaa !81
-  %303 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %302, i64 %301
-  %.not.i88 = icmp eq ptr %38, %303
-  br i1 %.not.i88, label %_ZN2cv10softdoubleaSERKS0_.exit89, label %304
+301:                                              ; preds = %300
+  %302 = zext nneg i32 %230 to i64
+  %303 = load ptr, ptr %1, align 8, !tbaa !81
+  %304 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %303, i64 %302
+  %.not.i88 = icmp eq ptr %38, %304
+  br i1 %.not.i88, label %_ZN2cv10softdoubleaSERKS0_.exit89, label %305
 
-304:                                              ; preds = %300
-  %305 = load i64, ptr %38, align 8, !tbaa !85
-  store i64 %305, ptr %303, align 8, !tbaa !85
+305:                                              ; preds = %301
+  %306 = load i64, ptr %38, align 8, !tbaa !85
+  store i64 %306, ptr %304, align 8, !tbaa !85
   br label %_ZN2cv10softdoubleaSERKS0_.exit89
 
-_ZN2cv10softdoubleaSERKS0_.exit89:                ; preds = %300, %304
+_ZN2cv10softdoubleaSERKS0_.exit89:                ; preds = %301, %305
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  invoke void @_ZNK2cv10softdoubleplERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %303)
-          to label %.noexc91 unwind label %277
+  invoke void @_ZNK2cv10softdoubleplERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %304)
+          to label %.noexc91 unwind label %278
 
 .noexc91:                                         ; preds = %_ZN2cv10softdoubleaSERKS0_.exit89
   %.not.i.i90 = icmp eq ptr %6, %0
-  br i1 %.not.i.i90, label %308, label %306
+  br i1 %.not.i.i90, label %309, label %307
 
-306:                                              ; preds = %.noexc91
-  %307 = load i64, ptr %6, align 8, !tbaa !85
-  store i64 %307, ptr %0, align 8, !tbaa !85
-  br label %308
+307:                                              ; preds = %.noexc91
+  %308 = load i64, ptr %6, align 8, !tbaa !85
+  store i64 %308, ptr %0, align 8, !tbaa !85
+  br label %309
 
-308:                                              ; preds = %306, %.noexc91
+309:                                              ; preds = %307, %.noexc91
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %260, label %_ZN2cv10softdoubleaSERKS0_.exit94, label %319
+  br i1 %261, label %_ZN2cv10softdoubleaSERKS0_.exit94, label %320
 
-_ZN2cv10softdoubleaSERKS0_.exit94:                ; preds = %308
-  %309 = load ptr, ptr %1, align 8, !tbaa !81
-  %310 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %309, i64 %301
-  %311 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %309, i64 %232
-  %312 = load i64, ptr %310, align 8, !tbaa !85
-  store i64 %312, ptr %311, align 8, !tbaa !85
+_ZN2cv10softdoubleaSERKS0_.exit94:                ; preds = %309
+  %310 = load ptr, ptr %1, align 8, !tbaa !81
+  %311 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %310, i64 %302
+  %312 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %310, i64 %232
+  %313 = load i64, ptr %311, align 8, !tbaa !85
+  store i64 %313, ptr %312, align 8, !tbaa !85
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  invoke void @_ZNK2cv10softdoubleplERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %310)
-          to label %.noexc96 unwind label %277
+  invoke void @_ZNK2cv10softdoubleplERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %311)
+          to label %.noexc96 unwind label %278
 
 .noexc96:                                         ; preds = %_ZN2cv10softdoubleaSERKS0_.exit94
   %.not.i.i95 = icmp eq ptr %5, %0
-  br i1 %.not.i.i95, label %_ZN2cv10softdoublepLERKS0_.exit97, label %313
+  br i1 %.not.i.i95, label %_ZN2cv10softdoublepLERKS0_.exit97, label %314
 
-313:                                              ; preds = %.noexc96
-  %314 = load i64, ptr %5, align 8, !tbaa !85
-  store i64 %314, ptr %0, align 8, !tbaa !85
+314:                                              ; preds = %.noexc96
+  %315 = load i64, ptr %5, align 8, !tbaa !85
+  store i64 %315, ptr %0, align 8, !tbaa !85
   br label %_ZN2cv10softdoublepLERKS0_.exit97
 
-_ZN2cv10softdoublepLERKS0_.exit97:                ; preds = %.noexc96, %313
+_ZN2cv10softdoublepLERKS0_.exit97:                ; preds = %.noexc96, %314
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %319
+  br label %320
 
-315:                                              ; preds = %296, %._crit_edge211
-  %316 = landingpad { ptr, i32 }
+316:                                              ; preds = %297, %._crit_edge211
+  %317 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
-  br label %323
+  br label %324
 
-317:                                              ; preds = %299
-  %318 = landingpad { ptr, i32 }
+318:                                              ; preds = %300
+  %319 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
-  br label %323
-
-319:                                              ; preds = %_ZN2cv10softdoublepLERKS0_.exit97, %308
-  call void @llvm.lifetime.end.p0(ptr nonnull %34)
-  call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  %320 = load ptr, ptr %26, align 8, !tbaa !203
-  %.not.i.i98 = icmp eq ptr %320, %scevgep.i
-  %321 = icmp eq ptr %320, null
-  %or.cond = or i1 %.not.i.i98, %321
-  br i1 %or.cond, label %_ZN2cv10AutoBufferINS_10softdoubleELm136EED2Ev.exit, label %322
-
-322:                                              ; preds = %319
-  call void @_ZdaPv(ptr noundef nonnull %320) #25
-  br label %_ZN2cv10AutoBufferINS_10softdoubleELm136EED2Ev.exit
-
-_ZN2cv10AutoBufferINS_10softdoubleELm136EED2Ev.exit: ; preds = %322, %319
-  call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  br label %328
-
-323:                                              ; preds = %317, %315, %294, %277, %275
-  %.pn61 = phi { ptr, i32 } [ %295, %294 ], [ %278, %277 ], [ %318, %317 ], [ %316, %315 ], [ %276, %275 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %324
 
-324:                                              ; preds = %323, %268, %266, %264, %253
-  %.pn63.pn = phi { ptr, i32 } [ %.pn63, %253 ], [ %.pn61, %323 ], [ %269, %268 ], [ %267, %266 ], [ %265, %264 ]
+320:                                              ; preds = %_ZN2cv10softdoublepLERKS0_.exit97, %309
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  %325 = load ptr, ptr %26, align 8, !tbaa !203
-  %.not.i.i99 = icmp eq ptr %325, %scevgep.i
-  %326 = icmp eq ptr %325, null
-  %or.cond275 = or i1 %.not.i.i99, %326
-  br i1 %or.cond275, label %_ZN2cv10AutoBufferINS_10softdoubleELm136EED2Ev.exit100, label %327
+  %321 = load ptr, ptr %26, align 8, !tbaa !203
+  %.not.i.i98 = icmp eq ptr %321, %scevgep.i
+  %322 = icmp eq ptr %321, null
+  %or.cond = or i1 %.not.i.i98, %322
+  br i1 %or.cond, label %_ZN2cv10AutoBufferINS_10softdoubleELm136EED2Ev.exit, label %323
 
-327:                                              ; preds = %324
-  call void @_ZdaPv(ptr noundef nonnull %325) #25
-  br label %_ZN2cv10AutoBufferINS_10softdoubleELm136EED2Ev.exit100
+323:                                              ; preds = %320
+  call void @_ZdaPv(ptr noundef nonnull %321) #25
+  br label %_ZN2cv10AutoBufferINS_10softdoubleELm136EED2Ev.exit
 
-_ZN2cv10AutoBufferINS_10softdoubleELm136EED2Ev.exit100: ; preds = %327, %324
+_ZN2cv10AutoBufferINS_10softdoubleELm136EED2Ev.exit: ; preds = %323, %320
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -2332,10 +2302,37 @@ _ZN2cv10AutoBufferINS_10softdoubleELm136EED2Ev.exit100: ; preds = %327, %324
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %329
 
-328:                                              ; preds = %_ZN2cv10AutoBufferINS_10softdoubleELm136EED2Ev.exit, %_ZNSt6vectorIN2cv10softdoubleESaIS1_EE13_M_assign_auxIPS1_EEvT_S6_St20forward_iterator_tag.exit188, %_ZNSt6vectorIN2cv10softdoubleESaIS1_EE13_M_assign_auxIPS1_EEvT_S6_St20forward_iterator_tag.exit160, %_ZNSt6vectorIN2cv10softdoubleESaIS1_EE13_M_assign_auxIPS1_EEvT_S6_St20forward_iterator_tag.exit132, %_ZNSt6vectorIN2cv10softdoubleESaIS1_EE13_M_assign_auxIPS1_EEvT_S6_St20forward_iterator_tag.exit, %_ZNSt6vectorIN2cv10softdoubleESaIS1_EED2Ev.exit
+324:                                              ; preds = %318, %316, %295, %278, %276
+  %.pn61 = phi { ptr, i32 } [ %296, %295 ], [ %279, %278 ], [ %319, %318 ], [ %317, %316 ], [ %277, %276 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  br label %325
+
+325:                                              ; preds = %324, %269, %267, %265, %254
+  %.pn63.pn = phi { ptr, i32 } [ %.pn63, %254 ], [ %.pn61, %324 ], [ %270, %269 ], [ %268, %267 ], [ %266, %265 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  %326 = load ptr, ptr %26, align 8, !tbaa !203
+  %.not.i.i99 = icmp eq ptr %326, %scevgep.i
+  %327 = icmp eq ptr %326, null
+  %or.cond274 = or i1 %.not.i.i99, %327
+  br i1 %or.cond274, label %_ZN2cv10AutoBufferINS_10softdoubleELm136EED2Ev.exit100, label %328
+
+328:                                              ; preds = %325
+  call void @_ZdaPv(ptr noundef nonnull %326) #25
+  br label %_ZN2cv10AutoBufferINS_10softdoubleELm136EED2Ev.exit100
+
+_ZN2cv10AutoBufferINS_10softdoubleELm136EED2Ev.exit100: ; preds = %328, %325
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  br label %330
+
+329:                                              ; preds = %_ZN2cv10AutoBufferINS_10softdoubleELm136EED2Ev.exit, %_ZNSt6vectorIN2cv10softdoubleESaIS1_EE13_M_assign_auxIPS1_EEvT_S6_St20forward_iterator_tag.exit188, %_ZNSt6vectorIN2cv10softdoubleESaIS1_EE13_M_assign_auxIPS1_EEvT_S6_St20forward_iterator_tag.exit160, %_ZNSt6vectorIN2cv10softdoubleESaIS1_EE13_M_assign_auxIPS1_EEvT_S6_St20forward_iterator_tag.exit132, %_ZNSt6vectorIN2cv10softdoubleESaIS1_EE13_M_assign_auxIPS1_EEvT_S6_St20forward_iterator_tag.exit, %_ZNSt6vectorIN2cv10softdoubleESaIS1_EED2Ev.exit
   ret void
 
-329:                                              ; preds = %_ZN2cv10AutoBufferINS_10softdoubleELm136EED2Ev.exit100, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+330:                                              ; preds = %_ZN2cv10AutoBufferINS_10softdoubleELm136EED2Ev.exit100, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn66 = phi { ptr, i32 } [ %.pn63.pn, %_ZN2cv10AutoBufferINS_10softdoubleELm136EED2Ev.exit100 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   resume { ptr, i32 } %.pn66
 }

@@ -6034,7 +6034,7 @@ _ZNK4llvm3LLT14getNumElementsEv.exit:             ; preds = %21, %32
   %37 = or disjoint i64 %storemerge.i.i.i.i, 4
   %.sroa.041.2.extract.shift56 = lshr i32 %29, 16
   %.sroa.041.2.extract.trunc = trunc nuw i32 %.sroa.041.2.extract.shift56 to i8
-  %.not18 = icmp samesign ult i32 %29, 65536
+  %.not18 = icmp eq i32 %.sroa.041.2.extract.shift56, 0
   br i1 %.not18, label %38, label %.loopexit
 
 38:                                               ; preds = %_ZNK4llvm3LLT14getNumElementsEv.exit
@@ -7748,7 +7748,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairItN4llvm21
   store i16 %61, ptr %69, align 2, !tbaa !96
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 2
   store i8 %68, ptr %70, align 2, !tbaa !98
-  %.not.i = icmp ult i64 %.0923.in.i.i.i, 2
+  %.not.i = icmp eq i64 %.0923.i.i78.i, 0
   br i1 %.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_SE_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !199
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_SE_RT0_.exit: ; preds = %63, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.thread.i.i.i, %58

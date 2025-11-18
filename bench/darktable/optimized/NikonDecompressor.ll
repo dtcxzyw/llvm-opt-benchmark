@@ -2297,7 +2297,7 @@ _ZN8rawspeed17NikonDecompressor23createPrefixCodeDecoderINS_12_GLOBAL__N_120Niko
   %240 = ashr i32 %239, 1
   %241 = icmp sgt i32 %235, -1
   call void @llvm.assume(i1 %241)
-  %242 = icmp ugt i32 %239, 1
+  %242 = icmp ne i32 %240, 0
   call void @llvm.assume(i1 %242)
   %243 = icmp sgt i32 %240, -1
   call void @llvm.assume(i1 %243)
@@ -2603,7 +2603,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
 
 400:                                              ; preds = %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit.i.i
   %.neg48.i.i = shl nsw i32 -1, %356
-  %.not47.i.i = icmp ult i32 %.041.i.i, 16
+  %.not47.i.i = icmp eq i32 %357, 0
   %.neg.neg.i.i = zext i1 %.not47.i.i to i32
   %.neg49.i.i = add nsw i32 %.neg48.i.i, %.neg.neg.i.i
   %401 = add nsw i32 %.neg49.i.i, %395
@@ -2775,7 +2775,7 @@ define linkonce_odr hidden void @_ZN8rawspeed17NikonDecompressor10decompressINS_
   %21 = ashr i32 %20, 1
   %22 = icmp sgt i32 %16, -1
   call void @llvm.assume(i1 %22)
-  %23 = icmp ugt i32 %20, 1
+  %23 = icmp ne i32 %21, 0
   call void @llvm.assume(i1 %23)
   %24 = icmp sgt i32 %21, -1
   call void @llvm.assume(i1 %24)

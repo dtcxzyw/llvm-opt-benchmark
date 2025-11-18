@@ -475,7 +475,7 @@ define hidden void @_ZN8rawspeed17KodakDecompressor10decompressEv(ptr noundef no
   tail call void @llvm.assume(i1 %19)
   %20 = icmp sgt i32 %15, -1
   tail call void @llvm.assume(i1 %20)
-  %21 = icmp ugt i32 %17, 1
+  %21 = icmp ne i32 %18, 0
   tail call void @llvm.assume(i1 %21)
   %22 = icmp sgt i32 %18, -1
   tail call void @llvm.assume(i1 %22)

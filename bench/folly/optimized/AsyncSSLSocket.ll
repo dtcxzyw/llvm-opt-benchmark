@@ -13636,7 +13636,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit73: ; preds =
   %207 = load i64, ptr %206, align 1
   store i64 %207, ptr %205, align 1
   %208 = lshr i64 %.01720.i, 8
-  %.not.i = icmp ult i64 %.01720.i, 256
+  %.not.i = icmp eq i64 %208, 0
   br i1 %.not.i, label %.preheader.i, label %.preheader19.i, !llvm.loop !552
 
 .preheader.i:                                     ; preds = %.preheader19.i, %.preheader.i

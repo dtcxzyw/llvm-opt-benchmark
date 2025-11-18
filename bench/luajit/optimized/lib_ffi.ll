@@ -1978,12 +1978,12 @@ define internal noundef i32 @lj_cf_ffi_cast(ptr noundef %0) #0 {
   br label %ffi_checkctype.exit
 
 ffi_checkctype.exit:                              ; preds = %30, %39, %42
-  %.0.i28 = phi i32 [ %32, %30 ], [ %41, %39 ], [ %43, %42 ]
+  %.0.i27 = phi i32 [ %32, %30 ], [ %41, %39 ], [ %43, %42 ]
   %44 = load ptr, ptr %8, align 8, !tbaa !51
   br label %45
 
 45:                                               ; preds = %45, %ffi_checkctype.exit
-  %.pn.in = phi i32 [ %.0.i28, %ffi_checkctype.exit ], [ %48, %45 ]
+  %.pn.in = phi i32 [ %.0.i27, %ffi_checkctype.exit ], [ %48, %45 ]
   %.pn = zext i32 %.pn.in to i64
   %.0.i = getelementptr inbounds nuw %struct.CType, ptr %44, i64 %.pn
   %46 = load i32, ptr %.0.i, align 8, !tbaa !52
@@ -1996,67 +1996,63 @@ ctype_raw.exit:                                   ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %50, ptr %12, align 8, !tbaa !4
   %51 = load i32, ptr %.0.i, align 8, !tbaa !52
-  %.fr = freeze i32 %51
-  %52 = icmp ult i32 %.fr, 268435456
-  br i1 %52, label %55, label %switch.early.test
-
-switch.early.test:                                ; preds = %ctype_raw.exit
-  %53 = lshr i32 %.fr, 28
-  switch i32 %53, label %54 [
-    i32 5, label %55
-    i32 2, label %55
+  %52 = lshr i32 %51, 28
+  switch i32 %52, label %53 [
+    i32 0, label %54
+    i32 2, label %54
+    i32 5, label %54
   ]
 
-54:                                               ; preds = %switch.early.test
+53:                                               ; preds = %ctype_raw.exit
   call void @lj_err_arg(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 3016) #10
   unreachable
 
-55:                                               ; preds = %switch.early.test, %switch.early.test, %ctype_raw.exit
-  %56 = load i64, ptr %49, align 8, !tbaa !23
-  %.mask = and i64 %56, -140737488355328
-  %57 = icmp eq i64 %.mask, -1548112371908608
-  br i1 %57, label %58, label %65
+54:                                               ; preds = %ctype_raw.exit, %ctype_raw.exit, %ctype_raw.exit
+  %55 = load i64, ptr %49, align 8, !tbaa !23
+  %.mask = and i64 %55, -140737488355328
+  %56 = icmp eq i64 %.mask, -1548112371908608
+  br i1 %56, label %57, label %64
 
-58:                                               ; preds = %55
-  %59 = and i64 %56, 140737488355327
-  %60 = inttoptr i64 %59 to ptr
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 10
-  %62 = load i16, ptr %61, align 2, !tbaa !23
-  %63 = zext i16 %62 to i32
-  %64 = icmp eq i32 %.0.i28, %63
-  br i1 %64, label %86, label %65
+57:                                               ; preds = %54
+  %58 = and i64 %55, 140737488355327
+  %59 = inttoptr i64 %58 to ptr
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 10
+  %61 = load i16, ptr %60, align 2, !tbaa !23
+  %62 = zext i16 %61 to i32
+  %63 = icmp eq i32 %.0.i27, %62
+  br i1 %63, label %85, label %64
 
-65:                                               ; preds = %58, %55
-  %66 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
-  %67 = load i32, ptr %66, align 4, !tbaa !58
-  %68 = load ptr, ptr %9, align 8, !tbaa !42
-  %69 = zext i32 %67 to i64
-  %70 = add nuw nsw i64 %69, 16
-  %71 = call ptr @lj_mem_newgco(ptr noundef %68, i64 noundef %70) #9
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 9
-  store i8 10, ptr %72, align 1, !tbaa !79
-  %73 = trunc i32 %.0.i28 to i16
-  %74 = getelementptr inbounds nuw i8, ptr %71, i64 10
-  store i16 %73, ptr %74, align 2, !tbaa !48
-  %75 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  call void @lj_cconv_ct_tv(ptr noundef nonnull %8, ptr noundef nonnull %.0.i, ptr noundef nonnull %75, ptr noundef nonnull %49, i32 noundef 1) #9
-  %76 = ptrtoint ptr %71 to i64
-  %77 = or i64 %76, -1548112371908608
-  store i64 %77, ptr %49, align 8, !tbaa !23
-  %78 = load i64, ptr %3, align 8, !tbaa !24
-  %79 = inttoptr i64 %78 to ptr
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %81 = load i64, ptr %80, align 8, !tbaa !46
-  %82 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %83 = load i64, ptr %82, align 8, !tbaa !47
-  %.not = icmp ult i64 %81, %83
-  br i1 %.not, label %86, label %84, !prof !27
+64:                                               ; preds = %57, %54
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
+  %66 = load i32, ptr %65, align 4, !tbaa !58
+  %67 = load ptr, ptr %9, align 8, !tbaa !42
+  %68 = zext i32 %66 to i64
+  %69 = add nuw nsw i64 %68, 16
+  %70 = call ptr @lj_mem_newgco(ptr noundef %67, i64 noundef %69) #9
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 9
+  store i8 10, ptr %71, align 1, !tbaa !79
+  %72 = trunc i32 %.0.i27 to i16
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 10
+  store i16 %72, ptr %73, align 2, !tbaa !48
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  call void @lj_cconv_ct_tv(ptr noundef nonnull %8, ptr noundef nonnull %.0.i, ptr noundef nonnull %74, ptr noundef nonnull %49, i32 noundef 1) #9
+  %75 = ptrtoint ptr %70 to i64
+  %76 = or i64 %75, -1548112371908608
+  store i64 %76, ptr %49, align 8, !tbaa !23
+  %77 = load i64, ptr %3, align 8, !tbaa !24
+  %78 = inttoptr i64 %77 to ptr
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
+  %80 = load i64, ptr %79, align 8, !tbaa !46
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 24
+  %82 = load i64, ptr %81, align 8, !tbaa !47
+  %.not = icmp ult i64 %80, %82
+  br i1 %.not, label %85, label %83, !prof !27
 
-84:                                               ; preds = %65
-  %85 = call i32 @lj_gc_step(ptr noundef nonnull %0) #9
-  br label %86
+83:                                               ; preds = %64
+  %84 = call i32 @lj_gc_step(ptr noundef nonnull %0) #9
+  br label %85
 
-86:                                               ; preds = %65, %84, %58
+85:                                               ; preds = %64, %83, %57
   ret i32 1
 }
 
@@ -2320,7 +2316,7 @@ ffi_checkctype.exit:                              ; preds = %30, %39, %42
   %45 = load i64, ptr %44, align 8, !tbaa !23
   %.mask = and i64 %45, -140737488355328
   %46 = icmp eq i64 %.mask, -1548112371908608
-  br i1 %46, label %47, label %104
+  br i1 %46, label %47, label %102
 
 47:                                               ; preds = %ffi_checkctype.exit
   %48 = and i64 %45, 140737488355327
@@ -2344,7 +2340,7 @@ ffi_checkctype.exit:                              ; preds = %30, %39, %42
   %60 = call ptr @lj_ctype_rawref(ptr noundef nonnull %8, i32 noundef %.0.i42) #9
   %61 = call ptr @lj_ctype_rawref(ptr noundef nonnull %8, i32 noundef %59) #9
   %62 = icmp eq ptr %60, %61
-  br i1 %62, label %99, label %63
+  br i1 %62, label %97, label %63
 
 63:                                               ; preds = %58
   %64 = load i32, ptr %60, align 8, !tbaa !52
@@ -2352,7 +2348,7 @@ ffi_checkctype.exit:                              ; preds = %30, %39, %42
   %66 = load i32, ptr %61, align 8, !tbaa !52
   %67 = lshr i32 %66, 28
   %68 = icmp eq i32 %65, %67
-  br i1 %68, label %69, label %87
+  br i1 %68, label %69, label %85
 
 69:                                               ; preds = %63
   %70 = getelementptr inbounds nuw i8, ptr %60, i64 4
@@ -2360,7 +2356,7 @@ ffi_checkctype.exit:                              ; preds = %30, %39, %42
   %72 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %73 = load i32, ptr %72, align 4, !tbaa !58
   %74 = icmp eq i32 %71, %73
-  br i1 %74, label %75, label %87
+  br i1 %74, label %75, label %85
 
 75:                                               ; preds = %69
   %.mask41 = and i32 %64, -536870912
@@ -2369,64 +2365,64 @@ ffi_checkctype.exit:                              ; preds = %30, %39, %42
 
 77:                                               ; preds = %75
   %78 = call i32 @lj_cconv_compatptr(ptr noundef nonnull %8, ptr noundef nonnull %60, ptr noundef nonnull %61, i32 noundef 8) #9
-  br label %99
+  br label %97
 
 79:                                               ; preds = %75
-  %80 = icmp ult i32 %64, 268435456
-  %81 = icmp eq i32 %65, 4
-  %or.cond = or i1 %80, %81
-  br i1 %or.cond, label %82, label %99
+  switch i32 %65, label %97 [
+    i32 0, label %80
+    i32 4, label %80
+  ]
 
-82:                                               ; preds = %79
-  %83 = xor i32 %66, %64
-  %84 = and i32 %83, -54525953
-  %85 = icmp eq i32 %84, 0
-  %86 = zext i1 %85 to i32
-  br label %99
+80:                                               ; preds = %79, %79
+  %81 = xor i32 %66, %64
+  %82 = and i32 %81, -54525953
+  %83 = icmp eq i32 %82, 0
+  %84 = zext i1 %83 to i32
+  br label %97
 
-87:                                               ; preds = %69, %63
+85:                                               ; preds = %69, %63
   %.mask39 = and i32 %64, -268435456
-  %88 = icmp eq i32 %.mask39, 268435456
+  %86 = icmp eq i32 %.mask39, 268435456
   %.mask40 = and i32 %66, -268435456
-  %89 = icmp eq i32 %.mask40, 536870912
-  %or.cond43 = and i1 %88, %89
-  br i1 %or.cond43, label %.preheader, label %99
+  %87 = icmp eq i32 %.mask40, 536870912
+  %or.cond = and i1 %86, %87
+  br i1 %or.cond, label %.preheader, label %97
 
-.preheader:                                       ; preds = %87
-  %90 = load ptr, ptr %8, align 8, !tbaa !51
-  br label %91
+.preheader:                                       ; preds = %85
+  %88 = load ptr, ptr %8, align 8, !tbaa !51
+  br label %89
 
-91:                                               ; preds = %.preheader, %91
-  %92 = phi i32 [ %96, %91 ], [ %66, %.preheader ]
-  %93 = and i32 %92, 65535
-  %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds nuw %struct.CType, ptr %90, i64 %94
-  %96 = load i32, ptr %95, align 8, !tbaa !52
-  %97 = icmp slt i32 %96, -1879048192
-  br i1 %97, label %91, label %ctype_rawchild.exit, !llvm.loop !57
+89:                                               ; preds = %.preheader, %89
+  %90 = phi i32 [ %94, %89 ], [ %66, %.preheader ]
+  %91 = and i32 %90, 65535
+  %92 = zext nneg i32 %91 to i64
+  %93 = getelementptr inbounds nuw %struct.CType, ptr %88, i64 %92
+  %94 = load i32, ptr %93, align 8, !tbaa !52
+  %95 = icmp slt i32 %94, -1879048192
+  br i1 %95, label %89, label %ctype_rawchild.exit, !llvm.loop !57
 
-ctype_rawchild.exit:                              ; preds = %91
-  %98 = icmp eq ptr %60, %95
-  %spec.select = zext i1 %98 to i32
-  br label %99
+ctype_rawchild.exit:                              ; preds = %89
+  %96 = icmp eq ptr %60, %93
+  %spec.select = zext i1 %96 to i32
+  br label %97
 
-99:                                               ; preds = %ctype_rawchild.exit, %79, %58, %82, %77, %87
-  %.1 = phi i32 [ %78, %77 ], [ %86, %82 ], [ 0, %87 ], [ 1, %58 ], [ 0, %79 ], [ %spec.select, %ctype_rawchild.exit ]
-  %100 = add nsw i32 %.1, 1
-  %101 = zext i32 %100 to i64
-  %102 = shl i64 %101, 47
-  %103 = xor i64 %102, -1
-  br label %104
+97:                                               ; preds = %ctype_rawchild.exit, %79, %58, %80, %77, %85
+  %.1 = phi i32 [ %78, %77 ], [ %84, %80 ], [ 0, %85 ], [ 1, %58 ], [ 0, %79 ], [ %spec.select, %ctype_rawchild.exit ]
+  %98 = add nsw i32 %.1, 1
+  %99 = zext i32 %98 to i64
+  %100 = shl i64 %99, 47
+  %101 = xor i64 %100, -1
+  br label %102
 
-104:                                              ; preds = %99, %ffi_checkctype.exit
-  %.0 = phi i64 [ %103, %99 ], [ -140737488355329, %ffi_checkctype.exit ]
-  %105 = load ptr, ptr %12, align 8, !tbaa !4
-  %106 = getelementptr inbounds i8, ptr %105, i64 -8
-  store i64 %.0, ptr %106, align 8, !tbaa !23
-  %107 = load i64, ptr %3, align 8, !tbaa !24
-  %108 = inttoptr i64 %107 to ptr
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 240
-  store i64 %.0, ptr %109, align 8, !tbaa !23
+102:                                              ; preds = %97, %ffi_checkctype.exit
+  %.0 = phi i64 [ %101, %97 ], [ -140737488355329, %ffi_checkctype.exit ]
+  %103 = load ptr, ptr %12, align 8, !tbaa !4
+  %104 = getelementptr inbounds i8, ptr %103, i64 -8
+  store i64 %.0, ptr %104, align 8, !tbaa !23
+  %105 = load i64, ptr %3, align 8, !tbaa !24
+  %106 = inttoptr i64 %105 to ptr
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 240
+  store i64 %.0, ptr %107, align 8, !tbaa !23
   ret i32 1
 }
 

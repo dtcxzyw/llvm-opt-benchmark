@@ -54726,7 +54726,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6custom12_GLOBAL__N_14FaceE
 90:                                               ; preds = %.lr.ph.i.i.i.i19.i
   %91 = getelementptr inbounds %"struct.custom::(anonymous namespace)::Face", ptr %0, i64 %.06.i.i.i.i20.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %91, ptr noundef nonnull align 4 dereferenceable(76) %87, i64 76, i1 false), !tbaa.struct !1147
-  %.not10.i.i28.i = icmp ult i64 %.097.in.i.i.i.i21.i, 2
+  %.not10.i.i28.i = icmp eq i64 %.097.i.i89.i.i22.i, 0
   br i1 %.not10.i.i28.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6custom12_GLOBAL__N_14FaceESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS4_6runNMSERS8_fbEUlRKS4_SE_E_EEEvT_SH_SH_RT0_.exit.i24.i, label %.lr.ph.i.i.i.i19.i, !llvm.loop !1160
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6custom12_GLOBAL__N_14FaceESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS4_6runNMSERS8_fbEUlRKS4_SE_E_EEEvT_SH_SH_RT0_.exit.i24.i: ; preds = %90, %.lr.ph.i.i.i.i19.i, %86

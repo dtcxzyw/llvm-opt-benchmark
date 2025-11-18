@@ -7669,16 +7669,13 @@ dissect_supported_address_types_parameter.exit:   ; preds = %142, %122
 153:                                              ; preds = %144
   %154 = zext i16 %151 to i32
   %155 = add nsw i32 %154, -16
-  %.not.i112 = icmp samesign ult i32 %155, 2
-  br i1 %.not.i112, label %dissect_ipv4_parameter.exit, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %153
   %156 = lshr i32 %155, 1
-  br label %.lr.ph.i113
+  %.not.i112 = icmp eq i32 %156, 0
+  br i1 %.not.i112, label %dissect_ipv4_parameter.exit, label %.lr.ph.i113
 
-.lr.ph.i113:                                      ; preds = %.lr.ph.i113, %.lr.ph.preheader.i
-  %.02.i = phi i32 [ %159, %.lr.ph.i113 ], [ 16, %.lr.ph.preheader.i ]
-  %.0151.i = phi i32 [ %160, %.lr.ph.i113 ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i113:                                      ; preds = %153, %.lr.ph.i113
+  %.02.i = phi i32 [ %159, %.lr.ph.i113 ], [ 16, %153 ]
+  %.0151.i = phi i32 [ %160, %.lr.ph.i113 ], [ 0, %153 ]
   %157 = load i32, ptr @hf_stream_reset_sid, align 4
   %158 = call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %157, ptr noundef %0, i32 noundef %.02.i, i32 noundef 2, i32 noundef 0)
   %159 = add i32 %.02.i, 2
@@ -7696,22 +7693,19 @@ dissect_supported_address_types_parameter.exit:   ; preds = %142, %122
 166:                                              ; preds = %161
   %167 = zext i16 %164 to i32
   %168 = add nsw i32 %167, -8
-  %.not.i115 = icmp samesign ult i32 %168, 2
-  br i1 %.not.i115, label %dissect_ipv4_parameter.exit, label %.lr.ph.preheader.i116
-
-.lr.ph.preheader.i116:                            ; preds = %166
   %169 = lshr i32 %168, 1
-  br label %.lr.ph.i117
+  %.not.i115 = icmp eq i32 %169, 0
+  br i1 %.not.i115, label %dissect_ipv4_parameter.exit, label %.lr.ph.i116
 
-.lr.ph.i117:                                      ; preds = %.lr.ph.i117, %.lr.ph.preheader.i116
-  %.02.i118 = phi i32 [ %172, %.lr.ph.i117 ], [ 8, %.lr.ph.preheader.i116 ]
-  %.0111.i = phi i32 [ %173, %.lr.ph.i117 ], [ 0, %.lr.ph.preheader.i116 ]
+.lr.ph.i116:                                      ; preds = %166, %.lr.ph.i116
+  %.02.i117 = phi i32 [ %172, %.lr.ph.i116 ], [ 8, %166 ]
+  %.0111.i = phi i32 [ %173, %.lr.ph.i116 ], [ 0, %166 ]
   %170 = load i32, ptr @hf_stream_reset_sid, align 4
-  %171 = call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %170, ptr noundef %0, i32 noundef %.02.i118, i32 noundef 2, i32 noundef 0)
-  %172 = add i32 %.02.i118, 2
+  %171 = call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %170, ptr noundef %0, i32 noundef %.02.i117, i32 noundef 2, i32 noundef 0)
+  %172 = add i32 %.02.i117, 2
   %173 = add nuw nsw i32 %.0111.i, 1
-  %exitcond.not.i119 = icmp eq i32 %173, %169
-  br i1 %exitcond.not.i119, label %dissect_ipv4_parameter.exit, label %.lr.ph.i117, !llvm.loop !51
+  %exitcond.not.i118 = icmp eq i32 %173, %169
+  br i1 %exitcond.not.i118, label %dissect_ipv4_parameter.exit, label %.lr.ph.i116, !llvm.loop !51
 
 174:                                              ; preds = %43
   %175 = load i32, ptr @hf_stream_reset_req_seq_nr, align 4
@@ -7782,17 +7776,17 @@ dissect_supported_address_types_parameter.exit:   ; preds = %142, %122
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %220, ptr noundef nonnull @.str.525)
   %221 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2)
   %222 = add i16 %221, -4
-  %.not.i120 = icmp eq i16 %222, 0
-  br i1 %.not.i120, label %dissect_chunks_parameter.exit, label %.lr.ph.i121
+  %.not.i119 = icmp eq i16 %222, 0
+  br i1 %.not.i119, label %dissect_chunks_parameter.exit, label %.lr.ph.i120
 
-.lr.ph.i121:                                      ; preds = %219
+.lr.ph.i120:                                      ; preds = %219
   %223 = zext i16 %222 to i32
   %224 = add nsw i32 %223, -1
   br label %225
 
-225:                                              ; preds = %234, %.lr.ph.i121
-  %indvars.iv.i122 = phi i32 [ 0, %.lr.ph.i121 ], [ %indvars.iv.next.i123, %234 ]
-  %.019.i = phi i32 [ 4, %.lr.ph.i121 ], [ %235, %234 ]
+225:                                              ; preds = %234, %.lr.ph.i120
+  %indvars.iv.i121 = phi i32 [ 0, %.lr.ph.i120 ], [ %indvars.iv.next.i122, %234 ]
+  %.019.i = phi i32 [ 4, %.lr.ph.i120 ], [ %235, %234 ]
   %226 = load i32, ptr @hf_chunks_to_auth, align 4
   %227 = and i32 %.019.i, 65535
   %228 = call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %226, ptr noundef %0, i32 noundef %227, i32 noundef 1, i32 noundef 0)
@@ -7800,7 +7794,7 @@ dissect_supported_address_types_parameter.exit:   ; preds = %142, %122
   %230 = zext i8 %229 to i32
   %231 = call ptr @val_to_str_const(i32 noundef %230, ptr noundef nonnull @chunk_type_values, ptr noundef nonnull @.str.510)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %220, ptr noundef nonnull @.str.514, ptr noundef %231)
-  %232 = icmp samesign ugt i32 %224, %indvars.iv.i122
+  %232 = icmp samesign ugt i32 %224, %indvars.iv.i121
   br i1 %232, label %233, label %234
 
 233:                                              ; preds = %225
@@ -7808,10 +7802,10 @@ dissect_supported_address_types_parameter.exit:   ; preds = %142, %122
   br label %234
 
 234:                                              ; preds = %233, %225
-  %indvars.iv.next.i123 = add nuw nsw i32 %indvars.iv.i122, 1
+  %indvars.iv.next.i122 = add nuw nsw i32 %indvars.iv.i121, 1
   %235 = add nuw nsw i32 %227, 1
-  %exitcond.not.i124 = icmp eq i32 %indvars.iv.next.i123, %223
-  br i1 %exitcond.not.i124, label %dissect_chunks_parameter.exit, label %225, !llvm.loop !52
+  %exitcond.not.i123 = icmp eq i32 %indvars.iv.next.i122, %223
+  br i1 %exitcond.not.i123, label %dissect_chunks_parameter.exit, label %225, !llvm.loop !52
 
 dissect_chunks_parameter.exit:                    ; preds = %234, %219
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %220, ptr noundef nonnull @.str.523)
@@ -7825,24 +7819,24 @@ dissect_chunks_parameter.exit:                    ; preds = %234, %219
   %240 = add nsw i32 %239, -4
   %241 = sdiv i32 %240, 2
   %242 = and i32 %241, 65535
-  %.not.i125 = icmp eq i32 %242, 0
-  br i1 %.not.i125, label %dissect_hmac_algo_parameter.exit, label %.lr.ph.i126
+  %.not.i124 = icmp eq i32 %242, 0
+  br i1 %.not.i124, label %dissect_hmac_algo_parameter.exit, label %.lr.ph.i125
 
-.lr.ph.i126:                                      ; preds = %236
+.lr.ph.i125:                                      ; preds = %236
   %243 = add nsw i32 %242, -1
   br label %244
 
-244:                                              ; preds = %253, %.lr.ph.i126
-  %indvars.iv.i127 = phi i32 [ 0, %.lr.ph.i126 ], [ %indvars.iv.next.i129, %253 ]
-  %.019.i128 = phi i32 [ 4, %.lr.ph.i126 ], [ %254, %253 ]
+244:                                              ; preds = %253, %.lr.ph.i125
+  %indvars.iv.i126 = phi i32 [ 0, %.lr.ph.i125 ], [ %indvars.iv.next.i128, %253 ]
+  %.019.i127 = phi i32 [ 4, %.lr.ph.i125 ], [ %254, %253 ]
   %245 = load i32, ptr @hf_hmac_id, align 4
-  %246 = and i32 %.019.i128, 65535
+  %246 = and i32 %.019.i127, 65535
   %247 = call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %245, ptr noundef %0, i32 noundef %246, i32 noundef 2, i32 noundef 0)
   %248 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %246)
   %249 = zext i16 %248 to i32
   %250 = call ptr @val_to_str_const(i32 noundef %249, ptr noundef nonnull @hmac_id_values, ptr noundef nonnull @.str.510)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %237, ptr noundef nonnull @.str.514, ptr noundef %250)
-  %251 = icmp samesign ugt i32 %243, %indvars.iv.i127
+  %251 = icmp samesign ugt i32 %243, %indvars.iv.i126
   br i1 %251, label %252, label %253
 
 252:                                              ; preds = %244
@@ -7850,10 +7844,10 @@ dissect_chunks_parameter.exit:                    ; preds = %234, %219
   br label %253
 
 253:                                              ; preds = %252, %244
-  %indvars.iv.next.i129 = add nuw nsw i32 %indvars.iv.i127, 1
+  %indvars.iv.next.i128 = add nuw nsw i32 %indvars.iv.i126, 1
   %254 = add nuw nsw i32 %246, 2
-  %exitcond.not.i130 = icmp eq i32 %indvars.iv.next.i129, %242
-  br i1 %exitcond.not.i130, label %dissect_hmac_algo_parameter.exit, label %244, !llvm.loop !53
+  %exitcond.not.i129 = icmp eq i32 %indvars.iv.next.i128, %242
+  br i1 %exitcond.not.i129, label %dissect_hmac_algo_parameter.exit, label %244, !llvm.loop !53
 
 dissect_hmac_algo_parameter.exit:                 ; preds = %253, %236
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %237, ptr noundef nonnull @.str.523)
@@ -7864,25 +7858,25 @@ dissect_hmac_algo_parameter.exit:                 ; preds = %253, %236
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %256, ptr noundef nonnull @.str.518)
   %257 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2)
   %258 = add i16 %257, -4
-  %.not.i131 = icmp eq i16 %258, 0
-  br i1 %.not.i131, label %dissect_supported_extensions_parameter.exit, label %.lr.ph.i132
+  %.not.i130 = icmp eq i16 %258, 0
+  br i1 %.not.i130, label %dissect_supported_extensions_parameter.exit, label %.lr.ph.i131
 
-.lr.ph.i132:                                      ; preds = %255
+.lr.ph.i131:                                      ; preds = %255
   %259 = zext i16 %258 to i32
   %260 = add nsw i32 %259, -1
   br label %261
 
-261:                                              ; preds = %270, %.lr.ph.i132
-  %indvars.iv.i133 = phi i32 [ 0, %.lr.ph.i132 ], [ %indvars.iv.next.i135, %270 ]
-  %.019.i134 = phi i32 [ 4, %.lr.ph.i132 ], [ %271, %270 ]
+261:                                              ; preds = %270, %.lr.ph.i131
+  %indvars.iv.i132 = phi i32 [ 0, %.lr.ph.i131 ], [ %indvars.iv.next.i134, %270 ]
+  %.019.i133 = phi i32 [ 4, %.lr.ph.i131 ], [ %271, %270 ]
   %262 = load i32, ptr @hf_supported_chunk_type, align 4
-  %263 = and i32 %.019.i134, 65535
+  %263 = and i32 %.019.i133, 65535
   %264 = call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %262, ptr noundef %0, i32 noundef %263, i32 noundef 1, i32 noundef 0)
   %265 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %263)
   %266 = zext i8 %265 to i32
   %267 = call ptr @val_to_str_const(i32 noundef %266, ptr noundef nonnull @chunk_type_values, ptr noundef nonnull @.str.510)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %256, ptr noundef nonnull @.str.514, ptr noundef %267)
-  %268 = icmp samesign ugt i32 %260, %indvars.iv.i133
+  %268 = icmp samesign ugt i32 %260, %indvars.iv.i132
   br i1 %268, label %269, label %270
 
 269:                                              ; preds = %261
@@ -7890,10 +7884,10 @@ dissect_hmac_algo_parameter.exit:                 ; preds = %253, %236
   br label %270
 
 270:                                              ; preds = %269, %261
-  %indvars.iv.next.i135 = add nuw nsw i32 %indvars.iv.i133, 1
+  %indvars.iv.next.i134 = add nuw nsw i32 %indvars.iv.i132, 1
   %271 = add nuw nsw i32 %263, 1
-  %exitcond.not.i136 = icmp eq i32 %indvars.iv.next.i135, %259
-  br i1 %exitcond.not.i136, label %dissect_supported_extensions_parameter.exit, label %261, !llvm.loop !54
+  %exitcond.not.i135 = icmp eq i32 %indvars.iv.next.i134, %259
+  br i1 %exitcond.not.i135, label %dissect_supported_extensions_parameter.exit, label %261, !llvm.loop !54
 
 dissect_supported_extensions_parameter.exit:      ; preds = %270, %255
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %256, ptr noundef nonnull @.str.523)
@@ -8053,8 +8047,8 @@ dissect_set_primary_address_parameter.exit:       ; preds = %341, %345
   %363 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2)
   %364 = add i16 %363, -4
   %365 = zext i16 %364 to i32
-  %.not.i137 = icmp eq i16 %364, 0
-  br i1 %.not.i137, label %dissect_unknown_parameter.exit, label %366
+  %.not.i136 = icmp eq i16 %364, 0
+  br i1 %.not.i136, label %dissect_unknown_parameter.exit, label %366
 
 366:                                              ; preds = %360
   %367 = load i32, ptr @hf_parameter_value, align 4
@@ -8068,7 +8062,7 @@ dissect_unknown_parameter.exit:                   ; preds = %360, %366
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %361, ptr noundef nonnull @.str.541, i32 noundef %369, i32 noundef %365, ptr noundef nonnull %371)
   br label %dissect_ipv4_parameter.exit
 
-dissect_ipv4_parameter.exit:                      ; preds = %.lr.ph.i117, %.lr.ph.i113, %43, %214, %211, %43, %188, %184, %177, %166, %161, %153, %144, %91, %87, %83, %72, %68, %64, %dissect_unknown_parameter.exit, %355, %350, %dissect_set_primary_address_parameter.exit, %dissect_error_cause_indication_parameter.exit, %dissect_del_ip_address_parameter.exit, %dissect_add_ip_address_parameter.exit, %dissect_supported_extensions_parameter.exit, %dissect_hmac_algo_parameter.exit, %dissect_chunks_parameter.exit, %205, %198, %191, %174, %dissect_supported_address_types_parameter.exit, %dissect_hostname_parameter.exit, %104, %102, %dissect_state_cookie_parameter.exit, %dissect_heartbeat_info_parameter.exit
+dissect_ipv4_parameter.exit:                      ; preds = %.lr.ph.i116, %.lr.ph.i113, %43, %214, %211, %43, %188, %184, %177, %166, %161, %153, %144, %91, %87, %83, %72, %68, %64, %dissect_unknown_parameter.exit, %355, %350, %dissect_set_primary_address_parameter.exit, %dissect_error_cause_indication_parameter.exit, %dissect_del_ip_address_parameter.exit, %dissect_add_ip_address_parameter.exit, %dissect_supported_extensions_parameter.exit, %dissect_hmac_algo_parameter.exit, %dissect_chunks_parameter.exit, %205, %198, %191, %174, %dissect_supported_address_types_parameter.exit, %dissect_hostname_parameter.exit, %104, %102, %dissect_state_cookie_parameter.exit, %dissect_heartbeat_info_parameter.exit
   call void @decrement_dissection_depth(ptr noundef %1)
   %.not104 = icmp eq i16 %10, %14
   br i1 %.not104, label %376, label %372

@@ -197,13 +197,13 @@ define hidden { ptr, i32 } @_ZNSt3__120__d2fixed_buffered_nB8ne210000EPcS0_dj(pt
 
 21:                                               ; preds = %4
   %22 = and i64 %5, 4503599627370495
-  %23 = icmp ult i64 %5, 4503599627370496
-  %24 = lshr i64 %5, 52
-  %25 = trunc nuw nsw i64 %24 to i32
+  %23 = lshr i64 %5, 52
+  %24 = icmp eq i64 %23, 0
+  %25 = trunc nuw nsw i64 %23 to i32
   %26 = add nsw i32 %25, -1075
   %27 = or disjoint i64 %22, 4503599627370496
-  %.0210 = select i1 %23, i64 %22, i64 %27
-  %.0209 = select i1 %23, i32 -1074, i32 %26
+  %.0210 = select i1 %24, i64 %22, i64 %27
+  %.0209 = select i1 %24, i32 -1074, i32 %26
   %28 = sub nsw i32 0, %.0209
   %29 = icmp sgt i32 %.0209, -53
   br i1 %29, label %30, label %.thread284
@@ -974,13 +974,13 @@ define hidden { ptr, i32 } @_ZNSt3__118__d2exp_buffered_nB8ne210000EPcS0_dj(ptr 
 
 24:                                               ; preds = %4
   %25 = and i64 %5, 4503599627370495
-  %26 = icmp ult i64 %5, 4503599627370496
-  %27 = lshr i64 %5, 52
-  %28 = trunc nuw nsw i64 %27 to i32
+  %26 = lshr i64 %5, 52
+  %27 = icmp eq i64 %26, 0
+  %28 = trunc nuw nsw i64 %26 to i32
   %29 = add nsw i32 %28, -1075
   %30 = or disjoint i64 %25, 4503599627370496
-  %.0241 = select i1 %26, i64 %25, i64 %30
-  %.0233 = select i1 %26, i32 -1074, i32 %29
+  %.0241 = select i1 %27, i64 %25, i64 %30
+  %.0233 = select i1 %27, i32 -1074, i32 %29
   %31 = sub nsw i32 0, %.0233
   %.not = icmp eq i32 %3, 0
   %32 = add i32 %3, 1

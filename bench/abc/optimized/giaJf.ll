@@ -2785,7 +2785,7 @@ define i32 @Jf_CutRef_rec(ptr noundef readonly captures(none) %0, ptr noundef re
   %11 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !14
   %13 = ashr i32 %12, 1
-  %.not17 = icmp ult i32 %12, 2
+  %.not17 = icmp eq i32 %13, 0
   br i1 %.not17, label %.critedge, label %14
 
 14:                                               ; preds = %10
@@ -2868,7 +2868,7 @@ define i32 @Jf_CutDeref_rec(ptr noundef readonly captures(none) %0, ptr noundef 
   %11 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !14
   %13 = ashr i32 %12, 1
-  %.not17 = icmp ult i32 %12, 2
+  %.not17 = icmp eq i32 %13, 0
   br i1 %.not17, label %.critedge, label %14
 
 14:                                               ; preds = %10
@@ -2952,7 +2952,7 @@ define i32 @Jf_CutAreaRef_rec(ptr noundef readonly captures(none) %0, ptr nounde
   %12 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !14
   %14 = ashr i32 %13, 1
-  %.not19 = icmp ult i32 %13, 2
+  %.not19 = icmp eq i32 %14, 0
   br i1 %.not19, label %.critedge, label %15
 
 15:                                               ; preds = %11
@@ -3102,7 +3102,7 @@ define i32 @Jf_CutAreaRefEdge_rec(ptr noundef readonly captures(none) %0, ptr no
   %11 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !14
   %13 = ashr i32 %12, 1
-  %.not20 = icmp ult i32 %12, 2
+  %.not20 = icmp eq i32 %13, 0
   br i1 %.not20, label %.critedge, label %14
 
 14:                                               ; preds = %10
@@ -3250,7 +3250,7 @@ define noundef range(i32 0, 2) i32 @Jf_CutCheckMffc_rec(ptr noundef readonly cap
   %11 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !14
   %13 = ashr i32 %12, 1
-  %.not24 = icmp ult i32 %12, 2
+  %.not24 = icmp eq i32 %13, 0
   br i1 %.not24, label %.critedge, label %14
 
 14:                                               ; preds = %10

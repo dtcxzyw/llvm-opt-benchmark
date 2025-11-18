@@ -8169,7 +8169,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_11BooleanTypeEvE9VisitVoidIZNS_7c
   br i1 %exitcond55.not.i.i.i.i.i, label %.loopexit.loopexit.i.i.i.i.i, label %.lr.ph47.i.i.i.i.i, !llvm.loop !333
 
 168:                                              ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i
-  %169 = icmp ult i32 %.sroa.0.0.insert.insert.i.i.i, 65536
+  %169 = icmp eq i32 %.sroa.4.0.extract.shift.i.i, 0
   %170 = icmp sgt i16 %.sroa.0.0.extract.trunc.i.i, 0
   br i1 %169, label %.preheader35.i.i.i.i.i, label %.preheader37.i.i.i.i.i
 
@@ -8448,7 +8448,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_8Int8TypeEvE9VisitVoidIZNS_7compu
   br i1 %exitcond25.not.i.i.i.i.i, label %.loopexit.loopexit.i.i.i.i.i108, label %.lr.ph17.i.i.i.i.i, !llvm.loop !342
 
 302:                                              ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i116
-  %303 = icmp ult i32 %.sroa.0.0.insert.insert.i.i.i117, 65536
+  %303 = icmp eq i32 %.sroa.4.0.extract.shift.i.i119, 0
   %304 = icmp sgt i16 %.sroa.0.0.extract.trunc.i.i118, 0
   br i1 %303, label %.preheader5.i.i.i.i.i, label %.preheader7.i.i.i.i.i
 
@@ -8725,7 +8725,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9UInt8TypeEvE9VisitVoidIZNS_7comp
   br i1 %exitcond25.not.i.i.i.i.i153, label %.loopexit.loopexit.i.i.i.i.i154, label %.lr.ph17.i.i.i.i.i147, !llvm.loop !351
 
 434:                                              ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i162
-  %435 = icmp ult i32 %.sroa.0.0.insert.insert.i.i.i163, 65536
+  %435 = icmp eq i32 %.sroa.4.0.extract.shift.i.i165, 0
   %436 = icmp sgt i16 %.sroa.0.0.extract.trunc.i.i164, 0
   br i1 %435, label %.preheader5.i.i.i.i.i178, label %.preheader7.i.i.i.i.i168
 
@@ -9002,7 +9002,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int16TypeEvE9VisitVoidIZNS_7comp
   br i1 %exitcond25.not.i.i.i.i.i206, label %.loopexit.loopexit.i.i.i.i.i207, label %.lr.ph17.i.i.i.i.i200, !llvm.loop !361
 
 566:                                              ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i215
-  %567 = icmp ult i32 %.sroa.0.0.insert.insert.i.i.i216, 65536
+  %567 = icmp eq i32 %.sroa.4.0.extract.shift.i.i218, 0
   %568 = icmp sgt i16 %.sroa.0.0.extract.trunc.i.i217, 0
   br i1 %567, label %.preheader5.i.i.i.i.i231, label %.preheader7.i.i.i.i.i221
 
@@ -9279,7 +9279,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE9VisitVoidIZNS_7co
   br i1 %exitcond25.not.i.i.i.i.i259, label %.loopexit.loopexit.i.i.i.i.i260, label %.lr.ph17.i.i.i.i.i253, !llvm.loop !370
 
 698:                                              ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i268
-  %699 = icmp ult i32 %.sroa.0.0.insert.insert.i.i.i269, 65536
+  %699 = icmp eq i32 %.sroa.4.0.extract.shift.i.i271, 0
   %700 = icmp sgt i16 %.sroa.0.0.extract.trunc.i.i270, 0
   br i1 %699, label %.preheader5.i.i.i.i.i284, label %.preheader7.i.i.i.i.i274
 
@@ -9556,7 +9556,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int32TypeEvE9VisitVoidIZNS_7comp
   br i1 %exitcond25.not.i.i.i.i.i312, label %.loopexit.loopexit.i.i.i.i.i313, label %.lr.ph17.i.i.i.i.i306, !llvm.loop !379
 
 830:                                              ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i321
-  %831 = icmp ult i32 %.sroa.0.0.insert.insert.i.i.i322, 65536
+  %831 = icmp eq i32 %.sroa.4.0.extract.shift.i.i324, 0
   %832 = icmp sgt i16 %.sroa.0.0.extract.trunc.i.i323, 0
   br i1 %831, label %.preheader5.i.i.i.i.i337, label %.preheader7.i.i.i.i.i327
 
@@ -9833,7 +9833,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE9VisitVoidIZNS_7co
   br i1 %exitcond25.not.i.i.i.i.i365, label %.loopexit.loopexit.i.i.i.i.i366, label %.lr.ph17.i.i.i.i.i359, !llvm.loop !388
 
 962:                                              ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i374
-  %963 = icmp ult i32 %.sroa.0.0.insert.insert.i.i.i375, 65536
+  %963 = icmp eq i32 %.sroa.4.0.extract.shift.i.i377, 0
   %964 = icmp sgt i16 %.sroa.0.0.extract.trunc.i.i376, 0
   br i1 %963, label %.preheader5.i.i.i.i.i390, label %.preheader7.i.i.i.i.i380
 
@@ -10110,7 +10110,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int64TypeEvE9VisitVoidIZNS_7comp
   br i1 %exitcond25.not.i.i.i.i.i418, label %.loopexit.loopexit.i.i.i.i.i419, label %.lr.ph17.i.i.i.i.i412, !llvm.loop !397
 
 1094:                                             ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i427
-  %1095 = icmp ult i32 %.sroa.0.0.insert.insert.i.i.i428, 65536
+  %1095 = icmp eq i32 %.sroa.4.0.extract.shift.i.i430, 0
   %1096 = icmp sgt i16 %.sroa.0.0.extract.trunc.i.i429, 0
   br i1 %1095, label %.preheader5.i.i.i.i.i443, label %.preheader7.i.i.i.i.i433
 
@@ -10387,7 +10387,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE9VisitVoidIZNS_7co
   br i1 %exitcond25.not.i.i.i.i.i471, label %.loopexit.loopexit.i.i.i.i.i472, label %.lr.ph17.i.i.i.i.i465, !llvm.loop !406
 
 1226:                                             ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i480
-  %1227 = icmp ult i32 %.sroa.0.0.insert.insert.i.i.i481, 65536
+  %1227 = icmp eq i32 %.sroa.4.0.extract.shift.i.i483, 0
   %1228 = icmp sgt i16 %.sroa.0.0.extract.trunc.i.i482, 0
   br i1 %1227, label %.preheader5.i.i.i.i.i496, label %.preheader7.i.i.i.i.i486
 
@@ -10664,7 +10664,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13HalfFloatTypeEvE9VisitVoidIZNS_
   br i1 %exitcond25.not.i.i.i.i.i524, label %.loopexit.loopexit.i.i.i.i.i525, label %.lr.ph17.i.i.i.i.i518, !llvm.loop !415
 
 1358:                                             ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i533
-  %1359 = icmp ult i32 %.sroa.0.0.insert.insert.i.i.i534, 65536
+  %1359 = icmp eq i32 %.sroa.4.0.extract.shift.i.i536, 0
   %1360 = icmp sgt i16 %.sroa.0.0.extract.trunc.i.i535, 0
   br i1 %1359, label %.preheader5.i.i.i.i.i549, label %.preheader7.i.i.i.i.i539
 
@@ -10941,7 +10941,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7comp
   br i1 %exitcond25.not.i.i.i.i.i576, label %.loopexit.loopexit.i.i.i.i.i577, label %.lr.ph17.i.i.i.i.i571, !llvm.loop !426
 
 1491:                                             ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i585
-  %1492 = icmp ult i32 %.sroa.0.0.insert.insert.i.i.i586, 65536
+  %1492 = icmp eq i32 %.sroa.4.0.extract.shift.i.i588, 0
   %1493 = icmp sgt i16 %.sroa.0.0.extract.trunc.i.i587, 0
   br i1 %1492, label %.preheader5.i.i.i.i.i600, label %.preheader7.i.i.i.i.i591
 
@@ -11218,7 +11218,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7co
   br i1 %exitcond25.not.i.i.i.i.i627, label %.loopexit.loopexit.i.i.i.i.i628, label %.lr.ph17.i.i.i.i.i622, !llvm.loop !437
 
 1625:                                             ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i636
-  %1626 = icmp ult i32 %.sroa.0.0.insert.insert.i.i.i637, 65536
+  %1626 = icmp eq i32 %.sroa.4.0.extract.shift.i.i639, 0
   %1627 = icmp sgt i16 %.sroa.0.0.extract.trunc.i.i638, 0
   br i1 %1626, label %.preheader5.i.i.i.i.i651, label %.preheader7.i.i.i.i.i642
 
@@ -12193,7 +12193,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13Decimal32TypeEvE9VisitVoidIZNS_
   br i1 %exitcond59.not.i.i.i.i.i, label %.loopexit.loopexit.i.i.i.i.i783, label %.lr.ph50.i.i.i.i.i779, !llvm.loop !494
 
 2020:                                             ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i791
-  %2021 = icmp ult i32 %.sroa.0.0.insert.insert.i.i.i792, 65536
+  %2021 = icmp eq i32 %.sroa.4.0.extract.shift.i.i794, 0
   %2022 = icmp sgt i16 %.sroa.0.0.extract.trunc.i.i793, 0
   br i1 %2021, label %.preheader37.i.i.i.i.i802, label %.preheader39.i.i.i.i.i
 
@@ -12488,7 +12488,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13Decimal64TypeEvE9VisitVoidIZNS_
   br i1 %exitcond59.not.i.i.i.i.i832, label %.loopexit.loopexit.i.i.i.i.i833, label %.lr.ph50.i.i.i.i.i826, !llvm.loop !503
 
 2159:                                             ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i842
-  %2160 = icmp ult i32 %.sroa.0.0.insert.insert.i.i.i843, 65536
+  %2160 = icmp eq i32 %.sroa.4.0.extract.shift.i.i845, 0
   %2161 = icmp sgt i16 %.sroa.0.0.extract.trunc.i.i844, 0
   br i1 %2160, label %.preheader37.i.i.i.i.i862, label %.preheader39.i.i.i.i.i848
 
@@ -12794,7 +12794,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal128TypeEvE9VisitVoidIZNS
   br i1 %exitcond61.not.i.i.i.i.i, label %.loopexit.loopexit.i.i.i.i.i883, label %.lr.ph52.i.i.i.i.i, !llvm.loop !512
 
 2302:                                             ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i891
-  %2303 = icmp ult i32 %.sroa.0.0.insert.insert.i.i.i892, 65536
+  %2303 = icmp eq i32 %.sroa.4.0.extract.shift.i.i894, 0
   %2304 = icmp sgt i16 %.sroa.0.0.extract.trunc.i.i893, 0
   br i1 %2303, label %.preheader39.i.i.i.i.i905, label %.preheader41.i.i.i.i.i
 
@@ -13101,7 +13101,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br i1 %exitcond59.not.i.i.i.i.i935, label %.loopexit.loopexit.i.i.i.i.i936, label %.lr.ph50.i.i.i.i.i929, !llvm.loop !521
 
 2441:                                             ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i944
-  %2442 = icmp ult i32 %.sroa.0.0.insert.insert.i.i.i945, 65536
+  %2442 = icmp eq i32 %.sroa.4.0.extract.shift.i.i947, 0
   %2443 = icmp sgt i16 %.sroa.0.0.extract.trunc.i.i946, 0
   br i1 %2442, label %.preheader37.i.i.i.i.i961, label %.preheader39.i.i.i.i.i950
 

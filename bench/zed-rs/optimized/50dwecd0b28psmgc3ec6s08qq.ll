@@ -2181,8 +2181,8 @@ _ZN4core5slice4sort8unstable8heapsort9sift_down17hc8593824796503e1E.exit: ; pred
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %38, i64 40, i1 false), !alias.scope !1354
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not1.i1129 = icmp ugt i64 %37, 1
-  br i1 %.not1.i1129, label %.lr.ph.i12.preheader, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17hc8593824796503e1E.exit16.thread
+  %.not1.i1130 = icmp ugt i64 %37, 1
+  br i1 %.not1.i1130, label %.lr.ph.i12.preheader, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17hc8593824796503e1E.exit16.thread
 
 _ZN4core5slice4sort8unstable8heapsort9sift_down17hc8593824796503e1E.exit16.thread: ; preds = %_ZN4core5slice4sort8unstable8heapsort9sift_down17hc8593824796503e1E.exit16, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h40a9fab55b5ef83cE.exit.preheader"
   ret void
@@ -2288,14 +2288,14 @@ define hidden void @_ZN4core5slice4sort8unstable8heapsort8heapsort17hf22ab49cd9c
   %3 = alloca [88 x i8], align 8
   %4 = icmp ugt i64 %1, 1
   tail call void @llvm.assume(i1 %4)
+  %.val11.pre = load ptr, ptr %2, align 8
   %5 = lshr i64 %1, 1
-  %.val = load ptr, ptr %2, align 8
   br label %6
 
 6:                                                ; preds = %.lr.ph, %6
   %.sroa.4.013 = phi i64 [ %5, %.lr.ph ], [ %7, %6 ]
   %7 = add nsw i64 %.sroa.4.013, -1
-  tail call fastcc void @_ZN4core5slice4sort8unstable8heapsort9sift_down17hf1ed12d296cc49ccE(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, i64 noundef %7, ptr %.val)
+  tail call fastcc void @_ZN4core5slice4sort8unstable8heapsort9sift_down17hf1ed12d296cc49ccE(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, i64 noundef %7, ptr %.val11.pre)
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hb366f783fe3b1c59E.exit", label %6
 
@@ -2311,7 +2311,7 @@ define hidden void @_ZN4core5slice4sort8unstable8heapsort8heapsort17hf22ab49cd9c
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %10, i64 88, i1 false), !alias.scope !1385
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %10, ptr noundef nonnull align 8 dereferenceable(88) %3, i64 88, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  tail call fastcc void @_ZN4core5slice4sort8unstable8heapsort9sift_down17hf1ed12d296cc49ccE(ptr noalias noundef nonnull align 8 %0, i64 noundef %9, i64 noundef 0, ptr %.val)
+  tail call fastcc void @_ZN4core5slice4sort8unstable8heapsort9sift_down17hf1ed12d296cc49ccE(ptr noalias noundef nonnull align 8 %0, i64 noundef %9, i64 noundef 0, ptr %.val11.pre)
   %11 = icmp ugt i64 %9, 1
   br i1 %11, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hb366f783fe3b1c59E.exit", label %8
 }

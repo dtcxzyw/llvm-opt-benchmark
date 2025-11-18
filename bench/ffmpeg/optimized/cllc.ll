@@ -1256,7 +1256,7 @@ define internal fastcc i32 @read_code_table(ptr noundef readonly captures(none) 
   br i1 %21, label %22, label %.preheader32
 
 .preheader32:                                     ; preds = %3
-  %.not = icmp samesign ult i32 %17, 134217728
+  %.not = icmp eq i32 %18, 0
   br i1 %.not, label %._crit_edge40, label %.lr.ph39
 
 22:                                               ; preds = %3
@@ -1285,7 +1285,7 @@ define internal fastcc i32 @read_code_table(ptr noundef readonly captures(none) 
   br i1 %35, label %39, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph39
-  %.not46 = icmp ult i32 %30, 8388608
+  %.not46 = icmp eq i32 %31, 0
   br i1 %.not46, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader

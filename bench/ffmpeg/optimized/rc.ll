@@ -1586,8 +1586,8 @@ opus_rc_enc_normalize.exit:                       ; preds = %opus_rc_enc_carryou
 define i32 @ff_opus_rc_dec_laplace(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i32, ptr %4, align 8, !tbaa !8
-  %.fr87 = freeze i32 %5
-  %6 = lshr i32 %.fr87, 15
+  %.fr86 = freeze i32 %5
+  %6 = lshr i32 %.fr86, 15
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %8 = load i32, ptr %7, align 4, !tbaa !15
   %.fr = freeze i32 %8
@@ -1598,18 +1598,18 @@ define i32 @ff_opus_rc_dec_laplace(ptr noundef captures(none) %0, i32 noundef %1
   br i1 %.not, label %opus_rc_dec_update.exit, label %12
 
 12:                                               ; preds = %3
-  %13 = sub nsw i32 32736, %1
-  %14 = sub nsw i32 16384, %2
+  %13 = sub i32 32736, %1
+  %14 = sub i32 16384, %2
   %15 = mul i32 %14, %13
   %.1.in58 = lshr i32 %15, 15
-  %.159 = add nuw nsw i32 %.1.in58, 1
-  %.not5160 = icmp ult i32 %15, 32768
-  br i1 %.not5160, label %._crit_edge, label %.lr.ph
+  %cond60 = icmp eq i32 %.1.in58, 0
+  br i1 %cond60, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12, %18
-  %.163 = phi i32 [ %.1, %18 ], [ %.159, %12 ]
+  %.163.in = phi i32 [ %.1.in, %18 ], [ %.1.in58, %12 ]
   %.14262 = phi i32 [ %17, %18 ], [ %1, %12 ]
   %.14461 = phi i32 [ %19, %18 ], [ 1, %12 ]
+  %.163 = add nuw nsw i32 %.163.in, 1
   %16 = shl nuw nsw i32 %.163, 1
   %17 = add nuw nsw i32 %16, %.14262
   %.not52 = icmp ult i32 %11, %17
@@ -1620,14 +1620,12 @@ define i32 @ff_opus_rc_dec_laplace(ptr noundef captures(none) %0, i32 noundef %1
   %20 = add nsw i32 %16, -2
   %21 = mul i32 %20, %2
   %.1.in = lshr i32 %21, 15
-  %.1 = add nuw nsw i32 %.1.in, 1
-  %.not51 = icmp ult i32 %21, 32768
-  br i1 %.not51, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  %cond = icmp eq i32 %.1.in, 0
+  br i1 %cond, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %18, %12
   %.144.lcssa = phi i32 [ 1, %12 ], [ %19, %18 ]
   %.142.lcssa = phi i32 [ %1, %12 ], [ %17, %18 ]
-  %.1.lcssa = phi i32 [ %.159, %12 ], [ %.1, %18 ]
   %22 = sub nsw i32 %11, %.142.lcssa
   %23 = lshr i32 %22, 1
   %24 = add nuw nsw i32 %23, %.144.lcssa
@@ -1636,12 +1634,11 @@ define i32 @ff_opus_rc_dec_laplace(ptr noundef captures(none) %0, i32 noundef %1
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %._crit_edge
-  %.155 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %.163, %.lr.ph ]
+  %.155 = phi i32 [ 1, %._crit_edge ], [ %.163, %.lr.ph ]
   %.245 = phi i32 [ %24, %._crit_edge ], [ %.14461, %.lr.ph ]
   %.2 = phi i32 [ %26, %._crit_edge ], [ %.14262, %.lr.ph ]
-  %.155.fr = freeze i32 %.155
   %.2.fr = freeze i32 %.2
-  %27 = add i32 %.2.fr, %.155.fr
+  %27 = add i32 %.2.fr, %.155
   %28 = icmp ult i32 %11, %27
   %29 = sub nsw i32 0, %.245
   %spec.select = select i1 %28, i32 %29, i32 %.245
@@ -1651,7 +1648,7 @@ define i32 @ff_opus_rc_dec_laplace(ptr noundef captures(none) %0, i32 noundef %1
 opus_rc_dec_update.exit:                          ; preds = %.critedge, %3
   %.043 = phi i32 [ 0, %3 ], [ %spec.select, %.critedge ]
   %.041 = phi i32 [ 0, %3 ], [ %spec.select53, %.critedge ]
-  %.0 = phi i32 [ %1, %3 ], [ %.155.fr, %.critedge ]
+  %.0 = phi i32 [ %1, %3 ], [ %.155, %.critedge ]
   %30 = add i32 %.0, %.041
   %31 = tail call i32 @llvm.umin.i32(i32 %30, i32 32768)
   %32 = sub nuw nsw i32 32768, %31
@@ -1661,10 +1658,10 @@ opus_rc_dec_update.exit:                          ; preds = %.critedge, %3
   %.not.i = icmp eq i32 %.041, 0
   %35 = sub i32 %31, %.041
   %36 = mul i32 %35, %6
-  %37 = sub i32 %.fr87, %33
-  %spec.select86 = select i1 %.not.i, i32 %37, i32 %36
-  store i32 %spec.select86, ptr %4, align 8, !tbaa !8
-  %38 = icmp ult i32 %spec.select86, 8388609
+  %37 = sub i32 %.fr86, %33
+  %spec.select85 = select i1 %.not.i, i32 %37, i32 %36
+  store i32 %spec.select85, ptr %4, align 8, !tbaa !8
+  %38 = icmp ult i32 %spec.select85, 8388609
   br i1 %38, label %.lr.ph66, label %opus_rc_dec_normalize.exit
 
 .lr.ph66:                                         ; preds = %opus_rc_dec_update.exit
@@ -1681,7 +1678,7 @@ opus_rc_dec_update.exit:                          ; preds = %.critedge, %3
   %45 = phi i32 [ %.promoted68, %.lr.ph66 ], [ %63, %44 ]
   %46 = phi i32 [ %.promoted67, %.lr.ph66 ], [ %59, %44 ]
   %47 = phi i32 [ %34, %.lr.ph66 ], [ %61, %44 ]
-  %48 = phi i32 [ %spec.select86, %.lr.ph66 ], [ %62, %44 ]
+  %48 = phi i32 [ %spec.select85, %.lr.ph66 ], [ %62, %44 ]
   %49 = shl i32 %47, 8
   %50 = lshr i32 %46, 3
   %51 = zext nneg i32 %50 to i64
@@ -1830,7 +1827,7 @@ opus_rc_enc_carryout.exit.i:                      ; preds = %57, %30
   %70 = mul i32 %69, %68
   %71 = lshr i32 %70, 15
   %72 = icmp samesign ugt i32 %6, 1
-  %73 = icmp ugt i32 %70, 32767
+  %73 = icmp ne i32 %71, 0
   %74 = select i1 %72, i1 %73, i1 false
   br i1 %74, label %.lr.ph, label %._crit_edge
 
@@ -1845,7 +1842,7 @@ opus_rc_enc_carryout.exit.i:                      ; preds = %57, %30
   %79 = lshr i32 %78, 14
   %80 = add nuw nsw i32 %.04456, 1
   %81 = icmp samesign ult i32 %80, %6
-  %82 = icmp ugt i32 %78, 16383
+  %82 = icmp ne i32 %79, 0
   %83 = select i1 %81, i1 %82, i1 false
   br i1 %83, label %.lr.ph, label %._crit_edge, !llvm.loop !36
 

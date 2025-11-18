@@ -2014,7 +2014,7 @@ define void @Gia_ManAutomTranspose64(ptr noundef captures(none) %0) local_unname
   %23 = zext nneg i32 %22 to i64
   %24 = shl i64 %.032, %23
   %25 = xor i64 %24, %.032
-  %.not = icmp samesign ult i32 %.02831, 2
+  %.not = icmp eq i32 %22, 0
   br i1 %.not, label %26, label %.preheader, !llvm.loop !64
 
 26:                                               ; preds = %21
@@ -2199,11 +2199,11 @@ define i64 @Gia_ManAutomStep(ptr noundef readonly captures(none) %0, i64 noundef
   br i1 %75, label %.lr.ph127.preheader, label %.preheader.i.preheader
 
 .lr.ph127.preheader:                              ; preds = %.lr.ph122, %.critedge4, %.critedge6
-  %.3.lcssa150 = phi i32 [ %.val71, %.critedge6 ], [ 0, %.critedge4 ], [ 0, %.lr.ph122 ]
-  %76 = shl nuw nsw i32 %.3.lcssa150, 3
+  %.3.lcssa151 = phi i32 [ %.val71, %.critedge6 ], [ 0, %.critedge4 ], [ 0, %.lr.ph122 ]
+  %76 = shl nuw nsw i32 %.3.lcssa151, 3
   %77 = zext nneg i32 %76 to i64
   %scevgep = getelementptr i8, ptr %2, i64 %77
-  %78 = shl nuw nsw i32 %.3.lcssa150, 3
+  %78 = shl nuw nsw i32 %.3.lcssa151, 3
   %narrow = sub nuw nsw i32 512, %78
   %79 = zext nneg i32 %narrow to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %79, i1 false), !tbaa !62
@@ -2246,7 +2246,7 @@ define i64 @Gia_ManAutomStep(ptr noundef readonly captures(none) %0, i64 noundef
   %101 = zext nneg i32 %100 to i64
   %102 = shl i64 %.032.i, %101
   %103 = xor i64 %102, %.032.i
-  %.not.i101 = icmp samesign ult i32 %.02831.i, 2
+  %.not.i101 = icmp eq i32 %100, 0
   br i1 %.not.i101, label %Gia_ManAutomTranspose64.exit, label %.preheader.i, !llvm.loop !64
 
 Gia_ManAutomTranspose64.exit:                     ; preds = %99

@@ -6864,31 +6864,31 @@ define internal void @dissect_gtpv2_mm_context_gsm_t(ptr noundef %0, ptr noundef
   %18 = load i32, ptr @hf_gtpv2_mm_context_cksn, align 4
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %18, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %20 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
-  %21 = load i32, ptr @hf_gtpv2_mm_context_nr_tri, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %21, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
-  %23 = load i32, ptr @hf_gtpv2_spare_bits, align 4
-  %24 = tail call ptr @proto_tree_add_bits_item(ptr noundef %10, i32 noundef %23, ptr noundef %0, i32 noundef 11, i32 noundef 3, i32 noundef 0)
-  %25 = load i32, ptr @hf_gtpv2_mm_context_uamb_ri, align 4
-  %26 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %25, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
-  %27 = load i32, ptr @hf_gtpv2_mm_context_samb_ri, align 4
-  %28 = tail call ptr @proto_tree_add_bits_item(ptr noundef %10, i32 noundef %27, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0)
-  %29 = load i32, ptr @hf_gtpv2_spare_bits, align 4
-  %30 = tail call ptr @proto_tree_add_bits_item(ptr noundef %10, i32 noundef %29, ptr noundef %0, i32 noundef 16, i32 noundef 5, i32 noundef 0)
-  %31 = load i32, ptr @hf_gtpv2_mm_context_used_cipher, align 4
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %31, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
-  %33 = load i32, ptr @hf_gtpv2_mm_context_kc, align 4
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %33, ptr noundef %0, i32 noundef 3, i32 noundef 8, i32 noundef 0)
-  %.not = icmp ult i8 %20, 32
-  br i1 %.not, label %dissect_gtpv2_authentication_triplets.exit, label %35
+  %21 = lshr i8 %20, 5
+  %22 = load i32, ptr @hf_gtpv2_mm_context_nr_tri, align 4
+  %23 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %22, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %24 = load i32, ptr @hf_gtpv2_spare_bits, align 4
+  %25 = tail call ptr @proto_tree_add_bits_item(ptr noundef %10, i32 noundef %24, ptr noundef %0, i32 noundef 11, i32 noundef 3, i32 noundef 0)
+  %26 = load i32, ptr @hf_gtpv2_mm_context_uamb_ri, align 4
+  %27 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %26, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %28 = load i32, ptr @hf_gtpv2_mm_context_samb_ri, align 4
+  %29 = tail call ptr @proto_tree_add_bits_item(ptr noundef %10, i32 noundef %28, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0)
+  %30 = load i32, ptr @hf_gtpv2_spare_bits, align 4
+  %31 = tail call ptr @proto_tree_add_bits_item(ptr noundef %10, i32 noundef %30, ptr noundef %0, i32 noundef 16, i32 noundef 5, i32 noundef 0)
+  %32 = load i32, ptr @hf_gtpv2_mm_context_used_cipher, align 4
+  %33 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %32, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+  %34 = load i32, ptr @hf_gtpv2_mm_context_kc, align 4
+  %35 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %34, ptr noundef %0, i32 noundef 3, i32 noundef 8, i32 noundef 0)
+  %.not = icmp eq i8 %21, 0
+  br i1 %.not, label %dissect_gtpv2_authentication_triplets.exit, label %36
 
-35:                                               ; preds = %8
-  %36 = lshr i8 %20, 5
-  %37 = zext nneg i8 %36 to i32
+36:                                               ; preds = %8
+  %37 = zext nneg i8 %21 to i32
   br label %38
 
-38:                                               ; preds = %38, %35
-  %.021.i = phi i32 [ 0, %35 ], [ %50, %38 ]
-  %.01920.i = phi i32 [ 11, %35 ], [ %49, %38 ]
+38:                                               ; preds = %38, %36
+  %.021.i = phi i32 [ 0, %36 ], [ %50, %38 ]
+  %.01920.i = phi i32 [ 11, %36 ], [ %49, %38 ]
   %39 = load i32, ptr @ett_gtpv2_mm_context_auth_tri, align 4
   %40 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.01920.i, i32 noundef 0, i32 noundef %39, ptr noundef null, ptr noundef nonnull @.str.1810, i32 noundef %.021.i)
   %41 = load i32, ptr @hf_gtpv2_mm_context_rand, align 4
@@ -6938,35 +6938,35 @@ define internal void @dissect_gtpv2_mm_context_utms_cq(ptr noundef %0, ptr nound
   %18 = load i32, ptr @hf_gtpv2_mm_context_cksn_ksi, align 4
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %18, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %20 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
-  %21 = lshr i8 %20, 1
-  %22 = and i8 %21, 1
-  %23 = and i8 %20, 1
-  %24 = load i32, ptr @hf_gtpv2_mm_context_nr_qui, align 4
-  %25 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %24, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
-  %26 = load i32, ptr @hf_gtpv2_spare_bits, align 4
-  %27 = tail call ptr @proto_tree_add_bits_item(ptr noundef %10, i32 noundef %26, ptr noundef %0, i32 noundef 11, i32 noundef 3, i32 noundef 0)
-  %28 = load i32, ptr @hf_gtpv2_mm_context_uamb_ri, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %28, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
-  %30 = load i32, ptr @hf_gtpv2_mm_context_samb_ri, align 4
-  %31 = tail call ptr @proto_tree_add_bits_item(ptr noundef %10, i32 noundef %30, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0)
-  %32 = load i32, ptr @hf_gtpv2_spare_bits, align 4
-  %33 = tail call ptr @proto_tree_add_bits_item(ptr noundef %10, i32 noundef %32, ptr noundef %0, i32 noundef 16, i32 noundef 5, i32 noundef 0)
-  %34 = load i32, ptr @hf_gtpv2_mm_context_used_cipher, align 4
-  %35 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %34, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
-  %36 = load i32, ptr @hf_gtpv2_ck, align 4
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %36, ptr noundef %0, i32 noundef 3, i32 noundef 16, i32 noundef 0)
-  %38 = load i32, ptr @hf_gtpv2_ik, align 4
-  %39 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %38, ptr noundef %0, i32 noundef 19, i32 noundef 16, i32 noundef 0)
-  %.not = icmp ult i8 %20, 32
-  br i1 %.not, label %43, label %40
+  %21 = lshr i8 %20, 5
+  %22 = lshr i8 %20, 1
+  %23 = and i8 %22, 1
+  %24 = and i8 %20, 1
+  %25 = load i32, ptr @hf_gtpv2_mm_context_nr_qui, align 4
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %25, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %27 = load i32, ptr @hf_gtpv2_spare_bits, align 4
+  %28 = tail call ptr @proto_tree_add_bits_item(ptr noundef %10, i32 noundef %27, ptr noundef %0, i32 noundef 11, i32 noundef 3, i32 noundef 0)
+  %29 = load i32, ptr @hf_gtpv2_mm_context_uamb_ri, align 4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %29, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %31 = load i32, ptr @hf_gtpv2_mm_context_samb_ri, align 4
+  %32 = tail call ptr @proto_tree_add_bits_item(ptr noundef %10, i32 noundef %31, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0)
+  %33 = load i32, ptr @hf_gtpv2_spare_bits, align 4
+  %34 = tail call ptr @proto_tree_add_bits_item(ptr noundef %10, i32 noundef %33, ptr noundef %0, i32 noundef 16, i32 noundef 5, i32 noundef 0)
+  %35 = load i32, ptr @hf_gtpv2_mm_context_used_cipher, align 4
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %35, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+  %37 = load i32, ptr @hf_gtpv2_ck, align 4
+  %38 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %37, ptr noundef %0, i32 noundef 3, i32 noundef 16, i32 noundef 0)
+  %39 = load i32, ptr @hf_gtpv2_ik, align 4
+  %40 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %39, ptr noundef %0, i32 noundef 19, i32 noundef 16, i32 noundef 0)
+  %.not = icmp eq i8 %21, 0
+  br i1 %.not, label %43, label %41
 
-40:                                               ; preds = %8
-  %41 = lshr i8 %20, 5
-  %42 = tail call fastcc i32 @dissect_gtpv2_authentication_quintuplets(ptr noundef %0, ptr noundef %2, i32 noundef 35, i8 noundef zeroext %41)
+41:                                               ; preds = %8
+  %42 = tail call fastcc i32 @dissect_gtpv2_authentication_quintuplets(ptr noundef %0, ptr noundef %2, i32 noundef 35, i8 noundef zeroext %21)
   br label %43
 
-43:                                               ; preds = %40, %8
-  %.0 = phi i32 [ %42, %40 ], [ 35, %8 ]
+43:                                               ; preds = %41, %8
+  %.0 = phi i32 [ %42, %41 ], [ 35, %8 ]
   %44 = and i8 %13, 8
   %.not110 = icmp eq i8 %44, 0
   br i1 %.not110, label %49, label %45
@@ -6979,7 +6979,7 @@ define internal void @dissect_gtpv2_mm_context_utms_cq(ptr noundef %0, ptr nound
 
 49:                                               ; preds = %45, %43
   %.1 = phi i32 [ %48, %45 ], [ %.0, %43 ]
-  %50 = tail call fastcc i32 @dissect_gtpv2_mm_context_common_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.1, i8 noundef zeroext %23, i8 noundef zeroext %22)
+  %50 = tail call fastcc i32 @dissect_gtpv2_mm_context_common_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.1, i8 noundef zeroext %24, i8 noundef zeroext %23)
   %51 = zext i16 %4 to i32
   %52 = icmp slt i32 %50, %51
   br i1 %52, label %53, label %80
@@ -7047,33 +7047,33 @@ define internal void @dissect_gtpv2_mm_context_gsm_cq(ptr noundef %0, ptr nounde
   %18 = load i32, ptr @hf_gtpv2_mm_context_cksn_ksi, align 4
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %18, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %20 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
-  %21 = lshr i8 %20, 1
-  %22 = and i8 %21, 1
-  %23 = and i8 %20, 1
-  %24 = load i32, ptr @hf_gtpv2_mm_context_nr_qui, align 4
-  %25 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %24, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
-  %26 = load i32, ptr @hf_gtpv2_spare_bits, align 4
-  %27 = tail call ptr @proto_tree_add_bits_item(ptr noundef %10, i32 noundef %26, ptr noundef %0, i32 noundef 11, i32 noundef 3, i32 noundef 0)
-  %28 = load i32, ptr @hf_gtpv2_mm_context_uamb_ri, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %28, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
-  %30 = load i32, ptr @hf_gtpv2_mm_context_samb_ri, align 4
-  %31 = tail call ptr @proto_tree_add_bits_item(ptr noundef %10, i32 noundef %30, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0)
-  %32 = load i32, ptr @hf_gtpv2_spare_bits, align 4
-  %33 = tail call ptr @proto_tree_add_bits_item(ptr noundef %10, i32 noundef %32, ptr noundef %0, i32 noundef 16, i32 noundef 5, i32 noundef 0)
-  %34 = load i32, ptr @hf_gtpv2_mm_context_used_cipher, align 4
-  %35 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %34, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
-  %36 = load i32, ptr @hf_gtpv2_mm_context_kc, align 4
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %36, ptr noundef %0, i32 noundef 3, i32 noundef 8, i32 noundef 0)
-  %.not = icmp ult i8 %20, 32
-  br i1 %.not, label %41, label %38
+  %21 = lshr i8 %20, 5
+  %22 = lshr i8 %20, 1
+  %23 = and i8 %22, 1
+  %24 = and i8 %20, 1
+  %25 = load i32, ptr @hf_gtpv2_mm_context_nr_qui, align 4
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %25, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %27 = load i32, ptr @hf_gtpv2_spare_bits, align 4
+  %28 = tail call ptr @proto_tree_add_bits_item(ptr noundef %10, i32 noundef %27, ptr noundef %0, i32 noundef 11, i32 noundef 3, i32 noundef 0)
+  %29 = load i32, ptr @hf_gtpv2_mm_context_uamb_ri, align 4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %29, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %31 = load i32, ptr @hf_gtpv2_mm_context_samb_ri, align 4
+  %32 = tail call ptr @proto_tree_add_bits_item(ptr noundef %10, i32 noundef %31, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0)
+  %33 = load i32, ptr @hf_gtpv2_spare_bits, align 4
+  %34 = tail call ptr @proto_tree_add_bits_item(ptr noundef %10, i32 noundef %33, ptr noundef %0, i32 noundef 16, i32 noundef 5, i32 noundef 0)
+  %35 = load i32, ptr @hf_gtpv2_mm_context_used_cipher, align 4
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %35, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+  %37 = load i32, ptr @hf_gtpv2_mm_context_kc, align 4
+  %38 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %37, ptr noundef %0, i32 noundef 3, i32 noundef 8, i32 noundef 0)
+  %.not = icmp eq i8 %21, 0
+  br i1 %.not, label %41, label %39
 
-38:                                               ; preds = %8
-  %39 = lshr i8 %20, 5
-  %40 = tail call fastcc i32 @dissect_gtpv2_authentication_quintuplets(ptr noundef %0, ptr noundef %2, i32 noundef 11, i8 noundef zeroext %39)
+39:                                               ; preds = %8
+  %40 = tail call fastcc i32 @dissect_gtpv2_authentication_quintuplets(ptr noundef %0, ptr noundef %2, i32 noundef 11, i8 noundef zeroext %21)
   br label %41
 
-41:                                               ; preds = %38, %8
-  %.0 = phi i32 [ %40, %38 ], [ 11, %8 ]
+41:                                               ; preds = %39, %8
+  %.0 = phi i32 [ %40, %39 ], [ 11, %8 ]
   %42 = and i8 %13, 8
   %.not106 = icmp eq i8 %42, 0
   br i1 %.not106, label %47, label %43
@@ -7086,7 +7086,7 @@ define internal void @dissect_gtpv2_mm_context_gsm_cq(ptr noundef %0, ptr nounde
 
 47:                                               ; preds = %43, %41
   %.1 = phi i32 [ %46, %43 ], [ %.0, %41 ]
-  %48 = tail call fastcc i32 @dissect_gtpv2_mm_context_common_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.1, i8 noundef zeroext %23, i8 noundef zeroext %22)
+  %48 = tail call fastcc i32 @dissect_gtpv2_mm_context_common_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.1, i8 noundef zeroext %24, i8 noundef zeroext %23)
   %49 = zext i16 %4 to i32
   %50 = icmp slt i32 %48, %49
   br i1 %50, label %51, label %78
@@ -7154,33 +7154,33 @@ define internal void @dissect_gtpv2_mm_context_utms_q(ptr noundef %0, ptr nounde
   %18 = load i32, ptr @hf_gtpv2_mm_context_ksi, align 4
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %18, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %20 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
-  %21 = lshr i8 %20, 1
-  %22 = and i8 %21, 1
-  %23 = and i8 %20, 1
-  %24 = load i32, ptr @hf_gtpv2_mm_context_nr_qui, align 4
-  %25 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %24, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
-  %26 = load i32, ptr @hf_gtpv2_spare_bits, align 4
-  %27 = tail call ptr @proto_tree_add_bits_item(ptr noundef %10, i32 noundef %26, ptr noundef %0, i32 noundef 11, i32 noundef 3, i32 noundef 0)
-  %28 = load i32, ptr @hf_gtpv2_mm_context_uamb_ri, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %28, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
-  %30 = load i32, ptr @hf_gtpv2_mm_context_samb_ri, align 4
-  %31 = tail call ptr @proto_tree_add_bits_item(ptr noundef %10, i32 noundef %30, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0)
-  %32 = load i32, ptr @hf_gtpv2_spare, align 4
-  %33 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %32, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
-  %34 = load i32, ptr @hf_gtpv2_ck, align 4
-  %35 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %34, ptr noundef %0, i32 noundef 3, i32 noundef 16, i32 noundef 0)
-  %36 = load i32, ptr @hf_gtpv2_ik, align 4
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %36, ptr noundef %0, i32 noundef 19, i32 noundef 16, i32 noundef 0)
-  %.not = icmp ult i8 %20, 32
-  br i1 %.not, label %41, label %38
+  %21 = lshr i8 %20, 5
+  %22 = lshr i8 %20, 1
+  %23 = and i8 %22, 1
+  %24 = and i8 %20, 1
+  %25 = load i32, ptr @hf_gtpv2_mm_context_nr_qui, align 4
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %25, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %27 = load i32, ptr @hf_gtpv2_spare_bits, align 4
+  %28 = tail call ptr @proto_tree_add_bits_item(ptr noundef %10, i32 noundef %27, ptr noundef %0, i32 noundef 11, i32 noundef 3, i32 noundef 0)
+  %29 = load i32, ptr @hf_gtpv2_mm_context_uamb_ri, align 4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %29, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %31 = load i32, ptr @hf_gtpv2_mm_context_samb_ri, align 4
+  %32 = tail call ptr @proto_tree_add_bits_item(ptr noundef %10, i32 noundef %31, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0)
+  %33 = load i32, ptr @hf_gtpv2_spare, align 4
+  %34 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %33, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+  %35 = load i32, ptr @hf_gtpv2_ck, align 4
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %35, ptr noundef %0, i32 noundef 3, i32 noundef 16, i32 noundef 0)
+  %37 = load i32, ptr @hf_gtpv2_ik, align 4
+  %38 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %37, ptr noundef %0, i32 noundef 19, i32 noundef 16, i32 noundef 0)
+  %.not = icmp eq i8 %21, 0
+  br i1 %.not, label %41, label %39
 
-38:                                               ; preds = %8
-  %39 = lshr i8 %20, 5
-  %40 = tail call fastcc i32 @dissect_gtpv2_authentication_quintuplets(ptr noundef %0, ptr noundef %2, i32 noundef 35, i8 noundef zeroext %39)
+39:                                               ; preds = %8
+  %40 = tail call fastcc i32 @dissect_gtpv2_authentication_quintuplets(ptr noundef %0, ptr noundef %2, i32 noundef 35, i8 noundef zeroext %21)
   br label %41
 
-41:                                               ; preds = %38, %8
-  %.0 = phi i32 [ %40, %38 ], [ 35, %8 ]
+41:                                               ; preds = %39, %8
+  %.0 = phi i32 [ %40, %39 ], [ 35, %8 ]
   %42 = and i8 %15, 8
   %.not136 = icmp eq i8 %42, 0
   br i1 %.not136, label %47, label %43
@@ -7193,7 +7193,7 @@ define internal void @dissect_gtpv2_mm_context_utms_q(ptr noundef %0, ptr nounde
 
 47:                                               ; preds = %43, %41
   %.1 = phi i32 [ %46, %43 ], [ %.0, %41 ]
-  %48 = tail call fastcc i32 @dissect_gtpv2_mm_context_common_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.1, i8 noundef zeroext %23, i8 noundef zeroext %22)
+  %48 = tail call fastcc i32 @dissect_gtpv2_mm_context_common_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.1, i8 noundef zeroext %24, i8 noundef zeroext %23)
   %49 = zext i16 %4 to i32
   %50 = icmp slt i32 %48, %49
   br i1 %50, label %51, label %98
@@ -7369,7 +7369,7 @@ proto_item_set_generated.exit:                    ; preds = %67, %64, %63, %59
   %71 = load i32, ptr @hf_gtpv2_authentication_quintuplets, align 4
   %72 = zext nneg i8 %28 to i32
   %73 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %71, ptr noundef %0, i32 noundef %.0, i32 noundef 0, i32 noundef %72)
-  %.not263 = icmp ult i8 %27, 32
+  %.not263 = icmp eq i8 %28, 0
   br i1 %.not263, label %78, label %74
 
 74:                                               ; preds = %proto_item_set_generated.exit
@@ -7702,7 +7702,7 @@ define internal void @dissect_gtpv2_mm_context_utms_qq(ptr noundef %0, ptr nound
 
 43:                                               ; preds = %41, %8
   %.0 = phi i32 [ %42, %41 ], [ 35, %8 ]
-  %.not102 = icmp ult i8 %20, 32
+  %.not102 = icmp eq i8 %21, 0
   br i1 %.not102, label %46, label %44
 
 44:                                               ; preds = %43

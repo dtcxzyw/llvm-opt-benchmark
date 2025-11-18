@@ -13677,8 +13677,8 @@ define linkonce_odr void @_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %15
 
-15:                                               ; preds = %.lr.ph, %50
-  %.0921 = phi i64 [ %1, %.lr.ph ], [ %17, %50 ]
+15:                                               ; preds = %.lr.ph, %51
+  %.0921 = phi i64 [ %1, %.lr.ph ], [ %17, %51 ]
   %16 = add i64 %.0921, -1
   %17 = lshr i64 %16, 1
   %18 = icmp ult i64 %.0921, 17
@@ -13722,38 +13722,39 @@ define linkonce_odr void @_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19
   %47 = icmp sgt i32 %46, %.sroa.5.0.copyload
   %48 = icmp sgt i32 %43, 0
   %49 = select i1 %44, i1 %47, i1 %48
-  br i1 %49, label %50, label %.thread
+  %50 = load ptr, ptr %6, align 8
+  br i1 %49, label %51, label %.thread
 
-50:                                               ; preds = %15
-  %51 = load ptr, ptr %6, align 8
-  %52 = getelementptr inbounds nuw %"struct.rocksdb::MultiCfIteratorInfo", ptr %51, i64 %17
+51:                                               ; preds = %15
+  %52 = getelementptr inbounds nuw %"struct.rocksdb::MultiCfIteratorInfo", ptr %50, i64 %17
   %53 = load ptr, ptr %9, align 8
   %54 = getelementptr %"struct.rocksdb::MultiCfIteratorInfo", ptr %53, i64 %17
   %55 = getelementptr i8, ptr %54, i64 -192
   %.0.i11 = select i1 %18, ptr %52, ptr %55
   %56 = icmp ult i64 %.0921, 8
-  %57 = getelementptr inbounds nuw %"struct.rocksdb::MultiCfIteratorInfo", ptr %51, i64 %.0921
+  %57 = getelementptr inbounds nuw %"struct.rocksdb::MultiCfIteratorInfo", ptr %50, i64 %.0921
   %58 = getelementptr %"struct.rocksdb::MultiCfIteratorInfo", ptr %53, i64 %.0921
   %59 = getelementptr i8, ptr %58, i64 -192
   %.0.i12 = select i1 %56, ptr %57, ptr %59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0.i12, ptr noundef nonnull align 8 dereferenceable(24) %.0.i11, i64 24, i1 false), !tbaa.struct !855
-  %.not = icmp ult i64 %16, 2
-  br i1 %.not, label %.thread, label %15
+  %.not = icmp eq i64 %17, 0
+  br i1 %.not, label %.thread.thread28, label %15
 
-.thread:                                          ; preds = %50, %15
-  %.09.lcssa.ph = phi i64 [ %17, %50 ], [ %.0921, %15 ]
-  %.09.lcssa.ph.fr = freeze i64 %.09.lcssa.ph
-  %.pre = load ptr, ptr %6, align 8
+.thread.thread28:                                 ; preds = %51
+  %.pre30 = load ptr, ptr %6, align 8
+  br label %.thread.thread
+
+.thread:                                          ; preds = %15
   %.pre24 = load ptr, ptr %9, align 8
-  %60 = icmp ult i64 %.09.lcssa.ph.fr, 8
-  %61 = getelementptr inbounds nuw %"struct.rocksdb::MultiCfIteratorInfo", ptr %.pre, i64 %.09.lcssa.ph.fr
-  %62 = getelementptr %"struct.rocksdb::MultiCfIteratorInfo", ptr %.pre24, i64 %.09.lcssa.ph.fr
+  %60 = icmp ult i64 %.0921, 8
+  %61 = getelementptr inbounds nuw %"struct.rocksdb::MultiCfIteratorInfo", ptr %50, i64 %.0921
+  %62 = getelementptr %"struct.rocksdb::MultiCfIteratorInfo", ptr %.pre24, i64 %.0921
   %63 = getelementptr i8, ptr %62, i64 -192
   %spec.select = select i1 %60, ptr %61, ptr %63
   br label %.thread.thread
 
-.thread.thread:                                   ; preds = %.thread, %2
-  %64 = phi ptr [ %7, %2 ], [ %spec.select, %.thread ]
+.thread.thread:                                   ; preds = %.thread, %2, %.thread.thread28
+  %64 = phi ptr [ %.pre30, %.thread.thread28 ], [ %7, %2 ], [ %spec.select, %.thread ]
   store ptr %.sroa.0.0.copyload, ptr %64, align 8, !tbaa !601
   %.sroa.4.0..0.i13.sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 8
   store ptr %.sroa.4.0.copyload, ptr %.sroa.4.0..0.i13.sroa_idx, align 8, !tbaa !612
@@ -15172,8 +15173,8 @@ define linkonce_odr void @_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %15
 
-15:                                               ; preds = %.lr.ph, %50
-  %.0921 = phi i64 [ %1, %.lr.ph ], [ %17, %50 ]
+15:                                               ; preds = %.lr.ph, %51
+  %.0921 = phi i64 [ %1, %.lr.ph ], [ %17, %51 ]
   %16 = add i64 %.0921, -1
   %17 = lshr i64 %16, 1
   %18 = icmp ult i64 %.0921, 17
@@ -15217,38 +15218,39 @@ define linkonce_odr void @_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19
   %47 = icmp sgt i32 %46, %.sroa.5.0.copyload
   %48 = icmp slt i32 %43, 0
   %49 = select i1 %44, i1 %47, i1 %48
-  br i1 %49, label %50, label %.thread
+  %50 = load ptr, ptr %6, align 8
+  br i1 %49, label %51, label %.thread
 
-50:                                               ; preds = %15
-  %51 = load ptr, ptr %6, align 8
-  %52 = getelementptr inbounds nuw %"struct.rocksdb::MultiCfIteratorInfo", ptr %51, i64 %17
+51:                                               ; preds = %15
+  %52 = getelementptr inbounds nuw %"struct.rocksdb::MultiCfIteratorInfo", ptr %50, i64 %17
   %53 = load ptr, ptr %9, align 8
   %54 = getelementptr %"struct.rocksdb::MultiCfIteratorInfo", ptr %53, i64 %17
   %55 = getelementptr i8, ptr %54, i64 -192
   %.0.i11 = select i1 %18, ptr %52, ptr %55
   %56 = icmp ult i64 %.0921, 8
-  %57 = getelementptr inbounds nuw %"struct.rocksdb::MultiCfIteratorInfo", ptr %51, i64 %.0921
+  %57 = getelementptr inbounds nuw %"struct.rocksdb::MultiCfIteratorInfo", ptr %50, i64 %.0921
   %58 = getelementptr %"struct.rocksdb::MultiCfIteratorInfo", ptr %53, i64 %.0921
   %59 = getelementptr i8, ptr %58, i64 -192
   %.0.i12 = select i1 %56, ptr %57, ptr %59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0.i12, ptr noundef nonnull align 8 dereferenceable(24) %.0.i11, i64 24, i1 false), !tbaa.struct !855
-  %.not = icmp ult i64 %16, 2
-  br i1 %.not, label %.thread, label %15
+  %.not = icmp eq i64 %17, 0
+  br i1 %.not, label %.thread.thread28, label %15
 
-.thread:                                          ; preds = %50, %15
-  %.09.lcssa.ph = phi i64 [ %17, %50 ], [ %.0921, %15 ]
-  %.09.lcssa.ph.fr = freeze i64 %.09.lcssa.ph
-  %.pre = load ptr, ptr %6, align 8
+.thread.thread28:                                 ; preds = %51
+  %.pre30 = load ptr, ptr %6, align 8
+  br label %.thread.thread
+
+.thread:                                          ; preds = %15
   %.pre24 = load ptr, ptr %9, align 8
-  %60 = icmp ult i64 %.09.lcssa.ph.fr, 8
-  %61 = getelementptr inbounds nuw %"struct.rocksdb::MultiCfIteratorInfo", ptr %.pre, i64 %.09.lcssa.ph.fr
-  %62 = getelementptr %"struct.rocksdb::MultiCfIteratorInfo", ptr %.pre24, i64 %.09.lcssa.ph.fr
+  %60 = icmp ult i64 %.0921, 8
+  %61 = getelementptr inbounds nuw %"struct.rocksdb::MultiCfIteratorInfo", ptr %50, i64 %.0921
+  %62 = getelementptr %"struct.rocksdb::MultiCfIteratorInfo", ptr %.pre24, i64 %.0921
   %63 = getelementptr i8, ptr %62, i64 -192
   %spec.select = select i1 %60, ptr %61, ptr %63
   br label %.thread.thread
 
-.thread.thread:                                   ; preds = %.thread, %2
-  %64 = phi ptr [ %7, %2 ], [ %spec.select, %.thread ]
+.thread.thread:                                   ; preds = %.thread, %2, %.thread.thread28
+  %64 = phi ptr [ %.pre30, %.thread.thread28 ], [ %7, %2 ], [ %spec.select, %.thread ]
   store ptr %.sroa.0.0.copyload, ptr %64, align 8, !tbaa !601
   %.sroa.4.0..0.i13.sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 8
   store ptr %.sroa.4.0.copyload, ptr %.sroa.4.0..0.i13.sroa_idx, align 8, !tbaa !612
@@ -19656,8 +19658,8 @@ define linkonce_odr void @_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %15
 
-15:                                               ; preds = %.lr.ph, %50
-  %.0921 = phi i64 [ %1, %.lr.ph ], [ %17, %50 ]
+15:                                               ; preds = %.lr.ph, %51
+  %.0921 = phi i64 [ %1, %.lr.ph ], [ %17, %51 ]
   %16 = add i64 %.0921, -1
   %17 = lshr i64 %16, 1
   %18 = icmp ult i64 %.0921, 17
@@ -19701,38 +19703,39 @@ define linkonce_odr void @_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19
   %47 = icmp sgt i32 %46, %.sroa.5.0.copyload
   %48 = icmp sgt i32 %43, 0
   %49 = select i1 %44, i1 %47, i1 %48
-  br i1 %49, label %50, label %.thread
+  %50 = load ptr, ptr %6, align 8
+  br i1 %49, label %51, label %.thread
 
-50:                                               ; preds = %15
-  %51 = load ptr, ptr %6, align 8
-  %52 = getelementptr inbounds nuw %"struct.rocksdb::MultiCfIteratorInfo", ptr %51, i64 %17
+51:                                               ; preds = %15
+  %52 = getelementptr inbounds nuw %"struct.rocksdb::MultiCfIteratorInfo", ptr %50, i64 %17
   %53 = load ptr, ptr %9, align 8
   %54 = getelementptr %"struct.rocksdb::MultiCfIteratorInfo", ptr %53, i64 %17
   %55 = getelementptr i8, ptr %54, i64 -192
   %.0.i11 = select i1 %18, ptr %52, ptr %55
   %56 = icmp ult i64 %.0921, 8
-  %57 = getelementptr inbounds nuw %"struct.rocksdb::MultiCfIteratorInfo", ptr %51, i64 %.0921
+  %57 = getelementptr inbounds nuw %"struct.rocksdb::MultiCfIteratorInfo", ptr %50, i64 %.0921
   %58 = getelementptr %"struct.rocksdb::MultiCfIteratorInfo", ptr %53, i64 %.0921
   %59 = getelementptr i8, ptr %58, i64 -192
   %.0.i12 = select i1 %56, ptr %57, ptr %59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0.i12, ptr noundef nonnull align 8 dereferenceable(24) %.0.i11, i64 24, i1 false), !tbaa.struct !855
-  %.not = icmp ult i64 %16, 2
-  br i1 %.not, label %.thread, label %15
+  %.not = icmp eq i64 %17, 0
+  br i1 %.not, label %.thread.thread28, label %15
 
-.thread:                                          ; preds = %50, %15
-  %.09.lcssa.ph = phi i64 [ %17, %50 ], [ %.0921, %15 ]
-  %.09.lcssa.ph.fr = freeze i64 %.09.lcssa.ph
-  %.pre = load ptr, ptr %6, align 8
+.thread.thread28:                                 ; preds = %51
+  %.pre30 = load ptr, ptr %6, align 8
+  br label %.thread.thread
+
+.thread:                                          ; preds = %15
   %.pre24 = load ptr, ptr %9, align 8
-  %60 = icmp ult i64 %.09.lcssa.ph.fr, 8
-  %61 = getelementptr inbounds nuw %"struct.rocksdb::MultiCfIteratorInfo", ptr %.pre, i64 %.09.lcssa.ph.fr
-  %62 = getelementptr %"struct.rocksdb::MultiCfIteratorInfo", ptr %.pre24, i64 %.09.lcssa.ph.fr
+  %60 = icmp ult i64 %.0921, 8
+  %61 = getelementptr inbounds nuw %"struct.rocksdb::MultiCfIteratorInfo", ptr %50, i64 %.0921
+  %62 = getelementptr %"struct.rocksdb::MultiCfIteratorInfo", ptr %.pre24, i64 %.0921
   %63 = getelementptr i8, ptr %62, i64 -192
   %spec.select = select i1 %60, ptr %61, ptr %63
   br label %.thread.thread
 
-.thread.thread:                                   ; preds = %.thread, %2
-  %64 = phi ptr [ %7, %2 ], [ %spec.select, %.thread ]
+.thread.thread:                                   ; preds = %.thread, %2, %.thread.thread28
+  %64 = phi ptr [ %.pre30, %.thread.thread28 ], [ %7, %2 ], [ %spec.select, %.thread ]
   store ptr %.sroa.0.0.copyload, ptr %64, align 8, !tbaa !601
   %.sroa.4.0..0.i13.sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 8
   store ptr %.sroa.4.0.copyload, ptr %.sroa.4.0..0.i13.sroa_idx, align 8, !tbaa !612
@@ -21057,8 +21060,8 @@ define linkonce_odr void @_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %15
 
-15:                                               ; preds = %.lr.ph, %50
-  %.0921 = phi i64 [ %1, %.lr.ph ], [ %17, %50 ]
+15:                                               ; preds = %.lr.ph, %51
+  %.0921 = phi i64 [ %1, %.lr.ph ], [ %17, %51 ]
   %16 = add i64 %.0921, -1
   %17 = lshr i64 %16, 1
   %18 = icmp ult i64 %.0921, 17
@@ -21102,38 +21105,39 @@ define linkonce_odr void @_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19
   %47 = icmp sgt i32 %46, %.sroa.5.0.copyload
   %48 = icmp slt i32 %43, 0
   %49 = select i1 %44, i1 %47, i1 %48
-  br i1 %49, label %50, label %.thread
+  %50 = load ptr, ptr %6, align 8
+  br i1 %49, label %51, label %.thread
 
-50:                                               ; preds = %15
-  %51 = load ptr, ptr %6, align 8
-  %52 = getelementptr inbounds nuw %"struct.rocksdb::MultiCfIteratorInfo", ptr %51, i64 %17
+51:                                               ; preds = %15
+  %52 = getelementptr inbounds nuw %"struct.rocksdb::MultiCfIteratorInfo", ptr %50, i64 %17
   %53 = load ptr, ptr %9, align 8
   %54 = getelementptr %"struct.rocksdb::MultiCfIteratorInfo", ptr %53, i64 %17
   %55 = getelementptr i8, ptr %54, i64 -192
   %.0.i11 = select i1 %18, ptr %52, ptr %55
   %56 = icmp ult i64 %.0921, 8
-  %57 = getelementptr inbounds nuw %"struct.rocksdb::MultiCfIteratorInfo", ptr %51, i64 %.0921
+  %57 = getelementptr inbounds nuw %"struct.rocksdb::MultiCfIteratorInfo", ptr %50, i64 %.0921
   %58 = getelementptr %"struct.rocksdb::MultiCfIteratorInfo", ptr %53, i64 %.0921
   %59 = getelementptr i8, ptr %58, i64 -192
   %.0.i12 = select i1 %56, ptr %57, ptr %59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0.i12, ptr noundef nonnull align 8 dereferenceable(24) %.0.i11, i64 24, i1 false), !tbaa.struct !855
-  %.not = icmp ult i64 %16, 2
-  br i1 %.not, label %.thread, label %15
+  %.not = icmp eq i64 %17, 0
+  br i1 %.not, label %.thread.thread28, label %15
 
-.thread:                                          ; preds = %50, %15
-  %.09.lcssa.ph = phi i64 [ %17, %50 ], [ %.0921, %15 ]
-  %.09.lcssa.ph.fr = freeze i64 %.09.lcssa.ph
-  %.pre = load ptr, ptr %6, align 8
+.thread.thread28:                                 ; preds = %51
+  %.pre30 = load ptr, ptr %6, align 8
+  br label %.thread.thread
+
+.thread:                                          ; preds = %15
   %.pre24 = load ptr, ptr %9, align 8
-  %60 = icmp ult i64 %.09.lcssa.ph.fr, 8
-  %61 = getelementptr inbounds nuw %"struct.rocksdb::MultiCfIteratorInfo", ptr %.pre, i64 %.09.lcssa.ph.fr
-  %62 = getelementptr %"struct.rocksdb::MultiCfIteratorInfo", ptr %.pre24, i64 %.09.lcssa.ph.fr
+  %60 = icmp ult i64 %.0921, 8
+  %61 = getelementptr inbounds nuw %"struct.rocksdb::MultiCfIteratorInfo", ptr %50, i64 %.0921
+  %62 = getelementptr %"struct.rocksdb::MultiCfIteratorInfo", ptr %.pre24, i64 %.0921
   %63 = getelementptr i8, ptr %62, i64 -192
   %spec.select = select i1 %60, ptr %61, ptr %63
   br label %.thread.thread
 
-.thread.thread:                                   ; preds = %.thread, %2
-  %64 = phi ptr [ %7, %2 ], [ %spec.select, %.thread ]
+.thread.thread:                                   ; preds = %.thread, %2, %.thread.thread28
+  %64 = phi ptr [ %.pre30, %.thread.thread28 ], [ %7, %2 ], [ %spec.select, %.thread ]
   store ptr %.sroa.0.0.copyload, ptr %64, align 8, !tbaa !601
   %.sroa.4.0..0.i13.sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 8
   store ptr %.sroa.4.0.copyload, ptr %.sroa.4.0..0.i13.sroa_idx, align 8, !tbaa !612

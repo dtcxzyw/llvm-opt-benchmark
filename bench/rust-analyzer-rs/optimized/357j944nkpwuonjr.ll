@@ -78554,7 +78554,7 @@ _ZN13rust_analyzer3lsp10from_proto7file_id17h0742425f89509a10E.exit: ; preds = %
   %135 = lshr i64 %134, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !13642)
   call void @llvm.experimental.noalias.scope.decl(metadata !13645)
-  %.not.i.i = icmp ult i64 %134, 2
+  %.not.i.i = icmp eq i64 %135, 0
   br i1 %.not.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h8b625a52c24ee9a7E.exit", label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %132
@@ -78684,7 +78684,7 @@ _ZN4core3ptr19swap_nonoverlapping17h76fe1e0975b818a2E.exit.i.i: ; preds = %141
   %184 = lshr i64 %183, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !13661)
   call void @llvm.experimental.noalias.scope.decl(metadata !13664)
-  %.not.i.i121 = icmp ult i64 %183, 2
+  %.not.i.i121 = icmp eq i64 %184, 0
   br i1 %.not.i.i121, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h8b625a52c24ee9a7E.exit128", label %.lr.ph.preheader.i.i122
 
 .lr.ph.preheader.i.i122:                          ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h8710c2ba636eca7fE.exit.thread"

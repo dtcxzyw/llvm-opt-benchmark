@@ -4391,7 +4391,6 @@ define internal noundef zeroext i1 @dissect_csim_parameter(ptr noundef %0, ptr n
   %50 = tail call noalias ptr @wmem_alloc0(ptr noundef %48, i64 noundef %49) #12
   %51 = getelementptr i8, ptr %6, i64 1
   %52 = load ptr, ptr @g_ascii_table, align 8
-  %wide.trip.count = zext nneg i32 %46 to i64
   br label %53
 
 53:                                               ; preds = %.lr.ph, %68
@@ -4424,7 +4423,7 @@ define internal noundef zeroext i1 @dissect_csim_parameter(ptr noundef %0, ptr n
   %70 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.075, ptr noundef nonnull @.str.627, ptr noundef %69) #15
   %71 = getelementptr i8, ptr %.075, i64 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %49
   br i1 %exitcond.not, label %._crit_edge, label %53, !llvm.loop !139
 
 ._crit_edge:                                      ; preds = %68

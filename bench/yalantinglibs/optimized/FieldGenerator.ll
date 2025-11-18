@@ -1377,7 +1377,7 @@ do.body:                                          ; preds = %do.body, %entry
   %ret.0 = phi i64 [ 0, %entry ], [ %inc, %do.body ]
   %inc = add nuw nsw i64 %ret.0, 1
   %shr = lshr i64 %t.addr.0, 7
-  %cmp.not = icmp ult i64 %t.addr.0, 128
+  %cmp.not = icmp eq i64 %shr, 0
   br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !8
 
 do.end:                                           ; preds = %do.body
@@ -1396,7 +1396,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %ret.0.i = phi i64 [ 0, %entry ], [ %inc.i, %do.body.i ]
   %inc.i = add nuw nsw i64 %ret.0.i, 1
   %shr.i = lshr i64 %t.addr.0.i, 7
-  %cmp.not.i = icmp samesign ult i64 %t.addr.0.i, 128
+  %cmp.not.i = icmp eq i64 %shr.i, 0
   br i1 %cmp.not.i, label %_ZN9struct_pb8compiler21calculate_varint_sizeEm.exit, label %do.body.i, !llvm.loop !8
 
 _ZN9struct_pb8compiler21calculate_varint_sizeEm.exit: ; preds = %do.body.i

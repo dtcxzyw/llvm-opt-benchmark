@@ -684,15 +684,15 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %41, %45
   %311 = sext i32 %310 to i64
   %312 = getelementptr inbounds %struct.rcCompactCell, ptr %307, i64 %311
   %313 = load i32, ptr %312, align 4
-  %.not194.i = icmp ult i32 %313, 16777216
+  %314 = lshr i32 %313, 24
+  %.not194.i = icmp eq i32 %314, 0
   br i1 %.not194.i, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph181.i
-  %314 = and i32 %313, 16777215
-  %315 = lshr i32 %313, 24
-  %316 = add nuw nsw i32 %314, %315
+  %315 = and i32 %313, 16777215
+  %316 = add nuw nsw i32 %315, %314
   %317 = load ptr, ptr %222, align 8
-  %318 = zext nneg i32 %314 to i64
+  %318 = zext nneg i32 %315 to i64
   %319 = zext nneg i32 %316 to i64
   br label %320
 
@@ -976,8 +976,8 @@ _ZN10rcIntArrayixEi.exit11.i:                     ; preds = %407, %402, %.noexc5
   %.1162248.i.i = phi i32 [ %.0161253.i.i, %.preheader.i.i ], [ %.2163.i.i, %.loopexit231.i.i ]
   %.1167247.i.i = phi i32 [ %.0166252.i.i, %.preheader.i.i ], [ %.2168.i.i, %.loopexit231.i.i ]
   %.1172246.i.i = phi i32 [ %.0171251.i.i, %.preheader.i.i ], [ %.2173.i.i, %.loopexit231.i.i ]
-  %.idx322.i.i = shl nuw nsw i64 %indvars.iv290.i.i, 3
-  %442 = getelementptr inbounds nuw i8, ptr @_ZZL23seedArrayWithPolyCenterP9rcContextRK20rcCompactHeightfieldPKtiS5_iR13rcHeightPatchR10rcIntArrayE6offset, i64 %.idx322.i.i
+  %.idx321.i.i = shl nuw nsw i64 %indvars.iv290.i.i, 3
+  %442 = getelementptr inbounds nuw i8, ptr @_ZZL23seedArrayWithPolyCenterP9rcContextRK20rcCompactHeightfieldPKtiS5_iR13rcHeightPatchR10rcIntArrayE6offset, i64 %.idx321.i.i
   %443 = load i32, ptr %442, align 8
   %444 = add nsw i32 %443, %434
   %445 = getelementptr inbounds nuw i8, ptr %442, i64 4
@@ -1000,14 +1000,14 @@ _ZN10rcIntArrayixEi.exit11.i:                     ; preds = %407, %402, %.noexc5
   %455 = sext i32 %454 to i64
   %456 = getelementptr inbounds %struct.rcCompactCell, ptr %425, i64 %455
   %457 = load i32, ptr %456, align 4
-  %.not281.i.i = icmp ult i32 %457, 16777216
+  %458 = lshr i32 %457, 24
+  %.not281.i.i = icmp eq i32 %458, 0
   br i1 %.not281.i.i, label %.loopexit231.i.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %450
-  %458 = and i32 %457, 16777215
-  %459 = lshr i32 %457, 24
-  %460 = add nuw nsw i32 %458, %459
-  %461 = zext nneg i32 %458 to i64
+  %459 = and i32 %457, 16777215
+  %460 = add nuw nsw i32 %459, %458
+  %461 = zext nneg i32 %459 to i64
   %462 = zext nneg i32 %460 to i64
   br label %.lr.ph.i.i
 

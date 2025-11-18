@@ -922,11 +922,11 @@ define dso_local noundef ptr @_ZN5clang7tooling14selectFirstFixERKNS0_10Diagnost
   %9 = zext i32 %.val8 to i64
   %.idx1.i = mul nuw nsw i64 %9, 152
   %10 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx1.i
-  %.not.i = icmp ult i32 %.val8, 4
+  %11 = lshr i64 %9, 2
+  %.not.i = icmp eq i64 %11, 0
   br i1 %.not.i, label %._crit_edge.i.i.i.i, label %.lr.ph.preheader.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %6
-  %11 = lshr i64 %9, 2
   %12 = mul nuw nsw i64 %11, 608
   %scevgep.i.i.i.i = getelementptr i8, ptr %.val, i64 %12
   br label %.lr.ph.i.i.i.i

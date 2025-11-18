@@ -2062,19 +2062,19 @@ Abc_Clock.exit:                                   ; preds = %5, %12
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !77
   %23 = load i32, ptr %16, align 4
-  %24 = load ptr, ptr %0, align 8, !tbaa !99
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %26 = load i32, ptr %25, align 4, !tbaa !100
-  %.not76 = icmp eq i32 %26, 0
+  %24 = lshr i32 %23, 29
+  %25 = load ptr, ptr %0, align 8, !tbaa !99
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %27 = load i32, ptr %26, align 4, !tbaa !100
+  %.not76 = icmp eq i32 %27, 0
   %. = select i1 %.not76, ptr null, ptr %8
-  %.not84 = icmp ult i32 %23, 536870912
+  %.not84 = icmp eq i32 %24, 0
   br i1 %.not84, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %20
-  %27 = lshr i32 %23, 29
   %28 = load ptr, ptr @s_DarLib, align 8, !tbaa !33
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16096
-  %wide.trip.count.i = zext nneg i32 %27 to i64
+  %wide.trip.count.i = zext nneg i32 %24 to i64
   br label %30
 
 30:                                               ; preds = %30, %.lr.ph.i

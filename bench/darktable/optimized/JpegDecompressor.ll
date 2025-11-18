@@ -217,7 +217,7 @@ _ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE6resizeEm.exit: ; preds = %_
   %85 = getelementptr inbounds nuw i8, ptr %68, i64 48
   %86 = load i32, ptr %85, align 8, !tbaa !129, !noalias !124
   %87 = ashr i32 %86, 1
-  %88 = icmp ugt i32 %86, 1
+  %88 = icmp ne i32 %87, 0
   call void @llvm.assume(i1 %88)
   %89 = icmp sgt i32 %87, -1
   call void @llvm.assume(i1 %89)

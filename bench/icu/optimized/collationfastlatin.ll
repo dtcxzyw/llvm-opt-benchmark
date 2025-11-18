@@ -499,7 +499,8 @@ _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit441.thread: ; preds = %_ZN6i
   br label %.backedge672.backedge
 
 .thread576:                                       ; preds = %149, %142
-  %.not662 = icmp samesign ult i32 %17, 4096
+  %.mask = and i32 %2, 61440
+  %.not662 = icmp eq i32 %.mask, 0
   br i1 %.not662, label %.thread596, label %154
 
 154:                                              ; preds = %.thread576
@@ -2455,7 +2456,8 @@ _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit483.thread: ; preds = %_ZN6i
   br label %.backedge721.backedge
 
 .thread590:                                       ; preds = %207, %200
-  %.not706 = icmp samesign ult i32 %17, 4096
+  %.mask = and i32 %2, 61440
+  %.not706 = icmp eq i32 %.mask, 0
   br i1 %.not706, label %.thread616, label %212
 
 212:                                              ; preds = %.thread590

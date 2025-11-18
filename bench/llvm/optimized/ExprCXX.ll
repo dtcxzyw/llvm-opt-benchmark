@@ -750,6 +750,8 @@ declare i32 @_ZNK5clang7TypeLoc11getBeginLocEv(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang10CXXNewExprC2EbPNS_12FunctionDeclES2_bbN4llvm8ArrayRefIPNS_4ExprEEENS_11SourceRangeESt8optionalIS6_ENS_25CXXNewInitializationStyleES6_NS_8QualTypeEPNS_14TypeSourceInfoES8_S8_(ptr noundef nonnull align 8 dereferenceable(56) initializes((4, 56)) %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef readonly byval(%"class.llvm::ArrayRef") align 8 captures(none) %6, i64 %7, ptr noundef readonly byval(%"class.std::optional") align 8 captures(none) %8, i32 noundef %9, ptr noundef %10, i64 %11, ptr noundef %12, i64 %13, i64 %14) unnamed_addr #4 align 2 {
+  %.sroa.332.0.extract.shift = lshr i64 %7, 32
+  %.sroa.2.0.extract.shift = lshr i64 %14, 32
   %16 = load i16, ptr %0, align 8
   %17 = and i16 %16, -512
   %18 = or disjoint i16 %17, 108
@@ -798,8 +800,8 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
   %46 = and i32 %45, 50331648
   %47 = and i64 %7, 4294967295
   %48 = icmp ne i64 %47, 0
-  %49 = icmp ugt i64 %7, 4294967295
-  %50 = and i1 %49, %48
+  %49 = icmp ne i64 %.sroa.332.0.extract.shift, 0
+  %50 = and i1 %48, %49
   %51 = select i1 %50, i32 67108864, i32 0
   %52 = or disjoint i32 %46, %51
   %53 = or disjoint i32 %52, %44
@@ -884,14 +886,14 @@ _ZN5clang10CXXNewExpr14getInitializerEv.exit:     ; preds = %90
   %96 = getelementptr inbounds nuw ptr, ptr %93, i64 %95
   %97 = load ptr, ptr %96, align 8, !tbaa !25
   %98 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %97) #16
+  %.sroa.3.0.extract.shift = lshr i64 %98, 32
   br label %.sink.split
 
 99:                                               ; preds = %90
   br i1 %50, label %.sink.split, label %101
 
 .sink.split:                                      ; preds = %99, %90, %_ZN5clang10CXXNewExpr14getInitializerEv.exit
-  %.sroa.332.0.extract.trunc.sink.in.in = phi i64 [ %98, %_ZN5clang10CXXNewExpr14getInitializerEv.exit ], [ %14, %90 ], [ %7, %99 ]
-  %.sroa.332.0.extract.trunc.sink.in = lshr i64 %.sroa.332.0.extract.trunc.sink.in.in, 32
+  %.sroa.332.0.extract.trunc.sink.in = phi i64 [ %.sroa.3.0.extract.shift, %_ZN5clang10CXXNewExpr14getInitializerEv.exit ], [ %.sroa.2.0.extract.shift, %90 ], [ %.sroa.332.0.extract.shift, %99 ]
   %.sroa.332.0.extract.trunc.sink = trunc nuw i64 %.sroa.332.0.extract.trunc.sink.in to i32
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %.sroa.332.0.extract.trunc.sink, ptr %100, align 4, !tbaa !89
@@ -1949,7 +1951,7 @@ define dso_local i32 @_ZNK5clang16CXXConstructExpr9getEndLocEv(ptr noundef nonnu
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
   %.sroa.3.0.extract.shift.i = lshr i64 %.sroa.0.0.copyload.i.i, 32
   %.sroa.3.0.extract.trunc.i = trunc nuw i64 %.sroa.3.0.extract.shift.i to i32
-  %7 = icmp ult i64 %.sroa.0.0.copyload.i.i, 4294967296
+  %7 = icmp eq i64 %.sroa.3.0.extract.shift.i, 0
   br i1 %7, label %8, label %_ZNK5clang22CXXTemporaryObjectExpr9getEndLocEv.exit.thread
 
 8:                                                ; preds = %6
@@ -2023,7 +2025,7 @@ define dso_local i32 @_ZNK5clang22CXXTemporaryObjectExpr9getEndLocEv(ptr noundef
   %.sroa.0.0.copyload.i = load i64, ptr %2, align 8
   %.sroa.3.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 32
   %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
-  %3 = icmp ult i64 %.sroa.0.0.copyload.i, 4294967296
+  %3 = icmp eq i64 %.sroa.3.0.extract.shift, 0
   br i1 %3, label %4, label %17
 
 4:                                                ; preds = %1

@@ -42236,11 +42236,11 @@ define internal noundef zeroext i1 @_ZNK5clang12_GLOBAL__N_18internal30matcher_h
   %.idx2 = shl nuw nsw i64 %8, 3
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not = icmp ult i16 %7, 4
+  %11 = lshr i64 %8, 2
+  %.not = icmp eq i64 %11, 0
   br i1 %.not, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %4
-  %11 = lshr i64 %8, 2
   %12 = load ptr, ptr %10, align 8, !tbaa !211
   %13 = and i64 %.idx2, 524256
   %scevgep.i.i.i.i = getelementptr i8, ptr %5, i64 %13
@@ -42263,13 +42263,13 @@ define internal noundef zeroext i1 @_ZNK5clang12_GLOBAL__N_18internal30matcher_h
   %22 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !211
   %24 = icmp eq ptr %23, %12
-  br i1 %24, label %_ZN4llvm12is_containedINS_14iterator_rangeIPKPN5clang4ExprEEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit17, label %25
+  br i1 %24, label %_ZN4llvm12is_containedINS_14iterator_rangeIPKPN5clang4ExprEEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit18, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 24
   %27 = load ptr, ptr %26, align 8, !tbaa !211
   %28 = icmp eq ptr %27, %12
-  br i1 %28, label %_ZN4llvm12is_containedINS_14iterator_rangeIPKPN5clang4ExprEEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit19, label %29
+  br i1 %28, label %_ZN4llvm12is_containedINS_14iterator_rangeIPKPN5clang4ExprEEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit20, label %29
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 32
@@ -42284,11 +42284,10 @@ define internal noundef zeroext i1 @_ZNK5clang12_GLOBAL__N_18internal30matcher_h
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %4
   %.pre-phi56.i.i.i.i = phi i16 [ %33, %._crit_edge.loopexit.i.i.i.i ], [ %7, %4 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %5, %4 ]
-  switch i16 %.pre-phi56.i.i.i.i, label %._crit_edge.i.i.i.i.unreachabledefault [
+  switch i16 %.pre-phi56.i.i.i.i, label %50 [
     i16 3, label %34
     i16 2, label %._crit_edge._crit_edge.i.i.i.i
     i16 1, label %._crit_edge._crit_edge52.i.i.i.i
-    i16 0, label %50
   ]
 
 ._crit_edge._crit_edge52.i.i.i.i:                 ; preds = %._crit_edge.i.i.i.i
@@ -42327,26 +42326,23 @@ define internal noundef zeroext i1 @_ZNK5clang12_GLOBAL__N_18internal30matcher_h
   %49 = icmp eq ptr %48, %47
   br i1 %49, label %_ZN4llvm12is_containedINS_14iterator_rangeIPKPN5clang4ExprEEEPKS3_EEbOT_RKT0_.exit, label %50
 
-._crit_edge.i.i.i.i.unreachabledefault:           ; preds = %._crit_edge.i.i.i.i
-  unreachable
-
-50:                                               ; preds = %._crit_edge.i.i.i.i, %46
+50:                                               ; preds = %46, %._crit_edge.i.i.i.i
   br label %_ZN4llvm12is_containedINS_14iterator_rangeIPKPN5clang4ExprEEEPKS3_EEbOT_RKT0_.exit
 
 _ZN4llvm12is_containedINS_14iterator_rangeIPKPN5clang4ExprEEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit: ; preds = %17
   %51 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 8
   br label %_ZN4llvm12is_containedINS_14iterator_rangeIPKPN5clang4ExprEEEPKS3_EEbOT_RKT0_.exit
 
-_ZN4llvm12is_containedINS_14iterator_rangeIPKPN5clang4ExprEEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit17: ; preds = %21
+_ZN4llvm12is_containedINS_14iterator_rangeIPKPN5clang4ExprEEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit18: ; preds = %21
   %52 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 16
   br label %_ZN4llvm12is_containedINS_14iterator_rangeIPKPN5clang4ExprEEEPKS3_EEbOT_RKT0_.exit
 
-_ZN4llvm12is_containedINS_14iterator_rangeIPKPN5clang4ExprEEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit19: ; preds = %25
+_ZN4llvm12is_containedINS_14iterator_rangeIPKPN5clang4ExprEEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit20: ; preds = %25
   %53 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 24
   br label %_ZN4llvm12is_containedINS_14iterator_rangeIPKPN5clang4ExprEEEPKS3_EEbOT_RKT0_.exit
 
-_ZN4llvm12is_containedINS_14iterator_rangeIPKPN5clang4ExprEEEPKS3_EEbOT_RKT0_.exit: ; preds = %14, %_ZN4llvm12is_containedINS_14iterator_rangeIPKPN5clang4ExprEEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedINS_14iterator_rangeIPKPN5clang4ExprEEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit17, %_ZN4llvm12is_containedINS_14iterator_rangeIPKPN5clang4ExprEEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit19, %34, %40, %46, %50
-  %.028.i.i.i.i = phi ptr [ %9, %50 ], [ %.029.lcssa.i.i.i.i, %34 ], [ %.1.i.i.i.i, %40 ], [ %.2.i.i.i.i, %46 ], [ %51, %_ZN4llvm12is_containedINS_14iterator_rangeIPKPN5clang4ExprEEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %52, %_ZN4llvm12is_containedINS_14iterator_rangeIPKPN5clang4ExprEEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit17 ], [ %53, %_ZN4llvm12is_containedINS_14iterator_rangeIPKPN5clang4ExprEEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit19 ], [ %.02946.i.i.i.i, %14 ]
+_ZN4llvm12is_containedINS_14iterator_rangeIPKPN5clang4ExprEEEPKS3_EEbOT_RKT0_.exit: ; preds = %14, %_ZN4llvm12is_containedINS_14iterator_rangeIPKPN5clang4ExprEEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedINS_14iterator_rangeIPKPN5clang4ExprEEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit18, %_ZN4llvm12is_containedINS_14iterator_rangeIPKPN5clang4ExprEEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit20, %34, %40, %46, %50
+  %.028.i.i.i.i = phi ptr [ %9, %50 ], [ %.029.lcssa.i.i.i.i, %34 ], [ %.1.i.i.i.i, %40 ], [ %.2.i.i.i.i, %46 ], [ %51, %_ZN4llvm12is_containedINS_14iterator_rangeIPKPN5clang4ExprEEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %52, %_ZN4llvm12is_containedINS_14iterator_rangeIPKPN5clang4ExprEEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit18 ], [ %53, %_ZN4llvm12is_containedINS_14iterator_rangeIPKPN5clang4ExprEEEPKS3_EEbOT_RKT0_.exit.loopexit.split.loop.exit20 ], [ %.02946.i.i.i.i, %14 ]
   %54 = icmp ne ptr %.028.i.i.i.i, %9
   ret i1 %54
 }

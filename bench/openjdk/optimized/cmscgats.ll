@@ -1990,7 +1990,7 @@ satoi.exit:                                       ; preds = %160
   %171 = getelementptr inbounds i8, ptr %.116.i, i64 -1
   store i8 %170, ptr %171, align 1
   %172 = lshr i32 %.01015.i, 1
-  %.not13.i = icmp ult i32 %.01015.i, 2
+  %.not13.i = icmp eq i32 %172, 0
   br i1 %.not13.i, label %satob.exit, label %.lr.ph.i, !llvm.loop !23
 
 satob.exit:                                       ; preds = %.lr.ph.i, %.thread.i

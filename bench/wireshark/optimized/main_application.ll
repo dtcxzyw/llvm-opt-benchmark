@@ -14277,7 +14277,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit.i: ; preds = %9, %8, 
 .noexc:                                           ; preds = %_ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit.i
   store i64 %16, ptr %22, align 16
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = icmp ult i64 %15, 128
+  %24 = icmp eq i64 %16, 0
   br i1 %24, label %_ZN12QHashPrivate4DataINS_4NodeIi5QListIP7QActionEEEEC2Em.exit, label %25
 
 25:                                               ; preds = %.noexc
@@ -14480,7 +14480,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   %33 = tail call noalias noundef ptr @_Znam(i64 noundef %32) #33
   store i64 %27, ptr %33, align 16
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %35 = icmp ult i64 %26, 128
+  %35 = icmp eq i64 %27, 0
   br i1 %35, label %.loopexit, label %36
 
 36:                                               ; preds = %23
@@ -14510,7 +14510,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   %50 = load i64, ptr %8, align 8
   %51 = add i64 %50, 127
   %52 = lshr i64 %51, 7
-  %.not34 = icmp ult i64 %51, 128
+  %.not34 = icmp eq i64 %52, 0
   br i1 %.not34, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.loopexit
@@ -14758,7 +14758,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %7, %9, %1
   %27 = tail call noalias noundef ptr @_Znam(i64 noundef %26) #33
   store i64 %21, ptr %27, align 16
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = icmp ult i64 %20, 128
+  %29 = icmp eq i64 %21, 0
   br i1 %29, label %.loopexit32, label %30
 
 30:                                               ; preds = %_ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit
@@ -14788,7 +14788,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %7, %9, %1
   store i64 %.0.i, ptr %18, align 8
   %44 = add i64 %19, 127
   %45 = lshr i64 %44, 7
-  %.not35 = icmp ult i64 %44, 128
+  %.not35 = icmp eq i64 %45, 0
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.loopexit32
@@ -14945,9 +14945,9 @@ _ZNK12QHashPrivate4DataINS_4NodeIi5QListIP7QActionEEEE4findERKi.exit: ; preds = 
   %126 = shl nuw nsw i64 %125, 5
   %127 = tail call noalias noundef ptr @_Znam(i64 noundef %126) #33
   %.not.i.i = icmp eq i8 %119, 0
-  br i1 %.not.i.i, label %.preheader65, label %128
+  br i1 %.not.i.i, label %.preheader67, label %128
 
-.preheader65:                                     ; preds = %128, %123
+.preheader67:                                     ; preds = %128, %123
   br label %137
 
 128:                                              ; preds = %123
@@ -14955,7 +14955,7 @@ _ZNK12QHashPrivate4DataINS_4NodeIi5QListIP7QActionEEEE4findERKi.exit: ; preds = 
   %130 = load ptr, ptr %129, align 8
   %131 = shl nuw nsw i64 %124, 5
   %132 = tail call ptr @__memcpy_chk(ptr noundef %127, ptr noundef %130, i64 noundef %131, i64 noundef %126) #31, !alias.scope !100
-  br label %.preheader65
+  br label %.preheader67
 
 133:                                              ; preds = %137
   %134 = getelementptr inbounds nuw i8, ptr %117, i64 128
@@ -14963,8 +14963,8 @@ _ZNK12QHashPrivate4DataINS_4NodeIi5QListIP7QActionEEEE4findERKi.exit: ; preds = 
   %136 = icmp eq ptr %135, null
   br i1 %136, label %_ZN12QHashPrivate4SpanINS_4NodeIi5QListIP7QActionEEEE10addStorageEv.exit.i, label %141
 
-137:                                              ; preds = %.preheader65, %137
-  %.011.i.i = phi i64 [ %138, %137 ], [ %124, %.preheader65 ]
+137:                                              ; preds = %.preheader67, %137
+  %.011.i.i = phi i64 [ %138, %137 ], [ %124, %.preheader67 ]
   %138 = add nuw nsw i64 %.011.i.i, 1
   %139 = trunc i64 %138 to i8
   %140 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, QList<QAction *>>>::Entry", ptr %127, i64 %.011.i.i
@@ -16212,7 +16212,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN5QListIP7QActionE8iteratorExN9
   %52 = load ptr, ptr %48, align 8
   %53 = getelementptr ptr, ptr %0, i64 %.019.i.i.i.i.i
   store ptr %52, ptr %53, align 8
-  %.not9.i.i.i = icmp ult i64 %.0920.in.i.i.i.i.i, 2
+  %.not9.i.i.i = icmp eq i64 %.0920.i.i78.i.i.i, 0
   br i1 %.not9.i.i.i, label %_ZSt10__pop_heapIN5QListIP7QActionE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_S9_EEEEvT_SD_SD_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !110
 
 _ZSt10__pop_heapIN5QListIP7QActionE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_S9_EEEEvT_SD_SD_RT0_.exit.i.i: ; preds = %51, %.lr.ph.i.i.i.i.i, %47
@@ -16431,7 +16431,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN5QListIP7QActionE8iteratorEN9__gn
   %45 = load ptr, ptr %41, align 8
   %46 = getelementptr ptr, ptr %.fr29, i64 %.019.i.i.i.us
   store ptr %45, ptr %46, align 8
-  %.not9.i.us = icmp ult i64 %.0920.in.i.i.i.us, 2
+  %.not9.i.us = icmp eq i64 %.0920.i.i78.i.us, 0
   br i1 %.not9.i.us, label %_ZSt10__pop_heapIN5QListIP7QActionE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_S9_EEEEvT_SD_SD_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !110
 
 _ZSt10__pop_heapIN5QListIP7QActionE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_S9_EEEEvT_SD_SD_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %44, %39

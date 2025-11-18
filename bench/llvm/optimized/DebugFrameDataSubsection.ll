@@ -1708,7 +1708,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 88:                                               ; preds = %.lr.ph.i.i.i.i17.i
   %89 = getelementptr inbounds %"struct.llvm::codeview::FrameData", ptr %.fr49.i, i64 %.010.i.i.i.i18.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %89, ptr noundef nonnull align 1 dereferenceable(32) %86, i64 32, i1 false), !tbaa.struct !85
-  %.not11.i.i25.i = icmp ult i64 %.0911.in.i.i.i.i19.i, 2
+  %.not11.i.i25.i = icmp eq i64 %.0911.i.i910.i.i20.i, 0
   br i1 %.not11.i.i25.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8codeview9FrameDataESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_24DebugFrameDataSubsection6commitERNS2_18BinaryStreamWriterEE3$_0EEEvT_SH_SH_RT0_.exit.i22.i", label %.lr.ph.i.i.i.i17.i, !llvm.loop !113
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8codeview9FrameDataESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_24DebugFrameDataSubsection6commitERNS2_18BinaryStreamWriterEE3$_0EEEvT_SH_SH_RT0_.exit.i22.i": ; preds = %88, %.lr.ph.i.i.i.i17.i, %85

@@ -14675,10 +14675,10 @@ while.body.i.i:                                   ; preds = %if.end, %if.end4.i.
   br i1 %cmp2.not.i.i, label %if.end4.i.i, label %if.end.i.i.i
 
 if.end4.i.i:                                      ; preds = %while.body.i.i
+  %cmp5.i.i = icmp eq i64 %__len.addr.011.i.i, 1
   %add.i.i = add nuw nsw i64 %__len.addr.011.i.i, 1
   %div9.i.i = lshr i64 %add.i.i, 1
-  %cmp1.not.i.i = icmp samesign ult i64 %__len.addr.011.i.i, 2
-  br i1 %cmp1.not.i.i, label %if.then5, label %while.body.i.i, !llvm.loop !209
+  br i1 %cmp5.i.i, label %if.then5, label %while.body.i.i, !llvm.loop !209
 
 if.end.i.i.i:                                     ; preds = %while.body.i.i
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 %mul.i.i

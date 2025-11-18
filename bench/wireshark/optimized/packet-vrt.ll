@@ -1492,20 +1492,20 @@ dissect_context.exit:                             ; preds = %188, %dissect_conte
   %212 = add i32 %204, 1
   %213 = tail call ptr @proto_tree_add_item(ptr noundef %208, i32 noundef %211, ptr noundef %0, i32 noundef %212, i32 noundef 2, i32 noundef 0)
   %214 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %204)
-  %.not.i101 = icmp ult i16 %214, 16
-  br i1 %.not.i101, label %dissect_trailer.exit, label %215
+  %215 = lshr i16 %214, 4
+  %.not.i101 = icmp eq i16 %215, 0
+  br i1 %.not.i101, label %dissect_trailer.exit, label %216
 
-215:                                              ; preds = %202
-  %216 = lshr i16 %214, 4
+216:                                              ; preds = %202
   %217 = load i32, ptr @ett_ind_enables, align 4
   %218 = tail call ptr @proto_item_add_subtree(ptr noundef %210, i32 noundef %217)
   %219 = load i32, ptr @ett_indicators, align 4
   %220 = tail call ptr @proto_item_add_subtree(ptr noundef %213, i32 noundef %219)
-  %221 = zext nneg i16 %216 to i32
+  %221 = zext nneg i16 %215 to i32
   br label %222
 
-222:                                              ; preds = %235, %215
-  %indvars.iv.i102 = phi i64 [ 11, %215 ], [ %indvars.iv.next.i103, %235 ]
+222:                                              ; preds = %235, %216
+  %indvars.iv.i102 = phi i64 [ 11, %216 ], [ %indvars.iv.next.i103, %235 ]
   %223 = trunc nuw nsw i64 %indvars.iv.i102 to i32
   %224 = shl nuw i32 1, %223
   %225 = and i32 %224, %221
@@ -1688,7 +1688,7 @@ define internal range(i32 0, 528365) i32 @dissect_context_assoc_lists(ptr nounde
 
 45:                                               ; preds = %40, %39
   %.1 = phi i32 [ %44, %40 ], [ %.0, %39 ]
-  %.not74 = icmp ult i32 %9, 65536
+  %.not74 = icmp eq i32 %10, 0
   br i1 %.not74, label %51, label %46
 
 46:                                               ; preds = %45

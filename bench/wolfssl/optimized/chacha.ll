@@ -172,7 +172,7 @@ define range(i32 -173, 1) i32 @wc_Chacha_Process(ptr noundef captures(address_is
   %.127.lcssa.i.i = phi ptr [ %2, %.preheader.i.i ], [ %27, %.lr.ph.i.i ]
   %.1.lcssa.i.i = phi ptr [ %18, %.preheader.i.i ], [ %29, %.lr.ph.i.i ]
   %39 = lshr i32 %.132.lcssa.i.i, 3
-  %.not.i.i.i = icmp ult i32 %.132.lcssa.i.i, 8
+  %.not.i.i.i = icmp eq i32 %39, 0
   br i1 %.not.i.i.i, label %.loopexit147.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %._crit_edge.i.i, %.lr.ph.i.i.i
@@ -295,21 +295,21 @@ xorbufout.exit.i:                                 ; preds = %.lr.ph52.i.i, %.loo
 
 ._crit_edge.i57.i:                                ; preds = %.lr.ph.i73.i
   %86 = lshr i32 %85, 3
-  %.not.i.i62.i = icmp ult i32 %85, 8
+  %.not.i.i62.i = icmp eq i32 %86, 0
   br i1 %.not.i.i62.i, label %.loopexit146.i, label %.lr.ph.i.i63.preheader.i
 
 .lr.ph.i.i63.preheader.i:                         ; preds = %._crit_edge.i57.i, %.preheader.i56.i
   %87 = phi i32 [ %86, %._crit_edge.i57.i ], [ 8, %.preheader.i56.i ]
-  %.1.lcssa.i61221.i = phi ptr [ %81, %._crit_edge.i57.i ], [ %5, %.preheader.i56.i ]
-  %.127.lcssa.i60220.i = phi ptr [ %79, %._crit_edge.i57.i ], [ %.1172.i, %.preheader.i56.i ]
-  %.129.lcssa.i59219.i = phi ptr [ %84, %._crit_edge.i57.i ], [ %.138168.i, %.preheader.i56.i ]
-  %.132.lcssa.i58217.i = phi i32 [ %85, %._crit_edge.i57.i ], [ 64, %.preheader.i56.i ]
+  %.1.lcssa.i61224.i = phi ptr [ %81, %._crit_edge.i57.i ], [ %5, %.preheader.i56.i ]
+  %.127.lcssa.i60223.i = phi ptr [ %79, %._crit_edge.i57.i ], [ %.1172.i, %.preheader.i56.i ]
+  %.129.lcssa.i59222.i = phi ptr [ %84, %._crit_edge.i57.i ], [ %.138168.i, %.preheader.i56.i ]
+  %.132.lcssa.i58220.i = phi i32 [ %85, %._crit_edge.i57.i ], [ 64, %.preheader.i56.i ]
   br label %.lr.ph.i.i63.i
 
 .lr.ph.i.i63.i:                                   ; preds = %.lr.ph.i.i63.i, %.lr.ph.i.i63.preheader.i
-  %.sroa.039.0.i64.i = phi ptr [ %93, %.lr.ph.i.i63.i ], [ %.129.lcssa.i59219.i, %.lr.ph.i.i63.preheader.i ]
-  %.sroa.037.0.i65.i = phi ptr [ %88, %.lr.ph.i.i63.i ], [ %.127.lcssa.i60220.i, %.lr.ph.i.i63.preheader.i ]
-  %.sroa.0.0.i66.i = phi ptr [ %90, %.lr.ph.i.i63.i ], [ %.1.lcssa.i61221.i, %.lr.ph.i.i63.preheader.i ]
+  %.sroa.039.0.i64.i = phi ptr [ %93, %.lr.ph.i.i63.i ], [ %.129.lcssa.i59222.i, %.lr.ph.i.i63.preheader.i ]
+  %.sroa.037.0.i65.i = phi ptr [ %88, %.lr.ph.i.i63.i ], [ %.127.lcssa.i60223.i, %.lr.ph.i.i63.preheader.i ]
+  %.sroa.0.0.i66.i = phi ptr [ %90, %.lr.ph.i.i63.i ], [ %.1.lcssa.i61224.i, %.lr.ph.i.i63.preheader.i ]
   %.05.i.i67.i = phi i32 [ %94, %.lr.ph.i.i63.i ], [ 0, %.lr.ph.i.i63.preheader.i ]
   %88 = getelementptr inbounds nuw i8, ptr %.sroa.037.0.i65.i, i64 8
   %89 = load i64, ptr %.sroa.037.0.i65.i, align 8, !tbaa !12
@@ -323,11 +323,11 @@ xorbufout.exit.i:                                 ; preds = %.lr.ph52.i.i, %.loo
   br i1 %exitcond.not.i.i68.i, label %.loopexit146.i, label %.lr.ph.i.i63.i, !llvm.loop !14
 
 .loopexit146.i:                                   ; preds = %.lr.ph.i.i63.i, %._crit_edge.i57.i
-  %.132.lcssa.i58218.i = phi i32 [ %85, %._crit_edge.i57.i ], [ %.132.lcssa.i58217.i, %.lr.ph.i.i63.i ]
+  %.132.lcssa.i58221.i = phi i32 [ %85, %._crit_edge.i57.i ], [ %.132.lcssa.i58220.i, %.lr.ph.i.i63.i ]
   %.sroa.039.1.i70.i = phi ptr [ %84, %._crit_edge.i57.i ], [ %93, %.lr.ph.i.i63.i ]
   %.sroa.037.1.i71.i = phi ptr [ %79, %._crit_edge.i57.i ], [ %88, %.lr.ph.i.i63.i ]
   %.sroa.0.1.i72.i = phi ptr [ %81, %._crit_edge.i57.i ], [ %90, %.lr.ph.i.i63.i ]
-  %95 = and i32 %.132.lcssa.i58218.i, 7
+  %95 = and i32 %.132.lcssa.i58221.i, 7
   %.not.i49.i = icmp eq i32 %95, 0
   br i1 %.not.i49.i, label %xorbufout.exit78.i, label %.lr.ph52.preheader.i50.i
 
@@ -406,7 +406,7 @@ xorbufout.exit78.i:                               ; preds = %.lr.ph52.i52.i, %.l
   %.127.lcssa.i95.i = phi ptr [ %.1.lcssa.i, %.preheader.i91.i ], [ %112, %.lr.ph.i108.i ]
   %.1.lcssa.i96.i = phi ptr [ %5, %.preheader.i91.i ], [ %114, %.lr.ph.i108.i ]
   %124 = lshr i32 %.132.lcssa.i93.i, 3
-  %.not.i.i97.i = icmp ult i32 %.132.lcssa.i93.i, 8
+  %.not.i.i97.i = icmp eq i32 %124, 0
   br i1 %.not.i.i97.i, label %.loopexit.i, label %.lr.ph.i.i98.i
 
 .lr.ph.i.i98.i:                                   ; preds = %._crit_edge.i92.i, %.lr.ph.i.i98.i

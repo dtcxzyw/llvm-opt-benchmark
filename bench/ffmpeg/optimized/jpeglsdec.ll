@@ -57,16 +57,16 @@ define range(i32 -1163346256, 2) i32 @ff_jpegls_decode_lse(ptr noundef captures(
   %27 = tail call i32 @llvm.umin.i32(i32 %6, i32 %26)
   store i32 %27, ptr %3, align 8, !tbaa !4
   %trunc = trunc nuw i32 %25 to i8
-  switch i8 %trunc, label %209 [
+  switch i8 %trunc, label %203 [
     i8 1, label %28
     i8 2, label %92
     i8 3, label %94
-    i8 4, label %206
+    i8 4, label %200
   ]
 
 28:                                               ; preds = %1
   %29 = icmp ult i32 %14, 851968
-  br i1 %29, label %212, label %30
+  br i1 %29, label %206, label %30
 
 30:                                               ; preds = %28
   %31 = lshr i32 %27, 3
@@ -140,11 +140,11 @@ define range(i32 -1163346256, 2) i32 @ff_jpegls_decode_lse(ptr noundef captures(
   %89 = load i32, ptr %88, align 4, !tbaa !34
   %90 = and i32 %89, 1
   %.not110 = icmp eq i32 %90, 0
-  br i1 %.not110, label %212, label %91
+  br i1 %.not110, label %206, label %91
 
 91:                                               ; preds = %30
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %87, i32 noundef 48, ptr noundef nonnull @.str, i32 noundef %38, i32 noundef %49, i32 noundef %60, i32 noundef %71, i32 noundef %82) #9
-  br label %212
+  br label %206
 
 92:                                               ; preds = %1
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 1488
@@ -175,7 +175,7 @@ define range(i32 -1163346256, 2) i32 @ff_jpegls_decode_lse(ptr noundef captures(
   %114 = tail call i32 @llvm.umin.i32(i32 %6, i32 %113)
   store i32 %114, ptr %3, align 8, !tbaa !4
   %115 = icmp ult i32 %14, 327680
-  br i1 %115, label %212, label %116
+  br i1 %115, label %206, label %116
 
 116:                                              ; preds = %94
   %117 = add nsw i32 %112, -5
@@ -186,7 +186,7 @@ define range(i32 -1163346256, 2) i32 @ff_jpegls_decode_lse(ptr noundef captures(
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %120 = load ptr, ptr %119, align 8, !tbaa !33
   tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %120, ptr noundef nonnull @.str.1, i32 noundef %112) #9
-  br label %212
+  br label %206
 
 121:                                              ; preds = %116
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 956
@@ -228,7 +228,7 @@ define range(i32 -1163346256, 2) i32 @ff_jpegls_decode_lse(ptr noundef captures(
 140:                                              ; preds = %138
   %141 = load ptr, ptr %132, align 8, !tbaa !33
   tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %141, ptr noundef nonnull @.str.3) #9
-  br label %212
+  br label %206
 
 142:                                              ; preds = %138
   %143 = trunc nuw i32 %15 to i16
@@ -241,13 +241,13 @@ define range(i32 -1163346256, 2) i32 @ff_jpegls_decode_lse(ptr noundef captures(
   %147 = add nsw i32 %146, %.zext
   %..092 = tail call i32 @llvm.smin.i32(i32 %.092, i32 %147)
   %148 = icmp slt i32 %.092, %146
-  br i1 %148, label %212, label %149
+  br i1 %148, label %206, label %149
 
 149:                                              ; preds = %142
   %150 = load ptr, ptr %132, align 8, !tbaa !33
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 136
   %152 = load i32, ptr %151, align 8, !tbaa !50
-  switch i32 %152, label %212 [
+  switch i32 %152, label %206 [
     i32 8, label %153
     i32 11, label %153
   ]
@@ -257,7 +257,7 @@ define range(i32 -1163346256, 2) i32 @ff_jpegls_decode_lse(ptr noundef captures(
   %155 = load ptr, ptr %154, align 8, !tbaa !51
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 116
   %157 = load i32, ptr %156, align 4, !tbaa !52
-  switch i32 %157, label %212 [
+  switch i32 %157, label %206 [
     i32 8, label %158
     i32 11, label %158
   ]
@@ -290,98 +290,79 @@ define range(i32 -1163346256, 2) i32 @ff_jpegls_decode_lse(ptr noundef captures(
 
 .preheader:                                       ; preds = %167
   %.not109116 = icmp sgt i32 %146, %.193
-  br i1 %.not109116, label %._crit_edge119, label %.lr.ph118
+  br i1 %.not109116, label %._crit_edge119, label %.lr.ph118.split.us
 
-.lr.ph118:                                        ; preds = %.preheader
+.lr.ph118.split.us:                               ; preds = %.preheader
   %171 = icmp ult i32 %111, 67108864
   %172 = select i1 %171, i32 -16777216, i32 0
-  %.not120 = icmp ult i32 %111, 16777216
-  br i1 %.not120, label %.lr.ph118.split.preheader, label %.lr.ph118.split.us
-
-.lr.ph118.split.preheader:                        ; preds = %.lr.ph118
-  %173 = add nsw i32 %.193, 1
-  br label %.lr.ph118.split
-
-.lr.ph118.split.us:                               ; preds = %.lr.ph118
-  %174 = load ptr, ptr %2, align 8, !tbaa !12
-  %175 = add nsw i32 %.193, 1
+  %173 = load ptr, ptr %2, align 8, !tbaa !12
+  %174 = add nsw i32 %.193, 1
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %._crit_edge.us, %.lr.ph118.split.us
-  %.095117.us = phi i32 [ %146, %.lr.ph118.split.us ], [ %200, %._crit_edge.us ]
-  %176 = shl i32 %.095117.us, %.091
-  %177 = and i32 %176, 255
-  %178 = zext nneg i32 %177 to i64
-  %179 = getelementptr inbounds nuw i32, ptr %160, i64 %178
-  store i32 %172, ptr %179, align 4, !tbaa !59
-  br label %180
+  %.095117.us = phi i32 [ %146, %.lr.ph118.split.us ], [ %199, %._crit_edge.us ]
+  %175 = shl i32 %.095117.us, %.091
+  %176 = and i32 %175, 255
+  %177 = zext nneg i32 %176 to i64
+  %178 = getelementptr inbounds nuw i32, ptr %160, i64 %177
+  store i32 %172, ptr %178, align 4, !tbaa !59
+  br label %179
 
-180:                                              ; preds = %.lr.ph.us, %180
-  %.096115.us = phi i32 [ 0, %.lr.ph.us ], [ %199, %180 ]
-  %181 = load i32, ptr %3, align 8, !tbaa !4
-  %182 = load i32, ptr %5, align 8, !tbaa !11
-  %183 = lshr i32 %181, 3
-  %184 = zext nneg i32 %183 to i64
-  %185 = getelementptr inbounds nuw i8, ptr %174, i64 %184
-  %186 = load i32, ptr %185, align 1, !tbaa !13
-  %187 = tail call i32 @llvm.bswap.i32(i32 %186)
-  %188 = and i32 %181, 7
-  %189 = shl i32 %187, %188
-  %190 = lshr i32 %189, 24
-  %191 = add i32 %181, 8
-  %192 = tail call i32 @llvm.umin.i32(i32 %182, i32 %191)
-  store i32 %192, ptr %3, align 8, !tbaa !4
-  %193 = xor i32 %.096115.us, -1
-  %194 = add nsw i32 %112, %193
-  %195 = shl nsw i32 %194, 3
-  %196 = shl i32 %190, %195
-  %197 = load i32, ptr %179, align 4, !tbaa !59
-  %198 = or i32 %196, %197
-  store i32 %198, ptr %179, align 4, !tbaa !59
-  %199 = add nuw nsw i32 %.096115.us, 1
-  %exitcond.not = icmp eq i32 %199, %112
-  br i1 %exitcond.not, label %._crit_edge.us, label %180, !llvm.loop !60
+179:                                              ; preds = %.lr.ph.us, %179
+  %.096115.us = phi i32 [ 0, %.lr.ph.us ], [ %198, %179 ]
+  %180 = load i32, ptr %3, align 8, !tbaa !4
+  %181 = load i32, ptr %5, align 8, !tbaa !11
+  %182 = lshr i32 %180, 3
+  %183 = zext nneg i32 %182 to i64
+  %184 = getelementptr inbounds nuw i8, ptr %173, i64 %183
+  %185 = load i32, ptr %184, align 1, !tbaa !13
+  %186 = tail call i32 @llvm.bswap.i32(i32 %185)
+  %187 = and i32 %180, 7
+  %188 = shl i32 %186, %187
+  %189 = lshr i32 %188, 24
+  %190 = add i32 %180, 8
+  %191 = tail call i32 @llvm.umin.i32(i32 %181, i32 %190)
+  store i32 %191, ptr %3, align 8, !tbaa !4
+  %192 = xor i32 %.096115.us, -1
+  %193 = add nsw i32 %112, %192
+  %194 = shl nsw i32 %193, 3
+  %195 = shl i32 %189, %194
+  %196 = load i32, ptr %178, align 4, !tbaa !59
+  %197 = or i32 %195, %196
+  store i32 %197, ptr %178, align 4, !tbaa !59
+  %198 = add nuw nsw i32 %.096115.us, 1
+  %exitcond.not = icmp eq i32 %198, %112
+  br i1 %exitcond.not, label %._crit_edge.us, label %179, !llvm.loop !60
 
-._crit_edge.us:                                   ; preds = %180
-  %200 = add i32 %.095117.us, 1
+._crit_edge.us:                                   ; preds = %179
+  %199 = add i32 %.095117.us, 1
   %exitcond123.not = icmp eq i32 %.095117.us, %.193
   br i1 %exitcond123.not, label %._crit_edge119, label %.lr.ph.us, !llvm.loop !62
 
 .thread:                                          ; preds = %167
   %.inv = icmp slt i32 %169, 1
   %. = select i1 %.inv, i32 1, i32 -1094995529
-  br label %212
+  br label %206
 
-.lr.ph118.split:                                  ; preds = %.lr.ph118.split.preheader, %.lr.ph118.split
-  %.095117 = phi i32 [ %205, %.lr.ph118.split ], [ %146, %.lr.ph118.split.preheader ]
-  %201 = shl i32 %.095117, %.091
-  %202 = and i32 %201, 255
-  %203 = zext nneg i32 %202 to i64
-  %204 = getelementptr inbounds nuw i32, ptr %160, i64 %203
-  store i32 -16777216, ptr %204, align 4, !tbaa !59
-  %205 = add i32 %.095117, 1
-  %exitcond124.not = icmp eq i32 %.095117, %.193
-  br i1 %exitcond124.not, label %._crit_edge119, label %.lr.ph118.split, !llvm.loop !62
-
-._crit_edge119:                                   ; preds = %._crit_edge.us, %.lr.ph118.split, %.preheader
-  %.095.lcssa = phi i32 [ %146, %.preheader ], [ %173, %.lr.ph118.split ], [ %175, %._crit_edge.us ]
+._crit_edge119:                                   ; preds = %._crit_edge.us, %.preheader
+  %.095.lcssa = phi i32 [ %146, %.preheader ], [ %174, %._crit_edge.us ]
   store i32 %.095.lcssa, ptr %145, align 16, !tbaa !49
-  br label %212
+  br label %206
 
-206:                                              ; preds = %1
-  %207 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %208 = load ptr, ptr %207, align 8, !tbaa !33
-  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %208, ptr noundef nonnull @.str.4) #9
-  br label %212
+200:                                              ; preds = %1
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %202 = load ptr, ptr %201, align 8, !tbaa !33
+  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %202, ptr noundef nonnull @.str.4) #9
+  br label %206
 
-209:                                              ; preds = %1
-  %210 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %211 = load ptr, ptr %210, align 8, !tbaa !33
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %211, i32 noundef 16, ptr noundef nonnull @.str.5, i32 noundef %25) #9
-  br label %212
+203:                                              ; preds = %1
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %205 = load ptr, ptr %204, align 8, !tbaa !33
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %205, i32 noundef 16, ptr noundef nonnull @.str.5, i32 noundef %25) #9
+  br label %206
 
-212:                                              ; preds = %30, %91, %149, %153, %._crit_edge119, %.thread, %142, %94, %28, %209, %206, %140, %118
-  %.0 = phi i32 [ -1094995529, %209 ], [ -1163346256, %118 ], [ -1163346256, %140 ], [ -38, %206 ], [ -1094995529, %28 ], [ -1094995529, %94 ], [ -1094995529, %142 ], [ %., %.thread ], [ 0, %._crit_edge119 ], [ 0, %153 ], [ 0, %149 ], [ 0, %91 ], [ 0, %30 ]
+206:                                              ; preds = %30, %91, %149, %153, %._crit_edge119, %.thread, %142, %94, %28, %203, %200, %140, %118
+  %.0 = phi i32 [ -1094995529, %203 ], [ -1163346256, %118 ], [ -1163346256, %140 ], [ -38, %200 ], [ -1094995529, %28 ], [ -1094995529, %94 ], [ -1094995529, %142 ], [ %., %.thread ], [ 0, %._crit_edge119 ], [ 0, %153 ], [ 0, %149 ], [ 0, %91 ], [ 0, %30 ]
   ret i32 %.0
 }
 

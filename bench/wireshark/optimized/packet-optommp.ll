@@ -166,7 +166,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.134 = private unnamed_addr constant [21 x i8] c", dest_off: 0x%012lx\00", align 1
 @.str.135 = private unnamed_addr constant [25 x i8] c"data_block (as quadlets)\00", align 1
 @.str.136 = private unnamed_addr constant [22 x i8] c"data_block (as bytes)\00", align 1
-@switch.table.get_optommp_message_len = private unnamed_addr constant [7 x i32] [i32 16, i32 12, i32 8, i32 12, i32 16, i32 16, i32 16], align 4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_optommp() local_unnamed_addr #0 {
@@ -228,43 +227,35 @@ declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i1 noundef
 define internal range(i32 8, 65552) i32 @get_optommp_message_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = add i32 %2, 3
   %6 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %5)
-  %.fr = freeze i8 %6
-  %7 = lshr i8 %.fr, 4
-  %8 = icmp ult i8 %.fr, 16
-  br i1 %8, label %.fold.split, label %switch.early.test
-
-switch.early.test:                                ; preds = %4
-  %switch.tableidx = add nsw i8 %7, -1
-  %9 = icmp ult i8 %switch.tableidx, 7
-  br i1 %9, label %switch.lookup, label %.fold.split
-
-switch.lookup:                                    ; preds = %switch.early.test
-  %10 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.get_optommp_message_len, i64 %10
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %.fold.split
-
-.fold.split:                                      ; preds = %switch.early.test, %switch.lookup, %4
-  %.0 = phi i32 [ 16, %4 ], [ %switch.load, %switch.lookup ], [ 8, %switch.early.test ]
-  switch i8 %7, label %19 [
-    i8 7, label %11
-    i8 1, label %11
+  %7 = lshr i8 %6, 4
+  %or.cond = icmp ult i8 %6, 32
+  %8 = add nsw i8 %7, -5
+  %9 = icmp ult i8 %8, 3
+  %or.cond11 = or i1 %or.cond, %9
+  %10 = add nsw i8 %7, -2
+  %switch.and = and i8 %10, -3
+  %switch.selectcmp = icmp eq i8 %switch.and, 0
+  %11 = select i1 %switch.selectcmp, i32 12, i32 8
+  %.0 = select i1 %or.cond11, i32 16, i32 %11
+  switch i8 %7, label %20 [
+    i8 7, label %12
+    i8 1, label %12
   ]
 
-11:                                               ; preds = %.fold.split, %.fold.split
-  %12 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2)
-  %13 = icmp sgt i32 %12, 13
-  br i1 %13, label %14, label %19
+12:                                               ; preds = %4, %4
+  %13 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2)
+  %14 = icmp sgt i32 %13, 13
+  br i1 %14, label %15, label %20
 
-14:                                               ; preds = %11
-  %15 = add i32 %2, 12
-  %16 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %15)
-  %17 = zext i16 %16 to i32
-  %18 = add nuw nsw i32 %.0, %17
-  br label %19
+15:                                               ; preds = %12
+  %16 = add i32 %2, 12
+  %17 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %16)
+  %18 = zext i16 %17 to i32
+  %19 = add nuw nsw i32 %.0, %18
+  br label %20
 
-19:                                               ; preds = %.fold.split, %14, %11
-  %.1 = phi i32 [ %18, %14 ], [ %.0, %11 ], [ %.0, %.fold.split ]
+20:                                               ; preds = %4, %15, %12
+  %.1 = phi i32 [ %19, %15 ], [ %.0, %12 ], [ %.0, %4 ]
   ret i32 %.1
 }
 
@@ -655,7 +646,7 @@ define internal fastcc void @dissect_optommp_data_block(ptr noundef %0, ptr noun
   %9 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %2, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %0, ptr noundef nonnull @.str.135)
   %10 = lshr i16 %4, 2
   %11 = zext nneg i16 %10 to i32
-  %.not = icmp ult i16 %4, 4
+  %.not = icmp eq i16 %10, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %dissect_optommp_data_block_quadlet.exit

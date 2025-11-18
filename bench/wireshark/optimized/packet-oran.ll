@@ -6072,11 +6072,11 @@ thread-pre-split:                                 ; preds = %127
 
 216:                                              ; preds = %211
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %213, ptr noundef nonnull @.str.1274)
-  %.pre1937 = load i32, ptr %28, align 4
+  %.pre1936 = load i32, ptr %28, align 4
   br label %217
 
 217:                                              ; preds = %216, %211
-  %218 = phi i32 [ %.pre1937, %216 ], [ %214, %211 ]
+  %218 = phi i32 [ %.pre1936, %216 ], [ %214, %211 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %105, ptr noundef nonnull @.str.1275, i32 noundef %218)
   br label %291
 
@@ -6713,8 +6713,8 @@ proto_item_set_hidden.exit1580:                   ; preds = %506, %509, %512
   br i1 %.not1889, label %.._crit_edge1850_crit_edge, label %.lr.ph1849
 
 .._crit_edge1850_crit_edge:                       ; preds = %534
-  %.pre1944 = or disjoint i32 %541, 7
-  %.pre1945 = sdiv i32 %.pre1944, 8
+  %.pre1943 = or disjoint i32 %541, 7
+  %.pre1944 = sdiv i32 %.pre1943, 8
   br label %._crit_edge1850
 
 .lr.ph1849:                                       ; preds = %534, %decompress_value.exit1590
@@ -6825,7 +6825,7 @@ decompress_value.exit1590:                        ; preds = %decompress_value.ex
   br i1 %608, label %.lr.ph1849, label %._crit_edge1850, !llvm.loop !33
 
 ._crit_edge1850:                                  ; preds = %decompress_value.exit1590, %.._crit_edge1850_crit_edge, %proto_item_set_hidden.exit1580
-  %.7 = phi i32 [ %531, %proto_item_set_hidden.exit1580 ], [ %.pre1945, %.._crit_edge1850_crit_edge ], [ %605, %decompress_value.exit1590 ]
+  %.7 = phi i32 [ %531, %proto_item_set_hidden.exit1580 ], [ %.pre1944, %.._crit_edge1850_crit_edge ], [ %605, %decompress_value.exit1590 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
@@ -7099,11 +7099,11 @@ dissect_csf.exit:                                 ; preds = %724, %729
 769:                                              ; preds = %757
   %770 = load ptr, ptr %435, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %767, ptr noundef nonnull @.str.1348, ptr noundef %770)
-  %.pre1943 = load i64, ptr %20, align 8
+  %.pre1942 = load i64, ptr %20, align 8
   br label %dissect_csf.exit1599
 
 dissect_csf.exit1599:                             ; preds = %757, %769
-  %771 = phi i64 [ %768, %757 ], [ %.pre1943, %769 ]
+  %771 = phi i64 [ %768, %757 ], [ %.pre1942, %769 ]
   %772 = icmp ne i64 %771, 0
   %773 = add i32 %.014551845, 13
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -7134,8 +7134,8 @@ dissect_csf.exit1599:                             ; preds = %757, %769
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   %795 = add nuw nsw i32 %.014571844, 1
-  %exitcond1936.not = icmp eq i32 %795, %.01453
-  br i1 %exitcond1936.not, label %756, label %757, !llvm.loop !34
+  %exitcond1935.not = icmp eq i32 %795, %.01453
+  br i1 %exitcond1935.not, label %756, label %757, !llvm.loop !34
 
 796:                                              ; preds = %756
   %797 = load i32, ptr @hf_oran_reserved, align 4
@@ -7200,15 +7200,15 @@ switch.lookup2136:                                ; preds = %818
   br label %832
 
 830:                                              ; preds = %818
-  %.pre1942 = load i8, ptr %452, align 1
-  %831 = zext i8 %.pre1942 to i32
+  %.pre1941 = load i8, ptr %452, align 1
+  %831 = zext i8 %.pre1941 to i32
   store i32 %831, ptr %54, align 4
-  %.not1543 = icmp eq i8 %.pre1942, 0
+  %.not1543 = icmp eq i8 %.pre1941, 0
   br i1 %.not1543, label %848, label %832
 
 832:                                              ; preds = %switch.lookup2136, %830
   %833 = phi i32 [ %829, %switch.lookup2136 ], [ %831, %830 ]
-  %834 = phi i8 [ %switch.masked, %switch.lookup2136 ], [ %.pre1942, %830 ]
+  %834 = phi i8 [ %switch.masked, %switch.lookup2136 ], [ %.pre1941, %830 ]
   %835 = load i32, ptr %26, align 4
   %836 = load i32, ptr %24, align 4
   %837 = urem i32 %836, %833
@@ -7969,8 +7969,8 @@ dissect_bfw_bundle.exit._crit_edge.thread:        ; preds = %993, %dissect_bfw_b
 
 1206:                                             ; preds = %1185
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1188, ptr noundef nonnull @.str.1311)
-  %.pre1939 = load i32, ptr %67, align 4
-  %.pre1940 = load i32, ptr %68, align 4
+  %.pre1938 = load i32, ptr %67, align 4
+  %.pre1939 = load i32, ptr %68, align 4
   br label %1213
 
 1207:                                             ; preds = %1185
@@ -7985,8 +7985,8 @@ dissect_bfw_bundle.exit._crit_edge.thread:        ; preds = %993, %dissect_bfw_b
   br label %1213
 
 1213:                                             ; preds = %1207, %1209, %1206
-  %1214 = phi i32 [ %1204, %1207 ], [ %1204, %1209 ], [ %.pre1940, %1206 ]
-  %1215 = phi i32 [ %1202, %1207 ], [ %1202, %1209 ], [ %.pre1939, %1206 ]
+  %1214 = phi i32 [ %1204, %1207 ], [ %1204, %1209 ], [ %.pre1939, %1206 ]
+  %1215 = phi i32 [ %1202, %1207 ], [ %1202, %1209 ], [ %.pre1938, %1206 ]
   %1216 = phi i32 [ %1186, %1207 ], [ %1210, %1209 ], [ %1186, %1206 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   call void @llvm.lifetime.end.p0(ptr nonnull %67)
@@ -8101,16 +8101,13 @@ dissect_frame_structure.exit:                     ; preds = %1243, %1250, %1256,
 1272:                                             ; preds = %502
   %1273 = shl i32 %499, 2
   %1274 = add i32 %1273, -2
-  %.not1883 = icmp ult i32 %1274, 8
-  br i1 %.not1883, label %.loopexit1689, label %.lr.ph1780.preheader
-
-.lr.ph1780.preheader:                             ; preds = %1272
   %1275 = lshr i32 %1274, 3
-  br label %.lr.ph1780
+  %.not1883 = icmp eq i32 %1275, 0
+  br i1 %.not1883, label %.loopexit1689, label %.lr.ph1780
 
-.lr.ph1780:                                       ; preds = %.lr.ph1780.preheader, %.lr.ph1780
-  %.241778 = phi i32 [ %1279, %.lr.ph1780 ], [ %498, %.lr.ph1780.preheader ]
-  %.014971777 = phi i32 [ %1278, %.lr.ph1780 ], [ 0, %.lr.ph1780.preheader ]
+.lr.ph1780:                                       ; preds = %1272, %.lr.ph1780
+  %.241778 = phi i32 [ %1279, %.lr.ph1780 ], [ %498, %1272 ]
+  %.014971777 = phi i32 [ %1278, %.lr.ph1780 ], [ 0, %1272 ]
   %1276 = load i32, ptr @hf_oran_antMask, align 4
   %1277 = call ptr @proto_tree_add_item(ptr noundef %469, i32 noundef %1276, ptr noundef %0, i32 noundef %.241778, i32 noundef 8, i32 noundef 0)
   %1278 = add nuw nsw i32 %.014971777, 1
@@ -8840,11 +8837,11 @@ proto_item_set_hidden.exit1632:                   ; preds = %1641, %1644, %1647
   %1718 = load i32, ptr @hf_oran_reserved_16bits, align 4
   %1719 = call ptr @proto_tree_add_item(ptr noundef %1675, i32 noundef %1718, ptr noundef %0, i32 noundef %1717, i32 noundef 2, i32 noundef 0)
   %1720 = add i32 %.321746, 8
-  %.pre1938 = load i32, ptr %85, align 4
+  %.pre1937 = load i32, ptr %85, align 4
   br label %1721
 
 1721:                                             ; preds = %1687, %1691
-  %1722 = phi i32 [ %1689, %1687 ], [ %.pre1938, %1691 ]
+  %1722 = phi i32 [ %1689, %1687 ], [ %.pre1937, %1691 ]
   %.33 = phi i32 [ %1688, %1687 ], [ %1720, %1691 ]
   %1723 = call ptr @val_to_str_const(i32 noundef %1722, ptr noundef nonnull @entry_type_vals, ptr noundef nonnull @.str.1169)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1673, ptr noundef nonnull @.str.1324, i32 noundef %1722, ptr noundef %1723)

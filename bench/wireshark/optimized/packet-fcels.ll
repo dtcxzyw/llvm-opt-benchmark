@@ -2393,7 +2393,7 @@ define internal fastcc void @dissect_fcels_prlilo_payload(ptr noundef %0, i8 nou
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %12, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
   %14 = lshr i16 %11, 4
   %15 = zext nneg i16 %14 to i32
-  %.not = icmp ult i16 %11, 16
+  %.not = icmp eq i16 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4

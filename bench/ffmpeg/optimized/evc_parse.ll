@@ -508,7 +508,7 @@ get_ue_golomb_long.exit131:                       ; preds = %184, %226, %230
   store i8 %356, ptr %357, align 2, !tbaa !49
   %358 = add i8 %306, -3
   %or.cond = icmp ult i8 %358, -2
-  %.not107 = icmp ult i32 %352, 1073741824
+  %.not107 = icmp eq i32 %353, 0
   %or.cond113 = select i1 %or.cond, i1 true, i1 %.not107
   br i1 %or.cond113, label %371, label %.thread
 

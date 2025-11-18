@@ -2057,7 +2057,7 @@ proto_item_set_hidden.exit152.i.i.i:              ; preds = %331, %328, %325
   %355 = lshr i8 %354, 1
   %356 = load i8, ptr @rstcause_in_info, align 1, !range !6
   %357 = trunc nuw i8 %356 to i1
-  %358 = icmp ult i8 %354, 2
+  %358 = icmp eq i8 %355, 0
   %or.cond21.i.i.i = select i1 %357, i1 %358, i1 false
   br i1 %or.cond21.i.i.i, label %359, label %.thread.i96.i.i
 
@@ -2088,7 +2088,7 @@ proto_item_set_hidden.exit152.i.i.i:              ; preds = %331, %328, %325
   %373 = lshr i8 %372, 1
   %374 = load i8, ptr @rstcause_in_info, align 1, !range !6
   %375 = trunc nuw i8 %374 to i1
-  %376 = icmp ult i8 %372, 2
+  %376 = icmp eq i8 %373, 0
   %or.cond23.i.i.i = select i1 %375, i1 %376, i1 false
   br i1 %or.cond23.i.i.i, label %377, label %.thread.i96.i.i
 
@@ -2119,7 +2119,7 @@ proto_item_set_hidden.exit152.i.i.i:              ; preds = %331, %328, %325
   %391 = lshr i8 %390, 1
   %392 = load i8, ptr @rstcause_in_info, align 1, !range !6
   %393 = trunc nuw i8 %392 to i1
-  %394 = icmp ult i8 %390, 2
+  %394 = icmp eq i8 %391, 0
   %or.cond25.i.i.i = select i1 %393, i1 %394, i1 false
   br i1 %or.cond25.i.i.i, label %395, label %.thread.i96.i.i
 

@@ -3967,7 +3967,7 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
 
 227:                                              ; preds = %lean_array_uset.exit
   %228 = lshr i64 %225, 1
-  %229 = icmp ult ptr %.0.i322598, inttoptr (i64 2 to ptr)
+  %229 = icmp eq i64 %228, 0
   br i1 %229, label %lean_nat_mul.exit319, label %230
 
 230:                                              ; preds = %227
@@ -4037,8 +4037,8 @@ lean_dec.exit367:                                 ; preds = %253, %252, %250, %l
   br i1 %.not640, label %260, label %lean_dec.exit366.thread, !prof !17
 
 lean_dec.exit366.thread:                          ; preds = %lean_dec.exit367
-  %.not722 = icmp ugt ptr %.1.i490600, %257
-  br i1 %.not722, label %268, label %307
+  %.not724 = icmp ugt ptr %.1.i490600, %257
+  br i1 %.not724, label %268, label %307
 
 260:                                              ; preds = %lean_dec.exit367
   %261 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %.1.i490600, ptr noundef nonnull %257) #6
@@ -4726,7 +4726,7 @@ lean_array_uset.exit546:                          ; preds = %lean_ensure_exclusi
 
 531:                                              ; preds = %lean_array_uset.exit546
   %532 = lshr i64 %529, 1
-  %533 = icmp ult ptr %.0.i604, inttoptr (i64 2 to ptr)
+  %533 = icmp eq i64 %532, 0
   br i1 %533, label %lean_nat_mul.exit, label %534
 
 534:                                              ; preds = %531
@@ -4796,8 +4796,8 @@ lean_dec.exit355:                                 ; preds = %557, %556, %554, %l
   br i1 %.not630, label %564, label %lean_dec.exit354.thread, !prof !17
 
 lean_dec.exit354.thread:                          ; preds = %lean_dec.exit355
-  %.not721 = icmp ugt ptr %.1.i548606, %561
-  br i1 %.not721, label %572, label %603
+  %.not723 = icmp ugt ptr %.1.i548606, %561
+  br i1 %.not723, label %572, label %603
 
 564:                                              ; preds = %lean_dec.exit355
   %565 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %.1.i548606, ptr noundef nonnull %561) #6

@@ -35600,18 +35600,18 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISe
   %15 = load ptr, ptr %11, align 8
   %.0.in.i.i.i.i = select i1 %14, ptr %11, ptr %15
   %.0.i.i.i.i = load i64, ptr %.0.in.i.i.i.i, align 8, !tbaa !233
-  %16 = icmp ult i64 %.0.i.i.i.i, 4096
-  br i1 %16, label %.split23, label %17
+  %16 = lshr i64 %.0.i.i.i.i, 12
+  %17 = icmp eq i64 %16, 0
+  br i1 %17, label %.split23, label %18
 
-17:                                               ; preds = %8
-  %18 = lshr i64 %.0.i.i.i.i, 12
+18:                                               ; preds = %8
   %19 = and i64 %.0.i.i.i.i, -16773121
   %or.cond = icmp eq i64 %19, 0
   br i1 %or.cond, label %.split23, label %34
 
-.split23:                                         ; preds = %17, %8
-  %phi.call = phi i64 [ 0, %8 ], [ 12, %17 ]
-  %.020 = phi i64 [ %.0.i.i.i.i, %8 ], [ %18, %17 ]
+.split23:                                         ; preds = %18, %8
+  %phi.call = phi i64 [ 0, %8 ], [ 12, %18 ]
+  %.020 = phi i64 [ %.0.i.i.i.i, %8 ], [ %16, %18 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %21 = load ptr, ptr %20, align 8, !tbaa !219
@@ -35655,8 +35655,8 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm5SDLocC2ENS
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %34
 
-34:                                               ; preds = %4, %_ZN4llvm5SDLocD2Ev.exit, %17
-  %.0 = phi i1 [ false, %4 ], [ true, %_ZN4llvm5SDLocD2Ev.exit ], [ false, %17 ]
+34:                                               ; preds = %4, %_ZN4llvm5SDLocD2Ev.exit, %18
+  %.0 = phi i1 [ false, %4 ], [ true, %_ZN4llvm5SDLocD2Ev.exit ], [ false, %18 ]
   ret i1 %.0
 }
 

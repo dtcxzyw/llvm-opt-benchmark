@@ -9133,7 +9133,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
   br i1 %.not.i.i1069, label %.preheader.i, label %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit
 
 .preheader.i:                                     ; preds = %927
-  %.not1924.i = icmp ult i8 %915, 2
+  %.not1924.i = icmp eq i8 %918, 0
   br i1 %.not1924.i, label %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %932
@@ -9887,7 +9887,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   br i1 %.not.i.i1119, label %.preheader.i1124, label %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit1133
 
 .preheader.i1124:                                 ; preds = %1195
-  %.not1924.i1125 = icmp ult i8 %1188, 2
+  %.not1924.i1125 = icmp eq i8 %1192, 0
   br i1 %.not1924.i1125, label %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit1133.thread1478.thread, label %.lr.ph.i1126
 
 .lr.ph.i1126:                                     ; preds = %.preheader.i1124, %1198
@@ -23193,7 +23193,7 @@ _ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9all
   br i1 %60, label %.critedge, label %.critedge2.us
 
 .preheader.i.i.i.us:                              ; preds = %57
-  %.not1924.i.i.i.us = icmp ult i8 %50, 2
+  %.not1924.i.i.i.us = icmp eq i8 %54, 0
   br i1 %.not1924.i.i.i.us, label %.critedge, label %.lr.ph.i.i.i.us
 
 .lr.ph.i.i.i.us:                                  ; preds = %.preheader.i.i.i.us, %63
@@ -23254,7 +23254,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit26:  ; preds = %69, %71
   br i1 %.not.i.i.i.i27, label %.preheader.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_PKN7mitsuba5ClassEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSC_RKS6_.exit
 
 .preheader.i.i.i:                                 ; preds = %84
-  %.not1924.i.i.i = icmp ult i8 %77, 2
+  %.not1924.i.i.i = icmp eq i8 %81, 0
   br i1 %.not1924.i.i.i, label %.critedge, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %87
@@ -26009,7 +26009,7 @@ _ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9all
   br i1 %60, label %.critedge, label %.critedge2.us
 
 .preheader.i.i.i.us:                              ; preds = %57
-  %.not1924.i.i.i.us = icmp ult i8 %50, 2
+  %.not1924.i.i.i.us = icmp eq i8 %54, 0
   br i1 %.not1924.i.i.i.us, label %.critedge, label %.lr.ph.i.i.i.us
 
 .lr.ph.i.i.i.us:                                  ; preds = %.preheader.i.i.i.us, %63
@@ -26070,7 +26070,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit26:  ; preds = %69, %71
   br i1 %.not.i.i.i.i27, label %.preheader.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml6detail9XMLObjectEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSC_RKS6_.exit
 
 .preheader.i.i.i:                                 ; preds = %84
-  %.not1924.i.i.i = icmp ult i8 %77, 2
+  %.not1924.i.i.i = icmp eq i8 %81, 0
   br i1 %.not1924.i.i.i, label %.critedge, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %87
@@ -26460,7 +26460,7 @@ _ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9all
   br i1 %64, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml6detail9XMLObjectEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSC_RKS6_.exit.thread, label %.critedge2.us
 
 .preheader.i.i.i.us:                              ; preds = %61
-  %.not1924.i.i.i.us = icmp ult i8 %54, 2
+  %.not1924.i.i.i.us = icmp eq i8 %58, 0
   br i1 %.not1924.i.i.i.us, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml6detail9XMLObjectEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSC_RKS6_.exit.thread, label %.lr.ph.i.i.i.us
 
 .lr.ph.i.i.i.us:                                  ; preds = %.preheader.i.i.i.us, %67
@@ -26521,7 +26521,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit55:  ; preds = %73, %75
   br i1 %.not.i.i.i.i56, label %.preheader.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml6detail9XMLObjectEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSC_RKS6_.exit
 
 .preheader.i.i.i:                                 ; preds = %88
-  %.not1924.i.i.i = icmp ult i8 %81, 2
+  %.not1924.i.i.i = icmp eq i8 %85, 0
   br i1 %.not1924.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml6detail9XMLObjectEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSC_RKS6_.exit.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %91
@@ -27392,7 +27392,7 @@ _ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9all
   br i1 %64, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml6detail9XMLObjectEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSC_RKS6_.exit.thread, label %.critedge2.us
 
 .preheader.i.i.i.us:                              ; preds = %61
-  %.not1924.i.i.i.us = icmp ult i8 %54, 2
+  %.not1924.i.i.i.us = icmp eq i8 %58, 0
   br i1 %.not1924.i.i.i.us, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml6detail9XMLObjectEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSC_RKS6_.exit.thread, label %.lr.ph.i.i.i.us
 
 .lr.ph.i.i.i.us:                                  ; preds = %.preheader.i.i.i.us, %67
@@ -27453,7 +27453,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit55:  ; preds = %73, %75
   br i1 %.not.i.i.i.i56, label %.preheader.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml6detail9XMLObjectEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSC_RKS6_.exit
 
 .preheader.i.i.i:                                 ; preds = %88
-  %.not1924.i.i.i = icmp ult i8 %81, 2
+  %.not1924.i.i.i = icmp eq i8 %85, 0
   br i1 %.not1924.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml6detail9XMLObjectEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSC_RKS6_.exit.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %91
@@ -30447,7 +30447,7 @@ _ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9all
   br i1 %60, label %.critedge, label %.critedge2.us
 
 .preheader.i.i.i.us:                              ; preds = %57
-  %.not1924.i.i.i.us = icmp ult i8 %50, 2
+  %.not1924.i.i.i.us = icmp eq i8 %54, 0
   br i1 %.not1924.i.i.i.us, label %.critedge, label %.lr.ph.i.i.i.us
 
 .lr.ph.i.i.i.us:                                  ; preds = %.preheader.i.i.i.us, %63
@@ -30508,7 +30508,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit26:  ; preds = %69, %71
   br i1 %.not.i.i.i.i27, label %.preheader.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_P4TaskEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSA_RKS6_.exit
 
 .preheader.i.i.i:                                 ; preds = %84
-  %.not1924.i.i.i = icmp ult i8 %77, 2
+  %.not1924.i.i.i = icmp eq i8 %81, 0
   br i1 %.not1924.i.i.i, label %.critedge, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %87
@@ -30658,7 +30658,7 @@ _ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9all
   br i1 %62, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_P4TaskEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSA_RKS6_.exit.thread, label %.critedge2.us
 
 .preheader.i.i.i.us:                              ; preds = %59
-  %.not1924.i.i.i.us = icmp ult i8 %52, 2
+  %.not1924.i.i.i.us = icmp eq i8 %56, 0
   br i1 %.not1924.i.i.i.us, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_P4TaskEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSA_RKS6_.exit.thread, label %.lr.ph.i.i.i.us
 
 .lr.ph.i.i.i.us:                                  ; preds = %.preheader.i.i.i.us, %65
@@ -30719,7 +30719,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit53:  ; preds = %71, %73
   br i1 %.not.i.i.i.i54, label %.preheader.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_P4TaskEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSA_RKS6_.exit
 
 .preheader.i.i.i:                                 ; preds = %86
-  %.not1924.i.i.i = icmp ult i8 %79, 2
+  %.not1924.i.i.i = icmp eq i8 %83, 0
   br i1 %.not1924.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_P4TaskEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSA_RKS6_.exit.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %89
@@ -31997,7 +31997,7 @@ _ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9all
   br i1 %64, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml3TagEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSB_RKS6_.exit.thread, label %.critedge2.us
 
 .preheader.i.i.i.us:                              ; preds = %61
-  %.not1924.i.i.i.us = icmp ult i8 %54, 2
+  %.not1924.i.i.i.us = icmp eq i8 %58, 0
   br i1 %.not1924.i.i.i.us, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml3TagEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSB_RKS6_.exit.thread, label %.lr.ph.i.i.i.us
 
 .lr.ph.i.i.i.us:                                  ; preds = %.preheader.i.i.i.us, %67
@@ -32058,7 +32058,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit55:  ; preds = %73, %75
   br i1 %.not.i.i.i.i56, label %.preheader.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml3TagEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSB_RKS6_.exit
 
 .preheader.i.i.i:                                 ; preds = %88
-  %.not1924.i.i.i = icmp ult i8 %81, 2
+  %.not1924.i.i.i = icmp eq i8 %85, 0
   br i1 %.not1924.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml3TagEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSB_RKS6_.exit.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %91
@@ -32614,7 +32614,7 @@ _ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9all
   br i1 %60, label %.critedge, label %.critedge2.us
 
 .preheader.i.i.i.us:                              ; preds = %57
-  %.not1924.i.i.i.us = icmp ult i8 %50, 2
+  %.not1924.i.i.i.us = icmp eq i8 %54, 0
   br i1 %.not1924.i.i.i.us, label %.critedge, label %.lr.ph.i.i.i.us
 
 .lr.ph.i.i.i.us:                                  ; preds = %.preheader.i.i.i.us, %63
@@ -32675,7 +32675,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit26:  ; preds = %69, %71
   br i1 %.not.i.i.i.i27, label %.preheader.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml3TagEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSB_RKS6_.exit
 
 .preheader.i.i.i:                                 ; preds = %84
-  %.not1924.i.i.i = icmp ult i8 %77, 2
+  %.not1924.i.i.i = icmp eq i8 %81, 0
   br i1 %.not1924.i.i.i, label %.critedge, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %87
@@ -32825,7 +32825,7 @@ _ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9all
   br i1 %64, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml3TagEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSB_RKS6_.exit.thread, label %.critedge2.us
 
 .preheader.i.i.i.us:                              ; preds = %61
-  %.not1924.i.i.i.us = icmp ult i8 %54, 2
+  %.not1924.i.i.i.us = icmp eq i8 %58, 0
   br i1 %.not1924.i.i.i.us, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml3TagEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSB_RKS6_.exit.thread, label %.lr.ph.i.i.i.us
 
 .lr.ph.i.i.i.us:                                  ; preds = %.preheader.i.i.i.us, %67
@@ -32886,7 +32886,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit55:  ; preds = %73, %75
   br i1 %.not.i.i.i.i56, label %.preheader.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml3TagEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSB_RKS6_.exit
 
 .preheader.i.i.i:                                 ; preds = %88
-  %.not1924.i.i.i = icmp ult i8 %81, 2
+  %.not1924.i.i.i = icmp eq i8 %85, 0
   br i1 %.not1924.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml3TagEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSB_RKS6_.exit.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %91
@@ -33243,7 +33243,7 @@ _ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9all
   br i1 %64, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_PKN7mitsuba5ClassEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSC_RKS6_.exit.thread, label %.critedge2.us
 
 .preheader.i.i.i.us:                              ; preds = %61
-  %.not1924.i.i.i.us = icmp ult i8 %54, 2
+  %.not1924.i.i.i.us = icmp eq i8 %58, 0
   br i1 %.not1924.i.i.i.us, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_PKN7mitsuba5ClassEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSC_RKS6_.exit.thread, label %.lr.ph.i.i.i.us
 
 .lr.ph.i.i.i.us:                                  ; preds = %.preheader.i.i.i.us, %67
@@ -33304,7 +33304,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit55:  ; preds = %73, %75
   br i1 %.not.i.i.i.i56, label %.preheader.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_PKN7mitsuba5ClassEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSC_RKS6_.exit
 
 .preheader.i.i.i:                                 ; preds = %88
-  %.not1924.i.i.i = icmp ult i8 %81, 2
+  %.not1924.i.i.i = icmp eq i8 %85, 0
   br i1 %.not1924.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_PKN7mitsuba5ClassEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSC_RKS6_.exit.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %91

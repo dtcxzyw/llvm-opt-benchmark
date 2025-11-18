@@ -42779,7 +42779,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter19Constr
   %13 = phi i32 [ %.pre, %9 ], [ %6, %2 ]
   %14 = lshr i32 %13, 8
   %15 = zext nneg i32 %14 to i64
-  %.not.i.i = icmp ugt i32 %13, 255
+  %.not.i.i = icmp ne i32 %14, 0
   %16 = tail call range(i64 1, 25) i64 @llvm.ctpop.i64(i64 %15)
   %17 = icmp samesign ult i64 %16, 2
   %or.cond = select i1 %.not.i.i, i1 %17, i1 false

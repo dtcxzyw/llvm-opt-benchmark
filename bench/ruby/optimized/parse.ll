@@ -13961,7 +13961,7 @@ define dso_local void @rb_parser_show_bitstack(ptr noundef captures(none) %0, i6
   %13 = select i1 %.not14.i, ptr @.str.878, ptr @.str.879
   %14 = tail call i64 @rb_str_cat(i64 noundef %6, ptr noundef nonnull %13, i64 noundef 1) #34
   %15 = lshr i64 %.12.i, 1
-  %.not13.i = icmp ult i64 %.12.i, 2
+  %.not13.i = icmp eq i64 %15, 0
   br i1 %.not13.i, label %append_bitstack_value.exit, label %.critedge.i, !llvm.loop !318
 
 append_bitstack_value.exit:                       ; preds = %.critedge.i, %8, %.critedge.preheader.i
@@ -23045,7 +23045,7 @@ append_lex_state_name.exit:                       ; preds = %.thread.i, %54, %55
   %69 = select i1 %.not14.i15, ptr @.str.878, ptr @.str.879
   %70 = call i64 @rb_str_cat(i64 noundef %62, ptr noundef nonnull %69, i64 noundef 1) #34
   %71 = lshr i64 %.12.i, 1
-  %.not13.i = icmp ult i64 %.12.i, 2
+  %.not13.i = icmp eq i64 %71, 0
   br i1 %.not13.i, label %append_bitstack_value.exit, label %.critedge.i, !llvm.loop !318
 
 append_bitstack_value.exit:                       ; preds = %.critedge.i, %64, %.critedge.preheader.i
@@ -23083,7 +23083,7 @@ append_bitstack_value.exit:                       ; preds = %.critedge.i, %64, %
   %84 = select i1 %.not14.i25, ptr @.str.878, ptr @.str.879
   %85 = call i64 @rb_str_cat(i64 noundef %77, ptr noundef nonnull %84, i64 noundef 1) #34
   %86 = lshr i64 %.12.i24, 1
-  %.not13.i26 = icmp ult i64 %.12.i24, 2
+  %.not13.i26 = icmp eq i64 %86, 0
   br i1 %.not13.i26, label %append_bitstack_value.exit27, label %.critedge.i23, !llvm.loop !318
 
 append_bitstack_value.exit27:                     ; preds = %.critedge.i23, %79, %.critedge.preheader.i21

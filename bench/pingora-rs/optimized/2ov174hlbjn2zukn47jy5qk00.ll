@@ -4464,7 +4464,7 @@ define hidden noundef float @_ZN6brotli3enc8bit_cost20BrotliPopulationCost17h5fe
   %131 = add i32 %130, 1
   %132 = fadd float %.sroa.0.5107, 3.000000e+00
   %133 = lshr i32 %.sroa.046.3106, 3
-  %.not88 = icmp ult i32 %.sroa.046.3106, 8
+  %.not88 = icmp eq i32 %133, 0
   br i1 %.not88, label %.loopexit, label %.lr.ph108
 
 .loopexit:                                        ; preds = %.lr.ph108, %120, %127
@@ -4768,7 +4768,7 @@ define hidden noundef float @_ZN6brotli3enc8bit_cost20BrotliPopulationCost17h6ab
   %131 = add i32 %130, 1
   %132 = fadd float %.sroa.0.5107, 3.000000e+00
   %133 = lshr i32 %.sroa.046.3106, 3
-  %.not88 = icmp ult i32 %.sroa.046.3106, 8
+  %.not88 = icmp eq i32 %133, 0
   br i1 %.not88, label %.loopexit, label %.lr.ph108
 
 .loopexit:                                        ; preds = %.lr.ph108, %120, %127
@@ -5072,7 +5072,7 @@ define hidden noundef float @_ZN6brotli3enc8bit_cost20BrotliPopulationCost17hd2b
   %131 = add i32 %130, 1
   %132 = fadd float %.sroa.0.5107, 3.000000e+00
   %133 = lshr i32 %.sroa.046.3106, 3
-  %.not88 = icmp ult i32 %.sroa.046.3106, 8
+  %.not88 = icmp eq i32 %133, 0
   br i1 %.not88, label %.loopexit, label %.lr.ph108
 
 .loopexit:                                        ; preds = %.lr.ph108, %120, %127

@@ -6764,7 +6764,7 @@ define linkonce_odr void @_ZN7rocksdb23ForwardRangeDelIterator16PushInactiveIter
   store i64 %11, ptr %4, align 8, !tbaa !177
   store ptr %1, ptr %10, align 8, !tbaa !144
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %.pre4 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !214
+  %.pre6 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !214
   br label %_ZN7rocksdb10autovectorIPNS_25TruncatedRangeDelIteratorELm8EE9push_backERKS2_.exit
 
 12:                                               ; preds = %2
@@ -6833,7 +6833,7 @@ _ZNSt6vectorIPN7rocksdb25TruncatedRangeDelIteratorESaIS2_EE17_M_realloc_insertIJ
   br label %_ZN7rocksdb10autovectorIPNS_25TruncatedRangeDelIteratorELm8EE9push_backERKS2_.exit
 
 _ZN7rocksdb10autovectorIPNS_25TruncatedRangeDelIteratorELm8EE9push_backERKS2_.exit: ; preds = %7, %18, %_ZNSt6vectorIPN7rocksdb25TruncatedRangeDelIteratorESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
-  %40 = phi ptr [ %.pre4, %7 ], [ %19, %18 ], [ %37, %_ZNSt6vectorIPN7rocksdb25TruncatedRangeDelIteratorESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %40 = phi ptr [ %.pre6, %7 ], [ %19, %18 ], [ %37, %_ZNSt6vectorIPN7rocksdb25TruncatedRangeDelIteratorESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
   %41 = phi i64 [ %11, %7 ], [ %5, %18 ], [ %.pre, %_ZNSt6vectorIPN7rocksdb25TruncatedRangeDelIteratorESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %43 = load ptr, ptr %42, align 8, !tbaa !215
@@ -6854,8 +6854,8 @@ _ZN7rocksdb10autovectorIPNS_25TruncatedRangeDelIteratorELm8EE9push_backERKS2_.ex
   %.not18.i.i = icmp eq i64 %49, 0
   br i1 %.not18.i.i, label %_ZN7rocksdb10BinaryHeapIPNS_25TruncatedRangeDelIteratorENS_21StartKeyMinComparatorEE4pushERKS2_.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %_ZN7rocksdb10autovectorIPNS_25TruncatedRangeDelIteratorELm8EE9push_backERKS2_.exit, %67
-  %.01119.i.i = phi i64 [ %58, %67 ], [ %49, %_ZN7rocksdb10autovectorIPNS_25TruncatedRangeDelIteratorELm8EE9push_backERKS2_.exit ]
+.lr.ph.i.i:                                       ; preds = %_ZN7rocksdb10autovectorIPNS_25TruncatedRangeDelIteratorELm8EE9push_backERKS2_.exit, %68
+  %.01119.i.i = phi i64 [ %58, %68 ], [ %49, %_ZN7rocksdb10autovectorIPNS_25TruncatedRangeDelIteratorELm8EE9push_backERKS2_.exit ]
   %57 = add i64 %.01119.i.i, -1
   %58 = lshr i64 %57, 1
   %59 = icmp ult i64 %.01119.i.i, 17
@@ -6867,39 +6867,40 @@ _ZN7rocksdb10autovectorIPNS_25TruncatedRangeDelIteratorELm8EE9push_backERKS2_.ex
   %.0.i12.i.i = select i1 %59, ptr %61, ptr %64
   %65 = load ptr, ptr %.0.i12.i.i, align 8, !tbaa !144
   %66 = tail call noundef zeroext i1 @_ZNK7rocksdb21StartKeyMinComparatorclEPKNS_25TruncatedRangeDelIteratorES3_(ptr noundef nonnull align 8 dereferenceable(120) %3, ptr noundef %65, ptr noundef %56)
-  br i1 %66, label %67, label %.thread.i.i
+  %67 = load ptr, ptr %51, align 8
+  br i1 %66, label %68, label %.thread.i.i
 
-67:                                               ; preds = %.lr.ph.i.i
-  %68 = load ptr, ptr %51, align 8
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %58
+68:                                               ; preds = %.lr.ph.i.i
+  %69 = getelementptr inbounds nuw ptr, ptr %67, i64 %58
   %70 = load ptr, ptr %42, align 8
   %71 = getelementptr ptr, ptr %70, i64 %58
   %72 = getelementptr i8, ptr %71, i64 -64
   %.0.i13.i.i = select i1 %59, ptr %69, ptr %72
   %73 = load ptr, ptr %.0.i13.i.i, align 8, !tbaa !144
   %74 = icmp ult i64 %.01119.i.i, 8
-  %75 = getelementptr inbounds nuw ptr, ptr %68, i64 %.01119.i.i
+  %75 = getelementptr inbounds nuw ptr, ptr %67, i64 %.01119.i.i
   %76 = getelementptr ptr, ptr %70, i64 %.01119.i.i
   %77 = getelementptr i8, ptr %76, i64 -64
   %.0.i14.i.i = select i1 %74, ptr %75, ptr %77
   store ptr %73, ptr %.0.i14.i.i, align 8, !tbaa !144
-  %.not.i.i = icmp ult i64 %57, 2
-  br i1 %.not.i.i, label %.thread.i.i, label %.lr.ph.i.i
+  %.not.i.i = icmp eq i64 %58, 0
+  br i1 %.not.i.i, label %.thread.thread26.i.i, label %.lr.ph.i.i
 
-.thread.i.i:                                      ; preds = %67, %.lr.ph.i.i
-  %.011.lcssa.ph.i.i = phi i64 [ %58, %67 ], [ %.01119.i.i, %.lr.ph.i.i ]
-  %.011.lcssa.ph.fr.i.i = freeze i64 %.011.lcssa.ph.i.i
-  %.pre.i.i = load ptr, ptr %51, align 8
+.thread.thread26.i.i:                             ; preds = %68
+  %.pre28.i.i = load ptr, ptr %51, align 8
+  br label %_ZN7rocksdb10BinaryHeapIPNS_25TruncatedRangeDelIteratorENS_21StartKeyMinComparatorEE4pushERKS2_.exit
+
+.thread.i.i:                                      ; preds = %.lr.ph.i.i
   %.pre22.i.i = load ptr, ptr %42, align 8
-  %78 = icmp ult i64 %.011.lcssa.ph.fr.i.i, 8
-  %79 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %.011.lcssa.ph.fr.i.i
-  %80 = getelementptr ptr, ptr %.pre22.i.i, i64 %.011.lcssa.ph.fr.i.i
+  %78 = icmp ult i64 %.01119.i.i, 8
+  %79 = getelementptr inbounds nuw ptr, ptr %67, i64 %.01119.i.i
+  %80 = getelementptr ptr, ptr %.pre22.i.i, i64 %.01119.i.i
   %81 = getelementptr i8, ptr %80, i64 -64
   %spec.select.i.i = select i1 %78, ptr %79, ptr %81
   br label %_ZN7rocksdb10BinaryHeapIPNS_25TruncatedRangeDelIteratorENS_21StartKeyMinComparatorEE4pushERKS2_.exit
 
-_ZN7rocksdb10BinaryHeapIPNS_25TruncatedRangeDelIteratorENS_21StartKeyMinComparatorEE4pushERKS2_.exit: ; preds = %_ZN7rocksdb10autovectorIPNS_25TruncatedRangeDelIteratorELm8EE9push_backERKS2_.exit, %.thread.i.i
-  %82 = phi ptr [ %52, %_ZN7rocksdb10autovectorIPNS_25TruncatedRangeDelIteratorELm8EE9push_backERKS2_.exit ], [ %spec.select.i.i, %.thread.i.i ]
+_ZN7rocksdb10BinaryHeapIPNS_25TruncatedRangeDelIteratorENS_21StartKeyMinComparatorEE4pushERKS2_.exit: ; preds = %_ZN7rocksdb10autovectorIPNS_25TruncatedRangeDelIteratorELm8EE9push_backERKS2_.exit, %.thread.thread26.i.i, %.thread.i.i
+  %82 = phi ptr [ %.pre28.i.i, %.thread.thread26.i.i ], [ %52, %_ZN7rocksdb10autovectorIPNS_25TruncatedRangeDelIteratorELm8EE9push_backERKS2_.exit ], [ %spec.select.i.i, %.thread.i.i ]
   store ptr %56, ptr %82, align 8, !tbaa !144
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i64 -1, ptr %83, align 8, !tbaa !179
@@ -6983,8 +6984,8 @@ _ZNSt8multisetIPN7rocksdb25TruncatedRangeDelIteratorENS0_16SeqMaxComparatorESaIS
   %.not16.i.i = icmp eq i64 %38, 0
   br i1 %.not16.i.i, label %_ZN7rocksdb10BinaryHeapISt23_Rb_tree_const_iteratorIPNS_25TruncatedRangeDelIteratorEENS_23ForwardRangeDelIterator19EndKeyMinComparatorEE4pushERKS4_.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %_ZNSt8multisetIPN7rocksdb25TruncatedRangeDelIteratorENS0_16SeqMaxComparatorESaIS2_EE6insertERKS2_.exit, %55
-  %.0917.i.i = phi i64 [ %47, %55 ], [ %38, %_ZNSt8multisetIPN7rocksdb25TruncatedRangeDelIteratorENS0_16SeqMaxComparatorESaIS2_EE6insertERKS2_.exit ]
+.lr.ph.i.i:                                       ; preds = %_ZNSt8multisetIPN7rocksdb25TruncatedRangeDelIteratorENS0_16SeqMaxComparatorESaIS2_EE6insertERKS2_.exit, %56
+  %.0917.i.i = phi i64 [ %47, %56 ], [ %38, %_ZNSt8multisetIPN7rocksdb25TruncatedRangeDelIteratorENS0_16SeqMaxComparatorESaIS2_EE6insertERKS2_.exit ]
   %46 = add i64 %.0917.i.i, -1
   %47 = lshr i64 %46, 1
   %48 = icmp ult i64 %.0917.i.i, 17
@@ -6995,41 +6996,43 @@ _ZNSt8multisetIPN7rocksdb25TruncatedRangeDelIteratorENS0_16SeqMaxComparatorESaIS
   %53 = getelementptr i8, ptr %52, i64 -64
   %.0.i10.i.i = select i1 %48, ptr %50, ptr %53
   %54 = call noundef zeroext i1 @_ZNK7rocksdb23ForwardRangeDelIterator19EndKeyMinComparatorclERKSt23_Rb_tree_const_iteratorIPNS_25TruncatedRangeDelIteratorEES7_(ptr noundef nonnull align 8 dereferenceable(120) %26, ptr noundef nonnull align 8 dereferenceable(8) %.0.i10.i.i, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  br i1 %54, label %55, label %.thread.i.i
+  %55 = load ptr, ptr %40, align 8
+  br i1 %54, label %56, label %.thread.i.i
 
-55:                                               ; preds = %.lr.ph.i.i
-  %56 = load ptr, ptr %40, align 8
-  %57 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %56, i64 %47
+56:                                               ; preds = %.lr.ph.i.i
+  %57 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %55, i64 %47
   %58 = load ptr, ptr %29, align 8
   %59 = getelementptr %"struct.std::_Rb_tree_const_iterator", ptr %58, i64 %47
   %60 = getelementptr i8, ptr %59, i64 -64
   %.0.i11.i.i = select i1 %48, ptr %57, ptr %60
   %61 = icmp ult i64 %.0917.i.i, 8
-  %62 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %56, i64 %.0917.i.i
+  %62 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %55, i64 %.0917.i.i
   %63 = getelementptr %"struct.std::_Rb_tree_const_iterator", ptr %58, i64 %.0917.i.i
   %64 = getelementptr i8, ptr %63, i64 -64
   %.0.i12.i.i = select i1 %61, ptr %62, ptr %64
   %65 = load i64, ptr %.0.i11.i.i, align 8, !tbaa !146
   store i64 %65, ptr %.0.i12.i.i, align 8, !tbaa !146
-  %.not.i.i = icmp ult i64 %46, 2
-  br i1 %.not.i.i, label %.thread.i.i, label %.lr.ph.i.i
+  %.not.i.i = icmp eq i64 %47, 0
+  br i1 %.not.i.i, label %.thread.thread25.i.i, label %.lr.ph.i.i
 
-.thread.i.i:                                      ; preds = %55, %.lr.ph.i.i
-  %.09.lcssa.ph.i.i = phi i64 [ %47, %55 ], [ %.0917.i.i, %.lr.ph.i.i ]
-  %.09.lcssa.ph.fr.i.i = freeze i64 %.09.lcssa.ph.i.i
-  %.pre.i.i = load ptr, ptr %40, align 8
+.thread.thread25.i.i:                             ; preds = %56
+  %.pre27.i.i = load ptr, ptr %40, align 8
+  %.pre2129.i.i = load i64, ptr %3, align 8, !tbaa !146
+  br label %_ZN7rocksdb10BinaryHeapISt23_Rb_tree_const_iteratorIPNS_25TruncatedRangeDelIteratorEENS_23ForwardRangeDelIterator19EndKeyMinComparatorEE4pushERKS4_.exit
+
+.thread.i.i:                                      ; preds = %.lr.ph.i.i
   %.pre20.i.i = load ptr, ptr %29, align 8
   %.pre21.i.i = load i64, ptr %3, align 8, !tbaa !146
-  %66 = icmp ult i64 %.09.lcssa.ph.fr.i.i, 8
-  %67 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %.pre.i.i, i64 %.09.lcssa.ph.fr.i.i
-  %68 = getelementptr %"struct.std::_Rb_tree_const_iterator", ptr %.pre20.i.i, i64 %.09.lcssa.ph.fr.i.i
+  %66 = icmp ult i64 %.0917.i.i, 8
+  %67 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %55, i64 %.0917.i.i
+  %68 = getelementptr %"struct.std::_Rb_tree_const_iterator", ptr %.pre20.i.i, i64 %.0917.i.i
   %69 = getelementptr i8, ptr %68, i64 -64
   %spec.select.i.i1 = select i1 %66, ptr %67, ptr %69
   br label %_ZN7rocksdb10BinaryHeapISt23_Rb_tree_const_iteratorIPNS_25TruncatedRangeDelIteratorEENS_23ForwardRangeDelIterator19EndKeyMinComparatorEE4pushERKS4_.exit
 
-_ZN7rocksdb10BinaryHeapISt23_Rb_tree_const_iteratorIPNS_25TruncatedRangeDelIteratorEENS_23ForwardRangeDelIterator19EndKeyMinComparatorEE4pushERKS4_.exit: ; preds = %_ZNSt8multisetIPN7rocksdb25TruncatedRangeDelIteratorENS0_16SeqMaxComparatorESaIS2_EE6insertERKS2_.exit, %.thread.i.i
-  %70 = phi i64 [ %45, %_ZNSt8multisetIPN7rocksdb25TruncatedRangeDelIteratorENS0_16SeqMaxComparatorESaIS2_EE6insertERKS2_.exit ], [ %.pre21.i.i, %.thread.i.i ]
-  %71 = phi ptr [ %41, %_ZNSt8multisetIPN7rocksdb25TruncatedRangeDelIteratorENS0_16SeqMaxComparatorESaIS2_EE6insertERKS2_.exit ], [ %spec.select.i.i1, %.thread.i.i ]
+_ZN7rocksdb10BinaryHeapISt23_Rb_tree_const_iteratorIPNS_25TruncatedRangeDelIteratorEENS_23ForwardRangeDelIterator19EndKeyMinComparatorEE4pushERKS4_.exit: ; preds = %_ZNSt8multisetIPN7rocksdb25TruncatedRangeDelIteratorENS0_16SeqMaxComparatorESaIS2_EE6insertERKS2_.exit, %.thread.thread25.i.i, %.thread.i.i
+  %70 = phi i64 [ %.pre2129.i.i, %.thread.thread25.i.i ], [ %45, %_ZNSt8multisetIPN7rocksdb25TruncatedRangeDelIteratorENS0_16SeqMaxComparatorESaIS2_EE6insertERKS2_.exit ], [ %.pre21.i.i, %.thread.i.i ]
+  %71 = phi ptr [ %.pre27.i.i, %.thread.thread25.i.i ], [ %41, %_ZNSt8multisetIPN7rocksdb25TruncatedRangeDelIteratorENS0_16SeqMaxComparatorESaIS2_EE6insertERKS2_.exit ], [ %spec.select.i.i1, %.thread.i.i ]
   store i64 %70, ptr %71, align 8, !tbaa !146
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i64 -1, ptr %72, align 8, !tbaa !176
@@ -7743,7 +7746,7 @@ define linkonce_odr void @_ZN7rocksdb23ReverseRangeDelIterator16PushInactiveIter
   store i64 %11, ptr %4, align 8, !tbaa !177
   store ptr %1, ptr %10, align 8, !tbaa !144
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %.pre4 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !214
+  %.pre6 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !214
   br label %_ZN7rocksdb10autovectorIPNS_25TruncatedRangeDelIteratorELm8EE9push_backERKS2_.exit
 
 12:                                               ; preds = %2
@@ -7812,7 +7815,7 @@ _ZNSt6vectorIPN7rocksdb25TruncatedRangeDelIteratorESaIS2_EE17_M_realloc_insertIJ
   br label %_ZN7rocksdb10autovectorIPNS_25TruncatedRangeDelIteratorELm8EE9push_backERKS2_.exit
 
 _ZN7rocksdb10autovectorIPNS_25TruncatedRangeDelIteratorELm8EE9push_backERKS2_.exit: ; preds = %7, %18, %_ZNSt6vectorIPN7rocksdb25TruncatedRangeDelIteratorESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
-  %40 = phi ptr [ %.pre4, %7 ], [ %19, %18 ], [ %37, %_ZNSt6vectorIPN7rocksdb25TruncatedRangeDelIteratorESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %40 = phi ptr [ %.pre6, %7 ], [ %19, %18 ], [ %37, %_ZNSt6vectorIPN7rocksdb25TruncatedRangeDelIteratorESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
   %41 = phi i64 [ %11, %7 ], [ %5, %18 ], [ %.pre, %_ZNSt6vectorIPN7rocksdb25TruncatedRangeDelIteratorESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %43 = load ptr, ptr %42, align 8, !tbaa !215
@@ -7833,8 +7836,8 @@ _ZN7rocksdb10autovectorIPNS_25TruncatedRangeDelIteratorELm8EE9push_backERKS2_.ex
   %.not18.i.i = icmp eq i64 %49, 0
   br i1 %.not18.i.i, label %_ZN7rocksdb10BinaryHeapIPNS_25TruncatedRangeDelIteratorENS_23ReverseRangeDelIterator19EndKeyMaxComparatorEE4pushERKS2_.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %_ZN7rocksdb10autovectorIPNS_25TruncatedRangeDelIteratorELm8EE9push_backERKS2_.exit, %67
-  %.01119.i.i = phi i64 [ %58, %67 ], [ %49, %_ZN7rocksdb10autovectorIPNS_25TruncatedRangeDelIteratorELm8EE9push_backERKS2_.exit ]
+.lr.ph.i.i:                                       ; preds = %_ZN7rocksdb10autovectorIPNS_25TruncatedRangeDelIteratorELm8EE9push_backERKS2_.exit, %68
+  %.01119.i.i = phi i64 [ %58, %68 ], [ %49, %_ZN7rocksdb10autovectorIPNS_25TruncatedRangeDelIteratorELm8EE9push_backERKS2_.exit ]
   %57 = add i64 %.01119.i.i, -1
   %58 = lshr i64 %57, 1
   %59 = icmp ult i64 %.01119.i.i, 17
@@ -7846,39 +7849,40 @@ _ZN7rocksdb10autovectorIPNS_25TruncatedRangeDelIteratorELm8EE9push_backERKS2_.ex
   %.0.i12.i.i = select i1 %59, ptr %61, ptr %64
   %65 = load ptr, ptr %.0.i12.i.i, align 8, !tbaa !144
   %66 = tail call noundef zeroext i1 @_ZNK7rocksdb23ReverseRangeDelIterator19EndKeyMaxComparatorclEPKNS_25TruncatedRangeDelIteratorES4_(ptr noundef nonnull align 8 dereferenceable(120) %3, ptr noundef %65, ptr noundef %56)
-  br i1 %66, label %67, label %.thread.i.i
+  %67 = load ptr, ptr %51, align 8
+  br i1 %66, label %68, label %.thread.i.i
 
-67:                                               ; preds = %.lr.ph.i.i
-  %68 = load ptr, ptr %51, align 8
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %58
+68:                                               ; preds = %.lr.ph.i.i
+  %69 = getelementptr inbounds nuw ptr, ptr %67, i64 %58
   %70 = load ptr, ptr %42, align 8
   %71 = getelementptr ptr, ptr %70, i64 %58
   %72 = getelementptr i8, ptr %71, i64 -64
   %.0.i13.i.i = select i1 %59, ptr %69, ptr %72
   %73 = load ptr, ptr %.0.i13.i.i, align 8, !tbaa !144
   %74 = icmp ult i64 %.01119.i.i, 8
-  %75 = getelementptr inbounds nuw ptr, ptr %68, i64 %.01119.i.i
+  %75 = getelementptr inbounds nuw ptr, ptr %67, i64 %.01119.i.i
   %76 = getelementptr ptr, ptr %70, i64 %.01119.i.i
   %77 = getelementptr i8, ptr %76, i64 -64
   %.0.i14.i.i = select i1 %74, ptr %75, ptr %77
   store ptr %73, ptr %.0.i14.i.i, align 8, !tbaa !144
-  %.not.i.i = icmp ult i64 %57, 2
-  br i1 %.not.i.i, label %.thread.i.i, label %.lr.ph.i.i
+  %.not.i.i = icmp eq i64 %58, 0
+  br i1 %.not.i.i, label %.thread.thread26.i.i, label %.lr.ph.i.i
 
-.thread.i.i:                                      ; preds = %67, %.lr.ph.i.i
-  %.011.lcssa.ph.i.i = phi i64 [ %58, %67 ], [ %.01119.i.i, %.lr.ph.i.i ]
-  %.011.lcssa.ph.fr.i.i = freeze i64 %.011.lcssa.ph.i.i
-  %.pre.i.i = load ptr, ptr %51, align 8
+.thread.thread26.i.i:                             ; preds = %68
+  %.pre28.i.i = load ptr, ptr %51, align 8
+  br label %_ZN7rocksdb10BinaryHeapIPNS_25TruncatedRangeDelIteratorENS_23ReverseRangeDelIterator19EndKeyMaxComparatorEE4pushERKS2_.exit
+
+.thread.i.i:                                      ; preds = %.lr.ph.i.i
   %.pre22.i.i = load ptr, ptr %42, align 8
-  %78 = icmp ult i64 %.011.lcssa.ph.fr.i.i, 8
-  %79 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %.011.lcssa.ph.fr.i.i
-  %80 = getelementptr ptr, ptr %.pre22.i.i, i64 %.011.lcssa.ph.fr.i.i
+  %78 = icmp ult i64 %.01119.i.i, 8
+  %79 = getelementptr inbounds nuw ptr, ptr %67, i64 %.01119.i.i
+  %80 = getelementptr ptr, ptr %.pre22.i.i, i64 %.01119.i.i
   %81 = getelementptr i8, ptr %80, i64 -64
   %spec.select.i.i = select i1 %78, ptr %79, ptr %81
   br label %_ZN7rocksdb10BinaryHeapIPNS_25TruncatedRangeDelIteratorENS_23ReverseRangeDelIterator19EndKeyMaxComparatorEE4pushERKS2_.exit
 
-_ZN7rocksdb10BinaryHeapIPNS_25TruncatedRangeDelIteratorENS_23ReverseRangeDelIterator19EndKeyMaxComparatorEE4pushERKS2_.exit: ; preds = %_ZN7rocksdb10autovectorIPNS_25TruncatedRangeDelIteratorELm8EE9push_backERKS2_.exit, %.thread.i.i
-  %82 = phi ptr [ %52, %_ZN7rocksdb10autovectorIPNS_25TruncatedRangeDelIteratorELm8EE9push_backERKS2_.exit ], [ %spec.select.i.i, %.thread.i.i ]
+_ZN7rocksdb10BinaryHeapIPNS_25TruncatedRangeDelIteratorENS_23ReverseRangeDelIterator19EndKeyMaxComparatorEE4pushERKS2_.exit: ; preds = %_ZN7rocksdb10autovectorIPNS_25TruncatedRangeDelIteratorELm8EE9push_backERKS2_.exit, %.thread.thread26.i.i, %.thread.i.i
+  %82 = phi ptr [ %.pre28.i.i, %.thread.thread26.i.i ], [ %52, %_ZN7rocksdb10autovectorIPNS_25TruncatedRangeDelIteratorELm8EE9push_backERKS2_.exit ], [ %spec.select.i.i, %.thread.i.i ]
   store ptr %56, ptr %82, align 8, !tbaa !144
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i64 -1, ptr %83, align 8, !tbaa !271
@@ -7962,8 +7966,8 @@ _ZNSt8multisetIPN7rocksdb25TruncatedRangeDelIteratorENS0_16SeqMaxComparatorESaIS
   %.not16.i.i = icmp eq i64 %38, 0
   br i1 %.not16.i.i, label %_ZN7rocksdb10BinaryHeapISt23_Rb_tree_const_iteratorIPNS_25TruncatedRangeDelIteratorEENS_23ReverseRangeDelIterator21StartKeyMaxComparatorEE4pushERKS4_.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %_ZNSt8multisetIPN7rocksdb25TruncatedRangeDelIteratorENS0_16SeqMaxComparatorESaIS2_EE6insertERKS2_.exit, %55
-  %.0917.i.i = phi i64 [ %47, %55 ], [ %38, %_ZNSt8multisetIPN7rocksdb25TruncatedRangeDelIteratorENS0_16SeqMaxComparatorESaIS2_EE6insertERKS2_.exit ]
+.lr.ph.i.i:                                       ; preds = %_ZNSt8multisetIPN7rocksdb25TruncatedRangeDelIteratorENS0_16SeqMaxComparatorESaIS2_EE6insertERKS2_.exit, %56
+  %.0917.i.i = phi i64 [ %47, %56 ], [ %38, %_ZNSt8multisetIPN7rocksdb25TruncatedRangeDelIteratorENS0_16SeqMaxComparatorESaIS2_EE6insertERKS2_.exit ]
   %46 = add i64 %.0917.i.i, -1
   %47 = lshr i64 %46, 1
   %48 = icmp ult i64 %.0917.i.i, 17
@@ -7974,41 +7978,43 @@ _ZNSt8multisetIPN7rocksdb25TruncatedRangeDelIteratorENS0_16SeqMaxComparatorESaIS
   %53 = getelementptr i8, ptr %52, i64 -64
   %.0.i10.i.i = select i1 %48, ptr %50, ptr %53
   %54 = call noundef zeroext i1 @_ZNK7rocksdb23ReverseRangeDelIterator21StartKeyMaxComparatorclERKSt23_Rb_tree_const_iteratorIPNS_25TruncatedRangeDelIteratorEES7_(ptr noundef nonnull align 8 dereferenceable(120) %26, ptr noundef nonnull align 8 dereferenceable(8) %.0.i10.i.i, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  br i1 %54, label %55, label %.thread.i.i
+  %55 = load ptr, ptr %40, align 8
+  br i1 %54, label %56, label %.thread.i.i
 
-55:                                               ; preds = %.lr.ph.i.i
-  %56 = load ptr, ptr %40, align 8
-  %57 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %56, i64 %47
+56:                                               ; preds = %.lr.ph.i.i
+  %57 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %55, i64 %47
   %58 = load ptr, ptr %29, align 8
   %59 = getelementptr %"struct.std::_Rb_tree_const_iterator", ptr %58, i64 %47
   %60 = getelementptr i8, ptr %59, i64 -64
   %.0.i11.i.i = select i1 %48, ptr %57, ptr %60
   %61 = icmp ult i64 %.0917.i.i, 8
-  %62 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %56, i64 %.0917.i.i
+  %62 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %55, i64 %.0917.i.i
   %63 = getelementptr %"struct.std::_Rb_tree_const_iterator", ptr %58, i64 %.0917.i.i
   %64 = getelementptr i8, ptr %63, i64 -64
   %.0.i12.i.i = select i1 %61, ptr %62, ptr %64
   %65 = load i64, ptr %.0.i11.i.i, align 8, !tbaa !146
   store i64 %65, ptr %.0.i12.i.i, align 8, !tbaa !146
-  %.not.i.i = icmp ult i64 %46, 2
-  br i1 %.not.i.i, label %.thread.i.i, label %.lr.ph.i.i
+  %.not.i.i = icmp eq i64 %47, 0
+  br i1 %.not.i.i, label %.thread.thread25.i.i, label %.lr.ph.i.i
 
-.thread.i.i:                                      ; preds = %55, %.lr.ph.i.i
-  %.09.lcssa.ph.i.i = phi i64 [ %47, %55 ], [ %.0917.i.i, %.lr.ph.i.i ]
-  %.09.lcssa.ph.fr.i.i = freeze i64 %.09.lcssa.ph.i.i
-  %.pre.i.i = load ptr, ptr %40, align 8
+.thread.thread25.i.i:                             ; preds = %56
+  %.pre27.i.i = load ptr, ptr %40, align 8
+  %.pre2129.i.i = load i64, ptr %3, align 8, !tbaa !146
+  br label %_ZN7rocksdb10BinaryHeapISt23_Rb_tree_const_iteratorIPNS_25TruncatedRangeDelIteratorEENS_23ReverseRangeDelIterator21StartKeyMaxComparatorEE4pushERKS4_.exit
+
+.thread.i.i:                                      ; preds = %.lr.ph.i.i
   %.pre20.i.i = load ptr, ptr %29, align 8
   %.pre21.i.i = load i64, ptr %3, align 8, !tbaa !146
-  %66 = icmp ult i64 %.09.lcssa.ph.fr.i.i, 8
-  %67 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %.pre.i.i, i64 %.09.lcssa.ph.fr.i.i
-  %68 = getelementptr %"struct.std::_Rb_tree_const_iterator", ptr %.pre20.i.i, i64 %.09.lcssa.ph.fr.i.i
+  %66 = icmp ult i64 %.0917.i.i, 8
+  %67 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %55, i64 %.0917.i.i
+  %68 = getelementptr %"struct.std::_Rb_tree_const_iterator", ptr %.pre20.i.i, i64 %.0917.i.i
   %69 = getelementptr i8, ptr %68, i64 -64
   %spec.select.i.i1 = select i1 %66, ptr %67, ptr %69
   br label %_ZN7rocksdb10BinaryHeapISt23_Rb_tree_const_iteratorIPNS_25TruncatedRangeDelIteratorEENS_23ReverseRangeDelIterator21StartKeyMaxComparatorEE4pushERKS4_.exit
 
-_ZN7rocksdb10BinaryHeapISt23_Rb_tree_const_iteratorIPNS_25TruncatedRangeDelIteratorEENS_23ReverseRangeDelIterator21StartKeyMaxComparatorEE4pushERKS4_.exit: ; preds = %_ZNSt8multisetIPN7rocksdb25TruncatedRangeDelIteratorENS0_16SeqMaxComparatorESaIS2_EE6insertERKS2_.exit, %.thread.i.i
-  %70 = phi i64 [ %45, %_ZNSt8multisetIPN7rocksdb25TruncatedRangeDelIteratorENS0_16SeqMaxComparatorESaIS2_EE6insertERKS2_.exit ], [ %.pre21.i.i, %.thread.i.i ]
-  %71 = phi ptr [ %41, %_ZNSt8multisetIPN7rocksdb25TruncatedRangeDelIteratorENS0_16SeqMaxComparatorESaIS2_EE6insertERKS2_.exit ], [ %spec.select.i.i1, %.thread.i.i ]
+_ZN7rocksdb10BinaryHeapISt23_Rb_tree_const_iteratorIPNS_25TruncatedRangeDelIteratorEENS_23ReverseRangeDelIterator21StartKeyMaxComparatorEE4pushERKS4_.exit: ; preds = %_ZNSt8multisetIPN7rocksdb25TruncatedRangeDelIteratorENS0_16SeqMaxComparatorESaIS2_EE6insertERKS2_.exit, %.thread.thread25.i.i, %.thread.i.i
+  %70 = phi i64 [ %.pre2129.i.i, %.thread.thread25.i.i ], [ %45, %_ZNSt8multisetIPN7rocksdb25TruncatedRangeDelIteratorENS0_16SeqMaxComparatorESaIS2_EE6insertERKS2_.exit ], [ %.pre21.i.i, %.thread.i.i ]
+  %71 = phi ptr [ %.pre27.i.i, %.thread.thread25.i.i ], [ %41, %_ZNSt8multisetIPN7rocksdb25TruncatedRangeDelIteratorENS0_16SeqMaxComparatorESaIS2_EE6insertERKS2_.exit ], [ %spec.select.i.i1, %.thread.i.i ]
   store i64 %70, ptr %71, align 8, !tbaa !146
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i64 -1, ptr %72, align 8, !tbaa !270
@@ -9868,10 +9874,10 @@ _ZN7rocksdb10BinaryHeapIPNS_25TruncatedRangeDelIteratorENS_21StartKeyMinComparat
   %24 = load ptr, ptr %23, align 8, !tbaa !651
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %26 = load ptr, ptr %25, align 8, !tbaa !651
-  %.not1820 = icmp eq ptr %24, %26
-  br i1 %.not1820, label %._crit_edge, label %.lr.ph22
+  %.not1821 = icmp eq ptr %24, %26
+  br i1 %.not1821, label %._crit_edge, label %.lr.ph23
 
-.lr.ph22:                                         ; preds = %_ZN7rocksdb10BinaryHeapIPNS_25TruncatedRangeDelIteratorENS_21StartKeyMinComparatorEE5clearEv.exit
+.lr.ph23:                                         ; preds = %_ZN7rocksdb10BinaryHeapIPNS_25TruncatedRangeDelIteratorENS_21StartKeyMinComparatorEE5clearEv.exit
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -9903,11 +9909,11 @@ _ZN7rocksdb10BinaryHeapIPNS_25TruncatedRangeDelIteratorENS_21StartKeyMinComparat
 ._crit_edge:                                      ; preds = %310, %_ZN7rocksdb10BinaryHeapIPNS_25TruncatedRangeDelIteratorENS_21StartKeyMinComparatorEE5clearEv.exit
   ret void
 
-53:                                               ; preds = %.lr.ph22, %310
-  %.sroa.012.021 = phi ptr [ %24, %.lr.ph22 ], [ %311, %310 ]
+53:                                               ; preds = %.lr.ph23, %310
+  %.sroa.012.022 = phi ptr [ %24, %.lr.ph23 ], [ %311, %310 ]
   %54 = load ptr, ptr %27, align 8, !tbaa !478
   %.not = icmp eq ptr %54, null
-  %55 = load ptr, ptr %.sroa.012.021, align 8, !tbaa !144
+  %55 = load ptr, ptr %.sroa.012.022, align 8, !tbaa !144
   br i1 %.not, label %178, label %56
 
 56:                                               ; preds = %53
@@ -9995,7 +10001,7 @@ _ZN7rocksdb10BinaryHeapIPNS_25TruncatedRangeDelIteratorENS_21StartKeyMinComparat
 
 _ZN7rocksdb25TruncatedRangeDelIterator4SeekERKNS_5SliceE.exit: ; preds = %68, %94, %100
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %105 = load ptr, ptr %.sroa.012.021, align 8, !tbaa !144
+  %105 = load ptr, ptr %.sroa.012.022, align 8, !tbaa !144
   %106 = load ptr, ptr %105, align 8, !tbaa !17
   %107 = load ptr, ptr %106, align 8, !tbaa !55
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
@@ -10063,7 +10069,7 @@ _ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit: ; preds = %124
   br i1 %137, label %138, label %.critedge
 
 138:                                              ; preds = %_ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit.thread15, %_ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit
-  %139 = load ptr, ptr %.sroa.012.021, align 8, !tbaa !144
+  %139 = load ptr, ptr %.sroa.012.022, align 8, !tbaa !144
   %140 = load ptr, ptr %27, align 8, !tbaa !478
   %141 = icmp eq ptr %140, null
   br i1 %141, label %.critedge, label %142
@@ -10118,13 +10124,13 @@ _ZNK7rocksdb12_GLOBAL__N_128TruncatedRangeDelMergingIter14BeforeStartKeyEPKNS_25
   br i1 %165, label %166, label %.critedge
 
 166:                                              ; preds = %_ZNK7rocksdb12_GLOBAL__N_128TruncatedRangeDelMergingIter14BeforeStartKeyEPKNS_25TruncatedRangeDelIteratorE.exit
-  %167 = load ptr, ptr %.sroa.012.021, align 8, !tbaa !144
+  %167 = load ptr, ptr %.sroa.012.022, align 8, !tbaa !144
   %168 = load ptr, ptr %167, align 8, !tbaa !17
   %169 = load ptr, ptr %168, align 8, !tbaa !55
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 64
   %171 = load ptr, ptr %170, align 8
   call void %171(ptr noundef nonnull align 8 dereferenceable(200) %168)
-  %172 = load ptr, ptr %.sroa.012.021, align 8, !tbaa !144
+  %172 = load ptr, ptr %.sroa.012.022, align 8, !tbaa !144
   %173 = load ptr, ptr %172, align 8, !tbaa !17
   %174 = load ptr, ptr %173, align 8, !tbaa !55
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 24
@@ -10153,7 +10159,7 @@ _ZNK7rocksdb12_GLOBAL__N_128TruncatedRangeDelMergingIter14BeforeStartKeyEPKNS_25
   br label %.critedge
 
 .critedge:                                        ; preds = %138, %_ZNK7rocksdb12_GLOBAL__N_128TruncatedRangeDelMergingIter14BeforeStartKeyEPKNS_25TruncatedRangeDelIteratorE.exit, %_ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit, %186, %182, %_ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit.thread
-  %187 = load ptr, ptr %.sroa.012.021, align 8, !tbaa !144
+  %187 = load ptr, ptr %.sroa.012.022, align 8, !tbaa !144
   %188 = load ptr, ptr %187, align 8, !tbaa !17
   %189 = load ptr, ptr %188, align 8, !tbaa !55
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 24
@@ -10220,7 +10226,7 @@ _ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit11: ; preds = %206
   br i1 %219, label %220, label %310
 
 220:                                              ; preds = %_ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit11.thread17, %_ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit11
-  call void @_ZN7rocksdb10autovectorIPNS_25TruncatedRangeDelIteratorELm8EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.012.021)
+  call void @_ZN7rocksdb10autovectorIPNS_25TruncatedRangeDelIteratorELm8EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.012.022)
   %221 = load i64, ptr %15, align 8, !tbaa !177
   %222 = load ptr, ptr %19, align 8, !tbaa !214
   %223 = load ptr, ptr %17, align 8, !tbaa !215
@@ -10245,8 +10251,8 @@ _ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit11: ; preds = %206
   %237 = getelementptr inbounds nuw i8, ptr %235, i64 8
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %294
-  %.01119.i.i = phi i64 [ %239, %294 ], [ %229, %.lr.ph.i.i.preheader ]
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %295
+  %.01119.i.i = phi i64 [ %239, %295 ], [ %229, %.lr.ph.i.i.preheader ]
   %238 = add i64 %.01119.i.i, -1
   %239 = lshr i64 %238, 1
   %240 = icmp ult i64 %.01119.i.i, 17
@@ -10350,45 +10356,46 @@ _ZNK7rocksdb21StartKeyMinComparatorclEPKNS_25TruncatedRangeDelIteratorES3_.exit:
   %293 = icmp sgt i32 %292, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %293, label %294, label %.thread.i.i
+  %294 = load ptr, ptr %44, align 8
+  br i1 %293, label %295, label %.thread.i.i
 
-294:                                              ; preds = %_ZNK7rocksdb21StartKeyMinComparatorclEPKNS_25TruncatedRangeDelIteratorES3_.exit
-  %295 = load ptr, ptr %44, align 8
-  %296 = getelementptr inbounds nuw ptr, ptr %295, i64 %239
+295:                                              ; preds = %_ZNK7rocksdb21StartKeyMinComparatorclEPKNS_25TruncatedRangeDelIteratorES3_.exit
+  %296 = getelementptr inbounds nuw ptr, ptr %294, i64 %239
   %297 = load ptr, ptr %17, align 8
   %298 = getelementptr ptr, ptr %297, i64 %239
   %299 = getelementptr i8, ptr %298, i64 -64
   %.0.i13.i.i = select i1 %240, ptr %296, ptr %299
   %300 = load ptr, ptr %.0.i13.i.i, align 8, !tbaa !144
   %301 = icmp ult i64 %.01119.i.i, 8
-  %302 = getelementptr inbounds nuw ptr, ptr %295, i64 %.01119.i.i
+  %302 = getelementptr inbounds nuw ptr, ptr %294, i64 %.01119.i.i
   %303 = getelementptr ptr, ptr %297, i64 %.01119.i.i
   %304 = getelementptr i8, ptr %303, i64 -64
   %.0.i14.i.i = select i1 %301, ptr %302, ptr %304
   store ptr %300, ptr %.0.i14.i.i, align 8, !tbaa !144
-  %.not.i.i = icmp ult i64 %238, 2
-  br i1 %.not.i.i, label %.thread.i.i, label %.lr.ph.i.i
+  %.not.i.i = icmp eq i64 %239, 0
+  br i1 %.not.i.i, label %.thread.thread26.i.i, label %.lr.ph.i.i
 
-.thread.i.i:                                      ; preds = %294, %_ZNK7rocksdb21StartKeyMinComparatorclEPKNS_25TruncatedRangeDelIteratorES3_.exit
-  %.011.lcssa.ph.i.i = phi i64 [ %239, %294 ], [ %.01119.i.i, %_ZNK7rocksdb21StartKeyMinComparatorclEPKNS_25TruncatedRangeDelIteratorES3_.exit ]
-  %.011.lcssa.ph.fr.i.i = freeze i64 %.011.lcssa.ph.i.i
-  %.pre.i.i = load ptr, ptr %44, align 8
+.thread.thread26.i.i:                             ; preds = %295
+  %.pre28.i.i = load ptr, ptr %44, align 8
+  br label %_ZN7rocksdb10BinaryHeapIPNS_25TruncatedRangeDelIteratorENS_21StartKeyMinComparatorEE4pushERKS2_.exit
+
+.thread.i.i:                                      ; preds = %_ZNK7rocksdb21StartKeyMinComparatorclEPKNS_25TruncatedRangeDelIteratorES3_.exit
   %.pre22.i.i = load ptr, ptr %17, align 8
-  %305 = icmp ult i64 %.011.lcssa.ph.fr.i.i, 8
-  %306 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %.011.lcssa.ph.fr.i.i
-  %307 = getelementptr ptr, ptr %.pre22.i.i, i64 %.011.lcssa.ph.fr.i.i
+  %305 = icmp ult i64 %.01119.i.i, 8
+  %306 = getelementptr inbounds nuw ptr, ptr %294, i64 %.01119.i.i
+  %307 = getelementptr ptr, ptr %.pre22.i.i, i64 %.01119.i.i
   %308 = getelementptr i8, ptr %307, i64 -64
   %spec.select.i.i = select i1 %305, ptr %306, ptr %308
   br label %_ZN7rocksdb10BinaryHeapIPNS_25TruncatedRangeDelIteratorENS_21StartKeyMinComparatorEE4pushERKS2_.exit
 
-_ZN7rocksdb10BinaryHeapIPNS_25TruncatedRangeDelIteratorENS_21StartKeyMinComparatorEE4pushERKS2_.exit: ; preds = %220, %.thread.i.i
-  %309 = phi ptr [ %231, %220 ], [ %spec.select.i.i, %.thread.i.i ]
+_ZN7rocksdb10BinaryHeapIPNS_25TruncatedRangeDelIteratorENS_21StartKeyMinComparatorEE4pushERKS2_.exit: ; preds = %220, %.thread.thread26.i.i, %.thread.i.i
+  %309 = phi ptr [ %.pre28.i.i, %.thread.thread26.i.i ], [ %231, %220 ], [ %spec.select.i.i, %.thread.i.i ]
   store ptr %235, ptr %309, align 8, !tbaa !144
   store i64 -1, ptr %22, align 8, !tbaa !179
   br label %310
 
 310:                                              ; preds = %_ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit11.thread, %_ZN7rocksdb10BinaryHeapIPNS_25TruncatedRangeDelIteratorENS_21StartKeyMinComparatorEE4pushERKS2_.exit, %_ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit11
-  %311 = getelementptr inbounds nuw i8, ptr %.sroa.012.021, i64 8
+  %311 = getelementptr inbounds nuw i8, ptr %.sroa.012.022, i64 8
   %.not18 = icmp eq ptr %311, %26
   br i1 %.not18, label %._crit_edge, label %53
 }

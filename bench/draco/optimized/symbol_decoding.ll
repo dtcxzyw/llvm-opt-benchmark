@@ -974,8 +974,13 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !31
-  %37 = icmp ult i8 %36, 64
-  br i1 %37, label %38, label %43
+  %37 = lshr i8 %36, 6
+  switch i8 %37, label %default.unreachable [
+    i8 0, label %38
+    i8 1, label %43
+    i8 2, label %56
+    i8 3, label %71
+  ]
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -983,78 +988,74 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %40 = load i8, ptr %35, align 1, !tbaa !31
   %41 = and i8 %40, 63
   %42 = zext nneg i8 %41 to i32
-  br label %81
+  br label %79
 
 43:                                               ; preds = %31
-  %44 = lshr i8 %36, 6
-  switch i8 %44, label %73 [
-    i8 1, label %45
-    i8 2, label %58
-  ]
+  %44 = icmp eq i32 %29, 1
+  br i1 %44, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %45
 
 45:                                               ; preds = %43
-  %46 = icmp eq i32 %29, 1
-  br i1 %46, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %47
+  %46 = add nsw i32 %29, -2
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %46, ptr %47, align 8, !tbaa !17
+  %48 = and i64 %21, 2147483647
+  %49 = getelementptr inbounds nuw i8, ptr %27, i64 %48
+  %50 = getelementptr inbounds i8, ptr %49, i64 -2
+  %.val.i = load i8, ptr %50, align 1, !tbaa !31
+  %51 = getelementptr i8, ptr %49, i64 -1
+  %.val25.i = load i8, ptr %51, align 1, !tbaa !31
+  %52 = zext i8 %.val25.i to i32
+  %53 = shl nuw nsw i32 %52, 8
+  %54 = zext i8 %.val.i to i32
+  %.masked26.i = and i32 %53, 16128
+  %55 = or disjoint i32 %.masked26.i, %54
+  br label %79
 
-47:                                               ; preds = %45
-  %48 = add nsw i32 %29, -2
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %48, ptr %49, align 8, !tbaa !17
-  %50 = and i64 %21, 2147483647
-  %51 = getelementptr inbounds nuw i8, ptr %27, i64 %50
-  %52 = getelementptr inbounds i8, ptr %51, i64 -2
-  %.val.i = load i8, ptr %52, align 1, !tbaa !31
-  %53 = getelementptr i8, ptr %51, i64 -1
-  %.val25.i = load i8, ptr %53, align 1, !tbaa !31
-  %54 = zext i8 %.val25.i to i32
-  %55 = shl nuw nsw i32 %54, 8
-  %56 = zext i8 %.val.i to i32
-  %.masked26.i = and i32 %55, 16128
-  %57 = or disjoint i32 %.masked26.i, %56
-  br label %81
+56:                                               ; preds = %31
+  %57 = icmp samesign ult i32 %29, 3
+  br i1 %57, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %58
 
-58:                                               ; preds = %43
-  %59 = icmp samesign ult i32 %29, 3
-  br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
+58:                                               ; preds = %56
+  %59 = add nsw i32 %29, -3
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %59, ptr %60, align 8, !tbaa !17
+  %61 = and i64 %21, 2147483647
+  %62 = getelementptr inbounds nuw i8, ptr %27, i64 %61
+  %63 = getelementptr inbounds i8, ptr %62, i64 -3
+  %64 = getelementptr i8, ptr %62, i64 -2
+  %65 = load i16, ptr %64, align 1
+  %66 = zext i16 %65 to i32
+  %67 = shl nuw nsw i32 %66, 8
+  %68 = load i8, ptr %63, align 1, !tbaa !31
+  %69 = zext i8 %68 to i32
+  %.masked.i = and i32 %67, 4194048
+  %70 = or disjoint i32 %.masked.i, %69
+  br label %79
 
-60:                                               ; preds = %58
-  %61 = add nsw i32 %29, -3
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %61, ptr %62, align 8, !tbaa !17
-  %63 = and i64 %21, 2147483647
-  %64 = getelementptr inbounds nuw i8, ptr %27, i64 %63
-  %65 = getelementptr inbounds i8, ptr %64, i64 -3
-  %66 = getelementptr i8, ptr %64, i64 -2
-  %67 = load i16, ptr %66, align 1
-  %68 = zext i16 %67 to i32
-  %69 = shl nuw nsw i32 %68, 8
-  %70 = load i8, ptr %65, align 1, !tbaa !31
-  %71 = zext i8 %70 to i32
-  %.masked.i = and i32 %69, 4194048
-  %72 = or disjoint i32 %.masked.i, %71
-  br label %81
+default.unreachable:                              ; preds = %31
+  unreachable
 
-73:                                               ; preds = %43
-  %74 = add nsw i32 %29, -4
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %74, ptr %75, align 8, !tbaa !17
-  %76 = and i64 %21, 2147483647
-  %77 = getelementptr inbounds nuw i8, ptr %27, i64 %76
-  %78 = getelementptr inbounds i8, ptr %77, i64 -4
-  %79 = load i32, ptr %78, align 1
-  %80 = and i32 %79, 1073741823
-  br label %81
+71:                                               ; preds = %31
+  %72 = add nsw i32 %29, -4
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %72, ptr %73, align 8, !tbaa !17
+  %74 = and i64 %21, 2147483647
+  %75 = getelementptr inbounds nuw i8, ptr %27, i64 %74
+  %76 = getelementptr inbounds i8, ptr %75, i64 -4
+  %77 = load i32, ptr %76, align 1
+  %78 = and i32 %77, 1073741823
+  br label %79
 
-81:                                               ; preds = %73, %60, %47, %38
-  %82 = phi i32 [ %57, %47 ], [ %80, %73 ], [ %72, %60 ], [ %42, %38 ]
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %84 = add nuw nsw i32 %82, 16384
-  store i32 %84, ptr %83, align 4, !tbaa !32
-  %85 = icmp samesign ult i32 %82, 4177920
+79:                                               ; preds = %71, %58, %45, %38
+  %80 = phi i32 [ %55, %45 ], [ %78, %71 ], [ %70, %58 ], [ %42, %38 ]
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %82 = add nuw nsw i32 %80, 16384
+  store i32 %82, ptr %81, align 4, !tbaa !32
+  %83 = icmp samesign ult i32 %80, 4177920
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
+_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
+  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -4619,8 +4620,13 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !31
-  %37 = icmp ult i8 %36, 64
-  br i1 %37, label %38, label %43
+  %37 = lshr i8 %36, 6
+  switch i8 %37, label %default.unreachable [
+    i8 0, label %38
+    i8 1, label %43
+    i8 2, label %56
+    i8 3, label %71
+  ]
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -4628,78 +4634,74 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %40 = load i8, ptr %35, align 1, !tbaa !31
   %41 = and i8 %40, 63
   %42 = zext nneg i8 %41 to i32
-  br label %81
+  br label %79
 
 43:                                               ; preds = %31
-  %44 = lshr i8 %36, 6
-  switch i8 %44, label %73 [
-    i8 1, label %45
-    i8 2, label %58
-  ]
+  %44 = icmp eq i32 %29, 1
+  br i1 %44, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %45
 
 45:                                               ; preds = %43
-  %46 = icmp eq i32 %29, 1
-  br i1 %46, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %47
+  %46 = add nsw i32 %29, -2
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %46, ptr %47, align 8, !tbaa !17
+  %48 = and i64 %21, 2147483647
+  %49 = getelementptr inbounds nuw i8, ptr %27, i64 %48
+  %50 = getelementptr inbounds i8, ptr %49, i64 -2
+  %.val.i = load i8, ptr %50, align 1, !tbaa !31
+  %51 = getelementptr i8, ptr %49, i64 -1
+  %.val25.i = load i8, ptr %51, align 1, !tbaa !31
+  %52 = zext i8 %.val25.i to i32
+  %53 = shl nuw nsw i32 %52, 8
+  %54 = zext i8 %.val.i to i32
+  %.masked26.i = and i32 %53, 16128
+  %55 = or disjoint i32 %.masked26.i, %54
+  br label %79
 
-47:                                               ; preds = %45
-  %48 = add nsw i32 %29, -2
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %48, ptr %49, align 8, !tbaa !17
-  %50 = and i64 %21, 2147483647
-  %51 = getelementptr inbounds nuw i8, ptr %27, i64 %50
-  %52 = getelementptr inbounds i8, ptr %51, i64 -2
-  %.val.i = load i8, ptr %52, align 1, !tbaa !31
-  %53 = getelementptr i8, ptr %51, i64 -1
-  %.val25.i = load i8, ptr %53, align 1, !tbaa !31
-  %54 = zext i8 %.val25.i to i32
-  %55 = shl nuw nsw i32 %54, 8
-  %56 = zext i8 %.val.i to i32
-  %.masked26.i = and i32 %55, 16128
-  %57 = or disjoint i32 %.masked26.i, %56
-  br label %81
+56:                                               ; preds = %31
+  %57 = icmp samesign ult i32 %29, 3
+  br i1 %57, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %58
 
-58:                                               ; preds = %43
-  %59 = icmp samesign ult i32 %29, 3
-  br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
+58:                                               ; preds = %56
+  %59 = add nsw i32 %29, -3
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %59, ptr %60, align 8, !tbaa !17
+  %61 = and i64 %21, 2147483647
+  %62 = getelementptr inbounds nuw i8, ptr %27, i64 %61
+  %63 = getelementptr inbounds i8, ptr %62, i64 -3
+  %64 = getelementptr i8, ptr %62, i64 -2
+  %65 = load i16, ptr %64, align 1
+  %66 = zext i16 %65 to i32
+  %67 = shl nuw nsw i32 %66, 8
+  %68 = load i8, ptr %63, align 1, !tbaa !31
+  %69 = zext i8 %68 to i32
+  %.masked.i = and i32 %67, 4194048
+  %70 = or disjoint i32 %.masked.i, %69
+  br label %79
 
-60:                                               ; preds = %58
-  %61 = add nsw i32 %29, -3
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %61, ptr %62, align 8, !tbaa !17
-  %63 = and i64 %21, 2147483647
-  %64 = getelementptr inbounds nuw i8, ptr %27, i64 %63
-  %65 = getelementptr inbounds i8, ptr %64, i64 -3
-  %66 = getelementptr i8, ptr %64, i64 -2
-  %67 = load i16, ptr %66, align 1
-  %68 = zext i16 %67 to i32
-  %69 = shl nuw nsw i32 %68, 8
-  %70 = load i8, ptr %65, align 1, !tbaa !31
-  %71 = zext i8 %70 to i32
-  %.masked.i = and i32 %69, 4194048
-  %72 = or disjoint i32 %.masked.i, %71
-  br label %81
+default.unreachable:                              ; preds = %31
+  unreachable
 
-73:                                               ; preds = %43
-  %74 = add nsw i32 %29, -4
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %74, ptr %75, align 8, !tbaa !17
-  %76 = and i64 %21, 2147483647
-  %77 = getelementptr inbounds nuw i8, ptr %27, i64 %76
-  %78 = getelementptr inbounds i8, ptr %77, i64 -4
-  %79 = load i32, ptr %78, align 1
-  %80 = and i32 %79, 1073741823
-  br label %81
+71:                                               ; preds = %31
+  %72 = add nsw i32 %29, -4
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %72, ptr %73, align 8, !tbaa !17
+  %74 = and i64 %21, 2147483647
+  %75 = getelementptr inbounds nuw i8, ptr %27, i64 %74
+  %76 = getelementptr inbounds i8, ptr %75, i64 -4
+  %77 = load i32, ptr %76, align 1
+  %78 = and i32 %77, 1073741823
+  br label %79
 
-81:                                               ; preds = %73, %60, %47, %38
-  %82 = phi i32 [ %57, %47 ], [ %80, %73 ], [ %72, %60 ], [ %42, %38 ]
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %84 = add nuw nsw i32 %82, 16384
-  store i32 %84, ptr %83, align 4, !tbaa !32
-  %85 = icmp samesign ult i32 %82, 4177920
+79:                                               ; preds = %71, %58, %45, %38
+  %80 = phi i32 [ %55, %45 ], [ %78, %71 ], [ %70, %58 ], [ %42, %38 ]
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %82 = add nuw nsw i32 %80, 16384
+  store i32 %82, ptr %81, align 4, !tbaa !32
+  %83 = icmp samesign ult i32 %80, 4177920
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
+_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
+  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -5108,8 +5110,13 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !31
-  %37 = icmp ult i8 %36, 64
-  br i1 %37, label %38, label %43
+  %37 = lshr i8 %36, 6
+  switch i8 %37, label %default.unreachable [
+    i8 0, label %38
+    i8 1, label %43
+    i8 2, label %56
+    i8 3, label %71
+  ]
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -5117,78 +5124,74 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %40 = load i8, ptr %35, align 1, !tbaa !31
   %41 = and i8 %40, 63
   %42 = zext nneg i8 %41 to i32
-  br label %81
+  br label %79
 
 43:                                               ; preds = %31
-  %44 = lshr i8 %36, 6
-  switch i8 %44, label %73 [
-    i8 1, label %45
-    i8 2, label %58
-  ]
+  %44 = icmp eq i32 %29, 1
+  br i1 %44, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %45
 
 45:                                               ; preds = %43
-  %46 = icmp eq i32 %29, 1
-  br i1 %46, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %47
+  %46 = add nsw i32 %29, -2
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %46, ptr %47, align 8, !tbaa !17
+  %48 = and i64 %21, 2147483647
+  %49 = getelementptr inbounds nuw i8, ptr %27, i64 %48
+  %50 = getelementptr inbounds i8, ptr %49, i64 -2
+  %.val.i = load i8, ptr %50, align 1, !tbaa !31
+  %51 = getelementptr i8, ptr %49, i64 -1
+  %.val25.i = load i8, ptr %51, align 1, !tbaa !31
+  %52 = zext i8 %.val25.i to i32
+  %53 = shl nuw nsw i32 %52, 8
+  %54 = zext i8 %.val.i to i32
+  %.masked26.i = and i32 %53, 16128
+  %55 = or disjoint i32 %.masked26.i, %54
+  br label %79
 
-47:                                               ; preds = %45
-  %48 = add nsw i32 %29, -2
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %48, ptr %49, align 8, !tbaa !17
-  %50 = and i64 %21, 2147483647
-  %51 = getelementptr inbounds nuw i8, ptr %27, i64 %50
-  %52 = getelementptr inbounds i8, ptr %51, i64 -2
-  %.val.i = load i8, ptr %52, align 1, !tbaa !31
-  %53 = getelementptr i8, ptr %51, i64 -1
-  %.val25.i = load i8, ptr %53, align 1, !tbaa !31
-  %54 = zext i8 %.val25.i to i32
-  %55 = shl nuw nsw i32 %54, 8
-  %56 = zext i8 %.val.i to i32
-  %.masked26.i = and i32 %55, 16128
-  %57 = or disjoint i32 %.masked26.i, %56
-  br label %81
+56:                                               ; preds = %31
+  %57 = icmp samesign ult i32 %29, 3
+  br i1 %57, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %58
 
-58:                                               ; preds = %43
-  %59 = icmp samesign ult i32 %29, 3
-  br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
+58:                                               ; preds = %56
+  %59 = add nsw i32 %29, -3
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %59, ptr %60, align 8, !tbaa !17
+  %61 = and i64 %21, 2147483647
+  %62 = getelementptr inbounds nuw i8, ptr %27, i64 %61
+  %63 = getelementptr inbounds i8, ptr %62, i64 -3
+  %64 = getelementptr i8, ptr %62, i64 -2
+  %65 = load i16, ptr %64, align 1
+  %66 = zext i16 %65 to i32
+  %67 = shl nuw nsw i32 %66, 8
+  %68 = load i8, ptr %63, align 1, !tbaa !31
+  %69 = zext i8 %68 to i32
+  %.masked.i = and i32 %67, 4194048
+  %70 = or disjoint i32 %.masked.i, %69
+  br label %79
 
-60:                                               ; preds = %58
-  %61 = add nsw i32 %29, -3
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %61, ptr %62, align 8, !tbaa !17
-  %63 = and i64 %21, 2147483647
-  %64 = getelementptr inbounds nuw i8, ptr %27, i64 %63
-  %65 = getelementptr inbounds i8, ptr %64, i64 -3
-  %66 = getelementptr i8, ptr %64, i64 -2
-  %67 = load i16, ptr %66, align 1
-  %68 = zext i16 %67 to i32
-  %69 = shl nuw nsw i32 %68, 8
-  %70 = load i8, ptr %65, align 1, !tbaa !31
-  %71 = zext i8 %70 to i32
-  %.masked.i = and i32 %69, 4194048
-  %72 = or disjoint i32 %.masked.i, %71
-  br label %81
+default.unreachable:                              ; preds = %31
+  unreachable
 
-73:                                               ; preds = %43
-  %74 = add nsw i32 %29, -4
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %74, ptr %75, align 8, !tbaa !17
-  %76 = and i64 %21, 2147483647
-  %77 = getelementptr inbounds nuw i8, ptr %27, i64 %76
-  %78 = getelementptr inbounds i8, ptr %77, i64 -4
-  %79 = load i32, ptr %78, align 1
-  %80 = and i32 %79, 1073741823
-  br label %81
+71:                                               ; preds = %31
+  %72 = add nsw i32 %29, -4
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %72, ptr %73, align 8, !tbaa !17
+  %74 = and i64 %21, 2147483647
+  %75 = getelementptr inbounds nuw i8, ptr %27, i64 %74
+  %76 = getelementptr inbounds i8, ptr %75, i64 -4
+  %77 = load i32, ptr %76, align 1
+  %78 = and i32 %77, 1073741823
+  br label %79
 
-81:                                               ; preds = %73, %60, %47, %38
-  %82 = phi i32 [ %57, %47 ], [ %80, %73 ], [ %72, %60 ], [ %42, %38 ]
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %84 = add nuw nsw i32 %82, 16384
-  store i32 %84, ptr %83, align 4, !tbaa !32
-  %85 = icmp samesign ult i32 %82, 4177920
+79:                                               ; preds = %71, %58, %45, %38
+  %80 = phi i32 [ %55, %45 ], [ %78, %71 ], [ %70, %58 ], [ %42, %38 ]
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %82 = add nuw nsw i32 %80, 16384
+  store i32 %82, ptr %81, align 4, !tbaa !32
+  %83 = icmp samesign ult i32 %80, 4177920
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
+_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
+  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -5597,8 +5600,13 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !31
-  %37 = icmp ult i8 %36, 64
-  br i1 %37, label %38, label %43
+  %37 = lshr i8 %36, 6
+  switch i8 %37, label %default.unreachable [
+    i8 0, label %38
+    i8 1, label %43
+    i8 2, label %56
+    i8 3, label %71
+  ]
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -5606,78 +5614,74 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %40 = load i8, ptr %35, align 1, !tbaa !31
   %41 = and i8 %40, 63
   %42 = zext nneg i8 %41 to i32
-  br label %81
+  br label %79
 
 43:                                               ; preds = %31
-  %44 = lshr i8 %36, 6
-  switch i8 %44, label %73 [
-    i8 1, label %45
-    i8 2, label %58
-  ]
+  %44 = icmp eq i32 %29, 1
+  br i1 %44, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %45
 
 45:                                               ; preds = %43
-  %46 = icmp eq i32 %29, 1
-  br i1 %46, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %47
+  %46 = add nsw i32 %29, -2
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %46, ptr %47, align 8, !tbaa !17
+  %48 = and i64 %21, 2147483647
+  %49 = getelementptr inbounds nuw i8, ptr %27, i64 %48
+  %50 = getelementptr inbounds i8, ptr %49, i64 -2
+  %.val.i = load i8, ptr %50, align 1, !tbaa !31
+  %51 = getelementptr i8, ptr %49, i64 -1
+  %.val25.i = load i8, ptr %51, align 1, !tbaa !31
+  %52 = zext i8 %.val25.i to i32
+  %53 = shl nuw nsw i32 %52, 8
+  %54 = zext i8 %.val.i to i32
+  %.masked26.i = and i32 %53, 16128
+  %55 = or disjoint i32 %.masked26.i, %54
+  br label %79
 
-47:                                               ; preds = %45
-  %48 = add nsw i32 %29, -2
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %48, ptr %49, align 8, !tbaa !17
-  %50 = and i64 %21, 2147483647
-  %51 = getelementptr inbounds nuw i8, ptr %27, i64 %50
-  %52 = getelementptr inbounds i8, ptr %51, i64 -2
-  %.val.i = load i8, ptr %52, align 1, !tbaa !31
-  %53 = getelementptr i8, ptr %51, i64 -1
-  %.val25.i = load i8, ptr %53, align 1, !tbaa !31
-  %54 = zext i8 %.val25.i to i32
-  %55 = shl nuw nsw i32 %54, 8
-  %56 = zext i8 %.val.i to i32
-  %.masked26.i = and i32 %55, 16128
-  %57 = or disjoint i32 %.masked26.i, %56
-  br label %81
+56:                                               ; preds = %31
+  %57 = icmp samesign ult i32 %29, 3
+  br i1 %57, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %58
 
-58:                                               ; preds = %43
-  %59 = icmp samesign ult i32 %29, 3
-  br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
+58:                                               ; preds = %56
+  %59 = add nsw i32 %29, -3
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %59, ptr %60, align 8, !tbaa !17
+  %61 = and i64 %21, 2147483647
+  %62 = getelementptr inbounds nuw i8, ptr %27, i64 %61
+  %63 = getelementptr inbounds i8, ptr %62, i64 -3
+  %64 = getelementptr i8, ptr %62, i64 -2
+  %65 = load i16, ptr %64, align 1
+  %66 = zext i16 %65 to i32
+  %67 = shl nuw nsw i32 %66, 8
+  %68 = load i8, ptr %63, align 1, !tbaa !31
+  %69 = zext i8 %68 to i32
+  %.masked.i = and i32 %67, 4194048
+  %70 = or disjoint i32 %.masked.i, %69
+  br label %79
 
-60:                                               ; preds = %58
-  %61 = add nsw i32 %29, -3
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %61, ptr %62, align 8, !tbaa !17
-  %63 = and i64 %21, 2147483647
-  %64 = getelementptr inbounds nuw i8, ptr %27, i64 %63
-  %65 = getelementptr inbounds i8, ptr %64, i64 -3
-  %66 = getelementptr i8, ptr %64, i64 -2
-  %67 = load i16, ptr %66, align 1
-  %68 = zext i16 %67 to i32
-  %69 = shl nuw nsw i32 %68, 8
-  %70 = load i8, ptr %65, align 1, !tbaa !31
-  %71 = zext i8 %70 to i32
-  %.masked.i = and i32 %69, 4194048
-  %72 = or disjoint i32 %.masked.i, %71
-  br label %81
+default.unreachable:                              ; preds = %31
+  unreachable
 
-73:                                               ; preds = %43
-  %74 = add nsw i32 %29, -4
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %74, ptr %75, align 8, !tbaa !17
-  %76 = and i64 %21, 2147483647
-  %77 = getelementptr inbounds nuw i8, ptr %27, i64 %76
-  %78 = getelementptr inbounds i8, ptr %77, i64 -4
-  %79 = load i32, ptr %78, align 1
-  %80 = and i32 %79, 1073741823
-  br label %81
+71:                                               ; preds = %31
+  %72 = add nsw i32 %29, -4
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %72, ptr %73, align 8, !tbaa !17
+  %74 = and i64 %21, 2147483647
+  %75 = getelementptr inbounds nuw i8, ptr %27, i64 %74
+  %76 = getelementptr inbounds i8, ptr %75, i64 -4
+  %77 = load i32, ptr %76, align 1
+  %78 = and i32 %77, 1073741823
+  br label %79
 
-81:                                               ; preds = %73, %60, %47, %38
-  %82 = phi i32 [ %57, %47 ], [ %80, %73 ], [ %72, %60 ], [ %42, %38 ]
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %84 = add nuw nsw i32 %82, 16384
-  store i32 %84, ptr %83, align 4, !tbaa !32
-  %85 = icmp samesign ult i32 %82, 4177920
+79:                                               ; preds = %71, %58, %45, %38
+  %80 = phi i32 [ %55, %45 ], [ %78, %71 ], [ %70, %58 ], [ %42, %38 ]
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %82 = add nuw nsw i32 %80, 16384
+  store i32 %82, ptr %81, align 4, !tbaa !32
+  %83 = icmp samesign ult i32 %80, 4177920
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
+_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
+  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -6086,8 +6090,13 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !31
-  %37 = icmp ult i8 %36, 64
-  br i1 %37, label %38, label %43
+  %37 = lshr i8 %36, 6
+  switch i8 %37, label %default.unreachable [
+    i8 0, label %38
+    i8 1, label %43
+    i8 2, label %56
+    i8 3, label %71
+  ]
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -6095,78 +6104,74 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %40 = load i8, ptr %35, align 1, !tbaa !31
   %41 = and i8 %40, 63
   %42 = zext nneg i8 %41 to i32
-  br label %81
+  br label %79
 
 43:                                               ; preds = %31
-  %44 = lshr i8 %36, 6
-  switch i8 %44, label %73 [
-    i8 1, label %45
-    i8 2, label %58
-  ]
+  %44 = icmp eq i32 %29, 1
+  br i1 %44, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %45
 
 45:                                               ; preds = %43
-  %46 = icmp eq i32 %29, 1
-  br i1 %46, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %47
+  %46 = add nsw i32 %29, -2
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %46, ptr %47, align 8, !tbaa !17
+  %48 = and i64 %21, 2147483647
+  %49 = getelementptr inbounds nuw i8, ptr %27, i64 %48
+  %50 = getelementptr inbounds i8, ptr %49, i64 -2
+  %.val.i = load i8, ptr %50, align 1, !tbaa !31
+  %51 = getelementptr i8, ptr %49, i64 -1
+  %.val25.i = load i8, ptr %51, align 1, !tbaa !31
+  %52 = zext i8 %.val25.i to i32
+  %53 = shl nuw nsw i32 %52, 8
+  %54 = zext i8 %.val.i to i32
+  %.masked26.i = and i32 %53, 16128
+  %55 = or disjoint i32 %.masked26.i, %54
+  br label %79
 
-47:                                               ; preds = %45
-  %48 = add nsw i32 %29, -2
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %48, ptr %49, align 8, !tbaa !17
-  %50 = and i64 %21, 2147483647
-  %51 = getelementptr inbounds nuw i8, ptr %27, i64 %50
-  %52 = getelementptr inbounds i8, ptr %51, i64 -2
-  %.val.i = load i8, ptr %52, align 1, !tbaa !31
-  %53 = getelementptr i8, ptr %51, i64 -1
-  %.val25.i = load i8, ptr %53, align 1, !tbaa !31
-  %54 = zext i8 %.val25.i to i32
-  %55 = shl nuw nsw i32 %54, 8
-  %56 = zext i8 %.val.i to i32
-  %.masked26.i = and i32 %55, 16128
-  %57 = or disjoint i32 %.masked26.i, %56
-  br label %81
+56:                                               ; preds = %31
+  %57 = icmp samesign ult i32 %29, 3
+  br i1 %57, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %58
 
-58:                                               ; preds = %43
-  %59 = icmp samesign ult i32 %29, 3
-  br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
+58:                                               ; preds = %56
+  %59 = add nsw i32 %29, -3
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %59, ptr %60, align 8, !tbaa !17
+  %61 = and i64 %21, 2147483647
+  %62 = getelementptr inbounds nuw i8, ptr %27, i64 %61
+  %63 = getelementptr inbounds i8, ptr %62, i64 -3
+  %64 = getelementptr i8, ptr %62, i64 -2
+  %65 = load i16, ptr %64, align 1
+  %66 = zext i16 %65 to i32
+  %67 = shl nuw nsw i32 %66, 8
+  %68 = load i8, ptr %63, align 1, !tbaa !31
+  %69 = zext i8 %68 to i32
+  %.masked.i = and i32 %67, 4194048
+  %70 = or disjoint i32 %.masked.i, %69
+  br label %79
 
-60:                                               ; preds = %58
-  %61 = add nsw i32 %29, -3
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %61, ptr %62, align 8, !tbaa !17
-  %63 = and i64 %21, 2147483647
-  %64 = getelementptr inbounds nuw i8, ptr %27, i64 %63
-  %65 = getelementptr inbounds i8, ptr %64, i64 -3
-  %66 = getelementptr i8, ptr %64, i64 -2
-  %67 = load i16, ptr %66, align 1
-  %68 = zext i16 %67 to i32
-  %69 = shl nuw nsw i32 %68, 8
-  %70 = load i8, ptr %65, align 1, !tbaa !31
-  %71 = zext i8 %70 to i32
-  %.masked.i = and i32 %69, 4194048
-  %72 = or disjoint i32 %.masked.i, %71
-  br label %81
+default.unreachable:                              ; preds = %31
+  unreachable
 
-73:                                               ; preds = %43
-  %74 = add nsw i32 %29, -4
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %74, ptr %75, align 8, !tbaa !17
-  %76 = and i64 %21, 2147483647
-  %77 = getelementptr inbounds nuw i8, ptr %27, i64 %76
-  %78 = getelementptr inbounds i8, ptr %77, i64 -4
-  %79 = load i32, ptr %78, align 1
-  %80 = and i32 %79, 1073741823
-  br label %81
+71:                                               ; preds = %31
+  %72 = add nsw i32 %29, -4
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %72, ptr %73, align 8, !tbaa !17
+  %74 = and i64 %21, 2147483647
+  %75 = getelementptr inbounds nuw i8, ptr %27, i64 %74
+  %76 = getelementptr inbounds i8, ptr %75, i64 -4
+  %77 = load i32, ptr %76, align 1
+  %78 = and i32 %77, 1073741823
+  br label %79
 
-81:                                               ; preds = %73, %60, %47, %38
-  %82 = phi i32 [ %57, %47 ], [ %80, %73 ], [ %72, %60 ], [ %42, %38 ]
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %84 = add nuw nsw i32 %82, 16384
-  store i32 %84, ptr %83, align 4, !tbaa !32
-  %85 = icmp samesign ult i32 %82, 4177920
+79:                                               ; preds = %71, %58, %45, %38
+  %80 = phi i32 [ %55, %45 ], [ %78, %71 ], [ %70, %58 ], [ %42, %38 ]
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %82 = add nuw nsw i32 %80, 16384
+  store i32 %82, ptr %81, align 4, !tbaa !32
+  %83 = icmp samesign ult i32 %80, 4177920
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
+_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
+  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -6575,8 +6580,13 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !31
-  %37 = icmp ult i8 %36, 64
-  br i1 %37, label %38, label %43
+  %37 = lshr i8 %36, 6
+  switch i8 %37, label %default.unreachable [
+    i8 0, label %38
+    i8 1, label %43
+    i8 2, label %56
+    i8 3, label %71
+  ]
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -6584,78 +6594,74 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %40 = load i8, ptr %35, align 1, !tbaa !31
   %41 = and i8 %40, 63
   %42 = zext nneg i8 %41 to i32
-  br label %81
+  br label %79
 
 43:                                               ; preds = %31
-  %44 = lshr i8 %36, 6
-  switch i8 %44, label %73 [
-    i8 1, label %45
-    i8 2, label %58
-  ]
+  %44 = icmp eq i32 %29, 1
+  br i1 %44, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %45
 
 45:                                               ; preds = %43
-  %46 = icmp eq i32 %29, 1
-  br i1 %46, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %47
+  %46 = add nsw i32 %29, -2
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %46, ptr %47, align 8, !tbaa !17
+  %48 = and i64 %21, 2147483647
+  %49 = getelementptr inbounds nuw i8, ptr %27, i64 %48
+  %50 = getelementptr inbounds i8, ptr %49, i64 -2
+  %.val.i = load i8, ptr %50, align 1, !tbaa !31
+  %51 = getelementptr i8, ptr %49, i64 -1
+  %.val25.i = load i8, ptr %51, align 1, !tbaa !31
+  %52 = zext i8 %.val25.i to i32
+  %53 = shl nuw nsw i32 %52, 8
+  %54 = zext i8 %.val.i to i32
+  %.masked26.i = and i32 %53, 16128
+  %55 = or disjoint i32 %.masked26.i, %54
+  br label %79
 
-47:                                               ; preds = %45
-  %48 = add nsw i32 %29, -2
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %48, ptr %49, align 8, !tbaa !17
-  %50 = and i64 %21, 2147483647
-  %51 = getelementptr inbounds nuw i8, ptr %27, i64 %50
-  %52 = getelementptr inbounds i8, ptr %51, i64 -2
-  %.val.i = load i8, ptr %52, align 1, !tbaa !31
-  %53 = getelementptr i8, ptr %51, i64 -1
-  %.val25.i = load i8, ptr %53, align 1, !tbaa !31
-  %54 = zext i8 %.val25.i to i32
-  %55 = shl nuw nsw i32 %54, 8
-  %56 = zext i8 %.val.i to i32
-  %.masked26.i = and i32 %55, 16128
-  %57 = or disjoint i32 %.masked26.i, %56
-  br label %81
+56:                                               ; preds = %31
+  %57 = icmp samesign ult i32 %29, 3
+  br i1 %57, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %58
 
-58:                                               ; preds = %43
-  %59 = icmp samesign ult i32 %29, 3
-  br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
+58:                                               ; preds = %56
+  %59 = add nsw i32 %29, -3
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %59, ptr %60, align 8, !tbaa !17
+  %61 = and i64 %21, 2147483647
+  %62 = getelementptr inbounds nuw i8, ptr %27, i64 %61
+  %63 = getelementptr inbounds i8, ptr %62, i64 -3
+  %64 = getelementptr i8, ptr %62, i64 -2
+  %65 = load i16, ptr %64, align 1
+  %66 = zext i16 %65 to i32
+  %67 = shl nuw nsw i32 %66, 8
+  %68 = load i8, ptr %63, align 1, !tbaa !31
+  %69 = zext i8 %68 to i32
+  %.masked.i = and i32 %67, 4194048
+  %70 = or disjoint i32 %.masked.i, %69
+  br label %79
 
-60:                                               ; preds = %58
-  %61 = add nsw i32 %29, -3
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %61, ptr %62, align 8, !tbaa !17
-  %63 = and i64 %21, 2147483647
-  %64 = getelementptr inbounds nuw i8, ptr %27, i64 %63
-  %65 = getelementptr inbounds i8, ptr %64, i64 -3
-  %66 = getelementptr i8, ptr %64, i64 -2
-  %67 = load i16, ptr %66, align 1
-  %68 = zext i16 %67 to i32
-  %69 = shl nuw nsw i32 %68, 8
-  %70 = load i8, ptr %65, align 1, !tbaa !31
-  %71 = zext i8 %70 to i32
-  %.masked.i = and i32 %69, 4194048
-  %72 = or disjoint i32 %.masked.i, %71
-  br label %81
+default.unreachable:                              ; preds = %31
+  unreachable
 
-73:                                               ; preds = %43
-  %74 = add nsw i32 %29, -4
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %74, ptr %75, align 8, !tbaa !17
-  %76 = and i64 %21, 2147483647
-  %77 = getelementptr inbounds nuw i8, ptr %27, i64 %76
-  %78 = getelementptr inbounds i8, ptr %77, i64 -4
-  %79 = load i32, ptr %78, align 1
-  %80 = and i32 %79, 1073741823
-  br label %81
+71:                                               ; preds = %31
+  %72 = add nsw i32 %29, -4
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %72, ptr %73, align 8, !tbaa !17
+  %74 = and i64 %21, 2147483647
+  %75 = getelementptr inbounds nuw i8, ptr %27, i64 %74
+  %76 = getelementptr inbounds i8, ptr %75, i64 -4
+  %77 = load i32, ptr %76, align 1
+  %78 = and i32 %77, 1073741823
+  br label %79
 
-81:                                               ; preds = %73, %60, %47, %38
-  %82 = phi i32 [ %57, %47 ], [ %80, %73 ], [ %72, %60 ], [ %42, %38 ]
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %84 = add nuw nsw i32 %82, 16384
-  store i32 %84, ptr %83, align 4, !tbaa !32
-  %85 = icmp samesign ult i32 %82, 4177920
+79:                                               ; preds = %71, %58, %45, %38
+  %80 = phi i32 [ %55, %45 ], [ %78, %71 ], [ %70, %58 ], [ %42, %38 ]
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %82 = add nuw nsw i32 %80, 16384
+  store i32 %82, ptr %81, align 4, !tbaa !32
+  %83 = icmp samesign ult i32 %80, 4177920
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
+_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
+  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -7064,8 +7070,13 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !31
-  %37 = icmp ult i8 %36, 64
-  br i1 %37, label %38, label %43
+  %37 = lshr i8 %36, 6
+  switch i8 %37, label %default.unreachable [
+    i8 0, label %38
+    i8 1, label %43
+    i8 2, label %56
+    i8 3, label %71
+  ]
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -7073,78 +7084,74 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %40 = load i8, ptr %35, align 1, !tbaa !31
   %41 = and i8 %40, 63
   %42 = zext nneg i8 %41 to i32
-  br label %81
+  br label %79
 
 43:                                               ; preds = %31
-  %44 = lshr i8 %36, 6
-  switch i8 %44, label %73 [
-    i8 1, label %45
-    i8 2, label %58
-  ]
+  %44 = icmp eq i32 %29, 1
+  br i1 %44, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %45
 
 45:                                               ; preds = %43
-  %46 = icmp eq i32 %29, 1
-  br i1 %46, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %47
+  %46 = add nsw i32 %29, -2
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %46, ptr %47, align 8, !tbaa !17
+  %48 = and i64 %21, 2147483647
+  %49 = getelementptr inbounds nuw i8, ptr %27, i64 %48
+  %50 = getelementptr inbounds i8, ptr %49, i64 -2
+  %.val.i = load i8, ptr %50, align 1, !tbaa !31
+  %51 = getelementptr i8, ptr %49, i64 -1
+  %.val25.i = load i8, ptr %51, align 1, !tbaa !31
+  %52 = zext i8 %.val25.i to i32
+  %53 = shl nuw nsw i32 %52, 8
+  %54 = zext i8 %.val.i to i32
+  %.masked26.i = and i32 %53, 16128
+  %55 = or disjoint i32 %.masked26.i, %54
+  br label %79
 
-47:                                               ; preds = %45
-  %48 = add nsw i32 %29, -2
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %48, ptr %49, align 8, !tbaa !17
-  %50 = and i64 %21, 2147483647
-  %51 = getelementptr inbounds nuw i8, ptr %27, i64 %50
-  %52 = getelementptr inbounds i8, ptr %51, i64 -2
-  %.val.i = load i8, ptr %52, align 1, !tbaa !31
-  %53 = getelementptr i8, ptr %51, i64 -1
-  %.val25.i = load i8, ptr %53, align 1, !tbaa !31
-  %54 = zext i8 %.val25.i to i32
-  %55 = shl nuw nsw i32 %54, 8
-  %56 = zext i8 %.val.i to i32
-  %.masked26.i = and i32 %55, 16128
-  %57 = or disjoint i32 %.masked26.i, %56
-  br label %81
+56:                                               ; preds = %31
+  %57 = icmp samesign ult i32 %29, 3
+  br i1 %57, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %58
 
-58:                                               ; preds = %43
-  %59 = icmp samesign ult i32 %29, 3
-  br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
+58:                                               ; preds = %56
+  %59 = add nsw i32 %29, -3
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %59, ptr %60, align 8, !tbaa !17
+  %61 = and i64 %21, 2147483647
+  %62 = getelementptr inbounds nuw i8, ptr %27, i64 %61
+  %63 = getelementptr inbounds i8, ptr %62, i64 -3
+  %64 = getelementptr i8, ptr %62, i64 -2
+  %65 = load i16, ptr %64, align 1
+  %66 = zext i16 %65 to i32
+  %67 = shl nuw nsw i32 %66, 8
+  %68 = load i8, ptr %63, align 1, !tbaa !31
+  %69 = zext i8 %68 to i32
+  %.masked.i = and i32 %67, 4194048
+  %70 = or disjoint i32 %.masked.i, %69
+  br label %79
 
-60:                                               ; preds = %58
-  %61 = add nsw i32 %29, -3
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %61, ptr %62, align 8, !tbaa !17
-  %63 = and i64 %21, 2147483647
-  %64 = getelementptr inbounds nuw i8, ptr %27, i64 %63
-  %65 = getelementptr inbounds i8, ptr %64, i64 -3
-  %66 = getelementptr i8, ptr %64, i64 -2
-  %67 = load i16, ptr %66, align 1
-  %68 = zext i16 %67 to i32
-  %69 = shl nuw nsw i32 %68, 8
-  %70 = load i8, ptr %65, align 1, !tbaa !31
-  %71 = zext i8 %70 to i32
-  %.masked.i = and i32 %69, 4194048
-  %72 = or disjoint i32 %.masked.i, %71
-  br label %81
+default.unreachable:                              ; preds = %31
+  unreachable
 
-73:                                               ; preds = %43
-  %74 = add nsw i32 %29, -4
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %74, ptr %75, align 8, !tbaa !17
-  %76 = and i64 %21, 2147483647
-  %77 = getelementptr inbounds nuw i8, ptr %27, i64 %76
-  %78 = getelementptr inbounds i8, ptr %77, i64 -4
-  %79 = load i32, ptr %78, align 1
-  %80 = and i32 %79, 1073741823
-  br label %81
+71:                                               ; preds = %31
+  %72 = add nsw i32 %29, -4
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %72, ptr %73, align 8, !tbaa !17
+  %74 = and i64 %21, 2147483647
+  %75 = getelementptr inbounds nuw i8, ptr %27, i64 %74
+  %76 = getelementptr inbounds i8, ptr %75, i64 -4
+  %77 = load i32, ptr %76, align 1
+  %78 = and i32 %77, 1073741823
+  br label %79
 
-81:                                               ; preds = %73, %60, %47, %38
-  %82 = phi i32 [ %57, %47 ], [ %80, %73 ], [ %72, %60 ], [ %42, %38 ]
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %84 = add nuw nsw i32 %82, 16384
-  store i32 %84, ptr %83, align 4, !tbaa !32
-  %85 = icmp samesign ult i32 %82, 4177920
+79:                                               ; preds = %71, %58, %45, %38
+  %80 = phi i32 [ %55, %45 ], [ %78, %71 ], [ %70, %58 ], [ %42, %38 ]
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %82 = add nuw nsw i32 %80, 16384
+  store i32 %82, ptr %81, align 4, !tbaa !32
+  %83 = icmp samesign ult i32 %80, 4177920
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
+_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
+  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -7553,8 +7560,13 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !31
-  %37 = icmp ult i8 %36, 64
-  br i1 %37, label %38, label %43
+  %37 = lshr i8 %36, 6
+  switch i8 %37, label %default.unreachable [
+    i8 0, label %38
+    i8 1, label %43
+    i8 2, label %56
+    i8 3, label %71
+  ]
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -7562,78 +7574,74 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %40 = load i8, ptr %35, align 1, !tbaa !31
   %41 = and i8 %40, 63
   %42 = zext nneg i8 %41 to i32
-  br label %81
+  br label %79
 
 43:                                               ; preds = %31
-  %44 = lshr i8 %36, 6
-  switch i8 %44, label %73 [
-    i8 1, label %45
-    i8 2, label %58
-  ]
+  %44 = icmp eq i32 %29, 1
+  br i1 %44, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %45
 
 45:                                               ; preds = %43
-  %46 = icmp eq i32 %29, 1
-  br i1 %46, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %47
+  %46 = add nsw i32 %29, -2
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %46, ptr %47, align 8, !tbaa !17
+  %48 = and i64 %21, 2147483647
+  %49 = getelementptr inbounds nuw i8, ptr %27, i64 %48
+  %50 = getelementptr inbounds i8, ptr %49, i64 -2
+  %.val.i = load i8, ptr %50, align 1, !tbaa !31
+  %51 = getelementptr i8, ptr %49, i64 -1
+  %.val25.i = load i8, ptr %51, align 1, !tbaa !31
+  %52 = zext i8 %.val25.i to i32
+  %53 = shl nuw nsw i32 %52, 8
+  %54 = zext i8 %.val.i to i32
+  %.masked26.i = and i32 %53, 16128
+  %55 = or disjoint i32 %.masked26.i, %54
+  br label %79
 
-47:                                               ; preds = %45
-  %48 = add nsw i32 %29, -2
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %48, ptr %49, align 8, !tbaa !17
-  %50 = and i64 %21, 2147483647
-  %51 = getelementptr inbounds nuw i8, ptr %27, i64 %50
-  %52 = getelementptr inbounds i8, ptr %51, i64 -2
-  %.val.i = load i8, ptr %52, align 1, !tbaa !31
-  %53 = getelementptr i8, ptr %51, i64 -1
-  %.val25.i = load i8, ptr %53, align 1, !tbaa !31
-  %54 = zext i8 %.val25.i to i32
-  %55 = shl nuw nsw i32 %54, 8
-  %56 = zext i8 %.val.i to i32
-  %.masked26.i = and i32 %55, 16128
-  %57 = or disjoint i32 %.masked26.i, %56
-  br label %81
+56:                                               ; preds = %31
+  %57 = icmp samesign ult i32 %29, 3
+  br i1 %57, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %58
 
-58:                                               ; preds = %43
-  %59 = icmp samesign ult i32 %29, 3
-  br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
+58:                                               ; preds = %56
+  %59 = add nsw i32 %29, -3
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %59, ptr %60, align 8, !tbaa !17
+  %61 = and i64 %21, 2147483647
+  %62 = getelementptr inbounds nuw i8, ptr %27, i64 %61
+  %63 = getelementptr inbounds i8, ptr %62, i64 -3
+  %64 = getelementptr i8, ptr %62, i64 -2
+  %65 = load i16, ptr %64, align 1
+  %66 = zext i16 %65 to i32
+  %67 = shl nuw nsw i32 %66, 8
+  %68 = load i8, ptr %63, align 1, !tbaa !31
+  %69 = zext i8 %68 to i32
+  %.masked.i = and i32 %67, 4194048
+  %70 = or disjoint i32 %.masked.i, %69
+  br label %79
 
-60:                                               ; preds = %58
-  %61 = add nsw i32 %29, -3
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %61, ptr %62, align 8, !tbaa !17
-  %63 = and i64 %21, 2147483647
-  %64 = getelementptr inbounds nuw i8, ptr %27, i64 %63
-  %65 = getelementptr inbounds i8, ptr %64, i64 -3
-  %66 = getelementptr i8, ptr %64, i64 -2
-  %67 = load i16, ptr %66, align 1
-  %68 = zext i16 %67 to i32
-  %69 = shl nuw nsw i32 %68, 8
-  %70 = load i8, ptr %65, align 1, !tbaa !31
-  %71 = zext i8 %70 to i32
-  %.masked.i = and i32 %69, 4194048
-  %72 = or disjoint i32 %.masked.i, %71
-  br label %81
+default.unreachable:                              ; preds = %31
+  unreachable
 
-73:                                               ; preds = %43
-  %74 = add nsw i32 %29, -4
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %74, ptr %75, align 8, !tbaa !17
-  %76 = and i64 %21, 2147483647
-  %77 = getelementptr inbounds nuw i8, ptr %27, i64 %76
-  %78 = getelementptr inbounds i8, ptr %77, i64 -4
-  %79 = load i32, ptr %78, align 1
-  %80 = and i32 %79, 1073741823
-  br label %81
+71:                                               ; preds = %31
+  %72 = add nsw i32 %29, -4
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %72, ptr %73, align 8, !tbaa !17
+  %74 = and i64 %21, 2147483647
+  %75 = getelementptr inbounds nuw i8, ptr %27, i64 %74
+  %76 = getelementptr inbounds i8, ptr %75, i64 -4
+  %77 = load i32, ptr %76, align 1
+  %78 = and i32 %77, 1073741823
+  br label %79
 
-81:                                               ; preds = %73, %60, %47, %38
-  %82 = phi i32 [ %57, %47 ], [ %80, %73 ], [ %72, %60 ], [ %42, %38 ]
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %84 = add nuw nsw i32 %82, 16384
-  store i32 %84, ptr %83, align 4, !tbaa !32
-  %85 = icmp samesign ult i32 %82, 4177920
+79:                                               ; preds = %71, %58, %45, %38
+  %80 = phi i32 [ %55, %45 ], [ %78, %71 ], [ %70, %58 ], [ %42, %38 ]
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %82 = add nuw nsw i32 %80, 16384
+  store i32 %82, ptr %81, align 4, !tbaa !32
+  %83 = icmp samesign ult i32 %80, 4177920
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
+_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
+  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -8042,8 +8050,13 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !31
-  %37 = icmp ult i8 %36, 64
-  br i1 %37, label %38, label %43
+  %37 = lshr i8 %36, 6
+  switch i8 %37, label %default.unreachable [
+    i8 0, label %38
+    i8 1, label %43
+    i8 2, label %56
+    i8 3, label %71
+  ]
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -8051,78 +8064,74 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %40 = load i8, ptr %35, align 1, !tbaa !31
   %41 = and i8 %40, 63
   %42 = zext nneg i8 %41 to i32
-  br label %81
+  br label %79
 
 43:                                               ; preds = %31
-  %44 = lshr i8 %36, 6
-  switch i8 %44, label %73 [
-    i8 1, label %45
-    i8 2, label %58
-  ]
+  %44 = icmp eq i32 %29, 1
+  br i1 %44, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %45
 
 45:                                               ; preds = %43
-  %46 = icmp eq i32 %29, 1
-  br i1 %46, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %47
+  %46 = add nsw i32 %29, -2
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %46, ptr %47, align 8, !tbaa !73
+  %48 = and i64 %21, 2147483647
+  %49 = getelementptr inbounds nuw i8, ptr %27, i64 %48
+  %50 = getelementptr inbounds i8, ptr %49, i64 -2
+  %.val.i = load i8, ptr %50, align 1, !tbaa !31
+  %51 = getelementptr i8, ptr %49, i64 -1
+  %.val25.i = load i8, ptr %51, align 1, !tbaa !31
+  %52 = zext i8 %.val25.i to i32
+  %53 = shl nuw nsw i32 %52, 8
+  %54 = zext i8 %.val.i to i32
+  %.masked26.i = and i32 %53, 16128
+  %55 = or disjoint i32 %.masked26.i, %54
+  br label %79
 
-47:                                               ; preds = %45
-  %48 = add nsw i32 %29, -2
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %48, ptr %49, align 8, !tbaa !73
-  %50 = and i64 %21, 2147483647
-  %51 = getelementptr inbounds nuw i8, ptr %27, i64 %50
-  %52 = getelementptr inbounds i8, ptr %51, i64 -2
-  %.val.i = load i8, ptr %52, align 1, !tbaa !31
-  %53 = getelementptr i8, ptr %51, i64 -1
-  %.val25.i = load i8, ptr %53, align 1, !tbaa !31
-  %54 = zext i8 %.val25.i to i32
-  %55 = shl nuw nsw i32 %54, 8
-  %56 = zext i8 %.val.i to i32
-  %.masked26.i = and i32 %55, 16128
-  %57 = or disjoint i32 %.masked26.i, %56
-  br label %81
+56:                                               ; preds = %31
+  %57 = icmp samesign ult i32 %29, 3
+  br i1 %57, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %58
 
-58:                                               ; preds = %43
-  %59 = icmp samesign ult i32 %29, 3
-  br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
+58:                                               ; preds = %56
+  %59 = add nsw i32 %29, -3
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %59, ptr %60, align 8, !tbaa !73
+  %61 = and i64 %21, 2147483647
+  %62 = getelementptr inbounds nuw i8, ptr %27, i64 %61
+  %63 = getelementptr inbounds i8, ptr %62, i64 -3
+  %64 = getelementptr i8, ptr %62, i64 -2
+  %65 = load i16, ptr %64, align 1
+  %66 = zext i16 %65 to i32
+  %67 = shl nuw nsw i32 %66, 8
+  %68 = load i8, ptr %63, align 1, !tbaa !31
+  %69 = zext i8 %68 to i32
+  %.masked.i = and i32 %67, 4194048
+  %70 = or disjoint i32 %.masked.i, %69
+  br label %79
 
-60:                                               ; preds = %58
-  %61 = add nsw i32 %29, -3
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %61, ptr %62, align 8, !tbaa !73
-  %63 = and i64 %21, 2147483647
-  %64 = getelementptr inbounds nuw i8, ptr %27, i64 %63
-  %65 = getelementptr inbounds i8, ptr %64, i64 -3
-  %66 = getelementptr i8, ptr %64, i64 -2
-  %67 = load i16, ptr %66, align 1
-  %68 = zext i16 %67 to i32
-  %69 = shl nuw nsw i32 %68, 8
-  %70 = load i8, ptr %65, align 1, !tbaa !31
-  %71 = zext i8 %70 to i32
-  %.masked.i = and i32 %69, 4194048
-  %72 = or disjoint i32 %.masked.i, %71
-  br label %81
+default.unreachable:                              ; preds = %31
+  unreachable
 
-73:                                               ; preds = %43
-  %74 = add nsw i32 %29, -4
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %74, ptr %75, align 8, !tbaa !73
-  %76 = and i64 %21, 2147483647
-  %77 = getelementptr inbounds nuw i8, ptr %27, i64 %76
-  %78 = getelementptr inbounds i8, ptr %77, i64 -4
-  %79 = load i32, ptr %78, align 1
-  %80 = and i32 %79, 1073741823
-  br label %81
+71:                                               ; preds = %31
+  %72 = add nsw i32 %29, -4
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %72, ptr %73, align 8, !tbaa !73
+  %74 = and i64 %21, 2147483647
+  %75 = getelementptr inbounds nuw i8, ptr %27, i64 %74
+  %76 = getelementptr inbounds i8, ptr %75, i64 -4
+  %77 = load i32, ptr %76, align 1
+  %78 = and i32 %77, 1073741823
+  br label %79
 
-81:                                               ; preds = %73, %60, %47, %38
-  %82 = phi i32 [ %57, %47 ], [ %80, %73 ], [ %72, %60 ], [ %42, %38 ]
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %84 = add nuw nsw i32 %82, 32768
-  store i32 %84, ptr %83, align 4, !tbaa !71
-  %85 = icmp samesign ult i32 %82, 8355840
+79:                                               ; preds = %71, %58, %45, %38
+  %80 = phi i32 [ %55, %45 ], [ %78, %71 ], [ %70, %58 ], [ %42, %38 ]
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %82 = add nuw nsw i32 %80, 32768
+  store i32 %82, ptr %81, align 4, !tbaa !71
+  %83 = icmp samesign ult i32 %80, 8355840
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
+_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
+  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -8531,8 +8540,13 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !31
-  %37 = icmp ult i8 %36, 64
-  br i1 %37, label %38, label %43
+  %37 = lshr i8 %36, 6
+  switch i8 %37, label %default.unreachable [
+    i8 0, label %38
+    i8 1, label %43
+    i8 2, label %56
+    i8 3, label %71
+  ]
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -8540,78 +8554,74 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %40 = load i8, ptr %35, align 1, !tbaa !31
   %41 = and i8 %40, 63
   %42 = zext nneg i8 %41 to i32
-  br label %81
+  br label %79
 
 43:                                               ; preds = %31
-  %44 = lshr i8 %36, 6
-  switch i8 %44, label %73 [
-    i8 1, label %45
-    i8 2, label %58
-  ]
+  %44 = icmp eq i32 %29, 1
+  br i1 %44, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %45
 
 45:                                               ; preds = %43
-  %46 = icmp eq i32 %29, 1
-  br i1 %46, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %47
+  %46 = add nsw i32 %29, -2
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %46, ptr %47, align 8, !tbaa !78
+  %48 = and i64 %21, 2147483647
+  %49 = getelementptr inbounds nuw i8, ptr %27, i64 %48
+  %50 = getelementptr inbounds i8, ptr %49, i64 -2
+  %.val.i = load i8, ptr %50, align 1, !tbaa !31
+  %51 = getelementptr i8, ptr %49, i64 -1
+  %.val25.i = load i8, ptr %51, align 1, !tbaa !31
+  %52 = zext i8 %.val25.i to i32
+  %53 = shl nuw nsw i32 %52, 8
+  %54 = zext i8 %.val.i to i32
+  %.masked26.i = and i32 %53, 16128
+  %55 = or disjoint i32 %.masked26.i, %54
+  br label %79
 
-47:                                               ; preds = %45
-  %48 = add nsw i32 %29, -2
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %48, ptr %49, align 8, !tbaa !78
-  %50 = and i64 %21, 2147483647
-  %51 = getelementptr inbounds nuw i8, ptr %27, i64 %50
-  %52 = getelementptr inbounds i8, ptr %51, i64 -2
-  %.val.i = load i8, ptr %52, align 1, !tbaa !31
-  %53 = getelementptr i8, ptr %51, i64 -1
-  %.val25.i = load i8, ptr %53, align 1, !tbaa !31
-  %54 = zext i8 %.val25.i to i32
-  %55 = shl nuw nsw i32 %54, 8
-  %56 = zext i8 %.val.i to i32
-  %.masked26.i = and i32 %55, 16128
-  %57 = or disjoint i32 %.masked26.i, %56
-  br label %81
+56:                                               ; preds = %31
+  %57 = icmp samesign ult i32 %29, 3
+  br i1 %57, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %58
 
-58:                                               ; preds = %43
-  %59 = icmp samesign ult i32 %29, 3
-  br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
+58:                                               ; preds = %56
+  %59 = add nsw i32 %29, -3
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %59, ptr %60, align 8, !tbaa !78
+  %61 = and i64 %21, 2147483647
+  %62 = getelementptr inbounds nuw i8, ptr %27, i64 %61
+  %63 = getelementptr inbounds i8, ptr %62, i64 -3
+  %64 = getelementptr i8, ptr %62, i64 -2
+  %65 = load i16, ptr %64, align 1
+  %66 = zext i16 %65 to i32
+  %67 = shl nuw nsw i32 %66, 8
+  %68 = load i8, ptr %63, align 1, !tbaa !31
+  %69 = zext i8 %68 to i32
+  %.masked.i = and i32 %67, 4194048
+  %70 = or disjoint i32 %.masked.i, %69
+  br label %79
 
-60:                                               ; preds = %58
-  %61 = add nsw i32 %29, -3
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %61, ptr %62, align 8, !tbaa !78
-  %63 = and i64 %21, 2147483647
-  %64 = getelementptr inbounds nuw i8, ptr %27, i64 %63
-  %65 = getelementptr inbounds i8, ptr %64, i64 -3
-  %66 = getelementptr i8, ptr %64, i64 -2
-  %67 = load i16, ptr %66, align 1
-  %68 = zext i16 %67 to i32
-  %69 = shl nuw nsw i32 %68, 8
-  %70 = load i8, ptr %65, align 1, !tbaa !31
-  %71 = zext i8 %70 to i32
-  %.masked.i = and i32 %69, 4194048
-  %72 = or disjoint i32 %.masked.i, %71
-  br label %81
+default.unreachable:                              ; preds = %31
+  unreachable
 
-73:                                               ; preds = %43
-  %74 = add nsw i32 %29, -4
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %74, ptr %75, align 8, !tbaa !78
-  %76 = and i64 %21, 2147483647
-  %77 = getelementptr inbounds nuw i8, ptr %27, i64 %76
-  %78 = getelementptr inbounds i8, ptr %77, i64 -4
-  %79 = load i32, ptr %78, align 1
-  %80 = and i32 %79, 1073741823
-  br label %81
+71:                                               ; preds = %31
+  %72 = add nsw i32 %29, -4
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %72, ptr %73, align 8, !tbaa !78
+  %74 = and i64 %21, 2147483647
+  %75 = getelementptr inbounds nuw i8, ptr %27, i64 %74
+  %76 = getelementptr inbounds i8, ptr %75, i64 -4
+  %77 = load i32, ptr %76, align 1
+  %78 = and i32 %77, 1073741823
+  br label %79
 
-81:                                               ; preds = %73, %60, %47, %38
-  %82 = phi i32 [ %57, %47 ], [ %80, %73 ], [ %72, %60 ], [ %42, %38 ]
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %84 = add nuw nsw i32 %82, 131072
-  store i32 %84, ptr %83, align 4, !tbaa !76
-  %85 = icmp samesign ult i32 %82, 33423360
+79:                                               ; preds = %71, %58, %45, %38
+  %80 = phi i32 [ %55, %45 ], [ %78, %71 ], [ %70, %58 ], [ %42, %38 ]
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %82 = add nuw nsw i32 %80, 131072
+  store i32 %82, ptr %81, align 4, !tbaa !76
+  %83 = icmp samesign ult i32 %80, 33423360
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
+_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
+  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -9020,8 +9030,13 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !31
-  %37 = icmp ult i8 %36, 64
-  br i1 %37, label %38, label %43
+  %37 = lshr i8 %36, 6
+  switch i8 %37, label %default.unreachable [
+    i8 0, label %38
+    i8 1, label %43
+    i8 2, label %56
+    i8 3, label %71
+  ]
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -9029,78 +9044,74 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %40 = load i8, ptr %35, align 1, !tbaa !31
   %41 = and i8 %40, 63
   %42 = zext nneg i8 %41 to i32
-  br label %81
+  br label %79
 
 43:                                               ; preds = %31
-  %44 = lshr i8 %36, 6
-  switch i8 %44, label %73 [
-    i8 1, label %45
-    i8 2, label %58
-  ]
+  %44 = icmp eq i32 %29, 1
+  br i1 %44, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %45
 
 45:                                               ; preds = %43
-  %46 = icmp eq i32 %29, 1
-  br i1 %46, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %47
+  %46 = add nsw i32 %29, -2
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %46, ptr %47, align 8, !tbaa !83
+  %48 = and i64 %21, 2147483647
+  %49 = getelementptr inbounds nuw i8, ptr %27, i64 %48
+  %50 = getelementptr inbounds i8, ptr %49, i64 -2
+  %.val.i = load i8, ptr %50, align 1, !tbaa !31
+  %51 = getelementptr i8, ptr %49, i64 -1
+  %.val25.i = load i8, ptr %51, align 1, !tbaa !31
+  %52 = zext i8 %.val25.i to i32
+  %53 = shl nuw nsw i32 %52, 8
+  %54 = zext i8 %.val.i to i32
+  %.masked26.i = and i32 %53, 16128
+  %55 = or disjoint i32 %.masked26.i, %54
+  br label %79
 
-47:                                               ; preds = %45
-  %48 = add nsw i32 %29, -2
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %48, ptr %49, align 8, !tbaa !83
-  %50 = and i64 %21, 2147483647
-  %51 = getelementptr inbounds nuw i8, ptr %27, i64 %50
-  %52 = getelementptr inbounds i8, ptr %51, i64 -2
-  %.val.i = load i8, ptr %52, align 1, !tbaa !31
-  %53 = getelementptr i8, ptr %51, i64 -1
-  %.val25.i = load i8, ptr %53, align 1, !tbaa !31
-  %54 = zext i8 %.val25.i to i32
-  %55 = shl nuw nsw i32 %54, 8
-  %56 = zext i8 %.val.i to i32
-  %.masked26.i = and i32 %55, 16128
-  %57 = or disjoint i32 %.masked26.i, %56
-  br label %81
+56:                                               ; preds = %31
+  %57 = icmp samesign ult i32 %29, 3
+  br i1 %57, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %58
 
-58:                                               ; preds = %43
-  %59 = icmp samesign ult i32 %29, 3
-  br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
+58:                                               ; preds = %56
+  %59 = add nsw i32 %29, -3
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %59, ptr %60, align 8, !tbaa !83
+  %61 = and i64 %21, 2147483647
+  %62 = getelementptr inbounds nuw i8, ptr %27, i64 %61
+  %63 = getelementptr inbounds i8, ptr %62, i64 -3
+  %64 = getelementptr i8, ptr %62, i64 -2
+  %65 = load i16, ptr %64, align 1
+  %66 = zext i16 %65 to i32
+  %67 = shl nuw nsw i32 %66, 8
+  %68 = load i8, ptr %63, align 1, !tbaa !31
+  %69 = zext i8 %68 to i32
+  %.masked.i = and i32 %67, 4194048
+  %70 = or disjoint i32 %.masked.i, %69
+  br label %79
 
-60:                                               ; preds = %58
-  %61 = add nsw i32 %29, -3
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %61, ptr %62, align 8, !tbaa !83
-  %63 = and i64 %21, 2147483647
-  %64 = getelementptr inbounds nuw i8, ptr %27, i64 %63
-  %65 = getelementptr inbounds i8, ptr %64, i64 -3
-  %66 = getelementptr i8, ptr %64, i64 -2
-  %67 = load i16, ptr %66, align 1
-  %68 = zext i16 %67 to i32
-  %69 = shl nuw nsw i32 %68, 8
-  %70 = load i8, ptr %65, align 1, !tbaa !31
-  %71 = zext i8 %70 to i32
-  %.masked.i = and i32 %69, 4194048
-  %72 = or disjoint i32 %.masked.i, %71
-  br label %81
+default.unreachable:                              ; preds = %31
+  unreachable
 
-73:                                               ; preds = %43
-  %74 = add nsw i32 %29, -4
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %74, ptr %75, align 8, !tbaa !83
-  %76 = and i64 %21, 2147483647
-  %77 = getelementptr inbounds nuw i8, ptr %27, i64 %76
-  %78 = getelementptr inbounds i8, ptr %77, i64 -4
-  %79 = load i32, ptr %78, align 1
-  %80 = and i32 %79, 1073741823
-  br label %81
+71:                                               ; preds = %31
+  %72 = add nsw i32 %29, -4
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %72, ptr %73, align 8, !tbaa !83
+  %74 = and i64 %21, 2147483647
+  %75 = getelementptr inbounds nuw i8, ptr %27, i64 %74
+  %76 = getelementptr inbounds i8, ptr %75, i64 -4
+  %77 = load i32, ptr %76, align 1
+  %78 = and i32 %77, 1073741823
+  br label %79
 
-81:                                               ; preds = %73, %60, %47, %38
-  %82 = phi i32 [ %57, %47 ], [ %80, %73 ], [ %72, %60 ], [ %42, %38 ]
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %84 = add nuw nsw i32 %82, 262144
-  store i32 %84, ptr %83, align 4, !tbaa !81
-  %85 = icmp samesign ult i32 %82, 66846720
+79:                                               ; preds = %71, %58, %45, %38
+  %80 = phi i32 [ %55, %45 ], [ %78, %71 ], [ %70, %58 ], [ %42, %38 ]
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %82 = add nuw nsw i32 %80, 262144
+  store i32 %82, ptr %81, align 4, !tbaa !81
+  %83 = icmp samesign ult i32 %80, 66846720
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
+_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
+  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -9509,8 +9520,13 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !31
-  %37 = icmp ult i8 %36, 64
-  br i1 %37, label %38, label %43
+  %37 = lshr i8 %36, 6
+  switch i8 %37, label %default.unreachable [
+    i8 0, label %38
+    i8 1, label %43
+    i8 2, label %56
+    i8 3, label %71
+  ]
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -9518,78 +9534,74 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %40 = load i8, ptr %35, align 1, !tbaa !31
   %41 = and i8 %40, 63
   %42 = zext nneg i8 %41 to i32
-  br label %81
+  br label %79
 
 43:                                               ; preds = %31
-  %44 = lshr i8 %36, 6
-  switch i8 %44, label %73 [
-    i8 1, label %45
-    i8 2, label %58
-  ]
+  %44 = icmp eq i32 %29, 1
+  br i1 %44, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %45
 
 45:                                               ; preds = %43
-  %46 = icmp eq i32 %29, 1
-  br i1 %46, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %47
+  %46 = add nsw i32 %29, -2
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %46, ptr %47, align 8, !tbaa !88
+  %48 = and i64 %21, 2147483647
+  %49 = getelementptr inbounds nuw i8, ptr %27, i64 %48
+  %50 = getelementptr inbounds i8, ptr %49, i64 -2
+  %.val.i = load i8, ptr %50, align 1, !tbaa !31
+  %51 = getelementptr i8, ptr %49, i64 -1
+  %.val25.i = load i8, ptr %51, align 1, !tbaa !31
+  %52 = zext i8 %.val25.i to i32
+  %53 = shl nuw nsw i32 %52, 8
+  %54 = zext i8 %.val.i to i32
+  %.masked26.i = and i32 %53, 16128
+  %55 = or disjoint i32 %.masked26.i, %54
+  br label %79
 
-47:                                               ; preds = %45
-  %48 = add nsw i32 %29, -2
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %48, ptr %49, align 8, !tbaa !88
-  %50 = and i64 %21, 2147483647
-  %51 = getelementptr inbounds nuw i8, ptr %27, i64 %50
-  %52 = getelementptr inbounds i8, ptr %51, i64 -2
-  %.val.i = load i8, ptr %52, align 1, !tbaa !31
-  %53 = getelementptr i8, ptr %51, i64 -1
-  %.val25.i = load i8, ptr %53, align 1, !tbaa !31
-  %54 = zext i8 %.val25.i to i32
-  %55 = shl nuw nsw i32 %54, 8
-  %56 = zext i8 %.val.i to i32
-  %.masked26.i = and i32 %55, 16128
-  %57 = or disjoint i32 %.masked26.i, %56
-  br label %81
+56:                                               ; preds = %31
+  %57 = icmp samesign ult i32 %29, 3
+  br i1 %57, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %58
 
-58:                                               ; preds = %43
-  %59 = icmp samesign ult i32 %29, 3
-  br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
+58:                                               ; preds = %56
+  %59 = add nsw i32 %29, -3
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %59, ptr %60, align 8, !tbaa !88
+  %61 = and i64 %21, 2147483647
+  %62 = getelementptr inbounds nuw i8, ptr %27, i64 %61
+  %63 = getelementptr inbounds i8, ptr %62, i64 -3
+  %64 = getelementptr i8, ptr %62, i64 -2
+  %65 = load i16, ptr %64, align 1
+  %66 = zext i16 %65 to i32
+  %67 = shl nuw nsw i32 %66, 8
+  %68 = load i8, ptr %63, align 1, !tbaa !31
+  %69 = zext i8 %68 to i32
+  %.masked.i = and i32 %67, 4194048
+  %70 = or disjoint i32 %.masked.i, %69
+  br label %79
 
-60:                                               ; preds = %58
-  %61 = add nsw i32 %29, -3
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %61, ptr %62, align 8, !tbaa !88
-  %63 = and i64 %21, 2147483647
-  %64 = getelementptr inbounds nuw i8, ptr %27, i64 %63
-  %65 = getelementptr inbounds i8, ptr %64, i64 -3
-  %66 = getelementptr i8, ptr %64, i64 -2
-  %67 = load i16, ptr %66, align 1
-  %68 = zext i16 %67 to i32
-  %69 = shl nuw nsw i32 %68, 8
-  %70 = load i8, ptr %65, align 1, !tbaa !31
-  %71 = zext i8 %70 to i32
-  %.masked.i = and i32 %69, 4194048
-  %72 = or disjoint i32 %.masked.i, %71
-  br label %81
+default.unreachable:                              ; preds = %31
+  unreachable
 
-73:                                               ; preds = %43
-  %74 = add nsw i32 %29, -4
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %74, ptr %75, align 8, !tbaa !88
-  %76 = and i64 %21, 2147483647
-  %77 = getelementptr inbounds nuw i8, ptr %27, i64 %76
-  %78 = getelementptr inbounds i8, ptr %77, i64 -4
-  %79 = load i32, ptr %78, align 1
-  %80 = and i32 %79, 1073741823
-  br label %81
+71:                                               ; preds = %31
+  %72 = add nsw i32 %29, -4
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %72, ptr %73, align 8, !tbaa !88
+  %74 = and i64 %21, 2147483647
+  %75 = getelementptr inbounds nuw i8, ptr %27, i64 %74
+  %76 = getelementptr inbounds i8, ptr %75, i64 -4
+  %77 = load i32, ptr %76, align 1
+  %78 = and i32 %77, 1073741823
+  br label %79
 
-81:                                               ; preds = %73, %60, %47, %38
-  %82 = phi i32 [ %57, %47 ], [ %80, %73 ], [ %72, %60 ], [ %42, %38 ]
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %84 = add nuw nsw i32 %82, 1048576
-  store i32 %84, ptr %83, align 4, !tbaa !86
-  %85 = icmp samesign ult i32 %82, 267386880
+79:                                               ; preds = %71, %58, %45, %38
+  %80 = phi i32 [ %55, %45 ], [ %78, %71 ], [ %70, %58 ], [ %42, %38 ]
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %82 = add nuw nsw i32 %80, 1048576
+  store i32 %82, ptr %81, align 4, !tbaa !86
+  %83 = icmp samesign ult i32 %80, 267386880
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
+_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
+  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -9998,8 +10010,13 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !31
-  %37 = icmp ult i8 %36, 64
-  br i1 %37, label %38, label %43
+  %37 = lshr i8 %36, 6
+  switch i8 %37, label %default.unreachable [
+    i8 0, label %38
+    i8 1, label %43
+    i8 2, label %56
+    i8 3, label %71
+  ]
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -10007,78 +10024,74 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %40 = load i8, ptr %35, align 1, !tbaa !31
   %41 = and i8 %40, 63
   %42 = zext nneg i8 %41 to i32
-  br label %81
+  br label %79
 
 43:                                               ; preds = %31
-  %44 = lshr i8 %36, 6
-  switch i8 %44, label %73 [
-    i8 1, label %45
-    i8 2, label %58
-  ]
+  %44 = icmp eq i32 %29, 1
+  br i1 %44, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %45
 
 45:                                               ; preds = %43
-  %46 = icmp eq i32 %29, 1
-  br i1 %46, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %47
+  %46 = add nsw i32 %29, -2
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %46, ptr %47, align 8, !tbaa !93
+  %48 = and i64 %21, 2147483647
+  %49 = getelementptr inbounds nuw i8, ptr %27, i64 %48
+  %50 = getelementptr inbounds i8, ptr %49, i64 -2
+  %.val.i = load i8, ptr %50, align 1, !tbaa !31
+  %51 = getelementptr i8, ptr %49, i64 -1
+  %.val25.i = load i8, ptr %51, align 1, !tbaa !31
+  %52 = zext i8 %.val25.i to i32
+  %53 = shl nuw nsw i32 %52, 8
+  %54 = zext i8 %.val.i to i32
+  %.masked26.i = and i32 %53, 16128
+  %55 = or disjoint i32 %.masked26.i, %54
+  br label %79
 
-47:                                               ; preds = %45
-  %48 = add nsw i32 %29, -2
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %48, ptr %49, align 8, !tbaa !93
-  %50 = and i64 %21, 2147483647
-  %51 = getelementptr inbounds nuw i8, ptr %27, i64 %50
-  %52 = getelementptr inbounds i8, ptr %51, i64 -2
-  %.val.i = load i8, ptr %52, align 1, !tbaa !31
-  %53 = getelementptr i8, ptr %51, i64 -1
-  %.val25.i = load i8, ptr %53, align 1, !tbaa !31
-  %54 = zext i8 %.val25.i to i32
-  %55 = shl nuw nsw i32 %54, 8
-  %56 = zext i8 %.val.i to i32
-  %.masked26.i = and i32 %55, 16128
-  %57 = or disjoint i32 %.masked26.i, %56
-  br label %81
+56:                                               ; preds = %31
+  %57 = icmp samesign ult i32 %29, 3
+  br i1 %57, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %58
 
-58:                                               ; preds = %43
-  %59 = icmp samesign ult i32 %29, 3
-  br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
+58:                                               ; preds = %56
+  %59 = add nsw i32 %29, -3
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %59, ptr %60, align 8, !tbaa !93
+  %61 = and i64 %21, 2147483647
+  %62 = getelementptr inbounds nuw i8, ptr %27, i64 %61
+  %63 = getelementptr inbounds i8, ptr %62, i64 -3
+  %64 = getelementptr i8, ptr %62, i64 -2
+  %65 = load i16, ptr %64, align 1
+  %66 = zext i16 %65 to i32
+  %67 = shl nuw nsw i32 %66, 8
+  %68 = load i8, ptr %63, align 1, !tbaa !31
+  %69 = zext i8 %68 to i32
+  %.masked.i = and i32 %67, 4194048
+  %70 = or disjoint i32 %.masked.i, %69
+  br label %79
 
-60:                                               ; preds = %58
-  %61 = add nsw i32 %29, -3
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %61, ptr %62, align 8, !tbaa !93
-  %63 = and i64 %21, 2147483647
-  %64 = getelementptr inbounds nuw i8, ptr %27, i64 %63
-  %65 = getelementptr inbounds i8, ptr %64, i64 -3
-  %66 = getelementptr i8, ptr %64, i64 -2
-  %67 = load i16, ptr %66, align 1
-  %68 = zext i16 %67 to i32
-  %69 = shl nuw nsw i32 %68, 8
-  %70 = load i8, ptr %65, align 1, !tbaa !31
-  %71 = zext i8 %70 to i32
-  %.masked.i = and i32 %69, 4194048
-  %72 = or disjoint i32 %.masked.i, %71
-  br label %81
+default.unreachable:                              ; preds = %31
+  unreachable
 
-73:                                               ; preds = %43
-  %74 = add nsw i32 %29, -4
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %74, ptr %75, align 8, !tbaa !93
-  %76 = and i64 %21, 2147483647
-  %77 = getelementptr inbounds nuw i8, ptr %27, i64 %76
-  %78 = getelementptr inbounds i8, ptr %77, i64 -4
-  %79 = load i32, ptr %78, align 1
-  %80 = and i32 %79, 1073741823
-  br label %81
+71:                                               ; preds = %31
+  %72 = add nsw i32 %29, -4
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %72, ptr %73, align 8, !tbaa !93
+  %74 = and i64 %21, 2147483647
+  %75 = getelementptr inbounds nuw i8, ptr %27, i64 %74
+  %76 = getelementptr inbounds i8, ptr %75, i64 -4
+  %77 = load i32, ptr %76, align 1
+  %78 = and i32 %77, 1073741823
+  br label %79
 
-81:                                               ; preds = %73, %60, %47, %38
-  %82 = phi i32 [ %57, %47 ], [ %80, %73 ], [ %72, %60 ], [ %42, %38 ]
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %84 = add nuw nsw i32 %82, 2097152
-  store i32 %84, ptr %83, align 4, !tbaa !91
-  %85 = icmp samesign ult i32 %82, 534773760
+79:                                               ; preds = %71, %58, %45, %38
+  %80 = phi i32 [ %55, %45 ], [ %78, %71 ], [ %70, %58 ], [ %42, %38 ]
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %82 = add nuw nsw i32 %80, 2097152
+  store i32 %82, ptr %81, align 4, !tbaa !91
+  %83 = icmp samesign ult i32 %80, 534773760
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
+_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
+  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -10487,8 +10500,13 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !31
-  %37 = icmp ult i8 %36, 64
-  br i1 %37, label %38, label %43
+  %37 = lshr i8 %36, 6
+  switch i8 %37, label %default.unreachable [
+    i8 0, label %38
+    i8 1, label %43
+    i8 2, label %56
+    i8 3, label %71
+  ]
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -10496,78 +10514,74 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %40 = load i8, ptr %35, align 1, !tbaa !31
   %41 = and i8 %40, 63
   %42 = zext nneg i8 %41 to i32
-  br label %81
+  br label %79
 
 43:                                               ; preds = %31
-  %44 = lshr i8 %36, 6
-  switch i8 %44, label %73 [
-    i8 1, label %45
-    i8 2, label %58
-  ]
+  %44 = icmp eq i32 %29, 1
+  br i1 %44, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %45
 
 45:                                               ; preds = %43
-  %46 = icmp eq i32 %29, 1
-  br i1 %46, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %47
+  %46 = add nsw i32 %29, -2
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %46, ptr %47, align 8, !tbaa !98
+  %48 = and i64 %21, 2147483647
+  %49 = getelementptr inbounds nuw i8, ptr %27, i64 %48
+  %50 = getelementptr inbounds i8, ptr %49, i64 -2
+  %.val.i = load i8, ptr %50, align 1, !tbaa !31
+  %51 = getelementptr i8, ptr %49, i64 -1
+  %.val25.i = load i8, ptr %51, align 1, !tbaa !31
+  %52 = zext i8 %.val25.i to i32
+  %53 = shl nuw nsw i32 %52, 8
+  %54 = zext i8 %.val.i to i32
+  %.masked26.i = and i32 %53, 16128
+  %55 = or disjoint i32 %.masked26.i, %54
+  br label %79
 
-47:                                               ; preds = %45
-  %48 = add nsw i32 %29, -2
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %48, ptr %49, align 8, !tbaa !98
-  %50 = and i64 %21, 2147483647
-  %51 = getelementptr inbounds nuw i8, ptr %27, i64 %50
-  %52 = getelementptr inbounds i8, ptr %51, i64 -2
-  %.val.i = load i8, ptr %52, align 1, !tbaa !31
-  %53 = getelementptr i8, ptr %51, i64 -1
-  %.val25.i = load i8, ptr %53, align 1, !tbaa !31
-  %54 = zext i8 %.val25.i to i32
-  %55 = shl nuw nsw i32 %54, 8
-  %56 = zext i8 %.val.i to i32
-  %.masked26.i = and i32 %55, 16128
-  %57 = or disjoint i32 %.masked26.i, %56
-  br label %81
+56:                                               ; preds = %31
+  %57 = icmp samesign ult i32 %29, 3
+  br i1 %57, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %58
 
-58:                                               ; preds = %43
-  %59 = icmp samesign ult i32 %29, 3
-  br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
+58:                                               ; preds = %56
+  %59 = add nsw i32 %29, -3
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %59, ptr %60, align 8, !tbaa !98
+  %61 = and i64 %21, 2147483647
+  %62 = getelementptr inbounds nuw i8, ptr %27, i64 %61
+  %63 = getelementptr inbounds i8, ptr %62, i64 -3
+  %64 = getelementptr i8, ptr %62, i64 -2
+  %65 = load i16, ptr %64, align 1
+  %66 = zext i16 %65 to i32
+  %67 = shl nuw nsw i32 %66, 8
+  %68 = load i8, ptr %63, align 1, !tbaa !31
+  %69 = zext i8 %68 to i32
+  %.masked.i = and i32 %67, 4194048
+  %70 = or disjoint i32 %.masked.i, %69
+  br label %79
 
-60:                                               ; preds = %58
-  %61 = add nsw i32 %29, -3
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %61, ptr %62, align 8, !tbaa !98
-  %63 = and i64 %21, 2147483647
-  %64 = getelementptr inbounds nuw i8, ptr %27, i64 %63
-  %65 = getelementptr inbounds i8, ptr %64, i64 -3
-  %66 = getelementptr i8, ptr %64, i64 -2
-  %67 = load i16, ptr %66, align 1
-  %68 = zext i16 %67 to i32
-  %69 = shl nuw nsw i32 %68, 8
-  %70 = load i8, ptr %65, align 1, !tbaa !31
-  %71 = zext i8 %70 to i32
-  %.masked.i = and i32 %69, 4194048
-  %72 = or disjoint i32 %.masked.i, %71
-  br label %81
+default.unreachable:                              ; preds = %31
+  unreachable
 
-73:                                               ; preds = %43
-  %74 = add nsw i32 %29, -4
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %74, ptr %75, align 8, !tbaa !98
-  %76 = and i64 %21, 2147483647
-  %77 = getelementptr inbounds nuw i8, ptr %27, i64 %76
-  %78 = getelementptr inbounds i8, ptr %77, i64 -4
-  %79 = load i32, ptr %78, align 1
-  %80 = and i32 %79, 1073741823
-  br label %81
+71:                                               ; preds = %31
+  %72 = add nsw i32 %29, -4
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %72, ptr %73, align 8, !tbaa !98
+  %74 = and i64 %21, 2147483647
+  %75 = getelementptr inbounds nuw i8, ptr %27, i64 %74
+  %76 = getelementptr inbounds i8, ptr %75, i64 -4
+  %77 = load i32, ptr %76, align 1
+  %78 = and i32 %77, 1073741823
+  br label %79
 
-81:                                               ; preds = %73, %60, %47, %38
-  %82 = phi i32 [ %57, %47 ], [ %80, %73 ], [ %72, %60 ], [ %42, %38 ]
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %84 = add nuw nsw i32 %82, 4194304
-  store i32 %84, ptr %83, align 4, !tbaa !96
-  %85 = icmp samesign ult i32 %82, 1069547520
+79:                                               ; preds = %71, %58, %45, %38
+  %80 = phi i32 [ %55, %45 ], [ %78, %71 ], [ %70, %58 ], [ %42, %38 ]
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %82 = add nuw nsw i32 %80, 4194304
+  store i32 %82, ptr %81, align 4, !tbaa !96
+  %83 = icmp samesign ult i32 %80, 1069547520
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
+_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
+  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -10976,8 +10990,13 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !31
-  %37 = icmp ult i8 %36, 64
-  br i1 %37, label %38, label %43
+  %37 = lshr i8 %36, 6
+  switch i8 %37, label %default.unreachable [
+    i8 0, label %38
+    i8 1, label %43
+    i8 2, label %56
+    i8 3, label %71
+  ]
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -10985,78 +11004,74 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %40 = load i8, ptr %35, align 1, !tbaa !31
   %41 = and i8 %40, 63
   %42 = zext nneg i8 %41 to i32
-  br label %81
+  br label %79
 
 43:                                               ; preds = %31
-  %44 = lshr i8 %36, 6
-  switch i8 %44, label %73 [
-    i8 1, label %45
-    i8 2, label %58
-  ]
+  %44 = icmp eq i32 %29, 1
+  br i1 %44, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %45
 
 45:                                               ; preds = %43
-  %46 = icmp eq i32 %29, 1
-  br i1 %46, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %47
+  %46 = add nsw i32 %29, -2
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %46, ptr %47, align 8, !tbaa !98
+  %48 = and i64 %21, 2147483647
+  %49 = getelementptr inbounds nuw i8, ptr %27, i64 %48
+  %50 = getelementptr inbounds i8, ptr %49, i64 -2
+  %.val.i = load i8, ptr %50, align 1, !tbaa !31
+  %51 = getelementptr i8, ptr %49, i64 -1
+  %.val25.i = load i8, ptr %51, align 1, !tbaa !31
+  %52 = zext i8 %.val25.i to i32
+  %53 = shl nuw nsw i32 %52, 8
+  %54 = zext i8 %.val.i to i32
+  %.masked26.i = and i32 %53, 16128
+  %55 = or disjoint i32 %.masked26.i, %54
+  br label %79
 
-47:                                               ; preds = %45
-  %48 = add nsw i32 %29, -2
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %48, ptr %49, align 8, !tbaa !98
-  %50 = and i64 %21, 2147483647
-  %51 = getelementptr inbounds nuw i8, ptr %27, i64 %50
-  %52 = getelementptr inbounds i8, ptr %51, i64 -2
-  %.val.i = load i8, ptr %52, align 1, !tbaa !31
-  %53 = getelementptr i8, ptr %51, i64 -1
-  %.val25.i = load i8, ptr %53, align 1, !tbaa !31
-  %54 = zext i8 %.val25.i to i32
-  %55 = shl nuw nsw i32 %54, 8
-  %56 = zext i8 %.val.i to i32
-  %.masked26.i = and i32 %55, 16128
-  %57 = or disjoint i32 %.masked26.i, %56
-  br label %81
+56:                                               ; preds = %31
+  %57 = icmp samesign ult i32 %29, 3
+  br i1 %57, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %58
 
-58:                                               ; preds = %43
-  %59 = icmp samesign ult i32 %29, 3
-  br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
+58:                                               ; preds = %56
+  %59 = add nsw i32 %29, -3
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %59, ptr %60, align 8, !tbaa !98
+  %61 = and i64 %21, 2147483647
+  %62 = getelementptr inbounds nuw i8, ptr %27, i64 %61
+  %63 = getelementptr inbounds i8, ptr %62, i64 -3
+  %64 = getelementptr i8, ptr %62, i64 -2
+  %65 = load i16, ptr %64, align 1
+  %66 = zext i16 %65 to i32
+  %67 = shl nuw nsw i32 %66, 8
+  %68 = load i8, ptr %63, align 1, !tbaa !31
+  %69 = zext i8 %68 to i32
+  %.masked.i = and i32 %67, 4194048
+  %70 = or disjoint i32 %.masked.i, %69
+  br label %79
 
-60:                                               ; preds = %58
-  %61 = add nsw i32 %29, -3
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %61, ptr %62, align 8, !tbaa !98
-  %63 = and i64 %21, 2147483647
-  %64 = getelementptr inbounds nuw i8, ptr %27, i64 %63
-  %65 = getelementptr inbounds i8, ptr %64, i64 -3
-  %66 = getelementptr i8, ptr %64, i64 -2
-  %67 = load i16, ptr %66, align 1
-  %68 = zext i16 %67 to i32
-  %69 = shl nuw nsw i32 %68, 8
-  %70 = load i8, ptr %65, align 1, !tbaa !31
-  %71 = zext i8 %70 to i32
-  %.masked.i = and i32 %69, 4194048
-  %72 = or disjoint i32 %.masked.i, %71
-  br label %81
+default.unreachable:                              ; preds = %31
+  unreachable
 
-73:                                               ; preds = %43
-  %74 = add nsw i32 %29, -4
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %74, ptr %75, align 8, !tbaa !98
-  %76 = and i64 %21, 2147483647
-  %77 = getelementptr inbounds nuw i8, ptr %27, i64 %76
-  %78 = getelementptr inbounds i8, ptr %77, i64 -4
-  %79 = load i32, ptr %78, align 1
-  %80 = and i32 %79, 1073741823
-  br label %81
+71:                                               ; preds = %31
+  %72 = add nsw i32 %29, -4
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %72, ptr %73, align 8, !tbaa !98
+  %74 = and i64 %21, 2147483647
+  %75 = getelementptr inbounds nuw i8, ptr %27, i64 %74
+  %76 = getelementptr inbounds i8, ptr %75, i64 -4
+  %77 = load i32, ptr %76, align 1
+  %78 = and i32 %77, 1073741823
+  br label %79
 
-81:                                               ; preds = %73, %60, %47, %38
-  %82 = phi i32 [ %57, %47 ], [ %80, %73 ], [ %72, %60 ], [ %42, %38 ]
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %84 = add nuw nsw i32 %82, 4194304
-  store i32 %84, ptr %83, align 4, !tbaa !96
-  %85 = icmp samesign ult i32 %82, 1069547520
+79:                                               ; preds = %71, %58, %45, %38
+  %80 = phi i32 [ %55, %45 ], [ %78, %71 ], [ %70, %58 ], [ %42, %38 ]
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %82 = add nuw nsw i32 %80, 4194304
+  store i32 %82, ptr %81, align 4, !tbaa !96
+  %83 = icmp samesign ult i32 %80, 1069547520
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
+_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
+  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -11465,8 +11480,13 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !31
-  %37 = icmp ult i8 %36, 64
-  br i1 %37, label %38, label %43
+  %37 = lshr i8 %36, 6
+  switch i8 %37, label %default.unreachable [
+    i8 0, label %38
+    i8 1, label %43
+    i8 2, label %56
+    i8 3, label %71
+  ]
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -11474,78 +11494,74 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %40 = load i8, ptr %35, align 1, !tbaa !31
   %41 = and i8 %40, 63
   %42 = zext nneg i8 %41 to i32
-  br label %81
+  br label %79
 
 43:                                               ; preds = %31
-  %44 = lshr i8 %36, 6
-  switch i8 %44, label %73 [
-    i8 1, label %45
-    i8 2, label %58
-  ]
+  %44 = icmp eq i32 %29, 1
+  br i1 %44, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %45
 
 45:                                               ; preds = %43
-  %46 = icmp eq i32 %29, 1
-  br i1 %46, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %47
+  %46 = add nsw i32 %29, -2
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %46, ptr %47, align 8, !tbaa !98
+  %48 = and i64 %21, 2147483647
+  %49 = getelementptr inbounds nuw i8, ptr %27, i64 %48
+  %50 = getelementptr inbounds i8, ptr %49, i64 -2
+  %.val.i = load i8, ptr %50, align 1, !tbaa !31
+  %51 = getelementptr i8, ptr %49, i64 -1
+  %.val25.i = load i8, ptr %51, align 1, !tbaa !31
+  %52 = zext i8 %.val25.i to i32
+  %53 = shl nuw nsw i32 %52, 8
+  %54 = zext i8 %.val.i to i32
+  %.masked26.i = and i32 %53, 16128
+  %55 = or disjoint i32 %.masked26.i, %54
+  br label %79
 
-47:                                               ; preds = %45
-  %48 = add nsw i32 %29, -2
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %48, ptr %49, align 8, !tbaa !98
-  %50 = and i64 %21, 2147483647
-  %51 = getelementptr inbounds nuw i8, ptr %27, i64 %50
-  %52 = getelementptr inbounds i8, ptr %51, i64 -2
-  %.val.i = load i8, ptr %52, align 1, !tbaa !31
-  %53 = getelementptr i8, ptr %51, i64 -1
-  %.val25.i = load i8, ptr %53, align 1, !tbaa !31
-  %54 = zext i8 %.val25.i to i32
-  %55 = shl nuw nsw i32 %54, 8
-  %56 = zext i8 %.val.i to i32
-  %.masked26.i = and i32 %55, 16128
-  %57 = or disjoint i32 %.masked26.i, %56
-  br label %81
+56:                                               ; preds = %31
+  %57 = icmp samesign ult i32 %29, 3
+  br i1 %57, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %58
 
-58:                                               ; preds = %43
-  %59 = icmp samesign ult i32 %29, 3
-  br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
+58:                                               ; preds = %56
+  %59 = add nsw i32 %29, -3
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %59, ptr %60, align 8, !tbaa !98
+  %61 = and i64 %21, 2147483647
+  %62 = getelementptr inbounds nuw i8, ptr %27, i64 %61
+  %63 = getelementptr inbounds i8, ptr %62, i64 -3
+  %64 = getelementptr i8, ptr %62, i64 -2
+  %65 = load i16, ptr %64, align 1
+  %66 = zext i16 %65 to i32
+  %67 = shl nuw nsw i32 %66, 8
+  %68 = load i8, ptr %63, align 1, !tbaa !31
+  %69 = zext i8 %68 to i32
+  %.masked.i = and i32 %67, 4194048
+  %70 = or disjoint i32 %.masked.i, %69
+  br label %79
 
-60:                                               ; preds = %58
-  %61 = add nsw i32 %29, -3
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %61, ptr %62, align 8, !tbaa !98
-  %63 = and i64 %21, 2147483647
-  %64 = getelementptr inbounds nuw i8, ptr %27, i64 %63
-  %65 = getelementptr inbounds i8, ptr %64, i64 -3
-  %66 = getelementptr i8, ptr %64, i64 -2
-  %67 = load i16, ptr %66, align 1
-  %68 = zext i16 %67 to i32
-  %69 = shl nuw nsw i32 %68, 8
-  %70 = load i8, ptr %65, align 1, !tbaa !31
-  %71 = zext i8 %70 to i32
-  %.masked.i = and i32 %69, 4194048
-  %72 = or disjoint i32 %.masked.i, %71
-  br label %81
+default.unreachable:                              ; preds = %31
+  unreachable
 
-73:                                               ; preds = %43
-  %74 = add nsw i32 %29, -4
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %74, ptr %75, align 8, !tbaa !98
-  %76 = and i64 %21, 2147483647
-  %77 = getelementptr inbounds nuw i8, ptr %27, i64 %76
-  %78 = getelementptr inbounds i8, ptr %77, i64 -4
-  %79 = load i32, ptr %78, align 1
-  %80 = and i32 %79, 1073741823
-  br label %81
+71:                                               ; preds = %31
+  %72 = add nsw i32 %29, -4
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %72, ptr %73, align 8, !tbaa !98
+  %74 = and i64 %21, 2147483647
+  %75 = getelementptr inbounds nuw i8, ptr %27, i64 %74
+  %76 = getelementptr inbounds i8, ptr %75, i64 -4
+  %77 = load i32, ptr %76, align 1
+  %78 = and i32 %77, 1073741823
+  br label %79
 
-81:                                               ; preds = %73, %60, %47, %38
-  %82 = phi i32 [ %57, %47 ], [ %80, %73 ], [ %72, %60 ], [ %42, %38 ]
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %84 = add nuw nsw i32 %82, 4194304
-  store i32 %84, ptr %83, align 4, !tbaa !96
-  %85 = icmp samesign ult i32 %82, 1069547520
+79:                                               ; preds = %71, %58, %45, %38
+  %80 = phi i32 [ %55, %45 ], [ %78, %71 ], [ %70, %58 ], [ %42, %38 ]
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %82 = add nuw nsw i32 %80, 4194304
+  store i32 %82, ptr %81, align 4, !tbaa !96
+  %83 = icmp samesign ult i32 %80, 1069547520
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
+_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
+  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -11954,8 +11970,13 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !31
-  %37 = icmp ult i8 %36, 64
-  br i1 %37, label %38, label %43
+  %37 = lshr i8 %36, 6
+  switch i8 %37, label %default.unreachable [
+    i8 0, label %38
+    i8 1, label %43
+    i8 2, label %56
+    i8 3, label %71
+  ]
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -11963,78 +11984,74 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %40 = load i8, ptr %35, align 1, !tbaa !31
   %41 = and i8 %40, 63
   %42 = zext nneg i8 %41 to i32
-  br label %81
+  br label %79
 
 43:                                               ; preds = %31
-  %44 = lshr i8 %36, 6
-  switch i8 %44, label %73 [
-    i8 1, label %45
-    i8 2, label %58
-  ]
+  %44 = icmp eq i32 %29, 1
+  br i1 %44, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %45
 
 45:                                               ; preds = %43
-  %46 = icmp eq i32 %29, 1
-  br i1 %46, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %47
+  %46 = add nsw i32 %29, -2
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %46, ptr %47, align 8, !tbaa !98
+  %48 = and i64 %21, 2147483647
+  %49 = getelementptr inbounds nuw i8, ptr %27, i64 %48
+  %50 = getelementptr inbounds i8, ptr %49, i64 -2
+  %.val.i = load i8, ptr %50, align 1, !tbaa !31
+  %51 = getelementptr i8, ptr %49, i64 -1
+  %.val25.i = load i8, ptr %51, align 1, !tbaa !31
+  %52 = zext i8 %.val25.i to i32
+  %53 = shl nuw nsw i32 %52, 8
+  %54 = zext i8 %.val.i to i32
+  %.masked26.i = and i32 %53, 16128
+  %55 = or disjoint i32 %.masked26.i, %54
+  br label %79
 
-47:                                               ; preds = %45
-  %48 = add nsw i32 %29, -2
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %48, ptr %49, align 8, !tbaa !98
-  %50 = and i64 %21, 2147483647
-  %51 = getelementptr inbounds nuw i8, ptr %27, i64 %50
-  %52 = getelementptr inbounds i8, ptr %51, i64 -2
-  %.val.i = load i8, ptr %52, align 1, !tbaa !31
-  %53 = getelementptr i8, ptr %51, i64 -1
-  %.val25.i = load i8, ptr %53, align 1, !tbaa !31
-  %54 = zext i8 %.val25.i to i32
-  %55 = shl nuw nsw i32 %54, 8
-  %56 = zext i8 %.val.i to i32
-  %.masked26.i = and i32 %55, 16128
-  %57 = or disjoint i32 %.masked26.i, %56
-  br label %81
+56:                                               ; preds = %31
+  %57 = icmp samesign ult i32 %29, 3
+  br i1 %57, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %58
 
-58:                                               ; preds = %43
-  %59 = icmp samesign ult i32 %29, 3
-  br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
+58:                                               ; preds = %56
+  %59 = add nsw i32 %29, -3
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %59, ptr %60, align 8, !tbaa !98
+  %61 = and i64 %21, 2147483647
+  %62 = getelementptr inbounds nuw i8, ptr %27, i64 %61
+  %63 = getelementptr inbounds i8, ptr %62, i64 -3
+  %64 = getelementptr i8, ptr %62, i64 -2
+  %65 = load i16, ptr %64, align 1
+  %66 = zext i16 %65 to i32
+  %67 = shl nuw nsw i32 %66, 8
+  %68 = load i8, ptr %63, align 1, !tbaa !31
+  %69 = zext i8 %68 to i32
+  %.masked.i = and i32 %67, 4194048
+  %70 = or disjoint i32 %.masked.i, %69
+  br label %79
 
-60:                                               ; preds = %58
-  %61 = add nsw i32 %29, -3
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %61, ptr %62, align 8, !tbaa !98
-  %63 = and i64 %21, 2147483647
-  %64 = getelementptr inbounds nuw i8, ptr %27, i64 %63
-  %65 = getelementptr inbounds i8, ptr %64, i64 -3
-  %66 = getelementptr i8, ptr %64, i64 -2
-  %67 = load i16, ptr %66, align 1
-  %68 = zext i16 %67 to i32
-  %69 = shl nuw nsw i32 %68, 8
-  %70 = load i8, ptr %65, align 1, !tbaa !31
-  %71 = zext i8 %70 to i32
-  %.masked.i = and i32 %69, 4194048
-  %72 = or disjoint i32 %.masked.i, %71
-  br label %81
+default.unreachable:                              ; preds = %31
+  unreachable
 
-73:                                               ; preds = %43
-  %74 = add nsw i32 %29, -4
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %74, ptr %75, align 8, !tbaa !98
-  %76 = and i64 %21, 2147483647
-  %77 = getelementptr inbounds nuw i8, ptr %27, i64 %76
-  %78 = getelementptr inbounds i8, ptr %77, i64 -4
-  %79 = load i32, ptr %78, align 1
-  %80 = and i32 %79, 1073741823
-  br label %81
+71:                                               ; preds = %31
+  %72 = add nsw i32 %29, -4
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %72, ptr %73, align 8, !tbaa !98
+  %74 = and i64 %21, 2147483647
+  %75 = getelementptr inbounds nuw i8, ptr %27, i64 %74
+  %76 = getelementptr inbounds i8, ptr %75, i64 -4
+  %77 = load i32, ptr %76, align 1
+  %78 = and i32 %77, 1073741823
+  br label %79
 
-81:                                               ; preds = %73, %60, %47, %38
-  %82 = phi i32 [ %57, %47 ], [ %80, %73 ], [ %72, %60 ], [ %42, %38 ]
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %84 = add nuw nsw i32 %82, 4194304
-  store i32 %84, ptr %83, align 4, !tbaa !96
-  %85 = icmp samesign ult i32 %82, 1069547520
+79:                                               ; preds = %71, %58, %45, %38
+  %80 = phi i32 [ %55, %45 ], [ %78, %71 ], [ %70, %58 ], [ %42, %38 ]
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %82 = add nuw nsw i32 %80, 4194304
+  store i32 %82, ptr %81, align 4, !tbaa !96
+  %83 = icmp samesign ult i32 %80, 1069547520
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
+_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
+  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -12443,8 +12460,13 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !31
-  %37 = icmp ult i8 %36, 64
-  br i1 %37, label %38, label %43
+  %37 = lshr i8 %36, 6
+  switch i8 %37, label %default.unreachable [
+    i8 0, label %38
+    i8 1, label %43
+    i8 2, label %56
+    i8 3, label %71
+  ]
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -12452,78 +12474,74 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %40 = load i8, ptr %35, align 1, !tbaa !31
   %41 = and i8 %40, 63
   %42 = zext nneg i8 %41 to i32
-  br label %81
+  br label %79
 
 43:                                               ; preds = %31
-  %44 = lshr i8 %36, 6
-  switch i8 %44, label %73 [
-    i8 1, label %45
-    i8 2, label %58
-  ]
+  %44 = icmp eq i32 %29, 1
+  br i1 %44, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %45
 
 45:                                               ; preds = %43
-  %46 = icmp eq i32 %29, 1
-  br i1 %46, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %47
+  %46 = add nsw i32 %29, -2
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %46, ptr %47, align 8, !tbaa !98
+  %48 = and i64 %21, 2147483647
+  %49 = getelementptr inbounds nuw i8, ptr %27, i64 %48
+  %50 = getelementptr inbounds i8, ptr %49, i64 -2
+  %.val.i = load i8, ptr %50, align 1, !tbaa !31
+  %51 = getelementptr i8, ptr %49, i64 -1
+  %.val25.i = load i8, ptr %51, align 1, !tbaa !31
+  %52 = zext i8 %.val25.i to i32
+  %53 = shl nuw nsw i32 %52, 8
+  %54 = zext i8 %.val.i to i32
+  %.masked26.i = and i32 %53, 16128
+  %55 = or disjoint i32 %.masked26.i, %54
+  br label %79
 
-47:                                               ; preds = %45
-  %48 = add nsw i32 %29, -2
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %48, ptr %49, align 8, !tbaa !98
-  %50 = and i64 %21, 2147483647
-  %51 = getelementptr inbounds nuw i8, ptr %27, i64 %50
-  %52 = getelementptr inbounds i8, ptr %51, i64 -2
-  %.val.i = load i8, ptr %52, align 1, !tbaa !31
-  %53 = getelementptr i8, ptr %51, i64 -1
-  %.val25.i = load i8, ptr %53, align 1, !tbaa !31
-  %54 = zext i8 %.val25.i to i32
-  %55 = shl nuw nsw i32 %54, 8
-  %56 = zext i8 %.val.i to i32
-  %.masked26.i = and i32 %55, 16128
-  %57 = or disjoint i32 %.masked26.i, %56
-  br label %81
+56:                                               ; preds = %31
+  %57 = icmp samesign ult i32 %29, 3
+  br i1 %57, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %58
 
-58:                                               ; preds = %43
-  %59 = icmp samesign ult i32 %29, 3
-  br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
+58:                                               ; preds = %56
+  %59 = add nsw i32 %29, -3
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %59, ptr %60, align 8, !tbaa !98
+  %61 = and i64 %21, 2147483647
+  %62 = getelementptr inbounds nuw i8, ptr %27, i64 %61
+  %63 = getelementptr inbounds i8, ptr %62, i64 -3
+  %64 = getelementptr i8, ptr %62, i64 -2
+  %65 = load i16, ptr %64, align 1
+  %66 = zext i16 %65 to i32
+  %67 = shl nuw nsw i32 %66, 8
+  %68 = load i8, ptr %63, align 1, !tbaa !31
+  %69 = zext i8 %68 to i32
+  %.masked.i = and i32 %67, 4194048
+  %70 = or disjoint i32 %.masked.i, %69
+  br label %79
 
-60:                                               ; preds = %58
-  %61 = add nsw i32 %29, -3
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %61, ptr %62, align 8, !tbaa !98
-  %63 = and i64 %21, 2147483647
-  %64 = getelementptr inbounds nuw i8, ptr %27, i64 %63
-  %65 = getelementptr inbounds i8, ptr %64, i64 -3
-  %66 = getelementptr i8, ptr %64, i64 -2
-  %67 = load i16, ptr %66, align 1
-  %68 = zext i16 %67 to i32
-  %69 = shl nuw nsw i32 %68, 8
-  %70 = load i8, ptr %65, align 1, !tbaa !31
-  %71 = zext i8 %70 to i32
-  %.masked.i = and i32 %69, 4194048
-  %72 = or disjoint i32 %.masked.i, %71
-  br label %81
+default.unreachable:                              ; preds = %31
+  unreachable
 
-73:                                               ; preds = %43
-  %74 = add nsw i32 %29, -4
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %74, ptr %75, align 8, !tbaa !98
-  %76 = and i64 %21, 2147483647
-  %77 = getelementptr inbounds nuw i8, ptr %27, i64 %76
-  %78 = getelementptr inbounds i8, ptr %77, i64 -4
-  %79 = load i32, ptr %78, align 1
-  %80 = and i32 %79, 1073741823
-  br label %81
+71:                                               ; preds = %31
+  %72 = add nsw i32 %29, -4
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %72, ptr %73, align 8, !tbaa !98
+  %74 = and i64 %21, 2147483647
+  %75 = getelementptr inbounds nuw i8, ptr %27, i64 %74
+  %76 = getelementptr inbounds i8, ptr %75, i64 -4
+  %77 = load i32, ptr %76, align 1
+  %78 = and i32 %77, 1073741823
+  br label %79
 
-81:                                               ; preds = %73, %60, %47, %38
-  %82 = phi i32 [ %57, %47 ], [ %80, %73 ], [ %72, %60 ], [ %42, %38 ]
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %84 = add nuw nsw i32 %82, 4194304
-  store i32 %84, ptr %83, align 4, !tbaa !96
-  %85 = icmp samesign ult i32 %82, 1069547520
+79:                                               ; preds = %71, %58, %45, %38
+  %80 = phi i32 [ %55, %45 ], [ %78, %71 ], [ %70, %58 ], [ %42, %38 ]
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %82 = add nuw nsw i32 %80, 4194304
+  store i32 %82, ptr %81, align 4, !tbaa !96
+  %83 = icmp samesign ult i32 %80, 1069547520
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %45 ], [ false, %58 ], [ %85, %81 ]
+_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
+  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }

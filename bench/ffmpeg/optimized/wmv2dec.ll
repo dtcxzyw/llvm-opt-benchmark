@@ -200,7 +200,7 @@ define range(i32 -1094995529, 101) i32 @ff_wmv2_decode_picture_header(ptr nounde
   store i32 %46, ptr %49, align 8, !tbaa !68
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 1476
   store i32 %46, ptr %50, align 4, !tbaa !69
-  %51 = icmp ult i32 %45, 134217728
+  %51 = icmp eq i32 %46, 0
   br i1 %51, label %86, label %52
 
 52:                                               ; preds = %35
@@ -1394,7 +1394,7 @@ define internal i32 @wmv2_decode_init(ptr noundef %0) #4 {
   %95 = and i32 %spec.select.i31.i, 7
   %96 = shl i32 %94, %95
   %97 = lshr i32 %96, 29
-  %98 = icmp ult i32 %96, 536870912
+  %98 = icmp eq i32 %97, 0
   br i1 %98, label %decode_ext_header.exit, label %99
 
 99:                                               ; preds = %15

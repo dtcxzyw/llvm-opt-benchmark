@@ -5561,7 +5561,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %108 = getelementptr inbounds %"struct.llvm::pdb::PSHashRecord", ptr %.fr18.i.i.i, i64 %.010.i.i.i.i15.i
   %109 = load i64, ptr %105, align 1
   store i64 %109, ptr %108, align 1
-  %.not10.i.i.i = icmp ult i64 %.0911.in.i.i.i.i16.i, 2
+  %.not10.i.i.i = icmp eq i64 %.0911.i.i89.i.i.i, 0
   br i1 %.not10.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS2_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SI_E_EEEvT_SL_SL_RT0_.exit.i.i", label %.lr.ph.i.i.i.i14.i, !llvm.loop !281
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS2_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SI_E_EEEvT_SL_SL_RT0_.exit.i.i": ; preds = %107, %.lr.ph.i.i.i.i14.i, %104
@@ -5721,7 +5721,7 @@ define internal fastcc noundef zeroext i1 @"_ZZZN4llvm3pdb20GSIHashStreamBuilder
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   %19 = ptrtoint ptr %18 to i64
   %20 = lshr i64 %9, 2
-  %.not5 = icmp ult i32 %8, 4
+  %.not5 = icmp eq i64 %20, 0
   br i1 %.not5, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %17

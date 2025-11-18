@@ -10671,17 +10671,14 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
 25:                                               ; preds = %4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i64, ptr %26, align 8, !tbaa !97
-  %.not.i22.i = icmp ult i64 %27, 2
-  br i1 %.not.i22.i, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiSZ_EEE13destroy_slotsEv.exit, label %.lr.ph27.preheader.i
-
-.lr.ph27.preheader.i:                             ; preds = %25
   %28 = lshr i64 %27, 1
-  br label %.lr.ph27.i
+  %.not.i22.i = icmp eq i64 %28, 0
+  br i1 %.not.i22.i, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiSZ_EEE13destroy_slotsEv.exit, label %.lr.ph27.i
 
-.lr.ph27.i:                                       ; preds = %._crit_edge.i, %.lr.ph27.preheader.i
-  %.0.i25.i = phi ptr [ %33, %._crit_edge.i ], [ %.sroa.0.0.copyload.i.i.i.i, %.lr.ph27.preheader.i ]
-  %.025.i24.i = phi ptr [ %32, %._crit_edge.i ], [ %7, %.lr.ph27.preheader.i ]
-  %.026.i23.i = phi i64 [ %.1.i.lcssa.i, %._crit_edge.i ], [ %28, %.lr.ph27.preheader.i ]
+.lr.ph27.i:                                       ; preds = %25, %._crit_edge.i
+  %.0.i25.i = phi ptr [ %33, %._crit_edge.i ], [ %.sroa.0.0.copyload.i.i.i.i, %25 ]
+  %.025.i24.i = phi ptr [ %32, %._crit_edge.i ], [ %7, %25 ]
+  %.026.i23.i = phi i64 [ %.1.i.lcssa.i, %._crit_edge.i ], [ %28, %25 ]
   %29 = load <16 x i8>, ptr %.025.i24.i, align 1, !tbaa !21
   %30 = icmp sgt <16 x i8> %29, splat (i8 -1)
   %31 = bitcast <16 x i1> %30 to i16

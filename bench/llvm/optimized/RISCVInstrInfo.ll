@@ -19476,11 +19476,11 @@ _ZL20isCandidatePatchableRKN4llvm17MachineBasicBlockE.exit.i: ; preds = %56
   %86 = zext i8 %85 to i64
   %.idx4.i.i.i.i = shl nuw nsw i64 %86, 1
   %87 = getelementptr inbounds nuw i8, ptr %83, i64 %.idx4.i.i.i.i
-  %.not.i.i.i.i = icmp ult i8 %85, 4
+  %88 = lshr i64 %86, 2
+  %.not.i.i.i.i = icmp eq i64 %88, 0
   br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %73
-  %88 = lshr i64 %86, 2
   %89 = and i64 %.idx4.i.i.i.i, 504
   %scevgep.i.i.i.i.i.i.i = getelementptr i8, ptr %83, i64 %89
   br label %90
@@ -19527,11 +19527,10 @@ _ZL20isCandidatePatchableRKN4llvm17MachineBasicBlockE.exit.i: ; preds = %56
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %._crit_edge.loopexit.i.i.i.i.i.i.i, %73
   %.pre-phi56.i.i.i.i.i.i.i = phi i8 [ %113, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %85, %73 ]
   %.029.lcssa.i.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %83, %73 ]
-  switch i8 %.pre-phi56.i.i.i.i.i.i.i, label %default.unreachable [
+  switch i8 %.pre-phi56.i.i.i.i.i.i.i, label %_ZL12isMIReadsRegRKN4llvm12MachineInstrEPKNS_18TargetRegisterInfoEj.exit.thread25.i [
     i8 3, label %114
     i8 2, label %._crit_edge._crit_edge.i.i.i.i.i.i.i
     i8 1, label %._crit_edge._crit_edge52.i.i.i.i.i.i.i
-    i8 0, label %_ZL12isMIReadsRegRKN4llvm12MachineInstrEPKNS_18TargetRegisterInfoEj.exit.thread25.i
   ]
 
 114:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i
@@ -19561,9 +19560,6 @@ _ZL20isCandidatePatchableRKN4llvm17MachineBasicBlockE.exit.i: ; preds = %56
   %126 = zext i16 %125 to i32
   %127 = icmp eq i32 %66, %126
   br i1 %127, label %_ZL12isMIReadsRegRKN4llvm12MachineInstrEPKNS_18TargetRegisterInfoEj.exit.i, label %_ZL12isMIReadsRegRKN4llvm12MachineInstrEPKNS_18TargetRegisterInfoEj.exit.thread25.i
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i.i.i
-  unreachable
 
 _ZL12isMIReadsRegRKN4llvm12MachineInstrEPKNS_18TargetRegisterInfoEj.exit.i.loopexit.split.loop.exit: ; preds = %104
   %128 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i, i64 6

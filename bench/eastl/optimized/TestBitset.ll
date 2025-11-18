@@ -2402,7 +2402,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %n, 3
-  %tobool.not.i = icmp ult i64 %n, 8
+  %tobool.not.i = icmp eq i64 %shr.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then, %cond.end.i
@@ -2475,7 +2475,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %n, 3
-  %tobool.not.i = icmp samesign ult i64 %n, 8
+  %tobool.not.i = icmp eq i64 %shr.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.then
@@ -2864,7 +2864,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i.i = lshr i64 %n, 3
-  %tobool.not.i.i = icmp ult i64 %n, 8
+  %tobool.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then.i, %cond.end.i.i
@@ -2937,7 +2937,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i.i = lshr i64 %n, 3
-  %tobool.not.i.i = icmp samesign ult i64 %n, 8
+  %tobool.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %if.then.i
@@ -3420,7 +3420,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %n, 3
-  %tobool.not.i = icmp ult i64 %n, 8
+  %tobool.not.i = icmp eq i64 %shr.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then, %cond.end.i
@@ -3493,7 +3493,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %n, 3
-  %tobool.not.i = icmp samesign ult i64 %n, 8
+  %tobool.not.i = icmp eq i64 %shr.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.then
@@ -3883,7 +3883,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i.i = lshr i64 %n, 3
-  %tobool.not.i.i = icmp ult i64 %n, 8
+  %tobool.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then.i, %cond.end.i.i
@@ -3958,7 +3958,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i.i = lshr i64 %n, 3
-  %tobool.not.i.i = icmp samesign ult i64 %n, 8
+  %tobool.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %if.then.i
@@ -4450,7 +4450,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %n, 3
-  %tobool.not.i = icmp ult i64 %n, 8
+  %tobool.not.i = icmp eq i64 %shr.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then, %cond.end.i
@@ -4523,7 +4523,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %n, 3
-  %tobool.not.i = icmp samesign ult i64 %n, 8
+  %tobool.not.i = icmp eq i64 %shr.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.then
@@ -4916,7 +4916,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i.i = lshr i64 %n, 3
-  %tobool.not.i.i = icmp ult i64 %n, 8
+  %tobool.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then.i, %cond.end.i.i
@@ -4992,7 +4992,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i.i = lshr i64 %n, 3
-  %tobool.not.i.i = icmp samesign ult i64 %n, 8
+  %tobool.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %if.then.i
@@ -6049,7 +6049,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %n, 4
-  %tobool.not.i = icmp ult i64 %n, 16
+  %tobool.not.i = icmp eq i64 %shr.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then, %cond.end.i
@@ -6122,7 +6122,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %n, 4
-  %tobool.not.i = icmp samesign ult i64 %n, 16
+  %tobool.not.i = icmp eq i64 %shr.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.then
@@ -6510,7 +6510,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i.i = lshr i64 %n, 4
-  %tobool.not.i.i = icmp ult i64 %n, 16
+  %tobool.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then.i, %cond.end.i.i
@@ -6584,7 +6584,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i.i = lshr i64 %n, 4
-  %tobool.not.i.i = icmp samesign ult i64 %n, 16
+  %tobool.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %if.then.i
@@ -7087,7 +7087,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %n, 4
-  %tobool.not.i = icmp ult i64 %n, 16
+  %tobool.not.i = icmp eq i64 %shr.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then, %cond.end.i
@@ -7160,7 +7160,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %n, 4
-  %tobool.not.i = icmp samesign ult i64 %n, 16
+  %tobool.not.i = icmp eq i64 %shr.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.then
@@ -7550,7 +7550,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i.i = lshr i64 %n, 4
-  %tobool.not.i.i = icmp ult i64 %n, 16
+  %tobool.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then.i, %cond.end.i.i
@@ -7625,7 +7625,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i.i = lshr i64 %n, 4
-  %tobool.not.i.i = icmp samesign ult i64 %n, 16
+  %tobool.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %if.then.i
@@ -8139,7 +8139,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %n, 4
-  %tobool.not.i = icmp ult i64 %n, 16
+  %tobool.not.i = icmp eq i64 %shr.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then, %cond.end.i
@@ -8212,7 +8212,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %n, 4
-  %tobool.not.i = icmp samesign ult i64 %n, 16
+  %tobool.not.i = icmp eq i64 %shr.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.then
@@ -8605,7 +8605,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i.i = lshr i64 %n, 4
-  %tobool.not.i.i = icmp ult i64 %n, 16
+  %tobool.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then.i, %cond.end.i.i
@@ -8681,7 +8681,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i.i = lshr i64 %n, 4
-  %tobool.not.i.i = icmp samesign ult i64 %n, 16
+  %tobool.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %if.then.i
@@ -10835,7 +10835,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %n, 5
-  %tobool.not.i = icmp ult i64 %n, 32
+  %tobool.not.i = icmp eq i64 %shr.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then, %cond.end.i
@@ -10908,7 +10908,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %n, 5
-  %tobool.not.i = icmp samesign ult i64 %n, 32
+  %tobool.not.i = icmp eq i64 %shr.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.then
@@ -11294,7 +11294,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i.i = lshr i64 %n, 5
-  %tobool.not.i.i = icmp ult i64 %n, 32
+  %tobool.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then.i, %cond.end.i.i
@@ -11370,7 +11370,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i.i = lshr i64 %n, 5
-  %tobool.not.i.i = icmp samesign ult i64 %n, 32
+  %tobool.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %if.then.i
@@ -11912,7 +11912,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %n, 5
-  %tobool.not.i = icmp ult i64 %n, 32
+  %tobool.not.i = icmp eq i64 %shr.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then, %cond.end.i
@@ -11985,7 +11985,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %n, 5
-  %tobool.not.i = icmp samesign ult i64 %n, 32
+  %tobool.not.i = icmp eq i64 %shr.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.then
@@ -12375,7 +12375,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i.i = lshr i64 %n, 5
-  %tobool.not.i.i = icmp ult i64 %n, 32
+  %tobool.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then.i, %cond.end.i.i
@@ -12451,7 +12451,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i.i = lshr i64 %n, 5
-  %tobool.not.i.i = icmp samesign ult i64 %n, 32
+  %tobool.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %if.then.i

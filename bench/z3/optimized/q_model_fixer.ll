@@ -519,7 +519,7 @@ _ZNK6vectorIP10quantifierLb0EjE5emptyEv.exit:     ; preds = %._crit_edge
   %20 = getelementptr inbounds i8, ptr %.pre, i64 -4
   %21 = load i32, ptr %20, align 4, !tbaa !435
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %.thread114, label %58
+  br i1 %22, label %.thread115, label %58
 
 23:                                               ; preds = %.lr.ph, %56
   %.03475 = phi ptr [ %11, %.lr.ph ], [ %57, %56 ]
@@ -659,8 +659,8 @@ _ZN6vectorIP10quantifierLb0EjE9push_backERKS1_.exit: ; preds = %41, %.noexc
   %83 = icmp ugt i32 %71, 16
   %84 = mul i32 %71, 3
   %85 = icmp ugt i32 %82, %84
-  %or.cond18.i.i = select i1 %83, i1 %85, i1 false
-  br i1 %or.cond18.i.i, label %86, label %._crit_edge.thread.i.i
+  %or.cond19.i.i = select i1 %83, i1 %85, i1 false
+  br i1 %or.cond19.i.i, label %86, label %._crit_edge.thread.i.i
 
 86:                                               ; preds = %._crit_edge.i.i
   %87 = icmp eq ptr %69, null
@@ -685,7 +685,7 @@ _ZN14core_hashtableI17default_map_entryIN1q12indexed_declEPNS1_20projection_meta
           to label %.noexc47 unwind label %.loopexit.split-lp67
 
 .noexc47:                                         ; preds = %_ZN14core_hashtableI17default_map_entryIN1q12indexed_declEPNS1_20projection_meta_dataEEN9table2mapIS5_NS2_4hashENS2_2eqEE15entry_hash_procENS9_13entry_eq_procEE12delete_tableEv.exit.i.i
-  %.not11.i.i.i.i.i.i.i = icmp ult i32 %89, 2
+  %.not11.i.i.i.i.i.i.i = icmp eq i32 %90, 0
   br i1 %.not11.i.i.i.i.i.i.i, label %_ZN14core_hashtableI17default_map_entryIN1q12indexed_declEPNS1_20projection_meta_dataEEN9table2mapIS5_NS2_4hashENS2_2eqEE15entry_hash_procENS9_13entry_eq_procEE11alloc_tableEj.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.noexc47, %.lr.ph.i.i.i.i.i.i.i
@@ -1046,22 +1046,22 @@ _ZNK10model_core15get_func_interpEP9func_decl.exit: ; preds = %199, %213, %210, 
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pr61.pre = load ptr, ptr %3, align 8, !tbaa !430
   %.not.i.i57 = icmp eq ptr %.pr61.pre, null
-  br i1 %.not.i.i57, label %_ZN6vectorIP10quantifierLb0EjED2Ev.exit58, label %.thread114
+  br i1 %.not.i.i57, label %_ZN6vectorIP10quantifierLb0EjED2Ev.exit58, label %.thread115
 
-.thread114:                                       ; preds = %_ZNK6vectorIP10quantifierLb0EjE5emptyEv.exit, %235
-  %.pr61117 = phi ptr [ %.pr61.pre, %235 ], [ %.pre, %_ZNK6vectorIP10quantifierLb0EjE5emptyEv.exit ]
-  %236 = getelementptr inbounds i8, ptr %.pr61117, i64 -8
+.thread115:                                       ; preds = %_ZNK6vectorIP10quantifierLb0EjE5emptyEv.exit, %235
+  %.pr61118 = phi ptr [ %.pr61.pre, %235 ], [ %.pre, %_ZNK6vectorIP10quantifierLb0EjE5emptyEv.exit ]
+  %236 = getelementptr inbounds i8, ptr %.pr61118, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %236)
           to label %_ZN6vectorIP10quantifierLb0EjED2Ev.exit58 unwind label %237
 
-237:                                              ; preds = %.thread114
+237:                                              ; preds = %.thread115
   %238 = landingpad { ptr, i32 }
           catch ptr null
   %239 = extractvalue { ptr, i32 } %238, 0
   call void @__clang_call_terminate(ptr %239) #21
   unreachable
 
-_ZN6vectorIP10quantifierLb0EjED2Ev.exit58:        ; preds = %2, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit, %._crit_edge, %235, %.thread114
+_ZN6vectorIP10quantifierLb0EjED2Ev.exit58:        ; preds = %2, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit, %._crit_edge, %235, %.thread115
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
@@ -6209,7 +6209,7 @@ _ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN1q11model_fi
   %126 = load ptr, ptr %120, align 8, !tbaa !438
   %127 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i10.i
   store ptr %126, ptr %127, align 8, !tbaa !438
-  %.not1.i.i.i = icmp ult i64 %.04.in.i.i.i.i11.i, 2
+  %.not1.i.i.i = icmp eq i64 %.048.i.i.i.i12.i, 0
   br i1 %.not1.i.i.i, label %_ZSt10__pop_heapIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIZN1q11model_fixer23add_projection_functionER5modelP9func_decljE2ltEEEvT_SE_SE_RT0_.exit.i.i, label %.lr.ph.i.i.i.i9.i, !llvm.loop !712
 
 _ZSt10__pop_heapIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIZN1q11model_fixer23add_projection_functionER5modelP9func_decljE2ltEEEvT_SE_SE_RT0_.exit.i.i: ; preds = %125, %.lr.ph.i.i.i.i9.i, %119

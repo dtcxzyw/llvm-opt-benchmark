@@ -6979,7 +6979,7 @@ define internal fastcc void @ssl_bitmask_set(ptr noundef captures(none) %0, i64 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal fastcc range(i32 -1, 1) i32 @ssl_bitmask_check(ptr noundef readonly captures(none) %0, i64 noundef %1) unnamed_addr #15 {
   %3 = lshr i64 %1, 3
-  %.not21 = icmp ult i64 %1, 8
+  %.not21 = icmp eq i64 %3, 0
   br i1 %.not21, label %.preheader, label %.lr.ph
 
 4:                                                ; preds = %.lr.ph

@@ -3289,7 +3289,7 @@ _ZN17rustc_stable_hash6sip12812SipHasher12811slice_write17hf3e8a2f8396bb0dcE.exi
   %119 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %120 = load i64, ptr %119, align 8, !noundef !3
   %121 = lshr i64 %116, 3
-  %.not.i = icmp ult i64 %116, 8
+  %.not.i = icmp eq i64 %121, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %115

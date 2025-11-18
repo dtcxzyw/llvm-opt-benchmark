@@ -268,7 +268,7 @@ if.end20.i:                                       ; preds = %if.end.i
   %7 = zext nneg i32 %div25.i18 to i64
   %8 = getelementptr inbounds nuw i32, ptr %data, i64 %7
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %cmp28.i20.not = icmp ult i32 %1, 65536
+  %cmp28.i20.not = icmp eq i32 %shr22.i, 0
   br i1 %cmp28.i20.not, label %_ZN6google8protobuf8internal19ValidateEnumInlinedEiPKj.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end20.i, %if.end32.i

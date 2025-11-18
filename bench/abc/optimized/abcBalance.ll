@@ -1169,69 +1169,66 @@ Vec_PtrFree.exit:                                 ; preds = %17, %20
 define range(i32 0, 1048576) i32 @Abc_NtkBalanceLevel_rec(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
-  %.not = icmp ult i32 %3, 4096
-  br i1 %.not, label %6, label %4
+  %4 = lshr i32 %3, 12
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %5, label %31
 
-4:                                                ; preds = %1
-  %5 = lshr i32 %3, 12
-  br label %32
-
-6:                                                ; preds = %1
-  %7 = and i32 %3, 15
-  switch i32 %7, label %8 [
-    i32 5, label %32
-    i32 2, label %32
+5:                                                ; preds = %1
+  %6 = and i32 %3, 15
+  switch i32 %6, label %7 [
+    i32 5, label %31
+    i32 2, label %31
   ]
 
-8:                                                ; preds = %6
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %10 = load ptr, ptr %9, align 8, !tbaa !34
-  %11 = getelementptr i8, ptr %10, i64 4
-  %.val26 = load i32, ptr %11, align 4, !tbaa !24
-  %12 = icmp sgt i32 %.val26, 0
-  br i1 %12, label %.lr.ph, label %.critedge
+7:                                                ; preds = %5
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %9 = load ptr, ptr %8, align 8, !tbaa !34
+  %10 = getelementptr i8, ptr %9, i64 4
+  %.val26 = load i32, ptr %10, align 4, !tbaa !24
+  %11 = icmp sgt i32 %.val26, 0
+  br i1 %11, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %8
-  %13 = getelementptr i8, ptr %10, i64 8
-  br label %14
+.lr.ph:                                           ; preds = %7
+  %12 = getelementptr i8, ptr %9, i64 8
+  br label %13
 
-14:                                               ; preds = %.lr.ph, %14
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %.028 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %14 ]
-  %.val22 = load ptr, ptr %13, align 8, !tbaa !26
-  %15 = getelementptr inbounds nuw ptr, ptr %.val22, i64 %indvars.iv
-  %16 = load ptr, ptr %15, align 8, !tbaa !27
-  %17 = ptrtoint ptr %16 to i64
-  %18 = and i64 %17, -2
-  %19 = inttoptr i64 %18 to ptr
-  %20 = tail call i32 @Abc_NtkBalanceLevel_rec(ptr noundef %19)
-  %21 = getelementptr inbounds nuw i8, ptr %19, i64 20
-  %22 = load i32, ptr %21, align 4
-  %23 = lshr i32 %22, 12
-  %spec.select = tail call i32 @llvm.umax.i32(i32 %.028, i32 %23)
+13:                                               ; preds = %.lr.ph, %13
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
+  %.028 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %13 ]
+  %.val22 = load ptr, ptr %12, align 8, !tbaa !26
+  %14 = getelementptr inbounds nuw ptr, ptr %.val22, i64 %indvars.iv
+  %15 = load ptr, ptr %14, align 8, !tbaa !27
+  %16 = ptrtoint ptr %15 to i64
+  %17 = and i64 %16, -2
+  %18 = inttoptr i64 %17 to ptr
+  %19 = tail call i32 @Abc_NtkBalanceLevel_rec(ptr noundef %18)
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 20
+  %21 = load i32, ptr %20, align 4
+  %22 = lshr i32 %21, 12
+  %spec.select = tail call i32 @llvm.umax.i32(i32 %.028, i32 %22)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.val = load i32, ptr %11, align 4, !tbaa !24
-  %24 = sext i32 %.val to i64
-  %25 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %25, label %14, label %.critedge.loopexit, !llvm.loop !66
+  %.val = load i32, ptr %10, align 4, !tbaa !24
+  %23 = sext i32 %.val to i64
+  %24 = icmp slt i64 %indvars.iv.next, %23
+  br i1 %24, label %13, label %.critedge.loopexit, !llvm.loop !66
 
-.critedge.loopexit:                               ; preds = %14
+.critedge.loopexit:                               ; preds = %13
   %.pre = load i32, ptr %2, align 4
-  %26 = shl nuw i32 %spec.select, 12
-  %27 = add i32 %26, 4096
+  %25 = shl nuw i32 %spec.select, 12
+  %26 = add i32 %25, 4096
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.loopexit, %8
-  %28 = phi i32 [ %3, %8 ], [ %.pre, %.critedge.loopexit ]
-  %.0.lcssa = phi i32 [ 4096, %8 ], [ %27, %.critedge.loopexit ]
-  %29 = and i32 %28, 4095
-  %30 = or disjoint i32 %29, %.0.lcssa
-  store i32 %30, ptr %2, align 4
-  %31 = lshr exact i32 %.0.lcssa, 12
-  br label %32
+.critedge:                                        ; preds = %.critedge.loopexit, %7
+  %27 = phi i32 [ %3, %7 ], [ %.pre, %.critedge.loopexit ]
+  %.0.lcssa = phi i32 [ 4096, %7 ], [ %26, %.critedge.loopexit ]
+  %28 = and i32 %27, 4095
+  %29 = or disjoint i32 %28, %.0.lcssa
+  store i32 %29, ptr %2, align 4
+  %30 = lshr exact i32 %.0.lcssa, 12
+  br label %31
 
-32:                                               ; preds = %6, %6, %.critedge, %4
-  %.018 = phi i32 [ %5, %4 ], [ %31, %.critedge ], [ 0, %6 ], [ 0, %6 ]
+31:                                               ; preds = %5, %5, %1, %.critedge
+  %.018 = phi i32 [ %30, %.critedge ], [ %4, %1 ], [ 0, %5 ], [ 0, %5 ]
   ret i32 %.018
 }
 

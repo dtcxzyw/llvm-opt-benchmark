@@ -2776,7 +2776,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit:                   ; preds = %._crit_edge, %45
   br label %_ZN4llvm8DebugLocD2Ev.exit
 
 _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit, %49
-  %.not122 = icmp ult i64 %17, 4294967296
+  %.not122 = icmp eq i64 %.sroa.483.0.extract.shift, 0
   br i1 %.not122, label %._crit_edge107, label %.lr.ph106
 
 .lr.ph106:                                        ; preds = %_ZN4llvm8DebugLocD2Ev.exit
@@ -2792,8 +2792,8 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm8DebugLocC2
 
 .lr.ph121:                                        ; preds = %._crit_edge107
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.not.i = icmp ult i64 %3, 4
   %56 = lshr i64 %3, 2
+  %.not.i = icmp eq i64 %56, 0
   %57 = and i64 %.idx, 9223372036854775792
   %scevgep.i.i.i.i = getelementptr i8, ptr %2, i64 %57
   %58 = and i64 %3, 3
@@ -2885,11 +2885,10 @@ _ZNK4llvm12MachineInstr21isRegTiedToDefOperandEjPj.exit: ; preds = %74, %81
 ._crit_edge.i.i.i.i:                              ; preds = %102, %_ZNK4llvm12MachineInstr21isRegTiedToDefOperandEjPj.exit
   %.pre-phi56.i.i.i.i = phi i64 [ %3, %_ZNK4llvm12MachineInstr21isRegTiedToDefOperandEjPj.exit ], [ %58, %102 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %2, %_ZNK4llvm12MachineInstr21isRegTiedToDefOperandEjPj.exit ], [ %scevgep.i.i.i.i, %102 ]
-  switch i64 %.pre-phi56.i.i.i.i, label %default.unreachable [
+  switch i64 %.pre-phi56.i.i.i.i, label %_ZN4llvm12is_containedIRNS_8ArrayRefIjEEjEEbOT_RKT0_.exit.thread [
     i64 3, label %106
     i64 2, label %._crit_edge._crit_edge.i.i.i.i
     i64 1, label %._crit_edge._crit_edge52.i.i.i.i
-    i64 0, label %_ZN4llvm12is_containedIRNS_8ArrayRefIjEEjEEbOT_RKT0_.exit.thread
   ]
 
 106:                                              ; preds = %._crit_edge.i.i.i.i
@@ -2919,9 +2918,6 @@ _ZNK4llvm12MachineInstr21isRegTiedToDefOperandEjPj.exit: ; preds = %74, %81
   %118 = zext i32 %117 to i64
   %119 = icmp eq i64 %indvars.iv129, %118
   br i1 %119, label %_ZN4llvm12is_containedIRNS_8ArrayRefIjEEjEEbOT_RKT0_.exit, label %_ZN4llvm12is_containedIRNS_8ArrayRefIjEEjEEbOT_RKT0_.exit.thread
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
-  unreachable
 
 _ZN4llvm12is_containedIRNS_8ArrayRefIjEEjEEbOT_RKT0_.exit.loopexit.split.loop.exit: ; preds = %87
   %120 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 4

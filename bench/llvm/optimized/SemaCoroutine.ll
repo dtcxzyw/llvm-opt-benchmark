@@ -14630,7 +14630,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4DeclElN9__gnu_cx
 118:                                              ; preds = %109
   %119 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i11.i
   store ptr %.val.i.i.i.i14.i, ptr %119, align 8, !tbaa !894
-  %.not3.i.i19.i = icmp ult i64 %.04.in.i.i.i.i12.i, 2
+  %.not3.i.i19.i = icmp eq i64 %.048.i.i.i.i13.i, 0
   br i1 %.not3.i.i19.i, label %"_ZSt10__pop_heapIPPKN5clang4DeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_SE_SE_RT0_.exit.i17.i", label %109, !llvm.loop !1183
 
 "_ZSt10__pop_heapIPPKN5clang4DeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_SE_SE_RT0_.exit.i17.i": ; preds = %118, %109, %106

@@ -184776,7 +184776,7 @@ define hidden void @_ZN10polars_ops13chunked_array5array7any_all13array_all_any1
           to label %.noexc1.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i, !noalias !18498
 
 .noexc1.i.i:                                      ; preds = %128
-  %.not37.i.i.i = icmp ult i64 %114, 64
+  %.not37.i.i.i = icmp eq i64 %118, 0
   br i1 %.not37.i.i.i, label %.preheader27.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc1.i.i
@@ -185717,7 +185717,7 @@ define hidden void @_ZN10polars_ops13chunked_array5array7any_all13array_all_any1
           to label %.noexc1.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i, !noalias !18630
 
 .noexc1.i.i:                                      ; preds = %128
-  %.not37.i.i.i = icmp ult i64 %114, 64
+  %.not37.i.i.i = icmp eq i64 %118, 0
   br i1 %.not37.i.i.i, label %.preheader27.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc1.i.i

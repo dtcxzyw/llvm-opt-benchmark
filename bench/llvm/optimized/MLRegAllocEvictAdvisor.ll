@@ -4698,16 +4698,16 @@ _ZNK12_GLOBAL__N_114MLEvictAdvisor24loadInterferenceFeaturesERKN4llvm12LiveInter
   %416 = zext nneg i32 %spec.select to i64
   %417 = getelementptr inbounds nuw i16, ptr %415, i64 %416
   %418 = load i16, ptr %417, align 2, !tbaa !473
-  %.not.i76166 = icmp eq i16 %418, 0
-  br i1 %.not.i76166, label %_ZN4llvm15AllocationOrder8IteratorppEv.exit, label %.lr.ph
+  %.not.i76165 = icmp eq i16 %418, 0
+  br i1 %.not.i76165, label %_ZN4llvm15AllocationOrder8IteratorppEv.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.i75
   %419 = load ptr, ptr %2, align 8, !tbaa !592
   %420 = load i64, ptr %166, align 8, !tbaa !471
   %.idx4.i.i.i = shl nuw nsw i64 %420, 1
   %421 = getelementptr inbounds nuw i8, ptr %419, i64 %.idx4.i.i.i
-  %.not.i.i.i = icmp ult i64 %420, 4
   %422 = lshr i64 %420, 2
+  %.not.i.i.i = icmp eq i64 %422, 0
   %423 = and i64 %.idx4.i.i.i, 9223372036854775800
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %419, i64 %423
   %424 = and i64 %420, 3
@@ -4720,7 +4720,7 @@ _ZNK12_GLOBAL__N_114MLEvictAdvisor24loadInterferenceFeaturesERKN4llvm12LiveInter
 ._crit_edge.i.i.i.i.i.i.us:                       ; preds = %427, %.lr.ph.split.us
   %426 = phi i16 [ %418, %.lr.ph.split.us ], [ %429, %427 ]
   %indvars.iv.i168.us = phi i64 [ %416, %.lr.ph.split.us ], [ %indvars.iv.next.i.us, %427 ]
-  %.sroa.5103.2167.us = phi i32 [ %spec.select, %.lr.ph.split.us ], [ %440, %427 ]
+  %.sroa.5103.2166.us = phi i32 [ %spec.select, %.lr.ph.split.us ], [ %440, %427 ]
   switch i64 %420, label %_ZN4llvm15AllocationOrder8IteratorppEv.exit [
     i64 3, label %430
     i64 2, label %._crit_edge._crit_edge.i.i.i.i.i.i.us
@@ -4778,7 +4778,7 @@ _ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us: ; preds = %._crit_edg
 .lr.ph.i.i.i.i.i.i77:                             ; preds = %.lr.ph.split, %443
   %446 = phi i16 [ %418, %.lr.ph.split ], [ %445, %443 ]
   %indvars.iv.i168 = phi i64 [ %416, %.lr.ph.split ], [ %indvars.iv.next.i, %443 ]
-  %.sroa.5103.2167 = phi i32 [ %spec.select, %.lr.ph.split ], [ %479, %443 ]
+  %.sroa.5103.2166 = phi i32 [ %spec.select, %.lr.ph.split ], [ %479, %443 ]
   br label %447
 
 447:                                              ; preds = %462, %.lr.ph.i.i.i.i.i.i77
@@ -4835,14 +4835,11 @@ _ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us: ; preds = %._crit_edg
   %472 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i78, i64 2
   br label %._crit_edge._crit_edge52.i.i.i.i.i.i
 
-._crit_edge._crit_edge52.i.i.i.i.i.i:             ; preds = %471, %._crit_edge.loopexit.i.i.i.i.i.i
+._crit_edge._crit_edge52.i.i.i.i.i.i:             ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %471
   %.2.i.i.i.i.i.i = phi ptr [ %472, %471 ], [ %scevgep.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ]
   %473 = load i16, ptr %.2.i.i.i.i.i.i, align 2, !tbaa !473
   %474 = icmp eq i16 %446, %473
   br i1 %474, label %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i, label %_ZN4llvm15AllocationOrder8IteratorppEv.exit
-
-default.unreachable:                              ; preds = %._crit_edge.loopexit.i.i.i.i.i.i
-  unreachable
 
 _ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.loopexit.split.loop.exit: ; preds = %458
   %475 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 6
@@ -4870,8 +4867,11 @@ _ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i: ; preds = %447, %_ZNK4ll
 ._ZN4llvm15AllocationOrder8IteratorppEv.exit.loopexit_crit_edge: ; preds = %478, %439
   br label %_ZN4llvm15AllocationOrder8IteratorppEv.exit, !llvm.loop !593
 
+default.unreachable:                              ; preds = %._crit_edge.loopexit.i.i.i.i.i.i
+  unreachable
+
 _ZN4llvm15AllocationOrder8IteratorppEv.exit:      ; preds = %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i, %._crit_edge._crit_edge52.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i, %443, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us, %._crit_edge._crit_edge52.i.i.i.i.i.i.us, %._crit_edge.i.i.i.i.i.i.us, %427, %.lr.ph.i75, %._ZN4llvm15AllocationOrder8IteratorppEv.exit.loopexit_crit_edge, %_ZNK12_GLOBAL__N_114MLEvictAdvisor24loadInterferenceFeaturesERKN4llvm12LiveIntervalENS1_10MCRegisterEbRKNS1_8SmallSetINS1_8RegisterELj16ESt4lessIS7_EEERNS1_15SmallVectorImplIfEEmRNSD_INS1_14LRStartEndInfoEEE.exit.thread
-  %.sroa.5103.3 = phi i32 [ %spec.select, %_ZNK12_GLOBAL__N_114MLEvictAdvisor24loadInterferenceFeaturesERKN4llvm12LiveIntervalENS1_10MCRegisterEbRKNS1_8SmallSetINS1_8RegisterELj16ESt4lessIS7_EEERNS1_15SmallVectorImplIfEEmRNSD_INS1_14LRStartEndInfoEEE.exit.thread ], [ %410, %._ZN4llvm15AllocationOrder8IteratorppEv.exit.loopexit_crit_edge ], [ %spec.select, %.lr.ph.i75 ], [ %.sroa.5103.2167.us, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us ], [ %.sroa.5103.2167.us, %._crit_edge._crit_edge52.i.i.i.i.i.i.us ], [ %spec.select, %._crit_edge.i.i.i.i.i.i.us ], [ %440, %427 ], [ %.sroa.5103.2167, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i ], [ %.sroa.5103.2167, %._crit_edge._crit_edge52.i.i.i.i.i.i ], [ %.sroa.5103.2167, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %479, %443 ]
+  %.sroa.5103.3 = phi i32 [ %spec.select, %_ZNK12_GLOBAL__N_114MLEvictAdvisor24loadInterferenceFeaturesERKN4llvm12LiveIntervalENS1_10MCRegisterEbRKNS1_8SmallSetINS1_8RegisterELj16ESt4lessIS7_EEERNS1_15SmallVectorImplIfEEmRNSD_INS1_14LRStartEndInfoEEE.exit.thread ], [ %410, %._ZN4llvm15AllocationOrder8IteratorppEv.exit.loopexit_crit_edge ], [ %spec.select, %.lr.ph.i75 ], [ %.sroa.5103.2166.us, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us ], [ %.sroa.5103.2166.us, %._crit_edge._crit_edge52.i.i.i.i.i.i.us ], [ %spec.select, %._crit_edge.i.i.i.i.i.i.us ], [ %440, %427 ], [ %.sroa.5103.2166, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i ], [ %.sroa.5103.2166, %._crit_edge._crit_edge52.i.i.i.i.i.i ], [ %.sroa.5103.2166, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %479, %443 ]
   %481 = add i64 %.065182, 1
   %.not123 = icmp eq i32 %.sroa.5103.3, %.fca.1.extract
   br i1 %.not123, label %._crit_edge, label %_ZNK4llvm15AllocationOrder8IteratordeEv.exit, !llvm.loop !595
@@ -5265,8 +5265,8 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK4llvm15AllocationOrder16getOrderLim
   %21 = load i64, ptr %19, align 8, !tbaa !471
   %.idx4.i.i.i = shl nuw nsw i64 %21, 1
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx4.i.i.i
-  %.not.i.i.i = icmp ult i64 %21, 4
   %23 = lshr i64 %21, 2
+  %.not.i.i.i = icmp eq i64 %23, 0
   %24 = and i64 %.idx4.i.i.i, 9223372036854775800
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %20, i64 %24
   %25 = and i64 %21, 3
@@ -5275,20 +5275,20 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK4llvm15AllocationOrder16getOrderLim
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 2
   switch i64 %21, label %_ZN4llvm15AllocationOrder8IteratorppEv.exit [
-    i64 3, label %.lr.ph.split.us.split.split.us
-    i64 2, label %.lr.ph.split.us.split.split.us32
-    i64 1, label %.lr.ph.split.us.split.split.us53
+    i64 3, label %.lr.ph.split.us.split.us
+    i64 2, label %.lr.ph.split.us.split.us33
+    i64 1, label %.lr.ph.split.us.split.us54
   ]
 
-.lr.ph.split.us.split.split.us:                   ; preds = %.lr.ph.split.us
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
   %27 = load i16, ptr %20, align 2, !tbaa !473
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 4
   br label %._crit_edge.i.i.i.i.i.i.us.us
 
-._crit_edge.i.i.i.i.i.i.us.us:                    ; preds = %31, %.lr.ph.split.us.split.split.us
-  %29 = phi i16 [ %18, %.lr.ph.split.us.split.split.us ], [ %33, %31 ]
-  %indvars.iv.i18.us.us = phi i64 [ %16, %.lr.ph.split.us.split.split.us ], [ %indvars.iv.next.i.us.us, %31 ]
-  %.sroa.5.117.us.us = phi i32 [ %spec.select, %.lr.ph.split.us.split.split.us ], [ %39, %31 ]
+._crit_edge.i.i.i.i.i.i.us.us:                    ; preds = %31, %.lr.ph.split.us.split.us
+  %29 = phi i16 [ %18, %.lr.ph.split.us.split.us ], [ %33, %31 ]
+  %indvars.iv.i19.us.us = phi i64 [ %16, %.lr.ph.split.us.split.us ], [ %indvars.iv.next.i.us.us, %31 ]
+  %.sroa.5.117.us.us = phi i32 [ %spec.select, %.lr.ph.split.us.split.us ], [ %39, %31 ]
   %30 = icmp eq i16 %29, %27
   br i1 %30, label %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us, label %._crit_edge._crit_edge.i.i.i.i.i.i.us.us
 
@@ -5314,61 +5314,61 @@ _ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us: ; preds = %._crit_
   br i1 %.not4.i.us.us, label %_ZN4llvm15AllocationOrder8IteratorppEv.exit, label %38
 
 38:                                               ; preds = %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us
-  %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i18.us.us, 1
+  %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i19.us.us, 1
   %39 = trunc nuw i64 %indvars.iv.next.i.us.us to i32
   %40 = icmp sgt i32 %10, %39
-  br i1 %40, label %31, label %._ZN4llvm15AllocationOrder8IteratorppEv.exit.loopexit_crit_edge22, !llvm.loop !593
+  br i1 %40, label %31, label %._ZN4llvm15AllocationOrder8IteratorppEv.exit.loopexit_crit_edge23, !llvm.loop !593
 
-.lr.ph.split.us.split.split.us32:                 ; preds = %.lr.ph.split.us
+.lr.ph.split.us.split.us33:                       ; preds = %.lr.ph.split.us
   %41 = load i16, ptr %20, align 2, !tbaa !473
-  br label %._crit_edge.i.i.i.i.i.i.us.us33
+  br label %._crit_edge.i.i.i.i.i.i.us.us34
 
-._crit_edge.i.i.i.i.i.i.us.us33:                  ; preds = %44, %.lr.ph.split.us.split.split.us32
-  %42 = phi i16 [ %18, %.lr.ph.split.us.split.split.us32 ], [ %46, %44 ]
-  %indvars.iv.i18.us.us34 = phi i64 [ %16, %.lr.ph.split.us.split.split.us32 ], [ %indvars.iv.next.i.us.us44, %44 ]
-  %.sroa.5.117.us.us35 = phi i32 [ %spec.select, %.lr.ph.split.us.split.split.us32 ], [ %50, %44 ]
+._crit_edge.i.i.i.i.i.i.us.us34:                  ; preds = %44, %.lr.ph.split.us.split.us33
+  %42 = phi i16 [ %18, %.lr.ph.split.us.split.us33 ], [ %46, %44 ]
+  %indvars.iv.i19.us.us35 = phi i64 [ %16, %.lr.ph.split.us.split.us33 ], [ %indvars.iv.next.i.us.us45, %44 ]
+  %.sroa.5.117.us.us36 = phi i32 [ %spec.select, %.lr.ph.split.us.split.us33 ], [ %50, %44 ]
   %43 = icmp eq i16 %42, %41
-  br i1 %43, label %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us41, label %._crit_edge._crit_edge52.i.i.i.i.i.i.us.us39
+  br i1 %43, label %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us42, label %._crit_edge._crit_edge52.i.i.i.i.i.i.us.us40
 
 44:                                               ; preds = %49
-  %45 = getelementptr inbounds nuw i16, ptr %15, i64 %indvars.iv.next.i.us.us44
+  %45 = getelementptr inbounds nuw i16, ptr %15, i64 %indvars.iv.next.i.us.us45
   %46 = load i16, ptr %45, align 2, !tbaa !473
-  %.not.i.us.us36 = icmp eq i16 %46, 0
-  br i1 %.not.i.us.us36, label %_ZN4llvm15AllocationOrder8IteratorppEv.exit, label %._crit_edge.i.i.i.i.i.i.us.us33, !llvm.loop !593
+  %.not.i.us.us37 = icmp eq i16 %46, 0
+  br i1 %.not.i.us.us37, label %_ZN4llvm15AllocationOrder8IteratorppEv.exit, label %._crit_edge.i.i.i.i.i.i.us.us34, !llvm.loop !593
 
-._crit_edge._crit_edge52.i.i.i.i.i.i.us.us39:     ; preds = %._crit_edge.i.i.i.i.i.i.us.us33
+._crit_edge._crit_edge52.i.i.i.i.i.i.us.us40:     ; preds = %._crit_edge.i.i.i.i.i.i.us.us34
   %47 = load i16, ptr %26, align 2, !tbaa !473
   %48 = icmp eq i16 %42, %47
-  br i1 %48, label %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us41, label %_ZN4llvm15AllocationOrder8IteratorppEv.exit
+  br i1 %48, label %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us42, label %_ZN4llvm15AllocationOrder8IteratorppEv.exit
 
-_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us41: ; preds = %._crit_edge._crit_edge52.i.i.i.i.i.i.us.us39, %._crit_edge.i.i.i.i.i.i.us.us33
-  %.028.i.i.i.i.i.i.us.us42 = phi ptr [ %20, %._crit_edge.i.i.i.i.i.i.us.us33 ], [ %26, %._crit_edge._crit_edge52.i.i.i.i.i.i.us.us39 ]
-  %.not4.i.us.us43 = icmp eq ptr %.028.i.i.i.i.i.i.us.us42, %22
-  br i1 %.not4.i.us.us43, label %_ZN4llvm15AllocationOrder8IteratorppEv.exit, label %49
+_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us42: ; preds = %._crit_edge._crit_edge52.i.i.i.i.i.i.us.us40, %._crit_edge.i.i.i.i.i.i.us.us34
+  %.028.i.i.i.i.i.i.us.us43 = phi ptr [ %20, %._crit_edge.i.i.i.i.i.i.us.us34 ], [ %26, %._crit_edge._crit_edge52.i.i.i.i.i.i.us.us40 ]
+  %.not4.i.us.us44 = icmp eq ptr %.028.i.i.i.i.i.i.us.us43, %22
+  br i1 %.not4.i.us.us44, label %_ZN4llvm15AllocationOrder8IteratorppEv.exit, label %49
 
-49:                                               ; preds = %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us41
-  %indvars.iv.next.i.us.us44 = add nuw nsw i64 %indvars.iv.i18.us.us34, 1
-  %50 = trunc nuw i64 %indvars.iv.next.i.us.us44 to i32
+49:                                               ; preds = %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us42
+  %indvars.iv.next.i.us.us45 = add nuw nsw i64 %indvars.iv.i19.us.us35, 1
+  %50 = trunc nuw i64 %indvars.iv.next.i.us.us45 to i32
   %51 = icmp sgt i32 %10, %50
-  br i1 %51, label %44, label %._ZN4llvm15AllocationOrder8IteratorppEv.exit.loopexit_crit_edge22, !llvm.loop !593
+  br i1 %51, label %44, label %._ZN4llvm15AllocationOrder8IteratorppEv.exit.loopexit_crit_edge23, !llvm.loop !593
 
-.lr.ph.split.us.split.split.us53:                 ; preds = %.lr.ph.split.us
+.lr.ph.split.us.split.us54:                       ; preds = %.lr.ph.split.us
   %52 = load i16, ptr %20, align 2, !tbaa !473
   %53 = icmp eq i16 %18, %52
-  br i1 %53, label %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us62, label %_ZN4llvm15AllocationOrder8IteratorppEv.exit
+  br i1 %53, label %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us63, label %_ZN4llvm15AllocationOrder8IteratorppEv.exit
 
-54:                                               ; preds = %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us62
-  %55 = getelementptr inbounds nuw i16, ptr %15, i64 %indvars.iv.next.i.us.us65
+54:                                               ; preds = %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us63
+  %55 = getelementptr inbounds nuw i16, ptr %15, i64 %indvars.iv.next.i.us.us66
   %56 = load i16, ptr %55, align 2, !tbaa !473
   %57 = icmp eq i16 %56, %18
-  br i1 %57, label %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us62, label %_ZN4llvm15AllocationOrder8IteratorppEv.exit, !llvm.loop !593
+  br i1 %57, label %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us63, label %_ZN4llvm15AllocationOrder8IteratorppEv.exit, !llvm.loop !593
 
-_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us62: ; preds = %.lr.ph.split.us.split.split.us53, %54
-  %indvars.iv.i18.us.us5576 = phi i64 [ %indvars.iv.next.i.us.us65, %54 ], [ %16, %.lr.ph.split.us.split.split.us53 ]
-  %indvars.iv.next.i.us.us65 = add nuw nsw i64 %indvars.iv.i18.us.us5576, 1
-  %58 = trunc nuw i64 %indvars.iv.next.i.us.us65 to i32
+_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us63: ; preds = %.lr.ph.split.us.split.us54, %54
+  %indvars.iv.i19.us.us5677 = phi i64 [ %indvars.iv.next.i.us.us66, %54 ], [ %16, %.lr.ph.split.us.split.us54 ]
+  %indvars.iv.next.i.us.us66 = add nuw nsw i64 %indvars.iv.i19.us.us5677, 1
+  %58 = trunc nuw i64 %indvars.iv.next.i.us.us66 to i32
   %59 = icmp sgt i32 %10, %58
-  br i1 %59, label %54, label %._ZN4llvm15AllocationOrder8IteratorppEv.exit.loopexit_crit_edge22, !llvm.loop !593
+  br i1 %59, label %54, label %._ZN4llvm15AllocationOrder8IteratorppEv.exit.loopexit_crit_edge23, !llvm.loop !593
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %60 = getelementptr inbounds nuw i8, ptr %scevgep.i.i.i.i.i.i, i64 2
@@ -5382,7 +5382,7 @@ _ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us62: ; preds = %.lr.p
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.split, %61
   %64 = phi i16 [ %18, %.lr.ph.split ], [ %63, %61 ]
-  %indvars.iv.i18 = phi i64 [ %16, %.lr.ph.split ], [ %indvars.iv.next.i, %61 ]
+  %indvars.iv.i19 = phi i64 [ %16, %.lr.ph.split ], [ %indvars.iv.next.i, %61 ]
   %.sroa.5.117 = phi i32 [ %spec.select, %.lr.ph.split ], [ %97, %61 ]
   br label %65
 
@@ -5397,13 +5397,13 @@ _ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us62: ; preds = %.lr.p
   %69 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 2
   %70 = load i16, ptr %69, align 2, !tbaa !473
   %71 = icmp eq i16 %64, %70
-  br i1 %71, label %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.loopexit.split.loop.exit119, label %72
+  br i1 %71, label %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.loopexit.split.loop.exit120, label %72
 
 72:                                               ; preds = %68
   %73 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 4
   %74 = load i16, ptr %73, align 2, !tbaa !473
   %75 = icmp eq i16 %64, %74
-  br i1 %75, label %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.loopexit.split.loop.exit117, label %76
+  br i1 %75, label %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.loopexit.split.loop.exit118, label %76
 
 76:                                               ; preds = %72
   %77 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 6
@@ -5440,43 +5440,43 @@ _ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us62: ; preds = %.lr.p
   %90 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i, i64 2
   br label %._crit_edge._crit_edge52.i.i.i.i.i.i
 
-._crit_edge._crit_edge52.i.i.i.i.i.i:             ; preds = %89, %._crit_edge.loopexit.i.i.i.i.i.i
+._crit_edge._crit_edge52.i.i.i.i.i.i:             ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %89
   %.2.i.i.i.i.i.i = phi ptr [ %90, %89 ], [ %scevgep.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ]
   %91 = load i16, ptr %.2.i.i.i.i.i.i, align 2, !tbaa !473
   %92 = icmp eq i16 %64, %91
   br i1 %92, label %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i, label %_ZN4llvm15AllocationOrder8IteratorppEv.exit
 
-default.unreachable:                              ; preds = %._crit_edge.loopexit.i.i.i.i.i.i
-  unreachable
-
 _ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.loopexit.split.loop.exit: ; preds = %76
   %93 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 6
   br label %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i
 
-_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.loopexit.split.loop.exit117: ; preds = %72
+_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.loopexit.split.loop.exit118: ; preds = %72
   %94 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 4
   br label %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i
 
-_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.loopexit.split.loop.exit119: ; preds = %68
+_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.loopexit.split.loop.exit120: ; preds = %68
   %95 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 2
   br label %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i
 
-_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i: ; preds = %65, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.loopexit.split.loop.exit, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.loopexit.split.loop.exit117, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.loopexit.split.loop.exit119, %._crit_edge._crit_edge52.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i, %84
-  %.028.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %84 ], [ %.1.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i.i ], [ %93, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.loopexit.split.loop.exit ], [ %94, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.loopexit.split.loop.exit117 ], [ %95, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.loopexit.split.loop.exit119 ], [ %.02946.i.i.i.i.i.i, %65 ]
+_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i: ; preds = %65, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.loopexit.split.loop.exit, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.loopexit.split.loop.exit118, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.loopexit.split.loop.exit120, %._crit_edge._crit_edge52.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i, %84
+  %.028.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %84 ], [ %.1.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i.i ], [ %93, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.loopexit.split.loop.exit ], [ %94, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.loopexit.split.loop.exit118 ], [ %95, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.loopexit.split.loop.exit120 ], [ %.02946.i.i.i.i.i.i, %65 ]
   %.not4.i = icmp eq ptr %.028.i.i.i.i.i.i, %22
   br i1 %.not4.i, label %_ZN4llvm15AllocationOrder8IteratorppEv.exit, label %96
 
 96:                                               ; preds = %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i18, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i19, 1
   %97 = trunc nuw i64 %indvars.iv.next.i to i32
   %98 = icmp sgt i32 %10, %97
-  br i1 %98, label %61, label %._ZN4llvm15AllocationOrder8IteratorppEv.exit.loopexit_crit_edge22, !llvm.loop !593
+  br i1 %98, label %61, label %._ZN4llvm15AllocationOrder8IteratorppEv.exit.loopexit_crit_edge23, !llvm.loop !593
 
-._ZN4llvm15AllocationOrder8IteratorppEv.exit.loopexit_crit_edge22: ; preds = %96, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us62, %49, %38
+default.unreachable:                              ; preds = %._crit_edge.loopexit.i.i.i.i.i.i
+  unreachable
+
+._ZN4llvm15AllocationOrder8IteratorppEv.exit.loopexit_crit_edge23: ; preds = %96, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us63, %49, %38
   br label %_ZN4llvm15AllocationOrder8IteratorppEv.exit, !llvm.loop !593
 
-_ZN4llvm15AllocationOrder8IteratorppEv.exit:      ; preds = %61, %._crit_edge.loopexit.i.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i.i, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i, %54, %44, %._crit_edge._crit_edge52.i.i.i.i.i.i.us.us39, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us41, %31, %._crit_edge._crit_edge52.i.i.i.i.i.i.us.us, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us, %.lr.ph.split.us.split.split.us53, %.lr.ph.i, %._ZN4llvm15AllocationOrder8IteratorppEv.exit.loopexit_crit_edge22, %.lr.ph.split.us, %7, %4
-  %.pn = phi i32 [ %6, %4 ], [ %spec.select, %7 ], [ %10, %._ZN4llvm15AllocationOrder8IteratorppEv.exit.loopexit_crit_edge22 ], [ %spec.select, %.lr.ph.i ], [ %spec.select, %.lr.ph.split.us ], [ %spec.select, %.lr.ph.split.us.split.split.us53 ], [ %39, %31 ], [ %.sroa.5.117.us.us, %._crit_edge._crit_edge52.i.i.i.i.i.i.us.us ], [ %.sroa.5.117.us.us, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us ], [ %50, %44 ], [ %.sroa.5.117.us.us35, %._crit_edge._crit_edge52.i.i.i.i.i.i.us.us39 ], [ %.sroa.5.117.us.us35, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us41 ], [ %58, %54 ], [ %97, %61 ], [ %.sroa.5.117, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.sroa.5.117, %._crit_edge._crit_edge52.i.i.i.i.i.i ], [ %.sroa.5.117, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i ]
+_ZN4llvm15AllocationOrder8IteratorppEv.exit:      ; preds = %61, %._crit_edge.loopexit.i.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i.i, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i, %54, %44, %._crit_edge._crit_edge52.i.i.i.i.i.i.us.us40, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us42, %31, %._crit_edge._crit_edge52.i.i.i.i.i.i.us.us, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us, %.lr.ph.split.us.split.us54, %.lr.ph.i, %._ZN4llvm15AllocationOrder8IteratorppEv.exit.loopexit_crit_edge23, %.lr.ph.split.us, %7, %4
+  %.pn = phi i32 [ %6, %4 ], [ %spec.select, %7 ], [ %10, %._ZN4llvm15AllocationOrder8IteratorppEv.exit.loopexit_crit_edge23 ], [ %spec.select, %.lr.ph.i ], [ %spec.select, %.lr.ph.split.us ], [ %spec.select, %.lr.ph.split.us.split.us54 ], [ %39, %31 ], [ %.sroa.5.117.us.us, %._crit_edge._crit_edge52.i.i.i.i.i.i.us.us ], [ %.sroa.5.117.us.us, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us ], [ %50, %44 ], [ %.sroa.5.117.us.us36, %._crit_edge._crit_edge52.i.i.i.i.i.i.us.us40 ], [ %.sroa.5.117.us.us36, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us42 ], [ %58, %54 ], [ %97, %61 ], [ %.sroa.5.117, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.sroa.5.117, %._crit_edge._crit_edge52.i.i.i.i.i.i ], [ %.sroa.5.117, %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i ]
   %.fca.0.insert.i.pn = insertvalue { ptr, i32 } poison, ptr %0, 0
   %.fca.1.insert.merged = insertvalue { ptr, i32 } %.fca.0.insert.i.pn, i32 %.pn, 1
   ret { ptr, i32 } %.fca.1.insert.merged

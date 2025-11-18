@@ -417,7 +417,7 @@ define range(i32 -1, 1) i32 @H5T__conv_complex(ptr noundef %0, ptr noundef reado
 
 .lr.ph471.i:                                      ; preds = %157
   %158 = lshr i64 %115, 2
-  %.not473.i = icmp ult i64 %115, 4
+  %.not473.i = icmp eq i64 %158, 0
   %159 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %160 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %161 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -430,7 +430,7 @@ define range(i32 -1, 1) i32 @H5T__conv_complex(ptr noundef %0, ptr noundef reado
   %167 = add i64 %.sroa.10.0.copyload.i, %.sroa.5205.0.copyload.i
   %168 = icmp eq i32 %.sroa.20.0.copyload.i, 1
   %169 = lshr i64 %118, 2
-  %.not475.i = icmp ult i64 %118, 4
+  %.not475.i = icmp eq i64 %169, 0
   br label %170
 
 170:                                              ; preds = %327, %.lr.ph471.i
@@ -1206,8 +1206,8 @@ define range(i32 -1, 1) i32 @H5T__conv_complex_f_matched(ptr noundef %0, ptr nou
   br label %27
 
 27:                                               ; preds = %16, %22
-  %.sink476 = phi ptr [ %26, %22 ], [ %18, %16 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.sink476, i64 48
+  %.sink481 = phi ptr [ %26, %22 ], [ %18, %16 ]
+  %28 = getelementptr inbounds nuw i8, ptr %.sink481, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef nonnull align 8 dereferenceable(88) %28, i64 88, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %30 = load ptr, ptr %29, align 8, !tbaa !16
@@ -1382,11 +1382,11 @@ define range(i32 -1, 1) i32 @H5T__conv_complex_f_matched(ptr noundef %0, ptr nou
 
 .preheader422:                                    ; preds = %104
   %112 = lshr i64 %107, 2
-  %.not447 = icmp ult i64 %107, 4
+  %.not447 = icmp eq i64 %112, 0
   br i1 %.not447, label %.loopexit420, label %.lr.ph426
 
 .preheader419:                                    ; preds = %104
-  %.not449 = icmp ult i64 %107, 2
+  %.not449 = icmp eq i64 %108, 0
   br i1 %.not449, label %.loopexit420, label %.lr.ph431
 
 .lr.ph431:                                        ; preds = %.preheader419, %.lr.ph431
@@ -1639,11 +1639,11 @@ define range(i32 -1, 1) i32 @H5T__conv_complex_f_matched(ptr noundef %0, ptr nou
 
 .preheader416:                                    ; preds = %226
   %234 = lshr i64 %229, 2
-  %.not451 = icmp ult i64 %229, 4
+  %.not451 = icmp eq i64 %234, 0
   br i1 %.not451, label %.loopexit, label %.lr.ph436
 
 .preheader:                                       ; preds = %226
-  %.not452 = icmp ult i64 %229, 2
+  %.not452 = icmp eq i64 %230, 0
   br i1 %.not452, label %.loopexit, label %.lr.ph438
 
 .lr.ph438:                                        ; preds = %.preheader, %.lr.ph438
@@ -1691,7 +1691,7 @@ define range(i32 -1, 1) i32 @H5T__conv_complex_f_matched(ptr noundef %0, ptr nou
   %261 = getelementptr inbounds nuw i8, ptr %256, i64 16
   %262 = load i64, ptr %261, align 8, !tbaa !30
   %263 = lshr i64 %262, 1
-  %.not450 = icmp ult i64 %262, 2
+  %.not450 = icmp eq i64 %263, 0
   br i1 %.not450, label %.loopexit, label %.lr.ph434
 
 .lr.ph434:                                        ; preds = %260
@@ -1736,8 +1736,8 @@ define range(i32 -1, 1) i32 @H5T__conv_complex_f_matched(ptr noundef %0, ptr nou
   %287 = getelementptr inbounds nuw i8, ptr %283, i64 16
   %288 = load i64, ptr %287, align 8, !tbaa !30
   %289 = zext i1 %286 to i64
-  %.sink479 = lshr i64 %288, %289
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1332441, ptr align 1 %.0334, i64 %.sink479, i1 false)
+  %.sink484 = lshr i64 %288, %289
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1332441, ptr align 1 %.0334, i64 %.sink484, i1 false)
   br label %290
 
 290:                                              ; preds = %.sink.split, %.loopexit

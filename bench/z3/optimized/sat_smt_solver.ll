@@ -12589,8 +12589,8 @@ _ZN6vectorIN3sat7literalELb0EjE5resetEv.exit:     ; preds = %_ZN8uint_set5resetE
   %31 = icmp ugt i32 %20, 16
   %32 = mul i32 %20, 3
   %33 = icmp ugt i32 %30, %32
-  %or.cond18.i.i = select i1 %31, i1 %33, i1 false
-  br i1 %or.cond18.i.i, label %34, label %._crit_edge.thread.i.i
+  %or.cond19.i.i = select i1 %31, i1 %33, i1 false
+  br i1 %or.cond19.i.i, label %34, label %._crit_edge.thread.i.i
 
 34:                                               ; preds = %._crit_edge.i.i
   %35 = icmp eq ptr %18, null
@@ -12609,7 +12609,7 @@ _ZN14core_hashtableIN7obj_mapI4exprN3sat7literalEE13obj_map_entryE8obj_hashINS4_
   %39 = zext nneg i32 %38 to i64
   %40 = shl nuw nsw i64 %39, 4
   %41 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %40)
-  %.not11.i.i.i.i.i.i.i = icmp ult i32 %37, 2
+  %.not11.i.i.i.i.i.i.i = icmp eq i32 %38, 0
   br i1 %.not11.i.i.i.i.i.i.i, label %_ZN14core_hashtableIN7obj_mapI4exprN3sat7literalEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE11alloc_tableEj.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN14core_hashtableIN7obj_mapI4exprN3sat7literalEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE12delete_tableEv.exit.i.i, %.lr.ph.i.i.i.i.i.i.i
@@ -12680,8 +12680,8 @@ _ZN7obj_mapI4exprN3sat7literalEE5resetEv.exit:    ; preds = %_ZN6vectorIN3sat7li
   %67 = icmp ugt i32 %55, 16
   %68 = mul i32 %55, 3
   %69 = icmp ugt i32 %66, %68
-  %or.cond18.i.i11 = select i1 %67, i1 %69, i1 false
-  br i1 %or.cond18.i.i11, label %70, label %._crit_edge.thread.i.i12
+  %or.cond19.i.i11 = select i1 %67, i1 %69, i1 false
+  br i1 %or.cond19.i.i11, label %70, label %._crit_edge.thread.i.i12
 
 70:                                               ; preds = %._crit_edge.i.i10
   %71 = icmp eq ptr %53, null
@@ -12700,7 +12700,7 @@ _ZN14core_hashtableI17default_map_entryIjP4exprEN9table2mapIS3_6u_hash4u_eqE15en
   %75 = zext nneg i32 %74 to i64
   %76 = mul nuw nsw i64 %75, 24
   %77 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %76)
-  %.not6.i.i.i.i.i.i.i = icmp ult i32 %73, 2
+  %.not6.i.i.i.i.i.i.i = icmp eq i32 %74, 0
   br i1 %.not6.i.i.i.i.i.i.i, label %_ZN14core_hashtableI17default_map_entryIjP4exprEN9table2mapIS3_6u_hash4u_eqE15entry_hash_procENS7_13entry_eq_procEE11alloc_tableEj.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i14
 
 .lr.ph.i.i.i.i.i.i.i14:                           ; preds = %_ZN14core_hashtableI17default_map_entryIjP4exprEN9table2mapIS3_6u_hash4u_eqE15entry_hash_procENS7_13entry_eq_procEE12delete_tableEv.exit.i.i, %.lr.ph.i.i.i.i.i.i.i14

@@ -16166,11 +16166,11 @@ _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hba1a085deb4748cbE.ex
 define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h74a9530de6e829feE(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef range(i64 2, 0) %1, ptr noundef writeonly captures(none) %2, ptr readonly captures(address_is_null) %.0.val) unnamed_addr #2 personality ptr @rust_eh_personality {
 .lr.ph:
   %3 = lshr i64 %1, 1
-  %4 = getelementptr i64, ptr %0, i64 %3
-  %5 = getelementptr i8, ptr %4, i64 -8
-  %6 = add i64 %1, -1
-  %7 = getelementptr inbounds nuw i64, ptr %0, i64 %6
-  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %6
+  %4 = add i64 %1, -1
+  %5 = getelementptr inbounds nuw i64, ptr %0, i64 %4
+  %6 = getelementptr i64, ptr %0, i64 %3
+  %7 = getelementptr i8, ptr %6, i64 -8
+  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %4
   %9 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %9)
   br label %14
@@ -16184,10 +16184,10 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
 
 14:                                               ; preds = %.lr.ph, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd21f32cb8cba716cE.exit27"
   %.sroa.0.043 = phi ptr [ %0, %.lr.ph ], [ %34, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd21f32cb8cba716cE.exit27" ]
-  %.sroa.06.042 = phi ptr [ %4, %.lr.ph ], [ %32, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd21f32cb8cba716cE.exit27" ]
+  %.sroa.06.042 = phi ptr [ %6, %.lr.ph ], [ %32, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd21f32cb8cba716cE.exit27" ]
   %.sroa.010.041 = phi ptr [ %2, %.lr.ph ], [ %35, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd21f32cb8cba716cE.exit27" ]
-  %.sroa.013.040 = phi ptr [ %5, %.lr.ph ], [ %52, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd21f32cb8cba716cE.exit27" ]
-  %.sroa.015.039 = phi ptr [ %7, %.lr.ph ], [ %51, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd21f32cb8cba716cE.exit27" ]
+  %.sroa.013.040 = phi ptr [ %7, %.lr.ph ], [ %52, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd21f32cb8cba716cE.exit27" ]
+  %.sroa.015.039 = phi ptr [ %5, %.lr.ph ], [ %51, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd21f32cb8cba716cE.exit27" ]
   %.sroa.017.038 = phi ptr [ %8, %.lr.ph ], [ %53, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd21f32cb8cba716cE.exit27" ]
   %.sroa.018.037 = phi i64 [ 0, %.lr.ph ], [ %15, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd21f32cb8cba716cE.exit27" ]
   %15 = add nuw nsw i64 %.sroa.018.037, 1
@@ -24197,7 +24197,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap8as_slice17h81250cb7ba2cc8daE.exit: ; p
           to label %.noexc1.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !4270
 
 .noexc1.i:                                        ; preds = %74
-  %.not92.i.i = icmp ult i64 %63, 64
+  %.not92.i.i = icmp eq i64 %64, 0
   br i1 %.not92.i.i, label %.preheader36.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.noexc1.i
@@ -24207,7 +24207,6 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap8as_slice17h81250cb7ba2cc8daE.exit: ; p
   %76 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.phi.trans.insert.i.i.promoted.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i, align 8, !alias.scope !4280, !noalias !4278
   %.promoted43.i.i = load i64, ptr %75, align 8, !alias.scope !4280, !noalias !4278
-  %umax.i.i = call i64 @llvm.umax.i64(i64 %64, i64 1)
   br label %78
 
 .preheader36.i.i:                                 ; preds = %.noexc2.i, %.noexc1.i
@@ -24374,7 +24373,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hf11cf5189e31fc73E.exit.i
 .noexc2.i:                                        ; preds = %_ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17hf11cf5189e31fc73E.exit.i.i
   %147 = add nuw nsw i64 %.sroa.019.042.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !4279
-  %exitcond.not.i.i = icmp eq i64 %147, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %147, %64
   br i1 %exitcond.not.i.i, label %.preheader36.i.i, label %78
 
 ._crit_edge.i.i:                                  ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h67dbfd9dadf4df3eE.exit27.i.i", %.preheader36.i.i

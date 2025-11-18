@@ -376,7 +376,7 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
 
 80:                                               ; preds = %61
   %81 = lshr i32 %63, 16
-  %82 = icmp ult i32 %63, 65536
+  %82 = icmp eq i32 %81, 0
   br i1 %82, label %83, label %104
 
 83:                                               ; preds = %80

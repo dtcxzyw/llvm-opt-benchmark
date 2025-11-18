@@ -18571,7 +18571,7 @@ define i32 @compute_quality_sop(ptr noundef readonly captures(none) %0, ptr noun
 18:                                               ; preds = %14, %12
   %.2 = phi i32 [ %17, %14 ], [ %.11924, %12 ]
   %19 = lshr i8 %.025, 1
-  %.not30 = icmp ult i8 %.025, 2
+  %.not30 = icmp eq i8 %19, 0
   br i1 %.not30, label %.loopexit, label %12, !llvm.loop !352
 
 20:                                               ; preds = %.lr.ph28, %26
@@ -18590,7 +18590,7 @@ define i32 @compute_quality_sop(ptr noundef readonly captures(none) %0, ptr noun
 26:                                               ; preds = %22, %20
   %.4 = phi i32 [ %25, %22 ], [ %.326, %20 ]
   %27 = lshr i8 %.127, 1
-  %.not31 = icmp ult i8 %.127, 2
+  %.not31 = icmp eq i8 %27, 0
   br i1 %.not31, label %._crit_edge, label %20, !llvm.loop !353
 
 ._crit_edge:                                      ; preds = %26, %.preheader
@@ -19046,7 +19046,7 @@ define range(i32 0, 2) i32 @checkCompatibilityImplication(ptr noundef readonly c
   %.lcssa8393 = phi i8 [ %.lcssa8395, %24 ], [ %.lcssa8392, %72 ], [ %.lcssa8392, %Vec_IntPush.exit80 ], [ %.lcssa8392, %.critedge ], [ %.lcssa8395, %28 ]
   %.lcssa85 = phi i8 [ %.lcssa8788, %24 ], [ %.lcssa, %72 ], [ %.lcssa, %Vec_IntPush.exit80 ], [ %.lcssa, %.critedge ], [ %.lcssa8788, %28 ]
   %.067.be = lshr i8 %.06790, 1
-  %.not = icmp ult i8 %.06790, 2
+  %.not = icmp eq i8 %.067.be, 0
   br i1 %.not, label %._crit_edge, label %24, !llvm.loop !360
 
 28:                                               ; preds = %24
@@ -19747,27 +19747,27 @@ getISOPObjId.exit:                                ; preds = %31
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer293
   %.0207.ph321 = phi i8 [ %51, %.lr.ph.lr.ph ], [ %271, %.outer293 ]
   %.0209.ph320 = phi i8 [ %4, %.lr.ph.lr.ph ], [ %272, %.outer293 ]
-  %.0210.ph319 = phi i32 [ -1, %.lr.ph.lr.ph ], [ %.lcssa427, %.outer293 ]
+  %.0210.ph319 = phi i32 [ -1, %.lr.ph.lr.ph ], [ %.lcssa431, %.outer293 ]
   %57 = add nsw i32 %.0210.ph319, 1
   %58 = and i8 %.0207.ph321, 1
   %59 = icmp eq i8 %58, 0
-  br i1 %59, label %.lr.ph434, label %._crit_edge
+  br i1 %59, label %.lr.ph438, label %._crit_edge
 
-.lr.ph434:                                        ; preds = %.lr.ph, %.lr.ph434
-  %60 = phi i32 [ %63, %.lr.ph434 ], [ %57, %.lr.ph ]
-  %.0209305433 = phi i8 [ %62, %.lr.ph434 ], [ %.0209.ph320, %.lr.ph ]
-  %.0207306432 = phi i8 [ %61, %.lr.ph434 ], [ %.0207.ph321, %.lr.ph ]
-  %61 = lshr exact i8 %.0207306432, 1
-  %62 = ashr i8 %.0209305433, 1
+.lr.ph438:                                        ; preds = %.lr.ph, %.lr.ph438
+  %60 = phi i32 [ %63, %.lr.ph438 ], [ %57, %.lr.ph ]
+  %.0209305437 = phi i8 [ %62, %.lr.ph438 ], [ %.0209.ph320, %.lr.ph ]
+  %.0207306436 = phi i8 [ %61, %.lr.ph438 ], [ %.0207.ph321, %.lr.ph ]
+  %61 = lshr exact i8 %.0207306436, 1
+  %62 = ashr i8 %.0209305437, 1
   %63 = add nsw i32 %60, 1
-  %64 = and i8 %.0207306432, 2
+  %64 = and i8 %.0207306436, 2
   %65 = icmp eq i8 %64, 0
-  br i1 %65, label %.lr.ph434, label %._crit_edge, !llvm.loop !370
+  br i1 %65, label %.lr.ph438, label %._crit_edge, !llvm.loop !370
 
-._crit_edge:                                      ; preds = %.lr.ph434, %.lr.ph
-  %.0207306.lcssa = phi i8 [ %.0207.ph321, %.lr.ph ], [ %61, %.lr.ph434 ]
-  %.0209305.lcssa = phi i8 [ %.0209.ph320, %.lr.ph ], [ %62, %.lr.ph434 ]
-  %.lcssa427 = phi i32 [ %57, %.lr.ph ], [ %63, %.lr.ph434 ]
+._crit_edge:                                      ; preds = %.lr.ph438, %.lr.ph
+  %.0207306.lcssa = phi i8 [ %.0207.ph321, %.lr.ph ], [ %61, %.lr.ph438 ]
+  %.0209305.lcssa = phi i8 [ %.0209.ph320, %.lr.ph ], [ %62, %.lr.ph438 ]
+  %.lcssa431 = phi i32 [ %57, %.lr.ph ], [ %63, %.lr.ph438 ]
   %66 = and i8 %.0209305.lcssa, 1
   %67 = icmp eq i8 %66, 0
   %.sroa.0284.0..sroa.0284.0..sroa.0284.0..sroa.0284.0. = load ptr, ptr %.sroa.0284, align 16
@@ -19791,7 +19791,7 @@ getISOPObjId.exit:                                ; preds = %31
 
 .lr.ph311:                                        ; preds = %._crit_edge
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 4
-  %sext233 = shl i32 16777216, %.lcssa427
+  %sext233 = shl i32 16777216, %.lcssa431
   %76 = ashr exact i32 %sext233, 24
   %wide.trip.count = zext nneg i32 %73 to i64
   br label %78
@@ -19819,14 +19819,14 @@ getISOPObjId.exit:                                ; preds = %31
   %85 = load i8, ptr %84, align 1, !tbaa !244
   %86 = sext i8 %83 to i32
   %87 = and i32 %76, %86
-  %88 = ashr i32 %87, %.lcssa427
+  %88 = ashr i32 %87, %.lcssa431
   %89 = trunc nuw nsw i64 %indvars.iv to i32
   %90 = shl i32 %88, %89
   %91 = trunc i32 %90 to i8
   %92 = or i8 %.sroa.0.0308, %91
   %93 = sext i8 %85 to i32
   %94 = and i32 %76, %93
-  %95 = ashr i32 %94, %.lcssa427
+  %95 = ashr i32 %94, %.lcssa431
   %96 = shl i32 %95, %89
   %97 = trunc i32 %96 to i8
   %98 = or i8 %.sroa.6.0307, %97
@@ -19880,7 +19880,7 @@ getISOPObjId.exit:                                ; preds = %31
 116:                                              ; preds = %112, %.lr.ph.i
   %.2.i = phi i32 [ %115, %112 ], [ %.11924.i, %.lr.ph.i ]
   %117 = lshr i8 %.025.i, 1
-  %.not30.i = icmp samesign ult i8 %.025.i, 2
+  %.not30.i = icmp eq i8 %117, 0
   br i1 %.not30.i, label %compute_quality_sop.exit, label %.lr.ph.i, !llvm.loop !352
 
 .lr.ph28.i:                                       ; preds = %.preheader.i, %123
@@ -19899,7 +19899,7 @@ getISOPObjId.exit:                                ; preds = %31
 123:                                              ; preds = %119, %.lr.ph28.i
   %.4.i = phi i32 [ %122, %119 ], [ %.326.i, %.lr.ph28.i ]
   %124 = lshr i8 %.127.i, 1
-  %.not31.i = icmp samesign ult i8 %.127.i, 2
+  %.not31.i = icmp eq i8 %124, 0
   br i1 %.not31.i, label %._crit_edge.i, label %.lr.ph28.i, !llvm.loop !353
 
 ._crit_edge.i:                                    ; preds = %123, %.preheader.i
@@ -20105,7 +20105,7 @@ Vec_IntPush.exit253:                              ; preds = %.Vec_IntGrow.exit10
 
 .critedge._crit_edge.thread:                      ; preds = %.critedge.preheader, %.critedge._crit_edge
   %212 = load i8, ptr %3, align 1, !tbaa !244
-  %213 = shl nuw i32 1, %.lcssa427
+  %213 = shl nuw i32 1, %.lcssa431
   %214 = trunc i32 %213 to i8
   %215 = xor i8 %214, -1
   %216 = and i8 %212, %215
@@ -20238,7 +20238,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 .outer293:                                        ; preds = %Vec_PtrPush.exit, %.critedge._crit_edge.thread
   %271 = lshr i8 %.0207306.lcssa, 1
   %272 = ashr i8 %.0209305.lcssa, 1
-  %.not342 = icmp ult i8 %.0207306.lcssa, 2
+  %.not342 = icmp eq i8 %271, 0
   br i1 %.not342, label %.outer293._crit_edge.loopexit, label %.lr.ph, !llvm.loop !370
 
 .outer293._crit_edge.loopexit:                    ; preds = %.outer293
@@ -20420,7 +20420,7 @@ Vec_IntPush.exit270:                              ; preds = %.Vec_IntGrow.exit10
   %352 = trunc i32 %351 to i8
   %353 = or i8 %.0202.ph334, %352
   %354 = lshr i8 %.1208323, 1
-  %.not343 = icmp ult i8 %.1208323, 2
+  %.not343 = icmp eq i8 %354, 0
   br i1 %.not343, label %.outer._crit_edge, label %.lr.ph324, !llvm.loop !373
 
 .outer._crit_edge:                                ; preds = %.outer, %323
@@ -20862,7 +20862,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %85 = zext nneg i8 %84 to i32
   %spec.select = add nuw nsw i32 %.0179261, %85
   %86 = ashr i8 %.0184260, 1
-  %.not209 = icmp ult i8 %.0184260, 2
+  %.not209 = icmp eq i8 %86, 0
   br i1 %.not209, label %._crit_edge, label %.lr.ph262, !llvm.loop !381
 
 ._crit_edge:                                      ; preds = %.lr.ph262
@@ -20932,7 +20932,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %111 = and i8 %.0173, 1
   %spec.select217 = add i8 %.1, %111
   %112 = ashr i8 %.0173, 1
-  %.old2.not = icmp ult i8 %.0173, 2
+  %.old2.not = icmp eq i8 %112, 0
   br i1 %.old2.not, label %.loopexit.loopexit, label %.preheader
 
 .loopexit.loopexit:                               ; preds = %.preheader

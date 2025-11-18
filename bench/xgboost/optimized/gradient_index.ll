@@ -14379,7 +14379,7 @@ _ZZN7xgboost6common12ColumnMatrix17SetIndexNoMissingIhEEvmPKT_mmiENKUlS3_E_clIhE
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %40, ptr %44, align 8, !tbaa !434
   %45 = icmp ne ptr %40, null
-  %46 = icmp ult i64 %42, 2
+  %46 = icmp eq i64 %43, 0
   %47 = or i1 %45, %46
   br i1 %47, label %_ZZN7xgboost6common12ColumnMatrix17SetIndexNoMissingIhEEvmPKT_mmiENKUlS3_E_clItEEDaS3_.exit, label %48, !prof !105
 
@@ -14426,7 +14426,7 @@ _ZZN7xgboost6common12ColumnMatrix17SetIndexNoMissingIhEEvmPKT_mmiENKUlS3_E_clItE
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %67, ptr %71, align 8, !tbaa !441
   %72 = icmp ne ptr %67, null
-  %73 = icmp ult i64 %69, 4
+  %73 = icmp eq i64 %70, 0
   %74 = or i1 %72, %73
   br i1 %74, label %_ZZN7xgboost6common12ColumnMatrix17SetIndexNoMissingIhEEvmPKT_mmiENKUlS3_E_clIjEEDaS3_.exit, label %75, !prof !105
 
@@ -14486,7 +14486,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %_ZN4dml
   %101 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %97, ptr %101, align 8, !tbaa !441
   %102 = icmp ne ptr %97, null
-  %103 = icmp ult i64 %99, 4
+  %103 = icmp eq i64 %100, 0
   %104 = or i1 %102, %103
   br i1 %104, label %_ZZN7xgboost6common12ColumnMatrix17SetIndexNoMissingIhEEvmPKT_mmiENKUlS3_E_clIjEEDaS3_.exit6, label %105, !prof !105
 
@@ -16552,7 +16552,7 @@ _ZZN7xgboost6common12ColumnMatrix17SetIndexNoMissingItEEvmPKT_mmiENKUlS3_E_clIhE
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %40, ptr %44, align 8, !tbaa !434
   %45 = icmp ne ptr %40, null
-  %46 = icmp ult i64 %42, 2
+  %46 = icmp eq i64 %43, 0
   %47 = or i1 %45, %46
   br i1 %47, label %_ZZN7xgboost6common12ColumnMatrix17SetIndexNoMissingItEEvmPKT_mmiENKUlS3_E_clItEEDaS3_.exit, label %48, !prof !105
 
@@ -16599,7 +16599,7 @@ _ZZN7xgboost6common12ColumnMatrix17SetIndexNoMissingItEEvmPKT_mmiENKUlS3_E_clItE
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %67, ptr %71, align 8, !tbaa !441
   %72 = icmp ne ptr %67, null
-  %73 = icmp ult i64 %69, 4
+  %73 = icmp eq i64 %70, 0
   %74 = or i1 %72, %73
   br i1 %74, label %_ZZN7xgboost6common12ColumnMatrix17SetIndexNoMissingItEEvmPKT_mmiENKUlS3_E_clIjEEDaS3_.exit, label %75, !prof !105
 
@@ -16659,7 +16659,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %_ZN4dml
   %101 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %97, ptr %101, align 8, !tbaa !441
   %102 = icmp ne ptr %97, null
-  %103 = icmp ult i64 %99, 4
+  %103 = icmp eq i64 %100, 0
   %104 = or i1 %102, %103
   br i1 %104, label %_ZZN7xgboost6common12ColumnMatrix17SetIndexNoMissingItEEvmPKT_mmiENKUlS3_E_clIjEEDaS3_.exit6, label %105, !prof !105
 
@@ -18550,7 +18550,7 @@ _ZZN7xgboost6common12ColumnMatrix17SetIndexNoMissingIjEEvmPKT_mmiENKUlS3_E_clIhE
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %40, ptr %44, align 8, !tbaa !434
   %45 = icmp ne ptr %40, null
-  %46 = icmp ult i64 %42, 2
+  %46 = icmp eq i64 %43, 0
   %47 = or i1 %45, %46
   br i1 %47, label %_ZZN7xgboost6common12ColumnMatrix17SetIndexNoMissingIjEEvmPKT_mmiENKUlS3_E_clItEEDaS3_.exit, label %48, !prof !105
 
@@ -18597,7 +18597,7 @@ _ZZN7xgboost6common12ColumnMatrix17SetIndexNoMissingIjEEvmPKT_mmiENKUlS3_E_clItE
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %67, ptr %71, align 8, !tbaa !441
   %72 = icmp ne ptr %67, null
-  %73 = icmp ult i64 %69, 4
+  %73 = icmp eq i64 %70, 0
   %74 = or i1 %72, %73
   br i1 %74, label %_ZZN7xgboost6common12ColumnMatrix17SetIndexNoMissingIjEEvmPKT_mmiENKUlS3_E_clIjEEDaS3_.exit, label %75, !prof !105
 
@@ -18657,7 +18657,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %_ZN4dml
   %101 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %97, ptr %101, align 8, !tbaa !441
   %102 = icmp ne ptr %97, null
-  %103 = icmp ult i64 %99, 4
+  %103 = icmp eq i64 %100, 0
   %104 = or i1 %102, %103
   br i1 %104, label %_ZZN7xgboost6common12ColumnMatrix17SetIndexNoMissingIjEEvmPKT_mmiENKUlS3_E_clIjEEDaS3_.exit6, label %105, !prof !105
 

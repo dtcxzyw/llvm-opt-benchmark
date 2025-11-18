@@ -439,7 +439,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %39 = load i64, ptr %37, align 4, !noalias !70
   store i64 %39, ptr %38, align 4, !noalias !70
   store i64 %28, ptr %26, align 8, !noalias !70
-  %.not2 = icmp ult i64 %27, 2
+  %.not2 = icmp eq i64 %28, 0
   br i1 %.not2, label %._crit_edge.loopexit.i, label %.lr.ph.i
 
 40:                                               ; preds = %.lr.ph.i

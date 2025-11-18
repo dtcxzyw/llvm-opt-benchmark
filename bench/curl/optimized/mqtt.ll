@@ -86,13 +86,13 @@ define internal noundef i32 @mqtt_do(ptr noundef %0, ptr noundef writeonly captu
   %16 = trunc i64 %.01112.i.i to i8
   %17 = and i8 %16, 127
   %18 = lshr i64 %.01112.i.i, 7
-  %.not.i.i = icmp ult i64 %.01112.i.i, 128
+  %.not.i.i = icmp eq i64 %18, 0
   %masksel.i.i = select i1 %.not.i.i, i8 0, i8 -128
-  %.0.i.i = or disjoint i8 %17, %masksel.i.i
+  %.0.i.i = or disjoint i8 %masksel.i.i, %17
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i
   store i8 %.0.i.i, ptr %19, align 1, !tbaa !7
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %20 = icmp ugt i64 %.01112.i.i, 127
+  %20 = icmp ne i64 %18, 0
   %21 = icmp samesign ult i64 %indvars.iv.i.i, 3
   %22 = select i1 %20, i1 %21, i1 false
   br i1 %22, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !80
@@ -1096,13 +1096,13 @@ mqtt_get_topic.exit:                              ; preds = %22
   %27 = trunc i64 %.01112.i to i8
   %28 = and i8 %27, 127
   %29 = lshr i64 %.01112.i, 7
-  %.not.i47 = icmp ult i64 %.01112.i, 128
+  %.not.i47 = icmp eq i64 %29, 0
   %masksel.i = select i1 %.not.i47, i8 0, i8 -128
-  %.0.i48 = or disjoint i8 %28, %masksel.i
+  %.0.i48 = or disjoint i8 %masksel.i, %28
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i
   store i8 %.0.i48, ptr %30, align 1, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %31 = icmp ugt i64 %.01112.i, 127
+  %31 = icmp ne i64 %29, 0
   %32 = icmp samesign ult i64 %indvars.iv.i, 3
   %33 = select i1 %31, i1 %32, i1 false
   br i1 %33, label %.lr.ph.i, label %mqtt_encode_len.exit, !llvm.loop !80
@@ -1288,13 +1288,13 @@ define internal fastcc i32 @mqtt_subscribe(ptr noundef %0) unnamed_addr #0 {
   %22 = trunc i64 %.01112.i to i8
   %23 = and i8 %22, 127
   %24 = lshr i64 %.01112.i, 7
-  %.not.i34 = icmp ult i64 %.01112.i, 128
+  %.not.i34 = icmp eq i64 %24, 0
   %masksel.i = select i1 %.not.i34, i8 0, i8 -128
-  %.0.i35 = or disjoint i8 %23, %masksel.i
+  %.0.i35 = or disjoint i8 %masksel.i, %23
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i
   store i8 %.0.i35, ptr %25, align 1, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %26 = icmp ugt i64 %.01112.i, 127
+  %26 = icmp ne i64 %24, 0
   %27 = icmp samesign ult i64 %indvars.iv.i, 3
   %28 = select i1 %26, i1 %27, i1 false
   br i1 %28, label %.lr.ph.i, label %mqtt_encode_len.exit, !llvm.loop !80

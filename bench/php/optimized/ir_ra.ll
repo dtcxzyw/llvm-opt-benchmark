@@ -5671,7 +5671,7 @@ ir_phi_input_number.exit:                         ; preds = %37, %10, %34
   %111 = lshr i32 %110, 6
   %112 = zext nneg i32 %111 to i64
   %113 = tail call noalias ptr @_ecalloc(i64 noundef %112, i64 noundef 8) #16
-  %.not300 = icmp ugt i32 %47, -65
+  %.not300 = icmp eq i32 %56, 0
   br i1 %.not300, label %ir_bitset_pop_first.exit242.thread, label %.lr.ph278
 
 .lr.ph278:                                        ; preds = %108
@@ -5766,12 +5766,12 @@ ir_phi_input_number.exit:                         ; preds = %37, %10, %34
   br i1 %exitcond318.not, label %.lr.ph290, label %.lr.ph286
 
 .lr.ph290.sink.split:                             ; preds = %216, %202
-  %.sink378 = phi i64 [ %206, %202 ], [ %230, %216 ]
+  %.sink379 = phi i64 [ %206, %202 ], [ %230, %216 ]
   %.pn = phi i64 [ %204, %202 ], [ %217, %216 ]
-  %.sink377 = shl nuw i64 1, %.pn
-  %157 = getelementptr inbounds nuw i64, ptr %113, i64 %.sink378
+  %.sink378 = shl nuw i64 1, %.pn
+  %157 = getelementptr inbounds nuw i64, ptr %113, i64 %.sink379
   %158 = load i64, ptr %157, align 8, !tbaa !107
-  %159 = or i64 %158, %.sink377
+  %159 = or i64 %158, %.sink378
   store i64 %159, ptr %157, align 8, !tbaa !107
   br label %.lr.ph290.backedge
 

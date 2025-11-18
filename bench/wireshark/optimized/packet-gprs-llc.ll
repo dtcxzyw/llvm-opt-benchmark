@@ -446,7 +446,7 @@ define internal i32 @dissect_llcgprs(ptr noundef %0, ptr noundef %1, ptr noundef
   %51 = icmp ult i8 %47, -32
   %52 = select i1 %51, i32 3, i32 4
   %.0521 = select i1 %48, i32 %50, i32 %52
-  switch i32 %.0521, label %default.unreachable629 [
+  switch i32 %.0521, label %default.unreachable632 [
     i32 1, label %53
     i32 2, label %117
     i32 3, label %142
@@ -630,7 +630,7 @@ define internal i32 @dissect_llcgprs(ptr noundef %0, ptr noundef %1, ptr noundef
   %176 = tail call ptr @proto_tree_add_uint(ptr noundef %169, i32 noundef %175, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %160)
   br label %.loopexit564
 
-default.unreachable629:                           ; preds = %203, %46
+default.unreachable632:                           ; preds = %203, %46
   unreachable
 
 .loopexit564:                                     ; preds = %.lr.ph, %131, %117, %.thread, %142, %156, %92, %.loopexit563, %159
@@ -698,7 +698,7 @@ crc_calc.exit:                                    ; preds = %crc_calc.exit.loope
 
 203:                                              ; preds = %193, %198, %196, %200
   %204 = phi i1 [ true, %193 ], [ false, %196 ], [ false, %198 ], [ false, %200 ]
-  switch i32 %.0521, label %default.unreachable629 [
+  switch i32 %.0521, label %default.unreachable632 [
     i32 1, label %205
     i32 2, label %242
     i32 3, label %281
@@ -734,7 +734,7 @@ crc_calc.exit:                                    ; preds = %crc_calc.exit.loope
 
 .preheader:                                       ; preds = %207
   %.4589 = add i32 %.0513, 1
-  %.not604 = icmp ult i8 %208, 16
+  %.not604 = icmp eq i8 %210, 0
   br i1 %.not604, label %._crit_edge593, label %.lr.ph592
 
 .lr.ph592:                                        ; preds = %.preheader, %.lr.ph592
@@ -809,7 +809,7 @@ crc_calc.exit:                                    ; preds = %crc_calc.exit.loope
 
 .preheader560:                                    ; preds = %244
   %.6579 = add i32 %.0513, 1
-  %.not602 = icmp ult i8 %245, 16
+  %.not602 = icmp eq i8 %247, 0
   br i1 %.not602, label %._crit_edge583, label %.lr.ph582
 
 .lr.ph582:                                        ; preds = %.preheader560, %.lr.ph582
@@ -897,7 +897,7 @@ crc_calc.exit:                                    ; preds = %crc_calc.exit.loope
 
 .preheader562:                                    ; preds = %288
   %.8571 = add i32 %.0513, 1
-  %.not600 = icmp ult i8 %289, 16
+  %.not600 = icmp eq i8 %291, 0
   br i1 %.not600, label %._crit_edge, label %.lr.ph574
 
 .lr.ph574:                                        ; preds = %.preheader562, %.lr.ph574

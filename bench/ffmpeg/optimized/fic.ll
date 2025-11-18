@@ -570,7 +570,7 @@ define internal range(i32 -1094995529, 1) i32 @fic_decode_slice(ptr noundef read
   br i1 %65, label %.loopexit85, label %.preheader.i
 
 .preheader.i:                                     ; preds = %54
-  %.not54.i = icmp ult i32 %61, 33554432
+  %.not54.i = icmp eq i32 %62, 0
   br i1 %.not54.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i

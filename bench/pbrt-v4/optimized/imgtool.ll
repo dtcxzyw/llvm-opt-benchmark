@@ -11891,9 +11891,10 @@ _ZN4pbrt5ErrorIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKcDpO
 325:                                              ; preds = %303
   %.sroa.0.0.copyload.i = load i64, ptr %118, align 4
   %.sroa.0423.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
+  %.sroa.5424.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 32
   %326 = icmp eq i32 %.sroa.0423.0.extract.trunc, 0
-  %327 = icmp ult i64 %.sroa.0.0.copyload.i, 4294967296
-  %328 = and i1 %327, %326
+  %327 = icmp eq i64 %.sroa.5424.0.extract.shift, 0
+  %328 = and i1 %326, %327
   br i1 %328, label %329, label %_ZN4pstd8optionalIN4pbrt6Point2IiEEEdeEv.exit191
 
 329:                                              ; preds = %325
@@ -12082,7 +12083,6 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body
 
 _ZN4pstd8optionalIN4pbrt6Point2IiEEEdeEv.exit191: ; preds = %325
-  %.sroa.5424.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 32
   %.sroa.5424.0.extract.trunc = trunc nuw i64 %.sroa.5424.0.extract.shift to i32
   %394 = load i32, ptr %146, align 4, !tbaa !242
   %.not.i194 = icmp ne i32 %394, %.sroa.0423.0.extract.trunc

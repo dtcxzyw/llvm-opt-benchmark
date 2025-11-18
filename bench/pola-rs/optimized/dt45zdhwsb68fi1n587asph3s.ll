@@ -32761,12 +32761,11 @@ define hidden void @"_ZN88_$LT$polars_arrow..bitmap..immutable..Bitmap$u20$as$u2
           to label %.noexc1.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, !noalias !2452
 
 .noexc1.i:                                        ; preds = %33
-  %.not38.i.i = icmp ult i64 %18, 64
+  %.not38.i.i = icmp eq i64 %23, 0
   br i1 %.not38.i.i, label %.preheader28.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.noexc1.i
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %umax.i.i = call i64 @llvm.umax.i64(i64 %23, i64 1)
   br label %35
 
 .preheader28.i.i:                                 ; preds = %.noexc3.i, %.noexc1.i
@@ -32816,7 +32815,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17he25ca25e808db7dcE.exit.i
 .noexc3.i:                                        ; preds = %_ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17he25ca25e808db7dcE.exit.i.i
   %46 = add nuw nsw i64 %.sroa.019.029.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2458
-  %exitcond.not.i.i = icmp eq i64 %46, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %46, %23
   br i1 %exitcond.not.i.i, label %.preheader28.i.i, label %35
 
 ._crit_edge.i.i:                                  ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h57da5d0075da71f3E.exit27.i.i", %.preheader28.i.i
@@ -37416,12 +37415,9 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded8req
   br i1 %84, label %.outer._crit_edge, label %.lr.ph203
 
 85:                                               ; preds = %68
-  %.old1 = icmp ult i64 %.sroa.0.0138.ph219, 32
-  br i1 %.old1, label %.loopexit181, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %85
   %86 = lshr i64 %.sroa.0.0138.ph219, 5
-  br label %.preheader
+  %.old1 = icmp eq i64 %86, 0
+  br i1 %.old1, label %.loopexit181, label %.preheader
 
 thread-pre-split:                                 ; preds = %.loopexit181, %_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_indices17hfd31f37ad8fd3771E.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -37436,8 +37432,8 @@ thread-pre-split:                                 ; preds = %.loopexit181, %_ZN1
   %89 = icmp ult i64 %88, 32
   br i1 %89, label %.loopexit, label %.lr.ph213
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.sroa.075.0 = phi i64 [ %91, %.preheader ], [ %86, %.preheader.preheader ]
+.preheader:                                       ; preds = %85, %.preheader
+  %.sroa.075.0 = phi i64 [ %91, %.preheader ], [ %86, %85 ]
   %90 = call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
   %91 = add nsw i64 %.sroa.075.0, -1
   %92 = extractvalue { ptr, i64 } %90, 0
@@ -37929,12 +37925,9 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded8req
   br i1 %89, label %.outer._crit_edge, label %.lr.ph197
 
 90:                                               ; preds = %73
-  %.old1 = icmp ult i64 %.sroa.0.0132.ph213, 32
-  br i1 %.old1, label %.loopexit175, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %90
   %91 = lshr i64 %.sroa.0.0132.ph213, 5
-  br label %.preheader
+  %.old1 = icmp eq i64 %91, 0
+  br i1 %.old1, label %.loopexit175, label %.preheader
 
 thread-pre-split:                                 ; preds = %.loopexit175, %_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_indices17hfd31f37ad8fd3771E.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -37949,8 +37942,8 @@ thread-pre-split:                                 ; preds = %.loopexit175, %_ZN1
   %94 = icmp ult i64 %93, 32
   br i1 %94, label %.loopexit, label %.lr.ph207
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.sroa.071.0 = phi i64 [ %96, %.preheader ], [ %91, %.preheader.preheader ]
+.preheader:                                       ; preds = %90, %.preheader
+  %.sroa.071.0 = phi i64 [ %96, %.preheader ], [ %91, %90 ]
   %95 = call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23)
   %96 = add nsw i64 %.sroa.071.0, -1
   %97 = extractvalue { ptr, i64 } %95, 0
@@ -38442,12 +38435,9 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded8req
   br i1 %89, label %.outer._crit_edge, label %.lr.ph197
 
 90:                                               ; preds = %73
-  %.old1 = icmp ult i64 %.sroa.0.0132.ph213, 32
-  br i1 %.old1, label %.loopexit175, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %90
   %91 = lshr i64 %.sroa.0.0132.ph213, 5
-  br label %.preheader
+  %.old1 = icmp eq i64 %91, 0
+  br i1 %.old1, label %.loopexit175, label %.preheader
 
 thread-pre-split:                                 ; preds = %.loopexit175, %_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_indices17hfd31f37ad8fd3771E.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -38462,8 +38452,8 @@ thread-pre-split:                                 ; preds = %.loopexit175, %_ZN1
   %94 = icmp ult i64 %93, 32
   br i1 %94, label %.loopexit, label %.lr.ph207
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.sroa.071.0 = phi i64 [ %96, %.preheader ], [ %91, %.preheader.preheader ]
+.preheader:                                       ; preds = %90, %.preheader
+  %.sroa.071.0 = phi i64 [ %96, %.preheader ], [ %91, %90 ]
   %95 = call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23)
   %96 = add nsw i64 %.sroa.071.0, -1
   %97 = extractvalue { ptr, i64 } %95, 0
@@ -38955,12 +38945,9 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded8req
   br i1 %89, label %.outer._crit_edge, label %.lr.ph197
 
 90:                                               ; preds = %73
-  %.old1 = icmp ult i64 %.sroa.0.0132.ph213, 32
-  br i1 %.old1, label %.loopexit175, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %90
   %91 = lshr i64 %.sroa.0.0132.ph213, 5
-  br label %.preheader
+  %.old1 = icmp eq i64 %91, 0
+  br i1 %.old1, label %.loopexit175, label %.preheader
 
 thread-pre-split:                                 ; preds = %.loopexit175, %_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_indices17hfd31f37ad8fd3771E.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -38975,8 +38962,8 @@ thread-pre-split:                                 ; preds = %.loopexit175, %_ZN1
   %94 = icmp ult i64 %93, 32
   br i1 %94, label %.loopexit, label %.lr.ph207
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.sroa.071.0 = phi i64 [ %96, %.preheader ], [ %91, %.preheader.preheader ]
+.preheader:                                       ; preds = %90, %.preheader
+  %.sroa.071.0 = phi i64 [ %96, %.preheader ], [ %91, %90 ]
   %95 = call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23)
   %96 = add nsw i64 %.sroa.071.0, -1
   %97 = extractvalue { ptr, i64 } %95, 0
@@ -39462,12 +39449,9 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded8req
   br i1 %86, label %.outer._crit_edge, label %.lr.ph203
 
 87:                                               ; preds = %70
-  %.old1 = icmp ult i64 %.sroa.0.0138.ph219, 32
-  br i1 %.old1, label %.loopexit181, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %87
   %88 = lshr i64 %.sroa.0.0138.ph219, 5
-  br label %.preheader
+  %.old1 = icmp eq i64 %88, 0
+  br i1 %.old1, label %.loopexit181, label %.preheader
 
 thread-pre-split:                                 ; preds = %.loopexit181, %_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_indices17hfd31f37ad8fd3771E.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -39482,8 +39466,8 @@ thread-pre-split:                                 ; preds = %.loopexit181, %_ZN1
   %91 = icmp ult i64 %90, 32
   br i1 %91, label %.loopexit, label %.lr.ph213
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.sroa.075.0 = phi i64 [ %93, %.preheader ], [ %88, %.preheader.preheader ]
+.preheader:                                       ; preds = %87, %.preheader
+  %.sroa.075.0 = phi i64 [ %93, %.preheader ], [ %88, %87 ]
   %92 = call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23)
   %93 = add nsw i64 %.sroa.075.0, -1
   %94 = extractvalue { ptr, i64 } %92, 0
@@ -39975,12 +39959,9 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded8req
   br i1 %89, label %.outer._crit_edge, label %.lr.ph197
 
 90:                                               ; preds = %73
-  %.old1 = icmp ult i64 %.sroa.0.0132.ph213, 32
-  br i1 %.old1, label %.loopexit175, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %90
   %91 = lshr i64 %.sroa.0.0132.ph213, 5
-  br label %.preheader
+  %.old1 = icmp eq i64 %91, 0
+  br i1 %.old1, label %.loopexit175, label %.preheader
 
 thread-pre-split:                                 ; preds = %.loopexit175, %_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_indices17hfd31f37ad8fd3771E.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -39995,8 +39976,8 @@ thread-pre-split:                                 ; preds = %.loopexit175, %_ZN1
   %94 = icmp ult i64 %93, 32
   br i1 %94, label %.loopexit, label %.lr.ph207
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.sroa.071.0 = phi i64 [ %96, %.preheader ], [ %91, %.preheader.preheader ]
+.preheader:                                       ; preds = %90, %.preheader
+  %.sroa.071.0 = phi i64 [ %96, %.preheader ], [ %91, %90 ]
   %95 = call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23)
   %96 = add nsw i64 %.sroa.071.0, -1
   %97 = extractvalue { ptr, i64 } %95, 0
@@ -40482,12 +40463,9 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded8req
   br i1 %86, label %.outer._crit_edge, label %.lr.ph203
 
 87:                                               ; preds = %70
-  %.old1 = icmp ult i64 %.sroa.0.0138.ph219, 32
-  br i1 %.old1, label %.loopexit181, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %87
   %88 = lshr i64 %.sroa.0.0138.ph219, 5
-  br label %.preheader
+  %.old1 = icmp eq i64 %88, 0
+  br i1 %.old1, label %.loopexit181, label %.preheader
 
 thread-pre-split:                                 ; preds = %.loopexit181, %_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_indices17hfd31f37ad8fd3771E.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -40502,8 +40480,8 @@ thread-pre-split:                                 ; preds = %.loopexit181, %_ZN1
   %91 = icmp ult i64 %90, 32
   br i1 %91, label %.loopexit, label %.lr.ph213
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.sroa.075.0 = phi i64 [ %93, %.preheader ], [ %88, %.preheader.preheader ]
+.preheader:                                       ; preds = %87, %.preheader
+  %.sroa.075.0 = phi i64 [ %93, %.preheader ], [ %88, %87 ]
   %92 = call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23)
   %93 = add nsw i64 %.sroa.075.0, -1
   %94 = extractvalue { ptr, i64 } %92, 0
@@ -40989,12 +40967,9 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded8req
   br i1 %86, label %.outer._crit_edge, label %.lr.ph203
 
 87:                                               ; preds = %70
-  %.old1 = icmp ult i64 %.sroa.0.0138.ph219, 32
-  br i1 %.old1, label %.loopexit181, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %87
   %88 = lshr i64 %.sroa.0.0138.ph219, 5
-  br label %.preheader
+  %.old1 = icmp eq i64 %88, 0
+  br i1 %.old1, label %.loopexit181, label %.preheader
 
 thread-pre-split:                                 ; preds = %.loopexit181, %_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_indices17hfd31f37ad8fd3771E.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -41009,8 +40984,8 @@ thread-pre-split:                                 ; preds = %.loopexit181, %_ZN1
   %91 = icmp ult i64 %90, 32
   br i1 %91, label %.loopexit, label %.lr.ph213
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.sroa.075.0 = phi i64 [ %93, %.preheader ], [ %88, %.preheader.preheader ]
+.preheader:                                       ; preds = %87, %.preheader
+  %.sroa.075.0 = phi i64 [ %93, %.preheader ], [ %88, %87 ]
   %92 = call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23)
   %93 = add nsw i64 %.sroa.075.0, -1
   %94 = extractvalue { ptr, i64 } %92, 0
@@ -41501,12 +41476,9 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded8req
   br i1 %88, label %.outer._crit_edge, label %.lr.ph200
 
 89:                                               ; preds = %72
-  %.old1 = icmp ult i64 %.sroa.0.0135.ph216, 32
-  br i1 %.old1, label %.loopexit178, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %89
   %90 = lshr i64 %.sroa.0.0135.ph216, 5
-  br label %.preheader
+  %.old1 = icmp eq i64 %90, 0
+  br i1 %.old1, label %.loopexit178, label %.preheader
 
 thread-pre-split:                                 ; preds = %.loopexit178, %_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_indices17hfd31f37ad8fd3771E.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -41521,8 +41493,8 @@ thread-pre-split:                                 ; preds = %.loopexit178, %_ZN1
   %93 = icmp ult i64 %92, 32
   br i1 %93, label %.loopexit, label %.lr.ph210
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.sroa.073.0 = phi i64 [ %95, %.preheader ], [ %90, %.preheader.preheader ]
+.preheader:                                       ; preds = %89, %.preheader
+  %.sroa.073.0 = phi i64 [ %95, %.preheader ], [ %90, %89 ]
   %94 = call { ptr, i64 } @"_ZN96_$LT$polars_utils..chunks..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e3a867322277ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23)
   %95 = add nsw i64 %.sroa.073.0, -1
   %96 = extractvalue { ptr, i64 } %94, 0
@@ -42796,7 +42768,7 @@ define hidden void @_ZN14polars_parquet5arrow4read11deserialize6nested25columns_
   %388 = lshr i64 %387, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !3519)
   call void @llvm.experimental.noalias.scope.decl(metadata !3522)
-  %.not15.i.i = icmp ult i64 %387, 2
+  %.not15.i.i = icmp eq i64 %388, 0
   br i1 %.not15.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h12754beaffef7fadE.exit", label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %385

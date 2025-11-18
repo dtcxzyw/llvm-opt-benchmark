@@ -1018,7 +1018,7 @@ define dso_local range(i32 0, 2) i32 @ewah_iterator_next(ptr noundef writeonly c
   %48 = trunc i64 %.val25.i to i32
   %49 = and i32 %48, 1
   %.not26.i = icmp eq i64 %46, 0
-  %.not1727.i = icmp ult i64 %.val1924.i, 8589934592
+  %.not1727.i = icmp eq i64 %47, 0
   %or.cond28.i = select i1 %.not26.i, i1 %.not1727.i, i1 false
   br i1 %or.cond28.i, label %.lr.ph.i, label %.loopexit.i
 
@@ -1044,7 +1044,7 @@ define dso_local range(i32 0, 2) i32 @ewah_iterator_next(ptr noundef writeonly c
   %58 = lshr i64 %.val19.i, 33
   store i64 %58, ptr %33, align 8, !tbaa !32
   %.not.i = icmp eq i64 %57, 0
-  %.not17.i = icmp ult i64 %.val19.i, 8589934592
+  %.not17.i = icmp eq i64 %58, 0
   %or.cond.i = select i1 %.not.i, i1 %.not17.i, i1 false
   br i1 %or.cond.i, label %52, label %.loopexit.i.loopexit
 
@@ -1108,7 +1108,7 @@ define dso_local void @ewah_iterator_init(ptr noundef writeonly captures(none) i
   %16 = trunc i64 %.val25.i to i32
   %17 = and i32 %16, 1
   %.not26.i = icmp eq i64 %14, 0
-  %.not1727.i = icmp ult i64 %.val1924.i, 8589934592
+  %.not1727.i = icmp eq i64 %15, 0
   %or.cond28.i = select i1 %.not26.i, i1 %.not1727.i, i1 false
   br i1 %or.cond28.i, label %.lr.ph.i, label %.loopexit.i
 
@@ -1134,7 +1134,7 @@ define dso_local void @ewah_iterator_init(ptr noundef writeonly captures(none) i
   %25 = lshr i64 %.val19.i, 33
   store i64 %25, ptr %8, align 8, !tbaa !32
   %.not.i = icmp eq i64 %24, 0
-  %.not17.i = icmp ult i64 %.val19.i, 8589934592
+  %.not17.i = icmp eq i64 %25, 0
   %or.cond.i = select i1 %.not.i, i1 %.not17.i, i1 false
   br i1 %or.cond.i, label %19, label %.loopexit.i.loopexit
 

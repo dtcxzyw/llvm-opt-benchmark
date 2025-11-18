@@ -845,7 +845,7 @@ tsCompareString.exit.us.i:                        ; preds = %.lr.ph.i, %tsCompar
   br i1 %.not.i, label %tsvector_bsearch.exit.thread58, label %tsCompareString.exit.thread25.us.i
 
 tsCompareString.exit.thread25.us.i:               ; preds = %tsCompareString.exit.us.i
-  %.not38.i = icmp samesign ult i32 %.02032.us.i, 2
+  %.not38.i = icmp eq i32 %56, 0
   br i1 %.not38.i, label %tsvector_bsearch.exit.thread, label %tsCompareString.exit.us.i, !llvm.loop !13
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %tsCompareString.exit.thread25.i
@@ -1068,10 +1068,10 @@ tsCompareString.exit.thread25.i.us:               ; preds = %.lr.ph.split.i.us
   %53 = tail call i32 @llvm.umin.i32(i32 %.fr47, i32 %48)
   %54 = zext nneg i32 %53 to i64
   %55 = tail call i32 @memcmp(ptr noundef nonnull readonly %16, ptr noundef nonnull readonly %52, i64 noundef %54) #16
-  %or.cond80 = icmp slt i32 %55, 1
+  %or.cond81 = icmp slt i32 %55, 1
   %56 = add nsw i32 %43, 1
-  %.121.i.us = select i1 %or.cond80, i32 %43, i32 %.02032.i.us
-  %.1.i.us = select i1 %or.cond80, i32 %.01933.i.us, i32 %56
+  %.121.i.us = select i1 %or.cond81, i32 %43, i32 %.02032.i.us
+  %.1.i.us = select i1 %or.cond81, i32 %.01933.i.us, i32 %56
   %57 = icmp slt i32 %.1.i.us, %.121.i.us
   br i1 %57, label %.lr.ph.split.i.us, label %tsvector_bsearch.exit.thread, !llvm.loop !13
 
@@ -1090,7 +1090,7 @@ tsvector_bsearch.exit.thread32:                   ; preds = %tsCompareString.exi
   br label %86
 
 tsCompareString.exit.thread25.us.i:               ; preds = %tsCompareString.exit.us.i
-  %.not38.i = icmp samesign ult i32 %.02032.us.i, 2
+  %.not38.i = icmp eq i32 %58, 0
   br i1 %.not38.i, label %tsvector_bsearch.exit.thread, label %tsCompareString.exit.us.i, !llvm.loop !13
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i.preheader, %tsCompareString.exit.thread25.i
@@ -1422,7 +1422,7 @@ tsCompareString.exit.us.i:                        ; preds = %.lr.ph.i, %tsCompar
   br i1 %.not.i, label %tsvector_bsearch.exit.thread31, label %tsCompareString.exit.thread25.us.i
 
 tsCompareString.exit.thread25.us.i:               ; preds = %tsCompareString.exit.us.i
-  %.not38.i = icmp samesign ult i32 %.02032.us.i, 2
+  %.not38.i = icmp eq i32 %42, 0
   br i1 %.not38.i, label %tsvector_bsearch.exit.thread, label %tsCompareString.exit.us.i, !llvm.loop !13
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %tsCompareString.exit.thread25.i

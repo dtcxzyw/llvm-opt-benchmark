@@ -495,7 +495,7 @@ key_to_val.exit.i:                                ; preds = %._crit_edge.i.i, %.
   %107 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %45, i32 noundef %106, ptr noundef %0, i32 noundef 90, i32 noundef 1, i32 noundef %80, ptr noundef nonnull @.str.135, i32 noundef %82)
   %108 = load i32, ptr @ett_zrtp_msg_cc, align 4
   %109 = call ptr @proto_item_add_subtree(ptr noundef %107, i32 noundef %108)
-  %.not230.i = icmp ult i8 %78, 16
+  %.not230.i = icmp eq i32 %82, 0
   br i1 %.not230.i, label %._crit_edge195.i, label %.lr.ph194.i
 
 .lr.ph194.i:                                      ; preds = %._crit_edge.i, %key_to_val.exit147.i
@@ -597,7 +597,7 @@ key_to_val.exit154.i:                             ; preds = %._crit_edge.i152.i,
   %143 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %45, i32 noundef %142, ptr noundef %0, i32 noundef 91, i32 noundef 1, i32 noundef %85, ptr noundef nonnull @.str.141, i32 noundef %87)
   %144 = load i32, ptr @ett_zrtp_msg_kc, align 4
   %145 = call ptr @proto_item_add_subtree(ptr noundef %143, i32 noundef %144)
-  %.not232.i = icmp ult i8 %83, 16
+  %.not232.i = icmp eq i32 %87, 0
   br i1 %.not232.i, label %._crit_edge217.i, label %.lr.ph216.i
 
 .lr.ph216.i:                                      ; preds = %._crit_edge206.i, %key_to_val.exit161.i

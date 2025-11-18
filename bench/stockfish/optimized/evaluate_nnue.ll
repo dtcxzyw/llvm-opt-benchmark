@@ -4419,12 +4419,12 @@ define linkonce_odr dso_local void @_ZN9Stockfish4Eval4NNUE13write_leb_128IsEEvR
   %5 = alloca [4 x i8], align 1
   %6 = alloca [4096 x i8], align 16
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @_ZN9Stockfish4Eval4NNUEL17Leb128MagicStringE, i64 noundef 17) #16
-  %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  %.not64 = icmp eq i64 %2, 0
+  br i1 %.not64, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3, %18
-  %.058 = phi i32 [ %12, %18 ], [ 0, %3 ]
-  %.02857 = phi i64 [ %19, %18 ], [ 0, %3 ]
+.lr.ph:                                           ; preds = %3, %14
+  %.058 = phi i32 [ %12, %14 ], [ 0, %3 ]
+  %.02857 = phi i64 [ %15, %14 ], [ 0, %3 ]
   %8 = getelementptr inbounds i16, ptr %1, i64 %.02857
   %9 = load i16, ptr %8, align 2
   br label %10
@@ -4434,20 +4434,18 @@ define linkonce_odr dso_local void @_ZN9Stockfish4Eval4NNUE13write_leb_128IsEEvR
   %.1 = phi i32 [ %.058, %.lr.ph ], [ %12, %10 ]
   %11 = ashr i16 %.029, 7
   %12 = add i32 %.1, 1
-  %13 = and i16 %.029, 64
-  %14 = icmp eq i16 %13, 0
-  %15 = icmp ugt i16 %.029, 127
-  %16 = icmp ne i16 %11, -1
-  %17 = select i1 %14, i1 %15, i1 %16
-  br i1 %17, label %10, label %18, !llvm.loop !57
+  %13 = shl i16 %.029, 9
+  %sext = ashr i16 %13, 15
+  %.not = icmp eq i16 %11, %sext
+  br i1 %.not, label %14, label %10, !llvm.loop !57
 
-18:                                               ; preds = %10
-  %19 = add nuw i64 %.02857, 1
-  %exitcond.not = icmp eq i64 %19, %2
+14:                                               ; preds = %10
+  %15 = add nuw i64 %.02857, 1
+  %exitcond.not = icmp eq i64 %15, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
 
-._crit_edge:                                      ; preds = %18, %3
-  %.0.lcssa = phi i32 [ 0, %3 ], [ %12, %18 ]
+._crit_edge:                                      ; preds = %14, %3
+  %.0.lcssa = phi i32 [ 0, %3 ], [ %12, %14 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %.0.lcssa, ptr %4, align 4
@@ -4455,99 +4453,99 @@ define linkonce_odr dso_local void @_ZN9Stockfish4Eval4NNUE13write_leb_128IsEEvR
   br i1 %.b.i, label %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge, %.preheader.i
-  %20 = phi i64 [ %24, %.preheader.i ], [ 1, %._crit_edge ]
-  %.011.i = phi i64 [ %20, %.preheader.i ], [ 0, %._crit_edge ]
-  %.0810.i = phi i32 [ %23, %.preheader.i ], [ %.0.lcssa, %._crit_edge ]
-  %21 = trunc i32 %.0810.i to i8
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 %.011.i
-  store i8 %21, ptr %22, align 1
-  %23 = lshr i32 %.0810.i, 8
-  %24 = add nuw nsw i64 %20, 1
-  %exitcond.not.i = icmp eq i64 %24, 4
-  br i1 %exitcond.not.i, label %25, label %.preheader.i, !llvm.loop !40
+  %16 = phi i64 [ %20, %.preheader.i ], [ 1, %._crit_edge ]
+  %.011.i = phi i64 [ %16, %.preheader.i ], [ 0, %._crit_edge ]
+  %.0810.i = phi i32 [ %19, %.preheader.i ], [ %.0.lcssa, %._crit_edge ]
+  %17 = trunc i32 %.0810.i to i8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 %.011.i
+  store i8 %17, ptr %18, align 1
+  %19 = lshr i32 %.0810.i, 8
+  %20 = add nuw nsw i64 %16, 1
+  %exitcond.not.i = icmp eq i64 %20, 4
+  br i1 %exitcond.not.i, label %21, label %.preheader.i, !llvm.loop !40
 
-25:                                               ; preds = %.preheader.i
-  %26 = trunc i32 %23 to i8
-  %27 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  store i8 %26, ptr %27, align 1
+21:                                               ; preds = %.preheader.i
+  %22 = trunc i32 %19 to i8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  store i8 %22, ptr %23, align 1
   br label %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit
 
-_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit: ; preds = %._crit_edge, %25
-  %.sink.i = phi ptr [ %5, %25 ], [ %4, %._crit_edge ]
-  %28 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.sink.i, i64 noundef 4) #16
+_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit: ; preds = %._crit_edge, %21
+  %.sink.i = phi ptr [ %5, %21 ], [ %4, %._crit_edge ]
+  %24 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.sink.i, i64 noundef 4) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not, label %_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlvE_clEv.exit, label %.lr.ph61
+  br i1 %.not64, label %_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlvE_clEv.exit, label %.lr.ph61
 
 .lr.ph61:                                         ; preds = %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit, %_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlhE_clEh.exit
-  %.02760 = phi i64 [ %46, %_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlhE_clEh.exit ], [ 0, %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit ]
+  %.02760 = phi i64 [ %42, %_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlhE_clEh.exit ], [ 0, %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit ]
   %.05359 = phi i32 [ %.2, %_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlhE_clEh.exit ], [ 0, %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit ]
-  %29 = getelementptr inbounds i16, ptr %1, i64 %.02760
-  %30 = load i16, ptr %29, align 2
+  %25 = getelementptr inbounds i16, ptr %1, i64 %.02760
+  %26 = load i16, ptr %25, align 2
   br label %_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlhE_clEh.exit32
 
 _ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlhE_clEh.exit32: ; preds = %_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlhE_clEh.exit32.backedge, %.lr.ph61
   %.154 = phi i32 [ %.05359, %.lr.ph61 ], [ %.154.be, %_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlhE_clEh.exit32.backedge ]
-  %.026 = phi i16 [ %30, %.lr.ph61 ], [ %33, %_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlhE_clEh.exit32.backedge ]
-  %31 = trunc i16 %.026 to i8
-  %32 = and i8 %31, 127
-  %33 = ashr i16 %.026, 7
-  %34 = icmp samesign ult i8 %32, 64
-  br i1 %34, label %35, label %37
+  %.026 = phi i16 [ %26, %.lr.ph61 ], [ %29, %_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlhE_clEh.exit32.backedge ]
+  %27 = trunc i16 %.026 to i8
+  %28 = and i8 %27, 127
+  %29 = ashr i16 %.026, 7
+  %30 = icmp samesign ult i8 %28, 64
+  br i1 %30, label %31, label %33
 
-35:                                               ; preds = %_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlhE_clEh.exit32
-  %36 = icmp ult i16 %.026, 128
-  br i1 %36, label %39, label %47
+31:                                               ; preds = %_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlhE_clEh.exit32
+  %32 = icmp eq i16 %29, 0
+  br i1 %32, label %35, label %43
 
-37:                                               ; preds = %_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlhE_clEh.exit32
-  %38 = icmp eq i16 %33, -1
-  br i1 %38, label %39, label %47
+33:                                               ; preds = %_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlhE_clEh.exit32
+  %34 = icmp eq i16 %29, -1
+  br i1 %34, label %35, label %43
 
-39:                                               ; preds = %37, %35
-  %40 = add i32 %.154, 1
-  %41 = zext i32 %.154 to i64
-  %42 = getelementptr inbounds nuw i8, ptr %6, i64 %41
-  store i8 %32, ptr %42, align 1
-  %43 = icmp eq i32 %40, 4096
-  br i1 %43, label %44, label %_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlhE_clEh.exit
+35:                                               ; preds = %33, %31
+  %36 = add i32 %.154, 1
+  %37 = zext i32 %.154 to i64
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 %37
+  store i8 %28, ptr %38, align 1
+  %39 = icmp eq i32 %36, 4096
+  br i1 %39, label %40, label %_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlhE_clEh.exit
 
-44:                                               ; preds = %39
-  %45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %6, i64 noundef 4096) #16
+40:                                               ; preds = %35
+  %41 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %6, i64 noundef 4096) #16
   br label %_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlhE_clEh.exit
 
-_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlhE_clEh.exit: ; preds = %39, %44
-  %.2 = phi i32 [ 0, %44 ], [ %40, %39 ]
-  %46 = add nuw i64 %.02760, 1
-  %exitcond67.not = icmp eq i64 %46, %2
-  br i1 %exitcond67.not, label %._crit_edge62, label %.lr.ph61, !llvm.loop !59
+_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlhE_clEh.exit: ; preds = %35, %40
+  %.2 = phi i32 [ 0, %40 ], [ %36, %35 ]
+  %42 = add nuw i64 %.02760, 1
+  %exitcond68.not = icmp eq i64 %42, %2
+  br i1 %exitcond68.not, label %._crit_edge62, label %.lr.ph61, !llvm.loop !59
 
-47:                                               ; preds = %37, %35
-  %48 = or i8 %31, -128
-  %49 = add i32 %.154, 1
-  %50 = zext i32 %.154 to i64
-  %51 = getelementptr inbounds nuw i8, ptr %6, i64 %50
-  store i8 %48, ptr %51, align 1
-  %52 = icmp eq i32 %49, 4096
-  br i1 %52, label %53, label %_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlhE_clEh.exit32.backedge
+43:                                               ; preds = %33, %31
+  %44 = or i8 %27, -128
+  %45 = add i32 %.154, 1
+  %46 = zext i32 %.154 to i64
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 %46
+  store i8 %44, ptr %47, align 1
+  %48 = icmp eq i32 %45, 4096
+  br i1 %48, label %49, label %_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlhE_clEh.exit32.backedge
 
-_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlhE_clEh.exit32.backedge: ; preds = %47, %53
-  %.154.be = phi i32 [ 0, %53 ], [ %49, %47 ]
+_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlhE_clEh.exit32.backedge: ; preds = %43, %49
+  %.154.be = phi i32 [ 0, %49 ], [ %45, %43 ]
   br label %_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlhE_clEh.exit32, !llvm.loop !60
 
-53:                                               ; preds = %47
-  %54 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %6, i64 noundef 4096) #16
+49:                                               ; preds = %43
+  %50 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %6, i64 noundef 4096) #16
   br label %_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlhE_clEh.exit32.backedge
 
 ._crit_edge62:                                    ; preds = %_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlhE_clEh.exit
   %.not.i = icmp eq i32 %.2, 0
-  br i1 %.not.i, label %_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlvE_clEv.exit, label %55
+  br i1 %.not.i, label %_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlvE_clEv.exit, label %51
 
-55:                                               ; preds = %._crit_edge62
-  %56 = zext i32 %.2 to i64
-  %57 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %6, i64 noundef %56) #16
+51:                                               ; preds = %._crit_edge62
+  %52 = zext i32 %.2 to i64
+  %53 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %6, i64 noundef %52) #16
   br label %_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlvE_clEv.exit
 
-_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlvE_clEv.exit: ; preds = %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit, %._crit_edge62, %55
+_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlvE_clEv.exit: ; preds = %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit, %._crit_edge62, %51
   ret void
 }
 
@@ -4557,12 +4555,12 @@ define linkonce_odr dso_local void @_ZN9Stockfish4Eval4NNUE13write_leb_128IiEEvR
   %5 = alloca [4 x i8], align 1
   %6 = alloca [4096 x i8], align 16
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @_ZN9Stockfish4Eval4NNUEL17Leb128MagicStringE, i64 noundef 17) #16
-  %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  %.not65 = icmp eq i64 %2, 0
+  br i1 %.not65, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3, %18
-  %.058 = phi i32 [ %12, %18 ], [ 0, %3 ]
-  %.02857 = phi i64 [ %19, %18 ], [ 0, %3 ]
+.lr.ph:                                           ; preds = %3, %14
+  %.058 = phi i32 [ %12, %14 ], [ 0, %3 ]
+  %.02857 = phi i64 [ %15, %14 ], [ 0, %3 ]
   %8 = getelementptr inbounds i32, ptr %1, i64 %.02857
   %9 = load i32, ptr %8, align 4
   br label %10
@@ -4572,20 +4570,18 @@ define linkonce_odr dso_local void @_ZN9Stockfish4Eval4NNUE13write_leb_128IiEEvR
   %.1 = phi i32 [ %.058, %.lr.ph ], [ %12, %10 ]
   %11 = ashr i32 %.029, 7
   %12 = add i32 %.1, 1
-  %13 = and i32 %.029, 64
-  %14 = icmp eq i32 %13, 0
-  %15 = icmp ugt i32 %.029, 127
-  %16 = icmp ne i32 %11, -1
-  %17 = select i1 %14, i1 %15, i1 %16
-  br i1 %17, label %10, label %18, !llvm.loop !61
+  %13 = shl i32 %.029, 25
+  %sext = ashr i32 %13, 31
+  %.not = icmp eq i32 %11, %sext
+  br i1 %.not, label %14, label %10, !llvm.loop !61
 
-18:                                               ; preds = %10
-  %19 = add nuw i64 %.02857, 1
-  %exitcond.not = icmp eq i64 %19, %2
+14:                                               ; preds = %10
+  %15 = add nuw i64 %.02857, 1
+  %exitcond.not = icmp eq i64 %15, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !62
 
-._crit_edge:                                      ; preds = %18, %3
-  %.0.lcssa = phi i32 [ 0, %3 ], [ %12, %18 ]
+._crit_edge:                                      ; preds = %14, %3
+  %.0.lcssa = phi i32 [ 0, %3 ], [ %12, %14 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %.0.lcssa, ptr %4, align 4
@@ -4593,100 +4589,100 @@ define linkonce_odr dso_local void @_ZN9Stockfish4Eval4NNUE13write_leb_128IiEEvR
   br i1 %.b.i, label %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge, %.preheader.i
-  %20 = phi i64 [ %24, %.preheader.i ], [ 1, %._crit_edge ]
-  %.011.i = phi i64 [ %20, %.preheader.i ], [ 0, %._crit_edge ]
-  %.0810.i = phi i32 [ %23, %.preheader.i ], [ %.0.lcssa, %._crit_edge ]
-  %21 = trunc i32 %.0810.i to i8
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 %.011.i
-  store i8 %21, ptr %22, align 1
-  %23 = lshr i32 %.0810.i, 8
-  %24 = add nuw nsw i64 %20, 1
-  %exitcond.not.i = icmp eq i64 %24, 4
-  br i1 %exitcond.not.i, label %25, label %.preheader.i, !llvm.loop !40
+  %16 = phi i64 [ %20, %.preheader.i ], [ 1, %._crit_edge ]
+  %.011.i = phi i64 [ %16, %.preheader.i ], [ 0, %._crit_edge ]
+  %.0810.i = phi i32 [ %19, %.preheader.i ], [ %.0.lcssa, %._crit_edge ]
+  %17 = trunc i32 %.0810.i to i8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 %.011.i
+  store i8 %17, ptr %18, align 1
+  %19 = lshr i32 %.0810.i, 8
+  %20 = add nuw nsw i64 %16, 1
+  %exitcond.not.i = icmp eq i64 %20, 4
+  br i1 %exitcond.not.i, label %21, label %.preheader.i, !llvm.loop !40
 
-25:                                               ; preds = %.preheader.i
-  %26 = trunc i32 %23 to i8
-  %27 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  store i8 %26, ptr %27, align 1
+21:                                               ; preds = %.preheader.i
+  %22 = trunc i32 %19 to i8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  store i8 %22, ptr %23, align 1
   br label %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit
 
-_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit: ; preds = %._crit_edge, %25
-  %.sink.i = phi ptr [ %5, %25 ], [ %4, %._crit_edge ]
-  %28 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.sink.i, i64 noundef 4) #16
+_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit: ; preds = %._crit_edge, %21
+  %.sink.i = phi ptr [ %5, %21 ], [ %4, %._crit_edge ]
+  %24 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.sink.i, i64 noundef 4) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not, label %_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlvE_clEv.exit, label %.lr.ph62
+  br i1 %.not65, label %_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlvE_clEv.exit, label %.lr.ph62
 
 .lr.ph62:                                         ; preds = %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit, %_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlhE_clEh.exit
-  %.02761 = phi i64 [ %47, %_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlhE_clEh.exit ], [ 0, %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit ]
+  %.02761 = phi i64 [ %43, %_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlhE_clEh.exit ], [ 0, %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit ]
   %.05360 = phi i32 [ %.2, %_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlhE_clEh.exit ], [ 0, %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit ]
-  %29 = getelementptr inbounds i32, ptr %1, i64 %.02761
-  %30 = load i32, ptr %29, align 4
+  %25 = getelementptr inbounds i32, ptr %1, i64 %.02761
+  %26 = load i32, ptr %25, align 4
   br label %_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlhE_clEh.exit32
 
 _ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlhE_clEh.exit32: ; preds = %_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlhE_clEh.exit32.backedge, %.lr.ph62
   %.154 = phi i32 [ %.05360, %.lr.ph62 ], [ %.154.be, %_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlhE_clEh.exit32.backedge ]
-  %.026 = phi i32 [ %30, %.lr.ph62 ], [ %32, %_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlhE_clEh.exit32.backedge ]
-  %31 = trunc i32 %.026 to i8
-  %32 = ashr i32 %.026, 7
-  %33 = and i32 %.026, 64
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %37
+  %.026 = phi i32 [ %26, %.lr.ph62 ], [ %28, %_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlhE_clEh.exit32.backedge ]
+  %27 = trunc i32 %.026 to i8
+  %28 = ashr i32 %.026, 7
+  %29 = and i32 %.026, 64
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %31, label %33
 
-35:                                               ; preds = %_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlhE_clEh.exit32
-  %36 = icmp ult i32 %.026, 128
-  br i1 %36, label %39, label %48
+31:                                               ; preds = %_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlhE_clEh.exit32
+  %32 = icmp eq i32 %28, 0
+  br i1 %32, label %35, label %44
 
-37:                                               ; preds = %_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlhE_clEh.exit32
-  %38 = icmp eq i32 %32, -1
-  br i1 %38, label %39, label %48
+33:                                               ; preds = %_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlhE_clEh.exit32
+  %34 = icmp eq i32 %28, -1
+  br i1 %34, label %35, label %44
 
-39:                                               ; preds = %37, %35
-  %40 = and i8 %31, 127
-  %41 = add i32 %.154, 1
-  %42 = zext i32 %.154 to i64
-  %43 = getelementptr inbounds nuw i8, ptr %6, i64 %42
-  store i8 %40, ptr %43, align 1
-  %44 = icmp eq i32 %41, 4096
-  br i1 %44, label %45, label %_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlhE_clEh.exit
+35:                                               ; preds = %33, %31
+  %36 = and i8 %27, 127
+  %37 = add i32 %.154, 1
+  %38 = zext i32 %.154 to i64
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 %38
+  store i8 %36, ptr %39, align 1
+  %40 = icmp eq i32 %37, 4096
+  br i1 %40, label %41, label %_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlhE_clEh.exit
 
-45:                                               ; preds = %39
-  %46 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %6, i64 noundef 4096) #16
+41:                                               ; preds = %35
+  %42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %6, i64 noundef 4096) #16
   br label %_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlhE_clEh.exit
 
-_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlhE_clEh.exit: ; preds = %39, %45
-  %.2 = phi i32 [ 0, %45 ], [ %41, %39 ]
-  %47 = add nuw i64 %.02761, 1
-  %exitcond68.not = icmp eq i64 %47, %2
-  br i1 %exitcond68.not, label %._crit_edge63, label %.lr.ph62, !llvm.loop !63
+_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlhE_clEh.exit: ; preds = %35, %41
+  %.2 = phi i32 [ 0, %41 ], [ %37, %35 ]
+  %43 = add nuw i64 %.02761, 1
+  %exitcond69.not = icmp eq i64 %43, %2
+  br i1 %exitcond69.not, label %._crit_edge63, label %.lr.ph62, !llvm.loop !63
 
-48:                                               ; preds = %37, %35
-  %49 = or i8 %31, -128
-  %50 = add i32 %.154, 1
-  %51 = zext i32 %.154 to i64
-  %52 = getelementptr inbounds nuw i8, ptr %6, i64 %51
-  store i8 %49, ptr %52, align 1
-  %53 = icmp eq i32 %50, 4096
-  br i1 %53, label %54, label %_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlhE_clEh.exit32.backedge
+44:                                               ; preds = %33, %31
+  %45 = or i8 %27, -128
+  %46 = add i32 %.154, 1
+  %47 = zext i32 %.154 to i64
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 %47
+  store i8 %45, ptr %48, align 1
+  %49 = icmp eq i32 %46, 4096
+  br i1 %49, label %50, label %_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlhE_clEh.exit32.backedge
 
-_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlhE_clEh.exit32.backedge: ; preds = %48, %54
-  %.154.be = phi i32 [ 0, %54 ], [ %50, %48 ]
+_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlhE_clEh.exit32.backedge: ; preds = %44, %50
+  %.154.be = phi i32 [ 0, %50 ], [ %46, %44 ]
   br label %_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlhE_clEh.exit32, !llvm.loop !64
 
-54:                                               ; preds = %48
-  %55 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %6, i64 noundef 4096) #16
+50:                                               ; preds = %44
+  %51 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %6, i64 noundef 4096) #16
   br label %_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlhE_clEh.exit32.backedge
 
 ._crit_edge63:                                    ; preds = %_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlhE_clEh.exit
   %.not.i = icmp eq i32 %.2, 0
-  br i1 %.not.i, label %_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlvE_clEv.exit, label %56
+  br i1 %.not.i, label %_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlvE_clEv.exit, label %52
 
-56:                                               ; preds = %._crit_edge63
-  %57 = zext i32 %.2 to i64
-  %58 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %6, i64 noundef %57) #16
+52:                                               ; preds = %._crit_edge63
+  %53 = zext i32 %.2 to i64
+  %54 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %6, i64 noundef %53) #16
   br label %_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlvE_clEv.exit
 
-_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlvE_clEv.exit: ; preds = %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit, %._crit_edge63, %56
+_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlvE_clEv.exit: ; preds = %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit, %._crit_edge63, %52
   ret void
 }
 

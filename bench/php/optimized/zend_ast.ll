@@ -1572,7 +1572,7 @@ zend_ast_alloc.exit:                              ; preds = %15, %17
   store i16 %0, ptr %.0.i.i, align 8, !tbaa !60
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
   store i16 %1, ptr %27, align 2, !tbaa !62
-  %.not = icmp ult i16 %0, 256
+  %.not = icmp eq i16 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %zend_ast_alloc.exit
@@ -1666,7 +1666,7 @@ zend_ast_alloc.exit.i:                            ; preds = %17, %15
   store i16 %3, ptr %.0.i.i.i, align 8, !tbaa !60
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 2
   store i16 0, ptr %27, align 2, !tbaa !62
-  %.not.i = icmp ult i16 %3, 256
+  %.not.i = icmp eq i16 %4, 0
   br i1 %.not.i, label %zend_ast_create_va.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %zend_ast_alloc.exit.i
@@ -1768,7 +1768,7 @@ zend_ast_alloc.exit.i:                            ; preds = %18, %16
   store i16 %0, ptr %.0.i.i.i, align 8, !tbaa !60
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 2
   store i16 %4, ptr %28, align 2, !tbaa !62
-  %.not.i = icmp ult i16 %0, 256
+  %.not.i = icmp eq i16 %5, 0
   br i1 %.not.i, label %zend_ast_create_va.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %zend_ast_alloc.exit.i
@@ -5183,7 +5183,7 @@ zend_ast_is_decl.exit:                            ; preds = %4
   %21 = shl nuw nsw i16 %20, 3
   %narrow = add nuw nsw i16 %21, 8
   %22 = zext nneg i16 %narrow to i64
-  %.not42 = icmp ult i16 %2, 256
+  %.not42 = icmp eq i16 %20, 0
   br i1 %.not42, label %.loopexit, label %.lr.ph39
 
 .lr.ph39:                                         ; preds = %zend_ast_is_decl.exit
@@ -5398,7 +5398,7 @@ zend_ast_is_decl.exit:                            ; preds = %75
   %96 = zext nneg i16 %95 to i64
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  %.not116 = icmp ult i16 %3, 256
+  %.not116 = icmp eq i16 %88, 0
   br i1 %.not116, label %.loopexit, label %.lr.ph113
 
 .lr.ph113:                                        ; preds = %zend_ast_is_decl.exit
@@ -5666,11 +5666,11 @@ define dso_local void @zend_ast_apply(ptr noundef %0, ptr noundef readonly captu
   br i1 %13, label %9, label %.loopexit
 
 zend_ast_is_decl.exit:                            ; preds = %3
-  %.not25 = icmp ult i16 %4, 256
+  %14 = lshr i16 %4, 8
+  %.not25 = icmp eq i16 %14, 0
   br i1 %.not25, label %.loopexit, label %.lr.ph23
 
 .lr.ph23:                                         ; preds = %zend_ast_is_decl.exit
-  %14 = lshr i16 %4, 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %wide.trip.count = zext nneg i16 %14 to i64
   br label %16

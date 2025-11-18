@@ -453,8 +453,8 @@ define dso_local noundef i64 @brin_bloom_union(ptr noundef readonly captures(non
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %19 = load i32, ptr %18, align 4
   %20 = lshr i32 %19, 3
-  %.not = icmp ult i32 %19, 8
-  br i1 %.not, label %pg_popcount.exit, label %.lr.ph
+  %.not = icmp eq i32 %20, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -472,38 +472,44 @@ define dso_local noundef i64 @brin_bloom_union(ptr noundef readonly captures(non
   store i8 %28, ptr %26, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge.thread, label %23, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %23
+._crit_edge:                                      ; preds = %1
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %30 = icmp ult i32 %19, 64
-  br i1 %30, label %.lr.ph.i, label %39
+  br i1 %30, label %pg_popcount.exit, label %41
 
-.lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
-  %.015.i = phi i64 [ %38, %.lr.ph.i ], [ 0, %._crit_edge ]
-  %.0914.i = phi i32 [ %31, %.lr.ph.i ], [ %20, %._crit_edge ]
-  %.01013.i = phi ptr [ %32, %.lr.ph.i ], [ %29, %._crit_edge ]
-  %31 = add nsw i32 %.0914.i, -1
-  %32 = getelementptr inbounds nuw i8, ptr %.01013.i, i64 1
-  %33 = load i8, ptr %.01013.i, align 1
-  %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw i8, ptr @pg_number_of_ones, i64 %34
-  %36 = load i8, ptr %35, align 1
-  %37 = zext i8 %36 to i64
-  %38 = add i64 %.015.i, %37
-  %.not.i = icmp eq i32 %31, 0
+._crit_edge.thread:                               ; preds = %23
+  %31 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %32 = icmp ult i32 %19, 64
+  br i1 %32, label %.lr.ph.i, label %41
+
+.lr.ph.i:                                         ; preds = %._crit_edge.thread, %.lr.ph.i
+  %.015.i = phi i64 [ %40, %.lr.ph.i ], [ 0, %._crit_edge.thread ]
+  %.0914.i = phi i32 [ %33, %.lr.ph.i ], [ %20, %._crit_edge.thread ]
+  %.01013.i = phi ptr [ %34, %.lr.ph.i ], [ %31, %._crit_edge.thread ]
+  %33 = add nsw i32 %.0914.i, -1
+  %34 = getelementptr inbounds nuw i8, ptr %.01013.i, i64 1
+  %35 = load i8, ptr %.01013.i, align 1
+  %36 = zext i8 %35 to i64
+  %37 = getelementptr inbounds nuw i8, ptr @pg_number_of_ones, i64 %36
+  %38 = load i8, ptr %37, align 1
+  %39 = zext i8 %38 to i64
+  %40 = add i64 %.015.i, %39
+  %.not.i = icmp eq i32 %33, 0
   br i1 %.not.i, label %pg_popcount.exit, label %.lr.ph.i, !llvm.loop !11
 
-39:                                               ; preds = %._crit_edge
-  %40 = load ptr, ptr @pg_popcount_optimized, align 8
-  %41 = tail call i64 %40(ptr noundef nonnull %29, i32 noundef range(i32 0, 536870912) %20) #7
+41:                                               ; preds = %._crit_edge.thread, %._crit_edge
+  %42 = phi ptr [ %31, %._crit_edge.thread ], [ %29, %._crit_edge ]
+  %43 = load ptr, ptr @pg_popcount_optimized, align 8
+  %44 = tail call i64 %43(ptr noundef nonnull %42, i32 noundef range(i32 0, 536870912) %20) #7
   br label %pg_popcount.exit
 
-pg_popcount.exit:                                 ; preds = %.lr.ph.i, %1, %39
-  %.08.i = phi i64 [ %41, %39 ], [ 0, %1 ], [ %38, %.lr.ph.i ]
-  %42 = trunc i64 %.08.i to i32
-  %43 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  store i32 %42, ptr %43, align 4
+pg_popcount.exit:                                 ; preds = %.lr.ph.i, %._crit_edge, %41
+  %.08.i = phi i64 [ %44, %41 ], [ 0, %._crit_edge ], [ %40, %.lr.ph.i ]
+  %45 = trunc i64 %.08.i to i32
+  %46 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  store i32 %45, ptr %46, align 4
   ret i64 0
 }
 

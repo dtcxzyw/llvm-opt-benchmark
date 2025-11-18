@@ -311,24 +311,24 @@ define i32 @ff_rms(ptr noundef readonly captures(none) %0) local_unnamed_addr #7
   %6 = sub nsw i32 16777216, %5
   %7 = ashr i32 %6, 12
   %8 = mul i32 %7, %.01325
-  %9 = icmp ult i32 %8, 4096
-  br i1 %9, label %.loopexit, label %.preheader
+  %9 = lshr i32 %8, 12
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %10 = lshr i32 %8, 12
   %11 = icmp ult i32 %8, 67108864
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.122 = phi i32 [ %12, %.lr.ph ], [ %.026, %.preheader ]
-  %.11421 = phi i32 [ %13, %.lr.ph ], [ %10, %.preheader ]
+  %.11421 = phi i32 [ %13, %.lr.ph ], [ %9, %.preheader ]
   %12 = add nsw i32 %.122, 1
   %13 = shl nuw nsw i32 %.11421, 2
   %14 = icmp samesign ult i32 %.11421, 4096
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.114.lcssa = phi i32 [ %10, %.preheader ], [ %13, %.lr.ph ]
+  %.114.lcssa = phi i32 [ %9, %.preheader ], [ %13, %.lr.ph ]
   %.1.lcssa = phi i32 [ %.026, %.preheader ], [ %12, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
@@ -344,7 +344,7 @@ define i32 @ff_rms(ptr noundef readonly captures(none) %0) local_unnamed_addr #7
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %18 = shl nuw i32 %16, 20
-  %19 = icmp samesign ult i32 %.056.i, 4
+  %19 = icmp eq i32 %16, 0
   br i1 %19, label %20, label %28
 
 20:                                               ; preds = %._crit_edge.i
@@ -556,24 +556,24 @@ ff_int_to_int16.exit:                             ; preds = %70
   %84 = sub nsw i32 16777216, %83
   %85 = ashr i32 %84, 12
   %86 = mul i32 %85, %.01325.i
-  %87 = icmp ult i32 %86, 4096
-  br i1 %87, label %ff_rms.exit, label %.preheader.i23
+  %87 = lshr i32 %86, 12
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %ff_rms.exit, label %.preheader.i23
 
 .preheader.i23:                                   ; preds = %80
-  %88 = lshr i32 %86, 12
   %89 = icmp ult i32 %86, 67108864
   br i1 %89, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i23, %.lr.ph.i
   %.122.i = phi i32 [ %90, %.lr.ph.i ], [ %.026.i, %.preheader.i23 ]
-  %.11421.i = phi i32 [ %91, %.lr.ph.i ], [ %88, %.preheader.i23 ]
+  %.11421.i = phi i32 [ %91, %.lr.ph.i ], [ %87, %.preheader.i23 ]
   %90 = add nsw i32 %.122.i, 1
   %91 = shl nuw nsw i32 %.11421.i, 2
   %92 = icmp samesign ult i32 %.11421.i, 4096
   br i1 %92, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i23
-  %.114.lcssa.i = phi i32 [ %88, %.preheader.i23 ], [ %91, %.lr.ph.i ]
+  %.114.lcssa.i = phi i32 [ %87, %.preheader.i23 ], [ %91, %.lr.ph.i ]
   %.1.lcssa.i = phi i32 [ %.026.i, %.preheader.i23 ], [ %90, %.lr.ph.i ]
   %indvars.iv.next.i24 = add nuw nsw i64 %indvars.iv.i22, 1
   %exitcond.not.i25 = icmp eq i64 %indvars.iv.next.i24, 10
@@ -589,7 +589,7 @@ ff_int_to_int16.exit:                             ; preds = %70
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   %96 = shl nuw i32 %94, 20
-  %97 = icmp samesign ult i32 %.056.i.i, 4
+  %97 = icmp eq i32 %94, 0
   br i1 %97, label %98, label %106
 
 98:                                               ; preds = %._crit_edge.i.i
@@ -683,7 +683,7 @@ define range(i32 -536870912, 536870913) i32 @ff_irms(ptr noundef readonly captur
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %12 = shl nuw i32 %10, 20
-  %13 = icmp samesign ult i32 %.056.i, 4
+  %13 = icmp eq i32 %10, 0
   br i1 %13, label %14, label %22
 
 14:                                               ; preds = %._crit_edge.i
@@ -803,7 +803,7 @@ ff_copy_and_dup.exit:                             ; preds = %10, %21
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   %37 = shl nuw i32 %35, 20
-  %38 = icmp samesign ult i32 %.056.i.i, 4
+  %38 = icmp eq i32 %35, 0
   br i1 %38, label %39, label %47
 
 39:                                               ; preds = %._crit_edge.i.i

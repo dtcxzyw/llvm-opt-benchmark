@@ -2420,7 +2420,7 @@ _ZN4llvm9BitVector15set_unused_bitsEb.exit.i:     ; preds = %2, %_ZNKSt7__cxx111
   %29 = add i32 %28, 63
   %30 = lshr i32 %29, 6
   %31 = zext nneg i32 %30 to i64
-  %32 = icmp ult i32 %29, 64
+  %32 = icmp eq i32 %30, 0
   br i1 %32, label %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i, label %33
 
 33:                                               ; preds = %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i
@@ -2942,17 +2942,17 @@ _ZN4llvm9BitVector6resizeEjb.exit:                ; preds = %_ZN4llvm15SmallVect
 
 77:                                               ; preds = %_ZN4llvm9BitVector6resizeEjb.exit
   %78 = zext i32 %58 to i64
-  %79 = icmp ult i32 %73, 64
-  br i1 %79, label %_ZN4llvm9BitVector7wordShlEj.exit.i, label %80
+  %79 = lshr i32 %73, 6
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %_ZN4llvm9BitVector7wordShlEj.exit.i, label %81
 
-80:                                               ; preds = %77
-  %81 = lshr i32 %73, 6
-  %82 = zext nneg i32 %81 to i64
-  %.not.i.i.i.i.i.i.i = icmp eq i32 %58, %81
+81:                                               ; preds = %77
+  %82 = zext nneg i32 %79 to i64
+  %.not.i.i.i.i.i.i.i = icmp eq i32 %58, %79
   %.pre16 = load ptr, ptr %3, align 8, !tbaa !26
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i.i, label %83
 
-83:                                               ; preds = %80
+83:                                               ; preds = %81
   %.idx6.i.i = sub nsw i64 %78, %82
   %84 = shl nsw i64 %.idx6.i.i, 3
   %85 = getelementptr inbounds nuw i64, ptr %.pre16, i64 %82
@@ -2962,10 +2962,10 @@ _ZN4llvm9BitVector6resizeEjb.exit:                ; preds = %_ZN4llvm15SmallVect
   %.pre18 = and i32 %.pre.i6, 63
   br label %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i.i
 
-_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i.i:             ; preds = %83, %80
-  %.pre-phi = phi i32 [ %.pre18, %83 ], [ %60, %80 ]
-  %86 = phi ptr [ %.pre, %83 ], [ %.pre16, %80 ]
-  %87 = phi i32 [ %.pre.i6, %83 ], [ %59, %80 ]
+_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i.i:             ; preds = %83, %81
+  %.pre-phi = phi i32 [ %.pre18, %83 ], [ %60, %81 ]
+  %86 = phi ptr [ %.pre, %83 ], [ %.pre16, %81 ]
+  %87 = phi i32 [ %.pre.i6, %83 ], [ %59, %81 ]
   %.idx.i.i = shl nuw nsw i64 %82, 3
   call void @llvm.memset.p0.i64(ptr align 8 %86, i8 0, i64 %.idx.i.i, i1 false), !tbaa !33
   %.not.i.i.i.i7 = icmp eq i32 %.pre-phi, 0

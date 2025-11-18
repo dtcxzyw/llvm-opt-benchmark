@@ -29045,11 +29045,11 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToC
   br i1 %.not, label %11, label %63
 
 11:                                               ; preds = %3
-  %.not.i.i = icmp ult i32 %8, 4
+  %12 = lshr i64 %9, 2
+  %.not.i.i = icmp eq i64 %12, 0
   br i1 %.not.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %11
-  %12 = lshr i64 %9, 2
   %13 = and i64 %.idx3.i.i, 68719476672
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %6, i64 %13
   br label %.lr.ph.i.i.i.i.i.i
@@ -29092,11 +29092,10 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToC
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %11
   %.pre-phi53.i.i.i.i.i.i = phi i32 [ %32, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %8, %11 ]
   %.029.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %6, %11 ]
-  switch i32 %.pre-phi53.i.i.i.i.i.i, label %default.unreachable [
+  switch i32 %.pre-phi53.i.i.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit [
     i32 3, label %33
     i32 2, label %38
     i32 1, label %43
-    i32 0, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit
   ]
 
 33:                                               ; preds = %._crit_edge.i.i.i.i.i.i
@@ -29166,9 +29165,6 @@ _ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IR
   %.017.i.i.i.i = getelementptr inbounds nuw i8, ptr %.01734.i.i.i.i, i64 16
   %.not.i.i.i.i = icmp eq ptr %.017.i.i.i.i, %10
   br i1 %.not.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !1983
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i.i
-  unreachable
 
 _ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit: ; preds = %57, %._crit_edge.i.i.i.i.i.i, %43, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i
   %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i ], [ %10, %._crit_edge.i.i.i.i.i.i ], [ %10, %43 ], [ %.1.i.i.i.i, %57 ]
@@ -29623,24 +29619,24 @@ _ZN4llvm14array_pod_sortIPN12_GLOBAL__N_115CGObjCCommonMac8RUN_SKIPEEEvT_S5_.exi
   %45 = getelementptr inbounds nuw %"class.(anonymous namespace)::CGObjCCommonMac::RUN_SKIP", ptr %.val96, i64 %44
   %46 = load i32, ptr %45, align 8, !tbaa !1457
   %47 = icmp eq i32 %40, %46
-  br i1 %47, label %.lr.ph241, label %.lr.ph._crit_edge
+  br i1 %47, label %.lr.ph242, label %.lr.ph._crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph241
-  %48 = add i32 %.172161240, 1
+.lr.ph:                                           ; preds = %.lr.ph242
+  %48 = add i32 %.172161241, 1
   %49 = getelementptr inbounds nuw %"class.(anonymous namespace)::CGObjCCommonMac::RUN_SKIP", ptr %.val96, i64 %indvars.iv.next
   %50 = load i32, ptr %49, align 8, !tbaa !1457
   %51 = icmp eq i32 %40, %50
-  br i1 %51, label %.lr.ph241, label %.lr.ph._crit_edge.loopexit, !llvm.loop !1993
+  br i1 %51, label %.lr.ph242, label %.lr.ph._crit_edge.loopexit, !llvm.loop !1993
 
-.lr.ph241:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %.172161240 = phi i32 [ %48, %.lr.ph ], [ %.071168, %.lr.ph.preheader ]
-  %indvars.iv239 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %44, %.lr.ph.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv239, 1
+.lr.ph242:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+  %.172161241 = phi i32 [ %48, %.lr.ph ], [ %.071168, %.lr.ph.preheader ]
+  %indvars.iv240 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %44, %.lr.ph.preheader ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv240, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %33
   br i1 %exitcond.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !1993
 
 .lr.ph._crit_edge.loopexit:                       ; preds = %.lr.ph
-  %52 = getelementptr inbounds nuw %"class.(anonymous namespace)::CGObjCCommonMac::RUN_SKIP", ptr %.val96, i64 %indvars.iv239
+  %52 = getelementptr inbounds nuw %"class.(anonymous namespace)::CGObjCCommonMac::RUN_SKIP", ptr %.val96, i64 %indvars.iv240
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load i64, ptr %53, align 8, !tbaa !826
   br label %.lr.ph._crit_edge
@@ -29661,8 +29657,8 @@ _ZN4llvm14array_pod_sortIPN12_GLOBAL__N_115CGObjCCommonMac8RUN_SKIPEEEvT_S5_.exi
   %65 = sub i64 %63, %64
   br label %74
 
-.critedge.loopexit:                               ; preds = %.lr.ph241
-  %66 = getelementptr inbounds nuw %"class.(anonymous namespace)::CGObjCCommonMac::RUN_SKIP", ptr %.val96, i64 %indvars.iv239
+.critedge.loopexit:                               ; preds = %.lr.ph242
+  %66 = getelementptr inbounds nuw %"class.(anonymous namespace)::CGObjCCommonMac::RUN_SKIP", ptr %.val96, i64 %indvars.iv240
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load i64, ptr %67, align 8, !tbaa !826
   br label %.critedge
@@ -29985,16 +29981,16 @@ _ZN12_GLOBAL__N_115CGObjCCommonMac23InlineLayoutInstructionERN4llvm15SmallVector
   %.str.179..str.180 = select i1 %1, ptr @.str.179, ptr @.str.180
   %230 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.179..str.180)
   %231 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.181, i64 noundef %.1.i150)
-  %.not89 = icmp samesign ult i64 %.1.i150, 256
-  br i1 %.not89, label %236, label %232
+  %232 = lshr i64 %.1.i150, 8
+  %.not89 = icmp eq i64 %232, 0
+  br i1 %.not89, label %236, label %233
 
-232:                                              ; preds = %229
-  %233 = lshr i64 %.1.i150, 8
-  %234 = trunc nuw nsw i64 %233 to i32
+233:                                              ; preds = %229
+  %234 = trunc nuw nsw i64 %232 to i32
   %235 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.182, i32 noundef %234)
   br label %236
 
-236:                                              ; preds = %232, %229
+236:                                              ; preds = %233, %229
   %237 = lshr i64 %.1.i150, 4
   %238 = and i64 %237, 15
   %.not90 = icmp eq i64 %238, 0
@@ -30145,13 +30141,13 @@ switch.lookup:                                    ; preds = %298
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12_GLOBAL__N_115CGObjCCommonMac20getBitmapBlockLayoutEb, i64 %305
   %switch.load = load ptr, ptr %switch.gep, align 8
   %306 = zext nneg i32 %304 to i64
-  %switch.gep244 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12_GLOBAL__N_115CGObjCCommonMac20getBitmapBlockLayoutEb.59, i64 %306
-  %switch.load245 = load i32, ptr %switch.gep244, align 4
+  %switch.gep245 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12_GLOBAL__N_115CGObjCCommonMac20getBitmapBlockLayoutEb.59, i64 %306
+  %switch.load246 = load i32, ptr %switch.gep245, align 4
   %307 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %switch.load)
   br label %308
 
 308:                                              ; preds = %298, %switch.lookup
-  %.069 = phi i32 [ 1, %298 ], [ %switch.load245, %switch.lookup ]
+  %.069 = phi i32 [ 1, %298 ], [ %switch.load246, %switch.lookup ]
   %309 = and i32 %302, 15
   %310 = add nuw nsw i32 %.069, %309
   %311 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.195, i32 noundef %310)

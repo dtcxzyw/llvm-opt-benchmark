@@ -3482,43 +3482,43 @@ define linkonce_odr void @_ZNSt17_Temporary_bufferIPN4llvm9safestack11StackLayou
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %select.unfold.i, %.lr.ph.preheader.i
-  %.010.i = phi i64 [ %11, %select.unfold.i ], [ %7, %.lr.ph.preheader.i ]
+  %.010.i = phi i64 [ %12, %select.unfold.i ], [ %7, %.lr.ph.preheader.i ]
   %8 = mul nuw nsw i64 %.010.i, 88
   %9 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %8, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #17
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %select.unfold.i, label %12
+  br i1 %.not.i, label %select.unfold.i, label %13
 
 select.unfold.i:                                  ; preds = %.lr.ph.i
-  %10 = add nuw nsw i64 %.010.i, 1
-  %11 = lshr i64 %10, 1
-  %.not14.i = icmp samesign ult i64 %.010.i, 2
-  br i1 %.not14.i, label %_ZSt20get_temporary_bufferIN4llvm9safestack11StackLayout11StackObjectEESt4pairIPT_lEl.exit.thread, label %.lr.ph.i, !llvm.loop !124
+  %10 = icmp eq i64 %.010.i, 1
+  %11 = add nuw nsw i64 %.010.i, 1
+  %12 = lshr i64 %11, 1
+  br i1 %10, label %_ZSt20get_temporary_bufferIN4llvm9safestack11StackLayout11StackObjectEESt4pairIPT_lEl.exit.thread, label %.lr.ph.i, !llvm.loop !124
 
-12:                                               ; preds = %.lr.ph.i
-  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %8
+13:                                               ; preds = %.lr.ph.i
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %9, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 13, i1 false)
-  %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %15 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr %15, ptr %14, align 8, !tbaa !25
-  %16 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i32 0, ptr %16, align 8, !tbaa !26
-  %17 = getelementptr inbounds nuw i8, ptr %9, i64 28
-  store i32 6, ptr %17, align 4, !tbaa !27
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %19 = load i32, ptr %18, align 8, !tbaa !26
-  %.not.i.i.i.i.i.i.i.i = icmp eq i32 %19, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN4llvm9safestack11StackLayout11StackObjectEJS3_EEvPT_DpOT0_.exit.i.i, label %20
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store ptr %16, ptr %15, align 8, !tbaa !25
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store i32 0, ptr %17, align 8, !tbaa !26
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 28
+  store i32 6, ptr %18, align 4, !tbaa !27
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %20 = load i32, ptr %19, align 8, !tbaa !26
+  %.not.i.i.i.i.i.i.i.i = icmp eq i32 %20, 0
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN4llvm9safestack11StackLayout11StackObjectEJS3_EEvPT_DpOT0_.exit.i.i, label %21
 
-20:                                               ; preds = %12
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %22 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplImEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull align 8 dereferenceable(72) %21)
+21:                                               ; preds = %13
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %23 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplImEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(72) %15, ptr noundef nonnull align 8 dereferenceable(72) %22)
   br label %_ZSt10_ConstructIN4llvm9safestack11StackLayout11StackObjectEJS3_EEvPT_DpOT0_.exit.i.i
 
-_ZSt10_ConstructIN4llvm9safestack11StackLayout11StackObjectEJS3_EEvPT_DpOT0_.exit.i.i: ; preds = %20, %12
-  %23 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %25 = load i32, ptr %24, align 8, !tbaa !82
-  store i32 %25, ptr %23, align 8, !tbaa !82
+_ZSt10_ConstructIN4llvm9safestack11StackLayout11StackObjectEJS3_EEvPT_DpOT0_.exit.i.i: ; preds = %21, %13
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %26 = load i32, ptr %25, align 8, !tbaa !82
+  store i32 %26, ptr %24, align 8, !tbaa !82
   %.not21.i.i = icmp eq i64 %.010.i, 1
   br i1 %.not21.i.i, label %_ZSt29__uninitialized_construct_bufIPN4llvm9safestack11StackLayout11StackObjectES4_EvT_S5_T0_.exit, label %.lr.ph.i.i.preheader
 
@@ -3528,44 +3528,44 @@ _ZSt10_ConstructIN4llvm9safestack11StackLayout11StackObjectEJS3_EEvPT_DpOT0_.exi
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %_ZSt10_ConstructIN4llvm9safestack11StackLayout11StackObjectEJS3_EEvPT_DpOT0_.exit19.i.i
   %.01524.i.i = phi ptr [ %.015.i.i, %_ZSt10_ConstructIN4llvm9safestack11StackLayout11StackObjectEJS3_EEvPT_DpOT0_.exit19.i.i ], [ %.01520.i.i, %.lr.ph.i.i.preheader ]
-  %.023.i.i = phi ptr [ %38, %_ZSt10_ConstructIN4llvm9safestack11StackLayout11StackObjectEJS3_EEvPT_DpOT0_.exit19.i.i ], [ %9, %.lr.ph.i.i.preheader ]
+  %.023.i.i = phi ptr [ %39, %_ZSt10_ConstructIN4llvm9safestack11StackLayout11StackObjectEJS3_EEvPT_DpOT0_.exit19.i.i ], [ %9, %.lr.ph.i.i.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.01524.i.i, ptr noundef nonnull align 8 dereferenceable(88) %.023.i.i, i64 13, i1 false)
-  %26 = getelementptr inbounds nuw i8, ptr %.023.i.i, i64 104
-  %27 = getelementptr inbounds nuw i8, ptr %.023.i.i, i64 120
-  store ptr %27, ptr %26, align 8, !tbaa !25
-  %28 = getelementptr inbounds nuw i8, ptr %.023.i.i, i64 112
-  store i32 0, ptr %28, align 8, !tbaa !26
-  %29 = getelementptr inbounds nuw i8, ptr %.023.i.i, i64 116
-  store i32 6, ptr %29, align 4, !tbaa !27
-  %30 = getelementptr inbounds nuw i8, ptr %.023.i.i, i64 24
-  %31 = load i32, ptr %30, align 8, !tbaa !26
-  %.not.i.i.i.i.i.i18.i.i = icmp eq i32 %31, 0
-  br i1 %.not.i.i.i.i.i.i18.i.i, label %_ZSt10_ConstructIN4llvm9safestack11StackLayout11StackObjectEJS3_EEvPT_DpOT0_.exit19.i.i, label %32
+  %27 = getelementptr inbounds nuw i8, ptr %.023.i.i, i64 104
+  %28 = getelementptr inbounds nuw i8, ptr %.023.i.i, i64 120
+  store ptr %28, ptr %27, align 8, !tbaa !25
+  %29 = getelementptr inbounds nuw i8, ptr %.023.i.i, i64 112
+  store i32 0, ptr %29, align 8, !tbaa !26
+  %30 = getelementptr inbounds nuw i8, ptr %.023.i.i, i64 116
+  store i32 6, ptr %30, align 4, !tbaa !27
+  %31 = getelementptr inbounds nuw i8, ptr %.023.i.i, i64 24
+  %32 = load i32, ptr %31, align 8, !tbaa !26
+  %.not.i.i.i.i.i.i18.i.i = icmp eq i32 %32, 0
+  br i1 %.not.i.i.i.i.i.i18.i.i, label %_ZSt10_ConstructIN4llvm9safestack11StackLayout11StackObjectEJS3_EEvPT_DpOT0_.exit19.i.i, label %33
 
-32:                                               ; preds = %.lr.ph.i.i
-  %33 = getelementptr inbounds nuw i8, ptr %.023.i.i, i64 16
-  %34 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplImEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(72) %26, ptr noundef nonnull align 8 dereferenceable(72) %33)
+33:                                               ; preds = %.lr.ph.i.i
+  %34 = getelementptr inbounds nuw i8, ptr %.023.i.i, i64 16
+  %35 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplImEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(72) %27, ptr noundef nonnull align 8 dereferenceable(72) %34)
   br label %_ZSt10_ConstructIN4llvm9safestack11StackLayout11StackObjectEJS3_EEvPT_DpOT0_.exit19.i.i
 
-_ZSt10_ConstructIN4llvm9safestack11StackLayout11StackObjectEJS3_EEvPT_DpOT0_.exit19.i.i: ; preds = %32, %.lr.ph.i.i
-  %35 = getelementptr inbounds nuw i8, ptr %.023.i.i, i64 168
-  %36 = getelementptr inbounds nuw i8, ptr %.023.i.i, i64 80
-  %37 = load i32, ptr %36, align 8, !tbaa !82
-  store i32 %37, ptr %35, align 8, !tbaa !82
-  %38 = getelementptr inbounds nuw i8, ptr %.023.i.i, i64 88
+_ZSt10_ConstructIN4llvm9safestack11StackLayout11StackObjectEJS3_EEvPT_DpOT0_.exit19.i.i: ; preds = %33, %.lr.ph.i.i
+  %36 = getelementptr inbounds nuw i8, ptr %.023.i.i, i64 168
+  %37 = getelementptr inbounds nuw i8, ptr %.023.i.i, i64 80
+  %38 = load i32, ptr %37, align 8, !tbaa !82
+  store i32 %38, ptr %36, align 8, !tbaa !82
+  %39 = getelementptr inbounds nuw i8, ptr %.023.i.i, i64 88
   %.015.i.i = getelementptr inbounds nuw i8, ptr %.01524.i.i, i64 88
-  %.not.i.i = icmp eq ptr %.015.i.i, %13
+  %.not.i.i = icmp eq ptr %.015.i.i, %14
   br i1 %.not.i.i, label %_ZSt29__uninitialized_construct_bufIPN4llvm9safestack11StackLayout11StackObjectES4_EvT_S5_T0_.exit, label %.lr.ph.i.i, !llvm.loop !125
 
 _ZSt29__uninitialized_construct_bufIPN4llvm9safestack11StackLayout11StackObjectES4_EvT_S5_T0_.exit: ; preds = %_ZSt10_ConstructIN4llvm9safestack11StackLayout11StackObjectEJS3_EEvPT_DpOT0_.exit19.i.i, %_ZSt10_ConstructIN4llvm9safestack11StackLayout11StackObjectEJS3_EEvPT_DpOT0_.exit.i.i
-  %.0.lcssa.i.i = phi ptr [ %9, %_ZSt10_ConstructIN4llvm9safestack11StackLayout11StackObjectEJS3_EEvPT_DpOT0_.exit.i.i ], [ %38, %_ZSt10_ConstructIN4llvm9safestack11StackLayout11StackObjectEJS3_EEvPT_DpOT0_.exit19.i.i ]
+  %.0.lcssa.i.i = phi ptr [ %9, %_ZSt10_ConstructIN4llvm9safestack11StackLayout11StackObjectEJS3_EEvPT_DpOT0_.exit.i.i ], [ %39, %_ZSt10_ConstructIN4llvm9safestack11StackLayout11StackObjectEJS3_EEvPT_DpOT0_.exit19.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(88) %.0.lcssa.i.i, i64 13, i1 false)
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %40 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i, i64 16
-  %41 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplImEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(72) %39, ptr noundef nonnull align 8 dereferenceable(72) %40)
-  %42 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i, i64 80
-  %43 = load i32, ptr %42, align 8, !tbaa !82
-  store i32 %43, ptr %24, align 8, !tbaa !82
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i, i64 16
+  %42 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplImEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(72) %40, ptr noundef nonnull align 8 dereferenceable(72) %41)
+  %43 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i, i64 80
+  %44 = load i32, ptr %43, align 8, !tbaa !82
+  store i32 %44, ptr %25, align 8, !tbaa !82
   store ptr %9, ptr %5, align 8, !tbaa !107
   store i64 %.010.i, ptr %4, align 8, !tbaa !110
   br label %_ZSt20get_temporary_bufferIN4llvm9safestack11StackLayout11StackObjectEESt4pairIPT_lEl.exit.thread

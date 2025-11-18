@@ -49,39 +49,40 @@ define dso_local i32 @encode_varint(i64 noundef %0, ptr noundef writeonly captur
   %5 = and i8 %4, 127
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 15
   store i8 %5, ptr %6, align 1, !tbaa !9
-  %.not13 = icmp ult i64 %0, 128
+  %7 = lshr i64 %0, 7
+  %.not13 = icmp eq i64 %7, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.015 = phi i32 [ %11, %.lr.ph ], [ 15, %2 ]
-  %.0914 = phi i64 [ %8, %.lr.ph ], [ %0, %2 ]
-  %7 = lshr i64 %.0914, 7
-  %8 = add nsw i64 %7, -1
-  %9 = trunc i64 %8 to i8
-  %10 = or i8 %9, -128
-  %11 = add i32 %.015, -1
-  %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 %12
-  store i8 %10, ptr %13, align 1, !tbaa !9
-  %.not = icmp samesign ult i64 %8, 128
+  %8 = phi i64 [ %15, %.lr.ph ], [ %7, %2 ]
+  %.014 = phi i32 [ %12, %.lr.ph ], [ 15, %2 ]
+  %9 = add nsw i64 %8, -1
+  %10 = trunc i64 %9 to i8
+  %11 = or i8 %10, -128
+  %12 = add i32 %.014, -1
+  %13 = zext i32 %12 to i64
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %13
+  store i8 %11, ptr %14, align 1, !tbaa !9
+  %15 = lshr i64 %9, 7
+  %.not = icmp eq i64 %15, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.0.lcssa = phi i32 [ 15, %2 ], [ %11, %.lr.ph ]
+  %.0.lcssa = phi i32 [ 15, %2 ], [ %12, %.lr.ph ]
   %.not12 = icmp eq ptr %1, null
-  br i1 %.not12, label %18, label %14
+  br i1 %.not12, label %20, label %16
 
-14:                                               ; preds = %._crit_edge
-  %15 = zext i32 %.0.lcssa to i64
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 %15
-  %17 = sub nsw i64 16, %15
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull align 1 %16, i64 %17, i1 false)
-  br label %18
+16:                                               ; preds = %._crit_edge
+  %17 = zext i32 %.0.lcssa to i64
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 %17
+  %19 = sub nsw i64 16, %17
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull align 1 %18, i64 %19, i1 false)
+  br label %20
 
-18:                                               ; preds = %14, %._crit_edge
-  %19 = sub i32 16, %.0.lcssa
+20:                                               ; preds = %16, %._crit_edge
+  %21 = sub i32 16, %.0.lcssa
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %19
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

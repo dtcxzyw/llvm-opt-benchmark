@@ -376,7 +376,7 @@ decode_dc.exit:                                   ; preds = %79, %81
 
 181:                                              ; preds = %163
   %182 = add i32 %136, 14
-  %183 = icmp ult i32 %172, 16777216
+  %183 = icmp eq i32 %173, 0
   br i1 %183, label %184, label %188
 
 184:                                              ; preds = %181

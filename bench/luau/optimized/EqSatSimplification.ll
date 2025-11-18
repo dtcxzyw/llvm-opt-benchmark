@@ -67469,7 +67469,7 @@ define linkonce_odr dso_local void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_it
   %37 = getelementptr inbounds %"struct.Luau::EqSat::Id", ptr %.fr29, i64 %.020.i.i.i.us
   %38 = load i32, ptr %34, align 4, !tbaa !4
   store i32 %38, ptr %37, align 4, !tbaa !4
-  %.not9.i.us = icmp ult i64 %.0921.in.i.i.i.us, 2
+  %.not9.i.us = icmp eq i64 %.0921.i.i78.i.us, 0
   br i1 %.not9.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau5EqSat2IdESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !1187
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau5EqSat2IdESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %36, %32
@@ -67647,7 +67647,7 @@ define linkonce_odr dso_local void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iter
   %41 = getelementptr inbounds %"struct.Luau::EqSat::Id", ptr %0, i64 %.020.i.i.i
   %42 = load i32, ptr %38, align 4, !tbaa !4
   store i32 %42, ptr %41, align 4, !tbaa !4
-  %.not9.i = icmp ult i64 %.0921.in.i.i.i, 2
+  %.not9.i = icmp eq i64 %.0921.i.i78.i, 0
   br i1 %.not9.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau5EqSat2IdESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !1187
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau5EqSat2IdESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit: ; preds = %.lr.ph.i.i.i, %40, %37

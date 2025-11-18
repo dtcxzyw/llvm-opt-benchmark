@@ -409,7 +409,7 @@ bytestream2_get_byte.exit264:                     ; preds = %86, %87
   %181 = load ptr, ptr %180, align 8, !tbaa !33
   %182 = zext nneg i32 %.0218 to i64
   %183 = getelementptr inbounds nuw i32, ptr %181, i64 %182
-  switch i32 %.0235, label %default.unreachable367 [
+  switch i32 %.0235, label %default.unreachable368 [
     i32 4, label %.preheader282
     i32 3, label %.preheader284
     i32 2, label %.preheader286
@@ -474,7 +474,7 @@ bytestream2_get_byte.exit264:                     ; preds = %86, %87
   %exitcond.not = icmp eq i32 %218, %.0219
   br i1 %exitcond.not, label %.loopexit283, label %.preheader286, !llvm.loop !46
 
-default.unreachable367:                           ; preds = %179
+default.unreachable368:                           ; preds = %179
   unreachable
 
 .loopexit283:                                     ; preds = %.preheader286, %.preheader284, %.preheader282, %174, %149
@@ -563,18 +563,18 @@ advance_line.exit.thread:                         ; preds = %advance_line.exit, 
 
 .lr.ph304:                                        ; preds = %advance_line.exit.thread
   %261 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %.not = icmp samesign ult i32 %.0.i268, 2
-  %262 = add nsw i32 %.0.i261, -8
-  %263 = tail call i32 @llvm.fshl.i32(i32 %262, i32 %262, i32 29)
+  %262 = lshr i32 %.0.i268, 1
+  %.not = icmp eq i32 %262, 0
+  %263 = add nsw i32 %.0.i261, -8
+  %264 = tail call i32 @llvm.fshl.i32(i32 %263, i32 %263, i32 29)
   br i1 %.not, label %.loopexit, label %.lr.ph.us.preheader
 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph304
-  %264 = lshr i32 %.0.i268, 1
   %265 = zext nneg i32 %.0.i268 to i64
-  %wide.trip.count = zext nneg i32 %264 to i64
-  %wide.trip.count328 = zext nneg i32 %264 to i64
-  %wide.trip.count333 = zext nneg i32 %264 to i64
-  %wide.trip.count338 = zext nneg i32 %264 to i64
+  %wide.trip.count = zext nneg i32 %262 to i64
+  %wide.trip.count328 = zext nneg i32 %262 to i64
+  %wide.trip.count333 = zext nneg i32 %262 to i64
+  %wide.trip.count338 = zext nneg i32 %262 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
@@ -584,7 +584,7 @@ advance_line.exit.thread:                         ; preds = %advance_line.exit, 
   %268 = mul nsw i32 %267, %.0222303.us
   %269 = sext i32 %268 to i64
   %270 = getelementptr inbounds i8, ptr %266, i64 %269
-  switch i32 %263, label %._crit_edge.us [
+  switch i32 %264, label %._crit_edge.us [
     i32 3, label %.lr.ph.split.us.us.preheader
     i32 2, label %.lr.ph.split.us297.us
     i32 1, label %.lr.ph.split.us299.us.preheader

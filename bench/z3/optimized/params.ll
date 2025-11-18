@@ -10473,7 +10473,7 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIP6symbolN9__gnu_cxx5__ops15_I
   %44 = getelementptr inbounds %class.symbol, ptr %0, i64 %.01316.i.i.i
   %45 = load i64, ptr %41, align 8, !tbaa !45
   store i64 %45, ptr %44, align 8, !tbaa !45
-  %.not11.i = icmp ult i64 %.017.in.i.i.i, 2
+  %.not11.i = icmp eq i64 %.017.i.i910.i, 0
   br i1 %.not11.i, label %.critedge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !136
 
 .critedge.loopexit.i.i.i:                         ; preds = %43, %.lr.ph.i.i.i

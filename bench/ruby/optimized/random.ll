@@ -3706,7 +3706,7 @@ define internal fastcc i64 @rand_int(i64 noundef %0, ptr noundef %1, i64 noundef
 
 8:                                                ; preds = %4
   %9 = ashr i64 %2, 1
-  %.not22 = icmp ult i64 %2, 2
+  %.not22 = icmp eq i64 %9, 0
   br i1 %.not22, label %rb_ulong2num_inline.exit, label %10
 
 10:                                               ; preds = %8

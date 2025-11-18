@@ -4381,7 +4381,7 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   %108 = getelementptr i8, ptr %107, i64 -4
   %109 = load i32, ptr %108, align 4, !tbaa !31
   %110 = ashr i32 %109, 1
-  %111 = icmp ult i32 %109, 2
+  %111 = icmp eq i32 %110, 0
   br i1 %111, label %.critedge, label %112
 
 112:                                              ; preds = %102
@@ -5037,7 +5037,7 @@ Vec_IntFill.exit:                                 ; preds = %Vec_IntGrow.exit.i,
   %164 = getelementptr i8, ptr %163, i64 -4
   %165 = load i32, ptr %164, align 4, !tbaa !31
   %166 = ashr i32 %165, 1
-  %167 = icmp ult i32 %165, 2
+  %167 = icmp eq i32 %166, 0
   br i1 %167, label %.critedge6, label %168
 
 168:                                              ; preds = %157
@@ -6007,7 +6007,7 @@ Vec_IntFind.exit:                                 ; preds = %128, %120, %._crit_
   %135 = getelementptr i8, ptr %134, i64 -4
   %136 = load i32, ptr %135, align 4, !tbaa !31
   %137 = ashr i32 %136, 1
-  %138 = icmp ult i32 %136, 2
+  %138 = icmp eq i32 %137, 0
   br i1 %138, label %.critedge8, label %139
 
 139:                                              ; preds = %Vec_IntFind.exit
@@ -7377,8 +7377,8 @@ define void @Gia_ManFindUnatePairsInt(ptr noundef readonly captures(none) %0, pt
 28:                                               ; preds = %.lr.ph, %Abc_TtIntersectTwo.exit
   %.0104 = phi i32 [ 0, %.lr.ph ], [ %146, %Abc_TtIntersectTwo.exit ]
   %29 = and i32 %.0104, 1
-  %30 = or disjoint i32 %29, %26
-  %31 = icmp samesign ugt i32 %.0104, 1
+  %30 = lshr i32 %.0104, 1
+  %31 = icmp ne i32 %30, 0
   %32 = icmp ne i32 %29, 0
   %or.cond.i = and i1 %31, %32
   br i1 %or.cond.i, label %.preheader.i, label %42
@@ -7573,10 +7573,10 @@ define void @Gia_ManFindUnatePairsInt(ptr noundef readonly captures(none) %0, pt
   br i1 %.not.i55, label %104, label %Abc_TtIntersectTwo.exit83
 
 Abc_TtIntersectTwo.exit83:                        ; preds = %.lr.ph.i53, %.lr.ph98.i61, %.lr.ph103.i69, %.lr.ph108.i77
-  %113 = shl nuw nsw i32 %.0104, 14
-  %114 = and i32 %113, 32768
-  %115 = or disjoint i32 %114, %27
-  %116 = or i32 %115, %30
+  %113 = shl nuw nsw i32 %30, 15
+  %114 = add nuw nsw i32 %113, %27
+  %115 = or i32 %26, %114
+  %116 = or disjoint i32 %115, %29
   %117 = shl nsw i32 %116, 1
   %118 = load i32, ptr %12, align 4, !tbaa !28
   %119 = load i32, ptr %5, align 8, !tbaa !29

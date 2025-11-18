@@ -12793,26 +12793,26 @@ ggml_malloc.exit:                                 ; preds = %21, %22
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.0.i, ptr %28, align 8, !tbaa !96
   %29 = add i64 %18, 31
-  %30 = icmp ult i64 %29, 32
-  br i1 %30, label %31, label %32
+  %30 = lshr i64 %29, 5
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %32, label %33
 
-31:                                               ; preds = %ggml_malloc.exit
+32:                                               ; preds = %ggml_malloc.exit
   tail call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 3, ptr noundef nonnull @.str.487)
   br label %ggml_calloc.exit
 
-32:                                               ; preds = %ggml_malloc.exit
-  %33 = lshr i64 %29, 5
-  %34 = tail call noalias ptr @calloc(i64 noundef range(i64 0, 576460752303423488) %33, i64 noundef 4) #45
+33:                                               ; preds = %ggml_malloc.exit
+  %34 = tail call noalias ptr @calloc(i64 noundef range(i64 0, 576460752303423488) %30, i64 noundef 4) #45
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %ggml_calloc.exit
 
-36:                                               ; preds = %32
+36:                                               ; preds = %33
   tail call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 4, ptr noundef nonnull @.str.448, ptr noundef nonnull @__func__.ggml_calloc, double noundef 0x3ED0000000000000)
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str.12, i32 noundef 338, ptr noundef nonnull @.str.449) #47
   unreachable
 
-ggml_calloc.exit:                                 ; preds = %31, %32
-  %.0.i4 = phi ptr [ null, %31 ], [ %34, %32 ]
+ggml_calloc.exit:                                 ; preds = %32, %33
+  %.0.i4 = phi ptr [ null, %32 ], [ %34, %33 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i4, ptr %37, align 8, !tbaa !97
   ret void

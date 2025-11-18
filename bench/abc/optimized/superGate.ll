@@ -5101,13 +5101,10 @@ Vec_StrPush.exit.i46:                             ; preds = %114, %Vec_StrGrow.e
   %122 = load ptr, ptr %121, align 8, !tbaa !42
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %124 = load i32, ptr %123, align 8
+  %125 = lshr i32 %124, 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %125 = icmp ult i32 %124, 256
-  br i1 %125, label %127, label %.preheader24.i.preheader
-
-.preheader24.i.preheader:                         ; preds = %Vec_StrPush.exit.i46
-  %126 = lshr i32 %124, 8
-  br label %.preheader24.i
+  %126 = icmp eq i32 %125, 0
+  br i1 %126, label %127, label %.preheader24.i
 
 127:                                              ; preds = %Vec_StrPush.exit.i46
   %128 = load i32, ptr %92, align 4, !tbaa !10
@@ -5173,10 +5170,10 @@ Vec_StrPush.exit.i58:                             ; preds = %148, %Vec_StrGrow.e
   store i8 48, ptr %154, align 1, !tbaa !103
   br label %Vec_StrPrintNum.exit
 
-.preheader24.i:                                   ; preds = %.preheader24.i.preheader, %.preheader24.i
-  %indvars.iv29.i = phi i64 [ %indvars.iv.next30.i, %.preheader24.i ], [ 1, %.preheader24.i.preheader ]
-  %indvars.iv.i53 = phi i64 [ %indvars.iv.next.i54, %.preheader24.i ], [ 0, %.preheader24.i.preheader ]
-  %.11525.i = phi i32 [ %158, %.preheader24.i ], [ %126, %.preheader24.i.preheader ]
+.preheader24.i:                                   ; preds = %Vec_StrPush.exit.i46, %.preheader24.i
+  %indvars.iv29.i = phi i64 [ %indvars.iv.next30.i, %.preheader24.i ], [ 1, %Vec_StrPush.exit.i46 ]
+  %indvars.iv.i53 = phi i64 [ %indvars.iv.next.i54, %.preheader24.i ], [ 0, %Vec_StrPush.exit.i46 ]
+  %.11525.i = phi i32 [ %158, %.preheader24.i ], [ %125, %Vec_StrPush.exit.i46 ]
   %155 = urem i32 %.11525.i, 10
   %156 = trunc nuw nsw i32 %155 to i8
   %157 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i53

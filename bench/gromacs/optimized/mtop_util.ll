@@ -1049,7 +1049,7 @@ define void @_Z27gmx_mtop_generate_local_topRK10gmx_mtop_tP14gmx_localtop_tb(ptr
   br i1 %95, label %96, label %127
 
 96:                                               ; preds = %.lr.ph.i.i
-  %.not.i.i.i = icmp ult i64 %sext232.i.i, 4294967296
+  %.not.i.i.i = icmp eq i64 %93, 0
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i.i, label %97
 
 97:                                               ; preds = %96
@@ -1237,7 +1237,7 @@ _ZL8ilistcatiP15InteractionListRKS_iii.exit.i.i:  ; preds = %.loopexit.us.i.i.i,
   br i1 %171, label %172, label %203
 
 172:                                              ; preds = %_ZL8ilistcatiP15InteractionListRKS_iii.exit.i.i
-  %.not.i199.i.i = icmp ult i64 %sext233.i.i, 4294967296
+  %.not.i199.i.i = icmp eq i64 %169, 0
   br i1 %.not.i199.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i73.i.i, label %173
 
 173:                                              ; preds = %172

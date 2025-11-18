@@ -323,7 +323,7 @@ read_atom.exit42.thread:                          ; preds = %131, %read_atom.exi
   %154 = add i32 %.val, -8
   %155 = lshr i32 %154, 2
   store i32 %155, ptr %150, align 4, !tbaa !61
-  %.not4.i = icmp ult i32 %154, 4
+  %.not4.i = icmp eq i32 %155, 0
   br i1 %.not4.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %149, %159
@@ -345,7 +345,7 @@ read_atom.exit42.thread:                          ; preds = %131, %read_atom.exi
   br i1 %162, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !62
 
 .loopexit.i:                                      ; preds = %159, %158, %149
-  %163 = phi i32 [ %155, %149 ], [ %.03.i, %158 ], [ %161, %159 ]
+  %163 = phi i32 [ 0, %149 ], [ %.03.i, %158 ], [ %161, %159 ]
   %164 = getelementptr inbounds nuw i8, ptr %153, i64 88
   %165 = load i32, ptr %164, align 8, !tbaa !64
   %.not23.i = icmp eq i32 %165, 0

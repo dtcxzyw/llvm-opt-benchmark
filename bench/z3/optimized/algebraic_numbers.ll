@@ -13217,7 +13217,7 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIPN17algebraic_numbers4anumEN9
   %48 = getelementptr inbounds %"class.algebraic_numbers::anum", ptr %0, i64 %.01316.i.i.i
   %49 = load i64, ptr %43, align 8, !tbaa !87
   store i64 %49, ptr %48, align 8, !tbaa !87
-  %.not11.i = icmp ult i64 %.017.in.i.i.i, 2
+  %.not11.i = icmp eq i64 %.017.i.i910.i, 0
   br i1 %.not11.i, label %.critedge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !203
 
 .critedge.loopexit.i.i.i:                         ; preds = %47, %.lr.ph.i.i.i
@@ -13456,31 +13456,31 @@ define linkonce_odr hidden void @_ZSt11stable_sortIPjN17algebraic_numbers7manage
   br i1 %.not.i.i.i, label %select.unfold.i.i.i, label %_ZNSt17_Temporary_bufferIPjjEC2ES0_l.exit.i
 
 select.unfold.i.i.i:                              ; preds = %.lr.ph.i.i.i
-  %.not14.i.i.i = icmp samesign ult i64 %.010.i.i.in.in.i, 3
-  br i1 %.not14.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !206
+  %14 = icmp eq i64 %.010.i.i.i, 1
+  br i1 %14, label %.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !206
 
 .loopexit.i:                                      ; preds = %select.unfold.i.i.i, %6
   invoke void @_ZSt21__inplace_stable_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEEvT_S9_T0_(ptr noundef %0, ptr noundef %1, ptr %2, ptr %3)
-          to label %.loopexit._crit_edge.i unwind label %14
+          to label %.loopexit._crit_edge.i unwind label %15
 
-14:                                               ; preds = %_ZNSt17_Temporary_bufferIPjjEC2ES0_l.exit.i, %.loopexit.i
+15:                                               ; preds = %_ZNSt17_Temporary_bufferIPjjEC2ES0_l.exit.i, %.loopexit.i
   %.sroa.4.028.i = phi i64 [ %.010.i.i.i, %_ZNSt17_Temporary_bufferIPjjEC2ES0_l.exit.i ], [ 0, %.loopexit.i ]
   %.sroa.9.025.i = phi ptr [ %13, %_ZNSt17_Temporary_bufferIPjjEC2ES0_l.exit.i ], [ null, %.loopexit.i ]
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = shl nuw nsw i64 %.sroa.4.028.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.025.i, i64 noundef %16) #29
-  resume { ptr, i32 } %15
+  %17 = shl nuw nsw i64 %.sroa.4.028.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.025.i, i64 noundef %17) #29
+  resume { ptr, i32 } %16
 
 _ZNSt17_Temporary_bufferIPjjEC2ES0_l.exit.i:      ; preds = %.lr.ph.i.i.i
   invoke void @_ZSt22__stable_sort_adaptiveIPjS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEEvT_S9_T0_T1_T2_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %13, i64 noundef %.010.i.i.i, ptr %2, ptr %3)
-          to label %.loopexit._crit_edge.i unwind label %14
+          to label %.loopexit._crit_edge.i unwind label %15
 
 .loopexit._crit_edge.i:                           ; preds = %.loopexit.i, %_ZNSt17_Temporary_bufferIPjjEC2ES0_l.exit.i
   %.sroa.4.026.i = phi i64 [ %.010.i.i.i, %_ZNSt17_Temporary_bufferIPjjEC2ES0_l.exit.i ], [ 0, %.loopexit.i ]
   %.sroa.9.023.i = phi ptr [ %13, %_ZNSt17_Temporary_bufferIPjjEC2ES0_l.exit.i ], [ null, %.loopexit.i ]
-  %17 = shl nuw nsw i64 %.sroa.4.026.i, 2
-  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i, i64 noundef %17) #29
+  %18 = shl nuw nsw i64 %.sroa.4.026.i, 2
+  tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i, i64 noundef %18) #29
   br label %_ZSt13__stable_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEEvT_S9_T0_.exit
 
 _ZSt13__stable_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEEvT_S9_T0_.exit: ; preds = %4, %.loopexit._crit_edge.i

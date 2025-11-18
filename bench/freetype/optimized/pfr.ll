@@ -4232,7 +4232,7 @@ pfr_bitwriter_init.exit:                          ; preds = %7
 
 42:                                               ; preds = %33
   %43 = lshr i32 %.03355.i, 1
-  %44 = icmp ult i32 %.03355.i, 2
+  %44 = icmp eq i32 %43, 0
   br i1 %44, label %45, label %48
 
 45:                                               ; preds = %42
@@ -4333,7 +4333,7 @@ pfr_bitwriter_init.exit:                          ; preds = %7
 
 68:                                               ; preds = %.thread66.i
   %69 = lshr i32 %.03688.i, 1
-  %70 = icmp ult i32 %.03688.i, 2
+  %70 = icmp eq i32 %69, 0
   br i1 %70, label %71, label %74
 
 71:                                               ; preds = %68
@@ -4425,7 +4425,7 @@ pfr_bitwriter_init.exit:                          ; preds = %7
 
 95:                                               ; preds = %.loopexit.i18
   %96 = lshr i32 %.02971.i, 1
-  %97 = icmp ult i32 %.02971.i, 2
+  %97 = icmp eq i32 %96, 0
   br i1 %97, label %98, label %101
 
 98:                                               ; preds = %95

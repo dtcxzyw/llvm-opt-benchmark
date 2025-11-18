@@ -15819,7 +15819,7 @@ _ZN5prost8encoding13decode_varint17h47157dda86746f37E.exit: ; preds = %156
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i64 %175, ptr %26, align 8, !noalias !1659
   %switch = icmp samesign ult i64 %175, 6
-  br i1 %switch, label %178, label %181
+  br i1 %switch, label %178, label %182
 
 176:                                              ; preds = %170
   call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !1638
@@ -15846,10 +15846,11 @@ _ZN5prost8encoding13decode_varint17h47157dda86746f37E.exit: ; preds = %156
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %179 = trunc i64 %172 to i32
-  %180 = icmp ult i32 %179, 8
-  br i1 %180, label %183, label %185
+  %180 = lshr i32 %179, 3
+  %181 = icmp eq i32 %180, 0
+  br i1 %181, label %184, label %186
 
-181:                                              ; preds = %174
+182:                                              ; preds = %174
   call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !1659
   store ptr %26, ptr %24, align 8, !noalias !1659
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -15867,26 +15868,25 @@ _ZN5prost8encoding13decode_varint17h47157dda86746f37E.exit: ; preds = %156
   call void @_ZN5alloc3fmt6format12format_inner17hfc591406982d9639E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %25, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %23), !noalias !1679
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !1671
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !1659
-  %182 = call noundef nonnull align 8 ptr @_ZN5prost5error11DecodeError3new17h8c2b0c508433c2cbE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %25), !noalias !1659
+  %183 = call noundef nonnull align 8 ptr @_ZN5prost5error11DecodeError3new17h8c2b0c508433c2cbE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %25), !noalias !1659
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %.loopexit
 
-183:                                              ; preds = %178
-  %184 = call noundef nonnull align 8 ptr @_ZN5prost5error11DecodeError3new17h2856af1654ef8ad6E(ptr noalias noundef nonnull readonly align 1 @anon.9415c28180495f5b1c91957a67e356d1.95, i64 noundef 20), !noalias !1652
+184:                                              ; preds = %178
+  %185 = call noundef nonnull align 8 ptr @_ZN5prost5error11DecodeError3new17h2856af1654ef8ad6E(ptr noalias noundef nonnull readonly align 1 @anon.9415c28180495f5b1c91957a67e356d1.95, i64 noundef 20), !noalias !1652
   br label %.loopexit
 
 "_ZN59_$LT$proto..Envelope$u20$as$u20$prost..message..Message$GT$11merge_field17h1c849390a9cb4c63E.exit.thread": ; preds = %"_ZN59_$LT$proto..Envelope$u20$as$u20$prost..message..Message$GT$11merge_field17h1c849390a9cb4c63E.exit", %35, %"_ZN59_$LT$proto..Envelope$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hcc33bc52196b1248E.exit.i", %"_ZN59_$LT$proto..Envelope$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hf5b1a98eac622a4dE.exit", %"_ZN59_$LT$proto..Envelope$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hb24753391e77fdb9E.exit", %"_ZN59_$LT$proto..Envelope$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h2785784b873a1dfaE.exit", %.loopexit
   %.sroa.0.0 = phi ptr [ %.sroa.11.1, %.loopexit ], [ %257, %"_ZN59_$LT$proto..Envelope$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hcc33bc52196b1248E.exit.i" ], [ %251, %"_ZN59_$LT$proto..Envelope$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hf5b1a98eac622a4dE.exit" ], [ %246, %"_ZN59_$LT$proto..Envelope$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hb24753391e77fdb9E.exit" ], [ %241, %"_ZN59_$LT$proto..Envelope$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h2785784b873a1dfaE.exit" ], [ %.sroa.0.0.i10, %"_ZN59_$LT$proto..Envelope$u20$as$u20$prost..message..Message$GT$11merge_field17h1c849390a9cb4c63E.exit" ], [ null, %35 ]
   ret ptr %.sroa.0.0
 
-185:                                              ; preds = %178
-  %186 = lshr i32 %179, 3
+186:                                              ; preds = %178
   call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !1638
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %.sroa.11.8.extract.trunc = trunc nuw nsw i64 %175 to i8
   call void @llvm.experimental.noalias.scope.decl(metadata !1680)
-  switch i32 %186, label %187 [
+  switch i32 %180, label %187 [
     i32 1, label %189
     i32 2, label %204
     i32 3, label %221
@@ -16119,11 +16119,11 @@ _ZN5prost8encoding13decode_varint17h47157dda86746f37E.exit: ; preds = %156
     i32 256, label %235
   ]
 
-187:                                              ; preds = %185
-  %188 = call noundef align 8 ptr @_ZN5prost8encoding10skip_field17h6a8f26ebdf979806E(i8 noundef %.sroa.11.8.extract.trunc, i32 noundef %186, ptr noalias noundef nonnull align 8 dereferenceable(8) %30, i32 noundef 100), !noalias !1680
+187:                                              ; preds = %186
+  %188 = call noundef align 8 ptr @_ZN5prost8encoding10skip_field17h6a8f26ebdf979806E(i8 noundef %.sroa.11.8.extract.trunc, i32 noundef %180, ptr noalias noundef nonnull align 8 dereferenceable(8) %30, i32 noundef 100), !noalias !1680
   br label %"_ZN59_$LT$proto..Envelope$u20$as$u20$prost..message..Message$GT$11merge_field17h1c849390a9cb4c63E.exit"
 
-189:                                              ; preds = %185
+189:                                              ; preds = %186
   call void @llvm.experimental.noalias.scope.decl(metadata !1683)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1686
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1686
@@ -16181,7 +16181,7 @@ _ZN5prost8encoding6uint325merge17h60ad18543922f3e8E.exit23: ; preds = %196
   %203 = icmp eq ptr %199, null
   br i1 %203, label %"_ZN59_$LT$proto..Envelope$u20$as$u20$prost..message..Message$GT$11merge_field17h1c849390a9cb4c63E.exit", label %.loopexit64
 
-204:                                              ; preds = %185
+204:                                              ; preds = %186
   %205 = load i32, ptr %32, align 8, !range !211, !alias.scope !1689, !noalias !1692, !noundef !13
   %trunc.i.i = trunc nuw i32 %205 to i1
   br i1 %trunc.i.i, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he7e8bab8a695cd8eE.llvm.17923508281735383458.exit.i", label %206
@@ -16249,7 +16249,7 @@ _ZN5prost8encoding6uint325merge17h60ad18543922f3e8E.exit: ; preds = %213
   %220 = icmp eq ptr %216, null
   br i1 %220, label %"_ZN59_$LT$proto..Envelope$u20$as$u20$prost..message..Message$GT$11merge_field17h1c849390a9cb4c63E.exit", label %.loopexit63
 
-221:                                              ; preds = %185
+221:                                              ; preds = %186
   call void @llvm.experimental.noalias.scope.decl(metadata !1700)
   %222 = load i32, ptr %31, align 8, !range !211, !alias.scope !1703, !noalias !1692, !noundef !13
   %trunc.i9.i = trunc nuw i32 %222 to i1
@@ -16309,8 +16309,8 @@ _ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit: ; preds = %"_ZN4core6
   %234 = icmp eq ptr %233, null
   br i1 %234, label %"_ZN59_$LT$proto..Envelope$u20$as$u20$prost..message..Message$GT$11merge_field17h1c849390a9cb4c63E.exit", label %.loopexit62
 
-235:                                              ; preds = %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185
-  %236 = call noundef align 8 ptr @_ZN5proto8envelope7Payload5merge17h14193363d2a6f642E(ptr noalias noundef nonnull align 8 dereferenceable(408) %0, i32 noundef %186, i8 noundef %.sroa.11.8.extract.trunc, ptr noalias noundef nonnull align 8 dereferenceable(8) %30, i32 noundef 100)
+235:                                              ; preds = %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186
+  %236 = call noundef align 8 ptr @_ZN5proto8envelope7Payload5merge17h14193363d2a6f642E(ptr noalias noundef nonnull align 8 dereferenceable(408) %0, i32 noundef %180, i8 noundef %.sroa.11.8.extract.trunc, ptr noalias noundef nonnull align 8 dereferenceable(8) %30, i32 noundef 100)
   %.not.i = icmp eq ptr %236, null
   br i1 %.not.i, label %"_ZN59_$LT$proto..Envelope$u20$as$u20$prost..message..Message$GT$11merge_field17h1c849390a9cb4c63E.exit", label %252
 
@@ -16418,8 +16418,8 @@ common.resume:                                    ; preds = %253, %247, %242, %2
   %258 = icmp eq ptr %.sroa.0.0.i10, null
   br i1 %258, label %35, label %"_ZN59_$LT$proto..Envelope$u20$as$u20$prost..message..Message$GT$11merge_field17h1c849390a9cb4c63E.exit.thread"
 
-.loopexit:                                        ; preds = %_ZN5prost8encoding13decode_varint17h47157dda86746f37E.exit, %_ZN5prost8encoding13decode_varint17h47157dda86746f37E.exit.thread32, %183, %181, %176
-  %.sroa.11.1 = phi ptr [ %177, %176 ], [ %184, %183 ], [ %182, %181 ], [ %163, %_ZN5prost8encoding13decode_varint17h47157dda86746f37E.exit.thread32 ], [ %167, %_ZN5prost8encoding13decode_varint17h47157dda86746f37E.exit ]
+.loopexit:                                        ; preds = %_ZN5prost8encoding13decode_varint17h47157dda86746f37E.exit, %_ZN5prost8encoding13decode_varint17h47157dda86746f37E.exit.thread32, %184, %182, %176
+  %.sroa.11.1 = phi ptr [ %177, %176 ], [ %185, %184 ], [ %183, %182 ], [ %163, %_ZN5prost8encoding13decode_varint17h47157dda86746f37E.exit.thread32 ], [ %167, %_ZN5prost8encoding13decode_varint17h47157dda86746f37E.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !1638
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %259 = icmp ne ptr %.sroa.11.1, null

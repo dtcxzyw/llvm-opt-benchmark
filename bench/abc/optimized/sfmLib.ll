@@ -1158,7 +1158,7 @@ define i64 @Sfm_LibTruth6Two(ptr noundef readonly captures(none) %0, ptr noundef
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = lshr i32 %12, 28
-  %.not = icmp ult i32 %12, 268435456
+  %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
@@ -1401,7 +1401,7 @@ define void @Sfm_LibTruth8Two(ptr noundef readonly captures(none) %0, ptr nounde
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i32, ptr %14, align 8
   %16 = lshr i32 %15, 28
-  %.not = icmp ult i32 %15, 268435456
+  %.not = icmp eq i32 %16, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %4
@@ -3341,7 +3341,7 @@ Abc_Tt6IsOrType.exit.thread:                      ; preds = %Abc_Tt6IsAndType.ex
   %79 = getelementptr inbounds nuw i8, ptr %.1264, i64 16
   %80 = load i32, ptr %79, align 8
   %81 = lshr i32 %80, 28
-  %.not = icmp ult i32 %80, 268435456
+  %.not = icmp eq i32 %81, 0
   br i1 %.not, label %._crit_edge259, label %.lr.ph258.preheader
 
 .lr.ph258.preheader:                              ; preds = %78
@@ -3556,7 +3556,7 @@ Abc_TtSwapAdjacent.exit:                          ; preds = %._crit_edge.us.i, %
   %180 = lshr i32 %175, 28
   %181 = add nuw nsw i32 %179, %180
   %.not150 = icmp sgt i32 %181, %162
-  %.not291 = icmp ult i32 %175, 268435456
+  %.not291 = icmp eq i32 %180, 0
   %or.cond = or i1 %.not150, %.not291
   br i1 %or.cond, label %.loopexit, label %.lr.ph277
 
@@ -3607,7 +3607,7 @@ Abc_TtSwapAdjacent.exit:                          ; preds = %._crit_edge.us.i, %
   call fastcc void @Exp_Truth8(i32 noundef %196, i32 %.val.i, ptr %.val15.i, ptr noundef null, ptr noundef nonnull %8)
   %200 = load i32, ptr %174, align 8
   %201 = lshr i32 %200, 28
-  %.not.i = icmp ult i32 %200, 268435456
+  %.not.i = icmp eq i32 %201, 0
   br i1 %.not.i, label %Sfm_LibTruth8Two.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %195
@@ -3825,7 +3825,7 @@ Exp_Truth6.exit231:                               ; preds = %Exp_Truth6Lit.exit3
   %302 = phi i32 [ %184, %Exp_Truth6Lit.exit36.i209 ], [ %.pre, %301 ]
   %.0.i3340.i213 = phi i64 [ %.0.i33.i210, %Exp_Truth6Lit.exit36.i209 ], [ %.0.i3339.i212, %301 ]
   %303 = lshr i32 %302, 28
-  %.not.i167 = icmp ult i32 %302, 268435456
+  %.not.i167 = icmp eq i32 %303, 0
   br i1 %.not.i167, label %Sfm_LibTruth6Two.exit, label %.lr.ph.preheader.i168
 
 .lr.ph.preheader.i168:                            ; preds = %Exp_Truth6.exit231

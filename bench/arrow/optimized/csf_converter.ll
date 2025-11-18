@@ -463,7 +463,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: 
   unreachable
 
 _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %116
-  %.not.i.i.i.i220.i = icmp ult i64 %sext.i, 4294967296
+  %.not.i.i.i.i220.i = icmp eq i64 %92, 0
   br i1 %.not.i.i.i.i220.i, label %_ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit241.i, label %131
 
 131:                                              ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i
@@ -1261,7 +1261,7 @@ _ZNSt6vectorIlSaIlEEC2IN9__gnu_cxx17__normal_iteratorIPlS1_EEvEET_S7_RKS0_.exit.
   %433 = getelementptr inbounds nuw i8, ptr %25, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false), !noalias !21
   store ptr %432, ptr %433, align 8, !tbaa !136, !noalias !21
-  br label %_ZNSt6vectorIlSaIlEEC2ERKS1_.exit.i
+  br label %.lr.ph633.preheader.i
 
 434:                                              ; preds = %_ZNSt6vectorIlSaIlEEC2IN9__gnu_cxx17__normal_iteratorIPlS1_EEvEET_S7_RKS0_.exit.i
   %435 = icmp ugt i64 %430, 9223372036854775800
@@ -1286,21 +1286,21 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %434
   %440 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr %439, ptr %440, align 8, !tbaa !136, !noalias !21
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %436, ptr align 8 %.sroa.0441.0490504.i, i64 %430, i1 false)
-  br label %_ZNSt6vectorIlSaIlEEC2ERKS1_.exit.i
+  br label %.lr.ph633.preheader.i
 
-_ZNSt6vectorIlSaIlEEC2ERKS1_.exit.i:              ; preds = %437, %.noexc294.thread.i
+.lr.ph633.preheader.i:                            ; preds = %437, %.noexc294.thread.i
   %441 = phi ptr [ %433, %.noexc294.thread.i ], [ %440, %437 ]
   %442 = phi ptr [ %432, %.noexc294.thread.i ], [ %439, %437 ]
   %443 = phi ptr [ %431, %.noexc294.thread.i ], [ %438, %437 ]
   store ptr %442, ptr %443, align 8, !tbaa !51, !noalias !21
-  br i1 %.not.i.i.i.i220.i, label %.critedge210.preheader.i, label %.lr.ph633.i
+  br label %.lr.ph633.i
 
 444:                                              ; preds = %_ZN5arrow6StatusD2Ev.exit296.i
   %445 = add nuw nsw i64 %.0108632.i, 1
   %exitcond663.not.i = icmp eq i64 %445, %92
   br i1 %exitcond663.not.i, label %.critedge210.preheader.i, label %.lr.ph633.i, !llvm.loop !137
 
-.critedge210.preheader.i:                         ; preds = %444, %_ZNSt6vectorIlSaIlEEC2ERKS1_.exit.i
+.critedge210.preheader.i:                         ; preds = %444
   br i1 %.not.i.i.i.i277.i, label %.critedge213.i, label %.lr.ph636.preheader.i
 
 .lr.ph636.preheader.i:                            ; preds = %.critedge210.preheader.i
@@ -1322,8 +1322,8 @@ _ZNSt6vectorIlSaIlEEC2ERKS1_.exit.i:              ; preds = %437, %.noexc294.thr
           cleanup
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit343.i
 
-.lr.ph633.i:                                      ; preds = %_ZNSt6vectorIlSaIlEEC2ERKS1_.exit.i, %444
-  %.0108632.i = phi i64 [ %445, %444 ], [ 0, %_ZNSt6vectorIlSaIlEEC2ERKS1_.exit.i ]
+.lr.ph633.i:                                      ; preds = %444, %.lr.ph633.preheader.i
+  %.0108632.i = phi i64 [ %445, %444 ], [ 0, %.lr.ph633.preheader.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !21
   %452 = load ptr, ptr %20, align 8, !tbaa !81, !noalias !21
   %453 = getelementptr inbounds nuw %"class.arrow::BufferBuilder", ptr %452, i64 %.0108632.i
@@ -4426,7 +4426,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 64:                                               ; preds = %57
   %65 = getelementptr inbounds i64, ptr %0, i64 %.019.i.i.i.i.i
   store i64 %59, ptr %65, align 8, !tbaa !56
-  %.not10.i.i.i = icmp ult i64 %.0920.in.i.i.i.i.i, 2
+  %.not10.i.i.i = icmp eq i64 %.0920.i.i89.i.i.i, 0
   br i1 %.not10.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal7ArgSortIlSt4lessIlEEES5_RKS3_IT_SaISE_EEOT0_EUlllE_EEEvSE_SE_SE_RSJ_.exit.i.i, label %57, !llvm.loop !259
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal7ArgSortIlSt4lessIlEEES5_RKS3_IT_SaISE_EEOT0_EUlllE_EEEvSE_SE_SE_RSJ_.exit.i.i: ; preds = %64, %57, %54
@@ -4812,7 +4812,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPlS
 56:                                               ; preds = %.lr.ph.i.i.i.us
   %57 = getelementptr inbounds i64, ptr %.fr26, i64 %.019.i.i.i.us
   store i64 %51, ptr %57, align 8, !tbaa !56
-  %.not10.i.us = icmp ult i64 %.0920.in.i.i.i.us, 2
+  %.not10.i.us = icmp eq i64 %.0920.i.i89.i.us, 0
   br i1 %.not10.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal7ArgSortIlSt4lessIlEEES5_RKS3_IT_SaISE_EEOT0_EUlllE_EEEvSE_SE_SE_RSJ_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !259
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal7ArgSortIlSt4lessIlEEES5_RKS3_IT_SaISE_EEOT0_EUlllE_EEEvSE_SE_SE_RSJ_.exit.us: ; preds = %.lr.ph.i.i.i.us, %56, %48

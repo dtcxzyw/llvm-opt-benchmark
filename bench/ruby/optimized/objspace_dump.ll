@@ -532,7 +532,7 @@ RB_SYMBOL_P.exit.thread15.i:                      ; preds = %RB_SYMBOL_P.exit.i,
   %64 = getelementptr inbounds i8, ptr %.01113.i.i, i64 -1
   store i8 %63, ptr %64, align 1, !tbaa !34
   %65 = lshr i64 %.014.i.i, 4
-  %.not.i.i = icmp ult i64 %.014.i.i, 16
+  %.not.i.i = icmp eq i64 %65, 0
   br i1 %.not.i.i, label %dump_append_ref.exit, label %.lr.ph.i.i, !llvm.loop !35
 
 dump_append_ref.exit:                             ; preds = %.lr.ph.i.i
@@ -595,7 +595,7 @@ obj_type.exit232:                                 ; preds = %dump_append_ref.exi
   %88 = getelementptr inbounds i8, ptr %.01113.i.i236, i64 -1
   store i8 %87, ptr %88, align 1, !tbaa !34
   %89 = lshr i64 %.014.i.i235, 4
-  %.not.i.i237 = icmp ult i64 %.014.i.i235, 16
+  %.not.i.i237 = icmp eq i64 %89, 0
   br i1 %.not.i.i237, label %dump_append_ref.exit239, label %.lr.ph.i.i234, !llvm.loop !35
 
 dump_append_ref.exit239:                          ; preds = %.lr.ph.i.i234, %82
@@ -1428,7 +1428,7 @@ define internal fastcc void @dump_append_ref(ptr noundef %0, i64 noundef %1) unn
   %8 = getelementptr inbounds i8, ptr %.01113.i, i64 -1
   store i8 %7, ptr %8, align 1, !tbaa !34
   %9 = lshr i64 %.014.i, 4
-  %.not.i = icmp ult i64 %.014.i, 16
+  %.not.i = icmp eq i64 %9, 0
   br i1 %.not.i, label %dump_append_ptr.exit, label %.lr.ph.i, !llvm.loop !35
 
 dump_append_ptr.exit:                             ; preds = %.lr.ph.i, %2
@@ -2208,7 +2208,7 @@ define internal void @reachable_object_i(i64 noundef %0, ptr noundef %1) #0 {
   %17 = getelementptr inbounds i8, ptr %.01113.i.i, i64 -1
   store i8 %16, ptr %17, align 1, !tbaa !34
   %18 = lshr i64 %.014.i.i, 4
-  %.not.i.i = icmp ult i64 %.014.i.i, 16
+  %.not.i.i = icmp eq i64 %18, 0
   br i1 %.not.i.i, label %dump_append_ref.exit, label %.lr.ph.i.i, !llvm.loop !35
 
 dump_append_ref.exit:                             ; preds = %.lr.ph.i.i, %12
@@ -2243,7 +2243,7 @@ dump_append_ref.exit:                             ; preds = %.lr.ph.i.i, %12
   %31 = getelementptr inbounds i8, ptr %.01113.i.i13, i64 -1
   store i8 %30, ptr %31, align 1, !tbaa !34
   %32 = lshr i64 %.014.i.i12, 4
-  %.not.i.i14 = icmp ult i64 %.014.i.i12, 16
+  %.not.i.i14 = icmp eq i64 %32, 0
   br i1 %.not.i.i14, label %dump_append_ref.exit16, label %.lr.ph.i.i11, !llvm.loop !35
 
 dump_append_ref.exit16:                           ; preds = %.lr.ph.i.i11, %26
@@ -2355,7 +2355,7 @@ define internal void @root_obj_i(ptr noundef %0, i64 noundef %1, ptr noundef %2)
   %18 = getelementptr inbounds i8, ptr %.01113.i.i, i64 -1
   store i8 %17, ptr %18, align 1, !tbaa !34
   %19 = lshr i64 %.014.i.i, 4
-  %.not.i.i = icmp ult i64 %.014.i.i, 16
+  %.not.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i, label %dump_append_ref.exit, label %.lr.ph.i.i, !llvm.loop !35
 
 dump_append_ref.exit:                             ; preds = %.lr.ph.i.i, %12
@@ -2391,7 +2391,7 @@ dump_append_ref.exit:                             ; preds = %.lr.ph.i.i, %12
   %32 = getelementptr inbounds i8, ptr %.01113.i.i27, i64 -1
   store i8 %31, ptr %32, align 1, !tbaa !34
   %33 = lshr i64 %.014.i.i26, 4
-  %.not.i.i28 = icmp ult i64 %.014.i.i26, 16
+  %.not.i.i28 = icmp eq i64 %33, 0
   br i1 %.not.i.i28, label %dump_append_ref.exit30, label %.lr.ph.i.i25, !llvm.loop !35
 
 dump_append_ref.exit30:                           ; preds = %.lr.ph.i.i25, %27
@@ -2452,7 +2452,7 @@ define internal void @shape_i(ptr noundef %0, ptr noundef %1) #0 {
   %15 = getelementptr inbounds i8, ptr %.01113.i.i, i64 -1
   store i8 %14, ptr %15, align 1, !tbaa !34
   %16 = lshr i64 %.014.i.i, 4
-  %.not.i.i = icmp ult i64 %.014.i.i, 16
+  %.not.i.i = icmp eq i64 %16, 0
   br i1 %.not.i.i, label %dump_append_ref.exit, label %.lr.ph.i.i, !llvm.loop !35
 
 dump_append_ref.exit:                             ; preds = %.lr.ph.i.i, %9

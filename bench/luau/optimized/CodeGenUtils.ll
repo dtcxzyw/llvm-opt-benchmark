@@ -1430,7 +1430,7 @@ define dso_local noundef ptr @_ZN4Luau7CodeGen14executeSETLISTEP9lua_StatePKjP10
   %17 = add nsw i32 %16, -1
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load i32, ptr %6, align 4, !tbaa !18
-  %20 = icmp ult i32 %7, 16777216
+  %20 = icmp eq i32 %16, 0
   br i1 %20, label %21, label %32
 
 21:                                               ; preds = %4

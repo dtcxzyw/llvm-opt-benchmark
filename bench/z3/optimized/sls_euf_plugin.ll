@@ -3540,9 +3540,9 @@ _ZNK6vectorIP3appLb0EjE4sizeEv.exit:              ; preds = %35
   %.idx.i = shl nuw nsw i64 %50, 4
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx.i
   %.not11.i = icmp eq i32 %49, 0
-  br i1 %.not11.i, label %_ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5_8value_eqEE5resetEv.exit.thread151, label %.lr.ph.i
+  br i1 %.not11.i, label %_ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5_8value_eqEE5resetEv.exit.thread152, label %.lr.ph.i
 
-_ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5_8value_eqEE5resetEv.exit.thread151: ; preds = %47
+_ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5_8value_eqEE5resetEv.exit.thread152: ; preds = %47
   store i32 0, ptr %22, align 4, !tbaa !30
   store i32 0, ptr %23, align 8, !tbaa !31
   br label %_ZN6vectorIP3appLb0EjE3endEv.exit
@@ -3574,8 +3574,8 @@ _ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5
   %61 = icmp ugt i32 %49, 16
   %62 = mul i32 %49, 3
   %63 = icmp ugt i32 %60, %62
-  %or.cond18.i = select i1 %61, i1 %63, i1 false
-  br i1 %or.cond18.i, label %64, label %_ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5_8value_eqEE5resetEv.exit
+  %or.cond19.i = select i1 %61, i1 %63, i1 false
+  br i1 %or.cond19.i, label %64, label %_ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5_8value_eqEE5resetEv.exit
 
 64:                                               ; preds = %._crit_edge.i
   %65 = icmp eq ptr %48, null
@@ -3594,7 +3594,7 @@ _ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5
   %69 = zext nneg i32 %68 to i64
   %70 = shl nuw nsw i64 %69, 4
   %71 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %70)
-  %.not6.i.i.i.i.i.i = icmp ult i32 %67, 2
+  %.not6.i.i.i.i.i.i = icmp eq i32 %68, 0
   br i1 %.not6.i.i.i.i.i.i, label %_ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5_8value_eqEE11alloc_tableEj.exit.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5_8value_eqEE12delete_tableEv.exit.i, %.lr.ph.i.i.i.i.i.i
@@ -3620,8 +3620,8 @@ _ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5
   %75 = icmp eq ptr %.pre, null
   br i1 %75, label %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.thread, label %_ZN6vectorIP3appLb0EjE3endEv.exit
 
-_ZN6vectorIP3appLb0EjE3endEv.exit:                ; preds = %42, %_ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5_8value_eqEE5resetEv.exit, %_ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5_8value_eqEE5resetEv.exit.thread151
-  %76 = phi ptr [ %.pre, %_ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5_8value_eqEE5resetEv.exit ], [ %37, %_ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5_8value_eqEE5resetEv.exit.thread151 ], [ %37, %42 ]
+_ZN6vectorIP3appLb0EjE3endEv.exit:                ; preds = %42, %_ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5_8value_eqEE5resetEv.exit, %_ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5_8value_eqEE5resetEv.exit.thread152
+  %76 = phi ptr [ %.pre, %_ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5_8value_eqEE5resetEv.exit ], [ %37, %_ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5_8value_eqEE5resetEv.exit.thread152 ], [ %37, %42 ]
   %77 = getelementptr inbounds i8, ptr %76, i64 -4
   %78 = load i32, ptr %77, align 4, !tbaa !72
   %79 = zext i32 %78 to i64
@@ -4827,9 +4827,9 @@ _ZNK6vectorIP3appLb0EjE4sizeEv.exit:              ; preds = %58
   %.idx.i = shl nuw nsw i64 %73, 4
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 %.idx.i
   %.not11.i = icmp eq i32 %72, 0
-  br i1 %.not11.i, label %_ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5_8value_eqEE5resetEv.exit.thread399, label %.lr.ph.i
+  br i1 %.not11.i, label %_ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5_8value_eqEE5resetEv.exit.thread400, label %.lr.ph.i
 
-_ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5_8value_eqEE5resetEv.exit.thread399: ; preds = %70
+_ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5_8value_eqEE5resetEv.exit.thread400: ; preds = %70
   store i32 0, ptr %29, align 4, !tbaa !30
   store i32 0, ptr %30, align 8, !tbaa !31
   br label %_ZN6vectorIP3appLb0EjE3endEv.exit
@@ -4861,8 +4861,8 @@ _ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5
   %84 = icmp ugt i32 %72, 16
   %85 = mul i32 %72, 3
   %86 = icmp ugt i32 %83, %85
-  %or.cond18.i = select i1 %84, i1 %86, i1 false
-  br i1 %or.cond18.i, label %87, label %_ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5_8value_eqEE5resetEv.exit
+  %or.cond19.i = select i1 %84, i1 %86, i1 false
+  br i1 %or.cond19.i, label %87, label %_ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5_8value_eqEE5resetEv.exit
 
 87:                                               ; preds = %._crit_edge.i
   %88 = icmp eq ptr %71, null
@@ -4881,7 +4881,7 @@ _ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5
   %92 = zext nneg i32 %91 to i64
   %93 = shl nuw nsw i64 %92, 4
   %94 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %93)
-  %.not6.i.i.i.i.i.i = icmp ult i32 %90, 2
+  %.not6.i.i.i.i.i.i = icmp eq i32 %91, 0
   br i1 %.not6.i.i.i.i.i.i, label %_ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5_8value_eqEE11alloc_tableEj.exit.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5_8value_eqEE12delete_tableEv.exit.i, %.lr.ph.i.i.i.i.i.i
@@ -4907,8 +4907,8 @@ _ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5
   %98 = icmp eq ptr %.pre, null
   br i1 %98, label %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.thread, label %_ZN6vectorIP3appLb0EjE3endEv.exit
 
-_ZN6vectorIP3appLb0EjE3endEv.exit:                ; preds = %65, %_ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5_8value_eqEE5resetEv.exit, %_ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5_8value_eqEE5resetEv.exit.thread399
-  %99 = phi ptr [ %.pre, %_ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5_8value_eqEE5resetEv.exit ], [ %60, %_ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5_8value_eqEE5resetEv.exit.thread399 ], [ %60, %65 ]
+_ZN6vectorIP3appLb0EjE3endEv.exit:                ; preds = %65, %_ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5_8value_eqEE5resetEv.exit, %_ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5_8value_eqEE5resetEv.exit.thread400
+  %99 = phi ptr [ %.pre, %_ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5_8value_eqEE5resetEv.exit ], [ %60, %_ZN14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS5_8value_eqEE5resetEv.exit.thread400 ], [ %60, %65 ]
   %100 = getelementptr inbounds i8, ptr %99, i64 -4
   %101 = load i32, ptr %100, align 4, !tbaa !72
   %102 = zext i32 %101 to i64

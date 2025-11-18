@@ -4109,7 +4109,7 @@ define dso_local void @free_aligned_sized(ptr noundef %0, i64 noundef %1, i64 no
   %7 = lshr i64 %1, 32
   %8 = trunc nuw i64 %7 to i32
   %cttz = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %8, i1 true)
-  %.not = icmp ult i64 %1, 4294967296
+  %.not = icmp eq i64 %7, 0
   %9 = or disjoint i32 %cttz, 32
   %10 = select i1 %.not, i32 31, i32 %9
   br label %.split.i.i

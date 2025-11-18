@@ -320,21 +320,18 @@ define internal void @h2v2_merged_upsample(ptr noundef readonly captures(none) %
   %40 = load ptr, ptr %39, align 8, !tbaa !66
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %42 = load i32, ptr %41, align 8, !tbaa !45
-  %.not.i156 = icmp ult i32 %42, 2
-  br i1 %.not.i156, label %._crit_edge166, label %.lr.ph165.preheader
-
-.lr.ph165.preheader:                              ; preds = %7
   %43 = lshr i32 %42, 1
-  br label %.lr.ph165
+  %.not.i156 = icmp eq i32 %43, 0
+  br i1 %.not.i156, label %._crit_edge166, label %.lr.ph165
 
-.lr.ph165:                                        ; preds = %.lr.ph165.preheader, %.lr.ph165
-  %.0.i163 = phi i32 [ %133, %.lr.ph165 ], [ %43, %.lr.ph165.preheader ]
-  %.0121.i162 = phi ptr [ %46, %.lr.ph165 ], [ %37, %.lr.ph165.preheader ]
-  %.0122.i161 = phi ptr [ %44, %.lr.ph165 ], [ %33, %.lr.ph165.preheader ]
-  %.0123.i160 = phi ptr [ %115, %.lr.ph165 ], [ %28, %.lr.ph165.preheader ]
-  %.0124.i159 = phi ptr [ %79, %.lr.ph165 ], [ %24, %.lr.ph165.preheader ]
-  %.0125.i158 = phi ptr [ %132, %.lr.ph165 ], [ %40, %.lr.ph165.preheader ]
-  %.0126.i157 = phi ptr [ %96, %.lr.ph165 ], [ %38, %.lr.ph165.preheader ]
+.lr.ph165:                                        ; preds = %7, %.lr.ph165
+  %.0.i163 = phi i32 [ %133, %.lr.ph165 ], [ %43, %7 ]
+  %.0121.i162 = phi ptr [ %46, %.lr.ph165 ], [ %37, %7 ]
+  %.0122.i161 = phi ptr [ %44, %.lr.ph165 ], [ %33, %7 ]
+  %.0123.i160 = phi ptr [ %115, %.lr.ph165 ], [ %28, %7 ]
+  %.0124.i159 = phi ptr [ %79, %.lr.ph165 ], [ %24, %7 ]
+  %.0125.i158 = phi ptr [ %132, %.lr.ph165 ], [ %40, %7 ]
+  %.0126.i157 = phi ptr [ %96, %.lr.ph165 ], [ %38, %7 ]
   %44 = getelementptr inbounds nuw i8, ptr %.0122.i161, i64 1
   %45 = load i8, ptr %.0122.i161, align 1, !tbaa !34
   %46 = getelementptr inbounds nuw i8, ptr %.0121.i162, i64 1
@@ -548,21 +545,18 @@ define internal void @h2v2_merged_upsample(ptr noundef readonly captures(none) %
   %217 = load ptr, ptr %216, align 8, !tbaa !66
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %219 = load i32, ptr %218, align 8, !tbaa !45
-  %.not.i29139 = icmp ult i32 %219, 2
-  br i1 %.not.i29139, label %._crit_edge149, label %.lr.ph148.preheader
-
-.lr.ph148.preheader:                              ; preds = %184
   %220 = lshr i32 %219, 1
-  br label %.lr.ph148
+  %.not.i29139 = icmp eq i32 %220, 0
+  br i1 %.not.i29139, label %._crit_edge149, label %.lr.ph148
 
-.lr.ph148:                                        ; preds = %.lr.ph148.preheader, %.lr.ph148
-  %.0.i28146 = phi i32 [ %314, %.lr.ph148 ], [ %220, %.lr.ph148.preheader ]
-  %.0127.i145 = phi ptr [ %223, %.lr.ph148 ], [ %214, %.lr.ph148.preheader ]
-  %.0128.i144 = phi ptr [ %221, %.lr.ph148 ], [ %210, %.lr.ph148.preheader ]
-  %.0129.i143 = phi ptr [ %295, %.lr.ph148 ], [ %205, %.lr.ph148.preheader ]
-  %.0130.i142 = phi ptr [ %257, %.lr.ph148 ], [ %201, %.lr.ph148.preheader ]
-  %.0131.i141 = phi ptr [ %313, %.lr.ph148 ], [ %217, %.lr.ph148.preheader ]
-  %.0132.i140 = phi ptr [ %275, %.lr.ph148 ], [ %215, %.lr.ph148.preheader ]
+.lr.ph148:                                        ; preds = %184, %.lr.ph148
+  %.0.i28146 = phi i32 [ %314, %.lr.ph148 ], [ %220, %184 ]
+  %.0127.i145 = phi ptr [ %223, %.lr.ph148 ], [ %214, %184 ]
+  %.0128.i144 = phi ptr [ %221, %.lr.ph148 ], [ %210, %184 ]
+  %.0129.i143 = phi ptr [ %295, %.lr.ph148 ], [ %205, %184 ]
+  %.0130.i142 = phi ptr [ %257, %.lr.ph148 ], [ %201, %184 ]
+  %.0131.i141 = phi ptr [ %313, %.lr.ph148 ], [ %217, %184 ]
+  %.0132.i140 = phi ptr [ %275, %.lr.ph148 ], [ %215, %184 ]
   %221 = getelementptr inbounds nuw i8, ptr %.0128.i144, i64 1
   %222 = load i8, ptr %.0128.i144, align 1, !tbaa !34
   %223 = getelementptr inbounds nuw i8, ptr %.0127.i145, i64 1
@@ -788,21 +782,18 @@ define internal void @h2v2_merged_upsample(ptr noundef readonly captures(none) %
   %400 = load ptr, ptr %399, align 8, !tbaa !66
   %401 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %402 = load i32, ptr %401, align 8, !tbaa !45
-  %.not.i37122 = icmp ult i32 %402, 2
-  br i1 %.not.i37122, label %._crit_edge132, label %.lr.ph131.preheader
-
-.lr.ph131.preheader:                              ; preds = %367
   %403 = lshr i32 %402, 1
-  br label %.lr.ph131
+  %.not.i37122 = icmp eq i32 %403, 0
+  br i1 %.not.i37122, label %._crit_edge132, label %.lr.ph131
 
-.lr.ph131:                                        ; preds = %.lr.ph131.preheader, %.lr.ph131
-  %.0.i36129 = phi i32 [ %493, %.lr.ph131 ], [ %403, %.lr.ph131.preheader ]
-  %.0121.i35128 = phi ptr [ %406, %.lr.ph131 ], [ %397, %.lr.ph131.preheader ]
-  %.0122.i34127 = phi ptr [ %404, %.lr.ph131 ], [ %393, %.lr.ph131.preheader ]
-  %.0123.i33126 = phi ptr [ %475, %.lr.ph131 ], [ %388, %.lr.ph131.preheader ]
-  %.0124.i32125 = phi ptr [ %439, %.lr.ph131 ], [ %384, %.lr.ph131.preheader ]
-  %.0125.i31124 = phi ptr [ %492, %.lr.ph131 ], [ %400, %.lr.ph131.preheader ]
-  %.0126.i30123 = phi ptr [ %456, %.lr.ph131 ], [ %398, %.lr.ph131.preheader ]
+.lr.ph131:                                        ; preds = %367, %.lr.ph131
+  %.0.i36129 = phi i32 [ %493, %.lr.ph131 ], [ %403, %367 ]
+  %.0121.i35128 = phi ptr [ %406, %.lr.ph131 ], [ %397, %367 ]
+  %.0122.i34127 = phi ptr [ %404, %.lr.ph131 ], [ %393, %367 ]
+  %.0123.i33126 = phi ptr [ %475, %.lr.ph131 ], [ %388, %367 ]
+  %.0124.i32125 = phi ptr [ %439, %.lr.ph131 ], [ %384, %367 ]
+  %.0125.i31124 = phi ptr [ %492, %.lr.ph131 ], [ %400, %367 ]
+  %.0126.i30123 = phi ptr [ %456, %.lr.ph131 ], [ %398, %367 ]
   %404 = getelementptr inbounds nuw i8, ptr %.0122.i34127, i64 1
   %405 = load i8, ptr %.0122.i34127, align 1, !tbaa !34
   %406 = getelementptr inbounds nuw i8, ptr %.0121.i35128, i64 1
@@ -1016,21 +1007,18 @@ define internal void @h2v2_merged_upsample(ptr noundef readonly captures(none) %
   %577 = load ptr, ptr %576, align 8, !tbaa !66
   %578 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %579 = load i32, ptr %578, align 8, !tbaa !45
-  %.not.i46105 = icmp ult i32 %579, 2
-  br i1 %.not.i46105, label %._crit_edge115, label %.lr.ph114.preheader
-
-.lr.ph114.preheader:                              ; preds = %544
   %580 = lshr i32 %579, 1
-  br label %.lr.ph114
+  %.not.i46105 = icmp eq i32 %580, 0
+  br i1 %.not.i46105, label %._crit_edge115, label %.lr.ph114
 
-.lr.ph114:                                        ; preds = %.lr.ph114.preheader, %.lr.ph114
-  %.0.i45112 = phi i32 [ %674, %.lr.ph114 ], [ %580, %.lr.ph114.preheader ]
-  %.0127.i44111 = phi ptr [ %583, %.lr.ph114 ], [ %574, %.lr.ph114.preheader ]
-  %.0128.i43110 = phi ptr [ %581, %.lr.ph114 ], [ %570, %.lr.ph114.preheader ]
-  %.0129.i42109 = phi ptr [ %655, %.lr.ph114 ], [ %565, %.lr.ph114.preheader ]
-  %.0130.i41108 = phi ptr [ %617, %.lr.ph114 ], [ %561, %.lr.ph114.preheader ]
-  %.0131.i40107 = phi ptr [ %673, %.lr.ph114 ], [ %577, %.lr.ph114.preheader ]
-  %.0132.i39106 = phi ptr [ %635, %.lr.ph114 ], [ %575, %.lr.ph114.preheader ]
+.lr.ph114:                                        ; preds = %544, %.lr.ph114
+  %.0.i45112 = phi i32 [ %674, %.lr.ph114 ], [ %580, %544 ]
+  %.0127.i44111 = phi ptr [ %583, %.lr.ph114 ], [ %574, %544 ]
+  %.0128.i43110 = phi ptr [ %581, %.lr.ph114 ], [ %570, %544 ]
+  %.0129.i42109 = phi ptr [ %655, %.lr.ph114 ], [ %565, %544 ]
+  %.0130.i41108 = phi ptr [ %617, %.lr.ph114 ], [ %561, %544 ]
+  %.0131.i40107 = phi ptr [ %673, %.lr.ph114 ], [ %577, %544 ]
+  %.0132.i39106 = phi ptr [ %635, %.lr.ph114 ], [ %575, %544 ]
   %581 = getelementptr inbounds nuw i8, ptr %.0128.i43110, i64 1
   %582 = load i8, ptr %.0128.i43110, align 1, !tbaa !34
   %583 = getelementptr inbounds nuw i8, ptr %.0127.i44111, i64 1
@@ -1256,21 +1244,18 @@ define internal void @h2v2_merged_upsample(ptr noundef readonly captures(none) %
   %760 = load ptr, ptr %759, align 8, !tbaa !66
   %761 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %762 = load i32, ptr %761, align 8, !tbaa !45
-  %.not.i5588 = icmp ult i32 %762, 2
-  br i1 %.not.i5588, label %._crit_edge98, label %.lr.ph97.preheader
-
-.lr.ph97.preheader:                               ; preds = %727
   %763 = lshr i32 %762, 1
-  br label %.lr.ph97
+  %.not.i5588 = icmp eq i32 %763, 0
+  br i1 %.not.i5588, label %._crit_edge98, label %.lr.ph97
 
-.lr.ph97:                                         ; preds = %.lr.ph97.preheader, %.lr.ph97
-  %.0.i5495 = phi i32 [ %857, %.lr.ph97 ], [ %763, %.lr.ph97.preheader ]
-  %.0127.i5394 = phi ptr [ %766, %.lr.ph97 ], [ %757, %.lr.ph97.preheader ]
-  %.0128.i5293 = phi ptr [ %764, %.lr.ph97 ], [ %753, %.lr.ph97.preheader ]
-  %.0129.i5192 = phi ptr [ %838, %.lr.ph97 ], [ %748, %.lr.ph97.preheader ]
-  %.0130.i5091 = phi ptr [ %800, %.lr.ph97 ], [ %744, %.lr.ph97.preheader ]
-  %.0131.i4990 = phi ptr [ %856, %.lr.ph97 ], [ %760, %.lr.ph97.preheader ]
-  %.0132.i4889 = phi ptr [ %818, %.lr.ph97 ], [ %758, %.lr.ph97.preheader ]
+.lr.ph97:                                         ; preds = %727, %.lr.ph97
+  %.0.i5495 = phi i32 [ %857, %.lr.ph97 ], [ %763, %727 ]
+  %.0127.i5394 = phi ptr [ %766, %.lr.ph97 ], [ %757, %727 ]
+  %.0128.i5293 = phi ptr [ %764, %.lr.ph97 ], [ %753, %727 ]
+  %.0129.i5192 = phi ptr [ %838, %.lr.ph97 ], [ %748, %727 ]
+  %.0130.i5091 = phi ptr [ %800, %.lr.ph97 ], [ %744, %727 ]
+  %.0131.i4990 = phi ptr [ %856, %.lr.ph97 ], [ %760, %727 ]
+  %.0132.i4889 = phi ptr [ %818, %.lr.ph97 ], [ %758, %727 ]
   %764 = getelementptr inbounds nuw i8, ptr %.0128.i5293, i64 1
   %765 = load i8, ptr %.0128.i5293, align 1, !tbaa !34
   %766 = getelementptr inbounds nuw i8, ptr %.0127.i5394, i64 1
@@ -1496,21 +1481,18 @@ define internal void @h2v2_merged_upsample(ptr noundef readonly captures(none) %
   %943 = load ptr, ptr %942, align 8, !tbaa !66
   %944 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %945 = load i32, ptr %944, align 8, !tbaa !45
-  %.not.i6475 = icmp ult i32 %945, 2
-  br i1 %.not.i6475, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %910
   %946 = lshr i32 %945, 1
-  br label %.lr.ph
+  %.not.i6475 = icmp eq i32 %946, 0
+  br i1 %.not.i6475, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0.i6382 = phi i32 [ %1040, %.lr.ph ], [ %946, %.lr.ph.preheader ]
-  %.0127.i6281 = phi ptr [ %949, %.lr.ph ], [ %940, %.lr.ph.preheader ]
-  %.0128.i6180 = phi ptr [ %947, %.lr.ph ], [ %936, %.lr.ph.preheader ]
-  %.0129.i6079 = phi ptr [ %1021, %.lr.ph ], [ %931, %.lr.ph.preheader ]
-  %.0130.i5978 = phi ptr [ %983, %.lr.ph ], [ %927, %.lr.ph.preheader ]
-  %.0131.i5877 = phi ptr [ %1039, %.lr.ph ], [ %943, %.lr.ph.preheader ]
-  %.0132.i5776 = phi ptr [ %1001, %.lr.ph ], [ %941, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %910, %.lr.ph
+  %.0.i6382 = phi i32 [ %1040, %.lr.ph ], [ %946, %910 ]
+  %.0127.i6281 = phi ptr [ %949, %.lr.ph ], [ %940, %910 ]
+  %.0128.i6180 = phi ptr [ %947, %.lr.ph ], [ %936, %910 ]
+  %.0129.i6079 = phi ptr [ %1021, %.lr.ph ], [ %931, %910 ]
+  %.0130.i5978 = phi ptr [ %983, %.lr.ph ], [ %927, %910 ]
+  %.0131.i5877 = phi ptr [ %1039, %.lr.ph ], [ %943, %910 ]
+  %.0132.i5776 = phi ptr [ %1001, %.lr.ph ], [ %941, %910 ]
   %947 = getelementptr inbounds nuw i8, ptr %.0128.i6180, i64 1
   %948 = load i8, ptr %.0128.i6180, align 1, !tbaa !34
   %949 = getelementptr inbounds nuw i8, ptr %.0127.i6281, i64 1
@@ -1736,21 +1718,18 @@ define internal void @h2v2_merged_upsample(ptr noundef readonly captures(none) %
   %1126 = load ptr, ptr %1125, align 8, !tbaa !66
   %1127 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %1128 = load i32, ptr %1127, align 8, !tbaa !45
-  %.not.i73173 = icmp ult i32 %1128, 2
-  br i1 %.not.i73173, label %._crit_edge183, label %.lr.ph182.preheader
-
-.lr.ph182.preheader:                              ; preds = %1093
   %1129 = lshr i32 %1128, 1
-  br label %.lr.ph182
+  %.not.i73173 = icmp eq i32 %1129, 0
+  br i1 %.not.i73173, label %._crit_edge183, label %.lr.ph182
 
-.lr.ph182:                                        ; preds = %.lr.ph182.preheader, %.lr.ph182
-  %.0.i72180 = phi i32 [ %1219, %.lr.ph182 ], [ %1129, %.lr.ph182.preheader ]
-  %.0121.i71179 = phi ptr [ %1132, %.lr.ph182 ], [ %1123, %.lr.ph182.preheader ]
-  %.0122.i70178 = phi ptr [ %1130, %.lr.ph182 ], [ %1119, %.lr.ph182.preheader ]
-  %.0123.i69177 = phi ptr [ %1201, %.lr.ph182 ], [ %1114, %.lr.ph182.preheader ]
-  %.0124.i68176 = phi ptr [ %1165, %.lr.ph182 ], [ %1110, %.lr.ph182.preheader ]
-  %.0125.i67175 = phi ptr [ %1218, %.lr.ph182 ], [ %1126, %.lr.ph182.preheader ]
-  %.0126.i66174 = phi ptr [ %1182, %.lr.ph182 ], [ %1124, %.lr.ph182.preheader ]
+.lr.ph182:                                        ; preds = %1093, %.lr.ph182
+  %.0.i72180 = phi i32 [ %1219, %.lr.ph182 ], [ %1129, %1093 ]
+  %.0121.i71179 = phi ptr [ %1132, %.lr.ph182 ], [ %1123, %1093 ]
+  %.0122.i70178 = phi ptr [ %1130, %.lr.ph182 ], [ %1119, %1093 ]
+  %.0123.i69177 = phi ptr [ %1201, %.lr.ph182 ], [ %1114, %1093 ]
+  %.0124.i68176 = phi ptr [ %1165, %.lr.ph182 ], [ %1110, %1093 ]
+  %.0125.i67175 = phi ptr [ %1218, %.lr.ph182 ], [ %1126, %1093 ]
+  %.0126.i66174 = phi ptr [ %1182, %.lr.ph182 ], [ %1124, %1093 ]
   %1130 = getelementptr inbounds nuw i8, ptr %.0122.i70178, i64 1
   %1131 = load i8, ptr %.0122.i70178, align 1, !tbaa !34
   %1132 = getelementptr inbounds nuw i8, ptr %.0121.i71179, i64 1
@@ -1980,23 +1959,20 @@ define internal void @h2v2_merged_upsample_565D(ptr noundef readonly captures(no
   %48 = load ptr, ptr %47, align 8, !tbaa !66
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %50 = load i32, ptr %49, align 8, !tbaa !45
-  %.not.i7 = icmp ult i32 %50, 2
-  br i1 %.not.i7, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %4
   %51 = lshr i32 %50, 1
-  br label %.lr.ph
+  %.not.i7 = icmp eq i32 %51, 0
+  br i1 %.not.i7, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0.i16 = phi i64 [ %192, %.lr.ph ], [ %27, %.lr.ph.preheader ]
-  %.0161.i15 = phi i64 [ %125, %.lr.ph ], [ %22, %.lr.ph.preheader ]
-  %.0162.i14 = phi i32 [ %203, %.lr.ph ], [ %51, %.lr.ph.preheader ]
-  %.0163.i13 = phi ptr [ %54, %.lr.ph ], [ %45, %.lr.ph.preheader ]
-  %.0164.i12 = phi ptr [ %52, %.lr.ph ], [ %41, %.lr.ph.preheader ]
-  %.0165.i11 = phi ptr [ %169, %.lr.ph ], [ %36, %.lr.ph.preheader ]
-  %.0166.i10 = phi ptr [ %102, %.lr.ph ], [ %32, %.lr.ph.preheader ]
-  %.0167.i9 = phi ptr [ %202, %.lr.ph ], [ %48, %.lr.ph.preheader ]
-  %.0168.i8 = phi ptr [ %135, %.lr.ph ], [ %46, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %4, %.lr.ph
+  %.0.i16 = phi i64 [ %192, %.lr.ph ], [ %27, %4 ]
+  %.0161.i15 = phi i64 [ %125, %.lr.ph ], [ %22, %4 ]
+  %.0162.i14 = phi i32 [ %203, %.lr.ph ], [ %51, %4 ]
+  %.0163.i13 = phi ptr [ %54, %.lr.ph ], [ %45, %4 ]
+  %.0164.i12 = phi ptr [ %52, %.lr.ph ], [ %41, %4 ]
+  %.0165.i11 = phi ptr [ %169, %.lr.ph ], [ %36, %4 ]
+  %.0166.i10 = phi ptr [ %102, %.lr.ph ], [ %32, %4 ]
+  %.0167.i9 = phi ptr [ %202, %.lr.ph ], [ %48, %4 ]
+  %.0168.i8 = phi ptr [ %135, %.lr.ph ], [ %46, %4 ]
   %52 = getelementptr inbounds nuw i8, ptr %.0164.i12, i64 1
   %53 = load i8, ptr %.0164.i12, align 1, !tbaa !34
   %54 = getelementptr inbounds nuw i8, ptr %.0163.i13, i64 1
@@ -2286,21 +2262,18 @@ define internal void @h2v2_merged_upsample_565(ptr noundef readonly captures(non
   %37 = load ptr, ptr %36, align 8, !tbaa !66
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %39 = load i32, ptr %38, align 8, !tbaa !45
-  %.not.i7 = icmp ult i32 %39, 2
-  br i1 %.not.i7, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %4
   %40 = lshr i32 %39, 1
-  br label %.lr.ph
+  %.not.i7 = icmp eq i32 %40, 0
+  br i1 %.not.i7, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0.i14 = phi i32 [ %162, %.lr.ph ], [ %40, %.lr.ph.preheader ]
-  %.0133.i13 = phi ptr [ %43, %.lr.ph ], [ %34, %.lr.ph.preheader ]
-  %.0134.i12 = phi ptr [ %41, %.lr.ph ], [ %30, %.lr.ph.preheader ]
-  %.0135.i11 = phi ptr [ %135, %.lr.ph ], [ %25, %.lr.ph.preheader ]
-  %.0136.i10 = phi ptr [ %83, %.lr.ph ], [ %21, %.lr.ph.preheader ]
-  %.0137.i9 = phi ptr [ %161, %.lr.ph ], [ %37, %.lr.ph.preheader ]
-  %.0138.i8 = phi ptr [ %109, %.lr.ph ], [ %35, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %4, %.lr.ph
+  %.0.i14 = phi i32 [ %162, %.lr.ph ], [ %40, %4 ]
+  %.0133.i13 = phi ptr [ %43, %.lr.ph ], [ %34, %4 ]
+  %.0134.i12 = phi ptr [ %41, %.lr.ph ], [ %30, %4 ]
+  %.0135.i11 = phi ptr [ %135, %.lr.ph ], [ %25, %4 ]
+  %.0136.i10 = phi ptr [ %83, %.lr.ph ], [ %21, %4 ]
+  %.0137.i9 = phi ptr [ %161, %.lr.ph ], [ %37, %4 ]
+  %.0138.i8 = phi ptr [ %109, %.lr.ph ], [ %35, %4 ]
   %41 = getelementptr inbounds nuw i8, ptr %.0134.i12, i64 1
   %42 = load i8, ptr %.0134.i12, align 1, !tbaa !34
   %43 = getelementptr inbounds nuw i8, ptr %.0133.i13, i64 1
@@ -2582,19 +2555,16 @@ define internal void @h2v1_merged_upsample(ptr noundef readonly captures(none) %
   %32 = load ptr, ptr %3, align 8, !tbaa !66
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %34 = load i32, ptr %33, align 8, !tbaa !45
-  %.not.i127 = icmp ult i32 %34, 2
-  br i1 %.not.i127, label %._crit_edge135, label %.lr.ph134.preheader
-
-.lr.ph134.preheader:                              ; preds = %7
   %35 = lshr i32 %34, 1
-  br label %.lr.ph134
+  %.not.i127 = icmp eq i32 %35, 0
+  br i1 %.not.i127, label %._crit_edge135, label %.lr.ph134
 
-.lr.ph134:                                        ; preds = %.lr.ph134.preheader, %.lr.ph134
-  %.0.i132 = phi i32 [ %89, %.lr.ph134 ], [ %35, %.lr.ph134.preheader ]
-  %.077.i131 = phi ptr [ %38, %.lr.ph134 ], [ %31, %.lr.ph134.preheader ]
-  %.078.i130 = phi ptr [ %36, %.lr.ph134 ], [ %27, %.lr.ph134.preheader ]
-  %.079.i129 = phi ptr [ %71, %.lr.ph134 ], [ %23, %.lr.ph134.preheader ]
-  %.080.i128 = phi ptr [ %88, %.lr.ph134 ], [ %32, %.lr.ph134.preheader ]
+.lr.ph134:                                        ; preds = %7, %.lr.ph134
+  %.0.i132 = phi i32 [ %89, %.lr.ph134 ], [ %35, %7 ]
+  %.077.i131 = phi ptr [ %38, %.lr.ph134 ], [ %31, %7 ]
+  %.078.i130 = phi ptr [ %36, %.lr.ph134 ], [ %27, %7 ]
+  %.079.i129 = phi ptr [ %71, %.lr.ph134 ], [ %23, %7 ]
+  %.080.i128 = phi ptr [ %88, %.lr.ph134 ], [ %32, %7 ]
   %36 = getelementptr inbounds nuw i8, ptr %.078.i130, i64 1
   %37 = load i8, ptr %.078.i130, align 1, !tbaa !34
   %38 = getelementptr inbounds nuw i8, ptr %.077.i131, i64 1
@@ -2737,19 +2707,16 @@ define internal void @h2v1_merged_upsample(ptr noundef readonly captures(none) %
   %149 = load ptr, ptr %3, align 8, !tbaa !66
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %151 = load i32, ptr %150, align 8, !tbaa !45
-  %.not.i30114 = icmp ult i32 %151, 2
-  br i1 %.not.i30114, label %._crit_edge122, label %.lr.ph121.preheader
-
-.lr.ph121.preheader:                              ; preds = %124
   %152 = lshr i32 %151, 1
-  br label %.lr.ph121
+  %.not.i30114 = icmp eq i32 %152, 0
+  br i1 %.not.i30114, label %._crit_edge122, label %.lr.ph121
 
-.lr.ph121:                                        ; preds = %.lr.ph121.preheader, %.lr.ph121
-  %.0.i29119 = phi i32 [ %208, %.lr.ph121 ], [ %152, %.lr.ph121.preheader ]
-  %.080.i28118 = phi ptr [ %155, %.lr.ph121 ], [ %148, %.lr.ph121.preheader ]
-  %.081.i117 = phi ptr [ %153, %.lr.ph121 ], [ %144, %.lr.ph121.preheader ]
-  %.082.i116 = phi ptr [ %189, %.lr.ph121 ], [ %140, %.lr.ph121.preheader ]
-  %.083.i115 = phi ptr [ %207, %.lr.ph121 ], [ %149, %.lr.ph121.preheader ]
+.lr.ph121:                                        ; preds = %124, %.lr.ph121
+  %.0.i29119 = phi i32 [ %208, %.lr.ph121 ], [ %152, %124 ]
+  %.080.i28118 = phi ptr [ %155, %.lr.ph121 ], [ %148, %124 ]
+  %.081.i117 = phi ptr [ %153, %.lr.ph121 ], [ %144, %124 ]
+  %.082.i116 = phi ptr [ %189, %.lr.ph121 ], [ %140, %124 ]
+  %.083.i115 = phi ptr [ %207, %.lr.ph121 ], [ %149, %124 ]
   %153 = getelementptr inbounds nuw i8, ptr %.081.i117, i64 1
   %154 = load i8, ptr %.081.i117, align 1, !tbaa !34
   %155 = getelementptr inbounds nuw i8, ptr %.080.i28118, i64 1
@@ -2898,19 +2865,16 @@ define internal void @h2v1_merged_upsample(ptr noundef readonly captures(none) %
   %269 = load ptr, ptr %3, align 8, !tbaa !66
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %271 = load i32, ptr %270, align 8, !tbaa !45
-  %.not.i36101 = icmp ult i32 %271, 2
-  br i1 %.not.i36101, label %._crit_edge109, label %.lr.ph108.preheader
-
-.lr.ph108.preheader:                              ; preds = %244
   %272 = lshr i32 %271, 1
-  br label %.lr.ph108
+  %.not.i36101 = icmp eq i32 %272, 0
+  br i1 %.not.i36101, label %._crit_edge109, label %.lr.ph108
 
-.lr.ph108:                                        ; preds = %.lr.ph108.preheader, %.lr.ph108
-  %.0.i35106 = phi i32 [ %326, %.lr.ph108 ], [ %272, %.lr.ph108.preheader ]
-  %.077.i34105 = phi ptr [ %275, %.lr.ph108 ], [ %268, %.lr.ph108.preheader ]
-  %.078.i33104 = phi ptr [ %273, %.lr.ph108 ], [ %264, %.lr.ph108.preheader ]
-  %.079.i32103 = phi ptr [ %308, %.lr.ph108 ], [ %260, %.lr.ph108.preheader ]
-  %.080.i31102 = phi ptr [ %325, %.lr.ph108 ], [ %269, %.lr.ph108.preheader ]
+.lr.ph108:                                        ; preds = %244, %.lr.ph108
+  %.0.i35106 = phi i32 [ %326, %.lr.ph108 ], [ %272, %244 ]
+  %.077.i34105 = phi ptr [ %275, %.lr.ph108 ], [ %268, %244 ]
+  %.078.i33104 = phi ptr [ %273, %.lr.ph108 ], [ %264, %244 ]
+  %.079.i32103 = phi ptr [ %308, %.lr.ph108 ], [ %260, %244 ]
+  %.080.i31102 = phi ptr [ %325, %.lr.ph108 ], [ %269, %244 ]
   %273 = getelementptr inbounds nuw i8, ptr %.078.i33104, i64 1
   %274 = load i8, ptr %.078.i33104, align 1, !tbaa !34
   %275 = getelementptr inbounds nuw i8, ptr %.077.i34105, i64 1
@@ -3053,19 +3017,16 @@ define internal void @h2v1_merged_upsample(ptr noundef readonly captures(none) %
   %386 = load ptr, ptr %3, align 8, !tbaa !66
   %387 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %388 = load i32, ptr %387, align 8, !tbaa !45
-  %.not.i4388 = icmp ult i32 %388, 2
-  br i1 %.not.i4388, label %._crit_edge96, label %.lr.ph95.preheader
-
-.lr.ph95.preheader:                               ; preds = %361
   %389 = lshr i32 %388, 1
-  br label %.lr.ph95
+  %.not.i4388 = icmp eq i32 %389, 0
+  br i1 %.not.i4388, label %._crit_edge96, label %.lr.ph95
 
-.lr.ph95:                                         ; preds = %.lr.ph95.preheader, %.lr.ph95
-  %.0.i4293 = phi i32 [ %445, %.lr.ph95 ], [ %389, %.lr.ph95.preheader ]
-  %.080.i4192 = phi ptr [ %392, %.lr.ph95 ], [ %385, %.lr.ph95.preheader ]
-  %.081.i4091 = phi ptr [ %390, %.lr.ph95 ], [ %381, %.lr.ph95.preheader ]
-  %.082.i3990 = phi ptr [ %426, %.lr.ph95 ], [ %377, %.lr.ph95.preheader ]
-  %.083.i3889 = phi ptr [ %444, %.lr.ph95 ], [ %386, %.lr.ph95.preheader ]
+.lr.ph95:                                         ; preds = %361, %.lr.ph95
+  %.0.i4293 = phi i32 [ %445, %.lr.ph95 ], [ %389, %361 ]
+  %.080.i4192 = phi ptr [ %392, %.lr.ph95 ], [ %385, %361 ]
+  %.081.i4091 = phi ptr [ %390, %.lr.ph95 ], [ %381, %361 ]
+  %.082.i3990 = phi ptr [ %426, %.lr.ph95 ], [ %377, %361 ]
+  %.083.i3889 = phi ptr [ %444, %.lr.ph95 ], [ %386, %361 ]
   %390 = getelementptr inbounds nuw i8, ptr %.081.i4091, i64 1
   %391 = load i8, ptr %.081.i4091, align 1, !tbaa !34
   %392 = getelementptr inbounds nuw i8, ptr %.080.i4192, i64 1
@@ -3214,19 +3175,16 @@ define internal void @h2v1_merged_upsample(ptr noundef readonly captures(none) %
   %506 = load ptr, ptr %3, align 8, !tbaa !66
   %507 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %508 = load i32, ptr %507, align 8, !tbaa !45
-  %.not.i5075 = icmp ult i32 %508, 2
-  br i1 %.not.i5075, label %._crit_edge83, label %.lr.ph82.preheader
-
-.lr.ph82.preheader:                               ; preds = %481
   %509 = lshr i32 %508, 1
-  br label %.lr.ph82
+  %.not.i5075 = icmp eq i32 %509, 0
+  br i1 %.not.i5075, label %._crit_edge83, label %.lr.ph82
 
-.lr.ph82:                                         ; preds = %.lr.ph82.preheader, %.lr.ph82
-  %.0.i4980 = phi i32 [ %565, %.lr.ph82 ], [ %509, %.lr.ph82.preheader ]
-  %.080.i4879 = phi ptr [ %512, %.lr.ph82 ], [ %505, %.lr.ph82.preheader ]
-  %.081.i4778 = phi ptr [ %510, %.lr.ph82 ], [ %501, %.lr.ph82.preheader ]
-  %.082.i4677 = phi ptr [ %546, %.lr.ph82 ], [ %497, %.lr.ph82.preheader ]
-  %.083.i4576 = phi ptr [ %564, %.lr.ph82 ], [ %506, %.lr.ph82.preheader ]
+.lr.ph82:                                         ; preds = %481, %.lr.ph82
+  %.0.i4980 = phi i32 [ %565, %.lr.ph82 ], [ %509, %481 ]
+  %.080.i4879 = phi ptr [ %512, %.lr.ph82 ], [ %505, %481 ]
+  %.081.i4778 = phi ptr [ %510, %.lr.ph82 ], [ %501, %481 ]
+  %.082.i4677 = phi ptr [ %546, %.lr.ph82 ], [ %497, %481 ]
+  %.083.i4576 = phi ptr [ %564, %.lr.ph82 ], [ %506, %481 ]
   %510 = getelementptr inbounds nuw i8, ptr %.081.i4778, i64 1
   %511 = load i8, ptr %.081.i4778, align 1, !tbaa !34
   %512 = getelementptr inbounds nuw i8, ptr %.080.i4879, i64 1
@@ -3375,19 +3333,16 @@ define internal void @h2v1_merged_upsample(ptr noundef readonly captures(none) %
   %626 = load ptr, ptr %3, align 8, !tbaa !66
   %627 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %628 = load i32, ptr %627, align 8, !tbaa !45
-  %.not.i5766 = icmp ult i32 %628, 2
-  br i1 %.not.i5766, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %601
   %629 = lshr i32 %628, 1
-  br label %.lr.ph
+  %.not.i5766 = icmp eq i32 %629, 0
+  br i1 %.not.i5766, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0.i5671 = phi i32 [ %685, %.lr.ph ], [ %629, %.lr.ph.preheader ]
-  %.080.i5570 = phi ptr [ %632, %.lr.ph ], [ %625, %.lr.ph.preheader ]
-  %.081.i5469 = phi ptr [ %630, %.lr.ph ], [ %621, %.lr.ph.preheader ]
-  %.082.i5368 = phi ptr [ %666, %.lr.ph ], [ %617, %.lr.ph.preheader ]
-  %.083.i5267 = phi ptr [ %684, %.lr.ph ], [ %626, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %601, %.lr.ph
+  %.0.i5671 = phi i32 [ %685, %.lr.ph ], [ %629, %601 ]
+  %.080.i5570 = phi ptr [ %632, %.lr.ph ], [ %625, %601 ]
+  %.081.i5469 = phi ptr [ %630, %.lr.ph ], [ %621, %601 ]
+  %.082.i5368 = phi ptr [ %666, %.lr.ph ], [ %617, %601 ]
+  %.083.i5267 = phi ptr [ %684, %.lr.ph ], [ %626, %601 ]
   %630 = getelementptr inbounds nuw i8, ptr %.081.i5469, i64 1
   %631 = load i8, ptr %.081.i5469, align 1, !tbaa !34
   %632 = getelementptr inbounds nuw i8, ptr %.080.i5570, i64 1
@@ -3536,19 +3491,16 @@ define internal void @h2v1_merged_upsample(ptr noundef readonly captures(none) %
   %746 = load ptr, ptr %3, align 8, !tbaa !66
   %747 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %748 = load i32, ptr %747, align 8, !tbaa !45
-  %.not.i64140 = icmp ult i32 %748, 2
-  br i1 %.not.i64140, label %._crit_edge148, label %.lr.ph147.preheader
-
-.lr.ph147.preheader:                              ; preds = %721
   %749 = lshr i32 %748, 1
-  br label %.lr.ph147
+  %.not.i64140 = icmp eq i32 %749, 0
+  br i1 %.not.i64140, label %._crit_edge148, label %.lr.ph147
 
-.lr.ph147:                                        ; preds = %.lr.ph147.preheader, %.lr.ph147
-  %.0.i63145 = phi i32 [ %803, %.lr.ph147 ], [ %749, %.lr.ph147.preheader ]
-  %.077.i62144 = phi ptr [ %752, %.lr.ph147 ], [ %745, %.lr.ph147.preheader ]
-  %.078.i61143 = phi ptr [ %750, %.lr.ph147 ], [ %741, %.lr.ph147.preheader ]
-  %.079.i60142 = phi ptr [ %785, %.lr.ph147 ], [ %737, %.lr.ph147.preheader ]
-  %.080.i59141 = phi ptr [ %802, %.lr.ph147 ], [ %746, %.lr.ph147.preheader ]
+.lr.ph147:                                        ; preds = %721, %.lr.ph147
+  %.0.i63145 = phi i32 [ %803, %.lr.ph147 ], [ %749, %721 ]
+  %.077.i62144 = phi ptr [ %752, %.lr.ph147 ], [ %745, %721 ]
+  %.078.i61143 = phi ptr [ %750, %.lr.ph147 ], [ %741, %721 ]
+  %.079.i60142 = phi ptr [ %785, %.lr.ph147 ], [ %737, %721 ]
+  %.080.i59141 = phi ptr [ %802, %.lr.ph147 ], [ %746, %721 ]
   %750 = getelementptr inbounds nuw i8, ptr %.078.i61143, i64 1
   %751 = load i8, ptr %.078.i61143, align 1, !tbaa !34
   %752 = getelementptr inbounds nuw i8, ptr %.077.i62144, i64 1
@@ -3702,20 +3654,17 @@ define internal void @h2v1_merged_upsample_565D(ptr noundef readonly captures(no
   %35 = load ptr, ptr %3, align 8, !tbaa !66
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %37 = load i32, ptr %36, align 8, !tbaa !45
-  %.not.i7 = icmp ult i32 %37, 2
-  br i1 %.not.i7, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %4
   %38 = lshr i32 %37, 1
-  br label %.lr.ph
+  %.not.i7 = icmp eq i32 %38, 0
+  br i1 %.not.i7, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0.i13 = phi i64 [ %112, %.lr.ph ], [ %22, %.lr.ph.preheader ]
-  %.097.i12 = phi i32 [ %123, %.lr.ph ], [ %38, %.lr.ph.preheader ]
-  %.098.i11 = phi ptr [ %41, %.lr.ph ], [ %34, %.lr.ph.preheader ]
-  %.099.i10 = phi ptr [ %39, %.lr.ph ], [ %30, %.lr.ph.preheader ]
-  %.0100.i9 = phi ptr [ %89, %.lr.ph ], [ %26, %.lr.ph.preheader ]
-  %.0101.i8 = phi ptr [ %122, %.lr.ph ], [ %35, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %4, %.lr.ph
+  %.0.i13 = phi i64 [ %112, %.lr.ph ], [ %22, %4 ]
+  %.097.i12 = phi i32 [ %123, %.lr.ph ], [ %38, %4 ]
+  %.098.i11 = phi ptr [ %41, %.lr.ph ], [ %34, %4 ]
+  %.099.i10 = phi ptr [ %39, %.lr.ph ], [ %30, %4 ]
+  %.0100.i9 = phi ptr [ %89, %.lr.ph ], [ %26, %4 ]
+  %.0101.i8 = phi ptr [ %122, %.lr.ph ], [ %35, %4 ]
   %39 = getelementptr inbounds nuw i8, ptr %.099.i10, i64 1
   %40 = load i8, ptr %.099.i10, align 1, !tbaa !34
   %41 = getelementptr inbounds nuw i8, ptr %.098.i11, i64 1
@@ -3896,19 +3845,16 @@ define internal void @h2v1_merged_upsample_565(ptr noundef readonly captures(non
   %29 = load ptr, ptr %3, align 8, !tbaa !66
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %31 = load i32, ptr %30, align 8, !tbaa !45
-  %.not.i7 = icmp ult i32 %31, 2
-  br i1 %.not.i7, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %4
   %32 = lshr i32 %31, 1
-  br label %.lr.ph
+  %.not.i7 = icmp eq i32 %32, 0
+  br i1 %.not.i7, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0.i12 = phi i32 [ %102, %.lr.ph ], [ %32, %.lr.ph.preheader ]
-  %.083.i11 = phi ptr [ %35, %.lr.ph ], [ %28, %.lr.ph.preheader ]
-  %.084.i10 = phi ptr [ %33, %.lr.ph ], [ %24, %.lr.ph.preheader ]
-  %.085.i9 = phi ptr [ %75, %.lr.ph ], [ %20, %.lr.ph.preheader ]
-  %.086.i8 = phi ptr [ %101, %.lr.ph ], [ %29, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %4, %.lr.ph
+  %.0.i12 = phi i32 [ %102, %.lr.ph ], [ %32, %4 ]
+  %.083.i11 = phi ptr [ %35, %.lr.ph ], [ %28, %4 ]
+  %.084.i10 = phi ptr [ %33, %.lr.ph ], [ %24, %4 ]
+  %.085.i9 = phi ptr [ %75, %.lr.ph ], [ %20, %4 ]
+  %.086.i8 = phi ptr [ %101, %.lr.ph ], [ %29, %4 ]
   %33 = getelementptr inbounds nuw i8, ptr %.084.i10, i64 1
   %34 = load i8, ptr %.084.i10, align 1, !tbaa !34
   %35 = getelementptr inbounds nuw i8, ptr %.083.i11, i64 1

@@ -524,14 +524,14 @@ bytestream2_get_le16.exit113:                     ; preds = %17, %18
   %49 = load i8, ptr %42, align 1, !tbaa !40
   %50 = zext i8 %49 to i32
   %51 = mul nuw nsw i32 %2, %50
-  %.pre = ptrtoint ptr %48 to i64
+  %.pre185 = ptrtoint ptr %48 to i64
   br label %bytestream2_get_byte.exit116.us.us
 
 bytestream2_get_byte.exit116.us.us:               ; preds = %.lr.ph.split.us.split.us, %47
-  %.pre-phi = phi i64 [ %.pre, %47 ], [ %43, %.lr.ph.split.us.split.us ]
+  %.pre-phi186 = phi i64 [ %.pre185, %47 ], [ %43, %.lr.ph.split.us.split.us ]
   %52 = phi ptr [ %48, %47 ], [ %41, %.lr.ph.split.us.split.us ]
   %.0.i115.us.us = phi i32 [ %51, %47 ], [ 0, %.lr.ph.split.us.split.us ]
-  %53 = sub i64 %43, %.pre-phi
+  %53 = sub i64 %43, %.pre-phi186
   %54 = icmp slt i64 %53, 1
   br i1 %54, label %bytestream2_get_byte.exit.us.us, label %55
 
@@ -541,14 +541,14 @@ bytestream2_get_byte.exit116.us.us:               ; preds = %.lr.ph.split.us.spl
   %57 = load i8, ptr %52, align 1, !tbaa !40
   %58 = zext i8 %57 to i32
   %59 = mul nuw nsw i32 %1, %58
-  %.pre173 = ptrtoint ptr %56 to i64
+  %.pre187 = ptrtoint ptr %56 to i64
   br label %bytestream2_get_byte.exit.us.us
 
 bytestream2_get_byte.exit.us.us:                  ; preds = %bytestream2_get_byte.exit116.us.us, %55
-  %.pre-phi174 = phi i64 [ %.pre173, %55 ], [ %43, %bytestream2_get_byte.exit116.us.us ]
+  %.pre-phi188 = phi i64 [ %.pre187, %55 ], [ %43, %bytestream2_get_byte.exit116.us.us ]
   %60 = phi ptr [ %56, %55 ], [ %41, %bytestream2_get_byte.exit116.us.us ]
   %.0.i114.us.us = phi i32 [ %59, %55 ], [ 0, %bytestream2_get_byte.exit116.us.us ]
-  %61 = sub i64 %43, %.pre-phi174
+  %61 = sub i64 %43, %.pre-phi188
   %62 = icmp slt i64 %61, 2
   br i1 %62, label %66, label %63
 
@@ -568,16 +568,16 @@ bytestream2_get_le16.exit.us.us:                  ; preds = %66, %63
   %68 = add nuw nsw i32 %.0.i114.us.us, %1
   %.not.us.us = icmp slt i32 %.0.i114.us.us, %40
   %.not108.us.us = icmp slt i32 %.0.i115.us.us, %39
-  %or.cond187 = select i1 %.not.us.us, i1 %.not108.us.us, i1 false
-  br i1 %or.cond187, label %.preheader118.us.us.us.us, label %.loopexit.split.us.split.us.us.us
+  %or.cond204 = select i1 %.not.us.us, i1 %.not108.us.us, i1 false
+  br i1 %or.cond204, label %.preheader118.us.us.us.us, label %.loopexit.split.us.split.us.us.us
 
 .loopexit.split.us.split.us.us.us:                ; preds = %.split.us.split.us.us.us.us.us, %bytestream2_get_le16.exit.us.us
   %69 = phi i32 [ %39, %bytestream2_get_le16.exit.us.us ], [ %78, %.split.us.split.us.us.us.us.us ]
   %70 = phi i32 [ %40, %bytestream2_get_le16.exit.us.us ], [ %79, %.split.us.split.us.us.us.us.us ]
   %.1.us.us = phi i32 [ %.095158.us.us, %bytestream2_get_le16.exit.us.us ], [ %.4.us.us.us.us.us.us, %.split.us.split.us.us.us.us.us ]
   %71 = add nuw nsw i32 %.096157.us.us, 1
-  %exitcond172.not = icmp eq i32 %71, %.0.i112
-  br i1 %exitcond172.not, label %.loopexit121, label %.lr.ph.split.us.split.us, !llvm.loop !54
+  %exitcond175.not = icmp eq i32 %71, %.0.i112
+  br i1 %exitcond175.not, label %.loopexit121, label %.lr.ph.split.us.split.us, !llvm.loop !54
 
 .preheader118.us.us.us.us:                        ; preds = %bytestream2_get_le16.exit.us.us, %.split.us.split.us.us.us.us.us
   %72 = phi i32 [ %78, %.split.us.split.us.us.us.us.us ], [ %39, %bytestream2_get_le16.exit.us.us ]
@@ -660,8 +660,8 @@ bytestream2_get_le16.exit.us.us:                  ; preds = %66, %63
 
 ._crit_edge.us.us.us.us.us.us.us:                 ; preds = %114, %.preheader.us.us.us.us.us.us.us
   %116 = add nuw nsw i32 %.091123.us.us.us.us.us.us.us, 1
-  %exitcond171.not = icmp eq i32 %116, %8
-  br i1 %exitcond171.not, label %._crit_edge124.split.us.us.us.us.us.us.us, label %.preheader.us.us.us.us.us.us.us, !llvm.loop !58
+  %exitcond174.not = icmp eq i32 %116, %8
+  br i1 %exitcond174.not, label %._crit_edge124.split.us.us.us.us.us.us.us, label %.preheader.us.us.us.us.us.us.us, !llvm.loop !58
 
 ._crit_edge124.split.us.us.us.us.us.us.us:        ; preds = %._crit_edge.us.us.us.us.us.us.us
   %117 = load i32, ptr %22, align 4, !tbaa !33

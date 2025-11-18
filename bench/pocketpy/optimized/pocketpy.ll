@@ -18692,7 +18692,7 @@ _ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %3
 
 26:                                               ; preds = %.lr.ph.i
   %27 = lshr i64 %.12.i, 1
-  %.not.i = icmp ult i64 %.12.i, 2
+  %.not.i = icmp eq i64 %27, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !57
 
 .loopexit.i:                                      ; preds = %.lr.ph.i
@@ -21136,7 +21136,7 @@ _ZN4pkpy2VM17ZeroDivisionErrorERKNS_3StrE.exit.i: ; preds = %.noexc.i
   %spec.select.i = mul nsw i64 %44, %.01224.i
   %45 = mul nsw i64 %.125.i, %.125.i
   %46 = lshr i64 %.11523.i, 1
-  %.not.i = icmp ult i64 %.11523.i, 2
+  %.not.i = icmp eq i64 %46, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !75
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
@@ -21663,7 +21663,7 @@ _ZN4pkpy8_py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %10, %8
   %storemerge3.i = phi i32 [ %14, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
   %13 = lshr i64 %.14.i, 1
   %14 = add nuw nsw i32 %storemerge3.i, 1
-  %.not.i = icmp samesign ult i64 %.14.i, 2
+  %.not.i = icmp eq i64 %13, 0
   br i1 %.not.i, label %_ZN4pkpy6py_varIRiEEPNS_8PyObjectEPNS_2VMEOT_.exit.loopexit.i, label %.lr.ph.i, !llvm.loop !76
 
 _ZN4pkpy6py_varIRiEEPNS_8PyObjectEPNS_2VMEOT_.exit.loopexit.i: ; preds = %.lr.ph.i
@@ -25170,7 +25170,7 @@ define internal noundef ptr @"_ZZN4pkpy15__init_builtinsEPNS_2VMEEN5$_1108__invo
   %.idx3.i = shl nsw i64 %14, 3
   %15 = getelementptr inbounds i8, ptr %12, i64 %.idx3.i
   %16 = icmp eq i32 %13, 0
-  br i1 %10, label %17, label %25
+  br i1 %10, label %17, label %26
 
 17:                                               ; preds = %3
   br i1 %16, label %"_ZSt11stable_sortIPPN4pkpy8PyObjectEZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES5_NS0_8ArgsViewEEUlS2_S2_E_EvT_S9_T0_.exit.i", label %18
@@ -25189,108 +25189,108 @@ define internal noundef ptr @"_ZZN4pkpy15__init_builtinsEPNS_2VMEEN5$_1108__invo
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPPN4pkpy8PyObjectES2_EC2ES3_l.exit.i.i.i
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not10.i.i.i.i.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i.i, 3
-  br i1 %.not10.i.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !96
+  %22 = icmp eq i64 %storemerge26.i.i.i.i.i, 1
+  br i1 %22, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !96
 
 .loopexit.i.i.i:                                  ; preds = %select.unfold.i.i.i.i.i, %18
   invoke fastcc void @"_ZSt21__inplace_stable_sortIPPN4pkpy8PyObjectEN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E_EEEvT_SD_T0_"(ptr noundef nonnull %12, ptr noundef nonnull %15, ptr %0)
-          to label %"_ZSt11stable_sortIPPN4pkpy8PyObjectEZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES5_NS0_8ArgsViewEEUlS2_S2_E_EvT_S9_T0_.exit.sink.split.i" unwind label %23
+          to label %"_ZSt11stable_sortIPPN4pkpy8PyObjectEZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES5_NS0_8ArgsViewEEUlS2_S2_E_EvT_S9_T0_.exit.sink.split.i" unwind label %24
 
-common.resume.i:                                  ; preds = %30, %23
-  %.sroa.1.028.i.i.sink.i = phi i64 [ %.sroa.1.028.i.i.i, %30 ], [ %.sroa.1.027.i.i.i, %23 ]
-  %.sroa.6.025.i.i.sink.i = phi ptr [ %.sroa.6.025.i.i.i, %30 ], [ %.sroa.6.024.i.i.i, %23 ]
-  %common.resume.op.i = phi { ptr, i32 } [ %31, %30 ], [ %24, %23 ]
-  %22 = shl nuw nsw i64 %.sroa.1.028.i.i.sink.i, 3
-  tail call void @_ZdlPvm(ptr noundef %.sroa.6.025.i.i.sink.i, i64 noundef %22) #38
+common.resume.i:                                  ; preds = %32, %24
+  %.sroa.1.028.i.i.sink.i = phi i64 [ %.sroa.1.028.i.i.i, %32 ], [ %.sroa.1.027.i.i.i, %24 ]
+  %.sroa.6.025.i.i.sink.i = phi ptr [ %.sroa.6.025.i.i.i, %32 ], [ %.sroa.6.024.i.i.i, %24 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %33, %32 ], [ %25, %24 ]
+  %23 = shl nuw nsw i64 %.sroa.1.028.i.i.sink.i, 3
+  tail call void @_ZdlPvm(ptr noundef %.sroa.6.025.i.i.sink.i, i64 noundef %23) #38
   resume { ptr, i32 } %common.resume.op.i
 
-23:                                               ; preds = %_ZNSt17_Temporary_bufferIPPN4pkpy8PyObjectES2_EC2ES3_l.exit.i.i.i, %.loopexit.i.i.i
+24:                                               ; preds = %_ZNSt17_Temporary_bufferIPPN4pkpy8PyObjectES2_EC2ES3_l.exit.i.i.i, %.loopexit.i.i.i
   %.sroa.1.027.i.i.i = phi i64 [ %storemerge26.i.i.i.i.i, %_ZNSt17_Temporary_bufferIPPN4pkpy8PyObjectES2_EC2ES3_l.exit.i.i.i ], [ 0, %.loopexit.i.i.i ]
   %.sroa.6.024.i.i.i = phi ptr [ %21, %_ZNSt17_Temporary_bufferIPPN4pkpy8PyObjectES2_EC2ES3_l.exit.i.i.i ], [ null, %.loopexit.i.i.i ]
-  %24 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i
 
 _ZNSt17_Temporary_bufferIPPN4pkpy8PyObjectES2_EC2ES3_l.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
   invoke fastcc void @"_ZSt22__stable_sort_adaptiveIPPN4pkpy8PyObjectES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E_EEEvT_SD_T0_T1_T2_"(ptr noundef nonnull %12, ptr noundef nonnull %15, ptr noundef nonnull %21, i64 noundef %storemerge26.i.i.i.i.i, ptr %0)
-          to label %"_ZSt11stable_sortIPPN4pkpy8PyObjectEZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES5_NS0_8ArgsViewEEUlS2_S2_E_EvT_S9_T0_.exit.sink.split.i" unwind label %23
+          to label %"_ZSt11stable_sortIPPN4pkpy8PyObjectEZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES5_NS0_8ArgsViewEEUlS2_S2_E_EvT_S9_T0_.exit.sink.split.i" unwind label %24
 
-25:                                               ; preds = %3
-  br i1 %16, label %"_ZSt11stable_sortIPPN4pkpy8PyObjectEZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES5_NS0_8ArgsViewEEUlS2_S2_E_EvT_S9_T0_.exit.i", label %26
+26:                                               ; preds = %3
+  br i1 %16, label %"_ZSt11stable_sortIPPN4pkpy8PyObjectEZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES5_NS0_8ArgsViewEEUlS2_S2_E_EvT_S9_T0_.exit.i", label %27
 
-26:                                               ; preds = %25
-  %27 = icmp sgt i32 %13, 0
-  br i1 %27, label %.lr.ph.i.i.i.i16.i, label %.loopexit.i.i14.i
+27:                                               ; preds = %26
+  %28 = icmp sgt i32 %13, 0
+  br i1 %28, label %.lr.ph.i.i.i.i16.i, label %.loopexit.i.i14.i
 
-.lr.ph.i.i.i.i16.i:                               ; preds = %26, %select.unfold.i.i.i.i22.i
-  %storemerge26.i.i.in.in.i.i17.i = phi i64 [ %storemerge26.i.i.i.i19.i, %select.unfold.i.i.i.i22.i ], [ %14, %26 ]
+.lr.ph.i.i.i.i16.i:                               ; preds = %27, %select.unfold.i.i.i.i22.i
+  %storemerge26.i.i.in.in.i.i17.i = phi i64 [ %storemerge26.i.i.i.i19.i, %select.unfold.i.i.i.i22.i ], [ %14, %27 ]
   %storemerge26.i.i.in.i.i18.i = add nuw nsw i64 %storemerge26.i.i.in.in.i.i17.i, 1
   %storemerge26.i.i.i.i19.i = lshr i64 %storemerge26.i.i.in.i.i18.i, 1
-  %28 = shl nuw nsw i64 %storemerge26.i.i.i.i19.i, 3
-  %29 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %28, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #45
-  %.not.i.i.i.i20.i = icmp eq ptr %29, null
+  %29 = shl nuw nsw i64 %storemerge26.i.i.i.i19.i, 3
+  %30 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %29, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #45
+  %.not.i.i.i.i20.i = icmp eq ptr %30, null
   br i1 %.not.i.i.i.i20.i, label %select.unfold.i.i.i.i22.i, label %_ZNSt17_Temporary_bufferIPPN4pkpy8PyObjectES2_EC2ES3_l.exit.i.i21.i
 
 select.unfold.i.i.i.i22.i:                        ; preds = %.lr.ph.i.i.i.i16.i
-  %.not10.i.i.i.i23.i = icmp samesign ult i64 %storemerge26.i.i.in.in.i.i17.i, 3
-  br i1 %.not10.i.i.i.i23.i, label %.loopexit.i.i14.i, label %.lr.ph.i.i.i.i16.i, !llvm.loop !96
+  %31 = icmp eq i64 %storemerge26.i.i.i.i19.i, 1
+  br i1 %31, label %.loopexit.i.i14.i, label %.lr.ph.i.i.i.i16.i, !llvm.loop !96
 
-.loopexit.i.i14.i:                                ; preds = %select.unfold.i.i.i.i22.i, %26
+.loopexit.i.i14.i:                                ; preds = %select.unfold.i.i.i.i22.i, %27
   invoke fastcc void @"_ZSt21__inplace_stable_sortIPPN4pkpy8PyObjectEN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E0_EEEvT_SD_T0_"(ptr noundef nonnull %12, ptr noundef nonnull %15, ptr %0, ptr %7)
-          to label %"_ZSt11stable_sortIPPN4pkpy8PyObjectEZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES5_NS0_8ArgsViewEEUlS2_S2_E_EvT_S9_T0_.exit.sink.split.i" unwind label %30
+          to label %"_ZSt11stable_sortIPPN4pkpy8PyObjectEZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES5_NS0_8ArgsViewEEUlS2_S2_E_EvT_S9_T0_.exit.sink.split.i" unwind label %32
 
-30:                                               ; preds = %_ZNSt17_Temporary_bufferIPPN4pkpy8PyObjectES2_EC2ES3_l.exit.i.i21.i, %.loopexit.i.i14.i
+32:                                               ; preds = %_ZNSt17_Temporary_bufferIPPN4pkpy8PyObjectES2_EC2ES3_l.exit.i.i21.i, %.loopexit.i.i14.i
   %.sroa.1.028.i.i.i = phi i64 [ %storemerge26.i.i.i.i19.i, %_ZNSt17_Temporary_bufferIPPN4pkpy8PyObjectES2_EC2ES3_l.exit.i.i21.i ], [ 0, %.loopexit.i.i14.i ]
-  %.sroa.6.025.i.i.i = phi ptr [ %29, %_ZNSt17_Temporary_bufferIPPN4pkpy8PyObjectES2_EC2ES3_l.exit.i.i21.i ], [ null, %.loopexit.i.i14.i ]
-  %31 = landingpad { ptr, i32 }
+  %.sroa.6.025.i.i.i = phi ptr [ %30, %_ZNSt17_Temporary_bufferIPPN4pkpy8PyObjectES2_EC2ES3_l.exit.i.i21.i ], [ null, %.loopexit.i.i14.i ]
+  %33 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i
 
 _ZNSt17_Temporary_bufferIPPN4pkpy8PyObjectES2_EC2ES3_l.exit.i.i21.i: ; preds = %.lr.ph.i.i.i.i16.i
-  invoke fastcc void @"_ZSt22__stable_sort_adaptiveIPPN4pkpy8PyObjectES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E0_EEEvT_SD_T0_T1_T2_"(ptr noundef nonnull %12, ptr noundef nonnull %15, ptr noundef nonnull %29, i64 noundef %storemerge26.i.i.i.i19.i, ptr %0, ptr %7)
-          to label %"_ZSt11stable_sortIPPN4pkpy8PyObjectEZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES5_NS0_8ArgsViewEEUlS2_S2_E_EvT_S9_T0_.exit.sink.split.i" unwind label %30
+  invoke fastcc void @"_ZSt22__stable_sort_adaptiveIPPN4pkpy8PyObjectES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E0_EEEvT_SD_T0_T1_T2_"(ptr noundef nonnull %12, ptr noundef nonnull %15, ptr noundef nonnull %30, i64 noundef %storemerge26.i.i.i.i19.i, ptr %0, ptr %7)
+          to label %"_ZSt11stable_sortIPPN4pkpy8PyObjectEZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES5_NS0_8ArgsViewEEUlS2_S2_E_EvT_S9_T0_.exit.sink.split.i" unwind label %32
 
 "_ZSt11stable_sortIPPN4pkpy8PyObjectEZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES5_NS0_8ArgsViewEEUlS2_S2_E_EvT_S9_T0_.exit.sink.split.i": ; preds = %_ZNSt17_Temporary_bufferIPPN4pkpy8PyObjectES2_EC2ES3_l.exit.i.i21.i, %.loopexit.i.i14.i, %_ZNSt17_Temporary_bufferIPPN4pkpy8PyObjectES2_EC2ES3_l.exit.i.i.i, %.loopexit.i.i.i
   %.sroa.1.026.i.i.sink.i = phi i64 [ %storemerge26.i.i.i.i.i, %_ZNSt17_Temporary_bufferIPPN4pkpy8PyObjectES2_EC2ES3_l.exit.i.i.i ], [ 0, %.loopexit.i.i.i ], [ %storemerge26.i.i.i.i19.i, %_ZNSt17_Temporary_bufferIPPN4pkpy8PyObjectES2_EC2ES3_l.exit.i.i21.i ], [ 0, %.loopexit.i.i14.i ]
-  %.sroa.6.023.i.i.sink.i = phi ptr [ %21, %_ZNSt17_Temporary_bufferIPPN4pkpy8PyObjectES2_EC2ES3_l.exit.i.i.i ], [ null, %.loopexit.i.i.i ], [ %29, %_ZNSt17_Temporary_bufferIPPN4pkpy8PyObjectES2_EC2ES3_l.exit.i.i21.i ], [ null, %.loopexit.i.i14.i ]
-  %32 = shl nuw nsw i64 %.sroa.1.026.i.i.sink.i, 3
-  tail call void @_ZdlPvm(ptr noundef %.sroa.6.023.i.i.sink.i, i64 noundef %32) #38
+  %.sroa.6.023.i.i.sink.i = phi ptr [ %21, %_ZNSt17_Temporary_bufferIPPN4pkpy8PyObjectES2_EC2ES3_l.exit.i.i.i ], [ null, %.loopexit.i.i.i ], [ %30, %_ZNSt17_Temporary_bufferIPPN4pkpy8PyObjectES2_EC2ES3_l.exit.i.i21.i ], [ null, %.loopexit.i.i14.i ]
+  %34 = shl nuw nsw i64 %.sroa.1.026.i.i.sink.i, 3
+  tail call void @_ZdlPvm(ptr noundef %.sroa.6.023.i.i.sink.i, i64 noundef %34) #38
   br label %"_ZSt11stable_sortIPPN4pkpy8PyObjectEZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES5_NS0_8ArgsViewEEUlS2_S2_E_EvT_S9_T0_.exit.i"
 
-"_ZSt11stable_sortIPPN4pkpy8PyObjectEZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES5_NS0_8ArgsViewEEUlS2_S2_E_EvT_S9_T0_.exit.i": ; preds = %"_ZSt11stable_sortIPPN4pkpy8PyObjectEZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES5_NS0_8ArgsViewEEUlS2_S2_E_EvT_S9_T0_.exit.sink.split.i", %25, %17
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %34 = load ptr, ptr %33, align 8
-  %35 = tail call noundef zeroext i1 @_ZN4pkpy18_py_cast__internalIbLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %34)
-  br i1 %35, label %36, label %"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_110clES1_NS_8ArgsViewE.exit"
+"_ZSt11stable_sortIPPN4pkpy8PyObjectEZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES5_NS0_8ArgsViewEEUlS2_S2_E_EvT_S9_T0_.exit.i": ; preds = %"_ZSt11stable_sortIPPN4pkpy8PyObjectEZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES5_NS0_8ArgsViewEEUlS2_S2_E_EvT_S9_T0_.exit.sink.split.i", %26, %17
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %36 = load ptr, ptr %35, align 8
+  %37 = tail call noundef zeroext i1 @_ZN4pkpy18_py_cast__internalIbLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %36)
+  br i1 %37, label %38, label %"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_110clES1_NS_8ArgsViewE.exit"
 
-36:                                               ; preds = %"_ZSt11stable_sortIPPN4pkpy8PyObjectEZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES5_NS0_8ArgsViewEEUlS2_S2_E_EvT_S9_T0_.exit.i"
-  %37 = load i32, ptr %5, align 8
-  %38 = icmp sgt i32 %37, 1
-  br i1 %38, label %.lr.ph.i.i.preheader.i.i, label %"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_110clES1_NS_8ArgsViewE.exit"
+38:                                               ; preds = %"_ZSt11stable_sortIPPN4pkpy8PyObjectEZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES5_NS0_8ArgsViewEEUlS2_S2_E_EvT_S9_T0_.exit.i"
+  %39 = load i32, ptr %5, align 8
+  %40 = icmp sgt i32 %39, 1
+  br i1 %40, label %.lr.ph.i.i.preheader.i.i, label %"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_110clES1_NS_8ArgsViewE.exit"
 
-.lr.ph.i.i.preheader.i.i:                         ; preds = %36
-  %39 = load ptr, ptr %11, align 8
-  %40 = zext nneg i32 %37 to i64
-  %.idx.i.i = shl nuw nsw i64 %40, 3
-  %41 = getelementptr i8, ptr %39, i64 %.idx.i.i
-  %.012.i.i.i.i = getelementptr i8, ptr %41, i64 -8
+.lr.ph.i.i.preheader.i.i:                         ; preds = %38
+  %41 = load ptr, ptr %11, align 8
+  %42 = zext nneg i32 %39 to i64
+  %.idx.i.i = shl nuw nsw i64 %42, 3
+  %43 = getelementptr i8, ptr %41, i64 %.idx.i.i
+  %.012.i.i.i.i = getelementptr i8, ptr %43, i64 -8
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.preheader.i.i
   %.014.i.i.i.i = phi ptr [ %.0.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.012.i.i.i.i, %.lr.ph.i.i.preheader.i.i ]
-  %.0913.i.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i.i ], [ %39, %.lr.ph.i.i.preheader.i.i ]
-  %42 = load ptr, ptr %.0913.i.i.i.i, align 8
-  %43 = load ptr, ptr %.014.i.i.i.i, align 8
-  store ptr %43, ptr %.0913.i.i.i.i, align 8
-  store ptr %42, ptr %.014.i.i.i.i, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i.i, i64 8
+  %.0913.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %41, %.lr.ph.i.i.preheader.i.i ]
+  %44 = load ptr, ptr %.0913.i.i.i.i, align 8
+  %45 = load ptr, ptr %.014.i.i.i.i, align 8
+  store ptr %45, ptr %.0913.i.i.i.i, align 8
+  store ptr %44, ptr %.014.i.i.i.i, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i.i, i64 8
   %.0.i.i.i.i = getelementptr inbounds i8, ptr %.014.i.i.i.i, i64 -8
-  %45 = icmp ult ptr %44, %.0.i.i.i.i
-  br i1 %45, label %.lr.ph.i.i.i.i, label %"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_110clES1_NS_8ArgsViewE.exit", !llvm.loop !97
+  %47 = icmp ult ptr %46, %.0.i.i.i.i
+  br i1 %47, label %.lr.ph.i.i.i.i, label %"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_110clES1_NS_8ArgsViewE.exit", !llvm.loop !97
 
-"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_110clES1_NS_8ArgsViewE.exit": ; preds = %.lr.ph.i.i.i.i, %"_ZSt11stable_sortIPPN4pkpy8PyObjectEZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES5_NS0_8ArgsViewEEUlS2_S2_E_EvT_S9_T0_.exit.i", %36
-  %46 = load ptr, ptr %8, align 8
-  ret ptr %46
+"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_110clES1_NS_8ArgsViewE.exit": ; preds = %.lr.ph.i.i.i.i, %"_ZSt11stable_sortIPPN4pkpy8PyObjectEZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES5_NS0_8ArgsViewEEUlS2_S2_E_EvT_S9_T0_.exit.i", %38
+  %48 = load ptr, ptr %8, align 8
+  ret ptr %48
 }
 
 ; Function Attrs: mustprogress uwtable

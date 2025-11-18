@@ -1156,7 +1156,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i.i.i,
   %__len.011.i.i = phi i64 [ %__len.1.i.i, %if.end.i.i ], [ %inc.i.i.i.i, %while.body.i.i.i.i ]
   %__first.sroa.0.010.i.i = phi ptr [ %__first.sroa.0.1.i.i, %if.end.i.i ], [ %8, %while.body.i.i.i.i ]
   %shr.i.i = lshr i64 %__len.011.i.i, 1
-  %cmp.i.i.not.i.i = icmp eq i64 %__len.011.i.i, 1
+  %cmp.i.i.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.i.i.not.i.i, label %_ZSt7advanceISt23_Rb_tree_const_iteratorIN8QuantLib4DateEElEvRT_T0_.exit.i.i, label %while.body.i.i6.i.i
 
 while.body.i.i6.i.i:                              ; preds = %while.body.i.i, %while.body.i.i6.i.i
@@ -1714,7 +1714,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i.i.i,
   %__len.011.i.i = phi i64 [ %__len.1.i.i, %if.end.i.i ], [ %inc.i.i.i.i, %while.body.i.i.i.i ]
   %__first.sroa.0.010.i.i = phi ptr [ %__first.sroa.0.1.i.i, %if.end.i.i ], [ %8, %while.body.i.i.i.i ]
   %shr.i.i = lshr i64 %__len.011.i.i, 1
-  %cmp.i.i.not.i.i = icmp eq i64 %__len.011.i.i, 1
+  %cmp.i.i.not.i.i = icmp eq i64 %shr.i.i, 0
   br i1 %cmp.i.i.not.i.i, label %_ZSt7advanceISt23_Rb_tree_const_iteratorIN8QuantLib4DateEElEvRT_T0_.exit.i.i, label %while.body.i.i6.i.i
 
 while.body.i.i6.i.i:                              ; preds = %while.body.i.i, %while.body.i.i6.i.i

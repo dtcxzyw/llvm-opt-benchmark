@@ -80646,7 +80646,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit147: ; preds = %_ZN4cvc58internal1
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit149: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit147, %465, %471
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %475 = lshr i32 %storemerge362, 1
-  %.not = icmp ult i32 %storemerge362, 2
+  %.not = icmp eq i32 %475, 0
   br i1 %.not, label %._crit_edge, label %96, !llvm.loop !1000
 
 476:                                              ; preds = %421, %349, %347, %345

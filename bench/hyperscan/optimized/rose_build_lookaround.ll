@@ -2428,7 +2428,7 @@ _ZNKSt3mapIiN3ue29CharReachESt4lessIiESaISt4pairIKiS1_EEE2atERS5_.exit17.i.i: ; 
 886:                                              ; preds = %.noexc49.i, %882
   %887 = getelementptr inbounds i32, ptr %820, i64 %.020.i.i.i.i
   store i32 %834, ptr %887, align 4
-  %.not.i4.i.i = icmp ult i64 %.0921.in.i.i.i.i, 2
+  %.not.i4.i.i = icmp eq i64 %.0921.i78.i.i.i, 0
   br i1 %.not.i4.i.i, label %.loopexit112.i, label %.lr.ph.i.i.i.i82, !llvm.loop !148
 
 .loopexit112.i:                                   ; preds = %886, %.noexc49.i, %882, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i
@@ -5795,7 +5795,7 @@ _ZNKSt3mapIiN3ue29CharReachESt4lessIiESaISt4pairIKiS1_EEE2atERS5_.exit17.i: ; pr
 175:                                              ; preds = %171, %.noexc47
   %176 = getelementptr inbounds i32, ptr %112, i64 %.020.i.i.i
   store i32 %123, ptr %176, align 4
-  %.not.i.i45 = icmp ult i64 %.0921.in.i.i.i, 2
+  %.not.i.i45 = icmp eq i64 %.0921.i78.i.i, 0
   br i1 %.not.i.i45, label %.loopexit92, label %.lr.ph.i.i.i, !llvm.loop !148
 
 .loopexit92:                                      ; preds = %175, %.noexc47, %171, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit.i
@@ -6772,7 +6772,7 @@ define internal fastcc void @_ZNSt14priority_queueIiSt6vectorIiSaIiEEN3ue212_GLO
   %48 = load i32, ptr %44, align 4
   %49 = getelementptr inbounds i32, ptr %2, i64 %.020.i.i.i.i
   store i32 %48, ptr %49, align 4
-  %.not7.i.i = icmp ult i64 %.0921.in.i.i.i.i, 2
+  %.not7.i.i = icmp eq i64 %.0921.i.i56.i.i, 0
   br i1 %.not7.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_112LookPriorityEEEEvT_SD_SD_RT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !148
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_112LookPriorityEEEEvT_SD_SD_RT0_.exit.i: ; preds = %47, %.lr.ph.i.i.i.i, %43
@@ -11700,7 +11700,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 87:                                               ; preds = %.lr.ph.i.i.i.i17.i
   %88 = getelementptr inbounds %"struct.ue2::LookEntry", ptr %.fr49.i, i64 %.010.i.i.i.i18.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %88, ptr noundef nonnull align 8 dereferenceable(40) %85, i64 40, i1 false)
-  %.not11.i.i25.i = icmp ult i64 %.0911.in.i.i.i.i19.i, 2
+  %.not11.i.i25.i = icmp eq i64 %.0911.i.i910.i.i20.i, 0
   br i1 %.not11.i.i25.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3ue29LookEntryESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_15mergeLookaroundERS7_RKS7_E3$_0EEEvT_SG_SG_RT0_.exit.i22.i", label %.lr.ph.i.i.i.i17.i, !llvm.loop !520
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3ue29LookEntryESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_15mergeLookaroundERS7_RKS7_E3$_0EEEvT_SG_SG_RT0_.exit.i22.i": ; preds = %87, %.lr.ph.i.i.i.i17.i, %84

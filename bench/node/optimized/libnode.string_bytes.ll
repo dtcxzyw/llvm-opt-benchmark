@@ -124,7 +124,7 @@ define dso_local noundef range(i64 -4294967296, 4294967297) i64 @_ZN4node11Strin
 entry:
   %last = alloca i16, align 2
   %div21 = lshr i64 %buflen, 1
-  %cmp = icmp ult i64 %buflen, 2
+  %cmp = icmp eq i64 %div21, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -144,12 +144,12 @@ if.then4:                                         ; preds = %if.end
 
 do.end16:                                         ; preds = %if.end
   %call18 = tail call noundef i32 @_ZNK2v86String6LengthEv(ptr noundef nonnull align 1 dereferenceable(1) %str.coerce) #18
-  %conv19 = sext i32 %call18 to i64
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %div21, i64 %conv19)
-  %cmp21 = icmp eq i64 %.sroa.speculated, 0
+  %cmp21 = icmp eq i32 %call18, 0
   br i1 %cmp21, label %return, label %if.end23
 
 if.end23:                                         ; preds = %do.end16
+  %conv19 = sext i32 %call18 to i64
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %div21, i64 %conv19)
   %2 = trunc i64 %.sroa.speculated to i32
   %conv25 = add i32 %2, -1
   %call26 = tail call noundef i32 @_ZNK2v86String5WriteEPNS_7IsolateEPtiii(ptr noundef nonnull align 1 dereferenceable(1) %str.coerce, ptr noundef %isolate, ptr noundef %1, i32 noundef 0, i32 noundef %conv25, i32 noundef %flags) #18

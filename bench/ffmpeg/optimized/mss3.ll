@@ -197,8 +197,8 @@ bytestream2_get_byte.exit.thread:                 ; preds = %bytestream2_get_byt
 
 57:                                               ; preds = %55
   %58 = add i64 %50, %56
-  %gepdiff237 = sub i64 %15, %58
-  %59 = and i64 %gepdiff237, 4294967295
+  %gepdiff239 = sub i64 %15, %58
+  %59 = and i64 %gepdiff239, 4294967295
   %.not146 = icmp eq i64 %59, 0
   br i1 %.not146, label %60, label %63
 
@@ -233,8 +233,8 @@ bytestream2_get_byte.exit.thread:                 ; preds = %bytestream2_get_byt
   %75 = getelementptr inbounds nuw i8, ptr %70, i64 120
   store i32 %74, ptr %75, align 8, !tbaa !55
   %76 = add i64 %50, %56
-  %gepdiff238 = sub i64 %15, %76
-  %77 = and i64 %gepdiff238, 4294967295
+  %gepdiff240 = sub i64 %15, %76
+  %77 = and i64 %gepdiff240, 4294967295
   %.not148 = icmp eq i64 %77, 0
   br i1 %.not148, label %78, label %82
 
@@ -317,11 +317,11 @@ rac_init.exit:                                    ; preds = %.lr.ph.i, %82
   %130 = getelementptr inbounds i8, ptr %125, i64 %129
   %131 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %130, ptr %131, align 16, !tbaa !63
-  %.not211 = icmp ult i16 %35, 16
+  %.not211 = icmp eq i32 %101, 0
   br i1 %.not211, label %._crit_edge207, label %.preheader201.lr.ph
 
 .preheader201.lr.ph:                              ; preds = %rac_init.exit
-  %.not212 = icmp ult i16 %32, 16
+  %.not212 = icmp eq i32 %100, 0
   %132 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %133 = getelementptr inbounds nuw i8, ptr %11, i64 80720
   %134 = getelementptr inbounds nuw i8, ptr %11, i64 88464
@@ -3077,7 +3077,7 @@ model256_update.exit:                             ; preds = %284, %rac_get_model
   %.180116 = phi ptr [ %296, %.preheader.lr.ph ], [ %332, %331 ]
   %300 = getelementptr i8, ptr %.078117, i64 %3
   %invariant.gep = getelementptr inbounds nuw i32, ptr %.180116, i64 %29
-  %invariant.gep170 = getelementptr inbounds nuw i32, ptr %.180116, i64 %29
+  %invariant.gep171 = getelementptr inbounds nuw i32, ptr %.180116, i64 %29
   br label %301
 
 301:                                              ; preds = %.preheader, %301
@@ -3089,8 +3089,8 @@ model256_update.exit:                             ; preds = %284, %rac_get_model
   %305 = add nuw nsw i64 %indvars.iv127, %299
   %306 = getelementptr inbounds nuw i32, ptr %.180116, i64 %305
   %307 = load i32, ptr %306, align 4, !tbaa !56
-  %gep171 = getelementptr inbounds nuw i32, ptr %invariant.gep170, i64 %305
-  %308 = load i32, ptr %gep171, align 4, !tbaa !56
+  %gep172 = getelementptr inbounds nuw i32, ptr %invariant.gep171, i64 %305
+  %308 = load i32, ptr %gep172, align 4, !tbaa !56
   %309 = sub nsw i32 %303, %304
   %310 = sub nsw i32 %307, %308
   %311 = add nsw i32 %304, %303

@@ -190,7 +190,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32i_vsm_vP11pr
   %63 = and i64 %62, 31
   %64 = getelementptr inbounds nuw i64, ptr %61, i64 %63
   %65 = load i64, ptr %64, align 8, !tbaa !144
-  %.not116 = icmp ult i64 %59, 8
+  %.not116 = icmp eq i64 %60, 0
   br i1 %.not116, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %52
@@ -554,7 +554,7 @@ define noundef i64 @_Z16fast_rv64i_vsm_vP11processor_t6insn_tm(ptr noundef %0, i
   %63 = and i64 %62, 31
   %64 = getelementptr inbounds nuw i64, ptr %61, i64 %63
   %65 = load i64, ptr %64, align 8, !tbaa !144
-  %.not116 = icmp ult i64 %59, 8
+  %.not116 = icmp eq i64 %60, 0
   br i1 %.not116, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %52
@@ -804,7 +804,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32i_vsm_vP11
   %63 = and i64 %62, 31
   %64 = getelementptr inbounds nuw i64, ptr %61, i64 %63
   %65 = load i64, ptr %64, align 8, !tbaa !144
-  %.not116 = icmp ult i64 %59, 8
+  %.not116 = icmp eq i64 %60, 0
   br i1 %.not116, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %52
@@ -1056,7 +1056,7 @@ define noundef i64 @_Z18logged_rv64i_vsm_vP11processor_t6insn_tm(ptr noundef %0,
   %63 = and i64 %62, 31
   %64 = getelementptr inbounds nuw i64, ptr %61, i64 %63
   %65 = load i64, ptr %64, align 8, !tbaa !144
-  %.not116 = icmp ult i64 %59, 8
+  %.not116 = icmp eq i64 %60, 0
   br i1 %.not116, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %52
@@ -1322,7 +1322,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32e_vsm_vP11pr
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %71 = getelementptr inbounds nuw i64, ptr %70, i64 %62
   %72 = load i64, ptr %71, align 8, !tbaa !144
-  %.not120 = icmp ult i64 %59, 8
+  %.not120 = icmp eq i64 %60, 0
   br i1 %.not120, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %69
@@ -1590,7 +1590,7 @@ define noundef i64 @_Z16fast_rv64e_vsm_vP11processor_t6insn_tm(ptr noundef %0, i
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %71 = getelementptr inbounds nuw i64, ptr %70, i64 %62
   %72 = load i64, ptr %71, align 8, !tbaa !144
-  %.not120 = icmp ult i64 %59, 8
+  %.not120 = icmp eq i64 %60, 0
   br i1 %.not120, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %69
@@ -1856,7 +1856,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32e_vsm_vP11
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %71 = getelementptr inbounds nuw i64, ptr %70, i64 %62
   %72 = load i64, ptr %71, align 8, !tbaa !144
-  %.not120 = icmp ult i64 %59, 8
+  %.not120 = icmp eq i64 %60, 0
   br i1 %.not120, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %69
@@ -2124,7 +2124,7 @@ define noundef i64 @_Z18logged_rv64e_vsm_vP11processor_t6insn_tm(ptr noundef %0,
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %71 = getelementptr inbounds nuw i64, ptr %70, i64 %62
   %72 = load i64, ptr %71, align 8, !tbaa !144
-  %.not120 = icmp ult i64 %59, 8
+  %.not120 = icmp eq i64 %60, 0
   br i1 %.not120, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %69

@@ -1124,13 +1124,13 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
   %101 = getelementptr inbounds nuw %struct.rcCompactCell, ptr %100, i64 %indvars.iv241
   %102 = getelementptr inbounds nuw %struct.rcCompactCell, ptr %101, i64 %97
   %103 = load i32, ptr %102, align 4
-  %.not226 = icmp ult i32 %103, 16777216
+  %104 = lshr i32 %103, 24
+  %.not226 = icmp eq i32 %104, 0
   br i1 %.not226, label %._crit_edge.us, label %.lr.ph215.us.preheader
 
 .lr.ph215.us.preheader:                           ; preds = %99
-  %104 = and i32 %103, 16777215
-  %105 = lshr i32 %103, 24
-  %106 = add nuw nsw i32 %104, %105
+  %105 = and i32 %103, 16777215
+  %106 = add nuw nsw i32 %105, %104
   %107 = and i32 %103, 16777215
   %108 = zext nneg i32 %107 to i64
   %109 = zext nneg i32 %106 to i64
@@ -1158,7 +1158,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
   br i1 %115, label %.lr.ph215.us, label %._crit_edge.us, !llvm.loop !14
 
 116:                                              ; preds = %.loopexit.us, %.lr.ph215.us
-  %117 = phi i32 [ %164, %.loopexit.us ], [ %.pre, %.lr.ph215.us ]
+  %117 = phi i32 [ %165, %.loopexit.us ], [ %.pre, %.lr.ph215.us ]
   %indvars.iv234 = phi i64 [ %indvars.iv.next235, %.loopexit.us ], [ 0, %.lr.ph215.us ]
   %.3168212.us = phi i32 [ %.4.us, %.loopexit.us ], [ %.2167214.us, %.lr.ph215.us ]
   %118 = trunc i64 %indvars.iv234 to i32
@@ -1187,68 +1187,68 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
   %137 = zext nneg i32 %136 to i64
   %138 = getelementptr inbounds nuw %struct.rcCompactCell, ptr %134, i64 %137
   %139 = load i32, ptr %138, align 4
-  %.not227 = icmp ult i32 %139, 16777216
+  %140 = lshr i32 %139, 24
+  %.not227 = icmp eq i32 %140, 0
   br i1 %.not227, label %.loopexit.us, label %.lr.ph210.us
 
-140:                                              ; preds = %.lr.ph210.us, %167
-  %indvars.iv231 = phi i64 [ %178, %.lr.ph210.us ], [ %indvars.iv.next232, %167 ]
-  %.5208.us = phi i32 [ %.3168212.us, %.lr.ph210.us ], [ %.6.us, %167 ]
-  %141 = getelementptr inbounds nuw %struct.rcCompactSpan, ptr %172, i64 %indvars.iv231
-  %142 = load i16, ptr %141, align 4
-  %143 = tail call noundef i16 @llvm.umax.i16(i16 %173, i16 %142)
-  %144 = zext i16 %143 to i32
-  %145 = zext i16 %142 to i32
-  %146 = getelementptr inbounds nuw i8, ptr %141, i64 4
-  %147 = load i32, ptr %146, align 4
-  %148 = lshr i32 %147, 24
-  %149 = add nuw nsw i32 %148, %145
-  %150 = tail call i32 @llvm.umin.i32(i32 %176, i32 %149)
-  %151 = sub nsw i32 %150, %144
-  %.not188.us = icmp slt i32 %151, %1
-  br i1 %.not188.us, label %167, label %152
+141:                                              ; preds = %.lr.ph210.us, %168
+  %indvars.iv231 = phi i64 [ %178, %.lr.ph210.us ], [ %indvars.iv.next232, %168 ]
+  %.5208.us = phi i32 [ %.3168212.us, %.lr.ph210.us ], [ %.6.us, %168 ]
+  %142 = getelementptr inbounds nuw %struct.rcCompactSpan, ptr %172, i64 %indvars.iv231
+  %143 = load i16, ptr %142, align 4
+  %144 = tail call noundef i16 @llvm.umax.i16(i16 %173, i16 %143)
+  %145 = zext i16 %144 to i32
+  %146 = zext i16 %143 to i32
+  %147 = getelementptr inbounds nuw i8, ptr %142, i64 4
+  %148 = load i32, ptr %147, align 4
+  %149 = lshr i32 %148, 24
+  %150 = add nuw nsw i32 %149, %146
+  %151 = tail call i32 @llvm.umin.i32(i32 %176, i32 %150)
+  %152 = sub nsw i32 %151, %145
+  %.not188.us = icmp slt i32 %152, %1
+  br i1 %.not188.us, label %168, label %153
 
-152:                                              ; preds = %140
-  %153 = sub nsw i32 %145, %174
-  %154 = tail call noundef i32 @llvm.abs.i32(i32 %153, i1 true)
-  %.not189.us = icmp sgt i32 %154, %2
-  br i1 %.not189.us, label %167, label %155
+153:                                              ; preds = %141
+  %154 = sub nsw i32 %146, %174
+  %155 = tail call noundef i32 @llvm.abs.i32(i32 %154, i1 true)
+  %.not189.us = icmp sgt i32 %155, %2
+  br i1 %.not189.us, label %168, label %156
 
-155:                                              ; preds = %152
-  %156 = sub nuw nsw i64 %indvars.iv231, %179
-  %or.cond3.us = icmp samesign ugt i64 %156, 62
-  %157 = trunc nuw nsw i64 %156 to i32
-  br i1 %or.cond3.us, label %165, label %158
+156:                                              ; preds = %153
+  %157 = sub nuw nsw i64 %indvars.iv231, %179
+  %or.cond3.us = icmp samesign ugt i64 %157, 62
+  %158 = trunc nuw nsw i64 %157 to i32
+  br i1 %or.cond3.us, label %166, label %159
 
-158:                                              ; preds = %155
-  %159 = and i32 %117, %121
-  %160 = shl i32 %157, %119
-  %161 = or i32 %160, %159
-  %162 = and i32 %161, 16777215
-  %163 = or disjoint i32 %162, %122
-  store i32 %163, ptr %113, align 4
+159:                                              ; preds = %156
+  %160 = and i32 %117, %121
+  %161 = shl i32 %158, %119
+  %162 = or i32 %161, %160
+  %163 = and i32 %162, 16777215
+  %164 = or disjoint i32 %163, %122
+  store i32 %164, ptr %113, align 4
   br label %.loopexit.us
 
-.loopexit.us:                                     ; preds = %167, %133, %158, %116
-  %164 = phi i32 [ %124, %116 ], [ %163, %158 ], [ %124, %133 ], [ %124, %167 ]
-  %.4.us = phi i32 [ %.3168212.us, %116 ], [ %.5208.us, %158 ], [ %.3168212.us, %133 ], [ %.6.us, %167 ]
+.loopexit.us:                                     ; preds = %168, %133, %159, %116
+  %165 = phi i32 [ %124, %116 ], [ %164, %159 ], [ %124, %133 ], [ %124, %168 ]
+  %.4.us = phi i32 [ %.3168212.us, %116 ], [ %.5208.us, %159 ], [ %.3168212.us, %133 ], [ %.6.us, %168 ]
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
   %exitcond237.not = icmp eq i64 %indvars.iv.next235, 4
   br i1 %exitcond237.not, label %114, label %116, !llvm.loop !15
 
-165:                                              ; preds = %155
-  %166 = tail call noundef i32 @llvm.smax.i32(i32 %.5208.us, i32 %157)
-  br label %167
+166:                                              ; preds = %156
+  %167 = tail call noundef i32 @llvm.smax.i32(i32 %.5208.us, i32 %158)
+  br label %168
 
-167:                                              ; preds = %165, %152, %140
-  %.6.us = phi i32 [ %166, %165 ], [ %.5208.us, %152 ], [ %.5208.us, %140 ]
+168:                                              ; preds = %166, %153, %141
+  %.6.us = phi i32 [ %167, %166 ], [ %.5208.us, %153 ], [ %.5208.us, %141 ]
   %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
-  %168 = icmp samesign ult i64 %indvars.iv.next232, %180
-  br i1 %168, label %140, label %.loopexit.us, !llvm.loop !16
+  %169 = icmp samesign ult i64 %indvars.iv.next232, %180
+  br i1 %169, label %141, label %.loopexit.us, !llvm.loop !16
 
 .lr.ph210.us:                                     ; preds = %133
-  %169 = and i32 %139, 16777215
-  %170 = lshr i32 %139, 24
-  %171 = add nuw nsw i32 %169, %170
+  %170 = and i32 %139, 16777215
+  %171 = add nuw nsw i32 %170, %140
   %172 = load ptr, ptr %85, align 8
   %173 = load i16, ptr %112, align 4
   %174 = zext i16 %173 to i32
@@ -1256,9 +1256,9 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
   %176 = add nuw nsw i32 %175, %174
   %177 = and i32 %139, 16777215
   %178 = zext nneg i32 %177 to i64
-  %179 = zext nneg i32 %169 to i64
+  %179 = zext nneg i32 %170 to i64
   %180 = zext nneg i32 %171 to i64
-  br label %140
+  br label %141
 
 ._crit_edge220.us:                                ; preds = %._crit_edge.us
   %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1

@@ -1547,7 +1547,7 @@ get_dht.exit:                                     ; preds = %._crit_edge169.i, %
 
 629:                                              ; preds = %627, %622
   %630 = phi ptr [ %628, %627 ], [ %625, %622 ]
-  %.not142.i = icmp ult i8 %601, 16
+  %.not142.i = icmp eq i32 %603, 0
   %.4156.i = add i64 %.3.i84, -1
   %.4124157.i = getelementptr inbounds nuw i8, ptr %.3123.i, i64 1
   br i1 %.not142.i, label %.split.us.i, label %.split.i

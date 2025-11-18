@@ -13280,15 +13280,15 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(3336) ptr @_ZN3pxr9r
 .preheader:                                       ; preds = %_ZN3pxr9rapidjson8internal10BigIntegermLEm.exit, %.preheader22
   %.0.lcssa = phi i32 [ %1, %.preheader22 ], [ %43, %_ZN3pxr9rapidjson8internal10BigIntegermLEm.exit ]
   %6 = icmp samesign ugt i32 %.0.lcssa, 12
-  br i1 %6, label %.lr.ph31, label %._crit_edge
+  br i1 %6, label %.lr.ph29, label %._crit_edge
 
-.lr.ph31:                                         ; preds = %.preheader
+.lr.ph29:                                         ; preds = %.preheader
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 3328
   %8 = add nsw i32 %.0.lcssa, -13
   br label %45
 
 9:                                                ; preds = %.lr.ph, %_ZN3pxr9rapidjson8internal10BigIntegermLEm.exit
-  %.029 = phi i32 [ %1, %.lr.ph ], [ %43, %_ZN3pxr9rapidjson8internal10BigIntegermLEm.exit ]
+  %.027 = phi i32 [ %1, %.lr.ph ], [ %43, %_ZN3pxr9rapidjson8internal10BigIntegermLEm.exit ]
   %10 = load i64, ptr %5, align 8
   %11 = icmp eq i64 %10, 1
   %12 = load i64, ptr %0, align 8
@@ -13349,12 +13349,12 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(3336) ptr @_ZN3pxr9r
   br label %_ZN3pxr9rapidjson8internal10BigIntegermLEm.exit
 
 _ZN3pxr9rapidjson8internal10BigIntegermLEm.exit:  ; preds = %.preheader.i, %15, %._crit_edge.i, %40
-  %43 = add i32 %.029, -27
+  %43 = add i32 %.027, -27
   %44 = icmp ugt i32 %43, 26
   br i1 %44, label %9, label %.preheader, !llvm.loop !118
 
-45:                                               ; preds = %.lr.ph31, %_ZN3pxr9rapidjson8internal10BigIntegermLEj.exit
-  %.130 = phi i32 [ %8, %.lr.ph31 ], [ 0, %_ZN3pxr9rapidjson8internal10BigIntegermLEj.exit ]
+45:                                               ; preds = %.lr.ph29, %_ZN3pxr9rapidjson8internal10BigIntegermLEj.exit
+  %.128 = phi i32 [ %8, %.lr.ph29 ], [ 0, %_ZN3pxr9rapidjson8internal10BigIntegermLEj.exit ]
   %46 = load i64, ptr %7, align 8
   %47 = icmp eq i64 %46, 1
   %48 = load i64, ptr %0, align 8
@@ -13394,7 +13394,7 @@ _ZN3pxr9rapidjson8internal10BigIntegermLEm.exit:  ; preds = %.preheader.i, %15, 
   br i1 %67, label %.lr.ph.i11, label %._crit_edge.i12, !llvm.loop !119
 
 ._crit_edge.i12:                                  ; preds = %.lr.ph.i11
-  %.not.i13 = icmp samesign ult i64 %60, 4294967296
+  %.not.i13 = icmp eq i64 %64, 0
   br i1 %.not.i13, label %_ZN3pxr9rapidjson8internal10BigIntegermLEj.exit, label %68
 
 68:                                               ; preds = %._crit_edge.i12
@@ -13405,11 +13405,11 @@ _ZN3pxr9rapidjson8internal10BigIntegermLEm.exit:  ; preds = %.preheader.i, %15, 
   br label %_ZN3pxr9rapidjson8internal10BigIntegermLEj.exit
 
 _ZN3pxr9rapidjson8internal10BigIntegermLEj.exit:  ; preds = %.preheader.i10, %51, %._crit_edge.i12, %68
-  %71 = icmp samesign ugt i32 %.130, 12
+  %71 = icmp samesign ugt i32 %.128, 12
   br i1 %71, label %45, label %._crit_edge, !llvm.loop !120
 
 ._crit_edge:                                      ; preds = %_ZN3pxr9rapidjson8internal10BigIntegermLEj.exit, %.preheader
-  %.1.lcssa = phi i32 [ %.0.lcssa, %.preheader ], [ %.130, %_ZN3pxr9rapidjson8internal10BigIntegermLEj.exit ]
+  %.1.lcssa = phi i32 [ %.0.lcssa, %.preheader ], [ %.128, %_ZN3pxr9rapidjson8internal10BigIntegermLEj.exit ]
   %.not = icmp eq i32 %.1.lcssa, 0
   br i1 %.not, label %_ZN3pxr9rapidjson8internal10BigIntegermLEj.exit21, label %72
 
@@ -13475,7 +13475,7 @@ _ZN3pxr9rapidjson8internal10BigIntegermLEj.exit:  ; preds = %.preheader.i10, %51
   br i1 %105, label %89, label %._crit_edge.i19, !llvm.loop !119
 
 ._crit_edge.i19:                                  ; preds = %89
-  %.not.i20 = icmp ult i64 %98, 4294967296
+  %.not.i20 = icmp eq i64 %102, 0
   br i1 %.not.i20, label %_ZN3pxr9rapidjson8internal10BigIntegermLEj.exit21, label %106
 
 106:                                              ; preds = %._crit_edge.i19

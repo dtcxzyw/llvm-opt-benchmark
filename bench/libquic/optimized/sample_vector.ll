@@ -676,7 +676,7 @@ _ZN7logging11CheckLTImplB5cxx11EiiPKc.exit:       ; preds = %33
 42:                                               ; preds = %_ZN7logging11CheckLTImplB5cxx11EiiPKc.exit.thread, %_ZN7logging11CheckLTImplB5cxx11EiiPKc.exit, %41
   %43 = load i64, ptr %9, align 8, !tbaa !27
   %44 = lshr i64 %43, 1
-  %45 = icmp ult i64 %43, 2
+  %45 = icmp eq i64 %44, 0
   %.pre = load ptr, ptr %15, align 8, !tbaa !26
   %.pre50 = load ptr, ptr %.pre, align 8, !tbaa !11
   br i1 %45, label %._crit_edge, label %.lr.ph
@@ -693,11 +693,11 @@ _ZN7logging11CheckLTImplB5cxx11EiiPKc.exit:       ; preds = %33
   %49 = sub i64 %..014, %.0.
   %50 = lshr i64 %49, 1
   %51 = add i64 %50, %.0.
-  %52 = icmp ult i64 %49, 2
+  %52 = icmp eq i64 %50, 0
   br i1 %52, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %42
-  %.lcssa = phi i64 [ %44, %42 ], [ %51, %.lr.ph ]
+  %.lcssa = phi i64 [ 0, %42 ], [ %51, %.lr.ph ]
   %53 = getelementptr i32, ptr %.pre50, i64 %.lcssa
   %54 = getelementptr i8, ptr %53, i64 4
   %55 = load i32, ptr %54, align 4, !tbaa !13

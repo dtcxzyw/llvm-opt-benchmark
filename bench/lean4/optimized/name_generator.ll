@@ -466,14 +466,14 @@ _ZNK4lean4name10is_numeralEv.exit:                ; preds = %_ZNK4lean7rb_treeIN
   %.mask = and i32 %.val.i.i.i.i.i, -16777216
   switch i32 %.mask, label %84 [
     i32 33554432, label %.thread
-    i32 16777216, label %.thread41
+    i32 16777216, label %.thread43
   ]
 
 _ZNK4lean4name10is_numeralEv.exit.thread:         ; preds = %_ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE8containsERKS1_.exit
   %45 = and i64 %42, 8589934590
   switch i64 %45, label %84 [
     i64 4, label %.thread
-    i64 2, label %.thread41
+    i64 2, label %.thread43
   ]
 
 .thread:                                          ; preds = %_ZNK4lean4name10is_numeralEv.exit, %_ZNK4lean4name10is_numeralEv.exit.thread
@@ -528,7 +528,7 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %49, %56, %58, %59
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %89
 
-.thread41:                                        ; preds = %_ZNK4lean4name10is_numeralEv.exit, %_ZNK4lean4name10is_numeralEv.exit.thread
+.thread43:                                        ; preds = %_ZNK4lean4name10is_numeralEv.exit, %_ZNK4lean4name10is_numeralEv.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %65 = getelementptr inbounds nuw i8, ptr %41, i64 8
   call fastcc void @_ZN4leanL19replace_base_prefixERKNS_4nameES2_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %65, ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -537,7 +537,7 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %49, %56, %58, %59
   invoke void @_ZN4lean4nameC1ERKS0_RKNS_10string_refE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %67)
           to label %68 unwind label %82
 
-68:                                               ; preds = %.thread41
+68:                                               ; preds = %.thread43
   %69 = load ptr, ptr %5, align 8, !tbaa !3
   %70 = ptrtoint ptr %69 to i64
   %71 = and i64 %70, 1
@@ -573,7 +573,7 @@ _ZN4lean10object_refD2Ev.exit26:                  ; preds = %68, %75, %77, %78
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN4lean4nameC2ERKS0_.exit
 
-82:                                               ; preds = %.thread41
+82:                                               ; preds = %.thread43
   %83 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15

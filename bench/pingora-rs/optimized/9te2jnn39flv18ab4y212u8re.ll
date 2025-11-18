@@ -15282,35 +15282,35 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream24BrotliStoreMetaBlockFast1
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 97
   %41 = load i8, ptr %40, align 1, !range !284, !noundef !3
   %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %46, label %._crit_edge
+  br i1 %42, label %47, label %43
 
-._crit_edge:                                      ; preds = %52, %17
-  %43 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %44 = load i32, ptr %43, align 8, !noundef !3
+43:                                               ; preds = %53, %17
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %45 = load i32, ptr %44, align 8, !noundef !3
   tail call void @_ZN6brotli3enc17brotli_bit_stream30StoreCompressedMetaBlockHeader17h715e7589653ae174E(i32 noundef %6, i64 noundef %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull align 1 %14, i64 noundef %15)
   tail call void @_ZN6brotli3enc17brotli_bit_stream15BrotliWriteBits17hecd5a695b66fcc7bE(i8 noundef 13, i64 noundef 0, ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull align 1 %14, i64 noundef %15)
-  %45 = icmp ult i64 %11, 129
-  br i1 %45, label %74, label %59
+  %46 = icmp ult i64 %11, 129
+  br i1 %46, label %75, label %60
 
-46:                                               ; preds = %17
+47:                                               ; preds = %17
   %.not = icmp ugt i64 %11, %10
-  br i1 %.not, label %47, label %52, !prof !6
+  br i1 %.not, label %48, label %53, !prof !6
 
-47:                                               ; preds = %46
+48:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr @anon.cc180569dbfb30d6841720704a8a24b8.1, ptr %18, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i64 1, ptr %48, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  store ptr null, ptr %49, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr inttoptr (i64 8 to ptr), ptr %50, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store i64 0, ptr %51, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i64 1, ptr %49, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  store ptr null, ptr %50, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store ptr inttoptr (i64 8 to ptr), ptr %51, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  store i64 0, ptr %52, align 8
   call void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cc180569dbfb30d6841720704a8a24b8.158) #22
   unreachable
 
-52:                                               ; preds = %46
+53:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store ptr inttoptr (i64 1 to ptr), ptr %31, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -15321,12 +15321,12 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream24BrotliStoreMetaBlockFast1
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 32
   store i32 1, ptr %.sroa.7.0..sroa_idx, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  store ptr inttoptr (i64 4 to ptr), ptr %53, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %31, i64 48
-  store i64 0, ptr %54, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %31, i64 56
-  store ptr inttoptr (i64 1 to ptr), ptr %55, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  store ptr inttoptr (i64 4 to ptr), ptr %54, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %31, i64 48
+  store i64 0, ptr %55, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %31, i64 56
+  store ptr inttoptr (i64 1 to ptr), ptr %56, align 8
   %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 64
   store i64 0, ptr %.sroa.419.0..sroa_idx, align 8
   %.sroa.520.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 72
@@ -15335,8 +15335,8 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream24BrotliStoreMetaBlockFast1
   store i64 0, ptr %.sroa.621.0..sroa_idx, align 8
   %.sroa.722.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 88
   store i32 1, ptr %.sroa.722.0..sroa_idx, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %31, i64 96
-  store ptr inttoptr (i64 1 to ptr), ptr %56, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %31, i64 96
+  store ptr inttoptr (i64 1 to ptr), ptr %57, align 8
   %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 104
   store i64 0, ptr %.sroa.425.0..sroa_idx, align 8
   %.sroa.526.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 112
@@ -15345,36 +15345,35 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream24BrotliStoreMetaBlockFast1
   store i64 0, ptr %.sroa.627.0..sroa_idx, align 8
   %.sroa.728.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 128
   store i32 1, ptr %.sroa.728.0..sroa_idx, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %31, i64 136
-  store ptr inttoptr (i64 4 to ptr), ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %31, i64 144
-  store i64 0, ptr %58, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %31, i64 136
+  store ptr inttoptr (i64 4 to ptr), ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %31, i64 144
+  store i64 0, ptr %59, align 8
   call fastcc void @_ZN6brotli3enc17brotli_bit_stream12LogMetaBlock17hd001713e21424ddeE(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 4 %9, i64 noundef %11, ptr noalias noundef nonnull readonly align 1 %33, i64 noundef %35, ptr noalias noundef nonnull readonly align 1 %37, i64 noundef %39, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %8, ptr noalias noundef align 8 dereferenceable(8) %12, ptr noalias noundef align 8 captures(none) dereferenceable(152) %31, ptr noalias noundef readonly align 8 dereferenceable(112) %7, i8 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
-  br label %._crit_edge
+  br label %43
 
-59:                                               ; preds = %._crit_edge
-  %60 = zext i32 %44 to i64
-  %61 = add nsw i64 %60, -1
-  %62 = icmp ult i64 %61, 2
-  %63 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %61, i1 true)
-  %64 = sub nuw nsw i64 64, %63
-  %.sroa.0.0.lcssa = select i1 %62, i64 1, i64 %64
+60:                                               ; preds = %43
+  %61 = zext i32 %45 to i64
+  %62 = add nsw i64 %61, -1
+  %63 = lshr i64 %62, 1
+  %64 = tail call range(i64 1, 65) i64 @llvm.ctlz.i64(i64 %63, i1 false)
+  %65 = sub nuw nsw i64 65, %64
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  %65 = getelementptr inbounds nuw i8, ptr %27, i64 1024
-  %66 = getelementptr inbounds nuw i8, ptr %27, i64 1032
+  %66 = getelementptr inbounds nuw i8, ptr %27, i64 1024
+  %67 = getelementptr inbounds nuw i8, ptr %27, i64 1032
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %27, i8 0, i64 1032, i1 false)
-  store float 0x47EFFE0460000000, ptr %66, align 8
+  store float 0x47EFFE0460000000, ptr %67, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
-  %67 = getelementptr inbounds nuw i8, ptr %26, i64 2816
-  %68 = getelementptr inbounds nuw i8, ptr %26, i64 2824
+  %68 = getelementptr inbounds nuw i8, ptr %26, i64 2816
+  %69 = getelementptr inbounds nuw i8, ptr %26, i64 2824
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2824) %26, i8 0, i64 2824, i1 false)
-  store float 0x47EFFE0460000000, ptr %68, align 8
+  store float 0x47EFFE0460000000, ptr %69, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  %69 = getelementptr inbounds nuw i8, ptr %25, i64 2176
-  %70 = getelementptr inbounds nuw i8, ptr %25, i64 2184
+  %70 = getelementptr inbounds nuw i8, ptr %25, i64 2176
+  %71 = getelementptr inbounds nuw i8, ptr %25, i64 2184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %25, i8 0, i64 2184, i1 false)
-  store float 0x47EFFE0460000000, ptr %70, align 8
+  store float 0x47EFFE0460000000, ptr %71, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %24, i8 0, i64 256, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
@@ -15388,12 +15387,12 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream24BrotliStoreMetaBlockFast1
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(280) %19, i8 0, i64 280, i1 false)
   call void @_ZN6brotli3enc17brotli_bit_stream15BuildHistograms17h93b6046588c006b2E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, i64 noundef %5, ptr noalias noundef nonnull readonly align 4 %9, i64 noundef %10, i64 noundef %11, ptr noalias noundef nonnull align 8 dereferenceable(1040) %27, ptr noalias noundef nonnull align 8 dereferenceable(2832) %26, ptr noalias noundef nonnull align 8 dereferenceable(2192) %25)
-  %71 = load i64, ptr %65, align 8, !noundef !3
-  call void @_ZN6brotli3enc17brotli_bit_stream34BrotliBuildAndStoreHuffmanTreeFast17hcbc326c9aec80b2bE(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 4 %27, i64 noundef 256, i64 noundef %71, i64 noundef 8, ptr noalias noundef nonnull align 1 %24, i64 noundef 256, ptr noalias noundef nonnull align 2 %23, i64 noundef 256, ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull align 1 %14, i64 noundef %15)
-  %72 = load i64, ptr %67, align 8, !noundef !3
-  call void @_ZN6brotli3enc17brotli_bit_stream34BrotliBuildAndStoreHuffmanTreeFast17hcbc326c9aec80b2bE(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 4 %26, i64 noundef 704, i64 noundef %72, i64 noundef 10, ptr noalias noundef nonnull align 1 %22, i64 noundef 704, ptr noalias noundef nonnull align 2 %21, i64 noundef 704, ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull align 1 %14, i64 noundef %15)
-  %73 = load i64, ptr %69, align 8, !noundef !3
-  call void @_ZN6brotli3enc17brotli_bit_stream34BrotliBuildAndStoreHuffmanTreeFast17hcbc326c9aec80b2bE(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 4 %25, i64 noundef 544, i64 noundef %73, i64 noundef %.sroa.0.0.lcssa, ptr noalias noundef nonnull align 1 %20, i64 noundef 140, ptr noalias noundef nonnull align 2 %19, i64 noundef 140, ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull align 1 %14, i64 noundef %15)
+  %72 = load i64, ptr %66, align 8, !noundef !3
+  call void @_ZN6brotli3enc17brotli_bit_stream34BrotliBuildAndStoreHuffmanTreeFast17hcbc326c9aec80b2bE(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 4 %27, i64 noundef 256, i64 noundef %72, i64 noundef 8, ptr noalias noundef nonnull align 1 %24, i64 noundef 256, ptr noalias noundef nonnull align 2 %23, i64 noundef 256, ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull align 1 %14, i64 noundef %15)
+  %73 = load i64, ptr %68, align 8, !noundef !3
+  call void @_ZN6brotli3enc17brotli_bit_stream34BrotliBuildAndStoreHuffmanTreeFast17hcbc326c9aec80b2bE(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 4 %26, i64 noundef 704, i64 noundef %73, i64 noundef 10, ptr noalias noundef nonnull align 1 %22, i64 noundef 704, ptr noalias noundef nonnull align 2 %21, i64 noundef 704, ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull align 1 %14, i64 noundef %15)
+  %74 = load i64, ptr %70, align 8, !noundef !3
+  call void @_ZN6brotli3enc17brotli_bit_stream34BrotliBuildAndStoreHuffmanTreeFast17hcbc326c9aec80b2bE(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 4 %25, i64 noundef 544, i64 noundef %74, i64 noundef %65, ptr noalias noundef nonnull align 1 %20, i64 noundef 140, ptr noalias noundef nonnull align 2 %19, i64 noundef 140, ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull align 1 %14, i64 noundef %15)
   call void @_ZN6brotli3enc17brotli_bit_stream25StoreDataWithHuffmanCodes17h5be5f407c5559b92E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, i64 noundef %5, ptr noalias noundef nonnull readonly align 4 %9, i64 noundef %10, i64 noundef %11, ptr noalias noundef nonnull readonly align 1 %24, i64 noundef 256, ptr noalias noundef nonnull readonly align 2 %23, i64 noundef 256, ptr noalias noundef nonnull readonly align 1 %22, i64 noundef 704, ptr noalias noundef nonnull readonly align 2 %21, i64 noundef 704, ptr noalias noundef nonnull readonly align 1 %20, i64 noundef 140, ptr noalias noundef nonnull readonly align 2 %19, i64 noundef 140, ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull align 1 %14, i64 noundef %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -15404,24 +15403,24 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream24BrotliStoreMetaBlockFast1
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  br label %75
+  br label %76
 
-74:                                               ; preds = %._crit_edge
+75:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %30, i8 0, i64 1024, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %29, i8 0, i64 256, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(512) %28, i8 0, i64 512, i1 false)
-  %.not56 = icmp eq i64 %11, 0
-  br i1 %.not56, label %._crit_edge54, label %.lr.ph53
+  %.not50 = icmp eq i64 %11, 0
+  br i1 %.not50, label %._crit_edge48, label %.lr.ph47
 
-75:                                               ; preds = %._crit_edge54, %59
-  %76 = icmp eq i32 %6, 0
-  br i1 %76, label %77, label %78
+76:                                               ; preds = %._crit_edge48, %60
+  %77 = icmp eq i32 %6, 0
+  br i1 %77, label %78, label %79
 
-._crit_edge54:                                    ; preds = %._crit_edge47, %74
-  %.sroa.015.0.lcssa = phi i64 [ 0, %74 ], [ %87, %._crit_edge47 ]
+._crit_edge48:                                    ; preds = %._crit_edge, %75
+  %.sroa.015.0.lcssa = phi i64 [ 0, %75 ], [ %88, %._crit_edge ]
   call void @_ZN6brotli3enc17brotli_bit_stream34BrotliBuildAndStoreHuffmanTreeFast17hcbc326c9aec80b2bE(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 4 %30, i64 noundef 256, i64 noundef %.sroa.015.0.lcssa, i64 noundef 8, ptr noalias noundef nonnull align 1 %29, i64 noundef 256, ptr noalias noundef nonnull align 2 %28, i64 noundef 256, ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull align 1 %14, i64 noundef %15)
   call void @_ZN6brotli3enc17brotli_bit_stream29StoreStaticCommandHuffmanTree17h5a0bcd7bfb813133E(ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull align 1 %14, i64 noundef %15)
   call void @_ZN6brotli3enc17brotli_bit_stream30StoreStaticDistanceHuffmanTree17h0b7181b74ffb6946E(ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull align 1 %14, i64 noundef %15)
@@ -15429,68 +15428,68 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream24BrotliStoreMetaBlockFast1
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  br label %75
+  br label %76
 
-.lr.ph53:                                         ; preds = %74, %._crit_edge47
-  %.sroa.06.051 = phi i64 [ %90, %._crit_edge47 ], [ %3, %74 ]
-  %.sroa.09.050 = phi i64 [ %91, %._crit_edge47 ], [ 0, %74 ]
-  %.sroa.015.049 = phi i64 [ %87, %._crit_edge47 ], [ 0, %74 ]
-  %exitcond.not = icmp eq i64 %.sroa.09.050, %10
-  br i1 %exitcond.not, label %86, label %79
+.lr.ph47:                                         ; preds = %75, %._crit_edge
+  %.sroa.06.045 = phi i64 [ %91, %._crit_edge ], [ %3, %75 ]
+  %.sroa.09.044 = phi i64 [ %92, %._crit_edge ], [ 0, %75 ]
+  %.sroa.015.043 = phi i64 [ %88, %._crit_edge ], [ 0, %75 ]
+  %exitcond.not = icmp eq i64 %.sroa.09.044, %10
+  br i1 %exitcond.not, label %87, label %80
 
-77:                                               ; preds = %78, %75
+78:                                               ; preds = %79, %76
   ret void
 
-78:                                               ; preds = %75
+79:                                               ; preds = %76
   call void @_ZN6brotli3enc17brotli_bit_stream18JumpToByteBoundary17hfa5db8f155ab7a72E(ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull align 1 %14, i64 noundef %15)
-  br label %77
+  br label %78
 
-79:                                               ; preds = %.lr.ph53
-  %80 = getelementptr inbounds nuw { i32, i32, i32, i16, i16 }, ptr %9, i64 %.sroa.09.050
-  %81 = load i32, ptr %80, align 4, !noundef !3
-  %82 = getelementptr inbounds nuw i8, ptr %80, i64 4
-  %83 = load i32, ptr %82, align 4, !noundef !3
-  %84 = zext i32 %81 to i64
-  %85 = icmp eq i32 %81, 0
-  br i1 %85, label %._crit_edge47, label %.lr.ph46
+80:                                               ; preds = %.lr.ph47
+  %81 = getelementptr inbounds nuw { i32, i32, i32, i16, i16 }, ptr %9, i64 %.sroa.09.044
+  %82 = load i32, ptr %81, align 4, !noundef !3
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 4
+  %84 = load i32, ptr %83, align 4, !noundef !3
+  %85 = zext i32 %82 to i64
+  %86 = icmp eq i32 %82, 0
+  br i1 %86, label %._crit_edge, label %.lr.ph
 
-86:                                               ; preds = %.lr.ph53
+87:                                               ; preds = %.lr.ph47
   tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %10, i64 noundef %10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cc180569dbfb30d6841720704a8a24b8.159) #22
   unreachable
 
-._crit_edge47:                                    ; preds = %95, %79
-  %.sroa.06.1.lcssa = phi i64 [ %.sroa.06.051, %79 ], [ %102, %95 ]
-  %87 = add i64 %.sroa.015.049, %84
-  %88 = and i32 %83, 16777215
-  %89 = zext nneg i32 %88 to i64
-  %90 = add i64 %.sroa.06.1.lcssa, %89
-  %91 = add nuw i64 %.sroa.09.050, 1
-  %exitcond63.not = icmp eq i64 %91, %11
-  br i1 %exitcond63.not, label %._crit_edge54, label %.lr.ph53
+._crit_edge:                                      ; preds = %96, %80
+  %.sroa.06.1.lcssa = phi i64 [ %.sroa.06.045, %80 ], [ %103, %96 ]
+  %88 = add i64 %.sroa.015.043, %85
+  %89 = and i32 %84, 16777215
+  %90 = zext nneg i32 %89 to i64
+  %91 = add i64 %.sroa.06.1.lcssa, %90
+  %92 = add nuw i64 %.sroa.09.044, 1
+  %exitcond56.not = icmp eq i64 %92, %11
+  br i1 %exitcond56.not, label %._crit_edge48, label %.lr.ph47
 
-.lr.ph46:                                         ; preds = %79, %95
-  %.sroa.04.044 = phi i64 [ %103, %95 ], [ %84, %79 ]
-  %.sroa.06.143 = phi i64 [ %102, %95 ], [ %.sroa.06.051, %79 ]
-  %92 = and i64 %.sroa.06.143, %5
-  %93 = icmp ult i64 %92, %2
-  br i1 %93, label %95, label %94
+.lr.ph:                                           ; preds = %80, %96
+  %.sroa.04.042 = phi i64 [ %104, %96 ], [ %85, %80 ]
+  %.sroa.06.141 = phi i64 [ %103, %96 ], [ %.sroa.06.045, %80 ]
+  %93 = and i64 %.sroa.06.141, %5
+  %94 = icmp ult i64 %93, %2
+  br i1 %94, label %96, label %95
 
-94:                                               ; preds = %.lr.ph46
-  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %92, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cc180569dbfb30d6841720704a8a24b8.160) #22
+95:                                               ; preds = %.lr.ph
+  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %93, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cc180569dbfb30d6841720704a8a24b8.160) #22
   unreachable
 
-95:                                               ; preds = %.lr.ph46
-  %96 = getelementptr inbounds nuw i8, ptr %1, i64 %92
-  %97 = load i8, ptr %96, align 1, !noundef !3
-  %98 = zext i8 %97 to i64
-  %99 = getelementptr inbounds nuw i32, ptr %30, i64 %98
-  %100 = load i32, ptr %99, align 4, !noundef !3
-  %101 = add i32 %100, 1
-  store i32 %101, ptr %99, align 4
-  %102 = add i64 %.sroa.06.143, 1
-  %103 = add nsw i64 %.sroa.04.044, -1
-  %104 = icmp eq i64 %103, 0
-  br i1 %104, label %._crit_edge47, label %.lr.ph46
+96:                                               ; preds = %.lr.ph
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 %93
+  %98 = load i8, ptr %97, align 1, !noundef !3
+  %99 = zext i8 %98 to i64
+  %100 = getelementptr inbounds nuw i32, ptr %30, i64 %99
+  %101 = load i32, ptr %100, align 4, !noundef !3
+  %102 = add i32 %101, 1
+  store i32 %102, ptr %100, align 4
+  %103 = add i64 %.sroa.06.141, 1
+  %104 = add nsw i64 %.sroa.04.042, -1
+  %105 = icmp eq i64 %104, 0
+  br i1 %105, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -15523,35 +15522,35 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream24BrotliStoreMetaBlockFast1
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 97
   %41 = load i8, ptr %40, align 1, !range !284, !noundef !3
   %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %46, label %._crit_edge
+  br i1 %42, label %47, label %43
 
-._crit_edge:                                      ; preds = %52, %17
-  %43 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %44 = load i32, ptr %43, align 8, !noundef !3
+43:                                               ; preds = %53, %17
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %45 = load i32, ptr %44, align 8, !noundef !3
   tail call void @_ZN6brotli3enc17brotli_bit_stream30StoreCompressedMetaBlockHeader17h715e7589653ae174E(i32 noundef %6, i64 noundef %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull align 1 %14, i64 noundef %15)
   tail call void @_ZN6brotli3enc17brotli_bit_stream15BrotliWriteBits17hecd5a695b66fcc7bE(i8 noundef 13, i64 noundef 0, ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull align 1 %14, i64 noundef %15)
-  %45 = icmp ult i64 %11, 129
-  br i1 %45, label %74, label %59
+  %46 = icmp ult i64 %11, 129
+  br i1 %46, label %75, label %60
 
-46:                                               ; preds = %17
+47:                                               ; preds = %17
   %.not = icmp ugt i64 %11, %10
-  br i1 %.not, label %47, label %52, !prof !6
+  br i1 %.not, label %48, label %53, !prof !6
 
-47:                                               ; preds = %46
+48:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr @anon.cc180569dbfb30d6841720704a8a24b8.1, ptr %18, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i64 1, ptr %48, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  store ptr null, ptr %49, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr inttoptr (i64 8 to ptr), ptr %50, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store i64 0, ptr %51, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i64 1, ptr %49, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  store ptr null, ptr %50, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store ptr inttoptr (i64 8 to ptr), ptr %51, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  store i64 0, ptr %52, align 8
   call void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cc180569dbfb30d6841720704a8a24b8.158) #22
   unreachable
 
-52:                                               ; preds = %46
+53:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store ptr inttoptr (i64 1 to ptr), ptr %31, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -15562,12 +15561,12 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream24BrotliStoreMetaBlockFast1
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 32
   store i32 1, ptr %.sroa.7.0..sroa_idx, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  store ptr inttoptr (i64 4 to ptr), ptr %53, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %31, i64 48
-  store i64 0, ptr %54, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %31, i64 56
-  store ptr inttoptr (i64 1 to ptr), ptr %55, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  store ptr inttoptr (i64 4 to ptr), ptr %54, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %31, i64 48
+  store i64 0, ptr %55, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %31, i64 56
+  store ptr inttoptr (i64 1 to ptr), ptr %56, align 8
   %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 64
   store i64 0, ptr %.sroa.419.0..sroa_idx, align 8
   %.sroa.520.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 72
@@ -15576,8 +15575,8 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream24BrotliStoreMetaBlockFast1
   store i64 0, ptr %.sroa.621.0..sroa_idx, align 8
   %.sroa.722.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 88
   store i32 1, ptr %.sroa.722.0..sroa_idx, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %31, i64 96
-  store ptr inttoptr (i64 1 to ptr), ptr %56, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %31, i64 96
+  store ptr inttoptr (i64 1 to ptr), ptr %57, align 8
   %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 104
   store i64 0, ptr %.sroa.425.0..sroa_idx, align 8
   %.sroa.526.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 112
@@ -15586,36 +15585,35 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream24BrotliStoreMetaBlockFast1
   store i64 0, ptr %.sroa.627.0..sroa_idx, align 8
   %.sroa.728.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 128
   store i32 1, ptr %.sroa.728.0..sroa_idx, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %31, i64 136
-  store ptr inttoptr (i64 4 to ptr), ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %31, i64 144
-  store i64 0, ptr %58, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %31, i64 136
+  store ptr inttoptr (i64 4 to ptr), ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %31, i64 144
+  store i64 0, ptr %59, align 8
   call fastcc void @_ZN6brotli3enc17brotli_bit_stream12LogMetaBlock17h0ccbea606c799f51E(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 4 %9, i64 noundef %11, ptr noalias noundef nonnull readonly align 1 %33, i64 noundef %35, ptr noalias noundef nonnull readonly align 1 %37, i64 noundef %39, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %8, ptr noalias noundef align 8 dereferenceable(8) %12, ptr noalias noundef align 8 captures(none) dereferenceable(152) %31, ptr noalias noundef readonly align 8 dereferenceable(112) %7, i8 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
-  br label %._crit_edge
+  br label %43
 
-59:                                               ; preds = %._crit_edge
-  %60 = zext i32 %44 to i64
-  %61 = add nsw i64 %60, -1
-  %62 = icmp ult i64 %61, 2
-  %63 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %61, i1 true)
-  %64 = sub nuw nsw i64 64, %63
-  %.sroa.0.0.lcssa = select i1 %62, i64 1, i64 %64
+60:                                               ; preds = %43
+  %61 = zext i32 %45 to i64
+  %62 = add nsw i64 %61, -1
+  %63 = lshr i64 %62, 1
+  %64 = tail call range(i64 1, 65) i64 @llvm.ctlz.i64(i64 %63, i1 false)
+  %65 = sub nuw nsw i64 65, %64
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  %65 = getelementptr inbounds nuw i8, ptr %27, i64 1024
-  %66 = getelementptr inbounds nuw i8, ptr %27, i64 1032
+  %66 = getelementptr inbounds nuw i8, ptr %27, i64 1024
+  %67 = getelementptr inbounds nuw i8, ptr %27, i64 1032
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %27, i8 0, i64 1032, i1 false)
-  store float 0x47EFFE0460000000, ptr %66, align 8
+  store float 0x47EFFE0460000000, ptr %67, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
-  %67 = getelementptr inbounds nuw i8, ptr %26, i64 2816
-  %68 = getelementptr inbounds nuw i8, ptr %26, i64 2824
+  %68 = getelementptr inbounds nuw i8, ptr %26, i64 2816
+  %69 = getelementptr inbounds nuw i8, ptr %26, i64 2824
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2824) %26, i8 0, i64 2824, i1 false)
-  store float 0x47EFFE0460000000, ptr %68, align 8
+  store float 0x47EFFE0460000000, ptr %69, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  %69 = getelementptr inbounds nuw i8, ptr %25, i64 2176
-  %70 = getelementptr inbounds nuw i8, ptr %25, i64 2184
+  %70 = getelementptr inbounds nuw i8, ptr %25, i64 2176
+  %71 = getelementptr inbounds nuw i8, ptr %25, i64 2184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %25, i8 0, i64 2184, i1 false)
-  store float 0x47EFFE0460000000, ptr %70, align 8
+  store float 0x47EFFE0460000000, ptr %71, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %24, i8 0, i64 256, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
@@ -15629,12 +15627,12 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream24BrotliStoreMetaBlockFast1
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(280) %19, i8 0, i64 280, i1 false)
   call void @_ZN6brotli3enc17brotli_bit_stream15BuildHistograms17h93b6046588c006b2E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, i64 noundef %5, ptr noalias noundef nonnull readonly align 4 %9, i64 noundef %10, i64 noundef %11, ptr noalias noundef nonnull align 8 dereferenceable(1040) %27, ptr noalias noundef nonnull align 8 dereferenceable(2832) %26, ptr noalias noundef nonnull align 8 dereferenceable(2192) %25)
-  %71 = load i64, ptr %65, align 8, !noundef !3
-  call void @_ZN6brotli3enc17brotli_bit_stream34BrotliBuildAndStoreHuffmanTreeFast17hcbc326c9aec80b2bE(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 4 %27, i64 noundef 256, i64 noundef %71, i64 noundef 8, ptr noalias noundef nonnull align 1 %24, i64 noundef 256, ptr noalias noundef nonnull align 2 %23, i64 noundef 256, ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull align 1 %14, i64 noundef %15)
-  %72 = load i64, ptr %67, align 8, !noundef !3
-  call void @_ZN6brotli3enc17brotli_bit_stream34BrotliBuildAndStoreHuffmanTreeFast17hcbc326c9aec80b2bE(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 4 %26, i64 noundef 704, i64 noundef %72, i64 noundef 10, ptr noalias noundef nonnull align 1 %22, i64 noundef 704, ptr noalias noundef nonnull align 2 %21, i64 noundef 704, ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull align 1 %14, i64 noundef %15)
-  %73 = load i64, ptr %69, align 8, !noundef !3
-  call void @_ZN6brotli3enc17brotli_bit_stream34BrotliBuildAndStoreHuffmanTreeFast17hcbc326c9aec80b2bE(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 4 %25, i64 noundef 544, i64 noundef %73, i64 noundef %.sroa.0.0.lcssa, ptr noalias noundef nonnull align 1 %20, i64 noundef 140, ptr noalias noundef nonnull align 2 %19, i64 noundef 140, ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull align 1 %14, i64 noundef %15)
+  %72 = load i64, ptr %66, align 8, !noundef !3
+  call void @_ZN6brotli3enc17brotli_bit_stream34BrotliBuildAndStoreHuffmanTreeFast17hcbc326c9aec80b2bE(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 4 %27, i64 noundef 256, i64 noundef %72, i64 noundef 8, ptr noalias noundef nonnull align 1 %24, i64 noundef 256, ptr noalias noundef nonnull align 2 %23, i64 noundef 256, ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull align 1 %14, i64 noundef %15)
+  %73 = load i64, ptr %68, align 8, !noundef !3
+  call void @_ZN6brotli3enc17brotli_bit_stream34BrotliBuildAndStoreHuffmanTreeFast17hcbc326c9aec80b2bE(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 4 %26, i64 noundef 704, i64 noundef %73, i64 noundef 10, ptr noalias noundef nonnull align 1 %22, i64 noundef 704, ptr noalias noundef nonnull align 2 %21, i64 noundef 704, ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull align 1 %14, i64 noundef %15)
+  %74 = load i64, ptr %70, align 8, !noundef !3
+  call void @_ZN6brotli3enc17brotli_bit_stream34BrotliBuildAndStoreHuffmanTreeFast17hcbc326c9aec80b2bE(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 4 %25, i64 noundef 544, i64 noundef %74, i64 noundef %65, ptr noalias noundef nonnull align 1 %20, i64 noundef 140, ptr noalias noundef nonnull align 2 %19, i64 noundef 140, ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull align 1 %14, i64 noundef %15)
   call void @_ZN6brotli3enc17brotli_bit_stream25StoreDataWithHuffmanCodes17h5be5f407c5559b92E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, i64 noundef %5, ptr noalias noundef nonnull readonly align 4 %9, i64 noundef %10, i64 noundef %11, ptr noalias noundef nonnull readonly align 1 %24, i64 noundef 256, ptr noalias noundef nonnull readonly align 2 %23, i64 noundef 256, ptr noalias noundef nonnull readonly align 1 %22, i64 noundef 704, ptr noalias noundef nonnull readonly align 2 %21, i64 noundef 704, ptr noalias noundef nonnull readonly align 1 %20, i64 noundef 140, ptr noalias noundef nonnull readonly align 2 %19, i64 noundef 140, ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull align 1 %14, i64 noundef %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -15645,24 +15643,24 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream24BrotliStoreMetaBlockFast1
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  br label %75
+  br label %76
 
-74:                                               ; preds = %._crit_edge
+75:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %30, i8 0, i64 1024, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %29, i8 0, i64 256, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(512) %28, i8 0, i64 512, i1 false)
-  %.not56 = icmp eq i64 %11, 0
-  br i1 %.not56, label %._crit_edge54, label %.lr.ph53
+  %.not50 = icmp eq i64 %11, 0
+  br i1 %.not50, label %._crit_edge48, label %.lr.ph47
 
-75:                                               ; preds = %._crit_edge54, %59
-  %76 = icmp eq i32 %6, 0
-  br i1 %76, label %77, label %78
+76:                                               ; preds = %._crit_edge48, %60
+  %77 = icmp eq i32 %6, 0
+  br i1 %77, label %78, label %79
 
-._crit_edge54:                                    ; preds = %._crit_edge47, %74
-  %.sroa.015.0.lcssa = phi i64 [ 0, %74 ], [ %87, %._crit_edge47 ]
+._crit_edge48:                                    ; preds = %._crit_edge, %75
+  %.sroa.015.0.lcssa = phi i64 [ 0, %75 ], [ %88, %._crit_edge ]
   call void @_ZN6brotli3enc17brotli_bit_stream34BrotliBuildAndStoreHuffmanTreeFast17hcbc326c9aec80b2bE(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 4 %30, i64 noundef 256, i64 noundef %.sroa.015.0.lcssa, i64 noundef 8, ptr noalias noundef nonnull align 1 %29, i64 noundef 256, ptr noalias noundef nonnull align 2 %28, i64 noundef 256, ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull align 1 %14, i64 noundef %15)
   call void @_ZN6brotli3enc17brotli_bit_stream29StoreStaticCommandHuffmanTree17h5a0bcd7bfb813133E(ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull align 1 %14, i64 noundef %15)
   call void @_ZN6brotli3enc17brotli_bit_stream30StoreStaticDistanceHuffmanTree17h0b7181b74ffb6946E(ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull align 1 %14, i64 noundef %15)
@@ -15670,68 +15668,68 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream24BrotliStoreMetaBlockFast1
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  br label %75
+  br label %76
 
-.lr.ph53:                                         ; preds = %74, %._crit_edge47
-  %.sroa.06.051 = phi i64 [ %90, %._crit_edge47 ], [ %3, %74 ]
-  %.sroa.09.050 = phi i64 [ %91, %._crit_edge47 ], [ 0, %74 ]
-  %.sroa.015.049 = phi i64 [ %87, %._crit_edge47 ], [ 0, %74 ]
-  %exitcond.not = icmp eq i64 %.sroa.09.050, %10
-  br i1 %exitcond.not, label %86, label %79
+.lr.ph47:                                         ; preds = %75, %._crit_edge
+  %.sroa.06.045 = phi i64 [ %91, %._crit_edge ], [ %3, %75 ]
+  %.sroa.09.044 = phi i64 [ %92, %._crit_edge ], [ 0, %75 ]
+  %.sroa.015.043 = phi i64 [ %88, %._crit_edge ], [ 0, %75 ]
+  %exitcond.not = icmp eq i64 %.sroa.09.044, %10
+  br i1 %exitcond.not, label %87, label %80
 
-77:                                               ; preds = %78, %75
+78:                                               ; preds = %79, %76
   ret void
 
-78:                                               ; preds = %75
+79:                                               ; preds = %76
   call void @_ZN6brotli3enc17brotli_bit_stream18JumpToByteBoundary17hfa5db8f155ab7a72E(ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull align 1 %14, i64 noundef %15)
-  br label %77
+  br label %78
 
-79:                                               ; preds = %.lr.ph53
-  %80 = getelementptr inbounds nuw { i32, i32, i32, i16, i16 }, ptr %9, i64 %.sroa.09.050
-  %81 = load i32, ptr %80, align 4, !noundef !3
-  %82 = getelementptr inbounds nuw i8, ptr %80, i64 4
-  %83 = load i32, ptr %82, align 4, !noundef !3
-  %84 = zext i32 %81 to i64
-  %85 = icmp eq i32 %81, 0
-  br i1 %85, label %._crit_edge47, label %.lr.ph46
+80:                                               ; preds = %.lr.ph47
+  %81 = getelementptr inbounds nuw { i32, i32, i32, i16, i16 }, ptr %9, i64 %.sroa.09.044
+  %82 = load i32, ptr %81, align 4, !noundef !3
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 4
+  %84 = load i32, ptr %83, align 4, !noundef !3
+  %85 = zext i32 %82 to i64
+  %86 = icmp eq i32 %82, 0
+  br i1 %86, label %._crit_edge, label %.lr.ph
 
-86:                                               ; preds = %.lr.ph53
+87:                                               ; preds = %.lr.ph47
   tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %10, i64 noundef %10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cc180569dbfb30d6841720704a8a24b8.159) #22
   unreachable
 
-._crit_edge47:                                    ; preds = %95, %79
-  %.sroa.06.1.lcssa = phi i64 [ %.sroa.06.051, %79 ], [ %102, %95 ]
-  %87 = add i64 %.sroa.015.049, %84
-  %88 = and i32 %83, 16777215
-  %89 = zext nneg i32 %88 to i64
-  %90 = add i64 %.sroa.06.1.lcssa, %89
-  %91 = add nuw i64 %.sroa.09.050, 1
-  %exitcond63.not = icmp eq i64 %91, %11
-  br i1 %exitcond63.not, label %._crit_edge54, label %.lr.ph53
+._crit_edge:                                      ; preds = %96, %80
+  %.sroa.06.1.lcssa = phi i64 [ %.sroa.06.045, %80 ], [ %103, %96 ]
+  %88 = add i64 %.sroa.015.043, %85
+  %89 = and i32 %84, 16777215
+  %90 = zext nneg i32 %89 to i64
+  %91 = add i64 %.sroa.06.1.lcssa, %90
+  %92 = add nuw i64 %.sroa.09.044, 1
+  %exitcond56.not = icmp eq i64 %92, %11
+  br i1 %exitcond56.not, label %._crit_edge48, label %.lr.ph47
 
-.lr.ph46:                                         ; preds = %79, %95
-  %.sroa.04.044 = phi i64 [ %103, %95 ], [ %84, %79 ]
-  %.sroa.06.143 = phi i64 [ %102, %95 ], [ %.sroa.06.051, %79 ]
-  %92 = and i64 %.sroa.06.143, %5
-  %93 = icmp ult i64 %92, %2
-  br i1 %93, label %95, label %94
+.lr.ph:                                           ; preds = %80, %96
+  %.sroa.04.042 = phi i64 [ %104, %96 ], [ %85, %80 ]
+  %.sroa.06.141 = phi i64 [ %103, %96 ], [ %.sroa.06.045, %80 ]
+  %93 = and i64 %.sroa.06.141, %5
+  %94 = icmp ult i64 %93, %2
+  br i1 %94, label %96, label %95
 
-94:                                               ; preds = %.lr.ph46
-  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %92, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cc180569dbfb30d6841720704a8a24b8.160) #22
+95:                                               ; preds = %.lr.ph
+  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %93, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cc180569dbfb30d6841720704a8a24b8.160) #22
   unreachable
 
-95:                                               ; preds = %.lr.ph46
-  %96 = getelementptr inbounds nuw i8, ptr %1, i64 %92
-  %97 = load i8, ptr %96, align 1, !noundef !3
-  %98 = zext i8 %97 to i64
-  %99 = getelementptr inbounds nuw i32, ptr %30, i64 %98
-  %100 = load i32, ptr %99, align 4, !noundef !3
-  %101 = add i32 %100, 1
-  store i32 %101, ptr %99, align 4
-  %102 = add i64 %.sroa.06.143, 1
-  %103 = add nsw i64 %.sroa.04.044, -1
-  %104 = icmp eq i64 %103, 0
-  br i1 %104, label %._crit_edge47, label %.lr.ph46
+96:                                               ; preds = %.lr.ph
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 %93
+  %98 = load i8, ptr %97, align 1, !noundef !3
+  %99 = zext i8 %98 to i64
+  %100 = getelementptr inbounds nuw i32, ptr %30, i64 %99
+  %101 = load i32, ptr %100, align 4, !noundef !3
+  %102 = add i32 %101, 1
+  store i32 %102, ptr %100, align 4
+  %103 = add i64 %.sroa.06.141, 1
+  %104 = add nsw i64 %.sroa.04.042, -1
+  %105 = icmp eq i64 %104, 0
+  br i1 %105, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable

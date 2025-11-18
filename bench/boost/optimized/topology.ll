@@ -8611,7 +8611,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPclN9__gnu_cxx5__ops15_I
 50:                                               ; preds = %.lr.ph.i.i.i.i.i
   %51 = getelementptr inbounds i8, ptr %0, i64 %.01317.i.i.i.i.i
   store i8 %48, ptr %51, align 1, !tbaa !12
-  %.not8.i.i.i = icmp ult i64 %.018.in.i.i.i.i.i, 2
+  %.not8.i.i.i = icmp eq i64 %.018.i.i67.i.i.i, 0
   br i1 %.not8.i.i.i, label %_ZSt10__pop_heapIPcN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !270
 
 _ZSt10__pop_heapIPcN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.i.i: ; preds = %50, %.lr.ph.i.i.i.i.i, %46
@@ -11866,7 +11866,7 @@ _ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit: ; preds = %7
 
 36:                                               ; preds = %33
   %37 = lshr i64 %.04263, 1
-  %.not46 = icmp samesign ult i64 %.04263, 2
+  %.not46 = icmp eq i64 %37, 0
   br i1 %.not46, label %_ZNSt11char_traitsIcE4copyEPcPKcm.exit, label %33, !llvm.loop !324
 
 .critedge:                                        ; preds = %33
@@ -11884,15 +11884,15 @@ _ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit: ; preds = %7
   br i1 %.not47, label %42, label %_ZNSt11char_traitsIcE4copyEPcPKcm.exit
 
 _ZNSt11char_traitsIcE4copyEPcPKcm.exit:           ; preds = %36, %.critedge50
-  %.04176 = phi i64 [ %38, %.critedge50 ], [ %30, %36 ]
-  %.04374 = phi ptr [ %41, %.critedge50 ], [ null, %36 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04374, ptr align 1 %28, i64 %30, i1 false)
+  %.04177 = phi i64 [ %38, %.critedge50 ], [ %30, %36 ]
+  %.04375 = phi ptr [ %41, %.critedge50 ], [ null, %36 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04375, ptr align 1 %28, i64 %30, i1 false)
   br label %42
 
 42:                                               ; preds = %_ZNSt11char_traitsIcE4copyEPcPKcm.exit, %.critedge50
-  %.not4779 = phi i1 [ false, %_ZNSt11char_traitsIcE4copyEPcPKcm.exit ], [ true, %.critedge50 ]
-  %.04177 = phi i64 [ %.04176, %_ZNSt11char_traitsIcE4copyEPcPKcm.exit ], [ %38, %.critedge50 ]
-  %.04375 = phi ptr [ %.04374, %_ZNSt11char_traitsIcE4copyEPcPKcm.exit ], [ %41, %.critedge50 ]
+  %.not4780 = phi i1 [ false, %_ZNSt11char_traitsIcE4copyEPcPKcm.exit ], [ true, %.critedge50 ]
+  %.04178 = phi i64 [ %.04177, %_ZNSt11char_traitsIcE4copyEPcPKcm.exit ], [ %38, %.critedge50 ]
+  %.04376 = phi ptr [ %.04375, %_ZNSt11char_traitsIcE4copyEPcPKcm.exit ], [ %41, %.critedge50 ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %44 = load i8, ptr %43, align 8, !tbaa !174, !range !99, !noundef !100
   %45 = trunc nuw i8 %44 to i1
@@ -11905,14 +11905,14 @@ _ZNSt11char_traitsIcE4copyEPcPKcm.exit:           ; preds = %36, %.critedge50
 47:                                               ; preds = %46, %42
   store i8 1, ptr %43, align 8, !tbaa !174
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  br i1 %.not4779, label %49, label %60
+  br i1 %.not4780, label %49, label %60
 
 49:                                               ; preds = %47
-  store ptr %.04375, ptr %48, align 8, !tbaa !173
-  %50 = getelementptr inbounds nuw i8, ptr %.04375, i64 %.04177
-  store ptr %.04375, ptr %5, align 8, !tbaa !178
+  store ptr %.04376, ptr %48, align 8, !tbaa !173
+  %50 = getelementptr inbounds nuw i8, ptr %.04376, i64 %.04178
+  store ptr %.04376, ptr %5, align 8, !tbaa !178
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %.04375, ptr %51, align 8, !tbaa !321
+  store ptr %.04376, ptr %51, align 8, !tbaa !321
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %50, ptr %52, align 8, !tbaa !323
   %53 = load i32, ptr %29, align 4, !tbaa !175
@@ -11921,14 +11921,14 @@ _ZNSt11char_traitsIcE4copyEPcPKcm.exit:           ; preds = %36, %.critedge50
   br i1 %.not49, label %58, label %55
 
 55:                                               ; preds = %49
-  %56 = getelementptr inbounds nuw i8, ptr %.04375, i64 1
-  store ptr %.04375, ptr %32, align 8, !tbaa !177
+  %56 = getelementptr inbounds nuw i8, ptr %.04376, i64 1
+  store ptr %.04376, ptr %32, align 8, !tbaa !177
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.04375, ptr %57, align 8, !tbaa !320
+  store ptr %.04376, ptr %57, align 8, !tbaa !320
   br label %91
 
 58:                                               ; preds = %49
-  store ptr %.04375, ptr %32, align 8, !tbaa !177
+  store ptr %.04376, ptr %32, align 8, !tbaa !177
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %59, align 8, !tbaa !320
   br label %91
@@ -11938,7 +11938,7 @@ _ZNSt11char_traitsIcE4copyEPcPKcm.exit:           ; preds = %36, %.critedge50
   %62 = ptrtoint ptr %61 to i64
   %63 = ptrtoint ptr %28 to i64
   %64 = sub i64 %62, %63
-  %65 = getelementptr inbounds i8, ptr %.04375, i64 %64
+  %65 = getelementptr inbounds i8, ptr %.04376, i64 %64
   store ptr %65, ptr %48, align 8, !tbaa !173
   %66 = load ptr, ptr %5, align 8, !tbaa !178
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -11950,8 +11950,8 @@ _ZNSt11char_traitsIcE4copyEPcPKcm.exit:           ; preds = %36, %.critedge50
   %73 = load ptr, ptr %72, align 8, !tbaa !320
   %74 = load ptr, ptr %32, align 8, !tbaa !177
   %75 = sub i64 %70, %63
-  %76 = getelementptr inbounds i8, ptr %.04375, i64 %75
-  %77 = getelementptr inbounds nuw i8, ptr %.04375, i64 %.04177
+  %76 = getelementptr inbounds i8, ptr %.04376, i64 %75
+  %77 = getelementptr inbounds nuw i8, ptr %.04376, i64 %.04178
   store ptr %76, ptr %67, align 8, !tbaa !321
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %77, ptr %78, align 8, !tbaa !323
@@ -11970,21 +11970,21 @@ _ZNSt11char_traitsIcE4copyEPcPKcm.exit:           ; preds = %36, %.critedge50
   %86 = sub i64 %84, %85
   %sext = shl i64 %86, 32
   %87 = ashr exact i64 %sext, 32
-  %88 = getelementptr inbounds i8, ptr %.04375, i64 %87
+  %88 = getelementptr inbounds i8, ptr %.04376, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %80, i64 1
-  store ptr %.04375, ptr %32, align 8, !tbaa !177
+  store ptr %.04376, ptr %32, align 8, !tbaa !177
   store ptr %88, ptr %72, align 8, !tbaa !320
   br label %91
 
 90:                                               ; preds = %60
-  store ptr %.04375, ptr %32, align 8, !tbaa !177
+  store ptr %.04376, ptr %32, align 8, !tbaa !177
   store ptr null, ptr %72, align 8, !tbaa !320
   br label %91
 
 91:                                               ; preds = %83, %90, %55, %58
-  %.sink = phi ptr [ %89, %83 ], [ %.04375, %90 ], [ %56, %55 ], [ %.04375, %58 ]
+  %.sink = phi ptr [ %89, %83 ], [ %.04376, %90 ], [ %56, %55 ], [ %.04376, %58 ]
   %92 = phi ptr [ %77, %83 ], [ %77, %90 ], [ %50, %55 ], [ %50, %58 ]
-  %93 = phi ptr [ %80, %83 ], [ %80, %90 ], [ %.04375, %55 ], [ %.04375, %58 ]
+  %93 = phi ptr [ %80, %83 ], [ %80, %90 ], [ %.04376, %55 ], [ %.04376, %58 ]
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %94, align 8, !tbaa !322
   %95 = icmp ult ptr %93, %92
@@ -22970,7 +22970,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
 48:                                               ; preds = %.lr.ph.i.i.i.i.i
   %49 = getelementptr inbounds i8, ptr %0, i64 %.019.i.i.i.i.i
   store i8 %46, ptr %49, align 1, !tbaa !12
-  %.not7.i.i.i = icmp ult i64 %.0920.in.i.i.i.i.i, 2
+  %.not7.i.i.i = icmp eq i64 %.0920.i.i56.i.i.i, 0
   br i1 %.not7.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !629
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.i.i: ; preds = %48, %.lr.ph.i.i.i.i.i, %44
@@ -23166,7 +23166,7 @@ define linkonce_odr hidden void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_itera
 39:                                               ; preds = %.lr.ph.i.i.i.us
   %40 = getelementptr inbounds i8, ptr %.fr27, i64 %.019.i.i.i.us
   store i8 %37, ptr %40, align 1, !tbaa !12
-  %.not7.i.us = icmp ult i64 %.0920.in.i.i.i.us, 2
+  %.not7.i.us = icmp eq i64 %.0920.i.i56.i.us, 0
   br i1 %.not7.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !629
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %39, %34

@@ -1050,7 +1050,7 @@ define internal i32 @ac3_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   store i32 %593, ptr %60, align 8, !tbaa !60
   %594 = sub nsw i32 0, %591
   %595 = getelementptr inbounds nuw i32, ptr %114, i64 %indvars.iv.i.i
-  %596 = icmp ult i32 %590, 134217728
+  %596 = icmp eq i32 %591, 0
   %spec.select.i.i = select i1 %596, i32 -31, i32 %594
   store i32 %spec.select.i.i, ptr %595, align 4, !tbaa !43
   %597 = load i32, ptr %115, align 16, !tbaa !112
@@ -8395,7 +8395,7 @@ define internal fastcc void @decode_transform_coeffs_ch(ptr noundef %0, i32 noun
 .lr.ph158.i:                                      ; preds = %.loopexit145.i
   %343 = getelementptr inbounds nuw i8, ptr %0, i64 47552
   %344 = getelementptr inbounds [256 x i8], ptr %343, i64 %7
-  %.not133.i = icmp ugt i32 %230, 1073741823
+  %.not133.i = icmp ne i32 %231, 0
   %345 = getelementptr inbounds nuw i8, ptr %0, i64 2324
   %346 = getelementptr inbounds [256 x [6 x i32]], ptr %345, i64 %7
   %347 = getelementptr inbounds nuw i8, ptr %0, i64 54580

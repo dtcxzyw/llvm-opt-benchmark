@@ -3095,11 +3095,11 @@ define dso_local void @_ZN5clang8DeclSpec23SaveWrittenBuiltinSpecsEv(ptr noundef
   %21 = zext i32 %20 to i64
   %.idx3.i.i = shl nuw nsw i64 %21, 3
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx3.i.i
-  %.not.i.i = icmp ult i32 %20, 4
+  %23 = lshr i64 %21, 2
+  %.not.i.i = icmp eq i64 %23, 0
   br i1 %.not.i.i, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %1
-  %23 = lshr i64 %21, 2
   %24 = and i64 %.idx3.i.i, 34359738336
   %scevgep.i.i.i.i.i.i.i = getelementptr i8, ptr %18, i64 %24
   br label %.lr.ph.i.i.i.i.i.i.i
@@ -3154,11 +3154,10 @@ define dso_local void @_ZN5clang8DeclSpec23SaveWrittenBuiltinSpecsEv(ptr noundef
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %._crit_edge.loopexit.i.i.i.i.i.i.i, %1
   %.pre-phi53.i.i.i.i.i.i.i = phi i32 [ %55, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %20, %1 ]
   %.029.lcssa.i.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %18, %1 ]
-  switch i32 %.pre-phi53.i.i.i.i.i.i.i, label %default.unreachable [
+  switch i32 %.pre-phi53.i.i.i.i.i.i.i, label %78 [
     i32 3, label %56
     i32 2, label %64
     i32 1, label %72
-    i32 0, label %78
   ]
 
 56:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i
@@ -3194,9 +3193,6 @@ define dso_local void @_ZN5clang8DeclSpec23SaveWrittenBuiltinSpecsEv(ptr noundef
   %76 = and i32 %75, 65535
   %77 = icmp eq i32 %76, 197
   br i1 %77, label %_ZNK5clang20ParsedAttributesView12hasAttributeENS_19AttributeCommonInfo4KindE.exit, label %78
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i.i.i
-  unreachable
 
 78:                                               ; preds = %72, %._crit_edge.i.i.i.i.i.i.i
   br label %_ZNK5clang20ParsedAttributesView12hasAttributeENS_19AttributeCommonInfo4KindE.exit

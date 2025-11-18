@@ -3264,7 +3264,7 @@ _ZNSt3__113__fill_n_boolB8ne190000ILb1ENS_6vectorIbNS_9allocatorIbEEEEEEvNS_14__
   %.sroa.013.0 = phi ptr [ %12, %15 ], [ %27, %16 ]
   %.0.i = phi i64 [ %2, %15 ], [ %26, %16 ]
   %29 = lshr i64 %.0.i, 6
-  %.not6.i.i = icmp ult i64 %.0.i, 64
+  %.not6.i.i = icmp eq i64 %29, 0
   br i1 %.not6.i.i, label %_ZNSt3__18__fill_nB8ne190000IPmmmEET_S2_T0_RKT1_.exit.i, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %28
@@ -3310,7 +3310,7 @@ _ZNSt3__18__fill_nB8ne190000IPmmmEET_S2_T0_RKT1_.exit.i: ; preds = %.lr.ph.i.pre
   %.sroa.0.0 = phi ptr [ %12, %38 ], [ %51, %39 ]
   %.0.i7 = phi i64 [ %2, %38 ], [ %50, %39 ]
   %53 = lshr i64 %.0.i7, 6
-  %.not6.i.i8 = icmp ult i64 %.0.i7, 64
+  %.not6.i.i8 = icmp eq i64 %53, 0
   br i1 %.not6.i.i8, label %_ZNSt3__18__fill_nB8ne190000IPmmmEET_S2_T0_RKT1_.exit.i10, label %.lr.ph.i.preheader.i9
 
 .lr.ph.i.preheader.i9:                            ; preds = %52

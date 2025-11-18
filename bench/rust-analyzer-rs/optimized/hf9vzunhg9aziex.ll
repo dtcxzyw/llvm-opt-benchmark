@@ -1469,16 +1469,16 @@ switch.lookup:
 
 "_ZN17ra_ap_rustc_lexer8unescape16unescape_unicode28_$u7b$$u7b$closure$u7d$$u7d$17h44cd810d16c81c50E.exit": ; preds = %79
   %83 = or i64 %.sroa.010.0, %.sroa.613.0.insert.ext
-  %84 = icmp eq i64 %83, 0
-  %.sroa.616.17.insert.insert.i = select i1 %84, i64 5121, i64 %64
+  %or.cond.i = icmp eq i64 %83, 0
+  %.sroa.616.17.insert.insert.i = select i1 %or.cond.i, i64 5121, i64 %64
   %.sroa.616.20.insert.insert.i = or disjoint i64 %.sroa.616.17.insert.insert.i, %.sroa.613.0.insert.shift
-  %85 = extractvalue { i32, i1 } %77, 0
-  %86 = extractvalue { i32, i1 } %80, 0
-  %87 = getelementptr inbounds nuw i8, ptr %74, i64 32
-  %88 = load ptr, ptr %87, align 8, !invariant.load !11, !noalias !237, !nonnull !11
-  tail call void %88(ptr noundef nonnull align 1 %73, i32 noundef %85, i32 noundef %86, i64 %.sroa.616.20.insert.insert.i), !noalias !237
-  %89 = icmp eq ptr %.sroa.0.1.ph3544, %5
-  br i1 %89, label %.thread, label %10
+  %84 = extractvalue { i32, i1 } %77, 0
+  %85 = extractvalue { i32, i1 } %80, 0
+  %86 = getelementptr inbounds nuw i8, ptr %74, i64 32
+  %87 = load ptr, ptr %86, align 8, !invariant.load !11, !noalias !237, !nonnull !11
+  tail call void %87(ptr noundef nonnull align 1 %73, i32 noundef %84, i32 noundef %85, i64 %.sroa.616.20.insert.insert.i), !noalias !237
+  %88 = icmp eq ptr %.sroa.0.1.ph3544, %5
+  br i1 %88, label %.thread, label %10
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1834,16 +1834,16 @@ switch.lookup:
 
 "_ZN17ra_ap_rustc_lexer8unescape16unescape_unicode28_$u7b$$u7b$closure$u7d$$u7d$17h0b321f92e754c416E.exit": ; preds = %79
   %83 = or i64 %.sroa.010.0, %.sroa.613.0.insert.ext
-  %84 = icmp eq i64 %83, 0
-  %.sroa.616.17.insert.insert.i = select i1 %84, i64 5121, i64 %64
+  %or.cond.i = icmp eq i64 %83, 0
+  %.sroa.616.17.insert.insert.i = select i1 %or.cond.i, i64 5121, i64 %64
   %.sroa.616.20.insert.insert.i = or disjoint i64 %.sroa.616.17.insert.insert.i, %.sroa.613.0.insert.shift
-  %85 = extractvalue { i32, i1 } %77, 0
-  %86 = extractvalue { i32, i1 } %80, 0
-  %87 = getelementptr inbounds nuw i8, ptr %74, i64 32
-  %88 = load ptr, ptr %87, align 8, !invariant.load !11, !noalias !249, !nonnull !11
-  tail call void %88(ptr noundef nonnull align 1 %73, i32 noundef %85, i32 noundef %86, i64 %.sroa.616.20.insert.insert.i), !noalias !249
-  %89 = icmp eq ptr %.sroa.0.1.ph3544, %5
-  br i1 %89, label %.thread, label %10
+  %84 = extractvalue { i32, i1 } %77, 0
+  %85 = extractvalue { i32, i1 } %80, 0
+  %86 = getelementptr inbounds nuw i8, ptr %74, i64 32
+  %87 = load ptr, ptr %86, align 8, !invariant.load !11, !noalias !249, !nonnull !11
+  tail call void %87(ptr noundef nonnull align 1 %73, i32 noundef %84, i32 noundef %85, i64 %.sroa.616.20.insert.insert.i), !noalias !249
+  %88 = icmp eq ptr %.sroa.0.1.ph3544, %5
+  br i1 %88, label %.thread, label %10
 }
 
 ; Function Attrs: nonlazybind uwtable

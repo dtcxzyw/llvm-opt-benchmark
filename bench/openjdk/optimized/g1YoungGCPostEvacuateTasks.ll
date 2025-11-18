@@ -1456,7 +1456,7 @@ _ZN39G1PostEvacuateCollectionSetCleanupTask129RestoreEvacFailureRegionsTask16zap
 
 97:                                               ; preds = %_ZN39G1PostEvacuateCollectionSetCleanupTask129RestoreEvacFailureRegionsTask16zap_dead_objectsEP12G1HeapRegionPP12HeapWordImplS5_.exit
   tail call void @_ZN14G1GCPhaseTimes30record_or_add_thread_work_itemENS_11GCParPhasesEjmj(ptr noundef nonnull align 8 dereferenceable(872) %8, i32 noundef 36, i32 noundef %1, i64 noundef 1, i32 noundef 1) #15
-  %.not.i = icmp ult i64 %95, 8
+  %.not.i = icmp eq i64 %96, 0
   br i1 %.not.i, label %_ZN39G1PostEvacuateCollectionSetCleanupTask129RestoreEvacFailureRegionsTask26update_garbage_words_in_hrEP12G1HeapRegionm.exit, label %98
 
 98:                                               ; preds = %97

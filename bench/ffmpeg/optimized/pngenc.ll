@@ -2623,7 +2623,7 @@ png_get_interlaced_row.exit:                      ; preds = %119, %png_get_inter
   %135 = load i32, ptr %12, align 4, !tbaa !44
   %136 = ashr i32 %135, 3
   %137 = load i32, ptr %18, align 8, !tbaa !29
-  %138 = icmp ult i32 %135, 8
+  %138 = icmp eq i32 %136, 0
   %139 = icmp ne i32 %137, 0
   %or.cond.i = select i1 %138, i1 %139, i1 false
   br i1 %or.cond.i, label %140, label %141
@@ -3005,7 +3005,7 @@ png_write_row.exit:                               ; preds = %241, %301
   %315 = load i32, ptr %12, align 4, !tbaa !44
   %316 = ashr i32 %315, 3
   %317 = load i32, ptr %18, align 8, !tbaa !29
-  %318 = icmp ult i32 %315, 8
+  %318 = icmp eq i32 %316, 0
   %319 = icmp ne i32 %317, 0
   %or.cond.i95 = select i1 %318, i1 %319, i1 false
   br i1 %or.cond.i95, label %320, label %321

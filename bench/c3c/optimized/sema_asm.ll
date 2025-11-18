@@ -935,7 +935,7 @@ sema_reg_float_suported_type.exit.thread.i:       ; preds = %sema_reg_float_supo
   %.096219.i = phi ptr [ %365, %.thread.thread.i62 ], [ %.0962.i, %.thread.i45 ]
   %376 = lshr i64 %3, 48
   %377 = trunc nuw nsw i64 %376 to i32
-  %.not113.i = icmp ult i64 %3, 281474976710656
+  %.not113.i = icmp eq i64 %376, 0
   br i1 %.not113.i, label %378, label %383
 
 378:                                              ; preds = %375

@@ -4260,7 +4260,7 @@ dissect_relative_time.exit.i:                     ; preds = %1256, %1254
   %spec.store.select.sroa.sel547.i = select i1 %1020, ptr %992, ptr %.sroa.gep546.i
   %1280 = load i32, ptr %spec.store.select.sroa.sel547.i, align 8
   %1281 = call ptr @proto_item_add_subtree(ptr noundef %1279, i32 noundef %1280)
-  %.not95.i.i = icmp ult i16 %1009, 4
+  %.not95.i.i = icmp eq i32 %spec.select.i.i144, 0
   br i1 %.not95.i.i, label %._crit_edge92.thread.i.i, label %.lr.ph.preheader.i.i
 
 ._crit_edge92.thread.i.i:                         ; preds = %1276

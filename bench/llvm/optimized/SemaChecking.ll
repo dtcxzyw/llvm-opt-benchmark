@@ -9822,11 +9822,11 @@ define internal fastcc noundef zeroext i1 @_ZL34CheckBuiltinTargetNotInUnsupport
   %14 = load i32, ptr %13, align 4, !tbaa !1317
   %.idx4.i = shl nuw nsw i64 %3, 2
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx4.i
-  %.not.i = icmp ult i64 %3, 4
+  %16 = lshr i64 %3, 2
+  %.not.i = icmp eq i64 %16, 0
   br i1 %.not.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %4
-  %16 = lshr i64 %3, 2
   %17 = and i64 %.idx4.i, 9223372036854775792
   %scevgep.i.i.i.i = getelementptr i8, ptr %2, i64 %17
   br label %18
@@ -9869,11 +9869,10 @@ define internal fastcc noundef zeroext i1 @_ZL34CheckBuiltinTargetNotInUnsupport
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %4
   %.pre-phi56.i.i.i.i = phi i64 [ %37, %._crit_edge.loopexit.i.i.i.i ], [ %3, %4 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %2, %4 ]
-  switch i64 %.pre-phi56.i.i.i.i, label %default.unreachable [
+  switch i64 %.pre-phi56.i.i.i.i, label %_ZN4llvm12is_containedIRNS_8ArrayRefINS_6Triple16ObjectFormatTypeEEES3_EEbOT_RKT0_.exit.thread [
     i64 3, label %38
     i64 2, label %._crit_edge._crit_edge.i.i.i.i
     i64 1, label %._crit_edge._crit_edge52.i.i.i.i
-    i64 0, label %_ZN4llvm12is_containedIRNS_8ArrayRefINS_6Triple16ObjectFormatTypeEEES3_EEbOT_RKT0_.exit.thread
   ]
 
 38:                                               ; preds = %._crit_edge.i.i.i.i
@@ -9900,9 +9899,6 @@ define internal fastcc noundef zeroext i1 @_ZL34CheckBuiltinTargetNotInUnsupport
   %47 = load i32, ptr %.2.i.i.i.i, align 4, !tbaa !1296
   %48 = icmp eq i32 %47, %14
   br i1 %48, label %_ZN4llvm12is_containedIRNS_8ArrayRefINS_6Triple16ObjectFormatTypeEEES3_EEbOT_RKT0_.exit, label %_ZN4llvm12is_containedIRNS_8ArrayRefINS_6Triple16ObjectFormatTypeEEES3_EEbOT_RKT0_.exit.thread
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
-  unreachable
 
 _ZN4llvm12is_containedIRNS_8ArrayRefINS_6Triple16ObjectFormatTypeEEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit: ; preds = %21
   %49 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 4
@@ -13816,11 +13812,11 @@ define internal fastcc noundef zeroext i1 @_ZL29CheckBuiltinTargetInSupportedRN5
   %14 = load i32, ptr %13, align 8, !tbaa !1271
   %.idx4.i = shl nuw nsw i64 %3, 2
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx4.i
-  %.not.i = icmp ult i64 %3, 4
+  %16 = lshr i64 %3, 2
+  %.not.i = icmp eq i64 %16, 0
   br i1 %.not.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %4
-  %16 = lshr i64 %3, 2
   %17 = and i64 %.idx4.i, 9223372036854775792
   %scevgep.i.i.i.i = getelementptr i8, ptr %2, i64 %17
   br label %18
@@ -13863,11 +13859,10 @@ define internal fastcc noundef zeroext i1 @_ZL29CheckBuiltinTargetInSupportedRN5
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %4
   %.pre-phi56.i.i.i.i = phi i64 [ %37, %._crit_edge.loopexit.i.i.i.i ], [ %3, %4 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %2, %4 ]
-  switch i64 %.pre-phi56.i.i.i.i, label %default.unreachable [
+  switch i64 %.pre-phi56.i.i.i.i, label %_ZN4llvm12is_containedIRNS_8ArrayRefINS_6Triple8ArchTypeEEES3_EEbOT_RKT0_.exit.thread [
     i64 3, label %38
     i64 2, label %._crit_edge._crit_edge.i.i.i.i
     i64 1, label %._crit_edge._crit_edge52.i.i.i.i
-    i64 0, label %_ZN4llvm12is_containedIRNS_8ArrayRefINS_6Triple8ArchTypeEEES3_EEbOT_RKT0_.exit.thread
   ]
 
 38:                                               ; preds = %._crit_edge.i.i.i.i
@@ -13894,9 +13889,6 @@ define internal fastcc noundef zeroext i1 @_ZL29CheckBuiltinTargetInSupportedRN5
   %47 = load i32, ptr %.2.i.i.i.i, align 4, !tbaa !1298
   %48 = icmp eq i32 %47, %14
   br i1 %48, label %_ZN4llvm12is_containedIRNS_8ArrayRefINS_6Triple8ArchTypeEEES3_EEbOT_RKT0_.exit, label %_ZN4llvm12is_containedIRNS_8ArrayRefINS_6Triple8ArchTypeEEES3_EEbOT_RKT0_.exit.thread
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
-  unreachable
 
 _ZN4llvm12is_containedIRNS_8ArrayRefINS_6Triple8ArchTypeEEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit: ; preds = %21
   %49 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 4
@@ -43413,7 +43405,7 @@ _ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i:    ; preds = %.sink.split.i.i, %_
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !1619
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i:        ; preds = %89
-  %.not.i.i18 = icmp samesign ult i32 %91, 64
+  %.not.i.i18 = icmp eq i32 %92, 0
   br i1 %.not.i.i18, label %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i, label %102
 
 102:                                              ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i
@@ -43458,7 +43450,7 @@ _ZN4llvm9BitVectorC2Ejb.exit:                     ; preds = %_ZN4llvm11SmallVect
   %120 = shl nsw i64 -1, %119
   %121 = xor i64 %120, -1
   %122 = and i64 %118, %121
-  %.not28 = icmp ult i64 %117, 288230376151711744
+  %.not28 = icmp eq i64 %119, 0
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4llvm9BitVector9referenceaSEb.exit, %_ZN4llvm9BitVectorC2Ejb.exit
@@ -45278,11 +45270,11 @@ _ZNK5clang17FunctionProtoType23getAArch64SMEAttributesEv.exit: ; preds = %_ZNK5c
 92:                                               ; preds = %_ZNK5clang17FunctionProtoType20hasArmTypeAttributesEv.exit.i, %86
   %.0.i5.ph = phi i16 [ %29, %_ZNK5clang17FunctionProtoType20hasArmTypeAttributesEv.exit.i ], [ %91, %86 ]
   store i16 %.0.i5.ph, ptr %3, align 2
-  %.not.i6 = icmp ugt i16 %84, 4095
-  br i1 %.not.i6, label %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i, label %_ZNK5clang17FunctionProtoType18getFunctionEffectsEv.exit
+  %93 = lshr i16 %84, 12
+  %.not.not.i = icmp eq i16 %93, 0
+  br i1 %.not.not.i, label %_ZNK5clang17FunctionProtoType18getFunctionEffectsEv.exit, label %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i
 
 _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i: ; preds = %92
-  %93 = lshr i16 %84, 12
   %94 = and i16 %84, 2048
   %.not10.i = icmp eq i16 %94, 0
   %95 = zext nneg i16 %93 to i64
@@ -45298,8 +45290,8 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %103 = trunc nuw nsw i64 %102 to i32
   %104 = and i32 %103, 15
   %105 = and i64 %102, 15
-  %switch.gep9 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %105
-  %switch.load10 = load i64, ptr %switch.gep9, align 8
+  %switch.gep8 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %105
+  %switch.load9 = load i64, ptr %switch.gep8, align 8
   %106 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %107 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %106, i64 %97
   %108 = getelementptr inbounds nuw %"struct.clang::FunctionType::ExceptionType", ptr %107, i64 %spec.select.i.i.i.i.i.i.i.i.i
@@ -45307,7 +45299,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %switch.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i, 3
   %109 = zext i1 %switch.i.i.i.i.i.i.i.i to i64
   %110 = getelementptr inbounds nuw ptr, ptr %108, i64 %109
-  %111 = getelementptr inbounds nuw ptr, ptr %110, i64 %switch.load10
+  %111 = getelementptr inbounds nuw ptr, ptr %110, i64 %switch.load9
   %112 = select i1 %.not.i3, i64 0, i64 %75
   %113 = getelementptr inbounds nuw %"class.clang::FunctionType::ExtParameterInfo", ptr %111, i64 %112
   %114 = ptrtoint ptr %113 to i64
@@ -45321,9 +45313,9 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
 
 switch.lookup:                                    ; preds = %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i
   %121 = and i64 %102, 15
-  %switch.gep11 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %121
-  %switch.load12 = load i64, ptr %switch.gep11, align 8
-  %122 = getelementptr inbounds nuw ptr, ptr %110, i64 %switch.load12
+  %switch.gep10 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %121
+  %switch.load11 = load i64, ptr %switch.gep10, align 8
+  %122 = getelementptr inbounds nuw ptr, ptr %110, i64 %switch.load11
   %123 = getelementptr inbounds nuw %"class.clang::FunctionType::ExtParameterInfo", ptr %122, i64 %112
   %124 = ptrtoint ptr %123 to i64
   %125 = add i64 %124, 7
@@ -76103,11 +76095,11 @@ _ZNK5clang4Type13isIntegerTypeEv.exit.thread:     ; preds = %3, %11, %19, %_ZNK5
   %51 = zext i32 %50 to i64
   %.idx3.i = shl nuw nsw i64 %51, 5
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx3.i
-  %.not.i = icmp ult i32 %50, 4
+  %53 = lshr i64 %51, 2
+  %.not.i = icmp eq i64 %53, 0
   br i1 %.not.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %46
-  %53 = lshr i64 %51, 2
   %54 = and i64 %.idx3.i, 137438953344
   %scevgep.i.i.i.i = getelementptr i8, ptr %48, i64 %54
   br label %55
@@ -76150,11 +76142,10 @@ _ZNK5clang4Type13isIntegerTypeEv.exit.thread:     ; preds = %3, %11, %19, %_ZNK5
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %46
   %.pre-phi56.i.i.i.i = phi i32 [ %74, %._crit_edge.loopexit.i.i.i.i ], [ %50, %46 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %48, %46 ]
-  switch i32 %.pre-phi56.i.i.i.i, label %default.unreachable [
+  switch i32 %.pre-phi56.i.i.i.i, label %86 [
     i32 3, label %75
     i32 2, label %._crit_edge._crit_edge.i.i.i.i
     i32 1, label %._crit_edge._crit_edge52.i.i.i.i
-    i32 0, label %86
   ]
 
 75:                                               ; preds = %._crit_edge.i.i.i.i
@@ -76181,9 +76172,6 @@ _ZNK5clang4Type13isIntegerTypeEv.exit.thread:     ; preds = %3, %11, %19, %_ZNK5
   %84 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !1975
   %85 = icmp eq ptr %84, %42
   br i1 %85, label %_ZN4llvm4findIRNS_11SmallVectorIN5clang4Sema16MisalignedMemberELj4EEES4_EEDaOT_RKT0_.exit, label %86
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
-  unreachable
 
 86:                                               ; preds = %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge.i.i.i.i
   br label %_ZN4llvm4findIRNS_11SmallVectorIN5clang4Sema16MisalignedMemberELj4EEES4_EEDaOT_RKT0_.exit
@@ -79519,11 +79507,11 @@ define linkonce_odr noundef ptr @_ZN4llvm4findINS_8ArrayRefIPN5clang11ParmVarDec
   %5 = load i64, ptr %4, align 8, !tbaa !2061
   %.idx3 = shl nuw nsw i64 %5, 3
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx3
-  %.not = icmp ult i64 %5, 4
+  %7 = lshr i64 %5, 2
+  %.not = icmp eq i64 %7, 0
   br i1 %.not, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
-  %7 = lshr i64 %5, 2
   %8 = load ptr, ptr %1, align 8, !tbaa !1223
   %9 = and i64 %.idx3, 9223372036854775776
   %scevgep.i.i.i = getelementptr i8, ptr %3, i64 %9
@@ -79567,11 +79555,10 @@ define linkonce_odr noundef ptr @_ZN4llvm4findINS_8ArrayRefIPN5clang11ParmVarDec
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %2
   %.pre-phi56.i.i.i = phi i64 [ %29, %._crit_edge.loopexit.i.i.i ], [ %5, %2 ]
   %.029.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %3, %2 ]
-  switch i64 %.pre-phi56.i.i.i, label %._crit_edge.i.i.i.unreachabledefault [
+  switch i64 %.pre-phi56.i.i.i, label %46 [
     i64 3, label %30
     i64 2, label %._crit_edge._crit_edge.i.i.i
     i64 1, label %._crit_edge._crit_edge52.i.i.i
-    i64 0, label %46
   ]
 
 ._crit_edge._crit_edge52.i.i.i:                   ; preds = %._crit_edge.i.i.i
@@ -79610,10 +79597,7 @@ define linkonce_odr noundef ptr @_ZN4llvm4findINS_8ArrayRefIPN5clang11ParmVarDec
   %45 = icmp eq ptr %44, %43
   br i1 %45, label %_ZSt4findIPKPN5clang11ParmVarDeclEPKS1_ET_S7_S7_RKT0_.exit, label %46
 
-._crit_edge.i.i.i.unreachabledefault:             ; preds = %._crit_edge.i.i.i
-  unreachable
-
-46:                                               ; preds = %._crit_edge.i.i.i, %42
+46:                                               ; preds = %42, %._crit_edge.i.i.i
   br label %_ZSt4findIPKPN5clang11ParmVarDeclEPKS1_ET_S7_S7_RKT0_.exit
 
 _ZSt4findIPKPN5clang11ParmVarDeclEPKS1_ET_S7_S7_RKT0_.exit.loopexit.split.loop.exit: ; preds = %13

@@ -1044,7 +1044,7 @@ lfe_downsample.exit:                              ; preds = %171
   %.not12.i.i.i.i = icmp slt i32 %235, %230
   %spec.select.i.i.i.i = select i1 %.not12.i.i.i.i, i32 %.014.i.i.i.i, i32 %232
   %236 = lshr i32 %.01113.i.i.i.i, 1
-  %.not.i.i.i.i = icmp samesign ult i32 %.01113.i.i.i.i, 2
+  %.not.i.i.i.i = icmp eq i32 %236, 0
   br i1 %.not.i.i.i.i, label %get_cb.exit.i.i.i, label %231, !llvm.loop !96
 
 get_cb.exit.i.i.i:                                ; preds = %231
@@ -1390,7 +1390,7 @@ calc_masking.exit:                                ; preds = %walk_band_high.exit
   %.not12.i.i.i = icmp slt i32 %365, %spec.select.i.i
   %spec.select.i.i.i64 = select i1 %.not12.i.i.i, i32 %.014.i.i.i, i32 %362
   %366 = lshr i32 %.01113.i.i.i, 1
-  %.not.i.i.i = icmp samesign ult i32 %.01113.i.i.i, 2
+  %.not.i.i.i = icmp eq i32 %366, 0
   br i1 %.not.i.i.i, label %find_peak.exit.i, label %.preheader170, !llvm.loop !96
 
 find_peak.exit.i:                                 ; preds = %.preheader170
@@ -1464,7 +1464,7 @@ adpcm_analysis.exit:                              ; preds = %371, %338
   %.not12.i.i.i78 = icmp slt i32 %393, %spec.select.i.i73
   %spec.select.i.i.i79 = select i1 %.not12.i.i.i78, i32 %.014.i.i.i76, i32 %390
   %394 = lshr i32 %.01113.i.i.i77, 1
-  %.not.i.i.i80 = icmp samesign ult i32 %.01113.i.i.i77, 2
+  %.not.i.i.i80 = icmp eq i32 %394, 0
   br i1 %.not.i.i.i80, label %find_peak.exit.i81, label %.preheader169, !llvm.loop !96
 
 find_peak.exit.i81:                               ; preds = %.preheader169
@@ -1510,7 +1510,7 @@ find_peak.exit.i81:                               ; preds = %.preheader169
   %.not12.i.i23.i = icmp slt i32 %408, %spec.select.i18.i
   %spec.select.i.i24.i = select i1 %.not12.i.i23.i, i32 %.014.i.i21.i, i32 %405
   %409 = lshr i32 %.01113.i.i22.i, 1
-  %.not.i.i25.i = icmp samesign ult i32 %.01113.i.i22.i, 2
+  %.not.i.i25.i = icmp eq i32 %409, 0
   br i1 %.not.i.i25.i, label %find_peak.exit26.i, label %.preheader, !llvm.loop !96
 
 find_peak.exit26.i:                               ; preds = %.preheader
@@ -1605,7 +1605,7 @@ find_peaks.exit:                                  ; preds = %._crit_edge.i65, %f
   %.not49.i = icmp sgt i32 %450, %451
   %spec.select.i85 = select i1 %.not49.i, i32 %.4114.i, i32 %448
   %452 = lshr i32 %.043115.i, 1
-  %.not48.i = icmp samesign ult i32 %.043115.i, 2
+  %.not48.i = icmp eq i32 %452, 0
   br i1 %.not48.i, label %453, label %447, !llvm.loop !123
 
 453:                                              ; preds = %447
@@ -5342,7 +5342,7 @@ define internal fastcc range(i32 -2147483648, 125) i32 @calc_one_scale(ptr nound
 50:                                               ; preds = %30, %22
   %.1 = phi i32 [ %.036, %22 ], [ %spec.select, %30 ]
   %51 = lshr i32 %.02935, 1
-  %.not = icmp samesign ult i32 %.02935, 2
+  %.not = icmp eq i32 %51, 0
   br i1 %.not, label %52, label %22, !llvm.loop !194
 
 52:                                               ; preds = %50

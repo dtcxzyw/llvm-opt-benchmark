@@ -334,30 +334,32 @@ define hidden void @_ZN11CHeapBitMapC2Em8MEMFLAGSb(ptr noundef nonnull writeonly
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %2, ptr %5, align 8
   %6 = add i64 %1, 63
-  %7 = icmp ult i64 %6, 64
-  br i1 %7, label %8, label %9
+  %7 = lshr i64 %6, 6
+  %8 = icmp eq i64 %7, 0
+  br i1 %8, label %9, label %10
 
-8:                                                ; preds = %4
+9:                                                ; preds = %4
   tail call void @_Z8FreeHeapPv(ptr noundef null) #10
   br label %_ZN14GrowableBitMapI11CHeapBitMapE10initializeEmb.exit
 
-9:                                                ; preds = %4
-  %10 = lshr i64 %6, 3
-  %11 = and i64 %10, 2305843009213693944
+10:                                               ; preds = %4
+  %11 = shl nuw nsw i64 %7, 3
   %12 = tail call noundef ptr @_Z14ReallocateHeapPcm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(ptr noundef null, i64 noundef %11, i8 noundef zeroext %2, i32 noundef 0) #10
-  br i1 %3, label %.lr.ph.preheader.i.i.i, label %_ZN14GrowableBitMapI11CHeapBitMapE10initializeEmb.exit
+  %13 = icmp ne i64 %1, 0
+  %or.cond.i.i = and i1 %13, %3
+  br i1 %or.cond.i.i, label %.lr.ph.preheader.i.i.i, label %_ZN14GrowableBitMapI11CHeapBitMapE10initializeEmb.exit
 
-.lr.ph.preheader.i.i.i:                           ; preds = %9
+.lr.ph.preheader.i.i.i:                           ; preds = %10
   store i64 0, ptr %12, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %12, i8 0, i64 %11, i1 false)
   br label %_ZN14GrowableBitMapI11CHeapBitMapE10initializeEmb.exit
 
-_ZN14GrowableBitMapI11CHeapBitMapE10initializeEmb.exit: ; preds = %8, %9, %.lr.ph.preheader.i.i.i
-  %storemerge22.i.i = phi ptr [ null, %8 ], [ %12, %.lr.ph.preheader.i.i.i ], [ %12, %9 ]
-  %storemerge.i.i = phi i64 [ 0, %8 ], [ %1, %.lr.ph.preheader.i.i.i ], [ %1, %9 ]
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+_ZN14GrowableBitMapI11CHeapBitMapE10initializeEmb.exit: ; preds = %9, %10, %.lr.ph.preheader.i.i.i
+  %storemerge22.i.i = phi ptr [ null, %9 ], [ %12, %.lr.ph.preheader.i.i.i ], [ %12, %10 ]
+  %storemerge.i.i = phi i64 [ 0, %9 ], [ %1, %.lr.ph.preheader.i.i.i ], [ %1, %10 ]
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %storemerge22.i.i, ptr %0, align 8
-  store i64 %storemerge.i.i, ptr %13, align 8
+  store i64 %storemerge.i.i, ptr %14, align 8
   ret void
 }
 
@@ -376,7 +378,7 @@ define weak_odr hidden void @_ZN14GrowableBitMapI11CHeapBitMapE10initializeEmb(p
   %8 = lshr i64 %7, 6
   %9 = add i64 %1, 63
   %10 = lshr i64 %9, 6
-  %11 = icmp ult i64 %9, 64
+  %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %3
@@ -1357,7 +1359,7 @@ define hidden noundef zeroext i1 @_ZNK6BitMap8containsERKS_(ptr noundef nonnull 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = lshr i64 %6, 6
-  %.not19 = icmp ult i64 %6, 64
+  %.not19 = icmp eq i64 %7, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 8:                                                ; preds = %.lr.ph
@@ -1405,7 +1407,7 @@ define hidden noundef zeroext i1 @_ZNK6BitMap10intersectsERKS_(ptr noundef nonnu
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = lshr i64 %6, 6
-  %.not20 = icmp ult i64 %6, 64
+  %.not20 = icmp eq i64 %7, 0
   br i1 %.not20, label %._crit_edge, label %.lr.ph
 
 8:                                                ; preds = %.lr.ph
@@ -1452,7 +1454,7 @@ define hidden void @_ZN6BitMap9set_unionERKS_(ptr noundef nonnull readonly align
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = lshr i64 %6, 6
-  %.not21 = icmp ult i64 %6, 64
+  %.not21 = icmp eq i64 %7, 0
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -1502,7 +1504,7 @@ define hidden void @_ZN6BitMap14set_differenceERKS_(ptr noundef nonnull readonly
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = lshr i64 %6, 6
-  %.not21 = icmp ult i64 %6, 64
+  %.not21 = icmp eq i64 %7, 0
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -1551,7 +1553,7 @@ define hidden void @_ZN6BitMap16set_intersectionERKS_(ptr noundef nonnull readon
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = lshr i64 %6, 6
-  %.not21 = icmp ult i64 %6, 64
+  %.not21 = icmp eq i64 %7, 0
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -1598,7 +1600,7 @@ define hidden noundef zeroext i1 @_ZN6BitMap21set_union_with_resultERKS_(ptr nou
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = lshr i64 %6, 6
-  %.not35 = icmp ult i64 %6, 64
+  %.not35 = icmp eq i64 %7, 0
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -1659,7 +1661,7 @@ define hidden noundef zeroext i1 @_ZN6BitMap26set_difference_with_resultERKS_(pt
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = lshr i64 %6, 6
-  %.not35 = icmp ult i64 %6, 64
+  %.not35 = icmp eq i64 %7, 0
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -1719,7 +1721,7 @@ define hidden noundef zeroext i1 @_ZN6BitMap28set_intersection_with_resultERKS_(
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = lshr i64 %6, 6
-  %.not35 = icmp ult i64 %6, 64
+  %.not35 = icmp eq i64 %7, 0
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -1878,7 +1880,7 @@ define hidden noundef zeroext i1 @_ZNK6BitMap7is_sameERKS_(ptr noundef nonnull r
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = lshr i64 %6, 6
-  %.not19 = icmp ult i64 %6, 64
+  %.not19 = icmp eq i64 %7, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 8:                                                ; preds = %.lr.ph
@@ -1923,7 +1925,7 @@ define hidden noundef zeroext i1 @_ZNK6BitMap7is_fullEv(ptr noundef nonnull read
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = lshr i64 %4, 6
-  %.not14 = icmp ult i64 %4, 64
+  %.not14 = icmp eq i64 %5, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 6:                                                ; preds = %.lr.ph
@@ -1962,7 +1964,7 @@ define hidden noundef zeroext i1 @_ZNK6BitMap8is_emptyEv(ptr noundef nonnull rea
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = lshr i64 %4, 6
-  %.not14 = icmp ult i64 %4, 64
+  %.not14 = icmp eq i64 %5, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 6:                                                ; preds = %.lr.ph
@@ -2065,7 +2067,7 @@ define hidden noundef i64 @_ZNK6BitMap14count_one_bitsEv(ptr noundef nonnull rea
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = lshr i64 %3, 6
-  %.not = icmp ult i64 %3, 64
+  %.not = icmp eq i64 %4, 0
   br i1 %.not, label %20, label %5
 
 5:                                                ; preds = %1
@@ -2352,7 +2354,7 @@ define weak_odr hidden void @_ZN14GrowableBitMapI11ArenaBitMapE6resizeEmb(ptr no
   %8 = lshr i64 %7, 6
   %9 = add i64 %1, 63
   %10 = lshr i64 %9, 6
-  %11 = icmp ult i64 %9, 64
+  %11 = icmp eq i64 %10, 0
   br i1 %11, label %_ZN6BitMap20clear_range_of_wordsEPmmm.exit, label %12
 
 12:                                               ; preds = %3
@@ -2639,7 +2641,7 @@ define weak_odr hidden void @_ZN14GrowableBitMapI14ResourceBitMapE6resizeEmb(ptr
   %8 = lshr i64 %7, 6
   %9 = add i64 %1, 63
   %10 = lshr i64 %9, 6
-  %11 = icmp ult i64 %9, 64
+  %11 = icmp eq i64 %10, 0
   br i1 %11, label %_ZN6BitMap20clear_range_of_wordsEPmmm.exit, label %12
 
 12:                                               ; preds = %3
@@ -2884,7 +2886,7 @@ define weak_odr hidden void @_ZN14GrowableBitMapI11CHeapBitMapE6resizeEmb(ptr no
   %8 = lshr i64 %7, 6
   %9 = add i64 %1, 63
   %10 = lshr i64 %9, 6
-  %11 = icmp ult i64 %9, 64
+  %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %3
@@ -2933,33 +2935,35 @@ define weak_odr hidden void @_ZN14GrowableBitMapI11CHeapBitMapE12reinitializeEmb
   %4 = load ptr, ptr %0, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %4) #10
   %5 = add i64 %1, 63
-  %6 = icmp ult i64 %5, 64
+  %6 = lshr i64 %5, 6
+  %7 = icmp eq i64 %6, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  br i1 %6, label %7, label %8
+  br i1 %7, label %8, label %9
 
-7:                                                ; preds = %3
+8:                                                ; preds = %3
   tail call void @_Z8FreeHeapPv(ptr noundef null) #10
   br label %_ZN14GrowableBitMapI11CHeapBitMapE10initializeEmb.exit
 
-8:                                                ; preds = %3
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load i8, ptr %9, align 8
-  %11 = lshr i64 %5, 3
-  %12 = and i64 %11, 2305843009213693944
-  %13 = tail call noundef ptr @_Z14ReallocateHeapPcm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(ptr noundef null, i64 noundef %12, i8 noundef zeroext %10, i32 noundef 0) #10
-  br i1 %2, label %.lr.ph.preheader.i.i.i, label %_ZN14GrowableBitMapI11CHeapBitMapE10initializeEmb.exit
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = load i8, ptr %10, align 8
+  %12 = shl nuw nsw i64 %6, 3
+  %13 = tail call noundef ptr @_Z14ReallocateHeapPcm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(ptr noundef null, i64 noundef %12, i8 noundef zeroext %11, i32 noundef 0) #10
+  %14 = icmp ne i64 %1, 0
+  %or.cond.i.i = and i1 %2, %14
+  br i1 %or.cond.i.i, label %.lr.ph.preheader.i.i.i, label %_ZN14GrowableBitMapI11CHeapBitMapE10initializeEmb.exit
 
-.lr.ph.preheader.i.i.i:                           ; preds = %8
+.lr.ph.preheader.i.i.i:                           ; preds = %9
   store i64 0, ptr %13, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %13, i8 0, i64 %12, i1 false)
   br label %_ZN14GrowableBitMapI11CHeapBitMapE10initializeEmb.exit
 
-_ZN14GrowableBitMapI11CHeapBitMapE10initializeEmb.exit: ; preds = %7, %8, %.lr.ph.preheader.i.i.i
-  %storemerge22.i.i = phi ptr [ null, %7 ], [ %13, %.lr.ph.preheader.i.i.i ], [ %13, %8 ]
-  %storemerge.i.i = phi i64 [ 0, %7 ], [ %1, %.lr.ph.preheader.i.i.i ], [ %1, %8 ]
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+_ZN14GrowableBitMapI11CHeapBitMapE10initializeEmb.exit: ; preds = %8, %9, %.lr.ph.preheader.i.i.i
+  %storemerge22.i.i = phi ptr [ null, %8 ], [ %13, %.lr.ph.preheader.i.i.i ], [ %13, %9 ]
+  %storemerge.i.i = phi i64 [ 0, %8 ], [ %1, %.lr.ph.preheader.i.i.i ], [ %1, %9 ]
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %storemerge22.i.i, ptr %0, align 8
-  store i64 %storemerge.i.i, ptr %14, align 8
+  store i64 %storemerge.i.i, ptr %15, align 8
   ret void
 }
 

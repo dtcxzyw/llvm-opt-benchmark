@@ -1231,7 +1231,7 @@ bytestream2_get_byte.exit57:                      ; preds = %43, %57
 67:                                               ; preds = %63, %61
   %.241 = phi i32 [ %.0.i56, %61 ], [ %26, %63 ]
   %.2 = phi ptr [ %.032, %61 ], [ %65, %63 ]
-  %.not = icmp samesign ult i32 %.036, 2
+  %.not = icmp eq i32 %47, 0
   br i1 %.not, label %68, label %43
 
 68:                                               ; preds = %67

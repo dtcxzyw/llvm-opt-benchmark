@@ -2550,7 +2550,7 @@ define internal void @get_len_6bit_ascii(ptr noundef writeonly captures(none) %0
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @parse_6bit_ascii(ptr noundef writeonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = lshr i32 %3, 2
-  %.not = icmp ult i32 %3, 4
+  %.not = icmp eq i32 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %.lr.ph

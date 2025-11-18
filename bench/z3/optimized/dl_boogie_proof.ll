@@ -2976,11 +2976,11 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit..critedge158.loopexit_crit_edge.split: ; preds =
 _ZNK6vectorIN7datalog12boogie_proof4stepELb1EjE4sizeEv.exit.i: ; preds = %.critedge158.loopexit, %.critedge158.loopexit.us, %_ZNK6vectorIN7datalog12boogie_proof4stepELb1EjE4sizeEv.exit
   %447 = getelementptr inbounds i8, ptr %60, i64 -4
   %448 = load i32, ptr %447, align 4, !tbaa !26
-  %.not.i88 = icmp ult i32 %448, 2
+  %449 = lshr i32 %448, 1
+  %.not.i88 = icmp eq i32 %449, 0
   br i1 %.not.i88, label %_ZN6vectorIN7datalog12boogie_proof4stepELb1EjE7reverseEv.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZNK6vectorIN7datalog12boogie_proof4stepELb1EjE4sizeEv.exit.i
-  %449 = lshr i32 %448, 1
   %wide.trip.count.i = zext nneg i32 %449 to i64
   br label %.lr.ph.i
 

@@ -2913,7 +2913,7 @@ declare void @VP8LHistogramAdd(ptr noundef, ptr noundef, ptr noundef) local_unna
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @GetCombinedHistogramEntropy(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = icmp slt i64 %2, 1
-  br i1 %5, label %100, label %6
+  br i1 %5, label %101, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 3240
@@ -2944,110 +2944,113 @@ define internal fastcc range(i32 0, 2) i32 @GetCombinedHistogramEntropy(ptr noun
   %31 = add i64 %29, %30
   store i64 %31, ptr %3, align 8, !tbaa !54
   %.not = icmp ult i64 %31, %2
-  br i1 %.not, label %32, label %100
+  br i1 %.not, label %32, label %101
 
 32:                                               ; preds = %6
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 3244
   %34 = load i32, ptr %33, align 4, !tbaa !53
   %.not68 = icmp eq i32 %34, -1
-  br i1 %.not68, label %46, label %35
+  br i1 %.not68, label %47, label %35
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 3244
   %37 = load i32, ptr %36, align 4, !tbaa !53
   %38 = icmp eq i32 %34, %37
-  %39 = add i32 %34, 16777216
-  %or.cond = icmp ult i32 %39, 33554432
-  %or.cond76 = and i1 %or.cond, %38
-  br i1 %or.cond76, label %40, label %46
+  br i1 %38, label %39, label %47
 
-40:                                               ; preds = %35
-  %41 = and i32 %34, 255
-  %42 = lshr i32 %34, 16
-  %43 = and i32 %42, 255
-  %44 = add nsw i32 %43, -255
-  %switch = icmp ult i32 %44, -254
-  %45 = add nsw i32 %41, -255
+39:                                               ; preds = %35
+  %40 = lshr i32 %34, 24
+  %.off = add nsw i32 %40, -1
+  %switch = icmp ult i32 %.off, 254
+  br i1 %switch, label %47, label %41
+
+41:                                               ; preds = %39
+  %42 = and i32 %34, 255
+  %43 = lshr i32 %34, 16
+  %44 = and i32 %43, 255
+  %45 = add nsw i32 %44, -255
   %switch74 = icmp ult i32 %45, -254
-  %or.cond75.not = and i1 %switch74, %switch
-  %spec.select = zext i1 %or.cond75.not to i32
-  br label %46
+  %46 = add nsw i32 %42, -255
+  %switch76 = icmp ult i32 %46, -254
+  %or.cond.not = and i1 %switch76, %switch74
+  %spec.select = zext i1 %or.cond.not to i32
+  br label %47
 
-46:                                               ; preds = %40, %35, %32
-  %.065 = phi i32 [ 0, %35 ], [ 0, %32 ], [ %spec.select, %40 ]
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 3281
-  %50 = load i8, ptr %49, align 1, !tbaa !23
-  %51 = zext i8 %50 to i32
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 3281
-  %53 = load i8, ptr %52, align 1, !tbaa !23
-  %54 = zext i8 %53 to i32
-  %55 = tail call fastcc i64 @GetCombinedEntropy(ptr noundef nonnull %47, ptr noundef nonnull %48, i32 noundef 256, i32 noundef %51, i32 noundef %54, i32 noundef %.065)
-  %56 = load i64, ptr %3, align 8, !tbaa !54
-  %57 = add i64 %56, %55
-  store i64 %57, ptr %3, align 8, !tbaa !54
-  %.not69 = icmp ult i64 %57, %2
-  br i1 %.not69, label %58, label %100
+47:                                               ; preds = %41, %39, %35, %32
+  %.065 = phi i32 [ 0, %35 ], [ 0, %32 ], [ 0, %39 ], [ %spec.select, %41 ]
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 3281
+  %51 = load i8, ptr %50, align 1, !tbaa !23
+  %52 = zext i8 %51 to i32
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 3281
+  %54 = load i8, ptr %53, align 1, !tbaa !23
+  %55 = zext i8 %54 to i32
+  %56 = tail call fastcc i64 @GetCombinedEntropy(ptr noundef nonnull %48, ptr noundef nonnull %49, i32 noundef 256, i32 noundef %52, i32 noundef %55, i32 noundef %.065)
+  %57 = load i64, ptr %3, align 8, !tbaa !54
+  %58 = add i64 %57, %56
+  store i64 %58, ptr %3, align 8, !tbaa !54
+  %.not69 = icmp ult i64 %58, %2
+  br i1 %.not69, label %59, label %101
 
-58:                                               ; preds = %46
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 1032
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 1032
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 3282
-  %62 = load i8, ptr %61, align 2, !tbaa !23
-  %63 = zext i8 %62 to i32
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 3282
-  %65 = load i8, ptr %64, align 2, !tbaa !23
-  %66 = zext i8 %65 to i32
-  %67 = tail call fastcc i64 @GetCombinedEntropy(ptr noundef nonnull %59, ptr noundef nonnull %60, i32 noundef 256, i32 noundef %63, i32 noundef %66, i32 noundef %.065)
-  %68 = load i64, ptr %3, align 8, !tbaa !54
-  %69 = add i64 %68, %67
-  store i64 %69, ptr %3, align 8, !tbaa !54
-  %.not70 = icmp ult i64 %69, %2
-  br i1 %.not70, label %70, label %100
+59:                                               ; preds = %47
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 1032
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 1032
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 3282
+  %63 = load i8, ptr %62, align 2, !tbaa !23
+  %64 = zext i8 %63 to i32
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 3282
+  %66 = load i8, ptr %65, align 2, !tbaa !23
+  %67 = zext i8 %66 to i32
+  %68 = tail call fastcc i64 @GetCombinedEntropy(ptr noundef nonnull %60, ptr noundef nonnull %61, i32 noundef 256, i32 noundef %64, i32 noundef %67, i32 noundef %.065)
+  %69 = load i64, ptr %3, align 8, !tbaa !54
+  %70 = add i64 %69, %68
+  store i64 %70, ptr %3, align 8, !tbaa !54
+  %.not70 = icmp ult i64 %70, %2
+  br i1 %.not70, label %71, label %101
 
-70:                                               ; preds = %58
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 2056
-  %72 = getelementptr inbounds nuw i8, ptr %1, i64 2056
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 3283
-  %74 = load i8, ptr %73, align 1, !tbaa !23
-  %75 = zext i8 %74 to i32
-  %76 = getelementptr inbounds nuw i8, ptr %1, i64 3283
-  %77 = load i8, ptr %76, align 1, !tbaa !23
-  %78 = zext i8 %77 to i32
-  %79 = tail call fastcc i64 @GetCombinedEntropy(ptr noundef nonnull %71, ptr noundef nonnull %72, i32 noundef 256, i32 noundef %75, i32 noundef %78, i32 noundef %.065)
-  %80 = load i64, ptr %3, align 8, !tbaa !54
-  %81 = add i64 %80, %79
-  store i64 %81, ptr %3, align 8, !tbaa !54
-  %.not71 = icmp ult i64 %81, %2
-  br i1 %.not71, label %82, label %100
+71:                                               ; preds = %59
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 2056
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 2056
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 3283
+  %75 = load i8, ptr %74, align 1, !tbaa !23
+  %76 = zext i8 %75 to i32
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 3283
+  %78 = load i8, ptr %77, align 1, !tbaa !23
+  %79 = zext i8 %78 to i32
+  %80 = tail call fastcc i64 @GetCombinedEntropy(ptr noundef nonnull %72, ptr noundef nonnull %73, i32 noundef 256, i32 noundef %76, i32 noundef %79, i32 noundef %.065)
+  %81 = load i64, ptr %3, align 8, !tbaa !54
+  %82 = add i64 %81, %80
+  store i64 %82, ptr %3, align 8, !tbaa !54
+  %.not71 = icmp ult i64 %82, %2
+  br i1 %.not71, label %83, label %101
 
-82:                                               ; preds = %70
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 3080
-  %84 = getelementptr inbounds nuw i8, ptr %1, i64 3080
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 3284
-  %86 = load i8, ptr %85, align 4, !tbaa !23
-  %87 = zext i8 %86 to i32
-  %88 = getelementptr inbounds nuw i8, ptr %1, i64 3284
-  %89 = load i8, ptr %88, align 4, !tbaa !23
-  %90 = zext i8 %89 to i32
-  %91 = tail call fastcc i64 @GetCombinedEntropy(ptr noundef nonnull %83, ptr noundef nonnull %84, i32 noundef 40, i32 noundef %87, i32 noundef %90, i32 noundef 0)
-  %92 = load i64, ptr %3, align 8, !tbaa !54
-  %93 = add i64 %92, %91
-  store i64 %93, ptr %3, align 8, !tbaa !54
-  %94 = load ptr, ptr @VP8LExtraCostCombined, align 8, !tbaa !29
-  %95 = tail call i32 %94(ptr noundef nonnull %83, ptr noundef nonnull %84, i32 noundef 40) #10
-  %96 = zext i32 %95 to i64
-  %97 = shl nuw nsw i64 %96, 23
-  %98 = load i64, ptr %3, align 8, !tbaa !54
-  %99 = add i64 %97, %98
-  store i64 %99, ptr %3, align 8, !tbaa !54
-  %.not72 = icmp ult i64 %99, %2
+83:                                               ; preds = %71
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 3080
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 3080
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 3284
+  %87 = load i8, ptr %86, align 4, !tbaa !23
+  %88 = zext i8 %87 to i32
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 3284
+  %90 = load i8, ptr %89, align 4, !tbaa !23
+  %91 = zext i8 %90 to i32
+  %92 = tail call fastcc i64 @GetCombinedEntropy(ptr noundef nonnull %84, ptr noundef nonnull %85, i32 noundef 40, i32 noundef %88, i32 noundef %91, i32 noundef 0)
+  %93 = load i64, ptr %3, align 8, !tbaa !54
+  %94 = add i64 %93, %92
+  store i64 %94, ptr %3, align 8, !tbaa !54
+  %95 = load ptr, ptr @VP8LExtraCostCombined, align 8, !tbaa !29
+  %96 = tail call i32 %95(ptr noundef nonnull %84, ptr noundef nonnull %85, i32 noundef 40) #10
+  %97 = zext i32 %96 to i64
+  %98 = shl nuw nsw i64 %97, 23
+  %99 = load i64, ptr %3, align 8, !tbaa !54
+  %100 = add i64 %98, %99
+  store i64 %100, ptr %3, align 8, !tbaa !54
+  %.not72 = icmp ult i64 %100, %2
   %. = zext i1 %.not72 to i32
-  br label %100
+  br label %101
 
-100:                                              ; preds = %82, %70, %58, %46, %6, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %6 ], [ 0, %46 ], [ 0, %58 ], [ 0, %70 ], [ %., %82 ]
+101:                                              ; preds = %83, %71, %59, %47, %6, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %6 ], [ 0, %47 ], [ 0, %59 ], [ 0, %71 ], [ %., %83 ]
   ret i32 %.0
 }
 

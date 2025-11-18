@@ -813,8 +813,8 @@ ishex_str.exit149.thread:                         ; preds = %224, %229, %ishex_s
   br i1 %.not33.i, label %591, label %243
 
 243:                                              ; preds = %241
-  %.udiv133.i = lshr i64 %indvars.iv.i152, 6
-  %244 = and i64 %.udiv133.i, 67108863
+  %.udiv134.i = lshr i64 %indvars.iv.i152, 6
+  %244 = and i64 %.udiv134.i, 67108863
   %245 = getelementptr i64, ptr %8, i64 %244
   %246 = load i64, ptr %245, align 8
   %narrow.i = xor i32 %.urem.i, 63
@@ -996,17 +996,14 @@ thread-pre-split.i.i:                             ; preds = %265
 339:                                              ; preds = %331, %322
   %.131.i.i = phi ptr [ %240, %331 ], [ %5, %322 ]
   %.1.i.i157 = phi ptr [ %338, %331 ], [ %329, %322 ]
-  %.not3940.i.i = icmp ult i32 %326, 2
-  br i1 %.not3940.i.i, label %bin2hex.exit.i, label %.lr.ph.i39.preheader.i
-
-.lr.ph.i39.preheader.i:                           ; preds = %339
   %340 = lshr i32 %326, 1
-  br label %.lr.ph.i39.i
+  %.not3940.i.i = icmp eq i32 %340, 0
+  br i1 %.not3940.i.i, label %bin2hex.exit.i, label %.lr.ph.i39.i
 
-.lr.ph.i39.i:                                     ; preds = %.lr.ph.i39.i, %.lr.ph.i39.preheader.i
-  %.243.i.i = phi ptr [ %354, %.lr.ph.i39.i ], [ %.1.i.i157, %.lr.ph.i39.preheader.i ]
-  %.12942.i.i = phi i32 [ %341, %.lr.ph.i39.i ], [ %340, %.lr.ph.i39.preheader.i ]
-  %.23241.i.i = phi ptr [ %355, %.lr.ph.i39.i ], [ %.131.i.i, %.lr.ph.i39.preheader.i ]
+.lr.ph.i39.i:                                     ; preds = %339, %.lr.ph.i39.i
+  %.243.i.i = phi ptr [ %354, %.lr.ph.i39.i ], [ %.1.i.i157, %339 ]
+  %.12942.i.i = phi i32 [ %341, %.lr.ph.i39.i ], [ %340, %339 ]
+  %.23241.i.i = phi ptr [ %355, %.lr.ph.i39.i ], [ %.131.i.i, %339 ]
   %341 = add nsw i32 %.12942.i.i, -1
   %342 = load i8, ptr %.23241.i.i, align 1
   %343 = lshr i8 %342, 4

@@ -490,13 +490,13 @@ zend_arena_alloc.exit.i:                          ; preds = %138, %136
 
 .sink.split.i:                                    ; preds = %209, %201, %194, %194
   %.sink.i = phi i32 [ %198, %194 ], [ %198, %194 ], [ %198, %201 ], [ %213, %209 ]
-  %.sink218.i = phi ptr [ %.0.i150.i, %194 ], [ %.0.i150.i, %194 ], [ %.0.i95, %201 ], [ %.0.i95, %209 ]
+  %.sink219.i = phi ptr [ %.0.i150.i, %194 ], [ %.0.i150.i, %194 ], [ %.0.i95, %201 ], [ %.0.i95, %209 ]
   %221 = and i32 %.sink.i, 63
   %222 = zext nneg i32 %221 to i64
   %223 = shl nuw i64 1, %222
   %224 = lshr i32 %.sink.i, 6
   %225 = zext nneg i32 %224 to i64
-  %226 = getelementptr inbounds nuw i64, ptr %.sink218.i, i64 %225
+  %226 = getelementptr inbounds nuw i64, ptr %.sink219.i, i64 %225
   %227 = load i64, ptr %226, align 8, !tbaa !96
   %228 = or i64 %223, %227
   store i64 %228, ptr %226, align 8, !tbaa !96
@@ -613,9 +613,9 @@ zend_arena_alloc.exit.i:                          ; preds = %138, %136
   %296 = shl nuw i64 1, %295
   %297 = and i64 %294, %296
   %.not153.i = icmp eq i64 %297, 0
-  br i1 %.not153.i, label %302, label %.sink.split222.i
+  br i1 %.not153.i, label %302, label %.sink.split223.i
 
-.sink.split222.i:                                 ; preds = %.lr.ph168.i
+.sink.split223.i:                                 ; preds = %.lr.ph168.i
   %298 = trunc nuw i8 %.0126165.i to i1
   %299 = load ptr, ptr @stderr, align 8, !tbaa !100
   %300 = trunc nuw i64 %indvars.iv194.i to i32
@@ -624,9 +624,9 @@ zend_arena_alloc.exit.i:                          ; preds = %138, %136
   %.pre407 = load i32, ptr %16, align 8, !tbaa !79
   br label %302
 
-302:                                              ; preds = %.sink.split222.i, %.lr.ph168.i
-  %303 = phi i32 [ %291, %.lr.ph168.i ], [ %.pre407, %.sink.split222.i ]
-  %.1.i = phi i8 [ %.0126165.i, %.lr.ph168.i ], [ 1, %.sink.split222.i ]
+302:                                              ; preds = %.sink.split223.i, %.lr.ph168.i
+  %303 = phi i32 [ %291, %.lr.ph168.i ], [ %.pre407, %.sink.split223.i ]
+  %.1.i = phi i8 [ %.0126165.i, %.lr.ph168.i ], [ 1, %.sink.split223.i ]
   %indvars.iv.next195.i = add nuw nsw i64 %indvars.iv194.i, 1
   %304 = zext i32 %303 to i64
   %305 = icmp samesign ult i64 %indvars.iv.next195.i, %304
@@ -647,7 +647,7 @@ zend_arena_alloc.exit.i:                          ; preds = %138, %136
   br i1 %310, label %.lr.ph171.lr.ph.i, label %.outer._crit_edge.i
 
 .lr.ph171.lr.ph.i:                                ; preds = %._crit_edge169.thread.i
-  %.not.i151.i = icmp eq i32 %126, 0
+  %.not.i151.i = icmp eq i64 %129, 0
   br label %.lr.ph171.i
 
 .loopexit.i:                                      ; preds = %456
@@ -5589,8 +5589,8 @@ zend_merge_blocks.exit:                           ; preds = %2909, %._crit_edge
   %2913 = icmp eq i32 %.42, 0
   %2914 = add nuw nsw i32 %.078314, 1
   %exitcond.not = icmp eq i32 %2914, 3
-  %or.cond590 = select i1 %2913, i1 true, i1 %exitcond.not
-  br i1 %or.cond590, label %2915, label %119
+  %or.cond591 = select i1 %2913, i1 true, i1 %exitcond.not
+  br i1 %or.cond591, label %2915, label %119
 
 2915:                                             ; preds = %zend_merge_blocks.exit
   call fastcc void @assemble_code_blocks(ptr noundef %10, ptr noundef %0)

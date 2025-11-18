@@ -1454,7 +1454,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 59:                                               ; preds = %54
   %60 = getelementptr inbounds %"struct.faiss::nsg::Neighbor", ptr %0, i64 %.022.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %60, ptr noundef nonnull align 4 dereferenceable(9) %55, i64 9, i1 false), !tbaa.struct !82
-  %.not14.i.i.i = icmp ult i64 %.01023.in.i.i.i.i.i, 2
+  %.not14.i.i.i = icmp eq i64 %.01023.i.i1213.i.i.i, 0
   br i1 %.not14.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5faiss3nsg8NeighborESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i.i, label %54, !llvm.loop !85
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5faiss3nsg8NeighborESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i.i: ; preds = %59, %54, %52
@@ -1951,7 +1951,7 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5faiss3nsg8NeighborESt6vector
 87:                                               ; preds = %82
   %88 = getelementptr inbounds %"struct.faiss::nsg::Neighbor", ptr %.fr49, i64 %.022.i.i.i18.us
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %88, ptr noundef nonnull align 4 dereferenceable(9) %83, i64 9, i1 false), !tbaa.struct !82
-  %.not14.i.us = icmp ult i64 %.01023.in.i.i.i19.us, 2
+  %.not14.i.us = icmp eq i64 %.01023.i.i1213.i.us, 0
   br i1 %.not14.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5faiss3nsg8NeighborESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.us, label %82, !llvm.loop !85
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5faiss3nsg8NeighborESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.us: ; preds = %82, %87, %80
@@ -6286,7 +6286,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %56 = getelementptr inbounds %"struct.faiss::nsg::Node", ptr %0, i64 %.020.i.i.i.i.i
   %57 = load i64, ptr %51, align 4
   store i64 %57, ptr %56, align 4
-  %.not9.i.i.i = icmp ult i64 %.0921.in.i.i.i.i.i, 2
+  %.not9.i.i.i = icmp eq i64 %.0921.i.i78.i.i.i, 0
   br i1 %.not9.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5faiss3nsg4NodeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !179
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5faiss3nsg4NodeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i.i: ; preds = %55, %.lr.ph.i.i.i.i.i, %49
@@ -6667,7 +6667,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN5
   %48 = getelementptr inbounds %"struct.faiss::nsg::Node", ptr %.fr30, i64 %.020.i.i.i.us
   %49 = load i64, ptr %43, align 4
   store i64 %49, ptr %48, align 4
-  %.not9.i.us = icmp ult i64 %.0921.in.i.i.i.us, 2
+  %.not9.i.us = icmp eq i64 %.0921.i.i78.i.us, 0
   br i1 %.not9.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5faiss3nsg4NodeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !179
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5faiss3nsg4NodeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %47, %40

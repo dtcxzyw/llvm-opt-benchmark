@@ -243,7 +243,7 @@ define internal i32 @dissect_bthid(ptr noundef %0, ptr noundef %1, ptr noundef %
   %49 = and i32 %18, 3
   %50 = tail call ptr @val_to_str_const(i32 noundef %49, ptr noundef nonnull @report_type_vals, ptr noundef nonnull @.str.50)
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %46, i32 noundef 25, ptr noundef nonnull @.str.97, ptr noundef %48, ptr noundef %50)
-  %.not = icmp samesign ult i32 %19, 8
+  %.not = icmp eq i32 %47, 0
   %51 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1)
   br i1 %.not, label %.critedge, label %52
 

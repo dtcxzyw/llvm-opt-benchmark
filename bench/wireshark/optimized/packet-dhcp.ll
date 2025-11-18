@@ -6080,19 +6080,24 @@ define internal i32 @dissect_dhcpopt_classless_static_route(ptr noundef %0, ptr 
 
 32:                                               ; preds = %18
   %33 = icmp eq i8 %13, 0
-  br i1 %33, label %34, label %.lr.ph
+  br i1 %33, label %34, label %.preheader53
+
+.preheader53:                                     ; preds = %32
+  %.not65 = icmp eq i32 %20, 0
+  br i1 %.not65, label %.preheader, label %.lr.ph
 
 34:                                               ; preds = %32
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef nonnull @.str.2083)
   br label %43
 
-.preheader:                                       ; preds = %37
+.preheader:                                       ; preds = %37, %.preheader53
+  %.2.lcssa = phi i32 [ %24, %.preheader53 ], [ %38, %37 ]
   %35 = icmp ult i8 %13, 25
   br i1 %35, label %.lr.ph62, label %._crit_edge
 
-.lr.ph:                                           ; preds = %32, %37
-  %.260 = phi i32 [ %38, %37 ], [ %24, %32 ]
-  %.04859 = phi i32 [ %41, %37 ], [ 0, %32 ]
+.lr.ph:                                           ; preds = %.preheader53, %37
+  %.260 = phi i32 [ %38, %37 ], [ %24, %.preheader53 ]
+  %.04859 = phi i32 [ %41, %37 ], [ 0, %.preheader53 ]
   %.not = icmp eq i32 %.04859, 0
   br i1 %.not, label %37, label %36
 
@@ -6121,7 +6126,7 @@ define internal i32 @dissect_dhcpopt_classless_static_route(ptr noundef %0, ptr 
   br label %43
 
 43:                                               ; preds = %._crit_edge, %34
-  %.1 = phi i32 [ %24, %34 ], [ %38, %._crit_edge ]
+  %.1 = phi i32 [ %24, %34 ], [ %.2.lcssa, %._crit_edge ]
   %44 = load ptr, ptr %9, align 8
   %45 = tail call ptr @tvb_address_to_str(ptr noundef %44, ptr noundef %0, i32 noundef 2, i32 noundef %.1)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef nonnull @.str.2087, ptr noundef %45)

@@ -1886,17 +1886,21 @@ define void @get_CDR_fixed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 22:                                               ; preds = %15, %7
   %.089 = phi i32 [ 0, %7 ], [ 1, %15 ]
   %23 = icmp ugt i32 %5, 2
-  br i1 %23, label %.lr.ph.preheader, label %.loopexit
+  br i1 %23, label %.lr.ph.preheader, label %..loopexit_crit_edge
+
+..loopexit_crit_edge:                             ; preds = %22
+  %.pre148 = load i32, ptr %4, align 4
+  br label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %22
   %24 = add i32 %5, -1
   %25 = lshr i32 %24, 1
+  %.pre149 = load i32, ptr %4, align 4
   %26 = zext nneg i32 %.089 to i64
-  %.pre = load i32, ptr %4, align 4
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %27 = phi i32 [ %.pre, %.lr.ph.preheader ], [ %30, %.lr.ph ]
+  %27 = phi i32 [ %.pre149, %.lr.ph.preheader ], [ %30, %.lr.ph ]
   %indvars.iv = phi i64 [ %26, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0103 = phi i32 [ 0, %.lr.ph.preheader ], [ %38, %.lr.ph ]
   %28 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %27)
@@ -1921,9 +1925,9 @@ define void @get_CDR_fixed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %39 = trunc nuw i64 %indvars.iv.next to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %22
-  %.291 = phi i32 [ %.089, %22 ], [ %39, %.loopexit.loopexit ]
-  %40 = load i32, ptr %4, align 4
+.loopexit:                                        ; preds = %..loopexit_crit_edge, %.loopexit.loopexit
+  %40 = phi i32 [ %.pre148, %..loopexit_crit_edge ], [ %30, %.loopexit.loopexit ]
+  %.291 = phi i32 [ %.089, %..loopexit_crit_edge ], [ %39, %.loopexit.loopexit ]
   %41 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %40)
   %42 = load i32, ptr %4, align 4
   %43 = add i32 %42, 1
@@ -5764,7 +5768,7 @@ get_CDR_ulong.exit98:                             ; preds = %37, %39
   %51 = load i32, ptr %3, align 4
   %52 = add i32 %51, -4
   %53 = call ptr @proto_tree_add_uint(ptr noundef %47, i32 noundef %50, ptr noundef %0, i32 noundef %52, i32 noundef 4, i32 noundef %48)
-  %54 = icmp ult i32 %41, 256
+  %54 = icmp eq i32 %48, 0
   %55 = load i32, ptr %3, align 4
   %56 = add i32 %55, -4
   br i1 %54, label %57, label %.thread

@@ -342,7 +342,7 @@ define dso_local void @_ZN4absl19substitute_internal3ArgC2EPKv(ptr noundef nonnu
   %11 = getelementptr inbounds i8, ptr %.010, i64 -1
   store i8 %10, ptr %11, align 1, !tbaa !4
   %12 = lshr i64 %.0, 4
-  %.not = icmp ult i64 %.0, 16
+  %.not = icmp eq i64 %12, 0
   br i1 %.not, label %13, label %7, !llvm.loop !23
 
 13:                                               ; preds = %7
@@ -378,7 +378,7 @@ define dso_local void @_ZN4absl19substitute_internal3ArgC2ENS_3HexE(ptr noundef 
   %9 = getelementptr inbounds i8, ptr %.016, i64 -1
   store i8 %8, ptr %9, align 1, !tbaa !4
   %10 = lshr i64 %.015, 4
-  %.not = icmp ult i64 %.015, 16
+  %.not = icmp eq i64 %10, 0
   br i1 %.not, label %11, label %5, !llvm.loop !24
 
 11:                                               ; preds = %5

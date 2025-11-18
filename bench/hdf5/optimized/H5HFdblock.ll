@@ -627,21 +627,21 @@ define range(i32 -1, 1) i32 @H5HF__man_dblock_new(ptr noundef %0, i64 noundef %1
 
 18:                                               ; preds = %14
   %19 = lshr i64 %1, 32
-  %.not.i = icmp ult i64 %1, 4294967296
+  %.not.i = icmp eq i64 %19, 0
   br i1 %.not.i, label %46, label %20
 
 20:                                               ; preds = %18
   %21 = lshr i64 %1, 48
-  %.not26.i = icmp ult i64 %1, 281474976710656
+  %.not26.i = icmp eq i64 %21, 0
   br i1 %.not26.i, label %34, label %22
 
 22:                                               ; preds = %20
-  %.not28.i = icmp ult i64 %1, 72057594037927936
-  br i1 %.not28.i, label %29, label %23
+  %23 = lshr i64 %1, 56
+  %.not28.i = icmp eq i64 %23, 0
+  br i1 %.not28.i, label %29, label %24
 
-23:                                               ; preds = %22
-  %24 = lshr i64 %1, 56
-  %25 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %24
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %23
   %26 = load i8, ptr %25, align 1, !tbaa !65
   %27 = zext i8 %26 to i64
   %28 = add nuw nsw i64 %27, 56
@@ -655,12 +655,12 @@ define range(i32 -1, 1) i32 @H5HF__man_dblock_new(ptr noundef %0, i64 noundef %1
   br label %H5VM_log2_gen.exit
 
 34:                                               ; preds = %20
-  %.not27.i = icmp samesign ult i64 %1, 1099511627776
-  br i1 %.not27.i, label %41, label %35
+  %35 = lshr i64 %1, 40
+  %.not27.i = icmp eq i64 %35, 0
+  br i1 %.not27.i, label %41, label %36
 
-35:                                               ; preds = %34
-  %36 = lshr i64 %1, 40
-  %37 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %36
+36:                                               ; preds = %34
+  %37 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %35
   %38 = load i8, ptr %37, align 1, !tbaa !65
   %39 = zext i8 %38 to i64
   %40 = add nuw nsw i64 %39, 40
@@ -675,16 +675,16 @@ define range(i32 -1, 1) i32 @H5HF__man_dblock_new(ptr noundef %0, i64 noundef %1
 
 46:                                               ; preds = %18
   %47 = lshr i64 %1, 16
-  %.not23.i = icmp samesign ult i64 %1, 65536
+  %.not23.i = icmp eq i64 %47, 0
   br i1 %.not23.i, label %60, label %48
 
 48:                                               ; preds = %46
-  %.not25.i = icmp samesign ult i64 %1, 16777216
-  br i1 %.not25.i, label %55, label %49
+  %49 = lshr i64 %1, 24
+  %.not25.i = icmp eq i64 %49, 0
+  br i1 %.not25.i, label %55, label %50
 
-49:                                               ; preds = %48
-  %50 = lshr i64 %1, 24
-  %51 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %50
+50:                                               ; preds = %48
+  %51 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %49
   %52 = load i8, ptr %51, align 1, !tbaa !65
   %53 = zext i8 %52 to i64
   %54 = add nuw nsw i64 %53, 24
@@ -698,12 +698,12 @@ define range(i32 -1, 1) i32 @H5HF__man_dblock_new(ptr noundef %0, i64 noundef %1
   br label %H5VM_log2_gen.exit
 
 60:                                               ; preds = %46
-  %.not24.i = icmp samesign ult i64 %1, 256
-  br i1 %.not24.i, label %67, label %61
+  %61 = lshr i64 %1, 8
+  %.not24.i = icmp eq i64 %61, 0
+  br i1 %.not24.i, label %67, label %62
 
-61:                                               ; preds = %60
-  %62 = lshr i64 %1, 8
-  %63 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %62
+62:                                               ; preds = %60
+  %63 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %61
   %64 = load i8, ptr %63, align 1, !tbaa !65
   %65 = zext i8 %64 to i64
   %66 = add nuw nsw i64 %65, 8
@@ -715,8 +715,8 @@ define range(i32 -1, 1) i32 @H5HF__man_dblock_new(ptr noundef %0, i64 noundef %1
   %70 = zext i8 %69 to i64
   br label %H5VM_log2_gen.exit
 
-H5VM_log2_gen.exit:                               ; preds = %23, %29, %35, %41, %49, %55, %61, %67
-  %.0.i = phi i64 [ %28, %23 ], [ %33, %29 ], [ %40, %35 ], [ %45, %41 ], [ %54, %49 ], [ %59, %55 ], [ %66, %61 ], [ %70, %67 ]
+H5VM_log2_gen.exit:                               ; preds = %24, %29, %36, %41, %50, %55, %62, %67
+  %.0.i = phi i64 [ %28, %24 ], [ %33, %29 ], [ %40, %36 ], [ %45, %41 ], [ %54, %50 ], [ %59, %55 ], [ %66, %62 ], [ %70, %67 ]
   %71 = shl nuw i64 2, %.0.i
   br label %72
 
@@ -1034,21 +1034,21 @@ define range(i32 -1, 1) i32 @H5HF__man_dblock_locate(ptr noundef %0, i64 noundef
   %46 = getelementptr inbounds nuw i64, ptr %44, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !10
   %48 = lshr i64 %47, 32
-  %.not.i = icmp ult i64 %47, 4294967296
+  %.not.i = icmp eq i64 %48, 0
   br i1 %.not.i, label %75, label %49
 
 49:                                               ; preds = %42
   %50 = lshr i64 %47, 48
-  %.not26.i = icmp ult i64 %47, 281474976710656
+  %.not26.i = icmp eq i64 %50, 0
   br i1 %.not26.i, label %63, label %51
 
 51:                                               ; preds = %49
-  %.not28.i = icmp ult i64 %47, 72057594037927936
-  br i1 %.not28.i, label %58, label %52
+  %52 = lshr i64 %47, 56
+  %.not28.i = icmp eq i64 %52, 0
+  br i1 %.not28.i, label %58, label %53
 
-52:                                               ; preds = %51
-  %53 = lshr i64 %47, 56
-  %54 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %53
+53:                                               ; preds = %51
+  %54 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %52
   %55 = load i8, ptr %54, align 1, !tbaa !65
   %56 = zext i8 %55 to i32
   %57 = add nuw nsw i32 %56, 56
@@ -1062,12 +1062,12 @@ define range(i32 -1, 1) i32 @H5HF__man_dblock_locate(ptr noundef %0, i64 noundef
   br label %H5VM_log2_gen.exit
 
 63:                                               ; preds = %49
-  %.not27.i = icmp samesign ult i64 %47, 1099511627776
-  br i1 %.not27.i, label %70, label %64
+  %64 = lshr i64 %47, 40
+  %.not27.i = icmp eq i64 %64, 0
+  br i1 %.not27.i, label %70, label %65
 
-64:                                               ; preds = %63
-  %65 = lshr i64 %47, 40
-  %66 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %65
+65:                                               ; preds = %63
+  %66 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %64
   %67 = load i8, ptr %66, align 1, !tbaa !65
   %68 = zext i8 %67 to i32
   %69 = add nuw nsw i32 %68, 40
@@ -1082,16 +1082,16 @@ define range(i32 -1, 1) i32 @H5HF__man_dblock_locate(ptr noundef %0, i64 noundef
 
 75:                                               ; preds = %42
   %76 = lshr i64 %47, 16
-  %.not23.i = icmp samesign ult i64 %47, 65536
+  %.not23.i = icmp eq i64 %76, 0
   br i1 %.not23.i, label %89, label %77
 
 77:                                               ; preds = %75
-  %.not25.i = icmp samesign ult i64 %47, 16777216
-  br i1 %.not25.i, label %84, label %78
+  %78 = lshr i64 %47, 24
+  %.not25.i = icmp eq i64 %78, 0
+  br i1 %.not25.i, label %84, label %79
 
-78:                                               ; preds = %77
-  %79 = lshr i64 %47, 24
-  %80 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %79
+79:                                               ; preds = %77
+  %80 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %78
   %81 = load i8, ptr %80, align 1, !tbaa !65
   %82 = zext i8 %81 to i32
   %83 = add nuw nsw i32 %82, 24
@@ -1105,12 +1105,12 @@ define range(i32 -1, 1) i32 @H5HF__man_dblock_locate(ptr noundef %0, i64 noundef
   br label %H5VM_log2_gen.exit
 
 89:                                               ; preds = %75
-  %.not24.i = icmp samesign ult i64 %47, 256
-  br i1 %.not24.i, label %96, label %90
+  %90 = lshr i64 %47, 8
+  %.not24.i = icmp eq i64 %90, 0
+  br i1 %.not24.i, label %96, label %91
 
-90:                                               ; preds = %89
-  %91 = lshr i64 %47, 8
-  %92 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %91
+91:                                               ; preds = %89
+  %92 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %90
   %93 = load i8, ptr %92, align 1, !tbaa !65
   %94 = zext i8 %93 to i32
   %95 = add nuw nsw i32 %94, 8
@@ -1122,8 +1122,8 @@ define range(i32 -1, 1) i32 @H5HF__man_dblock_locate(ptr noundef %0, i64 noundef
   %99 = zext i8 %98 to i32
   br label %H5VM_log2_gen.exit
 
-H5VM_log2_gen.exit:                               ; preds = %52, %58, %64, %70, %78, %84, %90, %96
-  %.0.i = phi i32 [ %57, %52 ], [ %62, %58 ], [ %69, %64 ], [ %74, %70 ], [ %83, %78 ], [ %88, %84 ], [ %95, %90 ], [ %99, %96 ]
+H5VM_log2_gen.exit:                               ; preds = %53, %58, %65, %70, %79, %84, %91, %96
+  %.0.i = phi i32 [ %57, %53 ], [ %62, %58 ], [ %69, %65 ], [ %74, %70 ], [ %83, %79 ], [ %88, %84 ], [ %95, %91 ], [ %99, %96 ]
   %100 = load i32, ptr %37, align 8, !tbaa !89
   %101 = sub i32 %.0.i, %100
   %102 = add i32 %101, 1

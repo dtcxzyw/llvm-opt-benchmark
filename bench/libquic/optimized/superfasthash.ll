@@ -12,17 +12,14 @@ define i32 @SuperFastHash(ptr noundef readonly captures(address_is_null) %0, i32
 
 5:                                                ; preds = %2
   %6 = and i32 %1, 3
-  %.not = icmp samesign ult i32 %1, 4
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %5
   %7 = lshr i32 %1, 2
-  br label %.lr.ph
+  %.not = icmp eq i32 %7, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.05562 = phi ptr [ %18, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.05661 = phi i32 [ %20, %.lr.ph ], [ %1, %.lr.ph.preheader ]
-  %.05760 = phi i32 [ %21, %.lr.ph ], [ %7, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %5, %.lr.ph
+  %.05562 = phi ptr [ %18, %.lr.ph ], [ %0, %5 ]
+  %.05661 = phi i32 [ %20, %.lr.ph ], [ %1, %5 ]
+  %.05760 = phi i32 [ %21, %.lr.ph ], [ %7, %5 ]
   %8 = load i16, ptr %.05562, align 1
   %9 = zext i16 %8 to i32
   %10 = add i32 %.05661, %9

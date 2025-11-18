@@ -6132,7 +6132,7 @@ if.then.i:                                        ; preds = %if.end4
   unreachable
 
 if.end.i:                                         ; preds = %if.end4
-  %cmp3.i.not = icmp ult i64 %sext, 4294967296
+  %cmp3.i.not = icmp eq i64 %conv, 0
   br i1 %cmp3.i.not, label %invoke.cont6, label %_ZNSt12_Vector_baseISt4pairIiPKN6google8protobuf12UnknownFieldEESaIS6_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseISt4pairIiPKN6google8protobuf12UnknownFieldEESaIS6_EE11_M_allocateEm.exit.i: ; preds = %if.end.i
@@ -6166,7 +6166,7 @@ if.then.i140:                                     ; preds = %invoke.cont6
   unreachable
 
 if.end.i115:                                      ; preds = %invoke.cont6
-  %cmp3.i121.not = icmp ult i64 %sext447, 4294967296
+  %cmp3.i121.not = icmp eq i64 %conv9, 0
   br i1 %cmp3.i121.not, label %_ZNSt6vectorISt4pairIiPKN6google8protobuf12UnknownFieldEESaIS6_EE7reserveEm.exit144, label %_ZNSt12_Vector_baseISt4pairIiPKN6google8protobuf12UnknownFieldEESaIS6_EE11_M_allocateEm.exit.i122
 
 _ZNSt12_Vector_baseISt4pairIiPKN6google8protobuf12UnknownFieldEESaIS6_EE11_M_allocateEm.exit.i122: ; preds = %if.end.i115
@@ -15167,8 +15167,8 @@ while.body.i.i.i:                                 ; preds = %if.end.i, %if.end4.
   br i1 %cmp2.not.i.i.i, label %if.end4.i.i.i, label %if.end.i.i.i.i
 
 if.end4.i.i.i:                                    ; preds = %while.body.i.i.i
-  %cmp1.not.i.i.i = icmp samesign ult i64 %storemerge27.i.i.in.in.i, 3
-  br i1 %cmp1.not.i.i.i, label %if.then5.i, label %while.body.i.i.i, !llvm.loop !281
+  %cmp5.i.i.i = icmp eq i64 %storemerge27.i.i.i, 1
+  br i1 %cmp5.i.i.i, label %if.then5.i, label %while.body.i.i.i, !llvm.loop !281
 
 if.end.i.i.i.i:                                   ; preds = %while.body.i.i.i
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 %mul.i.i.i
@@ -17061,14 +17061,14 @@ for.body.i.i.i.i19:                               ; preds = %for.body.i.i.i.i19,
   br i1 %exitcond.not.i.i.i.i27, label %_ZN4absl12lts_2023080216numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i28, label %for.body.i.i.i.i19, !llvm.loop !315
 
 _ZN4absl12lts_2023080216numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i28: ; preds = %for.body.i.i.i.i19
-  %cmp.not.i.i.i36.not = icmp ugt i64 %17, 1152921504606846975
-  br i1 %cmp.not.i.i.i36.not, label %_ZN4absl12lts_2023080216strings_internal22ExtractStringificationINS0_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS1_13StringifySinkERKT_.exit.i37, label %if.else.i.i.i42
-
-if.else.i.i.i42:                                  ; preds = %_ZN4absl12lts_2023080216numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i28
   %or.i.i.i.i30 = or i64 %17, 1
   %22 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i30, i1 true)
   %div.neg5.lhs.trunc.i.i.i.i31 = trunc nuw nsw i64 %22 to i32
   %div.neg567.i.i.i.i32 = lshr i32 %div.neg5.lhs.trunc.i.i.i.i31, 2
+  %cmp.not.i.i.i36.not = icmp eq i32 %div.neg567.i.i.i.i32, 0
+  br i1 %cmp.not.i.i.i36.not, label %_ZN4absl12lts_2023080216strings_internal22ExtractStringificationINS0_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS1_13StringifySinkERKT_.exit.i37, label %if.else.i.i.i42
+
+if.else.i.i.i42:                                  ; preds = %_ZN4absl12lts_2023080216numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i28
   %narrow.i.i.i.i33 = sub nuw nsw i32 16, %div.neg567.i.i.i.i32
   %sub3.i.i.i.i34 = zext nneg i32 %narrow.i.i.i.i33 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %buffer.i.i.i14, i8 48, i64 16, i1 false)
@@ -21274,7 +21274,7 @@ while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %8 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
   %add.ptr.i8.i.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce, i64 %__holeIndex.addr.017.i.i.i.i
   store ptr %8, ptr %add.ptr.i8.i.i.i.i, align 8
-  %cmp.i.i.not.i.i = icmp ult i64 %__parent.018.in.i.i.i.i, 2
+  %cmp.i.i.not.i.i = icmp eq i64 %__parent.018.i.i34.i.i, 0
   br i1 %cmp.i.i.not.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbS6_S6_EEEEvT_SH_SH_RT0_.exit.i, label %land.rhs.i.i.i.i, !llvm.loop !369
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbS6_S6_EEEEvT_SH_SH_RT0_.exit.i: ; preds = %while.body.i.i.i.i, %land.rhs.i.i.i.i, %if.end34.i.i.i
@@ -21496,7 +21496,7 @@ while.body.i.i.i.us:                              ; preds = %land.rhs.i.i.i.us
   %11 = load ptr, ptr %add.ptr.i.i.i.i.us, align 8
   %add.ptr.i8.i.i.i.us = getelementptr inbounds ptr, ptr %__first.coerce.fr, i64 %__holeIndex.addr.017.i.i.i.us
   store ptr %11, ptr %add.ptr.i8.i.i.i.us, align 8
-  %cmp.i.i.not.i.us = icmp ult i64 %__parent.018.in.i.i.i.us, 2
+  %cmp.i.i.not.i.us = icmp eq i64 %__parent.018.i.i34.i.us, 0
   br i1 %cmp.i.i.not.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbS6_S6_EEEEvT_SH_SH_RT0_.exit.us, label %land.rhs.i.i.i.us, !llvm.loop !369
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbS6_S6_EEEEvT_SH_SH_RT0_.exit.us: ; preds = %land.rhs.i.i.i.us, %while.body.i.i.i.us, %if.end34.i.i.us

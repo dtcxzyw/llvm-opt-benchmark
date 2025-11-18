@@ -1907,18 +1907,18 @@ define hidden void @_ZN17stackChunkOopDesc9transformEv(ptr noundef nonnull align
   %24 = zext nneg i32 %23 to i64
   %25 = shl i64 %21, %24
   %26 = add i64 %25, 63
-  %.not.i = icmp ult i64 %26, 64
+  %27 = lshr i64 %26, 6
+  %.not.i = icmp eq i64 %27, 0
   br i1 %.not.i, label %_ZN6BitMap5clearEv.exit, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %1
-  %27 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4, !noalias !16
-  %28 = sext i32 %27 to i64
-  %29 = add nsw i64 %28, %4
-  %30 = inttoptr i64 %29 to ptr
-  %31 = getelementptr inbounds ptr, ptr %30, i64 %21
-  %32 = lshr i64 %26, 3
-  %33 = and i64 %32, 2305843009213693944
-  tail call void @llvm.memset.p0.i64(ptr align 8 %31, i8 0, i64 %33, i1 false)
+  %28 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4, !noalias !16
+  %29 = sext i32 %28 to i64
+  %30 = add nsw i64 %29, %4
+  %31 = inttoptr i64 %30 to ptr
+  %32 = getelementptr inbounds ptr, ptr %31, i64 %21
+  %33 = shl nuw nsw i64 %27, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %32, i8 0, i64 %33, i1 false)
   br label %_ZN6BitMap5clearEv.exit
 
 _ZN6BitMap5clearEv.exit:                          ; preds = %1, %.lr.ph.preheader.i.i.i

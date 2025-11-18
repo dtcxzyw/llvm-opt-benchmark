@@ -1281,11 +1281,11 @@ define internal void @LINUX_JoystickUpdate(ptr noundef %0) #0 {
 
 .lr.ph31.i:                                       ; preds = %9, %.loopexit.i
   %23 = phi i32 [ %21, %.loopexit.i ], [ %16, %9 ]
-  %.not.i = icmp samesign ult i32 %23, 8
+  %24 = lshr i32 %23, 3
+  %.not.i = icmp eq i32 %24, 0
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph31.i
-  %24 = lshr i32 %23, 3
   %wide.trip.count.i = zext nneg i32 %24 to i64
   br label %.lr.ph.i
 

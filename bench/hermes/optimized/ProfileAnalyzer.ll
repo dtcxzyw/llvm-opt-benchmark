@@ -14771,7 +14771,7 @@ while.body.i.i.i14:                               ; preds = %land.rhs.i.i.i
   store i8 %20, ptr %add.ptr.i8.i.i.i, align 8
   %second3.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i8.i.i.i, i64 8
   store i64 %call.val.i.i.i.i, ptr %second3.i.i.i.i, align 8
-  %cmp.i.i.not.i = icmp ult i64 %__parent.09.in.i.i.i, 2
+  %cmp.i.i.not.i = icmp eq i64 %__parent.09.i.i34.i, 0
   br i1 %cmp.i.i.not.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN6hermes4inst6OpCodeEmESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_15ProfileAnalyzer20dumpInstructionStatsEvE3$_1EEEvT_SH_SH_RT0_.exit", label %land.rhs.i.i.i, !llvm.loop !334
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN6hermes4inst6OpCodeEmESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_15ProfileAnalyzer20dumpInstructionStatsEvE3$_1EEEvT_SH_SH_RT0_.exit": ; preds = %land.rhs.i.i.i, %while.body.i.i.i14, %if.end35.i.i
@@ -17371,7 +17371,7 @@ land.rhs.i.i.i.i20.i:                             ; preds = %land.rhs.i.i.i.i20.
 while.body.i.i.i.i32.i:                           ; preds = %land.rhs.i.i.i.i20.i
   %add.ptr.i11.i.i.i.i33.i = getelementptr inbounds %struct.BasicBlockRuntimeStatistics, ptr %__first.coerce.fr.i, i64 %__holeIndex.addr.04.i.i.i.i21.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i11.i.i.i.i33.i, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i.i.i.i24.i, i64 40, i1 false)
-  %cmp.i.i.not.i.i34.i = icmp ult i64 %__parent.05.in.i.i.i.i22.i, 2
+  %cmp.i.i.not.i.i34.i = icmp eq i64 %__parent.05.i.i12.i.i23.i, 0
   br i1 %cmp.i.i.not.i.i34.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN6hermes15ProfileAnalyzer19dumpBasicBlockStatsEvE27BasicBlockRuntimeStatisticsSt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_19dumpBasicBlockStatsEvE3$_1EEEvT_SE_SE_RT0_.exit.i27.i", label %land.rhs.i.i.i.i20.i, !llvm.loop !365
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN6hermes15ProfileAnalyzer19dumpBasicBlockStatsEvE27BasicBlockRuntimeStatisticsSt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_19dumpBasicBlockStatsEvE3$_1EEEvT_SE_SE_RT0_.exit.i27.i": ; preds = %while.body.i.i.i.i32.i, %land.rhs.i.i.i.i20.i, %if.end33.i.i.i16.i

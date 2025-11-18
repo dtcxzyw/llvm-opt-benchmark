@@ -1787,7 +1787,7 @@ define internal fastcc noundef i32 @_ZL10sizeofintsiPKj(ptr noundef nonnull read
   br label %5
 
 .preheader:                                       ; preds = %5
-  %.not3035 = icmp ult i32 %9, 256
+  %.not3035 = icmp eq i32 %11, 0
   br i1 %.not3035, label %._crit_edge, label %.lr.ph38
 
 5:                                                ; preds = %.lr.ph, %5
@@ -1813,7 +1813,7 @@ define internal fastcc noundef i32 @_ZL10sizeofintsiPKj(ptr noundef nonnull read
   %15 = getelementptr inbounds nuw i32, ptr %2, i64 %14
   store i32 %12, ptr %15, align 4, !tbaa !16
   %16 = lshr i32 %.137, 8
-  %.not30 = icmp samesign ult i32 %.137, 256
+  %.not30 = icmp eq i32 %16, 0
   br i1 %.not30, label %._crit_edge, label %.lr.ph38, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.lr.ph38, %.preheader31, %.preheader
@@ -1861,7 +1861,7 @@ define internal fastcc void @_ZL8sendintsP10DataBufferiiPjS1_(ptr noundef nonnul
   %9 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   store i32 %8, ptr %9, align 4, !tbaa !16
   %10 = lshr i32 %.052, 8
-  %.not = icmp ult i32 %.052, 256
+  %.not = icmp eq i32 %10, 0
   br i1 %.not, label %.preheader98.preheader, label %7, !llvm.loop !42
 
 .preheader98.preheader:                           ; preds = %7
@@ -1925,7 +1925,7 @@ define internal fastcc void @_ZL8sendintsP10DataBufferiiPjS1_(ptr noundef nonnul
   %28 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv147
   store i32 %27, ptr %28, align 4, !tbaa !16
   %29 = lshr i32 %.254116, 8
-  %.not68 = icmp ult i32 %.254116, 256
+  %.not68 = icmp eq i32 %29, 0
   br i1 %.not68, label %._crit_edge.loopexit, label %.lr.ph117, !llvm.loop !44
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph117

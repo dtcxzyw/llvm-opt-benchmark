@@ -1467,7 +1467,7 @@ define dso_local i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %1, p
   store i64 %71, ptr %9, align 8
   %72 = lshr i64 %71, 56
   %73 = trunc nuw nsw i64 %72 to i32
-  %74 = icmp ult i64 %71, 72057594037927936
+  %74 = icmp eq i64 %72, 0
   %75 = call i32 @llvm.ctlz.i32(i32 %73, i1 true), !range !15
   %76 = xor i32 %75, 31
   %77 = sub nuw nsw i32 8, %76
@@ -2350,7 +2350,7 @@ define internal fastcc i64 @FSE_decompress_wksp_body_bmi2(ptr noundef %0, i64 no
   store i64 %66, ptr %8, align 8
   %67 = lshr i64 %66, 56
   %68 = trunc nuw nsw i64 %67 to i32
-  %69 = icmp ult i64 %66, 72057594037927936
+  %69 = icmp eq i64 %67, 0
   %70 = call i32 @llvm.ctlz.i32(i32 %68, i1 true), !range !15
   %71 = xor i32 %70, 31
   %72 = sub nuw nsw i32 8, %71
@@ -2807,7 +2807,7 @@ define internal fastcc i64 @FSE_decompress_wksp_body_bmi2(ptr noundef %0, i64 no
   store i64 %397, ptr %11, align 8
   %398 = lshr i64 %397, 56
   %399 = trunc nuw nsw i64 %398 to i32
-  %400 = icmp ult i64 %397, 72057594037927936
+  %400 = icmp eq i64 %398, 0
   %401 = call i32 @llvm.ctlz.i32(i32 %399, i1 true), !range !15
   %402 = xor i32 %401, 31
   %403 = sub nuw nsw i32 8, %402

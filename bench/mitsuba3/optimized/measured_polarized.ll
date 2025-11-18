@@ -1761,7 +1761,7 @@ define linkonce_odr hidden void @_ZN7mitsuba10Marginal2DIfLm4ELb1EEC2EPKfRKNS_6V
   br i1 %.not317, label %._crit_edge312, label %.preheader232.lr.ph
 
 .preheader232.lr.ph:                              ; preds = %.preheader233
-  %.not318 = icmp ult i64 %10, 4294967296
+  %.not318 = icmp eq i64 %19, 0
   %.not319 = icmp eq i32 %23, 0
   %.not320 = icmp eq i32 %22, 0
   %102 = zext i32 %24 to i64

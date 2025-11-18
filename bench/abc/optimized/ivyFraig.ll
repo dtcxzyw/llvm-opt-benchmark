@@ -8415,8 +8415,9 @@ Abc_Clock.exit:                                   ; preds = %3, %8
 17:                                               ; preds = %Abc_Clock.exit
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %19 = load i32, ptr %18, align 8
+  %20 = lshr i32 %19, 11
   %.not28 = icmp eq ptr %1, null
-  br i1 %.not28, label %20, label %.thread
+  br i1 %.not28, label %21, label %.thread
 
 .thread36:                                        ; preds = %Abc_Clock.exit
   %.not2837 = icmp eq ptr %1, null
@@ -8428,30 +8429,28 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %.pre54 = lshr i32 %.pre, 11
   br label %.thread35
 
-20:                                               ; preds = %17
-  %.not49 = icmp ult i32 %19, 2048
-  br i1 %.not49, label %.thread45, label %.thread61
+21:                                               ; preds = %17
+  %.not49 = icmp eq i32 %20, 0
+  br i1 %.not49, label %.thread45, label %.thread57
 
-.thread61:                                        ; preds = %20
-  %.pre55 = lshr i32 %19, 11
-  %21 = uitofp nneg i32 %.pre55 to double
-  %22 = load ptr, ptr %0, align 8, !tbaa !85
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %24 = load double, ptr %23, align 8, !tbaa !12
-  %25 = fsub double 1.000000e+00, %24
-  %26 = fmul double %25, %21
-  %27 = fptosi double %26 to i32
+.thread57:                                        ; preds = %21
+  %22 = uitofp nneg i32 %20 to double
+  %23 = load ptr, ptr %0, align 8, !tbaa !85
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %25 = load double, ptr %24, align 8, !tbaa !12
+  %26 = fsub double 1.000000e+00, %25
+  %27 = fmul double %26, %22
+  %28 = fptosi double %27 to i32
   br label %.thread48
 
 .thread:                                          ; preds = %17
-  %28 = lshr i32 %19, 11
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = lshr i32 %30, 11
-  %spec.select = call i32 @llvm.umax.i32(i32 %28, i32 %31)
+  %spec.select = call i32 @llvm.umax.i32(i32 %20, i32 %31)
   br label %.thread35
 
-.thread45:                                        ; preds = %20, %.thread36
+.thread45:                                        ; preds = %21, %.thread36
   %32 = load ptr, ptr %0, align 8, !tbaa !85
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load double, ptr %33, align 8, !tbaa !12
@@ -8482,9 +8481,9 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %49 = phi i32 [ %.sink, %45 ], [ %.sink, %.thread35 ], [ 0, %.thread45 ]
   br i1 %.not, label %.thread47, label %.thread48
 
-.thread48:                                        ; preds = %.thread61, %47
-  %50 = phi i32 [ %49, %47 ], [ %.pre55, %.thread61 ]
-  %51 = phi i32 [ %48, %47 ], [ %27, %.thread61 ]
+.thread48:                                        ; preds = %.thread57, %47
+  %50 = phi i32 [ %49, %47 ], [ %20, %.thread57 ]
+  %51 = phi i32 [ %48, %47 ], [ %28, %.thread57 ]
   %.val = load i32, ptr %2, align 8, !tbaa !121
   %.not51 = icmp eq i32 %.val, 0
   br i1 %.not51, label %.thread47, label %52

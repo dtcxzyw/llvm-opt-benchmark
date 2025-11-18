@@ -606,11 +606,11 @@ define internal range(i32 0, 2) i32 @process_read_data(ptr noundef readonly capt
   %.046 = phi ptr [ %2, %4 ], [ %2, %.preheader61 ], [ %scevgep95, %.lr.ph73.preheader ]
   %.043 = phi i64 [ %1, %4 ], [ %1, %.preheader61 ], [ %24, %.lr.ph73.preheader ]
   %25 = sub i64 %6, %.043
-  %.not87 = icmp ult i64 %25, 8
+  %26 = lshr i64 %25, 3
+  %.not87 = icmp eq i64 %26, 0
   br i1 %.not87, label %._crit_edge, label %.lr.ph79
 
 .lr.ph79:                                         ; preds = %.loopexit62
-  %26 = lshr i64 %25, 3
   %27 = tail call ptr @__errno_location() #18
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %29

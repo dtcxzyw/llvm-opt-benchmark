@@ -4266,7 +4266,7 @@ define internal fastcc void @ZSTD_rescaleFreqs(ptr noundef captures(none) initia
   %47 = load i32, ptr %46, align 4, !tbaa !42
   %48 = add i32 %47, 65535
   %49 = lshr i32 %48, 16
-  %.not89 = icmp ult i32 %48, 65536
+  %.not89 = icmp eq i32 %49, 0
   %50 = sub nsw i32 10, %49
   %51 = shl nuw nsw i32 1, %50
   %52 = select i1 %.not89, i32 1, i32 %51
@@ -4302,7 +4302,7 @@ define internal fastcc void @ZSTD_rescaleFreqs(ptr noundef captures(none) initia
   %70 = load i32, ptr %69, align 4, !tbaa !42
   %71 = add i32 %70, 65535
   %72 = lshr i32 %71, 16
-  %.not88 = icmp ult i32 %71, 65536
+  %.not88 = icmp eq i32 %72, 0
   %73 = sub nsw i32 10, %72
   %74 = shl nuw nsw i32 1, %73
   %75 = select i1 %.not88, i32 1, i32 %74
@@ -4338,7 +4338,7 @@ define internal fastcc void @ZSTD_rescaleFreqs(ptr noundef captures(none) initia
   %93 = load i32, ptr %92, align 4, !tbaa !42
   %94 = add i32 %93, 65535
   %95 = lshr i32 %94, 16
-  %.not87 = icmp ult i32 %94, 65536
+  %.not87 = icmp eq i32 %95, 0
   %96 = sub nsw i32 10, %95
   %97 = shl nuw nsw i32 1, %96
   %98 = select i1 %.not87, i32 1, i32 %97

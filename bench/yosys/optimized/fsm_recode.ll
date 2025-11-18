@@ -6017,7 +6017,7 @@ define linkonce_odr void @_ZN5Yosys7FsmData12copy_to_cellEPNS_5RTLIL4CellE(ptr n
   %.095 = phi i32 [ %46, %.lr.ph ], [ 0, %27 ]
   %46 = add nuw nsw i32 %.095, 1
   %47 = lshr i32 %.06696, 1
-  %.not = icmp samesign ult i32 %.06696, 2
+  %.not = icmp eq i32 %47, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !172
 
 48:                                               ; preds = %._crit_edge

@@ -15953,16 +15953,16 @@ _ZN5clang20ParsedAttributesView4noneEv.exit:      ; preds = %1, %39, %41
 82:                                               ; preds = %_ZN5clang20ParsedAttributesView4noneEv.exit
   call void @_ZN5clang6Parser20ParseParenDeclaratorERNS_10DeclaratorE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(4584) %4) #20
   %.sroa.0.0.copyload.i = load i64, ptr %47, align 8
+  %.sroa.347.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 32
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i32 0, ptr %83, align 8, !tbaa !1114
   store ptr null, ptr %44, align 8, !tbaa !986
   store i32 %.sroa.01.0.copyload.i, ptr %46, align 4, !tbaa !992
   store i32 %.sroa.01.0.copyload.i, ptr %45, align 8, !tbaa !992
-  %84 = icmp ult i64 %.sroa.0.0.copyload.i, 4294967296
+  %84 = icmp eq i64 %.sroa.347.0.extract.shift, 0
   br i1 %84, label %_ZN5clang10Declarator11SetRangeEndENS_14SourceLocationE.exit, label %85
 
 85:                                               ; preds = %82
-  %.sroa.347.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 32
   %.sroa.347.0.extract.trunc = trunc nuw i64 %.sroa.347.0.extract.shift to i32
   %86 = getelementptr inbounds nuw i8, ptr %4, i64 92
   store i32 %.sroa.347.0.extract.trunc, ptr %86, align 4, !tbaa !992

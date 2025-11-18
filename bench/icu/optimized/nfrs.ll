@@ -2278,21 +2278,22 @@ define noundef i64 @_ZN6icu_7710util64_powEjt(i32 noundef %0, i16 noundef zeroex
   %6 = and i16 %1, 1
   %.not15 = icmp eq i16 %6, 0
   %7 = select i1 %.not15, i64 1, i64 %5
-  %8 = icmp ult i16 %1, 2
-  br i1 %8, label %.loopexit, label %.lr.ph
+  %8 = lshr i16 %1, 1
+  %9 = icmp eq i16 %8, 0
+  br i1 %9, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  %spec.select18 = phi i64 [ %spec.select, %.lr.ph ], [ %7, %4 ]
-  %.017 = phi i64 [ %10, %.lr.ph ], [ %5, %4 ]
-  %.01216 = phi i16 [ %9, %.lr.ph ], [ %1, %4 ]
-  %9 = lshr i16 %.01216, 1
-  %10 = mul i64 %.017, %.017
-  %11 = and i16 %.01216, 2
-  %.not = icmp eq i16 %11, 0
-  %12 = select i1 %.not, i64 1, i64 %10
-  %spec.select = mul i64 %12, %spec.select18
-  %13 = icmp ult i16 %.01216, 4
-  br i1 %13, label %.loopexit, label %.lr.ph, !llvm.loop !69
+  %10 = phi i16 [ %14, %.lr.ph ], [ %8, %4 ]
+  %spec.select17 = phi i64 [ %spec.select, %.lr.ph ], [ %7, %4 ]
+  %.016 = phi i64 [ %11, %.lr.ph ], [ %5, %4 ]
+  %11 = mul i64 %.016, %.016
+  %12 = and i16 %10, 1
+  %.not = icmp eq i16 %12, 0
+  %13 = select i1 %.not, i64 1, i64 %11
+  %spec.select = mul i64 %13, %spec.select17
+  %14 = lshr i16 %10, 1
+  %15 = icmp eq i16 %14, 0
+  br i1 %15, label %.loopexit, label %.lr.ph, !llvm.loop !69
 
 .loopexit:                                        ; preds = %.lr.ph, %4, %2
   %.013 = phi i64 [ 0, %2 ], [ %7, %4 ], [ %spec.select, %.lr.ph ]

@@ -5192,7 +5192,7 @@ define hidden void @_ZN2cv10PngEncoder10writeIDATsEP8_IO_FILEiPhjj(ptr noundef n
   %16 = lshr i32 %8, 4
   %17 = shl nuw nsw i32 128, %16
   %18 = icmp ule i32 %5, %17
-  %19 = icmp ugt i8 %7, 15
+  %19 = icmp ne i32 %16, 0
   %20 = and i1 %18, %19
   br i1 %20, label %.lr.ph, label %._crit_edge
 

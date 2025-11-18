@@ -2381,7 +2381,7 @@ define internal fastcc void @x25_ntoa(ptr noundef %0, ptr noundef captures(none)
   br label %61
 
 61:                                               ; preds = %51, %._crit_edge
-  %.not85 = icmp ult i8 %12, 16
+  %.not85 = icmp eq i32 %15, 0
   br i1 %.not85, label %77, label %62
 
 62:                                               ; preds = %61

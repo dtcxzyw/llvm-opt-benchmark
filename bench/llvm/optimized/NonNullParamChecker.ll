@@ -952,7 +952,7 @@ _ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i.loopexit.i.i.i: ; preds = %32
   br label %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i.sink.split.i.i.i
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.i.i.i.i: ; preds = %32
-  %.not.i.i.i.i.i.i = icmp samesign ult i32 %34, 64
+  %.not.i.i.i.i.i.i = icmp eq i32 %35, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i.i.i.i, label %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i.sink.split.i.i.i
 
 _ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i.sink.split.i.i.i: ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.i.i.i.i, %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i.loopexit.i.i.i
@@ -2360,7 +2360,7 @@ _ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i.loopexit.i.i.i: ; preds = %51
   br label %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i.sink.split.i.i.i
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.i.i.i.i: ; preds = %51
-  %.not.i.i.i.i.i.i = icmp samesign ult i32 %53, 64
+  %.not.i.i.i.i.i.i = icmp eq i32 %54, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i.i.i.i, label %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i.sink.split.i.i.i
 
 _ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i.sink.split.i.i.i: ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.i.i.i.i, %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i.loopexit.i.i.i
@@ -2806,7 +2806,7 @@ _ZNK5clang7AnyCall10parametersEv.exit.i:          ; preds = %272, %267, %261
   br label %313
 
 ._crit_edge.i:                                    ; preds = %366, %_ZNK5clang7AnyCall10parametersEv.exit.i, %265, %_ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang7AnyCallEEEvRKT_RN4llvm14SmallBitVectorE.exit.i.i.i
-  %.sroa.09.625102.i = phi i64 [ %.sroa.09.624.i, %_ZNK5clang7AnyCall10parametersEv.exit.i ], [ %.sroa.09.3.i, %_ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang7AnyCallEEEvRKT_RN4llvm14SmallBitVectorE.exit.i.i.i ], [ %.sroa.09.624.i, %265 ], [ %.sroa.09.624.i, %366 ]
+  %.sroa.09.625101.i = phi i64 [ %.sroa.09.624.i, %_ZNK5clang7AnyCall10parametersEv.exit.i ], [ %.sroa.09.3.i, %_ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang7AnyCallEEEvRKT_RN4llvm14SmallBitVectorE.exit.i.i.i ], [ %.sroa.09.624.i, %265 ], [ %.sroa.09.624.i, %366 ]
   %.sroa.011.0.lcssa.i = phi ptr [ %33, %_ZNK5clang7AnyCall10parametersEv.exit.i ], [ %33, %_ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang7AnyCallEEEvRKT_RN4llvm14SmallBitVectorE.exit.i.i.i ], [ %33, %265 ], [ %.sroa.011.2.i, %366 ]
   %.not.i.i34.i = icmp eq ptr %.sroa.011.0.lcssa.i, null
   br i1 %.not.i.i34.i, label %285, label %.thread.i.i
@@ -2870,13 +2870,13 @@ _ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds = %302, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i, %285
-  %303 = and i64 %.sroa.09.625102.i, 1
+  %303 = and i64 %.sroa.09.625101.i, 1
   %.not.i40.i = icmp eq i64 %303, 0
   br i1 %.not.i40.i, label %304, label %_ZN4llvm14SmallBitVectorD2Ev.exit.i
 
 304:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i
-  %305 = inttoptr i64 %.sroa.09.625102.i to ptr
-  %306 = icmp eq i64 %.sroa.09.625102.i, 0
+  %305 = inttoptr i64 %.sroa.09.625101.i to ptr
+  %306 = icmp eq i64 %.sroa.09.625101.i, 0
   br i1 %306, label %_ZN4llvm14SmallBitVectorD2Ev.exit.i, label %307
 
 307:                                              ; preds = %304
@@ -2929,9 +2929,9 @@ _ZNK5clang11ParmVarDecl21getFunctionScopeIndexEv.exit.i: ; preds = %320, %313
   br label %_ZNK4llvm14SmallBitVector4testEj.exit.i
 
 _ZNK4llvm14SmallBitVector4testEj.exit.i:          ; preds = %323, %_ZNK5clang11ParmVarDecl21getFunctionScopeIndexEv.exit.i
-  %.sink119.i = phi i32 [ %328, %323 ], [ %322, %_ZNK5clang11ParmVarDecl21getFunctionScopeIndexEv.exit.i ]
+  %.sink118.i = phi i32 [ %328, %323 ], [ %322, %_ZNK5clang11ParmVarDecl21getFunctionScopeIndexEv.exit.i ]
   %.sink.i = phi i64 [ %329, %323 ], [ %283, %_ZNK5clang11ParmVarDecl21getFunctionScopeIndexEv.exit.i ]
-  %330 = zext nneg i32 %.sink119.i to i64
+  %330 = zext nneg i32 %.sink118.i to i64
   %331 = shl nuw i64 1, %330
   %332 = and i64 %331, %.sink.i
   %.0.i.i.not.i = icmp eq i64 %332, 0

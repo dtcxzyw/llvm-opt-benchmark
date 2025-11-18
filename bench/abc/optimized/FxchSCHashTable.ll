@@ -995,22 +995,22 @@ Vec_IntPush.exit.i110:                            ; preds = %150, %Vec_IntGrow.e
 
 Vec_IntAppendSkip.exit117:                        ; preds = %157, %122, %160
   %161 = load i32, ptr %50, align 4
-  %.not84 = icmp ult i32 %161, 65536
-  br i1 %.not84, label %Vec_IntDrop.exit, label %162
+  %162 = lshr i32 %161, 16
+  %.not84 = icmp eq i32 %162, 0
+  br i1 %.not84, label %Vec_IntDrop.exit, label %163
 
-162:                                              ; preds = %Vec_IntAppendSkip.exit117
-  %163 = lshr i32 %161, 16
+163:                                              ; preds = %Vec_IntAppendSkip.exit117
   %164 = and i32 %161, 65535
-  %165 = icmp samesign ult i32 %164, %163
+  %165 = icmp samesign ult i32 %164, %162
   %166 = sext i1 %165 to i32
-  %167 = add nsw i32 %163, %166
+  %167 = add nsw i32 %162, %166
   %168 = load i32, ptr %47, align 4, !tbaa !21
   %169 = add nsw i32 %168, -1
   store i32 %169, ptr %47, align 4, !tbaa !21
   %170 = icmp slt i32 %167, %169
   br i1 %170, label %.lr.ph.i118, label %Vec_IntDrop.exit
 
-.lr.ph.i118:                                      ; preds = %162
+.lr.ph.i118:                                      ; preds = %163
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %172 = load ptr, ptr %171, align 8, !tbaa !20
   %173 = zext nneg i32 %167 to i64
@@ -1028,24 +1028,24 @@ Vec_IntAppendSkip.exit117:                        ; preds = %157, %122, %160
   %180 = icmp slt i64 %indvars.iv.next.i120, %179
   br i1 %180, label %174, label %Vec_IntDrop.exit, !llvm.loop !48
 
-Vec_IntDrop.exit:                                 ; preds = %174, %162, %Vec_IntAppendSkip.exit117
+Vec_IntDrop.exit:                                 ; preds = %174, %163, %Vec_IntAppendSkip.exit117
   %181 = load i32, ptr %119, align 4
-  %.not85 = icmp ult i32 %181, 65536
+  %182 = lshr i32 %181, 16
+  %.not85 = icmp eq i32 %182, 0
   %.pre = load i32, ptr %49, align 4, !tbaa !21
-  br i1 %.not85, label %Vec_IntDrop.exit124, label %182
+  br i1 %.not85, label %Vec_IntDrop.exit124, label %183
 
-182:                                              ; preds = %Vec_IntDrop.exit
-  %183 = lshr i32 %181, 16
+183:                                              ; preds = %Vec_IntDrop.exit
   %184 = and i32 %181, 65535
-  %185 = icmp samesign ult i32 %184, %183
+  %185 = icmp samesign ult i32 %184, %182
   %186 = sext i1 %185 to i32
-  %187 = add nsw i32 %183, %186
+  %187 = add nsw i32 %182, %186
   %188 = add nsw i32 %.pre, -1
   store i32 %188, ptr %49, align 4, !tbaa !21
   %189 = icmp slt i32 %187, %188
   br i1 %189, label %.lr.ph.i121, label %Vec_IntDrop.exit124
 
-.lr.ph.i121:                                      ; preds = %182
+.lr.ph.i121:                                      ; preds = %183
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %191 = load ptr, ptr %190, align 8, !tbaa !20
   %192 = zext nneg i32 %187 to i64
@@ -1063,8 +1063,8 @@ Vec_IntDrop.exit:                                 ; preds = %174, %162, %Vec_Int
   %199 = icmp slt i64 %indvars.iv.next.i123, %198
   br i1 %199, label %193, label %Vec_IntDrop.exit124, !llvm.loop !48
 
-Vec_IntDrop.exit124:                              ; preds = %193, %182, %Vec_IntDrop.exit
-  %200 = phi i32 [ %188, %182 ], [ %.pre, %Vec_IntDrop.exit ], [ %197, %193 ]
+Vec_IntDrop.exit124:                              ; preds = %193, %183, %Vec_IntDrop.exit
+  %200 = phi i32 [ %188, %183 ], [ %.pre, %Vec_IntDrop.exit ], [ %197, %193 ]
   %201 = load i32, ptr %47, align 4, !tbaa !21
   %.not.i125 = icmp eq i32 %201, %200
   br i1 %.not.i125, label %.preheader.i, label %Vec_IntEqual.exit

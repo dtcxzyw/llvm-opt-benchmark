@@ -563,8 +563,8 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
   %39 = icmp ugt i32 %27, 16
   %40 = mul i32 %27, 3
   %41 = icmp ugt i32 %38, %40
-  %or.cond18.i.i = select i1 %39, i1 %41, i1 false
-  br i1 %or.cond18.i.i, label %42, label %._crit_edge.thread.i.i
+  %or.cond19.i.i = select i1 %39, i1 %41, i1 false
+  br i1 %or.cond19.i.i, label %42, label %._crit_edge.thread.i.i
 
 42:                                               ; preds = %._crit_edge.i.i
   %43 = icmp eq ptr %26, null
@@ -589,7 +589,7 @@ _ZN14core_hashtableI17default_map_entryIPKcP10params_refEN9table2mapIS5_13str_ha
           to label %.noexc15 unwind label %53
 
 .noexc15:                                         ; preds = %_ZN14core_hashtableI17default_map_entryIPKcP10params_refEN9table2mapIS5_13str_hash_proc11str_eq_procE15entry_hash_procENS9_13entry_eq_procEE12delete_tableEv.exit.i.i
-  %.not6.i.i.i.i.i.i.i = icmp ult i32 %45, 2
+  %.not6.i.i.i.i.i.i.i = icmp eq i32 %46, 0
   br i1 %.not6.i.i.i.i.i.i.i, label %_ZN14core_hashtableI17default_map_entryIPKcP10params_refEN9table2mapIS5_13str_hash_proc11str_eq_procE15entry_hash_procENS9_13entry_eq_procEE11alloc_tableEj.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.noexc15, %.lr.ph.i.i.i.i.i.i.i

@@ -4445,23 +4445,21 @@ declare float @llvm.fmuladd.f32(float, float, float) #22
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @stbiw__jpg_calcBits(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #1 {
-._crit_edge:
-  %2 = tail call i32 @llvm.abs.i32(i32 %0, i1 true)
-  %.not13 = icmp samesign ult i32 %2, 2
-  %3 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %2, i1 true)
-  %4 = trunc nuw nsw i32 %3 to i16
-  %5 = sub nuw nsw i16 32, %4
-  %storemerge.lcssa12 = select i1 %.not13, i16 1, i16 %5
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i16 %storemerge.lcssa12, ptr %6, align 2, !tbaa !44
+  %3 = tail call i32 @llvm.abs.i32(i32 %0, i1 true)
+  %4 = lshr i32 %3, 1
+  %5 = tail call range(i32 2, 33) i32 @llvm.ctlz.i32(i32 %4, i1 false)
+  %6 = trunc nuw nsw i32 %5 to i16
+  %7 = sub nuw nsw i16 33, %6
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  store i16 %7, ptr %8, align 2, !tbaa !44
   %.lobit = ashr i32 %0, 31
-  %7 = add nsw i32 %.lobit, %0
-  %8 = zext nneg i16 %storemerge.lcssa12 to i32
-  %notmask = shl nsw i32 -1, %8
-  %9 = xor i32 %notmask, -1
-  %10 = and i32 %7, %9
-  %11 = trunc i32 %10 to i16
-  store i16 %11, ptr %1, align 2, !tbaa !44
+  %9 = add nsw i32 %.lobit, %0
+  %10 = zext nneg i16 %7 to i32
+  %notmask = shl nsw i32 -1, %10
+  %11 = xor i32 %notmask, -1
+  %12 = and i32 %9, %11
+  %13 = trunc i32 %12 to i16
+  store i16 %13, ptr %1, align 2, !tbaa !44
   ret void
 }
 
@@ -4494,13 +4492,13 @@ define i32 @stbiw__jpg_processDU(ptr noundef readonly captures(none) %0, ptr nou
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %34 = shl nsw i32 %4, 3
   %35 = icmp sgt i32 %4, 0
-  br i1 %35, label %.lr.ph.preheader, label %.preheader194
+  br i1 %35, label %.lr.ph.preheader, label %.preheader192
 
 .lr.ph.preheader:                                 ; preds = %9
   %36 = zext nneg i32 %4 to i64
   br label %.lr.ph
 
-.preheader194:                                    ; preds = %.lr.ph, %9
+.preheader192:                                    ; preds = %.lr.ph, %9
   %37 = shl nsw i32 %4, 1
   %38 = mul nsw i32 %4, 3
   %39 = shl nsw i32 %4, 2
@@ -4515,12 +4513,12 @@ define i32 @stbiw__jpg_processDU(ptr noundef readonly captures(none) %0, ptr nou
   %48 = sext i32 %41 to i64
   %49 = sext i32 %42 to i64
   %invariant.gep = getelementptr float, ptr %3, i64 %43
-  %invariant.gep304 = getelementptr float, ptr %3, i64 %44
-  %invariant.gep306 = getelementptr float, ptr %3, i64 %45
-  %invariant.gep308 = getelementptr float, ptr %3, i64 %46
-  %invariant.gep310 = getelementptr float, ptr %3, i64 %47
-  %invariant.gep312 = getelementptr float, ptr %3, i64 %48
-  %invariant.gep314 = getelementptr float, ptr %3, i64 %49
+  %invariant.gep302 = getelementptr float, ptr %3, i64 %44
+  %invariant.gep304 = getelementptr float, ptr %3, i64 %45
+  %invariant.gep306 = getelementptr float, ptr %3, i64 %46
+  %invariant.gep308 = getelementptr float, ptr %3, i64 %47
+  %invariant.gep310 = getelementptr float, ptr %3, i64 %48
+  %invariant.gep312 = getelementptr float, ptr %3, i64 %49
   br label %100
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -4584,26 +4582,26 @@ define i32 @stbiw__jpg_processDU(ptr noundef readonly captures(none) %0, ptr nou
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %36
   %98 = trunc nuw i64 %indvars.iv.next to i32
   %99 = icmp sgt i32 %34, %98
-  br i1 %99, label %.lr.ph, label %.preheader194, !llvm.loop !67
+  br i1 %99, label %.lr.ph, label %.preheader192, !llvm.loop !67
 
-100:                                              ; preds = %.preheader194, %100
-  %indvars.iv243 = phi i64 [ 0, %.preheader194 ], [ %indvars.iv.next244, %100 ]
-  %101 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv243
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv243
-  %gep305 = getelementptr float, ptr %invariant.gep304, i64 %indvars.iv243
-  %gep307 = getelementptr float, ptr %invariant.gep306, i64 %indvars.iv243
-  %gep309 = getelementptr float, ptr %invariant.gep308, i64 %indvars.iv243
-  %gep311 = getelementptr float, ptr %invariant.gep310, i64 %indvars.iv243
-  %gep313 = getelementptr float, ptr %invariant.gep312, i64 %indvars.iv243
-  %gep315 = getelementptr float, ptr %invariant.gep314, i64 %indvars.iv243
+100:                                              ; preds = %.preheader192, %100
+  %indvars.iv241 = phi i64 [ 0, %.preheader192 ], [ %indvars.iv.next242, %100 ]
+  %101 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv241
+  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv241
+  %gep303 = getelementptr float, ptr %invariant.gep302, i64 %indvars.iv241
+  %gep305 = getelementptr float, ptr %invariant.gep304, i64 %indvars.iv241
+  %gep307 = getelementptr float, ptr %invariant.gep306, i64 %indvars.iv241
+  %gep309 = getelementptr float, ptr %invariant.gep308, i64 %indvars.iv241
+  %gep311 = getelementptr float, ptr %invariant.gep310, i64 %indvars.iv241
+  %gep313 = getelementptr float, ptr %invariant.gep312, i64 %indvars.iv241
   %102 = load float, ptr %101, align 4, !tbaa !23
   %103 = load float, ptr %gep, align 4, !tbaa !23
-  %104 = load float, ptr %gep305, align 4, !tbaa !23
-  %105 = load float, ptr %gep307, align 4, !tbaa !23
-  %106 = load float, ptr %gep309, align 4, !tbaa !23
-  %107 = load float, ptr %gep311, align 4, !tbaa !23
-  %108 = load float, ptr %gep313, align 4, !tbaa !23
-  %109 = load float, ptr %gep315, align 4, !tbaa !23
+  %104 = load float, ptr %gep303, align 4, !tbaa !23
+  %105 = load float, ptr %gep305, align 4, !tbaa !23
+  %106 = load float, ptr %gep307, align 4, !tbaa !23
+  %107 = load float, ptr %gep309, align 4, !tbaa !23
+  %108 = load float, ptr %gep311, align 4, !tbaa !23
+  %109 = load float, ptr %gep313, align 4, !tbaa !23
   %110 = fadd float %102, %109
   %111 = fsub float %102, %109
   %112 = fadd float %103, %108
@@ -4633,56 +4631,56 @@ define i32 @stbiw__jpg_processDU(ptr noundef readonly captures(none) %0, ptr nou
   %136 = fadd float %111, %135
   %137 = fsub float %111, %135
   %138 = fadd float %137, %133
-  store float %138, ptr %gep311, align 4, !tbaa !23
+  store float %138, ptr %gep309, align 4, !tbaa !23
   %139 = fsub float %137, %133
-  store float %139, ptr %gep307, align 4, !tbaa !23
+  store float %139, ptr %gep305, align 4, !tbaa !23
   %140 = fadd float %136, %134
   store float %140, ptr %gep, align 4, !tbaa !23
   %141 = fsub float %136, %134
-  store float %141, ptr %gep315, align 4, !tbaa !23
+  store float %141, ptr %gep313, align 4, !tbaa !23
   store float %122, ptr %101, align 4, !tbaa !23
-  store float %126, ptr %gep305, align 4, !tbaa !23
-  store float %123, ptr %gep309, align 4, !tbaa !23
-  store float %127, ptr %gep313, align 4, !tbaa !23
-  %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next244, 8
-  br i1 %exitcond.not, label %.preheader192, label %100, !llvm.loop !68
+  store float %126, ptr %gep303, align 4, !tbaa !23
+  store float %123, ptr %gep307, align 4, !tbaa !23
+  store float %127, ptr %gep311, align 4, !tbaa !23
+  %indvars.iv.next242 = add nuw nsw i64 %indvars.iv241, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next242, 8
+  br i1 %exitcond.not, label %.preheader190, label %100, !llvm.loop !68
 
-.preheader192:                                    ; preds = %100, %156
-  %indvars.iv254 = phi i64 [ %indvars.iv.next255, %156 ], [ 0, %100 ]
-  %.0127215 = phi i64 [ %indvars.iv.next249, %156 ], [ 0, %100 ]
-  %142 = mul nsw i64 %indvars.iv254, %43
-  %sext = shl i64 %.0127215, 32
+.preheader190:                                    ; preds = %100, %156
+  %indvars.iv252 = phi i64 [ %indvars.iv.next253, %156 ], [ 0, %100 ]
+  %.0127213 = phi i64 [ %indvars.iv.next247, %156 ], [ 0, %100 ]
+  %142 = mul nsw i64 %indvars.iv252, %43
+  %sext = shl i64 %.0127213, 32
   %143 = ashr exact i64 %sext, 32
-  %invariant.gep316 = getelementptr float, ptr %3, i64 %142
+  %invariant.gep314 = getelementptr float, ptr %3, i64 %142
   br label %144
 
-144:                                              ; preds = %.preheader192, %144
-  %indvars.iv248 = phi i64 [ %143, %.preheader192 ], [ %indvars.iv.next249, %144 ]
-  %indvars.iv246 = phi i64 [ 0, %.preheader192 ], [ %indvars.iv.next247, %144 ]
-  %gep317 = getelementptr float, ptr %invariant.gep316, i64 %indvars.iv246
-  %145 = load float, ptr %gep317, align 4, !tbaa !23
-  %146 = getelementptr inbounds float, ptr %5, i64 %indvars.iv248
+144:                                              ; preds = %.preheader190, %144
+  %indvars.iv246 = phi i64 [ %143, %.preheader190 ], [ %indvars.iv.next247, %144 ]
+  %indvars.iv244 = phi i64 [ 0, %.preheader190 ], [ %indvars.iv.next245, %144 ]
+  %gep315 = getelementptr float, ptr %invariant.gep314, i64 %indvars.iv244
+  %145 = load float, ptr %gep315, align 4, !tbaa !23
+  %146 = getelementptr inbounds float, ptr %5, i64 %indvars.iv246
   %147 = load float, ptr %146, align 4, !tbaa !23
   %148 = fmul float %145, %147
   %149 = fcmp olt float %148, 0.000000e+00
   %.v = select i1 %149, float -5.000000e-01, float 5.000000e-01
   %150 = fadd float %148, %.v
   %151 = fptosi float %150 to i32
-  %152 = getelementptr inbounds i8, ptr @stbiw__jpg_ZigZag, i64 %indvars.iv248
+  %152 = getelementptr inbounds i8, ptr @stbiw__jpg_ZigZag, i64 %indvars.iv246
   %153 = load i8, ptr %152, align 1, !tbaa !11
   %154 = zext i8 %153 to i64
   %155 = getelementptr inbounds nuw i32, ptr %26, i64 %154
   store i32 %151, ptr %155, align 4, !tbaa !3
-  %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1
-  %indvars.iv.next249 = add nsw i64 %indvars.iv248, 1
-  %exitcond253.not = icmp eq i64 %indvars.iv.next247, 8
-  br i1 %exitcond253.not, label %156, label %144, !llvm.loop !69
+  %indvars.iv.next245 = add nuw nsw i64 %indvars.iv244, 1
+  %indvars.iv.next247 = add nsw i64 %indvars.iv246, 1
+  %exitcond251.not = icmp eq i64 %indvars.iv.next245, 8
+  br i1 %exitcond251.not, label %156, label %144, !llvm.loop !69
 
 156:                                              ; preds = %144
-  %indvars.iv.next255 = add nuw nsw i64 %indvars.iv254, 1
-  %exitcond257.not = icmp eq i64 %indvars.iv.next255, 8
-  br i1 %exitcond257.not, label %157, label %.preheader192, !llvm.loop !70
+  %indvars.iv.next253 = add nuw nsw i64 %indvars.iv252, 1
+  %exitcond255.not = icmp eq i64 %indvars.iv.next253, 8
+  br i1 %exitcond255.not, label %157, label %.preheader190, !llvm.loop !70
 
 157:                                              ; preds = %156
   %158 = load i32, ptr %26, align 16, !tbaa !3
@@ -4741,445 +4739,442 @@ define i32 @stbiw__jpg_processDU(ptr noundef readonly captures(none) %0, ptr nou
 188:                                              ; preds = %157
   %189 = sub nsw i32 %158, %6
   %190 = tail call i32 @llvm.abs.i32(i32 %189, i1 true)
-  %.not13.i = icmp samesign ult i32 %190, 2
-  %191 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %190, i1 true)
-  %192 = trunc nuw nsw i32 %191 to i16
-  %193 = sub nuw nsw i16 32, %192
-  %storemerge.lcssa12.i = select i1 %.not13.i, i16 1, i16 %193
+  %191 = lshr i32 %190, 1
+  %192 = tail call range(i32 2, 33) i32 @llvm.ctlz.i32(i32 %191, i1 false)
+  %193 = trunc nuw nsw i32 %192 to i16
+  %194 = sub nuw nsw i16 33, %193
   %.lobit.i = ashr i32 %189, 31
-  %194 = add nsw i32 %.lobit.i, %189
-  %195 = zext nneg i16 %storemerge.lcssa12.i to i32
-  %notmask.i = shl nsw i32 -1, %195
-  %196 = xor i32 %notmask.i, -1
-  %197 = zext nneg i16 %storemerge.lcssa12.i to i64
-  %198 = getelementptr inbounds nuw [2 x i16], ptr %7, i64 %197
-  %199 = load i32, ptr %1, align 4, !tbaa !3
-  %200 = load i32, ptr %2, align 4, !tbaa !3
-  %201 = getelementptr inbounds nuw i8, ptr %198, i64 2
-  %202 = load i16, ptr %201, align 2, !tbaa !44
-  %203 = zext i16 %202 to i32
-  %204 = add nsw i32 %200, %203
-  %205 = load i16, ptr %198, align 2, !tbaa !44
-  %206 = zext i16 %205 to i32
-  %207 = sub nsw i32 24, %204
-  %208 = shl i32 %206, %207
-  %209 = or i32 %208, %199
-  %210 = icmp sgt i32 %204, 7
-  br i1 %210, label %.lr.ph.i136, label %stbiw__jpg_writeBits.exit139
+  %195 = add nsw i32 %.lobit.i, %189
+  %196 = zext nneg i16 %194 to i32
+  %notmask.i = shl nsw i32 -1, %196
+  %197 = xor i32 %notmask.i, -1
+  %198 = zext nneg i16 %194 to i64
+  %199 = getelementptr inbounds nuw [2 x i16], ptr %7, i64 %198
+  %200 = load i32, ptr %1, align 4, !tbaa !3
+  %201 = load i32, ptr %2, align 4, !tbaa !3
+  %202 = getelementptr inbounds nuw i8, ptr %199, i64 2
+  %203 = load i16, ptr %202, align 2, !tbaa !44
+  %204 = zext i16 %203 to i32
+  %205 = add nsw i32 %201, %204
+  %206 = load i16, ptr %199, align 2, !tbaa !44
+  %207 = zext i16 %206 to i32
+  %208 = sub nsw i32 24, %205
+  %209 = shl i32 %207, %208
+  %210 = or i32 %209, %200
+  %211 = icmp sgt i32 %205, 7
+  br i1 %211, label %.lr.ph.i136, label %stbiw__jpg_writeBits.exit139
 
 .lr.ph.i136:                                      ; preds = %188
-  %211 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %212
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %213
 
-212:                                              ; preds = %222, %.lr.ph.i136
-  %.020.i137 = phi i32 [ %209, %.lr.ph.i136 ], [ %223, %222 ]
-  %.01819.i138 = phi i32 [ %204, %.lr.ph.i136 ], [ %224, %222 ]
-  %213 = lshr i32 %.020.i137, 16
-  %214 = trunc i32 %213 to i8
+213:                                              ; preds = %223, %.lr.ph.i136
+  %.020.i137 = phi i32 [ %210, %.lr.ph.i136 ], [ %224, %223 ]
+  %.01819.i138 = phi i32 [ %205, %.lr.ph.i136 ], [ %225, %223 ]
+  %214 = lshr i32 %.020.i137, 16
+  %215 = trunc i32 %214 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  store i8 %214, ptr %23, align 1, !tbaa !11
-  %215 = load ptr, ptr %0, align 8, !tbaa !7
-  %216 = load ptr, ptr %211, align 8, !tbaa !10
-  call void %215(ptr noundef %216, ptr noundef nonnull %23, i32 noundef 1) #28
+  store i8 %215, ptr %23, align 1, !tbaa !11
+  %216 = load ptr, ptr %0, align 8, !tbaa !7
+  %217 = load ptr, ptr %212, align 8, !tbaa !10
+  call void %216(ptr noundef %217, ptr noundef nonnull %23, i32 noundef 1) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  %217 = and i32 %.020.i137, 16711680
-  %218 = icmp eq i32 %217, 16711680
-  br i1 %218, label %219, label %222
+  %218 = and i32 %.020.i137, 16711680
+  %219 = icmp eq i32 %218, 16711680
+  br i1 %219, label %220, label %223
 
-219:                                              ; preds = %212
+220:                                              ; preds = %213
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i8 0, ptr %22, align 1, !tbaa !11
-  %220 = load ptr, ptr %0, align 8, !tbaa !7
-  %221 = load ptr, ptr %211, align 8, !tbaa !10
-  call void %220(ptr noundef %221, ptr noundef nonnull %22, i32 noundef 1) #28
+  %221 = load ptr, ptr %0, align 8, !tbaa !7
+  %222 = load ptr, ptr %212, align 8, !tbaa !10
+  call void %221(ptr noundef %222, ptr noundef nonnull %22, i32 noundef 1) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %222
+  br label %223
 
-222:                                              ; preds = %219, %212
-  %223 = shl i32 %.020.i137, 8
-  %224 = add nsw i32 %.01819.i138, -8
-  %225 = icmp sgt i32 %.01819.i138, 15
-  br i1 %225, label %212, label %stbiw__jpg_writeBits.exit139, !llvm.loop !66
+223:                                              ; preds = %220, %213
+  %224 = shl i32 %.020.i137, 8
+  %225 = add nsw i32 %.01819.i138, -8
+  %226 = icmp sgt i32 %.01819.i138, 15
+  br i1 %226, label %213, label %stbiw__jpg_writeBits.exit139, !llvm.loop !66
 
-stbiw__jpg_writeBits.exit139:                     ; preds = %222, %188
-  %.018.lcssa.i134 = phi i32 [ %204, %188 ], [ %224, %222 ]
-  %.0.lcssa.i135 = phi i32 [ %209, %188 ], [ %223, %222 ]
+stbiw__jpg_writeBits.exit139:                     ; preds = %223, %188
+  %.018.lcssa.i134 = phi i32 [ %205, %188 ], [ %225, %223 ]
+  %.0.lcssa.i135 = phi i32 [ %210, %188 ], [ %224, %223 ]
   store i32 %.0.lcssa.i135, ptr %1, align 4, !tbaa !3
   store i32 %.018.lcssa.i134, ptr %2, align 4, !tbaa !3
-  %226 = load i32, ptr %1, align 4, !tbaa !3
-  %227 = add nsw i32 %.018.lcssa.i134, %195
-  %228 = and i32 %194, 65535
-  %229 = and i32 %228, %196
-  %230 = sub nsw i32 24, %227
-  %231 = shl i32 %229, %230
-  %232 = or i32 %226, %231
-  %233 = icmp sgt i32 %227, 7
-  br i1 %233, label %.lr.ph.i142, label %stbiw__jpg_writeBits.exit
+  %227 = load i32, ptr %1, align 4, !tbaa !3
+  %228 = add nsw i32 %.018.lcssa.i134, %196
+  %229 = and i32 %195, 65535
+  %230 = and i32 %229, %197
+  %231 = sub nsw i32 24, %228
+  %232 = shl i32 %230, %231
+  %233 = or i32 %227, %232
+  %234 = icmp sgt i32 %228, 7
+  br i1 %234, label %.lr.ph.i142, label %stbiw__jpg_writeBits.exit
 
 .lr.ph.i142:                                      ; preds = %stbiw__jpg_writeBits.exit139
-  %234 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %235
+  %235 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %236
 
-235:                                              ; preds = %245, %.lr.ph.i142
-  %.020.i143 = phi i32 [ %232, %.lr.ph.i142 ], [ %246, %245 ]
-  %.01819.i144 = phi i32 [ %227, %.lr.ph.i142 ], [ %247, %245 ]
-  %236 = lshr i32 %.020.i143, 16
-  %237 = trunc i32 %236 to i8
+236:                                              ; preds = %246, %.lr.ph.i142
+  %.020.i143 = phi i32 [ %233, %.lr.ph.i142 ], [ %247, %246 ]
+  %.01819.i144 = phi i32 [ %228, %.lr.ph.i142 ], [ %248, %246 ]
+  %237 = lshr i32 %.020.i143, 16
+  %238 = trunc i32 %237 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  store i8 %237, ptr %21, align 1, !tbaa !11
-  %238 = load ptr, ptr %0, align 8, !tbaa !7
-  %239 = load ptr, ptr %234, align 8, !tbaa !10
-  call void %238(ptr noundef %239, ptr noundef nonnull %21, i32 noundef 1) #28
+  store i8 %238, ptr %21, align 1, !tbaa !11
+  %239 = load ptr, ptr %0, align 8, !tbaa !7
+  %240 = load ptr, ptr %235, align 8, !tbaa !10
+  call void %239(ptr noundef %240, ptr noundef nonnull %21, i32 noundef 1) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  %240 = and i32 %.020.i143, 16711680
-  %241 = icmp eq i32 %240, 16711680
-  br i1 %241, label %242, label %245
+  %241 = and i32 %.020.i143, 16711680
+  %242 = icmp eq i32 %241, 16711680
+  br i1 %242, label %243, label %246
 
-242:                                              ; preds = %235
+243:                                              ; preds = %236
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i8 0, ptr %20, align 1, !tbaa !11
-  %243 = load ptr, ptr %0, align 8, !tbaa !7
-  %244 = load ptr, ptr %234, align 8, !tbaa !10
-  call void %243(ptr noundef %244, ptr noundef nonnull %20, i32 noundef 1) #28
+  %244 = load ptr, ptr %0, align 8, !tbaa !7
+  %245 = load ptr, ptr %235, align 8, !tbaa !10
+  call void %244(ptr noundef %245, ptr noundef nonnull %20, i32 noundef 1) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %245
+  br label %246
 
-245:                                              ; preds = %242, %235
-  %246 = shl i32 %.020.i143, 8
-  %247 = add nsw i32 %.01819.i144, -8
-  %248 = icmp sgt i32 %.01819.i144, 15
-  br i1 %248, label %235, label %stbiw__jpg_writeBits.exit, !llvm.loop !66
+246:                                              ; preds = %243, %236
+  %247 = shl i32 %.020.i143, 8
+  %248 = add nsw i32 %.01819.i144, -8
+  %249 = icmp sgt i32 %.01819.i144, 15
+  br i1 %249, label %236, label %stbiw__jpg_writeBits.exit, !llvm.loop !66
 
-stbiw__jpg_writeBits.exit:                        ; preds = %245, %184, %stbiw__jpg_writeBits.exit139, %160
-  %storemerge189 = phi i32 [ %171, %160 ], [ %232, %stbiw__jpg_writeBits.exit139 ], [ %185, %184 ], [ %246, %245 ]
-  %249 = phi i32 [ %166, %160 ], [ %227, %stbiw__jpg_writeBits.exit139 ], [ %186, %184 ], [ %247, %245 ]
-  store i32 %storemerge189, ptr %1, align 4, !tbaa !3
-  store i32 %249, ptr %2, align 4, !tbaa !3
-  br label %250
+stbiw__jpg_writeBits.exit:                        ; preds = %246, %184, %stbiw__jpg_writeBits.exit139, %160
+  %storemerge187 = phi i32 [ %171, %160 ], [ %233, %stbiw__jpg_writeBits.exit139 ], [ %185, %184 ], [ %247, %246 ]
+  %250 = phi i32 [ %166, %160 ], [ %228, %stbiw__jpg_writeBits.exit139 ], [ %186, %184 ], [ %248, %246 ]
+  store i32 %storemerge187, ptr %1, align 4, !tbaa !3
+  store i32 %250, ptr %2, align 4, !tbaa !3
+  br label %251
 
-250:                                              ; preds = %stbiw__jpg_writeBits.exit, %255
-  %.0126217 = phi i32 [ 63, %stbiw__jpg_writeBits.exit ], [ %256, %255 ]
-  %251 = zext nneg i32 %.0126217 to i64
-  %252 = getelementptr inbounds nuw i32, ptr %26, i64 %251
-  %253 = load i32, ptr %252, align 4, !tbaa !3
-  %254 = icmp eq i32 %253, 0
-  br i1 %254, label %255, label %.preheader190
+251:                                              ; preds = %stbiw__jpg_writeBits.exit, %256
+  %.0126215 = phi i32 [ 63, %stbiw__jpg_writeBits.exit ], [ %257, %256 ]
+  %252 = zext nneg i32 %.0126215 to i64
+  %253 = getelementptr inbounds nuw i32, ptr %26, i64 %252
+  %254 = load i32, ptr %253, align 4, !tbaa !3
+  %255 = icmp eq i32 %254, 0
+  br i1 %255, label %256, label %.preheader188
 
-255:                                              ; preds = %250
-  %256 = add nsw i32 %.0126217, -1
-  %257 = icmp samesign ugt i32 %.0126217, 1
-  br i1 %257, label %250, label %262, !llvm.loop !71
+256:                                              ; preds = %251
+  %257 = add nsw i32 %.0126215, -1
+  %258 = icmp samesign ugt i32 %.0126215, 1
+  br i1 %258, label %251, label %263, !llvm.loop !71
 
-.preheader190:                                    ; preds = %250
-  %.not221 = icmp slt i32 %.0126217, 1
-  br i1 %.not221, label %._crit_edge223.thread, label %.preheader.lr.ph
+.preheader188:                                    ; preds = %251
+  %.not219 = icmp slt i32 %.0126215, 1
+  br i1 %.not219, label %._crit_edge221.thread, label %.preheader.lr.ph
 
-.preheader.lr.ph:                                 ; preds = %.preheader190
-  %258 = zext i16 %33 to i32
-  %259 = zext i16 %31 to i32
-  %260 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %261 = zext nneg i32 %.0126217 to i64
+.preheader.lr.ph:                                 ; preds = %.preheader188
+  %259 = zext i16 %33 to i32
+  %260 = zext i16 %31 to i32
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %262 = zext nneg i32 %.0126215 to i64
   br label %.preheader
 
-262:                                              ; preds = %255
-  %263 = load i32, ptr %1, align 4, !tbaa !3
-  %264 = zext i16 %29 to i32
-  %265 = add nsw i32 %249, %264
-  %266 = zext i16 %27 to i32
-  %267 = sub nsw i32 24, %265
-  %268 = shl i32 %266, %267
-  %269 = or i32 %268, %263
-  %270 = icmp sgt i32 %265, 7
-  br i1 %270, label %.lr.ph.i148, label %.sink.split
+263:                                              ; preds = %256
+  %264 = load i32, ptr %1, align 4, !tbaa !3
+  %265 = zext i16 %29 to i32
+  %266 = add nsw i32 %250, %265
+  %267 = zext i16 %27 to i32
+  %268 = sub nsw i32 24, %266
+  %269 = shl i32 %267, %268
+  %270 = or i32 %269, %264
+  %271 = icmp sgt i32 %266, 7
+  br i1 %271, label %.lr.ph.i148, label %.sink.split
 
-.lr.ph.i148:                                      ; preds = %262
-  %271 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %272
+.lr.ph.i148:                                      ; preds = %263
+  %272 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %273
 
-272:                                              ; preds = %282, %.lr.ph.i148
-  %.020.i149 = phi i32 [ %269, %.lr.ph.i148 ], [ %283, %282 ]
-  %.01819.i150 = phi i32 [ %265, %.lr.ph.i148 ], [ %284, %282 ]
-  %273 = lshr i32 %.020.i149, 16
-  %274 = trunc i32 %273 to i8
+273:                                              ; preds = %283, %.lr.ph.i148
+  %.020.i149 = phi i32 [ %270, %.lr.ph.i148 ], [ %284, %283 ]
+  %.01819.i150 = phi i32 [ %266, %.lr.ph.i148 ], [ %285, %283 ]
+  %274 = lshr i32 %.020.i149, 16
+  %275 = trunc i32 %274 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  store i8 %274, ptr %19, align 1, !tbaa !11
-  %275 = load ptr, ptr %0, align 8, !tbaa !7
-  %276 = load ptr, ptr %271, align 8, !tbaa !10
-  call void %275(ptr noundef %276, ptr noundef nonnull %19, i32 noundef 1) #28
+  store i8 %275, ptr %19, align 1, !tbaa !11
+  %276 = load ptr, ptr %0, align 8, !tbaa !7
+  %277 = load ptr, ptr %272, align 8, !tbaa !10
+  call void %276(ptr noundef %277, ptr noundef nonnull %19, i32 noundef 1) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  %277 = and i32 %.020.i149, 16711680
-  %278 = icmp eq i32 %277, 16711680
-  br i1 %278, label %279, label %282
+  %278 = and i32 %.020.i149, 16711680
+  %279 = icmp eq i32 %278, 16711680
+  br i1 %279, label %280, label %283
 
-279:                                              ; preds = %272
+280:                                              ; preds = %273
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i8 0, ptr %18, align 1, !tbaa !11
-  %280 = load ptr, ptr %0, align 8, !tbaa !7
-  %281 = load ptr, ptr %271, align 8, !tbaa !10
-  call void %280(ptr noundef %281, ptr noundef nonnull %18, i32 noundef 1) #28
+  %281 = load ptr, ptr %0, align 8, !tbaa !7
+  %282 = load ptr, ptr %272, align 8, !tbaa !10
+  call void %281(ptr noundef %282, ptr noundef nonnull %18, i32 noundef 1) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %282
+  br label %283
 
-282:                                              ; preds = %279, %272
-  %283 = shl i32 %.020.i149, 8
-  %284 = add nsw i32 %.01819.i150, -8
-  %285 = icmp sgt i32 %.01819.i150, 15
-  br i1 %285, label %272, label %.sink.split, !llvm.loop !66
+283:                                              ; preds = %280, %273
+  %284 = shl i32 %.020.i149, 8
+  %285 = add nsw i32 %.01819.i150, -8
+  %286 = icmp sgt i32 %.01819.i150, 15
+  br i1 %286, label %273, label %.sink.split, !llvm.loop !66
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %stbiw__jpg_writeBits.exit173
-  %286 = phi i32 [ %249, %.preheader.lr.ph ], [ %.018.lcssa.i168, %stbiw__jpg_writeBits.exit173 ]
-  %.0122222 = phi i32 [ 1, %.preheader.lr.ph ], [ %378, %stbiw__jpg_writeBits.exit173 ]
-  %287 = sext i32 %.0122222 to i64
-  br label %288
+.preheader:                                       ; preds = %.preheader.lr.ph, %stbiw__jpg_writeBits.exit171
+  %287 = phi i32 [ %250, %.preheader.lr.ph ], [ %.018.lcssa.i166, %stbiw__jpg_writeBits.exit171 ]
+  %.0122220 = phi i32 [ 1, %.preheader.lr.ph ], [ %379, %stbiw__jpg_writeBits.exit171 ]
+  %288 = sext i32 %.0122220 to i64
+  br label %289
 
-288:                                              ; preds = %288, %.preheader
-  %indvars.iv261 = phi i32 [ %indvars.iv.next262, %288 ], [ 0, %.preheader ]
-  %indvars.iv258 = phi i64 [ %indvars.iv.next259, %288 ], [ %287, %.preheader ]
-  %289 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv258
-  %290 = load i32, ptr %289, align 4, !tbaa !3
-  %291 = icmp eq i32 %290, 0
-  %292 = icmp sle i64 %indvars.iv258, %261
-  %293 = and i1 %292, %291
-  %indvars.iv.next259 = add nsw i64 %indvars.iv258, 1
-  %indvars.iv.next262 = add nuw i32 %indvars.iv261, 1
-  br i1 %293, label %288, label %294, !llvm.loop !72
+289:                                              ; preds = %289, %.preheader
+  %indvars.iv259 = phi i32 [ %indvars.iv.next260, %289 ], [ 0, %.preheader ]
+  %indvars.iv256 = phi i64 [ %indvars.iv.next257, %289 ], [ %288, %.preheader ]
+  %290 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv256
+  %291 = load i32, ptr %290, align 4, !tbaa !3
+  %292 = icmp eq i32 %291, 0
+  %293 = icmp sle i64 %indvars.iv256, %262
+  %294 = and i1 %293, %292
+  %indvars.iv.next257 = add nsw i64 %indvars.iv256, 1
+  %indvars.iv.next260 = add nuw i32 %indvars.iv259, 1
+  br i1 %294, label %289, label %295, !llvm.loop !72
 
-294:                                              ; preds = %288
-  %295 = trunc nsw i64 %indvars.iv258 to i32
-  %296 = sub nsw i32 %295, %.0122222
-  %297 = icmp sgt i32 %296, 15
-  br i1 %297, label %.lr.ph220.preheader, label %321
+295:                                              ; preds = %289
+  %296 = trunc nsw i64 %indvars.iv256 to i32
+  %297 = sub nsw i32 %296, %.0122220
+  %298 = icmp sgt i32 %297, 15
+  br i1 %298, label %.lr.ph218.preheader, label %322
 
-.lr.ph220.preheader:                              ; preds = %294
-  %298 = lshr i32 %indvars.iv261, 4
-  %umax = call i32 @llvm.umax.i32(i32 %298, i32 1)
-  br label %.lr.ph220
+.lr.ph218.preheader:                              ; preds = %295
+  %299 = lshr i32 %indvars.iv259, 4
+  br label %.lr.ph218
 
-.lr.ph220:                                        ; preds = %.lr.ph220.preheader, %stbiw__jpg_writeBits.exit157
-  %299 = phi i32 [ %.018.lcssa.i152, %stbiw__jpg_writeBits.exit157 ], [ %286, %.lr.ph220.preheader ]
-  %.0219 = phi i32 [ %319, %stbiw__jpg_writeBits.exit157 ], [ 1, %.lr.ph220.preheader ]
-  %300 = load i32, ptr %1, align 4, !tbaa !3
-  %301 = add nsw i32 %299, %258
-  %302 = sub nsw i32 24, %301
-  %303 = shl i32 %259, %302
-  %304 = or i32 %303, %300
-  %305 = icmp sgt i32 %301, 7
-  br i1 %305, label %.lr.ph.i154, label %stbiw__jpg_writeBits.exit157
+.lr.ph218:                                        ; preds = %.lr.ph218.preheader, %stbiw__jpg_writeBits.exit157
+  %300 = phi i32 [ %.018.lcssa.i152, %stbiw__jpg_writeBits.exit157 ], [ %287, %.lr.ph218.preheader ]
+  %.0217 = phi i32 [ %320, %stbiw__jpg_writeBits.exit157 ], [ 1, %.lr.ph218.preheader ]
+  %301 = load i32, ptr %1, align 4, !tbaa !3
+  %302 = add nsw i32 %300, %259
+  %303 = sub nsw i32 24, %302
+  %304 = shl i32 %260, %303
+  %305 = or i32 %304, %301
+  %306 = icmp sgt i32 %302, 7
+  br i1 %306, label %.lr.ph.i154, label %stbiw__jpg_writeBits.exit157
 
-.lr.ph.i154:                                      ; preds = %.lr.ph220, %315
-  %.020.i155 = phi i32 [ %316, %315 ], [ %304, %.lr.ph220 ]
-  %.01819.i156 = phi i32 [ %317, %315 ], [ %301, %.lr.ph220 ]
-  %306 = lshr i32 %.020.i155, 16
-  %307 = trunc i32 %306 to i8
+.lr.ph.i154:                                      ; preds = %.lr.ph218, %316
+  %.020.i155 = phi i32 [ %317, %316 ], [ %305, %.lr.ph218 ]
+  %.01819.i156 = phi i32 [ %318, %316 ], [ %302, %.lr.ph218 ]
+  %307 = lshr i32 %.020.i155, 16
+  %308 = trunc i32 %307 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  store i8 %307, ptr %17, align 1, !tbaa !11
-  %308 = load ptr, ptr %0, align 8, !tbaa !7
-  %309 = load ptr, ptr %260, align 8, !tbaa !10
-  call void %308(ptr noundef %309, ptr noundef nonnull %17, i32 noundef 1) #28
+  store i8 %308, ptr %17, align 1, !tbaa !11
+  %309 = load ptr, ptr %0, align 8, !tbaa !7
+  %310 = load ptr, ptr %261, align 8, !tbaa !10
+  call void %309(ptr noundef %310, ptr noundef nonnull %17, i32 noundef 1) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %310 = and i32 %.020.i155, 16711680
-  %311 = icmp eq i32 %310, 16711680
-  br i1 %311, label %312, label %315
+  %311 = and i32 %.020.i155, 16711680
+  %312 = icmp eq i32 %311, 16711680
+  br i1 %312, label %313, label %316
 
-312:                                              ; preds = %.lr.ph.i154
+313:                                              ; preds = %.lr.ph.i154
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i8 0, ptr %16, align 1, !tbaa !11
-  %313 = load ptr, ptr %0, align 8, !tbaa !7
-  %314 = load ptr, ptr %260, align 8, !tbaa !10
-  call void %313(ptr noundef %314, ptr noundef nonnull %16, i32 noundef 1) #28
+  %314 = load ptr, ptr %0, align 8, !tbaa !7
+  %315 = load ptr, ptr %261, align 8, !tbaa !10
+  call void %314(ptr noundef %315, ptr noundef nonnull %16, i32 noundef 1) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %315
+  br label %316
 
-315:                                              ; preds = %312, %.lr.ph.i154
-  %316 = shl i32 %.020.i155, 8
-  %317 = add nsw i32 %.01819.i156, -8
-  %318 = icmp sgt i32 %.01819.i156, 15
-  br i1 %318, label %.lr.ph.i154, label %stbiw__jpg_writeBits.exit157, !llvm.loop !66
+316:                                              ; preds = %313, %.lr.ph.i154
+  %317 = shl i32 %.020.i155, 8
+  %318 = add nsw i32 %.01819.i156, -8
+  %319 = icmp sgt i32 %.01819.i156, 15
+  br i1 %319, label %.lr.ph.i154, label %stbiw__jpg_writeBits.exit157, !llvm.loop !66
 
-stbiw__jpg_writeBits.exit157:                     ; preds = %315, %.lr.ph220
-  %.018.lcssa.i152 = phi i32 [ %301, %.lr.ph220 ], [ %317, %315 ]
-  %.0.lcssa.i153 = phi i32 [ %304, %.lr.ph220 ], [ %316, %315 ]
+stbiw__jpg_writeBits.exit157:                     ; preds = %316, %.lr.ph218
+  %.018.lcssa.i152 = phi i32 [ %302, %.lr.ph218 ], [ %318, %316 ]
+  %.0.lcssa.i153 = phi i32 [ %305, %.lr.ph218 ], [ %317, %316 ]
   store i32 %.0.lcssa.i153, ptr %1, align 4, !tbaa !3
   store i32 %.018.lcssa.i152, ptr %2, align 4, !tbaa !3
-  %319 = add nuw nsw i32 %.0219, 1
-  %exitcond263.not = icmp eq i32 %.0219, %umax
-  br i1 %exitcond263.not, label %._crit_edge, label %.lr.ph220, !llvm.loop !73
+  %320 = add nuw nsw i32 %.0217, 1
+  %exitcond261.not = icmp eq i32 %.0217, %299
+  br i1 %exitcond261.not, label %._crit_edge, label %.lr.ph218, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %stbiw__jpg_writeBits.exit157
-  %320 = and i32 %296, 15
-  br label %321
+  %321 = and i32 %297, 15
+  br label %322
 
-321:                                              ; preds = %._crit_edge, %294
-  %322 = phi i32 [ %.018.lcssa.i152, %._crit_edge ], [ %286, %294 ]
-  %.0120 = phi i32 [ %320, %._crit_edge ], [ %296, %294 ]
-  %323 = call i32 @llvm.abs.i32(i32 %290, i1 true)
-  %324 = call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %323, i1 true)
-  %325 = sub nuw nsw i32 32, %324
-  %.lobit.i160 = ashr i32 %290, 31
-  %326 = add nsw i32 %.lobit.i160, %290
-  %.not13.i158.inv = icmp samesign ugt i32 %323, 1
-  %327 = select i1 %.not13.i158.inv, i32 %325, i32 1
-  %notmask.i161 = shl nsw i32 -1, %327
-  %328 = xor i32 %notmask.i161, -1
-  %329 = shl i32 %.0120, 4
-  %330 = add nsw i32 %329, %327
-  %331 = sext i32 %330 to i64
-  %332 = getelementptr inbounds [2 x i16], ptr %8, i64 %331
-  %333 = load i32, ptr %1, align 4, !tbaa !3
-  %334 = getelementptr inbounds nuw i8, ptr %332, i64 2
-  %335 = load i16, ptr %334, align 2, !tbaa !44
-  %336 = zext i16 %335 to i32
-  %337 = add nsw i32 %322, %336
-  %338 = load i16, ptr %332, align 2, !tbaa !44
-  %339 = zext i16 %338 to i32
-  %340 = sub nsw i32 24, %337
-  %341 = shl i32 %339, %340
-  %342 = or i32 %341, %333
-  %343 = icmp sgt i32 %337, 7
-  br i1 %343, label %.lr.ph.i164, label %stbiw__jpg_writeBits.exit167
+322:                                              ; preds = %._crit_edge, %295
+  %323 = phi i32 [ %.018.lcssa.i152, %._crit_edge ], [ %287, %295 ]
+  %.0120 = phi i32 [ %321, %._crit_edge ], [ %297, %295 ]
+  %324 = call i32 @llvm.abs.i32(i32 %291, i1 true)
+  %325 = lshr i32 %324, 1
+  %326 = call range(i32 2, 33) i32 @llvm.ctlz.i32(i32 %325, i1 false)
+  %327 = sub nuw nsw i32 33, %326
+  %.lobit.i158 = ashr i32 %291, 31
+  %328 = add nsw i32 %.lobit.i158, %291
+  %notmask.i159 = shl nsw i32 -1, %327
+  %329 = xor i32 %notmask.i159, -1
+  %330 = shl i32 %.0120, 4
+  %331 = add nsw i32 %330, %327
+  %332 = sext i32 %331 to i64
+  %333 = getelementptr inbounds [2 x i16], ptr %8, i64 %332
+  %334 = load i32, ptr %1, align 4, !tbaa !3
+  %335 = getelementptr inbounds nuw i8, ptr %333, i64 2
+  %336 = load i16, ptr %335, align 2, !tbaa !44
+  %337 = zext i16 %336 to i32
+  %338 = add nsw i32 %323, %337
+  %339 = load i16, ptr %333, align 2, !tbaa !44
+  %340 = zext i16 %339 to i32
+  %341 = sub nsw i32 24, %338
+  %342 = shl i32 %340, %341
+  %343 = or i32 %342, %334
+  %344 = icmp sgt i32 %338, 7
+  br i1 %344, label %.lr.ph.i162, label %stbiw__jpg_writeBits.exit165
 
-.lr.ph.i164:                                      ; preds = %321, %353
-  %.020.i165 = phi i32 [ %354, %353 ], [ %342, %321 ]
-  %.01819.i166 = phi i32 [ %355, %353 ], [ %337, %321 ]
-  %344 = lshr i32 %.020.i165, 16
-  %345 = trunc i32 %344 to i8
+.lr.ph.i162:                                      ; preds = %322, %354
+  %.020.i163 = phi i32 [ %355, %354 ], [ %343, %322 ]
+  %.01819.i164 = phi i32 [ %356, %354 ], [ %338, %322 ]
+  %345 = lshr i32 %.020.i163, 16
+  %346 = trunc i32 %345 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  store i8 %345, ptr %15, align 1, !tbaa !11
-  %346 = load ptr, ptr %0, align 8, !tbaa !7
-  %347 = load ptr, ptr %260, align 8, !tbaa !10
-  call void %346(ptr noundef %347, ptr noundef nonnull %15, i32 noundef 1) #28
+  store i8 %346, ptr %15, align 1, !tbaa !11
+  %347 = load ptr, ptr %0, align 8, !tbaa !7
+  %348 = load ptr, ptr %261, align 8, !tbaa !10
+  call void %347(ptr noundef %348, ptr noundef nonnull %15, i32 noundef 1) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %348 = and i32 %.020.i165, 16711680
-  %349 = icmp eq i32 %348, 16711680
-  br i1 %349, label %350, label %353
+  %349 = and i32 %.020.i163, 16711680
+  %350 = icmp eq i32 %349, 16711680
+  br i1 %350, label %351, label %354
 
-350:                                              ; preds = %.lr.ph.i164
+351:                                              ; preds = %.lr.ph.i162
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i8 0, ptr %14, align 1, !tbaa !11
-  %351 = load ptr, ptr %0, align 8, !tbaa !7
-  %352 = load ptr, ptr %260, align 8, !tbaa !10
-  call void %351(ptr noundef %352, ptr noundef nonnull %14, i32 noundef 1) #28
+  %352 = load ptr, ptr %0, align 8, !tbaa !7
+  %353 = load ptr, ptr %261, align 8, !tbaa !10
+  call void %352(ptr noundef %353, ptr noundef nonnull %14, i32 noundef 1) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %353
+  br label %354
 
-353:                                              ; preds = %350, %.lr.ph.i164
-  %354 = shl i32 %.020.i165, 8
-  %355 = add nsw i32 %.01819.i166, -8
-  %356 = icmp sgt i32 %.01819.i166, 15
-  br i1 %356, label %.lr.ph.i164, label %stbiw__jpg_writeBits.exit167, !llvm.loop !66
+354:                                              ; preds = %351, %.lr.ph.i162
+  %355 = shl i32 %.020.i163, 8
+  %356 = add nsw i32 %.01819.i164, -8
+  %357 = icmp sgt i32 %.01819.i164, 15
+  br i1 %357, label %.lr.ph.i162, label %stbiw__jpg_writeBits.exit165, !llvm.loop !66
 
-stbiw__jpg_writeBits.exit167:                     ; preds = %353, %321
-  %.018.lcssa.i162 = phi i32 [ %337, %321 ], [ %355, %353 ]
-  %.0.lcssa.i163 = phi i32 [ %342, %321 ], [ %354, %353 ]
-  store i32 %.0.lcssa.i163, ptr %1, align 4, !tbaa !3
-  store i32 %.018.lcssa.i162, ptr %2, align 4, !tbaa !3
-  %357 = load i32, ptr %1, align 4, !tbaa !3
-  %358 = add nsw i32 %.018.lcssa.i162, %327
-  %359 = and i32 %326, 65535
-  %360 = and i32 %359, %328
-  %361 = sub nsw i32 24, %358
-  %362 = shl i32 %360, %361
-  %363 = or i32 %357, %362
-  %364 = icmp sgt i32 %358, 7
-  br i1 %364, label %.lr.ph.i170, label %stbiw__jpg_writeBits.exit173
+stbiw__jpg_writeBits.exit165:                     ; preds = %354, %322
+  %.018.lcssa.i160 = phi i32 [ %338, %322 ], [ %356, %354 ]
+  %.0.lcssa.i161 = phi i32 [ %343, %322 ], [ %355, %354 ]
+  store i32 %.0.lcssa.i161, ptr %1, align 4, !tbaa !3
+  store i32 %.018.lcssa.i160, ptr %2, align 4, !tbaa !3
+  %358 = load i32, ptr %1, align 4, !tbaa !3
+  %359 = add nsw i32 %.018.lcssa.i160, %327
+  %360 = and i32 %328, 65535
+  %361 = and i32 %360, %329
+  %362 = sub nsw i32 24, %359
+  %363 = shl i32 %361, %362
+  %364 = or i32 %358, %363
+  %365 = icmp sgt i32 %359, 7
+  br i1 %365, label %.lr.ph.i168, label %stbiw__jpg_writeBits.exit171
 
-.lr.ph.i170:                                      ; preds = %stbiw__jpg_writeBits.exit167, %374
-  %.020.i171 = phi i32 [ %375, %374 ], [ %363, %stbiw__jpg_writeBits.exit167 ]
-  %.01819.i172 = phi i32 [ %376, %374 ], [ %358, %stbiw__jpg_writeBits.exit167 ]
-  %365 = lshr i32 %.020.i171, 16
-  %366 = trunc i32 %365 to i8
+.lr.ph.i168:                                      ; preds = %stbiw__jpg_writeBits.exit165, %375
+  %.020.i169 = phi i32 [ %376, %375 ], [ %364, %stbiw__jpg_writeBits.exit165 ]
+  %.01819.i170 = phi i32 [ %377, %375 ], [ %359, %stbiw__jpg_writeBits.exit165 ]
+  %366 = lshr i32 %.020.i169, 16
+  %367 = trunc i32 %366 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  store i8 %366, ptr %13, align 1, !tbaa !11
-  %367 = load ptr, ptr %0, align 8, !tbaa !7
-  %368 = load ptr, ptr %260, align 8, !tbaa !10
-  call void %367(ptr noundef %368, ptr noundef nonnull %13, i32 noundef 1) #28
+  store i8 %367, ptr %13, align 1, !tbaa !11
+  %368 = load ptr, ptr %0, align 8, !tbaa !7
+  %369 = load ptr, ptr %261, align 8, !tbaa !10
+  call void %368(ptr noundef %369, ptr noundef nonnull %13, i32 noundef 1) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %369 = and i32 %.020.i171, 16711680
-  %370 = icmp eq i32 %369, 16711680
-  br i1 %370, label %371, label %374
+  %370 = and i32 %.020.i169, 16711680
+  %371 = icmp eq i32 %370, 16711680
+  br i1 %371, label %372, label %375
 
-371:                                              ; preds = %.lr.ph.i170
+372:                                              ; preds = %.lr.ph.i168
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i8 0, ptr %12, align 1, !tbaa !11
-  %372 = load ptr, ptr %0, align 8, !tbaa !7
-  %373 = load ptr, ptr %260, align 8, !tbaa !10
-  call void %372(ptr noundef %373, ptr noundef nonnull %12, i32 noundef 1) #28
+  %373 = load ptr, ptr %0, align 8, !tbaa !7
+  %374 = load ptr, ptr %261, align 8, !tbaa !10
+  call void %373(ptr noundef %374, ptr noundef nonnull %12, i32 noundef 1) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %374
+  br label %375
 
-374:                                              ; preds = %371, %.lr.ph.i170
-  %375 = shl i32 %.020.i171, 8
-  %376 = add nsw i32 %.01819.i172, -8
-  %377 = icmp sgt i32 %.01819.i172, 15
-  br i1 %377, label %.lr.ph.i170, label %stbiw__jpg_writeBits.exit173, !llvm.loop !66
+375:                                              ; preds = %372, %.lr.ph.i168
+  %376 = shl i32 %.020.i169, 8
+  %377 = add nsw i32 %.01819.i170, -8
+  %378 = icmp sgt i32 %.01819.i170, 15
+  br i1 %378, label %.lr.ph.i168, label %stbiw__jpg_writeBits.exit171, !llvm.loop !66
 
-stbiw__jpg_writeBits.exit173:                     ; preds = %374, %stbiw__jpg_writeBits.exit167
-  %.018.lcssa.i168 = phi i32 [ %358, %stbiw__jpg_writeBits.exit167 ], [ %376, %374 ]
-  %.0.lcssa.i169 = phi i32 [ %363, %stbiw__jpg_writeBits.exit167 ], [ %375, %374 ]
-  store i32 %.0.lcssa.i169, ptr %1, align 4, !tbaa !3
-  store i32 %.018.lcssa.i168, ptr %2, align 4, !tbaa !3
-  %378 = add nsw i32 %295, 1
-  %.not.not = icmp sgt i32 %.0126217, %295
-  br i1 %.not.not, label %.preheader, label %._crit_edge223, !llvm.loop !74
+stbiw__jpg_writeBits.exit171:                     ; preds = %375, %stbiw__jpg_writeBits.exit165
+  %.018.lcssa.i166 = phi i32 [ %359, %stbiw__jpg_writeBits.exit165 ], [ %377, %375 ]
+  %.0.lcssa.i167 = phi i32 [ %364, %stbiw__jpg_writeBits.exit165 ], [ %376, %375 ]
+  store i32 %.0.lcssa.i167, ptr %1, align 4, !tbaa !3
+  store i32 %.018.lcssa.i166, ptr %2, align 4, !tbaa !3
+  %379 = add nsw i32 %296, 1
+  %.not.not = icmp sgt i32 %.0126215, %296
+  br i1 %.not.not, label %.preheader, label %._crit_edge221, !llvm.loop !74
 
-._crit_edge223:                                   ; preds = %stbiw__jpg_writeBits.exit173
-  %.not132 = icmp eq i32 %.0126217, 63
-  br i1 %.not132, label %403, label %._crit_edge223.thread
+._crit_edge221:                                   ; preds = %stbiw__jpg_writeBits.exit171
+  %.not132 = icmp eq i32 %.0126215, 63
+  br i1 %.not132, label %404, label %._crit_edge221.thread
 
-._crit_edge223.thread:                            ; preds = %.preheader190, %._crit_edge223
-  %379 = phi i32 [ %.018.lcssa.i168, %._crit_edge223 ], [ %249, %.preheader190 ]
-  %380 = load i32, ptr %1, align 4, !tbaa !3
-  %381 = zext i16 %29 to i32
-  %382 = add nsw i32 %379, %381
-  %383 = zext i16 %27 to i32
-  %384 = sub nsw i32 24, %382
-  %385 = shl i32 %383, %384
-  %386 = or i32 %385, %380
-  %387 = icmp sgt i32 %382, 7
-  br i1 %387, label %.lr.ph.i176, label %.sink.split
+._crit_edge221.thread:                            ; preds = %.preheader188, %._crit_edge221
+  %380 = phi i32 [ %.018.lcssa.i166, %._crit_edge221 ], [ %250, %.preheader188 ]
+  %381 = load i32, ptr %1, align 4, !tbaa !3
+  %382 = zext i16 %29 to i32
+  %383 = add nsw i32 %380, %382
+  %384 = zext i16 %27 to i32
+  %385 = sub nsw i32 24, %383
+  %386 = shl i32 %384, %385
+  %387 = or i32 %386, %381
+  %388 = icmp sgt i32 %383, 7
+  br i1 %388, label %.lr.ph.i174, label %.sink.split
 
-.lr.ph.i176:                                      ; preds = %._crit_edge223.thread
-  %388 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %389
+.lr.ph.i174:                                      ; preds = %._crit_edge221.thread
+  %389 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %390
 
-389:                                              ; preds = %399, %.lr.ph.i176
-  %.020.i177 = phi i32 [ %386, %.lr.ph.i176 ], [ %400, %399 ]
-  %.01819.i178 = phi i32 [ %382, %.lr.ph.i176 ], [ %401, %399 ]
-  %390 = lshr i32 %.020.i177, 16
-  %391 = trunc i32 %390 to i8
+390:                                              ; preds = %400, %.lr.ph.i174
+  %.020.i175 = phi i32 [ %387, %.lr.ph.i174 ], [ %401, %400 ]
+  %.01819.i176 = phi i32 [ %383, %.lr.ph.i174 ], [ %402, %400 ]
+  %391 = lshr i32 %.020.i175, 16
+  %392 = trunc i32 %391 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  store i8 %391, ptr %11, align 1, !tbaa !11
-  %392 = load ptr, ptr %0, align 8, !tbaa !7
-  %393 = load ptr, ptr %388, align 8, !tbaa !10
-  call void %392(ptr noundef %393, ptr noundef nonnull %11, i32 noundef 1) #28
+  store i8 %392, ptr %11, align 1, !tbaa !11
+  %393 = load ptr, ptr %0, align 8, !tbaa !7
+  %394 = load ptr, ptr %389, align 8, !tbaa !10
+  call void %393(ptr noundef %394, ptr noundef nonnull %11, i32 noundef 1) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %394 = and i32 %.020.i177, 16711680
-  %395 = icmp eq i32 %394, 16711680
-  br i1 %395, label %396, label %399
+  %395 = and i32 %.020.i175, 16711680
+  %396 = icmp eq i32 %395, 16711680
+  br i1 %396, label %397, label %400
 
-396:                                              ; preds = %389
+397:                                              ; preds = %390
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 0, ptr %10, align 1, !tbaa !11
-  %397 = load ptr, ptr %0, align 8, !tbaa !7
-  %398 = load ptr, ptr %388, align 8, !tbaa !10
-  call void %397(ptr noundef %398, ptr noundef nonnull %10, i32 noundef 1) #28
+  %398 = load ptr, ptr %0, align 8, !tbaa !7
+  %399 = load ptr, ptr %389, align 8, !tbaa !10
+  call void %398(ptr noundef %399, ptr noundef nonnull %10, i32 noundef 1) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %399
+  br label %400
 
-399:                                              ; preds = %396, %389
-  %400 = shl i32 %.020.i177, 8
-  %401 = add nsw i32 %.01819.i178, -8
-  %402 = icmp sgt i32 %.01819.i178, 15
-  br i1 %402, label %389, label %.sink.split, !llvm.loop !66
+400:                                              ; preds = %397, %390
+  %401 = shl i32 %.020.i175, 8
+  %402 = add nsw i32 %.01819.i176, -8
+  %403 = icmp sgt i32 %.01819.i176, 15
+  br i1 %403, label %390, label %.sink.split, !llvm.loop !66
 
-.sink.split:                                      ; preds = %399, %282, %._crit_edge223.thread, %262
-  %.0.lcssa.i175.sink = phi i32 [ %269, %262 ], [ %386, %._crit_edge223.thread ], [ %283, %282 ], [ %400, %399 ]
-  %.018.lcssa.i174.sink = phi i32 [ %265, %262 ], [ %382, %._crit_edge223.thread ], [ %284, %282 ], [ %401, %399 ]
-  store i32 %.0.lcssa.i175.sink, ptr %1, align 4, !tbaa !3
-  store i32 %.018.lcssa.i174.sink, ptr %2, align 4, !tbaa !3
-  br label %403
+.sink.split:                                      ; preds = %400, %283, %._crit_edge221.thread, %263
+  %.0.lcssa.i173.sink = phi i32 [ %270, %263 ], [ %387, %._crit_edge221.thread ], [ %284, %283 ], [ %401, %400 ]
+  %.018.lcssa.i172.sink = phi i32 [ %266, %263 ], [ %383, %._crit_edge221.thread ], [ %285, %283 ], [ %402, %400 ]
+  store i32 %.0.lcssa.i173.sink, ptr %1, align 4, !tbaa !3
+  store i32 %.018.lcssa.i172.sink, ptr %2, align 4, !tbaa !3
+  br label %404
 
-403:                                              ; preds = %.sink.split, %._crit_edge223
+404:                                              ; preds = %.sink.split, %._crit_edge221
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   ret i32 %158
 }
@@ -5945,9 +5940,6 @@ declare void @llvm.assume(i1 noundef) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #26
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #25
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #25

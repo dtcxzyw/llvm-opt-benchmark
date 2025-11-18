@@ -724,20 +724,20 @@ define hidden void @av1_cdef_filter_fb(ptr noundef writeonly captures(address_is
   %119 = zext i8 %101 to i64
   %120 = getelementptr inbounds nuw i32, ptr %118, i64 %119
   %121 = load i32, ptr %120, align 4
-  %.not.i163.us = icmp ult i32 %121, 64
-  br i1 %.not.i163.us, label %adjust_strength.exit166.us, label %122
+  %122 = ashr i32 %121, 6
+  %.not.i163.us = icmp eq i32 %122, 0
+  br i1 %.not.i163.us, label %adjust_strength.exit166.us, label %123
 
-122:                                              ; preds = %116
-  %123 = ashr i32 %121, 6
-  %124 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %123, i1 true)
+123:                                              ; preds = %116
+  %124 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %122, i1 true)
   %125 = xor i32 %124, 28
   %126 = icmp samesign ult i32 %125, 12
   %127 = sub nuw nsw i32 35, %124
   %spec.select.i164.us = select i1 %126, i32 %127, i32 16
   br label %adjust_strength.exit166.us
 
-adjust_strength.exit166.us:                       ; preds = %122, %116
-  %128 = phi i32 [ 4, %116 ], [ %spec.select.i164.us, %122 ]
+adjust_strength.exit166.us:                       ; preds = %123, %116
+  %128 = phi i32 [ 4, %116 ], [ %spec.select.i164.us, %123 ]
   %.not6.i165.us = icmp eq i32 %121, 0
   %129 = mul nsw i32 %128, %17
   %130 = add nsw i32 %129, 8
@@ -791,20 +791,20 @@ adjust_strength.exit166.us:                       ; preds = %122, %116
   %163 = zext i8 %147 to i64
   %164 = getelementptr inbounds nuw i32, ptr %162, i64 %163
   %165 = load i32, ptr %164, align 4
-  %.not.i = icmp ult i32 %165, 64
-  br i1 %.not.i, label %adjust_strength.exit, label %166
+  %166 = ashr i32 %165, 6
+  %.not.i = icmp eq i32 %166, 0
+  br i1 %.not.i, label %adjust_strength.exit, label %167
 
-166:                                              ; preds = %160
-  %167 = ashr i32 %165, 6
-  %168 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %167, i1 true)
+167:                                              ; preds = %160
+  %168 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %166, i1 true)
   %169 = xor i32 %168, 28
   %170 = icmp samesign ult i32 %169, 12
   %171 = sub nuw nsw i32 35, %168
   %spec.select.i = select i1 %170, i32 %171, i32 16
   br label %adjust_strength.exit
 
-adjust_strength.exit:                             ; preds = %160, %166
-  %172 = phi i32 [ 4, %160 ], [ %spec.select.i, %166 ]
+adjust_strength.exit:                             ; preds = %160, %167
+  %172 = phi i32 [ 4, %160 ], [ %spec.select.i, %167 ]
   %.not6.i = icmp eq i32 %165, 0
   %173 = mul nsw i32 %172, %17
   %174 = add nsw i32 %173, 8

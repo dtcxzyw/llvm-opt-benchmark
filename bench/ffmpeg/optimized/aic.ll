@@ -476,7 +476,7 @@ bytestream2_get_le16.exit.thread:                 ; preds = %97, %bytestream2_ge
   br i1 %179, label %.preheader.lr.ph.split.us.i.i, label %.loopexit.i
 
 .preheader.lr.ph.split.us.i.i:                    ; preds = %.preheader130.i.i
-  %.not80.i.i = icmp ult i32 %217, 536870912
+  %.not80.i.i = icmp eq i32 %218, 0
   %223 = zext i8 %187 to i64
   %.not79.i.i = icmp eq i32 %210, 0
   br i1 %.not79.i.i, label %.preheader.lr.ph.split.us.split.us.i.i, label %.preheader.lr.ph.split.us.split.i.i
@@ -739,9 +739,9 @@ get_ue_golomb.exit119.us.i.i:                     ; preds = %307, %291
   %357 = lshr exact i32 128, %355
   %358 = and i32 %357, %356
   %.not81.i.i = icmp eq i32 %358, 0
-  %.not82.i.i = icmp ult i32 %347, 536870912
+  %.not82.i.i = icmp eq i32 %348, 0
   %.not84.i.i = icmp eq i32 %210, 0
-  %.not85.i.i = icmp ult i32 %217, 536870912
+  %.not85.i.i = icmp eq i32 %218, 0
   %359 = add nsw i32 %188, -1
   %360 = zext i8 %187 to i64
   br label %.preheader132.i.i

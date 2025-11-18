@@ -6348,7 +6348,7 @@ for.end.i:                                        ; preds = %for.body.i
   %dec6.i = add nsw i32 %62, -3
   %arrayidx8.i = getelementptr i8, ptr %arrayidx5.i, i64 -1
   store i8 92, ptr %arrayidx8.i, align 1
-  %cmp1.not.i = icmp ult i32 %C.addr.135.i, 16
+  %cmp1.not.i = icmp eq i32 %div9.i, 0
   br i1 %cmp1.not.i, label %while.end.i, label %for.cond.preheader.i, !llvm.loop !17
 
 while.end.i:                                      ; preds = %for.end.i

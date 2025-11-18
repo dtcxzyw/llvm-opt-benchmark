@@ -490,14 +490,14 @@ default.unreachable:                              ; preds = %4
 
 29:                                               ; preds = %24, %19, %15
   %.0143 = phi i32 [ %18, %15 ], [ %23, %19 ], [ %28, %24 ]
-  %.not = icmp ult i8 %8, 4
+  %.not = icmp eq i8 %9, 0
   br i1 %.not, label %39, label %30
 
 30:                                               ; preds = %29
   %31 = load ptr, ptr @value_lengths, align 8
   %32 = zext nneg i8 %9 to i64
   %33 = inttoptr i64 %32 to ptr
-  %34 = tail call ptr @wmem_map_lookup(ptr noundef %31, ptr noundef %33)
+  %34 = tail call ptr @wmem_map_lookup(ptr noundef %31, ptr noundef nonnull %33)
   %35 = ptrtoint ptr %34 to i64
   %36 = trunc i64 %35 to i32
   %37 = urem i32 %.0143, %36
@@ -565,7 +565,7 @@ default.unreachable:                              ; preds = %4
   %.01355 = phi i32 [ %86, %80 ], [ 0, %.lr.ph ]
   %.11394 = phi i32 [ %.4142, %80 ], [ 0, %.lr.ph ]
   %66 = load ptr, ptr @value_lengths, align 8
-  %67 = call ptr @wmem_map_lookup(ptr noundef %66, ptr noundef %61)
+  %67 = call ptr @wmem_map_lookup(ptr noundef %66, ptr noundef nonnull %61)
   %68 = ptrtoint ptr %67 to i64
   %69 = trunc i64 %68 to i32
   switch i8 %9, label %.thread [
@@ -626,10 +626,10 @@ default.unreachable:                              ; preds = %4
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !6
 
 .loopexit.sink.split:                             ; preds = %39, %65
-  %.sink21 = phi ptr [ inttoptr (i64 16 to ptr), %65 ], [ inttoptr (i64 8 to ptr), %39 ]
+  %.sink22 = phi ptr [ inttoptr (i64 16 to ptr), %65 ], [ inttoptr (i64 8 to ptr), %39 ]
   %hf_hsms_data_item_value_string.sink = phi ptr [ @hf_hsms_data_item_value_string, %65 ], [ @hf_hsms_data_item_value_binary, %39 ]
   %87 = load ptr, ptr @value_lengths, align 8
-  %88 = call ptr @wmem_map_lookup(ptr noundef %87, ptr noundef nonnull %.sink21)
+  %88 = call ptr @wmem_map_lookup(ptr noundef %87, ptr noundef nonnull %.sink22)
   %89 = ptrtoint ptr %88 to i64
   %90 = trunc i64 %89 to i32
   %91 = mul i32 %.1144, %90

@@ -643,7 +643,7 @@ define void @_ZN3tbb6detail2r111tcm_adaptor13adjust_demandERNS1_9pm_clientEii(pt
   resume { ptr, i32 } %17
 
 18:                                               ; preds = %11
-  %19 = icmp ult i64 %10, 4294967296
+  %19 = icmp eq i64 %.sroa.4.0.extract.shift.i, 0
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %18

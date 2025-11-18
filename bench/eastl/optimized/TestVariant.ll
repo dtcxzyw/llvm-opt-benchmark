@@ -1953,7 +1953,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   %n.addr.04.i.i.i = phi i64 [ %shr.i.i.i, %for.body.i.i.i ], [ %sub.ptr.div.i.i, %if.then.i.i ]
   %shr.i.i.i = ashr i64 %n.addr.04.i.i.i, 1
   %inc.i.i.i = add nuw nsw i32 %i.05.i.i.i, 1
-  %tobool.not.i.i.i36 = icmp ult i64 %n.addr.04.i.i.i, 2
+  %tobool.not.i.i.i36 = icmp eq i64 %shr.i.i.i, 0
   br i1 %tobool.not.i.i.i36, label %for.end.loopexit.i.i.i, label %for.body.i.i.i, !llvm.loop !7
 
 for.end.loopexit.i.i.i:                           ; preds = %for.body.i.i.i

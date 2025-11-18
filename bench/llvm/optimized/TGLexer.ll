@@ -3958,8 +3958,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm7TGLexer14prepSkipRegionEb(ptr noun
 11:                                               ; preds = %.thread, %2
   %12 = phi ptr [ %101, %.thread ], [ %.promoted.pre, %2 ]
   %13 = load i8, ptr %12, align 1, !tbaa !14
-  %.not33 = icmp eq i8 %13, 10
-  br i1 %.not33, label %._crit_edge, label %.lr.ph
+  %.not31 = icmp eq i8 %13, 10
+  br i1 %.not31, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
   %14 = phi ptr [ %15, %.lr.ph ], [ %12, %11 ]
@@ -4091,8 +4091,8 @@ _ZNK4llvm7TGLexer15prepIsDirectiveEv.exit:        ; preds = %_ZN4llvmneENS_9Stri
 
 53:                                               ; preds = %_ZNK4llvm7TGLexer15prepIsDirectiveEv.exit
   %54 = tail call noundef i32 @_ZN4llvm7TGLexer15lexPreprocessorENS_5tgtok7TokKindEb(ptr noundef nonnull align 8 dereferenceable(248) %0, i32 noundef %.sroa.030.0.copyload.le.i, i1 noundef zeroext false)
-  %.not82.not = icmp ne i32 %54, 1
-  br i1 %.not82.not, label %55, label %_ZN4llvm7TGLexer17prepSkipLineBeginEv.exit
+  %.not81.not = icmp ne i32 %54, 1
+  br i1 %.not81.not, label %55, label %_ZN4llvm7TGLexer17prepSkipLineBeginEv.exit
 
 55:                                               ; preds = %53
   %56 = load ptr, ptr %9, align 8, !tbaa !44
@@ -4106,11 +4106,11 @@ _ZNK4llvm7TGLexer15prepIsDirectiveEv.exit:        ; preds = %_ZN4llvmneENS_9Stri
   %62 = zext i32 %.val1.i to i64
   %.idx1.i.i = shl nuw nsw i64 %62, 4
   %63 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.idx1.i.i
-  %.not.i.i = icmp ult i32 %.val1.i, 4
+  %64 = lshr i64 %62, 2
+  %.not.i.i = icmp eq i64 %64, 0
   br i1 %.not.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %55
-  %64 = lshr i64 %62, 2
   %65 = and i64 %.idx1.i.i, 68719476672
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %.val.i, i64 %65
   br label %.lr.ph.i.i.i.i.i.i
@@ -4154,11 +4154,10 @@ _ZNK4llvm7TGLexer15prepIsDirectiveEv.exit:        ; preds = %_ZN4llvmneENS_9Stri
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %55
   %.pre-phi50.i.i.i.i.i.i = phi i32 [ %81, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.val1.i, %55 ]
   %.029.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.val.i, %55 ]
-  switch i32 %.pre-phi50.i.i.i.i.i.i, label %default.unreachable [
+  switch i32 %.pre-phi50.i.i.i.i.i.i, label %_ZN4llvm7TGLexer17prepSkipLineBeginEv.exit [
     i32 3, label %82
     i32 2, label %87
     i32 1, label %92
-    i32 0, label %_ZN4llvm7TGLexer17prepSkipLineBeginEv.exit
   ]
 
 82:                                               ; preds = %._crit_edge.i.i.i.i.i.i
@@ -4189,9 +4188,6 @@ _ZNK4llvm7TGLexer15prepIsDirectiveEv.exit:        ; preds = %_ZN4llvmneENS_9Stri
   %94 = trunc nuw i8 %.2.val.i.i.i.i.i.i to i1
   br i1 %94, label %_ZN4llvm7TGLexer17prepSkipLineBeginEv.exit, label %_ZN4llvm7TGLexer23prepIsProcessingEnabledEv.exit
 
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i.i
-  unreachable
-
 .loopexit.split.loop.exit34.i.i.i.i.i.i:          ; preds = %68
   %95 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 16
   br label %_ZN4llvm7TGLexer23prepIsProcessingEnabledEv.exit
@@ -4210,15 +4206,15 @@ _ZN4llvm7TGLexer23prepIsProcessingEnabledEv.exit: ; preds = %.lr.ph.i.i.i.i.i.i,
   br i1 %98, label %_ZN4llvm7TGLexer17prepSkipLineBeginEv.exit, label %_ZN4llvm7TGLexer23prepIsProcessingEnabledEv.exit..thread_crit_edge
 
 _ZN4llvm7TGLexer23prepIsProcessingEnabledEv.exit..thread_crit_edge: ; preds = %_ZN4llvm7TGLexer23prepIsProcessingEnabledEv.exit
-  %.pre44 = load ptr, ptr %5, align 8, !tbaa !57
-  %.pre45 = load ptr, ptr %6, align 8, !tbaa !76
-  %.pre46 = load i64, ptr %7, align 8, !tbaa !77
+  %.pre42 = load ptr, ptr %5, align 8, !tbaa !57
+  %.pre43 = load ptr, ptr %6, align 8, !tbaa !76
+  %.pre44 = load i64, ptr %7, align 8, !tbaa !77
   br label %.thread
 
 .thread:                                          ; preds = %25, %52, %._crit_edge, %_ZN4llvm7TGLexer23prepIsProcessingEnabledEv.exit..thread_crit_edge, %_ZNK4llvm7TGLexer15prepIsDirectiveEv.exit, %_ZNK4llvm7TGLexer15prepIsDirectiveEv.exit, %.loopexit
-  %99 = phi i64 [ %.pre46, %_ZN4llvm7TGLexer23prepIsProcessingEnabledEv.exit..thread_crit_edge ], [ %37, %_ZNK4llvm7TGLexer15prepIsDirectiveEv.exit ], [ %37, %_ZNK4llvm7TGLexer15prepIsDirectiveEv.exit ], [ %37, %.loopexit ], [ %19, %._crit_edge ], [ %37, %52 ], [ %22, %25 ]
-  %100 = phi ptr [ %.pre45, %_ZN4llvm7TGLexer23prepIsProcessingEnabledEv.exit..thread_crit_edge ], [ %38, %_ZNK4llvm7TGLexer15prepIsDirectiveEv.exit ], [ %38, %_ZNK4llvm7TGLexer15prepIsDirectiveEv.exit ], [ %38, %.loopexit ], [ %18, %._crit_edge ], [ %38, %52 ], [ %23, %25 ]
-  %101 = phi ptr [ %.pre44, %_ZN4llvm7TGLexer23prepIsProcessingEnabledEv.exit..thread_crit_edge ], [ %42, %_ZNK4llvm7TGLexer15prepIsDirectiveEv.exit ], [ %42, %_ZNK4llvm7TGLexer15prepIsDirectiveEv.exit ], [ %39, %.loopexit ], [ %17, %._crit_edge ], [ %42, %52 ], [ %21, %25 ]
+  %99 = phi i64 [ %.pre44, %_ZN4llvm7TGLexer23prepIsProcessingEnabledEv.exit..thread_crit_edge ], [ %37, %_ZNK4llvm7TGLexer15prepIsDirectiveEv.exit ], [ %37, %_ZNK4llvm7TGLexer15prepIsDirectiveEv.exit ], [ %37, %.loopexit ], [ %19, %._crit_edge ], [ %37, %52 ], [ %22, %25 ]
+  %100 = phi ptr [ %.pre43, %_ZN4llvm7TGLexer23prepIsProcessingEnabledEv.exit..thread_crit_edge ], [ %38, %_ZNK4llvm7TGLexer15prepIsDirectiveEv.exit ], [ %38, %_ZNK4llvm7TGLexer15prepIsDirectiveEv.exit ], [ %38, %.loopexit ], [ %18, %._crit_edge ], [ %38, %52 ], [ %23, %25 ]
+  %101 = phi ptr [ %.pre42, %_ZN4llvm7TGLexer23prepIsProcessingEnabledEv.exit..thread_crit_edge ], [ %42, %_ZNK4llvm7TGLexer15prepIsDirectiveEv.exit ], [ %42, %_ZNK4llvm7TGLexer15prepIsDirectiveEv.exit ], [ %39, %.loopexit ], [ %17, %._crit_edge ], [ %42, %52 ], [ %21, %25 ]
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 %99
   %.not10 = icmp eq ptr %101, %102
   br i1 %.not10, label %103, label %11, !llvm.loop !126
@@ -4256,7 +4252,7 @@ _ZN4llvm7TGLexer23prepIsProcessingEnabledEv.exit..thread_crit_edge: ; preds = %_
   br label %_ZN4llvm7TGLexer17prepSkipLineBeginEv.exit
 
 _ZN4llvm7TGLexer17prepSkipLineBeginEv.exit:       ; preds = %92, %._crit_edge.i.i.i.i.i.i, %_ZN4llvm7TGLexer23prepIsProcessingEnabledEv.exit, %53, %29, %103
-  %.1 = phi i1 [ false, %103 ], [ false, %29 ], [ %.not82.not, %53 ], [ %.not82.not, %_ZN4llvm7TGLexer23prepIsProcessingEnabledEv.exit ], [ %.not82.not, %._crit_edge.i.i.i.i.i.i ], [ %.not82.not, %92 ]
+  %.1 = phi i1 [ false, %103 ], [ false, %29 ], [ %.not81.not, %53 ], [ %.not81.not, %_ZN4llvm7TGLexer23prepIsProcessingEnabledEv.exit ], [ %.not81.not, %._crit_edge.i.i.i.i.i.i ], [ %.not81.not, %92 ]
   ret i1 %.1
 }
 
@@ -4342,11 +4338,11 @@ define dso_local noundef zeroext i1 @_ZN4llvm7TGLexer23prepIsProcessingEnabledEv
   %10 = zext i32 %.val1 to i64
   %.idx1.i = shl nuw nsw i64 %10, 4
   %11 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx1.i
-  %.not.i = icmp ult i32 %.val1, 4
+  %12 = lshr i64 %10, 2
+  %.not.i = icmp eq i64 %12, 0
   br i1 %.not.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %1
-  %12 = lshr i64 %10, 2
   %13 = and i64 %.idx1.i, 68719476672
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %.val, i64 %13
   br label %.lr.ph.i.i.i.i.i
@@ -4390,11 +4386,10 @@ define dso_local noundef zeroext i1 @_ZN4llvm7TGLexer23prepIsProcessingEnabledEv
 ._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %1
   %.pre-phi50.i.i.i.i.i = phi i32 [ %29, %._crit_edge.loopexit.i.i.i.i.i ], [ %.val1, %1 ]
   %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %.val, %1 ]
-  switch i32 %.pre-phi50.i.i.i.i.i, label %default.unreachable [
+  switch i32 %.pre-phi50.i.i.i.i.i, label %43 [
     i32 3, label %30
     i32 2, label %35
     i32 1, label %40
-    i32 0, label %43
   ]
 
 30:                                               ; preds = %._crit_edge.i.i.i.i.i
@@ -4424,9 +4419,6 @@ define dso_local noundef zeroext i1 @_ZN4llvm7TGLexer23prepIsProcessingEnabledEv
   %.2.val.i.i.i.i.i = load i8, ptr %41, align 4, !tbaa !120, !range !123, !noundef !124
   %42 = trunc nuw i8 %.2.val.i.i.i.i.i to i1
   br i1 %42, label %43, label %"_ZN4llvm6all_ofIRNS_11SmallVectorINS_7TGLexer23PreprocessorControlDescELj3EEEZNS2_23prepIsProcessingEnabledEvE3$_0EEbOT_T0_.exit"
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i
-  unreachable
 
 43:                                               ; preds = %40, %._crit_edge.i.i.i.i.i
   br label %"_ZN4llvm6all_ofIRNS_11SmallVectorINS_7TGLexer23PreprocessorControlDescELj3EEEZNS2_23prepIsProcessingEnabledEvE3$_0EEbOT_T0_.exit"

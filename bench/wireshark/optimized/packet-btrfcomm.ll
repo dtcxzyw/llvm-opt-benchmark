@@ -512,7 +512,7 @@ dissect_btrfcomm_payload_length.exit:             ; preds = %dissect_btrfcomm_ad
   %87 = load i32, ptr @hf_len, align 4
   %88 = add nsw i32 %.0.i, -2
   %89 = tail call ptr @proto_tree_add_uint(ptr noundef %23, i32 noundef %87, ptr noundef %0, i32 noundef 2, i32 noundef %88, i32 noundef %.020.in.i)
-  %.not = icmp ult i8 %29, 4
+  %.not = icmp eq i8 %32, 0
   br i1 %.not, label %231, label %90
 
 90:                                               ; preds = %dissect_btrfcomm_payload_length.exit
@@ -818,7 +818,7 @@ switch.early.test:                                ; preds = %90
   %234 = lshr i8 %29, 3
   %235 = zext nneg i8 %234 to i32
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %232, i32 noundef 25, ptr noundef nonnull @.str.162, ptr noundef %233, i32 noundef %235)
-  %236 = icmp ugt i8 %29, 3
+  %236 = icmp ne i8 %32, 0
   %237 = icmp eq i8 %66, 47
   %or.cond11 = and i1 %236, %237
   %238 = icmp ne ptr %.0212, null

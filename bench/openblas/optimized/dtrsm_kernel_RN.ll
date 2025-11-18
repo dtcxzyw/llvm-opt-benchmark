@@ -216,7 +216,7 @@ solve.exit179:                                    ; preds = %.split47.us.i169
   %.3132 = phi ptr [ %83, %solve.exit179 ], [ %.2131241, %52 ]
   %.3128 = phi ptr [ %84, %solve.exit179 ], [ %.2127242, %52 ]
   %86 = lshr i64 %.1121243, 1
-  %.not152 = icmp samesign ult i64 %.1121243, 2
+  %.not152 = icmp eq i64 %86, 0
   br i1 %.not152, label %.loopexit231, label %52, !llvm.loop !11
 
 .loopexit231:                                     ; preds = %85, %.loopexit233
@@ -293,7 +293,7 @@ solve.exit179:                                    ; preds = %.split47.us.i169
   %.6135.us = phi ptr [ %111, %.split47.us.i215.us ], [ %.5134259.us, %.preheader.us ]
   %.6.us = phi ptr [ %112, %.split47.us.i215.us ], [ %.5260.us, %.preheader.us ]
   %114 = lshr i64 %.3261.us, 1
-  %.not145.us = icmp samesign ult i64 %.3261.us, 2
+  %.not145.us = icmp eq i64 %114, 0
   br i1 %.not145.us, label %.loopexit227, label %.preheader.us, !llvm.loop !13
 
 .lr.ph254.split.us288:                            ; preds = %.lr.ph254.us, %.split47.us.i192.us281
@@ -410,7 +410,7 @@ solve.exit179:                                    ; preds = %.split47.us.i169
   %.6135 = phi ptr [ %152, %.split47.us.i215 ], [ %.5134259, %138 ]
   %.6 = phi ptr [ %153, %.split47.us.i215 ], [ %.5260, %138 ]
   %155 = lshr i64 %.3261, 1
-  %.not145 = icmp samesign ult i64 %.3261, 2
+  %.not145 = icmp eq i64 %155, 0
   br i1 %.not145, label %.loopexit227, label %138, !llvm.loop !13
 
 .loopexit227:                                     ; preds = %154, %113, %.preheader226.split, %._crit_edge255.us, %._crit_edge

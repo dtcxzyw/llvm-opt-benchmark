@@ -463,7 +463,7 @@ _ZN4llvm23SmallVectorTemplateBaseIhLb1EE9push_backEh.exit: ; preds = %.preheader
   %25 = add i64 %24, 1
   store i64 %25, ptr %10, align 8, !tbaa !118
   %26 = lshr i16 %.0, 4
-  %.not9 = icmp samesign ult i16 %.0, 16
+  %.not9 = icmp eq i16 %26, 0
   br i1 %.not9, label %27, label %.preheader, !llvm.loop !121
 
 27:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIhLb1EE9push_backEh.exit
@@ -1858,7 +1858,7 @@ _ZSt7advanceIPKjlEvRT_T0_.exit.i.i.i:             ; preds = %88, %_ZSt7advanceIP
   br i1 %65, label %88, label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %63
-  %.not81 = icmp samesign ult i64 %.01429.i.i.i, 2
+  %.not81 = icmp eq i64 %54, 0
   br i1 %.not81, label %"_ZSt13__lower_boundIPKjPKcN9__gnu_cxx5__ops14_Iter_comp_valIZL25lookupLLVMIntrinsicByNameN4llvm8ArrayRefIjEENS7_9StringRefESA_E3$_0EEET_SD_SD_RKT0_T1_.exit.i.i.i", label %_ZSt7advanceIPKjlEvRT_T0_.exit.i.i.i.i
 
 _ZSt7advanceIPKjlEvRT_T0_.exit.i.i.i.i:           ; preds = %.critedge.i.i.i, %_ZSt7advanceIPKjlEvRT_T0_.exit.i.i.i.i
@@ -10653,15 +10653,15 @@ define internal fastcc void @_ZL17getMangledTypeStrB5cxx11PN4llvm4TypeERb(ptr de
 36:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  %37 = lshr i32 %33, 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !216)
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !216
-  %37 = getelementptr inbounds nuw i8, ptr %9, i64 21
-  %38 = icmp ult i32 %33, 256
-  br i1 %38, label %.thread.i, label %.lr.ph.i.preheader
+  %38 = getelementptr inbounds nuw i8, ptr %9, i64 21
+  %39 = icmp eq i32 %37, 0
+  br i1 %39, label %.thread.i, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %36
-  %39 = lshr i32 %33, 8
-  %40 = zext nneg i32 %39 to i64
+  %40 = zext nneg i32 %37 to i64
   br label %.lr.ph.i
 
 .thread.i:                                        ; preds = %36
@@ -10670,7 +10670,7 @@ define internal fastcc void @_ZL17getMangledTypeStrB5cxx11PN4llvm4TypeERb(ptr de
   br label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.111.i = phi ptr [ %45, %.lr.ph.i ], [ %37, %.lr.ph.i.preheader ]
+  %.111.i = phi ptr [ %45, %.lr.ph.i ], [ %38, %.lr.ph.i.preheader ]
   %.0810.i = phi i64 [ %46, %.lr.ph.i ], [ %40, %.lr.ph.i.preheader ]
   %42 = urem i64 %.0810.i, 10
   %43 = trunc nuw nsw i64 %42 to i8
@@ -10688,7 +10688,7 @@ define internal fastcc void @_ZL17getMangledTypeStrB5cxx11PN4llvm4TypeERb(ptr de
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %48, align 8, !tbaa !18, !alias.scope !216
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !216
-  %49 = ptrtoint ptr %37 to i64
+  %49 = ptrtoint ptr %38 to i64
   %50 = ptrtoint ptr %.1.lcssa.i to i64
   %51 = sub i64 %49, %50
   store i64 %51, ptr %8, align 8, !tbaa !13, !noalias !216

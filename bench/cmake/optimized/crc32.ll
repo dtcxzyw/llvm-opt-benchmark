@@ -461,7 +461,7 @@ multmodp.exit.i:                                  ; preds = %12, %.lr.ph.i
   %.1.i = phi i32 [ %.013.i, %.lr.ph.i ], [ %13, %12 ]
   %23 = ashr i64 %.0811.i, 1
   %24 = add i32 %.0712.i, 1
-  %.not.i = icmp ult i64 %.0811.i, 2
+  %.not.i = icmp eq i64 %23, 0
   br i1 %.not.i, label %x2nmodp.exit, label %.lr.ph.i, !llvm.loop !18
 
 x2nmodp.exit:                                     ; preds = %multmodp.exit.i, %3
@@ -550,7 +550,7 @@ multmodp.exit.i.i:                                ; preds = %12, %.lr.ph.i.i
   %.1.i.i = phi i32 [ %.013.i.i, %.lr.ph.i.i ], [ %13, %12 ]
   %23 = ashr i64 %.0811.i.i, 1
   %24 = add i32 %.0712.i.i, 1
-  %.not.i.i = icmp ult i64 %.0811.i.i, 2
+  %.not.i.i = icmp eq i64 %23, 0
   br i1 %.not.i.i, label %x2nmodp.exit.i, label %.lr.ph.i.i, !llvm.loop !18
 
 x2nmodp.exit.i:                                   ; preds = %multmodp.exit.i.i, %3
@@ -639,7 +639,7 @@ multmodp.exit.i:                                  ; preds = %10, %.lr.ph.i
   %.1.i = phi i32 [ %.013.i, %.lr.ph.i ], [ %11, %10 ]
   %21 = ashr i64 %.0811.i, 1
   %22 = add i32 %.0712.i, 1
-  %.not.i = icmp ult i64 %.0811.i, 2
+  %.not.i = icmp eq i64 %21, 0
   br i1 %.not.i, label %x2nmodp.exit.loopexit, label %.lr.ph.i, !llvm.loop !18
 
 x2nmodp.exit.loopexit:                            ; preds = %multmodp.exit.i
@@ -700,7 +700,7 @@ multmodp.exit.i.i:                                ; preds = %10, %.lr.ph.i.i
   %.1.i.i = phi i32 [ %.013.i.i, %.lr.ph.i.i ], [ %11, %10 ]
   %21 = ashr i64 %.0811.i.i, 1
   %22 = add i32 %.0712.i.i, 1
-  %.not.i.i = icmp ult i64 %.0811.i.i, 2
+  %.not.i.i = icmp eq i64 %21, 0
   br i1 %.not.i.i, label %x2nmodp.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !18
 
 x2nmodp.exit.loopexit.i:                          ; preds = %multmodp.exit.i.i

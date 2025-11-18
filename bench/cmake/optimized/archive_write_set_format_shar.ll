@@ -1358,7 +1358,7 @@ define internal fastcc range(i32 -30, 1) i32 @_uuencode_line(ptr noundef %0, ptr
 
 11:                                               ; preds = %4
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.9) #8
-  br label %96
+  br label %98
 
 12:                                               ; preds = %4
   %13 = load ptr, ptr %5, align 8, !tbaa !39
@@ -1373,9 +1373,9 @@ define internal fastcc range(i32 -30, 1) i32 @_uuencode_line(ptr noundef %0, ptr
   br i1 %20, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %12, %.lr.ph
-  %.02939 = phi ptr [ %55, %.lr.ph ], [ %19, %12 ]
-  %.03038 = phi i64 [ %53, %.lr.ph ], [ %3, %12 ]
-  %.03137 = phi ptr [ %54, %.lr.ph ], [ %2, %12 ]
+  %.02939 = phi ptr [ %56, %.lr.ph ], [ %19, %12 ]
+  %.03038 = phi i64 [ %54, %.lr.ph ], [ %3, %12 ]
+  %.03137 = phi ptr [ %55, %.lr.ph ], [ %2, %12 ]
   %21 = load i8, ptr %.03137, align 1, !tbaa !30
   %22 = zext i8 %21 to i32
   %23 = shl nuw nsw i32 %22, 16
@@ -1388,113 +1388,115 @@ define internal fastcc range(i32 -30, 1) i32 @_uuencode_line(ptr noundef %0, ptr
   %30 = zext i8 %29 to i32
   %31 = or disjoint i32 %27, %30
   %32 = or disjoint i32 %27, %23
-  %.not.i = icmp ult i8 %21, 4
-  %33 = lshr i8 %21, 2
-  %34 = add nuw nsw i8 %33, 32
-  %35 = select i1 %.not.i, i8 96, i8 %34
-  store i8 %35, ptr %.02939, align 1, !tbaa !30
-  %36 = lshr i32 %32, 12
-  %37 = and i32 %36, 63
-  %.not17.i = icmp eq i32 %37, 0
-  %38 = trunc nuw nsw i32 %37 to i8
-  %39 = add nuw nsw i8 %38, 32
-  %40 = select i1 %.not17.i, i8 96, i8 %39
-  %41 = getelementptr inbounds nuw i8, ptr %.02939, i64 1
-  store i8 %40, ptr %41, align 1, !tbaa !30
-  %42 = lshr i32 %31, 6
-  %43 = and i32 %42, 63
-  %.not18.i = icmp eq i32 %43, 0
-  %44 = trunc nuw nsw i32 %43 to i8
-  %45 = add nuw nsw i8 %44, 32
-  %46 = select i1 %.not18.i, i8 96, i8 %45
-  %47 = getelementptr inbounds nuw i8, ptr %.02939, i64 2
-  store i8 %46, ptr %47, align 1, !tbaa !30
-  %48 = and i32 %30, 63
-  %.not19.i = icmp eq i32 %48, 0
-  %49 = trunc nuw nsw i32 %48 to i8
-  %50 = add nuw nsw i8 %49, 32
-  %51 = select i1 %.not19.i, i8 96, i8 %50
-  %52 = getelementptr inbounds nuw i8, ptr %.02939, i64 3
-  store i8 %51, ptr %52, align 1, !tbaa !30
-  %53 = add i64 %.03038, -3
-  %54 = getelementptr inbounds nuw i8, ptr %.03137, i64 3
-  %55 = getelementptr inbounds nuw i8, ptr %.02939, i64 4
-  %56 = icmp ugt i64 %53, 2
-  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !43
+  %33 = lshr i32 %22, 2
+  %.not.i = icmp eq i32 %33, 0
+  %34 = trunc nuw nsw i32 %33 to i8
+  %35 = add nuw nsw i8 %34, 32
+  %36 = select i1 %.not.i, i8 96, i8 %35
+  store i8 %36, ptr %.02939, align 1, !tbaa !30
+  %37 = lshr i32 %32, 12
+  %38 = and i32 %37, 63
+  %.not17.i = icmp eq i32 %38, 0
+  %39 = trunc nuw nsw i32 %38 to i8
+  %40 = add nuw nsw i8 %39, 32
+  %41 = select i1 %.not17.i, i8 96, i8 %40
+  %42 = getelementptr inbounds nuw i8, ptr %.02939, i64 1
+  store i8 %41, ptr %42, align 1, !tbaa !30
+  %43 = lshr i32 %31, 6
+  %44 = and i32 %43, 63
+  %.not18.i = icmp eq i32 %44, 0
+  %45 = trunc nuw nsw i32 %44 to i8
+  %46 = add nuw nsw i8 %45, 32
+  %47 = select i1 %.not18.i, i8 96, i8 %46
+  %48 = getelementptr inbounds nuw i8, ptr %.02939, i64 2
+  store i8 %47, ptr %48, align 1, !tbaa !30
+  %49 = and i32 %30, 63
+  %.not19.i = icmp eq i32 %49, 0
+  %50 = trunc nuw nsw i32 %49 to i8
+  %51 = add nuw nsw i8 %50, 32
+  %52 = select i1 %.not19.i, i8 96, i8 %51
+  %53 = getelementptr inbounds nuw i8, ptr %.02939, i64 3
+  store i8 %52, ptr %53, align 1, !tbaa !30
+  %54 = add i64 %.03038, -3
+  %55 = getelementptr inbounds nuw i8, ptr %.03137, i64 3
+  %56 = getelementptr inbounds nuw i8, ptr %.02939, i64 4
+  %57 = icmp ugt i64 %54, 2
+  br i1 %57, label %.lr.ph, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %.not = icmp eq i64 %53, 0
-  br i1 %.not, label %85, label %._crit_edge.thread
+  %.not = icmp eq i64 %54, 0
+  br i1 %.not, label %87, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %12, %._crit_edge
-  %.029.lcssa54 = phi ptr [ %55, %._crit_edge ], [ %19, %12 ]
-  %.030.lcssa53 = phi i64 [ %53, %._crit_edge ], [ %3, %12 ]
-  %.031.lcssa52 = phi ptr [ %54, %._crit_edge ], [ %2, %12 ]
-  %57 = load i8, ptr %.031.lcssa52, align 1, !tbaa !30
-  %58 = icmp eq i64 %.030.lcssa53, 1
-  br i1 %58, label %64, label %59
+  %.029.lcssa54 = phi ptr [ %56, %._crit_edge ], [ %19, %12 ]
+  %.030.lcssa53 = phi i64 [ %54, %._crit_edge ], [ %3, %12 ]
+  %.031.lcssa52 = phi ptr [ %55, %._crit_edge ], [ %2, %12 ]
+  %58 = load i8, ptr %.031.lcssa52, align 1, !tbaa !30
+  %59 = icmp eq i64 %.030.lcssa53, 1
+  br i1 %59, label %65, label %60
 
-59:                                               ; preds = %._crit_edge.thread
-  %60 = getelementptr inbounds nuw i8, ptr %.031.lcssa52, i64 1
-  %61 = load i8, ptr %60, align 1, !tbaa !30
-  %62 = zext i8 %61 to i32
-  %63 = shl nuw nsw i32 %62, 8
-  br label %64
+60:                                               ; preds = %._crit_edge.thread
+  %61 = getelementptr inbounds nuw i8, ptr %.031.lcssa52, i64 1
+  %62 = load i8, ptr %61, align 1, !tbaa !30
+  %63 = zext i8 %62 to i32
+  %64 = shl nuw nsw i32 %63, 8
+  br label %65
 
-64:                                               ; preds = %._crit_edge.thread, %59
-  %.sroa.4.0 = phi i32 [ %63, %59 ], [ 0, %._crit_edge.thread ]
-  %65 = zext i8 %57 to i32
-  %66 = shl nuw nsw i32 %65, 16
-  %67 = add nuw nsw i32 %.sroa.4.0, %66
-  %.not.i33 = icmp ult i8 %57, 4
-  %68 = lshr i8 %57, 2
-  %69 = add nuw nsw i8 %68, 32
-  %70 = select i1 %.not.i33, i8 96, i8 %69
-  store i8 %70, ptr %.029.lcssa54, align 1, !tbaa !30
-  %71 = lshr i32 %67, 12
-  %72 = and i32 %71, 63
-  %.not17.i34 = icmp eq i32 %72, 0
-  %73 = trunc nuw nsw i32 %72 to i8
-  %74 = add nuw nsw i8 %73, 32
-  %75 = select i1 %.not17.i34, i8 96, i8 %74
-  %76 = getelementptr inbounds nuw i8, ptr %.029.lcssa54, i64 1
-  store i8 %75, ptr %76, align 1, !tbaa !30
-  %77 = lshr exact i32 %.sroa.4.0, 6
-  %78 = and i32 %77, 60
-  %.not18.i35 = icmp eq i32 %78, 0
-  %79 = trunc nuw nsw i32 %78 to i8
-  %80 = add nuw nsw i8 %79, 32
-  %81 = select i1 %.not18.i35, i8 96, i8 %80
-  %82 = getelementptr inbounds nuw i8, ptr %.029.lcssa54, i64 2
-  store i8 %81, ptr %82, align 1, !tbaa !30
-  %83 = getelementptr inbounds nuw i8, ptr %.029.lcssa54, i64 3
-  store i8 96, ptr %83, align 1, !tbaa !30
-  %84 = getelementptr inbounds nuw i8, ptr %.029.lcssa54, i64 4
-  br label %85
+65:                                               ; preds = %._crit_edge.thread, %60
+  %.sroa.4.0 = phi i32 [ %64, %60 ], [ 0, %._crit_edge.thread ]
+  %66 = zext i8 %58 to i32
+  %67 = shl nuw nsw i32 %66, 16
+  %68 = add nuw nsw i32 %.sroa.4.0, %67
+  %69 = lshr i32 %66, 2
+  %.not.i33 = icmp eq i32 %69, 0
+  %70 = trunc nuw nsw i32 %69 to i8
+  %71 = add nuw nsw i8 %70, 32
+  %72 = select i1 %.not.i33, i8 96, i8 %71
+  store i8 %72, ptr %.029.lcssa54, align 1, !tbaa !30
+  %73 = lshr i32 %68, 12
+  %74 = and i32 %73, 63
+  %.not17.i34 = icmp eq i32 %74, 0
+  %75 = trunc nuw nsw i32 %74 to i8
+  %76 = add nuw nsw i8 %75, 32
+  %77 = select i1 %.not17.i34, i8 96, i8 %76
+  %78 = getelementptr inbounds nuw i8, ptr %.029.lcssa54, i64 1
+  store i8 %77, ptr %78, align 1, !tbaa !30
+  %79 = lshr exact i32 %.sroa.4.0, 6
+  %80 = and i32 %79, 60
+  %.not18.i35 = icmp eq i32 %80, 0
+  %81 = trunc nuw nsw i32 %80 to i8
+  %82 = add nuw nsw i8 %81, 32
+  %83 = select i1 %.not18.i35, i8 96, i8 %82
+  %84 = getelementptr inbounds nuw i8, ptr %.029.lcssa54, i64 2
+  store i8 %83, ptr %84, align 1, !tbaa !30
+  %85 = getelementptr inbounds nuw i8, ptr %.029.lcssa54, i64 3
+  store i8 96, ptr %85, align 1, !tbaa !30
+  %86 = getelementptr inbounds nuw i8, ptr %.029.lcssa54, i64 4
+  br label %87
 
-85:                                               ; preds = %64, %._crit_edge
-  %.1 = phi ptr [ %84, %64 ], [ %55, %._crit_edge ]
-  %86 = getelementptr inbounds nuw i8, ptr %.1, i64 1
+87:                                               ; preds = %65, %._crit_edge
+  %.1 = phi ptr [ %86, %65 ], [ %56, %._crit_edge ]
+  %88 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   store i8 10, ptr %.1, align 1, !tbaa !30
-  %87 = load ptr, ptr %5, align 8, !tbaa !39
-  %88 = ptrtoint ptr %86 to i64
-  %89 = ptrtoint ptr %87 to i64
-  %90 = sub i64 %88, %89
-  %91 = load i64, ptr %6, align 8, !tbaa !40
-  %92 = add i64 %91, 62
-  %93 = icmp sgt i64 %90, %92
-  br i1 %93, label %94, label %95
+  %89 = load ptr, ptr %5, align 8, !tbaa !39
+  %90 = ptrtoint ptr %88 to i64
+  %91 = ptrtoint ptr %89 to i64
+  %92 = sub i64 %90, %91
+  %93 = load i64, ptr %6, align 8, !tbaa !40
+  %94 = add i64 %93, 62
+  %95 = icmp sgt i64 %92, %94
+  br i1 %95, label %96, label %97
 
-94:                                               ; preds = %85
+96:                                               ; preds = %87
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.26) #8
-  br label %96
+  br label %98
 
-95:                                               ; preds = %85
-  store i64 %90, ptr %6, align 8, !tbaa !40
-  br label %96
+97:                                               ; preds = %87
+  store i64 %92, ptr %6, align 8, !tbaa !40
+  br label %98
 
-96:                                               ; preds = %95, %94, %11
-  %.0 = phi i32 [ -30, %11 ], [ -30, %94 ], [ 0, %95 ]
+98:                                               ; preds = %97, %96, %11
+  %.0 = phi i32 [ -30, %11 ], [ -30, %96 ], [ 0, %97 ]
   ret i32 %.0
 }
 

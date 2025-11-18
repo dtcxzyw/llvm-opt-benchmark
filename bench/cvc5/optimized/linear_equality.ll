@@ -7605,8 +7605,8 @@ define hidden void @_ZN4cvc58internal6theory5arith6linear20LinearEqualityModule2
   %20 = icmp eq i32 %.sroa.0.0.extract.trunc, 0
   %.sroa.0.4.extract.shift = lshr i64 %12, 32
   %.sroa.0.4.extract.trunc = trunc nuw i64 %.sroa.0.4.extract.shift to i32
-  %21 = icmp ult i64 %12, 4294967296
-  %22 = and i1 %21, %20
+  %21 = icmp eq i64 %.sroa.0.4.extract.shift, 0
+  %22 = and i1 %20, %21
   br i1 %22, label %_ZN4cvc58internal6theory5arith6linear11BoundCounts8addInSgnES4_ii.exit.i, label %23
 
 23:                                               ; preds = %5
@@ -7654,8 +7654,8 @@ _ZN4cvc58internal6theory5arith6linear11BoundCounts8addInSgnES4_ii.exit.i: ; pred
   %39 = icmp eq i32 %.sroa.6.8.extract.trunc, 0
   %.sroa.6.12.extract.shift = lshr i64 %13, 32
   %.sroa.6.12.extract.trunc = trunc nuw i64 %.sroa.6.12.extract.shift to i32
-  %40 = icmp ult i64 %13, 4294967296
-  %41 = and i1 %40, %39
+  %40 = icmp eq i64 %.sroa.6.12.extract.shift, 0
+  %41 = and i1 %39, %40
   br i1 %41, label %_ZN4cvc58internal6theory5arith6linear10BoundsInfo8addInSgnERKS4_ii.exit, label %42
 
 42:                                               ; preds = %_ZN4cvc58internal6theory5arith6linear11BoundCounts8addInSgnES4_ii.exit.i

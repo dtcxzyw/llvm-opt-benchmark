@@ -216,7 +216,7 @@ bytestream2_get_le32.exit:                        ; preds = %bytestream2_init.ex
   store i32 8, ptr %74, align 8, !tbaa !47
   %75 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i32 16, ptr %75, align 4, !tbaa !48
-  %76 = icmp ult i32 %.0.i174, 16777216
+  %76 = icmp eq i32 %57, 0
   br label %78
 
 77:                                               ; preds = %67

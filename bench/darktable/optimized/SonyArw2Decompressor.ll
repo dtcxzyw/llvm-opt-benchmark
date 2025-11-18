@@ -298,7 +298,7 @@ define hidden void @_ZNK8rawspeed20SonyArw2Decompressor13decompressRowEi(ptr nou
   %15 = ashr i32 %14, 1
   %16 = icmp sgt i32 %10, -1
   tail call void @llvm.assume(i1 %16)
-  %17 = icmp ugt i32 %14, 1
+  %17 = icmp ne i32 %15, 0
   tail call void @llvm.assume(i1 %17)
   %18 = icmp sgt i32 %15, -1
   tail call void @llvm.assume(i1 %18)

@@ -53276,7 +53276,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77: ; preds = %67,
   %.1.i = select i1 %.not19.i, double %.01621.i, double %121
   %122 = lshr i32 %.023.i, 1
   %123 = fmul double %.01522.i, %.01522.i
-  %.not.i = icmp samesign ult i32 %.023.i, 2
+  %.not.i = icmp eq i32 %122, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !696
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %117
@@ -64852,7 +64852,7 @@ _ZN12colvarmodule8vector1dIdED2Ev.exit159:        ; preds = %336, %_ZNSt6vectorI
   %.1.i = select i1 %.not19.i, double %.01621.i, double %420
   %421 = lshr i32 %.023.i, 1
   %422 = fmul double %.01522.i, %.01522.i
-  %.not.i = icmp samesign ult i32 %.023.i, 2
+  %.not.i = icmp eq i32 %421, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !696
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %416

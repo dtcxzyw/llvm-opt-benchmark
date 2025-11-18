@@ -400,12 +400,12 @@ define internal fastcc range(i32 0, 2) i32 @idct_row(ptr noundef captures(none) 
   br label %.critedge
 
 91:                                               ; preds = %43
-  %.not201 = icmp ugt i32 %47, 2047
-  br i1 %.not201, label %92, label %.critedge
+  %92 = ashr i32 %47, 11
+  %.not201.not = icmp eq i32 %92, 0
+  br i1 %.not201.not, label %.critedge, label %93
 
-92:                                               ; preds = %91
-  %93 = lshr i32 %47, 11
-  %94 = trunc i32 %93 to i16
+93:                                               ; preds = %91
+  %94 = trunc i32 %92 to i16
   store i16 %94, ptr %24, align 2, !tbaa !4
   store i16 %94, ptr %20, align 2, !tbaa !4
   store i16 %94, ptr %17, align 2, !tbaa !4
@@ -525,8 +525,8 @@ define internal fastcc range(i32 0, 2) i32 @idct_row(ptr noundef captures(none) 
   store i16 %171, ptr %24, align 2, !tbaa !4
   br label %.critedge
 
-.critedge:                                        ; preds = %48, %92, %110, %99, %91
-  %.3 = phi i32 [ 0, %91 ], [ 1, %99 ], [ 1, %110 ], [ 1, %92 ], [ 1, %48 ]
+.critedge:                                        ; preds = %48, %93, %110, %99, %91
+  %.3 = phi i32 [ 0, %91 ], [ 1, %99 ], [ 1, %110 ], [ 1, %93 ], [ 1, %48 ]
   ret i32 %.3
 }
 

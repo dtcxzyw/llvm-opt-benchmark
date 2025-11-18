@@ -167,19 +167,19 @@ define internal range(i32 -2147483648, 1) i32 @ra144_encode_frame(ptr noundef %0
   br i1 %58, label %.loopexit.thread, label %64
 
 .loopexit.thread:                                 ; preds = %.preheader195, %43, %.loopexit
-  %.1306 = phi i32 [ %56, %.loopexit ], [ %42, %43 ], [ %42, %.preheader195 ]
-  %.1105304 = phi i32 [ %57, %.loopexit ], [ 100, %43 ], [ 100, %.preheader195 ]
-  %59 = zext nneg i32 %.1105304 to i64
+  %.1305 = phi i32 [ %56, %.loopexit ], [ %42, %43 ], [ %42, %.preheader195 ]
+  %.1105303 = phi i32 [ %57, %.loopexit ], [ 100, %43 ], [ 100, %.preheader195 ]
+  %59 = zext nneg i32 %.1105303 to i64
   %60 = getelementptr inbounds nuw i32, ptr %18, i64 %59
-  %61 = shl i32 %.1105304, 2
+  %61 = shl i32 %.1105303, 2
   %62 = sub nsw i32 640, %61
   %63 = zext i32 %62 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %60, i8 0, i64 %63, i1 false)
   br label %64
 
 64:                                               ; preds = %.loopexit.thread, %.loopexit
-  %.1305 = phi i32 [ %.1306, %.loopexit.thread ], [ %56, %.loopexit ]
-  %65 = ashr i32 %.1305, 5
+  %.1304 = phi i32 [ %.1305, %.loopexit.thread ], [ %56, %.loopexit ]
+  %65 = ashr i32 %.1304, 5
   %66 = tail call i32 @ff_t_sqrt(i32 noundef %65) #9
   %67 = ashr i32 %66, 10
   %68 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ff_energy_tab, i64 30), align 2, !tbaa !41
@@ -288,7 +288,7 @@ quantize.exit:                                    ; preds = %.lr.ph.i
   %134 = load i16, ptr %133, align 2, !tbaa !41
   %135 = sext i16 %134 to i32
   %136 = sub nsw i32 %135, %124
-  %.not29.i = icmp ult i32 %130, 2
+  %.not29.i = icmp eq i32 %131, 0
   br i1 %.not29.i, label %quantize.exit120, label %.lr.ph.i114
 
 .lr.ph.i114:                                      ; preds = %122, %.lr.ph.i114

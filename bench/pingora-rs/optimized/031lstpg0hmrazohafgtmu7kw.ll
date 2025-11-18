@@ -5907,7 +5907,7 @@ define hidden void @"_ZN6brotli3enc11stride_eval23StrideEval$LT$Alloc$GT$3new17h
   %.sroa.9.1 = select i1 %or.cond5, i16 8192, i16 %.sroa.9.0
   %.sroa.0.1 = select i1 %or.cond5, i16 8, i16 %.sroa.0.0
   %21 = icmp eq i16 %.sroa.538.0.extract.trunc, 0
-  %22 = icmp ult i64 %15, 281474976710656
+  %22 = icmp eq i64 %.sroa.639.0.extract.shift, 0
   %or.cond8 = and i1 %22, %21
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %24 = load i16, ptr %23, align 4
@@ -7925,11 +7925,11 @@ define internal fastcc void @_ZN6brotli3enc19backward_references2hq12EvaluateNod
   br i1 %39, label %47, label %51
 
 40:                                               ; preds = %29
-  %41 = icmp ult i32 %24, 134217728
-  %42 = add i32 %27, 15
-  %43 = lshr i32 %24, 27
-  %44 = add nsw i32 %43, -1
-  %.sroa.02.0.i = select i1 %41, i32 %42, i32 %44
+  %41 = lshr i32 %24, 27
+  %42 = icmp eq i32 %41, 0
+  %43 = add i32 %27, 15
+  %44 = add nsw i32 %41, -1
+  %.sroa.02.0.i = select i1 %42, i32 %43, i32 %44
   %.not.i = icmp eq i32 %.sroa.02.0.i, 0
   br i1 %.not.i, label %36, label %45
 
@@ -8838,11 +8838,11 @@ _ZN6brotli3enc19backward_references2hq28ComputeShortestPathFromNodes17he660bafdb
   br i1 %173, label %181, label %.invoke.i
 
 174:                                              ; preds = %163
-  %175 = icmp ult i32 %158, 134217728
-  %176 = add i32 %161, 15
-  %177 = lshr i32 %158, 27
-  %178 = add nsw i32 %177, -1
-  %.sroa.02.0.i.i.i = select i1 %175, i32 %176, i32 %178
+  %175 = lshr i32 %158, 27
+  %176 = icmp eq i32 %175, 0
+  %177 = add i32 %161, 15
+  %178 = add nsw i32 %175, -1
+  %.sroa.02.0.i.i.i = select i1 %176, i32 %177, i32 %178
   %.not.i.i.i = icmp eq i32 %.sroa.02.0.i.i.i, 0
   br i1 %.not.i.i.i, label %170, label %179
 
@@ -9803,11 +9803,11 @@ _ZN6brotli3enc19backward_references2hq30ZopfliCostModelSetFromCommands17h5ede6fb
   br i1 %327, label %335, label %.invoke1022
 
 328:                                              ; preds = %309
-  %329 = icmp ult i32 %314, 134217728
-  %330 = add i32 %317, 15
-  %331 = lshr i32 %314, 27
-  %332 = add nsw i32 %331, -1
-  %.sroa.02.0.i.i.i = select i1 %329, i32 %330, i32 %332
+  %329 = lshr i32 %314, 27
+  %330 = icmp eq i32 %329, 0
+  %331 = add i32 %317, 15
+  %332 = add nsw i32 %329, -1
+  %.sroa.02.0.i.i.i = select i1 %330, i32 %331, i32 %332
   %.not.i.i.i = icmp eq i32 %.sroa.02.0.i.i.i, 0
   br i1 %.not.i.i.i, label %324, label %333
 

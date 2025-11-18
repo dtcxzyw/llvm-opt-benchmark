@@ -2841,7 +2841,7 @@ define internal fastcc i32 @decode_frame_header(ptr noundef %0, ptr noundef %1, 
   br i1 %.not906, label %.loopexit1431, label %.preheader1430
 
 .preheader1430:                                   ; preds = %554
-  %.not986 = icmp ult i32 %573, 536870912
+  %.not986 = icmp eq i32 %574, 0
   %580 = getelementptr inbounds nuw i8, ptr %6, i64 3392
   %581 = getelementptr inbounds nuw i8, ptr %6, i64 3456
   %582 = add nuw nsw i32 %574, 3
@@ -3215,7 +3215,7 @@ define internal fastcc i32 @decode_frame_header(ptr noundef %0, ptr noundef %1, 
   %836 = phi i8 [ %833, %810 ], [ 0, %796 ]
   %837 = getelementptr inbounds nuw i8, ptr %6, i64 43
   store i8 %836, ptr %837, align 1, !tbaa !212
-  %838 = icmp ult i32 %718, 16777216
+  %838 = icmp eq i32 %719, 0
   %839 = icmp eq i8 %760, 0
   %or.cond1370 = select i1 %838, i1 %839, i1 false
   %840 = icmp eq i8 %798, 0

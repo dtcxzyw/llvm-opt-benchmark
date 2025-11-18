@@ -242,7 +242,7 @@ define void @ff_big_mul(ptr noundef captures(none) %0, i8 noundef zeroext %1) lo
   br i1 %.not, label %34, label %25, !llvm.loop !14
 
 34:                                               ; preds = %25
-  %.not32 = icmp ult i16 %30, 256
+  %.not32 = icmp eq i16 %33, 0
   br i1 %.not32, label %42, label %35
 
 35:                                               ; preds = %34

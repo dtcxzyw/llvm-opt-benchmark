@@ -5967,7 +5967,7 @@ while.end:                                        ; preds = %if.end14, %if.end
   %ptr.addr.0.lcssa = phi ptr [ %ptr, %if.end ], [ %add.ptr17, %if.end14 ]
   %conv27 = ashr i32 %size.addr.0.lcssa, 2
   %mul30 = and i32 %size.addr.0.lcssa, -4
-  %cmp32 = icmp ult i32 %size.addr.0.lcssa, 4
+  %cmp32 = icmp eq i32 %conv27, 0
   br i1 %cmp32, label %if.then33, label %if.end35
 
 if.then33:                                        ; preds = %while.end
@@ -6180,7 +6180,7 @@ while.end:                                        ; preds = %if.end14, %if.end
   %ptr.addr.0.lcssa = phi ptr [ %ptr, %if.end ], [ %add.ptr17, %if.end14 ]
   %conv27 = ashr i32 %size.addr.0.lcssa, 2
   %mul30 = and i32 %size.addr.0.lcssa, -4
-  %cmp32 = icmp ult i32 %size.addr.0.lcssa, 4
+  %cmp32 = icmp eq i32 %conv27, 0
   br i1 %cmp32, label %if.then33, label %if.end35
 
 if.then33:                                        ; preds = %while.end
@@ -6382,7 +6382,7 @@ while.end:                                        ; preds = %if.end14, %if.end
   %ptr.addr.0.lcssa = phi ptr [ %ptr, %if.end ], [ %add.ptr17, %if.end14 ]
   %conv27 = ashr i32 %size.addr.0.lcssa, 3
   %mul30 = and i32 %size.addr.0.lcssa, -8
-  %cmp32 = icmp ult i32 %size.addr.0.lcssa, 8
+  %cmp32 = icmp eq i32 %conv27, 0
   br i1 %cmp32, label %if.then33, label %if.end35
 
 if.then33:                                        ; preds = %while.end
@@ -6584,7 +6584,7 @@ while.end:                                        ; preds = %if.end14, %if.end
   %ptr.addr.0.lcssa = phi ptr [ %ptr, %if.end ], [ %add.ptr17, %if.end14 ]
   %conv27 = ashr i32 %size.addr.0.lcssa, 3
   %mul30 = and i32 %size.addr.0.lcssa, -8
-  %cmp32 = icmp ult i32 %size.addr.0.lcssa, 8
+  %cmp32 = icmp eq i32 %conv27, 0
   br i1 %cmp32, label %if.then33, label %if.end35
 
 if.then33:                                        ; preds = %while.end
@@ -6786,7 +6786,7 @@ while.end:                                        ; preds = %if.end14, %if.end
   %ptr.addr.0.lcssa = phi ptr [ %ptr, %if.end ], [ %add.ptr17, %if.end14 ]
   %conv27 = ashr i32 %size.addr.0.lcssa, 2
   %mul30 = and i32 %size.addr.0.lcssa, -4
-  %cmp32 = icmp ult i32 %size.addr.0.lcssa, 4
+  %cmp32 = icmp eq i32 %conv27, 0
   br i1 %cmp32, label %if.then33, label %if.end35
 
 if.then33:                                        ; preds = %while.end
@@ -7133,7 +7133,7 @@ while.end:                                        ; preds = %if.end14, %if.end
   %ptr.addr.0.lcssa = phi ptr [ %ptr, %if.end ], [ %add.ptr17, %if.end14 ]
   %conv27 = ashr i32 %size.addr.0.lcssa, 3
   %mul30 = and i32 %size.addr.0.lcssa, -8
-  %cmp32 = icmp ult i32 %size.addr.0.lcssa, 8
+  %cmp32 = icmp eq i32 %conv27, 0
   br i1 %cmp32, label %if.then33, label %if.end35
 
 if.then33:                                        ; preds = %while.end

@@ -1715,7 +1715,7 @@ _ZN4llvm17MCRegUnitIteratorppEv.exit.i.i.i.i:     ; preds = %36, %_ZN4llvm17MCRe
   %42 = phi ptr [ %62, %59 ], [ %.sroa.694.0191, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i.i.i.i ]
   %43 = phi i32 [ %61, %59 ], [ %.sroa.8.0192, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i.i.i.i ]
   %44 = lshr i64 %.050.i.i, 1
-  %.not1.i.i.i.i = icmp eq i64 %.050.i.i, 1
+  %.not1.i.i.i.i = icmp eq i64 %44, 0
   br i1 %.not1.i.i.i.i, label %_ZSt7advanceIN4llvm17MCRegUnitIteratorElEvRT_T0_.exit.i.i, label %_ZN4llvm17MCRegUnitIteratorppEv.exit.i.i6.i.i
 
 _ZN4llvm17MCRegUnitIteratorppEv.exit.i.i6.i.i:    ; preds = %.lr.ph.i.i, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i.i6.i.i

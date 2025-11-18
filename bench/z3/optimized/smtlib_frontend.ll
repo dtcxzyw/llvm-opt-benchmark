@@ -3101,7 +3101,7 @@ _ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_.exit.i32.i: ; preds = %_ZNSt7__cxx1
   %219 = load ptr, ptr %195, align 8, !tbaa !13
   %220 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i12.i
   store ptr %219, ptr %220, align 8, !tbaa !13
-  %.not1.i.i35.i = icmp ult i64 %.04.in.i.i.i.i13.i, 2
+  %.not1.i.i35.i = icmp eq i64 %.048.i.i.i.i14.i, 0
   br i1 %.not1.i.i35.i, label %_ZSt10__pop_heapIPP10tactic_cmdN9__gnu_cxx5__ops15_Iter_comp_iterIZ12help_tacticsvE3cmpEEEvT_S8_S8_RT0_.exit.i33.i, label %.lr.ph.i.i.i.i11.i, !llvm.loop !252
 
 _ZSt10__pop_heapIPP10tactic_cmdN9__gnu_cxx5__ops15_Iter_comp_iterIZ12help_tacticsvE3cmpEEEvT_S8_S8_RT0_.exit.i33.i: ; preds = %218, %_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_.exit.i32.i, %194
@@ -4263,7 +4263,7 @@ _ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_.exit.i32.i: ; preds = %_ZNS
   %219 = load ptr, ptr %195, align 8, !tbaa !43
   %220 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i12.i
   store ptr %219, ptr %220, align 8, !tbaa !43
-  %.not1.i.i35.i = icmp ult i64 %.04.in.i.i.i.i13.i, 2
+  %.not1.i.i35.i = icmp eq i64 %.048.i.i.i.i14.i, 0
   br i1 %.not1.i.i35.i, label %_ZSt10__pop_heapIPP14simplifier_cmdN9__gnu_cxx5__ops15_Iter_comp_iterIZ16help_simplifiersvE3cmpEEEvT_S8_S8_RT0_.exit.i33.i, label %.lr.ph.i.i.i.i11.i, !llvm.loop !261
 
 _ZSt10__pop_heapIPP14simplifier_cmdN9__gnu_cxx5__ops15_Iter_comp_iterIZ16help_simplifiersvE3cmpEEEvT_S8_S8_RT0_.exit.i33.i: ; preds = %218, %_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_.exit.i32.i, %194
@@ -5950,7 +5950,7 @@ _ZZ11help_probesvENK3cmpclEP10probe_infoS1_.exit.i32.i: ; preds = %_ZNSt7__cxx11
   %219 = load ptr, ptr %195, align 8, !tbaa !224
   %220 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i12.i
   store ptr %219, ptr %220, align 8, !tbaa !224
-  %.not1.i.i35.i = icmp ult i64 %.04.in.i.i.i.i13.i, 2
+  %.not1.i.i35.i = icmp eq i64 %.048.i.i.i.i14.i, 0
   br i1 %.not1.i.i35.i, label %_ZSt10__pop_heapIPP10probe_infoN9__gnu_cxx5__ops15_Iter_comp_iterIZ11help_probesvE3cmpEEEvT_S8_S8_RT0_.exit.i33.i, label %.lr.ph.i.i.i.i11.i, !llvm.loop !272
 
 _ZSt10__pop_heapIPP10probe_infoN9__gnu_cxx5__ops15_Iter_comp_iterIZ11help_probesvE3cmpEEEvT_S8_S8_RT0_.exit.i33.i: ; preds = %218, %_ZZ11help_probesvENK3cmpclEP10probe_infoS1_.exit.i32.i, %194

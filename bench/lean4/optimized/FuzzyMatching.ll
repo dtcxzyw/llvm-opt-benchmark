@@ -4665,7 +4665,7 @@ define ptr @l___private_Lean_Data_FuzzyMatching_0__Lean_FuzzyMatching_fuzzyMatch
 
 7:                                                ; preds = %3
   %8 = lshr i64 %5, 1
-  %9 = icmp ult ptr %1, inttoptr (i64 2 to ptr)
+  %9 = icmp eq i64 %8, 0
   br i1 %9, label %lean_dec.exit29, label %10
 
 10:                                               ; preds = %7
@@ -4705,7 +4705,7 @@ lean_dec.exit29:                                  ; preds = %.critedge.i20, %18,
 
 26:                                               ; preds = %lean_dec.exit29
   %27 = lshr i64 %24, 1
-  %28 = icmp ult ptr %.2.i21, inttoptr (i64 2 to ptr)
+  %28 = icmp eq i64 %27, 0
   br i1 %28, label %lean_dec.exit28, label %29
 
 29:                                               ; preds = %26
@@ -4751,7 +4751,7 @@ lean_dec.exit28:                                  ; preds = %35, %31, %26, %44, 
 
 47:                                               ; preds = %lean_dec.exit28
   %48 = lshr i64 %45, 1
-  %49 = icmp ult ptr %2, inttoptr (i64 2 to ptr)
+  %49 = icmp eq i64 %48, 0
   br i1 %49, label %lean_nat_mul.exit, label %50
 
 50:                                               ; preds = %47
@@ -4946,7 +4946,7 @@ define ptr @l___private_Lean_Data_FuzzyMatching_0__Lean_FuzzyMatching_fuzzyMatch
 
 7:                                                ; preds = %3
   %8 = lshr i64 %5, 1
-  %9 = icmp ult ptr %1, inttoptr (i64 2 to ptr)
+  %9 = icmp eq i64 %8, 0
   br i1 %9, label %lean_dec.exit9, label %10
 
 10:                                               ; preds = %7
@@ -15530,7 +15530,7 @@ lean_nat_mul.exit172:                             ; preds = %4, %19, %23
 
 27:                                               ; preds = %lean_nat_mul.exit172
   %28 = lshr i64 %25, 1
-  %29 = icmp ult ptr %.2.i168, inttoptr (i64 2 to ptr)
+  %29 = icmp eq i64 %28, 0
   br i1 %29, label %lean_inc.exit204, label %30
 
 30:                                               ; preds = %27

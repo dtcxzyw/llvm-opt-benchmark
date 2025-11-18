@@ -10744,19 +10744,19 @@ define void @_ZN7channel13channel_store7Channel4slug17hc718b66b7e13db09E(ptr dea
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !2242
   %12 = add i64 %2, 3
-  %.not.i = icmp ult i64 %12, 4
-  br i1 %.not.i, label %.noexc3.i, label %13
+  %13 = lshr i64 %12, 2
+  %.not.i = icmp eq i64 %13, 0
+  br i1 %.not.i, label %.noexc3.i, label %14
 
-.noexc3.i:                                        ; preds = %13, %3
+.noexc3.i:                                        ; preds = %14, %3
   invoke void @_ZN4core4iter6traits8iterator8Iterator4fold17h07f64e720b9dfda3E.llvm.13602880533186600580(ptr noundef nonnull %1, ptr noundef nonnull %11, ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
           to label %"_ZN95_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..FromIterator$LT$char$GT$$GT$9from_iter17had55e98477246246E.exit" unwind label %15, !noalias !2242
 
-13:                                               ; preds = %3
-  %14 = lshr i64 %12, 2
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h182576336e603f0eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef 0, i64 noundef %14)
+14:                                               ; preds = %3
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h182576336e603f0eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef 0, i64 noundef %13)
           to label %.noexc3.i unwind label %15, !noalias !2242
 
-15:                                               ; preds = %13, %.noexc3.i
+15:                                               ; preds = %14, %.noexc3.i
   %16 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbc883d05c5e4baedE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #49

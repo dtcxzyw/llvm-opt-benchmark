@@ -6035,9 +6035,9 @@ define hidden noundef i64 @_ZN5gimli5write6writer6Writer13write_uleb12817h2498b9
   %12 = trunc i64 %.0.i to i8
   %13 = and i8 %12, 127
   %14 = lshr i64 %.0.i, 7
-  %15 = icmp ult i64 %.0.i, 128
+  %15 = icmp eq i64 %14, 0
   %masksel.i = select i1 %15, i8 0, i8 -128
-  %spec.select.i = or disjoint i8 %13, %masksel.i
+  %spec.select.i = or disjoint i8 %masksel.i, %13
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   store i8 %spec.select.i, ptr %.sroa.0.i, align 1, !noalias !1570
   %16 = call noundef i64 @_ZN4core3cmp6min_by17h0b18ebffc918ceaaE.llvm.14258815958238736712(i64 noundef 1, i64 noundef %11), !noalias !1574

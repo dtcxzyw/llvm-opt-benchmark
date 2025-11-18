@@ -15700,7 +15700,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %27, %2
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i: ; preds = %31
   store ptr %39, ptr %35, align 8, !tbaa !282, !noalias !305
-  %.not.i.i.i.i.i.i.i.i.i = icmp ult i64 %36, 64
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %37, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit12.i.i.i.i.i.i.i.i.i: ; preds = %31
@@ -15860,7 +15860,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 13:                                               ; preds = %6
   %14 = add i64 %3, 63
   %15 = lshr i64 %14, 6
-  %.not154 = icmp ult i64 %14, 64
+  %.not154 = icmp eq i64 %15, 0
   br i1 %.not154, label %.loopexit, label %.lr.ph151
 
 .lr.ph151:                                        ; preds = %13
@@ -16388,7 +16388,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 12:                                               ; preds = %6
   %13 = add i64 %3, 63
   %14 = lshr i64 %13, 6
-  %.not155 = icmp ult i64 %13, 64
+  %.not155 = icmp eq i64 %14, 0
   br i1 %.not155, label %.loopexit, label %.lr.ph152
 
 .lr.ph152:                                        ; preds = %12
@@ -16785,7 +16785,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 12:                                               ; preds = %6
   %13 = add i64 %3, 63
   %14 = lshr i64 %13, 6
-  %.not163 = icmp ult i64 %13, 64
+  %.not163 = icmp eq i64 %14, 0
   br i1 %.not163, label %.loopexit, label %.lr.ph160
 
 .lr.ph160:                                        ; preds = %12
@@ -18079,7 +18079,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 13:                                               ; preds = %6
   %14 = add i64 %3, 63
   %15 = lshr i64 %14, 6
-  %.not154 = icmp ult i64 %14, 64
+  %.not154 = icmp eq i64 %15, 0
   br i1 %.not154, label %.loopexit, label %.lr.ph151
 
 .lr.ph151:                                        ; preds = %13
@@ -18472,7 +18472,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 12:                                               ; preds = %6
   %13 = add i64 %3, 63
   %14 = lshr i64 %13, 6
-  %.not155 = icmp ult i64 %13, 64
+  %.not155 = icmp eq i64 %14, 0
   br i1 %.not155, label %.loopexit, label %.lr.ph152
 
 .lr.ph152:                                        ; preds = %12
@@ -18867,7 +18867,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 12:                                               ; preds = %6
   %13 = add i64 %3, 63
   %14 = lshr i64 %13, 6
-  %.not163 = icmp ult i64 %13, 64
+  %.not163 = icmp eq i64 %14, 0
   br i1 %.not163, label %.loopexit, label %.lr.ph160
 
 .lr.ph160:                                        ; preds = %12
@@ -20161,7 +20161,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 13:                                               ; preds = %6
   %14 = add i64 %3, 63
   %15 = lshr i64 %14, 6
-  %.not154 = icmp ult i64 %14, 64
+  %.not154 = icmp eq i64 %15, 0
   br i1 %.not154, label %.loopexit, label %.lr.ph151
 
 .lr.ph151:                                        ; preds = %13
@@ -20554,7 +20554,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 12:                                               ; preds = %6
   %13 = add i64 %3, 63
   %14 = lshr i64 %13, 6
-  %.not155 = icmp ult i64 %13, 64
+  %.not155 = icmp eq i64 %14, 0
   br i1 %.not155, label %.loopexit, label %.lr.ph152
 
 .lr.ph152:                                        ; preds = %12
@@ -20949,7 +20949,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 12:                                               ; preds = %6
   %13 = add i64 %3, 63
   %14 = lshr i64 %13, 6
-  %.not163 = icmp ult i64 %13, 64
+  %.not163 = icmp eq i64 %14, 0
   br i1 %.not163, label %.loopexit, label %.lr.ph160
 
 .lr.ph160:                                        ; preds = %12
@@ -22243,7 +22243,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 13:                                               ; preds = %6
   %14 = add i64 %3, 63
   %15 = lshr i64 %14, 6
-  %.not154 = icmp ult i64 %14, 64
+  %.not154 = icmp eq i64 %15, 0
   br i1 %.not154, label %.loopexit, label %.lr.ph151
 
 .lr.ph151:                                        ; preds = %13
@@ -22636,7 +22636,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 12:                                               ; preds = %6
   %13 = add i64 %3, 63
   %14 = lshr i64 %13, 6
-  %.not155 = icmp ult i64 %13, 64
+  %.not155 = icmp eq i64 %14, 0
   br i1 %.not155, label %.loopexit, label %.lr.ph152
 
 .lr.ph152:                                        ; preds = %12
@@ -23031,7 +23031,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 12:                                               ; preds = %6
   %13 = add i64 %3, 63
   %14 = lshr i64 %13, 6
-  %.not163 = icmp ult i64 %13, 64
+  %.not163 = icmp eq i64 %14, 0
   br i1 %.not163, label %.loopexit, label %.lr.ph160
 
 .lr.ph160:                                        ; preds = %12
@@ -24356,7 +24356,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 19:                                               ; preds = %6
   %20 = add i64 %3, 63
   %21 = lshr i64 %20, 6
-  %.not89 = icmp ult i64 %20, 64
+  %.not89 = icmp eq i64 %21, 0
   br i1 %.not89, label %.loopexit, label %.lr.ph86
 
 .lr.ph86:                                         ; preds = %19
@@ -24527,7 +24527,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 19:                                               ; preds = %6
   %20 = add i64 %3, 63
   %21 = lshr i64 %20, 6
-  %.not89 = icmp ult i64 %20, 64
+  %.not89 = icmp eq i64 %21, 0
   br i1 %.not89, label %.loopexit, label %.lr.ph86
 
 .lr.ph86:                                         ; preds = %19
@@ -24695,7 +24695,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 19:                                               ; preds = %6
   %20 = add i64 %3, 63
   %21 = lshr i64 %20, 6
-  %.not98 = icmp ult i64 %20, 64
+  %.not98 = icmp eq i64 %21, 0
   br i1 %.not98, label %.loopexit, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %19
@@ -25777,7 +25777,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 13:                                               ; preds = %6
   %14 = add i64 %3, 63
   %15 = lshr i64 %14, 6
-  %.not154 = icmp ult i64 %14, 64
+  %.not154 = icmp eq i64 %15, 0
   br i1 %.not154, label %.loopexit, label %.lr.ph151
 
 .lr.ph151:                                        ; preds = %13
@@ -26170,7 +26170,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 12:                                               ; preds = %6
   %13 = add i64 %3, 63
   %14 = lshr i64 %13, 6
-  %.not155 = icmp ult i64 %13, 64
+  %.not155 = icmp eq i64 %14, 0
   br i1 %.not155, label %.loopexit, label %.lr.ph152
 
 .lr.ph152:                                        ; preds = %12
@@ -26565,7 +26565,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 12:                                               ; preds = %6
   %13 = add i64 %3, 63
   %14 = lshr i64 %13, 6
-  %.not163 = icmp ult i64 %13, 64
+  %.not163 = icmp eq i64 %14, 0
   br i1 %.not163, label %.loopexit, label %.lr.ph160
 
 .lr.ph160:                                        ; preds = %12
@@ -27859,7 +27859,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 13:                                               ; preds = %6
   %14 = add i64 %3, 63
   %15 = lshr i64 %14, 6
-  %.not154 = icmp ult i64 %14, 64
+  %.not154 = icmp eq i64 %15, 0
   br i1 %.not154, label %.loopexit, label %.lr.ph151
 
 .lr.ph151:                                        ; preds = %13
@@ -28252,7 +28252,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 12:                                               ; preds = %6
   %13 = add i64 %3, 63
   %14 = lshr i64 %13, 6
-  %.not155 = icmp ult i64 %13, 64
+  %.not155 = icmp eq i64 %14, 0
   br i1 %.not155, label %.loopexit, label %.lr.ph152
 
 .lr.ph152:                                        ; preds = %12
@@ -28647,7 +28647,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 12:                                               ; preds = %6
   %13 = add i64 %3, 63
   %14 = lshr i64 %13, 6
-  %.not163 = icmp ult i64 %13, 64
+  %.not163 = icmp eq i64 %14, 0
   br i1 %.not163, label %.loopexit, label %.lr.ph160
 
 .lr.ph160:                                        ; preds = %12
@@ -29941,7 +29941,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 13:                                               ; preds = %6
   %14 = add i64 %3, 63
   %15 = lshr i64 %14, 6
-  %.not154 = icmp ult i64 %14, 64
+  %.not154 = icmp eq i64 %15, 0
   br i1 %.not154, label %.loopexit, label %.lr.ph151
 
 .lr.ph151:                                        ; preds = %13
@@ -30334,7 +30334,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 12:                                               ; preds = %6
   %13 = add i64 %3, 63
   %14 = lshr i64 %13, 6
-  %.not155 = icmp ult i64 %13, 64
+  %.not155 = icmp eq i64 %14, 0
   br i1 %.not155, label %.loopexit, label %.lr.ph152
 
 .lr.ph152:                                        ; preds = %12
@@ -30729,7 +30729,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 12:                                               ; preds = %6
   %13 = add i64 %3, 63
   %14 = lshr i64 %13, 6
-  %.not163 = icmp ult i64 %13, 64
+  %.not163 = icmp eq i64 %14, 0
   br i1 %.not163, label %.loopexit, label %.lr.ph160
 
 .lr.ph160:                                        ; preds = %12
@@ -32023,7 +32023,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 13:                                               ; preds = %6
   %14 = add i64 %3, 63
   %15 = lshr i64 %14, 6
-  %.not154 = icmp ult i64 %14, 64
+  %.not154 = icmp eq i64 %15, 0
   br i1 %.not154, label %.loopexit, label %.lr.ph151
 
 .lr.ph151:                                        ; preds = %13
@@ -32416,7 +32416,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 12:                                               ; preds = %6
   %13 = add i64 %3, 63
   %14 = lshr i64 %13, 6
-  %.not155 = icmp ult i64 %13, 64
+  %.not155 = icmp eq i64 %14, 0
   br i1 %.not155, label %.loopexit, label %.lr.ph152
 
 .lr.ph152:                                        ; preds = %12
@@ -32811,7 +32811,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 12:                                               ; preds = %6
   %13 = add i64 %3, 63
   %14 = lshr i64 %13, 6
-  %.not163 = icmp ult i64 %13, 64
+  %.not163 = icmp eq i64 %14, 0
   br i1 %.not163, label %.loopexit, label %.lr.ph160
 
 .lr.ph160:                                        ; preds = %12
@@ -34180,7 +34180,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 15:                                               ; preds = %6
   %16 = add i64 %3, 63
   %17 = lshr i64 %16, 6
-  %.not131 = icmp ult i64 %16, 64
+  %.not131 = icmp eq i64 %17, 0
   br i1 %.not131, label %.loopexit, label %.lr.ph128
 
 .lr.ph128:                                        ; preds = %15
@@ -34546,7 +34546,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 15:                                               ; preds = %6
   %16 = add i64 %3, 63
   %17 = lshr i64 %16, 6
-  %.not131 = icmp ult i64 %16, 64
+  %.not131 = icmp eq i64 %17, 0
   br i1 %.not131, label %.loopexit, label %.lr.ph128
 
 .lr.ph128:                                        ; preds = %15
@@ -34919,7 +34919,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 15:                                               ; preds = %6
   %16 = add i64 %3, 63
   %17 = lshr i64 %16, 6
-  %.not140 = icmp ult i64 %16, 64
+  %.not140 = icmp eq i64 %17, 0
   br i1 %.not140, label %.loopexit, label %.lr.ph137
 
 .lr.ph137:                                        ; preds = %15
@@ -36268,7 +36268,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 15:                                               ; preds = %6
   %16 = add i64 %3, 63
   %17 = lshr i64 %16, 6
-  %.not122 = icmp ult i64 %16, 64
+  %.not122 = icmp eq i64 %17, 0
   br i1 %.not122, label %.loopexit, label %.lr.ph119
 
 .lr.ph119:                                        ; preds = %15
@@ -36625,7 +36625,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 14:                                               ; preds = %6
   %15 = add i64 %3, 63
   %16 = lshr i64 %15, 6
-  %.not122 = icmp ult i64 %15, 64
+  %.not122 = icmp eq i64 %16, 0
   br i1 %.not122, label %.loopexit, label %.lr.ph119
 
 .lr.ph119:                                        ; preds = %14
@@ -36983,7 +36983,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 14:                                               ; preds = %6
   %15 = add i64 %3, 63
   %16 = lshr i64 %15, 6
-  %.not131 = icmp ult i64 %15, 64
+  %.not131 = icmp eq i64 %16, 0
   br i1 %.not131, label %.loopexit, label %.lr.ph128
 
 .lr.ph128:                                        ; preds = %14
@@ -38307,7 +38307,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 15:                                               ; preds = %6
   %16 = add i64 %3, 63
   %17 = lshr i64 %16, 6
-  %.not122 = icmp ult i64 %16, 64
+  %.not122 = icmp eq i64 %17, 0
   br i1 %.not122, label %.loopexit, label %.lr.ph119
 
 .lr.ph119:                                        ; preds = %15
@@ -38664,7 +38664,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 14:                                               ; preds = %6
   %15 = add i64 %3, 63
   %16 = lshr i64 %15, 6
-  %.not122 = icmp ult i64 %15, 64
+  %.not122 = icmp eq i64 %16, 0
   br i1 %.not122, label %.loopexit, label %.lr.ph119
 
 .lr.ph119:                                        ; preds = %14
@@ -39022,7 +39022,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 14:                                               ; preds = %6
   %15 = add i64 %3, 63
   %16 = lshr i64 %15, 6
-  %.not131 = icmp ult i64 %15, 64
+  %.not131 = icmp eq i64 %16, 0
   br i1 %.not131, label %.loopexit, label %.lr.ph128
 
 .lr.ph128:                                        ; preds = %14
@@ -40364,7 +40364,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 19:                                               ; preds = %6
   %20 = add i64 %3, 63
   %21 = lshr i64 %20, 6
-  %.not89 = icmp ult i64 %20, 64
+  %.not89 = icmp eq i64 %21, 0
   br i1 %.not89, label %.loopexit, label %.lr.ph86
 
 .lr.ph86:                                         ; preds = %19
@@ -40535,7 +40535,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 19:                                               ; preds = %6
   %20 = add i64 %3, 63
   %21 = lshr i64 %20, 6
-  %.not89 = icmp ult i64 %20, 64
+  %.not89 = icmp eq i64 %21, 0
   br i1 %.not89, label %.loopexit, label %.lr.ph86
 
 .lr.ph86:                                         ; preds = %19
@@ -40703,7 +40703,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 19:                                               ; preds = %6
   %20 = add i64 %3, 63
   %21 = lshr i64 %20, 6
-  %.not98 = icmp ult i64 %20, 64
+  %.not98 = icmp eq i64 %21, 0
   br i1 %.not98, label %.loopexit, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %19
@@ -41786,7 +41786,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 13:                                               ; preds = %6
   %14 = add i64 %3, 63
   %15 = lshr i64 %14, 6
-  %.not150 = icmp ult i64 %14, 64
+  %.not150 = icmp eq i64 %15, 0
   br i1 %.not150, label %.loopexit, label %.lr.ph147
 
 .lr.ph147:                                        ; preds = %13
@@ -42276,7 +42276,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 13:                                               ; preds = %6
   %14 = add i64 %3, 63
   %15 = lshr i64 %14, 6
-  %.not152 = icmp ult i64 %14, 64
+  %.not152 = icmp eq i64 %15, 0
   br i1 %.not152, label %.loopexit, label %.lr.ph149
 
 .lr.ph149:                                        ; preds = %13
@@ -42771,7 +42771,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_
 13:                                               ; preds = %6
   %14 = add i64 %3, 63
   %15 = lshr i64 %14, 6
-  %.not159 = icmp ult i64 %14, 64
+  %.not159 = icmp eq i64 %15, 0
   br i1 %.not159, label %.loopexit, label %.lr.ph156
 
 .lr.ph156:                                        ; preds = %13
@@ -44057,14 +44057,14 @@ define linkonce_odr void @_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEE
   %7 = load i64, ptr %1, align 8, !tbaa !106, !noalias !593
   store ptr null, ptr %6, align 8, !tbaa !310, !noalias !593
   %8 = add i64 %7, 63
-  %9 = lshr i64 %8, 3
-  %10 = and i64 %9, 2305843009213693944
+  %9 = lshr i64 %8, 6
+  %10 = shl nuw nsw i64 %9, 3
   %11 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %10) #26
           to label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i unwind label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit10.i.i.i.i.i.i.i.i.i, !noalias !593
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i: ; preds = %2
   store ptr %11, ptr %6, align 8, !tbaa !282, !noalias !593
-  %.not.i.i.i.i.i.i.i.i.i = icmp ult i64 %8, 64
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %9, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %13, label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i

@@ -4045,7 +4045,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 145:                                              ; preds = %128
   %146 = getelementptr inbounds ptr, ptr %0, i64 %.010.i.i.i
   store ptr %.val2.i.i.i.i, ptr %146, align 8
-  %.not11.i = icmp ult i64 %.0911.in.i.i.i, 2
+  %.not11.i = icmp eq i64 %.0911.i.i910.i, 0
   br i1 %.not11.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_RT0_.exit", label %128, !llvm.loop !46
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_RT0_.exit": ; preds = %128, %145, %126

@@ -92,6 +92,7 @@ define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_03pvt13gpu_attributeENS0_17basi
   %.sroa.3.0.extract.trunc = trunc i64 %.sroa.3.0.extract.shift to i8
   %.sroa.5.0.extract.shift = lshr i64 %1, 16
   %.sroa.5.0.extract.trunc = trunc i64 %.sroa.5.0.extract.shift to i8
+  %.sroa.738.0.extract.shift = lshr i64 %1, 32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !9
   %10 = icmp eq i64 %9, 10
@@ -109,7 +110,7 @@ _ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit:
   %or.cond = select i1 %12, i1 %13, i1 false
   %14 = icmp eq i8 %.sroa.5.0.extract.trunc, 0
   %or.cond44 = select i1 %or.cond, i1 %14, i1 false
-  %15 = icmp ult i64 %1, 4294967296
+  %15 = icmp eq i64 %.sroa.738.0.extract.shift, 0
   %or.cond45 = select i1 %or.cond44, i1 %15, i1 false
   br i1 %or.cond45, label %16, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i20
 
@@ -196,7 +197,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i20: ; preds = %_ZN11OpenImageIO6v3
   %or.cond48 = select i1 %or.cond46, i1 %40, i1 false
   %.old50 = icmp eq i8 %.sroa.5.0.extract.trunc, 0
   %or.cond52 = select i1 %or.cond48, i1 %.old50, i1 false
-  %41 = icmp ult i64 %1, 4294967296
+  %41 = icmp eq i64 %.sroa.738.0.extract.shift, 0
   %or.cond54 = select i1 %or.cond52, i1 %41, i1 false
   br i1 %or.cond54, label %42, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit24.thread
 
@@ -245,6 +246,7 @@ define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_03pvt16gpu_getattributeENS0_17b
   %.sroa.9.0.extract.trunc = trunc i64 %.sroa.9.0.extract.shift to i8
   %.sroa.17.0.extract.shift = lshr i64 %1, 16
   %.sroa.17.0.extract.trunc = trunc i64 %.sroa.17.0.extract.shift to i8
+  %.sroa.25105.0.extract.shift = lshr i64 %1, 32
   %4 = load ptr, ptr %0, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !9
@@ -265,7 +267,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %3
   %or.cond114 = select i1 %or.cond, i1 %8, i1 false
   %.old116 = icmp eq i8 %.sroa.17.0.extract.trunc, 0
   %or.cond118 = select i1 %or.cond114, i1 %.old116, i1 false
-  %9 = icmp ult i64 %1, 4294967296
+  %9 = icmp eq i64 %.sroa.25105.0.extract.shift, 0
   %or.cond120 = select i1 %or.cond118, i1 %9, i1 false
   br i1 %or.cond120, label %10, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit49.thread
 
@@ -284,7 +286,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i9:  ; preds = %3
   %or.cond125 = select i1 %or.cond123, i1 %13, i1 false
   %.old127 = icmp eq i8 %.sroa.17.0.extract.trunc, 0
   %or.cond129 = select i1 %or.cond125, i1 %.old127, i1 false
-  %14 = icmp ult i64 %1, 4294967296
+  %14 = icmp eq i64 %.sroa.25105.0.extract.shift, 0
   %or.cond131 = select i1 %or.cond129, i1 %14, i1 false
   br i1 %or.cond131, label %15, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i27
 
@@ -301,7 +303,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i15: ; preds = %3
   %or.cond136 = select i1 %or.cond134, i1 %17, i1 false
   %.old138 = icmp eq i8 %.sroa.17.0.extract.trunc, 0
   %or.cond140 = select i1 %or.cond136, i1 %.old138, i1 false
-  %18 = icmp ult i64 %1, 4294967296
+  %18 = icmp eq i64 %.sroa.25105.0.extract.shift, 0
   %or.cond142 = select i1 %or.cond140, i1 %18, i1 false
   br i1 %or.cond142, label %19, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit49.thread
 
@@ -319,7 +321,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i21: ; preds = %3
   %or.cond147 = select i1 %or.cond145, i1 %22, i1 false
   %.old149 = icmp eq i8 %.sroa.17.0.extract.trunc, 0
   %or.cond151 = select i1 %or.cond147, i1 %.old149, i1 false
-  %23 = icmp ult i64 %1, 4294967296
+  %23 = icmp eq i64 %.sroa.25105.0.extract.shift, 0
   %or.cond153 = select i1 %or.cond151, i1 %23, i1 false
   br i1 %or.cond153, label %24, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i33
 
@@ -337,7 +339,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i27: ; preds = %_ZNSt11char_traitsI
   %or.cond158 = select i1 %or.cond156, i1 %27, i1 false
   %.old160 = icmp eq i8 %.sroa.17.0.extract.trunc, 0
   %or.cond162 = select i1 %or.cond158, i1 %.old160, i1 false
-  %28 = icmp ult i64 %1, 4294967296
+  %28 = icmp eq i64 %.sroa.25105.0.extract.shift, 0
   %or.cond164 = select i1 %or.cond162, i1 %28, i1 false
   br i1 %or.cond164, label %29, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i45
 
@@ -355,7 +357,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i33: ; preds = %_ZNSt11char_traitsI
   %or.cond169 = select i1 %or.cond167, i1 %32, i1 false
   %.old171 = icmp eq i8 %.sroa.17.0.extract.trunc, 0
   %or.cond173 = select i1 %or.cond169, i1 %.old171, i1 false
-  %33 = icmp ult i64 %1, 4294967296
+  %33 = icmp eq i64 %.sroa.25105.0.extract.shift, 0
   %or.cond175 = select i1 %or.cond173, i1 %33, i1 false
   br i1 %or.cond175, label %34, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit49.thread
 
@@ -375,7 +377,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i39: ; preds = %3
   %or.cond180 = select i1 %or.cond178, i1 %39, i1 false
   %.old182 = icmp eq i8 %.sroa.17.0.extract.trunc, 0
   %or.cond184 = select i1 %or.cond180, i1 %.old182, i1 false
-  %40 = icmp ult i64 %1, 4294967296
+  %40 = icmp eq i64 %.sroa.25105.0.extract.shift, 0
   %or.cond186 = select i1 %or.cond184, i1 %40, i1 false
   br i1 %or.cond186, label %41, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit49.thread
 
@@ -393,7 +395,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i45: ; preds = %_ZNSt11char_traitsI
   %or.cond191 = select i1 %or.cond189, i1 %44, i1 false
   %.old193 = icmp eq i8 %.sroa.17.0.extract.trunc, 0
   %or.cond195 = select i1 %or.cond191, i1 %.old193, i1 false
-  %45 = icmp ult i64 %1, 4294967296
+  %45 = icmp eq i64 %.sroa.25105.0.extract.shift, 0
   %or.cond197 = select i1 %or.cond195, i1 %45, i1 false
   br i1 %or.cond197, label %46, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit49.thread
 

@@ -437,7 +437,7 @@ define dso_local void @_ZN4llvm9write_hexERNS_11raw_ostreamEmNS_13HexPrintStyleE
   %30 = getelementptr inbounds i8, ptr %.01838, i64 -1
   store i8 %29, ptr %30, align 1, !tbaa !3
   %31 = lshr i64 %.039, 4
-  %.not = icmp ult i64 %.039, 16
+  %.not = icmp eq i64 %31, 0
   br i1 %.not, label %._crit_edge, label %25, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %25, %21

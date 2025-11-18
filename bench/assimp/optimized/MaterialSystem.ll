@@ -1273,8 +1273,8 @@ define range(i32 -1, 1) i32 @aiGetMaterialIntegerArray(ptr noundef readonly capt
 15:                                               ; preds = %12, %12
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 1036
   %17 = load i32, ptr %16, align 4
-  %18 = tail call i32 @llvm.umax.i32(i32 %17, i32 4)
-  %.sroa.speculated = lshr i32 %18, 2
+  %18 = lshr i32 %17, 2
+  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %18, i32 1)
   %.not45 = icmp eq ptr %5, null
   br i1 %.not45, label %21, label %19
 
@@ -2430,8 +2430,8 @@ define noundef range(i32 -3, 1) i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKc
 define hidden noundef i32 @_ZN6Assimp19ComputeMaterialHashEPK10aiMaterialb(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
-  %.not74 = icmp eq i32 %4, 0
-  br i1 %.not74, label %._crit_edge, label %.lr.ph
+  %.not71 = icmp eq i32 %4, 0
+  br i1 %.not71, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %5 = load ptr, ptr %0, align 8
@@ -2444,7 +2444,7 @@ define hidden noundef i32 @_ZN6Assimp19ComputeMaterialHashEPK10aiMaterialb(ptr n
 
 6:                                                ; preds = %.lr.ph, %199
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %199 ]
-  %.073 = phi i32 [ 1503, %.lr.ph ], [ %.1, %199 ]
+  %.070 = phi i32 [ 1503, %.lr.ph ], [ %.1, %199 ]
   %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
@@ -2473,17 +2473,14 @@ define hidden noundef i32 @_ZN6Assimp19ComputeMaterialHashEPK10aiMaterialb(ptr n
 20:                                               ; preds = %17, %13
   %.056.i = phi i32 [ %19, %17 ], [ %15, %13 ]
   %21 = and i32 %.056.i, 3
-  %.not60.i = icmp ult i32 %.056.i, 4
-  br i1 %.not60.i, label %._crit_edge.i, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %20
   %22 = lshr i32 %.056.i, 2
-  br label %.lr.ph.i
+  %.not60.i = icmp eq i32 %22, 0
+  br i1 %.not60.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.05463.i = phi ptr [ %33, %.lr.ph.i ], [ %14, %.lr.ph.preheader.i ]
-  %.05562.i = phi i32 [ %35, %.lr.ph.i ], [ %.073, %.lr.ph.preheader.i ]
-  %.15761.i = phi i32 [ %36, %.lr.ph.i ], [ %22, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %20, %.lr.ph.i
+  %.05463.i = phi ptr [ %33, %.lr.ph.i ], [ %14, %20 ]
+  %.05562.i = phi i32 [ %35, %.lr.ph.i ], [ %.070, %20 ]
+  %.15761.i = phi i32 [ %36, %.lr.ph.i ], [ %22, %20 ]
   %23 = load i16, ptr %.05463.i, align 1
   %24 = zext i16 %23 to i32
   %25 = add i32 %.05562.i, %24
@@ -2502,7 +2499,7 @@ define hidden noundef i32 @_ZN6Assimp19ComputeMaterialHashEPK10aiMaterialb(ptr n
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %20
-  %.055.lcssa.i = phi i32 [ %.073, %20 ], [ %35, %.lr.ph.i ]
+  %.055.lcssa.i = phi i32 [ %.070, %20 ], [ %35, %.lr.ph.i ]
   %.054.lcssa.i = phi ptr [ %14, %20 ], [ %33, %.lr.ph.i ]
   switch i32 %21, label %default.unreachable [
     i32 3, label %37
@@ -2547,7 +2544,7 @@ define hidden noundef i32 @_ZN6Assimp19ComputeMaterialHashEPK10aiMaterialb(ptr n
   %66 = add i32 %65, %64
   br label %_Z13SuperFastHashPKcjj.exit
 
-default.unreachable:                              ; preds = %._crit_edge.i29, %._crit_edge.i
+default.unreachable:                              ; preds = %._crit_edge.i28, %._crit_edge.i
   unreachable
 
 _Z13SuperFastHashPKcjj.exit:                      ; preds = %._crit_edge.i, %37, %51, %59
@@ -2567,7 +2564,7 @@ _Z13SuperFastHashPKcjj.exit:                      ; preds = %._crit_edge.i, %37,
   %79 = getelementptr inbounds nuw i8, ptr %8, i64 1048
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, null
-  br i1 %81, label %_Z13SuperFastHashPKcjj.exit34, label %82
+  br i1 %81, label %_Z13SuperFastHashPKcjj.exit33, label %82
 
 82:                                               ; preds = %_Z13SuperFastHashPKcjj.exit
   %83 = getelementptr inbounds nuw i8, ptr %8, i64 1036
@@ -2583,37 +2580,34 @@ _Z13SuperFastHashPKcjj.exit:                      ; preds = %._crit_edge.i, %37,
 89:                                               ; preds = %86, %82
   %.056.i21 = phi i32 [ %88, %86 ], [ %84, %82 ]
   %90 = and i32 %.056.i21, 3
-  %.not60.i22 = icmp ult i32 %.056.i21, 4
-  br i1 %.not60.i22, label %._crit_edge.i29, label %.lr.ph.preheader.i23
-
-.lr.ph.preheader.i23:                             ; preds = %89
   %91 = lshr i32 %.056.i21, 2
-  br label %.lr.ph.i24
+  %.not60.i22 = icmp eq i32 %91, 0
+  br i1 %.not60.i22, label %._crit_edge.i28, label %.lr.ph.i23
 
-.lr.ph.i24:                                       ; preds = %.lr.ph.i24, %.lr.ph.preheader.i23
-  %.05463.i25 = phi ptr [ %102, %.lr.ph.i24 ], [ %80, %.lr.ph.preheader.i23 ]
-  %.05562.i26 = phi i32 [ %104, %.lr.ph.i24 ], [ %78, %.lr.ph.preheader.i23 ]
-  %.15761.i27 = phi i32 [ %105, %.lr.ph.i24 ], [ %91, %.lr.ph.preheader.i23 ]
-  %92 = load i16, ptr %.05463.i25, align 1
+.lr.ph.i23:                                       ; preds = %89, %.lr.ph.i23
+  %.05463.i24 = phi ptr [ %102, %.lr.ph.i23 ], [ %80, %89 ]
+  %.05562.i25 = phi i32 [ %104, %.lr.ph.i23 ], [ %78, %89 ]
+  %.15761.i26 = phi i32 [ %105, %.lr.ph.i23 ], [ %91, %89 ]
+  %92 = load i16, ptr %.05463.i24, align 1
   %93 = zext i16 %92 to i32
-  %94 = add i32 %.05562.i26, %93
-  %95 = getelementptr inbounds nuw i8, ptr %.05463.i25, i64 2
+  %94 = add i32 %.05562.i25, %93
+  %95 = getelementptr inbounds nuw i8, ptr %.05463.i24, i64 2
   %96 = load i16, ptr %95, align 1
   %97 = zext i16 %96 to i32
   %98 = shl nuw nsw i32 %97, 11
   %99 = shl i32 %94, 16
   %100 = xor i32 %98, %99
   %101 = xor i32 %100, %94
-  %102 = getelementptr inbounds nuw i8, ptr %.05463.i25, i64 4
+  %102 = getelementptr inbounds nuw i8, ptr %.05463.i24, i64 4
   %103 = lshr i32 %101, 11
   %104 = add i32 %103, %101
-  %105 = add nsw i32 %.15761.i27, -1
-  %.not.i28 = icmp eq i32 %105, 0
-  br i1 %.not.i28, label %._crit_edge.i29, label %.lr.ph.i24, !llvm.loop !22
+  %105 = add nsw i32 %.15761.i26, -1
+  %.not.i27 = icmp eq i32 %105, 0
+  br i1 %.not.i27, label %._crit_edge.i28, label %.lr.ph.i23, !llvm.loop !22
 
-._crit_edge.i29:                                  ; preds = %.lr.ph.i24, %89
-  %.055.lcssa.i30 = phi i32 [ %78, %89 ], [ %104, %.lr.ph.i24 ]
-  %.054.lcssa.i31 = phi ptr [ %80, %89 ], [ %102, %.lr.ph.i24 ]
+._crit_edge.i28:                                  ; preds = %.lr.ph.i23, %89
+  %.055.lcssa.i29 = phi i32 [ %78, %89 ], [ %104, %.lr.ph.i23 ]
+  %.054.lcssa.i30 = phi ptr [ %80, %89 ], [ %102, %.lr.ph.i23 ]
   switch i32 %90, label %default.unreachable [
     i32 3, label %106
     i32 2, label %120
@@ -2621,12 +2615,12 @@ _Z13SuperFastHashPKcjj.exit:                      ; preds = %._crit_edge.i, %37,
     i32 0, label %136
   ]
 
-106:                                              ; preds = %._crit_edge.i29
-  %107 = load i16, ptr %.054.lcssa.i31, align 1
+106:                                              ; preds = %._crit_edge.i28
+  %107 = load i16, ptr %.054.lcssa.i30, align 1
   %108 = zext i16 %107 to i32
-  %109 = add i32 %.055.lcssa.i30, %108
+  %109 = add i32 %.055.lcssa.i29, %108
   %110 = shl i32 %109, 16
-  %111 = getelementptr inbounds nuw i8, ptr %.054.lcssa.i31, i64 2
+  %111 = getelementptr inbounds nuw i8, ptr %.054.lcssa.i30, i64 2
   %112 = load i8, ptr %111, align 1
   %113 = tail call i8 @llvm.abs.i8(i8 %112, i1 false)
   %114 = zext i8 %113 to i32
@@ -2637,30 +2631,30 @@ _Z13SuperFastHashPKcjj.exit:                      ; preds = %._crit_edge.i, %37,
   %119 = add i32 %118, %117
   br label %136
 
-120:                                              ; preds = %._crit_edge.i29
-  %121 = load i16, ptr %.054.lcssa.i31, align 1
+120:                                              ; preds = %._crit_edge.i28
+  %121 = load i16, ptr %.054.lcssa.i30, align 1
   %122 = zext i16 %121 to i32
-  %123 = add i32 %.055.lcssa.i30, %122
+  %123 = add i32 %.055.lcssa.i29, %122
   %124 = shl i32 %123, 11
   %125 = xor i32 %124, %123
   %126 = lshr i32 %125, 17
   %127 = add i32 %126, %125
   br label %136
 
-128:                                              ; preds = %._crit_edge.i29
-  %129 = load i8, ptr %.054.lcssa.i31, align 1
+128:                                              ; preds = %._crit_edge.i28
+  %129 = load i8, ptr %.054.lcssa.i30, align 1
   %130 = sext i8 %129 to i32
-  %131 = add i32 %.055.lcssa.i30, %130
+  %131 = add i32 %.055.lcssa.i29, %130
   %132 = shl i32 %131, 10
   %133 = xor i32 %132, %131
   %134 = lshr i32 %133, 1
   %135 = add i32 %134, %133
   br label %136
 
-136:                                              ; preds = %128, %120, %106, %._crit_edge.i29
-  %.1.i32 = phi i32 [ %.055.lcssa.i30, %._crit_edge.i29 ], [ %119, %106 ], [ %127, %120 ], [ %135, %128 ]
-  %137 = shl i32 %.1.i32, 3
-  %138 = xor i32 %137, %.1.i32
+136:                                              ; preds = %128, %120, %106, %._crit_edge.i28
+  %.1.i31 = phi i32 [ %.055.lcssa.i29, %._crit_edge.i28 ], [ %119, %106 ], [ %127, %120 ], [ %135, %128 ]
+  %137 = shl i32 %.1.i31, 3
+  %138 = xor i32 %137, %.1.i31
   %139 = lshr i32 %138, 5
   %140 = add i32 %139, %138
   %141 = shl i32 %140, 4
@@ -2671,9 +2665,9 @@ _Z13SuperFastHashPKcjj.exit:                      ; preds = %._crit_edge.i, %37,
   %146 = xor i32 %145, %144
   %147 = lshr i32 %146, 6
   %148 = add i32 %147, %146
-  br label %_Z13SuperFastHashPKcjj.exit34
+  br label %_Z13SuperFastHashPKcjj.exit33
 
-_Z13SuperFastHashPKcjj.exit34:                    ; preds = %_Z13SuperFastHashPKcjj.exit, %136
+_Z13SuperFastHashPKcjj.exit33:                    ; preds = %_Z13SuperFastHashPKcjj.exit, %136
   %.0.i = phi i32 [ %148, %136 ], [ 0, %_Z13SuperFastHashPKcjj.exit ]
   %149 = getelementptr inbounds nuw i8, ptr %8, i64 1028
   %150 = load i16, ptr %149, align 1
@@ -2727,8 +2721,8 @@ _Z13SuperFastHashPKcjj.exit34:                    ; preds = %_Z13SuperFastHashPK
   %198 = add i32 %197, %196
   br label %199
 
-199:                                              ; preds = %_Z13SuperFastHashPKcjj.exit34, %10, %6
-  %.1 = phi i32 [ %198, %_Z13SuperFastHashPKcjj.exit34 ], [ %.073, %10 ], [ %.073, %6 ]
+199:                                              ; preds = %_Z13SuperFastHashPKcjj.exit33, %10, %6
+  %.1 = phi i32 [ %198, %_Z13SuperFastHashPKcjj.exit33 ], [ %.070, %10 ], [ %.070, %6 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !23

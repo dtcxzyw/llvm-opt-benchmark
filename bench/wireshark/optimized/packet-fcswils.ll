@@ -1686,7 +1686,7 @@ define internal void @dissect_swils_aca(ptr noundef %0, ptr readnone captures(no
   %9 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %8, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
   %10 = lshr i16 %7, 2
   %11 = zext nneg i16 %10 to i32
-  %.not33 = icmp ult i16 %7, 4
+  %.not33 = icmp eq i16 %10, 0
   br i1 %.not33, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %.lr.ph

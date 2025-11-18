@@ -310,11 +310,11 @@ aes_gen_tables.exit:                              ; preds = %.thread84.i
   br i1 %.not, label %.preheader106, label %128
 
 .preheader106:                                    ; preds = %123
-  %.not114 = icmp ult i32 %2, 32
+  %127 = lshr i32 %2, 5
+  %.not114 = icmp eq i32 %127, 0
   br i1 %.not114, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader106
-  %127 = lshr i32 %2, 5
   %wide.trip.count = zext nneg i32 %127 to i64
   br label %.lr.ph
 
@@ -1944,14 +1944,18 @@ define hidden i32 @mbedtls_aes_crypt_xts(ptr noundef %0, i32 noundef %1, i64 nou
 
 mbedtls_aes_crypt_ecb.exit.thread:                ; preds = %14
   %17 = call i32 @mbedtls_internal_aes_encrypt(ptr noundef nonnull %15, ptr noundef %3, ptr noundef nonnull %7)
-  br label %.lr.ph123
+  br label %.preheader111
 
 mbedtls_aes_crypt_ecb.exit:                       ; preds = %14
   %18 = call i32 @mbedtls_aesni_crypt_ecb(ptr noundef nonnull %15, i32 noundef 1, ptr noundef %3, ptr noundef nonnull %7) #11
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %.lr.ph123, label %.critedge
+  br i1 %.not, label %.preheader111, label %.critedge
 
-.lr.ph123:                                        ; preds = %mbedtls_aes_crypt_ecb.exit, %mbedtls_aes_crypt_ecb.exit.thread
+.preheader111:                                    ; preds = %mbedtls_aes_crypt_ecb.exit.thread, %mbedtls_aes_crypt_ecb.exit
+  %.not60120 = icmp eq i64 %10, 0
+  br i1 %.not60120, label %._crit_edge, label %.lr.ph123
+
+.lr.ph123:                                        ; preds = %.preheader111
   %19 = icmp ne i64 %11, 0
   %20 = icmp eq i32 %1, 0
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2044,129 +2048,135 @@ mbedtls_aes_crypt_ecb.exit97.thread:              ; preds = %mbedtls_aes_crypt_e
   %62 = getelementptr inbounds nuw i8, ptr %.052122, i64 16
   br i1 %28, label %._crit_edge, label %26, !llvm.loop !28
 
-._crit_edge:                                      ; preds = %mbedtls_aes_crypt_ecb.exit97.thread
+._crit_edge:                                      ; preds = %mbedtls_aes_crypt_ecb.exit97.thread, %.preheader111
+  %.054.lcssa = phi ptr [ %5, %.preheader111 ], [ %61, %mbedtls_aes_crypt_ecb.exit97.thread ]
+  %.052.lcssa = phi ptr [ %4, %.preheader111 ], [ %62, %mbedtls_aes_crypt_ecb.exit97.thread ]
   %.not61 = icmp eq i64 %11, 0
-  br i1 %.not61, label %.critedge, label %.preheader
+  br i1 %.not61, label %.critedge, label %63
 
-.preheader108:                                    ; preds = %.preheader
-  %63 = icmp eq i32 %1, 0
-  %64 = select i1 %63, ptr %8, ptr %7
+63:                                               ; preds = %._crit_edge
+  %64 = getelementptr inbounds i8, ptr %.054.lcssa, i64 -16
+  br label %68
+
+.preheader108:                                    ; preds = %68
+  %65 = icmp eq i32 %1, 0
+  %66 = select i1 %65, ptr %8, ptr %7
   %.not.i70126 = icmp samesign ult i64 %11, 8
   br i1 %.not.i70126, label %.preheader107, label %.lr.ph128.preheader
 
 .lr.ph128.preheader:                              ; preds = %.preheader108
-  %.0.copyload.i85 = load i64, ptr %62, align 1
-  %.0.copyload.i84 = load i64, ptr %64, align 16
-  %65 = xor i64 %.0.copyload.i84, %.0.copyload.i85
-  store i64 %65, ptr %9, align 16
+  %.0.copyload.i85 = load i64, ptr %.052.lcssa, align 1
+  %.0.copyload.i84 = load i64, ptr %66, align 16
+  %67 = xor i64 %.0.copyload.i84, %.0.copyload.i85
+  store i64 %67, ptr %9, align 16
   br label %.preheader107
 
-.preheader:                                       ; preds = %._crit_edge, %.preheader
-  %.051125 = phi i64 [ %69, %.preheader ], [ 0, %._crit_edge ]
-  %66 = getelementptr inbounds nuw i8, ptr %.054121, i64 %.051125
-  %67 = load i8, ptr %66, align 1, !tbaa !9
-  %68 = getelementptr inbounds nuw i8, ptr %61, i64 %.051125
-  store i8 %67, ptr %68, align 1, !tbaa !9
-  %69 = add nuw nsw i64 %.051125, 1
-  %exitcond.not = icmp eq i64 %69, %11
-  br i1 %exitcond.not, label %.preheader108, label %.preheader, !llvm.loop !29
+68:                                               ; preds = %63, %68
+  %.051125 = phi i64 [ 0, %63 ], [ %72, %68 ]
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 %.051125
+  %70 = load i8, ptr %69, align 1, !tbaa !9
+  %71 = getelementptr inbounds nuw i8, ptr %.054.lcssa, i64 %.051125
+  store i8 %70, ptr %71, align 1, !tbaa !9
+  %72 = add nuw nsw i64 %.051125, 1
+  %exitcond.not = icmp eq i64 %72, %11
+  br i1 %exitcond.not, label %.preheader108, label %68, !llvm.loop !29
 
 .preheader107:                                    ; preds = %.lr.ph128.preheader, %.preheader108
   %.0.i69.lcssa = phi i64 [ 0, %.preheader108 ], [ 8, %.lr.ph128.preheader ]
-  %70 = icmp samesign ult i64 %.0.i69.lcssa, %11
-  br i1 %70, label %.lr.ph131, label %mbedtls_xor.exit72
+  %73 = icmp samesign ult i64 %.0.i69.lcssa, %11
+  br i1 %73, label %.lr.ph131, label %mbedtls_xor.exit72
 
 .lr.ph131:                                        ; preds = %.preheader107, %.lr.ph131
-  %.1.i71130 = phi i64 [ %77, %.lr.ph131 ], [ %.0.i69.lcssa, %.preheader107 ]
-  %71 = getelementptr inbounds nuw i8, ptr %62, i64 %.1.i71130
-  %72 = load i8, ptr %71, align 1, !tbaa !9
-  %73 = getelementptr inbounds nuw i8, ptr %64, i64 %.1.i71130
-  %74 = load i8, ptr %73, align 1, !tbaa !9
-  %75 = xor i8 %74, %72
-  %76 = getelementptr inbounds nuw i8, ptr %9, i64 %.1.i71130
-  store i8 %75, ptr %76, align 1, !tbaa !9
-  %77 = add nuw nsw i64 %.1.i71130, 1
-  %exitcond147.not = icmp eq i64 %77, %11
+  %.1.i71130 = phi i64 [ %80, %.lr.ph131 ], [ %.0.i69.lcssa, %.preheader107 ]
+  %74 = getelementptr inbounds nuw i8, ptr %.052.lcssa, i64 %.1.i71130
+  %75 = load i8, ptr %74, align 1, !tbaa !9
+  %76 = getelementptr inbounds nuw i8, ptr %66, i64 %.1.i71130
+  %77 = load i8, ptr %76, align 1, !tbaa !9
+  %78 = xor i8 %77, %75
+  %79 = getelementptr inbounds nuw i8, ptr %9, i64 %.1.i71130
+  store i8 %78, ptr %79, align 1, !tbaa !9
+  %80 = add nuw nsw i64 %.1.i71130, 1
+  %exitcond147.not = icmp eq i64 %80, %11
   br i1 %exitcond147.not, label %mbedtls_xor.exit72, label %.lr.ph131, !llvm.loop !30
 
 mbedtls_xor.exit72:                               ; preds = %.lr.ph131, %.preheader107
-  %78 = getelementptr inbounds nuw i8, ptr %9, i64 %11
-  %79 = getelementptr inbounds nuw i8, ptr %.054121, i64 %11
-  %80 = getelementptr inbounds nuw i8, ptr %64, i64 %11
-  %81 = sub nsw i64 15, %.051125
-  %.not.i74132 = icmp ult i64 %81, 8
+  %81 = getelementptr inbounds nuw i8, ptr %9, i64 %11
+  %82 = getelementptr inbounds nuw i8, ptr %64, i64 %11
+  %83 = getelementptr inbounds nuw i8, ptr %66, i64 %11
+  %84 = sub nsw i64 15, %.051125
+  %.not.i74132 = icmp ult i64 %84, 8
   br i1 %.not.i74132, label %.preheader106, label %.lr.ph134
 
 .preheader106:                                    ; preds = %.lr.ph134, %mbedtls_xor.exit72
-  %.0.i73.lcssa = phi i64 [ 0, %mbedtls_xor.exit72 ], [ %83, %.lr.ph134 ]
-  %82 = icmp ult i64 %.0.i73.lcssa, %81
-  br i1 %82, label %.lr.ph137, label %mbedtls_xor.exit76
+  %.0.i73.lcssa = phi i64 [ 0, %mbedtls_xor.exit72 ], [ %86, %.lr.ph134 ]
+  %85 = icmp ult i64 %.0.i73.lcssa, %84
+  br i1 %85, label %.lr.ph137, label %mbedtls_xor.exit76
 
 .lr.ph134:                                        ; preds = %mbedtls_xor.exit72, %.lr.ph134
-  %83 = phi i64 [ %88, %.lr.ph134 ], [ 8, %mbedtls_xor.exit72 ]
-  %.0.i73133 = phi i64 [ %83, %.lr.ph134 ], [ 0, %mbedtls_xor.exit72 ]
-  %84 = getelementptr inbounds nuw i8, ptr %79, i64 %.0.i73133
-  %.0.copyload.i83 = load i64, ptr %84, align 1
-  %85 = getelementptr inbounds nuw i8, ptr %80, i64 %.0.i73133
-  %.0.copyload.i82 = load i64, ptr %85, align 1
-  %86 = xor i64 %.0.copyload.i82, %.0.copyload.i83
-  %87 = getelementptr inbounds nuw i8, ptr %78, i64 %.0.i73133
-  store i64 %86, ptr %87, align 1
-  %88 = add nuw nsw i64 %83, 8
-  %.not.i74 = icmp ugt i64 %88, %81
+  %86 = phi i64 [ %91, %.lr.ph134 ], [ 8, %mbedtls_xor.exit72 ]
+  %.0.i73133 = phi i64 [ %86, %.lr.ph134 ], [ 0, %mbedtls_xor.exit72 ]
+  %87 = getelementptr inbounds nuw i8, ptr %82, i64 %.0.i73133
+  %.0.copyload.i83 = load i64, ptr %87, align 1
+  %88 = getelementptr inbounds nuw i8, ptr %83, i64 %.0.i73133
+  %.0.copyload.i82 = load i64, ptr %88, align 1
+  %89 = xor i64 %.0.copyload.i82, %.0.copyload.i83
+  %90 = getelementptr inbounds nuw i8, ptr %81, i64 %.0.i73133
+  store i64 %89, ptr %90, align 1
+  %91 = add nuw nsw i64 %86, 8
+  %.not.i74 = icmp ugt i64 %91, %84
   br i1 %.not.i74, label %.preheader106, label %.lr.ph134, !llvm.loop !31
 
 .lr.ph137:                                        ; preds = %.preheader106, %.lr.ph137
-  %.1.i75136 = phi i64 [ %95, %.lr.ph137 ], [ %.0.i73.lcssa, %.preheader106 ]
-  %89 = getelementptr inbounds nuw i8, ptr %79, i64 %.1.i75136
-  %90 = load i8, ptr %89, align 1, !tbaa !9
-  %91 = getelementptr inbounds nuw i8, ptr %80, i64 %.1.i75136
-  %92 = load i8, ptr %91, align 1, !tbaa !9
-  %93 = xor i8 %92, %90
-  %94 = getelementptr inbounds nuw i8, ptr %78, i64 %.1.i75136
-  store i8 %93, ptr %94, align 1, !tbaa !9
-  %95 = add nuw nsw i64 %.1.i75136, 1
-  %96 = icmp ult i64 %95, %81
-  br i1 %96, label %.lr.ph137, label %mbedtls_xor.exit76, !llvm.loop !30
+  %.1.i75136 = phi i64 [ %98, %.lr.ph137 ], [ %.0.i73.lcssa, %.preheader106 ]
+  %92 = getelementptr inbounds nuw i8, ptr %82, i64 %.1.i75136
+  %93 = load i8, ptr %92, align 1, !tbaa !9
+  %94 = getelementptr inbounds nuw i8, ptr %83, i64 %.1.i75136
+  %95 = load i8, ptr %94, align 1, !tbaa !9
+  %96 = xor i8 %95, %93
+  %97 = getelementptr inbounds nuw i8, ptr %81, i64 %.1.i75136
+  store i8 %96, ptr %97, align 1, !tbaa !9
+  %98 = add nuw nsw i64 %.1.i75136, 1
+  %99 = icmp ult i64 %98, %84
+  br i1 %99, label %.lr.ph137, label %mbedtls_xor.exit76, !llvm.loop !30
 
 mbedtls_xor.exit76:                               ; preds = %.lr.ph137, %.preheader106
-  %97 = call i32 @mbedtls_aesni_has_support(i32 noundef 33554432) #11
-  %.not.i99 = icmp eq i32 %97, 0
-  br i1 %.not.i99, label %98, label %mbedtls_aes_crypt_ecb.exit101
+  %100 = call i32 @mbedtls_aesni_has_support(i32 noundef 33554432) #11
+  %.not.i99 = icmp eq i32 %100, 0
+  br i1 %.not.i99, label %101, label %mbedtls_aes_crypt_ecb.exit101
 
-98:                                               ; preds = %mbedtls_xor.exit76
-  br i1 %63, label %99, label %101
+101:                                              ; preds = %mbedtls_xor.exit76
+  br i1 %65, label %102, label %104
 
-99:                                               ; preds = %98
-  %100 = call i32 @mbedtls_internal_aes_decrypt(ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %9)
+102:                                              ; preds = %101
+  %103 = call i32 @mbedtls_internal_aes_decrypt(ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %9)
   br label %mbedtls_aes_crypt_ecb.exit101.thread
 
-101:                                              ; preds = %98
-  %102 = call i32 @mbedtls_internal_aes_encrypt(ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %9)
+104:                                              ; preds = %101
+  %105 = call i32 @mbedtls_internal_aes_encrypt(ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %9)
   br label %mbedtls_aes_crypt_ecb.exit101.thread
 
 mbedtls_aes_crypt_ecb.exit101:                    ; preds = %mbedtls_xor.exit76
-  %103 = call i32 @mbedtls_aesni_crypt_ecb(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %9) #11
-  %.not62 = icmp eq i32 %103, 0
+  %106 = call i32 @mbedtls_aesni_crypt_ecb(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %9) #11
+  %.not62 = icmp eq i32 %106, 0
   br i1 %.not62, label %mbedtls_aes_crypt_ecb.exit101.thread, label %.critedge
 
-mbedtls_aes_crypt_ecb.exit101.thread:             ; preds = %mbedtls_aes_crypt_ecb.exit101, %99, %101
+mbedtls_aes_crypt_ecb.exit101.thread:             ; preds = %mbedtls_aes_crypt_ecb.exit101, %102, %104
   %.0.copyload.i81 = load i64, ptr %9, align 16
-  %.0.copyload.i = load i64, ptr %64, align 16
-  %104 = xor i64 %.0.copyload.i, %.0.copyload.i81
-  store i64 %104, ptr %.054121, align 1
-  %105 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.0.copyload.i81.c = load i64, ptr %105, align 8
-  %.sroa.sel.v = select i1 %63, ptr %8, ptr %7
+  %.0.copyload.i = load i64, ptr %66, align 16
+  %107 = xor i64 %.0.copyload.i, %.0.copyload.i81
+  store i64 %107, ptr %64, align 1
+  %108 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.0.copyload.i81.c = load i64, ptr %108, align 8
+  %.sroa.sel.v = select i1 %65, ptr %8, ptr %7
   %.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel.v, i64 8
   %.0.copyload.i.c = load i64, ptr %.sroa.sel, align 8
-  %106 = xor i64 %.0.copyload.i.c, %.0.copyload.i81.c
-  %107 = getelementptr inbounds nuw i8, ptr %.054121, i64 8
-  store i64 %106, ptr %107, align 1
+  %109 = xor i64 %.0.copyload.i.c, %.0.copyload.i81.c
+  %110 = getelementptr inbounds i8, ptr %.054.lcssa, i64 -8
+  store i64 %109, ptr %110, align 1
   br label %.critedge
 
 .critedge:                                        ; preds = %mbedtls_aes_crypt_ecb.exit97, %mbedtls_aes_crypt_ecb.exit101.thread, %._crit_edge, %mbedtls_aes_crypt_ecb.exit101, %mbedtls_aes_crypt_ecb.exit, %12, %6
-  %.0 = phi i32 [ -33, %6 ], [ -34, %12 ], [ %18, %mbedtls_aes_crypt_ecb.exit ], [ %103, %mbedtls_aes_crypt_ecb.exit101 ], [ 0, %._crit_edge ], [ 0, %mbedtls_aes_crypt_ecb.exit101.thread ], [ %48, %mbedtls_aes_crypt_ecb.exit97 ]
+  %.0 = phi i32 [ -33, %6 ], [ -34, %12 ], [ %18, %mbedtls_aes_crypt_ecb.exit ], [ %106, %mbedtls_aes_crypt_ecb.exit101 ], [ 0, %._crit_edge ], [ 0, %mbedtls_aes_crypt_ecb.exit101.thread ], [ %48, %mbedtls_aes_crypt_ecb.exit97 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

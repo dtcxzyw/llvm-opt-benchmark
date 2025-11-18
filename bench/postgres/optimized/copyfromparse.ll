@@ -193,7 +193,7 @@ define dso_local void @ReceiveCopyBinaryHeader(ptr noundef captures(none) %0) lo
   unreachable
 
 25:                                               ; preds = %19
-  %.not8 = icmp ult i32 %14, 65536
+  %.not8 = icmp ult i32 %14, 131072
   br i1 %.not8, label %30, label %26
 
 26:                                               ; preds = %25

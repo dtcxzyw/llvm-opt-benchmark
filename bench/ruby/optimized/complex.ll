@@ -4119,7 +4119,7 @@ rbimpl_RB_TYPE_P_fastpath.exit101.thread:         ; preds = %complex_pow_for_spe
 
 630:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit101.thread
   %631 = ashr i64 %.185, 1
-  %632 = icmp ult i64 %.185, 2
+  %632 = icmp eq i64 %631, 0
   br i1 %632, label %633, label %636
 
 633:                                              ; preds = %630

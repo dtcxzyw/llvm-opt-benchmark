@@ -637,7 +637,7 @@ proto_item_set_hidden.exit:                       ; preds = %40, %22, %43, %47
 
 306:                                              ; preds = %303, %265
   %.1.i = phi i32 [ %305, %303 ], [ 15, %265 ]
-  %.not141.i = icmp ult i8 %284, 16
+  %.not141.i = icmp eq i32 %287, 0
   br i1 %.not141.i, label %dissect_shimctrl.exit, label %307
 
 307:                                              ; preds = %306

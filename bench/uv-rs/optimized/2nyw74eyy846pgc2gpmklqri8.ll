@@ -11576,8 +11576,9 @@ define hidden void @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6repeat17hc97
   %33 = load i64, ptr %26, align 8, !alias.scope !2112, !noundef !6
   %34 = add i64 %33, %2
   store i64 %34, ptr %26, align 8
-  %.not8 = icmp eq i64 %3, 1
-  br i1 %.not8, label %._crit_edge, label %.lr.ph
+  %.sroa.01.08 = lshr i64 %3, 1
+  %.not9 = icmp eq i64 %.sroa.01.08, 0
+  br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 35:                                               ; preds = %11
   tail call void @_ZN4core6option13expect_failed17h653f5dbca1fa5fc0E(ptr noalias noundef nonnull readonly align 1 @anon.1a62d25609a6c559cb33397602f119b5.168, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1a62d25609a6c559cb33397602f119b5.169) #45
@@ -11598,8 +11599,7 @@ define hidden void @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6repeat17hc97
 
 .lr.ph:                                           ; preds = %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h84eea45fb1fdbc77E.exit", %.lr.ph
   %40 = phi i64 [ %46, %.lr.ph ], [ %34, %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h84eea45fb1fdbc77E.exit" ]
-  %.sroa.01.0.in9 = phi i64 [ %.sroa.01.0, %.lr.ph ], [ %3, %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h84eea45fb1fdbc77E.exit" ]
-  %.sroa.01.0 = lshr i64 %.sroa.01.0.in9, 1
+  %.sroa.01.010 = phi i64 [ %.sroa.01.0, %.lr.ph ], [ %.sroa.01.08, %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h84eea45fb1fdbc77E.exit" ]
   %41 = load ptr, ptr %25, align 8, !nonnull !6, !noundef !6
   %42 = icmp sgt i64 %40, -1
   call void @llvm.assume(i1 %42)
@@ -11610,7 +11610,8 @@ define hidden void @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6repeat17hc97
   call void @llvm.assume(i1 %45)
   %46 = shl nuw i64 %44, 1
   store i64 %46, ptr %26, align 8
-  %.not = icmp ult i64 %.sroa.01.0.in9, 4
+  %.sroa.01.0 = lshr i64 %.sroa.01.010, 1
+  %.not = icmp eq i64 %.sroa.01.0, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 47:                                               ; preds = %48, %._crit_edge

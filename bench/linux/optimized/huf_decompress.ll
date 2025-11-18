@@ -874,7 +874,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   store i64 %56, ptr %7, align 8
   %57 = lshr i64 %56, 56
   %58 = trunc nuw nsw i64 %57 to i32
-  %59 = icmp ult i64 %56, 72057594037927936
+  %59 = icmp eq i64 %57, 0
   %60 = tail call i32 @llvm.ctlz.i32(i32 %58, i1 true), !range !20
   %61 = xor i32 %60, 31
   %62 = sub nuw nsw i32 8, %61
@@ -996,7 +996,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   store i64 %137, ptr %8, align 8
   %138 = lshr i64 %137, 56
   %139 = trunc nuw nsw i64 %138 to i32
-  %140 = icmp ult i64 %137, 72057594037927936
+  %140 = icmp eq i64 %138, 0
   %141 = tail call i32 @llvm.ctlz.i32(i32 %139, i1 true), !range !20
   %142 = xor i32 %141, 31
   %143 = sub nuw nsw i32 8, %142
@@ -1118,7 +1118,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   store i64 %218, ptr %9, align 8
   %219 = lshr i64 %218, 56
   %220 = trunc nuw nsw i64 %219 to i32
-  %221 = icmp ult i64 %218, 72057594037927936
+  %221 = icmp eq i64 %219, 0
   %222 = tail call i32 @llvm.ctlz.i32(i32 %220, i1 true), !range !20
   %223 = xor i32 %222, 31
   %224 = sub nuw nsw i32 8, %223
@@ -3670,7 +3670,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   store i64 %57, ptr %7, align 8
   %58 = lshr i64 %57, 56
   %59 = trunc nuw nsw i64 %58 to i32
-  %60 = icmp ult i64 %57, 72057594037927936
+  %60 = icmp eq i64 %58, 0
   %61 = tail call i32 @llvm.ctlz.i32(i32 %59, i1 true), !range !20
   %62 = xor i32 %61, 31
   %63 = sub nuw nsw i32 8, %62
@@ -3792,7 +3792,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   store i64 %138, ptr %8, align 8
   %139 = lshr i64 %138, 56
   %140 = trunc nuw nsw i64 %139 to i32
-  %141 = icmp ult i64 %138, 72057594037927936
+  %141 = icmp eq i64 %139, 0
   %142 = tail call i32 @llvm.ctlz.i32(i32 %140, i1 true), !range !20
   %143 = xor i32 %142, 31
   %144 = sub nuw nsw i32 8, %143
@@ -3915,7 +3915,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   store i64 %219, ptr %9, align 8
   %220 = lshr i64 %219, 56
   %221 = trunc nuw nsw i64 %220 to i32
-  %222 = icmp ult i64 %219, 72057594037927936
+  %222 = icmp eq i64 %220, 0
   %223 = tail call i32 @llvm.ctlz.i32(i32 %221, i1 true), !range !20
   %224 = xor i32 %223, 31
   %225 = sub nuw nsw i32 8, %224
@@ -7033,7 +7033,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal_bmi2(ptr noun
   store i64 %51, ptr %6, align 8
   %52 = lshr i64 %51, 56
   %53 = trunc nuw nsw i64 %52 to i32
-  %54 = icmp ult i64 %51, 72057594037927936
+  %54 = icmp eq i64 %52, 0
   %55 = tail call i32 @llvm.ctlz.i32(i32 %53, i1 true), !range !20
   %56 = xor i32 %55, 31
   %57 = sub nuw nsw i32 8, %56
@@ -7155,7 +7155,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal_bmi2(ptr noun
   store i64 %132, ptr %7, align 8
   %133 = lshr i64 %132, 56
   %134 = trunc nuw nsw i64 %133 to i32
-  %135 = icmp ult i64 %132, 72057594037927936
+  %135 = icmp eq i64 %133, 0
   %136 = tail call i32 @llvm.ctlz.i32(i32 %134, i1 true), !range !20
   %137 = xor i32 %136, 31
   %138 = sub nuw nsw i32 8, %137
@@ -7277,7 +7277,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal_bmi2(ptr noun
   store i64 %213, ptr %8, align 8
   %214 = lshr i64 %213, 56
   %215 = trunc nuw nsw i64 %214 to i32
-  %216 = icmp ult i64 %213, 72057594037927936
+  %216 = icmp eq i64 %214, 0
   %217 = tail call i32 @llvm.ctlz.i32(i32 %215, i1 true), !range !20
   %218 = xor i32 %217, 31
   %219 = sub nuw nsw i32 8, %218
@@ -7400,7 +7400,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal_bmi2(ptr noun
   store i64 %295, ptr %9, align 8
   %296 = lshr i64 %295, 56
   %297 = trunc nuw nsw i64 %296 to i32
-  %298 = icmp ult i64 %295, 72057594037927936
+  %298 = icmp eq i64 %296, 0
   %299 = tail call i32 @llvm.ctlz.i32(i32 %297, i1 true), !range !20
   %300 = xor i32 %299, 31
   %301 = sub nuw nsw i32 8, %300
@@ -9219,7 +9219,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal_bmi2(ptr noun
   store i64 %52, ptr %6, align 8
   %53 = lshr i64 %52, 56
   %54 = trunc nuw nsw i64 %53 to i32
-  %55 = icmp ult i64 %52, 72057594037927936
+  %55 = icmp eq i64 %53, 0
   %56 = tail call i32 @llvm.ctlz.i32(i32 %54, i1 true), !range !20
   %57 = xor i32 %56, 31
   %58 = sub nuw nsw i32 8, %57
@@ -9341,7 +9341,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal_bmi2(ptr noun
   store i64 %133, ptr %7, align 8
   %134 = lshr i64 %133, 56
   %135 = trunc nuw nsw i64 %134 to i32
-  %136 = icmp ult i64 %133, 72057594037927936
+  %136 = icmp eq i64 %134, 0
   %137 = tail call i32 @llvm.ctlz.i32(i32 %135, i1 true), !range !20
   %138 = xor i32 %137, 31
   %139 = sub nuw nsw i32 8, %138
@@ -9463,7 +9463,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal_bmi2(ptr noun
   store i64 %214, ptr %8, align 8
   %215 = lshr i64 %214, 56
   %216 = trunc nuw nsw i64 %215 to i32
-  %217 = icmp ult i64 %214, 72057594037927936
+  %217 = icmp eq i64 %215, 0
   %218 = tail call i32 @llvm.ctlz.i32(i32 %216, i1 true), !range !20
   %219 = xor i32 %218, 31
   %220 = sub nuw nsw i32 8, %219
@@ -9586,7 +9586,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal_bmi2(ptr noun
   store i64 %296, ptr %9, align 8
   %297 = lshr i64 %296, 56
   %298 = trunc nuw nsw i64 %297 to i32
-  %299 = icmp ult i64 %296, 72057594037927936
+  %299 = icmp eq i64 %297, 0
   %300 = tail call i32 @llvm.ctlz.i32(i32 %298, i1 true), !range !20
   %301 = xor i32 %300, 31
   %302 = sub nuw nsw i32 8, %301

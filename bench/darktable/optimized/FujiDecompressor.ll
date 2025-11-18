@@ -1362,7 +1362,7 @@ _ZN8rawspeed8RawImageD2Ev.exit:                   ; preds = %107, %._crit_edge.i
   tail call void @llvm.assume(i1 %129)
   %130 = icmp sgt i32 %.pre129, -1
   tail call void @llvm.assume(i1 %130)
-  %131 = icmp ugt i32 %.pre131, 1
+  %131 = icmp ne i32 %127, 0
   tail call void @llvm.assume(i1 %131)
   %132 = icmp sgt i32 %127, -1
   tail call void @llvm.assume(i1 %132)
@@ -2007,7 +2007,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %473 = trunc nuw i64 %472 to i32
   %474 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %473, i1 false)
   %475 = add nuw nsw i32 %474, %.014.i.i.i.i.i.i.i
-  %476 = icmp ult i64 %468, 4294967296
+  %476 = icmp eq i64 %472, 0
   %477 = add nuw nsw i32 %474, 1
   %spec.select.i.i.i.i.i.i.i = select i1 %476, i32 32, i32 %477
   %478 = sub nuw nsw i32 %470, %spec.select.i.i.i.i.i.i.i
@@ -2374,7 +2374,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %679 = trunc nuw i64 %678 to i32
   %680 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %679, i1 false)
   %681 = add nuw nsw i32 %680, %.014.i.i.i.i.i.i
-  %682 = icmp ult i64 %674, 4294967296
+  %682 = icmp eq i64 %678, 0
   %683 = add nuw nsw i32 %680, 1
   %spec.select.i52.i.i.i.i.i = select i1 %682, i32 32, i32 %683
   %684 = sub nuw nsw i32 %676, %spec.select.i52.i.i.i.i.i
@@ -2923,7 +2923,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %978 = trunc nuw i64 %977 to i32
   %979 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %978, i1 false)
   %980 = add nuw nsw i32 %979, %.014.i.i.i.i111.i.i.i
-  %981 = icmp ult i64 %973, 4294967296
+  %981 = icmp eq i64 %977, 0
   %982 = add nuw nsw i32 %979, 1
   %spec.select.i.i.i.i114.i.i.i = select i1 %981, i32 32, i32 %982
   %983 = sub nuw nsw i32 %975, %spec.select.i.i.i.i114.i.i.i
@@ -3285,7 +3285,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %1178 = trunc nuw i64 %1177 to i32
   %1179 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1178, i1 false)
   %1180 = add nuw nsw i32 %1179, %.014.i.i.i80.i.i.i
-  %1181 = icmp ult i64 %1173, 4294967296
+  %1181 = icmp eq i64 %1177, 0
   %1182 = add nuw nsw i32 %1179, 1
   %spec.select.i51.i.i.i.i.i = select i1 %1181, i32 32, i32 %1182
   %1183 = sub nuw nsw i32 %1175, %spec.select.i51.i.i.i.i.i

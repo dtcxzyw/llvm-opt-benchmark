@@ -89,7 +89,7 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux20dump_data_char_ssse3EPKvmRSo
   %.0.i = phi i64 [ %47, %23 ], [ %1, %6 ]
   %50 = lshr i64 %.0.i, 9
   %51 = and i64 %.0.i, 511
-  %.not = icmp ult i64 %.0.i, 512
+  %.not = icmp eq i64 %50, 0
   br i1 %.not, label %._crit_edge, label %.preheader24.lr.ph
 
 .preheader24.lr.ph:                               ; preds = %49
@@ -163,9 +163,9 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux20dump_data_char_ssse3EPKvmRSo
   br i1 %.not44, label %._crit_edge42, label %.lr.ph41.preheader
 
 .lr.ph41.preheader:                               ; preds = %.preheader23, %.preheader
-  %.3.i.lcssa60 = phi ptr [ %107, %.preheader ], [ %.179.i.lcssa, %.preheader23 ]
-  %.080.i.lcssa59 = phi i64 [ %108, %.preheader ], [ %51, %.preheader23 ]
-  %.081.i.lcssa58 = phi ptr [ %106, %.preheader ], [ %7, %.preheader23 ]
+  %.3.i.lcssa61 = phi ptr [ %107, %.preheader ], [ %.179.i.lcssa, %.preheader23 ]
+  %.080.i.lcssa60 = phi i64 [ %108, %.preheader ], [ %51, %.preheader23 ]
+  %.081.i.lcssa59 = phi ptr [ %106, %.preheader ], [ %7, %.preheader23 ]
   br label %.lr.ph41
 
 85:                                               ; preds = %.lr.ph, %85
@@ -211,8 +211,8 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux20dump_data_char_ssse3EPKvmRSo
 
 .lr.ph41:                                         ; preds = %.lr.ph41.preheader, %.lr.ph41
   %.076.i40 = phi i32 [ %126, %.lr.ph41 ], [ 0, %.lr.ph41.preheader ]
-  %.4.i39 = phi ptr [ %127, %.lr.ph41 ], [ %.3.i.lcssa60, %.lr.ph41.preheader ]
-  %.182.i38 = phi ptr [ %128, %.lr.ph41 ], [ %.081.i.lcssa58, %.lr.ph41.preheader ]
+  %.4.i39 = phi ptr [ %127, %.lr.ph41 ], [ %.3.i.lcssa61, %.lr.ph41.preheader ]
+  %.182.i38 = phi ptr [ %128, %.lr.ph41 ], [ %.081.i.lcssa59, %.lr.ph41.preheader ]
   %114 = load i8, ptr %.4.i39, align 1, !tbaa !16
   %115 = zext i8 %114 to i32
   store i8 32, ptr %.182.i38, align 1, !tbaa !16
@@ -232,7 +232,7 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux20dump_data_char_ssse3EPKvmRSo
   %127 = getelementptr inbounds nuw i8, ptr %.4.i39, i64 1
   %128 = getelementptr inbounds nuw i8, ptr %.182.i38, i64 3
   %129 = zext i32 %126 to i64
-  %130 = icmp samesign ugt i64 %.080.i.lcssa59, %129
+  %130 = icmp samesign ugt i64 %.080.i.lcssa60, %129
   br i1 %130, label %.lr.ph41, label %._crit_edge42, !llvm.loop !22
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous15dump_data_ssse3IcEEvPKvmRSt13basic_ostreamIT_St11char_traitsIS8_EE.exit: ; preds = %._crit_edge, %._crit_edge42
@@ -356,7 +356,7 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux21dump_data_wchar_ssse3EPKvmRS
   %.0.i = phi i64 [ %80, %23 ], [ %1, %6 ]
   %83 = lshr i64 %.0.i, 9
   %84 = and i64 %.0.i, 511
-  %.not = icmp ult i64 %.0.i, 512
+  %.not = icmp eq i64 %83, 0
   br i1 %.not, label %._crit_edge, label %.preheader24.lr.ph
 
 .preheader24.lr.ph:                               ; preds = %82
@@ -473,9 +473,9 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux21dump_data_wchar_ssse3EPKvmRS
   br i1 %.not44, label %._crit_edge42, label %.lr.ph41.preheader
 
 .lr.ph41.preheader:                               ; preds = %.preheader23, %.preheader
-  %.3.i.lcssa60 = phi ptr [ %207, %.preheader ], [ %.179.i.lcssa, %.preheader23 ]
-  %.080.i.lcssa59 = phi i64 [ %208, %.preheader ], [ %84, %.preheader23 ]
-  %.081.i.lcssa58 = phi ptr [ %206, %.preheader ], [ %7, %.preheader23 ]
+  %.3.i.lcssa61 = phi ptr [ %207, %.preheader ], [ %.179.i.lcssa, %.preheader23 ]
+  %.080.i.lcssa60 = phi i64 [ %208, %.preheader ], [ %84, %.preheader23 ]
+  %.081.i.lcssa59 = phi ptr [ %206, %.preheader ], [ %7, %.preheader23 ]
   br label %.lr.ph41
 
 152:                                              ; preds = %.lr.ph, %152
@@ -564,8 +564,8 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux21dump_data_wchar_ssse3EPKvmRS
 
 .lr.ph41:                                         ; preds = %.lr.ph41.preheader, %.lr.ph41
   %.076.i40 = phi i32 [ %229, %.lr.ph41 ], [ 0, %.lr.ph41.preheader ]
-  %.4.i39 = phi ptr [ %230, %.lr.ph41 ], [ %.3.i.lcssa60, %.lr.ph41.preheader ]
-  %.182.i38 = phi ptr [ %231, %.lr.ph41 ], [ %.081.i.lcssa58, %.lr.ph41.preheader ]
+  %.4.i39 = phi ptr [ %230, %.lr.ph41 ], [ %.3.i.lcssa61, %.lr.ph41.preheader ]
+  %.182.i38 = phi ptr [ %231, %.lr.ph41 ], [ %.081.i.lcssa59, %.lr.ph41.preheader ]
   %215 = load i8, ptr %.4.i39, align 1, !tbaa !16
   %216 = zext i8 %215 to i32
   store i32 32, ptr %.182.i38, align 4, !tbaa !26
@@ -587,7 +587,7 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux21dump_data_wchar_ssse3EPKvmRS
   %230 = getelementptr inbounds nuw i8, ptr %.4.i39, i64 1
   %231 = getelementptr inbounds nuw i8, ptr %.182.i38, i64 12
   %232 = zext i32 %229 to i64
-  %233 = icmp samesign ugt i64 %.080.i.lcssa59, %232
+  %233 = icmp samesign ugt i64 %.080.i.lcssa60, %232
   br i1 %233, label %.lr.ph41, label %._crit_edge42, !llvm.loop !28
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous15dump_data_ssse3IwEEvPKvmRSt13basic_ostreamIT_St11char_traitsIS8_EE.exit: ; preds = %._crit_edge, %._crit_edge42
@@ -681,7 +681,7 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux22dump_data_char16_ssse3EPKvmR
   %.0.i = phi i64 [ %56, %23 ], [ %1, %6 ]
   %59 = lshr i64 %.0.i, 9
   %60 = and i64 %.0.i, 511
-  %.not = icmp ult i64 %.0.i, 512
+  %.not = icmp eq i64 %59, 0
   br i1 %.not, label %._crit_edge, label %.preheader24.lr.ph
 
 .preheader24.lr.ph:                               ; preds = %58
@@ -768,9 +768,9 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux22dump_data_char16_ssse3EPKvmR
   br i1 %.not44, label %._crit_edge42, label %.lr.ph41.preheader
 
 .lr.ph41.preheader:                               ; preds = %.preheader23, %.preheader
-  %.3.i.lcssa60 = phi ptr [ %135, %.preheader ], [ %.179.i.lcssa, %.preheader23 ]
-  %.080.i.lcssa59 = phi i64 [ %136, %.preheader ], [ %60, %.preheader23 ]
-  %.081.i.lcssa58 = phi ptr [ %134, %.preheader ], [ %7, %.preheader23 ]
+  %.3.i.lcssa61 = phi ptr [ %135, %.preheader ], [ %.179.i.lcssa, %.preheader23 ]
+  %.080.i.lcssa60 = phi i64 [ %136, %.preheader ], [ %60, %.preheader23 ]
+  %.081.i.lcssa59 = phi ptr [ %134, %.preheader ], [ %7, %.preheader23 ]
   br label %.lr.ph41
 
 104:                                              ; preds = %.lr.ph, %104
@@ -829,8 +829,8 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux22dump_data_char16_ssse3EPKvmR
 
 .lr.ph41:                                         ; preds = %.lr.ph41.preheader, %.lr.ph41
   %.076.i40 = phi i32 [ %157, %.lr.ph41 ], [ 0, %.lr.ph41.preheader ]
-  %.4.i39 = phi ptr [ %158, %.lr.ph41 ], [ %.3.i.lcssa60, %.lr.ph41.preheader ]
-  %.182.i38 = phi ptr [ %159, %.lr.ph41 ], [ %.081.i.lcssa58, %.lr.ph41.preheader ]
+  %.4.i39 = phi ptr [ %158, %.lr.ph41 ], [ %.3.i.lcssa61, %.lr.ph41.preheader ]
+  %.182.i38 = phi ptr [ %159, %.lr.ph41 ], [ %.081.i.lcssa59, %.lr.ph41.preheader ]
   %143 = load i8, ptr %.4.i39, align 1, !tbaa !16
   %144 = zext i8 %143 to i32
   store i16 32, ptr %.182.i38, align 2, !tbaa !32
@@ -852,7 +852,7 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux22dump_data_char16_ssse3EPKvmR
   %158 = getelementptr inbounds nuw i8, ptr %.4.i39, i64 1
   %159 = getelementptr inbounds nuw i8, ptr %.182.i38, i64 6
   %160 = zext i32 %157 to i64
-  %161 = icmp samesign ugt i64 %.080.i.lcssa59, %160
+  %161 = icmp samesign ugt i64 %.080.i.lcssa60, %160
   br i1 %161, label %.lr.ph41, label %._crit_edge42, !llvm.loop !34
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous15dump_data_ssse3IDsEEvPKvmRSt13basic_ostreamIT_St11char_traitsIS8_EE.exit: ; preds = %._crit_edge, %._crit_edge42
@@ -976,7 +976,7 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux22dump_data_char32_ssse3EPKvmR
   %.0.i = phi i64 [ %80, %23 ], [ %1, %6 ]
   %83 = lshr i64 %.0.i, 9
   %84 = and i64 %.0.i, 511
-  %.not = icmp ult i64 %.0.i, 512
+  %.not = icmp eq i64 %83, 0
   br i1 %.not, label %._crit_edge, label %.preheader24.lr.ph
 
 .preheader24.lr.ph:                               ; preds = %82
@@ -1093,9 +1093,9 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux22dump_data_char32_ssse3EPKvmR
   br i1 %.not44, label %._crit_edge42, label %.lr.ph41.preheader
 
 .lr.ph41.preheader:                               ; preds = %.preheader23, %.preheader
-  %.3.i.lcssa60 = phi ptr [ %207, %.preheader ], [ %.179.i.lcssa, %.preheader23 ]
-  %.080.i.lcssa59 = phi i64 [ %208, %.preheader ], [ %84, %.preheader23 ]
-  %.081.i.lcssa58 = phi ptr [ %206, %.preheader ], [ %7, %.preheader23 ]
+  %.3.i.lcssa61 = phi ptr [ %207, %.preheader ], [ %.179.i.lcssa, %.preheader23 ]
+  %.080.i.lcssa60 = phi i64 [ %208, %.preheader ], [ %84, %.preheader23 ]
+  %.081.i.lcssa59 = phi ptr [ %206, %.preheader ], [ %7, %.preheader23 ]
   br label %.lr.ph41
 
 152:                                              ; preds = %.lr.ph, %152
@@ -1184,8 +1184,8 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux22dump_data_char32_ssse3EPKvmR
 
 .lr.ph41:                                         ; preds = %.lr.ph41.preheader, %.lr.ph41
   %.076.i40 = phi i32 [ %229, %.lr.ph41 ], [ 0, %.lr.ph41.preheader ]
-  %.4.i39 = phi ptr [ %230, %.lr.ph41 ], [ %.3.i.lcssa60, %.lr.ph41.preheader ]
-  %.182.i38 = phi ptr [ %231, %.lr.ph41 ], [ %.081.i.lcssa58, %.lr.ph41.preheader ]
+  %.4.i39 = phi ptr [ %230, %.lr.ph41 ], [ %.3.i.lcssa61, %.lr.ph41.preheader ]
+  %.182.i38 = phi ptr [ %231, %.lr.ph41 ], [ %.081.i.lcssa59, %.lr.ph41.preheader ]
   %215 = load i8, ptr %.4.i39, align 1, !tbaa !16
   %216 = zext i8 %215 to i32
   store i32 32, ptr %.182.i38, align 4, !tbaa !38
@@ -1207,7 +1207,7 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux22dump_data_char32_ssse3EPKvmR
   %230 = getelementptr inbounds nuw i8, ptr %.4.i39, i64 1
   %231 = getelementptr inbounds nuw i8, ptr %.182.i38, i64 12
   %232 = zext i32 %229 to i64
-  %233 = icmp samesign ugt i64 %.080.i.lcssa59, %232
+  %233 = icmp samesign ugt i64 %.080.i.lcssa60, %232
   br i1 %233, label %.lr.ph41, label %._crit_edge42, !llvm.loop !40
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous15dump_data_ssse3IDiEEvPKvmRSt13basic_ostreamIT_St11char_traitsIS8_EE.exit: ; preds = %._crit_edge, %._crit_edge42
@@ -1294,7 +1294,7 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux32dump_data_char_ssse3_slow_ps
   %.0.i = phi i64 [ %50, %20 ], [ %1, %6 ]
   %53 = lshr i64 %.0.i, 9
   %54 = and i64 %.0.i, 511
-  %.not = icmp ult i64 %.0.i, 512
+  %.not = icmp eq i64 %53, 0
   br i1 %.not, label %._crit_edge, label %.preheader23.lr.ph
 
 .preheader23.lr.ph:                               ; preds = %52
@@ -1337,15 +1337,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux32dump_data_char_ssse3_slow_ps
   %65 = load <2 x i64>, ptr %.2.i26, align 16, !tbaa !16
   %66 = bitcast <2 x i64> %65 to <8 x i16>
   %67 = lshr <8 x i16> %66, splat (i16 4)
-  %.inner64 = and <8 x i16> %67, splat (i16 3855)
-  %68 = bitcast <8 x i16> %.inner64 to <16 x i8>
+  %.inner65 = and <8 x i16> %67, splat (i16 3855)
+  %68 = bitcast <8 x i16> %.inner65 to <16 x i8>
   %69 = icmp samesign ugt <16 x i8> %68, splat (i8 9)
-  %.inner65 = and <2 x i64> %65, splat (i64 1085102592571150095)
-  %70 = bitcast <2 x i64> %.inner65 to <16 x i8>
+  %.inner66 = and <2 x i64> %65, splat (i64 1085102592571150095)
+  %70 = bitcast <2 x i64> %.inner66 to <16 x i8>
   %71 = icmp samesign ugt <16 x i8> %70, splat (i8 9)
-  %72 = bitcast <8 x i16> %.inner64 to <16 x i8>
+  %72 = bitcast <8 x i16> %.inner65 to <16 x i8>
   %73 = or disjoint <16 x i8> %72, splat (i8 48)
-  %74 = bitcast <2 x i64> %.inner65 to <16 x i8>
+  %74 = bitcast <2 x i64> %.inner66 to <16 x i8>
   %75 = or disjoint <16 x i8> %74, splat (i8 48)
   %76 = select <16 x i1> %69, <16 x i8> %55, <16 x i8> zeroinitializer
   %77 = add nuw nsw <16 x i8> %76, %73
@@ -1378,15 +1378,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux32dump_data_char_ssse3_slow_ps
   %95 = load <2 x i64>, ptr %.3.i33, align 16, !tbaa !16
   %96 = bitcast <2 x i64> %95 to <8 x i16>
   %97 = lshr <8 x i16> %96, splat (i16 4)
-  %.inner68 = and <8 x i16> %97, splat (i16 3855)
-  %98 = bitcast <8 x i16> %.inner68 to <16 x i8>
+  %.inner69 = and <8 x i16> %97, splat (i16 3855)
+  %98 = bitcast <8 x i16> %.inner69 to <16 x i8>
   %99 = icmp samesign ugt <16 x i8> %98, splat (i8 9)
-  %.inner69 = and <2 x i64> %95, splat (i64 1085102592571150095)
-  %100 = bitcast <2 x i64> %.inner69 to <16 x i8>
+  %.inner70 = and <2 x i64> %95, splat (i64 1085102592571150095)
+  %100 = bitcast <2 x i64> %.inner70 to <16 x i8>
   %101 = icmp samesign ugt <16 x i8> %100, splat (i8 9)
-  %102 = bitcast <8 x i16> %.inner68 to <16 x i8>
+  %102 = bitcast <8 x i16> %.inner69 to <16 x i8>
   %103 = or disjoint <16 x i8> %102, splat (i8 48)
-  %104 = bitcast <2 x i64> %.inner69 to <16 x i8>
+  %104 = bitcast <2 x i64> %.inner70 to <16 x i8>
   %105 = or disjoint <16 x i8> %104, splat (i8 48)
   %106 = select <16 x i1> %99, <16 x i8> %58, <16 x i8> zeroinitializer
   %107 = add nuw nsw <16 x i8> %106, %103
@@ -1587,7 +1587,7 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux33dump_data_wchar_ssse3_slow_p
   %.0.i = phi i64 [ %83, %20 ], [ %1, %6 ]
   %86 = lshr i64 %.0.i, 9
   %87 = and i64 %.0.i, 511
-  %.not = icmp ult i64 %.0.i, 512
+  %.not = icmp eq i64 %86, 0
   br i1 %.not, label %._crit_edge, label %.preheader23.lr.ph
 
 .preheader23.lr.ph:                               ; preds = %85
@@ -1631,15 +1631,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux33dump_data_wchar_ssse3_slow_p
   %99 = load <2 x i64>, ptr %.2.i26, align 16, !tbaa !16
   %100 = bitcast <2 x i64> %99 to <8 x i16>
   %101 = lshr <8 x i16> %100, splat (i16 4)
-  %.inner64 = and <8 x i16> %101, splat (i16 3855)
-  %102 = bitcast <8 x i16> %.inner64 to <16 x i8>
+  %.inner65 = and <8 x i16> %101, splat (i16 3855)
+  %102 = bitcast <8 x i16> %.inner65 to <16 x i8>
   %103 = icmp samesign ugt <16 x i8> %102, splat (i8 9)
-  %.inner65 = and <2 x i64> %99, splat (i64 1085102592571150095)
-  %104 = bitcast <2 x i64> %.inner65 to <16 x i8>
+  %.inner66 = and <2 x i64> %99, splat (i64 1085102592571150095)
+  %104 = bitcast <2 x i64> %.inner66 to <16 x i8>
   %105 = icmp samesign ugt <16 x i8> %104, splat (i8 9)
-  %106 = bitcast <8 x i16> %.inner64 to <16 x i8>
+  %106 = bitcast <8 x i16> %.inner65 to <16 x i8>
   %107 = or disjoint <16 x i8> %106, splat (i8 48)
-  %108 = bitcast <2 x i64> %.inner65 to <16 x i8>
+  %108 = bitcast <2 x i64> %.inner66 to <16 x i8>
   %109 = or disjoint <16 x i8> %108, splat (i8 48)
   %110 = select <16 x i1> %103, <16 x i8> %88, <16 x i8> zeroinitializer
   %111 = add nuw nsw <16 x i8> %110, %107
@@ -1714,15 +1714,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux33dump_data_wchar_ssse3_slow_p
   %162 = load <2 x i64>, ptr %.3.i33, align 16, !tbaa !16
   %163 = bitcast <2 x i64> %162 to <8 x i16>
   %164 = lshr <8 x i16> %163, splat (i16 4)
-  %.inner68 = and <8 x i16> %164, splat (i16 3855)
-  %165 = bitcast <8 x i16> %.inner68 to <16 x i8>
+  %.inner69 = and <8 x i16> %164, splat (i16 3855)
+  %165 = bitcast <8 x i16> %.inner69 to <16 x i8>
   %166 = icmp samesign ugt <16 x i8> %165, splat (i8 9)
-  %.inner69 = and <2 x i64> %162, splat (i64 1085102592571150095)
-  %167 = bitcast <2 x i64> %.inner69 to <16 x i8>
+  %.inner70 = and <2 x i64> %162, splat (i64 1085102592571150095)
+  %167 = bitcast <2 x i64> %.inner70 to <16 x i8>
   %168 = icmp samesign ugt <16 x i8> %167, splat (i8 9)
-  %169 = bitcast <8 x i16> %.inner68 to <16 x i8>
+  %169 = bitcast <8 x i16> %.inner69 to <16 x i8>
   %170 = or disjoint <16 x i8> %169, splat (i8 48)
-  %171 = bitcast <2 x i64> %.inner69 to <16 x i8>
+  %171 = bitcast <2 x i64> %.inner70 to <16 x i8>
   %172 = or disjoint <16 x i8> %171, splat (i8 48)
   %173 = select <16 x i1> %166, <16 x i8> %91, <16 x i8> zeroinitializer
   %174 = add nuw nsw <16 x i8> %173, %170
@@ -1938,7 +1938,7 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux34dump_data_char16_ssse3_slow_
   %.0.i = phi i64 [ %59, %20 ], [ %1, %6 ]
   %62 = lshr i64 %.0.i, 9
   %63 = and i64 %.0.i, 511
-  %.not = icmp ult i64 %.0.i, 512
+  %.not = icmp eq i64 %62, 0
   br i1 %.not, label %._crit_edge, label %.preheader23.lr.ph
 
 .preheader23.lr.ph:                               ; preds = %61
@@ -1982,15 +1982,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux34dump_data_char16_ssse3_slow_
   %75 = load <2 x i64>, ptr %.2.i26, align 16, !tbaa !16
   %76 = bitcast <2 x i64> %75 to <8 x i16>
   %77 = lshr <8 x i16> %76, splat (i16 4)
-  %.inner64 = and <8 x i16> %77, splat (i16 3855)
-  %78 = bitcast <8 x i16> %.inner64 to <16 x i8>
+  %.inner65 = and <8 x i16> %77, splat (i16 3855)
+  %78 = bitcast <8 x i16> %.inner65 to <16 x i8>
   %79 = icmp samesign ugt <16 x i8> %78, splat (i8 9)
-  %.inner65 = and <2 x i64> %75, splat (i64 1085102592571150095)
-  %80 = bitcast <2 x i64> %.inner65 to <16 x i8>
+  %.inner66 = and <2 x i64> %75, splat (i64 1085102592571150095)
+  %80 = bitcast <2 x i64> %.inner66 to <16 x i8>
   %81 = icmp samesign ugt <16 x i8> %80, splat (i8 9)
-  %82 = bitcast <8 x i16> %.inner64 to <16 x i8>
+  %82 = bitcast <8 x i16> %.inner65 to <16 x i8>
   %83 = or disjoint <16 x i8> %82, splat (i8 48)
-  %84 = bitcast <2 x i64> %.inner65 to <16 x i8>
+  %84 = bitcast <2 x i64> %.inner66 to <16 x i8>
   %85 = or disjoint <16 x i8> %84, splat (i8 48)
   %86 = select <16 x i1> %79, <16 x i8> %64, <16 x i8> zeroinitializer
   %87 = add nuw nsw <16 x i8> %86, %83
@@ -2035,15 +2035,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux34dump_data_char16_ssse3_slow_
   %114 = load <2 x i64>, ptr %.3.i33, align 16, !tbaa !16
   %115 = bitcast <2 x i64> %114 to <8 x i16>
   %116 = lshr <8 x i16> %115, splat (i16 4)
-  %.inner68 = and <8 x i16> %116, splat (i16 3855)
-  %117 = bitcast <8 x i16> %.inner68 to <16 x i8>
+  %.inner69 = and <8 x i16> %116, splat (i16 3855)
+  %117 = bitcast <8 x i16> %.inner69 to <16 x i8>
   %118 = icmp samesign ugt <16 x i8> %117, splat (i8 9)
-  %.inner69 = and <2 x i64> %114, splat (i64 1085102592571150095)
-  %119 = bitcast <2 x i64> %.inner69 to <16 x i8>
+  %.inner70 = and <2 x i64> %114, splat (i64 1085102592571150095)
+  %119 = bitcast <2 x i64> %.inner70 to <16 x i8>
   %120 = icmp samesign ugt <16 x i8> %119, splat (i8 9)
-  %121 = bitcast <8 x i16> %.inner68 to <16 x i8>
+  %121 = bitcast <8 x i16> %.inner69 to <16 x i8>
   %122 = or disjoint <16 x i8> %121, splat (i8 48)
-  %123 = bitcast <2 x i64> %.inner69 to <16 x i8>
+  %123 = bitcast <2 x i64> %.inner70 to <16 x i8>
   %124 = or disjoint <16 x i8> %123, splat (i8 48)
   %125 = select <16 x i1> %118, <16 x i8> %67, <16 x i8> zeroinitializer
   %126 = add nuw nsw <16 x i8> %125, %122
@@ -2259,7 +2259,7 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux34dump_data_char32_ssse3_slow_
   %.0.i = phi i64 [ %83, %20 ], [ %1, %6 ]
   %86 = lshr i64 %.0.i, 9
   %87 = and i64 %.0.i, 511
-  %.not = icmp ult i64 %.0.i, 512
+  %.not = icmp eq i64 %86, 0
   br i1 %.not, label %._crit_edge, label %.preheader23.lr.ph
 
 .preheader23.lr.ph:                               ; preds = %85
@@ -2303,15 +2303,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux34dump_data_char32_ssse3_slow_
   %99 = load <2 x i64>, ptr %.2.i26, align 16, !tbaa !16
   %100 = bitcast <2 x i64> %99 to <8 x i16>
   %101 = lshr <8 x i16> %100, splat (i16 4)
-  %.inner64 = and <8 x i16> %101, splat (i16 3855)
-  %102 = bitcast <8 x i16> %.inner64 to <16 x i8>
+  %.inner65 = and <8 x i16> %101, splat (i16 3855)
+  %102 = bitcast <8 x i16> %.inner65 to <16 x i8>
   %103 = icmp samesign ugt <16 x i8> %102, splat (i8 9)
-  %.inner65 = and <2 x i64> %99, splat (i64 1085102592571150095)
-  %104 = bitcast <2 x i64> %.inner65 to <16 x i8>
+  %.inner66 = and <2 x i64> %99, splat (i64 1085102592571150095)
+  %104 = bitcast <2 x i64> %.inner66 to <16 x i8>
   %105 = icmp samesign ugt <16 x i8> %104, splat (i8 9)
-  %106 = bitcast <8 x i16> %.inner64 to <16 x i8>
+  %106 = bitcast <8 x i16> %.inner65 to <16 x i8>
   %107 = or disjoint <16 x i8> %106, splat (i8 48)
-  %108 = bitcast <2 x i64> %.inner65 to <16 x i8>
+  %108 = bitcast <2 x i64> %.inner66 to <16 x i8>
   %109 = or disjoint <16 x i8> %108, splat (i8 48)
   %110 = select <16 x i1> %103, <16 x i8> %88, <16 x i8> zeroinitializer
   %111 = add nuw nsw <16 x i8> %110, %107
@@ -2386,15 +2386,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux34dump_data_char32_ssse3_slow_
   %162 = load <2 x i64>, ptr %.3.i33, align 16, !tbaa !16
   %163 = bitcast <2 x i64> %162 to <8 x i16>
   %164 = lshr <8 x i16> %163, splat (i16 4)
-  %.inner68 = and <8 x i16> %164, splat (i16 3855)
-  %165 = bitcast <8 x i16> %.inner68 to <16 x i8>
+  %.inner69 = and <8 x i16> %164, splat (i16 3855)
+  %165 = bitcast <8 x i16> %.inner69 to <16 x i8>
   %166 = icmp samesign ugt <16 x i8> %165, splat (i8 9)
-  %.inner69 = and <2 x i64> %162, splat (i64 1085102592571150095)
-  %167 = bitcast <2 x i64> %.inner69 to <16 x i8>
+  %.inner70 = and <2 x i64> %162, splat (i64 1085102592571150095)
+  %167 = bitcast <2 x i64> %.inner70 to <16 x i8>
   %168 = icmp samesign ugt <16 x i8> %167, splat (i8 9)
-  %169 = bitcast <8 x i16> %.inner68 to <16 x i8>
+  %169 = bitcast <8 x i16> %.inner69 to <16 x i8>
   %170 = or disjoint <16 x i8> %169, splat (i8 48)
-  %171 = bitcast <2 x i64> %.inner69 to <16 x i8>
+  %171 = bitcast <2 x i64> %.inner70 to <16 x i8>
   %172 = or disjoint <16 x i8> %171, splat (i8 48)
   %173 = select <16 x i1> %166, <16 x i8> %91, <16 x i8> zeroinitializer
   %174 = add nuw nsw <16 x i8> %173, %170

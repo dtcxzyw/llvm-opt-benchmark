@@ -288,16 +288,13 @@ define internal noundef i32 @dissect_dsr(ptr noundef %0, ptr noundef %1, ptr nou
   %64 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %64, ptr noundef nonnull @.str.94)
   %65 = add nsw i32 %47, -4
-  %.not397 = icmp samesign ult i32 %65, 4
-  br i1 %.not397, label %.loopexit, label %.lr.ph391.preheader
-
-.lr.ph391.preheader:                              ; preds = %60
   %66 = lshr i32 %65, 2
-  br label %.lr.ph391
+  %.not397 = icmp eq i32 %66, 0
+  br i1 %.not397, label %.loopexit, label %.lr.ph391
 
-.lr.ph391:                                        ; preds = %.lr.ph391.preheader, %.lr.ph391
-  %.0362390 = phi i32 [ %73, %.lr.ph391 ], [ 0, %.lr.ph391.preheader ]
-  %.0367389 = phi i32 [ %72, %.lr.ph391 ], [ %61, %.lr.ph391.preheader ]
+.lr.ph391:                                        ; preds = %60, %.lr.ph391
+  %.0362390 = phi i32 [ %73, %.lr.ph391 ], [ 0, %60 ]
+  %.0367389 = phi i32 [ %72, %.lr.ph391 ], [ %61, %60 ]
   %67 = load i32, ptr @hf_dsr_opt_rreq_address, align 4
   %68 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %67, ptr noundef %0, i32 noundef %.0367389, i32 noundef 4, i32 noundef 0)
   %69 = load ptr, ptr %6, align 8
@@ -306,8 +303,8 @@ define internal noundef i32 @dissect_dsr(ptr noundef %0, ptr noundef %1, ptr nou
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %69, ptr noundef nonnull @.str.95, ptr noundef %71)
   %72 = add i32 %.0367389, 4
   %73 = add nuw nsw i32 %.0362390, 1
-  %exitcond402.not = icmp eq i32 %73, %66
-  br i1 %exitcond402.not, label %.loopexit, label %.lr.ph391, !llvm.loop !6
+  %exitcond401.not = icmp eq i32 %73, %66
+  br i1 %exitcond401.not, label %.loopexit, label %.lr.ph391, !llvm.loop !6
 
 74:                                               ; preds = %35
   %75 = load i32, ptr @ett_dsr_rrep_opt, align 4
@@ -340,7 +337,7 @@ define internal noundef i32 @dissect_dsr(ptr noundef %0, ptr noundef %1, ptr nou
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %97, ptr noundef nonnull @.str.94)
   %98 = add nsw i32 %84, -1
   %99 = lshr i32 %98, 2
-  %.not396 = icmp ult i8 %83, 5
+  %.not396 = icmp eq i32 %99, 0
   br i1 %.not396, label %.loopexit, label %.lr.ph388
 
 .lr.ph388:                                        ; preds = %93, %.lr.ph388
@@ -522,16 +519,13 @@ define internal noundef i32 @dissect_dsr(ptr noundef %0, ptr noundef %1, ptr nou
   %236 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %236, ptr noundef nonnull @.str.94)
   %237 = add nsw i32 %212, -2
-  %.not395 = icmp samesign ult i32 %237, 4
-  br i1 %.not395, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %232
   %238 = lshr i32 %237, 2
-  br label %.lr.ph
+  %.not395 = icmp eq i32 %238, 0
+  br i1 %.not395, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.2385 = phi i32 [ %245, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.2369384 = phi i32 [ %244, %.lr.ph ], [ %233, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %232, %.lr.ph
+  %.2385 = phi i32 [ %245, %.lr.ph ], [ 0, %232 ]
+  %.2369384 = phi i32 [ %244, %.lr.ph ], [ %233, %232 ]
   %239 = load i32, ptr @hf_dsr_opt_srcrt_address, align 4
   %240 = call ptr @proto_tree_add_item(ptr noundef %235, i32 noundef %239, ptr noundef %0, i32 noundef %.2369384, i32 noundef 4, i32 noundef 0)
   %241 = load ptr, ptr %6, align 8
@@ -609,7 +603,7 @@ define internal noundef i32 @dissect_dsr(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph388, %.lr.ph391, %232, %93, %60, %202, %153, %173, %107, %138, %141, %144, %150, %74, %37, %279, %263, %258, %246, %177, %35
-  %.0366 = phi i32 [ 0, %35 ], [ %47, %37 ], [ %84, %74 ], [ %117, %107 ], [ %117, %138 ], [ %117, %150 ], [ %117, %141 ], [ %117, %144 ], [ %163, %173 ], [ %163, %153 ], [ %187, %177 ], [ %212, %202 ], [ %255, %246 ], [ 0, %258 ], [ %273, %263 ], [ %289, %279 ], [ 7, %60 ], [ %84, %93 ], [ %212, %232 ], [ %47, %.lr.ph391 ], [ %84, %.lr.ph388 ], [ %212, %.lr.ph ]
+  %.0366 = phi i32 [ 0, %35 ], [ %47, %37 ], [ %84, %74 ], [ %117, %107 ], [ %117, %138 ], [ %117, %150 ], [ %117, %141 ], [ %117, %144 ], [ %163, %173 ], [ %163, %153 ], [ %187, %177 ], [ %212, %202 ], [ %255, %246 ], [ 0, %258 ], [ %273, %263 ], [ %289, %279 ], [ %47, %60 ], [ %84, %93 ], [ %212, %232 ], [ %47, %.lr.ph391 ], [ %84, %.lr.ph388 ], [ %212, %.lr.ph ]
   %.not380 = icmp eq i8 %36, -32
   %.0366.fr = freeze i32 %.0366
   %298 = add nuw nsw i32 %.0366.fr, 2

@@ -19,13 +19,13 @@ define zeroext range(i8 0, 2) i8 @l_Nat_decidable__dvd(ptr noundef %0, ptr nound
   br i1 %.not11.i, label %.critedge.i6, label %8, !prof !4
 
 8:                                                ; preds = %5
-  %9 = icmp ult ptr %0, inttoptr (i64 2 to ptr)
-  br i1 %9, label %lean_nat_mod.exit, label %10
+  %9 = lshr i64 %6, 1
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %lean_nat_mod.exit, label %11
 
-10:                                               ; preds = %8
-  %11 = lshr i64 %3, 1
-  %12 = lshr i64 %6, 1
-  %13 = urem i64 %11, %12
+11:                                               ; preds = %8
+  %12 = lshr i64 %3, 1
+  %13 = urem i64 %12, %9
   %14 = shl nuw i64 %13, 1
   %15 = or disjoint i64 %14, 1
   %16 = inttoptr i64 %15 to ptr
@@ -35,8 +35,8 @@ define zeroext range(i8 0, 2) i8 @l_Nat_decidable__dvd(ptr noundef %0, ptr nound
   %17 = tail call ptr @lean_nat_big_mod(ptr noundef %1, ptr noundef %0) #3
   br label %lean_nat_mod.exit
 
-lean_nat_mod.exit:                                ; preds = %8, %10, %.critedge.i6
-  %.1.i = phi ptr [ %17, %.critedge.i6 ], [ %16, %10 ], [ %1, %8 ]
+lean_nat_mod.exit:                                ; preds = %8, %11, %.critedge.i6
+  %.1.i = phi ptr [ %17, %.critedge.i6 ], [ %16, %11 ], [ %1, %8 ]
   %18 = ptrtoint ptr %.1.i to i64
   %19 = and i64 %18, 1
   %.not = icmp eq i64 %19, 0
@@ -85,13 +85,13 @@ define nonnull ptr @l_Nat_decidable__dvd___boxed(ptr noundef %0, ptr noundef %1)
   br i1 %.not11.i.i, label %.critedge.i6.i, label %8, !prof !4
 
 8:                                                ; preds = %5
-  %9 = icmp ult ptr %0, inttoptr (i64 2 to ptr)
-  br i1 %9, label %lean_nat_mod.exit.i, label %10
+  %9 = lshr i64 %6, 1
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %lean_nat_mod.exit.i, label %11
 
-10:                                               ; preds = %8
-  %11 = lshr i64 %3, 1
-  %12 = lshr i64 %6, 1
-  %13 = urem i64 %11, %12
+11:                                               ; preds = %8
+  %12 = lshr i64 %3, 1
+  %13 = urem i64 %12, %9
   %14 = shl nuw i64 %13, 1
   %15 = or disjoint i64 %14, 1
   %16 = inttoptr i64 %15 to ptr
@@ -101,8 +101,8 @@ define nonnull ptr @l_Nat_decidable__dvd___boxed(ptr noundef %0, ptr noundef %1)
   %17 = tail call ptr @lean_nat_big_mod(ptr noundef %1, ptr noundef %0) #3
   br label %lean_nat_mod.exit.i
 
-lean_nat_mod.exit.i:                              ; preds = %.critedge.i6.i, %10, %8
-  %.1.i.i = phi ptr [ %17, %.critedge.i6.i ], [ %16, %10 ], [ %1, %8 ]
+lean_nat_mod.exit.i:                              ; preds = %.critedge.i6.i, %11, %8
+  %.1.i.i = phi ptr [ %17, %.critedge.i6.i ], [ %16, %11 ], [ %1, %8 ]
   %18 = ptrtoint ptr %.1.i.i to i64
   %19 = and i64 %18, 1
   %.not.i8 = icmp eq i64 %19, 0

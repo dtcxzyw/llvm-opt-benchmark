@@ -7280,7 +7280,7 @@ setup_temp_malloc.exit:                           ; preds = %20, %12, %23
   %.idx = shl nsw i64 %32, 2
   %34 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %.0379423 = getelementptr i8, ptr %33, i64 -8
-  %.not409424 = icmp ult i32 %1, 2
+  %.not409424 = icmp eq i32 %5, 0
   br i1 %.not409424, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %setup_temp_malloc.exit, %.lr.ph

@@ -4030,7 +4030,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h4ed27bf34717603
   br i1 %29, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1848e23447429828E.exit63.i.i.i.i.i.i.i", label %30
 
 30:                                               ; preds = %28
-  %.not.i.i.i.i.i.i.i = icmp samesign ult i64 %5, 2
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h26e31a22303b5b0eE.llvm.5746530894159329150.exit", label %31
 
 31:                                               ; preds = %30
@@ -4140,7 +4140,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h8ce0fa111062464
   br i1 %28, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1848e23447429828E.exit63.i.i.i.i.i.i.i", label %29
 
 29:                                               ; preds = %27
-  %.not.i.i.i.i.i.i.i = icmp samesign ult i64 %4, 2
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h740f612bd41ee668E.llvm.5746530894159329150.exit", label %30
 
 30:                                               ; preds = %29
@@ -4255,7 +4255,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17ha0e3d78c01d6d1e
   br i1 %29, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1848e23447429828E.exit63.i.i.i.i.i.i.i", label %30
 
 30:                                               ; preds = %28
-  %.not.i.i.i.i.i.i.i = icmp samesign ult i64 %5, 2
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h992095afdab4ca50E.llvm.5746530894159329150.exit", label %31
 
 31:                                               ; preds = %30
@@ -4386,7 +4386,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
   br i1 %30, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1848e23447429828E.exit63.i.i.i.i.i.i", label %31
 
 31:                                               ; preds = %29
-  %.not.i.i.i.i.i.i = icmp samesign ult i64 %6, 2
+  %.not.i.i.i.i.i.i = icmp eq i64 %7, 0
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hcffdd8251ee45943E.llvm.5746530894159329150.exit", label %32
 
 32:                                               ; preds = %31
@@ -4504,7 +4504,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
   br i1 %29, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1848e23447429828E.exit63.i.i.i.i.i", label %30
 
 30:                                               ; preds = %28
-  %.not.i.i.i.i.i = icmp samesign ult i64 %5, 2
+  %.not.i.i.i.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i.i.i.i, label %"_ZN76_$LT$uv_normalize..package_name..PackageName$u20$as$u20$core..hash..Hash$GT$4hash17h736f68b037e91e00E.llvm.5746530894159329150.exit", label %31
 
 31:                                               ; preds = %30
@@ -4624,7 +4624,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
   br i1 %29, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1848e23447429828E.exit63.i.i.i.i.i.i", label %30
 
 30:                                               ; preds = %28
-  %.not.i.i.i.i.i.i = icmp samesign ult i64 %5, 2
+  %.not.i.i.i.i.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4core4hash5impls60_$LT$impl$u20$core..hash..Hash$u20$for$u20$$LP$T$C$B$RP$$GT$4hash17h3def50e352521b31E.llvm.5746530894159329150.exit", label %31
 
 31:                                               ; preds = %30
@@ -4767,7 +4767,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
   br i1 %30, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1848e23447429828E.exit63.i.i.i.i.i.i", label %31
 
 31:                                               ; preds = %29
-  %.not.i.i.i.i.i.i = icmp samesign ult i64 %6, 2
+  %.not.i.i.i.i.i.i = icmp eq i64 %7, 0
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h2ba587cdee5015feE.llvm.5746530894159329150.exit", label %32
 
 32:                                               ; preds = %31
@@ -4892,7 +4892,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
   br i1 %29, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1848e23447429828E.exit63.i.i.i.i.i", label %30
 
 30:                                               ; preds = %28
-  %.not.i.i.i.i.i = icmp samesign ult i64 %5, 2
+  %.not.i.i.i.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i.i.i.i, label %"_ZN81_$LT$uv_distribution_types..index_name..IndexName$u20$as$u20$core..hash..Hash$GT$4hash17hf2aa9196d3f96a84E.llvm.5746530894159329150.exit", label %31
 
 31:                                               ; preds = %30
@@ -5009,7 +5009,7 @@ define hidden void @"_ZN4core4hash5impls60_$LT$impl$u20$core..hash..Hash$u20$for
   br i1 %28, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1848e23447429828E.exit63.i.i.i.i.i", label %29
 
 29:                                               ; preds = %27
-  %.not.i.i.i.i.i = icmp samesign ult i64 %4, 2
+  %.not.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i, label %"_ZN72_$LT$uv_normalize..extra_name..ExtraName$u20$as$u20$core..hash..Hash$GT$4hash17h965dff2072cca712E.llvm.5746530894159329150.exit", label %30
 
 30:                                               ; preds = %29
@@ -6780,7 +6780,7 @@ define hidden void @"_ZN60_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..hash..Ha
   br i1 %28, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1848e23447429828E.exit63.i.i.i", label %29
 
 29:                                               ; preds = %27
-  %.not.i.i.i = icmp samesign ult i64 %4, 2
+  %.not.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i, label %_ZN4core4hash6Hasher9write_str17h33f70ef2e230d4f4E.llvm.5746530894159329150.exit, label %30
 
 30:                                               ; preds = %29
@@ -7368,7 +7368,7 @@ define hidden void @"_ZN72_$LT$uv_normalize..extra_name..ExtraName$u20$as$u20$co
   br i1 %28, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1848e23447429828E.exit63.i.i.i.i", label %29
 
 29:                                               ; preds = %27
-  %.not.i.i.i.i = icmp samesign ult i64 %4, 2
+  %.not.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i, label %"_ZN60_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..hash..Hash$GT$4hash17h5a1852407016e374E.llvm.5746530894159329150.exit", label %30
 
 30:                                               ; preds = %29
@@ -7501,7 +7501,7 @@ define hidden void @"_ZN73_$LT$uv_distribution_types..id..VersionId$u20$as$u20$c
   br i1 %38, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1848e23447429828E.exit63.i.i.i", label %39
 
 39:                                               ; preds = %37
-  %.not.i.i.i = icmp samesign ult i64 %14, 2
+  %.not.i.i.i = icmp eq i64 %15, 0
   br i1 %.not.i.i.i, label %_ZN4core4hash6Hasher9write_str17h33f70ef2e230d4f4E.llvm.5746530894159329150.exit, label %40
 
 40:                                               ; preds = %39
@@ -16926,7 +16926,7 @@ define hidden void @"_ZN76_$LT$uv_normalize..package_name..PackageName$u20$as$u2
   br i1 %28, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1848e23447429828E.exit63.i.i.i.i", label %29
 
 29:                                               ; preds = %27
-  %.not.i.i.i.i = icmp samesign ult i64 %4, 2
+  %.not.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i, label %"_ZN60_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..hash..Hash$GT$4hash17h5a1852407016e374E.llvm.5746530894159329150.exit", label %30
 
 30:                                               ; preds = %29
@@ -17415,7 +17415,7 @@ define hidden void @"_ZN81_$LT$uv_distribution_types..index_name..IndexName$u20$
   br i1 %28, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1848e23447429828E.exit63.i.i.i.i", label %29
 
 29:                                               ; preds = %27
-  %.not.i.i.i.i = icmp samesign ult i64 %4, 2
+  %.not.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i, label %"_ZN60_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..hash..Hash$GT$4hash17h5a1852407016e374E.llvm.5746530894159329150.exit", label %30
 
 30:                                               ; preds = %29

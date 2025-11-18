@@ -478,7 +478,7 @@ define i16 @bf16_recip7(i16 %0) local_unnamed_addr #0 {
   %22 = lshr i64 %21, 7
   %23 = and i64 %22, 255
   %24 = and i64 %21, 127
-  br label %47
+  br label %46
 
 .preheader.i:                                     ; preds = %.split, %.split
   %25 = zext i16 %0 to i64
@@ -487,86 +487,86 @@ define i16 @bf16_recip7(i16 %0) local_unnamed_addr #0 {
   %28 = lshr i64 %25, 7
   %29 = and i64 %28, 255
   %30 = and i64 %25, 127
-  %31 = and i16 %0, -32768
-  %32 = and i64 %25, 64
-  %33 = icmp eq i64 %32, 0
-  br i1 %33, label %.lr.ph.i, label %._crit_edge.i
+  %31 = and i64 %25, 64
+  %32 = icmp eq i64 %31, 0
+  br i1 %32, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %.168.i = phi i64 [ %34, %.lr.ph.i ], [ %29, %.preheader.i ]
-  %.16267.i = phi i64 [ %35, %.lr.ph.i ], [ %30, %.preheader.i ]
-  %34 = add i64 %.168.i, -1
-  %35 = shl i64 %.16267.i, 1
-  %36 = and i64 %.16267.i, 32
-  %37 = icmp eq i64 %36, 0
-  br i1 %37, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
+  %.168.i = phi i64 [ %33, %.lr.ph.i ], [ %29, %.preheader.i ]
+  %.16267.i = phi i64 [ %34, %.lr.ph.i ], [ %30, %.preheader.i ]
+  %33 = add i64 %.168.i, -1
+  %34 = shl i64 %.16267.i, 1
+  %35 = and i64 %.16267.i, 32
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %.162.lcssa.i = phi i64 [ %30, %.preheader.i ], [ %35, %.lr.ph.i ]
-  %.1.lcssa.i = phi i64 [ %29, %.preheader.i ], [ %34, %.lr.ph.i ]
-  %38 = shl i64 %.162.lcssa.i, 1
-  %39 = and i64 %38, 126
-  %40 = add i64 %.1.lcssa.i, -1
-  %or.cond.i = icmp ult i64 %40, -2
-  br i1 %or.cond.i, label %41, label %47
+  %.162.lcssa.i = phi i64 [ %30, %.preheader.i ], [ %34, %.lr.ph.i ]
+  %.1.lcssa.i = phi i64 [ %29, %.preheader.i ], [ %33, %.lr.ph.i ]
+  %37 = shl i64 %.162.lcssa.i, 1
+  %38 = and i64 %37, 126
+  %39 = add i64 %.1.lcssa.i, -1
+  %or.cond.i = icmp ult i64 %39, -2
+  br i1 %or.cond.i, label %40, label %46
 
-41:                                               ; preds = %._crit_edge.i
-  %42 = icmp eq i8 %27, 1
-  br i1 %42, label %64, label %43
+40:                                               ; preds = %._crit_edge.i
+  %41 = icmp eq i8 %27, 1
+  br i1 %41, label %63, label %42
 
-43:                                               ; preds = %41
-  %44 = icmp ne i8 %27, 2
-  %45 = icmp slt i16 %0, 0
-  %or.cond3.i = select i1 %44, i1 true, i1 %45
+42:                                               ; preds = %40
+  %43 = icmp ne i8 %27, 2
+  %44 = icmp slt i16 %0, 0
+  %or.cond3.i = select i1 %43, i1 true, i1 %44
   %or.cond3.not.i = xor i1 %or.cond3.i, true
-  %46 = icmp eq i8 %27, 3
-  %or.cond5.i = select i1 %46, i1 %45, i1 false
+  %45 = icmp eq i8 %27, 3
+  %or.cond5.i = select i1 %45, i1 %44, i1 false
   %or.cond65.i = select i1 %or.cond3.not.i, i1 true, i1 %or.cond5.i
   %spec.select = select i1 %or.cond65.i, i16 32639, i16 32640
-  br label %64
+  br label %63
 
-47:                                               ; preds = %.thread, %._crit_edge.i
-  %48 = phi i64 [ %25, %._crit_edge.i ], [ %21, %.thread ]
-  %.061.i = phi i64 [ %39, %._crit_edge.i ], [ %24, %.thread ]
+46:                                               ; preds = %.thread, %._crit_edge.i
+  %47 = phi i64 [ %25, %._crit_edge.i ], [ %21, %.thread ]
+  %.061.i = phi i64 [ %38, %._crit_edge.i ], [ %24, %.thread ]
   %.060.i = phi i64 [ %.1.lcssa.i, %._crit_edge.i ], [ %23, %.thread ]
-  %49 = getelementptr inbounds nuw i8, ptr @recip7.table, i64 %.061.i
-  %50 = load i8, ptr %49, align 1, !tbaa !3
-  %51 = zext i8 %50 to i64
-  %52 = sub nsw i64 253, %.060.i
-  %53 = add nsw i64 %.060.i, -253
-  %or.cond7.i = icmp ult i64 %53, 2
-  br i1 %or.cond7.i, label %54, label %recip7.exit
+  %48 = getelementptr inbounds nuw i8, ptr @recip7.table, i64 %.061.i
+  %49 = load i8, ptr %48, align 1, !tbaa !3
+  %50 = zext i8 %49 to i64
+  %51 = sub nsw i64 253, %.060.i
+  %52 = add nsw i64 %.060.i, -253
+  %or.cond7.i = icmp ult i64 %52, 2
+  br i1 %or.cond7.i, label %53, label %recip7.exit
 
-54:                                               ; preds = %47
-  %55 = icmp eq i64 %.060.i, 254
-  %56 = lshr i64 %51, 1
-  %57 = or i64 %56, 64
-  %58 = zext i1 %55 to i64
-  %spec.select.i = lshr i64 %57, %58
-  %spec.select66.i = select i1 %55, i64 0, i64 %52
+53:                                               ; preds = %46
+  %54 = icmp eq i64 %.060.i, 254
+  %55 = lshr i64 %50, 1
+  %56 = or i64 %55, 64
+  %57 = zext i1 %54 to i64
+  %spec.select.i = lshr i64 %56, %57
+  %spec.select66.i = select i1 %54, i64 0, i64 %51
   br label %recip7.exit
 
-recip7.exit:                                      ; preds = %47, %54
-  %.058.i = phi i64 [ %51, %47 ], [ %spec.select.i, %54 ]
-  %.0.i = phi i64 [ %52, %47 ], [ %spec.select66.i, %54 ]
-  %59 = and i64 %48, 32768
-  %60 = shl nsw i64 %.0.i, 7
-  %61 = or i64 %.058.i, %59
-  %62 = or i64 %61, %60
-  %63 = trunc i64 %62 to i16
+recip7.exit:                                      ; preds = %46, %53
+  %.058.i = phi i64 [ %50, %46 ], [ %spec.select.i, %53 ]
+  %.0.i = phi i64 [ %51, %46 ], [ %spec.select66.i, %53 ]
+  %58 = and i64 %47, 32768
+  %59 = shl nsw i64 %.0.i, 7
+  %60 = or i64 %.058.i, %58
+  %61 = or i64 %60, %59
+  %62 = trunc i64 %61 to i16
   br label %69
 
-64:                                               ; preds = %43, %41
-  %.sink = phi i16 [ 32639, %41 ], [ %spec.select, %43 ]
-  %65 = or disjoint i16 %31, %.sink
+63:                                               ; preds = %42, %40
+  %.sink14 = phi i16 [ 32639, %40 ], [ %spec.select, %42 ]
+  %64 = and i16 %0, -32768
+  %65 = or disjoint i16 %64, %.sink14
   %66 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
   %67 = load i8, ptr %66, align 1, !tbaa !3
   %68 = or i8 %67, 5
   store i8 %68, ptr %66, align 1, !tbaa !3
   br label %69
 
-69:                                               ; preds = %recip7.exit, %.split, %64, %20, %12, %8, %7
-  %.sroa.0.0 = phi i16 [ %65, %64 ], [ %63, %recip7.exit ], [ 0, %7 ], [ -128, %8 ], [ 32640, %12 ], [ 32704, %20 ], [ -32768, %.split ]
+69:                                               ; preds = %recip7.exit, %.split, %63, %20, %12, %8, %7
+  %.sroa.0.0 = phi i16 [ %65, %63 ], [ %62, %recip7.exit ], [ 0, %7 ], [ -128, %8 ], [ 32640, %12 ], [ 32704, %20 ], [ -32768, %.split ]
   ret i16 %.sroa.0.0
 }
 
@@ -623,7 +623,7 @@ define i16 @f16_recip7(i16 %0) local_unnamed_addr #0 {
   %22 = lshr i64 %21, 10
   %23 = and i64 %22, 31
   %24 = and i64 %21, 1023
-  br label %47
+  br label %46
 
 .preheader.i:                                     ; preds = %.split, %.split
   %25 = zext i16 %0 to i64
@@ -632,88 +632,88 @@ define i16 @f16_recip7(i16 %0) local_unnamed_addr #0 {
   %28 = lshr i64 %25, 10
   %29 = and i64 %28, 31
   %30 = and i64 %25, 1023
-  %31 = and i16 %0, -32768
-  %32 = and i64 %25, 512
-  %33 = icmp eq i64 %32, 0
-  br i1 %33, label %.lr.ph.i, label %._crit_edge.i
+  %31 = and i64 %25, 512
+  %32 = icmp eq i64 %31, 0
+  br i1 %32, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %.168.i = phi i64 [ %34, %.lr.ph.i ], [ %29, %.preheader.i ]
-  %.16267.i = phi i64 [ %35, %.lr.ph.i ], [ %30, %.preheader.i ]
-  %34 = add i64 %.168.i, -1
-  %35 = shl i64 %.16267.i, 1
-  %36 = and i64 %.16267.i, 256
-  %37 = icmp eq i64 %36, 0
-  br i1 %37, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
+  %.168.i = phi i64 [ %33, %.lr.ph.i ], [ %29, %.preheader.i ]
+  %.16267.i = phi i64 [ %34, %.lr.ph.i ], [ %30, %.preheader.i ]
+  %33 = add i64 %.168.i, -1
+  %34 = shl i64 %.16267.i, 1
+  %35 = and i64 %.16267.i, 256
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %.162.lcssa.i = phi i64 [ %30, %.preheader.i ], [ %35, %.lr.ph.i ]
-  %.1.lcssa.i = phi i64 [ %29, %.preheader.i ], [ %34, %.lr.ph.i ]
-  %38 = shl i64 %.162.lcssa.i, 1
-  %39 = and i64 %38, 1022
-  %40 = add i64 %.1.lcssa.i, -1
-  %or.cond.i = icmp ult i64 %40, -2
-  br i1 %or.cond.i, label %41, label %47
+  %.162.lcssa.i = phi i64 [ %30, %.preheader.i ], [ %34, %.lr.ph.i ]
+  %.1.lcssa.i = phi i64 [ %29, %.preheader.i ], [ %33, %.lr.ph.i ]
+  %37 = shl i64 %.162.lcssa.i, 1
+  %38 = and i64 %37, 1022
+  %39 = add i64 %.1.lcssa.i, -1
+  %or.cond.i = icmp ult i64 %39, -2
+  br i1 %or.cond.i, label %40, label %46
 
-41:                                               ; preds = %._crit_edge.i
-  %42 = icmp eq i8 %27, 1
-  br i1 %42, label %66, label %43
+40:                                               ; preds = %._crit_edge.i
+  %41 = icmp eq i8 %27, 1
+  br i1 %41, label %65, label %42
 
-43:                                               ; preds = %41
-  %44 = icmp ne i8 %27, 2
-  %45 = icmp slt i16 %0, 0
-  %or.cond3.i = select i1 %44, i1 true, i1 %45
+42:                                               ; preds = %40
+  %43 = icmp ne i8 %27, 2
+  %44 = icmp slt i16 %0, 0
+  %or.cond3.i = select i1 %43, i1 true, i1 %44
   %or.cond3.not.i = xor i1 %or.cond3.i, true
-  %46 = icmp eq i8 %27, 3
-  %or.cond5.i = select i1 %46, i1 %45, i1 false
+  %45 = icmp eq i8 %27, 3
+  %or.cond5.i = select i1 %45, i1 %44, i1 false
   %or.cond65.i = select i1 %or.cond3.not.i, i1 true, i1 %or.cond5.i
   %spec.select = select i1 %or.cond65.i, i16 31743, i16 31744
-  br label %66
+  br label %65
 
-47:                                               ; preds = %.thread, %._crit_edge.i
-  %48 = phi i64 [ %25, %._crit_edge.i ], [ %21, %.thread ]
-  %.061.i = phi i64 [ %39, %._crit_edge.i ], [ %24, %.thread ]
+46:                                               ; preds = %.thread, %._crit_edge.i
+  %47 = phi i64 [ %25, %._crit_edge.i ], [ %21, %.thread ]
+  %.061.i = phi i64 [ %38, %._crit_edge.i ], [ %24, %.thread ]
   %.060.i = phi i64 [ %.1.lcssa.i, %._crit_edge.i ], [ %23, %.thread ]
-  %49 = lshr i64 %.061.i, 3
-  %50 = getelementptr inbounds nuw i8, ptr @recip7.table, i64 %49
-  %51 = load i8, ptr %50, align 1, !tbaa !3
-  %52 = zext i8 %51 to i64
-  %53 = shl nuw nsw i64 %52, 3
-  %54 = sub nsw i64 29, %.060.i
-  %55 = add nsw i64 %.060.i, -29
-  %or.cond7.i = icmp ult i64 %55, 2
-  br i1 %or.cond7.i, label %56, label %recip7.exit
+  %48 = lshr i64 %.061.i, 3
+  %49 = getelementptr inbounds nuw i8, ptr @recip7.table, i64 %48
+  %50 = load i8, ptr %49, align 1, !tbaa !3
+  %51 = zext i8 %50 to i64
+  %52 = shl nuw nsw i64 %51, 3
+  %53 = sub nsw i64 29, %.060.i
+  %54 = add nsw i64 %.060.i, -29
+  %or.cond7.i = icmp ult i64 %54, 2
+  br i1 %or.cond7.i, label %55, label %recip7.exit
 
-56:                                               ; preds = %47
-  %57 = icmp eq i64 %.060.i, 30
-  %58 = shl nuw nsw i64 %52, 2
-  %59 = or i64 %58, 512
-  %60 = zext i1 %57 to i64
-  %spec.select.i = lshr exact i64 %59, %60
-  %spec.select66.i = select i1 %57, i64 0, i64 %54
+55:                                               ; preds = %46
+  %56 = icmp eq i64 %.060.i, 30
+  %57 = shl nuw nsw i64 %51, 2
+  %58 = or i64 %57, 512
+  %59 = zext i1 %56 to i64
+  %spec.select.i = lshr exact i64 %58, %59
+  %spec.select66.i = select i1 %56, i64 0, i64 %53
   br label %recip7.exit
 
-recip7.exit:                                      ; preds = %47, %56
-  %.058.i = phi i64 [ %53, %47 ], [ %spec.select.i, %56 ]
-  %.0.i = phi i64 [ %54, %47 ], [ %spec.select66.i, %56 ]
-  %61 = and i64 %48, 32768
-  %62 = shl nsw i64 %.0.i, 10
-  %63 = or i64 %.058.i, %61
-  %64 = or i64 %63, %62
-  %65 = trunc i64 %64 to i16
+recip7.exit:                                      ; preds = %46, %55
+  %.058.i = phi i64 [ %52, %46 ], [ %spec.select.i, %55 ]
+  %.0.i = phi i64 [ %53, %46 ], [ %spec.select66.i, %55 ]
+  %60 = and i64 %47, 32768
+  %61 = shl nsw i64 %.0.i, 10
+  %62 = or i64 %.058.i, %60
+  %63 = or i64 %62, %61
+  %64 = trunc i64 %63 to i16
   br label %71
 
-66:                                               ; preds = %43, %41
-  %.sink = phi i16 [ 31743, %41 ], [ %spec.select, %43 ]
-  %67 = or disjoint i16 %31, %.sink
+65:                                               ; preds = %42, %40
+  %.sink14 = phi i16 [ 31743, %40 ], [ %spec.select, %42 ]
+  %66 = and i16 %0, -32768
+  %67 = or disjoint i16 %66, %.sink14
   %68 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
   %69 = load i8, ptr %68, align 1, !tbaa !3
   %70 = or i8 %69, 5
   store i8 %70, ptr %68, align 1, !tbaa !3
   br label %71
 
-71:                                               ; preds = %recip7.exit, %.split, %66, %20, %12, %8, %7
-  %.sroa.0.0 = phi i16 [ %67, %66 ], [ %65, %recip7.exit ], [ 0, %7 ], [ -1024, %8 ], [ 31744, %12 ], [ 32256, %20 ], [ -32768, %.split ]
+71:                                               ; preds = %recip7.exit, %.split, %65, %20, %12, %8, %7
+  %.sroa.0.0 = phi i16 [ %67, %65 ], [ %64, %recip7.exit ], [ 0, %7 ], [ -1024, %8 ], [ 31744, %12 ], [ 32256, %20 ], [ -32768, %.split ]
   ret i16 %.sroa.0.0
 }
 
@@ -728,7 +728,7 @@ define i32 @f32_recip7(i32 %0) local_unnamed_addr #0 {
 .split:                                           ; preds = %1
   %6 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %3, i1 true)
   switch i32 %6, label %.thread [
-    i32 0, label %69
+    i32 0, label %72
     i32 7, label %7
     i32 3, label %8
     i32 4, label %12
@@ -739,21 +739,21 @@ define i32 @f32_recip7(i32 %0) local_unnamed_addr #0 {
   ]
 
 7:                                                ; preds = %.split
-  br label %69
+  br label %72
 
 8:                                                ; preds = %.split
   %9 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
   %10 = load i8, ptr %9, align 1, !tbaa !3
   %11 = or i8 %10, 8
   store i8 %11, ptr %9, align 1, !tbaa !3
-  br label %69
+  br label %72
 
 12:                                               ; preds = %.split
   %13 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
   %14 = load i8, ptr %13, align 1, !tbaa !3
   %15 = or i8 %14, 8
   store i8 %15, ptr %13, align 1, !tbaa !3
-  br label %69
+  br label %72
 
 16:                                               ; preds = %.split
   %17 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
@@ -763,103 +763,105 @@ define i32 @f32_recip7(i32 %0) local_unnamed_addr #0 {
   br label %20
 
 20:                                               ; preds = %16, %.split
-  br label %69
+  br label %72
 
 .thread:                                          ; preds = %.split, %1
   %21 = zext i32 %0 to i64
   %22 = lshr i64 %21, 23
   %23 = and i64 %22, 255
   %24 = and i64 %21, 8388607
-  br label %45
+  %25 = lshr i64 %21, 31
+  br label %47
 
 .preheader.i:                                     ; preds = %.split, %.split
-  %25 = zext i32 %0 to i64
-  %26 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_roundingMode)
-  %27 = load i8, ptr %26, align 1, !tbaa !3
-  %28 = lshr i64 %25, 23
-  %29 = and i64 %28, 255
-  %30 = and i64 %25, 4194304
-  %31 = icmp eq i64 %30, 0
-  br i1 %31, label %.lr.ph.i, label %._crit_edge.i
+  %26 = zext i32 %0 to i64
+  %27 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_roundingMode)
+  %28 = load i8, ptr %27, align 1, !tbaa !3
+  %29 = lshr i64 %26, 23
+  %30 = and i64 %29, 255
+  %31 = lshr i64 %26, 31
+  %32 = and i64 %26, 4194304
+  %33 = icmp eq i64 %32, 0
+  br i1 %33, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %.168.i = phi i64 [ %32, %.lr.ph.i ], [ %29, %.preheader.i ]
-  %.16267.i = phi i64 [ %33, %.lr.ph.i ], [ %25, %.preheader.i ]
-  %32 = add i64 %.168.i, -1
-  %33 = shl i64 %.16267.i, 1
-  %34 = and i64 %.16267.i, 2097152
-  %35 = icmp eq i64 %34, 0
-  br i1 %35, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
+  %.168.i = phi i64 [ %34, %.lr.ph.i ], [ %30, %.preheader.i ]
+  %.16267.i = phi i64 [ %35, %.lr.ph.i ], [ %26, %.preheader.i ]
+  %34 = add i64 %.168.i, -1
+  %35 = shl i64 %.16267.i, 1
+  %36 = and i64 %.16267.i, 2097152
+  %37 = icmp eq i64 %36, 0
+  br i1 %37, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %.162.lcssa.i = phi i64 [ %25, %.preheader.i ], [ %33, %.lr.ph.i ]
-  %.1.lcssa.i = phi i64 [ %29, %.preheader.i ], [ %32, %.lr.ph.i ]
-  %36 = shl i64 %.162.lcssa.i, 1
-  %37 = and i64 %36, 8388606
-  %38 = add i64 %.1.lcssa.i, -1
-  %or.cond.i = icmp ult i64 %38, -2
-  br i1 %or.cond.i, label %39, label %45
+  %.162.lcssa.i = phi i64 [ %26, %.preheader.i ], [ %35, %.lr.ph.i ]
+  %.1.lcssa.i = phi i64 [ %30, %.preheader.i ], [ %34, %.lr.ph.i ]
+  %38 = shl i64 %.162.lcssa.i, 1
+  %39 = and i64 %38, 8388606
+  %40 = add i64 %.1.lcssa.i, -1
+  %or.cond.i = icmp ult i64 %40, -2
+  br i1 %or.cond.i, label %41, label %47
 
-39:                                               ; preds = %._crit_edge.i
-  %40 = icmp eq i8 %27, 1
-  br i1 %40, label %63, label %41
+41:                                               ; preds = %._crit_edge.i
+  %42 = icmp eq i8 %28, 1
+  br i1 %42, label %66, label %43
 
-41:                                               ; preds = %39
-  %42 = icmp ne i8 %27, 2
-  %43 = icmp slt i32 %0, 0
-  %or.cond3.i = select i1 %42, i1 true, i1 %43
+43:                                               ; preds = %41
+  %44 = icmp ne i8 %28, 2
+  %45 = icmp ne i64 %31, 0
+  %or.cond3.i = or i1 %45, %44
   %or.cond3.not.i = xor i1 %or.cond3.i, true
-  %44 = icmp eq i8 %27, 3
-  %or.cond5.i = select i1 %44, i1 %43, i1 false
+  %46 = icmp eq i8 %28, 3
+  %or.cond5.i = and i1 %45, %46
   %or.cond65.i = select i1 %or.cond3.not.i, i1 true, i1 %or.cond5.i
   %spec.select = select i1 %or.cond65.i, i32 2139095039, i32 2139095040
-  br label %63
+  br label %66
 
-45:                                               ; preds = %.thread, %._crit_edge.i
-  %.in = phi i64 [ %25, %._crit_edge.i ], [ %21, %.thread ]
-  %.061.i = phi i64 [ %37, %._crit_edge.i ], [ %24, %.thread ]
+47:                                               ; preds = %.thread, %._crit_edge.i
+  %48 = phi i64 [ %31, %._crit_edge.i ], [ %25, %.thread ]
+  %.061.i = phi i64 [ %39, %._crit_edge.i ], [ %24, %.thread ]
   %.060.i = phi i64 [ %.1.lcssa.i, %._crit_edge.i ], [ %23, %.thread ]
-  %46 = and i64 %.in, 2147483648
-  %47 = lshr i64 %.061.i, 16
-  %48 = getelementptr inbounds nuw i8, ptr @recip7.table, i64 %47
-  %49 = load i8, ptr %48, align 1, !tbaa !3
-  %50 = zext i8 %49 to i64
-  %51 = shl nuw nsw i64 %50, 16
-  %52 = sub nsw i64 253, %.060.i
-  %53 = add nsw i64 %.060.i, -253
-  %or.cond7.i = icmp ult i64 %53, 2
-  br i1 %or.cond7.i, label %54, label %recip7.exit
+  %49 = lshr i64 %.061.i, 16
+  %50 = getelementptr inbounds nuw i8, ptr @recip7.table, i64 %49
+  %51 = load i8, ptr %50, align 1, !tbaa !3
+  %52 = zext i8 %51 to i64
+  %53 = shl nuw nsw i64 %52, 16
+  %54 = sub nsw i64 253, %.060.i
+  %55 = add nsw i64 %.060.i, -253
+  %or.cond7.i = icmp ult i64 %55, 2
+  br i1 %or.cond7.i, label %56, label %recip7.exit
 
-54:                                               ; preds = %45
-  %55 = icmp eq i64 %.060.i, 254
-  %56 = shl nuw nsw i64 %50, 15
-  %57 = or i64 %56, 4194304
-  %58 = zext i1 %55 to i64
-  %spec.select.i = lshr exact i64 %57, %58
-  %spec.select66.i = select i1 %55, i64 0, i64 %52
+56:                                               ; preds = %47
+  %57 = icmp eq i64 %.060.i, 254
+  %58 = shl nuw nsw i64 %52, 15
+  %59 = or i64 %58, 4194304
+  %60 = zext i1 %57 to i64
+  %spec.select.i = lshr exact i64 %59, %60
+  %spec.select66.i = select i1 %57, i64 0, i64 %54
   br label %recip7.exit
 
-recip7.exit:                                      ; preds = %45, %54
-  %.058.i = phi i64 [ %51, %45 ], [ %spec.select.i, %54 ]
-  %.0.i = phi i64 [ %52, %45 ], [ %spec.select66.i, %54 ]
-  %59 = shl nsw i64 %.0.i, 23
-  %60 = or i64 %.058.i, %46
-  %61 = or i64 %60, %59
-  %62 = trunc i64 %61 to i32
-  br label %69
+recip7.exit:                                      ; preds = %47, %56
+  %.058.i = phi i64 [ %53, %47 ], [ %spec.select.i, %56 ]
+  %.0.i = phi i64 [ %54, %47 ], [ %spec.select66.i, %56 ]
+  %61 = shl nuw nsw i64 %48, 31
+  %62 = shl nsw i64 %.0.i, 23
+  %63 = or i64 %.058.i, %61
+  %64 = or i64 %63, %62
+  %65 = trunc i64 %64 to i32
+  br label %72
 
-63:                                               ; preds = %41, %39
-  %.sink13 = phi i32 [ 2139095039, %39 ], [ %spec.select, %41 ]
-  %64 = and i32 %0, -2147483648
-  %65 = or disjoint i32 %64, %.sink13
-  %66 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
-  %67 = load i8, ptr %66, align 1, !tbaa !3
-  %68 = or i8 %67, 5
-  store i8 %68, ptr %66, align 1, !tbaa !3
-  br label %69
+66:                                               ; preds = %43, %41
+  %.sink13 = phi i32 [ 2139095039, %41 ], [ %spec.select, %43 ]
+  %67 = and i32 %0, -2147483648
+  %68 = or disjoint i32 %67, %.sink13
+  %69 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
+  %70 = load i8, ptr %69, align 1, !tbaa !3
+  %71 = or i8 %70, 5
+  store i8 %71, ptr %69, align 1, !tbaa !3
+  br label %72
 
-69:                                               ; preds = %recip7.exit, %.split, %63, %20, %12, %8, %7
-  %.sroa.0.0 = phi i32 [ %65, %63 ], [ %62, %recip7.exit ], [ 0, %7 ], [ -8388608, %8 ], [ 2139095040, %12 ], [ 2143289344, %20 ], [ -2147483648, %.split ]
+72:                                               ; preds = %recip7.exit, %.split, %66, %20, %12, %8, %7
+  %.sroa.0.0 = phi i32 [ %68, %66 ], [ %65, %recip7.exit ], [ 0, %7 ], [ -8388608, %8 ], [ 2139095040, %12 ], [ 2143289344, %20 ], [ -2147483648, %.split ]
   ret i32 %.sroa.0.0
 }
 

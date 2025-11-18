@@ -2172,27 +2172,27 @@ get_vlc2.exit:                                    ; preds = %5, %26
   %76 = zext nneg i32 %.0 to i64
   %77 = getelementptr inbounds nuw i32, ptr @code_prefix, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !38
-  %.not.i = icmp samesign ult i32 %.0, 4
-  br i1 %.not.i, label %get_bitsz.exit, label %79
+  %79 = lshr i32 %.0, 2
+  %.not.i = icmp eq i32 %79, 0
+  br i1 %.not.i, label %get_bitsz.exit, label %80
 
-79:                                               ; preds = %75
-  %80 = lshr i32 %.0, 2
+80:                                               ; preds = %75
   %81 = lshr i32 %72, 3
   %82 = zext nneg i32 %81 to i64
   %83 = getelementptr inbounds nuw i8, ptr %8, i64 %82
   %84 = load i32, ptr %83, align 1, !tbaa !30
   %85 = and i32 %72, 7
   %86 = lshr i32 %84, %85
-  %87 = sub nuw nsw i32 32, %80
+  %87 = sub nuw nsw i32 32, %79
   %88 = lshr i32 -1, %87
   %89 = and i32 %86, %88
-  %90 = add i32 %72, %80
+  %90 = add i32 %72, %79
   %91 = tail call i32 @llvm.umin.i32(i32 %7, i32 %90)
   store i32 %91, ptr %3, align 8, !tbaa !65
   br label %get_bitsz.exit
 
-get_bitsz.exit:                                   ; preds = %75, %79
-  %92 = phi i32 [ %89, %79 ], [ 0, %75 ]
+get_bitsz.exit:                                   ; preds = %75, %80
+  %92 = phi i32 [ %89, %80 ], [ 0, %75 ]
   %93 = add i32 %92, %78
   br label %94
 

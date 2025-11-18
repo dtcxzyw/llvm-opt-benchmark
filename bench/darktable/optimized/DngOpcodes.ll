@@ -1472,7 +1472,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes20FixBadPixelsConstant5
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %14 = load i32, ptr %13, align 8, !tbaa !195, !noalias !188
   %15 = ashr i32 %14, 1
-  %16 = icmp ugt i32 %14, 1
+  %16 = icmp ne i32 %15, 0
   tail call void @llvm.assume(i1 %16)
   %17 = icmp sgt i32 %15, -1
   tail call void @llvm.assume(i1 %17)
@@ -2117,7 +2117,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %14 = load i32, ptr %13, align 8, !tbaa !195, !noalias !208
   %15 = ashr i32 %14, 1
-  %16 = icmp ugt i32 %14, 1
+  %16 = icmp ne i32 %15, 0
   tail call void @llvm.assume(i1 %16)
   %17 = icmp sgt i32 %15, -1
   tail call void @llvm.assume(i1 %17)
@@ -4407,7 +4407,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %14 = load i32, ptr %13, align 8, !tbaa !195, !noalias !250
   %15 = ashr i32 %14, 1
-  %16 = icmp ugt i32 %14, 1
+  %16 = icmp ne i32 %15, 0
   tail call void @llvm.assume(i1 %16)
   %17 = icmp sgt i32 %15, -1
   tail call void @llvm.assume(i1 %17)
@@ -4568,7 +4568,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %14 = load i32, ptr %13, align 8, !tbaa !195, !noalias !261
   %15 = ashr i32 %14, 2
-  %16 = icmp ugt i32 %14, 3
+  %16 = icmp ne i32 %15, 0
   tail call void @llvm.assume(i1 %16)
   %17 = icmp sgt i32 %15, -1
   tail call void @llvm.assume(i1 %17)
@@ -5243,7 +5243,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %14 = load i32, ptr %13, align 8, !tbaa !195, !noalias !273
   %15 = ashr i32 %14, 1
-  %16 = icmp ugt i32 %14, 1
+  %16 = icmp ne i32 %15, 0
   tail call void @llvm.assume(i1 %16)
   %17 = icmp sgt i32 %15, -1
   tail call void @llvm.assume(i1 %17)
@@ -5401,7 +5401,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %14 = load i32, ptr %13, align 8, !tbaa !195, !noalias !284
   %15 = ashr i32 %14, 2
-  %16 = icmp ugt i32 %14, 3
+  %16 = icmp ne i32 %15, 0
   tail call void @llvm.assume(i1 %16)
   %17 = icmp sgt i32 %15, -1
   tail call void @llvm.assume(i1 %17)
@@ -5660,7 +5660,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %14 = load i32, ptr %13, align 8, !tbaa !195, !noalias !295
   %15 = ashr i32 %14, 1
-  %16 = icmp ugt i32 %14, 1
+  %16 = icmp ne i32 %15, 0
   tail call void @llvm.assume(i1 %16)
   %17 = icmp sgt i32 %15, -1
   tail call void @llvm.assume(i1 %17)
@@ -5823,7 +5823,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %14 = load i32, ptr %13, align 8, !tbaa !195, !noalias !306
   %15 = ashr i32 %14, 2
-  %16 = icmp ugt i32 %14, 3
+  %16 = icmp ne i32 %15, 0
   tail call void @llvm.assume(i1 %16)
   %17 = icmp sgt i32 %15, -1
   tail call void @llvm.assume(i1 %17)
@@ -6085,7 +6085,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %14 = load i32, ptr %13, align 8, !tbaa !195, !noalias !317
   %15 = ashr i32 %14, 1
-  %16 = icmp ugt i32 %14, 1
+  %16 = icmp ne i32 %15, 0
   tail call void @llvm.assume(i1 %16)
   %17 = icmp sgt i32 %15, -1
   tail call void @llvm.assume(i1 %17)
@@ -6245,7 +6245,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %14 = load i32, ptr %13, align 8, !tbaa !195, !noalias !328
   %15 = ashr i32 %14, 2
-  %16 = icmp ugt i32 %14, 3
+  %16 = icmp ne i32 %15, 0
   tail call void @llvm.assume(i1 %16)
   %17 = icmp sgt i32 %15, -1
   tail call void @llvm.assume(i1 %17)

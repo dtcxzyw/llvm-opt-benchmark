@@ -1405,7 +1405,7 @@ _php_dns_free_res.exit:                           ; preds = %163
 
 .preheader351:                                    ; preds = %194, %166
   %.0162.lcssa = phi ptr [ %93, %166 ], [ %198, %194 ]
-  %182 = icmp ugt i64 %169, 281474976710655
+  %182 = icmp ne i64 %172, 0
   %183 = icmp ult ptr %.0162.lcssa, %168
   %or.cond217354 = select i1 %182, i1 %183, i1 false
   br i1 %or.cond217354, label %.lr.ph356, label %.critedge
@@ -1527,7 +1527,7 @@ _php_dns_free_res.exit242:                        ; preds = %193
   br i1 %.not192, label %.critedge17, label %.preheader
 
 .preheader:                                       ; preds = %.critedge13
-  %229 = icmp ugt i32 %175, 65535
+  %229 = icmp ne i32 %178, 0
   %230 = icmp ne ptr %.3.lcssa, null
   %or.cond15363 = select i1 %229, i1 %230, i1 false
   %231 = icmp ult ptr %.3.lcssa, %168
@@ -2644,14 +2644,14 @@ _php_dns_free_res.exit150:                        ; preds = %85
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %69
   %92 = phi i64 [ %73, %69 ], [ %.pre200, %._crit_edge.loopexit ]
   %.0113.lcssa = phi ptr [ %70, %69 ], [ %91, %._crit_edge.loopexit ]
-  %93 = icmp ugt i64 %92, 281474976710655
-  %94 = icmp ult ptr %.0113.lcssa, %72
-  %95 = select i1 %93, i1 %94, i1 false
-  br i1 %95, label %.lr.ph197, label %._crit_edge198
+  %93 = lshr i64 %92, 48
+  %94 = icmp ne i64 %93, 0
+  %95 = icmp ult ptr %.0113.lcssa, %72
+  %96 = select i1 %94, i1 %95, i1 false
+  br i1 %96, label %.lr.ph197, label %._crit_edge198
 
 .lr.ph197:                                        ; preds = %._crit_edge
-  %96 = lshr i64 %92, 48
-  %97 = trunc nuw i64 %96 to i16
+  %97 = trunc nuw i64 %93 to i16
   %rev.i151 = call noundef i16 @llvm.bswap.i16(i16 %97)
   %98 = zext i16 %rev.i151 to i32
   %.not135 = icmp eq ptr %.1173, null

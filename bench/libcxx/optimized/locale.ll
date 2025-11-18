@@ -82671,7 +82671,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__119__to_chars_integralB8ne21000
   %24 = load i8, ptr %23, align 1, !tbaa !4
   %25 = getelementptr inbounds i8, ptr %.1.i, i64 -1
   store i8 %24, ptr %25, align 1, !tbaa !4
-  %.not.i = icmp samesign ult i64 %.121.i, 2
+  %.not.i = icmp eq i64 %22, 0
   br i1 %.not.i, label %_ZNSt3__16__itoa10__integralILj2EE10__to_charsB8ne210000ImEENS_17__to_chars_resultEPcS5_T_.exit, label %.preheader.i, !llvm.loop !589
 
 _ZNSt3__16__itoa10__integralILj2EE10__to_charsB8ne210000ImEENS_17__to_chars_resultEPcS5_T_.exit: ; preds = %.preheader.i, %3
@@ -82728,7 +82728,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__119__to_chars_integralB8ne21000
   %26 = load i8, ptr %25, align 1, !tbaa !4
   %27 = getelementptr inbounds i8, ptr %.1.i, i64 -1
   store i8 %26, ptr %27, align 1, !tbaa !4
-  %.not.i = icmp samesign ult i64 %.124.i, 8
+  %.not.i = icmp eq i64 %24, 0
   br i1 %.not.i, label %_ZNSt3__16__itoa10__integralILj8EE10__to_charsB8ne210000ImEENS_17__to_chars_resultEPcS5_T_.exit, label %.preheader.i, !llvm.loop !591
 
 _ZNSt3__16__itoa10__integralILj8EE10__to_charsB8ne210000ImEENS_17__to_chars_resultEPcS5_T_.exit: ; preds = %.preheader.i, %3
@@ -82783,7 +82783,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__119__to_chars_integralB8ne21000
   %23 = load i8, ptr %22, align 1, !tbaa !4
   %24 = getelementptr inbounds i8, ptr %.1.i, i64 -1
   store i8 %23, ptr %24, align 1, !tbaa !4
-  %.not28.i = icmp samesign ult i64 %.126.i, 16
+  %.not28.i = icmp eq i64 %21, 0
   br i1 %.not28.i, label %_ZNSt3__16__itoa10__integralILj16EE10__to_charsB8ne210000ImEENS_17__to_chars_resultEPcS5_T_.exit, label %.preheader.i, !llvm.loop !593
 
 _ZNSt3__16__itoa10__integralILj16EE10__to_charsB8ne210000ImEENS_17__to_chars_resultEPcS5_T_.exit: ; preds = %.preheader.i, %3
@@ -83330,7 +83330,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__119__to_chars_integralB8ne21000
   %24 = load i8, ptr %23, align 1, !tbaa !4
   %25 = getelementptr inbounds i8, ptr %.1.i, i64 -1
   store i8 %24, ptr %25, align 1, !tbaa !4
-  %.not.i = icmp samesign ult i64 %.121.i, 2
+  %.not.i = icmp eq i64 %22, 0
   br i1 %.not.i, label %_ZNSt3__16__itoa10__integralILj2EE10__to_charsB8ne210000IyEENS_17__to_chars_resultEPcS5_T_.exit, label %.preheader.i, !llvm.loop !597
 
 _ZNSt3__16__itoa10__integralILj2EE10__to_charsB8ne210000IyEENS_17__to_chars_resultEPcS5_T_.exit: ; preds = %.preheader.i, %3
@@ -83387,7 +83387,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__119__to_chars_integralB8ne21000
   %26 = load i8, ptr %25, align 1, !tbaa !4
   %27 = getelementptr inbounds i8, ptr %.1.i, i64 -1
   store i8 %26, ptr %27, align 1, !tbaa !4
-  %.not.i = icmp samesign ult i64 %.124.i, 8
+  %.not.i = icmp eq i64 %24, 0
   br i1 %.not.i, label %_ZNSt3__16__itoa10__integralILj8EE10__to_charsB8ne210000IyEENS_17__to_chars_resultEPcS5_T_.exit, label %.preheader.i, !llvm.loop !599
 
 _ZNSt3__16__itoa10__integralILj8EE10__to_charsB8ne210000IyEENS_17__to_chars_resultEPcS5_T_.exit: ; preds = %.preheader.i, %3
@@ -83442,7 +83442,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__119__to_chars_integralB8ne21000
   %23 = load i8, ptr %22, align 1, !tbaa !4
   %24 = getelementptr inbounds i8, ptr %.1.i, i64 -1
   store i8 %23, ptr %24, align 1, !tbaa !4
-  %.not28.i = icmp samesign ult i64 %.126.i, 16
+  %.not28.i = icmp eq i64 %21, 0
   br i1 %.not28.i, label %_ZNSt3__16__itoa10__integralILj16EE10__to_charsB8ne210000IyEENS_17__to_chars_resultEPcS5_T_.exit, label %.preheader.i, !llvm.loop !601
 
 _ZNSt3__16__itoa10__integralILj16EE10__to_charsB8ne210000IyEENS_17__to_chars_resultEPcS5_T_.exit: ; preds = %.preheader.i, %3

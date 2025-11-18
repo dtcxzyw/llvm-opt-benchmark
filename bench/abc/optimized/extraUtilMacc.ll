@@ -918,7 +918,7 @@ define void @Macc_ConstMultGenOne_rec(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %common.ret84
 
 38:                                               ; preds = %5
-  %39 = icmp ugt i32 %12, 65535
+  %39 = icmp ne i32 %13, 0
   %40 = icmp ne i32 %14, 0
   %or.cond = and i1 %39, %40
   br i1 %or.cond, label %41, label %47

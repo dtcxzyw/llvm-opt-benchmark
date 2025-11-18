@@ -9655,7 +9655,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_
   %1056 = sub i64 0, %1052
   %1057 = getelementptr i64, ptr %1055, i64 %1056
   %1058 = lshr i64 %1052, 1
-  %.not2991 = icmp ult i64 %1052, 2
+  %.not2991 = icmp eq i64 %1058, 0
   br i1 %.not2991, label %.backedge.backedge, label %.lr.ph2990
 
 .backedge.backedge:                               ; preds = %.lr.ph2990, %1050, %69, %vm_get_ep.exit, %vm_env_write.exit, %166, %vm_env_write.exit2339, %245, %vm_getspecial.exit, %VM_EP_LEP.exit2362, %vm_getinstancevariable.exit, %416, %vm_getclassvariable.exit, %vm_setclassvariable.exit, %512, %521, %vm_ensure_not_refinement_module.exit2379, %566, %574, %585, %590, %597, %vm_get_special_object.exit, %636, %644, %652, %665, %677, %695, %704, %739, %760, %785, %vm_expandarray.exit, %vm_concat_array.exit, %vm_concat_to_array.exit, %932, %vm_splat_array.exit, %975, %996, %1001, %1016, %1021, %ruby_nonempty_memcpy.exit, %1042, %1066, %1077, %1088, %1096, %1202, %vm_check_match.exit, %vm_check_keyword.exit, %rb_type.exit, %vm_push_frame.exit, %1454, %1460, %.thread, %.thread2786, %1708, %1711, %.thread2792, %.thread2794, %1945, %1976, %2011, %2029, %2080, %2097, %2109, %vm_opt_newarray_hash.exit, %.thread2802, %.thread2804, %2330, %2333, %.thread2810, %.thread2812, %2494, %rb_vm_check_ints.exit, %2532, %2550, %2568, %vm_once_dispatch.exit, %vm_case_dispatch.exit.thread, %vm_opt_plus.exit.thread2819, %vm_opt_minus.exit.thread2824, %vm_opt_mult.exit.thread2829, %3162, %vm_opt_mod.exit.thread2838, %3312, %vm_opt_neq.exit, %vm_opt_lt.exit, %vm_opt_le.exit, %vm_opt_gt.exit, %vm_opt_ge.exit, %3754, %3771, %3788, %vm_opt_aref.exit.thread2852, %3898, %3931, %3972, %3984, %3996, %4007, %vm_opt_succ.exit.thread2859, %vm_opt_not.exit, %4144, %4148, %vm_invoke_builtin_delegate.exit, %4246, %4251, %.lr.ph.i2734, %vm_env_write.exit2743, %vm_env_write.exit2751, %4323, %4328
@@ -9929,8 +9929,8 @@ ROBJECT_IVPTR.exit:                               ; preds = %1136, %1133, %1147,
   br label %.sink.split
 
 vm_getivar.exit:                                  ; preds = %1180, %1158, %1194
-  %.in3431 = phi ptr [ %1160, %1158 ], [ %1196, %1194 ], [ %19, %1180 ]
-  %1199 = load i64, ptr %.in3431, align 8, !tbaa !7
+  %.in3434 = phi ptr [ %1160, %1158 ], [ %1196, %1194 ], [ %19, %1180 ]
+  %1199 = load i64, ptr %.in3434, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -11281,11 +11281,11 @@ jit_compile.exit2479:                             ; preds = %jit_compile.exit247
 1846:                                             ; preds = %1831
   %1847 = call i64 @llvm.fshl.i64(i64 %1838, i64 %1838, i64 62)
   %1848 = icmp ult i64 %1847, 10
-  %switch.maskindex3544 = trunc i64 %1847 to i16
-  %switch.shifted3545 = lshr i16 547, %switch.maskindex3544
-  %switch.lobit3546 = trunc i16 %switch.shifted3545 to i1
-  %or.cond3549 = select i1 %1848, i1 %switch.lobit3546, i1 false
-  br i1 %or.cond3549, label %switch.lookup3543, label %1849
+  %switch.maskindex3547 = trunc i64 %1847 to i16
+  %switch.shifted3548 = lshr i16 547, %switch.maskindex3547
+  %switch.lobit3549 = trunc i16 %switch.shifted3548 to i1
+  %or.cond3552 = select i1 %1848, i1 %switch.lobit3549, i1 false
+  br i1 %or.cond3552, label %switch.lookup3546, label %1849
 
 1849:                                             ; preds = %1846
   %1850 = and i64 %1838, 1
@@ -11310,13 +11310,13 @@ rb_type.exit.i:                                   ; preds = %1831
   %1860 = getelementptr inbounds nuw i8, ptr %1854, i64 8
   br label %rb_class_of.exit.i.i
 
-switch.lookup3543:                                ; preds = %1846
-  %switch.gep3547 = getelementptr inbounds nuw i32, ptr @switch.table.vm_exec_core.111, i64 %1847
-  %switch.load3548 = load i32, ptr %switch.gep3547, align 4
+switch.lookup3546:                                ; preds = %1846
+  %switch.gep3550 = getelementptr inbounds nuw i32, ptr @switch.table.vm_exec_core.111, i64 %1847
+  %switch.load3551 = load i32, ptr %switch.gep3550, align 4
   br label %1861
 
-1861:                                             ; preds = %switch.lookup3543, %1851, %1849
-  %.0.i.ph.i = phi i32 [ %spec.select.i.i2487, %1851 ], [ 21, %1849 ], [ %switch.load3548, %switch.lookup3543 ]
+1861:                                             ; preds = %switch.lookup3546, %1851, %1849
+  %.0.i.ph.i = phi i32 [ %spec.select.i.i2487, %1851 ], [ 21, %1849 ], [ %switch.load3551, %switch.lookup3546 ]
   switch i64 %1838, label %1864 [
     i64 0, label %rb_class_of.exit.i.i
     i64 4, label %1862
@@ -13688,7 +13688,7 @@ vm_opt_mult.exit.thread2829:                      ; preds = %vm_opt_mult.exit.vm
 
 3102:                                             ; preds = %3098
   %3103 = ashr i64 %3094, 1
-  %3104 = icmp ult i64 %3094, 2
+  %3104 = icmp eq i64 %3103, 0
   br i1 %3104, label %vm_objtostring.exit.thread, label %3105
 
 3105:                                             ; preds = %3102
@@ -13823,7 +13823,7 @@ vm_opt_div.exit._crit_edge:                       ; preds = %vm_opt_div.exit
 
 3180:                                             ; preds = %3176
   %3181 = ashr i64 %3172, 1
-  %3182 = icmp ult i64 %3172, 2
+  %3182 = icmp eq i64 %3181, 0
   br i1 %3182, label %vm_objtostring.exit.thread, label %3183
 
 3183:                                             ; preds = %3180
@@ -14293,8 +14293,8 @@ rb_float_value_inline.exit23.i:                   ; preds = %3445
   br label %vm_opt_lt.exit
 
 vm_opt_lt.exit:                                   ; preds = %rb_float_value_inline.exit23.i, %rb_float_value_inline.exit19.i2627, %3385
-  %.sink3429 = phi i1 [ %3453, %rb_float_value_inline.exit23.i ], [ %3423, %rb_float_value_inline.exit19.i2627 ], [ %3386, %3385 ]
-  %3454 = select i1 %.sink3429, i64 20, i64 0
+  %.sink3432 = phi i1 [ %3453, %rb_float_value_inline.exit23.i ], [ %3423, %rb_float_value_inline.exit19.i2627 ], [ %3386, %3385 ]
+  %3454 = select i1 %.sink3432, i64 20, i64 0
   store ptr %3374, ptr %3372, align 8, !tbaa !93
   store i64 %3454, ptr %3375, align 8, !tbaa !7
   br label %.backedge.backedge
@@ -14579,8 +14579,8 @@ rb_float_value_inline.exit23.i2648:               ; preds = %3614
   br label %vm_opt_gt.exit
 
 vm_opt_gt.exit:                                   ; preds = %rb_float_value_inline.exit23.i2648, %rb_float_value_inline.exit19.i2651, %3554
-  %.sink3430 = phi i1 [ %3622, %rb_float_value_inline.exit23.i2648 ], [ %3592, %rb_float_value_inline.exit19.i2651 ], [ %3555, %3554 ]
-  %3623 = select i1 %.sink3430, i64 20, i64 0
+  %.sink3433 = phi i1 [ %3622, %rb_float_value_inline.exit23.i2648 ], [ %3592, %rb_float_value_inline.exit19.i2651 ], [ %3555, %3554 ]
+  %3623 = select i1 %.sink3433, i64 20, i64 0
   store ptr %3543, ptr %3541, align 8, !tbaa !93
   store i64 %3623, ptr %3544, align 8, !tbaa !7
   br label %.backedge.backedge

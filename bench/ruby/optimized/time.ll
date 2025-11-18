@@ -4807,7 +4807,7 @@ rb_time_unmagnify.exit:                           ; preds = %rb_time_unmagnify_t
 
 56:                                               ; preds = %rb_time_unmagnify.exit
   %57 = ashr i64 %.016, 1
-  %58 = icmp ult i64 %.016, 2
+  %58 = icmp eq i64 %57, 0
   br i1 %58, label %59, label %60
 
 59:                                               ; preds = %56
@@ -5145,7 +5145,7 @@ rb_time_unmagnify.exit:                           ; preds = %rb_time_unmagnify_t
 
 56:                                               ; preds = %rb_time_unmagnify.exit
   %57 = ashr i64 %.0, 1
-  %58 = icmp ult i64 %.0, 2
+  %58 = icmp eq i64 %57, 0
   br i1 %58, label %59, label %60
 
 59:                                               ; preds = %56
@@ -5337,7 +5337,7 @@ rb_time_unmagnify.exit:                           ; preds = %rb_time_unmagnify_t
 
 56:                                               ; preds = %rb_time_unmagnify.exit
   %57 = ashr i64 %.012, 1
-  %58 = icmp ult i64 %.012, 2
+  %58 = icmp eq i64 %57, 0
   br i1 %58, label %59, label %60
 
 59:                                               ; preds = %56
@@ -7897,8 +7897,8 @@ wquo.exit.i:                                      ; preds = %141, %138, %rbimpl_
 177:                                              ; preds = %174
   %178 = ashr i64 %.1.i, 1
   %179 = add nsw i64 %178, 1
-  %.not232.i = icmp eq i64 %178, 4611686018427387903
-  br i1 %.not232.i, label %183, label %180
+  %.not233.i = icmp eq i64 %178, 4611686018427387903
+  br i1 %.not233.i, label %183, label %180
 
 180:                                              ; preds = %177
   %181 = shl nsw i64 %179, 1
@@ -7977,7 +7977,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i:        ; preds = %rbimpl_RB_TYPE_P_fa
 226:                                              ; preds = %221
   %227 = ashr i64 %222, 1
   %228 = ashr i64 %223, 1
-  %229 = icmp ult i64 %223, 2
+  %229 = icmp eq i64 %228, 0
   br i1 %229, label %230, label %231
 
 230:                                              ; preds = %226
@@ -9892,7 +9892,7 @@ define internal fastcc void @divmodv(i64 noundef %0, i64 noundef %1, ptr noundef
 
 6:                                                ; preds = %4
   %7 = ashr i64 %1, 1
-  %8 = icmp ult i64 %1, 2
+  %8 = icmp eq i64 %7, 0
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %6

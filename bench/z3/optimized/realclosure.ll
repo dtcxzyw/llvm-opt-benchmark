@@ -52184,7 +52184,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9alge
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.thread.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i.i, %58
   %72 = getelementptr inbounds nuw ptr, ptr %0, i64 %.01318.i.i.i
   store ptr %60, ptr %72, align 8, !tbaa !366
-  %.not.i = icmp ult i64 %.019.in.i.i.i, 2
+  %.not.i = icmp eq i64 %.019.i.i89.i, 0
   br i1 %.not.i, label %_ZSt10__pop_heapIPPN11realclosure9algebraicEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_S9_S9_RT0_.exit, label %58, !llvm.loop !381
 
 _ZSt10__pop_heapIPPN11realclosure9algebraicEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_S9_S9_RT0_.exit: ; preds = %67, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.thread.i.i.i, %55

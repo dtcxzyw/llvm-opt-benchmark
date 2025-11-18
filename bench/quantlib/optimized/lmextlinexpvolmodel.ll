@@ -1340,11 +1340,11 @@ entry:
   %1 = load i64, ptr %n_.i, align 8, !tbaa !35
   %add.ptr.i.idx2 = shl nuw nsw i64 %1, 3
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %add.ptr.i.idx2
-  %cmp42.i.i.i.i.not = icmp ult i64 %1, 4
+  %shr.i.i.i.i = lshr i64 %1, 2
+  %cmp42.i.i.i.i.not = icmp eq i64 %shr.i.i.i.i, 0
   br i1 %cmp42.i.i.i.i.not, label %for.end.i.i.i.i, label %for.body.preheader.i.i.i.i
 
 for.body.preheader.i.i.i.i:                       ; preds = %entry
-  %shr.i.i.i.i = lshr i64 %1, 2
   %2 = and i64 %add.ptr.i.idx2, 9223372036854775776
   %scevgep.i.i.i.i = getelementptr i8, ptr %0, i64 %2
   br label %for.body.i.i.i.i
@@ -1387,11 +1387,10 @@ for.end.loopexit.i.i.i.i:                         ; preds = %if.end12.i.i.i.i
 for.end.i.i.i.i:                                  ; preds = %for.end.loopexit.i.i.i.i, %entry
   %sub.ptr.sub16.pre-phi.i.i.i.i = phi i64 [ %7, %for.end.loopexit.i.i.i.i ], [ %1, %entry ]
   %__first.addr.0.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %for.end.loopexit.i.i.i.i ], [ %0, %entry ]
-  switch i64 %sub.ptr.sub16.pre-phi.i.i.i.i, label %for.end.i.i.i.i.unreachabledefault [
+  switch i64 %sub.ptr.sub16.pre-phi.i.i.i.i, label %sw.default.i.i.i.i [
     i64 3, label %sw.bb.i.i.i.i
     i64 2, label %sw.bb22.i.i.i.i
     i64 1, label %sw.bb27.i.i.i.i
-    i64 0, label %sw.default.i.i.i.i
   ]
 
 sw.bb.i.i.i.i:                                    ; preds = %for.end.i.i.i.i
@@ -1403,7 +1402,7 @@ if.end20.i.i.i.i:                                 ; preds = %sw.bb.i.i.i.i
   %incdec.ptr21.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0.lcssa.i.i.i.i, i64 8
   br label %sw.bb22.i.i.i.i
 
-sw.bb22.i.i.i.i:                                  ; preds = %for.end.i.i.i.i, %if.end20.i.i.i.i
+sw.bb22.i.i.i.i:                                  ; preds = %if.end20.i.i.i.i, %for.end.i.i.i.i
   %__first.addr.1.i.i.i.i = phi ptr [ %incdec.ptr21.i.i.i.i, %if.end20.i.i.i.i ], [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ]
   %9 = load double, ptr %__first.addr.1.i.i.i.i, align 8, !tbaa !43
   %cmp.i.i30.i.i.i.i = fcmp ule double %9, 0.000000e+00
@@ -1413,16 +1412,13 @@ if.end25.i.i.i.i:                                 ; preds = %sw.bb22.i.i.i.i
   %incdec.ptr26.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.1.i.i.i.i, i64 8
   br label %sw.bb27.i.i.i.i
 
-sw.bb27.i.i.i.i:                                  ; preds = %for.end.i.i.i.i, %if.end25.i.i.i.i
+sw.bb27.i.i.i.i:                                  ; preds = %if.end25.i.i.i.i, %for.end.i.i.i.i
   %__first.addr.2.i.i.i.i = phi ptr [ %incdec.ptr26.i.i.i.i, %if.end25.i.i.i.i ], [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ]
   %10 = load double, ptr %__first.addr.2.i.i.i.i, align 8, !tbaa !43
   %cmp.i.i31.i.i.i.i = fcmp ule double %10, 0.000000e+00
   br i1 %cmp.i.i31.i.i.i.i, label %_ZSt6all_ofIPKdZNK8QuantLib18PositiveConstraint4Impl4testERKNS2_5ArrayEEUldE_EbT_S9_T0_.exit, label %sw.default.i.i.i.i
 
-for.end.i.i.i.i.unreachabledefault:               ; preds = %for.end.i.i.i.i
-  unreachable
-
-sw.default.i.i.i.i:                               ; preds = %for.end.i.i.i.i, %sw.bb27.i.i.i.i
+sw.default.i.i.i.i:                               ; preds = %sw.bb27.i.i.i.i, %for.end.i.i.i.i
   br label %_ZSt6all_ofIPKdZNK8QuantLib18PositiveConstraint4Impl4testERKNS2_5ArrayEEUldE_EbT_S9_T0_.exit
 
 _ZSt6all_ofIPKdZNK8QuantLib18PositiveConstraint4Impl4testERKNS2_5ArrayEEUldE_EbT_S9_T0_.exit.loopexit.split.loop.exit: ; preds = %if.end.i.i.i.i

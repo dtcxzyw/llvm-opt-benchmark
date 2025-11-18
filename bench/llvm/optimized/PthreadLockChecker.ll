@@ -16542,8 +16542,8 @@ _ZNK5clang4ento9CallEvent16isInSystemHeaderEv.exit: ; preds = %65, %_ZNK5clang13
 .lr.ph.i:                                         ; preds = %_ZNK5clang4ento9CallEvent16isInSystemHeaderEv.exit
   %.idx4.i.i = shl nuw nsw i64 %5, 3
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx4.i.i
-  %.not.i36.i = icmp ult i64 %5, 4
   %68 = lshr i64 %5, 2
+  %.not.i36.i = icmp eq i64 %68, 0
   %69 = and i64 %.idx4.i.i, 9223372036854775776
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %4, i64 %69
   %70 = and i64 %5, 3
@@ -16589,11 +16589,10 @@ _ZNK5clang4ento9CallEvent16isInSystemHeaderEv.exit: ; preds = %65, %_ZNK5clang13
 ._crit_edge.i.i.i.i.i.us:                         ; preds = %86, %.lr.ph.i.split.us
   %.pre-phi56.i.i.i.i.i.us = phi i64 [ %5, %.lr.ph.i.split.us ], [ %70, %86 ]
   %.029.lcssa.i.i.i.i.i.us = phi ptr [ %4, %.lr.ph.i.split.us ], [ %scevgep.i.i.i.i.i, %86 ]
-  switch i64 %.pre-phi56.i.i.i.i.i.us, label %default.unreachable [
+  switch i64 %.pre-phi56.i.i.i.i.i.us, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit38.i.us [
     i64 3, label %90
     i64 2, label %._crit_edge._crit_edge.i.i.i.i.i.us
     i64 1, label %._crit_edge._crit_edge52.i.i.i.i.i.us
-    i64 0, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit38.i.us
   ]
 
 90:                                               ; preds = %._crit_edge.i.i.i.i.i.us
@@ -16650,13 +16649,10 @@ _ZN4llvm12is_containedIRNS_8ArrayRefIPKN5clang4ento9MemRegionEEES6_EEbOT_RKT0_.e
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit38.i.us
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit38.i.us: ; preds = %104, %_ZN4llvm12is_containedIRNS_8ArrayRefIPKN5clang4ento9MemRegionEEES6_EEbOT_RKT0_.exit.i.us, %._crit_edge._crit_edge52.i.i.i.i.i.us, %._crit_edge.i.i.i.i.i.us
-  %.sroa.012.1.us = phi ptr [ %.sroa.012.0.us, %_ZN4llvm12is_containedIRNS_8ArrayRefIPKN5clang4ento9MemRegionEEES6_EEbOT_RKT0_.exit.i.us ], [ %106, %104 ], [ %.sroa.012.0.us, %._crit_edge._crit_edge52.i.i.i.i.i.us ], [ %.sroa.012.0.us, %._crit_edge.i.i.i.i.i.us ]
+  %.sroa.012.1.us = phi ptr [ %.sroa.012.0.us, %._crit_edge.i.i.i.i.i.us ], [ %.sroa.012.0.us, %_ZN4llvm12is_containedIRNS_8ArrayRefIPKN5clang4ento9MemRegionEEES6_EEbOT_RKT0_.exit.i.us ], [ %106, %104 ], [ %.sroa.012.0.us, %._crit_edge._crit_edge52.i.i.i.i.i.us ]
   %107 = getelementptr inbounds nuw i8, ptr %.01326.i.us, i64 8
   %.not18.i.us = icmp eq ptr %107, %66
   br i1 %.not18.i.us, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, label %.lr.ph.i.split.us
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i.us
-  unreachable
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit38.i: ; preds = %.lr.ph.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit38.i
   %.sroa.012.0 = phi ptr [ %110, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit38.i ], [ %12, %.lr.ph.i ]

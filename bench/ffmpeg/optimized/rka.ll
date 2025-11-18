@@ -1020,19 +1020,19 @@ define internal fastcc i32 @decode_ch_samples(ptr noundef readonly captures(none
   ]
 
 27:                                               ; preds = %15
-  %28 = icmp ult i32 %26, 4
-  br i1 %28, label %decode_samples.exit.thread, label %29
+  %28 = lshr i32 %26, 2
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %decode_samples.exit.thread, label %30
 
-29:                                               ; preds = %27
-  %30 = lshr i32 %26, 2
+30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %32 = load i32, ptr %31, align 4, !tbaa !56
-  %33 = udiv i32 %32, %30
+  %33 = udiv i32 %32, %28
   store i32 %33, ptr %31, align 4, !tbaa !56
-  %34 = icmp ugt i32 %30, %32
+  %34 = icmp ugt i32 %28, %32
   br i1 %34, label %decode_samples.exit.thread, label %35
 
-35:                                               ; preds = %29
+35:                                               ; preds = %30
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %37 = load i32, ptr %36, align 8, !tbaa !59
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -1153,7 +1153,7 @@ ac_update.exit.i:                                 ; preds = %55, %50
   %108 = icmp slt i32 %107, 0
   br i1 %108, label %decode_samples.exit.thread, label %decode_samples.exit
 
-decode_samples.exit.thread:                       ; preds = %ac_update.exit.i, %76, %80, %86, %94, %98, %102, %106, %27, %29
+decode_samples.exit.thread:                       ; preds = %ac_update.exit.i, %76, %80, %86, %94, %98, %102, %106, %27, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %111
 
@@ -1441,25 +1441,25 @@ ac_get_freq.exit:                                 ; preds = %.loopexit174, %122,
   br label %.loopexit173
 
 138:                                              ; preds = %ac_get_freq.exit
-  %.not118178 = icmp ult i32 %103, 2
+  %139 = ashr i32 %103, 1
+  %.not118178 = icmp eq i32 %139, 0
   br i1 %.not118178, label %._crit_edge.thread, label %.lr.ph182.preheader
+
+.lr.ph182.preheader:                              ; preds = %138
+  %140 = sub nuw i32 %.8, %137
+  br label %.lr.ph182
 
 ._crit_edge.thread:                               ; preds = %138
   store i32 1, ptr %2, align 4, !tbaa !66
-  %139 = getelementptr inbounds nuw i8, ptr %135, i64 2
-  %140 = load i16, ptr %139, align 2, !tbaa !78
-  %141 = zext i16 %140 to i32
+  %141 = getelementptr inbounds nuw i8, ptr %135, i64 2
+  %142 = load i16, ptr %141, align 2, !tbaa !78
+  %143 = zext i16 %142 to i32
   br label %.preheader172
-
-.lr.ph182.preheader:                              ; preds = %138
-  %142 = sub nuw i32 %.8, %137
-  %143 = ashr i32 %103, 1
-  br label %.lr.ph182
 
 .lr.ph182:                                        ; preds = %.lr.ph182.preheader, %.lr.ph182
   %.091181 = phi i32 [ %spec.select122, %.lr.ph182 ], [ 0, %.lr.ph182.preheader ]
-  %.093180 = phi i32 [ %spec.select, %.lr.ph182 ], [ %142, %.lr.ph182.preheader ]
-  %.097179 = phi i32 [ %150, %.lr.ph182 ], [ %143, %.lr.ph182.preheader ]
+  %.093180 = phi i32 [ %spec.select, %.lr.ph182 ], [ %140, %.lr.ph182.preheader ]
+  %.097179 = phi i32 [ %150, %.lr.ph182 ], [ %139, %.lr.ph182.preheader ]
   %144 = add i32 %.091181, %.097179
   %145 = zext i32 %144 to i64
   %146 = getelementptr inbounds nuw i16, ptr %135, i64 %145
@@ -1470,7 +1470,7 @@ ac_get_freq.exit:                                 ; preds = %.loopexit174, %122,
   %spec.select = sub nuw i32 %.093180, %149
   %spec.select122 = select i1 %.not121, i32 %.091181, i32 %144
   %150 = lshr i32 %.097179, 1
-  %.not118 = icmp ult i32 %.097179, 2
+  %.not118 = icmp eq i32 %150, 0
   br i1 %.not118, label %._crit_edge, label %.lr.ph182, !llvm.loop !104
 
 ._crit_edge:                                      ; preds = %.lr.ph182
@@ -1485,16 +1485,16 @@ ac_get_freq.exit:                                 ; preds = %.loopexit174, %122,
   br i1 %.not119, label %.loopexit173, label %.preheader172
 
 .preheader172:                                    ; preds = %._crit_edge.thread, %._crit_edge
-  %157 = phi i32 [ %141, %._crit_edge.thread ], [ %156, %._crit_edge ]
+  %157 = phi i32 [ %143, %._crit_edge.thread ], [ %156, %._crit_edge ]
   %158 = phi i32 [ 1, %._crit_edge.thread ], [ %152, %._crit_edge ]
   %159 = phi i32 [ %137, %._crit_edge.thread ], [ %151, %._crit_edge ]
-  %.091.lcssa237 = phi i32 [ 0, %._crit_edge.thread ], [ %spec.select122, %._crit_edge ]
-  %160 = and i32 %158, %.091.lcssa237
-  %.not120185 = icmp eq i32 %160, %.091.lcssa237
+  %.091.lcssa238 = phi i32 [ 0, %._crit_edge.thread ], [ %spec.select122, %._crit_edge ]
+  %160 = and i32 %158, %.091.lcssa238
+  %.not120185 = icmp eq i32 %160, %.091.lcssa238
   br i1 %.not120185, label %.loopexit173, label %.lr.ph188
 
 .lr.ph188:                                        ; preds = %.preheader172, %.lr.ph188
-  %.0187 = phi i32 [ %167, %.lr.ph188 ], [ %.091.lcssa237, %.preheader172 ]
+  %.0187 = phi i32 [ %167, %.lr.ph188 ], [ %.091.lcssa238, %.preheader172 ]
   %.196186 = phi i32 [ %165, %.lr.ph188 ], [ %157, %.preheader172 ]
   %161 = sext i32 %.0187 to i64
   %162 = getelementptr inbounds i16, ptr %135, i64 %161
@@ -1651,12 +1651,12 @@ ac_update.exit:                                   ; preds = %182, %187
   br i1 %241, label %ac_get_freq.exit133.thread, label %242
 
 242:                                              ; preds = %._crit_edge193.thread, %._crit_edge193
-  %.3.lcssa240 = phi i32 [ 1, %._crit_edge193.thread ], [ %spec.select167, %._crit_edge193 ]
+  %.3.lcssa241 = phi i32 [ 1, %._crit_edge193.thread ], [ %spec.select167, %._crit_edge193 ]
   %243 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %244 = load i32, ptr %243, align 4, !tbaa !56
-  %245 = udiv i32 %244, %.3.lcssa240
+  %245 = udiv i32 %244, %.3.lcssa241
   store i32 %245, ptr %243, align 4, !tbaa !56
-  %246 = icmp ugt i32 %.3.lcssa240, %244
+  %246 = icmp ugt i32 %.3.lcssa241, %244
   br i1 %246, label %ac_get_freq.exit133.thread, label %ac_get_freq.exit133
 
 ac_get_freq.exit133.thread:                       ; preds = %227, %231, %._crit_edge193, %242
@@ -1664,15 +1664,15 @@ ac_get_freq.exit133.thread:                       ; preds = %227, %231, %._crit_
   br label %253
 
 ac_get_freq.exit133:                              ; preds = %242, %231
-  %.sink245 = phi i32 [ %235, %231 ], [ %245, %242 ]
+  %.sink246 = phi i32 [ %235, %231 ], [ %245, %242 ]
   %247 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %248 = load i32, ptr %247, align 8, !tbaa !59
   %249 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %250 = load i32, ptr %249, align 8, !tbaa !55
   %251 = sub i32 %248, %250
-  %252 = udiv i32 %251, %.sink245
+  %252 = udiv i32 %251, %.sink246
   store i32 0, ptr %2, align 4, !tbaa !66
-  %.not111 = icmp ugt i32 %.sink245, %251
+  %.not111 = icmp ugt i32 %.sink246, %251
   br i1 %.not111, label %267, label %253
 
 253:                                              ; preds = %ac_get_freq.exit133.thread, %ac_get_freq.exit133
@@ -1682,8 +1682,8 @@ ac_get_freq.exit133:                              ; preds = %242, %231
   br i1 %255, label %.preheader169, label %267
 
 .preheader169:                                    ; preds = %253
-  %.not233 = icmp eq i32 %7, 0
-  br i1 %.not233, label %.loopexit, label %.lr.ph198
+  %.not234 = icmp eq i32 %7, 0
+  br i1 %.not234, label %.loopexit, label %.lr.ph198
 
 .lr.ph198:                                        ; preds = %.preheader169
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3054,7 +3054,7 @@ mdl64_decode.exit:                                ; preds = %ac_update.exit98.i,
   %.0117294 = phi i32 [ %655, %.lr.ph297 ], [ 0, %.lr.ph297.preheader ]
   %655 = add nuw nsw i32 %.0117294, 1
   %656 = lshr i32 %.0295, 1
-  %.not155 = icmp ult i32 %.0295, 2
+  %.not155 = icmp eq i32 %656, 0
   br i1 %.not155, label %._crit_edge298, label %.lr.ph297, !llvm.loop !117
 
 657:                                              ; preds = %.thread197.thread, %._crit_edge298, %.thread197

@@ -1459,6 +1459,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1024 = private unnamed_addr constant [38 x i8] c"AVDECC Connection Management Protocol\00", align 1
 @.str.1025 = private unnamed_addr constant [15 x i8] c"1722.1 Unknown\00", align 1
 @.str.1026 = private unnamed_addr constant [7 x i8] c"%012lx\00", align 1
+@switch.table.dissect_17221_aem = private unnamed_addr constant [3 x float] [float 1.000000e+00, float 0x3FEFF7D0E0000000, float 0x3FF00418A0000000], align 4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_17221() local_unnamed_addr #0 {
@@ -2809,21 +2810,20 @@ define internal fastcc void @dissect_17221_aem(ptr noundef %0, ptr noundef %1) u
   %213 = load i32, ptr @hf_aem_base_frequency, align 4
   %214 = tail call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %213, ptr noundef %0, i32 noundef %.167322, i32 noundef 4, i32 noundef 0)
   %215 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.167322)
-  %216 = and i32 %215, 536870911
-  %217 = icmp ult i32 %215, 536870912
-  br i1 %217, label %220, label %218
+  %216 = ashr i32 %215, 29
+  %217 = and i32 %215, 536870911
+  %218 = icmp ult i32 %216, 3
+  br i1 %218, label %switch.lookup, label %220
 
-218:                                              ; preds = %.lr.ph24
-  %219 = ashr i32 %215, 29
-  %switch.selectcmp = icmp eq i32 %219, 2
-  %switch.select = select i1 %switch.selectcmp, float 0x3FF00418A0000000, float 0.000000e+00
-  %switch.selectcmp680 = icmp eq i32 %219, 1
-  %switch.select681 = select i1 %switch.selectcmp680, float 0x3FEFF7D0E0000000, float %switch.select
+switch.lookup:                                    ; preds = %.lr.ph24
+  %219 = zext nneg i32 %216 to i64
+  %switch.gep = getelementptr inbounds nuw float, ptr @switch.table.dissect_17221_aem, i64 %219
+  %switch.load = load float, ptr %switch.gep, align 4
   br label %220
 
-220:                                              ; preds = %218, %.lr.ph24
-  %221 = phi float [ 1.000000e+00, %.lr.ph24 ], [ %switch.select681, %218 ]
-  %222 = uitofp nneg i32 %216 to float
+220:                                              ; preds = %.lr.ph24, %switch.lookup
+  %221 = phi float [ %switch.load, %switch.lookup ], [ 0.000000e+00, %.lr.ph24 ]
+  %222 = uitofp nneg i32 %217 to float
   %223 = fmul float %221, %222
   %224 = load i32, ptr @hf_aem_frequency, align 4
   %225 = tail call ptr @proto_tree_add_float(ptr noundef %210, i32 noundef %224, ptr noundef %0, i32 noundef %.167322, i32 noundef 4, float noundef %223)

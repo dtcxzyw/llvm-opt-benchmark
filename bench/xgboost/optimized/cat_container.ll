@@ -18567,43 +18567,43 @@ _ZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS0_9SortNamesINS
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %select.unfold.i.i.i, %.lr.ph.preheader.i.i.i
-  %.010.i.i.i = phi i64 [ %23, %select.unfold.i.i.i ], [ %19, %.lr.ph.preheader.i.i.i ]
+  %.010.i.i.i = phi i64 [ %24, %select.unfold.i.i.i ], [ %19, %.lr.ph.preheader.i.i.i ]
   %20 = shl nuw nsw i64 %.010.i.i.i, 2
   %21 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %20, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #36
   %.not.i.i.i7 = icmp eq ptr %21, null
   br i1 %.not.i.i.i7, label %select.unfold.i.i.i, label %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i
 
 select.unfold.i.i.i:                              ; preds = %.lr.ph.i.i.i
-  %22 = add nuw nsw i64 %.010.i.i.i, 1
-  %23 = lshr i64 %22, 1
-  %.not14.i.i.i = icmp samesign ult i64 %.010.i.i.i, 2
-  br i1 %.not14.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !407
+  %22 = icmp eq i64 %.010.i.i.i, 1
+  %23 = add nuw nsw i64 %.010.i.i.i, 1
+  %24 = lshr i64 %23, 1
+  br i1 %22, label %.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !407
 
 .loopexit.i:                                      ; preds = %select.unfold.i.i.i, %_ZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS0_9SortNamesINS_6PolicyIJNS2_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS_15CatStrArrayViewENS3_4SpanIKaLm18446744073709551615EEENSE_IKsLm18446744073709551615EEENSE_IKiLm18446744073709551615EEENSE_IKlLm18446744073709551615EEENSE_IKfLm18446744073709551615EEENSE_IKdLm18446744073709551615EEEEENSE_IiLm18446744073709551615EEEEUlS9_E_EENS3_6detail12SpanIteratorISU_Lb0EEEZZNS5_IS8_EEvSB_ST_SU_ENKUlRKSD_E_clES11_EUlmmE_EEvS9_S9_T0_T1_.exit
   invoke void @_ZSt21__inplace_stable_sortIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSB_9SortNamesINSA_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSA_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSI_E_EES6_ZZNSE_ISH_EEvSK_S11_S5_ENKUlRKSM_E_clES15_EUlmmE_EEvSI_SI_T0_T1_EUlRSR_S1A_E_EEEvSI_SI_S18_(ptr nonnull %9, i64 0, ptr nonnull %9, i64 %spec.select.i, ptr nonnull %5, ptr nonnull %4)
-          to label %.loopexit._crit_edge.i unwind label %24
+          to label %.loopexit._crit_edge.i unwind label %25
 
-24:                                               ; preds = %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i, %.loopexit.i
+25:                                               ; preds = %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i, %.loopexit.i
   %.sroa.4.041.i = phi i64 [ %.010.i.i.i, %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i ], [ 0, %.loopexit.i ]
   %.sroa.9.038.i = phi ptr [ %21, %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i ], [ null, %.loopexit.i ]
-  %25 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = shl nuw nsw i64 %.sroa.4.041.i, 2
-  call void @_ZdlPvm(ptr noundef %.sroa.9.038.i, i64 noundef %26) #16
-  resume { ptr, i32 } %25
+  %27 = shl nuw nsw i64 %.sroa.4.041.i, 2
+  call void @_ZdlPvm(ptr noundef %.sroa.9.038.i, i64 noundef %27) #16
+  resume { ptr, i32 } %26
 
 _ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i: ; preds = %.lr.ph.i.i.i
   store ptr %5, ptr %3, align 8, !tbaa !179
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !396
   invoke void @_ZSt22__stable_sort_adaptiveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPilN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSJ_E_EES6_ZZNSF_ISI_EEvSL_S12_S5_ENKUlRKSN_E_clES16_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1B_E_EEEvSJ_SJ_S19_S1A_T2_(ptr nonnull %9, i64 0, ptr nonnull %9, i64 %spec.select.i, ptr noundef nonnull %21, i64 noundef %.010.i.i.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %3)
-          to label %.loopexit._crit_edge.i unwind label %24
+          to label %.loopexit._crit_edge.i unwind label %25
 
 .loopexit._crit_edge.i:                           ; preds = %.loopexit.i, %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i
   %.sroa.4.039.i = phi i64 [ %.010.i.i.i, %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i ], [ 0, %.loopexit.i ]
   %.sroa.9.036.i = phi ptr [ %21, %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i ], [ null, %.loopexit.i ]
-  %27 = shl nuw nsw i64 %.sroa.4.039.i, 2
-  call void @_ZdlPvm(ptr noundef %.sroa.9.036.i, i64 noundef %27) #16
+  %28 = shl nuw nsw i64 %.sroa.4.039.i, 2
+  call void @_ZdlPvm(ptr noundef %.sroa.9.036.i, i64 noundef %28) #16
   br label %_ZSt13__stable_sortIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSB_9SortNamesINSA_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSA_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSI_E_EES6_ZZNSE_ISH_EEvSK_S11_S5_ENKUlRKSM_E_clES15_EUlmmE_EEvSI_SI_T0_T1_EUlRSR_S1A_E_EEEvSI_SI_S18_.exit
 
 _ZSt13__stable_sortIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSB_9SortNamesINSA_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSA_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSI_E_EES6_ZZNSE_ISH_EEvSK_S11_S5_ENKUlRKSM_E_clES15_EUlmmE_EEvSI_SI_T0_T1_EUlRSR_S1A_E_EEEvSI_SI_S18_.exit: ; preds = %_ZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS0_9SortNamesINS_6PolicyIJNS2_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS_15CatStrArrayViewENS3_4SpanIKaLm18446744073709551615EEENSE_IKsLm18446744073709551615EEENSE_IKiLm18446744073709551615EEENSE_IKlLm18446744073709551615EEENSE_IKfLm18446744073709551615EEENSE_IKdLm18446744073709551615EEEEENSE_IiLm18446744073709551615EEEEUlS9_E_EENS3_6detail12SpanIteratorISU_Lb0EEEZZNS5_IS8_EEvSB_ST_SU_ENKUlRKSD_E_clES11_EUlmmE_EEvS9_S9_T0_T1_.exit.thread, %.loopexit._crit_edge.i
@@ -22074,43 +22074,43 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %select.unfold.i.i.i, %.lr.ph.preheader.i.i.i
-  %.010.i.i.i = phi i64 [ %24, %select.unfold.i.i.i ], [ %20, %.lr.ph.preheader.i.i.i ]
+  %.010.i.i.i = phi i64 [ %25, %select.unfold.i.i.i ], [ %20, %.lr.ph.preheader.i.i.i ]
   %21 = shl nuw nsw i64 %.010.i.i.i, 2
   %22 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %21, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #36
   %.not.i.i.i7 = icmp eq ptr %22, null
   br i1 %.not.i.i.i7, label %select.unfold.i.i.i, label %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i
 
 select.unfold.i.i.i:                              ; preds = %.lr.ph.i.i.i
-  %23 = add nuw nsw i64 %.010.i.i.i, 1
-  %24 = lshr i64 %23, 1
-  %.not14.i.i.i = icmp samesign ult i64 %.010.i.i.i, 2
-  br i1 %.not14.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !407
+  %23 = icmp eq i64 %.010.i.i.i, 1
+  %24 = add nuw nsw i64 %.010.i.i.i, 1
+  %25 = lshr i64 %24, 1
+  br i1 %23, label %.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !407
 
 .loopexit.i:                                      ; preds = %select.unfold.i.i.i, %16
   invoke void @_ZSt21__inplace_stable_sortIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSB_9SortNamesINSA_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSA_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSI_E_EES6_ZZNSE_ISH_EEvSK_S11_S5_ENKUlOSI_E0_clIRKSO_EEDaS14_EUlmmE_EEvSI_SI_T0_T1_EUlRSR_S1C_E_EEEvSI_SI_S1A_(ptr nonnull %9, i64 0, ptr nonnull %9, i64 %7, ptr nonnull %5, ptr nonnull %4)
-          to label %.loopexit._crit_edge.i unwind label %25
+          to label %.loopexit._crit_edge.i unwind label %26
 
-25:                                               ; preds = %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i, %.loopexit.i
+26:                                               ; preds = %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i, %.loopexit.i
   %.sroa.4.041.i = phi i64 [ %.010.i.i.i, %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i ], [ 0, %.loopexit.i ]
   %.sroa.9.038.i = phi ptr [ %22, %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i ], [ null, %.loopexit.i ]
-  %26 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = shl nuw nsw i64 %.sroa.4.041.i, 2
-  call void @_ZdlPvm(ptr noundef %.sroa.9.038.i, i64 noundef %27) #16
-  resume { ptr, i32 } %26
+  %28 = shl nuw nsw i64 %.sroa.4.041.i, 2
+  call void @_ZdlPvm(ptr noundef %.sroa.9.038.i, i64 noundef %28) #16
+  resume { ptr, i32 } %27
 
 _ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i: ; preds = %.lr.ph.i.i.i
   store ptr %5, ptr %3, align 8, !tbaa !179
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !396
   invoke void @_ZSt22__stable_sort_adaptiveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPilN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSJ_E_EES6_ZZNSF_ISI_EEvSL_S12_S5_ENKUlOSJ_E0_clIRKSP_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEEvSJ_SJ_S1B_S1C_T2_(ptr nonnull %9, i64 0, ptr nonnull %9, i64 %7, ptr noundef nonnull %22, i64 noundef %.010.i.i.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.218") align 8 %3)
-          to label %.loopexit._crit_edge.i unwind label %25
+          to label %.loopexit._crit_edge.i unwind label %26
 
 .loopexit._crit_edge.i:                           ; preds = %.loopexit.i, %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i
   %.sroa.4.039.i = phi i64 [ %.010.i.i.i, %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i ], [ 0, %.loopexit.i ]
   %.sroa.9.036.i = phi ptr [ %22, %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i ], [ null, %.loopexit.i ]
-  %28 = shl nuw nsw i64 %.sroa.4.039.i, 2
-  call void @_ZdlPvm(ptr noundef %.sroa.9.036.i, i64 noundef %28) #16
+  %29 = shl nuw nsw i64 %.sroa.4.039.i, 2
+  call void @_ZdlPvm(ptr noundef %.sroa.9.036.i, i64 noundef %29) #16
   br label %_ZSt13__stable_sortIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSB_9SortNamesINSA_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSA_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSI_E_EES6_ZZNSE_ISH_EEvSK_S11_S5_ENKUlOSI_E0_clIRKSO_EEDaS14_EUlmmE_EEvSI_SI_T0_T1_EUlRSR_S1C_E_EEEvSI_SI_S1A_.exit
 
 _ZSt13__stable_sortIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSB_9SortNamesINSA_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSA_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSI_E_EES6_ZZNSE_ISH_EEvSK_S11_S5_ENKUlOSI_E0_clIRKSO_EEDaS14_EUlmmE_EEvSI_SI_T0_T1_EUlRSR_S1C_E_EEEvSI_SI_S1A_.exit: ; preds = %_ZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS0_9SortNamesINS_6PolicyIJNS2_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS_15CatStrArrayViewENS3_4SpanIKaLm18446744073709551615EEENSE_IKsLm18446744073709551615EEENSE_IKiLm18446744073709551615EEENSE_IKlLm18446744073709551615EEENSE_IKfLm18446744073709551615EEENSE_IKdLm18446744073709551615EEEEENSE_IiLm18446744073709551615EEEEUlS9_E_EENS3_6detail12SpanIteratorISU_Lb0EEEZZNS5_IS8_EEvSB_ST_SU_ENKUlOS9_E0_clIRKSG_EEDaS10_EUlmmE_EEvS9_S9_T0_T1_.exit.thread, %.loopexit._crit_edge.i
@@ -24545,43 +24545,43 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %select.unfold.i.i.i, %.lr.ph.preheader.i.i.i
-  %.010.i.i.i = phi i64 [ %24, %select.unfold.i.i.i ], [ %20, %.lr.ph.preheader.i.i.i ]
+  %.010.i.i.i = phi i64 [ %25, %select.unfold.i.i.i ], [ %20, %.lr.ph.preheader.i.i.i ]
   %21 = shl nuw nsw i64 %.010.i.i.i, 2
   %22 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %21, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #36
   %.not.i.i.i7 = icmp eq ptr %22, null
   br i1 %.not.i.i.i7, label %select.unfold.i.i.i, label %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i
 
 select.unfold.i.i.i:                              ; preds = %.lr.ph.i.i.i
-  %23 = add nuw nsw i64 %.010.i.i.i, 1
-  %24 = lshr i64 %23, 1
-  %.not14.i.i.i = icmp samesign ult i64 %.010.i.i.i, 2
-  br i1 %.not14.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !407
+  %23 = icmp eq i64 %.010.i.i.i, 1
+  %24 = add nuw nsw i64 %.010.i.i.i, 1
+  %25 = lshr i64 %24, 1
+  br i1 %23, label %.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !407
 
 .loopexit.i:                                      ; preds = %select.unfold.i.i.i, %16
   invoke void @_ZSt21__inplace_stable_sortIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSB_9SortNamesINSA_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSA_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSI_E_EES6_ZZNSE_ISH_EEvSK_S11_S5_ENKUlOSI_E0_clIRKSQ_EEDaS14_EUlmmE_EEvSI_SI_T0_T1_EUlRSR_S1C_E_EEEvSI_SI_S1A_(ptr nonnull %9, i64 0, ptr nonnull %9, i64 %7, ptr nonnull %5, ptr nonnull %4)
-          to label %.loopexit._crit_edge.i unwind label %25
+          to label %.loopexit._crit_edge.i unwind label %26
 
-25:                                               ; preds = %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i, %.loopexit.i
+26:                                               ; preds = %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i, %.loopexit.i
   %.sroa.4.041.i = phi i64 [ %.010.i.i.i, %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i ], [ 0, %.loopexit.i ]
   %.sroa.9.038.i = phi ptr [ %22, %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i ], [ null, %.loopexit.i ]
-  %26 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = shl nuw nsw i64 %.sroa.4.041.i, 2
-  call void @_ZdlPvm(ptr noundef %.sroa.9.038.i, i64 noundef %27) #16
-  resume { ptr, i32 } %26
+  %28 = shl nuw nsw i64 %.sroa.4.041.i, 2
+  call void @_ZdlPvm(ptr noundef %.sroa.9.038.i, i64 noundef %28) #16
+  resume { ptr, i32 } %27
 
 _ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i: ; preds = %.lr.ph.i.i.i
   store ptr %5, ptr %3, align 8, !tbaa !179
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !396
   invoke void @_ZSt22__stable_sort_adaptiveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPilN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSJ_E_EES6_ZZNSF_ISI_EEvSL_S12_S5_ENKUlOSJ_E0_clIRKSR_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEEvSJ_SJ_S1B_S1C_T2_(ptr nonnull %9, i64 0, ptr nonnull %9, i64 %7, ptr noundef nonnull %22, i64 noundef %.010.i.i.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.223") align 8 %3)
-          to label %.loopexit._crit_edge.i unwind label %25
+          to label %.loopexit._crit_edge.i unwind label %26
 
 .loopexit._crit_edge.i:                           ; preds = %.loopexit.i, %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i
   %.sroa.4.039.i = phi i64 [ %.010.i.i.i, %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i ], [ 0, %.loopexit.i ]
   %.sroa.9.036.i = phi ptr [ %22, %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i ], [ null, %.loopexit.i ]
-  %28 = shl nuw nsw i64 %.sroa.4.039.i, 2
-  call void @_ZdlPvm(ptr noundef %.sroa.9.036.i, i64 noundef %28) #16
+  %29 = shl nuw nsw i64 %.sroa.4.039.i, 2
+  call void @_ZdlPvm(ptr noundef %.sroa.9.036.i, i64 noundef %29) #16
   br label %_ZSt13__stable_sortIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSB_9SortNamesINSA_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSA_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSI_E_EES6_ZZNSE_ISH_EEvSK_S11_S5_ENKUlOSI_E0_clIRKSQ_EEDaS14_EUlmmE_EEvSI_SI_T0_T1_EUlRSR_S1C_E_EEEvSI_SI_S1A_.exit
 
 _ZSt13__stable_sortIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSB_9SortNamesINSA_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSA_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSI_E_EES6_ZZNSE_ISH_EEvSK_S11_S5_ENKUlOSI_E0_clIRKSQ_EEDaS14_EUlmmE_EEvSI_SI_T0_T1_EUlRSR_S1C_E_EEEvSI_SI_S1A_.exit: ; preds = %_ZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS0_9SortNamesINS_6PolicyIJNS2_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS_15CatStrArrayViewENS3_4SpanIKaLm18446744073709551615EEENSE_IKsLm18446744073709551615EEENSE_IKiLm18446744073709551615EEENSE_IKlLm18446744073709551615EEENSE_IKfLm18446744073709551615EEENSE_IKdLm18446744073709551615EEEEENSE_IiLm18446744073709551615EEEEUlS9_E_EENS3_6detail12SpanIteratorISU_Lb0EEEZZNS5_IS8_EEvSB_ST_SU_ENKUlOS9_E0_clIRKSI_EEDaS10_EUlmmE_EEvS9_S9_T0_T1_.exit.thread, %.loopexit._crit_edge.i
@@ -27016,43 +27016,43 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %select.unfold.i.i.i, %.lr.ph.preheader.i.i.i
-  %.010.i.i.i = phi i64 [ %24, %select.unfold.i.i.i ], [ %20, %.lr.ph.preheader.i.i.i ]
+  %.010.i.i.i = phi i64 [ %25, %select.unfold.i.i.i ], [ %20, %.lr.ph.preheader.i.i.i ]
   %21 = shl nuw nsw i64 %.010.i.i.i, 2
   %22 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %21, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #36
   %.not.i.i.i7 = icmp eq ptr %22, null
   br i1 %.not.i.i.i7, label %select.unfold.i.i.i, label %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i
 
 select.unfold.i.i.i:                              ; preds = %.lr.ph.i.i.i
-  %23 = add nuw nsw i64 %.010.i.i.i, 1
-  %24 = lshr i64 %23, 1
-  %.not14.i.i.i = icmp samesign ult i64 %.010.i.i.i, 2
-  br i1 %.not14.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !407
+  %23 = icmp eq i64 %.010.i.i.i, 1
+  %24 = add nuw nsw i64 %.010.i.i.i, 1
+  %25 = lshr i64 %24, 1
+  br i1 %23, label %.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !407
 
 .loopexit.i:                                      ; preds = %select.unfold.i.i.i, %16
   invoke void @_ZSt21__inplace_stable_sortIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSB_9SortNamesINSA_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSA_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSI_E_EES6_ZZNSE_ISH_EEvSK_S11_S5_ENKUlOSI_E0_clIRKSS_EEDaS14_EUlmmE_EEvSI_SI_T0_T1_EUlRSR_S1C_E_EEEvSI_SI_S1A_(ptr nonnull %9, i64 0, ptr nonnull %9, i64 %7, ptr nonnull %5, ptr nonnull %4)
-          to label %.loopexit._crit_edge.i unwind label %25
+          to label %.loopexit._crit_edge.i unwind label %26
 
-25:                                               ; preds = %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i, %.loopexit.i
+26:                                               ; preds = %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i, %.loopexit.i
   %.sroa.4.041.i = phi i64 [ %.010.i.i.i, %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i ], [ 0, %.loopexit.i ]
   %.sroa.9.038.i = phi ptr [ %22, %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i ], [ null, %.loopexit.i ]
-  %26 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = shl nuw nsw i64 %.sroa.4.041.i, 2
-  call void @_ZdlPvm(ptr noundef %.sroa.9.038.i, i64 noundef %27) #16
-  resume { ptr, i32 } %26
+  %28 = shl nuw nsw i64 %.sroa.4.041.i, 2
+  call void @_ZdlPvm(ptr noundef %.sroa.9.038.i, i64 noundef %28) #16
+  resume { ptr, i32 } %27
 
 _ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i: ; preds = %.lr.ph.i.i.i
   store ptr %5, ptr %3, align 8, !tbaa !179
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !396
   invoke void @_ZSt22__stable_sort_adaptiveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPilN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSJ_E_EES6_ZZNSF_ISI_EEvSL_S12_S5_ENKUlOSJ_E0_clIRKST_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEEvSJ_SJ_S1B_S1C_T2_(ptr nonnull %9, i64 0, ptr nonnull %9, i64 %7, ptr noundef nonnull %22, i64 noundef %.010.i.i.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.228") align 8 %3)
-          to label %.loopexit._crit_edge.i unwind label %25
+          to label %.loopexit._crit_edge.i unwind label %26
 
 .loopexit._crit_edge.i:                           ; preds = %.loopexit.i, %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i
   %.sroa.4.039.i = phi i64 [ %.010.i.i.i, %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i ], [ 0, %.loopexit.i ]
   %.sroa.9.036.i = phi ptr [ %22, %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i ], [ null, %.loopexit.i ]
-  %28 = shl nuw nsw i64 %.sroa.4.039.i, 2
-  call void @_ZdlPvm(ptr noundef %.sroa.9.036.i, i64 noundef %28) #16
+  %29 = shl nuw nsw i64 %.sroa.4.039.i, 2
+  call void @_ZdlPvm(ptr noundef %.sroa.9.036.i, i64 noundef %29) #16
   br label %_ZSt13__stable_sortIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSB_9SortNamesINSA_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSA_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSI_E_EES6_ZZNSE_ISH_EEvSK_S11_S5_ENKUlOSI_E0_clIRKSS_EEDaS14_EUlmmE_EEvSI_SI_T0_T1_EUlRSR_S1C_E_EEEvSI_SI_S1A_.exit
 
 _ZSt13__stable_sortIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSB_9SortNamesINSA_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSA_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSI_E_EES6_ZZNSE_ISH_EEvSK_S11_S5_ENKUlOSI_E0_clIRKSS_EEDaS14_EUlmmE_EEvSI_SI_T0_T1_EUlRSR_S1C_E_EEEvSI_SI_S1A_.exit: ; preds = %_ZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS0_9SortNamesINS_6PolicyIJNS2_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS_15CatStrArrayViewENS3_4SpanIKaLm18446744073709551615EEENSE_IKsLm18446744073709551615EEENSE_IKiLm18446744073709551615EEENSE_IKlLm18446744073709551615EEENSE_IKfLm18446744073709551615EEENSE_IKdLm18446744073709551615EEEEENSE_IiLm18446744073709551615EEEEUlS9_E_EENS3_6detail12SpanIteratorISU_Lb0EEEZZNS5_IS8_EEvSB_ST_SU_ENKUlOS9_E0_clIRKSK_EEDaS10_EUlmmE_EEvS9_S9_T0_T1_.exit.thread, %.loopexit._crit_edge.i
@@ -29487,43 +29487,43 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %select.unfold.i.i.i, %.lr.ph.preheader.i.i.i
-  %.010.i.i.i = phi i64 [ %24, %select.unfold.i.i.i ], [ %20, %.lr.ph.preheader.i.i.i ]
+  %.010.i.i.i = phi i64 [ %25, %select.unfold.i.i.i ], [ %20, %.lr.ph.preheader.i.i.i ]
   %21 = shl nuw nsw i64 %.010.i.i.i, 2
   %22 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %21, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #36
   %.not.i.i.i7 = icmp eq ptr %22, null
   br i1 %.not.i.i.i7, label %select.unfold.i.i.i, label %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i
 
 select.unfold.i.i.i:                              ; preds = %.lr.ph.i.i.i
-  %23 = add nuw nsw i64 %.010.i.i.i, 1
-  %24 = lshr i64 %23, 1
-  %.not14.i.i.i = icmp samesign ult i64 %.010.i.i.i, 2
-  br i1 %.not14.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !407
+  %23 = icmp eq i64 %.010.i.i.i, 1
+  %24 = add nuw nsw i64 %.010.i.i.i, 1
+  %25 = lshr i64 %24, 1
+  br i1 %23, label %.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !407
 
 .loopexit.i:                                      ; preds = %select.unfold.i.i.i, %16
   invoke void @_ZSt21__inplace_stable_sortIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSB_9SortNamesINSA_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSA_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSI_E_EES6_ZZNSE_ISH_EEvSK_S11_S5_ENKUlOSI_E0_clIRKSU_EEDaS14_EUlmmE_EEvSI_SI_T0_T1_EUlRSR_S1C_E_EEEvSI_SI_S1A_(ptr nonnull %9, i64 0, ptr nonnull %9, i64 %7, ptr nonnull %5, ptr nonnull %4)
-          to label %.loopexit._crit_edge.i unwind label %25
+          to label %.loopexit._crit_edge.i unwind label %26
 
-25:                                               ; preds = %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i, %.loopexit.i
+26:                                               ; preds = %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i, %.loopexit.i
   %.sroa.4.041.i = phi i64 [ %.010.i.i.i, %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i ], [ 0, %.loopexit.i ]
   %.sroa.9.038.i = phi ptr [ %22, %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i ], [ null, %.loopexit.i ]
-  %26 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = shl nuw nsw i64 %.sroa.4.041.i, 2
-  call void @_ZdlPvm(ptr noundef %.sroa.9.038.i, i64 noundef %27) #16
-  resume { ptr, i32 } %26
+  %28 = shl nuw nsw i64 %.sroa.4.041.i, 2
+  call void @_ZdlPvm(ptr noundef %.sroa.9.038.i, i64 noundef %28) #16
+  resume { ptr, i32 } %27
 
 _ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i: ; preds = %.lr.ph.i.i.i
   store ptr %5, ptr %3, align 8, !tbaa !179
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !396
   invoke void @_ZSt22__stable_sort_adaptiveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPilN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSJ_E_EES6_ZZNSF_ISI_EEvSL_S12_S5_ENKUlOSJ_E0_clIRKSV_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEEvSJ_SJ_S1B_S1C_T2_(ptr nonnull %9, i64 0, ptr nonnull %9, i64 %7, ptr noundef nonnull %22, i64 noundef %.010.i.i.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.233") align 8 %3)
-          to label %.loopexit._crit_edge.i unwind label %25
+          to label %.loopexit._crit_edge.i unwind label %26
 
 .loopexit._crit_edge.i:                           ; preds = %.loopexit.i, %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i
   %.sroa.4.039.i = phi i64 [ %.010.i.i.i, %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i ], [ 0, %.loopexit.i ]
   %.sroa.9.036.i = phi ptr [ %22, %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i ], [ null, %.loopexit.i ]
-  %28 = shl nuw nsw i64 %.sroa.4.039.i, 2
-  call void @_ZdlPvm(ptr noundef %.sroa.9.036.i, i64 noundef %28) #16
+  %29 = shl nuw nsw i64 %.sroa.4.039.i, 2
+  call void @_ZdlPvm(ptr noundef %.sroa.9.036.i, i64 noundef %29) #16
   br label %_ZSt13__stable_sortIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSB_9SortNamesINSA_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSA_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSI_E_EES6_ZZNSE_ISH_EEvSK_S11_S5_ENKUlOSI_E0_clIRKSU_EEDaS14_EUlmmE_EEvSI_SI_T0_T1_EUlRSR_S1C_E_EEEvSI_SI_S1A_.exit
 
 _ZSt13__stable_sortIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSB_9SortNamesINSA_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSA_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSI_E_EES6_ZZNSE_ISH_EEvSK_S11_S5_ENKUlOSI_E0_clIRKSU_EEDaS14_EUlmmE_EEvSI_SI_T0_T1_EUlRSR_S1C_E_EEEvSI_SI_S1A_.exit: ; preds = %_ZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS0_9SortNamesINS_6PolicyIJNS2_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS_15CatStrArrayViewENS3_4SpanIKaLm18446744073709551615EEENSE_IKsLm18446744073709551615EEENSE_IKiLm18446744073709551615EEENSE_IKlLm18446744073709551615EEENSE_IKfLm18446744073709551615EEENSE_IKdLm18446744073709551615EEEEENSE_IiLm18446744073709551615EEEEUlS9_E_EENS3_6detail12SpanIteratorISU_Lb0EEEZZNS5_IS8_EEvSB_ST_SU_ENKUlOS9_E0_clIRKSM_EEDaS10_EUlmmE_EEvS9_S9_T0_T1_.exit.thread, %.loopexit._crit_edge.i
@@ -31958,43 +31958,43 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %select.unfold.i.i.i, %.lr.ph.preheader.i.i.i
-  %.010.i.i.i = phi i64 [ %24, %select.unfold.i.i.i ], [ %20, %.lr.ph.preheader.i.i.i ]
+  %.010.i.i.i = phi i64 [ %25, %select.unfold.i.i.i ], [ %20, %.lr.ph.preheader.i.i.i ]
   %21 = shl nuw nsw i64 %.010.i.i.i, 2
   %22 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %21, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #36
   %.not.i.i.i7 = icmp eq ptr %22, null
   br i1 %.not.i.i.i7, label %select.unfold.i.i.i, label %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i
 
 select.unfold.i.i.i:                              ; preds = %.lr.ph.i.i.i
-  %23 = add nuw nsw i64 %.010.i.i.i, 1
-  %24 = lshr i64 %23, 1
-  %.not14.i.i.i = icmp samesign ult i64 %.010.i.i.i, 2
-  br i1 %.not14.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !407
+  %23 = icmp eq i64 %.010.i.i.i, 1
+  %24 = add nuw nsw i64 %.010.i.i.i, 1
+  %25 = lshr i64 %24, 1
+  br i1 %23, label %.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !407
 
 .loopexit.i:                                      ; preds = %select.unfold.i.i.i, %16
   invoke void @_ZSt21__inplace_stable_sortIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSB_9SortNamesINSA_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSA_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSI_E_EES6_ZZNSE_ISH_EEvSK_S11_S5_ENKUlOSI_E0_clIRKSW_EEDaS14_EUlmmE_EEvSI_SI_T0_T1_EUlRSR_S1C_E_EEEvSI_SI_S1A_(ptr nonnull %9, i64 0, ptr nonnull %9, i64 %7, ptr nonnull %5, ptr nonnull %4)
-          to label %.loopexit._crit_edge.i unwind label %25
+          to label %.loopexit._crit_edge.i unwind label %26
 
-25:                                               ; preds = %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i, %.loopexit.i
+26:                                               ; preds = %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i, %.loopexit.i
   %.sroa.4.041.i = phi i64 [ %.010.i.i.i, %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i ], [ 0, %.loopexit.i ]
   %.sroa.9.038.i = phi ptr [ %22, %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i ], [ null, %.loopexit.i ]
-  %26 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = shl nuw nsw i64 %.sroa.4.041.i, 2
-  call void @_ZdlPvm(ptr noundef %.sroa.9.038.i, i64 noundef %27) #16
-  resume { ptr, i32 } %26
+  %28 = shl nuw nsw i64 %.sroa.4.041.i, 2
+  call void @_ZdlPvm(ptr noundef %.sroa.9.038.i, i64 noundef %28) #16
+  resume { ptr, i32 } %27
 
 _ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i: ; preds = %.lr.ph.i.i.i
   store ptr %5, ptr %3, align 8, !tbaa !179
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !396
   invoke void @_ZSt22__stable_sort_adaptiveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPilN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSJ_E_EES6_ZZNSF_ISI_EEvSL_S12_S5_ENKUlOSJ_E0_clIRKSX_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEEvSJ_SJ_S1B_S1C_T2_(ptr nonnull %9, i64 0, ptr nonnull %9, i64 %7, ptr noundef nonnull %22, i64 noundef %.010.i.i.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.238") align 8 %3)
-          to label %.loopexit._crit_edge.i unwind label %25
+          to label %.loopexit._crit_edge.i unwind label %26
 
 .loopexit._crit_edge.i:                           ; preds = %.loopexit.i, %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i
   %.sroa.4.039.i = phi i64 [ %.010.i.i.i, %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i ], [ 0, %.loopexit.i ]
   %.sroa.9.036.i = phi ptr [ %22, %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i ], [ null, %.loopexit.i ]
-  %28 = shl nuw nsw i64 %.sroa.4.039.i, 2
-  call void @_ZdlPvm(ptr noundef %.sroa.9.036.i, i64 noundef %28) #16
+  %29 = shl nuw nsw i64 %.sroa.4.039.i, 2
+  call void @_ZdlPvm(ptr noundef %.sroa.9.036.i, i64 noundef %29) #16
   br label %_ZSt13__stable_sortIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSB_9SortNamesINSA_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSA_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSI_E_EES6_ZZNSE_ISH_EEvSK_S11_S5_ENKUlOSI_E0_clIRKSW_EEDaS14_EUlmmE_EEvSI_SI_T0_T1_EUlRSR_S1C_E_EEEvSI_SI_S1A_.exit
 
 _ZSt13__stable_sortIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSB_9SortNamesINSA_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSA_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSI_E_EES6_ZZNSE_ISH_EEvSK_S11_S5_ENKUlOSI_E0_clIRKSW_EEDaS14_EUlmmE_EEvSI_SI_T0_T1_EUlRSR_S1C_E_EEEvSI_SI_S1A_.exit: ; preds = %_ZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS0_9SortNamesINS_6PolicyIJNS2_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS_15CatStrArrayViewENS3_4SpanIKaLm18446744073709551615EEENSE_IKsLm18446744073709551615EEENSE_IKiLm18446744073709551615EEENSE_IKlLm18446744073709551615EEENSE_IKfLm18446744073709551615EEENSE_IKdLm18446744073709551615EEEEENSE_IiLm18446744073709551615EEEEUlS9_E_EENS3_6detail12SpanIteratorISU_Lb0EEEZZNS5_IS8_EEvSB_ST_SU_ENKUlOS9_E0_clIRKSO_EEDaS10_EUlmmE_EEvS9_S9_T0_T1_.exit.thread, %.loopexit._crit_edge.i
@@ -34429,43 +34429,43 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIiLm18446744073709551615EEELb0E
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %select.unfold.i.i.i, %.lr.ph.preheader.i.i.i
-  %.010.i.i.i = phi i64 [ %24, %select.unfold.i.i.i ], [ %20, %.lr.ph.preheader.i.i.i ]
+  %.010.i.i.i = phi i64 [ %25, %select.unfold.i.i.i ], [ %20, %.lr.ph.preheader.i.i.i ]
   %21 = shl nuw nsw i64 %.010.i.i.i, 2
   %22 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %21, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #36
   %.not.i.i.i7 = icmp eq ptr %22, null
   br i1 %.not.i.i.i7, label %select.unfold.i.i.i, label %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i
 
 select.unfold.i.i.i:                              ; preds = %.lr.ph.i.i.i
-  %23 = add nuw nsw i64 %.010.i.i.i, 1
-  %24 = lshr i64 %23, 1
-  %.not14.i.i.i = icmp samesign ult i64 %.010.i.i.i, 2
-  br i1 %.not14.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !407
+  %23 = icmp eq i64 %.010.i.i.i, 1
+  %24 = add nuw nsw i64 %.010.i.i.i, 1
+  %25 = lshr i64 %24, 1
+  br i1 %23, label %.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !407
 
 .loopexit.i:                                      ; preds = %select.unfold.i.i.i, %16
   invoke void @_ZSt21__inplace_stable_sortIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSB_9SortNamesINSA_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSA_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSI_E_EES6_ZZNSE_ISH_EEvSK_S11_S5_ENKUlOSI_E0_clIRKSY_EEDaS14_EUlmmE_EEvSI_SI_T0_T1_EUlRSR_S1C_E_EEEvSI_SI_S1A_(ptr nonnull %9, i64 0, ptr nonnull %9, i64 %7, ptr nonnull %5, ptr nonnull %4)
-          to label %.loopexit._crit_edge.i unwind label %25
+          to label %.loopexit._crit_edge.i unwind label %26
 
-25:                                               ; preds = %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i, %.loopexit.i
+26:                                               ; preds = %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i, %.loopexit.i
   %.sroa.4.041.i = phi i64 [ %.010.i.i.i, %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i ], [ 0, %.loopexit.i ]
   %.sroa.9.038.i = phi ptr [ %22, %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i ], [ null, %.loopexit.i ]
-  %26 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = shl nuw nsw i64 %.sroa.4.041.i, 2
-  call void @_ZdlPvm(ptr noundef %.sroa.9.038.i, i64 noundef %27) #16
-  resume { ptr, i32 } %26
+  %28 = shl nuw nsw i64 %.sroa.4.041.i, 2
+  call void @_ZdlPvm(ptr noundef %.sroa.9.038.i, i64 noundef %28) #16
+  resume { ptr, i32 } %27
 
 _ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i: ; preds = %.lr.ph.i.i.i
   store ptr %5, ptr %3, align 8, !tbaa !179
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !396
   invoke void @_ZSt22__stable_sort_adaptiveIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEPilN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSC_9SortNamesINSB_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSB_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSJ_E_EES6_ZZNSF_ISI_EEvSL_S12_S5_ENKUlOSJ_E0_clIRKSZ_EEDaS15_EUlmmE_EEvSJ_SJ_T0_T1_EUlRSS_S1D_E_EEEvSJ_SJ_S1B_S1C_T2_(ptr nonnull %9, i64 0, ptr nonnull %9, i64 %7, ptr noundef nonnull %22, i64 noundef %.010.i.i.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.243") align 8 %3)
-          to label %.loopexit._crit_edge.i unwind label %25
+          to label %.loopexit._crit_edge.i unwind label %26
 
 .loopexit._crit_edge.i:                           ; preds = %.loopexit.i, %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i
   %.sroa.4.039.i = phi i64 [ %.010.i.i.i, %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i ], [ 0, %.loopexit.i ]
   %.sroa.9.036.i = phi ptr [ %22, %_ZNSt17_Temporary_bufferIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEiEC2ES6_l.exit.i ], [ null, %.loopexit.i ]
-  %28 = shl nuw nsw i64 %.sroa.4.039.i, 2
-  call void @_ZdlPvm(ptr noundef %.sroa.9.036.i, i64 noundef %28) #16
+  %29 = shl nuw nsw i64 %.sroa.4.039.i, 2
+  call void @_ZdlPvm(ptr noundef %.sroa.9.036.i, i64 noundef %29) #16
   br label %_ZSt13__stable_sortIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSB_9SortNamesINSA_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSA_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSI_E_EES6_ZZNSE_ISH_EEvSK_S11_S5_ENKUlOSI_E0_clIRKSY_EEDaS14_EUlmmE_EEvSI_SI_T0_T1_EUlRSR_S1C_E_EEEvSI_SI_S1A_.exit
 
 _ZSt13__stable_sortIN7xgboost6common6detail12SpanIteratorINS1_4SpanIiLm18446744073709551615EEELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3enc8cpu_impl7ArgSortINS1_18IndexTransformIterIZNSB_9SortNamesINSA_6PolicyIJNS0_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNSA_15CatStrArrayViewENS4_IKaLm18446744073709551615EEENS4_IKsLm18446744073709551615EEENS4_IKiLm18446744073709551615EEENS4_IKlLm18446744073709551615EEENS4_IKfLm18446744073709551615EEENS4_IKdLm18446744073709551615EEEEES5_EUlSI_E_EES6_ZZNSE_ISH_EEvSK_S11_S5_ENKUlOSI_E0_clIRKSY_EEDaS14_EUlmmE_EEvSI_SI_T0_T1_EUlRSR_S1C_E_EEEvSI_SI_S1A_.exit: ; preds = %_ZN3enc8cpu_impl7ArgSortIN7xgboost6common18IndexTransformIterIZNS0_9SortNamesINS_6PolicyIJNS2_14EncErrorPolicyEEEEEEvRKT_RKSt7variantIJNS_15CatStrArrayViewENS3_4SpanIKaLm18446744073709551615EEENSE_IKsLm18446744073709551615EEENSE_IKiLm18446744073709551615EEENSE_IKlLm18446744073709551615EEENSE_IKfLm18446744073709551615EEENSE_IKdLm18446744073709551615EEEEENSE_IiLm18446744073709551615EEEEUlS9_E_EENS3_6detail12SpanIteratorISU_Lb0EEEZZNS5_IS8_EEvSB_ST_SU_ENKUlOS9_E0_clIRKSQ_EEDaS10_EUlmmE_EEvS9_S9_T0_T1_.exit.thread, %.loopexit._crit_edge.i

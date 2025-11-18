@@ -2533,7 +2533,7 @@ define linkonce_odr void @_ZN5folly13hazptr_domainISt6atomicE14do_reclamationEi(
   %27 = lshr i64 %23, 22
   %28 = load i64, ptr %7, align 8, !tbaa !104, !noalias !105
   %29 = lshr i64 %28, 8
-  %.not.i12 = icmp ult i64 %28, 256
+  %.not.i12 = icmp eq i64 %29, 0
   %.pre.i = load ptr, ptr %6, align 8, !tbaa !98, !noalias !105
   br i1 %.not.i12, label %.thread65.i, label %30
 
@@ -7493,7 +7493,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit73: ; preds =
   %216 = load i64, ptr %215, align 1
   store i64 %216, ptr %213, align 1
   %217 = lshr i32 %.01720.i, 8
-  %.not.i = icmp ult i32 %.01720.i, 256
+  %.not.i = icmp eq i32 %217, 0
   br i1 %.not.i, label %.preheader.i, label %.preheader19.i, !llvm.loop !320
 
 .preheader.i:                                     ; preds = %.preheader19.i, %.preheader.i

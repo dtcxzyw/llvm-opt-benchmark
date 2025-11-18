@@ -116,7 +116,7 @@ define internal i32 @dissect_fcoe(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %16 = select i1 %15, i8 48, i8 32
   %17 = or disjoint i8 %16, %14
   %18 = lshr i32 %9, 14
-  %.not149 = icmp ult i16 %8, 16384
+  %.not149 = icmp eq i32 %18, 0
   br i1 %.not149, label %23, label %19
 
 19:                                               ; preds = %7
@@ -151,7 +151,7 @@ define internal i32 @dissect_fcoe(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %36 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %37 = lshr i8 %36, 4
   %38 = zext nneg i8 %37 to i32
-  %.not147 = icmp ult i8 %36, 16
+  %.not147 = icmp eq i8 %37, 0
   br i1 %.not147, label %43, label %39
 
 39:                                               ; preds = %32

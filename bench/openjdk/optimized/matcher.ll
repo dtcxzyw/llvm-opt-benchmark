@@ -422,7 +422,7 @@ define hidden void @_ZN7Matcher5matchEv(ptr noundef nonnull align 8 dereferencea
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 92
   store i32 0, ptr %23, align 4
   %24 = lshr i32 %21, 6
-  %.not.i = icmp ult i32 %21, 64
+  %.not.i = icmp eq i32 %24, 0
   br i1 %.not.i, label %.thread.i, label %25
 
 25:                                               ; preds = %9
@@ -512,7 +512,7 @@ _ZN7RegMask6InsertEi.exit:                        ; preds = %45, %49
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 92
   store i32 0, ptr %83, align 4
   %84 = lshr i32 %81, 6
-  %.not.i61 = icmp ult i32 %81, 64
+  %.not.i61 = icmp eq i32 %84, 0
   br i1 %.not.i61, label %.thread.i62, label %85
 
 85:                                               ; preds = %65
@@ -1256,7 +1256,7 @@ define hidden void @_ZN7Matcher15init_spill_maskEP4Node(ptr noundef nonnull alig
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 92
   store i32 0, ptr %10, align 4
   %11 = lshr i32 %8, 6
-  %.not.i = icmp ult i32 %8, 64
+  %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %.thread.i, label %12
 
 12:                                               ; preds = %6

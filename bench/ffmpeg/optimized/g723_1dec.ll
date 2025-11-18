@@ -2088,18 +2088,18 @@ generate_noise.exit:                              ; preds = %1122
   %1210 = getelementptr inbounds nuw i8, ptr %.080110.i, i64 2
   %1211 = call i32 @ff_g723_1_dot_product(ptr noundef %.080110.i, ptr noundef nonnull %1210, i32 noundef 59) #9
   %1212 = call i32 @ff_g723_1_dot_product(ptr noundef %.080110.i, ptr noundef %.080110.i, i32 noundef 60) #9
-  %.not.i248 = icmp ult i32 %1212, 65536
-  br i1 %.not.i248, label %1218, label %1213
+  %1213 = ashr i32 %1212, 16
+  %.not.i248 = icmp eq i32 %1213, 0
+  br i1 %.not.i248, label %1218, label %1214
 
-1213:                                             ; preds = %1208
-  %1214 = ashr i32 %1212, 16
+1214:                                             ; preds = %1208
   %1215 = ashr i32 %1211, 2
-  %1216 = sdiv i32 %1215, %1214
+  %1216 = sdiv i32 %1215, %1213
   %1217 = add nsw i32 %1216, 2
   br label %1218
 
-1218:                                             ; preds = %1213, %1208
-  %.081.i = phi i32 [ %1217, %1213 ], [ 2, %1208 ]
+1218:                                             ; preds = %1214, %1208
+  %.081.i = phi i32 [ %1217, %1214 ], [ 2, %1208 ]
   %1219 = load i32, ptr %1206, align 4, !tbaa !101
   %1220 = mul nsw i32 %1219, 3
   %1221 = add i32 %1220, %.081.i

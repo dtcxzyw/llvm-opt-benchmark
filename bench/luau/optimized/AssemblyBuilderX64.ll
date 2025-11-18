@@ -1581,7 +1581,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX6414placeModRegMemE
   br label %_ZN4Luau7CodeGen3X6418AssemblyBuilderX6413placeImm8Or32Ei.exit
 
 14:                                               ; preds = %4
-  %.not = icmp ult i64 %1, 4294967296
+  %.not = icmp eq i64 %.sroa.10.0.extract.shift, 0
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %14
@@ -2135,7 +2135,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643logENS1_10Operan
   br label %46
 
 46:                                               ; preds = %44, %42
-  %.not17 = icmp ult i64 %1, 4294967296
+  %.not17 = icmp eq i64 %.sroa.12.0.extract.shift, 0
   br i1 %.not17, label %54, label %47
 
 47:                                               ; preds = %46

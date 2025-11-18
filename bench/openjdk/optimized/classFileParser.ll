@@ -1749,7 +1749,7 @@ _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit268: ; preds = %_ZN
   %193 = getelementptr inbounds i64, ptr %13, i64 %21
   %194 = load i32, ptr %193, align 4
   %195 = lshr i32 %194, 16
-  %196 = icmp ult i32 %194, 65536
+  %196 = icmp eq i32 %195, 0
   %197 = icmp sge i32 %195, %3
   %.not341 = or i1 %196, %197
   %198 = load i8, ptr %14, align 8
@@ -1905,7 +1905,7 @@ _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit287: ; preds = %_ZN
   %261 = getelementptr inbounds i64, ptr %13, i64 %21
   %262 = load i32, ptr %261, align 4
   %263 = lshr i32 %262, 16
-  %264 = icmp ugt i32 %262, 65535
+  %264 = icmp ne i32 %263, 0
   %265 = icmp slt i32 %263, %3
   %266 = and i1 %264, %265
   br i1 %266, label %267, label %274
@@ -1947,7 +1947,7 @@ _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit290: ; preds = %274
   %284 = getelementptr inbounds i64, ptr %13, i64 %21
   %285 = load i32, ptr %284, align 4
   %286 = lshr i32 %285, 16
-  %287 = icmp ugt i32 %285, 65535
+  %287 = icmp ne i32 %286, 0
   %288 = icmp slt i32 %286, %3
   %289 = and i1 %287, %288
   br i1 %289, label %290, label %297

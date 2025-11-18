@@ -6313,7 +6313,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85: ; preds = %109
 
 123:                                              ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %.not = icmp ult i64 %3, 4294967296
+  %.not = icmp eq i64 %.sroa.1.0.extract.shift, 0
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %125 = load i32, ptr %124, align 8
   %126 = select i1 %.not, i32 %125, i32 %.sroa.1.0.extract.trunc
@@ -7170,7 +7170,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118: ; preds = %21
 
 .critedge53:                                      ; preds = %21, %.critedge56, %126
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %.not = icmp ult i64 %3, 4294967296
+  %.not = icmp eq i64 %.sroa.1.0.extract.shift, 0
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %232 = load i32, ptr %231, align 4
   %233 = select i1 %.not, i32 %232, i32 %.sroa.1.0.extract.trunc

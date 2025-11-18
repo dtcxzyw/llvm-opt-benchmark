@@ -72,7 +72,7 @@ define range(i32 0, 2) i32 @ossl_pqueue_push(ptr noundef captures(address_is_nul
   %38 = getelementptr inbounds nuw %struct.pq_elem_st, ptr %.val13.i, i64 %37
   store i64 %22, ptr %38, align 8, !tbaa !13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not.i = icmp ult i64 %21, 2
+  %.not.i = icmp eq i64 %22, 0
   br i1 %.not.i, label %pqueue_move_down.exit, label %20
 
 pqueue_move_down.exit:                            ; preds = %20, %30, %6
@@ -381,7 +381,7 @@ define ptr @ossl_pqueue_remove(ptr noundef captures(address_is_null) %0, i64 nou
   %35 = getelementptr inbounds nuw %struct.pq_elem_st, ptr %.val5.i, i64 %34
   store i64 %27, ptr %35, align 8, !tbaa !13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.not.i = icmp ult i64 %26, 2
+  %.not.i = icmp eq i64 %27, 0
   br i1 %.not.i, label %pqueue_force_bottom.exit, label %.preheader, !llvm.loop !28
 
 pqueue_force_bottom.exit:                         ; preds = %.preheader, %25

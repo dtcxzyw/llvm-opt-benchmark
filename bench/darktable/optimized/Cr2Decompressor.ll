@@ -1106,7 +1106,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %20 = load i32, ptr %19, align 8, !tbaa !185, !noalias !180
   %21 = ashr i32 %20, 1
-  %22 = icmp ugt i32 %20, 1
+  %22 = icmp ne i32 %21, 0
   tail call void @llvm.assume(i1 %22)
   %23 = icmp sgt i32 %21, -1
   tail call void @llvm.assume(i1 %23)
@@ -1331,7 +1331,7 @@ _ZNK8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS
   %.sroa.7.12.extract.shift = lshr i64 %.sroa.2.0.copyload.i, 32
   %.sroa.7.12.extract.trunc = trunc nuw i64 %.sroa.7.12.extract.shift to i32
   %103 = add nsw i32 %.sroa.7.12.extract.trunc, %.sroa.078.4.extract.trunc
-  %.not348 = icmp ult i64 %.sroa.2.0.copyload.i, 4294967296
+  %.not348 = icmp eq i64 %.sroa.7.12.extract.shift, 0
   br i1 %.not348, label %._crit_edge359, label %.lr.ph358
 
 .lr.ph358:                                        ; preds = %102
@@ -1950,7 +1950,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %20 = load i32, ptr %19, align 8, !tbaa !185, !noalias !243
   %21 = ashr i32 %20, 1
-  %22 = icmp ugt i32 %20, 1
+  %22 = icmp ne i32 %21, 0
   tail call void @llvm.assume(i1 %22)
   %23 = icmp sgt i32 %21, -1
   tail call void @llvm.assume(i1 %23)
@@ -2175,7 +2175,7 @@ _ZNK8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS
   %.sroa.7.12.extract.shift = lshr i64 %.sroa.2.0.copyload.i, 32
   %.sroa.7.12.extract.trunc = trunc nuw i64 %.sroa.7.12.extract.shift to i32
   %103 = add nsw i32 %.sroa.7.12.extract.trunc, %.sroa.078.4.extract.trunc
-  %.not348 = icmp ult i64 %.sroa.2.0.copyload.i, 4294967296
+  %.not348 = icmp eq i64 %.sroa.7.12.extract.shift, 0
   br i1 %.not348, label %._crit_edge359, label %.lr.ph358
 
 .lr.ph358:                                        ; preds = %102
@@ -2794,7 +2794,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %18 = load i32, ptr %17, align 8, !tbaa !185, !noalias !271
   %19 = ashr i32 %18, 1
-  %20 = icmp ugt i32 %18, 1
+  %20 = icmp ne i32 %19, 0
   tail call void @llvm.assume(i1 %20)
   %21 = icmp sgt i32 %19, -1
   tail call void @llvm.assume(i1 %21)
@@ -3014,7 +3014,7 @@ _ZNK8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS
   %.sroa.7.12.extract.shift = lshr i64 %.sroa.2.0.copyload.i, 32
   %.sroa.7.12.extract.trunc = trunc nuw i64 %.sroa.7.12.extract.shift to i32
   %98 = add nsw i32 %.sroa.7.12.extract.trunc, %.sroa.080.4.extract.trunc
-  %.not350 = icmp ult i64 %.sroa.2.0.copyload.i, 4294967296
+  %.not350 = icmp eq i64 %.sroa.7.12.extract.shift, 0
   br i1 %.not350, label %._crit_edge361, label %.lr.ph360
 
 .lr.ph360:                                        ; preds = %97
@@ -3617,7 +3617,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %20 = load i32, ptr %19, align 8, !tbaa !185, !noalias !292
   %21 = ashr i32 %20, 1
-  %22 = icmp ugt i32 %20, 1
+  %22 = icmp ne i32 %21, 0
   tail call void @llvm.assume(i1 %22)
   %23 = icmp sgt i32 %21, -1
   tail call void @llvm.assume(i1 %23)
@@ -3846,7 +3846,7 @@ _ZNK8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS
   %.sroa.7.12.extract.shift = lshr i64 %.sroa.2.0.copyload.i, 32
   %.sroa.7.12.extract.trunc = trunc nuw i64 %.sroa.7.12.extract.shift to i32
   %107 = add nsw i32 %.sroa.7.12.extract.trunc, %.sroa.078.4.extract.trunc
-  %.not348 = icmp ult i64 %.sroa.2.0.copyload.i, 4294967296
+  %.not348 = icmp eq i64 %.sroa.7.12.extract.shift, 0
   br i1 %.not348, label %._crit_edge359, label %.lr.ph358
 
 .lr.ph358:                                        ; preds = %106

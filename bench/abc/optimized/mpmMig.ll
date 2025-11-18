@@ -591,7 +591,7 @@ Vec_IntFill.exit:                                 ; preds = %Vec_IntGrow.exit.i,
 
 28:                                               ; preds = %.lr.ph, %._crit_edge
   %.val48 = phi i32 [ %.val44, %.lr.ph ], [ %.val, %._crit_edge ]
-  %storemerge45 = phi i32 [ 0, %.lr.ph ], [ %64, %._crit_edge ]
+  %storemerge45 = phi i32 [ 0, %.lr.ph ], [ %66, %._crit_edge ]
   %29 = sext i32 %storemerge45 to i64
   %30 = getelementptr inbounds ptr, ptr %.val30, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !11
@@ -606,68 +606,71 @@ Vec_IntFill.exit:                                 ; preds = %Vec_IntGrow.exit.i,
   br i1 %33, label %.preheader, label %._crit_edge
 
 .preheader:                                       ; preds = %.preheader40, %Mig_ObjSiblId.exit.thread
-  %34 = phi ptr [ %61, %Mig_ObjSiblId.exit.thread ], [ %32, %.preheader40 ]
-  %.043 = phi ptr [ %60, %Mig_ObjSiblId.exit.thread ], [ %31, %.preheader40 ]
+  %34 = phi ptr [ %63, %Mig_ObjSiblId.exit.thread ], [ %32, %.preheader40 ]
+  %.043 = phi ptr [ %62, %Mig_ObjSiblId.exit.thread ], [ %31, %.preheader40 ]
   br label %Mig_ObjHasFanin.exit
 
-Mig_ObjHasFanin.exit:                             ; preds = %.preheader, %37
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %37 ]
+Mig_ObjHasFanin.exit:                             ; preds = %.preheader, %40
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %40 ]
   %35 = getelementptr inbounds nuw %struct.Mig_Fan_t_, ptr %.043, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4
-  %.off = add i32 %36, -2
-  %switch = icmp ult i32 %.off, -4
-  br i1 %switch, label %37, label %.critedge2
+  %37 = icmp ugt i32 %36, -3
+  br i1 %37, label %.critedge2, label %38
 
-37:                                               ; preds = %Mig_ObjHasFanin.exit
-  %38 = lshr i32 %36, 1
+38:                                               ; preds = %Mig_ObjHasFanin.exit
+  %39 = lshr i32 %36, 1
+  %.not28 = icmp eq i32 %39, 0
+  br i1 %.not28, label %.critedge2, label %40
+
+40:                                               ; preds = %38
   %.val32 = load ptr, ptr %27, align 8, !tbaa !3
-  %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %.val32, i64 %39
-  %41 = load i32, ptr %40, align 4, !tbaa !35
-  %42 = add nsw i32 %41, 1
-  store i32 %42, ptr %40, align 4, !tbaa !35
+  %41 = zext nneg i32 %39 to i64
+  %42 = getelementptr inbounds nuw i32, ptr %.val32, i64 %41
+  %43 = load i32, ptr %42, align 4, !tbaa !35
+  %44 = add nsw i32 %43, 1
+  store i32 %44, ptr %42, align 4, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.critedge2, label %Mig_ObjHasFanin.exit, !llvm.loop !37
 
-.critedge2:                                       ; preds = %Mig_ObjHasFanin.exit, %37
+.critedge2:                                       ; preds = %40, %Mig_ObjHasFanin.exit, %38
   %.val.i.i = load i32, ptr %34, align 4
-  %43 = lshr i32 %.val.i.i, 1
-  %44 = and i32 %43, 4095
-  %45 = zext nneg i32 %44 to i64
-  %46 = sub nsw i64 0, %45
-  %47 = getelementptr inbounds %struct.Mig_Obj_t_, ptr %.043, i64 %46
-  %48 = getelementptr inbounds i8, ptr %47, i64 -16
-  %49 = load ptr, ptr %48, align 8, !tbaa !38
-  %50 = getelementptr i8, ptr %49, i64 124
-  %.val3.i = load i32, ptr %50, align 4, !tbaa !36
-  %51 = icmp eq i32 %.val3.i, 0
-  br i1 %51, label %Mig_ObjSiblId.exit.thread, label %Mig_ObjSiblId.exit
+  %45 = lshr i32 %.val.i.i, 1
+  %46 = and i32 %45, 4095
+  %47 = zext nneg i32 %46 to i64
+  %48 = sub nsw i64 0, %47
+  %49 = getelementptr inbounds %struct.Mig_Obj_t_, ptr %.043, i64 %48
+  %50 = getelementptr inbounds i8, ptr %49, i64 -16
+  %51 = load ptr, ptr %50, align 8, !tbaa !38
+  %52 = getelementptr i8, ptr %51, i64 124
+  %.val3.i = load i32, ptr %52, align 4, !tbaa !36
+  %53 = icmp eq i32 %.val3.i, 0
+  br i1 %53, label %Mig_ObjSiblId.exit.thread, label %Mig_ObjSiblId.exit
 
 Mig_ObjSiblId.exit:                               ; preds = %.critedge2
-  %52 = getelementptr i8, ptr %49, i64 128
-  %.val4.i = load ptr, ptr %52, align 8, !tbaa !3
-  %53 = zext nneg i32 %43 to i64
-  %54 = getelementptr inbounds nuw i32, ptr %.val4.i, i64 %53
-  %55 = load i32, ptr %54, align 4, !tbaa !35
-  %.not29 = icmp eq i32 %55, 0
+  %54 = getelementptr i8, ptr %51, i64 128
+  %.val4.i = load ptr, ptr %54, align 8, !tbaa !3
+  %55 = zext nneg i32 %45 to i64
+  %56 = getelementptr inbounds nuw i32, ptr %.val4.i, i64 %55
+  %57 = load i32, ptr %56, align 4, !tbaa !35
+  %.not29 = icmp eq i32 %57, 0
   br i1 %.not29, label %Mig_ObjSiblId.exit.thread, label %Mig_ObjSiblId.exit37
 
 Mig_ObjSiblId.exit37:                             ; preds = %Mig_ObjSiblId.exit
   %.val33 = load ptr, ptr %27, align 8, !tbaa !3
-  %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds i32, ptr %.val33, i64 %56
-  %58 = load i32, ptr %57, align 4, !tbaa !35
-  %59 = add nsw i32 %58, 1
-  store i32 %59, ptr %57, align 4, !tbaa !35
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds i32, ptr %.val33, i64 %58
+  %60 = load i32, ptr %59, align 4, !tbaa !35
+  %61 = add nsw i32 %60, 1
+  store i32 %61, ptr %59, align 4, !tbaa !35
   br label %Mig_ObjSiblId.exit.thread
 
 Mig_ObjSiblId.exit.thread:                        ; preds = %.critedge2, %Mig_ObjSiblId.exit, %Mig_ObjSiblId.exit37
-  %60 = getelementptr inbounds nuw i8, ptr %.043, i64 16
-  %61 = getelementptr i8, ptr %.043, i64 28
-  %.0.val = load i32, ptr %61, align 4
-  %62 = icmp ult i32 %.0.val, -2
-  br i1 %62, label %.preheader, label %._crit_edge.loopexit, !llvm.loop !40
+  %62 = getelementptr inbounds nuw i8, ptr %.043, i64 16
+  %63 = getelementptr i8, ptr %.043, i64 28
+  %.0.val = load i32, ptr %63, align 4
+  %64 = icmp ult i32 %.0.val, -2
+  br i1 %64, label %.preheader, label %._crit_edge.loopexit, !llvm.loop !40
 
 ._crit_edge.loopexit:                             ; preds = %Mig_ObjSiblId.exit.thread
   %.pre = load i32, ptr %22, align 8, !tbaa !25
@@ -676,11 +679,11 @@ Mig_ObjSiblId.exit.thread:                        ; preds = %.critedge2, %Mig_Ob
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader40
   %.val = phi i32 [ %.val.pre, %._crit_edge.loopexit ], [ %.val48, %.preheader40 ]
-  %63 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %storemerge45, %.preheader40 ]
-  %64 = add nsw i32 %63, 1
-  store i32 %64, ptr %22, align 8, !tbaa !25
-  %65 = icmp slt i32 %64, %.val
-  br i1 %65, label %28, label %.critedge, !llvm.loop !41
+  %65 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %storemerge45, %.preheader40 ]
+  %66 = add nsw i32 %65, 1
+  store i32 %66, ptr %22, align 8, !tbaa !25
+  %67 = icmp slt i32 %66, %.val
+  br i1 %67, label %28, label %.critedge, !llvm.loop !41
 
 .critedge:                                        ; preds = %28, %._crit_edge, %Vec_IntFill.exit
   ret void

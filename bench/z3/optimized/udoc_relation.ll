@@ -4501,21 +4501,21 @@ define hidden void @_ZNK7datalog13udoc_relation7displayERSo(ptr noundef nonnull 
   %4 = load ptr, ptr %3, align 8, !tbaa !144
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 520
   %6 = load i32, ptr %5, align 8, !tbaa !221
-  %7 = icmp ult i32 %6, 2
-  br i1 %7, label %8, label %10
+  %7 = lshr i32 %6, 1
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %9, label %11
 
-8:                                                ; preds = %2
-  %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.29, i64 noundef 2)
+9:                                                ; preds = %2
+  %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.29, i64 noundef 2)
   br label %_ZNK10union_bvecI11doc_manager3docE7displayERKS0_RSo.exit
 
-10:                                               ; preds = %2
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %12 = lshr i32 %6, 1
-  %13 = add nsw i32 %12, -1
-  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK10union_bvecI11doc_manager3docE7displayERKS0_RSojj(ptr noundef nonnull align 8 dereferenceable(80) %11, ptr noundef nonnull align 8 dereferenceable(1080) %4, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %13, i32 noundef 0)
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %13 = add nsw i32 %7, -1
+  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK10union_bvecI11doc_manager3docE7displayERKS0_RSojj(ptr noundef nonnull align 8 dereferenceable(80) %12, ptr noundef nonnull align 8 dereferenceable(1080) %4, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %13, i32 noundef 0)
   br label %_ZNK10union_bvecI11doc_manager3docE7displayERKS0_RSo.exit
 
-_ZNK10union_bvecI11doc_manager3docE7displayERKS0_RSo.exit: ; preds = %8, %10
+_ZNK10union_bvecI11doc_manager3docE7displayERKS0_RSo.exit: ; preds = %9, %11
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.3, i64 noundef 1)
   ret void
 }

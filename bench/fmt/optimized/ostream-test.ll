@@ -19810,7 +19810,7 @@ _ZN3fmt3v1114basic_appenderIcEaSEc.exit7:         ; preds = %_ZN3fmt3v1114basic_
   %32 = getelementptr inbounds i8, ptr %.0.i.i, i64 -1
   store i8 %31, ptr %32, align 1, !tbaa !9
   %33 = lshr i32 %.012.i.i, 4
-  %.not.i.i = icmp ult i32 %.012.i.i, 16
+  %.not.i.i = icmp eq i32 %33, 0
   br i1 %.not.i.i, label %_ZN3fmt3v116detail13format_base2eIcjEEPT_iS4_T0_ib.exit, label %.split.i.i, !llvm.loop !614
 
 _ZN3fmt3v116detail13format_base2eIcjEEPT_iS4_T0_ib.exit: ; preds = %.split.i.i
@@ -19925,7 +19925,7 @@ _ZN3fmt3v1114basic_appenderIcEaSEc.exit7:         ; preds = %_ZN3fmt3v1114basic_
   %32 = getelementptr inbounds i8, ptr %.0.i.i, i64 -1
   store i8 %31, ptr %32, align 1, !tbaa !9
   %33 = lshr i32 %.012.i.i, 4
-  %.not.i.i = icmp ult i32 %.012.i.i, 16
+  %.not.i.i = icmp eq i32 %33, 0
   br i1 %.not.i.i, label %_ZN3fmt3v116detail13format_base2eIcjEEPT_iS4_T0_ib.exit, label %.split.i.i, !llvm.loop !614
 
 _ZN3fmt3v116detail13format_base2eIcjEEPT_iS4_T0_ib.exit: ; preds = %.split.i.i
@@ -20040,7 +20040,7 @@ _ZN3fmt3v1114basic_appenderIcEaSEc.exit7:         ; preds = %_ZN3fmt3v1114basic_
   %32 = getelementptr inbounds i8, ptr %.0.i.i, i64 -1
   store i8 %31, ptr %32, align 1, !tbaa !9
   %33 = lshr i32 %.012.i.i, 4
-  %.not.i.i = icmp ult i32 %.012.i.i, 16
+  %.not.i.i = icmp eq i32 %33, 0
   br i1 %.not.i.i, label %_ZN3fmt3v116detail13format_base2eIcjEEPT_iS4_T0_ib.exit, label %.split.i.i, !llvm.loop !614
 
 _ZN3fmt3v116detail13format_base2eIcjEEPT_iS4_T0_ib.exit: ; preds = %.split.i.i
@@ -24356,7 +24356,7 @@ define linkonce_odr hidden ptr @_ZN3fmt3v116detail18write_int_noinlineIcNS0_14ba
   %.ptr31 = getelementptr inbounds i8, ptr %5, i64 %.0.i5.add
   store i8 %42, ptr %.ptr31, align 1, !tbaa !9
   %43 = lshr i32 %.012.i, 4
-  %.not.i6 = icmp ult i32 %.012.i, 16
+  %.not.i6 = icmp eq i32 %43, 0
   br i1 %.not.i6, label %_ZN3fmt3v116detail16do_format_base2eIcjEEPT_iS4_T0_ib.exit, label %.split.i, !llvm.loop !614
 
 _ZN3fmt3v116detail16do_format_base2eIcjEEPT_iS4_T0_ib.exit: ; preds = %.split.i
@@ -24366,7 +24366,7 @@ _ZN3fmt3v116detail16do_format_base2eIcjEEPT_iS4_T0_ib.exit: ; preds = %.split.i
 
 45:                                               ; preds = %_ZN3fmt3v116detail16do_format_base2eIcjEEPT_iS4_T0_ib.exit
   %46 = select i1 %.not26, i32 30768, i32 22576
-  %.not.i7 = icmp ult i64 %1, 4294967296
+  %.not.i7 = icmp eq i64 %.sroa.2.0.extract.shift.i, 0
   %47 = shl nuw nsw i32 %46, 8
   %48 = select i1 %.not.i7, i32 %46, i32 %47
   %49 = or i32 %48, %.sroa.2.0.extract.trunc.i
@@ -24383,7 +24383,7 @@ _ZN3fmt3v116detail16do_format_base2eIcjEEPT_iS4_T0_ib.exit: ; preds = %.split.i
   %.ptr30 = getelementptr inbounds i8, ptr %5, i64 %.0.us.i.add
   store i8 %53, ptr %.ptr30, align 1, !tbaa !9
   %54 = lshr i32 %.012.us.i, 3
-  %.not.us.i = icmp ult i32 %.012.us.i, 8
+  %.not.us.i = icmp eq i32 %54, 0
   br i1 %.not.us.i, label %_ZN3fmt3v116detail16do_format_base2eIcjEEPT_iS4_T0_ib.exit8, label %.split.us.i, !llvm.loop !614
 
 _ZN3fmt3v116detail16do_format_base2eIcjEEPT_iS4_T0_ib.exit8: ; preds = %.split.us.i
@@ -24402,7 +24402,7 @@ _ZN3fmt3v116detail16do_format_base2eIcjEEPT_iS4_T0_ib.exit8: ; preds = %.split.u
   br i1 %or.cond.i, label %62, label %_ZN3fmt3v116detail17do_format_decimalIcjEEPT_S4_T0_i.exit
 
 62:                                               ; preds = %56
-  %.not.i9 = icmp ult i64 %1, 4294967296
+  %.not.i9 = icmp eq i64 %.sroa.2.0.extract.shift.i, 0
   %63 = select i1 %.not.i9, i32 48, i32 12288
   %64 = or i32 %63, %.sroa.2.0.extract.trunc.i
   %65 = add i32 %64, 16777216
@@ -24418,7 +24418,7 @@ _ZN3fmt3v116detail16do_format_base2eIcjEEPT_iS4_T0_ib.exit8: ; preds = %.split.u
   %.ptr = getelementptr inbounds i8, ptr %5, i64 %.0.us.i12.add
   store i8 %68, ptr %.ptr, align 1, !tbaa !9
   %69 = lshr i32 %.012.us.i11, 1
-  %.not.us.i13 = icmp ult i32 %.012.us.i11, 2
+  %.not.us.i13 = icmp eq i32 %69, 0
   br i1 %.not.us.i13, label %_ZN3fmt3v116detail16do_format_base2eIcjEEPT_iS4_T0_ib.exit14, label %.split.us.i10, !llvm.loop !614
 
 _ZN3fmt3v116detail16do_format_base2eIcjEEPT_iS4_T0_ib.exit14: ; preds = %.split.us.i10
@@ -24430,7 +24430,7 @@ _ZN3fmt3v116detail16do_format_base2eIcjEEPT_iS4_T0_ib.exit14: ; preds = %.split.
   %72 = and i32 %7, 4096
   %.not29 = icmp eq i32 %72, 0
   %73 = select i1 %.not29, i32 25136, i32 16944
-  %.not.i15 = icmp ult i64 %1, 4294967296
+  %.not.i15 = icmp eq i64 %.sroa.2.0.extract.shift.i, 0
   %74 = shl nuw nsw i32 %73, 8
   %75 = select i1 %.not.i15, i32 %73, i32 %74
   %76 = or i32 %75, %.sroa.2.0.extract.trunc.i
@@ -24574,7 +24574,7 @@ _ZN3fmt3v1114basic_appenderIcEaSEc.exit:          ; preds = %128, %134
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 %136
   store i8 %129, ptr %138, align 1, !tbaa !9
   %139 = lshr i32 %.042.i38, 8
-  %.not.i = icmp samesign ult i32 %.042.i38, 256
+  %.not.i = icmp eq i32 %139, 0
   br i1 %.not.i, label %._crit_edge, label %128, !llvm.loop !794
 
 140:                                              ; preds = %_ZN3fmt3v116detail17do_format_decimalIcjEEPT_S4_T0_i.exit
@@ -25014,7 +25014,7 @@ _ZN3fmt3v1114basic_appenderIcEaSEc.exit.i:        ; preds = %93, %87
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 %95
   store i8 %88, ptr %97, align 1, !tbaa !9
   %98 = lshr i32 %.09.i, 8
-  %.not.i = icmp samesign ult i32 %.09.i, 256
+  %.not.i = icmp eq i32 %98, 0
   br i1 %.not.i, label %._crit_edge.i, label %87, !llvm.loop !801
 
 _ZZN3fmt3v116detail9write_intIcNS0_14basic_appenderIcEEjEET0_S5_NS1_13write_int_argIT1_EERKNS0_12format_specsEENKUlS4_E_clES4_.exit: ; preds = %._crit_edge.i.i.i, %_ZN3fmt3v116detail6fill_nINS0_14basic_appenderIcEEjcEET_S5_T0_RKT1_.exit.i

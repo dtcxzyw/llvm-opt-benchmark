@@ -40648,7 +40648,7 @@ define internal fastcc void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12r
   br i1 %31, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6a6bacf38e75e827E.exit63.i.i.i.i.i", label %32
 
 32:                                               ; preds = %30
-  %.not.i.i.i.i.i = icmp samesign ult i64 %7, 2
+  %.not.i.i.i.i.i = icmp eq i64 %8, 0
   br i1 %.not.i.i.i.i.i, label %_ZN4core4hash6Hasher9write_str17h41d94c93939949bfE.exit.i.i, label %33
 
 33:                                               ; preds = %32
@@ -40747,7 +40747,7 @@ _ZN4core4hash6Hasher9write_str17h41d94c93939949bfE.exit.i.i: ; preds = %"_ZN4cor
   br i1 %85, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6a6bacf38e75e827E.exit63.i.i.i.i.i.i", label %86
 
 86:                                               ; preds = %84
-  %.not.i.i.i.i.i.i = icmp samesign ult i64 %60, 2
+  %.not.i.i.i.i.i.i = icmp eq i64 %61, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZN9hashbrown3map9make_hash17h17eb410bce96c11eE.exit, label %87
 
 87:                                               ; preds = %86
@@ -40832,7 +40832,7 @@ _ZN4core4hash6Hasher9write_str17h41d94c93939949bfE.exit.i.i: ; preds = %"_ZN4cor
   br i1 %133, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6a6bacf38e75e827E.exit63.i.i.i14.i.i.i", label %134
 
 134:                                              ; preds = %132
-  %.not.i.i.i13.i.i.i = icmp samesign ult i64 %60, 2
+  %.not.i.i.i13.i.i.i = icmp eq i64 %61, 0
   br i1 %.not.i.i.i13.i.i.i, label %_ZN9hashbrown3map9make_hash17h17eb410bce96c11eE.exit, label %135
 
 135:                                              ; preds = %134

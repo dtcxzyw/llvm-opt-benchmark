@@ -215,17 +215,17 @@ define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilderC2ERKNS1_15TopologyRef
   %34 = ptrtoint ptr %32 to i64
   %35 = sub i64 %33, %34
   %sext = shl i64 %35, 29
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %.not44 = icmp ult i64 %sext, 4294967296
-  br i1 %.not44, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %37
+  %36 = ashr i64 %sext, 32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %.not44 = icmp eq i64 %36, 0
+  br i1 %.not44, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %38
 
-37:                                               ; preds = %24
-  %38 = ashr i64 %sext, 32
-  invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %38)
+38:                                               ; preds = %24
+  invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %36)
           to label %._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge37 unwind label %57
 
-._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge37:  ; preds = %37
-  %.pre = load ptr, ptr %36, align 8
+._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge37:  ; preds = %38
+  %.pre = load ptr, ptr %37, align 8
   %.pre38 = load ptr, ptr %16, align 8
   %39 = ptrtoint ptr %.pre to i64
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
@@ -247,7 +247,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %24, %._ZNSt6vectorI
   %49 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %49, ptr %48, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %50 = load ptr, ptr %36, align 8
+  %50 = load ptr, ptr %37, align 8
   %51 = load ptr, ptr %16, align 8
   %52 = ptrtoint ptr %50 to i64
   %53 = ptrtoint ptr %51 to i64
@@ -257,7 +257,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %24, %._ZNSt6vectorI
   %56 = icmp slt i64 %indvars.iv.next, %55
   br i1 %56, label %.lr.ph, label %_ZNSt6vectorIiSaIiEE6assignIPKivEEvT_S5_.exit, !llvm.loop !5
 
-57:                                               ; preds = %59, %37, %163, %122, %81, %70
+57:                                               ; preds = %59, %38, %163, %122, %81, %70
   %58 = landingpad { ptr, i32 }
           cleanup
   br label %171

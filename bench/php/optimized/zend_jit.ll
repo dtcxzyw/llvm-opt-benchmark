@@ -459,11 +459,11 @@ define hidden ptr @zend_jit_snapshot_handler(ptr noundef captures(none) %0, i32 
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i32, ptr %11, align 8, !tbaa !4
   %13 = add i32 %12, 31
-  %.not16.i = icmp ult i32 %13, 32
+  %14 = lshr i32 %13, 5
+  %.not16.i = icmp eq i32 %14, 0
   br i1 %.not16.i, label %zend_jit_exit_point_by_addr.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4
-  %14 = lshr i32 %13, 5
   %15 = load ptr, ptr @zend_jit_exit_groups, align 8, !tbaa !52
   %wide.trip.count.i = zext nneg i32 %14 to i64
   br label %16
@@ -108469,7 +108469,7 @@ define internal fastcc i32 @zend_jit_trace_add_phis(ptr noundef nonnull readonly
   br label %25
 
 64:                                               ; preds = %59
-  %.not.i128 = icmp eq i32 %11, 0
+  %.not.i128 = icmp eq i64 %14, 0
   br i1 %.not.i128, label %zend_bitset_intersection.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %64, %.lr.ph.i

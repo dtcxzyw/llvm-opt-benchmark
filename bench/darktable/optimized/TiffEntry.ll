@@ -1169,11 +1169,11 @@ _ZNK8rawspeed10ByteStream10peekBufferEj.exit:     ; preds = %7
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %17
   %26 = ptrtoint ptr %25 to i64
   %27 = ptrtoint ptr %24 to i64
-  %.not = icmp samesign ult i32 %15, 4
+  %28 = lshr i64 %17, 2
+  %.not = icmp eq i64 %28, 0
   br i1 %.not, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK8rawspeed10ByteStream10peekBufferEj.exit
-  %28 = lshr i64 %17, 2
   %29 = and i64 %17, 2147483644
   %scevgep.i.i.i = getelementptr i8, ptr %24, i64 %29
   br label %30
@@ -1195,13 +1195,13 @@ _ZNK8rawspeed10ByteStream10peekBufferEj.exit:     ; preds = %7
   %38 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 2
   %39 = load i8, ptr %38, align 1, !tbaa !41
   %40 = icmp eq i8 %39, 0
-  br i1 %40, label %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit27, label %41
+  br i1 %40, label %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit28, label %41
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 3
   %43 = load i8, ptr %42, align 1, !tbaa !41
   %44 = icmp eq i8 %43, 0
-  br i1 %44, label %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit29, label %45
+  br i1 %44, label %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit30, label %45
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 4
@@ -1255,16 +1255,16 @@ _ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit: ; preds = %33
   %62 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 1
   br label %_ZSt4findIPKhcET_S2_S2_RKT0_.exit
 
-_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit27: ; preds = %37
+_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit28: ; preds = %37
   %63 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 2
   br label %_ZSt4findIPKhcET_S2_S2_RKT0_.exit
 
-_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit29: ; preds = %41
+_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit30: ; preds = %41
   %64 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 3
   br label %_ZSt4findIPKhcET_S2_S2_RKT0_.exit
 
-_ZSt4findIPKhcET_S2_S2_RKT0_.exit:                ; preds = %30, %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit27, %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit29, %50, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge52.i.i.i, %61
-  %.028.i.i.i = phi ptr [ %25, %61 ], [ %.029.lcssa.i.i.i, %50 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %62, %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %63, %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit27 ], [ %64, %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit29 ], [ %.02946.i.i.i, %30 ]
+_ZSt4findIPKhcET_S2_S2_RKT0_.exit:                ; preds = %30, %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit28, %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit30, %50, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge52.i.i.i, %61
+  %.028.i.i.i = phi ptr [ %25, %61 ], [ %.029.lcssa.i.i.i, %50 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %62, %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %63, %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit28 ], [ %64, %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit30 ], [ %.02946.i.i.i, %30 ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %65, ptr %0, align 8, !tbaa !44
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8

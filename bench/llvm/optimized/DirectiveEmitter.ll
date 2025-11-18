@@ -7270,16 +7270,13 @@ define internal fastcc void @_ZL15generateGetKindN4llvm8ArrayRefIPKNS_6RecordEEE
   %.idx = shl nuw nsw i64 %1, 3
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %17 = ptrtoint ptr %16 to i64
-  %.not.i = icmp ult i64 %1, 4
-  br i1 %.not.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.preheader.i
-
-.lr.ph.i.i.i.preheader.i:                         ; preds = %7
   %18 = lshr i64 %1, 2
-  br label %.lr.ph.i.i.i.i
+  %.not.i = icmp eq i64 %18, 0
+  br i1 %.not.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %29, %.lr.ph.i.i.i.preheader.i
-  %.044.i.i.i.i = phi i64 [ %31, %29 ], [ %18, %.lr.ph.i.i.i.preheader.i ]
-  %.02943.i.i.i.i = phi ptr [ %30, %29 ], [ %0, %.lr.ph.i.i.i.preheader.i ]
+.lr.ph.i.i.i.i:                                   ; preds = %7, %29
+  %.044.i.i.i.i = phi i64 [ %31, %29 ], [ %18, %7 ]
+  %.02943.i.i.i.i = phi ptr [ %30, %29 ], [ %0, %7 ]
   %.029.val.i.i.i.i = load ptr, ptr %.02943.i.i.i.i, align 8, !tbaa !15
   %19 = tail call noundef zeroext i1 @_ZNK4llvm6Record13getValueAsBitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %.029.val.i.i.i.i, ptr nonnull @.str.38, i64 9) #22
   br i1 %19, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZL15generateGetKindS5_RNS_11raw_ostreamENS_9StringRefERKNS_17DirectiveLanguageES9_bE3$_0EEDaOT_T0_.exit", label %20
@@ -7294,13 +7291,13 @@ define internal fastcc void @_ZL15generateGetKindN4llvm8ArrayRefIPKNS_6RecordEEE
   %24 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i, i64 16
   %.val30.i.i.i.i = load ptr, ptr %24, align 8, !tbaa !15
   %25 = tail call noundef zeroext i1 @_ZNK4llvm6Record13getValueAsBitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %.val30.i.i.i.i, ptr nonnull @.str.38, i64 9) #22
-  br i1 %25, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZL15generateGetKindS5_RNS_11raw_ostreamENS_9StringRefERKNS_17DirectiveLanguageES9_bE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit85", label %26
+  br i1 %25, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZL15generateGetKindS5_RNS_11raw_ostreamENS_9StringRefERKNS_17DirectiveLanguageES9_bE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit84", label %26
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i, i64 24
   %.val31.i.i.i.i = load ptr, ptr %27, align 8, !tbaa !15
   %28 = tail call noundef zeroext i1 @_ZNK4llvm6Record13getValueAsBitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %.val31.i.i.i.i, ptr nonnull @.str.38, i64 9) #22
-  br i1 %28, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZL15generateGetKindS5_RNS_11raw_ostreamENS_9StringRefERKNS_17DirectiveLanguageES9_bE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit87", label %29
+  br i1 %28, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZL15generateGetKindS5_RNS_11raw_ostreamENS_9StringRefERKNS_17DirectiveLanguageES9_bE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit86", label %29
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i, i64 32
@@ -7352,16 +7349,16 @@ define internal fastcc void @_ZL15generateGetKindN4llvm8ArrayRefIPKNS_6RecordEEE
   %44 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i, i64 8
   br label %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZL15generateGetKindS5_RNS_11raw_ostreamENS_9StringRefERKNS_17DirectiveLanguageES9_bE3$_0EEDaOT_T0_.exit"
 
-"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZL15generateGetKindS5_RNS_11raw_ostreamENS_9StringRefERKNS_17DirectiveLanguageES9_bE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit85": ; preds = %23
+"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZL15generateGetKindS5_RNS_11raw_ostreamENS_9StringRefERKNS_17DirectiveLanguageES9_bE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit84": ; preds = %23
   %45 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i, i64 16
   br label %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZL15generateGetKindS5_RNS_11raw_ostreamENS_9StringRefERKNS_17DirectiveLanguageES9_bE3$_0EEDaOT_T0_.exit"
 
-"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZL15generateGetKindS5_RNS_11raw_ostreamENS_9StringRefERKNS_17DirectiveLanguageES9_bE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit87": ; preds = %26
+"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZL15generateGetKindS5_RNS_11raw_ostreamENS_9StringRefERKNS_17DirectiveLanguageES9_bE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit86": ; preds = %26
   %46 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i, i64 24
   br label %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZL15generateGetKindS5_RNS_11raw_ostreamENS_9StringRefERKNS_17DirectiveLanguageES9_bE3$_0EEDaOT_T0_.exit"
 
-"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZL15generateGetKindS5_RNS_11raw_ostreamENS_9StringRefERKNS_17DirectiveLanguageES9_bE3$_0EEDaOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i, %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZL15generateGetKindS5_RNS_11raw_ostreamENS_9StringRefERKNS_17DirectiveLanguageES9_bE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZL15generateGetKindS5_RNS_11raw_ostreamENS_9StringRefERKNS_17DirectiveLanguageES9_bE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit85", %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZL15generateGetKindS5_RNS_11raw_ostreamENS_9StringRefERKNS_17DirectiveLanguageES9_bE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit87", %34, %38, %42
-  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %34 ], [ %.1.i.i.i.i, %38 ], [ %.2.i.i.i.i, %42 ], [ %44, %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZL15generateGetKindS5_RNS_11raw_ostreamENS_9StringRefERKNS_17DirectiveLanguageES9_bE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit" ], [ %45, %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZL15generateGetKindS5_RNS_11raw_ostreamENS_9StringRefERKNS_17DirectiveLanguageES9_bE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit85" ], [ %46, %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZL15generateGetKindS5_RNS_11raw_ostreamENS_9StringRefERKNS_17DirectiveLanguageES9_bE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit87" ], [ %.02943.i.i.i.i, %.lr.ph.i.i.i.i ]
+"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZL15generateGetKindS5_RNS_11raw_ostreamENS_9StringRefERKNS_17DirectiveLanguageES9_bE3$_0EEDaOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i, %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZL15generateGetKindS5_RNS_11raw_ostreamENS_9StringRefERKNS_17DirectiveLanguageES9_bE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZL15generateGetKindS5_RNS_11raw_ostreamENS_9StringRefERKNS_17DirectiveLanguageES9_bE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit84", %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZL15generateGetKindS5_RNS_11raw_ostreamENS_9StringRefERKNS_17DirectiveLanguageES9_bE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit86", %34, %38, %42
+  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %34 ], [ %.1.i.i.i.i, %38 ], [ %.2.i.i.i.i, %42 ], [ %44, %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZL15generateGetKindS5_RNS_11raw_ostreamENS_9StringRefERKNS_17DirectiveLanguageES9_bE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit" ], [ %45, %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZL15generateGetKindS5_RNS_11raw_ostreamENS_9StringRefERKNS_17DirectiveLanguageES9_bE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit84" ], [ %46, %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZL15generateGetKindS5_RNS_11raw_ostreamENS_9StringRefERKNS_17DirectiveLanguageES9_bE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit86" ], [ %.02943.i.i.i.i, %.lr.ph.i.i.i.i ]
   %47 = icmp eq ptr %.028.i.i.i.i, %16
   br i1 %47, label %_ZN4llvmplERKNS_5TwineES2_.exit, label %55
 
@@ -14681,11 +14678,11 @@ define internal fastcc { ptr, i64 } @"_ZZL31generateGetDirectiveAssociationRKN4l
   tail call void @llvm.assume(i1 %or.cond)
   %.idx3.i = shl nuw nsw i64 %.0.val.8.val, 3
   %3 = getelementptr inbounds nuw i8, ptr %.0.val.0.val, i64 %.idx3.i
-  %.not.i = icmp ult i64 %.0.val.8.val, 4
+  %4 = lshr i64 %.0.val.8.val, 2
+  %.not.i = icmp eq i64 %4, 0
   br i1 %.not.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %1
-  %4 = lshr i64 %.0.val.8.val, 2
   %5 = and i64 %.idx3.i, 9223372036854775776
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.val.0.val, i64 %5
   br label %6
@@ -14725,7 +14722,7 @@ define internal fastcc { ptr, i64 } @"_ZZL31generateGetDirectiveAssociationRKN4l
   %.val33.val.val42.i.i.i.i = load i64, ptr %20, align 8, !tbaa !76
   %21 = tail call fastcc noundef i32 @"_ZZL31generateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_2clENS_9StringRefE"(ptr readonly %.val33.val.val.i.i.i.i, i64 %.val33.val.val42.i.i.i.i)
   %22 = icmp eq i32 %21, %0
-  br i1 %22, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZZL31generateGetDirectiveAssociationRKNS_17DirectiveLanguageERNS_11raw_ostreamEENK3$_0clEZL31generateGetDirectiveAssociationS9_SB_E11AssociationEUlS4_E_EEDaOT_T0_.exit.loopexit.split.loop.exit13", label %23
+  br i1 %22, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZZL31generateGetDirectiveAssociationRKNS_17DirectiveLanguageERNS_11raw_ostreamEENK3$_0clEZL31generateGetDirectiveAssociationS9_SB_E11AssociationEUlS4_E_EEDaOT_T0_.exit.loopexit.split.loop.exit14", label %23
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds nuw i8, ptr %.02957.i.i.i.i, i64 24
@@ -14737,7 +14734,7 @@ define internal fastcc { ptr, i64 } @"_ZZL31generateGetDirectiveAssociationRKN4l
   %.val35.val.val43.i.i.i.i = load i64, ptr %26, align 8, !tbaa !76
   %27 = tail call fastcc noundef i32 @"_ZZL31generateGetDirectiveAssociationRKN4llvm17DirectiveLanguageERNS_11raw_ostreamEENK3$_2clENS_9StringRefE"(ptr readonly %.val35.val.val.i.i.i.i, i64 %.val35.val.val43.i.i.i.i)
   %28 = icmp eq i32 %27, %0
-  br i1 %28, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZZL31generateGetDirectiveAssociationRKNS_17DirectiveLanguageERNS_11raw_ostreamEENK3$_0clEZL31generateGetDirectiveAssociationS9_SB_E11AssociationEUlS4_E_EEDaOT_T0_.exit.loopexit.split.loop.exit15", label %29
+  br i1 %28, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZZL31generateGetDirectiveAssociationRKNS_17DirectiveLanguageERNS_11raw_ostreamEENK3$_0clEZL31generateGetDirectiveAssociationS9_SB_E11AssociationEUlS4_E_EEDaOT_T0_.exit.loopexit.split.loop.exit16", label %29
 
 29:                                               ; preds = %23
   %30 = getelementptr inbounds nuw i8, ptr %.02957.i.i.i.i, i64 32
@@ -14752,11 +14749,10 @@ define internal fastcc { ptr, i64 } @"_ZZL31generateGetDirectiveAssociationRKN4l
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %1
   %.pre-phi67.i.i.i.i = phi i64 [ %33, %._crit_edge.loopexit.i.i.i.i ], [ %.0.val.8.val, %1 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %.0.val.0.val, %1 ]
-  switch i64 %.pre-phi67.i.i.i.i, label %default.unreachable [
+  switch i64 %.pre-phi67.i.i.i.i, label %51 [
     i64 3, label %34
     i64 2, label %._crit_edge._crit_edge.i.i.i.i
     i64 1, label %._crit_edge._crit_edge64.i.i.i.i
-    i64 0, label %51
   ]
 
 34:                                               ; preds = %._crit_edge.i.i.i.i
@@ -14802,9 +14798,6 @@ define internal fastcc { ptr, i64 } @"_ZZL31generateGetDirectiveAssociationRKN4l
   %50 = icmp eq i32 %49, %0
   br i1 %50, label %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZZL31generateGetDirectiveAssociationRKNS_17DirectiveLanguageERNS_11raw_ostreamEENK3$_0clEZL31generateGetDirectiveAssociationS9_SB_E11AssociationEUlS4_E_EEDaOT_T0_.exit", label %51
 
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
-  unreachable
-
 51:                                               ; preds = %._crit_edge._crit_edge64.i.i.i.i, %._crit_edge.i.i.i.i
   br label %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZZL31generateGetDirectiveAssociationRKNS_17DirectiveLanguageERNS_11raw_ostreamEENK3$_0clEZL31generateGetDirectiveAssociationS9_SB_E11AssociationEUlS4_E_EEDaOT_T0_.exit"
 
@@ -14812,16 +14805,16 @@ default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.02957.i.i.i.i, i64 8
   br label %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZZL31generateGetDirectiveAssociationRKNS_17DirectiveLanguageERNS_11raw_ostreamEENK3$_0clEZL31generateGetDirectiveAssociationS9_SB_E11AssociationEUlS4_E_EEDaOT_T0_.exit"
 
-"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZZL31generateGetDirectiveAssociationRKNS_17DirectiveLanguageERNS_11raw_ostreamEENK3$_0clEZL31generateGetDirectiveAssociationS9_SB_E11AssociationEUlS4_E_EEDaOT_T0_.exit.loopexit.split.loop.exit13": ; preds = %17
+"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZZL31generateGetDirectiveAssociationRKNS_17DirectiveLanguageERNS_11raw_ostreamEENK3$_0clEZL31generateGetDirectiveAssociationS9_SB_E11AssociationEUlS4_E_EEDaOT_T0_.exit.loopexit.split.loop.exit14": ; preds = %17
   %53 = getelementptr inbounds nuw i8, ptr %.02957.i.i.i.i, i64 16
   br label %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZZL31generateGetDirectiveAssociationRKNS_17DirectiveLanguageERNS_11raw_ostreamEENK3$_0clEZL31generateGetDirectiveAssociationS9_SB_E11AssociationEUlS4_E_EEDaOT_T0_.exit"
 
-"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZZL31generateGetDirectiveAssociationRKNS_17DirectiveLanguageERNS_11raw_ostreamEENK3$_0clEZL31generateGetDirectiveAssociationS9_SB_E11AssociationEUlS4_E_EEDaOT_T0_.exit.loopexit.split.loop.exit15": ; preds = %23
+"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZZL31generateGetDirectiveAssociationRKNS_17DirectiveLanguageERNS_11raw_ostreamEENK3$_0clEZL31generateGetDirectiveAssociationS9_SB_E11AssociationEUlS4_E_EEDaOT_T0_.exit.loopexit.split.loop.exit16": ; preds = %23
   %54 = getelementptr inbounds nuw i8, ptr %.02957.i.i.i.i, i64 24
   br label %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZZL31generateGetDirectiveAssociationRKNS_17DirectiveLanguageERNS_11raw_ostreamEENK3$_0clEZL31generateGetDirectiveAssociationS9_SB_E11AssociationEUlS4_E_EEDaOT_T0_.exit"
 
-"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZZL31generateGetDirectiveAssociationRKNS_17DirectiveLanguageERNS_11raw_ostreamEENK3$_0clEZL31generateGetDirectiveAssociationS9_SB_E11AssociationEUlS4_E_EEDaOT_T0_.exit": ; preds = %6, %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZZL31generateGetDirectiveAssociationRKNS_17DirectiveLanguageERNS_11raw_ostreamEENK3$_0clEZL31generateGetDirectiveAssociationS9_SB_E11AssociationEUlS4_E_EEDaOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZZL31generateGetDirectiveAssociationRKNS_17DirectiveLanguageERNS_11raw_ostreamEENK3$_0clEZL31generateGetDirectiveAssociationS9_SB_E11AssociationEUlS4_E_EEDaOT_T0_.exit.loopexit.split.loop.exit13", %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZZL31generateGetDirectiveAssociationRKNS_17DirectiveLanguageERNS_11raw_ostreamEENK3$_0clEZL31generateGetDirectiveAssociationS9_SB_E11AssociationEUlS4_E_EEDaOT_T0_.exit.loopexit.split.loop.exit15", %34, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i, %51
-  %.028.i.i.i.i = phi ptr [ %3, %51 ], [ %.029.lcssa.i.i.i.i, %34 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i ], [ %52, %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZZL31generateGetDirectiveAssociationRKNS_17DirectiveLanguageERNS_11raw_ostreamEENK3$_0clEZL31generateGetDirectiveAssociationS9_SB_E11AssociationEUlS4_E_EEDaOT_T0_.exit.loopexit.split.loop.exit" ], [ %53, %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZZL31generateGetDirectiveAssociationRKNS_17DirectiveLanguageERNS_11raw_ostreamEENK3$_0clEZL31generateGetDirectiveAssociationS9_SB_E11AssociationEUlS4_E_EEDaOT_T0_.exit.loopexit.split.loop.exit13" ], [ %54, %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZZL31generateGetDirectiveAssociationRKNS_17DirectiveLanguageERNS_11raw_ostreamEENK3$_0clEZL31generateGetDirectiveAssociationS9_SB_E11AssociationEUlS4_E_EEDaOT_T0_.exit.loopexit.split.loop.exit15" ], [ %.02957.i.i.i.i, %6 ]
+"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZZL31generateGetDirectiveAssociationRKNS_17DirectiveLanguageERNS_11raw_ostreamEENK3$_0clEZL31generateGetDirectiveAssociationS9_SB_E11AssociationEUlS4_E_EEDaOT_T0_.exit": ; preds = %6, %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZZL31generateGetDirectiveAssociationRKNS_17DirectiveLanguageERNS_11raw_ostreamEENK3$_0clEZL31generateGetDirectiveAssociationS9_SB_E11AssociationEUlS4_E_EEDaOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZZL31generateGetDirectiveAssociationRKNS_17DirectiveLanguageERNS_11raw_ostreamEENK3$_0clEZL31generateGetDirectiveAssociationS9_SB_E11AssociationEUlS4_E_EEDaOT_T0_.exit.loopexit.split.loop.exit14", %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZZL31generateGetDirectiveAssociationRKNS_17DirectiveLanguageERNS_11raw_ostreamEENK3$_0clEZL31generateGetDirectiveAssociationS9_SB_E11AssociationEUlS4_E_EEDaOT_T0_.exit.loopexit.split.loop.exit16", %34, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i, %51
+  %.028.i.i.i.i = phi ptr [ %3, %51 ], [ %.029.lcssa.i.i.i.i, %34 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i ], [ %52, %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZZL31generateGetDirectiveAssociationRKNS_17DirectiveLanguageERNS_11raw_ostreamEENK3$_0clEZL31generateGetDirectiveAssociationS9_SB_E11AssociationEUlS4_E_EEDaOT_T0_.exit.loopexit.split.loop.exit" ], [ %53, %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZZL31generateGetDirectiveAssociationRKNS_17DirectiveLanguageERNS_11raw_ostreamEENK3$_0clEZL31generateGetDirectiveAssociationS9_SB_E11AssociationEUlS4_E_EEDaOT_T0_.exit.loopexit.split.loop.exit14" ], [ %54, %"_ZN4llvm7find_ifIRNS_8ArrayRefIPKNS_6RecordEEEZZL31generateGetDirectiveAssociationRKNS_17DirectiveLanguageERNS_11raw_ostreamEENK3$_0clEZL31generateGetDirectiveAssociationS9_SB_E11AssociationEUlS4_E_EEDaOT_T0_.exit.loopexit.split.loop.exit16" ], [ %.02957.i.i.i.i, %6 ]
   %55 = getelementptr inbounds nuw ptr, ptr %.0.val.0.val, i64 %.0.val.8.val
   %.not = icmp eq ptr %.028.i.i.i.i, %55
   br i1 %.not, label %61, label %56
@@ -25463,7 +25456,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %52 = load ptr, ptr %48, align 8, !tbaa !15
   %53 = getelementptr inbounds ptr, ptr %0, i64 %.019.i.i.i.i.i
   store ptr %52, ptr %53, align 8, !tbaa !15
-  %.not9.i.i.i = icmp ult i64 %.0920.in.i.i.i.i.i, 2
+  %.not9.i.i.i = icmp eq i64 %.0920.i.i78.i.i.i, 0
   br i1 %.not9.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6RecordESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIPFbS5_S5_EEEEvT_SG_SG_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !687
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6RecordESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIPFbS5_S5_EEEEvT_SG_SG_RT0_.exit.i.i: ; preds = %51, %.lr.ph.i.i.i.i.i, %47
@@ -25682,7 +25675,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPK
   %45 = load ptr, ptr %41, align 8, !tbaa !15
   %46 = getelementptr inbounds ptr, ptr %.fr28, i64 %.019.i.i.i.us
   store ptr %45, ptr %46, align 8, !tbaa !15
-  %.not9.i.us = icmp ult i64 %.0920.in.i.i.i.us, 2
+  %.not9.i.us = icmp eq i64 %.0920.i.i78.i.us, 0
   br i1 %.not9.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6RecordESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIPFbS5_S5_EEEEvT_SG_SG_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !687
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6RecordESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIPFbS5_S5_EEEEvT_SG_SG_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %44, %39

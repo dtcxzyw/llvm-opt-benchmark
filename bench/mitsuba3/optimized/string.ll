@@ -1186,7 +1186,7 @@ define noundef zeroext i1 @_ZN7mitsuba6string8containsERKNSt3__16vectorINS1_12ba
   br i1 %.not.i.i, label %.preheader.i, label %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit
 
 .preheader.i:                                     ; preds = %25
-  %.not1924.i = icmp ult i8 %18, 2
+  %.not1924.i = icmp eq i8 %22, 0
   br i1 %.not1924.i, label %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %28
@@ -3940,7 +3940,7 @@ define linkonce_odr hidden void @_ZN10fast_float14parse_mantissaERNS_6bigintERNS
 
 ._crit_edge.i.i:                                  ; preds = %71
   %85 = icmp ugt i16 %82, 61
-  %.not.i.i = icmp ult i128 %77, 18446744073709551616
+  %.not.i.i = icmp eq i128 %78, 0
   %brmerge.i.i = or i1 %85, %.not.i.i
   br i1 %brmerge.i.i, label %_ZN10fast_float6bigint3mulEm.exit, label %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i
 
@@ -4092,7 +4092,7 @@ _ZN10fast_float6bigint3addEm.exit:                ; preds = %92, %_ZN10fast_floa
 
 ._crit_edge.i.i296:                               ; preds = %.lr.ph.i.i293
   %141 = icmp ugt i16 %138, 61
-  %.not.i.i297 = icmp samesign ult i128 %133, 18446744073709551616
+  %.not.i.i297 = icmp eq i128 %134, 0
   %brmerge.i.i298 = or i1 %141, %.not.i.i297
   br i1 %brmerge.i.i298, label %_ZN10fast_float6bigint3mulEm.exit301.preheader, label %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i299
 
@@ -4166,7 +4166,7 @@ _ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i307: ; preds = %.crite
 
 ._crit_edge.i.i313:                               ; preds = %163
   %177 = icmp ugt i16 %174, 61
-  %.not.i.i314 = icmp ult i128 %169, 18446744073709551616
+  %.not.i.i314 = icmp eq i128 %170, 0
   %brmerge.i.i315 = or i1 %177, %.not.i.i314
   br i1 %brmerge.i.i315, label %_ZN10fast_float6bigint3mulEm.exit318, label %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i316
 
@@ -4408,7 +4408,7 @@ _ZN10fast_float6bigint3addEm.exit326:             ; preds = %184, %_ZN10fast_flo
 
 ._crit_edge.i.i331:                               ; preds = %265
   %279 = icmp ugt i16 %276, 61
-  %.not.i.i332 = icmp ult i128 %271, 18446744073709551616
+  %.not.i.i332 = icmp eq i128 %272, 0
   %brmerge.i.i333 = or i1 %279, %.not.i.i332
   br i1 %brmerge.i.i333, label %_ZN10fast_float6bigint3mulEm.exit336, label %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i334
 
@@ -4515,7 +4515,7 @@ _ZN10fast_float6bigint3addEm.exit344:             ; preds = %286, %_ZN10fast_flo
 
 ._crit_edge.i.i349:                               ; preds = %.lr.ph.i.i346
   %322 = icmp ugt i16 %319, 61
-  %.not.i.i350 = icmp samesign ult i128 %314, 18446744073709551616
+  %.not.i.i350 = icmp eq i128 %315, 0
   %brmerge.i.i351 = or i1 %322, %.not.i.i350
   br i1 %brmerge.i.i351, label %_ZN10fast_float6bigint3mulEm.exit354.preheader, label %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i352
 
@@ -4589,7 +4589,7 @@ _ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i360: ; preds = %.crite
 
 ._crit_edge.i.i366:                               ; preds = %344
   %358 = icmp ugt i16 %355, 61
-  %.not.i.i367 = icmp ult i128 %350, 18446744073709551616
+  %.not.i.i367 = icmp eq i128 %351, 0
   %brmerge.i.i368 = or i1 %358, %.not.i.i367
   br i1 %brmerge.i.i368, label %_ZN10fast_float6bigint3mulEm.exit371, label %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i369
 
@@ -4702,7 +4702,7 @@ _ZN10fast_float6bigint8shl_bitsEm.exit.i.i.i:     ; preds = %._crit_edge.i.i.i.i
   br i1 %.not.i.i.i.i, label %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i, label %38
 
 _ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i: ; preds = %_ZN10fast_float6bigint8shl_bitsEm.exit.i.i.i, %23, %8, %4
-  %.not9.i.i.i = icmp ult i32 %1, 64
+  %.not9.i.i.i = icmp eq i64 %7, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 496
   %.pre = load i16, ptr %.phi.trans.insert, align 8
   br i1 %.not9.i.i.i, label %_ZN10fast_float6bigint5pow10Ej.exit, label %27
@@ -4713,9 +4713,9 @@ _ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i: ; preds = %_ZN10fast_float6
   %30 = icmp samesign ult i64 %29, 63
   %31 = icmp ne i16 %.pre, 0
   %or.cond.not.i.i.i.i = and i1 %31, %30
-  br i1 %or.cond.not.i.i.i.i, label %.lr.ph.i.i.i.i.preheader.i.i.i.i, label %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i.i
+  br i1 %or.cond.not.i.i.i.i, label %_ZN10fast_float6bigint9shl_limbsEm.exit.thread.i.i.i, label %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i.i
 
-.lr.ph.i.i.i.i.preheader.i.i.i.i:                 ; preds = %27
+_ZN10fast_float6bigint9shl_limbsEm.exit.thread.i.i.i: ; preds = %27
   %32 = getelementptr inbounds nuw i64, ptr %0, i64 %7
   %33 = shl nuw nsw i64 %28, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %32, ptr nonnull align 8 dereferenceable(504) %0, i64 %33, i1 false)
@@ -4734,8 +4734,8 @@ _ZN10fast_float6bigint9shl_limbsEm.exit.i.i.i:    ; preds = %27
   tail call void @abort() #25
   unreachable
 
-_ZN10fast_float6bigint5pow10Ej.exit:              ; preds = %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i, %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i.i.i
-  %39 = phi i16 [ %.pre, %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i.i ], [ %37, %.lr.ph.i.i.i.i.preheader.i.i.i.i ], [ %.pre, %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i ]
+_ZN10fast_float6bigint5pow10Ej.exit:              ; preds = %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i, %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i.i, %_ZN10fast_float6bigint9shl_limbsEm.exit.thread.i.i.i
+  %39 = phi i16 [ %.pre, %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i.i ], [ %37, %_ZN10fast_float6bigint9shl_limbsEm.exit.thread.i.i.i ], [ %.pre, %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i ]
   %40 = zext i16 %39 to i64
   switch i16 %39, label %47 [
     i16 0, label %_ZNK10fast_float6bigint10bit_lengthEv.exit
@@ -4951,7 +4951,7 @@ _ZN10fast_float6bigint8shl_bitsEm.exit.i.i:       ; preds = %._crit_edge.i.i.i
   br i1 %.not.i.i.i, label %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i, label %77
 
 _ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i: ; preds = %_ZN10fast_float6bigint8shl_bitsEm.exit.i.i, %61, %47, %43
-  %.not9.i.i = icmp samesign ult i32 %36, 64
+  %.not9.i.i = icmp eq i64 %46, 0
   br i1 %.not9.i.i, label %_ZN10fast_float6bigint4pow2Ej.exit, label %65
 
 65:                                               ; preds = %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i
@@ -4961,9 +4961,9 @@ _ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i: ; preds = %_ZN10fast_float6bi
   %69 = icmp samesign ult i64 %68, 63
   %70 = icmp ne i16 %66, 0
   %or.cond.not.i.i.i = and i1 %70, %69
-  br i1 %or.cond.not.i.i.i, label %.lr.ph.i.i.i.i.preheader.i.i.i, label %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i
+  br i1 %or.cond.not.i.i.i, label %_ZN10fast_float6bigint9shl_limbsEm.exit.thread.i.i, label %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i
 
-.lr.ph.i.i.i.i.preheader.i.i.i:                   ; preds = %65
+_ZN10fast_float6bigint9shl_limbsEm.exit.thread.i.i: ; preds = %65
   %71 = getelementptr inbounds nuw i64, ptr %5, i64 %46
   %72 = shl nuw nsw i64 %67, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %71, ptr nonnull align 8 dereferenceable(504) %5, i64 %72, i1 false)
@@ -5035,7 +5035,7 @@ _ZN10fast_float6bigint8shl_bitsEm.exit.i.i113:    ; preds = %._crit_edge.i.i.i10
   br i1 %.not.i.i.i105, label %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i107, label %117
 
 _ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i107: ; preds = %_ZN10fast_float6bigint8shl_bitsEm.exit.i.i113, %100, %85, %80
-  %.not9.i.i108 = icmp samesign ult i32 %81, 64
+  %.not9.i.i108 = icmp eq i64 %84, 0
   br i1 %.not9.i.i108, label %_ZN10fast_float6bigint4pow2Ej.exit, label %104
 
 104:                                              ; preds = %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i107
@@ -5046,9 +5046,9 @@ _ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i107: ; preds = %_ZN10fast_float
   %109 = icmp samesign ult i64 %108, 63
   %110 = icmp ne i16 %106, 0
   %or.cond.not.i.i.i109 = and i1 %110, %109
-  br i1 %or.cond.not.i.i.i109, label %.lr.ph.i.i.i.i.preheader.i.i.i112, label %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i110
+  br i1 %or.cond.not.i.i.i109, label %_ZN10fast_float6bigint9shl_limbsEm.exit.thread.i.i112, label %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i110
 
-.lr.ph.i.i.i.i.preheader.i.i.i112:                ; preds = %104
+_ZN10fast_float6bigint9shl_limbsEm.exit.thread.i.i112: ; preds = %104
   %111 = getelementptr inbounds nuw i64, ptr %0, i64 %84
   %112 = shl nuw nsw i64 %107, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %111, ptr nonnull align 8 dereferenceable(504) %0, i64 %112, i1 false)
@@ -5067,7 +5067,7 @@ _ZN10fast_float6bigint9shl_limbsEm.exit.i.i110:   ; preds = %104
   call void @abort() #25
   unreachable
 
-_ZN10fast_float6bigint4pow2Ej.exit:               ; preds = %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i110, %.lr.ph.i.i.i.i.preheader.i.i.i112, %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i107, %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i, %.lr.ph.i.i.i.i.preheader.i.i.i, %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i, %78
+_ZN10fast_float6bigint4pow2Ej.exit:               ; preds = %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i110, %_ZN10fast_float6bigint9shl_limbsEm.exit.thread.i.i112, %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i107, %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i, %_ZN10fast_float6bigint9shl_limbsEm.exit.thread.i.i, %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i, %78
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %119 = load i16, ptr %118, align 8
   %120 = load i16, ptr %33, align 8
@@ -5214,7 +5214,7 @@ _ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit.thread.us.preheader
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %28 = icmp ugt i16 %25, 61
-  %.not.i = icmp samesign ult i128 %20, 18446744073709551616
+  %.not.i = icmp eq i128 %21, 0
   %brmerge.i = or i1 %28, %.not.i
   br i1 %brmerge.i, label %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit, label %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i
 
@@ -5274,7 +5274,7 @@ _ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit.thread: ; preds = %
 
 ._crit_edge.i16:                                  ; preds = %42
   %56 = icmp ugt i16 %53, 61
-  %.not.i17 = icmp ult i128 %48, 18446744073709551616
+  %.not.i17 = icmp eq i128 %49, 0
   %brmerge.i18 = or i1 %56, %.not.i17
   br i1 %brmerge.i18, label %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit21, label %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i19
 
@@ -5356,7 +5356,7 @@ _ZN10fast_float8stackvecILt62EEC2ENS_4spanImEE.exit: ; preds = %3
 
 ._crit_edge.i:                                    ; preds = %14
   %28 = icmp ugt i16 %25, 61
-  %.not.i = icmp ult i128 %20, 18446744073709551616
+  %.not.i = icmp eq i128 %21, 0
   %brmerge.i = or i1 %28, %.not.i
   br i1 %brmerge.i, label %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit, label %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i
 
@@ -5424,7 +5424,7 @@ _ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit: ; preds = %._crit_
 
 ._crit_edge.i24.us:                               ; preds = %41
   %55 = icmp ugt i16 %52, 61
-  %.not.i25.us = icmp ult i128 %47, 18446744073709551616
+  %.not.i25.us = icmp eq i128 %48, 0
   %brmerge.i26.us = or i1 %55, %.not.i25.us
   br i1 %brmerge.i26.us, label %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit29.us, label %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i27.us
 
@@ -6700,7 +6700,7 @@ _ZN10fast_float6bigint8shl_bitsEm.exit.i.i.i:     ; preds = %._crit_edge.i.i.i.i
   br i1 %.not.i.i.i.i, label %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i, label %38
 
 _ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i: ; preds = %_ZN10fast_float6bigint8shl_bitsEm.exit.i.i.i, %23, %8, %4
-  %.not9.i.i.i = icmp ult i32 %1, 64
+  %.not9.i.i.i = icmp eq i64 %7, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 496
   %.pre = load i16, ptr %.phi.trans.insert, align 8
   br i1 %.not9.i.i.i, label %_ZN10fast_float6bigint5pow10Ej.exit, label %27
@@ -6711,9 +6711,9 @@ _ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i: ; preds = %_ZN10fast_float6
   %30 = icmp samesign ult i64 %29, 63
   %31 = icmp ne i16 %.pre, 0
   %or.cond.not.i.i.i.i = and i1 %31, %30
-  br i1 %or.cond.not.i.i.i.i, label %.lr.ph.i.i.i.i.preheader.i.i.i.i, label %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i.i
+  br i1 %or.cond.not.i.i.i.i, label %_ZN10fast_float6bigint9shl_limbsEm.exit.thread.i.i.i, label %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i.i
 
-.lr.ph.i.i.i.i.preheader.i.i.i.i:                 ; preds = %27
+_ZN10fast_float6bigint9shl_limbsEm.exit.thread.i.i.i: ; preds = %27
   %32 = getelementptr inbounds nuw i64, ptr %0, i64 %7
   %33 = shl nuw nsw i64 %28, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %32, ptr nonnull align 8 dereferenceable(504) %0, i64 %33, i1 false)
@@ -6732,8 +6732,8 @@ _ZN10fast_float6bigint9shl_limbsEm.exit.i.i.i:    ; preds = %27
   tail call void @abort() #25
   unreachable
 
-_ZN10fast_float6bigint5pow10Ej.exit:              ; preds = %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i, %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i.i.i
-  %39 = phi i16 [ %.pre, %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i.i ], [ %37, %.lr.ph.i.i.i.i.preheader.i.i.i.i ], [ %.pre, %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i ]
+_ZN10fast_float6bigint5pow10Ej.exit:              ; preds = %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i, %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i.i, %_ZN10fast_float6bigint9shl_limbsEm.exit.thread.i.i.i
+  %39 = phi i16 [ %.pre, %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i.i ], [ %37, %_ZN10fast_float6bigint9shl_limbsEm.exit.thread.i.i.i ], [ %.pre, %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i ]
   %40 = zext i16 %39 to i64
   switch i16 %39, label %47 [
     i16 0, label %_ZNK10fast_float6bigint10bit_lengthEv.exit
@@ -6949,7 +6949,7 @@ _ZN10fast_float6bigint8shl_bitsEm.exit.i.i:       ; preds = %._crit_edge.i.i.i
   br i1 %.not.i.i.i, label %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i, label %77
 
 _ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i: ; preds = %_ZN10fast_float6bigint8shl_bitsEm.exit.i.i, %61, %47, %43
-  %.not9.i.i = icmp samesign ult i32 %36, 64
+  %.not9.i.i = icmp eq i64 %46, 0
   br i1 %.not9.i.i, label %_ZN10fast_float6bigint4pow2Ej.exit, label %65
 
 65:                                               ; preds = %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i
@@ -6959,9 +6959,9 @@ _ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i: ; preds = %_ZN10fast_float6bi
   %69 = icmp samesign ult i64 %68, 63
   %70 = icmp ne i16 %66, 0
   %or.cond.not.i.i.i = and i1 %70, %69
-  br i1 %or.cond.not.i.i.i, label %.lr.ph.i.i.i.i.preheader.i.i.i, label %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i
+  br i1 %or.cond.not.i.i.i, label %_ZN10fast_float6bigint9shl_limbsEm.exit.thread.i.i, label %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i
 
-.lr.ph.i.i.i.i.preheader.i.i.i:                   ; preds = %65
+_ZN10fast_float6bigint9shl_limbsEm.exit.thread.i.i: ; preds = %65
   %71 = getelementptr inbounds nuw i64, ptr %5, i64 %46
   %72 = shl nuw nsw i64 %67, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %71, ptr nonnull align 8 dereferenceable(504) %5, i64 %72, i1 false)
@@ -7033,7 +7033,7 @@ _ZN10fast_float6bigint8shl_bitsEm.exit.i.i113:    ; preds = %._crit_edge.i.i.i10
   br i1 %.not.i.i.i105, label %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i107, label %117
 
 _ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i107: ; preds = %_ZN10fast_float6bigint8shl_bitsEm.exit.i.i113, %100, %85, %80
-  %.not9.i.i108 = icmp samesign ult i32 %81, 64
+  %.not9.i.i108 = icmp eq i64 %84, 0
   br i1 %.not9.i.i108, label %_ZN10fast_float6bigint4pow2Ej.exit, label %104
 
 104:                                              ; preds = %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i107
@@ -7044,9 +7044,9 @@ _ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i107: ; preds = %_ZN10fast_float
   %109 = icmp samesign ult i64 %108, 63
   %110 = icmp ne i16 %106, 0
   %or.cond.not.i.i.i109 = and i1 %110, %109
-  br i1 %or.cond.not.i.i.i109, label %.lr.ph.i.i.i.i.preheader.i.i.i112, label %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i110
+  br i1 %or.cond.not.i.i.i109, label %_ZN10fast_float6bigint9shl_limbsEm.exit.thread.i.i112, label %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i110
 
-.lr.ph.i.i.i.i.preheader.i.i.i112:                ; preds = %104
+_ZN10fast_float6bigint9shl_limbsEm.exit.thread.i.i112: ; preds = %104
   %111 = getelementptr inbounds nuw i64, ptr %0, i64 %84
   %112 = shl nuw nsw i64 %107, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %111, ptr nonnull align 8 dereferenceable(504) %0, i64 %112, i1 false)
@@ -7065,7 +7065,7 @@ _ZN10fast_float6bigint9shl_limbsEm.exit.i.i110:   ; preds = %104
   call void @abort() #25
   unreachable
 
-_ZN10fast_float6bigint4pow2Ej.exit:               ; preds = %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i110, %.lr.ph.i.i.i.i.preheader.i.i.i112, %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i107, %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i, %.lr.ph.i.i.i.i.preheader.i.i.i, %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i, %78
+_ZN10fast_float6bigint4pow2Ej.exit:               ; preds = %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i110, %_ZN10fast_float6bigint9shl_limbsEm.exit.thread.i.i112, %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i107, %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i, %_ZN10fast_float6bigint9shl_limbsEm.exit.thread.i.i, %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i, %78
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %119 = load i16, ptr %118, align 8
   %120 = load i16, ptr %33, align 8

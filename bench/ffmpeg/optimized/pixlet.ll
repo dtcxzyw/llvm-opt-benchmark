@@ -891,7 +891,7 @@ get_unary.exit.i.i.i:                             ; preds = %378, %367
   %.04.i14.i.i.i = phi i32 [ %444, %443 ], [ %446, %445 ]
   %446 = lshr i32 %.04.i14.i.i.i, 1
   %447 = add nsw i32 %.0.i15.i.i.i, -1
-  %.not.i.i.i.i = icmp ult i32 %.04.i14.i.i.i, 2
+  %.not.i.i.i.i = icmp eq i32 %446, 0
   br i1 %.not.i.i.i.i, label %ff_clz_c.exit.i.i.i, label %445, !llvm.loop !70
 
 ff_clz_c.exit.i.i.i:                              ; preds = %445
@@ -1213,7 +1213,7 @@ lowpass_prediction.exit.i:                        ; preds = %.lr.ph33.split.i.i,
 .lr.ph.i118.i:                                    ; preds = %592
   %599 = zext nneg i32 %.015.i.i to i64
   %600 = zext i32 %597 to i64
-  %.not100.i.i.i = icmp eq i32 %597, 0
+  %.not100.i.i.i = icmp eq i32 %.015.i.i, 0
   br label %604
 
 .preheader.i.i:                                   ; preds = %filterfn.exit.i.i, %592
@@ -1224,6 +1224,7 @@ lowpass_prediction.exit.i:                        ; preds = %.lr.ph33.split.i.i,
   %601 = zext nneg i32 %.04814.i.i to i64
   %602 = zext i32 %598 to i64
   %603 = getelementptr inbounds nuw i16, ptr %590, i64 %601
+  %.not100.i67.i.i = icmp eq i32 %.04814.i.i, 0
   %wide.trip.count29.i.i = zext i32 %597 to i64
   br label %694
 
@@ -1402,7 +1403,7 @@ filterfn.exit.i.i:                                ; preds = %.lr.ph99.i.i.i, %.p
   br label %704
 
 .preheader90.i66.i.i:                             ; preds = %704
-  br i1 %.not.i117.i, label %._crit_edge9.i.i, label %.lr.ph.i68.i.i
+  br i1 %.not100.i67.i.i, label %._crit_edge9.i.i, label %.lr.ph.i68.i.i
 
 704:                                              ; preds = %704, %._crit_edge.i.i
   %indvars.iv102.i57.i.i = phi i64 [ 4, %._crit_edge.i.i ], [ %indvars.iv.next103.i63.i.i, %704 ]
@@ -1528,11 +1529,14 @@ filterfn.exit.i.i:                                ; preds = %.lr.ph99.i.i.i, %.p
   %784 = getelementptr inbounds nuw i8, ptr %783, i64 2
   store i16 %.0.i81.i89.i.i, ptr %784, align 2, !tbaa !42
   %exitcond114.not.i91.i.i = icmp eq i64 %indvars.iv.next111.i81.i.i, %601
-  br i1 %exitcond114.not.i91.i.i, label %.lr.ph8.i.i, label %.lr.ph99.i79.i.i, !llvm.loop !80
+  br i1 %exitcond114.not.i91.i.i, label %filterfn.exit92.i.i, label %.lr.ph99.i79.i.i, !llvm.loop !80
 
-.lr.ph8.i.i:                                      ; preds = %.lr.ph99.i79.i.i, %.lr.ph8.i.i
-  %indvars.iv21.i.i = phi i64 [ %indvars.iv.next22.i.i, %.lr.ph8.i.i ], [ 0, %.lr.ph99.i79.i.i ]
-  %.26.i.i = phi ptr [ %787, %.lr.ph8.i.i ], [ %695, %.lr.ph99.i79.i.i ]
+filterfn.exit92.i.i:                              ; preds = %.lr.ph99.i79.i.i
+  br i1 %.not.i117.i, label %._crit_edge9.i.i, label %.lr.ph8.i.i
+
+.lr.ph8.i.i:                                      ; preds = %filterfn.exit92.i.i, %.lr.ph8.i.i
+  %indvars.iv21.i.i = phi i64 [ %indvars.iv.next22.i.i, %.lr.ph8.i.i ], [ 0, %filterfn.exit92.i.i ]
+  %.26.i.i = phi ptr [ %787, %.lr.ph8.i.i ], [ %695, %filterfn.exit92.i.i ]
   %785 = getelementptr inbounds nuw i16, ptr %590, i64 %indvars.iv21.i.i
   %786 = load i16, ptr %785, align 2, !tbaa !42
   store i16 %786, ptr %.26.i.i, align 2, !tbaa !42
@@ -1541,7 +1545,7 @@ filterfn.exit.i.i:                                ; preds = %.lr.ph99.i.i.i, %.p
   %exitcond25.not.i.i = icmp eq i64 %indvars.iv.next22.i.i, %602
   br i1 %exitcond25.not.i.i, label %._crit_edge9.i.i, label %.lr.ph8.i.i, !llvm.loop !83
 
-._crit_edge9.i.i:                                 ; preds = %.lr.ph8.i.i, %.preheader90.i66.i.i
+._crit_edge9.i.i:                                 ; preds = %.lr.ph8.i.i, %filterfn.exit92.i.i, %.preheader90.i66.i.i
   %indvars.iv.next27.i.i = add nuw nsw i64 %indvars.iv26.i.i, 1
   %exitcond30.not.i.i = icmp eq i64 %indvars.iv.next27.i.i, %wide.trip.count29.i.i
   br i1 %exitcond30.not.i.i, label %._crit_edge12.i.i, label %694, !llvm.loop !84

@@ -2504,8 +2504,8 @@ _ZNK2cv11_InputArray6getMatEi.exit.i157:          ; preds = %591, %589
   %606 = ashr i32 %605, 1
   %607 = load i32, ptr %592, align 8, !tbaa !25
   %608 = ashr i32 %607, 1
-  %609 = icmp ult i32 %605, 2
-  %610 = icmp ult i32 %607, 2
+  %609 = icmp eq i32 %606, 0
+  %610 = icmp eq i32 %608, 0
   %611 = select i1 %609, i1 true, i1 %610
   br i1 %611, label %612, label %692
 

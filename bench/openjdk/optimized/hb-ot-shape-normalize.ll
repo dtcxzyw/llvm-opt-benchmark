@@ -182,20 +182,20 @@ _ZN11hb_buffer_t11next_glyphsEj.exit.thread:      ; preds = %_ZN9hb_font_t18get_
 .lr.ph.preheader:                                 ; preds = %100
   %103 = load i8, ptr %41, align 8
   %104 = trunc i8 %103 to i1
-  br i1 %104, label %.lr.ph277, label %.critedge
+  br i1 %104, label %.lr.ph278, label %.critedge
 
-.lr.ph:                                           ; preds = %.lr.ph277
+.lr.ph:                                           ; preds = %.lr.ph278
   %105 = load i8, ptr %41, align 8
   %106 = trunc i8 %105 to i1
-  br i1 %106, label %.lr.ph277, label %.critedge, !llvm.loop !8
+  br i1 %106, label %.lr.ph278, label %.critedge, !llvm.loop !8
 
-.lr.ph277:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph278:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   call fastcc void @_ZL27decompose_current_characterPK31hb_ot_shape_normalize_context_tb(ptr noundef %4, i1 noundef zeroext %32)
   %107 = load i32, ptr %34, align 4
   %108 = icmp ult i32 %107, %spec.select160
   br i1 %108, label %.lr.ph, label %..critedge.loopexit_crit_edge, !llvm.loop !8
 
-..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph277
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph278
   br label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %100
@@ -901,12 +901,12 @@ _ZL28decompose_multi_char_clusterPK31hb_ot_shape_normalize_context_tjb.exit: ; p
   %492 = shl nuw i32 1, %491
   %493 = and i32 %492, 7168
   %.not.i175 = icmp eq i32 %493, 0
-  %494 = icmp ult i16 %.val166, 256
-  %495 = or i1 %494, %.not.i175
-  br i1 %495, label %505, label %496
+  %494 = lshr i16 %.val166, 8
+  %495 = icmp eq i16 %494, 0
+  %496 = or i1 %495, %.not.i175
+  br i1 %496, label %505, label %497
 
-496:                                              ; preds = %487
-  %497 = lshr i16 %.val166, 8
+497:                                              ; preds = %487
   %498 = getelementptr %struct.hb_glyph_info_t, ptr %481, i64 %indvars.iv224
   %499 = getelementptr i8, ptr %498, i64 -4
   %.val167 = load i16, ptr %499, align 4
@@ -916,18 +916,18 @@ _ZL28decompose_multi_char_clusterPK31hb_ot_shape_normalize_context_tjb.exit: ; p
   %503 = and i32 %502, 7168
   %.not.i176 = icmp ne i32 %503, 0
   %504 = lshr i16 %.val167, 8
-  %.not159203 = icmp samesign ugt i16 %504, %497
+  %.not159203 = icmp samesign ugt i16 %504, %494
   %.not159 = select i1 %.not.i176, i1 %.not159203, i1 false
   br i1 %.not159, label %509, label %505
 
-505:                                              ; preds = %496, %487
+505:                                              ; preds = %497, %487
   %506 = getelementptr inbounds nuw i8, ptr %484, i64 16
   %507 = load i16, ptr %506, align 4
   %508 = and i16 %507, -65
   store i16 %508, ptr %506, align 4
   br label %509
 
-509:                                              ; preds = %.lr.ph215, %496, %505
+509:                                              ; preds = %.lr.ph215, %497, %505
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next225, %wide.trip.count
@@ -2421,90 +2421,90 @@ declare void @llvm.va_end.p0(ptr) #4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i32 @_ZN18hb_unicode_funcs_t20is_default_ignorableEj(i32 noundef %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = icmp ult i32 %0, 65536
-  br i1 %2, label %3, label %34
+  %2 = lshr i32 %0, 16
+  %3 = icmp eq i32 %2, 0
+  br i1 %3, label %4, label %35
 
-3:                                                ; preds = %1
-  %4 = lshr i32 %0, 8
-  %trunc18 = trunc nuw i32 %4 to i8
+4:                                                ; preds = %1
+  %5 = lshr i32 %0, 8
+  %trunc18 = trunc nuw i32 %5 to i8
   switch i8 %trunc18, label %_ZL12hb_in_rangesIjJjjjjEEbT_S0_S0_DpT0_.exit [
-    i8 0, label %5
-    i8 3, label %7
-    i8 6, label %9
-    i8 23, label %11
-    i8 24, label %14
-    i8 32, label %17
-    i8 -2, label %26
-    i8 -1, label %31
+    i8 0, label %6
+    i8 3, label %8
+    i8 6, label %10
+    i8 23, label %12
+    i8 24, label %15
+    i8 32, label %18
+    i8 -2, label %27
+    i8 -1, label %32
   ]
 
-5:                                                ; preds = %3
-  %6 = icmp eq i32 %0, 173
+6:                                                ; preds = %4
+  %7 = icmp eq i32 %0, 173
   br label %_ZL12hb_in_rangesIjJjjjjEEbT_S0_S0_DpT0_.exit
 
-7:                                                ; preds = %3
-  %8 = icmp eq i32 %0, 847
+8:                                                ; preds = %4
+  %9 = icmp eq i32 %0, 847
   br label %_ZL12hb_in_rangesIjJjjjjEEbT_S0_S0_DpT0_.exit
 
-9:                                                ; preds = %3
-  %10 = icmp eq i32 %0, 1564
+10:                                               ; preds = %4
+  %11 = icmp eq i32 %0, 1564
   br label %_ZL12hb_in_rangesIjJjjjjEEbT_S0_S0_DpT0_.exit
 
-11:                                               ; preds = %3
-  %12 = and i32 %0, 65534
-  %13 = icmp eq i32 %12, 6068
+12:                                               ; preds = %4
+  %13 = and i32 %0, 65534
+  %14 = icmp eq i32 %13, 6068
   br label %_ZL12hb_in_rangesIjJjjjjEEbT_S0_S0_DpT0_.exit
 
-14:                                               ; preds = %3
-  %15 = add nsw i32 %0, -6155
-  %16 = icmp ult i32 %15, 4
+15:                                               ; preds = %4
+  %16 = add nsw i32 %0, -6155
+  %17 = icmp ult i32 %16, 4
   br label %_ZL12hb_in_rangesIjJjjjjEEbT_S0_S0_DpT0_.exit
 
-17:                                               ; preds = %3
-  %18 = add nsw i32 %0, -8203
-  %19 = icmp ult i32 %18, 5
-  br i1 %19, label %_ZL12hb_in_rangesIjJjjjjEEbT_S0_S0_DpT0_.exit, label %20
+18:                                               ; preds = %4
+  %19 = add nsw i32 %0, -8203
+  %20 = icmp ult i32 %19, 5
+  br i1 %20, label %_ZL12hb_in_rangesIjJjjjjEEbT_S0_S0_DpT0_.exit, label %21
 
-20:                                               ; preds = %17
-  %21 = add nsw i32 %0, -8234
-  %22 = icmp ult i32 %21, 5
-  %23 = and i32 %0, 65520
-  %24 = icmp eq i32 %23, 8288
-  %25 = or i1 %22, %24
+21:                                               ; preds = %18
+  %22 = add nsw i32 %0, -8234
+  %23 = icmp ult i32 %22, 5
+  %24 = and i32 %0, 65520
+  %25 = icmp eq i32 %24, 8288
+  %26 = or i1 %23, %25
   br label %_ZL12hb_in_rangesIjJjjjjEEbT_S0_S0_DpT0_.exit
 
-26:                                               ; preds = %3
-  %27 = and i32 %0, 65520
-  %28 = icmp eq i32 %27, 65024
-  %29 = icmp eq i32 %0, 65279
-  %30 = or i1 %29, %28
+27:                                               ; preds = %4
+  %28 = and i32 %0, 65520
+  %29 = icmp eq i32 %28, 65024
+  %30 = icmp eq i32 %0, 65279
+  %31 = or i1 %30, %29
   br label %_ZL12hb_in_rangesIjJjjjjEEbT_S0_S0_DpT0_.exit
 
-31:                                               ; preds = %3
-  %32 = add nsw i32 %0, -65520
-  %33 = icmp ult i32 %32, 9
+32:                                               ; preds = %4
+  %33 = add nsw i32 %0, -65520
+  %34 = icmp ult i32 %33, 9
   br label %_ZL12hb_in_rangesIjJjjjjEEbT_S0_S0_DpT0_.exit
 
-34:                                               ; preds = %1
-  %35 = lshr i32 %0, 16
-  %trunc = trunc nuw i32 %35 to i16
+35:                                               ; preds = %1
+  %trunc = trunc nuw i32 %2 to i16
   switch i16 %trunc, label %_ZL12hb_in_rangesIjJjjjjEEbT_S0_S0_DpT0_.exit [
     i16 1, label %36
     i16 14, label %39
   ]
 
-36:                                               ; preds = %34
+36:                                               ; preds = %35
   %37 = add i32 %0, -119155
   %38 = icmp ult i32 %37, 8
   br label %_ZL12hb_in_rangesIjJjjjjEEbT_S0_S0_DpT0_.exit
 
-39:                                               ; preds = %34
+39:                                               ; preds = %35
   %40 = and i32 %0, -4096
   %41 = icmp eq i32 %40, 917504
   br label %_ZL12hb_in_rangesIjJjjjjEEbT_S0_S0_DpT0_.exit
 
-_ZL12hb_in_rangesIjJjjjjEEbT_S0_S0_DpT0_.exit:    ; preds = %20, %17, %34, %3, %39, %36, %31, %26, %14, %11, %9, %7, %5
-  %.0.shrunk = phi i1 [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %13, %11 ], [ %16, %14 ], [ %30, %26 ], [ %33, %31 ], [ %38, %36 ], [ %41, %39 ], [ false, %3 ], [ false, %34 ], [ true, %17 ], [ %25, %20 ]
+_ZL12hb_in_rangesIjJjjjjEEbT_S0_S0_DpT0_.exit:    ; preds = %21, %18, %35, %4, %39, %36, %32, %27, %15, %12, %10, %8, %6
+  %.0.shrunk = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %14, %12 ], [ %17, %15 ], [ %31, %27 ], [ %34, %32 ], [ %38, %36 ], [ %41, %39 ], [ false, %4 ], [ false, %35 ], [ true, %18 ], [ %26, %21 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }

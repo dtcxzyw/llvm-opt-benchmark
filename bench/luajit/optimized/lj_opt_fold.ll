@@ -2053,29 +2053,30 @@ define internal i32 @fold_kfold_add_kgc(ptr noundef %0) #0 {
   br i1 %21, label %19, label %ctype_raw.exit, !llvm.loop !74
 
 ctype_raw.exit:                                   ; preds = %19
-  %24 = icmp ult i32 %20, 268435456
-  %.mask = and i32 %20, -268435456
-  %25 = icmp eq i32 %.mask, 1342177280
-  %or.cond = or i1 %24, %25
-  %26 = and i32 %20, -1342177280
-  %27 = icmp eq i32 %26, 536870912
-  %or.cond21 = or i1 %27, %or.cond
-  %28 = and i32 %20, -201326592
-  %29 = icmp eq i32 %28, 872415232
-  %or.cond23 = or i1 %29, %or.cond21
-  %30 = and i32 %20, -134217728
-  %31 = icmp eq i32 %30, 939524096
-  %or.cond25 = or i1 %31, %or.cond23
-  br i1 %or.cond25, label %32, label %.thread
+  %24 = lshr i32 %20, 28
+  %25 = icmp ult i32 %20, 1879048192
+  %switch.maskindex = trunc nuw nsw i32 %24 to i8
+  %switch.shifted = lshr i8 101, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond24 = select i1 %25, i1 %switch.lobit, i1 false
+  br i1 %or.cond24, label %switch.lookup, label %26
 
-.thread:                                          ; preds = %ctype_raw.exit, %1
-  br label %32
+26:                                               ; preds = %ctype_raw.exit
+  %27 = and i32 %20, -201326592
+  %28 = icmp eq i32 %27, 872415232
+  %29 = and i32 %20, -134217728
+  %30 = icmp eq i32 %29, 939524096
+  %or.cond = or i1 %28, %30
+  br i1 %or.cond, label %switch.lookup, label %.thread
 
-32:                                               ; preds = %ctype_raw.exit, %.thread
-  %.sink = phi i32 [ 25, %.thread ], [ 26, %ctype_raw.exit ]
-  %33 = getelementptr inbounds i8, ptr %4, i64 %6
-  %34 = tail call i32 @lj_ir_kptr_(ptr noundef nonnull %0, i32 noundef %.sink, ptr noundef %33) #13
-  ret i32 %34
+.thread:                                          ; preds = %26, %1
+  br label %switch.lookup
+
+switch.lookup:                                    ; preds = %ctype_raw.exit, %26, %.thread
+  %.sink = phi i32 [ 25, %.thread ], [ 26, %26 ], [ 26, %ctype_raw.exit ]
+  %31 = getelementptr inbounds i8, ptr %4, i64 %6
+  %32 = tail call i32 @lj_ir_kptr_(ptr noundef nonnull %0, i32 noundef %.sink, ptr noundef %31) #13
+  ret i32 %32
 }
 
 ; Function Attrs: nounwind uwtable

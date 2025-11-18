@@ -17058,7 +17058,7 @@ get_vlc2.exit:                                    ; preds = %decode210.exit.thre
   %269 = tail call i32 @llvm.umin.i32(i32 %13, i32 %268)
   store i32 %269, ptr %10, align 8, !tbaa !80
   store i32 %267, ptr %249, align 8, !tbaa !4
-  %.not88 = icmp ult i32 %266, 536870912
+  %.not88 = icmp eq i32 %267, 0
   br i1 %.not88, label %270, label %295
 
 270:                                              ; preds = %259
@@ -17106,13 +17106,13 @@ get_unary.exit:                                   ; preds = %.preheader, %292
 
 .sink.split:                                      ; preds = %get_unary.exit, %270
   %.sink = phi i32 [ %281, %270 ], [ %294, %get_unary.exit ]
-  %.ph106 = phi i32 [ %280, %270 ], [ %spec.select.i.i99, %get_unary.exit ]
+  %.ph107 = phi i32 [ %280, %270 ], [ %spec.select.i.i99, %get_unary.exit ]
   store i32 %.sink, ptr %249, align 8, !tbaa !4
   br label %295
 
 295:                                              ; preds = %.sink.split, %259
   %296 = phi i32 [ %267, %259 ], [ %.sink, %.sink.split ]
-  %297 = phi i32 [ %269, %259 ], [ %.ph106, %.sink.split ]
+  %297 = phi i32 [ %269, %259 ], [ %.ph107, %.sink.split ]
   %298 = lshr i32 %297, 3
   %299 = zext nneg i32 %298 to i64
   %300 = getelementptr inbounds nuw i8, ptr %14, i64 %299
@@ -17170,12 +17170,12 @@ get_unary.exit:                                   ; preds = %.preheader, %292
   br label %345
 
 345:                                              ; preds = %310, %227, %93
-  %.sink107 = phi i32 [ %344, %310 ], [ %spec.select.i97, %227 ], [ %spec.select.i, %93 ]
+  %.sink108 = phi i32 [ %344, %310 ], [ %spec.select.i97, %227 ], [ %spec.select.i, %93 ]
   %.079 = phi i32 [ %322, %310 ], [ %.281, %227 ], [ %84, %93 ]
   %.076 = phi i32 [ %342, %310 ], [ %.278, %227 ], [ %87, %93 ]
   %.073 = phi i32 [ %248, %310 ], [ %197, %227 ], [ %94, %93 ]
   %.071.in.in = phi i32 [ %333, %310 ], [ %236, %227 ], [ %103, %93 ]
-  store i32 %.sink107, ptr %10, align 8, !tbaa !80
+  store i32 %.sink108, ptr %10, align 8, !tbaa !80
   %.071.in = lshr i32 %.071.in.in, 7
   %.071 = and i32 %.071.in, 1
   store i32 %.073, ptr %1, align 4, !tbaa !73

@@ -409,7 +409,7 @@ define internal fastcc i32 @dissect_yami_parameter(ptr noundef %0, ptr noundef %
   %74 = add i32 %17, 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.73, i32 noundef %71)
   %75 = lshr i32 %71, 5
-  %.not360 = icmp ult i32 %71, 32
+  %.not360 = icmp eq i32 %75, 0
   br i1 %.not360, label %._crit_edge352, label %.lr.ph351
 
 .lr.ph351:                                        ; preds = %70, %88

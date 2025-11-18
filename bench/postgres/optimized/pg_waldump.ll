@@ -1662,7 +1662,7 @@ define internal fastcc noundef zeroext i1 @XLogRecordMatchesRelationBlock(ptr no
 
 .lr.ph:                                           ; preds = %5
   %13 = icmp eq i32 %4, -1
-  %14 = icmp ult i64 %.fr80, 4294967296
+  %14 = icmp eq i64 %.sroa.3.0.extract.shift, 0
   %15 = or i32 %.fr, %.sroa.014.0.extract.trunc
   %16 = icmp eq i32 %15, 0
   %or.cond5 = and i1 %14, %16

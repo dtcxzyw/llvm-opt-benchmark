@@ -977,7 +977,7 @@ _ZN4absl13base_internalL7RoundUpEmm.exit:         ; preds = %_ZN4absl13base_inte
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %39 = add i64 %32, -1
-  %40 = icmp ult i64 %34, 8
+  %40 = icmp eq i64 %35, 0
   br label %41
 
 41:                                               ; preds = %_ZN4absl13base_internal8SpinLock4LockEv.exit, %_ZN4absl13base_internalL7RoundUpEmm.exit

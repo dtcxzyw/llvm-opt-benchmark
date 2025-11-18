@@ -245,11 +245,11 @@ define internal fastcc i64 @ZSTD_decompressBlock(ptr noundef %0, ptr noundef %1,
 63:                                               ; preds = %61
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %65 = load i8, ptr %64, align 1, !tbaa !3
-  %.fr339.i.i = freeze i8 %65
-  %66 = zext i8 %.fr339.i.i to i64
+  %.fr340.i.i = freeze i8 %65
+  %66 = zext i8 %.fr340.i.i to i64
   %67 = load i8, ptr %48, align 1, !tbaa !3
-  %.fr338.i.i = freeze i8 %67
-  %68 = zext i8 %.fr338.i.i to i64
+  %.fr339.i.i = freeze i8 %67
+  %68 = zext i8 %.fr339.i.i to i64
   %69 = shl nuw nsw i64 %68, 8
   %70 = or disjoint i64 %69, %66
   %71 = lshr i8 %.fr.i.i, 3
@@ -352,8 +352,8 @@ define internal fastcc i64 @ZSTD_decompressBlock(ptr noundef %0, ptr noundef %1,
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %123 = icmp ugt i32 %114, 255
   %124 = icmp ugt i32 %115, 12
-  %or.cond336.i.i = select i1 %123, i1 true, i1 %124
-  br i1 %or.cond336.i.i, label %FSE_buildDTable.exit.thread.i.i.i.i.i, label %125
+  %or.cond337.i.i = select i1 %123, i1 true, i1 %124
+  br i1 %or.cond337.i.i, label %FSE_buildDTable.exit.thread.i.i.i.i.i, label %125
 
 125:                                              ; preds = %113
   %126 = trunc nuw nsw i32 %115 to i16
@@ -1705,7 +1705,7 @@ HUF_readDTable.exit.i.i.i:                        ; preds = %._crit_edge196.i.i.
   %.not.i18.i.i.i = icmp uge i64 %738, %718
   %739 = icmp eq i16 %.val.i.i.i.i, 0
   %or.cond.i19.i.i.i = or i1 %739, %.not.i18.i.i.i
-  br i1 %or.cond.i19.i.i.i, label %HUF_decompress.exit.thread254.i.i, label %740
+  br i1 %or.cond.i19.i.i.i, label %HUF_decompress.exit.thread255.i.i, label %740
 
 740:                                              ; preds = %720
   %741 = icmp ugt i16 %.val.i.i.i.i, 7
@@ -1715,7 +1715,7 @@ HUF_readDTable.exit.i.i.i:                        ; preds = %._crit_edge196.i.i.
   %743 = getelementptr i8, ptr %735, i64 -1
   %744 = load i8, ptr %743, align 1, !tbaa !3
   %745 = icmp eq i8 %744, 0
-  br i1 %745, label %HUF_decompress.exit.thread254.i.i, label %.thread.i.i.i.i.i
+  br i1 %745, label %HUF_decompress.exit.thread255.i.i, label %.thread.i.i.i.i.i
 
 .thread.i.i.i.i.i:                                ; preds = %742
   %746 = getelementptr inbounds i8, ptr %735, i64 -8
@@ -1796,7 +1796,7 @@ HUF_readDTable.exit.i.i.i:                        ; preds = %._crit_edge196.i.i.
   %796 = getelementptr i8, ptr %735, i64 -1
   %797 = load i8, ptr %796, align 1, !tbaa !3
   %798 = icmp eq i8 %797, 0
-  br i1 %798, label %HUF_decompress.exit.thread254.i.i, label %.thread49.i.i.i.i.i
+  br i1 %798, label %HUF_decompress.exit.thread255.i.i, label %.thread49.i.i.i.i.i
 
 .thread49.i.i.i.i.i:                              ; preds = %795
   %799 = zext i8 %797 to i32
@@ -1812,7 +1812,7 @@ HUF_readDTable.exit.i.i.i:                        ; preds = %._crit_edge196.i.i.
   %.sroa.17.1.i.i.i.i = phi i32 [ %750, %.thread.i.i.i.i.i ], [ %803, %.thread49.i.i.i.i.i ]
   %.sroa.31229.1.i.i.i.i = phi ptr [ %746, %.thread.i.i.i.i.i ], [ %734, %.thread49.i.i.i.i.i ]
   %805 = icmp eq i16 %.val122.i.i.i.i, 0
-  br i1 %805, label %HUF_decompress.exit.thread254.i.i, label %806
+  br i1 %805, label %HUF_decompress.exit.thread255.i.i, label %806
 
 806:                                              ; preds = %804
   %807 = icmp ugt i16 %.val122.i.i.i.i, 7
@@ -1826,12 +1826,12 @@ HUF_readDTable.exit.i.i.i:                        ; preds = %._crit_edge196.i.i.
   store ptr %810, ptr %811, align 8, !tbaa !34
   %.val.i126.i.i.i.i = load i64, ptr %810, align 1
   store i64 %.val.i126.i.i.i.i, ptr %15, align 8, !tbaa !35
-  %812 = icmp ult i64 %.val.i126.i.i.i.i, 72057594037927936
-  br i1 %812, label %HUF_decompress.exit.thread254.i.i, label %.thread.i127.i.i.i.i
+  %812 = lshr i64 %.val.i126.i.i.i.i, 56
+  %813 = icmp eq i64 %812, 0
+  br i1 %813, label %HUF_decompress.exit.thread255.i.i, label %.thread.i127.i.i.i.i
 
 .thread.i127.i.i.i.i:                             ; preds = %809
-  %813 = lshr i64 %.val.i126.i.i.i.i, 56
-  %814 = trunc nuw nsw i64 %813 to i32
+  %814 = trunc nuw nsw i64 %812 to i32
   %815 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %814, i1 true)
   %816 = xor i32 %815, 31
   %817 = sub nuw nsw i32 8, %816
@@ -1912,7 +1912,7 @@ HUF_readDTable.exit.i.i.i:                        ; preds = %._crit_edge196.i.i.
   %865 = getelementptr i8, ptr %736, i64 -1
   %866 = load i8, ptr %865, align 1, !tbaa !3
   %867 = icmp eq i8 %866, 0
-  br i1 %867, label %HUF_decompress.exit.thread254.i.i, label %.thread49.i124.i.i.i.i
+  br i1 %867, label %HUF_decompress.exit.thread255.i.i, label %.thread49.i124.i.i.i.i
 
 .thread49.i124.i.i.i.i:                           ; preds = %864
   %868 = zext i8 %866 to i32
@@ -1927,7 +1927,7 @@ HUF_readDTable.exit.i.i.i:                        ; preds = %._crit_edge196.i.i.
 
 874:                                              ; preds = %.thread49.i124.i.i.i.i, %.thread.i127.i.i.i.i
   %875 = icmp eq i16 %.val123.i.i.i.i, 0
-  br i1 %875, label %HUF_decompress.exit.thread254.i.i, label %876
+  br i1 %875, label %HUF_decompress.exit.thread255.i.i, label %876
 
 876:                                              ; preds = %874
   %877 = icmp ugt i16 %.val123.i.i.i.i, 7
@@ -1937,7 +1937,7 @@ HUF_readDTable.exit.i.i.i:                        ; preds = %._crit_edge196.i.i.
   %879 = getelementptr i8, ptr %737, i64 -1
   %880 = load i8, ptr %879, align 1, !tbaa !3
   %881 = icmp eq i8 %880, 0
-  br i1 %881, label %HUF_decompress.exit.thread254.i.i, label %.thread.i132.i.i.i.i
+  br i1 %881, label %HUF_decompress.exit.thread255.i.i, label %.thread.i132.i.i.i.i
 
 .thread.i132.i.i.i.i:                             ; preds = %878
   %882 = getelementptr inbounds i8, ptr %737, i64 -8
@@ -2018,7 +2018,7 @@ HUF_readDTable.exit.i.i.i:                        ; preds = %._crit_edge196.i.i.
   %932 = getelementptr i8, ptr %737, i64 -1
   %933 = load i8, ptr %932, align 1, !tbaa !3
   %934 = icmp eq i8 %933, 0
-  br i1 %934, label %HUF_decompress.exit.thread254.i.i, label %.thread49.i129.i.i.i.i
+  br i1 %934, label %HUF_decompress.exit.thread255.i.i, label %.thread49.i129.i.i.i.i
 
 .thread49.i129.i.i.i.i:                           ; preds = %931
   %935 = zext i8 %933 to i32
@@ -2035,7 +2035,7 @@ HUF_readDTable.exit.i.i.i:                        ; preds = %._crit_edge196.i.i.
   %.sroa.0210.2.i.i.i.i = phi i64 [ %.val.i131.i.i.i.i, %.thread.i132.i.i.i.i ], [ %.sroa.0210.1.i.i.i.i, %.thread49.i129.i.i.i.i ]
   %941 = call fastcc i64 @FSE_initDStream(ptr noundef %16, ptr noundef nonnull %737, i64 noundef %733)
   %942 = icmp ult i64 %941, -7
-  br i1 %942, label %943, label %HUF_decompress.exit.thread254.i.i
+  br i1 %942, label %943, label %HUF_decompress.exit.thread255.i.i
 
 943:                                              ; preds = %940
   %944 = call fastcc i32 @FSE_reloadDStream(ptr noundef %15)
@@ -2495,8 +2495,8 @@ FSE_reloadDStream.exit193.i.i.i.i:                ; preds = %1234, %1232, %1226,
   %.0112.lcssa.i.i.i.i = phi ptr [ %79, %943 ], [ %1144, %FSE_reloadDStream.exit193.i.i.i.i ]
   %.not120.i.i.i.i = icmp ne i32 %.0114.lcssa.i.i.i.i, 2
   %1251 = icmp ugt i32 %.sroa.17.0.lcssa.i.i.i.i, 64
-  %or.cond337.i.i = select i1 %.not120.i.i.i.i, i1 true, i1 %1251
-  br i1 %or.cond337.i.i, label %HUF_decompress.exit.thread254.i.i, label %.lr.ph290.i.i.i.i
+  %or.cond338.i.i = select i1 %.not120.i.i.i.i, i1 true, i1 %1251
+  br i1 %or.cond338.i.i, label %HUF_decompress.exit.thread255.i.i, label %.lr.ph290.i.i.i.i
 
 .lr.ph290.i.i.i.i:                                ; preds = %._crit_edge.i21.i.i.i
   %1252 = getelementptr inbounds nuw i8, ptr %717, i64 14
@@ -2573,20 +2573,20 @@ FSE_reloadDStream.exit202.i.i.i.i:                ; preds = %1267, %1266, %1258
   store i8 %1289, ptr %.1113289.i.i.i.i, align 1, !tbaa !3
   %1294 = getelementptr i8, ptr %.1113289.i.i.i.i, i64 1
   %1295 = icmp ugt i32 %1293, 64
-  br i1 %1295, label %HUF_decompress.exit.thread254.i.i, label %1257, !llvm.loop !41
+  br i1 %1295, label %HUF_decompress.exit.thread255.i.i, label %1257, !llvm.loop !41
 
 FSE_reloadDStream.exit202.thread.i.i.i.i:         ; preds = %FSE_reloadDStream.exit202.i.i.i.i
   %1296 = icmp eq i32 %.sroa.6.1.i.i.i.i, 64
   %1297 = icmp eq ptr %.sroa.13207.1.i.i.i.i, %734
   %or.cond256.i.i.i.i = and i1 %1297, %1296
-  br i1 %or.cond256.i.i.i.i, label %ZSTD_decompressLiterals.exit.i, label %HUF_decompress.exit.thread254.i.i
+  br i1 %or.cond256.i.i.i.i, label %ZSTD_decompressLiterals.exit.i, label %HUF_decompress.exit.thread255.i.i
 
-HUF_decompress.exit.thread254.i.i:                ; preds = %1283, %FSE_reloadDStream.exit202.thread.i.i.i.i, %._crit_edge.i21.i.i.i, %940, %931, %878, %874, %864, %809, %804, %795, %742, %720
+HUF_decompress.exit.thread255.i.i:                ; preds = %1283, %FSE_reloadDStream.exit202.thread.i.i.i.i, %._crit_edge.i21.i.i.i, %940, %931, %878, %874, %864, %809, %804, %795, %742, %720
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.sink.split.i.i
 
-.sink.split.i.i:                                  ; preds = %HUF_decompress.exit.thread254.i.i, %716, %HUF_readDTable.exit.i.i.i, %HUF_readDTable.exit.thread.i.i.i
+.sink.split.i.i:                                  ; preds = %HUF_decompress.exit.thread255.i.i, %716, %HUF_readDTable.exit.i.i.i, %HUF_readDTable.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %ZSTD_decompressSequences.exit
 

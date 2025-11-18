@@ -36,11 +36,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @memrevifle(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
-  %.not14 = icmp ult i64 %1, 2
+  %3 = lshr i64 %1, 1
+  %.not14 = icmp eq i64 %3, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
-  %3 = lshr i64 %1, 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   br label %.lr.ph
 

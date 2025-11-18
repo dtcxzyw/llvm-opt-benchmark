@@ -5794,7 +5794,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %99 = load float, ptr %98, align 4, !tbaa !106
   %100 = load i32, ptr %92, align 4
   %101 = lshr i32 %100, 4
-  %.not192 = icmp ult i32 %100, 16
+  %.not192 = icmp eq i32 %101, 0
   br i1 %.not192, label %.critedge6, label %.lr.ph181
 
 .lr.ph181:                                        ; preds = %.lr.ph186.split
@@ -5852,7 +5852,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   br i1 %133, label %.lr.ph186.split, label %.critedge4, !llvm.loop !150
 
 .critedge4:                                       ; preds = %.critedge6, %.lr.ph171, %.preheader, %.lr.ph186
-  %.0124.lcssa226 = phi double [ %87, %.lr.ph186 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.lr.ph171 ], [ %87, %.critedge6 ]
+  %.0124.lcssa227 = phi double [ %87, %.lr.ph186 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.lr.ph171 ], [ %87, %.critedge6 ]
   %134 = load i32, ptr %16, align 8, !tbaa !53
   %135 = call ptr @Gia_SortFloats(ptr noundef %22, ptr noundef null, i32 noundef %134) #27
   %136 = load i32, ptr %16, align 8, !tbaa !53
@@ -5913,7 +5913,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   br i1 %.not143, label %._crit_edge211, label %163
 
 163:                                              ; preds = %162
-  %164 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, i32 noundef %.pre, double noundef %.0124.lcssa226)
+  %164 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, i32 noundef %.pre, double noundef %.0124.lcssa227)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %165 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #27

@@ -648,7 +648,7 @@ define i32 @ASN1_INTEGER_set_int64(ptr noundef %0, i64 noundef %1) local_unnamed
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 %9
   store i8 %8, ptr %10, align 1, !tbaa !13
   %11 = lshr i64 %.04.i.i, 8
-  %.not.i.i = icmp ult i64 %.04.i.i, 256
+  %.not.i.i = icmp eq i64 %11, 0
   br i1 %.not.i.i, label %asn1_string_set_int64.exit, label %7, !llvm.loop !24
 
 .preheader.i:                                     ; preds = %2, %.preheader.i
@@ -659,7 +659,7 @@ define i32 @ASN1_INTEGER_set_int64(ptr noundef %0, i64 noundef %1) local_unnamed
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 %13
   store i8 %12, ptr %14, align 1, !tbaa !13
   %15 = lshr i64 %.04.i10.i, 8
-  %.not.i12.i = icmp samesign ult i64 %.04.i10.i, 256
+  %.not.i12.i = icmp eq i64 %15, 0
   br i1 %.not.i12.i, label %asn1_string_set_int64.exit, label %.preheader.i, !llvm.loop !24
 
 asn1_string_set_int64.exit:                       ; preds = %.preheader.i, %7
@@ -769,7 +769,7 @@ define i32 @ASN1_INTEGER_set_uint64(ptr noundef initializes((4, 8)) %0, i64 noun
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 %7
   store i8 %6, ptr %8, align 1, !tbaa !13
   %9 = lshr i64 %.04.i.i, 8
-  %.not.i.i = icmp ult i64 %.04.i.i, 256
+  %.not.i.i = icmp eq i64 %9, 0
   br i1 %.not.i.i, label %asn1_string_set_uint64.exit, label %5, !llvm.loop !24
 
 asn1_string_set_uint64.exit:                      ; preds = %5
@@ -800,7 +800,7 @@ define i32 @ASN1_INTEGER_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr 
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 %9
   store i8 %8, ptr %10, align 1, !tbaa !13
   %11 = lshr i64 %.04.i.i.i, 8
-  %.not.i.i.i = icmp ult i64 %.04.i.i.i, 256
+  %.not.i.i.i = icmp eq i64 %11, 0
   br i1 %.not.i.i.i, label %ASN1_INTEGER_set_int64.exit, label %7, !llvm.loop !24
 
 .preheader.i.i:                                   ; preds = %2, %.preheader.i.i
@@ -811,7 +811,7 @@ define i32 @ASN1_INTEGER_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr 
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 %13
   store i8 %12, ptr %14, align 1, !tbaa !13
   %15 = lshr i64 %.04.i10.i.i, 8
-  %.not.i12.i.i = icmp samesign ult i64 %.04.i10.i.i, 256
+  %.not.i12.i.i = icmp eq i64 %15, 0
   br i1 %.not.i12.i.i, label %ASN1_INTEGER_set_int64.exit, label %.preheader.i.i, !llvm.loop !24
 
 ASN1_INTEGER_set_int64.exit:                      ; preds = %.preheader.i.i, %7
@@ -1010,7 +1010,7 @@ define i32 @ASN1_ENUMERATED_set_int64(ptr noundef %0, i64 noundef %1) local_unna
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 %9
   store i8 %8, ptr %10, align 1, !tbaa !13
   %11 = lshr i64 %.04.i.i, 8
-  %.not.i.i = icmp ult i64 %.04.i.i, 256
+  %.not.i.i = icmp eq i64 %11, 0
   br i1 %.not.i.i, label %asn1_string_set_int64.exit, label %7, !llvm.loop !24
 
 .preheader.i:                                     ; preds = %2, %.preheader.i
@@ -1021,7 +1021,7 @@ define i32 @ASN1_ENUMERATED_set_int64(ptr noundef %0, i64 noundef %1) local_unna
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 %13
   store i8 %12, ptr %14, align 1, !tbaa !13
   %15 = lshr i64 %.04.i10.i, 8
-  %.not.i12.i = icmp samesign ult i64 %.04.i10.i, 256
+  %.not.i12.i = icmp eq i64 %15, 0
   br i1 %.not.i12.i, label %asn1_string_set_int64.exit, label %.preheader.i, !llvm.loop !24
 
 asn1_string_set_int64.exit:                       ; preds = %.preheader.i, %7
@@ -1056,7 +1056,7 @@ define i32 @ASN1_ENUMERATED_set(ptr noundef %0, i64 noundef %1) local_unnamed_ad
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 %9
   store i8 %8, ptr %10, align 1, !tbaa !13
   %11 = lshr i64 %.04.i.i.i, 8
-  %.not.i.i.i = icmp ult i64 %.04.i.i.i, 256
+  %.not.i.i.i = icmp eq i64 %11, 0
   br i1 %.not.i.i.i, label %ASN1_ENUMERATED_set_int64.exit, label %7, !llvm.loop !24
 
 .preheader.i.i:                                   ; preds = %2, %.preheader.i.i
@@ -1067,7 +1067,7 @@ define i32 @ASN1_ENUMERATED_set(ptr noundef %0, i64 noundef %1) local_unnamed_ad
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 %13
   store i8 %12, ptr %14, align 1, !tbaa !13
   %15 = lshr i64 %.04.i10.i.i, 8
-  %.not.i12.i.i = icmp samesign ult i64 %.04.i10.i.i, 256
+  %.not.i12.i.i = icmp eq i64 %15, 0
   br i1 %.not.i12.i.i, label %ASN1_ENUMERATED_set_int64.exit, label %.preheader.i.i, !llvm.loop !24
 
 ASN1_ENUMERATED_set_int64.exit:                   ; preds = %.preheader.i.i, %7
@@ -1187,7 +1187,7 @@ define i32 @ossl_i2c_uint64_int(ptr noundef writeonly captures(address_is_null) 
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 %7
   store i8 %6, ptr %8, align 1, !tbaa !13
   %9 = lshr i64 %.04.i, 8
-  %.not.i = icmp ult i64 %.04.i, 256
+  %.not.i = icmp eq i64 %9, 0
   br i1 %.not.i, label %asn1_put_uint64.exit, label %5, !llvm.loop !24
 
 asn1_put_uint64.exit:                             ; preds = %5

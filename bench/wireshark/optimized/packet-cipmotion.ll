@@ -1730,7 +1730,7 @@ dissect_cyclic_wt.exit:                           ; preds = %265, %274
   %285 = load i32, ptr @ett_event_check_ctrl, align 4
   %286 = call ptr @proto_tree_add_bitmask(ptr noundef %282, ptr noundef %0, i32 noundef %.6, i32 noundef %284, i32 noundef %285, ptr noundef nonnull @dissect_event_checking_control.bits, i32 noundef -2147483648)
   %287 = lshr i32 %283, 28
-  %.not.i111 = icmp ult i32 %283, 268435456
+  %.not.i111 = icmp eq i32 %287, 0
   br i1 %.not.i111, label %dissect_cntr_event.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %280
@@ -2296,7 +2296,7 @@ dissect_cyclic_rd.exit:                           ; preds = %589, %603
   %616 = call ptr @proto_tree_add_bitmask(ptr noundef %612, ptr noundef %0, i32 noundef %.9, i32 noundef %614, i32 noundef %615, ptr noundef nonnull @dissect_event_checking_status.bits, i32 noundef -2147483648)
   %617 = lshr i32 %613, 28
   %618 = zext nneg i32 %617 to i64
-  %.not.i122 = icmp ult i32 %613, 268435456
+  %.not.i122 = icmp eq i32 %617, 0
   br i1 %.not.i122, label %dissect_devce_event.exit, label %.lr.ph.i123
 
 .lr.ph.i123:                                      ; preds = %610

@@ -1458,11 +1458,11 @@ _ZN3sat3bcd10init_rbitsEv.exit:                   ; preds = %_ZNK3sat6solver8num
 _ZNK6vectorIN3sat3bcd7bclauseELb0EjE4sizeEv.exit.i: ; preds = %_ZN3sat3bcd10init_rbitsEv.exit
   %62 = getelementptr inbounds i8, ptr %60, i64 -4
   %63 = load i32, ptr %62, align 4, !tbaa !24
-  %.not.i = icmp ult i32 %63, 2
+  %64 = lshr i32 %63, 1
+  %.not.i = icmp eq i32 %64, 0
   br i1 %.not.i, label %_ZN6vectorIN3sat3bcd7bclauseELb0EjE3endEv.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZNK6vectorIN3sat3bcd7bclauseELb0EjE4sizeEv.exit.i
-  %64 = lshr i32 %63, 1
   %wide.trip.count.i = zext nneg i32 %64 to i64
   br label %.lr.ph.i
 

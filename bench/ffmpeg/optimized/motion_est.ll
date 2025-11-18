@@ -13594,11 +13594,11 @@ cmp.exit318:                                      ; preds = %90
 
 .preheader324:                                    ; preds = %._crit_edge340, %._crit_edge333
   %.4.lcssa = phi i32 [ %.2.lcssa, %._crit_edge333 ], [ %.5.lcssa, %._crit_edge340 ]
-  %.not303350 = icmp samesign ult i32 %31, 4
+  %131 = lshr i32 %31, 2
+  %.not303350 = icmp eq i32 %131, 0
   br i1 %.not303350, label %._crit_edge353, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.preheader324
-  %131 = lshr i32 %31, 2
   %132 = add nuw nsw i32 %26, 1
   br label %.preheader
 

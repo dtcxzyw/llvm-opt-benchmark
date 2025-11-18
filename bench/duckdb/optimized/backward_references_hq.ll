@@ -105,11 +105,11 @@ _ZL22ZopfliNodeDistanceCodePKN13duckdb_brotli10ZopfliNodeE.exit: ; preds = %41, 
   %51 = tail call noundef i64 @llvm.umin.i64(i64 %50, i64 %13)
   %52 = add i64 %51, %17
   %53 = icmp uge i64 %52, %46
-  %54 = icmp ult i32 %34, 134217728
-  %55 = add i32 %45, 15
-  %56 = lshr i32 %34, 27
-  %57 = add nsw i32 %56, -1
-  %58 = select i1 %54, i32 %55, i32 %57
+  %54 = lshr i32 %34, 27
+  %55 = icmp eq i32 %54, 0
+  %56 = add i32 %45, 15
+  %57 = add nsw i32 %54, -1
+  %58 = select i1 %55, i32 %56, i32 %57
   %59 = zext i32 %58 to i64
   %60 = getelementptr inbounds nuw %"struct.duckdb_brotli::Command", ptr %6, i64 %.05465
   %61 = sub i32 %49, %30
@@ -1692,11 +1692,11 @@ _ZN13duckdb_brotliL8StoreH10EPNS_3H10EPKhmm.exit236: ; preds = %._crit_edge521, 
   br i1 %or.cond.i.i244, label %674, label %_ZL22ZopfliNodeDistanceCodePKN13duckdb_brotli10ZopfliNodeE.exit.i.i
 
 _ZL22ZopfliNodeDistanceCodePKN13duckdb_brotli10ZopfliNodeE.exit.i.i: ; preds = %662
-  %667 = icmp ult i32 %657, 134217728
-  %668 = add i32 %660, 15
-  %669 = lshr i32 %657, 27
-  %670 = add nsw i32 %669, -1
-  %671 = select i1 %667, i32 %668, i32 %670
+  %667 = lshr i32 %657, 27
+  %668 = icmp eq i32 %667, 0
+  %669 = add i32 %660, 15
+  %670 = add nsw i32 %667, -1
+  %671 = select i1 %668, i32 %669, i32 %670
   %.not24.i.i = icmp eq i32 %671, 0
   br i1 %.not24.i.i, label %674, label %672
 
@@ -2743,11 +2743,11 @@ define internal fastcc void @_ZL12EvaluateNodemmmmPKiPK15ZopfliCostModelP13Start
   br i1 %or.cond.i, label %36, label %_ZL22ZopfliNodeDistanceCodePKN13duckdb_brotli10ZopfliNodeE.exit.i
 
 _ZL22ZopfliNodeDistanceCodePKN13duckdb_brotli10ZopfliNodeE.exit.i: ; preds = %22
-  %29 = icmp ult i32 %17, 134217728
-  %30 = add i32 %20, 15
-  %31 = lshr i32 %17, 27
-  %32 = add nsw i32 %31, -1
-  %33 = select i1 %29, i32 %30, i32 %32
+  %29 = lshr i32 %17, 27
+  %30 = icmp eq i32 %29, 0
+  %31 = add i32 %20, 15
+  %32 = add nsw i32 %29, -1
+  %33 = select i1 %30, i32 %31, i32 %32
   %.not24.i = icmp eq i32 %33, 0
   br i1 %.not24.i, label %36, label %34
 
@@ -4640,11 +4640,11 @@ _ZL30ZopfliCostModelSetFromCommandsP15ZopfliCostModelmPKhmPKN13duckdb_brotli7Com
   br i1 %or.cond.i.i.i, label %862, label %_ZL22ZopfliNodeDistanceCodePKN13duckdb_brotli10ZopfliNodeE.exit.i.i.i
 
 _ZL22ZopfliNodeDistanceCodePKN13duckdb_brotli10ZopfliNodeE.exit.i.i.i: ; preds = %850
-  %855 = icmp ult i32 %845, 134217728
-  %856 = add i32 %848, 15
-  %857 = lshr i32 %845, 27
-  %858 = add nsw i32 %857, -1
-  %859 = select i1 %855, i32 %856, i32 %858
+  %855 = lshr i32 %845, 27
+  %856 = icmp eq i32 %855, 0
+  %857 = add i32 %848, 15
+  %858 = add nsw i32 %855, -1
+  %859 = select i1 %856, i32 %857, i32 %858
   %.not24.i.i.i = icmp eq i32 %859, 0
   br i1 %.not24.i.i.i, label %862, label %860
 

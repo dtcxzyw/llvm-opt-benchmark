@@ -13961,7 +13961,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %13, %
 
 32:                                               ; preds = %28
   %33 = add nsw i32 %.sroa.26.8.extract.trunc, %.sroa.8.0.extract.trunc
-  %34 = icmp samesign ugt i64 %2, 4294967295
+  %34 = icmp ne i64 %.sroa.26.8.extract.shift, 0
   %35 = zext i1 %34 to i32
   %.not26 = icmp slt i32 %33, %35
   br i1 %.not26, label %36, label %46

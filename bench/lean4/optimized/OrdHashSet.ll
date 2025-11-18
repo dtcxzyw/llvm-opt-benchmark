@@ -968,7 +968,7 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
 
 152:                                              ; preds = %lean_array_uset.exit
   %153 = lshr i64 %150, 1
-  %154 = icmp ult ptr %.0.i192379, inttoptr (i64 2 to ptr)
+  %154 = icmp eq i64 %153, 0
   br i1 %154, label %lean_nat_mul.exit189, label %155
 
 155:                                              ; preds = %152
@@ -1038,8 +1038,8 @@ lean_dec.exit229:                                 ; preds = %178, %177, %175, %l
   br i1 %.not412, label %185, label %lean_dec.exit228.thread, !prof !17
 
 lean_dec.exit228.thread:                          ; preds = %lean_dec.exit229
-  %.not475 = icmp ugt ptr %.1.i381, %182
-  br i1 %.not475, label %193, label %201
+  %.not477 = icmp ugt ptr %.1.i381, %182
+  br i1 %.not477, label %193, label %201
 
 185:                                              ; preds = %lean_dec.exit229
   %186 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %.1.i381, ptr noundef nonnull %182) #4
@@ -1646,7 +1646,7 @@ lean_array_uset.exit363:                          ; preds = %lean_ensure_exclusi
 
 411:                                              ; preds = %lean_array_uset.exit363
   %412 = lshr i64 %409, 1
-  %413 = icmp ult ptr %.0.i390, inttoptr (i64 2 to ptr)
+  %413 = icmp eq i64 %412, 0
   br i1 %413, label %lean_nat_mul.exit, label %414
 
 414:                                              ; preds = %411
@@ -1716,8 +1716,8 @@ lean_dec.exit215:                                 ; preds = %437, %436, %434, %l
   br i1 %.not402, label %444, label %lean_dec.exit214.thread, !prof !17
 
 lean_dec.exit214.thread:                          ; preds = %lean_dec.exit215
-  %.not476 = icmp ugt ptr %.1.i365392, %441
-  br i1 %.not476, label %452, label %466
+  %.not478 = icmp ugt ptr %.1.i365392, %441
+  br i1 %.not478, label %452, label %466
 
 444:                                              ; preds = %lean_dec.exit215
   %445 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %.1.i365392, ptr noundef nonnull %441) #4

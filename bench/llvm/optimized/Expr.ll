@@ -6622,7 +6622,7 @@ define dso_local void @_ZN5clang16APNumericStorage11setIntValueERKNS_10ASTContex
   %9 = lshr i64 %8, 6
   %10 = load ptr, ptr %2, align 8
   %11 = icmp ugt i32 %6, 64
-  br i1 %11, label %12, label %33
+  br i1 %11, label %12, label %34
 
 12:                                               ; preds = %3
   %13 = shl nuw nsw i64 %9, 3
@@ -6657,23 +6657,27 @@ define dso_local void @_ZN5clang16APNumericStorage11setIntValueERKNS_10ASTContex
 _ZnamRKN5clang10ASTContextEm.exit:                ; preds = %28, %31
   %.0.i.i.i.i = phi ptr [ %30, %28 ], [ %32, %31 ]
   store ptr %.0.i.i.i.i, ptr %0, align 8, !tbaa !25
+  %.not.i.i.i.i.i = icmp eq i64 %9, 0
+  br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPKmPmET0_T_S4_S3_.exit, label %33
+
+33:                                               ; preds = %_ZnamRKN5clang10ASTContextEm.exit
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0.i.i.i.i, ptr align 8 %10, i64 %13, i1 false)
   br label %_ZSt4copyIPKmPmET0_T_S4_S3_.exit
 
-33:                                               ; preds = %3
-  %34 = icmp eq i64 %9, 1
-  br i1 %34, label %35, label %37
+34:                                               ; preds = %3
+  %35 = icmp eq i64 %9, 1
+  br i1 %35, label %36, label %38
 
-35:                                               ; preds = %33
-  %36 = load i64, ptr %2, align 8, !tbaa !167
-  store i64 %36, ptr %0, align 8, !tbaa !25
+36:                                               ; preds = %34
+  %37 = load i64, ptr %2, align 8, !tbaa !167
+  store i64 %37, ptr %0, align 8, !tbaa !25
   br label %_ZSt4copyIPKmPmET0_T_S4_S3_.exit
 
-37:                                               ; preds = %33
+38:                                               ; preds = %34
   store i64 0, ptr %0, align 8, !tbaa !25
   br label %_ZSt4copyIPKmPmET0_T_S4_S3_.exit
 
-_ZSt4copyIPKmPmET0_T_S4_S3_.exit:                 ; preds = %_ZnamRKN5clang10ASTContextEm.exit, %35, %37
+_ZSt4copyIPKmPmET0_T_S4_S3_.exit:                 ; preds = %33, %_ZnamRKN5clang10ASTContextEm.exit, %36, %38
   ret void
 }
 
@@ -6746,9 +6750,11 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
 _ZnamRKN5clang10ASTContextEm.exit.i.i:            ; preds = %45, %42
   %.0.i.i.i.i.i.i = phi ptr [ %44, %42 ], [ %46, %45 ]
   store ptr %.0.i.i.i.i.i.i, ptr %15, align 8, !tbaa !25
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %22, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang12APIntStorage8setValueERKNS_10ASTContextERKN4llvm5APIntE.exit, label %47
+
+47:                                               ; preds = %_ZnamRKN5clang10ASTContextEm.exit.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0.i.i.i.i.i.i, ptr align 8 %23, i64 %27, i1 false)
-  %.pre = load i24, ptr %0, align 8
-  %47 = and i24 %.pre, -507905
   br label %_ZN5clang12APIntStorage8setValueERKNS_10ASTContextERKN4llvm5APIntE.exit
 
 48:                                               ; preds = %_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit
@@ -6763,9 +6769,10 @@ _ZnamRKN5clang10ASTContextEm.exit.i.i:            ; preds = %45, %42
   store i64 0, ptr %15, align 8, !tbaa !25
   br label %_ZN5clang12APIntStorage8setValueERKNS_10ASTContextERKN4llvm5APIntE.exit
 
-_ZN5clang12APIntStorage8setValueERKNS_10ASTContextERKN4llvm5APIntE.exit: ; preds = %_ZnamRKN5clang10ASTContextEm.exit.i.i, %50, %51
-  %52 = phi i24 [ %47, %_ZnamRKN5clang10ASTContextEm.exit.i.i ], [ %14, %50 ], [ %14, %51 ]
-  store i24 %52, ptr %0, align 8
+_ZN5clang12APIntStorage8setValueERKNS_10ASTContextERKN4llvm5APIntE.exit: ; preds = %_ZnamRKN5clang10ASTContextEm.exit.i.i, %47, %50, %51
+  %52 = load i24, ptr %0, align 8
+  %53 = and i24 %52, -507905
+  store i24 %53, ptr %0, align 8
   ret void
 }
 
@@ -6868,9 +6875,11 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
 _ZnamRKN5clang10ASTContextEm.exit.i.i:            ; preds = %47, %44
   %.0.i.i.i.i.i.i = phi ptr [ %46, %44 ], [ %48, %47 ]
   store ptr %.0.i.i.i.i.i.i, ptr %16, align 8, !tbaa !25
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %24, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang12APIntStorage8setValueERKNS_10ASTContextERKN4llvm5APIntE.exit, label %49
+
+49:                                               ; preds = %_ZnamRKN5clang10ASTContextEm.exit.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0.i.i.i.i.i.i, ptr align 8 %25, i64 %29, i1 false)
-  %.pre = load i24, ptr %0, align 8
-  %49 = and i24 %.pre, -507905
   br label %_ZN5clang12APIntStorage8setValueERKNS_10ASTContextERKN4llvm5APIntE.exit
 
 50:                                               ; preds = %_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit
@@ -6885,9 +6894,10 @@ _ZnamRKN5clang10ASTContextEm.exit.i.i:            ; preds = %47, %44
   store i64 0, ptr %16, align 8, !tbaa !25
   br label %_ZN5clang12APIntStorage8setValueERKNS_10ASTContextERKN4llvm5APIntE.exit
 
-_ZN5clang12APIntStorage8setValueERKNS_10ASTContextERKN4llvm5APIntE.exit: ; preds = %_ZnamRKN5clang10ASTContextEm.exit.i.i, %52, %53
-  %54 = phi i24 [ %49, %_ZnamRKN5clang10ASTContextEm.exit.i.i ], [ %15, %52 ], [ %15, %53 ]
-  store i24 %54, ptr %0, align 8
+_ZN5clang12APIntStorage8setValueERKNS_10ASTContextERKN4llvm5APIntE.exit: ; preds = %_ZnamRKN5clang10ASTContextEm.exit.i.i, %49, %52, %53
+  %54 = load i24, ptr %0, align 8
+  %55 = and i24 %54, -507905
+  store i24 %55, ptr %0, align 8
   ret void
 }
 
@@ -31615,45 +31625,45 @@ declare noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_13UnaryOperatorERKN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN5clang13UnaryOperator6CreateERKNS_10ASTContextEPNS_4ExprENS_17UnaryOperatorKindENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindENS_14SourceLocationEbNS_17FPOptionsOverrideE(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef %1, i32 noundef %2, i64 %3, i32 noundef %4, i32 noundef %5, i32 %6, i1 noundef zeroext %7, i64 %8) local_unnamed_addr #1 align 2 {
-  %10 = icmp ugt i64 %8, 4294967295
-  %11 = select i1 %10, i64 32, i64 24
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2192
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2272
-  %14 = load i64, ptr %13, align 8, !tbaa !153
-  %15 = add i64 %14, %11
-  store i64 %15, ptr %13, align 8, !tbaa !153
-  %16 = load ptr, ptr %12, align 8, !tbaa !165
-  %17 = ptrtoint ptr %16 to i64
-  %18 = add i64 %17, 7
-  %19 = and i64 %18, -8
-  %20 = add i64 %19, %11
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2200
-  %22 = load ptr, ptr %21, align 8, !tbaa !166
-  %23 = ptrtoint ptr %22 to i64
-  %.not.i.i.i = icmp ule i64 %20, %23
-  %24 = icmp ne ptr %16, null
-  %25 = and i1 %24, %.not.i.i.i
-  br i1 %25, label %_ZNK5clang10ASTContext8AllocateEmj.exit, label %_ZNK5clang10ASTContext8AllocateEmj.exit.thread, !prof !55
+  %.not = icmp ult i64 %8, 4294967296
+  %10 = select i1 %.not, i64 24, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2192
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2272
+  %13 = load i64, ptr %12, align 8, !tbaa !153
+  %14 = add i64 %13, %10
+  store i64 %14, ptr %12, align 8, !tbaa !153
+  %15 = load ptr, ptr %11, align 8, !tbaa !165
+  %16 = ptrtoint ptr %15 to i64
+  %17 = add i64 %16, 7
+  %18 = and i64 %17, -8
+  %19 = add i64 %18, %10
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 2200
+  %21 = load ptr, ptr %20, align 8, !tbaa !166
+  %22 = ptrtoint ptr %21 to i64
+  %.not.i.i.i = icmp ule i64 %19, %22
+  %23 = icmp ne ptr %15, null
+  %24 = and i1 %23, %.not.i.i.i
+  br i1 %24, label %_ZNK5clang10ASTContext8AllocateEmj.exit, label %_ZNK5clang10ASTContext8AllocateEmj.exit.thread, !prof !55
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.thread:   ; preds = %9
-  %26 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %12, i64 noundef %11, i64 noundef %11, i8 3)
-  br label %30
+  %25 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %11, i64 noundef %10, i64 noundef %10, i8 3)
+  br label %29
 
 _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %9
-  %27 = inttoptr i64 %20 to ptr
-  store ptr %27, ptr %12, align 8, !tbaa !165
-  %28 = inttoptr i64 %19 to ptr
-  %29 = icmp eq i64 %19, 0
-  br i1 %29, label %31, label %30
+  %26 = inttoptr i64 %19 to ptr
+  store ptr %26, ptr %11, align 8, !tbaa !165
+  %27 = inttoptr i64 %18 to ptr
+  %28 = icmp eq i64 %18, 0
+  br i1 %28, label %30, label %29
 
-30:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.thread, %_ZNK5clang10ASTContext8AllocateEmj.exit
-  %.0.i.i.i14 = phi ptr [ %26, %_ZNK5clang10ASTContext8AllocateEmj.exit.thread ], [ %28, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
+29:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.thread, %_ZNK5clang10ASTContext8AllocateEmj.exit
+  %.0.i.i.i14 = phi ptr [ %25, %_ZNK5clang10ASTContext8AllocateEmj.exit.thread ], [ %27, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
   tail call void @_ZN5clang13UnaryOperatorC1ERKNS_10ASTContextEPNS_4ExprENS_17UnaryOperatorKindENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindENS_14SourceLocationEbNS_17FPOptionsOverrideE(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i.i14, ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef %1, i32 noundef %2, i64 %3, i32 noundef %4, i32 noundef %5, i32 %6, i1 noundef zeroext %7, i64 %8) #32
-  br label %31
+  br label %30
 
-31:                                               ; preds = %30, %_ZNK5clang10ASTContext8AllocateEmj.exit
-  %32 = phi ptr [ %.0.i.i.i14, %30 ], [ null, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
-  ret ptr %32
+30:                                               ; preds = %29, %_ZNK5clang10ASTContext8AllocateEmj.exit
+  %31 = phi ptr [ %.0.i.i.i14, %29 ], [ null, %_ZNK5clang10ASTContext8AllocateEmj.exit ]
+  ret ptr %31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -33947,7 +33957,7 @@ _ZNK4llvm7APFloat14bitcastToAPIntEv.exit:         ; preds = %7, %8
   %15 = load ptr, ptr %4, align 8
   %16 = icmp ugt i32 %11, 64
   %17 = ptrtoint ptr %15 to i64
-  br i1 %16, label %18, label %39
+  br i1 %16, label %18, label %40
 
 18:                                               ; preds = %_ZNK4llvm7APFloat14bitcastToAPIntEv.exit
   %19 = shl nuw nsw i64 %14, 3
@@ -33973,42 +33983,49 @@ _ZNK4llvm7APFloat14bitcastToAPIntEv.exit:         ; preds = %7, %8
   %35 = inttoptr i64 %28 to ptr
   store ptr %35, ptr %20, align 8, !tbaa !165
   %36 = inttoptr i64 %27 to ptr
-  br label %_ZN5clang16APNumericStorage11setIntValueERKNS_10ASTContextERKN4llvm5APIntE.exit
+  br label %_ZnamRKN5clang10ASTContextEm.exit.i
 
 37:                                               ; preds = %18
   %38 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %20, i64 noundef %19, i64 noundef %19, i8 3)
-  br label %_ZN5clang16APNumericStorage11setIntValueERKNS_10ASTContextERKN4llvm5APIntE.exit
+  br label %_ZnamRKN5clang10ASTContextEm.exit.i
 
-39:                                               ; preds = %_ZNK4llvm7APFloat14bitcastToAPIntEv.exit
-  %40 = icmp eq i64 %14, 1
-  br i1 %40, label %41, label %42
-
-41:                                               ; preds = %39
-  store i64 %17, ptr %0, align 8, !tbaa !25
-  br label %_ZN4llvm5APIntD2Ev.exit
-
-42:                                               ; preds = %39
-  store i64 0, ptr %0, align 8, !tbaa !25
-  br label %_ZN4llvm5APIntD2Ev.exit
-
-_ZN5clang16APNumericStorage11setIntValueERKNS_10ASTContextERKN4llvm5APIntE.exit: ; preds = %34, %37
+_ZnamRKN5clang10ASTContextEm.exit.i:              ; preds = %37, %34
   %.0.i.i.i.i.i = phi ptr [ %36, %34 ], [ %38, %37 ]
   store ptr %.0.i.i.i.i.i, ptr %0, align 8, !tbaa !25
+  %.not.i.i.i.i.i.i = icmp eq i64 %14, 0
+  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang16APNumericStorage11setIntValueERKNS_10ASTContextERKN4llvm5APIntE.exit, label %39
+
+39:                                               ; preds = %_ZnamRKN5clang10ASTContextEm.exit.i
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0.i.i.i.i.i, ptr align 8 %15, i64 %19, i1 false)
-  %.pre = load i32, ptr %10, align 8, !tbaa !150
-  %43 = icmp ugt i32 %.pre, 64
-  br i1 %43, label %44, label %_ZN4llvm5APIntD2Ev.exit
+  br label %_ZN5clang16APNumericStorage11setIntValueERKNS_10ASTContextERKN4llvm5APIntE.exit
 
-44:                                               ; preds = %_ZN5clang16APNumericStorage11setIntValueERKNS_10ASTContextERKN4llvm5APIntE.exit
-  %45 = load ptr, ptr %4, align 8, !tbaa !25
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %_ZN4llvm5APIntD2Ev.exit, label %47
+40:                                               ; preds = %_ZNK4llvm7APFloat14bitcastToAPIntEv.exit
+  %41 = icmp eq i64 %14, 1
+  br i1 %41, label %42, label %43
 
-47:                                               ; preds = %44
-  call void @_ZdaPv(ptr noundef nonnull %45) #34
+42:                                               ; preds = %40
+  store i64 %17, ptr %0, align 8, !tbaa !25
+  br label %_ZN5clang16APNumericStorage11setIntValueERKNS_10ASTContextERKN4llvm5APIntE.exit
+
+43:                                               ; preds = %40
+  store i64 0, ptr %0, align 8, !tbaa !25
+  br label %_ZN5clang16APNumericStorage11setIntValueERKNS_10ASTContextERKN4llvm5APIntE.exit
+
+_ZN5clang16APNumericStorage11setIntValueERKNS_10ASTContextERKN4llvm5APIntE.exit: ; preds = %_ZnamRKN5clang10ASTContextEm.exit.i, %39, %42, %43
+  %44 = load i32, ptr %10, align 8, !tbaa !150
+  %45 = icmp ugt i32 %44, 64
+  br i1 %45, label %46, label %_ZN4llvm5APIntD2Ev.exit
+
+46:                                               ; preds = %_ZN5clang16APNumericStorage11setIntValueERKNS_10ASTContextERKN4llvm5APIntE.exit
+  %47 = load ptr, ptr %4, align 8, !tbaa !25
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %_ZN4llvm5APIntD2Ev.exit, label %49
+
+49:                                               ; preds = %46
+  call void @_ZdaPv(ptr noundef nonnull %47) #34
   br label %_ZN4llvm5APIntD2Ev.exit
 
-_ZN4llvm5APIntD2Ev.exit:                          ; preds = %42, %41, %_ZN5clang16APNumericStorage11setIntValueERKNS_10ASTContextERKN4llvm5APIntE.exit, %44, %47
+_ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN5clang16APNumericStorage11setIntValueERKNS_10ASTContextERKN4llvm5APIntE.exit, %46, %49
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

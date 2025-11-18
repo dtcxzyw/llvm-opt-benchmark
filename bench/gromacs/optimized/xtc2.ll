@@ -1872,7 +1872,7 @@ define noundef i32 @Ptngc_unpack_array_xtc2(ptr noundef readnone captures(none) 
   %29 = or disjoint i32 %24, %28
   %30 = add nsw i32 %22, 1
   %31 = lshr i32 %.01625.i, 1
-  %.not21.i = icmp ult i32 %.01625.i, 2
+  %.not21.i = icmp eq i32 %31, 0
   br i1 %.not21.i, label %32, label %36
 
 32:                                               ; preds = %20
@@ -1921,7 +1921,7 @@ readbits.exit:                                    ; preds = %32, %36
   %52 = or disjoint i32 %47, %51
   %53 = add nsw i32 %45, 1
   %54 = lshr i32 %.01625.i128, 1
-  %.not21.i130 = icmp ult i32 %.01625.i128, 2
+  %.not21.i130 = icmp eq i32 %54, 0
   br i1 %.not21.i130, label %55, label %59
 
 55:                                               ; preds = %43
@@ -1970,7 +1970,7 @@ readbits.exit135:                                 ; preds = %55, %59
   %75 = or disjoint i32 %70, %74
   %76 = add nsw i32 %68, 1
   %77 = lshr i32 %.01625.i139, 1
-  %.not21.i141 = icmp ult i32 %.01625.i139, 2
+  %.not21.i141 = icmp eq i32 %77, 0
   br i1 %.not21.i141, label %78, label %82
 
 78:                                               ; preds = %66
@@ -2019,7 +2019,7 @@ readbits.exit146:                                 ; preds = %78, %82
   %98 = or disjoint i32 %93, %97
   %99 = add nsw i32 %91, 1
   %100 = lshr i32 %.01625.i150, 1
-  %.not21.i152 = icmp ult i32 %.01625.i150, 2
+  %.not21.i152 = icmp eq i32 %100, 0
   br i1 %.not21.i152, label %101, label %105
 
 101:                                              ; preds = %89
@@ -2065,7 +2065,7 @@ readbits.exit157:                                 ; preds = %101, %105
   %118 = or disjoint i32 %113, %117
   %119 = add nsw i32 %111, 1
   %120 = lshr i32 %.01625.i160, 1
-  %.not21.i162 = icmp ult i32 %.01625.i160, 2
+  %.not21.i162 = icmp eq i32 %120, 0
   br i1 %.not21.i162, label %121, label %125
 
 121:                                              ; preds = %109
@@ -2112,7 +2112,7 @@ readbits.exit167:                                 ; preds = %121, %125
   %139 = or disjoint i32 %134, %138
   %140 = add nsw i32 %132, 1
   %141 = lshr i32 %.01625.i170, 1
-  %.not21.i172 = icmp ult i32 %.01625.i170, 2
+  %.not21.i172 = icmp eq i32 %141, 0
   br i1 %.not21.i172, label %142, label %146
 
 142:                                              ; preds = %130
@@ -2159,7 +2159,7 @@ readbits.exit177:                                 ; preds = %142, %146
   %160 = or disjoint i32 %155, %159
   %161 = add nsw i32 %153, 1
   %162 = lshr i32 %.01625.i180, 1
-  %.not21.i182 = icmp ult i32 %.01625.i180, 2
+  %.not21.i182 = icmp eq i32 %162, 0
   br i1 %.not21.i182, label %163, label %167
 
 163:                                              ; preds = %151
@@ -2279,17 +2279,17 @@ compute_magic_bits.exit:                          ; preds = %185
   %196 = lshr i32 128, %.0371540
   %197 = zext i8 %195 to i32
   %198 = and i32 %196, %197
-  %.not54.i = icmp eq i32 %198, 0
+  %.not55.i = icmp eq i32 %198, 0
   %199 = add nsw i32 %.0371540, 1
   %.not21.i.i = icmp ugt i32 %.0371540, 6
   br i1 %.not21.i.i, label %readbits.exit.i.thread, label %readbits.exit.i
 
 readbits.exit.i:                                  ; preds = %194
-  br i1 %.not54.i, label %202, label %238
+  br i1 %.not55.i, label %202, label %238
 
 readbits.exit.i.thread:                           ; preds = %194
   %200 = getelementptr inbounds nuw i8, ptr %.0541, i64 1
-  br i1 %.not54.i, label %.thread, label %238
+  br i1 %.not55.i, label %.thread, label %238
 
 .thread:                                          ; preds = %readbits.exit.i.thread
   %201 = load i8, ptr %200, align 1, !tbaa !25
@@ -2334,7 +2334,7 @@ readbits.exit26.i:                                ; preds = %202
   %221 = or disjoint i32 %216, %220
   %222 = add nsw i32 %215, 1
   %223 = lshr i32 %.01625.i29.i, 1
-  %.not21.i31.i = icmp ult i32 %.01625.i29.i, 2
+  %.not21.i31.i = icmp eq i32 %223, 0
   br i1 %.not21.i31.i, label %224, label %228
 
 224:                                              ; preds = %213
@@ -2374,13 +2374,13 @@ readbits.exit46.i:                                ; preds = %readbits.exit36.i
   %233 = lshr i32 128, %230
   %234 = zext i8 %232 to i32
   %235 = and i32 %233, %234
-  %.not55.i = icmp eq i32 %235, 0
+  %.not56.i = icmp eq i32 %235, 0
   %236 = add nuw nsw i32 %230, 1
   %.not21.i41.i = icmp ugt i32 %230, 6
   %237 = getelementptr inbounds nuw i8, ptr %231, i64 1
   %spec.select481 = select i1 %.not21.i41.i, i32 0, i32 %236
   %spec.select482 = select i1 %.not21.i41.i, ptr %237, ptr %.30
-  br i1 %.not55.i, label %595, label %469
+  br i1 %.not56.i, label %595, label %469
 
 238:                                              ; preds = %readbits.exit.i, %readbits.exit36.i, %readbits.exit.i.thread
   %.24395.ph = phi i32 [ 0, %readbits.exit.i.thread ], [ %199, %readbits.exit.i ], [ %230, %readbits.exit36.i ]
@@ -2418,7 +2418,7 @@ readbits.exit46.i:                                ; preds = %readbits.exit36.i
   %251 = or disjoint i8 %246, %250
   %252 = add nsw i32 %244, 1
   %253 = lshr i32 %.01625.i.i, 1
-  %.not21.i.i191 = icmp ult i32 %.01625.i.i, 2
+  %.not21.i.i191 = icmp eq i32 %253, 0
   br i1 %.not21.i.i191, label %254, label %258
 
 254:                                              ; preds = %242
@@ -2478,7 +2478,7 @@ readbits.exit.i192:                               ; preds = %258, %254
   %274 = or disjoint i8 %269, %273
   %275 = add nsw i32 %267, 1
   %276 = lshr i32 %.01625.i12.i, 1
-  %.not21.i14.i = icmp ult i32 %.01625.i12.i, 2
+  %.not21.i14.i = icmp eq i32 %276, 0
   br i1 %.not21.i14.i, label %277, label %281
 
 277:                                              ; preds = %265
@@ -2612,7 +2612,7 @@ readmanybits.exit:                                ; preds = %._crit_edge.i, %rea
   %327 = or disjoint i8 %322, %326
   %328 = add nsw i32 %320, 1
   %329 = lshr i32 %.01625.i.i218, 1
-  %.not21.i.i220 = icmp ult i32 %.01625.i.i218, 2
+  %.not21.i.i220 = icmp eq i32 %329, 0
   br i1 %.not21.i.i220, label %330, label %334
 
 330:                                              ; preds = %318
@@ -2672,7 +2672,7 @@ readbits.exit.i224:                               ; preds = %334, %330
   %350 = or disjoint i8 %345, %349
   %351 = add nsw i32 %343, 1
   %352 = lshr i32 %.01625.i12.i205, 1
-  %.not21.i14.i207 = icmp ult i32 %.01625.i12.i205, 2
+  %.not21.i14.i207 = icmp eq i32 %352, 0
   br i1 %.not21.i14.i207, label %353, label %357
 
 353:                                              ; preds = %341
@@ -2967,7 +2967,7 @@ positive_int.exit246:                             ; preds = %412, %415, %417
   %481 = or disjoint i32 %476, %480
   %482 = add nsw i32 %474, 1
   %483 = lshr i32 %.01625.i253, 1
-  %.not21.i255 = icmp ult i32 %.01625.i253, 2
+  %.not21.i255 = icmp eq i32 %483, 0
   br i1 %.not21.i255, label %484, label %488
 
 484:                                              ; preds = %472
@@ -3033,7 +3033,7 @@ readbits.exit261:                                 ; preds = %484, %488
   %503 = or disjoint i8 %498, %502
   %504 = add nsw i32 %496, 1
   %505 = lshr i32 %.01625.i.i282, 1
-  %.not21.i.i284 = icmp ult i32 %.01625.i.i282, 2
+  %.not21.i.i284 = icmp eq i32 %505, 0
   br i1 %.not21.i.i284, label %506, label %510
 
 506:                                              ; preds = %494
@@ -3093,7 +3093,7 @@ readbits.exit.i288:                               ; preds = %510, %506
   %526 = or disjoint i8 %521, %525
   %527 = add nsw i32 %519, 1
   %528 = lshr i32 %.01625.i12.i269, 1
-  %.not21.i14.i271 = icmp ult i32 %.01625.i12.i269, 2
+  %.not21.i14.i271 = icmp eq i32 %528, 0
   br i1 %.not21.i14.i271, label %529, label %533
 
 529:                                              ; preds = %517
@@ -3229,7 +3229,7 @@ trajcoder_base_decompress.exit305:                ; preds = %.lr.ph.i301
   %578 = or disjoint i32 %573, %577
   %579 = add nsw i32 %571, 1
   %580 = lshr i32 %.01625.i309, 1
-  %.not21.i311 = icmp ult i32 %.01625.i309, 2
+  %.not21.i311 = icmp eq i32 %580, 0
   br i1 %.not21.i311, label %581, label %585
 
 581:                                              ; preds = %569
@@ -3292,7 +3292,7 @@ readbits.exit317:                                 ; preds = %581, %585
   %606 = zext i1 %605 to i32
   %607 = add nsw i32 %602, 1
   %608 = lshr i32 %.01625.i321, 1
-  %.not21.i323 = icmp ult i32 %.01625.i321, 2
+  %.not21.i323 = icmp eq i32 %608, 0
   br i1 %.not21.i323, label %609, label %613
 
 609:                                              ; preds = %600

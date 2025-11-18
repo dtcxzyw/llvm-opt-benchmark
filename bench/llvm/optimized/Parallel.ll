@@ -378,8 +378,8 @@ define dso_local void @_ZN4llvm11parallelForEmmNS_12function_refIFvmEEE(i64 noun
 
 11:                                               ; preds = %4
   %12 = sub i64 %1, %0
-  %13 = tail call i64 @llvm.umax.i64(i64 %12, i64 1024)
-  %spec.store.select = lshr i64 %13, 10
+  %13 = lshr i64 %12, 10
+  %spec.store.select = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4llvm8parallel9TaskGroupC1Ev(ptr noundef nonnull align 8 dereferenceable(97) %6) #20
   %14 = add i64 %0, %spec.store.select

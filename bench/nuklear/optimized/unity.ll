@@ -5058,17 +5058,14 @@ define internal fastcc noundef ptr @nk_memcopy(ptr noundef returned %0, ptr noun
   %.082 = phi i64 [ %2, %8 ], [ %25, %.loopexit105.loopexit ]
   %.064 = phi ptr [ %0, %8 ], [ %23, %.loopexit105.loopexit ]
   %.0 = phi ptr [ %1, %8 ], [ %21, %.loopexit105.loopexit ]
-  %.not98 = icmp ult i64 %.082, 4
-  br i1 %.not98, label %.loopexit104, label %.preheader103.preheader
-
-.preheader103.preheader:                          ; preds = %.loopexit105
   %26 = lshr i64 %.082, 2
-  br label %.preheader103
+  %.not98 = icmp eq i64 %26, 0
+  br i1 %.not98, label %.loopexit104, label %.preheader103
 
-.preheader103:                                    ; preds = %.preheader103.preheader, %.preheader103
-  %.276 = phi i64 [ %30, %.preheader103 ], [ %26, %.preheader103.preheader ]
-  %.367 = phi ptr [ %29, %.preheader103 ], [ %.064, %.preheader103.preheader ]
-  %.3 = phi ptr [ %28, %.preheader103 ], [ %.0, %.preheader103.preheader ]
+.preheader103:                                    ; preds = %.loopexit105, %.preheader103
+  %.276 = phi i64 [ %30, %.preheader103 ], [ %26, %.loopexit105 ]
+  %.367 = phi ptr [ %29, %.preheader103 ], [ %.064, %.loopexit105 ]
+  %.3 = phi ptr [ %28, %.preheader103 ], [ %.0, %.loopexit105 ]
   %27 = load i32, ptr %.3, align 4, !tbaa !7
   store i32 %27, ptr %.367, align 4, !tbaa !7
   %28 = getelementptr inbounds nuw i8, ptr %.3, i64 4
@@ -5136,17 +5133,14 @@ define internal fastcc noundef ptr @nk_memcopy(ptr noundef returned %0, ptr noun
   %.183 = phi i64 [ %2, %36 ], [ %54, %.loopexit110.loopexit ]
   %.569 = phi ptr [ %38, %36 ], [ %52, %.loopexit110.loopexit ]
   %.5 = phi ptr [ %37, %36 ], [ %50, %.loopexit110.loopexit ]
-  %.not92 = icmp ult i64 %.183, 4
-  br i1 %.not92, label %.loopexit109, label %.preheader108.preheader
-
-.preheader108.preheader:                          ; preds = %.loopexit110
   %55 = lshr i64 %.183, 2
-  br label %.preheader108
+  %.not92 = icmp eq i64 %55, 0
+  br i1 %.not92, label %.loopexit109, label %.preheader108
 
-.preheader108:                                    ; preds = %.preheader108.preheader, %.preheader108
-  %.680 = phi i64 [ %59, %.preheader108 ], [ %55, %.preheader108.preheader ]
-  %.872 = phi ptr [ %57, %.preheader108 ], [ %.569, %.preheader108.preheader ]
-  %.8 = phi ptr [ %56, %.preheader108 ], [ %.5, %.preheader108.preheader ]
+.preheader108:                                    ; preds = %.loopexit110, %.preheader108
+  %.680 = phi i64 [ %59, %.preheader108 ], [ %55, %.loopexit110 ]
+  %.872 = phi ptr [ %57, %.preheader108 ], [ %.569, %.loopexit110 ]
+  %.8 = phi ptr [ %56, %.preheader108 ], [ %.5, %.loopexit110 ]
   %56 = getelementptr inbounds i8, ptr %.8, i64 -4
   %57 = getelementptr inbounds i8, ptr %.872, i64 -4
   %58 = load i32, ptr %56, align 4, !tbaa !7
@@ -63548,11 +63542,11 @@ nk_strlen.exit.i.i.i:                             ; preds = %140
   %strlen.i.i.i = call i64 @strlen(ptr nonnull dereferenceable(1) %spec.select.idx.i.sroa.sel.sroa.sel.i)
   %145 = trunc i64 %strlen.i.i.i to i32
   %146 = add i32 %145, 1
-  %.not.i.i.i = icmp ult i32 %146, 2
+  %147 = lshr i32 %146, 1
+  %.not.i.i.i = icmp eq i32 %147, 0
   br i1 %.not.i.i.i, label %nk_itoa.exit.i, label %.lr.ph19.preheader.i.i.i
 
 .lr.ph19.preheader.i.i.i:                         ; preds = %nk_strlen.exit.i.i.i
-  %147 = lshr i32 %146, 1
   %148 = sext i32 %146 to i64
   %wide.trip.count.i.i.i = zext nneg i32 %147 to i64
   %149 = getelementptr i8, ptr %spec.select.idx.i.sroa.sel.i, i64 %148
@@ -77884,17 +77878,14 @@ define internal fastcc void @nk_textedit_discard_undo(ptr noundef %0) unnamed_ad
   %.082.i = phi i64 [ %34, %36 ], [ %46, %.loopexit105.loopexit.i ]
   %.064.i = phi ptr [ %0, %36 ], [ %scevgep32, %.loopexit105.loopexit.i ]
   %.0.i = phi ptr [ %32, %36 ], [ %scevgep, %.loopexit105.loopexit.i ]
-  %.not98.i = icmp ult i64 %.082.i, 4
-  br i1 %.not98.i, label %.loopexit104.i, label %.preheader103.preheader.i
-
-.preheader103.preheader.i:                        ; preds = %.loopexit105.i
   %47 = lshr i64 %.082.i, 2
-  br label %.preheader103.i
+  %.not98.i = icmp eq i64 %47, 0
+  br i1 %.not98.i, label %.loopexit104.i, label %.preheader103.i
 
-.preheader103.i:                                  ; preds = %.preheader103.i, %.preheader103.preheader.i
-  %.276.i = phi i64 [ %51, %.preheader103.i ], [ %47, %.preheader103.preheader.i ]
-  %.367.i = phi ptr [ %50, %.preheader103.i ], [ %.064.i, %.preheader103.preheader.i ]
-  %.3.i = phi ptr [ %49, %.preheader103.i ], [ %.0.i, %.preheader103.preheader.i ]
+.preheader103.i:                                  ; preds = %.loopexit105.i, %.preheader103.i
+  %.276.i = phi i64 [ %51, %.preheader103.i ], [ %47, %.loopexit105.i ]
+  %.367.i = phi ptr [ %50, %.preheader103.i ], [ %.064.i, %.loopexit105.i ]
+  %.3.i = phi ptr [ %49, %.preheader103.i ], [ %.0.i, %.loopexit105.i ]
   %48 = load i32, ptr %.3.i, align 4, !tbaa !7
   store i32 %48, ptr %.367.i, align 4, !tbaa !7
   %49 = getelementptr inbounds nuw i8, ptr %.3.i, i64 4
@@ -81521,7 +81512,7 @@ nk_log10.exit:                                    ; preds = %.lr.ph.i, %6
   %.1.i101 = select i1 %.not15.i, double %.01318.i, double %24
   %25 = lshr i32 %.01417.i, 1
   %26 = fmul double %.019.i, %.019.i
-  %.not.i = icmp samesign ult i32 %.01417.i, 2
+  %.not.i = icmp eq i32 %25, 0
   br i1 %.not.i, label %.thread, label %.lr.ph.i100, !llvm.loop !1323
 
 .thread:                                          ; preds = %.lr.ph.i100
@@ -81562,7 +81553,7 @@ nk_log10.exit:                                    ; preds = %.lr.ph.i, %6
   %.1.i109 = select i1 %.not15.i108, double %.01318.i106, double %37
   %38 = lshr i32 %.01417.i107, 1
   %39 = fmul double %.019.i105, %.019.i105
-  %.not.i110 = icmp samesign ult i32 %.01417.i107, 2
+  %.not.i110 = icmp eq i32 %38, 0
   br i1 %.not.i110, label %nk_pow.exit112, label %.lr.ph.i104, !llvm.loop !1323
 
 nk_pow.exit112:                                   ; preds = %.lr.ph.i104, %34

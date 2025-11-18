@@ -534,7 +534,7 @@ transform_point_upscaled.exit205:                 ; preds = %.thread413, %218, %
   br label %374
 
 356:                                              ; preds = %320, %317, %300
-  %357 = icmp samesign ult i32 %287, 256
+  %357 = icmp eq i32 %291, 0
   %or.cond3.i = and i1 %357, %303
   %or.cond3.not.i = xor i1 %or.cond3.i, true
   %358 = icmp ne i32 %291, %192
@@ -552,7 +552,7 @@ transform_point_upscaled.exit205:                 ; preds = %.thread413, %218, %
   br label %374
 
 365:                                              ; preds = %356
-  %366 = icmp samesign ult i32 %290, 256
+  %366 = icmp eq i32 %292, 0
   %or.cond7.i = and i1 %366, %307
   %or.cond7.not.i = xor i1 %or.cond7.i, true
   %367 = icmp ne i32 %292, %193
@@ -750,7 +750,7 @@ transform_point_upscaled.exit205:                 ; preds = %.thread413, %218, %
   br label %492
 
 474:                                              ; preds = %413, %410, %392
-  %475 = icmp samesign ult i32 %379, 256
+  %475 = icmp eq i32 %383, 0
   %or.cond3.i212 = and i1 %475, %395
   %or.cond3.not.i213 = xor i1 %or.cond3.i212, true
   %476 = icmp ne i32 %383, %192
@@ -768,7 +768,7 @@ transform_point_upscaled.exit205:                 ; preds = %.thread413, %218, %
   br label %492
 
 483:                                              ; preds = %474
-  %484 = icmp samesign ult i32 %382, 256
+  %484 = icmp eq i32 %384, 0
   %or.cond7.i216 = and i1 %484, %398
   %or.cond7.not.i217 = xor i1 %or.cond7.i216, true
   %485 = icmp ne i32 %384, %193
@@ -919,7 +919,7 @@ transform_point_upscaled.exit205:                 ; preds = %.thread413, %218, %
   br label %590
 
 570:                                              ; preds = %534, %531, %513
-  %571 = icmp samesign ult i32 %499, 256
+  %571 = icmp eq i32 %503, 0
   %or.cond3.i225 = and i1 %571, %516
   %or.cond3.not.i226 = xor i1 %or.cond3.i225, true
   %572 = icmp ne i32 %503, %192
@@ -938,7 +938,7 @@ transform_point_upscaled.exit205:                 ; preds = %.thread413, %218, %
   br label %590
 
 580:                                              ; preds = %570
-  %581 = icmp samesign ult i32 %502, 256
+  %581 = icmp eq i32 %504, 0
   %or.cond7.i229 = and i1 %581, %520
   %or.cond7.not.i230 = xor i1 %or.cond7.i229, true
   %582 = icmp ne i32 %504, %193
@@ -1132,7 +1132,7 @@ define internal fastcc void @transform_rgb888(ptr noundef readonly captures(none
   br label %107
 
 91:                                               ; preds = %61, %58, %35
-  %92 = icmp samesign ult i32 %20, 256
+  %92 = icmp eq i32 %25, 0
   %or.cond3 = and i1 %92, %38
   %or.cond3.not = xor i1 %or.cond3, true
   %93 = icmp ne i32 %25, %14
@@ -1149,7 +1149,7 @@ define internal fastcc void @transform_rgb888(ptr noundef readonly captures(none
   br label %107
 
 99:                                               ; preds = %91
-  %100 = icmp samesign ult i32 %24, 256
+  %100 = icmp eq i32 %26, 0
   %or.cond7 = and i1 %100, %41
   %or.cond7.not = xor i1 %or.cond7, true
   %101 = icmp ne i32 %26, %15
@@ -1189,8 +1189,8 @@ define internal fastcc void @transform_rgb565a8(ptr noundef readonly captures(no
   %wide.trip.count = zext nneg i32 %8 to i64
   br label %21
 
-21:                                               ; preds = %.lr.ph, %151
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %151 ]
+21:                                               ; preds = %.lr.ph, %150
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %150 ]
   %22 = trunc i64 %indvars.iv to i32
   %23 = mul i32 %6, %22
   %24 = ashr i32 %23, 8
@@ -1209,13 +1209,13 @@ define internal fastcc void @transform_rgb565a8(ptr noundef readonly captures(no
   %35 = icmp sgt i32 %31, -1
   %.not = icmp slt i32 %31, %2
   %36 = and i1 %35, %.not
-  %or.cond182 = select i1 %34, i1 %36, i1 false
-  br i1 %or.cond182, label %39, label %37
+  %or.cond183 = select i1 %34, i1 %36, i1 false
+  br i1 %or.cond183, label %39, label %37
 
 37:                                               ; preds = %33, %21
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
   store i8 0, ptr %38, align 1, !tbaa !27
-  br label %151
+  br label %150
 
 39:                                               ; preds = %33
   %40 = and i32 %25, 255
@@ -1241,21 +1241,21 @@ define internal fastcc void @transform_rgb565a8(ptr noundef readonly captures(no
   %56 = load i16, ptr %55, align 2, !tbaa !43
   %57 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv
   store i16 %56, ptr %57, align 2, !tbaa !43
-  br i1 %12, label %58, label %122
+  br i1 %12, label %58, label %121
 
 58:                                               ; preds = %39
   %59 = add nsw i32 %.0157, %30
   %60 = icmp sgt i32 %59, -1
   %.not174.not = icmp slt i32 %59, %1
-  %or.cond183 = and i1 %60, %.not174.not
-  br i1 %or.cond183, label %61, label %122
+  %or.cond184 = and i1 %60, %.not174.not
+  br i1 %or.cond184, label %61, label %121
 
 61:                                               ; preds = %58
   %62 = add nsw i32 %.0158, %31
   %63 = icmp sgt i32 %62, -1
   %.not175.not = icmp slt i32 %62, %2
-  %or.cond184 = and i1 %63, %.not175.not
-  br i1 %or.cond184, label %64, label %122
+  %or.cond185 = and i1 %63, %.not175.not
+  br i1 %or.cond185, label %64, label %121
 
 64:                                               ; preds = %61
   %65 = sext i32 %.0157 to i64
@@ -1265,7 +1265,7 @@ define internal fastcc void @transform_rgb565a8(ptr noundef readonly captures(no
   %69 = sext i32 %68 to i64
   %70 = getelementptr inbounds i8, ptr %55, i64 %69
   %71 = load i16, ptr %70, align 2, !tbaa !43
-  br i1 %11, label %72, label %111
+  br i1 %11, label %72, label %110
 
 72:                                               ; preds = %64
   %73 = mul nsw i32 %31, %17
@@ -1319,92 +1319,92 @@ define internal fastcc void @transform_rgb565a8(ptr noundef readonly captures(no
   %108 = lshr i16 %107, 1
   %109 = trunc nuw i16 %108 to i8
   store i8 %109, ptr %78, align 1, !tbaa !27
-  %110 = icmp samesign ugt i16 %107, 1
-  br i1 %110, label %113, label %151
+  %.not180 = icmp eq i16 %108, 0
+  br i1 %.not180, label %150, label %112
 
-111:                                              ; preds = %64
-  %112 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
-  store i8 -1, ptr %112, align 1, !tbaa !27
-  br label %113
+110:                                              ; preds = %64
+  %111 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
+  store i8 -1, ptr %111, align 1, !tbaa !27
+  br label %112
 
-113:                                              ; preds = %104, %111
-  %114 = load i16, ptr %57, align 2, !tbaa !43
-  %.not180 = icmp eq i16 %114, %71
-  %.not181 = icmp eq i16 %114, %67
-  %or.cond185 = select i1 %.not180, i1 %.not181, i1 false
-  br i1 %or.cond185, label %151, label %115
+112:                                              ; preds = %104, %110
+  %113 = load i16, ptr %57, align 2, !tbaa !43
+  %.not181 = icmp eq i16 %113, %71
+  %.not182 = icmp eq i16 %113, %67
+  %or.cond186 = select i1 %.not181, i1 %.not182, i1 false
+  br i1 %or.cond186, label %150, label %114
 
-115:                                              ; preds = %113
-  %116 = trunc nuw i32 %.0156 to i8
-  %117 = tail call zeroext i16 @lv_color_16_16_mix(i16 noundef zeroext %71, i16 noundef zeroext %114, i8 noundef zeroext %116) #3
-  %118 = load i16, ptr %57, align 2, !tbaa !43
-  %119 = trunc nuw i32 %.0155 to i8
-  %120 = tail call zeroext i16 @lv_color_16_16_mix(i16 noundef zeroext %67, i16 noundef zeroext %118, i8 noundef zeroext %119) #3
-  %121 = tail call zeroext i16 @lv_color_16_16_mix(i16 noundef zeroext %120, i16 noundef zeroext %117, i8 noundef zeroext 127) #3
-  store i16 %121, ptr %57, align 2, !tbaa !43
-  br label %151
+114:                                              ; preds = %112
+  %115 = trunc nuw i32 %.0156 to i8
+  %116 = tail call zeroext i16 @lv_color_16_16_mix(i16 noundef zeroext %71, i16 noundef zeroext %113, i8 noundef zeroext %115) #3
+  %117 = load i16, ptr %57, align 2, !tbaa !43
+  %118 = trunc nuw i32 %.0155 to i8
+  %119 = tail call zeroext i16 @lv_color_16_16_mix(i16 noundef zeroext %67, i16 noundef zeroext %117, i8 noundef zeroext %118) #3
+  %120 = tail call zeroext i16 @lv_color_16_16_mix(i16 noundef zeroext %119, i16 noundef zeroext %116, i8 noundef zeroext 127) #3
+  store i16 %120, ptr %57, align 2, !tbaa !43
+  br label %150
 
-122:                                              ; preds = %61, %58, %39
-  br i1 %11, label %123, label %129
+121:                                              ; preds = %61, %58, %39
+  br i1 %11, label %122, label %128
 
-123:                                              ; preds = %122
-  %124 = mul nsw i32 %31, %17
-  %125 = add nsw i32 %124, %30
-  %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds i8, ptr %16, i64 %126
-  %128 = load i8, ptr %127, align 1, !tbaa !27
-  br label %129
+122:                                              ; preds = %121
+  %123 = mul nsw i32 %31, %17
+  %124 = add nsw i32 %123, %30
+  %125 = sext i32 %124 to i64
+  %126 = getelementptr inbounds i8, ptr %16, i64 %125
+  %127 = load i8, ptr %126, align 1, !tbaa !27
+  br label %128
 
-129:                                              ; preds = %122, %123
-  %.0 = phi i8 [ %128, %123 ], [ -1, %122 ]
-  %130 = icmp samesign ult i32 %25, 256
-  %or.cond4 = and i1 %130, %42
+128:                                              ; preds = %121, %122
+  %.0 = phi i8 [ %127, %122 ], [ -1, %121 ]
+  %129 = icmp eq i32 %30, 0
+  %or.cond4 = and i1 %129, %42
   %or.cond4.not = xor i1 %or.cond4, true
-  %131 = icmp ne i32 %30, %19
-  %or.cond6.not = or i1 %131, %42
+  %130 = icmp ne i32 %30, %19
+  %or.cond6.not = or i1 %130, %42
   %or.cond = select i1 %or.cond4.not, i1 %or.cond6.not, i1 false
-  br i1 %or.cond, label %139, label %132
+  br i1 %or.cond, label %138, label %131
 
-132:                                              ; preds = %129
-  %133 = zext i8 %.0 to i32
-  %134 = sub nuw nsw i32 255, %.0155
-  %135 = mul nuw nsw i32 %134, %133
-  %136 = lshr i32 %135, 8
-  %137 = trunc nuw i32 %136 to i8
-  %138 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
-  store i8 %137, ptr %138, align 1, !tbaa !27
-  br label %151
+131:                                              ; preds = %128
+  %132 = zext i8 %.0 to i32
+  %133 = sub nuw nsw i32 255, %.0155
+  %134 = mul nuw nsw i32 %133, %132
+  %135 = lshr i32 %134, 8
+  %136 = trunc nuw i32 %135 to i8
+  %137 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
+  store i8 %136, ptr %137, align 1, !tbaa !27
+  br label %150
 
-139:                                              ; preds = %129
-  %140 = icmp samesign ult i32 %29, 256
-  %or.cond8 = and i1 %140, %46
+138:                                              ; preds = %128
+  %139 = icmp eq i32 %31, 0
+  %or.cond8 = and i1 %139, %46
   %or.cond8.not = xor i1 %or.cond8, true
-  %141 = icmp ne i32 %31, %20
-  %or.cond10.not = or i1 %141, %46
-  %or.cond190 = select i1 %or.cond8.not, i1 %or.cond10.not, i1 false
-  br i1 %or.cond190, label %149, label %142
+  %140 = icmp ne i32 %31, %20
+  %or.cond10.not = or i1 %140, %46
+  %or.cond191 = select i1 %or.cond8.not, i1 %or.cond10.not, i1 false
+  br i1 %or.cond191, label %148, label %141
 
-142:                                              ; preds = %139
-  %143 = zext i8 %.0 to i32
-  %144 = sub nuw nsw i32 255, %.0156
-  %145 = mul nuw nsw i32 %144, %143
-  %146 = lshr i32 %145, 8
-  %147 = trunc nuw i32 %146 to i8
-  %148 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
-  store i8 %147, ptr %148, align 1, !tbaa !27
-  br label %151
+141:                                              ; preds = %138
+  %142 = zext i8 %.0 to i32
+  %143 = sub nuw nsw i32 255, %.0156
+  %144 = mul nuw nsw i32 %143, %142
+  %145 = lshr i32 %144, 8
+  %146 = trunc nuw i32 %145 to i8
+  %147 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
+  store i8 %146, ptr %147, align 1, !tbaa !27
+  br label %150
 
-149:                                              ; preds = %139
-  %150 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
-  store i8 %.0, ptr %150, align 1, !tbaa !27
-  br label %151
+148:                                              ; preds = %138
+  %149 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
+  store i8 %.0, ptr %149, align 1, !tbaa !27
+  br label %150
 
-151:                                              ; preds = %104, %113, %115, %132, %149, %142, %37
+150:                                              ; preds = %104, %112, %114, %131, %148, %141, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !44
 
-._crit_edge:                                      ; preds = %151, %13
+._crit_edge:                                      ; preds = %150, %13
   ret void
 }
 

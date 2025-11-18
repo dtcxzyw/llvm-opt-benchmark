@@ -3627,8 +3627,8 @@ define internal fastcc range(i64 4, 0) i64 @LZ4F_decodeHeader(ptr noundef writeo
 
 37:                                               ; preds = %31
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  %.not89 = icmp eq ptr %1, %38
-  br i1 %.not89, label %40, label %39
+  %.not90 = icmp eq ptr %1, %38
+  br i1 %.not90, label %40, label %39
 
 39:                                               ; preds = %37
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %38, ptr nonnull align 1 %1, i64 %2, i1 false)
@@ -3656,8 +3656,8 @@ define internal fastcc range(i64 4, 0) i64 @LZ4F_decodeHeader(ptr noundef writeo
 
 51:                                               ; preds = %49
   %52 = and i32 %46, 15
-  %.not87 = icmp eq i32 %52, 0
-  br i1 %.not87, label %53, label %.thread
+  %.not88 = icmp eq i32 %52, 0
+  br i1 %.not88, label %53, label %.thread
 
 53:                                               ; preds = %51
   %54 = add nsw i64 %35, -5
@@ -3667,8 +3667,8 @@ define internal fastcc range(i64 4, 0) i64 @LZ4F_decodeHeader(ptr noundef writeo
   %58 = getelementptr i8, ptr %1, i64 %35
   %59 = getelementptr i8, ptr %58, i64 -1
   %60 = load i8, ptr %59, align 1, !tbaa !18
-  %.not88 = icmp eq i8 %60, %57
-  br i1 %.not88, label %LZ4F_getBlockSize.exit, label %.thread
+  %.not89 = icmp eq i8 %60, %57
+  br i1 %.not89, label %LZ4F_getBlockSize.exit, label %.thread
 
 LZ4F_getBlockSize.exit:                           ; preds = %53
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 36

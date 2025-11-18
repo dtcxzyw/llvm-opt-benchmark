@@ -33079,7 +33079,7 @@ _ZN19OpenColorIO_v2_5dev24CTFReaderGradingCurveElt8getCurveEv.exit: ; preds = %3
           to label %.preheader unwind label %76
 
 .preheader:                                       ; preds = %_ZN19OpenColorIO_v2_5dev24CTFReaderGradingCurveElt8getCurveEv.exit
-  %.not25 = icmp ult i64 %35, 2
+  %.not25 = icmp eq i64 %36, 0
   br i1 %.not25, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %82, %.preheader

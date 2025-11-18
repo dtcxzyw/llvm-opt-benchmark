@@ -2466,7 +2466,7 @@ split:                                            ; preds = %39, %._crit_edge220
   %77 = lshr i32 %76, 30
   %78 = add nuw i32 %.sroa.15.0187.i, 2
   %79 = call i32 @llvm.umin.i32(i32 %59, i32 %78)
-  %.not112.i = icmp ult i32 %76, 1073741824
+  %.not112.i = icmp eq i32 %77, 0
   br i1 %.not112.i, label %92, label %80
 
 80:                                               ; preds = %69
@@ -2649,9 +2649,9 @@ split:                                            ; preds = %39, %._crit_edge220
 
 .lr.ph184.i:                                      ; preds = %193
   %195 = trunc nuw i32 %.192.i to i8
-  %narrow230.i = add nuw nsw i32 %170, 11
+  %narrow231.i = add nuw nsw i32 %170, 11
   %196 = sub i32 %68, %.0189.i
-  %197 = call i32 @llvm.umin.i32(i32 %narrow230.i, i32 %196)
+  %197 = call i32 @llvm.umin.i32(i32 %narrow231.i, i32 %196)
   %umin220.i = zext nneg i32 %197 to i64
   %198 = add nuw nsw i64 %umin220.i, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.097188.i, i8 %195, i64 %198, i1 false), !tbaa !38
@@ -2708,9 +2708,9 @@ split:                                            ; preds = %39, %._crit_edge220
 
 .lr.ph178.i:                                      ; preds = %232
   %234 = trunc nuw i32 %.293.i to i8
-  %narrow229.i = add nuw nsw i32 %209, 28
+  %narrow230.i = add nuw nsw i32 %209, 28
   %235 = sub i32 %68, %.0189.i
-  %236 = call i32 @llvm.umin.i32(i32 %narrow229.i, i32 %235)
+  %236 = call i32 @llvm.umin.i32(i32 %narrow230.i, i32 %235)
   %umin215.i = zext nneg i32 %236 to i64
   %237 = add nuw nsw i64 %umin215.i, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.097188.i, i8 %234, i64 %237, i1 false), !tbaa !38
@@ -2853,7 +2853,7 @@ default.unreachable:                              ; preds = %407
   %307 = lshr i32 %306, 28
   %308 = add nuw i32 %.sroa.16.0211.i, 4
   %309 = call i32 @llvm.umin.i32(i32 %289, i32 %308)
-  %.not127.i = icmp ult i32 %306, 268435456
+  %.not127.i = icmp eq i32 %307, 0
   br i1 %.not127.i, label %322, label %310
 
 310:                                              ; preds = %299
@@ -2908,29 +2908,29 @@ default.unreachable:                              ; preds = %407
   %339 = call i32 @llvm.bswap.i32(i32 %338)
   %340 = and i32 %spec.select.i.i97, 7
   %341 = shl i32 %339, %340
-  %342 = add i32 %spec.select.i.i97, 3
-  %343 = call i32 @llvm.umin.i32(i32 %289, i32 %342)
-  %344 = icmp ult i32 %341, 536870912
-  br i1 %344, label %345, label %350
+  %342 = lshr i32 %341, 29
+  %343 = add i32 %spec.select.i.i97, 3
+  %344 = call i32 @llvm.umin.i32(i32 %289, i32 %343)
+  %345 = icmp eq i32 %342, 0
+  br i1 %345, label %346, label %351
 
-345:                                              ; preds = %337
-  %346 = add nuw nsw i32 %343, 7
-  %347 = lshr i32 %346, 3
-  %348 = zext nneg i32 %347 to i64
-  %349 = getelementptr inbounds nuw i8, ptr %47, i64 %348
+346:                                              ; preds = %337
+  %347 = add nuw nsw i32 %344, 7
+  %348 = lshr i32 %347, 3
+  %349 = zext nneg i32 %348 to i64
+  %350 = getelementptr inbounds nuw i8, ptr %47, i64 %349
   br label %dvbsub_read_2bit_string.exit
 
-350:                                              ; preds = %337
-  %351 = icmp slt i32 %.0213.i, %283
-  br i1 %351, label %.lr.ph208.preheader.i, label %.loopexit.i93
+351:                                              ; preds = %337
+  %352 = icmp slt i32 %.0213.i, %283
+  br i1 %352, label %.lr.ph208.preheader.i, label %.loopexit.i93
 
-.lr.ph208.preheader.i:                            ; preds = %350
-  %352 = load i8, ptr %9, align 16
-  %spec.select = select i1 %.not, i8 %352, i8 0
-  %353 = lshr i32 %341, 29
-  %narrow263.i = add nuw nsw i32 %353, 1
+.lr.ph208.preheader.i:                            ; preds = %351
+  %353 = load i8, ptr %9, align 16
+  %spec.select = select i1 %.not, i8 %353, i8 0
+  %narrow264.i = add nuw nsw i32 %342, 1
   %354 = sub i32 %298, %.0213.i
-  %355 = call i32 @llvm.umin.i32(i32 %narrow263.i, i32 %354)
+  %355 = call i32 @llvm.umin.i32(i32 %narrow264.i, i32 %354)
   %umin251.i = zext nneg i32 %355 to i64
   %356 = add nuw nsw i64 %umin251.i, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0109212.i, i8 %spec.select, i64 %356, i1 false), !tbaa !38
@@ -2999,9 +2999,9 @@ default.unreachable:                              ; preds = %407
 
 .lr.ph202.i:                                      ; preds = %399
   %401 = trunc nuw i32 %.1103.i to i8
-  %narrow262.i = add nuw nsw i32 %375, 3
+  %narrow263.i = add nuw nsw i32 %375, 3
   %402 = sub i32 %298, %.0213.i
-  %403 = call i32 @llvm.umin.i32(i32 %narrow262.i, i32 %402)
+  %403 = call i32 @llvm.umin.i32(i32 %narrow263.i, i32 %402)
   %umin246.i = zext nneg i32 %403 to i64
   %404 = add nuw nsw i64 %umin246.i, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0109212.i, i8 %401, i64 %404, i1 false), !tbaa !38
@@ -3066,9 +3066,9 @@ default.unreachable:                              ; preds = %407
 
 .lr.ph196.i:                                      ; preds = %439
   %441 = trunc nuw i32 %.2104.i to i8
-  %narrow261.i = add nuw nsw i32 %416, 8
+  %narrow262.i = add nuw nsw i32 %416, 8
   %442 = sub i32 %298, %.0213.i
-  %443 = call i32 @llvm.umin.i32(i32 %narrow261.i, i32 %442)
+  %443 = call i32 @llvm.umin.i32(i32 %narrow262.i, i32 %442)
   %umin241.i = zext nneg i32 %443 to i64
   %444 = add nuw nsw i64 %umin241.i, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0109212.i, i8 %441, i64 %444, i1 false), !tbaa !38
@@ -3163,10 +3163,10 @@ default.unreachable:                              ; preds = %407
   %496 = add nsw i32 %.0213.i, 1
   br label %.loopexit.i93
 
-.loopexit.i93:                                    ; preds = %493, %.lr.ph.preheader.i, %486, %.lr.ph190.i101, %478, %469, %.lr.ph196.i, %439, %430, %.lr.ph202.i, %399, %390, %.lr.ph208.preheader.i, %350, %320
-  %.sroa.16.1.i = phi i32 [ %388, %390 ], [ %377, %493 ], [ %428, %430 ], [ %467, %469 ], [ %309, %320 ], [ %343, %350 ], [ %388, %399 ], [ %428, %439 ], [ %467, %478 ], [ %377, %486 ], [ %343, %.lr.ph208.preheader.i ], [ %388, %.lr.ph202.i ], [ %428, %.lr.ph196.i ], [ %467, %.lr.ph190.i101 ], [ %377, %.lr.ph.preheader.i ]
-  %.2111.i = phi ptr [ %.0109212.i, %390 ], [ %495, %493 ], [ %.0109212.i, %430 ], [ %.0109212.i, %469 ], [ %.1110.i, %320 ], [ %.0109212.i, %350 ], [ %.0109212.i, %399 ], [ %.0109212.i, %439 ], [ %.0109212.i, %478 ], [ %.0109212.i, %486 ], [ %scevgep254.i, %.lr.ph208.preheader.i ], [ %scevgep249.i, %.lr.ph202.i ], [ %scevgep244.i, %.lr.ph196.i ], [ %scevgep239.i, %.lr.ph190.i101 ], [ %scevgep234.i, %.lr.ph.preheader.i ]
-  %.1.i94 = phi i32 [ %392, %390 ], [ %496, %493 ], [ %432, %430 ], [ %471, %469 ], [ %321, %320 ], [ %.0213.i, %350 ], [ %.0213.i, %399 ], [ %.0213.i, %439 ], [ %.0213.i, %478 ], [ %.0213.i, %486 ], [ %358, %.lr.ph208.preheader.i ], [ %406, %.lr.ph202.i ], [ %446, %.lr.ph196.i ], [ %485, %.lr.ph190.i101 ], [ %492, %.lr.ph.preheader.i ]
+.loopexit.i93:                                    ; preds = %493, %.lr.ph.preheader.i, %486, %.lr.ph190.i101, %478, %469, %.lr.ph196.i, %439, %430, %.lr.ph202.i, %399, %390, %.lr.ph208.preheader.i, %351, %320
+  %.sroa.16.1.i = phi i32 [ %388, %390 ], [ %377, %493 ], [ %428, %430 ], [ %467, %469 ], [ %309, %320 ], [ %344, %351 ], [ %388, %399 ], [ %428, %439 ], [ %467, %478 ], [ %377, %486 ], [ %344, %.lr.ph208.preheader.i ], [ %388, %.lr.ph202.i ], [ %428, %.lr.ph196.i ], [ %467, %.lr.ph190.i101 ], [ %377, %.lr.ph.preheader.i ]
+  %.2111.i = phi ptr [ %.0109212.i, %390 ], [ %495, %493 ], [ %.0109212.i, %430 ], [ %.0109212.i, %469 ], [ %.1110.i, %320 ], [ %.0109212.i, %351 ], [ %.0109212.i, %399 ], [ %.0109212.i, %439 ], [ %.0109212.i, %478 ], [ %.0109212.i, %486 ], [ %scevgep254.i, %.lr.ph208.preheader.i ], [ %scevgep249.i, %.lr.ph202.i ], [ %scevgep244.i, %.lr.ph196.i ], [ %scevgep239.i, %.lr.ph190.i101 ], [ %scevgep234.i, %.lr.ph.preheader.i ]
+  %.1.i94 = phi i32 [ %392, %390 ], [ %496, %493 ], [ %432, %430 ], [ %471, %469 ], [ %321, %320 ], [ %.0213.i, %351 ], [ %.0213.i, %399 ], [ %.0213.i, %439 ], [ %.0213.i, %478 ], [ %.0213.i, %486 ], [ %358, %.lr.ph208.preheader.i ], [ %406, %.lr.ph202.i ], [ %446, %.lr.ph196.i ], [ %485, %.lr.ph190.i101 ], [ %492, %.lr.ph.preheader.i ]
   %497 = icmp slt i32 %.sroa.16.1.i, %287
   %498 = icmp slt i32 %.1.i94, %283
   %499 = select i1 %497, i1 %498, i1 false
@@ -3427,10 +3427,10 @@ default.unreachable:                              ; preds = %407
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 32, ptr noundef nonnull @.str.31, i32 noundef %621) #10
   br label %dvbsub_read_2bit_string.exit
 
-dvbsub_read_2bit_string.exit:                     ; preds = %.preheader140, %.preheader, %577, %549, %600, %._crit_edge.i106, %510, %345, %273, %249, %620, %617, %601
-  %.1 = phi ptr [ %47, %620 ], [ %608, %601 ], [ %47, %617 ], [ %277, %273 ], [ %253, %249 ], [ %514, %510 ], [ %349, %345 ], [ %598, %._crit_edge.i106 ], [ %598, %600 ], [ %541, %549 ], [ %572, %577 ], [ %611, %.preheader ], [ %614, %.preheader140 ]
-  %.171 = phi i32 [ %.070176, %620 ], [ %.070176, %601 ], [ %618, %617 ], [ %.0.lcssa.i83, %273 ], [ %.0189.i, %249 ], [ %.0.lcssa.i89, %510 ], [ %.0213.i, %345 ], [ %.0.lcssa.i107, %._crit_edge.i106 ], [ %.0.lcssa.i107, %600 ], [ %.010.us.us.fr.i, %549 ], [ %.010.fr.i, %577 ], [ %.070176, %.preheader ], [ %.070176, %.preheader140 ]
-  %.169 = phi i32 [ %.068177, %620 ], [ %.068177, %601 ], [ %619, %617 ], [ %.068177, %273 ], [ %.068177, %249 ], [ %.068177, %510 ], [ %.068177, %345 ], [ %.068177, %._crit_edge.i106 ], [ %.068177, %600 ], [ %.068177, %549 ], [ %.068177, %577 ], [ %.068177, %.preheader ], [ %.068177, %.preheader140 ]
+dvbsub_read_2bit_string.exit:                     ; preds = %.preheader140, %.preheader, %577, %549, %600, %._crit_edge.i106, %510, %346, %273, %249, %620, %617, %601
+  %.1 = phi ptr [ %47, %620 ], [ %608, %601 ], [ %47, %617 ], [ %277, %273 ], [ %253, %249 ], [ %514, %510 ], [ %350, %346 ], [ %598, %._crit_edge.i106 ], [ %598, %600 ], [ %541, %549 ], [ %572, %577 ], [ %611, %.preheader ], [ %614, %.preheader140 ]
+  %.171 = phi i32 [ %.070176, %620 ], [ %.070176, %601 ], [ %618, %617 ], [ %.0.lcssa.i83, %273 ], [ %.0189.i, %249 ], [ %.0.lcssa.i89, %510 ], [ %.0213.i, %346 ], [ %.0.lcssa.i107, %._crit_edge.i106 ], [ %.0.lcssa.i107, %600 ], [ %.010.us.us.fr.i, %549 ], [ %.010.fr.i, %577 ], [ %.070176, %.preheader ], [ %.070176, %.preheader140 ]
+  %.169 = phi i32 [ %.068177, %620 ], [ %.068177, %601 ], [ %619, %617 ], [ %.068177, %273 ], [ %.068177, %249 ], [ %.068177, %510 ], [ %.068177, %346 ], [ %.068177, %._crit_edge.i106 ], [ %.068177, %600 ], [ %.068177, %549 ], [ %.068177, %577 ], [ %.068177, %.preheader ], [ %.068177, %.preheader140 ]
   %622 = icmp ult ptr %.1, %20
   br i1 %622, label %37, label %._crit_edge, !llvm.loop !162
 

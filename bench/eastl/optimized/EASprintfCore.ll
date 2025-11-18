@@ -5351,7 +5351,7 @@ while.end:                                        ; preds = %while.cond
   br i1 %or.cond, label %if.then, label %while.cond5.preheader
 
 while.cond5.preheader:                            ; preds = %while.end
-  %cmp787.not = icmp ult i64 %sext, 4294967296
+  %cmp787.not = icmp eq i64 %idx.ext, 0
   br i1 %cmp787.not, label %return, label %while.body8.lr.ph
 
 while.body8.lr.ph:                                ; preds = %while.cond5.preheader
@@ -9560,7 +9560,7 @@ while.end:                                        ; preds = %while.cond
   br i1 %or.cond, label %if.then, label %while.cond5.preheader
 
 while.cond5.preheader:                            ; preds = %while.end
-  %cmp787.not = icmp ult i64 %sext, 4294967296
+  %cmp787.not = icmp eq i64 %idx.ext, 0
   br i1 %cmp787.not, label %return, label %while.body8.lr.ph
 
 while.body8.lr.ph:                                ; preds = %while.cond5.preheader

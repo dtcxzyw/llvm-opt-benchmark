@@ -1261,11 +1261,11 @@ Kit_DsdNtkObj.exit37:                             ; preds = %Kit_DsdNtkObj.exit,
 
 .preheader:                                       ; preds = %29
   %37 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %.not44 = icmp ult i32 %30, 67108864
+  %38 = lshr i32 %30, 26
+  %.not44 = icmp eq i32 %38, 0
   br i1 %.not44, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %38 = lshr i32 %30, 26
   %39 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %wide.trip.count = zext nneg i32 %38 to i64
   br label %41

@@ -1941,7 +1941,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7724FCDUTF8CollationIterator11
 _ZNK6icu_7715Normalizer2Impl8getFCD16Ei.exit:     ; preds = %99, %91, %112
   %.0.i = phi i16 [ 0, %91 ], [ 0, %99 ], [ %113, %112 ]
   %114 = lshr i16 %.0.i, 8
-  %115 = icmp ugt i16 %.0.i, 255
+  %115 = icmp ne i16 %114, 0
   %.not87 = icmp eq i32 %14, %8
   %or.cond98 = select i1 %115, i1 true, i1 %.not87
   br i1 %or.cond98, label %119, label %116
@@ -1960,7 +1960,7 @@ _ZNK6icu_7715Normalizer2Impl8getFCD16Ei.exit:     ; preds = %99, %91, %112
           to label %121 unwind label %.loopexit.split-lp.loopexit
 
 121:                                              ; preds = %119
-  %.not88 = icmp ult i16 %.0.i, 256
+  %.not88 = icmp eq i16 %114, 0
   br i1 %.not88, label %242, label %122
 
 122:                                              ; preds = %121
@@ -3272,7 +3272,7 @@ _ZN6icu_7713UnicodeString7reverseEv.exit:         ; preds = %.critedge
   %129 = trunc nuw i16 %128 to i8
   %130 = load i32, ptr %7, align 8, !tbaa !15
   %131 = icmp eq i32 %130, 0
-  %132 = icmp ult i16 %.0.i, 256
+  %132 = icmp eq i16 %128, 0
   %or.cond = or i1 %132, %131
   br i1 %or.cond, label %select.unfold, label %12
 

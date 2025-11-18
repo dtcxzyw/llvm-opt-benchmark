@@ -1467,25 +1467,25 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %28, %_ZNSt6vectorIi
   %152 = ptrtoint ptr %150 to i64
   %153 = sub i64 %151, %152
   %sext = shl i64 %153, 29
-  %.not.i.i159 = icmp ult i64 %sext, 4294967296
-  br i1 %.not.i.i159, label %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit165, label %154
+  %154 = ashr i64 %sext, 32
+  %.not.i.i159 = icmp eq i64 %154, 0
+  br i1 %.not.i.i159, label %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit165, label %155
 
-154:                                              ; preds = %144
-  %155 = ashr i64 %sext, 32
-  %156 = add nsw i64 %155, 63
+155:                                              ; preds = %144
+  %156 = add nsw i64 %154, 63
   %157 = lshr i64 %156, 3
   %158 = and i64 %157, 2305843009213693944
   %159 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %158) #20
           to label %160 unwind label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit209
 
-160:                                              ; preds = %154
+160:                                              ; preds = %155
   %161 = lshr i64 %156, 6
   %162 = getelementptr inbounds nuw i64, ptr %159, i64 %161
   %.idx.i162 = shl nuw nsw i64 %161, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %159, i8 0, i64 %.idx.i162, i1 false)
   br label %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit165
 
-_ZNSt13_Bvector_baseISaIbEED2Ev.exit209:          ; preds = %154
+_ZNSt13_Bvector_baseISaIbEED2Ev.exit209:          ; preds = %155
   %163 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit189
@@ -1812,9 +1812,9 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit5.i:             ; preds = %280, %_ZNSt6vectorI
   br i1 %.not.i.i182, label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit186, label %.critedge147.thread
 
 .critedge147.thread:                              ; preds = %._crit_edge355.us, %.critedge147
-  %.sroa.0228.5468 = phi ptr [ %.sroa.0228.5, %.critedge147 ], [ %.sroa.0228.6, %._crit_edge355.us ]
-  %.sroa.17.5466 = phi ptr [ %.sroa.17.5, %.critedge147 ], [ %.sroa.17.6, %._crit_edge355.us ]
-  %.not316464 = phi i1 [ true, %.critedge147 ], [ false, %._crit_edge355.us ]
+  %.sroa.0228.5469 = phi ptr [ %.sroa.0228.5, %.critedge147 ], [ %.sroa.0228.6, %._crit_edge355.us ]
+  %.sroa.17.5467 = phi ptr [ %.sroa.17.5, %.critedge147 ], [ %.sroa.17.6, %._crit_edge355.us ]
+  %.not316465 = phi i1 [ true, %.critedge147 ], [ false, %._crit_edge355.us ]
   %299 = ptrtoint ptr %.sroa.29225.0 to i64
   %300 = ptrtoint ptr %.sroa.0218.0 to i64
   %301 = sub i64 %299, %300
@@ -1825,17 +1825,17 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit5.i:             ; preds = %280, %_ZNSt6vectorI
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit186
 
 _ZNSt13_Bvector_baseISaIbEED2Ev.exit186:          ; preds = %.critedge147, %.critedge147.thread
-  %.sroa.0228.5469 = phi ptr [ %.sroa.0228.5, %.critedge147 ], [ %.sroa.0228.5468, %.critedge147.thread ]
-  %.sroa.17.5467 = phi ptr [ %.sroa.17.5, %.critedge147 ], [ %.sroa.17.5466, %.critedge147.thread ]
-  %.not316465 = phi i1 [ true, %.critedge147 ], [ %.not316464, %.critedge147.thread ]
-  %.not.i.i.i187 = icmp eq ptr %.sroa.0228.5469, null
+  %.sroa.0228.5470 = phi ptr [ %.sroa.0228.5, %.critedge147 ], [ %.sroa.0228.5469, %.critedge147.thread ]
+  %.sroa.17.5468 = phi ptr [ %.sroa.17.5, %.critedge147 ], [ %.sroa.17.5467, %.critedge147.thread ]
+  %.not316466 = phi i1 [ true, %.critedge147 ], [ %.not316465, %.critedge147.thread ]
+  %.not.i.i.i187 = icmp eq ptr %.sroa.0228.5470, null
   br i1 %.not.i.i.i187, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %305
 
 305:                                              ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit186
-  %306 = ptrtoint ptr %.sroa.17.5467 to i64
-  %307 = ptrtoint ptr %.sroa.0228.5469 to i64
+  %306 = ptrtoint ptr %.sroa.17.5468 to i64
+  %307 = ptrtoint ptr %.sroa.0228.5470 to i64
   %308 = sub i64 %306, %307
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0228.5469, i64 noundef %308) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0228.5470, i64 noundef %308) #18
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 .body163:                                         ; preds = %292, %291
@@ -1853,7 +1853,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit186:          ; preds = %.critedge147, %.cri
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit189
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.preheader306, %._crit_edge347, %305, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit186
-  %.2 = phi i1 [ %.not316465, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit186 ], [ %.not316465, %305 ], [ false, %._crit_edge347 ], [ false, %.preheader306 ]
+  %.2 = phi i1 [ %.not316466, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit186 ], [ %.not316466, %305 ], [ false, %._crit_edge347 ], [ false, %.preheader306 ]
   %.not.i.i190 = icmp eq ptr %.sroa.0245.0, null
   br i1 %.not.i.i190, label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit194, label %313
 

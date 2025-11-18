@@ -32,28 +32,28 @@ define hidden noundef nonnull ptr @MD5(ptr noundef %0, i64 noundef %1, ptr nound
   store i32 %15, ptr %13, align 4, !tbaa !10
   store i32 %12, ptr %5, align 4, !tbaa !12
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %.not57.i = icmp ult i64 %1, 64
-  br i1 %.not57.i, label %.thread, label %17
+  %17 = lshr i64 %1, 6
+  %.not57.i = icmp eq i64 %17, 0
+  br i1 %.not57.i, label %.thread, label %18
 
-17:                                               ; preds = %10
-  %18 = lshr i64 %1, 6
-  call void @md5_block_asm_data_order(ptr noundef nonnull %4, ptr noundef %0, i64 noundef %18) #6
+18:                                               ; preds = %10
+  call void @md5_block_asm_data_order(ptr noundef nonnull %4, ptr noundef %0, i64 noundef %17) #6
   %19 = and i64 %1, -64
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 %19
   %21 = and i64 %1, 63
   %.not58.i = icmp eq i64 %21, 0
   br i1 %.not58.i, label %MD5_Update.exit, label %.thread
 
-.thread:                                          ; preds = %10, %17
-  %.152.i8 = phi ptr [ %20, %17 ], [ %0, %10 ]
-  %.154.i7 = phi i64 [ %21, %17 ], [ %1, %10 ]
-  %22 = trunc nuw nsw i64 %.154.i7 to i32
+.thread:                                          ; preds = %10, %18
+  %.152.i9 = phi ptr [ %20, %18 ], [ %0, %10 ]
+  %.154.i8 = phi i64 [ %21, %18 ], [ %1, %10 ]
+  %22 = trunc i64 %.154.i8 to i32
   store i32 %22, ptr %16, align 4, !tbaa !13
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %23, ptr align 1 %.152.i8, i64 %.154.i7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %23, ptr align 1 %.152.i9, i64 %.154.i8, i1 false)
   br label %MD5_Update.exit
 
-MD5_Update.exit:                                  ; preds = %3, %17, %.thread
+MD5_Update.exit:                                  ; preds = %3, %18, %.thread
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %25 = load i32, ptr %24, align 4, !tbaa !13
   %26 = zext i32 %25 to i64
@@ -171,25 +171,25 @@ define hidden noundef i32 @MD5_Update(ptr noundef %0, ptr noundef %1, i64 nounde
 35:                                               ; preds = %28, %._crit_edge
   %.053 = phi i64 [ %31, %28 ], [ %2, %._crit_edge ]
   %.051 = phi ptr [ %30, %28 ], [ %1, %._crit_edge ]
-  %.not57 = icmp ult i64 %.053, 64
-  br i1 %.not57, label %41, label %36
+  %36 = lshr i64 %.053, 6
+  %.not57 = icmp eq i64 %36, 0
+  br i1 %.not57, label %41, label %37
 
-36:                                               ; preds = %35
-  %37 = lshr i64 %.053, 6
-  tail call void @md5_block_asm_data_order(ptr noundef nonnull %0, ptr noundef %.051, i64 noundef %37) #6
+37:                                               ; preds = %35
+  tail call void @md5_block_asm_data_order(ptr noundef nonnull %0, ptr noundef %.051, i64 noundef %36) #6
   %38 = and i64 %.053, -64
   %39 = getelementptr inbounds nuw i8, ptr %.051, i64 %38
   %40 = and i64 %.053, 63
   br label %41
 
-41:                                               ; preds = %36, %35
-  %.154 = phi i64 [ %40, %36 ], [ %.053, %35 ]
-  %.152 = phi ptr [ %39, %36 ], [ %.051, %35 ]
+41:                                               ; preds = %37, %35
+  %.154 = phi i64 [ %40, %37 ], [ %.053, %35 ]
+  %.152 = phi ptr [ %39, %37 ], [ %.051, %35 ]
   %.not58 = icmp eq i64 %.154, 0
   br i1 %.not58, label %45, label %42
 
 42:                                               ; preds = %41
-  %43 = trunc nuw nsw i64 %.154 to i32
+  %43 = trunc i64 %.154 to i32
   store i32 %43, ptr %19, align 4, !tbaa !13
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %44, ptr align 1 %.152, i64 %.154, i1 false)

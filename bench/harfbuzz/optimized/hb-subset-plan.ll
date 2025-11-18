@@ -25740,7 +25740,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK2OT19CmapSubtableFormat49g
   %20 = shl nuw nsw i32 %8, 3
   %21 = sub nsw i32 %reass.sub.i, %20
   %22 = lshr i32 %21, 1
-  %.not5.i.i.i.not = icmp ult i16 %6, 2
+  %.not5.i.i.i.not = icmp eq i16 %7, 0
   br i1 %.not5.i.i.i.not, label %_ZNK2OT19CmapSubtableFormat413accelerator_t9get_glyphEjPj.exit, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %3

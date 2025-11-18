@@ -608,7 +608,7 @@ define noundef zeroext i1 @_ZNK7mitsuba6Struct9has_fieldERKNSt3__112basic_string
   br i1 %.not.i.i, label %.preheader.i, label %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit
 
 .preheader.i:                                     ; preds = %26
-  %.not1924.i = icmp ult i8 %19, 2
+  %.not1924.i = icmp eq i8 %23, 0
   br i1 %.not1924.i, label %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %29
@@ -1729,7 +1729,7 @@ define noundef nonnull align 8 dereferenceable(88) ptr @_ZNK7mitsuba6Struct5fiel
   br i1 %.not.i.i, label %.preheader.i, label %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit
 
 .preheader.i:                                     ; preds = %27
-  %.not1924.i = icmp ult i8 %20, 2
+  %.not1924.i = icmp eq i8 %24, 0
   br i1 %.not1924.i, label %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %30
@@ -1920,7 +1920,7 @@ define noundef nonnull align 8 dereferenceable(88) ptr @_ZN7mitsuba6Struct5field
   br i1 %.not.i.i, label %.preheader.i, label %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit
 
 .preheader.i:                                     ; preds = %27
-  %.not1924.i = icmp ult i8 %20, 2
+  %.not1924.i = icmp eq i8 %24, 0
   br i1 %.not1924.i, label %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %30
@@ -2651,7 +2651,7 @@ _ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEE4xor_ERKNS1_2GpES7_.ex
   br i1 %.not.i.i.i, label %.preheader.i.i, label %_ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit
 
 .preheader.i.i:                                   ; preds = %230
-  %.not1924.i.i = icmp ult i8 %216, 2
+  %.not1924.i.i = icmp eq i8 %220, 0
   br i1 %.not1924.i.i, label %_ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit.thread324.thread, label %.lr.ph.i.i
 
 _ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit.thread324.thread: ; preds = %.preheader.i.i
@@ -2907,7 +2907,7 @@ _ZN7mitsuba6detail14StructCompiler5blendIN6asmjit9_abi_1_103x863XmmES6_S6_EEvRKT
   br i1 %.not.i.i.i188, label %.preheader.i.i193, label %_ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit202
 
 .preheader.i.i193:                                ; preds = %322
-  %.not1924.i.i194 = icmp ult i8 %308, 2
+  %.not1924.i.i194 = icmp eq i8 %312, 0
   br i1 %.not1924.i.i194, label %_ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit202.thread335, label %.lr.ph.i.i195
 
 .lr.ph.i.i195:                                    ; preds = %.preheader.i.i193, %329
@@ -3181,7 +3181,7 @@ _ZN7mitsuba6detail14StructCompiler5blendIN6asmjit9_abi_1_103x863XmmES6_S6_EEvRKT
   br i1 %.not.i.i.i217, label %.preheader.i.i220, label %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.i
 
 .preheader.i.i220:                                ; preds = %446
-  %.not1924.i.i221 = icmp ult i8 %439, 2
+  %.not1924.i.i221 = icmp eq i8 %443, 0
   br i1 %.not1924.i.i221, label %.loopexit, label %.lr.ph.i.i222
 
 .lr.ph.i.i222:                                    ; preds = %.preheader.i.i220, %449
@@ -11202,7 +11202,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7mitsuba6Struct5FieldeqERKS1_(ptr no
   br i1 %.not.i.i, label %.preheader.i, label %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit
 
 .preheader.i:                                     ; preds = %17
-  %.not1924.i = icmp ult i8 %3, 2
+  %.not1924.i = icmp eq i8 %7, 0
   br i1 %.not1924.i, label %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %24

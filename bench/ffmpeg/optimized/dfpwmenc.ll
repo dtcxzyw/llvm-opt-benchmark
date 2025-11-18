@@ -118,7 +118,7 @@ define internal i32 @dfpwm_enc_frame(ptr noundef %0, ptr noundef %1, ptr noundef
   %54 = add nsw i32 %53, 512
   %55 = ashr i32 %54, 10
   %56 = add nsw i32 %55, %.fr62.i
-  %57 = icmp ugt i32 %54, 1023
+  %57 = icmp ne i32 %55, 0
   %.not.i = icmp eq i32 %56, %50
   %or.cond.i = select i1 %57, i1 true, i1 %.not.i
   %58 = select i1 %or.cond.i, i32 0, i32 %spec.select61.i

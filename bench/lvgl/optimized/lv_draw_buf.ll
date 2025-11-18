@@ -1434,7 +1434,7 @@ switch.lookup:                                    ; preds = %68
   %75 = load i32, ptr %23, align 4
   %76 = and i32 %75, 65535
   %77 = icmp ugt i32 %.070, %76
-  %.not89 = icmp ult i64 %7, 281474976710656
+  %.not89 = icmp eq i64 %11, 0
   br i1 %77, label %78, label %100
 
 78:                                               ; preds = %73
@@ -1447,7 +1447,7 @@ switch.lookup:                                    ; preds = %68
   %82 = mul i32 %.070, %81
   %83 = zext i32 %82 to i64
   %84 = getelementptr inbounds nuw i8, ptr %80, i64 %83
-  %85 = mul i32 %76, %81
+  %85 = mul nuw i32 %76, %81
   %86 = zext i32 %85 to i64
   %87 = getelementptr inbounds nuw i8, ptr %80, i64 %86
   %88 = zext nneg i32 %36 to i64
@@ -1585,7 +1585,7 @@ switch.lookup:                                    ; preds = %10
   %22 = lshr i64 %3, 32
   %23 = trunc nuw i64 %22 to i32
   %24 = and i32 %23, 65535
-  %.not126 = icmp ult i64 %3, 281474976710656
+  %.not126 = icmp eq i64 %20, 0
   br i1 %.not126, label %.loopexit, label %.preheader100.lr.ph
 
 .preheader100.lr.ph:                              ; preds = %19
@@ -1625,7 +1625,7 @@ switch.lookup:                                    ; preds = %10
   %37 = lshr i64 %3, 48
   %38 = trunc nuw nsw i64 %37 to i32
   %39 = lshr i64 %3, 32
-  %.not124 = icmp ult i64 %3, 281474976710656
+  %.not124 = icmp eq i64 %37, 0
   br i1 %.not124, label %.loopexit, label %.preheader102.lr.ph
 
 .preheader102.lr.ph:                              ; preds = %36
@@ -1678,7 +1678,7 @@ switch.lookup:                                    ; preds = %10
   %62 = lshr i64 %3, 32
   %63 = trunc nuw i64 %62 to i32
   %64 = and i32 %63, 65535
-  %.not122 = icmp ult i64 %3, 281474976710656
+  %.not122 = icmp eq i64 %60, 0
   br i1 %.not122, label %.loopexit, label %.preheader104.lr.ph
 
 .preheader104.lr.ph:                              ; preds = %59

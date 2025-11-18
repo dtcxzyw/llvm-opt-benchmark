@@ -11685,7 +11685,7 @@ land.rhs.i.i.i.i13.i:                             ; preds = %while.body.i.i.i.i2
 while.body.i.i.i.i23.i:                           ; preds = %land.rhs.i.i.i.i13.i
   %add.ptr.i8.i.i.i.i24.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %__holeIndex.addr.07.i.i.i.i14.i
   store ptr %call.val.i.i.i.i.i18.i, ptr %add.ptr.i8.i.i.i.i24.i, align 8
-  %cmp.i.i.not.i.i.i = icmp ult i64 %__parent.08.in.i.i.i.i15.i, 2
+  %cmp.i.i.not.i.i.i = icmp eq i64 %__parent.08.i.i67.i.i.i, 0
   br i1 %cmp.i.i.not.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SN_SN_RSX_.exit.i.i, label %land.rhs.i.i.i.i13.i, !llvm.loop !483
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13json_internal12_GLOBAL__N_111WriteFieldsINSE_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNSE_10JsonWriterERKNT_3MsgERKNSN_4DescERbEUlRKSN_RKT0_E_EEEvSN_SN_SN_RSX_.exit.i.i: ; preds = %while.body.i.i.i.i23.i, %land.rhs.i.i.i.i13.i, %if.end33.i.i.i11.i
@@ -19973,7 +19973,7 @@ land.rhs.i.i.i.i13.i:                             ; preds = %while.body.i.i.i.i2
 while.body.i.i.i.i25.i:                           ; preds = %land.rhs.i.i.i.i13.i
   %add.ptr.i8.i.i.i.i26.i = getelementptr inbounds ptr, ptr %__first.coerce.fr.i.i.i, i64 %__holeIndex.addr.07.i.i.i.i14.i
   store ptr %call.val.i.i.i.i.i19.i, ptr %add.ptr.i8.i.i.i.i26.i, align 8
-  %cmp.i.i.not.i.i.i = icmp ult i64 %__parent.08.in.i.i.i.i15.i, 2
+  %cmp.i.i.not.i.i.i = icmp eq i64 %__parent.08.i.i67.i.i.i, 0
   br i1 %cmp.i.i.not.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SO_SO_RSY_.exit.i.i, label %land.rhs.i.i.i.i13.i, !llvm.loop !716
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_internal12ResolverPool5FieldESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_111WriteFieldsINS4_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS4_10JsonWriterERKNT_3MsgERKNSO_4DescERbEUlRKSO_RKT0_E_EEEvSO_SO_SO_RSY_.exit.i.i: ; preds = %while.body.i.i.i.i25.i, %land.rhs.i.i.i.i13.i, %if.end33.i.i.i11.i

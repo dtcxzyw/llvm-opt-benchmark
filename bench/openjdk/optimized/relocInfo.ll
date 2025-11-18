@@ -2596,7 +2596,7 @@ define hidden void @_ZN28runtime_call_w_cp_Relocation12pack_data_toEP11CodeSecti
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = ashr i32 %6, 2
-  %.not.i = icmp ult i32 %6, 4
+  %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %_ZN10Relocation13pack_1_int_toEPsi.exit, label %8
 
 8:                                                ; preds = %2

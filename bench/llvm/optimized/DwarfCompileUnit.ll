@@ -1655,17 +1655,17 @@ _ZNK4llvm16DIGlobalVariable14getAnnotationsEv.exit: ; preds = %128, %131
   tail call void @_ZN4llvm9DwarfUnit13addAnnotationERNS_3DIEENS_24MDTupleTypedArrayWrapperINS_6DINodeEEE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(48) %31, ptr %137) #26
   %138 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %139 = load i32, ptr %138, align 4, !tbaa !535
-  %.not76 = icmp ult i32 %139, 8
-  br i1 %.not76, label %144, label %140
+  %140 = lshr i32 %139, 3
+  %.not76 = icmp eq i32 %140, 0
+  br i1 %.not76, label %144, label %141
 
-140:                                              ; preds = %_ZNK4llvm16DIGlobalVariable14getAnnotationsEv.exit
-  %141 = lshr i32 %139, 3
+141:                                              ; preds = %_ZNK4llvm16DIGlobalVariable14getAnnotationsEv.exit
   %142 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %143 = zext nneg i32 %141 to i64
+  %143 = zext nneg i32 %140 to i64
   tail call void @_ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS3_4FormEEm(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(8) %142, i16 noundef zeroext 136, i32 65551, i64 noundef %143) #26
   br label %144
 
-144:                                              ; preds = %140, %_ZNK4llvm16DIGlobalVariable14getAnnotationsEv.exit
+144:                                              ; preds = %141, %_ZNK4llvm16DIGlobalVariable14getAnnotationsEv.exit
   %145 = load i64, ptr %7, align 8
   %146 = and i64 %145, 2
   %.not.i.i.i.i108 = icmp eq i64 %146, 0
@@ -7125,17 +7125,17 @@ _ZNK4llvm11DbgVariable7getNameEv.exit.thread:     ; preds = %_ZNK4llvm6DINode12g
 25:                                               ; preds = %_ZNK4llvm11DbgVariable7getNameEv.exit.thread
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !535
-  %.not18 = icmp ult i32 %27, 8
-  br i1 %.not18, label %32, label %28
+  %28 = lshr i32 %27, 3
+  %.not18 = icmp eq i32 %28, 0
+  br i1 %.not18, label %32, label %29
 
-28:                                               ; preds = %25
-  %29 = lshr i32 %27, 3
+29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %31 = zext nneg i32 %29 to i64
+  %31 = zext nneg i32 %28 to i64
   tail call void @_ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS3_4FormEEm(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(8) %30, i16 noundef zeroext 136, i32 65551, i64 noundef %31) #26
   br label %32
 
-32:                                               ; preds = %28, %25
+32:                                               ; preds = %29, %25
   %33 = getelementptr inbounds i8, ptr %24, i64 -16
   %34 = load i64, ptr %33, align 8
   %35 = and i64 %34, 2
@@ -7462,11 +7462,11 @@ _ZN4llvm15DwarfExpressionD2Ev.exit44:             ; preds = %_ZNK4llvm10DIVariab
   %152 = zext i32 %151 to i64
   %.idx1.i = mul nuw nsw i64 %152, 24
   %153 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx1.i
-  %.not68 = icmp ult i32 %151, 4
+  %154 = lshr i64 %152, 2
+  %.not68 = icmp eq i64 %154, 0
   br i1 %.not68, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %149
-  %154 = lshr i64 %152, 2
   %155 = mul nuw nsw i64 %154, 96
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %37, i64 %155
   br label %.lr.ph.i.i.i.i.i.i
@@ -7500,7 +7500,7 @@ _ZN4llvm15DwarfExpressionD2Ev.exit44:             ; preds = %_ZNK4llvm10DIVariab
   %167 = icmp eq i32 %.val32.i.i.i.i.i.i, 0
   %.not.i.i41.i.i.i.i.i.i = icmp ult i64 %.val33.i.i.i.i.i.i, 4294967296
   %168 = select i1 %167, i1 %.not.i.i41.i.i.i.i.i.i, i1 false
-  br i1 %168, label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit89", label %169
+  br i1 %168, label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit90", label %169
 
 169:                                              ; preds = %164
   %170 = getelementptr inbounds nuw i8, ptr %.02956.i.i.i.i.i.i, i64 72
@@ -7510,7 +7510,7 @@ _ZN4llvm15DwarfExpressionD2Ev.exit44:             ; preds = %_ZNK4llvm10DIVariab
   %172 = icmp eq i32 %.val34.i.i.i.i.i.i, 0
   %.not.i.i42.i.i.i.i.i.i = icmp ult i64 %.val35.i.i.i.i.i.i, 4294967296
   %173 = select i1 %172, i1 %.not.i.i42.i.i.i.i.i.i, i1 false
-  br i1 %173, label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit91", label %174
+  br i1 %173, label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit92", label %174
 
 174:                                              ; preds = %169
   %175 = getelementptr inbounds nuw i8, ptr %.02956.i.i.i.i.i.i, i64 96
@@ -7573,16 +7573,16 @@ _ZN4llvm15DwarfExpressionD2Ev.exit44:             ; preds = %_ZNK4llvm10DIVariab
   %195 = getelementptr inbounds nuw i8, ptr %.02956.i.i.i.i.i.i, i64 24
   br label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit89": ; preds = %164
+"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit90": ; preds = %164
   %196 = getelementptr inbounds nuw i8, ptr %.02956.i.i.i.i.i.i, i64 48
   br label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit91": ; preds = %169
+"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit92": ; preds = %169
   %197 = getelementptr inbounds nuw i8, ptr %.02956.i.i.i.i.i.i, i64 72
   br label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit89", %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit91", %179, %185, %191
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %179 ], [ %.1.i.i.i.i.i.i, %185 ], [ %.2.i.i.i.i.i.i, %191 ], [ %195, %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %196, %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit89" ], [ %197, %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit91" ], [ %.02956.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit90", %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit92", %179, %185, %191
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %179 ], [ %.1.i.i.i.i.i.i, %185 ], [ %.2.i.i.i.i.i.i, %191 ], [ %195, %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %196, %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit90" ], [ %197, %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit92" ], [ %.02956.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not69 = icmp eq ptr %153, %.028.i.i.i.i.i.i
   br i1 %.not69, label %"_ZN4llvm6any_ofINS_8ArrayRefINS_16DbgValueLocEntryEEEZNS_16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc6SingleERKNS_11DbgVariableERNS_3DIEEE3$_0EEbOT_T0_.exit.thread", label %261
 

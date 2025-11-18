@@ -882,11 +882,11 @@ if.end88:                                         ; preds = %sw.bb85
   store i32 %inc.i89, ptr %t0.addr.2, align 8
   store ptr %t0.addr.2, ptr %value_.i, align 8
   %55 = load i16, ptr %hint_foldcase_.i.i, align 2
-  %cmp91 = icmp ult i16 %55, 2
+  %56 = lshr i16 %55, 1
+  %cmp91 = icmp eq i16 %56, 0
   br i1 %cmp91, label %while.cond.backedge, label %if.end93
 
 if.end93:                                         ; preds = %if.end88
-  %56 = lshr i16 %55, 1
   %shr.i90 = zext nneg i16 %56 to i32
   br label %Loop.backedge
 

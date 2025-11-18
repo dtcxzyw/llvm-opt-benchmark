@@ -54,7 +54,7 @@ define hidden i32 @internal_exr_apply_piz(ptr noundef %0) local_unnamed_addr #0 
 ._crit_edge199:                                   ; preds = %._crit_edge, %20
   %32 = load ptr, ptr %10, align 8, !tbaa !20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %22, i8 0, i64 8192, i1 false), !tbaa !21
-  %.not38.i = icmp ult i64 %8, 2
+  %.not38.i = icmp eq i64 %9, 0
   br i1 %.not38.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -1035,7 +1035,7 @@ reverseLutFromBitmap.exit:                        ; preds = %.preheader.i, %.lr.
   store i16 %162, ptr %130, align 2, !tbaa !22
   %163 = getelementptr inbounds i16, ptr %.094124.us.i, i64 %123
   %.not98.us.i = icmp ugt ptr %163, %127
-  br i1 %.not98.us.i, label %._crit_edge.thread157.i, label %.lr.ph.split.us.i, !llvm.loop !69
+  br i1 %.not98.us.i, label %._crit_edge.thread158.i, label %.lr.ph.split.us.i, !llvm.loop !69
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %.094124.i = phi ptr [ %175, %.lr.ph.split.i ], [ %.093126.i, %.lr.ph.i ]
@@ -1073,10 +1073,10 @@ reverseLutFromBitmap.exit:                        ; preds = %.preheader.i, %.lr.
 ._crit_edge.i:                                    ; preds = %126
   br i1 %.not99.i, label %196, label %178
 
-._crit_edge.thread157.i:                          ; preds = %.lr.ph.split.us.i
-  br i1 %.not99.i, label %196, label %.thread159.i
+._crit_edge.thread158.i:                          ; preds = %.lr.ph.split.us.i
+  br i1 %.not99.i, label %196, label %.thread160.i
 
-.thread159.i:                                     ; preds = %._crit_edge.thread157.i
+.thread160.i:                                     ; preds = %._crit_edge.thread158.i
   %176 = getelementptr inbounds i16, ptr %163, i64 %122
   br label %180
 
@@ -1091,10 +1091,10 @@ reverseLutFromBitmap.exit:                        ; preds = %.preheader.i, %.lr.
   %179 = getelementptr inbounds i16, ptr %.093126.i, i64 %122
   br i1 %76, label %180, label %189
 
-180:                                              ; preds = %178, %.thread159.i
-  %181 = phi ptr [ %176, %.thread159.i ], [ %179, %178 ]
-  %.094.lcssa153161.i = phi ptr [ %163, %.thread159.i ], [ %.093126.i, %178 ]
-  %182 = load i16, ptr %.094.lcssa153161.i, align 2, !tbaa !22
+180:                                              ; preds = %178, %.thread160.i
+  %181 = phi ptr [ %176, %.thread160.i ], [ %179, %178 ]
+  %.094.lcssa154162.i = phi ptr [ %163, %.thread160.i ], [ %.093126.i, %178 ]
+  %182 = load i16, ptr %.094.lcssa154162.i, align 2, !tbaa !22
   %183 = load i16, ptr %181, align 2, !tbaa !22
   %184 = and i16 %183, 1
   %185 = add i16 %184, %182
@@ -1105,8 +1105,8 @@ reverseLutFromBitmap.exit:                        ; preds = %.preheader.i, %.lr.
 
 189:                                              ; preds = %178, %.thread.i
   %190 = phi ptr [ %177, %.thread.i ], [ %179, %178 ]
-  %.094.lcssa153156.i = phi ptr [ %175, %.thread.i ], [ %.093126.i, %178 ]
-  %191 = load i16, ptr %.094.lcssa153156.i, align 2, !tbaa !22
+  %.094.lcssa154157.i = phi ptr [ %175, %.thread.i ], [ %.093126.i, %178 ]
+  %191 = load i16, ptr %.094.lcssa154157.i, align 2, !tbaa !22
   %192 = load i16, ptr %190, align 2, !tbaa !22
   %.tr.i109.i = lshr i16 %192, 1
   %.narrow.i110.i = sub i16 %191, %.tr.i109.i
@@ -1116,14 +1116,14 @@ reverseLutFromBitmap.exit:                        ; preds = %.preheader.i, %.lr.
 
 194:                                              ; preds = %189, %180
   %195 = phi ptr [ %190, %189 ], [ %181, %180 ]
-  %.094.lcssa153155.i = phi ptr [ %.094.lcssa153156.i, %189 ], [ %.094.lcssa153161.i, %180 ]
+  %.094.lcssa154156.i = phi ptr [ %.094.lcssa154157.i, %189 ], [ %.094.lcssa154162.i, %180 ]
   %storemerge.i = phi i16 [ %.narrow.i110.i, %189 ], [ %188, %180 ]
   %.0120.i = phi i16 [ %193, %189 ], [ %187, %180 ]
   store i16 %storemerge.i, ptr %195, align 2, !tbaa !22
-  store i16 %.0120.i, ptr %.094.lcssa153155.i, align 2, !tbaa !22
+  store i16 %.0120.i, ptr %.094.lcssa154156.i, align 2, !tbaa !22
   br label %196
 
-196:                                              ; preds = %194, %._crit_edge.thread.i, %._crit_edge.thread157.i, %._crit_edge.i
+196:                                              ; preds = %194, %._crit_edge.thread.i, %._crit_edge.thread158.i, %._crit_edge.i
   %197 = getelementptr inbounds i16, ptr %.093126.i, i64 %125
   %.not95.i = icmp ugt ptr %197, %113
   br i1 %.not95.i, label %._crit_edge130.i, label %126, !llvm.loop !70
@@ -1181,7 +1181,7 @@ reverseLutFromBitmap.exit:                        ; preds = %.preheader.i, %.lr.
 
 .loopexit.i:                                      ; preds = %.lr.ph135.split.i, %.lr.ph135.split.us.i, %199, %._crit_edge130.i
   %220 = lshr i32 %.1137.i, 1
-  %.not143.i = icmp samesign ult i32 %.1137.i, 2
+  %.not143.i = icmp eq i32 %220, 0
   br i1 %.not143.i, label %wav_2D_decode.exit, label %.lr.ph139.i, !llvm.loop !72
 
 wav_2D_decode.exit:                               ; preds = %.loopexit.i, %105

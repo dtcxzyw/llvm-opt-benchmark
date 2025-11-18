@@ -9985,7 +9985,7 @@ if.end.i.i.i.i.i.i18:                             ; preds = %_ZN6hermes2vm13Muta
 
 _ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit23: ; preds = %if.then.i.i.i.i.i.i21, %if.end.i.i.i.i.i.i18
   %retval.0.i.i.i.i.i.i20 = phi ptr [ %9, %if.then.i.i.i.i.i.i21 ], [ %call7.i.i.i.i.i.i19, %if.end.i.i.i.i.i.i18 ]
-  %cmp18.not55 = icmp ult i32 %4, 2
+  %cmp18.not55 = icmp eq i32 %div13, 0
   br i1 %cmp18.not55, label %for.end, label %for.body
 
 for.cond:                                         ; preds = %if.end51

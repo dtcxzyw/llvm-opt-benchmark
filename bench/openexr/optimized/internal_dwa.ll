@@ -12957,8 +12957,8 @@ define internal fastcc void @interleaveByte2(ptr noundef %0, ptr noundef %1, ptr
   %20 = load <16 x i8>, ptr %19, align 16, !tbaa !86
   %21 = getelementptr inbounds nuw <2 x i64>, ptr %2, i64 %indvars.iv174
   %22 = load <16 x i8>, ptr %21, align 16, !tbaa !86
-  %.idx187 = shl nuw nsw i64 %indvars.iv174, 5
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx187
+  %.idx188 = shl nuw nsw i64 %indvars.iv174, 5
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx188
   %24 = shufflevector <16 x i8> %20, <16 x i8> %22, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   store <16 x i8> %24, ptr %23, align 16, !tbaa !86, !nontemporal !265
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -13035,11 +13035,11 @@ define internal fastcc void @interleaveByte2(ptr noundef %0, ptr noundef %1, ptr
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %57 = add nsw i32 %3, -8
-  %.not = icmp samesign ult i32 %57, 16
+  %58 = lshr i32 %57, 4
+  %.not = icmp eq i32 %58, 0
   br i1 %.not, label %._crit_edge141, label %.lr.ph140.preheader
 
 .lr.ph140.preheader:                              ; preds = %53
-  %58 = lshr i32 %57, 4
   %wide.trip.count167 = zext nneg i32 %58 to i64
   br label %.lr.ph140
 
@@ -13057,8 +13057,8 @@ define internal fastcc void @interleaveByte2(ptr noundef %0, ptr noundef %1, ptr
 
 .lr.ph140:                                        ; preds = %.lr.ph140.preheader, %.lr.ph140
   %indvars.iv164 = phi i64 [ 0, %.lr.ph140.preheader ], [ %indvars.iv.next165, %.lr.ph140 ]
-  %.idx186 = shl nuw nsw i64 %indvars.iv164, 5
-  %64 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx186
+  %.idx187 = shl nuw nsw i64 %indvars.iv164, 5
+  %64 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx187
   %65 = getelementptr inbounds nuw <2 x i64>, ptr %55, i64 %indvars.iv164
   %66 = load <16 x i8>, ptr %65, align 16, !tbaa !86
   %67 = getelementptr inbounds nuw <2 x i64>, ptr %56, i64 %indvars.iv164

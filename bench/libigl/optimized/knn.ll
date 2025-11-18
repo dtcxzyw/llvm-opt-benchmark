@@ -1681,7 +1681,7 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
 247:                                              ; preds = %.noexc43
   %248 = getelementptr inbounds i32, ptr %126, i64 %.018.i.i.i
   store i32 %142, ptr %248, align 4, !tbaa !34
-  %.not.i.i40 = icmp ult i64 %.0919.in.i.i.i, 2
+  %.not.i.i40 = icmp eq i64 %.0919.i45.i.i, 0
   br i1 %.not.i.i40, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !143
 
 .loopexit:                                        ; preds = %247, %.noexc43, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit.i
@@ -1849,7 +1849,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %9, %_ZNSt6vectorIiS
   %47 = load i32, ptr %44, align 4, !tbaa !34
   %48 = getelementptr inbounds i32, ptr %34, i64 %.018.i.i
   store i32 %47, ptr %48, align 4, !tbaa !34
-  %.not.i = icmp ult i64 %.0919.in.i.i, 2
+  %.not.i = icmp eq i64 %.0919.i45.i, 0
   br i1 %.not.i, label %.critedge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !143
 
 .critedge.loopexit.i.i:                           ; preds = %46, %.lr.ph.i.i
@@ -1962,7 +1962,7 @@ define linkonce_odr dso_local void @_ZNSt14priority_queueIiSt6vectorIiSaIiEEZZN3
   %48 = load i32, ptr %45, align 4, !tbaa !34
   %49 = getelementptr inbounds i32, ptr %5, i64 %.018.i.i.i.i
   store i32 %48, ptr %49, align 4, !tbaa !34
-  %.not8.i.i = icmp ult i64 %.0919.in.i.i.i.i, 2
+  %.not8.i.i = icmp eq i64 %.0919.i.i67.i.i, 0
   br i1 %.not8.i.i, label %.critedge.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !143
 
 .critedge.loopexit.i.i.i.i:                       ; preds = %47, %.lr.ph.i.i.i.i
@@ -2086,7 +2086,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %9, %_ZNSt6vectorIiS
   %47 = load i32, ptr %44, align 4, !tbaa !34
   %48 = getelementptr inbounds i32, ptr %34, i64 %.018.i.i
   store i32 %47, ptr %48, align 4, !tbaa !34
-  %.not.i3 = icmp ult i64 %.0919.in.i.i, 2
+  %.not.i3 = icmp eq i64 %.0919.i45.i, 0
   br i1 %.not.i3, label %.critedge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !143
 
 .critedge.loopexit.i.i:                           ; preds = %46, %.lr.ph.i.i
@@ -4145,7 +4145,7 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
 247:                                              ; preds = %.noexc43
   %248 = getelementptr inbounds i32, ptr %126, i64 %.018.i.i.i
   store i32 %142, ptr %248, align 4, !tbaa !34
-  %.not.i.i40 = icmp ult i64 %.0919.in.i.i.i, 2
+  %.not.i.i40 = icmp eq i64 %.0919.i45.i.i, 0
   br i1 %.not.i.i40, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !257
 
 .loopexit:                                        ; preds = %247, %.noexc43, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit.i
@@ -4310,7 +4310,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %9, %_ZNSt6vectorIiS
   %47 = load i32, ptr %44, align 4, !tbaa !34
   %48 = getelementptr inbounds i32, ptr %34, i64 %.018.i.i
   store i32 %47, ptr %48, align 4, !tbaa !34
-  %.not.i = icmp ult i64 %.0919.in.i.i, 2
+  %.not.i = icmp eq i64 %.0919.i45.i, 0
   br i1 %.not.i, label %.critedge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !257
 
 .critedge.loopexit.i.i:                           ; preds = %46, %.lr.ph.i.i
@@ -4423,7 +4423,7 @@ define linkonce_odr dso_local void @_ZNSt14priority_queueIiSt6vectorIiSaIiEEZZN3
   %48 = load i32, ptr %45, align 4, !tbaa !34
   %49 = getelementptr inbounds i32, ptr %5, i64 %.018.i.i.i.i
   store i32 %48, ptr %49, align 4, !tbaa !34
-  %.not8.i.i = icmp ult i64 %.0919.in.i.i.i.i, 2
+  %.not8.i.i = icmp eq i64 %.0919.i.i67.i.i, 0
   br i1 %.not8.i.i, label %.critedge.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !257
 
 .critedge.loopexit.i.i.i.i:                       ; preds = %47, %.lr.ph.i.i.i.i
@@ -4547,7 +4547,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %9, %_ZNSt6vectorIiS
   %47 = load i32, ptr %44, align 4, !tbaa !34
   %48 = getelementptr inbounds i32, ptr %34, i64 %.018.i.i
   store i32 %47, ptr %48, align 4, !tbaa !34
-  %.not.i3 = icmp ult i64 %.0919.in.i.i, 2
+  %.not.i3 = icmp eq i64 %.0919.i45.i, 0
   br i1 %.not.i3, label %.critedge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !257
 
 .critedge.loopexit.i.i:                           ; preds = %46, %.lr.ph.i.i

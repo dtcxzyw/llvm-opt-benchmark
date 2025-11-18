@@ -3420,7 +3420,7 @@ opj_v8dwt_encode_step2.exit106:                   ; preds = %.loopexit.i104, %22
   br i1 %exitcond.not.i109, label %opj_v8dwt_encode_step1.exit, label %.lr.ph.i108, !llvm.loop !150
 
 opj_v8dwt_encode_step1.exit:                      ; preds = %.lr.ph.i108, %opj_v8dwt_encode_step2.exit106
-  %.not.i110 = icmp ult i32 %8, 2
+  %.not.i110 = icmp eq i32 %9, 0
   br i1 %.not.i110, label %opj_v8dwt_encode_step1.exit115, label %.lr.ph.i111
 
 .lr.ph.i111:                                      ; preds = %opj_v8dwt_encode_step1.exit, %.lr.ph.i111
@@ -3434,7 +3434,7 @@ opj_v8dwt_encode_step1.exit:                      ; preds = %.lr.ph.i108, %opj_v
   %252 = fmul <4 x float> %251, splat (float 0x3FEA033860000000)
   store <4 x float> %252, ptr %250, align 16, !tbaa !57
   %253 = getelementptr inbounds nuw i8, ptr %.01112.i113, i64 64
-  %254 = add nuw i32 %.013.i112, 1
+  %254 = add nuw nsw i32 %.013.i112, 1
   %exitcond.not.i114 = icmp eq i32 %254, %9
   br i1 %exitcond.not.i114, label %opj_v8dwt_encode_step1.exit115, label %.lr.ph.i111, !llvm.loop !150
 
@@ -4140,7 +4140,7 @@ opj_dwt_encode_step2.exit86.i:                    ; preds = %249, %.loopexit.i76
 opj_dwt_encode_1_real.exit:                       ; preds = %281, %283, %307, %310
   tail call void @llvm.experimental.noalias.scope.decl(metadata !165)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !168)
-  %.not.i = icmp ult i32 %8, 2
+  %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %312, %278, %opj_dwt_encode_1_real.exit

@@ -544,7 +544,7 @@ sbc_unpack_frame.exit:                            ; preds = %._crit_edge280.us.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %229 = icmp ult i32 %.3185.biased.i, 8
+  %229 = icmp eq i32 %228, 0
   br i1 %229, label %529, label %230
 
 230:                                              ; preds = %sbc_unpack_frame.exit

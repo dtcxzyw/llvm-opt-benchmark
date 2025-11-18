@@ -5441,7 +5441,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19ReachingDefAnalysis20isReachingD
   %16 = add i32 %15, 63
   %17 = lshr i32 %16, 6
   %18 = zext nneg i32 %17 to i64
-  %19 = icmp ult i32 %16, 64
+  %19 = icmp eq i32 %17, 0
   br i1 %19, label %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i.i.i, label %20
 
 20:                                               ; preds = %3
@@ -5845,7 +5845,7 @@ define dso_local noundef ptr @_ZNK4llvm19ReachingDefAnalysis20getLocalLiveOutMID
   %16 = add i32 %15, 63
   %17 = lshr i32 %16, 6
   %18 = zext nneg i32 %17 to i64
-  %19 = icmp ult i32 %16, 64
+  %19 = icmp eq i32 %17, 0
   br i1 %19, label %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i.i.i, label %20
 
 20:                                               ; preds = %3
@@ -6526,7 +6526,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE6insertES2_.exit: ; preds = %
   %44 = add i32 %43, 63
   %45 = lshr i32 %44, 6
   %46 = zext nneg i32 %45 to i64
-  %47 = icmp ult i32 %44, 64
+  %47 = icmp eq i32 %45, 0
   br i1 %47, label %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i.i.i, label %48
 
 48:                                               ; preds = %_ZN4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE6insertES2_.exit
@@ -6752,7 +6752,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19ReachingDefAnalysis14isRegUsedAf
   %16 = add i32 %15, 63
   %17 = lshr i32 %16, 6
   %18 = zext nneg i32 %17 to i64
-  %19 = icmp ult i32 %16, 64
+  %19 = icmp eq i32 %17, 0
   br i1 %19, label %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i.i.i, label %20
 
 20:                                               ; preds = %3

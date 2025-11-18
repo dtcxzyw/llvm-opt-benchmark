@@ -1761,7 +1761,7 @@ Hsh_IntManLookup.exit.thread:                     ; preds = %.lr.ph.i, %Hsh_IntM
 define range(i32 -32768, 32768) i32 @Sdm_ManComputeFunc(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #7 {
   %7 = alloca [6 x i32], align 16
   %8 = and i32 %4, 262143
-  %9 = lshr i32 %4, 18
+  %9 = ashr i32 %4, 18
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 6744
   %11 = load i32, ptr %10, align 8, !tbaa !21
   %12 = add nsw i32 %11, 1
@@ -1789,7 +1789,7 @@ define range(i32 -32768, 32768) i32 @Sdm_ManComputeFunc(ptr noundef captures(non
   %31 = sext i32 %29 to i64
   %32 = getelementptr inbounds i64, ptr %.val75, i64 %31
   %33 = load i64, ptr %32, align 8, !tbaa !46
-  %.not = icmp ult i32 %4, 262144
+  %.not = icmp eq i32 %9, 0
   br i1 %.not, label %.loopexit, label %.preheader76
 
 .preheader76:                                     ; preds = %6, %46

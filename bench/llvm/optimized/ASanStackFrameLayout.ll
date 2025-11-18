@@ -79,131 +79,131 @@ define dso_local void @_ZN4llvm27ComputeASanStackFrameLayoutERNS_15SmallVectorIm
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN4llvm28ASanStackVariableDescriptionES1_EC2ES2_l.exit.i.i.i
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
-  %.not14.i.i.i.i.i = icmp samesign ult i64 %.010.i.i.in.in.i.i.i, 3
-  br i1 %.not14.i.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !12
+  %12 = icmp eq i64 %.010.i.i.i.i.i, 1
+  br i1 %12, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !12
 
 .loopexit.i.i.i:                                  ; preds = %select.unfold.i.i.i.i.i
   tail call void @_ZSt21__inplace_stable_sortIPN4llvm28ASanStackVariableDescriptionEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_(ptr noundef %.pre, ptr noundef nonnull %9, ptr nonnull @_ZN4llvmL11CompareVarsERKNS_28ASanStackVariableDescriptionES2_)
-  br label %12
+  br label %13
 
 _ZNSt17_Temporary_bufferIPN4llvm28ASanStackVariableDescriptionES1_EC2ES2_l.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
   tail call void @_ZSt22__stable_sort_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_lN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_T1_T2_(ptr noundef %.pre, ptr noundef nonnull %9, ptr noundef nonnull %11, i64 noundef %.010.i.i.i.i.i, ptr nonnull @_ZN4llvmL11CompareVarsERKNS_28ASanStackVariableDescriptionES2_)
-  br label %12
+  br label %13
 
-12:                                               ; preds = %_ZNSt17_Temporary_bufferIPN4llvm28ASanStackVariableDescriptionES1_EC2ES2_l.exit.i.i.i, %.loopexit.i.i.i
+13:                                               ; preds = %_ZNSt17_Temporary_bufferIPN4llvm28ASanStackVariableDescriptionES1_EC2ES2_l.exit.i.i.i, %.loopexit.i.i.i
   %.sroa.3.020.i.i.i = phi i64 [ %10, %_ZNSt17_Temporary_bufferIPN4llvm28ASanStackVariableDescriptionES1_EC2ES2_l.exit.i.i.i ], [ 0, %.loopexit.i.i.i ]
   tail call void @_ZdlPvm(ptr noundef %11, i64 noundef %.sroa.3.020.i.i.i) #15
   %.pre70 = load ptr, ptr %1, align 8, !tbaa !11
   br label %_ZN4llvm11stable_sortIRNS_15SmallVectorImplINS_28ASanStackVariableDescriptionEEEPFbRKS2_S6_EEEvOT_T0_.exit
 
-_ZN4llvm11stable_sortIRNS_15SmallVectorImplINS_28ASanStackVariableDescriptionEEEPFbRKS2_S6_EEEvOT_T0_.exit: ; preds = %4, %12
-  %13 = phi ptr [ %.pre70, %12 ], [ %.pre, %4 ]
+_ZN4llvm11stable_sortIRNS_15SmallVectorImplINS_28ASanStackVariableDescriptionEEEPFbRKS2_S6_EEEvOT_T0_.exit: ; preds = %4, %13
+  %14 = phi ptr [ %.pre70, %13 ], [ %.pre, %4 ]
   store i64 %2, ptr %0, align 8, !tbaa !14
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %15 = load i64, ptr %14, align 8, !tbaa !3
-  %16 = tail call i64 @llvm.umax.i64(i64 %2, i64 %15)
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %16, ptr %17, align 8, !tbaa !16
-  %18 = tail call i64 @llvm.umax.i64(i64 %3, i64 %2)
-  %19 = tail call i64 @llvm.umax.i64(i64 %18, i64 %15)
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %16 = load i64, ptr %15, align 8, !tbaa !3
+  %17 = tail call i64 @llvm.umax.i64(i64 %2, i64 %16)
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %17, ptr %18, align 8, !tbaa !16
+  %19 = tail call i64 @llvm.umax.i64(i64 %3, i64 %2)
+  %20 = tail call i64 @llvm.umax.i64(i64 %19, i64 %16)
   br i1 %.not62, label %._crit_edge61, label %.lr.ph60
 
 .lr.ph60:                                         ; preds = %_ZN4llvm11stable_sortIRNS_15SmallVectorImplINS_28ASanStackVariableDescriptionEEEPFbRKS2_S6_EEEvOT_T0_.exit
-  %20 = add nsw i64 %8, -1
-  %21 = shl i64 %2, 1
-  br label %31
+  %21 = add nsw i64 %8, -1
+  %22 = shl i64 %2, 1
+  br label %32
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  %.057 = phi i64 [ %26, %.lr.ph ], [ 0, %4 ]
-  %22 = getelementptr inbounds nuw %"struct.llvm::ASanStackVariableDescription", ptr %.pre, i64 %.057
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %24 = load i64, ptr %23, align 8, !tbaa !3
-  %25 = tail call i64 @llvm.umax.i64(i64 %24, i64 16)
-  store i64 %25, ptr %23, align 8, !tbaa !17
-  %26 = add nuw nsw i64 %.057, 1
-  %exitcond.not = icmp eq i64 %26, %8
+  %.057 = phi i64 [ %27, %.lr.ph ], [ 0, %4 ]
+  %23 = getelementptr inbounds nuw %"struct.llvm::ASanStackVariableDescription", ptr %.pre, i64 %.057
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %25 = load i64, ptr %24, align 8, !tbaa !3
+  %26 = tail call i64 @llvm.umax.i64(i64 %25, i64 16)
+  store i64 %26, ptr %24, align 8, !tbaa !17
+  %27 = add nuw nsw i64 %.057, 1
+  %exitcond.not = icmp eq i64 %27, %8
   br i1 %exitcond.not, label %.lr.ph.i.i.i.i.i.preheader, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge61:                                    ; preds = %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit, %_ZN4llvm11stable_sortIRNS_15SmallVectorImplINS_28ASanStackVariableDescriptionEEEPFbRKS2_S6_EEEvOT_T0_.exit
-  %.033.lcssa = phi i64 [ %19, %_ZN4llvm11stable_sortIRNS_15SmallVectorImplINS_28ASanStackVariableDescriptionEEEPFbRKS2_S6_EEEvOT_T0_.exit ], [ %66, %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit ]
-  %27 = urem i64 %.033.lcssa, %3
-  %.not = icmp eq i64 %27, 0
-  %28 = sub i64 %3, %27
-  %29 = select i1 %.not, i64 0, i64 %28
-  %.1 = add i64 %29, %.033.lcssa
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.1, ptr %30, align 8, !tbaa !22
+  %.033.lcssa = phi i64 [ %20, %_ZN4llvm11stable_sortIRNS_15SmallVectorImplINS_28ASanStackVariableDescriptionEEEPFbRKS2_S6_EEEvOT_T0_.exit ], [ %67, %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit ]
+  %28 = urem i64 %.033.lcssa, %3
+  %.not = icmp eq i64 %28, 0
+  %29 = sub i64 %3, %28
+  %30 = select i1 %.not, i64 0, i64 %29
+  %.1 = add i64 %30, %.033.lcssa
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.1, ptr %31, align 8, !tbaa !22
   ret void
 
-31:                                               ; preds = %.lr.ph60, %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit
-  %.03359 = phi i64 [ %19, %.lr.ph60 ], [ %66, %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit ]
-  %.03458 = phi i64 [ 0, %.lr.ph60 ], [ %67, %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit ]
-  %32 = icmp eq i64 %.03458, %20
-  %33 = getelementptr inbounds nuw %"struct.llvm::ASanStackVariableDescription", ptr %13, i64 %.03458
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %35 = load i64, ptr %34, align 8, !tbaa !23
-  br i1 %32, label %40, label %36
+32:                                               ; preds = %.lr.ph60, %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit
+  %.03359 = phi i64 [ %20, %.lr.ph60 ], [ %67, %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit ]
+  %.03458 = phi i64 [ 0, %.lr.ph60 ], [ %68, %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit ]
+  %33 = icmp eq i64 %.03458, %21
+  %34 = getelementptr inbounds nuw %"struct.llvm::ASanStackVariableDescription", ptr %14, i64 %.03458
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %36 = load i64, ptr %35, align 8, !tbaa !23
+  br i1 %33, label %41, label %37
 
-36:                                               ; preds = %31
-  %37 = getelementptr inbounds nuw i8, ptr %33, i64 80
-  %38 = load i64, ptr %37, align 8, !tbaa !3
-  %39 = icmp ult i64 %2, %38
-  %..i41 = select i1 %39, ptr %37, ptr %5
-  br label %40
+37:                                               ; preds = %32
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 80
+  %39 = load i64, ptr %38, align 8, !tbaa !3
+  %40 = icmp ult i64 %2, %39
+  %..i41 = select i1 %40, ptr %38, ptr %5
+  br label %41
 
-40:                                               ; preds = %31, %36
-  %.in = phi ptr [ %..i41, %36 ], [ %5, %31 ]
-  %41 = load i64, ptr %.in, align 8, !tbaa !3
-  %42 = icmp ult i64 %35, 5
-  br i1 %42, label %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit, label %43
+41:                                               ; preds = %32, %37
+  %.in = phi ptr [ %..i41, %37 ], [ %5, %32 ]
+  %42 = load i64, ptr %.in, align 8, !tbaa !3
+  %43 = icmp ult i64 %36, 5
+  br i1 %43, label %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit, label %44
 
-43:                                               ; preds = %40
-  %44 = icmp ult i64 %35, 17
-  br i1 %44, label %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit, label %45
+44:                                               ; preds = %41
+  %45 = icmp ult i64 %36, 17
+  br i1 %45, label %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit, label %46
 
-45:                                               ; preds = %43
-  %46 = icmp ult i64 %35, 129
-  br i1 %46, label %47, label %49
+46:                                               ; preds = %44
+  %47 = icmp ult i64 %36, 129
+  br i1 %47, label %48, label %50
 
-47:                                               ; preds = %45
-  %48 = add nuw nsw i64 %35, 32
+48:                                               ; preds = %46
+  %49 = add nuw nsw i64 %36, 32
   br label %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit
 
-49:                                               ; preds = %45
-  %50 = icmp ult i64 %35, 513
-  br i1 %50, label %51, label %53
+50:                                               ; preds = %46
+  %51 = icmp ult i64 %36, 513
+  br i1 %51, label %52, label %54
 
-51:                                               ; preds = %49
-  %52 = add nuw nsw i64 %35, 64
+52:                                               ; preds = %50
+  %53 = add nuw nsw i64 %36, 64
   br label %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit
 
-53:                                               ; preds = %49
-  %54 = icmp ult i64 %35, 4097
-  br i1 %54, label %55, label %57
+54:                                               ; preds = %50
+  %55 = icmp ult i64 %36, 4097
+  br i1 %55, label %56, label %58
 
-55:                                               ; preds = %53
-  %56 = add nuw nsw i64 %35, 128
+56:                                               ; preds = %54
+  %57 = add nuw nsw i64 %36, 128
   br label %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit
 
-57:                                               ; preds = %53
-  %58 = add i64 %35, 256
+58:                                               ; preds = %54
+  %59 = add i64 %36, 256
   br label %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit
 
-_ZN4llvmL17VarAndRedzoneSizeEmmm.exit:            ; preds = %40, %43, %47, %51, %55, %57
-  %.0.i = phi i64 [ %48, %47 ], [ %52, %51 ], [ %56, %55 ], [ %58, %57 ], [ 16, %40 ], [ 32, %43 ]
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %.0.i, i64 %21)
-  %59 = icmp ne i64 %.sroa.speculated.i, 0
-  %60 = zext i1 %59 to i64
-  %61 = sub i64 %.sroa.speculated.i, %60
-  %62 = udiv i64 %61, %41
-  %63 = add i64 %62, %60
-  %64 = mul i64 %63, %41
-  %65 = getelementptr inbounds nuw i8, ptr %33, i64 40
-  store i64 %.03359, ptr %65, align 8, !tbaa !24
-  %66 = add i64 %64, %.03359
-  %67 = add nuw nsw i64 %.03458, 1
-  %exitcond69.not = icmp eq i64 %67, %8
-  br i1 %exitcond69.not, label %._crit_edge61, label %31, !llvm.loop !25
+_ZN4llvmL17VarAndRedzoneSizeEmmm.exit:            ; preds = %41, %44, %48, %52, %56, %58
+  %.0.i = phi i64 [ %49, %48 ], [ %53, %52 ], [ %57, %56 ], [ %59, %58 ], [ 16, %41 ], [ 32, %44 ]
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %.0.i, i64 %22)
+  %60 = icmp ne i64 %.sroa.speculated.i, 0
+  %61 = zext i1 %60 to i64
+  %62 = sub i64 %.sroa.speculated.i, %61
+  %63 = udiv i64 %62, %42
+  %64 = add i64 %63, %61
+  %65 = mul i64 %64, %42
+  %66 = getelementptr inbounds nuw i8, ptr %34, i64 40
+  store i64 %.03359, ptr %66, align 8, !tbaa !24
+  %67 = add i64 %65, %.03359
+  %68 = add nuw nsw i64 %.03458, 1
+  %exitcond69.not = icmp eq i64 %68, %8
+  br i1 %exitcond69.not, label %._crit_edge61, label %32, !llvm.loop !25
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

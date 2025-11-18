@@ -5231,7 +5231,7 @@ define internal fastcc range(i64 -2147483648, 2147479553) i64 @__iov_iter_get_pa
   %62 = lshr i64 %61, 12
   %63 = trunc nuw nsw i64 %62 to i32
   %64 = tail call i32 @llvm.umin.i32(i32 %63, i32 %3)
-  %65 = icmp ult i64 %61, 4096
+  %65 = icmp eq i64 %62, 0
   br i1 %65, label %66, label %.thread, !prof !9
 
 66:                                               ; preds = %56
@@ -7154,7 +7154,7 @@ define internal fastcc range(i32 0, 524289) i32 @want_pages_array(ptr noundef ca
   %7 = lshr i64 %6, 12
   %8 = trunc nuw nsw i64 %7 to i32
   %9 = tail call i32 @llvm.umin.i32(i32 %8, i32 %3)
-  %10 = icmp samesign ult i64 %6, 4096
+  %10 = icmp eq i64 %7, 0
   br i1 %10, label %11, label %12, !prof !9
 
 11:                                               ; preds = %4

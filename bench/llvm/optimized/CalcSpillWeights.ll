@@ -1604,7 +1604,7 @@ _ZNK4llvm19MachineRegisterInfo13isAllocatableENS_10MCRegisterE.exit.thread: ; pr
   br i1 %506, label %507, label %_ZN4llvm19MachineRegisterInfo15clearSimpleHintENS_8RegisterE.exit.thread
 
 507:                                              ; preds = %504
-  %.not157 = icmp ult i64 %.sroa.08.0.insert.insert.i, 4294967296
+  %.not157 = icmp eq i64 %.sroa.5.0.extract.shift, 0
   br i1 %.not157, label %_ZN4llvm19MachineRegisterInfo15clearSimpleHintENS_8RegisterE.exit.thread, label %508
 
 508:                                              ; preds = %507

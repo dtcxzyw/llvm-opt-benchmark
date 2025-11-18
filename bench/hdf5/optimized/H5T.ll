@@ -5633,7 +5633,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__init_inf() unnamed_addr #0 {
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load i64, ptr %38, align 8, !tbaa !26
   %40 = lshr i64 %39, 1
-  %.not = icmp ult i64 %39, 2
+  %.not = icmp eq i64 %40, 0
   br i1 %.not, label %.loopexit214, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36, %.lr.ph
@@ -5667,7 +5667,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__init_inf() unnamed_addr #0 {
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load i64, ptr %56, align 8, !tbaa !26
   %58 = lshr i64 %57, 1
-  %.not230 = icmp ult i64 %57, 2
+  %.not230 = icmp eq i64 %58, 0
   br i1 %.not230, label %.loopexit213, label %.lr.ph217
 
 .lr.ph217:                                        ; preds = %54, %.lr.ph217
@@ -5731,7 +5731,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__init_inf() unnamed_addr #0 {
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 16
   %96 = load i64, ptr %95, align 8, !tbaa !26
   %97 = lshr i64 %96, 1
-  %.not231 = icmp ult i64 %96, 2
+  %.not231 = icmp eq i64 %97, 0
   br i1 %.not231, label %.loopexit212, label %.lr.ph219
 
 .lr.ph219:                                        ; preds = %93, %.lr.ph219
@@ -5768,7 +5768,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__init_inf() unnamed_addr #0 {
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %117 = load i64, ptr %116, align 8, !tbaa !26
   %118 = lshr i64 %117, 1
-  %.not232 = icmp ult i64 %117, 2
+  %.not232 = icmp eq i64 %118, 0
   br i1 %.not232, label %.loopexit211, label %.lr.ph221
 
 .lr.ph221:                                        ; preds = %114, %.lr.ph221
@@ -5835,7 +5835,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__init_inf() unnamed_addr #0 {
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %159 = load i64, ptr %158, align 8, !tbaa !26
   %160 = lshr i64 %159, 1
-  %.not233 = icmp ult i64 %159, 2
+  %.not233 = icmp eq i64 %160, 0
   br i1 %.not233, label %.loopexit210, label %.lr.ph223
 
 .lr.ph223:                                        ; preds = %156, %.lr.ph223
@@ -5872,7 +5872,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__init_inf() unnamed_addr #0 {
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 16
   %180 = load i64, ptr %179, align 8, !tbaa !26
   %181 = lshr i64 %180, 1
-  %.not234 = icmp ult i64 %180, 2
+  %.not234 = icmp eq i64 %181, 0
   br i1 %.not234, label %.loopexit209, label %.lr.ph225
 
 .lr.ph225:                                        ; preds = %177, %.lr.ph225
@@ -5939,7 +5939,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__init_inf() unnamed_addr #0 {
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 16
   %222 = load i64, ptr %221, align 8, !tbaa !26
   %223 = lshr i64 %222, 1
-  %.not235 = icmp ult i64 %222, 2
+  %.not235 = icmp eq i64 %223, 0
   br i1 %.not235, label %.loopexit208, label %.lr.ph227
 
 .lr.ph227:                                        ; preds = %219, %.lr.ph227
@@ -5973,7 +5973,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__init_inf() unnamed_addr #0 {
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 16
   %240 = load i64, ptr %239, align 8, !tbaa !26
   %241 = lshr i64 %240, 1
-  %.not236 = icmp ult i64 %240, 2
+  %.not236 = icmp eq i64 %241, 0
   br i1 %.not236, label %.loopexit, label %.lr.ph229
 
 .lr.ph229:                                        ; preds = %237, %.lr.ph229

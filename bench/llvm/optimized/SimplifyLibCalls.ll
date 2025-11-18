@@ -16862,11 +16862,11 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %5, %8
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %5 ], [ %10, %8 ]
   %.idx2 = shl nuw nsw i64 %.pre-phi2.i.i, 5
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx2
-  %.not = icmp samesign ult i64 %.pre-phi2.i.i, 4
+  %15 = lshr i64 %.pre-phi2.i.i, 2
+  %.not = icmp eq i64 %15, 0
   br i1 %.not, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %_ZNK4llvm4User8operandsEv.exit
-  %15 = lshr i64 %.pre-phi2.i.i, 2
   %16 = and i64 %.idx2, 68719476608
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %13, i64 %16
   br label %.lr.ph.i.i.i.i.i.i
@@ -16969,11 +16969,10 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %5, %8
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %_ZNK4llvm4User8operandsEv.exit
   %.pre-phi88.i.i.i.i.i.i = phi i64 [ %39, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.pre-phi2.i.i, %_ZNK4llvm4User8operandsEv.exit ]
   %.029.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %13, %_ZNK4llvm4User8operandsEv.exit ]
-  switch i64 %.pre-phi88.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.unreachabledefault [
+  switch i64 %.pre-phi88.i.i.i.i.i.i, label %56 [
     i64 3, label %40
     i64 2, label %46
     i64 1, label %52
-    i64 0, label %56
   ]
 
 40:                                               ; preds = %._crit_edge.i.i.i.i.i.i
@@ -17000,7 +16999,7 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %5, %8
   %45 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 32
   br label %46
 
-46:                                               ; preds = %._crit_edge.i.i.i.i.i.i, %44
+46:                                               ; preds = %44, %._crit_edge.i.i.i.i.i.i
   %.1.i.i.i.i.i.i = phi ptr [ %45, %44 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !56
   %47 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i, i64 8
@@ -17025,7 +17024,7 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %5, %8
   %51 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i, i64 32
   br label %52
 
-52:                                               ; preds = %._crit_edge.i.i.i.i.i.i, %50
+52:                                               ; preds = %50, %._crit_edge.i.i.i.i.i.i
   %.2.i.i.i.i.i.i = phi ptr [ %51, %50 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !56
   %53 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i, i64 8
@@ -17046,10 +17045,7 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %5, %8
   %spec.select.i.i.i55.i.i.i.i.i.i = icmp eq i32 %55, 4
   br i1 %spec.select.i.i.i55.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3UseEEEZL28callHasFloatingPointArgumentPKNS_8CallInstEE3$_0EEbOT_T0_.exit", label %56
 
-._crit_edge.i.i.i.i.i.i.unreachabledefault:       ; preds = %._crit_edge.i.i.i.i.i.i
-  unreachable
-
-56:                                               ; preds = %._crit_edge.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL28callHasFloatingPointArgumentPKN4llvm8CallInstEE3$_0EclIPKNS2_3UseEEEbT_.exit56.i.i.i.i.i.i"
+56:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL28callHasFloatingPointArgumentPKN4llvm8CallInstEE3$_0EclIPKNS2_3UseEEEbT_.exit56.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3UseEEEZL28callHasFloatingPointArgumentPKNS_8CallInstEE3$_0EEbOT_T0_.exit"
 
 "_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3UseEEEZL28callHasFloatingPointArgumentPKNS_8CallInstEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL28callHasFloatingPointArgumentPKN4llvm8CallInstEE3$_0EclIPKNS2_3UseEEEbT_.exit36.i.i.i.i.i.i"
@@ -17113,11 +17109,11 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %5, %8
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %5 ], [ %10, %8 ]
   %.idx2 = shl nuw nsw i64 %.pre-phi2.i.i, 5
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx2
-  %.not = icmp samesign ult i64 %.pre-phi2.i.i, 4
+  %15 = lshr i64 %.pre-phi2.i.i, 2
+  %.not = icmp eq i64 %15, 0
   br i1 %.not, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %_ZNK4llvm4User8operandsEv.exit
-  %15 = lshr i64 %.pre-phi2.i.i, 2
   %16 = and i64 %.idx2, 68719476608
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %13, i64 %16
   br label %.lr.ph.i.i.i.i.i.i
@@ -17180,11 +17176,10 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %5, %8
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %_ZNK4llvm4User8operandsEv.exit
   %.pre-phi50.i.i.i.i.i.i = phi i64 [ %43, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.pre-phi2.i.i, %_ZNK4llvm4User8operandsEv.exit ]
   %.029.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %13, %_ZNK4llvm4User8operandsEv.exit ]
-  switch i64 %.pre-phi50.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.unreachabledefault [
+  switch i64 %.pre-phi50.i.i.i.i.i.i, label %63 [
     i64 3, label %44
     i64 2, label %51
     i64 1, label %58
-    i64 0, label %63
   ]
 
 44:                                               ; preds = %._crit_edge.i.i.i.i.i.i
@@ -17201,7 +17196,7 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %5, %8
   %50 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 32
   br label %51
 
-51:                                               ; preds = %._crit_edge.i.i.i.i.i.i, %49
+51:                                               ; preds = %49, %._crit_edge.i.i.i.i.i.i
   %.1.i.i.i.i.i.i = phi ptr [ %50, %49 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !56
   %52 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i, i64 8
@@ -17216,7 +17211,7 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %5, %8
   %57 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i, i64 32
   br label %58
 
-58:                                               ; preds = %._crit_edge.i.i.i.i.i.i, %56
+58:                                               ; preds = %56, %._crit_edge.i.i.i.i.i.i
   %.2.i.i.i.i.i.i = phi ptr [ %57, %56 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !56
   %59 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i, i64 8
@@ -17227,10 +17222,7 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %5, %8
   %62 = icmp eq i32 %61, 5
   br i1 %62, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3UseEEEZL20callHasFP128ArgumentPKNS_8CallInstEE3$_0EEbOT_T0_.exit", label %63
 
-._crit_edge.i.i.i.i.i.i.unreachabledefault:       ; preds = %._crit_edge.i.i.i.i.i.i
-  unreachable
-
-63:                                               ; preds = %._crit_edge.i.i.i.i.i.i, %58
+63:                                               ; preds = %58, %._crit_edge.i.i.i.i.i.i
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3UseEEEZL20callHasFP128ArgumentPKNS_8CallInstEE3$_0EEbOT_T0_.exit"
 
 "_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3UseEEEZL20callHasFP128ArgumentPKNS_8CallInstEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %21
@@ -23183,11 +23175,11 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToC
   br i1 %.not, label %11, label %63
 
 11:                                               ; preds = %3
-  %.not.i.i = icmp ult i32 %8, 4
+  %12 = lshr i64 %9, 2
+  %.not.i.i = icmp eq i64 %12, 0
   br i1 %.not.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %11
-  %12 = lshr i64 %9, 2
   %13 = and i64 %.idx3.i.i, 68719476672
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %6, i64 %13
   br label %.lr.ph.i.i.i.i.i.i
@@ -23230,11 +23222,10 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToC
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %11
   %.pre-phi53.i.i.i.i.i.i = phi i32 [ %32, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %8, %11 ]
   %.029.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %6, %11 ]
-  switch i32 %.pre-phi53.i.i.i.i.i.i, label %default.unreachable [
+  switch i32 %.pre-phi53.i.i.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit [
     i32 3, label %33
     i32 2, label %38
     i32 1, label %43
-    i32 0, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit
   ]
 
 33:                                               ; preds = %._crit_edge.i.i.i.i.i.i
@@ -23304,9 +23295,6 @@ _ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IR
   %.017.i.i.i.i = getelementptr inbounds nuw i8, ptr %.01734.i.i.i.i, i64 16
   %.not.i.i.i.i = icmp eq ptr %.017.i.i.i.i, %10
   br i1 %.not.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !485
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i.i
-  unreachable
 
 _ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit: ; preds = %57, %._crit_edge.i.i.i.i.i.i, %43, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i
   %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i ], [ %10, %._crit_edge.i.i.i.i.i.i ], [ %10, %43 ], [ %.1.i.i.i.i, %57 ]
@@ -24740,7 +24728,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 48:                                               ; preds = %.lr.ph.i.i.i.i.i
   %49 = getelementptr inbounds i8, ptr %0, i64 %.019.i.i.i.i.i
   store i8 %46, ptr %49, align 1, !tbaa !112
-  %.not7.i.i.i = icmp ult i64 %.0920.in.i.i.i.i.i, 2
+  %.not7.i.i.i = icmp eq i64 %.0920.i.i56.i.i.i, 0
   br i1 %.not7.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !502
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i.i: ; preds = %48, %.lr.ph.i.i.i.i.i, %44
@@ -24936,7 +24924,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPcN
 39:                                               ; preds = %.lr.ph.i.i.i.us
   %40 = getelementptr inbounds i8, ptr %.fr27, i64 %.019.i.i.i.us
   store i8 %37, ptr %40, align 1, !tbaa !112
-  %.not7.i.us = icmp ult i64 %.0920.in.i.i.i.us, 2
+  %.not7.i.us = icmp eq i64 %.0920.i.i56.i.us, 0
   br i1 %.not7.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !502
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %39, %34

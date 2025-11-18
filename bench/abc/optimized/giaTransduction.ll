@@ -14111,7 +14111,7 @@ define linkonce_odr void @_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5Para
   %81 = getelementptr inbounds nuw %"class.std::vector.8", ptr %80, i64 %74
   %82 = load ptr, ptr %81, align 8, !tbaa !118
   %83 = load i32, ptr %82, align 4, !tbaa !119
-  %.not = icmp ult i32 %78, 2
+  %.not = icmp eq i32 %79, 0
   br i1 %.not, label %308, label %84
 
 84:                                               ; preds = %69
@@ -43830,7 +43830,7 @@ define linkonce_odr void @_ZN12Transduction12TransductionIN5NewTt3ManENS1_5Param
   %81 = getelementptr inbounds nuw %"class.std::vector.8", ptr %80, i64 %74
   %82 = load ptr, ptr %81, align 8, !tbaa !118
   %83 = load i32, ptr %82, align 4, !tbaa !119
-  %.not = icmp ult i32 %78, 2
+  %.not = icmp eq i32 %79, 0
   br i1 %.not, label %_ZNK5NewTt3Man8IsConst1Ej.exit38, label %84
 
 84:                                               ; preds = %69

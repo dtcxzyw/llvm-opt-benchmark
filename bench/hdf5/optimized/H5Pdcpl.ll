@@ -6650,21 +6650,21 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_enc(ptr noundef reado
 50:                                               ; preds = %36
   %51 = load i64, ptr %4, align 8, !tbaa !10
   %52 = lshr i64 %51, 32
-  %.not.i.i = icmp ult i64 %51, 4294967296
+  %.not.i.i = icmp eq i64 %52, 0
   br i1 %.not.i.i, label %79, label %53
 
 53:                                               ; preds = %50
   %54 = lshr i64 %51, 48
-  %.not26.i.i = icmp ult i64 %51, 281474976710656
+  %.not26.i.i = icmp eq i64 %54, 0
   br i1 %.not26.i.i, label %67, label %55
 
 55:                                               ; preds = %53
-  %.not28.i.i = icmp ult i64 %51, 72057594037927936
-  br i1 %.not28.i.i, label %62, label %56
+  %56 = lshr i64 %51, 56
+  %.not28.i.i = icmp eq i64 %56, 0
+  br i1 %.not28.i.i, label %62, label %57
 
-56:                                               ; preds = %55
-  %57 = lshr i64 %51, 56
-  %58 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %57
+57:                                               ; preds = %55
+  %58 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %56
   %59 = load i8, ptr %58, align 1, !tbaa !32
   %60 = zext i8 %59 to i32
   %61 = add nuw nsw i32 %60, 56
@@ -6678,12 +6678,12 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_enc(ptr noundef reado
   br label %H5VM_limit_enc_size.exit
 
 67:                                               ; preds = %53
-  %.not27.i.i = icmp samesign ult i64 %51, 1099511627776
-  br i1 %.not27.i.i, label %74, label %68
+  %68 = lshr i64 %51, 40
+  %.not27.i.i = icmp eq i64 %68, 0
+  br i1 %.not27.i.i, label %74, label %69
 
-68:                                               ; preds = %67
-  %69 = lshr i64 %51, 40
-  %70 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %69
+69:                                               ; preds = %67
+  %70 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %68
   %71 = load i8, ptr %70, align 1, !tbaa !32
   %72 = zext i8 %71 to i32
   %73 = add nuw nsw i32 %72, 40
@@ -6698,16 +6698,16 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_enc(ptr noundef reado
 
 79:                                               ; preds = %50
   %80 = lshr i64 %51, 16
-  %.not23.i.i = icmp samesign ult i64 %51, 65536
+  %.not23.i.i = icmp eq i64 %80, 0
   br i1 %.not23.i.i, label %93, label %81
 
 81:                                               ; preds = %79
-  %.not25.i.i = icmp samesign ult i64 %51, 16777216
-  br i1 %.not25.i.i, label %88, label %82
+  %82 = lshr i64 %51, 24
+  %.not25.i.i = icmp eq i64 %82, 0
+  br i1 %.not25.i.i, label %88, label %83
 
-82:                                               ; preds = %81
-  %83 = lshr i64 %51, 24
-  %84 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %83
+83:                                               ; preds = %81
+  %84 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %82
   %85 = load i8, ptr %84, align 1, !tbaa !32
   %86 = zext i8 %85 to i32
   %87 = add nuw nsw i32 %86, 24
@@ -6721,12 +6721,12 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_enc(ptr noundef reado
   br label %H5VM_limit_enc_size.exit
 
 93:                                               ; preds = %79
-  %.not24.i.i = icmp samesign ult i64 %51, 256
-  br i1 %.not24.i.i, label %100, label %94
+  %94 = lshr i64 %51, 8
+  %.not24.i.i = icmp eq i64 %94, 0
+  br i1 %.not24.i.i, label %100, label %95
 
-94:                                               ; preds = %93
-  %95 = lshr i64 %51, 8
-  %96 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %95
+95:                                               ; preds = %93
+  %96 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %94
   %97 = load i8, ptr %96, align 1, !tbaa !32
   %98 = zext i8 %97 to i32
   %99 = add nuw nsw i32 %98, 8
@@ -6738,8 +6738,8 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_enc(ptr noundef reado
   %103 = zext i8 %102 to i32
   br label %H5VM_limit_enc_size.exit
 
-H5VM_limit_enc_size.exit:                         ; preds = %56, %62, %68, %74, %82, %88, %94, %100
-  %.0.i.i = phi i32 [ %61, %56 ], [ %66, %62 ], [ %73, %68 ], [ %78, %74 ], [ %87, %82 ], [ %92, %88 ], [ %99, %94 ], [ %103, %100 ]
+H5VM_limit_enc_size.exit:                         ; preds = %57, %62, %69, %74, %83, %88, %95, %100
+  %.0.i.i = phi i32 [ %61, %57 ], [ %66, %62 ], [ %73, %69 ], [ %78, %74 ], [ %87, %83 ], [ %92, %88 ], [ %99, %95 ], [ %103, %100 ]
   %104 = lshr i32 %.0.i.i, 3
   %105 = add nuw nsw i32 %104, 1
   %106 = trunc nuw nsw i32 %105 to i8
@@ -6822,21 +6822,21 @@ H5VM_limit_enc_size.exit:                         ; preds = %56, %62, %68, %74, 
 149:                                              ; preds = %140
   %150 = load i64, ptr %4, align 8, !tbaa !10
   %151 = lshr i64 %150, 32
-  %.not.i.i71 = icmp ult i64 %150, 4294967296
+  %.not.i.i71 = icmp eq i64 %151, 0
   br i1 %.not.i.i71, label %178, label %152
 
 152:                                              ; preds = %149
   %153 = lshr i64 %150, 48
-  %.not26.i.i72 = icmp ult i64 %150, 281474976710656
+  %.not26.i.i72 = icmp eq i64 %153, 0
   br i1 %.not26.i.i72, label %166, label %154
 
 154:                                              ; preds = %152
-  %.not28.i.i73 = icmp ult i64 %150, 72057594037927936
-  br i1 %.not28.i.i73, label %161, label %155
+  %155 = lshr i64 %150, 56
+  %.not28.i.i73 = icmp eq i64 %155, 0
+  br i1 %.not28.i.i73, label %161, label %156
 
-155:                                              ; preds = %154
-  %156 = lshr i64 %150, 56
-  %157 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %156
+156:                                              ; preds = %154
+  %157 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %155
   %158 = load i8, ptr %157, align 1, !tbaa !32
   %159 = zext i8 %158 to i32
   %160 = add nuw nsw i32 %159, 56
@@ -6850,12 +6850,12 @@ H5VM_limit_enc_size.exit:                         ; preds = %56, %62, %68, %74, 
   br label %H5VM_limit_enc_size.exit79
 
 166:                                              ; preds = %152
-  %.not27.i.i75 = icmp samesign ult i64 %150, 1099511627776
-  br i1 %.not27.i.i75, label %173, label %167
+  %167 = lshr i64 %150, 40
+  %.not27.i.i75 = icmp eq i64 %167, 0
+  br i1 %.not27.i.i75, label %173, label %168
 
-167:                                              ; preds = %166
-  %168 = lshr i64 %150, 40
-  %169 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %168
+168:                                              ; preds = %166
+  %169 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %167
   %170 = load i8, ptr %169, align 1, !tbaa !32
   %171 = zext i8 %170 to i32
   %172 = add nuw nsw i32 %171, 40
@@ -6870,16 +6870,16 @@ H5VM_limit_enc_size.exit:                         ; preds = %56, %62, %68, %74, 
 
 178:                                              ; preds = %149
   %179 = lshr i64 %150, 16
-  %.not23.i.i76 = icmp samesign ult i64 %150, 65536
+  %.not23.i.i76 = icmp eq i64 %179, 0
   br i1 %.not23.i.i76, label %192, label %180
 
 180:                                              ; preds = %178
-  %.not25.i.i77 = icmp samesign ult i64 %150, 16777216
-  br i1 %.not25.i.i77, label %187, label %181
+  %181 = lshr i64 %150, 24
+  %.not25.i.i77 = icmp eq i64 %181, 0
+  br i1 %.not25.i.i77, label %187, label %182
 
-181:                                              ; preds = %180
-  %182 = lshr i64 %150, 24
-  %183 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %182
+182:                                              ; preds = %180
+  %183 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %181
   %184 = load i8, ptr %183, align 1, !tbaa !32
   %185 = zext i8 %184 to i32
   %186 = add nuw nsw i32 %185, 24
@@ -6893,12 +6893,12 @@ H5VM_limit_enc_size.exit:                         ; preds = %56, %62, %68, %74, 
   br label %H5VM_limit_enc_size.exit79
 
 192:                                              ; preds = %178
-  %.not24.i.i78 = icmp samesign ult i64 %150, 256
-  br i1 %.not24.i.i78, label %199, label %193
+  %193 = lshr i64 %150, 8
+  %.not24.i.i78 = icmp eq i64 %193, 0
+  br i1 %.not24.i.i78, label %199, label %194
 
-193:                                              ; preds = %192
-  %194 = lshr i64 %150, 8
-  %195 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %194
+194:                                              ; preds = %192
+  %195 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %193
   %196 = load i8, ptr %195, align 1, !tbaa !32
   %197 = zext i8 %196 to i32
   %198 = add nuw nsw i32 %197, 8
@@ -6910,8 +6910,8 @@ H5VM_limit_enc_size.exit:                         ; preds = %56, %62, %68, %74, 
   %202 = zext i8 %201 to i32
   br label %H5VM_limit_enc_size.exit79
 
-H5VM_limit_enc_size.exit79:                       ; preds = %155, %161, %167, %173, %181, %187, %193, %199
-  %.0.i.i74 = phi i32 [ %160, %155 ], [ %165, %161 ], [ %172, %167 ], [ %177, %173 ], [ %186, %181 ], [ %191, %187 ], [ %198, %193 ], [ %202, %199 ]
+H5VM_limit_enc_size.exit79:                       ; preds = %156, %161, %168, %173, %182, %187, %194, %199
+  %.0.i.i74 = phi i32 [ %160, %156 ], [ %165, %161 ], [ %172, %168 ], [ %177, %173 ], [ %186, %182 ], [ %191, %187 ], [ %198, %194 ], [ %202, %199 ]
   %203 = lshr i32 %.0.i.i74, 3
   %204 = add nuw nsw i32 %203, 1
   %.pre = load i64, ptr %2, align 8, !tbaa !10
@@ -7225,21 +7225,21 @@ define internal noundef i32 @H5P__dcrt_ext_file_list_enc(ptr noundef readonly ca
 
 12:                                               ; preds = %10
   %13 = lshr i64 %.pre, 32
-  %.not.i.i = icmp ult i64 %.pre, 4294967296
+  %.not.i.i = icmp eq i64 %13, 0
   br i1 %.not.i.i, label %40, label %14
 
 14:                                               ; preds = %12
   %15 = lshr i64 %.pre, 48
-  %.not26.i.i = icmp ult i64 %.pre, 281474976710656
+  %.not26.i.i = icmp eq i64 %15, 0
   br i1 %.not26.i.i, label %28, label %16
 
 16:                                               ; preds = %14
-  %.not28.i.i = icmp ult i64 %.pre, 72057594037927936
-  br i1 %.not28.i.i, label %23, label %17
+  %17 = lshr i64 %.pre, 56
+  %.not28.i.i = icmp eq i64 %17, 0
+  br i1 %.not28.i.i, label %23, label %18
 
-17:                                               ; preds = %16
-  %18 = lshr i64 %.pre, 56
-  %19 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %18
+18:                                               ; preds = %16
+  %19 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %17
   %20 = load i8, ptr %19, align 1, !tbaa !32
   %21 = zext i8 %20 to i32
   %22 = add nuw nsw i32 %21, 56
@@ -7253,12 +7253,12 @@ define internal noundef i32 @H5P__dcrt_ext_file_list_enc(ptr noundef readonly ca
   br label %H5VM_limit_enc_size.exit
 
 28:                                               ; preds = %14
-  %.not27.i.i = icmp samesign ult i64 %.pre, 1099511627776
-  br i1 %.not27.i.i, label %35, label %29
+  %29 = lshr i64 %.pre, 40
+  %.not27.i.i = icmp eq i64 %29, 0
+  br i1 %.not27.i.i, label %35, label %30
 
-29:                                               ; preds = %28
-  %30 = lshr i64 %.pre, 40
-  %31 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %30
+30:                                               ; preds = %28
+  %31 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %29
   %32 = load i8, ptr %31, align 1, !tbaa !32
   %33 = zext i8 %32 to i32
   %34 = add nuw nsw i32 %33, 40
@@ -7273,16 +7273,16 @@ define internal noundef i32 @H5P__dcrt_ext_file_list_enc(ptr noundef readonly ca
 
 40:                                               ; preds = %12
   %41 = lshr i64 %.pre, 16
-  %.not23.i.i = icmp samesign ult i64 %.pre, 65536
+  %.not23.i.i = icmp eq i64 %41, 0
   br i1 %.not23.i.i, label %54, label %42
 
 42:                                               ; preds = %40
-  %.not25.i.i = icmp samesign ult i64 %.pre, 16777216
-  br i1 %.not25.i.i, label %49, label %43
+  %43 = lshr i64 %.pre, 24
+  %.not25.i.i = icmp eq i64 %43, 0
+  br i1 %.not25.i.i, label %49, label %44
 
-43:                                               ; preds = %42
-  %44 = lshr i64 %.pre, 24
-  %45 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %44
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %43
   %46 = load i8, ptr %45, align 1, !tbaa !32
   %47 = zext i8 %46 to i32
   %48 = add nuw nsw i32 %47, 24
@@ -7296,12 +7296,12 @@ define internal noundef i32 @H5P__dcrt_ext_file_list_enc(ptr noundef readonly ca
   br label %H5VM_limit_enc_size.exit
 
 54:                                               ; preds = %40
-  %.not24.i.i = icmp samesign ult i64 %.pre, 256
-  br i1 %.not24.i.i, label %61, label %55
+  %55 = lshr i64 %.pre, 8
+  %.not24.i.i = icmp eq i64 %55, 0
+  br i1 %.not24.i.i, label %61, label %56
 
-55:                                               ; preds = %54
-  %56 = lshr i64 %.pre, 8
-  %57 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %56
+56:                                               ; preds = %54
+  %57 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %55
   %58 = load i8, ptr %57, align 1, !tbaa !32
   %59 = zext i8 %58 to i32
   %60 = add nuw nsw i32 %59, 8
@@ -7313,8 +7313,8 @@ define internal noundef i32 @H5P__dcrt_ext_file_list_enc(ptr noundef readonly ca
   %64 = zext i8 %63 to i32
   br label %H5VM_limit_enc_size.exit
 
-H5VM_limit_enc_size.exit:                         ; preds = %17, %23, %29, %35, %43, %49, %55, %61
-  %.0.i.i = phi i32 [ %22, %17 ], [ %27, %23 ], [ %34, %29 ], [ %39, %35 ], [ %48, %43 ], [ %53, %49 ], [ %60, %55 ], [ %64, %61 ]
+H5VM_limit_enc_size.exit:                         ; preds = %18, %23, %30, %35, %44, %49, %56, %61
+  %.0.i.i = phi i32 [ %22, %18 ], [ %27, %23 ], [ %34, %30 ], [ %39, %35 ], [ %48, %44 ], [ %53, %49 ], [ %60, %56 ], [ %64, %61 ]
   %65 = lshr i32 %.0.i.i, 3
   %66 = add nuw nsw i32 %65, 1
   %67 = trunc nuw nsw i32 %66 to i8
@@ -7343,9 +7343,9 @@ H5VM_limit_enc_size.exit:                         ; preds = %17, %23, %29, %35, 
   store ptr %78, ptr %1, align 8, !tbaa !51
   %79 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !64
   %.not190 = icmp eq i64 %79, 0
-  br i1 %.not190, label %.thread219, label %.lr.ph
+  br i1 %.not190, label %.thread260, label %.lr.ph
 
-.thread219:                                       ; preds = %76
+.thread260:                                       ; preds = %76
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %355
 
@@ -7363,21 +7363,21 @@ H5VM_limit_enc_size.exit:                         ; preds = %17, %23, %29, %35, 
   %88 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %87) #13
   %89 = add i64 %88, 1
   %90 = lshr i64 %89, 32
-  %.not.i.i108 = icmp ult i64 %89, 4294967296
+  %.not.i.i108 = icmp eq i64 %90, 0
   br i1 %.not.i.i108, label %117, label %91
 
 91:                                               ; preds = %82
   %92 = lshr i64 %89, 48
-  %.not26.i.i109 = icmp ult i64 %89, 281474976710656
+  %.not26.i.i109 = icmp eq i64 %92, 0
   br i1 %.not26.i.i109, label %105, label %93
 
 93:                                               ; preds = %91
-  %.not28.i.i110 = icmp ult i64 %89, 72057594037927936
-  br i1 %.not28.i.i110, label %100, label %94
+  %94 = lshr i64 %89, 56
+  %.not28.i.i110 = icmp eq i64 %94, 0
+  br i1 %.not28.i.i110, label %100, label %95
 
-94:                                               ; preds = %93
-  %95 = lshr i64 %89, 56
-  %96 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %95
+95:                                               ; preds = %93
+  %96 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %94
   %97 = load i8, ptr %96, align 1, !tbaa !32
   %98 = zext i8 %97 to i32
   %99 = add nuw nsw i32 %98, 56
@@ -7391,12 +7391,12 @@ H5VM_limit_enc_size.exit:                         ; preds = %17, %23, %29, %35, 
   br label %H5VM_limit_enc_size.exit116
 
 105:                                              ; preds = %91
-  %.not27.i.i112 = icmp samesign ult i64 %89, 1099511627776
-  br i1 %.not27.i.i112, label %112, label %106
+  %106 = lshr i64 %89, 40
+  %.not27.i.i112 = icmp eq i64 %106, 0
+  br i1 %.not27.i.i112, label %112, label %107
 
-106:                                              ; preds = %105
-  %107 = lshr i64 %89, 40
-  %108 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %107
+107:                                              ; preds = %105
+  %108 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %106
   %109 = load i8, ptr %108, align 1, !tbaa !32
   %110 = zext i8 %109 to i32
   %111 = add nuw nsw i32 %110, 40
@@ -7411,16 +7411,16 @@ H5VM_limit_enc_size.exit:                         ; preds = %17, %23, %29, %35, 
 
 117:                                              ; preds = %82
   %118 = lshr i64 %89, 16
-  %.not23.i.i113 = icmp samesign ult i64 %89, 65536
+  %.not23.i.i113 = icmp eq i64 %118, 0
   br i1 %.not23.i.i113, label %131, label %119
 
 119:                                              ; preds = %117
-  %.not25.i.i114 = icmp samesign ult i64 %89, 16777216
-  br i1 %.not25.i.i114, label %126, label %120
+  %120 = lshr i64 %89, 24
+  %.not25.i.i114 = icmp eq i64 %120, 0
+  br i1 %.not25.i.i114, label %126, label %121
 
-120:                                              ; preds = %119
-  %121 = lshr i64 %89, 24
-  %122 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %121
+121:                                              ; preds = %119
+  %122 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %120
   %123 = load i8, ptr %122, align 1, !tbaa !32
   %124 = zext i8 %123 to i32
   %125 = add nuw nsw i32 %124, 24
@@ -7434,12 +7434,12 @@ H5VM_limit_enc_size.exit:                         ; preds = %17, %23, %29, %35, 
   br label %H5VM_limit_enc_size.exit116
 
 131:                                              ; preds = %117
-  %.not24.i.i115 = icmp samesign ult i64 %89, 256
-  br i1 %.not24.i.i115, label %138, label %132
+  %132 = lshr i64 %89, 8
+  %.not24.i.i115 = icmp eq i64 %132, 0
+  br i1 %.not24.i.i115, label %138, label %133
 
-132:                                              ; preds = %131
-  %133 = lshr i64 %89, 8
-  %134 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %133
+133:                                              ; preds = %131
+  %134 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %132
   %135 = load i8, ptr %134, align 1, !tbaa !32
   %136 = zext i8 %135 to i32
   %137 = add nuw nsw i32 %136, 8
@@ -7451,8 +7451,8 @@ H5VM_limit_enc_size.exit:                         ; preds = %17, %23, %29, %35, 
   %141 = zext i8 %140 to i32
   br label %H5VM_limit_enc_size.exit116
 
-H5VM_limit_enc_size.exit116:                      ; preds = %94, %100, %106, %112, %120, %126, %132, %138
-  %.0.i.i111 = phi i32 [ %99, %94 ], [ %104, %100 ], [ %111, %106 ], [ %116, %112 ], [ %125, %120 ], [ %130, %126 ], [ %137, %132 ], [ %141, %138 ]
+H5VM_limit_enc_size.exit116:                      ; preds = %95, %100, %107, %112, %121, %126, %133, %138
+  %.0.i.i111 = phi i32 [ %99, %95 ], [ %104, %100 ], [ %111, %107 ], [ %116, %112 ], [ %125, %121 ], [ %130, %126 ], [ %137, %133 ], [ %141, %138 ]
   %142 = lshr i32 %.0.i.i111, 3
   %143 = add nuw nsw i32 %142, 1
   %144 = trunc nuw nsw i32 %143 to i8
@@ -7491,21 +7491,21 @@ H5VM_limit_enc_size.exit116:                      ; preds = %94, %100, %106, %11
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 16
   %165 = load i64, ptr %164, align 8, !tbaa !74
   %166 = lshr i64 %165, 32
-  %.not.i.i117 = icmp ult i64 %165, 4294967296
+  %.not.i.i117 = icmp eq i64 %166, 0
   br i1 %.not.i.i117, label %193, label %167
 
 167:                                              ; preds = %153
   %168 = lshr i64 %165, 48
-  %.not26.i.i118 = icmp ult i64 %165, 281474976710656
+  %.not26.i.i118 = icmp eq i64 %168, 0
   br i1 %.not26.i.i118, label %181, label %169
 
 169:                                              ; preds = %167
-  %.not28.i.i119 = icmp ult i64 %165, 72057594037927936
-  br i1 %.not28.i.i119, label %176, label %170
+  %170 = lshr i64 %165, 56
+  %.not28.i.i119 = icmp eq i64 %170, 0
+  br i1 %.not28.i.i119, label %176, label %171
 
-170:                                              ; preds = %169
-  %171 = lshr i64 %165, 56
-  %172 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %171
+171:                                              ; preds = %169
+  %172 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %170
   %173 = load i8, ptr %172, align 1, !tbaa !32
   %174 = zext i8 %173 to i32
   %175 = add nuw nsw i32 %174, 56
@@ -7519,12 +7519,12 @@ H5VM_limit_enc_size.exit116:                      ; preds = %94, %100, %106, %11
   br label %H5VM_limit_enc_size.exit125
 
 181:                                              ; preds = %167
-  %.not27.i.i121 = icmp samesign ult i64 %165, 1099511627776
-  br i1 %.not27.i.i121, label %188, label %182
+  %182 = lshr i64 %165, 40
+  %.not27.i.i121 = icmp eq i64 %182, 0
+  br i1 %.not27.i.i121, label %188, label %183
 
-182:                                              ; preds = %181
-  %183 = lshr i64 %165, 40
-  %184 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %183
+183:                                              ; preds = %181
+  %184 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %182
   %185 = load i8, ptr %184, align 1, !tbaa !32
   %186 = zext i8 %185 to i32
   %187 = add nuw nsw i32 %186, 40
@@ -7539,16 +7539,16 @@ H5VM_limit_enc_size.exit116:                      ; preds = %94, %100, %106, %11
 
 193:                                              ; preds = %153
   %194 = lshr i64 %165, 16
-  %.not23.i.i122 = icmp samesign ult i64 %165, 65536
+  %.not23.i.i122 = icmp eq i64 %194, 0
   br i1 %.not23.i.i122, label %207, label %195
 
 195:                                              ; preds = %193
-  %.not25.i.i123 = icmp samesign ult i64 %165, 16777216
-  br i1 %.not25.i.i123, label %202, label %196
+  %196 = lshr i64 %165, 24
+  %.not25.i.i123 = icmp eq i64 %196, 0
+  br i1 %.not25.i.i123, label %202, label %197
 
-196:                                              ; preds = %195
-  %197 = lshr i64 %165, 24
-  %198 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %197
+197:                                              ; preds = %195
+  %198 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %196
   %199 = load i8, ptr %198, align 1, !tbaa !32
   %200 = zext i8 %199 to i32
   %201 = add nuw nsw i32 %200, 24
@@ -7562,12 +7562,12 @@ H5VM_limit_enc_size.exit116:                      ; preds = %94, %100, %106, %11
   br label %H5VM_limit_enc_size.exit125
 
 207:                                              ; preds = %193
-  %.not24.i.i124 = icmp samesign ult i64 %165, 256
-  br i1 %.not24.i.i124, label %214, label %208
+  %208 = lshr i64 %165, 8
+  %.not24.i.i124 = icmp eq i64 %208, 0
+  br i1 %.not24.i.i124, label %214, label %209
 
-208:                                              ; preds = %207
-  %209 = lshr i64 %165, 8
-  %210 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %209
+209:                                              ; preds = %207
+  %210 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %208
   %211 = load i8, ptr %210, align 1, !tbaa !32
   %212 = zext i8 %211 to i32
   %213 = add nuw nsw i32 %212, 8
@@ -7579,8 +7579,8 @@ H5VM_limit_enc_size.exit116:                      ; preds = %94, %100, %106, %11
   %217 = zext i8 %216 to i32
   br label %H5VM_limit_enc_size.exit125
 
-H5VM_limit_enc_size.exit125:                      ; preds = %170, %176, %182, %188, %196, %202, %208, %214
-  %.0.i.i120 = phi i32 [ %175, %170 ], [ %180, %176 ], [ %187, %182 ], [ %192, %188 ], [ %201, %196 ], [ %206, %202 ], [ %213, %208 ], [ %217, %214 ]
+H5VM_limit_enc_size.exit125:                      ; preds = %171, %176, %183, %188, %197, %202, %209, %214
+  %.0.i.i120 = phi i32 [ %175, %171 ], [ %180, %176 ], [ %187, %183 ], [ %192, %188 ], [ %201, %197 ], [ %206, %202 ], [ %213, %209 ], [ %217, %214 ]
   %218 = lshr i32 %.0.i.i120, 3
   %219 = add nuw nsw i32 %218, 1
   %220 = trunc nuw nsw i32 %219 to i8
@@ -7611,21 +7611,21 @@ H5VM_limit_enc_size.exit125:                      ; preds = %170, %176, %182, %1
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 24
   %235 = load i64, ptr %234, align 8, !tbaa !68
   %236 = lshr i64 %235, 32
-  %.not.i.i126 = icmp ult i64 %235, 4294967296
+  %.not.i.i126 = icmp eq i64 %236, 0
   br i1 %.not.i.i126, label %263, label %237
 
 237:                                              ; preds = %229
   %238 = lshr i64 %235, 48
-  %.not26.i.i127 = icmp ult i64 %235, 281474976710656
+  %.not26.i.i127 = icmp eq i64 %238, 0
   br i1 %.not26.i.i127, label %251, label %239
 
 239:                                              ; preds = %237
-  %.not28.i.i128 = icmp ult i64 %235, 72057594037927936
-  br i1 %.not28.i.i128, label %246, label %240
+  %240 = lshr i64 %235, 56
+  %.not28.i.i128 = icmp eq i64 %240, 0
+  br i1 %.not28.i.i128, label %246, label %241
 
-240:                                              ; preds = %239
-  %241 = lshr i64 %235, 56
-  %242 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %241
+241:                                              ; preds = %239
+  %242 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %240
   %243 = load i8, ptr %242, align 1, !tbaa !32
   %244 = zext i8 %243 to i32
   %245 = add nuw nsw i32 %244, 56
@@ -7639,12 +7639,12 @@ H5VM_limit_enc_size.exit125:                      ; preds = %170, %176, %182, %1
   br label %H5VM_limit_enc_size.exit134
 
 251:                                              ; preds = %237
-  %.not27.i.i130 = icmp samesign ult i64 %235, 1099511627776
-  br i1 %.not27.i.i130, label %258, label %252
+  %252 = lshr i64 %235, 40
+  %.not27.i.i130 = icmp eq i64 %252, 0
+  br i1 %.not27.i.i130, label %258, label %253
 
-252:                                              ; preds = %251
-  %253 = lshr i64 %235, 40
-  %254 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %253
+253:                                              ; preds = %251
+  %254 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %252
   %255 = load i8, ptr %254, align 1, !tbaa !32
   %256 = zext i8 %255 to i32
   %257 = add nuw nsw i32 %256, 40
@@ -7659,16 +7659,16 @@ H5VM_limit_enc_size.exit125:                      ; preds = %170, %176, %182, %1
 
 263:                                              ; preds = %229
   %264 = lshr i64 %235, 16
-  %.not23.i.i131 = icmp samesign ult i64 %235, 65536
+  %.not23.i.i131 = icmp eq i64 %264, 0
   br i1 %.not23.i.i131, label %277, label %265
 
 265:                                              ; preds = %263
-  %.not25.i.i132 = icmp samesign ult i64 %235, 16777216
-  br i1 %.not25.i.i132, label %272, label %266
+  %266 = lshr i64 %235, 24
+  %.not25.i.i132 = icmp eq i64 %266, 0
+  br i1 %.not25.i.i132, label %272, label %267
 
-266:                                              ; preds = %265
-  %267 = lshr i64 %235, 24
-  %268 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %267
+267:                                              ; preds = %265
+  %268 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %266
   %269 = load i8, ptr %268, align 1, !tbaa !32
   %270 = zext i8 %269 to i32
   %271 = add nuw nsw i32 %270, 24
@@ -7682,12 +7682,12 @@ H5VM_limit_enc_size.exit125:                      ; preds = %170, %176, %182, %1
   br label %H5VM_limit_enc_size.exit134
 
 277:                                              ; preds = %263
-  %.not24.i.i133 = icmp samesign ult i64 %235, 256
-  br i1 %.not24.i.i133, label %284, label %278
+  %278 = lshr i64 %235, 8
+  %.not24.i.i133 = icmp eq i64 %278, 0
+  br i1 %.not24.i.i133, label %284, label %279
 
-278:                                              ; preds = %277
-  %279 = lshr i64 %235, 8
-  %280 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %279
+279:                                              ; preds = %277
+  %280 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %278
   %281 = load i8, ptr %280, align 1, !tbaa !32
   %282 = zext i8 %281 to i32
   %283 = add nuw nsw i32 %282, 8
@@ -7699,8 +7699,8 @@ H5VM_limit_enc_size.exit125:                      ; preds = %170, %176, %182, %1
   %287 = zext i8 %286 to i32
   br label %H5VM_limit_enc_size.exit134
 
-H5VM_limit_enc_size.exit134:                      ; preds = %240, %246, %252, %258, %266, %272, %278, %284
-  %.0.i.i129 = phi i32 [ %245, %240 ], [ %250, %246 ], [ %257, %252 ], [ %262, %258 ], [ %271, %266 ], [ %276, %272 ], [ %283, %278 ], [ %287, %284 ]
+H5VM_limit_enc_size.exit134:                      ; preds = %241, %246, %253, %258, %267, %272, %279, %284
+  %.0.i.i129 = phi i32 [ %245, %241 ], [ %250, %246 ], [ %257, %253 ], [ %262, %258 ], [ %271, %267 ], [ %276, %272 ], [ %283, %279 ], [ %287, %284 ]
   %288 = lshr i32 %.0.i.i129, 3
   %289 = add nuw nsw i32 %288, 1
   %290 = trunc nuw nsw i32 %289 to i8
@@ -7736,21 +7736,21 @@ H5VM_limit_enc_size.exit134:                      ; preds = %240, %246, %252, %2
   %305 = phi i64 [ %.pre, %10 ], [ %303, %299 ]
   %306 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %307 = lshr i64 %305, 32
-  %.not.i.i135 = icmp ult i64 %305, 4294967296
+  %.not.i.i135 = icmp eq i64 %307, 0
   br i1 %.not.i.i135, label %334, label %308
 
 308:                                              ; preds = %.loopexit171
   %309 = lshr i64 %305, 48
-  %.not26.i.i136 = icmp ult i64 %305, 281474976710656
+  %.not26.i.i136 = icmp eq i64 %309, 0
   br i1 %.not26.i.i136, label %322, label %310
 
 310:                                              ; preds = %308
-  %.not28.i.i137 = icmp ult i64 %305, 72057594037927936
-  br i1 %.not28.i.i137, label %317, label %311
+  %311 = lshr i64 %305, 56
+  %.not28.i.i137 = icmp eq i64 %311, 0
+  br i1 %.not28.i.i137, label %317, label %312
 
-311:                                              ; preds = %310
-  %312 = lshr i64 %305, 56
-  %313 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %312
+312:                                              ; preds = %310
+  %313 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %311
   %314 = load i8, ptr %313, align 1, !tbaa !32
   %315 = zext i8 %314 to i32
   %316 = add nuw nsw i32 %315, 56
@@ -7764,12 +7764,12 @@ H5VM_limit_enc_size.exit134:                      ; preds = %240, %246, %252, %2
   br label %H5VM_limit_enc_size.exit143
 
 322:                                              ; preds = %308
-  %.not27.i.i139 = icmp samesign ult i64 %305, 1099511627776
-  br i1 %.not27.i.i139, label %329, label %323
+  %323 = lshr i64 %305, 40
+  %.not27.i.i139 = icmp eq i64 %323, 0
+  br i1 %.not27.i.i139, label %329, label %324
 
-323:                                              ; preds = %322
-  %324 = lshr i64 %305, 40
-  %325 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %324
+324:                                              ; preds = %322
+  %325 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %323
   %326 = load i8, ptr %325, align 1, !tbaa !32
   %327 = zext i8 %326 to i32
   %328 = add nuw nsw i32 %327, 40
@@ -7784,16 +7784,16 @@ H5VM_limit_enc_size.exit134:                      ; preds = %240, %246, %252, %2
 
 334:                                              ; preds = %.loopexit171
   %335 = lshr i64 %305, 16
-  %.not23.i.i140 = icmp samesign ult i64 %305, 65536
+  %.not23.i.i140 = icmp eq i64 %335, 0
   br i1 %.not23.i.i140, label %348, label %336
 
 336:                                              ; preds = %334
-  %.not25.i.i141 = icmp samesign ult i64 %305, 16777216
-  br i1 %.not25.i.i141, label %343, label %337
+  %337 = lshr i64 %305, 24
+  %.not25.i.i141 = icmp eq i64 %337, 0
+  br i1 %.not25.i.i141, label %343, label %338
 
-337:                                              ; preds = %336
-  %338 = lshr i64 %305, 24
-  %339 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %338
+338:                                              ; preds = %336
+  %339 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %337
   %340 = load i8, ptr %339, align 1, !tbaa !32
   %341 = zext i8 %340 to i32
   %342 = add nuw nsw i32 %341, 24
@@ -7807,28 +7807,28 @@ H5VM_limit_enc_size.exit134:                      ; preds = %240, %246, %252, %2
   br label %H5VM_limit_enc_size.exit143
 
 348:                                              ; preds = %334
-  %.not24.i.i142 = icmp samesign ult i64 %305, 256
-  br i1 %.not24.i.i142, label %355, label %349
+  %349 = lshr i64 %305, 8
+  %.not24.i.i142 = icmp eq i64 %349, 0
+  br i1 %.not24.i.i142, label %355, label %350
 
-349:                                              ; preds = %348
-  %350 = lshr i64 %305, 8
-  %351 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %350
+350:                                              ; preds = %348
+  %351 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %349
   %352 = load i8, ptr %351, align 1, !tbaa !32
   %353 = zext i8 %352 to i32
   %354 = add nuw nsw i32 %353, 8
   br label %H5VM_limit_enc_size.exit143
 
-355:                                              ; preds = %.thread219, %348
-  %356 = phi ptr [ %80, %.thread219 ], [ %306, %348 ]
-  %357 = phi i64 [ 0, %.thread219 ], [ %305, %348 ]
+355:                                              ; preds = %.thread260, %348
+  %356 = phi ptr [ %80, %.thread260 ], [ %306, %348 ]
+  %357 = phi i64 [ 0, %.thread260 ], [ %305, %348 ]
   %358 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %357
   %359 = load i8, ptr %358, align 1, !tbaa !32
   %360 = zext i8 %359 to i32
   br label %H5VM_limit_enc_size.exit143
 
-H5VM_limit_enc_size.exit143:                      ; preds = %311, %317, %323, %329, %337, %343, %349, %355
-  %361 = phi ptr [ %306, %311 ], [ %306, %317 ], [ %306, %323 ], [ %306, %329 ], [ %306, %337 ], [ %306, %343 ], [ %306, %349 ], [ %356, %355 ]
-  %.0.i.i138 = phi i32 [ %316, %311 ], [ %321, %317 ], [ %328, %323 ], [ %333, %329 ], [ %342, %337 ], [ %347, %343 ], [ %354, %349 ], [ %360, %355 ]
+H5VM_limit_enc_size.exit143:                      ; preds = %312, %317, %324, %329, %338, %343, %350, %355
+  %361 = phi ptr [ %306, %312 ], [ %306, %317 ], [ %306, %324 ], [ %306, %329 ], [ %306, %338 ], [ %306, %343 ], [ %306, %350 ], [ %356, %355 ]
+  %.0.i.i138 = phi i32 [ %316, %312 ], [ %321, %317 ], [ %328, %324 ], [ %333, %329 ], [ %342, %338 ], [ %347, %343 ], [ %354, %350 ], [ %360, %355 ]
   %362 = lshr i32 %.0.i.i138, 3
   %363 = add nuw nsw i32 %362, 2
   %364 = zext nneg i32 %363 to i64
@@ -7853,21 +7853,21 @@ H5VM_limit_enc_size.exit143:                      ; preds = %311, %317, %323, %3
   %375 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %374) #13
   %376 = add i64 %375, 1
   %377 = lshr i64 %376, 32
-  %.not.i.i144 = icmp ult i64 %376, 4294967296
+  %.not.i.i144 = icmp eq i64 %377, 0
   br i1 %.not.i.i144, label %404, label %378
 
 378:                                              ; preds = %370
   %379 = lshr i64 %376, 48
-  %.not26.i.i145 = icmp ult i64 %376, 281474976710656
+  %.not26.i.i145 = icmp eq i64 %379, 0
   br i1 %.not26.i.i145, label %392, label %380
 
 380:                                              ; preds = %378
-  %.not28.i.i146 = icmp ult i64 %376, 72057594037927936
-  br i1 %.not28.i.i146, label %387, label %381
+  %381 = lshr i64 %376, 56
+  %.not28.i.i146 = icmp eq i64 %381, 0
+  br i1 %.not28.i.i146, label %387, label %382
 
-381:                                              ; preds = %380
-  %382 = lshr i64 %376, 56
-  %383 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %382
+382:                                              ; preds = %380
+  %383 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %381
   %384 = load i8, ptr %383, align 1, !tbaa !32
   %385 = zext i8 %384 to i32
   %386 = add nuw nsw i32 %385, 56
@@ -7881,12 +7881,12 @@ H5VM_limit_enc_size.exit143:                      ; preds = %311, %317, %323, %3
   br label %H5VM_limit_enc_size.exit152
 
 392:                                              ; preds = %378
-  %.not27.i.i148 = icmp samesign ult i64 %376, 1099511627776
-  br i1 %.not27.i.i148, label %399, label %393
+  %393 = lshr i64 %376, 40
+  %.not27.i.i148 = icmp eq i64 %393, 0
+  br i1 %.not27.i.i148, label %399, label %394
 
-393:                                              ; preds = %392
-  %394 = lshr i64 %376, 40
-  %395 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %394
+394:                                              ; preds = %392
+  %395 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %393
   %396 = load i8, ptr %395, align 1, !tbaa !32
   %397 = zext i8 %396 to i32
   %398 = add nuw nsw i32 %397, 40
@@ -7901,16 +7901,16 @@ H5VM_limit_enc_size.exit143:                      ; preds = %311, %317, %323, %3
 
 404:                                              ; preds = %370
   %405 = lshr i64 %376, 16
-  %.not23.i.i149 = icmp samesign ult i64 %376, 65536
+  %.not23.i.i149 = icmp eq i64 %405, 0
   br i1 %.not23.i.i149, label %418, label %406
 
 406:                                              ; preds = %404
-  %.not25.i.i150 = icmp samesign ult i64 %376, 16777216
-  br i1 %.not25.i.i150, label %413, label %407
+  %407 = lshr i64 %376, 24
+  %.not25.i.i150 = icmp eq i64 %407, 0
+  br i1 %.not25.i.i150, label %413, label %408
 
-407:                                              ; preds = %406
-  %408 = lshr i64 %376, 24
-  %409 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %408
+408:                                              ; preds = %406
+  %409 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %407
   %410 = load i8, ptr %409, align 1, !tbaa !32
   %411 = zext i8 %410 to i32
   %412 = add nuw nsw i32 %411, 24
@@ -7924,12 +7924,12 @@ H5VM_limit_enc_size.exit143:                      ; preds = %311, %317, %323, %3
   br label %H5VM_limit_enc_size.exit152
 
 418:                                              ; preds = %404
-  %.not24.i.i151 = icmp samesign ult i64 %376, 256
-  br i1 %.not24.i.i151, label %425, label %419
+  %419 = lshr i64 %376, 8
+  %.not24.i.i151 = icmp eq i64 %419, 0
+  br i1 %.not24.i.i151, label %425, label %420
 
-419:                                              ; preds = %418
-  %420 = lshr i64 %376, 8
-  %421 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %420
+420:                                              ; preds = %418
+  %421 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %419
   %422 = load i8, ptr %421, align 1, !tbaa !32
   %423 = zext i8 %422 to i32
   %424 = add nuw nsw i32 %423, 8
@@ -7941,8 +7941,8 @@ H5VM_limit_enc_size.exit143:                      ; preds = %311, %317, %323, %3
   %428 = zext i8 %427 to i32
   br label %H5VM_limit_enc_size.exit152
 
-H5VM_limit_enc_size.exit152:                      ; preds = %381, %387, %393, %399, %407, %413, %419, %425
-  %.0.i.i147 = phi i32 [ %386, %381 ], [ %391, %387 ], [ %398, %393 ], [ %403, %399 ], [ %412, %407 ], [ %417, %413 ], [ %424, %419 ], [ %428, %425 ]
+H5VM_limit_enc_size.exit152:                      ; preds = %382, %387, %394, %399, %408, %413, %420, %425
+  %.0.i.i147 = phi i32 [ %386, %382 ], [ %391, %387 ], [ %398, %394 ], [ %403, %399 ], [ %412, %408 ], [ %417, %413 ], [ %424, %420 ], [ %428, %425 ]
   %429 = lshr i32 %.0.i.i147, 3
   %430 = add nuw nsw i32 %429, 2
   %431 = zext nneg i32 %430 to i64
@@ -7952,21 +7952,21 @@ H5VM_limit_enc_size.exit152:                      ; preds = %381, %387, %393, %3
   %434 = getelementptr inbounds nuw i8, ptr %372, i64 16
   %435 = load i64, ptr %434, align 8, !tbaa !74
   %436 = lshr i64 %435, 32
-  %.not.i.i153 = icmp ult i64 %435, 4294967296
+  %.not.i.i153 = icmp eq i64 %436, 0
   br i1 %.not.i.i153, label %463, label %437
 
 437:                                              ; preds = %H5VM_limit_enc_size.exit152
   %438 = lshr i64 %435, 48
-  %.not26.i.i154 = icmp ult i64 %435, 281474976710656
+  %.not26.i.i154 = icmp eq i64 %438, 0
   br i1 %.not26.i.i154, label %451, label %439
 
 439:                                              ; preds = %437
-  %.not28.i.i155 = icmp ult i64 %435, 72057594037927936
-  br i1 %.not28.i.i155, label %446, label %440
+  %440 = lshr i64 %435, 56
+  %.not28.i.i155 = icmp eq i64 %440, 0
+  br i1 %.not28.i.i155, label %446, label %441
 
-440:                                              ; preds = %439
-  %441 = lshr i64 %435, 56
-  %442 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %441
+441:                                              ; preds = %439
+  %442 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %440
   %443 = load i8, ptr %442, align 1, !tbaa !32
   %444 = zext i8 %443 to i32
   %445 = add nuw nsw i32 %444, 56
@@ -7980,12 +7980,12 @@ H5VM_limit_enc_size.exit152:                      ; preds = %381, %387, %393, %3
   br label %H5VM_limit_enc_size.exit161
 
 451:                                              ; preds = %437
-  %.not27.i.i157 = icmp samesign ult i64 %435, 1099511627776
-  br i1 %.not27.i.i157, label %458, label %452
+  %452 = lshr i64 %435, 40
+  %.not27.i.i157 = icmp eq i64 %452, 0
+  br i1 %.not27.i.i157, label %458, label %453
 
-452:                                              ; preds = %451
-  %453 = lshr i64 %435, 40
-  %454 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %453
+453:                                              ; preds = %451
+  %454 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %452
   %455 = load i8, ptr %454, align 1, !tbaa !32
   %456 = zext i8 %455 to i32
   %457 = add nuw nsw i32 %456, 40
@@ -8000,16 +8000,16 @@ H5VM_limit_enc_size.exit152:                      ; preds = %381, %387, %393, %3
 
 463:                                              ; preds = %H5VM_limit_enc_size.exit152
   %464 = lshr i64 %435, 16
-  %.not23.i.i158 = icmp samesign ult i64 %435, 65536
+  %.not23.i.i158 = icmp eq i64 %464, 0
   br i1 %.not23.i.i158, label %477, label %465
 
 465:                                              ; preds = %463
-  %.not25.i.i159 = icmp samesign ult i64 %435, 16777216
-  br i1 %.not25.i.i159, label %472, label %466
+  %466 = lshr i64 %435, 24
+  %.not25.i.i159 = icmp eq i64 %466, 0
+  br i1 %.not25.i.i159, label %472, label %467
 
-466:                                              ; preds = %465
-  %467 = lshr i64 %435, 24
-  %468 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %467
+467:                                              ; preds = %465
+  %468 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %466
   %469 = load i8, ptr %468, align 1, !tbaa !32
   %470 = zext i8 %469 to i32
   %471 = add nuw nsw i32 %470, 24
@@ -8023,12 +8023,12 @@ H5VM_limit_enc_size.exit152:                      ; preds = %381, %387, %393, %3
   br label %H5VM_limit_enc_size.exit161
 
 477:                                              ; preds = %463
-  %.not24.i.i160 = icmp samesign ult i64 %435, 256
-  br i1 %.not24.i.i160, label %484, label %478
+  %478 = lshr i64 %435, 8
+  %.not24.i.i160 = icmp eq i64 %478, 0
+  br i1 %.not24.i.i160, label %484, label %479
 
-478:                                              ; preds = %477
-  %479 = lshr i64 %435, 8
-  %480 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %479
+479:                                              ; preds = %477
+  %480 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %478
   %481 = load i8, ptr %480, align 1, !tbaa !32
   %482 = zext i8 %481 to i32
   %483 = add nuw nsw i32 %482, 8
@@ -8040,8 +8040,8 @@ H5VM_limit_enc_size.exit152:                      ; preds = %381, %387, %393, %3
   %487 = zext i8 %486 to i32
   br label %H5VM_limit_enc_size.exit161
 
-H5VM_limit_enc_size.exit161:                      ; preds = %440, %446, %452, %458, %466, %472, %478, %484
-  %.0.i.i156 = phi i32 [ %445, %440 ], [ %450, %446 ], [ %457, %452 ], [ %462, %458 ], [ %471, %466 ], [ %476, %472 ], [ %483, %478 ], [ %487, %484 ]
+H5VM_limit_enc_size.exit161:                      ; preds = %441, %446, %453, %458, %467, %472, %479, %484
+  %.0.i.i156 = phi i32 [ %445, %441 ], [ %450, %446 ], [ %457, %453 ], [ %462, %458 ], [ %471, %467 ], [ %476, %472 ], [ %483, %479 ], [ %487, %484 ]
   %488 = lshr i32 %.0.i.i156, 3
   %489 = add nuw nsw i32 %488, 2
   %490 = zext nneg i32 %489 to i64
@@ -8050,21 +8050,21 @@ H5VM_limit_enc_size.exit161:                      ; preds = %440, %446, %452, %4
   %492 = getelementptr inbounds nuw i8, ptr %372, i64 24
   %493 = load i64, ptr %492, align 8, !tbaa !68
   %494 = lshr i64 %493, 32
-  %.not.i.i162 = icmp ult i64 %493, 4294967296
+  %.not.i.i162 = icmp eq i64 %494, 0
   br i1 %.not.i.i162, label %521, label %495
 
 495:                                              ; preds = %H5VM_limit_enc_size.exit161
   %496 = lshr i64 %493, 48
-  %.not26.i.i163 = icmp ult i64 %493, 281474976710656
+  %.not26.i.i163 = icmp eq i64 %496, 0
   br i1 %.not26.i.i163, label %509, label %497
 
 497:                                              ; preds = %495
-  %.not28.i.i164 = icmp ult i64 %493, 72057594037927936
-  br i1 %.not28.i.i164, label %504, label %498
+  %498 = lshr i64 %493, 56
+  %.not28.i.i164 = icmp eq i64 %498, 0
+  br i1 %.not28.i.i164, label %504, label %499
 
-498:                                              ; preds = %497
-  %499 = lshr i64 %493, 56
-  %500 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %499
+499:                                              ; preds = %497
+  %500 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %498
   %501 = load i8, ptr %500, align 1, !tbaa !32
   %502 = zext i8 %501 to i32
   %503 = add nuw nsw i32 %502, 56
@@ -8078,12 +8078,12 @@ H5VM_limit_enc_size.exit161:                      ; preds = %440, %446, %452, %4
   br label %H5VM_limit_enc_size.exit170
 
 509:                                              ; preds = %495
-  %.not27.i.i166 = icmp samesign ult i64 %493, 1099511627776
-  br i1 %.not27.i.i166, label %516, label %510
+  %510 = lshr i64 %493, 40
+  %.not27.i.i166 = icmp eq i64 %510, 0
+  br i1 %.not27.i.i166, label %516, label %511
 
-510:                                              ; preds = %509
-  %511 = lshr i64 %493, 40
-  %512 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %511
+511:                                              ; preds = %509
+  %512 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %510
   %513 = load i8, ptr %512, align 1, !tbaa !32
   %514 = zext i8 %513 to i32
   %515 = add nuw nsw i32 %514, 40
@@ -8098,16 +8098,16 @@ H5VM_limit_enc_size.exit161:                      ; preds = %440, %446, %452, %4
 
 521:                                              ; preds = %H5VM_limit_enc_size.exit161
   %522 = lshr i64 %493, 16
-  %.not23.i.i167 = icmp samesign ult i64 %493, 65536
+  %.not23.i.i167 = icmp eq i64 %522, 0
   br i1 %.not23.i.i167, label %535, label %523
 
 523:                                              ; preds = %521
-  %.not25.i.i168 = icmp samesign ult i64 %493, 16777216
-  br i1 %.not25.i.i168, label %530, label %524
+  %524 = lshr i64 %493, 24
+  %.not25.i.i168 = icmp eq i64 %524, 0
+  br i1 %.not25.i.i168, label %530, label %525
 
-524:                                              ; preds = %523
-  %525 = lshr i64 %493, 24
-  %526 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %525
+525:                                              ; preds = %523
+  %526 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %524
   %527 = load i8, ptr %526, align 1, !tbaa !32
   %528 = zext i8 %527 to i32
   %529 = add nuw nsw i32 %528, 24
@@ -8121,12 +8121,12 @@ H5VM_limit_enc_size.exit161:                      ; preds = %440, %446, %452, %4
   br label %H5VM_limit_enc_size.exit170
 
 535:                                              ; preds = %521
-  %.not24.i.i169 = icmp samesign ult i64 %493, 256
-  br i1 %.not24.i.i169, label %542, label %536
+  %536 = lshr i64 %493, 8
+  %.not24.i.i169 = icmp eq i64 %536, 0
+  br i1 %.not24.i.i169, label %542, label %537
 
-536:                                              ; preds = %535
-  %537 = lshr i64 %493, 8
-  %538 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %537
+537:                                              ; preds = %535
+  %538 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %536
   %539 = load i8, ptr %538, align 1, !tbaa !32
   %540 = zext i8 %539 to i32
   %541 = add nuw nsw i32 %540, 8
@@ -8138,8 +8138,8 @@ H5VM_limit_enc_size.exit161:                      ; preds = %440, %446, %452, %4
   %545 = zext i8 %544 to i32
   br label %H5VM_limit_enc_size.exit170
 
-H5VM_limit_enc_size.exit170:                      ; preds = %498, %504, %510, %516, %524, %530, %536, %542
-  %.0.i.i165 = phi i32 [ %503, %498 ], [ %508, %504 ], [ %515, %510 ], [ %520, %516 ], [ %529, %524 ], [ %534, %530 ], [ %541, %536 ], [ %545, %542 ]
+H5VM_limit_enc_size.exit170:                      ; preds = %499, %504, %511, %516, %525, %530, %537, %542
+  %.0.i.i165 = phi i32 [ %503, %499 ], [ %508, %504 ], [ %515, %511 ], [ %520, %516 ], [ %529, %525 ], [ %534, %530 ], [ %541, %537 ], [ %545, %542 ]
   %546 = lshr i32 %.0.i.i165, 3
   %547 = add nuw nsw i32 %546, 2
   %548 = zext nneg i32 %547 to i64

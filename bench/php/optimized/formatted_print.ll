@@ -1434,7 +1434,7 @@ zval_get_long.exit196:                            ; preds = %562, %564
   %572 = getelementptr inbounds nuw i8, ptr %9, i64 %571
   store i8 %570, ptr %572, align 1, !tbaa !11
   %573 = lshr i64 %.0.i278, 3
-  %.not.i279 = icmp ult i64 %.0.i278, 8
+  %.not.i279 = icmp eq i64 %573, 0
   br i1 %.not.i279, label %php_sprintf_append2n.exit, label %567
 
 php_sprintf_append2n.exit:                        ; preds = %567
@@ -1476,7 +1476,7 @@ zval_get_long.exit197:                            ; preds = %582, %584
   %592 = getelementptr inbounds nuw i8, ptr %8, i64 %591
   store i8 %590, ptr %592, align 1, !tbaa !11
   %593 = lshr i64 %.0.i281, 4
-  %.not.i282 = icmp ult i64 %.0.i281, 16
+  %.not.i282 = icmp eq i64 %593, 0
   br i1 %.not.i282, label %php_sprintf_append2n.exit283, label %587
 
 php_sprintf_append2n.exit283:                     ; preds = %587
@@ -1518,7 +1518,7 @@ zval_get_long.exit198:                            ; preds = %602, %604
   %612 = getelementptr inbounds nuw i8, ptr %7, i64 %611
   store i8 %610, ptr %612, align 1, !tbaa !11
   %613 = lshr i64 %.0.i285, 4
-  %.not.i286 = icmp ult i64 %.0.i285, 16
+  %.not.i286 = icmp eq i64 %613, 0
   br i1 %.not.i286, label %php_sprintf_append2n.exit287, label %607
 
 php_sprintf_append2n.exit287:                     ; preds = %607
@@ -1560,7 +1560,7 @@ zval_get_long.exit199:                            ; preds = %622, %624
   %632 = getelementptr inbounds nuw i8, ptr %6, i64 %631
   store i8 %630, ptr %632, align 1, !tbaa !11
   %633 = lshr i64 %.0.i289, 1
-  %.not.i290 = icmp ult i64 %.0.i289, 2
+  %.not.i290 = icmp eq i64 %633, 0
   br i1 %.not.i290, label %php_sprintf_append2n.exit291, label %627
 
 php_sprintf_append2n.exit291:                     ; preds = %627

@@ -456,7 +456,7 @@ declare void @_Z11duAppendBoxP11duDebugDrawffffffPKj(ptr noundef, float noundef,
 define void @_Z30duDebugDrawHeightfieldWalkableP11duDebugDrawRK13rcHeightfield(ptr noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) local_unnamed_addr #0 {
   %3 = alloca [6 x i32], align 16
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %77, label %4
+  br i1 %.not, label %75, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -509,65 +509,66 @@ define void @_Z30duDebugDrawHeightfieldWalkableP11duDebugDrawRK13rcHeightfield(p
   %.not4749.us = icmp eq ptr %.048.us, null
   br i1 %.not4749.us, label %._crit_edge.us, label %.lr.ph.us
 
-35:                                               ; preds = %.lr.ph.us, %61
-  %.050.us = phi ptr [ %.048.us, %.lr.ph.us ], [ %.0.us, %61 ]
+35:                                               ; preds = %.lr.ph.us, %59
+  %.050.us = phi ptr [ %.048.us, %.lr.ph.us ], [ %.0.us, %59 ]
   %36 = load i32, ptr %.050.us, align 8
   %37 = lshr i32 %36, 26
-  %38 = icmp eq i32 %37, 63
-  br i1 %38, label %61, label %39
+  switch i32 %37, label %39 [
+    i32 63, label %38
+    i32 0, label %59
+  ]
+
+38:                                               ; preds = %35
+  br label %59
 
 39:                                               ; preds = %35
-  %40 = icmp ult i32 %36, 67108864
-  br i1 %40, label %61, label %41
-
-41:                                               ; preds = %39
-  %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 80
-  %44 = load ptr, ptr %43, align 8
-  %45 = call noundef i32 %44(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %37)
+  %40 = load ptr, ptr %0, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
+  %42 = load ptr, ptr %41, align 8
+  %43 = call noundef i32 %42(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %37)
+  %44 = and i32 %43, 255
+  %45 = lshr i32 %43, 8
   %46 = and i32 %45, 255
-  %47 = lshr i32 %45, 8
+  %47 = lshr i32 %43, 16
   %48 = and i32 %47, 255
-  %49 = lshr i32 %45, 16
-  %50 = and i32 %49, 255
-  %51 = and i32 %45, -16777216
+  %49 = and i32 %43, -16777216
+  %50 = mul nuw nsw i32 %44, 200
+  %51 = lshr i32 %50, 8
   %52 = mul nuw nsw i32 %46, 200
-  %53 = lshr i32 %52, 8
-  %54 = mul nuw nsw i32 %48, 200
-  %55 = and i32 %54, 65280
-  %56 = mul nuw nsw i32 %50, 51200
-  %57 = and i32 %56, 16711680
-  %58 = or disjoint i32 %53, %51
-  %59 = or disjoint i32 %58, %55
-  %60 = or disjoint i32 %59, %57
-  br label %61
+  %53 = and i32 %52, 65280
+  %54 = mul nuw nsw i32 %48, 51200
+  %55 = and i32 %54, 16711680
+  %56 = or disjoint i32 %51, %49
+  %57 = or disjoint i32 %56, %53
+  %58 = or disjoint i32 %57, %55
+  br label %59
 
-61:                                               ; preds = %35, %39, %41
-  %.sink = phi i32 [ %60, %41 ], [ -12566464, %39 ], [ -6258624, %35 ]
+59:                                               ; preds = %35, %39, %38
+  %.sink = phi i32 [ %58, %39 ], [ -6258624, %38 ], [ -12566464, %35 ]
   store i32 %.sink, ptr %3, align 16
-  %62 = load float, ptr %20, align 4
-  %63 = load i32, ptr %.050.us, align 8
-  %64 = and i32 %63, 8191
-  %65 = uitofp nneg i32 %64 to float
-  %66 = call float @llvm.fmuladd.f32(float %65, float %9, float %62)
-  %67 = lshr i32 %63, 13
-  %68 = and i32 %67, 8191
-  %69 = uitofp nneg i32 %68 to float
-  %70 = call float @llvm.fmuladd.f32(float %69, float %9, float %62)
-  call void @_Z11duAppendBoxP11duDebugDrawffffffPKj(ptr noundef nonnull %0, float noundef %29, float noundef %66, float noundef %31, float noundef %72, float noundef %70, float noundef %73, ptr noundef nonnull %3)
-  %71 = getelementptr inbounds nuw i8, ptr %.050.us, i64 8
-  %.0.us = load ptr, ptr %71, align 8
+  %60 = load float, ptr %20, align 4
+  %61 = load i32, ptr %.050.us, align 8
+  %62 = and i32 %61, 8191
+  %63 = uitofp nneg i32 %62 to float
+  %64 = call float @llvm.fmuladd.f32(float %63, float %9, float %60)
+  %65 = lshr i32 %61, 13
+  %66 = and i32 %65, 8191
+  %67 = uitofp nneg i32 %66 to float
+  %68 = call float @llvm.fmuladd.f32(float %67, float %9, float %60)
+  call void @_Z11duAppendBoxP11duDebugDrawffffffPKj(ptr noundef nonnull %0, float noundef %29, float noundef %64, float noundef %31, float noundef %70, float noundef %68, float noundef %71, ptr noundef nonnull %3)
+  %69 = getelementptr inbounds nuw i8, ptr %.050.us, i64 8
+  %.0.us = load ptr, ptr %69, align 8
   %.not47.us = icmp eq ptr %.0.us, null
   br i1 %.not47.us, label %._crit_edge.us, label %35, !llvm.loop !10
 
-._crit_edge.us:                                   ; preds = %61, %25
+._crit_edge.us:                                   ; preds = %59, %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %21
   br i1 %exitcond.not, label %._crit_edge53.us, label %25, !llvm.loop !11
 
 .lr.ph.us:                                        ; preds = %25
-  %72 = fadd float %7, %29
-  %73 = fadd float %7, %31
+  %70 = fadd float %7, %29
+  %71 = fadd float %7, %31
   br label %35
 
 ._crit_edge53.us:                                 ; preds = %._crit_edge.us
@@ -576,13 +577,13 @@ define void @_Z30duDebugDrawHeightfieldWalkableP11duDebugDrawRK13rcHeightfield(p
   br i1 %exitcond62.not, label %._crit_edge55, label %.preheader.us, !llvm.loop !12
 
 ._crit_edge55:                                    ; preds = %._crit_edge53.us, %.preheader.lr.ph, %4
-  %74 = load ptr, ptr %0, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 72
-  %76 = load ptr, ptr %75, align 8
-  call void %76(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br label %77
+  %72 = load ptr, ptr %0, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 72
+  %74 = load ptr, ptr %73, align 8
+  call void %74(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  br label %75
 
-77:                                               ; preds = %2, %._crit_edge55
+75:                                               ; preds = %2, %._crit_edge55
   ret void
 }
 
@@ -643,13 +644,13 @@ define void @_Z34duDebugDrawCompactHeightfieldSolidP11duDebugDrawRK20rcCompactHe
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds %struct.rcCompactCell, ptr %35, i64 %38
   %40 = load i32, ptr %39, align 4
-  %.not73 = icmp ult i32 %40, 16777216
+  %41 = lshr i32 %40, 24
+  %.not73 = icmp eq i32 %41, 0
   br i1 %.not73, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27
-  %41 = and i32 %40, 16777215
-  %42 = lshr i32 %40, 24
-  %43 = add nuw nsw i32 %41, %42
+  %42 = and i32 %40, 16777215
+  %43 = add nuw nsw i32 %42, %41
   %44 = fadd float %5, %34
   %45 = fadd float %5, %32
   %46 = and i32 %40, 16777215
@@ -797,13 +798,13 @@ define void @_Z36duDebugDrawCompactHeightfieldRegionsP11duDebugDrawRK20rcCompact
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds %struct.rcCompactCell, ptr %34, i64 %37
   %39 = load i32, ptr %38, align 4
-  %.not70 = icmp ult i32 %39, 16777216
+  %40 = lshr i32 %39, 24
+  %.not70 = icmp eq i32 %40, 0
   br i1 %.not70, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %26
-  %40 = and i32 %39, 16777215
-  %41 = lshr i32 %39, 24
-  %42 = add nuw nsw i32 %40, %41
+  %41 = and i32 %39, 16777215
+  %42 = add nuw nsw i32 %41, %40
   %43 = fadd float %5, %33
   %44 = fadd float %5, %31
   %45 = and i32 %39, 16777215
@@ -954,13 +955,13 @@ define void @_Z37duDebugDrawCompactHeightfieldDistanceP11duDebugDrawRK20rcCompac
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds %struct.rcCompactCell, ptr %43, i64 %46
   %48 = load i32, ptr %47, align 4
-  %.not78 = icmp ult i32 %48, 16777216
+  %49 = lshr i32 %48, 24
+  %.not78 = icmp eq i32 %49, 0
   br i1 %.not78, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %35
-  %49 = and i32 %48, 16777215
-  %50 = lshr i32 %48, 24
-  %51 = add nuw nsw i32 %49, %50
+  %50 = and i32 %48, 16777215
+  %51 = add nuw nsw i32 %50, %49
   %52 = fadd float %8, %42
   %53 = fadd float %8, %40
   %54 = and i32 %48, 16777215

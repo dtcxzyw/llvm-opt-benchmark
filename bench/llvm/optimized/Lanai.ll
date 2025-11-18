@@ -690,13 +690,13 @@ _ZNK5clang8EnumDecl14getIntegerTypeEv.exit.i:     ; preds = %_ZNK5clang8QualType
   %150 = add i32 %.neg.i.i, %148
   %151 = select i1 %149, i32 32, i32 0
   %152 = add i32 %150, %151
-  %153 = icmp ult i32 %152, 32
-  br i1 %153, label %_ZNK12_GLOBAL__N_112LanaiABIInfo14shouldUseInRegEN5clang8QualTypeERNS0_7CCStateE.exit.i, label %.sink.split.i.i
+  %153 = lshr i32 %152, 5
+  %154 = icmp eq i32 %153, 0
+  br i1 %154, label %_ZNK12_GLOBAL__N_112LanaiABIInfo14shouldUseInRegEN5clang8QualTypeERNS0_7CCStateE.exit.i, label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit.i
-  %154 = lshr i32 %152, 5
-  %155 = icmp ule i32 %154, %.sroa.020.027
-  %.sink.i.i = call i32 @llvm.usub.sat.i32(i32 %.sroa.020.027, i32 %154)
+  %155 = icmp ule i32 %153, %.sroa.020.027
+  %.sink.i.i = call i32 @llvm.usub.sat.i32(i32 %.sroa.020.027, i32 %153)
   br label %_ZNK12_GLOBAL__N_112LanaiABIInfo14shouldUseInRegEN5clang8QualTypeERNS0_7CCStateE.exit.i
 
 _ZNK12_GLOBAL__N_112LanaiABIInfo14shouldUseInRegEN5clang8QualTypeERNS0_7CCStateE.exit.i: ; preds = %.sink.split.i.i, %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit.i

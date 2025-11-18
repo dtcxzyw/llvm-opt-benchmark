@@ -3690,7 +3690,7 @@ define noundef i32 @_ZN6icu_7720CollationDataBuilder17encodeOneCEAsCE32El(i64 no
   br label %23
 
 18:                                               ; preds = %13
-  %19 = icmp ult i64 %0, 4294967296
+  %19 = icmp eq i64 %2, 0
   %20 = and i32 %4, 255
   %21 = icmp eq i32 %20, 0
   %or.cond = and i1 %19, %21
@@ -3722,7 +3722,7 @@ define noundef range(i32 2, 1) i32 @_ZN6icu_7720CollationDataBuilder11encodeOneC
   br label %_ZN6icu_7720CollationDataBuilder17encodeOneCEAsCE32El.exit.thread
 
 14:                                               ; preds = %9
-  %15 = icmp ult i64 %1, 4294967296
+  %15 = icmp eq i64 %4, 0
   %16 = and i32 %6, 255
   %17 = icmp eq i32 %16, 0
   %or.cond.i = and i1 %15, %17
@@ -3881,7 +3881,7 @@ define noundef range(i32 2, 1) i32 @_ZN6icu_7720CollationDataBuilder9encodeCEsEP
 32:                                               ; preds = %24
   %33 = and i64 %27, -4278190081
   %34 = icmp eq i64 %33, 1280
-  %35 = icmp ugt i64 %25, 4294967295
+  %35 = icmp ne i64 %28, 0
   %or.cond4 = and i1 %35, %34
   br i1 %or.cond4, label %36, label %.lr.ph.preheader
 
@@ -3921,7 +3921,7 @@ define noundef range(i32 2, 1) i32 @_ZN6icu_7720CollationDataBuilder9encodeCEsEP
   br label %_ZN6icu_7720CollationDataBuilder17encodeOneCEAsCE32El.exit.thread
 
 57:                                               ; preds = %52
-  %58 = icmp ult i64 %46, 4294967296
+  %58 = icmp eq i64 %47, 0
   %59 = and i32 %49, 255
   %60 = icmp eq i32 %59, 0
   %or.cond.i = and i1 %58, %60

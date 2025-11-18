@@ -1139,11 +1139,11 @@ define dso_local noundef zeroext i1 @_ZN4llvm21TextCodeGenDataReader9hasFormatER
   %..i = tail call i64 @llvm.umin.i64(i64 %8, i64 8)
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 %..i
   %10 = ptrtoint ptr %9 to i64
-  %.not = icmp ult i64 %8, 4
+  %11 = lshr i64 %..i, 2
+  %.not = icmp eq i64 %11, 0
   br i1 %.not, label %._crit_edge.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %1
-  %11 = lshr i64 %..i, 2
   %12 = and i64 %..i, 12
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %3, i64 %12
   br label %.lr.ph.i.i.i.i.i

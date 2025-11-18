@@ -201,7 +201,7 @@ define void @_ZN4YAML12DecodeBase64ERKNSt7__cxx1112basic_stringIcSt11char_traits
   %11 = getelementptr i8, ptr %10, i64 %9
   store i8 0, ptr %10, align 1, !tbaa !12
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 1
-  %13 = icmp ult i64 %7, 4
+  %13 = icmp eq i64 %8, 0
   br i1 %13, label %.lr.ph.preheader, label %14
 
 14:                                               ; preds = %.noexc

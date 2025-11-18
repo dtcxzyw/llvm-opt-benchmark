@@ -5082,7 +5082,7 @@ define hidden noundef range(i32 -268435456, 268435456) i32 @wimax_decode_dlmap_r
   %40 = zext nneg i16 %39 to i32
   %41 = load i32, ptr @hf_dlmap_reduced_aas_num_ie, align 4
   %42 = tail call ptr @proto_tree_add_bits_item(ptr noundef %8, i32 noundef %41, ptr noundef %0, i32 noundef 8, i32 noundef 8, i32 noundef 0)
-  %.not293 = icmp ult i16 %38, 256
+  %.not293 = icmp eq i16 %39, 0
   br i1 %.not293, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %37

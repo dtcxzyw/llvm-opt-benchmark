@@ -326,7 +326,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br i1 %155, label %140, label %.loopexit6.i, !llvm.loop !57
 
 156:                                              ; preds = %123
-  %.not.i = icmp ult i32 %132, 536870912
+  %.not.i = icmp eq i32 %133, 0
   br i1 %.not.i, label %210, label %157
 
 157:                                              ; preds = %156
@@ -659,7 +659,7 @@ get_bitsz.exit.i:                                 ; preds = %327
   %349 = sub nsw i32 1, %348
   %350 = ashr i32 %342, 1
   %351 = mul nsw i32 %349, %350
-  %.not.i134 = icmp ult i32 %342, 2
+  %.not.i134 = icmp eq i32 %350, 0
   br i1 %.not.i134, label %352, label %357
 
 352:                                              ; preds = %346

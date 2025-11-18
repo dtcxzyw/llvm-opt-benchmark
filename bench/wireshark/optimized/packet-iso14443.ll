@@ -1787,7 +1787,7 @@ default.unreachable:                              ; preds = %16
   %55 = select i1 %.not, i32 %54, i32 %53
   %56 = and i32 %55, 255
   %.not140 = icmp eq i32 %56, 0
-  br i1 %.not140, label %100, label %68
+  br i1 %.not140, label %99, label %68
 
 .thread164:                                       ; preds = %16
   %57 = lshr i8 %.fr, 4
@@ -1807,7 +1807,7 @@ default.unreachable:                              ; preds = %16
 
 .thread160:                                       ; preds = %24, %16
   %spec.select146157 = select i1 %.not138, i32 1, i32 2
-  br label %100
+  br label %99
 
 68:                                               ; preds = %.thread164, %38
   %.0132169 = phi i32 [ 1, %.thread164 ], [ %56, %38 ]
@@ -1817,7 +1817,7 @@ default.unreachable:                              ; preds = %16
   %71 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %70, ptr noundef %0, i32 noundef %69, i32 noundef %.0132169, i32 noundef 0)
   %72 = icmp eq i8 %10, 3
   %or.cond = and i1 %72, %.0131148152168
-  br i1 %or.cond, label %73, label %85
+  br i1 %or.cond, label %73, label %84
 
 73:                                               ; preds = %68
   %74 = load i32, ptr @ett_iso14443_inf, align 4
@@ -1825,86 +1825,86 @@ default.unreachable:                              ; preds = %16
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 348
   %77 = load i32, ptr %76, align 4
   %78 = icmp eq i32 %77, 1
-  br i1 %78, label %79, label %82
+  br i1 %78, label %79, label %.thread170
 
 79:                                               ; preds = %73
   %80 = load i32, ptr @hf_iso14443_pwr_lvl_ind, align 4
   %81 = tail call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %80, ptr noundef %0, i32 noundef %69, i32 noundef 1, i32 noundef 0)
-  br label %82
+  br label %.thread170
 
-82:                                               ; preds = %79, %73
-  %83 = load i32, ptr @hf_iso14443_wtxm, align 4
-  %84 = tail call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %83, ptr noundef %0, i32 noundef %69, i32 noundef 1, i32 noundef 0)
-  br label %85
+.thread170:                                       ; preds = %73, %79
+  %82 = load i32, ptr @hf_iso14443_wtxm, align 4
+  %83 = tail call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %82, ptr noundef %0, i32 noundef %69, i32 noundef 1, i32 noundef 0)
+  br label %97
 
-85:                                               ; preds = %82, %68
-  %86 = icmp ult i8 %.fr, 64
-  br i1 %86, label %87, label %98
+84:                                               ; preds = %68
+  %85 = icmp eq i8 %10, 0
+  br i1 %85, label %86, label %97
 
-87:                                               ; preds = %85
-  %88 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %69, i32 noundef %.0132169)
-  %89 = and i32 %9, 16
-  %90 = icmp ne i32 %89, 0
-  %91 = tail call ptr @fragment_add_seq_next(ptr noundef nonnull @i_block_reassembly_table, ptr noundef %88, i32 noundef 0, ptr noundef %1, i32 noundef 0, ptr noundef null, i32 noundef %.0132169, i1 noundef zeroext %90)
-  %92 = tail call ptr @process_reassembled_data(ptr noundef %88, i32 noundef 0, ptr noundef %1, ptr noundef nonnull @.str.284, ptr noundef %91, ptr noundef nonnull @i_block_frag_items, ptr noundef null, ptr noundef %2)
-  %.not141 = icmp eq ptr %92, null
-  br i1 %.not141, label %98, label %93
+86:                                               ; preds = %84
+  %87 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %69, i32 noundef %.0132169)
+  %88 = and i32 %9, 16
+  %89 = icmp ne i32 %88, 0
+  %90 = tail call ptr @fragment_add_seq_next(ptr noundef nonnull @i_block_reassembly_table, ptr noundef %87, i32 noundef 0, ptr noundef %1, i32 noundef 0, ptr noundef null, i32 noundef %.0132169, i1 noundef zeroext %89)
+  %91 = tail call ptr @process_reassembled_data(ptr noundef %87, i32 noundef 0, ptr noundef %1, ptr noundef nonnull @.str.284, ptr noundef %90, ptr noundef nonnull @i_block_frag_items, ptr noundef null, ptr noundef %2)
+  %.not141 = icmp eq ptr %91, null
+  br i1 %.not141, label %97, label %92
 
-93:                                               ; preds = %87
-  %94 = load ptr, ptr @iso14443_subdissector_table, align 8
-  %95 = tail call i32 @dissector_try_payload_with_data(ptr noundef %94, ptr noundef nonnull %92, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, ptr noundef null)
-  %.not142 = icmp eq i32 %95, 0
-  br i1 %.not142, label %96, label %98
+92:                                               ; preds = %86
+  %93 = load ptr, ptr @iso14443_subdissector_table, align 8
+  %94 = tail call i32 @dissector_try_payload_with_data(ptr noundef %93, ptr noundef nonnull %91, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, ptr noundef null)
+  %.not142 = icmp eq i32 %94, 0
+  br i1 %.not142, label %95, label %97
 
-96:                                               ; preds = %93
-  %97 = tail call i32 @call_data_dissector(ptr noundef nonnull %92, ptr noundef %1, ptr noundef %2)
-  br label %98
+95:                                               ; preds = %92
+  %96 = tail call i32 @call_data_dissector(ptr noundef nonnull %91, ptr noundef %1, ptr noundef %2)
+  br label %97
 
-98:                                               ; preds = %87, %96, %93, %85
-  %99 = add nuw nsw i32 %69, %.0132169
-  br label %100
+97:                                               ; preds = %.thread170, %86, %95, %92, %84
+  %98 = add nuw nsw i32 %69, %.0132169
+  br label %99
 
-100:                                              ; preds = %.thread160, %98, %38
-  %.2 = phi i32 [ %99, %98 ], [ %spec.select, %38 ], [ %spec.select146157, %.thread160 ]
-  br i1 %.not, label %101, label %118
+99:                                               ; preds = %.thread160, %97, %38
+  %.2 = phi i32 [ %98, %97 ], [ %spec.select, %38 ], [ %spec.select146157, %.thread160 ]
+  br i1 %.not, label %100, label %117
 
-101:                                              ; preds = %100
-  %102 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %103 = load i32, ptr %102, align 4
-  %104 = tail call ptr @find_conversation_by_id(i32 noundef %103, i32 noundef 18, i32 noundef 0)
-  %.not143 = icmp eq ptr %104, null
-  br i1 %.not143, label %.thread170, label %105
+100:                                              ; preds = %99
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %102 = load i32, ptr %101, align 4
+  %103 = tail call ptr @find_conversation_by_id(i32 noundef %102, i32 noundef 18, i32 noundef 0)
+  %.not143 = icmp eq ptr %103, null
+  br i1 %.not143, label %.thread171, label %104
 
-105:                                              ; preds = %101
-  %106 = load i32, ptr @proto_iso14443, align 4
-  %107 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %104, i32 noundef %106)
-  %108 = ptrtoint ptr %107 to i64
-  %109 = trunc i64 %108 to i32
-  switch i32 %109, label %.thread170 [
-    i32 0, label %110
-    i32 1, label %112
+104:                                              ; preds = %100
+  %105 = load i32, ptr @proto_iso14443, align 4
+  %106 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %103, i32 noundef %105)
+  %107 = ptrtoint ptr %106 to i64
+  %108 = trunc i64 %107 to i32
+  switch i32 %108, label %.thread171 [
+    i32 0, label %109
+    i32 1, label %111
   ]
 
-110:                                              ; preds = %105
-  %111 = tail call zeroext i16 @crc16_iso14443a_tvb_offset(ptr noundef %0, i32 noundef 0, i32 noundef %.2)
-  br label %.thread170
+109:                                              ; preds = %104
+  %110 = tail call zeroext i16 @crc16_iso14443a_tvb_offset(ptr noundef %0, i32 noundef 0, i32 noundef %.2)
+  br label %.thread171
 
-112:                                              ; preds = %105
-  %113 = tail call zeroext i16 @crc16_ccitt_tvb_offset(ptr noundef %0, i32 noundef 0, i32 noundef %.2)
-  br label %.thread170
+111:                                              ; preds = %104
+  %112 = tail call zeroext i16 @crc16_ccitt_tvb_offset(ptr noundef %0, i32 noundef 0, i32 noundef %.2)
+  br label %.thread171
 
-.thread170:                                       ; preds = %101, %105, %112, %110
-  %.0127.shrunk = phi i16 [ %111, %110 ], [ %113, %112 ], [ 0, %105 ], [ 0, %101 ]
-  %.0 = phi i32 [ 1, %110 ], [ 1, %112 ], [ 0, %105 ], [ 0, %101 ]
+.thread171:                                       ; preds = %100, %104, %111, %109
+  %.0127.shrunk = phi i16 [ %110, %109 ], [ %112, %111 ], [ 0, %104 ], [ 0, %100 ]
+  %.0 = phi i32 [ 1, %109 ], [ 1, %111 ], [ 0, %104 ], [ 0, %100 ]
   %.0127 = zext i16 %.0127.shrunk to i32
-  %114 = load i32, ptr @hf_iso14443_crc, align 4
-  %115 = load i32, ptr @hf_iso14443_crc_status, align 4
-  %116 = tail call ptr @proto_tree_add_checksum(ptr noundef %2, ptr noundef %0, i32 noundef %.2, i32 noundef %114, i32 noundef %115, ptr noundef nonnull @ei_iso14443_wrong_crc, ptr noundef %1, i32 noundef %.0127, i32 noundef -2147483648, i32 noundef %.0)
-  %117 = add nuw nsw i32 %.2, 2
-  br label %118
+  %113 = load i32, ptr @hf_iso14443_crc, align 4
+  %114 = load i32, ptr @hf_iso14443_crc_status, align 4
+  %115 = tail call ptr @proto_tree_add_checksum(ptr noundef %2, ptr noundef %0, i32 noundef %.2, i32 noundef %113, i32 noundef %114, ptr noundef nonnull @ei_iso14443_wrong_crc, ptr noundef %1, i32 noundef %.0127, i32 noundef -2147483648, i32 noundef %.0)
+  %116 = add nuw nsw i32 %.2, 2
+  br label %117
 
-118:                                              ; preds = %.thread170, %100
-  %.3 = phi i32 [ %.2, %100 ], [ %117, %.thread170 ]
+117:                                              ; preds = %.thread171, %99
+  %.3 = phi i32 [ %.2, %99 ], [ %116, %.thread171 ]
   ret i32 %.3
 }
 

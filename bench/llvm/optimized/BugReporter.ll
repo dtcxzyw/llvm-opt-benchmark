@@ -1817,13 +1817,13 @@ _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit:  ; preds = %_ZN4llvm16FoldingSe
   %.015 = phi ptr [ %71, %70 ], [ %60, %_ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit ]
   %65 = load i64, ptr %.015, align 4
   %.sroa.0.0.extract.trunc = trunc i64 %65 to i32
+  %.sroa.5.0.extract.shift = lshr i64 %65, 32
   %66 = icmp ne i32 %.sroa.0.0.extract.trunc, 0
-  %67 = icmp ugt i64 %65, 4294967295
-  %68 = and i1 %67, %66
+  %67 = icmp ne i64 %.sroa.5.0.extract.shift, 0
+  %68 = and i1 %66, %67
   br i1 %68, label %69, label %70
 
 69:                                               ; preds = %.lr.ph
-  %.sroa.5.0.extract.shift = lshr i64 %65, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.sroa.0.0.extract.trunc, ptr %3, align 4
@@ -2022,13 +2022,13 @@ _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit19: ; preds = %_ZN4llvm16FoldingS
   %.023 = phi ptr [ %109, %108 ], [ %98, %96 ]
   %103 = load i64, ptr %.023, align 4
   %.sroa.0.0.extract.trunc = trunc i64 %103 to i32
+  %.sroa.5.0.extract.shift = lshr i64 %103, 32
   %104 = icmp ne i32 %.sroa.0.0.extract.trunc, 0
-  %105 = icmp ugt i64 %103, 4294967295
-  %106 = and i1 %105, %104
+  %105 = icmp ne i64 %.sroa.5.0.extract.shift, 0
+  %106 = and i1 %104, %105
   br i1 %106, label %107, label %108
 
 107:                                              ; preds = %.lr.ph
-  %.sroa.5.0.extract.shift = lshr i64 %103, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %.sroa.0.0.extract.trunc, ptr %4, align 4

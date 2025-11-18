@@ -4450,17 +4450,14 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
 45:                                               ; preds = %1
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load i64, ptr %46, align 8, !tbaa !72
-  %.not.i28 = icmp ult i64 %47, 2
-  br i1 %.not.i28, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN9grpc_core12experimental3CrlEEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS9_SE_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SE_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSF_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.lr.ph33.preheader
-
-.lr.ph33.preheader:                               ; preds = %45
   %48 = lshr i64 %47, 1
-  br label %.lr.ph33
+  %.not.i28 = icmp eq i64 %48, 0
+  br i1 %.not.i28, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN9grpc_core12experimental3CrlEEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS9_SE_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SE_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSF_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.lr.ph33
 
-.lr.ph33:                                         ; preds = %.lr.ph33.preheader, %._crit_edge
-  %.0.i31 = phi ptr [ %53, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %.lr.ph33.preheader ]
-  %.025.i30 = phi ptr [ %52, %._crit_edge ], [ %5, %.lr.ph33.preheader ]
-  %.026.i29 = phi i64 [ %.1.i.lcssa, %._crit_edge ], [ %48, %.lr.ph33.preheader ]
+.lr.ph33:                                         ; preds = %45, %._crit_edge
+  %.0.i31 = phi ptr [ %53, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i, %45 ]
+  %.025.i30 = phi ptr [ %52, %._crit_edge ], [ %5, %45 ]
+  %.026.i29 = phi i64 [ %.1.i.lcssa, %._crit_edge ], [ %48, %45 ]
   %49 = load <16 x i8>, ptr %.025.i30, align 1, !tbaa !25
   %50 = icmp sgt <16 x i8> %49, splat (i8 -1)
   %51 = bitcast <16 x i1> %50 to i16
@@ -5421,7 +5418,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   tail call void @_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN9grpc_core12experimental3CrlEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SE_EEEC2EmRKSG_RKSH_RKSL_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2)
   %12 = load i64, ptr %6, align 8, !tbaa !72
   %13 = lshr i64 %12, 1
-  %14 = icmp ult i64 %12, 2
+  %14 = icmp eq i64 %13, 0
   br i1 %14, label %170, label %.noexc
 
 .noexc:                                           ; preds = %3
@@ -5438,9 +5435,9 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !25
   %26 = icmp ult i64 %23, 15
-  br i1 %26, label %.noexc25, label %.noexc31.lr.ph
+  br i1 %26, label %.noexc25, label %.noexc28.preheader
 
-.noexc31.lr.ph:                                   ; preds = %.noexc
+.noexc28.preheader:                               ; preds = %.noexc
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %.noexc31
 
@@ -5450,8 +5447,8 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %29 = and i64 %.0.copyload.i.i.i, -9187201950435737472
   %30 = getelementptr inbounds i8, ptr %25, i64 -1
   %31 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i.i, i64 -48
-  %.not125139 = icmp eq i64 %29, -9187201950435737472
-  br i1 %.not125139, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN9grpc_core12experimental3CrlEEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS9_SE_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SE_EEEC1ERKSP_RKSO_EUlPKNS1_6ctrl_tEPSF_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.noexc26.lr.ph
+  %.not125138 = icmp eq i64 %29, -9187201950435737472
+  br i1 %.not125138, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN9grpc_core12experimental3CrlEEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS9_SE_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SE_EEEC1ERKSP_RKSO_EUlPKNS1_6ctrl_tEPSF_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.noexc26.lr.ph
 
 .noexc26.lr.ph:                                   ; preds = %.noexc25
   %32 = xor i64 %29, -9187201950435737472
@@ -5459,9 +5456,9 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br label %.noexc26
 
 .noexc26:                                         ; preds = %.noexc26.lr.ph, %.noexc27
-  %.sroa.0105.0141 = phi i64 [ %32, %.noexc26.lr.ph ], [ %93, %.noexc27 ]
-  %.2140 = phi i64 [ %15, %.noexc26.lr.ph ], [ %.4, %.noexc27 ]
-  %34 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.0105.0141, i1 true)
+  %.sroa.0105.0140 = phi i64 [ %32, %.noexc26.lr.ph ], [ %93, %.noexc27 ]
+  %.2139 = phi i64 [ %15, %.noexc26.lr.ph ], [ %.4, %.noexc27 ]
+  %34 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.0105.0140, i1 true)
   %35 = lshr i64 %34, 3
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 %35
   %37 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %31, i64 %35
@@ -5489,7 +5486,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br label %.noexc55
 
 50:                                               ; preds = %.noexc26
-  %51 = add i64 %.2140, %21
+  %51 = add i64 %.2139, %21
   %52 = and i64 %51, %15
   br label %.noexc55
 
@@ -5580,38 +5577,38 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i.i.i.i.i.i.i
   br label %.noexc27
 
 .noexc27:                                         ; preds = %90, %87, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i.i.i.i.i.i.i.i65
-  %92 = add i64 %.sroa.0105.0141, -1
-  %93 = and i64 %92, %.sroa.0105.0141
+  %92 = add i64 %.sroa.0105.0140, -1
+  %93 = and i64 %92, %.sroa.0105.0140
   %.not125 = icmp eq i64 %93, 0
   br i1 %.not125, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN9grpc_core12experimental3CrlEEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS9_SE_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SE_EEEC1ERKSP_RKSO_EUlPKNS1_6ctrl_tEPSF_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.noexc26
 
-.noexc31:                                         ; preds = %.noexc31.lr.ph, %.noexc28
-  %.0.i138 = phi ptr [ %.sroa.0.0.copyload.i.i.i, %.noexc31.lr.ph ], [ %98, %.noexc28 ]
-  %.025.i137 = phi ptr [ %25, %.noexc31.lr.ph ], [ %97, %.noexc28 ]
-  %.026.i136 = phi i64 [ %13, %.noexc31.lr.ph ], [ %.1.i.lcssa, %.noexc28 ]
-  %.0135 = phi i64 [ %15, %.noexc31.lr.ph ], [ %.1.lcssa, %.noexc28 ]
-  %94 = load <16 x i8>, ptr %.025.i137, align 1, !tbaa !25
+.noexc31:                                         ; preds = %.noexc28.preheader, %.noexc28
+  %.0.i137 = phi ptr [ %.sroa.0.0.copyload.i.i.i, %.noexc28.preheader ], [ %98, %.noexc28 ]
+  %.025.i136 = phi ptr [ %25, %.noexc28.preheader ], [ %97, %.noexc28 ]
+  %.026.i135 = phi i64 [ %13, %.noexc28.preheader ], [ %.1.i.lcssa, %.noexc28 ]
+  %.0134 = phi i64 [ %15, %.noexc28.preheader ], [ %.1.lcssa, %.noexc28 ]
+  %94 = load <16 x i8>, ptr %.025.i136, align 1, !tbaa !25
   %95 = icmp sgt <16 x i8> %94, splat (i8 -1)
   %96 = bitcast <16 x i1> %95 to i16
   %.not129 = icmp eq i16 %96, 0
   br i1 %.not129, label %.noexc28, label %.noexc32
 
 .noexc28:                                         ; preds = %.noexc33, %.noexc31
-  %.1.lcssa = phi i64 [ %.0135, %.noexc31 ], [ %.3, %.noexc33 ]
-  %.1.i.lcssa = phi i64 [ %.026.i136, %.noexc31 ], [ %157, %.noexc33 ]
-  %97 = getelementptr inbounds nuw i8, ptr %.025.i137, i64 16
-  %98 = getelementptr inbounds nuw i8, ptr %.0.i138, i64 768
+  %.1.lcssa = phi i64 [ %.0134, %.noexc31 ], [ %.3, %.noexc33 ]
+  %.1.i.lcssa = phi i64 [ %.026.i135, %.noexc31 ], [ %157, %.noexc33 ]
+  %97 = getelementptr inbounds nuw i8, ptr %.025.i136, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %.0.i137, i64 768
   %.not.i = icmp eq i64 %.1.i.lcssa, 0
   br i1 %.not.i, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN9grpc_core12experimental3CrlEEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS9_SE_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SE_EEEC1ERKSP_RKSO_EUlPKNS1_6ctrl_tEPSF_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.noexc31, !llvm.loop !207
 
 .noexc32:                                         ; preds = %.noexc31, %.noexc33
-  %.1.i132 = phi i64 [ %157, %.noexc33 ], [ %.026.i136, %.noexc31 ]
+  %.1.i132 = phi i64 [ %157, %.noexc33 ], [ %.026.i135, %.noexc31 ]
   %.sroa.099.0131 = phi i16 [ %159, %.noexc33 ], [ %96, %.noexc31 ]
-  %.1130 = phi i64 [ %.3, %.noexc33 ], [ %.0135, %.noexc31 ]
+  %.1130 = phi i64 [ %.3, %.noexc33 ], [ %.0134, %.noexc31 ]
   %99 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.099.0131, i1 true)
   %100 = zext nneg i16 %99 to i64
-  %101 = getelementptr inbounds nuw i8, ptr %.025.i137, i64 %100
-  %102 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.0.i138, i64 %100
+  %101 = getelementptr inbounds nuw i8, ptr %.025.i136, i64 %100
+  %102 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.0.i137, i64 %100
   br i1 %16, label %.noexc35, label %115
 
 .noexc35:                                         ; preds = %.noexc32

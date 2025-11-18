@@ -9926,7 +9926,7 @@ common.resume:                                    ; preds = %.body.i54
           to label %.preheader34.i.i56 unwind label %.loopexit.split-lp.loopexit.split-lp.i.i52, !noalias !597
 
 .preheader34.i.i56:                               ; preds = %46
-  %.not56.i.i = icmp ult i64 %11, 64
+  %.not56.i.i = icmp eq i64 %35, 0
   br i1 %.not56.i.i, label %.preheader33.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader34.i.i56
@@ -10000,10 +10000,10 @@ common.resume:                                    ; preds = %.body.i54
   %.sroa.03.052.i.us.i = phi i8 [ %67, %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit.i.us.i" ], [ 0, %.preheader.i.i ]
   %.sroa.017.051.i.us.i = phi i64 [ %66, %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit.i.us.i" ], [ 0, %.preheader.i.i ]
   %.sroa.012.050.i.us.i = phi i8 [ %68, %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit.i.us.i" ], [ 1, %.preheader.i.i ]
-  %65 = phi i64 [ %spec.select69.i.us.i, %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit.i.us.i" ], [ %.promoted48.i.i, %.preheader.i.i ]
+  %65 = phi i64 [ %spec.select70.i.us.i, %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit.i.us.i" ], [ %.promoted48.i.i, %.preheader.i.i ]
   %66 = add nuw nsw i64 %.sroa.017.051.i.us.i, 1
   %.not.i.i.us.i = icmp ne i64 %65, 0
-  %spec.select69.i.us.i = add i64 %65, -1
+  %spec.select70.i.us.i = add i64 %65, -1
   call void @llvm.assume(i1 %.not.i.i.us.i)
   %67 = or i8 %.sroa.012.050.i.us.i, %.sroa.03.052.i.us.i
   %68 = shl i8 %.sroa.012.050.i.us.i, 1
@@ -10020,10 +10020,10 @@ common.resume:                                    ; preds = %.body.i54
 
 "_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit32.i.us.i": ; preds = %.lr.ph47.i.i, %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit32.i.us.i"
   %.sroa.010.043.i.us.i = phi i64 [ %71, %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit32.i.us.i" ], [ 0, %.lr.ph47.i.i ]
-  %70 = phi i64 [ %spec.select5470.i.us.i, %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit32.i.us.i" ], [ %.promoted.i.i, %.lr.ph47.i.i ]
+  %70 = phi i64 [ %spec.select5471.i.us.i, %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit32.i.us.i" ], [ %.promoted.i.i, %.lr.ph47.i.i ]
   %71 = add nuw nsw i64 %.sroa.010.043.i.us.i, 1
   %.not.i28.i.us.i = icmp ne i64 %70, 0
-  %spec.select5470.i.us.i = add i64 %70, -1
+  %spec.select5471.i.us.i = add i64 %70, -1
   call void @llvm.assume(i1 %.not.i28.i.us.i)
   %exitcond61.not.i.us.i = icmp eq i64 %71, 8
   br i1 %exitcond61.not.i.us.i, label %.split.us.i, label %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit32.i.us.i"
@@ -10034,7 +10034,7 @@ common.resume:                                    ; preds = %.body.i54
           to label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$$GT$17h7a11a0348c4c20d9E.exit" unwind label %96, !noalias !597
 
 .split6.us.i:                                     ; preds = %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit.i.i", %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit.i.us.i"
-  %.us-phi7.i = phi i64 [ %spec.select69.i.us.i, %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit.i.us.i" ], [ %spec.select69.i.i, %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit.i.i" ]
+  %.us-phi7.i = phi i64 [ %spec.select70.i.us.i, %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit.i.us.i" ], [ %spec.select70.i.i, %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit.i.i" ]
   %.us-phi8.i = phi i8 [ %67, %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit.i.us.i" ], [ 0, %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit.i.i" ]
   store i64 %.us-phi7.i, ptr %8, align 8, !noalias !603
   %73 = load i64, ptr %33, align 8, !alias.scope !616, !noalias !619, !noundef !6
@@ -10056,16 +10056,16 @@ common.resume:                                    ; preds = %.body.i54
 
 "_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit.i.i": ; preds = %.preheader.i.i, %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit.i.i"
   %.sroa.017.051.i.i = phi i64 [ %81, %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit.i.i" ], [ 0, %.preheader.i.i ]
-  %80 = phi i64 [ %spec.select69.i.i, %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit.i.i" ], [ %.promoted48.i.i, %.preheader.i.i ]
+  %80 = phi i64 [ %spec.select70.i.i, %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit.i.i" ], [ %.promoted48.i.i, %.preheader.i.i ]
   %81 = add nuw nsw i64 %.sroa.017.051.i.i, 1
   %.not.i.i.i = icmp ne i64 %80, 0
-  %spec.select69.i.i = add i64 %80, -1
+  %spec.select70.i.i = add i64 %80, -1
   call void @llvm.assume(i1 %.not.i.i.i)
   %exitcond63.not.i.i = icmp eq i64 %81, %37
   br i1 %exitcond63.not.i.i, label %.split6.us.i, label %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit.i.i"
 
 .split.us.i:                                      ; preds = %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit32.i.i", %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit32.i.us.i"
-  %.us-phi.i = phi i64 [ %spec.select5470.i.us.i, %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit32.i.us.i" ], [ %spec.select5470.i.i, %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit32.i.i" ]
+  %.us-phi.i = phi i64 [ %spec.select5471.i.us.i, %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit32.i.us.i" ], [ %spec.select5471.i.i, %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit32.i.i" ]
   %.us-phi4.i = phi i8 [ -1, %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit32.i.us.i" ], [ 0, %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit32.i.i" ]
   %82 = add nuw nsw i64 %.sroa.021.046.i.i, 1
   store i64 %.us-phi.i, ptr %8, align 8, !noalias !603
@@ -10089,10 +10089,10 @@ common.resume:                                    ; preds = %.body.i54
 
 "_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit32.i.i": ; preds = %.lr.ph47.i.i, %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit32.i.i"
   %.sroa.010.043.i.i = phi i64 [ %91, %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit32.i.i" ], [ 0, %.lr.ph47.i.i ]
-  %90 = phi i64 [ %spec.select5470.i.i, %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit32.i.i" ], [ %.promoted.i.i, %.lr.ph47.i.i ]
+  %90 = phi i64 [ %spec.select5471.i.i, %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit32.i.i" ], [ %.promoted.i.i, %.lr.ph47.i.i ]
   %91 = add nuw nsw i64 %.sroa.010.043.i.i, 1
   %.not.i28.i.i = icmp ne i64 %90, 0
-  %spec.select5470.i.i = add i64 %90, -1
+  %spec.select5471.i.i = add i64 %90, -1
   call void @llvm.assume(i1 %.not.i28.i.i)
   %exitcond61.not.i.i = icmp eq i64 %91, 8
   br i1 %exitcond61.not.i.i, label %.split.us.i, label %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit32.i.i"
@@ -27229,33 +27229,33 @@ _ZN12polars_arrow6bitmap5utils8iterator10BitmapIter14collect_n_into12collect_wor
   br i1 %53, label %_ZN12polars_arrow6bitmap5utils8iterator10BitmapIter14collect_n_into12collect_word17hc8fff2e0989ac2edE.exit25, label %54
 
 54:                                               ; preds = %_ZN12polars_arrow6bitmap5utils8iterator10BitmapIter14collect_n_into12collect_word17hc8fff2e0989ac2edE.exit
-  %.not = icmp ult i64 %.sroa.0.1, 64
+  %55 = lshr i64 %.sroa.0.1, 6
+  %.not = icmp eq i64 %55, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  br i1 %.not, label %.thread, label %61
+  br i1 %.not, label %.thread, label %62
 
-55:                                               ; preds = %75, %74
-  %56 = sub nuw i64 %.pre, %63
-  %57 = getelementptr inbounds nuw i8, ptr %70, i64 %63
-  store ptr %57, ptr %0, align 8
-  store i64 %56, ptr %.phi.trans.insert, align 8
-  %58 = sub i64 %7, %66
-  store i64 %58, ptr %6, align 8
-  %59 = and i64 %.sroa.0.1, 63
-  %60 = icmp eq i64 %59, 0
-  br i1 %60, label %_ZN12polars_arrow6bitmap5utils8iterator10BitmapIter14collect_n_into12collect_word17hc8fff2e0989ac2edE.exit25, label %.thread
+56:                                               ; preds = %77, %76, %69
+  %57 = sub nuw i64 %.pre, %63
+  %58 = getelementptr inbounds nuw i8, ptr %70, i64 %63
+  store ptr %58, ptr %0, align 8
+  store i64 %57, ptr %.phi.trans.insert, align 8
+  %59 = sub i64 %7, %66
+  store i64 %59, ptr %6, align 8
+  %60 = and i64 %.sroa.0.1, 63
+  %61 = icmp eq i64 %60, 0
+  br i1 %61, label %_ZN12polars_arrow6bitmap5utils8iterator10BitmapIter14collect_n_into12collect_word17hc8fff2e0989ac2edE.exit25, label %.thread
 
-61:                                               ; preds = %54
-  %62 = lshr i64 %.sroa.0.1, 3
-  %63 = and i64 %62, 2305843009213693944
+62:                                               ; preds = %54
+  %63 = shl nuw nsw i64 %55, 3
   %.not9 = icmp ult i64 %.pre, %63
   br i1 %.not9, label %64, label %65, !prof !115
 
-64:                                               ; preds = %61
+64:                                               ; preds = %62
   tail call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.98e30b2ab8d059314d3b9a0fafadc05f.261, i64 noundef 66, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.98e30b2ab8d059314d3b9a0fafadc05f.262) #37
   unreachable
 
-65:                                               ; preds = %61
+65:                                               ; preds = %62
   %66 = and i64 %.sroa.0.1, -64
   %67 = shl i64 %.pre, 3
   %.not10 = icmp ugt i64 %66, %67
@@ -27267,106 +27267,110 @@ _ZN12polars_arrow6bitmap5utils8iterator10BitmapIter14collect_n_into12collect_wor
 
 69:                                               ; preds = %65
   %70 = load ptr, ptr %0, align 8, !nonnull !6, !align !318, !noundef !6
-  %71 = load i64, ptr %9, align 8, !alias.scope !2014, !noalias !2017, !noundef !6
-  %72 = and i64 %71, 7
-  %73 = icmp eq i64 %72, 0
-  br i1 %73, label %75, label %74
+  %71 = icmp eq i64 %66, 0
+  br i1 %71, label %56, label %72
 
-74:                                               ; preds = %69
+72:                                               ; preds = %69
+  %73 = load i64, ptr %9, align 8, !alias.scope !2014, !noalias !2017, !noundef !6
+  %74 = and i64 %73, 7
+  %75 = icmp eq i64 %74, 0
+  br i1 %75, label %77, label %76
+
+76:                                               ; preds = %72
   tail call void @_ZN12polars_arrow6bitmap7mutable13MutableBitmap16extend_unaligned17h5c2db493743be961E(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %70, i64 noundef %.pre, i64 noundef 0, i64 noundef %66)
-  br label %55
+  br label %56
 
-75:                                               ; preds = %69
+77:                                               ; preds = %72
   tail call void @_ZN12polars_arrow6bitmap7mutable13MutableBitmap14extend_aligned17he5c01590a2a2d73eE(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %70, i64 noundef %.pre, i64 noundef 0, i64 noundef %66)
-  br label %55
+  br label %56
 
-.thread:                                          ; preds = %54, %55
-  %76 = phi i64 [ %58, %55 ], [ %7, %54 ]
-  %77 = phi i64 [ %56, %55 ], [ %.pre, %54 ]
-  %.sroa.0.032 = phi i64 [ %59, %55 ], [ %.sroa.0.1, %54 ]
-  %78 = icmp ugt i64 %77, 7
-  br i1 %78, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h012badc96359f110E.exit", label %79, !prof !435
+.thread:                                          ; preds = %54, %56
+  %78 = phi i64 [ %59, %56 ], [ %7, %54 ]
+  %79 = phi i64 [ %57, %56 ], [ %.pre, %54 ]
+  %.sroa.0.032 = phi i64 [ %60, %56 ], [ %.sroa.0.1, %54 ]
+  %80 = icmp ugt i64 %79, 7
+  br i1 %80, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h012badc96359f110E.exit", label %81, !prof !435
 
-_ZN12polars_arrow6bitmap5utils8iterator10BitmapIter14collect_n_into12collect_word17hc8fff2e0989ac2edE.exit25: ; preds = %113, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h012badc96359f110E.exit", %_ZN12polars_arrow6bitmap5utils8iterator10BitmapIter14collect_n_into12collect_word17hc8fff2e0989ac2edE.exit, %55
+_ZN12polars_arrow6bitmap5utils8iterator10BitmapIter14collect_n_into12collect_word17hc8fff2e0989ac2edE.exit25: ; preds = %115, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h012badc96359f110E.exit", %_ZN12polars_arrow6bitmap5utils8iterator10BitmapIter14collect_n_into12collect_word17hc8fff2e0989ac2edE.exit, %56
   ret void
 
-79:                                               ; preds = %.thread
+81:                                               ; preds = %.thread
   tail call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.98e30b2ab8d059314d3b9a0fafadc05f.263, i64 noundef 54, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.98e30b2ab8d059314d3b9a0fafadc05f.264) #37
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h012badc96359f110E.exit": ; preds = %.thread
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.0.0.sroa.speculated.i11 = tail call noundef i64 @llvm.umin.i64(i64 %76, i64 64)
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.0.0.sroa.speculated.i11 = tail call noundef i64 @llvm.umin.i64(i64 %78, i64 64)
   store i64 %.sroa.0.0.sroa.speculated.i11, ptr %4, align 8
-  %81 = sub i64 %76, %.sroa.0.0.sroa.speculated.i11
-  store i64 %81, ptr %6, align 8
-  %82 = load ptr, ptr %0, align 8, !nonnull !6, !align !318, !noundef !6
-  %.sroa.01.0.copyload = load i64, ptr %82, align 1
+  %83 = sub i64 %78, %.sroa.0.0.sroa.speculated.i11
+  store i64 %83, ptr %6, align 8
+  %84 = load ptr, ptr %0, align 8, !nonnull !6, !align !318, !noundef !6
+  %.sroa.01.0.copyload = load i64, ptr %84, align 1
   store i64 %.sroa.01.0.copyload, ptr %18, align 8
-  %83 = add i64 %77, -8
-  %84 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  store ptr %84, ptr %0, align 8
-  store i64 %83, ptr %80, align 8
+  %85 = add i64 %79, -8
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  store ptr %86, ptr %0, align 8
+  store i64 %85, ptr %82, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2019)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2022)
-  %.not33 = icmp eq i64 %76, 0
+  %.not33 = icmp eq i64 %78, 0
   br i1 %.not33, label %_ZN12polars_arrow6bitmap5utils8iterator10BitmapIter14collect_n_into12collect_word17hc8fff2e0989ac2edE.exit25, label %.lr.ph.i17
 
-.lr.ph.i17:                                       ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h012badc96359f110E.exit", %113
-  %85 = phi i64 [ %110, %113 ], [ %.sroa.0.032, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h012badc96359f110E.exit" ]
-  %86 = phi i64 [ %109, %113 ], [ %.sroa.0.0.sroa.speculated.i11, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h012badc96359f110E.exit" ]
-  %87 = phi i64 [ %107, %113 ], [ %.sroa.01.0.copyload, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h012badc96359f110E.exit" ]
-  %88 = xor i64 %87, -1
-  %89 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %88, i1 false)
-  %90 = trunc nuw nsw i64 %89 to i32
-  %91 = trunc i64 %86 to i32
-  %.sroa.0.0.sroa.speculated.i.i18 = tail call noundef i32 @llvm.umin.i32(i32 %91, i32 %90)
-  %.sroa.0.0.sroa.speculated.i5.i19 = tail call noundef i64 @llvm.umin.i64(i64 %85, i64 4294967295)
-  %92 = trunc nuw i64 %.sroa.0.0.sroa.speculated.i5.i19 to i32
-  %.sroa.0.0.sroa.speculated.i6.i20 = tail call noundef i32 @llvm.umin.i32(i32 %.sroa.0.0.sroa.speculated.i.i18, i32 %92)
-  %93 = and i32 %.sroa.0.0.sroa.speculated.i6.i20, 63
-  %94 = zext nneg i32 %93 to i64
-  %95 = lshr i64 %87, %94
-  store i64 %95, ptr %18, align 8, !alias.scope !2019, !noalias !2024
-  %96 = zext nneg i32 %.sroa.0.0.sroa.speculated.i6.i20 to i64
-  %97 = sub i64 %86, %96
-  store i64 %97, ptr %4, align 8, !alias.scope !2022, !noalias !2027
-  %98 = sub i64 %85, %96
-  %99 = icmp eq i32 %.sroa.0.0.sroa.speculated.i.i18, 0
-  br i1 %99, label %100, label %112
+.lr.ph.i17:                                       ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h012badc96359f110E.exit", %115
+  %87 = phi i64 [ %112, %115 ], [ %.sroa.0.032, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h012badc96359f110E.exit" ]
+  %88 = phi i64 [ %111, %115 ], [ %.sroa.0.0.sroa.speculated.i11, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h012badc96359f110E.exit" ]
+  %89 = phi i64 [ %109, %115 ], [ %.sroa.01.0.copyload, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h012badc96359f110E.exit" ]
+  %90 = xor i64 %89, -1
+  %91 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %90, i1 false)
+  %92 = trunc nuw nsw i64 %91 to i32
+  %93 = trunc i64 %88 to i32
+  %.sroa.0.0.sroa.speculated.i.i18 = tail call noundef i32 @llvm.umin.i32(i32 %93, i32 %92)
+  %.sroa.0.0.sroa.speculated.i5.i19 = tail call noundef i64 @llvm.umin.i64(i64 %87, i64 4294967295)
+  %94 = trunc nuw i64 %.sroa.0.0.sroa.speculated.i5.i19 to i32
+  %.sroa.0.0.sroa.speculated.i6.i20 = tail call noundef i32 @llvm.umin.i32(i32 %.sroa.0.0.sroa.speculated.i.i18, i32 %94)
+  %95 = and i32 %.sroa.0.0.sroa.speculated.i6.i20, 63
+  %96 = zext nneg i32 %95 to i64
+  %97 = lshr i64 %89, %96
+  store i64 %97, ptr %18, align 8, !alias.scope !2019, !noalias !2024
+  %98 = zext nneg i32 %.sroa.0.0.sroa.speculated.i6.i20 to i64
+  %99 = sub i64 %88, %98
+  store i64 %99, ptr %4, align 8, !alias.scope !2022, !noalias !2027
+  %100 = sub i64 %87, %98
+  %101 = icmp eq i32 %.sroa.0.0.sroa.speculated.i.i18, 0
+  br i1 %101, label %102, label %114
 
-100:                                              ; preds = %112, %.lr.ph.i17
-  %101 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %95, i1 false)
-  %102 = trunc nuw nsw i64 %101 to i32
-  %103 = trunc i64 %97 to i32
-  %.sroa.0.0.sroa.speculated.i7.i21 = tail call noundef i32 @llvm.umin.i32(i32 %103, i32 %102)
-  %.sroa.0.0.sroa.speculated.i8.i22 = tail call noundef i64 @llvm.umin.i64(i64 %98, i64 4294967295)
-  %104 = trunc nuw i64 %.sroa.0.0.sroa.speculated.i8.i22 to i32
-  %.sroa.0.0.sroa.speculated.i9.i23 = tail call noundef i32 @llvm.umin.i32(i32 %.sroa.0.0.sroa.speculated.i7.i21, i32 %104)
-  %105 = and i32 %.sroa.0.0.sroa.speculated.i9.i23, 63
-  %106 = zext nneg i32 %105 to i64
-  %107 = lshr i64 %95, %106
-  store i64 %107, ptr %18, align 8, !alias.scope !2019, !noalias !2024
-  %108 = zext nneg i32 %.sroa.0.0.sroa.speculated.i9.i23 to i64
-  %109 = sub i64 %97, %108
-  store i64 %109, ptr %4, align 8, !alias.scope !2022, !noalias !2027
-  %110 = sub i64 %98, %108
-  %111 = icmp eq i32 %.sroa.0.0.sroa.speculated.i9.i23, 0
-  br i1 %111, label %113, label %116
+102:                                              ; preds = %114, %.lr.ph.i17
+  %103 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %97, i1 false)
+  %104 = trunc nuw nsw i64 %103 to i32
+  %105 = trunc i64 %99 to i32
+  %.sroa.0.0.sroa.speculated.i7.i21 = tail call noundef i32 @llvm.umin.i32(i32 %105, i32 %104)
+  %.sroa.0.0.sroa.speculated.i8.i22 = tail call noundef i64 @llvm.umin.i64(i64 %100, i64 4294967295)
+  %106 = trunc nuw i64 %.sroa.0.0.sroa.speculated.i8.i22 to i32
+  %.sroa.0.0.sroa.speculated.i9.i23 = tail call noundef i32 @llvm.umin.i32(i32 %.sroa.0.0.sroa.speculated.i7.i21, i32 %106)
+  %107 = and i32 %.sroa.0.0.sroa.speculated.i9.i23, 63
+  %108 = zext nneg i32 %107 to i64
+  %109 = lshr i64 %97, %108
+  store i64 %109, ptr %18, align 8, !alias.scope !2019, !noalias !2024
+  %110 = zext nneg i32 %.sroa.0.0.sroa.speculated.i9.i23 to i64
+  %111 = sub i64 %99, %110
+  store i64 %111, ptr %4, align 8, !alias.scope !2022, !noalias !2027
+  %112 = sub i64 %100, %110
+  %113 = icmp eq i32 %.sroa.0.0.sroa.speculated.i9.i23, 0
+  br i1 %113, label %115, label %118
 
-112:                                              ; preds = %.lr.ph.i17
-  tail call void @_ZN12polars_arrow6bitmap7mutable13MutableBitmap10extend_set17h87baa9eccb5d2f35E(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %96), !noalias !2028
-  br label %100
+114:                                              ; preds = %.lr.ph.i17
+  tail call void @_ZN12polars_arrow6bitmap7mutable13MutableBitmap10extend_set17h87baa9eccb5d2f35E(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %98), !noalias !2028
+  br label %102
 
-113:                                              ; preds = %116, %100
-  %114 = icmp ne i64 %110, 0
-  %115 = icmp ne i64 %109, 0
-  %or.cond.i24 = select i1 %114, i1 %115, i1 false
+115:                                              ; preds = %118, %102
+  %116 = icmp ne i64 %112, 0
+  %117 = icmp ne i64 %111, 0
+  %or.cond.i24 = select i1 %116, i1 %117, i1 false
   br i1 %or.cond.i24, label %.lr.ph.i17, label %_ZN12polars_arrow6bitmap5utils8iterator10BitmapIter14collect_n_into12collect_word17hc8fff2e0989ac2edE.exit25
 
-116:                                              ; preds = %100
-  tail call void @_ZN12polars_arrow6bitmap7mutable13MutableBitmap12extend_unset17hd9eba365933c2937E(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %108), !noalias !2028
-  br label %113
+118:                                              ; preds = %102
+  tail call void @_ZN12polars_arrow6bitmap7mutable13MutableBitmap12extend_unset17hd9eba365933c2937E(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %110), !noalias !2028
+  br label %115
 }
 
 ; Function Attrs: nonlazybind uwtable

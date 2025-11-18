@@ -4463,7 +4463,7 @@ _ZNK6vectorI10ptr_vectorI3appELb1EjE4sizeEv.exit.lr.ph: ; preds = %_ZNK6vectorI1
 _ZNK6vectorI10ptr_vectorI3appELb1EjE4sizeEv.exit: ; preds = %_ZNK6vectorI10ptr_vectorI3appELb1EjE4sizeEv.exit.lr.ph, %.critedge
   %indvars.iv = phi i64 [ 0, %_ZNK6vectorI10ptr_vectorI3appELb1EjE4sizeEv.exit.lr.ph ], [ %indvars.iv.next, %.critedge ]
   %46 = phi ptr [ %31, %_ZNK6vectorI10ptr_vectorI3appELb1EjE4sizeEv.exit.lr.ph ], [ %233, %.critedge ]
-  %.019102 = phi i32 [ 0, %_ZNK6vectorI10ptr_vectorI3appELb1EjE4sizeEv.exit.lr.ph ], [ %.120, %.critedge ]
+  %.019100 = phi i32 [ 0, %_ZNK6vectorI10ptr_vectorI3appELb1EjE4sizeEv.exit.lr.ph ], [ %.120, %.critedge ]
   %47 = getelementptr inbounds i8, ptr %46, i64 -4
   %48 = load i32, ptr %47, align 4, !tbaa !10
   %49 = zext i32 %48 to i64
@@ -4471,7 +4471,7 @@ _ZNK6vectorI10ptr_vectorI3appELb1EjE4sizeEv.exit: ; preds = %_ZNK6vectorI10ptr_v
   br i1 %50, label %51, label %.critedge65
 
 .critedge65:                                      ; preds = %_ZNK6vectorI10ptr_vectorI3appELb1EjE4sizeEv.exit, %.critedge
-  %.019.lcssa.ph = phi i32 [ %.019102, %_ZNK6vectorI10ptr_vectorI3appELb1EjE4sizeEv.exit ], [ %.120, %.critedge ]
+  %.019.lcssa.ph = phi i32 [ %.019100, %_ZNK6vectorI10ptr_vectorI3appELb1EjE4sizeEv.exit ], [ %.120, %.critedge ]
   invoke void @_Z22report_tactic_progressPKcj(ptr noundef nonnull @.str.9, i32 noundef %.019.lcssa.ph)
           to label %235 unwind label %282
 
@@ -4517,7 +4517,7 @@ _ZN6vectorIP3appLb0EjE5resetEv.exit:              ; preds = %61, %63
 
 _ZNK6vectorIP3appLb0EjE5emptyEv.exit:             ; preds = %.preheader, %225
   %68 = phi ptr [ %226, %225 ], [ %66, %.preheader ]
-  %.22194 = phi i32 [ %195, %225 ], [ %.019102, %.preheader ]
+  %.22192 = phi i32 [ %195, %225 ], [ %.019100, %.preheader ]
   %69 = getelementptr inbounds i8, ptr %68, i64 -4
   %70 = load i32, ptr %69, align 4, !tbaa !10
   %71 = icmp eq i32 %70, 0
@@ -4562,11 +4562,11 @@ _ZN6vectorIP3appLb0EjE3endEv.exit.i:              ; preds = %86
   %.idx9.i = shl nuw nsw i64 %91, 3
   %92 = getelementptr inbounds nuw i8, ptr %87, i64 %.idx9.i
   %93 = ptrtoint ptr %87 to i64
-  %.not8.i = icmp ult i32 %90, 4
+  %94 = lshr i64 %91, 2
+  %.not8.i = icmp eq i64 %94, 0
   br i1 %.not8.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN6vectorIP3appLb0EjE3endEv.exit.i
-  %94 = lshr i64 %91, 2
   %95 = and i64 %.idx9.i, 34359738336
   %scevgep.i.i.i.i = getelementptr i8, ptr %87, i64 %95
   br label %96
@@ -4588,13 +4588,13 @@ _ZN6vectorIP3appLb0EjE3endEv.exit.i:              ; preds = %86
   %104 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 16
   %105 = load ptr, ptr %104, align 8, !tbaa !170
   %106 = icmp eq ptr %105, %85
-  br i1 %106, label %_ZSt4findIPP3appS1_ET_S3_S3_RKT0_.exit.i.loopexit.split.loop.exit161, label %107
+  br i1 %106, label %_ZSt4findIPP3appS1_ET_S3_S3_RKT0_.exit.i.loopexit.split.loop.exit157, label %107
 
 107:                                              ; preds = %103
   %108 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 24
   %109 = load ptr, ptr %108, align 8, !tbaa !170
   %110 = icmp eq ptr %109, %85
-  br i1 %110, label %_ZSt4findIPP3appS1_ET_S3_S3_RKT0_.exit.i.loopexit.split.loop.exit163, label %111
+  br i1 %110, label %_ZSt4findIPP3appS1_ET_S3_S3_RKT0_.exit.i.loopexit.split.loop.exit159, label %111
 
 111:                                              ; preds = %107
   %112 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 32
@@ -4609,11 +4609,10 @@ _ZN6vectorIP3appLb0EjE3endEv.exit.i:              ; preds = %86
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %_ZN6vectorIP3appLb0EjE3endEv.exit.i
   %.pre-phi56.i.i.i.i = phi i32 [ %115, %._crit_edge.loopexit.i.i.i.i ], [ %90, %_ZN6vectorIP3appLb0EjE3endEv.exit.i ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %87, %_ZN6vectorIP3appLb0EjE3endEv.exit.i ]
-  switch i32 %.pre-phi56.i.i.i.i, label %default.unreachable [
+  switch i32 %.pre-phi56.i.i.i.i, label %_ZSt4findIPP3appS1_ET_S3_S3_RKT0_.exit.i [
     i32 3, label %116
     i32 2, label %._crit_edge._crit_edge.i.i.i.i
     i32 1, label %._crit_edge._crit_edge52.i.i.i.i
-    i32 0, label %_ZSt4findIPP3appS1_ET_S3_S3_RKT0_.exit.i
   ]
 
 116:                                              ; preds = %._crit_edge.i.i.i.i
@@ -4642,23 +4641,20 @@ _ZN6vectorIP3appLb0EjE3endEv.exit.i:              ; preds = %86
   %spec.select.i = select i1 %126, ptr %.2.i.i.i.i, ptr %92
   br label %_ZSt4findIPP3appS1_ET_S3_S3_RKT0_.exit.i
 
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
-  unreachable
-
 _ZSt4findIPP3appS1_ET_S3_S3_RKT0_.exit.i.loopexit.split.loop.exit: ; preds = %99
   %127 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 8
   br label %_ZSt4findIPP3appS1_ET_S3_S3_RKT0_.exit.i
 
-_ZSt4findIPP3appS1_ET_S3_S3_RKT0_.exit.i.loopexit.split.loop.exit161: ; preds = %103
+_ZSt4findIPP3appS1_ET_S3_S3_RKT0_.exit.i.loopexit.split.loop.exit157: ; preds = %103
   %128 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 16
   br label %_ZSt4findIPP3appS1_ET_S3_S3_RKT0_.exit.i
 
-_ZSt4findIPP3appS1_ET_S3_S3_RKT0_.exit.i.loopexit.split.loop.exit163: ; preds = %107
+_ZSt4findIPP3appS1_ET_S3_S3_RKT0_.exit.i.loopexit.split.loop.exit159: ; preds = %107
   %129 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 24
   br label %_ZSt4findIPP3appS1_ET_S3_S3_RKT0_.exit.i
 
-_ZSt4findIPP3appS1_ET_S3_S3_RKT0_.exit.i:         ; preds = %96, %_ZSt4findIPP3appS1_ET_S3_S3_RKT0_.exit.i.loopexit.split.loop.exit, %_ZSt4findIPP3appS1_ET_S3_S3_RKT0_.exit.i.loopexit.split.loop.exit161, %_ZSt4findIPP3appS1_ET_S3_S3_RKT0_.exit.i.loopexit.split.loop.exit163, %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i, %116, %._crit_edge.i.i.i.i
-  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %116 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %92, %._crit_edge.i.i.i.i ], [ %spec.select.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %127, %_ZSt4findIPP3appS1_ET_S3_S3_RKT0_.exit.i.loopexit.split.loop.exit ], [ %128, %_ZSt4findIPP3appS1_ET_S3_S3_RKT0_.exit.i.loopexit.split.loop.exit161 ], [ %129, %_ZSt4findIPP3appS1_ET_S3_S3_RKT0_.exit.i.loopexit.split.loop.exit163 ], [ %.02946.i.i.i.i, %96 ]
+_ZSt4findIPP3appS1_ET_S3_S3_RKT0_.exit.i:         ; preds = %96, %_ZSt4findIPP3appS1_ET_S3_S3_RKT0_.exit.i.loopexit.split.loop.exit, %_ZSt4findIPP3appS1_ET_S3_S3_RKT0_.exit.i.loopexit.split.loop.exit157, %_ZSt4findIPP3appS1_ET_S3_S3_RKT0_.exit.i.loopexit.split.loop.exit159, %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i, %116, %._crit_edge.i.i.i.i
+  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %116 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %92, %._crit_edge.i.i.i.i ], [ %spec.select.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %127, %_ZSt4findIPP3appS1_ET_S3_S3_RKT0_.exit.i.loopexit.split.loop.exit ], [ %128, %_ZSt4findIPP3appS1_ET_S3_S3_RKT0_.exit.i.loopexit.split.loop.exit157 ], [ %129, %_ZSt4findIPP3appS1_ET_S3_S3_RKT0_.exit.i.loopexit.split.loop.exit159 ], [ %.02946.i.i.i.i, %96 ]
   %130 = getelementptr inbounds nuw ptr, ptr %87, i64 %91
   %.not7.i = icmp eq ptr %.028.i.i.i.i, %130
   br i1 %.not7.i, label %_ZN6vectorIP3appLb0EjE5eraseERKS1_.exit, label %_ZN6vectorIP3appLb0EjE3endEv.exit.i.i
@@ -4839,7 +4835,7 @@ _ZN22symmetry_reduce_tactic3imp12select_constERK10ptr_vectorI3appES5_.exit: ; pr
           to label %_ZN4goal11assert_exprEP4expr.exit unwind label %230
 
 _ZN4goal11assert_exprEP4expr.exit:                ; preds = %193
-  %195 = add i32 %.22194, 1
+  %195 = add i32 %.22192, 1
   %196 = load ptr, ptr %0, align 8, !tbaa !216
   %197 = load ptr, ptr %7, align 8, !tbaa !136
   %198 = load ptr, ptr %11, align 8, !tbaa !136
@@ -4928,7 +4924,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %_ZN11ast_manager6mk
   br label %.body
 
 .critedge:                                        ; preds = %_ZNK6vectorIP3appLb0EjE5emptyEv.exit, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit44, %225, %_ZN22symmetry_reduce_tactic3imp12select_constERK10ptr_vectorI3appES5_.exit, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit10.i, %147, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit, %_ZNK6vectorIP3appLb0EjE8containsERKS1_.exit.i, %.preheader, %.noexc40, %_ZN22symmetry_reduce_tactic3imp25invariant_by_permutationsEP4exprR10ptr_vectorI3appE.exit
-  %.120 = phi i32 [ %.019102, %_ZN22symmetry_reduce_tactic3imp25invariant_by_permutationsEP4exprR10ptr_vectorI3appE.exit ], [ %.019102, %.noexc40 ], [ %.019102, %.preheader ], [ %.22194, %_ZNK6vectorIP3appLb0EjE8containsERKS1_.exit.i ], [ %.22194, %_ZNK6vectorIP3appLb0EjE5emptyEv.exit ], [ %.22194, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit44 ], [ %195, %225 ], [ %.22194, %_ZN22symmetry_reduce_tactic3imp12select_constERK10ptr_vectorI3appES5_.exit ], [ %.22194, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit10.i ], [ %.22194, %147 ], [ %.22194, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit ]
+  %.120 = phi i32 [ %.019100, %_ZN22symmetry_reduce_tactic3imp25invariant_by_permutationsEP4exprR10ptr_vectorI3appE.exit ], [ %.019100, %.noexc40 ], [ %.019100, %.preheader ], [ %.22192, %_ZNK6vectorIP3appLb0EjE8containsERKS1_.exit.i ], [ %.22192, %_ZNK6vectorIP3appLb0EjE5emptyEv.exit ], [ %.22192, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit44 ], [ %195, %225 ], [ %.22192, %_ZN22symmetry_reduce_tactic3imp12select_constERK10ptr_vectorI3appES5_.exit ], [ %.22192, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit10.i ], [ %.22192, %147 ], [ %.22192, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %233 = load ptr, ptr %6, align 8, !tbaa !213
   %234 = icmp eq ptr %233, null
@@ -6410,8 +6406,8 @@ define linkonce_odr hidden void @_ZN22symmetry_reduce_tactic3imp19compute_occurr
   %26 = icmp ugt i32 %15, 16
   %27 = mul i32 %15, 3
   %28 = icmp ugt i32 %25, %27
-  %or.cond18.i.i = select i1 %26, i1 %28, i1 false
-  br i1 %or.cond18.i.i, label %29, label %._crit_edge.thread.i.i
+  %or.cond19.i.i = select i1 %26, i1 %28, i1 false
+  br i1 %or.cond19.i.i, label %29, label %._crit_edge.thread.i.i
 
 29:                                               ; preds = %._crit_edge.i.i
   %30 = icmp eq ptr %13, null
@@ -6430,7 +6426,7 @@ _ZN14core_hashtableIN7obj_mapI3appjE13obj_map_entryE8obj_hashINS2_8key_dataEE10d
   %34 = zext nneg i32 %33 to i64
   %35 = shl nuw nsw i64 %34, 4
   %36 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %35)
-  %.not6.i.i.i.i.i.i.i = icmp ult i32 %32, 2
+  %.not6.i.i.i.i.i.i.i = icmp eq i32 %33, 0
   br i1 %.not6.i.i.i.i.i.i.i, label %_ZN14core_hashtableIN7obj_mapI3appjE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE11alloc_tableEj.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN14core_hashtableIN7obj_mapI3appjE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE12delete_tableEv.exit.i.i, %.lr.ph.i.i.i.i.i.i.i
@@ -8130,7 +8126,7 @@ define linkonce_odr hidden void @_ZN14parray_managerIN11ast_manager17expr_array_
 .preheader.i.unreachabledefault:                  ; preds = %.preheader.i
   unreachable
 
-default.unreachable91:                            ; preds = %65
+default.unreachable92:                            ; preds = %65
   unreachable
 
 _ZNK14parray_managerIN11ast_manager17expr_array_configEE4sizeERKNS2_3refE.exit: ; preds = %16, %20, %24
@@ -8139,7 +8135,7 @@ _ZNK14parray_managerIN11ast_manager17expr_array_configEE4sizeERKNS2_3refE.exit: 
   %28 = load i32, ptr %3, align 8
   %29 = lshr i32 %28, 30
   %30 = icmp ne i32 %29, 3
-  %31 = icmp ugt i32 %.07.i, 1
+  %31 = icmp ne i32 %27, 0
   %32 = select i1 %30, i1 %31, i1 false
   br i1 %32, label %.lr.ph, label %._crit_edge
 
@@ -8225,7 +8221,7 @@ _ZNK6vectorIPN14parray_managerIN11ast_manager17expr_array_configEE4cellELb0EjE4s
   %73 = load ptr, ptr %72, align 8, !tbaa !51
   %74 = load i32, ptr %69, align 8
   %75 = lshr i32 %74, 30
-  switch i32 %75, label %default.unreachable91 [
+  switch i32 %75, label %default.unreachable92 [
     i32 0, label %76
     i32 1, label %90
     i32 2, label %124
@@ -10808,8 +10804,8 @@ define linkonce_odr hidden void @_ZN22symmetry_reduce_tactic3imp19compute_sort_c
   %26 = icmp ugt i32 %15, 16
   %27 = mul i32 %15, 3
   %28 = icmp ugt i32 %25, %27
-  %or.cond18.i.i = select i1 %26, i1 %28, i1 false
-  br i1 %or.cond18.i.i, label %29, label %._crit_edge.thread.i.i
+  %or.cond19.i.i = select i1 %26, i1 %28, i1 false
+  br i1 %or.cond19.i.i, label %29, label %._crit_edge.thread.i.i
 
 29:                                               ; preds = %._crit_edge.i.i
   %30 = icmp eq ptr %13, null
@@ -10828,7 +10824,7 @@ _ZN14core_hashtableIN7obj_mapI3appjE13obj_map_entryE8obj_hashINS2_8key_dataEE10d
   %34 = zext nneg i32 %33 to i64
   %35 = shl nuw nsw i64 %34, 4
   %36 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %35)
-  %.not6.i.i.i.i.i.i.i = icmp ult i32 %32, 2
+  %.not6.i.i.i.i.i.i.i = icmp eq i32 %33, 0
   br i1 %.not6.i.i.i.i.i.i.i, label %_ZN14core_hashtableIN7obj_mapI3appjE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE11alloc_tableEj.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN14core_hashtableIN7obj_mapI3appjE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE12delete_tableEv.exit.i.i, %.lr.ph.i.i.i.i.i.i.i
@@ -17768,7 +17764,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPP4exprlN9__gnu_cxx5__op
 56:                                               ; preds = %51
   %57 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i.i.i.i.i
   store ptr %53, ptr %57, align 8, !tbaa !12
-  %.not12.i.i.i = icmp ult i64 %.018.in.i.i.i.i.i, 2
+  %.not12.i.i.i = icmp eq i64 %.018.i.i1011.i.i.i, 0
   br i1 %.not12.i.i.i, label %_ZSt10__pop_heapIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_RT0_.exit.i.i, label %51, !llvm.loop !401
 
 _ZSt10__pop_heapIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_RT0_.exit.i.i: ; preds = %56, %51, %49

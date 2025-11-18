@@ -24,7 +24,7 @@ define dso_local range(i64 0, -1) i64 @xdl_bogosqrt(i64 noundef %0) local_unname
   %.045 = phi i64 [ %4, %.lr.ph ], [ %0, %1 ]
   %3 = shl i64 %.06, 1
   %4 = lshr i64 %.045, 2
-  %.not = icmp samesign ult i64 %.045, 4
+  %.not = icmp eq i64 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1

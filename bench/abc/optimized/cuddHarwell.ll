@@ -186,11 +186,11 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   %104 = phi i32 [ %105, %.lr.ph ], [ %102, %100 ]
   %105 = lshr i32 %104, 1
   %106 = add nuw nsw i32 %.0436550, 1
-  %.not = icmp ult i32 %104, 2
+  %.not = icmp eq i32 %105, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  store i32 %105, ptr %17, align 4, !tbaa !3
+  store i32 0, ptr %17, align 4, !tbaa !3
   br label %107
 
 107:                                              ; preds = %._crit_edge, %100
@@ -220,7 +220,7 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   %.1444552 = phi i32 [ %119, %.lr.ph555 ], [ %.0443, %117 ]
   %119 = lshr i32 %.1444552, 1
   %120 = add nuw nsw i32 %.1437553, 1
-  %.not614 = icmp samesign ult i32 %.1444552, 2
+  %.not614 = icmp eq i32 %119, 0
   br i1 %.not614, label %._crit_edge556, label %.lr.ph555, !llvm.loop !31
 
 ._crit_edge556:                                   ; preds = %.lr.ph555, %117
@@ -939,8 +939,8 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   %.1448595 = phi ptr [ %41, %.lr.ph599.preheader ], [ %454, %457 ]
   %451 = and i32 %.3446596, 1
   %.not507 = icmp eq i32 %451, 0
-  %.0426..0428750 = select i1 %.not507, ptr %.0426, ptr %.0428
-  %452 = getelementptr inbounds nuw ptr, ptr %.0426..0428750, i64 %indvars.iv668
+  %.0426..0428749 = select i1 %.not507, ptr %.0426, ptr %.0428
+  %452 = getelementptr inbounds nuw ptr, ptr %.0426..0428749, i64 %indvars.iv668
   %453 = load ptr, ptr %452, align 8, !tbaa !35
   %454 = call ptr @Cudd_addApply(ptr noundef %1, ptr noundef nonnull @Cudd_addTimes, ptr noundef %.1448595, ptr noundef %453) #8
   %455 = icmp eq ptr %454, null
@@ -1010,8 +1010,8 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   %indvars.iv.next672 = add nsw i64 %indvars.iv671, -1
   %483 = and i32 %482, 1
   %.not506 = icmp eq i32 %483, 0
-  %.0427..0429751 = select i1 %.not506, ptr %.0427, ptr %.0429
-  %484 = getelementptr inbounds nuw ptr, ptr %.0427..0429751, i64 %indvars.iv.next672
+  %.0427..0429750 = select i1 %.not506, ptr %.0427, ptr %.0429
+  %484 = getelementptr inbounds nuw ptr, ptr %.0427..0429750, i64 %indvars.iv.next672
   %485 = load ptr, ptr %484, align 8, !tbaa !35
   %486 = call ptr @Cudd_addApply(ptr noundef %1, ptr noundef nonnull @Cudd_addTimes, ptr noundef nonnull %.1450602, ptr noundef %485) #8
   %487 = icmp eq ptr %486, null

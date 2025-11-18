@@ -13,8 +13,8 @@ define hidden void @fnt_dif2(ptr noundef captures(none) %0, i64 noundef %1, ptr 
   %7 = getelementptr i64, ptr @mpd_moduli, i64 %6
   %8 = load i64, ptr %7, align 8, !tbaa !7
   %9 = lshr i64 %1, 1
-  %.not = icmp ult i64 %1, 2
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %9, 0
+  br i1 %.not, label %.preheader218, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %10 = and i64 %8, 4294967296
@@ -23,7 +23,7 @@ define hidden void @fnt_dif2(ptr noundef captures(none) %0, i64 noundef %1, ptr 
   %.not62.i.i = icmp eq i64 %11, 0
   br label %15
 
-.preheader218:                                    ; preds = %x64_mulmod2.exit
+.preheader218:                                    ; preds = %x64_mulmod2.exit, %3
   %12 = icmp ugt i64 %1, 3
   br i1 %12, label %.lr.ph232, label %._crit_edge
 
@@ -525,7 +525,7 @@ x64_mulmod2c.exit.us:                             ; preds = %276, %263, %251
   %332 = shl i64 %.0124229, 1
   br label %.lr.ph221, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %.preheader, %3, %.preheader218
+._crit_edge:                                      ; preds = %.preheader, %.preheader218
   %umax.i = tail call i64 @llvm.umax.i64(i64 %1, i64 1)
   br label %333
 

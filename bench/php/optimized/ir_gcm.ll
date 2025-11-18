@@ -3326,7 +3326,7 @@ ir_count_constant.exit946:                        ; preds = %380, %384
   br label %.loopexit952
 
 711:                                              ; preds = %.loopexit953
-  %.not1097 = icmp ult i32 %623, 65536
+  %.not1097 = icmp eq i32 %624, 0
   br i1 %.not1097, label %.loopexit952, label %.lr.ph1085
 
 .lr.ph1085:                                       ; preds = %711, %.lr.ph1085

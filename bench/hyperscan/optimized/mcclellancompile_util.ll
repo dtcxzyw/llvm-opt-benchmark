@@ -367,14 +367,14 @@ define hidden noundef zeroext i1 @_ZN3ue220clear_deeper_reportsERNS_7raw_dfaEj(p
   %14 = icmp ugt i64 %13, 1
   br i1 %14, label %.lr.ph.outer, label %.critedge
 
-.lr.ph.outer:                                     ; preds = %.preheader, %.thread69
-  %.ph = phi ptr [ %.pre63, %.thread69 ], [ %9, %.preheader ]
-  %.ph73 = phi ptr [ %.pre, %.thread69 ], [ %8, %.preheader ]
-  %.ph74 = phi i64 [ %43, %.thread69 ], [ 1, %.preheader ]
-  %.02049.ph = phi i32 [ %42, %.thread69 ], [ 1, %.preheader ]
-  %.02148.ph = phi i1 [ true, %.thread69 ], [ false, %.preheader ]
+.lr.ph.outer:                                     ; preds = %.preheader, %.thread70
+  %.ph = phi ptr [ %.pre63, %.thread70 ], [ %9, %.preheader ]
+  %.ph74 = phi ptr [ %.pre, %.thread70 ], [ %8, %.preheader ]
+  %.ph75 = phi i64 [ %43, %.thread70 ], [ 1, %.preheader ]
+  %.02049.ph = phi i32 [ %42, %.thread70 ], [ 1, %.preheader ]
+  %.02148.ph = phi i1 [ true, %.thread70 ], [ false, %.preheader ]
   %15 = load ptr, ptr %3, align 8
-  %16 = ptrtoint ptr %.ph73 to i64
+  %16 = ptrtoint ptr %.ph74 to i64
   %17 = ptrtoint ptr %.ph to i64
   %18 = sub i64 %16, %17
   %19 = sdiv exact i64 %18, 96
@@ -391,7 +391,7 @@ define hidden noundef zeroext i1 @_ZN3ue220clear_deeper_reportsERNS_7raw_dfaEj(p
   br i1 %.02148.ph, label %._crit_edge.thread, label %.critedge
 
 .lr.ph:                                           ; preds = %.lr.ph.outer, %35
-  %23 = phi i64 [ %37, %35 ], [ %.ph74, %.lr.ph.outer ]
+  %23 = phi i64 [ %37, %35 ], [ %.ph75, %.lr.ph.outer ]
   %.02049 = phi i32 [ %36, %35 ], [ %.02049.ph, %.lr.ph.outer ]
   %24 = getelementptr inbounds nuw i32, ptr %15, i64 %23
   %25 = load i32, ptr %24, align 4
@@ -405,13 +405,13 @@ define hidden noundef zeroext i1 @_ZN3ue220clear_deeper_reportsERNS_7raw_dfaEj(p
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %32 = load i64, ptr %31, align 8
   %.not.i.i.i = icmp eq i64 %32, 0
-  br i1 %.not.i.i.i, label %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit, label %.thread69
+  br i1 %.not.i.i.i, label %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit, label %.thread70
 
 _ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit: ; preds = %27
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %34 = load i64, ptr %33, align 8
   %.not.i.i3.i.not = icmp eq i64 %34, 0
-  br i1 %.not.i.i3.i.not, label %35, label %.thread69
+  br i1 %.not.i.i3.i.not, label %35, label %.thread70
 
 35:                                               ; preds = %.lr.ph, %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit
   %36 = add i32 %.02049, 1
@@ -419,7 +419,7 @@ _ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit: ; preds = %27
   %38 = icmp ugt i64 %19, %37
   br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
-.thread69:                                        ; preds = %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit, %27
+.thread70:                                        ; preds = %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit, %27
   %39 = getelementptr inbounds nuw %"struct.ue2::dstate", ptr %.ph, i64 %23
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
   store i64 0, ptr %40, align 8
@@ -436,17 +436,17 @@ _ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit: ; preds = %27
   %48 = icmp ugt i64 %47, %43
   br i1 %48, label %.lr.ph.outer, label %._crit_edge.thread, !llvm.loop !12
 
-._crit_edge.thread:                               ; preds = %.thread69, %._crit_edge
-  %49 = phi ptr [ %.ph, %._crit_edge ], [ %.pre63, %.thread69 ]
-  %50 = phi ptr [ %.ph73, %._crit_edge ], [ %.pre, %.thread69 ]
-  %51 = phi i64 [ %16, %._crit_edge ], [ %44, %.thread69 ]
-  %52 = phi i64 [ %18, %._crit_edge ], [ %46, %.thread69 ]
-  %53 = phi i64 [ %19, %._crit_edge ], [ %47, %.thread69 ]
-  %.not39 = icmp samesign ult i64 %53, 4
+._crit_edge.thread:                               ; preds = %.thread70, %._crit_edge
+  %49 = phi ptr [ %.ph, %._crit_edge ], [ %.pre63, %.thread70 ]
+  %50 = phi ptr [ %.ph74, %._crit_edge ], [ %.pre, %.thread70 ]
+  %51 = phi i64 [ %16, %._crit_edge ], [ %44, %.thread70 ]
+  %52 = phi i64 [ %18, %._crit_edge ], [ %46, %.thread70 ]
+  %53 = phi i64 [ %19, %._crit_edge ], [ %47, %.thread70 ]
+  %54 = lshr i64 %53, 2
+  %.not39 = icmp eq i64 %54, 0
   br i1 %.not39, label %._crit_edge.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %._crit_edge.thread
-  %54 = lshr i64 %53, 2
   %55 = mul nuw nsw i64 %54, 384
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %49, i64 %55
   br label %.lr.ph.i.i.i.i.i

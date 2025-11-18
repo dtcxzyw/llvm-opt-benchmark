@@ -3690,7 +3690,7 @@ _ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12del
   %34 = zext nneg i32 %33 to i64
   %35 = shl nuw nsw i64 %34, 3
   %36 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %35)
-  %.not6.i.i.i.i.i.i = icmp ult i32 %32, 2
+  %.not6.i.i.i.i.i.i = icmp eq i32 %33, 0
   br i1 %.not6.i.i.i.i.i.i, label %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE11alloc_tableEj.exit.i, label %.lr.ph.preheader.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12delete_tableEv.exit.i
@@ -4823,8 +4823,8 @@ _ZN6vectorIN2qe9max_levelELb0EjE5resetEv.exit:    ; preds = %._crit_edge, %74
   %100 = icmp ugt i32 %88, 16
   %101 = mul i32 %88, 3
   %102 = icmp ugt i32 %99, %101
-  %or.cond18.i.i = select i1 %100, i1 %102, i1 false
-  br i1 %or.cond18.i.i, label %103, label %._crit_edge.thread.i.i
+  %or.cond19.i.i = select i1 %100, i1 %102, i1 false
+  br i1 %or.cond19.i.i, label %103, label %._crit_edge.thread.i.i
 
 103:                                              ; preds = %._crit_edge.i.i
   %104 = icmp eq ptr %86, null
@@ -4843,7 +4843,7 @@ _ZN14core_hashtableI17default_map_entryIjP4exprEN9table2mapIS3_6u_hash4u_eqE15en
   %108 = zext nneg i32 %107 to i64
   %109 = mul nuw nsw i64 %108, 24
   %110 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %109)
-  %.not6.i.i.i.i.i.i.i = icmp ult i32 %106, 2
+  %.not6.i.i.i.i.i.i.i = icmp eq i32 %107, 0
   br i1 %.not6.i.i.i.i.i.i.i, label %_ZN14core_hashtableI17default_map_entryIjP4exprEN9table2mapIS3_6u_hash4u_eqE15entry_hash_procENS7_13entry_eq_procEE11alloc_tableEj.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN14core_hashtableI17default_map_entryIjP4exprEN9table2mapIS3_6u_hash4u_eqE15entry_hash_procENS7_13entry_eq_procEE12delete_tableEv.exit.i.i, %.lr.ph.i.i.i.i.i.i.i
@@ -4914,8 +4914,8 @@ _ZN9table2mapI17default_map_entryIjP4exprE6u_hash4u_eqE5resetEv.exit: ; preds = 
   %136 = icmp ugt i32 %124, 16
   %137 = mul i32 %124, 3
   %138 = icmp ugt i32 %135, %137
-  %or.cond18.i.i36 = select i1 %136, i1 %138, i1 false
-  br i1 %or.cond18.i.i36, label %139, label %._crit_edge.thread.i.i37
+  %or.cond19.i.i36 = select i1 %136, i1 %138, i1 false
+  br i1 %or.cond19.i.i36, label %139, label %._crit_edge.thread.i.i37
 
 139:                                              ; preds = %._crit_edge.i.i35
   %140 = icmp eq ptr %122, null
@@ -4934,7 +4934,7 @@ _ZN14core_hashtableI17default_map_entryIjP4exprEN9table2mapIS3_6u_hash4u_eqE15en
   %144 = zext nneg i32 %143 to i64
   %145 = mul nuw nsw i64 %144, 24
   %146 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %145)
-  %.not6.i.i.i.i.i.i.i40 = icmp ult i32 %142, 2
+  %.not6.i.i.i.i.i.i.i40 = icmp eq i32 %143, 0
   br i1 %.not6.i.i.i.i.i.i.i40, label %_ZN14core_hashtableI17default_map_entryIjP4exprEN9table2mapIS3_6u_hash4u_eqE15entry_hash_procENS7_13entry_eq_procEE11alloc_tableEj.exit.i.i45, label %.lr.ph.i.i.i.i.i.i.i41
 
 .lr.ph.i.i.i.i.i.i.i41:                           ; preds = %_ZN14core_hashtableI17default_map_entryIjP4exprEN9table2mapIS3_6u_hash4u_eqE15entry_hash_procENS7_13entry_eq_procEE12delete_tableEv.exit.i.i39, %.lr.ph.i.i.i.i.i.i.i41
@@ -5016,8 +5016,8 @@ _ZN6vectorIN3sat7literalELb0EjE5resetEv.exit48:   ; preds = %_ZN9table2mapI17def
   %176 = icmp ugt i32 %164, 16
   %177 = mul i32 %164, 3
   %178 = icmp ugt i32 %175, %177
-  %or.cond18.i.i58 = select i1 %176, i1 %178, i1 false
-  br i1 %or.cond18.i.i58, label %179, label %._crit_edge.thread.i.i59
+  %or.cond19.i.i58 = select i1 %176, i1 %178, i1 false
+  br i1 %or.cond19.i.i58, label %179, label %._crit_edge.thread.i.i59
 
 179:                                              ; preds = %._crit_edge.i.i57
   %180 = icmp eq ptr %162, null
@@ -5036,7 +5036,7 @@ _ZN14core_hashtableI17default_map_entryIjP4exprEN9table2mapIS3_6u_hash4u_eqE15en
   %184 = zext nneg i32 %183 to i64
   %185 = mul nuw nsw i64 %184, 24
   %186 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %185)
-  %.not6.i.i.i.i.i.i.i62 = icmp ult i32 %182, 2
+  %.not6.i.i.i.i.i.i.i62 = icmp eq i32 %183, 0
   br i1 %.not6.i.i.i.i.i.i.i62, label %_ZN14core_hashtableI17default_map_entryIjP4exprEN9table2mapIS3_6u_hash4u_eqE15entry_hash_procENS7_13entry_eq_procEE11alloc_tableEj.exit.i.i67, label %.lr.ph.i.i.i.i.i.i.i63
 
 .lr.ph.i.i.i.i.i.i.i63:                           ; preds = %_ZN14core_hashtableI17default_map_entryIjP4exprEN9table2mapIS3_6u_hash4u_eqE15entry_hash_procENS7_13entry_eq_procEE12delete_tableEv.exit.i.i61, %.lr.ph.i.i.i.i.i.i.i63
@@ -5139,8 +5139,8 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIjN2qe9m
   %23 = icmp ugt i32 %11, 16
   %24 = mul i32 %11, 3
   %25 = icmp ugt i32 %22, %24
-  %or.cond18 = select i1 %23, i1 %25, i1 false
-  br i1 %or.cond18, label %26, label %._crit_edge.thread
+  %or.cond19 = select i1 %23, i1 %25, i1 false
+  br i1 %or.cond19, label %26, label %._crit_edge.thread
 
 26:                                               ; preds = %._crit_edge
   %27 = icmp eq ptr %9, null
@@ -5159,7 +5159,7 @@ _ZN14core_hashtableI17default_map_entryIjN2qe9max_levelEEN9table2mapIS3_6u_hash4
   %31 = zext nneg i32 %30 to i64
   %32 = mul nuw nsw i64 %31, 20
   %33 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %32)
-  %.not11.i.i.i.i.i = icmp ult i32 %29, 2
+  %.not11.i.i.i.i.i = icmp eq i32 %30, 0
   br i1 %.not11.i.i.i.i.i, label %_ZN14core_hashtableI17default_map_entryIjN2qe9max_levelEEN9table2mapIS3_6u_hash4u_eqE15entry_hash_procENS7_13entry_eq_procEE11alloc_tableEj.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN14core_hashtableI17default_map_entryIjN2qe9max_levelEEN9table2mapIS3_6u_hash4u_eqE15entry_hash_procENS7_13entry_eq_procEE12delete_tableEv.exit, %.lr.ph.i.i.i.i.i
@@ -18492,7 +18492,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %45, %51
   br i1 %71, label %72, label %100
 
 72:                                               ; preds = %68
-  %73 = icmp ult i32 %69, 64
+  %73 = icmp eq i32 %70, 0
   br i1 %73, label %_ZNK10quantifier9get_childEj.exit, label %74
 
 74:                                               ; preds = %72
@@ -22270,7 +22270,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %43, %49
   br i1 %69, label %70, label %98
 
 70:                                               ; preds = %66
-  %71 = icmp ult i32 %67, 64
+  %71 = icmp eq i32 %68, 0
   br i1 %71, label %_ZNK10quantifier9get_childEj.exit, label %72
 
 72:                                               ; preds = %70

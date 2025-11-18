@@ -1131,7 +1131,7 @@ _ZN5XHeap16free_empty_pagesEP22XRelocationSetSelectori.exit7: ; preds = %.loopex
   %108 = lshr i64 %104, 21
   %109 = lshr i64 %107, 21
   %110 = add nuw nsw i64 %109, %108
-  %.not.i.i8 = icmp ult i64 %107, 2097152
+  %.not.i.i8 = icmp eq i64 %109, 0
   br i1 %.not.i.i8, label %_ZN16XForwardingTable6insertEP11XForwarding.exit, label %.lr.ph.i.i9
 
 .lr.ph.i.i9:                                      ; preds = %101, %.lr.ph.i.i9
@@ -1404,7 +1404,7 @@ define hidden void @_ZN5XHeap20reset_relocation_setEv(ptr noundef nonnull align 
   %15 = lshr i64 %11, 21
   %16 = lshr i64 %14, 21
   %17 = add nuw nsw i64 %16, %15
-  %.not.i.i = icmp ult i64 %14, 2097152
+  %.not.i.i = icmp eq i64 %16, 0
   br i1 %.not.i.i, label %_ZN16XForwardingTable6removeEP11XForwarding.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %8, %.lr.ph.i.i

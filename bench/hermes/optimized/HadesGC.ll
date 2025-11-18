@@ -5919,7 +5919,7 @@ _ZN4llvh9BitVector8allocateEm.exit.i:             ; preds = %if.then.i.i.i, %ent
   store ptr %call.i.i.i, ptr %markedSymbols_, align 8
   %ref.tmp.sroa.2.0.Bits3.sroa_idx.i = getelementptr inbounds nuw i8, ptr %this, i64 1184
   store i64 %conv.i, ptr %ref.tmp.sroa.2.0.Bits3.sroa_idx.i, align 8
-  %cmp.not.i.i = icmp ult i32 %sub.i.i, 64
+  %cmp.not.i.i = icmp eq i32 %div1.i.i, 0
   br i1 %cmp.not.i.i, label %_ZN4llvh9BitVectorC2Ejb.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN4llvh9BitVector8allocateEm.exit.i
@@ -5952,7 +5952,7 @@ _ZN4llvh9BitVector8allocateEm.exit.i11:           ; preds = %if.then.i.i.i15, %_
   store ptr %call.i.i.i9, ptr %writeBarrierMarkedSymbols_, align 8
   %ref.tmp.sroa.2.0.Bits3.sroa_idx.i12 = getelementptr inbounds nuw i8, ptr %this, i64 1208
   store i64 %conv.i7, ptr %ref.tmp.sroa.2.0.Bits3.sroa_idx.i12, align 8
-  %cmp.not.i.i13 = icmp ult i32 %sub.i.i5, 64
+  %cmp.not.i.i13 = icmp eq i32 %div1.i.i6, 0
   br i1 %cmp.not.i.i13, label %_ZN4llvh9BitVectorC2Ejb.exit16, label %if.then.i.i14
 
 if.then.i.i14:                                    ; preds = %_ZN4llvh9BitVector8allocateEm.exit.i11
@@ -6903,7 +6903,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i5, %_ZN6
   %sub.i.i.i = add i32 %33, 63
   %div1.i.i.i = lshr i32 %sub.i.i.i, 6
   %conv.i.i4 = zext nneg i32 %div1.i.i.i to i64
-  %cmp6.not11.i.i = icmp ult i32 %sub.i.i.i, 64
+  %cmp6.not11.i.i = icmp eq i32 %div1.i.i.i, 0
   br i1 %cmp6.not11.i.i, label %_ZN6hermes2vm7HadesGC12MarkAcceptor13markedSymbolsEv.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end.i.i, %for.body.i.i

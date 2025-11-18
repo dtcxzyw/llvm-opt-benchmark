@@ -3089,8 +3089,8 @@ _ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE
   %34 = load i32, ptr %18, align 8, !tbaa !265
   %35 = load i32, ptr %16, align 8, !tbaa !179
   %36 = sub i32 %34, %35
-  %.not256 = icmp ugt i32 %36, %33
-  br i1 %.not256, label %45, label %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit.thread
+  %.not253 = icmp ugt i32 %36, %33
+  br i1 %.not253, label %45, label %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit.thread
 
 _ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit.thread: ; preds = %15, %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 254
@@ -3164,8 +3164,8 @@ _ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE
   %73 = load i32, ptr %57, align 8, !tbaa !265
   %74 = load i32, ptr %55, align 8, !tbaa !179
   %75 = sub i32 %73, %74
-  %.not255 = icmp ugt i32 %75, %72
-  br i1 %.not255, label %84, label %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit150.thread
+  %.not252 = icmp ugt i32 %75, %72
+  br i1 %.not252, label %84, label %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit150.thread
 
 _ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit150.thread: ; preds = %54, %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit150
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 254
@@ -3246,8 +3246,8 @@ _ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE
   %115 = load i32, ptr %99, align 8, !tbaa !265
   %116 = load i32, ptr %97, align 8, !tbaa !179
   %117 = sub i32 %115, %116
-  %.not258 = icmp ugt i32 %117, %114
-  br i1 %.not258, label %.loopexit270, label %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit156.thread
+  %.not255 = icmp ugt i32 %117, %114
+  br i1 %.not255, label %.loopexit267, label %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit156.thread
 
 _ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit156.thread: ; preds = %96, %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit156
   %118 = getelementptr inbounds nuw i8, ptr %2, i64 120
@@ -3255,15 +3255,15 @@ _ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %121 = load i32, ptr %120, align 8, !tbaa !26
   %122 = zext i32 %121 to i64
-  %.idx338 = shl nuw nsw i64 %122, 4
-  %123 = getelementptr inbounds nuw i8, ptr %119, i64 %.idx338
-  %.not125281 = icmp eq i32 %121, 0
-  br i1 %.not125281, label %.loopexit270, label %.lr.ph284
+  %.idx331 = shl nuw nsw i64 %122, 4
+  %123 = getelementptr inbounds nuw i8, ptr %119, i64 %.idx331
+  %.not125274 = icmp eq i32 %121, 0
+  br i1 %.not125274, label %.loopexit267, label %.lr.ph277
 
-.lr.ph284:                                        ; preds = %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit156.thread, %_ZL23isSingleUnscheduledPredPN4llvm5SUnitES1_.exit
-  %.0111283 = phi i32 [ %144, %_ZL23isSingleUnscheduledPredPN4llvm5SUnitES1_.exit ], [ 0, %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit156.thread ]
-  %.0117282 = phi ptr [ %145, %_ZL23isSingleUnscheduledPredPN4llvm5SUnitES1_.exit ], [ %119, %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit156.thread ]
-  %.0.copyload.i.i.i.i = load i64, ptr %.0117282, align 8
+.lr.ph277:                                        ; preds = %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit156.thread, %_ZL23isSingleUnscheduledPredPN4llvm5SUnitES1_.exit
+  %.0111276 = phi i32 [ %144, %_ZL23isSingleUnscheduledPredPN4llvm5SUnitES1_.exit ], [ 0, %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit156.thread ]
+  %.0117275 = phi ptr [ %145, %_ZL23isSingleUnscheduledPredPN4llvm5SUnitES1_.exit ], [ %119, %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit156.thread ]
+  %.0.copyload.i.i.i.i = load i64, ptr %.0117275, align 8
   %124 = and i64 %.0.copyload.i.i.i.i, -8
   %125 = inttoptr i64 %124 to ptr
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 216
@@ -3271,7 +3271,7 @@ _ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE
   %128 = icmp eq i32 %127, 0
   br i1 %128, label %_ZL23isSingleUnscheduledPredPN4llvm5SUnitES1_.exit, label %129
 
-129:                                              ; preds = %.lr.ph284
+129:                                              ; preds = %.lr.ph277
   %130 = getelementptr inbounds nuw i8, ptr %125, i64 40
   %131 = load ptr, ptr %130, align 8, !tbaa !25
   %132 = getelementptr inbounds nuw i8, ptr %125, i64 48
@@ -3280,12 +3280,12 @@ _ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE
   %.idx.i = shl nuw nsw i64 %134, 4
   %135 = getelementptr inbounds nuw i8, ptr %131, i64 %.idx.i
   %.not19.i = icmp eq i32 %133, 0
-  br i1 %.not19.i, label %.loopexit269, label %.critedge.i
+  br i1 %.not19.i, label %.loopexit266, label %.critedge.i
 
 136:                                              ; preds = %.critedge.i
   %137 = getelementptr inbounds nuw i8, ptr %.01520.i, i64 16
   %.not.i158 = icmp eq ptr %137, %135
-  br i1 %.not.i158, label %.loopexit269, label %.critedge.i
+  br i1 %.not.i158, label %.loopexit266, label %.critedge.i
 
 .critedge.i:                                      ; preds = %129, %136
   %.01520.i = phi ptr [ %137, %136 ], [ %131, %129 ]
@@ -3300,15 +3300,15 @@ _ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE
   %or.cond.i = or i1 %.not16.i, %.not17.i
   br i1 %or.cond.i, label %136, label %_ZL23isSingleUnscheduledPredPN4llvm5SUnitES1_.exit
 
-.loopexit269:                                     ; preds = %136, %129
-  %143 = add i32 %.0111283, 1
+.loopexit266:                                     ; preds = %136, %129
+  %143 = add i32 %.0111276, 1
   br label %_ZL23isSingleUnscheduledPredPN4llvm5SUnitES1_.exit
 
-_ZL23isSingleUnscheduledPredPN4llvm5SUnitES1_.exit: ; preds = %.critedge.i, %.lr.ph284, %.loopexit269
-  %144 = phi i32 [ %143, %.loopexit269 ], [ %.0111283, %.lr.ph284 ], [ %.0111283, %.critedge.i ]
-  %145 = getelementptr inbounds nuw i8, ptr %.0117282, i64 16
+_ZL23isSingleUnscheduledPredPN4llvm5SUnitES1_.exit: ; preds = %.critedge.i, %.lr.ph277, %.loopexit266
+  %144 = phi i32 [ %143, %.loopexit266 ], [ %.0111276, %.lr.ph277 ], [ %.0111276, %.critedge.i ]
+  %145 = getelementptr inbounds nuw i8, ptr %.0117275, i64 16
   %.not125 = icmp eq ptr %145, %123
-  br i1 %.not125, label %.loopexit270, label %.lr.ph284
+  br i1 %.not125, label %.loopexit267, label %.lr.ph277
 
 146:                                              ; preds = %93
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 384
@@ -3350,8 +3350,8 @@ _ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE
   %165 = load i32, ptr %149, align 8, !tbaa !265
   %166 = load i32, ptr %147, align 8, !tbaa !179
   %167 = sub i32 %165, %166
-  %.not257 = icmp ugt i32 %167, %164
-  br i1 %.not257, label %.loopexit270, label %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit164.thread
+  %.not254 = icmp ugt i32 %167, %164
+  br i1 %.not254, label %.loopexit267, label %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit164.thread
 
 _ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit164.thread: ; preds = %146, %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit164
   %168 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -3361,13 +3361,13 @@ _ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE
   %172 = zext i32 %171 to i64
   %.idx = shl nuw nsw i64 %172, 4
   %173 = getelementptr inbounds nuw i8, ptr %169, i64 %.idx
-  %.not124278 = icmp eq i32 %171, 0
-  br i1 %.not124278, label %.loopexit270, label %.lr.ph
+  %.not124271 = icmp eq i32 %171, 0
+  br i1 %.not124271, label %.loopexit267, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit164.thread, %_ZL23isSingleUnscheduledSuccPN4llvm5SUnitES1_.exit
-  %.3114280 = phi i32 [ %194, %_ZL23isSingleUnscheduledSuccPN4llvm5SUnitES1_.exit ], [ 0, %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit164.thread ]
-  %.0118279 = phi ptr [ %195, %_ZL23isSingleUnscheduledSuccPN4llvm5SUnitES1_.exit ], [ %169, %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit164.thread ]
-  %.0.copyload.i.i.i.i165 = load i64, ptr %.0118279, align 8
+  %.3114273 = phi i32 [ %194, %_ZL23isSingleUnscheduledSuccPN4llvm5SUnitES1_.exit ], [ 0, %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit164.thread ]
+  %.0118272 = phi ptr [ %195, %_ZL23isSingleUnscheduledSuccPN4llvm5SUnitES1_.exit ], [ %169, %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit164.thread ]
+  %.0.copyload.i.i.i.i165 = load i64, ptr %.0118272, align 8
   %174 = and i64 %.0.copyload.i.i.i.i165, -8
   %175 = inttoptr i64 %174 to ptr
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 220
@@ -3384,12 +3384,12 @@ _ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE
   %.idx.i166 = shl nuw nsw i64 %184, 4
   %185 = getelementptr inbounds nuw i8, ptr %181, i64 %.idx.i166
   %.not19.i167 = icmp eq i32 %183, 0
-  br i1 %.not19.i167, label %.loopexit271, label %.critedge.i168
+  br i1 %.not19.i167, label %.loopexit268, label %.critedge.i168
 
 186:                                              ; preds = %.critedge.i168
   %187 = getelementptr inbounds nuw i8, ptr %.01520.i169, i64 16
   %.not.i175 = icmp eq ptr %187, %185
-  br i1 %.not.i175, label %.loopexit271, label %.critedge.i168
+  br i1 %.not.i175, label %.loopexit268, label %.critedge.i168
 
 .critedge.i168:                                   ; preds = %179, %186
   %.01520.i169 = phi ptr [ %187, %186 ], [ %181, %179 ]
@@ -3404,29 +3404,29 @@ _ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE
   %or.cond.i173 = or i1 %.not16.i171, %.not17.i172
   br i1 %or.cond.i173, label %186, label %_ZL23isSingleUnscheduledSuccPN4llvm5SUnitES1_.exit
 
-.loopexit271:                                     ; preds = %186, %179
-  %193 = add i32 %.3114280, 1
+.loopexit268:                                     ; preds = %186, %179
+  %193 = add i32 %.3114273, 1
   br label %_ZL23isSingleUnscheduledSuccPN4llvm5SUnitES1_.exit
 
-_ZL23isSingleUnscheduledSuccPN4llvm5SUnitES1_.exit: ; preds = %.critedge.i168, %.lr.ph, %.loopexit271
-  %194 = phi i32 [ %193, %.loopexit271 ], [ %.3114280, %.lr.ph ], [ %.3114280, %.critedge.i168 ]
-  %195 = getelementptr inbounds nuw i8, ptr %.0118279, i64 16
+_ZL23isSingleUnscheduledSuccPN4llvm5SUnitES1_.exit: ; preds = %.critedge.i168, %.lr.ph, %.loopexit268
+  %194 = phi i32 [ %193, %.loopexit268 ], [ %.3114273, %.lr.ph ], [ %.3114273, %.critedge.i168 ]
+  %195 = getelementptr inbounds nuw i8, ptr %.0118272, i64 16
   %.not124 = icmp eq ptr %195, %173
-  br i1 %.not124, label %.loopexit270, label %.lr.ph
+  br i1 %.not124, label %.loopexit267, label %.lr.ph
 
-.loopexit270:                                     ; preds = %_ZL23isSingleUnscheduledSuccPN4llvm5SUnitES1_.exit, %_ZL23isSingleUnscheduledPredPN4llvm5SUnitES1_.exit, %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit164.thread, %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit156.thread, %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit164, %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit156
+.loopexit267:                                     ; preds = %_ZL23isSingleUnscheduledSuccPN4llvm5SUnitES1_.exit, %_ZL23isSingleUnscheduledPredPN4llvm5SUnitES1_.exit, %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit164.thread, %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit156.thread, %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit164, %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit156
   %.2113 = phi i32 [ 0, %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit156 ], [ 0, %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit164 ], [ 0, %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit156.thread ], [ 0, %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE.exit164.thread ], [ %144, %_ZL23isSingleUnscheduledPredPN4llvm5SUnitES1_.exit ], [ %194, %_ZL23isSingleUnscheduledSuccPN4llvm5SUnitES1_.exit ]
   %196 = mul i32 %.2113, 10
   %197 = add i32 %196, %.2
   %198 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL19IgnoreBBRegPressure, i64 120), align 8, !tbaa !34, !range !50, !noundef !51
   %199 = trunc nuw i8 %198 to i1
-  br i1 %199, label %.loopexit270._ZN4llvm23ConvergingVLIWScheduler14pressureChangeEPKNS_5SUnitEb.exit.thread_crit_edge, label %200
+  br i1 %199, label %.loopexit267._ZN4llvm23ConvergingVLIWScheduler14pressureChangeEPKNS_5SUnitEb.exit.thread_crit_edge, label %200
 
-.loopexit270._ZN4llvm23ConvergingVLIWScheduler14pressureChangeEPKNS_5SUnitEb.exit.thread_crit_edge: ; preds = %.loopexit270
+.loopexit267._ZN4llvm23ConvergingVLIWScheduler14pressureChangeEPKNS_5SUnitEb.exit.thread_crit_edge: ; preds = %.loopexit267
   %.pre = load i32, ptr %1, align 8, !tbaa !266
   br label %_ZN4llvm23ConvergingVLIWScheduler14pressureChangeEPKNS_5SUnitEb.exit.thread
 
-200:                                              ; preds = %.loopexit270
+200:                                              ; preds = %.loopexit267
   %201 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %202 = load i16, ptr %201, align 2, !tbaa !476
   %203 = sext i16 %202 to i32
@@ -3441,11 +3441,11 @@ _ZL23isSingleUnscheduledSuccPN4llvm5SUnitES1_.exit: ; preds = %.critedge.i168, %
   %reass.mul = mul nsw i32 %reass.add, -200
   %210 = add i32 %.neg127, %197
   %211 = add i32 %210, %reass.mul
-  %.pre364 = load i32, ptr %1, align 8, !tbaa !266
+  %.pre357 = load i32, ptr %1, align 8, !tbaa !266
   br i1 %.not128, label %_ZN4llvm23ConvergingVLIWScheduler14pressureChangeEPKNS_5SUnitEb.exit.thread, label %212
 
 212:                                              ; preds = %200
-  %.not259 = icmp eq i32 %.pre364, 1
+  %.not256 = icmp eq i32 %.pre357, 1
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %214 = load ptr, ptr %213, align 8, !tbaa !155
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 3752
@@ -3485,7 +3485,7 @@ _ZN4llvm23ConvergingVLIWScheduler14pressureChangeEPKNS_5SUnitEb.exit: ; preds = 
   %234 = load i16, ptr %233, align 2, !tbaa !476
   %235 = sext i16 %234 to i32
   %236 = sub nsw i32 0, %235
-  %spec.select27.i = select i1 %.not259, i32 %236, i32 %235
+  %spec.select27.i = select i1 %.not256, i32 %236, i32 %235
   %237 = icmp sgt i32 %spec.select27.i, 0
   br i1 %237, label %238, label %_ZN4llvm23ConvergingVLIWScheduler14pressureChangeEPKNS_5SUnitEb.exit.thread
 
@@ -3494,14 +3494,14 @@ _ZN4llvm23ConvergingVLIWScheduler14pressureChangeEPKNS_5SUnitEb.exit: ; preds = 
   %.not130 = icmp eq i16 %205, 0
   %or.cond = select i1 %.not129, i1 %.not130, i1 false
   %.not131 = icmp eq i16 %208, 0
-  %or.cond253 = select i1 %or.cond, i1 %.not131, i1 false
-  %239 = select i1 %or.cond253, i32 0, i32 %.0110.neg
-  %spec.select254 = add i32 %211, %239
+  %or.cond250 = select i1 %or.cond, i1 %.not131, i1 false
+  %239 = select i1 %or.cond250, i32 0, i32 %.0110.neg
+  %spec.select251 = add i32 %211, %239
   br label %_ZN4llvm23ConvergingVLIWScheduler14pressureChangeEPKNS_5SUnitEb.exit.thread
 
-_ZN4llvm23ConvergingVLIWScheduler14pressureChangeEPKNS_5SUnitEb.exit.thread: ; preds = %232, %.loopexit270._ZN4llvm23ConvergingVLIWScheduler14pressureChangeEPKNS_5SUnitEb.exit.thread_crit_edge, %238, %_ZN4llvm23ConvergingVLIWScheduler14pressureChangeEPKNS_5SUnitEb.exit, %200
-  %240 = phi i32 [ %.pre, %.loopexit270._ZN4llvm23ConvergingVLIWScheduler14pressureChangeEPKNS_5SUnitEb.exit.thread_crit_edge ], [ %.pre364, %_ZN4llvm23ConvergingVLIWScheduler14pressureChangeEPKNS_5SUnitEb.exit ], [ %.pre364, %200 ], [ %.pre364, %238 ], [ %.pre364, %232 ]
-  %.4 = phi i32 [ %197, %.loopexit270._ZN4llvm23ConvergingVLIWScheduler14pressureChangeEPKNS_5SUnitEb.exit.thread_crit_edge ], [ %211, %_ZN4llvm23ConvergingVLIWScheduler14pressureChangeEPKNS_5SUnitEb.exit ], [ %211, %200 ], [ %spec.select254, %238 ], [ %211, %232 ]
+_ZN4llvm23ConvergingVLIWScheduler14pressureChangeEPKNS_5SUnitEb.exit.thread: ; preds = %232, %.loopexit267._ZN4llvm23ConvergingVLIWScheduler14pressureChangeEPKNS_5SUnitEb.exit.thread_crit_edge, %238, %_ZN4llvm23ConvergingVLIWScheduler14pressureChangeEPKNS_5SUnitEb.exit, %200
+  %240 = phi i32 [ %.pre, %.loopexit267._ZN4llvm23ConvergingVLIWScheduler14pressureChangeEPKNS_5SUnitEb.exit.thread_crit_edge ], [ %.pre357, %_ZN4llvm23ConvergingVLIWScheduler14pressureChangeEPKNS_5SUnitEb.exit ], [ %.pre357, %200 ], [ %.pre357, %238 ], [ %.pre357, %232 ]
+  %.4 = phi i32 [ %197, %.loopexit267._ZN4llvm23ConvergingVLIWScheduler14pressureChangeEPKNS_5SUnitEb.exit.thread_crit_edge ], [ %211, %_ZN4llvm23ConvergingVLIWScheduler14pressureChangeEPKNS_5SUnitEb.exit ], [ %211, %200 ], [ %spec.select251, %238 ], [ %211, %232 ]
   %241 = icmp eq i32 %240, 1
   br i1 %241, label %242, label %321
 
@@ -3516,22 +3516,22 @@ _ZN4llvm23ConvergingVLIWScheduler14pressureChangeEPKNS_5SUnitEb.exit.thread: ; p
   %248 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %249 = load i32, ptr %248, align 8, !tbaa !26
   %250 = zext i32 %249 to i64
-  %.idx340 = shl nuw nsw i64 %250, 4
-  %251 = getelementptr inbounds nuw i8, ptr %247, i64 %.idx340
-  %.not133307 = icmp eq i32 %249, 0
-  br i1 %.not133307, label %.loopexit267, label %.lr.ph310
+  %.idx333 = shl nuw nsw i64 %250, 4
+  %251 = getelementptr inbounds nuw i8, ptr %247, i64 %.idx333
+  %.not133300 = icmp eq i32 %249, 0
+  br i1 %.not133300, label %.loopexit264, label %.lr.ph303
 
-.lr.ph310:                                        ; preds = %245
+.lr.ph303:                                        ; preds = %245
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %253 = load ptr, ptr %252, align 8
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 32
   %255 = getelementptr inbounds nuw i8, ptr %253, i64 40
   br label %256
 
-256:                                              ; preds = %.lr.ph310, %319
-  %.5309 = phi i32 [ %.4, %.lr.ph310 ], [ %.6, %319 ]
-  %.0119308 = phi ptr [ %247, %.lr.ph310 ], [ %320, %319 ]
-  %.0.copyload.i.i.i.i177 = load i64, ptr %.0119308, align 8
+256:                                              ; preds = %.lr.ph303, %319
+  %.5302 = phi i32 [ %.4, %.lr.ph303 ], [ %.6, %319 ]
+  %.0119301 = phi ptr [ %247, %.lr.ph303 ], [ %320, %319 ]
+  %.0.copyload.i.i.i.i177 = load i64, ptr %.0119301, align 8
   %257 = and i64 %.0.copyload.i.i.i.i177, -8
   %258 = inttoptr i64 %257 to ptr
   %259 = load ptr, ptr %258, align 8, !tbaa !126
@@ -3540,20 +3540,20 @@ _ZN4llvm23ConvergingVLIWScheduler14pressureChangeEPKNS_5SUnitEb.exit.thread: ; p
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 16
   %263 = load i64, ptr %262, align 8, !tbaa !482
   %264 = and i64 %263, 8
-  %.not262 = icmp eq i64 %264, 0
-  br i1 %.not262, label %265, label %319
+  %.not259 = icmp eq i64 %264, 0
+  br i1 %.not259, label %265, label %319
 
 265:                                              ; preds = %256
   %266 = and i64 %.0.copyload.i.i.i.i177, 6
   %267 = icmp eq i64 %266, 0
-  %268 = getelementptr inbounds nuw i8, ptr %.0119308, i64 8
+  %268 = getelementptr inbounds nuw i8, ptr %.0119301, i64 8
   %269 = load i32, ptr %268, align 8
   %270 = icmp ne i32 %269, 0
   %271 = select i1 %267, i1 %270, i1 false
   br i1 %271, label %272, label %319
 
 272:                                              ; preds = %265
-  %273 = getelementptr inbounds nuw i8, ptr %.0119308, i64 12
+  %273 = getelementptr inbounds nuw i8, ptr %.0119301, i64 12
   %274 = load i32, ptr %273, align 4, !tbaa !128
   %275 = icmp eq i32 %274, 0
   br i1 %275, label %276, label %319
@@ -3564,11 +3564,11 @@ _ZN4llvm23ConvergingVLIWScheduler14pressureChangeEPKNS_5SUnitEb.exit.thread: ; p
   %279 = zext i32 %278 to i64
   %.idx4.i.i = shl nuw nsw i64 %279, 3
   %280 = getelementptr inbounds nuw i8, ptr %277, i64 %.idx4.i.i
-  %.not.i.i180 = icmp ult i32 %278, 4
+  %281 = lshr i64 %279, 2
+  %.not.i.i180 = icmp eq i64 %281, 0
   br i1 %.not.i.i180, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %276
-  %281 = lshr i64 %279, 2
   %282 = and i64 %.idx4.i.i, 34359738336
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %277, i64 %282
   br label %283
@@ -3590,13 +3590,13 @@ _ZN4llvm23ConvergingVLIWScheduler14pressureChangeEPKNS_5SUnitEb.exit.thread: ; p
   %291 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
   %292 = load ptr, ptr %291, align 8, !tbaa !151
   %293 = icmp eq ptr %292, %258
-  br i1 %293, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit404, label %294
+  br i1 %293, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit390, label %294
 
 294:                                              ; preds = %290
   %295 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 24
   %296 = load ptr, ptr %295, align 8, !tbaa !151
   %297 = icmp eq ptr %296, %258
-  br i1 %297, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit406, label %298
+  br i1 %297, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit392, label %298
 
 298:                                              ; preds = %294
   %299 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 32
@@ -3611,11 +3611,10 @@ _ZN4llvm23ConvergingVLIWScheduler14pressureChangeEPKNS_5SUnitEb.exit.thread: ; p
 ._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %276
   %.pre-phi56.i.i.i.i.i = phi i32 [ %302, %._crit_edge.loopexit.i.i.i.i.i ], [ %278, %276 ]
   %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %277, %276 ]
-  switch i32 %.pre-phi56.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.unreachabledefault [
+  switch i32 %.pre-phi56.i.i.i.i.i, label %314 [
     i32 3, label %303
     i32 2, label %._crit_edge._crit_edge.i.i.i.i.i
     i32 1, label %._crit_edge._crit_edge52.i.i.i.i.i
-    i32 0, label %314
   ]
 
 303:                                              ; preds = %._crit_edge.i.i.i.i.i
@@ -3643,12 +3642,6 @@ _ZN4llvm23ConvergingVLIWScheduler14pressureChangeEPKNS_5SUnitEb.exit.thread: ; p
   %313 = icmp eq ptr %312, %258
   br i1 %313, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit, label %314
 
-._crit_edge.i.i.i.i.i.unreachabledefault:         ; preds = %._crit_edge.i.i.i.i.i
-  unreachable
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i191, %._crit_edge.i.i.i.i.i233, %._crit_edge.i.i.i.i.i212
-  unreachable
-
 314:                                              ; preds = %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge.i.i.i.i.i
   br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit
 
@@ -3656,26 +3649,26 @@ _ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.ex
   %315 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
   br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit
 
-_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit404: ; preds = %290
+_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit390: ; preds = %290
   %316 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
   br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit
 
-_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit406: ; preds = %294
+_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit392: ; preds = %294
   %317 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 24
   br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit
 
-_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit: ; preds = %283, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit404, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit406, %303, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i, %314
-  %.028.i.i.i.i.i = phi ptr [ %280, %314 ], [ %.029.lcssa.i.i.i.i.i, %303 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %315, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit ], [ %316, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit404 ], [ %317, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit406 ], [ %.02946.i.i.i.i.i, %283 ]
-  %.not263 = icmp eq ptr %.028.i.i.i.i.i, %280
-  %318 = add i32 %.5309, 75
-  %spec.select140 = select i1 %.not263, i32 %.5309, i32 %318
+_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit: ; preds = %283, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit390, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit392, %303, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i, %314
+  %.028.i.i.i.i.i = phi ptr [ %280, %314 ], [ %.029.lcssa.i.i.i.i.i, %303 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %315, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit ], [ %316, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit390 ], [ %317, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit392 ], [ %.02946.i.i.i.i.i, %283 ]
+  %.not260 = icmp eq ptr %.028.i.i.i.i.i, %280
+  %318 = add i32 %.5302, 75
+  %spec.select140 = select i1 %.not260, i32 %.5302, i32 %318
   br label %319
 
 319:                                              ; preds = %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit, %272, %265, %256
-  %.6 = phi i32 [ %.5309, %256 ], [ %.5309, %272 ], [ %.5309, %265 ], [ %spec.select140, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit ]
-  %320 = getelementptr inbounds nuw i8, ptr %.0119308, i64 16
+  %.6 = phi i32 [ %.5302, %256 ], [ %.5302, %272 ], [ %.5302, %265 ], [ %spec.select140, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit ]
+  %320 = getelementptr inbounds nuw i8, ptr %.0119301, i64 16
   %.not133 = icmp eq ptr %320, %251
-  br i1 %.not133, label %.loopexit267, label %256
+  br i1 %.not133, label %.loopexit264, label %256
 
 thread-pre-split:                                 ; preds = %242
   %.pr = load i32, ptr %1, align 8, !tbaa !266
@@ -3684,12 +3677,12 @@ thread-pre-split:                                 ; preds = %242
 321:                                              ; preds = %thread-pre-split, %_ZN4llvm23ConvergingVLIWScheduler14pressureChangeEPKNS_5SUnitEb.exit.thread
   %322 = phi i32 [ %.pr, %thread-pre-split ], [ %240, %_ZN4llvm23ConvergingVLIWScheduler14pressureChangeEPKNS_5SUnitEb.exit.thread ]
   %323 = icmp eq i32 %322, 2
-  br i1 %323, label %324, label %.loopexit267
+  br i1 %323, label %324, label %.loopexit264
 
 324:                                              ; preds = %321
   %325 = tail call noundef i32 @_ZN4llvm11getWeakLeftEPKNS_5SUnitEb(ptr noundef %2, i1 noundef zeroext false) #19
   %326 = icmp eq i32 %325, 0
-  br i1 %326, label %327, label %.loopexit267
+  br i1 %326, label %327, label %.loopexit264
 
 327:                                              ; preds = %324
   %328 = getelementptr inbounds nuw i8, ptr %2, i64 120
@@ -3697,22 +3690,22 @@ thread-pre-split:                                 ; preds = %242
   %330 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %331 = load i32, ptr %330, align 8, !tbaa !26
   %332 = zext i32 %331 to i64
-  %.idx339 = shl nuw nsw i64 %332, 4
-  %333 = getelementptr inbounds nuw i8, ptr %329, i64 %.idx339
-  %.not132294 = icmp eq i32 %331, 0
-  br i1 %.not132294, label %.loopexit267, label %.lr.ph297
+  %.idx332 = shl nuw nsw i64 %332, 4
+  %333 = getelementptr inbounds nuw i8, ptr %329, i64 %.idx332
+  %.not132287 = icmp eq i32 %331, 0
+  br i1 %.not132287, label %.loopexit264, label %.lr.ph290
 
-.lr.ph297:                                        ; preds = %327
+.lr.ph290:                                        ; preds = %327
   %334 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %335 = load ptr, ptr %334, align 8
   %336 = getelementptr inbounds nuw i8, ptr %335, i64 32
   %337 = getelementptr inbounds nuw i8, ptr %335, i64 40
   br label %338
 
-338:                                              ; preds = %.lr.ph297, %401
-  %.8296 = phi i32 [ %.4, %.lr.ph297 ], [ %.9, %401 ]
-  %.0120295 = phi ptr [ %329, %.lr.ph297 ], [ %402, %401 ]
-  %.0.copyload.i.i.i.i181 = load i64, ptr %.0120295, align 8
+338:                                              ; preds = %.lr.ph290, %401
+  %.8289 = phi i32 [ %.4, %.lr.ph290 ], [ %.9, %401 ]
+  %.0120288 = phi ptr [ %329, %.lr.ph290 ], [ %402, %401 ]
+  %.0.copyload.i.i.i.i181 = load i64, ptr %.0120288, align 8
   %339 = and i64 %.0.copyload.i.i.i.i181, -8
   %340 = inttoptr i64 %339 to ptr
   %341 = load ptr, ptr %340, align 8, !tbaa !126
@@ -3721,20 +3714,20 @@ thread-pre-split:                                 ; preds = %242
   %344 = getelementptr inbounds nuw i8, ptr %343, i64 16
   %345 = load i64, ptr %344, align 8, !tbaa !482
   %346 = and i64 %345, 8
-  %.not260 = icmp eq i64 %346, 0
-  br i1 %.not260, label %347, label %401
+  %.not257 = icmp eq i64 %346, 0
+  br i1 %.not257, label %347, label %401
 
 347:                                              ; preds = %338
   %348 = and i64 %.0.copyload.i.i.i.i181, 6
   %349 = icmp eq i64 %348, 0
-  %350 = getelementptr inbounds nuw i8, ptr %.0120295, i64 8
+  %350 = getelementptr inbounds nuw i8, ptr %.0120288, i64 8
   %351 = load i32, ptr %350, align 8
   %352 = icmp ne i32 %351, 0
   %353 = select i1 %349, i1 %352, i1 false
   br i1 %353, label %354, label %401
 
 354:                                              ; preds = %347
-  %355 = getelementptr inbounds nuw i8, ptr %.0120295, i64 12
+  %355 = getelementptr inbounds nuw i8, ptr %.0120288, i64 12
   %356 = load i32, ptr %355, align 4, !tbaa !128
   %357 = icmp eq i32 %356, 0
   br i1 %357, label %358, label %401
@@ -3745,11 +3738,11 @@ thread-pre-split:                                 ; preds = %242
   %361 = zext i32 %360 to i64
   %.idx4.i.i184 = shl nuw nsw i64 %361, 3
   %362 = getelementptr inbounds nuw i8, ptr %359, i64 %.idx4.i.i184
-  %.not.i.i185 = icmp ult i32 %360, 4
+  %363 = lshr i64 %361, 2
+  %.not.i.i185 = icmp eq i64 %363, 0
   br i1 %.not.i.i185, label %._crit_edge.i.i.i.i.i191, label %.lr.ph.i.i.i.i.i186
 
 .lr.ph.i.i.i.i.i186:                              ; preds = %358
-  %363 = lshr i64 %361, 2
   %364 = and i64 %.idx4.i.i184, 34359738336
   %scevgep.i.i.i.i.i187 = getelementptr i8, ptr %359, i64 %364
   br label %365
@@ -3759,25 +3752,25 @@ thread-pre-split:                                 ; preds = %242
   %.02946.i.i.i.i.i189 = phi ptr [ %359, %.lr.ph.i.i.i.i.i186 ], [ %381, %380 ]
   %366 = load ptr, ptr %.02946.i.i.i.i.i189, align 8, !tbaa !151
   %367 = icmp eq ptr %366, %340
-  br i1 %367, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203, label %368
+  br i1 %367, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit202, label %368
 
 368:                                              ; preds = %365
   %369 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i189, i64 8
   %370 = load ptr, ptr %369, align 8, !tbaa !151
   %371 = icmp eq ptr %370, %340
-  br i1 %371, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203.loopexit.split.loop.exit, label %372
+  br i1 %371, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit202.loopexit.split.loop.exit, label %372
 
 372:                                              ; preds = %368
   %373 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i189, i64 16
   %374 = load ptr, ptr %373, align 8, !tbaa !151
   %375 = icmp eq ptr %374, %340
-  br i1 %375, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203.loopexit.split.loop.exit396, label %376
+  br i1 %375, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit202.loopexit.split.loop.exit382, label %376
 
 376:                                              ; preds = %372
   %377 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i189, i64 24
   %378 = load ptr, ptr %377, align 8, !tbaa !151
   %379 = icmp eq ptr %378, %340
-  br i1 %379, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203.loopexit.split.loop.exit398, label %380
+  br i1 %379, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit202.loopexit.split.loop.exit384, label %380
 
 380:                                              ; preds = %376
   %381 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i189, i64 32
@@ -3792,17 +3785,16 @@ thread-pre-split:                                 ; preds = %242
 ._crit_edge.i.i.i.i.i191:                         ; preds = %._crit_edge.loopexit.i.i.i.i.i190, %358
   %.pre-phi56.i.i.i.i.i192 = phi i32 [ %384, %._crit_edge.loopexit.i.i.i.i.i190 ], [ %360, %358 ]
   %.029.lcssa.i.i.i.i.i193 = phi ptr [ %scevgep.i.i.i.i.i187, %._crit_edge.loopexit.i.i.i.i.i190 ], [ %359, %358 ]
-  switch i32 %.pre-phi56.i.i.i.i.i192, label %default.unreachable [
+  switch i32 %.pre-phi56.i.i.i.i.i192, label %396 [
     i32 3, label %385
     i32 2, label %._crit_edge._crit_edge.i.i.i.i.i197
-    i32 1, label %._crit_edge._crit_edge52.i.i.i.i.i195
-    i32 0, label %396
+    i32 1, label %._crit_edge._crit_edge52.i.i.i.i.i194
   ]
 
 385:                                              ; preds = %._crit_edge.i.i.i.i.i191
   %386 = load ptr, ptr %.029.lcssa.i.i.i.i.i193, align 8, !tbaa !151
   %387 = icmp eq ptr %386, %340
-  br i1 %387, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203, label %388
+  br i1 %387, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit202, label %388
 
 388:                                              ; preds = %385
   %389 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i193, i64 8
@@ -3812,53 +3804,53 @@ thread-pre-split:                                 ; preds = %242
   %.1.i.i.i.i.i198 = phi ptr [ %389, %388 ], [ %.029.lcssa.i.i.i.i.i193, %._crit_edge.i.i.i.i.i191 ]
   %390 = load ptr, ptr %.1.i.i.i.i.i198, align 8, !tbaa !151
   %391 = icmp eq ptr %390, %340
-  br i1 %391, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203, label %392
+  br i1 %391, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit202, label %392
 
 392:                                              ; preds = %._crit_edge._crit_edge.i.i.i.i.i197
   %393 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i198, i64 8
-  br label %._crit_edge._crit_edge52.i.i.i.i.i195
+  br label %._crit_edge._crit_edge52.i.i.i.i.i194
 
-._crit_edge._crit_edge52.i.i.i.i.i195:            ; preds = %392, %._crit_edge.i.i.i.i.i191
-  %.2.i.i.i.i.i196 = phi ptr [ %393, %392 ], [ %.029.lcssa.i.i.i.i.i193, %._crit_edge.i.i.i.i.i191 ]
-  %394 = load ptr, ptr %.2.i.i.i.i.i196, align 8, !tbaa !151
+._crit_edge._crit_edge52.i.i.i.i.i194:            ; preds = %392, %._crit_edge.i.i.i.i.i191
+  %.2.i.i.i.i.i195 = phi ptr [ %393, %392 ], [ %.029.lcssa.i.i.i.i.i193, %._crit_edge.i.i.i.i.i191 ]
+  %394 = load ptr, ptr %.2.i.i.i.i.i195, align 8, !tbaa !151
   %395 = icmp eq ptr %394, %340
-  br i1 %395, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203, label %396
+  br i1 %395, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit202, label %396
 
-396:                                              ; preds = %._crit_edge._crit_edge52.i.i.i.i.i195, %._crit_edge.i.i.i.i.i191
-  br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203
+396:                                              ; preds = %._crit_edge._crit_edge52.i.i.i.i.i194, %._crit_edge.i.i.i.i.i191
+  br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit202
 
-_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203.loopexit.split.loop.exit: ; preds = %368
+_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit202.loopexit.split.loop.exit: ; preds = %368
   %397 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i189, i64 8
-  br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203
+  br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit202
 
-_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203.loopexit.split.loop.exit396: ; preds = %372
+_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit202.loopexit.split.loop.exit382: ; preds = %372
   %398 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i189, i64 16
-  br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203
+  br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit202
 
-_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203.loopexit.split.loop.exit398: ; preds = %376
+_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit202.loopexit.split.loop.exit384: ; preds = %376
   %399 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i189, i64 24
-  br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203
+  br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit202
 
-_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203: ; preds = %365, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203.loopexit.split.loop.exit, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203.loopexit.split.loop.exit396, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203.loopexit.split.loop.exit398, %385, %._crit_edge._crit_edge.i.i.i.i.i197, %._crit_edge._crit_edge52.i.i.i.i.i195, %396
-  %.028.i.i.i.i.i194 = phi ptr [ %362, %396 ], [ %.029.lcssa.i.i.i.i.i193, %385 ], [ %.1.i.i.i.i.i198, %._crit_edge._crit_edge.i.i.i.i.i197 ], [ %.2.i.i.i.i.i196, %._crit_edge._crit_edge52.i.i.i.i.i195 ], [ %397, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203.loopexit.split.loop.exit ], [ %398, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203.loopexit.split.loop.exit396 ], [ %399, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203.loopexit.split.loop.exit398 ], [ %.02946.i.i.i.i.i189, %365 ]
-  %.not261 = icmp eq ptr %.028.i.i.i.i.i194, %362
-  %400 = add i32 %.8296, 75
-  %spec.select141 = select i1 %.not261, i32 %.8296, i32 %400
+_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit202: ; preds = %365, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit202.loopexit.split.loop.exit, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit202.loopexit.split.loop.exit382, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit202.loopexit.split.loop.exit384, %385, %._crit_edge._crit_edge.i.i.i.i.i197, %._crit_edge._crit_edge52.i.i.i.i.i194, %396
+  %.028.i.i.i.i.i196 = phi ptr [ %362, %396 ], [ %.029.lcssa.i.i.i.i.i193, %385 ], [ %.1.i.i.i.i.i198, %._crit_edge._crit_edge.i.i.i.i.i197 ], [ %.2.i.i.i.i.i195, %._crit_edge._crit_edge52.i.i.i.i.i194 ], [ %397, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit202.loopexit.split.loop.exit ], [ %398, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit202.loopexit.split.loop.exit382 ], [ %399, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit202.loopexit.split.loop.exit384 ], [ %.02946.i.i.i.i.i189, %365 ]
+  %.not258 = icmp eq ptr %.028.i.i.i.i.i196, %362
+  %400 = add i32 %.8289, 75
+  %spec.select141 = select i1 %.not258, i32 %.8289, i32 %400
   br label %401
 
-401:                                              ; preds = %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203, %354, %347, %338
-  %.9 = phi i32 [ %.8296, %338 ], [ %.8296, %354 ], [ %.8296, %347 ], [ %spec.select141, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203 ]
-  %402 = getelementptr inbounds nuw i8, ptr %.0120295, i64 16
+401:                                              ; preds = %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit202, %354, %347, %338
+  %.9 = phi i32 [ %.8289, %338 ], [ %.8289, %354 ], [ %.8289, %347 ], [ %spec.select141, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit202 ]
+  %402 = getelementptr inbounds nuw i8, ptr %.0120288, i64 16
   %.not132 = icmp eq ptr %402, %333
-  br i1 %.not132, label %.loopexit267, label %338
+  br i1 %.not132, label %.loopexit264, label %338
 
-.loopexit267:                                     ; preds = %401, %319, %327, %245, %321, %324
+.loopexit264:                                     ; preds = %401, %319, %327, %245, %321, %324
   %.7 = phi i32 [ %.4, %324 ], [ %.4, %321 ], [ %.4, %245 ], [ %.4, %327 ], [ %.6, %319 ], [ %.9, %401 ]
   %403 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL15CheckEarlyAvail, i64 120), align 8, !tbaa !34, !range !50, !noundef !51
   %404 = trunc nuw i8 %403 to i1
   br i1 %404, label %405, label %.loopexit
 
-405:                                              ; preds = %.loopexit267
+405:                                              ; preds = %.loopexit264
   %406 = load i32, ptr %1, align 8, !tbaa !266
   %407 = icmp eq i32 %406, 1
   br i1 %407, label %408, label %469
@@ -3869,139 +3861,138 @@ _ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203: ; preds = %365, %_
   %411 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %412 = load i32, ptr %411, align 8, !tbaa !26
   %413 = zext i32 %412 to i64
-  %.idx342 = shl nuw nsw i64 %413, 4
-  %414 = getelementptr inbounds nuw i8, ptr %410, i64 %.idx342
-  %.not136333 = icmp eq i32 %412, 0
-  br i1 %.not136333, label %.loopexit, label %.lr.ph336
+  %.idx335 = shl nuw nsw i64 %413, 4
+  %414 = getelementptr inbounds nuw i8, ptr %410, i64 %.idx335
+  %.not136326 = icmp eq i32 %412, 0
+  br i1 %.not136326, label %.loopexit, label %.lr.ph329
 
-.lr.ph336:                                        ; preds = %408
+.lr.ph329:                                        ; preds = %408
   %415 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %416 = load ptr, ptr %415, align 8
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 32
   %418 = getelementptr inbounds nuw i8, ptr %416, i64 40
   br label %419
 
-419:                                              ; preds = %.lr.ph336, %467
-  %.10335 = phi i32 [ %.7, %.lr.ph336 ], [ %.11, %467 ]
-  %.0116334 = phi ptr [ %410, %.lr.ph336 ], [ %468, %467 ]
-  %420 = getelementptr inbounds nuw i8, ptr %.0116334, i64 12
+419:                                              ; preds = %.lr.ph329, %467
+  %.10328 = phi i32 [ %.7, %.lr.ph329 ], [ %.11, %467 ]
+  %.0116327 = phi ptr [ %410, %.lr.ph329 ], [ %468, %467 ]
+  %420 = getelementptr inbounds nuw i8, ptr %.0116327, i64 12
   %421 = load i32, ptr %420, align 4, !tbaa !128
   %.not137 = icmp eq i32 %421, 0
   br i1 %.not137, label %467, label %422
 
 422:                                              ; preds = %419
-  %.0.copyload.i.i.i.i204 = load i64, ptr %.0116334, align 8
-  %423 = and i64 %.0.copyload.i.i.i.i204, -8
+  %.0.copyload.i.i.i.i203 = load i64, ptr %.0116327, align 8
+  %423 = and i64 %.0.copyload.i.i.i.i203, -8
   %424 = inttoptr i64 %423 to ptr
   %425 = load ptr, ptr %417, align 8, !tbaa !25
   %426 = load i32, ptr %418, align 8, !tbaa !26
   %427 = zext i32 %426 to i64
-  %.idx4.i.i205 = shl nuw nsw i64 %427, 3
-  %428 = getelementptr inbounds nuw i8, ptr %425, i64 %.idx4.i.i205
-  %.not.i.i206 = icmp ult i32 %426, 4
-  br i1 %.not.i.i206, label %._crit_edge.i.i.i.i.i212, label %.lr.ph.i.i.i.i.i207
-
-.lr.ph.i.i.i.i.i207:                              ; preds = %422
+  %.idx4.i.i204 = shl nuw nsw i64 %427, 3
+  %428 = getelementptr inbounds nuw i8, ptr %425, i64 %.idx4.i.i204
   %429 = lshr i64 %427, 2
-  %430 = and i64 %.idx4.i.i205, 34359738336
-  %scevgep.i.i.i.i.i208 = getelementptr i8, ptr %425, i64 %430
+  %.not.i.i205 = icmp eq i64 %429, 0
+  br i1 %.not.i.i205, label %._crit_edge.i.i.i.i.i211, label %.lr.ph.i.i.i.i.i206
+
+.lr.ph.i.i.i.i.i206:                              ; preds = %422
+  %430 = and i64 %.idx4.i.i204, 34359738336
+  %scevgep.i.i.i.i.i207 = getelementptr i8, ptr %425, i64 %430
   br label %431
 
-431:                                              ; preds = %446, %.lr.ph.i.i.i.i.i207
-  %.047.i.i.i.i.i209 = phi i64 [ %429, %.lr.ph.i.i.i.i.i207 ], [ %448, %446 ]
-  %.02946.i.i.i.i.i210 = phi ptr [ %425, %.lr.ph.i.i.i.i.i207 ], [ %447, %446 ]
-  %432 = load ptr, ptr %.02946.i.i.i.i.i210, align 8, !tbaa !151
+431:                                              ; preds = %446, %.lr.ph.i.i.i.i.i206
+  %.047.i.i.i.i.i208 = phi i64 [ %429, %.lr.ph.i.i.i.i.i206 ], [ %448, %446 ]
+  %.02946.i.i.i.i.i209 = phi ptr [ %425, %.lr.ph.i.i.i.i.i206 ], [ %447, %446 ]
+  %432 = load ptr, ptr %.02946.i.i.i.i.i209, align 8, !tbaa !151
   %433 = icmp eq ptr %432, %424
-  br i1 %433, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224, label %434
+  br i1 %433, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit222, label %434
 
 434:                                              ; preds = %431
-  %435 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i210, i64 8
+  %435 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i209, i64 8
   %436 = load ptr, ptr %435, align 8, !tbaa !151
   %437 = icmp eq ptr %436, %424
-  br i1 %437, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224.loopexit.split.loop.exit, label %438
+  br i1 %437, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit222.loopexit.split.loop.exit, label %438
 
 438:                                              ; preds = %434
-  %439 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i210, i64 16
+  %439 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i209, i64 16
   %440 = load ptr, ptr %439, align 8, !tbaa !151
   %441 = icmp eq ptr %440, %424
-  br i1 %441, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224.loopexit.split.loop.exit420, label %442
+  br i1 %441, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit222.loopexit.split.loop.exit406, label %442
 
 442:                                              ; preds = %438
-  %443 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i210, i64 24
+  %443 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i209, i64 24
   %444 = load ptr, ptr %443, align 8, !tbaa !151
   %445 = icmp eq ptr %444, %424
-  br i1 %445, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224.loopexit.split.loop.exit422, label %446
+  br i1 %445, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit222.loopexit.split.loop.exit408, label %446
 
 446:                                              ; preds = %442
-  %447 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i210, i64 32
-  %448 = add nsw i64 %.047.i.i.i.i.i209, -1
-  %449 = icmp sgt i64 %.047.i.i.i.i.i209, 1
-  br i1 %449, label %431, label %._crit_edge.loopexit.i.i.i.i.i211, !llvm.loop !484
+  %447 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i209, i64 32
+  %448 = add nsw i64 %.047.i.i.i.i.i208, -1
+  %449 = icmp sgt i64 %.047.i.i.i.i.i208, 1
+  br i1 %449, label %431, label %._crit_edge.loopexit.i.i.i.i.i210, !llvm.loop !484
 
-._crit_edge.loopexit.i.i.i.i.i211:                ; preds = %446
+._crit_edge.loopexit.i.i.i.i.i210:                ; preds = %446
   %450 = and i32 %426, 3
-  br label %._crit_edge.i.i.i.i.i212
+  br label %._crit_edge.i.i.i.i.i211
 
-._crit_edge.i.i.i.i.i212:                         ; preds = %._crit_edge.loopexit.i.i.i.i.i211, %422
-  %.pre-phi56.i.i.i.i.i213 = phi i32 [ %450, %._crit_edge.loopexit.i.i.i.i.i211 ], [ %426, %422 ]
-  %.029.lcssa.i.i.i.i.i214 = phi ptr [ %scevgep.i.i.i.i.i208, %._crit_edge.loopexit.i.i.i.i.i211 ], [ %425, %422 ]
-  switch i32 %.pre-phi56.i.i.i.i.i213, label %default.unreachable [
+._crit_edge.i.i.i.i.i211:                         ; preds = %._crit_edge.loopexit.i.i.i.i.i210, %422
+  %.pre-phi56.i.i.i.i.i212 = phi i32 [ %450, %._crit_edge.loopexit.i.i.i.i.i210 ], [ %426, %422 ]
+  %.029.lcssa.i.i.i.i.i213 = phi ptr [ %scevgep.i.i.i.i.i207, %._crit_edge.loopexit.i.i.i.i.i210 ], [ %425, %422 ]
+  switch i32 %.pre-phi56.i.i.i.i.i212, label %462 [
     i32 3, label %451
-    i32 2, label %._crit_edge._crit_edge.i.i.i.i.i218
-    i32 1, label %._crit_edge._crit_edge52.i.i.i.i.i216
-    i32 0, label %462
+    i32 2, label %._crit_edge._crit_edge.i.i.i.i.i217
+    i32 1, label %._crit_edge._crit_edge52.i.i.i.i.i214
   ]
 
-451:                                              ; preds = %._crit_edge.i.i.i.i.i212
-  %452 = load ptr, ptr %.029.lcssa.i.i.i.i.i214, align 8, !tbaa !151
+451:                                              ; preds = %._crit_edge.i.i.i.i.i211
+  %452 = load ptr, ptr %.029.lcssa.i.i.i.i.i213, align 8, !tbaa !151
   %453 = icmp eq ptr %452, %424
-  br i1 %453, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224, label %454
+  br i1 %453, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit222, label %454
 
 454:                                              ; preds = %451
-  %455 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i214, i64 8
-  br label %._crit_edge._crit_edge.i.i.i.i.i218
+  %455 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i213, i64 8
+  br label %._crit_edge._crit_edge.i.i.i.i.i217
 
-._crit_edge._crit_edge.i.i.i.i.i218:              ; preds = %454, %._crit_edge.i.i.i.i.i212
-  %.1.i.i.i.i.i219 = phi ptr [ %455, %454 ], [ %.029.lcssa.i.i.i.i.i214, %._crit_edge.i.i.i.i.i212 ]
-  %456 = load ptr, ptr %.1.i.i.i.i.i219, align 8, !tbaa !151
+._crit_edge._crit_edge.i.i.i.i.i217:              ; preds = %454, %._crit_edge.i.i.i.i.i211
+  %.1.i.i.i.i.i218 = phi ptr [ %455, %454 ], [ %.029.lcssa.i.i.i.i.i213, %._crit_edge.i.i.i.i.i211 ]
+  %456 = load ptr, ptr %.1.i.i.i.i.i218, align 8, !tbaa !151
   %457 = icmp eq ptr %456, %424
-  br i1 %457, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224, label %458
+  br i1 %457, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit222, label %458
 
-458:                                              ; preds = %._crit_edge._crit_edge.i.i.i.i.i218
-  %459 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i219, i64 8
-  br label %._crit_edge._crit_edge52.i.i.i.i.i216
+458:                                              ; preds = %._crit_edge._crit_edge.i.i.i.i.i217
+  %459 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i218, i64 8
+  br label %._crit_edge._crit_edge52.i.i.i.i.i214
 
-._crit_edge._crit_edge52.i.i.i.i.i216:            ; preds = %458, %._crit_edge.i.i.i.i.i212
-  %.2.i.i.i.i.i217 = phi ptr [ %459, %458 ], [ %.029.lcssa.i.i.i.i.i214, %._crit_edge.i.i.i.i.i212 ]
-  %460 = load ptr, ptr %.2.i.i.i.i.i217, align 8, !tbaa !151
+._crit_edge._crit_edge52.i.i.i.i.i214:            ; preds = %458, %._crit_edge.i.i.i.i.i211
+  %.2.i.i.i.i.i215 = phi ptr [ %459, %458 ], [ %.029.lcssa.i.i.i.i.i213, %._crit_edge.i.i.i.i.i211 ]
+  %460 = load ptr, ptr %.2.i.i.i.i.i215, align 8, !tbaa !151
   %461 = icmp eq ptr %460, %424
-  br i1 %461, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224, label %462
+  br i1 %461, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit222, label %462
 
-462:                                              ; preds = %._crit_edge._crit_edge52.i.i.i.i.i216, %._crit_edge.i.i.i.i.i212
-  br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224
+462:                                              ; preds = %._crit_edge._crit_edge52.i.i.i.i.i214, %._crit_edge.i.i.i.i.i211
+  br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit222
 
-_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224.loopexit.split.loop.exit: ; preds = %434
-  %463 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i210, i64 8
-  br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224
+_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit222.loopexit.split.loop.exit: ; preds = %434
+  %463 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i209, i64 8
+  br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit222
 
-_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224.loopexit.split.loop.exit420: ; preds = %438
-  %464 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i210, i64 16
-  br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224
+_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit222.loopexit.split.loop.exit406: ; preds = %438
+  %464 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i209, i64 16
+  br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit222
 
-_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224.loopexit.split.loop.exit422: ; preds = %442
-  %465 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i210, i64 24
-  br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224
+_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit222.loopexit.split.loop.exit408: ; preds = %442
+  %465 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i209, i64 24
+  br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit222
 
-_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224: ; preds = %431, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224.loopexit.split.loop.exit, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224.loopexit.split.loop.exit420, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224.loopexit.split.loop.exit422, %451, %._crit_edge._crit_edge.i.i.i.i.i218, %._crit_edge._crit_edge52.i.i.i.i.i216, %462
-  %.028.i.i.i.i.i215 = phi ptr [ %428, %462 ], [ %.029.lcssa.i.i.i.i.i214, %451 ], [ %.1.i.i.i.i.i219, %._crit_edge._crit_edge.i.i.i.i.i218 ], [ %.2.i.i.i.i.i217, %._crit_edge._crit_edge52.i.i.i.i.i216 ], [ %463, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224.loopexit.split.loop.exit ], [ %464, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224.loopexit.split.loop.exit420 ], [ %465, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224.loopexit.split.loop.exit422 ], [ %.02946.i.i.i.i.i210, %431 ]
-  %.not265 = icmp eq ptr %.028.i.i.i.i.i215, %428
-  %466 = add i32 %.10335, -200
-  %spec.select142 = select i1 %.not265, i32 %.10335, i32 %466
+_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit222: ; preds = %431, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit222.loopexit.split.loop.exit, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit222.loopexit.split.loop.exit406, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit222.loopexit.split.loop.exit408, %451, %._crit_edge._crit_edge.i.i.i.i.i217, %._crit_edge._crit_edge52.i.i.i.i.i214, %462
+  %.028.i.i.i.i.i216 = phi ptr [ %428, %462 ], [ %.029.lcssa.i.i.i.i.i213, %451 ], [ %.1.i.i.i.i.i218, %._crit_edge._crit_edge.i.i.i.i.i217 ], [ %.2.i.i.i.i.i215, %._crit_edge._crit_edge52.i.i.i.i.i214 ], [ %463, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit222.loopexit.split.loop.exit ], [ %464, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit222.loopexit.split.loop.exit406 ], [ %465, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit222.loopexit.split.loop.exit408 ], [ %.02946.i.i.i.i.i209, %431 ]
+  %.not262 = icmp eq ptr %.028.i.i.i.i.i216, %428
+  %466 = add i32 %.10328, -200
+  %spec.select142 = select i1 %.not262, i32 %.10328, i32 %466
   br label %467
 
-467:                                              ; preds = %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224, %419
-  %.11 = phi i32 [ %.10335, %419 ], [ %spec.select142, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224 ]
-  %468 = getelementptr inbounds nuw i8, ptr %.0116334, i64 16
+467:                                              ; preds = %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit222, %419
+  %.11 = phi i32 [ %.10328, %419 ], [ %spec.select142, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit222 ]
+  %468 = getelementptr inbounds nuw i8, ptr %.0116327, i64 16
   %.not136 = icmp eq ptr %468, %414
   br i1 %.not136, label %.loopexit, label %419
 
@@ -4011,144 +4002,143 @@ _ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224: ; preds = %431, %_
   %472 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %473 = load i32, ptr %472, align 8, !tbaa !26
   %474 = zext i32 %473 to i64
-  %.idx341 = shl nuw nsw i64 %474, 4
-  %475 = getelementptr inbounds nuw i8, ptr %471, i64 %.idx341
-  %.not134320 = icmp eq i32 %473, 0
-  br i1 %.not134320, label %.loopexit, label %.lr.ph323
+  %.idx334 = shl nuw nsw i64 %474, 4
+  %475 = getelementptr inbounds nuw i8, ptr %471, i64 %.idx334
+  %.not134313 = icmp eq i32 %473, 0
+  br i1 %.not134313, label %.loopexit, label %.lr.ph316
 
-.lr.ph323:                                        ; preds = %469
+.lr.ph316:                                        ; preds = %469
   %476 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %477 = load ptr, ptr %476, align 8
   %478 = getelementptr inbounds nuw i8, ptr %477, i64 32
   %479 = getelementptr inbounds nuw i8, ptr %477, i64 40
   br label %480
 
-480:                                              ; preds = %.lr.ph323, %528
-  %.12322 = phi i32 [ %.7, %.lr.ph323 ], [ %.13, %528 ]
-  %.0109321 = phi ptr [ %471, %.lr.ph323 ], [ %529, %528 ]
-  %481 = getelementptr inbounds nuw i8, ptr %.0109321, i64 12
+480:                                              ; preds = %.lr.ph316, %528
+  %.12315 = phi i32 [ %.7, %.lr.ph316 ], [ %.13, %528 ]
+  %.0109314 = phi ptr [ %471, %.lr.ph316 ], [ %529, %528 ]
+  %481 = getelementptr inbounds nuw i8, ptr %.0109314, i64 12
   %482 = load i32, ptr %481, align 4, !tbaa !128
   %.not135 = icmp eq i32 %482, 0
   br i1 %.not135, label %528, label %483
 
 483:                                              ; preds = %480
-  %.0.copyload.i.i.i.i225 = load i64, ptr %.0109321, align 8
-  %484 = and i64 %.0.copyload.i.i.i.i225, -8
+  %.0.copyload.i.i.i.i223 = load i64, ptr %.0109314, align 8
+  %484 = and i64 %.0.copyload.i.i.i.i223, -8
   %485 = inttoptr i64 %484 to ptr
   %486 = load ptr, ptr %478, align 8, !tbaa !25
   %487 = load i32, ptr %479, align 8, !tbaa !26
   %488 = zext i32 %487 to i64
-  %.idx4.i.i226 = shl nuw nsw i64 %488, 3
-  %489 = getelementptr inbounds nuw i8, ptr %486, i64 %.idx4.i.i226
-  %.not.i.i227 = icmp ult i32 %487, 4
-  br i1 %.not.i.i227, label %._crit_edge.i.i.i.i.i233, label %.lr.ph.i.i.i.i.i228
-
-.lr.ph.i.i.i.i.i228:                              ; preds = %483
+  %.idx4.i.i224 = shl nuw nsw i64 %488, 3
+  %489 = getelementptr inbounds nuw i8, ptr %486, i64 %.idx4.i.i224
   %490 = lshr i64 %488, 2
-  %491 = and i64 %.idx4.i.i226, 34359738336
-  %scevgep.i.i.i.i.i229 = getelementptr i8, ptr %486, i64 %491
+  %.not.i.i225 = icmp eq i64 %490, 0
+  br i1 %.not.i.i225, label %._crit_edge.i.i.i.i.i231, label %.lr.ph.i.i.i.i.i226
+
+.lr.ph.i.i.i.i.i226:                              ; preds = %483
+  %491 = and i64 %.idx4.i.i224, 34359738336
+  %scevgep.i.i.i.i.i227 = getelementptr i8, ptr %486, i64 %491
   br label %492
 
-492:                                              ; preds = %507, %.lr.ph.i.i.i.i.i228
-  %.047.i.i.i.i.i230 = phi i64 [ %490, %.lr.ph.i.i.i.i.i228 ], [ %509, %507 ]
-  %.02946.i.i.i.i.i231 = phi ptr [ %486, %.lr.ph.i.i.i.i.i228 ], [ %508, %507 ]
-  %493 = load ptr, ptr %.02946.i.i.i.i.i231, align 8, !tbaa !151
+492:                                              ; preds = %507, %.lr.ph.i.i.i.i.i226
+  %.047.i.i.i.i.i228 = phi i64 [ %490, %.lr.ph.i.i.i.i.i226 ], [ %509, %507 ]
+  %.02946.i.i.i.i.i229 = phi ptr [ %486, %.lr.ph.i.i.i.i.i226 ], [ %508, %507 ]
+  %493 = load ptr, ptr %.02946.i.i.i.i.i229, align 8, !tbaa !151
   %494 = icmp eq ptr %493, %485
-  br i1 %494, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245, label %495
+  br i1 %494, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit242, label %495
 
 495:                                              ; preds = %492
-  %496 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i231, i64 8
+  %496 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i229, i64 8
   %497 = load ptr, ptr %496, align 8, !tbaa !151
   %498 = icmp eq ptr %497, %485
-  br i1 %498, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245.loopexit.split.loop.exit, label %499
+  br i1 %498, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit242.loopexit.split.loop.exit, label %499
 
 499:                                              ; preds = %495
-  %500 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i231, i64 16
+  %500 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i229, i64 16
   %501 = load ptr, ptr %500, align 8, !tbaa !151
   %502 = icmp eq ptr %501, %485
-  br i1 %502, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245.loopexit.split.loop.exit412, label %503
+  br i1 %502, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit242.loopexit.split.loop.exit398, label %503
 
 503:                                              ; preds = %499
-  %504 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i231, i64 24
+  %504 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i229, i64 24
   %505 = load ptr, ptr %504, align 8, !tbaa !151
   %506 = icmp eq ptr %505, %485
-  br i1 %506, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245.loopexit.split.loop.exit414, label %507
+  br i1 %506, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit242.loopexit.split.loop.exit400, label %507
 
 507:                                              ; preds = %503
-  %508 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i231, i64 32
-  %509 = add nsw i64 %.047.i.i.i.i.i230, -1
-  %510 = icmp sgt i64 %.047.i.i.i.i.i230, 1
-  br i1 %510, label %492, label %._crit_edge.loopexit.i.i.i.i.i232, !llvm.loop !484
+  %508 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i229, i64 32
+  %509 = add nsw i64 %.047.i.i.i.i.i228, -1
+  %510 = icmp sgt i64 %.047.i.i.i.i.i228, 1
+  br i1 %510, label %492, label %._crit_edge.loopexit.i.i.i.i.i230, !llvm.loop !484
 
-._crit_edge.loopexit.i.i.i.i.i232:                ; preds = %507
+._crit_edge.loopexit.i.i.i.i.i230:                ; preds = %507
   %511 = and i32 %487, 3
-  br label %._crit_edge.i.i.i.i.i233
+  br label %._crit_edge.i.i.i.i.i231
 
-._crit_edge.i.i.i.i.i233:                         ; preds = %._crit_edge.loopexit.i.i.i.i.i232, %483
-  %.pre-phi56.i.i.i.i.i234 = phi i32 [ %511, %._crit_edge.loopexit.i.i.i.i.i232 ], [ %487, %483 ]
-  %.029.lcssa.i.i.i.i.i235 = phi ptr [ %scevgep.i.i.i.i.i229, %._crit_edge.loopexit.i.i.i.i.i232 ], [ %486, %483 ]
-  switch i32 %.pre-phi56.i.i.i.i.i234, label %default.unreachable [
+._crit_edge.i.i.i.i.i231:                         ; preds = %._crit_edge.loopexit.i.i.i.i.i230, %483
+  %.pre-phi56.i.i.i.i.i232 = phi i32 [ %511, %._crit_edge.loopexit.i.i.i.i.i230 ], [ %487, %483 ]
+  %.029.lcssa.i.i.i.i.i233 = phi ptr [ %scevgep.i.i.i.i.i227, %._crit_edge.loopexit.i.i.i.i.i230 ], [ %486, %483 ]
+  switch i32 %.pre-phi56.i.i.i.i.i232, label %523 [
     i32 3, label %512
-    i32 2, label %._crit_edge._crit_edge.i.i.i.i.i239
-    i32 1, label %._crit_edge._crit_edge52.i.i.i.i.i237
-    i32 0, label %523
+    i32 2, label %._crit_edge._crit_edge.i.i.i.i.i237
+    i32 1, label %._crit_edge._crit_edge52.i.i.i.i.i234
   ]
 
-512:                                              ; preds = %._crit_edge.i.i.i.i.i233
-  %513 = load ptr, ptr %.029.lcssa.i.i.i.i.i235, align 8, !tbaa !151
+512:                                              ; preds = %._crit_edge.i.i.i.i.i231
+  %513 = load ptr, ptr %.029.lcssa.i.i.i.i.i233, align 8, !tbaa !151
   %514 = icmp eq ptr %513, %485
-  br i1 %514, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245, label %515
+  br i1 %514, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit242, label %515
 
 515:                                              ; preds = %512
-  %516 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i235, i64 8
-  br label %._crit_edge._crit_edge.i.i.i.i.i239
+  %516 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i233, i64 8
+  br label %._crit_edge._crit_edge.i.i.i.i.i237
 
-._crit_edge._crit_edge.i.i.i.i.i239:              ; preds = %515, %._crit_edge.i.i.i.i.i233
-  %.1.i.i.i.i.i240 = phi ptr [ %516, %515 ], [ %.029.lcssa.i.i.i.i.i235, %._crit_edge.i.i.i.i.i233 ]
-  %517 = load ptr, ptr %.1.i.i.i.i.i240, align 8, !tbaa !151
+._crit_edge._crit_edge.i.i.i.i.i237:              ; preds = %515, %._crit_edge.i.i.i.i.i231
+  %.1.i.i.i.i.i238 = phi ptr [ %516, %515 ], [ %.029.lcssa.i.i.i.i.i233, %._crit_edge.i.i.i.i.i231 ]
+  %517 = load ptr, ptr %.1.i.i.i.i.i238, align 8, !tbaa !151
   %518 = icmp eq ptr %517, %485
-  br i1 %518, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245, label %519
+  br i1 %518, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit242, label %519
 
-519:                                              ; preds = %._crit_edge._crit_edge.i.i.i.i.i239
-  %520 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i240, i64 8
-  br label %._crit_edge._crit_edge52.i.i.i.i.i237
+519:                                              ; preds = %._crit_edge._crit_edge.i.i.i.i.i237
+  %520 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i238, i64 8
+  br label %._crit_edge._crit_edge52.i.i.i.i.i234
 
-._crit_edge._crit_edge52.i.i.i.i.i237:            ; preds = %519, %._crit_edge.i.i.i.i.i233
-  %.2.i.i.i.i.i238 = phi ptr [ %520, %519 ], [ %.029.lcssa.i.i.i.i.i235, %._crit_edge.i.i.i.i.i233 ]
-  %521 = load ptr, ptr %.2.i.i.i.i.i238, align 8, !tbaa !151
+._crit_edge._crit_edge52.i.i.i.i.i234:            ; preds = %519, %._crit_edge.i.i.i.i.i231
+  %.2.i.i.i.i.i235 = phi ptr [ %520, %519 ], [ %.029.lcssa.i.i.i.i.i233, %._crit_edge.i.i.i.i.i231 ]
+  %521 = load ptr, ptr %.2.i.i.i.i.i235, align 8, !tbaa !151
   %522 = icmp eq ptr %521, %485
-  br i1 %522, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245, label %523
+  br i1 %522, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit242, label %523
 
-523:                                              ; preds = %._crit_edge._crit_edge52.i.i.i.i.i237, %._crit_edge.i.i.i.i.i233
-  br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245
+523:                                              ; preds = %._crit_edge._crit_edge52.i.i.i.i.i234, %._crit_edge.i.i.i.i.i231
+  br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit242
 
-_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245.loopexit.split.loop.exit: ; preds = %495
-  %524 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i231, i64 8
-  br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245
+_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit242.loopexit.split.loop.exit: ; preds = %495
+  %524 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i229, i64 8
+  br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit242
 
-_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245.loopexit.split.loop.exit412: ; preds = %499
-  %525 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i231, i64 16
-  br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245
+_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit242.loopexit.split.loop.exit398: ; preds = %499
+  %525 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i229, i64 16
+  br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit242
 
-_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245.loopexit.split.loop.exit414: ; preds = %503
-  %526 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i231, i64 24
-  br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245
+_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit242.loopexit.split.loop.exit400: ; preds = %503
+  %526 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i229, i64 24
+  br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit242
 
-_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245: ; preds = %492, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245.loopexit.split.loop.exit, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245.loopexit.split.loop.exit412, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245.loopexit.split.loop.exit414, %512, %._crit_edge._crit_edge.i.i.i.i.i239, %._crit_edge._crit_edge52.i.i.i.i.i237, %523
-  %.028.i.i.i.i.i236 = phi ptr [ %489, %523 ], [ %.029.lcssa.i.i.i.i.i235, %512 ], [ %.1.i.i.i.i.i240, %._crit_edge._crit_edge.i.i.i.i.i239 ], [ %.2.i.i.i.i.i238, %._crit_edge._crit_edge52.i.i.i.i.i237 ], [ %524, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245.loopexit.split.loop.exit ], [ %525, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245.loopexit.split.loop.exit412 ], [ %526, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245.loopexit.split.loop.exit414 ], [ %.02946.i.i.i.i.i231, %492 ]
-  %.not264 = icmp eq ptr %.028.i.i.i.i.i236, %489
-  %527 = add i32 %.12322, -200
-  %spec.select143 = select i1 %.not264, i32 %.12322, i32 %527
+_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit242: ; preds = %492, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit242.loopexit.split.loop.exit, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit242.loopexit.split.loop.exit398, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit242.loopexit.split.loop.exit400, %512, %._crit_edge._crit_edge.i.i.i.i.i237, %._crit_edge._crit_edge52.i.i.i.i.i234, %523
+  %.028.i.i.i.i.i236 = phi ptr [ %489, %523 ], [ %.029.lcssa.i.i.i.i.i233, %512 ], [ %.1.i.i.i.i.i238, %._crit_edge._crit_edge.i.i.i.i.i237 ], [ %.2.i.i.i.i.i235, %._crit_edge._crit_edge52.i.i.i.i.i234 ], [ %524, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit242.loopexit.split.loop.exit ], [ %525, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit242.loopexit.split.loop.exit398 ], [ %526, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit242.loopexit.split.loop.exit400 ], [ %.02946.i.i.i.i.i229, %492 ]
+  %.not261 = icmp eq ptr %.028.i.i.i.i.i236, %489
+  %527 = add i32 %.12315, -200
+  %spec.select143 = select i1 %.not261, i32 %.12315, i32 %527
   br label %528
 
-528:                                              ; preds = %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245, %480
-  %.13 = phi i32 [ %.12322, %480 ], [ %spec.select143, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245 ]
-  %529 = getelementptr inbounds nuw i8, ptr %.0109321, i64 16
+528:                                              ; preds = %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit242, %480
+  %.13 = phi i32 [ %.12315, %480 ], [ %spec.select143, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit242 ]
+  %529 = getelementptr inbounds nuw i8, ptr %.0109314, i64 16
   %.not134 = icmp eq ptr %529, %475
   br i1 %.not134, label %.loopexit, label %480
 
-.loopexit:                                        ; preds = %528, %467, %469, %408, %.loopexit267, %6, %7
-  %.0 = phi i32 [ 1, %7 ], [ 1, %6 ], [ %.7, %.loopexit267 ], [ %.7, %408 ], [ %.7, %469 ], [ %.11, %467 ], [ %.13, %528 ]
+.loopexit:                                        ; preds = %528, %467, %469, %408, %.loopexit264, %6, %7
+  %.0 = phi i32 [ 1, %7 ], [ 1, %6 ], [ %.7, %.loopexit264 ], [ %.7, %408 ], [ %.7, %469 ], [ %.11, %467 ], [ %.13, %528 ]
   ret i32 %.0
 }
 

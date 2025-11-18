@@ -114520,7 +114520,7 @@ define internal fastcc void @"_ZSt16__introsort_loopISt16reverse_iteratorIN9__gn
   %168 = getelementptr inbounds i32, ptr %14, i64 %167
   %169 = getelementptr inbounds i8, ptr %168, i64 -4
   store i32 %164, ptr %169, align 4, !tbaa !99
-  %.not6.i.i.i = icmp ult i64 %.08.in.i.i.i.i9.i, 2
+  %.not6.i.i.i = icmp eq i64 %.08.i.i45.i.i.i, 0
   br i1 %.not6.i.i.i, label %"_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN43MultiStorageView_EachWithSuggestedType_Test8TestBodyEvE3$_1EEEvT_SG_SG_RT0_.exit.i.i", label %.lr.ph.i.i.i.i7.i, !llvm.loop !2819
 
 "_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN43MultiStorageView_EachWithSuggestedType_Test8TestBodyEvE3$_1EEEvT_SG_SG_RT0_.exit.i.i": ; preds = %166, %.lr.ph.i.i.i.i7.i, %160
@@ -115087,7 +115087,7 @@ define internal fastcc void @"_ZSt16__introsort_loopISt16reverse_iteratorIN9__gn
   %168 = getelementptr inbounds i32, ptr %14, i64 %167
   %169 = getelementptr inbounds i8, ptr %168, i64 -4
   store i32 %164, ptr %169, align 4, !tbaa !99
-  %.not6.i.i.i = icmp ult i64 %.08.in.i.i.i.i9.i, 2
+  %.not6.i.i.i = icmp eq i64 %.08.i.i45.i.i.i, 0
   br i1 %.not6.i.i.i, label %"_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN43MultiStorageView_EachWithSuggestedType_Test8TestBodyEvE3$_3EEEvT_SG_SG_RT0_.exit.i.i", label %.lr.ph.i.i.i.i7.i, !llvm.loop !2835
 
 "_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN43MultiStorageView_EachWithSuggestedType_Test8TestBodyEvE3$_3EEEvT_SG_SG_RT0_.exit.i.i": ; preds = %166, %.lr.ph.i.i.i.i7.i, %160
@@ -115511,7 +115511,7 @@ define internal fastcc void @"_ZSt16__introsort_loopISt16reverse_iteratorIN9__gn
   %168 = getelementptr inbounds i32, ptr %14, i64 %167
   %169 = getelementptr inbounds i8, ptr %168, i64 -4
   store i32 %164, ptr %169, align 4, !tbaa !99
-  %.not6.i.i.i = icmp ult i64 %.08.in.i.i.i.i9.i, 2
+  %.not6.i.i.i = icmp eq i64 %.08.i.i45.i.i.i, 0
   br i1 %.not6.i.i.i, label %"_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN43MultiStorageView_EachWithSuggestedType_Test8TestBodyEvE3$_4EEEvT_SG_SG_RT0_.exit.i.i", label %.lr.ph.i.i.i.i7.i, !llvm.loop !2849
 
 "_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN43MultiStorageView_EachWithSuggestedType_Test8TestBodyEvE3$_4EEEvT_SG_SG_RT0_.exit.i.i": ; preds = %166, %.lr.ph.i.i.i.i7.i, %160

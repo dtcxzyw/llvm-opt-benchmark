@@ -4656,8 +4656,8 @@ define linkonce_odr i64 @_ZNK8facebook4yoga5Style12minDimensionENS0_9DimensionE(
 7:                                                ; preds = %2
   %8 = icmp eq i16 %6, 5
   %9 = lshr i16 %.sroa.0.0.copyload, 4
-  %10 = and i16 %.sroa.0.0.copyload, -9
-  %11 = icmp eq i16 %10, 5
+  %10 = icmp eq i16 %9, 0
+  %11 = and i1 %8, %10
   br i1 %11, label %_ZNK8facebook4yoga14StyleValuePool7getSizeENS0_16StyleValueHandleE.exit, label %12
 
 12:                                               ; preds = %7
@@ -4768,8 +4768,8 @@ define linkonce_odr i64 @_ZNK8facebook4yoga5Style12maxDimensionENS0_9DimensionE(
 7:                                                ; preds = %2
   %8 = icmp eq i16 %6, 5
   %9 = lshr i16 %.sroa.0.0.copyload, 4
-  %10 = and i16 %.sroa.0.0.copyload, -9
-  %11 = icmp eq i16 %10, 5
+  %10 = icmp eq i16 %9, 0
+  %11 = and i1 %8, %10
   br i1 %11, label %_ZNK8facebook4yoga14StyleValuePool7getSizeENS0_16StyleValueHandleE.exit, label %12
 
 12:                                               ; preds = %7

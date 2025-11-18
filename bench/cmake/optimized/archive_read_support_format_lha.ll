@@ -3995,7 +3995,7 @@ lha_crc16.exit:                                   ; preds = %.lr.ph73.i
   %154 = load ptr, ptr %34, align 8, !tbaa !81
   %155 = load i64, ptr %35, align 8, !tbaa !56
   %156 = lshr i64 %155, 1
-  %.not291 = icmp ult i64 %155, 2
+  %.not291 = icmp eq i64 %156, 0
   br i1 %.not291, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %153, %162

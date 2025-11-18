@@ -94,35 +94,35 @@ define noundef nonnull ptr @BN_value_one() local_unnamed_addr #2 {
 define range(i32 0, 65) i32 @BN_num_bits_word(i64 noundef %0) local_unnamed_addr #2 {
   %2 = icmp ne i64 %0, 0
   %3 = lshr i64 %0, 32
-  %4 = icmp ugt i64 %0, 4294967295
-  %5 = select i1 %4, i32 32, i32 0
-  %6 = zext i1 %2 to i32
-  %7 = or disjoint i32 %5, %6
-  %8 = select i1 %4, i64 %3, i64 %0
-  %9 = lshr i64 %8, 16
-  %10 = icmp samesign ugt i64 %8, 65535
-  %11 = select i1 %10, i32 16, i32 0
-  %12 = or disjoint i32 %7, %11
-  %13 = select i1 %10, i64 %9, i64 %8
-  %14 = lshr i64 %13, 8
-  %15 = icmp samesign ugt i64 %13, 255
-  %16 = select i1 %15, i32 8, i32 0
-  %17 = or disjoint i32 %12, %16
-  %18 = select i1 %15, i64 %14, i64 %13
-  %19 = lshr i64 %18, 4
-  %20 = icmp samesign ugt i64 %18, 15
-  %21 = select i1 %20, i32 4, i32 0
-  %22 = or disjoint i32 %17, %21
-  %23 = select i1 %20, i64 %19, i64 %18
-  %24 = lshr i64 %23, 2
-  %25 = icmp samesign ugt i64 %23, 3
-  %26 = select i1 %25, i32 2, i32 0
-  %27 = or disjoint i32 %22, %26
-  %28 = select i1 %25, i64 %24, i64 %23
-  %29 = icmp samesign ugt i64 %28, 1
-  %.neg = zext i1 %29 to i32
-  %30 = add nuw nsw i32 %27, %.neg
-  ret i32 %30
+  %.not = icmp eq i64 %3, 0
+  %4 = select i1 %.not, i32 0, i32 32
+  %5 = zext i1 %2 to i32
+  %6 = or disjoint i32 %4, %5
+  %7 = select i1 %.not, i64 %0, i64 %3
+  %8 = lshr i64 %7, 16
+  %.not52 = icmp eq i64 %8, 0
+  %9 = select i1 %.not52, i32 0, i32 16
+  %10 = or disjoint i32 %6, %9
+  %11 = select i1 %.not52, i64 %7, i64 %8
+  %12 = lshr i64 %11, 8
+  %.not53 = icmp eq i64 %12, 0
+  %13 = select i1 %.not53, i32 0, i32 8
+  %14 = or disjoint i32 %10, %13
+  %15 = select i1 %.not53, i64 %11, i64 %12
+  %16 = lshr i64 %15, 4
+  %.not54 = icmp eq i64 %16, 0
+  %17 = select i1 %.not54, i32 0, i32 4
+  %18 = or disjoint i32 %14, %17
+  %19 = select i1 %.not54, i64 %15, i64 %16
+  %20 = lshr i64 %19, 2
+  %.not55 = icmp eq i64 %20, 0
+  %21 = select i1 %.not55, i32 0, i32 2
+  %22 = or disjoint i32 %18, %21
+  %23 = select i1 %.not55, i64 %19, i64 %20
+  %24 = icmp samesign ugt i64 %23, 1
+  %.neg = zext i1 %24 to i32
+  %25 = add nuw nsw i32 %22, %.neg
+  ret i32 %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
@@ -134,7 +134,7 @@ define i32 @BN_num_bits(ptr noundef readonly captures(none) %0) local_unnamed_ad
   %6 = load i32, ptr %5, align 4, !tbaa !11
   %7 = and i32 %6, 4
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %53, label %8
+  br i1 %.not, label %48, label %8
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -151,7 +151,7 @@ define i32 @BN_num_bits(ptr noundef readonly captures(none) %0) local_unnamed_ad
 14:                                               ; preds = %14, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %14 ]
   %.01721.i = phi i32 [ 0, %.lr.ph.i ], [ %.demorgan.i, %14 ]
-  %.01820.i = phi i32 [ 0, %.lr.ph.i ], [ %51, %14 ]
+  %.01820.i = phi i32 [ 0, %.lr.ph.i ], [ %46, %14 ]
   %15 = icmp eq i64 %indvars.iv.i, %13
   %.demorgan.i = select i1 %15, i32 -1, i32 %.01721.i
   %16 = and i32 %.demorgan.i, 64
@@ -161,91 +161,91 @@ define i32 @BN_num_bits(ptr noundef readonly captures(none) %0) local_unnamed_ad
   %20 = load i64, ptr %19, align 8, !tbaa !14
   %21 = icmp ne i64 %20, 0
   %22 = lshr i64 %20, 32
-  %23 = icmp ugt i64 %20, 4294967295
-  %24 = select i1 %23, i32 32, i32 0
-  %25 = zext i1 %21 to i32
-  %26 = or disjoint i32 %24, %25
-  %27 = select i1 %23, i64 %22, i64 %20
-  %28 = lshr i64 %27, 16
-  %29 = icmp samesign ugt i64 %27, 65535
-  %30 = select i1 %29, i32 16, i32 0
-  %31 = or disjoint i32 %26, %30
-  %32 = select i1 %29, i64 %28, i64 %27
-  %33 = lshr i64 %32, 8
-  %34 = icmp samesign ugt i64 %32, 255
-  %35 = select i1 %34, i32 8, i32 0
-  %36 = or disjoint i32 %31, %35
-  %37 = select i1 %34, i64 %33, i64 %32
-  %38 = lshr i64 %37, 4
-  %39 = icmp samesign ugt i64 %37, 15
-  %40 = select i1 %39, i32 4, i32 0
-  %41 = or disjoint i32 %36, %40
-  %42 = select i1 %39, i64 %38, i64 %37
-  %43 = lshr i64 %42, 2
-  %44 = icmp samesign ugt i64 %42, 3
-  %45 = select i1 %44, i32 2, i32 0
-  %46 = or disjoint i32 %41, %45
-  %47 = select i1 %44, i64 %43, i64 %42
-  %48 = icmp samesign ugt i64 %47, 1
-  %.neg.i.i = zext i1 %48 to i32
-  %49 = add nuw nsw i32 %46, %.neg.i.i
-  %50 = select i1 %15, i32 %49, i32 0
-  %51 = add i32 %18, %50
+  %.not.i.i = icmp eq i64 %22, 0
+  %23 = select i1 %.not.i.i, i32 0, i32 32
+  %24 = zext i1 %21 to i32
+  %25 = or disjoint i32 %23, %24
+  %26 = select i1 %.not.i.i, i64 %20, i64 %22
+  %27 = lshr i64 %26, 16
+  %.not52.i.i = icmp eq i64 %27, 0
+  %28 = select i1 %.not52.i.i, i32 0, i32 16
+  %29 = or disjoint i32 %25, %28
+  %30 = select i1 %.not52.i.i, i64 %26, i64 %27
+  %31 = lshr i64 %30, 8
+  %.not53.i.i = icmp eq i64 %31, 0
+  %32 = select i1 %.not53.i.i, i32 0, i32 8
+  %33 = or disjoint i32 %29, %32
+  %34 = select i1 %.not53.i.i, i64 %30, i64 %31
+  %35 = lshr i64 %34, 4
+  %.not54.i.i = icmp eq i64 %35, 0
+  %36 = select i1 %.not54.i.i, i32 0, i32 4
+  %37 = or disjoint i32 %33, %36
+  %38 = select i1 %.not54.i.i, i64 %34, i64 %35
+  %39 = lshr i64 %38, 2
+  %.not55.i.i = icmp eq i64 %39, 0
+  %40 = select i1 %.not55.i.i, i32 0, i32 2
+  %41 = or disjoint i32 %37, %40
+  %42 = select i1 %.not55.i.i, i64 %38, i64 %39
+  %43 = icmp samesign ugt i64 %42, 1
+  %.neg.i.i = zext i1 %43 to i32
+  %44 = add nuw nsw i32 %41, %.neg.i.i
+  %45 = select i1 %15, i32 %44, i32 0
+  %46 = add i32 %18, %45
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %bn_num_bits_consttime.exit, label %14, !llvm.loop !16
 
 bn_num_bits_consttime.exit:                       ; preds = %14, %8
-  %.018.lcssa.i = phi i32 [ 0, %8 ], [ %51, %14 ]
+  %.018.lcssa.i = phi i32 [ 0, %8 ], [ %46, %14 ]
   %.not.i = icmp eq i32 %3, 0
-  %52 = select i1 %.not.i, i32 0, i32 %.018.lcssa.i
-  br label %90
+  %47 = select i1 %.not.i, i32 0, i32 %.018.lcssa.i
+  br label %80
 
-53:                                               ; preds = %1
-  %.not8 = icmp eq i32 %3, 0
-  br i1 %.not8, label %90, label %54
+48:                                               ; preds = %1
+  %.not9 = icmp eq i32 %3, 0
+  br i1 %.not9, label %80, label %49
 
-54:                                               ; preds = %53
-  %55 = shl nsw i32 %4, 6
-  %56 = load ptr, ptr %0, align 8, !tbaa !13
-  %57 = sext i32 %4 to i64
-  %58 = getelementptr inbounds i64, ptr %56, i64 %57
-  %59 = load i64, ptr %58, align 8, !tbaa !14
-  %60 = icmp ne i64 %59, 0
-  %61 = lshr i64 %59, 32
-  %62 = icmp ugt i64 %59, 4294967295
-  %63 = select i1 %62, i32 32, i32 0
-  %64 = zext i1 %60 to i32
-  %65 = select i1 %62, i64 %61, i64 %59
-  %66 = lshr i64 %65, 16
-  %67 = icmp samesign ugt i64 %65, 65535
-  %68 = select i1 %67, i32 16, i32 0
-  %69 = select i1 %67, i64 %66, i64 %65
-  %70 = lshr i64 %69, 8
-  %71 = icmp samesign ugt i64 %69, 255
-  %72 = select i1 %71, i32 8, i32 0
-  %73 = select i1 %71, i64 %70, i64 %69
-  %74 = lshr i64 %73, 4
-  %75 = icmp samesign ugt i64 %73, 15
-  %76 = select i1 %75, i32 4, i32 0
-  %77 = select i1 %75, i64 %74, i64 %73
-  %78 = lshr i64 %77, 2
-  %79 = icmp samesign ugt i64 %77, 3
-  %80 = select i1 %79, i32 2, i32 0
-  %81 = select i1 %79, i64 %78, i64 %77
-  %82 = icmp samesign ugt i64 %81, 1
-  %.neg.i = zext i1 %82 to i32
-  %83 = or disjoint i32 %55, %64
-  %84 = or disjoint i32 %83, %63
-  %85 = or disjoint i32 %84, %68
-  %86 = or disjoint i32 %85, %72
-  %87 = or disjoint i32 %86, %76
-  %88 = or disjoint i32 %87, %80
-  %89 = add i32 %88, %.neg.i
-  br label %90
+49:                                               ; preds = %48
+  %50 = shl nsw i32 %4, 6
+  %51 = load ptr, ptr %0, align 8, !tbaa !13
+  %52 = sext i32 %4 to i64
+  %53 = getelementptr inbounds i64, ptr %51, i64 %52
+  %54 = load i64, ptr %53, align 8, !tbaa !14
+  %55 = icmp ne i64 %54, 0
+  %56 = lshr i64 %54, 32
+  %.not.i8 = icmp eq i64 %56, 0
+  %57 = select i1 %.not.i8, i32 0, i32 32
+  %58 = zext i1 %55 to i32
+  %59 = select i1 %.not.i8, i64 %54, i64 %56
+  %60 = lshr i64 %59, 16
+  %.not52.i = icmp eq i64 %60, 0
+  %61 = select i1 %.not52.i, i32 0, i32 16
+  %62 = select i1 %.not52.i, i64 %59, i64 %60
+  %63 = lshr i64 %62, 8
+  %.not53.i = icmp eq i64 %63, 0
+  %64 = select i1 %.not53.i, i32 0, i32 8
+  %65 = select i1 %.not53.i, i64 %62, i64 %63
+  %66 = lshr i64 %65, 4
+  %.not54.i = icmp eq i64 %66, 0
+  %67 = select i1 %.not54.i, i32 0, i32 4
+  %68 = select i1 %.not54.i, i64 %65, i64 %66
+  %69 = lshr i64 %68, 2
+  %.not55.i = icmp eq i64 %69, 0
+  %70 = select i1 %.not55.i, i32 0, i32 2
+  %71 = select i1 %.not55.i, i64 %68, i64 %69
+  %72 = icmp samesign ugt i64 %71, 1
+  %.neg.i = zext i1 %72 to i32
+  %73 = or disjoint i32 %50, %58
+  %74 = or disjoint i32 %73, %57
+  %75 = or disjoint i32 %74, %61
+  %76 = or disjoint i32 %75, %64
+  %77 = or disjoint i32 %76, %67
+  %78 = or disjoint i32 %77, %70
+  %79 = add i32 %78, %.neg.i
+  br label %80
 
-90:                                               ; preds = %53, %54, %bn_num_bits_consttime.exit
-  %.0 = phi i32 [ %52, %bn_num_bits_consttime.exit ], [ %89, %54 ], [ 0, %53 ]
+80:                                               ; preds = %48, %49, %bn_num_bits_consttime.exit
+  %.0 = phi i32 [ %47, %bn_num_bits_consttime.exit ], [ %79, %49 ], [ 0, %48 ]
   ret i32 %.0
 }
 
@@ -1813,7 +1813,7 @@ ossl_bn_mask_bits_fixed_top.exit.thread:          ; preds = %9
 
 ossl_bn_mask_bits_fixed_top.exit:                 ; preds = %9
   store i32 %5, ptr %7, align 8, !tbaa !7
-  %.not = icmp ult i32 %1, 64
+  %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.thread, label %20
 
 20:                                               ; preds = %ossl_bn_mask_bits_fixed_top.exit.thread, %ossl_bn_mask_bits_fixed_top.exit

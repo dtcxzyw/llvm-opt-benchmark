@@ -104,14 +104,14 @@ define internal fastcc align 8 ptr @_ZN13logos_codegen5graph4meta4Meta10first_pa
   %27 = load i32, ptr %11, align 4
   %28 = call align 8 ptr @"_ZN119_$LT$logos_codegen..graph..Graph$LT$Leaf$GT$$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h226e651efac1df87E"(ptr align 8 %3, i32 %27, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.4)
   %29 = load i64, ptr %28, align 8
-  switch i64 %29, label %71 [
+  switch i64 %29, label %70 [
     i64 -9223372036854775806, label %32
     i64 -9223372036854775805, label %40
   ]
 
 30:                                               ; preds = %21
   %31 = call align 8 ptr @"_ZN112_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h32a65f1ab15be109E"(ptr nonnull align 8 %0, i32 %22, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.7)
-  br label %153
+  br label %151
 
 32:                                               ; preds = %26
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -122,7 +122,8 @@ define internal fastcc align 8 ptr @_ZN13logos_codegen5graph4meta4Meta10first_pa
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %36, ptr %37, align 8
   %38 = call i64 @"_ZN95_$LT$logos_codegen..graph..fork..ForkIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31bda62dc7938527E"(ptr nonnull align 8 %10)
-  %39 = icmp ult i64 %38, 4294967296
+  %.sroa.2.0.extract.shift30 = lshr i64 %38, 32
+  %39 = icmp eq i64 %.sroa.2.0.extract.shift30, 0
   br i1 %39, label %._crit_edge, label %.lr.ph
 
 40:                                               ; preds = %26
@@ -136,118 +137,118 @@ define internal fastcc align 8 ptr @_ZN13logos_codegen5graph4meta4Meta10first_pa
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %49 = load i8, ptr %48, align 8
   %50 = trunc i8 %49 to i1
-  br i1 %50, label %88, label %84
+  br i1 %50, label %87, label %83
 
 ._crit_edge:                                      ; preds = %.backedge, %32
   %.sroa.05.0.lcssa = phi i64 [ -1, %32 ], [ %.sroa.05.0.be, %.backedge ]
   %51 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %52 = load i32, ptr %51, align 8
   %.not17 = icmp eq i32 %52, 0
-  br i1 %.not17, label %65, label %59
+  br i1 %.not17, label %64, label %58
 
 .lr.ph:                                           ; preds = %32, %.backedge
-  %53 = phi i64 [ %82, %.backedge ], [ %38, %32 ]
-  %.sroa.05.030 = phi i64 [ %.sroa.05.0.be, %.backedge ], [ -1, %32 ]
-  %.sroa.2.0.extract.shift = lshr i64 %53, 32
-  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
-  %54 = load i32, ptr %11, align 4
-  %55 = call fastcc align 8 ptr @_ZN13logos_codegen5graph4meta4Meta10first_pass17h53def050de97c4eeE(ptr align 8 %0, i32 %.sroa.2.0.extract.trunc, i32 %54, ptr align 8 %3, ptr align 8 %4)
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 40
-  %57 = load i8, ptr %56, align 8
-  %58 = trunc i8 %57 to i1
-  br i1 %58, label %.backedge, label %77
+  %.sroa.2.0.extract.shift32 = phi i64 [ %.sroa.2.0.extract.shift, %.backedge ], [ %.sroa.2.0.extract.shift30, %32 ]
+  %.sroa.05.031 = phi i64 [ %.sroa.05.0.be, %.backedge ], [ -1, %32 ]
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift32 to i32
+  %53 = load i32, ptr %11, align 4
+  %54 = call fastcc align 8 ptr @_ZN13logos_codegen5graph4meta4Meta10first_pass17h53def050de97c4eeE(ptr align 8 %0, i32 %.sroa.2.0.extract.trunc, i32 %53, ptr align 8 %3, ptr align 8 %4)
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 40
+  %56 = load i8, ptr %55, align 8
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %.backedge, label %76
 
-59:                                               ; preds = %._crit_edge
-  %60 = load i32, ptr %11, align 4
-  %61 = call fastcc align 8 ptr @_ZN13logos_codegen5graph4meta4Meta10first_pass17h53def050de97c4eeE(ptr align 8 %0, i32 %52, i32 %60, ptr align 8 %3, ptr align 8 %4)
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 40
-  %63 = load i8, ptr %62, align 8
-  %64 = trunc i8 %63 to i1
-  br i1 %64, label %71, label %67
+58:                                               ; preds = %._crit_edge
+  %59 = load i32, ptr %11, align 4
+  %60 = call fastcc align 8 ptr @_ZN13logos_codegen5graph4meta4Meta10first_pass17h53def050de97c4eeE(ptr align 8 %0, i32 %52, i32 %59, ptr align 8 %3, ptr align 8 %4)
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 40
+  %62 = load i8, ptr %61, align 8
+  %63 = trunc i8 %62 to i1
+  br i1 %63, label %70, label %66
 
-65:                                               ; preds = %67, %._crit_edge
-  %.sroa.05.3 = phi i64 [ %70, %67 ], [ %.sroa.05.0.lcssa, %._crit_edge ]
-  %66 = icmp eq i64 %.sroa.05.3, -1
-  %spec.store.select = select i1 %66, i64 0, i64 %.sroa.05.3
-  br label %71
+64:                                               ; preds = %66, %._crit_edge
+  %.sroa.05.3 = phi i64 [ %69, %66 ], [ %.sroa.05.0.lcssa, %._crit_edge ]
+  %65 = icmp eq i64 %.sroa.05.3, -1
+  %spec.store.select = select i1 %65, i64 0, i64 %.sroa.05.3
+  br label %70
 
-67:                                               ; preds = %59
-  %68 = getelementptr inbounds nuw i8, ptr %61, i64 32
-  %69 = load i64, ptr %68, align 8
-  %70 = call i64 @_ZN4core3cmp6min_by17ha10094c908c23ed5E(i64 %.sroa.05.0.lcssa, i64 %69)
-  br label %65
+66:                                               ; preds = %58
+  %67 = getelementptr inbounds nuw i8, ptr %60, i64 32
+  %68 = load i64, ptr %67, align 8
+  %69 = call i64 @_ZN4core3cmp6min_by17ha10094c908c23ed5E(i64 %.sroa.05.0.lcssa, i64 %68)
+  br label %64
 
-71:                                               ; preds = %94, %59, %26, %65, %100, %88
-  %.sroa.05.2 = phi i64 [ %spec.store.select, %65 ], [ %103, %100 ], [ %.sroa.05.1, %88 ], [ 0, %26 ], [ 0, %59 ], [ 0, %94 ]
-  %72 = call i32 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h1ca238a767ccf968E"(ptr nonnull align 8 %4)
-  %73 = load i32, ptr %11, align 4
-  %74 = call align 8 ptr @"_ZN115_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..IndexMut$LT$logos_codegen..graph..NodeId$GT$$GT$9index_mut17hef05b57c02ea21e8E"(ptr nonnull align 8 %0, i32 %73, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.5)
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 32
-  store i64 %.sroa.05.2, ptr %75, align 8
-  call void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h546876a9e3b359a5E"(ptr nonnull sret([24 x i8]) align 8 %9, ptr align 8 %74)
+70:                                               ; preds = %93, %58, %26, %64, %99, %87
+  %.sroa.05.2 = phi i64 [ %spec.store.select, %64 ], [ %102, %99 ], [ %.sroa.05.1, %87 ], [ 0, %26 ], [ 0, %58 ], [ 0, %93 ]
+  %71 = call i32 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h1ca238a767ccf968E"(ptr nonnull align 8 %4)
+  %72 = load i32, ptr %11, align 4
+  %73 = call align 8 ptr @"_ZN115_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..IndexMut$LT$logos_codegen..graph..NodeId$GT$$GT$9index_mut17hef05b57c02ea21e8E"(ptr nonnull align 8 %0, i32 %72, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.5)
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 32
+  store i64 %.sroa.05.2, ptr %74, align 8
+  call void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h546876a9e3b359a5E"(ptr nonnull sret([24 x i8]) align 8 %9, ptr align 8 %73)
   call void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17he939d0ff406a92a3E"(ptr nonnull sret([32 x i8]) align 8 %8, ptr nonnull align 8 %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
-  %76 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  br label %104
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  br label %103
 
-77:                                               ; preds = %.lr.ph
-  %78 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  %79 = load i64, ptr %78, align 8
-  %80 = add i64 %79, 1
-  %81 = call i64 @_ZN4core3cmp6min_by17ha10094c908c23ed5E(i64 %.sroa.05.030, i64 %80)
+76:                                               ; preds = %.lr.ph
+  %77 = getelementptr inbounds nuw i8, ptr %54, i64 32
+  %78 = load i64, ptr %77, align 8
+  %79 = add i64 %78, 1
+  %80 = call i64 @_ZN4core3cmp6min_by17ha10094c908c23ed5E(i64 %.sroa.05.031, i64 %79)
   br label %.backedge
 
-.backedge:                                        ; preds = %77, %.lr.ph
-  %.sroa.05.0.be = phi i64 [ %81, %77 ], [ 1, %.lr.ph ]
-  %82 = call i64 @"_ZN95_$LT$logos_codegen..graph..fork..ForkIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31bda62dc7938527E"(ptr nonnull align 8 %10)
-  %83 = icmp ult i64 %82, 4294967296
-  br i1 %83, label %._crit_edge, label %.lr.ph
+.backedge:                                        ; preds = %76, %.lr.ph
+  %.sroa.05.0.be = phi i64 [ %80, %76 ], [ 1, %.lr.ph ]
+  %81 = call i64 @"_ZN95_$LT$logos_codegen..graph..fork..ForkIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31bda62dc7938527E"(ptr nonnull align 8 %10)
+  %.sroa.2.0.extract.shift = lshr i64 %81, 32
+  %82 = icmp eq i64 %.sroa.2.0.extract.shift, 0
+  br i1 %82, label %._crit_edge, label %.lr.ph
 
-84:                                               ; preds = %40
-  %85 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  %86 = load i64, ptr %85, align 8
-  %87 = add i64 %86, %43
-  br label %88
+83:                                               ; preds = %40
+  %84 = getelementptr inbounds nuw i8, ptr %47, i64 32
+  %85 = load i64, ptr %84, align 8
+  %86 = add i64 %85, %43
+  br label %87
 
-88:                                               ; preds = %84, %40
-  %.sroa.05.1 = phi i64 [ %43, %40 ], [ %87, %84 ]
-  %89 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  %90 = load i32, ptr %89, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %28, i64 36
-  %92 = load i32, ptr %91, align 4
-  %93 = call i32 @_ZN13logos_codegen5graph4rope4Miss5first17h8bbbf9f71445b7e3E(i32 %90, i32 %92)
-  %.not16 = icmp eq i32 %93, 0
-  br i1 %.not16, label %71, label %94
+87:                                               ; preds = %83, %40
+  %.sroa.05.1 = phi i64 [ %43, %40 ], [ %86, %83 ]
+  %88 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  %89 = load i32, ptr %88, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %28, i64 36
+  %91 = load i32, ptr %90, align 4
+  %92 = call i32 @_ZN13logos_codegen5graph4rope4Miss5first17h8bbbf9f71445b7e3E(i32 %89, i32 %91)
+  %.not16 = icmp eq i32 %92, 0
+  br i1 %.not16, label %70, label %93
 
-94:                                               ; preds = %88
-  %95 = load i32, ptr %11, align 4
-  %96 = call fastcc align 8 ptr @_ZN13logos_codegen5graph4meta4Meta10first_pass17h53def050de97c4eeE(ptr align 8 %0, i32 %93, i32 %95, ptr align 8 %3, ptr align 8 %4)
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 40
-  %98 = load i8, ptr %97, align 8
-  %99 = trunc i8 %98 to i1
-  br i1 %99, label %71, label %100
+93:                                               ; preds = %87
+  %94 = load i32, ptr %11, align 4
+  %95 = call fastcc align 8 ptr @_ZN13logos_codegen5graph4meta4Meta10first_pass17h53def050de97c4eeE(ptr align 8 %0, i32 %92, i32 %94, ptr align 8 %3, ptr align 8 %4)
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 40
+  %97 = load i8, ptr %96, align 8
+  %98 = trunc i8 %97 to i1
+  br i1 %98, label %70, label %99
 
-100:                                              ; preds = %94
-  %101 = getelementptr inbounds nuw i8, ptr %96, i64 32
-  %102 = load i64, ptr %101, align 8
-  %103 = call i64 @_ZN4core3cmp6min_by17ha10094c908c23ed5E(i64 %.sroa.05.1, i64 %102)
-  br label %71
+99:                                               ; preds = %93
+  %100 = getelementptr inbounds nuw i8, ptr %95, i64 32
+  %101 = load i64, ptr %100, align 8
+  %102 = call i64 @_ZN4core3cmp6min_by17ha10094c908c23ed5E(i64 %.sroa.05.1, i64 %101)
+  br label %70
 
-104:                                              ; preds = %_ZN13logos_codegen5graph4meta4Meta16meta_second_pass17hcd3604a2eaff6252E.exit, %71
-  %105 = invoke i32 @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3466cbdf43532cd5E"(ptr nonnull align 8 %7)
-          to label %106 unwind label %.loopexit.split-lp.loopexit
+103:                                              ; preds = %_ZN13logos_codegen5graph4meta4Meta16meta_second_pass17hcd3604a2eaff6252E.exit, %70
+  %104 = invoke i32 @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3466cbdf43532cd5E"(ptr nonnull align 8 %7)
+          to label %105 unwind label %.loopexit.split-lp.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.i, %140, %.backedge.i
+.loopexit:                                        ; preds = %.lr.ph.i, %138, %.backedge.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %138, %.noexc20, %121, %.noexc18, %114, %111, %104
+.loopexit.split-lp.loopexit:                      ; preds = %136, %.noexc20, %120, %.noexc18, %113, %110, %103
   %lpad.loopexit27 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %131
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %130
   %lpad.loopexit.split-lp28 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -255,141 +256,142 @@ define internal fastcc align 8 ptr @_ZN13logos_codegen5graph4meta4Meta10first_pa
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp28, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$logos_codegen..graph..NodeId$GT$$GT$17h95489f4cb6c657b9E"(ptr nonnull align 8 %7) #6
-          to label %156 unwind label %154
+          to label %154 unwind label %152
 
-106:                                              ; preds = %104
-  %107 = icmp eq i32 %105, 0
-  br i1 %107, label %108, label %111
+105:                                              ; preds = %103
+  %106 = icmp eq i32 %104, 0
+  br i1 %106, label %107, label %110
 
-108:                                              ; preds = %106
+107:                                              ; preds = %105
   call void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$logos_codegen..graph..NodeId$GT$$GT$17h95489f4cb6c657b9E"(ptr nonnull align 8 %7)
-  %109 = load i32, ptr %11, align 4
-  %110 = call align 8 ptr @"_ZN112_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h32a65f1ab15be109E"(ptr nonnull align 8 %0, i32 %109, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.6)
-  br label %153
+  %108 = load i32, ptr %11, align 4
+  %109 = call align 8 ptr @"_ZN112_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h32a65f1ab15be109E"(ptr nonnull align 8 %0, i32 %108, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.6)
+  br label %151
 
-111:                                              ; preds = %106
+110:                                              ; preds = %105
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %112 = invoke align 8 ptr @"_ZN119_$LT$logos_codegen..graph..Graph$LT$Leaf$GT$$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h226e651efac1df87E"(ptr align 8 %3, i32 range(i32 1, 0) %105, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.8)
+  %111 = invoke align 8 ptr @"_ZN119_$LT$logos_codegen..graph..Graph$LT$Leaf$GT$$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h226e651efac1df87E"(ptr align 8 %3, i32 range(i32 1, 0) %104, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.8)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit
 
-.noexc:                                           ; preds = %111
-  %113 = load i64, ptr %112, align 8
-  switch i64 %113, label %131 [
-    i64 -9223372036854775806, label %114
-    i64 -9223372036854775805, label %121
+.noexc:                                           ; preds = %110
+  %112 = load i64, ptr %111, align 8
+  switch i64 %112, label %130 [
+    i64 -9223372036854775806, label %113
+    i64 -9223372036854775805, label %120
   ]
 
-114:                                              ; preds = %.noexc
-  %115 = getelementptr inbounds nuw i8, ptr %112, i64 8
-  %116 = invoke { ptr, i64 } @_ZN13logos_codegen5graph4fork4Fork8branches17h4bd8d98ad8ac2dcfE(ptr nonnull align 8 %115)
+113:                                              ; preds = %.noexc
+  %114 = getelementptr inbounds nuw i8, ptr %111, i64 8
+  %115 = invoke { ptr, i64 } @_ZN13logos_codegen5graph4fork4Fork8branches17h4bd8d98ad8ac2dcfE(ptr nonnull align 8 %114)
           to label %.noexc18 unwind label %.loopexit.split-lp.loopexit
 
-.noexc18:                                         ; preds = %114
-  %117 = extractvalue { ptr, i64 } %116, 0
-  %118 = extractvalue { ptr, i64 } %116, 1
-  store ptr %117, ptr %6, align 8
-  store i64 %118, ptr %76, align 8
-  %119 = invoke i64 @"_ZN95_$LT$logos_codegen..graph..fork..ForkIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31bda62dc7938527E"(ptr nonnull align 8 %6)
+.noexc18:                                         ; preds = %113
+  %116 = extractvalue { ptr, i64 } %115, 0
+  %117 = extractvalue { ptr, i64 } %115, 1
+  store ptr %116, ptr %6, align 8
+  store i64 %117, ptr %75, align 8
+  %118 = invoke i64 @"_ZN95_$LT$logos_codegen..graph..fork..ForkIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31bda62dc7938527E"(ptr nonnull align 8 %6)
           to label %.noexc19 unwind label %.loopexit.split-lp.loopexit
 
 .noexc19:                                         ; preds = %.noexc18
-  %120 = icmp ult i64 %119, 4294967296
-  br i1 %120, label %._crit_edge.thread.i, label %.lr.ph.i
+  %.sroa.2.0.extract.shift7.i = lshr i64 %118, 32
+  %119 = icmp eq i64 %.sroa.2.0.extract.shift7.i, 0
+  br i1 %119, label %._crit_edge.thread.i, label %.lr.ph.i
 
-121:                                              ; preds = %.noexc
-  %122 = getelementptr inbounds nuw i8, ptr %112, i64 8
-  %123 = invoke { ptr, i64 } @"_ZN79_$LT$logos_codegen..graph..rope..Pattern$u20$as$u20$core..ops..deref..Deref$GT$5deref17h3645e1679f2b1259E"(ptr nonnull align 8 %122)
+120:                                              ; preds = %.noexc
+  %121 = getelementptr inbounds nuw i8, ptr %111, i64 8
+  %122 = invoke { ptr, i64 } @"_ZN79_$LT$logos_codegen..graph..rope..Pattern$u20$as$u20$core..ops..deref..Deref$GT$5deref17h3645e1679f2b1259E"(ptr nonnull align 8 %121)
           to label %.noexc20 unwind label %.loopexit.split-lp.loopexit
 
-.noexc20:                                         ; preds = %121
-  %124 = extractvalue { ptr, i64 } %123, 1
-  %125 = getelementptr inbounds nuw i8, ptr %112, i64 40
-  %126 = load i32, ptr %125, align 8
-  %127 = invoke align 8 ptr @"_ZN112_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h32a65f1ab15be109E"(ptr nonnull align 8 %0, i32 %126, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.10)
+.noexc20:                                         ; preds = %120
+  %123 = extractvalue { ptr, i64 } %122, 1
+  %124 = getelementptr inbounds nuw i8, ptr %111, i64 40
+  %125 = load i32, ptr %124, align 8
+  %126 = invoke align 8 ptr @"_ZN112_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h32a65f1ab15be109E"(ptr nonnull align 8 %0, i32 %125, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.10)
           to label %.noexc21 unwind label %.loopexit.split-lp.loopexit
 
 .noexc21:                                         ; preds = %.noexc20
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 40
-  %129 = load i8, ptr %128, align 8
-  %130 = trunc i8 %129 to i1
-  br i1 %130, label %138, label %148
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 40
+  %128 = load i8, ptr %127, align 8
+  %129 = trunc i8 %128 to i1
+  br i1 %129, label %136, label %146
 
-131:                                              ; preds = %.noexc
+130:                                              ; preds = %.noexc
   invoke void @_ZN4core9panicking5panic17h75b3c9209f97d725E(ptr nonnull align 1 @anon.500f6382b5209e0b01e44d7e64a76b80.12, i64 40, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.13) #8
           to label %.noexc22 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.noexc22:                                         ; preds = %131
+.noexc22:                                         ; preds = %130
   unreachable
 
 ._crit_edge.i:                                    ; preds = %.noexc26
-  %132 = icmp eq i64 %.sroa.02.0.be.i, -1
-  br i1 %132, label %._crit_edge.thread.i, label %138
+  %131 = icmp eq i64 %.sroa.02.0.be.i, -1
+  br i1 %131, label %._crit_edge.thread.i, label %136
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.noexc19
-  br label %138
+  br label %136
 
 .lr.ph.i:                                         ; preds = %.noexc19, %.noexc26
-  %133 = phi i64 [ %146, %.noexc26 ], [ %119, %.noexc19 ]
-  %.sroa.02.07.i = phi i64 [ %.sroa.02.0.be.i, %.noexc26 ], [ -1, %.noexc19 ]
-  %.sroa.2.0.extract.shift.i = lshr i64 %133, 32
-  %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
-  %134 = invoke align 8 ptr @"_ZN112_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h32a65f1ab15be109E"(ptr nonnull align 8 %0, i32 %.sroa.2.0.extract.trunc.i, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.9)
+  %.sroa.2.0.extract.shift9.i = phi i64 [ %.sroa.2.0.extract.shift.i, %.noexc26 ], [ %.sroa.2.0.extract.shift7.i, %.noexc19 ]
+  %.sroa.02.08.i = phi i64 [ %.sroa.02.0.be.i, %.noexc26 ], [ -1, %.noexc19 ]
+  %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift9.i to i32
+  %132 = invoke align 8 ptr @"_ZN112_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h32a65f1ab15be109E"(ptr nonnull align 8 %0, i32 %.sroa.2.0.extract.trunc.i, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.9)
           to label %.noexc23 unwind label %.loopexit
 
 .noexc23:                                         ; preds = %.lr.ph.i
-  %135 = getelementptr inbounds nuw i8, ptr %134, i64 40
-  %136 = load i8, ptr %135, align 8
-  %137 = trunc i8 %136 to i1
-  br i1 %137, label %.backedge.i, label %140
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 40
+  %134 = load i8, ptr %133, align 8
+  %135 = trunc i8 %134 to i1
+  br i1 %135, label %.backedge.i, label %138
 
-138:                                              ; preds = %148, %._crit_edge.thread.i, %._crit_edge.i, %.noexc21
-  %.sroa.02.1.i = phi i64 [ %124, %.noexc21 ], [ %151, %148 ], [ 0, %._crit_edge.thread.i ], [ %.sroa.02.0.be.i, %._crit_edge.i ]
-  %139 = invoke align 8 ptr @"_ZN115_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..IndexMut$LT$logos_codegen..graph..NodeId$GT$$GT$9index_mut17hef05b57c02ea21e8E"(ptr nonnull align 8 %0, i32 range(i32 1, 0) %105, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.11)
+136:                                              ; preds = %146, %._crit_edge.thread.i, %._crit_edge.i, %.noexc21
+  %.sroa.02.1.i = phi i64 [ %123, %.noexc21 ], [ %149, %146 ], [ 0, %._crit_edge.thread.i ], [ %.sroa.02.0.be.i, %._crit_edge.i ]
+  %137 = invoke align 8 ptr @"_ZN115_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..IndexMut$LT$logos_codegen..graph..NodeId$GT$$GT$9index_mut17hef05b57c02ea21e8E"(ptr nonnull align 8 %0, i32 range(i32 1, 0) %104, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.11)
           to label %_ZN13logos_codegen5graph4meta4Meta16meta_second_pass17hcd3604a2eaff6252E.exit unwind label %.loopexit.split-lp.loopexit
 
-140:                                              ; preds = %.noexc23
-  %141 = getelementptr inbounds nuw i8, ptr %134, i64 32
-  %142 = load i64, ptr %141, align 8
-  %143 = add i64 %142, 1
-  %144 = invoke i64 @_ZN4core3cmp6min_by17ha10094c908c23ed5E(i64 %.sroa.02.07.i, i64 %143)
+138:                                              ; preds = %.noexc23
+  %139 = getelementptr inbounds nuw i8, ptr %132, i64 32
+  %140 = load i64, ptr %139, align 8
+  %141 = add i64 %140, 1
+  %142 = invoke i64 @_ZN4core3cmp6min_by17ha10094c908c23ed5E(i64 %.sroa.02.08.i, i64 %141)
           to label %.noexc25 unwind label %.loopexit
 
-.noexc25:                                         ; preds = %140
-  %145 = freeze i64 %144
+.noexc25:                                         ; preds = %138
+  %143 = freeze i64 %142
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.noexc25, %.noexc23
-  %.sroa.02.0.be.i = phi i64 [ %145, %.noexc25 ], [ 1, %.noexc23 ]
-  %146 = invoke i64 @"_ZN95_$LT$logos_codegen..graph..fork..ForkIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31bda62dc7938527E"(ptr nonnull align 8 %6)
+  %.sroa.02.0.be.i = phi i64 [ %143, %.noexc25 ], [ 1, %.noexc23 ]
+  %144 = invoke i64 @"_ZN95_$LT$logos_codegen..graph..fork..ForkIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31bda62dc7938527E"(ptr nonnull align 8 %6)
           to label %.noexc26 unwind label %.loopexit
 
 .noexc26:                                         ; preds = %.backedge.i
-  %147 = icmp ult i64 %146, 4294967296
-  br i1 %147, label %._crit_edge.i, label %.lr.ph.i
+  %.sroa.2.0.extract.shift.i = lshr i64 %144, 32
+  %145 = icmp eq i64 %.sroa.2.0.extract.shift.i, 0
+  br i1 %145, label %._crit_edge.i, label %.lr.ph.i
 
-148:                                              ; preds = %.noexc21
-  %149 = getelementptr inbounds nuw i8, ptr %127, i64 32
-  %150 = load i64, ptr %149, align 8
-  %151 = add i64 %150, %124
-  br label %138
+146:                                              ; preds = %.noexc21
+  %147 = getelementptr inbounds nuw i8, ptr %126, i64 32
+  %148 = load i64, ptr %147, align 8
+  %149 = add i64 %148, %123
+  br label %136
 
-_ZN13logos_codegen5graph4meta4Meta16meta_second_pass17hcd3604a2eaff6252E.exit: ; preds = %138
-  %152 = getelementptr inbounds nuw i8, ptr %139, i64 32
-  store i64 %.sroa.02.1.i, ptr %152, align 8
+_ZN13logos_codegen5graph4meta4Meta16meta_second_pass17hcd3604a2eaff6252E.exit: ; preds = %136
+  %150 = getelementptr inbounds nuw i8, ptr %137, i64 32
+  store i64 %.sroa.02.1.i, ptr %150, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %104
+  br label %103
 
-153:                                              ; preds = %108, %30
-  %.sroa.0.0 = phi ptr [ %31, %30 ], [ %110, %108 ]
+151:                                              ; preds = %107, %30
+  %.sroa.0.0 = phi ptr [ %31, %30 ], [ %109, %107 ]
   ret ptr %.sroa.0.0
 
-154:                                              ; preds = %.loopexit.split-lp
-  %155 = landingpad { ptr, i32 }
+152:                                              ; preds = %.loopexit.split-lp
+  %153 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #7
   unreachable
 
-156:                                              ; preds = %.loopexit.split-lp
+154:                                              ; preds = %.loopexit.split-lp
   resume { ptr, i32 } %lpad.phi
 }
 

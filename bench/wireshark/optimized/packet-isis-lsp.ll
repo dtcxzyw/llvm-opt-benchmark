@@ -4307,7 +4307,7 @@ define internal fastcc void @dissect_sub_clv_tlv_22_22_23_141_222_223(ptr nounde
 
 84:                                               ; preds = %8
   %85 = lshr i32 %20, 2
-  %.not.i336 = icmp ult i8 %19, 4
+  %.not.i336 = icmp eq i32 %85, 0
   br i1 %.not.i336, label %dissect_subclv_admin_group.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %84, %.lr.ph.i
@@ -5561,7 +5561,7 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_isis_trill_clv(ptr noundef 
 
 264:                                              ; preds = %.lr.ph394, %.lr.ph394, %.lr.ph394
   %265 = lshr i32 %257, 2
-  %.not.i = icmp ult i8 %254, 4
+  %.not.i = icmp eq i32 %265, 0
   br i1 %.not.i, label %dissect_subclv_ext_admin_group.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %264, %.lr.ph.i

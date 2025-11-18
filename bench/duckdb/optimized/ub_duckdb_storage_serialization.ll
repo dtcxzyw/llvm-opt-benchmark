@@ -126605,7 +126605,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessISt4pairIdmEEEclINS_17__normal_iterat
   store double %40, ptr %48, align 8, !tbaa !2700
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i64 %47, ptr %49, align 8, !tbaa !2702
-  %.not.i3 = icmp ult i64 %.0923.in.i.i, 2
+  %.not.i3 = icmp eq i64 %.0923.i78.i, 0
   br i1 %.not.i3, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIdmESt6vectorIS3_SaIS3_EEEESt4lessIS3_EEvT_SB_T0_.exit, label %.lr.ph.i.i, !llvm.loop !2704
 
 _ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIdmESt6vectorIS3_SaIS3_EEEESt4lessIS3_EEvT_SB_T0_.exit: ; preds = %42, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessISt4pairIdmEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEES4_EEbT_RT0_.exit.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessISt4pairIdmEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEES4_EEbT_RT0_.exit.thread.i.i, %_ZNSt6vectorISt4pairIdmESaIS1_EE12emplace_backIJS1_EEEvDpOT_.exit

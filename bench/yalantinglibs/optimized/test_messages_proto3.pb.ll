@@ -122484,7 +122484,7 @@ land.rhs.i.i.i.i:                                 ; preds = %land.rhs.i.i.i.i.pr
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %add.ptr2.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::SortItem", ptr %__first, i64 %__holeIndex.addr.014.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i, i64 16, i1 false)
-  %cmp.i.i.not.i.i = icmp ult i64 %__parent.015.in.i.i.i.i, 2
+  %cmp.i.i.not.i.i = icmp eq i64 %__parent.015.i.i56.i.i, 0
   br i1 %cmp.i.i.not.i.i, label %_ZSt10__pop_heapIPN6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_SG_SG_RT0_.exit.i, label %land.rhs.i.i.i.i, !llvm.loop !2921
 
 _ZSt10__pop_heapIPN6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_SG_SG_RT0_.exit.i: ; preds = %while.body.i.i.i.i, %land.rhs.i.i.i.i, %if.end16.i.i.i
@@ -122583,7 +122583,7 @@ land.rhs.i.i.i.us:                                ; preds = %land.rhs.i.i.i.us.p
 while.body.i.i.i.us:                              ; preds = %land.rhs.i.i.i.us
   %add.ptr2.i.i.i.us = getelementptr inbounds %"struct.google::protobuf::internal::SortItem", ptr %__first, i64 %__holeIndex.addr.014.i.i.i.us
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.us, i64 16, i1 false)
-  %cmp.i.i.not.i.us = icmp ult i64 %__parent.015.in.i.i.i.us, 2
+  %cmp.i.i.not.i.us = icmp eq i64 %__parent.015.i.i56.i.us, 0
   br i1 %cmp.i.i.not.i.us, label %_ZSt10__pop_heapIPN6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_SG_SG_RT0_.exit.us, label %land.rhs.i.i.i.us, !llvm.loop !2921
 
 _ZSt10__pop_heapIPN6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_SG_SG_RT0_.exit.us: ; preds = %land.rhs.i.i.i.us, %while.body.i.i.i.us, %if.end16.i.i.us
@@ -122774,7 +122774,7 @@ _ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEEl
   store i32 %__value.sroa.0.0.copyload11, ptr %add.ptr5.i.i, align 8
   %__value.sroa.310.0.add.ptr5.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %add.ptr5.i.i, i64 8
   store ptr %__value.sroa.3.0.copyload14, ptr %__value.sroa.310.0.add.ptr5.sroa_idx.i.i, align 8
-  %cmp668 = icmp ult i64 %sub, 2
+  %cmp668 = icmp eq i64 %div20, 0
   br i1 %cmp668, label %return, label %if.end8.split.lr.ph
 
 if.end8.split.lr.ph:                              ; preds = %_ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEElS8_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_SH_T1_T2_.exit
@@ -122828,22 +122828,22 @@ if.end16.i28:                                     ; preds = %if.then9.i47, %whil
   br i1 %cmp13.i.i30.not, label %_ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEElS8_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_SH_T1_T2_.exit64, label %land.rhs.i.i34
 
 land.rhs.i.i34:                                   ; preds = %if.end16.i28, %while.body.i.i40
-  %__holeIndex.addr.014.i.i35 = phi i64 [ %__parent.015.i.i37, %while.body.i.i40 ], [ %__holeIndex.addr.1.i29, %if.end16.i28 ]
+  %__holeIndex.addr.014.i.i35 = phi i64 [ %__parent.015.i.i3771, %while.body.i.i40 ], [ %__holeIndex.addr.1.i29, %if.end16.i28 ]
   %__parent.015.in.i.i36 = add nsw i64 %__holeIndex.addr.014.i.i35, -1
-  %__parent.015.i.i37 = sdiv i64 %__parent.015.in.i.i36, 2
-  %add.ptr.i.i38 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem", ptr %__first, i64 %__parent.015.i.i37
+  %__parent.015.i.i3771 = lshr i64 %__parent.015.in.i.i36, 1
+  %add.ptr.i.i38 = getelementptr inbounds nuw %"struct.google::protobuf::internal::SortItem", ptr %__first, i64 %__parent.015.i.i3771
   %8 = load i32, ptr %add.ptr.i.i38, align 8
   %cmp.i.i.i.i39 = icmp slt i32 %8, %__value.sroa.0.0.copyload16
   br i1 %cmp.i.i.i.i39, label %while.body.i.i40, label %_ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEElS8_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_SH_T1_T2_.exit64
 
 while.body.i.i40:                                 ; preds = %land.rhs.i.i34
-  %add.ptr2.i.i41 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem", ptr %__first, i64 %__holeIndex.addr.014.i.i35
+  %add.ptr2.i.i41 = getelementptr inbounds nuw %"struct.google::protobuf::internal::SortItem", ptr %__first, i64 %__holeIndex.addr.014.i.i35
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i.i41, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i38, i64 16, i1 false)
-  %cmp.i.i42.not = icmp slt i64 %__parent.015.i.i37, %__parent.069
+  %cmp.i.i42.not = icmp slt i64 %__parent.015.i.i3771, %__parent.069
   br i1 %cmp.i.i42.not, label %_ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEElS8_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_SH_T1_T2_.exit64, label %land.rhs.i.i34, !llvm.loop !2921
 
 _ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEElS8_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_SH_T1_T2_.exit64: ; preds = %land.rhs.i.i34, %while.body.i.i40, %if.end16.i28
-  %__holeIndex.addr.0.lcssa.i.i31 = phi i64 [ %__holeIndex.addr.1.i29, %if.end16.i28 ], [ %__parent.015.i.i37, %while.body.i.i40 ], [ %__holeIndex.addr.014.i.i35, %land.rhs.i.i34 ]
+  %__holeIndex.addr.0.lcssa.i.i31 = phi i64 [ %__holeIndex.addr.1.i29, %if.end16.i28 ], [ %__parent.015.i.i3771, %while.body.i.i40 ], [ %__holeIndex.addr.014.i.i35, %land.rhs.i.i34 ]
   %add.ptr5.i.i32 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i31
   store i32 %__value.sroa.0.0.copyload16, ptr %add.ptr5.i.i32, align 8
   %__value.sroa.310.0.add.ptr5.sroa_idx.i.i33 = getelementptr inbounds nuw i8, ptr %add.ptr5.i.i32, i64 8
@@ -123253,7 +123253,7 @@ land.rhs.i.i.i.i:                                 ; preds = %land.rhs.i.i.i.i.pr
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %add.ptr2.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.188", ptr %__first, i64 %__holeIndex.addr.013.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i, i64 16, i1 false)
-  %cmp.i.i.not.i.i = icmp ult i64 %__parent.014.in.i.i.i.i, 2
+  %cmp.i.i.not.i.i = icmp eq i64 %__parent.014.i.i45.i.i, 0
   br i1 %cmp.i.i.not.i.i, label %_ZSt10__pop_heapIPN6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_SG_SG_RT0_.exit.i, label %land.rhs.i.i.i.i, !llvm.loop !2933
 
 _ZSt10__pop_heapIPN6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_SG_SG_RT0_.exit.i: ; preds = %while.body.i.i.i.i, %land.rhs.i.i.i.i, %if.end16.i.i.i
@@ -123352,7 +123352,7 @@ land.rhs.i.i.i.us:                                ; preds = %land.rhs.i.i.i.us.p
 while.body.i.i.i.us:                              ; preds = %land.rhs.i.i.i.us
   %add.ptr2.i.i.i.us = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.188", ptr %__first, i64 %__holeIndex.addr.013.i.i.i.us
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.us, i64 16, i1 false)
-  %cmp.i.i.not.i.us = icmp ult i64 %__parent.014.in.i.i.i.us, 2
+  %cmp.i.i.not.i.us = icmp eq i64 %__parent.014.i.i45.i.us, 0
   br i1 %cmp.i.i.not.i.us, label %_ZSt10__pop_heapIPN6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_SG_SG_RT0_.exit.us, label %land.rhs.i.i.i.us, !llvm.loop !2933
 
 _ZSt10__pop_heapIPN6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_SG_SG_RT0_.exit.us: ; preds = %land.rhs.i.i.i.us, %while.body.i.i.i.us, %if.end16.i.i.us
@@ -123543,7 +123543,7 @@ _ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEEl
   store i64 %__value.sroa.0.0.copyload10, ptr %add.ptr5.i.i, align 8
   %__value.sroa.3.0.add.ptr5.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %add.ptr5.i.i, i64 8
   store ptr %__value.sroa.2.0.copyload12, ptr %__value.sroa.3.0.add.ptr5.sroa_idx.i.i, align 8
-  %cmp665 = icmp ult i64 %sub, 2
+  %cmp665 = icmp eq i64 %div17, 0
   br i1 %cmp665, label %return, label %if.end8.split.lr.ph
 
 if.end8.split.lr.ph:                              ; preds = %_ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEElS8_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_SH_T1_T2_.exit
@@ -123597,22 +123597,22 @@ if.end16.i25:                                     ; preds = %if.then9.i44, %whil
   br i1 %cmp12.i.i27.not, label %_ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEElS8_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_SH_T1_T2_.exit61, label %land.rhs.i.i31
 
 land.rhs.i.i31:                                   ; preds = %if.end16.i25, %while.body.i.i37
-  %__holeIndex.addr.013.i.i32 = phi i64 [ %__parent.014.i.i34, %while.body.i.i37 ], [ %__holeIndex.addr.1.i26, %if.end16.i25 ]
+  %__holeIndex.addr.013.i.i32 = phi i64 [ %__parent.014.i.i3468, %while.body.i.i37 ], [ %__holeIndex.addr.1.i26, %if.end16.i25 ]
   %__parent.014.in.i.i33 = add nsw i64 %__holeIndex.addr.013.i.i32, -1
-  %__parent.014.i.i34 = sdiv i64 %__parent.014.in.i.i33, 2
-  %add.ptr.i.i35 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.188", ptr %__first, i64 %__parent.014.i.i34
+  %__parent.014.i.i3468 = lshr i64 %__parent.014.in.i.i33, 1
+  %add.ptr.i.i35 = getelementptr inbounds nuw %"struct.google::protobuf::internal::SortItem.188", ptr %__first, i64 %__parent.014.i.i3468
   %8 = load i64, ptr %add.ptr.i.i35, align 8
   %cmp.i.i.i.i36 = icmp slt i64 %8, %__value.sroa.0.0.copyload14
   br i1 %cmp.i.i.i.i36, label %while.body.i.i37, label %_ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEElS8_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_SH_T1_T2_.exit61
 
 while.body.i.i37:                                 ; preds = %land.rhs.i.i31
-  %add.ptr2.i.i38 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.188", ptr %__first, i64 %__holeIndex.addr.013.i.i32
+  %add.ptr2.i.i38 = getelementptr inbounds nuw %"struct.google::protobuf::internal::SortItem.188", ptr %__first, i64 %__holeIndex.addr.013.i.i32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i.i38, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i35, i64 16, i1 false)
-  %cmp.i.i39.not = icmp slt i64 %__parent.014.i.i34, %__parent.066
+  %cmp.i.i39.not = icmp slt i64 %__parent.014.i.i3468, %__parent.066
   br i1 %cmp.i.i39.not, label %_ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEElS8_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_SH_T1_T2_.exit61, label %land.rhs.i.i31, !llvm.loop !2933
 
 _ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEElS8_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_SH_T1_T2_.exit61: ; preds = %land.rhs.i.i31, %while.body.i.i37, %if.end16.i25
-  %__holeIndex.addr.0.lcssa.i.i28 = phi i64 [ %__holeIndex.addr.1.i26, %if.end16.i25 ], [ %__parent.014.i.i34, %while.body.i.i37 ], [ %__holeIndex.addr.013.i.i32, %land.rhs.i.i31 ]
+  %__holeIndex.addr.0.lcssa.i.i28 = phi i64 [ %__holeIndex.addr.1.i26, %if.end16.i25 ], [ %__parent.014.i.i3468, %while.body.i.i37 ], [ %__holeIndex.addr.013.i.i32, %land.rhs.i.i31 ]
   %add.ptr5.i.i29 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.188", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i28
   store i64 %__value.sroa.0.0.copyload14, ptr %add.ptr5.i.i29, align 8
   %__value.sroa.3.0.add.ptr5.sroa_idx.i.i30 = getelementptr inbounds nuw i8, ptr %add.ptr5.i.i29, i64 8
@@ -124025,7 +124025,7 @@ land.rhs.i.i.i.i:                                 ; preds = %land.rhs.i.i.i.i.pr
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %add.ptr2.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.199", ptr %__first, i64 %__holeIndex.addr.014.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i, i64 16, i1 false)
-  %cmp.i.i.not.i.i = icmp ult i64 %__parent.015.in.i.i.i.i, 2
+  %cmp.i.i.not.i.i = icmp eq i64 %__parent.015.i.i56.i.i, 0
   br i1 %cmp.i.i.not.i.i, label %_ZSt10__pop_heapIPN6google8protobuf8internal8SortItemIjPKNS1_7MapPairIjjEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_SG_SG_RT0_.exit.i, label %land.rhs.i.i.i.i, !llvm.loop !2945
 
 _ZSt10__pop_heapIPN6google8protobuf8internal8SortItemIjPKNS1_7MapPairIjjEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_SG_SG_RT0_.exit.i: ; preds = %while.body.i.i.i.i, %land.rhs.i.i.i.i, %if.end16.i.i.i
@@ -124124,7 +124124,7 @@ land.rhs.i.i.i.us:                                ; preds = %land.rhs.i.i.i.us.p
 while.body.i.i.i.us:                              ; preds = %land.rhs.i.i.i.us
   %add.ptr2.i.i.i.us = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.199", ptr %__first, i64 %__holeIndex.addr.014.i.i.i.us
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.us, i64 16, i1 false)
-  %cmp.i.i.not.i.us = icmp ult i64 %__parent.015.in.i.i.i.us, 2
+  %cmp.i.i.not.i.us = icmp eq i64 %__parent.015.i.i56.i.us, 0
   br i1 %cmp.i.i.not.i.us, label %_ZSt10__pop_heapIPN6google8protobuf8internal8SortItemIjPKNS1_7MapPairIjjEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_SG_SG_RT0_.exit.us, label %land.rhs.i.i.i.us, !llvm.loop !2945
 
 _ZSt10__pop_heapIPN6google8protobuf8internal8SortItemIjPKNS1_7MapPairIjjEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_SG_SG_RT0_.exit.us: ; preds = %land.rhs.i.i.i.us, %while.body.i.i.i.us, %if.end16.i.i.us
@@ -124315,7 +124315,7 @@ _ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemIjPKNS1_7MapPairIjjEEEEl
   store i32 %__value.sroa.0.0.copyload11, ptr %add.ptr5.i.i, align 8
   %__value.sroa.310.0.add.ptr5.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %add.ptr5.i.i, i64 8
   store ptr %__value.sroa.3.0.copyload14, ptr %__value.sroa.310.0.add.ptr5.sroa_idx.i.i, align 8
-  %cmp668 = icmp ult i64 %sub, 2
+  %cmp668 = icmp eq i64 %div20, 0
   br i1 %cmp668, label %return, label %if.end8.split.lr.ph
 
 if.end8.split.lr.ph:                              ; preds = %_ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemIjPKNS1_7MapPairIjjEEEElS8_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_SH_T1_T2_.exit
@@ -124369,22 +124369,22 @@ if.end16.i28:                                     ; preds = %if.then9.i47, %whil
   br i1 %cmp13.i.i30.not, label %_ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemIjPKNS1_7MapPairIjjEEEElS8_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_SH_T1_T2_.exit64, label %land.rhs.i.i34
 
 land.rhs.i.i34:                                   ; preds = %if.end16.i28, %while.body.i.i40
-  %__holeIndex.addr.014.i.i35 = phi i64 [ %__parent.015.i.i37, %while.body.i.i40 ], [ %__holeIndex.addr.1.i29, %if.end16.i28 ]
+  %__holeIndex.addr.014.i.i35 = phi i64 [ %__parent.015.i.i3771, %while.body.i.i40 ], [ %__holeIndex.addr.1.i29, %if.end16.i28 ]
   %__parent.015.in.i.i36 = add nsw i64 %__holeIndex.addr.014.i.i35, -1
-  %__parent.015.i.i37 = sdiv i64 %__parent.015.in.i.i36, 2
-  %add.ptr.i.i38 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.199", ptr %__first, i64 %__parent.015.i.i37
+  %__parent.015.i.i3771 = lshr i64 %__parent.015.in.i.i36, 1
+  %add.ptr.i.i38 = getelementptr inbounds nuw %"struct.google::protobuf::internal::SortItem.199", ptr %__first, i64 %__parent.015.i.i3771
   %8 = load i32, ptr %add.ptr.i.i38, align 8
   %cmp.i.i.i.i39 = icmp ult i32 %8, %__value.sroa.0.0.copyload16
   br i1 %cmp.i.i.i.i39, label %while.body.i.i40, label %_ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemIjPKNS1_7MapPairIjjEEEElS8_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_SH_T1_T2_.exit64
 
 while.body.i.i40:                                 ; preds = %land.rhs.i.i34
-  %add.ptr2.i.i41 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.199", ptr %__first, i64 %__holeIndex.addr.014.i.i35
+  %add.ptr2.i.i41 = getelementptr inbounds nuw %"struct.google::protobuf::internal::SortItem.199", ptr %__first, i64 %__holeIndex.addr.014.i.i35
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i.i41, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i38, i64 16, i1 false)
-  %cmp.i.i42.not = icmp slt i64 %__parent.015.i.i37, %__parent.069
+  %cmp.i.i42.not = icmp slt i64 %__parent.015.i.i3771, %__parent.069
   br i1 %cmp.i.i42.not, label %_ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemIjPKNS1_7MapPairIjjEEEElS8_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_SH_T1_T2_.exit64, label %land.rhs.i.i34, !llvm.loop !2945
 
 _ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemIjPKNS1_7MapPairIjjEEEElS8_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_SH_T1_T2_.exit64: ; preds = %land.rhs.i.i34, %while.body.i.i40, %if.end16.i28
-  %__holeIndex.addr.0.lcssa.i.i31 = phi i64 [ %__holeIndex.addr.1.i29, %if.end16.i28 ], [ %__parent.015.i.i37, %while.body.i.i40 ], [ %__holeIndex.addr.014.i.i35, %land.rhs.i.i34 ]
+  %__holeIndex.addr.0.lcssa.i.i31 = phi i64 [ %__holeIndex.addr.1.i29, %if.end16.i28 ], [ %__parent.015.i.i3771, %while.body.i.i40 ], [ %__holeIndex.addr.014.i.i35, %land.rhs.i.i34 ]
   %add.ptr5.i.i32 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.199", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i31
   store i32 %__value.sroa.0.0.copyload16, ptr %add.ptr5.i.i32, align 8
   %__value.sroa.310.0.add.ptr5.sroa_idx.i.i33 = getelementptr inbounds nuw i8, ptr %add.ptr5.i.i32, i64 8
@@ -124788,7 +124788,7 @@ land.rhs.i.i.i.i:                                 ; preds = %land.rhs.i.i.i.i.pr
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %add.ptr2.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.210", ptr %__first, i64 %__holeIndex.addr.013.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i, i64 16, i1 false)
-  %cmp.i.i.not.i.i = icmp ult i64 %__parent.014.in.i.i.i.i, 2
+  %cmp.i.i.not.i.i = icmp eq i64 %__parent.014.i.i45.i.i, 0
   br i1 %cmp.i.i.not.i.i, label %_ZSt10__pop_heapIPN6google8protobuf8internal8SortItemImPKNS1_7MapPairImmEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_SG_SG_RT0_.exit.i, label %land.rhs.i.i.i.i, !llvm.loop !2957
 
 _ZSt10__pop_heapIPN6google8protobuf8internal8SortItemImPKNS1_7MapPairImmEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_SG_SG_RT0_.exit.i: ; preds = %while.body.i.i.i.i, %land.rhs.i.i.i.i, %if.end16.i.i.i
@@ -124887,7 +124887,7 @@ land.rhs.i.i.i.us:                                ; preds = %land.rhs.i.i.i.us.p
 while.body.i.i.i.us:                              ; preds = %land.rhs.i.i.i.us
   %add.ptr2.i.i.i.us = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.210", ptr %__first, i64 %__holeIndex.addr.013.i.i.i.us
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.us, i64 16, i1 false)
-  %cmp.i.i.not.i.us = icmp ult i64 %__parent.014.in.i.i.i.us, 2
+  %cmp.i.i.not.i.us = icmp eq i64 %__parent.014.i.i45.i.us, 0
   br i1 %cmp.i.i.not.i.us, label %_ZSt10__pop_heapIPN6google8protobuf8internal8SortItemImPKNS1_7MapPairImmEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_SG_SG_RT0_.exit.us, label %land.rhs.i.i.i.us, !llvm.loop !2957
 
 _ZSt10__pop_heapIPN6google8protobuf8internal8SortItemImPKNS1_7MapPairImmEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_SG_SG_RT0_.exit.us: ; preds = %land.rhs.i.i.i.us, %while.body.i.i.i.us, %if.end16.i.i.us
@@ -125078,7 +125078,7 @@ _ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemImPKNS1_7MapPairImmEEEEl
   store i64 %__value.sroa.0.0.copyload10, ptr %add.ptr5.i.i, align 8
   %__value.sroa.3.0.add.ptr5.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %add.ptr5.i.i, i64 8
   store ptr %__value.sroa.2.0.copyload12, ptr %__value.sroa.3.0.add.ptr5.sroa_idx.i.i, align 8
-  %cmp665 = icmp ult i64 %sub, 2
+  %cmp665 = icmp eq i64 %div17, 0
   br i1 %cmp665, label %return, label %if.end8.split.lr.ph
 
 if.end8.split.lr.ph:                              ; preds = %_ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemImPKNS1_7MapPairImmEEEElS8_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_SH_T1_T2_.exit
@@ -125132,22 +125132,22 @@ if.end16.i25:                                     ; preds = %if.then9.i44, %whil
   br i1 %cmp12.i.i27.not, label %_ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemImPKNS1_7MapPairImmEEEElS8_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_SH_T1_T2_.exit61, label %land.rhs.i.i31
 
 land.rhs.i.i31:                                   ; preds = %if.end16.i25, %while.body.i.i37
-  %__holeIndex.addr.013.i.i32 = phi i64 [ %__parent.014.i.i34, %while.body.i.i37 ], [ %__holeIndex.addr.1.i26, %if.end16.i25 ]
+  %__holeIndex.addr.013.i.i32 = phi i64 [ %__parent.014.i.i3468, %while.body.i.i37 ], [ %__holeIndex.addr.1.i26, %if.end16.i25 ]
   %__parent.014.in.i.i33 = add nsw i64 %__holeIndex.addr.013.i.i32, -1
-  %__parent.014.i.i34 = sdiv i64 %__parent.014.in.i.i33, 2
-  %add.ptr.i.i35 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.210", ptr %__first, i64 %__parent.014.i.i34
+  %__parent.014.i.i3468 = lshr i64 %__parent.014.in.i.i33, 1
+  %add.ptr.i.i35 = getelementptr inbounds nuw %"struct.google::protobuf::internal::SortItem.210", ptr %__first, i64 %__parent.014.i.i3468
   %8 = load i64, ptr %add.ptr.i.i35, align 8
   %cmp.i.i.i.i36 = icmp ult i64 %8, %__value.sroa.0.0.copyload14
   br i1 %cmp.i.i.i.i36, label %while.body.i.i37, label %_ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemImPKNS1_7MapPairImmEEEElS8_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_SH_T1_T2_.exit61
 
 while.body.i.i37:                                 ; preds = %land.rhs.i.i31
-  %add.ptr2.i.i38 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.210", ptr %__first, i64 %__holeIndex.addr.013.i.i32
+  %add.ptr2.i.i38 = getelementptr inbounds nuw %"struct.google::protobuf::internal::SortItem.210", ptr %__first, i64 %__holeIndex.addr.013.i.i32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i.i38, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i35, i64 16, i1 false)
-  %cmp.i.i39.not = icmp slt i64 %__parent.014.i.i34, %__parent.066
+  %cmp.i.i39.not = icmp slt i64 %__parent.014.i.i3468, %__parent.066
   br i1 %cmp.i.i39.not, label %_ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemImPKNS1_7MapPairImmEEEElS8_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_SH_T1_T2_.exit61, label %land.rhs.i.i31, !llvm.loop !2957
 
 _ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemImPKNS1_7MapPairImmEEEElS8_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_SH_T1_T2_.exit61: ; preds = %land.rhs.i.i31, %while.body.i.i37, %if.end16.i25
-  %__holeIndex.addr.0.lcssa.i.i28 = phi i64 [ %__holeIndex.addr.1.i26, %if.end16.i25 ], [ %__parent.014.i.i34, %while.body.i.i37 ], [ %__holeIndex.addr.013.i.i32, %land.rhs.i.i31 ]
+  %__holeIndex.addr.0.lcssa.i.i28 = phi i64 [ %__holeIndex.addr.1.i26, %if.end16.i25 ], [ %__parent.014.i.i3468, %while.body.i.i37 ], [ %__holeIndex.addr.013.i.i32, %land.rhs.i.i31 ]
   %add.ptr5.i.i29 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.210", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i28
   store i64 %__value.sroa.0.0.copyload14, ptr %add.ptr5.i.i29, align 8
   %__value.sroa.3.0.add.ptr5.sroa_idx.i.i30 = getelementptr inbounds nuw i8, ptr %add.ptr5.i.i29, i64 8
@@ -125560,7 +125560,7 @@ land.rhs.i.i.i.i:                                 ; preds = %land.rhs.i.i.i.i.pr
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %add.ptr2.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.221", ptr %__first, i64 %__holeIndex.addr.014.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i, i64 16, i1 false)
-  %cmp.i.i.not.i.i = icmp ult i64 %__parent.015.in.i.i.i.i, 2
+  %cmp.i.i.not.i.i = icmp eq i64 %__parent.015.i.i56.i.i, 0
   br i1 %cmp.i.i.not.i.i, label %_ZSt10__pop_heapIPN6google8protobuf8internal8SortItemIiPKNS1_7MapPairIifEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_SG_SG_RT0_.exit.i, label %land.rhs.i.i.i.i, !llvm.loop !2969
 
 _ZSt10__pop_heapIPN6google8protobuf8internal8SortItemIiPKNS1_7MapPairIifEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_SG_SG_RT0_.exit.i: ; preds = %while.body.i.i.i.i, %land.rhs.i.i.i.i, %if.end16.i.i.i
@@ -125659,7 +125659,7 @@ land.rhs.i.i.i.us:                                ; preds = %land.rhs.i.i.i.us.p
 while.body.i.i.i.us:                              ; preds = %land.rhs.i.i.i.us
   %add.ptr2.i.i.i.us = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.221", ptr %__first, i64 %__holeIndex.addr.014.i.i.i.us
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.us, i64 16, i1 false)
-  %cmp.i.i.not.i.us = icmp ult i64 %__parent.015.in.i.i.i.us, 2
+  %cmp.i.i.not.i.us = icmp eq i64 %__parent.015.i.i56.i.us, 0
   br i1 %cmp.i.i.not.i.us, label %_ZSt10__pop_heapIPN6google8protobuf8internal8SortItemIiPKNS1_7MapPairIifEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_SG_SG_RT0_.exit.us, label %land.rhs.i.i.i.us, !llvm.loop !2969
 
 _ZSt10__pop_heapIPN6google8protobuf8internal8SortItemIiPKNS1_7MapPairIifEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_SG_SG_RT0_.exit.us: ; preds = %land.rhs.i.i.i.us, %while.body.i.i.i.us, %if.end16.i.i.us
@@ -125850,7 +125850,7 @@ _ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemIiPKNS1_7MapPairIifEEEEl
   store i32 %__value.sroa.0.0.copyload11, ptr %add.ptr5.i.i, align 8
   %__value.sroa.310.0.add.ptr5.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %add.ptr5.i.i, i64 8
   store ptr %__value.sroa.3.0.copyload14, ptr %__value.sroa.310.0.add.ptr5.sroa_idx.i.i, align 8
-  %cmp668 = icmp ult i64 %sub, 2
+  %cmp668 = icmp eq i64 %div20, 0
   br i1 %cmp668, label %return, label %if.end8.split.lr.ph
 
 if.end8.split.lr.ph:                              ; preds = %_ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemIiPKNS1_7MapPairIifEEEElS8_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_SH_T1_T2_.exit
@@ -125904,22 +125904,22 @@ if.end16.i28:                                     ; preds = %if.then9.i47, %whil
   br i1 %cmp13.i.i30.not, label %_ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemIiPKNS1_7MapPairIifEEEElS8_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_SH_T1_T2_.exit64, label %land.rhs.i.i34
 
 land.rhs.i.i34:                                   ; preds = %if.end16.i28, %while.body.i.i40
-  %__holeIndex.addr.014.i.i35 = phi i64 [ %__parent.015.i.i37, %while.body.i.i40 ], [ %__holeIndex.addr.1.i29, %if.end16.i28 ]
+  %__holeIndex.addr.014.i.i35 = phi i64 [ %__parent.015.i.i3771, %while.body.i.i40 ], [ %__holeIndex.addr.1.i29, %if.end16.i28 ]
   %__parent.015.in.i.i36 = add nsw i64 %__holeIndex.addr.014.i.i35, -1
-  %__parent.015.i.i37 = sdiv i64 %__parent.015.in.i.i36, 2
-  %add.ptr.i.i38 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.221", ptr %__first, i64 %__parent.015.i.i37
+  %__parent.015.i.i3771 = lshr i64 %__parent.015.in.i.i36, 1
+  %add.ptr.i.i38 = getelementptr inbounds nuw %"struct.google::protobuf::internal::SortItem.221", ptr %__first, i64 %__parent.015.i.i3771
   %8 = load i32, ptr %add.ptr.i.i38, align 8
   %cmp.i.i.i.i39 = icmp slt i32 %8, %__value.sroa.0.0.copyload16
   br i1 %cmp.i.i.i.i39, label %while.body.i.i40, label %_ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemIiPKNS1_7MapPairIifEEEElS8_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_SH_T1_T2_.exit64
 
 while.body.i.i40:                                 ; preds = %land.rhs.i.i34
-  %add.ptr2.i.i41 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.221", ptr %__first, i64 %__holeIndex.addr.014.i.i35
+  %add.ptr2.i.i41 = getelementptr inbounds nuw %"struct.google::protobuf::internal::SortItem.221", ptr %__first, i64 %__holeIndex.addr.014.i.i35
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i.i41, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i38, i64 16, i1 false)
-  %cmp.i.i42.not = icmp slt i64 %__parent.015.i.i37, %__parent.069
+  %cmp.i.i42.not = icmp slt i64 %__parent.015.i.i3771, %__parent.069
   br i1 %cmp.i.i42.not, label %_ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemIiPKNS1_7MapPairIifEEEElS8_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_SH_T1_T2_.exit64, label %land.rhs.i.i34, !llvm.loop !2969
 
 _ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemIiPKNS1_7MapPairIifEEEElS8_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_SH_T1_T2_.exit64: ; preds = %land.rhs.i.i34, %while.body.i.i40, %if.end16.i28
-  %__holeIndex.addr.0.lcssa.i.i31 = phi i64 [ %__holeIndex.addr.1.i29, %if.end16.i28 ], [ %__parent.015.i.i37, %while.body.i.i40 ], [ %__holeIndex.addr.014.i.i35, %land.rhs.i.i34 ]
+  %__holeIndex.addr.0.lcssa.i.i31 = phi i64 [ %__holeIndex.addr.1.i29, %if.end16.i28 ], [ %__parent.015.i.i3771, %while.body.i.i40 ], [ %__holeIndex.addr.014.i.i35, %land.rhs.i.i34 ]
   %add.ptr5.i.i32 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.221", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i31
   store i32 %__value.sroa.0.0.copyload16, ptr %add.ptr5.i.i32, align 8
   %__value.sroa.310.0.add.ptr5.sroa_idx.i.i33 = getelementptr inbounds nuw i8, ptr %add.ptr5.i.i32, i64 8
@@ -126332,7 +126332,7 @@ land.rhs.i.i.i.i:                                 ; preds = %land.rhs.i.i.i.i.pr
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %add.ptr2.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.232", ptr %__first, i64 %__holeIndex.addr.014.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i, i64 16, i1 false)
-  %cmp.i.i.not.i.i = icmp ult i64 %__parent.015.in.i.i.i.i, 2
+  %cmp.i.i.not.i.i = icmp eq i64 %__parent.015.i.i56.i.i, 0
   br i1 %cmp.i.i.not.i.i, label %_ZSt10__pop_heapIPN6google8protobuf8internal8SortItemIiPKNS1_7MapPairIidEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_SG_SG_RT0_.exit.i, label %land.rhs.i.i.i.i, !llvm.loop !2981
 
 _ZSt10__pop_heapIPN6google8protobuf8internal8SortItemIiPKNS1_7MapPairIidEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_SG_SG_RT0_.exit.i: ; preds = %while.body.i.i.i.i, %land.rhs.i.i.i.i, %if.end16.i.i.i
@@ -126431,7 +126431,7 @@ land.rhs.i.i.i.us:                                ; preds = %land.rhs.i.i.i.us.p
 while.body.i.i.i.us:                              ; preds = %land.rhs.i.i.i.us
   %add.ptr2.i.i.i.us = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.232", ptr %__first, i64 %__holeIndex.addr.014.i.i.i.us
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.us, i64 16, i1 false)
-  %cmp.i.i.not.i.us = icmp ult i64 %__parent.015.in.i.i.i.us, 2
+  %cmp.i.i.not.i.us = icmp eq i64 %__parent.015.i.i56.i.us, 0
   br i1 %cmp.i.i.not.i.us, label %_ZSt10__pop_heapIPN6google8protobuf8internal8SortItemIiPKNS1_7MapPairIidEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_SG_SG_RT0_.exit.us, label %land.rhs.i.i.i.us, !llvm.loop !2981
 
 _ZSt10__pop_heapIPN6google8protobuf8internal8SortItemIiPKNS1_7MapPairIidEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_SG_SG_RT0_.exit.us: ; preds = %land.rhs.i.i.i.us, %while.body.i.i.i.us, %if.end16.i.i.us
@@ -126622,7 +126622,7 @@ _ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemIiPKNS1_7MapPairIidEEEEl
   store i32 %__value.sroa.0.0.copyload11, ptr %add.ptr5.i.i, align 8
   %__value.sroa.310.0.add.ptr5.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %add.ptr5.i.i, i64 8
   store ptr %__value.sroa.3.0.copyload14, ptr %__value.sroa.310.0.add.ptr5.sroa_idx.i.i, align 8
-  %cmp668 = icmp ult i64 %sub, 2
+  %cmp668 = icmp eq i64 %div20, 0
   br i1 %cmp668, label %return, label %if.end8.split.lr.ph
 
 if.end8.split.lr.ph:                              ; preds = %_ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemIiPKNS1_7MapPairIidEEEElS8_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_SH_T1_T2_.exit
@@ -126676,22 +126676,22 @@ if.end16.i28:                                     ; preds = %if.then9.i47, %whil
   br i1 %cmp13.i.i30.not, label %_ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemIiPKNS1_7MapPairIidEEEElS8_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_SH_T1_T2_.exit64, label %land.rhs.i.i34
 
 land.rhs.i.i34:                                   ; preds = %if.end16.i28, %while.body.i.i40
-  %__holeIndex.addr.014.i.i35 = phi i64 [ %__parent.015.i.i37, %while.body.i.i40 ], [ %__holeIndex.addr.1.i29, %if.end16.i28 ]
+  %__holeIndex.addr.014.i.i35 = phi i64 [ %__parent.015.i.i3771, %while.body.i.i40 ], [ %__holeIndex.addr.1.i29, %if.end16.i28 ]
   %__parent.015.in.i.i36 = add nsw i64 %__holeIndex.addr.014.i.i35, -1
-  %__parent.015.i.i37 = sdiv i64 %__parent.015.in.i.i36, 2
-  %add.ptr.i.i38 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.232", ptr %__first, i64 %__parent.015.i.i37
+  %__parent.015.i.i3771 = lshr i64 %__parent.015.in.i.i36, 1
+  %add.ptr.i.i38 = getelementptr inbounds nuw %"struct.google::protobuf::internal::SortItem.232", ptr %__first, i64 %__parent.015.i.i3771
   %8 = load i32, ptr %add.ptr.i.i38, align 8
   %cmp.i.i.i.i39 = icmp slt i32 %8, %__value.sroa.0.0.copyload16
   br i1 %cmp.i.i.i.i39, label %while.body.i.i40, label %_ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemIiPKNS1_7MapPairIidEEEElS8_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_SH_T1_T2_.exit64
 
 while.body.i.i40:                                 ; preds = %land.rhs.i.i34
-  %add.ptr2.i.i41 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.232", ptr %__first, i64 %__holeIndex.addr.014.i.i35
+  %add.ptr2.i.i41 = getelementptr inbounds nuw %"struct.google::protobuf::internal::SortItem.232", ptr %__first, i64 %__holeIndex.addr.014.i.i35
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i.i41, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i38, i64 16, i1 false)
-  %cmp.i.i42.not = icmp slt i64 %__parent.015.i.i37, %__parent.069
+  %cmp.i.i42.not = icmp slt i64 %__parent.015.i.i3771, %__parent.069
   br i1 %cmp.i.i42.not, label %_ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemIiPKNS1_7MapPairIidEEEElS8_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_SH_T1_T2_.exit64, label %land.rhs.i.i34, !llvm.loop !2981
 
 _ZSt13__adjust_heapIPN6google8protobuf8internal8SortItemIiPKNS1_7MapPairIidEEEElS8_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_T0_SH_T1_T2_.exit64: ; preds = %land.rhs.i.i34, %while.body.i.i40, %if.end16.i28
-  %__holeIndex.addr.0.lcssa.i.i31 = phi i64 [ %__holeIndex.addr.1.i29, %if.end16.i28 ], [ %__parent.015.i.i37, %while.body.i.i40 ], [ %__holeIndex.addr.014.i.i35, %land.rhs.i.i34 ]
+  %__holeIndex.addr.0.lcssa.i.i31 = phi i64 [ %__holeIndex.addr.1.i29, %if.end16.i28 ], [ %__parent.015.i.i3771, %while.body.i.i40 ], [ %__holeIndex.addr.014.i.i35, %land.rhs.i.i34 ]
   %add.ptr5.i.i32 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.232", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i31
   store i32 %__value.sroa.0.0.copyload16, ptr %add.ptr5.i.i32, align 8
   %__value.sroa.310.0.add.ptr5.sroa_idx.i.i33 = getelementptr inbounds nuw i8, ptr %add.ptr5.i.i32, i64 8
@@ -127118,7 +127118,7 @@ land.rhs.i.i.i:                                   ; preds = %while.body.i.i.i, %
 while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   %add.ptr2.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.243", ptr %__first, i64 %__holeIndex.addr.014.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i, i64 16, i1 false)
-  %cmp.i.i.not.i = icmp ult i64 %__parent.015.in.i.i.i, 2
+  %cmp.i.i.not.i = icmp eq i64 %__parent.015.i.i89.i, 0
   br i1 %cmp.i.i.not.i, label %_ZSt10__pop_heapIPN6google8protobuf8internal8SortItemIbPKNS1_7MapPairIbbEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_SG_SG_RT0_.exit, label %land.rhs.i.i.i, !llvm.loop !2993
 
 _ZSt10__pop_heapIPN6google8protobuf8internal8SortItemIbPKNS1_7MapPairIbbEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_19CompareByFirstFieldIS8_EEEEEvT_SG_SG_RT0_.exit: ; preds = %land.rhs.i.i.i, %while.body.i.i.i, %if.end16.i.i

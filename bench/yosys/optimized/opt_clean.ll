@@ -92039,7 +92039,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL7SigSpecENS0_8hash_opsIS3_EEE7do_hashERKS3_.exi
 1809:                                             ; preds = %.loopexit3232
   %1810 = lshr i64 %1805, 32
   %1811 = trunc nuw i64 %1810 to i32
-  %.not.i.i.i.i.i555 = icmp ult i64 %1805, 4294967296
+  %.not.i.i.i.i.i555 = icmp eq i64 %1810, 0
   br i1 %.not.i.i.i.i.i555, label %1812, label %_ZNK5Yosys7hashlib4poolINS_5RTLIL7SigSpecENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i
 
 1812:                                             ; preds = %1809
@@ -113685,7 +113685,7 @@ define linkonce_odr void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPN5Yo
 49:                                               ; preds = %42
   %50 = getelementptr inbounds %"struct.Yosys::hashlib::pool<Yosys::RTLIL::Cell *>::entry_t", ptr %0, i64 %.019.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %50, ptr noundef nonnull align 8 dereferenceable(12) %43, i64 12, i1 false), !tbaa.struct !799
-  %.not12.i = icmp ult i64 %.0920.in.i.i.i, 2
+  %.not12.i = icmp eq i64 %.0920.i.i1011.i, 0
   br i1 %.not12.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolIPNS2_5RTLIL4CellENS3_8hash_opsIS7_EEE7entry_tESt6vectorISB_SaISB_EEEENS0_5__ops15_Iter_comp_iterIZNSA_4sortINS5_15sort_by_name_idIS6_EEEEvT_EUlRKSB_SO_E_EEEvSM_SM_SM_RT0_.exit, label %42, !llvm.loop !1150
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4poolIPNS2_5RTLIL4CellENS3_8hash_opsIS7_EEE7entry_tESt6vectorISB_SaISB_EEEENS0_5__ops15_Iter_comp_iterIZNSA_4sortINS5_15sort_by_name_idIS6_EEEEvT_EUlRKSB_SO_E_EEEvSM_SM_SM_RT0_.exit: ; preds = %42, %49, %40

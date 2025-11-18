@@ -22671,18 +22671,15 @@ define hidden void @"_ZN9itertools11kmerge_impl17HeadTail$LT$I$GT$3new17h9ea0c6f
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN9itertools11kmerge_impl7heapify17h4a56a904fe973f66E.llvm.18087163056066412648(ptr noalias noundef nonnull align 8 captures(none) %0, i64 noundef %1, ptr noalias noundef nonnull readnone align 1 captures(none) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %.not6 = icmp ult i64 %1, 2
-  br i1 %.not6, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %3
   %4 = lshr i64 %1, 1
-  br label %.lr.ph
+  %.not6 = icmp eq i64 %4, 0
+  br i1 %.not6, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.sroa.01.07 = phi i64 [ %5, %.lr.ph ], [ %4, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %3, %.lr.ph
+  %.sroa.01.07 = phi i64 [ %5, %.lr.ph ], [ %4, %3 ]
   %5 = add nsw i64 %.sroa.01.07, -1
   tail call void @_ZN9itertools11kmerge_impl9sift_down17h802334ce36811956E.llvm.18087163056066412648(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, i64 noundef %5, ptr noalias nonnull align 8 poison)
   %.not = icmp eq i64 %5, 0
@@ -22691,18 +22688,15 @@ define hidden void @_ZN9itertools11kmerge_impl7heapify17h4a56a904fe973f66E.llvm.
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN9itertools11kmerge_impl7heapify17h4be243e0478bbb1cE.llvm.18087163056066412648(ptr noalias noundef nonnull align 8 captures(none) %0, i64 noundef %1, ptr noalias noundef nonnull readnone align 1 captures(none) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %.not6 = icmp ult i64 %1, 2
-  br i1 %.not6, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %3
   %4 = lshr i64 %1, 1
-  br label %.lr.ph
+  %.not6 = icmp eq i64 %4, 0
+  br i1 %.not6, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.sroa.01.07 = phi i64 [ %5, %.lr.ph ], [ %4, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %3, %.lr.ph
+  %.sroa.01.07 = phi i64 [ %5, %.lr.ph ], [ %4, %3 ]
   %5 = add nsw i64 %.sroa.01.07, -1
   tail call void @_ZN9itertools11kmerge_impl9sift_down17hb2e50469f998cf18E.llvm.18087163056066412648(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, i64 noundef %5, ptr noalias nonnull align 8 poison)
   %.not = icmp eq i64 %5, 0
@@ -22776,15 +22770,12 @@ define hidden void @_ZN9itertools11kmerge_impl9kmerge_by17h383445496ef5c48dE(ptr
 "_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hf404524cbcc4be4eE.exit": ; preds = %18
   %23 = load ptr, ptr %21, align 8, !nonnull !15, !noundef !15
   %24 = load i64, ptr %22, align 8, !noundef !15
-  %.not6.i = icmp ult i64 %24, 2
-  br i1 %.not6.i, label %.loopexit12, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hf404524cbcc4be4eE.exit"
   %25 = lshr i64 %24, 1
-  br label %.lr.ph.i
+  %.not6.i = icmp eq i64 %25, 0
+  br i1 %.not6.i, label %.loopexit12, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.noexc, %.lr.ph.preheader.i
-  %.sroa.01.07.i = phi i64 [ %26, %.noexc ], [ %25, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hf404524cbcc4be4eE.exit", %.noexc
+  %.sroa.01.07.i = phi i64 [ %26, %.noexc ], [ %25, %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hf404524cbcc4be4eE.exit" ]
   %26 = add nsw i64 %.sroa.01.07.i, -1
   invoke void @_ZN9itertools11kmerge_impl9sift_down17hb2e50469f998cf18E.llvm.18087163056066412648(ptr noalias noundef nonnull align 8 %23, i64 noundef %24, i64 noundef %26, ptr noalias nonnull align 8 poison)
           to label %.noexc unwind label %.loopexit
@@ -22872,15 +22863,12 @@ define hidden void @_ZN9itertools11kmerge_impl9kmerge_by17hb0ec7ba6c0dedc40E(ptr
 "_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h32f77fe1e9146573E.exit": ; preds = %18
   %23 = load ptr, ptr %21, align 8, !nonnull !15, !noundef !15
   %24 = load i64, ptr %22, align 8, !noundef !15
-  %.not6.i = icmp ult i64 %24, 2
-  br i1 %.not6.i, label %.loopexit12, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h32f77fe1e9146573E.exit"
   %25 = lshr i64 %24, 1
-  br label %.lr.ph.i
+  %.not6.i = icmp eq i64 %25, 0
+  br i1 %.not6.i, label %.loopexit12, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.noexc, %.lr.ph.preheader.i
-  %.sroa.01.07.i = phi i64 [ %26, %.noexc ], [ %25, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h32f77fe1e9146573E.exit", %.noexc
+  %.sroa.01.07.i = phi i64 [ %26, %.noexc ], [ %25, %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h32f77fe1e9146573E.exit" ]
   %26 = add nsw i64 %.sroa.01.07.i, -1
   invoke void @_ZN9itertools11kmerge_impl9sift_down17h802334ce36811956E.llvm.18087163056066412648(ptr noalias noundef nonnull align 8 %23, i64 noundef %24, i64 noundef %26, ptr noalias nonnull align 8 poison)
           to label %.noexc unwind label %.loopexit

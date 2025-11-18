@@ -397,7 +397,7 @@ parse_leb.exit:                                   ; preds = %111
   %.0.i = phi i32 [ 0, %141 ], [ %145, %144 ]
   %145 = add nuw nsw i32 %.0.i, 1
   %146 = lshr i32 %.04.i, 7
-  %.not.i319 = icmp ult i32 %.04.i, 128
+  %.not.i319 = icmp eq i32 %146, 0
   br i1 %.not.i319, label %calc_leb_size.exit, label %144, !llvm.loop !50
 
 calc_leb_size.exit:                               ; preds = %144
@@ -577,7 +577,7 @@ write_leb.exit:                                   ; preds = %.lr.ph.i, %197
   %.0.i321 = phi i32 [ 0, %220 ], [ %227, %226 ]
   %227 = add nuw nsw i32 %.0.i321, 1
   %228 = lshr i32 %.04.i320, 7
-  %.not.i322 = icmp ult i32 %.04.i320, 128
+  %.not.i322 = icmp eq i32 %228, 0
   br i1 %.not.i322, label %calc_leb_size.exit323, label %226, !llvm.loop !50
 
 calc_leb_size.exit323:                            ; preds = %226

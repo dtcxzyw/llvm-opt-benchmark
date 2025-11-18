@@ -12649,11 +12649,11 @@ define internal fastcc void @_ZL19isOptionContainedInRKN4llvm11SmallVectorIN5cla
   %9 = zext i32 %.8.val to i64
   %.idx1.i = mul nuw nsw i64 %9, 88
   %10 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %.idx1.i
-  %.not.i = icmp ult i32 %.8.val, 4
+  %11 = lshr i64 %9, 2
+  %.not.i = icmp eq i64 %11, 0
   br i1 %.not.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %8
-  %11 = lshr i64 %9, 2
   %12 = mul nuw nsw i64 %11, 352
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %.0.val, i64 %12
   %13 = icmp eq i64 %.fr36.i.i.i.i, 0

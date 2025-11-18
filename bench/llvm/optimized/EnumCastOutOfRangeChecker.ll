@@ -1158,9 +1158,9 @@ _ZN9__gnu_cxx5__ops11__pred_iterIN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEEN
   %153 = load ptr, ptr %2, align 8, !tbaa !143
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 600
   %155 = load ptr, ptr %154, align 8, !tbaa !144
-  %.val1293.i = load ptr, ptr %25, align 8, !tbaa !101
+  %.val1294.i = load ptr, ptr %25, align 8, !tbaa !101
   %156 = zext i32 %146 to i64
-  %157 = getelementptr inbounds nuw %"class.llvm::APSInt", ptr %.val1293.i, i64 %156
+  %157 = getelementptr inbounds nuw %"class.llvm::APSInt", ptr %.val1294.i, i64 %156
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEC2ERKS4_.exit.i.i.i.i.i.i
 
@@ -1187,9 +1187,8 @@ _ZN9__gnu_cxx5__ops11__pred_iterIN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEEN
 _ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEC2ERKS4_.exit.i.i.i.i.i.i: ; preds = %158, %_ZN9__gnu_cxx5__ops11__pred_iterIN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEENS0_10_Iter_predIT_EES5_.exit.thread.i.i.i.i.i
   %164 = phi ptr [ %163, %158 ], [ %157, %_ZN9__gnu_cxx5__ops11__pred_iterIN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEENS0_10_Iter_predIT_EES5_.exit.thread.i.i.i.i.i ]
   %165 = phi i64 [ %162, %158 ], [ %156, %_ZN9__gnu_cxx5__ops11__pred_iterIN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEENS0_10_Iter_predIT_EES5_.exit.thread.i.i.i.i.i ]
-  %.val1296.i = phi ptr [ %.val12.i, %158 ], [ %.val1293.i, %_ZN9__gnu_cxx5__ops11__pred_iterIN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEENS0_10_Iter_predIT_EES5_.exit.thread.i.i.i.i.i ]
+  %.val1295.i = phi ptr [ %.val12.i, %158 ], [ %.val1294.i, %_ZN9__gnu_cxx5__ops11__pred_iterIN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEENS0_10_Iter_predIT_EES5_.exit.thread.i.i.i.i.i ]
   %166 = phi ptr [ %161, %158 ], [ %155, %_ZN9__gnu_cxx5__ops11__pred_iterIN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEENS0_10_Iter_predIT_EES5_.exit.thread.i.i.i.i.i ]
-  %.val1394.i = phi i32 [ %.val13.pre.i, %158 ], [ %146, %_ZN9__gnu_cxx5__ops11__pred_iterIN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEENS0_10_Iter_predIT_EES5_.exit.thread.i.i.i.i.i ]
   store ptr %.fca.0.extract.i, ptr %22, align 8
   %167 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i8 %.fca.1.extract.i, ptr %167, align 8
@@ -1198,16 +1197,13 @@ _ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEC2E
   %169 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr %166, ptr %169, align 8, !tbaa !91
   %170 = ptrtoint ptr %164 to i64
-  %.not.i.i = icmp ult i32 %.val1394.i, 4
-  br i1 %.not.i.i, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.preheader.i.i
-
-.lr.ph.i.i.i.i.i.preheader.i.i:                   ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEC2ERKS4_.exit.i.i.i.i.i.i
   %171 = lshr i64 %165, 2
-  br label %.lr.ph.i.i.i.i.i.i.i
+  %.not.i.i = icmp eq i64 %171, 0
+  br i1 %.not.i.i, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %182, %.lr.ph.i.i.i.i.i.preheader.i.i
-  %.032.i.i.i.i.i.i.i = phi i64 [ %184, %182 ], [ %171, %.lr.ph.i.i.i.i.i.preheader.i.i ]
-  %.02931.i.i.i.i.i.i.i = phi ptr [ %183, %182 ], [ %.val1296.i, %.lr.ph.i.i.i.i.i.preheader.i.i ]
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEC2ERKS4_.exit.i.i.i.i.i.i, %182
+  %.032.i.i.i.i.i.i.i = phi i64 [ %184, %182 ], [ %171, %_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEC2ERKS4_.exit.i.i.i.i.i.i ]
+  %.02931.i.i.i.i.i.i.i = phi ptr [ %183, %182 ], [ %.val1295.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEC2ERKS4_.exit.i.i.i.i.i.i ]
   %172 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEclIPN4llvm6APSIntEEEbT_(ptr noundef nonnull readonly align 8 dereferenceable(32) %22, ptr noundef %.02931.i.i.i.i.i.i.i)
   br i1 %172, label %_ZSt9__find_ifIPN4llvm6APSIntEN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEEET_S9_S9_T0_St26random_access_iterator_tag.exit.i.i.i.i.i.i, label %173
 
@@ -1240,7 +1236,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEC2E
 
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %._crit_edge.loopexit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEC2ERKS4_.exit.i.i.i.i.i.i
   %.pre-phi34.i.i.i.i.i.i.i = phi i64 [ %186, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %165, %_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEC2ERKS4_.exit.i.i.i.i.i.i ]
-  %.029.lcssa.i.i.i.i.i.i.i = phi ptr [ %183, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %.val1296.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEC2ERKS4_.exit.i.i.i.i.i.i ]
+  %.029.lcssa.i.i.i.i.i.i.i = phi ptr [ %183, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %.val1295.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEC2ERKS4_.exit.i.i.i.i.i.i ]
   switch i64 %.pre-phi34.i.i.i.i.i.i.i, label %197 [
     i64 3, label %187
     i64 2, label %191

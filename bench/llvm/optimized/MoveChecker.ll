@@ -7133,8 +7133,8 @@ _ZN4llvm8dyn_castIN5clang4ento15CXXInstanceCallEKNS2_9CallEventEEEDcPT0_.exit.th
 .lr.ph.i:                                         ; preds = %_ZN4llvm8dyn_castIN5clang4ento15CXXInstanceCallEKNS2_9CallEventEEEDcPT0_.exit.thread.i
   %.idx4.i.i = shl nuw nsw i64 %.8.val.fr.i, 3
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 %.idx4.i.i
-  %.not.i.i7 = icmp ult i64 %.8.val.fr.i, 4
   %35 = lshr i64 %.8.val.fr.i, 2
+  %.not.i.i7 = icmp eq i64 %35, 0
   %36 = and i64 %.idx4.i.i, 9223372036854775776
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %.sroa.0.0.copyload, i64 %36
   %37 = and i64 %.8.val.fr.i, 3
@@ -7152,11 +7152,10 @@ _ZN4llvm8dyn_castIN5clang4ento15CXXInstanceCallEKNS2_9CallEventEEEDcPT0_.exit.th
   br i1 %.not25.us.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit28.us.i, label %._crit_edge.i.i.i.i.us.i
 
 ._crit_edge.i.i.i.i.us.i:                         ; preds = %39
-  switch i64 %.8.val.fr.i, label %default.unreachable [
+  switch i64 %.8.val.fr.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit28.us.i [
     i64 3, label %41
     i64 2, label %._crit_edge._crit_edge.i.i.i.i.us.i
     i64 1, label %._crit_edge._crit_edge52.i.i.i.i.us.i
-    i64 0, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit28.us.i
   ]
 
 41:                                               ; preds = %._crit_edge.i.i.i.i.us.i
@@ -7215,7 +7214,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.us.i: ; pred
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit28.us.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit28.us.i: ; preds = %56, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.us.i, %_ZN4llvm12is_containedIRNS_8ArrayRefIPKN5clang4ento9MemRegionEEES6_EEbOT_RKT0_.exit.us.i, %._crit_edge._crit_edge52.i.i.i.i.us.i, %._crit_edge.i.i.i.i.us.i, %39
-  %.sroa.09.3 = phi ptr [ %.sroa.09.2, %39 ], [ %.sroa.09.2, %_ZN4llvm12is_containedIRNS_8ArrayRefIPKN5clang4ento9MemRegionEEES6_EEbOT_RKT0_.exit.us.i ], [ %54, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.us.i ], [ %54, %56 ], [ %.sroa.09.2, %._crit_edge._crit_edge52.i.i.i.i.us.i ], [ %.sroa.09.2, %._crit_edge.i.i.i.i.us.i ]
+  %.sroa.09.3 = phi ptr [ %.sroa.09.2, %39 ], [ %.sroa.09.2, %._crit_edge.i.i.i.i.us.i ], [ %.sroa.09.2, %_ZN4llvm12is_containedIRNS_8ArrayRefIPKN5clang4ento9MemRegionEEES6_EEbOT_RKT0_.exit.us.i ], [ %54, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.us.i ], [ %54, %56 ], [ %.sroa.09.2, %._crit_edge._crit_edge52.i.i.i.i.us.i ]
   %57 = getelementptr inbounds nuw i8, ptr %.01818.us.i, i64 8
   %.not24.us.i = icmp eq ptr %57, %33
   br i1 %.not24.us.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, label %39
@@ -7263,7 +7262,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit28.us.i: ; pr
   br i1 %78, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !609
 
 ._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %75
-  switch i64 %37, label %._crit_edge.loopexit.i.i.i.i.i.unreachabledefault [
+  switch i64 %37, label %default.unreachable [
     i64 3, label %79
     i64 2, label %._crit_edge._crit_edge.i.i.i.i.i
     i64 1, label %._crit_edge._crit_edge52.i.i.i.i.i
@@ -7290,12 +7289,6 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit28.us.i: ; pr
   %86 = load ptr, ptr %.2.i.i.i.i.i, align 8, !tbaa !22, !noalias !606
   %87 = icmp eq ptr %86, %60
   br i1 %87, label %_ZN4llvm12is_containedIRNS_8ArrayRefIPKN5clang4ento9MemRegionEEES6_EEbOT_RKT0_.exit.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit28.i
-
-._crit_edge.loopexit.i.i.i.i.i.unreachabledefault: ; preds = %._crit_edge.loopexit.i.i.i.i.i
-  unreachable
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.us.i
-  unreachable
 
 _ZN4llvm12is_containedIRNS_8ArrayRefIPKN5clang4ento9MemRegionEEES6_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit: ; preds = %63
   %88 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
@@ -7342,6 +7335,9 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds =
 97:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %96) #21, !noalias !606
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit28.i
+
+default.unreachable:                              ; preds = %._crit_edge.loopexit.i.i.i.i.i
+  unreachable
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit28.i: ; preds = %97, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, %_ZN4llvm12is_containedIRNS_8ArrayRefIPKN5clang4ento9MemRegionEEES6_EEbOT_RKT0_.exit.i, %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i, %59
   %.sroa.09.1 = phi ptr [ %.sroa.09.0, %59 ], [ %.sroa.09.0, %_ZN4llvm12is_containedIRNS_8ArrayRefIPKN5clang4ento9MemRegionEEES6_EEbOT_RKT0_.exit.i ], [ %95, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i ], [ %95, %97 ], [ %.sroa.09.0, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %.sroa.09.0, %._crit_edge.loopexit.i.i.i.i.i ]

@@ -7273,7 +7273,7 @@ define void @_ZN6colvar3cvc17collect_gradientsERKSt6vectorIiSaIiEERS1_IN12colvar
   %.1.i = select i1 %.not19.i, double %.01621.i, double %20
   %21 = lshr i32 %.023.i, 1
   %22 = fmul double %.01522.i, %.01522.i
-  %.not.i = icmp samesign ult i32 %.023.i, 2
+  %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !342
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %16

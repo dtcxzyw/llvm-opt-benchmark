@@ -44853,7 +44853,7 @@ define hidden void @_ZN9workspace9Workspace15send_keystrokes17h508f12c7dda81e35E
   %15 = lshr i64 %14, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9742)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9745)
-  %.not.i.i = icmp ult i64 %14, 2
+  %.not.i.i = icmp eq i64 %15, 0
   br i1 %.not.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17ha497d024adc96bc9E.exit", label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %3

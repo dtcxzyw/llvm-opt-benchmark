@@ -1619,7 +1619,7 @@ define hidden void @_ZN17SaveLiveRegisters10initializeEP13BarrierStubC2(ptr noun
   store i32 0, ptr %5, align 4
   %6 = load i32, ptr @_ZN7OptoReg7vm2optoE, align 16
   %7 = lshr i32 %6, 6
-  %.not = icmp ult i32 %6, 64
+  %.not = icmp eq i32 %7, 0
   br i1 %.not, label %.thread, label %8
 
 8:                                                ; preds = %2

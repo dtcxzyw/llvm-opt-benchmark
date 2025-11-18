@@ -1958,7 +1958,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %42, %
   %82 = load i64, ptr %64, align 8, !tbaa !115
   %83 = mul i64 %81, %82
   %84 = lshr i64 %83, 1
-  %85 = icmp ult i64 %83, 2
+  %85 = icmp eq i64 %84, 0
   br i1 %85, label %_ZN5faiss12AlignedTableIhLi32EEC2Em.exit, label %86
 
 86:                                               ; preds = %78

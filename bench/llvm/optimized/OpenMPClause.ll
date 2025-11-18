@@ -2181,11 +2181,11 @@ define dso_local void @_ZN5clang15OMPLinearClause13used_childrenEv(ptr dead_on_u
   %13 = zext i32 %12 to i64
   %.idx3.i = shl nuw nsw i64 %13, 3
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx3.i
-  %.not.i = icmp ult i32 %12, 4
+  %15 = lshr i64 %13, 2
+  %.not.i = icmp eq i64 %15, 0
   br i1 %.not.i, label %._crit_edge.i.i.i.i, label %.lr.ph.preheader.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %2
-  %15 = lshr i64 %13, 2
   %16 = and i64 %.idx3.i, 34359738336
   %scevgep.i.i.i.i = getelementptr i8, ptr %11, i64 %16
   br label %.lr.ph.i.i.i.i
@@ -2228,11 +2228,10 @@ define dso_local void @_ZN5clang15OMPLinearClause13used_childrenEv(ptr dead_on_u
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %2
   %.pre-phi47.i.i.i.i = phi i32 [ %35, %._crit_edge.loopexit.i.i.i.i ], [ %12, %2 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %11, %2 ]
-  switch i32 %.pre-phi47.i.i.i.i, label %default.unreachable [
+  switch i32 %.pre-phi47.i.i.i.i, label %49 [
     i32 3, label %36
     i32 2, label %41
     i32 1, label %46
-    i32 0, label %49
   ]
 
 36:                                               ; preds = %._crit_edge.i.i.i.i
@@ -2259,9 +2258,6 @@ define dso_local void @_ZN5clang15OMPLinearClause13used_childrenEv(ptr dead_on_u
   %47 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !15
   %48 = icmp eq ptr %47, null
   br i1 %48, label %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit, label %49
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
-  unreachable
 
 49:                                               ; preds = %46, %._crit_edge.i.i.i.i
   br label %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit

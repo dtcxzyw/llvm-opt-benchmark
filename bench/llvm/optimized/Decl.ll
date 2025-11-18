@@ -12766,8 +12766,8 @@ define dso_local i64 @_ZNK5clang11ParmVarDecl14getSourceRangeEv(ptr noundef nonn
   %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
   %7 = and i64 %6, 4294967295
   %8 = icmp ne i64 %7, 0
-  %9 = icmp ugt i64 %6, 4294967295
-  %10 = and i1 %9, %8
+  %9 = icmp ne i64 %.sroa.4.0.extract.shift, 0
+  %10 = and i1 %8, %9
   br i1 %10, label %11, label %_ZNK5clang14DeclaratorDecl16getOuterLocStartEv.exit
 
 11:                                               ; preds = %5
