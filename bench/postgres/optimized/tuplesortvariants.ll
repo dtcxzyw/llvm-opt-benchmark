@@ -1836,9 +1836,13 @@ ApplySortComparator.exit.thread105:               ; preds = %138, %ApplySortComp
 201:                                              ; preds = %188
   %202 = getelementptr i8, ptr %12, i64 4
   %.val87 = load i16, ptr %202, align 2
+  %.val87.frz = freeze i16 %.val87
   %203 = getelementptr i8, ptr %13, i64 4
   %.val88 = load i16, ptr %203, align 2
-  %spec.select83 = tail call i32 @llvm.ucmp.i32.i16(i16 %.val87, i16 %.val88)
+  %.val88.frz = freeze i16 %.val88
+  %.not80 = icmp eq i16 %.val87.frz, %.val88.frz
+  %204 = tail call i32 @llvm.ucmp.i32.i16(i16 %.val87.frz, i16 %.val88.frz)
+  %spec.select83 = select i1 %.not80, i32 0, i32 %204
   br label %ApplySortAbbrevFullComparator.exit.thread
 
 ApplySortAbbrevFullComparator.exit.thread:        ; preds = %155, %ApplySortComparator.exit, %144, %139, %127, %116, %112, %201, %ApplySortAbbrevFullComparator.exit, %188
@@ -2006,11 +2010,11 @@ define internal range(i32 -1, 2) i32 @comparetup_index_hash(ptr noundef readonly
   %21 = load i32, ptr %13, align 4
   %22 = tail call i32 @_hash_hashkey2bucket(i32 noundef %18, i32 noundef %19, i32 noundef %20, i32 noundef %21) #12
   %23 = icmp ugt i32 %15, %22
-  br i1 %23, label %52, label %24
+  br i1 %23, label %53, label %24
 
 24:                                               ; preds = %3
   %25 = icmp ult i32 %15, %22
-  br i1 %25, label %52, label %26
+  br i1 %25, label %53, label %26
 
 26:                                               ; preds = %24
   %27 = load i64, ptr %6, align 8
@@ -2018,11 +2022,11 @@ define internal range(i32 -1, 2) i32 @comparetup_index_hash(ptr noundef readonly
   %29 = load i64, ptr %16, align 8
   %30 = trunc i64 %29 to i32
   %31 = icmp ugt i32 %28, %30
-  br i1 %31, label %52, label %32
+  br i1 %31, label %53, label %32
 
 32:                                               ; preds = %26
   %33 = icmp ult i32 %28, %30
-  br i1 %33, label %52, label %34
+  br i1 %33, label %53, label %34
 
 34:                                               ; preds = %32
   %35 = load ptr, ptr %0, align 8
@@ -2044,17 +2048,21 @@ define internal range(i32 -1, 2) i32 @comparetup_index_hash(ptr noundef readonly
   %.not = icmp eq i32 %41, %46
   %47 = icmp ult i32 %41, %46
   %48 = select i1 %47, i32 -1, i32 1
-  br i1 %.not, label %49, label %52
+  br i1 %.not, label %49, label %53
 
 49:                                               ; preds = %34
   %50 = getelementptr i8, ptr %35, i64 4
   %.val51 = load i16, ptr %50, align 2
+  %.val51.frz = freeze i16 %.val51
   %51 = getelementptr i8, ptr %36, i64 4
   %.val52 = load i16, ptr %51, align 2
-  %spec.select = tail call i32 @llvm.ucmp.i32.i16(i16 %.val51, i16 %.val52)
-  br label %52
+  %.val52.frz = freeze i16 %.val52
+  %.not47 = icmp eq i16 %.val51.frz, %.val52.frz
+  %52 = tail call i32 @llvm.ucmp.i32.i16(i16 %.val51.frz, i16 %.val52.frz)
+  %spec.select = select i1 %.not47, i32 0, i32 %52
+  br label %53
 
-52:                                               ; preds = %49, %32, %26, %24, %3, %34
+53:                                               ; preds = %49, %32, %26, %24, %3, %34
   %.0 = phi i32 [ %48, %34 ], [ 1, %3 ], [ -1, %24 ], [ 1, %26 ], [ -1, %32 ], [ %spec.select, %49 ]
   ret i32 %.0
 }
