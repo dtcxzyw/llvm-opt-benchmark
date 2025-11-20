@@ -1738,17 +1738,17 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.013.029, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.013.029, i64 8
   %15 = load i32, ptr %14, align 4, !alias.scope !356, !noalias !359, !noundef !13
+  %.sroa.0.0.copyload.i = load i64, ptr %.sroa.013.029, align 4, !alias.scope !356, !noalias !359
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.013.029, i64 12
   %17 = load i8, ptr %16, align 4, !alias.scope !356, !noalias !359, !noundef !13
-  %18 = load i64, ptr %.sroa.013.029, align 4, !alias.scope !356, !noalias !359
-  %19 = getelementptr inbounds nuw { [4 x i32] }, ptr %6, i64 %.sroa.7.028
-  store i64 %18, ptr %19, align 4
-  %.sroa.07.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %18 = getelementptr inbounds nuw { [4 x i32] }, ptr %6, i64 %.sroa.7.028
+  store i64 %.sroa.0.0.copyload.i, ptr %18, align 4
+  %.sroa.07.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 %15, ptr %.sroa.07.sroa.4.0..sroa_idx, align 4
-  %.sroa.07.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 12
+  %.sroa.07.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i8 %17, ptr %.sroa.07.sroa.5.0..sroa_idx, align 4
-  %20 = icmp eq i64 %11, 0
-  br i1 %20, label %.thread, label %.lr.ph
+  %19 = icmp eq i64 %11, 0
+  br i1 %19, label %.thread, label %.lr.ph
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -5150,17 +5150,17 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.013.029.i, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.013.029.i, i64 8
   %18 = load i32, ptr %17, align 4, !alias.scope !897, !noalias !900, !noundef !13
+  %.sroa.0.0.copyload.i.i = load i64, ptr %.sroa.013.029.i, align 4, !alias.scope !897, !noalias !900
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.013.029.i, i64 12
   %20 = load i8, ptr %19, align 4, !alias.scope !897, !noalias !900, !noundef !13
-  %21 = load i64, ptr %.sroa.013.029.i, align 4, !alias.scope !897, !noalias !900
-  %22 = getelementptr inbounds nuw { [4 x i32] }, ptr %9, i64 %.sroa.7.028.i
-  store i64 %21, ptr %22, align 4, !noalias !895
-  %.sroa.07.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %21 = getelementptr inbounds nuw { [4 x i32] }, ptr %9, i64 %.sroa.7.028.i
+  store i64 %.sroa.0.0.copyload.i.i, ptr %21, align 4, !noalias !895
+  %.sroa.07.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 %18, ptr %.sroa.07.sroa.4.0..sroa_idx.i, align 4, !noalias !895
-  %.sroa.07.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 12
+  %.sroa.07.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i8 %20, ptr %.sroa.07.sroa.5.0..sroa_idx.i, align 4, !noalias !895
-  %23 = icmp eq i64 %14, 0
-  br i1 %23, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h267e9c33c99d918bE.llvm.3371294817895845771.exit", label %.lr.ph.i
+  %22 = icmp eq i64 %14, 0
+  br i1 %22, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h267e9c33c99d918bE.llvm.3371294817895845771.exit", label %.lr.ph.i
 
 "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h267e9c33c99d918bE.llvm.3371294817895845771.exit": ; preds = %.lr.ph.i, %13, %2
   store i64 %8, ptr %0, align 8, !noalias !892

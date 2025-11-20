@@ -1233,7 +1233,7 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i32 @_ZN5draco14PointAttribute26DeduplicateFormattedValuesIfLi2EEEjRKNS_17GeometryAttributeENS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 %2) local_unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::unordered_map.41", align 8
-  %.sroa.053.sroa.0 = alloca <2 x float>, align 8
+  %.sroa.053 = alloca i64, align 8
   %5 = alloca %"struct.std::pair.67", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -1246,7 +1246,7 @@ define linkonce_odr noundef i32 @_ZN5draco14PointAttribute26DeduplicateFormatted
   store float 1.000000e+00, ptr %9, align 8, !tbaa !82
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.053.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.053)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load i32, ptr %11, align 8, !tbaa !52
   %13 = zext i32 %12 to i64
@@ -1277,7 +1277,7 @@ define linkonce_odr noundef i32 @_ZN5draco14PointAttribute26DeduplicateFormatted
 
 23:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
-  %.sroa.054.066 = phi i32 [ 0, %.lr.ph ], [ %.sroa.054.1, %49 ]
+  %.sroa.054.067 = phi i32 [ 0, %.lr.ph ], [ %.sroa.054.1, %49 ]
   %24 = trunc nuw i64 %indvars.iv to i32
   %25 = add i32 %2, %24
   %26 = load i64, ptr %16, align 8, !tbaa !83
@@ -1288,11 +1288,11 @@ define linkonce_odr noundef i32 @_ZN5draco14PointAttribute26DeduplicateFormatted
   %31 = load ptr, ptr %30, align 8, !tbaa !23
   %32 = getelementptr i8, ptr %31, i64 %26
   %33 = getelementptr i8, ptr %32, i64 %29
-  %.sroa.01.0.copyload.i = load <2 x float>, ptr %33, align 1
-  store <2 x float> %.sroa.01.0.copyload.i, ptr %.sroa.053.sroa.0, align 8, !tbaa !14
+  %.sroa.01.0.copyload.i62 = load i64, ptr %33, align 1
+  store i64 %.sroa.01.0.copyload.i62, ptr %.sroa.053, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store <2 x float> %.sroa.01.0.copyload.i, ptr %5, align 8, !tbaa !14
-  store i32 %.sroa.054.066, ptr %18, align 8, !tbaa !21
+  store i64 %.sroa.01.0.copyload.i62, ptr %5, align 8, !tbaa !14
+  store i32 %.sroa.054.067, ptr %18, align 8, !tbaa !21
   %34 = invoke { ptr, i8 } @_ZNSt10_HashtableISt5arrayIjLm2EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeValueIndex_tag_type_EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS4_9HashArrayIS1_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJS2_IS1_S7_EEEES2_INSA_14_Node_iteratorIS8_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 4 dereferenceable(12) %5)
           to label %_ZNSt13unordered_mapISt5arrayIjLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex_tag_type_EEENS2_9HashArrayIS1_EESt8equal_toIS1_ESaISt4pairIKS1_S5_EEE6insertISA_IS1_S5_EEENSt9enable_ifIXsr16is_constructibleISC_OT_EE5valueESA_INSt8__detail14_Node_iteratorISC_Lb0ELb1EEEbEE4typeESJ_.exit unwind label %39
 
@@ -1315,19 +1315,19 @@ _ZNSt13unordered_mapISt5arrayIjLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br label %107
 
 41:                                               ; preds = %_ZNSt13unordered_mapISt5arrayIjLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex_tag_type_EEENS2_9HashArrayIS1_EESt8equal_toIS1_ESaISt4pairIKS1_S5_EEE6insertISA_IS1_S5_EEENSt9enable_ifIXsr16is_constructibleISC_OT_EE5valueESA_INSt8__detail14_Node_iteratorISC_Lb0ELb1EEEbEE4typeESJ_.exit
-  %42 = zext i32 %.sroa.054.066 to i64
+  %42 = zext i32 %.sroa.054.067 to i64
   %43 = load i64, ptr %19, align 8, !tbaa !66
   %44 = mul nsw i64 %43, %42
   %45 = load ptr, ptr %0, align 8, !tbaa !84
   %46 = load ptr, ptr %45, align 8, !tbaa !23
   %47 = getelementptr inbounds i8, ptr %46, i64 %44
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %47, ptr nonnull align 8 %.sroa.053.sroa.0, i64 %43, i1 false)
-  %48 = add i32 %.sroa.054.066, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %47, ptr nonnull align 8 %.sroa.053, i64 %43, i1 false)
+  %48 = add i32 %.sroa.054.067, 1
   br label %49
 
 49:                                               ; preds = %41, %36
-  %.sink = phi i32 [ %.sroa.054.066, %41 ], [ %38, %36 ]
-  %.sroa.054.1 = phi i32 [ %48, %41 ], [ %.sroa.054.066, %36 ]
+  %.sink = phi i32 [ %.sroa.054.067, %41 ], [ %38, %36 ]
+  %.sroa.054.1 = phi i32 [ %48, %41 ], [ %.sroa.054.067, %36 ]
   %50 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv
   store i32 %.sink, ptr %50, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1351,13 +1351,13 @@ _ZNSt13unordered_mapISt5arrayIjLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   %63 = ptrtoint ptr %61 to i64
   %64 = sub i64 %62, %63
   %65 = and i64 %64, 17179869180
-  %.not72 = icmp eq i64 %65, 0
-  br i1 %.not72, label %.loopexit, label %.lr.ph69.preheader
+  %.not73 = icmp eq i64 %65, 0
+  br i1 %.not73, label %.loopexit, label %.lr.ph70.preheader
 
-.lr.ph69.preheader:                               ; preds = %.preheader
+.lr.ph70.preheader:                               ; preds = %.preheader
   %66 = lshr exact i64 %64, 2
   %wide.trip.count = and i64 %66, 4294967295
-  br label %.lr.ph69
+  br label %.lr.ph70
 
 67:                                               ; preds = %54
   %68 = zext i32 %51 to i64
@@ -1397,12 +1397,12 @@ _ZNSt13unordered_mapISt5arrayIjLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
 
 _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14PointAttribute18SetExplicitMappingEm.exit_crit_edge, %80, %82, %84
   %85 = phi i32 [ %.pre, %._ZN5draco14PointAttribute18SetExplicitMappingEm.exit_crit_edge ], [ %51, %80 ], [ %51, %82 ], [ %51, %84 ]
-  %.not73 = icmp eq i32 %85, 0
-  br i1 %.not73, label %.loopexit, label %.lr.ph71
+  %.not74 = icmp eq i32 %85, 0
+  br i1 %.not74, label %.loopexit, label %.lr.ph72
 
-.lr.ph71:                                         ; preds = %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
+.lr.ph72:                                         ; preds = %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
   %86 = load ptr, ptr %69, align 8, !tbaa !48
-  %wide.trip.count83 = zext i32 %85 to i64
+  %wide.trip.count84 = zext i32 %85 to i64
   br label %89
 
 87:                                               ; preds = %78
@@ -1410,40 +1410,40 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %._ZN5draco14Poi
           cleanup
   br label %107
 
-89:                                               ; preds = %.lr.ph71, %89
-  %indvars.iv80 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next81, %89 ]
-  %90 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv80
+89:                                               ; preds = %.lr.ph72, %89
+  %indvars.iv81 = phi i64 [ 0, %.lr.ph72 ], [ %indvars.iv.next82, %89 ]
+  %90 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %indvars.iv81
   %.sroa.02.0.copyload = load i32, ptr %90, align 4, !tbaa !21
-  %91 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %86, i64 %indvars.iv80
+  %91 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %86, i64 %indvars.iv81
   store i32 %.sroa.02.0.copyload, ptr %91, align 4, !tbaa !68
-  %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
-  %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
-  br i1 %exitcond84.not, label %.loopexit, label %89, !llvm.loop !95
+  %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
+  %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
+  br i1 %exitcond85.not, label %.loopexit, label %89, !llvm.loop !95
 
-.lr.ph69:                                         ; preds = %.lr.ph69.preheader, %.lr.ph69
-  %indvars.iv77 = phi i64 [ 0, %.lr.ph69.preheader ], [ %indvars.iv.next78, %.lr.ph69 ]
-  %92 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %61, i64 %indvars.iv77
+.lr.ph70:                                         ; preds = %.lr.ph70.preheader, %.lr.ph70
+  %indvars.iv78 = phi i64 [ 0, %.lr.ph70.preheader ], [ %indvars.iv.next79, %.lr.ph70 ]
+  %92 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %61, i64 %indvars.iv78
   %93 = load i32, ptr %92, align 4, !tbaa !68
   %94 = zext i32 %93 to i64
   %95 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %94
   %.sroa.0.0.copyload = load i32, ptr %95, align 4, !tbaa !21
   store i32 %.sroa.0.0.copyload, ptr %92, align 4, !tbaa !68
-  %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph69, !llvm.loop !96
+  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph70, !llvm.loop !96
 
-.loopexit:                                        ; preds = %.lr.ph69, %89, %.preheader, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
+.loopexit:                                        ; preds = %.lr.ph70, %89, %.preheader, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
   store i32 %.sroa.054.1, ptr %11, align 8, !tbaa !52
   br label %96
 
 96:                                               ; preds = %._crit_edge, %.loopexit
-  %.idx116 = shl nuw nsw i64 %13, 2
-  call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef %.idx116) #19
+  %.idx117 = shl nuw nsw i64 %13, 2
+  call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef %.idx117) #19
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_ED2Ev.exit
 
 _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_ED2Ev.exit: ; preds = %3, %96
-  %.sroa.054.0.lcssa106112 = phi i32 [ %.sroa.054.1, %96 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.053.sroa.0)
+  %.sroa.054.0.lcssa107113 = phi i32 [ %.sroa.054.1, %96 ], [ 0, %3 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.053)
   %97 = load ptr, ptr %8, align 8, !tbaa !97
   %.not5.i.i.i.i = icmp eq ptr %97, null
   br i1 %.not5.i.i.i.i, label %_ZNSt10_HashtableISt5arrayIjLm2EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeValueIndex_tag_type_EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS4_9HashArrayIS1_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i
@@ -1473,7 +1473,7 @@ _ZNSt10_HashtableISt5arrayIjLm2EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeV
 
 _ZNSt13unordered_mapISt5arrayIjLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex_tag_type_EEENS2_9HashArrayIS1_EESt8equal_toIS1_ESaISt4pairIKS1_S5_EEED2Ev.exit: ; preds = %_ZNSt10_HashtableISt5arrayIjLm2EESt4pairIKS1_N5draco9IndexTypeIjNS4_29AttributeValueIndex_tag_type_EEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS4_9HashArrayIS1_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, %104
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %.sroa.054.0.lcssa106112
+  ret i32 %.sroa.054.0.lcssa107113
 
 107:                                              ; preds = %87, %39
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %88, %87 ], [ %40, %39 ]
@@ -1483,7 +1483,7 @@ _ZNSt13unordered_mapISt5arrayIjLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
 
 _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES3_ED2Ev.exit32: ; preds = %107, %21
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %22, %21 ], [ %.pn.pn.pn.pn, %107 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.053.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.053)
   call void @_ZNSt13unordered_mapISt5arrayIjLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex_tag_type_EEENS2_9HashArrayIS1_EESt8equal_toIS1_ESaISt4pairIKS1_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn

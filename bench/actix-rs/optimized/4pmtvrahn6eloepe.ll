@@ -9217,21 +9217,21 @@ define hidden void @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$A
   br label %.critedge
 
 32:                                               ; preds = %.noexc, %26, %16
-  %.sroa.0.024 = phi ptr [ %28, %.noexc ], [ %28, %26 ], [ %20, %16 ]
-  %.sroa.6.021 = phi i64 [ %30, %.noexc ], [ %30, %26 ], [ %22, %16 ]
+  %.sroa.0.026 = phi ptr [ %28, %.noexc ], [ %28, %26 ], [ %20, %16 ]
+  %.sroa.6.023 = phi i64 [ %30, %.noexc ], [ %30, %26 ], [ %22, %16 ]
   %33 = landingpad { ptr, i32 }
           cleanup
-  %34 = icmp eq i64 %.sroa.6.021, 0
+  %34 = icmp eq i64 %.sroa.6.023, 0
   br i1 %34, label %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17h101bb5fdf3451eabE.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i": ; preds = %32
-  %35 = shl nsw i64 %.sroa.6.021, 1
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.024, i64 noundef %35, i64 noundef 2) #33, !noalias !956
+  %35 = shl nsw i64 %.sroa.6.023, 1
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.0.026, i64 noundef %35, i64 noundef 2) #33, !noalias !956
   br label %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17h101bb5fdf3451eabE.exit"
 
 .critedge:                                        ; preds = %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17he8154117a6573e40E.exit", %"_ZN85_$LT$alloc_stdlib..heap_alloc..WrapBox$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h355fc6b337709264E.exit"
-  %.sroa.0.022 = phi ptr [ %20, %"_ZN85_$LT$alloc_stdlib..heap_alloc..WrapBox$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h355fc6b337709264E.exit" ], [ %28, %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17he8154117a6573e40E.exit" ]
-  %.val13 = phi i64 [ %22, %"_ZN85_$LT$alloc_stdlib..heap_alloc..WrapBox$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h355fc6b337709264E.exit" ], [ %30, %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17he8154117a6573e40E.exit" ]
+  %.sroa.0.024 = phi ptr [ %20, %"_ZN85_$LT$alloc_stdlib..heap_alloc..WrapBox$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h355fc6b337709264E.exit" ], [ %28, %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17he8154117a6573e40E.exit" ]
+  %.val15 = phi i64 [ %22, %"_ZN85_$LT$alloc_stdlib..heap_alloc..WrapBox$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h355fc6b337709264E.exit" ], [ %30, %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17he8154117a6573e40E.exit" ]
   %.pn = phi { ptr, i64 } [ %25, %"_ZN85_$LT$alloc_stdlib..heap_alloc..WrapBox$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h355fc6b337709264E.exit" ], [ %31, %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17he8154117a6573e40E.exit" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   br label %36
@@ -9264,11 +9264,11 @@ define hidden void @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$A
   %43 = getelementptr inbounds nuw [2 x [16 x float]], ptr %12, i64 %42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %43, ptr noundef nonnull align 4 dereferenceable(128) %11, i64 128, i1 false)
   %44 = add nuw nsw i64 %42, 1
-  %exitcond25.not = icmp eq i64 %44, 3
-  br i1 %exitcond25.not, label %45, label %41
+  %exitcond27.not = icmp eq i64 %44, 3
+  br i1 %exitcond27.not, label %45, label %41
 
 45:                                               ; preds = %41
-  %.sroa.01.0 = extractvalue { ptr, i64 } %.pn, 0
+  %.sroa.03.0 = extractvalue { ptr, i64 } %.pn, 0
   %.sroa.5.0 = extractvalue { ptr, i64 } %.pn, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
@@ -9283,13 +9283,13 @@ define hidden void @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$A
   %50 = getelementptr inbounds nuw i8, ptr %15, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %50, ptr noundef nonnull align 4 dereferenceable(384) %14, i64 384, i1 false)
   %51 = getelementptr inbounds nuw i8, ptr %15, i64 96
-  store ptr %.sroa.0.022, ptr %51, align 8
+  store ptr %.sroa.0.024, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %15, i64 104
-  store i64 %.val13, ptr %52, align 8
-  %53 = icmp ne ptr %.sroa.01.0, null
+  store i64 %.val15, ptr %52, align 8
+  %53 = icmp ne ptr %.sroa.03.0, null
   tail call void @llvm.assume(i1 %53)
   %54 = getelementptr inbounds nuw i8, ptr %15, i64 112
-  store ptr %.sroa.01.0, ptr %54, align 8
+  store ptr %.sroa.03.0, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %15, i64 120
   store i64 %.sroa.5.0, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %15, i64 520
@@ -9312,11 +9312,11 @@ define hidden void @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$A
           to label %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17h101bb5fdf3451eabE.exit" unwind label %63
 
 61:                                               ; preds = %45
-  invoke void @_ZN6brotli3enc19context_map_entropy9init_cdfs17h5e196023ca08d51dE(ptr noalias noundef nonnull align 2 %.sroa.0.022, i64 noundef %.val13)
+  invoke void @_ZN6brotli3enc19context_map_entropy9init_cdfs17h5e196023ca08d51dE(ptr noalias noundef nonnull align 2 %.sroa.0.024, i64 noundef %.val15)
           to label %62 unwind label %59
 
 62:                                               ; preds = %61
-  invoke void @_ZN6brotli3enc19context_map_entropy9init_cdfs17h5e196023ca08d51dE(ptr noalias noundef nonnull align 2 %.sroa.01.0, i64 noundef %.sroa.5.0)
+  invoke void @_ZN6brotli3enc19context_map_entropy9init_cdfs17h5e196023ca08d51dE(ptr noalias noundef nonnull align 2 %.sroa.03.0, i64 noundef %.sroa.5.0)
           to label %58 unwind label %59
 
 63:                                               ; preds = %59
@@ -9326,8 +9326,8 @@ define hidden void @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$A
   unreachable
 
 "_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17h101bb5fdf3451eabE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i", %32, %59
-  %.pn9 = phi { ptr, i32 } [ %60, %59 ], [ %33, %32 ], [ %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i" ]
-  resume { ptr, i32 } %.pn9
+  %.pn11 = phi { ptr, i32 } [ %60, %59 ], [ %33, %32 ], [ %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i" ]
+  resume { ptr, i32 } %.pn11
 }
 
 ; Function Attrs: nonlazybind uwtable

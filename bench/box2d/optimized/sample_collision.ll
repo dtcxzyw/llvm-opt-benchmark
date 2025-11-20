@@ -1322,12 +1322,12 @@ define linkonce_odr dso_local void @_ZN13ShapeDistance8UpdateUIEv(ptr noundef no
   %4 = alloca %struct.ImVec2, align 4
   %5 = alloca [4 x ptr], align 16
   %6 = alloca i32, align 4
-  %.sroa.716 = alloca %struct.b2Vec2, align 8
-  %.sroa.1017 = alloca %struct.b2Vec2, align 8
-  %.sroa.1218 = alloca %struct.b2Vec2, align 8
-  %.sroa.7 = alloca %struct.b2Vec2, align 8
-  %.sroa.10 = alloca %struct.b2Vec2, align 8
-  %.sroa.12 = alloca %struct.b2Vec2, align 8
+  %.sroa.716 = alloca i64, align 8
+  %.sroa.1017 = alloca i64, align 8
+  %.sroa.1218.sroa.0 = alloca i64, align 8
+  %.sroa.7 = alloca i64, align 8
+  %.sroa.10 = alloca i64, align 8
+  %.sroa.12.sroa.0 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 16), align 4, !tbaa !123
   %8 = sitofp i32 %7 to float
@@ -1364,13 +1364,13 @@ define linkonce_odr dso_local void @_ZN13ShapeDistance8UpdateUIEv(ptr noundef no
   store i32 %19, ptr %15, align 8, !tbaa !86
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.716)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.1017)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.1218)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.1218.sroa.0)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %21 = load float, ptr %20, align 8, !tbaa !88
   call void @llvm.experimental.noalias.scope.decl(metadata !127)
-  store i64 0, ptr %.sroa.716, align 8
-  store i64 0, ptr %.sroa.1017, align 8
-  store i64 0, ptr %.sroa.1218, align 8
+  store i64 0, ptr %.sroa.716, align 8, !alias.scope !127
+  store i64 0, ptr %.sroa.1017, align 8, !alias.scope !127
+  store i64 0, ptr %.sroa.1218.sroa.0, align 8
   switch i32 %19, label %_ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit [
     i32 0, label %.sink.split.i
     i32 1, label %22
@@ -1405,33 +1405,33 @@ define linkonce_odr dso_local void @_ZN13ShapeDistance8UpdateUIEv(ptr noundef no
 .sink.split.sink.split.i:                         ; preds = %30, %25, %22
   %.sroa.015.0 = phi i64 [ %24, %22 ], [ %27, %25 ], [ %32, %30 ]
   %.sink7.i = phi i64 [ 552, %22 ], [ 408, %25 ], [ 272, %30 ]
-  %.sink6.i.sroa.phi = phi ptr [ %.sroa.716, %22 ], [ %.sroa.1017, %25 ], [ %.sroa.1218, %30 ]
+  %.sink6.i.sroa.phi = phi ptr [ %.sroa.716, %22 ], [ %.sroa.1017, %25 ], [ %.sroa.1218.sroa.0, %30 ]
   %.sink.ph.i = phi i32 [ 2, %22 ], [ 3, %25 ], [ 4, %30 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink7.i
   %38 = load i64, ptr %37, align 8, !noalias !127
   store i64 %38, ptr %.sink6.i.sroa.phi, align 8, !alias.scope !127
-  %.sroa.716.0..sroa.716.0..pre = load i64, ptr %.sroa.716, align 8
-  %.sroa.1017.0..sroa.1017.0..pre = load i64, ptr %.sroa.1017, align 8
-  %.sroa.1218.0..sroa.1218.0..pre = load i64, ptr %.sroa.1218, align 8
+  %.sroa.716.0..sroa.716.0..sroa.716.0..sroa.716.0.copyload.pre = load i64, ptr %.sroa.716, align 8
+  %.sroa.1017.0..sroa.1017.0..sroa.1017.0..sroa.1017.0.copyload.pre = load i64, ptr %.sroa.1017, align 8
+  %.sroa.1218.sroa.0.0..sroa.1218.sroa.0.0..sroa.1218.sroa.0.0..pre = load i64, ptr %.sroa.1218.sroa.0, align 8
   br label %_ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit
 
 .sink.split.i:                                    ; preds = %18
   br label %_ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit
 
 _ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit: ; preds = %.sink.split.sink.split.i, %18, %.sink.split.i
-  %.sroa.1218.0. = phi i64 [ 0, %18 ], [ %.sroa.1218.0..sroa.1218.0..pre, %.sink.split.sink.split.i ], [ 0, %.sink.split.i ]
-  %.sroa.1017.0. = phi i64 [ 0, %18 ], [ %.sroa.1017.0..sroa.1017.0..pre, %.sink.split.sink.split.i ], [ 0, %.sink.split.i ]
-  %.sroa.716.0. = phi i64 [ 0, %18 ], [ %.sroa.716.0..sroa.716.0..pre, %.sink.split.sink.split.i ], [ 0, %.sink.split.i ]
+  %.sroa.1218.sroa.0.0..sroa.1218.sroa.0.0. = phi i64 [ 0, %18 ], [ %.sroa.1218.sroa.0.0..sroa.1218.sroa.0.0..sroa.1218.sroa.0.0..pre, %.sink.split.sink.split.i ], [ 0, %.sink.split.i ]
+  %.sroa.1017.0..sroa.1017.0..sroa.1017.0.copyload = phi i64 [ 0, %18 ], [ %.sroa.1017.0..sroa.1017.0..sroa.1017.0..sroa.1017.0.copyload.pre, %.sink.split.sink.split.i ], [ 0, %.sink.split.i ]
+  %.sroa.716.0..sroa.716.0..sroa.716.0.copyload = phi i64 [ 0, %18 ], [ %.sroa.716.0..sroa.716.0..sroa.716.0..sroa.716.0.copyload.pre, %.sink.split.sink.split.i ], [ 0, %.sink.split.i ]
   %.sroa.1320.0 = phi i32 [ 0, %18 ], [ %.sink.ph.i, %.sink.split.sink.split.i ], [ 1, %.sink.split.i ]
   %.sroa.015.2 = phi i64 [ 0, %18 ], [ %.sroa.015.0, %.sink.split.sink.split.i ], [ 0, %.sink.split.i ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 576
   store i64 %.sroa.015.2, ptr %39, align 8
   %.sroa.716.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 584
-  store i64 %.sroa.716.0., ptr %.sroa.716.0..sroa_idx, align 8
+  store i64 %.sroa.716.0..sroa.716.0..sroa.716.0.copyload, ptr %.sroa.716.0..sroa_idx, align 8
   %.sroa.1017.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 592
-  store i64 %.sroa.1017.0., ptr %.sroa.1017.0..sroa_idx, align 8
+  store i64 %.sroa.1017.0..sroa.1017.0..sroa.1017.0.copyload, ptr %.sroa.1017.0..sroa_idx, align 8
   %.sroa.1218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 600
-  store i64 %.sroa.1218.0., ptr %.sroa.1218.0..sroa_idx, align 8
+  store i64 %.sroa.1218.sroa.0.0..sroa.1218.sroa.0.0., ptr %.sroa.1218.0..sroa_idx, align 8
   %.sroa.1319.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 608
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.1319.0..sroa_idx, i8 0, i64 32, i1 false)
   %.sroa.1320.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 640
@@ -1440,7 +1440,7 @@ _ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit: ; preds = %.sink.split.sink.s
   store float %21, ptr %.sroa.1421.0..sroa_idx, align 4, !tbaa !15
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.716)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.1017)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.1218)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.1218.sroa.0)
   br label %40
 
 40:                                               ; preds = %_ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit, %1
@@ -1466,13 +1466,13 @@ _ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit: ; preds = %.sink.split.sink.s
   store i32 %51, ptr %47, align 4, !tbaa !87
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.12.sroa.0)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 572
   %53 = load float, ptr %52, align 4, !tbaa !89
   call void @llvm.experimental.noalias.scope.decl(metadata !131)
-  store i64 0, ptr %.sroa.7, align 8
-  store i64 0, ptr %.sroa.10, align 8
-  store i64 0, ptr %.sroa.12, align 8
+  store i64 0, ptr %.sroa.7, align 8, !alias.scope !131
+  store i64 0, ptr %.sroa.10, align 8, !alias.scope !131
+  store i64 0, ptr %.sroa.12.sroa.0, align 8
   switch i32 %51, label %_ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit9 [
     i32 0, label %.sink.split.i7
     i32 1, label %54
@@ -1507,33 +1507,33 @@ _ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit: ; preds = %.sink.split.sink.s
 .sink.split.sink.split.i3:                        ; preds = %62, %57, %54
   %.sroa.0.0 = phi i64 [ %56, %54 ], [ %59, %57 ], [ %64, %62 ]
   %.sink7.i4 = phi i64 [ 552, %54 ], [ 408, %57 ], [ 272, %62 ]
-  %.sink6.i5.sroa.phi = phi ptr [ %.sroa.7, %54 ], [ %.sroa.10, %57 ], [ %.sroa.12, %62 ]
+  %.sink6.i5.sroa.phi = phi ptr [ %.sroa.7, %54 ], [ %.sroa.10, %57 ], [ %.sroa.12.sroa.0, %62 ]
   %.sink.ph.i6 = phi i32 [ 2, %54 ], [ 3, %57 ], [ 4, %62 ]
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink7.i4
   %70 = load i64, ptr %69, align 8, !noalias !131
   store i64 %70, ptr %.sink6.i5.sroa.phi, align 8, !alias.scope !131
-  %.sroa.7.0..sroa.7.0..pre = load i64, ptr %.sroa.7, align 8
-  %.sroa.10.0..sroa.10.0..pre = load i64, ptr %.sroa.10, align 8
-  %.sroa.12.0..sroa.12.0..pre = load i64, ptr %.sroa.12, align 8
+  %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.0.copyload.pre = load i64, ptr %.sroa.7, align 8
+  %.sroa.10.0..sroa.10.0..sroa.10.0..sroa.10.0.copyload.pre = load i64, ptr %.sroa.10, align 8
+  %.sroa.12.sroa.0.0..sroa.12.sroa.0.0..sroa.12.sroa.0.0..pre = load i64, ptr %.sroa.12.sroa.0, align 8
   br label %_ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit9
 
 .sink.split.i7:                                   ; preds = %50
   br label %_ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit9
 
 _ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit9: ; preds = %.sink.split.sink.split.i3, %50, %.sink.split.i7
-  %.sroa.12.0. = phi i64 [ 0, %50 ], [ %.sroa.12.0..sroa.12.0..pre, %.sink.split.sink.split.i3 ], [ 0, %.sink.split.i7 ]
-  %.sroa.10.0. = phi i64 [ 0, %50 ], [ %.sroa.10.0..sroa.10.0..pre, %.sink.split.sink.split.i3 ], [ 0, %.sink.split.i7 ]
-  %.sroa.7.0. = phi i64 [ 0, %50 ], [ %.sroa.7.0..sroa.7.0..pre, %.sink.split.sink.split.i3 ], [ 0, %.sink.split.i7 ]
+  %.sroa.12.sroa.0.0..sroa.12.sroa.0.0. = phi i64 [ 0, %50 ], [ %.sroa.12.sroa.0.0..sroa.12.sroa.0.0..sroa.12.sroa.0.0..pre, %.sink.split.sink.split.i3 ], [ 0, %.sink.split.i7 ]
+  %.sroa.10.0..sroa.10.0..sroa.10.0.copyload = phi i64 [ 0, %50 ], [ %.sroa.10.0..sroa.10.0..sroa.10.0..sroa.10.0.copyload.pre, %.sink.split.sink.split.i3 ], [ 0, %.sink.split.i7 ]
+  %.sroa.7.0..sroa.7.0..sroa.7.0.copyload = phi i64 [ 0, %50 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.0.copyload.pre, %.sink.split.sink.split.i3 ], [ 0, %.sink.split.i7 ]
   %.sroa.0.2 = phi i64 [ 0, %50 ], [ %.sroa.0.0, %.sink.split.sink.split.i3 ], [ 0, %.sink.split.i7 ]
   %.sroa.1312.0 = phi i32 [ 0, %50 ], [ %.sink.ph.i6, %.sink.split.sink.split.i3 ], [ 1, %.sink.split.i7 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 648
   store i64 %.sroa.0.2, ptr %71, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 656
-  store i64 %.sroa.7.0., ptr %.sroa.7.0..sroa_idx, align 8
+  store i64 %.sroa.7.0..sroa.7.0..sroa.7.0.copyload, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 664
-  store i64 %.sroa.10.0., ptr %.sroa.10.0..sroa_idx, align 8
+  store i64 %.sroa.10.0..sroa.10.0..sroa.10.0.copyload, ptr %.sroa.10.0..sroa_idx, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 672
-  store i64 %.sroa.12.0., ptr %.sroa.12.0..sroa_idx, align 8
+  store i64 %.sroa.12.sroa.0.0..sroa.12.sroa.0.0., ptr %.sroa.12.0..sroa_idx, align 8
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 680
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.13.0..sroa_idx, i8 0, i64 32, i1 false)
   %.sroa.1312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 712
@@ -1542,7 +1542,7 @@ _ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit9: ; preds = %.sink.split.sink.
   store float %53, ptr %.sroa.14.0..sroa_idx, align 4, !tbaa !15
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.12.sroa.0)
   br label %72
 
 72:                                               ; preds = %_ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit9, %46

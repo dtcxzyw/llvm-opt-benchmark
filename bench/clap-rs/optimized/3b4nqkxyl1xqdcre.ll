@@ -2106,7 +2106,7 @@ define hidden void @_ZN12clap_builder6output13help_template12HelpTemplate20write
   %.sroa.5.sroa.7.0..sroa.5.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %37, i64 48
   store i64 1, ptr %.sroa.5.sroa.7.0..sroa.5.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !398, !noalias !401
   %.sroa.5.sroa.8.0..sroa.5.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %37, i64 56
-  store i32 123, ptr %.sroa.5.sroa.8.0..sroa.5.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !398, !noalias !401
+  store <4 x i8> <i8 123, i8 0, i8 0, i8 0>, ptr %.sroa.5.sroa.8.0..sroa.5.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !398, !noalias !401
   %.sroa.5.sroa.9.0..sroa.5.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %37, i64 60
   store i32 123, ptr %.sroa.5.sroa.9.0..sroa.5.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !398, !noalias !401
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %37, i64 64
@@ -2330,7 +2330,7 @@ _ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exi
   store i64 %.sroa.4.1.i116, ptr %80, align 8, !alias.scope !435, !noalias !438
   store i32 125, ptr %81, align 4, !alias.scope !435, !noalias !438
   store i64 1, ptr %82, align 8, !alias.scope !435, !noalias !438
-  store i32 125, ptr %83, align 8, !alias.scope !435, !noalias !438
+  store <4 x i8> <i8 125, i8 0, i8 0, i8 0>, ptr %83, align 8, !alias.scope !435, !noalias !438
   call fastcc void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h223bede9091b2f39E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %21, ptr noalias noundef align 8 dereferenceable(48) %20), !noalias !440
   %142 = load i64, ptr %21, align 8, !range !406, !noalias !431, !noundef !12
   %trunc.i123 = trunc nuw i64 %142 to i1
@@ -2537,7 +2537,7 @@ _ZN12clap_builder6output13help_template12HelpTemplate18write_display_name17h0764
   store i64 0, ptr %.sroa.0.sroa.3.0..sroa_idx.i.i, align 8, !noalias !505
   store i64 %.sroa.3.0.i.i, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i, align 8, !noalias !505
   store i64 1, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i, align 8, !noalias !505
-  store i32 32, ptr %.sroa.0.sroa.6.0..sroa_idx.i.i, align 8, !noalias !505
+  store <4 x i8> <i8 32, i8 0, i8 0, i8 0>, ptr %.sroa.0.sroa.6.0..sroa_idx.i.i, align 8, !noalias !505
   store i32 32, ptr %.sroa.0.sroa.7.0..sroa_idx.i.i, align 4, !noalias !505
   br label %211
 

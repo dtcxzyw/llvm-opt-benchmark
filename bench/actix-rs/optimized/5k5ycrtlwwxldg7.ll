@@ -4679,66 +4679,86 @@ define hidden noundef zeroext i1 @_ZN4core7unicode12unicode_data11white_space6lo
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h70fb00af35f8a3c1E.llvm.5350303487615222083"(ptr noalias noundef writeonly sret({ { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }) align 8 captures(none) dereferenceable(48) initializes((0, 48)) %0, i32 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #6 {
   %5 = icmp ult i32 %1, 128
-  br i1 %5, label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.5350303487615222083.exit, label %6
+  br i1 %5, label %10, label %6
 
 6:                                                ; preds = %4
   %7 = icmp ult i32 %1, 2048
-  br i1 %7, label %10, label %8
+  br i1 %7, label %12, label %8
 
 8:                                                ; preds = %6
   %9 = icmp ult i32 %1, 65536
-  br i1 %9, label %13, label %17
+  br i1 %9, label %19, label %30
 
-10:                                               ; preds = %6
-  %11 = lshr i32 %1, 6
-  %12 = shl nuw nsw i32 %1, 8
-  %.sroa.0.1.insert.ext19 = and i32 %12, 16128
-  %.sroa.0.1.insert.shift20 = or disjoint i32 %11, %.sroa.0.1.insert.ext19
-  %.sroa.0.1.insert.insert22 = or disjoint i32 %.sroa.0.1.insert.shift20, 32960
+10:                                               ; preds = %4
+  %11 = trunc nuw nsw i32 %1 to i8
+  %.sroa.0.0.vec.insert7 = insertelement <4 x i8> <i8 poison, i8 0, i8 0, i8 0>, i8 %11, i64 0
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.5350303487615222083.exit
 
-13:                                               ; preds = %8
-  %14 = lshr i32 %1, 12
-  %15 = shl nuw nsw i32 %1, 2
-  %.sroa.0.1.insert.ext14 = and i32 %15, 16128
-  %.sroa.0.1.insert.shift15 = or disjoint i32 %14, %.sroa.0.1.insert.ext14
-  %16 = shl nuw i32 %1, 16
-  %.sroa.0.2.insert.ext24 = and i32 %16, 4128768
-  %.sroa.0.2.insert.shift25 = or disjoint i32 %.sroa.0.1.insert.shift15, %.sroa.0.2.insert.ext24
-  %.sroa.0.2.insert.insert27 = or disjoint i32 %.sroa.0.2.insert.shift25, 8421600
+12:                                               ; preds = %6
+  %13 = lshr i32 %1, 6
+  %14 = trunc nuw nsw i32 %13 to i8
+  %15 = or disjoint i8 %14, -64
+  %.sroa.0.0.vec.insert5 = insertelement <4 x i8> <i8 poison, i8 poison, i8 0, i8 0>, i8 %15, i64 0
+  %16 = trunc i32 %1 to i8
+  %17 = and i8 %16, 63
+  %18 = or disjoint i8 %17, -128
+  %.sroa.0.1.vec.insert12 = insertelement <4 x i8> %.sroa.0.0.vec.insert5, i8 %18, i64 1
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.5350303487615222083.exit
 
-17:                                               ; preds = %8
-  %18 = lshr i32 %1, 18
-  %19 = and i32 %18, 7
-  %20 = lshr i32 %1, 4
-  %.sroa.0.1.insert.ext = and i32 %20, 16128
-  %.sroa.0.1.insert.shift = or disjoint i32 %19, %.sroa.0.1.insert.ext
-  %21 = shl i32 %1, 10
-  %.sroa.0.2.insert.ext = and i32 %21, 4128768
-  %.sroa.0.2.insert.shift = or disjoint i32 %.sroa.0.1.insert.shift, %.sroa.0.2.insert.ext
-  %22 = shl i32 %1, 24
-  %.sroa.0.3.insert.ext = and i32 %22, 1056964608
-  %.sroa.0.3.insert.shift = or disjoint i32 %.sroa.0.2.insert.shift, %.sroa.0.3.insert.ext
-  %.sroa.0.3.insert.insert = or disjoint i32 %.sroa.0.3.insert.shift, -2139062032
+19:                                               ; preds = %8
+  %20 = lshr i32 %1, 12
+  %21 = trunc nuw nsw i32 %20 to i8
+  %22 = or disjoint i8 %21, -32
+  %.sroa.0.0.vec.insert3 = insertelement <4 x i8> <i8 poison, i8 poison, i8 poison, i8 0>, i8 %22, i64 0
+  %23 = lshr i32 %1, 6
+  %24 = trunc i32 %23 to i8
+  %25 = and i8 %24, 63
+  %26 = or disjoint i8 %25, -128
+  %.sroa.0.1.vec.insert10 = insertelement <4 x i8> %.sroa.0.0.vec.insert3, i8 %26, i64 1
+  %27 = trunc i32 %1 to i8
+  %28 = and i8 %27, 63
+  %29 = or disjoint i8 %28, -128
+  %.sroa.0.2.vec.insert14 = insertelement <4 x i8> %.sroa.0.1.vec.insert10, i8 %29, i64 2
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.5350303487615222083.exit
 
-_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.5350303487615222083.exit: ; preds = %4, %10, %13, %17
-  %.sroa.0.0 = phi i32 [ %.sroa.0.1.insert.insert22, %10 ], [ %.sroa.0.2.insert.insert27, %13 ], [ %.sroa.0.3.insert.insert, %17 ], [ %1, %4 ]
-  %23 = phi i64 [ 2, %10 ], [ 3, %13 ], [ 4, %17 ], [ 1, %4 ]
+30:                                               ; preds = %8
+  %31 = lshr i32 %1, 18
+  %32 = trunc i32 %31 to i8
+  %33 = and i8 %32, 7
+  %34 = or disjoint i8 %33, -16
+  %.sroa.0.0.vec.insert = insertelement <4 x i8> poison, i8 %34, i64 0
+  %35 = lshr i32 %1, 12
+  %36 = trunc i32 %35 to i8
+  %37 = and i8 %36, 63
+  %38 = or disjoint i8 %37, -128
+  %.sroa.0.1.vec.insert = insertelement <4 x i8> %.sroa.0.0.vec.insert, i8 %38, i64 1
+  %39 = lshr i32 %1, 6
+  %40 = trunc i32 %39 to i8
+  %41 = and i8 %40, 63
+  %42 = or disjoint i8 %41, -128
+  %.sroa.0.2.vec.insert = insertelement <4 x i8> %.sroa.0.1.vec.insert, i8 %42, i64 2
+  %43 = trunc i32 %1 to i8
+  %44 = and i8 %43, 63
+  %45 = or disjoint i8 %44, -128
+  %.sroa.0.3.vec.insert = insertelement <4 x i8> %.sroa.0.2.vec.insert, i8 %45, i64 3
+  br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.5350303487615222083.exit
+
+_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.5350303487615222083.exit: ; preds = %10, %12, %19, %30
+  %.sroa.0.0 = phi <4 x i8> [ %.sroa.0.0.vec.insert7, %10 ], [ %.sroa.0.1.vec.insert12, %12 ], [ %.sroa.0.2.vec.insert14, %19 ], [ %.sroa.0.3.vec.insert, %30 ]
+  %46 = phi i64 [ 1, %10 ], [ 2, %12 ], [ 3, %19 ], [ 4, %30 ]
   store ptr %2, ptr %0, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %3, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %25, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %3, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %1, ptr %27, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %23, ptr %28, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %.sroa.0.0, ptr %29, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %3, ptr %47, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 0, ptr %48, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %3, ptr %49, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 %1, ptr %50, align 4
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %46, ptr %51, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store <4 x i8> %.sroa.0.0, ptr %52, align 8
   ret void
 }
 

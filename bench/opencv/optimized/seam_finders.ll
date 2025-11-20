@@ -7760,8 +7760,8 @@ define noundef zeroext i1 @_ZN2cv6detail12DpSeamFinder11getSeamTipsEiiRNS_6Point
   %8 = alloca %"class.std::vector.20", align 8
   %9 = alloca %"class.std::vector.60", align 8
   %10 = alloca %"class.std::vector.32", align 8
-  %.sroa.0 = alloca %"class.cv::Point_", align 16
-  %.sroa.5 = alloca %"class.cv::Point_", align 8
+  %.sroa.0 = alloca i64, align 16
+  %.sroa.5 = alloca i64, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %12 = sext i32 %1 to i64
   %13 = load ptr, ptr %11, align 8, !tbaa !151
@@ -8349,8 +8349,8 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vect
 .preheader:                                       ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
-  store i64 0, ptr %.sroa.0, align 16
-  store i64 0, ptr %.sroa.5, align 8
+  store i64 0, ptr %.sroa.0, align 16, !tbaa !55
+  store i64 0, ptr %.sroa.5, align 8, !tbaa !55
   br label %350
 
 292:                                              ; preds = %.lr.ph248, %.loopexit

@@ -4448,7 +4448,7 @@ _ZN14regex_automata3nfa8thompson8compiler8Compiler35c_unicode_class_reverse_with
   store i64 0, ptr %.sroa.0.i.i.i, align 8, !noalias !859
   %1223 = shl nuw nsw i64 %1213, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.sroa.0.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %1212, i64 %1223, i1 false), !alias.scope !863, !noalias !867
-  %.sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i.i.i = load i64, ptr %.sroa.0.i.i.i, align 8, !noalias !859
+  %.sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i.i.i = load i64, ptr %.sroa.0.i.i.i, align 8, !noalias !859
   %1224 = trunc nuw nsw i64 %1213 to i8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
   %1225 = load i64, ptr %31, align 8, !alias.scope !869, !noalias !872, !noundef !4
@@ -4467,7 +4467,7 @@ _ZN14regex_automata3nfa8thompson8compiler8Compiler35c_unicode_class_reverse_with
   %1229 = phi i64 [ %.pre.i.i.i39, %.noexc82.i.i ], [ 0, %1222 ]
   %1230 = load ptr, ptr %1130, align 8, !alias.scope !869, !noalias !872, !nonnull !4, !noundef !4
   %1231 = getelementptr inbounds { [4 x { i8, i8 }], i32, i8, [3 x i8] }, ptr %1230, i64 %1229
-  store i64 %.sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i.i.i, ptr %1231, align 4, !noalias !874
+  store i64 %.sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i.i.i, ptr %1231, align 4, !noalias !874
   %.sroa.4.0..sroa_idx230.i.i = getelementptr inbounds nuw i8, ptr %1231, i64 8
   store i32 1, ptr %.sroa.4.0..sroa_idx230.i.i, align 4, !noalias !874
   %.sroa.5.0..sroa_idx231.i.i = getelementptr inbounds nuw i8, ptr %1231, i64 12
@@ -4621,7 +4621,7 @@ _ZN14regex_automata3nfa8thompson10range_trie10NextInsert3new17hdfaa932ed1c94b98E
   store i64 0, ptr %.sroa.0.i.i.i.i, align 8, !noalias !907
   %1287 = shl nuw nsw i64 %1258, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.sroa.0.i.i.i.i, ptr noundef nonnull readonly align 2 dereferenceable(1) %.sroa.7.i.i, i64 %1287, i1 false), !alias.scope !913, !noalias !917
-  %.sroa.0.i.i.i.i.0..sroa.0.i.i.i.i.0..sroa.0.i.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i.i.i.i = load i64, ptr %.sroa.0.i.i.i.i, align 8, !noalias !907
+  %.sroa.0.i.i.i.i.0..sroa.0.i.i.i.i.0..sroa.0.i.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i.i.i.i = load i64, ptr %.sroa.0.i.i.i.i, align 8, !noalias !907
   %1288 = trunc nuw nsw i64 %1258 to i8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i)
   %1289 = load i64, ptr %1129, align 8, !alias.scope !919, !noalias !922, !noundef !4
@@ -4641,7 +4641,7 @@ _ZN14regex_automata3nfa8thompson10range_trie10NextInsert3new17hdfaa932ed1c94b98E
   %1293 = phi i64 [ %.pre.i.i.i.i38, %.noexc92.i.i ], [ %1289, %_ZN14regex_automata3nfa8thompson10range_trie10NextInsert3new17hdfaa932ed1c94b98E.exit.i.i.i ]
   %1294 = load ptr, ptr %1130, align 8, !alias.scope !919, !noalias !922, !nonnull !4, !noundef !4
   %1295 = getelementptr inbounds { [4 x { i8, i8 }], i32, i8, [3 x i8] }, ptr %1294, i64 %1293
-  store i64 %.sroa.0.i.i.i.i.0..sroa.0.i.i.i.i.0..sroa.0.i.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i.i.i.i, ptr %1295, align 4, !noalias !924
+  store i64 %.sroa.0.i.i.i.i.0..sroa.0.i.i.i.i.0..sroa.0.i.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i.i.i.i, ptr %1295, align 4, !noalias !924
   %.sroa.4.0..sroa_idx.i.i170.i = getelementptr inbounds nuw i8, ptr %1295, i64 8
   store i32 %1286, ptr %.sroa.4.0..sroa_idx.i.i170.i, align 4, !noalias !924
   %.sroa.5.0..sroa_idx.i.i171.i = getelementptr inbounds nuw i8, ptr %1295, i64 12
@@ -4962,7 +4962,7 @@ _ZN14regex_automata3nfa8thompson10range_trie10NextInsert3new17hdfaa932ed1c94b98E
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i99.i.i)
   store i64 0, ptr %.sroa.0.i.i99.i.i, align 8, !noalias !933
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.sroa.0.i.i99.i.i, ptr noundef nonnull readonly align 2 dereferenceable(1) %.sroa.7.i.i, i64 %1281, i1 false), !alias.scope !939, !noalias !943
-  %.sroa.0.i.i99.i.i.0..sroa.0.i.i99.i.i.0..sroa.0.i.i99.i.i.0..sroa.0.i.i99.i.0..sroa.0.i.i99.i.0..sroa.0.i.i99.0..sroa.0.i.i99.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i.i101.i.i = load i64, ptr %.sroa.0.i.i99.i.i, align 8, !noalias !933
+  %.sroa.0.i.i99.i.i.0..sroa.0.i.i99.i.i.0..sroa.0.i.i99.i.i.0..sroa.0.i.i99.i.0..sroa.0.i.i99.i.0..sroa.0.i.i99.0..sroa.0.i.i99.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i.i101.i.i = load i64, ptr %.sroa.0.i.i99.i.i, align 8, !noalias !933
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i99.i.i)
   %1376 = load i64, ptr %1129, align 8, !alias.scope !945, !noalias !948, !noundef !4
   %1377 = load i64, ptr %31, align 8, !alias.scope !945, !noalias !948, !noundef !4
@@ -4981,7 +4981,7 @@ _ZN14regex_automata3nfa8thompson10range_trie10NextInsert3new17hdfaa932ed1c94b98E
   %1380 = phi i64 [ %.pre.i.i106.i.i, %.noexc109.i.i ], [ %1376, %_ZN14regex_automata3nfa8thompson10range_trie10NextInsert3new17hdfaa932ed1c94b98E.exit.i100.i.i ]
   %1381 = load ptr, ptr %1130, align 8, !alias.scope !945, !noalias !948, !nonnull !4, !noundef !4
   %1382 = getelementptr inbounds { [4 x { i8, i8 }], i32, i8, [3 x i8] }, ptr %1381, i64 %1380
-  store i64 %.sroa.0.i.i99.i.i.0..sroa.0.i.i99.i.i.0..sroa.0.i.i99.i.i.0..sroa.0.i.i99.i.0..sroa.0.i.i99.i.0..sroa.0.i.i99.0..sroa.0.i.i99.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i.i101.i.i, ptr %1382, align 4, !noalias !950
+  store i64 %.sroa.0.i.i99.i.i.0..sroa.0.i.i99.i.i.0..sroa.0.i.i99.i.i.0..sroa.0.i.i99.i.0..sroa.0.i.i99.i.0..sroa.0.i.i99.0..sroa.0.i.i99.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i.i101.i.i, ptr %1382, align 4, !noalias !950
   %.sroa.4.0..sroa_idx.i103.i.i = getelementptr inbounds nuw i8, ptr %1382, i64 8
   store i32 %1375, ptr %.sroa.4.0..sroa_idx.i103.i.i, align 4, !noalias !950
   %.sroa.5.0..sroa_idx.i104.i.i = getelementptr inbounds nuw i8, ptr %1382, i64 12
@@ -5102,7 +5102,7 @@ _ZN14regex_automata3nfa8thompson10range_trie9RangeTrie9state_mut17h61044da6f3107
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i121.i.i)
   store i64 0, ptr %.sroa.0.i121.i.i, align 8, !noalias !957
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.sroa.0.i121.i.i, ptr noundef nonnull readonly align 2 dereferenceable(1) %.sroa.7.i.i, i64 %1281, i1 false), !alias.scope !961, !noalias !965
-  %.sroa.0.i121.i.i.0..sroa.0.i121.i.i.0..sroa.0.i121.i.i.0..sroa.0.i121.i.0..sroa.0.i121.i.0..sroa.0.i121.0..sroa.0.i121.0..sroa.0.0..sroa.0.0..i122.i.i = load i64, ptr %.sroa.0.i121.i.i, align 8, !noalias !957
+  %.sroa.0.i121.i.i.0..sroa.0.i121.i.i.0..sroa.0.i121.i.i.0..sroa.0.i121.i.0..sroa.0.i121.i.0..sroa.0.i121.0..sroa.0.i121.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i122.i.i = load i64, ptr %.sroa.0.i121.i.i, align 8, !noalias !957
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i121.i.i)
   %1415 = load i64, ptr %31, align 8, !alias.scope !967, !noalias !970, !noundef !4
   %1416 = icmp eq i64 %.pr.pre794.i, %1415
@@ -5120,7 +5120,7 @@ _ZN14regex_automata3nfa8thompson10range_trie9RangeTrie9state_mut17h61044da6f3107
   %1419 = phi i64 [ %.pre.i125.i.i, %.noexc126.i.i ], [ %.pr.pre794.i, %1414 ]
   %1420 = load ptr, ptr %1130, align 8, !alias.scope !967, !noalias !970, !nonnull !4, !noundef !4
   %1421 = getelementptr inbounds { [4 x { i8, i8 }], i32, i8, [3 x i8] }, ptr %1420, i64 %1419
-  store i64 %.sroa.0.i121.i.i.0..sroa.0.i121.i.i.0..sroa.0.i121.i.i.0..sroa.0.i121.i.0..sroa.0.i121.i.0..sroa.0.i121.0..sroa.0.i121.0..sroa.0.0..sroa.0.0..i122.i.i, ptr %1421, align 4, !noalias !874
+  store i64 %.sroa.0.i121.i.i.0..sroa.0.i121.i.i.0..sroa.0.i121.i.i.0..sroa.0.i121.i.0..sroa.0.i121.i.0..sroa.0.i121.0..sroa.0.i121.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i122.i.i, ptr %1421, align 4, !noalias !874
   %.sroa.4275.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1421, i64 8
   store i32 %1315, ptr %.sroa.4275.0..sroa_idx.i.i, align 4, !noalias !874
   %.sroa.5276.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1421, i64 12
@@ -5545,7 +5545,7 @@ _ZN14regex_automata3nfa8thompson10range_trie10NextInsert3new17hdfaa932ed1c94b98E
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i152.i.i)
   store i64 0, ptr %.sroa.0.i.i152.i.i, align 8, !noalias !1030
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.sroa.0.i.i152.i.i, ptr noundef nonnull readonly align 2 dereferenceable(1) %.sroa.7.i.i, i64 %1281, i1 false), !alias.scope !1036, !noalias !1040
-  %.sroa.0.i.i152.i.i.0..sroa.0.i.i152.i.i.0..sroa.0.i.i152.i.i.0..sroa.0.i.i152.i.0..sroa.0.i.i152.i.0..sroa.0.i.i152.0..sroa.0.i.i152.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i.i154.i.i = load i64, ptr %.sroa.0.i.i152.i.i, align 8, !noalias !1030
+  %.sroa.0.i.i152.i.i.0..sroa.0.i.i152.i.i.0..sroa.0.i.i152.i.i.0..sroa.0.i.i152.i.0..sroa.0.i.i152.i.0..sroa.0.i.i152.0..sroa.0.i.i152.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i.i154.i.i = load i64, ptr %.sroa.0.i.i152.i.i, align 8, !noalias !1030
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i152.i.i)
   %1585 = load i64, ptr %1129, align 8, !alias.scope !1042, !noalias !1045, !noundef !4
   %1586 = load i64, ptr %31, align 8, !alias.scope !1042, !noalias !1045, !noundef !4
@@ -5564,7 +5564,7 @@ _ZN14regex_automata3nfa8thompson10range_trie10NextInsert3new17hdfaa932ed1c94b98E
   %1589 = phi i64 [ %.pre.i.i159.i.i, %.noexc162.i.i ], [ %1585, %_ZN14regex_automata3nfa8thompson10range_trie10NextInsert3new17hdfaa932ed1c94b98E.exit.i153.i.i ]
   %1590 = load ptr, ptr %1130, align 8, !alias.scope !1042, !noalias !1045, !nonnull !4, !noundef !4
   %1591 = getelementptr inbounds { [4 x { i8, i8 }], i32, i8, [3 x i8] }, ptr %1590, i64 %1589
-  store i64 %.sroa.0.i.i152.i.i.0..sroa.0.i.i152.i.i.0..sroa.0.i.i152.i.i.0..sroa.0.i.i152.i.0..sroa.0.i.i152.i.0..sroa.0.i.i152.0..sroa.0.i.i152.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i.i154.i.i, ptr %1591, align 4, !noalias !1047
+  store i64 %.sroa.0.i.i152.i.i.0..sroa.0.i.i152.i.i.0..sroa.0.i.i152.i.i.0..sroa.0.i.i152.i.0..sroa.0.i.i152.i.0..sroa.0.i.i152.0..sroa.0.i.i152.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i.i154.i.i, ptr %1591, align 4, !noalias !1047
   %.sroa.4.0..sroa_idx.i156.i.i = getelementptr inbounds nuw i8, ptr %1591, i64 8
   store i32 %1584, ptr %.sroa.4.0..sroa_idx.i156.i.i, align 4, !noalias !1047
   %.sroa.5.0..sroa_idx.i157.i.i = getelementptr inbounds nuw i8, ptr %1591, i64 12
@@ -5665,7 +5665,7 @@ _ZN14regex_automata3nfa8thompson10range_trie9RangeTrie17set_transition_at17h899e
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i188.i.i)
   store i64 0, ptr %.sroa.0.i188.i.i, align 8, !noalias !1051
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.sroa.0.i188.i.i, ptr noundef nonnull readonly align 2 dereferenceable(1) %.sroa.7.i.i, i64 %1281, i1 false), !alias.scope !1055, !noalias !1059
-  %.sroa.0.i188.i.i.0..sroa.0.i188.i.i.0..sroa.0.i188.i.i.0..sroa.0.i188.i.0..sroa.0.i188.i.0..sroa.0.i188.0..sroa.0.i188.0..sroa.0.0..sroa.0.0..i189.i.i = load i64, ptr %.sroa.0.i188.i.i, align 8, !noalias !1051
+  %.sroa.0.i188.i.i.0..sroa.0.i188.i.i.0..sroa.0.i188.i.i.0..sroa.0.i188.i.0..sroa.0.i188.i.0..sroa.0.i188.0..sroa.0.i188.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i189.i.i = load i64, ptr %.sroa.0.i188.i.i, align 8, !noalias !1051
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i188.i.i)
   %1630 = load i64, ptr %1129, align 8, !alias.scope !1061, !noalias !1064, !noundef !4
   %1631 = load i64, ptr %31, align 8, !alias.scope !1061, !noalias !1064, !noundef !4
@@ -5684,7 +5684,7 @@ _ZN14regex_automata3nfa8thompson10range_trie9RangeTrie17set_transition_at17h899e
   %1635 = phi i64 [ %.pre.i192.i.i, %.noexc193.i.i ], [ %1630, %1629 ]
   %1636 = load ptr, ptr %1130, align 8, !alias.scope !1061, !noalias !1064, !nonnull !4, !noundef !4
   %1637 = getelementptr inbounds { [4 x { i8, i8 }], i32, i8, [3 x i8] }, ptr %1636, i64 %1635
-  store i64 %.sroa.0.i188.i.i.0..sroa.0.i188.i.i.0..sroa.0.i188.i.i.0..sroa.0.i188.i.0..sroa.0.i188.i.0..sroa.0.i188.0..sroa.0.i188.0..sroa.0.0..sroa.0.0..i189.i.i, ptr %1637, align 4, !noalias !874
+  store i64 %.sroa.0.i188.i.i.0..sroa.0.i188.i.i.0..sroa.0.i188.i.i.0..sroa.0.i188.i.0..sroa.0.i188.i.0..sroa.0.i188.0..sroa.0.i188.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i189.i.i, ptr %1637, align 4, !noalias !874
   %.sroa.4281.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1637, i64 8
   store i32 %1315, ptr %.sroa.4281.0..sroa_idx.i.i, align 4, !noalias !874
   %.sroa.5282.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1637, i64 12

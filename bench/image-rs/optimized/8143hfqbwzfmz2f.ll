@@ -17091,9 +17091,9 @@ define hidden void @"_ZN74_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..specialize..S
   ret void
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.0.07 = phi ptr [ %6, %.lr.ph ], [ %0, %3 ]
-  %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 4
-  store i32 %2, ptr %.sroa.0.07, align 1
+  %.sroa.0.09 = phi ptr [ %6, %.lr.ph ], [ %0, %3 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.09, i64 4
+  store i32 %2, ptr %.sroa.0.09, align 1
   %7 = icmp eq ptr %6, %4
   br i1 %7, label %._crit_edge, label %.lr.ph
 }
@@ -29012,8 +29012,8 @@ define internal fastcc void @_ZN5image6codecs3dxt17encode_dxt_colors17h151bdd4f3
   %.sroa.2.0.insert.shift.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i.i.i, 32
   %.sroa.0.0.insert.ext.i.i.i.i.i.i.i.i.i.i = zext nneg i32 %105 to i64
   %.sroa.0.0.insert.insert.i.i.i.i.i.i.i.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i.i.i.i.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i.i.i.i.i.i.i
-  %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.i.i.i = trunc i64 %.sroa.07.0.i.i.i.i.i.i.i to i32
-  %106 = icmp slt i32 %105, %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.i.i.i
+  %.sroa.0.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.i.i.i = trunc i64 %.sroa.07.0.i.i.i.i.i.i.i to i32
+  %106 = icmp slt i32 %105, %.sroa.0.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.i.i.i
   %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i = select i1 %106, i64 %.sroa.07.0.i.i.i.i.i.i.i, i64 %.sroa.0.0.insert.insert.i.i.i.i.i.i.i.i.i.i
   %107 = add nuw nsw i64 %.0.i.i.i.i.i.i.i, 1
   %108 = icmp eq i64 %107, 15

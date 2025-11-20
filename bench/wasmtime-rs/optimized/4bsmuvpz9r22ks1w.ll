@@ -55824,7 +55824,7 @@ default.unreachable1:                             ; preds = %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define range(i32 0, -2147483648) i32 @_ZN17cranelift_codegen3isa3x648settings5Flags3new17h0cd7a1c57b88b554E(ptr noalias noundef readonly align 1 captures(none) dereferenceable(9) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #2 {
+define i32 @_ZN17cranelift_codegen3isa3x648settings5Flags3new17h0cd7a1c57b88b554E(ptr noalias noundef readonly align 1 captures(none) dereferenceable(9) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #2 {
   %3 = alloca { ptr, [5 x i64] }, align 8
   %4 = alloca { ptr, i64 }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9593)
@@ -55866,85 +55866,190 @@ _ZN17cranelift_codegen8settings7Builder9state_for17h45f8200b851d2476E.exit: ; pr
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE.exit": ; preds = %_ZN17cranelift_codegen8settings7Builder9state_for17h45f8200b851d2476E.exit
-  %16 = load i16, ptr %12, align 1, !alias.scope !9608, !noalias !9609
-  %.sroa.0.0.insert.ext = zext i16 %16 to i32
-  %.sroa.0.0.extract.trunc = trunc i16 %16 to i8
-  %17 = and i8 %.sroa.0.0.extract.trunc, 16
+  %16 = load <2 x i8>, ptr %12, align 1, !alias.scope !9608, !noalias !9609
+  %.sroa.0.0.vec.expand = shufflevector <2 x i8> %16, <2 x i8> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %.sroa.0.0.vecblend = shufflevector <4 x i8> %.sroa.0.0.vec.expand, <4 x i8> <i8 poison, i8 poison, i8 0, i8 0>, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  %.sroa.0.0.vec.extract = extractelement <2 x i8> %16, i64 0
+  %17 = and i8 %.sroa.0.0.vec.extract, 16
   %.not = icmp eq i8 %17, 0
-  %18 = and i8 %.sroa.0.0.extract.trunc, 32
-  %.not3 = icmp eq i8 %18, 0
-  %spec.select.v = select i1 %.not3, i32 65536, i32 196608
-  %spec.select = select i1 %.not, i32 0, i32 %spec.select.v
-  %.sroa.0.0 = or disjoint i32 %spec.select, %.sroa.0.0.insert.ext
-  %19 = icmp slt i8 %.sroa.0.0.extract.trunc, 0
-  %.sroa.0.2.insert.insert33 = or disjoint i32 %.sroa.0.0, 262144
-  %spec.select122 = select i1 %19, i32 %.sroa.0.2.insert.insert33, i32 %.sroa.0.0
-  %.sroa.0.1.extract.shift = lshr i32 %spec.select122, 8
-  %20 = shl nuw nsw i32 %.sroa.0.1.extract.shift, 19
-  %21 = and i32 %20, 524288
-  %22 = shl nuw nsw i32 %.sroa.0.1.extract.shift, 17
-  %23 = and i32 %22, 1048576
-  %24 = or disjoint i32 %21, %23
-  %25 = shl nuw nsw i32 %.sroa.0.1.extract.shift, 19
-  %26 = and i32 %25, 2097152
-  %27 = or disjoint i32 %24, %26
-  %28 = shl nuw i32 %.sroa.0.1.extract.shift, 21
-  %29 = and i32 %28, 4194304
-  %30 = or disjoint i32 %27, %29
-  %31 = shl nuw nsw i32 %.sroa.0.1.extract.shift, 18
-  %32 = and i32 %31, 8388608
-  %33 = or disjoint i32 %30, %32
-  %34 = shl nuw nsw i32 %.sroa.0.1.extract.shift, 18
-  %35 = and i32 %34, 16777216
-  %36 = or disjoint i32 %33, %35
-  %.sroa.0.7 = or i32 %36, %spec.select122
-  %37 = and i8 %.sroa.0.0.extract.trunc, 80
-  %or.cond.not = icmp eq i8 %37, 80
-  %.sroa.0.3.insert.insert81 = or i32 %.sroa.0.7, 33554432
-  %.sroa.0.8 = select i1 %or.cond.not, i32 %.sroa.0.3.insert.insert81, i32 %.sroa.0.7
-  %38 = shl nuw nsw i32 %.sroa.0.1.extract.shift, 19
-  %39 = and i32 %38, 67108864
-  %.sroa.0.9 = or i32 %.sroa.0.8, %39
-  %40 = and i32 %spec.select122, 4096
-  %.not11 = icmp eq i32 %40, 0
-  %41 = and i8 %.sroa.0.0.extract.trunc, 8
-  %.not12 = icmp eq i8 %41, 0
+  br i1 %.not, label %20, label %18
+
+18:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE.exit"
+  %.sroa.0.2.vec.insert = insertelement <4 x i8> %.sroa.0.0.vecblend, i8 1, i64 2
+  %19 = and i8 %.sroa.0.0.vec.extract, 32
+  %.not3 = icmp eq i8 %19, 0
+  br i1 %.not3, label %20, label %22
+
+20:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE.exit", %18, %22
+  %.sroa.0.0 = phi <4 x i8> [ %.sroa.0.0.vecblend, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE.exit" ], [ %.sroa.0.2.vec.insert, %18 ], [ %.sroa.0.2.vec.insert23, %22 ]
+  %21 = icmp slt i8 %.sroa.0.0.vec.extract, 0
+  br i1 %21, label %23, label %25
+
+22:                                               ; preds = %18
+  %.sroa.0.2.vec.insert23 = insertelement <4 x i8> %.sroa.0.2.vec.insert, i8 3, i64 2
+  br label %20
+
+23:                                               ; preds = %20
+  %.sroa.0.2.vec.extract25 = extractelement <4 x i8> %.sroa.0.0, i64 2
+  %24 = or disjoint i8 %.sroa.0.2.vec.extract25, 4
+  %.sroa.0.2.vec.insert27 = insertelement <4 x i8> %.sroa.0.0, i8 %24, i64 2
+  br label %25
+
+25:                                               ; preds = %20, %23
+  %.sroa.0.1 = phi <4 x i8> [ %.sroa.0.2.vec.insert27, %23 ], [ %.sroa.0.0, %20 ]
+  %.sroa.0.1.vec.extract = extractelement <4 x i8> %.sroa.0.1, i64 1
+  %26 = and i8 %.sroa.0.1.vec.extract, 1
+  %.not4 = icmp eq i8 %26, 0
+  br i1 %.not4, label %29, label %27
+
+27:                                               ; preds = %25
+  %.sroa.0.2.vec.extract29 = extractelement <4 x i8> %.sroa.0.1, i64 2
+  %28 = or i8 %.sroa.0.2.vec.extract29, 8
+  %.sroa.0.2.vec.insert31 = insertelement <4 x i8> %.sroa.0.1, i8 %28, i64 2
+  br label %29
+
+29:                                               ; preds = %25, %27
+  %.sroa.0.2 = phi <4 x i8> [ %.sroa.0.1, %25 ], [ %.sroa.0.2.vec.insert31, %27 ]
+  %30 = and i8 %.sroa.0.1.vec.extract, 8
+  %.not5 = icmp eq i8 %30, 0
+  br i1 %.not5, label %33, label %31
+
+31:                                               ; preds = %29
+  %.sroa.0.2.vec.extract33 = extractelement <4 x i8> %.sroa.0.2, i64 2
+  %32 = or i8 %.sroa.0.2.vec.extract33, 16
+  %.sroa.0.2.vec.insert35 = insertelement <4 x i8> %.sroa.0.2, i8 %32, i64 2
+  br label %33
+
+33:                                               ; preds = %29, %31
+  %.sroa.0.3 = phi <4 x i8> [ %.sroa.0.2, %29 ], [ %.sroa.0.2.vec.insert35, %31 ]
+  %34 = and i8 %.sroa.0.1.vec.extract, 4
+  %.not6 = icmp eq i8 %34, 0
+  br i1 %.not6, label %37, label %35
+
+35:                                               ; preds = %33
+  %.sroa.0.2.vec.extract37 = extractelement <4 x i8> %.sroa.0.3, i64 2
+  %36 = or i8 %.sroa.0.2.vec.extract37, 32
+  %.sroa.0.2.vec.insert39 = insertelement <4 x i8> %.sroa.0.3, i8 %36, i64 2
+  br label %37
+
+37:                                               ; preds = %33, %35
+  %.sroa.0.4 = phi <4 x i8> [ %.sroa.0.3, %33 ], [ %.sroa.0.2.vec.insert39, %35 ]
+  %38 = and i8 %.sroa.0.1.vec.extract, 2
+  %.not7 = icmp eq i8 %38, 0
+  br i1 %.not7, label %41, label %39
+
+39:                                               ; preds = %37
+  %.sroa.0.2.vec.extract41 = extractelement <4 x i8> %.sroa.0.4, i64 2
+  %40 = or i8 %.sroa.0.2.vec.extract41, 64
+  %.sroa.0.2.vec.insert43 = insertelement <4 x i8> %.sroa.0.4, i8 %40, i64 2
+  br label %41
+
+41:                                               ; preds = %37, %39
+  %.sroa.0.5 = phi <4 x i8> [ %.sroa.0.4, %37 ], [ %.sroa.0.2.vec.insert43, %39 ]
+  %42 = and i8 %.sroa.0.1.vec.extract, 32
+  %.not8 = icmp eq i8 %42, 0
+  br i1 %.not8, label %45, label %43
+
+43:                                               ; preds = %41
+  %.sroa.0.2.vec.extract45 = extractelement <4 x i8> %.sroa.0.5, i64 2
+  %44 = or i8 %.sroa.0.2.vec.extract45, -128
+  %.sroa.0.2.vec.insert47 = insertelement <4 x i8> %.sroa.0.5, i8 %44, i64 2
+  br label %45
+
+45:                                               ; preds = %41, %43
+  %.sroa.0.6 = phi <4 x i8> [ %.sroa.0.5, %41 ], [ %.sroa.0.2.vec.insert47, %43 ]
+  %46 = and i8 %.sroa.0.1.vec.extract, 64
+  %.not9 = icmp eq i8 %46, 0
+  br i1 %.not9, label %49, label %47
+
+47:                                               ; preds = %45
+  %.sroa.0.3.vec.extract = extractelement <4 x i8> %.sroa.0.6, i64 3
+  %48 = or i8 %.sroa.0.3.vec.extract, 1
+  %.sroa.0.3.vec.insert = insertelement <4 x i8> %.sroa.0.6, i8 %48, i64 3
+  br label %49
+
+49:                                               ; preds = %45, %47
+  %.sroa.0.7 = phi <4 x i8> [ %.sroa.0.6, %45 ], [ %.sroa.0.3.vec.insert, %47 ]
+  %50 = and i8 %.sroa.0.0.vec.extract, 80
+  %or.cond.not = icmp eq i8 %50, 80
+  br i1 %or.cond.not, label %53, label %51
+
+51:                                               ; preds = %49, %53
+  %.sroa.0.8 = phi <4 x i8> [ %.sroa.0.3.vec.insert52, %53 ], [ %.sroa.0.7, %49 ]
+  %52 = icmp slt i8 %.sroa.0.1.vec.extract, 0
+  br i1 %52, label %55, label %57
+
+53:                                               ; preds = %49
+  %.sroa.0.3.vec.extract50 = extractelement <4 x i8> %.sroa.0.7, i64 3
+  %54 = or i8 %.sroa.0.3.vec.extract50, 2
+  %.sroa.0.3.vec.insert52 = insertelement <4 x i8> %.sroa.0.7, i8 %54, i64 3
+  br label %51
+
+55:                                               ; preds = %51
+  %.sroa.0.3.vec.extract54 = extractelement <4 x i8> %.sroa.0.8, i64 3
+  %56 = or i8 %.sroa.0.3.vec.extract54, 4
+  %.sroa.0.3.vec.insert56 = insertelement <4 x i8> %.sroa.0.8, i8 %56, i64 3
+  br label %57
+
+57:                                               ; preds = %51, %55
+  %.sroa.0.9 = phi <4 x i8> [ %.sroa.0.3.vec.insert56, %55 ], [ %.sroa.0.8, %51 ]
+  %58 = and i8 %.sroa.0.1.vec.extract, 16
+  %.not11 = icmp eq i8 %58, 0
+  %59 = and i8 %.sroa.0.0.vec.extract, 8
+  %.not12 = icmp eq i8 %59, 0
   %or.cond16 = or i1 %.not12, %.not11
-  %.sroa.0.3.insert.insert97 = or i32 %.sroa.0.9, 134217728
-  %.sroa.0.10 = select i1 %or.cond16, i32 %.sroa.0.9, i32 %.sroa.0.3.insert.insert97
-  %42 = and i8 %.sroa.0.0.extract.trunc, 4
-  %.not13 = icmp eq i8 %42, 0
-  br i1 %.not13, label %44, label %43
+  br i1 %or.cond16, label %60, label %62
 
-43:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE.exit"
-  %.sroa.0.3.insert.insert105 = or i32 %.sroa.0.10, 268435456
-  br i1 %.not12, label %44, label %48
+60:                                               ; preds = %57, %62
+  %.sroa.0.10 = phi <4 x i8> [ %.sroa.0.9, %57 ], [ %.sroa.0.3.vec.insert60, %62 ]
+  %61 = and i8 %.sroa.0.0.vec.extract, 4
+  %.not13 = icmp eq i8 %61, 0
+  br i1 %.not13, label %66, label %64
 
-44:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE.exit", %43, %48
-  %.sroa.0.11 = phi i32 [ %.sroa.0.10, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE.exit" ], [ %.sroa.0.3.insert.insert105, %43 ], [ %.sroa.0.3.insert.insert113, %48 ]
-  %45 = and i8 %.sroa.0.0.extract.trunc, 2
-  %46 = zext nneg i8 %45 to i32
-  %47 = shl nuw nsw i32 %46, 29
-  %spec.select123 = or i32 %.sroa.0.11, %47
-  ret i32 %spec.select123
+62:                                               ; preds = %57
+  %.sroa.0.3.vec.extract58 = extractelement <4 x i8> %.sroa.0.9, i64 3
+  %63 = or i8 %.sroa.0.3.vec.extract58, 8
+  %.sroa.0.3.vec.insert60 = insertelement <4 x i8> %.sroa.0.9, i8 %63, i64 3
+  br label %60
 
-48:                                               ; preds = %43
-  %.sroa.0.3.extract.shift107 = and i32 %.sroa.0.3.insert.insert105, -553648128
-  %.sroa.0.3.insert.ext110 = or disjoint i32 %.sroa.0.3.extract.shift107, 536870912
-  %.sroa.0.3.insert.mask112 = and i32 %.sroa.0.10, 16777215
-  %.sroa.0.3.insert.insert113 = or disjoint i32 %.sroa.0.3.insert.mask112, %.sroa.0.3.insert.ext110
-  br label %44
+64:                                               ; preds = %60
+  %.sroa.0.3.vec.extract62 = extractelement <4 x i8> %.sroa.0.10, i64 3
+  %65 = or i8 %.sroa.0.3.vec.extract62, 16
+  %.sroa.0.3.vec.insert64 = insertelement <4 x i8> %.sroa.0.10, i8 %65, i64 3
+  br i1 %.not12, label %66, label %68
+
+66:                                               ; preds = %60, %64, %68
+  %.sroa.0.11 = phi <4 x i8> [ %.sroa.0.10, %60 ], [ %.sroa.0.3.vec.insert64, %64 ], [ %.sroa.0.3.vec.insert68, %68 ]
+  %67 = and i8 %.sroa.0.0.vec.extract, 2
+  %.not15 = icmp eq i8 %67, 0
+  br i1 %.not15, label %72, label %70
+
+68:                                               ; preds = %64
+  %69 = or i8 %.sroa.0.3.vec.extract62, 48
+  %.sroa.0.3.vec.insert68 = insertelement <4 x i8> %.sroa.0.3.vec.insert64, i8 %69, i64 3
+  br label %66
+
+70:                                               ; preds = %66
+  %.sroa.0.3.vec.extract70 = extractelement <4 x i8> %.sroa.0.11, i64 3
+  %71 = or i8 %.sroa.0.3.vec.extract70, 64
+  %.sroa.0.3.vec.insert72 = insertelement <4 x i8> %.sroa.0.11, i8 %71, i64 3
+  br label %72
+
+72:                                               ; preds = %66, %70
+  %.sroa.0.12 = phi <4 x i8> [ %.sroa.0.11, %66 ], [ %.sroa.0.3.vec.insert72, %70 ]
+  %73 = bitcast <4 x i8> %.sroa.0.12 to i32
+  ret i32 %73
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN17cranelift_codegen3isa3x648settings5Flags4iter17h2de1b680387d5554E(ptr noalias noundef writeonly sret({ { ptr, ptr, {} }, { [2 x i8] }, [6 x i8] }) align 8 captures(none) dereferenceable(24) initializes((0, 18)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(4) %1) unnamed_addr #17 {
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE.exit":
-  %.sroa.0.0.copyload2 = load <2 x i8>, ptr %1, align 1, !alias.scope !9611, !noalias !9615
+  %.sroa.0.0.copyload = load <2 x i8>, ptr %1, align 1, !alias.scope !9611, !noalias !9615
   store ptr @_ZN17cranelift_codegen3isa3x648settings11DESCRIPTORS17h3f812ec1131dbf60E, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN17cranelift_codegen3isa3x648settings11DESCRIPTORS17h3f812ec1131dbf60E, i64 3280), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store <2 x i8> %.sroa.0.0.copyload2, ptr %3, align 8
+  store <2 x i8> %.sroa.0.0.copyload, ptr %3, align 8
   ret void
 }
 

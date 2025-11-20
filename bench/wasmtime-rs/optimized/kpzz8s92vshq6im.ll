@@ -5107,7 +5107,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 16
   store i64 %.sroa.5110.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8
   %79 = icmp eq ptr %2, null
-  br i1 %79, label %.invoke138, label %83
+  br i1 %79, label %.invoke148, label %83
 
 80:                                               ; preds = %5
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5150,7 +5150,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
           cleanup
   br label %.body
 
-.loopexit.split-lp69.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke138, %.invoke, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc1352614f9e6835bE.llvm.3847999990672408200.exit.i", %446, %398, %318
+.loopexit.split-lp69.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke148, %.invoke, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc1352614f9e6835bE.llvm.3847999990672408200.exit.i", %446, %398, %318
   %lpad.loopexit.split-lp87 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -5163,7 +5163,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %84 = getelementptr inbounds nuw i8, ptr %2, i64 504
   %85 = load ptr, ptr %84, align 8, !alias.scope !905, !noundef !18
   %86 = icmp eq ptr %85, null
-  br i1 %86, label %.invoke138, label %87
+  br i1 %86, label %.invoke148, label %87
 
 87:                                               ; preds = %83
   %88 = getelementptr inbounds nuw i8, ptr %2, i64 512
@@ -5175,16 +5175,16 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %90 = getelementptr inbounds nuw i8, ptr %2, i64 536
   %91 = load i32, ptr %90, align 8, !range !908, !noundef !18
   %92 = icmp eq i32 %91, 1114112
-  br i1 %92, label %.invoke138, label %96
+  br i1 %92, label %.invoke148, label %96
 
-.invoke138:                                       ; preds = %78, %87, %83
+.invoke148:                                       ; preds = %78, %87, %83
   %93 = phi ptr [ @anon.3102dd4ba18bac1e532fac417d15316a.62, %83 ], [ @anon.3102dd4ba18bac1e532fac417d15316a.64, %87 ], [ @anon.3102dd4ba18bac1e532fac417d15316a.59, %78 ]
   %94 = phi i64 [ 33, %83 ], [ 34, %87 ], [ 30, %78 ]
   %95 = phi ptr [ @anon.3102dd4ba18bac1e532fac417d15316a.63, %83 ], [ @anon.3102dd4ba18bac1e532fac417d15316a.65, %87 ], [ @anon.3102dd4ba18bac1e532fac417d15316a.61, %78 ]
   invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 %93, i64 noundef %94, ptr noalias noundef readonly align 8 dereferenceable(24) %95) #15
-          to label %.cont139 unwind label %.loopexit.split-lp69.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.cont149 unwind label %.loopexit.split-lp69.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.cont139:                                         ; preds = %.invoke138
+.cont149:                                         ; preds = %.invoke148
   unreachable
 
 96:                                               ; preds = %87
@@ -6762,7 +6762,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %72, i64 16
   store i64 %.sroa.5110.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8
   %78 = icmp eq ptr %2, null
-  br i1 %78, label %.invoke136, label %82
+  br i1 %78, label %.invoke146, label %82
 
 79:                                               ; preds = %5
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6805,7 +6805,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
           cleanup
   br label %.loopexit.split-lp69
 
-.loopexit.split-lp69.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke136, %.invoke, %431, %383, %303, %240
+.loopexit.split-lp69.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke146, %.invoke, %431, %383, %303, %240
   %lpad.loopexit.split-lp87 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp69
@@ -6818,7 +6818,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 504
   %84 = load ptr, ptr %83, align 8, !alias.scope !1177, !noundef !18
   %85 = icmp eq ptr %84, null
-  br i1 %85, label %.invoke136, label %86
+  br i1 %85, label %.invoke146, label %86
 
 86:                                               ; preds = %82
   %87 = getelementptr inbounds nuw i8, ptr %2, i64 512
@@ -6830,16 +6830,16 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 536
   %90 = load i32, ptr %89, align 8, !range !908, !noundef !18
   %91 = icmp eq i32 %90, 1114112
-  br i1 %91, label %.invoke136, label %95
+  br i1 %91, label %.invoke146, label %95
 
-.invoke136:                                       ; preds = %77, %86, %82
+.invoke146:                                       ; preds = %77, %86, %82
   %92 = phi ptr [ @anon.3102dd4ba18bac1e532fac417d15316a.62, %82 ], [ @anon.3102dd4ba18bac1e532fac417d15316a.64, %86 ], [ @anon.3102dd4ba18bac1e532fac417d15316a.59, %77 ]
   %93 = phi i64 [ 33, %82 ], [ 34, %86 ], [ 30, %77 ]
   %94 = phi ptr [ @anon.3102dd4ba18bac1e532fac417d15316a.63, %82 ], [ @anon.3102dd4ba18bac1e532fac417d15316a.65, %86 ], [ @anon.3102dd4ba18bac1e532fac417d15316a.61, %77 ]
   invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 %92, i64 noundef %93, ptr noalias noundef readonly align 8 dereferenceable(24) %94) #15
-          to label %.cont137 unwind label %.loopexit.split-lp69.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.cont147 unwind label %.loopexit.split-lp69.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.cont137:                                         ; preds = %.invoke136
+.cont147:                                         ; preds = %.invoke146
   unreachable
 
 95:                                               ; preds = %86
@@ -8379,7 +8379,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %72, i64 16
   store i64 %.sroa.5111.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8
   %78 = icmp eq ptr %2, null
-  br i1 %78, label %.invoke136, label %82
+  br i1 %78, label %.invoke146, label %82
 
 79:                                               ; preds = %5
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8422,7 +8422,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
           cleanup
   br label %.loopexit.split-lp67
 
-.loopexit.split-lp67.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke136, %.invoke, %241, %439, %391, %311
+.loopexit.split-lp67.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke146, %.invoke, %241, %439, %391, %311
   %lpad.loopexit.split-lp85 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp67
@@ -8435,7 +8435,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 504
   %84 = load ptr, ptr %83, align 8, !alias.scope !1437, !noundef !18
   %85 = icmp eq ptr %84, null
-  br i1 %85, label %.invoke136, label %86
+  br i1 %85, label %.invoke146, label %86
 
 86:                                               ; preds = %82
   %87 = getelementptr inbounds nuw i8, ptr %2, i64 512
@@ -8447,16 +8447,16 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 536
   %90 = load i32, ptr %89, align 8, !range !908, !noundef !18
   %91 = icmp eq i32 %90, 1114112
-  br i1 %91, label %.invoke136, label %95
+  br i1 %91, label %.invoke146, label %95
 
-.invoke136:                                       ; preds = %77, %86, %82
+.invoke146:                                       ; preds = %77, %86, %82
   %92 = phi ptr [ @anon.3102dd4ba18bac1e532fac417d15316a.62, %82 ], [ @anon.3102dd4ba18bac1e532fac417d15316a.64, %86 ], [ @anon.3102dd4ba18bac1e532fac417d15316a.59, %77 ]
   %93 = phi i64 [ 33, %82 ], [ 34, %86 ], [ 30, %77 ]
   %94 = phi ptr [ @anon.3102dd4ba18bac1e532fac417d15316a.63, %82 ], [ @anon.3102dd4ba18bac1e532fac417d15316a.65, %86 ], [ @anon.3102dd4ba18bac1e532fac417d15316a.61, %77 ]
   invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 %92, i64 noundef %93, ptr noalias noundef readonly align 8 dereferenceable(24) %94) #15
-          to label %.cont137 unwind label %.loopexit.split-lp67.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.cont147 unwind label %.loopexit.split-lp67.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.cont137:                                         ; preds = %.invoke136
+.cont147:                                         ; preds = %.invoke146
   unreachable
 
 95:                                               ; preds = %86
@@ -10006,7 +10006,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %72, i64 16
   store i64 %.sroa.5111.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8
   %78 = icmp eq ptr %2, null
-  br i1 %78, label %.invoke133, label %82
+  br i1 %78, label %.invoke143, label %82
 
 79:                                               ; preds = %5
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10049,7 +10049,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
           cleanup
   br label %.loopexit.split-lp66
 
-.loopexit.split-lp66.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke133, %.invoke, %432, %384, %304, %240
+.loopexit.split-lp66.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke143, %.invoke, %432, %384, %304, %240
   %lpad.loopexit.split-lp84 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp66
@@ -10062,7 +10062,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 504
   %84 = load ptr, ptr %83, align 8, !alias.scope !1705, !noundef !18
   %85 = icmp eq ptr %84, null
-  br i1 %85, label %.invoke133, label %86
+  br i1 %85, label %.invoke143, label %86
 
 86:                                               ; preds = %82
   %87 = getelementptr inbounds nuw i8, ptr %2, i64 512
@@ -10074,16 +10074,16 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 536
   %90 = load i32, ptr %89, align 8, !range !908, !noundef !18
   %91 = icmp eq i32 %90, 1114112
-  br i1 %91, label %.invoke133, label %95
+  br i1 %91, label %.invoke143, label %95
 
-.invoke133:                                       ; preds = %77, %86, %82
+.invoke143:                                       ; preds = %77, %86, %82
   %92 = phi ptr [ @anon.3102dd4ba18bac1e532fac417d15316a.62, %82 ], [ @anon.3102dd4ba18bac1e532fac417d15316a.64, %86 ], [ @anon.3102dd4ba18bac1e532fac417d15316a.59, %77 ]
   %93 = phi i64 [ 33, %82 ], [ 34, %86 ], [ 30, %77 ]
   %94 = phi ptr [ @anon.3102dd4ba18bac1e532fac417d15316a.63, %82 ], [ @anon.3102dd4ba18bac1e532fac417d15316a.65, %86 ], [ @anon.3102dd4ba18bac1e532fac417d15316a.61, %77 ]
   invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 %92, i64 noundef %93, ptr noalias noundef readonly align 8 dereferenceable(24) %94) #15
-          to label %.cont134 unwind label %.loopexit.split-lp66.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.cont144 unwind label %.loopexit.split-lp66.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.cont134:                                         ; preds = %.invoke133
+.cont144:                                         ; preds = %.invoke143
   unreachable
 
 95:                                               ; preds = %86
@@ -11626,7 +11626,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %72, i64 16
   store i64 %.sroa.5110.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8
   %78 = icmp eq ptr %2, null
-  br i1 %78, label %.invoke139, label %82
+  br i1 %78, label %.invoke150, label %82
 
 79:                                               ; preds = %5
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11669,7 +11669,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
           cleanup
   br label %.loopexit.split-lp70
 
-.loopexit.split-lp70.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke139, %.invoke, %240, %438, %390, %310
+.loopexit.split-lp70.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke150, %.invoke, %240, %438, %390, %310
   %lpad.loopexit.split-lp88 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp70
@@ -11682,7 +11682,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 504
   %84 = load ptr, ptr %83, align 8, !alias.scope !1966, !noundef !18
   %85 = icmp eq ptr %84, null
-  br i1 %85, label %.invoke139, label %86
+  br i1 %85, label %.invoke150, label %86
 
 86:                                               ; preds = %82
   %87 = getelementptr inbounds nuw i8, ptr %2, i64 512
@@ -11694,16 +11694,16 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 536
   %90 = load i32, ptr %89, align 8, !range !908, !noundef !18
   %91 = icmp eq i32 %90, 1114112
-  br i1 %91, label %.invoke139, label %95
+  br i1 %91, label %.invoke150, label %95
 
-.invoke139:                                       ; preds = %77, %86, %82
+.invoke150:                                       ; preds = %77, %86, %82
   %92 = phi ptr [ @anon.3102dd4ba18bac1e532fac417d15316a.62, %82 ], [ @anon.3102dd4ba18bac1e532fac417d15316a.64, %86 ], [ @anon.3102dd4ba18bac1e532fac417d15316a.59, %77 ]
   %93 = phi i64 [ 33, %82 ], [ 34, %86 ], [ 30, %77 ]
   %94 = phi ptr [ @anon.3102dd4ba18bac1e532fac417d15316a.63, %82 ], [ @anon.3102dd4ba18bac1e532fac417d15316a.65, %86 ], [ @anon.3102dd4ba18bac1e532fac417d15316a.61, %77 ]
   invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 %92, i64 noundef %93, ptr noalias noundef readonly align 8 dereferenceable(24) %94) #15
-          to label %.cont140 unwind label %.loopexit.split-lp70.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.cont151 unwind label %.loopexit.split-lp70.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.cont140:                                         ; preds = %.invoke139
+.cont151:                                         ; preds = %.invoke150
   unreachable
 
 95:                                               ; preds = %86

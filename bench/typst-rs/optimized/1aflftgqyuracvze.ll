@@ -3688,25 +3688,25 @@ _ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit.threa
   br i1 %511, label %.preheader.i.i, label %.lr.ph.i.i
 
 .preheader.i.i:                                   ; preds = %525, %510
-  %.067.lcssa.i.i = phi i8 [ 0, %510 ], [ %.3.i.i, %525 ]
-  %.065.lcssa.i.i = phi i64 [ 0, %510 ], [ %526, %525 ]
-  %512 = add i64 %.065.lcssa.i.i, 20
+  %.070.lcssa.i.i = phi i8 [ 0, %510 ], [ %.3.i.i, %525 ]
+  %.068.lcssa.i.i = phi i64 [ 0, %510 ], [ %526, %525 ]
+  %512 = add i64 %.068.lcssa.i.i, 20
   %513 = icmp uge i64 %512, %503
-  %514 = trunc nuw i8 %.067.lcssa.i.i to i1
-  %or.cond350.i.i = select i1 %513, i1 true, i1 %514
-  br i1 %or.cond350.i.i, label %._crit_edge.i.i, label %.lr.ph52.i.i
+  %514 = trunc nuw i8 %.070.lcssa.i.i to i1
+  %or.cond351.i.i = select i1 %513, i1 true, i1 %514
+  br i1 %or.cond351.i.i, label %._crit_edge.i.i, label %.lr.ph53.i.i
 
 .lr.ph.i.i:                                       ; preds = %510, %525
-  %.06548.i.i = phi i64 [ %526, %525 ], [ 0, %510 ]
+  %.06849.i.i = phi i64 [ %526, %525 ], [ 0, %510 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !627
   store i64 0, ptr %28, align 8, !noalias !627
-  %515 = getelementptr i8, ptr %502, i64 %.06548.i.i
+  %515 = getelementptr i8, ptr %502, i64 %.06849.i.i
   br label %516
 
 516:                                              ; preds = %516, %.lr.ph.i.i
-  %.sroa.022.044.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %517, %516 ]
-  %517 = add nuw nsw i64 %.sroa.022.044.i.i, 1
-  %518 = shl nuw nsw i64 %.sroa.022.044.i.i, 4
+  %.sroa.022.045.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %517, %516 ]
+  %517 = add nuw nsw i64 %.sroa.022.045.i.i, 1
+  %518 = shl nuw nsw i64 %.sroa.022.045.i.i, 4
   %519 = getelementptr i8, ptr %515, i64 %518
   %.0.copyload.i.i.i = load <16 x i8>, ptr %519, align 1, !alias.scope !627, !noalias !628
   %520 = getelementptr inbounds nuw i8, ptr %519, i64 4
@@ -3714,36 +3714,36 @@ _ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit.threa
   %521 = icmp eq <16 x i8> %.0.copyload.i.i.i, splat (i8 83)
   %522 = icmp eq <16 x i8> %.0.copyload2.i.i.i, splat (i8 102)
   %523 = and <16 x i1> %521, %522
-  %524 = getelementptr inbounds nuw i16, ptr %28, i64 %.sroa.022.044.i.i
+  %524 = getelementptr inbounds nuw i16, ptr %28, i64 %.sroa.022.045.i.i
   store <16 x i1> %523, ptr %524, align 2, !noalias !627
   %exitcond.not.i.i = icmp eq i64 %517, 4
-  br i1 %exitcond.not.i.i, label %.preheader41.i.i, label %516
+  br i1 %exitcond.not.i.i, label %.preheader42.i.i, label %516
 
 525:                                              ; preds = %"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h68c0554069c8884fE.exit"
-  %526 = add i64 %.06548.i.i, 64
+  %526 = add i64 %.06849.i.i, 64
   call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !627
-  %527 = add i64 %.06548.i.i, 132
+  %527 = add i64 %.06849.i.i, 132
   %528 = icmp uge i64 %527, %503
   %529 = trunc nuw i8 %.3.i.i to i1
   %or.cond.i.i260 = select i1 %528, i1 true, i1 %529
   br i1 %or.cond.i.i260, label %.preheader.i.i, label %.lr.ph.i.i
 
-.preheader41.i.i:                                 ; preds = %516, %"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h68c0554069c8884fE.exit"
+.preheader42.i.i:                                 ; preds = %516, %"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h68c0554069c8884fE.exit"
+  %.247.i.i = phi i8 [ %.3.i.i, %"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h68c0554069c8884fE.exit" ], [ 0, %516 ]
   %.sroa.028.046.i.i = phi i64 [ %530, %"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h68c0554069c8884fE.exit" ], [ 0, %516 ]
-  %.245.i.i = phi i8 [ %.3.i.i, %"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h68c0554069c8884fE.exit" ], [ 0, %516 ]
   %530 = add nuw nsw i64 %.sroa.028.046.i.i, 1
   %531 = getelementptr inbounds nuw i16, ptr %28, i64 %.sroa.028.046.i.i
   %532 = load i16, ptr %531, align 2, !noalias !627, !noundef !12
   %533 = icmp eq i16 %532, 0
   br i1 %533, label %"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h68c0554069c8884fE.exit", label %534
 
-"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h68c0554069c8884fE.exit": ; preds = %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread.i, %.preheader17.split.i, %534, %.preheader41.i.i
-  %.3.i.i = phi i8 [ %.245.i.i, %.preheader41.i.i ], [ 1, %534 ], [ 0, %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread.i ], [ 1, %.preheader17.split.i ]
-  %exitcond57.not.i.i = icmp eq i64 %530, 4
-  br i1 %exitcond57.not.i.i, label %525, label %.preheader41.i.i
+"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h68c0554069c8884fE.exit": ; preds = %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread.i, %.preheader17.split.i, %534, %.preheader42.i.i
+  %.3.i.i = phi i8 [ %.247.i.i, %.preheader42.i.i ], [ 1, %534 ], [ 0, %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread.i ], [ 1, %.preheader17.split.i ]
+  %exitcond58.not.i.i = icmp eq i64 %530, 4
+  br i1 %exitcond58.not.i.i, label %525, label %.preheader42.i.i
 
-534:                                              ; preds = %.preheader41.i.i
-  %535 = trunc nuw i8 %.245.i.i to i1
+534:                                              ; preds = %.preheader42.i.i
+  %535 = trunc nuw i8 %.247.i.i to i1
   br i1 %535, label %"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h68c0554069c8884fE.exit", label %.preheader17.i
 
 .preheader17.i:                                   ; preds = %534
@@ -3769,44 +3769,44 @@ _ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread.i: ; preds 
   br i1 %.not.i360, label %"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h68c0554069c8884fE.exit", label %.preheader17.split.i
 
 ._crit_edge.i.i:                                  ; preds = %560, %.preheader.i.i
-  %.168.lcssa.i.i = phi i8 [ %.067.lcssa.i.i, %.preheader.i.i ], [ %.5.i.i, %560 ]
+  %.171.lcssa.i.i = phi i8 [ %.070.lcssa.i.i, %.preheader.i.i ], [ %.5.i.i, %560 ]
   %.lcssa.i.i = phi i1 [ %514, %.preheader.i.i ], [ %564, %560 ]
   %545 = add i64 %503, -20
   %546 = getelementptr inbounds i8, ptr %502, i64 %545
-  %.0.copyload.i82.i.i = load <16 x i8>, ptr %546, align 1, !alias.scope !627, !noalias !638
+  %.0.copyload.i85.i.i = load <16 x i8>, ptr %546, align 1, !alias.scope !627, !noalias !638
   %547 = getelementptr inbounds nuw i8, ptr %546, i64 4
-  %.0.copyload2.i83.i.i = load <16 x i8>, ptr %547, align 1, !alias.scope !627, !noalias !638
-  %548 = icmp eq <16 x i8> %.0.copyload.i82.i.i, splat (i8 83)
-  %549 = icmp eq <16 x i8> %.0.copyload2.i83.i.i, splat (i8 102)
+  %.0.copyload2.i86.i.i = load <16 x i8>, ptr %547, align 1, !alias.scope !627, !noalias !638
+  %548 = icmp eq <16 x i8> %.0.copyload.i85.i.i, splat (i8 83)
+  %549 = icmp eq <16 x i8> %.0.copyload2.i86.i.i, splat (i8 102)
   %550 = and <16 x i1> %548, %549
   %551 = bitcast <16 x i1> %550 to i16
   %552 = icmp eq i16 %551, 0
   br i1 %552, label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h15ba4cda5247ddcbE.exit", label %568
 
-.lr.ph52.i.i:                                     ; preds = %.preheader.i.i, %560
-  %.16651.i.i = phi i64 [ %561, %560 ], [ %.065.lcssa.i.i, %.preheader.i.i ]
-  %553 = getelementptr inbounds i8, ptr %502, i64 %.16651.i.i
-  %.0.copyload.i84.i.i = load <16 x i8>, ptr %553, align 1, !alias.scope !627, !noalias !641
+.lr.ph53.i.i:                                     ; preds = %.preheader.i.i, %560
+  %.16952.i.i = phi i64 [ %561, %560 ], [ %.068.lcssa.i.i, %.preheader.i.i ]
+  %553 = getelementptr inbounds i8, ptr %502, i64 %.16952.i.i
+  %.0.copyload.i87.i.i = load <16 x i8>, ptr %553, align 1, !alias.scope !627, !noalias !641
   %554 = getelementptr inbounds nuw i8, ptr %553, i64 4
-  %.0.copyload2.i85.i.i = load <16 x i8>, ptr %554, align 1, !alias.scope !627, !noalias !641
-  %555 = icmp eq <16 x i8> %.0.copyload.i84.i.i, splat (i8 83)
-  %556 = icmp eq <16 x i8> %.0.copyload2.i85.i.i, splat (i8 102)
+  %.0.copyload2.i88.i.i = load <16 x i8>, ptr %554, align 1, !alias.scope !627, !noalias !641
+  %555 = icmp eq <16 x i8> %.0.copyload.i87.i.i, splat (i8 83)
+  %556 = icmp eq <16 x i8> %.0.copyload2.i88.i.i, splat (i8 102)
   %557 = and <16 x i1> %555, %556
   %558 = bitcast <16 x i1> %557 to i16
   %559 = icmp eq i16 %558, 0
   br i1 %559, label %560, label %565
 
-560:                                              ; preds = %565, %.lr.ph52.i.i
-  %.5.i.i = phi i8 [ 0, %.lr.ph52.i.i ], [ %567, %565 ]
-  %561 = add i64 %.16651.i.i, 16
-  %562 = add i64 %.16651.i.i, 36
+560:                                              ; preds = %565, %.lr.ph53.i.i
+  %.5.i.i = phi i8 [ 0, %.lr.ph53.i.i ], [ %567, %565 ]
+  %561 = add i64 %.16952.i.i, 16
+  %562 = add i64 %.16952.i.i, 36
   %563 = icmp uge i64 %562, %503
   %564 = trunc nuw i8 %.5.i.i to i1
   %or.cond3.i.i = select i1 %563, i1 true, i1 %564
-  br i1 %or.cond3.i.i, label %._crit_edge.i.i, label %.lr.ph52.i.i
+  br i1 %or.cond3.i.i, label %._crit_edge.i.i, label %.lr.ph53.i.i
 
-565:                                              ; preds = %.lr.ph52.i.i
-  %566 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h68c0554069c8884fE"(ptr noalias noundef readonly align 8 dereferenceable(32) %29, i64 noundef %.16651.i.i, i16 noundef %558, i1 noundef zeroext false)
+565:                                              ; preds = %.lr.ph53.i.i
+  %566 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h68c0554069c8884fE"(ptr noalias noundef readonly align 8 dereferenceable(32) %29, i64 noundef %.16952.i.i, i16 noundef %558, i1 noundef zeroext false)
   %567 = zext i1 %566 to i8
   br label %560
 
@@ -3835,7 +3835,7 @@ _ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread.i: ; preds 
   br i1 %.not28.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h2a8c12e022bd55b9E.exit.us.i.i.i", label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h15ba4cda5247ddcbE.exit.thread476"
 
 "_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h15ba4cda5247ddcbE.exit": ; preds = %._crit_edge.i.i, %568
-  %.4.i.i = phi i8 [ %.168.lcssa.i.i, %._crit_edge.i.i ], [ %571, %568 ]
+  %.4.i.i = phi i8 [ %.171.lcssa.i.i, %._crit_edge.i.i ], [ %571, %568 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !627
   %.4.i.i.fr = freeze i8 %.4.i.i
   %574 = trunc i8 %.4.i.i.fr to i1

@@ -21538,9 +21538,9 @@ define dso_local range(i64 0, 1099511627776) i64 @_ZN4llvm26LoopVectorizationCos
   %7 = alloca %"class.llvm::Attribute", align 8
   %8 = alloca %"class.llvm::SmallVector.740", align 8
   %9 = alloca %"class.llvm::SmallVector.742", align 8
-  %.fr210 = freeze i64 %4
-  %.sroa.0191.0.extract.trunc = trunc i64 %.fr210 to i32
-  %10 = and i64 %.fr210, 4294967296
+  %.fr208 = freeze i64 %4
+  %.sroa.094.sroa.0.0.extract.trunc = trunc i64 %.fr208 to i32
+  %10 = and i64 %.fr208, 4294967296
   %11 = icmp ne i64 %10, 0
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %13 = load ptr, ptr %12, align 8, !tbaa !460
@@ -21554,21 +21554,21 @@ define dso_local range(i64 0, 1099511627776) i64 @_ZN4llvm26LoopVectorizationCos
   %18 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %17, i1 true)
   %19 = xor i64 %18, 63
   %20 = shl nuw i64 1, %19
-  %.fr209 = freeze i64 %20
-  %21 = and i64 %.fr209, 4294967295
+  %.fr207 = freeze i64 %20
+  %21 = and i64 %.fr207, 4294967295
   %.sroa.0.0.insert.ext.i = select i1 %.not.i, i64 0, i64 %21
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.0.0.insert.ext.i, %10
-  %.sroa.0174.0.extract.trunc = trunc nuw i64 %.sroa.0.0.insert.ext.i to i32
-  %22 = icmp ult i32 %.sroa.0174.0.extract.trunc, %.sroa.0191.0.extract.trunc
-  %.sroa.0.0.copyload.i = select i1 %22, i64 %.sroa.0.0.insert.insert.i, i64 %.fr210
-  %.sroa.0174.0.extract.trunc187 = trunc i64 %.sroa.0.0.copyload.i to i32
-  %.not137 = icmp eq i32 %.sroa.0174.0.extract.trunc187, 0
+  %.sroa.079.sroa.0.0.extract.trunc = trunc nuw i64 %.sroa.0.0.insert.ext.i to i32
+  %22 = icmp ult i32 %.sroa.079.sroa.0.0.extract.trunc, %.sroa.094.sroa.0.0.extract.trunc
+  %.sroa.0.0.copyload.i = select i1 %22, i64 %.sroa.0.0.insert.insert.i, i64 %.fr208
+  %.sroa.079.sroa.0.0.extract.trunc186 = trunc i64 %.sroa.0.0.copyload.i to i32
+  %.not137 = icmp eq i32 %.sroa.079.sroa.0.0.extract.trunc186, 0
   br i1 %.not137, label %181, label %23
 
 23:                                               ; preds = %6
-  %.sroa.0174.4.extract.shift189211 = lshr i64 %.sroa.0.0.copyload.i, 32
-  %.sroa.0174.4.extract.trunc190 = trunc i64 %.sroa.0174.4.extract.shift189211 to i8
-  %24 = trunc i64 %.sroa.0174.4.extract.shift189211 to i1
+  %.sroa.079.sroa.0.4.extract.shift188209 = lshr i64 %.sroa.0.0.copyload.i, 32
+  %.sroa.079.sroa.0.4.extract.trunc189 = trunc i64 %.sroa.079.sroa.0.4.extract.shift188209 to i8
+  %24 = trunc i64 %.sroa.079.sroa.0.4.extract.shift188209 to i1
   br i1 %24, label %25, label %34
 
 25:                                               ; preds = %23
@@ -21583,12 +21583,12 @@ define dso_local range(i64 0, 1099511627776) i64 @_ZN4llvm26LoopVectorizationCos
   %31 = tail call ptr @_ZNK4llvm8Function14getFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %30, i32 noundef 96) #30
   store ptr %31, ptr %7, align 8
   %32 = call noundef i32 @_ZNK4llvm9Attribute17getVScaleRangeMinEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #30
-  %33 = mul i32 %32, %.sroa.0174.0.extract.trunc187
+  %33 = mul i32 %32, %.sroa.079.sroa.0.0.extract.trunc186
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %34
 
 34:                                               ; preds = %29, %25, %23
-  %.034 = phi i32 [ %33, %29 ], [ %.sroa.0174.0.extract.trunc187, %25 ], [ %.sroa.0174.0.extract.trunc187, %23 ]
+  %.034 = phi i32 [ %33, %29 ], [ %.sroa.079.sroa.0.0.extract.trunc186, %25 ], [ %.sroa.079.sroa.0.0.extract.trunc186, %23 ]
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %.thread, label %35
 
@@ -21639,33 +21639,33 @@ _ZNK4llvm26LoopVectorizationCostModel22requiresScalarEpilogueEb.exit: ; preds = 
   br i1 %or.cond.not, label %61, label %.thread
 
 61:                                               ; preds = %_ZNK4llvm26LoopVectorizationCostModel22requiresScalarEpilogueEb.exit
-  br i1 %5, label %_ZN4llvm13isPowerOf2_32Ej.exit, label %.thread128
+  br i1 %5, label %_ZN4llvm13isPowerOf2_32Ej.exit, label %.thread130
 
 _ZN4llvm13isPowerOf2_32Ej.exit:                   ; preds = %61
   %62 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %.0)
   %63 = icmp samesign ult i32 %62, 2
   br i1 %63, label %65, label %.thread
 
-.thread128:                                       ; preds = %61
+.thread130:                                       ; preds = %61
   %64 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.0, i1 true)
   br label %67
 
 65:                                               ; preds = %_ZN4llvm13isPowerOf2_32Ej.exit
   %66 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.0, i1 true)
-  %.mask = and i8 %.sroa.0174.4.extract.trunc190, 1
+  %.mask = and i8 %.sroa.079.sroa.0.4.extract.trunc189, 1
   br label %67
 
-67:                                               ; preds = %65, %.thread128
-  %.pn.in = phi i32 [ %64, %.thread128 ], [ %66, %65 ]
-  %.sroa.0101.sroa.7.0.extract.trunc113 = phi i8 [ 0, %.thread128 ], [ %.mask, %65 ]
+67:                                               ; preds = %65, %.thread130
+  %.pn.in = phi i32 [ %64, %.thread130 ], [ %66, %65 ]
+  %.sroa.0103.sroa.7.0.extract.trunc115 = phi i8 [ 0, %.thread130 ], [ %.mask, %65 ]
   %.pn = xor i32 %.pn.in, 31
   %68 = shl nuw i32 1, %.pn
   br label %181
 
 .thread:                                          ; preds = %34, %_ZN4llvm13isPowerOf2_32Ej.exit, %_ZNK4llvm26LoopVectorizationCostModel22requiresScalarEpilogueEb.exit
-  %.sroa.0101.sroa.0.0.extract.trunc110 = trunc i64 %.sroa.0.0.copyload.i to i32
-  %.sroa.0101.sroa.7.0.extract.shift116139 = lshr i64 %.sroa.0.0.copyload.i, 32
-  %.sroa.0101.sroa.7.0.extract.trunc117 = trunc i64 %.sroa.0101.sroa.7.0.extract.shift116139 to i8
+  %.sroa.0103.sroa.0.0.extract.trunc112 = trunc i64 %.sroa.0.0.copyload.i to i32
+  %.sroa.0103.sroa.7.0.extract.shift118139 = lshr i64 %.sroa.0.0.copyload.i, 32
+  %.sroa.0103.sroa.7.0.extract.trunc119 = trunc i64 %.sroa.0103.sroa.7.0.extract.shift118139 to i8
   %69 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL17MaximizeBandwidth, i64 120), align 8, !tbaa !34, !range !48, !noundef !49
   %70 = trunc nuw i8 %69 to i1
   br i1 %70, label %86, label %71
@@ -21700,13 +21700,13 @@ _ZN4llvm13isPowerOf2_32Ej.exit:                   ; preds = %61
   %89 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %88, i1 true)
   %90 = xor i64 %89, 63
   %91 = shl nuw i64 1, %90
-  %.fr214 = freeze i64 %91
-  %92 = and i64 %.fr214, 4294967295
+  %.fr212 = freeze i64 %91
+  %92 = and i64 %.fr212, 4294967295
   %.sroa.0.0.insert.ext.i50 = select i1 %.not.i47, i64 0, i64 %92
   %.sroa.0.0.insert.insert.i51 = or disjoint i64 %.sroa.0.0.insert.ext.i50, %10
   %.sroa.0.0.extract.trunc167 = trunc nuw i64 %.sroa.0.0.insert.ext.i50 to i32
-  %93 = icmp ult i32 %.sroa.0.0.extract.trunc167, %.sroa.0191.0.extract.trunc
-  %.sroa.0.0.copyload.i56 = select i1 %93, i64 %.sroa.0.0.insert.insert.i51, i64 %.fr210
+  %93 = icmp ult i32 %.sroa.0.0.extract.trunc167, %.sroa.094.sroa.0.0.extract.trunc
+  %.sroa.0.0.copyload.i56 = select i1 %93, i64 %.sroa.0.0.insert.insert.i51, i64 %.fr208
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %94 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %94, ptr %8, align 8, !tbaa !25
@@ -21715,8 +21715,8 @@ _ZN4llvm13isPowerOf2_32Ej.exit:                   ; preds = %61
   %96 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 8, ptr %96, align 4, !tbaa !27
   %.sroa.6.0.extract.shift.i = and i64 %.sroa.0.0.copyload.i, 1095216660480
-  %.sroa.0174.0.insert.ext = shl i64 %.sroa.0.0.copyload.i, 1
-  %.sroa.0.0.insert.ext.i57 = and i64 %.sroa.0174.0.insert.ext, 4294967294
+  %.sroa.079.sroa.0.0.insert.ext = shl i64 %.sroa.0.0.copyload.i, 1
+  %.sroa.0.0.insert.ext.i57 = and i64 %.sroa.079.sroa.0.0.insert.ext, 4294967294
   %.sroa.0.0.insert.insert.i58 = or disjoint i64 %.sroa.0.0.insert.ext.i57, %.sroa.6.0.extract.shift.i
   %97 = trunc nuw i64 %.sroa.0.0.insert.insert.i58 to i40
   %98 = and i64 %.sroa.0.0.copyload.i56, 4294967296
@@ -21725,10 +21725,10 @@ _ZN4llvm13isPowerOf2_32Ej.exit:                   ; preds = %61
   %100 = and i40 %97, 4294967296
   %.not142146 = icmp eq i40 %100, 0
   %or.cond.i147 = select i1 %.not142146, i1 true, i1 %99
-  %.sroa.068.0.extract.trunc148 = trunc i64 %.sroa.0174.0.insert.ext to i32
+  %.sroa.068.0.extract.trunc148 = trunc i64 %.sroa.079.sroa.0.0.insert.ext to i32
   %101 = icmp uge i32 %.sroa.0.0.extract.trunc169, %.sroa.068.0.extract.trunc148
-  %or.cond132149 = select i1 %or.cond.i147, i1 %101, i1 false
-  br i1 %or.cond132149, label %.lr.ph, label %_ZN4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjE9isKnownLEERKS3_S5_.exit.thread
+  %or.cond134149 = select i1 %or.cond.i147, i1 %101, i1 false
+  br i1 %or.cond134149, label %.lr.ph, label %_ZN4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjE9isKnownLEERKS3_S5_.exit.thread
 
 _ZN4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjE9isKnownLEERKS3_S5_.exit.thread.loopexit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_12ElementCountELb1EE9push_backES1_.exit
   %.pre = load ptr, ptr %8, align 8, !tbaa !25
@@ -21778,8 +21778,8 @@ _ZN4llvm23SmallVectorTemplateBaseINS_12ElementCountELb1EE9push_backES1_.exit: ; 
   %.not142 = icmp eq i40 %120, 0
   %or.cond.i = select i1 %.not142, i1 true, i1 %99
   %121 = icmp ule i32 %119, %.sroa.0.0.extract.trunc169
-  %or.cond132 = select i1 %or.cond.i, i1 %121, i1 false
-  br i1 %or.cond132, label %.lr.ph, label %_ZN4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjE9isKnownLEERKS3_S5_.exit.thread.loopexit, !llvm.loop !1045
+  %or.cond134 = select i1 %or.cond.i, i1 %121, i1 false
+  br i1 %or.cond134, label %.lr.ph, label %_ZN4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjE9isKnownLEERKS3_S5_.exit.thread.loopexit, !llvm.loop !1045
 
 .critedge:                                        ; preds = %"_ZN4llvm6all_ofIRKNS_14SmallMapVectorIjjLj4EEEZNS_26LoopVectorizationCostModel23getMaximizedVFForTargetEjjjNS_12ElementCountEbE3$_1EEbOT_T0_.exit", %_ZN4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjE9isKnownLEERKS3_S5_.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %"_ZN4llvm6all_ofIRKNS_14SmallMapVectorIjjLj4EEEZNS_26LoopVectorizationCostModel23getMaximizedVFForTargetEjjjNS_12ElementCountEbE3$_1EEbOT_T0_.exit" ], [ %107, %_ZN4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjE9isKnownLEERKS3_S5_.exit.thread ]
@@ -21832,7 +21832,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_12ElementCountELb1EE9push_backES1_.exit: ; 
   %.val34.val.i.i.i.i.i = load ptr, ptr %12, align 8, !tbaa !460
   %143 = call noundef i32 @_ZNK4llvm19TargetTransformInfo20getNumberOfRegistersEj(ptr noundef nonnull align 8 dereferenceable(8) %.val34.val.i.i.i.i.i, i32 noundef %.val35.i.i.i.i.i) #30
   %.not.i48.i.i.i.i.i = icmp ugt i32 %.val36.i.i.i.i.i, %143
-  br i1 %.not.i48.i.i.i.i.i, label %"_ZN4llvm6all_ofIRKNS_14SmallMapVectorIjjLj4EEEZNS_26LoopVectorizationCostModel23getMaximizedVFForTargetEjjjNS_12ElementCountEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit218", label %144
+  br i1 %.not.i48.i.i.i.i.i, label %"_ZN4llvm6all_ofIRKNS_14SmallMapVectorIjjLj4EEEZNS_26LoopVectorizationCostModel23getMaximizedVFForTargetEjjjNS_12ElementCountEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit216", label %144
 
 144:                                              ; preds = %140
   %145 = getelementptr inbounds nuw i8, ptr %.02963.i.i.i.i.i, i64 24
@@ -21842,7 +21842,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_12ElementCountELb1EE9push_backES1_.exit: ; 
   %.val37.val.i.i.i.i.i = load ptr, ptr %12, align 8, !tbaa !460
   %147 = call noundef i32 @_ZNK4llvm19TargetTransformInfo20getNumberOfRegistersEj(ptr noundef nonnull align 8 dereferenceable(8) %.val37.val.i.i.i.i.i, i32 noundef %.val38.i.i.i.i.i) #30
   %.not.i49.i.i.i.i.i = icmp ugt i32 %.val39.i.i.i.i.i, %147
-  br i1 %.not.i49.i.i.i.i.i, label %"_ZN4llvm6all_ofIRKNS_14SmallMapVectorIjjLj4EEEZNS_26LoopVectorizationCostModel23getMaximizedVFForTargetEjjjNS_12ElementCountEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit220", label %148
+  br i1 %.not.i49.i.i.i.i.i, label %"_ZN4llvm6all_ofIRKNS_14SmallMapVectorIjjLj4EEEZNS_26LoopVectorizationCostModel23getMaximizedVFForTargetEjjjNS_12ElementCountEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit218", label %148
 
 148:                                              ; preds = %144
   %149 = getelementptr inbounds nuw i8, ptr %.02963.i.i.i.i.i, i64 32
@@ -21906,31 +21906,31 @@ _ZN4llvm23SmallVectorTemplateBaseINS_12ElementCountELb1EE9push_backES1_.exit: ; 
   %166 = getelementptr inbounds nuw i8, ptr %.02963.i.i.i.i.i, i64 8
   br label %"_ZN4llvm6all_ofIRKNS_14SmallMapVectorIjjLj4EEEZNS_26LoopVectorizationCostModel23getMaximizedVFForTargetEjjjNS_12ElementCountEbE3$_1EEbOT_T0_.exit"
 
-"_ZN4llvm6all_ofIRKNS_14SmallMapVectorIjjLj4EEEZNS_26LoopVectorizationCostModel23getMaximizedVFForTargetEjjjNS_12ElementCountEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit218": ; preds = %140
+"_ZN4llvm6all_ofIRKNS_14SmallMapVectorIjjLj4EEEZNS_26LoopVectorizationCostModel23getMaximizedVFForTargetEjjjNS_12ElementCountEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit216": ; preds = %140
   %167 = getelementptr inbounds nuw i8, ptr %.02963.i.i.i.i.i, i64 16
   br label %"_ZN4llvm6all_ofIRKNS_14SmallMapVectorIjjLj4EEEZNS_26LoopVectorizationCostModel23getMaximizedVFForTargetEjjjNS_12ElementCountEbE3$_1EEbOT_T0_.exit"
 
-"_ZN4llvm6all_ofIRKNS_14SmallMapVectorIjjLj4EEEZNS_26LoopVectorizationCostModel23getMaximizedVFForTargetEjjjNS_12ElementCountEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit220": ; preds = %144
+"_ZN4llvm6all_ofIRKNS_14SmallMapVectorIjjLj4EEEZNS_26LoopVectorizationCostModel23getMaximizedVFForTargetEjjjNS_12ElementCountEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit218": ; preds = %144
   %168 = getelementptr inbounds nuw i8, ptr %.02963.i.i.i.i.i, i64 24
   br label %"_ZN4llvm6all_ofIRKNS_14SmallMapVectorIjjLj4EEEZNS_26LoopVectorizationCostModel23getMaximizedVFForTargetEjjjNS_12ElementCountEbE3$_1EEbOT_T0_.exit"
 
-"_ZN4llvm6all_ofIRKNS_14SmallMapVectorIjjLj4EEEZNS_26LoopVectorizationCostModel23getMaximizedVFForTargetEjjjNS_12ElementCountEbE3$_1EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZN4llvm6all_ofIRKNS_14SmallMapVectorIjjLj4EEEZNS_26LoopVectorizationCostModel23getMaximizedVFForTargetEjjjNS_12ElementCountEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6all_ofIRKNS_14SmallMapVectorIjjLj4EEEZNS_26LoopVectorizationCostModel23getMaximizedVFForTargetEjjjNS_12ElementCountEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit218", %"_ZN4llvm6all_ofIRKNS_14SmallMapVectorIjjLj4EEEZNS_26LoopVectorizationCostModel23getMaximizedVFForTargetEjjjNS_12ElementCountEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit220", %153, %158, %163
-  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %153 ], [ %.1.i.i.i.i.i, %158 ], [ %.2.i.i.i.i.i, %163 ], [ %166, %"_ZN4llvm6all_ofIRKNS_14SmallMapVectorIjjLj4EEEZNS_26LoopVectorizationCostModel23getMaximizedVFForTargetEjjjNS_12ElementCountEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %167, %"_ZN4llvm6all_ofIRKNS_14SmallMapVectorIjjLj4EEEZNS_26LoopVectorizationCostModel23getMaximizedVFForTargetEjjjNS_12ElementCountEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit218" ], [ %168, %"_ZN4llvm6all_ofIRKNS_14SmallMapVectorIjjLj4EEEZNS_26LoopVectorizationCostModel23getMaximizedVFForTargetEjjjNS_12ElementCountEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit220" ], [ %.02963.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+"_ZN4llvm6all_ofIRKNS_14SmallMapVectorIjjLj4EEEZNS_26LoopVectorizationCostModel23getMaximizedVFForTargetEjjjNS_12ElementCountEbE3$_1EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZN4llvm6all_ofIRKNS_14SmallMapVectorIjjLj4EEEZNS_26LoopVectorizationCostModel23getMaximizedVFForTargetEjjjNS_12ElementCountEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6all_ofIRKNS_14SmallMapVectorIjjLj4EEEZNS_26LoopVectorizationCostModel23getMaximizedVFForTargetEjjjNS_12ElementCountEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit216", %"_ZN4llvm6all_ofIRKNS_14SmallMapVectorIjjLj4EEEZNS_26LoopVectorizationCostModel23getMaximizedVFForTargetEjjjNS_12ElementCountEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit218", %153, %158, %163
+  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %153 ], [ %.1.i.i.i.i.i, %158 ], [ %.2.i.i.i.i.i, %163 ], [ %166, %"_ZN4llvm6all_ofIRKNS_14SmallMapVectorIjjLj4EEEZNS_26LoopVectorizationCostModel23getMaximizedVFForTargetEjjjNS_12ElementCountEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %167, %"_ZN4llvm6all_ofIRKNS_14SmallMapVectorIjjLj4EEEZNS_26LoopVectorizationCostModel23getMaximizedVFForTargetEjjjNS_12ElementCountEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit216" ], [ %168, %"_ZN4llvm6all_ofIRKNS_14SmallMapVectorIjjLj4EEEZNS_26LoopVectorizationCostModel23getMaximizedVFForTargetEjjjNS_12ElementCountEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit218" ], [ %.02963.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %169 = icmp eq ptr %131, %.028.i.i.i.i.i
   br i1 %169, label %"_ZN4llvm6all_ofIRKNS_14SmallMapVectorIjjLj4EEEZNS_26LoopVectorizationCostModel23getMaximizedVFForTargetEjjjNS_12ElementCountEbE3$_1EEbOT_T0_.exit.thread", label %.critedge, !llvm.loop !1050
 
 "_ZN4llvm6all_ofIRKNS_14SmallMapVectorIjjLj4EEEZNS_26LoopVectorizationCostModel23getMaximizedVFForTargetEjjjNS_12ElementCountEbE3$_1EEbOT_T0_.exit.thread": ; preds = %163, %._crit_edge.i.i.i.i.i, %"_ZN4llvm6all_ofIRKNS_14SmallMapVectorIjjLj4EEEZNS_26LoopVectorizationCostModel23getMaximizedVFForTargetEjjjNS_12ElementCountEbE3$_1EEbOT_T0_.exit"
   %170 = load ptr, ptr %8, align 8, !tbaa !25
   %171 = getelementptr inbounds nuw %"class.llvm::ElementCount", ptr %170, i64 %125
-  %.sroa.0101.0.copyload = load i40, ptr %171, align 4
-  %.sroa.0101.sroa.0.0.extract.trunc111 = trunc i40 %.sroa.0101.0.copyload to i32
-  %.sroa.0101.sroa.7.0.extract.shift118 = lshr i40 %.sroa.0101.0.copyload, 32
-  %.sroa.0101.sroa.7.0.extract.trunc119 = trunc nuw i40 %.sroa.0101.sroa.7.0.extract.shift118 to i8
+  %.sroa.0103.0.copyload = load i40, ptr %171, align 4
+  %.sroa.0103.sroa.0.0.extract.trunc113 = trunc i40 %.sroa.0103.0.copyload to i32
+  %.sroa.0103.sroa.7.0.extract.shift120 = lshr i40 %.sroa.0103.0.copyload, 32
+  %.sroa.0103.sroa.7.0.extract.trunc121 = trunc nuw i40 %.sroa.0103.sroa.7.0.extract.shift120 to i8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %"_ZN4llvm6all_ofIRKNS_14SmallMapVectorIjjLj4EEEZNS_26LoopVectorizationCostModel23getMaximizedVFForTargetEjjjNS_12ElementCountEbE3$_1EEbOT_T0_.exit.thread"
-  %.sroa.0101.sroa.0.1 = phi i32 [ %.sroa.0101.sroa.0.0.extract.trunc111, %"_ZN4llvm6all_ofIRKNS_14SmallMapVectorIjjLj4EEEZNS_26LoopVectorizationCostModel23getMaximizedVFForTargetEjjjNS_12ElementCountEbE3$_1EEbOT_T0_.exit.thread" ], [ %.sroa.0101.sroa.0.0.extract.trunc110, %.critedge ]
-  %.sroa.0101.sroa.7.1 = phi i8 [ %.sroa.0101.sroa.7.0.extract.trunc119, %"_ZN4llvm6all_ofIRKNS_14SmallMapVectorIjjLj4EEEZNS_26LoopVectorizationCostModel23getMaximizedVFForTargetEjjjNS_12ElementCountEbE3$_1EEbOT_T0_.exit.thread" ], [ %.sroa.0101.sroa.7.0.extract.trunc117, %.critedge ]
+  %.sroa.0103.sroa.0.1 = phi i32 [ %.sroa.0103.sroa.0.0.extract.trunc113, %"_ZN4llvm6all_ofIRKNS_14SmallMapVectorIjjLj4EEEZNS_26LoopVectorizationCostModel23getMaximizedVFForTargetEjjjNS_12ElementCountEbE3$_1EEbOT_T0_.exit.thread" ], [ %.sroa.0103.sroa.0.0.extract.trunc112, %.critedge ]
+  %.sroa.0103.sroa.7.1 = phi i8 [ %.sroa.0103.sroa.7.0.extract.trunc121, %"_ZN4llvm6all_ofIRKNS_14SmallMapVectorIjjLj4EEEZNS_26LoopVectorizationCostModel23getMaximizedVFForTargetEjjjNS_12ElementCountEbE3$_1EEbOT_T0_.exit.thread" ], [ %.sroa.0103.sroa.7.0.extract.trunc119, %.critedge ]
   %172 = load ptr, ptr %12, align 8, !tbaa !460
   %173 = call i64 @_ZNK4llvm19TargetTransformInfo12getMinimumVFEjb(ptr noundef nonnull align 8 dereferenceable(8) %172, i32 noundef %2, i1 noundef zeroext %11) #30
   %.sroa.0.0.extract.trunc = trunc i64 %173 to i32
@@ -21938,7 +21938,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_12ElementCountELb1EE9push_backES1_.exit: ; 
   br i1 %.not143, label %_ZN4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjE9isKnownLTERKS3_S5_.exit.thread, label %174
 
 174:                                              ; preds = %.loopexit
-  %175 = trunc nuw i8 %.sroa.0101.sroa.7.1 to i1
+  %175 = trunc nuw i8 %.sroa.0103.sroa.7.1 to i1
   %.not.i62 = xor i1 %175, true
   %.sroa.0.4.extract.shift144 = lshr i64 %173, 32
   %176 = trunc i64 %.sroa.0.4.extract.shift144 to i1
@@ -21947,14 +21947,14 @@ _ZN4llvm23SmallVectorTemplateBaseINS_12ElementCountELb1EE9push_backES1_.exit: ; 
 
 _ZN4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjE9isKnownLTERKS3_S5_.exit: ; preds = %174
   %.sroa.0.4.extract.trunc = trunc i64 %.sroa.0.4.extract.shift144 to i8
-  %177 = icmp ult i32 %.sroa.0101.sroa.0.1, %.sroa.0.0.extract.trunc
-  %spec.select133 = call i32 @llvm.umax.i32(i32 %.sroa.0101.sroa.0.1, i32 %.sroa.0.0.extract.trunc)
-  %spec.select134 = select i1 %177, i8 %.sroa.0.4.extract.trunc, i8 %.sroa.0101.sroa.7.1
+  %177 = icmp ult i32 %.sroa.0103.sroa.0.1, %.sroa.0.0.extract.trunc
+  %spec.select135 = call i32 @llvm.umax.i32(i32 %.sroa.0103.sroa.0.1, i32 %.sroa.0.0.extract.trunc)
+  %spec.select136 = select i1 %177, i8 %.sroa.0.4.extract.trunc, i8 %.sroa.0103.sroa.7.1
   br label %_ZN4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjE9isKnownLTERKS3_S5_.exit.thread
 
 _ZN4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjE9isKnownLTERKS3_S5_.exit.thread: ; preds = %_ZN4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjE9isKnownLTERKS3_S5_.exit, %174, %.loopexit
-  %.sroa.0101.sroa.0.2 = phi i32 [ %.sroa.0101.sroa.0.1, %.loopexit ], [ %.sroa.0101.sroa.0.1, %174 ], [ %spec.select133, %_ZN4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjE9isKnownLTERKS3_S5_.exit ]
-  %.sroa.0101.sroa.7.2 = phi i8 [ %.sroa.0101.sroa.7.1, %.loopexit ], [ 1, %174 ], [ %spec.select134, %_ZN4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjE9isKnownLTERKS3_S5_.exit ]
+  %.sroa.0103.sroa.0.2 = phi i32 [ %.sroa.0103.sroa.0.1, %.loopexit ], [ %.sroa.0103.sroa.0.1, %174 ], [ %spec.select135, %_ZN4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjE9isKnownLTERKS3_S5_.exit ]
+  %.sroa.0103.sroa.7.2 = phi i8 [ %.sroa.0103.sroa.7.1, %.loopexit ], [ 1, %174 ], [ %spec.select136, %_ZN4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjE9isKnownLTERKS3_S5_.exit ]
   call void @_ZN4llvm26LoopVectorizationCostModel31invalidateCostModelingDecisionsEv(ptr noundef nonnull align 8 dereferenceable(892) %0)
   call void @_ZN4llvm11SmallVectorINS_26LoopVectorizationCostModel13RegisterUsageELj8EED2Ev(ptr noundef nonnull align 8 dereferenceable(1424) %9) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -21971,13 +21971,13 @@ _ZN4llvm11SmallVectorINS_12ElementCountELj8EED2Ev.exit: ; preds = %_ZN4llvm7deta
   br label %181
 
 181:                                              ; preds = %6, %67, %_ZN4llvm11SmallVectorINS_12ElementCountELj8EED2Ev.exit, %80, %77, %71
-  %.sroa.0101.sroa.0.0 = phi i32 [ %.sroa.0101.sroa.0.2, %_ZN4llvm11SmallVectorINS_12ElementCountELj8EED2Ev.exit ], [ %.sroa.0101.sroa.0.0.extract.trunc110, %80 ], [ %.sroa.0101.sroa.0.0.extract.trunc110, %77 ], [ %.sroa.0101.sroa.0.0.extract.trunc110, %71 ], [ %68, %67 ], [ 1, %6 ]
-  %.sroa.0101.sroa.7.0 = phi i8 [ %.sroa.0101.sroa.7.2, %_ZN4llvm11SmallVectorINS_12ElementCountELj8EED2Ev.exit ], [ %.sroa.0101.sroa.7.0.extract.trunc117, %80 ], [ %.sroa.0101.sroa.7.0.extract.trunc117, %77 ], [ %.sroa.0101.sroa.7.0.extract.trunc117, %71 ], [ %.sroa.0101.sroa.7.0.extract.trunc113, %67 ], [ 0, %6 ]
-  %.sroa.0101.sroa.7.0.insert.ext = zext i8 %.sroa.0101.sroa.7.0 to i64
-  %.sroa.0101.sroa.7.0.insert.shift = shl nuw nsw i64 %.sroa.0101.sroa.7.0.insert.ext, 32
-  %.sroa.0101.sroa.0.0.insert.ext = zext i32 %.sroa.0101.sroa.0.0 to i64
-  %.sroa.0101.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0101.sroa.7.0.insert.shift, %.sroa.0101.sroa.0.0.insert.ext
-  ret i64 %.sroa.0101.sroa.0.0.insert.insert
+  %.sroa.0103.sroa.0.0 = phi i32 [ %.sroa.0103.sroa.0.2, %_ZN4llvm11SmallVectorINS_12ElementCountELj8EED2Ev.exit ], [ %.sroa.0103.sroa.0.0.extract.trunc112, %80 ], [ %.sroa.0103.sroa.0.0.extract.trunc112, %77 ], [ %.sroa.0103.sroa.0.0.extract.trunc112, %71 ], [ %68, %67 ], [ 1, %6 ]
+  %.sroa.0103.sroa.7.0 = phi i8 [ %.sroa.0103.sroa.7.2, %_ZN4llvm11SmallVectorINS_12ElementCountELj8EED2Ev.exit ], [ %.sroa.0103.sroa.7.0.extract.trunc119, %80 ], [ %.sroa.0103.sroa.7.0.extract.trunc119, %77 ], [ %.sroa.0103.sroa.7.0.extract.trunc119, %71 ], [ %.sroa.0103.sroa.7.0.extract.trunc115, %67 ], [ 0, %6 ]
+  %.sroa.0103.sroa.7.0.insert.ext = zext i8 %.sroa.0103.sroa.7.0 to i64
+  %.sroa.0103.sroa.7.0.insert.shift = shl nuw nsw i64 %.sroa.0103.sroa.7.0.insert.ext, 32
+  %.sroa.0103.sroa.0.0.insert.ext = zext i32 %.sroa.0103.sroa.0.0 to i64
+  %.sroa.0103.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0103.sroa.7.0.insert.shift, %.sroa.0103.sroa.0.0.insert.ext
+  ret i64 %.sroa.0103.sroa.0.0.insert.insert
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

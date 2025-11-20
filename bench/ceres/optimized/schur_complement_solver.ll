@@ -7639,9 +7639,9 @@ define linkonce_odr hidden void @_ZN5ceres8internal27SchurEliminatorForOneFBlock
   %invariant.gep = getelementptr %"struct.ceres::internal::CompressedList", ptr %19, i64 %28
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %153, %25
-  %.sroa.10.1.lcssa = phi double [ 0.000000e+00, %25 ], [ %.sroa.10.2, %153 ]
-  %.sroa.0.1.lcssa = phi <2 x double> [ zeroinitializer, %25 ], [ %.sroa.0.2, %153 ]
+._crit_edge:                                      ; preds = %152, %25
+  %.sroa.10.1.lcssa = phi double [ 0.000000e+00, %25 ], [ %.sroa.10.2, %152 ]
+  %.sroa.0.1.lcssa = phi <2 x double> [ zeroinitializer, %25 ], [ %.sroa.0.2, %152 ]
   %.idx = mul nuw nsw i64 %indvars.iv112, 72
   %36 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx
   %37 = sext i32 %32 to i64
@@ -7688,10 +7688,10 @@ define linkonce_odr hidden void @_ZN5ceres8internal27SchurEliminatorForOneFBlock
   %exitcond115.not = icmp eq i64 %indvars.iv.next113, %16
   br i1 %exitcond115.not, label %._crit_edge109, label %25, !llvm.loop !449
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %153
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %153 ]
-  %.sroa.0.188 = phi <2 x double> [ zeroinitializer, %.lr.ph.preheader ], [ %.sroa.0.2, %153 ]
-  %.sroa.10.187 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %.sroa.10.2, %153 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %152
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %152 ]
+  %.sroa.0.188 = phi <2 x double> [ zeroinitializer, %.lr.ph.preheader ], [ %.sroa.0.2, %152 ]
+  %.sroa.10.187 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %.sroa.10.2, %152 ]
   %gep = getelementptr %"struct.ceres::internal::CompressedList", ptr %invariant.gep, i64 %indvars.iv
   %68 = getelementptr inbounds nuw i8, ptr %gep, i64 8
   %69 = load ptr, ptr %68, align 8, !tbaa !186
@@ -7732,7 +7732,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal27SchurEliminatorForOneFBlock
   %102 = load double, ptr %101, align 8, !tbaa !100
   %103 = fmul double %93, %102
   %104 = fadd double %100, %103
-  br label %153
+  br label %152
 
 105:                                              ; preds = %.lr.ph
   %106 = getelementptr inbounds nuw i8, ptr %69, i64 12
@@ -7778,22 +7778,21 @@ define linkonce_odr hidden void @_ZN5ceres8internal27SchurEliminatorForOneFBlock
   %139 = fmul <2 x double> %137, %138
   %140 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %141 = load <2 x double>, ptr %140, align 1, !tbaa !111
-  %142 = bitcast double %136 to <1 x double>
-  %143 = shufflevector <1 x double> %142, <1 x double> poison, <2 x i32> zeroinitializer
-  %144 = fmul <2 x double> %141, %143
-  %145 = fadd <2 x double> %139, %144
-  %146 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  %147 = load double, ptr %146, align 8, !tbaa !100
-  %148 = fmul double %124, %147
-  %149 = getelementptr i8, ptr %73, i64 40
-  %150 = load double, ptr %149, align 8, !tbaa !100
-  %151 = fmul double %136, %150
-  %152 = fadd double %148, %151
-  br label %153
+  %142 = shufflevector <2 x double> %foldExtExtBinop133, <2 x double> poison, <2 x i32> zeroinitializer
+  %143 = fmul <2 x double> %141, %142
+  %144 = fadd <2 x double> %139, %143
+  %145 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  %146 = load double, ptr %145, align 8, !tbaa !100
+  %147 = fmul double %124, %146
+  %148 = getelementptr i8, ptr %73, i64 40
+  %149 = load double, ptr %148, align 8, !tbaa !100
+  %150 = fmul double %136, %149
+  %151 = fadd double %147, %150
+  br label %152
 
-153:                                              ; preds = %105, %84
-  %.pn = phi double [ %104, %84 ], [ %152, %105 ]
-  %.pn110 = phi <2 x double> [ %97, %84 ], [ %145, %105 ]
+152:                                              ; preds = %105, %84
+  %.pn = phi double [ %104, %84 ], [ %151, %105 ]
+  %.pn110 = phi <2 x double> [ %97, %84 ], [ %144, %105 ]
   %.sroa.0.2 = fadd <2 x double> %.sroa.0.188, %.pn110
   %.sroa.10.2 = fadd double %.sroa.10.187, %.pn
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
