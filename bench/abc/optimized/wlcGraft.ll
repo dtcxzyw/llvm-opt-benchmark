@@ -1853,8 +1853,8 @@ define void @Sbc_Mult(i64 noundef %0, i64 noundef %1, ptr noundef writeonly capt
   store i64 %4, ptr %2, align 8, !tbaa !52
   %5 = zext i64 %0 to i128
   %6 = zext i64 %1 to i128
-  %7 = mul nuw i128 %6, %5
-  %8 = lshr i128 %7, 64
+  %8 = mul nuw i128 %6, %5
+  %9 = lshr i128 %7, 64
   %9 = trunc nuw i128 %8 to i64
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %9, ptr %10, align 8, !tbaa !52
@@ -1886,7 +1886,7 @@ define void @Sbc_SimMult(ptr noundef captures(none) %0, ptr noundef captures(non
   %14 = tail call i32 @Gia_ManRandom(i32 noundef 1) #20
   br label %15
 
-15:                                               ; preds = %10, %57
+15:                                               ; preds = %10, %71
   %indvars.iv51 = phi i64 [ 0, %10 ], [ %indvars.iv.next52, %57 ]
   %.not = icmp eq i64 %indvars.iv51, 0
   br i1 %.not, label %.thread, label %16
@@ -1910,45 +1910,45 @@ define void @Sbc_SimMult(ptr noundef captures(none) %0, ptr noundef captures(non
   %29 = shl nuw i64 1, %indvars.iv51
   br label %30
 
-30:                                               ; preds = %.thread, %56
+30:; preds = %.thread, %56
   %indvars.iv47 = phi i64 [ 0, %.thread ], [ %indvars.iv.next48, %56 ]
   %31 = shl nuw i64 1, %indvars.iv47
   %32 = and i64 %31, %21
   %.not39 = icmp eq i64 %32, 0
   br i1 %.not39, label %37, label %33
 
-33:                                               ; preds = %30
+33:; preds = %30
   %34 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv47
   %35 = load i64, ptr %34, align 8, !tbaa !52
   %36 = or i64 %35, %29
   store i64 %36, ptr %34, align 8, !tbaa !52
-  br label %37
+  br label %44
 
-37:                                               ; preds = %33, %30
+44:                                               ; preds = %33, %30
   %38 = and i64 %31, %22
   %.not40 = icmp eq i64 %38, 0
   br i1 %.not40, label %43, label %39
 
-39:                                               ; preds = %37
+39:  ; preds = %44
   %40 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv47
   %41 = load i64, ptr %40, align 8, !tbaa !52
   %42 = or i64 %41, %29
   store i64 %42, ptr %40, align 8, !tbaa !52
   br label %43
 
-43:                                               ; preds = %39, %37
+43:; preds = %39, %37
   %44 = and i64 %31, %23
   %.not41 = icmp eq i64 %44, 0
   br i1 %.not41, label %49, label %45
 
-45:                                               ; preds = %43
+45:; preds = %43
   %46 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv47
   %47 = load i64, ptr %46, align 8, !tbaa !52
   %48 = or i64 %47, %29
   store i64 %48, ptr %46, align 8, !tbaa !52
   br label %49
 
-49:                                               ; preds = %45, %43
+49:; preds = %45, %43
   %50 = and i64 %31, %28
   %.not42 = icmp eq i64 %50, 0
   br i1 %.not42, label %56, label %51
@@ -1961,17 +1961,17 @@ define void @Sbc_SimMult(ptr noundef captures(none) %0, ptr noundef captures(non
   store i64 %55, ptr %53, align 8, !tbaa !52
   br label %56
 
-56:                                               ; preds = %49, %51
+57:                                               ; preds = %49, %51
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next48, 64
-  br i1 %exitcond50.not, label %57, label %30, !llvm.loop !91
+  br i1 %exitcond50.not, label %71, label %30, !llvm.loop !91
 
-57:                                               ; preds = %56
+71:                                               ; preds = %57
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next52, 64
-  br i1 %exitcond54.not, label %58, label %15, !llvm.loop !92
+  br i1 %exitcond54.not, label %72, label %15, !llvm.loop !92
 
-58:                                               ; preds = %57
+72:                                               ; preds = %71
   ret void
 }
 

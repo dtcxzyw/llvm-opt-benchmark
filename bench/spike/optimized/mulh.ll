@@ -195,29 +195,29 @@ define noundef i64 @_Z15fast_rv64i_mulhP11processor_t6insn_tm(ptr noundef captur
   %31 = trunc nuw nsw i128 %30 to i64
   br i1 %.not.i, label %_Z4mulhll.exit, label %32
 
-32:                                               ; preds = %.critedge
+32:; preds = %.critedge
   %33 = xor i64 %31, -1
-  %34 = mul i64 %24, %20
-  %35 = icmp eq i64 %34, 0
+  %36 = mul i64 %24, %20
+  %37 = icmp eq i64 %34, 0
   %36 = zext i1 %35 to i64
   %37 = add nsw i64 %33, %36
   br label %_Z4mulhll.exit
 
 _Z4mulhll.exit:                                   ; preds = %.critedge, %32
-  %38 = phi i64 [ %37, %32 ], [ %31, %.critedge ]
-  %39 = lshr i64 %1, 7
-  %40 = and i64 %39, 31
-  %.not.i12 = icmp eq i64 %40, 0
-  br i1 %.not.i12, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %41
+  %49 = phi i64 [ %37, %32 ], [ %31, %.critedge ]
+  %50 = lshr i64 %1, 7
+  %51 = and i64 %50, 31
+  %.not.i12 = icmp eq i64 %51, 0
+  br i1 %.not.i12, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %52
 
-41:                                               ; preds = %_Z4mulhll.exit
-  %42 = getelementptr inbounds nuw i64, ptr %16, i64 %40
-  store i64 %38, ptr %42, align 8, !tbaa !3
+52:                                               ; preds = %_Z4mulhll.exit
+  %53 = getelementptr inbounds nuw i64, ptr %16, i64 %51
+  store i64 %49, ptr %53, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_Z4mulhll.exit, %41
-  %43 = add i64 %2, 4
-  ret i64 %43
+_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_Z4mulhll.exit, %52
+  %54 = add i64 %2, 4
+  ret i64 %54
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -429,38 +429,38 @@ define noundef i64 @_Z17logged_rv64i_mulhP11processor_t6insn_tm(ptr noundef %0, 
   %32 = trunc nuw nsw i128 %31 to i64
   br i1 %.not.i, label %_Z4mulhll.exit, label %33
 
-33:                                               ; preds = %.critedge
-  %34 = xor i64 %32, -1
-  %35 = mul i64 %25, %21
+33:; preds = %.critedge
+  %36 = xor i64 %32, -1
+  %37 = mul i64 %25, %21
   %36 = icmp eq i64 %35, 0
   %37 = zext i1 %36 to i64
-  %38 = add nsw i64 %34, %37
+  %49 = add nsw i64 %34, %37
   br label %_Z4mulhll.exit
 
 _Z4mulhll.exit:                                   ; preds = %.critedge, %33
-  %39 = phi i64 [ %38, %33 ], [ %32, %.critedge ]
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 3840
+  %50 = phi i64 [ %49, %33 ], [ %32, %.critedge ]
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %41 = lshr i64 %1, 7
-  %42 = and i64 %41, 31
-  %43 = shl nuw nsw i64 %42, 4
-  store i64 %43, ptr %4, align 8, !tbaa !3
-  %44 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %40, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  store i64 %39, ptr %44, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %52 = lshr i64 %1, 7
+  %53 = and i64 %52, 31
+  %54 = shl nuw nsw i64 %53, 4
+  store i64 %54, ptr %4, align 8, !tbaa !3
+  %55 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %51, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  store i64 %50, ptr %55, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not.i15 = icmp eq i64 %42, 0
-  br i1 %.not.i15, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %45
+  %.not.i15 = icmp eq i64 %53, 0
+  br i1 %.not.i15, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %56
 
-45:                                               ; preds = %_Z4mulhll.exit
-  %46 = getelementptr inbounds nuw i64, ptr %17, i64 %42
-  store i64 %39, ptr %46, align 8, !tbaa !3
+56:                                               ; preds = %_Z4mulhll.exit
+  %57 = getelementptr inbounds nuw i64, ptr %17, i64 %53
+  store i64 %50, ptr %57, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_Z4mulhll.exit, %45
-  %47 = add i64 %2, 4
-  ret i64 %47
+_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_Z4mulhll.exit, %56
+  %58 = add i64 %2, 4
+  ret i64 %58
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -673,27 +673,27 @@ define noundef i64 @_Z15fast_rv64e_mulhP11processor_t6insn_tm(ptr noundef captur
   %54 = trunc nuw nsw i128 %53 to i64
   br i1 %.not.i, label %_Z4mulhll.exit, label %55
 
-55:                                               ; preds = %45
+55:; preds = %56
   %56 = xor i64 %54, -1
-  %57 = mul i64 %47, %36
-  %58 = icmp eq i64 %57, 0
+  %59 = mul i64 %58, %36
+  %60 = icmp eq i64 %57, 0
   %59 = zext i1 %58 to i64
   %60 = add nsw i64 %56, %59
   br label %_Z4mulhll.exit
 
 _Z4mulhll.exit:                                   ; preds = %45, %55
-  %61 = phi i64 [ %60, %55 ], [ %54, %45 ]
+  %72 = phi i64 [ %60, %55 ], [ %54, %45 ]
   %.not.i23 = icmp eq i64 %17, 0
-  br i1 %.not.i23, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %62
+  br i1 %.not.i23, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %73
 
-62:                                               ; preds = %_Z4mulhll.exit
-  %63 = getelementptr inbounds nuw i64, ptr %34, i64 %17
-  store i64 %61, ptr %63, align 8, !tbaa !3
+73:                                               ; preds = %_Z4mulhll.exit
+  %74 = getelementptr inbounds nuw i64, ptr %34, i64 %17
+  store i64 %72, ptr %74, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_Z4mulhll.exit, %62
-  %64 = add i64 %2, 4
-  ret i64 %64
+_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_Z4mulhll.exit, %73
+  %75 = add i64 %2, 4
+  ret i64 %75
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -917,36 +917,36 @@ define noundef i64 @_Z17logged_rv64e_mulhP11processor_t6insn_tm(ptr noundef %0, 
   %55 = trunc nuw nsw i128 %54 to i64
   br i1 %.not.i, label %_Z4mulhll.exit, label %56
 
-56:                                               ; preds = %46
-  %57 = xor i64 %55, -1
-  %58 = mul i64 %48, %37
+56:; preds = %57
+  %59 = xor i64 %55, -1
+  %60 = mul i64 %48, %37
   %59 = icmp eq i64 %58, 0
   %60 = zext i1 %59 to i64
   %61 = add nsw i64 %57, %60
   br label %_Z4mulhll.exit
 
 _Z4mulhll.exit:                                   ; preds = %46, %56
-  %62 = phi i64 [ %61, %56 ], [ %55, %46 ]
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 3840
+  %73 = phi i64 [ %72, %56 ], [ %55, %46 ]
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %64 = shl nuw nsw i64 %18, 4
-  store i64 %64, ptr %4, align 8, !tbaa !3
-  %65 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %63, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  store i64 %62, ptr %65, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %75 = shl nuw nsw i64 %18, 4
+  store i64 %75, ptr %4, align 8, !tbaa !3
+  %76 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %74, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  store i64 %73, ptr %76, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i26 = icmp eq i64 %18, 0
-  br i1 %.not.i26, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %66
+  br i1 %.not.i26, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %77
 
-66:                                               ; preds = %_Z4mulhll.exit
-  %67 = getelementptr inbounds nuw i64, ptr %35, i64 %18
-  store i64 %62, ptr %67, align 8, !tbaa !3
+77:                                               ; preds = %_Z4mulhll.exit
+  %78 = getelementptr inbounds nuw i64, ptr %35, i64 %18
+  store i64 %73, ptr %78, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_Z4mulhll.exit, %66
-  %68 = add i64 %2, 4
-  ret i64 %68
+_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_Z4mulhll.exit, %77
+  %79 = add i64 %2, 4
+  ret i64 %79
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
