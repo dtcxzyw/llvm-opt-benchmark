@@ -73596,22 +73596,22 @@ define hidden void @"_ZN4core3str21_$LT$impl$u20$str$GT$5split17h990024f8571efd8
 
 8:                                                ; preds = %6
   %9 = icmp ult i32 %3, 65536
-  br i1 %9, label %19, label %30
+  br i1 %9, label %19, label %17
 
 10:                                               ; preds = %4
   %11 = trunc nuw nsw i32 %3 to i8
   %.sroa.0.0.vec.insert7.i = insertelement <4 x i8> <i8 poison, i8 0, i8 0, i8 0>, i8 %11, i64 0
   br label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h4b0de5866073d807E.llvm.12634899616595775615.exit"
 
-12:                                               ; preds = %6
-  %13 = lshr i32 %3, 6
+13:                                               ; preds = %6
+  %14 = lshr i32 %3, 6
   %14 = trunc nuw nsw i32 %13 to i8
   %15 = or disjoint i8 %14, -64
   %.sroa.0.0.vec.insert5.i = insertelement <4 x i8> <i8 poison, i8 poison, i8 0, i8 0>, i8 %15, i64 0
   %16 = trunc i32 %3 to i8
-  %17 = and i8 %16, 63
-  %18 = or disjoint i8 %17, -128
-  %.sroa.0.1.vec.insert12.i = insertelement <4 x i8> %.sroa.0.0.vec.insert5.i, i8 %18, i64 1
+  %.sroa.0.2.insert.ext24 = and i8 %16, 63
+  %.sroa.0.2.insert.shift25.i = or disjoint i8 %.sroa.0.2.insert.ext24, -128
+  %.sroa.0.1.vec.insert12.i = insertelement <4 x i8> %.sroa.0.0.vec.insert5.i, i8 %.sroa.0.2.insert.shift25.i, i64 1
   br label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h4b0de5866073d807E.llvm.12634899616595775615.exit"
 
 19:                                               ; preds = %8
@@ -73630,17 +73630,17 @@ define hidden void @"_ZN4core3str21_$LT$impl$u20$str$GT$5split17h990024f8571efd8
   %.sroa.0.2.vec.insert14.i = insertelement <4 x i8> %.sroa.0.1.vec.insert10.i, i8 %29, i64 2
   br label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h4b0de5866073d807E.llvm.12634899616595775615.exit"
 
-30:                                               ; preds = %8
-  %31 = lshr i32 %3, 18
-  %32 = trunc i32 %31 to i8
+17:                                               ; preds = %8
+  %18 = lshr i32 %3, 18
+  %32 = trunc i32 %18 to i8
   %33 = and i8 %32, 7
   %34 = or disjoint i8 %33, -16
   %.sroa.0.0.vec.insert.i = insertelement <4 x i8> poison, i8 %34, i64 0
   %35 = lshr i32 %3, 12
   %36 = trunc i32 %35 to i8
-  %37 = and i8 %36, 63
-  %38 = or disjoint i8 %37, -128
-  %.sroa.0.1.vec.insert.i = insertelement <4 x i8> %.sroa.0.0.vec.insert.i, i8 %38, i64 1
+  %.sroa.0.3.insert.ext.i = and i8 %36, 63
+  %.sroa.0.1.insert.shift.i = or disjoint i8 %.sroa.0.3.insert.ext.i, -128
+  %.sroa.0.1.vec.insert.i = insertelement <4 x i8> %.sroa.0.0.vec.insert.i, i8 %.sroa.0.1.insert.shift.i, i64 1
   %39 = lshr i32 %3, 6
   %40 = trunc i32 %39 to i8
   %41 = and i8 %40, 63
@@ -73652,9 +73652,9 @@ define hidden void @"_ZN4core3str21_$LT$impl$u20$str$GT$5split17h990024f8571efd8
   %.sroa.0.3.vec.insert.i = insertelement <4 x i8> %.sroa.0.2.vec.insert.i, i8 %45, i64 3
   br label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h4b0de5866073d807E.llvm.12634899616595775615.exit"
 
-"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h4b0de5866073d807E.llvm.12634899616595775615.exit": ; preds = %10, %12, %19, %30
+"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h4b0de5866073d807E.llvm.12634899616595775615.exit": ; preds = %10, %13, %19, %17
   %.sroa.0.0.i = phi <4 x i8> [ %.sroa.0.0.vec.insert7.i, %10 ], [ %.sroa.0.1.vec.insert12.i, %12 ], [ %.sroa.0.2.vec.insert14.i, %19 ], [ %.sroa.0.3.vec.insert.i, %30 ]
-  %46 = phi i64 [ 1, %10 ], [ 2, %12 ], [ 3, %19 ], [ 4, %30 ]
+  %23 = phi i64 [ 1, %10 ], [ 2, %12 ], [ 3, %19 ], [ 4, %30 ]
   store i64 0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %.sroa.4.0..sroa_idx, align 8
@@ -73667,7 +73667,7 @@ define hidden void @"_ZN4core3str21_$LT$impl$u20$str$GT$5split17h990024f8571efd8
   %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %2, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.7.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %46, ptr %.sroa.5.sroa.7.0..sroa.5.0..sroa_idx.sroa_idx, align 8
+  store i64 %23, ptr %.sroa.5.sroa.7.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.8.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   store <4 x i8> %.sroa.0.0.i, ptr %.sroa.5.sroa.8.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.9.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -75346,22 +75346,22 @@ define hidden void @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$13
 
 8:                                                ; preds = %6
   %9 = icmp ult i32 %1, 65536
-  br i1 %9, label %19, label %30
+  br i1 %9, label %19, label %17
 
 10:                                               ; preds = %4
   %11 = trunc nuw nsw i32 %1 to i8
   %.sroa.0.0.vec.insert7 = insertelement <4 x i8> <i8 poison, i8 0, i8 0, i8 0>, i8 %11, i64 0
   br label %_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.llvm.12634899616595775615.exit
 
-12:                                               ; preds = %6
-  %13 = lshr i32 %1, 6
+13:                                               ; preds = %6
+  %14 = lshr i32 %1, 6
   %14 = trunc nuw nsw i32 %13 to i8
   %15 = or disjoint i8 %14, -64
   %.sroa.0.0.vec.insert5 = insertelement <4 x i8> <i8 poison, i8 poison, i8 0, i8 0>, i8 %15, i64 0
   %16 = trunc i32 %1 to i8
-  %17 = and i8 %16, 63
-  %18 = or disjoint i8 %17, -128
-  %.sroa.0.1.vec.insert12 = insertelement <4 x i8> %.sroa.0.0.vec.insert5, i8 %18, i64 1
+  %.sroa.0.2.insert.ext24 = and i8 %16, 63
+  %.sroa.0.2.insert.shift25 = or disjoint i8 %.sroa.0.2.insert.ext24, -128
+  %.sroa.0.1.vec.insert12 = insertelement <4 x i8> %.sroa.0.0.vec.insert5, i8 %.sroa.0.2.insert.shift25, i64 1
   br label %_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.llvm.12634899616595775615.exit
 
 19:                                               ; preds = %8
@@ -75380,15 +75380,15 @@ define hidden void @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$13
   %.sroa.0.2.vec.insert14 = insertelement <4 x i8> %.sroa.0.1.vec.insert10, i8 %29, i64 2
   br label %_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.llvm.12634899616595775615.exit
 
-30:                                               ; preds = %8
-  %31 = lshr i32 %1, 18
-  %32 = trunc i32 %31 to i8
+17:                                               ; preds = %8
+  %18 = lshr i32 %1, 18
+  %32 = trunc i32 %18 to i8
   %33 = and i8 %32, 7
   %34 = or disjoint i8 %33, -16
   %.sroa.0.0.vec.insert = insertelement <4 x i8> poison, i8 %34, i64 0
   %35 = lshr i32 %1, 12
   %36 = trunc i32 %35 to i8
-  %37 = and i8 %36, 63
+  %.sroa.0.3.insert.ext.i = and i8 %36, 63
   %38 = or disjoint i8 %37, -128
   %.sroa.0.1.vec.insert = insertelement <4 x i8> %.sroa.0.0.vec.insert, i8 %38, i64 1
   %39 = lshr i32 %1, 6
@@ -75402,22 +75402,22 @@ define hidden void @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$13
   %.sroa.0.3.vec.insert = insertelement <4 x i8> %.sroa.0.2.vec.insert, i8 %45, i64 3
   br label %_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.llvm.12634899616595775615.exit
 
-_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.llvm.12634899616595775615.exit: ; preds = %10, %12, %19, %30
+_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.llvm.12634899616595775615.exit: ; preds = %10, %13, %19, %17
   %.sroa.0.0 = phi <4 x i8> [ %.sroa.0.0.vec.insert7, %10 ], [ %.sroa.0.1.vec.insert12, %12 ], [ %.sroa.0.2.vec.insert14, %19 ], [ %.sroa.0.3.vec.insert, %30 ]
-  %46 = phi i64 [ 1, %10 ], [ 2, %12 ], [ 3, %19 ], [ 4, %30 ]
+  %23 = phi i64 [ 1, %10 ], [ 2, %12 ], [ 3, %19 ], [ 4, %30 ]
   store ptr %2, ptr %0, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %3, ptr %47, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %48, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %3, ptr %49, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %1, ptr %50, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %46, ptr %51, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store <4 x i8> %.sroa.0.0, ptr %52, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %3, ptr %24, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 0, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %3, ptr %26, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 %1, ptr %27, align 4
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %23, ptr %28, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store <4 x i8> %.sroa.0.0, ptr %29, align 8
   ret void
 }
 

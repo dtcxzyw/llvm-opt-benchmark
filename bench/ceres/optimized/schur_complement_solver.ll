@@ -7792,7 +7792,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal27SchurEliminatorForOneFBlock
 
 152:                                              ; preds = %105, %84
   %.pn = phi double [ %104, %84 ], [ %151, %105 ]
-  %.pn110 = phi <2 x double> [ %97, %84 ], [ %144, %105 ]
+  %.pn = phi <2 x double> [ %97, %84 ], [ %144, %105 ]
   %.sroa.0.2 = fadd <2 x double> %.sroa.0.188, %.pn110
   %.sroa.10.2 = fadd double %.sroa.10.187, %.pn
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

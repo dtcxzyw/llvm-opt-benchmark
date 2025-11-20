@@ -55874,41 +55874,41 @@ _ZN17cranelift_codegen8settings7Builder9state_for17h45f8200b851d2476E.exit: ; pr
   %.not = icmp eq i8 %17, 0
   br i1 %.not, label %20, label %18
 
-18:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE.exit"
+18:; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE.exit"
   %.sroa.0.2.vec.insert = insertelement <4 x i8> %.sroa.0.0.vecblend, i8 1, i64 2
   %19 = and i8 %.sroa.0.0.vec.extract, 32
-  %.not3 = icmp eq i8 %19, 0
+  %19 = icmp eq i8 %19, 0
   br i1 %.not3, label %20, label %22
 
-20:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE.exit", %18, %22
+20:; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE.exit", %18, %22
   %.sroa.0.0 = phi <4 x i8> [ %.sroa.0.0.vecblend, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE.exit" ], [ %.sroa.0.2.vec.insert, %18 ], [ %.sroa.0.2.vec.insert23, %22 ]
   %21 = icmp slt i8 %.sroa.0.0.vec.extract, 0
   br i1 %21, label %23, label %25
 
-22:                                               ; preds = %18
+22:; preds = %18
   %.sroa.0.2.vec.insert23 = insertelement <4 x i8> %.sroa.0.2.vec.insert, i8 3, i64 2
   br label %20
 
-23:                                               ; preds = %20
+23:; preds = %20
   %.sroa.0.2.vec.extract25 = extractelement <4 x i8> %.sroa.0.0, i64 2
-  %24 = or disjoint i8 %.sroa.0.2.vec.extract25, 4
+  %30 = or disjoint i8 %.sroa.0.2.vec.extract25, 4
   %.sroa.0.2.vec.insert27 = insertelement <4 x i8> %.sroa.0.0, i8 %24, i64 2
   br label %25
 
-25:                                               ; preds = %20, %23
+25:; preds = %20, %23
   %.sroa.0.1 = phi <4 x i8> [ %.sroa.0.2.vec.insert27, %23 ], [ %.sroa.0.0, %20 ]
   %.sroa.0.1.vec.extract = extractelement <4 x i8> %.sroa.0.1, i64 1
   %26 = and i8 %.sroa.0.1.vec.extract, 1
   %.not4 = icmp eq i8 %26, 0
   br i1 %.not4, label %29, label %27
 
-27:                                               ; preds = %25
+27:; preds = %25
   %.sroa.0.2.vec.extract29 = extractelement <4 x i8> %.sroa.0.1, i64 2
   %28 = or i8 %.sroa.0.2.vec.extract29, 8
   %.sroa.0.2.vec.insert31 = insertelement <4 x i8> %.sroa.0.1, i8 %28, i64 2
   br label %29
 
-29:                                               ; preds = %25, %27
+29:; preds = %25, %27
   %.sroa.0.2 = phi <4 x i8> [ %.sroa.0.1, %25 ], [ %.sroa.0.2.vec.insert31, %27 ]
   %30 = and i8 %.sroa.0.1.vec.extract, 8
   %.not5 = icmp eq i8 %30, 0
@@ -56000,21 +56000,21 @@ _ZN17cranelift_codegen8settings7Builder9state_for17h45f8200b851d2476E.exit: ; pr
   %or.cond16 = or i1 %.not12, %.not11
   br i1 %or.cond16, label %60, label %62
 
-60:                                               ; preds = %57, %62
+60:; preds = %57, %62
   %.sroa.0.10 = phi <4 x i8> [ %.sroa.0.9, %57 ], [ %.sroa.0.3.vec.insert60, %62 ]
   %61 = and i8 %.sroa.0.0.vec.extract, 4
   %.not13 = icmp eq i8 %61, 0
   br i1 %.not13, label %66, label %64
 
-62:                                               ; preds = %57
+62:; preds = %57
   %.sroa.0.3.vec.extract58 = extractelement <4 x i8> %.sroa.0.9, i64 3
   %63 = or i8 %.sroa.0.3.vec.extract58, 8
   %.sroa.0.3.vec.insert60 = insertelement <4 x i8> %.sroa.0.9, i8 %63, i64 3
   br label %60
 
-64:                                               ; preds = %60
+48:                                               ; preds = %60
   %.sroa.0.3.vec.extract62 = extractelement <4 x i8> %.sroa.0.10, i64 3
-  %65 = or i8 %.sroa.0.3.vec.extract62, 16
+  %.sroa.0.3.insert.ext110 = or i8 %.sroa.0.3.vec.extract62, 16
   %.sroa.0.3.vec.insert64 = insertelement <4 x i8> %.sroa.0.10, i8 %65, i64 3
   br i1 %.not12, label %66, label %68
 
@@ -56044,12 +56044,12 @@ _ZN17cranelift_codegen8settings7Builder9state_for17h45f8200b851d2476E.exit: ; pr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN17cranelift_codegen3isa3x648settings5Flags4iter17h2de1b680387d5554E(ptr noalias noundef writeonly sret({ { ptr, ptr, {} }, { [2 x i8] }, [6 x i8] }) align 8 captures(none) dereferenceable(24) initializes((0, 18)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(4) %1) unnamed_addr #17 {
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE.exit":
-  %.sroa.0.0.copyload = load <2 x i8>, ptr %1, align 1, !alias.scope !9611, !noalias !9615
+  %.sroa.0.0.copyload2 = load <2 x i8>, ptr %1, align 1, !alias.scope !9611, !noalias !9615
   store ptr @_ZN17cranelift_codegen3isa3x648settings11DESCRIPTORS17h3f812ec1131dbf60E, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN17cranelift_codegen3isa3x648settings11DESCRIPTORS17h3f812ec1131dbf60E, i64 3280), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store <2 x i8> %.sroa.0.0.copyload, ptr %3, align 8
+  store <2 x i8> %.sroa.0.0.copyload2, ptr %3, align 8
   ret void
 }
 

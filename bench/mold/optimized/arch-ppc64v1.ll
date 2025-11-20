@@ -630,18 +630,18 @@ _ZNK4mold6SymbolINS_7PPC64V1EE12get_plt_addrERNS_7ContextIS1_EE.exit: ; preds = 
   %102 = or disjoint i64 %98, %101
   %103 = load i32, ptr %4, align 8, !tbaa !262
   %104 = icmp eq i32 %103, -1
-  br i1 %104, label %_ZNK4mold6SymbolINS_7PPC64V1EE11get_plt_idxERNS_7ContextIS1_EE.exit.thread.i25, label %_ZNK4mold6SymbolINS_7PPC64V1EE11get_plt_idxERNS_7ContextIS1_EE.exit.i20
+  br i1 %104, label %_ZNK4mold6SymbolINS_7PPC64V1EE11get_plt_idxERNS_7ContextIS1_EE.exit.thread.i24, label %_ZNK4mold6SymbolINS_7PPC64V1EE11get_plt_idxERNS_7ContextIS1_EE.exit.i19
 
-_ZNK4mold6SymbolINS_7PPC64V1EE11get_plt_idxERNS_7ContextIS1_EE.exit.i20: ; preds = %74
+_ZNK4mold6SymbolINS_7PPC64V1EE11get_plt_idxERNS_7ContextIS1_EE.exit.i19: ; preds = %74
   %105 = sext i32 %103 to i64
   %106 = load ptr, ptr %7, align 8, !tbaa !270
   %107 = getelementptr inbounds nuw %"struct.mold::SymbolAux", ptr %106, i64 %105
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %109 = load i32, ptr %108, align 8, !tbaa !271
-  %.not.not.i21 = icmp eq i32 %109, -1
-  br i1 %.not.not.i21, label %_ZNK4mold6SymbolINS_7PPC64V1EE11get_plt_idxERNS_7ContextIS1_EE.exit.thread.i25, label %110
+  %.not.not.i20 = icmp eq i32 %109, -1
+  br i1 %.not.not.i20, label %_ZNK4mold6SymbolINS_7PPC64V1EE11get_plt_idxERNS_7ContextIS1_EE.exit.thread.i24, label %110
 
-110:                                              ; preds = %_ZNK4mold6SymbolINS_7PPC64V1EE11get_plt_idxERNS_7ContextIS1_EE.exit.i20
+110:                                              ; preds = %_ZNK4mold6SymbolINS_7PPC64V1EE11get_plt_idxERNS_7ContextIS1_EE.exit.i19
   %111 = or disjoint i64 %93, %97
   %112 = or disjoint i64 %111, %101
   %113 = icmp slt i32 %109, 32768
@@ -649,12 +649,12 @@ _ZNK4mold6SymbolINS_7PPC64V1EE11get_plt_idxERNS_7ContextIS1_EE.exit.i20: ; preds
   %115 = add nsw i32 %114, 44
   %116 = mul i32 %109, 12
   %117 = add i32 %116, -131028
-  %.0.in.i.i22 = select i1 %113, i32 %115, i32 %117
-  %.0.i.i23 = zext i32 %.0.in.i.i22 to i64
-  %118 = add nuw nsw i64 %112, %.0.i.i23
-  br label %_ZNK4mold6SymbolINS_7PPC64V1EE12get_plt_addrERNS_7ContextIS1_EE.exit26
+  %.0.in.i.i21 = select i1 %113, i32 %115, i32 %117
+  %.0.i.i22 = zext i32 %.0.in.i.i21 to i64
+  %118 = add nuw nsw i64 %112, %.0.i.i22
+  br label %_ZNK4mold6SymbolINS_7PPC64V1EE12get_plt_addrERNS_7ContextIS1_EE.exit25
 
-_ZNK4mold6SymbolINS_7PPC64V1EE11get_plt_idxERNS_7ContextIS1_EE.exit.thread.i25: ; preds = %_ZNK4mold6SymbolINS_7PPC64V1EE11get_plt_idxERNS_7ContextIS1_EE.exit.i20, %74
+_ZNK4mold6SymbolINS_7PPC64V1EE11get_plt_idxERNS_7ContextIS1_EE.exit.thread.i24: ; preds = %_ZNK4mold6SymbolINS_7PPC64V1EE11get_plt_idxERNS_7ContextIS1_EE.exit.i19, %74
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 4064
   %120 = load ptr, ptr %119, align 8, !tbaa !278
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 45
@@ -670,24 +670,24 @@ _ZNK4mold6SymbolINS_7PPC64V1EE11get_plt_idxERNS_7ContextIS1_EE.exit.thread.i25: 
   %131 = load i8, ptr %130, align 1, !tbaa !260
   %132 = zext i8 %131 to i64
   %133 = or disjoint i64 %129, %132
-  br label %_ZNK4mold6SymbolINS_7PPC64V1EE12get_plt_addrERNS_7ContextIS1_EE.exit26
+  br label %_ZNK4mold6SymbolINS_7PPC64V1EE12get_plt_addrERNS_7ContextIS1_EE.exit25
 
-_ZNK4mold6SymbolINS_7PPC64V1EE12get_plt_addrERNS_7ContextIS1_EE.exit26: ; preds = %110, %_ZNK4mold6SymbolINS_7PPC64V1EE11get_plt_idxERNS_7ContextIS1_EE.exit.thread.i25
-  %.1.i24 = phi i64 [ %118, %110 ], [ %133, %_ZNK4mold6SymbolINS_7PPC64V1EE11get_plt_idxERNS_7ContextIS1_EE.exit.thread.i25 ]
-  %134 = sub nsw i64 %102, %.1.i24
+_ZNK4mold6SymbolINS_7PPC64V1EE12get_plt_addrERNS_7ContextIS1_EE.exit25: ; preds = %110, %_ZNK4mold6SymbolINS_7PPC64V1EE11get_plt_idxERNS_7ContextIS1_EE.exit.thread.i24
+  %.1.i23 = phi i64 [ %118, %110 ], [ %133, %_ZNK4mold6SymbolINS_7PPC64V1EE11get_plt_idxERNS_7ContextIS1_EE.exit.thread.i25 ]
+  %134 = sub nsw i64 %102, %.1.i23
   br label %135
 
-135:                                              ; preds = %_ZNK4mold6SymbolINS_7PPC64V1EE12get_plt_addrERNS_7ContextIS1_EE.exit26, %_ZNK4mold6SymbolINS_7PPC64V1EE12get_plt_addrERNS_7ContextIS1_EE.exit
+135:                                              ; preds = %_ZNK4mold6SymbolINS_7PPC64V1EE12get_plt_addrERNS_7ContextIS1_EE.exit25, %_ZNK4mold6SymbolINS_7PPC64V1EE12get_plt_addrERNS_7ContextIS1_EE.exit
   %.sink = phi i64 [ %134, %_ZNK4mold6SymbolINS_7PPC64V1EE12get_plt_addrERNS_7ContextIS1_EE.exit26 ], [ %73, %_ZNK4mold6SymbolINS_7PPC64V1EE12get_plt_addrERNS_7ContextIS1_EE.exit ]
-  %.sink44 = phi i32 [ 16777208, %_ZNK4mold6SymbolINS_7PPC64V1EE12get_plt_addrERNS_7ContextIS1_EE.exit26 ], [ 16777212, %_ZNK4mold6SymbolINS_7PPC64V1EE12get_plt_addrERNS_7ContextIS1_EE.exit ]
-  %.sink42 = phi i64 [ 9, %_ZNK4mold6SymbolINS_7PPC64V1EE12get_plt_addrERNS_7ContextIS1_EE.exit26 ], [ 5, %_ZNK4mold6SymbolINS_7PPC64V1EE12get_plt_addrERNS_7ContextIS1_EE.exit ]
-  %.sink41 = phi i64 [ 10, %_ZNK4mold6SymbolINS_7PPC64V1EE12get_plt_addrERNS_7ContextIS1_EE.exit26 ], [ 6, %_ZNK4mold6SymbolINS_7PPC64V1EE12get_plt_addrERNS_7ContextIS1_EE.exit ]
-  %.sink40 = phi i64 [ 11, %_ZNK4mold6SymbolINS_7PPC64V1EE12get_plt_addrERNS_7ContextIS1_EE.exit26 ], [ 7, %_ZNK4mold6SymbolINS_7PPC64V1EE12get_plt_addrERNS_7ContextIS1_EE.exit ]
+  %.sink43 = phi i32 [ 16777208, %_ZNK4mold6SymbolINS_7PPC64V1EE12get_plt_addrERNS_7ContextIS1_EE.exit26 ], [ 16777212, %_ZNK4mold6SymbolINS_7PPC64V1EE12get_plt_addrERNS_7ContextIS1_EE.exit ]
+  %.sink41 = phi i64 [ 9, %_ZNK4mold6SymbolINS_7PPC64V1EE12get_plt_addrERNS_7ContextIS1_EE.exit26 ], [ 5, %_ZNK4mold6SymbolINS_7PPC64V1EE12get_plt_addrERNS_7ContextIS1_EE.exit ]
+  %.sink40 = phi i64 [ 10, %_ZNK4mold6SymbolINS_7PPC64V1EE12get_plt_addrERNS_7ContextIS1_EE.exit26 ], [ 6, %_ZNK4mold6SymbolINS_7PPC64V1EE12get_plt_addrERNS_7ContextIS1_EE.exit ]
+  %.sink39 = phi i64 [ 11, %_ZNK4mold6SymbolINS_7PPC64V1EE12get_plt_addrERNS_7ContextIS1_EE.exit26 ], [ 7, %_ZNK4mold6SymbolINS_7PPC64V1EE12get_plt_addrERNS_7ContextIS1_EE.exit ]
   %136 = trunc i64 %.sink to i32
-  %137 = add i32 %.sink44, %136
-  %138 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink42
-  %139 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink41
-  %140 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink40
+  %137 = add i32 %.sink43, %136
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink41
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink40
+  %140 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink39
   %141 = lshr i32 %137, 16
   %142 = trunc i32 %141 to i8
   store i8 %142, ptr %138, align 1, !tbaa !260

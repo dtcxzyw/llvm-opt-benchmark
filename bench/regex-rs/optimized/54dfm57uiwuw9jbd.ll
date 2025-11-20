@@ -1747,8 +1747,8 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   store i32 %15, ptr %.sroa.07.sroa.4.0..sroa_idx, align 4
   %.sroa.07.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i8 %17, ptr %.sroa.07.sroa.5.0..sroa_idx, align 4
-  %19 = icmp eq i64 %11, 0
-  br i1 %19, label %.thread, label %.lr.ph
+  %20 = icmp eq i64 %11, 0
+  br i1 %20, label %.thread, label %.lr.ph
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -5159,8 +5159,8 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   store i32 %18, ptr %.sroa.07.sroa.4.0..sroa_idx.i, align 4, !noalias !895
   %.sroa.07.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i8 %20, ptr %.sroa.07.sroa.5.0..sroa_idx.i, align 4, !noalias !895
-  %22 = icmp eq i64 %14, 0
-  br i1 %22, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h267e9c33c99d918bE.llvm.3371294817895845771.exit", label %.lr.ph.i
+  %23 = icmp eq i64 %14, 0
+  br i1 %23, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h267e9c33c99d918bE.llvm.3371294817895845771.exit", label %.lr.ph.i
 
 "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h267e9c33c99d918bE.llvm.3371294817895845771.exit": ; preds = %.lr.ph.i, %13, %2
   store i64 %8, ptr %0, align 8, !noalias !892

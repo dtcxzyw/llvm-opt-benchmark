@@ -10897,15 +10897,15 @@ switch.lookup:                                    ; preds = %_ZN5clang7CodeGen13
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(128) %5, i64 64, i1 false)
   %1290 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %.sroa.0.0.copyload.i318 = load ptr, ptr %1290, align 8
-  %.sroa.4.0..sroa_idx.i319 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i319, align 8
-  %.sroa.5.0..sroa_idx.i320 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %.sroa.5.0.copyload.i = load ptr, ptr %.sroa.5.0..sroa_idx.i320, align 8
-  %.sroa.6.0..sroa_idx.i321 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %.sroa.6.0.copyload.i = load ptr, ptr %.sroa.6.0..sroa_idx.i321, align 8
-  %.sroa.7.0..sroa_idx.i322 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %.sroa.7.0.copyload.i = load ptr, ptr %.sroa.7.0..sroa_idx.i322, align 8
+  %.sroa.0.0.copyload1.i = load ptr, ptr %1290, align 8
+  %.sroa.4.0..sroa_idx.i318 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i318, align 8
+  %.sroa.5.0..sroa_idx.i319 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  %.sroa.5.0.copyload.i = load ptr, ptr %.sroa.5.0..sroa_idx.i319, align 8
+  %.sroa.6.0..sroa_idx.i320 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  %.sroa.6.0.copyload.i = load ptr, ptr %.sroa.6.0..sroa_idx.i320, align 8
+  %.sroa.7.0..sroa_idx.i321 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %.sroa.7.0.copyload.i = load ptr, ptr %.sroa.7.0..sroa_idx.i321, align 8
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 104
   %.sroa.8.0.copyload.i = load ptr, ptr %.sroa.8.0..sroa_idx.i, align 8
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 112
@@ -10932,14 +10932,14 @@ switch.lookup:                                    ; preds = %_ZN5clang7CodeGen13
   %1306 = icmp eq ptr %1305, %.sroa.6.0.copyload.i
   %1307 = load ptr, ptr %1292, align 8
   %1308 = icmp eq ptr %1307, %.sroa.5.0.copyload.i
-  %or.cond.i323 = select i1 %1306, i1 %1308, i1 false
-  br i1 %or.cond.i323, label %_ZSteqIJN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEENS1_INS3_INS0_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEENS1_INS3_INS0_11GlobalAliasELb0ELb0EvLb0EvEELb0ELb0EEENS1_INS3_INS0_11GlobalIFuncELb0ELb0EvLb0EvEELb0ELb0EEEEJS6_S9_SC_SF_EEbRKSt5tupleIJDpT_EERKSG_IJDpT0_EE.exit.i.i.i, label %_ZNK4llvm20iterator_facade_baseINS_15concat_iteratorINS_11GlobalValueEJNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEENS3_INS5_INS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEENS3_INS5_INS_11GlobalAliasELb0ELb0EvLb0EvEELb0ELb0EEENS3_INS5_INS_11GlobalIFuncELb0ELb0EvLb0EvEELb0ELb0EEEEEESt20forward_iterator_tagS2_lPS2_RS2_EneERKSI_.exit.thread.i
+  %or.cond.i322 = select i1 %1306, i1 %1308, i1 false
+  br i1 %or.cond.i322, label %_ZSteqIJN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEENS1_INS3_INS0_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEENS1_INS3_INS0_11GlobalAliasELb0ELb0EvLb0EvEELb0ELb0EEENS1_INS3_INS0_11GlobalIFuncELb0ELb0EvLb0EvEELb0ELb0EEEEJS6_S9_SC_SF_EEbRKSt5tupleIJDpT_EERKSG_IJDpT0_EE.exit.i.i.i, label %_ZNK4llvm20iterator_facade_baseINS_15concat_iteratorINS_11GlobalValueEJNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEENS3_INS5_INS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEENS3_INS5_INS_11GlobalAliasELb0ELb0EvLb0EvEELb0ELb0EEENS3_INS5_INS_11GlobalIFuncELb0ELb0EvLb0EvEELb0ELb0EEEEEESt20forward_iterator_tagS2_lPS2_RS2_EneERKSI_.exit.thread.i
 
 _ZSteqIJN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEENS1_INS3_INS0_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEENS1_INS3_INS0_11GlobalAliasELb0ELb0EvLb0EvEELb0ELb0EEENS1_INS3_INS0_11GlobalIFuncELb0ELb0EvLb0EvEELb0ELb0EEEEJS6_S9_SC_SF_EEbRKSt5tupleIJDpT_EERKSG_IJDpT0_EE.exit.i.i.i: ; preds = %1304
   %1309 = load ptr, ptr %1293, align 8, !tbaa !1373
   %1310 = icmp eq ptr %1309, %.sroa.4.0.copyload.i
   %1311 = load ptr, ptr %6, align 8
-  %1312 = icmp eq ptr %1311, %.sroa.0.0.copyload.i318
+  %1312 = icmp eq ptr %1311, %.sroa.0.0.copyload1.i
   %1313 = select i1 %1310, i1 %1312, i1 false
   br i1 %1313, label %1314, label %_ZNK4llvm20iterator_facade_baseINS_15concat_iteratorINS_11GlobalValueEJNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEENS3_INS5_INS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEENS3_INS5_INS_11GlobalAliasELb0ELb0EvLb0EvEELb0ELb0EEENS3_INS5_INS_11GlobalIFuncELb0ELb0EvLb0EvEELb0ELb0EEEEEESt20forward_iterator_tagS2_lPS2_RS2_EneERKSI_.exit.thread.i
 
@@ -10948,8 +10948,8 @@ _ZSteqIJN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_8FunctionELb
   %1316 = icmp eq ptr %1315, %.sroa.10.0.copyload.i
   %1317 = load ptr, ptr %1295, align 8
   %1318 = icmp eq ptr %1317, %.sroa.9.0.copyload.i
-  %or.cond6.i = select i1 %1316, i1 %1318, i1 false
-  br i1 %or.cond6.i, label %_ZNK4llvm20iterator_facade_baseINS_15concat_iteratorINS_11GlobalValueEJNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEENS3_INS5_INS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEENS3_INS5_INS_11GlobalAliasELb0ELb0EvLb0EvEELb0ELb0EEENS3_INS5_INS_11GlobalIFuncELb0ELb0EvLb0EvEELb0ELb0EEEEEESt20forward_iterator_tagS2_lPS2_RS2_EneERKSI_.exit.i, label %_ZNK4llvm20iterator_facade_baseINS_15concat_iteratorINS_11GlobalValueEJNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEENS3_INS5_INS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEENS3_INS5_INS_11GlobalAliasELb0ELb0EvLb0EvEELb0ELb0EEENS3_INS5_INS_11GlobalIFuncELb0ELb0EvLb0EvEELb0ELb0EEEEEESt20forward_iterator_tagS2_lPS2_RS2_EneERKSI_.exit.thread.i
+  %or.cond7.i = select i1 %1316, i1 %1318, i1 false
+  br i1 %or.cond7.i, label %_ZNK4llvm20iterator_facade_baseINS_15concat_iteratorINS_11GlobalValueEJNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEENS3_INS5_INS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEENS3_INS5_INS_11GlobalAliasELb0ELb0EvLb0EvEELb0ELb0EEENS3_INS5_INS_11GlobalIFuncELb0ELb0EvLb0EvEELb0ELb0EEEEEESt20forward_iterator_tagS2_lPS2_RS2_EneERKSI_.exit.i, label %_ZNK4llvm20iterator_facade_baseINS_15concat_iteratorINS_11GlobalValueEJNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEENS3_INS5_INS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEENS3_INS5_INS_11GlobalAliasELb0ELb0EvLb0EvEELb0ELb0EEENS3_INS5_INS_11GlobalIFuncELb0ELb0EvLb0EvEELb0ELb0EEEEEESt20forward_iterator_tagS2_lPS2_RS2_EneERKSI_.exit.thread.i
 
 _ZNK4llvm20iterator_facade_baseINS_15concat_iteratorINS_11GlobalValueEJNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEENS3_INS5_INS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEENS3_INS5_INS_11GlobalAliasELb0ELb0EvLb0EvEELb0ELb0EEENS3_INS5_INS_11GlobalIFuncELb0ELb0EvLb0EvEELb0ELb0EEEEEESt20forward_iterator_tagS2_lPS2_RS2_EneERKSI_.exit.i: ; preds = %1314
   %1319 = load ptr, ptr %1297, align 8, !tbaa !1373
@@ -10975,8 +10975,8 @@ _ZNK4llvm20iterator_facade_baseINS_15concat_iteratorINS_11GlobalValueEJNS_14ilis
 
 1324:                                             ; preds = %1334, %_ZNK4llvm20iterator_facade_baseINS_15concat_iteratorINS_11GlobalValueEJNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEENS3_INS5_INS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEENS3_INS5_INS_11GlobalAliasELb0ELb0EvLb0EvEELb0ELb0EEENS3_INS5_INS_11GlobalIFuncELb0ELb0EvLb0EvEELb0ELb0EEEEEESt20forward_iterator_tagS2_lPS2_RS2_EneERKSI_.exit.thread.i
   %.015.idx.i.i.i = phi i64 [ 0, %_ZNK4llvm20iterator_facade_baseINS_15concat_iteratorINS_11GlobalValueEJNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEENS3_INS5_INS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEENS3_INS5_INS_11GlobalAliasELb0ELb0EvLb0EvEELb0ELb0EEENS3_INS5_INS_11GlobalIFuncELb0ELb0EvLb0EvEELb0ELb0EEEEEESt20forward_iterator_tagS2_lPS2_RS2_EneERKSI_.exit.thread.i ], [ %.015.add.i.i.i, %1334 ]
-  %.not.i.i.i324 = icmp ne i64 %.015.idx.i.i.i, 64
-  call void @llvm.assume(i1 %.not.i.i.i324)
+  %.not.i.i.i323 = icmp ne i64 %.015.idx.i.i.i, 64
+  call void @llvm.assume(i1 %.not.i.i.i323)
   %.015.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.015.idx.i.i.i
   %.fca.0.load.i.i.i = load i64, ptr %.015.ptr.i.i.i, align 16, !tbaa !843
   %.fca.1.gep.i.i.i = getelementptr inbounds nuw i8, ptr %.015.ptr.i.i.i, i64 8
@@ -11019,19 +11019,19 @@ _ZNK4llvm15concat_iteratorINS_11GlobalValueEJNS_14ilist_iteratorINS_12ilist_deta
 
 _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.i: ; preds = %1342
   %1344 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48) %1336) #28
-  %.pre.i325 = load i32, ptr %1337, align 8
+  %.pre.i324 = load i32, ptr %1337, align 8
   br i1 %1344, label %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread.i, label %1357
 
 _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread.i: ; preds = %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.i, %1342
-  %1345 = phi i32 [ %1338, %1342 ], [ %.pre.i325, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.i ]
+  %1345 = phi i32 [ %1338, %1342 ], [ %.pre.i324, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.i ]
   %1346 = and i32 %1345, 768
   %1347 = icmp eq i32 %1346, 256
-  %.sroa.02.0.copyload.sroa.speculated.i = select i1 %1347, i64 %switch.load839, i64 %switch.load845
-  %.not.i.i326 = icmp samesign ult i64 %.sroa.02.0.copyload.sroa.speculated.i, 4294967296
+  %.sroa.02.0.copyload.i = select i1 %1347, i64 %switch.load839, i64 %switch.load845
+  %.not.i.i326 = icmp samesign ult i64 %.sroa.02.0.copyload.i, 4294967296
   br i1 %.not.i.i326, label %_ZL17setLLVMVisibilityRN4llvm11GlobalValueESt8optionalINS0_15VisibilityTypesEE.exit.i, label %1348
 
 1348:                                             ; preds = %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread.i
-  %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.02.0.copyload.sroa.speculated.i to i32
+  %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.02.0.copyload.i to i32
   %1349 = shl nuw nsw i32 %.sroa.0.0.extract.trunc.i.i, 4
   %1350 = and i32 %1345, -16433
   %1351 = or disjoint i32 %1349, %1350
@@ -11051,18 +11051,18 @@ _ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i.i: ; preds = %_ZNK4
   br label %_ZL17setLLVMVisibilityRN4llvm11GlobalValueESt8optionalINS0_15VisibilityTypesEE.exit.i
 
 1357:                                             ; preds = %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.i
-  %1358 = and i32 %.pre.i325, 768
+  %1358 = and i32 %.pre.i324, 768
   %1359 = icmp eq i32 %1358, 512
-  %.sroa.0.0.copyload.sroa.speculated.i = select i1 %1359, i64 %switch.load, i64 %switch.load842
-  %.not.i28.i = icmp samesign ult i64 %.sroa.0.0.copyload.sroa.speculated.i, 4294967296
+  %.sroa.0.0.copyload.i325 = select i1 %1359, i64 %switch.load, i64 %switch.load842
+  %.not.i28.i = icmp samesign ult i64 %.sroa.0.0.copyload.i325, 4294967296
   br i1 %.not.i28.i, label %_ZL17setLLVMVisibilityRN4llvm11GlobalValueESt8optionalINS0_15VisibilityTypesEE.exit.i, label %1360
 
 1360:                                             ; preds = %1357
-  %.sroa.0.0.extract.trunc.i29.i = trunc i64 %.sroa.0.0.copyload.sroa.speculated.i to i32
+  %.sroa.0.0.extract.trunc.i29.i = trunc i64 %.sroa.0.0.copyload.i325 to i32
   %1361 = shl nuw nsw i32 %.sroa.0.0.extract.trunc.i29.i, 4
-  %1362 = and i32 %.pre.i325, -16433
+  %1362 = and i32 %.pre.i324, -16433
   %1363 = or disjoint i32 %1361, %1362
-  %1364 = and i32 %.pre.i325, 15
+  %1364 = and i32 %.pre.i324, 15
   %1365 = add nsw i32 %1364, -7
   %spec.select.i.i.i.i.i30.i = icmp ult i32 %1365, 2
   br i1 %spec.select.i.i.i.i.i30.i, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i33.i, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i.i31.i
@@ -11078,7 +11078,7 @@ _ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i33.i: ; preds = %_ZN
   br label %_ZL17setLLVMVisibilityRN4llvm11GlobalValueESt8optionalINS0_15VisibilityTypesEE.exit.i
 
 _ZL17setLLVMVisibilityRN4llvm11GlobalValueESt8optionalINS0_15VisibilityTypesEE.exit.i: ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i33.i, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i.i31.i, %1357, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i.i, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i.i.i, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread.i
-  %1369 = phi i32 [ %1368, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i33.i ], [ %1363, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i.i31.i ], [ %.pre.i325, %1357 ], [ %1356, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i.i ], [ %1351, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i.i.i ], [ %1345, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread.i ]
+  %1369 = phi i32 [ %1368, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i33.i ], [ %1363, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i.i31.i ], [ %.pre.i324, %1357 ], [ %1356, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i.i ], [ %1351, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i.i.i ], [ %1345, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread.i ]
   %1370 = and i32 %1369, -769
   store i32 %1370, ptr %1337, align 8
   br label %1371

@@ -746,8 +746,8 @@ define void @"_ZN75_$LT$ockam_multiaddr..codec..StdCodec$u20$as$u20$ockam_multia
 
 56:                                               ; preds = %5
   store i8 0, ptr %0, align 8
-  %.sroa.4392.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %55, ptr %.sroa.4392.0..sroa_idx, align 4
+  %.sroa.4391.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %55, ptr %.sroa.4391.0..sroa_idx, align 4
   br label %294
 
 57:                                               ; preds = %5
@@ -1368,7 +1368,7 @@ common.resume:                                    ; preds = %471, %444, %417, %3
   ret void
 
 295:                                              ; preds = %_ZN15ockam_multiaddr10ProtoValue4data17h7f1e32d2a52baa81E.exit168
-  %.sroa.0.0.copyload.i540 = load <4 x i8>, ptr %.pn3.i164, align 1, !alias.scope !411, !noalias !412
+  %.sroa.0.0.copyload.i539 = load <4 x i8>, ptr %.pn3.i164, align 1, !alias.scope !411, !noalias !412
   tail call void @llvm.experimental.noalias.scope.decl(metadata !414)
   call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !417
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %23, i8 0, i64 5, i1 false), !noalias !417
@@ -1379,7 +1379,7 @@ common.resume:                                    ; preds = %471, %444, %417, %3
   %300 = load ptr, ptr %299, align 8, !invariant.load !13, !alias.scope !414, !noalias !419, !nonnull !13
   call void %300(ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 1 %297, i64 noundef %298), !noalias !417
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !417
-  store <4 x i8> %.sroa.0.0.copyload.i540, ptr %22, align 4, !noalias !417
+  store <4 x i8> %.sroa.0.0.copyload.i539, ptr %22, align 4, !noalias !417
   call void %300(ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 1 %22, i64 noundef 4), !noalias !417
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !417
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !417
@@ -2398,8 +2398,8 @@ common.resume:                                    ; preds = %124, %52, %58, %62,
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !595
   %94 = tail call noundef nonnull align 1 ptr @_ZN5alloc5alloc15exchange_malloc17h5339c734e5193bc1E.llvm.9114549357374491183(i64 noundef 1, i64 noundef 1), !noalias !663
   store i8 %37, ptr %94, align 1, !noalias !663
-  %.sroa.9239.1.extract.shift = lshr i64 ptrtoint (ptr @anon.3459e9c811a6d28c77b5d7b0f168ab32.9.llvm.9114549357374491183 to i64), 8
-  %.sroa.9239.1.extract.trunc = trunc nuw i64 %.sroa.9239.1.extract.shift to i56
+  %.sroa.9238.1.extract.shift = lshr i64 ptrtoint (ptr @anon.3459e9c811a6d28c77b5d7b0f168ab32.9.llvm.9114549357374491183 to i64), 8
+  %.sroa.9238.1.extract.trunc = trunc nuw i64 %.sroa.9238.1.extract.shift to i56
   %95 = ptrtoint ptr %94 to i64
   %96 = bitcast i64 %95 to <8 x i8>
   %.sroa.4107.sroa.0.7.vec.expand = shufflevector <8 x i8> %96, <8 x i8> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison>
@@ -2408,7 +2408,7 @@ common.resume:                                    ; preds = %124, %52, %58, %62,
   %.sroa.2110.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store <16 x i8> %.sroa.4107.sroa.0.15.vec.insert, ptr %.sroa.2110.0..sroa_idx, align 1
   %.sroa.3111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 17
-  store i56 %.sroa.9239.1.extract.trunc, ptr %.sroa.3111.0..sroa_idx, align 1
+  store i56 %.sroa.9238.1.extract.trunc, ptr %.sroa.3111.0..sroa_idx, align 1
   br label %50
 
 97:                                               ; preds = %30

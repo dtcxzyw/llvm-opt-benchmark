@@ -39288,51 +39288,51 @@ define void @_ZN17cranelift_codegen10data_value9DataValue18read_from_slice_ne17h
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5fdcea40f6f37ec7E.exit": ; preds = %11
-  %.val.i65 = load i16, ptr %1, align 1, !alias.scope !7454
+  %.val.i63 = load i16, ptr %1, align 1, !alias.scope !7454
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 %.val.i65, ptr %14, align 2
+  store i16 %.val.i63, ptr %14, align 2
   br label %35
 
 15:                                               ; preds = %4
   %16 = icmp ult i64 %2, 4
-  br i1 %16, label %17, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4474f27325b5da35E.exit58"
+  br i1 %16, label %17, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4474f27325b5da35E.exit56"
 
 17:                                               ; preds = %15
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef 4, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9d97581ae8ad496ddf7d0fbc6cf9f5f2.331) #64, !noalias !7457
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4474f27325b5da35E.exit58": ; preds = %15
-  %.val.i68 = load i32, ptr %1, align 1, !alias.scope !7460
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4474f27325b5da35E.exit56": ; preds = %15
+  %.val.i66 = load i32, ptr %1, align 1, !alias.scope !7460
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.val.i68, ptr %18, align 4
+  store i32 %.val.i66, ptr %18, align 4
   br label %35
 
 19:                                               ; preds = %4
   %20 = icmp ult i64 %2, 8
-  br i1 %20, label %21, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h401c094db992d324E.exit49"
+  br i1 %20, label %21, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h401c094db992d324E.exit47"
 
 21:                                               ; preds = %19
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef 8, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9d97581ae8ad496ddf7d0fbc6cf9f5f2.333) #64, !noalias !7463
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h401c094db992d324E.exit49": ; preds = %19
-  %.val.i75 = load i64, ptr %1, align 1, !alias.scope !7466, !noalias !7469
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h401c094db992d324E.exit47": ; preds = %19
+  %.val.i73 = load i64, ptr %1, align 1, !alias.scope !7466, !noalias !7469
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.val.i75, ptr %22, align 8
+  store i64 %.val.i73, ptr %22, align 8
   br label %35
 
 23:                                               ; preds = %4
   %24 = icmp ult i64 %2, 16
-  br i1 %24, label %25, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h41c541c605afb667E.exit52"
+  br i1 %24, label %25, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h41c541c605afb667E.exit50"
 
 25:                                               ; preds = %23
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef 16, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9d97581ae8ad496ddf7d0fbc6cf9f5f2.335) #64, !noalias !7471
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h41c541c605afb667E.exit52": ; preds = %23
-  %.val.i77126 = load i128, ptr %1, align 1, !alias.scope !7474, !noalias !7477
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h41c541c605afb667E.exit50": ; preds = %23
+  %.val.i75124 = load i128, ptr %1, align 1, !alias.scope !7474, !noalias !7477
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i128 %.val.i77126, ptr %26, align 16
+  store i128 %.val.i75124, ptr %26, align 16
   br label %35
 
 27:                                               ; preds = %4
@@ -39344,26 +39344,26 @@ define void @_ZN17cranelift_codegen10data_value9DataValue18read_from_slice_ne17h
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4474f27325b5da35E.exit": ; preds = %27
-  %.val.i80 = load i32, ptr %1, align 1, !alias.scope !7482
+  %.val.i78 = load i32, ptr %1, align 1, !alias.scope !7482
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.val.i80, ptr %30, align 4
+  store i32 %.val.i78, ptr %30, align 4
   br label %35
 
 31:                                               ; preds = %4
   %32 = icmp ult i64 %2, 8
-  br i1 %32, label %33, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h401c094db992d324E.exit47"
+  br i1 %32, label %33, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h401c094db992d324E.exit45"
 
 33:                                               ; preds = %31
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef 8, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9d97581ae8ad496ddf7d0fbc6cf9f5f2.339) #64, !noalias !7485
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h401c094db992d324E.exit47": ; preds = %31
-  %.val.i88 = load i64, ptr %1, align 1, !alias.scope !7488, !noalias !7491
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h401c094db992d324E.exit45": ; preds = %31
+  %.val.i86 = load i64, ptr %1, align 1, !alias.scope !7488, !noalias !7491
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.val.i88, ptr %34, align 8
+  store i64 %.val.i86, ptr %34, align 8
   br label %35
 
-35:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h41c541c605afb667E.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h401c094db992d324E.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h401c094db992d324E.exit47", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4474f27325b5da35E.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h41c541c605afb667E.exit52", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h401c094db992d324E.exit49", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4474f27325b5da35E.exit58", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5fdcea40f6f37ec7E.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd421e6e2fad60f42E.exit"
+35:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h41c541c605afb667E.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h401c094db992d324E.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h401c094db992d324E.exit45", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4474f27325b5da35E.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h41c541c605afb667E.exit50", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h401c094db992d324E.exit47", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4474f27325b5da35E.exit56", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5fdcea40f6f37ec7E.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd421e6e2fad60f42E.exit"
   %.sink = phi i8 [ 7, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h41c541c605afb667E.exit" ], [ 8, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h401c094db992d324E.exit" ], [ 6, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h401c094db992d324E.exit47" ], [ 5, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4474f27325b5da35E.exit" ], [ 4, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h41c541c605afb667E.exit52" ], [ 3, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h401c094db992d324E.exit49" ], [ 2, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4474f27325b5da35E.exit58" ], [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5fdcea40f6f37ec7E.exit" ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd421e6e2fad60f42E.exit" ]
   store i8 %.sink, ptr %0, align 16
   ret void
@@ -39402,29 +39402,29 @@ _ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit: ; preds = %
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h41c541c605afb667E.exit": ; preds = %46
-  %.val.i92 = load <16 x i8>, ptr %1, align 1, !alias.scope !7496, !noalias !7499
+  %.val.i90 = load <16 x i8>, ptr %1, align 1, !alias.scope !7496, !noalias !7499
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store <16 x i8> %.val.i92, ptr %49, align 1
+  store <16 x i8> %.val.i90, ptr %49, align 1
   br label %35
 
 50:                                               ; preds = %_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit
-  %switch.tableidx127 = add nsw i16 %38, -6
-  %51 = icmp ult i16 %switch.tableidx127, 10
-  br i1 %51, label %switch.lookup128, label %_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit99
+  %switch.tableidx125 = add nsw i16 %38, -6
+  %51 = icmp ult i16 %switch.tableidx125, 10
+  br i1 %51, label %switch.lookup126, label %_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit97
 
-switch.lookup128:                                 ; preds = %50
-  %52 = zext nneg i16 %switch.tableidx127 to i64
-  %switch.gep129 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen10data_value9DataValue15read_value_from17heb99f77caf53844bE, i64 %52
-  %switch.load130 = load i32, ptr %switch.gep129, align 4
-  br label %_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit99
+switch.lookup126:                                 ; preds = %50
+  %52 = zext nneg i16 %switch.tableidx125 to i64
+  %switch.gep127 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen10data_value9DataValue15read_value_from17heb99f77caf53844bE, i64 %52
+  %switch.load128 = load i32, ptr %switch.gep127, align 4
+  br label %_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit97
 
-_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit99: ; preds = %switch.lookup128, %50
-  %.0.i.i.i97 = phi i32 [ 0, %50 ], [ %switch.load130, %switch.lookup128 ]
-  %53 = shl nuw nsw i32 %.0.i.i.i97, %43
+_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit97: ; preds = %switch.lookup126, %50
+  %.0.i.i.i95 = phi i32 [ 0, %50 ], [ %switch.load128, %switch.lookup128 ]
+  %53 = shl nuw nsw i32 %.0.i.i.i95, %43
   %54 = icmp eq i32 %53, 64
   br i1 %54, label %55, label %59
 
-55:                                               ; preds = %_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit99
+55:                                               ; preds = %_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit97
   %56 = icmp ult i64 %2, 8
   br i1 %56, label %57, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h401c094db992d324E.exit"
 
@@ -39433,12 +39433,12 @@ _ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit99: ; preds =
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h401c094db992d324E.exit": ; preds = %55
-  %.val.i101 = load i64, ptr %1, align 1, !alias.scope !7504, !noalias !7507
+  %.val.i99 = load i64, ptr %1, align 1, !alias.scope !7504, !noalias !7507
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i64 %.val.i101, ptr %58, align 1
+  store i64 %.val.i99, ptr %58, align 1
   br label %35
 
-59:                                               ; preds = %_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit99
+59:                                               ; preds = %_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit97
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.9d97581ae8ad496ddf7d0fbc6cf9f5f2.341, i64 noundef 15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9d97581ae8ad496ddf7d0fbc6cf9f5f2.347) #64
   unreachable
 }
