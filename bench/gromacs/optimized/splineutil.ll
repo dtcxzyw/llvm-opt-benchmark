@@ -1229,7 +1229,7 @@ define void @_ZN3gmx8internal22vectorSecondDerivativeENS_8ArrayRefIKdEEd(ptr dea
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #22
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.045, label %23, label %108
+  br i1 %.045, label %23, label %101
 
 .sink.split:                                      ; preds = %.thread, %.thread87
   %.pn.pn86.ph = phi { ptr, i32 } [ %20, %.thread87 ], [ %19, %.thread ]
@@ -1239,7 +1239,7 @@ define void @_ZN3gmx8internal22vectorSecondDerivativeENS_8ArrayRefIKdEEd(ptr dea
 23:                                               ; preds = %.sink.split, %21
   %.pn.pn86 = phi { ptr, i32 } [ %22, %21 ], [ %.pn.pn86.ph, %.sink.split ]
   call void @__cxa_free_exception(ptr %14) #22
-  br label %108
+  br label %101
 
 24:                                               ; preds = %4
   %25 = icmp ugt i64 %11, 1152921504606846975
@@ -1257,17 +1257,17 @@ define void @_ZN3gmx8internal22vectorSecondDerivativeENS_8ArrayRefIKdEEd(ptr dea
   store ptr %27, ptr %28, align 8, !tbaa !61
   store double 0.000000e+00, ptr %26, align 8, !tbaa !10
   %29 = getelementptr i8, ptr %26, i64 8
-  %30 = add nsw i64 %11, -1
+  %.idx.i.i.i.i.i.i.i = add nsw i64 %11, -1
   %31 = icmp eq i64 %30, 0
   br i1 %31, label %33, label %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc56
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %30, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %29, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !10
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx.i.i.i.i.i.i.i
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx.i.i.i.i.i.i.i
   br label %33
 
-33:                                               ; preds = %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc56
+33:; preds = %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc56
   %.0.i.i.i.i.i = phi ptr [ %29, %.noexc56 ], [ %32, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.i.i.i.i, ptr %34, align 8, !tbaa !62
@@ -1304,7 +1304,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc56
   %63 = icmp ugt i64 %62, 2
   br i1 %63, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %33
+._crit_edge:; preds = %.lr.ph, %33
   %64 = add nsw i64 %61, -1
   %65 = getelementptr inbounds double, ptr %1, i64 %64
   %66 = load double, ptr %65, align 8, !tbaa !10
@@ -1336,16 +1336,16 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc56
   ret void
 
 .lr.ph:                                           ; preds = %33, %.lr.ph
-  %90 = phi double [ %97, %.lr.ph ], [ %42, %33 ]
-  %.092 = phi i64 [ %95, %.lr.ph ], [ 2, %33 ]
-  %91 = getelementptr double, ptr %1, i64 %.092
-  %92 = getelementptr i8, ptr %91, i64 16
-  %93 = load double, ptr %92, align 8, !tbaa !10
-  %94 = fneg double %93
-  %95 = add nuw i64 %.092, 1
-  %96 = getelementptr inbounds double, ptr %1, i64 %95
+  %83 = phi double [ %97, %.lr.ph ], [ %42, %33 ]
+  %.092 = phi i64 [ %88, %.lr.ph ], [ 2, %33 ]
+  %84 = getelementptr double, ptr %1, i64 %.092
+  %85 = getelementptr i8, ptr %84, i64 16
+  %86 = load double, ptr %85, align 8, !tbaa !10
+  %87 = fneg double %86
+  %88 = add nuw i64 %.092, 1
+  %89 = getelementptr inbounds double, ptr %1, i64 %88
   %97 = load double, ptr %96, align 8, !tbaa !10
-  %98 = tail call double @llvm.fmuladd.f64(double %97, double 1.600000e+01, double %94)
+  %98 = tail call double @llvm.fmuladd.f64(double %97, double 1.600000e+01, double %87)
   %99 = tail call double @llvm.fmuladd.f64(double %90, double -3.000000e+01, double %98)
   %100 = getelementptr i8, ptr %91, i64 -8
   %101 = load double, ptr %100, align 8, !tbaa !10
@@ -1359,11 +1359,11 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc56
   %exitcond.not = icmp eq i64 %95, %62
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !63
 
-108:                                              ; preds = %21, %23
+101:                                              ; preds = %21, %23
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn86, %23 ], [ %22, %21 ]
   resume { ptr, i32 } %.pn.pn.pn
 
-109:                                              ; preds = %18
+102:                                              ; preds = %18
   unreachable
 }
 

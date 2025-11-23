@@ -915,9 +915,9 @@ while.body.i268:                                  ; preds = %while.body.i268.pre
   %mul.i269 = mul nsw i64 %nSpace.026.i, 3
   %add.i = add nsw i64 %mul.i269, 1
   %cmp1.i = icmp slt i64 %add.i, %18
-  br i1 %cmp1.i, label %while.body.i268, label %while.end.i, !llvm.loop !13
+  br i1 %cmp1.i, label %while.body.i268, label %for.cond3.preheader.i, !llvm.loop !13
 
-while.end.i:                                      ; preds = %while.body.i268
+for.cond3.preheader.i:                            ; preds = %while.body.i268
   %cmp236.i = icmp sgt i64 %nSpace.026.i, 0
   br i1 %cmp236.i, label %for.cond3.preheader.i, label %invoke.cont46.invoke
 
@@ -3243,9 +3243,9 @@ _ZN5eastl11adjust_heapIPiliN12_GLOBAL__N_111SlowCompareIiEEEEvT_T0_S6_S6_OT1_T2_
   %add.ptr7.i.i.i.i1935 = getelementptr inbounds i32, ptr %call.i.i.i.i.i641, i64 %position.addr.0.lcssa.i.i.i.i1934
   store i32 %308, ptr %add.ptr7.i.i.i.i1935, align 4
   %cmp2.not.i.i808 = icmp eq i64 %dec.i.i806, 0
-  br i1 %cmp2.not.i.i808, label %for.body.i.i793.preheader, label %do.body.i.i804, !llvm.loop !63
+  br i1 %cmp2.not.i.i808, label %for.body.i.preheader.i, label %do.body.i.i804, !llvm.loop !63
 
-for.body.i.i793.preheader:                        ; preds = %_ZN5eastl11adjust_heapIPiliN12_GLOBAL__N_111SlowCompareIiEEEEvT_T0_S6_S6_OT1_T2_.exit2001
+for.body.i.preheader.i:                           ; preds = %_ZN5eastl11adjust_heapIPiliN12_GLOBAL__N_111SlowCompareIiEEEEvT_T0_S6_S6_OT1_T2_.exit2001
   %316 = load i8, ptr @_ZN12_GLOBAL__N_118gSlowAssignBuffer1E, align 16
   %.fr39.i.i = freeze i8 %316
   %317 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_118gSlowAssignBuffer1E, i64 1), align 1
@@ -3279,7 +3279,7 @@ for.body.i.i793.preheader:                        ; preds = %_ZN5eastl11adjust_h
   %_ZN12_GLOBAL__N_111SlowCompareIiE13nCompareCountE.promoted2487 = load i32, ptr @_ZN12_GLOBAL__N_111SlowCompareIiE13nCompareCountE, align 4
   br label %for.body.i.i793
 
-for.body.i.i793:                                  ; preds = %for.body.i.i793.preheader, %_ZN5eastl11adjust_heapIPiliN12_GLOBAL__N_111SlowCompareIiEEEEvT_T0_S6_S6_OT1_T2_.exit
+for.body.i.i793:                                  ; preds = %for.body.i.preheader.i, %_ZN5eastl11adjust_heapIPiliN12_GLOBAL__N_111SlowCompareIiEEEEvT_T0_S6_S6_OT1_T2_.exit
   %.us-phi.i.i2489 = phi i32 [ %.us-phi.i.i2488, %_ZN5eastl11adjust_heapIPiliN12_GLOBAL__N_111SlowCompareIiEEEEvT_T0_S6_S6_OT1_T2_.exit ], [ %_ZN12_GLOBAL__N_111SlowCompareIiE13nCompareCountE.promoted2487, %for.body.i.i793.preheader ]
   %sub.ptr.sub8.i.i = phi i64 [ %sub.ptr.sub.i5.i798, %_ZN5eastl11adjust_heapIPiliN12_GLOBAL__N_111SlowCompareIiEEEEvT_T0_S6_S6_OT1_T2_.exit ], [ %add.ptr.i.i635.idx, %for.body.i.i793.preheader ]
   %last.addr.07.i.i = phi ptr [ %add.ptr.i.i.i794, %_ZN5eastl11adjust_heapIPiliN12_GLOBAL__N_111SlowCompareIiEEEEvT_T0_S6_S6_OT1_T2_.exit ], [ %add.ptr.i.i635, %for.body.i.i793.preheader ]

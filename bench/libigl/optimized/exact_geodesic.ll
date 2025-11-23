@@ -8385,15 +8385,15 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
 
 .lr.ph.preheader:                                 ; preds = %4
   %14 = icmp eq i64 %2, 0
-  br i1 %14, label %.lr.ph._crit_edge, label %.lr.ph38
+  br i1 %14, label %.lr.ph._crit_edge, label %.lr.ph42
 
-.lr.ph:                                           ; preds = %.lr.ph38
+.lr.ph:                                           ; preds = %.lr.ph42
   %15 = icmp eq i64 %28, 0
-  br i1 %15, label %.lr.ph._crit_edge, label %.lr.ph38
+  br i1 %15, label %.lr.ph._crit_edge, label %.lr.ph42
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi i64 [ %12, %.lr.ph.preheader ], [ %32, %.lr.ph ]
-  %storemerge27.lcssa = phi ptr [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph ]
+  %storemerge29.lcssa = phi ptr [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.021)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.021, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
@@ -8410,14 +8410,14 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
   call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN3igl8geodesic21SurfacePointWithIndexESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIS4_EEEvT_T0_SF_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i, i64 noundef %.lcssa, ptr noundef %19, ptr noundef nonnull %5)
   %.not.i.i = icmp eq i64 %.010.i.i, 0
   %20 = add nsw i64 %.010.i.i, -1
-  br i1 %.not.i.i, label %.noexc, label %.noexc18, !llvm.loop !338
+  br i1 %.not.i.i, label %.lr.ph.i.i.preheader, label %.noexc18, !llvm.loop !338
 
-.noexc:                                           ; preds = %.noexc18
+.lr.ph.i.i.preheader:                             ; preds = %.noexc18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.noexc, %.lr.ph.i.i
-  %.sroa.0.05.i.i = phi ptr [ %21, %.lr.ph.i.i ], [ %storemerge27.lcssa, %.noexc ]
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
+  %.sroa.0.05.i.i = phi ptr [ %21, %.lr.ph.i.i ], [ %storemerge29.lcssa, %.noexc ]
   %21 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %22 = load ptr, ptr %21, align 8, !tbaa !282
@@ -8436,21 +8436,21 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.021)
   br label %.loopexit22
 
-.lr.ph38:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %storemerge2737 = phi ptr [ %29, %.lr.ph ], [ %1, %.lr.ph.preheader ]
-  %.02836 = phi i64 [ %28, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %28 = add nsw i64 %.02836, -1
+.lr.ph42:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %storemerge2941 = phi ptr [ %29, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+  %.03040 = phi i64 [ %28, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %28 = add nsw i64 %.03040, -1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %29 = call ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPN3igl8geodesic21SurfacePointWithIndexESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIS4_EEET_SE_SE_T0_(ptr %0, ptr %storemerge2737, ptr noundef nonnull %7)
+  %29 = call ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPN3igl8geodesic21SurfacePointWithIndexESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIS4_EEET_SE_SE_T0_(ptr %0, ptr %storemerge2941, ptr noundef nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPN3igl8geodesic21SurfacePointWithIndexESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIS4_EEEvT_SE_T0_T1_(ptr %29, ptr %storemerge2737, i64 noundef %28, ptr noundef nonnull %8), !llvm.loop !340
+  call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPN3igl8geodesic21SurfacePointWithIndexESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIS4_EEEvT_SE_T0_T1_(ptr %29, ptr %storemerge2941, i64 noundef %28, ptr noundef nonnull %8), !llvm.loop !340
   %30 = ptrtoint ptr %29 to i64
   %31 = sub i64 %30, %9
   %32 = ashr exact i64 %31, 3
   %33 = icmp sgt i64 %32, 16
   br i1 %33, label %.lr.ph, label %.loopexit22
 
-.loopexit22:                                      ; preds = %.lr.ph38, %4, %.loopexit
+.loopexit22:                                      ; preds = %.lr.ph42, %4, %.loopexit
   ret void
 }
 
