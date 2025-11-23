@@ -9693,77 +9693,75 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 
 .lr.ph:                                           ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = icmp eq i64 %2, 0
-  br i1 %12, label %._crit_edge, label %.lr.ph66
+  br label %12
 
-13:                                               ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEET_SD_SD_T0_.exit
-  %14 = icmp eq i64 %58, 0
-  br i1 %14, label %._crit_edge, label %.lr.ph66, !llvm.loop !68
+12:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEET_SD_SD_T0_.exit
+  %13 = phi i64 [ %9, %.lr.ph ], [ %104, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEET_SD_SD_T0_.exit ]
+  %.027 = phi i64 [ %2, %.lr.ph ], [ %58, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEET_SD_SD_T0_.exit ]
+  %storemerge26 = phi ptr [ %1, %.lr.ph ], [ %.sroa.010.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEET_SD_SD_T0_.exit ]
+  %14 = icmp eq i64 %.027, 0
+  br i1 %14, label %15, label %57
 
-._crit_edge:                                      ; preds = %13, %.lr.ph
-  %.lcssa62 = phi i64 [ %9, %.lr.ph ], [ %104, %13 ]
-  %.lcssa60 = phi i64 [ %8, %.lr.ph ], [ %103, %13 ]
-  %storemerge28.lcssa = phi ptr [ %1, %.lr.ph ], [ %.sroa.010.1.i.i, %13 ]
+15:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %15 = add nsw i64 %.lcssa62, -2
-  %16 = lshr i64 %15, 1
-  br label %17
+  %16 = add nsw i64 %13, -2
+  %17 = lshr i64 %16, 1
+  br label %18
 
-17:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit12.i.i, %._crit_edge
-  %.010.i.i = phi i64 [ %16, %._crit_edge ], [ %28, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit12.i.i ]
-  %18 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %0, i64 %.010.i.i
-  %19 = load i64, ptr %18, align 8
-  store i64 0, ptr %18, align 8
-  store i64 %19, ptr %4, align 8
-  invoke void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEEvT_T0_SE_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i, i64 noundef %.lcssa62, ptr noundef nonnull %4)
-          to label %20 unwind label %29
+18:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit12.i.i, %15
+  %.010.i.i = phi i64 [ %17, %15 ], [ %29, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit12.i.i ]
+  %19 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %0, i64 %.010.i.i
+  %20 = load i64, ptr %19, align 8
+  store i64 0, ptr %19, align 8
+  store i64 %20, ptr %4, align 8
+  invoke void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEEvT_T0_SE_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i, i64 noundef %13, ptr noundef nonnull %4)
+          to label %21 unwind label %30
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr %4, align 8
-  %22 = ptrtoint ptr %21 to i64
-  %23 = and i64 %22, 7
-  %.not.i.i.i.i16 = icmp eq i64 %23, 0
-  br i1 %.not.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit12.i.i, label %24
+21:                                               ; preds = %18
+  %22 = load ptr, ptr %4, align 8
+  %23 = ptrtoint ptr %22 to i64
+  %24 = and i64 %23, 7
+  %.not.i.i.i.i16 = icmp eq i64 %24, 0
+  br i1 %.not.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit12.i.i, label %25
 
-24:                                               ; preds = %20
-  %25 = and i64 %22, -8
-  %26 = inttoptr i64 %25 to ptr
-  %27 = atomicrmw sub ptr %26, i32 2 release, align 4
+25:                                               ; preds = %21
+  %26 = and i64 %23, -8
+  %27 = inttoptr i64 %26 to ptr
+  %28 = atomicrmw sub ptr %27, i32 2 release, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit12.i.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit12.i.i: ; preds = %24, %20
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit12.i.i: ; preds = %25, %21
   %.not.i.i = icmp eq i64 %.010.i.i, 0
-  %28 = add nsw i64 %.010.i.i, -1
-  br i1 %.not.i.i, label %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEEvT_SD_SD_T0_.exit, label %17
+  %29 = add nsw i64 %.010.i.i, -1
+  br i1 %.not.i.i, label %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEEvT_SD_SD_T0_.exit, label %18
 
-29:                                               ; preds = %17
-  %30 = landingpad { ptr, i32 }
+30:                                               ; preds = %18
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %31 = load ptr, ptr %4, align 8
-  %32 = ptrtoint ptr %31 to i64
-  %33 = and i64 %32, 7
-  %.not.i.i13.i.i = icmp eq i64 %33, 0
+  %32 = load ptr, ptr %4, align 8
+  %33 = ptrtoint ptr %32 to i64
+  %34 = and i64 %33, 7
+  %.not.i.i13.i.i = icmp eq i64 %34, 0
   br i1 %.not.i.i13.i.i, label %common.resume, label %common.resume.sink.split
 
-common.resume.sink.split:                         ; preds = %29, %51
-  %.sink = phi i64 [ %54, %51 ], [ %32, %29 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %52, %51 ], [ %30, %29 ]
-  %34 = and i64 %.sink, -8
-  %35 = inttoptr i64 %34 to ptr
-  %36 = atomicrmw sub ptr %35, i32 2 release, align 4
+common.resume.sink.split:                         ; preds = %30, %51
+  %.sink = phi i64 [ %54, %51 ], [ %33, %30 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %52, %51 ], [ %31, %30 ]
+  %35 = and i64 %.sink, -8
+  %36 = inttoptr i64 %35 to ptr
+  %37 = atomicrmw sub ptr %36, i32 2 release, align 4
   br label %common.resume
 
-common.resume:                                    ; preds = %common.resume.sink.split, %51, %29
-  %common.resume.op = phi { ptr, i32 } [ %30, %29 ], [ %52, %51 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+common.resume:                                    ; preds = %common.resume.sink.split, %51, %30
+  %common.resume.op = phi { ptr, i32 } [ %31, %30 ], [ %52, %51 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEEvT_SD_SD_T0_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit12.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %37 = icmp sgt i64 %.lcssa60, 8
-  br i1 %37, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEEvT_SD_SD_T0_.exit
+  br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEEvT_SD_SD_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEEvT_SD_SD_RT0_.exit.i.i
-  %.sroa.0.05.i.i = phi ptr [ %38, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEEvT_SD_SD_RT0_.exit.i.i ], [ %storemerge28.lcssa, %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEEvT_SD_SD_T0_.exit ]
+  %.sroa.0.05.i.i = phi ptr [ %38, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEEvT_SD_SD_RT0_.exit.i.i ], [ %storemerge26, %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEEvT_SD_SD_T0_.exit ]
   %38 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %39 = load i64, ptr %38, align 8
@@ -9810,16 +9808,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit.i.i.i: ; preds = %_ZNK
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEEvT_SD_SD_RT0_.exit.i.i: ; preds = %47, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %56 = icmp sgt i64 %41, 8
-  br i1 %56, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEEvT_SD_SD_T0_.exit, !llvm.loop !69
+  br i1 %56, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEEvT_SD_SD_T0_.exit, !llvm.loop !68
 
-.lr.ph66:                                         ; preds = %.lr.ph, %13
-  %storemerge2865 = phi ptr [ %.sroa.010.1.i.i, %13 ], [ %1, %.lr.ph ]
-  %.02964 = phi i64 [ %58, %13 ], [ %2, %.lr.ph ]
-  %57 = phi i64 [ %104, %13 ], [ %9, %.lr.ph ]
-  %58 = add nsw i64 %.02964, -1
-  %59 = lshr i64 %57, 1
+57:                                               ; preds = %12
+  %58 = add nsw i64 %.027, -1
+  %59 = lshr i64 %13, 1
   %60 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %0, i64 %59
-  %61 = getelementptr inbounds i8, ptr %storemerge2865, i64 -8
+  %61 = getelementptr inbounds i8, ptr %storemerge26, i64 -8
   %62 = load ptr, ptr %11, align 8
   %63 = ptrtoint ptr %62 to i64
   %64 = and i64 %63, -8
@@ -9832,7 +9827,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserv
   %71 = and i64 %70, -8
   br i1 %68, label %72, label %79
 
-72:                                               ; preds = %.lr.ph66
+72:                                               ; preds = %57
   %73 = icmp ult i64 %67, %71
   br i1 %73, label %74, label %75
 
@@ -9857,7 +9852,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserv
   store ptr %.sroa.0.0.copyload.i.i.i.i26.i.i, ptr %11, align 8
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEEvT_SD_SD_SD_T0_.exit.i.preheader
 
-79:                                               ; preds = %.lr.ph66
+79:                                               ; preds = %57
   %80 = icmp ult i64 %64, %71
   br i1 %80, label %81, label %82
 
@@ -9887,7 +9882,7 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_2
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEEvT_SD_SD_SD_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEEvT_SD_SD_SD_T0_.exit.i.preheader, %101
   %.sroa.010.0.i.i = phi ptr [ %94, %101 ], [ %11, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEEvT_SD_SD_SD_T0_.exit.i.preheader ]
-  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %101 ], [ %storemerge2865, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEEvT_SD_SD_SD_T0_.exit.i.preheader ]
+  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %101 ], [ %storemerge26, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEEvT_SD_SD_SD_T0_.exit.i.preheader ]
   %86 = load ptr, ptr %0, align 8
   %87 = ptrtoint ptr %86 to i64
   %88 = and i64 %87, -8
@@ -9900,7 +9895,7 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_2
   %92 = and i64 %91, -8
   %93 = icmp ult i64 %92, %88
   %94 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 8
-  br i1 %93, label %89, label %.preheader.i.i, !llvm.loop !70
+  br i1 %93, label %89, label %.preheader.i.i, !llvm.loop !69
 
 .preheader.i.i:                                   ; preds = %89, %.preheader.i.i
   %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %89 ]
@@ -9909,7 +9904,7 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_2
   %96 = ptrtoint ptr %95 to i64
   %97 = and i64 %96, -8
   %98 = icmp ult i64 %88, %97
-  br i1 %98, label %.preheader.i.i, label %99, !llvm.loop !71
+  br i1 %98, label %.preheader.i.i, label %99, !llvm.loop !70
 
 99:                                               ; preds = %.preheader.i.i
   %100 = icmp ult ptr %.sroa.010.1.i.i, %.sroa.0.1.i.i
@@ -9918,17 +9913,17 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_2
 101:                                              ; preds = %99
   store i64 %96, ptr %.sroa.010.1.i.i, align 8
   store ptr %90, ptr %.sroa.0.1.i.i, align 8
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEEvT_SD_SD_SD_T0_.exit.i, !llvm.loop !72
+  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEEvT_SD_SD_SD_T0_.exit.i, !llvm.loop !71
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEET_SD_SD_T0_.exit: ; preds = %99
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEEvT_SD_T0_T1_(ptr nonnull %.sroa.010.1.i.i, ptr %storemerge2865, i64 noundef %58)
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEEvT_SD_T0_T1_(ptr nonnull %.sroa.010.1.i.i, ptr %storemerge26, i64 noundef %58)
   %102 = ptrtoint ptr %.sroa.010.1.i.i to i64
   %103 = sub i64 %102, %6
   %104 = ashr exact i64 %103, 3
   %105 = icmp sgt i64 %104, 16
-  br i1 %105, label %13, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEEvT_SD_SD_T0_.exit, !llvm.loop !68
+  br i1 %105, label %12, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEEvT_SD_SD_T0_.exit, !llvm.loop !72
 
-_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEEvT_SD_SD_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEET_SD_SD_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEEvT_SD_SD_RT0_.exit.i.i, %3, %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEEvT_SD_SD_T0_.exit
+_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEEvT_SD_SD_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEET_SD_SD_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_28TfTokenFastArbitraryLessThanEEEEvT_SD_SD_RT0_.exit.i.i, %3
   ret void
 }
 
