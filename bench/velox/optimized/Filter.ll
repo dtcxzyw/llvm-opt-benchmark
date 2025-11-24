@@ -8856,13 +8856,13 @@ land.rhs:                                         ; preds = %land.lhs.true5
   %sub.ptr.rhs.cast.i11 = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i12 = sub i64 %sub.ptr.lhs.cast.i10, %sub.ptr.rhs.cast.i11
   %cmp11 = icmp eq i64 %sub.ptr.sub.i, %sub.ptr.sub.i12
-  br i1 %cmp11, label %for.cond.preheader, label %return
+  br i1 %cmp11, label %for.cond.preheader.split, label %return
 
-for.cond.preheader:                               ; preds = %land.rhs
+for.cond.preheader.split:                         ; preds = %land.rhs
   %cmp1429.not = icmp eq ptr %15, %16
   br i1 %cmp1429.not, label %return, label %_ZNKSt6vectorIlSaIlEE2atEm.exit
 
-_ZNKSt6vectorIlSaIlEE2atEm.exit:                  ; preds = %for.cond.preheader, %_ZNKSt6vectorIlSaIlEE2atEm.exit27
+_ZNKSt6vectorIlSaIlEE2atEm.exit:                  ; preds = %for.cond.preheader.split, %_ZNKSt6vectorIlSaIlEE2atEm.exit27
   %i.030 = phi i64 [ %inc, %_ZNKSt6vectorIlSaIlEE2atEm.exit27 ], [ 0, %for.cond.preheader ]
   %exitcond.not = icmp eq i64 %i.030, %sub.ptr.div.i
   br i1 %exitcond.not, label %if.then.i.i25, label %_ZNKSt6vectorIlSaIlEE2atEm.exit27
@@ -8878,11 +8878,11 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit27:                ; preds = %_ZNKSt6vectorIlSaIl
   %20 = load i64, ptr %add.ptr.i.i26, align 8
   %cmp19.not = icmp eq i64 %19, %20
   %inc = add nuw i64 %i.030, 1
-  %exitcond33.not = icmp ne i64 %inc, %sub.ptr.div.i
-  %or.cond.not = select i1 %cmp19.not, i1 %exitcond33.not, i1 false
+  %exitcond.not = icmp ne i64 %inc, %sub.ptr.div.i
+  %or.cond.not = select i1 %cmp19.not, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %_ZNKSt6vectorIlSaIlEE2atEm.exit, label %return, !llvm.loop !115
 
-return:                                           ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit27, %for.cond.preheader, %land.lhs.true, %land.lhs.true.i, %land.lhs.true5, %land.lhs.true2, %_ZNK8facebook5velox6common6Filter17testingBaseEqualsERKS2_.exit, %entry, %land.rhs
+return:                                           ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit27, %for.cond.preheader.split, %land.lhs.true, %land.lhs.true.i, %land.lhs.true5, %land.lhs.true2, %_ZNK8facebook5velox6common6Filter17testingBaseEqualsERKS2_.exit, %entry, %land.rhs
   %retval.0 = phi i1 [ false, %land.rhs ], [ false, %entry ], [ false, %_ZNK8facebook5velox6common6Filter17testingBaseEqualsERKS2_.exit ], [ false, %land.lhs.true2 ], [ false, %land.lhs.true5 ], [ false, %land.lhs.true.i ], [ false, %land.lhs.true ], [ true, %for.cond.preheader ], [ %cmp19.not, %_ZNKSt6vectorIlSaIlEE2atEm.exit27 ]
   ret i1 %retval.0
 }
@@ -9374,11 +9374,11 @@ land.rhs:                                         ; preds = %_ZNK8facebook5velox
   %11 = load ptr, ptr %nonNegated_, align 8
   %nonNegated_3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %nonNegated_3, align 8
-  %call5 = tail call noundef zeroext i1 @_ZNK8facebook5velox6common26BigintValuesUsingHashTable13testingEqualsERKNS1_6FilterE(ptr noundef nonnull align 8 dereferenceable(96) %11, ptr noundef nonnull align 8 dereferenceable(16) %12)
+  %13 = tail call noundef zeroext i1 @_ZNK8facebook5velox6common26BigintValuesUsingHashTable13testingEqualsERKNS1_6FilterE(ptr noundef nonnull align 8 dereferenceable(96) %11, ptr noundef nonnull align 8 dereferenceable(16) %12)
   br label %land.end
 
-land.end:                                         ; preds = %land.lhs.true, %land.lhs.true.i, %land.rhs, %_ZNK8facebook5velox6common6Filter17testingBaseEqualsERKS2_.exit, %entry
-  %13 = phi i1 [ false, %_ZNK8facebook5velox6common6Filter17testingBaseEqualsERKS2_.exit ], [ false, %entry ], [ %call5, %land.rhs ], [ false, %land.lhs.true.i ], [ false, %land.lhs.true ]
+land.lhs.true2.i:                                 ; preds = %land.lhs.true, %land.lhs.true.i, %land.rhs, %_ZNK8facebook5velox6common6Filter17testingBaseEqualsERKS2_.exit, %entry
+  %13 = phi i1 [ false, %_ZNK8facebook5velox6common6Filter17testingBaseEqualsERKS2_.exit ], [ false, %entry ], [ %13, %land.rhs ], [ false, %land.lhs.true.i ], [ false, %land.lhs.true ]
   ret i1 %13
 }
 
