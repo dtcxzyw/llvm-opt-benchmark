@@ -5722,7 +5722,7 @@ if.end32.i.i.thread.i.i:                          ; preds = %for.end.i.i.i.threa
   store i64 %26, ptr %add.ptr.i18.i.i.i.i, align 8
   br label %land.rhs.i.i.i.i.i.i.preheader
 
-land.rhs.i.i.i.i.i.i.preheader:                   ; preds = %if.end32.i.i.thread.i.i, %for.end.i.i.i.i
+land.rhs.i.i.i.i.i.i.preheader:                   ; preds = %for.end.i.i.i.i, %if.end32.i.i.thread.i.i
   %position.addr.017.i.i.i.i.i.i.ph = phi i64 [ %spec.select.i.i.i.i, %for.end.i.i.i.i ], [ %childPosition.0.in.lcssa.i.i.i8.i, %if.end32.i.i.thread.i.i ]
   br label %land.rhs.i.i.i.i.i.i
 

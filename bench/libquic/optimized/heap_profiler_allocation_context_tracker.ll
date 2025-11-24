@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN4base11trace_event12_GLOBAL__N_123g_tls_alloc_ctx_trackerE = internal global %"struct.base::ThreadLocalStorage::StaticSlot" zeroinitializer, align 4
 @_ZN4base11trace_event12_GLOBAL__N_116kTracingOverheadE = internal constant [17 x i8] c"tracing_overhead\00", align 16
 @.str.2 = private unnamed_addr constant [4 x i8] c"%lu\00", align 1
-@.str.4 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 @_ZN4base11trace_event24AllocationContextTrackerC1Ev = unnamed_addr alias void (ptr), ptr @_ZN4base11trace_event24AllocationContextTrackerC2Ev
 @_ZN4base11trace_event24AllocationContextTrackerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4base11trace_event24AllocationContextTrackerD2Ev
@@ -29,7 +28,7 @@ define noundef ptr @_ZN4base11trace_event24AllocationContextTracker27GetInstance
 
 2:                                                ; preds = %0
   tail call void @_ZN4base18ThreadLocalStorage10StaticSlot3SetEPv(ptr noundef nonnull align 4 dereferenceable(8) @_ZN4base11trace_event12_GLOBAL__N_123g_tls_alloc_ctx_trackerE, ptr noundef nonnull inttoptr (i64 -1 to ptr))
-  %3 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #14
+  %3 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #13
   invoke void @_ZN4base11trace_event24AllocationContextTrackerC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %3)
           to label %4 unwind label %5
 
@@ -40,7 +39,7 @@ define noundef ptr @_ZN4base11trace_event24AllocationContextTracker27GetInstance
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #14
   resume { ptr, i32 } %6
 
 7:                                                ; preds = %0
@@ -69,12 +68,12 @@ _ZNSt12_Vector_baseIN4base11trace_event24AllocationContextTracker16PseudoStackFr
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %0, i8 0, i64 60, i1 false)
-  %3 = tail call noalias noundef nonnull dereferenceable(2048) ptr @_Znwm(i64 noundef 2048) #14
+  %3 = tail call noalias noundef nonnull dereferenceable(2048) ptr @_Znwm(i64 noundef 2048) #13
   store ptr %3, ptr %0, align 8, !tbaa !3
   store ptr %3, ptr %2, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2048
   store ptr %4, ptr %1, align 8, !tbaa !10
-  %5 = invoke noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #14
+  %5 = invoke noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #13
           to label %_ZNSt6vectorIPKcSaIS1_EE7reserveEm.exit unwind label %_ZNSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIPKcSaIS1_EE7reserveEm.exit:          ; preds = %_ZNSt12_Vector_baseIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE11_M_allocateEm.exit.i
@@ -90,7 +89,7 @@ _ZNSt6vectorIPKcSaIS1_EE7reserveEm.exit:          ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EED2Ev.exit: ; preds = %_ZNSt12_Vector_baseIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE11_M_allocateEm.exit.i
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #14
   resume { ptr, i32 } %10
 }
 
@@ -102,7 +101,7 @@ define void @_ZN4base11trace_event24AllocationContextTrackerD2Ev(ptr noundef non
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #14
   br label %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIPKcSaIS1_EED2Ev.exit:                ; preds = %1, %4
@@ -111,7 +110,7 @@ _ZNSt6vectorIPKcSaIS1_EED2Ev.exit:                ; preds = %1, %4
   br i1 %.not.i.i.i1, label %_ZNSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EED2Ev.exit, label %6
 
 6:                                                ; preds = %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #14
   br label %_ZNSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EED2Ev.exit: ; preds = %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit, %6
@@ -140,7 +139,7 @@ _ZN4base11trace_event24AllocationContextTracker12capture_modeEv.exit: ; preds = 
 
 8:                                                ; preds = %6
   tail call void @_ZN4base18ThreadLocalStorage10StaticSlot3SetEPv(ptr noundef nonnull align 4 dereferenceable(8) @_ZN4base11trace_event12_GLOBAL__N_123g_tls_alloc_ctx_trackerE, ptr noundef nonnull inttoptr (i64 -1 to ptr))
-  %9 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #14
+  %9 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #13
   invoke void @_ZN4base11trace_event24AllocationContextTrackerC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %9)
           to label %10 unwind label %11
 
@@ -151,7 +150,7 @@ _ZN4base11trace_event24AllocationContextTracker12capture_modeEv.exit: ; preds = 
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %9) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %9) #14
   resume { ptr, i32 } %12
 
 _ZN4base11trace_event24AllocationContextTracker27GetInstanceForCurrentThreadEv.exit: ; preds = %6, %10
@@ -191,8 +190,8 @@ define internal void @_ZN4base11trace_event12_GLOBAL__N_132DestructAllocationCon
   br i1 %2, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void @_ZN4base11trace_event24AllocationContextTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #16
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
+  tail call void @_ZN4base11trace_event24AllocationContextTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #14
   br label %4
 
 4:                                                ; preds = %3, %1
@@ -215,7 +214,7 @@ define void @_ZN4base11trace_event24AllocationContextTracker20PushPseudoStackFra
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !10
   %.not.i = icmp eq ptr %5, %14
-  br i1 %.not.i, label %17, label %15
+  br i1 %.not.i, label %_ZNKSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE12_M_check_lenEmPKc.exit.i.i, label %15
 
 15:                                               ; preds = %12
   store ptr %1, ptr %5, align 8, !tbaa !26
@@ -225,44 +224,36 @@ define void @_ZN4base11trace_event24AllocationContextTracker20PushPseudoStackFra
   store ptr %16, ptr %4, align 8, !tbaa !9
   br label %_ZNSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE9push_backERKS3_.exit
 
-17:                                               ; preds = %12
-  %18 = icmp eq i64 %9, 9223372036854775792
-  br i1 %18, label %19, label %_ZNKSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE12_M_check_lenEmPKc.exit.i.i
-
-19:                                               ; preds = %17
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #17
-  unreachable
-
-_ZNKSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %17
+_ZNKSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %12
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
-  %20 = add nuw nsw i64 %.sroa.speculated.i.i.i, %10
-  %21 = shl nuw nsw i64 %20, 4
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #14
-  %23 = getelementptr inbounds i8, ptr %22, i64 %9
-  store ptr %1, ptr %23, align 8, !tbaa !26
-  %.sroa.3.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %17 = add nuw nsw i64 %.sroa.speculated.i.i.i, %10
+  %18 = shl nuw nsw i64 %17, 4
+  %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #13
+  %20 = getelementptr inbounds i8, ptr %19, i64 %9
+  store ptr %1, ptr %20, align 8, !tbaa !26
+  %.sroa.3.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %2, ptr %.sroa.3.0..sroa_idx2, align 8, !tbaa !26
-  %24 = icmp sgt i64 %9, 0
-  br i1 %24, label %25, label %_ZNSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
+  %21 = icmp sgt i64 %9, 0
+  br i1 %21, label %22, label %_ZNSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
 
-25:                                               ; preds = %_ZNKSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE12_M_check_lenEmPKc.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %22, ptr align 8 %6, i64 %9, i1 false)
+22:                                               ; preds = %_ZNKSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %19, ptr align 8 %6, i64 %9, i1 false)
   br label %_ZNSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
 
-_ZNSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i: ; preds = %25, %_ZNKSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE12_M_check_lenEmPKc.exit.i.i
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
+_ZNSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i: ; preds = %22, %_ZNKSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %.not.i17.i.i = icmp eq ptr %6, null
-  br i1 %.not.i17.i.i, label %_ZNSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %27
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %24
 
-27:                                               ; preds = %_ZNSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #15
+24:                                               ; preds = %_ZNSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #14
   br label %_ZNSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
-_ZNSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %27, %_ZNSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
-  store ptr %22, ptr %0, align 8, !tbaa !3
-  store ptr %26, ptr %4, align 8, !tbaa !9
-  %28 = getelementptr inbounds nuw %"struct.base::trace_event::AllocationContextTracker::PseudoStackFrame", ptr %22, i64 %20
-  store ptr %28, ptr %13, align 8, !tbaa !10
+_ZNSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %24, %_ZNSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
+  store ptr %19, ptr %0, align 8, !tbaa !3
+  store ptr %23, ptr %4, align 8, !tbaa !9
+  %25 = getelementptr inbounds nuw %"struct.base::trace_event::AllocationContextTracker::PseudoStackFrame", ptr %19, i64 %17
+  store ptr %25, ptr %13, align 8, !tbaa !10
   br label %_ZNSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE9push_backERKS3_.exit
 
 _ZNSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZNSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %15, %3
@@ -303,7 +294,7 @@ define void @_ZN4base11trace_event24AllocationContextTracker22PushCurrentTaskCon
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load ptr, ptr %13, align 8, !tbaa !15
   %.not.i = icmp eq ptr %5, %14
-  br i1 %.not.i, label %17, label %15
+  br i1 %.not.i, label %_ZNKSt6vectorIPKcSaIS1_EE12_M_check_lenEmS1_.exit.i.i, label %15
 
 15:                                               ; preds = %12
   store ptr %1, ptr %5, align 8, !tbaa !26
@@ -311,42 +302,34 @@ define void @_ZN4base11trace_event24AllocationContextTracker22PushCurrentTaskCon
   store ptr %16, ptr %4, align 8, !tbaa !14
   br label %_ZNSt6vectorIPKcSaIS1_EE9push_backERKS1_.exit
 
-17:                                               ; preds = %12
-  %18 = icmp eq i64 %9, 9223372036854775800
-  br i1 %18, label %19, label %_ZNKSt6vectorIPKcSaIS1_EE12_M_check_lenEmS1_.exit.i.i
-
-19:                                               ; preds = %17
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #17
-  unreachable
-
-_ZNKSt6vectorIPKcSaIS1_EE12_M_check_lenEmS1_.exit.i.i: ; preds = %17
+_ZNKSt6vectorIPKcSaIS1_EE12_M_check_lenEmS1_.exit.i.i: ; preds = %12
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
-  %20 = add nuw nsw i64 %.sroa.speculated.i.i.i, %10
-  %21 = shl nuw nsw i64 %20, 3
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #14
-  %23 = getelementptr inbounds i8, ptr %22, i64 %9
-  store ptr %1, ptr %23, align 8, !tbaa !26
-  %24 = icmp sgt i64 %9, 0
-  br i1 %24, label %25, label %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
+  %17 = add nuw nsw i64 %.sroa.speculated.i.i.i, %10
+  %18 = shl nuw nsw i64 %17, 3
+  %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #13
+  %20 = getelementptr inbounds i8, ptr %19, i64 %9
+  store ptr %1, ptr %20, align 8, !tbaa !26
+  %21 = icmp sgt i64 %9, 0
+  br i1 %21, label %22, label %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
 
-25:                                               ; preds = %_ZNKSt6vectorIPKcSaIS1_EE12_M_check_lenEmS1_.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %22, ptr align 8 %6, i64 %9, i1 false)
+22:                                               ; preds = %_ZNKSt6vectorIPKcSaIS1_EE12_M_check_lenEmS1_.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %19, ptr align 8 %6, i64 %9, i1 false)
   br label %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
 
-_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %25, %_ZNKSt6vectorIPKcSaIS1_EE12_M_check_lenEmS1_.exit.i.i
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
+_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %22, %_ZNKSt6vectorIPKcSaIS1_EE12_M_check_lenEmS1_.exit.i.i
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.not.i17.i.i = icmp eq ptr %6, null
-  br i1 %.not.i17.i.i, label %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %27
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %24
 
-27:                                               ; preds = %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #15
+24:                                               ; preds = %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #14
   br label %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
-_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %27, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-  store ptr %22, ptr %3, align 8, !tbaa !11
-  store ptr %26, ptr %4, align 8, !tbaa !14
-  %28 = getelementptr inbounds nuw ptr, ptr %22, i64 %20
-  store ptr %28, ptr %13, align 8, !tbaa !15
+_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %24, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
+  store ptr %19, ptr %3, align 8, !tbaa !11
+  store ptr %23, ptr %4, align 8, !tbaa !14
+  %25 = getelementptr inbounds nuw ptr, ptr %19, i64 %17
+  store ptr %25, ptr %13, align 8, !tbaa !15
   br label %_ZNSt6vectorIPKcSaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIPKcSaIS1_EE9push_backERKS1_.exit:    ; preds = %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %15, %2
@@ -402,18 +385,18 @@ define void @_ZN4base11trace_event24AllocationContextTracker18GetContextSnapshot
 15:                                               ; preds = %10
   store i32 1, ptr %5, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %16 = call i32 (i32, ...) @prctl(i32 noundef 16, ptr noundef nonnull %3) #16
+  %16 = call i32 (i32, ...) @prctl(i32 noundef 16, ptr noundef nonnull %3) #15
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %21, label %17
 
 17:                                               ; preds = %15
   %18 = call noundef i32 @_ZN4base14PlatformThread9CurrentIdEv()
   %19 = sext i32 %18 to i64
-  %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 16, ptr noundef nonnull @.str.2, i64 noundef %19) #16
+  %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 16, ptr noundef nonnull @.str.2, i64 noundef %19) #15
   br label %21
 
 21:                                               ; preds = %17, %15
-  %22 = call noalias noundef ptr @strdup(ptr noundef nonnull %3) #16
+  %22 = call noalias noundef ptr @strdup(ptr noundef nonnull %3) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %22, ptr %13, align 8, !tbaa !16
   %23 = load i32, ptr %5, align 8, !tbaa !29
@@ -542,26 +525,23 @@ declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 
 
 declare noundef i32 @_ZN4base14PlatformThread9CurrentIdEv() local_unnamed_addr #1
 
-; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #9
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #12
+declare i64 @llvm.usub.sat.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #12
+declare i64 @llvm.umax.i64(i64, i64) #11
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -572,15 +552,13 @@ attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { builtin allocsize(0) }
-attributes #15 = { builtin nounwind }
-attributes #16 = { nounwind }
-attributes #17 = { noreturn }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { builtin allocsize(0) }
+attributes #14 = { builtin nounwind }
+attributes #15 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 
